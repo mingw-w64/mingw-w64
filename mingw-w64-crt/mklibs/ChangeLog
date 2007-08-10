@@ -1,0 +1,14 @@
+2007-07-25  NightStrike  <nightstrike@gmail.com>
+
+	* Makefile: Replace EXE by EXEEXT as autoconf defines it.
+	Replace "/usr/local" by $(prefix).
+	Correct EXTA_INCLUDE.
+
+2007-07-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Contributed initial crt set.
+
+
+Local Variables:
+version-control: never
+End:

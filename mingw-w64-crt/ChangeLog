@@ -1,0 +1,51 @@
+2007-07-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* mingw_helpers.c: New file for libmingw32.a.
+	* crtdll.c, crtexe.c: (__dyn_tls_init_callback,
+	_decode_pointer, _encode_pointer, mingw_app_type): Moved
+	implementation to mingw_helpers.c.
+
+2007-07-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crtbegin.c, crtend.c: New.
+	* Makfile: generate crtbegin.o and crtend.o objects.
+	* CRT_fp10.c: Renamed according to Makefile.
+	* CRT_fp8.c: Renamed according to Makefile.
+
+2007-07-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: Add crt0_c.c and crt0_w.c
+	* crt0_c.c: New.
+	* crt0_w.c: New.
+	* crtexe.c: Combine win/console for sake of -mconsole and
+	-mwindows and move default main for win into libmingw32.a.
+
+2007-07-19  NightStrike  <nightstrike@gmail.com>
+
+	* Makefile: Replace EXE by EXEEXT as autoconf defines it.
+
+2007-07-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: Enable windows starup.
+	Add misc/wassert.c to libmingwex.a.
+	* misc/wassert.c: Add _wassert method.
+
+2007-07-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crtexe.c: Define argv, envp unicode specific.
+	Corrected definition of __initenv and __winitenv.
+	* internal.h: Corrected definition of __initenv and __winitenv.
+
+2007-07-17  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* Makefile: Replaced hardcoded /usr/local by $prefix.
+	Removed install of none existing docdir.
+
+2007-07-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Contributed initial crt set.
+
+
+Local Variables:
+version-control: never
+End:

@@ -1,0 +1,4 @@
+; /usr/local/bin/x86_64-pc-mingw64-dlltool --as /usr/local/bin/x86_64-pc-mingw64-as.exe --output-def mingwthrd.def mthr.o mthr_init.o
+EXPORTS
+	__mingwthr_key_dtor @ 1
+	__mingwthr_remove_key_dtor @ 2
