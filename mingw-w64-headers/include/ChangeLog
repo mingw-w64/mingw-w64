@@ -1,0 +1,58 @@
+2007-07-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h, winnt.h: (__CRT_UNALIGNED): New.
+	(UNALIGNED): Use value of __CRT_UNALIGNED.
+	* winuser.h: (MOUSEHOOKSTRUCTEX): Name unnamed
+	argument.
+	* windef.h: (LPCVOID): Use _LPCVOID_DEFINED clause.
+	* objbase.h: (IRpcStubBuffer, IRpcChannelBuffer): Protect
+	by ifndef clause.
+	* objidl.h, imm.h: Fix double type declarations.
+	* limits.h: Added definitions for LONG_LONG_MIN,
+	LONG_LONG_MAX, and ULONG_LONG_MAX.
+
+
+2007-07-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* excpt.h: (_EXCEPTION_POINTERS): Forward declared.
+	* winuser.h: (MONITORINFOEXA, MONITORINFOEXW): Add member
+	variable name for making gcc happy.
+	* rpcndr.h: (PFORMAT_STRING): Removed double defintion.
+	(MIDL_STUB_MESSAGE, PMIDL_STUB_MESSAGE): Likewise.
+	(MIDL_SYNTAX_INFO, PMIDL_SYNTAX_INFO): Likewise.
+	* wtypes.h: Unify define of ULONG, USHORT, UCHAR, etc.
+	* winnt.h: Likewise.
+	* windef.h: Likewise.
+	* winsmcrd.h: Likewise.
+	* fci.h: Likewise.
+	* fdi.h: Likewise.
+	* mapidbg.h: Likewise.
+	* mqoai.h: Likewise.
+	* sqltypes.h: Likewise.
+
+2007-07-20  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winbase.h: Removed double definition of ACTCTX.
+
+2007-07-29  NightStrike  <nightstrike@gmail.com> 
+
+	* basetsd.h: (Ptr32ToPtr): Removed warning message.
+
+2007-07-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* assert.h: Corrected _wassert method.
+	* time.h: Corrected _tzname defintion.
+
+2007-07-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h: Use _CRTIMP as declspec(dllimport) as default.
+	Declare of __CRT_IMPORT as external __inline replacement.
+
+2007-07-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Contributed initial header set.
+
+
+Local Variables:
+version-control: never
+End:

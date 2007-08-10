@@ -1,0 +1,98 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the w64 mingw-runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
+#ifndef __REQUIRED_RPCNDR_H_VERSION__
+#define __REQUIRED_RPCNDR_H_VERSION__ 475
+#endif
+
+#include "rpc.h"
+#include "rpcndr.h"
+
+#ifndef __RPCNDR_H_VERSION__
+#error This stub requires an updated version of <rpcndr.h>
+#endif
+
+#ifndef __shtypes_h__
+#define __shtypes_h__
+
+#include "wtypes.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+  void *__RPC_API MIDL_user_allocate(size_t);
+  void __RPC_API MIDL_user_free(void *);
+
+#include <pshpack1.h>
+  typedef struct _SHITEMID {
+    USHORT cb;
+    BYTE abID[1 ];
+  } SHITEMID;
+
+#include <poppack.h>
+#if (defined(_X86_) && !defined(__x86_64))
+#define __unaligned
+#endif
+  typedef SHITEMID __unaligned *LPSHITEMID;
+
+  typedef const SHITEMID __unaligned *LPCSHITEMID;
+
+#include <pshpack1.h>
+  typedef struct _ITEMIDLIST {
+    SHITEMID mkid;
+  } ITEMIDLIST;
+
+#include <poppack.h>
+  typedef BYTE_BLOB *wirePIDL;
+
+  typedef ITEMIDLIST __unaligned *LPITEMIDLIST;
+  typedef const ITEMIDLIST __unaligned *LPCITEMIDLIST;
+
+#ifdef WINBASE_DEFINED_MIDL
+  typedef struct _WIN32_FIND_DATAA {
+    DWORD bData[80 ];
+  } WIN32_FIND_DATAA;
+
+  typedef struct _WIN32_FIND_DATAW {
+    DWORD bData[148 ];
+  } WIN32_FIND_DATAW;
+#endif
+
+  typedef enum tagSTRRET_TYPE {
+    STRRET_WSTR = 0,STRRET_OFFSET = 0x1,STRRET_CSTR = 0x2
+  } STRRET_TYPE;
+
+#include <pshpack8.h>
+  typedef struct _STRRET {
+    UINT uType;
+    union {
+      LPWSTR pOleStr;
+      UINT uOffset;
+      char cStr[260 ];
+    } DUMMYUNIONNAME;
+  } STRRET;
+
+#include <poppack.h>
+  typedef STRRET *LPSTRRET;
+
+#include <pshpack1.h>
+  typedef struct _SHELLDETAILS {
+    int fmt;
+    int cxChar;
+    STRRET str;
+  } SHELLDETAILS;
+
+  typedef struct _SHELLDETAILS *LPSHELLDETAILS;
+
+#include <poppack.h>
+
+  extern RPC_IF_HANDLE __MIDL_itf_shtypes_0000_v0_0_c_ifspec;
+  extern RPC_IF_HANDLE __MIDL_itf_shtypes_0000_v0_0_s_ifspec;
+
+#ifdef __cplusplus
+}
+#endif
+#endif
