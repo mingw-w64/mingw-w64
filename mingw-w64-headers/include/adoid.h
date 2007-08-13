@@ -7,6 +7,6 @@
 #define _ADOID_H_
 
 #include "adodef.h"
-#include "ADOGuids.h"
+#include "adoguids.h"
 
 #endif

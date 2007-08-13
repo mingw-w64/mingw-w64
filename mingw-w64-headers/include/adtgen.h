@@ -10,20 +10,25 @@
 #define AUDIT_TYPE_WMI 2
 
 typedef enum _AUDIT_PARAM_TYPE {
-  APT_None = 1,APT_String,APT_Ulong,APT_Pointer,APT_Sid,APT_LogonId,APT_ObjectTypeList,APT_Luid,APT_Guid,APT_Time,APT_Int64
+  APT_None = 1,
+  APT_String,APT_Ulong,
+  APT_Pointer,
+  APT_Sid,
+  APT_LogonId,
+  APT_ObjectTypeList,
+  APT_Luid,
+  APT_Guid,
+  APT_Time,
+  APT_Int64
 } AUDIT_PARAM_TYPE;
 
 #define AP_ParamTypeBits 8
 #define AP_ParamTypeMask 0x000000ffL
 
 #define AP_FormatHex (0x0001L << AP_ParamTypeBits)
-
 #define AP_AccessMask (0x0002L << AP_ParamTypeBits)
-
 #define AP_Filespec (0x0001L << AP_ParamTypeBits)
-
 #define AP_PrimaryLogonId (0x0001L << AP_ParamTypeBits)
-
 #define AP_ClientLogonId (0x0002L << AP_ParamTypeBits)
 
 #define ApExtractType(TypeFlags) ((AUDIT_PARAM_TYPE)(TypeFlags & AP_ParamTypeMask))

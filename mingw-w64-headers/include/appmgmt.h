@@ -11,7 +11,9 @@ extern "C" {
 #endif
 
   typedef enum _INSTALLSPECTYPE {
-    APPNAME = 1,FILEEXT,PROGID,COMCLASS
+    APPNAME = 1,
+    FILEEXT,PROGID,
+    COMCLASS
   } INSTALLSPECTYPE;
 
   typedef union _INSTALLSPEC {

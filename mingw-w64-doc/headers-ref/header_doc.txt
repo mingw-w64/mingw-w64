@@ -1,0 +1,117 @@
+These headers are reviewed as to find open documentation available in the internet,
+without referencing existing properitery header-set of VC in the internet.
+For API's see in general references on www.webtropy.com, google, and of course the
+microsoft's msdn2 references free available. Additionally this header set tries to provide
+most header names and there content as defined by microsoft to keep most compatible
+as far as it is possible for posix compatible source for gcc 4.3 and later.
+
+This file list the names of the header files released in this package and give you
+internet links (via http://) as reference, why and how they are defined.
+
+Common references used to build up this header set:
+ 
+ - See  http://msdn2.microsoft.com/en-us/library and related links.
+ - See  http://www.microsoft.com knowledge base articles and related links.
+ - See http://www.mingw.org
+ - See http://www.reactos.org/
+ - See http://www.winehq.org
+ - See http://www.quickmacros.com articles.
+ - See MS Data Access Components 2.1 SP1, up to SP3
+ - MSVC 2005 for include file names reference.
+ - See http://webtropy.com.
+ - See MS Data Access Components 2.1 SP1, up to SP3
+ - For COM additionally see tlb definitions provided by MS in windows distribution and found on net.
+ - See http://www.rainer-keuchel.de/wince/celib.html.
+ - See http://opencollabnet.krugle.com/examples/p-f5OzsWLMw8ZBFzIo/celib.h.
+ - See http://gcc.gnu.org
+ - See http://sources.redhat.com
+ - Various hints found via http://www.google.com
+
+File List
+
+accctrl.h aclapi.h aclui.h adtgen.h authz.h activeds.h activscp.h adc.h adoctint.h adodef.h adogpool.h
+adoguids.h adoid.h adoint.h adojet.h adomd.h cmdtree.h icrsint.h jetoledb.h msado15.h msdadc.h msdaguid.h
+msdaora.h msdaosp.h msdasc.h msdasql.h msdatsrc.h msdshape.h msjetoledb.h msremote.h ocdb.h odbcinst.h oledb.h
+oledbdep.h oledberr.h persist.h simpdata.h sql.h sqlext.h sqloledb.h sqltypes.h sqlucode.h adptif.h adsdb.h
+adserr.h adshlp.h adserr.h adshlp.h adsiid.h adsnms.h adsprop.h adssts.h agtctl.h agtctl_i.c agterr.h agtsvr.h
+agtsvr_i.c aqadmtyp.h asptlb.h authif.h azroles.h bidispl.h bits.h bits1_5.h bits2_0.h bitscfg.h bitsmsg.h daogetrw.h
+datapath.h dbdaoerr.hdbdaoid.h dbdaoint.h admex.h advpub.h af_irda.h atalkwsh.h cfg.h appmgmt.h basetsd.h
+basetyps.h batclass.h bh.h blberr.h callobj.h cchannel.h cderr.h cdoex.h cdoex_i.c cdoexerr.h cdoexm.h cdoexm_i.c
+cdoexstr.h cdonts.h cdosys.h cdosys_i.c cdosyserr.h cdosysstr.h certadm.h certbase.h certbcli.h certcli.h certenc.h
+certexit.h certif.h certmod.h certpol.h certreqd.h certsrv.h certview.h celib.h assert.h cguid.h correg.h color.dlg
+colordlg.h chanmgr.h cierror.h cluadmex.h clusapi.h cluscfgguids.h cluscfgserver.h cluscfgwizard.h cmnquery.h comadmin.h
+comcat.h comdef.h comdefsp. hcomip.h commctrl.h commctrl.rh commdlg.h common.ver commoncontrols.h compobj.h comsvcs.h
+comutil.h confpriv.h control.h cryptuiapi.h ctxtcall.h custcntl.h complex.h dbgautoattach.h dbgeng.h dbghelp.h
+dbgprop.h _mingw.h aclapi.h aclui.h adc.h admex.h adoctint.h adodef.h adogpool.h adoguids.h adoid.h adoint.h
+adojet.h adomd.h adptif.h adsdb.h adserr.h adshlp.h adsiid.h adsnms.h adsprop.h adssts.h adtgen.h advpub.h af_irda.h
+agtctl.h agtctl_i.c agterr.h agtsvr.h agtsvr_i.c ammintrin.h appmgmt.h aqadmtyp.h asptlb.h atalkwsh.h authif.h
+authz.h azroles.h bidispl.h bits.h bits1_5.h bits2_0.h bitscfg.h bitsmsg.h cfg.h cfgmgr32.h cguid.h conio.h
+cpl.h cplext.h crtdbg.h crtdefs.h ctype.h daogetrw.h datapath.h dbdaoerr.h dbdaoid.h dbdaoint.h dbt.h
+dciddi.h dciman.h dde.h dde.rh ddeml.h ddrawgdi.h delayhlp.cpp delayimp.h devguid.h dhcpcsdk.h dhcpsapi.h dhcpssdk.h
+dhtmldid.h dhtmled.h dhtmliid.h digitalv.h dimm.h dir.h direct.h dirent.h diskguid.h dispatch.h dispdib.h dispex.h
+dlcapi.h dlgs.h docobj.h domdid.h dos.h dsadmin.h dsclient.h dsgetdc.h dskquota.h dsquery.h dsrole.h dtchelp.h
+dvec.h dvobj.h dxtmpl.h eh.h emmintrin.h emostore.h emostore_i.c emptyvc.h errno.h error.h errorrep.h eventsys.h
+evntrace.h exchform.h excpt.h exdisp.h exdispid.h fci.h fcntl.h fdi.h fenv.h filehc.h fileopen.dlg filter.h
+filterr.h findtext.dlg float.h fltdefs.h font.dlg fpieee.h ftsiface.h fvec.h gb18030.h gdiplus.h gdiplusbase.h
+gdiplusbitmap.h gdiplusbrush.h gdipluscachedbitmap.h gdipluscolor.h gdipluscolormatrix.h gdiplusenums.h gdiplusflat.h
+gdiplusfont.h gdiplusfontcollection.h gdiplusfontfamily.h gdiplusgpstubs.h gdiplusgraphics.h gdiplusheaders.h
+gdiplusimageattributes.h gdiplusimagecodec.h gdiplusimaging.h gdiplusinit.h gdipluslinecaps.h gdiplusmatrix.h
+gdiplusmem.h gdiplusmetafile.h gdiplusmetaheader.h gdipluspath.h gdipluspen.h gdipluspixelformats.h gdiplusregion.h
+gdiplusstringformat.h gdiplustypes.h getopt.h gmp.h gpedit.h gpmgmt.h guiddef.h h323priv.h hlguids.h hliface.h
+hlink.h hostinfo.h htiface.h htiframe.h htmlguid.h htmlhelp.h http.h httpext.h httpfilt.h httprequestid.h
+i_cryptasn1tls.h ia64reg.h iaccess.h iadmext.h iadmw.h iads.h icm.h icmpapi.h icmui.dlg icrsint.h idf.h idispids.h
+iedial.h ieverp.h iiis.h iiisext.h iimgctx.h iiscnfg.h iisext_i.c iisrsta.h ilogobj.hxx imagehlp.h ime.h imessage.h
+imm.h include indexsrv.h inetreg.h inetsdk.h initguid.h initoid.h inputscope.h intrin.h intshcut.h inttypes.h
+invkprxy.h io.h ioevent.h ipexport.h iphlpapi.h ipifcons.h ipinfoid.h ipmsp.h iprtrmib.h iptypes.h ipxconst.h
+ipxrip.h ipxrtdef.h ipxsap.h ipxtfflt.h isguids.h iso646.h issper16.h issperr.h iwamreg.h ks.h ksguid.h ksmedia.h
+ksproxy.h ksuuids.h kxia64.h limits.h lm.h lmaccess.h lmalert.h lmapibuf.h lmat.h lmaudit.h lmconfig.h lmcons.h
+lmdfs.h lmerr.h lmerrlog.h lmjoin.h lmmsg.h lmremutl.h lmrepl.h lmserver.h lmshare.h lmsname.h lmstats.h lmsvc.h
+lmuse.h lmuseflg.h lmwksta.h loadperf.h locale.h lpmapi.h lzexpand.h madcapcl.h mailmsgprops.h malloc.h
+mapi.h mapicode.h mapidbg.h mapidefs.h mapiform.h mapiguid.h mapihook.h mapinls.h mapioid.h mapispi.h mapitags.h
+mapiutil.h mapival.h mapiwin.h mapiwz.h mapix.h math.h mbctype.h mbstring.h mciavi.h mcx.h mdbrole.hxx mdcommsg.h
+mddefw.h mdhcp.h mdmsg.h mem.h memory.h mergemod.h mgm.h mgmtapi.h midles.h mimedisp.h mimeinfo.h minmax.h mlang.h
+mm3dnow.h mm_malloc.h mmc.h mmcobj.h mmintrin.h mmreg.h mmsystem.h mobsync.h moniker.h mpf2mpfr.h mpfr.h mprapi.h
+mprerror.h mq.h mqmail.h mqoai.h msacm.h msacmdlg.dlg msacmdlg.h msado15.h msasn1.h msber.h mschapp.h msclus.h msdadc.h
+msdaguid.h msdaipp.h msdaipper.h msdaora.h msdaosp.h msdasc.h msdasql.h msdatsrc.h msdshape.h msfs.h mshtmcid.h
+mshtmdid.h mshtmhst.h mshtml.h mshtmlc.h msi.h msidefs.h msimcntl.h msimcsdk.h msiquery.h msoav.h msp.h msremote.h
+mssip.h msstkppg.h mstask.h mstcpip.h msterr.h mswsock.h msxml.h msxml2.h msxml2did.h msxmldid.h mtsadmin.h
+mtsadmin_i.c mtsevents.h mtsgrp.h mtx.h mtxadmin.h mtxadmin_i.c mtxattr.h mtxdm.h multimon.h multinfo.h nb30.h
+ndr64types.h ndrtypes.h netcon.h neterr.h netmon.h netprov.h new.h newapis.h nmmintrin.h nmsupp.h npapi.h nspapi.h
+ntddndis.h ntddpsch.h ntddscsi.h ntdsapi.h ntdsbcli.h ntdsbmsg.h ntgdi.h ntldap.h ntmsapi.h ntmsmli.h ntquery.h
+ntsdexts.h ntsecapi.h ntsecpkg.h ntstatus.h ntverp.h oaidl.h objbase.h objerror.h objidl.h objsafe.h objsel.h
+ocidl.h ocmm.h odbcinst.h odbcss.h ole.h ole2.h ole2ver.h oleacc.h oleauto.h olectl.h olectlid.h oledb.h oledbdep.h
+oledberr.h oledbguid.h oledlg.dlg oledlg.h oleidl.h oletx2xa.h omp.h parser.h patchapi.h patchwiz.h pbt.h pchannel.h
+pcrt32.h pdh.h pdhmsg.h penwin.h perhist.h persist.h pgobootrun.h pmmintrin.h polarity.h poppack.h powrprof.h prnsetup.dlg
+process.h profinfo.h propidl.h prsht.h psapi.h pshpack1.h pshpack2.h pshpack4.h pshpack8.h pstore.h qmgr.h qos.h qosname.h
+qospol.h qossp.h ras.h rasdlg.h raseapif.h raserror.h rassapi.h rasshost.h ratings.h reason.h recguids.h reconcil.h
+regstr.h rend.h resapi.h richedit.h richole.h rkeysvcc.h rnderr.h routprot.h rpc.h rpcasync.h rpcdce.h rpcdcep.h
+rpcndr.h rpcnsi.h rpcnsip.h rpcnterr.h rpcproxy.h rpcssl.h rrascfg.h rtcapi.h rtccore.h rtcerr.h rtinfo.h rtm.h
+rtmv2.h rtutils.h scarddat.h scarderr.h scardmgr.h scardsrv.h scardssp.h scardssp_i.c scardssp_p.c scesvc.h schannel.h
+schedule.h schemadef.h schnlsp.h scode.h scrnsave.h scrptids.h sddl.h sdoias.h sdpblb.h sdperr.h search.h secext.h
+security.h sehmap.h sens.h sensapi.h sensevts.h servprov.h setjmp.h setjmpex.h setupapi.h sfc.h shappmgr.h share.h
+shdeprecated.h shdispid.h shellapi.h shfolder.h shldisp.h shlguid.h shlobj.h shlwapi.h shobjidl.h shtypes.h signal.h
+simpdata.h simpdc.h sipbase.h sisbkup.h smmintrin.h smpab.h smpms.h smpxp.h smtpguid.h smx.h snmp.h softpub.h specstrings.h
+sporder.h sql.h sql_1.h sqlext.h sqloledb.h sqltypes.h sqlucode.h srrestoreptapi.h srv.h sspguid.h sspi.h sspserr.h sspsidl.h
+stdarg.h stdbool.h stddef.h stdexcpt.h stdint.h stdio.h stdlib.h sti.h stierr.h stireg.h stllock.h stm.h storage.h
+storprop.h stralign.h string.h strings.h strmif.h strsafe.h subauth.h subsmgr.h svcguid.h svrapi.h syslimits.h
+tapi.h tapi3.h tapi3cc.h tapi3ds.h tapi3err.h tapi3if.h tcerror.h tcguid.h tchar.h termio.h termios.h termmgr.h
+textserv.h tgmath.h time.h time.inl timeprov.h tlhelp32.h tlogstg.h tmmintrin.h tmschema.h tnef.h tom.h traffic.h
+transact.h triedcid.h triediid.h triedit.h tspi.h tsuserex.h tsuserex_i.c tvout.h txcoord.h txctx.h txdtc.h typeinfo.h
+uastrfnc.h umx.h unistd.h unknwn.h unwind.h urlhist.h urlmon.h userenv.h usp10.h utime.h uuids.h uxtheme.h vadefs.h
+varargs.h vcr.h vdmdbg.h verinfo.ver vfw.h wab.h wabapi.h wabcode.h wabdefs.h wabiab.h wabmem.h wabnot.h wabtags.h
+wabutil.h wbemads.h wbemcli.h wbemdisp.h wbemidl.h wbemprov.h wbemtran.h wchar.h wctype.h wfext.h wia.h wiadef.h
+wiadevd.h wiavideo.h winable.h winbase.h winber.h wincon.h wincred.h wincrypt.h windef.h windns.h windows.h windowsx.h
+windowsx.h16 winefs.h winerror.h wingdi.h wininet.h winioctl.h winldap.h winnetwk.h winnls.h winnls32.h winnt.h
+winnt.rh winperf.h winreg.h winresrc.h winsafer.h winscard.h winsmcrd.h winsnmp.h winsock.h winsock2.h winspool.h
+winsvc.h winternl.h wintrust.h winuser.h winuser.rh winver.h winwlx.h wmistr.h wmiutils.h wownt16.h wownt32.h
+wpapi.h wpapimsg.h wpcrsmsg.h wpftpmsg.h wppstmsg.h wpspihlp.h wptypes.h wpwizmsg.h ws2atm.h ws2dnet.h ws2spi.h
+ws2tcpip.h wshisotp.h wsipv6ok.h wsipx.h wsnetbs.h wsnwlink.h wspiapi.h wsrm.h wsvns.h wtime.inl wtsapi32.h wtypes.h
+xa.h xcmc.h xcmcext.h xcmcmsx2.h xcmcmsxt.h xenroll.h xlocinfo.h xmath.h xmldomdid.h xmldsodid.h xmltrnsf.h xmmintrin.h
+xolehlp.h ymath.h yvals.h zmouse.h 
+
+gl/
+ gl.h glaux.h glu.h
+sys/
+ cdefs.h fcntl.h file.h ioctl.h locking.h param.h stat.h stat.inl termio.h termios.h time.h timeb.h timeb.inl
+ ttychars.h types.h unistd.h utime.h utime.inl wstat.inl
+

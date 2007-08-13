@@ -25,30 +25,54 @@ extern const IID IID_IRowsetProperties;
 #endif
 
 enum ADCPROPENUM {
-  DBPROP_ADC_ASYNCHFETCHSIZE = 3,DBPROP_ADC_BATCHSIZE = 4,DBPROP_ADC_UPDATECRITERIA = 5,DBPROP_ADC_ASYNCHPREFETCHSIZE = 7,
-  DBPROP_ADC_ASYNCHTHREADPRIORITY = 8,DBPROP_ADC_CACHECHILDROWS = 9,DBPROP_ADC_MAINTAINCHANGESTATUS = 10,
-  DBPROP_ADC_AUTORECALC = 11,DBPROP_ADC_UNIQUETABLE = 13,DBPROP_ADC_UNIQUESCHEMA = 14,DBPROP_ADC_UNIQUECATALOG = 15,
-  DBPROP_ADC_CUSTOMRESYNCH = 16,DBPROP_ADC_CEVER = 17,DBPROP_ADC_RESHAPENAME = 18,DBPROP_ADC_UPDATERESYNC = 19,
-  DBPROP_ADC_BACKINGSTORE = 21,DBPROP_ADC_RELEASESHAPEONDISCONNECT = 22
+  DBPROP_ADC_ASYNCHFETCHSIZE = 3,
+  DBPROP_ADC_BATCHSIZE = 4,
+  DBPROP_ADC_UPDATECRITERIA = 5,
+  DBPROP_ADC_ASYNCHPREFETCHSIZE = 7,
+  DBPROP_ADC_ASYNCHTHREADPRIORITY = 8,
+  DBPROP_ADC_CACHECHILDROWS = 9,
+  DBPROP_ADC_MAINTAINCHANGESTATUS = 10,
+  DBPROP_ADC_AUTORECALC = 11,
+  DBPROP_ADC_UNIQUETABLE = 13,
+  DBPROP_ADC_UNIQUESCHEMA = 14,
+  DBPROP_ADC_UNIQUECATALOG = 15,
+  DBPROP_ADC_CUSTOMRESYNCH = 16,
+  DBPROP_ADC_CEVER = 17,
+  DBPROP_ADC_RESHAPENAME = 18,
+  DBPROP_ADC_UPDATERESYNC = 19,
+  DBPROP_ADC_BACKINGSTORE = 21,
+  DBPROP_ADC_RELEASESHAPEONDISCONNECT = 22
 };
 
 #ifndef _COMMON_ADC_AND_ADO_PROPS_
 #define _COMMON_ADC_AND_ADO_PROPS_
 enum ADCPROP_UPDATECRITERIA_ENUM {
-  adCriteriaKey = 0,adCriteriaAllCols = 1,adCriteriaUpdCols = 2,adCriteriaTimeStamp = 3
+  adCriteriaKey = 0,
+  adCriteriaAllCols = 1,
+  adCriteriaUpdCols = 2,
+  adCriteriaTimeStamp = 3
 };
 
 enum ADCPROP_ASYNCTHREADPRIORITY_ENUM {
-  adPriorityLowest = 1,adPriorityBelowNormal = 2,adPriorityNormal = 3,adPriorityAboveNormal = 4,adPriorityHighest = 5
+  adPriorityLowest = 1,
+  adPriorityBelowNormal = 2,
+  adPriorityNormal = 3,
+  adPriorityAboveNormal = 4,
+  adPriorityHighest = 5
 };
 
 enum ADCPROP_UPDATERESYNC_ENUM {
-  adResyncNone = 0,adResyncAutoIncrement = 0x1,adResyncConflicts = 0x2,adResyncUpdates = 0x4,adResyncInserts = 0x8,
-  adResyncAll = 0x0F
+  adResyncNone = 0,
+  adResyncAutoIncrement = 0x1,
+  adResyncConflicts = 0x2,
+  adResyncUpdates = 0x4,
+  adResyncInserts = 0x8,
+  adResyncAll = 0xf
 };
 
 enum ADCPROP_AUTORECALC_ENUM {
-  adRecalcUpFront = 0,adRecalcAlways = 1
+  adRecalcUpFront = 0,
+  adRecalcAlways = 1
 };
 #endif
 
