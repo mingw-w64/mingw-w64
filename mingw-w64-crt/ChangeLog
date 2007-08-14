@@ -1,3 +1,7 @@
+2007-08-14  NightStrike  <nightstrike@gmail.com>
+
+	* Makefile: PR/1772766 remove unused DLLWRAP?.
+
 2007-08-14  Kai Tietz  <kai.tietz@onevision.com>
 
 	* dllcrt.c: Introduce call for DllEntryPoint if present.

@@ -75,9 +75,6 @@ DLLTOOL = $(prefix)/bin/x86_64-pc-mingw32-dlltool$(EXEEXT)
 DLLTOOLFLAGS = 
 DLLTOOL_FOR_TARGET = $(DLLTOOL)
 DLLTOOL_FLAGS = --as $(AS_FOR_TARGET)
-DLLWRAP = $(prefix)/bin/x86_64-pc-mingw32-dlltool$(EXEEXT)
-DLLWRAP_FOR_TARGET = $(DLLWRAP)
-DLLWRAP_FLAGS = --dlltool $(DLLTOOL) --as $(AS) --driver-name $(CC)
 
 TAR = tar
 TARFLAGS = z
