@@ -25,7 +25,7 @@
 #include <locale.h>
 
 extern void __cdecl _initterm(_PVFV *,_PVFV *);
-
+extern void __main ();
 extern _CRTALLOC(".CRT$XIA") _PIFV __xi_a[];
 extern _CRTALLOC(".CRT$XIZ") _PIFV __xi_z[];
 extern _CRTALLOC(".CRT$XCA") _PVFV __xc_a[];
@@ -173,6 +173,8 @@ __DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	if (! retcode)
 	  goto i__leave;
     }
+  if (retcode && dwReason == DLL_PROCESS_ATTACH)
+    __main ();
   retcode = DllMain(hDllHandle,dwReason,lpreserved);
   if ((dwReason == DLL_PROCESS_ATTACH) && ! retcode)
     {
