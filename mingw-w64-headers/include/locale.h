@@ -33,6 +33,7 @@ extern "C" {
 #define LC_MAX LC_TIME
 
 #ifndef _LCONV_DEFINED
+#define _LCONV_DEFINED
   struct lconv {
     char *decimal_point;
     char *thousands_sep;
@@ -53,22 +54,18 @@ extern "C" {
     char p_sign_posn;
     char n_sign_posn;
   };
-#define _LCONV_DEFINED
-#endif
-
-#ifdef _CHAR_UNSIGNED
-  extern int _charmax;
-  __CRT_INLINE int __dummy(void) { return _charmax; }
 #endif
 
 #ifndef _CONFIG_LOCALE_SWT
+#define _CONFIG_LOCALE_SWT
+
 #define _ENABLE_PER_THREAD_LOCALE 0x1
 #define _DISABLE_PER_THREAD_LOCALE 0x2
 #define _ENABLE_PER_THREAD_LOCALE_GLOBAL 0x10
 #define _DISABLE_PER_THREAD_LOCALE_GLOBAL 0x20
 #define _ENABLE_PER_THREAD_LOCALE_NEW 0x100
 #define _DISABLE_PER_THREAD_LOCALE_NEW 0x200
-#define _CONFIG_LOCALE_SWT
+
 #endif
 
   int __cdecl _configthreadlocale(int _Flag);
