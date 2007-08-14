@@ -90,7 +90,7 @@ extern "C" {
   } _CrtMemState;
 
 #ifndef _STATIC_ASSERT
-#define _STATIC_ASSERT(expr) typedef char __static_assert_t[(expr) ]
+#define _STATIC_ASSERT(expr) typedef char __static_assert_t[(expr)]
 #endif
 
 #ifndef _ASSERT

@@ -105,8 +105,6 @@ extern "C" {
 #define _ALLOCA_S_MARKER_SIZE 16
 #endif
 
-  _STATIC_ASSERT(sizeof(unsigned int) <= _ALLOCA_S_MARKER_SIZE);
-
 #if !defined(RC_INVOKED)
   static __inline void *_MarkAllocaS(void *_Ptr,unsigned int _Marker) {
     if(_Ptr) {
