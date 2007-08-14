@@ -11,6 +11,10 @@
 	* sys/timeb.inl: Remove.
 	* sys/utime.h: Add inlines.
 	* sys/utime.inl: Remove.
+	* time.h: Add inlines.
+	* wchar.h: Add inline.
+	* wtime.inl: Remove.
+	* time.inl: Remove.
 
 2007-07-25  Kai Tietz  <kai.tietz@onevision.com>
 
