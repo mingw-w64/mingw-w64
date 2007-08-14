@@ -1,3 +1,9 @@
+2007-08-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* dllcrt.c: Introduce call for DllEntryPoint if present.
+	* dllentry.c: New.
+	* Makefile: Add dllentry.c to libmingw.a.
+
 2007-07-25  Kai Tietz  <kai.tietz@onevision.com>
 
 	* mingw_helpers.c: New file for libmingw32.a.

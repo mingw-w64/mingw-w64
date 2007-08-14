@@ -42,8 +42,7 @@ extern int mingw_app_type;
 
 extern BOOL WINAPI DllMain (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved);
 
-extern BOOL (WINAPI * const _pRawDllMain) (HANDLE, DWORD, LPVOID);
-BOOL (WINAPI * const _pRawDllMain) (HANDLE, DWORD, LPVOID) = NULL;
+extern BOOL WINAPI DllEntryPoint (HANDLE, DWORD, LPVOID);
 
 static int pre_c_init (void);
 
@@ -168,8 +167,7 @@ __DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
     }
   if (dwReason == DLL_PROCESS_ATTACH || dwReason == DLL_THREAD_ATTACH)
     {
-	if (_pRawDllMain)
-	  retcode = (*_pRawDllMain) (hDllHandle, dwReason, lpreserved);
+        retcode = DllEntryPoint (hDllHandle, dwReason, lpreserved);
 	if (retcode)
 	  retcode = _CRT_INIT (hDllHandle, dwReason, lpreserved);
 	if (! retcode)
@@ -180,8 +178,7 @@ __DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
     {
 	DllMain (hDllHandle, DLL_PROCESS_DETACH, lpreserved);
 	_CRT_INIT (hDllHandle, DLL_PROCESS_DETACH, lpreserved);
-	if (_pRawDllMain)
-	  (*_pRawDllMain) (hDllHandle, DLL_PROCESS_DETACH, lpreserved);
+	DllEntryPoint (hDllHandle, DLL_PROCESS_DETACH, lpreserved);
     }
   if (dwReason == DLL_PROCESS_DETACH || dwReason == DLL_THREAD_DETACH)
     {
@@ -189,9 +186,9 @@ __DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	  {
 	    retcode = FALSE;
 	  }
-	if (retcode && _pRawDllMain)
+	if (retcode)
 	  {
-	    retcode = (*_pRawDllMain) (hDllHandle, dwReason, lpreserved);
+	    retcode = DllEntryPoint (hDllHandle, dwReason, lpreserved);
 	  }
     }
 i__leave:

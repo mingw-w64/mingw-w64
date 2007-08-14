@@ -117,7 +117,7 @@ CRT0S = crt1.o crt2.o dllcrt1.o dllcrt2.o \
 MINGW_OBJS = crt0_c.o crt0_w.o dll_argv.o  gccmain.o \
 	     CRT_fp10.o \
 	     pseudo-reloc.o pseudo-reloc-list.o pesect.o cinitexe.o \
-	     natstart.o gs_support.o atonexit.o dllmain.o \
+	     natstart.o gs_support.o atonexit.o dllmain.o dllentry.o \
 	     wildcard.o merr.o \
 	     dllargv.o \
 	     charmax.o xtxtmode.o \
@@ -228,7 +228,7 @@ mthr.c mthr_init.c mthr_stub.c readme.txt \
 isascii.c iscsym.c iscsymf.c toascii.c \
 strcasecmp.c strncasecmp.c wcscmpi.c \
 CRT_fp8.c CRT_fp10.c test_headers.c txtmode.c binmode.c pseudo-reloc.c \
-pseudo-reloc-list.c atonexit.c dllmain.c \
+pseudo-reloc-list.c atonexit.c dllmain.c dllentry.c \
 wildcard.c merr.c \
 dllargv.c charmax.c \
 tlssup.c xtxtmode.c xncommod.c _newmode.c \
@@ -261,7 +261,7 @@ libm.a: _libm_dummy.o
 
 DLL_OFILES        = mthr.o mthr_init.o
 DLL_CC_STUFF      = -B./ -mdll $(MNO_CYGWIN) -Wl,--image-base,0x6FBC0000 \
-		    -Wl,--entry,_DllMainCRTStartup@24 \
+		    -Wl,--entry,_DllMainCRTStartup \
                     $(DLL_OFILES) \
 		    -Lmingwex
 
