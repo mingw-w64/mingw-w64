@@ -44,18 +44,12 @@ WINDRES = $(prefix)/bin/x86_64-pc-mingw32-windres$(EXEEXT)
 # from the C library.
 BUILDENV = 
 
-ifeq ($(BUILDENV), cygwin)
-# winsup/include
-# winsup/../newlib/libc/include
-# winsup/../newlib/libc/sys/cygwin
-#EXTRA_INCLUDES = -I$(srcdir)/../../include -I$(srcdir)/../../../newlib/libc/include -I$(srcdir)/../../../newlib/libc/sys/cygwin
-endif
 #ifeq ($(BUILDENV), mingw)
 EXTRA_INCLUDES = -I$(prefix)/x86_64-pc-mingw32/include
 # -I$(srcdir)/../../mingw/include
 #endif
 
-INCLUDES = -I$(srcdir)/../include $(EXTRA_INCLUDES)
+INCLUDES = $(EXTRA_INCLUDES)
 
 CFLAGS = -O2 -g
 ALL_CFLAGS = $(CFLAGS) $(INCLUDES)
@@ -82,9 +76,6 @@ FLAGS_TO_PASS = \
 # end config section
 
 # headers
-
-HEADERS = $(notdir $(wildcard $(srcdir)/../include/*.h))
-GL_HEADERS = $(notdir $(wildcard $(srcdir)/../include/GL/*.h))
 
 # libraries
 
@@ -169,63 +160,9 @@ lib%.a: %.o
 	$(AR) rc $@ $*.o
 	$(RANLIB) $@
 
-.PHONY: install install-libraries install-headers install-ddk
-# install headers and libraries in a target specified directory.
-install: install-libraries install-headers install-ddk install-directx
-
-install-libraries: all
-	$(mkinstalldirs) $(inst_libdir)
-	for i in $(LIBS); do \
-		$(INSTALL_DATA) $$i $(inst_libdir)/$$i ; \
-	done
-
-install-headers:
-	$(mkinstalldirs) $(inst_includedir)
-	for i in $(HEADERS); do \
-		$(INSTALL_DATA) $(srcdir)/../include/$$i $(inst_includedir)/$$i ; \
-	done
-	$(mkinstalldirs) $(inst_includedir)/GL
-	for i in $(GL_HEADERS); do \
-		$(INSTALL_DATA) $(srcdir)/../include/GL/$$i $(inst_includedir)/GL/$$i ; \
-	done
-
-install-ddk: install-libraries install-headers
-	cd ddk && $(MAKE) install $(FLAGS_TO_PASS)
-
-install-directx: install-libraries install-headers
-	cd directx && $(MAKE) install $(FLAGS_TO_PASS)
-
-# uninstall headers and libraries from a target specified directory
-uninstall: uninstall-ddk uninstall-directx uninstall-libraries uninstall-headers
-
-uninstall-libraries:
-	@for i in $(LIBS); do \
-		rm -f $(inst_libdir)/$$i ; \
-	done
-	rmdir $(inst_libdir)
-
-uninstall-headers:
-	@for i in $(HEADERS); do \
-		rm -r $(inst_includedir)/$$i ; \
-	done
-	rmdir $(inst_includedir)
-
-uninstall-ddk:
-	cd ddk && $(MAKE) -C uninstall $(FLAGS_TO_PASS)
-
-uninstall-directx:
-	cd directx && $(MAKE) -C uninstall $(FLAGS_TO_PASS)
-
 dist:
 	mkdir $(distdir)/include
 	chmod 755 $(distdir)/include
-	@for i in $(HEADERS); do \
-		cp -p $(srcdir)/../include/$$i $(distdir)/include/$$i ; \
-	done
-	mkdir $(distdir)/include/GL
-	@for i in $(GL_HEADERS); do \
-		cp -p $(srcdir)/../include/GL/$$i $(distdir)/include/GL/$$i ; \
-	done
 	mkdir $(distdir)/lib
 	chmod 755 $(distdir)/lib
 	@for i in $(DISTFILES); do \
