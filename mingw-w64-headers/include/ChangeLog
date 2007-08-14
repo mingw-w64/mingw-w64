@@ -52,7 +52,7 @@
 
 	* winbase.h: Removed double definition of ACTCTX.
 
-2007-07-29  NightStrike  <nightstrike@gmail.com> 
+2007-07-19  NightStrike  <nightstrike@gmail.com> 
 
 	* basetsd.h: (Ptr32ToPtr): Removed warning message.
 
