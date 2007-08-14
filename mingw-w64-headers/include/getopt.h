@@ -1,8 +1,3 @@
-/**
- * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
- */
 /*
  * Copyright (c) 1987, 1993, 1994, 1996
  *  The Regents of the University of California.  All rights reserved.
