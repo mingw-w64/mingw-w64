@@ -4,6 +4,13 @@
 	* locale.h: Likewise.
 	* mfpr?: Removed.
 	* getopt.h: Copyright adjusted to origin.
+	* sys/wstat.inl: Delete unused file.
+	* sys/stat.h: Add inlines.
+	* sys/stat.inl: Remove.
+	* sys/timeb.h: Add inlines.
+	* sys/timeb.inl: Remove.
+	* sys/utime.h: Add inlines.
+	* sys/utime.inl: Remove.
 
 2007-07-25  Kai Tietz  <kai.tietz@onevision.com>
 

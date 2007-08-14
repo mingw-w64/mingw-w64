@@ -250,8 +250,22 @@ extern "C" {
 
 #endif
 
-#ifndef RC_INVOKED
-#include <sys/stat.inl>
+#if !defined (RC_INVOKED) && !defined (NO_OLDNAMES)
+#ifdef _USE_32BIT_TIME_T
+__CRT_INLINE int __cdecl fstat(int _Desc,struct stat *_Stat) {
+  return _fstat32(_Desc,(struct _stat32 *)_Stat);
+}
+__CRT_INLINE int __cdecl stat(const char *_Filename,struct stat *_Stat) {
+  return _stat32(_Filename,(struct _stat32 *)_Stat);
+}
+#else
+__CRT_INLINE int __cdecl fstat(int _Desc,struct stat *_Stat) {
+  return _fstat64i32(_Desc,(struct _stat64i32 *)_Stat);
+}
+__CRT_INLINE int __cdecl stat(const char *_Filename,struct stat *_Stat) {
+  return _stat64i32(_Filename,(struct _stat64i32 *)_Stat);
+}
+#endif
 #endif
 
 #ifdef __cplusplus
