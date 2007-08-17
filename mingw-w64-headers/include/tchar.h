@@ -115,7 +115,7 @@ extern "C" {
 
 #define _TEOF WEOF
 
-#define __T(x) L ## x
+#define __T(x) L##x
 
 #define _tmain wmain
 #define _tWinMain wWinMain
@@ -486,18 +486,9 @@ extern "C" {
 #define _tcsxfrm wcsxfrm
 #define _tcsxfrm_l _wcsxfrm_l
 
-#if __STDC__
 #define _tclen(_pc) (1)
 #define _tccpy(_pc1,_cpc2) ((*(_pc1) = *(_cpc2)))
 #define _tccmp(_cpc1,_cpc2) ((*(_cpc1))-(*(_cpc2)))
-#else
-  __CRT_INLINE size_t __cdecl _tclen(const wchar_t *_Cpc) {
-    (void *)_Cpc;
-    return 1;
-  }
-  __CRT_INLINE void __cdecl _tccpy(wchar_t *_Pc1,const wchar_t *_Cpc2) { *_Pc1 = (wchar_t)*_Cpc2; }
-  __CRT_INLINE int __cdecl _tccmp(const wchar_t *_Cpc1,const wchar_t *_Cpc2) { return (int) ((*_Cpc1)-(*_Cpc2)); }
-#endif
 
 #define _istalnum iswalnum
 #define _istalnum_l _iswalnum_l
@@ -533,7 +524,6 @@ extern "C" {
 #define _istleadbyte(_Char) (0)
 #define _istleadbyte_l(_Char,_Locale) (0)
 
-#if __STDC__
 #define _wcsdec(_cpc1,_cpc2) ((_cpc1)>=(_cpc2) ? NULL : (_cpc2)-1)
 #define _wcsinc(_pc) ((_pc)+1)
 #define _wcsnextc(_cpc) ((unsigned int) *(_cpc))
@@ -549,56 +539,6 @@ extern "C" {
 #define _wcsnset_s_l(_Destination,_Destination_size_chars,_Value,_Count,_Locale) (_wcsnset_s(_Destination,_Destination_size_chars,_Value,_Count))
 #define _wcsset_l(_Destination,_Value,_Locale) (_wcsset(_Destination,_Value))
 #define _wcsset_s_l(_Destination,_Destination_size_chars,_Value,_Locale) (_wcsset_s(_Destination,_Destination_size_chars,_Value))
-#else
-  __CRT_INLINE wchar_t *__cdecl _wcsdec(const wchar_t *_Cpc1,const wchar_t *_Cpc2) { return (wchar_t *)((_Cpc1)>=(_Cpc2) ? NULL : ((_Cpc2)-1)); }
-  __CRT_INLINE wchar_t *__cdecl _wcsinc(const wchar_t *_Pc) { return (wchar_t *)(_Pc+1); }
-  __CRT_INLINE unsigned int __cdecl _wcsnextc(const wchar_t *_Cpc) { return (unsigned int)*_Cpc; }
-  __CRT_INLINE wchar_t *__cdecl _wcsninc(const wchar_t *_Pc,size_t _Sz) { return (wchar_t *)(_Pc+_Sz); }
-  __CRT_INLINE size_t __cdecl _wcsncnt(const wchar_t *_String,size_t _Cnt) {
-    size_t n = _Cnt;
-    wchar_t *cp = (wchar_t *)_String;
-    while(n-- && *cp) cp++;
-    return _Cnt - n - 1;
-  }
-  __CRT_INLINE wchar_t *__cdecl _wcsspnp(const wchar_t *_Cpc1,const wchar_t *_Cpc2) {
-    return (!_Cpc1 ? NULL : ((*(_Cpc1 += wcsspn(_Cpc1,_Cpc2))!='\0') ? (wchar_t*)_Cpc1 : NULL));
-  }
-  __CRT_INLINE wchar_t *__cdecl _wcsncpy_l(wchar_t *_Destination,const wchar_t *_Source,size_t _Count,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return wcsncpy(_Destination,_Source,_Count);
-  }
-  __CRT_INLINE wchar_t *__cdecl _wcsncat_l(wchar_t *_Destination,const wchar_t *_Source,size_t _Count,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return wcsncat(_Destination,_Source,_Count);
-  }
-  __CRT_INLINE wchar_t *_wcstok_l(wchar_t *_String,const wchar_t *_Delimiters,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return wcstok(_String,_Delimiters);
-
-  }
-  __CRT_INLINE wchar_t *_wcstok_s_l(wchar_t *_String,const wchar_t *_Delimiters,wchar_t **_Current_position,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return wcstok_s(_String,_Delimiters,_Current_position);
-  }
-  __CRT_INLINE wchar_t *__cdecl _wcsnset_l(wchar_t *_Destination,wchar_t _Value,size_t _Count,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return _wcsnset(_Destination,_Value,_Count);
-
-  }
-  __CRT_INLINE errno_t _wcsnset_s_l(wchar_t *_Destination,size_t _Destination_size_chars,wchar_t _Value,size_t _Count,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return _wcsnset_s(_Destination,_Destination_size_chars,_Value,_Count);
-  }
-  __CRT_INLINE wchar_t *__cdecl _wcsset_l(wchar_t *_Destination,wchar_t _Value,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return _wcsset(_Destination,_Value);
-  }
-
-  __CRT_INLINE errno_t _wcsset_s_l(wchar_t *_Destination,size_t _Destination_size_chars,wchar_t _Value,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return _wcsset_s(_Destination,_Destination_size_chars,_Value);
-  }
-#endif
 
   /* dirent structures and functions */
 #define _tdirent	_wdirent
@@ -1056,7 +996,6 @@ extern "C" {
 #define _tccpy_s_l _mbccpy_s_l
 #else
 
-#if __STDC__
   _CRTIMP _CONST_RETURN char *__cdecl _tcschr(const char *_Str,unsigned int _Val);
   _CRTIMP size_t __cdecl _tcscspn(const char *_Str,const char *_Control);
   _CRTIMP char *__cdecl _tcsncat(char *_Dst,const char *_Src,size_t _MaxCount);
@@ -1132,242 +1071,6 @@ extern "C" {
   _CRTIMP char *__cdecl _tcsupr_s_l(char *_Str,size_t _SizeInChars,_locale_t _Locale);
   _CRTIMP size_t __cdecl _tclen(const char *_Str);
   _CRTIMP void __cdecl _tccpy(char *_DstCh,const char *_SrcCh);
-#else
-
-#define _PUC unsigned char *
-#define _CPUC const unsigned char *
-#define _PC char *
-#define _CRPC _CONST_RETURN char *
-#define _CPC const char *
-#define _UI unsigned int
-
-  __CRT_INLINE _CRPC _tcschr(_CPC _s1,_UI _c) {return (_CRPC)_mbschr((_CPUC)_s1,_c);}
-  __CRT_INLINE size_t _tcscspn(_CPC _s1,_CPC _s2) {return _mbscspn((_CPUC)_s1,(_CPUC)_s2);}
-  __CRT_INLINE char *_tcsncat(char *_Destination,const char *_Source,size_t _Count) {
-    return (char *)_mbsnbcat((unsigned char *)_Destination,(const unsigned char *)_Source,_Count);
-  }
-  __CRT_INLINE errno_t _tcsncat_s(char *_Destination,size_t _Destination_size_chars,const char *_Source,size_t _Count) {
-    return _mbsnbcat_s((unsigned char *)_Destination,_Destination_size_chars,(const unsigned char *)_Source,_Count);
-  }
-  __CRT_INLINE char *_tcsncat_l(char *_Destination,const char *_Source,size_t _Count,_locale_t _Locale) {
-    return (char *)_mbsnbcat_l((unsigned char *)_Destination,(const unsigned char *)_Source,_Count,_Locale);
-  }
-  __CRT_INLINE errno_t _tcsncat_s_l(char *_Destination,size_t _Destination_size_chars,const char *_Source,size_t _Count,_locale_t _Locale) {
-    return _mbsnbcat_s_l((unsigned char *)_Destination,_Destination_size_chars,(const unsigned char *)_Source,_Count,_Locale);
-  }
-  __CRT_INLINE char *_tcsncpy(char *_Destination,const char *_Source,size_t _Count) {
-    return (char *)_mbsnbcpy((unsigned char *)_Destination,(const unsigned char *)_Source,_Count);
-  }
-  __CRT_INLINE errno_t _tcsncpy_s(char *_Destination,size_t _Destination_size_chars,const char *_Source,size_t _Count) {
-    return _mbsnbcpy_s((unsigned char *)_Destination,_Destination_size_chars,(const unsigned char *)_Source,_Count);
-  }
-  __CRT_INLINE char *_tcsncpy_l(char *_Destination,const char *_Source,size_t _Count,_locale_t _Locale) {
-    return (char *)_mbsnbcpy_l((unsigned char *)_Destination,(const unsigned char *)_Source,_Count,_Locale);
-  }
-  __CRT_INLINE errno_t _tcsncpy_s_l(char *_Destination,size_t _Destination_size_chars,const char *_Source,size_t _Count,_locale_t _Locale) {
-    return _mbsnbcpy_s_l((unsigned char *)_Destination,_Destination_size_chars,(const unsigned char *)_Source,_Count,_Locale);
-  }
-  __CRT_INLINE _CRPC _tcspbrk(_CPC _s1,_CPC _s2) {return (_CRPC)_mbspbrk((_CPUC)_s1,(_CPUC)_s2);}
-  __CRT_INLINE _CRPC _tcsrchr(_CPC _s1,_UI _c) {return (_CRPC)_mbsrchr((_CPUC)_s1,_c);}
-  __CRT_INLINE size_t _tcsspn(_CPC _s1,_CPC _s2) {return _mbsspn((_CPUC)_s1,(_CPUC)_s2);}
-  __CRT_INLINE _CRPC _tcsstr(_CPC _s1,_CPC _s2) {return (_CRPC)_mbsstr((_CPUC)_s1,(_CPUC)_s2);}
-  __CRT_INLINE char *_tcstok(char *_String,const char *_Delimiters) {
-    return (char *)_mbstok((unsigned char *)_String,(const unsigned char *)_Delimiters);
-  }
-  __CRT_INLINE char *_tcstok_s(char *_String,const char *_Delimiters,char **_Current_position) {
-    return (char *)_mbstok_s((unsigned char *)_String,(const unsigned char *)_Delimiters,(unsigned char **)_Current_position);
-  }
-  __CRT_INLINE char *_tcstok_l(char *_String,const char *_Delimiters,_locale_t _Locale) {
-    return (char *)_mbstok_l((unsigned char *)_String,(const unsigned char *)_Delimiters,_Locale);
-  }
-  __CRT_INLINE char *_tcstok_s_l(char *_String,const char *_Delimiters,char **_Current_position,_locale_t _Locale) {
-    return (char *)_mbstok_s_l((unsigned char *)_String,(const unsigned char *)_Delimiters,(unsigned char **)_Current_position,_Locale);
-  }
-  __CRT_INLINE char *_tcsnset(char *_Dst,unsigned int _Value ,size_t _Count) {
-    return (char *)_mbsnbset((unsigned char *)_Dst,_Value,_Count);
-  }
-  __CRT_INLINE char *_tcsnset_l(char *_Dst,unsigned int _Value ,size_t _Count,_locale_t _Locale) {
-    return (char *)_mbsnbset_l((unsigned char *)_Dst,_Value,_Count,_Locale);
-  }
-  __CRT_INLINE errno_t _tcsnset_s(char *_Dst,size_t _SizeInBytes,unsigned int _Value ,size_t _Count) {
-    return _mbsnbset_s((unsigned char *)_Dst,_SizeInBytes,_Value,_Count);
-  }
-  __CRT_INLINE errno_t _tcsnset_s_l(char *_Dst,size_t _SizeInBytes,unsigned int _Value ,size_t _Count,_locale_t _Locale) {
-    return _mbsnbset_s_l((unsigned char *)_Dst,_SizeInBytes,_Value,_Count,_Locale);
-  }
-  __CRT_INLINE _PC _tcsrev(_PC _s1) {return (_PC)_mbsrev((_PUC)_s1);}
-  __CRT_INLINE char *_tcsset(char *_Dst,unsigned int _Value) {
-    return (char *)_mbsset((unsigned char *)_Dst,_Value);
-  }
-  __CRT_INLINE char *_tcsset_l(char *_Dst,unsigned int _Value,_locale_t _Locale) {
-    return (char *)_mbsset_l((unsigned char *)_Dst,_Value,_Locale);
-  }
-  __CRT_INLINE errno_t _tcsset_s(char *_Dst,size_t _SizeInBytes,unsigned int _Value) {
-    return _mbsset_s((unsigned char *)_Dst,_SizeInBytes,_Value);
-  }
-  __CRT_INLINE errno_t _tcsset_s_l(char *_Dst,size_t _SizeInBytes,unsigned int _Value,_locale_t _Locale) {
-    return _mbsset_s_l((unsigned char *)_Dst,_SizeInBytes,_Value,_Locale);
-  }
-  __CRT_INLINE int _tcscmp(_CPC _s1,_CPC _s2) {return _mbscmp((_CPUC)_s1,(_CPUC)_s2);}
-  __CRT_INLINE int _tcsicmp(const char *_String1,const char *_String2) {
-    return _mbsicmp((const unsigned char *)_String1,(const unsigned char *)_String2);
-  }
-  __CRT_INLINE int _tcsicmp_l(const char *_String1,const char *_String2,_locale_t _Locale) {
-    return _mbsicmp_l((const unsigned char *)_String1,(const unsigned char *)_String2,_Locale);
-  }
-  __CRT_INLINE int _tcsnccmp(_CPC _s1,_CPC _s2,size_t _n) {return _mbsncmp((_CPUC)_s1,(_CPUC)_s2,_n);}
-  __CRT_INLINE int _tcsncmp(_CPC _s1,_CPC _s2,size_t _n) {return _mbsnbcmp((_CPUC)_s1,(_CPUC)_s2,_n);}
-  __CRT_INLINE int _tcsncicmp(const char *_String1,const char *_String2,size_t _Char_count) {
-    return _mbsnicmp((const unsigned char *)_String1,(const unsigned char *)_String2,_Char_count);
-  }
-  __CRT_INLINE int _tcsncicmp_l(const char *_String1,const char *_String2,size_t _Char_count,_locale_t _Locale) {
-    return _mbsnicmp_l((const unsigned char *)_String1,(const unsigned char *)_String2,_Char_count,_Locale);
-  }
-  __CRT_INLINE int _tcsnicmp(const char *_String1,const char *_String2,size_t _Char_count) {
-    return _mbsnbicmp((const unsigned char *)_String1,(const unsigned char *)_String2,_Char_count);
-  }
-  __CRT_INLINE int _tcsnicmp_l(const char *_String1,const char *_String2,size_t _Char_count,_locale_t _Locale) {
-    return _mbsnbicmp_l((const unsigned char *)_String1,(const unsigned char *)_String2,_Char_count,_Locale);
-  }
-  __CRT_INLINE int _tcscoll(const char *_String1,const char *_String2) {
-    return _mbscoll((const unsigned char *)_String1,(const unsigned char *)_String2);
-  }
-  __CRT_INLINE int _tcscoll_l(const char *_String1,const char *_String2,_locale_t _Locale) {
-    return _mbscoll_l((const unsigned char *)_String1,(const unsigned char *)_String2,_Locale);
-  }
-  __CRT_INLINE int _tcsicoll(const char *_String1,const char *_String2) {
-    return _mbsicoll((const unsigned char *)_String1,(const unsigned char *)_String2);
-  }
-  __CRT_INLINE int _tcsicoll_l(const char *_String1,const char *_String2,_locale_t _Locale) {
-    return _mbsicoll_l((const unsigned char *)_String1,(const unsigned char *)_String2,_Locale);
-  }
-  __CRT_INLINE int _tcsnccoll(const char *_String1,const char *_String2,size_t _Count) {
-    return _mbsncoll((const unsigned char *)_String1,(const unsigned char *)_String2,_Count);
-  }
-  __CRT_INLINE int _tcsnccoll_l(const char *_String1,const char *_String2,size_t _Count,_locale_t _Locale) {
-    return _mbsncoll_l((const unsigned char *)_String1,(const unsigned char *)_String2,_Count,_Locale);
-  }
-  __CRT_INLINE int _tcsncoll(const char *_String1,const char *_String2,size_t _Count) {
-    return _mbsnbcoll((const unsigned char *)_String1,(const unsigned char *)_String2,_Count);
-  }
-  __CRT_INLINE int _tcsncoll_l(const char *_String1,const char *_String2,size_t _Count,_locale_t _Locale) {
-    return _mbsnbcoll_l((const unsigned char *)_String1,(const unsigned char *)_String2,_Count,_Locale);
-  }
-  __CRT_INLINE int _tcsncicoll(const char *_String1,const char *_String2,size_t _Count) {
-    return _mbsnicoll((const unsigned char *)_String1,(const unsigned char *)_String2,_Count);
-  }
-  __CRT_INLINE int _tcsncicoll_l(const char *_String1,const char *_String2,size_t _Count,_locale_t _Locale) {
-    return _mbsnicoll_l((const unsigned char *)_String1,(const unsigned char *)_String2,_Count,_Locale);
-  }
-  __CRT_INLINE int _tcsnicoll(const char *_String1,const char *_String2,size_t _Count) {
-    return _mbsnbicoll((const unsigned char *)_String1,(const unsigned char *)_String2,_Count);
-  }
-  __CRT_INLINE int _tcsnicoll_l(const char *_String1,const char *_String2,size_t _Count,_locale_t _Locale) {
-    return _mbsnbicoll_l((const unsigned char *)_String1,(const unsigned char *)_String2,_Count,_Locale);
-  }
-  __CRT_INLINE size_t _tcsclen(const char *_String) {
-    return _mbslen((const unsigned char *)_String);
-  }
-  __CRT_INLINE size_t _tcscnlen(const char *_String,size_t _Maximum) {
-    return _mbsnlen((const unsigned char *)_String,_Maximum);
-  }
-  __CRT_INLINE size_t _tcsclen_l(const char *_String,_locale_t _Locale) {
-    return _mbslen_l((const unsigned char *)_String,_Locale);
-  }
-  __CRT_INLINE size_t _tcscnlen_l(const char *_String,size_t _Maximum,_locale_t _Locale) {
-    return _mbsnlen_l((const unsigned char *)_String,_Maximum,_Locale);
-  }
-  __CRT_INLINE char *_tcsnccat(char *_Destination,const char *_Source,size_t _Count) {
-    return (char *)_mbsncat((unsigned char *)_Destination,(const unsigned char *)_Source,_Count);
-  }
-  __CRT_INLINE errno_t _tcsnccat_s(char *_Destination,size_t _Destination_size_chars,const char *_Source,size_t _Count) {
-    return _mbsncat_s((unsigned char *)_Destination,_Destination_size_chars,(const unsigned char *)_Source,_Count);
-  }
-  __CRT_INLINE char *_tcsnccat_l(char *_Destination,const char *_Source,size_t _Count,_locale_t _Locale) {
-    return (char *)_mbsncat_l((unsigned char *)_Destination,(const unsigned char *)_Source,_Count,_Locale);
-  }
-  __CRT_INLINE errno_t _tcsnccat_s_l(char *_Destination,size_t _Destination_size_chars,const char *_Source,size_t _Count,_locale_t _Locale) {
-    return _mbsncat_s_l((unsigned char *)_Destination,_Destination_size_chars,(const unsigned char *)_Source,_Count,_Locale);
-  }
-  __CRT_INLINE char *_tcsnccpy(char *_Destination,const char *_Source,size_t _Count) {
-    return (char *)_mbsncpy((unsigned char *)_Destination,(const unsigned char *)_Source,_Count);
-  }
-  __CRT_INLINE errno_t _tcsnccpy_s(char *_Destination,size_t _Destination_size_chars,const char *_Source,size_t _Count) {
-    return _mbsncpy_s((unsigned char *)_Destination,_Destination_size_chars,(const unsigned char *)_Source,_Count);
-  }
-  __CRT_INLINE char *_tcsnccpy_l(char *_Destination,const char *_Source,size_t _Count,_locale_t _Locale) {
-    return (char *)_mbsncpy_l((unsigned char *)_Destination,(const unsigned char *)_Source,_Count,_Locale);
-  }
-  __CRT_INLINE errno_t _tcsnccpy_s_l(char *_Destination,size_t _Destination_size_chars,const char *_Source,size_t _Count,_locale_t _Locale) {
-    return _mbsncpy_s_l((unsigned char *)_Destination,_Destination_size_chars,(const unsigned char *)_Source,_Count,_Locale);
-  }
-  __CRT_INLINE char *_tcsncset(char *_Destination,unsigned int _Value,size_t _Count) {
-    return (char *)_mbsnset((unsigned char *)_Destination,_Value,_Count);
-  }
-  __CRT_INLINE errno_t _tcsncset_s(char *_Destination,size_t _SizeInBytes,unsigned int _Value,size_t _Count) {
-    return _mbsnset_s((unsigned char *)_Destination,_SizeInBytes,_Value,_Count);
-  }
-  __CRT_INLINE char *_tcsncset_l(char *_Destination,unsigned int _Value,size_t _Count,_locale_t _Locale) {
-    return (char *)_mbsnset_l((unsigned char *)_Destination,_Value,_Count,_Locale);
-  }
-  __CRT_INLINE errno_t _tcsncset_s_l(char *_Destination,size_t _SizeInBytes,unsigned int _Value,size_t _Count,_locale_t _Locale) {
-    return _mbsnset_s_l((unsigned char *)_Destination,_SizeInBytes,_Value,_Count,_Locale);
-  }
-  __CRT_INLINE _PC _tcsdec(_CPC _s1,_CPC _s2) {return (_PC)_mbsdec((_CPUC)_s1,(_CPUC)_s2);}
-  __CRT_INLINE _PC _tcsinc(_CPC _s1) {return (_PC)_mbsinc((_CPUC)_s1);}
-  __CRT_INLINE size_t _tcsnbcnt(_CPC _s1,size_t _n) {return _mbsnbcnt((_CPUC)_s1,_n);}
-  __CRT_INLINE size_t _tcsnccnt(_CPC _s1,size_t _n) {return _mbsnccnt((_CPUC)_s1,_n);}
-  __CRT_INLINE _PC _tcsninc(_CPC _s1,size_t _n) {return (_PC)_mbsninc((_CPUC)_s1,_n);}
-  __CRT_INLINE _PC _tcsspnp(_CPC _s1,_CPC _s2) {return (_PC)_mbsspnp((_CPUC)_s1,(_CPUC)_s2);}
-  __CRT_INLINE char *_tcslwr(char *_String) {
-    return (char *)_mbslwr((unsigned char *)_String);
-  }
-  __CRT_INLINE errno_t _tcslwr_s(char *_String,size_t _SizeInBytes) {
-    return _mbslwr_s((unsigned char *)_String,_SizeInBytes);
-  }
-  __CRT_INLINE char *_tcslwr_l(char *_String,_locale_t _Locale) {
-    return (char *)_mbslwr_l((unsigned char *)_String,_Locale);
-  }
-  __CRT_INLINE errno_t _tcslwr_s_l(char *_String,size_t _SizeInBytes,_locale_t _Locale) {
-    return _mbslwr_s_l((unsigned char *)_String,_SizeInBytes,_Locale);
-  }
-  __CRT_INLINE char *_tcsupr(char *_String) {
-    return (char *)_mbsupr((unsigned char *)_String);
-  }
-  __CRT_INLINE errno_t _tcsupr_s(char *_String,size_t _Count) {
-    return _mbsupr_s((unsigned char *)_String,_Count);
-  }
-  __CRT_INLINE char *_tcsupr_l(char *_String,_locale_t _Locale) {
-    return (char *)_mbsupr_l((unsigned char *)_String,_Locale);
-  }
-  __CRT_INLINE errno_t _tcsupr_s_l(char *_String,size_t _Count,_locale_t _Locale) {
-    return _mbsupr_s_l((unsigned char *)_String,_Count,_Locale);
-  }
-  __CRT_INLINE size_t _tclen(_CPC _s1) {return _mbclen((_CPUC)_s1);}
-  __CRT_INLINE void _tccpy(char *_Destination,const char *_Source) {
-    _mbccpy((unsigned char *)_Destination,(const unsigned char *)_Source);
-  }
-  __CRT_INLINE void _tccpy_l(char *_Destination,const char *_Source,_locale_t _Locale) {
-    _mbccpy_l((unsigned char *)_Destination,(const unsigned char *)_Source,_Locale);
-  }
-  __CRT_INLINE errno_t _tccpy_s(char *_Destination,size_t _SizeInBytes,int *_PCopied,const char *_Source) {
-    return _mbccpy_s((unsigned char *)_Destination,_SizeInBytes,_PCopied,(const unsigned char *)_Source);
-  }
-  __CRT_INLINE errno_t _tccpy_s_l(char *_Destination,size_t _SizeInBytes,int *_PCopied,const char *_Source,_locale_t _Locale) {
-    return _mbccpy_s_l((unsigned char *)_Destination,_SizeInBytes,_PCopied,(const unsigned char *)_Source,_Locale);
-  }
-  __CRT_INLINE _UI _tcsnextc(_CPC _s1) {
-    _UI _n=0;
-    if(_ismbblead((_UI)*(_PUC)_s1)) {
-      if(_s1[1]!='\0') {
-	_n=((_UI)*(_PUC)_s1)<<8;
-	_s1++;
-      }
-    }
-    _n+=(_UI)*(_PUC)_s1;
-    return(_n);
-  }
-#endif
 
 #ifdef __cplusplus
 #ifndef _CPP_TCHAR_INLINES_DEFINED
@@ -1416,19 +1119,19 @@ extern "C" {
 #else
 
 #ifndef __TCHAR_DEFINED
+#define __TCHAR_DEFINED
   typedef char _TCHAR;
   typedef signed char _TSCHAR;
   typedef unsigned char _TUCHAR;
   typedef char _TXCHAR;
   typedef int _TINT;
-#define __TCHAR_DEFINED
 #endif
 
 #ifndef _TCHAR_DEFINED
+#define _TCHAR_DEFINED
 #ifndef	NO_OLDNAMES
   typedef char TCHAR;
 #endif
-#define _TCHAR_DEFINED
 #endif
 
 #define _tcschr strchr
@@ -1520,18 +1223,9 @@ extern "C" {
 #define _istleadbyte(_Char) (0)
 #define _istleadbyte_l(_Char,_Locale) (0)
 
-#if __STDC__
 #define _tclen(_pc) (1)
 #define _tccpy(_pc1,_cpc2) (*(_pc1) = *(_cpc2))
 #define _tccmp(_cpc1,_cpc2) (((unsigned char)*(_cpc1))-((unsigned char)*(_cpc2)))
-#else
-  __CRT_INLINE size_t __cdecl _tclen(const char *_cpc) {
-    (void *)_cpc;
-    return 1;
-  }
-  __CRT_INLINE void __cdecl _tccpy(char *_pc1,const char *_cpc2) { *_pc1 = *_cpc2; }
-  __CRT_INLINE int __cdecl _tccmp(const char *_cpc1,const char *_cpc2) { return (int) (((unsigned char)*_cpc1)-((unsigned char)*_cpc2)); }
-#endif
 
   /* dirent structures and functions */
 #define _tdirent	dirent
@@ -1577,7 +1271,6 @@ extern "C" {
 #endif
 #endif
 
-#if __STDC__
 #define _strdec(_cpc1,_cpc2) ((_cpc1)>=(_cpc2) ? NULL : (_cpc2)-1)
 #define _strinc(_pc) ((_pc)+1)
 #define _strnextc(_cpc) ((unsigned int) *(const unsigned char *)(_cpc))
@@ -1593,49 +1286,6 @@ extern "C" {
 #define _strnset_s_l(_Destination,_Destination_size_chars,_Value,_Count,_Locale) (_strnset_s(_Destination,_Destination_size_chars,_Value,_Count))
 #define _strset_l(_Destination,_Value,_Locale) (_strset(_Destination,_Value))
 #define _strset_s_l(_Destination,_Destination_size_chars,_Value,_Locale) (_strset_s(_Destination,_Destination_size_chars,_Value))
-#else
-  __CRT_INLINE char *__cdecl _strdec(const char *_Cpc1,const char *_Cpc2) { return (char *)((_Cpc1)>=(_Cpc2) ? NULL : (_Cpc2-1)); }
-  __CRT_INLINE char *__cdecl _strinc(const char *_Pc) { return (char *)(_Pc+1); }
-  __CRT_INLINE unsigned int __cdecl _strnextc(const char *_Cpc) { return (unsigned int)*(const unsigned char *)_Cpc; }
-  __CRT_INLINE char *__cdecl _strninc(const char *_Pc,size_t _Sz) { return (char *)(_Pc+_Sz); }
-  __CRT_INLINE size_t __cdecl _strncnt(const char *_String,size_t _Cnt) {
-    size_t n = _Cnt;
-    char *cp = (char *)_String;
-    while(n-- && *cp) cp++;
-    return _Cnt - n - 1;
-  }
-  __CRT_INLINE char *__cdecl _strspnp(const char *_Cpc1,const char *_Cpc2) {
-    return (!_Cpc1 ? NULL : ((*(_Cpc1 += strspn(_Cpc1,_Cpc2))!='\0') ? (char*)_Cpc1 : NULL));
-  }
-  __CRT_INLINE char *__cdecl _strncpy_l(char *_Destination,const char *_Source,size_t _Count,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return strncpy(_Destination,_Source,_Count);
-  }
-  __CRT_INLINE char *__cdecl _strncat_l(char *_Destination,const char *_Source,size_t _Count,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return strncat(_Destination,_Source,_Count);
-  }
-  __CRT_INLINE char *_strtok_l(char *_String,const char *_Delimiters,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return strtok(_String,_Delimiters);
-  }
-  __CRT_INLINE char *__cdecl _strnset_l(char *_Destination,int _Value,size_t _Count,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return _strnset(_Destination,_Value,_Count);
-  }
-  __CRT_INLINE errno_t __cdecl _strnset_s_l(char *_Destination,size_t _Destination_size_chars,int _Value,size_t _Count,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return _strnset_s(_Destination,_Destination_size_chars,_Value,_Count);
-  }
-  __CRT_INLINE char *__cdecl _strset_l(char *_Destination,int _Value,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return _strset(_Destination,_Value);
-  }
-  __CRT_INLINE errno_t __cdecl _strset_s_l(char *_Destination,size_t _Destination_size_chars,int _Value,_locale_t _Locale) {
-    _CRT_UNUSED(_Locale);
-    return _strset_s(_Destination,_Destination_size_chars,_Value);
-  }
-#endif
 #endif
 #endif
 
