@@ -51,8 +51,8 @@ extern "C" {
 #endif
 
 #ifndef _CRT_DOUBLE_DEC
+#define _CRT_DOUBLE_DEC
 
-#ifndef _LDSUPPORT
 #pragma pack(4)
   typedef struct {
     unsigned char ld[10];
@@ -60,14 +60,6 @@ extern "C" {
 #pragma pack()
 
 #define _PTR_LD(x) ((unsigned char *)(&(x)->ld))
-#else
-#pragma push_macro("long")
-#undef long
-  typedef long double _LDOUBLE;
-#pragma pop_macro("long")
-
-#define _PTR_LD(x) ((unsigned char *)(x))
-#endif
 
   typedef struct {
     double x;
@@ -91,8 +83,6 @@ extern "C" {
     unsigned char ld12[12];
   } _LDBL12;
 #pragma pack()
-
-#define _CRT_DOUBLE_DEC
 #endif
 
 #define RAND_MAX 0x7fff
@@ -312,15 +302,11 @@ extern "C" {
   _CRTIMP errno_t __cdecl _mbstowcs_s_l(size_t *_PtNumOfCharConverted,wchar_t *_DstBuf,size_t _SizeInWords,const char *_SrcBuf,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbstowcs_l(wchar_t *_Dest,const char *_Source,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP int __cdecl rand(void);
-#if defined(_CRT_RAND_S)
-  _CRTIMP errno_t __cdecl rand_s (unsigned int *_RandomValue);
-#endif
   _CRTIMP int __cdecl _set_error_mode(int _Mode);
   _CRTIMP void __cdecl srand(unsigned int _Seed);
   _CRTIMP double __cdecl strtod(const char *_Str,char **_EndPtr);
 #if !defined __NO_ISOCEXT  /* extern stub in static libmingwex.a */
-  __CRT_INLINE float __cdecl strtof (const char *nptr, char **endptr)
-  { return (strtod (nptr, endptr));}
+  __CRT_INLINE float __cdecl strtof (const char *nptr, char **endptr) { return (strtod (nptr, endptr));}
   long double __cdecl strtold (const char * __restrict__, char ** __restrict__);
 #endif /* __NO_ISOCEXT */
   _CRTIMP double __cdecl _strtod_l(const char *_Str,char **_EndPtr,_locale_t _Locale);
@@ -359,6 +345,7 @@ extern "C" {
 #endif
 
 #ifndef _WSTDLIB_DEFINED
+#define _WSTDLIB_DEFINED
 
   _CRTIMP errno_t __cdecl _itow_s (int _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _itow(int _Value,wchar_t *_Dest,int _Radix);
@@ -402,8 +389,6 @@ extern "C" {
   _CRTIMP unsigned __int64 __cdecl _wcstoui64(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
   _CRTIMP unsigned __int64 __cdecl _wcstoui64_l(const wchar_t *_Str ,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
 #endif
-
-#define _WSTDLIB_DEFINED
 #endif
 
 #ifndef _POSIX_
@@ -449,7 +434,6 @@ extern "C" {
 
 #ifndef _WSTDLIBP_DEFINED
 #define _WSTDLIBP_DEFINED
-
   _CRTIMP wchar_t *__cdecl _wfullpath(wchar_t *_FullPath,const wchar_t *_Path,size_t _SizeInWords);
   _CRTIMP errno_t __cdecl _wmakepath_s(wchar_t *_PathResult,size_t _SizeInWords,const wchar_t *_Drive,const wchar_t *_Dir,const wchar_t *_Filename,const wchar_t *_Ext);
   _CRTIMP void __cdecl _wmakepath(wchar_t *_ResultPath,const wchar_t *_Drive,const wchar_t *_Dir,const wchar_t *_Filename,const wchar_t *_Ext);
@@ -499,16 +483,15 @@ extern "C" {
 
   lldiv_t	__cdecl lldiv (long long, long long);
 
-  __CRT_INLINE long long __cdecl llabs(long long _j)
-  {return (_j >= 0 ? _j : -_j);}
+  __CRT_INLINE long long __cdecl llabs(long long _j) { return (_j >= 0 ? _j : -_j); }
 
   long long  __cdecl strtoll (const char* __restrict__, char** __restrict, int);
   unsigned long long  __cdecl strtoull (const char* __restrict__, char** __restrict__, int);
 
-#if defined (_WIN32) /* these are stubs for MS _i64 versions */ 
+  /* these are stubs for MS _i64 versions */ 
   long long  __cdecl atoll (const char *);
 
-#if !defined (__STRICT_ANSI__)
+#ifndef __STRICT_ANSI__
   long long  __cdecl wtoll (const wchar_t *);
   char* __cdecl lltoa (long long, char *, int);
   char* __cdecl ulltoa (unsigned long long , char *, int);
@@ -516,21 +499,13 @@ extern "C" {
   wchar_t* __cdecl ulltow (unsigned long long, wchar_t *, int);
 
   /* __CRT_INLINE using non-ansi functions */
-  __CRT_INLINE long long  __cdecl atoll (const char * _c)
-  { return _atoi64 (_c); }
-  __CRT_INLINE char*  __cdecl lltoa (long long _n, char * _c, int _i)
-  { return _i64toa (_n, _c, _i); }
-  __CRT_INLINE char*  __cdecl ulltoa (unsigned long long _n, char * _c, int _i)
-  { return _ui64toa (_n, _c, _i); }
-  __CRT_INLINE long long  __cdecl wtoll (const wchar_t * _w)
-  { return _wtoi64 (_w); }
-  __CRT_INLINE wchar_t*  __cdecl lltow (long long _n, wchar_t * _w, int _i)
-  { return _i64tow (_n, _w, _i); } 
-  __CRT_INLINE wchar_t*  __cdecl ulltow (unsigned long long _n, wchar_t * _w, int _i)
-  { return _ui64tow (_n, _w, _i); } 
+  __CRT_INLINE long long  __cdecl atoll (const char * _c) { return _atoi64 (_c); }
+  __CRT_INLINE char *__cdecl lltoa (long long _n, char * _c, int _i) { return _i64toa (_n, _c, _i); }
+  __CRT_INLINE char *__cdecl ulltoa (unsigned long long _n, char * _c, int _i) { return _ui64toa (_n, _c, _i); }
+  __CRT_INLINE long long  __cdecl wtoll (const wchar_t * _w) { return _wtoi64 (_w); }
+  __CRT_INLINE wchar_t *__cdecl lltow (long long _n, wchar_t * _w, int _i) { return _i64tow (_n, _w, _i); } 
+  __CRT_INLINE wchar_t *__cdecl ulltow (unsigned long long _n, wchar_t * _w, int _i) { return _ui64tow (_n, _w, _i); } 
 #endif /* (__STRICT_ANSI__)  */
-
-#endif /* __MSVCRT__ */
 
 #endif /* !__NO_ISOCEXT */
 
