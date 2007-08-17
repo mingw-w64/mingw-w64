@@ -4547,7 +4547,7 @@ extern "C" {
   void __RPC_STUB IDummyHICONIncluder_Dummy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-#if defined USE_COM_CONTEXT_DEF || defined BUILDTYPE_COMSVCS || defined _OLE32_
+#if defined USE_COM_CONTEXT_DEF || defined BUILDTYPE_COMSVCS
   typedef DWORD CPFLAGS;
 
   typedef struct tagContextProperty {
@@ -4658,7 +4658,7 @@ extern "C" {
   void __RPC_STUB IContext_EnumContextProps_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-#if !defined BUILDTYPE_COMSVCS && !defined _OLE32_
+#ifndef BUILDTYPE_COMSVCS
   extern RPC_IF_HANDLE __MIDL_itf_objidl_0086_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_objidl_0086_v0_0_s_ifspec;
 

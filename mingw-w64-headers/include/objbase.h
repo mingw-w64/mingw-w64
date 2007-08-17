@@ -11,14 +11,8 @@
 
 #include <pshpack8.h>
 
-#ifdef _OLE32_
-#define WINOLEAPI STDAPI
-#define WINOLEAPI_(type) STDAPI_(type)
-#else
-
 #define WINOLEAPI EXTERN_C DECLSPEC_IMPORT HRESULT WINAPI
 #define WINOLEAPI_(type) EXTERN_C DECLSPEC_IMPORT type WINAPI
-#endif
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
 #define __STRUCT__ struct
@@ -142,15 +136,6 @@ typedef interface IRpcChannelBuffer IRpcChannelBuffer;
 #include <wtypes.h>
 #include <unknwn.h>
 #include <objidl.h>
-
-#ifdef _OLE32_
-#ifdef _OLE32PRIV_
-WINBOOL _fastcall wIsEqualGUID(REFGUID rguid1,REFGUID rguid2);
-#define IsEqualGUID(rguid1,rguid2) wIsEqualGUID(rguid1,rguid2)
-#else
-#define __INLINE_ISEQUAL_GUID
-#endif
-#endif
 
 #include <guiddef.h>
 

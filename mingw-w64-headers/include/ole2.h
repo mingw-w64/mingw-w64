@@ -13,7 +13,6 @@
 #endif
 
 #include <winerror.h>
-
 #include <objbase.h>
 #include <oleauto.h>
 
