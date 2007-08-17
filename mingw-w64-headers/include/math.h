@@ -8,6 +8,8 @@
 
 #include <_mingw.h>
 
+struct exception;
+
 #pragma pack(push,_CRT_PACKING)
 
 #ifdef __cplusplus
@@ -15,6 +17,7 @@ extern "C" {
 #endif
 
 #ifndef _EXCEPTION_DEFINED
+#define _EXCEPTION_DEFINED
   struct _exception {
     int type;
     char *name;
@@ -22,8 +25,6 @@ extern "C" {
     double arg2;
     double retval;
   };
-
-#define _EXCEPTION_DEFINED
 #endif
 
 #ifndef _COMPLEX_DEFINED

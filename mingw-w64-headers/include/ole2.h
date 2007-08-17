@@ -3,7 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#if !defined(_OLE2_H_)
+#ifndef _OLE2_H_
 #define _OLE2_H_
 
 #include <pshpack8.h>
