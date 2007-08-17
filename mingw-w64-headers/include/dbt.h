@@ -14,7 +14,7 @@
 #define DBTFAR far
 #endif
 
-#if !defined(_WCHAR_T_DEFINED) && !defined(_NATIVE_WCHAR_T_DEFINED)
+#ifndef _WCHAR_T_DEFINED
 #define _WCHAR_T_DEFINED
 typedef unsigned short wchar_t;
 #endif

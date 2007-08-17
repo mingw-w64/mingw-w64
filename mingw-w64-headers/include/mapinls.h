@@ -38,10 +38,7 @@ extern "C" {
   typedef char TCHAR;
 #endif
 
-#ifndef _NATIVE_WCHAR_T_DEFINED
   typedef unsigned short WCHAR;
-#endif
-
   typedef WCHAR *LPWSTR;
   typedef const WCHAR *LPCWSTR;
   typedef CHAR *LPSTR;

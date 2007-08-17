@@ -11,11 +11,8 @@ extern "C" {
 #endif
 
 #define xRPC_STRING
-#if !defined(_NATIVE_WCHAR_T_DEFINED)
+
   typedef unsigned short WCHAR;
-#else
-  typedef wchar_t WCHAR;
-#endif
 
 #ifndef _NTDSBCLI_DEFINED
 #define NTDSBCLI_API __declspec(dllimport) _stdcall
