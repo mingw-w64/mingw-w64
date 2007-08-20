@@ -1,3 +1,8 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the w64 mingw-runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
 /*	This source code was extracted from the Q8 package created and placed
     in the PUBLIC DOMAIN by Doug Gwyn <gwyn@arl.mil>
     last edit:	1999/11/05	gwyn@arl.mil
