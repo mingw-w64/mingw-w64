@@ -1,3 +1,8 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the w64 mingw-runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
 /*
   Cephes Math Library Release 2.7:  May, 1998
   Copyright 1984, 1987, 1988, 1992, 1998 by Stephen L. Moshier

@@ -1,3 +1,8 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the w64 mingw-runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
 /* log gamma(x+2), -.5 < x < .5 */
 static const float B[] = {
  6.055172732649237E-004,

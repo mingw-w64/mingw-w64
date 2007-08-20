@@ -1,3 +1,8 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the w64 mingw-runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
 #include "fp_consts.h"
 
 const union _ieee_rep __QNANF = { __FLOAT_QNAN_REP };   
