@@ -1,3 +1,10 @@
+2007-08-21  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* stdargs.h: Remove spurious extra '#endif' in file.
+	Restore copyright notice.
+	* stdio.h, wchar.h: Define POSIX names for popen, pclose,
+	and pwopen.
+
 2007-08-16  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdlib.h: Corrected _sys_nerr and _sys_errlist declarations.

@@ -1,8 +1,3 @@
-/**
- * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
- */
 /* Copyright (C) 1989, 1997, 1998, 1999, 2000 Free Software Foundation, Inc.
 
 This file is part of GCC.
@@ -155,5 +150,4 @@ typedef __gnuc_va_list va_list;
 #define va_end _crt_va_end
 #endif
 
-#endif
 #endif

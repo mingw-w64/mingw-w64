@@ -1,3 +1,8 @@
+2007-08-21  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* dllmain.c: Remove deprecated reference to global
+	variable '_pRawDllMain'.
+
 2007-08-14  NightStrike  <nightstrike@gmail.com>
 
 	* Makefile: PR/1772766 remove unused DLLWRAP?.

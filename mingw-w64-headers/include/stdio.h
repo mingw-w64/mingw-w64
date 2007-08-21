@@ -195,6 +195,10 @@ extern "C" {
 #endif
   _CRTIMP int __cdecl _pclose(FILE *_File);
   _CRTIMP FILE *__cdecl _popen(const char *_Command,const char *_Mode);
+#if !defined(NO_OLDNAMES) && !defined(popen)
+#define popen	_popen
+#define pclose	_pclose
+#endif
   _CRTIMP int __cdecl printf(const char *_Format,...);
   _CRTIMP int __cdecl printf_s(const char *_Format,...);
   _CRTIMP int __cdecl putc(int _Ch,FILE *_File);
@@ -422,6 +426,9 @@ extern "C" {
   _CRTIMP void __cdecl _wperror(const wchar_t *_ErrMsg);
 #endif
   _CRTIMP FILE *__cdecl _wpopen(const wchar_t *_Command,const wchar_t *_Mode);
+#if !defined(NO_OLDNAMES) && !defined(wpopen)
+#define wpopen	_wpopen
+#endif
   _CRTIMP int __cdecl _wremove(const wchar_t *_Filename);
   _CRTIMP errno_t __cdecl _wtmpnam_s(wchar_t *_DstBuf,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wtmpnam(wchar_t *_Buffer);
