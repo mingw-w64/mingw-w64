@@ -191,7 +191,7 @@ Q8_OBJS = \
 	strtoimax.o strtoumax.o wcstoimax.o wcstoumax.o \
 	wmemchr.o wmemcmp.o wmemcpy.o wmemmove.o wmemset.o \
 	wctrans.o wctype.o wcrtomb.o wctob.o mbrtowc.o btowc.o seterrno.o \
-	sleep.o alarm.o getlogin.o gettimeofday.o wassert.o
+	sleep.o alarm.o getlogin.o gettimeofday.o wassert.o isblank.o iswblank.o
 
 STDLIB_OBJS = \
 	strtold.o wcstold.o
@@ -222,7 +222,7 @@ crt1.c crtdll.def \
 gccmain.c init.c install-sh jamfile mkinstalldirs \
 natstart.c gs_support.c atonexit.c \
 mthr.c mthr_init.c mthr_stub.c readme.txt \
-isascii.c iscsym.c iscsymf.c toascii.c \
+isascii.c iscsym.c iscsymf.c toascii.c isblank.c iswblank.c \
 strcasecmp.c strncasecmp.c wcscmpi.c \
 CRT_fp8.c CRT_fp10.c test_headers.c txtmode.c binmode.c pseudo-reloc.c \
 pseudo-reloc-list.c atonexit.c dllmain.c dllentry.c \
