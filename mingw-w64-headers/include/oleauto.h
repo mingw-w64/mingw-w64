@@ -650,10 +650,17 @@ WINOLEAUTAPI GetRecordInfoFromGuids(REFGUID rGuidTypeLib,ULONG uVerMajor,ULONG u
 WINOLEAUTAPI_(ULONG) OaBuildVersion(void);
 WINOLEAUTAPI_(void) ClearCustData(LPCUSTDATA pCustData);
 
+#if !defined(_FORCENAMELESSUNION) || defined(NONAMELESSUNION)
 #define V_UNION(X,Y) ((X)->n1.n2.n3.Y)
 #define V_VT(X) ((X)->n1.n2.vt)
 #define V_RECORDINFO(X) ((X)->n1.n2.n3.brecVal.pRecInfo)
 #define V_RECORD(X) ((X)->n1.n2.n3.brecVal.pvRecord)
+#else
+#define V_UNION(X,Y) ((X)->Y)   
+#define V_VT(X) ((X)->vt)   
+#define V_RECORDINFO(X) ((X)->pRecInfo)   
+#define V_RECORD(X) ((X)->pvRecord)   
+#endif   
 
 #define V_ISBYREF(X) (V_VT(X)&VT_BYREF)
 #define V_ISARRAY(X) (V_VT(X)&VT_ARRAY)

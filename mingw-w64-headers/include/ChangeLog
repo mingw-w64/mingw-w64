@@ -1,3 +1,8 @@
+2007-08-22  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* oleauto.h: Corrected use of NONAMELESSUNION and
+	_FORCENAMELESSUNION.
+
 2007-08-21  Kai Tietz  <kai.tietz@onevision.com>
 
 	* ctype.h: wchar.h: Add isblank () and iswblank ().
