@@ -1,3 +1,10 @@
+2007-08-23  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* math.h: For to use methods from libmingwex.a instead
+	of msvcrt.
+	* wchar.h: Likewise.
+	* wctype.h: Likewise.
+
 2007-08-22  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
 
 	* oleauto.h: Corrected use of NONAMELESSUNION and

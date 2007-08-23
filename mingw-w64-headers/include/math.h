@@ -104,7 +104,8 @@ extern "C" {
 
 #if(defined(_X86_) && !defined(__x86_64))
   _CRTIMP int __cdecl _set_SSE2_enable(int _Flag);
-  _CRTIMP float __cdecl _hypotf(float _X,float _Y);
+  /* from libmingwex */
+  float __cdecl _hypotf(float _X,float _Y);
 #endif
 
 #if defined(__ia64__)
@@ -134,33 +135,34 @@ extern "C" {
 #endif
 
 #if defined(__x86_64)
-  _CRTIMP float __cdecl acosf(float _X);
-  _CRTIMP float __cdecl asinf(float _X);
-  _CRTIMP float __cdecl atanf(float _X);
-  _CRTIMP float __cdecl atan2f(float _X,float _Y);
-  _CRTIMP float __cdecl cosf(float _X);
-  _CRTIMP float __cdecl sinf(float _X);
-  _CRTIMP float __cdecl tanf(float _X);
-  _CRTIMP float __cdecl coshf(float _X);
-  _CRTIMP float __cdecl sinhf(float _X);
-  _CRTIMP float __cdecl tanhf(float _X);
-  _CRTIMP float __cdecl expf(float _X);
-  _CRTIMP float __cdecl logf(float _X);
-  _CRTIMP float __cdecl log10f(float _X);
-  _CRTIMP float __cdecl modff(float _X,float *_Y);
-  _CRTIMP float __cdecl powf(float _X,float _Y);
-  _CRTIMP float __cdecl sqrtf(float _X);
-  _CRTIMP float __cdecl ceilf(float _X);
-  _CRTIMP float __cdecl floorf(float _X);
-  _CRTIMP float __cdecl fmodf(float _X,float _Y);
-  _CRTIMP float __cdecl _hypotf(float _X,float _Y);
-  _CRTIMP float __cdecl _copysignf (float _Number,float _Sign);
-  _CRTIMP float __cdecl _chgsignf (float _X);
-  _CRTIMP float __cdecl _logbf(float _X);
-  _CRTIMP float __cdecl _nextafterf(float _X,float _Y);
-  _CRTIMP int __cdecl _finitef(float _X);
-  _CRTIMP int __cdecl _isnanf(float _X);
-  _CRTIMP int __cdecl _fpclassf(float _X);
+   /* from libmingwex */
+   float __cdecl acosf(float _X);
+   float __cdecl asinf(float _X);
+   float __cdecl atanf(float _X);
+   float __cdecl atan2f(float _X,float _Y);
+   float __cdecl cosf(float _X);
+   float __cdecl sinf(float _X);
+   float __cdecl tanf(float _X);
+   float __cdecl coshf(float _X);
+   float __cdecl sinhf(float _X);
+   float __cdecl tanhf(float _X);
+   float __cdecl expf(float _X);
+   float __cdecl logf(float _X);
+   float __cdecl log10f(float _X);
+   float __cdecl modff(float _X,float *_Y);
+   float __cdecl powf(float _X,float _Y);
+   float __cdecl sqrtf(float _X);
+   float __cdecl ceilf(float _X);
+   float __cdecl floorf(float _X);
+   float __cdecl fmodf(float _X,float _Y);
+   float __cdecl _hypotf(float _X,float _Y);
+   float __cdecl _copysignf (float _Number,float _Sign);
+   float __cdecl _chgsignf (float _X);
+   float __cdecl _logbf(float _X);
+   float __cdecl _nextafterf(float _X,float _Y);
+   int __cdecl _finitef(float _X);
+   int __cdecl _isnanf(float _X);
+   int __cdecl _fpclassf(float _X);
 #endif
 
 #ifndef __cplusplus
