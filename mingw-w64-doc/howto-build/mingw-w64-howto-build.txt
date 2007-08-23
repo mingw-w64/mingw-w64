@@ -3,6 +3,7 @@ HowTo build x86_64-pc-mingw32 cross-compiler
 Date /		Version /	Author
 2007-07-31  	1.0		Kai Tietz <Kai.Tietz at onevision.com>
 2007-08-20	1.1		Kai Tietz <Kai.Tietz at onevision.com>
+2007-08-21	1.2		NightStrike <nightstrike at gmail.com>
 
 This document describes how to build the amd64 mingw32 gcc toolchain as a cross-compiler on cygwin and unix shells.
 
