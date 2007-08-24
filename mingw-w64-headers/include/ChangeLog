@@ -1,3 +1,8 @@
+2007-08-24  Kai Tietz  <kai.tietz@onevision.com>
+
+	* include: Removed dead link.
+	* _mingw.h, stddef.h: Prevent warning about double defined ptrdiff_t.
+
 2007-08-23  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
 
 	* math.h: For to use methods from libmingwex.a instead
