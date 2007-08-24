@@ -218,6 +218,8 @@ extern "C" {
 
 #ifndef _PTRDIFF_T_DEFINED
 #define _PTRDIFF_T_DEFINED
+/* for stddef.h sake. */
+#define _PTRDIFF_T_
 #ifdef _WIN64
   typedef __int64 ptrdiff_t;
 #else
