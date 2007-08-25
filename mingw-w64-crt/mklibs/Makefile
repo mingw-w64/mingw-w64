@@ -95,7 +95,7 @@ DISTFILES = $(DEF_FILES) $(SOURCES)
 .NOTPARALLEL:
 
 # targets
-all: $(LIBS) $(EXTRA_OBJS)
+all: $(EXTRA_OBJS) $(LIBS)
 
 %-subdirs:
 	for i in $(SUBDIRS); do \
