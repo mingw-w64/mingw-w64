@@ -1,3 +1,8 @@
+2007-09-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h: [PR/1782238] size_t not defined for 32bit
+	in _mingw.h.
+
 2007-08-24  Kai Tietz  <kai.tietz@onevision.com>
 
 	* include: Removed dead link.
