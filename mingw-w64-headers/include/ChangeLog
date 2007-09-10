@@ -2,6 +2,9 @@
 
 	* _mingw.h: [PR/1782238] size_t not defined for 32bit
 	in _mingw.h.
+	* stdlib.h: [PR/1781605] stdlib.h: 462: min redefined.
+	Additionally do the same thing for the max macro. We assume
+	that the crt version wins by default.
 
 2007-08-24  Kai Tietz  <kai.tietz@onevision.com>
 

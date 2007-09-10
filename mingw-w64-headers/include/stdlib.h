@@ -458,6 +458,12 @@ extern "C" {
 #ifndef _POSIX_
 #ifndef __cplusplus
 #ifndef NOMINMAX
+#ifdef max
+#undef max
+#endif
+#ifdef min
+#undef min
+#endif
 #define max(a,b) (((a) > (b)) ? (a) : (b))
 #define min(a,b) (((a) < (b)) ? (a) : (b))
 #endif
