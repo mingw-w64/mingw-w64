@@ -10,6 +10,8 @@ static const long double CBRT4  = 1.5874010519681994747517L;
 static const long double CBRT2I = 0.79370052598409973737585L;
 static const long double CBRT4I = 0.62996052494743658238361L;
 
+extern long double ldexpl(long double,int);
+
 long double cbrtl(x)
 long double x;
 {

@@ -1,3 +1,8 @@
+2007-08-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/cbrtl.c: [PR/1781604] Warning incompatible implicit declaration.
+	* math/erfl.c: [PR/1781602] Warning incompatible implicit declaration.
+
 2007-08-21  Kai Tietz  <kai.tietz@onevision.com>
 
 	* Makefile: Add isblank.c and iswblank.c.

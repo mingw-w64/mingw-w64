@@ -106,6 +106,8 @@ Copyright 1984, 1995 by Stephen L. Moshier
 #include <math.h>
 #include "cephes_mconf.h"
 
+long double erfl(long double x);
+
 /* erfc(x) = exp(-x^2) P(1/x)/Q(1/x)
    1/8 <= 1/x <= 1
    Peak relative error 5.8e-21  */
