@@ -1,3 +1,9 @@
+2007-08-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/cephes_emath.c: (__emdnorm): Work around
+	negation of unsigned short bug by using xor logic
+	PR/1792793.
+
 2007-08-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/cbrtl.c: [PR/1781604] Warning incompatible implicit declaration.

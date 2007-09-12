@@ -387,7 +387,7 @@ if( rndprc < NBITS )
 		++i;
 		}
 	}
-s[rw] &= ~rmsk;
+s[rw] &= (rmsk ^ 0xffff);
 if( (r & rmbit) != 0 )
 	{
 	if( r == rmbit )
@@ -437,7 +437,7 @@ overf:
 		s[i] = 0xffff;
 	s[NI-1] = 0;
 	if( (rndprc < 64) || (rndprc == 113) )
-		s[rw] &= ~rmsk;
+		s[rw] &= (rmsk ^ 0xffff);
 #endif
 	return;
 	}
