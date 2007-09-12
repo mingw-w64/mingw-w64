@@ -136,7 +136,7 @@ extern "C" {
 #define _doserrno (*__doserrno())
   errno_t __cdecl _set_doserrno(unsigned long _Value);
   errno_t __cdecl _get_doserrno(unsigned long *_Value);
-  _CRTIMP char *_sys_errlist[];
+  _CRTIMP char *_sys_errlist[1];
   _CRTIMP int _sys_nerr;
 #if (defined(_X86_) && !defined(__x86_64))
   _CRTIMP int *__cdecl __p___argc(void);

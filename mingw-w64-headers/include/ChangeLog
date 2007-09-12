@@ -1,3 +1,8 @@
+2007-09-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdlib.h: (_sys_errlist): Make default declaration having
+	one element to prevent warning. PR/1792077.
+
 2007-09-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw.h: [PR/1782238] size_t not defined for 32bit
