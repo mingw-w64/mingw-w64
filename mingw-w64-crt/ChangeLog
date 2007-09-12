@@ -3,6 +3,8 @@
 	* math/cephes_emath.c: (__emdnorm): Work around
 	negation of unsigned short bug by using xor logic
 	PR/1792793.
+	* tlssup.c: (__dyn_tls_init, __dyn_tls_dtor): Type
+	cast warnings PR/1792786.
 
 2007-08-10  Kai Tietz  <kai.tietz@onevision.com>
 
