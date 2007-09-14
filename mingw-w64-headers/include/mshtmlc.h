@@ -26802,407 +26802,225 @@ IHTMLStyle : public IDispatch {
 
 #ifndef __IHTMLScriptElement_INTERFACE_DEFINED__
 #define __IHTMLScriptElement_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLScriptElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLScriptElement : public IDispatch
-  {
+  struct IHTMLScriptElement : public IDispatch {
   public:
     virtual HRESULT WINAPI put_src(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_src(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_htmlFor(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_htmlFor(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_event(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_event(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_text(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_text(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_defer(VARIANT_BOOL v) = 0;
-
     virtual HRESULT WINAPI get_defer(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_readyState(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_onerror(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onerror(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_type(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_type(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLScriptElementVtbl
-  {
+  typedef struct IHTMLScriptElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLScriptElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLScriptElement *This);
-
       ULONG (WINAPI *Release)(IHTMLScriptElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLScriptElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLScriptElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLScriptElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLScriptElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_src)(IHTMLScriptElement *This,BSTR v);
-
       HRESULT (WINAPI *get_src)(IHTMLScriptElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_htmlFor)(IHTMLScriptElement *This,BSTR v);
-
       HRESULT (WINAPI *get_htmlFor)(IHTMLScriptElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_event)(IHTMLScriptElement *This,BSTR v);
-
       HRESULT (WINAPI *get_event)(IHTMLScriptElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_text)(IHTMLScriptElement *This,BSTR v);
-
       HRESULT (WINAPI *get_text)(IHTMLScriptElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_defer)(IHTMLScriptElement *This,VARIANT_BOOL v);
-
       HRESULT (WINAPI *get_defer)(IHTMLScriptElement *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_readyState)(IHTMLScriptElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_onerror)(IHTMLScriptElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_onerror)(IHTMLScriptElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_type)(IHTMLScriptElement *This,BSTR v);
-
       HRESULT (WINAPI *get_type)(IHTMLScriptElement *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLScriptElementVtbl;
-
-  interface IHTMLScriptElement
-  {
+  interface IHTMLScriptElement {
     CONST_VTBL struct IHTMLScriptElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLScriptElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLScriptElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLScriptElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLScriptElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLScriptElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLScriptElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLScriptElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLScriptElement_put_src(This,v) (This)->lpVtbl->put_src(This,v)
-
 #define IHTMLScriptElement_get_src(This,p) (This)->lpVtbl->get_src(This,p)
-
 #define IHTMLScriptElement_put_htmlFor(This,v) (This)->lpVtbl->put_htmlFor(This,v)
-
 #define IHTMLScriptElement_get_htmlFor(This,p) (This)->lpVtbl->get_htmlFor(This,p)
-
 #define IHTMLScriptElement_put_event(This,v) (This)->lpVtbl->put_event(This,v)
-
 #define IHTMLScriptElement_get_event(This,p) (This)->lpVtbl->get_event(This,p)
-
 #define IHTMLScriptElement_put_text(This,v) (This)->lpVtbl->put_text(This,v)
-
 #define IHTMLScriptElement_get_text(This,p) (This)->lpVtbl->get_text(This,p)
-
 #define IHTMLScriptElement_put_defer(This,v) (This)->lpVtbl->put_defer(This,v)
-
 #define IHTMLScriptElement_get_defer(This,p) (This)->lpVtbl->get_defer(This,p)
-
 #define IHTMLScriptElement_get_readyState(This,p) (This)->lpVtbl->get_readyState(This,p)
-
 #define IHTMLScriptElement_put_onerror(This,v) (This)->lpVtbl->put_onerror(This,v)
-
 #define IHTMLScriptElement_get_onerror(This,p) (This)->lpVtbl->get_onerror(This,p)
-
 #define IHTMLScriptElement_put_type(This,v) (This)->lpVtbl->put_type(This,v)
-
 #define IHTMLScriptElement_get_type(This,p) (This)->lpVtbl->get_type(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLScriptElement_put_src_Proxy(IHTMLScriptElement *This,BSTR v);
-
   void __RPC_STUB IHTMLScriptElement_put_src_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_get_src_Proxy(IHTMLScriptElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLScriptElement_get_src_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_put_htmlFor_Proxy(IHTMLScriptElement *This,BSTR v);
-
   void __RPC_STUB IHTMLScriptElement_put_htmlFor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_get_htmlFor_Proxy(IHTMLScriptElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLScriptElement_get_htmlFor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_put_event_Proxy(IHTMLScriptElement *This,BSTR v);
-
   void __RPC_STUB IHTMLScriptElement_put_event_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_get_event_Proxy(IHTMLScriptElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLScriptElement_get_event_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_put_text_Proxy(IHTMLScriptElement *This,BSTR v);
-
   void __RPC_STUB IHTMLScriptElement_put_text_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_get_text_Proxy(IHTMLScriptElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLScriptElement_get_text_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_put_defer_Proxy(IHTMLScriptElement *This,VARIANT_BOOL v);
-
   void __RPC_STUB IHTMLScriptElement_put_defer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_get_defer_Proxy(IHTMLScriptElement *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLScriptElement_get_defer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_get_readyState_Proxy(IHTMLScriptElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLScriptElement_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_put_onerror_Proxy(IHTMLScriptElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLScriptElement_put_onerror_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_get_onerror_Proxy(IHTMLScriptElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLScriptElement_get_onerror_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_put_type_Proxy(IHTMLScriptElement *This,BSTR v);
-
   void __RPC_STUB IHTMLScriptElement_put_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement_get_type_Proxy(IHTMLScriptElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLScriptElement_get_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLScriptElement2_INTERFACE_DEFINED__
 #define __IHTMLScriptElement2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLScriptElement2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLScriptElement2 : public IDispatch
-  {
+  struct IHTMLScriptElement2 : public IDispatch {
   public:
     virtual HRESULT WINAPI put_charset(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_charset(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLScriptElement2Vtbl
-  {
+  typedef struct IHTMLScriptElement2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLScriptElement2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLScriptElement2 *This);
-
       ULONG (WINAPI *Release)(IHTMLScriptElement2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLScriptElement2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLScriptElement2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLScriptElement2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLScriptElement2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_charset)(IHTMLScriptElement2 *This,BSTR v);
-
       HRESULT (WINAPI *get_charset)(IHTMLScriptElement2 *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLScriptElement2Vtbl;
-
-  interface IHTMLScriptElement2
-  {
+  interface IHTMLScriptElement2 {
     CONST_VTBL struct IHTMLScriptElement2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLScriptElement2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLScriptElement2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLScriptElement2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLScriptElement2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLScriptElement2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLScriptElement2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLScriptElement2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLScriptElement2_put_charset(This,v) (This)->lpVtbl->put_charset(This,v)
-
 #define IHTMLScriptElement2_get_charset(This,p) (This)->lpVtbl->get_charset(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLScriptElement2_put_charset_Proxy(IHTMLScriptElement2 *This,BSTR v);
-
   void __RPC_STUB IHTMLScriptElement2_put_charset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLScriptElement2_get_charset_Proxy(IHTMLScriptElement2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLScriptElement2_get_charset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLScriptElement_DISPINTERFACE_DEFINED__
 #define __DispHTMLScriptElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLScriptElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLScriptElement : public IDispatch
-  {
+  struct DispHTMLScriptElement : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLScriptElementVtbl
-  {
+  typedef struct DispHTMLScriptElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLScriptElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLScriptElement *This);
-
       ULONG (WINAPI *Release)(DispHTMLScriptElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLScriptElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLScriptElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLScriptElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLScriptElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLScriptElementVtbl;
-
-  interface DispHTMLScriptElement
-  {
+  interface DispHTMLScriptElement {
     CONST_VTBL struct DispHTMLScriptElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLScriptElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLScriptElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLScriptElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLScriptElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLScriptElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLScriptElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLScriptElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLScriptElement;
-
 #ifdef __cplusplus
-
   class HTMLScriptElement;
 #endif
 
 #ifndef __IHTMLNoShowElement_INTERFACE_DEFINED__
 #define __IHTMLNoShowElement_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLNoShowElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLNoShowElement : public IDispatch
-  {
-  public:
+  struct IHTMLNoShowElement : public IDispatch {
   };
 #else
-
-  typedef struct IHTMLNoShowElementVtbl
-  {
+  typedef struct IHTMLNoShowElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLNoShowElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLNoShowElement *This);
-
       ULONG (WINAPI *Release)(IHTMLNoShowElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLNoShowElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLNoShowElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLNoShowElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLNoShowElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } IHTMLNoShowElementVtbl;
-
-  interface IHTMLNoShowElement
-  {
+  interface IHTMLNoShowElement {
     CONST_VTBL struct IHTMLNoShowElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLNoShowElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLNoShowElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLNoShowElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLNoShowElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLNoShowElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLNoShowElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLNoShowElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
@@ -27210,120 +27028,70 @@ IHTMLStyle : public IDispatch {
 
 #ifndef __DispHTMLNoShowElement_DISPINTERFACE_DEFINED__
 #define __DispHTMLNoShowElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLNoShowElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLNoShowElement : public IDispatch
-  {
+  struct DispHTMLNoShowElement : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLNoShowElementVtbl
-  {
+  typedef struct DispHTMLNoShowElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLNoShowElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLNoShowElement *This);
-
       ULONG (WINAPI *Release)(DispHTMLNoShowElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLNoShowElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLNoShowElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLNoShowElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLNoShowElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLNoShowElementVtbl;
-
-  interface DispHTMLNoShowElement
-  {
+  interface DispHTMLNoShowElement {
     CONST_VTBL struct DispHTMLNoShowElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLNoShowElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLNoShowElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLNoShowElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLNoShowElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLNoShowElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLNoShowElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLNoShowElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLNoShowElement;
-
 #ifdef __cplusplus
-
   class HTMLNoShowElement;
 #endif
 
 #ifndef __HTMLObjectElementEvents2_DISPINTERFACE_DEFINED__
 #define __HTMLObjectElementEvents2_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_HTMLObjectElementEvents2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct HTMLObjectElementEvents2 : public IDispatch
-  {
+  struct HTMLObjectElementEvents2 : public IDispatch {
   };
 #else
-
-  typedef struct HTMLObjectElementEvents2Vtbl
-  {
+  typedef struct HTMLObjectElementEvents2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(HTMLObjectElementEvents2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(HTMLObjectElementEvents2 *This);
-
       ULONG (WINAPI *Release)(HTMLObjectElementEvents2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(HTMLObjectElementEvents2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(HTMLObjectElementEvents2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(HTMLObjectElementEvents2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(HTMLObjectElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } HTMLObjectElementEvents2Vtbl;
-
-  interface HTMLObjectElementEvents2
-  {
+  interface HTMLObjectElementEvents2 {
     CONST_VTBL struct HTMLObjectElementEvents2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define HTMLObjectElementEvents2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define HTMLObjectElementEvents2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define HTMLObjectElementEvents2_Release(This) (This)->lpVtbl->Release(This)
-
 #define HTMLObjectElementEvents2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define HTMLObjectElementEvents2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define HTMLObjectElementEvents2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define HTMLObjectElementEvents2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
@@ -27331,56 +27099,32 @@ IHTMLStyle : public IDispatch {
 
 #ifndef __HTMLObjectElementEvents_DISPINTERFACE_DEFINED__
 #define __HTMLObjectElementEvents_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_HTMLObjectElementEvents;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct HTMLObjectElementEvents : public IDispatch
-  {
+  struct HTMLObjectElementEvents : public IDispatch {
   };
 #else
-
-  typedef struct HTMLObjectElementEventsVtbl
-  {
+  typedef struct HTMLObjectElementEventsVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(HTMLObjectElementEvents *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(HTMLObjectElementEvents *This);
-
       ULONG (WINAPI *Release)(HTMLObjectElementEvents *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(HTMLObjectElementEvents *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(HTMLObjectElementEvents *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(HTMLObjectElementEvents *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(HTMLObjectElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } HTMLObjectElementEventsVtbl;
-
-  interface HTMLObjectElementEvents
-  {
+  interface HTMLObjectElementEvents {
     CONST_VTBL struct HTMLObjectElementEventsVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define HTMLObjectElementEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define HTMLObjectElementEvents_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define HTMLObjectElementEvents_Release(This) (This)->lpVtbl->Release(This)
-
 #define HTMLObjectElementEvents_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define HTMLObjectElementEvents_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define HTMLObjectElementEvents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define HTMLObjectElementEvents_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
@@ -27388,1006 +27132,543 @@ IHTMLStyle : public IDispatch {
 
 #ifndef __IHTMLObjectElement_INTERFACE_DEFINED__
 #define __IHTMLObjectElement_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLObjectElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLObjectElement : public IDispatch
-  {
+  struct IHTMLObjectElement : public IDispatch {
   public:
     virtual HRESULT WINAPI get_object(IDispatch **p) = 0;
-
     virtual HRESULT WINAPI get_classid(BSTR *p) = 0;
-
     virtual HRESULT WINAPI get_data(BSTR *p) = 0;
-
     virtual HRESULT WINAPI putref_recordset(IDispatch *v) = 0;
-
     virtual HRESULT WINAPI get_recordset(IDispatch **p) = 0;
-
     virtual HRESULT WINAPI put_align(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_align(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_name(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_name(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_codeBase(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_codeBase(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_codeType(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_codeType(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_code(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_code(BSTR *p) = 0;
-
     virtual HRESULT WINAPI get_BaseHref(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_type(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_type(BSTR *p) = 0;
-
     virtual HRESULT WINAPI get_form(IHTMLFormElement **p) = 0;
-
     virtual HRESULT WINAPI put_width(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_width(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_height(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_height(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI get_readyState(long *p) = 0;
-
     virtual HRESULT WINAPI put_onreadystatechange(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onreadystatechange(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_onerror(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onerror(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_altHtml(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_altHtml(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_vspace(long v) = 0;
-
     virtual HRESULT WINAPI get_vspace(long *p) = 0;
-
     virtual HRESULT WINAPI put_hspace(long v) = 0;
-
     virtual HRESULT WINAPI get_hspace(long *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLObjectElementVtbl
-  {
+  typedef struct IHTMLObjectElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLObjectElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLObjectElement *This);
-
       ULONG (WINAPI *Release)(IHTMLObjectElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLObjectElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLObjectElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLObjectElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLObjectElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_object)(IHTMLObjectElement *This,IDispatch **p);
-
       HRESULT (WINAPI *get_classid)(IHTMLObjectElement *This,BSTR *p);
-
       HRESULT (WINAPI *get_data)(IHTMLObjectElement *This,BSTR *p);
-
       HRESULT (WINAPI *putref_recordset)(IHTMLObjectElement *This,IDispatch *v);
-
       HRESULT (WINAPI *get_recordset)(IHTMLObjectElement *This,IDispatch **p);
-
       HRESULT (WINAPI *put_align)(IHTMLObjectElement *This,BSTR v);
-
       HRESULT (WINAPI *get_align)(IHTMLObjectElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_name)(IHTMLObjectElement *This,BSTR v);
-
       HRESULT (WINAPI *get_name)(IHTMLObjectElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_codeBase)(IHTMLObjectElement *This,BSTR v);
-
       HRESULT (WINAPI *get_codeBase)(IHTMLObjectElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_codeType)(IHTMLObjectElement *This,BSTR v);
-
       HRESULT (WINAPI *get_codeType)(IHTMLObjectElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_code)(IHTMLObjectElement *This,BSTR v);
-
       HRESULT (WINAPI *get_code)(IHTMLObjectElement *This,BSTR *p);
-
       HRESULT (WINAPI *get_BaseHref)(IHTMLObjectElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_type)(IHTMLObjectElement *This,BSTR v);
-
       HRESULT (WINAPI *get_type)(IHTMLObjectElement *This,BSTR *p);
-
       HRESULT (WINAPI *get_form)(IHTMLObjectElement *This,IHTMLFormElement **p);
-
       HRESULT (WINAPI *put_width)(IHTMLObjectElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_width)(IHTMLObjectElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_height)(IHTMLObjectElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_height)(IHTMLObjectElement *This,VARIANT *p);
-
       HRESULT (WINAPI *get_readyState)(IHTMLObjectElement *This,long *p);
-
       HRESULT (WINAPI *put_onreadystatechange)(IHTMLObjectElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_onreadystatechange)(IHTMLObjectElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_onerror)(IHTMLObjectElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_onerror)(IHTMLObjectElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_altHtml)(IHTMLObjectElement *This,BSTR v);
-
       HRESULT (WINAPI *get_altHtml)(IHTMLObjectElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_vspace)(IHTMLObjectElement *This,long v);
-
       HRESULT (WINAPI *get_vspace)(IHTMLObjectElement *This,long *p);
-
       HRESULT (WINAPI *put_hspace)(IHTMLObjectElement *This,long v);
-
       HRESULT (WINAPI *get_hspace)(IHTMLObjectElement *This,long *p);
-
     END_INTERFACE
   } IHTMLObjectElementVtbl;
-
-  interface IHTMLObjectElement
-  {
+  interface IHTMLObjectElement {
     CONST_VTBL struct IHTMLObjectElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLObjectElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLObjectElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLObjectElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLObjectElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLObjectElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLObjectElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLObjectElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLObjectElement_get_object(This,p) (This)->lpVtbl->get_object(This,p)
-
 #define IHTMLObjectElement_get_classid(This,p) (This)->lpVtbl->get_classid(This,p)
-
 #define IHTMLObjectElement_get_data(This,p) (This)->lpVtbl->get_data(This,p)
-
 #define IHTMLObjectElement_putref_recordset(This,v) (This)->lpVtbl->putref_recordset(This,v)
-
 #define IHTMLObjectElement_get_recordset(This,p) (This)->lpVtbl->get_recordset(This,p)
-
 #define IHTMLObjectElement_put_align(This,v) (This)->lpVtbl->put_align(This,v)
-
 #define IHTMLObjectElement_get_align(This,p) (This)->lpVtbl->get_align(This,p)
-
 #define IHTMLObjectElement_put_name(This,v) (This)->lpVtbl->put_name(This,v)
-
 #define IHTMLObjectElement_get_name(This,p) (This)->lpVtbl->get_name(This,p)
-
 #define IHTMLObjectElement_put_codeBase(This,v) (This)->lpVtbl->put_codeBase(This,v)
-
 #define IHTMLObjectElement_get_codeBase(This,p) (This)->lpVtbl->get_codeBase(This,p)
-
 #define IHTMLObjectElement_put_codeType(This,v) (This)->lpVtbl->put_codeType(This,v)
-
 #define IHTMLObjectElement_get_codeType(This,p) (This)->lpVtbl->get_codeType(This,p)
-
 #define IHTMLObjectElement_put_code(This,v) (This)->lpVtbl->put_code(This,v)
-
 #define IHTMLObjectElement_get_code(This,p) (This)->lpVtbl->get_code(This,p)
-
 #define IHTMLObjectElement_get_BaseHref(This,p) (This)->lpVtbl->get_BaseHref(This,p)
-
 #define IHTMLObjectElement_put_type(This,v) (This)->lpVtbl->put_type(This,v)
-
 #define IHTMLObjectElement_get_type(This,p) (This)->lpVtbl->get_type(This,p)
-
 #define IHTMLObjectElement_get_form(This,p) (This)->lpVtbl->get_form(This,p)
-
 #define IHTMLObjectElement_put_width(This,v) (This)->lpVtbl->put_width(This,v)
-
 #define IHTMLObjectElement_get_width(This,p) (This)->lpVtbl->get_width(This,p)
-
 #define IHTMLObjectElement_put_height(This,v) (This)->lpVtbl->put_height(This,v)
-
 #define IHTMLObjectElement_get_height(This,p) (This)->lpVtbl->get_height(This,p)
-
 #define IHTMLObjectElement_get_readyState(This,p) (This)->lpVtbl->get_readyState(This,p)
-
 #define IHTMLObjectElement_put_onreadystatechange(This,v) (This)->lpVtbl->put_onreadystatechange(This,v)
-
 #define IHTMLObjectElement_get_onreadystatechange(This,p) (This)->lpVtbl->get_onreadystatechange(This,p)
-
 #define IHTMLObjectElement_put_onerror(This,v) (This)->lpVtbl->put_onerror(This,v)
-
 #define IHTMLObjectElement_get_onerror(This,p) (This)->lpVtbl->get_onerror(This,p)
-
 #define IHTMLObjectElement_put_altHtml(This,v) (This)->lpVtbl->put_altHtml(This,v)
-
 #define IHTMLObjectElement_get_altHtml(This,p) (This)->lpVtbl->get_altHtml(This,p)
-
 #define IHTMLObjectElement_put_vspace(This,v) (This)->lpVtbl->put_vspace(This,v)
-
 #define IHTMLObjectElement_get_vspace(This,p) (This)->lpVtbl->get_vspace(This,p)
-
 #define IHTMLObjectElement_put_hspace(This,v) (This)->lpVtbl->put_hspace(This,v)
-
 #define IHTMLObjectElement_get_hspace(This,p) (This)->lpVtbl->get_hspace(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLObjectElement_get_object_Proxy(IHTMLObjectElement *This,IDispatch **p);
-
   void __RPC_STUB IHTMLObjectElement_get_object_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_classid_Proxy(IHTMLObjectElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement_get_classid_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_data_Proxy(IHTMLObjectElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement_get_data_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_putref_recordset_Proxy(IHTMLObjectElement *This,IDispatch *v);
-
   void __RPC_STUB IHTMLObjectElement_putref_recordset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_recordset_Proxy(IHTMLObjectElement *This,IDispatch **p);
-
   void __RPC_STUB IHTMLObjectElement_get_recordset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_align_Proxy(IHTMLObjectElement *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement_put_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_align_Proxy(IHTMLObjectElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement_get_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_name_Proxy(IHTMLObjectElement *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement_put_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_name_Proxy(IHTMLObjectElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement_get_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_codeBase_Proxy(IHTMLObjectElement *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement_put_codeBase_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_codeBase_Proxy(IHTMLObjectElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement_get_codeBase_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_codeType_Proxy(IHTMLObjectElement *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement_put_codeType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_codeType_Proxy(IHTMLObjectElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement_get_codeType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_code_Proxy(IHTMLObjectElement *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement_put_code_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_code_Proxy(IHTMLObjectElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement_get_code_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_BaseHref_Proxy(IHTMLObjectElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement_get_BaseHref_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_type_Proxy(IHTMLObjectElement *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement_put_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_type_Proxy(IHTMLObjectElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement_get_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_form_Proxy(IHTMLObjectElement *This,IHTMLFormElement **p);
-
   void __RPC_STUB IHTMLObjectElement_get_form_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_width_Proxy(IHTMLObjectElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLObjectElement_put_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_width_Proxy(IHTMLObjectElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLObjectElement_get_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_height_Proxy(IHTMLObjectElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLObjectElement_put_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_height_Proxy(IHTMLObjectElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLObjectElement_get_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_readyState_Proxy(IHTMLObjectElement *This,long *p);
-
   void __RPC_STUB IHTMLObjectElement_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_onreadystatechange_Proxy(IHTMLObjectElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLObjectElement_put_onreadystatechange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_onreadystatechange_Proxy(IHTMLObjectElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLObjectElement_get_onreadystatechange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_onerror_Proxy(IHTMLObjectElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLObjectElement_put_onerror_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_onerror_Proxy(IHTMLObjectElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLObjectElement_get_onerror_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_altHtml_Proxy(IHTMLObjectElement *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement_put_altHtml_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_altHtml_Proxy(IHTMLObjectElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement_get_altHtml_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_vspace_Proxy(IHTMLObjectElement *This,long v);
-
   void __RPC_STUB IHTMLObjectElement_put_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_vspace_Proxy(IHTMLObjectElement *This,long *p);
-
   void __RPC_STUB IHTMLObjectElement_get_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_put_hspace_Proxy(IHTMLObjectElement *This,long v);
-
   void __RPC_STUB IHTMLObjectElement_put_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement_get_hspace_Proxy(IHTMLObjectElement *This,long *p);
-
   void __RPC_STUB IHTMLObjectElement_get_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLObjectElement2_INTERFACE_DEFINED__
 #define __IHTMLObjectElement2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLObjectElement2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLObjectElement2 : public IDispatch
-  {
+  struct IHTMLObjectElement2 : public IDispatch {
   public:
     virtual HRESULT WINAPI namedRecordset(BSTR dataMember,VARIANT *hierarchy,IDispatch **ppRecordset) = 0;
-
     virtual HRESULT WINAPI put_classid(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_classid(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_data(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_data(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLObjectElement2Vtbl
-  {
+  typedef struct IHTMLObjectElement2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLObjectElement2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLObjectElement2 *This);
-
       ULONG (WINAPI *Release)(IHTMLObjectElement2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLObjectElement2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLObjectElement2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLObjectElement2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLObjectElement2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *namedRecordset)(IHTMLObjectElement2 *This,BSTR dataMember,VARIANT *hierarchy,IDispatch **ppRecordset);
-
       HRESULT (WINAPI *put_classid)(IHTMLObjectElement2 *This,BSTR v);
-
       HRESULT (WINAPI *get_classid)(IHTMLObjectElement2 *This,BSTR *p);
-
       HRESULT (WINAPI *put_data)(IHTMLObjectElement2 *This,BSTR v);
-
       HRESULT (WINAPI *get_data)(IHTMLObjectElement2 *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLObjectElement2Vtbl;
-
-  interface IHTMLObjectElement2
-  {
+  interface IHTMLObjectElement2 {
     CONST_VTBL struct IHTMLObjectElement2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLObjectElement2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLObjectElement2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLObjectElement2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLObjectElement2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLObjectElement2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLObjectElement2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLObjectElement2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLObjectElement2_namedRecordset(This,dataMember,hierarchy,ppRecordset) (This)->lpVtbl->namedRecordset(This,dataMember,hierarchy,ppRecordset)
-
 #define IHTMLObjectElement2_put_classid(This,v) (This)->lpVtbl->put_classid(This,v)
-
 #define IHTMLObjectElement2_get_classid(This,p) (This)->lpVtbl->get_classid(This,p)
-
 #define IHTMLObjectElement2_put_data(This,v) (This)->lpVtbl->put_data(This,v)
-
 #define IHTMLObjectElement2_get_data(This,p) (This)->lpVtbl->get_data(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLObjectElement2_namedRecordset_Proxy(IHTMLObjectElement2 *This,BSTR dataMember,VARIANT *hierarchy,IDispatch **ppRecordset);
-
   void __RPC_STUB IHTMLObjectElement2_namedRecordset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement2_put_classid_Proxy(IHTMLObjectElement2 *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement2_put_classid_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement2_get_classid_Proxy(IHTMLObjectElement2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement2_get_classid_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement2_put_data_Proxy(IHTMLObjectElement2 *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement2_put_data_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement2_get_data_Proxy(IHTMLObjectElement2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement2_get_data_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLObjectElement3_INTERFACE_DEFINED__
 #define __IHTMLObjectElement3_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLObjectElement3;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLObjectElement3 : public IDispatch
-  {
+  struct IHTMLObjectElement3 : public IDispatch {
   public:
     virtual HRESULT WINAPI put_archive(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_archive(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_alt(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_alt(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_declare(VARIANT_BOOL v) = 0;
-
     virtual HRESULT WINAPI get_declare(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI put_standby(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_standby(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_border(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_border(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_useMap(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_useMap(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLObjectElement3Vtbl
-  {
+  typedef struct IHTMLObjectElement3Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLObjectElement3 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLObjectElement3 *This);
-
       ULONG (WINAPI *Release)(IHTMLObjectElement3 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLObjectElement3 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLObjectElement3 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLObjectElement3 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLObjectElement3 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_archive)(IHTMLObjectElement3 *This,BSTR v);
-
       HRESULT (WINAPI *get_archive)(IHTMLObjectElement3 *This,BSTR *p);
-
       HRESULT (WINAPI *put_alt)(IHTMLObjectElement3 *This,BSTR v);
-
       HRESULT (WINAPI *get_alt)(IHTMLObjectElement3 *This,BSTR *p);
-
       HRESULT (WINAPI *put_declare)(IHTMLObjectElement3 *This,VARIANT_BOOL v);
-
       HRESULT (WINAPI *get_declare)(IHTMLObjectElement3 *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *put_standby)(IHTMLObjectElement3 *This,BSTR v);
-
       HRESULT (WINAPI *get_standby)(IHTMLObjectElement3 *This,BSTR *p);
-
       HRESULT (WINAPI *put_border)(IHTMLObjectElement3 *This,VARIANT v);
-
       HRESULT (WINAPI *get_border)(IHTMLObjectElement3 *This,VARIANT *p);
-
       HRESULT (WINAPI *put_useMap)(IHTMLObjectElement3 *This,BSTR v);
-
       HRESULT (WINAPI *get_useMap)(IHTMLObjectElement3 *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLObjectElement3Vtbl;
-
-  interface IHTMLObjectElement3
-  {
+  interface IHTMLObjectElement3 {
     CONST_VTBL struct IHTMLObjectElement3Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLObjectElement3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLObjectElement3_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLObjectElement3_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLObjectElement3_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLObjectElement3_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLObjectElement3_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLObjectElement3_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLObjectElement3_put_archive(This,v) (This)->lpVtbl->put_archive(This,v)
-
 #define IHTMLObjectElement3_get_archive(This,p) (This)->lpVtbl->get_archive(This,p)
-
 #define IHTMLObjectElement3_put_alt(This,v) (This)->lpVtbl->put_alt(This,v)
-
 #define IHTMLObjectElement3_get_alt(This,p) (This)->lpVtbl->get_alt(This,p)
-
 #define IHTMLObjectElement3_put_declare(This,v) (This)->lpVtbl->put_declare(This,v)
-
 #define IHTMLObjectElement3_get_declare(This,p) (This)->lpVtbl->get_declare(This,p)
-
 #define IHTMLObjectElement3_put_standby(This,v) (This)->lpVtbl->put_standby(This,v)
-
 #define IHTMLObjectElement3_get_standby(This,p) (This)->lpVtbl->get_standby(This,p)
-
 #define IHTMLObjectElement3_put_border(This,v) (This)->lpVtbl->put_border(This,v)
-
 #define IHTMLObjectElement3_get_border(This,p) (This)->lpVtbl->get_border(This,p)
-
 #define IHTMLObjectElement3_put_useMap(This,v) (This)->lpVtbl->put_useMap(This,v)
-
 #define IHTMLObjectElement3_get_useMap(This,p) (This)->lpVtbl->get_useMap(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLObjectElement3_put_archive_Proxy(IHTMLObjectElement3 *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement3_put_archive_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_get_archive_Proxy(IHTMLObjectElement3 *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement3_get_archive_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_put_alt_Proxy(IHTMLObjectElement3 *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement3_put_alt_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_get_alt_Proxy(IHTMLObjectElement3 *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement3_get_alt_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_put_declare_Proxy(IHTMLObjectElement3 *This,VARIANT_BOOL v);
-
   void __RPC_STUB IHTMLObjectElement3_put_declare_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_get_declare_Proxy(IHTMLObjectElement3 *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLObjectElement3_get_declare_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_put_standby_Proxy(IHTMLObjectElement3 *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement3_put_standby_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_get_standby_Proxy(IHTMLObjectElement3 *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement3_get_standby_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_put_border_Proxy(IHTMLObjectElement3 *This,VARIANT v);
-
   void __RPC_STUB IHTMLObjectElement3_put_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_get_border_Proxy(IHTMLObjectElement3 *This,VARIANT *p);
-
   void __RPC_STUB IHTMLObjectElement3_get_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_put_useMap_Proxy(IHTMLObjectElement3 *This,BSTR v);
-
   void __RPC_STUB IHTMLObjectElement3_put_useMap_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLObjectElement3_get_useMap_Proxy(IHTMLObjectElement3 *This,BSTR *p);
-
   void __RPC_STUB IHTMLObjectElement3_get_useMap_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLParamElement_INTERFACE_DEFINED__
 #define __IHTMLParamElement_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLParamElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLParamElement : public IDispatch
-  {
+  struct IHTMLParamElement : public IDispatch {
   public:
     virtual HRESULT WINAPI put_name(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_name(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_value(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_value(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_type(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_type(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_valueType(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_valueType(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLParamElementVtbl
-  {
+  typedef struct IHTMLParamElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLParamElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLParamElement *This);
-
       ULONG (WINAPI *Release)(IHTMLParamElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLParamElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLParamElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLParamElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLParamElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_name)(IHTMLParamElement *This,BSTR v);
-
       HRESULT (WINAPI *get_name)(IHTMLParamElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_value)(IHTMLParamElement *This,BSTR v);
-
       HRESULT (WINAPI *get_value)(IHTMLParamElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_type)(IHTMLParamElement *This,BSTR v);
-
       HRESULT (WINAPI *get_type)(IHTMLParamElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_valueType)(IHTMLParamElement *This,BSTR v);
-
       HRESULT (WINAPI *get_valueType)(IHTMLParamElement *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLParamElementVtbl;
-
-  interface IHTMLParamElement
-  {
+  interface IHTMLParamElement {
     CONST_VTBL struct IHTMLParamElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLParamElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLParamElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLParamElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLParamElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLParamElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLParamElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLParamElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLParamElement_put_name(This,v) (This)->lpVtbl->put_name(This,v)
-
 #define IHTMLParamElement_get_name(This,p) (This)->lpVtbl->get_name(This,p)
-
 #define IHTMLParamElement_put_value(This,v) (This)->lpVtbl->put_value(This,v)
-
 #define IHTMLParamElement_get_value(This,p) (This)->lpVtbl->get_value(This,p)
-
 #define IHTMLParamElement_put_type(This,v) (This)->lpVtbl->put_type(This,v)
-
 #define IHTMLParamElement_get_type(This,p) (This)->lpVtbl->get_type(This,p)
-
 #define IHTMLParamElement_put_valueType(This,v) (This)->lpVtbl->put_valueType(This,v)
-
 #define IHTMLParamElement_get_valueType(This,p) (This)->lpVtbl->get_valueType(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLParamElement_put_name_Proxy(IHTMLParamElement *This,BSTR v);
-
   void __RPC_STUB IHTMLParamElement_put_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLParamElement_get_name_Proxy(IHTMLParamElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLParamElement_get_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLParamElement_put_value_Proxy(IHTMLParamElement *This,BSTR v);
-
   void __RPC_STUB IHTMLParamElement_put_value_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLParamElement_get_value_Proxy(IHTMLParamElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLParamElement_get_value_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLParamElement_put_type_Proxy(IHTMLParamElement *This,BSTR v);
-
   void __RPC_STUB IHTMLParamElement_put_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLParamElement_get_type_Proxy(IHTMLParamElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLParamElement_get_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLParamElement_put_valueType_Proxy(IHTMLParamElement *This,BSTR v);
-
   void __RPC_STUB IHTMLParamElement_put_valueType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLParamElement_get_valueType_Proxy(IHTMLParamElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLParamElement_get_valueType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLObjectElement_DISPINTERFACE_DEFINED__
 #define __DispHTMLObjectElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLObjectElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLObjectElement : public IDispatch
-  {
+  struct DispHTMLObjectElement : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLObjectElementVtbl
-  {
+  typedef struct DispHTMLObjectElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLObjectElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLObjectElement *This);
-
       ULONG (WINAPI *Release)(DispHTMLObjectElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLObjectElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLObjectElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLObjectElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLObjectElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLObjectElementVtbl;
-
-  interface DispHTMLObjectElement
-  {
+  interface DispHTMLObjectElement {
     CONST_VTBL struct DispHTMLObjectElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLObjectElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLObjectElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLObjectElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLObjectElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLObjectElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLObjectElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLObjectElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLObjectElement;
-
 #ifdef __cplusplus
-
   class HTMLObjectElement;
 #endif
 
 #ifndef __DispHTMLParamElement_DISPINTERFACE_DEFINED__
 #define __DispHTMLParamElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLParamElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLParamElement : public IDispatch
-  {
+  struct DispHTMLParamElement : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLParamElementVtbl
-  {
+  typedef struct DispHTMLParamElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLParamElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLParamElement *This);
-
       ULONG (WINAPI *Release)(DispHTMLParamElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLParamElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLParamElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLParamElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLParamElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLParamElementVtbl;
-
-  interface DispHTMLParamElement
-  {
+  interface DispHTMLParamElement {
     CONST_VTBL struct DispHTMLParamElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLParamElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLParamElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLParamElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLParamElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLParamElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLParamElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLParamElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLParamElement;
-
 #ifdef __cplusplus
-
   class HTMLParamElement;
 #endif
 
 #ifndef __HTMLFrameSiteEvents2_DISPINTERFACE_DEFINED__
 #define __HTMLFrameSiteEvents2_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_HTMLFrameSiteEvents2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct HTMLFrameSiteEvents2 : public IDispatch
-  {
+  struct HTMLFrameSiteEvents2 : public IDispatch {
   };
 #else
-
-  typedef struct HTMLFrameSiteEvents2Vtbl
-  {
+  typedef struct HTMLFrameSiteEvents2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(HTMLFrameSiteEvents2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(HTMLFrameSiteEvents2 *This);
-
       ULONG (WINAPI *Release)(HTMLFrameSiteEvents2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(HTMLFrameSiteEvents2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(HTMLFrameSiteEvents2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(HTMLFrameSiteEvents2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(HTMLFrameSiteEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } HTMLFrameSiteEvents2Vtbl;
-
-  interface HTMLFrameSiteEvents2
-  {
+  interface HTMLFrameSiteEvents2 {
     CONST_VTBL struct HTMLFrameSiteEvents2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define HTMLFrameSiteEvents2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define HTMLFrameSiteEvents2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define HTMLFrameSiteEvents2_Release(This) (This)->lpVtbl->Release(This)
-
 #define HTMLFrameSiteEvents2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define HTMLFrameSiteEvents2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define HTMLFrameSiteEvents2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define HTMLFrameSiteEvents2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
@@ -28395,56 +27676,32 @@ IHTMLStyle : public IDispatch {
 
 #ifndef __HTMLFrameSiteEvents_DISPINTERFACE_DEFINED__
 #define __HTMLFrameSiteEvents_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_HTMLFrameSiteEvents;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct HTMLFrameSiteEvents : public IDispatch
-  {
+  struct HTMLFrameSiteEvents : public IDispatch {
   };
 #else
-
-  typedef struct HTMLFrameSiteEventsVtbl
-  {
+  typedef struct HTMLFrameSiteEventsVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(HTMLFrameSiteEvents *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(HTMLFrameSiteEvents *This);
-
       ULONG (WINAPI *Release)(HTMLFrameSiteEvents *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(HTMLFrameSiteEvents *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(HTMLFrameSiteEvents *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(HTMLFrameSiteEvents *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(HTMLFrameSiteEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } HTMLFrameSiteEventsVtbl;
-
-  interface HTMLFrameSiteEvents
-  {
+  interface HTMLFrameSiteEvents {
     CONST_VTBL struct HTMLFrameSiteEventsVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define HTMLFrameSiteEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define HTMLFrameSiteEvents_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define HTMLFrameSiteEvents_Release(This) (This)->lpVtbl->Release(This)
-
 #define HTMLFrameSiteEvents_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define HTMLFrameSiteEvents_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define HTMLFrameSiteEvents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define HTMLFrameSiteEvents_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
@@ -28452,2696 +27709,1515 @@ IHTMLStyle : public IDispatch {
 
 #ifndef __IHTMLFrameBase2_INTERFACE_DEFINED__
 #define __IHTMLFrameBase2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLFrameBase2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLFrameBase2 : public IDispatch
-  {
+  struct IHTMLFrameBase2 : public IDispatch {
   public:
     virtual HRESULT WINAPI get_contentWindow(IHTMLWindow2 **p) = 0;
-
     virtual HRESULT WINAPI put_onload(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onload(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_onreadystatechange(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onreadystatechange(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI get_readyState(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_allowTransparency(VARIANT_BOOL v) = 0;
-
     virtual HRESULT WINAPI get_allowTransparency(VARIANT_BOOL *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLFrameBase2Vtbl
-  {
+  typedef struct IHTMLFrameBase2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLFrameBase2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLFrameBase2 *This);
-
       ULONG (WINAPI *Release)(IHTMLFrameBase2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLFrameBase2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFrameBase2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFrameBase2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLFrameBase2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_contentWindow)(IHTMLFrameBase2 *This,IHTMLWindow2 **p);
-
       HRESULT (WINAPI *put_onload)(IHTMLFrameBase2 *This,VARIANT v);
-
       HRESULT (WINAPI *get_onload)(IHTMLFrameBase2 *This,VARIANT *p);
-
       HRESULT (WINAPI *put_onreadystatechange)(IHTMLFrameBase2 *This,VARIANT v);
-
       HRESULT (WINAPI *get_onreadystatechange)(IHTMLFrameBase2 *This,VARIANT *p);
-
       HRESULT (WINAPI *get_readyState)(IHTMLFrameBase2 *This,BSTR *p);
-
       HRESULT (WINAPI *put_allowTransparency)(IHTMLFrameBase2 *This,VARIANT_BOOL v);
-
       HRESULT (WINAPI *get_allowTransparency)(IHTMLFrameBase2 *This,VARIANT_BOOL *p);
-
     END_INTERFACE
   } IHTMLFrameBase2Vtbl;
-
-  interface IHTMLFrameBase2
-  {
+  interface IHTMLFrameBase2 {
     CONST_VTBL struct IHTMLFrameBase2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLFrameBase2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLFrameBase2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLFrameBase2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLFrameBase2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLFrameBase2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLFrameBase2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLFrameBase2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLFrameBase2_get_contentWindow(This,p) (This)->lpVtbl->get_contentWindow(This,p)
-
 #define IHTMLFrameBase2_put_onload(This,v) (This)->lpVtbl->put_onload(This,v)
-
 #define IHTMLFrameBase2_get_onload(This,p) (This)->lpVtbl->get_onload(This,p)
-
 #define IHTMLFrameBase2_put_onreadystatechange(This,v) (This)->lpVtbl->put_onreadystatechange(This,v)
-
 #define IHTMLFrameBase2_get_onreadystatechange(This,p) (This)->lpVtbl->get_onreadystatechange(This,p)
-
 #define IHTMLFrameBase2_get_readyState(This,p) (This)->lpVtbl->get_readyState(This,p)
-
 #define IHTMLFrameBase2_put_allowTransparency(This,v) (This)->lpVtbl->put_allowTransparency(This,v)
-
 #define IHTMLFrameBase2_get_allowTransparency(This,p) (This)->lpVtbl->get_allowTransparency(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLFrameBase2_get_contentWindow_Proxy(IHTMLFrameBase2 *This,IHTMLWindow2 **p);
-
   void __RPC_STUB IHTMLFrameBase2_get_contentWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameBase2_put_onload_Proxy(IHTMLFrameBase2 *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameBase2_put_onload_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameBase2_get_onload_Proxy(IHTMLFrameBase2 *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameBase2_get_onload_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameBase2_put_onreadystatechange_Proxy(IHTMLFrameBase2 *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameBase2_put_onreadystatechange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameBase2_get_onreadystatechange_Proxy(IHTMLFrameBase2 *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameBase2_get_onreadystatechange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameBase2_get_readyState_Proxy(IHTMLFrameBase2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLFrameBase2_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameBase2_put_allowTransparency_Proxy(IHTMLFrameBase2 *This,VARIANT_BOOL v);
-
   void __RPC_STUB IHTMLFrameBase2_put_allowTransparency_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameBase2_get_allowTransparency_Proxy(IHTMLFrameBase2 *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLFrameBase2_get_allowTransparency_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLFrameBase3_INTERFACE_DEFINED__
 #define __IHTMLFrameBase3_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLFrameBase3;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLFrameBase3 : public IDispatch
-  {
+  struct IHTMLFrameBase3 : public IDispatch {
   public:
     virtual HRESULT WINAPI put_longDesc(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_longDesc(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLFrameBase3Vtbl
-  {
+  typedef struct IHTMLFrameBase3Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLFrameBase3 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLFrameBase3 *This);
-
       ULONG (WINAPI *Release)(IHTMLFrameBase3 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLFrameBase3 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFrameBase3 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFrameBase3 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLFrameBase3 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_longDesc)(IHTMLFrameBase3 *This,BSTR v);
-
       HRESULT (WINAPI *get_longDesc)(IHTMLFrameBase3 *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLFrameBase3Vtbl;
-
-  interface IHTMLFrameBase3
-  {
+  interface IHTMLFrameBase3 {
     CONST_VTBL struct IHTMLFrameBase3Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLFrameBase3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLFrameBase3_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLFrameBase3_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLFrameBase3_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLFrameBase3_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLFrameBase3_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLFrameBase3_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLFrameBase3_put_longDesc(This,v) (This)->lpVtbl->put_longDesc(This,v)
-
 #define IHTMLFrameBase3_get_longDesc(This,p) (This)->lpVtbl->get_longDesc(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLFrameBase3_put_longDesc_Proxy(IHTMLFrameBase3 *This,BSTR v);
-
   void __RPC_STUB IHTMLFrameBase3_put_longDesc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameBase3_get_longDesc_Proxy(IHTMLFrameBase3 *This,BSTR *p);
-
   void __RPC_STUB IHTMLFrameBase3_get_longDesc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLFrameBase_DISPINTERFACE_DEFINED__
 #define __DispHTMLFrameBase_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLFrameBase;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLFrameBase : public IDispatch
-  {
+  struct DispHTMLFrameBase : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLFrameBaseVtbl
-  {
+  typedef struct DispHTMLFrameBaseVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLFrameBase *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLFrameBase *This);
-
       ULONG (WINAPI *Release)(DispHTMLFrameBase *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLFrameBase *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLFrameBase *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLFrameBase *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLFrameBase *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLFrameBaseVtbl;
-
-  interface DispHTMLFrameBase
-  {
+  interface DispHTMLFrameBase {
     CONST_VTBL struct DispHTMLFrameBaseVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLFrameBase_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLFrameBase_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLFrameBase_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLFrameBase_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLFrameBase_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLFrameBase_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLFrameBase_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLFrameBase;
-
 #ifdef __cplusplus
-
   class HTMLFrameBase;
 #endif
 
 #ifndef __IHTMLFrameElement_INTERFACE_DEFINED__
 #define __IHTMLFrameElement_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLFrameElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLFrameElement : public IDispatch
-  {
+  struct IHTMLFrameElement : public IDispatch {
   public:
     virtual HRESULT WINAPI put_borderColor(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_borderColor(VARIANT *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLFrameElementVtbl
-  {
+  typedef struct IHTMLFrameElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLFrameElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLFrameElement *This);
-
       ULONG (WINAPI *Release)(IHTMLFrameElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLFrameElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFrameElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFrameElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLFrameElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_borderColor)(IHTMLFrameElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_borderColor)(IHTMLFrameElement *This,VARIANT *p);
-
     END_INTERFACE
   } IHTMLFrameElementVtbl;
-
-  interface IHTMLFrameElement
-  {
+  interface IHTMLFrameElement {
     CONST_VTBL struct IHTMLFrameElementVtbl *lpVtbl;
   };
 
 #ifdef COBJMACROS
-
 #define IHTMLFrameElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLFrameElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLFrameElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLFrameElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLFrameElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLFrameElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLFrameElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLFrameElement_put_borderColor(This,v) (This)->lpVtbl->put_borderColor(This,v)
-
 #define IHTMLFrameElement_get_borderColor(This,p) (This)->lpVtbl->get_borderColor(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLFrameElement_put_borderColor_Proxy(IHTMLFrameElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameElement_put_borderColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameElement_get_borderColor_Proxy(IHTMLFrameElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameElement_get_borderColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLFrameElement2_INTERFACE_DEFINED__
 #define __IHTMLFrameElement2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLFrameElement2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLFrameElement2 : public IDispatch
-  {
+  struct IHTMLFrameElement2 : public IDispatch {
   public:
     virtual HRESULT WINAPI put_height(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_height(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_width(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_width(VARIANT *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLFrameElement2Vtbl
-  {
+  typedef struct IHTMLFrameElement2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLFrameElement2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLFrameElement2 *This);
-
       ULONG (WINAPI *Release)(IHTMLFrameElement2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLFrameElement2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFrameElement2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFrameElement2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLFrameElement2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_height)(IHTMLFrameElement2 *This,VARIANT v);
-
       HRESULT (WINAPI *get_height)(IHTMLFrameElement2 *This,VARIANT *p);
-
       HRESULT (WINAPI *put_width)(IHTMLFrameElement2 *This,VARIANT v);
-
       HRESULT (WINAPI *get_width)(IHTMLFrameElement2 *This,VARIANT *p);
-
     END_INTERFACE
   } IHTMLFrameElement2Vtbl;
-
-  interface IHTMLFrameElement2
-  {
+  interface IHTMLFrameElement2 {
     CONST_VTBL struct IHTMLFrameElement2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLFrameElement2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLFrameElement2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLFrameElement2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLFrameElement2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLFrameElement2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLFrameElement2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLFrameElement2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLFrameElement2_put_height(This,v) (This)->lpVtbl->put_height(This,v)
-
 #define IHTMLFrameElement2_get_height(This,p) (This)->lpVtbl->get_height(This,p)
-
 #define IHTMLFrameElement2_put_width(This,v) (This)->lpVtbl->put_width(This,v)
-
 #define IHTMLFrameElement2_get_width(This,p) (This)->lpVtbl->get_width(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLFrameElement2_put_height_Proxy(IHTMLFrameElement2 *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameElement2_put_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameElement2_get_height_Proxy(IHTMLFrameElement2 *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameElement2_get_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameElement2_put_width_Proxy(IHTMLFrameElement2 *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameElement2_put_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameElement2_get_width_Proxy(IHTMLFrameElement2 *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameElement2_get_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLFrameElement_DISPINTERFACE_DEFINED__
 #define __DispHTMLFrameElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLFrameElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLFrameElement : public IDispatch
-  {
+  struct DispHTMLFrameElement : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLFrameElementVtbl
-  {
+  typedef struct DispHTMLFrameElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLFrameElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLFrameElement *This);
-
       ULONG (WINAPI *Release)(DispHTMLFrameElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLFrameElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLFrameElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLFrameElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLFrameElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLFrameElementVtbl;
-
-  interface DispHTMLFrameElement
-  {
+  interface DispHTMLFrameElement {
     CONST_VTBL struct DispHTMLFrameElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLFrameElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLFrameElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLFrameElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLFrameElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLFrameElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLFrameElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLFrameElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLFrameElement;
-
 #ifdef __cplusplus
-
   class HTMLFrameElement;
 #endif
 
 #ifndef __IHTMLIFrameElement_INTERFACE_DEFINED__
 #define __IHTMLIFrameElement_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLIFrameElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLIFrameElement : public IDispatch
-  {
+  struct IHTMLIFrameElement : public IDispatch {
   public:
     virtual HRESULT WINAPI put_vspace(long v) = 0;
-
     virtual HRESULT WINAPI get_vspace(long *p) = 0;
-
     virtual HRESULT WINAPI put_hspace(long v) = 0;
-
     virtual HRESULT WINAPI get_hspace(long *p) = 0;
-
     virtual HRESULT WINAPI put_align(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_align(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLIFrameElementVtbl
-  {
+  typedef struct IHTMLIFrameElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLIFrameElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLIFrameElement *This);
-
       ULONG (WINAPI *Release)(IHTMLIFrameElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLIFrameElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLIFrameElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLIFrameElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLIFrameElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_vspace)(IHTMLIFrameElement *This,long v);
-
       HRESULT (WINAPI *get_vspace)(IHTMLIFrameElement *This,long *p);
-
       HRESULT (WINAPI *put_hspace)(IHTMLIFrameElement *This,long v);
-
       HRESULT (WINAPI *get_hspace)(IHTMLIFrameElement *This,long *p);
-
       HRESULT (WINAPI *put_align)(IHTMLIFrameElement *This,BSTR v);
-
       HRESULT (WINAPI *get_align)(IHTMLIFrameElement *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLIFrameElementVtbl;
-
-  interface IHTMLIFrameElement
-  {
+  interface IHTMLIFrameElement {
     CONST_VTBL struct IHTMLIFrameElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLIFrameElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLIFrameElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLIFrameElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLIFrameElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLIFrameElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLIFrameElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLIFrameElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLIFrameElement_put_vspace(This,v) (This)->lpVtbl->put_vspace(This,v)
-
 #define IHTMLIFrameElement_get_vspace(This,p) (This)->lpVtbl->get_vspace(This,p)
-
 #define IHTMLIFrameElement_put_hspace(This,v) (This)->lpVtbl->put_hspace(This,v)
-
 #define IHTMLIFrameElement_get_hspace(This,p) (This)->lpVtbl->get_hspace(This,p)
-
 #define IHTMLIFrameElement_put_align(This,v) (This)->lpVtbl->put_align(This,v)
-
 #define IHTMLIFrameElement_get_align(This,p) (This)->lpVtbl->get_align(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLIFrameElement_put_vspace_Proxy(IHTMLIFrameElement *This,long v);
-
   void __RPC_STUB IHTMLIFrameElement_put_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLIFrameElement_get_vspace_Proxy(IHTMLIFrameElement *This,long *p);
-
   void __RPC_STUB IHTMLIFrameElement_get_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLIFrameElement_put_hspace_Proxy(IHTMLIFrameElement *This,long v);
-
   void __RPC_STUB IHTMLIFrameElement_put_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLIFrameElement_get_hspace_Proxy(IHTMLIFrameElement *This,long *p);
-
   void __RPC_STUB IHTMLIFrameElement_get_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLIFrameElement_put_align_Proxy(IHTMLIFrameElement *This,BSTR v);
-
   void __RPC_STUB IHTMLIFrameElement_put_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLIFrameElement_get_align_Proxy(IHTMLIFrameElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLIFrameElement_get_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLIFrameElement2_INTERFACE_DEFINED__
 #define __IHTMLIFrameElement2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLIFrameElement2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLIFrameElement2 : public IDispatch
-  {
+  struct IHTMLIFrameElement2 : public IDispatch {
   public:
     virtual HRESULT WINAPI put_height(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_height(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_width(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_width(VARIANT *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLIFrameElement2Vtbl
-  {
+  typedef struct IHTMLIFrameElement2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLIFrameElement2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLIFrameElement2 *This);
-
       ULONG (WINAPI *Release)(IHTMLIFrameElement2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLIFrameElement2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLIFrameElement2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLIFrameElement2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLIFrameElement2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_height)(IHTMLIFrameElement2 *This,VARIANT v);
-
       HRESULT (WINAPI *get_height)(IHTMLIFrameElement2 *This,VARIANT *p);
-
       HRESULT (WINAPI *put_width)(IHTMLIFrameElement2 *This,VARIANT v);
-
       HRESULT (WINAPI *get_width)(IHTMLIFrameElement2 *This,VARIANT *p);
-
     END_INTERFACE
   } IHTMLIFrameElement2Vtbl;
-
-  interface IHTMLIFrameElement2
-  {
+  interface IHTMLIFrameElement2 {
     CONST_VTBL struct IHTMLIFrameElement2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLIFrameElement2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLIFrameElement2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLIFrameElement2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLIFrameElement2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLIFrameElement2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLIFrameElement2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLIFrameElement2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLIFrameElement2_put_height(This,v) (This)->lpVtbl->put_height(This,v)
-
 #define IHTMLIFrameElement2_get_height(This,p) (This)->lpVtbl->get_height(This,p)
-
 #define IHTMLIFrameElement2_put_width(This,v) (This)->lpVtbl->put_width(This,v)
-
 #define IHTMLIFrameElement2_get_width(This,p) (This)->lpVtbl->get_width(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLIFrameElement2_put_height_Proxy(IHTMLIFrameElement2 *This,VARIANT v);
-
   void __RPC_STUB IHTMLIFrameElement2_put_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLIFrameElement2_get_height_Proxy(IHTMLIFrameElement2 *This,VARIANT *p);
-
   void __RPC_STUB IHTMLIFrameElement2_get_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLIFrameElement2_put_width_Proxy(IHTMLIFrameElement2 *This,VARIANT v);
-
   void __RPC_STUB IHTMLIFrameElement2_put_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLIFrameElement2_get_width_Proxy(IHTMLIFrameElement2 *This,VARIANT *p);
-
   void __RPC_STUB IHTMLIFrameElement2_get_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLIFrame_DISPINTERFACE_DEFINED__
 #define __DispHTMLIFrame_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLIFrame;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLIFrame : public IDispatch
-  {
+  struct DispHTMLIFrame : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLIFrameVtbl
-  {
+  typedef struct DispHTMLIFrameVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLIFrame *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLIFrame *This);
-
       ULONG (WINAPI *Release)(DispHTMLIFrame *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLIFrame *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLIFrame *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLIFrame *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLIFrame *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLIFrameVtbl;
-
-  interface DispHTMLIFrame
-  {
+  interface DispHTMLIFrame {
     CONST_VTBL struct DispHTMLIFrameVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLIFrame_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLIFrame_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLIFrame_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLIFrame_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLIFrame_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLIFrame_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLIFrame_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLIFrame;
-
 #ifdef __cplusplus
-
   class HTMLIFrame;
 #endif
 
 #ifndef __IHTMLDivPosition_INTERFACE_DEFINED__
 #define __IHTMLDivPosition_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLDivPosition;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLDivPosition : public IDispatch
-  {
+  struct IHTMLDivPosition : public IDispatch {
   public:
     virtual HRESULT WINAPI put_align(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_align(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLDivPositionVtbl
-  {
+  typedef struct IHTMLDivPositionVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLDivPosition *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLDivPosition *This);
-
       ULONG (WINAPI *Release)(IHTMLDivPosition *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLDivPosition *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLDivPosition *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLDivPosition *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLDivPosition *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_align)(IHTMLDivPosition *This,BSTR v);
-
       HRESULT (WINAPI *get_align)(IHTMLDivPosition *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLDivPositionVtbl;
-
-  interface IHTMLDivPosition
-  {
+  interface IHTMLDivPosition {
     CONST_VTBL struct IHTMLDivPositionVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLDivPosition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLDivPosition_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLDivPosition_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLDivPosition_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLDivPosition_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLDivPosition_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLDivPosition_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLDivPosition_put_align(This,v) (This)->lpVtbl->put_align(This,v)
-
 #define IHTMLDivPosition_get_align(This,p) (This)->lpVtbl->get_align(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLDivPosition_put_align_Proxy(IHTMLDivPosition *This,BSTR v);
-
   void __RPC_STUB IHTMLDivPosition_put_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDivPosition_get_align_Proxy(IHTMLDivPosition *This,BSTR *p);
-
   void __RPC_STUB IHTMLDivPosition_get_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLFieldSetElement_INTERFACE_DEFINED__
 #define __IHTMLFieldSetElement_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLFieldSetElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLFieldSetElement : public IDispatch
-  {
+  struct IHTMLFieldSetElement : public IDispatch {
   public:
     virtual HRESULT WINAPI put_align(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_align(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLFieldSetElementVtbl
-  {
+  typedef struct IHTMLFieldSetElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLFieldSetElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLFieldSetElement *This);
-
       ULONG (WINAPI *Release)(IHTMLFieldSetElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLFieldSetElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFieldSetElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFieldSetElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLFieldSetElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_align)(IHTMLFieldSetElement *This,BSTR v);
-
       HRESULT (WINAPI *get_align)(IHTMLFieldSetElement *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLFieldSetElementVtbl;
-
-  interface IHTMLFieldSetElement
-  {
+  interface IHTMLFieldSetElement {
     CONST_VTBL struct IHTMLFieldSetElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLFieldSetElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLFieldSetElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLFieldSetElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLFieldSetElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLFieldSetElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLFieldSetElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLFieldSetElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLFieldSetElement_put_align(This,v) (This)->lpVtbl->put_align(This,v)
-
 #define IHTMLFieldSetElement_get_align(This,p) (This)->lpVtbl->get_align(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLFieldSetElement_put_align_Proxy(IHTMLFieldSetElement *This,BSTR v);
-
   void __RPC_STUB IHTMLFieldSetElement_put_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFieldSetElement_get_align_Proxy(IHTMLFieldSetElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLFieldSetElement_get_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLFieldSetElement2_INTERFACE_DEFINED__
 #define __IHTMLFieldSetElement2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLFieldSetElement2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLFieldSetElement2 : public IDispatch
-  {
+  struct IHTMLFieldSetElement2 : public IDispatch {
   public:
     virtual HRESULT WINAPI get_form(IHTMLFormElement **p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLFieldSetElement2Vtbl
-  {
+  typedef struct IHTMLFieldSetElement2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLFieldSetElement2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLFieldSetElement2 *This);
-
       ULONG (WINAPI *Release)(IHTMLFieldSetElement2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLFieldSetElement2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFieldSetElement2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFieldSetElement2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLFieldSetElement2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_form)(IHTMLFieldSetElement2 *This,IHTMLFormElement **p);
-
     END_INTERFACE
   } IHTMLFieldSetElement2Vtbl;
-
-  interface IHTMLFieldSetElement2
-  {
+  interface IHTMLFieldSetElement2 {
     CONST_VTBL struct IHTMLFieldSetElement2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLFieldSetElement2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLFieldSetElement2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLFieldSetElement2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLFieldSetElement2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLFieldSetElement2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLFieldSetElement2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLFieldSetElement2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLFieldSetElement2_get_form(This,p) (This)->lpVtbl->get_form(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLFieldSetElement2_get_form_Proxy(IHTMLFieldSetElement2 *This,IHTMLFormElement **p);
-
   void __RPC_STUB IHTMLFieldSetElement2_get_form_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLLegendElement_INTERFACE_DEFINED__
 #define __IHTMLLegendElement_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLLegendElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLLegendElement : public IDispatch
-  {
+  struct IHTMLLegendElement : public IDispatch {
   public:
     virtual HRESULT WINAPI put_align(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_align(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLLegendElementVtbl
-  {
+  typedef struct IHTMLLegendElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLLegendElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLLegendElement *This);
-
       ULONG (WINAPI *Release)(IHTMLLegendElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLLegendElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLLegendElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLLegendElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLLegendElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_align)(IHTMLLegendElement *This,BSTR v);
-
       HRESULT (WINAPI *get_align)(IHTMLLegendElement *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLLegendElementVtbl;
-
-  interface IHTMLLegendElement
-  {
+  interface IHTMLLegendElement {
     CONST_VTBL struct IHTMLLegendElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLLegendElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLLegendElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLLegendElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLLegendElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLLegendElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLLegendElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLLegendElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLLegendElement_put_align(This,v) (This)->lpVtbl->put_align(This,v)
-
 #define IHTMLLegendElement_get_align(This,p) (This)->lpVtbl->get_align(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLLegendElement_put_align_Proxy(IHTMLLegendElement *This,BSTR v);
-
   void __RPC_STUB IHTMLLegendElement_put_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLLegendElement_get_align_Proxy(IHTMLLegendElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLLegendElement_get_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLLegendElement2_INTERFACE_DEFINED__
 #define __IHTMLLegendElement2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLLegendElement2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLLegendElement2 : public IDispatch
-  {
+  struct IHTMLLegendElement2 : public IDispatch {
   public:
     virtual HRESULT WINAPI get_form(IHTMLFormElement **p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLLegendElement2Vtbl
-  {
+  typedef struct IHTMLLegendElement2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLLegendElement2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLLegendElement2 *This);
-
       ULONG (WINAPI *Release)(IHTMLLegendElement2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLLegendElement2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLLegendElement2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLLegendElement2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLLegendElement2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_form)(IHTMLLegendElement2 *This,IHTMLFormElement **p);
-
     END_INTERFACE
   } IHTMLLegendElement2Vtbl;
-
-  interface IHTMLLegendElement2
-  {
+  interface IHTMLLegendElement2 {
     CONST_VTBL struct IHTMLLegendElement2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLLegendElement2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLLegendElement2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLLegendElement2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLLegendElement2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLLegendElement2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLLegendElement2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLLegendElement2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLLegendElement2_get_form(This,p) (This)->lpVtbl->get_form(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLLegendElement2_get_form_Proxy(IHTMLLegendElement2 *This,IHTMLFormElement **p);
-
   void __RPC_STUB IHTMLLegendElement2_get_form_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLDivPosition_DISPINTERFACE_DEFINED__
 #define __DispHTMLDivPosition_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLDivPosition;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLDivPosition : public IDispatch
-  {
+  struct DispHTMLDivPosition : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLDivPositionVtbl
-  {
+  typedef struct DispHTMLDivPositionVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLDivPosition *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLDivPosition *This);
-
       ULONG (WINAPI *Release)(DispHTMLDivPosition *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLDivPosition *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLDivPosition *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLDivPosition *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLDivPosition *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLDivPositionVtbl;
-
-  interface DispHTMLDivPosition
-  {
+  interface DispHTMLDivPosition {
     CONST_VTBL struct DispHTMLDivPositionVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLDivPosition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLDivPosition_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLDivPosition_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLDivPosition_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLDivPosition_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLDivPosition_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLDivPosition_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLDivPosition;
-
 #ifdef __cplusplus
-
   class HTMLDivPosition;
 #endif
 
 #ifndef __DispHTMLFieldSetElement_DISPINTERFACE_DEFINED__
 #define __DispHTMLFieldSetElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLFieldSetElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLFieldSetElement : public IDispatch
-  {
+  struct DispHTMLFieldSetElement : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLFieldSetElementVtbl
-  {
+  typedef struct DispHTMLFieldSetElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLFieldSetElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLFieldSetElement *This);
-
       ULONG (WINAPI *Release)(DispHTMLFieldSetElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLFieldSetElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLFieldSetElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLFieldSetElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLFieldSetElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLFieldSetElementVtbl;
-
-  interface DispHTMLFieldSetElement
-  {
+  interface DispHTMLFieldSetElement {
     CONST_VTBL struct DispHTMLFieldSetElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLFieldSetElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLFieldSetElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLFieldSetElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLFieldSetElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLFieldSetElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLFieldSetElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLFieldSetElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLFieldSetElement;
-
 #ifdef __cplusplus
-
   class HTMLFieldSetElement;
 #endif
 
 #ifndef __DispHTMLLegendElement_DISPINTERFACE_DEFINED__
 #define __DispHTMLLegendElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLLegendElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLLegendElement : public IDispatch
-  {
+  struct DispHTMLLegendElement : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLLegendElementVtbl
-  {
+  typedef struct DispHTMLLegendElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLLegendElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLLegendElement *This);
-
       ULONG (WINAPI *Release)(DispHTMLLegendElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLLegendElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLLegendElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLLegendElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLLegendElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLLegendElementVtbl;
-
-  interface DispHTMLLegendElement
-  {
+  interface DispHTMLLegendElement {
     CONST_VTBL struct DispHTMLLegendElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLLegendElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLLegendElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLLegendElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLLegendElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLLegendElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLLegendElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLLegendElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLLegendElement;
-
 #ifdef __cplusplus
-
   class HTMLLegendElement;
 #endif
 
 #ifndef __IHTMLSpanFlow_INTERFACE_DEFINED__
 #define __IHTMLSpanFlow_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLSpanFlow;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLSpanFlow : public IDispatch
-  {
+  struct IHTMLSpanFlow : public IDispatch {
   public:
     virtual HRESULT WINAPI put_align(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_align(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLSpanFlowVtbl
-  {
+  typedef struct IHTMLSpanFlowVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLSpanFlow *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLSpanFlow *This);
-
       ULONG (WINAPI *Release)(IHTMLSpanFlow *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLSpanFlow *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLSpanFlow *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLSpanFlow *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLSpanFlow *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_align)(IHTMLSpanFlow *This,BSTR v);
-
       HRESULT (WINAPI *get_align)(IHTMLSpanFlow *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLSpanFlowVtbl;
-
-  interface IHTMLSpanFlow
-  {
+  interface IHTMLSpanFlow {
     CONST_VTBL struct IHTMLSpanFlowVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLSpanFlow_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLSpanFlow_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLSpanFlow_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLSpanFlow_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLSpanFlow_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLSpanFlow_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLSpanFlow_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLSpanFlow_put_align(This,v) (This)->lpVtbl->put_align(This,v)
-
 #define IHTMLSpanFlow_get_align(This,p) (This)->lpVtbl->get_align(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLSpanFlow_put_align_Proxy(IHTMLSpanFlow *This,BSTR v);
-
   void __RPC_STUB IHTMLSpanFlow_put_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLSpanFlow_get_align_Proxy(IHTMLSpanFlow *This,BSTR *p);
-
   void __RPC_STUB IHTMLSpanFlow_get_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLSpanFlow_DISPINTERFACE_DEFINED__
 #define __DispHTMLSpanFlow_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLSpanFlow;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLSpanFlow : public IDispatch
-  {
+  struct DispHTMLSpanFlow : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLSpanFlowVtbl
-  {
+  typedef struct DispHTMLSpanFlowVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLSpanFlow *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLSpanFlow *This);
-
       ULONG (WINAPI *Release)(DispHTMLSpanFlow *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLSpanFlow *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLSpanFlow *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLSpanFlow *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLSpanFlow *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLSpanFlowVtbl;
-
-  interface DispHTMLSpanFlow
-  {
+  interface DispHTMLSpanFlow {
     CONST_VTBL struct DispHTMLSpanFlowVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLSpanFlow_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLSpanFlow_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLSpanFlow_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLSpanFlow_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLSpanFlow_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLSpanFlow_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLSpanFlow_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLSpanFlow;
-
 #ifdef __cplusplus
-
   class HTMLSpanFlow;
 #endif
 
 #ifndef __IHTMLFrameSetElement_INTERFACE_DEFINED__
 #define __IHTMLFrameSetElement_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLFrameSetElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLFrameSetElement : public IDispatch
-  {
+  struct IHTMLFrameSetElement : public IDispatch {
   public:
     virtual HRESULT WINAPI put_rows(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_rows(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_cols(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_cols(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_border(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_border(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_borderColor(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_borderColor(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_frameBorder(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_frameBorder(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_frameSpacing(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_frameSpacing(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_name(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_name(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_onload(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onload(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_onunload(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onunload(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_onbeforeunload(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onbeforeunload(VARIANT *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLFrameSetElementVtbl
-  {
+  typedef struct IHTMLFrameSetElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLFrameSetElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLFrameSetElement *This);
-
       ULONG (WINAPI *Release)(IHTMLFrameSetElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLFrameSetElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFrameSetElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFrameSetElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLFrameSetElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_rows)(IHTMLFrameSetElement *This,BSTR v);
-
       HRESULT (WINAPI *get_rows)(IHTMLFrameSetElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_cols)(IHTMLFrameSetElement *This,BSTR v);
-
       HRESULT (WINAPI *get_cols)(IHTMLFrameSetElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_border)(IHTMLFrameSetElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_border)(IHTMLFrameSetElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_borderColor)(IHTMLFrameSetElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_borderColor)(IHTMLFrameSetElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_frameBorder)(IHTMLFrameSetElement *This,BSTR v);
-
       HRESULT (WINAPI *get_frameBorder)(IHTMLFrameSetElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_frameSpacing)(IHTMLFrameSetElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_frameSpacing)(IHTMLFrameSetElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_name)(IHTMLFrameSetElement *This,BSTR v);
-
       HRESULT (WINAPI *get_name)(IHTMLFrameSetElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_onload)(IHTMLFrameSetElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_onload)(IHTMLFrameSetElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_onunload)(IHTMLFrameSetElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_onunload)(IHTMLFrameSetElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_onbeforeunload)(IHTMLFrameSetElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_onbeforeunload)(IHTMLFrameSetElement *This,VARIANT *p);
-
     END_INTERFACE
   } IHTMLFrameSetElementVtbl;
-
-  interface IHTMLFrameSetElement
-  {
+  interface IHTMLFrameSetElement {
     CONST_VTBL struct IHTMLFrameSetElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLFrameSetElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLFrameSetElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLFrameSetElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLFrameSetElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLFrameSetElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLFrameSetElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLFrameSetElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLFrameSetElement_put_rows(This,v) (This)->lpVtbl->put_rows(This,v)
-
 #define IHTMLFrameSetElement_get_rows(This,p) (This)->lpVtbl->get_rows(This,p)
-
 #define IHTMLFrameSetElement_put_cols(This,v) (This)->lpVtbl->put_cols(This,v)
-
 #define IHTMLFrameSetElement_get_cols(This,p) (This)->lpVtbl->get_cols(This,p)
-
 #define IHTMLFrameSetElement_put_border(This,v) (This)->lpVtbl->put_border(This,v)
-
 #define IHTMLFrameSetElement_get_border(This,p) (This)->lpVtbl->get_border(This,p)
-
 #define IHTMLFrameSetElement_put_borderColor(This,v) (This)->lpVtbl->put_borderColor(This,v)
-
 #define IHTMLFrameSetElement_get_borderColor(This,p) (This)->lpVtbl->get_borderColor(This,p)
-
 #define IHTMLFrameSetElement_put_frameBorder(This,v) (This)->lpVtbl->put_frameBorder(This,v)
-
 #define IHTMLFrameSetElement_get_frameBorder(This,p) (This)->lpVtbl->get_frameBorder(This,p)
-
 #define IHTMLFrameSetElement_put_frameSpacing(This,v) (This)->lpVtbl->put_frameSpacing(This,v)
-
 #define IHTMLFrameSetElement_get_frameSpacing(This,p) (This)->lpVtbl->get_frameSpacing(This,p)
-
 #define IHTMLFrameSetElement_put_name(This,v) (This)->lpVtbl->put_name(This,v)
-
 #define IHTMLFrameSetElement_get_name(This,p) (This)->lpVtbl->get_name(This,p)
-
 #define IHTMLFrameSetElement_put_onload(This,v) (This)->lpVtbl->put_onload(This,v)
-
 #define IHTMLFrameSetElement_get_onload(This,p) (This)->lpVtbl->get_onload(This,p)
-
 #define IHTMLFrameSetElement_put_onunload(This,v) (This)->lpVtbl->put_onunload(This,v)
-
 #define IHTMLFrameSetElement_get_onunload(This,p) (This)->lpVtbl->get_onunload(This,p)
-
 #define IHTMLFrameSetElement_put_onbeforeunload(This,v) (This)->lpVtbl->put_onbeforeunload(This,v)
-
 #define IHTMLFrameSetElement_get_onbeforeunload(This,p) (This)->lpVtbl->get_onbeforeunload(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLFrameSetElement_put_rows_Proxy(IHTMLFrameSetElement *This,BSTR v);
-
   void __RPC_STUB IHTMLFrameSetElement_put_rows_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_get_rows_Proxy(IHTMLFrameSetElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLFrameSetElement_get_rows_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_put_cols_Proxy(IHTMLFrameSetElement *This,BSTR v);
-
   void __RPC_STUB IHTMLFrameSetElement_put_cols_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_get_cols_Proxy(IHTMLFrameSetElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLFrameSetElement_get_cols_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_put_border_Proxy(IHTMLFrameSetElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameSetElement_put_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_get_border_Proxy(IHTMLFrameSetElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameSetElement_get_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_put_borderColor_Proxy(IHTMLFrameSetElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameSetElement_put_borderColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_get_borderColor_Proxy(IHTMLFrameSetElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameSetElement_get_borderColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_put_frameBorder_Proxy(IHTMLFrameSetElement *This,BSTR v);
-
   void __RPC_STUB IHTMLFrameSetElement_put_frameBorder_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_get_frameBorder_Proxy(IHTMLFrameSetElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLFrameSetElement_get_frameBorder_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_put_frameSpacing_Proxy(IHTMLFrameSetElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameSetElement_put_frameSpacing_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_get_frameSpacing_Proxy(IHTMLFrameSetElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameSetElement_get_frameSpacing_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_put_name_Proxy(IHTMLFrameSetElement *This,BSTR v);
-
   void __RPC_STUB IHTMLFrameSetElement_put_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_get_name_Proxy(IHTMLFrameSetElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLFrameSetElement_get_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_put_onload_Proxy(IHTMLFrameSetElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameSetElement_put_onload_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_get_onload_Proxy(IHTMLFrameSetElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameSetElement_get_onload_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_put_onunload_Proxy(IHTMLFrameSetElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameSetElement_put_onunload_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_get_onunload_Proxy(IHTMLFrameSetElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameSetElement_get_onunload_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_put_onbeforeunload_Proxy(IHTMLFrameSetElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameSetElement_put_onbeforeunload_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement_get_onbeforeunload_Proxy(IHTMLFrameSetElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameSetElement_get_onbeforeunload_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLFrameSetElement2_INTERFACE_DEFINED__
 #define __IHTMLFrameSetElement2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLFrameSetElement2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLFrameSetElement2 : public IDispatch
-  {
+  struct IHTMLFrameSetElement2 : public IDispatch {
   public:
     virtual HRESULT WINAPI put_onbeforeprint(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onbeforeprint(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_onafterprint(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onafterprint(VARIANT *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLFrameSetElement2Vtbl
-  {
+  typedef struct IHTMLFrameSetElement2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLFrameSetElement2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLFrameSetElement2 *This);
-
       ULONG (WINAPI *Release)(IHTMLFrameSetElement2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLFrameSetElement2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFrameSetElement2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFrameSetElement2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLFrameSetElement2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_onbeforeprint)(IHTMLFrameSetElement2 *This,VARIANT v);
-
       HRESULT (WINAPI *get_onbeforeprint)(IHTMLFrameSetElement2 *This,VARIANT *p);
-
       HRESULT (WINAPI *put_onafterprint)(IHTMLFrameSetElement2 *This,VARIANT v);
-
       HRESULT (WINAPI *get_onafterprint)(IHTMLFrameSetElement2 *This,VARIANT *p);
-
     END_INTERFACE
   } IHTMLFrameSetElement2Vtbl;
-
-  interface IHTMLFrameSetElement2
-  {
+  interface IHTMLFrameSetElement2 {
     CONST_VTBL struct IHTMLFrameSetElement2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLFrameSetElement2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLFrameSetElement2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLFrameSetElement2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLFrameSetElement2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLFrameSetElement2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLFrameSetElement2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLFrameSetElement2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLFrameSetElement2_put_onbeforeprint(This,v) (This)->lpVtbl->put_onbeforeprint(This,v)
-
 #define IHTMLFrameSetElement2_get_onbeforeprint(This,p) (This)->lpVtbl->get_onbeforeprint(This,p)
-
 #define IHTMLFrameSetElement2_put_onafterprint(This,v) (This)->lpVtbl->put_onafterprint(This,v)
-
 #define IHTMLFrameSetElement2_get_onafterprint(This,p) (This)->lpVtbl->get_onafterprint(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLFrameSetElement2_put_onbeforeprint_Proxy(IHTMLFrameSetElement2 *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameSetElement2_put_onbeforeprint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement2_get_onbeforeprint_Proxy(IHTMLFrameSetElement2 *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameSetElement2_get_onbeforeprint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement2_put_onafterprint_Proxy(IHTMLFrameSetElement2 *This,VARIANT v);
-
   void __RPC_STUB IHTMLFrameSetElement2_put_onafterprint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFrameSetElement2_get_onafterprint_Proxy(IHTMLFrameSetElement2 *This,VARIANT *p);
-
   void __RPC_STUB IHTMLFrameSetElement2_get_onafterprint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLFrameSetSite_DISPINTERFACE_DEFINED__
 #define __DispHTMLFrameSetSite_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLFrameSetSite;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLFrameSetSite : public IDispatch
-  {
+  struct DispHTMLFrameSetSite : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLFrameSetSiteVtbl
-  {
+  typedef struct DispHTMLFrameSetSiteVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLFrameSetSite *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLFrameSetSite *This);
-
       ULONG (WINAPI *Release)(DispHTMLFrameSetSite *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLFrameSetSite *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLFrameSetSite *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLFrameSetSite *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLFrameSetSite *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLFrameSetSiteVtbl;
-
-  interface DispHTMLFrameSetSite
-  {
+  interface DispHTMLFrameSetSite {
     CONST_VTBL struct DispHTMLFrameSetSiteVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLFrameSetSite_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLFrameSetSite_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLFrameSetSite_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLFrameSetSite_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLFrameSetSite_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLFrameSetSite_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLFrameSetSite_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLFrameSetSite;
-
 #ifdef __cplusplus
-
   class HTMLFrameSetSite;
 #endif
 
 #ifndef __IHTMLBGsound_INTERFACE_DEFINED__
 #define __IHTMLBGsound_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLBGsound;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLBGsound : public IDispatch
-  {
+  struct IHTMLBGsound : public IDispatch {
   public:
     virtual HRESULT WINAPI put_src(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_src(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_loop(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_loop(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_volume(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_volume(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_balance(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_balance(VARIANT *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLBGsoundVtbl
-  {
+  typedef struct IHTMLBGsoundVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLBGsound *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLBGsound *This);
-
       ULONG (WINAPI *Release)(IHTMLBGsound *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLBGsound *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLBGsound *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLBGsound *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLBGsound *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_src)(IHTMLBGsound *This,BSTR v);
-
       HRESULT (WINAPI *get_src)(IHTMLBGsound *This,BSTR *p);
-
       HRESULT (WINAPI *put_loop)(IHTMLBGsound *This,VARIANT v);
-
       HRESULT (WINAPI *get_loop)(IHTMLBGsound *This,VARIANT *p);
-
       HRESULT (WINAPI *put_volume)(IHTMLBGsound *This,VARIANT v);
-
       HRESULT (WINAPI *get_volume)(IHTMLBGsound *This,VARIANT *p);
-
       HRESULT (WINAPI *put_balance)(IHTMLBGsound *This,VARIANT v);
-
       HRESULT (WINAPI *get_balance)(IHTMLBGsound *This,VARIANT *p);
-
     END_INTERFACE
   } IHTMLBGsoundVtbl;
-
-  interface IHTMLBGsound
-  {
+  interface IHTMLBGsound {
     CONST_VTBL struct IHTMLBGsoundVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLBGsound_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLBGsound_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLBGsound_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLBGsound_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLBGsound_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLBGsound_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLBGsound_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLBGsound_put_src(This,v) (This)->lpVtbl->put_src(This,v)
-
 #define IHTMLBGsound_get_src(This,p) (This)->lpVtbl->get_src(This,p)
-
 #define IHTMLBGsound_put_loop(This,v) (This)->lpVtbl->put_loop(This,v)
-
 #define IHTMLBGsound_get_loop(This,p) (This)->lpVtbl->get_loop(This,p)
-
 #define IHTMLBGsound_put_volume(This,v) (This)->lpVtbl->put_volume(This,v)
-
 #define IHTMLBGsound_get_volume(This,p) (This)->lpVtbl->get_volume(This,p)
-
 #define IHTMLBGsound_put_balance(This,v) (This)->lpVtbl->put_balance(This,v)
-
 #define IHTMLBGsound_get_balance(This,p) (This)->lpVtbl->get_balance(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLBGsound_put_src_Proxy(IHTMLBGsound *This,BSTR v);
-
   void __RPC_STUB IHTMLBGsound_put_src_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLBGsound_get_src_Proxy(IHTMLBGsound *This,BSTR *p);
-
   void __RPC_STUB IHTMLBGsound_get_src_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLBGsound_put_loop_Proxy(IHTMLBGsound *This,VARIANT v);
-
   void __RPC_STUB IHTMLBGsound_put_loop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLBGsound_get_loop_Proxy(IHTMLBGsound *This,VARIANT *p);
-
   void __RPC_STUB IHTMLBGsound_get_loop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLBGsound_put_volume_Proxy(IHTMLBGsound *This,VARIANT v);
-
   void __RPC_STUB IHTMLBGsound_put_volume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLBGsound_get_volume_Proxy(IHTMLBGsound *This,VARIANT *p);
-
   void __RPC_STUB IHTMLBGsound_get_volume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLBGsound_put_balance_Proxy(IHTMLBGsound *This,VARIANT v);
-
   void __RPC_STUB IHTMLBGsound_put_balance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLBGsound_get_balance_Proxy(IHTMLBGsound *This,VARIANT *p);
-
   void __RPC_STUB IHTMLBGsound_get_balance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLBGsound_DISPINTERFACE_DEFINED__
 #define __DispHTMLBGsound_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLBGsound;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLBGsound : public IDispatch
-  {
+  struct DispHTMLBGsound : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLBGsoundVtbl
-  {
+  typedef struct DispHTMLBGsoundVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLBGsound *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLBGsound *This);
-
       ULONG (WINAPI *Release)(DispHTMLBGsound *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLBGsound *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLBGsound *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLBGsound *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLBGsound *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLBGsoundVtbl;
-
-  interface DispHTMLBGsound
-  {
+  interface DispHTMLBGsound {
     CONST_VTBL struct DispHTMLBGsoundVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLBGsound_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLBGsound_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLBGsound_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLBGsound_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLBGsound_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLBGsound_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLBGsound_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLBGsound;
-
 #ifdef __cplusplus
-
   class HTMLBGsound;
 #endif
 
 #ifndef __IHTMLFontNamesCollection_INTERFACE_DEFINED__
 #define __IHTMLFontNamesCollection_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLFontNamesCollection;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLFontNamesCollection : public IDispatch
-  {
+  struct IHTMLFontNamesCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get_length(long *p) = 0;
-
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
-
     virtual HRESULT WINAPI item(long index,BSTR *pBstr) = 0;
-
   };
 #else
-
-  typedef struct IHTMLFontNamesCollectionVtbl
-  {
+  typedef struct IHTMLFontNamesCollectionVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLFontNamesCollection *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLFontNamesCollection *This);
-
       ULONG (WINAPI *Release)(IHTMLFontNamesCollection *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLFontNamesCollection *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFontNamesCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFontNamesCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLFontNamesCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_length)(IHTMLFontNamesCollection *This,long *p);
-
       HRESULT (WINAPI *get__newEnum)(IHTMLFontNamesCollection *This,IUnknown **p);
-
       HRESULT (WINAPI *item)(IHTMLFontNamesCollection *This,long index,BSTR *pBstr);
-
     END_INTERFACE
   } IHTMLFontNamesCollectionVtbl;
-
-  interface IHTMLFontNamesCollection
-  {
+  interface IHTMLFontNamesCollection {
     CONST_VTBL struct IHTMLFontNamesCollectionVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLFontNamesCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLFontNamesCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLFontNamesCollection_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLFontNamesCollection_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLFontNamesCollection_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLFontNamesCollection_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLFontNamesCollection_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLFontNamesCollection_get_length(This,p) (This)->lpVtbl->get_length(This,p)
-
 #define IHTMLFontNamesCollection_get__newEnum(This,p) (This)->lpVtbl->get__newEnum(This,p)
-
 #define IHTMLFontNamesCollection_item(This,index,pBstr) (This)->lpVtbl->item(This,index,pBstr)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLFontNamesCollection_get_length_Proxy(IHTMLFontNamesCollection *This,long *p);
-
   void __RPC_STUB IHTMLFontNamesCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFontNamesCollection_get__newEnum_Proxy(IHTMLFontNamesCollection *This,IUnknown **p);
-
   void __RPC_STUB IHTMLFontNamesCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFontNamesCollection_item_Proxy(IHTMLFontNamesCollection *This,long index,BSTR *pBstr);
-
   void __RPC_STUB IHTMLFontNamesCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLFontSizesCollection_INTERFACE_DEFINED__
 #define __IHTMLFontSizesCollection_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLFontSizesCollection;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLFontSizesCollection : public IDispatch
-  {
+  struct IHTMLFontSizesCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get_length(long *p) = 0;
-
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
-
     virtual HRESULT WINAPI get_forFont(BSTR *p) = 0;
-
     virtual HRESULT WINAPI item(long index,long *plSize) = 0;
-
   };
 #else
-
-  typedef struct IHTMLFontSizesCollectionVtbl
-  {
+  typedef struct IHTMLFontSizesCollectionVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLFontSizesCollection *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLFontSizesCollection *This);
-
       ULONG (WINAPI *Release)(IHTMLFontSizesCollection *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLFontSizesCollection *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFontSizesCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFontSizesCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLFontSizesCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_length)(IHTMLFontSizesCollection *This,long *p);
-
       HRESULT (WINAPI *get__newEnum)(IHTMLFontSizesCollection *This,IUnknown **p);
-
       HRESULT (WINAPI *get_forFont)(IHTMLFontSizesCollection *This,BSTR *p);
-
       HRESULT (WINAPI *item)(IHTMLFontSizesCollection *This,long index,long *plSize);
-
     END_INTERFACE
   } IHTMLFontSizesCollectionVtbl;
-
-  interface IHTMLFontSizesCollection
-  {
+  interface IHTMLFontSizesCollection {
     CONST_VTBL struct IHTMLFontSizesCollectionVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLFontSizesCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLFontSizesCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLFontSizesCollection_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLFontSizesCollection_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLFontSizesCollection_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLFontSizesCollection_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLFontSizesCollection_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLFontSizesCollection_get_length(This,p) (This)->lpVtbl->get_length(This,p)
-
 #define IHTMLFontSizesCollection_get__newEnum(This,p) (This)->lpVtbl->get__newEnum(This,p)
-
 #define IHTMLFontSizesCollection_get_forFont(This,p) (This)->lpVtbl->get_forFont(This,p)
-
 #define IHTMLFontSizesCollection_item(This,index,plSize) (This)->lpVtbl->item(This,index,plSize)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLFontSizesCollection_get_length_Proxy(IHTMLFontSizesCollection *This,long *p);
-
   void __RPC_STUB IHTMLFontSizesCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFontSizesCollection_get__newEnum_Proxy(IHTMLFontSizesCollection *This,IUnknown **p);
-
   void __RPC_STUB IHTMLFontSizesCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFontSizesCollection_get_forFont_Proxy(IHTMLFontSizesCollection *This,BSTR *p);
-
   void __RPC_STUB IHTMLFontSizesCollection_get_forFont_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLFontSizesCollection_item_Proxy(IHTMLFontSizesCollection *This,long index,long *plSize);
-
   void __RPC_STUB IHTMLFontSizesCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLOptionsHolder_INTERFACE_DEFINED__
 #define __IHTMLOptionsHolder_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLOptionsHolder;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLOptionsHolder : public IDispatch
-  {
+  struct IHTMLOptionsHolder : public IDispatch {
   public:
     virtual HRESULT WINAPI get_document(IHTMLDocument2 **p) = 0;
-
     virtual HRESULT WINAPI get_fonts(IHTMLFontNamesCollection **p) = 0;
-
     virtual HRESULT WINAPI put_execArg(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_execArg(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_errorLine(long v) = 0;
-
     virtual HRESULT WINAPI get_errorLine(long *p) = 0;
-
     virtual HRESULT WINAPI put_errorCharacter(long v) = 0;
-
     virtual HRESULT WINAPI get_errorCharacter(long *p) = 0;
-
     virtual HRESULT WINAPI put_errorCode(long v) = 0;
-
     virtual HRESULT WINAPI get_errorCode(long *p) = 0;
-
     virtual HRESULT WINAPI put_errorMessage(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_errorMessage(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_errorDebug(VARIANT_BOOL v) = 0;
-
     virtual HRESULT WINAPI get_errorDebug(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_unsecuredWindowOfDocument(IHTMLWindow2 **p) = 0;
-
     virtual HRESULT WINAPI put_findText(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_findText(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_anythingAfterFrameset(VARIANT_BOOL v) = 0;
-
     virtual HRESULT WINAPI get_anythingAfterFrameset(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI sizes(BSTR fontName,IHTMLFontSizesCollection **pSizesCollection) = 0;
-
     virtual HRESULT WINAPI openfiledlg(VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName) = 0;
-
     virtual HRESULT WINAPI savefiledlg(VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName) = 0;
-
     virtual HRESULT WINAPI choosecolordlg(VARIANT initColor,long *rgbColor) = 0;
-
     virtual HRESULT WINAPI showSecurityInfo(void) = 0;
-
     virtual HRESULT WINAPI isApartmentModel(IHTMLObjectElement *object,VARIANT_BOOL *fApartment) = 0;
-
     virtual HRESULT WINAPI getCharset(BSTR fontName,long *charset) = 0;
-
     virtual HRESULT WINAPI get_secureConnectionInfo(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLOptionsHolderVtbl
-  {
+  typedef struct IHTMLOptionsHolderVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLOptionsHolder *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLOptionsHolder *This);
-
       ULONG (WINAPI *Release)(IHTMLOptionsHolder *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLOptionsHolder *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLOptionsHolder *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLOptionsHolder *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLOptionsHolder *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_document)(IHTMLOptionsHolder *This,IHTMLDocument2 **p);
-
       HRESULT (WINAPI *get_fonts)(IHTMLOptionsHolder *This,IHTMLFontNamesCollection **p);
-
       HRESULT (WINAPI *put_execArg)(IHTMLOptionsHolder *This,VARIANT v);
-
       HRESULT (WINAPI *get_execArg)(IHTMLOptionsHolder *This,VARIANT *p);
-
       HRESULT (WINAPI *put_errorLine)(IHTMLOptionsHolder *This,long v);
-
       HRESULT (WINAPI *get_errorLine)(IHTMLOptionsHolder *This,long *p);
-
       HRESULT (WINAPI *put_errorCharacter)(IHTMLOptionsHolder *This,long v);
-
       HRESULT (WINAPI *get_errorCharacter)(IHTMLOptionsHolder *This,long *p);
-
       HRESULT (WINAPI *put_errorCode)(IHTMLOptionsHolder *This,long v);
-
       HRESULT (WINAPI *get_errorCode)(IHTMLOptionsHolder *This,long *p);
-
       HRESULT (WINAPI *put_errorMessage)(IHTMLOptionsHolder *This,BSTR v);
-
       HRESULT (WINAPI *get_errorMessage)(IHTMLOptionsHolder *This,BSTR *p);
-
       HRESULT (WINAPI *put_errorDebug)(IHTMLOptionsHolder *This,VARIANT_BOOL v);
-
       HRESULT (WINAPI *get_errorDebug)(IHTMLOptionsHolder *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_unsecuredWindowOfDocument)(IHTMLOptionsHolder *This,IHTMLWindow2 **p);
-
       HRESULT (WINAPI *put_findText)(IHTMLOptionsHolder *This,BSTR v);
-
       HRESULT (WINAPI *get_findText)(IHTMLOptionsHolder *This,BSTR *p);
-
       HRESULT (WINAPI *put_anythingAfterFrameset)(IHTMLOptionsHolder *This,VARIANT_BOOL v);
-
       HRESULT (WINAPI *get_anythingAfterFrameset)(IHTMLOptionsHolder *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *sizes)(IHTMLOptionsHolder *This,BSTR fontName,IHTMLFontSizesCollection **pSizesCollection);
-
       HRESULT (WINAPI *openfiledlg)(IHTMLOptionsHolder *This,VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName);
-
       HRESULT (WINAPI *savefiledlg)(IHTMLOptionsHolder *This,VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName);
-
       HRESULT (WINAPI *choosecolordlg)(IHTMLOptionsHolder *This,VARIANT initColor,long *rgbColor);
-
       HRESULT (WINAPI *showSecurityInfo)(IHTMLOptionsHolder *This);
-
       HRESULT (WINAPI *isApartmentModel)(IHTMLOptionsHolder *This,IHTMLObjectElement *object,VARIANT_BOOL *fApartment);
-
       HRESULT (WINAPI *getCharset)(IHTMLOptionsHolder *This,BSTR fontName,long *charset);
-
       HRESULT (WINAPI *get_secureConnectionInfo)(IHTMLOptionsHolder *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLOptionsHolderVtbl;
-
-  interface IHTMLOptionsHolder
-  {
+  interface IHTMLOptionsHolder {
     CONST_VTBL struct IHTMLOptionsHolderVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLOptionsHolder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLOptionsHolder_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLOptionsHolder_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLOptionsHolder_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLOptionsHolder_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLOptionsHolder_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLOptionsHolder_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLOptionsHolder_get_document(This,p) (This)->lpVtbl->get_document(This,p)
-
 #define IHTMLOptionsHolder_get_fonts(This,p) (This)->lpVtbl->get_fonts(This,p)
-
 #define IHTMLOptionsHolder_put_execArg(This,v) (This)->lpVtbl->put_execArg(This,v)
-
 #define IHTMLOptionsHolder_get_execArg(This,p) (This)->lpVtbl->get_execArg(This,p)
-
 #define IHTMLOptionsHolder_put_errorLine(This,v) (This)->lpVtbl->put_errorLine(This,v)
-
 #define IHTMLOptionsHolder_get_errorLine(This,p) (This)->lpVtbl->get_errorLine(This,p)
-
 #define IHTMLOptionsHolder_put_errorCharacter(This,v) (This)->lpVtbl->put_errorCharacter(This,v)
-
 #define IHTMLOptionsHolder_get_errorCharacter(This,p) (This)->lpVtbl->get_errorCharacter(This,p)
-
 #define IHTMLOptionsHolder_put_errorCode(This,v) (This)->lpVtbl->put_errorCode(This,v)
-
 #define IHTMLOptionsHolder_get_errorCode(This,p) (This)->lpVtbl->get_errorCode(This,p)
-
 #define IHTMLOptionsHolder_put_errorMessage(This,v) (This)->lpVtbl->put_errorMessage(This,v)
-
 #define IHTMLOptionsHolder_get_errorMessage(This,p) (This)->lpVtbl->get_errorMessage(This,p)
-
 #define IHTMLOptionsHolder_put_errorDebug(This,v) (This)->lpVtbl->put_errorDebug(This,v)
-
 #define IHTMLOptionsHolder_get_errorDebug(This,p) (This)->lpVtbl->get_errorDebug(This,p)
-
 #define IHTMLOptionsHolder_get_unsecuredWindowOfDocument(This,p) (This)->lpVtbl->get_unsecuredWindowOfDocument(This,p)
-
 #define IHTMLOptionsHolder_put_findText(This,v) (This)->lpVtbl->put_findText(This,v)
-
 #define IHTMLOptionsHolder_get_findText(This,p) (This)->lpVtbl->get_findText(This,p)
-
 #define IHTMLOptionsHolder_put_anythingAfterFrameset(This,v) (This)->lpVtbl->put_anythingAfterFrameset(This,v)
-
 #define IHTMLOptionsHolder_get_anythingAfterFrameset(This,p) (This)->lpVtbl->get_anythingAfterFrameset(This,p)
-
 #define IHTMLOptionsHolder_sizes(This,fontName,pSizesCollection) (This)->lpVtbl->sizes(This,fontName,pSizesCollection)
-
 #define IHTMLOptionsHolder_openfiledlg(This,initFile,initDir,filter,title,pathName) (This)->lpVtbl->openfiledlg(This,initFile,initDir,filter,title,pathName)
-
 #define IHTMLOptionsHolder_savefiledlg(This,initFile,initDir,filter,title,pathName) (This)->lpVtbl->savefiledlg(This,initFile,initDir,filter,title,pathName)
-
 #define IHTMLOptionsHolder_choosecolordlg(This,initColor,rgbColor) (This)->lpVtbl->choosecolordlg(This,initColor,rgbColor)
-
 #define IHTMLOptionsHolder_showSecurityInfo(This) (This)->lpVtbl->showSecurityInfo(This)
-
 #define IHTMLOptionsHolder_isApartmentModel(This,object,fApartment) (This)->lpVtbl->isApartmentModel(This,object,fApartment)
-
 #define IHTMLOptionsHolder_getCharset(This,fontName,charset) (This)->lpVtbl->getCharset(This,fontName,charset)
-
 #define IHTMLOptionsHolder_get_secureConnectionInfo(This,p) (This)->lpVtbl->get_secureConnectionInfo(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLOptionsHolder_get_document_Proxy(IHTMLOptionsHolder *This,IHTMLDocument2 **p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_document_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_fonts_Proxy(IHTMLOptionsHolder *This,IHTMLFontNamesCollection **p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_fonts_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_put_execArg_Proxy(IHTMLOptionsHolder *This,VARIANT v);
-
   void __RPC_STUB IHTMLOptionsHolder_put_execArg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_execArg_Proxy(IHTMLOptionsHolder *This,VARIANT *p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_execArg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_put_errorLine_Proxy(IHTMLOptionsHolder *This,long v);
-
   void __RPC_STUB IHTMLOptionsHolder_put_errorLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_errorLine_Proxy(IHTMLOptionsHolder *This,long *p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_errorLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_put_errorCharacter_Proxy(IHTMLOptionsHolder *This,long v);
-
   void __RPC_STUB IHTMLOptionsHolder_put_errorCharacter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_errorCharacter_Proxy(IHTMLOptionsHolder *This,long *p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_errorCharacter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_put_errorCode_Proxy(IHTMLOptionsHolder *This,long v);
-
   void __RPC_STUB IHTMLOptionsHolder_put_errorCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_errorCode_Proxy(IHTMLOptionsHolder *This,long *p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_errorCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_put_errorMessage_Proxy(IHTMLOptionsHolder *This,BSTR v);
-
   void __RPC_STUB IHTMLOptionsHolder_put_errorMessage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_errorMessage_Proxy(IHTMLOptionsHolder *This,BSTR *p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_errorMessage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_put_errorDebug_Proxy(IHTMLOptionsHolder *This,VARIANT_BOOL v);
-
   void __RPC_STUB IHTMLOptionsHolder_put_errorDebug_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_errorDebug_Proxy(IHTMLOptionsHolder *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_errorDebug_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_unsecuredWindowOfDocument_Proxy(IHTMLOptionsHolder *This,IHTMLWindow2 **p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_unsecuredWindowOfDocument_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_put_findText_Proxy(IHTMLOptionsHolder *This,BSTR v);
-
   void __RPC_STUB IHTMLOptionsHolder_put_findText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_findText_Proxy(IHTMLOptionsHolder *This,BSTR *p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_findText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_put_anythingAfterFrameset_Proxy(IHTMLOptionsHolder *This,VARIANT_BOOL v);
-
   void __RPC_STUB IHTMLOptionsHolder_put_anythingAfterFrameset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_anythingAfterFrameset_Proxy(IHTMLOptionsHolder *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_anythingAfterFrameset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_sizes_Proxy(IHTMLOptionsHolder *This,BSTR fontName,IHTMLFontSizesCollection **pSizesCollection);
-
   void __RPC_STUB IHTMLOptionsHolder_sizes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_openfiledlg_Proxy(IHTMLOptionsHolder *This,VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName);
-
   void __RPC_STUB IHTMLOptionsHolder_openfiledlg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_savefiledlg_Proxy(IHTMLOptionsHolder *This,VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName);
-
   void __RPC_STUB IHTMLOptionsHolder_savefiledlg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_choosecolordlg_Proxy(IHTMLOptionsHolder *This,VARIANT initColor,long *rgbColor);
-
   void __RPC_STUB IHTMLOptionsHolder_choosecolordlg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_showSecurityInfo_Proxy(IHTMLOptionsHolder *This);
-
   void __RPC_STUB IHTMLOptionsHolder_showSecurityInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_isApartmentModel_Proxy(IHTMLOptionsHolder *This,IHTMLObjectElement *object,VARIANT_BOOL *fApartment);
-
   void __RPC_STUB IHTMLOptionsHolder_isApartmentModel_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_getCharset_Proxy(IHTMLOptionsHolder *This,BSTR fontName,long *charset);
-
   void __RPC_STUB IHTMLOptionsHolder_getCharset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLOptionsHolder_get_secureConnectionInfo_Proxy(IHTMLOptionsHolder *This,BSTR *p);
-
   void __RPC_STUB IHTMLOptionsHolder_get_secureConnectionInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __HTMLStyleElementEvents2_DISPINTERFACE_DEFINED__
 #define __HTMLStyleElementEvents2_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_HTMLStyleElementEvents2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct HTMLStyleElementEvents2 : public IDispatch
-  {
+  struct HTMLStyleElementEvents2 : public IDispatch {
   };
 #else
-
-  typedef struct HTMLStyleElementEvents2Vtbl
-  {
+  typedef struct HTMLStyleElementEvents2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(HTMLStyleElementEvents2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(HTMLStyleElementEvents2 *This);
-
       ULONG (WINAPI *Release)(HTMLStyleElementEvents2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(HTMLStyleElementEvents2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(HTMLStyleElementEvents2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(HTMLStyleElementEvents2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(HTMLStyleElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } HTMLStyleElementEvents2Vtbl;
-
-  interface HTMLStyleElementEvents2
-  {
+  interface HTMLStyleElementEvents2 {
     CONST_VTBL struct HTMLStyleElementEvents2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define HTMLStyleElementEvents2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define HTMLStyleElementEvents2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define HTMLStyleElementEvents2_Release(This) (This)->lpVtbl->Release(This)
-
 #define HTMLStyleElementEvents2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define HTMLStyleElementEvents2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define HTMLStyleElementEvents2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define HTMLStyleElementEvents2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
@@ -31149,56 +29225,32 @@ IHTMLStyle : public IDispatch {
 
 #ifndef __HTMLStyleElementEvents_DISPINTERFACE_DEFINED__
 #define __HTMLStyleElementEvents_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_HTMLStyleElementEvents;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct HTMLStyleElementEvents : public IDispatch
-  {
+  struct HTMLStyleElementEvents : public IDispatch {
   };
 #else
-
-  typedef struct HTMLStyleElementEventsVtbl
-  {
+  typedef struct HTMLStyleElementEventsVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(HTMLStyleElementEvents *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(HTMLStyleElementEvents *This);
-
       ULONG (WINAPI *Release)(HTMLStyleElementEvents *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(HTMLStyleElementEvents *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(HTMLStyleElementEvents *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(HTMLStyleElementEvents *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(HTMLStyleElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } HTMLStyleElementEventsVtbl;
-
-  interface HTMLStyleElementEvents
-  {
+  interface HTMLStyleElementEvents {
     CONST_VTBL struct HTMLStyleElementEventsVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define HTMLStyleElementEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define HTMLStyleElementEvents_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define HTMLStyleElementEvents_Release(This) (This)->lpVtbl->Release(This)
-
 #define HTMLStyleElementEvents_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define HTMLStyleElementEvents_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define HTMLStyleElementEvents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define HTMLStyleElementEvents_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
@@ -31206,2134 +29258,1161 @@ IHTMLStyle : public IDispatch {
 
 #ifndef __IHTMLStyleElement_INTERFACE_DEFINED__
 #define __IHTMLStyleElement_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLStyleElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLStyleElement : public IDispatch
-  {
+  struct IHTMLStyleElement : public IDispatch {
   public:
     virtual HRESULT WINAPI put_type(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_type(BSTR *p) = 0;
-
     virtual HRESULT WINAPI get_readyState(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_onreadystatechange(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onreadystatechange(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_onload(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onload(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_onerror(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onerror(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI get_styleSheet(IHTMLStyleSheet **p) = 0;
-
     virtual HRESULT WINAPI put_disabled(VARIANT_BOOL v) = 0;
-
     virtual HRESULT WINAPI get_disabled(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI put_media(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_media(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLStyleElementVtbl
-  {
+  typedef struct IHTMLStyleElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLStyleElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLStyleElement *This);
-
       ULONG (WINAPI *Release)(IHTMLStyleElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLStyleElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLStyleElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLStyleElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLStyleElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_type)(IHTMLStyleElement *This,BSTR v);
-
       HRESULT (WINAPI *get_type)(IHTMLStyleElement *This,BSTR *p);
-
       HRESULT (WINAPI *get_readyState)(IHTMLStyleElement *This,BSTR *p);
-
       HRESULT (WINAPI *put_onreadystatechange)(IHTMLStyleElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_onreadystatechange)(IHTMLStyleElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_onload)(IHTMLStyleElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_onload)(IHTMLStyleElement *This,VARIANT *p);
-
       HRESULT (WINAPI *put_onerror)(IHTMLStyleElement *This,VARIANT v);
-
       HRESULT (WINAPI *get_onerror)(IHTMLStyleElement *This,VARIANT *p);
-
       HRESULT (WINAPI *get_styleSheet)(IHTMLStyleElement *This,IHTMLStyleSheet **p);
-
       HRESULT (WINAPI *put_disabled)(IHTMLStyleElement *This,VARIANT_BOOL v);
-
       HRESULT (WINAPI *get_disabled)(IHTMLStyleElement *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *put_media)(IHTMLStyleElement *This,BSTR v);
-
       HRESULT (WINAPI *get_media)(IHTMLStyleElement *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLStyleElementVtbl;
-
-  interface IHTMLStyleElement
-  {
+  interface IHTMLStyleElement {
     CONST_VTBL struct IHTMLStyleElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLStyleElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLStyleElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLStyleElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLStyleElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLStyleElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLStyleElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLStyleElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLStyleElement_put_type(This,v) (This)->lpVtbl->put_type(This,v)
-
 #define IHTMLStyleElement_get_type(This,p) (This)->lpVtbl->get_type(This,p)
-
 #define IHTMLStyleElement_get_readyState(This,p) (This)->lpVtbl->get_readyState(This,p)
-
 #define IHTMLStyleElement_put_onreadystatechange(This,v) (This)->lpVtbl->put_onreadystatechange(This,v)
-
 #define IHTMLStyleElement_get_onreadystatechange(This,p) (This)->lpVtbl->get_onreadystatechange(This,p)
-
 #define IHTMLStyleElement_put_onload(This,v) (This)->lpVtbl->put_onload(This,v)
-
 #define IHTMLStyleElement_get_onload(This,p) (This)->lpVtbl->get_onload(This,p)
-
 #define IHTMLStyleElement_put_onerror(This,v) (This)->lpVtbl->put_onerror(This,v)
-
 #define IHTMLStyleElement_get_onerror(This,p) (This)->lpVtbl->get_onerror(This,p)
-
 #define IHTMLStyleElement_get_styleSheet(This,p) (This)->lpVtbl->get_styleSheet(This,p)
-
 #define IHTMLStyleElement_put_disabled(This,v) (This)->lpVtbl->put_disabled(This,v)
-
 #define IHTMLStyleElement_get_disabled(This,p) (This)->lpVtbl->get_disabled(This,p)
-
 #define IHTMLStyleElement_put_media(This,v) (This)->lpVtbl->put_media(This,v)
-
 #define IHTMLStyleElement_get_media(This,p) (This)->lpVtbl->get_media(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLStyleElement_put_type_Proxy(IHTMLStyleElement *This,BSTR v);
-
   void __RPC_STUB IHTMLStyleElement_put_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_get_type_Proxy(IHTMLStyleElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLStyleElement_get_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_get_readyState_Proxy(IHTMLStyleElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLStyleElement_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_put_onreadystatechange_Proxy(IHTMLStyleElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLStyleElement_put_onreadystatechange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_get_onreadystatechange_Proxy(IHTMLStyleElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLStyleElement_get_onreadystatechange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_put_onload_Proxy(IHTMLStyleElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLStyleElement_put_onload_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_get_onload_Proxy(IHTMLStyleElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLStyleElement_get_onload_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_put_onerror_Proxy(IHTMLStyleElement *This,VARIANT v);
-
   void __RPC_STUB IHTMLStyleElement_put_onerror_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_get_onerror_Proxy(IHTMLStyleElement *This,VARIANT *p);
-
   void __RPC_STUB IHTMLStyleElement_get_onerror_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_get_styleSheet_Proxy(IHTMLStyleElement *This,IHTMLStyleSheet **p);
-
   void __RPC_STUB IHTMLStyleElement_get_styleSheet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_put_disabled_Proxy(IHTMLStyleElement *This,VARIANT_BOOL v);
-
   void __RPC_STUB IHTMLStyleElement_put_disabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_get_disabled_Proxy(IHTMLStyleElement *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLStyleElement_get_disabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_put_media_Proxy(IHTMLStyleElement *This,BSTR v);
-
   void __RPC_STUB IHTMLStyleElement_put_media_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleElement_get_media_Proxy(IHTMLStyleElement *This,BSTR *p);
-
   void __RPC_STUB IHTMLStyleElement_get_media_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLStyleElement_DISPINTERFACE_DEFINED__
 #define __DispHTMLStyleElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLStyleElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLStyleElement : public IDispatch
-  {
+  struct DispHTMLStyleElement : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLStyleElementVtbl
-  {
+  typedef struct DispHTMLStyleElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLStyleElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLStyleElement *This);
-
       ULONG (WINAPI *Release)(DispHTMLStyleElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLStyleElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLStyleElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLStyleElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLStyleElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLStyleElementVtbl;
-
-  interface DispHTMLStyleElement
-  {
+  interface DispHTMLStyleElement {
     CONST_VTBL struct DispHTMLStyleElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLStyleElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLStyleElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLStyleElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLStyleElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLStyleElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLStyleElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLStyleElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
-
   EXTERN_C const CLSID CLSID_HTMLStyleElement;
-
 #ifdef __cplusplus
-
   class HTMLStyleElement;
 #endif
 
 #ifndef __IHTMLStyleFontFace_INTERFACE_DEFINED__
 #define __IHTMLStyleFontFace_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLStyleFontFace;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLStyleFontFace : public IDispatch
-  {
+  struct IHTMLStyleFontFace : public IDispatch {
   public:
     virtual HRESULT WINAPI put_fontsrc(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_fontsrc(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLStyleFontFaceVtbl
-  {
+  typedef struct IHTMLStyleFontFaceVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLStyleFontFace *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLStyleFontFace *This);
-
       ULONG (WINAPI *Release)(IHTMLStyleFontFace *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLStyleFontFace *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLStyleFontFace *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLStyleFontFace *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLStyleFontFace *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_fontsrc)(IHTMLStyleFontFace *This,BSTR v);
-
       HRESULT (WINAPI *get_fontsrc)(IHTMLStyleFontFace *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLStyleFontFaceVtbl;
-
-  interface IHTMLStyleFontFace
-  {
+  interface IHTMLStyleFontFace {
     CONST_VTBL struct IHTMLStyleFontFaceVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLStyleFontFace_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLStyleFontFace_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLStyleFontFace_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLStyleFontFace_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLStyleFontFace_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLStyleFontFace_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLStyleFontFace_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLStyleFontFace_put_fontsrc(This,v) (This)->lpVtbl->put_fontsrc(This,v)
-
 #define IHTMLStyleFontFace_get_fontsrc(This,p) (This)->lpVtbl->get_fontsrc(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLStyleFontFace_put_fontsrc_Proxy(IHTMLStyleFontFace *This,BSTR v);
-
   void __RPC_STUB IHTMLStyleFontFace_put_fontsrc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLStyleFontFace_get_fontsrc_Proxy(IHTMLStyleFontFace *This,BSTR *p);
-
   void __RPC_STUB IHTMLStyleFontFace_get_fontsrc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLStyleFontFace;
-
 #ifdef __cplusplus
-
   class HTMLStyleFontFace;
 #endif
 
 #ifndef __ICSSFilterSite_INTERFACE_DEFINED__
 #define __ICSSFilterSite_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_ICSSFilterSite;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct ICSSFilterSite : public IUnknown
-  {
+  struct ICSSFilterSite : public IUnknown {
   public:
     virtual HRESULT WINAPI GetElement(IHTMLElement **Element) = 0;
-
     virtual HRESULT WINAPI FireOnFilterChangeEvent(void) = 0;
-
   };
 #else
-
-  typedef struct ICSSFilterSiteVtbl
-  {
+  typedef struct ICSSFilterSiteVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(ICSSFilterSite *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(ICSSFilterSite *This);
-
       ULONG (WINAPI *Release)(ICSSFilterSite *This);
-
       HRESULT (WINAPI *GetElement)(ICSSFilterSite *This,IHTMLElement **Element);
-
       HRESULT (WINAPI *FireOnFilterChangeEvent)(ICSSFilterSite *This);
-
     END_INTERFACE
   } ICSSFilterSiteVtbl;
-
-  interface ICSSFilterSite
-  {
+  interface ICSSFilterSite {
     CONST_VTBL struct ICSSFilterSiteVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define ICSSFilterSite_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define ICSSFilterSite_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define ICSSFilterSite_Release(This) (This)->lpVtbl->Release(This)
-
 #define ICSSFilterSite_GetElement(This,Element) (This)->lpVtbl->GetElement(This,Element)
-
 #define ICSSFilterSite_FireOnFilterChangeEvent(This) (This)->lpVtbl->FireOnFilterChangeEvent(This)
 #endif
 #endif
 
   HRESULT WINAPI ICSSFilterSite_GetElement_Proxy(ICSSFilterSite *This,IHTMLElement **Element);
-
   void __RPC_STUB ICSSFilterSite_GetElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ICSSFilterSite_FireOnFilterChangeEvent_Proxy(ICSSFilterSite *This);
-
   void __RPC_STUB ICSSFilterSite_FireOnFilterChangeEvent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IMarkupPointer_INTERFACE_DEFINED__
 #define __IMarkupPointer_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IMarkupPointer;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IMarkupPointer : public IUnknown
-  {
+  struct IMarkupPointer : public IUnknown {
   public:
     virtual HRESULT WINAPI OwningDoc(IHTMLDocument2 **ppDoc) = 0;
-
     virtual HRESULT WINAPI Gravity(POINTER_GRAVITY *pGravity) = 0;
-
     virtual HRESULT WINAPI SetGravity(POINTER_GRAVITY Gravity) = 0;
-
     virtual HRESULT WINAPI Cling(WINBOOL *pfCling) = 0;
-
     virtual HRESULT WINAPI SetCling(WINBOOL fCLing) = 0;
-
     virtual HRESULT WINAPI Unposition(void) = 0;
-
     virtual HRESULT WINAPI IsPositioned(WINBOOL *pfPositioned) = 0;
-
     virtual HRESULT WINAPI GetContainer(IMarkupContainer **ppContainer) = 0;
-
     virtual HRESULT WINAPI MoveAdjacentToElement(IHTMLElement *pElement,ELEMENT_ADJACENCY eAdj) = 0;
-
     virtual HRESULT WINAPI MoveToPointer(IMarkupPointer *pPointer) = 0;
-
     virtual HRESULT WINAPI MoveToContainer(IMarkupContainer *pContainer,WINBOOL fAtStart) = 0;
-
     virtual HRESULT WINAPI Left(WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText) = 0;
-
     virtual HRESULT WINAPI Right(WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText) = 0;
-
     virtual HRESULT WINAPI CurrentScope(IHTMLElement **ppElemCurrent) = 0;
-
     virtual HRESULT WINAPI IsLeftOf(IMarkupPointer *pPointerThat,WINBOOL *pfResult) = 0;
-
     virtual HRESULT WINAPI IsLeftOfOrEqualTo(IMarkupPointer *pPointerThat,WINBOOL *pfResult) = 0;
-
     virtual HRESULT WINAPI IsRightOf(IMarkupPointer *pPointerThat,WINBOOL *pfResult) = 0;
-
     virtual HRESULT WINAPI IsRightOfOrEqualTo(IMarkupPointer *pPointerThat,WINBOOL *pfResult) = 0;
-
     virtual HRESULT WINAPI IsEqualTo(IMarkupPointer *pPointerThat,WINBOOL *pfAreEqual) = 0;
-
     virtual HRESULT WINAPI MoveUnit(MOVEUNIT_ACTION muAction) = 0;
-
     virtual HRESULT WINAPI FindText(OLECHAR *pchFindText,DWORD dwFlags,IMarkupPointer *pIEndMatch,IMarkupPointer *pIEndSearch) = 0;
-
   };
 #else
-
-  typedef struct IMarkupPointerVtbl
-  {
+  typedef struct IMarkupPointerVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IMarkupPointer *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IMarkupPointer *This);
-
       ULONG (WINAPI *Release)(IMarkupPointer *This);
-
       HRESULT (WINAPI *OwningDoc)(IMarkupPointer *This,IHTMLDocument2 **ppDoc);
-
       HRESULT (WINAPI *Gravity)(IMarkupPointer *This,POINTER_GRAVITY *pGravity);
-
       HRESULT (WINAPI *SetGravity)(IMarkupPointer *This,POINTER_GRAVITY Gravity);
-
       HRESULT (WINAPI *Cling)(IMarkupPointer *This,WINBOOL *pfCling);
-
       HRESULT (WINAPI *SetCling)(IMarkupPointer *This,WINBOOL fCLing);
-
       HRESULT (WINAPI *Unposition)(IMarkupPointer *This);
-
       HRESULT (WINAPI *IsPositioned)(IMarkupPointer *This,WINBOOL *pfPositioned);
-
       HRESULT (WINAPI *GetContainer)(IMarkupPointer *This,IMarkupContainer **ppContainer);
-
       HRESULT (WINAPI *MoveAdjacentToElement)(IMarkupPointer *This,IHTMLElement *pElement,ELEMENT_ADJACENCY eAdj);
-
       HRESULT (WINAPI *MoveToPointer)(IMarkupPointer *This,IMarkupPointer *pPointer);
-
       HRESULT (WINAPI *MoveToContainer)(IMarkupPointer *This,IMarkupContainer *pContainer,WINBOOL fAtStart);
-
       HRESULT (WINAPI *Left)(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
-
       HRESULT (WINAPI *Right)(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
-
       HRESULT (WINAPI *CurrentScope)(IMarkupPointer *This,IHTMLElement **ppElemCurrent);
-
       HRESULT (WINAPI *IsLeftOf)(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
       HRESULT (WINAPI *IsLeftOfOrEqualTo)(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
       HRESULT (WINAPI *IsRightOf)(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
       HRESULT (WINAPI *IsRightOfOrEqualTo)(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
       HRESULT (WINAPI *IsEqualTo)(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfAreEqual);
-
       HRESULT (WINAPI *MoveUnit)(IMarkupPointer *This,MOVEUNIT_ACTION muAction);
-
       HRESULT (WINAPI *FindText)(IMarkupPointer *This,OLECHAR *pchFindText,DWORD dwFlags,IMarkupPointer *pIEndMatch,IMarkupPointer *pIEndSearch);
-
     END_INTERFACE
   } IMarkupPointerVtbl;
-
-  interface IMarkupPointer
-  {
+  interface IMarkupPointer {
     CONST_VTBL struct IMarkupPointerVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IMarkupPointer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IMarkupPointer_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IMarkupPointer_Release(This) (This)->lpVtbl->Release(This)
-
 #define IMarkupPointer_OwningDoc(This,ppDoc) (This)->lpVtbl->OwningDoc(This,ppDoc)
-
 #define IMarkupPointer_Gravity(This,pGravity) (This)->lpVtbl->Gravity(This,pGravity)
-
 #define IMarkupPointer_SetGravity(This,Gravity) (This)->lpVtbl->SetGravity(This,Gravity)
-
 #define IMarkupPointer_Cling(This,pfCling) (This)->lpVtbl->Cling(This,pfCling)
-
 #define IMarkupPointer_SetCling(This,fCLing) (This)->lpVtbl->SetCling(This,fCLing)
-
 #define IMarkupPointer_Unposition(This) (This)->lpVtbl->Unposition(This)
-
 #define IMarkupPointer_IsPositioned(This,pfPositioned) (This)->lpVtbl->IsPositioned(This,pfPositioned)
-
 #define IMarkupPointer_GetContainer(This,ppContainer) (This)->lpVtbl->GetContainer(This,ppContainer)
-
 #define IMarkupPointer_MoveAdjacentToElement(This,pElement,eAdj) (This)->lpVtbl->MoveAdjacentToElement(This,pElement,eAdj)
-
 #define IMarkupPointer_MoveToPointer(This,pPointer) (This)->lpVtbl->MoveToPointer(This,pPointer)
-
 #define IMarkupPointer_MoveToContainer(This,pContainer,fAtStart) (This)->lpVtbl->MoveToContainer(This,pContainer,fAtStart)
-
 #define IMarkupPointer_Left(This,fMove,pContext,ppElement,pcch,pchText) (This)->lpVtbl->Left(This,fMove,pContext,ppElement,pcch,pchText)
-
 #define IMarkupPointer_Right(This,fMove,pContext,ppElement,pcch,pchText) (This)->lpVtbl->Right(This,fMove,pContext,ppElement,pcch,pchText)
-
 #define IMarkupPointer_CurrentScope(This,ppElemCurrent) (This)->lpVtbl->CurrentScope(This,ppElemCurrent)
-
 #define IMarkupPointer_IsLeftOf(This,pPointerThat,pfResult) (This)->lpVtbl->IsLeftOf(This,pPointerThat,pfResult)
-
 #define IMarkupPointer_IsLeftOfOrEqualTo(This,pPointerThat,pfResult) (This)->lpVtbl->IsLeftOfOrEqualTo(This,pPointerThat,pfResult)
-
 #define IMarkupPointer_IsRightOf(This,pPointerThat,pfResult) (This)->lpVtbl->IsRightOf(This,pPointerThat,pfResult)
-
 #define IMarkupPointer_IsRightOfOrEqualTo(This,pPointerThat,pfResult) (This)->lpVtbl->IsRightOfOrEqualTo(This,pPointerThat,pfResult)
-
 #define IMarkupPointer_IsEqualTo(This,pPointerThat,pfAreEqual) (This)->lpVtbl->IsEqualTo(This,pPointerThat,pfAreEqual)
-
 #define IMarkupPointer_MoveUnit(This,muAction) (This)->lpVtbl->MoveUnit(This,muAction)
-
 #define IMarkupPointer_FindText(This,pchFindText,dwFlags,pIEndMatch,pIEndSearch) (This)->lpVtbl->FindText(This,pchFindText,dwFlags,pIEndMatch,pIEndSearch)
 #endif
 #endif
 
   HRESULT WINAPI IMarkupPointer_OwningDoc_Proxy(IMarkupPointer *This,IHTMLDocument2 **ppDoc);
-
   void __RPC_STUB IMarkupPointer_OwningDoc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_Gravity_Proxy(IMarkupPointer *This,POINTER_GRAVITY *pGravity);
-
   void __RPC_STUB IMarkupPointer_Gravity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_SetGravity_Proxy(IMarkupPointer *This,POINTER_GRAVITY Gravity);
-
   void __RPC_STUB IMarkupPointer_SetGravity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_Cling_Proxy(IMarkupPointer *This,WINBOOL *pfCling);
-
   void __RPC_STUB IMarkupPointer_Cling_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_SetCling_Proxy(IMarkupPointer *This,WINBOOL fCLing);
-
   void __RPC_STUB IMarkupPointer_SetCling_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_Unposition_Proxy(IMarkupPointer *This);
-
   void __RPC_STUB IMarkupPointer_Unposition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_IsPositioned_Proxy(IMarkupPointer *This,WINBOOL *pfPositioned);
-
   void __RPC_STUB IMarkupPointer_IsPositioned_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_GetContainer_Proxy(IMarkupPointer *This,IMarkupContainer **ppContainer);
-
   void __RPC_STUB IMarkupPointer_GetContainer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_MoveAdjacentToElement_Proxy(IMarkupPointer *This,IHTMLElement *pElement,ELEMENT_ADJACENCY eAdj);
-
   void __RPC_STUB IMarkupPointer_MoveAdjacentToElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_MoveToPointer_Proxy(IMarkupPointer *This,IMarkupPointer *pPointer);
-
   void __RPC_STUB IMarkupPointer_MoveToPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_MoveToContainer_Proxy(IMarkupPointer *This,IMarkupContainer *pContainer,WINBOOL fAtStart);
-
   void __RPC_STUB IMarkupPointer_MoveToContainer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_Left_Proxy(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
-
   void __RPC_STUB IMarkupPointer_Left_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_Right_Proxy(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
-
   void __RPC_STUB IMarkupPointer_Right_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_CurrentScope_Proxy(IMarkupPointer *This,IHTMLElement **ppElemCurrent);
-
   void __RPC_STUB IMarkupPointer_CurrentScope_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_IsLeftOf_Proxy(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
   void __RPC_STUB IMarkupPointer_IsLeftOf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_IsLeftOfOrEqualTo_Proxy(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
   void __RPC_STUB IMarkupPointer_IsLeftOfOrEqualTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_IsRightOf_Proxy(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
   void __RPC_STUB IMarkupPointer_IsRightOf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_IsRightOfOrEqualTo_Proxy(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
   void __RPC_STUB IMarkupPointer_IsRightOfOrEqualTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_IsEqualTo_Proxy(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfAreEqual);
-
   void __RPC_STUB IMarkupPointer_IsEqualTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_MoveUnit_Proxy(IMarkupPointer *This,MOVEUNIT_ACTION muAction);
-
   void __RPC_STUB IMarkupPointer_MoveUnit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer_FindText_Proxy(IMarkupPointer *This,OLECHAR *pchFindText,DWORD dwFlags,IMarkupPointer *pIEndMatch,IMarkupPointer *pIEndSearch);
-
   void __RPC_STUB IMarkupPointer_FindText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IMarkupContainer_INTERFACE_DEFINED__
 #define __IMarkupContainer_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IMarkupContainer;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IMarkupContainer : public IUnknown
-  {
+  struct IMarkupContainer : public IUnknown {
   public:
     virtual HRESULT WINAPI OwningDoc(IHTMLDocument2 **ppDoc) = 0;
-
   };
 #else
-
-  typedef struct IMarkupContainerVtbl
-  {
+  typedef struct IMarkupContainerVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IMarkupContainer *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IMarkupContainer *This);
-
       ULONG (WINAPI *Release)(IMarkupContainer *This);
-
       HRESULT (WINAPI *OwningDoc)(IMarkupContainer *This,IHTMLDocument2 **ppDoc);
-
     END_INTERFACE
   } IMarkupContainerVtbl;
-
-  interface IMarkupContainer
-  {
+  interface IMarkupContainer {
     CONST_VTBL struct IMarkupContainerVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IMarkupContainer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IMarkupContainer_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IMarkupContainer_Release(This) (This)->lpVtbl->Release(This)
-
 #define IMarkupContainer_OwningDoc(This,ppDoc) (This)->lpVtbl->OwningDoc(This,ppDoc)
 #endif
 #endif
 
   HRESULT WINAPI IMarkupContainer_OwningDoc_Proxy(IMarkupContainer *This,IHTMLDocument2 **ppDoc);
-
   void __RPC_STUB IMarkupContainer_OwningDoc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IMarkupContainer2_INTERFACE_DEFINED__
 #define __IMarkupContainer2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IMarkupContainer2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IMarkupContainer2 : public IMarkupContainer
-  {
+  struct IMarkupContainer2 : public IMarkupContainer {
   public:
     virtual HRESULT WINAPI CreateChangeLog(IHTMLChangeSink *pChangeSink,IHTMLChangeLog **ppChangeLog,WINBOOL fForward,WINBOOL fBackward) = 0;
-
     virtual HRESULT WINAPI RegisterForDirtyRange(IHTMLChangeSink *pChangeSink,DWORD *pdwCookie) = 0;
-
     virtual HRESULT WINAPI UnRegisterForDirtyRange(DWORD dwCookie) = 0;
-
     virtual HRESULT WINAPI GetAndClearDirtyRange(DWORD dwCookie,IMarkupPointer *pIPointerBegin,IMarkupPointer *pIPointerEnd) = 0;
-
     virtual long WINAPI GetVersionNumber(void) = 0;
-
     virtual HRESULT WINAPI GetMasterElement(IHTMLElement **ppElementMaster) = 0;
-
   };
 #else
-
-  typedef struct IMarkupContainer2Vtbl
-  {
+  typedef struct IMarkupContainer2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IMarkupContainer2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IMarkupContainer2 *This);
-
       ULONG (WINAPI *Release)(IMarkupContainer2 *This);
-
       HRESULT (WINAPI *OwningDoc)(IMarkupContainer2 *This,IHTMLDocument2 **ppDoc);
-
       HRESULT (WINAPI *CreateChangeLog)(IMarkupContainer2 *This,IHTMLChangeSink *pChangeSink,IHTMLChangeLog **ppChangeLog,WINBOOL fForward,WINBOOL fBackward);
-
       HRESULT (WINAPI *RegisterForDirtyRange)(IMarkupContainer2 *This,IHTMLChangeSink *pChangeSink,DWORD *pdwCookie);
-
       HRESULT (WINAPI *UnRegisterForDirtyRange)(IMarkupContainer2 *This,DWORD dwCookie);
-
       HRESULT (WINAPI *GetAndClearDirtyRange)(IMarkupContainer2 *This,DWORD dwCookie,IMarkupPointer *pIPointerBegin,IMarkupPointer *pIPointerEnd);
-
       long (WINAPI *GetVersionNumber)(IMarkupContainer2 *This);
-
       HRESULT (WINAPI *GetMasterElement)(IMarkupContainer2 *This,IHTMLElement **ppElementMaster);
-
     END_INTERFACE
   } IMarkupContainer2Vtbl;
-
-  interface IMarkupContainer2
-  {
+  interface IMarkupContainer2 {
     CONST_VTBL struct IMarkupContainer2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IMarkupContainer2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IMarkupContainer2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IMarkupContainer2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IMarkupContainer2_OwningDoc(This,ppDoc) (This)->lpVtbl->OwningDoc(This,ppDoc)
-
 #define IMarkupContainer2_CreateChangeLog(This,pChangeSink,ppChangeLog,fForward,fBackward) (This)->lpVtbl->CreateChangeLog(This,pChangeSink,ppChangeLog,fForward,fBackward)
-
 #define IMarkupContainer2_RegisterForDirtyRange(This,pChangeSink,pdwCookie) (This)->lpVtbl->RegisterForDirtyRange(This,pChangeSink,pdwCookie)
-
 #define IMarkupContainer2_UnRegisterForDirtyRange(This,dwCookie) (This)->lpVtbl->UnRegisterForDirtyRange(This,dwCookie)
-
 #define IMarkupContainer2_GetAndClearDirtyRange(This,dwCookie,pIPointerBegin,pIPointerEnd) (This)->lpVtbl->GetAndClearDirtyRange(This,dwCookie,pIPointerBegin,pIPointerEnd)
-
 #define IMarkupContainer2_GetVersionNumber(This) (This)->lpVtbl->GetVersionNumber(This)
-
 #define IMarkupContainer2_GetMasterElement(This,ppElementMaster) (This)->lpVtbl->GetMasterElement(This,ppElementMaster)
 #endif
 #endif
 
   HRESULT WINAPI IMarkupContainer2_CreateChangeLog_Proxy(IMarkupContainer2 *This,IHTMLChangeSink *pChangeSink,IHTMLChangeLog **ppChangeLog,WINBOOL fForward,WINBOOL fBackward);
-
   void __RPC_STUB IMarkupContainer2_CreateChangeLog_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupContainer2_RegisterForDirtyRange_Proxy(IMarkupContainer2 *This,IHTMLChangeSink *pChangeSink,DWORD *pdwCookie);
-
   void __RPC_STUB IMarkupContainer2_RegisterForDirtyRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupContainer2_UnRegisterForDirtyRange_Proxy(IMarkupContainer2 *This,DWORD dwCookie);
-
   void __RPC_STUB IMarkupContainer2_UnRegisterForDirtyRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupContainer2_GetAndClearDirtyRange_Proxy(IMarkupContainer2 *This,DWORD dwCookie,IMarkupPointer *pIPointerBegin,IMarkupPointer *pIPointerEnd);
-
   void __RPC_STUB IMarkupContainer2_GetAndClearDirtyRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   long WINAPI IMarkupContainer2_GetVersionNumber_Proxy(IMarkupContainer2 *This);
-
   void __RPC_STUB IMarkupContainer2_GetVersionNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupContainer2_GetMasterElement_Proxy(IMarkupContainer2 *This,IHTMLElement **ppElementMaster);
-
   void __RPC_STUB IMarkupContainer2_GetMasterElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLChangeLog_INTERFACE_DEFINED__
 #define __IHTMLChangeLog_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLChangeLog;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLChangeLog : public IUnknown
-  {
+  struct IHTMLChangeLog : public IUnknown {
   public:
     virtual HRESULT WINAPI GetNextChange(BYTE *pbBuffer,long nBufferSize,long *pnRecordLength) = 0;
-
   };
 #else
-
-  typedef struct IHTMLChangeLogVtbl
-  {
+  typedef struct IHTMLChangeLogVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLChangeLog *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLChangeLog *This);
-
       ULONG (WINAPI *Release)(IHTMLChangeLog *This);
-
       HRESULT (WINAPI *GetNextChange)(IHTMLChangeLog *This,BYTE *pbBuffer,long nBufferSize,long *pnRecordLength);
-
     END_INTERFACE
   } IHTMLChangeLogVtbl;
-
-  interface IHTMLChangeLog
-  {
+  interface IHTMLChangeLog {
     CONST_VTBL struct IHTMLChangeLogVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLChangeLog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLChangeLog_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLChangeLog_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLChangeLog_GetNextChange(This,pbBuffer,nBufferSize,pnRecordLength) (This)->lpVtbl->GetNextChange(This,pbBuffer,nBufferSize,pnRecordLength)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLChangeLog_GetNextChange_Proxy(IHTMLChangeLog *This,BYTE *pbBuffer,long nBufferSize,long *pnRecordLength);
-
   void __RPC_STUB IHTMLChangeLog_GetNextChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLChangeSink_INTERFACE_DEFINED__
 #define __IHTMLChangeSink_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLChangeSink;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLChangeSink : public IUnknown
-  {
+  struct IHTMLChangeSink : public IUnknown {
   public:
     virtual HRESULT WINAPI Notify(void) = 0;
-
   };
 #else
-
-  typedef struct IHTMLChangeSinkVtbl
-  {
+  typedef struct IHTMLChangeSinkVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLChangeSink *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLChangeSink *This);
-
       ULONG (WINAPI *Release)(IHTMLChangeSink *This);
-
       HRESULT (WINAPI *Notify)(IHTMLChangeSink *This);
-
     END_INTERFACE
   } IHTMLChangeSinkVtbl;
-
-  interface IHTMLChangeSink
-  {
+  interface IHTMLChangeSink {
     CONST_VTBL struct IHTMLChangeSinkVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLChangeSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLChangeSink_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLChangeSink_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLChangeSink_Notify(This) (This)->lpVtbl->Notify(This)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLChangeSink_Notify_Proxy(IHTMLChangeSink *This);
-
   void __RPC_STUB IHTMLChangeSink_Notify_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IActiveIMMApp_INTERFACE_DEFINED__
 #define __IActiveIMMApp_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IActiveIMMApp;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IActiveIMMApp : public IUnknown
-  {
+  struct IActiveIMMApp : public IUnknown {
   public:
     virtual HRESULT WINAPI AssociateContext(HWND hWnd,HIMC hIME,HIMC *phPrev) = 0;
-
     virtual HRESULT WINAPI ConfigureIMEA(HKL hKL,HWND hWnd,DWORD dwMode,REGISTERWORDA *pData) = 0;
-
     virtual HRESULT WINAPI ConfigureIMEW(HKL hKL,HWND hWnd,DWORD dwMode,REGISTERWORDW *pData) = 0;
-
     virtual HRESULT WINAPI CreateContext(HIMC *phIMC) = 0;
-
     virtual HRESULT WINAPI DestroyContext(HIMC hIME) = 0;
-
     virtual HRESULT WINAPI EnumRegisterWordA(HKL hKL,LPSTR szReading,DWORD dwStyle,LPSTR szRegister,LPVOID pData,IEnumRegisterWordA **pEnum) = 0;
-
     virtual HRESULT WINAPI EnumRegisterWordW(HKL hKL,LPWSTR szReading,DWORD dwStyle,LPWSTR szRegister,LPVOID pData,IEnumRegisterWordW **pEnum) = 0;
-
     virtual HRESULT WINAPI EscapeA(HKL hKL,HIMC hIMC,UINT uEscape,LPVOID pData,LRESULT *plResult) = 0;
-
     virtual HRESULT WINAPI EscapeW(HKL hKL,HIMC hIMC,UINT uEscape,LPVOID pData,LRESULT *plResult) = 0;
-
     virtual HRESULT WINAPI GetCandidateListA(HIMC hIMC,DWORD dwIndex,UINT uBufLen,CANDIDATELIST *pCandList,UINT *puCopied) = 0;
-
     virtual HRESULT WINAPI GetCandidateListW(HIMC hIMC,DWORD dwIndex,UINT uBufLen,CANDIDATELIST *pCandList,UINT *puCopied) = 0;
-
     virtual HRESULT WINAPI GetCandidateListCountA(HIMC hIMC,DWORD *pdwListSize,DWORD *pdwBufLen) = 0;
-
     virtual HRESULT WINAPI GetCandidateListCountW(HIMC hIMC,DWORD *pdwListSize,DWORD *pdwBufLen) = 0;
-
     virtual HRESULT WINAPI GetCandidateWindow(HIMC hIMC,DWORD dwIndex,CANDIDATEFORM *pCandidate) = 0;
-
     virtual HRESULT WINAPI GetCompositionFontA(HIMC hIMC,LOGFONTA *plf) = 0;
-
     virtual HRESULT WINAPI GetCompositionFontW(HIMC hIMC,LOGFONTW *plf) = 0;
-
     virtual HRESULT WINAPI GetCompositionStringA(HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LONG *plCopied,LPVOID pBuf) = 0;
-
     virtual HRESULT WINAPI GetCompositionStringW(HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LONG *plCopied,LPVOID pBuf) = 0;
-
     virtual HRESULT WINAPI GetCompositionWindow(HIMC hIMC,COMPOSITIONFORM *pCompForm) = 0;
-
     virtual HRESULT WINAPI GetContext(HWND hWnd,HIMC *phIMC) = 0;
-
     virtual HRESULT WINAPI GetConversionListA(HKL hKL,HIMC hIMC,LPSTR pSrc,UINT uBufLen,UINT uFlag,CANDIDATELIST *pDst,UINT *puCopied) = 0;
-
     virtual HRESULT WINAPI GetConversionListW(HKL hKL,HIMC hIMC,LPWSTR pSrc,UINT uBufLen,UINT uFlag,CANDIDATELIST *pDst,UINT *puCopied) = 0;
-
     virtual HRESULT WINAPI GetConversionStatus(HIMC hIMC,DWORD *pfdwConversion,DWORD *pfdwSentence) = 0;
-
     virtual HRESULT WINAPI GetDefaultIMEWnd(HWND hWnd,HWND *phDefWnd) = 0;
-
     virtual HRESULT WINAPI GetDescriptionA(HKL hKL,UINT uBufLen,LPSTR szDescription,UINT *puCopied) = 0;
-
     virtual HRESULT WINAPI GetDescriptionW(HKL hKL,UINT uBufLen,LPWSTR szDescription,UINT *puCopied) = 0;
-
     virtual HRESULT WINAPI GetGuideLineA(HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LPSTR pBuf,DWORD *pdwResult) = 0;
-
     virtual HRESULT WINAPI GetGuideLineW(HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LPWSTR pBuf,DWORD *pdwResult) = 0;
-
     virtual HRESULT WINAPI GetIMEFileNameA(HKL hKL,UINT uBufLen,LPSTR szFileName,UINT *puCopied) = 0;
-
     virtual HRESULT WINAPI GetIMEFileNameW(HKL hKL,UINT uBufLen,LPWSTR szFileName,UINT *puCopied) = 0;
-
     virtual HRESULT WINAPI GetOpenStatus(HIMC hIMC) = 0;
-
     virtual HRESULT WINAPI GetProperty(HKL hKL,DWORD fdwIndex,DWORD *pdwProperty) = 0;
-
     virtual HRESULT WINAPI GetRegisterWordStyleA(HKL hKL,UINT nItem,STYLEBUFA *pStyleBuf,UINT *puCopied) = 0;
-
     virtual HRESULT WINAPI GetRegisterWordStyleW(HKL hKL,UINT nItem,STYLEBUFW *pStyleBuf,UINT *puCopied) = 0;
-
     virtual HRESULT WINAPI GetStatusWindowPos(HIMC hIMC,POINT *pptPos) = 0;
-
     virtual HRESULT WINAPI GetVirtualKey(HWND hWnd,UINT *puVirtualKey) = 0;
-
     virtual HRESULT WINAPI InstallIMEA(LPSTR szIMEFileName,LPSTR szLayoutText,HKL *phKL) = 0;
-
     virtual HRESULT WINAPI InstallIMEW(LPWSTR szIMEFileName,LPWSTR szLayoutText,HKL *phKL) = 0;
-
     virtual HRESULT WINAPI IsIME(HKL hKL) = 0;
-
     virtual HRESULT WINAPI IsUIMessageA(HWND hWndIME,UINT msg,WPARAM wParam,LPARAM lParam) = 0;
-
     virtual HRESULT WINAPI IsUIMessageW(HWND hWndIME,UINT msg,WPARAM wParam,LPARAM lParam) = 0;
-
     virtual HRESULT WINAPI NotifyIME(HIMC hIMC,DWORD dwAction,DWORD dwIndex,DWORD dwValue) = 0;
-
     virtual HRESULT WINAPI RegisterWordA(HKL hKL,LPSTR szReading,DWORD dwStyle,LPSTR szRegister) = 0;
-
     virtual HRESULT WINAPI RegisterWordW(HKL hKL,LPWSTR szReading,DWORD dwStyle,LPWSTR szRegister) = 0;
-
     virtual HRESULT WINAPI ReleaseContext(HWND hWnd,HIMC hIMC) = 0;
-
     virtual HRESULT WINAPI SetCandidateWindow(HIMC hIMC,CANDIDATEFORM *pCandidate) = 0;
-
     virtual HRESULT WINAPI SetCompositionFontA(HIMC hIMC,LOGFONTA *plf) = 0;
-
     virtual HRESULT WINAPI SetCompositionFontW(HIMC hIMC,LOGFONTW *plf) = 0;
-
     virtual HRESULT WINAPI SetCompositionStringA(HIMC hIMC,DWORD dwIndex,LPVOID pComp,DWORD dwCompLen,LPVOID pRead,DWORD dwReadLen) = 0;
-
     virtual HRESULT WINAPI SetCompositionStringW(HIMC hIMC,DWORD dwIndex,LPVOID pComp,DWORD dwCompLen,LPVOID pRead,DWORD dwReadLen) = 0;
-
     virtual HRESULT WINAPI SetCompositionWindow(HIMC hIMC,COMPOSITIONFORM *pCompForm) = 0;
-
     virtual HRESULT WINAPI SetConversionStatus(HIMC hIMC,DWORD fdwConversion,DWORD fdwSentence) = 0;
-
     virtual HRESULT WINAPI SetOpenStatus(HIMC hIMC,WINBOOL fOpen) = 0;
-
     virtual HRESULT WINAPI SetStatusWindowPos(HIMC hIMC,POINT *pptPos) = 0;
-
     virtual HRESULT WINAPI SimulateHotKey(HWND hWnd,DWORD dwHotKeyID) = 0;
-
     virtual HRESULT WINAPI UnregisterWordA(HKL hKL,LPSTR szReading,DWORD dwStyle,LPSTR szUnregister) = 0;
-
     virtual HRESULT WINAPI UnregisterWordW(HKL hKL,LPWSTR szReading,DWORD dwStyle,LPWSTR szUnregister) = 0;
-
     virtual HRESULT WINAPI Activate(WINBOOL fRestoreLayout) = 0;
-
     virtual HRESULT WINAPI Deactivate(void) = 0;
-
     virtual HRESULT WINAPI OnDefWindowProc(HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam,LRESULT *plResult) = 0;
-
     virtual HRESULT WINAPI FilterClientWindows(ATOM *aaClassList,UINT uSize) = 0;
-
     virtual HRESULT WINAPI GetCodePageA(HKL hKL,UINT *uCodePage) = 0;
-
     virtual HRESULT WINAPI GetLangId(HKL hKL,LANGID *plid) = 0;
-
     virtual HRESULT WINAPI AssociateContextEx(HWND hWnd,HIMC hIMC,DWORD dwFlags) = 0;
-
     virtual HRESULT WINAPI DisableIME(DWORD idThread) = 0;
-
     virtual HRESULT WINAPI GetImeMenuItemsA(HIMC hIMC,DWORD dwFlags,DWORD dwType,IMEMENUITEMINFOA *pImeParentMenu,IMEMENUITEMINFOA *pImeMenu,DWORD dwSize,DWORD *pdwResult) = 0;
-
     virtual HRESULT WINAPI GetImeMenuItemsW(HIMC hIMC,DWORD dwFlags,DWORD dwType,IMEMENUITEMINFOW *pImeParentMenu,IMEMENUITEMINFOW *pImeMenu,DWORD dwSize,DWORD *pdwResult) = 0;
-
     virtual HRESULT WINAPI EnumInputContext(DWORD idThread,IEnumInputContext **ppEnum) = 0;
-
   };
 #else
-
-  typedef struct IActiveIMMAppVtbl
-  {
+  typedef struct IActiveIMMAppVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IActiveIMMApp *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IActiveIMMApp *This);
-
       ULONG (WINAPI *Release)(IActiveIMMApp *This);
-
       HRESULT (WINAPI *AssociateContext)(IActiveIMMApp *This,HWND hWnd,HIMC hIME,HIMC *phPrev);
-
       HRESULT (WINAPI *ConfigureIMEA)(IActiveIMMApp *This,HKL hKL,HWND hWnd,DWORD dwMode,REGISTERWORDA *pData);
-
       HRESULT (WINAPI *ConfigureIMEW)(IActiveIMMApp *This,HKL hKL,HWND hWnd,DWORD dwMode,REGISTERWORDW *pData);
-
       HRESULT (WINAPI *CreateContext)(IActiveIMMApp *This,HIMC *phIMC);
-
       HRESULT (WINAPI *DestroyContext)(IActiveIMMApp *This,HIMC hIME);
-
       HRESULT (WINAPI *EnumRegisterWordA)(IActiveIMMApp *This,HKL hKL,LPSTR szReading,DWORD dwStyle,LPSTR szRegister,LPVOID pData,IEnumRegisterWordA **pEnum);
-
       HRESULT (WINAPI *EnumRegisterWordW)(IActiveIMMApp *This,HKL hKL,LPWSTR szReading,DWORD dwStyle,LPWSTR szRegister,LPVOID pData,IEnumRegisterWordW **pEnum);
-
       HRESULT (WINAPI *EscapeA)(IActiveIMMApp *This,HKL hKL,HIMC hIMC,UINT uEscape,LPVOID pData,LRESULT *plResult);
-
       HRESULT (WINAPI *EscapeW)(IActiveIMMApp *This,HKL hKL,HIMC hIMC,UINT uEscape,LPVOID pData,LRESULT *plResult);
-
       HRESULT (WINAPI *GetCandidateListA)(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,UINT uBufLen,CANDIDATELIST *pCandList,UINT *puCopied);
-
       HRESULT (WINAPI *GetCandidateListW)(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,UINT uBufLen,CANDIDATELIST *pCandList,UINT *puCopied);
-
       HRESULT (WINAPI *GetCandidateListCountA)(IActiveIMMApp *This,HIMC hIMC,DWORD *pdwListSize,DWORD *pdwBufLen);
-
       HRESULT (WINAPI *GetCandidateListCountW)(IActiveIMMApp *This,HIMC hIMC,DWORD *pdwListSize,DWORD *pdwBufLen);
-
       HRESULT (WINAPI *GetCandidateWindow)(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,CANDIDATEFORM *pCandidate);
-
       HRESULT (WINAPI *GetCompositionFontA)(IActiveIMMApp *This,HIMC hIMC,LOGFONTA *plf);
-
       HRESULT (WINAPI *GetCompositionFontW)(IActiveIMMApp *This,HIMC hIMC,LOGFONTW *plf);
-
       HRESULT (WINAPI *GetCompositionStringA)(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LONG *plCopied,LPVOID pBuf);
-
       HRESULT (WINAPI *GetCompositionStringW)(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LONG *plCopied,LPVOID pBuf);
-
       HRESULT (WINAPI *GetCompositionWindow)(IActiveIMMApp *This,HIMC hIMC,COMPOSITIONFORM *pCompForm);
-
       HRESULT (WINAPI *GetContext)(IActiveIMMApp *This,HWND hWnd,HIMC *phIMC);
-
       HRESULT (WINAPI *GetConversionListA)(IActiveIMMApp *This,HKL hKL,HIMC hIMC,LPSTR pSrc,UINT uBufLen,UINT uFlag,CANDIDATELIST *pDst,UINT *puCopied);
-
       HRESULT (WINAPI *GetConversionListW)(IActiveIMMApp *This,HKL hKL,HIMC hIMC,LPWSTR pSrc,UINT uBufLen,UINT uFlag,CANDIDATELIST *pDst,UINT *puCopied);
-
       HRESULT (WINAPI *GetConversionStatus)(IActiveIMMApp *This,HIMC hIMC,DWORD *pfdwConversion,DWORD *pfdwSentence);
-
       HRESULT (WINAPI *GetDefaultIMEWnd)(IActiveIMMApp *This,HWND hWnd,HWND *phDefWnd);
-
       HRESULT (WINAPI *GetDescriptionA)(IActiveIMMApp *This,HKL hKL,UINT uBufLen,LPSTR szDescription,UINT *puCopied);
-
       HRESULT (WINAPI *GetDescriptionW)(IActiveIMMApp *This,HKL hKL,UINT uBufLen,LPWSTR szDescription,UINT *puCopied);
-
       HRESULT (WINAPI *GetGuideLineA)(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LPSTR pBuf,DWORD *pdwResult);
-
       HRESULT (WINAPI *GetGuideLineW)(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LPWSTR pBuf,DWORD *pdwResult);
-
       HRESULT (WINAPI *GetIMEFileNameA)(IActiveIMMApp *This,HKL hKL,UINT uBufLen,LPSTR szFileName,UINT *puCopied);
-
       HRESULT (WINAPI *GetIMEFileNameW)(IActiveIMMApp *This,HKL hKL,UINT uBufLen,LPWSTR szFileName,UINT *puCopied);
-
       HRESULT (WINAPI *GetOpenStatus)(IActiveIMMApp *This,HIMC hIMC);
-
       HRESULT (WINAPI *GetProperty)(IActiveIMMApp *This,HKL hKL,DWORD fdwIndex,DWORD *pdwProperty);
-
       HRESULT (WINAPI *GetRegisterWordStyleA)(IActiveIMMApp *This,HKL hKL,UINT nItem,STYLEBUFA *pStyleBuf,UINT *puCopied);
-
       HRESULT (WINAPI *GetRegisterWordStyleW)(IActiveIMMApp *This,HKL hKL,UINT nItem,STYLEBUFW *pStyleBuf,UINT *puCopied);
-
       HRESULT (WINAPI *GetStatusWindowPos)(IActiveIMMApp *This,HIMC hIMC,POINT *pptPos);
-
       HRESULT (WINAPI *GetVirtualKey)(IActiveIMMApp *This,HWND hWnd,UINT *puVirtualKey);
-
       HRESULT (WINAPI *InstallIMEA)(IActiveIMMApp *This,LPSTR szIMEFileName,LPSTR szLayoutText,HKL *phKL);
-
       HRESULT (WINAPI *InstallIMEW)(IActiveIMMApp *This,LPWSTR szIMEFileName,LPWSTR szLayoutText,HKL *phKL);
-
       HRESULT (WINAPI *IsIME)(IActiveIMMApp *This,HKL hKL);
-
       HRESULT (WINAPI *IsUIMessageA)(IActiveIMMApp *This,HWND hWndIME,UINT msg,WPARAM wParam,LPARAM lParam);
-
       HRESULT (WINAPI *IsUIMessageW)(IActiveIMMApp *This,HWND hWndIME,UINT msg,WPARAM wParam,LPARAM lParam);
-
       HRESULT (WINAPI *NotifyIME)(IActiveIMMApp *This,HIMC hIMC,DWORD dwAction,DWORD dwIndex,DWORD dwValue);
-
       HRESULT (WINAPI *RegisterWordA)(IActiveIMMApp *This,HKL hKL,LPSTR szReading,DWORD dwStyle,LPSTR szRegister);
-
       HRESULT (WINAPI *RegisterWordW)(IActiveIMMApp *This,HKL hKL,LPWSTR szReading,DWORD dwStyle,LPWSTR szRegister);
-
       HRESULT (WINAPI *ReleaseContext)(IActiveIMMApp *This,HWND hWnd,HIMC hIMC);
-
       HRESULT (WINAPI *SetCandidateWindow)(IActiveIMMApp *This,HIMC hIMC,CANDIDATEFORM *pCandidate);
-
       HRESULT (WINAPI *SetCompositionFontA)(IActiveIMMApp *This,HIMC hIMC,LOGFONTA *plf);
-
       HRESULT (WINAPI *SetCompositionFontW)(IActiveIMMApp *This,HIMC hIMC,LOGFONTW *plf);
-
       HRESULT (WINAPI *SetCompositionStringA)(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,LPVOID pComp,DWORD dwCompLen,LPVOID pRead,DWORD dwReadLen);
-
       HRESULT (WINAPI *SetCompositionStringW)(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,LPVOID pComp,DWORD dwCompLen,LPVOID pRead,DWORD dwReadLen);
-
       HRESULT (WINAPI *SetCompositionWindow)(IActiveIMMApp *This,HIMC hIMC,COMPOSITIONFORM *pCompForm);
-
       HRESULT (WINAPI *SetConversionStatus)(IActiveIMMApp *This,HIMC hIMC,DWORD fdwConversion,DWORD fdwSentence);
-
       HRESULT (WINAPI *SetOpenStatus)(IActiveIMMApp *This,HIMC hIMC,WINBOOL fOpen);
-
       HRESULT (WINAPI *SetStatusWindowPos)(IActiveIMMApp *This,HIMC hIMC,POINT *pptPos);
-
       HRESULT (WINAPI *SimulateHotKey)(IActiveIMMApp *This,HWND hWnd,DWORD dwHotKeyID);
-
       HRESULT (WINAPI *UnregisterWordA)(IActiveIMMApp *This,HKL hKL,LPSTR szReading,DWORD dwStyle,LPSTR szUnregister);
-
       HRESULT (WINAPI *UnregisterWordW)(IActiveIMMApp *This,HKL hKL,LPWSTR szReading,DWORD dwStyle,LPWSTR szUnregister);
-
       HRESULT (WINAPI *Activate)(IActiveIMMApp *This,WINBOOL fRestoreLayout);
-
       HRESULT (WINAPI *Deactivate)(IActiveIMMApp *This);
-
       HRESULT (WINAPI *OnDefWindowProc)(IActiveIMMApp *This,HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam,LRESULT *plResult);
-
       HRESULT (WINAPI *FilterClientWindows)(IActiveIMMApp *This,ATOM *aaClassList,UINT uSize);
-
       HRESULT (WINAPI *GetCodePageA)(IActiveIMMApp *This,HKL hKL,UINT *uCodePage);
-
       HRESULT (WINAPI *GetLangId)(IActiveIMMApp *This,HKL hKL,LANGID *plid);
-
       HRESULT (WINAPI *AssociateContextEx)(IActiveIMMApp *This,HWND hWnd,HIMC hIMC,DWORD dwFlags);
-
       HRESULT (WINAPI *DisableIME)(IActiveIMMApp *This,DWORD idThread);
-
       HRESULT (WINAPI *GetImeMenuItemsA)(IActiveIMMApp *This,HIMC hIMC,DWORD dwFlags,DWORD dwType,IMEMENUITEMINFOA *pImeParentMenu,IMEMENUITEMINFOA *pImeMenu,DWORD dwSize,DWORD *pdwResult);
-
       HRESULT (WINAPI *GetImeMenuItemsW)(IActiveIMMApp *This,HIMC hIMC,DWORD dwFlags,DWORD dwType,IMEMENUITEMINFOW *pImeParentMenu,IMEMENUITEMINFOW *pImeMenu,DWORD dwSize,DWORD *pdwResult);
-
       HRESULT (WINAPI *EnumInputContext)(IActiveIMMApp *This,DWORD idThread,IEnumInputContext **ppEnum);
-
     END_INTERFACE
   } IActiveIMMAppVtbl;
-
-  interface IActiveIMMApp
-  {
+  interface IActiveIMMApp {
     CONST_VTBL struct IActiveIMMAppVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IActiveIMMApp_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IActiveIMMApp_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IActiveIMMApp_Release(This) (This)->lpVtbl->Release(This)
-
 #define IActiveIMMApp_AssociateContext(This,hWnd,hIME,phPrev) (This)->lpVtbl->AssociateContext(This,hWnd,hIME,phPrev)
-
 #define IActiveIMMApp_ConfigureIMEA(This,hKL,hWnd,dwMode,pData) (This)->lpVtbl->ConfigureIMEA(This,hKL,hWnd,dwMode,pData)
-
 #define IActiveIMMApp_ConfigureIMEW(This,hKL,hWnd,dwMode,pData) (This)->lpVtbl->ConfigureIMEW(This,hKL,hWnd,dwMode,pData)
-
 #define IActiveIMMApp_CreateContext(This,phIMC) (This)->lpVtbl->CreateContext(This,phIMC)
-
 #define IActiveIMMApp_DestroyContext(This,hIME) (This)->lpVtbl->DestroyContext(This,hIME)
-
 #define IActiveIMMApp_EnumRegisterWordA(This,hKL,szReading,dwStyle,szRegister,pData,pEnum) (This)->lpVtbl->EnumRegisterWordA(This,hKL,szReading,dwStyle,szRegister,pData,pEnum)
-
 #define IActiveIMMApp_EnumRegisterWordW(This,hKL,szReading,dwStyle,szRegister,pData,pEnum) (This)->lpVtbl->EnumRegisterWordW(This,hKL,szReading,dwStyle,szRegister,pData,pEnum)
-
 #define IActiveIMMApp_EscapeA(This,hKL,hIMC,uEscape,pData,plResult) (This)->lpVtbl->EscapeA(This,hKL,hIMC,uEscape,pData,plResult)
-
 #define IActiveIMMApp_EscapeW(This,hKL,hIMC,uEscape,pData,plResult) (This)->lpVtbl->EscapeW(This,hKL,hIMC,uEscape,pData,plResult)
-
 #define IActiveIMMApp_GetCandidateListA(This,hIMC,dwIndex,uBufLen,pCandList,puCopied) (This)->lpVtbl->GetCandidateListA(This,hIMC,dwIndex,uBufLen,pCandList,puCopied)
-
 #define IActiveIMMApp_GetCandidateListW(This,hIMC,dwIndex,uBufLen,pCandList,puCopied) (This)->lpVtbl->GetCandidateListW(This,hIMC,dwIndex,uBufLen,pCandList,puCopied)
-
 #define IActiveIMMApp_GetCandidateListCountA(This,hIMC,pdwListSize,pdwBufLen) (This)->lpVtbl->GetCandidateListCountA(This,hIMC,pdwListSize,pdwBufLen)
-
 #define IActiveIMMApp_GetCandidateListCountW(This,hIMC,pdwListSize,pdwBufLen) (This)->lpVtbl->GetCandidateListCountW(This,hIMC,pdwListSize,pdwBufLen)
-
 #define IActiveIMMApp_GetCandidateWindow(This,hIMC,dwIndex,pCandidate) (This)->lpVtbl->GetCandidateWindow(This,hIMC,dwIndex,pCandidate)
-
 #define IActiveIMMApp_GetCompositionFontA(This,hIMC,plf) (This)->lpVtbl->GetCompositionFontA(This,hIMC,plf)
-
 #define IActiveIMMApp_GetCompositionFontW(This,hIMC,plf) (This)->lpVtbl->GetCompositionFontW(This,hIMC,plf)
-
 #define IActiveIMMApp_GetCompositionStringA(This,hIMC,dwIndex,dwBufLen,plCopied,pBuf) (This)->lpVtbl->GetCompositionStringA(This,hIMC,dwIndex,dwBufLen,plCopied,pBuf)
-
 #define IActiveIMMApp_GetCompositionStringW(This,hIMC,dwIndex,dwBufLen,plCopied,pBuf) (This)->lpVtbl->GetCompositionStringW(This,hIMC,dwIndex,dwBufLen,plCopied,pBuf)
-
 #define IActiveIMMApp_GetCompositionWindow(This,hIMC,pCompForm) (This)->lpVtbl->GetCompositionWindow(This,hIMC,pCompForm)
-
 #define IActiveIMMApp_GetContext(This,hWnd,phIMC) (This)->lpVtbl->GetContext(This,hWnd,phIMC)
-
 #define IActiveIMMApp_GetConversionListA(This,hKL,hIMC,pSrc,uBufLen,uFlag,pDst,puCopied) (This)->lpVtbl->GetConversionListA(This,hKL,hIMC,pSrc,uBufLen,uFlag,pDst,puCopied)
-
 #define IActiveIMMApp_GetConversionListW(This,hKL,hIMC,pSrc,uBufLen,uFlag,pDst,puCopied) (This)->lpVtbl->GetConversionListW(This,hKL,hIMC,pSrc,uBufLen,uFlag,pDst,puCopied)
-
 #define IActiveIMMApp_GetConversionStatus(This,hIMC,pfdwConversion,pfdwSentence) (This)->lpVtbl->GetConversionStatus(This,hIMC,pfdwConversion,pfdwSentence)
-
 #define IActiveIMMApp_GetDefaultIMEWnd(This,hWnd,phDefWnd) (This)->lpVtbl->GetDefaultIMEWnd(This,hWnd,phDefWnd)
-
 #define IActiveIMMApp_GetDescriptionA(This,hKL,uBufLen,szDescription,puCopied) (This)->lpVtbl->GetDescriptionA(This,hKL,uBufLen,szDescription,puCopied)
-
 #define IActiveIMMApp_GetDescriptionW(This,hKL,uBufLen,szDescription,puCopied) (This)->lpVtbl->GetDescriptionW(This,hKL,uBufLen,szDescription,puCopied)
-
 #define IActiveIMMApp_GetGuideLineA(This,hIMC,dwIndex,dwBufLen,pBuf,pdwResult) (This)->lpVtbl->GetGuideLineA(This,hIMC,dwIndex,dwBufLen,pBuf,pdwResult)
-
 #define IActiveIMMApp_GetGuideLineW(This,hIMC,dwIndex,dwBufLen,pBuf,pdwResult) (This)->lpVtbl->GetGuideLineW(This,hIMC,dwIndex,dwBufLen,pBuf,pdwResult)
-
 #define IActiveIMMApp_GetIMEFileNameA(This,hKL,uBufLen,szFileName,puCopied) (This)->lpVtbl->GetIMEFileNameA(This,hKL,uBufLen,szFileName,puCopied)
-
 #define IActiveIMMApp_GetIMEFileNameW(This,hKL,uBufLen,szFileName,puCopied) (This)->lpVtbl->GetIMEFileNameW(This,hKL,uBufLen,szFileName,puCopied)
-
 #define IActiveIMMApp_GetOpenStatus(This,hIMC) (This)->lpVtbl->GetOpenStatus(This,hIMC)
-
 #define IActiveIMMApp_GetProperty(This,hKL,fdwIndex,pdwProperty) (This)->lpVtbl->GetProperty(This,hKL,fdwIndex,pdwProperty)
-
 #define IActiveIMMApp_GetRegisterWordStyleA(This,hKL,nItem,pStyleBuf,puCopied) (This)->lpVtbl->GetRegisterWordStyleA(This,hKL,nItem,pStyleBuf,puCopied)
-
 #define IActiveIMMApp_GetRegisterWordStyleW(This,hKL,nItem,pStyleBuf,puCopied) (This)->lpVtbl->GetRegisterWordStyleW(This,hKL,nItem,pStyleBuf,puCopied)
-
 #define IActiveIMMApp_GetStatusWindowPos(This,hIMC,pptPos) (This)->lpVtbl->GetStatusWindowPos(This,hIMC,pptPos)
-
 #define IActiveIMMApp_GetVirtualKey(This,hWnd,puVirtualKey) (This)->lpVtbl->GetVirtualKey(This,hWnd,puVirtualKey)
-
 #define IActiveIMMApp_InstallIMEA(This,szIMEFileName,szLayoutText,phKL) (This)->lpVtbl->InstallIMEA(This,szIMEFileName,szLayoutText,phKL)
-
 #define IActiveIMMApp_InstallIMEW(This,szIMEFileName,szLayoutText,phKL) (This)->lpVtbl->InstallIMEW(This,szIMEFileName,szLayoutText,phKL)
-
 #define IActiveIMMApp_IsIME(This,hKL) (This)->lpVtbl->IsIME(This,hKL)
-
 #define IActiveIMMApp_IsUIMessageA(This,hWndIME,msg,wParam,lParam) (This)->lpVtbl->IsUIMessageA(This,hWndIME,msg,wParam,lParam)
-
 #define IActiveIMMApp_IsUIMessageW(This,hWndIME,msg,wParam,lParam) (This)->lpVtbl->IsUIMessageW(This,hWndIME,msg,wParam,lParam)
-
 #define IActiveIMMApp_NotifyIME(This,hIMC,dwAction,dwIndex,dwValue) (This)->lpVtbl->NotifyIME(This,hIMC,dwAction,dwIndex,dwValue)
-
 #define IActiveIMMApp_RegisterWordA(This,hKL,szReading,dwStyle,szRegister) (This)->lpVtbl->RegisterWordA(This,hKL,szReading,dwStyle,szRegister)
-
 #define IActiveIMMApp_RegisterWordW(This,hKL,szReading,dwStyle,szRegister) (This)->lpVtbl->RegisterWordW(This,hKL,szReading,dwStyle,szRegister)
-
 #define IActiveIMMApp_ReleaseContext(This,hWnd,hIMC) (This)->lpVtbl->ReleaseContext(This,hWnd,hIMC)
-
 #define IActiveIMMApp_SetCandidateWindow(This,hIMC,pCandidate) (This)->lpVtbl->SetCandidateWindow(This,hIMC,pCandidate)
-
 #define IActiveIMMApp_SetCompositionFontA(This,hIMC,plf) (This)->lpVtbl->SetCompositionFontA(This,hIMC,plf)
-
 #define IActiveIMMApp_SetCompositionFontW(This,hIMC,plf) (This)->lpVtbl->SetCompositionFontW(This,hIMC,plf)
-
 #define IActiveIMMApp_SetCompositionStringA(This,hIMC,dwIndex,pComp,dwCompLen,pRead,dwReadLen) (This)->lpVtbl->SetCompositionStringA(This,hIMC,dwIndex,pComp,dwCompLen,pRead,dwReadLen)
-
 #define IActiveIMMApp_SetCompositionStringW(This,hIMC,dwIndex,pComp,dwCompLen,pRead,dwReadLen) (This)->lpVtbl->SetCompositionStringW(This,hIMC,dwIndex,pComp,dwCompLen,pRead,dwReadLen)
-
 #define IActiveIMMApp_SetCompositionWindow(This,hIMC,pCompForm) (This)->lpVtbl->SetCompositionWindow(This,hIMC,pCompForm)
-
 #define IActiveIMMApp_SetConversionStatus(This,hIMC,fdwConversion,fdwSentence) (This)->lpVtbl->SetConversionStatus(This,hIMC,fdwConversion,fdwSentence)
-
 #define IActiveIMMApp_SetOpenStatus(This,hIMC,fOpen) (This)->lpVtbl->SetOpenStatus(This,hIMC,fOpen)
-
 #define IActiveIMMApp_SetStatusWindowPos(This,hIMC,pptPos) (This)->lpVtbl->SetStatusWindowPos(This,hIMC,pptPos)
-
 #define IActiveIMMApp_SimulateHotKey(This,hWnd,dwHotKeyID) (This)->lpVtbl->SimulateHotKey(This,hWnd,dwHotKeyID)
-
 #define IActiveIMMApp_UnregisterWordA(This,hKL,szReading,dwStyle,szUnregister) (This)->lpVtbl->UnregisterWordA(This,hKL,szReading,dwStyle,szUnregister)
-
 #define IActiveIMMApp_UnregisterWordW(This,hKL,szReading,dwStyle,szUnregister) (This)->lpVtbl->UnregisterWordW(This,hKL,szReading,dwStyle,szUnregister)
-
 #define IActiveIMMApp_Activate(This,fRestoreLayout) (This)->lpVtbl->Activate(This,fRestoreLayout)
-
 #define IActiveIMMApp_Deactivate(This) (This)->lpVtbl->Deactivate(This)
-
 #define IActiveIMMApp_OnDefWindowProc(This,hWnd,Msg,wParam,lParam,plResult) (This)->lpVtbl->OnDefWindowProc(This,hWnd,Msg,wParam,lParam,plResult)
-
 #define IActiveIMMApp_FilterClientWindows(This,aaClassList,uSize) (This)->lpVtbl->FilterClientWindows(This,aaClassList,uSize)
-
 #define IActiveIMMApp_GetCodePageA(This,hKL,uCodePage) (This)->lpVtbl->GetCodePageA(This,hKL,uCodePage)
-
 #define IActiveIMMApp_GetLangId(This,hKL,plid) (This)->lpVtbl->GetLangId(This,hKL,plid)
-
 #define IActiveIMMApp_AssociateContextEx(This,hWnd,hIMC,dwFlags) (This)->lpVtbl->AssociateContextEx(This,hWnd,hIMC,dwFlags)
-
 #define IActiveIMMApp_DisableIME(This,idThread) (This)->lpVtbl->DisableIME(This,idThread)
-
 #define IActiveIMMApp_GetImeMenuItemsA(This,hIMC,dwFlags,dwType,pImeParentMenu,pImeMenu,dwSize,pdwResult) (This)->lpVtbl->GetImeMenuItemsA(This,hIMC,dwFlags,dwType,pImeParentMenu,pImeMenu,dwSize,pdwResult)
-
 #define IActiveIMMApp_GetImeMenuItemsW(This,hIMC,dwFlags,dwType,pImeParentMenu,pImeMenu,dwSize,pdwResult) (This)->lpVtbl->GetImeMenuItemsW(This,hIMC,dwFlags,dwType,pImeParentMenu,pImeMenu,dwSize,pdwResult)
-
 #define IActiveIMMApp_EnumInputContext(This,idThread,ppEnum) (This)->lpVtbl->EnumInputContext(This,idThread,ppEnum)
 #endif
 #endif
 
   HRESULT WINAPI IActiveIMMApp_AssociateContext_Proxy(IActiveIMMApp *This,HWND hWnd,HIMC hIME,HIMC *phPrev);
-
   void __RPC_STUB IActiveIMMApp_AssociateContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_ConfigureIMEA_Proxy(IActiveIMMApp *This,HKL hKL,HWND hWnd,DWORD dwMode,REGISTERWORDA *pData);
-
   void __RPC_STUB IActiveIMMApp_ConfigureIMEA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_ConfigureIMEW_Proxy(IActiveIMMApp *This,HKL hKL,HWND hWnd,DWORD dwMode,REGISTERWORDW *pData);
-
   void __RPC_STUB IActiveIMMApp_ConfigureIMEW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_CreateContext_Proxy(IActiveIMMApp *This,HIMC *phIMC);
-
   void __RPC_STUB IActiveIMMApp_CreateContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_DestroyContext_Proxy(IActiveIMMApp *This,HIMC hIME);
-
   void __RPC_STUB IActiveIMMApp_DestroyContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_EnumRegisterWordA_Proxy(IActiveIMMApp *This,HKL hKL,LPSTR szReading,DWORD dwStyle,LPSTR szRegister,LPVOID pData,IEnumRegisterWordA **pEnum);
-
   void __RPC_STUB IActiveIMMApp_EnumRegisterWordA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_EnumRegisterWordW_Proxy(IActiveIMMApp *This,HKL hKL,LPWSTR szReading,DWORD dwStyle,LPWSTR szRegister,LPVOID pData,IEnumRegisterWordW **pEnum);
-
   void __RPC_STUB IActiveIMMApp_EnumRegisterWordW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_EscapeA_Proxy(IActiveIMMApp *This,HKL hKL,HIMC hIMC,UINT uEscape,LPVOID pData,LRESULT *plResult);
-
   void __RPC_STUB IActiveIMMApp_EscapeA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_EscapeW_Proxy(IActiveIMMApp *This,HKL hKL,HIMC hIMC,UINT uEscape,LPVOID pData,LRESULT *plResult);
-
   void __RPC_STUB IActiveIMMApp_EscapeW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCandidateListA_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,UINT uBufLen,CANDIDATELIST *pCandList,UINT *puCopied);
-
   void __RPC_STUB IActiveIMMApp_GetCandidateListA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCandidateListW_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,UINT uBufLen,CANDIDATELIST *pCandList,UINT *puCopied);
-
   void __RPC_STUB IActiveIMMApp_GetCandidateListW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCandidateListCountA_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD *pdwListSize,DWORD *pdwBufLen);
-
   void __RPC_STUB IActiveIMMApp_GetCandidateListCountA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCandidateListCountW_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD *pdwListSize,DWORD *pdwBufLen);
-
   void __RPC_STUB IActiveIMMApp_GetCandidateListCountW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCandidateWindow_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,CANDIDATEFORM *pCandidate);
-
   void __RPC_STUB IActiveIMMApp_GetCandidateWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCompositionFontA_Proxy(IActiveIMMApp *This,HIMC hIMC,LOGFONTA *plf);
-
   void __RPC_STUB IActiveIMMApp_GetCompositionFontA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCompositionFontW_Proxy(IActiveIMMApp *This,HIMC hIMC,LOGFONTW *plf);
-
   void __RPC_STUB IActiveIMMApp_GetCompositionFontW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCompositionStringA_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LONG *plCopied,LPVOID pBuf);
-
   void __RPC_STUB IActiveIMMApp_GetCompositionStringA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCompositionStringW_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LONG *plCopied,LPVOID pBuf);
-
   void __RPC_STUB IActiveIMMApp_GetCompositionStringW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCompositionWindow_Proxy(IActiveIMMApp *This,HIMC hIMC,COMPOSITIONFORM *pCompForm);
-
   void __RPC_STUB IActiveIMMApp_GetCompositionWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetContext_Proxy(IActiveIMMApp *This,HWND hWnd,HIMC *phIMC);
-
   void __RPC_STUB IActiveIMMApp_GetContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetConversionListA_Proxy(IActiveIMMApp *This,HKL hKL,HIMC hIMC,LPSTR pSrc,UINT uBufLen,UINT uFlag,CANDIDATELIST *pDst,UINT *puCopied);
-
   void __RPC_STUB IActiveIMMApp_GetConversionListA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetConversionListW_Proxy(IActiveIMMApp *This,HKL hKL,HIMC hIMC,LPWSTR pSrc,UINT uBufLen,UINT uFlag,CANDIDATELIST *pDst,UINT *puCopied);
-
   void __RPC_STUB IActiveIMMApp_GetConversionListW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetConversionStatus_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD *pfdwConversion,DWORD *pfdwSentence);
-
   void __RPC_STUB IActiveIMMApp_GetConversionStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetDefaultIMEWnd_Proxy(IActiveIMMApp *This,HWND hWnd,HWND *phDefWnd);
-
   void __RPC_STUB IActiveIMMApp_GetDefaultIMEWnd_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetDescriptionA_Proxy(IActiveIMMApp *This,HKL hKL,UINT uBufLen,LPSTR szDescription,UINT *puCopied);
-
   void __RPC_STUB IActiveIMMApp_GetDescriptionA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetDescriptionW_Proxy(IActiveIMMApp *This,HKL hKL,UINT uBufLen,LPWSTR szDescription,UINT *puCopied);
-
   void __RPC_STUB IActiveIMMApp_GetDescriptionW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetGuideLineA_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LPSTR pBuf,DWORD *pdwResult);
-
   void __RPC_STUB IActiveIMMApp_GetGuideLineA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetGuideLineW_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,DWORD dwBufLen,LPWSTR pBuf,DWORD *pdwResult);
-
   void __RPC_STUB IActiveIMMApp_GetGuideLineW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetIMEFileNameA_Proxy(IActiveIMMApp *This,HKL hKL,UINT uBufLen,LPSTR szFileName,UINT *puCopied);
-
   void __RPC_STUB IActiveIMMApp_GetIMEFileNameA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetIMEFileNameW_Proxy(IActiveIMMApp *This,HKL hKL,UINT uBufLen,LPWSTR szFileName,UINT *puCopied);
-
   void __RPC_STUB IActiveIMMApp_GetIMEFileNameW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetOpenStatus_Proxy(IActiveIMMApp *This,HIMC hIMC);
-
   void __RPC_STUB IActiveIMMApp_GetOpenStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetProperty_Proxy(IActiveIMMApp *This,HKL hKL,DWORD fdwIndex,DWORD *pdwProperty);
-
   void __RPC_STUB IActiveIMMApp_GetProperty_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetRegisterWordStyleA_Proxy(IActiveIMMApp *This,HKL hKL,UINT nItem,STYLEBUFA *pStyleBuf,UINT *puCopied);
-
   void __RPC_STUB IActiveIMMApp_GetRegisterWordStyleA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetRegisterWordStyleW_Proxy(IActiveIMMApp *This,HKL hKL,UINT nItem,STYLEBUFW *pStyleBuf,UINT *puCopied);
-
   void __RPC_STUB IActiveIMMApp_GetRegisterWordStyleW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetStatusWindowPos_Proxy(IActiveIMMApp *This,HIMC hIMC,POINT *pptPos);
-
   void __RPC_STUB IActiveIMMApp_GetStatusWindowPos_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetVirtualKey_Proxy(IActiveIMMApp *This,HWND hWnd,UINT *puVirtualKey);
-
   void __RPC_STUB IActiveIMMApp_GetVirtualKey_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_InstallIMEA_Proxy(IActiveIMMApp *This,LPSTR szIMEFileName,LPSTR szLayoutText,HKL *phKL);
-
   void __RPC_STUB IActiveIMMApp_InstallIMEA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_InstallIMEW_Proxy(IActiveIMMApp *This,LPWSTR szIMEFileName,LPWSTR szLayoutText,HKL *phKL);
-
   void __RPC_STUB IActiveIMMApp_InstallIMEW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_IsIME_Proxy(IActiveIMMApp *This,HKL hKL);
-
   void __RPC_STUB IActiveIMMApp_IsIME_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_IsUIMessageA_Proxy(IActiveIMMApp *This,HWND hWndIME,UINT msg,WPARAM wParam,LPARAM lParam);
-
   void __RPC_STUB IActiveIMMApp_IsUIMessageA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_IsUIMessageW_Proxy(IActiveIMMApp *This,HWND hWndIME,UINT msg,WPARAM wParam,LPARAM lParam);
-
   void __RPC_STUB IActiveIMMApp_IsUIMessageW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_NotifyIME_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwAction,DWORD dwIndex,DWORD dwValue);
-
   void __RPC_STUB IActiveIMMApp_NotifyIME_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_RegisterWordA_Proxy(IActiveIMMApp *This,HKL hKL,LPSTR szReading,DWORD dwStyle,LPSTR szRegister);
-
   void __RPC_STUB IActiveIMMApp_RegisterWordA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_RegisterWordW_Proxy(IActiveIMMApp *This,HKL hKL,LPWSTR szReading,DWORD dwStyle,LPWSTR szRegister);
-
   void __RPC_STUB IActiveIMMApp_RegisterWordW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_ReleaseContext_Proxy(IActiveIMMApp *This,HWND hWnd,HIMC hIMC);
-
   void __RPC_STUB IActiveIMMApp_ReleaseContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_SetCandidateWindow_Proxy(IActiveIMMApp *This,HIMC hIMC,CANDIDATEFORM *pCandidate);
-
   void __RPC_STUB IActiveIMMApp_SetCandidateWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_SetCompositionFontA_Proxy(IActiveIMMApp *This,HIMC hIMC,LOGFONTA *plf);
-
   void __RPC_STUB IActiveIMMApp_SetCompositionFontA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_SetCompositionFontW_Proxy(IActiveIMMApp *This,HIMC hIMC,LOGFONTW *plf);
-
   void __RPC_STUB IActiveIMMApp_SetCompositionFontW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_SetCompositionStringA_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,LPVOID pComp,DWORD dwCompLen,LPVOID pRead,DWORD dwReadLen);
-
   void __RPC_STUB IActiveIMMApp_SetCompositionStringA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_SetCompositionStringW_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwIndex,LPVOID pComp,DWORD dwCompLen,LPVOID pRead,DWORD dwReadLen);
-
   void __RPC_STUB IActiveIMMApp_SetCompositionStringW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_SetCompositionWindow_Proxy(IActiveIMMApp *This,HIMC hIMC,COMPOSITIONFORM *pCompForm);
-
   void __RPC_STUB IActiveIMMApp_SetCompositionWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_SetConversionStatus_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD fdwConversion,DWORD fdwSentence);
-
   void __RPC_STUB IActiveIMMApp_SetConversionStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_SetOpenStatus_Proxy(IActiveIMMApp *This,HIMC hIMC,WINBOOL fOpen);
-
   void __RPC_STUB IActiveIMMApp_SetOpenStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_SetStatusWindowPos_Proxy(IActiveIMMApp *This,HIMC hIMC,POINT *pptPos);
-
   void __RPC_STUB IActiveIMMApp_SetStatusWindowPos_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_SimulateHotKey_Proxy(IActiveIMMApp *This,HWND hWnd,DWORD dwHotKeyID);
-
   void __RPC_STUB IActiveIMMApp_SimulateHotKey_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_UnregisterWordA_Proxy(IActiveIMMApp *This,HKL hKL,LPSTR szReading,DWORD dwStyle,LPSTR szUnregister);
-
   void __RPC_STUB IActiveIMMApp_UnregisterWordA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_UnregisterWordW_Proxy(IActiveIMMApp *This,HKL hKL,LPWSTR szReading,DWORD dwStyle,LPWSTR szUnregister);
-
   void __RPC_STUB IActiveIMMApp_UnregisterWordW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_Activate_Proxy(IActiveIMMApp *This,WINBOOL fRestoreLayout);
-
   void __RPC_STUB IActiveIMMApp_Activate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_Deactivate_Proxy(IActiveIMMApp *This);
-
   void __RPC_STUB IActiveIMMApp_Deactivate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_OnDefWindowProc_Proxy(IActiveIMMApp *This,HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam,LRESULT *plResult);
-
   void __RPC_STUB IActiveIMMApp_OnDefWindowProc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_FilterClientWindows_Proxy(IActiveIMMApp *This,ATOM *aaClassList,UINT uSize);
-
   void __RPC_STUB IActiveIMMApp_FilterClientWindows_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetCodePageA_Proxy(IActiveIMMApp *This,HKL hKL,UINT *uCodePage);
-
   void __RPC_STUB IActiveIMMApp_GetCodePageA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetLangId_Proxy(IActiveIMMApp *This,HKL hKL,LANGID *plid);
-
   void __RPC_STUB IActiveIMMApp_GetLangId_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_AssociateContextEx_Proxy(IActiveIMMApp *This,HWND hWnd,HIMC hIMC,DWORD dwFlags);
-
   void __RPC_STUB IActiveIMMApp_AssociateContextEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_DisableIME_Proxy(IActiveIMMApp *This,DWORD idThread);
-
   void __RPC_STUB IActiveIMMApp_DisableIME_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetImeMenuItemsA_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwFlags,DWORD dwType,IMEMENUITEMINFOA *pImeParentMenu,IMEMENUITEMINFOA *pImeMenu,DWORD dwSize,DWORD *pdwResult);
-
   void __RPC_STUB IActiveIMMApp_GetImeMenuItemsA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_GetImeMenuItemsW_Proxy(IActiveIMMApp *This,HIMC hIMC,DWORD dwFlags,DWORD dwType,IMEMENUITEMINFOW *pImeParentMenu,IMEMENUITEMINFOW *pImeMenu,DWORD dwSize,DWORD *pdwResult);
-
   void __RPC_STUB IActiveIMMApp_GetImeMenuItemsW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IActiveIMMApp_EnumInputContext_Proxy(IActiveIMMApp *This,DWORD idThread,IEnumInputContext **ppEnum);
-
   void __RPC_STUB IActiveIMMApp_EnumInputContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __ISegmentList_INTERFACE_DEFINED__
 #define __ISegmentList_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_ISegmentList;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct ISegmentList : public IUnknown
-  {
+  struct ISegmentList : public IUnknown {
   public:
     virtual HRESULT WINAPI CreateIterator(ISegmentListIterator **ppIIter) = 0;
-
     virtual HRESULT WINAPI GetType(SELECTION_TYPE *peType) = 0;
-
     virtual HRESULT WINAPI IsEmpty(WINBOOL *pfEmpty) = 0;
-
   };
 #else
-
-  typedef struct ISegmentListVtbl
-  {
+  typedef struct ISegmentListVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(ISegmentList *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(ISegmentList *This);
-
       ULONG (WINAPI *Release)(ISegmentList *This);
-
       HRESULT (WINAPI *CreateIterator)(ISegmentList *This,ISegmentListIterator **ppIIter);
-
       HRESULT (WINAPI *GetType)(ISegmentList *This,SELECTION_TYPE *peType);
-
       HRESULT (WINAPI *IsEmpty)(ISegmentList *This,WINBOOL *pfEmpty);
-
     END_INTERFACE
   } ISegmentListVtbl;
-
-  interface ISegmentList
-  {
+  interface ISegmentList {
     CONST_VTBL struct ISegmentListVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define ISegmentList_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define ISegmentList_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define ISegmentList_Release(This) (This)->lpVtbl->Release(This)
-
 #define ISegmentList_CreateIterator(This,ppIIter) (This)->lpVtbl->CreateIterator(This,ppIIter)
-
 #define ISegmentList_GetType(This,peType) (This)->lpVtbl->GetType(This,peType)
-
 #define ISegmentList_IsEmpty(This,pfEmpty) (This)->lpVtbl->IsEmpty(This,pfEmpty)
 #endif
 #endif
 
   HRESULT WINAPI ISegmentList_CreateIterator_Proxy(ISegmentList *This,ISegmentListIterator **ppIIter);
-
   void __RPC_STUB ISegmentList_CreateIterator_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISegmentList_GetType_Proxy(ISegmentList *This,SELECTION_TYPE *peType);
-
   void __RPC_STUB ISegmentList_GetType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISegmentList_IsEmpty_Proxy(ISegmentList *This,WINBOOL *pfEmpty);
-
   void __RPC_STUB ISegmentList_IsEmpty_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __ISegmentListIterator_INTERFACE_DEFINED__
 #define __ISegmentListIterator_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_ISegmentListIterator;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct ISegmentListIterator : public IUnknown
-  {
+  struct ISegmentListIterator : public IUnknown {
   public:
     virtual HRESULT WINAPI Current(ISegment **ppISegment) = 0;
-
     virtual HRESULT WINAPI First(void) = 0;
-
     virtual HRESULT WINAPI IsDone(void) = 0;
-
     virtual HRESULT WINAPI Advance(void) = 0;
-
   };
 #else
-
-  typedef struct ISegmentListIteratorVtbl
-  {
+  typedef struct ISegmentListIteratorVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(ISegmentListIterator *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(ISegmentListIterator *This);
-
       ULONG (WINAPI *Release)(ISegmentListIterator *This);
-
       HRESULT (WINAPI *Current)(ISegmentListIterator *This,ISegment **ppISegment);
-
       HRESULT (WINAPI *First)(ISegmentListIterator *This);
-
       HRESULT (WINAPI *IsDone)(ISegmentListIterator *This);
-
       HRESULT (WINAPI *Advance)(ISegmentListIterator *This);
-
     END_INTERFACE
   } ISegmentListIteratorVtbl;
-
-  interface ISegmentListIterator
-  {
+  interface ISegmentListIterator {
     CONST_VTBL struct ISegmentListIteratorVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define ISegmentListIterator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define ISegmentListIterator_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define ISegmentListIterator_Release(This) (This)->lpVtbl->Release(This)
-
 #define ISegmentListIterator_Current(This,ppISegment) (This)->lpVtbl->Current(This,ppISegment)
-
 #define ISegmentListIterator_First(This) (This)->lpVtbl->First(This)
-
 #define ISegmentListIterator_IsDone(This) (This)->lpVtbl->IsDone(This)
-
 #define ISegmentListIterator_Advance(This) (This)->lpVtbl->Advance(This)
 #endif
 #endif
 
   HRESULT WINAPI ISegmentListIterator_Current_Proxy(ISegmentListIterator *This,ISegment **ppISegment);
-
   void __RPC_STUB ISegmentListIterator_Current_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISegmentListIterator_First_Proxy(ISegmentListIterator *This);
-
   void __RPC_STUB ISegmentListIterator_First_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISegmentListIterator_IsDone_Proxy(ISegmentListIterator *This);
-
   void __RPC_STUB ISegmentListIterator_IsDone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISegmentListIterator_Advance_Proxy(ISegmentListIterator *This);
-
   void __RPC_STUB ISegmentListIterator_Advance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLCaret_INTERFACE_DEFINED__
 #define __IHTMLCaret_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLCaret;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLCaret : public IUnknown
-  {
+  struct IHTMLCaret : public IUnknown {
   public:
     virtual HRESULT WINAPI MoveCaretToPointer(IDisplayPointer *pDispPointer,WINBOOL fScrollIntoView,CARET_DIRECTION eDir) = 0;
-
     virtual HRESULT WINAPI MoveCaretToPointerEx(IDisplayPointer *pDispPointer,WINBOOL fVisible,WINBOOL fScrollIntoView,CARET_DIRECTION eDir) = 0;
-
     virtual HRESULT WINAPI MoveMarkupPointerToCaret(IMarkupPointer *pIMarkupPointer) = 0;
-
     virtual HRESULT WINAPI MoveDisplayPointerToCaret(IDisplayPointer *pDispPointer) = 0;
-
     virtual HRESULT WINAPI IsVisible(WINBOOL *pIsVisible) = 0;
-
     virtual HRESULT WINAPI Show(WINBOOL fScrollIntoView) = 0;
-
     virtual HRESULT WINAPI Hide(void) = 0;
-
     virtual HRESULT WINAPI InsertText(OLECHAR *pText,LONG lLen) = 0;
-
     virtual HRESULT WINAPI ScrollIntoView(void) = 0;
-
     virtual HRESULT WINAPI GetLocation(POINT *pPoint,WINBOOL fTranslate) = 0;
-
     virtual HRESULT WINAPI GetCaretDirection(CARET_DIRECTION *peDir) = 0;
-
     virtual HRESULT WINAPI SetCaretDirection(CARET_DIRECTION eDir) = 0;
-
   };
 #else
-
-  typedef struct IHTMLCaretVtbl
-  {
+  typedef struct IHTMLCaretVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLCaret *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLCaret *This);
-
       ULONG (WINAPI *Release)(IHTMLCaret *This);
-
       HRESULT (WINAPI *MoveCaretToPointer)(IHTMLCaret *This,IDisplayPointer *pDispPointer,WINBOOL fScrollIntoView,CARET_DIRECTION eDir);
-
       HRESULT (WINAPI *MoveCaretToPointerEx)(IHTMLCaret *This,IDisplayPointer *pDispPointer,WINBOOL fVisible,WINBOOL fScrollIntoView,CARET_DIRECTION eDir);
-
       HRESULT (WINAPI *MoveMarkupPointerToCaret)(IHTMLCaret *This,IMarkupPointer *pIMarkupPointer);
-
       HRESULT (WINAPI *MoveDisplayPointerToCaret)(IHTMLCaret *This,IDisplayPointer *pDispPointer);
-
       HRESULT (WINAPI *IsVisible)(IHTMLCaret *This,WINBOOL *pIsVisible);
-
       HRESULT (WINAPI *Show)(IHTMLCaret *This,WINBOOL fScrollIntoView);
-
       HRESULT (WINAPI *Hide)(IHTMLCaret *This);
-
       HRESULT (WINAPI *InsertText)(IHTMLCaret *This,OLECHAR *pText,LONG lLen);
-
       HRESULT (WINAPI *ScrollIntoView)(IHTMLCaret *This);
-
       HRESULT (WINAPI *GetLocation)(IHTMLCaret *This,POINT *pPoint,WINBOOL fTranslate);
-
       HRESULT (WINAPI *GetCaretDirection)(IHTMLCaret *This,CARET_DIRECTION *peDir);
-
       HRESULT (WINAPI *SetCaretDirection)(IHTMLCaret *This,CARET_DIRECTION eDir);
-
     END_INTERFACE
   } IHTMLCaretVtbl;
-
-  interface IHTMLCaret
-  {
+  interface IHTMLCaret {
     CONST_VTBL struct IHTMLCaretVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLCaret_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLCaret_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLCaret_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLCaret_MoveCaretToPointer(This,pDispPointer,fScrollIntoView,eDir) (This)->lpVtbl->MoveCaretToPointer(This,pDispPointer,fScrollIntoView,eDir)
-
 #define IHTMLCaret_MoveCaretToPointerEx(This,pDispPointer,fVisible,fScrollIntoView,eDir) (This)->lpVtbl->MoveCaretToPointerEx(This,pDispPointer,fVisible,fScrollIntoView,eDir)
-
 #define IHTMLCaret_MoveMarkupPointerToCaret(This,pIMarkupPointer) (This)->lpVtbl->MoveMarkupPointerToCaret(This,pIMarkupPointer)
-
 #define IHTMLCaret_MoveDisplayPointerToCaret(This,pDispPointer) (This)->lpVtbl->MoveDisplayPointerToCaret(This,pDispPointer)
-
 #define IHTMLCaret_IsVisible(This,pIsVisible) (This)->lpVtbl->IsVisible(This,pIsVisible)
-
 #define IHTMLCaret_Show(This,fScrollIntoView) (This)->lpVtbl->Show(This,fScrollIntoView)
-
 #define IHTMLCaret_Hide(This) (This)->lpVtbl->Hide(This)
-
 #define IHTMLCaret_InsertText(This,pText,lLen) (This)->lpVtbl->InsertText(This,pText,lLen)
-
 #define IHTMLCaret_ScrollIntoView(This) (This)->lpVtbl->ScrollIntoView(This)
-
 #define IHTMLCaret_GetLocation(This,pPoint,fTranslate) (This)->lpVtbl->GetLocation(This,pPoint,fTranslate)
-
 #define IHTMLCaret_GetCaretDirection(This,peDir) (This)->lpVtbl->GetCaretDirection(This,peDir)
-
 #define IHTMLCaret_SetCaretDirection(This,eDir) (This)->lpVtbl->SetCaretDirection(This,eDir)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLCaret_MoveCaretToPointer_Proxy(IHTMLCaret *This,IDisplayPointer *pDispPointer,WINBOOL fScrollIntoView,CARET_DIRECTION eDir);
-
   void __RPC_STUB IHTMLCaret_MoveCaretToPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_MoveCaretToPointerEx_Proxy(IHTMLCaret *This,IDisplayPointer *pDispPointer,WINBOOL fVisible,WINBOOL fScrollIntoView,CARET_DIRECTION eDir);
-
   void __RPC_STUB IHTMLCaret_MoveCaretToPointerEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_MoveMarkupPointerToCaret_Proxy(IHTMLCaret *This,IMarkupPointer *pIMarkupPointer);
-
   void __RPC_STUB IHTMLCaret_MoveMarkupPointerToCaret_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_MoveDisplayPointerToCaret_Proxy(IHTMLCaret *This,IDisplayPointer *pDispPointer);
-
   void __RPC_STUB IHTMLCaret_MoveDisplayPointerToCaret_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_IsVisible_Proxy(IHTMLCaret *This,WINBOOL *pIsVisible);
-
   void __RPC_STUB IHTMLCaret_IsVisible_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_Show_Proxy(IHTMLCaret *This,WINBOOL fScrollIntoView);
-
   void __RPC_STUB IHTMLCaret_Show_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_Hide_Proxy(IHTMLCaret *This);
-
   void __RPC_STUB IHTMLCaret_Hide_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_InsertText_Proxy(IHTMLCaret *This,OLECHAR *pText,LONG lLen);
-
   void __RPC_STUB IHTMLCaret_InsertText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_ScrollIntoView_Proxy(IHTMLCaret *This);
-
   void __RPC_STUB IHTMLCaret_ScrollIntoView_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_GetLocation_Proxy(IHTMLCaret *This,POINT *pPoint,WINBOOL fTranslate);
-
   void __RPC_STUB IHTMLCaret_GetLocation_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_GetCaretDirection_Proxy(IHTMLCaret *This,CARET_DIRECTION *peDir);
-
   void __RPC_STUB IHTMLCaret_GetCaretDirection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLCaret_SetCaretDirection_Proxy(IHTMLCaret *This,CARET_DIRECTION eDir);
-
   void __RPC_STUB IHTMLCaret_SetCaretDirection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __ISegment_INTERFACE_DEFINED__
 #define __ISegment_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_ISegment;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct ISegment : public IUnknown
-  {
+  struct ISegment : public IUnknown {
   public:
     virtual HRESULT WINAPI GetPointers(IMarkupPointer *pIStart,IMarkupPointer *pIEnd) = 0;
-
   };
 #else
-
-  typedef struct ISegmentVtbl
-  {
+  typedef struct ISegmentVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(ISegment *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(ISegment *This);
-
       ULONG (WINAPI *Release)(ISegment *This);
-
       HRESULT (WINAPI *GetPointers)(ISegment *This,IMarkupPointer *pIStart,IMarkupPointer *pIEnd);
-
     END_INTERFACE
   } ISegmentVtbl;
-
-  interface ISegment
-  {
+  interface ISegment {
     CONST_VTBL struct ISegmentVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define ISegment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define ISegment_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define ISegment_Release(This) (This)->lpVtbl->Release(This)
-
 #define ISegment_GetPointers(This,pIStart,pIEnd) (This)->lpVtbl->GetPointers(This,pIStart,pIEnd)
 #endif
 #endif
 
   HRESULT WINAPI ISegment_GetPointers_Proxy(ISegment *This,IMarkupPointer *pIStart,IMarkupPointer *pIEnd);
-
   void __RPC_STUB ISegment_GetPointers_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementSegment_INTERFACE_DEFINED__
 #define __IElementSegment_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementSegment;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementSegment : public ISegment
-  {
+  struct IElementSegment : public ISegment {
   public:
     virtual HRESULT WINAPI GetElement(IHTMLElement **ppIElement) = 0;
-
     virtual HRESULT WINAPI SetPrimary(WINBOOL fPrimary) = 0;
-
     virtual HRESULT WINAPI IsPrimary(WINBOOL *pfPrimary) = 0;
-
   };
 #else
-
-  typedef struct IElementSegmentVtbl
-  {
+  typedef struct IElementSegmentVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementSegment *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementSegment *This);
-
       ULONG (WINAPI *Release)(IElementSegment *This);
-
       HRESULT (WINAPI *GetPointers)(IElementSegment *This,IMarkupPointer *pIStart,IMarkupPointer *pIEnd);
-
       HRESULT (WINAPI *GetElement)(IElementSegment *This,IHTMLElement **ppIElement);
-
       HRESULT (WINAPI *SetPrimary)(IElementSegment *This,WINBOOL fPrimary);
-
       HRESULT (WINAPI *IsPrimary)(IElementSegment *This,WINBOOL *pfPrimary);
-
     END_INTERFACE
   } IElementSegmentVtbl;
-
-  interface IElementSegment
-  {
+  interface IElementSegment {
     CONST_VTBL struct IElementSegmentVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementSegment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementSegment_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementSegment_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementSegment_GetPointers(This,pIStart,pIEnd) (This)->lpVtbl->GetPointers(This,pIStart,pIEnd)
-
 #define IElementSegment_GetElement(This,ppIElement) (This)->lpVtbl->GetElement(This,ppIElement)
-
 #define IElementSegment_SetPrimary(This,fPrimary) (This)->lpVtbl->SetPrimary(This,fPrimary)
-
 #define IElementSegment_IsPrimary(This,pfPrimary) (This)->lpVtbl->IsPrimary(This,pfPrimary)
 #endif
 #endif
 
   HRESULT WINAPI IElementSegment_GetElement_Proxy(IElementSegment *This,IHTMLElement **ppIElement);
-
   void __RPC_STUB IElementSegment_GetElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IElementSegment_SetPrimary_Proxy(IElementSegment *This,WINBOOL fPrimary);
-
   void __RPC_STUB IElementSegment_SetPrimary_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IElementSegment_IsPrimary_Proxy(IElementSegment *This,WINBOOL *pfPrimary);
-
   void __RPC_STUB IElementSegment_IsPrimary_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHighlightSegment_INTERFACE_DEFINED__
 #define __IHighlightSegment_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHighlightSegment;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHighlightSegment : public ISegment
-  {
-  public:
+  struct IHighlightSegment : public ISegment {
   };
 #else
-
-  typedef struct IHighlightSegmentVtbl
-  {
+  typedef struct IHighlightSegmentVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHighlightSegment *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHighlightSegment *This);
-
       ULONG (WINAPI *Release)(IHighlightSegment *This);
-
       HRESULT (WINAPI *GetPointers)(IHighlightSegment *This,IMarkupPointer *pIStart,IMarkupPointer *pIEnd);
-
     END_INTERFACE
   } IHighlightSegmentVtbl;
-
-  interface IHighlightSegment
-  {
+  interface IHighlightSegment {
     CONST_VTBL struct IHighlightSegmentVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHighlightSegment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHighlightSegment_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHighlightSegment_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHighlightSegment_GetPointers(This,pIStart,pIEnd) (This)->lpVtbl->GetPointers(This,pIStart,pIEnd)
 #endif
 #endif
@@ -33341,2677 +30420,1495 @@ IHTMLStyle : public IDispatch {
 
 #ifndef __IHighlightRenderingServices_INTERFACE_DEFINED__
 #define __IHighlightRenderingServices_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHighlightRenderingServices;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHighlightRenderingServices : public IUnknown
-  {
+  struct IHighlightRenderingServices : public IUnknown {
   public:
     virtual HRESULT WINAPI AddSegment(IDisplayPointer *pDispPointerStart,IDisplayPointer *pDispPointerEnd,IHTMLRenderStyle *pIRenderStyle,IHighlightSegment **ppISegment) = 0;
-
     virtual HRESULT WINAPI MoveSegmentToPointers(IHighlightSegment *pISegment,IDisplayPointer *pDispPointerStart,IDisplayPointer *pDispPointerEnd) = 0;
-
     virtual HRESULT WINAPI RemoveSegment(IHighlightSegment *pISegment) = 0;
-
   };
 #else
-
-  typedef struct IHighlightRenderingServicesVtbl
-  {
+  typedef struct IHighlightRenderingServicesVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHighlightRenderingServices *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHighlightRenderingServices *This);
-
       ULONG (WINAPI *Release)(IHighlightRenderingServices *This);
-
       HRESULT (WINAPI *AddSegment)(IHighlightRenderingServices *This,IDisplayPointer *pDispPointerStart,IDisplayPointer *pDispPointerEnd,IHTMLRenderStyle *pIRenderStyle,IHighlightSegment **ppISegment);
-
       HRESULT (WINAPI *MoveSegmentToPointers)(IHighlightRenderingServices *This,IHighlightSegment *pISegment,IDisplayPointer *pDispPointerStart,IDisplayPointer *pDispPointerEnd);
-
       HRESULT (WINAPI *RemoveSegment)(IHighlightRenderingServices *This,IHighlightSegment *pISegment);
-
     END_INTERFACE
   } IHighlightRenderingServicesVtbl;
-
-  interface IHighlightRenderingServices
-  {
+  interface IHighlightRenderingServices {
     CONST_VTBL struct IHighlightRenderingServicesVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHighlightRenderingServices_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHighlightRenderingServices_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHighlightRenderingServices_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHighlightRenderingServices_AddSegment(This,pDispPointerStart,pDispPointerEnd,pIRenderStyle,ppISegment) (This)->lpVtbl->AddSegment(This,pDispPointerStart,pDispPointerEnd,pIRenderStyle,ppISegment)
-
 #define IHighlightRenderingServices_MoveSegmentToPointers(This,pISegment,pDispPointerStart,pDispPointerEnd) (This)->lpVtbl->MoveSegmentToPointers(This,pISegment,pDispPointerStart,pDispPointerEnd)
-
 #define IHighlightRenderingServices_RemoveSegment(This,pISegment) (This)->lpVtbl->RemoveSegment(This,pISegment)
 #endif
 #endif
 
   HRESULT WINAPI IHighlightRenderingServices_AddSegment_Proxy(IHighlightRenderingServices *This,IDisplayPointer *pDispPointerStart,IDisplayPointer *pDispPointerEnd,IHTMLRenderStyle *pIRenderStyle,IHighlightSegment **ppISegment);
-
   void __RPC_STUB IHighlightRenderingServices_AddSegment_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHighlightRenderingServices_MoveSegmentToPointers_Proxy(IHighlightRenderingServices *This,IHighlightSegment *pISegment,IDisplayPointer *pDispPointerStart,IDisplayPointer *pDispPointerEnd);
-
   void __RPC_STUB IHighlightRenderingServices_MoveSegmentToPointers_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHighlightRenderingServices_RemoveSegment_Proxy(IHighlightRenderingServices *This,IHighlightSegment *pISegment);
-
   void __RPC_STUB IHighlightRenderingServices_RemoveSegment_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __ILineInfo_INTERFACE_DEFINED__
 #define __ILineInfo_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_ILineInfo;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct ILineInfo : public IUnknown
-  {
+  struct ILineInfo : public IUnknown {
   public:
     virtual HRESULT WINAPI get_x(long *p) = 0;
-
     virtual HRESULT WINAPI get_baseLine(long *p) = 0;
-
     virtual HRESULT WINAPI get_textDescent(long *p) = 0;
-
     virtual HRESULT WINAPI get_textHeight(long *p) = 0;
-
     virtual HRESULT WINAPI get_lineDirection(LONG *p) = 0;
-
   };
 #else
-
-  typedef struct ILineInfoVtbl
-  {
+  typedef struct ILineInfoVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(ILineInfo *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(ILineInfo *This);
-
       ULONG (WINAPI *Release)(ILineInfo *This);
-
       HRESULT (WINAPI *get_x)(ILineInfo *This,long *p);
-
       HRESULT (WINAPI *get_baseLine)(ILineInfo *This,long *p);
-
       HRESULT (WINAPI *get_textDescent)(ILineInfo *This,long *p);
-
       HRESULT (WINAPI *get_textHeight)(ILineInfo *This,long *p);
-
       HRESULT (WINAPI *get_lineDirection)(ILineInfo *This,LONG *p);
-
     END_INTERFACE
   } ILineInfoVtbl;
-
-  interface ILineInfo
-  {
+  interface ILineInfo {
     CONST_VTBL struct ILineInfoVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define ILineInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define ILineInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define ILineInfo_Release(This) (This)->lpVtbl->Release(This)
-
 #define ILineInfo_get_x(This,p) (This)->lpVtbl->get_x(This,p)
-
 #define ILineInfo_get_baseLine(This,p) (This)->lpVtbl->get_baseLine(This,p)
-
 #define ILineInfo_get_textDescent(This,p) (This)->lpVtbl->get_textDescent(This,p)
-
 #define ILineInfo_get_textHeight(This,p) (This)->lpVtbl->get_textHeight(This,p)
-
 #define ILineInfo_get_lineDirection(This,p) (This)->lpVtbl->get_lineDirection(This,p)
 #endif
 #endif
 
   HRESULT WINAPI ILineInfo_get_x_Proxy(ILineInfo *This,long *p);
-
   void __RPC_STUB ILineInfo_get_x_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ILineInfo_get_baseLine_Proxy(ILineInfo *This,long *p);
-
   void __RPC_STUB ILineInfo_get_baseLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ILineInfo_get_textDescent_Proxy(ILineInfo *This,long *p);
-
   void __RPC_STUB ILineInfo_get_textDescent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ILineInfo_get_textHeight_Proxy(ILineInfo *This,long *p);
-
   void __RPC_STUB ILineInfo_get_textHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ILineInfo_get_lineDirection_Proxy(ILineInfo *This,LONG *p);
-
   void __RPC_STUB ILineInfo_get_lineDirection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IDisplayPointer_INTERFACE_DEFINED__
 #define __IDisplayPointer_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IDisplayPointer;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IDisplayPointer : public IUnknown
-  {
+  struct IDisplayPointer : public IUnknown {
   public:
     virtual HRESULT WINAPI MoveToPoint(POINT ptPoint,COORD_SYSTEM eCoordSystem,IHTMLElement *pElementContext,DWORD dwHitTestOptions,DWORD *pdwHitTestResults) = 0;
-
     virtual HRESULT WINAPI MoveUnit(DISPLAY_MOVEUNIT eMoveUnit,LONG lXPos) = 0;
-
     virtual HRESULT WINAPI PositionMarkupPointer(IMarkupPointer *pMarkupPointer) = 0;
-
     virtual HRESULT WINAPI MoveToPointer(IDisplayPointer *pDispPointer) = 0;
-
     virtual HRESULT WINAPI SetPointerGravity(POINTER_GRAVITY eGravity) = 0;
-
     virtual HRESULT WINAPI GetPointerGravity(POINTER_GRAVITY *peGravity) = 0;
-
     virtual HRESULT WINAPI SetDisplayGravity(DISPLAY_GRAVITY eGravity) = 0;
-
     virtual HRESULT WINAPI GetDisplayGravity(DISPLAY_GRAVITY *peGravity) = 0;
-
     virtual HRESULT WINAPI IsPositioned(WINBOOL *pfPositioned) = 0;
-
     virtual HRESULT WINAPI Unposition(void) = 0;
-
     virtual HRESULT WINAPI IsEqualTo(IDisplayPointer *pDispPointer,WINBOOL *pfIsEqual) = 0;
-
     virtual HRESULT WINAPI IsLeftOf(IDisplayPointer *pDispPointer,WINBOOL *pfIsLeftOf) = 0;
-
     virtual HRESULT WINAPI IsRightOf(IDisplayPointer *pDispPointer,WINBOOL *pfIsRightOf) = 0;
-
     virtual HRESULT WINAPI IsAtBOL(WINBOOL *pfBOL) = 0;
-
     virtual HRESULT WINAPI MoveToMarkupPointer(IMarkupPointer *pPointer,IDisplayPointer *pDispLineContext) = 0;
-
     virtual HRESULT WINAPI ScrollIntoView(void) = 0;
-
     virtual HRESULT WINAPI GetLineInfo(ILineInfo **ppLineInfo) = 0;
-
     virtual HRESULT WINAPI GetFlowElement(IHTMLElement **ppLayoutElement) = 0;
-
     virtual HRESULT WINAPI QueryBreaks(DWORD *pdwBreaks) = 0;
-
   };
 #else
-
-  typedef struct IDisplayPointerVtbl
-  {
+  typedef struct IDisplayPointerVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IDisplayPointer *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IDisplayPointer *This);
-
       ULONG (WINAPI *Release)(IDisplayPointer *This);
-
       HRESULT (WINAPI *MoveToPoint)(IDisplayPointer *This,POINT ptPoint,COORD_SYSTEM eCoordSystem,IHTMLElement *pElementContext,DWORD dwHitTestOptions,DWORD *pdwHitTestResults);
-
       HRESULT (WINAPI *MoveUnit)(IDisplayPointer *This,DISPLAY_MOVEUNIT eMoveUnit,LONG lXPos);
-
       HRESULT (WINAPI *PositionMarkupPointer)(IDisplayPointer *This,IMarkupPointer *pMarkupPointer);
-
       HRESULT (WINAPI *MoveToPointer)(IDisplayPointer *This,IDisplayPointer *pDispPointer);
-
       HRESULT (WINAPI *SetPointerGravity)(IDisplayPointer *This,POINTER_GRAVITY eGravity);
-
       HRESULT (WINAPI *GetPointerGravity)(IDisplayPointer *This,POINTER_GRAVITY *peGravity);
-
       HRESULT (WINAPI *SetDisplayGravity)(IDisplayPointer *This,DISPLAY_GRAVITY eGravity);
-
       HRESULT (WINAPI *GetDisplayGravity)(IDisplayPointer *This,DISPLAY_GRAVITY *peGravity);
-
       HRESULT (WINAPI *IsPositioned)(IDisplayPointer *This,WINBOOL *pfPositioned);
-
       HRESULT (WINAPI *Unposition)(IDisplayPointer *This);
-
       HRESULT (WINAPI *IsEqualTo)(IDisplayPointer *This,IDisplayPointer *pDispPointer,WINBOOL *pfIsEqual);
-
       HRESULT (WINAPI *IsLeftOf)(IDisplayPointer *This,IDisplayPointer *pDispPointer,WINBOOL *pfIsLeftOf);
-
       HRESULT (WINAPI *IsRightOf)(IDisplayPointer *This,IDisplayPointer *pDispPointer,WINBOOL *pfIsRightOf);
-
       HRESULT (WINAPI *IsAtBOL)(IDisplayPointer *This,WINBOOL *pfBOL);
-
       HRESULT (WINAPI *MoveToMarkupPointer)(IDisplayPointer *This,IMarkupPointer *pPointer,IDisplayPointer *pDispLineContext);
-
       HRESULT (WINAPI *ScrollIntoView)(IDisplayPointer *This);
-
       HRESULT (WINAPI *GetLineInfo)(IDisplayPointer *This,ILineInfo **ppLineInfo);
-
       HRESULT (WINAPI *GetFlowElement)(IDisplayPointer *This,IHTMLElement **ppLayoutElement);
-
       HRESULT (WINAPI *QueryBreaks)(IDisplayPointer *This,DWORD *pdwBreaks);
-
     END_INTERFACE
   } IDisplayPointerVtbl;
-
-  interface IDisplayPointer
-  {
+  interface IDisplayPointer {
     CONST_VTBL struct IDisplayPointerVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IDisplayPointer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IDisplayPointer_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IDisplayPointer_Release(This) (This)->lpVtbl->Release(This)
-
 #define IDisplayPointer_MoveToPoint(This,ptPoint,eCoordSystem,pElementContext,dwHitTestOptions,pdwHitTestResults) (This)->lpVtbl->MoveToPoint(This,ptPoint,eCoordSystem,pElementContext,dwHitTestOptions,pdwHitTestResults)
-
 #define IDisplayPointer_MoveUnit(This,eMoveUnit,lXPos) (This)->lpVtbl->MoveUnit(This,eMoveUnit,lXPos)
-
 #define IDisplayPointer_PositionMarkupPointer(This,pMarkupPointer) (This)->lpVtbl->PositionMarkupPointer(This,pMarkupPointer)
-
 #define IDisplayPointer_MoveToPointer(This,pDispPointer) (This)->lpVtbl->MoveToPointer(This,pDispPointer)
-
 #define IDisplayPointer_SetPointerGravity(This,eGravity) (This)->lpVtbl->SetPointerGravity(This,eGravity)
-
 #define IDisplayPointer_GetPointerGravity(This,peGravity) (This)->lpVtbl->GetPointerGravity(This,peGravity)
-
 #define IDisplayPointer_SetDisplayGravity(This,eGravity) (This)->lpVtbl->SetDisplayGravity(This,eGravity)
-
 #define IDisplayPointer_GetDisplayGravity(This,peGravity) (This)->lpVtbl->GetDisplayGravity(This,peGravity)
-
 #define IDisplayPointer_IsPositioned(This,pfPositioned) (This)->lpVtbl->IsPositioned(This,pfPositioned)
-
 #define IDisplayPointer_Unposition(This) (This)->lpVtbl->Unposition(This)
-
 #define IDisplayPointer_IsEqualTo(This,pDispPointer,pfIsEqual) (This)->lpVtbl->IsEqualTo(This,pDispPointer,pfIsEqual)
-
 #define IDisplayPointer_IsLeftOf(This,pDispPointer,pfIsLeftOf) (This)->lpVtbl->IsLeftOf(This,pDispPointer,pfIsLeftOf)
-
 #define IDisplayPointer_IsRightOf(This,pDispPointer,pfIsRightOf) (This)->lpVtbl->IsRightOf(This,pDispPointer,pfIsRightOf)
-
 #define IDisplayPointer_IsAtBOL(This,pfBOL) (This)->lpVtbl->IsAtBOL(This,pfBOL)
-
 #define IDisplayPointer_MoveToMarkupPointer(This,pPointer,pDispLineContext) (This)->lpVtbl->MoveToMarkupPointer(This,pPointer,pDispLineContext)
-
 #define IDisplayPointer_ScrollIntoView(This) (This)->lpVtbl->ScrollIntoView(This)
-
 #define IDisplayPointer_GetLineInfo(This,ppLineInfo) (This)->lpVtbl->GetLineInfo(This,ppLineInfo)
-
 #define IDisplayPointer_GetFlowElement(This,ppLayoutElement) (This)->lpVtbl->GetFlowElement(This,ppLayoutElement)
-
 #define IDisplayPointer_QueryBreaks(This,pdwBreaks) (This)->lpVtbl->QueryBreaks(This,pdwBreaks)
 #endif
 #endif
 
   HRESULT WINAPI IDisplayPointer_MoveToPoint_Proxy(IDisplayPointer *This,POINT ptPoint,COORD_SYSTEM eCoordSystem,IHTMLElement *pElementContext,DWORD dwHitTestOptions,DWORD *pdwHitTestResults);
-
   void __RPC_STUB IDisplayPointer_MoveToPoint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_MoveUnit_Proxy(IDisplayPointer *This,DISPLAY_MOVEUNIT eMoveUnit,LONG lXPos);
-
   void __RPC_STUB IDisplayPointer_MoveUnit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_PositionMarkupPointer_Proxy(IDisplayPointer *This,IMarkupPointer *pMarkupPointer);
-
   void __RPC_STUB IDisplayPointer_PositionMarkupPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_MoveToPointer_Proxy(IDisplayPointer *This,IDisplayPointer *pDispPointer);
-
   void __RPC_STUB IDisplayPointer_MoveToPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_SetPointerGravity_Proxy(IDisplayPointer *This,POINTER_GRAVITY eGravity);
-
   void __RPC_STUB IDisplayPointer_SetPointerGravity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_GetPointerGravity_Proxy(IDisplayPointer *This,POINTER_GRAVITY *peGravity);
-
   void __RPC_STUB IDisplayPointer_GetPointerGravity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_SetDisplayGravity_Proxy(IDisplayPointer *This,DISPLAY_GRAVITY eGravity);
-
   void __RPC_STUB IDisplayPointer_SetDisplayGravity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_GetDisplayGravity_Proxy(IDisplayPointer *This,DISPLAY_GRAVITY *peGravity);
-
   void __RPC_STUB IDisplayPointer_GetDisplayGravity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_IsPositioned_Proxy(IDisplayPointer *This,WINBOOL *pfPositioned);
-
   void __RPC_STUB IDisplayPointer_IsPositioned_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_Unposition_Proxy(IDisplayPointer *This);
-
   void __RPC_STUB IDisplayPointer_Unposition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_IsEqualTo_Proxy(IDisplayPointer *This,IDisplayPointer *pDispPointer,WINBOOL *pfIsEqual);
-
   void __RPC_STUB IDisplayPointer_IsEqualTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_IsLeftOf_Proxy(IDisplayPointer *This,IDisplayPointer *pDispPointer,WINBOOL *pfIsLeftOf);
-
   void __RPC_STUB IDisplayPointer_IsLeftOf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_IsRightOf_Proxy(IDisplayPointer *This,IDisplayPointer *pDispPointer,WINBOOL *pfIsRightOf);
-
   void __RPC_STUB IDisplayPointer_IsRightOf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_IsAtBOL_Proxy(IDisplayPointer *This,WINBOOL *pfBOL);
-
   void __RPC_STUB IDisplayPointer_IsAtBOL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_MoveToMarkupPointer_Proxy(IDisplayPointer *This,IMarkupPointer *pPointer,IDisplayPointer *pDispLineContext);
-
   void __RPC_STUB IDisplayPointer_MoveToMarkupPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_ScrollIntoView_Proxy(IDisplayPointer *This);
-
   void __RPC_STUB IDisplayPointer_ScrollIntoView_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_GetLineInfo_Proxy(IDisplayPointer *This,ILineInfo **ppLineInfo);
-
   void __RPC_STUB IDisplayPointer_GetLineInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_GetFlowElement_Proxy(IDisplayPointer *This,IHTMLElement **ppLayoutElement);
-
   void __RPC_STUB IDisplayPointer_GetFlowElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayPointer_QueryBreaks_Proxy(IDisplayPointer *This,DWORD *pdwBreaks);
-
   void __RPC_STUB IDisplayPointer_QueryBreaks_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IDisplayServices_INTERFACE_DEFINED__
 #define __IDisplayServices_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IDisplayServices;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IDisplayServices : public IUnknown
-  {
+  struct IDisplayServices : public IUnknown {
   public:
     virtual HRESULT WINAPI CreateDisplayPointer(IDisplayPointer **ppDispPointer) = 0;
-
     virtual HRESULT WINAPI TransformRect(RECT *pRect,COORD_SYSTEM eSource,COORD_SYSTEM eDestination,IHTMLElement *pIElement) = 0;
-
     virtual HRESULT WINAPI TransformPoint(POINT *pPoint,COORD_SYSTEM eSource,COORD_SYSTEM eDestination,IHTMLElement *pIElement) = 0;
-
     virtual HRESULT WINAPI GetCaret(IHTMLCaret **ppCaret) = 0;
-
     virtual HRESULT WINAPI GetComputedStyle(IMarkupPointer *pPointer,IHTMLComputedStyle **ppComputedStyle) = 0;
-
     virtual HRESULT WINAPI ScrollRectIntoView(IHTMLElement *pIElement,RECT rect) = 0;
-
     virtual HRESULT WINAPI HasFlowLayout(IHTMLElement *pIElement,WINBOOL *pfHasFlowLayout) = 0;
-
   };
 #else
-
-  typedef struct IDisplayServicesVtbl
-  {
+  typedef struct IDisplayServicesVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IDisplayServices *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IDisplayServices *This);
-
       ULONG (WINAPI *Release)(IDisplayServices *This);
-
       HRESULT (WINAPI *CreateDisplayPointer)(IDisplayServices *This,IDisplayPointer **ppDispPointer);
-
       HRESULT (WINAPI *TransformRect)(IDisplayServices *This,RECT *pRect,COORD_SYSTEM eSource,COORD_SYSTEM eDestination,IHTMLElement *pIElement);
-
       HRESULT (WINAPI *TransformPoint)(IDisplayServices *This,POINT *pPoint,COORD_SYSTEM eSource,COORD_SYSTEM eDestination,IHTMLElement *pIElement);
-
       HRESULT (WINAPI *GetCaret)(IDisplayServices *This,IHTMLCaret **ppCaret);
-
       HRESULT (WINAPI *GetComputedStyle)(IDisplayServices *This,IMarkupPointer *pPointer,IHTMLComputedStyle **ppComputedStyle);
-
       HRESULT (WINAPI *ScrollRectIntoView)(IDisplayServices *This,IHTMLElement *pIElement,RECT rect);
-
       HRESULT (WINAPI *HasFlowLayout)(IDisplayServices *This,IHTMLElement *pIElement,WINBOOL *pfHasFlowLayout);
-
     END_INTERFACE
   } IDisplayServicesVtbl;
-
-  interface IDisplayServices
-  {
+  interface IDisplayServices {
     CONST_VTBL struct IDisplayServicesVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IDisplayServices_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IDisplayServices_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IDisplayServices_Release(This) (This)->lpVtbl->Release(This)
-
 #define IDisplayServices_CreateDisplayPointer(This,ppDispPointer) (This)->lpVtbl->CreateDisplayPointer(This,ppDispPointer)
-
 #define IDisplayServices_TransformRect(This,pRect,eSource,eDestination,pIElement) (This)->lpVtbl->TransformRect(This,pRect,eSource,eDestination,pIElement)
-
 #define IDisplayServices_TransformPoint(This,pPoint,eSource,eDestination,pIElement) (This)->lpVtbl->TransformPoint(This,pPoint,eSource,eDestination,pIElement)
-
 #define IDisplayServices_GetCaret(This,ppCaret) (This)->lpVtbl->GetCaret(This,ppCaret)
-
 #define IDisplayServices_GetComputedStyle(This,pPointer,ppComputedStyle) (This)->lpVtbl->GetComputedStyle(This,pPointer,ppComputedStyle)
-
 #define IDisplayServices_ScrollRectIntoView(This,pIElement,rect) (This)->lpVtbl->ScrollRectIntoView(This,pIElement,rect)
-
 #define IDisplayServices_HasFlowLayout(This,pIElement,pfHasFlowLayout) (This)->lpVtbl->HasFlowLayout(This,pIElement,pfHasFlowLayout)
 #endif
 #endif
 
   HRESULT WINAPI IDisplayServices_CreateDisplayPointer_Proxy(IDisplayServices *This,IDisplayPointer **ppDispPointer);
-
   void __RPC_STUB IDisplayServices_CreateDisplayPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayServices_TransformRect_Proxy(IDisplayServices *This,RECT *pRect,COORD_SYSTEM eSource,COORD_SYSTEM eDestination,IHTMLElement *pIElement);
-
   void __RPC_STUB IDisplayServices_TransformRect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayServices_TransformPoint_Proxy(IDisplayServices *This,POINT *pPoint,COORD_SYSTEM eSource,COORD_SYSTEM eDestination,IHTMLElement *pIElement);
-
   void __RPC_STUB IDisplayServices_TransformPoint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayServices_GetCaret_Proxy(IDisplayServices *This,IHTMLCaret **ppCaret);
-
   void __RPC_STUB IDisplayServices_GetCaret_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayServices_GetComputedStyle_Proxy(IDisplayServices *This,IMarkupPointer *pPointer,IHTMLComputedStyle **ppComputedStyle);
-
   void __RPC_STUB IDisplayServices_GetComputedStyle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayServices_ScrollRectIntoView_Proxy(IDisplayServices *This,IHTMLElement *pIElement,RECT rect);
-
   void __RPC_STUB IDisplayServices_ScrollRectIntoView_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IDisplayServices_HasFlowLayout_Proxy(IDisplayServices *This,IHTMLElement *pIElement,WINBOOL *pfHasFlowLayout);
-
   void __RPC_STUB IDisplayServices_HasFlowLayout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHtmlDlgSafeHelper_INTERFACE_DEFINED__
 #define __IHtmlDlgSafeHelper_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHtmlDlgSafeHelper;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHtmlDlgSafeHelper : public IDispatch
-  {
+  struct IHtmlDlgSafeHelper : public IDispatch {
   public:
     virtual HRESULT WINAPI choosecolordlg(VARIANT initColor,VARIANT *rgbColor) = 0;
-
     virtual HRESULT WINAPI getCharset(BSTR fontName,VARIANT *charset) = 0;
-
     virtual HRESULT WINAPI get_Fonts(IDispatch **p) = 0;
-
     virtual HRESULT WINAPI get_BlockFormats(IDispatch **p) = 0;
-
   };
 #else
-
-  typedef struct IHtmlDlgSafeHelperVtbl
-  {
+  typedef struct IHtmlDlgSafeHelperVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHtmlDlgSafeHelper *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHtmlDlgSafeHelper *This);
-
       ULONG (WINAPI *Release)(IHtmlDlgSafeHelper *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHtmlDlgSafeHelper *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHtmlDlgSafeHelper *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHtmlDlgSafeHelper *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHtmlDlgSafeHelper *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *choosecolordlg)(IHtmlDlgSafeHelper *This,VARIANT initColor,VARIANT *rgbColor);
-
       HRESULT (WINAPI *getCharset)(IHtmlDlgSafeHelper *This,BSTR fontName,VARIANT *charset);
-
       HRESULT (WINAPI *get_Fonts)(IHtmlDlgSafeHelper *This,IDispatch **p);
-
       HRESULT (WINAPI *get_BlockFormats)(IHtmlDlgSafeHelper *This,IDispatch **p);
-
     END_INTERFACE
   } IHtmlDlgSafeHelperVtbl;
-
-  interface IHtmlDlgSafeHelper
-  {
+  interface IHtmlDlgSafeHelper {
     CONST_VTBL struct IHtmlDlgSafeHelperVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHtmlDlgSafeHelper_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHtmlDlgSafeHelper_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHtmlDlgSafeHelper_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHtmlDlgSafeHelper_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHtmlDlgSafeHelper_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHtmlDlgSafeHelper_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHtmlDlgSafeHelper_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHtmlDlgSafeHelper_choosecolordlg(This,initColor,rgbColor) (This)->lpVtbl->choosecolordlg(This,initColor,rgbColor)
-
 #define IHtmlDlgSafeHelper_getCharset(This,fontName,charset) (This)->lpVtbl->getCharset(This,fontName,charset)
-
 #define IHtmlDlgSafeHelper_get_Fonts(This,p) (This)->lpVtbl->get_Fonts(This,p)
-
 #define IHtmlDlgSafeHelper_get_BlockFormats(This,p) (This)->lpVtbl->get_BlockFormats(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHtmlDlgSafeHelper_choosecolordlg_Proxy(IHtmlDlgSafeHelper *This,VARIANT initColor,VARIANT *rgbColor);
-
   void __RPC_STUB IHtmlDlgSafeHelper_choosecolordlg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHtmlDlgSafeHelper_getCharset_Proxy(IHtmlDlgSafeHelper *This,BSTR fontName,VARIANT *charset);
-
   void __RPC_STUB IHtmlDlgSafeHelper_getCharset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHtmlDlgSafeHelper_get_Fonts_Proxy(IHtmlDlgSafeHelper *This,IDispatch **p);
-
   void __RPC_STUB IHtmlDlgSafeHelper_get_Fonts_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHtmlDlgSafeHelper_get_BlockFormats_Proxy(IHtmlDlgSafeHelper *This,IDispatch **p);
-
   void __RPC_STUB IHtmlDlgSafeHelper_get_BlockFormats_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IBlockFormats_INTERFACE_DEFINED__
 #define __IBlockFormats_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IBlockFormats;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IBlockFormats : public IDispatch
-  {
+  struct IBlockFormats : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **p) = 0;
-
     virtual HRESULT WINAPI get_Count(long *p) = 0;
-
     virtual HRESULT WINAPI Item(VARIANT *pvarIndex,BSTR *pbstrBlockFormat) = 0;
-
   };
 #else
-
-  typedef struct IBlockFormatsVtbl
-  {
+  typedef struct IBlockFormatsVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IBlockFormats *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IBlockFormats *This);
-
       ULONG (WINAPI *Release)(IBlockFormats *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IBlockFormats *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IBlockFormats *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IBlockFormats *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IBlockFormats *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get__NewEnum)(IBlockFormats *This,IUnknown **p);
-
       HRESULT (WINAPI *get_Count)(IBlockFormats *This,long *p);
-
       HRESULT (WINAPI *Item)(IBlockFormats *This,VARIANT *pvarIndex,BSTR *pbstrBlockFormat);
-
     END_INTERFACE
   } IBlockFormatsVtbl;
-
-  interface IBlockFormats
-  {
+  interface IBlockFormats {
     CONST_VTBL struct IBlockFormatsVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IBlockFormats_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IBlockFormats_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IBlockFormats_Release(This) (This)->lpVtbl->Release(This)
-
 #define IBlockFormats_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IBlockFormats_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IBlockFormats_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IBlockFormats_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IBlockFormats_get__NewEnum(This,p) (This)->lpVtbl->get__NewEnum(This,p)
-
 #define IBlockFormats_get_Count(This,p) (This)->lpVtbl->get_Count(This,p)
-
 #define IBlockFormats_Item(This,pvarIndex,pbstrBlockFormat) (This)->lpVtbl->Item(This,pvarIndex,pbstrBlockFormat)
 #endif
 #endif
 
   HRESULT WINAPI IBlockFormats_get__NewEnum_Proxy(IBlockFormats *This,IUnknown **p);
-
   void __RPC_STUB IBlockFormats_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IBlockFormats_get_Count_Proxy(IBlockFormats *This,long *p);
-
   void __RPC_STUB IBlockFormats_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IBlockFormats_Item_Proxy(IBlockFormats *This,VARIANT *pvarIndex,BSTR *pbstrBlockFormat);
-
   void __RPC_STUB IBlockFormats_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IFontNames_INTERFACE_DEFINED__
 #define __IFontNames_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IFontNames;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IFontNames : public IDispatch
-  {
+  struct IFontNames : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **p) = 0;
-
     virtual HRESULT WINAPI get_Count(long *p) = 0;
-
     virtual HRESULT WINAPI Item(VARIANT *pvarIndex,BSTR *pbstrFontName) = 0;
-
   };
 #else
-
-  typedef struct IFontNamesVtbl
-  {
+  typedef struct IFontNamesVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IFontNames *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IFontNames *This);
-
       ULONG (WINAPI *Release)(IFontNames *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IFontNames *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IFontNames *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IFontNames *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IFontNames *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get__NewEnum)(IFontNames *This,IUnknown **p);
-
       HRESULT (WINAPI *get_Count)(IFontNames *This,long *p);
-
       HRESULT (WINAPI *Item)(IFontNames *This,VARIANT *pvarIndex,BSTR *pbstrFontName);
-
     END_INTERFACE
   } IFontNamesVtbl;
-
-  interface IFontNames
-  {
+  interface IFontNames {
     CONST_VTBL struct IFontNamesVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IFontNames_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IFontNames_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IFontNames_Release(This) (This)->lpVtbl->Release(This)
-
 #define IFontNames_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IFontNames_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IFontNames_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IFontNames_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IFontNames_get__NewEnum(This,p) (This)->lpVtbl->get__NewEnum(This,p)
-
 #define IFontNames_get_Count(This,p) (This)->lpVtbl->get_Count(This,p)
-
 #define IFontNames_Item(This,pvarIndex,pbstrFontName) (This)->lpVtbl->Item(This,pvarIndex,pbstrFontName)
 #endif
 #endif
 
   HRESULT WINAPI IFontNames_get__NewEnum_Proxy(IFontNames *This,IUnknown **p);
-
   void __RPC_STUB IFontNames_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IFontNames_get_Count_Proxy(IFontNames *This,long *p);
-
   void __RPC_STUB IFontNames_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IFontNames_Item_Proxy(IFontNames *This,VARIANT *pvarIndex,BSTR *pbstrFontName);
-
   void __RPC_STUB IFontNames_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __ICSSFilter_INTERFACE_DEFINED__
 #define __ICSSFilter_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_ICSSFilter;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct ICSSFilter : public IUnknown
-  {
+  struct ICSSFilter : public IUnknown {
   public:
     virtual HRESULT WINAPI SetSite(ICSSFilterSite *pSink) = 0;
-
     virtual HRESULT WINAPI OnAmbientPropertyChange(LONG dispid) = 0;
-
   };
 #else
-
-  typedef struct ICSSFilterVtbl
-  {
+  typedef struct ICSSFilterVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(ICSSFilter *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(ICSSFilter *This);
-
       ULONG (WINAPI *Release)(ICSSFilter *This);
-
       HRESULT (WINAPI *SetSite)(ICSSFilter *This,ICSSFilterSite *pSink);
-
       HRESULT (WINAPI *OnAmbientPropertyChange)(ICSSFilter *This,LONG dispid);
-
     END_INTERFACE
   } ICSSFilterVtbl;
-
-  interface ICSSFilter
-  {
+  interface ICSSFilter {
     CONST_VTBL struct ICSSFilterVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define ICSSFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define ICSSFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define ICSSFilter_Release(This) (This)->lpVtbl->Release(This)
-
 #define ICSSFilter_SetSite(This,pSink) (This)->lpVtbl->SetSite(This,pSink)
-
 #define ICSSFilter_OnAmbientPropertyChange(This,dispid) (This)->lpVtbl->OnAmbientPropertyChange(This,dispid)
 #endif
 #endif
 
   HRESULT WINAPI ICSSFilter_SetSite_Proxy(ICSSFilter *This,ICSSFilterSite *pSink);
-
   void __RPC_STUB ICSSFilter_SetSite_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ICSSFilter_OnAmbientPropertyChange_Proxy(ICSSFilter *This,LONG dispid);
-
   void __RPC_STUB ICSSFilter_OnAmbientPropertyChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __ISecureUrlHost_INTERFACE_DEFINED__
 #define __ISecureUrlHost_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_ISecureUrlHost;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct ISecureUrlHost : public IUnknown
-  {
+  struct ISecureUrlHost : public IUnknown {
   public:
     virtual HRESULT WINAPI ValidateSecureUrl(WINBOOL *pfAllow,OLECHAR *pchUrlInQuestion,DWORD dwFlags) = 0;
-
   };
 #else
-
-  typedef struct ISecureUrlHostVtbl
-  {
+  typedef struct ISecureUrlHostVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(ISecureUrlHost *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(ISecureUrlHost *This);
-
       ULONG (WINAPI *Release)(ISecureUrlHost *This);
-
       HRESULT (WINAPI *ValidateSecureUrl)(ISecureUrlHost *This,WINBOOL *pfAllow,OLECHAR *pchUrlInQuestion,DWORD dwFlags);
-
     END_INTERFACE
   } ISecureUrlHostVtbl;
-
-  interface ISecureUrlHost
-  {
+  interface ISecureUrlHost {
     CONST_VTBL struct ISecureUrlHostVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define ISecureUrlHost_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define ISecureUrlHost_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define ISecureUrlHost_Release(This) (This)->lpVtbl->Release(This)
-
 #define ISecureUrlHost_ValidateSecureUrl(This,pfAllow,pchUrlInQuestion,dwFlags) (This)->lpVtbl->ValidateSecureUrl(This,pfAllow,pchUrlInQuestion,dwFlags)
 #endif
 #endif
 
   HRESULT WINAPI ISecureUrlHost_ValidateSecureUrl_Proxy(ISecureUrlHost *This,WINBOOL *pfAllow,OLECHAR *pchUrlInQuestion,DWORD dwFlags);
-
   void __RPC_STUB ISecureUrlHost_ValidateSecureUrl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IMarkupServices_INTERFACE_DEFINED__
 #define __IMarkupServices_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IMarkupServices;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IMarkupServices : public IUnknown
-  {
+  struct IMarkupServices : public IUnknown {
   public:
     virtual HRESULT WINAPI CreateMarkupPointer(IMarkupPointer **ppPointer) = 0;
-
     virtual HRESULT WINAPI CreateMarkupContainer(IMarkupContainer **ppMarkupContainer) = 0;
-
     virtual HRESULT WINAPI CreateElement(ELEMENT_TAG_ID tagID,OLECHAR *pchAttributes,IHTMLElement **ppElement) = 0;
-
     virtual HRESULT WINAPI CloneElement(IHTMLElement *pElemCloneThis,IHTMLElement **ppElementTheClone) = 0;
-
     virtual HRESULT WINAPI InsertElement(IHTMLElement *pElementInsert,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish) = 0;
-
     virtual HRESULT WINAPI RemoveElement(IHTMLElement *pElementRemove) = 0;
-
     virtual HRESULT WINAPI Remove(IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish) = 0;
-
     virtual HRESULT WINAPI Copy(IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget) = 0;
-
     virtual HRESULT WINAPI Move(IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget) = 0;
-
     virtual HRESULT WINAPI InsertText(OLECHAR *pchText,long cch,IMarkupPointer *pPointerTarget) = 0;
-
     virtual HRESULT WINAPI ParseString(OLECHAR *pchHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *ppPointerStart,IMarkupPointer *ppPointerFinish) = 0;
-
     virtual HRESULT WINAPI ParseGlobal(HGLOBAL hglobalHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish) = 0;
-
     virtual HRESULT WINAPI IsScopedElement(IHTMLElement *pElement,WINBOOL *pfScoped) = 0;
-
     virtual HRESULT WINAPI GetElementTagId(IHTMLElement *pElement,ELEMENT_TAG_ID *ptagId) = 0;
-
     virtual HRESULT WINAPI GetTagIDForName(BSTR bstrName,ELEMENT_TAG_ID *ptagId) = 0;
-
     virtual HRESULT WINAPI GetNameForTagID(ELEMENT_TAG_ID tagId,BSTR *pbstrName) = 0;
-
     virtual HRESULT WINAPI MovePointersToRange(IHTMLTxtRange *pIRange,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish) = 0;
-
     virtual HRESULT WINAPI MoveRangeToPointers(IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish,IHTMLTxtRange *pIRange) = 0;
-
     virtual HRESULT WINAPI BeginUndoUnit(OLECHAR *pchTitle) = 0;
-
     virtual HRESULT WINAPI EndUndoUnit(void) = 0;
-
   };
 #else
-
-  typedef struct IMarkupServicesVtbl
-  {
+  typedef struct IMarkupServicesVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IMarkupServices *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IMarkupServices *This);
-
       ULONG (WINAPI *Release)(IMarkupServices *This);
-
       HRESULT (WINAPI *CreateMarkupPointer)(IMarkupServices *This,IMarkupPointer **ppPointer);
-
       HRESULT (WINAPI *CreateMarkupContainer)(IMarkupServices *This,IMarkupContainer **ppMarkupContainer);
-
       HRESULT (WINAPI *CreateElement)(IMarkupServices *This,ELEMENT_TAG_ID tagID,OLECHAR *pchAttributes,IHTMLElement **ppElement);
-
       HRESULT (WINAPI *CloneElement)(IMarkupServices *This,IHTMLElement *pElemCloneThis,IHTMLElement **ppElementTheClone);
-
       HRESULT (WINAPI *InsertElement)(IMarkupServices *This,IHTMLElement *pElementInsert,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
       HRESULT (WINAPI *RemoveElement)(IMarkupServices *This,IHTMLElement *pElementRemove);
-
       HRESULT (WINAPI *Remove)(IMarkupServices *This,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
       HRESULT (WINAPI *Copy)(IMarkupServices *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
-
       HRESULT (WINAPI *Move)(IMarkupServices *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
-
       HRESULT (WINAPI *InsertText)(IMarkupServices *This,OLECHAR *pchText,long cch,IMarkupPointer *pPointerTarget);
-
       HRESULT (WINAPI *ParseString)(IMarkupServices *This,OLECHAR *pchHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *ppPointerStart,IMarkupPointer *ppPointerFinish);
-
       HRESULT (WINAPI *ParseGlobal)(IMarkupServices *This,HGLOBAL hglobalHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
       HRESULT (WINAPI *IsScopedElement)(IMarkupServices *This,IHTMLElement *pElement,WINBOOL *pfScoped);
-
       HRESULT (WINAPI *GetElementTagId)(IMarkupServices *This,IHTMLElement *pElement,ELEMENT_TAG_ID *ptagId);
-
       HRESULT (WINAPI *GetTagIDForName)(IMarkupServices *This,BSTR bstrName,ELEMENT_TAG_ID *ptagId);
-
       HRESULT (WINAPI *GetNameForTagID)(IMarkupServices *This,ELEMENT_TAG_ID tagId,BSTR *pbstrName);
-
       HRESULT (WINAPI *MovePointersToRange)(IMarkupServices *This,IHTMLTxtRange *pIRange,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
       HRESULT (WINAPI *MoveRangeToPointers)(IMarkupServices *This,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish,IHTMLTxtRange *pIRange);
-
       HRESULT (WINAPI *BeginUndoUnit)(IMarkupServices *This,OLECHAR *pchTitle);
-
       HRESULT (WINAPI *EndUndoUnit)(IMarkupServices *This);
-
     END_INTERFACE
   } IMarkupServicesVtbl;
-
-  interface IMarkupServices
-  {
+  interface IMarkupServices {
     CONST_VTBL struct IMarkupServicesVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IMarkupServices_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IMarkupServices_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IMarkupServices_Release(This) (This)->lpVtbl->Release(This)
-
 #define IMarkupServices_CreateMarkupPointer(This,ppPointer) (This)->lpVtbl->CreateMarkupPointer(This,ppPointer)
-
 #define IMarkupServices_CreateMarkupContainer(This,ppMarkupContainer) (This)->lpVtbl->CreateMarkupContainer(This,ppMarkupContainer)
-
 #define IMarkupServices_CreateElement(This,tagID,pchAttributes,ppElement) (This)->lpVtbl->CreateElement(This,tagID,pchAttributes,ppElement)
-
 #define IMarkupServices_CloneElement(This,pElemCloneThis,ppElementTheClone) (This)->lpVtbl->CloneElement(This,pElemCloneThis,ppElementTheClone)
-
 #define IMarkupServices_InsertElement(This,pElementInsert,pPointerStart,pPointerFinish) (This)->lpVtbl->InsertElement(This,pElementInsert,pPointerStart,pPointerFinish)
-
 #define IMarkupServices_RemoveElement(This,pElementRemove) (This)->lpVtbl->RemoveElement(This,pElementRemove)
-
 #define IMarkupServices_Remove(This,pPointerStart,pPointerFinish) (This)->lpVtbl->Remove(This,pPointerStart,pPointerFinish)
-
 #define IMarkupServices_Copy(This,pPointerSourceStart,pPointerSourceFinish,pPointerTarget) (This)->lpVtbl->Copy(This,pPointerSourceStart,pPointerSourceFinish,pPointerTarget)
-
 #define IMarkupServices_Move(This,pPointerSourceStart,pPointerSourceFinish,pPointerTarget) (This)->lpVtbl->Move(This,pPointerSourceStart,pPointerSourceFinish,pPointerTarget)
-
 #define IMarkupServices_InsertText(This,pchText,cch,pPointerTarget) (This)->lpVtbl->InsertText(This,pchText,cch,pPointerTarget)
-
 #define IMarkupServices_ParseString(This,pchHTML,dwFlags,ppContainerResult,ppPointerStart,ppPointerFinish) (This)->lpVtbl->ParseString(This,pchHTML,dwFlags,ppContainerResult,ppPointerStart,ppPointerFinish)
-
 #define IMarkupServices_ParseGlobal(This,hglobalHTML,dwFlags,ppContainerResult,pPointerStart,pPointerFinish) (This)->lpVtbl->ParseGlobal(This,hglobalHTML,dwFlags,ppContainerResult,pPointerStart,pPointerFinish)
-
 #define IMarkupServices_IsScopedElement(This,pElement,pfScoped) (This)->lpVtbl->IsScopedElement(This,pElement,pfScoped)
-
 #define IMarkupServices_GetElementTagId(This,pElement,ptagId) (This)->lpVtbl->GetElementTagId(This,pElement,ptagId)
-
 #define IMarkupServices_GetTagIDForName(This,bstrName,ptagId) (This)->lpVtbl->GetTagIDForName(This,bstrName,ptagId)
-
 #define IMarkupServices_GetNameForTagID(This,tagId,pbstrName) (This)->lpVtbl->GetNameForTagID(This,tagId,pbstrName)
-
 #define IMarkupServices_MovePointersToRange(This,pIRange,pPointerStart,pPointerFinish) (This)->lpVtbl->MovePointersToRange(This,pIRange,pPointerStart,pPointerFinish)
-
 #define IMarkupServices_MoveRangeToPointers(This,pPointerStart,pPointerFinish,pIRange) (This)->lpVtbl->MoveRangeToPointers(This,pPointerStart,pPointerFinish,pIRange)
-
 #define IMarkupServices_BeginUndoUnit(This,pchTitle) (This)->lpVtbl->BeginUndoUnit(This,pchTitle)
-
 #define IMarkupServices_EndUndoUnit(This) (This)->lpVtbl->EndUndoUnit(This)
 #endif
 #endif
 
   HRESULT WINAPI IMarkupServices_CreateMarkupPointer_Proxy(IMarkupServices *This,IMarkupPointer **ppPointer);
-
   void __RPC_STUB IMarkupServices_CreateMarkupPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_CreateMarkupContainer_Proxy(IMarkupServices *This,IMarkupContainer **ppMarkupContainer);
-
   void __RPC_STUB IMarkupServices_CreateMarkupContainer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_CreateElement_Proxy(IMarkupServices *This,ELEMENT_TAG_ID tagID,OLECHAR *pchAttributes,IHTMLElement **ppElement);
-
   void __RPC_STUB IMarkupServices_CreateElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_CloneElement_Proxy(IMarkupServices *This,IHTMLElement *pElemCloneThis,IHTMLElement **ppElementTheClone);
-
   void __RPC_STUB IMarkupServices_CloneElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_InsertElement_Proxy(IMarkupServices *This,IHTMLElement *pElementInsert,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
   void __RPC_STUB IMarkupServices_InsertElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_RemoveElement_Proxy(IMarkupServices *This,IHTMLElement *pElementRemove);
-
   void __RPC_STUB IMarkupServices_RemoveElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_Remove_Proxy(IMarkupServices *This,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
   void __RPC_STUB IMarkupServices_Remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_Copy_Proxy(IMarkupServices *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
-
   void __RPC_STUB IMarkupServices_Copy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_Move_Proxy(IMarkupServices *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
-
   void __RPC_STUB IMarkupServices_Move_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_InsertText_Proxy(IMarkupServices *This,OLECHAR *pchText,long cch,IMarkupPointer *pPointerTarget);
-
   void __RPC_STUB IMarkupServices_InsertText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_ParseString_Proxy(IMarkupServices *This,OLECHAR *pchHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *ppPointerStart,IMarkupPointer *ppPointerFinish);
-
   void __RPC_STUB IMarkupServices_ParseString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_ParseGlobal_Proxy(IMarkupServices *This,HGLOBAL hglobalHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
   void __RPC_STUB IMarkupServices_ParseGlobal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_IsScopedElement_Proxy(IMarkupServices *This,IHTMLElement *pElement,WINBOOL *pfScoped);
-
   void __RPC_STUB IMarkupServices_IsScopedElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_GetElementTagId_Proxy(IMarkupServices *This,IHTMLElement *pElement,ELEMENT_TAG_ID *ptagId);
-
   void __RPC_STUB IMarkupServices_GetElementTagId_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_GetTagIDForName_Proxy(IMarkupServices *This,BSTR bstrName,ELEMENT_TAG_ID *ptagId);
-
   void __RPC_STUB IMarkupServices_GetTagIDForName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_GetNameForTagID_Proxy(IMarkupServices *This,ELEMENT_TAG_ID tagId,BSTR *pbstrName);
-
   void __RPC_STUB IMarkupServices_GetNameForTagID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_MovePointersToRange_Proxy(IMarkupServices *This,IHTMLTxtRange *pIRange,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
   void __RPC_STUB IMarkupServices_MovePointersToRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_MoveRangeToPointers_Proxy(IMarkupServices *This,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish,IHTMLTxtRange *pIRange);
-
   void __RPC_STUB IMarkupServices_MoveRangeToPointers_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_BeginUndoUnit_Proxy(IMarkupServices *This,OLECHAR *pchTitle);
-
   void __RPC_STUB IMarkupServices_BeginUndoUnit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices_EndUndoUnit_Proxy(IMarkupServices *This);
-
   void __RPC_STUB IMarkupServices_EndUndoUnit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IMarkupServices2_INTERFACE_DEFINED__
 #define __IMarkupServices2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IMarkupServices2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IMarkupServices2 : public IMarkupServices
-  {
+  struct IMarkupServices2 : public IMarkupServices {
   public:
     virtual HRESULT WINAPI ParseGlobalEx(HGLOBAL hglobalHTML,DWORD dwFlags,IMarkupContainer *pContext,IMarkupContainer **ppContainerResult,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish) = 0;
-
     virtual HRESULT WINAPI ValidateElements(IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish,IMarkupPointer *pPointerTarget,IMarkupPointer *pPointerStatus,IHTMLElement **ppElemFailBottom,IHTMLElement **ppElemFailTop) = 0;
-
     virtual HRESULT WINAPI SaveSegmentsToClipboard(ISegmentList *pSegmentList,DWORD dwFlags) = 0;
-
   };
 #else
-
-  typedef struct IMarkupServices2Vtbl
-  {
+  typedef struct IMarkupServices2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IMarkupServices2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IMarkupServices2 *This);
-
       ULONG (WINAPI *Release)(IMarkupServices2 *This);
-
       HRESULT (WINAPI *CreateMarkupPointer)(IMarkupServices2 *This,IMarkupPointer **ppPointer);
-
       HRESULT (WINAPI *CreateMarkupContainer)(IMarkupServices2 *This,IMarkupContainer **ppMarkupContainer);
-
       HRESULT (WINAPI *CreateElement)(IMarkupServices2 *This,ELEMENT_TAG_ID tagID,OLECHAR *pchAttributes,IHTMLElement **ppElement);
-
       HRESULT (WINAPI *CloneElement)(IMarkupServices2 *This,IHTMLElement *pElemCloneThis,IHTMLElement **ppElementTheClone);
-
       HRESULT (WINAPI *InsertElement)(IMarkupServices2 *This,IHTMLElement *pElementInsert,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
       HRESULT (WINAPI *RemoveElement)(IMarkupServices2 *This,IHTMLElement *pElementRemove);
-
       HRESULT (WINAPI *Remove)(IMarkupServices2 *This,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
       HRESULT (WINAPI *Copy)(IMarkupServices2 *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
-
       HRESULT (WINAPI *Move)(IMarkupServices2 *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
-
       HRESULT (WINAPI *InsertText)(IMarkupServices2 *This,OLECHAR *pchText,long cch,IMarkupPointer *pPointerTarget);
-
       HRESULT (WINAPI *ParseString)(IMarkupServices2 *This,OLECHAR *pchHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *ppPointerStart,IMarkupPointer *ppPointerFinish);
-
       HRESULT (WINAPI *ParseGlobal)(IMarkupServices2 *This,HGLOBAL hglobalHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
       HRESULT (WINAPI *IsScopedElement)(IMarkupServices2 *This,IHTMLElement *pElement,WINBOOL *pfScoped);
-
       HRESULT (WINAPI *GetElementTagId)(IMarkupServices2 *This,IHTMLElement *pElement,ELEMENT_TAG_ID *ptagId);
-
       HRESULT (WINAPI *GetTagIDForName)(IMarkupServices2 *This,BSTR bstrName,ELEMENT_TAG_ID *ptagId);
-
       HRESULT (WINAPI *GetNameForTagID)(IMarkupServices2 *This,ELEMENT_TAG_ID tagId,BSTR *pbstrName);
-
       HRESULT (WINAPI *MovePointersToRange)(IMarkupServices2 *This,IHTMLTxtRange *pIRange,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
       HRESULT (WINAPI *MoveRangeToPointers)(IMarkupServices2 *This,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish,IHTMLTxtRange *pIRange);
-
       HRESULT (WINAPI *BeginUndoUnit)(IMarkupServices2 *This,OLECHAR *pchTitle);
-
       HRESULT (WINAPI *EndUndoUnit)(IMarkupServices2 *This);
-
       HRESULT (WINAPI *ParseGlobalEx)(IMarkupServices2 *This,HGLOBAL hglobalHTML,DWORD dwFlags,IMarkupContainer *pContext,IMarkupContainer **ppContainerResult,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
       HRESULT (WINAPI *ValidateElements)(IMarkupServices2 *This,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish,IMarkupPointer *pPointerTarget,IMarkupPointer *pPointerStatus,IHTMLElement **ppElemFailBottom,IHTMLElement **ppElemFailTop);
-
       HRESULT (WINAPI *SaveSegmentsToClipboard)(IMarkupServices2 *This,ISegmentList *pSegmentList,DWORD dwFlags);
-
     END_INTERFACE
   } IMarkupServices2Vtbl;
-
-  interface IMarkupServices2
-  {
+  interface IMarkupServices2 {
     CONST_VTBL struct IMarkupServices2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IMarkupServices2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IMarkupServices2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IMarkupServices2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IMarkupServices2_CreateMarkupPointer(This,ppPointer) (This)->lpVtbl->CreateMarkupPointer(This,ppPointer)
-
 #define IMarkupServices2_CreateMarkupContainer(This,ppMarkupContainer) (This)->lpVtbl->CreateMarkupContainer(This,ppMarkupContainer)
-
 #define IMarkupServices2_CreateElement(This,tagID,pchAttributes,ppElement) (This)->lpVtbl->CreateElement(This,tagID,pchAttributes,ppElement)
-
 #define IMarkupServices2_CloneElement(This,pElemCloneThis,ppElementTheClone) (This)->lpVtbl->CloneElement(This,pElemCloneThis,ppElementTheClone)
-
 #define IMarkupServices2_InsertElement(This,pElementInsert,pPointerStart,pPointerFinish) (This)->lpVtbl->InsertElement(This,pElementInsert,pPointerStart,pPointerFinish)
-
 #define IMarkupServices2_RemoveElement(This,pElementRemove) (This)->lpVtbl->RemoveElement(This,pElementRemove)
-
 #define IMarkupServices2_Remove(This,pPointerStart,pPointerFinish) (This)->lpVtbl->Remove(This,pPointerStart,pPointerFinish)
-
 #define IMarkupServices2_Copy(This,pPointerSourceStart,pPointerSourceFinish,pPointerTarget) (This)->lpVtbl->Copy(This,pPointerSourceStart,pPointerSourceFinish,pPointerTarget)
-
 #define IMarkupServices2_Move(This,pPointerSourceStart,pPointerSourceFinish,pPointerTarget) (This)->lpVtbl->Move(This,pPointerSourceStart,pPointerSourceFinish,pPointerTarget)
-
 #define IMarkupServices2_InsertText(This,pchText,cch,pPointerTarget) (This)->lpVtbl->InsertText(This,pchText,cch,pPointerTarget)
-
 #define IMarkupServices2_ParseString(This,pchHTML,dwFlags,ppContainerResult,ppPointerStart,ppPointerFinish) (This)->lpVtbl->ParseString(This,pchHTML,dwFlags,ppContainerResult,ppPointerStart,ppPointerFinish)
-
 #define IMarkupServices2_ParseGlobal(This,hglobalHTML,dwFlags,ppContainerResult,pPointerStart,pPointerFinish) (This)->lpVtbl->ParseGlobal(This,hglobalHTML,dwFlags,ppContainerResult,pPointerStart,pPointerFinish)
-
 #define IMarkupServices2_IsScopedElement(This,pElement,pfScoped) (This)->lpVtbl->IsScopedElement(This,pElement,pfScoped)
-
 #define IMarkupServices2_GetElementTagId(This,pElement,ptagId) (This)->lpVtbl->GetElementTagId(This,pElement,ptagId)
-
 #define IMarkupServices2_GetTagIDForName(This,bstrName,ptagId) (This)->lpVtbl->GetTagIDForName(This,bstrName,ptagId)
-
 #define IMarkupServices2_GetNameForTagID(This,tagId,pbstrName) (This)->lpVtbl->GetNameForTagID(This,tagId,pbstrName)
-
 #define IMarkupServices2_MovePointersToRange(This,pIRange,pPointerStart,pPointerFinish) (This)->lpVtbl->MovePointersToRange(This,pIRange,pPointerStart,pPointerFinish)
-
 #define IMarkupServices2_MoveRangeToPointers(This,pPointerStart,pPointerFinish,pIRange) (This)->lpVtbl->MoveRangeToPointers(This,pPointerStart,pPointerFinish,pIRange)
-
 #define IMarkupServices2_BeginUndoUnit(This,pchTitle) (This)->lpVtbl->BeginUndoUnit(This,pchTitle)
-
 #define IMarkupServices2_EndUndoUnit(This) (This)->lpVtbl->EndUndoUnit(This)
-
 #define IMarkupServices2_ParseGlobalEx(This,hglobalHTML,dwFlags,pContext,ppContainerResult,pPointerStart,pPointerFinish) (This)->lpVtbl->ParseGlobalEx(This,hglobalHTML,dwFlags,pContext,ppContainerResult,pPointerStart,pPointerFinish)
-
 #define IMarkupServices2_ValidateElements(This,pPointerStart,pPointerFinish,pPointerTarget,pPointerStatus,ppElemFailBottom,ppElemFailTop) (This)->lpVtbl->ValidateElements(This,pPointerStart,pPointerFinish,pPointerTarget,pPointerStatus,ppElemFailBottom,ppElemFailTop)
-
 #define IMarkupServices2_SaveSegmentsToClipboard(This,pSegmentList,dwFlags) (This)->lpVtbl->SaveSegmentsToClipboard(This,pSegmentList,dwFlags)
 #endif
 #endif
 
   HRESULT WINAPI IMarkupServices2_ParseGlobalEx_Proxy(IMarkupServices2 *This,HGLOBAL hglobalHTML,DWORD dwFlags,IMarkupContainer *pContext,IMarkupContainer **ppContainerResult,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
-
   void __RPC_STUB IMarkupServices2_ParseGlobalEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices2_ValidateElements_Proxy(IMarkupServices2 *This,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish,IMarkupPointer *pPointerTarget,IMarkupPointer *pPointerStatus,IHTMLElement **ppElemFailBottom,IHTMLElement **ppElemFailTop);
-
   void __RPC_STUB IMarkupServices2_ValidateElements_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupServices2_SaveSegmentsToClipboard_Proxy(IMarkupServices2 *This,ISegmentList *pSegmentList,DWORD dwFlags);
-
   void __RPC_STUB IMarkupServices2_SaveSegmentsToClipboard_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLChangePlayback_INTERFACE_DEFINED__
 #define __IHTMLChangePlayback_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLChangePlayback;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLChangePlayback : public IUnknown
-  {
+  struct IHTMLChangePlayback : public IUnknown {
   public:
     virtual HRESULT WINAPI ExecChange(BYTE *pbRecord,WINBOOL fForward) = 0;
-
   };
 #else
-
-  typedef struct IHTMLChangePlaybackVtbl
-  {
+  typedef struct IHTMLChangePlaybackVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLChangePlayback *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLChangePlayback *This);
-
       ULONG (WINAPI *Release)(IHTMLChangePlayback *This);
-
       HRESULT (WINAPI *ExecChange)(IHTMLChangePlayback *This,BYTE *pbRecord,WINBOOL fForward);
-
     END_INTERFACE
   } IHTMLChangePlaybackVtbl;
-
-  interface IHTMLChangePlayback
-  {
+  interface IHTMLChangePlayback {
     CONST_VTBL struct IHTMLChangePlaybackVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLChangePlayback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLChangePlayback_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLChangePlayback_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLChangePlayback_ExecChange(This,pbRecord,fForward) (This)->lpVtbl->ExecChange(This,pbRecord,fForward)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLChangePlayback_ExecChange_Proxy(IHTMLChangePlayback *This,BYTE *pbRecord,WINBOOL fForward);
-
   void __RPC_STUB IHTMLChangePlayback_ExecChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IMarkupPointer2_INTERFACE_DEFINED__
 #define __IMarkupPointer2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IMarkupPointer2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IMarkupPointer2 : public IMarkupPointer
-  {
+  struct IMarkupPointer2 : public IMarkupPointer {
   public:
     virtual HRESULT WINAPI IsAtWordBreak(WINBOOL *pfAtBreak) = 0;
-
     virtual HRESULT WINAPI GetMarkupPosition(long *plMP) = 0;
-
     virtual HRESULT WINAPI MoveToMarkupPosition(IMarkupContainer *pContainer,long lMP) = 0;
-
     virtual HRESULT WINAPI MoveUnitBounded(MOVEUNIT_ACTION muAction,IMarkupPointer *pIBoundary) = 0;
-
     virtual HRESULT WINAPI IsInsideURL(IMarkupPointer *pRight,WINBOOL *pfResult) = 0;
-
     virtual HRESULT WINAPI MoveToContent(IHTMLElement *pIElement,WINBOOL fAtStart) = 0;
-
   };
 #else
-
-  typedef struct IMarkupPointer2Vtbl
-  {
+  typedef struct IMarkupPointer2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IMarkupPointer2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IMarkupPointer2 *This);
-
       ULONG (WINAPI *Release)(IMarkupPointer2 *This);
-
       HRESULT (WINAPI *OwningDoc)(IMarkupPointer2 *This,IHTMLDocument2 **ppDoc);
-
       HRESULT (WINAPI *Gravity)(IMarkupPointer2 *This,POINTER_GRAVITY *pGravity);
-
       HRESULT (WINAPI *SetGravity)(IMarkupPointer2 *This,POINTER_GRAVITY Gravity);
-
       HRESULT (WINAPI *Cling)(IMarkupPointer2 *This,WINBOOL *pfCling);
-
       HRESULT (WINAPI *SetCling)(IMarkupPointer2 *This,WINBOOL fCLing);
-
       HRESULT (WINAPI *Unposition)(IMarkupPointer2 *This);
-
       HRESULT (WINAPI *IsPositioned)(IMarkupPointer2 *This,WINBOOL *pfPositioned);
-
       HRESULT (WINAPI *GetContainer)(IMarkupPointer2 *This,IMarkupContainer **ppContainer);
-
       HRESULT (WINAPI *MoveAdjacentToElement)(IMarkupPointer2 *This,IHTMLElement *pElement,ELEMENT_ADJACENCY eAdj);
-
       HRESULT (WINAPI *MoveToPointer)(IMarkupPointer2 *This,IMarkupPointer *pPointer);
-
       HRESULT (WINAPI *MoveToContainer)(IMarkupPointer2 *This,IMarkupContainer *pContainer,WINBOOL fAtStart);
-
       HRESULT (WINAPI *Left)(IMarkupPointer2 *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
-
       HRESULT (WINAPI *Right)(IMarkupPointer2 *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
-
       HRESULT (WINAPI *CurrentScope)(IMarkupPointer2 *This,IHTMLElement **ppElemCurrent);
-
       HRESULT (WINAPI *IsLeftOf)(IMarkupPointer2 *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
       HRESULT (WINAPI *IsLeftOfOrEqualTo)(IMarkupPointer2 *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
       HRESULT (WINAPI *IsRightOf)(IMarkupPointer2 *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
       HRESULT (WINAPI *IsRightOfOrEqualTo)(IMarkupPointer2 *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
-
       HRESULT (WINAPI *IsEqualTo)(IMarkupPointer2 *This,IMarkupPointer *pPointerThat,WINBOOL *pfAreEqual);
-
       HRESULT (WINAPI *MoveUnit)(IMarkupPointer2 *This,MOVEUNIT_ACTION muAction);
-
       HRESULT (WINAPI *FindText)(IMarkupPointer2 *This,OLECHAR *pchFindText,DWORD dwFlags,IMarkupPointer *pIEndMatch,IMarkupPointer *pIEndSearch);
-
       HRESULT (WINAPI *IsAtWordBreak)(IMarkupPointer2 *This,WINBOOL *pfAtBreak);
-
       HRESULT (WINAPI *GetMarkupPosition)(IMarkupPointer2 *This,long *plMP);
-
       HRESULT (WINAPI *MoveToMarkupPosition)(IMarkupPointer2 *This,IMarkupContainer *pContainer,long lMP);
-
       HRESULT (WINAPI *MoveUnitBounded)(IMarkupPointer2 *This,MOVEUNIT_ACTION muAction,IMarkupPointer *pIBoundary);
-
       HRESULT (WINAPI *IsInsideURL)(IMarkupPointer2 *This,IMarkupPointer *pRight,WINBOOL *pfResult);
-
       HRESULT (WINAPI *MoveToContent)(IMarkupPointer2 *This,IHTMLElement *pIElement,WINBOOL fAtStart);
-
     END_INTERFACE
   } IMarkupPointer2Vtbl;
-
-  interface IMarkupPointer2
-  {
+  interface IMarkupPointer2 {
     CONST_VTBL struct IMarkupPointer2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IMarkupPointer2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IMarkupPointer2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IMarkupPointer2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IMarkupPointer2_OwningDoc(This,ppDoc) (This)->lpVtbl->OwningDoc(This,ppDoc)
-
 #define IMarkupPointer2_Gravity(This,pGravity) (This)->lpVtbl->Gravity(This,pGravity)
-
 #define IMarkupPointer2_SetGravity(This,Gravity) (This)->lpVtbl->SetGravity(This,Gravity)
-
 #define IMarkupPointer2_Cling(This,pfCling) (This)->lpVtbl->Cling(This,pfCling)
-
 #define IMarkupPointer2_SetCling(This,fCLing) (This)->lpVtbl->SetCling(This,fCLing)
-
 #define IMarkupPointer2_Unposition(This) (This)->lpVtbl->Unposition(This)
-
 #define IMarkupPointer2_IsPositioned(This,pfPositioned) (This)->lpVtbl->IsPositioned(This,pfPositioned)
-
 #define IMarkupPointer2_GetContainer(This,ppContainer) (This)->lpVtbl->GetContainer(This,ppContainer)
-
 #define IMarkupPointer2_MoveAdjacentToElement(This,pElement,eAdj) (This)->lpVtbl->MoveAdjacentToElement(This,pElement,eAdj)
-
 #define IMarkupPointer2_MoveToPointer(This,pPointer) (This)->lpVtbl->MoveToPointer(This,pPointer)
-
 #define IMarkupPointer2_MoveToContainer(This,pContainer,fAtStart) (This)->lpVtbl->MoveToContainer(This,pContainer,fAtStart)
-
 #define IMarkupPointer2_Left(This,fMove,pContext,ppElement,pcch,pchText) (This)->lpVtbl->Left(This,fMove,pContext,ppElement,pcch,pchText)
-
 #define IMarkupPointer2_Right(This,fMove,pContext,ppElement,pcch,pchText) (This)->lpVtbl->Right(This,fMove,pContext,ppElement,pcch,pchText)
-
 #define IMarkupPointer2_CurrentScope(This,ppElemCurrent) (This)->lpVtbl->CurrentScope(This,ppElemCurrent)
-
 #define IMarkupPointer2_IsLeftOf(This,pPointerThat,pfResult) (This)->lpVtbl->IsLeftOf(This,pPointerThat,pfResult)
-
 #define IMarkupPointer2_IsLeftOfOrEqualTo(This,pPointerThat,pfResult) (This)->lpVtbl->IsLeftOfOrEqualTo(This,pPointerThat,pfResult)
-
 #define IMarkupPointer2_IsRightOf(This,pPointerThat,pfResult) (This)->lpVtbl->IsRightOf(This,pPointerThat,pfResult)
-
 #define IMarkupPointer2_IsRightOfOrEqualTo(This,pPointerThat,pfResult) (This)->lpVtbl->IsRightOfOrEqualTo(This,pPointerThat,pfResult)
-
 #define IMarkupPointer2_IsEqualTo(This,pPointerThat,pfAreEqual) (This)->lpVtbl->IsEqualTo(This,pPointerThat,pfAreEqual)
-
 #define IMarkupPointer2_MoveUnit(This,muAction) (This)->lpVtbl->MoveUnit(This,muAction)
-
 #define IMarkupPointer2_FindText(This,pchFindText,dwFlags,pIEndMatch,pIEndSearch) (This)->lpVtbl->FindText(This,pchFindText,dwFlags,pIEndMatch,pIEndSearch)
-
 #define IMarkupPointer2_IsAtWordBreak(This,pfAtBreak) (This)->lpVtbl->IsAtWordBreak(This,pfAtBreak)
-
 #define IMarkupPointer2_GetMarkupPosition(This,plMP) (This)->lpVtbl->GetMarkupPosition(This,plMP)
-
 #define IMarkupPointer2_MoveToMarkupPosition(This,pContainer,lMP) (This)->lpVtbl->MoveToMarkupPosition(This,pContainer,lMP)
-
 #define IMarkupPointer2_MoveUnitBounded(This,muAction,pIBoundary) (This)->lpVtbl->MoveUnitBounded(This,muAction,pIBoundary)
-
 #define IMarkupPointer2_IsInsideURL(This,pRight,pfResult) (This)->lpVtbl->IsInsideURL(This,pRight,pfResult)
-
 #define IMarkupPointer2_MoveToContent(This,pIElement,fAtStart) (This)->lpVtbl->MoveToContent(This,pIElement,fAtStart)
 #endif
 #endif
 
   HRESULT WINAPI IMarkupPointer2_IsAtWordBreak_Proxy(IMarkupPointer2 *This,WINBOOL *pfAtBreak);
-
   void __RPC_STUB IMarkupPointer2_IsAtWordBreak_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer2_GetMarkupPosition_Proxy(IMarkupPointer2 *This,long *plMP);
-
   void __RPC_STUB IMarkupPointer2_GetMarkupPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer2_MoveToMarkupPosition_Proxy(IMarkupPointer2 *This,IMarkupContainer *pContainer,long lMP);
-
   void __RPC_STUB IMarkupPointer2_MoveToMarkupPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer2_MoveUnitBounded_Proxy(IMarkupPointer2 *This,MOVEUNIT_ACTION muAction,IMarkupPointer *pIBoundary);
-
   void __RPC_STUB IMarkupPointer2_MoveUnitBounded_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer2_IsInsideURL_Proxy(IMarkupPointer2 *This,IMarkupPointer *pRight,WINBOOL *pfResult);
-
   void __RPC_STUB IMarkupPointer2_IsInsideURL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupPointer2_MoveToContent_Proxy(IMarkupPointer2 *This,IHTMLElement *pIElement,WINBOOL fAtStart);
-
   void __RPC_STUB IMarkupPointer2_MoveToContent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IMarkupTextFrags_INTERFACE_DEFINED__
 #define __IMarkupTextFrags_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IMarkupTextFrags;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IMarkupTextFrags : public IUnknown
-  {
+  struct IMarkupTextFrags : public IUnknown {
   public:
     virtual HRESULT WINAPI GetTextFragCount(long *pcFrags) = 0;
-
     virtual HRESULT WINAPI GetTextFrag(long iFrag,BSTR *pbstrFrag,IMarkupPointer *pPointerFrag) = 0;
-
     virtual HRESULT WINAPI RemoveTextFrag(long iFrag) = 0;
-
     virtual HRESULT WINAPI InsertTextFrag(long iFrag,BSTR bstrInsert,IMarkupPointer *pPointerInsert) = 0;
-
     virtual HRESULT WINAPI FindTextFragFromMarkupPointer(IMarkupPointer *pPointerFind,long *piFrag,WINBOOL *pfFragFound) = 0;
-
   };
 #else
-
-  typedef struct IMarkupTextFragsVtbl
-  {
+  typedef struct IMarkupTextFragsVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IMarkupTextFrags *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IMarkupTextFrags *This);
-
       ULONG (WINAPI *Release)(IMarkupTextFrags *This);
-
       HRESULT (WINAPI *GetTextFragCount)(IMarkupTextFrags *This,long *pcFrags);
-
       HRESULT (WINAPI *GetTextFrag)(IMarkupTextFrags *This,long iFrag,BSTR *pbstrFrag,IMarkupPointer *pPointerFrag);
-
       HRESULT (WINAPI *RemoveTextFrag)(IMarkupTextFrags *This,long iFrag);
-
       HRESULT (WINAPI *InsertTextFrag)(IMarkupTextFrags *This,long iFrag,BSTR bstrInsert,IMarkupPointer *pPointerInsert);
-
       HRESULT (WINAPI *FindTextFragFromMarkupPointer)(IMarkupTextFrags *This,IMarkupPointer *pPointerFind,long *piFrag,WINBOOL *pfFragFound);
-
     END_INTERFACE
   } IMarkupTextFragsVtbl;
-
-  interface IMarkupTextFrags
-  {
+  interface IMarkupTextFrags {
     CONST_VTBL struct IMarkupTextFragsVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IMarkupTextFrags_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IMarkupTextFrags_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IMarkupTextFrags_Release(This) (This)->lpVtbl->Release(This)
-
 #define IMarkupTextFrags_GetTextFragCount(This,pcFrags) (This)->lpVtbl->GetTextFragCount(This,pcFrags)
-
 #define IMarkupTextFrags_GetTextFrag(This,iFrag,pbstrFrag,pPointerFrag) (This)->lpVtbl->GetTextFrag(This,iFrag,pbstrFrag,pPointerFrag)
-
 #define IMarkupTextFrags_RemoveTextFrag(This,iFrag) (This)->lpVtbl->RemoveTextFrag(This,iFrag)
-
 #define IMarkupTextFrags_InsertTextFrag(This,iFrag,bstrInsert,pPointerInsert) (This)->lpVtbl->InsertTextFrag(This,iFrag,bstrInsert,pPointerInsert)
-
 #define IMarkupTextFrags_FindTextFragFromMarkupPointer(This,pPointerFind,piFrag,pfFragFound) (This)->lpVtbl->FindTextFragFromMarkupPointer(This,pPointerFind,piFrag,pfFragFound)
 #endif
 #endif
 
   HRESULT WINAPI IMarkupTextFrags_GetTextFragCount_Proxy(IMarkupTextFrags *This,long *pcFrags);
-
   void __RPC_STUB IMarkupTextFrags_GetTextFragCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupTextFrags_GetTextFrag_Proxy(IMarkupTextFrags *This,long iFrag,BSTR *pbstrFrag,IMarkupPointer *pPointerFrag);
-
   void __RPC_STUB IMarkupTextFrags_GetTextFrag_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupTextFrags_RemoveTextFrag_Proxy(IMarkupTextFrags *This,long iFrag);
-
   void __RPC_STUB IMarkupTextFrags_RemoveTextFrag_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupTextFrags_InsertTextFrag_Proxy(IMarkupTextFrags *This,long iFrag,BSTR bstrInsert,IMarkupPointer *pPointerInsert);
-
   void __RPC_STUB IMarkupTextFrags_InsertTextFrag_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IMarkupTextFrags_FindTextFragFromMarkupPointer_Proxy(IMarkupTextFrags *This,IMarkupPointer *pPointerFind,long *piFrag,WINBOOL *pfFragFound);
-
   void __RPC_STUB IMarkupTextFrags_FindTextFragFromMarkupPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IXMLGenericParse_INTERFACE_DEFINED__
 #define __IXMLGenericParse_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IXMLGenericParse;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IXMLGenericParse : public IUnknown
-  {
+  struct IXMLGenericParse : public IUnknown {
   public:
     virtual HRESULT WINAPI SetGenericParse(VARIANT_BOOL fDoGeneric) = 0;
-
   };
 #else
-
-  typedef struct IXMLGenericParseVtbl
-  {
+  typedef struct IXMLGenericParseVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IXMLGenericParse *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IXMLGenericParse *This);
-
       ULONG (WINAPI *Release)(IXMLGenericParse *This);
-
       HRESULT (WINAPI *SetGenericParse)(IXMLGenericParse *This,VARIANT_BOOL fDoGeneric);
-
     END_INTERFACE
   } IXMLGenericParseVtbl;
-
-  interface IXMLGenericParse
-  {
+  interface IXMLGenericParse {
     CONST_VTBL struct IXMLGenericParseVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IXMLGenericParse_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IXMLGenericParse_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IXMLGenericParse_Release(This) (This)->lpVtbl->Release(This)
-
 #define IXMLGenericParse_SetGenericParse(This,fDoGeneric) (This)->lpVtbl->SetGenericParse(This,fDoGeneric)
 #endif
 #endif
 
   HRESULT WINAPI IXMLGenericParse_SetGenericParse_Proxy(IXMLGenericParse *This,VARIANT_BOOL fDoGeneric);
-
   void __RPC_STUB IXMLGenericParse_SetGenericParse_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLEditHost_INTERFACE_DEFINED__
 #define __IHTMLEditHost_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLEditHost;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLEditHost : public IUnknown
-  {
+  struct IHTMLEditHost : public IUnknown {
   public:
     virtual HRESULT WINAPI SnapRect(IHTMLElement *pIElement,RECT *prcNew,ELEMENT_CORNER eHandle) = 0;
-
   };
 #else
-
-  typedef struct IHTMLEditHostVtbl
-  {
+  typedef struct IHTMLEditHostVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLEditHost *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLEditHost *This);
-
       ULONG (WINAPI *Release)(IHTMLEditHost *This);
-
       HRESULT (WINAPI *SnapRect)(IHTMLEditHost *This,IHTMLElement *pIElement,RECT *prcNew,ELEMENT_CORNER eHandle);
-
     END_INTERFACE
   } IHTMLEditHostVtbl;
-
-  interface IHTMLEditHost
-  {
+  interface IHTMLEditHost {
     CONST_VTBL struct IHTMLEditHostVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLEditHost_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLEditHost_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLEditHost_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLEditHost_SnapRect(This,pIElement,prcNew,eHandle) (This)->lpVtbl->SnapRect(This,pIElement,prcNew,eHandle)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLEditHost_SnapRect_Proxy(IHTMLEditHost *This,IHTMLElement *pIElement,RECT *prcNew,ELEMENT_CORNER eHandle);
-
   void __RPC_STUB IHTMLEditHost_SnapRect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLEditHost2_INTERFACE_DEFINED__
 #define __IHTMLEditHost2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLEditHost2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLEditHost2 : public IHTMLEditHost
-  {
+  struct IHTMLEditHost2 : public IHTMLEditHost {
   public:
     virtual HRESULT WINAPI PreDrag(void) = 0;
-
   };
 #else
-
-  typedef struct IHTMLEditHost2Vtbl
-  {
+  typedef struct IHTMLEditHost2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLEditHost2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLEditHost2 *This);
-
       ULONG (WINAPI *Release)(IHTMLEditHost2 *This);
-
       HRESULT (WINAPI *SnapRect)(IHTMLEditHost2 *This,IHTMLElement *pIElement,RECT *prcNew,ELEMENT_CORNER eHandle);
-
       HRESULT (WINAPI *PreDrag)(IHTMLEditHost2 *This);
-
     END_INTERFACE
   } IHTMLEditHost2Vtbl;
-
-  interface IHTMLEditHost2
-  {
+  interface IHTMLEditHost2 {
     CONST_VTBL struct IHTMLEditHost2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLEditHost2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLEditHost2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLEditHost2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLEditHost2_SnapRect(This,pIElement,prcNew,eHandle) (This)->lpVtbl->SnapRect(This,pIElement,prcNew,eHandle)
-
 #define IHTMLEditHost2_PreDrag(This) (This)->lpVtbl->PreDrag(This)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLEditHost2_PreDrag_Proxy(IHTMLEditHost2 *This);
-
   void __RPC_STUB IHTMLEditHost2_PreDrag_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __ISequenceNumber_INTERFACE_DEFINED__
 #define __ISequenceNumber_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_ISequenceNumber;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct ISequenceNumber : public IUnknown
-  {
+  struct ISequenceNumber : public IUnknown {
   public:
     virtual HRESULT WINAPI GetSequenceNumber(long nCurrent,long *pnNew) = 0;
-
   };
 #else
-
-  typedef struct ISequenceNumberVtbl
-  {
+  typedef struct ISequenceNumberVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(ISequenceNumber *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(ISequenceNumber *This);
-
       ULONG (WINAPI *Release)(ISequenceNumber *This);
-
       HRESULT (WINAPI *GetSequenceNumber)(ISequenceNumber *This,long nCurrent,long *pnNew);
-
     END_INTERFACE
   } ISequenceNumberVtbl;
-
-  interface ISequenceNumber
-  {
+  interface ISequenceNumber {
     CONST_VTBL struct ISequenceNumberVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define ISequenceNumber_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define ISequenceNumber_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define ISequenceNumber_Release(This) (This)->lpVtbl->Release(This)
-
 #define ISequenceNumber_GetSequenceNumber(This,nCurrent,pnNew) (This)->lpVtbl->GetSequenceNumber(This,nCurrent,pnNew)
 #endif
 #endif
 
   HRESULT WINAPI ISequenceNumber_GetSequenceNumber_Proxy(ISequenceNumber *This,long nCurrent,long *pnNew);
-
   void __RPC_STUB ISequenceNumber_GetSequenceNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IIMEServices_INTERFACE_DEFINED__
 #define __IIMEServices_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IIMEServices;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IIMEServices : public IUnknown
-  {
+  struct IIMEServices : public IUnknown {
   public:
     virtual HRESULT WINAPI GetActiveIMM(IActiveIMMApp **ppActiveIMM) = 0;
-
   };
 #else
-
-  typedef struct IIMEServicesVtbl
-  {
+  typedef struct IIMEServicesVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IIMEServices *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IIMEServices *This);
-
       ULONG (WINAPI *Release)(IIMEServices *This);
-
       HRESULT (WINAPI *GetActiveIMM)(IIMEServices *This,IActiveIMMApp **ppActiveIMM);
-
     END_INTERFACE
   } IIMEServicesVtbl;
-
-  interface IIMEServices
-  {
+  interface IIMEServices {
     CONST_VTBL struct IIMEServicesVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IIMEServices_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IIMEServices_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IIMEServices_Release(This) (This)->lpVtbl->Release(This)
-
 #define IIMEServices_GetActiveIMM(This,ppActiveIMM) (This)->lpVtbl->GetActiveIMM(This,ppActiveIMM)
 #endif
 #endif
 
   HRESULT WINAPI IIMEServices_GetActiveIMM_Proxy(IIMEServices *This,IActiveIMMApp **ppActiveIMM);
-
   void __RPC_STUB IIMEServices_GetActiveIMM_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __ISelectionServicesListener_INTERFACE_DEFINED__
 #define __ISelectionServicesListener_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_ISelectionServicesListener;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct ISelectionServicesListener : public IUnknown
-  {
+  struct ISelectionServicesListener : public IUnknown {
   public:
     virtual HRESULT WINAPI BeginSelectionUndo(void) = 0;
-
     virtual HRESULT WINAPI EndSelectionUndo(void) = 0;
-
     virtual HRESULT WINAPI OnSelectedElementExit(IMarkupPointer *pIElementStart,IMarkupPointer *pIElementEnd,IMarkupPointer *pIElementContentStart,IMarkupPointer *pIElementContentEnd) = 0;
-
     virtual HRESULT WINAPI OnChangeType(SELECTION_TYPE eType,ISelectionServicesListener *pIListener) = 0;
-
     virtual HRESULT WINAPI GetTypeDetail(BSTR *pTypeDetail) = 0;
-
   };
 #else
-
-  typedef struct ISelectionServicesListenerVtbl
-  {
+  typedef struct ISelectionServicesListenerVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(ISelectionServicesListener *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(ISelectionServicesListener *This);
-
       ULONG (WINAPI *Release)(ISelectionServicesListener *This);
-
       HRESULT (WINAPI *BeginSelectionUndo)(ISelectionServicesListener *This);
-
       HRESULT (WINAPI *EndSelectionUndo)(ISelectionServicesListener *This);
-
       HRESULT (WINAPI *OnSelectedElementExit)(ISelectionServicesListener *This,IMarkupPointer *pIElementStart,IMarkupPointer *pIElementEnd,IMarkupPointer *pIElementContentStart,IMarkupPointer *pIElementContentEnd);
-
       HRESULT (WINAPI *OnChangeType)(ISelectionServicesListener *This,SELECTION_TYPE eType,ISelectionServicesListener *pIListener);
-
       HRESULT (WINAPI *GetTypeDetail)(ISelectionServicesListener *This,BSTR *pTypeDetail);
-
     END_INTERFACE
   } ISelectionServicesListenerVtbl;
-
-  interface ISelectionServicesListener
-  {
+  interface ISelectionServicesListener {
     CONST_VTBL struct ISelectionServicesListenerVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define ISelectionServicesListener_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define ISelectionServicesListener_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define ISelectionServicesListener_Release(This) (This)->lpVtbl->Release(This)
-
 #define ISelectionServicesListener_BeginSelectionUndo(This) (This)->lpVtbl->BeginSelectionUndo(This)
-
 #define ISelectionServicesListener_EndSelectionUndo(This) (This)->lpVtbl->EndSelectionUndo(This)
-
 #define ISelectionServicesListener_OnSelectedElementExit(This,pIElementStart,pIElementEnd,pIElementContentStart,pIElementContentEnd) (This)->lpVtbl->OnSelectedElementExit(This,pIElementStart,pIElementEnd,pIElementContentStart,pIElementContentEnd)
-
 #define ISelectionServicesListener_OnChangeType(This,eType,pIListener) (This)->lpVtbl->OnChangeType(This,eType,pIListener)
-
 #define ISelectionServicesListener_GetTypeDetail(This,pTypeDetail) (This)->lpVtbl->GetTypeDetail(This,pTypeDetail)
 #endif
 #endif
 
   HRESULT WINAPI ISelectionServicesListener_BeginSelectionUndo_Proxy(ISelectionServicesListener *This);
-
   void __RPC_STUB ISelectionServicesListener_BeginSelectionUndo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISelectionServicesListener_EndSelectionUndo_Proxy(ISelectionServicesListener *This);
-
   void __RPC_STUB ISelectionServicesListener_EndSelectionUndo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISelectionServicesListener_OnSelectedElementExit_Proxy(ISelectionServicesListener *This,IMarkupPointer *pIElementStart,IMarkupPointer *pIElementEnd,IMarkupPointer *pIElementContentStart,IMarkupPointer *pIElementContentEnd);
-
   void __RPC_STUB ISelectionServicesListener_OnSelectedElementExit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISelectionServicesListener_OnChangeType_Proxy(ISelectionServicesListener *This,SELECTION_TYPE eType,ISelectionServicesListener *pIListener);
-
   void __RPC_STUB ISelectionServicesListener_OnChangeType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISelectionServicesListener_GetTypeDetail_Proxy(ISelectionServicesListener *This,BSTR *pTypeDetail);
-
   void __RPC_STUB ISelectionServicesListener_GetTypeDetail_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __ISelectionServices_INTERFACE_DEFINED__
 #define __ISelectionServices_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_ISelectionServices;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct ISelectionServices : public IUnknown
-  {
+  struct ISelectionServices : public IUnknown {
   public:
     virtual HRESULT WINAPI SetSelectionType(SELECTION_TYPE eType,ISelectionServicesListener *pIListener) = 0;
-
     virtual HRESULT WINAPI GetMarkupContainer(IMarkupContainer **ppIContainer) = 0;
-
     virtual HRESULT WINAPI AddSegment(IMarkupPointer *pIStart,IMarkupPointer *pIEnd,ISegment **ppISegmentAdded) = 0;
-
     virtual HRESULT WINAPI AddElementSegment(IHTMLElement *pIElement,IElementSegment **ppISegmentAdded) = 0;
-
     virtual HRESULT WINAPI RemoveSegment(ISegment *pISegment) = 0;
-
     virtual HRESULT WINAPI GetSelectionServicesListener(ISelectionServicesListener **ppISelectionServicesListener) = 0;
-
   };
 #else
-
-  typedef struct ISelectionServicesVtbl
-  {
+  typedef struct ISelectionServicesVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(ISelectionServices *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(ISelectionServices *This);
-
       ULONG (WINAPI *Release)(ISelectionServices *This);
-
       HRESULT (WINAPI *SetSelectionType)(ISelectionServices *This,SELECTION_TYPE eType,ISelectionServicesListener *pIListener);
-
       HRESULT (WINAPI *GetMarkupContainer)(ISelectionServices *This,IMarkupContainer **ppIContainer);
-
       HRESULT (WINAPI *AddSegment)(ISelectionServices *This,IMarkupPointer *pIStart,IMarkupPointer *pIEnd,ISegment **ppISegmentAdded);
-
       HRESULT (WINAPI *AddElementSegment)(ISelectionServices *This,IHTMLElement *pIElement,IElementSegment **ppISegmentAdded);
-
       HRESULT (WINAPI *RemoveSegment)(ISelectionServices *This,ISegment *pISegment);
-
       HRESULT (WINAPI *GetSelectionServicesListener)(ISelectionServices *This,ISelectionServicesListener **ppISelectionServicesListener);
-
     END_INTERFACE
   } ISelectionServicesVtbl;
-
-  interface ISelectionServices
-  {
+  interface ISelectionServices {
     CONST_VTBL struct ISelectionServicesVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define ISelectionServices_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define ISelectionServices_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define ISelectionServices_Release(This) (This)->lpVtbl->Release(This)
-
 #define ISelectionServices_SetSelectionType(This,eType,pIListener) (This)->lpVtbl->SetSelectionType(This,eType,pIListener)
-
 #define ISelectionServices_GetMarkupContainer(This,ppIContainer) (This)->lpVtbl->GetMarkupContainer(This,ppIContainer)
-
 #define ISelectionServices_AddSegment(This,pIStart,pIEnd,ppISegmentAdded) (This)->lpVtbl->AddSegment(This,pIStart,pIEnd,ppISegmentAdded)
-
 #define ISelectionServices_AddElementSegment(This,pIElement,ppISegmentAdded) (This)->lpVtbl->AddElementSegment(This,pIElement,ppISegmentAdded)
-
 #define ISelectionServices_RemoveSegment(This,pISegment) (This)->lpVtbl->RemoveSegment(This,pISegment)
-
 #define ISelectionServices_GetSelectionServicesListener(This,ppISelectionServicesListener) (This)->lpVtbl->GetSelectionServicesListener(This,ppISelectionServicesListener)
 #endif
 #endif
 
   HRESULT WINAPI ISelectionServices_SetSelectionType_Proxy(ISelectionServices *This,SELECTION_TYPE eType,ISelectionServicesListener *pIListener);
-
   void __RPC_STUB ISelectionServices_SetSelectionType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISelectionServices_GetMarkupContainer_Proxy(ISelectionServices *This,IMarkupContainer **ppIContainer);
-
   void __RPC_STUB ISelectionServices_GetMarkupContainer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISelectionServices_AddSegment_Proxy(ISelectionServices *This,IMarkupPointer *pIStart,IMarkupPointer *pIEnd,ISegment **ppISegmentAdded);
-
   void __RPC_STUB ISelectionServices_AddSegment_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISelectionServices_AddElementSegment_Proxy(ISelectionServices *This,IHTMLElement *pIElement,IElementSegment **ppISegmentAdded);
-
   void __RPC_STUB ISelectionServices_AddElementSegment_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISelectionServices_RemoveSegment_Proxy(ISelectionServices *This,ISegment *pISegment);
-
   void __RPC_STUB ISelectionServices_RemoveSegment_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI ISelectionServices_GetSelectionServicesListener_Proxy(ISelectionServices *This,ISelectionServicesListener **ppISelectionServicesListener);
-
   void __RPC_STUB ISelectionServices_GetSelectionServicesListener_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLEditDesigner_INTERFACE_DEFINED__
 #define __IHTMLEditDesigner_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLEditDesigner;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLEditDesigner : public IUnknown
-  {
+  struct IHTMLEditDesigner : public IUnknown {
   public:
     virtual HRESULT WINAPI PreHandleEvent(DISPID inEvtDispId,IHTMLEventObj *pIEventObj) = 0;
-
     virtual HRESULT WINAPI PostHandleEvent(DISPID inEvtDispId,IHTMLEventObj *pIEventObj) = 0;
-
     virtual HRESULT WINAPI TranslateAccelerator(DISPID inEvtDispId,IHTMLEventObj *pIEventObj) = 0;
-
     virtual HRESULT WINAPI PostEditorEventNotify(DISPID inEvtDispId,IHTMLEventObj *pIEventObj) = 0;
-
   };
 #else
-
-  typedef struct IHTMLEditDesignerVtbl
-  {
+  typedef struct IHTMLEditDesignerVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLEditDesigner *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLEditDesigner *This);
-
       ULONG (WINAPI *Release)(IHTMLEditDesigner *This);
-
       HRESULT (WINAPI *PreHandleEvent)(IHTMLEditDesigner *This,DISPID inEvtDispId,IHTMLEventObj *pIEventObj);
-
       HRESULT (WINAPI *PostHandleEvent)(IHTMLEditDesigner *This,DISPID inEvtDispId,IHTMLEventObj *pIEventObj);
-
       HRESULT (WINAPI *TranslateAccelerator)(IHTMLEditDesigner *This,DISPID inEvtDispId,IHTMLEventObj *pIEventObj);
-
       HRESULT (WINAPI *PostEditorEventNotify)(IHTMLEditDesigner *This,DISPID inEvtDispId,IHTMLEventObj *pIEventObj);
-
     END_INTERFACE
   } IHTMLEditDesignerVtbl;
-
-  interface IHTMLEditDesigner
-  {
+  interface IHTMLEditDesigner {
     CONST_VTBL struct IHTMLEditDesignerVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLEditDesigner_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLEditDesigner_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLEditDesigner_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLEditDesigner_PreHandleEvent(This,inEvtDispId,pIEventObj) (This)->lpVtbl->PreHandleEvent(This,inEvtDispId,pIEventObj)
-
 #define IHTMLEditDesigner_PostHandleEvent(This,inEvtDispId,pIEventObj) (This)->lpVtbl->PostHandleEvent(This,inEvtDispId,pIEventObj)
-
 #define IHTMLEditDesigner_TranslateAccelerator(This,inEvtDispId,pIEventObj) (This)->lpVtbl->TranslateAccelerator(This,inEvtDispId,pIEventObj)
-
 #define IHTMLEditDesigner_PostEditorEventNotify(This,inEvtDispId,pIEventObj) (This)->lpVtbl->PostEditorEventNotify(This,inEvtDispId,pIEventObj)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLEditDesigner_PreHandleEvent_Proxy(IHTMLEditDesigner *This,DISPID inEvtDispId,IHTMLEventObj *pIEventObj);
-
   void __RPC_STUB IHTMLEditDesigner_PreHandleEvent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditDesigner_PostHandleEvent_Proxy(IHTMLEditDesigner *This,DISPID inEvtDispId,IHTMLEventObj *pIEventObj);
-
   void __RPC_STUB IHTMLEditDesigner_PostHandleEvent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditDesigner_TranslateAccelerator_Proxy(IHTMLEditDesigner *This,DISPID inEvtDispId,IHTMLEventObj *pIEventObj);
-
   void __RPC_STUB IHTMLEditDesigner_TranslateAccelerator_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditDesigner_PostEditorEventNotify_Proxy(IHTMLEditDesigner *This,DISPID inEvtDispId,IHTMLEventObj *pIEventObj);
-
   void __RPC_STUB IHTMLEditDesigner_PostEditorEventNotify_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLEditServices_INTERFACE_DEFINED__
 #define __IHTMLEditServices_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLEditServices;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLEditServices : public IUnknown
-  {
+  struct IHTMLEditServices : public IUnknown {
   public:
     virtual HRESULT WINAPI AddDesigner(IHTMLEditDesigner *pIDesigner) = 0;
-
     virtual HRESULT WINAPI RemoveDesigner(IHTMLEditDesigner *pIDesigner) = 0;
-
     virtual HRESULT WINAPI GetSelectionServices(IMarkupContainer *pIContainer,ISelectionServices **ppSelSvc) = 0;
-
     virtual HRESULT WINAPI MoveToSelectionAnchor(IMarkupPointer *pIStartAnchor) = 0;
-
     virtual HRESULT WINAPI MoveToSelectionEnd(IMarkupPointer *pIEndAnchor) = 0;
-
     virtual HRESULT WINAPI SelectRange(IMarkupPointer *pStart,IMarkupPointer *pEnd,SELECTION_TYPE eType) = 0;
-
   };
 #else
-
-  typedef struct IHTMLEditServicesVtbl
-  {
+  typedef struct IHTMLEditServicesVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLEditServices *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLEditServices *This);
-
       ULONG (WINAPI *Release)(IHTMLEditServices *This);
-
       HRESULT (WINAPI *AddDesigner)(IHTMLEditServices *This,IHTMLEditDesigner *pIDesigner);
-
       HRESULT (WINAPI *RemoveDesigner)(IHTMLEditServices *This,IHTMLEditDesigner *pIDesigner);
-
       HRESULT (WINAPI *GetSelectionServices)(IHTMLEditServices *This,IMarkupContainer *pIContainer,ISelectionServices **ppSelSvc);
-
       HRESULT (WINAPI *MoveToSelectionAnchor)(IHTMLEditServices *This,IMarkupPointer *pIStartAnchor);
-
       HRESULT (WINAPI *MoveToSelectionEnd)(IHTMLEditServices *This,IMarkupPointer *pIEndAnchor);
-
       HRESULT (WINAPI *SelectRange)(IHTMLEditServices *This,IMarkupPointer *pStart,IMarkupPointer *pEnd,SELECTION_TYPE eType);
-
     END_INTERFACE
   } IHTMLEditServicesVtbl;
-
-  interface IHTMLEditServices
-  {
+  interface IHTMLEditServices {
     CONST_VTBL struct IHTMLEditServicesVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLEditServices_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLEditServices_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLEditServices_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLEditServices_AddDesigner(This,pIDesigner) (This)->lpVtbl->AddDesigner(This,pIDesigner)
-
 #define IHTMLEditServices_RemoveDesigner(This,pIDesigner) (This)->lpVtbl->RemoveDesigner(This,pIDesigner)
-
 #define IHTMLEditServices_GetSelectionServices(This,pIContainer,ppSelSvc) (This)->lpVtbl->GetSelectionServices(This,pIContainer,ppSelSvc)
-
 #define IHTMLEditServices_MoveToSelectionAnchor(This,pIStartAnchor) (This)->lpVtbl->MoveToSelectionAnchor(This,pIStartAnchor)
-
 #define IHTMLEditServices_MoveToSelectionEnd(This,pIEndAnchor) (This)->lpVtbl->MoveToSelectionEnd(This,pIEndAnchor)
-
 #define IHTMLEditServices_SelectRange(This,pStart,pEnd,eType) (This)->lpVtbl->SelectRange(This,pStart,pEnd,eType)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLEditServices_AddDesigner_Proxy(IHTMLEditServices *This,IHTMLEditDesigner *pIDesigner);
-
   void __RPC_STUB IHTMLEditServices_AddDesigner_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditServices_RemoveDesigner_Proxy(IHTMLEditServices *This,IHTMLEditDesigner *pIDesigner);
-
   void __RPC_STUB IHTMLEditServices_RemoveDesigner_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditServices_GetSelectionServices_Proxy(IHTMLEditServices *This,IMarkupContainer *pIContainer,ISelectionServices **ppSelSvc);
-
   void __RPC_STUB IHTMLEditServices_GetSelectionServices_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditServices_MoveToSelectionAnchor_Proxy(IHTMLEditServices *This,IMarkupPointer *pIStartAnchor);
-
   void __RPC_STUB IHTMLEditServices_MoveToSelectionAnchor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditServices_MoveToSelectionEnd_Proxy(IHTMLEditServices *This,IMarkupPointer *pIEndAnchor);
-
   void __RPC_STUB IHTMLEditServices_MoveToSelectionEnd_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditServices_SelectRange_Proxy(IHTMLEditServices *This,IMarkupPointer *pStart,IMarkupPointer *pEnd,SELECTION_TYPE eType);
-
   void __RPC_STUB IHTMLEditServices_SelectRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLEditServices2_INTERFACE_DEFINED__
 #define __IHTMLEditServices2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLEditServices2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLEditServices2 : public IHTMLEditServices
-  {
+  struct IHTMLEditServices2 : public IHTMLEditServices {
   public:
     virtual HRESULT WINAPI MoveToSelectionAnchorEx(IDisplayPointer *pIStartAnchor) = 0;
-
     virtual HRESULT WINAPI MoveToSelectionEndEx(IDisplayPointer *pIEndAnchor) = 0;
-
     virtual HRESULT WINAPI FreezeVirtualCaretPos(WINBOOL fReCompute) = 0;
-
     virtual HRESULT WINAPI UnFreezeVirtualCaretPos(WINBOOL fReset) = 0;
-
   };
 #else
-
-  typedef struct IHTMLEditServices2Vtbl
-  {
+  typedef struct IHTMLEditServices2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLEditServices2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLEditServices2 *This);
-
       ULONG (WINAPI *Release)(IHTMLEditServices2 *This);
-
       HRESULT (WINAPI *AddDesigner)(IHTMLEditServices2 *This,IHTMLEditDesigner *pIDesigner);
-
       HRESULT (WINAPI *RemoveDesigner)(IHTMLEditServices2 *This,IHTMLEditDesigner *pIDesigner);
-
       HRESULT (WINAPI *GetSelectionServices)(IHTMLEditServices2 *This,IMarkupContainer *pIContainer,ISelectionServices **ppSelSvc);
-
       HRESULT (WINAPI *MoveToSelectionAnchor)(IHTMLEditServices2 *This,IMarkupPointer *pIStartAnchor);
-
       HRESULT (WINAPI *MoveToSelectionEnd)(IHTMLEditServices2 *This,IMarkupPointer *pIEndAnchor);
-
       HRESULT (WINAPI *SelectRange)(IHTMLEditServices2 *This,IMarkupPointer *pStart,IMarkupPointer *pEnd,SELECTION_TYPE eType);
-
       HRESULT (WINAPI *MoveToSelectionAnchorEx)(IHTMLEditServices2 *This,IDisplayPointer *pIStartAnchor);
-
       HRESULT (WINAPI *MoveToSelectionEndEx)(IHTMLEditServices2 *This,IDisplayPointer *pIEndAnchor);
-
       HRESULT (WINAPI *FreezeVirtualCaretPos)(IHTMLEditServices2 *This,WINBOOL fReCompute);
-
       HRESULT (WINAPI *UnFreezeVirtualCaretPos)(IHTMLEditServices2 *This,WINBOOL fReset);
-
     END_INTERFACE
   } IHTMLEditServices2Vtbl;
-
-  interface IHTMLEditServices2
-  {
+  interface IHTMLEditServices2 {
     CONST_VTBL struct IHTMLEditServices2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLEditServices2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLEditServices2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLEditServices2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLEditServices2_AddDesigner(This,pIDesigner) (This)->lpVtbl->AddDesigner(This,pIDesigner)
-
 #define IHTMLEditServices2_RemoveDesigner(This,pIDesigner) (This)->lpVtbl->RemoveDesigner(This,pIDesigner)
-
 #define IHTMLEditServices2_GetSelectionServices(This,pIContainer,ppSelSvc) (This)->lpVtbl->GetSelectionServices(This,pIContainer,ppSelSvc)
-
 #define IHTMLEditServices2_MoveToSelectionAnchor(This,pIStartAnchor) (This)->lpVtbl->MoveToSelectionAnchor(This,pIStartAnchor)
-
 #define IHTMLEditServices2_MoveToSelectionEnd(This,pIEndAnchor) (This)->lpVtbl->MoveToSelectionEnd(This,pIEndAnchor)
-
 #define IHTMLEditServices2_SelectRange(This,pStart,pEnd,eType) (This)->lpVtbl->SelectRange(This,pStart,pEnd,eType)
-
 #define IHTMLEditServices2_MoveToSelectionAnchorEx(This,pIStartAnchor) (This)->lpVtbl->MoveToSelectionAnchorEx(This,pIStartAnchor)
-
 #define IHTMLEditServices2_MoveToSelectionEndEx(This,pIEndAnchor) (This)->lpVtbl->MoveToSelectionEndEx(This,pIEndAnchor)
-
 #define IHTMLEditServices2_FreezeVirtualCaretPos(This,fReCompute) (This)->lpVtbl->FreezeVirtualCaretPos(This,fReCompute)
-
 #define IHTMLEditServices2_UnFreezeVirtualCaretPos(This,fReset) (This)->lpVtbl->UnFreezeVirtualCaretPos(This,fReset)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLEditServices2_MoveToSelectionAnchorEx_Proxy(IHTMLEditServices2 *This,IDisplayPointer *pIStartAnchor);
-
   void __RPC_STUB IHTMLEditServices2_MoveToSelectionAnchorEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditServices2_MoveToSelectionEndEx_Proxy(IHTMLEditServices2 *This,IDisplayPointer *pIEndAnchor);
-
   void __RPC_STUB IHTMLEditServices2_MoveToSelectionEndEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditServices2_FreezeVirtualCaretPos_Proxy(IHTMLEditServices2 *This,WINBOOL fReCompute);
-
   void __RPC_STUB IHTMLEditServices2_FreezeVirtualCaretPos_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLEditServices2_UnFreezeVirtualCaretPos_Proxy(IHTMLEditServices2 *This,WINBOOL fReset);
-
   void __RPC_STUB IHTMLEditServices2_UnFreezeVirtualCaretPos_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLComputedStyle_INTERFACE_DEFINED__
 #define __IHTMLComputedStyle_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLComputedStyle;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLComputedStyle : public IUnknown
-  {
+  struct IHTMLComputedStyle : public IUnknown {
   public:
     virtual HRESULT WINAPI get_bold(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_italic(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_underline(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_overline(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_strikeOut(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_subScript(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_superScript(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_explicitFace(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_fontWeight(long *p) = 0;
-
     virtual HRESULT WINAPI get_fontSize(long *p) = 0;
-
     virtual HRESULT WINAPI get_fontName(TCHAR *p) = 0;
-
     virtual HRESULT WINAPI get_hasBgColor(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_textColor(DWORD *p) = 0;
-
     virtual HRESULT WINAPI get_backgroundColor(DWORD *p) = 0;
-
     virtual HRESULT WINAPI get_preFormatted(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_direction(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_blockDirection(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI get_OL(VARIANT_BOOL *p) = 0;
-
     virtual HRESULT WINAPI IsEqual(IHTMLComputedStyle *pComputedStyle,VARIANT_BOOL *pfEqual) = 0;
-
   };
 #else
-
-  typedef struct IHTMLComputedStyleVtbl
-  {
+  typedef struct IHTMLComputedStyleVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLComputedStyle *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLComputedStyle *This);
-
       ULONG (WINAPI *Release)(IHTMLComputedStyle *This);
-
       HRESULT (WINAPI *get_bold)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_italic)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_underline)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_overline)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_strikeOut)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_subScript)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_superScript)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_explicitFace)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_fontWeight)(IHTMLComputedStyle *This,long *p);
-
       HRESULT (WINAPI *get_fontSize)(IHTMLComputedStyle *This,long *p);
-
       HRESULT (WINAPI *get_fontName)(IHTMLComputedStyle *This,TCHAR *p);
-
       HRESULT (WINAPI *get_hasBgColor)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_textColor)(IHTMLComputedStyle *This,DWORD *p);
-
       HRESULT (WINAPI *get_backgroundColor)(IHTMLComputedStyle *This,DWORD *p);
-
       HRESULT (WINAPI *get_preFormatted)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_direction)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_blockDirection)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *get_OL)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
       HRESULT (WINAPI *IsEqual)(IHTMLComputedStyle *This,IHTMLComputedStyle *pComputedStyle,VARIANT_BOOL *pfEqual);
-
     END_INTERFACE
   } IHTMLComputedStyleVtbl;
-
-  interface IHTMLComputedStyle
-  {
+  interface IHTMLComputedStyle {
     CONST_VTBL struct IHTMLComputedStyleVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLComputedStyle_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLComputedStyle_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLComputedStyle_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLComputedStyle_get_bold(This,p) (This)->lpVtbl->get_bold(This,p)
-
 #define IHTMLComputedStyle_get_italic(This,p) (This)->lpVtbl->get_italic(This,p)
-
 #define IHTMLComputedStyle_get_underline(This,p) (This)->lpVtbl->get_underline(This,p)
-
 #define IHTMLComputedStyle_get_overline(This,p) (This)->lpVtbl->get_overline(This,p)
-
 #define IHTMLComputedStyle_get_strikeOut(This,p) (This)->lpVtbl->get_strikeOut(This,p)
-
 #define IHTMLComputedStyle_get_subScript(This,p) (This)->lpVtbl->get_subScript(This,p)
-
 #define IHTMLComputedStyle_get_superScript(This,p) (This)->lpVtbl->get_superScript(This,p)
-
 #define IHTMLComputedStyle_get_explicitFace(This,p) (This)->lpVtbl->get_explicitFace(This,p)
-
 #define IHTMLComputedStyle_get_fontWeight(This,p) (This)->lpVtbl->get_fontWeight(This,p)
-
 #define IHTMLComputedStyle_get_fontSize(This,p) (This)->lpVtbl->get_fontSize(This,p)
-
 #define IHTMLComputedStyle_get_fontName(This,p) (This)->lpVtbl->get_fontName(This,p)
-
 #define IHTMLComputedStyle_get_hasBgColor(This,p) (This)->lpVtbl->get_hasBgColor(This,p)
-
 #define IHTMLComputedStyle_get_textColor(This,p) (This)->lpVtbl->get_textColor(This,p)
-
 #define IHTMLComputedStyle_get_backgroundColor(This,p) (This)->lpVtbl->get_backgroundColor(This,p)
-
 #define IHTMLComputedStyle_get_preFormatted(This,p) (This)->lpVtbl->get_preFormatted(This,p)
-
 #define IHTMLComputedStyle_get_direction(This,p) (This)->lpVtbl->get_direction(This,p)
-
 #define IHTMLComputedStyle_get_blockDirection(This,p) (This)->lpVtbl->get_blockDirection(This,p)
-
 #define IHTMLComputedStyle_get_OL(This,p) (This)->lpVtbl->get_OL(This,p)
-
 #define IHTMLComputedStyle_IsEqual(This,pComputedStyle,pfEqual) (This)->lpVtbl->IsEqual(This,pComputedStyle,pfEqual)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLComputedStyle_get_bold_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_bold_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_italic_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_italic_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_underline_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_underline_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_overline_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_overline_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_strikeOut_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_strikeOut_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_subScript_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_subScript_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_superScript_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_superScript_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_explicitFace_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_explicitFace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_fontWeight_Proxy(IHTMLComputedStyle *This,long *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_fontWeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_fontSize_Proxy(IHTMLComputedStyle *This,long *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_fontSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_fontName_Proxy(IHTMLComputedStyle *This,TCHAR *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_fontName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_hasBgColor_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_hasBgColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_textColor_Proxy(IHTMLComputedStyle *This,DWORD *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_textColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_backgroundColor_Proxy(IHTMLComputedStyle *This,DWORD *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_backgroundColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_preFormatted_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_preFormatted_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_direction_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_direction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_blockDirection_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_blockDirection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_get_OL_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLComputedStyle_get_OL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLComputedStyle_IsEqual_Proxy(IHTMLComputedStyle *This,IHTMLComputedStyle *pComputedStyle,VARIANT_BOOL *pfEqual);
-
   void __RPC_STUB IHTMLComputedStyle_IsEqual_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
   EXTERN_C const CLSID CLSID_HtmlDlgSafeHelper;
-
 #ifdef __cplusplus
-
   class HtmlDlgSafeHelper;
 #endif
-
   EXTERN_C const CLSID CLSID_BlockFormats;
-
 #ifdef __cplusplus
-
   class BlockFormats;
 #endif
-
   EXTERN_C const CLSID CLSID_FontNames;
-
 #ifdef __cplusplus
-
   class FontNames;
 #endif
 
 #ifndef __HTMLNamespaceEvents_DISPINTERFACE_DEFINED__
 #define __HTMLNamespaceEvents_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_HTMLNamespaceEvents;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct HTMLNamespaceEvents : public IDispatch
-  {
+  struct HTMLNamespaceEvents : public IDispatch {
   };
 #else
-
-  typedef struct HTMLNamespaceEventsVtbl
-  {
+  typedef struct HTMLNamespaceEventsVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(HTMLNamespaceEvents *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(HTMLNamespaceEvents *This);
-
       ULONG (WINAPI *Release)(HTMLNamespaceEvents *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(HTMLNamespaceEvents *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(HTMLNamespaceEvents *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(HTMLNamespaceEvents *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(HTMLNamespaceEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } HTMLNamespaceEventsVtbl;
-
-  interface HTMLNamespaceEvents
-  {
+  interface HTMLNamespaceEvents {
     CONST_VTBL struct HTMLNamespaceEventsVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define HTMLNamespaceEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define HTMLNamespaceEvents_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define HTMLNamespaceEvents_Release(This) (This)->lpVtbl->Release(This)
-
 #define HTMLNamespaceEvents_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define HTMLNamespaceEvents_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define HTMLNamespaceEvents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define HTMLNamespaceEvents_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
@@ -36019,3160 +31916,1806 @@ IHTMLStyle : public IDispatch {
 
 #ifndef __IHTMLNamespace_INTERFACE_DEFINED__
 #define __IHTMLNamespace_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLNamespace;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLNamespace : public IDispatch
-  {
+  struct IHTMLNamespace : public IDispatch {
   public:
     virtual HRESULT WINAPI get_name(BSTR *p) = 0;
-
     virtual HRESULT WINAPI get_urn(BSTR *p) = 0;
-
     virtual HRESULT WINAPI get_tagNames(IDispatch **p) = 0;
-
     virtual HRESULT WINAPI get_readyState(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_onreadystatechange(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_onreadystatechange(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI doImport(BSTR bstrImplementationUrl) = 0;
-
     virtual HRESULT WINAPI attachEvent(BSTR event,IDispatch *pDisp,VARIANT_BOOL *pfResult) = 0;
-
     virtual HRESULT WINAPI detachEvent(BSTR event,IDispatch *pDisp) = 0;
-
   };
 #else
-
-  typedef struct IHTMLNamespaceVtbl
-  {
+  typedef struct IHTMLNamespaceVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLNamespace *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLNamespace *This);
-
       ULONG (WINAPI *Release)(IHTMLNamespace *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLNamespace *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLNamespace *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLNamespace *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLNamespace *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_name)(IHTMLNamespace *This,BSTR *p);
-
       HRESULT (WINAPI *get_urn)(IHTMLNamespace *This,BSTR *p);
-
       HRESULT (WINAPI *get_tagNames)(IHTMLNamespace *This,IDispatch **p);
-
       HRESULT (WINAPI *get_readyState)(IHTMLNamespace *This,VARIANT *p);
-
       HRESULT (WINAPI *put_onreadystatechange)(IHTMLNamespace *This,VARIANT v);
-
       HRESULT (WINAPI *get_onreadystatechange)(IHTMLNamespace *This,VARIANT *p);
-
       HRESULT (WINAPI *doImport)(IHTMLNamespace *This,BSTR bstrImplementationUrl);
-
       HRESULT (WINAPI *attachEvent)(IHTMLNamespace *This,BSTR event,IDispatch *pDisp,VARIANT_BOOL *pfResult);
-
       HRESULT (WINAPI *detachEvent)(IHTMLNamespace *This,BSTR event,IDispatch *pDisp);
-
     END_INTERFACE
   } IHTMLNamespaceVtbl;
-
-  interface IHTMLNamespace
-  {
+  interface IHTMLNamespace {
     CONST_VTBL struct IHTMLNamespaceVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLNamespace_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLNamespace_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLNamespace_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLNamespace_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLNamespace_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLNamespace_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLNamespace_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLNamespace_get_name(This,p) (This)->lpVtbl->get_name(This,p)
-
 #define IHTMLNamespace_get_urn(This,p) (This)->lpVtbl->get_urn(This,p)
-
 #define IHTMLNamespace_get_tagNames(This,p) (This)->lpVtbl->get_tagNames(This,p)
-
 #define IHTMLNamespace_get_readyState(This,p) (This)->lpVtbl->get_readyState(This,p)
-
 #define IHTMLNamespace_put_onreadystatechange(This,v) (This)->lpVtbl->put_onreadystatechange(This,v)
-
 #define IHTMLNamespace_get_onreadystatechange(This,p) (This)->lpVtbl->get_onreadystatechange(This,p)
-
 #define IHTMLNamespace_doImport(This,bstrImplementationUrl) (This)->lpVtbl->doImport(This,bstrImplementationUrl)
-
 #define IHTMLNamespace_attachEvent(This,event,pDisp,pfResult) (This)->lpVtbl->attachEvent(This,event,pDisp,pfResult)
-
 #define IHTMLNamespace_detachEvent(This,event,pDisp) (This)->lpVtbl->detachEvent(This,event,pDisp)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLNamespace_get_name_Proxy(IHTMLNamespace *This,BSTR *p);
-
   void __RPC_STUB IHTMLNamespace_get_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLNamespace_get_urn_Proxy(IHTMLNamespace *This,BSTR *p);
-
   void __RPC_STUB IHTMLNamespace_get_urn_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLNamespace_get_tagNames_Proxy(IHTMLNamespace *This,IDispatch **p);
-
   void __RPC_STUB IHTMLNamespace_get_tagNames_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLNamespace_get_readyState_Proxy(IHTMLNamespace *This,VARIANT *p);
-
   void __RPC_STUB IHTMLNamespace_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLNamespace_put_onreadystatechange_Proxy(IHTMLNamespace *This,VARIANT v);
-
   void __RPC_STUB IHTMLNamespace_put_onreadystatechange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLNamespace_get_onreadystatechange_Proxy(IHTMLNamespace *This,VARIANT *p);
-
   void __RPC_STUB IHTMLNamespace_get_onreadystatechange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLNamespace_doImport_Proxy(IHTMLNamespace *This,BSTR bstrImplementationUrl);
-
   void __RPC_STUB IHTMLNamespace_doImport_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLNamespace_attachEvent_Proxy(IHTMLNamespace *This,BSTR event,IDispatch *pDisp,VARIANT_BOOL *pfResult);
-
   void __RPC_STUB IHTMLNamespace_attachEvent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLNamespace_detachEvent_Proxy(IHTMLNamespace *This,BSTR event,IDispatch *pDisp);
-
   void __RPC_STUB IHTMLNamespace_detachEvent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLNamespaceCollection_INTERFACE_DEFINED__
 #define __IHTMLNamespaceCollection_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLNamespaceCollection;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLNamespaceCollection : public IDispatch
-  {
+  struct IHTMLNamespaceCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get_length(long *p) = 0;
-
     virtual HRESULT WINAPI item(VARIANT index,IDispatch **ppNamespace) = 0;
-
     virtual HRESULT WINAPI add(BSTR bstrNamespace,BSTR bstrUrn,VARIANT implementationUrl,IDispatch **ppNamespace) = 0;
-
   };
 #else
-
-  typedef struct IHTMLNamespaceCollectionVtbl
-  {
+  typedef struct IHTMLNamespaceCollectionVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLNamespaceCollection *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLNamespaceCollection *This);
-
       ULONG (WINAPI *Release)(IHTMLNamespaceCollection *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLNamespaceCollection *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLNamespaceCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLNamespaceCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLNamespaceCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_length)(IHTMLNamespaceCollection *This,long *p);
-
       HRESULT (WINAPI *item)(IHTMLNamespaceCollection *This,VARIANT index,IDispatch **ppNamespace);
-
       HRESULT (WINAPI *add)(IHTMLNamespaceCollection *This,BSTR bstrNamespace,BSTR bstrUrn,VARIANT implementationUrl,IDispatch **ppNamespace);
-
     END_INTERFACE
   } IHTMLNamespaceCollectionVtbl;
-
-  interface IHTMLNamespaceCollection
-  {
+  interface IHTMLNamespaceCollection {
     CONST_VTBL struct IHTMLNamespaceCollectionVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLNamespaceCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLNamespaceCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLNamespaceCollection_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLNamespaceCollection_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLNamespaceCollection_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLNamespaceCollection_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLNamespaceCollection_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLNamespaceCollection_get_length(This,p) (This)->lpVtbl->get_length(This,p)
-
 #define IHTMLNamespaceCollection_item(This,index,ppNamespace) (This)->lpVtbl->item(This,index,ppNamespace)
-
 #define IHTMLNamespaceCollection_add(This,bstrNamespace,bstrUrn,implementationUrl,ppNamespace) (This)->lpVtbl->add(This,bstrNamespace,bstrUrn,implementationUrl,ppNamespace)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLNamespaceCollection_get_length_Proxy(IHTMLNamespaceCollection *This,long *p);
-
   void __RPC_STUB IHTMLNamespaceCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLNamespaceCollection_item_Proxy(IHTMLNamespaceCollection *This,VARIANT index,IDispatch **ppNamespace);
-
   void __RPC_STUB IHTMLNamespaceCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLNamespaceCollection_add_Proxy(IHTMLNamespaceCollection *This,BSTR bstrNamespace,BSTR bstrUrn,VARIANT implementationUrl,IDispatch **ppNamespace);
-
   void __RPC_STUB IHTMLNamespaceCollection_add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLNamespace;
-
 #ifdef __cplusplus
-
   class HTMLNamespace;
 #endif
-
   EXTERN_C const CLSID CLSID_HTMLNamespaceCollection;
-
 #ifdef __cplusplus
-
   class HTMLNamespaceCollection;
 #endif
 
 #ifndef __IHTMLPainter_INTERFACE_DEFINED__
 #define __IHTMLPainter_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLPainter;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLPainter : public IUnknown
-  {
+  struct IHTMLPainter : public IUnknown {
   public:
     virtual HRESULT WINAPI Draw(RECT rcBounds,RECT rcUpdate,LONG lDrawFlags,HDC hdc,LPVOID pvDrawObject) = 0;
-
     virtual HRESULT WINAPI OnResize(SIZE size) = 0;
-
     virtual HRESULT WINAPI GetPainterInfo(HTML_PAINTER_INFO *pInfo) = 0;
-
     virtual HRESULT WINAPI HitTestPoint(POINT pt,WINBOOL *pbHit,LONG *plPartID) = 0;
-
   };
 #else
-
-  typedef struct IHTMLPainterVtbl
-  {
+  typedef struct IHTMLPainterVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLPainter *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLPainter *This);
-
       ULONG (WINAPI *Release)(IHTMLPainter *This);
-
       HRESULT (WINAPI *Draw)(IHTMLPainter *This,RECT rcBounds,RECT rcUpdate,LONG lDrawFlags,HDC hdc,LPVOID pvDrawObject);
-
       HRESULT (WINAPI *OnResize)(IHTMLPainter *This,SIZE size);
-
       HRESULT (WINAPI *GetPainterInfo)(IHTMLPainter *This,HTML_PAINTER_INFO *pInfo);
-
       HRESULT (WINAPI *HitTestPoint)(IHTMLPainter *This,POINT pt,WINBOOL *pbHit,LONG *plPartID);
-
     END_INTERFACE
   } IHTMLPainterVtbl;
-
-  interface IHTMLPainter
-  {
+  interface IHTMLPainter {
     CONST_VTBL struct IHTMLPainterVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLPainter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLPainter_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLPainter_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLPainter_Draw(This,rcBounds,rcUpdate,lDrawFlags,hdc,pvDrawObject) (This)->lpVtbl->Draw(This,rcBounds,rcUpdate,lDrawFlags,hdc,pvDrawObject)
-
 #define IHTMLPainter_OnResize(This,size) (This)->lpVtbl->OnResize(This,size)
-
 #define IHTMLPainter_GetPainterInfo(This,pInfo) (This)->lpVtbl->GetPainterInfo(This,pInfo)
-
 #define IHTMLPainter_HitTestPoint(This,pt,pbHit,plPartID) (This)->lpVtbl->HitTestPoint(This,pt,pbHit,plPartID)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLPainter_Draw_Proxy(IHTMLPainter *This,RECT rcBounds,RECT rcUpdate,LONG lDrawFlags,HDC hdc,LPVOID pvDrawObject);
-
   void __RPC_STUB IHTMLPainter_Draw_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPainter_OnResize_Proxy(IHTMLPainter *This,SIZE size);
-
   void __RPC_STUB IHTMLPainter_OnResize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPainter_GetPainterInfo_Proxy(IHTMLPainter *This,HTML_PAINTER_INFO *pInfo);
-
   void __RPC_STUB IHTMLPainter_GetPainterInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPainter_HitTestPoint_Proxy(IHTMLPainter *This,POINT pt,WINBOOL *pbHit,LONG *plPartID);
-
   void __RPC_STUB IHTMLPainter_HitTestPoint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLPaintSite_INTERFACE_DEFINED__
 #define __IHTMLPaintSite_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLPaintSite;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLPaintSite : public IUnknown
-  {
+  struct IHTMLPaintSite : public IUnknown {
   public:
     virtual HRESULT WINAPI InvalidatePainterInfo(void) = 0;
-
     virtual HRESULT WINAPI InvalidateRect(RECT *prcInvalid) = 0;
-
     virtual HRESULT WINAPI InvalidateRegion(HRGN rgnInvalid) = 0;
-
     virtual HRESULT WINAPI GetDrawInfo(LONG lFlags,HTML_PAINT_DRAW_INFO *pDrawInfo) = 0;
-
     virtual HRESULT WINAPI TransformGlobalToLocal(POINT ptGlobal,POINT *pptLocal) = 0;
-
     virtual HRESULT WINAPI TransformLocalToGlobal(POINT ptLocal,POINT *pptGlobal) = 0;
-
     virtual HRESULT WINAPI GetHitTestCookie(LONG *plCookie) = 0;
-
   };
 #else
-
-  typedef struct IHTMLPaintSiteVtbl
-  {
+  typedef struct IHTMLPaintSiteVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLPaintSite *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLPaintSite *This);
-
       ULONG (WINAPI *Release)(IHTMLPaintSite *This);
-
       HRESULT (WINAPI *InvalidatePainterInfo)(IHTMLPaintSite *This);
-
       HRESULT (WINAPI *InvalidateRect)(IHTMLPaintSite *This,RECT *prcInvalid);
-
       HRESULT (WINAPI *InvalidateRegion)(IHTMLPaintSite *This,HRGN rgnInvalid);
-
       HRESULT (WINAPI *GetDrawInfo)(IHTMLPaintSite *This,LONG lFlags,HTML_PAINT_DRAW_INFO *pDrawInfo);
-
       HRESULT (WINAPI *TransformGlobalToLocal)(IHTMLPaintSite *This,POINT ptGlobal,POINT *pptLocal);
-
       HRESULT (WINAPI *TransformLocalToGlobal)(IHTMLPaintSite *This,POINT ptLocal,POINT *pptGlobal);
-
       HRESULT (WINAPI *GetHitTestCookie)(IHTMLPaintSite *This,LONG *plCookie);
-
     END_INTERFACE
   } IHTMLPaintSiteVtbl;
-
-  interface IHTMLPaintSite
-  {
+  interface IHTMLPaintSite {
     CONST_VTBL struct IHTMLPaintSiteVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLPaintSite_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLPaintSite_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLPaintSite_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLPaintSite_InvalidatePainterInfo(This) (This)->lpVtbl->InvalidatePainterInfo(This)
-
 #define IHTMLPaintSite_InvalidateRect(This,prcInvalid) (This)->lpVtbl->InvalidateRect(This,prcInvalid)
-
 #define IHTMLPaintSite_InvalidateRegion(This,rgnInvalid) (This)->lpVtbl->InvalidateRegion(This,rgnInvalid)
-
 #define IHTMLPaintSite_GetDrawInfo(This,lFlags,pDrawInfo) (This)->lpVtbl->GetDrawInfo(This,lFlags,pDrawInfo)
-
 #define IHTMLPaintSite_TransformGlobalToLocal(This,ptGlobal,pptLocal) (This)->lpVtbl->TransformGlobalToLocal(This,ptGlobal,pptLocal)
-
 #define IHTMLPaintSite_TransformLocalToGlobal(This,ptLocal,pptGlobal) (This)->lpVtbl->TransformLocalToGlobal(This,ptLocal,pptGlobal)
-
 #define IHTMLPaintSite_GetHitTestCookie(This,plCookie) (This)->lpVtbl->GetHitTestCookie(This,plCookie)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLPaintSite_InvalidatePainterInfo_Proxy(IHTMLPaintSite *This);
-
   void __RPC_STUB IHTMLPaintSite_InvalidatePainterInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPaintSite_InvalidateRect_Proxy(IHTMLPaintSite *This,RECT *prcInvalid);
-
   void __RPC_STUB IHTMLPaintSite_InvalidateRect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPaintSite_InvalidateRegion_Proxy(IHTMLPaintSite *This,HRGN rgnInvalid);
-
   void __RPC_STUB IHTMLPaintSite_InvalidateRegion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPaintSite_GetDrawInfo_Proxy(IHTMLPaintSite *This,LONG lFlags,HTML_PAINT_DRAW_INFO *pDrawInfo);
-
   void __RPC_STUB IHTMLPaintSite_GetDrawInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPaintSite_TransformGlobalToLocal_Proxy(IHTMLPaintSite *This,POINT ptGlobal,POINT *pptLocal);
-
   void __RPC_STUB IHTMLPaintSite_TransformGlobalToLocal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPaintSite_TransformLocalToGlobal_Proxy(IHTMLPaintSite *This,POINT ptLocal,POINT *pptGlobal);
-
   void __RPC_STUB IHTMLPaintSite_TransformLocalToGlobal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPaintSite_GetHitTestCookie_Proxy(IHTMLPaintSite *This,LONG *plCookie);
-
   void __RPC_STUB IHTMLPaintSite_GetHitTestCookie_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLPainterEventInfo_INTERFACE_DEFINED__
 #define __IHTMLPainterEventInfo_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLPainterEventInfo;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLPainterEventInfo : public IUnknown
-  {
+  struct IHTMLPainterEventInfo : public IUnknown {
   public:
     virtual HRESULT WINAPI GetEventInfoFlags(long *plEventInfoFlags) = 0;
-
     virtual HRESULT WINAPI GetEventTarget(IHTMLElement **ppElement) = 0;
-
     virtual HRESULT WINAPI SetCursor(LONG lPartID) = 0;
-
     virtual HRESULT WINAPI StringFromPartID(LONG lPartID,BSTR *pbstrPart) = 0;
-
   };
 #else
-
-  typedef struct IHTMLPainterEventInfoVtbl
-  {
+  typedef struct IHTMLPainterEventInfoVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLPainterEventInfo *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLPainterEventInfo *This);
-
       ULONG (WINAPI *Release)(IHTMLPainterEventInfo *This);
-
       HRESULT (WINAPI *GetEventInfoFlags)(IHTMLPainterEventInfo *This,long *plEventInfoFlags);
-
       HRESULT (WINAPI *GetEventTarget)(IHTMLPainterEventInfo *This,IHTMLElement **ppElement);
-
       HRESULT (WINAPI *SetCursor)(IHTMLPainterEventInfo *This,LONG lPartID);
-
       HRESULT (WINAPI *StringFromPartID)(IHTMLPainterEventInfo *This,LONG lPartID,BSTR *pbstrPart);
-
     END_INTERFACE
   } IHTMLPainterEventInfoVtbl;
-
-  interface IHTMLPainterEventInfo
-  {
+  interface IHTMLPainterEventInfo {
     CONST_VTBL struct IHTMLPainterEventInfoVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLPainterEventInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLPainterEventInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLPainterEventInfo_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLPainterEventInfo_GetEventInfoFlags(This,plEventInfoFlags) (This)->lpVtbl->GetEventInfoFlags(This,plEventInfoFlags)
-
 #define IHTMLPainterEventInfo_GetEventTarget(This,ppElement) (This)->lpVtbl->GetEventTarget(This,ppElement)
-
 #define IHTMLPainterEventInfo_SetCursor(This,lPartID) (This)->lpVtbl->SetCursor(This,lPartID)
-
 #define IHTMLPainterEventInfo_StringFromPartID(This,lPartID,pbstrPart) (This)->lpVtbl->StringFromPartID(This,lPartID,pbstrPart)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLPainterEventInfo_GetEventInfoFlags_Proxy(IHTMLPainterEventInfo *This,long *plEventInfoFlags);
-
   void __RPC_STUB IHTMLPainterEventInfo_GetEventInfoFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPainterEventInfo_GetEventTarget_Proxy(IHTMLPainterEventInfo *This,IHTMLElement **ppElement);
-
   void __RPC_STUB IHTMLPainterEventInfo_GetEventTarget_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPainterEventInfo_SetCursor_Proxy(IHTMLPainterEventInfo *This,LONG lPartID);
-
   void __RPC_STUB IHTMLPainterEventInfo_SetCursor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPainterEventInfo_StringFromPartID_Proxy(IHTMLPainterEventInfo *This,LONG lPartID,BSTR *pbstrPart);
-
   void __RPC_STUB IHTMLPainterEventInfo_StringFromPartID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLPainterOverlay_INTERFACE_DEFINED__
 #define __IHTMLPainterOverlay_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLPainterOverlay;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLPainterOverlay : public IUnknown
-  {
+  struct IHTMLPainterOverlay : public IUnknown {
   public:
     virtual HRESULT WINAPI OnMove(RECT rcDevice) = 0;
-
   };
 #else
-
-  typedef struct IHTMLPainterOverlayVtbl
-  {
+  typedef struct IHTMLPainterOverlayVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLPainterOverlay *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLPainterOverlay *This);
-
       ULONG (WINAPI *Release)(IHTMLPainterOverlay *This);
-
       HRESULT (WINAPI *OnMove)(IHTMLPainterOverlay *This,RECT rcDevice);
-
     END_INTERFACE
   } IHTMLPainterOverlayVtbl;
-
-  interface IHTMLPainterOverlay
-  {
+  interface IHTMLPainterOverlay {
     CONST_VTBL struct IHTMLPainterOverlayVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLPainterOverlay_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLPainterOverlay_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLPainterOverlay_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLPainterOverlay_OnMove(This,rcDevice) (This)->lpVtbl->OnMove(This,rcDevice)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLPainterOverlay_OnMove_Proxy(IHTMLPainterOverlay *This,RECT rcDevice);
-
   void __RPC_STUB IHTMLPainterOverlay_OnMove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLIPrintCollection_INTERFACE_DEFINED__
 #define __IHTMLIPrintCollection_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLIPrintCollection;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLIPrintCollection : public IDispatch
-  {
+  struct IHTMLIPrintCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get_length(long *p) = 0;
-
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
-
     virtual HRESULT WINAPI item(long index,IUnknown **ppIPrint) = 0;
-
   };
 #else
-
-  typedef struct IHTMLIPrintCollectionVtbl
-  {
+  typedef struct IHTMLIPrintCollectionVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLIPrintCollection *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLIPrintCollection *This);
-
       ULONG (WINAPI *Release)(IHTMLIPrintCollection *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLIPrintCollection *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLIPrintCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLIPrintCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLIPrintCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_length)(IHTMLIPrintCollection *This,long *p);
-
       HRESULT (WINAPI *get__newEnum)(IHTMLIPrintCollection *This,IUnknown **p);
-
       HRESULT (WINAPI *item)(IHTMLIPrintCollection *This,long index,IUnknown **ppIPrint);
-
     END_INTERFACE
   } IHTMLIPrintCollectionVtbl;
-
-  interface IHTMLIPrintCollection
-  {
+  interface IHTMLIPrintCollection {
     CONST_VTBL struct IHTMLIPrintCollectionVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLIPrintCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLIPrintCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLIPrintCollection_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLIPrintCollection_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLIPrintCollection_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLIPrintCollection_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLIPrintCollection_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLIPrintCollection_get_length(This,p) (This)->lpVtbl->get_length(This,p)
-
 #define IHTMLIPrintCollection_get__newEnum(This,p) (This)->lpVtbl->get__newEnum(This,p)
-
 #define IHTMLIPrintCollection_item(This,index,ppIPrint) (This)->lpVtbl->item(This,index,ppIPrint)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLIPrintCollection_get_length_Proxy(IHTMLIPrintCollection *This,long *p);
-
   void __RPC_STUB IHTMLIPrintCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLIPrintCollection_get__newEnum_Proxy(IHTMLIPrintCollection *This,IUnknown **p);
-
   void __RPC_STUB IHTMLIPrintCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLIPrintCollection_item_Proxy(IHTMLIPrintCollection *This,long index,IUnknown **ppIPrint);
-
   void __RPC_STUB IHTMLIPrintCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IEnumPrivacyRecords_INTERFACE_DEFINED__
 #define __IEnumPrivacyRecords_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IEnumPrivacyRecords;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IEnumPrivacyRecords : public IUnknown
-  {
+  struct IEnumPrivacyRecords : public IUnknown {
   public:
     virtual HRESULT WINAPI Reset(void) = 0;
-
     virtual HRESULT WINAPI GetSize(ULONG *pSize) = 0;
-
     virtual HRESULT WINAPI GetPrivacyImpacted(WINBOOL *pState) = 0;
-
     virtual HRESULT WINAPI Next(BSTR *pbstrUrl,BSTR *pbstrPolicyRef,LONG *pdwReserved,DWORD *pdwPrivacyFlags) = 0;
-
   };
 #else
-
-  typedef struct IEnumPrivacyRecordsVtbl
-  {
+  typedef struct IEnumPrivacyRecordsVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IEnumPrivacyRecords *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IEnumPrivacyRecords *This);
-
       ULONG (WINAPI *Release)(IEnumPrivacyRecords *This);
-
       HRESULT (WINAPI *Reset)(IEnumPrivacyRecords *This);
-
       HRESULT (WINAPI *GetSize)(IEnumPrivacyRecords *This,ULONG *pSize);
-
       HRESULT (WINAPI *GetPrivacyImpacted)(IEnumPrivacyRecords *This,WINBOOL *pState);
-
       HRESULT (WINAPI *Next)(IEnumPrivacyRecords *This,BSTR *pbstrUrl,BSTR *pbstrPolicyRef,LONG *pdwReserved,DWORD *pdwPrivacyFlags);
-
     END_INTERFACE
   } IEnumPrivacyRecordsVtbl;
-
-  interface IEnumPrivacyRecords
-  {
+  interface IEnumPrivacyRecords {
     CONST_VTBL struct IEnumPrivacyRecordsVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IEnumPrivacyRecords_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IEnumPrivacyRecords_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IEnumPrivacyRecords_Release(This) (This)->lpVtbl->Release(This)
-
 #define IEnumPrivacyRecords_Reset(This) (This)->lpVtbl->Reset(This)
-
 #define IEnumPrivacyRecords_GetSize(This,pSize) (This)->lpVtbl->GetSize(This,pSize)
-
 #define IEnumPrivacyRecords_GetPrivacyImpacted(This,pState) (This)->lpVtbl->GetPrivacyImpacted(This,pState)
-
 #define IEnumPrivacyRecords_Next(This,pbstrUrl,pbstrPolicyRef,pdwReserved,pdwPrivacyFlags) (This)->lpVtbl->Next(This,pbstrUrl,pbstrPolicyRef,pdwReserved,pdwPrivacyFlags)
 #endif
 #endif
 
   HRESULT WINAPI IEnumPrivacyRecords_Reset_Proxy(IEnumPrivacyRecords *This);
-
   void __RPC_STUB IEnumPrivacyRecords_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IEnumPrivacyRecords_GetSize_Proxy(IEnumPrivacyRecords *This,ULONG *pSize);
-
   void __RPC_STUB IEnumPrivacyRecords_GetSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IEnumPrivacyRecords_GetPrivacyImpacted_Proxy(IEnumPrivacyRecords *This,WINBOOL *pState);
-
   void __RPC_STUB IEnumPrivacyRecords_GetPrivacyImpacted_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IEnumPrivacyRecords_Next_Proxy(IEnumPrivacyRecords *This,BSTR *pbstrUrl,BSTR *pbstrPolicyRef,LONG *pdwReserved,DWORD *pdwPrivacyFlags);
-
   void __RPC_STUB IEnumPrivacyRecords_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLDialog_INTERFACE_DEFINED__
 #define __IHTMLDialog_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLDialog;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLDialog : public IDispatch
-  {
+  struct IHTMLDialog : public IDispatch {
   public:
     virtual HRESULT WINAPI put_dialogTop(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_dialogTop(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_dialogLeft(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_dialogLeft(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_dialogWidth(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_dialogWidth(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_dialogHeight(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_dialogHeight(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI get_dialogArguments(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI get_menuArguments(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI put_returnValue(VARIANT v) = 0;
-
     virtual HRESULT WINAPI get_returnValue(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI close(void) = 0;
-
     virtual HRESULT WINAPI toString(BSTR *String) = 0;
-
   };
 #else
-
-  typedef struct IHTMLDialogVtbl
-  {
+  typedef struct IHTMLDialogVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLDialog *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLDialog *This);
-
       ULONG (WINAPI *Release)(IHTMLDialog *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLDialog *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLDialog *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLDialog *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLDialog *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_dialogTop)(IHTMLDialog *This,VARIANT v);
-
       HRESULT (WINAPI *get_dialogTop)(IHTMLDialog *This,VARIANT *p);
-
       HRESULT (WINAPI *put_dialogLeft)(IHTMLDialog *This,VARIANT v);
-
       HRESULT (WINAPI *get_dialogLeft)(IHTMLDialog *This,VARIANT *p);
-
       HRESULT (WINAPI *put_dialogWidth)(IHTMLDialog *This,VARIANT v);
-
       HRESULT (WINAPI *get_dialogWidth)(IHTMLDialog *This,VARIANT *p);
-
       HRESULT (WINAPI *put_dialogHeight)(IHTMLDialog *This,VARIANT v);
-
       HRESULT (WINAPI *get_dialogHeight)(IHTMLDialog *This,VARIANT *p);
-
       HRESULT (WINAPI *get_dialogArguments)(IHTMLDialog *This,VARIANT *p);
-
       HRESULT (WINAPI *get_menuArguments)(IHTMLDialog *This,VARIANT *p);
-
       HRESULT (WINAPI *put_returnValue)(IHTMLDialog *This,VARIANT v);
-
       HRESULT (WINAPI *get_returnValue)(IHTMLDialog *This,VARIANT *p);
-
       HRESULT (WINAPI *close)(IHTMLDialog *This);
-
       HRESULT (WINAPI *toString)(IHTMLDialog *This,BSTR *String);
-
     END_INTERFACE
   } IHTMLDialogVtbl;
-
-  interface IHTMLDialog
-  {
+  interface IHTMLDialog {
     CONST_VTBL struct IHTMLDialogVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLDialog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLDialog_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLDialog_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLDialog_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLDialog_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLDialog_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLDialog_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLDialog_put_dialogTop(This,v) (This)->lpVtbl->put_dialogTop(This,v)
-
 #define IHTMLDialog_get_dialogTop(This,p) (This)->lpVtbl->get_dialogTop(This,p)
-
 #define IHTMLDialog_put_dialogLeft(This,v) (This)->lpVtbl->put_dialogLeft(This,v)
-
 #define IHTMLDialog_get_dialogLeft(This,p) (This)->lpVtbl->get_dialogLeft(This,p)
-
 #define IHTMLDialog_put_dialogWidth(This,v) (This)->lpVtbl->put_dialogWidth(This,v)
-
 #define IHTMLDialog_get_dialogWidth(This,p) (This)->lpVtbl->get_dialogWidth(This,p)
-
 #define IHTMLDialog_put_dialogHeight(This,v) (This)->lpVtbl->put_dialogHeight(This,v)
-
 #define IHTMLDialog_get_dialogHeight(This,p) (This)->lpVtbl->get_dialogHeight(This,p)
-
 #define IHTMLDialog_get_dialogArguments(This,p) (This)->lpVtbl->get_dialogArguments(This,p)
-
 #define IHTMLDialog_get_menuArguments(This,p) (This)->lpVtbl->get_menuArguments(This,p)
-
 #define IHTMLDialog_put_returnValue(This,v) (This)->lpVtbl->put_returnValue(This,v)
-
 #define IHTMLDialog_get_returnValue(This,p) (This)->lpVtbl->get_returnValue(This,p)
-
 #define IHTMLDialog_close(This) (This)->lpVtbl->close(This)
-
 #define IHTMLDialog_toString(This,String) (This)->lpVtbl->toString(This,String)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLDialog_put_dialogTop_Proxy(IHTMLDialog *This,VARIANT v);
-
   void __RPC_STUB IHTMLDialog_put_dialogTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_get_dialogTop_Proxy(IHTMLDialog *This,VARIANT *p);
-
   void __RPC_STUB IHTMLDialog_get_dialogTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_put_dialogLeft_Proxy(IHTMLDialog *This,VARIANT v);
-
   void __RPC_STUB IHTMLDialog_put_dialogLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_get_dialogLeft_Proxy(IHTMLDialog *This,VARIANT *p);
-
   void __RPC_STUB IHTMLDialog_get_dialogLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_put_dialogWidth_Proxy(IHTMLDialog *This,VARIANT v);
-
   void __RPC_STUB IHTMLDialog_put_dialogWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_get_dialogWidth_Proxy(IHTMLDialog *This,VARIANT *p);
-
   void __RPC_STUB IHTMLDialog_get_dialogWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_put_dialogHeight_Proxy(IHTMLDialog *This,VARIANT v);
-
   void __RPC_STUB IHTMLDialog_put_dialogHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_get_dialogHeight_Proxy(IHTMLDialog *This,VARIANT *p);
-
   void __RPC_STUB IHTMLDialog_get_dialogHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_get_dialogArguments_Proxy(IHTMLDialog *This,VARIANT *p);
-
   void __RPC_STUB IHTMLDialog_get_dialogArguments_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_get_menuArguments_Proxy(IHTMLDialog *This,VARIANT *p);
-
   void __RPC_STUB IHTMLDialog_get_menuArguments_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_put_returnValue_Proxy(IHTMLDialog *This,VARIANT v);
-
   void __RPC_STUB IHTMLDialog_put_returnValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_get_returnValue_Proxy(IHTMLDialog *This,VARIANT *p);
-
   void __RPC_STUB IHTMLDialog_get_returnValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_close_Proxy(IHTMLDialog *This);
-
   void __RPC_STUB IHTMLDialog_close_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog_toString_Proxy(IHTMLDialog *This,BSTR *String);
-
   void __RPC_STUB IHTMLDialog_toString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLDialog2_INTERFACE_DEFINED__
 #define __IHTMLDialog2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLDialog2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLDialog2 : public IDispatch
-  {
+  struct IHTMLDialog2 : public IDispatch {
   public:
     virtual HRESULT WINAPI put_status(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_status(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_resizable(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_resizable(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLDialog2Vtbl
-  {
+  typedef struct IHTMLDialog2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLDialog2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLDialog2 *This);
-
       ULONG (WINAPI *Release)(IHTMLDialog2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLDialog2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLDialog2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLDialog2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLDialog2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_status)(IHTMLDialog2 *This,BSTR v);
-
       HRESULT (WINAPI *get_status)(IHTMLDialog2 *This,BSTR *p);
-
       HRESULT (WINAPI *put_resizable)(IHTMLDialog2 *This,BSTR v);
-
       HRESULT (WINAPI *get_resizable)(IHTMLDialog2 *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLDialog2Vtbl;
-
-  interface IHTMLDialog2
-  {
+  interface IHTMLDialog2 {
     CONST_VTBL struct IHTMLDialog2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLDialog2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLDialog2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLDialog2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLDialog2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLDialog2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLDialog2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLDialog2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLDialog2_put_status(This,v) (This)->lpVtbl->put_status(This,v)
-
 #define IHTMLDialog2_get_status(This,p) (This)->lpVtbl->get_status(This,p)
-
 #define IHTMLDialog2_put_resizable(This,v) (This)->lpVtbl->put_resizable(This,v)
-
 #define IHTMLDialog2_get_resizable(This,p) (This)->lpVtbl->get_resizable(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLDialog2_put_status_Proxy(IHTMLDialog2 *This,BSTR v);
-
   void __RPC_STUB IHTMLDialog2_put_status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog2_get_status_Proxy(IHTMLDialog2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLDialog2_get_status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog2_put_resizable_Proxy(IHTMLDialog2 *This,BSTR v);
-
   void __RPC_STUB IHTMLDialog2_put_resizable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog2_get_resizable_Proxy(IHTMLDialog2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLDialog2_get_resizable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLDialog3_INTERFACE_DEFINED__
 #define __IHTMLDialog3_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLDialog3;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLDialog3 : public IDispatch
-  {
+  struct IHTMLDialog3 : public IDispatch {
   public:
     virtual HRESULT WINAPI put_unadorned(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_unadorned(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_dialogHide(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_dialogHide(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLDialog3Vtbl
-  {
+  typedef struct IHTMLDialog3Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLDialog3 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLDialog3 *This);
-
       ULONG (WINAPI *Release)(IHTMLDialog3 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLDialog3 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLDialog3 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLDialog3 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLDialog3 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_unadorned)(IHTMLDialog3 *This,BSTR v);
-
       HRESULT (WINAPI *get_unadorned)(IHTMLDialog3 *This,BSTR *p);
-
       HRESULT (WINAPI *put_dialogHide)(IHTMLDialog3 *This,BSTR v);
-
       HRESULT (WINAPI *get_dialogHide)(IHTMLDialog3 *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLDialog3Vtbl;
-
-  interface IHTMLDialog3
-  {
+  interface IHTMLDialog3 {
     CONST_VTBL struct IHTMLDialog3Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLDialog3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLDialog3_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLDialog3_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLDialog3_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLDialog3_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLDialog3_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLDialog3_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLDialog3_put_unadorned(This,v) (This)->lpVtbl->put_unadorned(This,v)
-
 #define IHTMLDialog3_get_unadorned(This,p) (This)->lpVtbl->get_unadorned(This,p)
-
 #define IHTMLDialog3_put_dialogHide(This,v) (This)->lpVtbl->put_dialogHide(This,v)
-
 #define IHTMLDialog3_get_dialogHide(This,p) (This)->lpVtbl->get_dialogHide(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLDialog3_put_unadorned_Proxy(IHTMLDialog3 *This,BSTR v);
-
   void __RPC_STUB IHTMLDialog3_put_unadorned_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog3_get_unadorned_Proxy(IHTMLDialog3 *This,BSTR *p);
-
   void __RPC_STUB IHTMLDialog3_get_unadorned_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog3_put_dialogHide_Proxy(IHTMLDialog3 *This,BSTR v);
-
   void __RPC_STUB IHTMLDialog3_put_dialogHide_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLDialog3_get_dialogHide_Proxy(IHTMLDialog3 *This,BSTR *p);
-
   void __RPC_STUB IHTMLDialog3_get_dialogHide_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLModelessInit_INTERFACE_DEFINED__
 #define __IHTMLModelessInit_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLModelessInit;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLModelessInit : public IDispatch
-  {
+  struct IHTMLModelessInit : public IDispatch {
   public:
     virtual HRESULT WINAPI get_parameters(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI get_optionString(VARIANT *p) = 0;
-
     virtual HRESULT WINAPI get_moniker(IUnknown **p) = 0;
-
     virtual HRESULT WINAPI get_document(IUnknown **p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLModelessInitVtbl
-  {
+  typedef struct IHTMLModelessInitVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLModelessInit *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLModelessInit *This);
-
       ULONG (WINAPI *Release)(IHTMLModelessInit *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLModelessInit *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLModelessInit *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLModelessInit *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLModelessInit *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *get_parameters)(IHTMLModelessInit *This,VARIANT *p);
-
       HRESULT (WINAPI *get_optionString)(IHTMLModelessInit *This,VARIANT *p);
-
       HRESULT (WINAPI *get_moniker)(IHTMLModelessInit *This,IUnknown **p);
-
       HRESULT (WINAPI *get_document)(IHTMLModelessInit *This,IUnknown **p);
-
     END_INTERFACE
   } IHTMLModelessInitVtbl;
-
-  interface IHTMLModelessInit
-  {
+  interface IHTMLModelessInit {
     CONST_VTBL struct IHTMLModelessInitVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLModelessInit_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLModelessInit_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLModelessInit_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLModelessInit_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLModelessInit_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLModelessInit_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLModelessInit_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLModelessInit_get_parameters(This,p) (This)->lpVtbl->get_parameters(This,p)
-
 #define IHTMLModelessInit_get_optionString(This,p) (This)->lpVtbl->get_optionString(This,p)
-
 #define IHTMLModelessInit_get_moniker(This,p) (This)->lpVtbl->get_moniker(This,p)
-
 #define IHTMLModelessInit_get_document(This,p) (This)->lpVtbl->get_document(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLModelessInit_get_parameters_Proxy(IHTMLModelessInit *This,VARIANT *p);
-
   void __RPC_STUB IHTMLModelessInit_get_parameters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLModelessInit_get_optionString_Proxy(IHTMLModelessInit *This,VARIANT *p);
-
   void __RPC_STUB IHTMLModelessInit_get_optionString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLModelessInit_get_moniker_Proxy(IHTMLModelessInit *This,IUnknown **p);
-
   void __RPC_STUB IHTMLModelessInit_get_moniker_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLModelessInit_get_document_Proxy(IHTMLModelessInit *This,IUnknown **p);
-
   void __RPC_STUB IHTMLModelessInit_get_document_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
   EXTERN_C const CLSID CLSID_ThreadDialogProcParam;
-
 #ifdef __cplusplus
-
   class ThreadDialogProcParam;
 #endif
-
   EXTERN_C const CLSID CLSID_HTMLDialog;
-
 #ifdef __cplusplus
-
   class HTMLDialog;
 #endif
 
 #ifndef __IHTMLPopup_INTERFACE_DEFINED__
 #define __IHTMLPopup_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLPopup;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLPopup : public IDispatch
-  {
+  struct IHTMLPopup : public IDispatch {
   public:
     virtual HRESULT WINAPI show(long x,long y,long w,long h,VARIANT *pElement) = 0;
-
     virtual HRESULT WINAPI hide(void) = 0;
-
     virtual HRESULT WINAPI get_document(IHTMLDocument **p) = 0;
-
     virtual HRESULT WINAPI get_isOpen(VARIANT_BOOL *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLPopupVtbl
-  {
+  typedef struct IHTMLPopupVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLPopup *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLPopup *This);
-
       ULONG (WINAPI *Release)(IHTMLPopup *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLPopup *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLPopup *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLPopup *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLPopup *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *show)(IHTMLPopup *This,long x,long y,long w,long h,VARIANT *pElement);
-
       HRESULT (WINAPI *hide)(IHTMLPopup *This);
-
       HRESULT (WINAPI *get_document)(IHTMLPopup *This,IHTMLDocument **p);
-
       HRESULT (WINAPI *get_isOpen)(IHTMLPopup *This,VARIANT_BOOL *p);
-
     END_INTERFACE
   } IHTMLPopupVtbl;
-
-  interface IHTMLPopup
-  {
+  interface IHTMLPopup {
     CONST_VTBL struct IHTMLPopupVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLPopup_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLPopup_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLPopup_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLPopup_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLPopup_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLPopup_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLPopup_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLPopup_show(This,x,y,w,h,pElement) (This)->lpVtbl->show(This,x,y,w,h,pElement)
-
 #define IHTMLPopup_hide(This) (This)->lpVtbl->hide(This)
-
 #define IHTMLPopup_get_document(This,p) (This)->lpVtbl->get_document(This,p)
-
 #define IHTMLPopup_get_isOpen(This,p) (This)->lpVtbl->get_isOpen(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLPopup_show_Proxy(IHTMLPopup *This,long x,long y,long w,long h,VARIANT *pElement);
-
   void __RPC_STUB IHTMLPopup_show_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPopup_hide_Proxy(IHTMLPopup *This);
-
   void __RPC_STUB IHTMLPopup_hide_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPopup_get_document_Proxy(IHTMLPopup *This,IHTMLDocument **p);
-
   void __RPC_STUB IHTMLPopup_get_document_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLPopup_get_isOpen_Proxy(IHTMLPopup *This,VARIANT_BOOL *p);
-
   void __RPC_STUB IHTMLPopup_get_isOpen_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLPopup_DISPINTERFACE_DEFINED__
 #define __DispHTMLPopup_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLPopup;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLPopup : public IDispatch
-  {
+  struct DispHTMLPopup : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLPopupVtbl
-  {
+  typedef struct DispHTMLPopupVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLPopup *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLPopup *This);
-
       ULONG (WINAPI *Release)(DispHTMLPopup *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLPopup *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLPopup *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLPopup *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLPopup *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLPopupVtbl;
-
-  interface DispHTMLPopup
-  {
+  interface DispHTMLPopup {
     CONST_VTBL struct DispHTMLPopupVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLPopup_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLPopup_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLPopup_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLPopup_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLPopup_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLPopup_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLPopup_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLPopup;
-
 #ifdef __cplusplus
-
   class HTMLPopup;
 #endif
 
 #ifndef __IHTMLAppBehavior_INTERFACE_DEFINED__
 #define __IHTMLAppBehavior_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLAppBehavior;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLAppBehavior : public IDispatch
-  {
+  struct IHTMLAppBehavior : public IDispatch {
   public:
     virtual HRESULT WINAPI put_applicationName(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_applicationName(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_version(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_version(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_icon(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_icon(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_singleInstance(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_singleInstance(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_minimizeButton(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_minimizeButton(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_maximizeButton(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_maximizeButton(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_border(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_border(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_borderStyle(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_borderStyle(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_sysMenu(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_sysMenu(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_caption(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_caption(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_windowState(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_windowState(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_showInTaskBar(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_showInTaskBar(BSTR *p) = 0;
-
     virtual HRESULT WINAPI get_commandLine(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLAppBehaviorVtbl
-  {
+  typedef struct IHTMLAppBehaviorVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLAppBehavior *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLAppBehavior *This);
-
       ULONG (WINAPI *Release)(IHTMLAppBehavior *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLAppBehavior *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLAppBehavior *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLAppBehavior *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLAppBehavior *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_applicationName)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_applicationName)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_version)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_version)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_icon)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_icon)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_singleInstance)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_singleInstance)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_minimizeButton)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_minimizeButton)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_maximizeButton)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_maximizeButton)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_border)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_border)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_borderStyle)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_borderStyle)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_sysMenu)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_sysMenu)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_caption)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_caption)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_windowState)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_windowState)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *put_showInTaskBar)(IHTMLAppBehavior *This,BSTR v);
-
       HRESULT (WINAPI *get_showInTaskBar)(IHTMLAppBehavior *This,BSTR *p);
-
       HRESULT (WINAPI *get_commandLine)(IHTMLAppBehavior *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLAppBehaviorVtbl;
-
-  interface IHTMLAppBehavior
-  {
+  interface IHTMLAppBehavior {
     CONST_VTBL struct IHTMLAppBehaviorVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLAppBehavior_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLAppBehavior_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLAppBehavior_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLAppBehavior_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLAppBehavior_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLAppBehavior_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLAppBehavior_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLAppBehavior_put_applicationName(This,v) (This)->lpVtbl->put_applicationName(This,v)
-
 #define IHTMLAppBehavior_get_applicationName(This,p) (This)->lpVtbl->get_applicationName(This,p)
-
 #define IHTMLAppBehavior_put_version(This,v) (This)->lpVtbl->put_version(This,v)
-
 #define IHTMLAppBehavior_get_version(This,p) (This)->lpVtbl->get_version(This,p)
-
 #define IHTMLAppBehavior_put_icon(This,v) (This)->lpVtbl->put_icon(This,v)
-
 #define IHTMLAppBehavior_get_icon(This,p) (This)->lpVtbl->get_icon(This,p)
-
 #define IHTMLAppBehavior_put_singleInstance(This,v) (This)->lpVtbl->put_singleInstance(This,v)
-
 #define IHTMLAppBehavior_get_singleInstance(This,p) (This)->lpVtbl->get_singleInstance(This,p)
-
 #define IHTMLAppBehavior_put_minimizeButton(This,v) (This)->lpVtbl->put_minimizeButton(This,v)
-
 #define IHTMLAppBehavior_get_minimizeButton(This,p) (This)->lpVtbl->get_minimizeButton(This,p)
-
 #define IHTMLAppBehavior_put_maximizeButton(This,v) (This)->lpVtbl->put_maximizeButton(This,v)
-
 #define IHTMLAppBehavior_get_maximizeButton(This,p) (This)->lpVtbl->get_maximizeButton(This,p)
-
 #define IHTMLAppBehavior_put_border(This,v) (This)->lpVtbl->put_border(This,v)
-
 #define IHTMLAppBehavior_get_border(This,p) (This)->lpVtbl->get_border(This,p)
-
 #define IHTMLAppBehavior_put_borderStyle(This,v) (This)->lpVtbl->put_borderStyle(This,v)
-
 #define IHTMLAppBehavior_get_borderStyle(This,p) (This)->lpVtbl->get_borderStyle(This,p)
-
 #define IHTMLAppBehavior_put_sysMenu(This,v) (This)->lpVtbl->put_sysMenu(This,v)
-
 #define IHTMLAppBehavior_get_sysMenu(This,p) (This)->lpVtbl->get_sysMenu(This,p)
-
 #define IHTMLAppBehavior_put_caption(This,v) (This)->lpVtbl->put_caption(This,v)
-
 #define IHTMLAppBehavior_get_caption(This,p) (This)->lpVtbl->get_caption(This,p)
-
 #define IHTMLAppBehavior_put_windowState(This,v) (This)->lpVtbl->put_windowState(This,v)
-
 #define IHTMLAppBehavior_get_windowState(This,p) (This)->lpVtbl->get_windowState(This,p)
-
 #define IHTMLAppBehavior_put_showInTaskBar(This,v) (This)->lpVtbl->put_showInTaskBar(This,v)
-
 #define IHTMLAppBehavior_get_showInTaskBar(This,p) (This)->lpVtbl->get_showInTaskBar(This,p)
-
 #define IHTMLAppBehavior_get_commandLine(This,p) (This)->lpVtbl->get_commandLine(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLAppBehavior_put_applicationName_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_applicationName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_applicationName_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_applicationName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_version_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_version_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_version_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_version_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_icon_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_icon_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_icon_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_icon_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_singleInstance_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_singleInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_singleInstance_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_singleInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_minimizeButton_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_minimizeButton_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_minimizeButton_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_minimizeButton_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_maximizeButton_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_maximizeButton_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_maximizeButton_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_maximizeButton_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_border_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_border_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_borderStyle_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_borderStyle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_borderStyle_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_borderStyle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_sysMenu_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_sysMenu_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_sysMenu_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_sysMenu_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_caption_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_caption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_caption_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_caption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_windowState_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_windowState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_windowState_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_windowState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_put_showInTaskBar_Proxy(IHTMLAppBehavior *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior_put_showInTaskBar_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_showInTaskBar_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_showInTaskBar_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior_get_commandLine_Proxy(IHTMLAppBehavior *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior_get_commandLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLAppBehavior2_INTERFACE_DEFINED__
 #define __IHTMLAppBehavior2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLAppBehavior2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLAppBehavior2 : public IDispatch
-  {
+  struct IHTMLAppBehavior2 : public IDispatch {
   public:
     virtual HRESULT WINAPI put_contextMenu(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_contextMenu(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_innerBorder(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_innerBorder(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_scroll(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_scroll(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_scrollFlat(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_scrollFlat(BSTR *p) = 0;
-
     virtual HRESULT WINAPI put_selection(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_selection(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLAppBehavior2Vtbl
-  {
+  typedef struct IHTMLAppBehavior2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLAppBehavior2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLAppBehavior2 *This);
-
       ULONG (WINAPI *Release)(IHTMLAppBehavior2 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLAppBehavior2 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLAppBehavior2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLAppBehavior2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLAppBehavior2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_contextMenu)(IHTMLAppBehavior2 *This,BSTR v);
-
       HRESULT (WINAPI *get_contextMenu)(IHTMLAppBehavior2 *This,BSTR *p);
-
       HRESULT (WINAPI *put_innerBorder)(IHTMLAppBehavior2 *This,BSTR v);
-
       HRESULT (WINAPI *get_innerBorder)(IHTMLAppBehavior2 *This,BSTR *p);
-
       HRESULT (WINAPI *put_scroll)(IHTMLAppBehavior2 *This,BSTR v);
-
       HRESULT (WINAPI *get_scroll)(IHTMLAppBehavior2 *This,BSTR *p);
-
       HRESULT (WINAPI *put_scrollFlat)(IHTMLAppBehavior2 *This,BSTR v);
-
       HRESULT (WINAPI *get_scrollFlat)(IHTMLAppBehavior2 *This,BSTR *p);
-
       HRESULT (WINAPI *put_selection)(IHTMLAppBehavior2 *This,BSTR v);
-
       HRESULT (WINAPI *get_selection)(IHTMLAppBehavior2 *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLAppBehavior2Vtbl;
-
-  interface IHTMLAppBehavior2
-  {
+  interface IHTMLAppBehavior2 {
     CONST_VTBL struct IHTMLAppBehavior2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLAppBehavior2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLAppBehavior2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLAppBehavior2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLAppBehavior2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLAppBehavior2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLAppBehavior2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLAppBehavior2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLAppBehavior2_put_contextMenu(This,v) (This)->lpVtbl->put_contextMenu(This,v)
-
 #define IHTMLAppBehavior2_get_contextMenu(This,p) (This)->lpVtbl->get_contextMenu(This,p)
-
 #define IHTMLAppBehavior2_put_innerBorder(This,v) (This)->lpVtbl->put_innerBorder(This,v)
-
 #define IHTMLAppBehavior2_get_innerBorder(This,p) (This)->lpVtbl->get_innerBorder(This,p)
-
 #define IHTMLAppBehavior2_put_scroll(This,v) (This)->lpVtbl->put_scroll(This,v)
-
 #define IHTMLAppBehavior2_get_scroll(This,p) (This)->lpVtbl->get_scroll(This,p)
-
 #define IHTMLAppBehavior2_put_scrollFlat(This,v) (This)->lpVtbl->put_scrollFlat(This,v)
-
 #define IHTMLAppBehavior2_get_scrollFlat(This,p) (This)->lpVtbl->get_scrollFlat(This,p)
-
 #define IHTMLAppBehavior2_put_selection(This,v) (This)->lpVtbl->put_selection(This,v)
-
 #define IHTMLAppBehavior2_get_selection(This,p) (This)->lpVtbl->get_selection(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLAppBehavior2_put_contextMenu_Proxy(IHTMLAppBehavior2 *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior2_put_contextMenu_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior2_get_contextMenu_Proxy(IHTMLAppBehavior2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior2_get_contextMenu_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior2_put_innerBorder_Proxy(IHTMLAppBehavior2 *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior2_put_innerBorder_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior2_get_innerBorder_Proxy(IHTMLAppBehavior2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior2_get_innerBorder_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior2_put_scroll_Proxy(IHTMLAppBehavior2 *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior2_put_scroll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior2_get_scroll_Proxy(IHTMLAppBehavior2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior2_get_scroll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior2_put_scrollFlat_Proxy(IHTMLAppBehavior2 *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior2_put_scrollFlat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior2_get_scrollFlat_Proxy(IHTMLAppBehavior2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior2_get_scrollFlat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior2_put_selection_Proxy(IHTMLAppBehavior2 *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior2_put_selection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior2_get_selection_Proxy(IHTMLAppBehavior2 *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior2_get_selection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHTMLAppBehavior3_INTERFACE_DEFINED__
 #define __IHTMLAppBehavior3_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHTMLAppBehavior3;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IHTMLAppBehavior3 : public IDispatch
-  {
+  struct IHTMLAppBehavior3 : public IDispatch {
   public:
     virtual HRESULT WINAPI put_navigable(BSTR v) = 0;
-
     virtual HRESULT WINAPI get_navigable(BSTR *p) = 0;
-
   };
 #else
-
-  typedef struct IHTMLAppBehavior3Vtbl
-  {
+  typedef struct IHTMLAppBehavior3Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IHTMLAppBehavior3 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IHTMLAppBehavior3 *This);
-
       ULONG (WINAPI *Release)(IHTMLAppBehavior3 *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(IHTMLAppBehavior3 *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(IHTMLAppBehavior3 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLAppBehavior3 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(IHTMLAppBehavior3 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
       HRESULT (WINAPI *put_navigable)(IHTMLAppBehavior3 *This,BSTR v);
-
       HRESULT (WINAPI *get_navigable)(IHTMLAppBehavior3 *This,BSTR *p);
-
     END_INTERFACE
   } IHTMLAppBehavior3Vtbl;
-
-  interface IHTMLAppBehavior3
-  {
+  interface IHTMLAppBehavior3 {
     CONST_VTBL struct IHTMLAppBehavior3Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IHTMLAppBehavior3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IHTMLAppBehavior3_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IHTMLAppBehavior3_Release(This) (This)->lpVtbl->Release(This)
-
 #define IHTMLAppBehavior3_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define IHTMLAppBehavior3_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define IHTMLAppBehavior3_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define IHTMLAppBehavior3_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-
 #define IHTMLAppBehavior3_put_navigable(This,v) (This)->lpVtbl->put_navigable(This,v)
-
 #define IHTMLAppBehavior3_get_navigable(This,p) (This)->lpVtbl->get_navigable(This,p)
 #endif
 #endif
 
   HRESULT WINAPI IHTMLAppBehavior3_put_navigable_Proxy(IHTMLAppBehavior3 *This,BSTR v);
-
   void __RPC_STUB IHTMLAppBehavior3_put_navigable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IHTMLAppBehavior3_get_navigable_Proxy(IHTMLAppBehavior3 *This,BSTR *p);
-
   void __RPC_STUB IHTMLAppBehavior3_get_navigable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __DispHTMLAppBehavior_DISPINTERFACE_DEFINED__
 #define __DispHTMLAppBehavior_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispHTMLAppBehavior;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispHTMLAppBehavior : public IDispatch
-  {
+  struct DispHTMLAppBehavior : public IDispatch {
   };
 #else
-
-  typedef struct DispHTMLAppBehaviorVtbl
-  {
+  typedef struct DispHTMLAppBehaviorVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispHTMLAppBehavior *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispHTMLAppBehavior *This);
-
       ULONG (WINAPI *Release)(DispHTMLAppBehavior *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispHTMLAppBehavior *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispHTMLAppBehavior *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispHTMLAppBehavior *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispHTMLAppBehavior *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispHTMLAppBehaviorVtbl;
-
-  interface DispHTMLAppBehavior
-  {
+  interface DispHTMLAppBehavior {
     CONST_VTBL struct DispHTMLAppBehaviorVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispHTMLAppBehavior_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispHTMLAppBehavior_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispHTMLAppBehavior_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispHTMLAppBehavior_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispHTMLAppBehavior_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispHTMLAppBehavior_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispHTMLAppBehavior_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLAppBehavior;
-
 #ifdef __cplusplus
-
   class HTMLAppBehavior;
 #endif
-
   EXTERN_C const CLSID CLSID_OldHTMLDocument;
-
 #ifdef __cplusplus
-
   class OldHTMLDocument;
 #endif
-
   EXTERN_C const CLSID CLSID_OldHTMLFormElement;
-
 #ifdef __cplusplus
-
   class OldHTMLFormElement;
 #endif
 
 #ifndef __DispIHTMLInputButtonElement_DISPINTERFACE_DEFINED__
 #define __DispIHTMLInputButtonElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispIHTMLInputButtonElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispIHTMLInputButtonElement : public IDispatch
-  {
+  struct DispIHTMLInputButtonElement : public IDispatch {
   };
 #else
-
-  typedef struct DispIHTMLInputButtonElementVtbl
-  {
+  typedef struct DispIHTMLInputButtonElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispIHTMLInputButtonElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispIHTMLInputButtonElement *This);
-
       ULONG (WINAPI *Release)(DispIHTMLInputButtonElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispIHTMLInputButtonElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispIHTMLInputButtonElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispIHTMLInputButtonElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispIHTMLInputButtonElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispIHTMLInputButtonElementVtbl;
-
-  interface DispIHTMLInputButtonElement
-  {
+  interface DispIHTMLInputButtonElement {
     CONST_VTBL struct DispIHTMLInputButtonElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispIHTMLInputButtonElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispIHTMLInputButtonElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispIHTMLInputButtonElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispIHTMLInputButtonElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispIHTMLInputButtonElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispIHTMLInputButtonElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispIHTMLInputButtonElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLInputButtonElement;
-
 #ifdef __cplusplus
-
   class HTMLInputButtonElement;
 #endif
 
 #ifndef __DispIHTMLInputTextElement_DISPINTERFACE_DEFINED__
 #define __DispIHTMLInputTextElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispIHTMLInputTextElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispIHTMLInputTextElement : public IDispatch
-  {
+  struct DispIHTMLInputTextElement : public IDispatch {
   };
 #else
-
-  typedef struct DispIHTMLInputTextElementVtbl
-  {
+  typedef struct DispIHTMLInputTextElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispIHTMLInputTextElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispIHTMLInputTextElement *This);
-
       ULONG (WINAPI *Release)(DispIHTMLInputTextElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispIHTMLInputTextElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispIHTMLInputTextElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispIHTMLInputTextElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispIHTMLInputTextElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispIHTMLInputTextElementVtbl;
-
-  interface DispIHTMLInputTextElement
-  {
+  interface DispIHTMLInputTextElement {
     CONST_VTBL struct DispIHTMLInputTextElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispIHTMLInputTextElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispIHTMLInputTextElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispIHTMLInputTextElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispIHTMLInputTextElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispIHTMLInputTextElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispIHTMLInputTextElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispIHTMLInputTextElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLInputTextElement;
-
 #ifdef __cplusplus
-
   class HTMLInputTextElement;
 #endif
 
 #ifndef __DispIHTMLInputFileElement_DISPINTERFACE_DEFINED__
 #define __DispIHTMLInputFileElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispIHTMLInputFileElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispIHTMLInputFileElement : public IDispatch
-  {
+  struct DispIHTMLInputFileElement : public IDispatch {
   };
 #else
-
-  typedef struct DispIHTMLInputFileElementVtbl
-  {
+  typedef struct DispIHTMLInputFileElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispIHTMLInputFileElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispIHTMLInputFileElement *This);
-
       ULONG (WINAPI *Release)(DispIHTMLInputFileElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispIHTMLInputFileElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispIHTMLInputFileElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispIHTMLInputFileElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispIHTMLInputFileElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispIHTMLInputFileElementVtbl;
-
-  interface DispIHTMLInputFileElement
-  {
+  interface DispIHTMLInputFileElement {
     CONST_VTBL struct DispIHTMLInputFileElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispIHTMLInputFileElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispIHTMLInputFileElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispIHTMLInputFileElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispIHTMLInputFileElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispIHTMLInputFileElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispIHTMLInputFileElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispIHTMLInputFileElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLInputFileElement;
-
 #ifdef __cplusplus
-
   class HTMLInputFileElement;
 #endif
 
 #ifndef __DispIHTMLOptionButtonElement_DISPINTERFACE_DEFINED__
 #define __DispIHTMLOptionButtonElement_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispIHTMLOptionButtonElement;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispIHTMLOptionButtonElement : public IDispatch
-  {
+  struct DispIHTMLOptionButtonElement : public IDispatch {
   };
 #else
-
-  typedef struct DispIHTMLOptionButtonElementVtbl
-  {
+  typedef struct DispIHTMLOptionButtonElementVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispIHTMLOptionButtonElement *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispIHTMLOptionButtonElement *This);
-
       ULONG (WINAPI *Release)(DispIHTMLOptionButtonElement *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispIHTMLOptionButtonElement *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispIHTMLOptionButtonElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispIHTMLOptionButtonElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispIHTMLOptionButtonElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispIHTMLOptionButtonElementVtbl;
-
-  interface DispIHTMLOptionButtonElement
-  {
+  interface DispIHTMLOptionButtonElement {
     CONST_VTBL struct DispIHTMLOptionButtonElementVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispIHTMLOptionButtonElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispIHTMLOptionButtonElement_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispIHTMLOptionButtonElement_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispIHTMLOptionButtonElement_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispIHTMLOptionButtonElement_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispIHTMLOptionButtonElement_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispIHTMLOptionButtonElement_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLOptionButtonElement;
-
 #ifdef __cplusplus
-
   class HTMLOptionButtonElement;
 #endif
 
 #ifndef __DispIHTMLInputImage_DISPINTERFACE_DEFINED__
 #define __DispIHTMLInputImage_DISPINTERFACE_DEFINED__
-
   EXTERN_C const IID DIID_DispIHTMLInputImage;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct DispIHTMLInputImage : public IDispatch
-  {
+  struct DispIHTMLInputImage : public IDispatch {
   };
 #else
-
-  typedef struct DispIHTMLInputImageVtbl
-  {
+  typedef struct DispIHTMLInputImageVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(DispIHTMLInputImage *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(DispIHTMLInputImage *This);
-
       ULONG (WINAPI *Release)(DispIHTMLInputImage *This);
-
       HRESULT (WINAPI *GetTypeInfoCount)(DispIHTMLInputImage *This,UINT *pctinfo);
-
       HRESULT (WINAPI *GetTypeInfo)(DispIHTMLInputImage *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-
       HRESULT (WINAPI *GetIDsOfNames)(DispIHTMLInputImage *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-
       HRESULT (WINAPI *Invoke)(DispIHTMLInputImage *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-
     END_INTERFACE
   } DispIHTMLInputImageVtbl;
-
-  interface DispIHTMLInputImage
-  {
+  interface DispIHTMLInputImage {
     CONST_VTBL struct DispIHTMLInputImageVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define DispIHTMLInputImage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define DispIHTMLInputImage_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define DispIHTMLInputImage_Release(This) (This)->lpVtbl->Release(This)
-
 #define DispIHTMLInputImage_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-
 #define DispIHTMLInputImage_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-
 #define DispIHTMLInputImage_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-
 #define DispIHTMLInputImage_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
 #endif
 #endif
 #endif
 
   EXTERN_C const CLSID CLSID_HTMLInputImage;
-
 #ifdef __cplusplus
-
   class HTMLInputImage;
 #endif
 
 #ifndef __IElementNamespace_INTERFACE_DEFINED__
 #define __IElementNamespace_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementNamespace;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementNamespace : public IUnknown
-  {
+  struct IElementNamespace : public IUnknown {
   public:
     virtual HRESULT WINAPI AddTag(BSTR bstrTagName,LONG lFlags) = 0;
-
   };
 #else
-
-  typedef struct IElementNamespaceVtbl
-  {
+  typedef struct IElementNamespaceVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementNamespace *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementNamespace *This);
-
       ULONG (WINAPI *Release)(IElementNamespace *This);
-
       HRESULT (WINAPI *AddTag)(IElementNamespace *This,BSTR bstrTagName,LONG lFlags);
-
     END_INTERFACE
   } IElementNamespaceVtbl;
-
-  interface IElementNamespace
-  {
+  interface IElementNamespace {
     CONST_VTBL struct IElementNamespaceVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementNamespace_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementNamespace_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementNamespace_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementNamespace_AddTag(This,bstrTagName,lFlags) (This)->lpVtbl->AddTag(This,bstrTagName,lFlags)
 #endif
 #endif
 
   HRESULT WINAPI IElementNamespace_AddTag_Proxy(IElementNamespace *This,BSTR bstrTagName,LONG lFlags);
-
   void __RPC_STUB IElementNamespace_AddTag_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementNamespaceTable_INTERFACE_DEFINED__
 #define __IElementNamespaceTable_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementNamespaceTable;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementNamespaceTable : public IUnknown
-  {
+  struct IElementNamespaceTable : public IUnknown {
   public:
     virtual HRESULT WINAPI AddNamespace(BSTR bstrNamespace,BSTR bstrUrn,LONG lFlags,VARIANT *pvarFactory) = 0;
-
   };
 #else
-
-  typedef struct IElementNamespaceTableVtbl
-  {
+  typedef struct IElementNamespaceTableVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementNamespaceTable *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementNamespaceTable *This);
-
       ULONG (WINAPI *Release)(IElementNamespaceTable *This);
-
       HRESULT (WINAPI *AddNamespace)(IElementNamespaceTable *This,BSTR bstrNamespace,BSTR bstrUrn,LONG lFlags,VARIANT *pvarFactory);
-
     END_INTERFACE
   } IElementNamespaceTableVtbl;
-
-  interface IElementNamespaceTable
-  {
+  interface IElementNamespaceTable {
     CONST_VTBL struct IElementNamespaceTableVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementNamespaceTable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementNamespaceTable_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementNamespaceTable_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementNamespaceTable_AddNamespace(This,bstrNamespace,bstrUrn,lFlags,pvarFactory) (This)->lpVtbl->AddNamespace(This,bstrNamespace,bstrUrn,lFlags,pvarFactory)
 #endif
 #endif
 
   HRESULT WINAPI IElementNamespaceTable_AddNamespace_Proxy(IElementNamespaceTable *This,BSTR bstrNamespace,BSTR bstrUrn,LONG lFlags,VARIANT *pvarFactory);
-
   void __RPC_STUB IElementNamespaceTable_AddNamespace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementNamespaceFactory_INTERFACE_DEFINED__
 #define __IElementNamespaceFactory_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementNamespaceFactory;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementNamespaceFactory : public IUnknown
-  {
+  struct IElementNamespaceFactory : public IUnknown {
   public:
     virtual HRESULT WINAPI Create(IElementNamespace *pNamespace) = 0;
-
   };
 #else
-
-  typedef struct IElementNamespaceFactoryVtbl
-  {
+  typedef struct IElementNamespaceFactoryVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementNamespaceFactory *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementNamespaceFactory *This);
-
       ULONG (WINAPI *Release)(IElementNamespaceFactory *This);
-
       HRESULT (WINAPI *Create)(IElementNamespaceFactory *This,IElementNamespace *pNamespace);
-
     END_INTERFACE
   } IElementNamespaceFactoryVtbl;
-
-  interface IElementNamespaceFactory
-  {
+  interface IElementNamespaceFactory {
     CONST_VTBL struct IElementNamespaceFactoryVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementNamespaceFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementNamespaceFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementNamespaceFactory_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementNamespaceFactory_Create(This,pNamespace) (This)->lpVtbl->Create(This,pNamespace)
 #endif
 #endif
 
   HRESULT WINAPI IElementNamespaceFactory_Create_Proxy(IElementNamespaceFactory *This,IElementNamespace *pNamespace);
-
   void __RPC_STUB IElementNamespaceFactory_Create_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementNamespaceFactory2_INTERFACE_DEFINED__
 #define __IElementNamespaceFactory2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementNamespaceFactory2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementNamespaceFactory2 : public IElementNamespaceFactory
-  {
+  struct IElementNamespaceFactory2 : public IElementNamespaceFactory {
   public:
     virtual HRESULT WINAPI CreateWithImplementation(IElementNamespace *pNamespace,BSTR bstrImplementation) = 0;
-
   };
 #else
-
-  typedef struct IElementNamespaceFactory2Vtbl
-  {
+  typedef struct IElementNamespaceFactory2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementNamespaceFactory2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementNamespaceFactory2 *This);
-
       ULONG (WINAPI *Release)(IElementNamespaceFactory2 *This);
-
       HRESULT (WINAPI *Create)(IElementNamespaceFactory2 *This,IElementNamespace *pNamespace);
-
       HRESULT (WINAPI *CreateWithImplementation)(IElementNamespaceFactory2 *This,IElementNamespace *pNamespace,BSTR bstrImplementation);
-
     END_INTERFACE
   } IElementNamespaceFactory2Vtbl;
-
-  interface IElementNamespaceFactory2
-  {
+  interface IElementNamespaceFactory2 {
     CONST_VTBL struct IElementNamespaceFactory2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementNamespaceFactory2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementNamespaceFactory2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementNamespaceFactory2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementNamespaceFactory2_Create(This,pNamespace) (This)->lpVtbl->Create(This,pNamespace)
-
 #define IElementNamespaceFactory2_CreateWithImplementation(This,pNamespace,bstrImplementation) (This)->lpVtbl->CreateWithImplementation(This,pNamespace,bstrImplementation)
 #endif
 #endif
 
   HRESULT WINAPI IElementNamespaceFactory2_CreateWithImplementation_Proxy(IElementNamespaceFactory2 *This,IElementNamespace *pNamespace,BSTR bstrImplementation);
-
   void __RPC_STUB IElementNamespaceFactory2_CreateWithImplementation_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementNamespaceFactoryCallback_INTERFACE_DEFINED__
 #define __IElementNamespaceFactoryCallback_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementNamespaceFactoryCallback;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementNamespaceFactoryCallback : public IUnknown
-  {
+  struct IElementNamespaceFactoryCallback : public IUnknown {
   public:
     virtual HRESULT WINAPI Resolve(BSTR bstrNamespace,BSTR bstrTagName,BSTR bstrAttrs,IElementNamespace *pNamespace) = 0;
-
   };
 #else
-
-  typedef struct IElementNamespaceFactoryCallbackVtbl
-  {
+  typedef struct IElementNamespaceFactoryCallbackVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementNamespaceFactoryCallback *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementNamespaceFactoryCallback *This);
-
       ULONG (WINAPI *Release)(IElementNamespaceFactoryCallback *This);
-
       HRESULT (WINAPI *Resolve)(IElementNamespaceFactoryCallback *This,BSTR bstrNamespace,BSTR bstrTagName,BSTR bstrAttrs,IElementNamespace *pNamespace);
-
     END_INTERFACE
   } IElementNamespaceFactoryCallbackVtbl;
-
-  interface IElementNamespaceFactoryCallback
-  {
+  interface IElementNamespaceFactoryCallback {
     CONST_VTBL struct IElementNamespaceFactoryCallbackVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementNamespaceFactoryCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementNamespaceFactoryCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementNamespaceFactoryCallback_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementNamespaceFactoryCallback_Resolve(This,bstrNamespace,bstrTagName,bstrAttrs,pNamespace) (This)->lpVtbl->Resolve(This,bstrNamespace,bstrTagName,bstrAttrs,pNamespace)
 #endif
 #endif
 
   HRESULT WINAPI IElementNamespaceFactoryCallback_Resolve_Proxy(IElementNamespaceFactoryCallback *This,BSTR bstrNamespace,BSTR bstrTagName,BSTR bstrAttrs,IElementNamespace *pNamespace);
-
   void __RPC_STUB IElementNamespaceFactoryCallback_Resolve_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementBehaviorSiteOM2_INTERFACE_DEFINED__
 #define __IElementBehaviorSiteOM2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementBehaviorSiteOM2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementBehaviorSiteOM2 : public IElementBehaviorSiteOM
-  {
+  struct IElementBehaviorSiteOM2 : public IElementBehaviorSiteOM {
   public:
     virtual HRESULT WINAPI GetDefaults(IHTMLElementDefaults **ppDefaults) = 0;
-
   };
 #else
-
-  typedef struct IElementBehaviorSiteOM2Vtbl
-  {
+  typedef struct IElementBehaviorSiteOM2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementBehaviorSiteOM2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementBehaviorSiteOM2 *This);
-
       ULONG (WINAPI *Release)(IElementBehaviorSiteOM2 *This);
-
       HRESULT (WINAPI *RegisterEvent)(IElementBehaviorSiteOM2 *This,LPOLESTR pchEvent,LONG lFlags,LONG *plCookie);
-
       HRESULT (WINAPI *GetEventCookie)(IElementBehaviorSiteOM2 *This,LPOLESTR pchEvent,LONG *plCookie);
-
       HRESULT (WINAPI *FireEvent)(IElementBehaviorSiteOM2 *This,LONG lCookie,IHTMLEventObj *pEventObject);
-
       HRESULT (WINAPI *CreateEventObject)(IElementBehaviorSiteOM2 *This,IHTMLEventObj **ppEventObject);
-
       HRESULT (WINAPI *RegisterName)(IElementBehaviorSiteOM2 *This,LPOLESTR pchName);
-
       HRESULT (WINAPI *RegisterUrn)(IElementBehaviorSiteOM2 *This,LPOLESTR pchUrn);
-
       HRESULT (WINAPI *GetDefaults)(IElementBehaviorSiteOM2 *This,IHTMLElementDefaults **ppDefaults);
-
     END_INTERFACE
   } IElementBehaviorSiteOM2Vtbl;
-
-  interface IElementBehaviorSiteOM2
-  {
+  interface IElementBehaviorSiteOM2 {
     CONST_VTBL struct IElementBehaviorSiteOM2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementBehaviorSiteOM2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementBehaviorSiteOM2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementBehaviorSiteOM2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementBehaviorSiteOM2_RegisterEvent(This,pchEvent,lFlags,plCookie) (This)->lpVtbl->RegisterEvent(This,pchEvent,lFlags,plCookie)
-
 #define IElementBehaviorSiteOM2_GetEventCookie(This,pchEvent,plCookie) (This)->lpVtbl->GetEventCookie(This,pchEvent,plCookie)
-
 #define IElementBehaviorSiteOM2_FireEvent(This,lCookie,pEventObject) (This)->lpVtbl->FireEvent(This,lCookie,pEventObject)
-
 #define IElementBehaviorSiteOM2_CreateEventObject(This,ppEventObject) (This)->lpVtbl->CreateEventObject(This,ppEventObject)
-
 #define IElementBehaviorSiteOM2_RegisterName(This,pchName) (This)->lpVtbl->RegisterName(This,pchName)
-
 #define IElementBehaviorSiteOM2_RegisterUrn(This,pchUrn) (This)->lpVtbl->RegisterUrn(This,pchUrn)
-
 #define IElementBehaviorSiteOM2_GetDefaults(This,ppDefaults) (This)->lpVtbl->GetDefaults(This,ppDefaults)
 #endif
 #endif
 
   HRESULT WINAPI IElementBehaviorSiteOM2_GetDefaults_Proxy(IElementBehaviorSiteOM2 *This,IHTMLElementDefaults **ppDefaults);
-
   void __RPC_STUB IElementBehaviorSiteOM2_GetDefaults_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementBehaviorCategory_INTERFACE_DEFINED__
 #define __IElementBehaviorCategory_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementBehaviorCategory;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementBehaviorCategory : public IUnknown
-  {
+  struct IElementBehaviorCategory : public IUnknown {
   public:
     virtual HRESULT WINAPI GetCategory(LPOLESTR *ppchCategory) = 0;
-
   };
 #else
-
-  typedef struct IElementBehaviorCategoryVtbl
-  {
+  typedef struct IElementBehaviorCategoryVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementBehaviorCategory *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementBehaviorCategory *This);
-
       ULONG (WINAPI *Release)(IElementBehaviorCategory *This);
-
       HRESULT (WINAPI *GetCategory)(IElementBehaviorCategory *This,LPOLESTR *ppchCategory);
-
     END_INTERFACE
   } IElementBehaviorCategoryVtbl;
-
-  interface IElementBehaviorCategory
-  {
+  interface IElementBehaviorCategory {
     CONST_VTBL struct IElementBehaviorCategoryVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementBehaviorCategory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementBehaviorCategory_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementBehaviorCategory_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementBehaviorCategory_GetCategory(This,ppchCategory) (This)->lpVtbl->GetCategory(This,ppchCategory)
 #endif
 #endif
 
   HRESULT WINAPI IElementBehaviorCategory_GetCategory_Proxy(IElementBehaviorCategory *This,LPOLESTR *ppchCategory);
-
   void __RPC_STUB IElementBehaviorCategory_GetCategory_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementBehaviorSiteCategory_INTERFACE_DEFINED__
 #define __IElementBehaviorSiteCategory_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementBehaviorSiteCategory;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementBehaviorSiteCategory : public IUnknown
-  {
+  struct IElementBehaviorSiteCategory : public IUnknown {
   public:
     virtual HRESULT WINAPI GetRelatedBehaviors(LONG lDirection,LPOLESTR pchCategory,IEnumUnknown **ppEnumerator) = 0;
-
   };
 #else
-
-  typedef struct IElementBehaviorSiteCategoryVtbl
-  {
+  typedef struct IElementBehaviorSiteCategoryVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementBehaviorSiteCategory *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementBehaviorSiteCategory *This);
-
       ULONG (WINAPI *Release)(IElementBehaviorSiteCategory *This);
-
       HRESULT (WINAPI *GetRelatedBehaviors)(IElementBehaviorSiteCategory *This,LONG lDirection,LPOLESTR pchCategory,IEnumUnknown **ppEnumerator);
-
     END_INTERFACE
   } IElementBehaviorSiteCategoryVtbl;
-
-  interface IElementBehaviorSiteCategory
-  {
+  interface IElementBehaviorSiteCategory {
     CONST_VTBL struct IElementBehaviorSiteCategoryVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementBehaviorSiteCategory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementBehaviorSiteCategory_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementBehaviorSiteCategory_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementBehaviorSiteCategory_GetRelatedBehaviors(This,lDirection,pchCategory,ppEnumerator) (This)->lpVtbl->GetRelatedBehaviors(This,lDirection,pchCategory,ppEnumerator)
 #endif
 #endif
 
   HRESULT WINAPI IElementBehaviorSiteCategory_GetRelatedBehaviors_Proxy(IElementBehaviorSiteCategory *This,LONG lDirection,LPOLESTR pchCategory,IEnumUnknown **ppEnumerator);
-
   void __RPC_STUB IElementBehaviorSiteCategory_GetRelatedBehaviors_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementBehaviorSubmit_INTERFACE_DEFINED__
 #define __IElementBehaviorSubmit_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementBehaviorSubmit;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementBehaviorSubmit : public IUnknown
-  {
+  struct IElementBehaviorSubmit : public IUnknown {
   public:
     virtual HRESULT WINAPI GetSubmitInfo(IHTMLSubmitData *pSubmitData) = 0;
-
     virtual HRESULT WINAPI Reset(void) = 0;
-
   };
 #else
-
-  typedef struct IElementBehaviorSubmitVtbl
-  {
+  typedef struct IElementBehaviorSubmitVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementBehaviorSubmit *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementBehaviorSubmit *This);
-
       ULONG (WINAPI *Release)(IElementBehaviorSubmit *This);
-
       HRESULT (WINAPI *GetSubmitInfo)(IElementBehaviorSubmit *This,IHTMLSubmitData *pSubmitData);
-
       HRESULT (WINAPI *Reset)(IElementBehaviorSubmit *This);
-
     END_INTERFACE
   } IElementBehaviorSubmitVtbl;
-
-  interface IElementBehaviorSubmit
-  {
+  interface IElementBehaviorSubmit {
     CONST_VTBL struct IElementBehaviorSubmitVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementBehaviorSubmit_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementBehaviorSubmit_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementBehaviorSubmit_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementBehaviorSubmit_GetSubmitInfo(This,pSubmitData) (This)->lpVtbl->GetSubmitInfo(This,pSubmitData)
-
 #define IElementBehaviorSubmit_Reset(This) (This)->lpVtbl->Reset(This)
 #endif
 #endif
 
   HRESULT WINAPI IElementBehaviorSubmit_GetSubmitInfo_Proxy(IElementBehaviorSubmit *This,IHTMLSubmitData *pSubmitData);
-
   void __RPC_STUB IElementBehaviorSubmit_GetSubmitInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IElementBehaviorSubmit_Reset_Proxy(IElementBehaviorSubmit *This);
-
   void __RPC_STUB IElementBehaviorSubmit_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementBehaviorFocus_INTERFACE_DEFINED__
 #define __IElementBehaviorFocus_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementBehaviorFocus;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementBehaviorFocus : public IUnknown
-  {
+  struct IElementBehaviorFocus : public IUnknown {
   public:
     virtual HRESULT WINAPI GetFocusRect(RECT *pRect) = 0;
-
   };
 #else
-
-  typedef struct IElementBehaviorFocusVtbl
-  {
+  typedef struct IElementBehaviorFocusVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementBehaviorFocus *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementBehaviorFocus *This);
-
       ULONG (WINAPI *Release)(IElementBehaviorFocus *This);
-
       HRESULT (WINAPI *GetFocusRect)(IElementBehaviorFocus *This,RECT *pRect);
-
     END_INTERFACE
   } IElementBehaviorFocusVtbl;
-
-  interface IElementBehaviorFocus
-  {
+  interface IElementBehaviorFocus {
     CONST_VTBL struct IElementBehaviorFocusVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementBehaviorFocus_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementBehaviorFocus_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementBehaviorFocus_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementBehaviorFocus_GetFocusRect(This,pRect) (This)->lpVtbl->GetFocusRect(This,pRect)
 #endif
 #endif
 
   HRESULT WINAPI IElementBehaviorFocus_GetFocusRect_Proxy(IElementBehaviorFocus *This,RECT *pRect);
-
   void __RPC_STUB IElementBehaviorFocus_GetFocusRect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementBehaviorLayout_INTERFACE_DEFINED__
 #define __IElementBehaviorLayout_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementBehaviorLayout;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementBehaviorLayout : public IUnknown
-  {
+  struct IElementBehaviorLayout : public IUnknown {
   public:
     virtual HRESULT WINAPI GetSize(LONG dwFlags,SIZE sizeContent,POINT *pptTranslateBy,POINT *pptTopLeft,SIZE *psizeProposed) = 0;
-
     virtual HRESULT WINAPI GetLayoutInfo(LONG *plLayoutInfo) = 0;
-
     virtual HRESULT WINAPI GetPosition(LONG lFlags,POINT *pptTopLeft) = 0;
-
     virtual HRESULT WINAPI MapSize(SIZE *psizeIn,RECT *prcOut) = 0;
-
   };
 #else
-
-  typedef struct IElementBehaviorLayoutVtbl
-  {
+  typedef struct IElementBehaviorLayoutVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementBehaviorLayout *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementBehaviorLayout *This);
-
       ULONG (WINAPI *Release)(IElementBehaviorLayout *This);
-
       HRESULT (WINAPI *GetSize)(IElementBehaviorLayout *This,LONG dwFlags,SIZE sizeContent,POINT *pptTranslateBy,POINT *pptTopLeft,SIZE *psizeProposed);
-
       HRESULT (WINAPI *GetLayoutInfo)(IElementBehaviorLayout *This,LONG *plLayoutInfo);
-
       HRESULT (WINAPI *GetPosition)(IElementBehaviorLayout *This,LONG lFlags,POINT *pptTopLeft);
-
       HRESULT (WINAPI *MapSize)(IElementBehaviorLayout *This,SIZE *psizeIn,RECT *prcOut);
-
     END_INTERFACE
   } IElementBehaviorLayoutVtbl;
-
-  interface IElementBehaviorLayout
-  {
+  interface IElementBehaviorLayout {
     CONST_VTBL struct IElementBehaviorLayoutVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementBehaviorLayout_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementBehaviorLayout_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementBehaviorLayout_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementBehaviorLayout_GetSize(This,dwFlags,sizeContent,pptTranslateBy,pptTopLeft,psizeProposed) (This)->lpVtbl->GetSize(This,dwFlags,sizeContent,pptTranslateBy,pptTopLeft,psizeProposed)
-
 #define IElementBehaviorLayout_GetLayoutInfo(This,plLayoutInfo) (This)->lpVtbl->GetLayoutInfo(This,plLayoutInfo)
-
 #define IElementBehaviorLayout_GetPosition(This,lFlags,pptTopLeft) (This)->lpVtbl->GetPosition(This,lFlags,pptTopLeft)
-
 #define IElementBehaviorLayout_MapSize(This,psizeIn,prcOut) (This)->lpVtbl->MapSize(This,psizeIn,prcOut)
 #endif
 #endif
 
   HRESULT WINAPI IElementBehaviorLayout_GetSize_Proxy(IElementBehaviorLayout *This,LONG dwFlags,SIZE sizeContent,POINT *pptTranslateBy,POINT *pptTopLeft,SIZE *psizeProposed);
-
   void __RPC_STUB IElementBehaviorLayout_GetSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IElementBehaviorLayout_GetLayoutInfo_Proxy(IElementBehaviorLayout *This,LONG *plLayoutInfo);
-
   void __RPC_STUB IElementBehaviorLayout_GetLayoutInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IElementBehaviorLayout_GetPosition_Proxy(IElementBehaviorLayout *This,LONG lFlags,POINT *pptTopLeft);
-
   void __RPC_STUB IElementBehaviorLayout_GetPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IElementBehaviorLayout_MapSize_Proxy(IElementBehaviorLayout *This,SIZE *psizeIn,RECT *prcOut);
-
   void __RPC_STUB IElementBehaviorLayout_MapSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementBehaviorLayout2_INTERFACE_DEFINED__
 #define __IElementBehaviorLayout2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementBehaviorLayout2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementBehaviorLayout2 : public IUnknown
-  {
+  struct IElementBehaviorLayout2 : public IUnknown {
   public:
     virtual HRESULT WINAPI GetTextDescent(LONG *plDescent) = 0;
-
   };
 #else
-
-  typedef struct IElementBehaviorLayout2Vtbl
-  {
+  typedef struct IElementBehaviorLayout2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementBehaviorLayout2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementBehaviorLayout2 *This);
-
       ULONG (WINAPI *Release)(IElementBehaviorLayout2 *This);
-
       HRESULT (WINAPI *GetTextDescent)(IElementBehaviorLayout2 *This,LONG *plDescent);
-
     END_INTERFACE
   } IElementBehaviorLayout2Vtbl;
-
-  interface IElementBehaviorLayout2
-  {
+  interface IElementBehaviorLayout2 {
     CONST_VTBL struct IElementBehaviorLayout2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementBehaviorLayout2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementBehaviorLayout2_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementBehaviorLayout2_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementBehaviorLayout2_GetTextDescent(This,plDescent) (This)->lpVtbl->GetTextDescent(This,plDescent)
 #endif
 #endif
 
   HRESULT WINAPI IElementBehaviorLayout2_GetTextDescent_Proxy(IElementBehaviorLayout2 *This,LONG *plDescent);
-
   void __RPC_STUB IElementBehaviorLayout2_GetTextDescent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementBehaviorSiteLayout_INTERFACE_DEFINED__
 #define __IElementBehaviorSiteLayout_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementBehaviorSiteLayout;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
-  struct IElementBehaviorSiteLayout : public IUnknown
-  {
+  struct IElementBehaviorSiteLayout : public IUnknown {
   public:
     virtual HRESULT WINAPI InvalidateLayoutInfo(void) = 0;
-
     virtual HRESULT WINAPI InvalidateSize(void) = 0;
-
     virtual HRESULT WINAPI GetMediaResolution(SIZE *psizeResolution) = 0;
-
   };
 #else
-
-  typedef struct IElementBehaviorSiteLayoutVtbl
-  {
+  typedef struct IElementBehaviorSiteLayoutVtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementBehaviorSiteLayout *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementBehaviorSiteLayout *This);
-
       ULONG (WINAPI *Release)(IElementBehaviorSiteLayout *This);
-
       HRESULT (WINAPI *InvalidateLayoutInfo)(IElementBehaviorSiteLayout *This);
-
       HRESULT (WINAPI *InvalidateSize)(IElementBehaviorSiteLayout *This);
-
       HRESULT (WINAPI *GetMediaResolution)(IElementBehaviorSiteLayout *This,SIZE *psizeResolution);
-
     END_INTERFACE
   } IElementBehaviorSiteLayoutVtbl;
-
-  interface IElementBehaviorSiteLayout
-  {
+  interface IElementBehaviorSiteLayout {
     CONST_VTBL struct IElementBehaviorSiteLayoutVtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
-
 #define IElementBehaviorSiteLayout_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-
 #define IElementBehaviorSiteLayout_AddRef(This) (This)->lpVtbl->AddRef(This)
-
 #define IElementBehaviorSiteLayout_Release(This) (This)->lpVtbl->Release(This)
-
 #define IElementBehaviorSiteLayout_InvalidateLayoutInfo(This) (This)->lpVtbl->InvalidateLayoutInfo(This)
-
 #define IElementBehaviorSiteLayout_InvalidateSize(This) (This)->lpVtbl->InvalidateSize(This)
-
 #define IElementBehaviorSiteLayout_GetMediaResolution(This,psizeResolution) (This)->lpVtbl->GetMediaResolution(This,psizeResolution)
 #endif
 #endif
 
   HRESULT WINAPI IElementBehaviorSiteLayout_InvalidateLayoutInfo_Proxy(IElementBehaviorSiteLayout *This);
-
   void __RPC_STUB IElementBehaviorSiteLayout_InvalidateLayoutInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IElementBehaviorSiteLayout_InvalidateSize_Proxy(IElementBehaviorSiteLayout *This);
-
   void __RPC_STUB IElementBehaviorSiteLayout_InvalidateSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-
   HRESULT WINAPI IElementBehaviorSiteLayout_GetMediaResolution_Proxy(IElementBehaviorSiteLayout *This,SIZE *psizeResolution);
-
   void __RPC_STUB IElementBehaviorSiteLayout_GetMediaResolution_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IElementBehaviorSiteLayout2_INTERFACE_DEFINED__
 #define __IElementBehaviorSiteLayout2_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IElementBehaviorSiteLayout2;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
   struct IElementBehaviorSiteLayout2 : public IUnknown {
   public:
     virtual HRESULT WINAPI GetFontInfo(LOGFONTW *plf) = 0;
-
   };
 #else
-
-  typedef struct IElementBehaviorSiteLayout2Vtbl
-  {
+  typedef struct IElementBehaviorSiteLayout2Vtbl {
     BEGIN_INTERFACE
-
       HRESULT (WINAPI *QueryInterface)(IElementBehaviorSiteLayout2 *This,REFIID riid,void **ppvObject);
-
       ULONG (WINAPI *AddRef)(IElementBehaviorSiteLayout2 *This);
-
       ULONG (WINAPI *Release)(IElementBehaviorSiteLayout2 *This);
-
       HRESULT (WINAPI *GetFontInfo)(IElementBehaviorSiteLayout2 *This,LOGFONTW *plf);
-
     END_INTERFACE
   } IElementBehaviorSiteLayout2Vtbl;
-
-  interface IElementBehaviorSiteLayout2
-  {
+  interface IElementBehaviorSiteLayout2 {
     CONST_VTBL struct IElementBehaviorSiteLayout2Vtbl *lpVtbl;
   };
-
 #ifdef COBJMACROS
 #define IElementBehaviorSiteLayout2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IElementBehaviorSiteLayout2_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -39182,17 +33725,13 @@ IHTMLStyle : public IDispatch {
 #endif
 
   HRESULT WINAPI IElementBehaviorSiteLayout2_GetFontInfo_Proxy(IElementBehaviorSiteLayout2 *This,LOGFONTW *plf);
-
   void __RPC_STUB IElementBehaviorSiteLayout2_GetFontInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IHostBehaviorInit_INTERFACE_DEFINED__
 #define __IHostBehaviorInit_INTERFACE_DEFINED__
-
   EXTERN_C const IID IID_IHostBehaviorInit;
-
 #if defined(__cplusplus) && !defined(CINTERFACE)
-
   struct IHostBehaviorInit : public IUnknown {
   public:
     virtual HRESULT WINAPI PopulateNamespaceTable(void) = 0;
