@@ -45,6 +45,10 @@ You have at least two different choices to build the crosscompiler toolchain:
     $ cd /mypath
     $ ln -s x86_64-pc-mingw32 mingw
 
+  Note:
+  The header-set and crt contains the standard-c and the windows (w32api) specific files. Therefore it is not necessary
+  to install an additional package. Simply use the '-mwindows' option for windows GUI applications. By default '-mconsole'
+  is used and produce console applications. Also you can use the '-mdll' option for generating shared objects (dll).
 
 
 4. Building the gcc core cross-compiler(s):
@@ -76,7 +80,8 @@ You have at least two different choices to build the crosscompiler toolchain:
 	'<install-root>/x86_64-pc-mingw32/lib' folder.
   Step 4) Copy out of the root folder to the '<install-root>/x86_64-pc-mingw32/lib' folder the files
 	crt1.o, crt2.o, lib*.a, *.dll, crtbegin.o, crtend.o, dllcrt1.o, dllcrt2.o, binmode.o, txtmode.o,
-	CRT_fp8.o, and the CRT_fp10.o.
+	CRT_fp8.o, and the CRT_fp10.o
+	Note: Currently there is no dll build. As long as we use static crt libraries.we won't need a ctor/dtor dll.
 
 
 
