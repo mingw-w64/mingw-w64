@@ -1,3 +1,11 @@
+2007-09-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* termio.h: Removed.
+	* termios.h: Likewise.
+	* sys/ttychars.h: Likewise.
+	* sys/termio.h: Likewise.
+	* sys/termios.h: Likewise.
+
 2007-09-11  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdlib.h: (_sys_errlist): Make default declaration having
