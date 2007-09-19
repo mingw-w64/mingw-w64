@@ -4,7 +4,7 @@ PACKAGE = x86_64-mingw-runtime
 VERSION = 3.9
 CYGRELEASE = 1
 
-VPATH = .:./math:./complex:./stdio:./misc:./termios
+VPATH = .:./math:./complex:./stdio:./misc
 srcdir = .
 objdir = .
 
@@ -200,11 +200,6 @@ MINGWEX_OBJS = dirent.o wdirent.o getopt.o ftruncate.o
 
 MOLD_OBJS = isascii.o iscsym.o iscsymf.o toascii.o \
 	strcasecmp.o strncasecmp.o wcscmpi.o
-
-TERMIOS_OBJS = \
-	cfmakeraw.o cfsetspeed.o speed.o tcdrain.o tcflow.o tcflush.o \
-	tcgetattr.o tcgetpgrp.o tcgetsid.o tcsendbrk.o tcsetattr.o tcsetpgrp.o ioctl.o \
-	ttyname.o
 
 LIBS = libcrtdll.a \
        libmsvcrt.a \
