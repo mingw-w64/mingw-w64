@@ -191,7 +191,8 @@ Q8_OBJS = \
 	strtoimax.o strtoumax.o wcstoimax.o wcstoumax.o \
 	wmemchr.o wmemcmp.o wmemcpy.o wmemmove.o wmemset.o \
 	wctrans.o wctype.o wcrtomb.o wctob.o mbrtowc.o btowc.o seterrno.o \
-	sleep.o alarm.o getlogin.o gettimeofday.o wassert.o isblank.o iswblank.o
+	sleep.o alarm.o getlogin.o gettimeofday.o wassert.o isblank.o iswblank.o \
+	wininterlocked.o
 
 STDLIB_OBJS = \
 	strtold.o wcstold.o

@@ -1,3 +1,9 @@
+2007-09-20  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: Add build file misc/wininterlocked.c.
+	* misc/wininterlocked.c: New file implementing
+	inline methods defined by winnt.h.
+
 2007-09-19  Kai Tietz  <kai.tietz@onevision.com>
 
 	* Makefile: removed termios and TERMIOS_OBJS.
