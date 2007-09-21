@@ -248,13 +248,6 @@ LONG InterlockedExchange(LONG volatile *Target,LONG Value)
   return Value;
 }
 
-#ifndef _X86AMD64_
-LONG InterlockedAdd(LONG volatile *Addend,LONG Value)
-{
-  return InterlockedExchangeAdd(Addend,Value) + Value;
-}
-#endif
-
 LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand)
 {
   LONG prev;
@@ -292,13 +285,6 @@ LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value)
     : "memory");
   return Value;
 }
-
-#ifndef _X86AMD64_
-LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value)
-{
-  return InterlockedExchangeAdd64(Addend,Value) + Value;
-}
-#endif
 
 LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand)
 {

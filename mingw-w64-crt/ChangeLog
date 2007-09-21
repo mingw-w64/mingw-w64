@@ -1,3 +1,8 @@
+2007-09-21  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wininterlocked.c: Remove InterlockedExchangeAdd64 and
+	InterlockedExchangeAdd.
+
 2007-09-20  Kai Tietz  <kai.tietz@onevision.com>
 
 	* Makefile: Add build file misc/wininterlocked.c.
