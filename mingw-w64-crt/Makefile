@@ -192,7 +192,8 @@ Q8_OBJS = \
 	wmemchr.o wmemcmp.o wmemcpy.o wmemmove.o wmemset.o \
 	wctrans.o wctype.o wcrtomb.o wctob.o mbrtowc.o btowc.o seterrno.o \
 	sleep.o alarm.o getlogin.o gettimeofday.o wassert.o isblank.o iswblank.o \
-	wininterlocked.o
+	wininterlocked.o mktime.o difftime.o ctime.o gmtime.o localtime.o _mkgmtime.o \
+	time.o
 
 STDLIB_OBJS = \
 	strtold.o wcstold.o

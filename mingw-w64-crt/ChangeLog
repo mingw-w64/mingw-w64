@@ -2,6 +2,9 @@
 
 	* dirent.c: (_topendir): Let d_name point to dd_dta.name.
 	PR/1801043
+	* mktime.c, difftime.c, ctime.c, gmtime.c, localtime.c,
+	_mkgmtime.c, time.c: New files in misc.
+	* Makefile: Add new files to build.
 
 2007-09-21  Kai Tietz  <kai.tietz@onevision.com>
 
