@@ -1,3 +1,8 @@
+2007-09-24  Kai Tietz  <kai.tietz@onevision.com>
+
+	* dirent.c: (_topendir): Let d_name point to dd_dta.name.
+	PR/1801043
+
 2007-09-21  Kai Tietz  <kai.tietz@onevision.com>
 
 	* misc/wininterlocked.c: Remove InterlockedExchangeAdd64 and
