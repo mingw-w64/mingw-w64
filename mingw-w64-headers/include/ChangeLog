@@ -1,3 +1,14 @@
+2007-09-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h: (USE___UUIDOF): New.
+	* comdef.h: Use USE___UUIDOF for use of __uuidof operator. Also
+	add include of _mingw.h to it.
+	* comdefsp.h: Likewise.
+	* comip.h: Likewise.
+	* comsvcs.h: Likewise.
+	* servprov.h: Likewise.
+	* unknwn.h: Likewise.
+
 2007-09-19  Kai Tietz  <kai.tietz@onevision.com>
 
 	* termio.h: Removed.

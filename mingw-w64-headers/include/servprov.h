@@ -7,6 +7,7 @@
 #define __REQUIRED_RPCNDR_H_VERSION__ 440
 #endif
 
+#include <_mingw.h>
 #include "rpc.h"
 #include "rpcndr.h"
 
@@ -49,7 +50,9 @@ extern "C" {
     struct IServiceProvider : public IUnknown {
     public:
       virtual HRESULT WINAPI QueryService(REFGUID guidService,REFIID riid,void **ppvObject) = 0;
+#if USE___UUIDOF != 0
       template <class Q> HRESULT WINAPI QueryService(REFGUID guidService,Q **pp) { return QueryService(guidService,__uuidof(Q),(void **)pp); }
+#endif
     };
   }
   HRESULT WINAPI IServiceProvider_RemoteQueryService_Proxy(IServiceProvider *This,REFGUID guidService,REFIID riid,IUnknown **ppvObject);

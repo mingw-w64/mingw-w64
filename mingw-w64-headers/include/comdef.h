@@ -3,8 +3,10 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#if !defined(_INC_COMDEF)
+#ifndef _INC_COMDEF
 #define _INC_COMDEF
+
+#include <_mingw.h>
 
 #ifndef RC_INVOKED
 
@@ -113,7 +115,7 @@ inline _bstr_t _com_error::Source() const {
 
 inline _GUID _com_error::GUID() const throw() {
   _GUID guid;
-  _COM_MEMCPY_S(&guid,sizeof(_GUID),&__uuidof(NULL),sizeof(_GUID));
+  memset (&guid, 0, sizeof (_GUID));
   if(m_perrinfo!=NULL) m_perrinfo->GetGUID(&guid);
   return guid;
 }
@@ -164,7 +166,7 @@ typedef int __missing_type__;
 #endif
 #endif
 
-#if !defined(_COM_NO_STANDARD_GUIDS_)
+#if !defined(_COM_NO_STANDARD_GUIDS_) && USE___UUIDOF != 0
 #if defined(__IFontDisp_INTERFACE_DEFINED__)
 __if_not_exists(Font)
 {

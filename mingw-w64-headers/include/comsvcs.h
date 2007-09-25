@@ -7,6 +7,7 @@
 #define __REQUIRED_RPCNDR_H_VERSION__ 475
 #endif
 
+#include <_mingw.h>
 #include "rpc.h"
 #include "rpcndr.h"
 
@@ -3383,7 +3384,7 @@ extern "C"{
   void __RPC_STUB IDispenserDriver_DestroyResourceS_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-#ifdef USE_UUIDOF_FOR_IID_
+#if defined(USE_UUIDOF_FOR_IID_) && USE___UUIDOF != 0
 #define IID_IHolder __uuidof(IIHolder)
 #define IID_IDispenserManager __uuidof(IDispenserManager)
 #define IID_IDispenserDriver __uuidof(IDispenserDriver)

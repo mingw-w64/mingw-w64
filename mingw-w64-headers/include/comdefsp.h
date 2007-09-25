@@ -5,7 +5,10 @@
  */
 #if !defined(_INC_COMDEFSP)
 #define _INC_COMDEFSP
-#if !defined(RC_INVOKED)
+
+#include <_mingw.h>
+
+#if !defined(RC_INVOKED) && USE___UUIDOF != 0
 
 #ifndef __cplusplus
 #error Native compiler support only available in C++ compiler.

@@ -191,6 +191,14 @@ __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,cons
 #endif
 
 #ifndef RC_INVOKED
+double __cdecl difftime(time_t _Time1,time_t _Time2);
+char *__cdecl ctime(const time_t *_Time);
+struct tm *__cdecl gmtime(const time_t *_Time);
+struct tm *__cdecl localtime(const time_t *_Time);
+time_t __cdecl mktime(struct tm *_Tm);
+time_t __cdecl _mkgmtime(struct tm *_Tm);
+time_t __cdecl time(time_t *_Time);
+
 #ifdef _USE_32BIT_TIME_T
 __CRT_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2) { return _difftime32(_Time1,_Time2); }
 __CRT_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime32(_Time); }

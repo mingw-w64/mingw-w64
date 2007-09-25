@@ -40,6 +40,8 @@ limitations in handling dllimport attribute.  */
 # endif /* __declspec */
 #endif
 
+#define USE___UUIDOF	0
+
 #ifdef __cplusplus
 # define __CRT_INLINE inline
 #else
