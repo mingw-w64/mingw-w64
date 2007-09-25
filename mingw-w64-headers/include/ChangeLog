@@ -8,6 +8,7 @@
 	* comsvcs.h: Likewise.
 	* servprov.h: Likewise.
 	* unknwn.h: Likewise.
+	* time.h: Add none inline prototypes for POSIX time functions.
 
 2007-09-19  Kai Tietz  <kai.tietz@onevision.com>
 
