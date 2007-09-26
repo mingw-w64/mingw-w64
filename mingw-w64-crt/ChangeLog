@@ -4,6 +4,14 @@
 	Add _findnext64i32.c.
 	* stdio/_findfirst64i32.c: New.
 	* stdio/_findnext64i32.c: New.
+	* math/sinf.S: Removed.
+	* math/cosf.S: Removed.
+	* math/tanf.S: Removed.
+	* math/ceilf.S: Removed.
+	* math/sinf.c: New.
+	* math/cosf.c: New.
+	* math/tanf.c: New.
+	* math/ceilf.c: New.
 
 2007-09-24  Kai Tietz  <kai.tietz@onevision.com>
 
