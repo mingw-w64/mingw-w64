@@ -176,7 +176,7 @@ STDLIB_STUB_OBJS = \
 	lltow.o ulltow.o \
 	atoll.o wtoll.o \
 	strtof.o wcstof.o \
-	_Exit.o
+	_Exit.o _findfirst64i32.o _findnext64i32.o
 
 FENV_OBJS = fesetround.o  fegetround.o \
 	fegetenv.o fesetenv.o feupdateenv.o \

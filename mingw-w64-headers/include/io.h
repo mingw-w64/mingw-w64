@@ -240,6 +240,7 @@ extern "C" {
 #ifdef __cplusplus
 #include <string.h>
 #endif
+  intptr_t __cdecl _findfirst64i32(const char *_Filename,struct _finddata64i32_t *_FindData);
   __CRT_INLINE intptr_t __cdecl _findfirst64i32(const char *_Filename,struct _finddata64i32_t *_FindData)
   {
     struct __finddata64_t fd;
@@ -254,6 +255,7 @@ extern "C" {
   }
   _CRTIMP int __cdecl _findnext32i64(intptr_t _FindHandle,struct _finddata32i64_t *_FindData);
   _CRTIMP int __cdecl _findnext64(intptr_t _FindHandle,struct __finddata64_t *_FindData);
+  int __cdecl _findnext64i32(intptr_t _FindHandle,struct _finddata64i32_t *_FindData);
   __CRT_INLINE int __cdecl _findnext64i32(intptr_t _FindHandle,struct _finddata64i32_t *_FindData)
   {
     struct __finddata64_t fd;

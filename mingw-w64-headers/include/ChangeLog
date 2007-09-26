@@ -1,3 +1,8 @@
+2007-09-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h: Add non inline protypes.
+	* inttypes.h: (imaxabs): Likewise.
+
 2007-09-25  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw.h: (USE___UUIDOF): New.

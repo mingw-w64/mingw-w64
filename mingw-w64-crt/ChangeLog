@@ -1,3 +1,10 @@
+2007-09-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: Add _findfirst64i32.c.
+	Add _findnext64i32.c.
+	* stdio/_findfirst64i32.c: New.
+	* stdio/_findnext64i32.c: New.
+
 2007-09-24  Kai Tietz  <kai.tietz@onevision.com>
 
 	* dirent.c: (_topendir): Let d_name point to dd_dta.name.
