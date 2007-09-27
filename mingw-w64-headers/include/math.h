@@ -61,9 +61,9 @@ extern "C" {
   double __cdecl atan(double _X);
   double __cdecl atan2(double _Y,double _X);
 #ifndef _SIGN_DEFINED
+#define _SIGN_DEFINED
   _CRTIMP double __cdecl _copysign (double _Number,double _Sign);
   _CRTIMP double __cdecl _chgsign (double _X);
-#define _SIGN_DEFINED
 #endif
   double __cdecl cos(double _X);
   double __cdecl cosh(double _X);
@@ -166,41 +166,19 @@ extern "C" {
 #endif
 
 #ifndef __cplusplus
-  __CRT_INLINE long double acosl(long double _X) { return (acos((double)_X)); }
-  __CRT_INLINE long double asinl(long double _X) { return (asin((double)_X)); }
-  __CRT_INLINE long double atanl(long double _X) { return (atan((double)_X)); }
-  __CRT_INLINE long double atan2l(long double _X,long double _Y) { return (atan2((double)_X,(double)_Y)); }
-  __CRT_INLINE long double ceill(long double _X) { return (ceil((double)_X)); }
-  __CRT_INLINE long double cosl(long double _X) { return (cos((double)_X)); }
-  __CRT_INLINE long double coshl(long double _X) { return (cosh((double)_X)); }
-  __CRT_INLINE long double expl(long double _X) { return (exp((double)_X)); }
   __CRT_INLINE long double __cdecl fabsl (long double x)
   {
     long double res;
     __asm__ ("fabs;" : "=t" (res) : "0" (x));
     return res;
   }
-  __CRT_INLINE long double floorl(long double _X) { return (floor((double)_X)); }
-  __CRT_INLINE long double frexpl(long double _X,int *_Y) { return (frexp((double)_X,_Y)); }
 #define _hypotl(x,y) ((long double)_hypot((double)(x),(double)(y)))
-  __CRT_INLINE long double logl(long double _X) { return (log((double)_X)); }
-  __CRT_INLINE long double log10l(long double _X) { return (log10((double)_X)); }
 #define _matherrl _matherr
   __CRT_INLINE long double modfl(long double _X,long double *_Y) {
     double _Di,_Df = modf((double)_X,&_Di);
     *_Y = (long double)_Di;
     return (_Df);
   }
-  __CRT_INLINE long double powl(long double _X,long double _Y) { return (pow((double)_X,(double)_Y)); }
-  __CRT_INLINE long double sinl(long double _X) { return (sin((double)_X)); }
-  __CRT_INLINE long double sinhl(long double _X) { return (sinh((double)_X)); }
-  __CRT_INLINE long double sqrtl(long double _X) { return (sqrt((double)_X)); }
-#ifndef __ia64__
-  __CRT_INLINE long double tanl(long double _X) { return (tan((double)_X)); }
-#else
-  _CRTIMP long double __cdecl tanl(long double _X);
-#endif
-  __CRT_INLINE long double tanhl(long double _X) { return (tanh((double)_X)); }
   __CRT_INLINE long double _chgsignl(long double _Number) { return _chgsign((double)(_Number)); }
   __CRT_INLINE long double _copysignl(long double _Number,long double _Sign) { return _copysign((double)(_Number),(double)(_Sign)); }
   __CRT_INLINE float frexpf(float _X,int *_Y) { return ((float)frexp((double)_X,_Y)); }
@@ -213,8 +191,7 @@ extern "C" {
     return res;
   }
 
-  __CRT_INLINE float __cdecl ldexpf (float x, int expn)
-  {return (float) ldexp (x, expn);}
+  __CRT_INLINE float __cdecl ldexpf (float x, int expn) { return (float) ldexp (x, expn); }
 #if !defined (__x86_64)
 #define acosf(x) ((float)acos((double)(x)))
 #define asinf(x) ((float)asin((double)(x)))
@@ -239,40 +216,17 @@ extern "C" {
 #endif
 #else
   // cplusplus
-  __CRT_INLINE long double acosl(long double _X) { return (acos((double)_X)); }
-  __CRT_INLINE long double asinl(long double _X) { return (asin((double)_X)); }
-  __CRT_INLINE long double atanl(long double _X) { return (atan((double)_X)); }
-  __CRT_INLINE long double atan2l(long double _X,long double _Y) { return (atan2((double)_X,(double)_Y)); }
-  __CRT_INLINE long double ceill(long double _X) { return (ceil((double)_X)); }
-  __CRT_INLINE long double cosl(long double _X) { return (cos((double)_X)); }
-  __CRT_INLINE long double coshl(long double _X) { return (cosh((double)_X)); }
-  __CRT_INLINE long double expl(long double _X) { return (exp((double)_X)); }
   __CRT_INLINE long double __cdecl fabsl (long double x)
   {
     long double res;
     __asm__ ("fabs;" : "=t" (res) : "0" (x));
     return res;
   }
-  __CRT_INLINE long double floorl(long double _X) { return (floor((double)_X)); }
-  __CRT_INLINE long double frexpl(long double _X,int *_Y) { return (frexp((double)_X,_Y)); }
-  __CRT_INLINE long double logl(long double _X) { return (log((double)_X)); }
-  __CRT_INLINE long double log10l(long double _X) { return (log10((double)_X)); }
   __CRT_INLINE long double modfl(long double _X,long double *_Y) {
     double _Di,_Df = modf((double)_X,&_Di);
     *_Y = (long double)_Di;
     return (_Df);
   }
-  __CRT_INLINE long double powl(long double _X,long double _Y) { return (pow((double)_X,(double)_Y)); }
-  __CRT_INLINE long double sinl(long double _X) { return (sin((double)_X)); }
-  __CRT_INLINE long double sinhl(long double _X) { return (sinh((double)_X)); }
-  __CRT_INLINE long double sqrtl(long double _X) { return (sqrt((double)_X)); }
-#ifndef __ia64__
-  __CRT_INLINE long double tanl(long double _X) { return (tan((double)_X)); }
-#else
-  _CRTIMP long double __cdecl tanl(long double _X);
-#endif
-
-  __CRT_INLINE long double tanhl(long double _X) { return (tanh((double)_X)); }
   __CRT_INLINE long double _chgsignl(long double _Number) { return _chgsign(static_cast<double>(_Number)); }
   __CRT_INLINE long double _copysignl(long double _Number,long double _Sign) { return _copysign(static_cast<double>(_Number),static_cast<double>(_Sign)); }
   __CRT_INLINE float frexpf(float _X,int *_Y) { return ((float)frexp((double)_X,_Y)); }
@@ -283,8 +237,7 @@ extern "C" {
     __asm__ ("fabs;" : "=t" (res) : "0" (x));
     return res;
   }
-  __CRT_INLINE float __cdecl ldexpf (float x, int expn)
-  {return (float) ldexp (x, expn);}
+  __CRT_INLINE float __cdecl ldexpf (float x, int expn) { return (float) ldexp (x, expn); }
 #ifndef __x86_64
   __CRT_INLINE float acosf(float _X) { return ((float)acos((double)_X)); }
   __CRT_INLINE float asinf(float _X) { return ((float)asin((double)_X)); }
@@ -507,6 +460,15 @@ extern "C" {
   extern long double __cdecl hypotl (long double, long double);
 
   extern long double __cdecl powl (long double, long double);
+  extern long double __cdecl expl(long double);
+  extern long double __cdecl coshl(long double);
+  extern long double __cdecl fabsl (long double);
+  extern long double __cdecl acosl(long double);
+  extern long double __cdecl asinl(long double);
+  extern long double __cdecl atanl(long double);
+  extern long double __cdecl atan2l(long double,long double);
+  extern long double __cdecl sinhl(long double);
+  extern long double __cdecl tanhl(long double);
 
   /* 7.12.8.1 The erf functions  */
   extern double __cdecl erf (double);
@@ -533,8 +495,14 @@ extern "C" {
   extern long double __cdecl tgammal (long double);
 
   extern long double __cdecl ceill (long double);
-
   extern long double __cdecl floorl (long double);
+  extern long double __cdecl frexpl(long double,int *);
+  extern long double __cdecl log10l(long double);
+  extern long double __cdecl logl(long double);
+  extern long double __cdecl cosl(long double);
+  extern long double __cdecl sinl(long double);
+  extern long double __cdecl tanl(long double);
+  extern long double sqrtl(long double);
 
   /* 7.12.9.3 */
   extern double __cdecl nearbyint ( double);

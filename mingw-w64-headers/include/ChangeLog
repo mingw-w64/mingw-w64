@@ -1,3 +1,7 @@
+2007-09-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h: Correct 'long double' prototypes.
+
 2007-09-26  Kai Tietz  <kai.tietz@onevision.com>
 
 	* io.h: Add non inline protypes.
