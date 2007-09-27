@@ -10,7 +10,7 @@
 .globl _ceill
 	.def	_ceill;	.scl	2;	.type	32;	.endef
 _ceill:
-	fldt	8(%rsp)
+	fldt	(%rdx)
 	subq	$16,%rsp
 
 	fstcw	8(%rsp)			/* store fpu control word */
@@ -29,4 +29,6 @@ _ceill:
 	fldcw	8(%rsp)			/* restore original control word */
 
 	addq	$16,%rsp
+	movq	%rcx,%eax
+	fstpt	(%ecx)
 	ret

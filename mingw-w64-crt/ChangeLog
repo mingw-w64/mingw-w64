@@ -10,6 +10,10 @@
 	* math/log10f.c: New.
 	* math/copysignf.c: New.
 	* math/copysign.c: New.
+	* math/ceill.S: Adjust calling convention.
+	* math/copysignl.S: Likewise.
+	* math/cosl.S: Likewise.
+	* math/exp2.S: Likewise.
 
 2007-09-26  Kai Tietz  <kai.tietz@onevision.com>
 

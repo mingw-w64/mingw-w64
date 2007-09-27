@@ -11,15 +11,18 @@
 
 	.file	"copysignl.S"
 	.text
-	.align 4
+	.align 8
 .globl _copysignl
 	.def	_copysignl;	.scl	2;	.type	32;	.endef
 _copysignl:
-	movl	24(%esp),%edx
-	movl	12(%esp),%eax
+	movq	%rdx,%r9
+	movl	8(%rdx),%eax
+	movl	8(%r8),%edx
 	andl	$0x8000,%edx
 	andl	$0x7fff,%eax
 	orl	%edx,%eax
-	movl	%eax,12(%esp)
-	fldt	4(%esp)
+	movl	%eax,8(%r9)
+	fldt	(%r9)
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret
