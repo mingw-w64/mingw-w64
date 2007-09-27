@@ -1,3 +1,16 @@
+2007-09-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/logf.S: Removed.
+	* math/floorf.S: Removed.
+	* math/log10f.S: Removed.
+	* math/copysignf.S: Removed.
+	* math/copysign.S: Removed.
+	* math/logf.c: New.
+	* math/floorf.c: New.
+	* math/log10f.c: New.
+	* math/copysignf.c: New.
+	* math/copysign.c: New.
+
 2007-09-26  Kai Tietz  <kai.tietz@onevision.com>
 
 	* Makefile: Add _findfirst64i32.c.
