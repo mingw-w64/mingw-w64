@@ -3,13 +3,6 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Public domain.
- * Removed header file dependency for use in libmingwex.a by
- *   Danny Smith <dannysmith@users.sourceforge.net>
- */
-
 	.file	"log1pf.S"
 	.text
 	.align 4
@@ -26,8 +19,9 @@ one:	.float 1.0
 .globl _log1pf; 
 	.def	_log1pf;	.scl	2;	.type	32;	.endef
 _log1pf:
+	movss	%xmm0,-12(%rsp)
 	fldln2
-	flds	4(%esp)
+	flds	-12(%rsp)
 	fxam
 	fnstsw
 	fld	%st
@@ -41,12 +35,18 @@ _log1pf:
 	jc	2f
 	fadds	one
 	fyl2x
+	fstps	-12(%rsp)
+	movss	-12(%rsp),%xmm0
 	ret
 
 2:	fyl2xp1
+	fstps	-12(%rsp)
+	movss	-12(%rsp),%xmm0
 	ret
 
 3:	jp	4b		// in case x is ±Inf
 	fstp	%st(1)
 	fstp	%st(1)
+	fstps	-12(%rsp)
+	movss	-12(%rsp),%xmm0
 	ret

@@ -3,23 +3,14 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Adapted for exp2 by Ulrich Drepper <drepper@cygnus.com>.
- * Public domain.
- */
-
 	.file	"exp2f.S"
 	.text
-	.align 4
+	.align 8
 .globl _exp2f
 	.def	_exp2f;	.scl	2;	.type	32;	.endef
 _exp2f:
-	flds	4(%esp)
-/* I added the following ugly construct because exp(+-Inf) resulted
-   in NaN.  The ugliness results from the bright minds at Intel.
-   For the i686 the code can be written better.
-   -- drepper@cygnus.com.  */
+	movss	%xmm0,-12(%rsp)
+	flds	-12(%rsp)
 	fxam				/* Is NaN or +-Inf?  */
 	fstsw	%ax
 	movb	$0x45, %dh
@@ -35,10 +26,14 @@ _exp2f:
 	faddp				/* 2^(fract(x)) */
 	fscale				/* e^x */
 	fstp	%st(1)
+	fstps	-12(%rsp)
+	movss	-12(%rsp),%xmm0
 	ret
 
 1:	testl	$0x200, %eax		/* Test sign.  */
 	jz	2f			/* If positive, jump.  */
 	fstp	%st
 	fldz				/* Set result to 0.  */
-2:	ret
+2:	fstps	-12(%rsp)
+	movss	-12(%rsp),%xmm0
+	ret

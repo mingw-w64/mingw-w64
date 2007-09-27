@@ -3,18 +3,6 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Public domain.
- *
- * Adapted for `long double' by Ulrich Drepper <drepper@cygnus.com>.
- *
- * Changed to use fyl2xp1 for values near 1, <drepper@cygnus.com>.
- *
- * Removed header file dependency for use in libmingwex.a by
- *   Danny Smith <dannysmith@users.sourceforge.net>
- */
-
 	.file	"log10l.S"
 	.text
 	.align 4
@@ -25,12 +13,12 @@ one:	.double 1.0
 limit:	.double 0.29
 
 	.text
-	.align 4
+	.align 8
 .globl _log10l
 	.def	_log10l;	.scl	2;	.type	32;	.endef
 _log10l:
 	fldlg2			// log10(2)
-	fldt	4(%esp)		// x : log10(2)
+	fldt	(%rdx)		// x : log10(2)
 	fxam
 	fnstsw
 	fld	%st		// x : x : log10(2)
@@ -45,13 +33,19 @@ _log10l:
 	jz	2f
 	fstp	%st(1)		// x-1 : log10(2)
 	fyl2xp1			// log10(x)
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret
 
 2:	fstp	%st(0)		// x : log10(2)
 	fyl2x			// log10(x)
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret
 
 3:	jp	4b		// in case x is ±Inf
 	fstp	%st(1)
 	fstp	%st(1)
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret

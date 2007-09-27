@@ -14,6 +14,37 @@
 	* math/copysignl.S: Likewise.
 	* math/cosl.S: Likewise.
 	* math/exp2.S: Likewise.
+	* math/exp2f.S: Likewise.
+	* math/exp2l.S: Likewise.
+	* math/floorl.S: Likewise.
+	* math/fma.S: Likewise.
+	* math/fmaf.S: Likewise.
+	* math/frexpl.S: Likewise.
+	* math/ilogb.S: Likewise.
+	* math/ilogbf.S: Likewise.
+	* math/ilogbl.S: Likewise.
+	* math/log10l.S: Likewise.
+	* math/log1p.S: Likewise.
+	* math/log1pf.S: Likewise.
+	* math/log1pl.S: Likewise.
+	* math/log2.S: Likewise.
+	* math/log2f.S: Likewise.
+	* math/log2l.S: Likewise.
+	* math/logl.S: Likewise.
+	* math/nearbyint.S: Likewise.
+	* math/nearbyintf.S: Likewise.
+	* math/nearbyintl.S: Likewise.
+	* math/remainder.S: Likewise.
+	* math/remainderf.S: Likewise.
+	* math/remainderl.S: Likewise.
+	* math/remquo.S: Likewise.
+	* math/remquof.S: Likewise.
+	* math/remquol.S: Likewise.
+	* math/scalbn.S: Likewise.
+	* math/scalbnf.S: Likewise.
+	* math/scalbnl.S: Likewise.
+	* math/sinl.S: Likewise.
+	* math/tanl.S: Likewise.
 
 2007-09-26  Kai Tietz  <kai.tietz@onevision.com>
 

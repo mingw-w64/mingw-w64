@@ -3,15 +3,6 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Public domain.
- *
- * Adapted for `long double' by Ulrich Drepper <drepper@cygnus.com>.
-* Removed header file dependency for use in libmingwex.a by
- *   Danny Smith <dannysmith@users.sourceforge.net>
- */
-
 	.file	"log1pl.S"
 	.text
 	.align 4
@@ -33,7 +24,7 @@ one:	.double 1.0
 	.def	_log1pl;	.scl	2;	.type	32;	.endef
 _log1pl:
 	fldln2
-	fldt	4(%esp)
+	fldt	(%rdx)
 	fxam
 	fnstsw
 	fld	%st
@@ -48,12 +39,18 @@ _log1pl:
 	jnc	2f
 	faddl	one
 	fyl2x
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret
 
 2:	fyl2xp1
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret
 
 3:	jp	4b		// in case x is ±Inf
 	fstp	%st(1)
 	fstp	%st(1)
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret

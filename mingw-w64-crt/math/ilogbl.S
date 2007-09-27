@@ -3,22 +3,13 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Changes for long double by Ulrich Drepper <drepper@cygnus.com>
- * Public domain.
- */
-
 	.file	"ilogbl.S"
 	.text
 	.align 4
 .globl _ilogbl
 	.def	_ilogbl;	.scl	2;	.type	32;	.endef
 _ilogbl:
-	fldt	4(%esp)
-/* I added the following ugly construct because ilogb(+-Inf) is
-   required to return INT_MAX in ISO C99.
-   -- jakub@redhat.com.  */
+	fldt	(%rcx)
 	fxam			/* Is NaN or +-Inf?  */
 	fstsw   %ax
 	movb    $0x45, %dh

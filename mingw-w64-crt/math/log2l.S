@@ -3,14 +3,6 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Adapted for use as log2 by Ulrich Drepper <drepper@cygnus.com>.
- * Public domain.
- *
- * Changed to use fyl2xp1 for values near 1, <drepper@cygnus.com>.
- */
-
 	.file	"log2l.S"
 	.text
 	.align 4
@@ -26,7 +18,7 @@ limit:	.double 0.29
 	.def	_log2l;	.scl	2;	.type	32;	.endef
 _log2l:
 	fldl	one
-	fldt	4(%esp)		// x : 1
+	fldt	(%rdx)		// x : 1
 	fxam
 	fnstsw
 	fld	%st		// x : x : 1
@@ -41,13 +33,19 @@ _log2l:
 	jz	2f
 	fstp	%st(1)		// x-1 : 1
 	fyl2xp1			// log(x)
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret
 
 2:	fstp	%st(0)		// x : 1
 	fyl2x			// log(x)
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret
 
 3:	jp	4b		// in case x is ±Inf
 	fstp	%st(1)
 	fstp	%st(1)
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret

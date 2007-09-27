@@ -3,23 +3,14 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Public domain.
- *
- * Adaptedfor use as nearbyint by Ulrich Drepper <drepper@cygnus.com>.
- *
- * Removed header file dependency for use in libmingwex.a by
- *   Danny Smith <dannysmith@users.sourceforge.net>
- */
-
 	.file	"nearbyintl.S"
 	.text
-	.align 4
+	.align 8
 .globl _nearbyintl
 	.def	_nearbyintl;	.scl	2;	.type	32;	.endef
 _nearbyintl:
-	fldt	4(%rsp)
+	fldt	(%rdx)
+	movq	%rcx,%r8
 	pushq	%rax
 	pushq	%rcx
 	fnstcw	(%rsp)
@@ -32,4 +23,6 @@ _nearbyintl:
 	fldcw	(%esp)
 	popq	%rcx
 	popq	%rax
+	movq	%r8,%rax
+	fstpt	(%r8)
 	ret

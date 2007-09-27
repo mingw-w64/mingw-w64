@@ -3,14 +3,6 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
-  Cephes Math Library Release 2.7:  May, 1998
-  Copyright 1984, 1987, 1988, 1992, 1998 by Stephen L. Moshier
-
-  Extracted from floorl.387 for use in libmingwex.a by
-  Danny Smith <dannysmith@users.sourceforge.net>
-  2002-06-20
-*/
 
 /*
  * frexpl(long double x, int* expnt) extracts the exponent from x.
@@ -25,8 +17,9 @@ _frexpl:
 	subq $24,%rsp
 	pushq %rsi
 	pushq %rbx
-	fldt 16(%rbp)
-	movq 40(%rbp),%rbx
+	fldt (%rdx)
+	movq %r8,%rbx
+	movq %rcx,%r9
 	fld %st(0)
 	fstpt -24(%rbp)
 	leaq -8(%rbp),%rcx
@@ -72,5 +65,7 @@ L24:
 	leaq -40(%rbp),%rsp
 	popq %rbx
 	popq %rsi
+	movq	%r9,%rax
+	fstpt	(%r9)
 	leave
 	ret

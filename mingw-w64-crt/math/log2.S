@@ -3,17 +3,6 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Adapted for use as log2 by Ulrich Drepper <drepper@cygnus.com>.
- * Public domain.
- *
- * Changed to use fyl2xp1 for values near 1, <drepper@cygnus.com>.
- *
- * Removed header file dependency for use in libmingwex.a by
- *   Danny Smith <dannysmith@users.sourceforge.net>
- */
-
 	.file	"log2.S"
 	.text
 	.align 4
@@ -28,8 +17,9 @@ limit:	.double 0.29
 .globl _log2
 	.def	_log2;	.scl	2;	.type	32;	.endef
 _log2:
+	movsd	%xmm0,-16(%rsp)
 	fldl	one
-	fldl	4(%esp)		// x : 1
+	fldl	-16(%rsp)		// x : 1
 	fxam
 	fnstsw
 	fld	%st		// x : x : 1
@@ -44,13 +34,19 @@ _log2:
 	jz	2f
 	fstp	%st(1)		// x-1 : 1
 	fyl2xp1			// log(x)
+	fstpl	-16(%rsp)
+	movsd	-16(%rsp),%xmm0
 	ret
 
 2:	fstp	%st(0)		// x : 1
 	fyl2x			// log(x)
+	fstpl	-16(%rsp)
+	movsd	-16(%rsp),%xmm0
 	ret
 
 3:	jp	4b		// in case x is ±Inf
 	fstp	%st(1)
 	fstp	%st(1)
+	fstpl	-16(%rsp)
+	movsd	-16(%rsp),%xmm0
 	ret

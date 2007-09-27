@@ -3,23 +3,15 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Public domain.
- */
-
 
 	.file	"ilogb.S"
 	.text
-	.align 4
+	.align 8
 .globl _ilogb
 	.def	_ilogb;	.scl	2;	.type	32;	.endef
 _ilogb:
-
-	fldl	4(%esp)
-/* I added the following ugly construct because ilogb(+-Inf) is
-   required to return INT_MAX in ISO C99.
-   -- jakub@redhat.com.  */
+	movsd	%xmm0,-16(%rsp)
+	fldl	-16(%rsp)
 	fxam			/* Is NaN or +-Inf?  */
 	fstsw   %ax
 	movb    $0x45, %dh

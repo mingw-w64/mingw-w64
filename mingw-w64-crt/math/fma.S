@@ -10,9 +10,13 @@
 .globl _fma
 	.def	_fma;	.scl	2;	.type	32;	.endef
 _fma:
-	movq	%rdx,8(%esp)
-	fldl	8(%esp)
-	fmull	16(%esp)
-	fldl	24(%esp)
+	movsd	%xmm0,-16(%rsp)
+	movsd	%xmm1,-24(%rsp)
+	movsd	%xmm2,-32(%rsp)
+	fldl	-16(%rsp)
+	fmull	-24(%rsp)
+	fldl	-32(%rsp)
 	faddp
+	fstpl	-16(%rsp)
+	movsd	-16(%rsp),%xmm0
 	ret
