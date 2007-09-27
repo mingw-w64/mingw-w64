@@ -20,7 +20,7 @@ _nearbyintl:
 	fldcw	8(%rsp)
 	frndint
 	fclex
-	fldcw	(%esp)
+	fldcw	(%rsp)
 	popq	%rcx
 	popq	%rax
 	movq	%r8,%rax

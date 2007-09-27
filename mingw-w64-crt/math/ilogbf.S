@@ -22,7 +22,7 @@ _ilogbf:
 	pushq	%rax
 	fstp	%st
 
-	fistpl	(%esp)
+	fistpl	(%rsp)
 	fwait
 	popq	%rax
 
