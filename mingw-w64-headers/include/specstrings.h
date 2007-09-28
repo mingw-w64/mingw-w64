@@ -35,7 +35,9 @@ extern "C" {
 #define __out_awcount(expr,size)
 #define __in_awcount(expr,size)
 
-#define __null
+/* Renamed __null to __null_ms for avoiding private keyword conflicts between
+   gcc and MS world.  */
+#define __null_ms
 #define __notnull
 #define __maybenull
 #define __readonly

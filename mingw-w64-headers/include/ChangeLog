@@ -1,3 +1,7 @@
+2007-09-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* specstrings.h: Renamed __null to __null_ms. PR/1804037.
+
 2007-09-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math.h: Correct 'long double' prototypes.
