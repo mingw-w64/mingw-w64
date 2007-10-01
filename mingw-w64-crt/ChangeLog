@@ -1,3 +1,9 @@
+2007-10-01  zhou drangon  <drangon.mail@gmail.com>
+
+	* math/remquof.S: Fixed typos.
+	* math/ceill.S: Likewise.
+	* math/floorl.S: Likewise.
+
 2007-09-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/logf.S: Removed.

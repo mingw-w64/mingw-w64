@@ -3,7 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-	.file	"remquo.S"
+	.file	"remquof.S"
 	.text
 	.align 8;
 .globl _remquof;
@@ -26,9 +26,9 @@ _remquof:
 	movl $0xef2960, %eax
 	shrl %cl, %eax
 	andl $3, %eax
-	movss xmm0,-12(%rsp)
+	movss %xmm0,-12(%rsp)
 	movl -12(%rsp), %edx
-	movss xmm1,-12(%rsp)
+	movss %xmm1,-12(%rsp)
 	xorl -12(%rsp), %edx
 	testl $0x80000000, %edx
 	jz 1f

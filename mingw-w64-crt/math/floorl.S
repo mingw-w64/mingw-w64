@@ -27,7 +27,7 @@ _floorl:
 
 	fldcw	8(%rsp)			/* restore original control word */
 
-	addl	$16,%rsp
+	addq	$16,%rsp
 	movq	%rcx,%rax
 	fstpt	(%rcx)
 	ret

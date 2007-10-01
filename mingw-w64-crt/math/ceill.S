@@ -29,6 +29,6 @@ _ceill:
 	fldcw	8(%rsp)			/* restore original control word */
 
 	addq	$16,%rsp
-	movq	%rcx,%eax
-	fstpt	(%ecx)
+	movq	%rcx,%rax
+	fstpt	(%rcx)
 	ret
