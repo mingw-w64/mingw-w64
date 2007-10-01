@@ -1,3 +1,9 @@
+2007-10-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/difftime64.c: New.
+	* misc/difftime32.c: New.
+	* Makefile: Add difftime32.c and difftime64.c.
+
 2007-10-01  zhou drangon  <drangon.mail@gmail.com>
 
 	* math/remquof.S: Fixed typos.
