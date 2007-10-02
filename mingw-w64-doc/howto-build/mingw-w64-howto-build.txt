@@ -7,6 +7,24 @@ Date /		Version /	Author
 
 This document describes how to build the amd64 mingw32 gcc toolchain as a cross-compiler on cygwin and unix shells.
 
+0. Requirements
+
+On a clean cygwin install, you will need the following additional packages installed:
+	A complete gcc toolchain for the host system
+	bison
+	bzip2
+	cvs
+	diffutils
+	flex
+	gmp
+	make
+	mpfr
+	perl (for pod2man)
+	subversion
+	wget
+
+
+
 1. Download packages
 The following packages you need to download
 	- binutils 2.17.50 snapshot released after or equal to the 1st of July 2007.
