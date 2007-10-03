@@ -13,7 +13,6 @@ This document describes how to build the amd64 mingw32 gcc toolchain as a cross-
 On a clean cygwin install, you will need the following additional packages installed:
 	A complete gcc toolchain for the host system
 	bison
-	bzip2
 	cvs
 	diffutils
 	flex
