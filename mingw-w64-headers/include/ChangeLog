@@ -1,3 +1,8 @@
+2007-10-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* process.h: Make exec(??) and spawn(??) as posix functions
+	compatible.
+
 2007-10-01  Kai Tietz  <kai.tietz@onevision.com>
 
 	* specstrings.h: Prefix SAL defines by SAL(xxx). This prevents

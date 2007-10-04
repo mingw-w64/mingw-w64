@@ -194,7 +194,8 @@ Q8_OBJS = \
 	sleep.o alarm.o getlogin.o gettimeofday.o wassert.o isblank.o iswblank.o \
 	wininterlocked.o mktime.o difftime.o difftime32.o difftime64.o ctime.o \
 	gmtime.o localtime.o _mkgmtime.o \
-	time.o
+	time.o execv.o execve.o execvp.o execvpe.o spawnv.o spawnve.o \
+	spawnvp.o spawnvpe.o
 
 STDLIB_OBJS = \
 	strtold.o wcstold.o

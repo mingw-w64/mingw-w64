@@ -1,3 +1,16 @@
+2007-10-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/execv.c:
+	* misc/execve.c: New.
+	* misc/execvp.c: New.
+	* misc/execvpe.c: New.
+	* misc/spawnv.c: New.
+	* misc/spawnve.c: New.
+	* misc/spawnvp.c: New.
+	* misc/spawnvpe.c: New.
+	* Makefile: Add execv.c, execve.c, execvp.c, execvpe.c,
+	spawnv.c, spawnve.c, spawnvp.c, and spawnvpe.c to build.
+
 2007-10-01  Kai Tietz  <kai.tietz@onevision.com>
 
 	* misc/difftime64.c: New.

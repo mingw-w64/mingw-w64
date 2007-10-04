@@ -128,19 +128,19 @@ extern "C" {
   _CRTIMP intptr_t __cdecl execle(const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl execlp(const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl execlpe(const char *_Filename,const char *_ArgList,...);
-  _CRTIMP intptr_t __cdecl execv(const char *_Filename,const char *const *_ArgList);
-  _CRTIMP intptr_t __cdecl execve(const char *_Filename,const char *const *_ArgList,const char *const *_Env);
-  _CRTIMP intptr_t __cdecl execvp(const char *_Filename,const char *const *_ArgList);
-  _CRTIMP intptr_t __cdecl execvpe(const char *_Filename,const char *const *_ArgList,const char *const *_Env);
   _CRTIMP intptr_t __cdecl spawnl(int,const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl spawnle(int,const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl spawnlp(int,const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl spawnlpe(int,const char *_Filename,const char *_ArgList,...);
-  _CRTIMP intptr_t __cdecl spawnv(int,const char *_Filename,const char *const *_ArgList);
-  _CRTIMP intptr_t __cdecl spawnve(int,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
-  _CRTIMP intptr_t __cdecl spawnvp(int,const char *_Filename,const char *const *_ArgList);
-  _CRTIMP intptr_t __cdecl spawnvpe(int,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
   _CRTIMP int __cdecl getpid(void);
+  intptr_t __cdecl execv(const char *_Filename,char *const _ArgList[]);
+  intptr_t __cdecl execve(const char *_Filename,char *const _ArgList[],char *const _Env[]);
+  intptr_t __cdecl execvp(const char *_Filename,char *const _ArgList[]);
+  intptr_t __cdecl execvpe(const char *_Filename,char *const _ArgList[],char *const _Env[]);
+  intptr_t __cdecl spawnv(int,const char *_Filename,char *const _ArgList[]);
+  intptr_t __cdecl spawnve(int,const char *_Filename,char *const _ArgList[],char *const _Env[]);
+  intptr_t __cdecl spawnvp(int,const char *_Filename,char *const _ArgList[]);
+  intptr_t __cdecl spawnvpe(int,const char *_Filename,char *const _ArgList[],char *const _Env[]);
 #endif
 
 #ifdef __cplusplus
