@@ -58,6 +58,7 @@ int __cdecl _fseeki64(FILE *str,__int64 offset,int whence)
         FILE *stream;
         /* Init stream pointer */
         stream = str;
+        errno=0;
         if(!stream || ((whence != SEEK_SET) && (whence != SEEK_CUR) && (whence != SEEK_END)))
 	{
 	  errno=EINVAL;
@@ -96,6 +97,7 @@ __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd)
   HANDLE osHandle;        /* o.s. handle value */
 
   
+  errno=0;
   newpos.bigint = pos;
   /* tell OS to seek */
 
@@ -129,6 +131,7 @@ __int64 __cdecl _ftelli64(FILE *str)
         int fd;
         size_t rdcnt;
 
+	errno=0;
         stream = str;
         fd = _fileno(stream);
         if (stream->_cnt < 0) stream->_cnt = 0;
