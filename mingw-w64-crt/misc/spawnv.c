@@ -1,6 +1,6 @@
 #include <process.h>
 
-intptr_t __cdecl spawnv(int,const char *_Filename,char *const _ArgList[])
+intptr_t __cdecl spawnv(int mode,const char *_Filename,char *const _ArgList[])
 {
-  return _spawnv(_Filename,(const char *const *)_ArgList);
+  return _spawnv(mode, _Filename,(const char *const *)_ArgList);
 }
