@@ -1,3 +1,8 @@
+2007-10-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winsock.h, winsock2.h: Make SOCKET definition signed.
+	* assert.h: Protect define of assert by additional clause.
+
 2007-10-04  Kai Tietz  <kai.tietz@onevision.com>
 
 	* process.h: Make exec(??) and spawn(??) as posix functions

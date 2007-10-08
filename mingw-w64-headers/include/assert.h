@@ -11,10 +11,10 @@
 #include <stdlib.h>
 #endif
 
-#undef assert
-
 #ifdef NDEBUG
+#ifndef assert
 #define assert(_Expression) ((void)0)
+#endif
 #else
 
 #ifndef _CRT_TERMINATE_DEFINED
@@ -40,8 +40,9 @@ extern void __cdecl _wassert(const wchar_t *_Message,const wchar_t *_File,unsign
 }
 #endif
 
+#ifndef assert
 #define assert(_Expression) (void)((!!(_Expression)) || (_wassert(_CRT_WIDE(#_Expression),_CRT_WIDE(__FILE__),__LINE__),0))
-
+#endif
 
 #endif
 

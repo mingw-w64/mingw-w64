@@ -40,7 +40,7 @@ extern "C" {
   typedef unsigned int u_int;
   typedef unsigned long u_long;
   typedef unsigned __int64 u_int64;
-  typedef UINT_PTR SOCKET;
+  typedef INT_PTR SOCKET;
 
 #ifndef FD_SETSIZE
 #define FD_SETSIZE 64
