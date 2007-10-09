@@ -169,7 +169,8 @@ COMPLEX_OBJS = \
 STDIO_OBJS = \
 	fopen64.o fseeko64.o ftello64.o lseek64.o \
 	snprintf.o  vsnprintf.o snwprintf.o vsnwprintf.o \
-	vfscanf.o vfwscanf.o vscanf.o vsscanf.o vswscanf.o vwscanf.o
+	vfscanf.o vfwscanf.o vscanf.o vsscanf.o vswscanf.o vwscanf.o \
+	_fstat64i32.o _fwstat64i32.o
 
 STDLIB_STUB_OBJS = \
 	lltoa.o ulltoa.o \

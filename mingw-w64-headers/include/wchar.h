@@ -492,7 +492,7 @@ extern "C" {
   _CRTIMP int __cdecl _wstat32(const wchar_t *_Name,struct _stat32 *_Stat);
 #if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP int __cdecl _wstat32i64(const wchar_t *_Name,struct _stat32i64 *_Stat);
-  _CRTIMP int __cdecl _wstat64i32(const wchar_t *_Name,struct _stat64i32 *_Stat);
+  int __cdecl _wstat64i32(const wchar_t *_Name,struct _stat64i32 *_Stat);
   _CRTIMP int __cdecl _wstat64(const wchar_t *_Name,struct _stat64 *_Stat);
 #endif
 #endif
