@@ -131,9 +131,9 @@ extern "C" {
   _CRTIMP float __cdecl floorf(float _X);
   _CRTIMP float __cdecl fmodf(float _X,float _Y);
   _CRTIMP float __cdecl _hypotf(float _X,float _Y);
-  _CRTIMP float __cdecl ldexpf(float _X,int _Y);
 #endif
-
+  float __cdecl ldexpf(float _X,int _Y);
+  long double __cdecl ldexpl(long double _X,int _Y);
 #if defined(__x86_64)
    /* from libmingwex */
    float __cdecl acosf(float _X);
@@ -633,8 +633,7 @@ extern "C" {
   /* 7.12.11.3 */
   extern double __cdecl nextafter (double, double); /* in libmoldname.a */
   extern float __cdecl nextafterf (float, float);
-  /* TODO: Not yet implemented */
-  /* extern long double __cdecl nextafterl (long double, long double); */
+  extern long double __cdecl nextafterl (long double, long double);
 
   /* 7.12.11.4 The nexttoward functions: TODO */
 
