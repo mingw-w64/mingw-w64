@@ -220,7 +220,10 @@ _Unwind_GetDataRelBase (struct _Unwind_Context *_C)
 static inline _Unwind_Ptr
 _Unwind_GetTextRelBase (struct _Unwind_Context *_C __attribute__ ((__unused__)))
 {
+#pragma push_macro("abort")
+#undef abort
   abort ();
+#pragma pop_macro("abort")
   return 0;
 }
 

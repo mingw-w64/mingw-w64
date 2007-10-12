@@ -32,7 +32,12 @@ extern "C" {
 #define _CRT_TERMINATE_DEFINED
   _CRTIMP __declspec(noreturn) void __cdecl exit(int _Code);
   _CRTIMP __declspec(noreturn) void __cdecl _exit(int _Code);
-  _CRTIMP void __cdecl abort(void);
+
+#pragma push_macro("abort")
+#undef abort
+  _CRTIMP void __cdecl __declspec(noreturn) abort(void);
+#pragma pop_macro("abort")
+
 #endif
 
   _CRTIMP void __cdecl _cexit(void);

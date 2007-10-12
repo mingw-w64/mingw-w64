@@ -27,7 +27,12 @@ void __cdecl __declspec(noreturn) _Exit(int); /* Declare to get noreturn attribu
 __CRT_INLINE void __cdecl _Exit(int status)
 {  _exit(status); }
 #endif
-_CRTIMP void __cdecl __declspec(noreturn) abort(void);
+
+#pragma push_macro("abort")
+#undef abort
+  _CRTIMP void __cdecl __declspec(noreturn) abort(void);
+#pragma pop_macro("abort")
+
 #endif
 
 #ifdef __cplusplus

@@ -235,7 +235,12 @@ extern "C" {
   __CRT_INLINE void __cdecl _Exit(int status)
   {  _exit(status); }
 #endif
+
+#pragma push_macro("abort")
+#undef abort
   _CRTIMP void __cdecl __declspec(noreturn) abort(void);
+#pragma pop_macro("abort")
+
 #endif
 
   _CRTIMP unsigned int __cdecl _set_abort_behavior(unsigned int _Flags,unsigned int _Mask);
