@@ -274,12 +274,12 @@ extern "C" {
 #ifndef _NO_OLDNAMES
 
 #ifndef _UWIN
-  _CRTIMP int __cdecl chdir (const char*);
-  char * __cdecl getcwd (char*, int);
-  _CRTIMP int __cdecl mkdir (const char*);
-  _CRTIMP char* __cdecl mktemp (char*);
+  _CRTIMP int __cdecl chdir (const char *);
+  char *__cdecl getcwd (char *, int);
+  _CRTIMP int __cdecl mkdir (const char *);
+  char *__cdecl mktemp(char *);
   _CRTIMP int __cdecl rmdir (const char*);
-  _CRTIMP int __cdecl chmod (const char*, int);
+  _CRTIMP int __cdecl chmod (const char *, int);
 #endif /* _UWIN */
 
 #endif /* Not _NO_OLDNAMES */
@@ -343,10 +343,10 @@ extern "C" {
   _CRTIMP int __cdecl dup2(int _FileHandleSrc,int _FileHandleDst);
   _CRTIMP int __cdecl eof(int _FileHandle);
   _CRTIMP long __cdecl filelength(int _FileHandle);
-  _CRTIMP int __cdecl isatty(int _FileHandle);
+  int __cdecl isatty(int _FileHandle);
   _CRTIMP int __cdecl locking(int _FileHandle,int _LockMode,long _NumOfBytes);
   _CRTIMP long __cdecl lseek(int _FileHandle,long _Offset,int _Origin);
-  _CRTIMP char *__cdecl mktemp(char *_TemplateName);
+  char *__cdecl mktemp(char *_TemplateName);
   _CRTIMP int __cdecl open(const char *_Filename,int _OpenFlag,...);
   _CRTIMP int __cdecl read(int _FileHandle,void *_DstBuf,unsigned int _MaxCharCount);
   _CRTIMP int __cdecl setmode(int _FileHandle,int _Mode);
