@@ -275,7 +275,7 @@ extern "C" {
 
 #ifndef _UWIN
   _CRTIMP int __cdecl chdir (const char*);
-  _CRTIMP char* __cdecl getcwd (char*, int);
+  char * __cdecl getcwd (char*, int);
   _CRTIMP int __cdecl mkdir (const char*);
   _CRTIMP char* __cdecl mktemp (char*);
   _CRTIMP int __cdecl rmdir (const char*);
