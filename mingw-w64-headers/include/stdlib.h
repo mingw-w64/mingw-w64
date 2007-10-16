@@ -276,13 +276,9 @@ extern "C" {
 #endif
   _CRTIMP div_t __cdecl div(int _Numerator,int _Denominator);
   _CRTIMP char *__cdecl getenv(const char *_VarName);
-  _CRTIMP errno_t __cdecl _dupenv_s(char **_PBuffer,size_t *_PBufferSizeInBytes,const char *_VarName);
-  _CRTIMP errno_t __cdecl _itoa_s(int _Value,char *_DstBuf,size_t _Size,int _Radix);
   _CRTIMP char *__cdecl _itoa(int _Value,char *_Dest,int _Radix);
 #if _INTEGRAL_MAX_BITS >= 64
-  _CRTIMP errno_t __cdecl _i64toa_s(__int64 _Val,char *_DstBuf,size_t _Size,int _Radix);
   _CRTIMP char *__cdecl _i64toa(__int64 _Val,char *_DstBuf,int _Radix);
-  _CRTIMP errno_t __cdecl _ui64toa_s(unsigned __int64 _Val,char *_DstBuf,size_t _Size,int _Radix);
   _CRTIMP char *__cdecl _ui64toa(unsigned __int64 _Val,char *_DstBuf,int _Radix);
   _CRTIMP __int64 __cdecl _atoi64(const char *_String);
   _CRTIMP __int64 __cdecl _atoi64_l(const char *_String,_locale_t _Locale);
@@ -292,7 +288,6 @@ extern "C" {
   _CRTIMP unsigned __int64 __cdecl _strtoui64_l(const char *_String,char **_EndPtr,int _Radix,_locale_t _Locale);
 #endif
   _CRTIMP ldiv_t __cdecl ldiv(long _Numerator,long _Denominator);
-  _CRTIMP errno_t __cdecl _ltoa_s(long _Val,char *_DstBuf,size_t _Size,int _Radix);
   _CRTIMP char *__cdecl _ltoa(long _Value,char *_Dest,int _Radix);
   _CRTIMP int __cdecl mblen(const char *_Ch,size_t _MaxCount);
   _CRTIMP int __cdecl _mblen_l(const char *_Ch,size_t _MaxCount,_locale_t _Locale);
@@ -302,9 +297,7 @@ extern "C" {
   _CRTIMP size_t __cdecl _mbstrnlen_l(const char *_Str,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP int __cdecl mbtowc(wchar_t *_DstCh,const char *_SrcCh,size_t _SrcSizeInBytes);
   _CRTIMP int __cdecl _mbtowc_l(wchar_t *_DstCh,const char *_SrcCh,size_t _SrcSizeInBytes,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl mbstowcs_s(size_t *_PtNumOfCharConverted,wchar_t *_DstBuf,size_t _SizeInWords,const char *_SrcBuf,size_t _MaxCount);
   _CRTIMP size_t __cdecl mbstowcs(wchar_t *_Dest,const char *_Source,size_t _MaxCount);
-  _CRTIMP errno_t __cdecl _mbstowcs_s_l(size_t *_PtNumOfCharConverted,wchar_t *_DstBuf,size_t _SizeInWords,const char *_SrcBuf,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbstowcs_l(wchar_t *_Dest,const char *_Source,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP int __cdecl rand(void);
   _CRTIMP int __cdecl _set_error_mode(int _Mode);
@@ -323,14 +316,10 @@ extern "C" {
 #define _CRT_SYSTEM_DEFINED
   _CRTIMP int __cdecl system(const char *_Command);
 #endif
-  _CRTIMP errno_t __cdecl _ultoa_s(unsigned long _Val,char *_DstBuf,size_t _Size,int _Radix);
   _CRTIMP char *__cdecl _ultoa(unsigned long _Value,char *_Dest,int _Radix);
   _CRTIMP int __cdecl wctomb(char *_MbCh,wchar_t _WCh);
   _CRTIMP int __cdecl _wctomb_l(char *_MbCh,wchar_t _WCh,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _wctomb_s_l(int *_SizeConverted,char *_MbCh,size_t _SizeInBytes,wchar_t _WCh,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl wcstombs_s(size_t *_PtNumOfCharConverted,char *_Dst,size_t _DstSizeInBytes,const wchar_t *_Src,size_t _MaxCountInBytes);
   _CRTIMP size_t __cdecl wcstombs(char *_Dest,const wchar_t *_Source,size_t _MaxCount);
-  _CRTIMP errno_t __cdecl _wcstombs_s_l(size_t *_PtNumOfCharConverted,char *_Dst,size_t _DstSizeInBytes,const wchar_t *_Src,size_t _MaxCountInBytes,_locale_t _Locale);
   _CRTIMP size_t __cdecl _wcstombs_l(char *_Dest,const wchar_t *_Source,size_t _MaxCount,_locale_t _Locale);
 
 #ifndef _CRT_ALLOCATION_DEFINED
@@ -352,11 +341,8 @@ extern "C" {
 #ifndef _WSTDLIB_DEFINED
 #define _WSTDLIB_DEFINED
 
-  _CRTIMP errno_t __cdecl _itow_s (int _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _itow(int _Value,wchar_t *_Dest,int _Radix);
-  _CRTIMP errno_t __cdecl _ltow_s (long _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _ltow(long _Value,wchar_t *_Dest,int _Radix);
-  _CRTIMP errno_t __cdecl _ultow_s (unsigned long _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _ultow(unsigned long _Value,wchar_t *_Dest,int _Radix);
   _CRTIMP double __cdecl wcstod(const wchar_t *_Str,wchar_t **_EndPtr);
 #if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
@@ -369,8 +355,6 @@ extern "C" {
   _CRTIMP unsigned long __cdecl wcstoul(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
   _CRTIMP unsigned long __cdecl _wcstoul_l(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wgetenv(const wchar_t *_VarName);
-  _CRTIMP errno_t __cdecl _wgetenv_s(size_t *_ReturnSize,wchar_t *_DstBuf,size_t _DstSizeInWords,const wchar_t *_VarName);
-  _CRTIMP errno_t __cdecl _wdupenv_s(wchar_t **_Buffer,size_t *_BufferSizeInWords,const wchar_t *_VarName);
 #ifndef _CRT_WSYSTEM_DEFINED
 #define _CRT_WSYSTEM_DEFINED
   _CRTIMP int __cdecl _wsystem(const wchar_t *_Command);
@@ -383,9 +367,7 @@ extern "C" {
   _CRTIMP long __cdecl _wtol_l(const wchar_t *_Str,_locale_t _Locale);
 
 #if _INTEGRAL_MAX_BITS >= 64
-  _CRTIMP errno_t __cdecl _i64tow_s(__int64 _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _i64tow(__int64 _Val,wchar_t *_DstBuf,int _Radix);
-  _CRTIMP errno_t __cdecl _ui64tow_s(unsigned __int64 _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _ui64tow(unsigned __int64 _Val,wchar_t *_DstBuf,int _Radix);
   _CRTIMP __int64 __cdecl _wtoi64(const wchar_t *_Str);
   _CRTIMP __int64 __cdecl _wtoi64_l(const wchar_t *_Str,_locale_t _Locale);
@@ -399,11 +381,8 @@ extern "C" {
 #ifndef _POSIX_
 #define _CVTBUFSIZE (309+40)
   _CRTIMP char *__cdecl _fullpath(char *_FullPath,const char *_Path,size_t _SizeInBytes);
-  _CRTIMP errno_t __cdecl _ecvt_s(char *_DstBuf,size_t _Size,double _Val,int _NumOfDights,int *_PtDec,int *_PtSign);
   _CRTIMP char *__cdecl _ecvt(double _Val,int _NumOfDigits,int *_PtDec,int *_PtSign);
-  _CRTIMP errno_t __cdecl _fcvt_s(char *_DstBuf,size_t _Size,double _Val,int _NumOfDec,int *_PtDec,int *_PtSign);
   _CRTIMP char *__cdecl _fcvt(double _Val,int _NumOfDec,int *_PtDec,int *_PtSign);
-  _CRTIMP errno_t __cdecl _gcvt_s(char *_DstBuf,size_t _Size,double _Val,int _NumOfDigits);
   _CRTIMP char *__cdecl _gcvt(double _Val,int _NumOfDigits,char *_DstBuf);
   _CRTIMP int __cdecl _atodbl(_CRT_DOUBLE *_Result,char *_Str);
   _CRTIMP int __cdecl _atoldbl(_LDOUBLE *_Result,char *_Str);
@@ -413,7 +392,6 @@ extern "C" {
   _CRTIMP int __cdecl _atoflt_l(_CRT_FLOAT *_Result,char *_Str,_locale_t _Locale);
   unsigned long __cdecl _lrotl(unsigned long _Val,int _Shift);
   unsigned long __cdecl _lrotr(unsigned long _Val,int _Shift);
-  _CRTIMP errno_t __cdecl _makepath_s(char *_PathResult,size_t _Size,const char *_Drive,const char *_Dir,const char *_Filename,const char *_Ext);
   _CRTIMP void __cdecl _makepath(char *_Path,const char *_Drive,const char *_Dir,const char *_Filename,const char *_Ext);
   _onexit_t __cdecl _onexit(_onexit_t _Func);
 
@@ -422,7 +400,6 @@ extern "C" {
   void __cdecl perror(const char *_ErrMsg);
 #endif
   _CRTIMP int __cdecl _putenv(const char *_EnvString);
-  _CRTIMP errno_t __cdecl _putenv_s(const char *_Name,const char *_Value);
   unsigned int __cdecl _rotl(unsigned int _Val,int _Shift);
 #if _INTEGRAL_MAX_BITS >= 64
   unsigned __int64 __cdecl _rotl64(unsigned __int64 _Val,int _Shift);
@@ -431,27 +408,21 @@ extern "C" {
 #if _INTEGRAL_MAX_BITS >= 64
   unsigned __int64 __cdecl _rotr64(unsigned __int64 _Val,int _Shift);
 #endif
-  _CRTIMP errno_t __cdecl _searchenv_s(const char *_Filename,const char *_EnvVar,char *_ResultPath,size_t _SizeInBytes);
   _CRTIMP void __cdecl _searchenv(const char *_Filename,const char *_EnvVar,char *_ResultPath);
   _CRTIMP void __cdecl _splitpath(const char *_FullPath,char *_Drive,char *_Dir,char *_Filename,char *_Ext);
-  _CRTIMP errno_t __cdecl _splitpath_s(const char *_FullPath,char *_Drive,size_t _DriveSize,char *_Dir,size_t _DirSize,char *_Filename,size_t _FilenameSize,char *_Ext,size_t _ExtSize);
   _CRTIMP void __cdecl _swab(char *_Buf1,char *_Buf2,int _SizeInBytes);
 
 #ifndef _WSTDLIBP_DEFINED
 #define _WSTDLIBP_DEFINED
   _CRTIMP wchar_t *__cdecl _wfullpath(wchar_t *_FullPath,const wchar_t *_Path,size_t _SizeInWords);
-  _CRTIMP errno_t __cdecl _wmakepath_s(wchar_t *_PathResult,size_t _SizeInWords,const wchar_t *_Drive,const wchar_t *_Dir,const wchar_t *_Filename,const wchar_t *_Ext);
   _CRTIMP void __cdecl _wmakepath(wchar_t *_ResultPath,const wchar_t *_Drive,const wchar_t *_Dir,const wchar_t *_Filename,const wchar_t *_Ext);
 #ifndef _CRT_WPERROR_DEFINED
 #define _CRT_WPERROR_DEFINED
   _CRTIMP void __cdecl _wperror(const wchar_t *_ErrMsg);
 #endif
   _CRTIMP int __cdecl _wputenv(const wchar_t *_EnvString);
-  _CRTIMP errno_t __cdecl _wputenv_s(const wchar_t *_Name,const wchar_t *_Value);
-  _CRTIMP errno_t __cdecl _wsearchenv_s(const wchar_t *_Filename,const wchar_t *_EnvVar,wchar_t *_ResultPath,size_t _SizeInWords);
   _CRTIMP void __cdecl _wsearchenv(const wchar_t *_Filename,const wchar_t *_EnvVar,wchar_t *_ResultPath);
   _CRTIMP void __cdecl _wsplitpath(const wchar_t *_FullPath,wchar_t *_Drive,wchar_t *_Dir,wchar_t *_Filename,wchar_t *_Ext);
-  _CRTIMP errno_t __cdecl _wsplitpath_s(const wchar_t *_FullPath,wchar_t *_Drive,size_t _DriveSizeInWords,wchar_t *_Dir,size_t _DirSizeInWords,wchar_t *_Filename,size_t _FilenameSizeInWords,wchar_t *_Ext,size_t _ExtSizeInWords);
 #endif
 
   _CRTIMP void __cdecl _seterrormode(int _Mode);
@@ -525,4 +496,7 @@ extern "C" {
 #endif
 
 #pragma pack(pop)
+
+#include <stdlib_s.h>
+
 #endif
