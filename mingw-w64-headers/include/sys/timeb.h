@@ -84,19 +84,15 @@ extern "C" {
 #ifdef _USE_32BIT_TIME_T
 #define _timeb __timeb32
 #define _ftime _ftime32
-#define _ftime_s _ftime32_s
 #else
 #define _timeb __timeb64
 #define _ftime _ftime64
-#define _ftime_s _ftime64_s
 #endif
 #endif
 
   _CRTIMP void __cdecl _ftime32(struct __timeb32 *_Time);
-  _CRTIMP errno_t __cdecl _ftime32_s(struct __timeb32 *_Time);
 #if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP void __cdecl _ftime64(struct __timeb64 *_Time);
-  _CRTIMP errno_t __cdecl _ftime64_s(struct __timeb64 *_Time);
 #endif
 
 #ifndef TIMESPEC_DEFINED
@@ -129,4 +125,6 @@ __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
 #endif
 
 #pragma pack(pop)
+
+#include <sys/timeb_s.h>
 #endif
