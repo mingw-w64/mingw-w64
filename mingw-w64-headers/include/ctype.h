@@ -238,10 +238,10 @@ int __cdecl iswblank(wint_t _C);
 
 #ifndef	NO_OLDNAMES
 #ifndef _CTYPE_DEFINED
-  _CRTIMP int __cdecl isascii(int _C);
-  _CRTIMP int __cdecl toascii(int _C);
-  _CRTIMP int __cdecl iscsymf(int _C);
-  _CRTIMP int __cdecl iscsym(int _C);
+  int __cdecl isascii(int _C);
+  int __cdecl toascii(int _C);
+  int __cdecl iscsymf(int _C);
+  int __cdecl iscsym(int _C);
 #else
 #define isascii __isascii
 #define toascii __toascii

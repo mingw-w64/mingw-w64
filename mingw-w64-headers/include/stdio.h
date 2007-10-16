@@ -142,14 +142,14 @@ extern "C" {
 #endif
   _CRTIMP void __cdecl clearerr(FILE *_File);
   _CRTIMP errno_t __cdecl clearerr_s(FILE *_File);
-  _CRTIMP int __cdecl fclose(FILE *_File);
+  int __cdecl fclose(FILE *_File);
   _CRTIMP int __cdecl _fcloseall(void);
 #ifdef _POSIX_
-  _CRTIMP FILE *__cdecl fdopen(int _FileHandle,const char *_Mode);
+  FILE *__cdecl fdopen(int _FileHandle,const char *_Mode);
 #else
   _CRTIMP FILE *__cdecl _fdopen(int _FileHandle,const char *_Mode);
 #endif
-  _CRTIMP int __cdecl feof(FILE *_File);
+  int __cdecl feof(FILE *_File);
   _CRTIMP int __cdecl ferror(FILE *_File);
   _CRTIMP int __cdecl fflush(FILE *_File);
   _CRTIMP int __cdecl fgetc(FILE *_File);
@@ -163,27 +163,27 @@ extern "C" {
 #endif
   _CRTIMP char *__cdecl _tempnam(const char *_DirName,const char *_FilePrefix);
   _CRTIMP int __cdecl _flushall(void);
-  _CRTIMP FILE *__cdecl fopen(const char *_Filename,const char *_Mode);
+  FILE *__cdecl fopen(const char *_Filename,const char *_Mode);
   FILE *fopen64(const char *filename,const char *mode);
   _CRTIMP int __cdecl fprintf(FILE *_File,const char *_Format,...);
   _CRTIMP int __cdecl fprintf_s(FILE *_File,const char *_Format,...);
   _CRTIMP int __cdecl fputc(int _Ch,FILE *_File);
   _CRTIMP int __cdecl _fputchar(int _Ch);
   _CRTIMP int __cdecl fputs(const char *_Str,FILE *_File);
-  _CRTIMP size_t __cdecl fread(void *_DstBuf,size_t _ElementSize,size_t _Count,FILE *_File);
-  _CRTIMP size_t __cdecl fread_s(void *_DstBuf,size_t _DstSize,size_t _ElementSize,size_t _Count,FILE *_File);
-  _CRTIMP FILE *__cdecl freopen(const char *_Filename,const char *_Mode,FILE *_File);
+  size_t __cdecl fread(void *_DstBuf,size_t _ElementSize,size_t _Count,FILE *_File);
+  size_t __cdecl fread_s(void *_DstBuf,size_t _DstSize,size_t _ElementSize,size_t _Count,FILE *_File);
+  FILE *__cdecl freopen(const char *_Filename,const char *_Mode,FILE *_File);
   /*_CRTIMP*/ int __cdecl fscanf(FILE *_File,const char *_Format,...);
   _CRTIMP int __cdecl _fscanf_l(FILE *_File,const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _fscanf_s_l(FILE *_File,const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl fsetpos(FILE *_File,const fpos_t *_Pos);
   _CRTIMP int __cdecl fseek(FILE *_File,long _Offset,int _Origin);
    int fseeko64(FILE* stream, _off64_t offset, int whence);
-  _CRTIMP long __cdecl ftell(FILE *_File);
+  long __cdecl ftell(FILE *_File);
   _off64_t ftello64(FILE * stream);
   _CRTIMP int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
   _CRTIMP __int64 __cdecl _ftelli64(FILE *_File);
-  _CRTIMP size_t __cdecl fwrite(const void *_Str,size_t _Size,size_t _Count,FILE *_File);
+  size_t __cdecl fwrite(const void *_Str,size_t _Size,size_t _Count,FILE *_File);
   _CRTIMP int __cdecl getc(FILE *_File);
   int __cdecl getchar(void);
   _CRTIMP int __cdecl _getmaxstdio(void);
@@ -211,7 +211,7 @@ extern "C" {
   _CRTIMP int __cdecl rename(const char *_OldFilename,const char *_NewFilename);
   _CRTIMP int __cdecl _unlink(const char *_Filename);
 #ifndef	NO_OLDNAMES
-  _CRTIMP int __cdecl unlink(const char *_Filename);
+  int __cdecl unlink(const char *_Filename);
 #endif
 #endif
   _CRTIMP void __cdecl rewind(FILE *_File);
@@ -484,8 +484,8 @@ extern "C" {
 #define SYS_OPEN _SYS_OPEN
 
   _CRTIMP char *__cdecl tempnam(const char *_Directory,const char *_FilePrefix);
-  _CRTIMP int __cdecl fcloseall(void);
-  _CRTIMP FILE *__cdecl fdopen(int _FileHandle,const char *_Format);
+  int __cdecl fcloseall(void);
+  FILE *__cdecl fdopen(int _FileHandle,const char *_Format);
   int __cdecl fgetchar(void);
   _CRTIMP int __cdecl fileno(FILE *_File);
   _CRTIMP int __cdecl flushall(void);

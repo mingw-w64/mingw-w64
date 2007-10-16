@@ -99,7 +99,7 @@ extern "C" {
   _CRTIMP size_t __cdecl _strxfrm_l(char *_Dst,const char *_Src,size_t _MaxCount,_locale_t _Locale);
 
 #ifndef	NO_OLDNAMES
-  _CRTIMP char *__cdecl strdup(const char *_Src);
+  char *__cdecl strdup(const char *_Src);
   _CRTIMP int __cdecl strcmpi(const char *_Str1,const char *_Str2);
   _CRTIMP int __cdecl stricmp(const char *_Str1,const char *_Str2);
   _CRTIMP char *__cdecl strlwr(char *_Str);
@@ -165,7 +165,7 @@ extern "C" {
   _CRTIMP int __cdecl _wcsnicoll_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
 
 #ifndef	NO_OLDNAMES
-  _CRTIMP wchar_t *__cdecl wcsdup(const wchar_t *_Str);
+  wchar_t *__cdecl wcsdup(const wchar_t *_Str);
 #define wcswcs wcsstr
   _CRTIMP int __cdecl wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2);
   _CRTIMP int __cdecl wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);

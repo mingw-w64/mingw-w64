@@ -808,7 +808,7 @@ extern "C" {
   _CRTIMP int __cdecl _wcsnicoll_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
 
 #ifndef	NO_OLDNAMES
-  _CRTIMP wchar_t *__cdecl wcsdup(const wchar_t *_Str);
+  wchar_t *__cdecl wcsdup(const wchar_t *_Str);
 #define wcswcs wcsstr
   _CRTIMP int __cdecl wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2);
   _CRTIMP int __cdecl wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
