@@ -142,17 +142,10 @@ extern "C" {
 #endif
 
   int __cdecl setjmp(jmp_buf _Buf);
+  __declspec(noreturn) void __cdecl longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
 
 #ifdef __cplusplus
 }
-#endif
-
-#ifdef __cplusplus
-extern "C" {
-  _CRTIMP __declspec(noreturn) void __cdecl longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
-}
-#else
-_CRTIMP __declspec(noreturn) void __cdecl longjmp(jmp_buf _Buf,int _Value);
 #endif
 
 #pragma pack(pop)
