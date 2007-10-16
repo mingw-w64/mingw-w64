@@ -67,7 +67,7 @@ typedef int	_pid_t;
 typedef __int64	_pid_t;
 #endif
 
-#ifndef	_NO_OLDNAMES
+#ifndef	NO_OLDNAMES
 typedef _pid_t	pid_t;
 #endif
 #endif	/* Not _PID_T_ */
@@ -76,7 +76,7 @@ typedef _pid_t	pid_t;
 #define	_MODE_T_
 typedef unsigned short _mode_t;
 
-#ifndef	_NO_OLDNAMES
+#ifndef	NO_OLDNAMES
 typedef _mode_t	mode_t;
 #endif
 #endif	/* Not _MODE_T_ */

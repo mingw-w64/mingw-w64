@@ -267,7 +267,7 @@ extern "C" {
   _CRTIMP __int64 __cdecl _lseeki64(int _FileHandle,__int64 _Offset,int _Origin);
   _CRTIMP __int64 __cdecl _telli64(int _FileHandle);
 #endif
-#ifndef _NO_OLDNAMES
+#ifndef NO_OLDNAMES
 
 #ifndef _UWIN
   int __cdecl chdir (const char *);
@@ -278,7 +278,7 @@ extern "C" {
   int __cdecl chmod (const char *, int);
 #endif /* _UWIN */
 
-#endif /* Not _NO_OLDNAMES */
+#endif /* Not NO_OLDNAMES */
 
   _CRTIMP errno_t __cdecl _sopen_s(int *_FileHandle,const char *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionMode);
 

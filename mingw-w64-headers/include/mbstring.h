@@ -40,9 +40,7 @@ extern "C" {
   _CRTIMP unsigned int __cdecl _mbctombb_l(unsigned int _Ch,_locale_t _Locale);
   _CRTIMP int __cdecl _mbsbtype(const unsigned char *_Str,size_t _Pos);
   _CRTIMP int __cdecl _mbsbtype_l(const unsigned char *_Str,size_t _Pos,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbscat_s(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src);
   _CRTIMP unsigned char *__cdecl _mbscat(unsigned char *_Dest,const unsigned char *_Source);
-  _CRTIMP errno_t __cdecl _mbscat_s_l(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src,_locale_t _Locale);
   _CRTIMP unsigned char *_mbscat_l(unsigned char *_Dest,const unsigned char *_Source,_locale_t _Locale);
   _CRTIMP _CONST_RETURN unsigned char *__cdecl _mbschr(const unsigned char *_Str,unsigned int _Ch);
   _CRTIMP _CONST_RETURN unsigned char *__cdecl _mbschr_l(const unsigned char *_Str,unsigned int _Ch,_locale_t _Locale);
@@ -50,9 +48,7 @@ extern "C" {
   _CRTIMP int __cdecl _mbscmp_l(const unsigned char *_Str1,const unsigned char *_Str2,_locale_t _Locale);
   _CRTIMP int __cdecl _mbscoll(const unsigned char *_Str1,const unsigned char *_Str2);
   _CRTIMP int __cdecl _mbscoll_l(const unsigned char *_Str1,const unsigned char *_Str2,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbscpy_s(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src);
   _CRTIMP unsigned char *__cdecl _mbscpy(unsigned char *_Dest,const unsigned char *_Source);
-  _CRTIMP errno_t __cdecl _mbscpy_s_l(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src,_locale_t _Locale);
   _CRTIMP unsigned char *_mbscpy_l(unsigned char *_Dest,const unsigned char *_Source,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbscspn(const unsigned char *_Str,const unsigned char *_Control);
   _CRTIMP size_t __cdecl _mbscspn_l(const unsigned char *_Str,const unsigned char *_Control,_locale_t _Locale);
@@ -68,13 +64,9 @@ extern "C" {
   _CRTIMP size_t __cdecl _mbslen_l(const unsigned char *_Str,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbsnlen(const unsigned char *_Str,size_t _MaxCount);
   _CRTIMP size_t __cdecl _mbsnlen_l(const unsigned char *_Str,size_t _MaxCount,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbslwr_s(unsigned char *_Str,size_t _SizeInBytes);
   _CRTIMP unsigned char *__cdecl _mbslwr(unsigned char *_String);
-  _CRTIMP errno_t __cdecl _mbslwr_s_l(unsigned char *_Str,size_t _SizeInBytes,_locale_t _Locale);
   _CRTIMP unsigned char *_mbslwr_l(unsigned char *_String,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbsnbcat_s(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src,size_t _MaxCount);
   _CRTIMP unsigned char *__cdecl _mbsnbcat(unsigned char *_Dest,const unsigned char *_Source,size_t _Count);
-  _CRTIMP errno_t __cdecl _mbsnbcat_s_l(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsnbcat_l(unsigned char *_Dest,const unsigned char *_Source,size_t _Count,_locale_t _Locale);
   _CRTIMP int __cdecl _mbsnbcmp(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsnbcmp_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
@@ -82,9 +74,7 @@ extern "C" {
   _CRTIMP int __cdecl _mbsnbcoll_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbsnbcnt(const unsigned char *_Str,size_t _MaxCount);
   _CRTIMP size_t __cdecl _mbsnbcnt_l(const unsigned char *_Str,size_t _MaxCount,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbsnbcpy_s(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src,size_t _MaxCount);
   _CRTIMP unsigned char *__cdecl _mbsnbcpy(unsigned char *_Dest,const unsigned char *_Source,size_t _Count);
-  _CRTIMP errno_t __cdecl _mbsnbcpy_s_l(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsnbcpy_l(unsigned char *_Dest,const unsigned char *_Source,size_t _Count,_locale_t _Locale);
   _CRTIMP int __cdecl _mbsnbicmp(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsnbicmp_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
@@ -92,11 +82,7 @@ extern "C" {
   _CRTIMP int __cdecl _mbsnbicoll_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsnbset(unsigned char *_Str,unsigned int _Ch,size_t _MaxCount);
   _CRTIMP unsigned char *__cdecl _mbsnbset_l(unsigned char *_Str,unsigned int _Ch,size_t _MaxCount,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbsnbset_s(unsigned char *_Dst,size_t _DstSizeInBytes,unsigned int _Ch,size_t _MaxCount);
-  _CRTIMP errno_t __cdecl _mbsnbset_s_l(unsigned char *_Dst,size_t _DstSizeInBytes,unsigned int _Ch,size_t _MaxCount,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbsncat_s(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src,size_t _MaxCount);
   _CRTIMP unsigned char *__cdecl _mbsncat(unsigned char *_Dest,const unsigned char *_Source,size_t _Count);
-  _CRTIMP errno_t __cdecl _mbsncat_s_l(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsncat_l(unsigned char *_Dest,const unsigned char *_Source,size_t _Count,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbsnccnt(const unsigned char *_Str,size_t _MaxCount);
   _CRTIMP size_t __cdecl _mbsnccnt_l(const unsigned char *_Str,size_t _MaxCount,_locale_t _Locale);
@@ -104,9 +90,7 @@ extern "C" {
   _CRTIMP int __cdecl _mbsncmp_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP int __cdecl _mbsncoll(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _mbsncoll_l(const unsigned char *_Str1,const unsigned char *_Str2,size_t _MaxCount,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbsncpy_s(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src,size_t _MaxCount);
   _CRTIMP unsigned char *__cdecl _mbsncpy(unsigned char *_Dest,const unsigned char *_Source,size_t _Count);
-  _CRTIMP errno_t __cdecl _mbsncpy_s_l(unsigned char *_Dst,size_t _DstSizeInBytes,const unsigned char *_Src,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsncpy_l(unsigned char *_Dest,const unsigned char *_Source,size_t _Count,_locale_t _Locale);
   _CRTIMP unsigned int __cdecl _mbsnextc (const unsigned char *_Str);
   _CRTIMP unsigned int __cdecl _mbsnextc_l(const unsigned char *_Str,_locale_t _Locale);
@@ -118,8 +102,6 @@ extern "C" {
   _CRTIMP unsigned char *__cdecl _mbsninc_l(const unsigned char *_Str,size_t _Count,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsnset(unsigned char *_Dst,unsigned int _Val,size_t _MaxCount);
   _CRTIMP unsigned char *__cdecl _mbsnset_l(unsigned char *_Dst,unsigned int _Val,size_t _MaxCount,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbsnset_s(unsigned char *_Dst,size_t _DstSizeInBytes,unsigned int _Val,size_t _MaxCount);
-  _CRTIMP errno_t __cdecl _mbsnset_s_l(unsigned char *_Dst,size_t _DstSizeInBytes,unsigned int _Val,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP _CONST_RETURN unsigned char *__cdecl _mbspbrk(const unsigned char *_Str,const unsigned char *_Control);
   _CRTIMP _CONST_RETURN unsigned char *__cdecl _mbspbrk_l(const unsigned char *_Str,const unsigned char *_Control,_locale_t _Locale);
   _CRTIMP _CONST_RETURN unsigned char *__cdecl _mbsrchr(const unsigned char *_Str,unsigned int _Ch);
@@ -128,8 +110,6 @@ extern "C" {
   _CRTIMP unsigned char *__cdecl _mbsrev_l(unsigned char *_Str,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsset(unsigned char *_Str,unsigned int _Val);
   _CRTIMP unsigned char *__cdecl _mbsset_l(unsigned char *_Str,unsigned int _Val,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbsset_s(unsigned char *_Dst,size_t _DstSizeInBytes,unsigned int _Val);
-  _CRTIMP errno_t __cdecl _mbsset_s_l(unsigned char *_Dst,size_t _DstSizeInBytes,unsigned int _Val,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbsspn(const unsigned char *_Str,const unsigned char *_Control);
   _CRTIMP size_t __cdecl _mbsspn_l(const unsigned char *_Str,const unsigned char *_Control,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbsspnp(const unsigned char *_Str1,const unsigned char *_Str2);
@@ -138,18 +118,12 @@ extern "C" {
   _CRTIMP _CONST_RETURN unsigned char *__cdecl _mbsstr_l(const unsigned char *_Str,const unsigned char *_Substr,_locale_t _Locale);
   _CRTIMP unsigned char *__cdecl _mbstok(unsigned char *_Str,const unsigned char *_Delim);
   _CRTIMP unsigned char *__cdecl _mbstok_l(unsigned char *_Str,const unsigned char *_Delim,_locale_t _Locale);
-  _CRTIMP unsigned char *__cdecl _mbstok_s(unsigned char *_Str,const unsigned char *_Delim,unsigned char **_Context);
-  _CRTIMP unsigned char *__cdecl _mbstok_s_l(unsigned char *_Str,const unsigned char *_Delim,unsigned char **_Context,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbsupr_s(unsigned char *_Str,size_t _SizeInBytes);
   _CRTIMP unsigned char *__cdecl _mbsupr(unsigned char *_String);
-  _CRTIMP errno_t __cdecl _mbsupr_s_l(unsigned char *_Str,size_t _SizeInBytes,_locale_t _Locale);
   _CRTIMP unsigned char *_mbsupr_l(unsigned char *_String,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbclen(const unsigned char *_Str);
   _CRTIMP size_t __cdecl _mbclen_l(const unsigned char *_Str,_locale_t _Locale);
   _CRTIMP void __cdecl _mbccpy(unsigned char *_Dst,const unsigned char *_Src);
   _CRTIMP void __cdecl _mbccpy_l(unsigned char *_Dst,const unsigned char *_Src,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _mbccpy_s(unsigned char *_Dst,size_t _DstSizeInBytes,int *_PCopied,const unsigned char *_Src);
-  _CRTIMP errno_t __cdecl _mbccpy_s_l(unsigned char *_Dst,size_t _DstSizeInBytes,int *_PCopied,const unsigned char *_Src,_locale_t _Locale);
 #define _mbccmp(_cpc1,_cpc2) _mbsncmp((_cpc1),(_cpc2),1)
 
 #ifdef __cplusplus
@@ -232,4 +206,7 @@ extern "C" {
 #endif
 
 #pragma pack(pop)
+
+#include <mbstring_s.h>
+
 #endif
