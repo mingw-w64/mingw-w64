@@ -185,7 +185,7 @@ extern "C" {
   _CRTIMP __int64 __cdecl _ftelli64(FILE *_File);
   _CRTIMP size_t __cdecl fwrite(const void *_Str,size_t _Size,size_t _Count,FILE *_File);
   _CRTIMP int __cdecl getc(FILE *_File);
-  _CRTIMP int __cdecl getchar(void);
+  int __cdecl getchar(void);
   _CRTIMP int __cdecl _getmaxstdio(void);
   _CRTIMP char *__cdecl gets(char *_Buffer);
   int __cdecl _getw(FILE *_File);
@@ -202,7 +202,7 @@ extern "C" {
   _CRTIMP int __cdecl printf(const char *_Format,...);
   _CRTIMP int __cdecl printf_s(const char *_Format,...);
   _CRTIMP int __cdecl putc(int _Ch,FILE *_File);
-  _CRTIMP int __cdecl putchar(int _Ch);
+  int __cdecl putchar(int _Ch);
   _CRTIMP int __cdecl puts(const char *_Str);
   _CRTIMP int __cdecl _putw(int _Word,FILE *_File);
 #ifndef _CRT_DIRECTORY_DEFINED
@@ -486,10 +486,10 @@ extern "C" {
   _CRTIMP char *__cdecl tempnam(const char *_Directory,const char *_FilePrefix);
   _CRTIMP int __cdecl fcloseall(void);
   _CRTIMP FILE *__cdecl fdopen(int _FileHandle,const char *_Format);
-  _CRTIMP int __cdecl fgetchar(void);
+  int __cdecl fgetchar(void);
   _CRTIMP int __cdecl fileno(FILE *_File);
   _CRTIMP int __cdecl flushall(void);
-  _CRTIMP int __cdecl fputchar(int _Ch);
+  int __cdecl fputchar(int _Ch);
   _CRTIMP int __cdecl getw(FILE *_File);
   _CRTIMP int __cdecl putw(int _Ch,FILE *_File);
   _CRTIMP int __cdecl rmtmp(void);
