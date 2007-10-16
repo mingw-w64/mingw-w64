@@ -216,8 +216,8 @@ extern "C" {
 
 #ifndef _CRT_DIRECTORY_DEFINED
 #define _CRT_DIRECTORY_DEFINED
-  _CRTIMP int __cdecl remove(const char *_Filename);
-  _CRTIMP int __cdecl rename(const char *_OldFilename,const char *_NewFilename);
+  int __cdecl remove(const char *_Filename);
+  int __cdecl rename(const char *_OldFilename,const char *_NewFilename);
   _CRTIMP int __cdecl _unlink(const char *_Filename);
 #ifndef	NO_OLDNAMES
   int __cdecl unlink(const char *_Filename);

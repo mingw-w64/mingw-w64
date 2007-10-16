@@ -52,8 +52,8 @@ extern "C" {
   extern void **__cdecl __pxcptinfoptrs(void);
 #define _pxcptinfoptrs (*__pxcptinfoptrs())
 
-  _CRTIMP __p_sig_fn_t __cdecl signal(int _SigNum,__p_sig_fn_t _Func);
-  _CRTIMP int __cdecl raise(int _SigNum);
+  __p_sig_fn_t __cdecl signal(int _SigNum,__p_sig_fn_t _Func);
+  int __cdecl raise(int _SigNum);
 
 #ifdef __cplusplus
 }

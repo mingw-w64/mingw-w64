@@ -419,7 +419,7 @@ extern "C" {
 
 #ifndef _CRT_PERROR_DEFINED
 #define _CRT_PERROR_DEFINED
-  _CRTIMP void __cdecl perror(const char *_ErrMsg);
+  void __cdecl perror(const char *_ErrMsg);
 #endif
   _CRTIMP int __cdecl _putenv(const char *_EnvString);
   _CRTIMP errno_t __cdecl _putenv_s(const char *_Name,const char *_Value);
