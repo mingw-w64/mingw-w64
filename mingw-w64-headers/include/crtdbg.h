@@ -163,8 +163,6 @@ extern "C" {
 #define _wgetdcwd_dbg(d,s,le,t,f,l) _wgetdcwd(d,s,le)
 #define _getdcwd_lk_dbg(d,s,le,t,f,l) _getdcwd_nolock(d,s,le)
 #define _wgetdcwd_lk_dbg(d,s,le,t,f,l) _wgetdcwd_nolock(d,s,le)
-#define _dupenv_s_dbg(ps1,size,s2,t,f,l) _dupenv_s(ps1,size,s2)
-#define _wdupenv_s_dbg(ps1,size,s2,t,f,l) _wdupenv_s(ps1,size,s2)
 
 #define _CrtSetReportHook(f) ((_CRT_REPORT_HOOK)0)
 #define _CrtGetReportHook() ((_CRT_REPORT_HOOK)0)
@@ -199,15 +197,16 @@ extern "C" {
 #ifdef __cplusplus
 }
 
-extern "C++" {
   void *__cdecl operator new[](size_t _Size);
   inline void *__cdecl operator new(size_t _Size,int,const char *,int) { return ::operator new(_Size); }
   inline void *__cdecl operator new[](size_t _Size,int,const char *,int) { return ::operator new[](_Size); }
   void __cdecl operator delete[](void *);
   inline void __cdecl operator delete(void *_P,int,const char *,int) { ::operator delete(_P); }
   inline void __cdecl operator delete[](void *_P,int,const char *,int) { ::operator delete[](_P); }
-}
 #endif
 
 #pragma pack(pop)
+
+#include <crtdbg_s.h>
+
 #endif
