@@ -128,16 +128,16 @@ extern "C" {
 #define WAIT_CHILD _WAIT_CHILD
 #define WAIT_GRANDCHILD _WAIT_GRANDCHILD
 
-  _CRTIMP intptr_t __cdecl cwait(int *_TermStat,intptr_t _ProcHandle,int _Action);
-  _CRTIMP intptr_t __cdecl execl(const char *_Filename,const char *_ArgList,...);
-  _CRTIMP intptr_t __cdecl execle(const char *_Filename,const char *_ArgList,...);
-  _CRTIMP intptr_t __cdecl execlp(const char *_Filename,const char *_ArgList,...);
-  _CRTIMP intptr_t __cdecl execlpe(const char *_Filename,const char *_ArgList,...);
-  _CRTIMP intptr_t __cdecl spawnl(int,const char *_Filename,const char *_ArgList,...);
-  _CRTIMP intptr_t __cdecl spawnle(int,const char *_Filename,const char *_ArgList,...);
-  _CRTIMP intptr_t __cdecl spawnlp(int,const char *_Filename,const char *_ArgList,...);
-  _CRTIMP intptr_t __cdecl spawnlpe(int,const char *_Filename,const char *_ArgList,...);
-  _CRTIMP int __cdecl getpid(void);
+  intptr_t __cdecl cwait(int *_TermStat,intptr_t _ProcHandle,int _Action);
+  intptr_t __cdecl execl(const char *_Filename,const char *_ArgList,...);
+  intptr_t __cdecl execle(const char *_Filename,const char *_ArgList,...);
+  intptr_t __cdecl execlp(const char *_Filename,const char *_ArgList,...);
+  intptr_t __cdecl execlpe(const char *_Filename,const char *_ArgList,...);
+  intptr_t __cdecl spawnl(int,const char *_Filename,const char *_ArgList,...);
+  intptr_t __cdecl spawnle(int,const char *_Filename,const char *_ArgList,...);
+  intptr_t __cdecl spawnlp(int,const char *_Filename,const char *_ArgList,...);
+  intptr_t __cdecl spawnlpe(int,const char *_Filename,const char *_ArgList,...);
+  int __cdecl getpid(void);
   intptr_t __cdecl execv(const char *_Filename,char *const _ArgList[]);
   intptr_t __cdecl execve(const char *_Filename,char *const _ArgList[],char *const _Env[]);
   intptr_t __cdecl execvp(const char *_Filename,char *const _ArgList[]);
