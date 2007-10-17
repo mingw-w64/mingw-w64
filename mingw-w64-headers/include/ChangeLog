@@ -1,3 +1,7 @@
+2007-10-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* time.h: _daylight,_dstbias,_timezone are variables.
+
 2007-10-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* direct.h: (getcwd): No _CRTIMP declaration.

@@ -80,6 +80,7 @@ extern "C" {
 #endif
 
 #ifndef _TM_DEFINED
+#define _TM_DEFINED
   struct tm {
     int tm_sec;
     int tm_min;
@@ -91,19 +92,13 @@ extern "C" {
     int tm_yday;
     int tm_isdst;
   };
-#define _TM_DEFINED
 #endif
 
 #define CLOCKS_PER_SEC 1000
 
-  _CRTIMP int *__cdecl __daylight(void);
-#define _daylight (*__daylight())
-
-  _CRTIMP long *__cdecl __dstbias(void);
-#define _dstbias (*__dstbias())
-
-  _CRTIMP long *__cdecl __timezone(void);
-#define _timezone (*__timezone())
+  _CRTIMP int _daylight;
+  _CRTIMP long _dstbias;
+  _CRTIMP long _timezone;
   _CRTIMP char * _tzname[2];
 
   _CRTIMP errno_t __cdecl _get_daylight(int *_Daylight);
