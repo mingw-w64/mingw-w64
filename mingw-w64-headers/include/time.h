@@ -105,26 +105,21 @@ extern "C" {
   _CRTIMP errno_t __cdecl _get_dstbias(long *_Daylight_savings_bias);
   _CRTIMP errno_t __cdecl _get_timezone(long *_Timezone);
   _CRTIMP errno_t __cdecl _get_tzname(size_t *_ReturnValue,char *_Buffer,size_t _SizeInBytes,int _Index);
-  _CRTIMP char *__cdecl asctime(const struct tm *_Tm);
+  char *__cdecl asctime(const struct tm *_Tm);
   _CRTIMP char *__cdecl _ctime32(const __time32_t *_Time);
-  _CRTIMP errno_t __cdecl _ctime32_s(char *_Buf,size_t _SizeInBytes,const __time32_t *_Time);
-  _CRTIMP clock_t __cdecl clock(void);
+  clock_t __cdecl clock(void);
   _CRTIMP double __cdecl _difftime32(__time32_t _Time1,__time32_t _Time2);
   _CRTIMP struct tm *__cdecl _gmtime32(const __time32_t *_Time);
-  _CRTIMP errno_t __cdecl _gmtime32_s(struct tm *_Tm,const __time32_t *_Time);
   _CRTIMP struct tm *__cdecl _localtime32(const __time32_t *_Time);
-  _CRTIMP errno_t __cdecl _localtime32_s(struct tm *_Tm,const __time32_t *_Time);
-  _CRTIMP size_t __cdecl strftime(char *_Buf,size_t _SizeInBytes,const char *_Format,const struct tm *_Tm);
+  size_t __cdecl strftime(char *_Buf,size_t _SizeInBytes,const char *_Format,const struct tm *_Tm);
   _CRTIMP size_t __cdecl _strftime_l(char *_Buf,size_t _Max_size,const char *_Format,const struct tm *_Tm,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _strdate_s(char *_Buf,size_t _SizeInBytes);
   _CRTIMP char *__cdecl _strdate(char *_Buffer);
-  _CRTIMP errno_t __cdecl _strtime_s(char *_Buf ,size_t _SizeInBytes);
   _CRTIMP char *__cdecl _strtime(char *_Buffer);
   _CRTIMP __time32_t __cdecl _time32(__time32_t *_Time);
   _CRTIMP __time32_t __cdecl _mktime32(struct tm *_Tm);
   _CRTIMP __time32_t __cdecl _mkgmtime32(struct tm *_Tm);
 #ifdef _POSIX_ || defined(__GNUC__)
-  _CRTIMP void __cdecl tzset(void);
+  void __cdecl tzset(void);
 #else
   _CRTIMP void __cdecl _tzset(void);
 #endif
@@ -132,11 +127,8 @@ extern "C" {
 #if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP double __cdecl _difftime64(__time64_t _Time1,__time64_t _Time2);
   _CRTIMP char *__cdecl _ctime64(const __time64_t *_Time);
-  _CRTIMP errno_t __cdecl _ctime64_s(char *_Buf,size_t _SizeInBytes,const __time64_t *_Time);
   _CRTIMP struct tm *__cdecl _gmtime64(const __time64_t *_Time);
-  _CRTIMP errno_t __cdecl _gmtime64_s(struct tm *_Tm,const __time64_t *_Time);
   _CRTIMP struct tm *__cdecl _localtime64(const __time64_t *_Time);
-  _CRTIMP errno_t __cdecl _localtime64_s(struct tm *_Tm,const __time64_t *_Time);
   _CRTIMP __time64_t __cdecl _mktime64(struct tm *_Tm);
   _CRTIMP __time64_t __cdecl _mkgmtime64(struct tm *_Tm);
   _CRTIMP __time64_t __cdecl _time64(__time64_t *_Time);
@@ -157,28 +149,21 @@ extern "C" {
 
 #ifndef _WTIME_DEFINED
   _CRTIMP wchar_t *__cdecl _wasctime(const struct tm *_Tm);
-  _CRTIMP errno_t __cdecl _wasctime_s(wchar_t *_Buf,size_t _SizeInWords,const struct tm *_Tm);
   _CRTIMP wchar_t *__cdecl _wctime32(const __time32_t *_Time);
-  _CRTIMP errno_t __cdecl _wctime32_s(wchar_t *_Buf,size_t _SizeInWords,const __time32_t *_Time);
-  _CRTIMP size_t __cdecl wcsftime(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm);
+  size_t __cdecl wcsftime(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm);
   _CRTIMP size_t __cdecl _wcsftime_l(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _wstrdate_s(wchar_t *_Buf,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wstrdate(wchar_t *_Buffer);
-  _CRTIMP errno_t __cdecl _wstrtime_s(wchar_t *_Buf,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wstrtime(wchar_t *_Buffer);
 #if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP wchar_t *__cdecl _wctime64(const __time64_t *_Time);
-  _CRTIMP errno_t __cdecl _wctime64_s(wchar_t *_Buf,size_t _SizeInWords,const __time64_t *_Time);
 #endif
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
 #ifdef _USE_32BIT_TIME_T
 __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime32(_Time); }
-__CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) { return _wctime32_s(_Buffer,_SizeInWords,_Time); }
 #else
 __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
-__CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) { return _wctime64_s(_Buffer,_SizeInWords,_Time); }
 #endif
 #endif
 
@@ -199,7 +184,6 @@ __CRT_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2) { return _diff
 __CRT_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime32(_Time); }
 __CRT_INLINE struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime32(_Time); }
 __CRT_INLINE struct tm *__cdecl localtime(const time_t *_Time) { return _localtime32(_Time); }
-__CRT_INLINE errno_t __cdecl localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime32_s(_Tm,_Time); }
 __CRT_INLINE time_t __cdecl mktime(struct tm *_Tm) { return _mktime32(_Tm); }
 __CRT_INLINE time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
 __CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time32(_Time); }
@@ -208,7 +192,6 @@ __CRT_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2) { return _diff
 __CRT_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime64(_Time); }
 __CRT_INLINE struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime64(_Time); }
 __CRT_INLINE struct tm *__cdecl localtime(const time_t *_Time) { return _localtime64(_Time); }
-__CRT_INLINE errno_t __cdecl localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime64_s(_Tm,_Time); }
 __CRT_INLINE time_t __cdecl mktime(struct tm *_Tm) { return _mktime64(_Tm); }
 __CRT_INLINE time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime64(_Tm); }
 __CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time64(_Time); }
@@ -221,7 +204,7 @@ __CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time64(_Time); }
   _CRTIMP extern int daylight;
   _CRTIMP extern long timezone;
   _CRTIMP extern char *tzname[2];
-  _CRTIMP void __cdecl tzset(void);
+  void __cdecl tzset(void);
 #endif
 
 #ifndef _TIMEVAL_DEFINED /* also in winsock[2].h */
@@ -250,4 +233,6 @@ struct timezone {
 #endif
 
 #pragma pack(pop)
+
+#include <time_s.h>
 #endif

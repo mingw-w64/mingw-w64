@@ -85,25 +85,25 @@ extern "C" {
 #ifndef _WCTYPE_DEFINED
 #define _WCTYPE_DEFINED
 
-  _CRTIMP int __cdecl iswalpha(wint_t);
-  _CRTIMP int __cdecl iswupper(wint_t);
-  _CRTIMP int __cdecl iswlower(wint_t);
-  _CRTIMP int __cdecl iswdigit(wint_t);
-  _CRTIMP int __cdecl iswxdigit(wint_t);
-  _CRTIMP int __cdecl iswspace(wint_t);
-  _CRTIMP int __cdecl iswpunct(wint_t);
-  _CRTIMP int __cdecl iswalnum(wint_t);
-  _CRTIMP int __cdecl iswprint(wint_t);
-  _CRTIMP int __cdecl iswgraph(wint_t);
-  _CRTIMP int __cdecl iswcntrl(wint_t);
-  _CRTIMP int __cdecl iswascii(wint_t);
-  _CRTIMP int __cdecl isleadbyte(int);
-  _CRTIMP wint_t __cdecl towupper(wint_t);
-  _CRTIMP wint_t __cdecl towlower(wint_t);
-  _CRTIMP int __cdecl iswctype(wint_t,wctype_t);
+  int __cdecl iswalpha(wint_t);
+  int __cdecl iswupper(wint_t);
+  int __cdecl iswlower(wint_t);
+  int __cdecl iswdigit(wint_t);
+  int __cdecl iswxdigit(wint_t);
+  int __cdecl iswspace(wint_t);
+  int __cdecl iswpunct(wint_t);
+  int __cdecl iswalnum(wint_t);
+  int __cdecl iswprint(wint_t);
+  int __cdecl iswgraph(wint_t);
+  int __cdecl iswcntrl(wint_t);
+  int __cdecl iswascii(wint_t);
+  int __cdecl isleadbyte(int);
+  wint_t __cdecl towupper(wint_t);
+  wint_t __cdecl towlower(wint_t);
+  int __cdecl iswctype(wint_t,wctype_t);
   _CRTIMP int __cdecl __iswcsymf(wint_t);
   _CRTIMP int __cdecl __iswcsym(wint_t);
-  _CRTIMP int __cdecl is_wctype(wint_t,wctype_t);
+  int __cdecl is_wctype(wint_t,wctype_t);
 #if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || !defined (NO_OLDNAMES)
 int __cdecl isblank(int _C);
 #endif

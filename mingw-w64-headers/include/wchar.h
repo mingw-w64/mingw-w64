@@ -185,42 +185,42 @@ extern "C" {
 #ifndef _WCTYPE_DEFINED
 #define _WCTYPE_DEFINED
 
-  _CRTIMP int __cdecl iswalpha(wint_t _C);
+  int __cdecl iswalpha(wint_t _C);
   _CRTIMP int __cdecl _iswalpha_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswupper(wint_t _C);
+  int __cdecl iswupper(wint_t _C);
   _CRTIMP int __cdecl _iswupper_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswlower(wint_t _C);
+  int __cdecl iswlower(wint_t _C);
   _CRTIMP int __cdecl _iswlower_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswdigit(wint_t _C);
+  int __cdecl iswdigit(wint_t _C);
   _CRTIMP int __cdecl _iswdigit_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswxdigit(wint_t _C);
+  int __cdecl iswxdigit(wint_t _C);
   _CRTIMP int __cdecl _iswxdigit_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswspace(wint_t _C);
+  int __cdecl iswspace(wint_t _C);
   _CRTIMP int __cdecl _iswspace_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswpunct(wint_t _C);
+  int __cdecl iswpunct(wint_t _C);
   _CRTIMP int __cdecl _iswpunct_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswalnum(wint_t _C);
+  int __cdecl iswalnum(wint_t _C);
   _CRTIMP int __cdecl _iswalnum_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswprint(wint_t _C);
+  int __cdecl iswprint(wint_t _C);
   _CRTIMP int __cdecl _iswprint_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswgraph(wint_t _C);
+  int __cdecl iswgraph(wint_t _C);
   _CRTIMP int __cdecl _iswgraph_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswcntrl(wint_t _C);
+  int __cdecl iswcntrl(wint_t _C);
   _CRTIMP int __cdecl _iswcntrl_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswascii(wint_t _C);
-  _CRTIMP int __cdecl isleadbyte(int _C);
+  int __cdecl iswascii(wint_t _C);
+  int __cdecl isleadbyte(int _C);
   _CRTIMP int __cdecl _isleadbyte_l(int _C,_locale_t _Locale);
-  _CRTIMP wint_t __cdecl towupper(wint_t _C);
+  wint_t __cdecl towupper(wint_t _C);
   _CRTIMP wint_t __cdecl _towupper_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP wint_t __cdecl towlower(wint_t _C);
+  wint_t __cdecl towlower(wint_t _C);
   _CRTIMP wint_t __cdecl _towlower_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl iswctype(wint_t _C,wctype_t _Type);
+  int __cdecl iswctype(wint_t _C,wctype_t _Type);
   _CRTIMP int __cdecl _iswctype_l(wint_t _C,wctype_t _Type,_locale_t _Locale);
   _CRTIMP int __cdecl __iswcsymf(wint_t _C);
   _CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl __iswcsym(wint_t _C);
   _CRTIMP int __cdecl _iswcsym_l(wint_t _C,_locale_t _Locale);
-  _CRTIMP int __cdecl is_wctype(wint_t _C,wctype_t _Type);
+  int __cdecl is_wctype(wint_t _C,wctype_t _Type);
 #endif
 
 #ifndef _WDIRECT_DEFINED
@@ -238,14 +238,12 @@ extern "C" {
 #define _WIO_DEFINED
 
   _CRTIMP int __cdecl _waccess(const wchar_t *_Filename,int _AccessMode);
-  _CRTIMP errno_t __cdecl _waccess_s(const wchar_t *_Filename,int _AccessMode);
   _CRTIMP int __cdecl _wchmod(const wchar_t *_Filename,int _Mode);
   _CRTIMP int __cdecl _wcreat(const wchar_t *_Filename,int _PermissionMode);
   _CRTIMP intptr_t __cdecl _wfindfirst32(const wchar_t *_Filename,struct _wfinddata32_t *_FindData);
   _CRTIMP int __cdecl _wfindnext32(intptr_t _FindHandle,struct _wfinddata32_t *_FindData);
   _CRTIMP int __cdecl _wunlink(const wchar_t *_Filename);
   _CRTIMP int __cdecl _wrename(const wchar_t *_NewFilename,const wchar_t *_OldFilename);
-  _CRTIMP errno_t __cdecl _wmktemp_s(wchar_t *_TemplateName,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wmktemp(wchar_t *_TemplateName);
 #if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP intptr_t __cdecl _wfindfirst32i64(const wchar_t *_Filename,struct _wfinddata32i64_t *_FindData);
@@ -325,33 +323,6 @@ extern "C" {
 #ifndef _CTYPE_DISABLE_MACROS
 #define isleadbyte(_c) (__PCTYPE_FUNC[(unsigned char)(_c)] & _LEADBYTE)
 #endif
-#elif 0
-  __CRT_INLINE int iswalpha(wint_t _C) {return (iswctype(_C,_ALPHA)); }
-  __CRT_INLINE int iswupper(wint_t _C) {return (iswctype(_C,_UPPER)); }
-  __CRT_INLINE int iswlower(wint_t _C) {return (iswctype(_C,_LOWER)); }
-  __CRT_INLINE int iswdigit(wint_t _C) {return (iswctype(_C,_DIGIT)); }
-  __CRT_INLINE int iswxdigit(wint_t _C) {return (iswctype(_C,_HEX)); }
-  __CRT_INLINE int iswspace(wint_t _C) {return (iswctype(_C,_SPACE)); }
-  __CRT_INLINE int iswpunct(wint_t _C) {return (iswctype(_C,_PUNCT)); }
-  __CRT_INLINE int iswalnum(wint_t _C) {return (iswctype(_C,_ALPHA|_DIGIT)); }
-  __CRT_INLINE int iswprint(wint_t _C) {return (iswctype(_C,_BLANK|_PUNCT|_ALPHA|_DIGIT)); }
-  __CRT_INLINE int iswgraph(wint_t _C) {return (iswctype(_C,_PUNCT|_ALPHA|_DIGIT)); }
-  __CRT_INLINE int iswcntrl(wint_t _C) {return (iswctype(_C,_CONTROL)); }
-  __CRT_INLINE int iswascii(wint_t _C) {return ((unsigned)(_C) < 0x80); }
-
-  __CRT_INLINE int __cdecl _iswalpha_l(wint_t _C,_locale_t _Locale) {return (_iswctype_l(_C,_ALPHA,_Locale)); }
-  __CRT_INLINE int __cdecl _iswupper_l(wint_t _C,_locale_t _Locale) {return (_iswctype_l(_C,_UPPER,_Locale)); }
-  __CRT_INLINE int __cdecl _iswlower_l(wint_t _C,_locale_t _Locale) {return (_iswctype_l(_C,_LOWER,_Locale)); }
-  __CRT_INLINE int __cdecl _iswdigit_l(wint_t _C,_locale_t _Locale) {return (_iswctype_l(_C,_DIGIT,_Locale)); }
-  __CRT_INLINE int __cdecl _iswxdigit_l(wint_t _C,_locale_t _Locale) {return(_iswctype_l(_C,_HEX,_Locale)); }
-  __CRT_INLINE int __cdecl _iswspace_l(wint_t _C,_locale_t _Locale) {return (_iswctype_l(_C,_SPACE,_Locale)); }
-  __CRT_INLINE int __cdecl _iswpunct_l(wint_t _C,_locale_t _Locale) {return (_iswctype_l(_C,_PUNCT,_Locale)); }
-  __CRT_INLINE int __cdecl _iswalnum_l(wint_t _C,_locale_t _Locale) {return (_iswctype_l(_C,_ALPHA|_DIGIT,_Locale)); }
-  __CRT_INLINE int __cdecl _iswprint_l(wint_t _C,_locale_t _Locale) {return (_iswctype_l(_C,_BLANK|_PUNCT|_ALPHA|_DIGIT,_Locale)); }
-  __CRT_INLINE int __cdecl _iswgraph_l(wint_t _C,_locale_t _Locale) {return (_iswctype_l(_C,_PUNCT|_ALPHA|_DIGIT,_Locale)); }
-  __CRT_INLINE int __cdecl _iswcntrl_l(wint_t _C,_locale_t _Locale) {return (_iswctype_l(_C,_CONTROL,_Locale)); }
-
-  __CRT_INLINE int isleadbyte(int _C) {return (__PCTYPE_FUNC[(unsigned char)(_C)] & _LEADBYTE); }
 #endif
 #define _WCTYPE_INLINE_DEFINED
 #endif
@@ -505,7 +476,6 @@ extern "C" {
 #define WEOF (wint_t)(0xFFFF)
 #endif
 
-  _CRTIMP errno_t __cdecl _cgetws_s(wchar_t *_Buffer,size_t _SizeInWords,size_t *_SizeRead);
   _CRTIMP wchar_t *_cgetws(wchar_t *_Buffer);
   _CRTIMP wint_t __cdecl _getwch(void);
   _CRTIMP wint_t __cdecl _getwche(void);
@@ -513,20 +483,14 @@ extern "C" {
   _CRTIMP wint_t __cdecl _ungetwch(wint_t _WCh);
   _CRTIMP int __cdecl _cputws(const wchar_t *_String);
   _CRTIMP int __cdecl _cwprintf(const wchar_t *_Format,...);
-  _CRTIMP int __cdecl _cwprintf_s(const wchar_t *_Format,...);
   _CRTIMP int __cdecl _cwscanf(const wchar_t *_Format,...);
   _CRTIMP int __cdecl _cwscanf_l(const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _cwscanf_s(const wchar_t *_Format,...);
-  _CRTIMP int __cdecl _cwscanf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vcwprintf(const wchar_t *_Format,va_list _ArgList);
-  _CRTIMP int __cdecl _vcwprintf_s(const wchar_t *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _cwprintf_p(const wchar_t *_Format,...);
   _CRTIMP int __cdecl _vcwprintf_p(const wchar_t *_Format,va_list _ArgList);
 
   _CRTIMP int __cdecl _cwprintf_l(const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _cwprintf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vcwprintf_l(const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
-  _CRTIMP int __cdecl _vcwprintf_s_l(const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _cwprintf_p_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vcwprintf_p_l(const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   wint_t __cdecl _putwch_nolock(wchar_t _WCh);
@@ -559,24 +523,15 @@ extern "C" {
   wint_t __cdecl ungetwc(wint_t _Ch,FILE *_File);
   wchar_t *__cdecl fgetws(wchar_t *_Dst,int _SizeInWords,FILE *_File);
   int __cdecl fputws(const wchar_t *_Str,FILE *_File);
-  _CRTIMP wchar_t *__cdecl _getws_s(wchar_t *_Str,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _getws(wchar_t *_String);
   _CRTIMP int __cdecl _putws(const wchar_t *_Str);
   int __cdecl fwprintf(FILE *_File,const wchar_t *_Format,...);
-  int __cdecl fwprintf_s(FILE *_File,const wchar_t *_Format,...);
   int __cdecl wprintf(const wchar_t *_Format,...);
-  int __cdecl wprintf_s(const wchar_t *_Format,...);
   _CRTIMP int __cdecl _scwprintf(const wchar_t *_Format,...);
   int __cdecl vfwprintf(FILE *_File,const wchar_t *_Format,va_list _ArgList);
-  int __cdecl vfwprintf_s(FILE *_File,const wchar_t *_Format,va_list _ArgList);
   int __cdecl vwprintf(const wchar_t *_Format,va_list _ArgList);
-  int __cdecl vwprintf_s(const wchar_t *_Format,va_list _ArgList);
-  int __cdecl swprintf_s(wchar_t *_Dst,size_t _SizeInWords,const wchar_t *_Format,...);
-  int __cdecl vswprintf_s(wchar_t *_Dst,size_t _SizeInWords,const wchar_t *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _swprintf_c(wchar_t *_DstBuf,size_t _SizeInWords,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _vswprintf_c(wchar_t *_DstBuf,size_t _SizeInWords,const wchar_t *_Format,va_list _ArgList);
-  _CRTIMP int __cdecl _snwprintf_s(wchar_t *_DstBuf,size_t _DstSizeInWords,size_t _MaxCount,const wchar_t *_Format,...);
-  _CRTIMP int __cdecl _vsnwprintf_s(wchar_t *_DstBuf,size_t _DstSizeInWords,size_t _MaxCount,const wchar_t *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _snwprintf(wchar_t *_Dest,size_t _Count,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _vsnwprintf(wchar_t *_Dest,size_t _Count,const wchar_t *_Format,va_list _Args);
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
@@ -596,29 +551,21 @@ extern "C" {
   _CRTIMP int __cdecl _vscwprintf_p(const wchar_t *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _wprintf_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _wprintf_p_l(const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _wprintf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vwprintf_l(const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _vwprintf_p_l(const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
-  _CRTIMP int __cdecl _vwprintf_s_l(const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _fwprintf_l(FILE *_File,const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _fwprintf_p_l(FILE *_File,const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _fwprintf_s_l(FILE *_File,const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vfwprintf_l(FILE *_File,const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _vfwprintf_p_l(FILE *_File,const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
-  _CRTIMP int __cdecl _vfwprintf_s_l(FILE *_File,const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _swprintf_c_l(wchar_t *_DstBuf,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _swprintf_p_l(wchar_t *_DstBuf,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _swprintf_s_l(wchar_t *_DstBuf,size_t _DstSize,const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vswprintf_c_l(wchar_t *_DstBuf,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _vswprintf_p_l(wchar_t *_DstBuf,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
-  _CRTIMP int __cdecl _vswprintf_s_l(wchar_t *_DstBuf,size_t _DstSize,const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _scwprintf_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _scwprintf_p_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vscwprintf_p_l(const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _snwprintf_l(wchar_t *_DstBuf,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _snwprintf_s_l(wchar_t *_DstBuf,size_t _DstSize,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vsnwprintf_l(wchar_t *_DstBuf,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
-  _CRTIMP int __cdecl _vsnwprintf_s_l(wchar_t *_DstBuf,size_t _DstSize,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _swprintf(wchar_t *_Dest,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _vswprintf(wchar_t *_Dest,const wchar_t *_Format,va_list _Args);
   _CRTIMP int __cdecl __swprintf_l(wchar_t *_Dest,const wchar_t *_Format,_locale_t _Plocinfo,...);
@@ -641,22 +588,15 @@ extern "C" {
   _CRTIMP int __cdecl _vscwprintf_l(const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
   int __cdecl fwscanf(FILE *_File,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _fwscanf_l(FILE *_File,const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _fwscanf_s_l(FILE *_File,const wchar_t *_Format,_locale_t _Locale,...);
   int __cdecl swscanf(const wchar_t *_Src,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _swscanf_l(const wchar_t *_Src,const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _swscanf_s_l(const wchar_t *_Src,const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _snwscanf(const wchar_t *_Src,size_t _MaxCount,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _snwscanf_l(const wchar_t *_Src,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _snwscanf_s(const wchar_t *_Src,size_t _MaxCount,const wchar_t *_Format,...);
-  _CRTIMP int __cdecl _snwscanf_s_l(const wchar_t *_Src,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
   int __cdecl wscanf(const wchar_t *_Format,...);
   _CRTIMP int __cdecl _wscanf_l(const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _wscanf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP FILE *__cdecl _wfdopen(int _FileHandle ,const wchar_t *_Mode);
   _CRTIMP FILE *__cdecl _wfopen(const wchar_t *_Filename,const wchar_t *_Mode);
-  _CRTIMP errno_t __cdecl _wfopen_s(FILE **_File,const wchar_t *_Filename,const wchar_t *_Mode);
   _CRTIMP FILE *__cdecl _wfreopen(const wchar_t *_Filename,const wchar_t *_Mode,FILE *_OldFile);
-  _CRTIMP errno_t __cdecl _wfreopen_s(FILE **_File,const wchar_t *_Filename,const wchar_t *_Mode,FILE *_OldFile);
 
 #ifndef _CRT_WPERROR_DEFINED
 #define _CRT_WPERROR_DEFINED
@@ -667,7 +607,6 @@ extern "C" {
 #define wpopen	_wpopen
 #endif
   _CRTIMP int __cdecl _wremove(const wchar_t *_Filename);
-  _CRTIMP errno_t __cdecl _wtmpnam_s(wchar_t *_DstBuf,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wtmpnam(wchar_t *_Buffer);
   _CRTIMP wint_t __cdecl _fgetwc_nolock(FILE *_File);
   _CRTIMP wint_t __cdecl _fputwc_nolock(wchar_t _Ch,FILE *_File);
@@ -692,11 +631,8 @@ extern "C" {
 #ifndef _WSTDLIB_DEFINED
 #define _WSTDLIB_DEFINED
 
-  _CRTIMP errno_t __cdecl _itow_s (int _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _itow(int _Value,wchar_t *_Dest,int _Radix);
-  _CRTIMP errno_t __cdecl _ltow_s (long _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _ltow(long _Value,wchar_t *_Dest,int _Radix);
-  _CRTIMP errno_t __cdecl _ultow_s (unsigned long _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _ultow(unsigned long _Value,wchar_t *_Dest,int _Radix);
   _CRTIMP double __cdecl wcstod(const wchar_t *_Str,wchar_t **_EndPtr);
   _CRTIMP double __cdecl _wcstod_l(const wchar_t *_Str,wchar_t **_EndPtr,_locale_t _Locale);
@@ -709,8 +645,6 @@ extern "C" {
   _CRTIMP unsigned long __cdecl wcstoul(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
   _CRTIMP unsigned long __cdecl _wcstoul_l(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wgetenv(const wchar_t *_VarName);
-  _CRTIMP errno_t __cdecl _wgetenv_s(size_t *_ReturnSize,wchar_t *_DstBuf,size_t _DstSizeInWords,const wchar_t *_VarName);
-  _CRTIMP errno_t __cdecl _wdupenv_s(wchar_t **_Buffer,size_t *_BufferSizeInWords,const wchar_t *_VarName);
 #ifndef _CRT_WSYSTEM_DEFINED
 #define _CRT_WSYSTEM_DEFINED
   _CRTIMP int __cdecl _wsystem(const wchar_t *_Command);
@@ -723,9 +657,7 @@ extern "C" {
   _CRTIMP long __cdecl _wtol_l(const wchar_t *_Str,_locale_t _Locale);
 
 #if _INTEGRAL_MAX_BITS >= 64
-  _CRTIMP errno_t __cdecl _i64tow_s(__int64 _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _i64tow(__int64 _Val,wchar_t *_DstBuf,int _Radix);
-  _CRTIMP errno_t __cdecl _ui64tow_s(unsigned __int64 _Val,wchar_t *_DstBuf,size_t _SizeInWords,int _Radix);
   _CRTIMP wchar_t *__cdecl _ui64tow(unsigned __int64 _Val,wchar_t *_DstBuf,int _Radix);
   _CRTIMP __int64 __cdecl _wtoi64(const wchar_t *_Str);
   _CRTIMP __int64 __cdecl _wtoi64_l(const wchar_t *_Str,_locale_t _Locale);
@@ -740,65 +672,51 @@ extern "C" {
 #ifndef _WSTDLIBP_DEFINED
 #define _WSTDLIBP_DEFINED
   _CRTIMP wchar_t *__cdecl _wfullpath(wchar_t *_FullPath,const wchar_t *_Path,size_t _SizeInWords);
-  _CRTIMP errno_t __cdecl _wmakepath_s(wchar_t *_PathResult,size_t _SizeInWords,const wchar_t *_Drive,const wchar_t *_Dir,const wchar_t *_Filename,const wchar_t *_Ext);
   _CRTIMP void __cdecl _wmakepath(wchar_t *_ResultPath,const wchar_t *_Drive,const wchar_t *_Dir,const wchar_t *_Filename,const wchar_t *_Ext);
 #ifndef _CRT_WPERROR_DEFINED
 #define _CRT_WPERROR_DEFINED
   _CRTIMP void __cdecl _wperror(const wchar_t *_ErrMsg);
 #endif
   _CRTIMP int __cdecl _wputenv(const wchar_t *_EnvString);
-  _CRTIMP errno_t __cdecl _wputenv_s(const wchar_t *_Name,const wchar_t *_Value);
-  _CRTIMP errno_t __cdecl _wsearchenv_s(const wchar_t *_Filename,const wchar_t *_EnvVar,wchar_t *_ResultPath,size_t _SizeInWords);
   _CRTIMP void __cdecl _wsearchenv(const wchar_t *_Filename,const wchar_t *_EnvVar,wchar_t *_ResultPath);
   _CRTIMP void __cdecl _wsplitpath(const wchar_t *_FullPath,wchar_t *_Drive,wchar_t *_Dir,wchar_t *_Filename,wchar_t *_Ext);
-  _CRTIMP errno_t __cdecl _wsplitpath_s(const wchar_t *_FullPath,wchar_t *_Drive,size_t _DriveSizeInWords,wchar_t *_Dir,size_t _DirSizeInWords,wchar_t *_Filename,size_t _FilenameSizeInWords,wchar_t *_Ext,size_t _ExtSizeInWords);
 #endif
 #endif
 
 #ifndef _WSTRING_DEFINED
 #define _WSTRING_DEFINED
   _CRTIMP wchar_t *__cdecl _wcsdup(const wchar_t *_Str);
-  _CRTIMP wchar_t *__cdecl wcscat(wchar_t *_Dest,const wchar_t *_Source);
-  _CRTIMP _CONST_RETURN wchar_t *__cdecl wcschr(const wchar_t *_Str,wchar_t _Ch);
-  _CRTIMP int __cdecl wcscmp(const wchar_t *_Str1,const wchar_t *_Str2);
-  _CRTIMP wchar_t *__cdecl wcscpy(wchar_t *_Dest,const wchar_t *_Source);
-  _CRTIMP size_t __cdecl wcscspn(const wchar_t *_Str,const wchar_t *_Control);
-  _CRTIMP size_t __cdecl wcslen(const wchar_t *_Str);
-  _CRTIMP size_t __cdecl wcsnlen(const wchar_t *_Src,size_t _MaxCount);
-  _CRTIMP wchar_t *__cdecl wcsncat(wchar_t *_Dest,const wchar_t *_Source,size_t _Count);
-  _CRTIMP int __cdecl wcsncmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
-  _CRTIMP wchar_t *__cdecl wcsncpy(wchar_t *_Dest,const wchar_t *_Source,size_t _Count);
-  _CRTIMP _CONST_RETURN wchar_t *__cdecl wcspbrk(const wchar_t *_Str,const wchar_t *_Control);
-  _CRTIMP _CONST_RETURN wchar_t *__cdecl wcsrchr(const wchar_t *_Str,wchar_t _Ch);
-  _CRTIMP size_t __cdecl wcsspn(const wchar_t *_Str,const wchar_t *_Control);
-  _CRTIMP _CONST_RETURN wchar_t *__cdecl wcsstr(const wchar_t *_Str,const wchar_t *_SubStr);
-  _CRTIMP wchar_t *__cdecl wcstok(wchar_t *_Str,const wchar_t *_Delim);
-  _CRTIMP wchar_t *__cdecl wcstok_s(wchar_t *_Str,const wchar_t *_Delim,wchar_t **_Context);
+  wchar_t *__cdecl wcscat(wchar_t *_Dest,const wchar_t *_Source);
+  _CONST_RETURN wchar_t *__cdecl wcschr(const wchar_t *_Str,wchar_t _Ch);
+  int __cdecl wcscmp(const wchar_t *_Str1,const wchar_t *_Str2);
+  wchar_t *__cdecl wcscpy(wchar_t *_Dest,const wchar_t *_Source);
+  size_t __cdecl wcscspn(const wchar_t *_Str,const wchar_t *_Control);
+  size_t __cdecl wcslen(const wchar_t *_Str);
+  size_t __cdecl wcsnlen(const wchar_t *_Src,size_t _MaxCount);
+  wchar_t *__cdecl wcsncat(wchar_t *_Dest,const wchar_t *_Source,size_t _Count);
+  int __cdecl wcsncmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
+  wchar_t *__cdecl wcsncpy(wchar_t *_Dest,const wchar_t *_Source,size_t _Count);
+  _CONST_RETURN wchar_t *__cdecl wcspbrk(const wchar_t *_Str,const wchar_t *_Control);
+  _CONST_RETURN wchar_t *__cdecl wcsrchr(const wchar_t *_Str,wchar_t _Ch);
+  size_t __cdecl wcsspn(const wchar_t *_Str,const wchar_t *_Control);
+  _CONST_RETURN wchar_t *__cdecl wcsstr(const wchar_t *_Str,const wchar_t *_SubStr);
+  wchar_t *__cdecl wcstok(wchar_t *_Str,const wchar_t *_Delim);
   _CRTIMP wchar_t *__cdecl _wcserror(int _ErrNum);
-  _CRTIMP errno_t __cdecl _wcserror_s(wchar_t *_Buf,size_t _SizeInWords,int _ErrNum);
   _CRTIMP wchar_t *__cdecl __wcserror(const wchar_t *_Str);
-  _CRTIMP errno_t __cdecl __wcserror_s(wchar_t *_Buffer,size_t _SizeInWords,const wchar_t *_ErrMsg);
   _CRTIMP int __cdecl _wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2);
   _CRTIMP int __cdecl _wcsicmp_l(const wchar_t *_Str1,const wchar_t *_Str2,_locale_t _Locale);
   _CRTIMP int __cdecl _wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _wcsnicmp_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wcsnset(wchar_t *_Str,wchar_t _Val,size_t _MaxCount);
-  _CRTIMP errno_t __cdecl _wcsnset_s(wchar_t *_Dst,size_t _DstSizeInWords,wchar_t _Val,size_t _MaxCount);
   _CRTIMP wchar_t *__cdecl _wcsrev(wchar_t *_Str);
   _CRTIMP wchar_t *__cdecl _wcsset(wchar_t *_Str,wchar_t _Val);
-  _CRTIMP errno_t __cdecl _wcsset_s(wchar_t *_Str,size_t _SizeInWords,wchar_t _Val);
-
-  _CRTIMP errno_t __cdecl _wcslwr_s(wchar_t *_Str,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wcslwr(wchar_t *_String);
-  _CRTIMP errno_t __cdecl _wcslwr_s_l(wchar_t *_Str,size_t _SizeInWords,_locale_t _Locale);
   _CRTIMP wchar_t *_wcslwr_l(wchar_t *_String,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _wcsupr_s(wchar_t *_Str,size_t _Size);
   _CRTIMP wchar_t *__cdecl _wcsupr(wchar_t *_String);
-  _CRTIMP errno_t __cdecl _wcsupr_s_l(wchar_t *_Str,size_t _Size,_locale_t _Locale);
   _CRTIMP wchar_t *_wcsupr_l(wchar_t *_String,_locale_t _Locale);
-  _CRTIMP size_t __cdecl wcsxfrm(wchar_t *_Dst,const wchar_t *_Src,size_t _MaxCount);
+  size_t __cdecl wcsxfrm(wchar_t *_Dst,const wchar_t *_Src,size_t _MaxCount);
   _CRTIMP size_t __cdecl _wcsxfrm_l(wchar_t *_Dst,const wchar_t *_Src,size_t _MaxCount,_locale_t _Locale);
-  _CRTIMP int __cdecl wcscoll(const wchar_t *_Str1,const wchar_t *_Str2);
+  int __cdecl wcscoll(const wchar_t *_Str1,const wchar_t *_Str2);
   _CRTIMP int __cdecl _wcscoll_l(const wchar_t *_Str1,const wchar_t *_Str2,_locale_t _Locale);
   _CRTIMP int __cdecl _wcsicoll(const wchar_t *_Str1,const wchar_t *_Str2);
   _CRTIMP int __cdecl _wcsicoll_l(const wchar_t *_Str1,const wchar_t *_Str2,_locale_t _Locale);
@@ -810,14 +728,14 @@ extern "C" {
 #ifndef	NO_OLDNAMES
   wchar_t *__cdecl wcsdup(const wchar_t *_Str);
 #define wcswcs wcsstr
-  _CRTIMP int __cdecl wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2);
-  _CRTIMP int __cdecl wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
-  _CRTIMP wchar_t *__cdecl wcsnset(wchar_t *_Str,wchar_t _Val,size_t _MaxCount);
-  _CRTIMP wchar_t *__cdecl wcsrev(wchar_t *_Str);
-  _CRTIMP wchar_t *__cdecl wcsset(wchar_t *_Str,wchar_t _Val);
-  _CRTIMP wchar_t *__cdecl wcslwr(wchar_t *_Str);
-  _CRTIMP wchar_t *__cdecl wcsupr(wchar_t *_Str);
-  _CRTIMP int __cdecl wcsicoll(const wchar_t *_Str1,const wchar_t *_Str2);
+  int __cdecl wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2);
+  int __cdecl wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
+  wchar_t *__cdecl wcsnset(wchar_t *_Str,wchar_t _Val,size_t _MaxCount);
+  wchar_t *__cdecl wcsrev(wchar_t *_Str);
+  wchar_t *__cdecl wcsset(wchar_t *_Str,wchar_t _Val);
+  wchar_t *__cdecl wcslwr(wchar_t *_Str);
+  wchar_t *__cdecl wcsupr(wchar_t *_Str);
+  int __cdecl wcsicoll(const wchar_t *_Str1,const wchar_t *_Str2);
 #endif
 #endif
 
@@ -840,28 +758,21 @@ extern "C" {
 #define _WTIME_DEFINED
 
   _CRTIMP wchar_t *__cdecl _wasctime(const struct tm *_Tm);
-  _CRTIMP errno_t __cdecl _wasctime_s(wchar_t *_Buf,size_t _SizeInWords,const struct tm *_Tm);
   _CRTIMP wchar_t *__cdecl _wctime32(const __time32_t *_Time);
-  _CRTIMP errno_t __cdecl _wctime32_s(wchar_t *_Buf,size_t _SizeInWords,const __time32_t *_Time);
-  _CRTIMP size_t __cdecl wcsftime(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm);
+  size_t __cdecl wcsftime(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm);
   _CRTIMP size_t __cdecl _wcsftime_l(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _wstrdate_s(wchar_t *_Buf,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wstrdate(wchar_t *_Buffer);
-  _CRTIMP errno_t __cdecl _wstrtime_s(wchar_t *_Buf,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wstrtime(wchar_t *_Buffer);
 #if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP wchar_t *__cdecl _wctime64(const __time64_t *_Time);
-  _CRTIMP errno_t __cdecl _wctime64_s(wchar_t *_Buf,size_t _SizeInWords,const __time64_t *_Time);
 #endif
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
 #ifdef _USE_32BIT_TIME_T
 __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime32(_Time); }
-__CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) { return _wctime32_s(_Buffer,_SizeInWords,_Time); }
 #else
 __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
-__CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) { return _wctime64_s(_Buffer,_SizeInWords,_Time); }
 #endif
 #endif
 #endif
@@ -872,11 +783,8 @@ __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,cons
   wint_t __cdecl btowc(int);
   size_t __cdecl mbrlen(const char *_Ch,size_t _SizeInBytes,mbstate_t *_State);
   size_t __cdecl mbrtowc(wchar_t *_DstCh,const char *_SrcCh,size_t _SizeInBytes,mbstate_t *_State);
-  _CRTIMP errno_t __cdecl mbsrtowcs_s(size_t *_Retval,wchar_t *_Dst,size_t _SizeInWords,const char **_PSrc,size_t _N,mbstate_t *_State);
   size_t __cdecl mbsrtowcs(wchar_t *_Dest,const char **_PSrc,size_t _Count,mbstate_t *_State);
-  _CRTIMP errno_t __cdecl wcrtomb_s(size_t *_Retval,char *_Dst,size_t _SizeInBytes,wchar_t _Ch,mbstate_t *_State);
   size_t __cdecl wcrtomb(char *_Dest,wchar_t _Source,mbstate_t *_State);
-  _CRTIMP errno_t __cdecl wcsrtombs_s(size_t *_Retval,char *_Dst,size_t _SizeInBytes,const wchar_t **_Src,size_t _Size,mbstate_t *_State);
   size_t __cdecl wcsrtombs(char *_Dest,const wchar_t **_PSource,size_t _Count,mbstate_t *_State);
   int __cdecl wctob(wint_t _WCh);
 
@@ -890,11 +798,7 @@ __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,cons
   unsigned long long __cdecl wcstoull(const wchar_t *nptr,wchar_t **endptr, int base);
 #endif /* __NO_ISOCEXT */
 
-#ifdef __ia64__
   void *__cdecl memmove(void *_Dst,const void *_Src,size_t _MaxCount);
-#else
-  _CRTIMP void *__cdecl memmove(void *_Dst,const void *_Src,size_t _MaxCount);
-#endif
   void *__cdecl memcpy(void *_Dst,const void *_Src,size_t _MaxCount);
   __CRT_INLINE int __cdecl fwide(FILE *_F,int _M) { (void)_F; return (_M); }
   __CRT_INLINE int __cdecl mbsinit(const mbstate_t *_P) { return (!_P || *_P==0); }
@@ -914,4 +818,6 @@ __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,cons
 #endif
 
 #pragma pack(pop)
+
+#include <wchar_s.h>
 #endif
