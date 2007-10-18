@@ -158,5 +158,5 @@ extern "C" {
 }
 #endif
 
-#include <string_s.h>
+#include <sec_api/string_s.h>
 #endif

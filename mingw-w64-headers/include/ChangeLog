@@ -1,6 +1,9 @@
 2007-10-18  Kai Tietz  <kai.tietz@onevision.com>
 
 	* winsock.h, winsock2.h: Make them compatible to each other.
+	* stdlib.h, sys/timeb.h, conio.h, crtdbg.h, io.h, mbstring.h,
+	search.h, stdio.h, string.h, time.h, wchar.h: Extracted secured
+	API into sec_api/.._s.h files and placed include in base headers.
 
 2007-10-17  Kai Tietz  <kai.tietz@onevision.com>
 

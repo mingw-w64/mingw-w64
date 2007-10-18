@@ -357,6 +357,6 @@ extern "C" {
 
 #pragma pack(pop)
 
-#include <io_s.h>
+#include <sec_api/io_s.h>
 
 #endif

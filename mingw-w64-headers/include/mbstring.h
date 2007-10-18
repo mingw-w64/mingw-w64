@@ -207,6 +207,6 @@ extern "C" {
 
 #pragma pack(pop)
 
-#include <mbstring_s.h>
+#include <sec_api/mbstring_s.h>
 
 #endif

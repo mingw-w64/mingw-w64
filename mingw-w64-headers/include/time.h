@@ -234,5 +234,5 @@ struct timezone {
 
 #pragma pack(pop)
 
-#include <time_s.h>
+#include <sec_api/time_s.h>
 #endif

@@ -96,6 +96,6 @@ extern "C" {
 }
 #endif
 
-#include <conio_s.h>
+#include <sec_api/conio_s.h>
 
 #endif

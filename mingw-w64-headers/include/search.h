@@ -30,6 +30,6 @@ extern "C" {
 }
 #endif
 
-#include <search_s.h>
+#include <sec_api/search_s.h>
 
 #endif

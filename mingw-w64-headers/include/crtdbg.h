@@ -207,6 +207,6 @@ extern "C" {
 
 #pragma pack(pop)
 
-#include <crtdbg_s.h>
+#include <sec_api/crtdbg_s.h>
 
 #endif

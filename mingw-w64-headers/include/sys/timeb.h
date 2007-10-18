@@ -126,5 +126,5 @@ __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
 
 #pragma pack(pop)
 
-#include <sys/timeb_s.h>
+#include <sec_api/sys/timeb_s.h>
 #endif
