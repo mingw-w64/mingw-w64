@@ -84,10 +84,6 @@ extern "C" {
     if(WSTR_ALIGNED(String)) return wcscpy((PWSTR)Destination,(PCWSTR)Source);
     return uaw_wcscpy(Destination,Source);
   }
-  static __inline PUWSTR ua_wcscpy_s(PUWSTR Destination,size_t DestinationSize,PCUWSTR Source) {
-    if(WSTR_ALIGNED(Source) && WSTR_ALIGNED(Destination)) return (wcscpy_s((PWSTR)Destination,DestinationSize,(PCWSTR)Source)==0 ? Destination : NULL);
-    return uaw_wcscpy((PCUWSTR)String,Character);
-  }
   static __inline PUWSTR ua_wcsrchr(PUWSTR String,WCHAR Character) {
     if(WSTR_ALIGNED(String)) return wcsrchr(String,Character);
     return uaw_wcsrchr((PCUWSTR)String,Character);
@@ -153,4 +149,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
+#include <sec_api/stralign_s.h>
 #endif
