@@ -192,7 +192,7 @@ Q8_OBJS = \
 	strtoimax.o strtoumax.o wcstoimax.o wcstoumax.o \
 	wmemchr.o wmemcmp.o wmemcpy.o wmemmove.o wmemset.o \
 	wctrans.o wctype.o wcrtomb.o wctob.o mbrtowc.o btowc.o seterrno.o \
-	sleep.o alarm.o getlogin.o gettimeofday.o wassert.o isblank.o iswblank.o \
+	sleep.o getlogin.o gettimeofday.o wassert.o isblank.o iswblank.o \
 	wininterlocked.o mktime.o difftime.o difftime32.o difftime64.o ctime.o \
 	gmtime.o localtime.o _mkgmtime.o \
 	time.o execv.o execve.o execvp.o execvpe.o spawnv.o spawnve.o \
