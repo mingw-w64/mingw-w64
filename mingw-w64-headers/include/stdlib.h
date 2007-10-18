@@ -257,8 +257,8 @@ extern "C" {
   int __cdecl atexit(void (__cdecl *)(void));
 #ifndef _CRT_ATOF_DEFINED
 #define _CRT_ATOF_DEFINED
-  _CRTIMP double __cdecl atof(const char *_String);
-  _CRTIMP double __cdecl _atof_l(const char *_String,_locale_t _Locale);
+  double __cdecl atof(const char *_String);
+  double __cdecl _atof_l(const char *_String,_locale_t _Locale);
 #endif
   _CRTIMP int __cdecl atoi(const char *_Str);
   _CRTIMP int __cdecl _atoi_l(const char *_Str,_locale_t _Locale);
@@ -447,14 +447,14 @@ extern "C" {
 #define sys_errlist _sys_errlist
 #define sys_nerr _sys_nerr
 #define environ _environ
-  _CRTIMP char *__cdecl ecvt(double _Val,int _NumOfDigits,int *_PtDec,int *_PtSign);
-  _CRTIMP char *__cdecl fcvt(double _Val,int _NumOfDec,int *_PtDec,int *_PtSign);
-  _CRTIMP char *__cdecl gcvt(double _Val,int _NumOfDigits,char *_DstBuf);
-  _CRTIMP char *__cdecl itoa(int _Val,char *_DstBuf,int _Radix);
-  _CRTIMP char *__cdecl ltoa(long _Val,char *_DstBuf,int _Radix);
-  _CRTIMP int __cdecl putenv(const char *_EnvString);
-  _CRTIMP void __cdecl swab(char *_Buf1,char *_Buf2,int _SizeInBytes);
-  _CRTIMP char *__cdecl ultoa(unsigned long _Val,char *_Dstbuf,int _Radix);
+  char *__cdecl ecvt(double _Val,int _NumOfDigits,int *_PtDec,int *_PtSign);
+  char *__cdecl fcvt(double _Val,int _NumOfDec,int *_PtDec,int *_PtSign);
+  char *__cdecl gcvt(double _Val,int _NumOfDigits,char *_DstBuf);
+  char *__cdecl itoa(int _Val,char *_DstBuf,int _Radix);
+  char *__cdecl ltoa(long _Val,char *_DstBuf,int _Radix);
+  int __cdecl putenv(const char *_EnvString);
+  void __cdecl swab(char *_Buf1,char *_Buf2,int _SizeInBytes);
+  char *__cdecl ultoa(unsigned long _Val,char *_Dstbuf,int _Radix);
   onexit_t __cdecl onexit(onexit_t _Func);
 #endif
 #endif
@@ -475,10 +475,10 @@ extern "C" {
 
 #ifndef __STRICT_ANSI__
   long long  __cdecl wtoll (const wchar_t *);
-  char* __cdecl lltoa (long long, char *, int);
-  char* __cdecl ulltoa (unsigned long long , char *, int);
-  wchar_t* __cdecl lltow (long long, wchar_t *, int);
-  wchar_t* __cdecl ulltow (unsigned long long, wchar_t *, int);
+  char *__cdecl lltoa (long long, char *, int);
+  char *__cdecl ulltoa (unsigned long long , char *, int);
+  wchar_t *__cdecl lltow (long long, wchar_t *, int);
+  wchar_t *__cdecl ulltow (unsigned long long, wchar_t *, int);
 
   /* __CRT_INLINE using non-ansi functions */
   __CRT_INLINE long long  __cdecl atoll (const char * _c) { return _atoi64 (_c); }

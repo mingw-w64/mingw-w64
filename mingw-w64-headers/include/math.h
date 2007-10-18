@@ -80,24 +80,24 @@ extern "C" {
   double __cdecl sqrt(double _X);
 #ifndef _CRT_ATOF_DEFINED
 #define _CRT_ATOF_DEFINED
-  _CRTIMP double __cdecl atof(const char *_String);
-  _CRTIMP double __cdecl _atof_l(const char *_String,_locale_t _Locale);
+  double __cdecl atof(const char *_String);
+  double __cdecl _atof_l(const char *_String,_locale_t _Locale);
 #endif
 
   _CRTIMP double __cdecl _cabs(struct _complex _ComplexA);
-  _CRTIMP double __cdecl ceil(double _X);
-  _CRTIMP double __cdecl floor(double _X);
-  _CRTIMP double __cdecl frexp(double _X,int *_Y);
-  _CRTIMP double __cdecl _hypot(double _X,double _Y);
+  double __cdecl ceil(double _X);
+  double __cdecl floor(double _X);
+  double __cdecl frexp(double _X,int *_Y);
+  double __cdecl _hypot(double _X,double _Y);
   _CRTIMP double __cdecl _j0(double _X);
   _CRTIMP double __cdecl _j1(double _X);
   _CRTIMP double __cdecl _jn(int _X,double _Y);
-  _CRTIMP double __cdecl ldexp(double _X,int _Y);
+  double __cdecl ldexp(double _X,int _Y);
 #ifndef _CRT_MATHERR_DEFINED
 #define _CRT_MATHERR_DEFINED
   int __cdecl _matherr(struct _exception *_Except);
 #endif
-  _CRTIMP double __cdecl modf(double _X,double *_Y);
+  double __cdecl modf(double _X,double *_Y);
   _CRTIMP double __cdecl _y0(double _X);
   _CRTIMP double __cdecl _y1(double _X);
   _CRTIMP double __cdecl _yn(int _X,double _Y);
@@ -109,29 +109,30 @@ extern "C" {
 #endif
 
 #if defined(__ia64__)
-  _CRTIMP float __cdecl acosf(float _X);
-  _CRTIMP float __cdecl asinf(float _X);
-  _CRTIMP float __cdecl atanf(float _X);
-  _CRTIMP float __cdecl atan2f(float _Y,float _X);
-  _CRTIMP float __cdecl cosf(float _X);
-  _CRTIMP float __cdecl sinf(float _X);
-  _CRTIMP float __cdecl tanf(float _X);
-  _CRTIMP float __cdecl coshf(float _X);
-  _CRTIMP float __cdecl sinhf(float _X);
-  _CRTIMP float __cdecl tanhf(float _X);
-  _CRTIMP float __cdecl expf(float _X);
-  _CRTIMP float __cdecl logf(float _X);
-  _CRTIMP float __cdecl log10f(float _X);
-  _CRTIMP float __cdecl modff(float _X,float *_Y);
-  _CRTIMP float __cdecl powf(float _Base,float _Exp);
-  _CRTIMP float __cdecl sqrtf(float _X);
+  float __cdecl acosf(float _X);
+  float __cdecl asinf(float _X);
+  float __cdecl atanf(float _X);
+  float __cdecl atan2f(float _Y,float _X);
+  float __cdecl cosf(float _X);
+  float __cdecl sinf(float _X);
+  float __cdecl tanf(float _X);
+  float __cdecl coshf(float _X);
+  float __cdecl sinhf(float _X);
+  float __cdecl tanhf(float _X);
+  float __cdecl expf(float _X);
+  float __cdecl logf(float _X);
+  float __cdecl log10f(float _X);
+  float __cdecl modff(float _X,float *_Y);
+  float __cdecl powf(float _Base,float _Exp);
+  float __cdecl sqrtf(float _X);
 
-  _CRTIMP float __cdecl ceilf(float _X);
-  _CRTIMP float __cdecl fabsf(float _X);
-  _CRTIMP float __cdecl floorf(float _X);
-  _CRTIMP float __cdecl fmodf(float _X,float _Y);
-  _CRTIMP float __cdecl _hypotf(float _X,float _Y);
+  float __cdecl ceilf(float _X);
+  float __cdecl fabsf(float _X);
+  float __cdecl floorf(float _X);
+  float __cdecl fmodf(float _X,float _Y);
+  float __cdecl _hypotf(float _X,float _Y);
 #endif
+  float frexpf(float _X,int *_Y);
   float __cdecl ldexpf(float _X,int _Y);
   long double __cdecl ldexpl(long double _X,int _Y);
 #if defined(__x86_64)
@@ -174,11 +175,6 @@ extern "C" {
   }
 #define _hypotl(x,y) ((long double)_hypot((double)(x),(double)(y)))
 #define _matherrl _matherr
-  __CRT_INLINE long double modfl(long double _X,long double *_Y) {
-    double _Di,_Df = modf((double)_X,&_Di);
-    *_Y = (long double)_Di;
-    return (_Df);
-  }
   __CRT_INLINE long double _chgsignl(long double _Number) { return _chgsign((double)(_Number)); }
   __CRT_INLINE long double _copysignl(long double _Number,long double _Sign) { return _copysign((double)(_Number),(double)(_Sign)); }
   __CRT_INLINE float frexpf(float _X,int *_Y) { return ((float)frexp((double)_X,_Y)); }
@@ -276,8 +272,8 @@ extern "C" {
 #define matherr _matherr
 
 #define HUGE	_HUGE
-  /*	_CRTIMP double __cdecl cabs(struct _complex _X); */
-  _CRTIMP double __cdecl hypot(double _X,double _Y);
+  /*	double __cdecl cabs(struct _complex _X); */
+  double __cdecl hypot(double _X,double _Y);
   _CRTIMP double __cdecl j0(double _X);
   _CRTIMP double __cdecl j1(double _X);
   _CRTIMP double __cdecl jn(int _X,double _Y);

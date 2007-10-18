@@ -643,8 +643,7 @@ extern "C" {
 
 #include <qos.h>
 
-  typedef struct _QualityOfService
-  {
+  typedef struct _QualityOfService {
     FLOWSPEC SendingFlowspec;
     FLOWSPEC ReceivingFlowspec;
     WSABUF ProviderSpecific;
