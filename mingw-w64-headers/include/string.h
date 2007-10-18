@@ -42,7 +42,6 @@ extern "C" {
 #endif
 #endif
   char *__cdecl _strset(char *_Str,int _Val);
-  _CRTIMP errno_t __cdecl _strset_s(char *_Dst,size_t _DstSize,int _Value);
   _CRTIMP char *__cdecl strcpy(char *_Dest,const char *_Source);
   _CRTIMP char *__cdecl strcat(char *_Dest,const char *_Source);
   int __cdecl strcmp(const char *_Str1,const char *_Str2);
@@ -68,11 +67,8 @@ extern "C" {
   _CRTIMP int __cdecl _strnicoll_l(const char *_Str1,const char *_Str2,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP size_t __cdecl strcspn(const char *_Str,const char *_Control);
   _CRTIMP char *__cdecl _strerror(const char *_ErrMsg);
-  _CRTIMP errno_t __cdecl _strerror_s(char *_Buf,size_t _SizeInBytes,const char *_ErrMsg);
   _CRTIMP char *__cdecl strerror(int);
-  _CRTIMP errno_t __cdecl _strlwr_s(char *_Str,size_t _Size);
   _CRTIMP char *__cdecl _strlwr(char *_String);
-  _CRTIMP errno_t __cdecl _strlwr_s_l(char *_Str,size_t _Size,_locale_t _Locale);
   _CRTIMP char *strlwr_l(char *_String,_locale_t _Locale);
   _CRTIMP char *__cdecl strncat(char *_Dest,const char *_Source,size_t _Count);
 #ifdef __ia64__
@@ -84,16 +80,13 @@ extern "C" {
   _CRTIMP int __cdecl _strnicmp_l(const char *_Str1,const char *_Str2,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP_NOIA64 char *strncpy(char *_Dest,const char *_Source,size_t _Count);
   _CRTIMP char *__cdecl _strnset(char *_Str,int _Val,size_t _MaxCount);
-  _CRTIMP errno_t __cdecl _strnset_s(char *_Str,size_t _Size,int _Val,size_t _MaxCount);
   _CRTIMP _CONST_RETURN char *__cdecl strpbrk(const char *_Str,const char *_Control);
   _CRTIMP _CONST_RETURN char *__cdecl strrchr(const char *_Str,int _Ch);
   _CRTIMP char *__cdecl _strrev(char *_Str);
   _CRTIMP size_t __cdecl strspn(const char *_Str,const char *_Control);
   _CRTIMP _CONST_RETURN char *__cdecl strstr(const char *_Str,const char *_SubStr);
   _CRTIMP char *__cdecl strtok(char *_Str,const char *_Delim);
-  _CRTIMP errno_t __cdecl _strupr_s(char *_Str,size_t _Size);
   _CRTIMP char *__cdecl _strupr(char *_String);
-  _CRTIMP errno_t __cdecl _strupr_s_l(char *_Str,size_t _Size,_locale_t _Locale);
   _CRTIMP char *_strupr_l(char *_String,_locale_t _Locale);
   _CRTIMP size_t __cdecl strxfrm(char *_Dst,const char *_Src,size_t _MaxCount);
   _CRTIMP size_t __cdecl _strxfrm_l(char *_Dst,const char *_Src,size_t _MaxCount,_locale_t _Locale);
@@ -131,27 +124,18 @@ extern "C" {
   _CRTIMP size_t __cdecl wcsspn(const wchar_t *_Str,const wchar_t *_Control);
   _CRTIMP _CONST_RETURN wchar_t *__cdecl wcsstr(const wchar_t *_Str,const wchar_t *_SubStr);
   _CRTIMP wchar_t *__cdecl wcstok(wchar_t *_Str,const wchar_t *_Delim);
-  _CRTIMP wchar_t *__cdecl wcstok_s(wchar_t *_Str,const wchar_t *_Delim,wchar_t **_Context);
   _CRTIMP wchar_t *__cdecl _wcserror(int _ErrNum);
-  _CRTIMP errno_t __cdecl _wcserror_s(wchar_t *_Buf,size_t _SizeInWords,int _ErrNum);
   _CRTIMP wchar_t *__cdecl __wcserror(const wchar_t *_Str);
-  _CRTIMP errno_t __cdecl __wcserror_s(wchar_t *_Buffer,size_t _SizeInWords,const wchar_t *_ErrMsg);
   _CRTIMP int __cdecl _wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2);
   _CRTIMP int __cdecl _wcsicmp_l(const wchar_t *_Str1,const wchar_t *_Str2,_locale_t _Locale);
   _CRTIMP int __cdecl _wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
   _CRTIMP int __cdecl _wcsnicmp_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wcsnset(wchar_t *_Str,wchar_t _Val,size_t _MaxCount);
-  _CRTIMP errno_t __cdecl _wcsnset_s(wchar_t *_Dst,size_t _DstSizeInWords,wchar_t _Val,size_t _MaxCount);
   _CRTIMP wchar_t *__cdecl _wcsrev(wchar_t *_Str);
   _CRTIMP wchar_t *__cdecl _wcsset(wchar_t *_Str,wchar_t _Val);
-  _CRTIMP errno_t __cdecl _wcsset_s(wchar_t *_Str,size_t _SizeInWords,wchar_t _Val);
-  _CRTIMP errno_t __cdecl _wcslwr_s(wchar_t *_Str,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wcslwr(wchar_t *_String);
-  _CRTIMP errno_t __cdecl _wcslwr_s_l(wchar_t *_Str,size_t _SizeInWords,_locale_t _Locale);
   _CRTIMP wchar_t *_wcslwr_l(wchar_t *_String,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _wcsupr_s(wchar_t *_Str,size_t _Size);
   _CRTIMP wchar_t *__cdecl _wcsupr(wchar_t *_String);
-  _CRTIMP errno_t __cdecl _wcsupr_s_l(wchar_t *_Str,size_t _Size,_locale_t _Locale);
   _CRTIMP wchar_t *_wcsupr_l(wchar_t *_String,_locale_t _Locale);
   _CRTIMP size_t __cdecl wcsxfrm(wchar_t *_Dst,const wchar_t *_Src,size_t _MaxCount);
   _CRTIMP size_t __cdecl _wcsxfrm_l(wchar_t *_Dst,const wchar_t *_Src,size_t _MaxCount,_locale_t _Locale);
@@ -181,4 +165,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
+#include <string_s.h>
 #endif
