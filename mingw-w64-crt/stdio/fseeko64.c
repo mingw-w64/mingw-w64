@@ -48,6 +48,29 @@ typedef union doubleint {
 __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd);
 __int64 __cdecl _ftelli64(FILE *str);
 
+int __cdecl _flush (FILE *str)
+{
+  FILE *stream;
+  int rc = 0; /* assume good return */
+  __int64 nchar;
+
+  stream = str;
+  if ((stream->_flag & (_IOREAD | _IOWRT)) == _IOWRT && bigbuf(stream)
+      && (nchar = (__int64) (stream->_ptr - stream->_base)) > 0ll)
+  {
+    if ( _write(_fileno(stream), stream->_base, nchar) == nchar) {
+      if (_IORW & stream->_flag)
+        stream->_flag &= ~_IOWRT;
+    } else {
+      stream->_flag |= _IOERR;
+      rc = EOF;
+    }
+  }
+  stream->_ptr = stream->_base;
+  stream->_cnt = 0ll;
+  return rc;
+}
+
 int fseeko64 (FILE* stream, _off64_t offset, int whence)
 {
   return _fseeki64(stream,offset,whence);
@@ -72,7 +95,7 @@ int __cdecl _fseeki64(FILE *str,__int64 offset,int whence)
 	  whence = SEEK_SET;
 	}
         /* Flush buffer as necessary */
-        fflush(stream);
+        _flush(stream);
 
         /* If file opened for read/write, clear flags since we don't know
            what the user is going to do next. If the file was opened for
@@ -96,7 +119,7 @@ __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd)
   unsigned long err;          /* error code from API call */
   HANDLE osHandle;        /* o.s. handle value */
 
-  
+
   errno=0;
   newpos.bigint = pos;
   /* tell OS to seek */
@@ -111,10 +134,10 @@ __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd)
       return (-1ll);
   }
 
-  if ( ((newpos.twoints.lowerhalf = SetFilePointer(osHandle,newpos.twoints.lowerhalf,&(newpos.twoints.upperhalf),mthd))==-1L) &&
-    ((err = GetLastError()) != NO_ERROR))
+  if ( ((newpos.twoints.lowerhalf = SetFilePointer(osHandle,newpos.twoints.lowerhalf,&(newpos.twoints.upperhalf),mthd))==-1L)
+     && ((err = GetLastError()) != NO_ERROR))
   {
-      return( -1ll );
+      return -1ll;
   }
 
   _osfile(fh) &= ~FEOFLAG;        /* clear the ctrl-z flag on the file */
@@ -123,7 +146,7 @@ __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd)
 
 __int64 __cdecl _ftelli64(FILE *str)
 {
-        register FILE *stream;
+        FILE *stream;
         size_t offset;
         __int64 filepos;
         register char *p;
@@ -134,12 +157,12 @@ __int64 __cdecl _ftelli64(FILE *str)
 	errno=0;
         stream = str;
         fd = _fileno(stream);
-        if (stream->_cnt < 0) stream->_cnt = 0;
+        if (stream->_cnt < 0ll) stream->_cnt = 0ll;
         if ((filepos = _lseeki64(fd, 0ll, SEEK_CUR)) < 0L)
                 return(-1ll);
 
         if (!bigbuf(stream))            /* _IONBF or no buffering designated */
-                return(filepos - stream->_cnt);
+                return(filepos - (__int64) stream->_cnt);
 
         offset = (size_t)(stream->_ptr - stream->_base);
 
@@ -155,97 +178,33 @@ __int64 __cdecl _ftelli64(FILE *str)
         }
 
         if (filepos == 0ll)
-                return((__int64)offset);
+                return ((__int64)offset);
 
         if (stream->_flag & _IOREAD)    /* go to preceding sector */
-
-                if (stream->_cnt == 0)  /* filepos holds correct location */
-                        offset = 0;
-
-                else {
-
-                        /* Subtract out the number of unread bytes left in the
-                           buffer. [We can't simply use _iob[]._bufsiz because
-                           the last read may have hit EOF and, thus, the buffer
-                           was not completely filled.] */
-
-                        rdcnt = stream->_cnt + (size_t)(stream->_ptr - stream->_base);
-
-                        /* If text mode, adjust for the cr/lf substitution. If
-                           binary mode, we're outta here. */
-                        if (_osfile(fd) & FTEXT) {
-                                /* (1) If we're not at eof, simply copy _bufsiz
-                                   onto rdcnt to get the # of untranslated
-                                   chars read. (2) If we're at eof, we must
-                                   look through the buffer expanding the '\n'
-                                   chars one at a time. */
-
-                                /* [NOTE: Performance issue -- it is faster to
-                                   do the two _lseek() calls than to blindly go
-                                   through and expand the '\n' chars regardless
-                                   of whether we're at eof or not.] */
-
-                                if (_lseeki64(fd, 0ll, SEEK_END) == filepos) {
-
-                                        max = stream->_base + rdcnt;
-                                        for (p = stream->_base; p < max; p++)
-                                                if (*p == '\n')
-                                                        /* adjust for '\r' */
-                                                        rdcnt++;
-
-                                        /* If last byte was ^Z, the lowio read
-                                           didn't tell us about it.  Check flag
-                                           and bump count, if necessary. */
-
-                                        if (stream->_flag & _IOCTRLZ)
-                                                ++rdcnt;
-                                }
-
-                                else {
-
-                                        if (_lseeki64(fd, filepos, SEEK_SET) < 0)
-                                            return (-1);
-
-                                        /* We want to set rdcnt to the number
-                                           of bytes originally read into the
-                                           stream buffer (before crlf->lf
-                                           translation). In most cases, this
-                                           will just be _bufsiz. However, the
-                                           buffer size may have been changed,
-                                           due to fseek optimization, at the
-                                           END of the last _filbuf call. */
-
-                                        if ( (rdcnt <= _SMALL_BUFSIZ) &&
-                                             (stream->_flag & _IOMYBUF) &&
-                                             !(stream->_flag & _IOSETVBUF) )
-                                        {
-                                                /* The translated contents of
-                                                   the buffer is small and we
-                                                   are not at eof. The buffer
-                                                   size must have been set to
-                                                   _SMALL_BUFSIZ during the
-                                                   last _filbuf call. */
-
-                                                rdcnt = _SMALL_BUFSIZ;
-                                        }
-                                        else
-                                                rdcnt = stream->_bufsiz;
-
-
-                                        /* If first byte in untranslated buffer
-                                           was a '\n', assume it was preceeded
-                                           by a '\r' which was discarded by the
-                                           previous read operation and count
-                                           the '\n'. */
-                                        if  (_osfile(fd) & FCRLF)
-                                                ++rdcnt;
-                                }
-
-                        } /* end if FTEXT */
-
-                        filepos -= (__int64)rdcnt;
-
-                } /* end else stream->_cnt != 0 */
-
+          if (stream->_cnt == 0ll)  /* filepos holds correct location */
+            offset = 0ll;
+          else {
+	    rdcnt = ((size_t) stream->_cnt) + ((size_t) (size_t)(stream->_ptr - stream->_base));
+	    if (_osfile(fd) & FTEXT) {
+	      if (_lseeki64(fd, 0ll, SEEK_END) == filepos) {
+		max = stream->_base + rdcnt;
+		for (p = stream->_base; p < max; p++)
+		  if (*p == '\n') /* adjust for '\r' */
+		    rdcnt++;
+		if (stream->_flag & _IOCTRLZ)
+		  ++rdcnt;
+	      } else {
+	        _lseeki64(fd, filepos, SEEK_SET);
+	        if ( (rdcnt <= _SMALL_BUFSIZ) && (stream->_flag & _IOMYBUF) &&
+	            !(stream->_flag & _IOSETVBUF))
+		  rdcnt = _SMALL_BUFSIZ;
+	        else
+	          rdcnt = stream->_bufsiz;
+	        if  (_osfile(fd) & FCRLF)
+	          ++rdcnt;
+	      }
+	    } /* end if FTEXT */
+	    filepos -= (__int64)rdcnt;
+	  } /* end else stream->_cnt != 0 */
         return(filepos + (__int64)offset);
 }
