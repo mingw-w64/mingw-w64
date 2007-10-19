@@ -1,6 +1,6 @@
 2007-10-19  Kai Tietz  <kai.tietz@onevision.com>
 
-	* fseeko64.c: (_fluse): New method.
+	* fseeko64.c: (_flush): New method.
 	(_fseeki64): Use _flush instead of fflush.
 
 2007-10-18  Kai Tietz  <kai.tietz@onevision.com>
