@@ -177,8 +177,8 @@ extern "C" {
    int fseeko64(FILE* stream, _off64_t offset, int whence);
   long __cdecl ftell(FILE *_File);
   _off64_t ftello64(FILE * stream);
-  _CRTIMP int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
-  _CRTIMP __int64 __cdecl _ftelli64(FILE *_File);
+  int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
+  __int64 __cdecl _ftelli64(FILE *_File);
   size_t __cdecl fwrite(const void *_Str,size_t _Size,size_t _Count,FILE *_File);
   int __cdecl getc(FILE *_File);
   int __cdecl getchar(void);

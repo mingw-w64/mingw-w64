@@ -1,3 +1,8 @@
+2007-10-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h: (_lseeki64, _ltelli64): Use crt version.
+	* stdio.h: (_fseeki64, _ftelli64): Likewise.
+
 2007-10-18  Kai Tietz  <kai.tietz@onevision.com>
 
 	* winsock.h, winsock2.h: Make them compatible to each other.

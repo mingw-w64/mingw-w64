@@ -264,8 +264,8 @@ extern "C" {
     strncpy(_FindData->name,fd.name,260);
     return ret;
   }
-  _CRTIMP __int64 __cdecl _lseeki64(int _FileHandle,__int64 _Offset,int _Origin);
-  _CRTIMP __int64 __cdecl _telli64(int _FileHandle);
+  __int64 __cdecl _lseeki64(int _FileHandle,__int64 _Offset,int _Origin);
+  __int64 __cdecl _telli64(int _FileHandle);
 #endif
 #ifndef NO_OLDNAMES
 
