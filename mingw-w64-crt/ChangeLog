@@ -1,3 +1,8 @@
+2007-10-22  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crtexe.c: Add exception handler basic routines.
+	SEH support experimental.
+
 2007-10-19  Kai Tietz  <kai.tietz@onevision.com>
 
 	* fseeko64.c: (_flush): New method.

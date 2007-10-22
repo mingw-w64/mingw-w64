@@ -6,6 +6,7 @@
 #include <oscalls.h>
 #include <internal.h>
 #include <process.h>
+#include <signal.h>
 #include <math.h>
 #include <stdlib.h>
 #include <tchar.h>
@@ -69,6 +70,9 @@ static int mainret=0;
 static int managedapp;
 static int has_cctor = 0;
 static _startupinfo startinfo;
+
+static CALLBACK long _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
+static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data);
 
 static int __cdecl pre_c_init (void);
 static void __cdecl pre_cpp_init (void);
@@ -190,6 +194,12 @@ __tmainCRTStartup (void)
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);
     
     _CrtSetCheckCount (FALSE);
+    
+    __asm__ __volatile__ (
+	"xorq %rax,%rax\n\t"
+	"movq %rax,%gs:0" "\n");
+    AddVectoredExceptionHandler (0, (PVECTORED_EXCEPTION_HANDLER)__mingw_vex);
+    SetUnhandledExceptionFilter (_gnu_exception_handler);
 
     if (mingw_app_type)
       {
@@ -289,3 +299,96 @@ check_managed_app (void)
 }
 
 int __defaultmatherr;
+
+static CALLBACK long
+_gnu_exception_handler (EXCEPTION_POINTERS * exception_data)
+{
+  void (*old_handler) (int);
+  long action = EXCEPTION_CONTINUE_SEARCH;
+  int reset_fpu = 0;
+
+  switch (exception_data->ExceptionRecord->ExceptionCode)
+    {
+    case EXCEPTION_ACCESS_VIOLATION:
+      /* test if the user has set SIGSEGV */
+      old_handler = signal (SIGSEGV, SIG_DFL);
+      if (old_handler == SIG_IGN)
+	{
+	  /* this is undefined if the signal was raised by anything other
+	     than raise ().  */
+	  signal (SIGSEGV, SIG_IGN);
+	  action = EXCEPTION_CONTINUE_EXECUTION;
+	}
+      else if (old_handler != SIG_DFL)
+	{
+	  /* This means 'old' is a user defined function. Call it */
+	  (*old_handler) (SIGSEGV);
+	  action = EXCEPTION_CONTINUE_EXECUTION;
+	}
+      break;
+
+    case EXCEPTION_ILLEGAL_INSTRUCTION:
+    case EXCEPTION_PRIV_INSTRUCTION:
+      /* test if the user has set SIGILL */
+      old_handler = signal (SIGILL, SIG_DFL);
+      if (old_handler == SIG_IGN)
+	{
+	  /* this is undefined if the signal was raised by anything other
+	     than raise ().  */
+	  signal (SIGILL, SIG_IGN);
+	  action = EXCEPTION_CONTINUE_EXECUTION;
+	}
+      else if (old_handler != SIG_DFL)
+	{
+	  /* This means 'old' is a user defined function. Call it */
+	  (*old_handler) (SIGILL);
+	  action = EXCEPTION_CONTINUE_EXECUTION;
+	}
+      break;
+
+    case EXCEPTION_FLT_INVALID_OPERATION:
+    case EXCEPTION_FLT_DIVIDE_BY_ZERO:
+    case EXCEPTION_FLT_DENORMAL_OPERAND:
+    case EXCEPTION_FLT_OVERFLOW:
+    case EXCEPTION_FLT_UNDERFLOW:
+    case EXCEPTION_FLT_INEXACT_RESULT:
+      reset_fpu = 1;
+      /* fall through. */
+
+    case EXCEPTION_INT_DIVIDE_BY_ZERO:
+      /* test if the user has set SIGFPE */
+      old_handler = signal (SIGFPE, SIG_DFL);
+      if (old_handler == SIG_IGN)
+	{
+	  signal (SIGFPE, SIG_IGN);
+	  if (reset_fpu)
+	    _fpreset ();
+	  action = EXCEPTION_CONTINUE_EXECUTION;
+	}
+      else if (old_handler != SIG_DFL)
+	{
+	  /* This means 'old' is a user defined function. Call it */
+	  (*old_handler) (SIGFPE);
+	  action = EXCEPTION_CONTINUE_EXECUTION;
+	}
+      break;
+
+    default:
+      break;
+    }
+  return action;
+}
+
+static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data)
+{
+  /* TODO this is not chainablem, therefore need rewrite. */
+  __asm__ __volatile__ (
+      "movq %gs:0,%rax" "\n\t"
+      "orq %rax,%rax\n\t"
+      "jz l1\n\t"
+      "jmp *8(%rax)\n\r"
+      "l1:\n\t"
+      "nop\n");
+
+  return _gnu_exception_handler(exception_data);
+}
