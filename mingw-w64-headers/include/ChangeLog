@@ -1,3 +1,10 @@
+2007-10-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* assert.h: Change prototype for exit using no
+	_CRTIMP.
+	* process.h: Likewise.
+	* stdlib.h: Likewise.
+
 2007-10-19  Kai Tietz  <kai.tietz@onevision.com>
 
 	* io.h: (_lseeki64, _ltelli64): Use crt version.
