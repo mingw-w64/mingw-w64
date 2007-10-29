@@ -260,9 +260,9 @@ extern "C" {
   double __cdecl atof(const char *_String);
   double __cdecl _atof_l(const char *_String,_locale_t _Locale);
 #endif
-  _CRTIMP int __cdecl atoi(const char *_Str);
+  int __cdecl atoi(const char *_Str);
   _CRTIMP int __cdecl _atoi_l(const char *_Str,_locale_t _Locale);
-  _CRTIMP long __cdecl atol(const char *_Str);
+  long __cdecl atol(const char *_Str);
   _CRTIMP long __cdecl _atol_l(const char *_Str,_locale_t _Locale);
 #ifndef _CRT_ALGO_DEFINED
 #define _CRT_ALGO_DEFINED
@@ -274,8 +274,8 @@ extern "C" {
 #if _INTEGRAL_MAX_BITS >= 64
   unsigned __int64 __cdecl _byteswap_uint64(unsigned __int64 _Int64);
 #endif
-  _CRTIMP div_t __cdecl div(int _Numerator,int _Denominator);
-  _CRTIMP char *__cdecl getenv(const char *_VarName);
+  div_t __cdecl div(int _Numerator,int _Denominator);
+  char *__cdecl getenv(const char *_VarName);
   _CRTIMP char *__cdecl _itoa(int _Value,char *_Dest,int _Radix);
 #if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP char *__cdecl _i64toa(__int64 _Val,char *_DstBuf,int _Radix);
@@ -287,39 +287,40 @@ extern "C" {
   _CRTIMP unsigned __int64 __cdecl _strtoui64(const char *_String,char **_EndPtr,int _Radix);
   _CRTIMP unsigned __int64 __cdecl _strtoui64_l(const char *_String,char **_EndPtr,int _Radix,_locale_t _Locale);
 #endif
-  _CRTIMP ldiv_t __cdecl ldiv(long _Numerator,long _Denominator);
+  ldiv_t __cdecl ldiv(long _Numerator,long _Denominator);
   _CRTIMP char *__cdecl _ltoa(long _Value,char *_Dest,int _Radix);
-  _CRTIMP int __cdecl mblen(const char *_Ch,size_t _MaxCount);
+  int __cdecl mblen(const char *_Ch,size_t _MaxCount);
   _CRTIMP int __cdecl _mblen_l(const char *_Ch,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbstrlen(const char *_Str);
   _CRTIMP size_t __cdecl _mbstrlen_l(const char *_Str,_locale_t _Locale);
   _CRTIMP size_t __cdecl _mbstrnlen(const char *_Str,size_t _MaxCount);
   _CRTIMP size_t __cdecl _mbstrnlen_l(const char *_Str,size_t _MaxCount,_locale_t _Locale);
-  _CRTIMP int __cdecl mbtowc(wchar_t *_DstCh,const char *_SrcCh,size_t _SrcSizeInBytes);
+  int __cdecl mbtowc(wchar_t *_DstCh,const char *_SrcCh,size_t _SrcSizeInBytes);
   _CRTIMP int __cdecl _mbtowc_l(wchar_t *_DstCh,const char *_SrcCh,size_t _SrcSizeInBytes,_locale_t _Locale);
-  _CRTIMP size_t __cdecl mbstowcs(wchar_t *_Dest,const char *_Source,size_t _MaxCount);
+  size_t __cdecl mbstowcs(wchar_t *_Dest,const char *_Source,size_t _MaxCount);
   _CRTIMP size_t __cdecl _mbstowcs_l(wchar_t *_Dest,const char *_Source,size_t _MaxCount,_locale_t _Locale);
-  _CRTIMP int __cdecl rand(void);
+  int __cdecl rand(void);
   _CRTIMP int __cdecl _set_error_mode(int _Mode);
-  _CRTIMP void __cdecl srand(unsigned int _Seed);
-  _CRTIMP double __cdecl strtod(const char *_Str,char **_EndPtr);
+  void __cdecl srand(unsigned int _Seed);
+  double __cdecl strtod(const char *_Str,char **_EndPtr);
+  float __cdecl strtof(const char *nptr, char **endptr);
 #if !defined __NO_ISOCEXT  /* extern stub in static libmingwex.a */
-  __CRT_INLINE float __cdecl strtof (const char *nptr, char **endptr) { return (strtod (nptr, endptr));}
-  long double __cdecl strtold (const char * __restrict__, char ** __restrict__);
+  __CRT_INLINE float __cdecl strtof(const char *nptr, char **endptr) { return (strtod (nptr, endptr));}
+  long double __cdecl strtold(const char * __restrict__, char ** __restrict__);
 #endif /* __NO_ISOCEXT */
   _CRTIMP double __cdecl _strtod_l(const char *_Str,char **_EndPtr,_locale_t _Locale);
-  _CRTIMP long __cdecl strtol(const char *_Str,char **_EndPtr,int _Radix);
+  long __cdecl strtol(const char *_Str,char **_EndPtr,int _Radix);
   _CRTIMP long __cdecl _strtol_l(const char *_Str,char **_EndPtr,int _Radix,_locale_t _Locale);
-  _CRTIMP unsigned long __cdecl strtoul(const char *_Str,char **_EndPtr,int _Radix);
+  unsigned long __cdecl strtoul(const char *_Str,char **_EndPtr,int _Radix);
   _CRTIMP unsigned long __cdecl _strtoul_l(const char *_Str,char **_EndPtr,int _Radix,_locale_t _Locale);
 #ifndef _CRT_SYSTEM_DEFINED
 #define _CRT_SYSTEM_DEFINED
-  _CRTIMP int __cdecl system(const char *_Command);
+  int __cdecl system(const char *_Command);
 #endif
   _CRTIMP char *__cdecl _ultoa(unsigned long _Value,char *_Dest,int _Radix);
-  _CRTIMP int __cdecl wctomb(char *_MbCh,wchar_t _WCh);
+  int __cdecl wctomb(char *_MbCh,wchar_t _WCh);
   _CRTIMP int __cdecl _wctomb_l(char *_MbCh,wchar_t _WCh,_locale_t _Locale);
-  _CRTIMP size_t __cdecl wcstombs(char *_Dest,const wchar_t *_Source,size_t _MaxCount);
+  size_t __cdecl wcstombs(char *_Dest,const wchar_t *_Source,size_t _MaxCount);
   _CRTIMP size_t __cdecl _wcstombs_l(char *_Dest,const wchar_t *_Source,size_t _MaxCount,_locale_t _Locale);
 
 #ifndef _CRT_ALLOCATION_DEFINED
@@ -344,15 +345,16 @@ extern "C" {
   _CRTIMP wchar_t *__cdecl _itow(int _Value,wchar_t *_Dest,int _Radix);
   _CRTIMP wchar_t *__cdecl _ltow(long _Value,wchar_t *_Dest,int _Radix);
   _CRTIMP wchar_t *__cdecl _ultow(unsigned long _Value,wchar_t *_Dest,int _Radix);
-  _CRTIMP double __cdecl wcstod(const wchar_t *_Str,wchar_t **_EndPtr);
+  double __cdecl wcstod(const wchar_t *_Str,wchar_t **_EndPtr);
+  float __cdecl wcstof(const wchar_t *nptr, wchar_t **endptr);
 #if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
   __CRT_INLINE float __cdecl wcstof(const wchar_t *nptr, wchar_t **endptr) { return (wcstod(nptr, endptr)); }
-  long double __cdecl wcstold (const wchar_t * __restrict__, wchar_t ** __restrict__);
+  long double __cdecl wcstold(const wchar_t * __restrict__, wchar_t ** __restrict__);
 #endif /* __NO_ISOCEXT */
   _CRTIMP double __cdecl _wcstod_l(const wchar_t *_Str,wchar_t **_EndPtr,_locale_t _Locale);
-  _CRTIMP long __cdecl wcstol(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
+  long __cdecl wcstol(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
   _CRTIMP long __cdecl _wcstol_l(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
-  _CRTIMP unsigned long __cdecl wcstoul(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
+  unsigned long __cdecl wcstoul(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
   _CRTIMP unsigned long __cdecl _wcstoul_l(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wgetenv(const wchar_t *_VarName);
 #ifndef _CRT_WSYSTEM_DEFINED
@@ -463,12 +465,12 @@ extern "C" {
 
   typedef struct { long long quot, rem; } lldiv_t;
 
-  lldiv_t	__cdecl lldiv (long long, long long);
+  lldiv_t __cdecl lldiv(long long, long long);
 
   __CRT_INLINE long long __cdecl llabs(long long _j) { return (_j >= 0 ? _j : -_j); }
 
-  long long  __cdecl strtoll (const char* __restrict__, char** __restrict, int);
-  unsigned long long  __cdecl strtoull (const char* __restrict__, char** __restrict__, int);
+  long long  __cdecl strtoll(const char* __restrict__, char** __restrict, int);
+  unsigned long long  __cdecl strtoull(const char* __restrict__, char** __restrict__, int);
 
   /* these are stubs for MS _i64 versions */ 
   long long  __cdecl atoll (const char *);

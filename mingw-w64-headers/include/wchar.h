@@ -634,15 +634,16 @@ extern "C" {
   _CRTIMP wchar_t *__cdecl _itow(int _Value,wchar_t *_Dest,int _Radix);
   _CRTIMP wchar_t *__cdecl _ltow(long _Value,wchar_t *_Dest,int _Radix);
   _CRTIMP wchar_t *__cdecl _ultow(unsigned long _Value,wchar_t *_Dest,int _Radix);
-  _CRTIMP double __cdecl wcstod(const wchar_t *_Str,wchar_t **_EndPtr);
+  double __cdecl wcstod(const wchar_t *_Str,wchar_t **_EndPtr);
   _CRTIMP double __cdecl _wcstod_l(const wchar_t *_Str,wchar_t **_EndPtr,_locale_t _Locale);
+  float __cdecl wcstof( const wchar_t *nptr, wchar_t **endptr);
 #if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
   __CRT_INLINE float __cdecl wcstof( const wchar_t *nptr, wchar_t **endptr) { return (wcstod(nptr, endptr)); }
   long double __cdecl wcstold(const wchar_t *,wchar_t **);
 #endif /* __NO_ISOCEXT */
-  _CRTIMP long __cdecl wcstol(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
+  long __cdecl wcstol(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
   _CRTIMP long __cdecl _wcstol_l(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
-  _CRTIMP unsigned long __cdecl wcstoul(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
+  unsigned long __cdecl wcstoul(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
   _CRTIMP unsigned long __cdecl _wcstoul_l(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wgetenv(const wchar_t *_VarName);
 #ifndef _CRT_WSYSTEM_DEFINED

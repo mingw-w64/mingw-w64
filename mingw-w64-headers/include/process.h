@@ -63,7 +63,7 @@ extern "C" {
 
 #ifndef _CRT_SYSTEM_DEFINED
 #define _CRT_SYSTEM_DEFINED
-  _CRTIMP int __cdecl system(const char *_Command);
+  int __cdecl system(const char *_Command);
 #endif
 
 #ifndef _WPROCESS_DEFINED

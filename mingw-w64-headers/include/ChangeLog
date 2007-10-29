@@ -1,9 +1,13 @@
 2007-10-29  Kai Tietz  <kai.tietz@onevision.com>
 
-	* assert.h: Change prototype for exit using no
-	_CRTIMP.
-	* process.h: Likewise.
-	* stdlib.h: Likewise.
+	* assert.h:
+	* process.h:
+	* wchar.h:
+	* stdlib.h:
+	 Change prototype for exit, atoi, atol, div, ldiv,
+	 getenv, mblen, mbtowc, mbstowcs, rand, srand, strtod,
+	strtof, strtol, strtoul, system, wctomb, wcstombs, wcstod,
+	wcstol, and wcstoul using no _CRTIMP.
 
 2007-10-19  Kai Tietz  <kai.tietz@onevision.com>
 

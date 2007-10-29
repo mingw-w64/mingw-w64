@@ -83,10 +83,10 @@ extern int __cdecl fesetround (int mode);
 
 /* 7.6.4 Environment */
 
-extern int __cdecl fegetenv (fenv_t * envp);
-extern int __cdecl fesetenv (const fenv_t * );
-extern int __cdecl feupdateenv (const fenv_t *);
-extern int __cdecl feholdexcept (fenv_t *);
+extern int __cdecl fegetenv(fenv_t * envp);
+extern int __cdecl fesetenv(const fenv_t * );
+extern int __cdecl feupdateenv(const fenv_t *);
+extern int __cdecl feholdexcept(fenv_t *);
 
 #ifdef __cplusplus
 }
