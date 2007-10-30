@@ -108,37 +108,11 @@ extern "C" {
   float __cdecl _hypotf(float _X,float _Y);
 #endif
 
-#if defined(__ia64__)
-  float __cdecl acosf(float _X);
-  float __cdecl asinf(float _X);
-  float __cdecl atanf(float _X);
-  float __cdecl atan2f(float _Y,float _X);
-  float __cdecl cosf(float _X);
-  float __cdecl sinf(float _X);
-  float __cdecl tanf(float _X);
-  float __cdecl coshf(float _X);
-  float __cdecl sinhf(float _X);
-  float __cdecl tanhf(float _X);
-  float __cdecl expf(float _X);
-  float __cdecl logf(float _X);
-  float __cdecl log10f(float _X);
-  float __cdecl modff(float _X,float *_Y);
-  float __cdecl powf(float _Base,float _Exp);
-  float __cdecl sqrtf(float _X);
-
-  float __cdecl ceilf(float _X);
-  float __cdecl fabsf(float _X);
-  float __cdecl floorf(float _X);
-  float __cdecl fmodf(float _X,float _Y);
-  float __cdecl _hypotf(float _X,float _Y);
-#endif
   float frexpf(float _X,int *_Y);
   float __cdecl ldexpf(float _X,int _Y);
   long double __cdecl ldexpl(long double _X,int _Y);
-#if defined(__x86_64)
-   /* from libmingwex */
-   float __cdecl acosf(float _X);
-   float __cdecl asinf(float _X);
+  float __cdecl acosf(float _X);
+  float __cdecl asinf(float _X);
    float __cdecl atanf(float _X);
    float __cdecl atan2f(float _X,float _Y);
    float __cdecl cosf(float _X);
@@ -155,8 +129,11 @@ extern "C" {
    float __cdecl sqrtf(float _X);
    float __cdecl ceilf(float _X);
    float __cdecl floorf(float _X);
-   float __cdecl fmodf(float _X,float _Y);
+  float __cdecl fmodf(float _X,float _Y);
    float __cdecl _hypotf(float _X,float _Y);
+  float __cdecl fabsf(float _X);
+#if !defined(__ia64__)
+   /* from libmingwex */
    float __cdecl _copysignf (float _Number,float _Sign);
    float __cdecl _chgsignf (float _X);
    float __cdecl _logbf(float _X);
@@ -188,27 +165,6 @@ extern "C" {
   }
 
   __CRT_INLINE float __cdecl ldexpf (float x, int expn) { return (float) ldexp (x, expn); }
-#if !defined (__x86_64)
-#define acosf(x) ((float)acos((double)(x)))
-#define asinf(x) ((float)asin((double)(x)))
-#define atanf(x) ((float)atan((double)(x)))
-#define atan2f(x,y) ((float)atan2((double)(x),(double)(y)))
-#define ceilf(x) ((float)ceil((double)(x)))
-#define cosf(x) ((float)cos((double)(x)))
-#define coshf(x) ((float)cosh((double)(x)))
-#define expf(x) ((float)exp((double)(x)))
-#define floorf(x) ((float)floor((double)(x)))
-#define fmodf(x,y) ((float)fmod((double)(x),(double)(y)))
-#define logf(x) ((float)log((double)(x)));
-#define log10f(x) ((float)log10((double)(x)))
-#define modff(x,y) ((float)modf((double)(x),(double *)(y)))
-#define powf(x,y) ((float)pow((double)(x),(double)(y)))
-#define sinf(x) ((float)sin((double)(x)))
-#define sinhf(x) ((float)sinh((double)(x)))
-#define sqrtf(x) ((float)sqrt((double)(x)))
-#define tanf(x) ((float)tan((double)(x)))
-#define tanhf(x) ((float)tanh((double)(x)))
-#endif
 #endif
 #else
   // cplusplus
