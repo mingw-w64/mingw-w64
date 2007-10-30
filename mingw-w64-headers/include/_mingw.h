@@ -67,7 +67,9 @@ limitations in handling dllimport attribute.  */
 #define __int16 short
 #define __int32 int
 #define __int64 long long
+#ifdef _WIN64
 typedef int __int128 __attribute__ ((mode (TI)));
+#endif
 
 #define __ptr32
 #define __ptr64

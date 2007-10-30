@@ -1380,25 +1380,24 @@ typedef DWORD LCID;
 
   __CRT_INLINE VOID DbgRaiseAssertionFailure(void) {
     __asm__ __volatile__("int 0x2c ");
-
-    PVOID GetCurrentFiber(void);
-    __CRT_INLINE PVOID GetCurrentFiber(void)
-    {
-      void *ret;
-      __asm__ volatile ("movl	%%fs:0x10,%0"
+  }
+  PVOID GetCurrentFiber(void);
+  __CRT_INLINE PVOID GetCurrentFiber(void)
+  {
+    void *ret;
+    __asm__ volatile ("movl	%%fs:0x10,%0"
 	: "=r" (ret));
-      return ret;
-    }
-
-    PVOID GetFiberData(void);
-    __CRT_INLINE PVOID GetFiberData(void)
-    {
-      void *ret;
-      __asm__ volatile ("movl	%%fs:0x10,%0\n"
+    return ret;
+  }
+  PVOID GetFiberData(void);
+  __CRT_INLINE PVOID GetFiberData(void)
+  {
+    void *ret;
+    __asm__ volatile ("movl	%%fs:0x10,%0\n"
 	"movl	(%0),%0"
 	: "=r" (ret));
-      return ret;
-    }
+    return ret;
+  }
 #endif
 
 #define EXCEPTION_READ_FAULT 0

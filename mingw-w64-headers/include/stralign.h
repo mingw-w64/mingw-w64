@@ -24,7 +24,7 @@ extern "C" {
 #define ua_wcsicmp wcsicmp
 #define ua_wcslen wcslen
 #define ua_wcsrchr wcsrchr
-  static __inline PUWSTR static ua_wcscpy(PUWSTR Destination,PCUWSTR Source) { return wcscpy(Destination,Source); }
+  static __inline PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source) { return wcscpy(Destination,Source); }
 #else
 #define WSTR_ALIGNED(s) (((DWORD_PTR)(s) & (sizeof(WCHAR)-1))==0)
 
