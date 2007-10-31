@@ -3,6 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+ #ifdef _WIN64
 	.file	"nearbyintl.S"
 	.text
 	.align 8
@@ -26,3 +27,25 @@ _nearbyintl:
 	movq	%r8,%rax
 	fstpt	(%r8)
 	ret
+#else
+	.file	"nearbyintl.S"
+	.text
+	.align 4
+.globl _nearbyintl
+	.def	_nearbyintl;	.scl	2;	.type	32;	.endef
+_nearbyintl:
+	fldt	4(%esp)
+	pushl	%eax
+	pushl	%ecx
+	fnstcw	(%esp)
+	movl	(%esp), %eax
+	orl	$0x20, %eax
+	movl	%eax, 4(%esp)
+	fldcw	4(%esp)
+	frndint
+	fclex
+	fldcw	(%esp)
+	popl	%ecx
+	popl	%eax
+	ret
+#endif
