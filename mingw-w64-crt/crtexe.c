@@ -195,9 +195,15 @@ __tmainCRTStartup (void)
     
     _CrtSetCheckCount (FALSE);
     
+    #ifdef _WIN64
     __asm__ __volatile__ (
 	"xorq %rax,%rax\n\t"
 	"movq %rax,%gs:0" "\n");
+    #else
+    __asm__ __volatile__ (
+	"xorl %eax,%eax\n\t"
+	"movl %eax,%fs:0" "\n");
+    #endif
     AddVectoredExceptionHandler (0, (PVECTORED_EXCEPTION_HANDLER)__mingw_vex);
     SetUnhandledExceptionFilter (_gnu_exception_handler);
 
@@ -382,6 +388,7 @@ _gnu_exception_handler (EXCEPTION_POINTERS * exception_data)
 static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data)
 {
   /* TODO this is not chainablem, therefore need rewrite. */
+  #ifdef _WIN64
   __asm__ __volatile__ (
       "movq %gs:0,%rax" "\n\t"
       "orq %rax,%rax\n\t"
@@ -389,6 +396,14 @@ static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data)
       "jmp *8(%rax)\n\r"
       "l1:\n\t"
       "nop\n");
-
+#else
+  __asm__ __volatile__ (
+      "movl %fs:0,%eax" "\n\t"
+      "orl %eax,%eax\n\t"
+      "jz l1\n\t"
+      "jmp *4(%eax)\n\r"
+      "l1:\n\t"
+      "nop\n");
+#endif
   return _gnu_exception_handler(exception_data);
 }

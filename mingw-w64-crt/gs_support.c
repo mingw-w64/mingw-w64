@@ -1,5 +1,7 @@
 #include <windows.h>
+#ifdef _WIN64
 #include <intrin.h>
+#endif
 
 #ifdef _WIN64
 #define DEFAULT_SECURITY_COOKIE 0x00002B992DDFA232ll
@@ -99,7 +101,11 @@ __report_gsfailure (ULONGLONG StackCookie)
   PVOID hndData;
 
   RtlCaptureContext (&GS_ContextRecord);
+#ifdef _WIN64
   controlPC = GS_ContextRecord.Rip;
+#else
+  controlPC = GS_ContextRecord.Eip;
+#endif
   fctEntry = RtlLookupFunctionEntry (controlPC, &imgBase, NULL);
   if (fctEntry != NULL)
     {
@@ -108,12 +114,22 @@ __report_gsfailure (ULONGLONG StackCookie)
     }
   else
     {
+#ifdef _WIN64
       GS_ContextRecord.Rip = (ULONGLONG) __builtin_return_address (0);
       GS_ContextRecord.Rsp = (ULONGLONG) __builtin_frame_address (0) + 8;
+#else
+      GS_ContextRecord.Eip = (DWORD) __builtin_return_address (0);
+      GS_ContextRecord.Esp = (DWORD) __builtin_frame_address (0) + 4;
+#endif
     }
 
+#ifdef _WIN64
   GS_ExceptionRecord.ExceptionAddress = (PVOID) GS_ContextRecord.Rip;
   GS_ContextRecord.Rcx = StackCookie;
+#else
+  GS_ExceptionRecord.ExceptionAddress = (PVOID) GS_ContextRecord.Eip;
+  GS_ContextRecord.Ecx = StackCookie;
+#endif
   GS_ExceptionRecord.ExceptionCode = STATUS_STACK_BUFFER_OVERRUN;
   GS_ExceptionRecord.ExceptionFlags = EXCEPTION_NONCONTINUABLE;
   cookie[0] = __security_cookie;
