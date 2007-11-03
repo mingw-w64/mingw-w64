@@ -3,6 +3,8 @@
 #if defined (_WIN64) && defined (__ia64__)
 #error FIXME: Unsupported __ImageBase implementation.
 #else
+/* Hack, for bug in ld.  Will be removed soon.  */
+#define __ImageBase _ImageBase
 /* This symbol is defined by the linker.  */
 extern IMAGE_DOS_HEADER __ImageBase;
 #endif

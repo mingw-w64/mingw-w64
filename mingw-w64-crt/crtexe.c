@@ -23,6 +23,8 @@ extern char ***_imp____initenv;
 #define __initenv (*_imp____initenv)
 #endif
 
+/* Hack, for bug in ld.  Will be removed soon.  */
+#define __ImageBase _ImageBase
 /* This symbol is defined by ld.  */
 extern IMAGE_DOS_HEADER __ImageBase;
 
