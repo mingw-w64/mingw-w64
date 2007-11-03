@@ -24,7 +24,7 @@ extern char ***_imp____initenv;
 #endif
 
 /* This symbol is defined by ld.  */
-extern IMAGE_DOS_HEADER _ImageBase;
+extern IMAGE_DOS_HEADER __ImageBase;
 
 #define SPACECHAR _T(' ')
 #define DQUOTECHAR _T('\"')
@@ -235,11 +235,11 @@ __tmainCRTStartup (void)
 #ifdef WPRFLAG
     mainret = wmain (
     	(int) (StartupInfo.dwFlags & STARTF_USESHOWWINDOW ? StartupInfo.wShowWindow : SW_SHOWDEFAULT),
-    	(wchar_t **) lpszCommandLine, (wchar_t **) (HINSTANCE) &_ImageBase);
+    	(wchar_t **) lpszCommandLine, (wchar_t **) (HINSTANCE) &__ImageBase);
 #else
     mainret = main (
     	(int) (StartupInfo.dwFlags & STARTF_USESHOWWINDOW ? StartupInfo.wShowWindow : SW_SHOWDEFAULT),
-    	(char **) lpszCommandLine, (char **) (HINSTANCE) &_ImageBase);
+    	(char **) lpszCommandLine, (char **) (HINSTANCE) &__ImageBase);
 #endif
     }
   else
@@ -280,7 +280,7 @@ check_managed_app (void)
   mingw_initltssuo_force=1;
   mingw_initcharmax=1;
 
-  pDOSHeader = (PIMAGE_DOS_HEADER) &_ImageBase;
+  pDOSHeader = (PIMAGE_DOS_HEADER) &__ImageBase;
   if (pDOSHeader->e_magic != IMAGE_DOS_SIGNATURE)
     return 0;
 

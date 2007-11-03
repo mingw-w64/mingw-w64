@@ -1,10 +1,10 @@
 #include <windows.h>
 
 #if defined (_WIN64) && defined (__ia64__)
-#error FIXME: Unsupported _ImageBase implementation.
+#error FIXME: Unsupported __ImageBase implementation.
 #else
 /* This symbol is defined by the linker.  */
-extern IMAGE_DOS_HEADER _ImageBase;
+extern IMAGE_DOS_HEADER __ImageBase;
 #endif
 
 BOOL
@@ -53,7 +53,7 @@ _IsNonwritableInCurrentImage (PBYTE pTarget)
   DWORD_PTR rvaTarget;
   PIMAGE_SECTION_HEADER pSection;
 
-  pImageBase = (PBYTE) &_ImageBase;
+  pImageBase = (PBYTE) &__ImageBase;
   if (! _ValidateImageBase (pImageBase))
     return FALSE;
   rvaTarget = pTarget - pImageBase;
