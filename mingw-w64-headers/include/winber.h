@@ -10,10 +10,8 @@
 extern "C" {
 #endif
 
-#ifndef _WINBER_
+#ifndef WINBERAPI
 #define WINBERAPI DECLSPEC_IMPORT
-#else
-#define WINBERAPI
 #endif
 
 #ifndef BERAPI
