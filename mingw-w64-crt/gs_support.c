@@ -10,9 +10,11 @@
 #endif
 
 /* Externals.  */
+#ifdef _WIN64
 PRUNTIME_FUNCTION RtlLookupFunctionEntry (ULONG64, PULONG64, PVOID);
 PVOID RtlVirtualUnwind (ULONG HandlerType, ULONG64, ULONG64, PRUNTIME_FUNCTION,
 			PCONTEXT, PVOID *, PULONG64, PVOID);
+#endif
 
 typedef LONG NTSTATUS;
 
@@ -97,7 +99,9 @@ __report_gsfailure (ULONGLONG StackCookie)
 {
   volatile UINT_PTR cookie[2];
   ULONG64 controlPC, imgBase, establisherFrame;
+#ifdef _WIN64
   PRUNTIME_FUNCTION fctEntry;
+#endif
   PVOID hndData;
 
   RtlCaptureContext (&GS_ContextRecord);
@@ -106,6 +110,7 @@ __report_gsfailure (ULONGLONG StackCookie)
 #else
   controlPC = GS_ContextRecord.Eip;
 #endif
+#ifdef _WIN64
   fctEntry = RtlLookupFunctionEntry (controlPC, &imgBase, NULL);
   if (fctEntry != NULL)
     {
@@ -113,6 +118,7 @@ __report_gsfailure (ULONGLONG StackCookie)
 			&GS_ContextRecord, &hndData, &establisherFrame, NULL);
     }
   else
+#endif
     {
 #ifdef _WIN64
       GS_ContextRecord.Rip = (ULONGLONG) __builtin_return_address (0);
