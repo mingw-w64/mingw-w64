@@ -43,9 +43,6 @@ __security_init_cookie (void)
   UINT_PTR cookie;
   FT systime = { 0, };
   LARGE_INTEGER perfctr;
-#ifdef CHECK_FOR_LATE_COOKIE_INIT
-  PEXCEPTION_REGISTRATION_RECORD ehrec;
-#endif
 
   if (__security_cookie != DEFAULT_SECURITY_COOKIE)
     {
@@ -53,17 +50,6 @@ __security_init_cookie (void)
       return;
     }
 
-#ifdef CHECK_FOR_LATE_COOKIE_INIT
-  for (ehrec = (PEXCEPTION_REGISTRATION_RECORD) (UINT_PTR) __readfsdword(FIELD_OFFSET(NT_TIB,ExceptionList));
-       ehrec != EXCEPTION_CHAIN_END; ehrec = ehrec->Next)
-    {
-      if (ehrec->Handler == &_except_handler4)
-	FatalAppExit (0, _RT_COOKIE_INIT_TXT);
-
-      if (ehrec >= ehrec->Next)
-	break;
-    }
-#endif
   GetSystemTimeAsFileTime (&systime.ft_struct);
 #ifdef _WIN64
   cookie = systime.ft_scalar;
