@@ -24,7 +24,7 @@ extern char ***_imp____initenv;
 #endif
 
 /* Hack, for bug in ld.  Will be removed soon.  */
-#define __ImageBase _ImageBase
+#define __ImageBase _image_base__
 /* This symbol is defined by ld.  */
 extern IMAGE_DOS_HEADER __ImageBase;
 
@@ -73,6 +73,7 @@ static int managedapp;
 static int has_cctor = 0;
 static _startupinfo startinfo;
 
+extern void _pei386_runtime_relocator (void);
 static CALLBACK long _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
 static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data);
 
@@ -196,6 +197,7 @@ __tmainCRTStartup (void)
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);
     
     _CrtSetCheckCount (FALSE);
+    _pei386_runtime_relocator ();
     
     #ifdef _WIN64
     __asm__ __volatile__ (

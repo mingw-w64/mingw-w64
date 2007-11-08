@@ -1,3 +1,8 @@
+2007-10-22  20-40  <20-40@annonymous>
+
+	* crtexe.c: Add _pei386_runtime_relocator.
+	* crtdll.c: Likewise.
+
 2007-10-22  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crtexe.c: Add exception handler basic routines.
