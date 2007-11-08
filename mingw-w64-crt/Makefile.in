@@ -18,9 +18,10 @@
 # Done: lib_LIBRARIES = libm.a libmingw32.a libmoldname.a libmingwex.a libcrtdll.a libmsvcrt.a libmsvcr80.a
 # Done: Turn _libm_dummy.c into a BUILT_SOURCES thing
 # TODO: 32-bit runtime compatibility
-# TODO: fix make dist
+# Done: fix make dist
 # TODO: Use $(RM) instead of rm?
 # TODO: Use $(TAR) instead of tar?
+# TODO: add --def $(top_srcdir)/ to $(MAKEDLL)
 
 #Use AM_MAINTAINER_MODE in configure.ac to disable autoreconf
 
@@ -72,12 +73,11 @@ lib32LIBRARIES_INSTALL = $(INSTALL_DATA)
 lib64LIBRARIES_INSTALL = $(INSTALL_DATA)
 LIBRARIES = $(lib32_LIBRARIES) $(lib64_LIBRARIES)
 ARFLAGS = cru
-lib32_libkernel32_a_AR = $(AR) $(ARFLAGS)
 lib32_libkernel32_a_LIBADD =
-am__lib32_libkernel32_a_SOURCES_DIST = lib32/kernel32.def
-am_lib32_libkernel32_a_OBJECTS =
-lib32_libkernel32_a_OBJECTS = $(am_lib32_libkernel32_a_OBJECTS)
+am__lib32_libkernel32_a_SOURCES_DIST = lib32/kernel32.c
 am__dirstamp = $(am__leading_dot)dirstamp
+@LIB32_TRUE@am_lib32_libkernel32_a_OBJECTS = lib32/kernel32.$(OBJEXT)
+lib32_libkernel32_a_OBJECTS = $(am_lib32_libkernel32_a_OBJECTS)
 lib32_liblargeint_a_AR = $(AR) $(ARFLAGS)
 lib32_liblargeint_a_LIBADD =
 am__lib32_liblargeint_a_SOURCES_DIST = lib32/largeint.c
@@ -794,7 +794,8 @@ top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -D_CRTBLD -D_SYSCRT=1 -DCRTDLL=1 -DWINHEAP=1 $(sysincludes)
 AM_CFLAGS = -pipe
 AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@
-MAKEDLL = $(DLLTOOL) $(AM_DLLTOOLFLAGS)
+DTDEF = $(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
+DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | sed '{s|/lib|/|;s|\.a|.def|}'`
 crt64srcdir = $(top_srcdir)/crt64
 crt32srcdir = $(top_srcdir)/crt32
 
@@ -827,19 +828,13 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB32_TRUE@test.c \
 @LIB32_TRUE@dxguid.c 
 
-#lib32_libkernel32_a_AR = \
-#        $(DLLTOOL) $(DLLOPTS) --def $(top_srcdir)/lib32/kernel32.def; \
-#        $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_LIBRARIES = lib32/libkernel32.a lib32/libshell32.a \
 @LIB32_TRUE@	lib32/liblargeint.a lib32/libscrnsave.a \
 @LIB32_TRUE@	lib32/libscrnsavw.a lib32/libuuid.a
-@LIB32_TRUE@lib32_libkernel32_a_SOURCES = lib32/kernel32.def
-@LIB32_TRUE@lib32_libkernel32_a_CFLAGS = $(AM_CFLAGS)
+@LIB32_TRUE@lib32_libkernel32_a_SOURCES = lib32/kernel32.c
+@LIB32_TRUE@lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = lib32/shell32.c
-@LIB32_TRUE@lib32_libshell32_a_AR = \
-@LIB32_TRUE@        $(MAKEDLL) --def $(top_srcdir)/lib32/shell32.def; \
-@LIB32_TRUE@        $(AR) $(ARFLAGS)
-
+@LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_liblargeint_a_SOURCES = lib32/largeint.c
 @LIB32_TRUE@lib32_libscrnsave_a_SOURCES = lib32/scrnsave.c
 @LIB32_TRUE@lib32_libscrnsavw_a_SOURCES = lib32/scrnsave.c
@@ -886,6 +881,8 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB32_TRUE@  lib32/libdpnaddr.a       lib32/libmcd.a           lib32/libolepro32.a      lib32/libth32.a
 
 
+#$(DTDEF) $(top_srcdir)/lib32/$*.def
+
 # End 32-bit runtime
 # ##########
 
@@ -909,15 +906,9 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB64_TRUE@	lib64/libmoldname.a lib64/libmingwex.a
 @LIB64_TRUE@nodist_lib64_libm_a_SOURCES = _libm_dummy.c
 @LIB64_TRUE@lib64_libkernel32_a_SOURCES = lib64/kernel32.c
-@LIB64_TRUE@lib64_libkernel32_a_AR = \
-@LIB64_TRUE@        $(MAKEDLL) --def $(top_srcdir)/lib64/kernel32.def; \
-@LIB64_TRUE@        $(AR) $(ARFLAGS)
-
+@LIB64_TRUE@lib64_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libshell32_a_SOURCES = lib64/shell32.c
-@LIB64_TRUE@lib64_libshell32_a_AR = \
-@LIB64_TRUE@        $(MAKEDLL) --def $(top_srcdir)/lib64/shell32.def; \
-@LIB64_TRUE@        $(AR) $(ARFLAGS)
-
+@LIB64_TRUE@lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_liblargeint_a_SOURCES = lib64/largeint.c
 @LIB64_TRUE@lib64_libscrnsave_a_SOURCES = lib64/scrnsave.c
 @LIB64_TRUE@lib64_libscrnsavw_a_SOURCES = lib64/scrnsave.c
@@ -935,10 +926,7 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB64_TRUE@lib64_libmoldname_a_SOURCES = \
 @LIB64_TRUE@  crt64/isascii.c crt64/iscsym.c crt64/iscsymf.c crt64/toascii.c crt64/strcasecmp.c crt64/strncasecmp.c crt64/wcscmpi.c
 
-@LIB64_TRUE@lib64_libmoldname_a_AR = \
-@LIB64_TRUE@  $(MAKEDLL) -U --dllname msvcrt.dll --def $(crt64srcdir)/moldname-msvcrt.def; \
-@LIB64_TRUE@  $(AR) $(ARFLAGS)
-
+@LIB64_TRUE@lib64_libmoldname_a_AR = $(DTDEF) $(crt64srcdir)/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libmingwex_a_CPPFLAGS = $(include64) $(AM_CPPFLAGS)
 @LIB64_TRUE@lib64_libmingwex_a_SOURCES = \
 @LIB64_TRUE@  crt64/dirent.c     crt64/ftruncate.c  crt64/getopt.c    crt64/wdirent.c  \
@@ -1458,7 +1446,7 @@ EXTRA_DIST = $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def \
 	$(crt64srcdir)/CRT_fp10.c $(crt64srcdir)/txtmode.c \
 	$(crt64srcdir)/binmode.c $(crt64srcdir)/crtbegin.c \
 	$(crt64srcdir)/crtend.c
-DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32
+DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-32
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -1575,13 +1563,15 @@ clean-lib64LIBRARIES:
 lib32/$(am__dirstamp):
 	@$(MKDIR_P) lib32
 	@: > lib32/$(am__dirstamp)
+lib32/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) lib32/$(DEPDIR)
+	@: > lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/kernel32.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
 lib32/libkernel32.a: $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libkernel32.a
 	$(lib32_libkernel32_a_AR) lib32/libkernel32.a $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_LIBADD)
 	$(RANLIB) lib32/libkernel32.a
-lib32/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) lib32/$(DEPDIR)
-	@: > lib32/$(DEPDIR)/$(am__dirstamp)
 lib32/largeint.$(OBJEXT): lib32/$(am__dirstamp) \
 	lib32/$(DEPDIR)/$(am__dirstamp)
 lib32/liblargeint.a: $(lib32_liblargeint_a_OBJECTS) $(lib32_liblargeint_a_DEPENDENCIES) lib32/$(am__dirstamp)
@@ -2590,6 +2580,7 @@ mostlyclean-compile:
 	-rm -f lib32/extras-uuid.$(OBJEXT)
 	-rm -f lib32/hlguids-uuid.$(OBJEXT)
 	-rm -f lib32/hlink-uuid.$(OBJEXT)
+	-rm -f lib32/kernel32.$(OBJEXT)
 	-rm -f lib32/largeint.$(OBJEXT)
 	-rm -f lib32/lib32_libscrnsavw_a-scrnsave.$(OBJEXT)
 	-rm -f lib32/mlang-uuid.$(OBJEXT)
@@ -2968,6 +2959,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/extras-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/hlguids-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/hlink-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/kernel32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/largeint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/mlang-uuid.Po@am__quote@
@@ -8397,7 +8389,7 @@ uninstall-am: uninstall-crt64SCRIPTS uninstall-lib32LIBRARIES \
 
 
 @LIB32_TRUE@lib32/lib%.a:
-@LIB32_TRUE@	$(DLLTOOL) $(DLLOPTS) --def $(top_srcdir)/lib32/$*.def
+@LIB32_TRUE@	$(DTLIB)
 @LIB64_TRUE@crt64/crt1.o:
 @LIB64_TRUE@	$(COMPILE64)crtexe.c -o $@ -D__CRTDLL__ -U__MSVCRT__
 @LIB64_TRUE@crt64/crt2.o:
@@ -8408,12 +8400,12 @@ uninstall-am: uninstall-crt64SCRIPTS uninstall-lib32LIBRARIES \
 @LIB64_TRUE@	$(COMPILE64)crtdll.c -o $@ -D__MSVCRT__ -U__CRTDLL__
 
 @LIB64_TRUE@crt64/lib%.a: crt64/%.def
-@LIB64_TRUE@	$(MAKEDLL) --dllname lib64/$*.dll --def=$(crt64srcdir)/$*.def
+@LIB64_TRUE@	$(DTDEF) $(crt64srcdir)/$*.def --dllname lib64/$*.dll
 @LIB64_TRUE@_libm_dummy.c:
 @LIB64_TRUE@	echo "static int __mingw_libm_dummy;" > _libm_dummy.c
 
 @LIB64_TRUE@lib64/lib%.a:
-@LIB64_TRUE@	$(MAKEDLL) --def $(top_srcdir)/lib64/$*.def
+@LIB64_TRUE@	$(DTDEF) $(top_srcdir)/lib64/$*.def
 
 dist-hook:
 	rm -rf `find $(top_distdir) -name ".svn"`

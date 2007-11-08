@@ -2,9 +2,10 @@
 # Done: lib_LIBRARIES = libm.a libmingw32.a libmoldname.a libmingwex.a libcrtdll.a libmsvcrt.a libmsvcr80.a
 # Done: Turn _libm_dummy.c into a BUILT_SOURCES thing
 # TODO: 32-bit runtime compatibility
-# TODO: fix make dist
+# Done: fix make dist
 # TODO: Use $(RM) instead of rm?
 # TODO: Use $(TAR) instead of tar?
+# TODO: add --def $(top_srcdir)/ to $(MAKEDLL)
 
 #Use AM_MAINTAINER_MODE in configure.ac to disable autoreconf
 
@@ -17,7 +18,8 @@ endif
 AM_CPPFLAGS=-D_CRTBLD -D_SYSCRT=1 -DCRTDLL=1 -DWINHEAP=1 $(sysincludes)
 AM_CFLAGS=-pipe
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
-MAKEDLL=$(DLLTOOL) $(AM_DLLTOOLFLAGS)
+DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
+DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | sed '{s|/lib|/|;s|\.a|.def|}'`
 crt64srcdir=$(top_srcdir)/crt64
 crt32srcdir=$(top_srcdir)/crt32
 
@@ -55,17 +57,12 @@ dxguid.c
 
 
 lib32_LIBRARIES = lib32/libkernel32.a
-lib32_libkernel32_a_SOURCES = lib32/kernel32.def
-lib32_libkernel32_a_CFLAGS=$(AM_CFLAGS)
-#lib32_libkernel32_a_AR = \
-#        $(DLLTOOL) $(DLLOPTS) --def $(top_srcdir)/lib32/kernel32.def; \
-#        $(AR) $(ARFLAGS)
+lib32_libkernel32_a_SOURCES = lib32/kernel32.c
+lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = lib32/shell32.c
-lib32_libshell32_a_AR = \
-        $(MAKEDLL) --def $(top_srcdir)/lib32/shell32.def; \
-        $(AR) $(ARFLAGS)
+lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/liblargeint.a
 lib32_liblargeint_a_SOURCES = lib32/largeint.c
@@ -120,7 +117,7 @@ lib32_SCRIPTS = \
   lib32/libdpnaddr.a       lib32/libmcd.a           lib32/libolepro32.a      lib32/libth32.a
 
 lib32/lib%.a:
-	$(DLLTOOL) $(DLLOPTS) --def $(top_srcdir)/lib32/$*.def
+	$(DTDEF) $(top_srcdir)/lib32/$*.def
 
 
 endif
@@ -153,7 +150,7 @@ crt64/dllcrt2.o:
 	$(COMPILE64)crtdll.c -o $@ -D__MSVCRT__ -U__CRTDLL__
 
 crt64/lib%.a: crt64/%.def
-	$(MAKEDLL) --dllname lib64/$*.dll --def=$(crt64srcdir)/$*.def
+	$(DTDEF) $(crt64srcdir)/$*.def --dllname lib64/$*.dll
 
 
 
@@ -166,15 +163,11 @@ nodist_lib64_libm_a_SOURCES = _libm_dummy.c
 
 lib64_LIBRARIES += lib64/libkernel32.a
 lib64_libkernel32_a_SOURCES = lib64/kernel32.c
-lib64_libkernel32_a_AR = \
-        $(MAKEDLL) --def $(top_srcdir)/lib64/kernel32.def; \
-        $(AR) $(ARFLAGS)
+lib64_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = lib64/shell32.c
-lib64_libshell32_a_AR = \
-        $(MAKEDLL) --def $(top_srcdir)/lib64/shell32.def; \
-        $(AR) $(ARFLAGS)
+lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/liblargeint.a
 lib64_liblargeint_a_SOURCES = lib64/largeint.c
@@ -203,9 +196,7 @@ lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=$(include64) $(AM_CPPFLAGS)
 lib64_libmoldname_a_SOURCES = \
   crt64/isascii.c crt64/iscsym.c crt64/iscsymf.c crt64/toascii.c crt64/strcasecmp.c crt64/strncasecmp.c crt64/wcscmpi.c
-lib64_libmoldname_a_AR = \
-  $(MAKEDLL) -U --dllname msvcrt.dll --def $(crt64srcdir)/moldname-msvcrt.def; \
-  $(AR) $(ARFLAGS)
+lib64_libmoldname_a_AR = $(DTDEF) $(crt64srcdir)/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
   
 
 lib64_LIBRARIES += lib64/libmingwex.a
@@ -707,7 +698,7 @@ lib64_SCRIPTS = \
   lib64/libkbda3.a        lib64/libqdv.a            lib64/libwd3dxof.a    lib64/libwlmrt.a
 
 lib64/lib%.a:
-	$(MAKEDLL) --def $(top_srcdir)/lib64/$*.def
+	$(DTDEF) $(top_srcdir)/lib64/$*.def
 
 
 endif
@@ -744,7 +735,7 @@ EXTRA_DIST += $(crt64srcdir)/*.def \
   $(crt64srcdir)/crtbegin.c \
   $(crt64srcdir)/crtend.c
 
-DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32
+DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-32
 
 dist-hook:
 	rm -rf `find $(top_distdir) -name ".svn"`
