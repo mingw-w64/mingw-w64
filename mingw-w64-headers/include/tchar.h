@@ -138,7 +138,7 @@ extern "C" {
 #define _ftprintf_l _fwprintf_l
 #define _ftprintf_p _fwprintf_p
 #define _ftprintf_p_l _fwprintf_p_l
-#define _stprintf _swprintf
+#define _stprintf swprintf
 #define _stprintf_l __swprintf_l
 #define _stprintf_p _swprintf_p
 #define _stprintf_p_l _swprintf_p_l
@@ -156,7 +156,7 @@ extern "C" {
 #define _vftprintf_l _vfwprintf_l
 #define _vftprintf_p _vfwprintf_p
 #define _vftprintf_p_l _vfwprintf_p_l
-#define _vstprintf _vswprintf
+#define _vstprintf vswprintf
 #define _vstprintf_l _vswprintf_l
 #define _vstprintf_p _vswprintf_p
 #define _vstprintf_p_l _vswprintf_p_l

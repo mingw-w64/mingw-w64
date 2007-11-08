@@ -3,14 +3,22 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifndef _WS2TCPIP_H_
-#define _WS2TCPIP_H_
+#ifndef _WS2TCPIP_H
+#define _WS2TCPIP_H
 
+#if __GNUC__ >=3
+#pragma GCC system_header
+#endif
+
+#if (defined _WINSOCK_H && !defined _WINSOCK2_H)
+#error "ws2tcpip.h is not compatible with winsock.h. Include winsock2.h instead."
+#endif
+/**
 struct ip_mreq {
   struct in_addr imr_multiaddr;
   struct in_addr imr_interface;
 };
-
+*/
 struct ip_mreq_source {
   struct in_addr imr_multiaddr;
   struct in_addr imr_sourceaddr;

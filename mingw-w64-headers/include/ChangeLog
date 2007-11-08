@@ -1,3 +1,34 @@
+2007-11-07  20-40  <annonymous>
+
+	* _dbdao.h: New.
+	* ieeefp.h: New.
+	* io.h: (_getcwd): Prototype added.
+	* mspab.h: New.
+	* mspaddr.h: New.
+	* mspbase.h: New.
+	* mspcall.h: New.
+	* mspcoll.h: New.
+	* mspenum.h: New.
+	* msplog.h: New.
+	* mspst.h: New.
+	* mspstrm.h: New.
+	* mspterm.h: New.
+	* mspthrd.h: New.
+	* msptrmac.h: New.
+	* msptrmar.h: New.
+	* msptrmvc.h: New.
+	* msputils.h: New.
+	* ws2tcpip.h: (ip_mreq): Disabled. Forced that winsock2.h is included infront.
+	* wmiatlprov.h: New.
+	* winsock2.h: Add AF_??? constants.
+	* wchar.h: Add protypes for swprintf and vswprintf.
+	* tchar.h: Likewise.
+	* stdio.h: Likewise.
+	* w32api.h: New.
+	* nl_types.h: New.
+	* langinfo.h: New.
+
+
 2007-10-29  Kai Tietz  <kai.tietz@onevision.com>
 
 	* assert.h:

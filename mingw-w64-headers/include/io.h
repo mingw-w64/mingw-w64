@@ -16,6 +16,7 @@
 extern "C" {
 #endif
 
+_CRTIMP char* __cdecl _getcwd (char*, int);
 #ifndef _FSIZE_T_DEFINED
   typedef unsigned long _fsize_t;
 #define _FSIZE_T_DEFINED

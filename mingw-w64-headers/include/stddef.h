@@ -380,18 +380,6 @@ typedef __WCHAR_TYPE__ wchar_t;
 #undef	__need_wchar_t
 #endif /* _STDDEF_H or __need_wchar_t.  */
 
-#if defined (__need_wint_t)
-#ifndef _WINT_T
-#define _WINT_T
-
-#ifndef __WINT_TYPE__
-#define __WINT_TYPE__ unsigned int
-#endif
-typedef __WINT_TYPE__ wint_t;
-#endif
-#undef __need_wint_t
-#endif
-
 /*  In 4.3bsd-net2, leave these undefined to indicate that size_t, etc.
     are already defined.  */
 /*  BSD/OS 3.1 and FreeBSD [23].x require the MACHINE_ANSI_H check here.  */

@@ -530,6 +530,8 @@ extern "C" {
   _CRTIMP int __cdecl _scwprintf(const wchar_t *_Format,...);
   int __cdecl vfwprintf(FILE *_File,const wchar_t *_Format,va_list _ArgList);
   int __cdecl vwprintf(const wchar_t *_Format,va_list _ArgList);
+  _CRTIMP int __cdecl swprintf(wchar_t*, const wchar_t*, ...);
+  _CRTIMP int __cdecl vswprintf(wchar_t*, const wchar_t*,va_list);
   _CRTIMP int __cdecl _swprintf_c(wchar_t *_DstBuf,size_t _SizeInWords,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _vswprintf_c(wchar_t *_DstBuf,size_t _SizeInWords,const wchar_t *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _snwprintf(wchar_t *_Dest,size_t _Count,const wchar_t *_Format,...);

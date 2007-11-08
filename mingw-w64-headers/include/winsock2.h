@@ -3,6 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
 #ifndef _WINSOCK2API_
 #define _WINSOCK2API_
 
