@@ -36,6 +36,8 @@ static inline void *__memcpy(void *pvDst,const void *pvSrc,size_t cb) {
 
 inline unsigned IndexFromPImgThunkData(PCImgThunkData pitdCur,PCImgThunkData pitdBase) { return (unsigned) (pitdCur - pitdBase);}
 
+#define __ImageBase _image_base__
+
 extern "C"
 const IMAGE_DOS_HEADER __ImageBase;
 
