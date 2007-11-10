@@ -1,3 +1,7 @@
+2007-11-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* delayhlp.cpp: PR 1829505  Linker symbol _ImageBase.
+
 2007-11-07  20-40  <annonymous>
 
 	* _dbdao.h: New.
