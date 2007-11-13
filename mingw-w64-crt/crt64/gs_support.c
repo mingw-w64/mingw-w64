@@ -90,6 +90,7 @@ __report_gsfailure (ULONGLONG StackCookie)
 #endif
   PVOID hndData;
 
+#ifdef _WIN64
   RtlCaptureContext (&GS_ContextRecord);
 #ifdef _WIN64
   controlPC = GS_ContextRecord.Rip;
@@ -104,6 +105,7 @@ __report_gsfailure (ULONGLONG StackCookie)
 			&GS_ContextRecord, &hndData, &establisherFrame, NULL);
     }
   else
+#endif
 #endif
     {
 #ifdef _WIN64
