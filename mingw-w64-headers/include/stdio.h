@@ -88,7 +88,13 @@ extern "C" {
 #endif
 
 #ifndef _STDIO_DEFINED
+#ifdef _WIN64
   _CRTIMP FILE *__cdecl __iob_func(void);
+#else
+extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
+#define __iob_func()	(*_imp___iob)
+#endif
+#define _iob __iob_func()
 #endif
 
 #ifndef _FPOS_T_DEFINED
