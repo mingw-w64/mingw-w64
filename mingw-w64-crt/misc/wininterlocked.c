@@ -315,3 +315,80 @@ PVOID InterlockedExchangePointer(PVOID volatile *Target,PVOID Value)
   return Value;
 }
 #endif
+
+#ifdef _WIN64
+#if defined(__x86_64)
+ struct _TEB *NtCurrentTeb(VOID)
+ {
+   return (struct _TEB *)__readgsqword(FIELD_OFFSET(NT_TIB,Self));
+ }
+
+ PVOID GetCurrentFiber(VOID)
+ {
+   return(PVOID)__readgsqword(FIELD_OFFSET(NT_TIB,FiberData));
+ }
+
+ PVOID GetFiberData(VOID)
+ {
+   return *(PVOID *)GetCurrentFiber();
+ }
+
+ BYTE __readgsbyte(DWORD Offset)
+ {
+   BYTE ret;
+   __asm__ volatile ("movb	%%gs:%1,%0"
+     : "=r" (ret) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+   return ret;
+ }
+ WORD __readgsword(DWORD Offset)
+ {
+   WORD ret;
+   __asm__ volatile ("movw	%%gs:%1,%0"
+     : "=r" (ret) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+   return ret;
+ }
+ 
+ DWORD __readgsdword(DWORD Offset)
+ {
+   DWORD ret;
+   __asm__ volatile ("movl	%%gs:%1,%0"
+     : "=r" (ret) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+   return ret;
+ }
+ DWORD64 __readgsqword(DWORD Offset)
+ {
+   void *ret;
+   __asm__ volatile ("movq	%%gs:%1,%0"
+     : "=r" (ret) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+   return (DWORD64) ret;
+ }
+ VOID __writegsbyte(DWORD Offset,BYTE Data)
+ {
+    __asm__ volatile ("movb	%0,%%gs:%1"
+      : "=r" (Data) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+ }
+ VOID __writegsword(DWORD Offset,WORD Data)
+ {
+    __asm__ volatile ("movw	%0,%%gs:%1"
+      : "=r" (Data) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+  }
+  VOID __writegsdword(DWORD Offset,DWORD Data)
+  {
+    __asm__ volatile ("movl	%0,%%gs:%1"
+      : "=r" (Data) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+  }
+  VOID __writegsqword(DWORD Offset,DWORD64 Data)
+  {
+    __asm__ volatile ("movq	%0,%%gs:%1"
+      : "=r" (Data) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+  }
+#endif
+#else
+  struct _TEB *NtCurrentTeb(void)
+  {
+    struct _TEB *ret;
+    __asm__ volatile ("movl	%%fs:0x18,%0"
+      : "=r" (ret));
+    return ret;
+  }
+#endif

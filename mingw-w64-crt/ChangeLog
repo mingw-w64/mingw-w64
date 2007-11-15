@@ -1,3 +1,7 @@
+2007-11-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wininterlocked.c: Add NtCurrentTeb function. PR/1832340.
+
 2007-10-22  20-40  <20-40@annonymous>
 
 	* crtexe.c: Add _pei386_runtime_relocator.
