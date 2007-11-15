@@ -1,3 +1,9 @@
+2007-11-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* wchar.h: Add _iob definition. Additionally add 32-bit
+	compatible definition of __iob_func().
+	* stdio.h: Likewise.
+
 2007-11-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	* delayhlp.cpp: PR 1829505  Linker symbol _ImageBase.
