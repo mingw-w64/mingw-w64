@@ -881,8 +881,6 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB32_TRUE@  lib32/libdpnaddr.a       lib32/libmcd.a           lib32/libolepro32.a      lib32/libth32.a
 
 
-#$(DTDEF) $(top_srcdir)/lib32/$*.def
-
 # End 32-bit runtime
 # ##########
 
@@ -8389,7 +8387,7 @@ uninstall-am: uninstall-crt64SCRIPTS uninstall-lib32LIBRARIES \
 
 
 @LIB32_TRUE@lib32/lib%.a:
-@LIB32_TRUE@	$(DTLIB)
+@LIB32_TRUE@	$(DTDEF) $(top_srcdir)/lib32/$*.def
 @LIB64_TRUE@crt64/crt1.o:
 @LIB64_TRUE@	$(COMPILE64)crtexe.c -o $@ -D__CRTDLL__ -U__MSVCRT__
 @LIB64_TRUE@crt64/crt2.o:

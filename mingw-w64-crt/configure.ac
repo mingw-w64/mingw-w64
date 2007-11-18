@@ -44,8 +44,9 @@ AM_CONDITIONAL([LIB64], [test $enable_lib64 = yes])
 
 # Checks for programs.
 # Checks for headers, libs, etc need to utilize the sysroot... no idea how
-AC_PROG_CXX
+AC_NO_EXECUTABLES
 AC_PROG_CC
+AC_PROG_CXX
 AC_PROG_INSTALL
 AC_LIBTOOL_WIN32_DLL
 AC_DISABLE_STATIC
