@@ -1,3 +1,8 @@
+2007-11-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _findfirst64i32.c: Add wide char methods.
+	* _findnext64i32.c: Likewise.
+
 2007-11-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* misc/wininterlocked.c: Add NtCurrentTeb function. PR/1832340.
