@@ -24,37 +24,37 @@
 
 #ifndef __IHlink_FWD_DEFINED__
 #define __IHlink_FWD_DEFINED__
-typedef interface IHlink IHlink;
+typedef struct IHlink IHlink;
 #endif
 
 #ifndef __IHlinkSite_FWD_DEFINED__
 #define __IHlinkSite_FWD_DEFINED__
-typedef interface IHlinkSite IHlinkSite;
+typedef struct IHlinkSite IHlinkSite;
 #endif
 
 #ifndef __IHlinkTarget_FWD_DEFINED__
 #define __IHlinkTarget_FWD_DEFINED__
-typedef interface IHlinkTarget IHlinkTarget;
+typedef struct IHlinkTarget IHlinkTarget;
 #endif
 
 #ifndef __IHlinkFrame_FWD_DEFINED__
 #define __IHlinkFrame_FWD_DEFINED__
-typedef interface IHlinkFrame IHlinkFrame;
+typedef struct IHlinkFrame IHlinkFrame;
 #endif
 
 #ifndef __IEnumHLITEM_FWD_DEFINED__
 #define __IEnumHLITEM_FWD_DEFINED__
-typedef interface IEnumHLITEM IEnumHLITEM;
+typedef struct IEnumHLITEM IEnumHLITEM;
 #endif
 
 #ifndef __IHlinkBrowseContext_FWD_DEFINED__
 #define __IHlinkBrowseContext_FWD_DEFINED__
-typedef interface IHlinkBrowseContext IHlinkBrowseContext;
+typedef struct IHlinkBrowseContext IHlinkBrowseContext;
 #endif
 
 #ifndef __IExtensionServices_FWD_DEFINED__
 #define __IExtensionServices_FWD_DEFINED__
-typedef interface IExtensionServices IExtensionServices;
+typedef struct IExtensionServices IExtensionServices;
 #endif
 
 #include "urlmon.h"
@@ -199,7 +199,7 @@ extern "C"{
       HRESULT (WINAPI *GetAdditionalParams)(IHlink *This,LPWSTR *ppwzAdditionalParams);
     END_INTERFACE
   } IHlinkVtbl;
-  interface IHlink {
+  struct IHlink {
     CONST_VTBL struct IHlinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -287,7 +287,7 @@ extern "C"{
       HRESULT (WINAPI *OnNavigationComplete)(IHlinkSite *This,DWORD dwSiteData,DWORD dwreserved,HRESULT hrError,LPCWSTR pwzError);
     END_INTERFACE
   } IHlinkSiteVtbl;
-  interface IHlinkSite {
+  struct IHlinkSite {
     CONST_VTBL struct IHlinkSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -341,7 +341,7 @@ extern "C"{
       HRESULT (WINAPI *GetFriendlyName)(IHlinkTarget *This,LPCWSTR pwzLocation,LPWSTR *ppwzFriendlyName);
     END_INTERFACE
   } IHlinkTargetVtbl;
-  interface IHlinkTarget {
+  struct IHlinkTarget {
     CONST_VTBL struct IHlinkTargetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -400,7 +400,7 @@ extern "C"{
       HRESULT (WINAPI *UpdateHlink)(IHlinkFrame *This,ULONG uHLID,IMoniker *pimkTarget,LPCWSTR pwzLocation,LPCWSTR pwzFriendlyName);
     END_INTERFACE
   } IHlinkFrameVtbl;
-  interface IHlinkFrame {
+  struct IHlinkFrame {
     CONST_VTBL struct IHlinkFrameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -462,7 +462,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumHLITEM *This,IEnumHLITEM **ppienumhlitem);
     END_INTERFACE
   } IEnumHLITEMVtbl;
-  interface IEnumHLITEM {
+  struct IEnumHLITEM {
     CONST_VTBL struct IEnumHLITEMVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -566,7 +566,7 @@ extern "C"{
       HRESULT (WINAPI *Close)(IHlinkBrowseContext *This,DWORD reserved);
     END_INTERFACE
   } IHlinkBrowseContextVtbl;
-  interface IHlinkBrowseContext {
+  struct IHlinkBrowseContext {
     CONST_VTBL struct IHlinkBrowseContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -646,7 +646,7 @@ extern "C"{
       HRESULT (WINAPI *SetAuthenticateData)(IExtensionServices *This,HWND phwnd,LPCWSTR pwzUsername,LPCWSTR pwzPassword);
     END_INTERFACE
   } IExtensionServicesVtbl;
-  interface IExtensionServices {
+  struct IExtensionServices {
     CONST_VTBL struct IExtensionServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

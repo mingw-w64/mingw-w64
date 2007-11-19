@@ -24,7 +24,7 @@
 
 #ifndef __IContextCallback_FWD_DEFINED__
 #define __IContextCallback_FWD_DEFINED__
-typedef interface IContextCallback IContextCallback;
+typedef struct IContextCallback IContextCallback;
 #endif
 
 #include "wtypes.h"
@@ -63,7 +63,7 @@ extern "C"{
       HRESULT (WINAPI *ContextCallback)(IContextCallback *This,PFNCONTEXTCALL pfnCallback,ComCallData *pParam,REFIID riid,int iMethod,IUnknown *pUnk);
     END_INTERFACE
   } IContextCallbackVtbl;
-  interface IContextCallback {
+  struct IContextCallback {
     CONST_VTBL struct IContextCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

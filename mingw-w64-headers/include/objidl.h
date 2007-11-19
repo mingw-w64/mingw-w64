@@ -24,447 +24,447 @@
 
 #ifndef __IMarshal_FWD_DEFINED__
 #define __IMarshal_FWD_DEFINED__
-typedef interface IMarshal IMarshal;
+typedef struct IMarshal IMarshal;
 #endif
 
 #ifndef __IMarshal2_FWD_DEFINED__
 #define __IMarshal2_FWD_DEFINED__
-typedef interface IMarshal2 IMarshal2;
+typedef struct IMarshal2 IMarshal2;
 #endif
 
 #ifndef __IMalloc_FWD_DEFINED__
 #define __IMalloc_FWD_DEFINED__
-typedef interface IMalloc IMalloc;
+typedef struct IMalloc IMalloc;
 #endif
 
 #ifndef __IMallocSpy_FWD_DEFINED__
 #define __IMallocSpy_FWD_DEFINED__
-typedef interface IMallocSpy IMallocSpy;
+typedef struct IMallocSpy IMallocSpy;
 #endif
 
 #ifndef __IStdMarshalInfo_FWD_DEFINED__
 #define __IStdMarshalInfo_FWD_DEFINED__
-typedef interface IStdMarshalInfo IStdMarshalInfo;
+typedef struct IStdMarshalInfo IStdMarshalInfo;
 #endif
 
 #ifndef __IExternalConnection_FWD_DEFINED__
 #define __IExternalConnection_FWD_DEFINED__
-typedef interface IExternalConnection IExternalConnection;
+typedef struct IExternalConnection IExternalConnection;
 #endif
 
 #ifndef __IMultiQI_FWD_DEFINED__
 #define __IMultiQI_FWD_DEFINED__
-typedef interface IMultiQI IMultiQI;
+typedef struct IMultiQI IMultiQI;
 #endif
 
 #ifndef __AsyncIMultiQI_FWD_DEFINED__
 #define __AsyncIMultiQI_FWD_DEFINED__
-typedef interface AsyncIMultiQI AsyncIMultiQI;
+typedef struct AsyncIMultiQI AsyncIMultiQI;
 #endif
 
 #ifndef __IInternalUnknown_FWD_DEFINED__
 #define __IInternalUnknown_FWD_DEFINED__
-typedef interface IInternalUnknown IInternalUnknown;
+typedef struct IInternalUnknown IInternalUnknown;
 #endif
 
 #ifndef __IEnumUnknown_FWD_DEFINED__
 #define __IEnumUnknown_FWD_DEFINED__
-typedef interface IEnumUnknown IEnumUnknown;
+typedef struct IEnumUnknown IEnumUnknown;
 #endif
 
 #ifndef __IBindCtx_FWD_DEFINED__
 #define __IBindCtx_FWD_DEFINED__
-typedef interface IBindCtx IBindCtx;
+typedef struct IBindCtx IBindCtx;
 #endif
 
 #ifndef __IEnumMoniker_FWD_DEFINED__
 #define __IEnumMoniker_FWD_DEFINED__
-typedef interface IEnumMoniker IEnumMoniker;
+typedef struct IEnumMoniker IEnumMoniker;
 #endif
 
 #ifndef __IRunnableObject_FWD_DEFINED__
 #define __IRunnableObject_FWD_DEFINED__
-typedef interface IRunnableObject IRunnableObject;
+typedef struct IRunnableObject IRunnableObject;
 #endif
 
 #ifndef __IRunningObjectTable_FWD_DEFINED__
 #define __IRunningObjectTable_FWD_DEFINED__
-typedef interface IRunningObjectTable IRunningObjectTable;
+typedef struct IRunningObjectTable IRunningObjectTable;
 #endif
 
 #ifndef __IPersist_FWD_DEFINED__
 #define __IPersist_FWD_DEFINED__
-typedef interface IPersist IPersist;
+typedef struct IPersist IPersist;
 #endif
 
 #ifndef __IPersistStream_FWD_DEFINED__
 #define __IPersistStream_FWD_DEFINED__
-typedef interface IPersistStream IPersistStream;
+typedef struct IPersistStream IPersistStream;
 #endif
 
 #ifndef __IMoniker_FWD_DEFINED__
 #define __IMoniker_FWD_DEFINED__
-typedef interface IMoniker IMoniker;
+typedef struct IMoniker IMoniker;
 #endif
 
 #ifndef __IROTData_FWD_DEFINED__
 #define __IROTData_FWD_DEFINED__
-typedef interface IROTData IROTData;
+typedef struct IROTData IROTData;
 #endif
 
 #ifndef __IEnumString_FWD_DEFINED__
 #define __IEnumString_FWD_DEFINED__
-typedef interface IEnumString IEnumString;
+typedef struct IEnumString IEnumString;
 #endif
 
 #ifndef __ISequentialStream_FWD_DEFINED__
 #define __ISequentialStream_FWD_DEFINED__
-typedef interface ISequentialStream ISequentialStream;
+typedef struct ISequentialStream ISequentialStream;
 #endif
 
 #ifndef __IStream_FWD_DEFINED__
 #define __IStream_FWD_DEFINED__
-typedef interface IStream IStream;
+typedef struct IStream IStream;
 #endif
 
 #ifndef __IEnumSTATSTG_FWD_DEFINED__
 #define __IEnumSTATSTG_FWD_DEFINED__
-typedef interface IEnumSTATSTG IEnumSTATSTG;
+typedef struct IEnumSTATSTG IEnumSTATSTG;
 #endif
 
 #ifndef __IStorage_FWD_DEFINED__
 #define __IStorage_FWD_DEFINED__
-typedef interface IStorage IStorage;
+typedef struct IStorage IStorage;
 #endif
 
 #ifndef __IPersistFile_FWD_DEFINED__
 #define __IPersistFile_FWD_DEFINED__
-typedef interface IPersistFile IPersistFile;
+typedef struct IPersistFile IPersistFile;
 #endif
 
 #ifndef __IPersistStorage_FWD_DEFINED__
 #define __IPersistStorage_FWD_DEFINED__
-typedef interface IPersistStorage IPersistStorage;
+typedef struct IPersistStorage IPersistStorage;
 #endif
 
 #ifndef __ILockBytes_FWD_DEFINED__
 #define __ILockBytes_FWD_DEFINED__
-typedef interface ILockBytes ILockBytes;
+typedef struct ILockBytes ILockBytes;
 #endif
 
 #ifndef __IEnumFORMATETC_FWD_DEFINED__
 #define __IEnumFORMATETC_FWD_DEFINED__
-typedef interface IEnumFORMATETC IEnumFORMATETC;
+typedef struct IEnumFORMATETC IEnumFORMATETC;
 #endif
 
 #ifndef __IEnumSTATDATA_FWD_DEFINED__
 #define __IEnumSTATDATA_FWD_DEFINED__
-typedef interface IEnumSTATDATA IEnumSTATDATA;
+typedef struct IEnumSTATDATA IEnumSTATDATA;
 #endif
 
 #ifndef __IRootStorage_FWD_DEFINED__
 #define __IRootStorage_FWD_DEFINED__
-typedef interface IRootStorage IRootStorage;
+typedef struct IRootStorage IRootStorage;
 #endif
 
 #ifndef __IAdviseSink_FWD_DEFINED__
 #define __IAdviseSink_FWD_DEFINED__
-typedef interface IAdviseSink IAdviseSink;
+typedef struct IAdviseSink IAdviseSink;
 #endif
 
 #ifndef __AsyncIAdviseSink_FWD_DEFINED__
 #define __AsyncIAdviseSink_FWD_DEFINED__
-typedef interface AsyncIAdviseSink AsyncIAdviseSink;
+typedef struct AsyncIAdviseSink AsyncIAdviseSink;
 #endif
 
 #ifndef __IAdviseSink2_FWD_DEFINED__
 #define __IAdviseSink2_FWD_DEFINED__
-typedef interface IAdviseSink2 IAdviseSink2;
+typedef struct IAdviseSink2 IAdviseSink2;
 #endif
 
 #ifndef __AsyncIAdviseSink2_FWD_DEFINED__
 #define __AsyncIAdviseSink2_FWD_DEFINED__
-typedef interface AsyncIAdviseSink2 AsyncIAdviseSink2;
+typedef struct AsyncIAdviseSink2 AsyncIAdviseSink2;
 #endif
 
 #ifndef __IDataObject_FWD_DEFINED__
 #define __IDataObject_FWD_DEFINED__
-typedef interface IDataObject IDataObject;
+typedef struct IDataObject IDataObject;
 #endif
 
 #ifndef __IDataAdviseHolder_FWD_DEFINED__
 #define __IDataAdviseHolder_FWD_DEFINED__
-typedef interface IDataAdviseHolder IDataAdviseHolder;
+typedef struct IDataAdviseHolder IDataAdviseHolder;
 #endif
 
 #ifndef __IMessageFilter_FWD_DEFINED__
 #define __IMessageFilter_FWD_DEFINED__
-typedef interface IMessageFilter IMessageFilter;
+typedef struct IMessageFilter IMessageFilter;
 #endif
 
 #ifndef __IRpcChannelBuffer_FWD_DEFINED__
 #define __IRpcChannelBuffer_FWD_DEFINED__
-typedef interface IRpcChannelBuffer IRpcChannelBuffer;
+typedef struct IRpcChannelBuffer IRpcChannelBuffer;
 #endif
 
 #ifndef __IRpcChannelBuffer2_FWD_DEFINED__
 #define __IRpcChannelBuffer2_FWD_DEFINED__
-typedef interface IRpcChannelBuffer2 IRpcChannelBuffer2;
+typedef struct IRpcChannelBuffer2 IRpcChannelBuffer2;
 #endif
 
 #ifndef __IAsyncRpcChannelBuffer_FWD_DEFINED__
 #define __IAsyncRpcChannelBuffer_FWD_DEFINED__
-typedef interface IAsyncRpcChannelBuffer IAsyncRpcChannelBuffer;
+typedef struct IAsyncRpcChannelBuffer IAsyncRpcChannelBuffer;
 #endif
 
 #ifndef __IRpcChannelBuffer3_FWD_DEFINED__
 #define __IRpcChannelBuffer3_FWD_DEFINED__
-typedef interface IRpcChannelBuffer3 IRpcChannelBuffer3;
+typedef struct IRpcChannelBuffer3 IRpcChannelBuffer3;
 #endif
 
 #ifndef __IRpcSyntaxNegotiate_FWD_DEFINED__
 #define __IRpcSyntaxNegotiate_FWD_DEFINED__
-typedef interface IRpcSyntaxNegotiate IRpcSyntaxNegotiate;
+typedef struct IRpcSyntaxNegotiate IRpcSyntaxNegotiate;
 #endif
 
 #ifndef __IRpcProxyBuffer_FWD_DEFINED__
 #define __IRpcProxyBuffer_FWD_DEFINED__
-typedef interface IRpcProxyBuffer IRpcProxyBuffer;
+typedef struct IRpcProxyBuffer IRpcProxyBuffer;
 #endif
 
 #ifndef __IRpcStubBuffer_FWD_DEFINED__
 #define __IRpcStubBuffer_FWD_DEFINED__
-typedef interface IRpcStubBuffer IRpcStubBuffer;
+typedef struct IRpcStubBuffer IRpcStubBuffer;
 #endif
 
 #ifndef __IPSFactoryBuffer_FWD_DEFINED__
 #define __IPSFactoryBuffer_FWD_DEFINED__
-typedef interface IPSFactoryBuffer IPSFactoryBuffer;
+typedef struct IPSFactoryBuffer IPSFactoryBuffer;
 #endif
 
 #ifndef __IChannelHook_FWD_DEFINED__
 #define __IChannelHook_FWD_DEFINED__
-typedef interface IChannelHook IChannelHook;
+typedef struct IChannelHook IChannelHook;
 #endif
 
 #ifndef __IClientSecurity_FWD_DEFINED__
 #define __IClientSecurity_FWD_DEFINED__
-typedef interface IClientSecurity IClientSecurity;
+typedef struct IClientSecurity IClientSecurity;
 #endif
 
 #ifndef __IServerSecurity_FWD_DEFINED__
 #define __IServerSecurity_FWD_DEFINED__
-typedef interface IServerSecurity IServerSecurity;
+typedef struct IServerSecurity IServerSecurity;
 #endif
 
 #ifndef __IClassActivator_FWD_DEFINED__
 #define __IClassActivator_FWD_DEFINED__
-typedef interface IClassActivator IClassActivator;
+typedef struct IClassActivator IClassActivator;
 #endif
 
 #ifndef __IRpcOptions_FWD_DEFINED__
 #define __IRpcOptions_FWD_DEFINED__
-typedef interface IRpcOptions IRpcOptions;
+typedef struct IRpcOptions IRpcOptions;
 #endif
 
 #ifndef __IFillLockBytes_FWD_DEFINED__
 #define __IFillLockBytes_FWD_DEFINED__
-typedef interface IFillLockBytes IFillLockBytes;
+typedef struct IFillLockBytes IFillLockBytes;
 #endif
 
 #ifndef __IProgressNotify_FWD_DEFINED__
 #define __IProgressNotify_FWD_DEFINED__
-typedef interface IProgressNotify IProgressNotify;
+typedef struct IProgressNotify IProgressNotify;
 #endif
 
 #ifndef __ILayoutStorage_FWD_DEFINED__
 #define __ILayoutStorage_FWD_DEFINED__
-typedef interface ILayoutStorage ILayoutStorage;
+typedef struct ILayoutStorage ILayoutStorage;
 #endif
 
 #ifndef __IBlockingLock_FWD_DEFINED__
 #define __IBlockingLock_FWD_DEFINED__
-typedef interface IBlockingLock IBlockingLock;
+typedef struct IBlockingLock IBlockingLock;
 #endif
 
 #ifndef __ITimeAndNoticeControl_FWD_DEFINED__
 #define __ITimeAndNoticeControl_FWD_DEFINED__
-typedef interface ITimeAndNoticeControl ITimeAndNoticeControl;
+typedef struct ITimeAndNoticeControl ITimeAndNoticeControl;
 #endif
 
 #ifndef __IOplockStorage_FWD_DEFINED__
 #define __IOplockStorage_FWD_DEFINED__
-typedef interface IOplockStorage IOplockStorage;
+typedef struct IOplockStorage IOplockStorage;
 #endif
 
 #ifndef __ISurrogate_FWD_DEFINED__
 #define __ISurrogate_FWD_DEFINED__
-typedef interface ISurrogate ISurrogate;
+typedef struct ISurrogate ISurrogate;
 #endif
 
 #ifndef __IGlobalInterfaceTable_FWD_DEFINED__
 #define __IGlobalInterfaceTable_FWD_DEFINED__
-typedef interface IGlobalInterfaceTable IGlobalInterfaceTable;
+typedef struct IGlobalInterfaceTable IGlobalInterfaceTable;
 #endif
 
 #ifndef __IDirectWriterLock_FWD_DEFINED__
 #define __IDirectWriterLock_FWD_DEFINED__
-typedef interface IDirectWriterLock IDirectWriterLock;
+typedef struct IDirectWriterLock IDirectWriterLock;
 #endif
 
 #ifndef __ISynchronize_FWD_DEFINED__
 #define __ISynchronize_FWD_DEFINED__
-typedef interface ISynchronize ISynchronize;
+typedef struct ISynchronize ISynchronize;
 #endif
 
 #ifndef __ISynchronizeHandle_FWD_DEFINED__
 #define __ISynchronizeHandle_FWD_DEFINED__
-typedef interface ISynchronizeHandle ISynchronizeHandle;
+typedef struct ISynchronizeHandle ISynchronizeHandle;
 #endif
 
 #ifndef __ISynchronizeEvent_FWD_DEFINED__
 #define __ISynchronizeEvent_FWD_DEFINED__
-typedef interface ISynchronizeEvent ISynchronizeEvent;
+typedef struct ISynchronizeEvent ISynchronizeEvent;
 #endif
 
 #ifndef __ISynchronizeContainer_FWD_DEFINED__
 #define __ISynchronizeContainer_FWD_DEFINED__
-typedef interface ISynchronizeContainer ISynchronizeContainer;
+typedef struct ISynchronizeContainer ISynchronizeContainer;
 #endif
 
 #ifndef __ISynchronizeMutex_FWD_DEFINED__
 #define __ISynchronizeMutex_FWD_DEFINED__
-typedef interface ISynchronizeMutex ISynchronizeMutex;
+typedef struct ISynchronizeMutex ISynchronizeMutex;
 #endif
 
 #ifndef __ICancelMethodCalls_FWD_DEFINED__
 #define __ICancelMethodCalls_FWD_DEFINED__
-typedef interface ICancelMethodCalls ICancelMethodCalls;
+typedef struct ICancelMethodCalls ICancelMethodCalls;
 #endif
 
 #ifndef __IAsyncManager_FWD_DEFINED__
 #define __IAsyncManager_FWD_DEFINED__
-typedef interface IAsyncManager IAsyncManager;
+typedef struct IAsyncManager IAsyncManager;
 #endif
 
 #ifndef __ICallFactory_FWD_DEFINED__
 #define __ICallFactory_FWD_DEFINED__
-typedef interface ICallFactory ICallFactory;
+typedef struct ICallFactory ICallFactory;
 #endif
 
 #ifndef __IRpcHelper_FWD_DEFINED__
 #define __IRpcHelper_FWD_DEFINED__
-typedef interface IRpcHelper IRpcHelper;
+typedef struct IRpcHelper IRpcHelper;
 #endif
 
 #ifndef __IReleaseMarshalBuffers_FWD_DEFINED__
 #define __IReleaseMarshalBuffers_FWD_DEFINED__
-typedef interface IReleaseMarshalBuffers IReleaseMarshalBuffers;
+typedef struct IReleaseMarshalBuffers IReleaseMarshalBuffers;
 #endif
 
 #ifndef __IWaitMultiple_FWD_DEFINED__
 #define __IWaitMultiple_FWD_DEFINED__
-typedef interface IWaitMultiple IWaitMultiple;
+typedef struct IWaitMultiple IWaitMultiple;
 #endif
 
 #ifndef __IUrlMon_FWD_DEFINED__
 #define __IUrlMon_FWD_DEFINED__
-typedef interface IUrlMon IUrlMon;
+typedef struct IUrlMon IUrlMon;
 #endif
 
 #ifndef __IForegroundTransfer_FWD_DEFINED__
 #define __IForegroundTransfer_FWD_DEFINED__
-typedef interface IForegroundTransfer IForegroundTransfer;
+typedef struct IForegroundTransfer IForegroundTransfer;
 #endif
 
 #ifndef __IAddrTrackingControl_FWD_DEFINED__
 #define __IAddrTrackingControl_FWD_DEFINED__
-typedef interface IAddrTrackingControl IAddrTrackingControl;
+typedef struct IAddrTrackingControl IAddrTrackingControl;
 #endif
 
 #ifndef __IAddrExclusionControl_FWD_DEFINED__
 #define __IAddrExclusionControl_FWD_DEFINED__
-typedef interface IAddrExclusionControl IAddrExclusionControl;
+typedef struct IAddrExclusionControl IAddrExclusionControl;
 #endif
 
 #ifndef __IPipeByte_FWD_DEFINED__
 #define __IPipeByte_FWD_DEFINED__
-typedef interface IPipeByte IPipeByte;
+typedef struct IPipeByte IPipeByte;
 #endif
 
 #ifndef __AsyncIPipeByte_FWD_DEFINED__
 #define __AsyncIPipeByte_FWD_DEFINED__
-typedef interface AsyncIPipeByte AsyncIPipeByte;
+typedef struct AsyncIPipeByte AsyncIPipeByte;
 #endif
 
 #ifndef __IPipeLong_FWD_DEFINED__
 #define __IPipeLong_FWD_DEFINED__
-typedef interface IPipeLong IPipeLong;
+typedef struct IPipeLong IPipeLong;
 #endif
 
 #ifndef __AsyncIPipeLong_FWD_DEFINED__
 #define __AsyncIPipeLong_FWD_DEFINED__
-typedef interface AsyncIPipeLong AsyncIPipeLong;
+typedef struct AsyncIPipeLong AsyncIPipeLong;
 #endif
 
 #ifndef __IPipeDouble_FWD_DEFINED__
 #define __IPipeDouble_FWD_DEFINED__
-typedef interface IPipeDouble IPipeDouble;
+typedef struct IPipeDouble IPipeDouble;
 #endif
 
 #ifndef __AsyncIPipeDouble_FWD_DEFINED__
 #define __AsyncIPipeDouble_FWD_DEFINED__
-typedef interface AsyncIPipeDouble AsyncIPipeDouble;
+typedef struct AsyncIPipeDouble AsyncIPipeDouble;
 #endif
 
 #ifndef __IThumbnailExtractor_FWD_DEFINED__
 #define __IThumbnailExtractor_FWD_DEFINED__
-typedef interface IThumbnailExtractor IThumbnailExtractor;
+typedef struct IThumbnailExtractor IThumbnailExtractor;
 #endif
 
 #ifndef __IDummyHICONIncluder_FWD_DEFINED__
 #define __IDummyHICONIncluder_FWD_DEFINED__
-typedef interface IDummyHICONIncluder IDummyHICONIncluder;
+typedef struct IDummyHICONIncluder IDummyHICONIncluder;
 #endif
 
 #ifndef __IEnumContextProps_FWD_DEFINED__
 #define __IEnumContextProps_FWD_DEFINED__
-typedef interface IEnumContextProps IEnumContextProps;
+typedef struct IEnumContextProps IEnumContextProps;
 #endif
 
 #ifndef __IContext_FWD_DEFINED__
 #define __IContext_FWD_DEFINED__
-typedef interface IContext IContext;
+typedef struct IContext IContext;
 #endif
 
 #ifndef __IObjContext_FWD_DEFINED__
 #define __IObjContext_FWD_DEFINED__
-typedef interface IObjContext IObjContext;
+typedef struct IObjContext IObjContext;
 #endif
 
 #ifndef __IProcessLock_FWD_DEFINED__
 #define __IProcessLock_FWD_DEFINED__
-typedef interface IProcessLock IProcessLock;
+typedef struct IProcessLock IProcessLock;
 #endif
 
 #ifndef __ISurrogateService_FWD_DEFINED__
 #define __ISurrogateService_FWD_DEFINED__
-typedef interface ISurrogateService ISurrogateService;
+typedef struct ISurrogateService ISurrogateService;
 #endif
 
 #ifndef __IComThreadingInfo_FWD_DEFINED__
 #define __IComThreadingInfo_FWD_DEFINED__
-typedef interface IComThreadingInfo IComThreadingInfo;
+typedef struct IComThreadingInfo IComThreadingInfo;
 #endif
 
 #ifndef __IProcessInitControl_FWD_DEFINED__
 #define __IProcessInitControl_FWD_DEFINED__
-typedef interface IProcessInitControl IProcessInitControl;
+typedef struct IProcessInitControl IProcessInitControl;
 #endif
 
 #ifndef __IInitializeSpy_FWD_DEFINED__
 #define __IInitializeSpy_FWD_DEFINED__
-typedef interface IInitializeSpy IInitializeSpy;
+typedef struct IInitializeSpy IInitializeSpy;
 #endif
 
 #include "unknwn.h"
@@ -515,7 +515,7 @@ extern "C" {
       HRESULT (WINAPI *DisconnectObject)(IMarshal *This,DWORD dwReserved);
     END_INTERFACE
   } IMarshalVtbl;
-  interface IMarshal {
+  struct IMarshal {
     CONST_VTBL struct IMarshalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -566,7 +566,7 @@ extern "C" {
       HRESULT (WINAPI *DisconnectObject)(IMarshal2 *This,DWORD dwReserved);
     END_INTERFACE
   } IMarshal2Vtbl;
-  interface IMarshal2 {
+  struct IMarshal2 {
     CONST_VTBL struct IMarshal2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -612,7 +612,7 @@ extern "C" {
       void (WINAPI *HeapMinimize)(IMalloc *This);
     END_INTERFACE
   } IMallocVtbl;
-  interface IMalloc {
+  struct IMalloc {
     CONST_VTBL struct IMallocVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -682,7 +682,7 @@ extern "C" {
       void (WINAPI *PostHeapMinimize)(IMallocSpy *This);
     END_INTERFACE
   } IMallocSpyVtbl;
-  interface IMallocSpy {
+  struct IMallocSpy {
     CONST_VTBL struct IMallocSpyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -748,7 +748,7 @@ extern "C" {
       HRESULT (WINAPI *GetClassForHandler)(IStdMarshalInfo *This,DWORD dwDestContext,void *pvDestContext,CLSID *pClsid);
     END_INTERFACE
   } IStdMarshalInfoVtbl;
-  interface IStdMarshalInfo {
+  struct IStdMarshalInfo {
     CONST_VTBL struct IStdMarshalInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -787,7 +787,7 @@ extern "C" {
       DWORD (WINAPI *ReleaseConnection)(IExternalConnection *This,DWORD extconn,DWORD reserved,WINBOOL fLastReleaseCloses);
     END_INTERFACE
   } IExternalConnectionVtbl;
-  interface IExternalConnection {
+  struct IExternalConnection {
     CONST_VTBL struct IExternalConnectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -831,7 +831,7 @@ extern "C" {
       HRESULT (WINAPI *QueryMultipleInterfaces)(IMultiQI *This,ULONG cMQIs,MULTI_QI *pMQIs);
     END_INTERFACE
   } IMultiQIVtbl;
-  interface IMultiQI {
+  struct IMultiQI {
     CONST_VTBL struct IMultiQIVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -865,7 +865,7 @@ extern "C" {
       HRESULT (WINAPI *Finish_QueryMultipleInterfaces)(AsyncIMultiQI *This,MULTI_QI *pMQIs);
     END_INTERFACE
   } AsyncIMultiQIVtbl;
-  interface AsyncIMultiQI {
+  struct AsyncIMultiQI {
     CONST_VTBL struct AsyncIMultiQIVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -899,7 +899,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInternalInterface)(IInternalUnknown *This,REFIID riid,void **ppv);
     END_INTERFACE
   } IInternalUnknownVtbl;
-  interface IInternalUnknown {
+  struct IInternalUnknown {
     CONST_VTBL struct IInternalUnknownVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -938,7 +938,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumUnknown *This,IEnumUnknown **ppenum);
     END_INTERFACE
   } IEnumUnknownVtbl;
-  interface IEnumUnknown {
+  struct IEnumUnknown {
     CONST_VTBL struct IEnumUnknownVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1033,7 +1033,7 @@ extern "C" {
       HRESULT (WINAPI *RevokeObjectParam)(IBindCtx *This,LPOLESTR pszKey);
     END_INTERFACE
   } IBindCtxVtbl;
-  interface IBindCtx {
+  struct IBindCtx {
     CONST_VTBL struct IBindCtxVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1099,7 +1099,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumMoniker *This,IEnumMoniker **ppenum);
     END_INTERFACE
   } IEnumMonikerVtbl;
-  interface IEnumMoniker {
+  struct IEnumMoniker {
     CONST_VTBL struct IEnumMonikerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1149,7 +1149,7 @@ extern "C" {
       HRESULT (WINAPI *SetContainedObject)(IRunnableObject *This,WINBOOL fContained);
     END_INTERFACE
   } IRunnableObjectVtbl;
-  interface IRunnableObject {
+  struct IRunnableObject {
     CONST_VTBL struct IRunnableObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1206,7 +1206,7 @@ extern "C" {
       HRESULT (WINAPI *EnumRunning)(IRunningObjectTable *This,IEnumMoniker **ppenumMoniker);
     END_INTERFACE
   } IRunningObjectTableVtbl;
-  interface IRunningObjectTable {
+  struct IRunningObjectTable {
     CONST_VTBL struct IRunningObjectTableVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1257,7 +1257,7 @@ extern "C" {
       HRESULT (WINAPI *GetClassID)(IPersist *This,CLSID *pClassID);
     END_INTERFACE
   } IPersistVtbl;
-  interface IPersist {
+  struct IPersist {
     CONST_VTBL struct IPersistVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1297,7 +1297,7 @@ extern "C" {
       HRESULT (WINAPI *GetSizeMax)(IPersistStream *This,ULARGE_INTEGER *pcbSize);
     END_INTERFACE
   } IPersistStreamVtbl;
-  interface IPersistStream {
+  struct IPersistStream {
     CONST_VTBL struct IPersistStreamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1382,7 +1382,7 @@ extern "C" {
       HRESULT (WINAPI *IsSystemMoniker)(IMoniker *This,DWORD *pdwMksys);
     END_INTERFACE
   } IMonikerVtbl;
-  interface IMoniker {
+  struct IMoniker {
     CONST_VTBL struct IMonikerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1460,7 +1460,7 @@ extern "C" {
       HRESULT (WINAPI *GetComparisonData)(IROTData *This,byte *pbData,ULONG cbMax,ULONG *pcbData);
     END_INTERFACE
   } IROTDataVtbl;
-  interface IROTData {
+  struct IROTData {
     CONST_VTBL struct IROTDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1499,7 +1499,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumString *This,IEnumString **ppenum);
     END_INTERFACE
   } IEnumStringVtbl;
-  interface IEnumString {
+  struct IEnumString {
     CONST_VTBL struct IEnumStringVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1541,7 +1541,7 @@ extern "C" {
       HRESULT (WINAPI *Write)(ISequentialStream *This,const void *pv,ULONG cb,ULONG *pcbWritten);
     END_INTERFACE
   } ISequentialStreamVtbl;
-  interface ISequentialStream {
+  struct ISequentialStream {
     CONST_VTBL struct ISequentialStreamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1622,7 +1622,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IStream *This,IStream **ppstm);
     END_INTERFACE
   } IStreamVtbl;
-  interface IStream {
+  struct IStream {
     CONST_VTBL struct IStreamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1687,7 +1687,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumSTATSTG *This,IEnumSTATSTG **ppenum);
     END_INTERFACE
   } IEnumSTATSTGVtbl;
-  interface IEnumSTATSTG {
+  struct IEnumSTATSTG {
     CONST_VTBL struct IEnumSTATSTGVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1766,7 +1766,7 @@ extern "C" {
       HRESULT (WINAPI *Stat)(IStorage *This,STATSTG *pstatstg,DWORD grfStatFlag);
     END_INTERFACE
   } IStorageVtbl;
-  interface IStorage {
+  struct IStorage {
     CONST_VTBL struct IStorageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1850,7 +1850,7 @@ extern "C" {
       HRESULT (WINAPI *GetCurFile)(IPersistFile *This,LPOLESTR *ppszFileName);
     END_INTERFACE
   } IPersistFileVtbl;
-  interface IPersistFile {
+  struct IPersistFile {
     CONST_VTBL struct IPersistFileVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1907,7 +1907,7 @@ extern "C" {
       HRESULT (WINAPI *HandsOffStorage)(IPersistStorage *This);
     END_INTERFACE
   } IPersistStorageVtbl;
-  interface IPersistStorage {
+  struct IPersistStorage {
     CONST_VTBL struct IPersistStorageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1968,7 +1968,7 @@ extern "C" {
       HRESULT (WINAPI *Stat)(ILockBytes *This,STATSTG *pstatstg,DWORD grfStatFlag);
     END_INTERFACE
   } ILockBytesVtbl;
-  interface ILockBytes {
+  struct ILockBytes {
     CONST_VTBL struct ILockBytesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2046,7 +2046,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumFORMATETC *This,IEnumFORMATETC **ppenum);
     END_INTERFACE
   } IEnumFORMATETCVtbl;
-  interface IEnumFORMATETC {
+  struct IEnumFORMATETC {
     CONST_VTBL struct IEnumFORMATETCVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2108,7 +2108,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumSTATDATA *This,IEnumSTATDATA **ppenum);
     END_INTERFACE
   } IEnumSTATDATAVtbl;
-  interface IEnumSTATDATA {
+  struct IEnumSTATDATA {
     CONST_VTBL struct IEnumSTATDATAVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2150,7 +2150,7 @@ extern "C" {
       HRESULT (WINAPI *SwitchToFile)(IRootStorage *This,LPOLESTR pszFile);
     END_INTERFACE
   } IRootStorageVtbl;
-  interface IRootStorage {
+  struct IRootStorage {
     CONST_VTBL struct IRootStorageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2278,7 +2278,7 @@ extern "C" {
       void (WINAPI *OnClose)(IAdviseSink *This);
     END_INTERFACE
   } IAdviseSinkVtbl;
-  interface IAdviseSink {
+  struct IAdviseSink {
     CONST_VTBL struct IAdviseSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2339,7 +2339,7 @@ extern "C" {
       void (WINAPI *Finish_OnClose)(AsyncIAdviseSink *This);
     END_INTERFACE
   } AsyncIAdviseSinkVtbl;
-  interface AsyncIAdviseSink {
+  struct AsyncIAdviseSink {
     CONST_VTBL struct AsyncIAdviseSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2404,7 +2404,7 @@ extern "C" {
       void (WINAPI *OnLinkSrcChange)(IAdviseSink2 *This,IMoniker *pmk);
     END_INTERFACE
   } IAdviseSink2Vtbl;
-  interface IAdviseSink2 {
+  struct IAdviseSink2 {
     CONST_VTBL struct IAdviseSink2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2452,7 +2452,7 @@ extern "C" {
       void (WINAPI *Finish_OnLinkSrcChange)(AsyncIAdviseSink2 *This);
     END_INTERFACE
   } AsyncIAdviseSink2Vtbl;
-  interface AsyncIAdviseSink2 {
+  struct AsyncIAdviseSink2 {
     CONST_VTBL struct AsyncIAdviseSink2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2518,7 +2518,7 @@ extern "C" {
       HRESULT (WINAPI *EnumDAdvise)(IDataObject *This,IEnumSTATDATA **ppenumAdvise);
     END_INTERFACE
   } IDataObjectVtbl;
-  interface IDataObject {
+  struct IDataObject {
     CONST_VTBL struct IDataObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2580,7 +2580,7 @@ extern "C" {
       HRESULT (WINAPI *SendOnDataChange)(IDataAdviseHolder *This,IDataObject *pDataObject,DWORD dwReserved,DWORD advf);
     END_INTERFACE
   } IDataAdviseHolderVtbl;
-  interface IDataAdviseHolder {
+  struct IDataAdviseHolder {
     CONST_VTBL struct IDataAdviseHolderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2650,7 +2650,7 @@ extern "C" {
       DWORD (WINAPI *MessagePending)(IMessageFilter *This,HTASK htaskCallee,DWORD dwTickCount,DWORD dwPendingType);
     END_INTERFACE
   } IMessageFilterVtbl;
-  interface IMessageFilter {
+  struct IMessageFilter {
     CONST_VTBL struct IMessageFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2709,7 +2709,7 @@ extern "C" {
       HRESULT (WINAPI *IsConnected)(IRpcChannelBuffer *This);
     END_INTERFACE
   } IRpcChannelBufferVtbl;
-  interface IRpcChannelBuffer {
+  struct IRpcChannelBuffer {
     CONST_VTBL struct IRpcChannelBufferVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2757,7 +2757,7 @@ extern "C" {
       HRESULT (WINAPI *GetProtocolVersion)(IRpcChannelBuffer2 *This,DWORD *pdwVersion);
     END_INTERFACE
   } IRpcChannelBuffer2Vtbl;
-  interface IRpcChannelBuffer2 {
+  struct IRpcChannelBuffer2 {
     CONST_VTBL struct IRpcChannelBuffer2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2803,7 +2803,7 @@ extern "C" {
       HRESULT (WINAPI *GetDestCtxEx)(IAsyncRpcChannelBuffer *This,RPCOLEMESSAGE *pMsg,DWORD *pdwDestContext,void **ppvDestContext);
     END_INTERFACE
   } IAsyncRpcChannelBufferVtbl;
-  interface IAsyncRpcChannelBuffer {
+  struct IAsyncRpcChannelBuffer {
     CONST_VTBL struct IAsyncRpcChannelBufferVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2864,7 +2864,7 @@ extern "C" {
       HRESULT (WINAPI *RegisterAsync)(IRpcChannelBuffer3 *This,RPCOLEMESSAGE *pMsg,IAsyncManager *pAsyncMgr);
     END_INTERFACE
   } IRpcChannelBuffer3Vtbl;
-  interface IRpcChannelBuffer3 {
+  struct IRpcChannelBuffer3 {
     CONST_VTBL struct IRpcChannelBuffer3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2919,7 +2919,7 @@ extern "C" {
       HRESULT (WINAPI *NegotiateSyntax)(IRpcSyntaxNegotiate *This,RPCOLEMESSAGE *pMsg);
     END_INTERFACE
   } IRpcSyntaxNegotiateVtbl;
-  interface IRpcSyntaxNegotiate {
+  struct IRpcSyntaxNegotiate {
     CONST_VTBL struct IRpcSyntaxNegotiateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2952,7 +2952,7 @@ extern "C" {
       void (WINAPI *Disconnect)(IRpcProxyBuffer *This);
     END_INTERFACE
   } IRpcProxyBufferVtbl;
-  interface IRpcProxyBuffer {
+  struct IRpcProxyBuffer {
     CONST_VTBL struct IRpcProxyBufferVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2998,7 +2998,7 @@ extern "C" {
       void (WINAPI *DebugServerRelease)(IRpcStubBuffer *This,void *pv);
     END_INTERFACE
   } IRpcStubBufferVtbl;
-  interface IRpcStubBuffer {
+  struct IRpcStubBuffer {
     CONST_VTBL struct IRpcStubBufferVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3049,7 +3049,7 @@ extern "C" {
       HRESULT (WINAPI *CreateStub)(IPSFactoryBuffer *This,REFIID riid,IUnknown *pUnkServer,IRpcStubBuffer **ppStub);
     END_INTERFACE
   } IPSFactoryBufferVtbl;
-  interface IPSFactoryBuffer {
+  struct IPSFactoryBuffer {
     CONST_VTBL struct IPSFactoryBufferVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3105,7 +3105,7 @@ extern "C" {
       void (WINAPI *ServerFillBuffer)(IChannelHook *This,REFGUID uExtent,REFIID riid,ULONG *pDataSize,void *pDataBuffer,HRESULT hrFault);
     END_INTERFACE
   } IChannelHookVtbl;
-  interface IChannelHook {
+  struct IChannelHook {
     CONST_VTBL struct IChannelHookVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3198,7 +3198,7 @@ extern "C" {
       HRESULT (WINAPI *CopyProxy)(IClientSecurity *This,IUnknown *pProxy,IUnknown **ppCopy);
     END_INTERFACE
   } IClientSecurityVtbl;
-  interface IClientSecurity {
+  struct IClientSecurity {
     CONST_VTBL struct IClientSecurityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3241,7 +3241,7 @@ extern "C" {
       WINBOOL (WINAPI *IsImpersonating)(IServerSecurity *This);
     END_INTERFACE
   } IServerSecurityVtbl;
-  interface IServerSecurity {
+  struct IServerSecurity {
     CONST_VTBL struct IServerSecurityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3281,7 +3281,7 @@ extern "C" {
       HRESULT (WINAPI *GetClassObject)(IClassActivator *This,REFCLSID rclsid,DWORD dwClassContext,LCID locale,REFIID riid,void **ppv);
     END_INTERFACE
   } IClassActivatorVtbl;
-  interface IClassActivator {
+  struct IClassActivator {
     CONST_VTBL struct IClassActivatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3314,7 +3314,7 @@ extern "C" {
       HRESULT (WINAPI *Query)(IRpcOptions *This,IUnknown *pPrx,DWORD dwProperty,ULONG_PTR *pdwValue);
     END_INTERFACE
   } IRpcOptionsVtbl;
-  interface IRpcOptions {
+  struct IRpcOptions {
     CONST_VTBL struct IRpcOptionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3364,7 +3364,7 @@ extern "C" {
       HRESULT (WINAPI *Terminate)(IFillLockBytes *This,WINBOOL bCanceled);
     END_INTERFACE
   } IFillLockBytesVtbl;
-  interface IFillLockBytes {
+  struct IFillLockBytes {
     CONST_VTBL struct IFillLockBytesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3404,7 +3404,7 @@ extern "C" {
       HRESULT (WINAPI *OnProgress)(IProgressNotify *This,DWORD dwProgressCurrent,DWORD dwProgressMaximum,WINBOOL fAccurate,WINBOOL fOwner);
     END_INTERFACE
   } IProgressNotifyVtbl;
-  interface IProgressNotify {
+  struct IProgressNotify {
     CONST_VTBL struct IProgressNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3450,7 +3450,7 @@ extern "C" {
       HRESULT (WINAPI *ReLayoutDocfileOnILockBytes)(ILayoutStorage *This,ILockBytes *pILockBytes);
     END_INTERFACE
   } ILayoutStorageVtbl;
-  interface ILayoutStorage {
+  struct ILayoutStorage {
     CONST_VTBL struct ILayoutStorageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3495,7 +3495,7 @@ extern "C" {
       HRESULT (WINAPI *Unlock)(IBlockingLock *This);
     END_INTERFACE
   } IBlockingLockVtbl;
-  interface IBlockingLock {
+  struct IBlockingLock {
     CONST_VTBL struct IBlockingLockVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3529,7 +3529,7 @@ extern "C" {
       HRESULT (WINAPI *SuppressChanges)(ITimeAndNoticeControl *This,DWORD res1,DWORD res2);
     END_INTERFACE
   } ITimeAndNoticeControlVtbl;
-  interface ITimeAndNoticeControl {
+  struct ITimeAndNoticeControl {
     CONST_VTBL struct ITimeAndNoticeControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3562,7 +3562,7 @@ extern "C" {
       HRESULT (WINAPI *OpenStorageEx)(IOplockStorage *This,LPCWSTR pwcsName,DWORD grfMode,DWORD stgfmt,DWORD grfAttrs,REFIID riid,void **ppstgOpen);
     END_INTERFACE
   } IOplockStorageVtbl;
-  interface IOplockStorage {
+  struct IOplockStorage {
     CONST_VTBL struct IOplockStorageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3600,7 +3600,7 @@ extern "C" {
       HRESULT (WINAPI *FreeSurrogate)(ISurrogate *This);
     END_INTERFACE
   } ISurrogateVtbl;
-  interface ISurrogate {
+  struct ISurrogate {
     CONST_VTBL struct ISurrogateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3640,7 +3640,7 @@ extern "C" {
       HRESULT (WINAPI *GetInterfaceFromGlobal)(IGlobalInterfaceTable *This,DWORD dwCookie,REFIID riid,void **ppv);
     END_INTERFACE
   } IGlobalInterfaceTableVtbl;
-  interface IGlobalInterfaceTable {
+  struct IGlobalInterfaceTable {
     CONST_VTBL struct IGlobalInterfaceTableVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3681,7 +3681,7 @@ extern "C" {
       HRESULT (WINAPI *HaveWriteAccess)(IDirectWriterLock *This);
     END_INTERFACE
   } IDirectWriterLockVtbl;
-  interface IDirectWriterLock {
+  struct IDirectWriterLock {
     CONST_VTBL struct IDirectWriterLockVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3722,7 +3722,7 @@ extern "C" {
       HRESULT (WINAPI *Reset)(ISynchronize *This);
     END_INTERFACE
   } ISynchronizeVtbl;
-  interface ISynchronize {
+  struct ISynchronize {
     CONST_VTBL struct ISynchronizeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3759,7 +3759,7 @@ extern "C" {
       HRESULT (WINAPI *GetHandle)(ISynchronizeHandle *This,HANDLE *ph);
     END_INTERFACE
   } ISynchronizeHandleVtbl;
-  interface ISynchronizeHandle {
+  struct ISynchronizeHandle {
     CONST_VTBL struct ISynchronizeHandleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3791,7 +3791,7 @@ extern "C" {
       HRESULT (WINAPI *SetEventHandle)(ISynchronizeEvent *This,HANDLE *ph);
     END_INTERFACE
   } ISynchronizeEventVtbl;
-  interface ISynchronizeEvent {
+  struct ISynchronizeEvent {
     CONST_VTBL struct ISynchronizeEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3825,7 +3825,7 @@ extern "C" {
       HRESULT (WINAPI *WaitMultiple)(ISynchronizeContainer *This,DWORD dwFlags,DWORD dwTimeOut,ISynchronize **ppSync);
     END_INTERFACE
   } ISynchronizeContainerVtbl;
-  interface ISynchronizeContainer {
+  struct ISynchronizeContainer {
     CONST_VTBL struct ISynchronizeContainerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3862,7 +3862,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseMutex)(ISynchronizeMutex *This);
     END_INTERFACE
   } ISynchronizeMutexVtbl;
-  interface ISynchronizeMutex {
+  struct ISynchronizeMutex {
     CONST_VTBL struct ISynchronizeMutexVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3900,7 +3900,7 @@ extern "C" {
       HRESULT (WINAPI *TestCancel)(ICancelMethodCalls *This);
     END_INTERFACE
   } ICancelMethodCallsVtbl;
-  interface ICancelMethodCalls {
+  struct ICancelMethodCalls {
     CONST_VTBL struct ICancelMethodCallsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3942,7 +3942,7 @@ extern "C" {
       HRESULT (WINAPI *GetState)(IAsyncManager *This,ULONG *pulStateFlags);
     END_INTERFACE
   } IAsyncManagerVtbl;
-  interface IAsyncManager {
+  struct IAsyncManager {
     CONST_VTBL struct IAsyncManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3979,7 +3979,7 @@ extern "C" {
       HRESULT (WINAPI *CreateCall)(ICallFactory *This,REFIID riid,IUnknown *pCtrlUnk,REFIID riid2,IUnknown **ppv);
     END_INTERFACE
   } ICallFactoryVtbl;
-  interface ICallFactory {
+  struct ICallFactory {
     CONST_VTBL struct ICallFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4012,7 +4012,7 @@ extern "C" {
       HRESULT (WINAPI *GetIIDFromOBJREF)(IRpcHelper *This,void *pObjRef,IID **piid);
     END_INTERFACE
   } IRpcHelperVtbl;
-  interface IRpcHelper {
+  struct IRpcHelper {
     CONST_VTBL struct IRpcHelperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4046,7 +4046,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseMarshalBuffer)(IReleaseMarshalBuffers *This,RPCOLEMESSAGE *pMsg,DWORD dwFlags,IUnknown *pChnl);
     END_INTERFACE
   } IReleaseMarshalBuffersVtbl;
-  interface IReleaseMarshalBuffers {
+  struct IReleaseMarshalBuffers {
     CONST_VTBL struct IReleaseMarshalBuffersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4079,7 +4079,7 @@ extern "C" {
       HRESULT (WINAPI *AddSynchronize)(IWaitMultiple *This,ISynchronize *pSync);
     END_INTERFACE
   } IWaitMultipleVtbl;
-  interface IWaitMultiple {
+  struct IWaitMultiple {
     CONST_VTBL struct IWaitMultipleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4113,7 +4113,7 @@ extern "C" {
       HRESULT (WINAPI *AsyncGetClassBits)(IUrlMon *This,REFCLSID rclsid,LPCWSTR pszTYPE,LPCWSTR pszExt,DWORD dwFileVersionMS,DWORD dwFileVersionLS,LPCWSTR pszCodeBase,IBindCtx *pbc,DWORD dwClassContext,REFIID riid,DWORD flags);
     END_INTERFACE
   } IUrlMonVtbl;
-  interface IUrlMon {
+  struct IUrlMon {
     CONST_VTBL struct IUrlMonVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4144,7 +4144,7 @@ extern "C" {
       HRESULT (WINAPI *AllowForegroundTransfer)(IForegroundTransfer *This,void *lpvReserved);
     END_INTERFACE
   } IForegroundTransferVtbl;
-  interface IForegroundTransfer {
+  struct IForegroundTransfer {
     CONST_VTBL struct IForegroundTransferVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4179,7 +4179,7 @@ extern "C" {
       HRESULT (WINAPI *DisableCOMDynamicAddrTracking)(IAddrTrackingControl *This);
     END_INTERFACE
   } IAddrTrackingControlVtbl;
-  interface IAddrTrackingControl {
+  struct IAddrTrackingControl {
     CONST_VTBL struct IAddrTrackingControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4217,7 +4217,7 @@ extern "C" {
       HRESULT (WINAPI *UpdateAddrExclusionList)(IAddrExclusionControl *This,IUnknown *pEnumerator);
     END_INTERFACE
   } IAddrExclusionControlVtbl;
-  interface IAddrExclusionControl {
+  struct IAddrExclusionControl {
     CONST_VTBL struct IAddrExclusionControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4253,7 +4253,7 @@ extern "C" {
       HRESULT (WINAPI *Push)(IPipeByte *This,BYTE *buf,ULONG cSent);
     END_INTERFACE
   } IPipeByteVtbl;
-  interface IPipeByte {
+  struct IPipeByte {
     CONST_VTBL struct IPipeByteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4293,7 +4293,7 @@ extern "C" {
       HRESULT (WINAPI *Finish_Push)(AsyncIPipeByte *This);
     END_INTERFACE
   } AsyncIPipeByteVtbl;
-  interface AsyncIPipeByte {
+  struct AsyncIPipeByte {
     CONST_VTBL struct AsyncIPipeByteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4335,7 +4335,7 @@ extern "C" {
       HRESULT (WINAPI *Push)(IPipeLong *This,LONG *buf,ULONG cSent);
     END_INTERFACE
   } IPipeLongVtbl;
-  interface IPipeLong {
+  struct IPipeLong {
     CONST_VTBL struct IPipeLongVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4375,7 +4375,7 @@ extern "C" {
       HRESULT (WINAPI *Finish_Push)(AsyncIPipeLong *This);
     END_INTERFACE
   } AsyncIPipeLongVtbl;
-  interface AsyncIPipeLong {
+  struct AsyncIPipeLong {
     CONST_VTBL struct AsyncIPipeLongVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4417,7 +4417,7 @@ extern "C" {
       HRESULT (WINAPI *Push)(IPipeDouble *This,DOUBLE *buf,ULONG cSent);
     END_INTERFACE
   } IPipeDoubleVtbl;
-  interface IPipeDouble {
+  struct IPipeDouble {
     CONST_VTBL struct IPipeDoubleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4457,7 +4457,7 @@ extern "C" {
       HRESULT (WINAPI *Finish_Push)(AsyncIPipeDouble *This);
     END_INTERFACE
   } AsyncIPipeDoubleVtbl;
-  interface AsyncIPipeDouble {
+  struct AsyncIPipeDouble {
     CONST_VTBL struct AsyncIPipeDoubleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4499,7 +4499,7 @@ extern "C" {
       HRESULT (WINAPI *OnFileUpdated)(IThumbnailExtractor *This,IStorage *pStg);
     END_INTERFACE
   } IThumbnailExtractorVtbl;
-  interface IThumbnailExtractor {
+  struct IThumbnailExtractor {
     CONST_VTBL struct IThumbnailExtractorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4533,7 +4533,7 @@ extern "C" {
       HRESULT (WINAPI *Dummy)(IDummyHICONIncluder *This,HICON h1,HDC h2);
     END_INTERFACE
   } IDummyHICONIncluderVtbl;
-  interface IDummyHICONIncluder {
+  struct IDummyHICONIncluder {
     CONST_VTBL struct IDummyHICONIncluderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4586,7 +4586,7 @@ extern "C" {
       HRESULT (WINAPI *Count)(IEnumContextProps *This,ULONG *pcelt);
     END_INTERFACE
   } IEnumContextPropsVtbl;
-  interface IEnumContextProps {
+  struct IEnumContextProps {
     CONST_VTBL struct IEnumContextPropsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4635,7 +4635,7 @@ extern "C" {
       HRESULT (WINAPI *EnumContextProps)(IContext *This,IEnumContextProps **ppEnumContextProps);
     END_INTERFACE
   } IContextVtbl;
-  interface IContext {
+  struct IContext {
     CONST_VTBL struct IContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4695,7 +4695,7 @@ extern "C" {
       void (WINAPI *Reserved7)(IObjContext *This);
     END_INTERFACE
   } IObjContextVtbl;
-  interface IObjContext {
+  struct IObjContext {
     CONST_VTBL struct IObjContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4762,7 +4762,7 @@ extern "C" {
       ULONG (WINAPI *ReleaseRefOnProcess)(IProcessLock *This);
     END_INTERFACE
   } IProcessLockVtbl;
-  interface IProcessLock {
+  struct IProcessLock {
     CONST_VTBL struct IProcessLockVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4804,7 +4804,7 @@ extern "C" {
       HRESULT (WINAPI *ProcessShutdown)(ISurrogateService *This,ShutdownType shutdownType);
     END_INTERFACE
   } ISurrogateServiceVtbl;
-  interface ISurrogateService {
+  struct ISurrogateService {
     CONST_VTBL struct ISurrogateServiceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4866,7 +4866,7 @@ extern "C" {
       HRESULT (WINAPI *SetCurrentLogicalThreadId)(IComThreadingInfo *This,REFGUID rguid);
     END_INTERFACE
   } IComThreadingInfoVtbl;
-  interface IComThreadingInfo {
+  struct IComThreadingInfo {
     CONST_VTBL struct IComThreadingInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4906,7 +4906,7 @@ extern "C" {
       HRESULT (WINAPI *ResetInitializerTimeout)(IProcessInitControl *This,DWORD dwSecondsRemaining);
     END_INTERFACE
   } IProcessInitControlVtbl;
-  interface IProcessInitControl {
+  struct IProcessInitControl {
     CONST_VTBL struct IProcessInitControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4948,7 +4948,7 @@ extern "C" {
       HRESULT (WINAPI *PostUninitialize)(IInitializeSpy *This,DWORD dwNewThreadAptRefs);
     END_INTERFACE
   } IInitializeSpyVtbl;
-  interface IInitializeSpy {
+  struct IInitializeSpy {
     CONST_VTBL struct IInitializeSpyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

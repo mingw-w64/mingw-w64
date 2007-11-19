@@ -24,192 +24,192 @@
 
 #ifndef __IXATransLookup_FWD_DEFINED__
 #define __IXATransLookup_FWD_DEFINED__
-typedef interface IXATransLookup IXATransLookup;
+typedef struct IXATransLookup IXATransLookup;
 #endif
 
 #ifndef __IXATransLookup2_FWD_DEFINED__
 #define __IXATransLookup2_FWD_DEFINED__
-typedef interface IXATransLookup2 IXATransLookup2;
+typedef struct IXATransLookup2 IXATransLookup2;
 #endif
 
 #ifndef __IResourceManagerSink_FWD_DEFINED__
 #define __IResourceManagerSink_FWD_DEFINED__
-typedef interface IResourceManagerSink IResourceManagerSink;
+typedef struct IResourceManagerSink IResourceManagerSink;
 #endif
 
 #ifndef __IResourceManager_FWD_DEFINED__
 #define __IResourceManager_FWD_DEFINED__
-typedef interface IResourceManager IResourceManager;
+typedef struct IResourceManager IResourceManager;
 #endif
 
 #ifndef __ILastResourceManager_FWD_DEFINED__
 #define __ILastResourceManager_FWD_DEFINED__
-typedef interface ILastResourceManager ILastResourceManager;
+typedef struct ILastResourceManager ILastResourceManager;
 #endif
 
 #ifndef __IResourceManager2_FWD_DEFINED__
 #define __IResourceManager2_FWD_DEFINED__
-typedef interface IResourceManager2 IResourceManager2;
+typedef struct IResourceManager2 IResourceManager2;
 #endif
 
 #ifndef __IXAConfig_FWD_DEFINED__
 #define __IXAConfig_FWD_DEFINED__
-typedef interface IXAConfig IXAConfig;
+typedef struct IXAConfig IXAConfig;
 #endif
 
 #ifndef __IRMHelper_FWD_DEFINED__
 #define __IRMHelper_FWD_DEFINED__
-typedef interface IRMHelper IRMHelper;
+typedef struct IRMHelper IRMHelper;
 #endif
 
 #ifndef __IXAObtainRMInfo_FWD_DEFINED__
 #define __IXAObtainRMInfo_FWD_DEFINED__
-typedef interface IXAObtainRMInfo IXAObtainRMInfo;
+typedef struct IXAObtainRMInfo IXAObtainRMInfo;
 #endif
 
 #ifndef __IResourceManagerFactory_FWD_DEFINED__
 #define __IResourceManagerFactory_FWD_DEFINED__
-typedef interface IResourceManagerFactory IResourceManagerFactory;
+typedef struct IResourceManagerFactory IResourceManagerFactory;
 #endif
 
 #ifndef __IResourceManagerFactory2_FWD_DEFINED__
 #define __IResourceManagerFactory2_FWD_DEFINED__
-typedef interface IResourceManagerFactory2 IResourceManagerFactory2;
+typedef struct IResourceManagerFactory2 IResourceManagerFactory2;
 #endif
 
 #ifndef __IPrepareInfo_FWD_DEFINED__
 #define __IPrepareInfo_FWD_DEFINED__
-typedef interface IPrepareInfo IPrepareInfo;
+typedef struct IPrepareInfo IPrepareInfo;
 #endif
 
 #ifndef __IPrepareInfo2_FWD_DEFINED__
 #define __IPrepareInfo2_FWD_DEFINED__
-typedef interface IPrepareInfo2 IPrepareInfo2;
+typedef struct IPrepareInfo2 IPrepareInfo2;
 #endif
 
 #ifndef __IGetDispenser_FWD_DEFINED__
 #define __IGetDispenser_FWD_DEFINED__
-typedef interface IGetDispenser IGetDispenser;
+typedef struct IGetDispenser IGetDispenser;
 #endif
 
 #ifndef __ITransactionVoterBallotAsync2_FWD_DEFINED__
 #define __ITransactionVoterBallotAsync2_FWD_DEFINED__
-typedef interface ITransactionVoterBallotAsync2 ITransactionVoterBallotAsync2;
+typedef struct ITransactionVoterBallotAsync2 ITransactionVoterBallotAsync2;
 #endif
 
 #ifndef __ITransactionVoterNotifyAsync2_FWD_DEFINED__
 #define __ITransactionVoterNotifyAsync2_FWD_DEFINED__
-typedef interface ITransactionVoterNotifyAsync2 ITransactionVoterNotifyAsync2;
+typedef struct ITransactionVoterNotifyAsync2 ITransactionVoterNotifyAsync2;
 #endif
 
 #ifndef __ITransactionVoterFactory2_FWD_DEFINED__
 #define __ITransactionVoterFactory2_FWD_DEFINED__
-typedef interface ITransactionVoterFactory2 ITransactionVoterFactory2;
+typedef struct ITransactionVoterFactory2 ITransactionVoterFactory2;
 #endif
 
 #ifndef __ITransactionPhase0EnlistmentAsync_FWD_DEFINED__
 #define __ITransactionPhase0EnlistmentAsync_FWD_DEFINED__
-typedef interface ITransactionPhase0EnlistmentAsync ITransactionPhase0EnlistmentAsync;
+typedef struct ITransactionPhase0EnlistmentAsync ITransactionPhase0EnlistmentAsync;
 #endif
 
 #ifndef __ITransactionPhase0NotifyAsync_FWD_DEFINED__
 #define __ITransactionPhase0NotifyAsync_FWD_DEFINED__
-typedef interface ITransactionPhase0NotifyAsync ITransactionPhase0NotifyAsync;
+typedef struct ITransactionPhase0NotifyAsync ITransactionPhase0NotifyAsync;
 #endif
 
 #ifndef __ITransactionPhase0Factory_FWD_DEFINED__
 #define __ITransactionPhase0Factory_FWD_DEFINED__
-typedef interface ITransactionPhase0Factory ITransactionPhase0Factory;
+typedef struct ITransactionPhase0Factory ITransactionPhase0Factory;
 #endif
 
 #ifndef __ITransactionTransmitter_FWD_DEFINED__
 #define __ITransactionTransmitter_FWD_DEFINED__
-typedef interface ITransactionTransmitter ITransactionTransmitter;
+typedef struct ITransactionTransmitter ITransactionTransmitter;
 #endif
 
 #ifndef __ITransactionTransmitterFactory_FWD_DEFINED__
 #define __ITransactionTransmitterFactory_FWD_DEFINED__
-typedef interface ITransactionTransmitterFactory ITransactionTransmitterFactory;
+typedef struct ITransactionTransmitterFactory ITransactionTransmitterFactory;
 #endif
 
 #ifndef __ITransactionReceiver_FWD_DEFINED__
 #define __ITransactionReceiver_FWD_DEFINED__
-typedef interface ITransactionReceiver ITransactionReceiver;
+typedef struct ITransactionReceiver ITransactionReceiver;
 #endif
 
 #ifndef __ITransactionReceiverFactory_FWD_DEFINED__
 #define __ITransactionReceiverFactory_FWD_DEFINED__
-typedef interface ITransactionReceiverFactory ITransactionReceiverFactory;
+typedef struct ITransactionReceiverFactory ITransactionReceiverFactory;
 #endif
 
 #ifndef __IDtcLuConfigure_FWD_DEFINED__
 #define __IDtcLuConfigure_FWD_DEFINED__
-typedef interface IDtcLuConfigure IDtcLuConfigure;
+typedef struct IDtcLuConfigure IDtcLuConfigure;
 #endif
 
 #ifndef __IDtcLuRecovery_FWD_DEFINED__
 #define __IDtcLuRecovery_FWD_DEFINED__
-typedef interface IDtcLuRecovery IDtcLuRecovery;
+typedef struct IDtcLuRecovery IDtcLuRecovery;
 #endif
 
 #ifndef __IDtcLuRecoveryFactory_FWD_DEFINED__
 #define __IDtcLuRecoveryFactory_FWD_DEFINED__
-typedef interface IDtcLuRecoveryFactory IDtcLuRecoveryFactory;
+typedef struct IDtcLuRecoveryFactory IDtcLuRecoveryFactory;
 #endif
 
 #ifndef __IDtcLuRecoveryInitiatedByDtcTransWork_FWD_DEFINED__
 #define __IDtcLuRecoveryInitiatedByDtcTransWork_FWD_DEFINED__
-typedef interface IDtcLuRecoveryInitiatedByDtcTransWork IDtcLuRecoveryInitiatedByDtcTransWork;
+typedef struct IDtcLuRecoveryInitiatedByDtcTransWork IDtcLuRecoveryInitiatedByDtcTransWork;
 #endif
 
 #ifndef __IDtcLuRecoveryInitiatedByDtcStatusWork_FWD_DEFINED__
 #define __IDtcLuRecoveryInitiatedByDtcStatusWork_FWD_DEFINED__
-typedef interface IDtcLuRecoveryInitiatedByDtcStatusWork IDtcLuRecoveryInitiatedByDtcStatusWork;
+typedef struct IDtcLuRecoveryInitiatedByDtcStatusWork IDtcLuRecoveryInitiatedByDtcStatusWork;
 #endif
 
 #ifndef __IDtcLuRecoveryInitiatedByDtc_FWD_DEFINED__
 #define __IDtcLuRecoveryInitiatedByDtc_FWD_DEFINED__
-typedef interface IDtcLuRecoveryInitiatedByDtc IDtcLuRecoveryInitiatedByDtc;
+typedef struct IDtcLuRecoveryInitiatedByDtc IDtcLuRecoveryInitiatedByDtc;
 #endif
 
 #ifndef __IDtcLuRecoveryInitiatedByLuWork_FWD_DEFINED__
 #define __IDtcLuRecoveryInitiatedByLuWork_FWD_DEFINED__
-typedef interface IDtcLuRecoveryInitiatedByLuWork IDtcLuRecoveryInitiatedByLuWork;
+typedef struct IDtcLuRecoveryInitiatedByLuWork IDtcLuRecoveryInitiatedByLuWork;
 #endif
 
 #ifndef __IDtcLuRecoveryInitiatedByLu_FWD_DEFINED__
 #define __IDtcLuRecoveryInitiatedByLu_FWD_DEFINED__
-typedef interface IDtcLuRecoveryInitiatedByLu IDtcLuRecoveryInitiatedByLu;
+typedef struct IDtcLuRecoveryInitiatedByLu IDtcLuRecoveryInitiatedByLu;
 #endif
 
 #ifndef __IDtcLuRmEnlistment_FWD_DEFINED__
 #define __IDtcLuRmEnlistment_FWD_DEFINED__
-typedef interface IDtcLuRmEnlistment IDtcLuRmEnlistment;
+typedef struct IDtcLuRmEnlistment IDtcLuRmEnlistment;
 #endif
 
 #ifndef __IDtcLuRmEnlistmentSink_FWD_DEFINED__
 #define __IDtcLuRmEnlistmentSink_FWD_DEFINED__
-typedef interface IDtcLuRmEnlistmentSink IDtcLuRmEnlistmentSink;
+typedef struct IDtcLuRmEnlistmentSink IDtcLuRmEnlistmentSink;
 #endif
 
 #ifndef __IDtcLuRmEnlistmentFactory_FWD_DEFINED__
 #define __IDtcLuRmEnlistmentFactory_FWD_DEFINED__
-typedef interface IDtcLuRmEnlistmentFactory IDtcLuRmEnlistmentFactory;
+typedef struct IDtcLuRmEnlistmentFactory IDtcLuRmEnlistmentFactory;
 #endif
 
 #ifndef __IDtcLuSubordinateDtc_FWD_DEFINED__
 #define __IDtcLuSubordinateDtc_FWD_DEFINED__
-typedef interface IDtcLuSubordinateDtc IDtcLuSubordinateDtc;
+typedef struct IDtcLuSubordinateDtc IDtcLuSubordinateDtc;
 #endif
 
 #ifndef __IDtcLuSubordinateDtcSink_FWD_DEFINED__
 #define __IDtcLuSubordinateDtcSink_FWD_DEFINED__
-typedef interface IDtcLuSubordinateDtcSink IDtcLuSubordinateDtcSink;
+typedef struct IDtcLuSubordinateDtcSink IDtcLuSubordinateDtcSink;
 #endif
 
 #ifndef __IDtcLuSubordinateDtcFactory_FWD_DEFINED__
 #define __IDtcLuSubordinateDtcFactory_FWD_DEFINED__
-typedef interface IDtcLuSubordinateDtcFactory IDtcLuSubordinateDtcFactory;
+typedef struct IDtcLuSubordinateDtcFactory IDtcLuSubordinateDtcFactory;
 #endif
 
 #include "txcoord.h"
@@ -279,7 +279,7 @@ extern "C" {
       HRESULT (WINAPI *Lookup)(IXATransLookup *This,ITransaction **ppTransaction);
     END_INTERFACE
   } IXATransLookupVtbl;
-  interface IXATransLookup {
+  struct IXATransLookup {
     CONST_VTBL struct IXATransLookupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -310,7 +310,7 @@ extern "C" {
       HRESULT (WINAPI *Lookup)(IXATransLookup2 *This,XID *pXID,ITransaction **ppTransaction);
     END_INTERFACE
   } IXATransLookup2Vtbl;
-  interface IXATransLookup2 {
+  struct IXATransLookup2 {
     CONST_VTBL struct IXATransLookup2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -341,7 +341,7 @@ extern "C" {
       HRESULT (WINAPI *TMDown)(IResourceManagerSink *This);
     END_INTERFACE
   } IResourceManagerSinkVtbl;
-  interface IResourceManagerSink {
+  struct IResourceManagerSink {
     CONST_VTBL struct IResourceManagerSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -377,7 +377,7 @@ extern "C" {
       HRESULT (WINAPI *GetDistributedTransactionManager)(IResourceManager *This,REFIID iid,void **ppvObject);
     END_INTERFACE
   } IResourceManagerVtbl;
-  interface IResourceManager {
+  struct IResourceManager {
     CONST_VTBL struct IResourceManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -419,7 +419,7 @@ extern "C" {
       HRESULT (WINAPI *RecoveryDone)(ILastResourceManager *This);
     END_INTERFACE
   } ILastResourceManagerVtbl;
-  interface ILastResourceManager {
+  struct ILastResourceManager {
     CONST_VTBL struct ILastResourceManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -459,7 +459,7 @@ extern "C" {
       HRESULT (WINAPI *Reenlist2)(IResourceManager2 *This,XID *pXid,DWORD dwTimeout,XACTSTAT *pXactStat);
     END_INTERFACE
   } IResourceManager2Vtbl;
-  interface IResourceManager2 {
+  struct IResourceManager2 {
     CONST_VTBL struct IResourceManager2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -499,7 +499,7 @@ extern "C" {
       HRESULT (WINAPI *Terminate)(IXAConfig *This);
     END_INTERFACE
   } IXAConfigVtbl;
-  interface IXAConfig {
+  struct IXAConfig {
     CONST_VTBL struct IXAConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -535,7 +535,7 @@ extern "C" {
       HRESULT (WINAPI *RMInfo)(IRMHelper *This,xa_switch_t *pXa_Switch,WINBOOL fCDeclCallingConv,char *pszOpenString,char *pszCloseString,GUID guidRMRecovery);
     END_INTERFACE
   } IRMHelperVtbl;
-  interface IRMHelper {
+  struct IRMHelper {
     CONST_VTBL struct IRMHelperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -569,7 +569,7 @@ extern "C" {
       HRESULT (WINAPI *ObtainRMInfo)(IXAObtainRMInfo *This,IRMHelper *pIRMHelper);
     END_INTERFACE
   } IXAObtainRMInfoVtbl;
-  interface IXAObtainRMInfo {
+  struct IXAObtainRMInfo {
     CONST_VTBL struct IXAObtainRMInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -600,7 +600,7 @@ extern "C" {
       HRESULT (WINAPI *Create)(IResourceManagerFactory *This,GUID *pguidRM,CHAR *pszRMName,IResourceManagerSink *pIResMgrSink,IResourceManager **ppResMgr);
     END_INTERFACE
   } IResourceManagerFactoryVtbl;
-  interface IResourceManagerFactory {
+  struct IResourceManagerFactory {
     CONST_VTBL struct IResourceManagerFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -632,7 +632,7 @@ extern "C" {
       HRESULT (WINAPI *CreateEx)(IResourceManagerFactory2 *This,GUID *pguidRM,CHAR *pszRMName,IResourceManagerSink *pIResMgrSink,REFIID riidRequested,void **ppvResMgr);
     END_INTERFACE
   } IResourceManagerFactory2Vtbl;
-  interface IResourceManagerFactory2 {
+  struct IResourceManagerFactory2 {
     CONST_VTBL struct IResourceManagerFactory2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -666,7 +666,7 @@ extern "C" {
       HRESULT (WINAPI *GetPrepareInfo)(IPrepareInfo *This,byte *pPrepInfo);
     END_INTERFACE
   } IPrepareInfoVtbl;
-  interface IPrepareInfo {
+  struct IPrepareInfo {
     CONST_VTBL struct IPrepareInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -702,7 +702,7 @@ extern "C" {
       HRESULT (WINAPI *GetPrepareInfo)(IPrepareInfo2 *This,ULONG cbPrepareInfo,byte *pPrepInfo);
     END_INTERFACE
   } IPrepareInfo2Vtbl;
-  interface IPrepareInfo2 {
+  struct IPrepareInfo2 {
     CONST_VTBL struct IPrepareInfo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -736,7 +736,7 @@ extern "C" {
       HRESULT (WINAPI *GetDispenser)(IGetDispenser *This,REFIID iid,void **ppvObject);
     END_INTERFACE
   } IGetDispenserVtbl;
-  interface IGetDispenser {
+  struct IGetDispenser {
     CONST_VTBL struct IGetDispenserVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -767,7 +767,7 @@ extern "C" {
       HRESULT (WINAPI *VoteRequestDone)(ITransactionVoterBallotAsync2 *This,HRESULT hr,BOID *pboidReason);
     END_INTERFACE
   } ITransactionVoterBallotAsync2Vtbl;
-  interface ITransactionVoterBallotAsync2 {
+  struct ITransactionVoterBallotAsync2 {
     CONST_VTBL struct ITransactionVoterBallotAsync2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -802,7 +802,7 @@ extern "C" {
       HRESULT (WINAPI *VoteRequest)(ITransactionVoterNotifyAsync2 *This);
     END_INTERFACE
   } ITransactionVoterNotifyAsync2Vtbl;
-  interface ITransactionVoterNotifyAsync2 {
+  struct ITransactionVoterNotifyAsync2 {
     CONST_VTBL struct ITransactionVoterNotifyAsync2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -837,7 +837,7 @@ extern "C" {
       HRESULT (WINAPI *Create)(ITransactionVoterFactory2 *This,ITransaction *pTransaction,ITransactionVoterNotifyAsync2 *pVoterNotify,ITransactionVoterBallotAsync2 **ppVoterBallot);
     END_INTERFACE
   } ITransactionVoterFactory2Vtbl;
-  interface ITransactionVoterFactory2 {
+  struct ITransactionVoterFactory2 {
     CONST_VTBL struct ITransactionVoterFactory2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -876,7 +876,7 @@ extern "C" {
       HRESULT (WINAPI *GetTransaction)(ITransactionPhase0EnlistmentAsync *This,ITransaction **ppITransaction);
     END_INTERFACE
   } ITransactionPhase0EnlistmentAsyncVtbl;
-  interface ITransactionPhase0EnlistmentAsync {
+  struct ITransactionPhase0EnlistmentAsync {
     CONST_VTBL struct ITransactionPhase0EnlistmentAsyncVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -921,7 +921,7 @@ extern "C" {
       HRESULT (WINAPI *EnlistCompleted)(ITransactionPhase0NotifyAsync *This,HRESULT status);
     END_INTERFACE
   } ITransactionPhase0NotifyAsyncVtbl;
-  interface ITransactionPhase0NotifyAsync {
+  struct ITransactionPhase0NotifyAsync {
     CONST_VTBL struct ITransactionPhase0NotifyAsyncVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -955,7 +955,7 @@ extern "C" {
       HRESULT (WINAPI *Create)(ITransactionPhase0Factory *This,ITransactionPhase0NotifyAsync *pPhase0Notify,ITransactionPhase0EnlistmentAsync **ppPhase0Enlistment);
     END_INTERFACE
   } ITransactionPhase0FactoryVtbl;
-  interface ITransactionPhase0Factory {
+  struct ITransactionPhase0Factory {
     CONST_VTBL struct ITransactionPhase0FactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -994,7 +994,7 @@ extern "C" {
       HRESULT (WINAPI *Reset)(ITransactionTransmitter *This);
     END_INTERFACE
   } ITransactionTransmitterVtbl;
-  interface ITransactionTransmitter {
+  struct ITransactionTransmitter {
     CONST_VTBL struct ITransactionTransmitterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1037,7 +1037,7 @@ extern "C" {
       HRESULT (WINAPI *Create)(ITransactionTransmitterFactory *This,ITransactionTransmitter **ppTransmitter);
     END_INTERFACE
   } ITransactionTransmitterFactoryVtbl;
-  interface ITransactionTransmitterFactory {
+  struct ITransactionTransmitterFactory {
     CONST_VTBL struct ITransactionTransmitterFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1074,7 +1074,7 @@ extern "C" {
       HRESULT (WINAPI *Reset)(ITransactionReceiver *This);
     END_INTERFACE
   } ITransactionReceiverVtbl;
-  interface ITransactionReceiver {
+  struct ITransactionReceiver {
     CONST_VTBL struct ITransactionReceiverVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1114,7 +1114,7 @@ extern "C" {
       HRESULT (WINAPI *Create)(ITransactionReceiverFactory *This,ITransactionReceiver **ppReceiver);
     END_INTERFACE
   } ITransactionReceiverFactoryVtbl;
-  interface ITransactionReceiverFactory {
+  struct ITransactionReceiverFactory {
     CONST_VTBL struct ITransactionReceiverFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1153,7 +1153,7 @@ extern "C" {
       HRESULT (WINAPI *Delete)(IDtcLuConfigure *This,byte *pucLuPair,DWORD cbLuPair);
     END_INTERFACE
   } IDtcLuConfigureVtbl;
-  interface IDtcLuConfigure {
+  struct IDtcLuConfigure {
     CONST_VTBL struct IDtcLuConfigureVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1184,7 +1184,7 @@ extern "C" {
       ULONG (WINAPI *Release)(IDtcLuRecovery *This);
     END_INTERFACE
   } IDtcLuRecoveryVtbl;
-  interface IDtcLuRecovery {
+  struct IDtcLuRecovery {
     CONST_VTBL struct IDtcLuRecoveryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1212,7 +1212,7 @@ extern "C" {
       HRESULT (WINAPI *Create)(IDtcLuRecoveryFactory *This,byte *pucLuPair,DWORD cbLuPair,IDtcLuRecovery **ppRecovery);
     END_INTERFACE
   } IDtcLuRecoveryFactoryVtbl;
-  interface IDtcLuRecoveryFactory {
+  struct IDtcLuRecoveryFactory {
     CONST_VTBL struct IDtcLuRecoveryFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1311,7 +1311,7 @@ extern "C" {
       HRESULT (WINAPI *ObsoleteRecoverySeqNum)(IDtcLuRecoveryInitiatedByDtcTransWork *This,LONG lNewRecoverySeqNum);
     END_INTERFACE
   } IDtcLuRecoveryInitiatedByDtcTransWorkVtbl;
-  interface IDtcLuRecoveryInitiatedByDtcTransWork {
+  struct IDtcLuRecoveryInitiatedByDtcTransWork {
     CONST_VTBL struct IDtcLuRecoveryInitiatedByDtcTransWorkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1378,7 +1378,7 @@ extern "C" {
       HRESULT (WINAPI *HandleCheckLuStatus)(IDtcLuRecoveryInitiatedByDtcStatusWork *This,LONG lRecoverySeqNum);
     END_INTERFACE
   } IDtcLuRecoveryInitiatedByDtcStatusWorkVtbl;
-  interface IDtcLuRecoveryInitiatedByDtcStatusWork {
+  struct IDtcLuRecoveryInitiatedByDtcStatusWork {
     CONST_VTBL struct IDtcLuRecoveryInitiatedByDtcStatusWorkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1409,7 +1409,7 @@ extern "C" {
       HRESULT (WINAPI *GetWork)(IDtcLuRecoveryInitiatedByDtc *This,DTCINITIATEDRECOVERYWORK *pWork,void **ppv);
     END_INTERFACE
   } IDtcLuRecoveryInitiatedByDtcVtbl;
-  interface IDtcLuRecoveryInitiatedByDtc {
+  struct IDtcLuRecoveryInitiatedByDtc {
     CONST_VTBL struct IDtcLuRecoveryInitiatedByDtcVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1454,7 +1454,7 @@ extern "C" {
       HRESULT (WINAPI *ConversationLost)(IDtcLuRecoveryInitiatedByLuWork *This);
     END_INTERFACE
   } IDtcLuRecoveryInitiatedByLuWorkVtbl;
-  interface IDtcLuRecoveryInitiatedByLuWork {
+  struct IDtcLuRecoveryInitiatedByLuWork {
     CONST_VTBL struct IDtcLuRecoveryInitiatedByLuWorkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1506,7 +1506,7 @@ extern "C" {
       HRESULT (WINAPI *GetObjectToHandleWorkFromLu)(IDtcLuRecoveryInitiatedByLu *This,IDtcLuRecoveryInitiatedByLuWork **ppWork);
     END_INTERFACE
   } IDtcLuRecoveryInitiatedByLuVtbl;
-  interface IDtcLuRecoveryInitiatedByLu {
+  struct IDtcLuRecoveryInitiatedByLu {
     CONST_VTBL struct IDtcLuRecoveryInitiatedByLuVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1547,7 +1547,7 @@ extern "C" {
       HRESULT (WINAPI *RequestCommit)(IDtcLuRmEnlistment *This);
     END_INTERFACE
   } IDtcLuRmEnlistmentVtbl;
-  interface IDtcLuRmEnlistment {
+  struct IDtcLuRmEnlistment {
     CONST_VTBL struct IDtcLuRmEnlistmentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1609,7 +1609,7 @@ extern "C" {
       HRESULT (WINAPI *RequestCommit)(IDtcLuRmEnlistmentSink *This);
     END_INTERFACE
   } IDtcLuRmEnlistmentSinkVtbl;
-  interface IDtcLuRmEnlistmentSink {
+  struct IDtcLuRmEnlistmentSink {
     CONST_VTBL struct IDtcLuRmEnlistmentSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1664,7 +1664,7 @@ extern "C" {
       HRESULT (WINAPI *Create)(IDtcLuRmEnlistmentFactory *This,unsigned char *pucLuPair,DWORD cbLuPair,ITransaction *pITransaction,unsigned char *pTransId,DWORD cbTransId,IDtcLuRmEnlistmentSink *pRmEnlistmentSink,IDtcLuRmEnlistment **ppRmEnlistment);
     END_INTERFACE
   } IDtcLuRmEnlistmentFactoryVtbl;
-  interface IDtcLuRmEnlistmentFactory {
+  struct IDtcLuRmEnlistmentFactory {
     CONST_VTBL struct IDtcLuRmEnlistmentFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1707,7 +1707,7 @@ extern "C" {
       HRESULT (WINAPI *RequestCommit)(IDtcLuSubordinateDtc *This);
     END_INTERFACE
   } IDtcLuSubordinateDtcVtbl;
-  interface IDtcLuSubordinateDtc {
+  struct IDtcLuSubordinateDtc {
     CONST_VTBL struct IDtcLuSubordinateDtcVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1770,7 +1770,7 @@ extern "C" {
       HRESULT (WINAPI *RequestCommit)(IDtcLuSubordinateDtcSink *This);
     END_INTERFACE
   } IDtcLuSubordinateDtcSinkVtbl;
-  interface IDtcLuSubordinateDtcSink {
+  struct IDtcLuSubordinateDtcSink {
     CONST_VTBL struct IDtcLuSubordinateDtcSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1822,7 +1822,7 @@ extern "C" {
       HRESULT (WINAPI *Create)(IDtcLuSubordinateDtcFactory *This,unsigned char *pucLuPair,DWORD cbLuPair,IUnknown *punkTransactionOuter,ISOLEVEL isoLevel,ULONG isoFlags,ITransactionOptions *pOptions,ITransaction **ppTransaction,unsigned char *pTransId,DWORD cbTransId,IDtcLuSubordinateDtcSink *pSubordinateDtcSink,IDtcLuSubordinateDtc **ppSubordinateDtc);
     END_INTERFACE
   } IDtcLuSubordinateDtcFactoryVtbl;
-  interface IDtcLuSubordinateDtcFactory {
+  struct IDtcLuSubordinateDtcFactory {
     CONST_VTBL struct IDtcLuSubordinateDtcFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

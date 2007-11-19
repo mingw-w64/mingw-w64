@@ -24,37 +24,37 @@
 
 #ifndef __ITravelEntry_FWD_DEFINED__
 #define __ITravelEntry_FWD_DEFINED__
-typedef interface ITravelEntry ITravelEntry;
+typedef struct ITravelEntry ITravelEntry;
 #endif
 
 #ifndef __ITravelLog_FWD_DEFINED__
 #define __ITravelLog_FWD_DEFINED__
-typedef interface ITravelLog ITravelLog;
+typedef struct ITravelLog ITravelLog;
 #endif
 
 #ifndef __IExpDispSupport_FWD_DEFINED__
 #define __IExpDispSupport_FWD_DEFINED__
-typedef interface IExpDispSupport IExpDispSupport;
+typedef struct IExpDispSupport IExpDispSupport;
 #endif
 
 #ifndef __IBrowserService_FWD_DEFINED__
 #define __IBrowserService_FWD_DEFINED__
-typedef interface IBrowserService IBrowserService;
+typedef struct IBrowserService IBrowserService;
 #endif
 
 #ifndef __IShellService_FWD_DEFINED__
 #define __IShellService_FWD_DEFINED__
-typedef interface IShellService IShellService;
+typedef struct IShellService IShellService;
 #endif
 
 #ifndef __IBrowserService2_FWD_DEFINED__
 #define __IBrowserService2_FWD_DEFINED__
-typedef interface IBrowserService2 IBrowserService2;
+typedef struct IBrowserService2 IBrowserService2;
 #endif
 
 #ifndef __IBrowserService3_FWD_DEFINED__
 #define __IBrowserService3_FWD_DEFINED__
-typedef interface IBrowserService3 IBrowserService3;
+typedef struct IBrowserService3 IBrowserService3;
 #endif
 
 #include "objidl.h"
@@ -104,7 +104,7 @@ extern "C" {
       HRESULT (WINAPI *GetPidl)(ITravelEntry *This,LPITEMIDLIST *ppidl);
     END_INTERFACE
   } ITravelEntryVtbl;
-  interface ITravelEntry {
+  struct ITravelEntry {
     CONST_VTBL struct ITravelEntryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -161,7 +161,7 @@ extern "C" {
       HRESULT (WINAPI *Revert)(ITravelLog *This);
     END_INTERFACE
   } ITravelLogVtbl;
-  interface ITravelLog {
+  struct ITravelLog {
     CONST_VTBL struct ITravelLogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -237,7 +237,7 @@ extern "C" {
       HRESULT (WINAPI *OnInvoke)(IExpDispSupport *This,DISPID dispidMember,REFIID iid,LCID lcid,WORD wFlags,DISPPARAMS *pdispparams,VARIANT *pVarResult,EXCEPINFO *pexcepinfo,UINT *puArgErr);
     END_INTERFACE
   } IExpDispSupportVtbl;
-  interface IExpDispSupport {
+  struct IExpDispSupport {
     CONST_VTBL struct IExpDispSupportVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -366,7 +366,7 @@ extern "C" {
       HRESULT (WINAPI *RegisterWindow)(IBrowserService *This,WINBOOL fForceRegister,int swc);
     END_INTERFACE
   } IBrowserServiceVtbl;
-  interface IBrowserService {
+  struct IBrowserService {
     CONST_VTBL struct IBrowserServiceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -484,7 +484,7 @@ extern "C" {
       HRESULT (WINAPI *SetOwner)(IShellService *This,IUnknown *punkOwner);
     END_INTERFACE
   } IShellServiceVtbl;
-  interface IShellService {
+  struct IShellService {
     CONST_VTBL struct IShellServiceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -744,7 +744,7 @@ extern "C" {
       HRESULT (WINAPI *v_CheckZoneCrossing)(IBrowserService2 *This,LPCITEMIDLIST pidl);
     END_INTERFACE
   } IBrowserService2Vtbl;
-  interface IBrowserService2 {
+  struct IBrowserService2 {
     CONST_VTBL struct IBrowserService2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1086,7 +1086,7 @@ extern "C" {
       HRESULT (WINAPI *IEParseDisplayNameEx)(IBrowserService3 *This,UINT uiCP,LPCWSTR pwszPath,DWORD dwFlags,LPITEMIDLIST *ppidlOut);
     END_INTERFACE
   } IBrowserService3Vtbl;
-  interface IBrowserService3 {
+  struct IBrowserService3 {
     CONST_VTBL struct IBrowserService3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -45,28 +45,28 @@ extern "C" {
   DEFINE_GUID(IID_IDebugSystemObjects2,0x0ae9f5ff,0x1852,0x4679,0xb0,0x55,0x49,0x4b,0xee,0x64,0x07,0xee);
   DEFINE_GUID(IID_IDebugSystemObjects3,0xe9676e2f,0xe286,0x4ea3,0xb0,0xf9,0xdf,0xe5,0xd9,0xfc,0x33,0x0e);
 
-  typedef interface IDebugAdvanced *PDEBUG_ADVANCED;
-  typedef interface IDebugBreakpoint *PDEBUG_BREAKPOINT;
-  typedef interface IDebugClient *PDEBUG_CLIENT;
-  typedef interface IDebugClient2 *PDEBUG_CLIENT2;
-  typedef interface IDebugClient3 *PDEBUG_CLIENT3;
-  typedef interface IDebugClient4 *PDEBUG_CLIENT4;
-  typedef interface IDebugControl *PDEBUG_CONTROL;
-  typedef interface IDebugControl2 *PDEBUG_CONTROL2;
-  typedef interface IDebugControl3 *PDEBUG_CONTROL3;
-  typedef interface IDebugDataSpaces *PDEBUG_DATA_SPACES;
-  typedef interface IDebugDataSpaces2 *PDEBUG_DATA_SPACES2;
-  typedef interface IDebugDataSpaces3 *PDEBUG_DATA_SPACES3;
-  typedef interface IDebugEventCallbacks *PDEBUG_EVENT_CALLBACKS;
-  typedef interface IDebugInputCallbacks *PDEBUG_INPUT_CALLBACKS;
-  typedef interface IDebugOutputCallbacks *PDEBUG_OUTPUT_CALLBACKS;
-  typedef interface IDebugRegisters *PDEBUG_REGISTERS;
-  typedef interface IDebugSymbolGroup *PDEBUG_SYMBOL_GROUP;
-  typedef interface IDebugSymbols *PDEBUG_SYMBOLS;
-  typedef interface IDebugSymbols2 *PDEBUG_SYMBOLS2;
-  typedef interface IDebugSystemObjects *PDEBUG_SYSTEM_OBJECTS;
-  typedef interface IDebugSystemObjects2 *PDEBUG_SYSTEM_OBJECTS2;
-  typedef interface IDebugSystemObjects3 *PDEBUG_SYSTEM_OBJECTS3;
+  typedef struct IDebugAdvanced *PDEBUG_ADVANCED;
+  typedef struct IDebugBreakpoint *PDEBUG_BREAKPOINT;
+  typedef struct IDebugClient *PDEBUG_CLIENT;
+  typedef struct IDebugClient2 *PDEBUG_CLIENT2;
+  typedef struct IDebugClient3 *PDEBUG_CLIENT3;
+  typedef struct IDebugClient4 *PDEBUG_CLIENT4;
+  typedef struct IDebugControl *PDEBUG_CONTROL;
+  typedef struct IDebugControl2 *PDEBUG_CONTROL2;
+  typedef struct IDebugControl3 *PDEBUG_CONTROL3;
+  typedef struct IDebugDataSpaces *PDEBUG_DATA_SPACES;
+  typedef struct IDebugDataSpaces2 *PDEBUG_DATA_SPACES2;
+  typedef struct IDebugDataSpaces3 *PDEBUG_DATA_SPACES3;
+  typedef struct IDebugEventCallbacks *PDEBUG_EVENT_CALLBACKS;
+  typedef struct IDebugInputCallbacks *PDEBUG_INPUT_CALLBACKS;
+  typedef struct IDebugOutputCallbacks *PDEBUG_OUTPUT_CALLBACKS;
+  typedef struct IDebugRegisters *PDEBUG_REGISTERS;
+  typedef struct IDebugSymbolGroup *PDEBUG_SYMBOL_GROUP;
+  typedef struct IDebugSymbols *PDEBUG_SYMBOLS;
+  typedef struct IDebugSymbols2 *PDEBUG_SYMBOLS2;
+  typedef struct IDebugSystemObjects *PDEBUG_SYSTEM_OBJECTS;
+  typedef struct IDebugSystemObjects2 *PDEBUG_SYSTEM_OBJECTS2;
+  typedef struct IDebugSystemObjects3 *PDEBUG_SYSTEM_OBJECTS3;
 
 #define DEBUG_EXTEND64(Addr) ((ULONG64)(LONG64)(LONG)(Addr))
 

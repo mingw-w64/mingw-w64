@@ -24,72 +24,72 @@
 
 #ifndef __IWiaDevMgr_FWD_DEFINED__
 #define __IWiaDevMgr_FWD_DEFINED__
-typedef interface IWiaDevMgr IWiaDevMgr;
+typedef struct IWiaDevMgr IWiaDevMgr;
 #endif
 
 #ifndef __IEnumWIA_DEV_INFO_FWD_DEFINED__
 #define __IEnumWIA_DEV_INFO_FWD_DEFINED__
-typedef interface IEnumWIA_DEV_INFO IEnumWIA_DEV_INFO;
+typedef struct IEnumWIA_DEV_INFO IEnumWIA_DEV_INFO;
 #endif
 
 #ifndef __IWiaEventCallback_FWD_DEFINED__
 #define __IWiaEventCallback_FWD_DEFINED__
-typedef interface IWiaEventCallback IWiaEventCallback;
+typedef struct IWiaEventCallback IWiaEventCallback;
 #endif
 
 #ifndef __IWiaDataCallback_FWD_DEFINED__
 #define __IWiaDataCallback_FWD_DEFINED__
-typedef interface IWiaDataCallback IWiaDataCallback;
+typedef struct IWiaDataCallback IWiaDataCallback;
 #endif
 
 #ifndef __IWiaDataTransfer_FWD_DEFINED__
 #define __IWiaDataTransfer_FWD_DEFINED__
-typedef interface IWiaDataTransfer IWiaDataTransfer;
+typedef struct IWiaDataTransfer IWiaDataTransfer;
 #endif
 
 #ifndef __IWiaItem_FWD_DEFINED__
 #define __IWiaItem_FWD_DEFINED__
-typedef interface IWiaItem IWiaItem;
+typedef struct IWiaItem IWiaItem;
 #endif
 
 #ifndef __IWiaPropertyStorage_FWD_DEFINED__
 #define __IWiaPropertyStorage_FWD_DEFINED__
-typedef interface IWiaPropertyStorage IWiaPropertyStorage;
+typedef struct IWiaPropertyStorage IWiaPropertyStorage;
 #endif
 
 #ifndef __IEnumWiaItem_FWD_DEFINED__
 #define __IEnumWiaItem_FWD_DEFINED__
-typedef interface IEnumWiaItem IEnumWiaItem;
+typedef struct IEnumWiaItem IEnumWiaItem;
 #endif
 
 #ifndef __IEnumWIA_DEV_CAPS_FWD_DEFINED__
 #define __IEnumWIA_DEV_CAPS_FWD_DEFINED__
-typedef interface IEnumWIA_DEV_CAPS IEnumWIA_DEV_CAPS;
+typedef struct IEnumWIA_DEV_CAPS IEnumWIA_DEV_CAPS;
 #endif
 
 #ifndef __IEnumWIA_FORMAT_INFO_FWD_DEFINED__
 #define __IEnumWIA_FORMAT_INFO_FWD_DEFINED__
-typedef interface IEnumWIA_FORMAT_INFO IEnumWIA_FORMAT_INFO;
+typedef struct IEnumWIA_FORMAT_INFO IEnumWIA_FORMAT_INFO;
 #endif
 
 #ifndef __IWiaLog_FWD_DEFINED__
 #define __IWiaLog_FWD_DEFINED__
-typedef interface IWiaLog IWiaLog;
+typedef struct IWiaLog IWiaLog;
 #endif
 
 #ifndef __IWiaLogEx_FWD_DEFINED__
 #define __IWiaLogEx_FWD_DEFINED__
-typedef interface IWiaLogEx IWiaLogEx;
+typedef struct IWiaLogEx IWiaLogEx;
 #endif
 
 #ifndef __IWiaNotifyDevMgr_FWD_DEFINED__
 #define __IWiaNotifyDevMgr_FWD_DEFINED__
-typedef interface IWiaNotifyDevMgr IWiaNotifyDevMgr;
+typedef struct IWiaNotifyDevMgr IWiaNotifyDevMgr;
 #endif
 
 #ifndef __IWiaItemExtras_FWD_DEFINED__
 #define __IWiaItemExtras_FWD_DEFINED__
-typedef interface IWiaItemExtras IWiaItemExtras;
+typedef struct IWiaItemExtras IWiaItemExtras;
 #endif
 
 #ifndef __WiaDevMgr_FWD_DEFINED__
@@ -185,7 +185,7 @@ extern "C" {
       HRESULT (WINAPI *AddDeviceDlg)(IWiaDevMgr *This,HWND hwndParent,LONG lFlags);
     END_INTERFACE
   } IWiaDevMgrVtbl;
-  interface IWiaDevMgr {
+  struct IWiaDevMgr {
     CONST_VTBL struct IWiaDevMgrVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -248,7 +248,7 @@ extern "C" {
       HRESULT (WINAPI *GetCount)(IEnumWIA_DEV_INFO *This,ULONG *celt);
     END_INTERFACE
   } IEnumWIA_DEV_INFOVtbl;
-  interface IEnumWIA_DEV_INFO {
+  struct IEnumWIA_DEV_INFO {
     CONST_VTBL struct IEnumWIA_DEV_INFOVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -291,7 +291,7 @@ extern "C" {
       HRESULT (WINAPI *ImageEventCallback)(IWiaEventCallback *This,const GUID *pEventGUID,BSTR bstrEventDescription,BSTR bstrDeviceID,BSTR bstrDeviceDescription,DWORD dwDeviceType,BSTR bstrFullItemName,ULONG *pulEventType,ULONG ulReserved);
     END_INTERFACE
   } IWiaEventCallbackVtbl;
-  interface IWiaEventCallback {
+  struct IWiaEventCallback {
     CONST_VTBL struct IWiaEventCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -333,7 +333,7 @@ extern "C" {
       HRESULT (WINAPI *BandedDataCallback)(IWiaDataCallback *This,LONG lMessage,LONG lStatus,LONG lPercentComplete,LONG lOffset,LONG lLength,LONG lReserved,LONG lResLength,BYTE *pbBuffer);
     END_INTERFACE
   } IWiaDataCallbackVtbl;
-  interface IWiaDataCallback {
+  struct IWiaDataCallback {
     CONST_VTBL struct IWiaDataCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -396,7 +396,7 @@ extern "C" {
       HRESULT (WINAPI *idtGetExtendedTransferInfo)(IWiaDataTransfer *This,PWIA_EXTENDED_TRANSFER_INFO pExtendedTransferInfo);
     END_INTERFACE
   } IWiaDataTransferVtbl;
-  interface IWiaDataTransfer {
+  struct IWiaDataTransfer {
     CONST_VTBL struct IWiaDataTransferVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -467,7 +467,7 @@ extern "C" {
       HRESULT (WINAPI *Diagnostic)(IWiaItem *This,ULONG ulSize,BYTE *pBuffer);
     END_INTERFACE
   } IWiaItemVtbl;
-  interface IWiaItem {
+  struct IWiaItem {
     CONST_VTBL struct IWiaItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -570,7 +570,7 @@ extern "C" {
       HRESULT (WINAPI *SetPropertyStream)(IWiaPropertyStorage *This,GUID *pCompatibilityId,IStream *pIStream);
     END_INTERFACE
   } IWiaPropertyStorageVtbl;
-  interface IWiaPropertyStorage {
+  struct IWiaPropertyStorage {
     CONST_VTBL struct IWiaPropertyStorageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -654,7 +654,7 @@ extern "C" {
       HRESULT (WINAPI *GetCount)(IEnumWiaItem *This,ULONG *celt);
     END_INTERFACE
   } IEnumWiaItemVtbl;
-  interface IEnumWiaItem {
+  struct IEnumWiaItem {
     CONST_VTBL struct IEnumWiaItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -720,7 +720,7 @@ extern "C" {
       HRESULT (WINAPI *GetCount)(IEnumWIA_DEV_CAPS *This,ULONG *pcelt);
     END_INTERFACE
   } IEnumWIA_DEV_CAPSVtbl;
-  interface IEnumWIA_DEV_CAPS {
+  struct IEnumWIA_DEV_CAPS {
     CONST_VTBL struct IEnumWIA_DEV_CAPSVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -771,7 +771,7 @@ extern "C" {
       HRESULT (WINAPI *GetCount)(IEnumWIA_FORMAT_INFO *This,ULONG *pcelt);
     END_INTERFACE
   } IEnumWIA_FORMAT_INFOVtbl;
-  interface IEnumWIA_FORMAT_INFO {
+  struct IEnumWIA_FORMAT_INFO {
     CONST_VTBL struct IEnumWIA_FORMAT_INFOVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -818,7 +818,7 @@ extern "C" {
       HRESULT (WINAPI *Log)(IWiaLog *This,LONG lFlags,LONG lResID,LONG lDetail,BSTR bstrText);
     END_INTERFACE
   } IWiaLogVtbl;
-  interface IWiaLog {
+  struct IWiaLog {
     CONST_VTBL struct IWiaLogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -863,7 +863,7 @@ extern "C" {
       HRESULT (WINAPI *LogEx)(IWiaLogEx *This,LONG lMethodId,LONG lFlags,LONG lResID,LONG lDetail,BSTR bstrText);
     END_INTERFACE
   } IWiaLogExVtbl;
-  interface IWiaLogEx {
+  struct IWiaLogEx {
     CONST_VTBL struct IWiaLogExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -906,7 +906,7 @@ extern "C" {
       HRESULT (WINAPI *NewDeviceArrival)(IWiaNotifyDevMgr *This);
     END_INTERFACE
   } IWiaNotifyDevMgrVtbl;
-  interface IWiaNotifyDevMgr {
+  struct IWiaNotifyDevMgr {
     CONST_VTBL struct IWiaNotifyDevMgrVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -941,7 +941,7 @@ extern "C" {
       HRESULT (WINAPI *CancelPendingIO)(IWiaItemExtras *This);
     END_INTERFACE
   } IWiaItemExtrasVtbl;
-  interface IWiaItemExtras {
+  struct IWiaItemExtras {
     CONST_VTBL struct IWiaItemExtrasVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

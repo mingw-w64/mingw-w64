@@ -19,27 +19,27 @@
 
 #ifndef __IMLangStringBufW_FWD_DEFINED__
 #define __IMLangStringBufW_FWD_DEFINED__
-typedef interface IMLangStringBufW IMLangStringBufW;
+typedef struct IMLangStringBufW IMLangStringBufW;
 #endif
 
 #ifndef __IMLangStringBufA_FWD_DEFINED__
 #define __IMLangStringBufA_FWD_DEFINED__
-typedef interface IMLangStringBufA IMLangStringBufA;
+typedef struct IMLangStringBufA IMLangStringBufA;
 #endif
 
 #ifndef __IMLangString_FWD_DEFINED__
 #define __IMLangString_FWD_DEFINED__
-typedef interface IMLangString IMLangString;
+typedef struct IMLangString IMLangString;
 #endif
 
 #ifndef __IMLangStringWStr_FWD_DEFINED__
 #define __IMLangStringWStr_FWD_DEFINED__
-typedef interface IMLangStringWStr IMLangStringWStr;
+typedef struct IMLangStringWStr IMLangStringWStr;
 #endif
 
 #ifndef __IMLangStringAStr_FWD_DEFINED__
 #define __IMLangStringAStr_FWD_DEFINED__
-typedef interface IMLangStringAStr IMLangStringAStr;
+typedef struct IMLangStringAStr IMLangStringAStr;
 #endif
 
 #ifndef __CMLangString_FWD_DEFINED__
@@ -54,27 +54,27 @@ typedef struct CMLangString CMLangString;
 
 #ifndef __IMLangLineBreakConsole_FWD_DEFINED__
 #define __IMLangLineBreakConsole_FWD_DEFINED__
-typedef interface IMLangLineBreakConsole IMLangLineBreakConsole;
+typedef struct IMLangLineBreakConsole IMLangLineBreakConsole;
 #endif
 
 #ifndef __IEnumCodePage_FWD_DEFINED__
 #define __IEnumCodePage_FWD_DEFINED__
-typedef interface IEnumCodePage IEnumCodePage;
+typedef struct IEnumCodePage IEnumCodePage;
 #endif
 
 #ifndef __IEnumRfc1766_FWD_DEFINED__
 #define __IEnumRfc1766_FWD_DEFINED__
-typedef interface IEnumRfc1766 IEnumRfc1766;
+typedef struct IEnumRfc1766 IEnumRfc1766;
 #endif
 
 #ifndef __IEnumScript_FWD_DEFINED__
 #define __IEnumScript_FWD_DEFINED__
-typedef interface IEnumScript IEnumScript;
+typedef struct IEnumScript IEnumScript;
 #endif
 
 #ifndef __IMLangConvertCharset_FWD_DEFINED__
 #define __IMLangConvertCharset_FWD_DEFINED__
-typedef interface IMLangConvertCharset IMLangConvertCharset;
+typedef struct IMLangConvertCharset IMLangConvertCharset;
 #endif
 
 #ifndef __CMLangConvertCharset_FWD_DEFINED__
@@ -88,32 +88,32 @@ typedef struct CMLangConvertCharset CMLangConvertCharset;
 
 #ifndef __IMultiLanguage_FWD_DEFINED__
 #define __IMultiLanguage_FWD_DEFINED__
-typedef interface IMultiLanguage IMultiLanguage;
+typedef struct IMultiLanguage IMultiLanguage;
 #endif
 
 #ifndef __IMultiLanguage2_FWD_DEFINED__
 #define __IMultiLanguage2_FWD_DEFINED__
-typedef interface IMultiLanguage2 IMultiLanguage2;
+typedef struct IMultiLanguage2 IMultiLanguage2;
 #endif
 
 #ifndef __IMLangCodePages_FWD_DEFINED__
 #define __IMLangCodePages_FWD_DEFINED__
-typedef interface IMLangCodePages IMLangCodePages;
+typedef struct IMLangCodePages IMLangCodePages;
 #endif
 
 #ifndef __IMLangFontLink_FWD_DEFINED__
 #define __IMLangFontLink_FWD_DEFINED__
-typedef interface IMLangFontLink IMLangFontLink;
+typedef struct IMLangFontLink IMLangFontLink;
 #endif
 
 #ifndef __IMLangFontLink2_FWD_DEFINED__
 #define __IMLangFontLink2_FWD_DEFINED__
-typedef interface IMLangFontLink2 IMLangFontLink2;
+typedef struct IMLangFontLink2 IMLangFontLink2;
 #endif
 
 #ifndef __IMultiLanguage3_FWD_DEFINED__
 #define __IMultiLanguage3_FWD_DEFINED__
-typedef interface IMultiLanguage3 IMultiLanguage3;
+typedef struct IMultiLanguage3 IMultiLanguage3;
 #endif
 
 #ifndef __CMultiLanguage_FWD_DEFINED__
@@ -175,7 +175,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(IMLangStringBufW *This,long cchOffset,long cchDelete);
     END_INTERFACE
   } IMLangStringBufWVtbl;
-  interface IMLangStringBufW {
+  struct IMLangStringBufW {
     CONST_VTBL struct IMLangStringBufWVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -226,7 +226,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(IMLangStringBufA *This,long cchOffset,long cchDelete);
     END_INTERFACE
   } IMLangStringBufAVtbl;
-  interface IMLangStringBufA {
+  struct IMLangStringBufA {
     CONST_VTBL struct IMLangStringBufAVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -275,7 +275,7 @@ extern "C"{
       HRESULT (WINAPI *GetMLStr)(IMLangString *This,long lSrcPos,long lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,long *plDestPos,long *plDestLen);
     END_INTERFACE
   } IMLangStringVtbl;
-  interface IMLangString {
+  struct IMLangString {
     CONST_VTBL struct IMLangStringVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -333,7 +333,7 @@ extern "C"{
       HRESULT (WINAPI *GetLocale)(IMLangStringWStr *This,long lSrcPos,long lSrcMaxLen,LCID *plocale,long *plLocalePos,long *plLocaleLen);
     END_INTERFACE
   } IMLangStringWStrVtbl;
-  interface IMLangStringWStr {
+  struct IMLangStringWStr {
     CONST_VTBL struct IMLangStringWStrVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -407,7 +407,7 @@ extern "C"{
       HRESULT (WINAPI *GetLocale)(IMLangStringAStr *This,long lSrcPos,long lSrcMaxLen,LCID *plocale,long *plLocalePos,long *plLocaleLen);
     END_INTERFACE
   } IMLangStringAStrVtbl;
-  interface IMLangStringAStr {
+  struct IMLangStringAStr {
     CONST_VTBL struct IMLangStringAStrVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -472,7 +472,7 @@ extern "C"{
       HRESULT (WINAPI *BreakLineA)(IMLangLineBreakConsole *This,LCID locale,UINT uCodePage,const CHAR *pszSrc,long cchSrc,long cMaxColumns,long *pcchLine,long *pcchSkip);
     END_INTERFACE
   } IMLangLineBreakConsoleVtbl;
-  interface IMLangLineBreakConsole {
+  struct IMLangLineBreakConsole {
     CONST_VTBL struct IMLangLineBreakConsoleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -549,7 +549,7 @@ extern "C"{
       HRESULT (WINAPI *Skip)(IEnumCodePage *This,ULONG celt);
     END_INTERFACE
   } IEnumCodePageVtbl;
-  interface IEnumCodePage {
+  struct IEnumCodePage {
     CONST_VTBL struct IEnumCodePageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -607,7 +607,7 @@ extern "C"{
       HRESULT (WINAPI *Skip)(IEnumRfc1766 *This,ULONG celt);
     END_INTERFACE
   } IEnumRfc1766Vtbl;
-  interface IEnumRfc1766 {
+  struct IEnumRfc1766 {
     CONST_VTBL struct IEnumRfc1766Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -681,7 +681,7 @@ extern "C"{
       HRESULT (WINAPI *Skip)(IEnumScript *This,ULONG celt);
     END_INTERFACE
   } IEnumScriptVtbl;
-  interface IEnumScript {
+  struct IEnumScript {
     CONST_VTBL struct IEnumScriptVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -745,7 +745,7 @@ extern "C"{
       HRESULT (WINAPI *DoConversionFromUnicode)(IMLangConvertCharset *This,WCHAR *pSrcStr,UINT *pcSrcSize,CHAR *pDstStr,UINT *pcDstSize);
     END_INTERFACE
   } IMLangConvertCharsetVtbl;
-  interface IMLangConvertCharset {
+  struct IMLangConvertCharset {
     CONST_VTBL struct IMLangConvertCharsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -829,7 +829,7 @@ extern "C"{
       HRESULT (WINAPI *CreateConvertCharset)(IMultiLanguage *This,UINT uiSrcCodePage,UINT uiDstCodePage,DWORD dwProperty,IMLangConvertCharset **ppMLangConvertCharset);
     END_INTERFACE
   } IMultiLanguageVtbl;
-  interface IMultiLanguage {
+  struct IMultiLanguage {
     CONST_VTBL struct IMultiLanguageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -981,7 +981,7 @@ extern "C"{
       HRESULT (WINAPI *ValidateCodePageEx)(IMultiLanguage2 *This,UINT uiCodePage,HWND hwnd,DWORD dwfIODControl);
     END_INTERFACE
   } IMultiLanguage2Vtbl;
-  interface IMultiLanguage2 {
+  struct IMultiLanguage2 {
     CONST_VTBL struct IMultiLanguage2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1098,7 +1098,7 @@ extern "C"{
       HRESULT (WINAPI *CodePagesToCodePage)(IMLangCodePages *This,DWORD dwCodePages,UINT uDefaultCodePage,UINT *puCodePage);
     END_INTERFACE
   } IMLangCodePagesVtbl;
-  interface IMLangCodePages {
+  struct IMLangCodePages {
     CONST_VTBL struct IMLangCodePagesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1150,7 +1150,7 @@ extern "C"{
       HRESULT (WINAPI *ResetFontMapping)(IMLangFontLink *This);
     END_INTERFACE
   } IMLangFontLinkVtbl;
-  interface IMLangFontLink {
+  struct IMLangFontLink {
     CONST_VTBL struct IMLangFontLinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1217,7 +1217,7 @@ extern "C"{
       HRESULT (WINAPI *CodePageToScriptID)(IMLangFontLink2 *This,UINT uiCodePage,SCRIPT_ID *pSid);
     END_INTERFACE
   } IMLangFontLink2Vtbl;
-  interface IMLangFontLink2 {
+  struct IMLangFontLink2 {
     CONST_VTBL struct IMLangFontLink2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1301,7 +1301,7 @@ extern "C"{
       HRESULT (WINAPI *DetectOutboundCodePageInIStream)(IMultiLanguage3 *This,DWORD dwFlags,IStream *pStrIn,UINT *puiPreferredCodePages,UINT nPreferredCodePages,UINT *puiDetectedCodePages,UINT *pnDetectedCodePages,WCHAR *lpSpecialChar);
     END_INTERFACE
   } IMultiLanguage3Vtbl;
-  interface IMultiLanguage3 {
+  struct IMultiLanguage3 {
     CONST_VTBL struct IMultiLanguage3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

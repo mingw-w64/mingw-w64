@@ -15,97 +15,97 @@
 
 #ifndef __ICatalog_FWD_DEFINED__
 #define __ICatalog_FWD_DEFINED__
-typedef interface ICatalog ICatalog;
+typedef struct ICatalog ICatalog;
 #endif
 
 #ifndef __ICellset_FWD_DEFINED__
 #define __ICellset_FWD_DEFINED__
-typedef interface ICellset ICellset;
+typedef struct ICellset ICellset;
 #endif
 
 #ifndef __Cell_FWD_DEFINED__
 #define __Cell_FWD_DEFINED__
-typedef interface Cell Cell;
+typedef struct Cell Cell;
 #endif
 
 #ifndef __Axis_FWD_DEFINED__
 #define __Axis_FWD_DEFINED__
-typedef interface Axis Axis;
+typedef struct Axis Axis;
 #endif
 
 #ifndef __Position_FWD_DEFINED__
 #define __Position_FWD_DEFINED__
-typedef interface Position Position;
+typedef struct Position Position;
 #endif
 
 #ifndef __Member_FWD_DEFINED__
 #define __Member_FWD_DEFINED__
-typedef interface Member Member;
+typedef struct Member Member;
 #endif
 
 #ifndef __Level_FWD_DEFINED__
 #define __Level_FWD_DEFINED__
-typedef interface Level Level;
+typedef struct Level Level;
 #endif
 
 #ifndef __CubeDef25_FWD_DEFINED__
 #define __CubeDef25_FWD_DEFINED__
-typedef interface CubeDef25 CubeDef25;
+typedef struct CubeDef25 CubeDef25;
 #endif
 
 #ifndef __CubeDef_FWD_DEFINED__
 #define __CubeDef_FWD_DEFINED__
-typedef interface CubeDef CubeDef;
+typedef struct CubeDef CubeDef;
 #endif
 
 #ifndef __Dimension_FWD_DEFINED__
 #define __Dimension_FWD_DEFINED__
-typedef interface Dimension Dimension;
+typedef struct Dimension Dimension;
 #endif
 
 #ifndef __Hierarchy_FWD_DEFINED__
 #define __Hierarchy_FWD_DEFINED__
-typedef interface Hierarchy Hierarchy;
+typedef struct Hierarchy Hierarchy;
 #endif
 
 #ifndef __MD_Collection_FWD_DEFINED__
 #define __MD_Collection_FWD_DEFINED__
-typedef interface MD_Collection MD_Collection;
+typedef struct MD_Collection MD_Collection;
 #endif
 
 #ifndef __Members_FWD_DEFINED__
 #define __Members_FWD_DEFINED__
-typedef interface Members Members;
+typedef struct Members Members;
 #endif
 
 #ifndef __Levels_FWD_DEFINED__
 #define __Levels_FWD_DEFINED__
-typedef interface Levels Levels;
+typedef struct Levels Levels;
 #endif
 
 #ifndef __Axes_FWD_DEFINED__
 #define __Axes_FWD_DEFINED__
-typedef interface Axes Axes;
+typedef struct Axes Axes;
 #endif
 
 #ifndef __Positions_FWD_DEFINED__
 #define __Positions_FWD_DEFINED__
-typedef interface Positions Positions;
+typedef struct Positions Positions;
 #endif
 
 #ifndef __Hierarchies_FWD_DEFINED__
 #define __Hierarchies_FWD_DEFINED__
-typedef interface Hierarchies Hierarchies;
+typedef struct Hierarchies Hierarchies;
 #endif
 
 #ifndef __Dimensions_FWD_DEFINED__
 #define __Dimensions_FWD_DEFINED__
-typedef interface Dimensions Dimensions;
+typedef struct Dimensions Dimensions;
 #endif
 
 #ifndef __CubeDefs_FWD_DEFINED__
 #define __CubeDefs_FWD_DEFINED__
-typedef interface CubeDefs CubeDefs;
+typedef struct CubeDefs CubeDefs;
 #endif
 
 #ifndef __Catalog_FWD_DEFINED__
@@ -181,7 +181,7 @@ extern "C"{
       HRESULT (WINAPI *get_CubeDefs)(ICatalog *This,CubeDefs **ppvObject);
     END_INTERFACE
   } ICatalogVtbl;
-  interface ICatalog {
+  struct ICatalog {
     CONST_VTBL struct ICatalogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -257,7 +257,7 @@ extern "C"{
       HRESULT (WINAPI *get_Properties)(ICellset *This,Properties **ppvObject);
     END_INTERFACE
   } ICellsetVtbl;
-  interface ICellset {
+  struct ICellset {
     CONST_VTBL struct ICellsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -344,7 +344,7 @@ extern "C"{
       HRESULT (WINAPI *get_Ordinal)(Cell *This,long *pl);
     END_INTERFACE
   } CellVtbl;
-  interface Cell {
+  struct Cell {
     CONST_VTBL struct CellVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -407,7 +407,7 @@ extern "C"{
       HRESULT (WINAPI *get_Properties)(Axis *This,Properties **ppvObject);
     END_INTERFACE
   } AxisVtbl;
-  interface Axis {
+  struct Axis {
     CONST_VTBL struct AxisVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -457,7 +457,7 @@ extern "C"{
       HRESULT (WINAPI *get_Members)(Position *This,Members **ppvObject);
     END_INTERFACE
   } PositionVtbl;
-  interface Position {
+  struct Position {
     CONST_VTBL struct PositionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -523,7 +523,7 @@ extern "C"{
       HRESULT (WINAPI *get_Children)(Member *This,Members **ppvObject);
     END_INTERFACE
   } MemberVtbl;
-  interface Member {
+  struct Member {
     CONST_VTBL struct MemberVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -610,7 +610,7 @@ extern "C"{
       HRESULT (WINAPI *get_Members)(Level *This,Members **ppvObject);
     END_INTERFACE
   } LevelVtbl;
-  interface Level {
+  struct Level {
     CONST_VTBL struct LevelVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -673,7 +673,7 @@ extern "C"{
       HRESULT (WINAPI *get_Dimensions)(CubeDef25 *This,Dimensions **ppvObject);
     END_INTERFACE
   } CubeDef25Vtbl;
-  interface CubeDef25 {
+  struct CubeDef25 {
     CONST_VTBL struct CubeDef25Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -726,7 +726,7 @@ extern "C"{
       HRESULT (WINAPI *GetSchemaObject)(CubeDef *This,SchemaObjectTypeEnum eObjType,BSTR bsUniqueName,IDispatch **ppObj);
     END_INTERFACE
   } CubeDefVtbl;
-  interface CubeDef {
+  struct CubeDef {
     CONST_VTBL struct CubeDefVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -777,7 +777,7 @@ extern "C"{
       HRESULT (WINAPI *get_Hierarchies)(Dimension *This,Hierarchies **ppvObject);
     END_INTERFACE
   } DimensionVtbl;
-  interface Dimension {
+  struct Dimension {
     CONST_VTBL struct DimensionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -836,7 +836,7 @@ extern "C"{
       HRESULT (WINAPI *get_Levels)(Hierarchy *This,Levels **ppvObject);
     END_INTERFACE
   } HierarchyVtbl;
-  interface Hierarchy {
+  struct Hierarchy {
     CONST_VTBL struct HierarchyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -891,7 +891,7 @@ extern "C"{
       HRESULT (WINAPI *get_Count)(MD_Collection *This,long *c);
     END_INTERFACE
   } MD_CollectionVtbl;
-  interface MD_Collection {
+  struct MD_Collection {
     CONST_VTBL struct MD_CollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -939,7 +939,7 @@ extern "C"{
       HRESULT (WINAPI *get_Item)(Members *This,VARIANT Index,Member **ppvObject);
     END_INTERFACE
   } MembersVtbl;
-  interface Members {
+  struct Members {
     CONST_VTBL struct MembersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -984,7 +984,7 @@ extern "C"{
       HRESULT (WINAPI *get_Item)(Levels *This,VARIANT Index,Level **ppvObject);
     END_INTERFACE
   } LevelsVtbl;
-  interface Levels {
+  struct Levels {
     CONST_VTBL struct LevelsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1029,7 +1029,7 @@ extern "C"{
       HRESULT (WINAPI *get_Item)(Axes *This,VARIANT Index,Axis **ppvObject);
     END_INTERFACE
   } AxesVtbl;
-  interface Axes {
+  struct Axes {
     CONST_VTBL struct AxesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1074,7 +1074,7 @@ extern "C"{
       HRESULT (WINAPI *get_Item)(Positions *This,VARIANT Index,Position **ppvObject);
     END_INTERFACE
   } PositionsVtbl;
-  interface Positions {
+  struct Positions {
     CONST_VTBL struct PositionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1119,7 +1119,7 @@ extern "C"{
       HRESULT (WINAPI *get_Item)(Hierarchies *This,VARIANT Index,Hierarchy **ppvObject);
     END_INTERFACE
   } HierarchiesVtbl;
-  interface Hierarchies {
+  struct Hierarchies {
     CONST_VTBL struct HierarchiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1164,7 +1164,7 @@ extern "C"{
       HRESULT (WINAPI *get_Item)(Dimensions *This,VARIANT Index,Dimension **ppvObject);
     END_INTERFACE
   } DimensionsVtbl;
-  interface Dimensions {
+  struct Dimensions {
     CONST_VTBL struct DimensionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1209,7 +1209,7 @@ extern "C"{
       HRESULT (WINAPI *get_Item)(CubeDefs *This,VARIANT Index,CubeDef **ppvObject);
     END_INTERFACE
   } CubeDefsVtbl;
-  interface CubeDefs {
+  struct CubeDefs {
     CONST_VTBL struct CubeDefsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

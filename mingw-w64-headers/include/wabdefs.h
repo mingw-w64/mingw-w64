@@ -434,9 +434,9 @@ extern "C" {
 #define DECLARE_MAPI_INTERFACE(iface) DECLARE_INTERFACE(iface)
 #define DECLARE_MAPI_INTERFACE_(iface,baseiface) DECLARE_INTERFACE_(iface,baseiface)
 #ifdef __cplusplus
-#define DECLARE_MAPI_INTERFACE_PTR(iface,piface) interface iface; typedef iface *piface
+#define DECLARE_MAPI_INTERFACE_PTR(iface,piface) struct iface; typedef iface *piface
 #else
-#define DECLARE_MAPI_INTERFACE_PTR(iface,piface) typedef interface iface iface,*piface
+#define DECLARE_MAPI_INTERFACE_PTR(iface,piface) typedef struct iface iface,*piface
 #endif
 #endif
 

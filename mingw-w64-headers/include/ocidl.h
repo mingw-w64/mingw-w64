@@ -24,197 +24,197 @@
 
 #ifndef __IEnumConnections_FWD_DEFINED__
 #define __IEnumConnections_FWD_DEFINED__
-typedef interface IEnumConnections IEnumConnections;
+typedef struct IEnumConnections IEnumConnections;
 #endif
 
 #ifndef __IConnectionPoint_FWD_DEFINED__
 #define __IConnectionPoint_FWD_DEFINED__
-typedef interface IConnectionPoint IConnectionPoint;
+typedef struct IConnectionPoint IConnectionPoint;
 #endif
 
 #ifndef __IEnumConnectionPoints_FWD_DEFINED__
 #define __IEnumConnectionPoints_FWD_DEFINED__
-typedef interface IEnumConnectionPoints IEnumConnectionPoints;
+typedef struct IEnumConnectionPoints IEnumConnectionPoints;
 #endif
 
 #ifndef __IConnectionPointContainer_FWD_DEFINED__
 #define __IConnectionPointContainer_FWD_DEFINED__
-typedef interface IConnectionPointContainer IConnectionPointContainer;
+typedef struct IConnectionPointContainer IConnectionPointContainer;
 #endif
 
 #ifndef __IClassFactory2_FWD_DEFINED__
 #define __IClassFactory2_FWD_DEFINED__
-typedef interface IClassFactory2 IClassFactory2;
+typedef struct IClassFactory2 IClassFactory2;
 #endif
 
 #ifndef __IProvideClassInfo_FWD_DEFINED__
 #define __IProvideClassInfo_FWD_DEFINED__
-typedef interface IProvideClassInfo IProvideClassInfo;
+typedef struct IProvideClassInfo IProvideClassInfo;
 #endif
 
 #ifndef __IProvideClassInfo2_FWD_DEFINED__
 #define __IProvideClassInfo2_FWD_DEFINED__
-typedef interface IProvideClassInfo2 IProvideClassInfo2;
+typedef struct IProvideClassInfo2 IProvideClassInfo2;
 #endif
 
 #ifndef __IProvideMultipleClassInfo_FWD_DEFINED__
 #define __IProvideMultipleClassInfo_FWD_DEFINED__
-typedef interface IProvideMultipleClassInfo IProvideMultipleClassInfo;
+typedef struct IProvideMultipleClassInfo IProvideMultipleClassInfo;
 #endif
 
 #ifndef __IOleControl_FWD_DEFINED__
 #define __IOleControl_FWD_DEFINED__
-typedef interface IOleControl IOleControl;
+typedef struct IOleControl IOleControl;
 #endif
 
 #ifndef __IOleControlSite_FWD_DEFINED__
 #define __IOleControlSite_FWD_DEFINED__
-typedef interface IOleControlSite IOleControlSite;
+typedef struct IOleControlSite IOleControlSite;
 #endif
 
 #ifndef __IPropertyPage_FWD_DEFINED__
 #define __IPropertyPage_FWD_DEFINED__
-typedef interface IPropertyPage IPropertyPage;
+typedef struct IPropertyPage IPropertyPage;
 #endif
 
 #ifndef __IPropertyPage2_FWD_DEFINED__
 #define __IPropertyPage2_FWD_DEFINED__
-typedef interface IPropertyPage2 IPropertyPage2;
+typedef struct IPropertyPage2 IPropertyPage2;
 #endif
 
 #ifndef __IPropertyPageSite_FWD_DEFINED__
 #define __IPropertyPageSite_FWD_DEFINED__
-typedef interface IPropertyPageSite IPropertyPageSite;
+typedef struct IPropertyPageSite IPropertyPageSite;
 #endif
 
 #ifndef __IPropertyNotifySink_FWD_DEFINED__
 #define __IPropertyNotifySink_FWD_DEFINED__
-typedef interface IPropertyNotifySink IPropertyNotifySink;
+typedef struct IPropertyNotifySink IPropertyNotifySink;
 #endif
 
 #ifndef __ISpecifyPropertyPages_FWD_DEFINED__
 #define __ISpecifyPropertyPages_FWD_DEFINED__
-typedef interface ISpecifyPropertyPages ISpecifyPropertyPages;
+typedef struct ISpecifyPropertyPages ISpecifyPropertyPages;
 #endif
 
 #ifndef __IPersistMemory_FWD_DEFINED__
 #define __IPersistMemory_FWD_DEFINED__
-typedef interface IPersistMemory IPersistMemory;
+typedef struct IPersistMemory IPersistMemory;
 #endif
 
 #ifndef __IPersistStreamInit_FWD_DEFINED__
 #define __IPersistStreamInit_FWD_DEFINED__
-typedef interface IPersistStreamInit IPersistStreamInit;
+typedef struct IPersistStreamInit IPersistStreamInit;
 #endif
 
 #ifndef __IPersistPropertyBag_FWD_DEFINED__
 #define __IPersistPropertyBag_FWD_DEFINED__
-typedef interface IPersistPropertyBag IPersistPropertyBag;
+typedef struct IPersistPropertyBag IPersistPropertyBag;
 #endif
 
 #ifndef __ISimpleFrameSite_FWD_DEFINED__
 #define __ISimpleFrameSite_FWD_DEFINED__
-typedef interface ISimpleFrameSite ISimpleFrameSite;
+typedef struct ISimpleFrameSite ISimpleFrameSite;
 #endif
 
 #ifndef __IFont_FWD_DEFINED__
 #define __IFont_FWD_DEFINED__
-typedef interface IFont IFont;
+typedef struct IFont IFont;
 #endif
 
 #ifndef __IPicture_FWD_DEFINED__
 #define __IPicture_FWD_DEFINED__
-typedef interface IPicture IPicture;
+typedef struct IPicture IPicture;
 #endif
 
 #ifndef __IFontEventsDisp_FWD_DEFINED__
 #define __IFontEventsDisp_FWD_DEFINED__
-typedef interface IFontEventsDisp IFontEventsDisp;
+typedef struct IFontEventsDisp IFontEventsDisp;
 #endif
 
 #ifndef __IFontDisp_FWD_DEFINED__
 #define __IFontDisp_FWD_DEFINED__
-typedef interface IFontDisp IFontDisp;
+typedef struct IFontDisp IFontDisp;
 #endif
 
 #ifndef __IPictureDisp_FWD_DEFINED__
 #define __IPictureDisp_FWD_DEFINED__
-typedef interface IPictureDisp IPictureDisp;
+typedef struct IPictureDisp IPictureDisp;
 #endif
 
 #ifndef __IOleInPlaceObjectWindowless_FWD_DEFINED__
 #define __IOleInPlaceObjectWindowless_FWD_DEFINED__
-typedef interface IOleInPlaceObjectWindowless IOleInPlaceObjectWindowless;
+typedef struct IOleInPlaceObjectWindowless IOleInPlaceObjectWindowless;
 #endif
 
 #ifndef __IOleInPlaceSiteEx_FWD_DEFINED__
 #define __IOleInPlaceSiteEx_FWD_DEFINED__
-typedef interface IOleInPlaceSiteEx IOleInPlaceSiteEx;
+typedef struct IOleInPlaceSiteEx IOleInPlaceSiteEx;
 #endif
 
 #ifndef __IOleInPlaceSiteWindowless_FWD_DEFINED__
 #define __IOleInPlaceSiteWindowless_FWD_DEFINED__
-typedef interface IOleInPlaceSiteWindowless IOleInPlaceSiteWindowless;
+typedef struct IOleInPlaceSiteWindowless IOleInPlaceSiteWindowless;
 #endif
 
 #ifndef __IViewObjectEx_FWD_DEFINED__
 #define __IViewObjectEx_FWD_DEFINED__
-typedef interface IViewObjectEx IViewObjectEx;
+typedef struct IViewObjectEx IViewObjectEx;
 #endif
 
 #ifndef __IOleUndoUnit_FWD_DEFINED__
 #define __IOleUndoUnit_FWD_DEFINED__
-typedef interface IOleUndoUnit IOleUndoUnit;
+typedef struct IOleUndoUnit IOleUndoUnit;
 #endif
 
 #ifndef __IOleParentUndoUnit_FWD_DEFINED__
 #define __IOleParentUndoUnit_FWD_DEFINED__
-typedef interface IOleParentUndoUnit IOleParentUndoUnit;
+typedef struct IOleParentUndoUnit IOleParentUndoUnit;
 #endif
 
 #ifndef __IEnumOleUndoUnits_FWD_DEFINED__
 #define __IEnumOleUndoUnits_FWD_DEFINED__
-typedef interface IEnumOleUndoUnits IEnumOleUndoUnits;
+typedef struct IEnumOleUndoUnits IEnumOleUndoUnits;
 #endif
 
 #ifndef __IOleUndoManager_FWD_DEFINED__
 #define __IOleUndoManager_FWD_DEFINED__
-typedef interface IOleUndoManager IOleUndoManager;
+typedef struct IOleUndoManager IOleUndoManager;
 #endif
 
 #ifndef __IPointerInactive_FWD_DEFINED__
 #define __IPointerInactive_FWD_DEFINED__
-typedef interface IPointerInactive IPointerInactive;
+typedef struct IPointerInactive IPointerInactive;
 #endif
 
 #ifndef __IObjectWithSite_FWD_DEFINED__
 #define __IObjectWithSite_FWD_DEFINED__
-typedef interface IObjectWithSite IObjectWithSite;
+typedef struct IObjectWithSite IObjectWithSite;
 #endif
 
 #ifndef __IPerPropertyBrowsing_FWD_DEFINED__
 #define __IPerPropertyBrowsing_FWD_DEFINED__
-typedef interface IPerPropertyBrowsing IPerPropertyBrowsing;
+typedef struct IPerPropertyBrowsing IPerPropertyBrowsing;
 #endif
 
 #ifndef __IPropertyBag2_FWD_DEFINED__
 #define __IPropertyBag2_FWD_DEFINED__
-typedef interface IPropertyBag2 IPropertyBag2;
+typedef struct IPropertyBag2 IPropertyBag2;
 #endif
 
 #ifndef __IPersistPropertyBag2_FWD_DEFINED__
 #define __IPersistPropertyBag2_FWD_DEFINED__
-typedef interface IPersistPropertyBag2 IPersistPropertyBag2;
+typedef struct IPersistPropertyBag2 IPersistPropertyBag2;
 #endif
 
 #ifndef __IAdviseSinkEx_FWD_DEFINED__
 #define __IAdviseSinkEx_FWD_DEFINED__
-typedef interface IAdviseSinkEx IAdviseSinkEx;
+typedef struct IAdviseSinkEx IAdviseSinkEx;
 #endif
 
 #ifndef __IQuickActivate_FWD_DEFINED__
 #define __IQuickActivate_FWD_DEFINED__
-typedef interface IQuickActivate IQuickActivate;
+typedef struct IQuickActivate IQuickActivate;
 #endif
 
 #include "oleidl.h"
@@ -279,7 +279,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumConnections *This,IEnumConnections **ppEnum);
     END_INTERFACE
   } IEnumConnectionsVtbl;
-  interface IEnumConnections {
+  struct IEnumConnections {
     CONST_VTBL struct IEnumConnectionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -330,7 +330,7 @@ extern "C" {
       HRESULT (WINAPI *EnumConnections)(IConnectionPoint *This,IEnumConnections **ppEnum);
     END_INTERFACE
   } IConnectionPointVtbl;
-  interface IConnectionPoint {
+  struct IConnectionPoint {
     CONST_VTBL struct IConnectionPointVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -382,7 +382,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumConnectionPoints *This,IEnumConnectionPoints **ppEnum);
     END_INTERFACE
   } IEnumConnectionPointsVtbl;
-  interface IEnumConnectionPoints {
+  struct IEnumConnectionPoints {
     CONST_VTBL struct IEnumConnectionPointsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -427,7 +427,7 @@ extern "C" {
       HRESULT (WINAPI *FindConnectionPoint)(IConnectionPointContainer *This,REFIID riid,IConnectionPoint **ppCP);
     END_INTERFACE
   } IConnectionPointContainerVtbl;
-  interface IConnectionPointContainer {
+  struct IConnectionPointContainer {
     CONST_VTBL struct IConnectionPointContainerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -477,7 +477,7 @@ extern "C" {
       HRESULT (WINAPI *CreateInstanceLic)(IClassFactory2 *This,IUnknown *pUnkOuter,IUnknown *pUnkReserved,REFIID riid,BSTR bstrKey,PVOID *ppvObj);
     END_INTERFACE
   } IClassFactory2Vtbl;
-  interface IClassFactory2 {
+  struct IClassFactory2 {
     CONST_VTBL struct IClassFactory2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -518,7 +518,7 @@ extern "C" {
       HRESULT (WINAPI *GetClassInfo)(IProvideClassInfo *This,ITypeInfo **ppTI);
     END_INTERFACE
   } IProvideClassInfoVtbl;
-  interface IProvideClassInfo {
+  struct IProvideClassInfo {
     CONST_VTBL struct IProvideClassInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -556,7 +556,7 @@ extern "C" {
       HRESULT (WINAPI *GetGUID)(IProvideClassInfo2 *This,DWORD dwGuidKind,GUID *pGUID);
     END_INTERFACE
   } IProvideClassInfo2Vtbl;
-  interface IProvideClassInfo2 {
+  struct IProvideClassInfo2 {
     CONST_VTBL struct IProvideClassInfo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -600,7 +600,7 @@ extern "C" {
       HRESULT (WINAPI *GetInfoOfIndex)(IProvideMultipleClassInfo *This,ULONG iti,DWORD dwFlags,ITypeInfo **pptiCoClass,DWORD *pdwTIFlags,ULONG *pcdispidReserved,IID *piidPrimary,IID *piidSource);
     END_INTERFACE
   } IProvideMultipleClassInfoVtbl;
-  interface IProvideMultipleClassInfo {
+  struct IProvideMultipleClassInfo {
     CONST_VTBL struct IProvideMultipleClassInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -656,7 +656,7 @@ extern "C" {
       HRESULT (WINAPI *FreezeEvents)(IOleControl *This,WINBOOL bFreeze);
     END_INTERFACE
   } IOleControlVtbl;
-  interface IOleControl {
+  struct IOleControl {
     CONST_VTBL struct IOleControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -722,7 +722,7 @@ extern "C" {
       HRESULT (WINAPI *ShowPropertyFrame)(IOleControlSite *This);
     END_INTERFACE
   } IOleControlSiteVtbl;
-  interface IOleControlSite {
+  struct IOleControlSite {
     CONST_VTBL struct IOleControlSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -804,7 +804,7 @@ extern "C" {
       HRESULT (WINAPI *TranslateAccelerator)(IPropertyPage *This,MSG *pMsg);
     END_INTERFACE
   } IPropertyPageVtbl;
-  interface IPropertyPage {
+  struct IPropertyPage {
     CONST_VTBL struct IPropertyPageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -878,7 +878,7 @@ extern "C" {
       HRESULT (WINAPI *EditProperty)(IPropertyPage2 *This,DISPID dispID);
     END_INTERFACE
   } IPropertyPage2Vtbl;
-  interface IPropertyPage2 {
+  struct IPropertyPage2 {
     CONST_VTBL struct IPropertyPage2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -932,7 +932,7 @@ extern "C" {
       HRESULT (WINAPI *TranslateAccelerator)(IPropertyPageSite *This,MSG *pMsg);
     END_INTERFACE
   } IPropertyPageSiteVtbl;
-  interface IPropertyPageSite {
+  struct IPropertyPageSite {
     CONST_VTBL struct IPropertyPageSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -976,7 +976,7 @@ extern "C" {
       HRESULT (WINAPI *OnRequestEdit)(IPropertyNotifySink *This,DISPID dispID);
     END_INTERFACE
   } IPropertyNotifySinkVtbl;
-  interface IPropertyNotifySink {
+  struct IPropertyNotifySink {
     CONST_VTBL struct IPropertyNotifySinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1019,7 +1019,7 @@ extern "C" {
       HRESULT (WINAPI *GetPages)(ISpecifyPropertyPages *This,CAUUID *pPages);
     END_INTERFACE
   } ISpecifyPropertyPagesVtbl;
-  interface ISpecifyPropertyPages {
+  struct ISpecifyPropertyPages {
     CONST_VTBL struct ISpecifyPropertyPagesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1061,7 +1061,7 @@ extern "C" {
       HRESULT (WINAPI *InitNew)(IPersistMemory *This);
     END_INTERFACE
   } IPersistMemoryVtbl;
-  interface IPersistMemory {
+  struct IPersistMemory {
     CONST_VTBL struct IPersistMemoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1116,7 +1116,7 @@ extern "C" {
       HRESULT (WINAPI *InitNew)(IPersistStreamInit *This);
     END_INTERFACE
   } IPersistStreamInitVtbl;
-  interface IPersistStreamInit {
+  struct IPersistStreamInit {
     CONST_VTBL struct IPersistStreamInitVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1167,7 +1167,7 @@ extern "C" {
       HRESULT (WINAPI *Save)(IPersistPropertyBag *This,IPropertyBag *pPropBag,WINBOOL fClearDirty,WINBOOL fSaveAllProperties);
     END_INTERFACE
   } IPersistPropertyBagVtbl;
-  interface IPersistPropertyBag {
+  struct IPersistPropertyBag {
     CONST_VTBL struct IPersistPropertyBagVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1209,7 +1209,7 @@ extern "C" {
       HRESULT (WINAPI *PostMessageFilter)(ISimpleFrameSite *This,HWND hWnd,UINT msg,WPARAM wp,LPARAM lp,LRESULT *plResult,DWORD dwCookie);
     END_INTERFACE
   } ISimpleFrameSiteVtbl;
-  interface ISimpleFrameSite {
+  struct ISimpleFrameSite {
     CONST_VTBL struct ISimpleFrameSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1298,7 +1298,7 @@ extern "C" {
       HRESULT (WINAPI *SetHdc)(IFont *This,HDC hDC);
     END_INTERFACE
   } IFontVtbl;
-  interface IFont {
+  struct IFont {
     CONST_VTBL struct IFontVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1436,7 +1436,7 @@ extern "C" {
       HRESULT (WINAPI *get_Attributes)(IPicture *This,DWORD *pDwAttr);
     END_INTERFACE
   } IPictureVtbl;
-  interface IPicture {
+  struct IPicture {
     CONST_VTBL struct IPictureVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1509,7 +1509,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(IFontEventsDisp *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IFontEventsDispVtbl;
-  interface IFontEventsDisp {
+  struct IFontEventsDisp {
     CONST_VTBL struct IFontEventsDispVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1544,7 +1544,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(IFontDisp *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IFontDispVtbl;
-  interface IFontDisp {
+  struct IFontDisp {
     CONST_VTBL struct IFontDispVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1579,7 +1579,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(IPictureDisp *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IPictureDispVtbl;
-  interface IPictureDisp {
+  struct IPictureDisp {
     CONST_VTBL struct IPictureDispVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1621,7 +1621,7 @@ extern "C" {
       HRESULT (WINAPI *GetDropTarget)(IOleInPlaceObjectWindowless *This,IDropTarget **ppDropTarget);
     END_INTERFACE
   } IOleInPlaceObjectWindowlessVtbl;
-  interface IOleInPlaceObjectWindowless {
+  struct IOleInPlaceObjectWindowless {
     CONST_VTBL struct IOleInPlaceObjectWindowlessVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1683,7 +1683,7 @@ extern "C" {
       HRESULT (WINAPI *RequestUIActivate)(IOleInPlaceSiteEx *This);
     END_INTERFACE
   } IOleInPlaceSiteExVtbl;
-  interface IOleInPlaceSiteEx {
+  struct IOleInPlaceSiteEx {
     CONST_VTBL struct IOleInPlaceSiteExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1775,7 +1775,7 @@ extern "C" {
       HRESULT (WINAPI *OnDefWindowMessage)(IOleInPlaceSiteWindowless *This,UINT msg,WPARAM wParam,LPARAM lParam,LRESULT *plResult);
     END_INTERFACE
   } IOleInPlaceSiteWindowlessVtbl;
-  interface IOleInPlaceSiteWindowless {
+  struct IOleInPlaceSiteWindowless {
     CONST_VTBL struct IOleInPlaceSiteWindowlessVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1903,7 +1903,7 @@ extern "C" {
       HRESULT (WINAPI *GetNaturalExtent)(IViewObjectEx *This,DWORD dwAspect,LONG lindex,DVTARGETDEVICE *ptd,HDC hicTargetDev,DVEXTENTINFO *pExtentInfo,LPSIZEL pSizel);
     END_INTERFACE
   } IViewObjectExVtbl;
-  interface IViewObjectEx {
+  struct IViewObjectEx {
     CONST_VTBL struct IViewObjectExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1961,7 +1961,7 @@ extern "C" {
       HRESULT (WINAPI *OnNextAdd)(IOleUndoUnit *This);
     END_INTERFACE
   } IOleUndoUnitVtbl;
-  interface IOleUndoUnit {
+  struct IOleUndoUnit {
     CONST_VTBL struct IOleUndoUnitVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2015,7 +2015,7 @@ extern "C" {
       HRESULT (WINAPI *GetParentState)(IOleParentUndoUnit *This,DWORD *pdwState);
     END_INTERFACE
   } IOleParentUndoUnitVtbl;
-  interface IOleParentUndoUnit {
+  struct IOleParentUndoUnit {
     CONST_VTBL struct IOleParentUndoUnitVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2070,7 +2070,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumOleUndoUnits *This,IEnumOleUndoUnits **ppEnum);
     END_INTERFACE
   } IEnumOleUndoUnitsVtbl;
-  interface IEnumOleUndoUnits {
+  struct IEnumOleUndoUnits {
     CONST_VTBL struct IEnumOleUndoUnitsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2135,7 +2135,7 @@ extern "C" {
       HRESULT (WINAPI *Enable)(IOleUndoManager *This,WINBOOL fEnable);
     END_INTERFACE
   } IOleUndoManagerVtbl;
-  interface IOleUndoManager {
+  struct IOleUndoManager {
     CONST_VTBL struct IOleUndoManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2209,7 +2209,7 @@ extern "C" {
       HRESULT (WINAPI *OnInactiveSetCursor)(IPointerInactive *This,LPCRECT pRectBounds,LONG x,LONG y,DWORD dwMouseMsg,WINBOOL fSetAlways);
     END_INTERFACE
   } IPointerInactiveVtbl;
-  interface IPointerInactive {
+  struct IPointerInactive {
     CONST_VTBL struct IPointerInactiveVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2250,7 +2250,7 @@ extern "C" {
       HRESULT (WINAPI *GetSite)(IObjectWithSite *This,REFIID riid,void **ppvSite);
     END_INTERFACE
   } IObjectWithSiteVtbl;
-  interface IObjectWithSite {
+  struct IObjectWithSite {
     CONST_VTBL struct IObjectWithSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2306,7 +2306,7 @@ extern "C" {
       HRESULT (WINAPI *GetPredefinedValue)(IPerPropertyBrowsing *This,DISPID dispID,DWORD dwCookie,VARIANT *pVarOut);
     END_INTERFACE
   } IPerPropertyBrowsingVtbl;
-  interface IPerPropertyBrowsing {
+  struct IPerPropertyBrowsing {
     CONST_VTBL struct IPerPropertyBrowsingVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2370,7 +2370,7 @@ extern "C" {
       HRESULT (WINAPI *LoadObject)(IPropertyBag2 *This,LPCOLESTR pstrName,DWORD dwHint,IUnknown *pUnkObject,IErrorLog *pErrLog);
     END_INTERFACE
   } IPropertyBag2Vtbl;
-  interface IPropertyBag2 {
+  struct IPropertyBag2 {
     CONST_VTBL struct IPropertyBag2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2422,7 +2422,7 @@ extern "C" {
       HRESULT (WINAPI *IsDirty)(IPersistPropertyBag2 *This);
     END_INTERFACE
   } IPersistPropertyBag2Vtbl;
-  interface IPersistPropertyBag2 {
+  struct IPersistPropertyBag2 {
     CONST_VTBL struct IPersistPropertyBag2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2470,7 +2470,7 @@ extern "C" {
       void (WINAPI *OnViewStatusChange)(IAdviseSinkEx *This,DWORD dwViewStatus);
     END_INTERFACE
   } IAdviseSinkExVtbl;
-  interface IAdviseSinkEx {
+  struct IAdviseSinkEx {
     CONST_VTBL struct IAdviseSinkExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2547,7 +2547,7 @@ extern "C" {
       HRESULT (WINAPI *GetContentExtent)(IQuickActivate *This,LPSIZEL pSizel);
     END_INTERFACE
   } IQuickActivateVtbl;
-  interface IQuickActivate {
+  struct IQuickActivate {
     CONST_VTBL struct IQuickActivateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

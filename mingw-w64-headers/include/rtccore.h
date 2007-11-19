@@ -24,597 +24,597 @@
 
 #ifndef __IRTCClient_FWD_DEFINED__
 #define __IRTCClient_FWD_DEFINED__
-typedef interface IRTCClient IRTCClient;
+typedef struct IRTCClient IRTCClient;
 #endif
 
 #ifndef __IRTCClient2_FWD_DEFINED__
 #define __IRTCClient2_FWD_DEFINED__
-typedef interface IRTCClient2 IRTCClient2;
+typedef struct IRTCClient2 IRTCClient2;
 #endif
 
 #ifndef __IRTCClientPresence_FWD_DEFINED__
 #define __IRTCClientPresence_FWD_DEFINED__
-typedef interface IRTCClientPresence IRTCClientPresence;
+typedef struct IRTCClientPresence IRTCClientPresence;
 #endif
 
 #ifndef __IRTCClientPresence2_FWD_DEFINED__
 #define __IRTCClientPresence2_FWD_DEFINED__
-typedef interface IRTCClientPresence2 IRTCClientPresence2;
+typedef struct IRTCClientPresence2 IRTCClientPresence2;
 #endif
 
 #ifndef __IRTCClientProvisioning_FWD_DEFINED__
 #define __IRTCClientProvisioning_FWD_DEFINED__
-typedef interface IRTCClientProvisioning IRTCClientProvisioning;
+typedef struct IRTCClientProvisioning IRTCClientProvisioning;
 #endif
 
 #ifndef __IRTCClientProvisioning2_FWD_DEFINED__
 #define __IRTCClientProvisioning2_FWD_DEFINED__
-typedef interface IRTCClientProvisioning2 IRTCClientProvisioning2;
+typedef struct IRTCClientProvisioning2 IRTCClientProvisioning2;
 #endif
 
 #ifndef __IRTCProfile_FWD_DEFINED__
 #define __IRTCProfile_FWD_DEFINED__
-typedef interface IRTCProfile IRTCProfile;
+typedef struct IRTCProfile IRTCProfile;
 #endif
 
 #ifndef __IRTCProfile2_FWD_DEFINED__
 #define __IRTCProfile2_FWD_DEFINED__
-typedef interface IRTCProfile2 IRTCProfile2;
+typedef struct IRTCProfile2 IRTCProfile2;
 #endif
 
 #ifndef __IRTCSession_FWD_DEFINED__
 #define __IRTCSession_FWD_DEFINED__
-typedef interface IRTCSession IRTCSession;
+typedef struct IRTCSession IRTCSession;
 #endif
 
 #ifndef __IRTCSession2_FWD_DEFINED__
 #define __IRTCSession2_FWD_DEFINED__
-typedef interface IRTCSession2 IRTCSession2;
+typedef struct IRTCSession2 IRTCSession2;
 #endif
 
 #ifndef __IRTCSessionCallControl_FWD_DEFINED__
 #define __IRTCSessionCallControl_FWD_DEFINED__
-typedef interface IRTCSessionCallControl IRTCSessionCallControl;
+typedef struct IRTCSessionCallControl IRTCSessionCallControl;
 #endif
 
 #ifndef __IRTCParticipant_FWD_DEFINED__
 #define __IRTCParticipant_FWD_DEFINED__
-typedef interface IRTCParticipant IRTCParticipant;
+typedef struct IRTCParticipant IRTCParticipant;
 #endif
 
 #ifndef __IRTCRoamingEvent_FWD_DEFINED__
 #define __IRTCRoamingEvent_FWD_DEFINED__
-typedef interface IRTCRoamingEvent IRTCRoamingEvent;
+typedef struct IRTCRoamingEvent IRTCRoamingEvent;
 #endif
 
 #ifndef __IRTCProfileEvent_FWD_DEFINED__
 #define __IRTCProfileEvent_FWD_DEFINED__
-typedef interface IRTCProfileEvent IRTCProfileEvent;
+typedef struct IRTCProfileEvent IRTCProfileEvent;
 #endif
 
 #ifndef __IRTCProfileEvent2_FWD_DEFINED__
 #define __IRTCProfileEvent2_FWD_DEFINED__
-typedef interface IRTCProfileEvent2 IRTCProfileEvent2;
+typedef struct IRTCProfileEvent2 IRTCProfileEvent2;
 #endif
 
 #ifndef __IRTCClientEvent_FWD_DEFINED__
 #define __IRTCClientEvent_FWD_DEFINED__
-typedef interface IRTCClientEvent IRTCClientEvent;
+typedef struct IRTCClientEvent IRTCClientEvent;
 #endif
 
 #ifndef __IRTCRegistrationStateChangeEvent_FWD_DEFINED__
 #define __IRTCRegistrationStateChangeEvent_FWD_DEFINED__
-typedef interface IRTCRegistrationStateChangeEvent IRTCRegistrationStateChangeEvent;
+typedef struct IRTCRegistrationStateChangeEvent IRTCRegistrationStateChangeEvent;
 #endif
 
 #ifndef __IRTCSessionStateChangeEvent_FWD_DEFINED__
 #define __IRTCSessionStateChangeEvent_FWD_DEFINED__
-typedef interface IRTCSessionStateChangeEvent IRTCSessionStateChangeEvent;
+typedef struct IRTCSessionStateChangeEvent IRTCSessionStateChangeEvent;
 #endif
 
 #ifndef __IRTCSessionStateChangeEvent2_FWD_DEFINED__
 #define __IRTCSessionStateChangeEvent2_FWD_DEFINED__
-typedef interface IRTCSessionStateChangeEvent2 IRTCSessionStateChangeEvent2;
+typedef struct IRTCSessionStateChangeEvent2 IRTCSessionStateChangeEvent2;
 #endif
 
 #ifndef __IRTCSessionOperationCompleteEvent_FWD_DEFINED__
 #define __IRTCSessionOperationCompleteEvent_FWD_DEFINED__
-typedef interface IRTCSessionOperationCompleteEvent IRTCSessionOperationCompleteEvent;
+typedef struct IRTCSessionOperationCompleteEvent IRTCSessionOperationCompleteEvent;
 #endif
 
 #ifndef __IRTCSessionOperationCompleteEvent2_FWD_DEFINED__
 #define __IRTCSessionOperationCompleteEvent2_FWD_DEFINED__
-typedef interface IRTCSessionOperationCompleteEvent2 IRTCSessionOperationCompleteEvent2;
+typedef struct IRTCSessionOperationCompleteEvent2 IRTCSessionOperationCompleteEvent2;
 #endif
 
 #ifndef __IRTCParticipantStateChangeEvent_FWD_DEFINED__
 #define __IRTCParticipantStateChangeEvent_FWD_DEFINED__
-typedef interface IRTCParticipantStateChangeEvent IRTCParticipantStateChangeEvent;
+typedef struct IRTCParticipantStateChangeEvent IRTCParticipantStateChangeEvent;
 #endif
 
 #ifndef __IRTCMediaEvent_FWD_DEFINED__
 #define __IRTCMediaEvent_FWD_DEFINED__
-typedef interface IRTCMediaEvent IRTCMediaEvent;
+typedef struct IRTCMediaEvent IRTCMediaEvent;
 #endif
 
 #ifndef __IRTCIntensityEvent_FWD_DEFINED__
 #define __IRTCIntensityEvent_FWD_DEFINED__
-typedef interface IRTCIntensityEvent IRTCIntensityEvent;
+typedef struct IRTCIntensityEvent IRTCIntensityEvent;
 #endif
 
 #ifndef __IRTCMessagingEvent_FWD_DEFINED__
 #define __IRTCMessagingEvent_FWD_DEFINED__
-typedef interface IRTCMessagingEvent IRTCMessagingEvent;
+typedef struct IRTCMessagingEvent IRTCMessagingEvent;
 #endif
 
 #ifndef __IRTCBuddyEvent_FWD_DEFINED__
 #define __IRTCBuddyEvent_FWD_DEFINED__
-typedef interface IRTCBuddyEvent IRTCBuddyEvent;
+typedef struct IRTCBuddyEvent IRTCBuddyEvent;
 #endif
 
 #ifndef __IRTCBuddyEvent2_FWD_DEFINED__
 #define __IRTCBuddyEvent2_FWD_DEFINED__
-typedef interface IRTCBuddyEvent2 IRTCBuddyEvent2;
+typedef struct IRTCBuddyEvent2 IRTCBuddyEvent2;
 #endif
 
 #ifndef __IRTCWatcherEvent_FWD_DEFINED__
 #define __IRTCWatcherEvent_FWD_DEFINED__
-typedef interface IRTCWatcherEvent IRTCWatcherEvent;
+typedef struct IRTCWatcherEvent IRTCWatcherEvent;
 #endif
 
 #ifndef __IRTCWatcherEvent2_FWD_DEFINED__
 #define __IRTCWatcherEvent2_FWD_DEFINED__
-typedef interface IRTCWatcherEvent2 IRTCWatcherEvent2;
+typedef struct IRTCWatcherEvent2 IRTCWatcherEvent2;
 #endif
 
 #ifndef __IRTCBuddyGroupEvent_FWD_DEFINED__
 #define __IRTCBuddyGroupEvent_FWD_DEFINED__
-typedef interface IRTCBuddyGroupEvent IRTCBuddyGroupEvent;
+typedef struct IRTCBuddyGroupEvent IRTCBuddyGroupEvent;
 #endif
 
 #ifndef __IRTCInfoEvent_FWD_DEFINED__
 #define __IRTCInfoEvent_FWD_DEFINED__
-typedef interface IRTCInfoEvent IRTCInfoEvent;
+typedef struct IRTCInfoEvent IRTCInfoEvent;
 #endif
 
 #ifndef __IRTCMediaRequestEvent_FWD_DEFINED__
 #define __IRTCMediaRequestEvent_FWD_DEFINED__
-typedef interface IRTCMediaRequestEvent IRTCMediaRequestEvent;
+typedef struct IRTCMediaRequestEvent IRTCMediaRequestEvent;
 #endif
 
 #ifndef __IRTCReInviteEvent_FWD_DEFINED__
 #define __IRTCReInviteEvent_FWD_DEFINED__
-typedef interface IRTCReInviteEvent IRTCReInviteEvent;
+typedef struct IRTCReInviteEvent IRTCReInviteEvent;
 #endif
 
 #ifndef __IRTCPresencePropertyEvent_FWD_DEFINED__
 #define __IRTCPresencePropertyEvent_FWD_DEFINED__
-typedef interface IRTCPresencePropertyEvent IRTCPresencePropertyEvent;
+typedef struct IRTCPresencePropertyEvent IRTCPresencePropertyEvent;
 #endif
 
 #ifndef __IRTCPresenceDataEvent_FWD_DEFINED__
 #define __IRTCPresenceDataEvent_FWD_DEFINED__
-typedef interface IRTCPresenceDataEvent IRTCPresenceDataEvent;
+typedef struct IRTCPresenceDataEvent IRTCPresenceDataEvent;
 #endif
 
 #ifndef __IRTCPresenceStatusEvent_FWD_DEFINED__
 #define __IRTCPresenceStatusEvent_FWD_DEFINED__
-typedef interface IRTCPresenceStatusEvent IRTCPresenceStatusEvent;
+typedef struct IRTCPresenceStatusEvent IRTCPresenceStatusEvent;
 #endif
 
 #ifndef __IRTCCollection_FWD_DEFINED__
 #define __IRTCCollection_FWD_DEFINED__
-typedef interface IRTCCollection IRTCCollection;
+typedef struct IRTCCollection IRTCCollection;
 #endif
 
 #ifndef __IRTCEnumParticipants_FWD_DEFINED__
 #define __IRTCEnumParticipants_FWD_DEFINED__
-typedef interface IRTCEnumParticipants IRTCEnumParticipants;
+typedef struct IRTCEnumParticipants IRTCEnumParticipants;
 #endif
 
 #ifndef __IRTCEnumProfiles_FWD_DEFINED__
 #define __IRTCEnumProfiles_FWD_DEFINED__
-typedef interface IRTCEnumProfiles IRTCEnumProfiles;
+typedef struct IRTCEnumProfiles IRTCEnumProfiles;
 #endif
 
 #ifndef __IRTCEnumBuddies_FWD_DEFINED__
 #define __IRTCEnumBuddies_FWD_DEFINED__
-typedef interface IRTCEnumBuddies IRTCEnumBuddies;
+typedef struct IRTCEnumBuddies IRTCEnumBuddies;
 #endif
 
 #ifndef __IRTCEnumWatchers_FWD_DEFINED__
 #define __IRTCEnumWatchers_FWD_DEFINED__
-typedef interface IRTCEnumWatchers IRTCEnumWatchers;
+typedef struct IRTCEnumWatchers IRTCEnumWatchers;
 #endif
 
 #ifndef __IRTCEnumGroups_FWD_DEFINED__
 #define __IRTCEnumGroups_FWD_DEFINED__
-typedef interface IRTCEnumGroups IRTCEnumGroups;
+typedef struct IRTCEnumGroups IRTCEnumGroups;
 #endif
 
 #ifndef __IRTCPresenceContact_FWD_DEFINED__
 #define __IRTCPresenceContact_FWD_DEFINED__
-typedef interface IRTCPresenceContact IRTCPresenceContact;
+typedef struct IRTCPresenceContact IRTCPresenceContact;
 #endif
 
 #ifndef __IRTCBuddy_FWD_DEFINED__
 #define __IRTCBuddy_FWD_DEFINED__
-typedef interface IRTCBuddy IRTCBuddy;
+typedef struct IRTCBuddy IRTCBuddy;
 #endif
 
 #ifndef __IRTCBuddy2_FWD_DEFINED__
 #define __IRTCBuddy2_FWD_DEFINED__
-typedef interface IRTCBuddy2 IRTCBuddy2;
+typedef struct IRTCBuddy2 IRTCBuddy2;
 #endif
 
 #ifndef __IRTCWatcher_FWD_DEFINED__
 #define __IRTCWatcher_FWD_DEFINED__
-typedef interface IRTCWatcher IRTCWatcher;
+typedef struct IRTCWatcher IRTCWatcher;
 #endif
 
 #ifndef __IRTCWatcher2_FWD_DEFINED__
 #define __IRTCWatcher2_FWD_DEFINED__
-typedef interface IRTCWatcher2 IRTCWatcher2;
+typedef struct IRTCWatcher2 IRTCWatcher2;
 #endif
 
 #ifndef __IRTCBuddyGroup_FWD_DEFINED__
 #define __IRTCBuddyGroup_FWD_DEFINED__
-typedef interface IRTCBuddyGroup IRTCBuddyGroup;
+typedef struct IRTCBuddyGroup IRTCBuddyGroup;
 #endif
 
 #ifndef __IRTCEventNotification_FWD_DEFINED__
 #define __IRTCEventNotification_FWD_DEFINED__
-typedef interface IRTCEventNotification IRTCEventNotification;
+typedef struct IRTCEventNotification IRTCEventNotification;
 #endif
 
 #ifndef __IRTCDispatchEventNotification_FWD_DEFINED__
 #define __IRTCDispatchEventNotification_FWD_DEFINED__
-typedef interface IRTCDispatchEventNotification IRTCDispatchEventNotification;
+typedef struct IRTCDispatchEventNotification IRTCDispatchEventNotification;
 #endif
 
 #ifndef __IRTCPortManager_FWD_DEFINED__
 #define __IRTCPortManager_FWD_DEFINED__
-typedef interface IRTCPortManager IRTCPortManager;
+typedef struct IRTCPortManager IRTCPortManager;
 #endif
 
 #ifndef __IRTCSessionPortManagement_FWD_DEFINED__
 #define __IRTCSessionPortManagement_FWD_DEFINED__
-typedef interface IRTCSessionPortManagement IRTCSessionPortManagement;
+typedef struct IRTCSessionPortManagement IRTCSessionPortManagement;
 #endif
 
 #ifndef __IRTCClientPortManagement_FWD_DEFINED__
 #define __IRTCClientPortManagement_FWD_DEFINED__
-typedef interface IRTCClientPortManagement IRTCClientPortManagement;
+typedef struct IRTCClientPortManagement IRTCClientPortManagement;
 #endif
 
 #ifndef __IRTCUserSearch_FWD_DEFINED__
 #define __IRTCUserSearch_FWD_DEFINED__
-typedef interface IRTCUserSearch IRTCUserSearch;
+typedef struct IRTCUserSearch IRTCUserSearch;
 #endif
 
 #ifndef __IRTCUserSearchQuery_FWD_DEFINED__
 #define __IRTCUserSearchQuery_FWD_DEFINED__
-typedef interface IRTCUserSearchQuery IRTCUserSearchQuery;
+typedef struct IRTCUserSearchQuery IRTCUserSearchQuery;
 #endif
 
 #ifndef __IRTCUserSearchResult_FWD_DEFINED__
 #define __IRTCUserSearchResult_FWD_DEFINED__
-typedef interface IRTCUserSearchResult IRTCUserSearchResult;
+typedef struct IRTCUserSearchResult IRTCUserSearchResult;
 #endif
 
 #ifndef __IRTCEnumUserSearchResults_FWD_DEFINED__
 #define __IRTCEnumUserSearchResults_FWD_DEFINED__
-typedef interface IRTCEnumUserSearchResults IRTCEnumUserSearchResults;
+typedef struct IRTCEnumUserSearchResults IRTCEnumUserSearchResults;
 #endif
 
 #ifndef __IRTCUserSearchResultsEvent_FWD_DEFINED__
 #define __IRTCUserSearchResultsEvent_FWD_DEFINED__
-typedef interface IRTCUserSearchResultsEvent IRTCUserSearchResultsEvent;
+typedef struct IRTCUserSearchResultsEvent IRTCUserSearchResultsEvent;
 #endif
 
 #ifndef __IRTCSessionReferStatusEvent_FWD_DEFINED__
 #define __IRTCSessionReferStatusEvent_FWD_DEFINED__
-typedef interface IRTCSessionReferStatusEvent IRTCSessionReferStatusEvent;
+typedef struct IRTCSessionReferStatusEvent IRTCSessionReferStatusEvent;
 #endif
 
 #ifndef __IRTCSessionReferredEvent_FWD_DEFINED__
 #define __IRTCSessionReferredEvent_FWD_DEFINED__
-typedef interface IRTCSessionReferredEvent IRTCSessionReferredEvent;
+typedef struct IRTCSessionReferredEvent IRTCSessionReferredEvent;
 #endif
 
 #ifndef __IRTCSessionDescriptionManager_FWD_DEFINED__
 #define __IRTCSessionDescriptionManager_FWD_DEFINED__
-typedef interface IRTCSessionDescriptionManager IRTCSessionDescriptionManager;
+typedef struct IRTCSessionDescriptionManager IRTCSessionDescriptionManager;
 #endif
 
 #ifndef __IRTCEnumPresenceDevices_FWD_DEFINED__
 #define __IRTCEnumPresenceDevices_FWD_DEFINED__
-typedef interface IRTCEnumPresenceDevices IRTCEnumPresenceDevices;
+typedef struct IRTCEnumPresenceDevices IRTCEnumPresenceDevices;
 #endif
 
 #ifndef __IRTCPresenceDevice_FWD_DEFINED__
 #define __IRTCPresenceDevice_FWD_DEFINED__
-typedef interface IRTCPresenceDevice IRTCPresenceDevice;
+typedef struct IRTCPresenceDevice IRTCPresenceDevice;
 #endif
 
 #ifndef __IRTCProfile_FWD_DEFINED__
 #define __IRTCProfile_FWD_DEFINED__
-typedef interface IRTCProfile IRTCProfile;
+typedef struct IRTCProfile IRTCProfile;
 #endif
 
 #ifndef __IRTCProfile2_FWD_DEFINED__
 #define __IRTCProfile2_FWD_DEFINED__
-typedef interface IRTCProfile2 IRTCProfile2;
+typedef struct IRTCProfile2 IRTCProfile2;
 #endif
 
 #ifndef __IRTCEnumProfiles_FWD_DEFINED__
 #define __IRTCEnumProfiles_FWD_DEFINED__
-typedef interface IRTCEnumProfiles IRTCEnumProfiles;
+typedef struct IRTCEnumProfiles IRTCEnumProfiles;
 #endif
 
 #ifndef __IRTCSession_FWD_DEFINED__
 #define __IRTCSession_FWD_DEFINED__
-typedef interface IRTCSession IRTCSession;
+typedef struct IRTCSession IRTCSession;
 #endif
 
 #ifndef __IRTCSession2_FWD_DEFINED__
 #define __IRTCSession2_FWD_DEFINED__
-typedef interface IRTCSession2 IRTCSession2;
+typedef struct IRTCSession2 IRTCSession2;
 #endif
 
 #ifndef __IRTCSessionCallControl_FWD_DEFINED__
 #define __IRTCSessionCallControl_FWD_DEFINED__
-typedef interface IRTCSessionCallControl IRTCSessionCallControl;
+typedef struct IRTCSessionCallControl IRTCSessionCallControl;
 #endif
 
 #ifndef __IRTCParticipant_FWD_DEFINED__
 #define __IRTCParticipant_FWD_DEFINED__
-typedef interface IRTCParticipant IRTCParticipant;
+typedef struct IRTCParticipant IRTCParticipant;
 #endif
 
 #ifndef __IRTCEnumParticipants_FWD_DEFINED__
 #define __IRTCEnumParticipants_FWD_DEFINED__
-typedef interface IRTCEnumParticipants IRTCEnumParticipants;
+typedef struct IRTCEnumParticipants IRTCEnumParticipants;
 #endif
 
 #ifndef __IRTCCollection_FWD_DEFINED__
 #define __IRTCCollection_FWD_DEFINED__
-typedef interface IRTCCollection IRTCCollection;
+typedef struct IRTCCollection IRTCCollection;
 #endif
 
 #ifndef __IRTCPresenceContact_FWD_DEFINED__
 #define __IRTCPresenceContact_FWD_DEFINED__
-typedef interface IRTCPresenceContact IRTCPresenceContact;
+typedef struct IRTCPresenceContact IRTCPresenceContact;
 #endif
 
 #ifndef __IRTCBuddy_FWD_DEFINED__
 #define __IRTCBuddy_FWD_DEFINED__
-typedef interface IRTCBuddy IRTCBuddy;
+typedef struct IRTCBuddy IRTCBuddy;
 #endif
 
 #ifndef __IRTCBuddy2_FWD_DEFINED__
 #define __IRTCBuddy2_FWD_DEFINED__
-typedef interface IRTCBuddy2 IRTCBuddy2;
+typedef struct IRTCBuddy2 IRTCBuddy2;
 #endif
 
 #ifndef __IRTCEnumBuddies_FWD_DEFINED__
 #define __IRTCEnumBuddies_FWD_DEFINED__
-typedef interface IRTCEnumBuddies IRTCEnumBuddies;
+typedef struct IRTCEnumBuddies IRTCEnumBuddies;
 #endif
 
 #ifndef __IRTCWatcher_FWD_DEFINED__
 #define __IRTCWatcher_FWD_DEFINED__
-typedef interface IRTCWatcher IRTCWatcher;
+typedef struct IRTCWatcher IRTCWatcher;
 #endif
 
 #ifndef __IRTCWatcher2_FWD_DEFINED__
 #define __IRTCWatcher2_FWD_DEFINED__
-typedef interface IRTCWatcher2 IRTCWatcher2;
+typedef struct IRTCWatcher2 IRTCWatcher2;
 #endif
 
 #ifndef __IRTCEnumWatchers_FWD_DEFINED__
 #define __IRTCEnumWatchers_FWD_DEFINED__
-typedef interface IRTCEnumWatchers IRTCEnumWatchers;
+typedef struct IRTCEnumWatchers IRTCEnumWatchers;
 #endif
 
 #ifndef __IRTCBuddyGroup_FWD_DEFINED__
 #define __IRTCBuddyGroup_FWD_DEFINED__
-typedef interface IRTCBuddyGroup IRTCBuddyGroup;
+typedef struct IRTCBuddyGroup IRTCBuddyGroup;
 #endif
 
 #ifndef __IRTCEnumGroups_FWD_DEFINED__
 #define __IRTCEnumGroups_FWD_DEFINED__
-typedef interface IRTCEnumGroups IRTCEnumGroups;
+typedef struct IRTCEnumGroups IRTCEnumGroups;
 #endif
 
 #ifndef __IRTCUserSearchQuery_FWD_DEFINED__
 #define __IRTCUserSearchQuery_FWD_DEFINED__
-typedef interface IRTCUserSearchQuery IRTCUserSearchQuery;
+typedef struct IRTCUserSearchQuery IRTCUserSearchQuery;
 #endif
 
 #ifndef __IRTCUserSearchResult_FWD_DEFINED__
 #define __IRTCUserSearchResult_FWD_DEFINED__
-typedef interface IRTCUserSearchResult IRTCUserSearchResult;
+typedef struct IRTCUserSearchResult IRTCUserSearchResult;
 #endif
 
 #ifndef __IRTCEnumUserSearchResults_FWD_DEFINED__
 #define __IRTCEnumUserSearchResults_FWD_DEFINED__
-typedef interface IRTCEnumUserSearchResults IRTCEnumUserSearchResults;
+typedef struct IRTCEnumUserSearchResults IRTCEnumUserSearchResults;
 #endif
 
 #ifndef __IRTCEventNotification_FWD_DEFINED__
 #define __IRTCEventNotification_FWD_DEFINED__
-typedef interface IRTCEventNotification IRTCEventNotification;
+typedef struct IRTCEventNotification IRTCEventNotification;
 #endif
 
 #ifndef __IRTCClientEvent_FWD_DEFINED__
 #define __IRTCClientEvent_FWD_DEFINED__
-typedef interface IRTCClientEvent IRTCClientEvent;
+typedef struct IRTCClientEvent IRTCClientEvent;
 #endif
 
 #ifndef __IRTCRegistrationStateChangeEvent_FWD_DEFINED__
 #define __IRTCRegistrationStateChangeEvent_FWD_DEFINED__
-typedef interface IRTCRegistrationStateChangeEvent IRTCRegistrationStateChangeEvent;
+typedef struct IRTCRegistrationStateChangeEvent IRTCRegistrationStateChangeEvent;
 #endif
 
 #ifndef __IRTCSessionStateChangeEvent_FWD_DEFINED__
 #define __IRTCSessionStateChangeEvent_FWD_DEFINED__
-typedef interface IRTCSessionStateChangeEvent IRTCSessionStateChangeEvent;
+typedef struct IRTCSessionStateChangeEvent IRTCSessionStateChangeEvent;
 #endif
 
 #ifndef __IRTCSessionStateChangeEvent2_FWD_DEFINED__
 #define __IRTCSessionStateChangeEvent2_FWD_DEFINED__
-typedef interface IRTCSessionStateChangeEvent2 IRTCSessionStateChangeEvent2;
+typedef struct IRTCSessionStateChangeEvent2 IRTCSessionStateChangeEvent2;
 #endif
 
 #ifndef __IRTCSessionOperationCompleteEvent_FWD_DEFINED__
 #define __IRTCSessionOperationCompleteEvent_FWD_DEFINED__
-typedef interface IRTCSessionOperationCompleteEvent IRTCSessionOperationCompleteEvent;
+typedef struct IRTCSessionOperationCompleteEvent IRTCSessionOperationCompleteEvent;
 #endif
 
 #ifndef __IRTCSessionOperationCompleteEvent2_FWD_DEFINED__
 #define __IRTCSessionOperationCompleteEvent2_FWD_DEFINED__
-typedef interface IRTCSessionOperationCompleteEvent2 IRTCSessionOperationCompleteEvent2;
+typedef struct IRTCSessionOperationCompleteEvent2 IRTCSessionOperationCompleteEvent2;
 #endif
 
 #ifndef __IRTCParticipantStateChangeEvent_FWD_DEFINED__
 #define __IRTCParticipantStateChangeEvent_FWD_DEFINED__
-typedef interface IRTCParticipantStateChangeEvent IRTCParticipantStateChangeEvent;
+typedef struct IRTCParticipantStateChangeEvent IRTCParticipantStateChangeEvent;
 #endif
 
 #ifndef __IRTCMediaEvent_FWD_DEFINED__
 #define __IRTCMediaEvent_FWD_DEFINED__
-typedef interface IRTCMediaEvent IRTCMediaEvent;
+typedef struct IRTCMediaEvent IRTCMediaEvent;
 #endif
 
 #ifndef __IRTCIntensityEvent_FWD_DEFINED__
 #define __IRTCIntensityEvent_FWD_DEFINED__
-typedef interface IRTCIntensityEvent IRTCIntensityEvent;
+typedef struct IRTCIntensityEvent IRTCIntensityEvent;
 #endif
 
 #ifndef __IRTCMessagingEvent_FWD_DEFINED__
 #define __IRTCMessagingEvent_FWD_DEFINED__
-typedef interface IRTCMessagingEvent IRTCMessagingEvent;
+typedef struct IRTCMessagingEvent IRTCMessagingEvent;
 #endif
 
 #ifndef __IRTCBuddyEvent_FWD_DEFINED__
 #define __IRTCBuddyEvent_FWD_DEFINED__
-typedef interface IRTCBuddyEvent IRTCBuddyEvent;
+typedef struct IRTCBuddyEvent IRTCBuddyEvent;
 #endif
 
 #ifndef __IRTCBuddyEvent2_FWD_DEFINED__
 #define __IRTCBuddyEvent2_FWD_DEFINED__
-typedef interface IRTCBuddyEvent2 IRTCBuddyEvent2;
+typedef struct IRTCBuddyEvent2 IRTCBuddyEvent2;
 #endif
 
 #ifndef __IRTCWatcherEvent_FWD_DEFINED__
 #define __IRTCWatcherEvent_FWD_DEFINED__
-typedef interface IRTCWatcherEvent IRTCWatcherEvent;
+typedef struct IRTCWatcherEvent IRTCWatcherEvent;
 #endif
 
 #ifndef __IRTCPortManager_FWD_DEFINED__
 #define __IRTCPortManager_FWD_DEFINED__
-typedef interface IRTCPortManager IRTCPortManager;
+typedef struct IRTCPortManager IRTCPortManager;
 #endif
 
 #ifndef __IRTCSessionPortManagement_FWD_DEFINED__
 #define __IRTCSessionPortManagement_FWD_DEFINED__
-typedef interface IRTCSessionPortManagement IRTCSessionPortManagement;
+typedef struct IRTCSessionPortManagement IRTCSessionPortManagement;
 #endif
 
 #ifndef __IRTCClientPortManagement_FWD_DEFINED__
 #define __IRTCClientPortManagement_FWD_DEFINED__
-typedef interface IRTCClientPortManagement IRTCClientPortManagement;
+typedef struct IRTCClientPortManagement IRTCClientPortManagement;
 #endif
 
 #ifndef __IRTCWatcherEvent2_FWD_DEFINED__
 #define __IRTCWatcherEvent2_FWD_DEFINED__
-typedef interface IRTCWatcherEvent2 IRTCWatcherEvent2;
+typedef struct IRTCWatcherEvent2 IRTCWatcherEvent2;
 #endif
 
 #ifndef __IRTCBuddyGroupEvent_FWD_DEFINED__
 #define __IRTCBuddyGroupEvent_FWD_DEFINED__
-typedef interface IRTCBuddyGroupEvent IRTCBuddyGroupEvent;
+typedef struct IRTCBuddyGroupEvent IRTCBuddyGroupEvent;
 #endif
 
 #ifndef __IRTCProfileEvent_FWD_DEFINED__
 #define __IRTCProfileEvent_FWD_DEFINED__
-typedef interface IRTCProfileEvent IRTCProfileEvent;
+typedef struct IRTCProfileEvent IRTCProfileEvent;
 #endif
 
 #ifndef __IRTCProfileEvent2_FWD_DEFINED__
 #define __IRTCProfileEvent2_FWD_DEFINED__
-typedef interface IRTCProfileEvent2 IRTCProfileEvent2;
+typedef struct IRTCProfileEvent2 IRTCProfileEvent2;
 #endif
 
 #ifndef __IRTCUserSearchResultsEvent_FWD_DEFINED__
 #define __IRTCUserSearchResultsEvent_FWD_DEFINED__
-typedef interface IRTCUserSearchResultsEvent IRTCUserSearchResultsEvent;
+typedef struct IRTCUserSearchResultsEvent IRTCUserSearchResultsEvent;
 #endif
 
 #ifndef __IRTCInfoEvent_FWD_DEFINED__
 #define __IRTCInfoEvent_FWD_DEFINED__
-typedef interface IRTCInfoEvent IRTCInfoEvent;
+typedef struct IRTCInfoEvent IRTCInfoEvent;
 #endif
 
 #ifndef __IRTCRoamingEvent_FWD_DEFINED__
 #define __IRTCRoamingEvent_FWD_DEFINED__
-typedef interface IRTCRoamingEvent IRTCRoamingEvent;
+typedef struct IRTCRoamingEvent IRTCRoamingEvent;
 #endif
 
 #ifndef __IRTCMediaRequestEvent_FWD_DEFINED__
 #define __IRTCMediaRequestEvent_FWD_DEFINED__
-typedef interface IRTCMediaRequestEvent IRTCMediaRequestEvent;
+typedef struct IRTCMediaRequestEvent IRTCMediaRequestEvent;
 #endif
 
 #ifndef __IRTCReInviteEvent_FWD_DEFINED__
 #define __IRTCReInviteEvent_FWD_DEFINED__
-typedef interface IRTCReInviteEvent IRTCReInviteEvent;
+typedef struct IRTCReInviteEvent IRTCReInviteEvent;
 #endif
 
 #ifndef __IRTCPresencePropertyEvent_FWD_DEFINED__
 #define __IRTCPresencePropertyEvent_FWD_DEFINED__
-typedef interface IRTCPresencePropertyEvent IRTCPresencePropertyEvent;
+typedef struct IRTCPresencePropertyEvent IRTCPresencePropertyEvent;
 #endif
 
 #ifndef __IRTCPresenceDataEvent_FWD_DEFINED__
 #define __IRTCPresenceDataEvent_FWD_DEFINED__
-typedef interface IRTCPresenceDataEvent IRTCPresenceDataEvent;
+typedef struct IRTCPresenceDataEvent IRTCPresenceDataEvent;
 #endif
 
 #ifndef __IRTCPresenceStatusEvent_FWD_DEFINED__
 #define __IRTCPresenceStatusEvent_FWD_DEFINED__
-typedef interface IRTCPresenceStatusEvent IRTCPresenceStatusEvent;
+typedef struct IRTCPresenceStatusEvent IRTCPresenceStatusEvent;
 #endif
 
 #ifndef __IRTCSessionReferStatusEvent_FWD_DEFINED__
 #define __IRTCSessionReferStatusEvent_FWD_DEFINED__
-typedef interface IRTCSessionReferStatusEvent IRTCSessionReferStatusEvent;
+typedef struct IRTCSessionReferStatusEvent IRTCSessionReferStatusEvent;
 #endif
 
 #ifndef __IRTCSessionReferredEvent_FWD_DEFINED__
 #define __IRTCSessionReferredEvent_FWD_DEFINED__
-typedef interface IRTCSessionReferredEvent IRTCSessionReferredEvent;
+typedef struct IRTCSessionReferredEvent IRTCSessionReferredEvent;
 #endif
 
 #ifndef __IRTCSessionDescriptionManager_FWD_DEFINED__
 #define __IRTCSessionDescriptionManager_FWD_DEFINED__
-typedef interface IRTCSessionDescriptionManager IRTCSessionDescriptionManager;
+typedef struct IRTCSessionDescriptionManager IRTCSessionDescriptionManager;
 #endif
 
 #ifndef __IRTCEnumPresenceDevices_FWD_DEFINED__
 #define __IRTCEnumPresenceDevices_FWD_DEFINED__
-typedef interface IRTCEnumPresenceDevices IRTCEnumPresenceDevices;
+typedef struct IRTCEnumPresenceDevices IRTCEnumPresenceDevices;
 #endif
 
 #ifndef __IRTCPresenceDevice_FWD_DEFINED__
 #define __IRTCPresenceDevice_FWD_DEFINED__
-typedef interface IRTCPresenceDevice IRTCPresenceDevice;
+typedef struct IRTCPresenceDevice IRTCPresenceDevice;
 #endif
 
 #ifndef __IRTCDispatchEventNotification_FWD_DEFINED__
 #define __IRTCDispatchEventNotification_FWD_DEFINED__
-typedef interface IRTCDispatchEventNotification IRTCDispatchEventNotification;
+typedef struct IRTCDispatchEventNotification IRTCDispatchEventNotification;
 #endif
 
 #ifndef __RTCClient_FWD_DEFINED__
@@ -993,7 +993,7 @@ extern "C" {
       HRESULT (WINAPI *get_IsTuned)(IRTCClient *This,VARIANT_BOOL *pfTuned);
     END_INTERFACE
   } IRTCClientVtbl;
-  interface IRTCClient {
+  struct IRTCClient {
     CONST_VTBL struct IRTCClientVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1213,7 +1213,7 @@ extern "C" {
       HRESULT (WINAPI *get_AllowedPorts)(IRTCClient2 *This,long lTransport,RTC_LISTEN_MODE *penListenMode);
     END_INTERFACE
   } IRTCClient2Vtbl;
-  interface IRTCClient2 {
+  struct IRTCClient2 {
     CONST_VTBL struct IRTCClient2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1356,7 +1356,7 @@ extern "C" {
       HRESULT (WINAPI *put_PrivacyMode)(IRTCClientPresence *This,RTC_PRIVACY_MODE enMode);
     END_INTERFACE
   } IRTCClientPresenceVtbl;
-  interface IRTCClientPresence {
+  struct IRTCClientPresence {
     CONST_VTBL struct IRTCClientPresenceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1484,7 +1484,7 @@ extern "C" {
       HRESULT (WINAPI *AddBuddyEx)(IRTCClientPresence2 *This,BSTR bstrPresentityURI,BSTR bstrUserName,BSTR bstrData,VARIANT_BOOL fPersistent,RTC_BUDDY_SUBSCRIPTION_TYPE enSubscriptionType,IRTCProfile *pProfile,long lFlags,IRTCBuddy2 **ppBuddy);
     END_INTERFACE
   } IRTCClientPresence2Vtbl;
-  interface IRTCClientPresence2 {
+  struct IRTCClientPresence2 {
     CONST_VTBL struct IRTCClientPresence2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1587,7 +1587,7 @@ extern "C" {
       HRESULT (WINAPI *get_SessionCapabilities)(IRTCClientProvisioning *This,long *plSupportedSessions);
     END_INTERFACE
   } IRTCClientProvisioningVtbl;
-  interface IRTCClientProvisioning {
+  struct IRTCClientProvisioning {
     CONST_VTBL struct IRTCClientProvisioningVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1643,7 +1643,7 @@ extern "C" {
       HRESULT (WINAPI *EnableProfileEx)(IRTCClientProvisioning2 *This,IRTCProfile *pProfile,long lRegisterFlags,long lRoamingFlags);
     END_INTERFACE
   } IRTCClientProvisioning2Vtbl;
-  interface IRTCClientProvisioning2 {
+  struct IRTCClientProvisioning2 {
     CONST_VTBL struct IRTCClientProvisioning2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1715,7 +1715,7 @@ extern "C" {
       HRESULT (WINAPI *get_State)(IRTCProfile *This,RTC_REGISTRATION_STATE *penState);
     END_INTERFACE
   } IRTCProfileVtbl;
-  interface IRTCProfile {
+  struct IRTCProfile {
     CONST_VTBL struct IRTCProfileVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1821,7 +1821,7 @@ extern "C" {
       HRESULT (WINAPI *put_AllowedAuth)(IRTCProfile2 *This,long lAllowedAuth);
     END_INTERFACE
   } IRTCProfile2Vtbl;
-  interface IRTCProfile2 {
+  struct IRTCProfile2 {
     CONST_VTBL struct IRTCProfile2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1917,7 +1917,7 @@ extern "C" {
       HRESULT (WINAPI *put_EncryptionKey)(IRTCSession *This,long lMediaType,BSTR EncryptionKey);
     END_INTERFACE
   } IRTCSessionVtbl;
-  interface IRTCSession {
+  struct IRTCSession {
     CONST_VTBL struct IRTCSessionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2035,7 +2035,7 @@ extern "C" {
       HRESULT (WINAPI *ReInviteWithSessionDescription)(IRTCSession2 *This,BSTR bstrContentType,BSTR bstrSessionDescription,LONG_PTR lCookie);
     END_INTERFACE
   } IRTCSession2Vtbl;
-  interface IRTCSession2 {
+  struct IRTCSession2 {
     CONST_VTBL struct IRTCSession2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2117,7 +2117,7 @@ extern "C" {
       HRESULT (WINAPI *get_IsReferred)(IRTCSessionCallControl *This,VARIANT_BOOL *pfIsReferred);
     END_INTERFACE
   } IRTCSessionCallControlVtbl;
-  interface IRTCSessionCallControl {
+  struct IRTCSessionCallControl {
     CONST_VTBL struct IRTCSessionCallControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2180,7 +2180,7 @@ extern "C" {
       HRESULT (WINAPI *get_Session)(IRTCParticipant *This,IRTCSession **ppSession);
     END_INTERFACE
   } IRTCParticipantVtbl;
-  interface IRTCParticipant {
+  struct IRTCParticipant {
     CONST_VTBL struct IRTCParticipantVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2232,7 +2232,7 @@ extern "C" {
       HRESULT (WINAPI *get_StatusText)(IRTCRoamingEvent *This,BSTR *pbstrStatusText);
     END_INTERFACE
   } IRTCRoamingEventVtbl;
-  interface IRTCRoamingEvent {
+  struct IRTCRoamingEvent {
     CONST_VTBL struct IRTCRoamingEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2284,7 +2284,7 @@ extern "C" {
       HRESULT (WINAPI *get_StatusCode)(IRTCProfileEvent *This,long *plStatusCode);
     END_INTERFACE
   } IRTCProfileEventVtbl;
-  interface IRTCProfileEvent {
+  struct IRTCProfileEvent {
     CONST_VTBL struct IRTCProfileEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2332,7 +2332,7 @@ extern "C" {
       HRESULT (WINAPI *get_EventType)(IRTCProfileEvent2 *This,RTC_PROFILE_EVENT_TYPE *pEventType);
     END_INTERFACE
   } IRTCProfileEvent2Vtbl;
-  interface IRTCProfileEvent2 {
+  struct IRTCProfileEvent2 {
     CONST_VTBL struct IRTCProfileEvent2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2376,7 +2376,7 @@ extern "C" {
       HRESULT (WINAPI *get_Client)(IRTCClientEvent *This,IRTCClient **ppClient);
     END_INTERFACE
   } IRTCClientEventVtbl;
-  interface IRTCClientEvent {
+  struct IRTCClientEvent {
     CONST_VTBL struct IRTCClientEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2424,7 +2424,7 @@ extern "C" {
       HRESULT (WINAPI *get_StatusText)(IRTCRegistrationStateChangeEvent *This,BSTR *pbstrStatusText);
     END_INTERFACE
   } IRTCRegistrationStateChangeEventVtbl;
-  interface IRTCRegistrationStateChangeEvent {
+  struct IRTCRegistrationStateChangeEvent {
     CONST_VTBL struct IRTCRegistrationStateChangeEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2478,7 +2478,7 @@ extern "C" {
       HRESULT (WINAPI *get_StatusText)(IRTCSessionStateChangeEvent *This,BSTR *pbstrStatusText);
     END_INTERFACE
   } IRTCSessionStateChangeEventVtbl;
-  interface IRTCSessionStateChangeEvent {
+  struct IRTCSessionStateChangeEvent {
     CONST_VTBL struct IRTCSessionStateChangeEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2536,7 +2536,7 @@ extern "C" {
       HRESULT (WINAPI *GetRemoteSessionDescription)(IRTCSessionStateChangeEvent2 *This,BSTR *pbstrContentType,BSTR *pbstrSessionDescription);
     END_INTERFACE
   } IRTCSessionStateChangeEvent2Vtbl;
-  interface IRTCSessionStateChangeEvent2 {
+  struct IRTCSessionStateChangeEvent2 {
     CONST_VTBL struct IRTCSessionStateChangeEvent2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2594,7 +2594,7 @@ extern "C" {
       HRESULT (WINAPI *get_StatusText)(IRTCSessionOperationCompleteEvent *This,BSTR *pbstrStatusText);
     END_INTERFACE
   } IRTCSessionOperationCompleteEventVtbl;
-  interface IRTCSessionOperationCompleteEvent {
+  struct IRTCSessionOperationCompleteEvent {
     CONST_VTBL struct IRTCSessionOperationCompleteEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2648,7 +2648,7 @@ extern "C" {
       HRESULT (WINAPI *GetRemoteSessionDescription)(IRTCSessionOperationCompleteEvent2 *This,BSTR *pbstrContentType,BSTR *pbstrSessionDescription);
     END_INTERFACE
   } IRTCSessionOperationCompleteEvent2Vtbl;
-  interface IRTCSessionOperationCompleteEvent2 {
+  struct IRTCSessionOperationCompleteEvent2 {
     CONST_VTBL struct IRTCSessionOperationCompleteEvent2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2698,7 +2698,7 @@ extern "C" {
       HRESULT (WINAPI *get_StatusCode)(IRTCParticipantStateChangeEvent *This,long *plStatusCode);
     END_INTERFACE
   } IRTCParticipantStateChangeEventVtbl;
-  interface IRTCParticipantStateChangeEvent {
+  struct IRTCParticipantStateChangeEvent {
     CONST_VTBL struct IRTCParticipantStateChangeEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2747,7 +2747,7 @@ extern "C" {
       HRESULT (WINAPI *get_EventReason)(IRTCMediaEvent *This,RTC_MEDIA_EVENT_REASON *penEventReason);
     END_INTERFACE
   } IRTCMediaEventVtbl;
-  interface IRTCMediaEvent {
+  struct IRTCMediaEvent {
     CONST_VTBL struct IRTCMediaEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2798,7 +2798,7 @@ extern "C" {
       HRESULT (WINAPI *get_Direction)(IRTCIntensityEvent *This,RTC_AUDIO_DEVICE *penDirection);
     END_INTERFACE
   } IRTCIntensityEventVtbl;
-  interface IRTCIntensityEvent {
+  struct IRTCIntensityEvent {
     CONST_VTBL struct IRTCIntensityEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2856,7 +2856,7 @@ extern "C" {
       HRESULT (WINAPI *get_UserStatus)(IRTCMessagingEvent *This,RTC_MESSAGING_USER_STATUS *penUserStatus);
     END_INTERFACE
   } IRTCMessagingEventVtbl;
-  interface IRTCMessagingEvent {
+  struct IRTCMessagingEvent {
     CONST_VTBL struct IRTCMessagingEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2910,7 +2910,7 @@ extern "C" {
       HRESULT (WINAPI *get_Buddy)(IRTCBuddyEvent *This,IRTCBuddy **ppBuddy);
     END_INTERFACE
   } IRTCBuddyEventVtbl;
-  interface IRTCBuddyEvent {
+  struct IRTCBuddyEvent {
     CONST_VTBL struct IRTCBuddyEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2954,7 +2954,7 @@ extern "C" {
       HRESULT (WINAPI *get_StatusText)(IRTCBuddyEvent2 *This,BSTR *pbstrStatusText);
     END_INTERFACE
   } IRTCBuddyEvent2Vtbl;
-  interface IRTCBuddyEvent2 {
+  struct IRTCBuddyEvent2 {
     CONST_VTBL struct IRTCBuddyEvent2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3000,7 +3000,7 @@ extern "C" {
       HRESULT (WINAPI *get_Watcher)(IRTCWatcherEvent *This,IRTCWatcher **ppWatcher);
     END_INTERFACE
   } IRTCWatcherEventVtbl;
-  interface IRTCWatcherEvent {
+  struct IRTCWatcherEvent {
     CONST_VTBL struct IRTCWatcherEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3042,7 +3042,7 @@ extern "C" {
       HRESULT (WINAPI *get_StatusCode)(IRTCWatcherEvent2 *This,long *plStatusCode);
     END_INTERFACE
   } IRTCWatcherEvent2Vtbl;
-  interface IRTCWatcherEvent2 {
+  struct IRTCWatcherEvent2 {
     CONST_VTBL struct IRTCWatcherEvent2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3091,7 +3091,7 @@ extern "C" {
       HRESULT (WINAPI *get_StatusCode)(IRTCBuddyGroupEvent *This,long *plStatusCode);
     END_INTERFACE
   } IRTCBuddyGroupEventVtbl;
-  interface IRTCBuddyGroupEvent {
+  struct IRTCBuddyGroupEvent {
     CONST_VTBL struct IRTCBuddyGroupEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3145,7 +3145,7 @@ extern "C" {
       HRESULT (WINAPI *get_InfoHeader)(IRTCInfoEvent *This,BSTR *pbstrInfoHeader);
     END_INTERFACE
   } IRTCInfoEventVtbl;
-  interface IRTCInfoEvent {
+  struct IRTCInfoEvent {
     CONST_VTBL struct IRTCInfoEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3205,7 +3205,7 @@ extern "C" {
       HRESULT (WINAPI *get_State)(IRTCMediaRequestEvent *This,RTC_REINVITE_STATE *pState);
     END_INTERFACE
   } IRTCMediaRequestEventVtbl;
-  interface IRTCMediaRequestEvent {
+  struct IRTCMediaRequestEvent {
     CONST_VTBL struct IRTCMediaRequestEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3270,7 +3270,7 @@ extern "C" {
       HRESULT (WINAPI *GetRemoteSessionDescription)(IRTCReInviteEvent *This,BSTR *pbstrContentType,BSTR *pbstrSessionDescription);
     END_INTERFACE
   } IRTCReInviteEventVtbl;
-  interface IRTCReInviteEvent {
+  struct IRTCReInviteEvent {
     CONST_VTBL struct IRTCReInviteEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3327,7 +3327,7 @@ extern "C" {
       HRESULT (WINAPI *get_Value)(IRTCPresencePropertyEvent *This,BSTR *pbstrValue);
     END_INTERFACE
   } IRTCPresencePropertyEventVtbl;
-  interface IRTCPresencePropertyEvent {
+  struct IRTCPresencePropertyEvent {
     CONST_VTBL struct IRTCPresencePropertyEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3379,7 +3379,7 @@ extern "C" {
       HRESULT (WINAPI *GetPresenceData)(IRTCPresenceDataEvent *This,BSTR *pbstrNamespace,BSTR *pbstrData);
     END_INTERFACE
   } IRTCPresenceDataEventVtbl;
-  interface IRTCPresenceDataEvent {
+  struct IRTCPresenceDataEvent {
     CONST_VTBL struct IRTCPresenceDataEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3428,7 +3428,7 @@ extern "C" {
       HRESULT (WINAPI *GetLocalPresenceInfo)(IRTCPresenceStatusEvent *This,RTC_PRESENCE_STATUS *penStatus,BSTR *pbstrNotes);
     END_INTERFACE
   } IRTCPresenceStatusEventVtbl;
-  interface IRTCPresenceStatusEvent {
+  struct IRTCPresenceStatusEvent {
     CONST_VTBL struct IRTCPresenceStatusEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3477,7 +3477,7 @@ extern "C" {
       HRESULT (WINAPI *get__NewEnum)(IRTCCollection *This,IUnknown **ppNewEnum);
     END_INTERFACE
   } IRTCCollectionVtbl;
-  interface IRTCCollection {
+  struct IRTCCollection {
     CONST_VTBL struct IRTCCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3524,7 +3524,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IRTCEnumParticipants *This,IRTCEnumParticipants **ppEnum);
     END_INTERFACE
   } IRTCEnumParticipantsVtbl;
-  interface IRTCEnumParticipants {
+  struct IRTCEnumParticipants {
     CONST_VTBL struct IRTCEnumParticipantsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3570,7 +3570,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IRTCEnumProfiles *This,IRTCEnumProfiles **ppEnum);
     END_INTERFACE
   } IRTCEnumProfilesVtbl;
-  interface IRTCEnumProfiles {
+  struct IRTCEnumProfiles {
     CONST_VTBL struct IRTCEnumProfilesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3616,7 +3616,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IRTCEnumBuddies *This,IRTCEnumBuddies **ppEnum);
     END_INTERFACE
   } IRTCEnumBuddiesVtbl;
-  interface IRTCEnumBuddies {
+  struct IRTCEnumBuddies {
     CONST_VTBL struct IRTCEnumBuddiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3662,7 +3662,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IRTCEnumWatchers *This,IRTCEnumWatchers **ppEnum);
     END_INTERFACE
   } IRTCEnumWatchersVtbl;
-  interface IRTCEnumWatchers {
+  struct IRTCEnumWatchers {
     CONST_VTBL struct IRTCEnumWatchersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3708,7 +3708,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IRTCEnumGroups *This,IRTCEnumGroups **ppEnum);
     END_INTERFACE
   } IRTCEnumGroupsVtbl;
-  interface IRTCEnumGroups {
+  struct IRTCEnumGroups {
     CONST_VTBL struct IRTCEnumGroupsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3761,7 +3761,7 @@ extern "C" {
       HRESULT (WINAPI *put_Persistent)(IRTCPresenceContact *This,VARIANT_BOOL fPersistent);
     END_INTERFACE
   } IRTCPresenceContactVtbl;
-  interface IRTCPresenceContact {
+  struct IRTCPresenceContact {
     CONST_VTBL struct IRTCPresenceContactVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3823,7 +3823,7 @@ extern "C" {
       HRESULT (WINAPI *get_Notes)(IRTCBuddy *This,BSTR *pbstrNotes);
     END_INTERFACE
   } IRTCBuddyVtbl;
-  interface IRTCBuddy {
+  struct IRTCBuddy {
     CONST_VTBL struct IRTCBuddyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3889,7 +3889,7 @@ extern "C" {
       HRESULT (WINAPI *get_SubscriptionType)(IRTCBuddy2 *This,RTC_BUDDY_SUBSCRIPTION_TYPE *penSubscriptionType);
     END_INTERFACE
   } IRTCBuddy2Vtbl;
-  interface IRTCBuddy2 {
+  struct IRTCBuddy2 {
     CONST_VTBL struct IRTCBuddy2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3961,7 +3961,7 @@ extern "C" {
       HRESULT (WINAPI *put_State)(IRTCWatcher *This,RTC_WATCHER_STATE enState);
     END_INTERFACE
   } IRTCWatcherVtbl;
-  interface IRTCWatcher {
+  struct IRTCWatcher {
     CONST_VTBL struct IRTCWatcherVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4015,7 +4015,7 @@ extern "C" {
       HRESULT (WINAPI *get_Scope)(IRTCWatcher2 *This,RTC_ACE_SCOPE *penScope);
     END_INTERFACE
   } IRTCWatcher2Vtbl;
-  interface IRTCWatcher2 {
+  struct IRTCWatcher2 {
     CONST_VTBL struct IRTCWatcher2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4075,7 +4075,7 @@ extern "C" {
       HRESULT (WINAPI *get_Profile)(IRTCBuddyGroup *This,IRTCProfile2 **ppProfile);
     END_INTERFACE
   } IRTCBuddyGroupVtbl;
-  interface IRTCBuddyGroup {
+  struct IRTCBuddyGroup {
     CONST_VTBL struct IRTCBuddyGroupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4130,7 +4130,7 @@ extern "C" {
       HRESULT (WINAPI *Event)(IRTCEventNotification *This,RTC_EVENT RTCEvent,IDispatch *pEvent);
     END_INTERFACE
   } IRTCEventNotificationVtbl;
-  interface IRTCEventNotification {
+  struct IRTCEventNotification {
     CONST_VTBL struct IRTCEventNotificationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4165,7 +4165,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseMapping)(IRTCPortManager *This,BSTR bstrInternalLocalAddress,long lInternalLocalPort,BSTR bstrExternalLocalAddress,long lExternalLocalAddress);
     END_INTERFACE
   } IRTCPortManagerVtbl;
-  interface IRTCPortManager {
+  struct IRTCPortManager {
     CONST_VTBL struct IRTCPortManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4202,7 +4202,7 @@ extern "C" {
       HRESULT (WINAPI *SetPortManager)(IRTCSessionPortManagement *This,IRTCPortManager *pPortManager);
     END_INTERFACE
   } IRTCSessionPortManagementVtbl;
-  interface IRTCSessionPortManagement {
+  struct IRTCSessionPortManagement {
     CONST_VTBL struct IRTCSessionPortManagementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4237,7 +4237,7 @@ extern "C" {
       HRESULT (WINAPI *GetPortRange)(IRTCClientPortManagement *This,RTC_PORT_TYPE enPortType,long *plMinValue,long *plMaxValue);
     END_INTERFACE
   } IRTCClientPortManagementVtbl;
-  interface IRTCClientPortManagement {
+  struct IRTCClientPortManagement {
     CONST_VTBL struct IRTCClientPortManagementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4276,7 +4276,7 @@ extern "C" {
       HRESULT (WINAPI *ExecuteSearch)(IRTCUserSearch *This,IRTCUserSearchQuery *pQuery,IRTCProfile *pProfile,LONG_PTR lCookie);
     END_INTERFACE
   } IRTCUserSearchVtbl;
-  interface IRTCUserSearch {
+  struct IRTCUserSearch {
     CONST_VTBL struct IRTCUserSearchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4322,7 +4322,7 @@ extern "C" {
       HRESULT (WINAPI *get_SearchDomain)(IRTCUserSearchQuery *This,BSTR *pbstrDomain);
     END_INTERFACE
   } IRTCUserSearchQueryVtbl;
-  interface IRTCUserSearchQuery {
+  struct IRTCUserSearchQuery {
     CONST_VTBL struct IRTCUserSearchQueryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4371,7 +4371,7 @@ extern "C" {
       HRESULT (WINAPI *get_Value)(IRTCUserSearchResult *This,RTC_USER_SEARCH_COLUMN enColumn,BSTR *pbstrValue);
     END_INTERFACE
   } IRTCUserSearchResultVtbl;
-  interface IRTCUserSearchResult {
+  struct IRTCUserSearchResult {
     CONST_VTBL struct IRTCUserSearchResultVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4408,7 +4408,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IRTCEnumUserSearchResults *This,IRTCEnumUserSearchResults **ppEnum);
     END_INTERFACE
   } IRTCEnumUserSearchResultsVtbl;
-  interface IRTCEnumUserSearchResults {
+  struct IRTCEnumUserSearchResults {
     CONST_VTBL struct IRTCEnumUserSearchResultsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4464,7 +4464,7 @@ extern "C" {
       HRESULT (WINAPI *get_MoreAvailable)(IRTCUserSearchResultsEvent *This,VARIANT_BOOL *pfMoreAvailable);
     END_INTERFACE
   } IRTCUserSearchResultsEventVtbl;
-  interface IRTCUserSearchResultsEvent {
+  struct IRTCUserSearchResultsEvent {
     CONST_VTBL struct IRTCUserSearchResultsEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4527,7 +4527,7 @@ extern "C" {
       HRESULT (WINAPI *get_StatusText)(IRTCSessionReferStatusEvent *This,BSTR *pbstrStatusText);
     END_INTERFACE
   } IRTCSessionReferStatusEventVtbl;
-  interface IRTCSessionReferStatusEvent {
+  struct IRTCSessionReferStatusEvent {
     CONST_VTBL struct IRTCSessionReferStatusEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4587,7 +4587,7 @@ extern "C" {
       HRESULT (WINAPI *SetReferredSessionState)(IRTCSessionReferredEvent *This,RTC_SESSION_STATE enState);
     END_INTERFACE
   } IRTCSessionReferredEventVtbl;
-  interface IRTCSessionReferredEvent {
+  struct IRTCSessionReferredEvent {
     CONST_VTBL struct IRTCSessionReferredEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4640,7 +4640,7 @@ extern "C" {
       HRESULT (WINAPI *EvaluateSessionDescription)(IRTCSessionDescriptionManager *This,BSTR bstrContentType,BSTR bstrSessionDescription,VARIANT_BOOL *pfApplicationSession);
     END_INTERFACE
   } IRTCSessionDescriptionManagerVtbl;
-  interface IRTCSessionDescriptionManager {
+  struct IRTCSessionDescriptionManager {
     CONST_VTBL struct IRTCSessionDescriptionManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4677,7 +4677,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IRTCEnumPresenceDevices *This,IRTCEnumPresenceDevices **ppEnum);
     END_INTERFACE
   } IRTCEnumPresenceDevicesVtbl;
-  interface IRTCEnumPresenceDevices {
+  struct IRTCEnumPresenceDevices {
     CONST_VTBL struct IRTCEnumPresenceDevicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4723,7 +4723,7 @@ extern "C" {
       HRESULT (WINAPI *GetPresenceData)(IRTCPresenceDevice *This,BSTR *pbstrNamespace,BSTR *pbstrData);
     END_INTERFACE
   } IRTCPresenceDeviceVtbl;
-  interface IRTCPresenceDevice {
+  struct IRTCPresenceDevice {
     CONST_VTBL struct IRTCPresenceDeviceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4767,7 +4767,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(IRTCDispatchEventNotification *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IRTCDispatchEventNotificationVtbl;
-  interface IRTCDispatchEventNotification {
+  struct IRTCDispatchEventNotification {
     CONST_VTBL struct IRTCDispatchEventNotificationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

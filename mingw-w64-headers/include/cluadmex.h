@@ -24,87 +24,87 @@
 
 #ifndef __IGetClusterUIInfo_FWD_DEFINED__
 #define __IGetClusterUIInfo_FWD_DEFINED__
-typedef interface IGetClusterUIInfo IGetClusterUIInfo;
+typedef struct IGetClusterUIInfo IGetClusterUIInfo;
 #endif
 
 #ifndef __IGetClusterDataInfo_FWD_DEFINED__
 #define __IGetClusterDataInfo_FWD_DEFINED__
-typedef interface IGetClusterDataInfo IGetClusterDataInfo;
+typedef struct IGetClusterDataInfo IGetClusterDataInfo;
 #endif
 
 #ifndef __IGetClusterObjectInfo_FWD_DEFINED__
 #define __IGetClusterObjectInfo_FWD_DEFINED__
-typedef interface IGetClusterObjectInfo IGetClusterObjectInfo;
+typedef struct IGetClusterObjectInfo IGetClusterObjectInfo;
 #endif
 
 #ifndef __IGetClusterNodeInfo_FWD_DEFINED__
 #define __IGetClusterNodeInfo_FWD_DEFINED__
-typedef interface IGetClusterNodeInfo IGetClusterNodeInfo;
+typedef struct IGetClusterNodeInfo IGetClusterNodeInfo;
 #endif
 
 #ifndef __IGetClusterGroupInfo_FWD_DEFINED__
 #define __IGetClusterGroupInfo_FWD_DEFINED__
-typedef interface IGetClusterGroupInfo IGetClusterGroupInfo;
+typedef struct IGetClusterGroupInfo IGetClusterGroupInfo;
 #endif
 
 #ifndef __IGetClusterResourceInfo_FWD_DEFINED__
 #define __IGetClusterResourceInfo_FWD_DEFINED__
-typedef interface IGetClusterResourceInfo IGetClusterResourceInfo;
+typedef struct IGetClusterResourceInfo IGetClusterResourceInfo;
 #endif
 
 #ifndef __IGetClusterNetworkInfo_FWD_DEFINED__
 #define __IGetClusterNetworkInfo_FWD_DEFINED__
-typedef interface IGetClusterNetworkInfo IGetClusterNetworkInfo;
+typedef struct IGetClusterNetworkInfo IGetClusterNetworkInfo;
 #endif
 
 #ifndef __IGetClusterNetInterfaceInfo_FWD_DEFINED__
 #define __IGetClusterNetInterfaceInfo_FWD_DEFINED__
-typedef interface IGetClusterNetInterfaceInfo IGetClusterNetInterfaceInfo;
+typedef struct IGetClusterNetInterfaceInfo IGetClusterNetInterfaceInfo;
 #endif
 
 #ifndef __IWCPropertySheetCallback_FWD_DEFINED__
 #define __IWCPropertySheetCallback_FWD_DEFINED__
-typedef interface IWCPropertySheetCallback IWCPropertySheetCallback;
+typedef struct IWCPropertySheetCallback IWCPropertySheetCallback;
 #endif
 
 #ifndef __IWEExtendPropertySheet_FWD_DEFINED__
 #define __IWEExtendPropertySheet_FWD_DEFINED__
-typedef interface IWEExtendPropertySheet IWEExtendPropertySheet;
+typedef struct IWEExtendPropertySheet IWEExtendPropertySheet;
 #endif
 
 #ifndef __IWCWizardCallback_FWD_DEFINED__
 #define __IWCWizardCallback_FWD_DEFINED__
-typedef interface IWCWizardCallback IWCWizardCallback;
+typedef struct IWCWizardCallback IWCWizardCallback;
 #endif
 
 #ifndef __IWEExtendWizard_FWD_DEFINED__
 #define __IWEExtendWizard_FWD_DEFINED__
-typedef interface IWEExtendWizard IWEExtendWizard;
+typedef struct IWEExtendWizard IWEExtendWizard;
 #endif
 
 #ifndef __IWCContextMenuCallback_FWD_DEFINED__
 #define __IWCContextMenuCallback_FWD_DEFINED__
-typedef interface IWCContextMenuCallback IWCContextMenuCallback;
+typedef struct IWCContextMenuCallback IWCContextMenuCallback;
 #endif
 
 #ifndef __IWEExtendContextMenu_FWD_DEFINED__
 #define __IWEExtendContextMenu_FWD_DEFINED__
-typedef interface IWEExtendContextMenu IWEExtendContextMenu;
+typedef struct IWEExtendContextMenu IWEExtendContextMenu;
 #endif
 
 #ifndef __IWEInvokeCommand_FWD_DEFINED__
 #define __IWEInvokeCommand_FWD_DEFINED__
-typedef interface IWEInvokeCommand IWEInvokeCommand;
+typedef struct IWEInvokeCommand IWEInvokeCommand;
 #endif
 
 #ifndef __IWCWizard97Callback_FWD_DEFINED__
 #define __IWCWizard97Callback_FWD_DEFINED__
-typedef interface IWCWizard97Callback IWCWizard97Callback;
+typedef struct IWCWizard97Callback IWCWizard97Callback;
 #endif
 
 #ifndef __IWEExtendWizard97_FWD_DEFINED__
 #define __IWEExtendWizard97_FWD_DEFINED__
-typedef interface IWEExtendWizard97 IWEExtendWizard97;
+typedef struct IWEExtendWizard97 IWEExtendWizard97;
 #endif
 
 #include "oaidl.h"
@@ -149,7 +149,7 @@ extern "C"{
       HICON (WINAPI *GetIcon)(IGetClusterUIInfo *This);
     END_INTERFACE
   } IGetClusterUIInfoVtbl;
-  interface IGetClusterUIInfo {
+  struct IGetClusterUIInfo {
     CONST_VTBL struct IGetClusterUIInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -193,7 +193,7 @@ extern "C"{
       LONG (WINAPI *GetObjectCount)(IGetClusterDataInfo *This);
     END_INTERFACE
   } IGetClusterDataInfoVtbl;
-  interface IGetClusterDataInfo {
+  struct IGetClusterDataInfo {
     CONST_VTBL struct IGetClusterDataInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -232,7 +232,7 @@ extern "C"{
       CLUADMEX_OBJECT_TYPE (WINAPI *GetObjectType)(IGetClusterObjectInfo *This,LONG lObjIndex);
     END_INTERFACE
   } IGetClusterObjectInfoVtbl;
-  interface IGetClusterObjectInfo {
+  struct IGetClusterObjectInfo {
     CONST_VTBL struct IGetClusterObjectInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -266,7 +266,7 @@ extern "C"{
       HNODE (WINAPI *GetNodeHandle)(IGetClusterNodeInfo *This,LONG lObjIndex);
     END_INTERFACE
   } IGetClusterNodeInfoVtbl;
-  interface IGetClusterNodeInfo {
+  struct IGetClusterNodeInfo {
     CONST_VTBL struct IGetClusterNodeInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -297,7 +297,7 @@ extern "C"{
       HGROUP (WINAPI *GetGroupHandle)(IGetClusterGroupInfo *This,LONG lObjIndex);
     END_INTERFACE
   } IGetClusterGroupInfoVtbl;
-  interface IGetClusterGroupInfo {
+  struct IGetClusterGroupInfo {
     CONST_VTBL struct IGetClusterGroupInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -332,7 +332,7 @@ extern "C"{
       WINBOOL (WINAPI *GetResourceNetworkName)(IGetClusterResourceInfo *This,LONG lObjIndex,BSTR lpszNetName,ULONG *pcchNetName);
     END_INTERFACE
   } IGetClusterResourceInfoVtbl;
-  interface IGetClusterResourceInfo {
+  struct IGetClusterResourceInfo {
     CONST_VTBL struct IGetClusterResourceInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -369,7 +369,7 @@ extern "C"{
       HNETWORK (WINAPI *GetNetworkHandle)(IGetClusterNetworkInfo *This,LONG lObjIndex);
     END_INTERFACE
   } IGetClusterNetworkInfoVtbl;
-  interface IGetClusterNetworkInfo {
+  struct IGetClusterNetworkInfo {
     CONST_VTBL struct IGetClusterNetworkInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -400,7 +400,7 @@ extern "C"{
       HNETINTERFACE (WINAPI *GetNetInterfaceHandle)(IGetClusterNetInterfaceInfo *This,LONG lObjIndex);
     END_INTERFACE
   } IGetClusterNetInterfaceInfoVtbl;
-  interface IGetClusterNetInterfaceInfo {
+  struct IGetClusterNetInterfaceInfo {
     CONST_VTBL struct IGetClusterNetInterfaceInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -431,7 +431,7 @@ extern "C"{
       HRESULT (WINAPI *AddPropertySheetPage)(IWCPropertySheetCallback *This,LONG *hpage);
     END_INTERFACE
   } IWCPropertySheetCallbackVtbl;
-  interface IWCPropertySheetCallback {
+  struct IWCPropertySheetCallback {
     CONST_VTBL struct IWCPropertySheetCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -462,7 +462,7 @@ extern "C"{
       HRESULT (WINAPI *CreatePropertySheetPages)(IWEExtendPropertySheet *This,IUnknown *piData,IWCPropertySheetCallback *piCallback);
     END_INTERFACE
   } IWEExtendPropertySheetVtbl;
-  interface IWEExtendPropertySheet {
+  struct IWEExtendPropertySheet {
     CONST_VTBL struct IWEExtendPropertySheetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -495,7 +495,7 @@ extern "C"{
       HRESULT (WINAPI *EnableNext)(IWCWizardCallback *This,LONG *hpage,WINBOOL bEnable);
     END_INTERFACE
   } IWCWizardCallbackVtbl;
-  interface IWCWizardCallback {
+  struct IWCWizardCallback {
     CONST_VTBL struct IWCWizardCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -529,7 +529,7 @@ extern "C"{
       HRESULT (WINAPI *CreateWizardPages)(IWEExtendWizard *This,IUnknown *piData,IWCWizardCallback *piCallback);
     END_INTERFACE
   } IWEExtendWizardVtbl;
-  interface IWEExtendWizard {
+  struct IWEExtendWizard {
     CONST_VTBL struct IWEExtendWizardVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -560,7 +560,7 @@ extern "C"{
       HRESULT (WINAPI *AddExtensionMenuItem)(IWCContextMenuCallback *This,BSTR lpszName,BSTR lpszStatusBarText,ULONG nCommandID,ULONG nSubmenuCommandID,ULONG uFlags);
     END_INTERFACE
   } IWCContextMenuCallbackVtbl;
-  interface IWCContextMenuCallback {
+  struct IWCContextMenuCallback {
     CONST_VTBL struct IWCContextMenuCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -591,7 +591,7 @@ extern "C"{
       HRESULT (WINAPI *AddContextMenuItems)(IWEExtendContextMenu *This,IUnknown *piData,IWCContextMenuCallback *piCallback);
     END_INTERFACE
   } IWEExtendContextMenuVtbl;
-  interface IWEExtendContextMenu {
+  struct IWEExtendContextMenu {
     CONST_VTBL struct IWEExtendContextMenuVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -622,7 +622,7 @@ extern "C"{
       HRESULT (WINAPI *InvokeCommand)(IWEInvokeCommand *This,ULONG nCommandID,IUnknown *piData);
     END_INTERFACE
   } IWEInvokeCommandVtbl;
-  interface IWEInvokeCommand {
+  struct IWEInvokeCommand {
     CONST_VTBL struct IWEInvokeCommandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -655,7 +655,7 @@ extern "C"{
       HRESULT (WINAPI *EnableNext)(IWCWizard97Callback *This,LONG *hpage,WINBOOL bEnable);
     END_INTERFACE
   } IWCWizard97CallbackVtbl;
-  interface IWCWizard97Callback {
+  struct IWCWizard97Callback {
     CONST_VTBL struct IWCWizard97CallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -689,7 +689,7 @@ extern "C"{
       HRESULT (WINAPI *CreateWizard97Pages)(IWEExtendWizard97 *This,IUnknown *piData,IWCWizard97Callback *piCallback);
     END_INTERFACE
   } IWEExtendWizard97Vtbl;
-  interface IWEExtendWizard97 {
+  struct IWEExtendWizard97 {
     CONST_VTBL struct IWEExtendWizard97Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

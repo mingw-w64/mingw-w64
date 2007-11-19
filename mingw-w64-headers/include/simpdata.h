@@ -15,12 +15,12 @@
 
 #ifndef __OLEDBSimpleProviderListener_FWD_DEFINED__
 #define __OLEDBSimpleProviderListener_FWD_DEFINED__
-typedef interface OLEDBSimpleProviderListener OLEDBSimpleProviderListener;
+typedef struct OLEDBSimpleProviderListener OLEDBSimpleProviderListener;
 #endif
 
 #ifndef __OLEDBSimpleProvider_FWD_DEFINED__
 #define __OLEDBSimpleProvider_FWD_DEFINED__
-typedef interface OLEDBSimpleProvider OLEDBSimpleProvider;
+typedef struct OLEDBSimpleProvider OLEDBSimpleProvider;
 #endif
 
 #include "oaidl.h"
@@ -107,7 +107,7 @@ extern "C"{
       HRESULT (WINAPI *transferComplete)(OLEDBSimpleProviderListener *This,OSPXFER xfer);
     END_INTERFACE
   } OLEDBSimpleProviderListenerVtbl;
-  interface OLEDBSimpleProviderListener {
+  struct OLEDBSimpleProviderListener {
     CONST_VTBL struct OLEDBSimpleProviderListenerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -185,7 +185,7 @@ extern "C"{
       HRESULT (WINAPI *stopTransfer)(OLEDBSimpleProvider *This);
     END_INTERFACE
   } OLEDBSimpleProviderVtbl;
-  interface OLEDBSimpleProvider {
+  struct OLEDBSimpleProvider {
     CONST_VTBL struct OLEDBSimpleProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

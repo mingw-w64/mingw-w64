@@ -24,92 +24,92 @@
 
 #ifndef __IAzAuthorizationStore_FWD_DEFINED__
 #define __IAzAuthorizationStore_FWD_DEFINED__
-typedef interface IAzAuthorizationStore IAzAuthorizationStore;
+typedef struct IAzAuthorizationStore IAzAuthorizationStore;
 #endif
 
 #ifndef __IAzAuthorizationStore2_FWD_DEFINED__
 #define __IAzAuthorizationStore2_FWD_DEFINED__
-typedef interface IAzAuthorizationStore2 IAzAuthorizationStore2;
+typedef struct IAzAuthorizationStore2 IAzAuthorizationStore2;
 #endif
 
 #ifndef __IAzApplication_FWD_DEFINED__
 #define __IAzApplication_FWD_DEFINED__
-typedef interface IAzApplication IAzApplication;
+typedef struct IAzApplication IAzApplication;
 #endif
 
 #ifndef __IAzApplication2_FWD_DEFINED__
 #define __IAzApplication2_FWD_DEFINED__
-typedef interface IAzApplication2 IAzApplication2;
+typedef struct IAzApplication2 IAzApplication2;
 #endif
 
 #ifndef __IAzApplications_FWD_DEFINED__
 #define __IAzApplications_FWD_DEFINED__
-typedef interface IAzApplications IAzApplications;
+typedef struct IAzApplications IAzApplications;
 #endif
 
 #ifndef __IAzOperation_FWD_DEFINED__
 #define __IAzOperation_FWD_DEFINED__
-typedef interface IAzOperation IAzOperation;
+typedef struct IAzOperation IAzOperation;
 #endif
 
 #ifndef __IAzOperations_FWD_DEFINED__
 #define __IAzOperations_FWD_DEFINED__
-typedef interface IAzOperations IAzOperations;
+typedef struct IAzOperations IAzOperations;
 #endif
 
 #ifndef __IAzTask_FWD_DEFINED__
 #define __IAzTask_FWD_DEFINED__
-typedef interface IAzTask IAzTask;
+typedef struct IAzTask IAzTask;
 #endif
 
 #ifndef __IAzTasks_FWD_DEFINED__
 #define __IAzTasks_FWD_DEFINED__
-typedef interface IAzTasks IAzTasks;
+typedef struct IAzTasks IAzTasks;
 #endif
 
 #ifndef __IAzScope_FWD_DEFINED__
 #define __IAzScope_FWD_DEFINED__
-typedef interface IAzScope IAzScope;
+typedef struct IAzScope IAzScope;
 #endif
 
 #ifndef __IAzScopes_FWD_DEFINED__
 #define __IAzScopes_FWD_DEFINED__
-typedef interface IAzScopes IAzScopes;
+typedef struct IAzScopes IAzScopes;
 #endif
 
 #ifndef __IAzApplicationGroup_FWD_DEFINED__
 #define __IAzApplicationGroup_FWD_DEFINED__
-typedef interface IAzApplicationGroup IAzApplicationGroup;
+typedef struct IAzApplicationGroup IAzApplicationGroup;
 #endif
 
 #ifndef __IAzApplicationGroups_FWD_DEFINED__
 #define __IAzApplicationGroups_FWD_DEFINED__
-typedef interface IAzApplicationGroups IAzApplicationGroups;
+typedef struct IAzApplicationGroups IAzApplicationGroups;
 #endif
 
 #ifndef __IAzRole_FWD_DEFINED__
 #define __IAzRole_FWD_DEFINED__
-typedef interface IAzRole IAzRole;
+typedef struct IAzRole IAzRole;
 #endif
 
 #ifndef __IAzRoles_FWD_DEFINED__
 #define __IAzRoles_FWD_DEFINED__
-typedef interface IAzRoles IAzRoles;
+typedef struct IAzRoles IAzRoles;
 #endif
 
 #ifndef __IAzClientContext_FWD_DEFINED__
 #define __IAzClientContext_FWD_DEFINED__
-typedef interface IAzClientContext IAzClientContext;
+typedef struct IAzClientContext IAzClientContext;
 #endif
 
 #ifndef __IAzClientContext2_FWD_DEFINED__
 #define __IAzClientContext2_FWD_DEFINED__
-typedef interface IAzClientContext2 IAzClientContext2;
+typedef struct IAzClientContext2 IAzClientContext2;
 #endif
 
 #ifndef __IAzBizRuleContext_FWD_DEFINED__
 #define __IAzBizRuleContext_FWD_DEFINED__
-typedef interface IAzBizRuleContext IAzBizRuleContext;
+typedef struct IAzBizRuleContext IAzBizRuleContext;
 #endif
 
 #ifndef __AzAuthorizationStore_FWD_DEFINED__
@@ -270,7 +270,7 @@ extern "C"{
       HRESULT (WINAPI *CloseApplication)(IAzAuthorizationStore *This,BSTR bstrApplicationName,LONG lFlag);
     END_INTERFACE
   } IAzAuthorizationStoreVtbl;
-  interface IAzAuthorizationStore {
+  struct IAzAuthorizationStore {
     CONST_VTBL struct IAzAuthorizationStoreVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -512,7 +512,7 @@ extern "C"{
       HRESULT (WINAPI *CreateApplication2)(IAzAuthorizationStore2 *This,BSTR bstrApplicationName,VARIANT varReserved,IAzApplication2 **ppApplication);
     END_INTERFACE
   } IAzAuthorizationStore2Vtbl;
-  interface IAzAuthorizationStore2 {
+  struct IAzAuthorizationStore2 {
     CONST_VTBL struct IAzAuthorizationStore2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -725,7 +725,7 @@ extern "C"{
       HRESULT (WINAPI *DeleteDelegatedPolicyUserName)(IAzApplication *This,BSTR bstrDelegatedPolicyUser,VARIANT varReserved);
     END_INTERFACE
   } IAzApplicationVtbl;
-  interface IAzApplication {
+  struct IAzApplication {
     CONST_VTBL struct IAzApplicationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1007,7 +1007,7 @@ extern "C"{
       HRESULT (WINAPI *InitializeClientContext2)(IAzApplication2 *This,BSTR IdentifyingString,VARIANT varReserved,IAzClientContext2 **ppClientContext);
     END_INTERFACE
   } IAzApplication2Vtbl;
-  interface IAzApplication2 {
+  struct IAzApplication2 {
     CONST_VTBL struct IAzApplication2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1114,7 +1114,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IAzApplications *This,LPUNKNOWN *ppEnumPtr);
     END_INTERFACE
   } IAzApplicationsVtbl;
-  interface IAzApplications {
+  struct IAzApplications {
     CONST_VTBL struct IAzApplicationsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1181,7 +1181,7 @@ extern "C"{
       HRESULT (WINAPI *Submit)(IAzOperation *This,LONG lFlags,VARIANT varReserved);
     END_INTERFACE
   } IAzOperationVtbl;
-  interface IAzOperation {
+  struct IAzOperation {
     CONST_VTBL struct IAzOperationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1257,7 +1257,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IAzOperations *This,LPUNKNOWN *ppEnumPtr);
     END_INTERFACE
   } IAzOperationsVtbl;
-  interface IAzOperations {
+  struct IAzOperations {
     CONST_VTBL struct IAzOperationsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1352,7 +1352,7 @@ extern "C"{
       HRESULT (WINAPI *Submit)(IAzTask *This,LONG lFlags,VARIANT varReserved);
     END_INTERFACE
   } IAzTaskVtbl;
-  interface IAzTask {
+  struct IAzTask {
     CONST_VTBL struct IAzTaskVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1470,7 +1470,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IAzTasks *This,LPUNKNOWN *ppEnumPtr);
     END_INTERFACE
   } IAzTasksVtbl;
-  interface IAzTasks {
+  struct IAzTasks {
     CONST_VTBL struct IAzTasksVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1589,7 +1589,7 @@ extern "C"{
       HRESULT (WINAPI *DeletePolicyReaderName)(IAzScope *This,BSTR bstrReader,VARIANT varReserved);
     END_INTERFACE
   } IAzScopeVtbl;
-  interface IAzScope {
+  struct IAzScope {
     CONST_VTBL struct IAzScopeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1743,7 +1743,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IAzScopes *This,LPUNKNOWN *ppEnumPtr);
     END_INTERFACE
   } IAzScopesVtbl;
-  interface IAzScopes {
+  struct IAzScopes {
     CONST_VTBL struct IAzScopesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1850,7 +1850,7 @@ extern "C"{
       HRESULT (WINAPI *get_NonMembersName)(IAzApplicationGroup *This,VARIANT *pvarProp);
     END_INTERFACE
   } IAzApplicationGroupVtbl;
-  interface IAzApplicationGroup {
+  struct IAzApplicationGroup {
     CONST_VTBL struct IAzApplicationGroupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1986,7 +1986,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IAzApplicationGroups *This,LPUNKNOWN *ppEnumPtr);
     END_INTERFACE
   } IAzApplicationGroupsVtbl;
-  interface IAzApplicationGroups {
+  struct IAzApplicationGroups {
     CONST_VTBL struct IAzApplicationGroupsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2083,7 +2083,7 @@ extern "C"{
       HRESULT (WINAPI *get_MembersName)(IAzRole *This,VARIANT *pvarProp);
     END_INTERFACE
   } IAzRoleVtbl;
-  interface IAzRole {
+  struct IAzRole {
     CONST_VTBL struct IAzRoleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2204,7 +2204,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IAzRoles *This,LPUNKNOWN *ppEnumPtr);
     END_INTERFACE
   } IAzRolesVtbl;
-  interface IAzRoles {
+  struct IAzRoles {
     CONST_VTBL struct IAzRolesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2273,7 +2273,7 @@ extern "C"{
       HRESULT (WINAPI *put_RoleForAccessCheck)(IAzClientContext *This,BSTR bstrProp);
     END_INTERFACE
   } IAzClientContextVtbl;
-  interface IAzClientContext {
+  struct IAzClientContext {
     CONST_VTBL struct IAzClientContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2371,7 +2371,7 @@ extern "C"{
       HRESULT (WINAPI *get_LDAPQueryDN)(IAzClientContext2 *This,BSTR *pbstrLDAPQueryDN);
     END_INTERFACE
   } IAzClientContext2Vtbl;
-  interface IAzClientContext2 {
+  struct IAzClientContext2 {
     CONST_VTBL struct IAzClientContext2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2444,7 +2444,7 @@ extern "C"{
       HRESULT (WINAPI *GetParameter)(IAzBizRuleContext *This,BSTR bstrParameterName,VARIANT *pvarParameterValue);
     END_INTERFACE
   } IAzBizRuleContextVtbl;
-  interface IAzBizRuleContext {
+  struct IAzBizRuleContext {
     CONST_VTBL struct IAzBizRuleContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

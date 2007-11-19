@@ -28,27 +28,27 @@ extern "C"{
 
 #ifndef __ICatalog_FWD_DEFINED__
 #define __ICatalog_FWD_DEFINED__
-  typedef interface ICatalog ICatalog;
+  typedef struct ICatalog ICatalog;
 #endif
 
 #ifndef __IComponentUtil_FWD_DEFINED__
 #define __IComponentUtil_FWD_DEFINED__
-  typedef interface IComponentUtil IComponentUtil;
+  typedef struct IComponentUtil IComponentUtil;
 #endif
 
 #ifndef __IPackageUtil_FWD_DEFINED__
 #define __IPackageUtil_FWD_DEFINED__
-  typedef interface IPackageUtil IPackageUtil;
+  typedef struct IPackageUtil IPackageUtil;
 #endif
 
 #ifndef __IRemoteComponentUtil_FWD_DEFINED__
 #define __IRemoteComponentUtil_FWD_DEFINED__
-  typedef interface IRemoteComponentUtil IRemoteComponentUtil;
+  typedef struct IRemoteComponentUtil IRemoteComponentUtil;
 #endif
 
 #ifndef __IRoleAssociationUtil_FWD_DEFINED__
 #define __IRoleAssociationUtil_FWD_DEFINED__
-  typedef interface IRoleAssociationUtil IRoleAssociationUtil;
+  typedef struct IRoleAssociationUtil IRoleAssociationUtil;
 #endif
 
 #ifndef __Catalog_FWD_DEFINED__
@@ -152,7 +152,7 @@ extern "C"{
       HRESULT (WINAPI *get_MinorVersion)(ICatalog *This,long *retval);
     END_INTERFACE
   } ICatalogVtbl;
-  interface ICatalog {
+  struct ICatalog {
     CONST_VTBL struct ICatalogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -206,7 +206,7 @@ extern "C"{
       HRESULT (WINAPI *GetCLSIDs)(IComponentUtil *This,BSTR bstrDLLFile,BSTR bstrTypelibFile,SAFEARRAY **aCLSIDs);
     END_INTERFACE
   } IComponentUtilVtbl;
-  interface IComponentUtil {
+  struct IComponentUtil {
     CONST_VTBL struct IComponentUtilVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -258,7 +258,7 @@ extern "C"{
       HRESULT (WINAPI *ShutdownPackage)(IPackageUtil *This,BSTR bstrPackageID);
     END_INTERFACE
   } IPackageUtilVtbl;
-  interface IPackageUtil {
+  struct IPackageUtil {
     CONST_VTBL struct IPackageUtilVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -305,7 +305,7 @@ extern "C"{
       HRESULT (WINAPI *InstallRemoteComponentByName)(IRemoteComponentUtil *This,BSTR bstrServer,BSTR bstrPackageName,BSTR bstrProgID);
     END_INTERFACE
   } IRemoteComponentUtilVtbl;
-  interface IRemoteComponentUtil {
+  struct IRemoteComponentUtil {
     CONST_VTBL struct IRemoteComponentUtilVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -349,7 +349,7 @@ extern "C"{
       HRESULT (WINAPI *AssociateRoleByName)(IRoleAssociationUtil *This,BSTR bstrRoleName);
     END_INTERFACE
   } IRoleAssociationUtilVtbl;
-  interface IRoleAssociationUtil {
+  struct IRoleAssociationUtil {
     CONST_VTBL struct IRoleAssociationUtilVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

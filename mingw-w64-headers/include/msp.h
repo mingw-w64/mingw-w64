@@ -24,17 +24,17 @@
 
 #ifndef __ITPluggableTerminalEventSink_FWD_DEFINED__
 #define __ITPluggableTerminalEventSink_FWD_DEFINED__
-typedef interface ITPluggableTerminalEventSink ITPluggableTerminalEventSink;
+typedef struct ITPluggableTerminalEventSink ITPluggableTerminalEventSink;
 #endif
 
 #ifndef __ITPluggableTerminalEventSinkRegistration_FWD_DEFINED__
 #define __ITPluggableTerminalEventSinkRegistration_FWD_DEFINED__
-typedef interface ITPluggableTerminalEventSinkRegistration ITPluggableTerminalEventSinkRegistration;
+typedef struct ITPluggableTerminalEventSinkRegistration ITPluggableTerminalEventSinkRegistration;
 #endif
 
 #ifndef __ITMSPAddress_FWD_DEFINED__
 #define __ITMSPAddress_FWD_DEFINED__
-typedef interface ITMSPAddress ITMSPAddress;
+typedef struct ITMSPAddress ITMSPAddress;
 #endif
 
 #include "tapi3if.h"
@@ -136,7 +136,7 @@ extern "C" {
       HRESULT (WINAPI *FireEvent)(ITPluggableTerminalEventSink *This,const MSP_EVENT_INFO *pMspEventInfo);
     END_INTERFACE
   } ITPluggableTerminalEventSinkVtbl;
-  interface ITPluggableTerminalEventSink {
+  struct ITPluggableTerminalEventSink {
     CONST_VTBL struct ITPluggableTerminalEventSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -169,7 +169,7 @@ extern "C" {
       HRESULT (WINAPI *UnregisterSink)(ITPluggableTerminalEventSinkRegistration *This);
     END_INTERFACE
   } ITPluggableTerminalEventSinkRegistrationVtbl;
-  interface ITPluggableTerminalEventSinkRegistration {
+  struct ITPluggableTerminalEventSinkRegistration {
     CONST_VTBL struct ITPluggableTerminalEventSinkRegistrationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -213,7 +213,7 @@ extern "C" {
       HRESULT (WINAPI *GetEvent)(ITMSPAddress *This,DWORD *pdwSize,byte *pEventBuffer);
     END_INTERFACE
   } ITMSPAddressVtbl;
-  interface ITMSPAddress {
+  struct ITMSPAddress {
     CONST_VTBL struct ITMSPAddressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

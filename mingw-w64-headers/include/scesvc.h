@@ -138,7 +138,7 @@ extern "C" {
 #define CCF_SCESVC_ATTACHMENT L"CCF_SCESVC_ATTACHMENT"
 #define CCF_SCESVC_ATTACHMENT_DATA L"CCF_SCESVC_ATTACHMENT_DATA"
 
-  typedef interface ISceSvcAttachmentPersistInfo ISceSvcAttachmentPersistInfo;
+  typedef struct ISceSvcAttachmentPersistInfo ISceSvcAttachmentPersistInfo;
   typedef ISceSvcAttachmentPersistInfo *LPSCESVCATTACHMENTPERSISTINFO;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISceSvcAttachmentPersistInfo : public IUnknown {
@@ -158,7 +158,7 @@ extern "C" {
       HRESULT (WINAPI *IsDirty)(ISceSvcAttachmentPersistInfo *This,LPTSTR lpTemplateName);
     END_INTERFACE
   } ISceSvcAttachmentPersistInfoVtbl;
-  interface ISceSvcAttachmentPersistInfo {
+  struct ISceSvcAttachmentPersistInfo {
     CONST_VTBL struct ISceSvcAttachmentPersistInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -171,7 +171,7 @@ extern "C" {
 #endif
 #endif
 
-  typedef interface ISceSvcAttachmentData ISceSvcAttachmentData;
+  typedef struct ISceSvcAttachmentData ISceSvcAttachmentData;
   typedef ISceSvcAttachmentData *LPSCESVCATTACHMENTDATA;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISceSvcAttachmentData : public IUnknown {
@@ -193,7 +193,7 @@ extern "C" {
       HRESULT (WINAPI *CloseHandle)(ISceSvcAttachmentData *This,SCESVC_HANDLE scesvcHandle);
     END_INTERFACE
   } ISceSvcAttachmentDataVtbl;
-  interface ISceSvcAttachmentData {
+  struct ISceSvcAttachmentData {
     CONST_VTBL struct ISceSvcAttachmentDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

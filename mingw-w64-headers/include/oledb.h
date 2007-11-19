@@ -24,407 +24,407 @@
 
 #ifndef __IAccessor_FWD_DEFINED__
 #define __IAccessor_FWD_DEFINED__
-typedef interface IAccessor IAccessor;
+typedef struct IAccessor IAccessor;
 #endif
 
 #ifndef __IRowset_FWD_DEFINED__
 #define __IRowset_FWD_DEFINED__
-typedef interface IRowset IRowset;
+typedef struct IRowset IRowset;
 #endif
 
 #ifndef __IRowsetInfo_FWD_DEFINED__
 #define __IRowsetInfo_FWD_DEFINED__
-typedef interface IRowsetInfo IRowsetInfo;
+typedef struct IRowsetInfo IRowsetInfo;
 #endif
 
 #ifndef __IRowsetLocate_FWD_DEFINED__
 #define __IRowsetLocate_FWD_DEFINED__
-typedef interface IRowsetLocate IRowsetLocate;
+typedef struct IRowsetLocate IRowsetLocate;
 #endif
 
 #ifndef __IRowsetResynch_FWD_DEFINED__
 #define __IRowsetResynch_FWD_DEFINED__
-typedef interface IRowsetResynch IRowsetResynch;
+typedef struct IRowsetResynch IRowsetResynch;
 #endif
 
 #ifndef __IRowsetScroll_FWD_DEFINED__
 #define __IRowsetScroll_FWD_DEFINED__
-typedef interface IRowsetScroll IRowsetScroll;
+typedef struct IRowsetScroll IRowsetScroll;
 #endif
 
 #ifndef __IChapteredRowset_FWD_DEFINED__
 #define __IChapteredRowset_FWD_DEFINED__
-typedef interface IChapteredRowset IChapteredRowset;
+typedef struct IChapteredRowset IChapteredRowset;
 #endif
 
 #ifndef __IRowsetFind_FWD_DEFINED__
 #define __IRowsetFind_FWD_DEFINED__
-typedef interface IRowsetFind IRowsetFind;
+typedef struct IRowsetFind IRowsetFind;
 #endif
 
 #ifndef __IRowPosition_FWD_DEFINED__
 #define __IRowPosition_FWD_DEFINED__
-typedef interface IRowPosition IRowPosition;
+typedef struct IRowPosition IRowPosition;
 #endif
 
 #ifndef __IRowPositionChange_FWD_DEFINED__
 #define __IRowPositionChange_FWD_DEFINED__
-typedef interface IRowPositionChange IRowPositionChange;
+typedef struct IRowPositionChange IRowPositionChange;
 #endif
 
 #ifndef __IViewRowset_FWD_DEFINED__
 #define __IViewRowset_FWD_DEFINED__
-typedef interface IViewRowset IViewRowset;
+typedef struct IViewRowset IViewRowset;
 #endif
 
 #ifndef __IViewChapter_FWD_DEFINED__
 #define __IViewChapter_FWD_DEFINED__
-typedef interface IViewChapter IViewChapter;
+typedef struct IViewChapter IViewChapter;
 #endif
 
 #ifndef __IViewSort_FWD_DEFINED__
 #define __IViewSort_FWD_DEFINED__
-typedef interface IViewSort IViewSort;
+typedef struct IViewSort IViewSort;
 #endif
 
 #ifndef __IViewFilter_FWD_DEFINED__
 #define __IViewFilter_FWD_DEFINED__
-typedef interface IViewFilter IViewFilter;
+typedef struct IViewFilter IViewFilter;
 #endif
 
 #ifndef __IRowsetView_FWD_DEFINED__
 #define __IRowsetView_FWD_DEFINED__
-typedef interface IRowsetView IRowsetView;
+typedef struct IRowsetView IRowsetView;
 #endif
 
 #ifndef __IRowsetExactScroll_FWD_DEFINED__
 #define __IRowsetExactScroll_FWD_DEFINED__
-typedef interface IRowsetExactScroll IRowsetExactScroll;
+typedef struct IRowsetExactScroll IRowsetExactScroll;
 #endif
 
 #ifndef __IRowsetChange_FWD_DEFINED__
 #define __IRowsetChange_FWD_DEFINED__
-typedef interface IRowsetChange IRowsetChange;
+typedef struct IRowsetChange IRowsetChange;
 #endif
 
 #ifndef __IRowsetUpdate_FWD_DEFINED__
 #define __IRowsetUpdate_FWD_DEFINED__
-typedef interface IRowsetUpdate IRowsetUpdate;
+typedef struct IRowsetUpdate IRowsetUpdate;
 #endif
 
 #ifndef __IRowsetIdentity_FWD_DEFINED__
 #define __IRowsetIdentity_FWD_DEFINED__
-typedef interface IRowsetIdentity IRowsetIdentity;
+typedef struct IRowsetIdentity IRowsetIdentity;
 #endif
 
 #ifndef __IRowsetNotify_FWD_DEFINED__
 #define __IRowsetNotify_FWD_DEFINED__
-typedef interface IRowsetNotify IRowsetNotify;
+typedef struct IRowsetNotify IRowsetNotify;
 #endif
 
 #ifndef __IRowsetIndex_FWD_DEFINED__
 #define __IRowsetIndex_FWD_DEFINED__
-typedef interface IRowsetIndex IRowsetIndex;
+typedef struct IRowsetIndex IRowsetIndex;
 #endif
 
 #ifndef __ICommand_FWD_DEFINED__
 #define __ICommand_FWD_DEFINED__
-typedef interface ICommand ICommand;
+typedef struct ICommand ICommand;
 #endif
 
 #ifndef __IMultipleResults_FWD_DEFINED__
 #define __IMultipleResults_FWD_DEFINED__
-typedef interface IMultipleResults IMultipleResults;
+typedef struct IMultipleResults IMultipleResults;
 #endif
 
 #ifndef __IConvertType_FWD_DEFINED__
 #define __IConvertType_FWD_DEFINED__
-typedef interface IConvertType IConvertType;
+typedef struct IConvertType IConvertType;
 #endif
 
 #ifndef __ICommandPrepare_FWD_DEFINED__
 #define __ICommandPrepare_FWD_DEFINED__
-typedef interface ICommandPrepare ICommandPrepare;
+typedef struct ICommandPrepare ICommandPrepare;
 #endif
 
 #ifndef __ICommandProperties_FWD_DEFINED__
 #define __ICommandProperties_FWD_DEFINED__
-typedef interface ICommandProperties ICommandProperties;
+typedef struct ICommandProperties ICommandProperties;
 #endif
 
 #ifndef __ICommandText_FWD_DEFINED__
 #define __ICommandText_FWD_DEFINED__
-typedef interface ICommandText ICommandText;
+typedef struct ICommandText ICommandText;
 #endif
 
 #ifndef __ICommandWithParameters_FWD_DEFINED__
 #define __ICommandWithParameters_FWD_DEFINED__
-typedef interface ICommandWithParameters ICommandWithParameters;
+typedef struct ICommandWithParameters ICommandWithParameters;
 #endif
 
 #ifndef __IColumnsRowset_FWD_DEFINED__
 #define __IColumnsRowset_FWD_DEFINED__
-typedef interface IColumnsRowset IColumnsRowset;
+typedef struct IColumnsRowset IColumnsRowset;
 #endif
 
 #ifndef __IColumnsInfo_FWD_DEFINED__
 #define __IColumnsInfo_FWD_DEFINED__
-typedef interface IColumnsInfo IColumnsInfo;
+typedef struct IColumnsInfo IColumnsInfo;
 #endif
 
 #ifndef __IDBCreateCommand_FWD_DEFINED__
 #define __IDBCreateCommand_FWD_DEFINED__
-typedef interface IDBCreateCommand IDBCreateCommand;
+typedef struct IDBCreateCommand IDBCreateCommand;
 #endif
 
 #ifndef __IDBCreateSession_FWD_DEFINED__
 #define __IDBCreateSession_FWD_DEFINED__
-typedef interface IDBCreateSession IDBCreateSession;
+typedef struct IDBCreateSession IDBCreateSession;
 #endif
 
 #ifndef __ISourcesRowset_FWD_DEFINED__
 #define __ISourcesRowset_FWD_DEFINED__
-typedef interface ISourcesRowset ISourcesRowset;
+typedef struct ISourcesRowset ISourcesRowset;
 #endif
 
 #ifndef __IDBProperties_FWD_DEFINED__
 #define __IDBProperties_FWD_DEFINED__
-typedef interface IDBProperties IDBProperties;
+typedef struct IDBProperties IDBProperties;
 #endif
 
 #ifndef __IDBInitialize_FWD_DEFINED__
 #define __IDBInitialize_FWD_DEFINED__
-typedef interface IDBInitialize IDBInitialize;
+typedef struct IDBInitialize IDBInitialize;
 #endif
 
 #ifndef __IDBInfo_FWD_DEFINED__
 #define __IDBInfo_FWD_DEFINED__
-typedef interface IDBInfo IDBInfo;
+typedef struct IDBInfo IDBInfo;
 #endif
 
 #ifndef __IDBDataSourceAdmin_FWD_DEFINED__
 #define __IDBDataSourceAdmin_FWD_DEFINED__
-typedef interface IDBDataSourceAdmin IDBDataSourceAdmin;
+typedef struct IDBDataSourceAdmin IDBDataSourceAdmin;
 #endif
 
 #ifndef __IDBAsynchNotify_FWD_DEFINED__
 #define __IDBAsynchNotify_FWD_DEFINED__
-typedef interface IDBAsynchNotify IDBAsynchNotify;
+typedef struct IDBAsynchNotify IDBAsynchNotify;
 #endif
 
 #ifndef __IDBAsynchStatus_FWD_DEFINED__
 #define __IDBAsynchStatus_FWD_DEFINED__
-typedef interface IDBAsynchStatus IDBAsynchStatus;
+typedef struct IDBAsynchStatus IDBAsynchStatus;
 #endif
 
 #ifndef __ISessionProperties_FWD_DEFINED__
 #define __ISessionProperties_FWD_DEFINED__
-typedef interface ISessionProperties ISessionProperties;
+typedef struct ISessionProperties ISessionProperties;
 #endif
 
 #ifndef __IIndexDefinition_FWD_DEFINED__
 #define __IIndexDefinition_FWD_DEFINED__
-typedef interface IIndexDefinition IIndexDefinition;
+typedef struct IIndexDefinition IIndexDefinition;
 #endif
 
 #ifndef __ITableDefinition_FWD_DEFINED__
 #define __ITableDefinition_FWD_DEFINED__
-typedef interface ITableDefinition ITableDefinition;
+typedef struct ITableDefinition ITableDefinition;
 #endif
 
 #ifndef __IOpenRowset_FWD_DEFINED__
 #define __IOpenRowset_FWD_DEFINED__
-typedef interface IOpenRowset IOpenRowset;
+typedef struct IOpenRowset IOpenRowset;
 #endif
 
 #ifndef __IDBSchemaRowset_FWD_DEFINED__
 #define __IDBSchemaRowset_FWD_DEFINED__
-typedef interface IDBSchemaRowset IDBSchemaRowset;
+typedef struct IDBSchemaRowset IDBSchemaRowset;
 #endif
 
 #ifndef __IMDDataset_FWD_DEFINED__
 #define __IMDDataset_FWD_DEFINED__
-typedef interface IMDDataset IMDDataset;
+typedef struct IMDDataset IMDDataset;
 #endif
 
 #ifndef __IMDFind_FWD_DEFINED__
 #define __IMDFind_FWD_DEFINED__
-typedef interface IMDFind IMDFind;
+typedef struct IMDFind IMDFind;
 #endif
 
 #ifndef __IMDRangeRowset_FWD_DEFINED__
 #define __IMDRangeRowset_FWD_DEFINED__
-typedef interface IMDRangeRowset IMDRangeRowset;
+typedef struct IMDRangeRowset IMDRangeRowset;
 #endif
 
 #ifndef __IAlterTable_FWD_DEFINED__
 #define __IAlterTable_FWD_DEFINED__
-typedef interface IAlterTable IAlterTable;
+typedef struct IAlterTable IAlterTable;
 #endif
 
 #ifndef __IAlterIndex_FWD_DEFINED__
 #define __IAlterIndex_FWD_DEFINED__
-typedef interface IAlterIndex IAlterIndex;
+typedef struct IAlterIndex IAlterIndex;
 #endif
 
 #ifndef __IRowsetChapterMember_FWD_DEFINED__
 #define __IRowsetChapterMember_FWD_DEFINED__
-typedef interface IRowsetChapterMember IRowsetChapterMember;
+typedef struct IRowsetChapterMember IRowsetChapterMember;
 #endif
 
 #ifndef __ICommandPersist_FWD_DEFINED__
 #define __ICommandPersist_FWD_DEFINED__
-typedef interface ICommandPersist ICommandPersist;
+typedef struct ICommandPersist ICommandPersist;
 #endif
 
 #ifndef __IRowsetRefresh_FWD_DEFINED__
 #define __IRowsetRefresh_FWD_DEFINED__
-typedef interface IRowsetRefresh IRowsetRefresh;
+typedef struct IRowsetRefresh IRowsetRefresh;
 #endif
 
 #ifndef __IParentRowset_FWD_DEFINED__
 #define __IParentRowset_FWD_DEFINED__
-typedef interface IParentRowset IParentRowset;
+typedef struct IParentRowset IParentRowset;
 #endif
 
 #ifndef __IErrorRecords_FWD_DEFINED__
 #define __IErrorRecords_FWD_DEFINED__
-typedef interface IErrorRecords IErrorRecords;
+typedef struct IErrorRecords IErrorRecords;
 #endif
 
 #ifndef __IErrorLookup_FWD_DEFINED__
 #define __IErrorLookup_FWD_DEFINED__
-typedef interface IErrorLookup IErrorLookup;
+typedef struct IErrorLookup IErrorLookup;
 #endif
 
 #ifndef __ISQLErrorInfo_FWD_DEFINED__
 #define __ISQLErrorInfo_FWD_DEFINED__
-typedef interface ISQLErrorInfo ISQLErrorInfo;
+typedef struct ISQLErrorInfo ISQLErrorInfo;
 #endif
 
 #ifndef __IGetDataSource_FWD_DEFINED__
 #define __IGetDataSource_FWD_DEFINED__
-typedef interface IGetDataSource IGetDataSource;
+typedef struct IGetDataSource IGetDataSource;
 #endif
 
 #ifndef __ITransactionLocal_FWD_DEFINED__
 #define __ITransactionLocal_FWD_DEFINED__
-typedef interface ITransactionLocal ITransactionLocal;
+typedef struct ITransactionLocal ITransactionLocal;
 #endif
 
 #ifndef __ITransactionJoin_FWD_DEFINED__
 #define __ITransactionJoin_FWD_DEFINED__
-typedef interface ITransactionJoin ITransactionJoin;
+typedef struct ITransactionJoin ITransactionJoin;
 #endif
 
 #ifndef __ITransactionObject_FWD_DEFINED__
 #define __ITransactionObject_FWD_DEFINED__
-typedef interface ITransactionObject ITransactionObject;
+typedef struct ITransactionObject ITransactionObject;
 #endif
 
 #ifndef __ITrusteeAdmin_FWD_DEFINED__
 #define __ITrusteeAdmin_FWD_DEFINED__
-typedef interface ITrusteeAdmin ITrusteeAdmin;
+typedef struct ITrusteeAdmin ITrusteeAdmin;
 #endif
 
 #ifndef __ITrusteeGroupAdmin_FWD_DEFINED__
 #define __ITrusteeGroupAdmin_FWD_DEFINED__
-typedef interface ITrusteeGroupAdmin ITrusteeGroupAdmin;
+typedef struct ITrusteeGroupAdmin ITrusteeGroupAdmin;
 #endif
 
 #ifndef __IObjectAccessControl_FWD_DEFINED__
 #define __IObjectAccessControl_FWD_DEFINED__
-typedef interface IObjectAccessControl IObjectAccessControl;
+typedef struct IObjectAccessControl IObjectAccessControl;
 #endif
 
 #ifndef __ISecurityInfo_FWD_DEFINED__
 #define __ISecurityInfo_FWD_DEFINED__
-typedef interface ISecurityInfo ISecurityInfo;
+typedef struct ISecurityInfo ISecurityInfo;
 #endif
 
 #ifndef __ITableCreation_FWD_DEFINED__
 #define __ITableCreation_FWD_DEFINED__
-typedef interface ITableCreation ITableCreation;
+typedef struct ITableCreation ITableCreation;
 #endif
 
 #ifndef __ITableDefinitionWithConstraints_FWD_DEFINED__
 #define __ITableDefinitionWithConstraints_FWD_DEFINED__
-typedef interface ITableDefinitionWithConstraints ITableDefinitionWithConstraints;
+typedef struct ITableDefinitionWithConstraints ITableDefinitionWithConstraints;
 #endif
 
 #ifndef __IRow_FWD_DEFINED__
 #define __IRow_FWD_DEFINED__
-typedef interface IRow IRow;
+typedef struct IRow IRow;
 #endif
 
 #ifndef __IRowChange_FWD_DEFINED__
 #define __IRowChange_FWD_DEFINED__
-typedef interface IRowChange IRowChange;
+typedef struct IRowChange IRowChange;
 #endif
 
 #ifndef __IRowSchemaChange_FWD_DEFINED__
 #define __IRowSchemaChange_FWD_DEFINED__
-typedef interface IRowSchemaChange IRowSchemaChange;
+typedef struct IRowSchemaChange IRowSchemaChange;
 #endif
 
 #ifndef __IGetRow_FWD_DEFINED__
 #define __IGetRow_FWD_DEFINED__
-typedef interface IGetRow IGetRow;
+typedef struct IGetRow IGetRow;
 #endif
 
 #ifndef __IBindResource_FWD_DEFINED__
 #define __IBindResource_FWD_DEFINED__
-typedef interface IBindResource IBindResource;
+typedef struct IBindResource IBindResource;
 #endif
 
 #ifndef __IScopedOperations_FWD_DEFINED__
 #define __IScopedOperations_FWD_DEFINED__
-typedef interface IScopedOperations IScopedOperations;
+typedef struct IScopedOperations IScopedOperations;
 #endif
 
 #ifndef __ICreateRow_FWD_DEFINED__
 #define __ICreateRow_FWD_DEFINED__
-typedef interface ICreateRow ICreateRow;
+typedef struct ICreateRow ICreateRow;
 #endif
 
 #ifndef __IDBBinderProperties_FWD_DEFINED__
 #define __IDBBinderProperties_FWD_DEFINED__
-typedef interface IDBBinderProperties IDBBinderProperties;
+typedef struct IDBBinderProperties IDBBinderProperties;
 #endif
 
 #ifndef __IColumnsInfo2_FWD_DEFINED__
 #define __IColumnsInfo2_FWD_DEFINED__
-typedef interface IColumnsInfo2 IColumnsInfo2;
+typedef struct IColumnsInfo2 IColumnsInfo2;
 #endif
 
 #ifndef __IRegisterProvider_FWD_DEFINED__
 #define __IRegisterProvider_FWD_DEFINED__
-typedef interface IRegisterProvider IRegisterProvider;
+typedef struct IRegisterProvider IRegisterProvider;
 #endif
 
 #ifndef __IGetSession_FWD_DEFINED__
 #define __IGetSession_FWD_DEFINED__
-typedef interface IGetSession IGetSession;
+typedef struct IGetSession IGetSession;
 #endif
 
 #ifndef __IGetSourceRow_FWD_DEFINED__
 #define __IGetSourceRow_FWD_DEFINED__
-typedef interface IGetSourceRow IGetSourceRow;
+typedef struct IGetSourceRow IGetSourceRow;
 #endif
 
 #ifndef __IRowsetCurrentIndex_FWD_DEFINED__
 #define __IRowsetCurrentIndex_FWD_DEFINED__
-typedef interface IRowsetCurrentIndex IRowsetCurrentIndex;
+typedef struct IRowsetCurrentIndex IRowsetCurrentIndex;
 #endif
 
 #ifndef __ICommandStream_FWD_DEFINED__
 #define __ICommandStream_FWD_DEFINED__
-typedef interface ICommandStream ICommandStream;
+typedef struct ICommandStream ICommandStream;
 #endif
 
 #ifndef __IRowsetBookmark_FWD_DEFINED__
 #define __IRowsetBookmark_FWD_DEFINED__
-typedef interface IRowsetBookmark IRowsetBookmark;
+typedef struct IRowsetBookmark IRowsetBookmark;
 #endif
 
 #include "wtypes.h"
@@ -2095,7 +2095,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseAccessor)(IAccessor *This,HACCESSOR hAccessor,DBREFCOUNT *pcRefCount);
     END_INTERFACE
   } IAccessorVtbl;
-  interface IAccessor {
+  struct IAccessor {
     CONST_VTBL struct IAccessorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2145,7 +2145,7 @@ extern "C" {
       HRESULT (WINAPI *RestartPosition)(IRowset *This,HCHAPTER hReserved);
     END_INTERFACE
   } IRowsetVtbl;
-  interface IRowset {
+  struct IRowset {
     CONST_VTBL struct IRowsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2192,7 +2192,7 @@ extern "C" {
       HRESULT (WINAPI *GetSpecification)(IRowsetInfo *This,REFIID riid,IUnknown **ppSpecification);
     END_INTERFACE
   } IRowsetInfoVtbl;
-  interface IRowsetInfo {
+  struct IRowsetInfo {
     CONST_VTBL struct IRowsetInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2247,7 +2247,7 @@ extern "C" {
       HRESULT (WINAPI *Hash)(IRowsetLocate *This,HCHAPTER hReserved,DBBKMARK cBookmarks,const DBBKMARK rgcbBookmarks[],const BYTE *rgpBookmarks[],DBHASHVALUE rgHashedValues[],DBROWSTATUS rgBookmarkStatus[]);
     END_INTERFACE
   } IRowsetLocateVtbl;
-  interface IRowsetLocate {
+  struct IRowsetLocate {
     CONST_VTBL struct IRowsetLocateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2294,7 +2294,7 @@ extern "C" {
       HRESULT (WINAPI *ResynchRows)(IRowsetResynch *This,DBCOUNTITEM cRows,const HROW rghRows[],DBCOUNTITEM *pcRowsResynched,HROW **prghRowsResynched,DBROWSTATUS **prgRowStatus);
     END_INTERFACE
   } IRowsetResynchVtbl;
-  interface IRowsetResynch {
+  struct IRowsetResynch {
     CONST_VTBL struct IRowsetResynchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2339,7 +2339,7 @@ extern "C" {
       HRESULT (WINAPI *GetRowsAtRatio)(IRowsetScroll *This,HWATCHREGION hReserved1,HCHAPTER hReserved2,DBCOUNTITEM ulNumerator,DBCOUNTITEM ulDenominator,DBROWCOUNT cRows,DBCOUNTITEM *pcRowsObtained,HROW **prghRows);
     END_INTERFACE
   } IRowsetScrollVtbl;
-  interface IRowsetScroll {
+  struct IRowsetScroll {
     CONST_VTBL struct IRowsetScrollVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2387,7 +2387,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseChapter)(IChapteredRowset *This,HCHAPTER hChapter,DBREFCOUNT *pcRefCount);
     END_INTERFACE
   } IChapteredRowsetVtbl;
-  interface IChapteredRowset {
+  struct IChapteredRowset {
     CONST_VTBL struct IChapteredRowsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2421,7 +2421,7 @@ extern "C" {
       HRESULT (WINAPI *FindNextRow)(IRowsetFind *This,HCHAPTER hChapter,HACCESSOR hAccessor,void *pFindValue,DBCOMPAREOP CompareOp,DBBKMARK cbBookmark,const BYTE *pBookmark,DBROWOFFSET lRowsOffset,DBROWCOUNT cRows,DBCOUNTITEM *pcRowsObtained,HROW **prghRows);
     END_INTERFACE
   } IRowsetFindVtbl;
-  interface IRowsetFind {
+  struct IRowsetFind {
     CONST_VTBL struct IRowsetFindVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2466,7 +2466,7 @@ extern "C" {
       HRESULT (WINAPI *SetRowPosition)(IRowPosition *This,HCHAPTER hChapter,HROW hRow,DBPOSITIONFLAGS dwPositionFlags);
     END_INTERFACE
   } IRowPositionVtbl;
-  interface IRowPosition {
+  struct IRowPosition {
     CONST_VTBL struct IRowPositionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2509,7 +2509,7 @@ extern "C" {
       HRESULT (WINAPI *OnRowPositionChange)(IRowPositionChange *This,DBREASON eReason,DBEVENTPHASE ePhase,WINBOOL fCantDeny);
     END_INTERFACE
   } IRowPositionChangeVtbl;
-  interface IRowPositionChange {
+  struct IRowPositionChange {
     CONST_VTBL struct IRowPositionChangeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2542,7 +2542,7 @@ extern "C" {
       HRESULT (WINAPI *OpenViewRowset)(IViewRowset *This,IUnknown *pUnkOuter,REFIID riid,IUnknown **ppRowset);
     END_INTERFACE
   } IViewRowsetVtbl;
-  interface IViewRowset {
+  struct IViewRowset {
     CONST_VTBL struct IViewRowsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2578,7 +2578,7 @@ extern "C" {
       HRESULT (WINAPI *OpenViewChapter)(IViewChapter *This,HCHAPTER hSource,HCHAPTER *phViewChapter);
     END_INTERFACE
   } IViewChapterVtbl;
-  interface IViewChapter {
+  struct IViewChapter {
     CONST_VTBL struct IViewChapterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2614,7 +2614,7 @@ extern "C" {
       HRESULT (WINAPI *SetSortOrder)(IViewSort *This,DBORDINAL cValues,const DBORDINAL rgColumns[],const DBSORT rgOrders[]);
     END_INTERFACE
   } IViewSortVtbl;
-  interface IViewSort {
+  struct IViewSort {
     CONST_VTBL struct IViewSortVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2652,7 +2652,7 @@ extern "C" {
       HRESULT (WINAPI *SetFilter)(IViewFilter *This,HACCESSOR hAccessor,DBCOUNTITEM cRows,DBCOMPAREOP CompareOps[],void *pCriteriaData);
     END_INTERFACE
   } IViewFilterVtbl;
-  interface IViewFilter {
+  struct IViewFilter {
     CONST_VTBL struct IViewFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2691,7 +2691,7 @@ extern "C" {
       HRESULT (WINAPI *GetView)(IRowsetView *This,HCHAPTER hChapter,REFIID riid,HCHAPTER *phChapterSource,IUnknown **ppView);
     END_INTERFACE
   } IRowsetViewVtbl;
-  interface IRowsetView {
+  struct IRowsetView {
     CONST_VTBL struct IRowsetViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2740,7 +2740,7 @@ extern "C" {
       HRESULT (WINAPI *GetExactPosition)(IRowsetExactScroll *This,HCHAPTER hChapter,DBBKMARK cbBookmark,const BYTE *pBookmark,DBCOUNTITEM *pulPosition,DBCOUNTITEM *pcRows);
     END_INTERFACE
   } IRowsetExactScrollVtbl;
-  interface IRowsetExactScroll {
+  struct IRowsetExactScroll {
     CONST_VTBL struct IRowsetExactScrollVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2789,7 +2789,7 @@ extern "C" {
       HRESULT (WINAPI *InsertRow)(IRowsetChange *This,HCHAPTER hReserved,HACCESSOR hAccessor,void *pData,HROW *phRow);
     END_INTERFACE
   } IRowsetChangeVtbl;
-  interface IRowsetChange {
+  struct IRowsetChange {
     CONST_VTBL struct IRowsetChangeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2843,7 +2843,7 @@ extern "C" {
       HRESULT (WINAPI *Update)(IRowsetUpdate *This,HCHAPTER hReserved,DBCOUNTITEM cRows,const HROW rghRows[],DBCOUNTITEM *pcRows,HROW **prgRows,DBROWSTATUS **prgRowStatus);
     END_INTERFACE
   } IRowsetUpdateVtbl;
-  interface IRowsetUpdate {
+  struct IRowsetUpdate {
     CONST_VTBL struct IRowsetUpdateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2889,7 +2889,7 @@ extern "C" {
       HRESULT (WINAPI *IsSameRow)(IRowsetIdentity *This,HROW hThisRow,HROW hThatRow);
     END_INTERFACE
   } IRowsetIdentityVtbl;
-  interface IRowsetIdentity {
+  struct IRowsetIdentity {
     CONST_VTBL struct IRowsetIdentityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2924,7 +2924,7 @@ extern "C" {
       HRESULT (WINAPI *OnRowsetChange)(IRowsetNotify *This,IRowset *pRowset,DBREASON eReason,DBEVENTPHASE ePhase,WINBOOL fCantDeny);
     END_INTERFACE
   } IRowsetNotifyVtbl;
-  interface IRowsetNotify {
+  struct IRowsetNotify {
     CONST_VTBL struct IRowsetNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2989,7 +2989,7 @@ extern "C" {
       HRESULT (WINAPI *SetRange)(IRowsetIndex *This,HACCESSOR hAccessor,DBORDINAL cStartKeyColumns,void *pStartData,DBORDINAL cEndKeyColumns,void *pEndData,DBRANGE dwRangeOptions);
     END_INTERFACE
   } IRowsetIndexVtbl;
-  interface IRowsetIndex {
+  struct IRowsetIndex {
     CONST_VTBL struct IRowsetIndexVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3030,7 +3030,7 @@ extern "C" {
       HRESULT (WINAPI *GetDBSession)(ICommand *This,REFIID riid,IUnknown **ppSession);
     END_INTERFACE
   } ICommandVtbl;
-  interface ICommand {
+  struct ICommand {
     CONST_VTBL struct ICommandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3073,7 +3073,7 @@ extern "C" {
       HRESULT (WINAPI *GetResult)(IMultipleResults *This,IUnknown *pUnkOuter,DBRESULTFLAG lResultFlag,REFIID riid,DBROWCOUNT *pcRowsAffected,IUnknown **ppRowset);
     END_INTERFACE
   } IMultipleResultsVtbl;
-  interface IMultipleResults {
+  struct IMultipleResults {
     CONST_VTBL struct IMultipleResultsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3115,7 +3115,7 @@ extern "C" {
       HRESULT (WINAPI *CanConvert)(IConvertType *This,DBTYPE wFromType,DBTYPE wToType,DBCONVERTFLAGS dwConvertFlags);
     END_INTERFACE
   } IConvertTypeVtbl;
-  interface IConvertType {
+  struct IConvertType {
     CONST_VTBL struct IConvertTypeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3148,7 +3148,7 @@ extern "C" {
       HRESULT (WINAPI *Unprepare)(ICommandPrepare *This);
     END_INTERFACE
   } ICommandPrepareVtbl;
-  interface ICommandPrepare {
+  struct ICommandPrepare {
     CONST_VTBL struct ICommandPrepareVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3184,7 +3184,7 @@ extern "C" {
       HRESULT (WINAPI *SetProperties)(ICommandProperties *This,ULONG cPropertySets,DBPROPSET rgPropertySets[]);
     END_INTERFACE
   } ICommandPropertiesVtbl;
-  interface ICommandProperties {
+  struct ICommandProperties {
     CONST_VTBL struct ICommandPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3223,7 +3223,7 @@ extern "C" {
       HRESULT (WINAPI *SetCommandText)(ICommandText *This,REFGUID rguidDialect,LPCOLESTR pwszCommand);
     END_INTERFACE
   } ICommandTextVtbl;
-  interface ICommandText {
+  struct ICommandText {
     CONST_VTBL struct ICommandTextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3273,7 +3273,7 @@ extern "C" {
       HRESULT (WINAPI *SetParameterInfo)(ICommandWithParameters *This,DB_UPARAMS cParams,const DB_UPARAMS rgParamOrdinals[],const DBPARAMBINDINFO rgParamBindInfo[]);
     END_INTERFACE
   } ICommandWithParametersVtbl;
-  interface ICommandWithParameters {
+  struct ICommandWithParameters {
     CONST_VTBL struct ICommandWithParametersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3312,7 +3312,7 @@ extern "C" {
       HRESULT (WINAPI *GetColumnsRowset)(IColumnsRowset *This,IUnknown *pUnkOuter,DBORDINAL cOptColumns,const DBID rgOptColumns[],REFIID riid,ULONG cPropertySets,DBPROPSET rgPropertySets[],IUnknown **ppColRowset);
     END_INTERFACE
   } IColumnsRowsetVtbl;
-  interface IColumnsRowset {
+  struct IColumnsRowset {
     CONST_VTBL struct IColumnsRowsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3348,7 +3348,7 @@ extern "C" {
       HRESULT (WINAPI *MapColumnIDs)(IColumnsInfo *This,DBORDINAL cColumnIDs,const DBID rgColumnIDs[],DBORDINAL rgColumns[]);
     END_INTERFACE
   } IColumnsInfoVtbl;
-  interface IColumnsInfo {
+  struct IColumnsInfo {
     CONST_VTBL struct IColumnsInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3382,7 +3382,7 @@ extern "C" {
       HRESULT (WINAPI *CreateCommand)(IDBCreateCommand *This,IUnknown *pUnkOuter,REFIID riid,IUnknown **ppCommand);
     END_INTERFACE
   } IDBCreateCommandVtbl;
-  interface IDBCreateCommand {
+  struct IDBCreateCommand {
     CONST_VTBL struct IDBCreateCommandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3413,7 +3413,7 @@ extern "C" {
       HRESULT (WINAPI *CreateSession)(IDBCreateSession *This,IUnknown *pUnkOuter,REFIID riid,IUnknown **ppDBSession);
     END_INTERFACE
   } IDBCreateSessionVtbl;
-  interface IDBCreateSession {
+  struct IDBCreateSession {
     CONST_VTBL struct IDBCreateSessionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3462,7 +3462,7 @@ extern "C" {
       HRESULT (WINAPI *GetSourcesRowset)(ISourcesRowset *This,IUnknown *pUnkOuter,REFIID riid,ULONG cPropertySets,DBPROPSET rgProperties[],IUnknown **ppSourcesRowset);
     END_INTERFACE
   } ISourcesRowsetVtbl;
-  interface ISourcesRowset {
+  struct ISourcesRowset {
     CONST_VTBL struct ISourcesRowsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3497,7 +3497,7 @@ extern "C" {
       HRESULT (WINAPI *SetProperties)(IDBProperties *This,ULONG cPropertySets,DBPROPSET rgPropertySets[]);
     END_INTERFACE
   } IDBPropertiesVtbl;
-  interface IDBProperties {
+  struct IDBProperties {
     CONST_VTBL struct IDBPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3536,7 +3536,7 @@ extern "C" {
       HRESULT (WINAPI *Uninitialize)(IDBInitialize *This);
     END_INTERFACE
   } IDBInitializeVtbl;
-  interface IDBInitialize {
+  struct IDBInitialize {
     CONST_VTBL struct IDBInitializeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3608,7 +3608,7 @@ extern "C" {
       HRESULT (WINAPI *GetLiteralInfo)(IDBInfo *This,ULONG cLiterals,const DBLITERAL rgLiterals[],ULONG *pcLiteralInfo,DBLITERALINFO **prgLiteralInfo,OLECHAR **ppCharBuffer);
     END_INTERFACE
   } IDBInfoVtbl;
-  interface IDBInfo {
+  struct IDBInfo {
     CONST_VTBL struct IDBInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3648,7 +3648,7 @@ extern "C" {
       HRESULT (WINAPI *ModifyDataSource)(IDBDataSourceAdmin *This,ULONG cPropertySets,DBPROPSET rgPropertySets[]);
     END_INTERFACE
   } IDBDataSourceAdminVtbl;
-  interface IDBDataSourceAdmin {
+  struct IDBDataSourceAdmin {
     CONST_VTBL struct IDBDataSourceAdminVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3696,7 +3696,7 @@ extern "C" {
       HRESULT (WINAPI *OnStop)(IDBAsynchNotify *This,HCHAPTER hChapter,DBASYNCHOP eOperation,HRESULT hrStatus,LPOLESTR pwszStatusText);
     END_INTERFACE
   } IDBAsynchNotifyVtbl;
-  interface IDBAsynchNotify {
+  struct IDBAsynchNotify {
     CONST_VTBL struct IDBAsynchNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3735,7 +3735,7 @@ extern "C" {
       HRESULT (WINAPI *GetStatus)(IDBAsynchStatus *This,HCHAPTER hChapter,DBASYNCHOP eOperation,DBCOUNTITEM *pulProgress,DBCOUNTITEM *pulProgressMax,DBASYNCHPHASE *peAsynchPhase,LPOLESTR *ppwszStatusText);
     END_INTERFACE
   } IDBAsynchStatusVtbl;
-  interface IDBAsynchStatus {
+  struct IDBAsynchStatus {
     CONST_VTBL struct IDBAsynchStatusVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3775,7 +3775,7 @@ extern "C" {
       HRESULT (WINAPI *SetProperties)(ISessionProperties *This,ULONG cPropertySets,DBPROPSET rgPropertySets[]);
     END_INTERFACE
   } ISessionPropertiesVtbl;
-  interface ISessionProperties {
+  struct ISessionProperties {
     CONST_VTBL struct ISessionPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3811,7 +3811,7 @@ extern "C" {
       HRESULT (WINAPI *DropIndex)(IIndexDefinition *This,DBID *pTableID,DBID *pIndexID);
     END_INTERFACE
   } IIndexDefinitionVtbl;
-  interface IIndexDefinition {
+  struct IIndexDefinition {
     CONST_VTBL struct IIndexDefinitionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3851,7 +3851,7 @@ extern "C" {
       HRESULT (WINAPI *DropColumn)(ITableDefinition *This,DBID *pTableID,DBID *pColumnID);
     END_INTERFACE
   } ITableDefinitionVtbl;
-  interface ITableDefinition {
+  struct ITableDefinition {
     CONST_VTBL struct ITableDefinitionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3891,7 +3891,7 @@ extern "C" {
       HRESULT (WINAPI *OpenRowset)(IOpenRowset *This,IUnknown *pUnkOuter,DBID *pTableID,DBID *pIndexID,REFIID riid,ULONG cPropertySets,DBPROPSET rgPropertySets[],IUnknown **ppRowset);
     END_INTERFACE
   } IOpenRowsetVtbl;
-  interface IOpenRowset {
+  struct IOpenRowset {
     CONST_VTBL struct IOpenRowsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3982,7 +3982,7 @@ extern "C" {
       HRESULT (WINAPI *GetSchemas)(IDBSchemaRowset *This,ULONG *pcSchemas,GUID **prgSchemas,ULONG **prgRestrictionSupport);
     END_INTERFACE
   } IDBSchemaRowsetVtbl;
-  interface IDBSchemaRowset {
+  struct IDBSchemaRowset {
     CONST_VTBL struct IDBSchemaRowsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4028,7 +4028,7 @@ extern "C" {
       HRESULT (WINAPI *GetSpecification)(IMDDataset *This,REFIID riid,IUnknown **ppSpecification);
     END_INTERFACE
   } IMDDatasetVtbl;
-  interface IMDDataset {
+  struct IMDDataset {
     CONST_VTBL struct IMDDatasetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4073,7 +4073,7 @@ extern "C" {
       HRESULT (WINAPI *FindTuple)(IMDFind *This,ULONG ulAxisIdentifier,DBORDINAL ulStartingOrdinal,DBCOUNTITEM cMembers,LPCOLESTR *rgpwszMember,ULONG *pulTupleOrdinal);
     END_INTERFACE
   } IMDFindVtbl;
-  interface IMDFind {
+  struct IMDFind {
     CONST_VTBL struct IMDFindVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4107,7 +4107,7 @@ extern "C" {
       HRESULT (WINAPI *GetRangeRowset)(IMDRangeRowset *This,IUnknown *pUnkOuter,DBORDINAL ulStartCell,DBORDINAL ulEndCell,REFIID riid,ULONG cPropertySets,DBPROPSET rgPropertySets[],IUnknown **ppRowset);
     END_INTERFACE
   } IMDRangeRowsetVtbl;
-  interface IMDRangeRowset {
+  struct IMDRangeRowset {
     CONST_VTBL struct IMDRangeRowsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4140,7 +4140,7 @@ extern "C" {
       HRESULT (WINAPI *AlterTable)(IAlterTable *This,DBID *pTableId,DBID *pNewTableId,ULONG cPropertySets,DBPROPSET rgPropertySets[]);
     END_INTERFACE
   } IAlterTableVtbl;
-  interface IAlterTable {
+  struct IAlterTable {
     CONST_VTBL struct IAlterTableVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4174,7 +4174,7 @@ extern "C" {
       HRESULT (WINAPI *AlterIndex)(IAlterIndex *This,DBID *pTableId,DBID *pIndexId,DBID *pNewIndexId,ULONG cPropertySets,DBPROPSET rgPropertySets[]);
     END_INTERFACE
   } IAlterIndexVtbl;
-  interface IAlterIndex {
+  struct IAlterIndex {
     CONST_VTBL struct IAlterIndexVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4205,7 +4205,7 @@ extern "C" {
       HRESULT (WINAPI *IsRowInChapter)(IRowsetChapterMember *This,HCHAPTER hChapter,HROW hRow);
     END_INTERFACE
   } IRowsetChapterMemberVtbl;
-  interface IRowsetChapterMember {
+  struct IRowsetChapterMember {
     CONST_VTBL struct IRowsetChapterMemberVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4242,7 +4242,7 @@ extern "C" {
       HRESULT (WINAPI *SaveCommand)(ICommandPersist *This,DBID *pCommandID,DWORD dwFlags);
     END_INTERFACE
   } ICommandPersistVtbl;
-  interface ICommandPersist {
+  struct ICommandPersist {
     CONST_VTBL struct ICommandPersistVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4284,7 +4284,7 @@ extern "C" {
       HRESULT (WINAPI *GetLastVisibleData)(IRowsetRefresh *This,HROW hRow,HACCESSOR hAccessor,void *pData);
     END_INTERFACE
   } IRowsetRefreshVtbl;
-  interface IRowsetRefresh {
+  struct IRowsetRefresh {
     CONST_VTBL struct IRowsetRefreshVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4318,7 +4318,7 @@ extern "C" {
       HRESULT (WINAPI *GetChildRowset)(IParentRowset *This,IUnknown *pUnkOuter,DBORDINAL iOrdinal,REFIID riid,IUnknown **ppRowset);
     END_INTERFACE
   } IParentRowsetVtbl;
-  interface IParentRowset {
+  struct IParentRowset {
     CONST_VTBL struct IParentRowsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4374,7 +4374,7 @@ extern "C" {
       HRESULT (WINAPI *GetRecordCount)(IErrorRecords *This,ULONG *pcRecords);
     END_INTERFACE
   } IErrorRecordsVtbl;
-  interface IErrorRecords {
+  struct IErrorRecords {
     CONST_VTBL struct IErrorRecordsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4424,7 +4424,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseErrors)(IErrorLookup *This,const DWORD dwDynamicErrorID);
     END_INTERFACE
   } IErrorLookupVtbl;
-  interface IErrorLookup {
+  struct IErrorLookup {
     CONST_VTBL struct IErrorLookupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4461,7 +4461,7 @@ extern "C" {
       HRESULT (WINAPI *GetSQLInfo)(ISQLErrorInfo *This,BSTR *pbstrSQLState,LONG *plNativeError);
     END_INTERFACE
   } ISQLErrorInfoVtbl;
-  interface ISQLErrorInfo {
+  struct ISQLErrorInfo {
     CONST_VTBL struct ISQLErrorInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4492,7 +4492,7 @@ extern "C" {
       HRESULT (WINAPI *GetDataSource)(IGetDataSource *This,REFIID riid,IUnknown **ppDataSource);
     END_INTERFACE
   } IGetDataSourceVtbl;
-  interface IGetDataSource {
+  struct IGetDataSource {
     CONST_VTBL struct IGetDataSourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4528,7 +4528,7 @@ extern "C" {
       HRESULT (WINAPI *StartTransaction)(ITransactionLocal *This,ISOLEVEL isoLevel,ULONG isoFlags,ITransactionOptions *pOtherOptions,ULONG *pulTransactionLevel);
     END_INTERFACE
   } ITransactionLocalVtbl;
-  interface ITransactionLocal {
+  struct ITransactionLocal {
     CONST_VTBL struct ITransactionLocalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4567,7 +4567,7 @@ extern "C" {
       HRESULT (WINAPI *JoinTransaction)(ITransactionJoin *This,IUnknown *punkTransactionCoord,ISOLEVEL isoLevel,ULONG isoFlags,ITransactionOptions *pOtherOptions);
     END_INTERFACE
   } ITransactionJoinVtbl;
-  interface ITransactionJoin {
+  struct ITransactionJoin {
     CONST_VTBL struct ITransactionJoinVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4601,7 +4601,7 @@ extern "C" {
       HRESULT (WINAPI *GetTransactionObject)(ITransactionObject *This,ULONG ulTransactionLevel,ITransaction **ppTransactionObject);
     END_INTERFACE
   } ITransactionObjectVtbl;
-  interface ITransactionObject {
+  struct ITransactionObject {
     CONST_VTBL struct ITransactionObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4647,7 +4647,7 @@ extern "C" {
       HRESULT (WINAPI *GetTrusteeProperties)(ITrusteeAdmin *This,TRUSTEE_W *pTrustee,const ULONG cPropertyIDSets,const DBPROPIDSET rgPropertyIDSets[],ULONG *pcPropertySets,DBPROPSET **prgPropertySets);
     END_INTERFACE
   } ITrusteeAdminVtbl;
-  interface ITrusteeAdmin {
+  struct ITrusteeAdmin {
     CONST_VTBL struct ITrusteeAdminVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4698,7 +4698,7 @@ extern "C" {
       HRESULT (WINAPI *GetMemberships)(ITrusteeGroupAdmin *This,TRUSTEE_W *pTrustee,ULONG *pcMemberships,TRUSTEE_W **prgMemberships);
     END_INTERFACE
   } ITrusteeGroupAdminVtbl;
-  interface ITrusteeGroupAdmin {
+  struct ITrusteeGroupAdmin {
     CONST_VTBL struct ITrusteeGroupAdminVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4749,7 +4749,7 @@ extern "C" {
       HRESULT (WINAPI *SetObjectOwner)(IObjectAccessControl *This,SEC_OBJECT *pObject,TRUSTEE_W *pOwner);
     END_INTERFACE
   } IObjectAccessControlVtbl;
-  interface IObjectAccessControl {
+  struct IObjectAccessControl {
     CONST_VTBL struct IObjectAccessControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4808,7 +4808,7 @@ extern "C" {
       HRESULT (WINAPI *GetPermissions)(ISecurityInfo *This,GUID ObjectType,ACCESS_MASK *pPermissions);
     END_INTERFACE
   } ISecurityInfoVtbl;
-  interface ISecurityInfo {
+  struct ISecurityInfo {
     CONST_VTBL struct ISecurityInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4853,7 +4853,7 @@ extern "C" {
       HRESULT (WINAPI *GetTableDefinition)(ITableCreation *This,DBID *pTableID,DBORDINAL *pcColumnDescs,DBCOLUMNDESC *prgColumnDescs[],ULONG *pcPropertySets,DBPROPSET *prgPropertySets[],ULONG *pcConstraintDescs,DBCONSTRAINTDESC *prgConstraintDescs[],OLECHAR **ppwszStringBuffer);
     END_INTERFACE
   } ITableCreationVtbl;
-  interface ITableCreation {
+  struct ITableCreation {
     CONST_VTBL struct ITableCreationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4897,7 +4897,7 @@ extern "C" {
       HRESULT (WINAPI *DropConstraint)(ITableDefinitionWithConstraints *This,DBID *pTableID,DBID *pConstraintID);
     END_INTERFACE
   } ITableDefinitionWithConstraintsVtbl;
-  interface ITableDefinitionWithConstraints {
+  struct ITableDefinitionWithConstraints {
     CONST_VTBL struct ITableDefinitionWithConstraintsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4946,7 +4946,7 @@ extern "C" {
       HRESULT (WINAPI *Open)(IRow *This,IUnknown *pUnkOuter,DBID *pColumnID,REFGUID rguidColumnType,DWORD dwBindFlags,REFIID riid,IUnknown **ppUnk);
     END_INTERFACE
   } IRowVtbl;
-  interface IRow {
+  struct IRow {
     CONST_VTBL struct IRowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4983,7 +4983,7 @@ extern "C" {
       HRESULT (WINAPI *SetColumns)(IRowChange *This,DBORDINAL cColumns,DBCOLUMNACCESS rgColumns[]);
     END_INTERFACE
   } IRowChangeVtbl;
-  interface IRowChange {
+  struct IRowChange {
     CONST_VTBL struct IRowChangeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5017,7 +5017,7 @@ extern "C" {
       HRESULT (WINAPI *AddColumns)(IRowSchemaChange *This,DBORDINAL cColumns,const DBCOLUMNINFO rgNewColumnInfo[],DBCOLUMNACCESS rgColumns[]);
     END_INTERFACE
   } IRowSchemaChangeVtbl;
-  interface IRowSchemaChange {
+  struct IRowSchemaChange {
     CONST_VTBL struct IRowSchemaChangeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5054,7 +5054,7 @@ extern "C" {
       HRESULT (WINAPI *GetURLFromHROW)(IGetRow *This,HROW hRow,LPOLESTR *ppwszURL);
     END_INTERFACE
   } IGetRowVtbl;
-  interface IGetRow {
+  struct IGetRow {
     CONST_VTBL struct IGetRowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5088,7 +5088,7 @@ extern "C" {
       HRESULT (WINAPI *Bind)(IBindResource *This,IUnknown *pUnkOuter,LPCOLESTR pwszURL,DBBINDURLFLAG dwBindURLFlags,REFGUID rguid,REFIID riid,IAuthenticate *pAuthenticate,DBIMPLICITSESSION *pImplSession,DBBINDURLSTATUS *pdwBindStatus,IUnknown **ppUnk);
     END_INTERFACE
   } IBindResourceVtbl;
-  interface IBindResource {
+  struct IBindResource {
     CONST_VTBL struct IBindResourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5142,7 +5142,7 @@ extern "C" {
       HRESULT (WINAPI *OpenRowset)(IScopedOperations *This,IUnknown *pUnkOuter,DBID *pTableID,DBID *pIndexID,REFIID riid,ULONG cPropertySets,DBPROPSET rgPropertySets[],IUnknown **ppRowset);
     END_INTERFACE
   } IScopedOperationsVtbl;
-  interface IScopedOperations {
+  struct IScopedOperations {
     CONST_VTBL struct IScopedOperationsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5183,7 +5183,7 @@ extern "C" {
       HRESULT (WINAPI *CreateRow)(ICreateRow *This,IUnknown *pUnkOuter,LPCOLESTR pwszURL,DBBINDURLFLAG dwBindURLFlags,REFGUID rguid,REFIID riid,IAuthenticate *pAuthenticate,DBIMPLICITSESSION *pImplSession,DBBINDURLSTATUS *pdwBindStatus,LPOLESTR *ppwszNewURL,IUnknown **ppUnk);
     END_INTERFACE
   } ICreateRowVtbl;
-  interface ICreateRow {
+  struct ICreateRow {
     CONST_VTBL struct ICreateRowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5217,7 +5217,7 @@ extern "C" {
       HRESULT (WINAPI *Reset)(IDBBinderProperties *This);
     END_INTERFACE
   } IDBBinderPropertiesVtbl;
-  interface IDBBinderProperties {
+  struct IDBBinderProperties {
     CONST_VTBL struct IDBBinderPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5253,7 +5253,7 @@ extern "C" {
       HRESULT (WINAPI *GetRestrictedColumnInfo)(IColumnsInfo2 *This,DBORDINAL cColumnIDMasks,const DBID rgColumnIDMasks[],DWORD dwFlags,DBORDINAL *pcColumns,DBID **prgColumnIDs,DBCOLUMNINFO **prgColumnInfo,OLECHAR **ppStringsBuffer);
     END_INTERFACE
   } IColumnsInfo2Vtbl;
-  interface IColumnsInfo2 {
+  struct IColumnsInfo2 {
     CONST_VTBL struct IColumnsInfo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5290,7 +5290,7 @@ extern "C" {
       HRESULT (WINAPI *UnregisterProvider)(IRegisterProvider *This,LPCOLESTR pwszURL,DB_DWRESERVE dwReserved,REFCLSID rclsidProvider);
     END_INTERFACE
   } IRegisterProviderVtbl;
-  interface IRegisterProvider {
+  struct IRegisterProvider {
     CONST_VTBL struct IRegisterProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5330,7 +5330,7 @@ extern "C" {
       HRESULT (WINAPI *GetSession)(IGetSession *This,REFIID riid,IUnknown **ppSession);
     END_INTERFACE
   } IGetSessionVtbl;
-  interface IGetSession {
+  struct IGetSession {
     CONST_VTBL struct IGetSessionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5361,7 +5361,7 @@ extern "C" {
       HRESULT (WINAPI *GetSourceRow)(IGetSourceRow *This,REFIID riid,IUnknown **ppRow);
     END_INTERFACE
   } IGetSourceRowVtbl;
-  interface IGetSourceRow {
+  struct IGetSourceRow {
     CONST_VTBL struct IGetSourceRowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5397,7 +5397,7 @@ extern "C" {
       HRESULT (WINAPI *SetIndex)(IRowsetCurrentIndex *This,DBID *pIndexID);
     END_INTERFACE
   } IRowsetCurrentIndexVtbl;
-  interface IRowsetCurrentIndex {
+  struct IRowsetCurrentIndex {
     CONST_VTBL struct IRowsetCurrentIndexVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5440,7 +5440,7 @@ extern "C" {
       HRESULT (WINAPI *SetCommandStream)(ICommandStream *This,REFIID riid,REFGUID rguidDialect,IUnknown *pCommandStream);
     END_INTERFACE
   } ICommandStreamVtbl;
-  interface ICommandStream {
+  struct ICommandStream {
     CONST_VTBL struct ICommandStreamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5474,7 +5474,7 @@ extern "C" {
       HRESULT (WINAPI *PositionOnBookmark)(IRowsetBookmark *This,HCHAPTER hChapter,DBBKMARK cbBookmark,const BYTE *pBookmark);
     END_INTERFACE
   } IRowsetBookmarkVtbl;
-  interface IRowsetBookmark {
+  struct IRowsetBookmark {
     CONST_VTBL struct IRowsetBookmarkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

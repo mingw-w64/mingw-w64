@@ -24,7 +24,7 @@
 
 #ifndef __IDebugAutoAttach_FWD_DEFINED__
 #define __IDebugAutoAttach_FWD_DEFINED__
-typedef interface IDebugAutoAttach IDebugAutoAttach;
+typedef struct IDebugAutoAttach IDebugAutoAttach;
 #endif
 
 #include "ocidl.h"
@@ -62,7 +62,7 @@ extern "C"{
       HRESULT (WINAPI *AutoAttach)(IDebugAutoAttach *This,REFGUID guidPort,DWORD dwPid,AUTOATTACH_PROGRAM_TYPE dwProgramType,DWORD dwProgramId,LPCWSTR pszSessionId);
     END_INTERFACE
   } IDebugAutoAttachVtbl;
-  interface IDebugAutoAttach {
+  struct IDebugAutoAttach {
     CONST_VTBL struct IDebugAutoAttachVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

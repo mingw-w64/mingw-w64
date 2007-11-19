@@ -19,57 +19,57 @@
 
 #ifndef __IAMCollection_FWD_DEFINED__
 #define __IAMCollection_FWD_DEFINED__
-typedef interface IAMCollection IAMCollection;
+typedef struct IAMCollection IAMCollection;
 #endif
 
 #ifndef __IMediaControl_FWD_DEFINED__
 #define __IMediaControl_FWD_DEFINED__
-typedef interface IMediaControl IMediaControl;
+typedef struct IMediaControl IMediaControl;
 #endif
 
 #ifndef __IMediaEvent_FWD_DEFINED__
 #define __IMediaEvent_FWD_DEFINED__
-typedef interface IMediaEvent IMediaEvent;
+typedef struct IMediaEvent IMediaEvent;
 #endif
 
 #ifndef __IMediaEventEx_FWD_DEFINED__
 #define __IMediaEventEx_FWD_DEFINED__
-typedef interface IMediaEventEx IMediaEventEx;
+typedef struct IMediaEventEx IMediaEventEx;
 #endif
 
 #ifndef __IMediaPosition_FWD_DEFINED__
 #define __IMediaPosition_FWD_DEFINED__
-typedef interface IMediaPosition IMediaPosition;
+typedef struct IMediaPosition IMediaPosition;
 #endif
 
 #ifndef __IBasicAudio_FWD_DEFINED__
 #define __IBasicAudio_FWD_DEFINED__
-typedef interface IBasicAudio IBasicAudio;
+typedef struct IBasicAudio IBasicAudio;
 #endif
 
 #ifndef __IVideoWindow_FWD_DEFINED__
 #define __IVideoWindow_FWD_DEFINED__
-typedef interface IVideoWindow IVideoWindow;
+typedef struct IVideoWindow IVideoWindow;
 #endif
 
 #ifndef __IBasicVideo_FWD_DEFINED__
 #define __IBasicVideo_FWD_DEFINED__
-typedef interface IBasicVideo IBasicVideo;
+typedef struct IBasicVideo IBasicVideo;
 #endif
 
 #ifndef __IBasicVideo2_FWD_DEFINED__
 #define __IBasicVideo2_FWD_DEFINED__
-typedef interface IBasicVideo2 IBasicVideo2;
+typedef struct IBasicVideo2 IBasicVideo2;
 #endif
 
 #ifndef __IDeferredCommand_FWD_DEFINED__
 #define __IDeferredCommand_FWD_DEFINED__
-typedef interface IDeferredCommand IDeferredCommand;
+typedef struct IDeferredCommand IDeferredCommand;
 #endif
 
 #ifndef __IQueueCommand_FWD_DEFINED__
 #define __IQueueCommand_FWD_DEFINED__
-typedef interface IQueueCommand IQueueCommand;
+typedef struct IQueueCommand IQueueCommand;
 #endif
 
 #ifndef __FilgraphManager_FWD_DEFINED__
@@ -84,27 +84,27 @@ typedef struct FilgraphManager FilgraphManager;
 
 #ifndef __IFilterInfo_FWD_DEFINED__
 #define __IFilterInfo_FWD_DEFINED__
-typedef interface IFilterInfo IFilterInfo;
+typedef struct IFilterInfo IFilterInfo;
 #endif
 
 #ifndef __IRegFilterInfo_FWD_DEFINED__
 #define __IRegFilterInfo_FWD_DEFINED__
-typedef interface IRegFilterInfo IRegFilterInfo;
+typedef struct IRegFilterInfo IRegFilterInfo;
 #endif
 
 #ifndef __IMediaTypeInfo_FWD_DEFINED__
 #define __IMediaTypeInfo_FWD_DEFINED__
-typedef interface IMediaTypeInfo IMediaTypeInfo;
+typedef struct IMediaTypeInfo IMediaTypeInfo;
 #endif
 
 #ifndef __IPinInfo_FWD_DEFINED__
 #define __IPinInfo_FWD_DEFINED__
-typedef interface IPinInfo IPinInfo;
+typedef struct IPinInfo IPinInfo;
 #endif
 
 #ifndef __IAMStats_FWD_DEFINED__
 #define __IAMStats_FWD_DEFINED__
-typedef interface IAMStats IAMStats;
+typedef struct IAMStats IAMStats;
 #endif
 
 #ifdef __cplusplus
@@ -147,7 +147,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IAMCollection *This,IUnknown **ppUnk);
     END_INTERFACE
   } IAMCollectionVtbl;
-  interface IAMCollection {
+  struct IAMCollection {
     CONST_VTBL struct IAMCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -208,7 +208,7 @@ extern "C"{
       HRESULT (WINAPI *StopWhenReady)(IMediaControl *This);
     END_INTERFACE
   } IMediaControlVtbl;
-  interface IMediaControl {
+  struct IMediaControl {
     CONST_VTBL struct IMediaControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -281,7 +281,7 @@ extern "C"{
       HRESULT (WINAPI *FreeEventParams)(IMediaEvent *This,long lEvCode,LONG_PTR lParam1,LONG_PTR lParam2);
     END_INTERFACE
   } IMediaEventVtbl;
-  interface IMediaEvent {
+  struct IMediaEvent {
     CONST_VTBL struct IMediaEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -345,7 +345,7 @@ extern "C"{
       HRESULT (WINAPI *GetNotifyFlags)(IMediaEventEx *This,long *lplNoNotifyFlags);
     END_INTERFACE
   } IMediaEventExVtbl;
-  interface IMediaEventEx {
+  struct IMediaEventEx {
     CONST_VTBL struct IMediaEventExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -416,7 +416,7 @@ extern "C"{
       HRESULT (WINAPI *CanSeekBackward)(IMediaPosition *This,LONG *pCanSeekBackward);
     END_INTERFACE
   } IMediaPositionVtbl;
-  interface IMediaPosition {
+  struct IMediaPosition {
     CONST_VTBL struct IMediaPositionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -491,7 +491,7 @@ extern "C"{
       HRESULT (WINAPI *get_Balance)(IBasicAudio *This,long *plBalance);
     END_INTERFACE
   } IBasicAudioVtbl;
-  interface IBasicAudio {
+  struct IBasicAudio {
     CONST_VTBL struct IBasicAudioVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -615,7 +615,7 @@ extern "C"{
       HRESULT (WINAPI *IsCursorHidden)(IVideoWindow *This,long *CursorHidden);
     END_INTERFACE
   } IVideoWindowVtbl;
-  interface IVideoWindow {
+  struct IVideoWindow {
     CONST_VTBL struct IVideoWindowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -830,7 +830,7 @@ extern "C"{
       HRESULT (WINAPI *IsUsingDefaultDestination)(IBasicVideo *This);
     END_INTERFACE
   } IBasicVideoVtbl;
-  interface IBasicVideo {
+  struct IBasicVideo {
     CONST_VTBL struct IBasicVideoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -994,7 +994,7 @@ extern "C"{
       HRESULT (WINAPI *GetPreferredAspectRatio)(IBasicVideo2 *This,long *plAspectX,long *plAspectY);
     END_INTERFACE
   } IBasicVideo2Vtbl;
-  interface IBasicVideo2 {
+  struct IBasicVideo2 {
     CONST_VTBL struct IBasicVideo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1067,7 +1067,7 @@ extern "C"{
       HRESULT (WINAPI *GetHResult)(IDeferredCommand *This,HRESULT *phrResult);
     END_INTERFACE
   } IDeferredCommandVtbl;
-  interface IDeferredCommand {
+  struct IDeferredCommand {
     CONST_VTBL struct IDeferredCommandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1109,7 +1109,7 @@ extern "C"{
       HRESULT (WINAPI *InvokeAtPresentationTime)(IQueueCommand *This,IDeferredCommand **pCmd,REFTIME time,GUID *iid,long dispidMethod,short wFlags,long cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr);
     END_INTERFACE
   } IQueueCommandVtbl;
-  interface IQueueCommand {
+  struct IQueueCommand {
     CONST_VTBL struct IQueueCommandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1166,7 +1166,7 @@ extern "C"{
       HRESULT (WINAPI *put_Filename)(IFilterInfo *This,BSTR strFilename);
     END_INTERFACE
   } IFilterInfoVtbl;
-  interface IFilterInfo {
+  struct IFilterInfo {
     CONST_VTBL struct IFilterInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1228,7 +1228,7 @@ extern "C"{
       HRESULT (WINAPI *Filter)(IRegFilterInfo *This,IDispatch **ppUnk);
     END_INTERFACE
   } IRegFilterInfoVtbl;
-  interface IRegFilterInfo {
+  struct IRegFilterInfo {
     CONST_VTBL struct IRegFilterInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1272,7 +1272,7 @@ extern "C"{
       HRESULT (WINAPI *get_Subtype)(IMediaTypeInfo *This,BSTR *strType);
     END_INTERFACE
   } IMediaTypeInfoVtbl;
-  interface IMediaTypeInfo {
+  struct IMediaTypeInfo {
     CONST_VTBL struct IMediaTypeInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1338,7 +1338,7 @@ extern "C"{
       HRESULT (WINAPI *Render)(IPinInfo *This);
     END_INTERFACE
   } IPinInfoVtbl;
-  interface IPinInfo {
+  struct IPinInfo {
     CONST_VTBL struct IPinInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1423,7 +1423,7 @@ extern "C"{
       HRESULT (WINAPI *AddValue)(IAMStats *This,long lIndex,double dValue);
     END_INTERFACE
   } IAMStatsVtbl;
-  interface IAMStats {
+  struct IAMStats {
     CONST_VTBL struct IAMStatsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,12 +24,12 @@
 
 #ifndef __IAccessControl_FWD_DEFINED__
 #define __IAccessControl_FWD_DEFINED__
-typedef interface IAccessControl IAccessControl;
+typedef struct IAccessControl IAccessControl;
 #endif
 
 #ifndef __IAuditControl_FWD_DEFINED__
 #define __IAuditControl_FWD_DEFINED__
-typedef interface IAuditControl IAuditControl;
+typedef struct IAuditControl IAuditControl;
 #endif
 
 #include "unknwn.h"
@@ -74,7 +74,7 @@ extern "C"{
       HRESULT (WINAPI *IsAccessAllowed)(IAccessControl *This,PTRUSTEEW pTrustee,LPWSTR lpProperty,ACCESS_RIGHTS AccessRights,WINBOOL *pfAccessAllowed);
     END_INTERFACE
   } IAccessControlVtbl;
-  interface IAccessControl {
+  struct IAccessControl {
     CONST_VTBL struct IAccessControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -132,7 +132,7 @@ extern "C"{
       HRESULT (WINAPI *IsAccessAudited)(IAuditControl *This,PTRUSTEEW pTrustee,ACCESS_RIGHTS AuditRights,WINBOOL *pfAccessAudited);
     END_INTERFACE
   } IAuditControlVtbl;
-  interface IAuditControl {
+  struct IAuditControl {
     CONST_VTBL struct IAuditControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

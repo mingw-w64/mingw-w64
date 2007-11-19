@@ -15,102 +15,102 @@
 
 #ifndef __IXMLDOMImplementation_FWD_DEFINED__
 #define __IXMLDOMImplementation_FWD_DEFINED__
-typedef interface IXMLDOMImplementation IXMLDOMImplementation;
+typedef struct IXMLDOMImplementation IXMLDOMImplementation;
 #endif
 
 #ifndef __IXMLDOMNode_FWD_DEFINED__
 #define __IXMLDOMNode_FWD_DEFINED__
-typedef interface IXMLDOMNode IXMLDOMNode;
+typedef struct IXMLDOMNode IXMLDOMNode;
 #endif
 
 #ifndef __IXMLDOMDocumentFragment_FWD_DEFINED__
 #define __IXMLDOMDocumentFragment_FWD_DEFINED__
-typedef interface IXMLDOMDocumentFragment IXMLDOMDocumentFragment;
+typedef struct IXMLDOMDocumentFragment IXMLDOMDocumentFragment;
 #endif
 
 #ifndef __IXMLDOMDocument_FWD_DEFINED__
 #define __IXMLDOMDocument_FWD_DEFINED__
-typedef interface IXMLDOMDocument IXMLDOMDocument;
+typedef struct IXMLDOMDocument IXMLDOMDocument;
 #endif
 
 #ifndef __IXMLDOMNodeList_FWD_DEFINED__
 #define __IXMLDOMNodeList_FWD_DEFINED__
-typedef interface IXMLDOMNodeList IXMLDOMNodeList;
+typedef struct IXMLDOMNodeList IXMLDOMNodeList;
 #endif
 
 #ifndef __IXMLDOMNamedNodeMap_FWD_DEFINED__
 #define __IXMLDOMNamedNodeMap_FWD_DEFINED__
-typedef interface IXMLDOMNamedNodeMap IXMLDOMNamedNodeMap;
+typedef struct IXMLDOMNamedNodeMap IXMLDOMNamedNodeMap;
 #endif
 
 #ifndef __IXMLDOMCharacterData_FWD_DEFINED__
 #define __IXMLDOMCharacterData_FWD_DEFINED__
-typedef interface IXMLDOMCharacterData IXMLDOMCharacterData;
+typedef struct IXMLDOMCharacterData IXMLDOMCharacterData;
 #endif
 
 #ifndef __IXMLDOMAttribute_FWD_DEFINED__
 #define __IXMLDOMAttribute_FWD_DEFINED__
-typedef interface IXMLDOMAttribute IXMLDOMAttribute;
+typedef struct IXMLDOMAttribute IXMLDOMAttribute;
 #endif
 
 #ifndef __IXMLDOMElement_FWD_DEFINED__
 #define __IXMLDOMElement_FWD_DEFINED__
-typedef interface IXMLDOMElement IXMLDOMElement;
+typedef struct IXMLDOMElement IXMLDOMElement;
 #endif
 
 #ifndef __IXMLDOMText_FWD_DEFINED__
 #define __IXMLDOMText_FWD_DEFINED__
-typedef interface IXMLDOMText IXMLDOMText;
+typedef struct IXMLDOMText IXMLDOMText;
 #endif
 
 #ifndef __IXMLDOMComment_FWD_DEFINED__
 #define __IXMLDOMComment_FWD_DEFINED__
-typedef interface IXMLDOMComment IXMLDOMComment;
+typedef struct IXMLDOMComment IXMLDOMComment;
 #endif
 
 #ifndef __IXMLDOMProcessingInstruction_FWD_DEFINED__
 #define __IXMLDOMProcessingInstruction_FWD_DEFINED__
-typedef interface IXMLDOMProcessingInstruction IXMLDOMProcessingInstruction;
+typedef struct IXMLDOMProcessingInstruction IXMLDOMProcessingInstruction;
 #endif
 
 #ifndef __IXMLDOMCDATASection_FWD_DEFINED__
 #define __IXMLDOMCDATASection_FWD_DEFINED__
-typedef interface IXMLDOMCDATASection IXMLDOMCDATASection;
+typedef struct IXMLDOMCDATASection IXMLDOMCDATASection;
 #endif
 
 #ifndef __IXMLDOMDocumentType_FWD_DEFINED__
 #define __IXMLDOMDocumentType_FWD_DEFINED__
-typedef interface IXMLDOMDocumentType IXMLDOMDocumentType;
+typedef struct IXMLDOMDocumentType IXMLDOMDocumentType;
 #endif
 
 #ifndef __IXMLDOMNotation_FWD_DEFINED__
 #define __IXMLDOMNotation_FWD_DEFINED__
-typedef interface IXMLDOMNotation IXMLDOMNotation;
+typedef struct IXMLDOMNotation IXMLDOMNotation;
 #endif
 
 #ifndef __IXMLDOMEntity_FWD_DEFINED__
 #define __IXMLDOMEntity_FWD_DEFINED__
-typedef interface IXMLDOMEntity IXMLDOMEntity;
+typedef struct IXMLDOMEntity IXMLDOMEntity;
 #endif
 
 #ifndef __IXMLDOMEntityReference_FWD_DEFINED__
 #define __IXMLDOMEntityReference_FWD_DEFINED__
-typedef interface IXMLDOMEntityReference IXMLDOMEntityReference;
+typedef struct IXMLDOMEntityReference IXMLDOMEntityReference;
 #endif
 
 #ifndef __IXMLDOMParseError_FWD_DEFINED__
 #define __IXMLDOMParseError_FWD_DEFINED__
-typedef interface IXMLDOMParseError IXMLDOMParseError;
+typedef struct IXMLDOMParseError IXMLDOMParseError;
 #endif
 
 #ifndef __IXTLRuntime_FWD_DEFINED__
 #define __IXTLRuntime_FWD_DEFINED__
-typedef interface IXTLRuntime IXTLRuntime;
+typedef struct IXTLRuntime IXTLRuntime;
 #endif
 
 #ifndef __XMLDOMDocumentEvents_FWD_DEFINED__
 #define __XMLDOMDocumentEvents_FWD_DEFINED__
-typedef interface XMLDOMDocumentEvents XMLDOMDocumentEvents;
+typedef struct XMLDOMDocumentEvents XMLDOMDocumentEvents;
 #endif
 
 #ifndef __DOMDocument_FWD_DEFINED__
@@ -133,7 +133,7 @@ typedef struct DOMFreeThreadedDocument DOMFreeThreadedDocument;
 
 #ifndef __IXMLHttpRequest_FWD_DEFINED__
 #define __IXMLHttpRequest_FWD_DEFINED__
-typedef interface IXMLHttpRequest IXMLHttpRequest;
+typedef struct IXMLHttpRequest IXMLHttpRequest;
 #endif
 
 #ifndef __XMLHTTPRequest_FWD_DEFINED__
@@ -147,7 +147,7 @@ typedef struct XMLHTTPRequest XMLHTTPRequest;
 
 #ifndef __IXMLDSOControl_FWD_DEFINED__
 #define __IXMLDSOControl_FWD_DEFINED__
-typedef interface IXMLDSOControl IXMLDSOControl;
+typedef struct IXMLDSOControl IXMLDSOControl;
 #endif
 
 #ifndef __XMLDSOControl_FWD_DEFINED__
@@ -161,37 +161,37 @@ typedef struct XMLDSOControl XMLDSOControl;
 
 #ifndef __IXMLElementCollection_FWD_DEFINED__
 #define __IXMLElementCollection_FWD_DEFINED__
-typedef interface IXMLElementCollection IXMLElementCollection;
+typedef struct IXMLElementCollection IXMLElementCollection;
 #endif
 
 #ifndef __IXMLDocument_FWD_DEFINED__
 #define __IXMLDocument_FWD_DEFINED__
-typedef interface IXMLDocument IXMLDocument;
+typedef struct IXMLDocument IXMLDocument;
 #endif
 
 #ifndef __IXMLDocument2_FWD_DEFINED__
 #define __IXMLDocument2_FWD_DEFINED__
-typedef interface IXMLDocument2 IXMLDocument2;
+typedef struct IXMLDocument2 IXMLDocument2;
 #endif
 
 #ifndef __IXMLElement_FWD_DEFINED__
 #define __IXMLElement_FWD_DEFINED__
-typedef interface IXMLElement IXMLElement;
+typedef struct IXMLElement IXMLElement;
 #endif
 
 #ifndef __IXMLElement2_FWD_DEFINED__
 #define __IXMLElement2_FWD_DEFINED__
-typedef interface IXMLElement2 IXMLElement2;
+typedef struct IXMLElement2 IXMLElement2;
 #endif
 
 #ifndef __IXMLAttribute_FWD_DEFINED__
 #define __IXMLAttribute_FWD_DEFINED__
-typedef interface IXMLAttribute IXMLAttribute;
+typedef struct IXMLAttribute IXMLAttribute;
 #endif
 
 #ifndef __IXMLError_FWD_DEFINED__
 #define __IXMLError_FWD_DEFINED__
-typedef interface IXMLError IXMLError;
+typedef struct IXMLError IXMLError;
 #endif
 
 #ifndef __XMLDocument_FWD_DEFINED__
@@ -268,7 +268,7 @@ extern "C" {
       HRESULT (WINAPI *hasFeature)(IXMLDOMImplementation *This,BSTR feature,BSTR version,VARIANT_BOOL *hasFeature);
     END_INTERFACE
   } IXMLDOMImplementationVtbl;
-  interface IXMLDOMImplementation {
+  struct IXMLDOMImplementation {
     CONST_VTBL struct IXMLDOMImplementationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -377,7 +377,7 @@ extern "C" {
       HRESULT (WINAPI *transformNodeToObject)(IXMLDOMNode *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
     END_INTERFACE
   } IXMLDOMNodeVtbl;
-  interface IXMLDOMNode {
+  struct IXMLDOMNode {
     CONST_VTBL struct IXMLDOMNodeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -554,7 +554,7 @@ extern "C" {
       HRESULT (WINAPI *transformNodeToObject)(IXMLDOMDocumentFragment *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
     END_INTERFACE
   } IXMLDOMDocumentFragmentVtbl;
-  interface IXMLDOMDocumentFragment {
+  struct IXMLDOMDocumentFragment {
     CONST_VTBL struct IXMLDOMDocumentFragmentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -726,7 +726,7 @@ extern "C" {
       HRESULT (WINAPI *put_ontransformnode)(IXMLDOMDocument *This,VARIANT ontransformnodeSink);
     END_INTERFACE
   } IXMLDOMDocumentVtbl;
-  interface IXMLDOMDocument {
+  struct IXMLDOMDocument {
     CONST_VTBL struct IXMLDOMDocumentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -905,7 +905,7 @@ extern "C" {
       HRESULT (WINAPI *get__newEnum)(IXMLDOMNodeList *This,IUnknown **ppUnk);
     END_INTERFACE
   } IXMLDOMNodeListVtbl;
-  interface IXMLDOMNodeList {
+  struct IXMLDOMNodeList {
     CONST_VTBL struct IXMLDOMNodeListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -974,7 +974,7 @@ extern "C" {
       HRESULT (WINAPI *get__newEnum)(IXMLDOMNamedNodeMap *This,IUnknown **ppUnk);
     END_INTERFACE
   } IXMLDOMNamedNodeMapVtbl;
-  interface IXMLDOMNamedNodeMap {
+  struct IXMLDOMNamedNodeMap {
     CONST_VTBL struct IXMLDOMNamedNodeMapVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1090,7 +1090,7 @@ extern "C" {
       HRESULT (WINAPI *replaceData)(IXMLDOMCharacterData *This,long offset,long count,BSTR data);
     END_INTERFACE
   } IXMLDOMCharacterDataVtbl;
-  interface IXMLDOMCharacterData {
+  struct IXMLDOMCharacterData {
     CONST_VTBL struct IXMLDOMCharacterDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1226,7 +1226,7 @@ extern "C" {
       HRESULT (WINAPI *put_value)(IXMLDOMAttribute *This,VARIANT attributeValue);
     END_INTERFACE
   } IXMLDOMAttributeVtbl;
-  interface IXMLDOMAttribute {
+  struct IXMLDOMAttribute {
     CONST_VTBL struct IXMLDOMAttributeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1359,7 +1359,7 @@ extern "C" {
       HRESULT (WINAPI *normalize)(IXMLDOMElement *This);
     END_INTERFACE
   } IXMLDOMElementVtbl;
-  interface IXMLDOMElement {
+  struct IXMLDOMElement {
     CONST_VTBL struct IXMLDOMElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1502,7 +1502,7 @@ extern "C" {
       HRESULT (WINAPI *splitText)(IXMLDOMText *This,long offset,IXMLDOMText **rightHandTextNode);
     END_INTERFACE
   } IXMLDOMTextVtbl;
-  interface IXMLDOMText {
+  struct IXMLDOMText {
     CONST_VTBL struct IXMLDOMTextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1626,7 +1626,7 @@ extern "C" {
       HRESULT (WINAPI *replaceData)(IXMLDOMComment *This,long offset,long count,BSTR data);
     END_INTERFACE
   } IXMLDOMCommentVtbl;
-  interface IXMLDOMComment {
+  struct IXMLDOMComment {
     CONST_VTBL struct IXMLDOMCommentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1746,7 +1746,7 @@ extern "C" {
       HRESULT (WINAPI *put_data)(IXMLDOMProcessingInstruction *This,BSTR value);
     END_INTERFACE
   } IXMLDOMProcessingInstructionVtbl;
-  interface IXMLDOMProcessingInstruction {
+  struct IXMLDOMProcessingInstruction {
     CONST_VTBL struct IXMLDOMProcessingInstructionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1869,7 +1869,7 @@ extern "C" {
       HRESULT (WINAPI *splitText)(IXMLDOMCDATASection *This,long offset,IXMLDOMText **rightHandTextNode);
     END_INTERFACE
   } IXMLDOMCDATASectionVtbl;
-  interface IXMLDOMCDATASection {
+  struct IXMLDOMCDATASection {
     CONST_VTBL struct IXMLDOMCDATASectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1990,7 +1990,7 @@ extern "C" {
       HRESULT (WINAPI *get_notations)(IXMLDOMDocumentType *This,IXMLDOMNamedNodeMap **notationMap);
     END_INTERFACE
   } IXMLDOMDocumentTypeVtbl;
-  interface IXMLDOMDocumentType {
+  struct IXMLDOMDocumentType {
     CONST_VTBL struct IXMLDOMDocumentTypeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2109,7 +2109,7 @@ extern "C" {
       HRESULT (WINAPI *get_systemId)(IXMLDOMNotation *This,VARIANT *systemID);
     END_INTERFACE
   } IXMLDOMNotationVtbl;
-  interface IXMLDOMNotation {
+  struct IXMLDOMNotation {
     CONST_VTBL struct IXMLDOMNotationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2227,7 +2227,7 @@ extern "C" {
       HRESULT (WINAPI *get_notationName)(IXMLDOMEntity *This,BSTR *name);
     END_INTERFACE
   } IXMLDOMEntityVtbl;
-  interface IXMLDOMEntity {
+  struct IXMLDOMEntity {
     CONST_VTBL struct IXMLDOMEntityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2341,7 +2341,7 @@ extern "C" {
       HRESULT (WINAPI *transformNodeToObject)(IXMLDOMEntityReference *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
     END_INTERFACE
   } IXMLDOMEntityReferenceVtbl;
-  interface IXMLDOMEntityReference {
+  struct IXMLDOMEntityReference {
     CONST_VTBL struct IXMLDOMEntityReferenceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2425,7 +2425,7 @@ extern "C" {
       HRESULT (WINAPI *get_filepos)(IXMLDOMParseError *This,long *filePosition);
     END_INTERFACE
   } IXMLDOMParseErrorVtbl;
-  interface IXMLDOMParseError {
+  struct IXMLDOMParseError {
     CONST_VTBL struct IXMLDOMParseErrorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2534,7 +2534,7 @@ extern "C" {
       HRESULT (WINAPI *formatTime)(IXTLRuntime *This,VARIANT varTime,BSTR bstrFormat,VARIANT varDestLocale,BSTR *pbstrFormattedString);
     END_INTERFACE
   } IXTLRuntimeVtbl;
-  interface IXTLRuntime {
+  struct IXTLRuntime {
     CONST_VTBL struct IXTLRuntimeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2630,7 +2630,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(XMLDOMDocumentEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } XMLDOMDocumentEventsVtbl;
-  interface XMLDOMDocumentEvents {
+  struct XMLDOMDocumentEvents {
     CONST_VTBL struct XMLDOMDocumentEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2701,7 +2701,7 @@ extern "C" {
       HRESULT (WINAPI *put_onreadystatechange)(IXMLHttpRequest *This,IDispatch *pReadyStateSink);
     END_INTERFACE
   } IXMLHttpRequestVtbl;
-  interface IXMLHttpRequest {
+  struct IXMLHttpRequest {
     CONST_VTBL struct IXMLHttpRequestVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2792,7 +2792,7 @@ extern "C" {
       HRESULT (WINAPI *get_readyState)(IXMLDSOControl *This,long *state);
     END_INTERFACE
   } IXMLDSOControlVtbl;
-  interface IXMLDSOControl {
+  struct IXMLDSOControl {
     CONST_VTBL struct IXMLDSOControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2854,7 +2854,7 @@ extern "C" {
       HRESULT (WINAPI *item)(IXMLElementCollection *This,VARIANT var1,VARIANT var2,IDispatch **ppDisp);
     END_INTERFACE
   } IXMLElementCollectionVtbl;
-  interface IXMLElementCollection {
+  struct IXMLElementCollection {
     CONST_VTBL struct IXMLElementCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2928,7 +2928,7 @@ extern "C" {
       HRESULT (WINAPI *createElement)(IXMLDocument *This,VARIANT vType,VARIANT var1,IXMLElement **ppElem);
     END_INTERFACE
   } IXMLDocumentVtbl;
-  interface IXMLDocument {
+  struct IXMLDocument {
     CONST_VTBL struct IXMLDocumentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3036,7 +3036,7 @@ extern "C" {
       HRESULT (WINAPI *put_async)(IXMLDocument2 *This,VARIANT_BOOL f);
     END_INTERFACE
   } IXMLDocument2Vtbl;
-  interface IXMLDocument2 {
+  struct IXMLDocument2 {
     CONST_VTBL struct IXMLDocument2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3142,7 +3142,7 @@ extern "C" {
       HRESULT (WINAPI *removeChild)(IXMLElement *This,IXMLElement *pChildElem);
     END_INTERFACE
   } IXMLElementVtbl;
-  interface IXMLElement {
+  struct IXMLElement {
     CONST_VTBL struct IXMLElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3238,7 +3238,7 @@ extern "C" {
       HRESULT (WINAPI *get_attributes)(IXMLElement2 *This,IXMLElementCollection **pp);
     END_INTERFACE
   } IXMLElement2Vtbl;
-  interface IXMLElement2 {
+  struct IXMLElement2 {
     CONST_VTBL struct IXMLElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3315,7 +3315,7 @@ extern "C" {
       HRESULT (WINAPI *get_value)(IXMLAttribute *This,BSTR *v);
     END_INTERFACE
   } IXMLAttributeVtbl;
-  interface IXMLAttribute {
+  struct IXMLAttribute {
     CONST_VTBL struct IXMLAttributeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3353,7 +3353,7 @@ extern "C" {
       HRESULT (WINAPI *GetErrorInfo)(IXMLError *This,XML_ERROR *pErrorReturn);
     END_INTERFACE
   } IXMLErrorVtbl;
-  interface IXMLError {
+  struct IXMLError {
     CONST_VTBL struct IXMLErrorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

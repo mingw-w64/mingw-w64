@@ -578,7 +578,7 @@ typedef struct {
 } KSPIN_PHYSICALCONNECTION,*PKSPIN_PHYSICALCONNECTION;
 
 #define DEFINE_KSPIN_INTERFACE_TABLE(tablename) const KSPIN_INTERFACE tablename[] =
-#define DEFINE_KSPIN_INTERFACE_ITEM(guid,interface) { STATICGUIDOF(guid),(interface),0 }
+#define DEFINE_KSPIN_INTERFACE_ITEM(guid,INTERFACE) { STATICGUIDOF(guid),(INTERFACE),0 }
 #define DEFINE_KSPIN_MEDIUM_TABLE(tablename) const KSPIN_MEDIUM tablename[] =
 #define DEFINE_KSPIN_MEDIUM_ITEM(guid,medium) DEFINE_KSPIN_INTERFACE_ITEM(guid,medium)
 #define DEFINE_KSPROPERTY_ITEM_PIN_CINSTANCES(Handler) DEFINE_KSPROPERTY_ITEM(KSPROPERTY_PIN_CINSTANCES,(Handler),sizeof(KSP_PIN),sizeof(KSPIN_CINSTANCES),NULL,NULL,0,NULL,NULL,0)
@@ -1309,7 +1309,7 @@ typedef void (*PFNKSPINIRPCOMPLETION)(PKSPIN Pin,PIRP Irp);
 #ifndef _IKsControl_
 #define _IKsControl_
 
-typedef interface IKsControl *PIKSCONTROL;
+typedef struct IKsControl *PIKSCONTROL;
 
 #ifndef DEFINE_ABSTRACT_UNKNOWN
 #define DEFINE_ABSTRACT_UNKNOWN() STDMETHOD_(NTSTATUS,QueryInterface)(THIS_ REFIID InterfaceId,PVOID *Interface) PURE; STDMETHOD_(ULONG,AddRef)(THIS) PURE; STDMETHOD_(ULONG,Release)(THIS) PURE;
@@ -1323,7 +1323,7 @@ DECLARE_INTERFACE_(IKsControl,IUnknown) {
   STDMETHOD_(NTSTATUS,KsMethod)(THIS_ PKSMETHOD Method,ULONG MethodLength,PVOID MethodData,ULONG DataLength,ULONG *BytesReturned) PURE;
   STDMETHOD_(NTSTATUS,KsEvent)(THIS_ PKSEVENT Event,ULONG EventLength,PVOID EventData,ULONG DataLength,ULONG *BytesReturned) PURE;
 };
-typedef interface IKsReferenceClock *PIKSREFERENCECLOCK;
+typedef struct IKsReferenceClock *PIKSREFERENCECLOCK;
 
 #undef INTERFACE
 #define INTERFACE IKsReferenceClock

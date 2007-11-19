@@ -19,22 +19,22 @@
 
 #ifndef __ISensNetwork_FWD_DEFINED__
 #define __ISensNetwork_FWD_DEFINED__
-typedef interface ISensNetwork ISensNetwork;
+typedef struct ISensNetwork ISensNetwork;
 #endif
 
 #ifndef __ISensOnNow_FWD_DEFINED__
 #define __ISensOnNow_FWD_DEFINED__
-typedef interface ISensOnNow ISensOnNow;
+typedef struct ISensOnNow ISensOnNow;
 #endif
 
 #ifndef __ISensLogon_FWD_DEFINED__
 #define __ISensLogon_FWD_DEFINED__
-typedef interface ISensLogon ISensLogon;
+typedef struct ISensLogon ISensLogon;
 #endif
 
 #ifndef __ISensLogon2_FWD_DEFINED__
 #define __ISensLogon2_FWD_DEFINED__
-typedef interface ISensLogon2 ISensLogon2;
+typedef struct ISensLogon2 ISensLogon2;
 #endif
 
 #ifndef __SENS_FWD_DEFINED__
@@ -96,7 +96,7 @@ extern "C"{
       HRESULT (WINAPI *DestinationReachableNoQOCInfo)(ISensNetwork *This,BSTR bstrDestination,BSTR bstrConnection,ULONG ulType);
     END_INTERFACE
   } ISensNetworkVtbl;
-  interface ISensNetwork {
+  struct ISensNetwork {
     CONST_VTBL struct ISensNetworkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -151,7 +151,7 @@ extern "C"{
       HRESULT (WINAPI *BatteryLow)(ISensOnNow *This,DWORD dwBatteryLifePercent);
     END_INTERFACE
   } ISensOnNowVtbl;
-  interface ISensOnNow {
+  struct ISensOnNow {
     CONST_VTBL struct ISensOnNowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -208,7 +208,7 @@ extern "C"{
       HRESULT (WINAPI *StopScreenSaver)(ISensLogon *This,BSTR bstrUserName);
     END_INTERFACE
   } ISensLogonVtbl;
-  interface ISensLogon {
+  struct ISensLogon {
     CONST_VTBL struct ISensLogonVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -273,7 +273,7 @@ extern "C"{
       HRESULT (WINAPI *PostShell)(ISensLogon2 *This,BSTR bstrUserName,DWORD dwSessionId);
     END_INTERFACE
   } ISensLogon2Vtbl;
-  interface ISensLogon2 {
+  struct ISensLogon2 {
     CONST_VTBL struct ISensLogon2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

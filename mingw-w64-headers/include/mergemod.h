@@ -23,109 +23,109 @@ extern "C"{
 
 #ifndef __IEnumMsmString_FWD_DEFINED__
 #define __IEnumMsmString_FWD_DEFINED__
-  typedef interface IEnumMsmString IEnumMsmString;
+  typedef struct IEnumMsmString IEnumMsmString;
 #endif
 
 #ifndef __IMsmStrings_FWD_DEFINED__
 #define __IMsmStrings_FWD_DEFINED__
-  typedef interface IMsmStrings IMsmStrings;
+  typedef struct IMsmStrings IMsmStrings;
 #endif
 
 #ifndef __IMsmError_FWD_DEFINED__
 #define __IMsmError_FWD_DEFINED__
-  typedef interface IMsmError IMsmError;
+  typedef struct IMsmError IMsmError;
 #endif
 
 #ifndef __IEnumMsmError_FWD_DEFINED__
 #define __IEnumMsmError_FWD_DEFINED__
-  typedef interface IEnumMsmError IEnumMsmError;
+  typedef struct IEnumMsmError IEnumMsmError;
 #endif
 
 #ifndef __IMsmErrors_FWD_DEFINED__
 #define __IMsmErrors_FWD_DEFINED__
-  typedef interface IMsmErrors IMsmErrors;
+  typedef struct IMsmErrors IMsmErrors;
 #endif
 
 #ifndef __IMsmDependency_FWD_DEFINED__
 #define __IMsmDependency_FWD_DEFINED__
-  typedef interface IMsmDependency IMsmDependency;
+  typedef struct IMsmDependency IMsmDependency;
 #endif
 
 #ifndef __IEnumMsmDependency_FWD_DEFINED__
 #define __IEnumMsmDependency_FWD_DEFINED__
-  typedef interface IEnumMsmDependency IEnumMsmDependency;
+  typedef struct IEnumMsmDependency IEnumMsmDependency;
 #endif
 
 #ifndef __IMsmDependencies_FWD_DEFINED__
 #define __IMsmDependencies_FWD_DEFINED__
-  typedef interface IMsmDependencies IMsmDependencies;
+  typedef struct IMsmDependencies IMsmDependencies;
 #endif
 
 #ifndef __IMsmMerge_FWD_DEFINED__
 #define __IMsmMerge_FWD_DEFINED__
-  typedef interface IMsmMerge IMsmMerge;
+  typedef struct IMsmMerge IMsmMerge;
 #endif
 
 #ifndef __IMsmGetFiles_FWD_DEFINED__
 #define __IMsmGetFiles_FWD_DEFINED__
-  typedef interface IMsmGetFiles IMsmGetFiles;
+  typedef struct IMsmGetFiles IMsmGetFiles;
 #endif
 
 #ifndef __IMsmStrings_FWD_DEFINED__
 #define __IMsmStrings_FWD_DEFINED__
-  typedef interface IMsmStrings IMsmStrings;
+  typedef struct IMsmStrings IMsmStrings;
 #endif
 
 #ifndef __IMsmError_FWD_DEFINED__
 #define __IMsmError_FWD_DEFINED__
-  typedef interface IMsmError IMsmError;
+  typedef struct IMsmError IMsmError;
 #endif
 
 #ifndef __IMsmErrors_FWD_DEFINED__
 #define __IMsmErrors_FWD_DEFINED__
-  typedef interface IMsmErrors IMsmErrors;
+  typedef struct IMsmErrors IMsmErrors;
 #endif
 
 #ifndef __IMsmDependency_FWD_DEFINED__
 #define __IMsmDependency_FWD_DEFINED__
-  typedef interface IMsmDependency IMsmDependency;
+  typedef struct IMsmDependency IMsmDependency;
 #endif
 
 #ifndef __IMsmDependencies_FWD_DEFINED__
 #define __IMsmDependencies_FWD_DEFINED__
-  typedef interface IMsmDependencies IMsmDependencies;
+  typedef struct IMsmDependencies IMsmDependencies;
 #endif
 
 #ifndef __IMsmGetFiles_FWD_DEFINED__
 #define __IMsmGetFiles_FWD_DEFINED__
-  typedef interface IMsmGetFiles IMsmGetFiles;
+  typedef struct IMsmGetFiles IMsmGetFiles;
 #endif
 
 #if (_WIN32_MSM >= 150)
 
 #ifndef __IMsmConfigurableItem_FWD_DEFINED__
 #define __IMsmConfigurableItem_FWD_DEFINED__
-  typedef interface IMsmConfigurableItem IMsmConfigurableItem;
+  typedef struct IMsmConfigurableItem IMsmConfigurableItem;
 #endif
 
 #ifndef __IEnumMsmConfigurableItem_FWD_DEFINED__
 #define __IEnumMsmConfigurableItem_FWD_DEFINED__
-  typedef interface IEnumMsmConfigurableItem IEnumMsmConfigurableItem;
+  typedef struct IEnumMsmConfigurableItem IEnumMsmConfigurableItem;
 #endif
 
 #ifndef __IMsmConfigurableItems_FWD_DEFINED__
 #define __IMsmConfigurableItems_FWD_DEFINED__
-  typedef interface IMsmConfigurableItems IMsmConfigurableItems;
+  typedef struct IMsmConfigurableItems IMsmConfigurableItems;
 #endif
 
 #ifndef __IMsmMerge2_FWD_DEFINED__
 #define __IMsmMerge2_FWD_DEFINED__
-  typedef interface IMsmMerge2 IMsmMerge2;
+  typedef struct IMsmMerge2 IMsmMerge2;
 #endif
 
 #ifndef __IMsmConfigureModule_FWD_DEFINED__
 #define __IMsmConfigureModule_FWD_DEFINED__
-  typedef interface IMsmConfigureModule IMsmConfigureModule;
+  typedef struct IMsmConfigureModule IMsmConfigureModule;
 #endif
 
 #ifndef __MsmMerge2_FWD_DEFINED__
@@ -181,7 +181,7 @@ extern "C"{
 #ifndef __IEnumMsmString_INTERFACE_DEFINED__
 #define __IEnumMsmString_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IEnumMsmString : public IUnknown {
+  struct IEnumMsmString : public IUnknown {
   public:
     virtual HRESULT WINAPI Next(unsigned long cFetch,BSTR *rgbstrStrings,unsigned long *pcFetched) = 0;
     virtual HRESULT WINAPI Skip(unsigned long cSkip) = 0;
@@ -200,7 +200,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumMsmString *This,IEnumMsmString **pemsmStrings);
     END_INTERFACE
   } IEnumMsmStringVtbl;
-  interface IEnumMsmString {
+  struct IEnumMsmString {
     CONST_VTBL struct IEnumMsmStringVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -226,7 +226,7 @@ extern "C"{
 #ifndef __IMsmStrings_INTERFACE_DEFINED__
 #define __IMsmStrings_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IMsmStrings : public IDispatch {
+  struct IMsmStrings : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Item(long Item,BSTR *Return) = 0;
     virtual HRESULT WINAPI get_Count(long *Count) = 0;
@@ -247,7 +247,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IMsmStrings *This,IUnknown **NewEnum);
     END_INTERFACE
   } IMsmStringsVtbl;
-  interface IMsmStrings {
+  struct IMsmStrings {
     CONST_VTBL struct IMsmStringsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -274,7 +274,7 @@ extern "C"{
 #ifndef __IMsmError_INTERFACE_DEFINED__
 #define __IMsmError_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IMsmError : public IDispatch {
+  struct IMsmError : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Type(msmErrorType *ErrorType) = 0;
     virtual HRESULT WINAPI get_Path(BSTR *ErrorPath) = 0;
@@ -303,7 +303,7 @@ extern "C"{
       HRESULT (WINAPI *get_ModuleKeys)(IMsmError *This,IMsmStrings **ErrorKeys);
     END_INTERFACE
   } IMsmErrorVtbl;
-  interface IMsmError {
+  struct IMsmError {
     CONST_VTBL struct IMsmErrorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -342,7 +342,7 @@ extern "C"{
 #ifndef __IEnumMsmError_INTERFACE_DEFINED__
 #define __IEnumMsmError_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IEnumMsmError : public IUnknown {
+  struct IEnumMsmError : public IUnknown {
   public:
     virtual HRESULT WINAPI Next(unsigned long cFetch,IMsmError **rgmsmErrors,unsigned long *pcFetched) = 0;
     virtual HRESULT WINAPI Skip(unsigned long cSkip) = 0;
@@ -361,7 +361,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumMsmError *This,IEnumMsmError **pemsmErrors);
     END_INTERFACE
   } IEnumMsmErrorVtbl;
-  interface IEnumMsmError {
+  struct IEnumMsmError {
     CONST_VTBL struct IEnumMsmErrorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -388,7 +388,7 @@ extern "C"{
 #define __IMsmErrors_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
 
-  interface IMsmErrors : public IDispatch {
+  struct IMsmErrors : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Item(long Item,IMsmError **Return) = 0;
     virtual HRESULT WINAPI get_Count(long *Count) = 0;
@@ -409,7 +409,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IMsmErrors *This,IUnknown **NewEnum);
     END_INTERFACE
   } IMsmErrorsVtbl;
-  interface IMsmErrors {
+  struct IMsmErrors {
     CONST_VTBL struct IMsmErrorsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -436,7 +436,7 @@ extern "C"{
 #ifndef __IMsmDependency_INTERFACE_DEFINED__
 #define __IMsmDependency_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IMsmDependency : public IDispatch {
+  struct IMsmDependency : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Module(BSTR *Module) = 0;
     virtual HRESULT WINAPI get_Language(short *Language) = 0;
@@ -457,7 +457,7 @@ extern "C"{
       HRESULT (WINAPI *get_Version)(IMsmDependency *This,BSTR *Version);
     END_INTERFACE
   } IMsmDependencyVtbl;
-  interface IMsmDependency {
+  struct IMsmDependency {
     CONST_VTBL struct IMsmDependencyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -484,7 +484,7 @@ extern "C"{
 #ifndef __IEnumMsmDependency_INTERFACE_DEFINED__
 #define __IEnumMsmDependency_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IEnumMsmDependency : public IUnknown {
+  struct IEnumMsmDependency : public IUnknown {
   public:
     virtual HRESULT WINAPI Next(unsigned long cFetch,IMsmDependency **rgmsmDependencies,unsigned long *pcFetched) = 0;
     virtual HRESULT WINAPI Skip(unsigned long cSkip) = 0;
@@ -503,7 +503,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumMsmDependency *This,IEnumMsmDependency **pemsmDependencies);
     END_INTERFACE
   } IEnumMsmDependencyVtbl;
-  interface IEnumMsmDependency {
+  struct IEnumMsmDependency {
     CONST_VTBL struct IEnumMsmDependencyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -529,7 +529,7 @@ extern "C"{
 #ifndef __IMsmDependencies_INTERFACE_DEFINED__
 #define __IMsmDependencies_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IMsmDependencies : public IDispatch {
+  struct IMsmDependencies : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Item(long Item,IMsmDependency **Return) = 0;
     virtual HRESULT WINAPI get_Count(long *Count) = 0;
@@ -550,7 +550,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IMsmDependencies *This,IUnknown **NewEnum);
     END_INTERFACE
   } IMsmDependenciesVtbl;
-  interface IMsmDependencies {
+  struct IMsmDependencies {
     CONST_VTBL struct IMsmDependenciesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -613,7 +613,7 @@ extern "C"{
       HRESULT (WINAPI *get_HelpKeyword)(IMsmConfigurableItem *This,BSTR *HelpKeyword);
     END_INTERFACE
   } IMsmConfigurableItemVtbl;
-  interface IMsmConfigurableItem {
+  struct IMsmConfigurableItem {
     CONST_VTBL struct IMsmConfigurableItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -661,7 +661,7 @@ extern "C"{
 #ifndef __IEnumMsmConfigurableItem_INTERFACE_DEFINED__
 #define __IEnumMsmConfigurableItem_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IEnumMsmConfigurableItem : public IUnknown {
+  struct IEnumMsmConfigurableItem : public IUnknown {
   public:
     virtual HRESULT WINAPI Next(unsigned long cFetch,IMsmConfigurableItem **rgmsmItems,unsigned long *pcFetched) = 0;
     virtual HRESULT WINAPI Skip(unsigned long cSkip) = 0;
@@ -680,7 +680,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumMsmConfigurableItem *This,IEnumMsmConfigurableItem **pemsmConfigurableItem);
     END_INTERFACE
   } IEnumMsmConfigurableItemVtbl;
-  interface IEnumMsmConfigurableItem {
+  struct IEnumMsmConfigurableItem {
     CONST_VTBL struct IEnumMsmConfigurableItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -727,7 +727,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IMsmConfigurableItems *This,IUnknown **NewEnum);
     END_INTERFACE
   } IMsmConfigurableItemsVtbl;
-  interface IMsmConfigurableItems {
+  struct IMsmConfigurableItems {
     CONST_VTBL struct IMsmConfigurableItemsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -773,7 +773,7 @@ extern "C"{
       HRESULT (WINAPI *ProvideIntegerData)(IMsmConfigureModule *This,const BSTR Name,long *ConfigData);
     END_INTERFACE
   } IMsmConfigureModuleVtbl;
-  interface IMsmConfigureModule {
+  struct IMsmConfigureModule {
     CONST_VTBL struct IMsmConfigureModuleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -798,7 +798,7 @@ extern "C"{
 #ifndef __IMsmMerge_INTERFACE_DEFINED__
 #define __IMsmMerge_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IMsmMerge : public IDispatch {
+  struct IMsmMerge : public IDispatch {
   public:
     virtual HRESULT WINAPI OpenDatabase(const BSTR Path) = 0;
     virtual HRESULT WINAPI OpenModule(const BSTR Path,const short Language) = 0;
@@ -839,7 +839,7 @@ extern "C"{
       HRESULT (WINAPI *ExtractFiles)(IMsmMerge *This,const BSTR Path);
     END_INTERFACE
   } IMsmMergeVtbl;
-  interface IMsmMerge {
+  struct IMsmMerge {
     CONST_VTBL struct IMsmMergeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -896,7 +896,7 @@ extern "C"{
 #ifndef __IMsmGetFiles_INTERFACE_DEFINED__
 #define __IMsmGetFiles_INTERFACE_DEFINED__
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IMsmGetFiles : public IDispatch {
+  struct IMsmGetFiles : public IDispatch {
   public:
     virtual HRESULT WINAPI get_ModuleFiles(IMsmStrings **Files) = 0;
   };
@@ -913,7 +913,7 @@ extern "C"{
       HRESULT (WINAPI *get_ModuleFiles)(IMsmGetFiles *This,IMsmStrings **Files);
     END_INTERFACE
   } IMsmGetFilesVtbl;
-  interface IMsmGetFiles {
+  struct IMsmGetFiles {
     CONST_VTBL struct IMsmGetFilesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -986,7 +986,7 @@ extern "C"{
       HRESULT (WINAPI *get_ModuleFiles)(IMsmMerge2 *This,IMsmStrings **Files);
     END_INTERFACE
   } IMsmMerge2Vtbl;
-  interface IMsmMerge2 {
+  struct IMsmMerge2 {
     CONST_VTBL struct IMsmMerge2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

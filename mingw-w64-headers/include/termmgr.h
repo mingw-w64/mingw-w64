@@ -24,32 +24,32 @@
 
 #ifndef __ITTerminalControl_FWD_DEFINED__
 #define __ITTerminalControl_FWD_DEFINED__
-typedef interface ITTerminalControl ITTerminalControl;
+typedef struct ITTerminalControl ITTerminalControl;
 #endif
 
 #ifndef __ITPluggableTerminalInitialization_FWD_DEFINED__
 #define __ITPluggableTerminalInitialization_FWD_DEFINED__
-typedef interface ITPluggableTerminalInitialization ITPluggableTerminalInitialization;
+typedef struct ITPluggableTerminalInitialization ITPluggableTerminalInitialization;
 #endif
 
 #ifndef __ITTerminalManager_FWD_DEFINED__
 #define __ITTerminalManager_FWD_DEFINED__
-typedef interface ITTerminalManager ITTerminalManager;
+typedef struct ITTerminalManager ITTerminalManager;
 #endif
 
 #ifndef __ITTerminalManager2_FWD_DEFINED__
 #define __ITTerminalManager2_FWD_DEFINED__
-typedef interface ITTerminalManager2 ITTerminalManager2;
+typedef struct ITTerminalManager2 ITTerminalManager2;
 #endif
 
 #ifndef __ITPluggableTerminalClassRegistration_FWD_DEFINED__
 #define __ITPluggableTerminalClassRegistration_FWD_DEFINED__
-typedef interface ITPluggableTerminalClassRegistration ITPluggableTerminalClassRegistration;
+typedef struct ITPluggableTerminalClassRegistration ITPluggableTerminalClassRegistration;
 #endif
 
 #ifndef __ITPluggableTerminalSuperclassRegistration_FWD_DEFINED__
 #define __ITPluggableTerminalSuperclassRegistration_FWD_DEFINED__
-typedef interface ITPluggableTerminalSuperclassRegistration ITPluggableTerminalSuperclassRegistration;
+typedef struct ITPluggableTerminalSuperclassRegistration ITPluggableTerminalSuperclassRegistration;
 #endif
 
 #ifndef __TerminalManager_FWD_DEFINED__
@@ -130,7 +130,7 @@ extern "C" {
       HRESULT (WINAPI *StopRenderFilter)(ITTerminalControl *This);
     END_INTERFACE
   } ITTerminalControlVtbl;
-  interface ITTerminalControl {
+  struct ITTerminalControl {
     CONST_VTBL struct ITTerminalControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -176,7 +176,7 @@ extern "C" {
       HRESULT (WINAPI *InitializeDynamic)(ITPluggableTerminalInitialization *This,IID iidTerminalClass,DWORD dwMediaType,TERMINAL_DIRECTION Direction,MSP_HANDLE htAddress);
     END_INTERFACE
   } ITPluggableTerminalInitializationVtbl;
-  interface ITPluggableTerminalInitialization {
+  struct ITPluggableTerminalInitialization {
     CONST_VTBL struct ITPluggableTerminalInitializationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -209,7 +209,7 @@ extern "C" {
       HRESULT (WINAPI *CreateDynamicTerminal)(ITTerminalManager *This,IUnknown *pOuterUnknown,IID iidTerminalClass,DWORD dwMediaType,TERMINAL_DIRECTION Direction,MSP_HANDLE htAddress,ITTerminal **ppTerminal);
     END_INTERFACE
   } ITTerminalManagerVtbl;
-  interface ITTerminalManager {
+  struct ITTerminalManager {
     CONST_VTBL struct ITTerminalManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -247,7 +247,7 @@ extern "C" {
       HRESULT (WINAPI *GetPluggableTerminalClasses)(ITTerminalManager2 *This,IID iidSuperclass,DWORD dwMediaTypes,DWORD *pdwNumClasses,IID *pTerminalClasses);
     END_INTERFACE
   } ITTerminalManager2Vtbl;
-  interface ITTerminalManager2 {
+  struct ITTerminalManager2 {
     CONST_VTBL struct ITTerminalManager2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -319,7 +319,7 @@ extern "C" {
       HRESULT (WINAPI *GetTerminalClassInfo)(ITPluggableTerminalClassRegistration *This,BSTR bstrSuperclass);
     END_INTERFACE
   } ITPluggableTerminalClassRegistrationVtbl;
-  interface ITPluggableTerminalClassRegistration {
+  struct ITPluggableTerminalClassRegistration {
     CONST_VTBL struct ITPluggableTerminalClassRegistrationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -422,7 +422,7 @@ extern "C" {
       HRESULT (WINAPI *EnumerateTerminalClasses)(ITPluggableTerminalSuperclassRegistration *This,IEnumTerminalClass **ppTerminals);
     END_INTERFACE
   } ITPluggableTerminalSuperclassRegistrationVtbl;
-  interface ITPluggableTerminalSuperclassRegistration {
+  struct ITPluggableTerminalSuperclassRegistration {
     CONST_VTBL struct ITPluggableTerminalSuperclassRegistrationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

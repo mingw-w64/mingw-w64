@@ -24,7 +24,7 @@
 
 #ifndef __IHostDialogHelper_FWD_DEFINED__
 #define __IHostDialogHelper_FWD_DEFINED__
-typedef interface IHostDialogHelper IHostDialogHelper;
+typedef struct IHostDialogHelper IHostDialogHelper;
 #endif
 
 #ifndef __HostDialogHelper_FWD_DEFINED__
@@ -38,32 +38,32 @@ typedef struct HostDialogHelper HostDialogHelper;
 
 #ifndef __IDocHostUIHandler_FWD_DEFINED__
 #define __IDocHostUIHandler_FWD_DEFINED__
-typedef interface IDocHostUIHandler IDocHostUIHandler;
+typedef struct IDocHostUIHandler IDocHostUIHandler;
 #endif
 
 #ifndef __IDocHostUIHandler2_FWD_DEFINED__
 #define __IDocHostUIHandler2_FWD_DEFINED__
-typedef interface IDocHostUIHandler2 IDocHostUIHandler2;
+typedef struct IDocHostUIHandler2 IDocHostUIHandler2;
 #endif
 
 #ifndef __ICustomDoc_FWD_DEFINED__
 #define __ICustomDoc_FWD_DEFINED__
-typedef interface ICustomDoc ICustomDoc;
+typedef struct ICustomDoc ICustomDoc;
 #endif
 
 #ifndef __IDocHostShowUI_FWD_DEFINED__
 #define __IDocHostShowUI_FWD_DEFINED__
-typedef interface IDocHostShowUI IDocHostShowUI;
+typedef struct IDocHostShowUI IDocHostShowUI;
 #endif
 
 #ifndef __IClassFactoryEx_FWD_DEFINED__
 #define __IClassFactoryEx_FWD_DEFINED__
-typedef interface IClassFactoryEx IClassFactoryEx;
+typedef struct IClassFactoryEx IClassFactoryEx;
 #endif
 
 #ifndef __IHTMLOMWindowServices_FWD_DEFINED__
 #define __IHTMLOMWindowServices_FWD_DEFINED__
-typedef interface IHTMLOMWindowServices IHTMLOMWindowServices;
+typedef struct IHTMLOMWindowServices IHTMLOMWindowServices;
 #endif
 
 #include "ocidl.h"
@@ -109,7 +109,7 @@ extern "C"{
 #define SZ_HTML_CLIENTSITE_OBJECTPARAM L"{d4db6850-5385-11d0-89e9-00a0c90a90ac}"
 #ifndef __IHTMLWindow2_FWD_DEFINED__
 #define __IHTMLWindow2_FWD_DEFINED__
-  typedef interface IHTMLWindow2 IHTMLWindow2;
+  typedef struct IHTMLWindow2 IHTMLWindow2;
 #endif
   typedef HRESULT WINAPI SHOWHTMLDIALOGFN (HWND hwndParent,IMoniker *pmk,VARIANT *pvarArgIn,WCHAR *pchOptions,VARIANT *pvArgOut);
   typedef HRESULT WINAPI SHOWHTMLDIALOGEXFN (HWND hwndParent,IMoniker *pmk,DWORD dwDialogFlags,VARIANT *pvarArgIn,WCHAR *pchOptions,VARIANT *pvArgOut);
@@ -141,7 +141,7 @@ extern "C"{
       HRESULT (WINAPI *ShowHTMLDialog)(IHostDialogHelper *This,HWND hwndParent,IMoniker *pMk,VARIANT *pvarArgIn,WCHAR *pchOptions,VARIANT *pvarArgOut,IUnknown *punkHost);
     END_INTERFACE
   } IHostDialogHelperVtbl;
-  interface IHostDialogHelper {
+  struct IHostDialogHelper {
     CONST_VTBL struct IHostDialogHelperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -234,7 +234,7 @@ extern "C"{
       HRESULT (WINAPI *FilterDataObject)(IDocHostUIHandler *This,IDataObject *pDO,IDataObject **ppDORet);
     END_INTERFACE
   } IDocHostUIHandlerVtbl;
-  interface IDocHostUIHandler {
+  struct IDocHostUIHandler {
     CONST_VTBL struct IDocHostUIHandlerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -322,7 +322,7 @@ extern "C"{
       HRESULT (WINAPI *GetOverrideKeyPath)(IDocHostUIHandler2 *This,LPOLESTR *pchKey,DWORD dw);
     END_INTERFACE
   } IDocHostUIHandler2Vtbl;
-  interface IDocHostUIHandler2 {
+  struct IDocHostUIHandler2 {
     CONST_VTBL struct IDocHostUIHandler2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -372,7 +372,7 @@ extern "C"{
       HRESULT (WINAPI *SetUIHandler)(ICustomDoc *This,IDocHostUIHandler *pUIHandler);
     END_INTERFACE
   } ICustomDocVtbl;
-  interface ICustomDoc {
+  struct ICustomDoc {
     CONST_VTBL struct ICustomDocVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -405,7 +405,7 @@ extern "C"{
       HRESULT (WINAPI *ShowHelp)(IDocHostShowUI *This,HWND hwnd,LPOLESTR pszHelpFile,UINT uCommand,DWORD dwData,POINT ptMouse,IDispatch *pDispatchObjectHit);
     END_INTERFACE
   } IDocHostShowUIVtbl;
-  interface IDocHostShowUI {
+  struct IDocHostShowUI {
     CONST_VTBL struct IDocHostShowUIVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -447,7 +447,7 @@ extern "C"{
       HRESULT (WINAPI *CreateInstanceWithContext)(IClassFactoryEx *This,IUnknown *punkContext,IUnknown *punkOuter,REFIID riid,void **ppv);
     END_INTERFACE
   } IClassFactoryExVtbl;
-  interface IClassFactoryEx {
+  struct IClassFactoryEx {
     CONST_VTBL struct IClassFactoryExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -486,7 +486,7 @@ extern "C"{
       HRESULT (WINAPI *resizeBy)(IHTMLOMWindowServices *This,LONG x,LONG y);
     END_INTERFACE
   } IHTMLOMWindowServicesVtbl;
-  interface IHTMLOMWindowServices {
+  struct IHTMLOMWindowServices {
     CONST_VTBL struct IHTMLOMWindowServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

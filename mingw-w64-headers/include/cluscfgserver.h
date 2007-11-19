@@ -24,252 +24,252 @@
 
 #ifndef __IClusCfgNodeInfo_FWD_DEFINED__
 #define __IClusCfgNodeInfo_FWD_DEFINED__
-typedef interface IClusCfgNodeInfo IClusCfgNodeInfo;
+typedef struct IClusCfgNodeInfo IClusCfgNodeInfo;
 #endif
 
 #ifndef __AsyncIClusCfgNodeInfo_FWD_DEFINED__
 #define __AsyncIClusCfgNodeInfo_FWD_DEFINED__
-typedef interface AsyncIClusCfgNodeInfo AsyncIClusCfgNodeInfo;
+typedef struct AsyncIClusCfgNodeInfo AsyncIClusCfgNodeInfo;
 #endif
 
 #ifndef __IEnumClusCfgManagedResources_FWD_DEFINED__
 #define __IEnumClusCfgManagedResources_FWD_DEFINED__
-typedef interface IEnumClusCfgManagedResources IEnumClusCfgManagedResources;
+typedef struct IEnumClusCfgManagedResources IEnumClusCfgManagedResources;
 #endif
 
 #ifndef __AsyncIEnumClusCfgManagedResources_FWD_DEFINED__
 #define __AsyncIEnumClusCfgManagedResources_FWD_DEFINED__
-typedef interface AsyncIEnumClusCfgManagedResources AsyncIEnumClusCfgManagedResources;
+typedef struct AsyncIEnumClusCfgManagedResources AsyncIEnumClusCfgManagedResources;
 #endif
 
 #ifndef __IEnumClusCfgNetworks_FWD_DEFINED__
 #define __IEnumClusCfgNetworks_FWD_DEFINED__
-typedef interface IEnumClusCfgNetworks IEnumClusCfgNetworks;
+typedef struct IEnumClusCfgNetworks IEnumClusCfgNetworks;
 #endif
 
 #ifndef __AsyncIEnumClusCfgNetworks_FWD_DEFINED__
 #define __AsyncIEnumClusCfgNetworks_FWD_DEFINED__
-typedef interface AsyncIEnumClusCfgNetworks AsyncIEnumClusCfgNetworks;
+typedef struct AsyncIEnumClusCfgNetworks AsyncIEnumClusCfgNetworks;
 #endif
 
 #ifndef __IClusCfgManagedResourceInfo_FWD_DEFINED__
 #define __IClusCfgManagedResourceInfo_FWD_DEFINED__
-typedef interface IClusCfgManagedResourceInfo IClusCfgManagedResourceInfo;
+typedef struct IClusCfgManagedResourceInfo IClusCfgManagedResourceInfo;
 #endif
 
 #ifndef __AsyncIClusCfgManagedResourceInfo_FWD_DEFINED__
 #define __AsyncIClusCfgManagedResourceInfo_FWD_DEFINED__
-typedef interface AsyncIClusCfgManagedResourceInfo AsyncIClusCfgManagedResourceInfo;
+typedef struct AsyncIClusCfgManagedResourceInfo AsyncIClusCfgManagedResourceInfo;
 #endif
 
 #ifndef __IEnumClusCfgPartitions_FWD_DEFINED__
 #define __IEnumClusCfgPartitions_FWD_DEFINED__
-typedef interface IEnumClusCfgPartitions IEnumClusCfgPartitions;
+typedef struct IEnumClusCfgPartitions IEnumClusCfgPartitions;
 #endif
 
 #ifndef __AsyncIEnumClusCfgPartitions_FWD_DEFINED__
 #define __AsyncIEnumClusCfgPartitions_FWD_DEFINED__
-typedef interface AsyncIEnumClusCfgPartitions AsyncIEnumClusCfgPartitions;
+typedef struct AsyncIEnumClusCfgPartitions AsyncIEnumClusCfgPartitions;
 #endif
 
 #ifndef __IClusCfgPartitionInfo_FWD_DEFINED__
 #define __IClusCfgPartitionInfo_FWD_DEFINED__
-typedef interface IClusCfgPartitionInfo IClusCfgPartitionInfo;
+typedef struct IClusCfgPartitionInfo IClusCfgPartitionInfo;
 #endif
 
 #ifndef __AsyncIClusCfgPartitionInfo_FWD_DEFINED__
 #define __AsyncIClusCfgPartitionInfo_FWD_DEFINED__
-typedef interface AsyncIClusCfgPartitionInfo AsyncIClusCfgPartitionInfo;
+typedef struct AsyncIClusCfgPartitionInfo AsyncIClusCfgPartitionInfo;
 #endif
 
 #ifndef __IEnumClusCfgIPAddresses_FWD_DEFINED__
 #define __IEnumClusCfgIPAddresses_FWD_DEFINED__
-typedef interface IEnumClusCfgIPAddresses IEnumClusCfgIPAddresses;
+typedef struct IEnumClusCfgIPAddresses IEnumClusCfgIPAddresses;
 #endif
 
 #ifndef __AsyncIEnumClusCfgIPAddresses_FWD_DEFINED__
 #define __AsyncIEnumClusCfgIPAddresses_FWD_DEFINED__
-typedef interface AsyncIEnumClusCfgIPAddresses AsyncIEnumClusCfgIPAddresses;
+typedef struct AsyncIEnumClusCfgIPAddresses AsyncIEnumClusCfgIPAddresses;
 #endif
 
 #ifndef __IClusCfgIPAddressInfo_FWD_DEFINED__
 #define __IClusCfgIPAddressInfo_FWD_DEFINED__
-typedef interface IClusCfgIPAddressInfo IClusCfgIPAddressInfo;
+typedef struct IClusCfgIPAddressInfo IClusCfgIPAddressInfo;
 #endif
 
 #ifndef __AsyncIClusCfgIPAddressInfo_FWD_DEFINED__
 #define __AsyncIClusCfgIPAddressInfo_FWD_DEFINED__
-typedef interface AsyncIClusCfgIPAddressInfo AsyncIClusCfgIPAddressInfo;
+typedef struct AsyncIClusCfgIPAddressInfo AsyncIClusCfgIPAddressInfo;
 #endif
 
 #ifndef __IClusCfgNetworkInfo_FWD_DEFINED__
 #define __IClusCfgNetworkInfo_FWD_DEFINED__
-typedef interface IClusCfgNetworkInfo IClusCfgNetworkInfo;
+typedef struct IClusCfgNetworkInfo IClusCfgNetworkInfo;
 #endif
 
 #ifndef __AsyncIClusCfgNetworkInfo_FWD_DEFINED__
 #define __AsyncIClusCfgNetworkInfo_FWD_DEFINED__
-typedef interface AsyncIClusCfgNetworkInfo AsyncIClusCfgNetworkInfo;
+typedef struct AsyncIClusCfgNetworkInfo AsyncIClusCfgNetworkInfo;
 #endif
 
 #ifndef __IClusCfgClusterInfo_FWD_DEFINED__
 #define __IClusCfgClusterInfo_FWD_DEFINED__
-typedef interface IClusCfgClusterInfo IClusCfgClusterInfo;
+typedef struct IClusCfgClusterInfo IClusCfgClusterInfo;
 #endif
 
 #ifndef __AsyncIClusCfgClusterInfo_FWD_DEFINED__
 #define __AsyncIClusCfgClusterInfo_FWD_DEFINED__
-typedef interface AsyncIClusCfgClusterInfo AsyncIClusCfgClusterInfo;
+typedef struct AsyncIClusCfgClusterInfo AsyncIClusCfgClusterInfo;
 #endif
 
 #ifndef __IClusCfgInitialize_FWD_DEFINED__
 #define __IClusCfgInitialize_FWD_DEFINED__
-typedef interface IClusCfgInitialize IClusCfgInitialize;
+typedef struct IClusCfgInitialize IClusCfgInitialize;
 #endif
 
 #ifndef __AsyncIClusCfgInitialize_FWD_DEFINED__
 #define __AsyncIClusCfgInitialize_FWD_DEFINED__
-typedef interface AsyncIClusCfgInitialize AsyncIClusCfgInitialize;
+typedef struct AsyncIClusCfgInitialize AsyncIClusCfgInitialize;
 #endif
 
 #ifndef __IClusCfgCallback_FWD_DEFINED__
 #define __IClusCfgCallback_FWD_DEFINED__
-typedef interface IClusCfgCallback IClusCfgCallback;
+typedef struct IClusCfgCallback IClusCfgCallback;
 #endif
 
 #ifndef __AsyncIClusCfgCallback_FWD_DEFINED__
 #define __AsyncIClusCfgCallback_FWD_DEFINED__
-typedef interface AsyncIClusCfgCallback AsyncIClusCfgCallback;
+typedef struct AsyncIClusCfgCallback AsyncIClusCfgCallback;
 #endif
 
 #ifndef __IClusCfgCredentials_FWD_DEFINED__
 #define __IClusCfgCredentials_FWD_DEFINED__
-typedef interface IClusCfgCredentials IClusCfgCredentials;
+typedef struct IClusCfgCredentials IClusCfgCredentials;
 #endif
 
 #ifndef __AsyncIClusCfgCredentials_FWD_DEFINED__
 #define __AsyncIClusCfgCredentials_FWD_DEFINED__
-typedef interface AsyncIClusCfgCredentials AsyncIClusCfgCredentials;
+typedef struct AsyncIClusCfgCredentials AsyncIClusCfgCredentials;
 #endif
 
 #ifndef __IClusCfgCapabilities_FWD_DEFINED__
 #define __IClusCfgCapabilities_FWD_DEFINED__
-typedef interface IClusCfgCapabilities IClusCfgCapabilities;
+typedef struct IClusCfgCapabilities IClusCfgCapabilities;
 #endif
 
 #ifndef __IClusCfgManagedResourceCfg_FWD_DEFINED__
 #define __IClusCfgManagedResourceCfg_FWD_DEFINED__
-typedef interface IClusCfgManagedResourceCfg IClusCfgManagedResourceCfg;
+typedef struct IClusCfgManagedResourceCfg IClusCfgManagedResourceCfg;
 #endif
 
 #ifndef __IClusCfgResourcePreCreate_FWD_DEFINED__
 #define __IClusCfgResourcePreCreate_FWD_DEFINED__
-typedef interface IClusCfgResourcePreCreate IClusCfgResourcePreCreate;
+typedef struct IClusCfgResourcePreCreate IClusCfgResourcePreCreate;
 #endif
 
 #ifndef __IClusCfgResourceCreate_FWD_DEFINED__
 #define __IClusCfgResourceCreate_FWD_DEFINED__
-typedef interface IClusCfgResourceCreate IClusCfgResourceCreate;
+typedef struct IClusCfgResourceCreate IClusCfgResourceCreate;
 #endif
 
 #ifndef __IClusCfgResourcePostCreate_FWD_DEFINED__
 #define __IClusCfgResourcePostCreate_FWD_DEFINED__
-typedef interface IClusCfgResourcePostCreate IClusCfgResourcePostCreate;
+typedef struct IClusCfgResourcePostCreate IClusCfgResourcePostCreate;
 #endif
 
 #ifndef __IClusCfgGroupCfg_FWD_DEFINED__
 #define __IClusCfgGroupCfg_FWD_DEFINED__
-typedef interface IClusCfgGroupCfg IClusCfgGroupCfg;
+typedef struct IClusCfgGroupCfg IClusCfgGroupCfg;
 #endif
 
 #ifndef __IClusCfgMemberSetChangeListener_FWD_DEFINED__
 #define __IClusCfgMemberSetChangeListener_FWD_DEFINED__
-typedef interface IClusCfgMemberSetChangeListener IClusCfgMemberSetChangeListener;
+typedef struct IClusCfgMemberSetChangeListener IClusCfgMemberSetChangeListener;
 #endif
 
 #ifndef __AsyncIClusCfgMemberSetChangeListener_FWD_DEFINED__
 #define __AsyncIClusCfgMemberSetChangeListener_FWD_DEFINED__
-typedef interface AsyncIClusCfgMemberSetChangeListener AsyncIClusCfgMemberSetChangeListener;
+typedef struct AsyncIClusCfgMemberSetChangeListener AsyncIClusCfgMemberSetChangeListener;
 #endif
 
 #ifndef __IClusCfgResourceTypeInfo_FWD_DEFINED__
 #define __IClusCfgResourceTypeInfo_FWD_DEFINED__
-typedef interface IClusCfgResourceTypeInfo IClusCfgResourceTypeInfo;
+typedef struct IClusCfgResourceTypeInfo IClusCfgResourceTypeInfo;
 #endif
 
 #ifndef __AsyncIClusCfgResourceTypeInfo_FWD_DEFINED__
 #define __AsyncIClusCfgResourceTypeInfo_FWD_DEFINED__
-typedef interface AsyncIClusCfgResourceTypeInfo AsyncIClusCfgResourceTypeInfo;
+typedef struct AsyncIClusCfgResourceTypeInfo AsyncIClusCfgResourceTypeInfo;
 #endif
 
 #ifndef __IClusCfgResourceTypeCreate_FWD_DEFINED__
 #define __IClusCfgResourceTypeCreate_FWD_DEFINED__
-typedef interface IClusCfgResourceTypeCreate IClusCfgResourceTypeCreate;
+typedef struct IClusCfgResourceTypeCreate IClusCfgResourceTypeCreate;
 #endif
 
 #ifndef __AsyncIClusCfgResourceTypeCreate_FWD_DEFINED__
 #define __AsyncIClusCfgResourceTypeCreate_FWD_DEFINED__
-typedef interface AsyncIClusCfgResourceTypeCreate AsyncIClusCfgResourceTypeCreate;
+typedef struct AsyncIClusCfgResourceTypeCreate AsyncIClusCfgResourceTypeCreate;
 #endif
 
 #ifndef __IClusCfgEvictCleanup_FWD_DEFINED__
 #define __IClusCfgEvictCleanup_FWD_DEFINED__
-typedef interface IClusCfgEvictCleanup IClusCfgEvictCleanup;
+typedef struct IClusCfgEvictCleanup IClusCfgEvictCleanup;
 #endif
 
 #ifndef __AsyncIClusCfgEvictCleanup_FWD_DEFINED__
 #define __AsyncIClusCfgEvictCleanup_FWD_DEFINED__
-typedef interface AsyncIClusCfgEvictCleanup AsyncIClusCfgEvictCleanup;
+typedef struct AsyncIClusCfgEvictCleanup AsyncIClusCfgEvictCleanup;
 #endif
 
 #ifndef __IClusCfgStartupListener_FWD_DEFINED__
 #define __IClusCfgStartupListener_FWD_DEFINED__
-typedef interface IClusCfgStartupListener IClusCfgStartupListener;
+typedef struct IClusCfgStartupListener IClusCfgStartupListener;
 #endif
 
 #ifndef __AsyncIClusCfgStartupListener_FWD_DEFINED__
 #define __AsyncIClusCfgStartupListener_FWD_DEFINED__
-typedef interface AsyncIClusCfgStartupListener AsyncIClusCfgStartupListener;
+typedef struct AsyncIClusCfgStartupListener AsyncIClusCfgStartupListener;
 #endif
 
 #ifndef __IClusCfgStartupNotify_FWD_DEFINED__
 #define __IClusCfgStartupNotify_FWD_DEFINED__
-typedef interface IClusCfgStartupNotify IClusCfgStartupNotify;
+typedef struct IClusCfgStartupNotify IClusCfgStartupNotify;
 #endif
 
 #ifndef __AsyncIClusCfgStartupNotify_FWD_DEFINED__
 #define __AsyncIClusCfgStartupNotify_FWD_DEFINED__
-typedef interface AsyncIClusCfgStartupNotify AsyncIClusCfgStartupNotify;
+typedef struct AsyncIClusCfgStartupNotify AsyncIClusCfgStartupNotify;
 #endif
 
 #ifndef __IClusCfgManagedResourceData_FWD_DEFINED__
 #define __IClusCfgManagedResourceData_FWD_DEFINED__
-typedef interface IClusCfgManagedResourceData IClusCfgManagedResourceData;
+typedef struct IClusCfgManagedResourceData IClusCfgManagedResourceData;
 #endif
 
 #ifndef __IClusCfgVerifyQuorum_FWD_DEFINED__
 #define __IClusCfgVerifyQuorum_FWD_DEFINED__
-typedef interface IClusCfgVerifyQuorum IClusCfgVerifyQuorum;
+typedef struct IClusCfgVerifyQuorum IClusCfgVerifyQuorum;
 #endif
 
 #ifndef __IClusCfgEvictListener_FWD_DEFINED__
 #define __IClusCfgEvictListener_FWD_DEFINED__
-typedef interface IClusCfgEvictListener IClusCfgEvictListener;
+typedef struct IClusCfgEvictListener IClusCfgEvictListener;
 #endif
 
 #ifndef __AsyncIClusCfgEvictListener_FWD_DEFINED__
 #define __AsyncIClusCfgEvictListener_FWD_DEFINED__
-typedef interface AsyncIClusCfgEvictListener AsyncIClusCfgEvictListener;
+typedef struct AsyncIClusCfgEvictListener AsyncIClusCfgEvictListener;
 #endif
 
 #ifndef __IClusCfgEvictNotify_FWD_DEFINED__
 #define __IClusCfgEvictNotify_FWD_DEFINED__
-typedef interface IClusCfgEvictNotify IClusCfgEvictNotify;
+typedef struct IClusCfgEvictNotify IClusCfgEvictNotify;
 #endif
 
 #ifndef __AsyncIClusCfgEvictNotify_FWD_DEFINED__
 #define __AsyncIClusCfgEvictNotify_FWD_DEFINED__
-typedef interface AsyncIClusCfgEvictNotify AsyncIClusCfgEvictNotify;
+typedef struct AsyncIClusCfgEvictNotify AsyncIClusCfgEvictNotify;
 #endif
 
 #include "unknwn.h"
@@ -344,7 +344,7 @@ extern "C"{
       HRESULT (WINAPI *GetProcessorInfo)(IClusCfgNodeInfo *This,WORD *pwProcessorArchitectureOut,WORD *pwProcessorLevelOut);
     END_INTERFACE
   } IClusCfgNodeInfoVtbl;
-  interface IClusCfgNodeInfo {
+  struct IClusCfgNodeInfo {
     CONST_VTBL struct IClusCfgNodeInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -433,7 +433,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_GetProcessorInfo)(AsyncIClusCfgNodeInfo *This,WORD *pwProcessorArchitectureOut,WORD *pwProcessorLevelOut);
     END_INTERFACE
   } AsyncIClusCfgNodeInfoVtbl;
-  interface AsyncIClusCfgNodeInfo {
+  struct AsyncIClusCfgNodeInfo {
     CONST_VTBL struct AsyncIClusCfgNodeInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -523,7 +523,7 @@ extern "C"{
       HRESULT (WINAPI *Count)(IEnumClusCfgManagedResources *This,DWORD *pnCountOut);
     END_INTERFACE
   } IEnumClusCfgManagedResourcesVtbl;
-  interface IEnumClusCfgManagedResources {
+  struct IEnumClusCfgManagedResources {
     CONST_VTBL struct IEnumClusCfgManagedResourcesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -584,7 +584,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_Count)(AsyncIEnumClusCfgManagedResources *This,DWORD *pnCountOut);
     END_INTERFACE
   } AsyncIEnumClusCfgManagedResourcesVtbl;
-  interface AsyncIEnumClusCfgManagedResources {
+  struct AsyncIEnumClusCfgManagedResources {
     CONST_VTBL struct AsyncIEnumClusCfgManagedResourcesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -650,7 +650,7 @@ extern "C"{
       HRESULT (WINAPI *Count)(IEnumClusCfgNetworks *This,DWORD *pnCountOut);
     END_INTERFACE
   } IEnumClusCfgNetworksVtbl;
-  interface IEnumClusCfgNetworks {
+  struct IEnumClusCfgNetworks {
     CONST_VTBL struct IEnumClusCfgNetworksVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -711,7 +711,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_Count)(AsyncIEnumClusCfgNetworks *This,DWORD *pnCountOut);
     END_INTERFACE
   } AsyncIEnumClusCfgNetworksVtbl;
-  interface AsyncIEnumClusCfgNetworks {
+  struct AsyncIEnumClusCfgNetworks {
     CONST_VTBL struct AsyncIEnumClusCfgNetworksVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -793,7 +793,7 @@ extern "C"{
       HRESULT (WINAPI *SetManagedByDefault)(IClusCfgManagedResourceInfo *This,WINBOOL fIsManagedByDefaultIn);
     END_INTERFACE
   } IClusCfgManagedResourceInfoVtbl;
-  interface IClusCfgManagedResourceInfo {
+  struct IClusCfgManagedResourceInfo {
     CONST_VTBL struct IClusCfgManagedResourceInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -910,7 +910,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_SetManagedByDefault)(AsyncIClusCfgManagedResourceInfo *This);
     END_INTERFACE
   } AsyncIClusCfgManagedResourceInfoVtbl;
-  interface AsyncIClusCfgManagedResourceInfo {
+  struct AsyncIClusCfgManagedResourceInfo {
     CONST_VTBL struct AsyncIClusCfgManagedResourceInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1024,7 +1024,7 @@ extern "C"{
       HRESULT (WINAPI *Count)(IEnumClusCfgPartitions *This,DWORD *pnCountOut);
     END_INTERFACE
   } IEnumClusCfgPartitionsVtbl;
-  interface IEnumClusCfgPartitions {
+  struct IEnumClusCfgPartitions {
     CONST_VTBL struct IEnumClusCfgPartitionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1085,7 +1085,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_Count)(AsyncIEnumClusCfgPartitions *This,DWORD *pnCountOut);
     END_INTERFACE
   } AsyncIEnumClusCfgPartitionsVtbl;
-  interface AsyncIEnumClusCfgPartitions {
+  struct AsyncIEnumClusCfgPartitions {
     CONST_VTBL struct AsyncIEnumClusCfgPartitionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1157,7 +1157,7 @@ extern "C"{
       HRESULT (WINAPI *GetSize)(IClusCfgPartitionInfo *This,ULONG *pcMegaBytes);
     END_INTERFACE
   } IClusCfgPartitionInfoVtbl;
-  interface IClusCfgPartitionInfo {
+  struct IClusCfgPartitionInfo {
     CONST_VTBL struct IClusCfgPartitionInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1239,7 +1239,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_GetSize)(AsyncIClusCfgPartitionInfo *This,ULONG *pcMegaBytes);
     END_INTERFACE
   } AsyncIClusCfgPartitionInfoVtbl;
-  interface AsyncIClusCfgPartitionInfo {
+  struct AsyncIClusCfgPartitionInfo {
     CONST_VTBL struct AsyncIClusCfgPartitionInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1323,7 +1323,7 @@ extern "C"{
       HRESULT (WINAPI *Count)(IEnumClusCfgIPAddresses *This,DWORD *pnCountOut);
     END_INTERFACE
   } IEnumClusCfgIPAddressesVtbl;
-  interface IEnumClusCfgIPAddresses {
+  struct IEnumClusCfgIPAddresses {
     CONST_VTBL struct IEnumClusCfgIPAddressesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1384,7 +1384,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_Count)(AsyncIEnumClusCfgIPAddresses *This,DWORD *pnCountOut);
     END_INTERFACE
   } AsyncIEnumClusCfgIPAddressesVtbl;
-  interface AsyncIEnumClusCfgIPAddresses {
+  struct AsyncIEnumClusCfgIPAddresses {
     CONST_VTBL struct AsyncIEnumClusCfgIPAddressesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1450,7 +1450,7 @@ extern "C"{
       HRESULT (WINAPI *SetSubnetMask)(IClusCfgIPAddressInfo *This,ULONG ulDottedQuadIn);
     END_INTERFACE
   } IClusCfgIPAddressInfoVtbl;
-  interface IClusCfgIPAddressInfo {
+  struct IClusCfgIPAddressInfo {
     CONST_VTBL struct IClusCfgIPAddressInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1511,7 +1511,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_SetSubnetMask)(AsyncIClusCfgIPAddressInfo *This);
     END_INTERFACE
   } AsyncIClusCfgIPAddressInfoVtbl;
-  interface AsyncIClusCfgIPAddressInfo {
+  struct AsyncIClusCfgIPAddressInfo {
     CONST_VTBL struct AsyncIClusCfgIPAddressInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1589,7 +1589,7 @@ extern "C"{
       HRESULT (WINAPI *SetPrivate)(IClusCfgNetworkInfo *This,WINBOOL fIsPrivateIn);
     END_INTERFACE
   } IClusCfgNetworkInfoVtbl;
-  interface IClusCfgNetworkInfo {
+  struct IClusCfgNetworkInfo {
     CONST_VTBL struct IClusCfgNetworkInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1692,7 +1692,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_SetPrivate)(AsyncIClusCfgNetworkInfo *This);
     END_INTERFACE
   } AsyncIClusCfgNetworkInfoVtbl;
-  interface AsyncIClusCfgNetworkInfo {
+  struct AsyncIClusCfgNetworkInfo {
     CONST_VTBL struct AsyncIClusCfgNetworkInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1812,7 +1812,7 @@ extern "C"{
       HRESULT (WINAPI *GetMaxNodeCount)(IClusCfgClusterInfo *This,DWORD *pcMaxNodesOut);
     END_INTERFACE
   } IClusCfgClusterInfoVtbl;
-  interface IClusCfgClusterInfo {
+  struct IClusCfgClusterInfo {
     CONST_VTBL struct IClusCfgClusterInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1936,7 +1936,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_GetMaxNodeCount)(AsyncIClusCfgClusterInfo *This,DWORD *pcMaxNodesOut);
     END_INTERFACE
   } AsyncIClusCfgClusterInfoVtbl;
-  interface AsyncIClusCfgClusterInfo {
+  struct AsyncIClusCfgClusterInfo {
     CONST_VTBL struct AsyncIClusCfgClusterInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2048,7 +2048,7 @@ extern "C"{
       HRESULT (WINAPI *Initialize)(IClusCfgInitialize *This,IUnknown *punkCallbackIn,LCID lcidIn);
     END_INTERFACE
   } IClusCfgInitializeVtbl;
-  interface IClusCfgInitialize {
+  struct IClusCfgInitialize {
     CONST_VTBL struct IClusCfgInitializeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2081,7 +2081,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_Initialize)(AsyncIClusCfgInitialize *This);
     END_INTERFACE
   } AsyncIClusCfgInitializeVtbl;
-  interface AsyncIClusCfgInitialize {
+  struct AsyncIClusCfgInitialize {
     CONST_VTBL struct AsyncIClusCfgInitializeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2115,7 +2115,7 @@ extern "C"{
       HRESULT (WINAPI *SendStatusReport)(IClusCfgCallback *This,LPCWSTR pcszNodeNameIn,CLSID clsidTaskMajorIn,CLSID clsidTaskMinorIn,ULONG ulMinIn,ULONG ulMaxIn,ULONG ulCurrentIn,HRESULT hrStatusIn,LPCWSTR pcszDescriptionIn,FILETIME *pftTimeIn,LPCWSTR pcszReferenceIn);
     END_INTERFACE
   } IClusCfgCallbackVtbl;
-  interface IClusCfgCallback {
+  struct IClusCfgCallback {
     CONST_VTBL struct IClusCfgCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2148,7 +2148,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_SendStatusReport)(AsyncIClusCfgCallback *This);
     END_INTERFACE
   } AsyncIClusCfgCallbackVtbl;
-  interface AsyncIClusCfgCallback {
+  struct AsyncIClusCfgCallback {
     CONST_VTBL struct AsyncIClusCfgCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2193,7 +2193,7 @@ extern "C"{
       HRESULT (WINAPI *AssignFrom)(IClusCfgCredentials *This,IClusCfgCredentials *picccSourceIn);
     END_INTERFACE
   } IClusCfgCredentialsVtbl;
-  interface IClusCfgCredentials {
+  struct IClusCfgCredentials {
     CONST_VTBL struct IClusCfgCredentialsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2261,7 +2261,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_AssignFrom)(AsyncIClusCfgCredentials *This);
     END_INTERFACE
   } AsyncIClusCfgCredentialsVtbl;
-  interface AsyncIClusCfgCredentials {
+  struct AsyncIClusCfgCredentials {
     CONST_VTBL struct AsyncIClusCfgCredentialsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2325,7 +2325,7 @@ extern "C"{
       HRESULT (WINAPI *CanNodeBeClustered)(IClusCfgCapabilities *This);
     END_INTERFACE
   } IClusCfgCapabilitiesVtbl;
-  interface IClusCfgCapabilities {
+  struct IClusCfgCapabilities {
     CONST_VTBL struct IClusCfgCapabilitiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2362,7 +2362,7 @@ extern "C"{
       HRESULT (WINAPI *Evict)(IClusCfgManagedResourceCfg *This,IUnknown *punkServicesIn);
     END_INTERFACE
   } IClusCfgManagedResourceCfgVtbl;
-  interface IClusCfgManagedResourceCfg {
+  struct IClusCfgManagedResourceCfg {
     CONST_VTBL struct IClusCfgManagedResourceCfgVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2406,7 +2406,7 @@ extern "C"{
       HRESULT (WINAPI *SetClassType)(IClusCfgResourcePreCreate *This,CLSID *pclsidIn);
     END_INTERFACE
   } IClusCfgResourcePreCreateVtbl;
-  interface IClusCfgResourcePreCreate {
+  struct IClusCfgResourcePreCreate {
     CONST_VTBL struct IClusCfgResourcePreCreateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2461,7 +2461,7 @@ extern "C"{
       HRESULT (WINAPI *SendResourceControl)(IClusCfgResourceCreate *This,DWORD dwControlCodeIn,LPVOID lpBufferIn,DWORD cbBufferSizeIn);
     END_INTERFACE
   } IClusCfgResourceCreateVtbl;
-  interface IClusCfgResourceCreate {
+  struct IClusCfgResourceCreate {
     CONST_VTBL struct IClusCfgResourceCreateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2521,7 +2521,7 @@ extern "C"{
       HRESULT (WINAPI *SendResourceControl)(IClusCfgResourcePostCreate *This,DWORD dwControlCodeIn,LPVOID lpBufferIn,DWORD cbBufferSizeIn,LPVOID lBufferInout,DWORD cbOutBufferSizeIn,LPDWORD lpcbBytesReturnedOut);
     END_INTERFACE
   } IClusCfgResourcePostCreateVtbl;
-  interface IClusCfgResourcePostCreate {
+  struct IClusCfgResourcePostCreate {
     CONST_VTBL struct IClusCfgResourcePostCreateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2557,7 +2557,7 @@ extern "C"{
       HRESULT (WINAPI *GetName)(IClusCfgGroupCfg *This,BSTR *pbstrNameOut);
     END_INTERFACE
   } IClusCfgGroupCfgVtbl;
-  interface IClusCfgGroupCfg {
+  struct IClusCfgGroupCfg {
     CONST_VTBL struct IClusCfgGroupCfgVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2591,7 +2591,7 @@ extern "C"{
       HRESULT (WINAPI *Notify)(IClusCfgMemberSetChangeListener *This,IUnknown *punkClusterInfoIn);
     END_INTERFACE
   } IClusCfgMemberSetChangeListenerVtbl;
-  interface IClusCfgMemberSetChangeListener {
+  struct IClusCfgMemberSetChangeListener {
     CONST_VTBL struct IClusCfgMemberSetChangeListenerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2624,7 +2624,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_Notify)(AsyncIClusCfgMemberSetChangeListener *This);
     END_INTERFACE
   } AsyncIClusCfgMemberSetChangeListenerVtbl;
-  interface AsyncIClusCfgMemberSetChangeListener {
+  struct AsyncIClusCfgMemberSetChangeListener {
     CONST_VTBL struct AsyncIClusCfgMemberSetChangeListenerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2662,7 +2662,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeGUID)(IClusCfgResourceTypeInfo *This,GUID *pguidGUIDOut);
     END_INTERFACE
   } IClusCfgResourceTypeInfoVtbl;
-  interface IClusCfgResourceTypeInfo {
+  struct IClusCfgResourceTypeInfo {
     CONST_VTBL struct IClusCfgResourceTypeInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2709,7 +2709,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_GetTypeGUID)(AsyncIClusCfgResourceTypeInfo *This,GUID *pguidGUIDOut);
     END_INTERFACE
   } AsyncIClusCfgResourceTypeInfoVtbl;
-  interface AsyncIClusCfgResourceTypeInfo {
+  struct AsyncIClusCfgResourceTypeInfo {
     CONST_VTBL struct AsyncIClusCfgResourceTypeInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2757,7 +2757,7 @@ extern "C"{
       HRESULT (WINAPI *RegisterAdminExtensions)(IClusCfgResourceTypeCreate *This,const WCHAR *pcszResTypeNameIn,ULONG cExtClsidCountIn,const CLSID *rgclsidExtClsidsIn);
     END_INTERFACE
   } IClusCfgResourceTypeCreateVtbl;
-  interface IClusCfgResourceTypeCreate {
+  struct IClusCfgResourceTypeCreate {
     CONST_VTBL struct IClusCfgResourceTypeCreateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2797,7 +2797,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_RegisterAdminExtensions)(AsyncIClusCfgResourceTypeCreate *This);
     END_INTERFACE
   } AsyncIClusCfgResourceTypeCreateVtbl;
-  interface AsyncIClusCfgResourceTypeCreate {
+  struct AsyncIClusCfgResourceTypeCreate {
     CONST_VTBL struct AsyncIClusCfgResourceTypeCreateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2839,7 +2839,7 @@ extern "C"{
       HRESULT (WINAPI *CleanupRemoteNode)(IClusCfgEvictCleanup *This,const WCHAR *pcszEvictedNodeNameIn,DWORD dwDelayIn);
     END_INTERFACE
   } IClusCfgEvictCleanupVtbl;
-  interface IClusCfgEvictCleanup {
+  struct IClusCfgEvictCleanup {
     CONST_VTBL struct IClusCfgEvictCleanupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2879,7 +2879,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_CleanupRemoteNode)(AsyncIClusCfgEvictCleanup *This);
     END_INTERFACE
   } AsyncIClusCfgEvictCleanupVtbl;
-  interface AsyncIClusCfgEvictCleanup {
+  struct AsyncIClusCfgEvictCleanup {
     CONST_VTBL struct AsyncIClusCfgEvictCleanupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2919,7 +2919,7 @@ extern "C"{
       HRESULT (WINAPI *Notify)(IClusCfgStartupListener *This,IUnknown *punkIn);
     END_INTERFACE
   } IClusCfgStartupListenerVtbl;
-  interface IClusCfgStartupListener {
+  struct IClusCfgStartupListener {
     CONST_VTBL struct IClusCfgStartupListenerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2952,7 +2952,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_Notify)(AsyncIClusCfgStartupListener *This);
     END_INTERFACE
   } AsyncIClusCfgStartupListenerVtbl;
-  interface AsyncIClusCfgStartupListener {
+  struct AsyncIClusCfgStartupListener {
     CONST_VTBL struct AsyncIClusCfgStartupListenerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2986,7 +2986,7 @@ extern "C"{
       HRESULT (WINAPI *SendNotifications)(IClusCfgStartupNotify *This);
     END_INTERFACE
   } IClusCfgStartupNotifyVtbl;
-  interface IClusCfgStartupNotify {
+  struct IClusCfgStartupNotify {
     CONST_VTBL struct IClusCfgStartupNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3019,7 +3019,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_SendNotifications)(AsyncIClusCfgStartupNotify *This);
     END_INTERFACE
   } AsyncIClusCfgStartupNotifyVtbl;
-  interface AsyncIClusCfgStartupNotify {
+  struct AsyncIClusCfgStartupNotify {
     CONST_VTBL struct AsyncIClusCfgStartupNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3055,7 +3055,7 @@ extern "C"{
       HRESULT (WINAPI *SetResourcePrivateData)(IClusCfgManagedResourceData *This,const BYTE *pcbBufferIn,DWORD cbBufferIn);
     END_INTERFACE
   } IClusCfgManagedResourceDataVtbl;
-  interface IClusCfgManagedResourceData {
+  struct IClusCfgManagedResourceData {
     CONST_VTBL struct IClusCfgManagedResourceDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3095,7 +3095,7 @@ extern "C"{
       HRESULT (WINAPI *SetMultiNodeCapable)(IClusCfgVerifyQuorum *This,WINBOOL fMultiNodeCapableIn);
     END_INTERFACE
   } IClusCfgVerifyQuorumVtbl;
-  interface IClusCfgVerifyQuorum {
+  struct IClusCfgVerifyQuorum {
     CONST_VTBL struct IClusCfgVerifyQuorumVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3135,7 +3135,7 @@ extern "C"{
       HRESULT (WINAPI *EvictNotify)(IClusCfgEvictListener *This,LPCWSTR pcszNodeNameIn);
     END_INTERFACE
   } IClusCfgEvictListenerVtbl;
-  interface IClusCfgEvictListener {
+  struct IClusCfgEvictListener {
     CONST_VTBL struct IClusCfgEvictListenerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3168,7 +3168,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_EvictNotify)(AsyncIClusCfgEvictListener *This);
     END_INTERFACE
   } AsyncIClusCfgEvictListenerVtbl;
-  interface AsyncIClusCfgEvictListener {
+  struct AsyncIClusCfgEvictListener {
     CONST_VTBL struct AsyncIClusCfgEvictListenerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3202,7 +3202,7 @@ extern "C"{
       HRESULT (WINAPI *SendNotifications)(IClusCfgEvictNotify *This,LPCWSTR pcszNodeNameIn);
     END_INTERFACE
   } IClusCfgEvictNotifyVtbl;
-  interface IClusCfgEvictNotify {
+  struct IClusCfgEvictNotify {
     CONST_VTBL struct IClusCfgEvictNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3235,7 +3235,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_SendNotifications)(AsyncIClusCfgEvictNotify *This);
     END_INTERFACE
   } AsyncIClusCfgEvictNotifyVtbl;
-  interface AsyncIClusCfgEvictNotify {
+  struct AsyncIClusCfgEvictNotify {
     CONST_VTBL struct AsyncIClusCfgEvictNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

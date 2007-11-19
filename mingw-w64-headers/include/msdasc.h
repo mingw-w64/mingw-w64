@@ -24,22 +24,22 @@
 
 #ifndef __IService_FWD_DEFINED__
 #define __IService_FWD_DEFINED__
-typedef interface IService IService;
+typedef struct IService IService;
 #endif
 
 #ifndef __IDBPromptInitialize_FWD_DEFINED__
 #define __IDBPromptInitialize_FWD_DEFINED__
-typedef interface IDBPromptInitialize IDBPromptInitialize;
+typedef struct IDBPromptInitialize IDBPromptInitialize;
 #endif
 
 #ifndef __IDataInitialize_FWD_DEFINED__
 #define __IDataInitialize_FWD_DEFINED__
-typedef interface IDataInitialize IDataInitialize;
+typedef struct IDataInitialize IDataInitialize;
 #endif
 
 #ifndef __IDataSourceLocator_FWD_DEFINED__
 #define __IDataSourceLocator_FWD_DEFINED__
-typedef interface IDataSourceLocator IDataSourceLocator;
+typedef struct IDataSourceLocator IDataSourceLocator;
 #endif
 
 #ifndef __DataLinks_FWD_DEFINED__
@@ -124,7 +124,7 @@ extern "C" {
       HRESULT (WINAPI *InvokeService)(IService *This,IUnknown *pUnkInner);
     END_INTERFACE
   } IServiceVtbl;
-  interface IService {
+  struct IService {
     CONST_VTBL struct IServiceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -167,7 +167,7 @@ extern "C" {
       HRESULT (WINAPI *PromptFileName)(IDBPromptInitialize *This,HWND hWndParent,DBPROMPTOPTIONS dwPromptOptions,LPCOLESTR pwszInitialDirectory,LPCOLESTR pwszInitialFile,LPOLESTR *ppwszSelectedFile);
     END_INTERFACE
   } IDBPromptInitializeVtbl;
-  interface IDBPromptInitialize {
+  struct IDBPromptInitialize {
     CONST_VTBL struct IDBPromptInitializeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -211,7 +211,7 @@ extern "C" {
       HRESULT (WINAPI *WriteStringToStorage)(IDataInitialize *This,LPCOLESTR pwszFileName,LPCOLESTR pwszInitializationString,DWORD dwCreationDisposition);
     END_INTERFACE
   } IDataInitializeVtbl;
-  interface IDataInitialize {
+  struct IDataInitialize {
     CONST_VTBL struct IDataInitializeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -270,7 +270,7 @@ extern "C" {
       HRESULT (WINAPI *PromptEdit)(IDataSourceLocator *This,IDispatch **ppADOConnection,VARIANT_BOOL *pbSuccess);
     END_INTERFACE
   } IDataSourceLocatorVtbl;
-  interface IDataSourceLocator {
+  struct IDataSourceLocator {
     CONST_VTBL struct IDataSourceLocatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

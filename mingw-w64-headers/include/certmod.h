@@ -24,7 +24,7 @@
 
 #ifndef __ICertManageModule_FWD_DEFINED__
 #define __ICertManageModule_FWD_DEFINED__
-typedef interface ICertManageModule ICertManageModule;
+typedef struct ICertManageModule ICertManageModule;
 #endif
 
 #include "wtypes.h"
@@ -76,7 +76,7 @@ extern "C"{
       HRESULT (WINAPI *Configure)(ICertManageModule *This,const BSTR strConfig,BSTR strStorageLocation,LONG Flags);
     END_INTERFACE
   } ICertManageModuleVtbl;
-  interface ICertManageModule {
+  struct ICertManageModule {
     CONST_VTBL struct ICertManageModuleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,12 +24,12 @@
 
 #ifndef __IBITSExtensionSetup_FWD_DEFINED__
 #define __IBITSExtensionSetup_FWD_DEFINED__
-typedef interface IBITSExtensionSetup IBITSExtensionSetup;
+typedef struct IBITSExtensionSetup IBITSExtensionSetup;
 #endif
 
 #ifndef __IBITSExtensionSetupFactory_FWD_DEFINED__
 #define __IBITSExtensionSetupFactory_FWD_DEFINED__
-typedef interface IBITSExtensionSetupFactory IBITSExtensionSetupFactory;
+typedef struct IBITSExtensionSetupFactory IBITSExtensionSetupFactory;
 #endif
 
 #ifndef __BITSExtensionSetupFactory_FWD_DEFINED__
@@ -80,7 +80,7 @@ extern "C"{
       HRESULT (WINAPI *GetCleanupTask)(IBITSExtensionSetup *This,REFIID riid,IUnknown **ppUnk);
     END_INTERFACE
   } IBITSExtensionSetupVtbl;
-  interface IBITSExtensionSetup {
+  struct IBITSExtensionSetup {
     CONST_VTBL struct IBITSExtensionSetupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -128,7 +128,7 @@ extern "C"{
       HRESULT (WINAPI *GetObject)(IBITSExtensionSetupFactory *This,BSTR Path,IBITSExtensionSetup **ppExtensionSetup);
     END_INTERFACE
   } IBITSExtensionSetupFactoryVtbl;
-  interface IBITSExtensionSetupFactory {
+  struct IBITSExtensionSetupFactory {
     CONST_VTBL struct IBITSExtensionSetupFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

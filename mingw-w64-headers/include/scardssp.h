@@ -24,37 +24,37 @@
 
 #ifndef __IByteBuffer_FWD_DEFINED__
 #define __IByteBuffer_FWD_DEFINED__
-typedef interface IByteBuffer IByteBuffer;
+typedef struct IByteBuffer IByteBuffer;
 #endif
 
 #ifndef __ISCardTypeConv_FWD_DEFINED__
 #define __ISCardTypeConv_FWD_DEFINED__
-typedef interface ISCardTypeConv ISCardTypeConv;
+typedef struct ISCardTypeConv ISCardTypeConv;
 #endif
 
 #ifndef __ISCardCmd_FWD_DEFINED__
 #define __ISCardCmd_FWD_DEFINED__
-typedef interface ISCardCmd ISCardCmd;
+typedef struct ISCardCmd ISCardCmd;
 #endif
 
 #ifndef __ISCardISO7816_FWD_DEFINED__
 #define __ISCardISO7816_FWD_DEFINED__
-typedef interface ISCardISO7816 ISCardISO7816;
+typedef struct ISCardISO7816 ISCardISO7816;
 #endif
 
 #ifndef __ISCard_FWD_DEFINED__
 #define __ISCard_FWD_DEFINED__
-typedef interface ISCard ISCard;
+typedef struct ISCard ISCard;
 #endif
 
 #ifndef __ISCardDatabase_FWD_DEFINED__
 #define __ISCardDatabase_FWD_DEFINED__
-typedef interface ISCardDatabase ISCardDatabase;
+typedef struct ISCardDatabase ISCardDatabase;
 #endif
 
 #ifndef __ISCardLocate_FWD_DEFINED__
 #define __ISCardLocate_FWD_DEFINED__
-typedef interface ISCardLocate ISCardLocate;
+typedef struct ISCardLocate ISCardLocate;
 #endif
 
 #ifndef __CByteBuffer_FWD_DEFINED__
@@ -305,7 +305,7 @@ extern "C" {
       HRESULT (WINAPI *Write)(IByteBuffer *This,BYTE *pByte,LONG cb,LONG *pcbWritten);
     END_INTERFACE
   } IByteBufferVtbl;
-  interface IByteBuffer {
+  struct IByteBuffer {
     CONST_VTBL struct IByteBufferVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -409,7 +409,7 @@ extern "C" {
       HRESULT (WINAPI *SizeOfIStream)(ISCardTypeConv *This,LPSTREAM pStrm,ULARGE_INTEGER *puliSize);
     END_INTERFACE
   } ISCardTypeConvVtbl;
-  interface ISCardTypeConv {
+  struct ISCardTypeConv {
     CONST_VTBL struct ISCardTypeConvVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -546,7 +546,7 @@ extern "C" {
       HRESULT (WINAPI *put_AlternateClassId)(ISCardCmd *This,BYTE byClass);
     END_INTERFACE
   } ISCardCmdVtbl;
-  interface ISCardCmd {
+  struct ISCardCmd {
     CONST_VTBL struct ISCardCmdVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -723,7 +723,7 @@ extern "C" {
       HRESULT (WINAPI *WriteRecord)(ISCardISO7816 *This,BYTE byRecordId,BYTE byRefCtrl,LPBYTEBUFFER pData,LPSCARDCMD *ppCmd);
     END_INTERFACE
   } ISCardISO7816Vtbl;
-  interface ISCardISO7816 {
+  struct ISCardISO7816 {
     CONST_VTBL struct ISCardISO7816Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -843,7 +843,7 @@ extern "C" {
       HRESULT (WINAPI *UnlockSCard)(ISCard *This,SCARD_DISPOSITIONS Disposition);
     END_INTERFACE
   } ISCardVtbl;
-  interface ISCard {
+  struct ISCard {
     CONST_VTBL struct ISCardVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -930,7 +930,7 @@ extern "C" {
       HRESULT (WINAPI *ListReaders)(ISCardDatabase *This,long localeId,LPSAFEARRAY *ppReaders);
     END_INTERFACE
   } ISCardDatabaseVtbl;
-  interface ISCardDatabase {
+  struct ISCardDatabase {
     CONST_VTBL struct ISCardDatabaseVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -993,7 +993,7 @@ extern "C" {
       HRESULT (WINAPI *FindCard)(ISCardLocate *This,SCARD_SHARE_MODES ShareMode,SCARD_PROTOCOLS Protocols,LONG lFlags,LPSCARDINFO *ppCardInfo);
     END_INTERFACE
   } ISCardLocateVtbl;
-  interface ISCardLocate {
+  struct ISCardLocate {
     CONST_VTBL struct ISCardLocateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

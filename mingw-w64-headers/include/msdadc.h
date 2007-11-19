@@ -24,12 +24,12 @@
 
 #ifndef __IDataConvert_FWD_DEFINED__
 #define __IDataConvert_FWD_DEFINED__
-typedef interface IDataConvert IDataConvert;
+typedef struct IDataConvert IDataConvert;
 #endif
 
 #ifndef __IDCInfo_FWD_DEFINED__
 #define __IDCInfo_FWD_DEFINED__
-typedef interface IDCInfo IDCInfo;
+typedef struct IDCInfo IDCInfo;
 #endif
 
 #include "oaidl.h"
@@ -79,7 +79,7 @@ extern "C" {
       HRESULT (WINAPI *GetConversionSize)(IDataConvert *This,DBTYPE wSrcType,DBTYPE wDstType,DBLENGTH *pcbSrcLength,DBLENGTH *pcbDstLength,void *pSrc);
     END_INTERFACE
   } IDataConvertVtbl;
-  interface IDataConvert {
+  struct IDataConvert {
     CONST_VTBL struct IDataConvertVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -128,7 +128,7 @@ extern "C" {
       HRESULT (WINAPI *SetInfo)(IDCInfo *This,ULONG cInfo,DCINFO rgInfo[]);
     END_INTERFACE
   } IDCInfoVtbl;
-  interface IDCInfo {
+  struct IDCInfo {
     CONST_VTBL struct IDCInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

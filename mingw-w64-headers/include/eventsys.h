@@ -24,77 +24,77 @@
 
 #ifndef __IEventSystem_FWD_DEFINED__
 #define __IEventSystem_FWD_DEFINED__
-typedef interface IEventSystem IEventSystem;
+typedef struct IEventSystem IEventSystem;
 #endif
 
 #ifndef __IEventPublisher_FWD_DEFINED__
 #define __IEventPublisher_FWD_DEFINED__
-typedef interface IEventPublisher IEventPublisher;
+typedef struct IEventPublisher IEventPublisher;
 #endif
 
 #ifndef __IEventClass_FWD_DEFINED__
 #define __IEventClass_FWD_DEFINED__
-typedef interface IEventClass IEventClass;
+typedef struct IEventClass IEventClass;
 #endif
 
 #ifndef __IEventClass2_FWD_DEFINED__
 #define __IEventClass2_FWD_DEFINED__
-typedef interface IEventClass2 IEventClass2;
+typedef struct IEventClass2 IEventClass2;
 #endif
 
 #ifndef __IEventSubscription_FWD_DEFINED__
 #define __IEventSubscription_FWD_DEFINED__
-typedef interface IEventSubscription IEventSubscription;
+typedef struct IEventSubscription IEventSubscription;
 #endif
 
 #ifndef __IFiringControl_FWD_DEFINED__
 #define __IFiringControl_FWD_DEFINED__
-typedef interface IFiringControl IFiringControl;
+typedef struct IFiringControl IFiringControl;
 #endif
 
 #ifndef __IPublisherFilter_FWD_DEFINED__
 #define __IPublisherFilter_FWD_DEFINED__
-typedef interface IPublisherFilter IPublisherFilter;
+typedef struct IPublisherFilter IPublisherFilter;
 #endif
 
 #ifndef __IMultiInterfacePublisherFilter_FWD_DEFINED__
 #define __IMultiInterfacePublisherFilter_FWD_DEFINED__
-typedef interface IMultiInterfacePublisherFilter IMultiInterfacePublisherFilter;
+typedef struct IMultiInterfacePublisherFilter IMultiInterfacePublisherFilter;
 #endif
 
 #ifndef __IEventObjectChange_FWD_DEFINED__
 #define __IEventObjectChange_FWD_DEFINED__
-typedef interface IEventObjectChange IEventObjectChange;
+typedef struct IEventObjectChange IEventObjectChange;
 #endif
 
 #ifndef __IEventObjectChange2_FWD_DEFINED__
 #define __IEventObjectChange2_FWD_DEFINED__
-typedef interface IEventObjectChange2 IEventObjectChange2;
+typedef struct IEventObjectChange2 IEventObjectChange2;
 #endif
 
 #ifndef __IEnumEventObject_FWD_DEFINED__
 #define __IEnumEventObject_FWD_DEFINED__
-typedef interface IEnumEventObject IEnumEventObject;
+typedef struct IEnumEventObject IEnumEventObject;
 #endif
 
 #ifndef __IEventObjectCollection_FWD_DEFINED__
 #define __IEventObjectCollection_FWD_DEFINED__
-typedef interface IEventObjectCollection IEventObjectCollection;
+typedef struct IEventObjectCollection IEventObjectCollection;
 #endif
 
 #ifndef __IEventProperty_FWD_DEFINED__
 #define __IEventProperty_FWD_DEFINED__
-typedef interface IEventProperty IEventProperty;
+typedef struct IEventProperty IEventProperty;
 #endif
 
 #ifndef __IEventControl_FWD_DEFINED__
 #define __IEventControl_FWD_DEFINED__
-typedef interface IEventControl IEventControl;
+typedef struct IEventControl IEventControl;
 #endif
 
 #ifndef __IMultiInterfaceEventControl_FWD_DEFINED__
 #define __IMultiInterfaceEventControl_FWD_DEFINED__
-typedef interface IMultiInterfaceEventControl IMultiInterfaceEventControl;
+typedef struct IMultiInterfaceEventControl IMultiInterfaceEventControl;
 #endif
 
 #ifndef __CEventSystem_FWD_DEFINED__
@@ -206,7 +206,7 @@ extern "C"{
       HRESULT (WINAPI *RemoveS)(IEventSystem *This,BSTR progID,BSTR queryCriteria);
     END_INTERFACE
   } IEventSystemVtbl;
-  interface IEventSystem {
+  struct IEventSystem {
     CONST_VTBL struct IEventSystemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -286,7 +286,7 @@ extern "C"{
       HRESULT (WINAPI *GetDefaultPropertyCollection)(IEventPublisher *This,IEventObjectCollection **collection);
     END_INTERFACE
   } IEventPublisherVtbl;
-  interface IEventPublisher {
+  struct IEventPublisher {
     CONST_VTBL struct IEventPublisherVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -390,7 +390,7 @@ extern "C"{
       HRESULT (WINAPI *put_TypeLib)(IEventClass *This,BSTR bstrTypeLib);
     END_INTERFACE
   } IEventClassVtbl;
-  interface IEventClass {
+  struct IEventClass {
     CONST_VTBL struct IEventClassVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -496,7 +496,7 @@ extern "C"{
       HRESULT (WINAPI *put_FireInParallel)(IEventClass2 *This,WINBOOL fFireInParallel);
     END_INTERFACE
   } IEventClass2Vtbl;
-  interface IEventClass2 {
+  struct IEventClass2 {
     CONST_VTBL struct IEventClass2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -636,7 +636,7 @@ extern "C"{
       HRESULT (WINAPI *put_InterfaceID)(IEventSubscription *This,BSTR bstrInterfaceID);
     END_INTERFACE
   } IEventSubscriptionVtbl;
-  interface IEventSubscription {
+  struct IEventSubscription {
     CONST_VTBL struct IEventSubscriptionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -774,7 +774,7 @@ extern "C"{
       HRESULT (WINAPI *FireSubscription)(IFiringControl *This,IEventSubscription *subscription);
     END_INTERFACE
   } IFiringControlVtbl;
-  interface IFiringControl {
+  struct IFiringControl {
     CONST_VTBL struct IFiringControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -811,7 +811,7 @@ extern "C"{
       HRESULT (WINAPI *PrepareToFire)(IPublisherFilter *This,BSTR methodName,IFiringControl *firingControl);
     END_INTERFACE
   } IPublisherFilterVtbl;
-  interface IPublisherFilter {
+  struct IPublisherFilter {
     CONST_VTBL struct IPublisherFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -847,7 +847,7 @@ extern "C"{
       HRESULT (WINAPI *PrepareToFire)(IMultiInterfacePublisherFilter *This,REFIID iid,BSTR methodName,IFiringControl *firingControl);
     END_INTERFACE
   } IMultiInterfacePublisherFilterVtbl;
-  interface IMultiInterfacePublisherFilter {
+  struct IMultiInterfacePublisherFilter {
     CONST_VTBL struct IMultiInterfacePublisherFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -889,7 +889,7 @@ extern "C"{
       HRESULT (WINAPI *ChangedPublisher)(IEventObjectChange *This,EOC_ChangeType changeType,BSTR bstrPublisherID);
     END_INTERFACE
   } IEventObjectChangeVtbl;
-  interface IEventObjectChange {
+  struct IEventObjectChange {
     CONST_VTBL struct IEventObjectChangeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -942,7 +942,7 @@ extern "C"{
       HRESULT (WINAPI *ChangedEventClass)(IEventObjectChange2 *This,COMEVENTSYSCHANGEINFO *pInfo);
     END_INTERFACE
   } IEventObjectChange2Vtbl;
-  interface IEventObjectChange2 {
+  struct IEventObjectChange2 {
     CONST_VTBL struct IEventObjectChange2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -982,7 +982,7 @@ extern "C"{
       HRESULT (WINAPI *Skip)(IEnumEventObject *This,ULONG cSkipElem);
     END_INTERFACE
   } IEnumEventObjectVtbl;
-  interface IEnumEventObject {
+  struct IEnumEventObject {
     CONST_VTBL struct IEnumEventObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1036,7 +1036,7 @@ extern "C"{
       HRESULT (WINAPI *Remove)(IEventObjectCollection *This,BSTR objectID);
     END_INTERFACE
   } IEventObjectCollectionVtbl;
-  interface IEventObjectCollection {
+  struct IEventObjectCollection {
     CONST_VTBL struct IEventObjectCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1096,7 +1096,7 @@ extern "C"{
       HRESULT (WINAPI *put_Value)(IEventProperty *This,VARIANT *propertyValue);
     END_INTERFACE
   } IEventPropertyVtbl;
-  interface IEventProperty {
+  struct IEventProperty {
     CONST_VTBL struct IEventPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1152,7 +1152,7 @@ extern "C"{
       HRESULT (WINAPI *SetDefaultQuery)(IEventControl *This,BSTR methodName,BSTR criteria,int *errorIndex);
     END_INTERFACE
   } IEventControlVtbl;
-  interface IEventControl {
+  struct IEventControl {
     CONST_VTBL struct IEventControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1211,7 +1211,7 @@ extern "C"{
       HRESULT (WINAPI *put_FireInParallel)(IMultiInterfaceEventControl *This,WINBOOL fFireInParallel);
     END_INTERFACE
   } IMultiInterfaceEventControlVtbl;
-  interface IMultiInterfaceEventControl {
+  struct IMultiInterfaceEventControl {
     CONST_VTBL struct IMultiInterfaceEventControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

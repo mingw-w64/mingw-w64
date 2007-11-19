@@ -19,27 +19,27 @@
 
 #ifndef __ISdoMachine_FWD_DEFINED__
 #define __ISdoMachine_FWD_DEFINED__
-typedef interface ISdoMachine ISdoMachine;
+typedef struct ISdoMachine ISdoMachine;
 #endif
 
 #ifndef __ISdoServiceControl_FWD_DEFINED__
 #define __ISdoServiceControl_FWD_DEFINED__
-typedef interface ISdoServiceControl ISdoServiceControl;
+typedef struct ISdoServiceControl ISdoServiceControl;
 #endif
 
 #ifndef __ISdo_FWD_DEFINED__
 #define __ISdo_FWD_DEFINED__
-typedef interface ISdo ISdo;
+typedef struct ISdo ISdo;
 #endif
 
 #ifndef __ISdoCollection_FWD_DEFINED__
 #define __ISdoCollection_FWD_DEFINED__
-typedef interface ISdoCollection ISdoCollection;
+typedef struct ISdoCollection ISdoCollection;
 #endif
 
 #ifndef __ISdoDictionaryOld_FWD_DEFINED__
 #define __ISdoDictionaryOld_FWD_DEFINED__
-typedef interface ISdoDictionaryOld ISdoDictionaryOld;
+typedef struct ISdoDictionaryOld ISdoDictionaryOld;
 #endif
 
 #ifndef __SdoMachine_FWD_DEFINED__
@@ -394,7 +394,7 @@ extern "C" {
       HRESULT (WINAPI *GetSDOSchema)(ISdoMachine *This,IUnknown **ppSDOSchema);
     END_INTERFACE
   } ISdoMachineVtbl;
-  interface ISdoMachine {
+  struct ISdoMachine {
     CONST_VTBL struct ISdoMachineVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -463,7 +463,7 @@ extern "C" {
       HRESULT (WINAPI *ResetService)(ISdoServiceControl *This);
     END_INTERFACE
   } ISdoServiceControlVtbl;
-  interface ISdoServiceControl {
+  struct ISdoServiceControl {
     CONST_VTBL struct ISdoServiceControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -523,7 +523,7 @@ extern "C" {
       HRESULT (WINAPI *get__NewEnum)(ISdo *This,IUnknown **ppEnumVARIANT);
     END_INTERFACE
   } ISdoVtbl;
-  interface ISdo {
+  struct ISdo {
     CONST_VTBL struct ISdoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -594,7 +594,7 @@ extern "C" {
       HRESULT (WINAPI *get__NewEnum)(ISdoCollection *This,IUnknown **ppEnumVARIANT);
     END_INTERFACE
   } ISdoCollectionVtbl;
-  interface ISdoCollection {
+  struct ISdoCollection {
     CONST_VTBL struct ISdoCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -663,7 +663,7 @@ extern "C" {
       HRESULT (WINAPI *GetAttributeID)(ISdoDictionaryOld *This,BSTR bstrAttributeName,ATTRIBUTEID *pId);
     END_INTERFACE
   } ISdoDictionaryOldVtbl;
-  interface ISdoDictionaryOld {
+  struct ISdoDictionaryOld {
     CONST_VTBL struct ISdoDictionaryOldVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

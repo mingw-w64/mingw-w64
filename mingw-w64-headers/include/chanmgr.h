@@ -19,12 +19,12 @@
 
 #ifndef __IChannelMgr_FWD_DEFINED__
 #define __IChannelMgr_FWD_DEFINED__
-typedef interface IChannelMgr IChannelMgr;
+typedef struct IChannelMgr IChannelMgr;
 #endif
 
 #ifndef __IEnumChannels_FWD_DEFINED__
 #define __IEnumChannels_FWD_DEFINED__
-typedef interface IEnumChannels IEnumChannels;
+typedef struct IEnumChannels IEnumChannels;
 #endif
 
 #ifndef __ChannelMgr_FWD_DEFINED__
@@ -105,7 +105,7 @@ extern "C"{
       HRESULT (WINAPI *EnumChannels)(IChannelMgr *This,DWORD dwEnumFlags,LPCWSTR pszURL,IEnumChannels **pIEnumChannels);
     END_INTERFACE
   } IChannelMgrVtbl;
-  interface IChannelMgr {
+  struct IChannelMgr {
     CONST_VTBL struct IChannelMgrVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -165,7 +165,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumChannels *This,IEnumChannels **ppenum);
     END_INTERFACE
   } IEnumChannelsVtbl;
-  interface IEnumChannels {
+  struct IEnumChannels {
     CONST_VTBL struct IEnumChannelsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,17 +24,17 @@
 
 #ifndef __IEmptyVolumeCacheCallBack_FWD_DEFINED__
 #define __IEmptyVolumeCacheCallBack_FWD_DEFINED__
-typedef interface IEmptyVolumeCacheCallBack IEmptyVolumeCacheCallBack;
+typedef struct IEmptyVolumeCacheCallBack IEmptyVolumeCacheCallBack;
 #endif
 
 #ifndef __IEmptyVolumeCache_FWD_DEFINED__
 #define __IEmptyVolumeCache_FWD_DEFINED__
-typedef interface IEmptyVolumeCache IEmptyVolumeCache;
+typedef struct IEmptyVolumeCache IEmptyVolumeCache;
 #endif
 
 #ifndef __IEmptyVolumeCache2_FWD_DEFINED__
 #define __IEmptyVolumeCache2_FWD_DEFINED__
-typedef interface IEmptyVolumeCache2 IEmptyVolumeCache2;
+typedef struct IEmptyVolumeCache2 IEmptyVolumeCache2;
 #endif
 
 #include "objidl.h"
@@ -84,7 +84,7 @@ extern "C"{
       HRESULT (WINAPI *PurgeProgress)(IEmptyVolumeCacheCallBack *This,DWORDLONG dwlSpaceFreed,DWORDLONG dwlSpaceToFree,DWORD dwFlags,LPCWSTR pcwszStatus);
     END_INTERFACE
   } IEmptyVolumeCacheCallBackVtbl;
-  interface IEmptyVolumeCacheCallBack {
+  struct IEmptyVolumeCacheCallBack {
     CONST_VTBL struct IEmptyVolumeCacheCallBackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -132,7 +132,7 @@ extern "C"{
       HRESULT (WINAPI *Deactivate)(IEmptyVolumeCache *This,DWORD *pdwFlags);
     END_INTERFACE
   } IEmptyVolumeCacheVtbl;
-  interface IEmptyVolumeCache {
+  struct IEmptyVolumeCache {
     CONST_VTBL struct IEmptyVolumeCacheVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -186,7 +186,7 @@ extern "C"{
       HRESULT (WINAPI *InitializeEx)(IEmptyVolumeCache2 *This,HKEY hkRegKey,LPCWSTR pcwszVolume,LPCWSTR pcwszKeyName,LPWSTR *ppwszDisplayName,LPWSTR *ppwszDescription,LPWSTR *ppwszBtnText,DWORD *pdwFlags);
     END_INTERFACE
   } IEmptyVolumeCache2Vtbl;
-  interface IEmptyVolumeCache2 {
+  struct IEmptyVolumeCache2 {
     CONST_VTBL struct IEmptyVolumeCache2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

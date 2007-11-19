@@ -24,107 +24,107 @@
 
 #ifndef __IEnumNetConnection_FWD_DEFINED__
 #define __IEnumNetConnection_FWD_DEFINED__
-typedef interface IEnumNetConnection IEnumNetConnection;
+typedef struct IEnumNetConnection IEnumNetConnection;
 #endif
 
 #ifndef __INetConnection_FWD_DEFINED__
 #define __INetConnection_FWD_DEFINED__
-typedef interface INetConnection INetConnection;
+typedef struct INetConnection INetConnection;
 #endif
 
 #ifndef __INetConnectionManager_FWD_DEFINED__
 #define __INetConnectionManager_FWD_DEFINED__
-typedef interface INetConnectionManager INetConnectionManager;
+typedef struct INetConnectionManager INetConnectionManager;
 #endif
 
 #ifndef __INetConnectionManagerEvents_FWD_DEFINED__
 #define __INetConnectionManagerEvents_FWD_DEFINED__
-typedef interface INetConnectionManagerEvents INetConnectionManagerEvents;
+typedef struct INetConnectionManagerEvents INetConnectionManagerEvents;
 #endif
 
 #ifndef __INetConnectionConnectUi_FWD_DEFINED__
 #define __INetConnectionConnectUi_FWD_DEFINED__
-typedef interface INetConnectionConnectUi INetConnectionConnectUi;
+typedef struct INetConnectionConnectUi INetConnectionConnectUi;
 #endif
 
 #ifndef __INetConnectionPropertyUi_FWD_DEFINED__
 #define __INetConnectionPropertyUi_FWD_DEFINED__
-typedef interface INetConnectionPropertyUi INetConnectionPropertyUi;
+typedef struct INetConnectionPropertyUi INetConnectionPropertyUi;
 #endif
 
 #ifndef __INetConnectionPropertyUi2_FWD_DEFINED__
 #define __INetConnectionPropertyUi2_FWD_DEFINED__
-typedef interface INetConnectionPropertyUi2 INetConnectionPropertyUi2;
+typedef struct INetConnectionPropertyUi2 INetConnectionPropertyUi2;
 #endif
 
 #ifndef __INetConnectionCommonUi_FWD_DEFINED__
 #define __INetConnectionCommonUi_FWD_DEFINED__
-typedef interface INetConnectionCommonUi INetConnectionCommonUi;
+typedef struct INetConnectionCommonUi INetConnectionCommonUi;
 #endif
 
 #ifndef __IEnumNetSharingPortMapping_FWD_DEFINED__
 #define __IEnumNetSharingPortMapping_FWD_DEFINED__
-typedef interface IEnumNetSharingPortMapping IEnumNetSharingPortMapping;
+typedef struct IEnumNetSharingPortMapping IEnumNetSharingPortMapping;
 #endif
 
 #ifndef __INetSharingPortMappingProps_FWD_DEFINED__
 #define __INetSharingPortMappingProps_FWD_DEFINED__
-typedef interface INetSharingPortMappingProps INetSharingPortMappingProps;
+typedef struct INetSharingPortMappingProps INetSharingPortMappingProps;
 #endif
 
 #ifndef __INetSharingPortMapping_FWD_DEFINED__
 #define __INetSharingPortMapping_FWD_DEFINED__
-typedef interface INetSharingPortMapping INetSharingPortMapping;
+typedef struct INetSharingPortMapping INetSharingPortMapping;
 #endif
 
 #ifndef __IEnumNetSharingEveryConnection_FWD_DEFINED__
 #define __IEnumNetSharingEveryConnection_FWD_DEFINED__
-typedef interface IEnumNetSharingEveryConnection IEnumNetSharingEveryConnection;
+typedef struct IEnumNetSharingEveryConnection IEnumNetSharingEveryConnection;
 #endif
 
 #ifndef __IEnumNetSharingPublicConnection_FWD_DEFINED__
 #define __IEnumNetSharingPublicConnection_FWD_DEFINED__
-typedef interface IEnumNetSharingPublicConnection IEnumNetSharingPublicConnection;
+typedef struct IEnumNetSharingPublicConnection IEnumNetSharingPublicConnection;
 #endif
 
 #ifndef __IEnumNetSharingPrivateConnection_FWD_DEFINED__
 #define __IEnumNetSharingPrivateConnection_FWD_DEFINED__
-typedef interface IEnumNetSharingPrivateConnection IEnumNetSharingPrivateConnection;
+typedef struct IEnumNetSharingPrivateConnection IEnumNetSharingPrivateConnection;
 #endif
 
 #ifndef __INetSharingPortMappingCollection_FWD_DEFINED__
 #define __INetSharingPortMappingCollection_FWD_DEFINED__
-typedef interface INetSharingPortMappingCollection INetSharingPortMappingCollection;
+typedef struct INetSharingPortMappingCollection INetSharingPortMappingCollection;
 #endif
 
 #ifndef __INetConnectionProps_FWD_DEFINED__
 #define __INetConnectionProps_FWD_DEFINED__
-typedef interface INetConnectionProps INetConnectionProps;
+typedef struct INetConnectionProps INetConnectionProps;
 #endif
 
 #ifndef __INetSharingConfiguration_FWD_DEFINED__
 #define __INetSharingConfiguration_FWD_DEFINED__
-typedef interface INetSharingConfiguration INetSharingConfiguration;
+typedef struct INetSharingConfiguration INetSharingConfiguration;
 #endif
 
 #ifndef __INetSharingEveryConnectionCollection_FWD_DEFINED__
 #define __INetSharingEveryConnectionCollection_FWD_DEFINED__
-typedef interface INetSharingEveryConnectionCollection INetSharingEveryConnectionCollection;
+typedef struct INetSharingEveryConnectionCollection INetSharingEveryConnectionCollection;
 #endif
 
 #ifndef __INetSharingPublicConnectionCollection_FWD_DEFINED__
 #define __INetSharingPublicConnectionCollection_FWD_DEFINED__
-typedef interface INetSharingPublicConnectionCollection INetSharingPublicConnectionCollection;
+typedef struct INetSharingPublicConnectionCollection INetSharingPublicConnectionCollection;
 #endif
 
 #ifndef __INetSharingPrivateConnectionCollection_FWD_DEFINED__
 #define __INetSharingPrivateConnectionCollection_FWD_DEFINED__
-typedef interface INetSharingPrivateConnectionCollection INetSharingPrivateConnectionCollection;
+typedef struct INetSharingPrivateConnectionCollection INetSharingPrivateConnectionCollection;
 #endif
 
 #ifndef __INetSharingManager_FWD_DEFINED__
 #define __INetSharingManager_FWD_DEFINED__
-typedef interface INetSharingManager INetSharingManager;
+typedef struct INetSharingManager INetSharingManager;
 #endif
 
 #ifndef __NetSharingManager_FWD_DEFINED__
@@ -180,7 +180,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumNetConnection *This,IEnumNetConnection **ppenum);
     END_INTERFACE
   } IEnumNetConnectionVtbl;
-  interface IEnumNetConnection {
+  struct IEnumNetConnection {
     CONST_VTBL struct IEnumNetConnectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -272,7 +272,7 @@ extern "C" {
       HRESULT (WINAPI *Rename)(INetConnection *This,LPCWSTR pszwNewName);
     END_INTERFACE
   } INetConnectionVtbl;
-  interface INetConnection {
+  struct INetConnection {
     CONST_VTBL struct INetConnectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -331,7 +331,7 @@ extern "C" {
       HRESULT (WINAPI *EnumConnections)(INetConnectionManager *This,NETCONMGR_ENUM_FLAGS Flags,IEnumNetConnection **ppEnum);
     END_INTERFACE
   } INetConnectionManagerVtbl;
-  interface INetConnectionManager {
+  struct INetConnectionManager {
     CONST_VTBL struct INetConnectionManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -366,7 +366,7 @@ extern "C" {
       HRESULT (WINAPI *Disable)(INetConnectionManagerEvents *This,ULONG ulDisableTimeout);
     END_INTERFACE
   } INetConnectionManagerEventsVtbl;
-  interface INetConnectionManagerEvents {
+  struct INetConnectionManagerEvents {
     CONST_VTBL struct INetConnectionManagerEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -411,7 +411,7 @@ extern "C" {
       HRESULT (WINAPI *Disconnect)(INetConnectionConnectUi *This,HWND hwndParent,DWORD dwFlags);
     END_INTERFACE
   } INetConnectionConnectUiVtbl;
-  interface INetConnectionConnectUi {
+  struct INetConnectionConnectUi {
     CONST_VTBL struct INetConnectionConnectUiVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -450,7 +450,7 @@ extern "C" {
       HRESULT (WINAPI *AddPages)(INetConnectionPropertyUi *This,HWND hwndParent,LPFNADDPROPSHEETPAGE pfnAddPage,LPARAM lParam);
     END_INTERFACE
   } INetConnectionPropertyUiVtbl;
-  interface INetConnectionPropertyUi {
+  struct INetConnectionPropertyUi {
     CONST_VTBL struct INetConnectionPropertyUiVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -486,7 +486,7 @@ extern "C" {
       HRESULT (WINAPI *GetIcon)(INetConnectionPropertyUi2 *This,DWORD dwSize,HICON *phIcon);
     END_INTERFACE
   } INetConnectionPropertyUi2Vtbl;
-  interface INetConnectionPropertyUi2 {
+  struct INetConnectionPropertyUi2 {
     CONST_VTBL struct INetConnectionPropertyUi2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -540,7 +540,7 @@ extern "C" {
       HRESULT (WINAPI *StartNewConnectionWizard)(INetConnectionCommonUi *This,HWND hwndParent,INetConnection **ppCon);
     END_INTERFACE
   } INetConnectionCommonUiVtbl;
-  interface INetConnectionCommonUi {
+  struct INetConnectionCommonUi {
     CONST_VTBL struct INetConnectionCommonUiVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -583,7 +583,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumNetSharingPortMapping *This,IEnumNetSharingPortMapping **ppenum);
     END_INTERFACE
   } IEnumNetSharingPortMappingVtbl;
-  interface IEnumNetSharingPortMapping {
+  struct IEnumNetSharingPortMapping {
     CONST_VTBL struct IEnumNetSharingPortMappingVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -641,7 +641,7 @@ extern "C" {
       HRESULT (WINAPI *get_Enabled)(INetSharingPortMappingProps *This,VARIANT_BOOL *pbool);
     END_INTERFACE
   } INetSharingPortMappingPropsVtbl;
-  interface INetSharingPortMappingProps {
+  struct INetSharingPortMappingProps {
     CONST_VTBL struct INetSharingPortMappingPropsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -707,7 +707,7 @@ extern "C" {
       HRESULT (WINAPI *Delete)(INetSharingPortMapping *This);
     END_INTERFACE
   } INetSharingPortMappingVtbl;
-  interface INetSharingPortMapping {
+  struct INetSharingPortMapping {
     CONST_VTBL struct INetSharingPortMappingVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -757,7 +757,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumNetSharingEveryConnection *This,IEnumNetSharingEveryConnection **ppenum);
     END_INTERFACE
   } IEnumNetSharingEveryConnectionVtbl;
-  interface IEnumNetSharingEveryConnection {
+  struct IEnumNetSharingEveryConnection {
     CONST_VTBL struct IEnumNetSharingEveryConnectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -803,7 +803,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumNetSharingPublicConnection *This,IEnumNetSharingPublicConnection **ppenum);
     END_INTERFACE
   } IEnumNetSharingPublicConnectionVtbl;
-  interface IEnumNetSharingPublicConnection {
+  struct IEnumNetSharingPublicConnection {
     CONST_VTBL struct IEnumNetSharingPublicConnectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -849,7 +849,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumNetSharingPrivateConnection *This,IEnumNetSharingPrivateConnection **ppenum);
     END_INTERFACE
   } IEnumNetSharingPrivateConnectionVtbl;
-  interface IEnumNetSharingPrivateConnection {
+  struct IEnumNetSharingPrivateConnection {
     CONST_VTBL struct IEnumNetSharingPrivateConnectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -895,7 +895,7 @@ extern "C" {
       HRESULT (WINAPI *get_Count)(INetSharingPortMappingCollection *This,long *pVal);
     END_INTERFACE
   } INetSharingPortMappingCollectionVtbl;
-  interface INetSharingPortMappingCollection {
+  struct INetSharingPortMappingCollection {
     CONST_VTBL struct INetSharingPortMappingCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -950,7 +950,7 @@ extern "C" {
       HRESULT (WINAPI *get_Characteristics)(INetConnectionProps *This,DWORD *pdwFlags);
     END_INTERFACE
   } INetConnectionPropsVtbl;
-  interface INetConnectionProps {
+  struct INetConnectionProps {
     CONST_VTBL struct INetConnectionPropsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1035,7 +1035,7 @@ extern "C" {
       HRESULT (WINAPI *RemovePortMapping)(INetSharingConfiguration *This,INetSharingPortMapping *pMapping);
     END_INTERFACE
   } INetSharingConfigurationVtbl;
-  interface INetSharingConfiguration {
+  struct INetSharingConfiguration {
     CONST_VTBL struct INetSharingConfigurationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1103,7 +1103,7 @@ extern "C" {
       HRESULT (WINAPI *get_Count)(INetSharingEveryConnectionCollection *This,long *pVal);
     END_INTERFACE
   } INetSharingEveryConnectionCollectionVtbl;
-  interface INetSharingEveryConnectionCollection {
+  struct INetSharingEveryConnectionCollection {
     CONST_VTBL struct INetSharingEveryConnectionCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1147,7 +1147,7 @@ extern "C" {
       HRESULT (WINAPI *get_Count)(INetSharingPublicConnectionCollection *This,long *pVal);
     END_INTERFACE
   } INetSharingPublicConnectionCollectionVtbl;
-  interface INetSharingPublicConnectionCollection {
+  struct INetSharingPublicConnectionCollection {
     CONST_VTBL struct INetSharingPublicConnectionCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1191,7 +1191,7 @@ extern "C" {
       HRESULT (WINAPI *get_Count)(INetSharingPrivateConnectionCollection *This,long *pVal);
     END_INTERFACE
   } INetSharingPrivateConnectionCollectionVtbl;
-  interface INetSharingPrivateConnectionCollection {
+  struct INetSharingPrivateConnectionCollection {
     CONST_VTBL struct INetSharingPrivateConnectionCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1243,7 +1243,7 @@ extern "C" {
       HRESULT (WINAPI *get_NetConnectionProps)(INetSharingManager *This,INetConnection *pNetConnection,INetConnectionProps **ppProps);
     END_INTERFACE
   } INetSharingManagerVtbl;
-  interface INetSharingManager {
+  struct INetSharingManager {
     CONST_VTBL struct INetSharingManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

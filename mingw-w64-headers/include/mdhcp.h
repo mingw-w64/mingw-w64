@@ -24,42 +24,42 @@
 
 #ifndef __IMcastScope_FWD_DEFINED__
 #define __IMcastScope_FWD_DEFINED__
-typedef interface IMcastScope IMcastScope;
+typedef struct IMcastScope IMcastScope;
 #endif
 
 #ifndef __IMcastLeaseInfo_FWD_DEFINED__
 #define __IMcastLeaseInfo_FWD_DEFINED__
-typedef interface IMcastLeaseInfo IMcastLeaseInfo;
+typedef struct IMcastLeaseInfo IMcastLeaseInfo;
 #endif
 
 #ifndef __IEnumMcastScope_FWD_DEFINED__
 #define __IEnumMcastScope_FWD_DEFINED__
-typedef interface IEnumMcastScope IEnumMcastScope;
+typedef struct IEnumMcastScope IEnumMcastScope;
 #endif
 
 #ifndef __IMcastAddressAllocation_FWD_DEFINED__
 #define __IMcastAddressAllocation_FWD_DEFINED__
-typedef interface IMcastAddressAllocation IMcastAddressAllocation;
+typedef struct IMcastAddressAllocation IMcastAddressAllocation;
 #endif
 
 #ifndef __IMcastScope_FWD_DEFINED__
 #define __IMcastScope_FWD_DEFINED__
-typedef interface IMcastScope IMcastScope;
+typedef struct IMcastScope IMcastScope;
 #endif
 
 #ifndef __IMcastLeaseInfo_FWD_DEFINED__
 #define __IMcastLeaseInfo_FWD_DEFINED__
-typedef interface IMcastLeaseInfo IMcastLeaseInfo;
+typedef struct IMcastLeaseInfo IMcastLeaseInfo;
 #endif
 
 #ifndef __IEnumMcastScope_FWD_DEFINED__
 #define __IEnumMcastScope_FWD_DEFINED__
-typedef interface IEnumMcastScope IEnumMcastScope;
+typedef struct IEnumMcastScope IEnumMcastScope;
 #endif
 
 #ifndef __IMcastAddressAllocation_FWD_DEFINED__
 #define __IMcastAddressAllocation_FWD_DEFINED__
-typedef interface IMcastAddressAllocation IMcastAddressAllocation;
+typedef struct IMcastAddressAllocation IMcastAddressAllocation;
 #endif
 
 #ifndef __McastAddressAllocation_FWD_DEFINED__
@@ -114,7 +114,7 @@ extern "C"{
       HRESULT (WINAPI *get_TTL)(IMcastScope *This,long *pTTL);
     END_INTERFACE
   } IMcastScopeVtbl;
-  interface IMcastScope {
+  struct IMcastScope {
     CONST_VTBL struct IMcastScopeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -183,7 +183,7 @@ extern "C"{
       HRESULT (WINAPI *EnumerateAddresses)(IMcastLeaseInfo *This,IEnumBstr **ppEnumAddresses);
     END_INTERFACE
   } IMcastLeaseInfoVtbl;
-  interface IMcastLeaseInfo {
+  struct IMcastLeaseInfo {
     CONST_VTBL struct IMcastLeaseInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -251,7 +251,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumMcastScope *This,IEnumMcastScope **ppEnum);
     END_INTERFACE
   } IEnumMcastScopeVtbl;
-  interface IEnumMcastScope {
+  struct IEnumMcastScope {
     CONST_VTBL struct IEnumMcastScopeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -307,7 +307,7 @@ extern "C"{
       HRESULT (WINAPI *CreateLeaseInfoFromVariant)(IMcastAddressAllocation *This,DATE LeaseStartTime,DATE LeaseStopTime,VARIANT vAddresses,BSTR pRequestID,BSTR pServerAddress,IMcastLeaseInfo **ppReleaseRequest);
     END_INTERFACE
   } IMcastAddressAllocationVtbl;
-  interface IMcastAddressAllocation {
+  struct IMcastAddressAllocation {
     CONST_VTBL struct IMcastAddressAllocationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

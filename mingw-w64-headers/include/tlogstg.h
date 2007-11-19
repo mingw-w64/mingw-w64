@@ -24,17 +24,17 @@
 
 #ifndef __ITravelLogEntry_FWD_DEFINED__
 #define __ITravelLogEntry_FWD_DEFINED__
-typedef interface ITravelLogEntry ITravelLogEntry;
+typedef struct ITravelLogEntry ITravelLogEntry;
 #endif
 
 #ifndef __IEnumTravelLogEntry_FWD_DEFINED__
 #define __IEnumTravelLogEntry_FWD_DEFINED__
-typedef interface IEnumTravelLogEntry IEnumTravelLogEntry;
+typedef struct IEnumTravelLogEntry IEnumTravelLogEntry;
 #endif
 
 #ifndef __ITravelLogStg_FWD_DEFINED__
 #define __ITravelLogStg_FWD_DEFINED__
-typedef interface ITravelLogStg ITravelLogStg;
+typedef struct ITravelLogStg ITravelLogStg;
 #endif
 
 #include "objidl.h"
@@ -70,7 +70,7 @@ extern "C" {
       HRESULT (WINAPI *GetURL)(ITravelLogEntry *This,LPOLESTR *ppszURL);
     END_INTERFACE
   } ITravelLogEntryVtbl;
-  interface ITravelLogEntry {
+  struct ITravelLogEntry {
     CONST_VTBL struct ITravelLogEntryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -110,7 +110,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumTravelLogEntry *This,IEnumTravelLogEntry **ppEnum);
     END_INTERFACE
   } IEnumTravelLogEntryVtbl;
-  interface IEnumTravelLogEntry {
+  struct IEnumTravelLogEntry {
     CONST_VTBL struct IEnumTravelLogEntryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -167,7 +167,7 @@ extern "C" {
       HRESULT (WINAPI *GetRelativeEntry)(ITravelLogStg *This,int iOffset,ITravelLogEntry **ptle);
     END_INTERFACE
   } ITravelLogStgVtbl;
-  interface ITravelLogStg {
+  struct ITravelLogStg {
     CONST_VTBL struct ITravelLogStgVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

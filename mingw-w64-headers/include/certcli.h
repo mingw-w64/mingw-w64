@@ -24,27 +24,27 @@
 
 #ifndef __ICertGetConfig_FWD_DEFINED__
 #define __ICertGetConfig_FWD_DEFINED__
-typedef interface ICertGetConfig ICertGetConfig;
+typedef struct ICertGetConfig ICertGetConfig;
 #endif
 
 #ifndef __ICertConfig_FWD_DEFINED__
 #define __ICertConfig_FWD_DEFINED__
-typedef interface ICertConfig ICertConfig;
+typedef struct ICertConfig ICertConfig;
 #endif
 
 #ifndef __ICertConfig2_FWD_DEFINED__
 #define __ICertConfig2_FWD_DEFINED__
-typedef interface ICertConfig2 ICertConfig2;
+typedef struct ICertConfig2 ICertConfig2;
 #endif
 
 #ifndef __ICertRequest_FWD_DEFINED__
 #define __ICertRequest_FWD_DEFINED__
-typedef interface ICertRequest ICertRequest;
+typedef struct ICertRequest ICertRequest;
 #endif
 
 #ifndef __ICertRequest2_FWD_DEFINED__
 #define __ICertRequest2_FWD_DEFINED__
-typedef interface ICertRequest2 ICertRequest2;
+typedef struct ICertRequest2 ICertRequest2;
 #endif
 
 #ifndef __CCertGetConfig_FWD_DEFINED__
@@ -124,7 +124,7 @@ extern "C"{
       HRESULT (WINAPI *GetConfig)(ICertGetConfig *This,LONG Flags,BSTR *pstrOut);
     END_INTERFACE
   } ICertGetConfigVtbl;
-  interface ICertGetConfig {
+  struct ICertGetConfig {
     CONST_VTBL struct ICertGetConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -196,7 +196,7 @@ extern "C"{
       HRESULT (WINAPI *GetConfig)(ICertConfig *This,LONG Flags,BSTR *pstrOut);
     END_INTERFACE
   } ICertConfigVtbl;
-  interface ICertConfig {
+  struct ICertConfig {
     CONST_VTBL struct ICertConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -248,7 +248,7 @@ extern "C"{
       HRESULT (WINAPI *SetSharedFolder)(ICertConfig2 *This,const BSTR strSharedFolder);
     END_INTERFACE
   } ICertConfig2Vtbl;
-  interface ICertConfig2 {
+  struct ICertConfig2 {
     CONST_VTBL struct ICertConfig2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -408,7 +408,7 @@ extern "C"{
       HRESULT (WINAPI *GetCertificate)(ICertRequest *This,LONG Flags,BSTR *pstrCertificate);
     END_INTERFACE
   } ICertRequestVtbl;
-  interface ICertRequest {
+  struct ICertRequest {
     CONST_VTBL struct ICertRequestVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -482,7 +482,7 @@ extern "C"{
       HRESULT (WINAPI *GetFullResponseProperty)(ICertRequest2 *This,LONG PropId,LONG PropIndex,LONG PropType,LONG Flags,VARIANT *pvarPropertyValue);
     END_INTERFACE
   } ICertRequest2Vtbl;
-  interface ICertRequest2 {
+  struct ICertRequest2 {
     CONST_VTBL struct ICertRequest2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

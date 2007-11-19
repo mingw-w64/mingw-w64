@@ -15,27 +15,27 @@
 
 #ifndef __IWebBrowser_FWD_DEFINED__
 #define __IWebBrowser_FWD_DEFINED__
-typedef interface IWebBrowser IWebBrowser;
+typedef struct IWebBrowser IWebBrowser;
 #endif
 
 #ifndef __DWebBrowserEvents_FWD_DEFINED__
 #define __DWebBrowserEvents_FWD_DEFINED__
-typedef interface DWebBrowserEvents DWebBrowserEvents;
+typedef struct DWebBrowserEvents DWebBrowserEvents;
 #endif
 
 #ifndef __IWebBrowserApp_FWD_DEFINED__
 #define __IWebBrowserApp_FWD_DEFINED__
-typedef interface IWebBrowserApp IWebBrowserApp;
+typedef struct IWebBrowserApp IWebBrowserApp;
 #endif
 
 #ifndef __IWebBrowser2_FWD_DEFINED__
 #define __IWebBrowser2_FWD_DEFINED__
-typedef interface IWebBrowser2 IWebBrowser2;
+typedef struct IWebBrowser2 IWebBrowser2;
 #endif
 
 #ifndef __DWebBrowserEvents2_FWD_DEFINED__
 #define __DWebBrowserEvents2_FWD_DEFINED__
-typedef interface DWebBrowserEvents2 DWebBrowserEvents2;
+typedef struct DWebBrowserEvents2 DWebBrowserEvents2;
 #endif
 
 #ifndef __WebBrowser_V1_FWD_DEFINED__
@@ -79,12 +79,12 @@ typedef struct ShellBrowserWindow ShellBrowserWindow;
 
 #ifndef __DShellWindowsEvents_FWD_DEFINED__
 #define __DShellWindowsEvents_FWD_DEFINED__
-typedef interface DShellWindowsEvents DShellWindowsEvents;
+typedef struct DShellWindowsEvents DShellWindowsEvents;
 #endif
 
 #ifndef __IShellWindows_FWD_DEFINED__
 #define __IShellWindows_FWD_DEFINED__
-typedef interface IShellWindows IShellWindows;
+typedef struct IShellWindows IShellWindows;
 #endif
 
 #ifndef __ShellWindows_FWD_DEFINED__
@@ -98,7 +98,7 @@ typedef struct ShellWindows ShellWindows;
 
 #ifndef __IShellUIHelper_FWD_DEFINED__
 #define __IShellUIHelper_FWD_DEFINED__
-typedef interface IShellUIHelper IShellUIHelper;
+typedef struct IShellUIHelper IShellUIHelper;
 #endif
 
 #ifndef __ShellUIHelper_FWD_DEFINED__
@@ -112,17 +112,17 @@ typedef struct ShellUIHelper ShellUIHelper;
 
 #ifndef __DShellNameSpaceEvents_FWD_DEFINED__
 #define __DShellNameSpaceEvents_FWD_DEFINED__
-typedef interface DShellNameSpaceEvents DShellNameSpaceEvents;
+typedef struct DShellNameSpaceEvents DShellNameSpaceEvents;
 #endif
 
 #ifndef __IShellFavoritesNameSpace_FWD_DEFINED__
 #define __IShellFavoritesNameSpace_FWD_DEFINED__
-typedef interface IShellFavoritesNameSpace IShellFavoritesNameSpace;
+typedef struct IShellFavoritesNameSpace IShellFavoritesNameSpace;
 #endif
 
 #ifndef __IShellNameSpace_FWD_DEFINED__
 #define __IShellNameSpace_FWD_DEFINED__
-typedef interface IShellNameSpace IShellNameSpace;
+typedef struct IShellNameSpace IShellNameSpace;
 #endif
 
 #ifndef __ShellNameSpace_FWD_DEFINED__
@@ -137,7 +137,7 @@ typedef struct ShellNameSpace ShellNameSpace;
 
 #ifndef __IScriptErrorList_FWD_DEFINED__
 #define __IScriptErrorList_FWD_DEFINED__
-typedef interface IScriptErrorList IScriptErrorList;
+typedef struct IScriptErrorList IScriptErrorList;
 #endif
 
 #ifndef __CScriptErrorList_FWD_DEFINED__
@@ -151,32 +151,32 @@ typedef struct CScriptErrorList CScriptErrorList;
 
 #ifndef __ISearch_FWD_DEFINED__
 #define __ISearch_FWD_DEFINED__
-typedef interface ISearch ISearch;
+typedef struct ISearch ISearch;
 #endif
 
 #ifndef __ISearches_FWD_DEFINED__
 #define __ISearches_FWD_DEFINED__
-typedef interface ISearches ISearches;
+typedef struct ISearches ISearches;
 #endif
 
 #ifndef __ISearchAssistantOC_FWD_DEFINED__
 #define __ISearchAssistantOC_FWD_DEFINED__
-typedef interface ISearchAssistantOC ISearchAssistantOC;
+typedef struct ISearchAssistantOC ISearchAssistantOC;
 #endif
 
 #ifndef __ISearchAssistantOC2_FWD_DEFINED__
 #define __ISearchAssistantOC2_FWD_DEFINED__
-typedef interface ISearchAssistantOC2 ISearchAssistantOC2;
+typedef struct ISearchAssistantOC2 ISearchAssistantOC2;
 #endif
 
 #ifndef __ISearchAssistantOC3_FWD_DEFINED__
 #define __ISearchAssistantOC3_FWD_DEFINED__
-typedef interface ISearchAssistantOC3 ISearchAssistantOC3;
+typedef struct ISearchAssistantOC3 ISearchAssistantOC3;
 #endif
 
 #ifndef ___SearchAssistantEvents_FWD_DEFINED__
 #define ___SearchAssistantEvents_FWD_DEFINED__
-typedef interface _SearchAssistantEvents _SearchAssistantEvents;
+typedef struct _SearchAssistantEvents _SearchAssistantEvents;
 #endif
 
 #ifndef __SearchAssistantOC_FWD_DEFINED__
@@ -299,7 +299,7 @@ extern "C"{
       HRESULT (WINAPI *get_Busy)(IWebBrowser *This,VARIANT_BOOL *pBool);
     END_INTERFACE
   } IWebBrowserVtbl;
-  interface IWebBrowser {
+  struct IWebBrowser {
     CONST_VTBL struct IWebBrowserVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -407,7 +407,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(DWebBrowserEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DWebBrowserEventsVtbl;
-  interface DWebBrowserEvents {
+  struct DWebBrowserEvents {
     CONST_VTBL struct DWebBrowserEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -506,7 +506,7 @@ extern "C"{
       HRESULT (WINAPI *put_FullScreen)(IWebBrowserApp *This,VARIANT_BOOL bFullScreen);
     END_INTERFACE
   } IWebBrowserAppVtbl;
-  interface IWebBrowserApp {
+  struct IWebBrowserApp {
     CONST_VTBL struct IWebBrowserAppVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -708,7 +708,7 @@ extern "C"{
       HRESULT (WINAPI *put_Resizable)(IWebBrowser2 *This,VARIANT_BOOL Value);
     END_INTERFACE
   } IWebBrowser2Vtbl;
-  interface IWebBrowser2 {
+  struct IWebBrowser2 {
     CONST_VTBL struct IWebBrowser2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -843,7 +843,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(DWebBrowserEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DWebBrowserEvents2Vtbl;
-  interface DWebBrowserEvents2 {
+  struct DWebBrowserEvents2 {
     CONST_VTBL struct DWebBrowserEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -893,7 +893,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(DShellWindowsEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DShellWindowsEventsVtbl;
-  interface DShellWindowsEvents {
+  struct DShellWindowsEvents {
     CONST_VTBL struct DShellWindowsEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -949,7 +949,7 @@ extern "C"{
       HRESULT (WINAPI *ProcessAttachDetach)(IShellWindows *This,VARIANT_BOOL fAttach);
     END_INTERFACE
   } IShellWindowsVtbl;
-  interface IShellWindows {
+  struct IShellWindows {
     CONST_VTBL struct IShellWindowsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1047,7 +1047,7 @@ extern "C"{
       HRESULT (WINAPI *ShowBrowserUI)(IShellUIHelper *This,BSTR bstrName,VARIANT *pvarIn,VARIANT *pvarOut);
     END_INTERFACE
   } IShellUIHelperVtbl;
-  interface IShellUIHelper {
+  struct IShellUIHelper {
     CONST_VTBL struct IShellUIHelperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1124,7 +1124,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(DShellNameSpaceEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DShellNameSpaceEventsVtbl;
-  interface DShellNameSpaceEvents {
+  struct DShellNameSpaceEvents {
     CONST_VTBL struct DShellNameSpaceEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1184,7 +1184,7 @@ extern "C"{
       HRESULT (WINAPI *SetRoot)(IShellFavoritesNameSpace *This,BSTR bstrFullPath);
     END_INTERFACE
   } IShellFavoritesNameSpaceVtbl;
-  interface IShellFavoritesNameSpace {
+  struct IShellFavoritesNameSpace {
     CONST_VTBL struct IShellFavoritesNameSpaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1312,7 +1312,7 @@ extern "C"{
       HRESULT (WINAPI *UnselectAll)(IShellNameSpace *This);
     END_INTERFACE
   } IShellNameSpaceVtbl;
-  interface IShellNameSpace {
+  struct IShellNameSpace {
     CONST_VTBL struct IShellNameSpaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1455,7 +1455,7 @@ extern "C"{
       HRESULT (WINAPI *setPerErrorDisplay)(IScriptErrorList *This,WINBOOL fPerErrorDisplay);
     END_INTERFACE
   } IScriptErrorListVtbl;
-  interface IScriptErrorList {
+  struct IScriptErrorList {
     CONST_VTBL struct IScriptErrorListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1542,7 +1542,7 @@ extern "C"{
       HRESULT (WINAPI *get_Url)(ISearch *This,BSTR *pbstrUrl);
     END_INTERFACE
   } ISearchVtbl;
-  interface ISearch {
+  struct ISearch {
     CONST_VTBL struct ISearchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1593,7 +1593,7 @@ extern "C"{
       HRESULT (WINAPI *_NewEnum)(ISearches *This,IUnknown **ppunk);
     END_INTERFACE
   } ISearchesVtbl;
-  interface ISearches {
+  struct ISearches {
     CONST_VTBL struct ISearchesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1693,7 +1693,7 @@ extern "C"{
       HRESULT (WINAPI *EncodeString)(ISearchAssistantOC *This,BSTR bstrValue,BSTR bstrCharSet,VARIANT_BOOL bUseUTF8,BSTR *pbstrResult);
     END_INTERFACE
   } ISearchAssistantOCVtbl;
-  interface ISearchAssistantOC {
+  struct ISearchAssistantOC {
     CONST_VTBL struct ISearchAssistantOCVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1837,7 +1837,7 @@ extern "C"{
       HRESULT (WINAPI *get_ShowFindPrinter)(ISearchAssistantOC2 *This,VARIANT_BOOL *pbShowFindPrinter);
     END_INTERFACE
   } ISearchAssistantOC2Vtbl;
-  interface ISearchAssistantOC2 {
+  struct ISearchAssistantOC2 {
     CONST_VTBL struct ISearchAssistantOC2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1935,7 +1935,7 @@ extern "C"{
       HRESULT (WINAPI *get_UseSearchCompanion)(ISearchAssistantOC3 *This,VARIANT_BOOL *pbUseSC);
     END_INTERFACE
   } ISearchAssistantOC3Vtbl;
-  interface ISearchAssistantOC3 {
+  struct ISearchAssistantOC3 {
     CONST_VTBL struct ISearchAssistantOC3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2005,7 +2005,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(_SearchAssistantEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } _SearchAssistantEventsVtbl;
-  interface _SearchAssistantEvents {
+  struct _SearchAssistantEvents {
     CONST_VTBL struct _SearchAssistantEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

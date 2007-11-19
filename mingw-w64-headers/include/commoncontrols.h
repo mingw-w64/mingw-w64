@@ -24,7 +24,7 @@
 
 #ifndef __IImageList_FWD_DEFINED__
 #define __IImageList_FWD_DEFINED__
-typedef interface IImageList IImageList;
+typedef struct IImageList IImageList;
 #endif
 
 #ifndef __ImageList_FWD_DEFINED__
@@ -124,7 +124,7 @@ extern "C"{
       HRESULT (WINAPI *GetOverlayImage)(IImageList *This,int iOverlay,int *piIndex);
     END_INTERFACE
   } IImageListVtbl;
-  interface IImageList {
+  struct IImageList {
     CONST_VTBL struct IImageListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

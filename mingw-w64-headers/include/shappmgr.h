@@ -24,22 +24,22 @@
 
 #ifndef __IShellApp_FWD_DEFINED__
 #define __IShellApp_FWD_DEFINED__
-typedef interface IShellApp IShellApp;
+typedef struct IShellApp IShellApp;
 #endif
 
 #ifndef __IPublishedApp_FWD_DEFINED__
 #define __IPublishedApp_FWD_DEFINED__
-typedef interface IPublishedApp IPublishedApp;
+typedef struct IPublishedApp IPublishedApp;
 #endif
 
 #ifndef __IEnumPublishedApps_FWD_DEFINED__
 #define __IEnumPublishedApps_FWD_DEFINED__
-typedef interface IEnumPublishedApps IEnumPublishedApps;
+typedef struct IEnumPublishedApps IEnumPublishedApps;
 #endif
 
 #ifndef __IAppPublisher_FWD_DEFINED__
 #define __IAppPublisher_FWD_DEFINED__
-typedef interface IAppPublisher IAppPublisher;
+typedef struct IAppPublisher IAppPublisher;
 #endif
 
 #include "oaidl.h"
@@ -129,7 +129,7 @@ extern "C" {
       HRESULT (WINAPI *IsInstalled)(IShellApp *This);
     END_INTERFACE
   } IShellAppVtbl;
-  interface IShellApp {
+  struct IShellApp {
     CONST_VTBL struct IShellAppVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -197,7 +197,7 @@ extern "C" {
       HRESULT (WINAPI *Unschedule)(IPublishedApp *This);
     END_INTERFACE
   } IPublishedAppVtbl;
-  interface IPublishedApp {
+  struct IPublishedApp {
     CONST_VTBL struct IPublishedAppVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -241,7 +241,7 @@ extern "C" {
       HRESULT (WINAPI *Reset)(IEnumPublishedApps *This);
     END_INTERFACE
   } IEnumPublishedAppsVtbl;
-  interface IEnumPublishedApps {
+  struct IEnumPublishedApps {
     CONST_VTBL struct IEnumPublishedAppsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -281,7 +281,7 @@ extern "C" {
       HRESULT (WINAPI *EnumApps)(IAppPublisher *This,GUID *pAppCategoryId,IEnumPublishedApps **ppepa);
     END_INTERFACE
   } IAppPublisherVtbl;
-  interface IAppPublisher {
+  struct IAppPublisher {
     CONST_VTBL struct IAppPublisherVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

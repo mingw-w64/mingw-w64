@@ -172,7 +172,7 @@ extern "C" {
     STDMETHOD(KsGetState)(THIS_ KSSTATE *State) PURE;
   };
 
-  interface IKsAllocator;
+  struct IKsAllocator;
 #undef INTERFACE
 #define INTERFACE IKsAllocator
   DECLARE_INTERFACE_(IKsAllocator,IUnknown) {
@@ -182,7 +182,7 @@ extern "C" {
     STDMETHOD_(VOID,KsSetAllocatorMode)(THIS_ KSALLOCATORMODE Mode) PURE;
   };
 
-  interface IKsAllocatorEx;
+  struct IKsAllocatorEx;
 #undef INTERFACE
 #define INTERFACE IKsAllocatorEx
   DECLARE_INTERFACE_(IKsAllocatorEx,IKsAllocator) {
@@ -197,7 +197,7 @@ extern "C" {
   } KSPEEKOPERATION;
 
   typedef struct _KSSTREAM_SEGMENT *PKSSTREAM_SEGMENT;
-  interface IKsPin;
+  struct IKsPin;
 
 #undef INTERFACE
 #define INTERFACE IKsPin
@@ -217,14 +217,14 @@ extern "C" {
     STDMETHOD(KsQualityNotify)(THIS_ ULONG Proportion,REFERENCE_TIME TimeDelta) PURE;
   };
 
-  interface IKsPinEx;
+  struct IKsPinEx;
 #undef INTERFACE
 #define INTERFACE IKsPinEx
   DECLARE_INTERFACE_(IKsPinEx,IKsPin) {
     STDMETHOD_(VOID,KsNotifyError)(THIS_ IMediaSample *Sample,HRESULT hr) PURE;
   };
 
-  interface IKsPinPipe;
+  struct IKsPinPipe;
 #undef INTERFACE
 #define INTERFACE IKsPinPipe
   DECLARE_INTERFACE_(IKsPinPipe,IUnknown) {
@@ -241,7 +241,7 @@ extern "C" {
     STDMETHOD_(PWCHAR,KsGetFilterName)(THIS) PURE;
   };
 
-  interface IKsPinFactory;
+  struct IKsPinFactory;
 #undef INTERFACE
 #define INTERFACE IKsPinFactory
   DECLARE_INTERFACE_(IKsPinFactory,IUnknown) {
@@ -252,7 +252,7 @@ extern "C" {
     KsIoOperation_Write,KsIoOperation_Read
   } KSIOOPERATION;
 
-  interface IKsDataTypeHandler;
+  struct IKsDataTypeHandler;
 #undef INTERFACE
 #define INTERFACE IKsDataTypeHandler
   DECLARE_INTERFACE_(IKsDataTypeHandler,IUnknown) {
@@ -263,14 +263,14 @@ extern "C" {
     STDMETHOD(KsSetMediaType)(THIS_ const AM_MEDIA_TYPE *AmMediaType) PURE;
   };
 
-  interface IKsDataTypeCompletion;
+  struct IKsDataTypeCompletion;
 #undef INTERFACE
 #define INTERFACE IKsDataTypeCompletion
   DECLARE_INTERFACE_(IKsDataTypeCompletion,IUnknown) {
     STDMETHOD(KsCompleteMediaType)(THIS_ HANDLE FilterHandle,ULONG PinFactoryId,AM_MEDIA_TYPE *AmMediaType) PURE;
   };
 
-  interface IKsInterfaceHandler;
+  struct IKsInterfaceHandler;
 #undef INTERFACE
 #define INTERFACE IKsInterfaceHandler
   DECLARE_INTERFACE_(IKsInterfaceHandler,IUnknown) {
@@ -286,21 +286,21 @@ extern "C" {
     HANDLE CompletionEvent;
   } KSSTREAM_SEGMENT;
 
-  interface IKsObject;
+  struct IKsObject;
 #undef INTERFACE
 #define INTERFACE IKsObject
   DECLARE_INTERFACE_(IKsObject,IUnknown) {
     STDMETHOD_(HANDLE,KsGetObjectHandle)(THIS) PURE;
   };
 
-  interface IKsQualityForwarder;
+  struct IKsQualityForwarder;
 #undef INTERFACE
 #define INTERFACE IKsQualityForwarder
   DECLARE_INTERFACE_(IKsQualityForwarder,IKsObject) {
     STDMETHOD_(VOID,KsFlushClient)(THIS_ IKsPin *Pin) PURE;
   };
 
-  interface IKsNotifyEvent;
+  struct IKsNotifyEvent;
 #undef INTERFACE
 #define INTERFACE IKsNotifyEvent
   DECLARE_INTERFACE_(IKsNotifyEvent,IUnknown) {
@@ -343,7 +343,7 @@ extern "C" {
 #define KSPROPERTY_SUPPORT_SET 2
 
 #ifdef DECLARE_INTERFACE_
-  interface IKsPropertySet;
+  struct IKsPropertySet;
 #undef INTERFACE
 #define INTERFACE IKsPropertySet
   DECLARE_INTERFACE_(IKsPropertySet,IUnknown) {
@@ -357,7 +357,7 @@ extern "C" {
 #ifndef _IKsControl_
 #define _IKsControl_
 #ifdef DECLARE_INTERFACE_
-  interface IKsControl;
+  struct IKsControl;
 #undef INTERFACE
 #define INTERFACE IKsControl
   DECLARE_INTERFACE_(IKsControl,IUnknown) {
@@ -369,7 +369,7 @@ extern "C" {
 #endif
 
 #ifdef DECLARE_INTERFACE_
-  interface IKsAggregateControl;
+  struct IKsAggregateControl;
 #undef INTERFACE
 #define INTERFACE IKsAggregateControl
   DECLARE_INTERFACE_(IKsAggregateControl,IUnknown) {
@@ -381,7 +381,7 @@ extern "C" {
 #ifndef _IKsTopology_
 #define _IKsTopology_
 #ifdef DECLARE_INTERFACE_
-  interface IKsTopology;
+  struct IKsTopology;
 #undef INTERFACE
 #define INTERFACE IKsTopology
   DECLARE_INTERFACE_(IKsTopology,IUnknown) {

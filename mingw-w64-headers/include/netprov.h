@@ -24,17 +24,17 @@
 
 #ifndef __IProvisioningDomain_FWD_DEFINED__
 #define __IProvisioningDomain_FWD_DEFINED__
-typedef interface IProvisioningDomain IProvisioningDomain;
+typedef struct IProvisioningDomain IProvisioningDomain;
 #endif
 
 #ifndef __IProvisioningProfileWireless_FWD_DEFINED__
 #define __IProvisioningProfileWireless_FWD_DEFINED__
-typedef interface IProvisioningProfileWireless IProvisioningProfileWireless;
+typedef struct IProvisioningProfileWireless IProvisioningProfileWireless;
 #endif
 
 #ifndef __IFlashConfig_FWD_DEFINED__
 #define __IFlashConfig_FWD_DEFINED__
-typedef interface IFlashConfig IFlashConfig;
+typedef struct IFlashConfig IFlashConfig;
 #endif
 
 #ifndef __NetProvisioning_FWD_DEFINED__
@@ -88,7 +88,7 @@ extern "C"{
       HRESULT (WINAPI *Query)(IProvisioningDomain *This,LPCWSTR pszwDomain,LPCWSTR pszwLanguage,LPCWSTR pszwXPathQuery,IXMLDOMNodeList **Nodes);
     END_INTERFACE
   } IProvisioningDomainVtbl;
-  interface IProvisioningDomain {
+  struct IProvisioningDomain {
     CONST_VTBL struct IProvisioningDomainVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -163,7 +163,7 @@ extern "C"{
       HRESULT (WINAPI *CreateProfile)(IProvisioningProfileWireless *This,BSTR bstrXMLWirelessConfigProfile,BSTR bstrXMLConnectionConfigProfile,GUID *pAdapterInstanceGuid,ULONG *pulStatus);
     END_INTERFACE
   } IProvisioningProfileWirelessVtbl;
-  interface IProvisioningProfileWireless {
+  struct IProvisioningProfileWireless {
     CONST_VTBL struct IProvisioningProfileWirelessVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -198,7 +198,7 @@ extern "C"{
       HRESULT (WINAPI *RunWizard)(IFlashConfig *This,HWND hwndParent,FLASHCONFIG_FLAGS eFlags);
     END_INTERFACE
   } IFlashConfigVtbl;
-  interface IFlashConfig {
+  struct IFlashConfig {
     CONST_VTBL struct IFlashConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

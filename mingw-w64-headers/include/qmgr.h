@@ -24,32 +24,32 @@
 
 #ifndef __IBackgroundCopyJob1_FWD_DEFINED__
 #define __IBackgroundCopyJob1_FWD_DEFINED__
-typedef interface IBackgroundCopyJob1 IBackgroundCopyJob1;
+typedef struct IBackgroundCopyJob1 IBackgroundCopyJob1;
 #endif
 
 #ifndef __IEnumBackgroundCopyJobs1_FWD_DEFINED__
 #define __IEnumBackgroundCopyJobs1_FWD_DEFINED__
-typedef interface IEnumBackgroundCopyJobs1 IEnumBackgroundCopyJobs1;
+typedef struct IEnumBackgroundCopyJobs1 IEnumBackgroundCopyJobs1;
 #endif
 
 #ifndef __IBackgroundCopyGroup_FWD_DEFINED__
 #define __IBackgroundCopyGroup_FWD_DEFINED__
-typedef interface IBackgroundCopyGroup IBackgroundCopyGroup;
+typedef struct IBackgroundCopyGroup IBackgroundCopyGroup;
 #endif
 
 #ifndef __IEnumBackgroundCopyGroups_FWD_DEFINED__
 #define __IEnumBackgroundCopyGroups_FWD_DEFINED__
-typedef interface IEnumBackgroundCopyGroups IEnumBackgroundCopyGroups;
+typedef struct IEnumBackgroundCopyGroups IEnumBackgroundCopyGroups;
 #endif
 
 #ifndef __IBackgroundCopyCallback1_FWD_DEFINED__
 #define __IBackgroundCopyCallback1_FWD_DEFINED__
-typedef interface IBackgroundCopyCallback1 IBackgroundCopyCallback1;
+typedef struct IBackgroundCopyCallback1 IBackgroundCopyCallback1;
 #endif
 
 #ifndef __IBackgroundCopyQMgr_FWD_DEFINED__
 #define __IBackgroundCopyQMgr_FWD_DEFINED__
-typedef interface IBackgroundCopyQMgr IBackgroundCopyQMgr;
+typedef struct IBackgroundCopyQMgr IBackgroundCopyQMgr;
 #endif
 
 #ifndef __BackgroundCopyQMgr_FWD_DEFINED__
@@ -141,7 +141,7 @@ extern "C"{
       HRESULT (WINAPI *get_JobID)(IBackgroundCopyJob1 *This,GUID *pguidJobID);
     END_INTERFACE
   } IBackgroundCopyJob1Vtbl;
-  interface IBackgroundCopyJob1 {
+  struct IBackgroundCopyJob1 {
     CONST_VTBL struct IBackgroundCopyJob1Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -201,7 +201,7 @@ extern "C"{
       HRESULT (WINAPI *GetCount)(IEnumBackgroundCopyJobs1 *This,ULONG *puCount);
     END_INTERFACE
   } IEnumBackgroundCopyJobs1Vtbl;
-  interface IEnumBackgroundCopyJobs1 {
+  struct IEnumBackgroundCopyJobs1 {
     CONST_VTBL struct IEnumBackgroundCopyJobs1Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -278,7 +278,7 @@ extern "C"{
       HRESULT (WINAPI *SetNotificationPointer)(IBackgroundCopyGroup *This,REFIID iid,IUnknown *pUnk);
     END_INTERFACE
   } IBackgroundCopyGroupVtbl;
-  interface IBackgroundCopyGroup {
+  struct IBackgroundCopyGroup {
     CONST_VTBL struct IBackgroundCopyGroupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -359,7 +359,7 @@ extern "C"{
       HRESULT (WINAPI *GetCount)(IEnumBackgroundCopyGroups *This,ULONG *puCount);
     END_INTERFACE
   } IEnumBackgroundCopyGroupsVtbl;
-  interface IEnumBackgroundCopyGroups {
+  struct IEnumBackgroundCopyGroups {
     CONST_VTBL struct IEnumBackgroundCopyGroupsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -406,7 +406,7 @@ extern "C"{
       HRESULT (WINAPI *OnProgressEx)(IBackgroundCopyCallback1 *This,DWORD ProgressType,IBackgroundCopyGroup *pGroup,IBackgroundCopyJob1 *pJob,DWORD dwFileIndex,DWORD dwProgressValue,DWORD dwByteArraySize,BYTE *pByte);
     END_INTERFACE
   } IBackgroundCopyCallback1Vtbl;
-  interface IBackgroundCopyCallback1 {
+  struct IBackgroundCopyCallback1 {
     CONST_VTBL struct IBackgroundCopyCallback1Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -447,7 +447,7 @@ extern "C"{
       HRESULT (WINAPI *EnumGroups)(IBackgroundCopyQMgr *This,DWORD dwFlags,IEnumBackgroundCopyGroups **ppEnumGroups);
     END_INTERFACE
   } IBackgroundCopyQMgrVtbl;
-  interface IBackgroundCopyQMgr {
+  struct IBackgroundCopyQMgr {
     CONST_VTBL struct IBackgroundCopyQMgrVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

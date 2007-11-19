@@ -24,52 +24,52 @@
 
 #ifndef __IDebugProperty_FWD_DEFINED__
 #define __IDebugProperty_FWD_DEFINED__
-typedef interface IDebugProperty IDebugProperty;
+typedef struct IDebugProperty IDebugProperty;
 #endif
 
 #ifndef __IEnumDebugPropertyInfo_FWD_DEFINED__
 #define __IEnumDebugPropertyInfo_FWD_DEFINED__
-typedef interface IEnumDebugPropertyInfo IEnumDebugPropertyInfo;
+typedef struct IEnumDebugPropertyInfo IEnumDebugPropertyInfo;
 #endif
 
 #ifndef __IDebugExtendedProperty_FWD_DEFINED__
 #define __IDebugExtendedProperty_FWD_DEFINED__
-typedef interface IDebugExtendedProperty IDebugExtendedProperty;
+typedef struct IDebugExtendedProperty IDebugExtendedProperty;
 #endif
 
 #ifndef __IEnumDebugExtendedPropertyInfo_FWD_DEFINED__
 #define __IEnumDebugExtendedPropertyInfo_FWD_DEFINED__
-typedef interface IEnumDebugExtendedPropertyInfo IEnumDebugExtendedPropertyInfo;
+typedef struct IEnumDebugExtendedPropertyInfo IEnumDebugExtendedPropertyInfo;
 #endif
 
 #ifndef __IPerPropertyBrowsing2_FWD_DEFINED__
 #define __IPerPropertyBrowsing2_FWD_DEFINED__
-typedef interface IPerPropertyBrowsing2 IPerPropertyBrowsing2;
+typedef struct IPerPropertyBrowsing2 IPerPropertyBrowsing2;
 #endif
 
 #ifndef __IDebugPropertyEnumType_All_FWD_DEFINED__
 #define __IDebugPropertyEnumType_All_FWD_DEFINED__
-typedef interface IDebugPropertyEnumType_All IDebugPropertyEnumType_All;
+typedef struct IDebugPropertyEnumType_All IDebugPropertyEnumType_All;
 #endif
 
 #ifndef __IDebugPropertyEnumType_Locals_FWD_DEFINED__
 #define __IDebugPropertyEnumType_Locals_FWD_DEFINED__
-typedef interface IDebugPropertyEnumType_Locals IDebugPropertyEnumType_Locals;
+typedef struct IDebugPropertyEnumType_Locals IDebugPropertyEnumType_Locals;
 #endif
 
 #ifndef __IDebugPropertyEnumType_Arguments_FWD_DEFINED__
 #define __IDebugPropertyEnumType_Arguments_FWD_DEFINED__
-typedef interface IDebugPropertyEnumType_Arguments IDebugPropertyEnumType_Arguments;
+typedef struct IDebugPropertyEnumType_Arguments IDebugPropertyEnumType_Arguments;
 #endif
 
 #ifndef __IDebugPropertyEnumType_LocalsPlusArgs_FWD_DEFINED__
 #define __IDebugPropertyEnumType_LocalsPlusArgs_FWD_DEFINED__
-typedef interface IDebugPropertyEnumType_LocalsPlusArgs IDebugPropertyEnumType_LocalsPlusArgs;
+typedef struct IDebugPropertyEnumType_LocalsPlusArgs IDebugPropertyEnumType_LocalsPlusArgs;
 #endif
 
 #ifndef __IDebugPropertyEnumType_Registers_FWD_DEFINED__
 #define __IDebugPropertyEnumType_Registers_FWD_DEFINED__
-typedef interface IDebugPropertyEnumType_Registers IDebugPropertyEnumType_Registers;
+typedef struct IDebugPropertyEnumType_Registers IDebugPropertyEnumType_Registers;
 #endif
 
 #include "ocidl.h"
@@ -162,7 +162,7 @@ extern "C"{
       HRESULT (WINAPI *GetParent)(IDebugProperty *This,IDebugProperty **ppDebugProp);
     END_INTERFACE
   } IDebugPropertyVtbl;
-  interface IDebugProperty {
+  struct IDebugProperty {
     CONST_VTBL struct IDebugPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -213,7 +213,7 @@ extern "C"{
       HRESULT (WINAPI *GetCount)(IEnumDebugPropertyInfo *This,ULONG *pcelt);
     END_INTERFACE
   } IEnumDebugPropertyInfoVtbl;
-  interface IEnumDebugPropertyInfo {
+  struct IEnumDebugPropertyInfo {
     CONST_VTBL struct IEnumDebugPropertyInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -263,7 +263,7 @@ extern "C"{
       HRESULT (WINAPI *EnumExtendedMembers)(IDebugExtendedProperty *This,DWORD dwFieldSpec,UINT nRadix,IEnumDebugExtendedPropertyInfo **ppeepi);
     END_INTERFACE
   } IDebugExtendedPropertyVtbl;
-  interface IDebugExtendedProperty {
+  struct IDebugExtendedProperty {
     CONST_VTBL struct IDebugExtendedPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -310,7 +310,7 @@ extern "C"{
       HRESULT (WINAPI *GetCount)(IEnumDebugExtendedPropertyInfo *This,ULONG *pcelt);
     END_INTERFACE
   } IEnumDebugExtendedPropertyInfoVtbl;
-  interface IEnumDebugExtendedPropertyInfo {
+  struct IEnumDebugExtendedPropertyInfo {
     CONST_VTBL struct IEnumDebugExtendedPropertyInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -359,7 +359,7 @@ extern "C"{
       HRESULT (WINAPI *SetPredefinedValue)(IPerPropertyBrowsing2 *This,DISPID dispid,DWORD dwCookie);
     END_INTERFACE
   } IPerPropertyBrowsing2Vtbl;
-  interface IPerPropertyBrowsing2 {
+  struct IPerPropertyBrowsing2 {
     CONST_VTBL struct IPerPropertyBrowsing2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -399,7 +399,7 @@ extern "C"{
       HRESULT (WINAPI *GetName)(IDebugPropertyEnumType_All *This,BSTR *__MIDL_0011);
     END_INTERFACE
   } IDebugPropertyEnumType_AllVtbl;
-  interface IDebugPropertyEnumType_All {
+  struct IDebugPropertyEnumType_All {
     CONST_VTBL struct IDebugPropertyEnumType_AllVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -429,7 +429,7 @@ extern "C"{
       HRESULT (WINAPI *GetName)(IDebugPropertyEnumType_Locals *This,BSTR *__MIDL_0011);
     END_INTERFACE
   } IDebugPropertyEnumType_LocalsVtbl;
-  interface IDebugPropertyEnumType_Locals {
+  struct IDebugPropertyEnumType_Locals {
     CONST_VTBL struct IDebugPropertyEnumType_LocalsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -457,7 +457,7 @@ extern "C"{
       HRESULT (WINAPI *GetName)(IDebugPropertyEnumType_Arguments *This,BSTR *__MIDL_0011);
     END_INTERFACE
   } IDebugPropertyEnumType_ArgumentsVtbl;
-  interface IDebugPropertyEnumType_Arguments {
+  struct IDebugPropertyEnumType_Arguments {
     CONST_VTBL struct IDebugPropertyEnumType_ArgumentsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -485,7 +485,7 @@ extern "C"{
       HRESULT (WINAPI *GetName)(IDebugPropertyEnumType_LocalsPlusArgs *This,BSTR *__MIDL_0011);
     END_INTERFACE
   } IDebugPropertyEnumType_LocalsPlusArgsVtbl;
-  interface IDebugPropertyEnumType_LocalsPlusArgs {
+  struct IDebugPropertyEnumType_LocalsPlusArgs {
     CONST_VTBL struct IDebugPropertyEnumType_LocalsPlusArgsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -512,7 +512,7 @@ extern "C"{
       HRESULT (WINAPI *GetName)(IDebugPropertyEnumType_Registers *This,BSTR *__MIDL_0011);
     END_INTERFACE
   } IDebugPropertyEnumType_RegistersVtbl;
-  interface IDebugPropertyEnumType_Registers {
+  struct IDebugPropertyEnumType_Registers {
     CONST_VTBL struct IDebugPropertyEnumType_RegistersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,12 +24,12 @@
 
 #ifndef __ICertRequestD_FWD_DEFINED__
 #define __ICertRequestD_FWD_DEFINED__
-typedef interface ICertRequestD ICertRequestD;
+typedef struct ICertRequestD ICertRequestD;
 #endif
 
 #ifndef __ICertRequestD2_FWD_DEFINED__
 #define __ICertRequestD2_FWD_DEFINED__
-typedef interface ICertRequestD2 ICertRequestD2;
+typedef struct ICertRequestD2 ICertRequestD2;
 #endif
 
 #include "certbase.h"
@@ -63,7 +63,7 @@ extern "C"{
       HRESULT (WINAPI *Ping)(ICertRequestD *This,const wchar_t *pwszAuthority);
     END_INTERFACE
   } ICertRequestDVtbl;
-  interface ICertRequestD {
+  struct ICertRequestD {
     CONST_VTBL struct ICertRequestDVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -109,7 +109,7 @@ extern "C"{
       HRESULT (WINAPI *Ping2)(ICertRequestD2 *This,const wchar_t *pwszAuthority);
     END_INTERFACE
   } ICertRequestD2Vtbl;
-  interface ICertRequestD2 {
+  struct ICertRequestD2 {
     CONST_VTBL struct ICertRequestD2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

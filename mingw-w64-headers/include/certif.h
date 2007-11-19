@@ -24,12 +24,12 @@
 
 #ifndef __ICertServerPolicy_FWD_DEFINED__
 #define __ICertServerPolicy_FWD_DEFINED__
-typedef interface ICertServerPolicy ICertServerPolicy;
+typedef struct ICertServerPolicy ICertServerPolicy;
 #endif
 
 #ifndef __ICertServerExit_FWD_DEFINED__
 #define __ICertServerExit_FWD_DEFINED__
-typedef interface ICertServerExit ICertServerExit;
+typedef struct ICertServerExit ICertServerExit;
 #endif
 
 #include "wtypes.h"
@@ -94,7 +94,7 @@ extern "C"{
       HRESULT (WINAPI *EnumerateAttributesClose)(ICertServerPolicy *This);
     END_INTERFACE
   } ICertServerPolicyVtbl;
-  interface ICertServerPolicy {
+  struct ICertServerPolicy {
     CONST_VTBL struct ICertServerPolicyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -194,7 +194,7 @@ extern "C"{
       HRESULT (WINAPI *EnumerateAttributesClose)(ICertServerExit *This);
     END_INTERFACE
   } ICertServerExitVtbl;
-  interface ICertServerExit {
+  struct ICertServerExit {
     CONST_VTBL struct ICertServerExitVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

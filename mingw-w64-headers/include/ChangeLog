@@ -1,3 +1,8 @@
+2007-11-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* all files with interface: Use instead struct for objc sake.
+	various changes for 32-bit support.
+
 2007-11-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* wchar.h: Add _iob definition. Additionally add 32-bit

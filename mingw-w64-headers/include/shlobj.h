@@ -2773,7 +2773,7 @@ extern "C" {
 
 SHDOCAPI_(WINBOOL) ImportPrivacySettings(LPCWSTR szFilename,WINBOOL *pfParsePrivacyPreferences,WINBOOL *pfParsePerSiteRules);
 #ifndef IEnumPrivacyRecords
-typedef interface IEnumPrivacyRecords IEnumPrivacyRecords;
+typedef struct IEnumPrivacyRecords IEnumPrivacyRecords;
 #endif
 SHDOCAPI DoPrivacyDlg(HWND hwndParent,LPOLESTR pszUrl,IEnumPrivacyRecords *pPrivacyEnum,WINBOOL fReportAllSites);
 #endif

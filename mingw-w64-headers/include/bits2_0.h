@@ -23,12 +23,12 @@
 #define __bits2_0_h__
 #ifndef __IBackgroundCopyJob3_FWD_DEFINED__
 #define __IBackgroundCopyJob3_FWD_DEFINED__
-typedef interface IBackgroundCopyJob3 IBackgroundCopyJob3;
+typedef struct IBackgroundCopyJob3 IBackgroundCopyJob3;
 #endif
 
 #ifndef __IBackgroundCopyFile2_FWD_DEFINED__
 #define __IBackgroundCopyFile2_FWD_DEFINED__
-typedef interface IBackgroundCopyFile2 IBackgroundCopyFile2;
+typedef struct IBackgroundCopyFile2 IBackgroundCopyFile2;
 #endif
 
 #ifndef __BackgroundCopyManager2_0_FWD_DEFINED__
@@ -42,7 +42,7 @@ typedef struct BackgroundCopyManager2_0 BackgroundCopyManager2_0;
 
 #ifndef __IBackgroundCopyJob3_FWD_DEFINED__
 #define __IBackgroundCopyJob3_FWD_DEFINED__
-typedef interface IBackgroundCopyJob3 IBackgroundCopyJob3;
+typedef struct IBackgroundCopyJob3 IBackgroundCopyJob3;
 #endif
 
 #include "bits.h"
@@ -133,7 +133,7 @@ extern "C"{
       HRESULT (WINAPI *GetFileACLFlags)(IBackgroundCopyJob3 *This,DWORD *Flags);
     END_INTERFACE
   } IBackgroundCopyJob3Vtbl;
-  interface IBackgroundCopyJob3 {
+  struct IBackgroundCopyJob3 {
     CONST_VTBL struct IBackgroundCopyJob3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -218,7 +218,7 @@ extern "C"{
       HRESULT (WINAPI *SetRemoteName)(IBackgroundCopyFile2 *This,LPCWSTR Val);
     END_INTERFACE
   } IBackgroundCopyFile2Vtbl;
-  interface IBackgroundCopyFile2 {
+  struct IBackgroundCopyFile2 {
     CONST_VTBL struct IBackgroundCopyFile2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,12 +24,12 @@
 
 #ifndef __ICertAdmin_FWD_DEFINED__
 #define __ICertAdmin_FWD_DEFINED__
-typedef interface ICertAdmin ICertAdmin;
+typedef struct ICertAdmin ICertAdmin;
 #endif
 
 #ifndef __ICertAdmin2_FWD_DEFINED__
 #define __ICertAdmin2_FWD_DEFINED__
-typedef interface ICertAdmin2 ICertAdmin2;
+typedef struct ICertAdmin2 ICertAdmin2;
 #endif
 
 #ifndef __CCertAdmin_FWD_DEFINED__
@@ -127,7 +127,7 @@ extern "C"{
       HRESULT (WINAPI *ImportCertificate)(ICertAdmin *This,const BSTR strConfig,const BSTR strCertificate,LONG Flags,LONG *pRequestId);
     END_INTERFACE
   } ICertAdminVtbl;
-  interface ICertAdmin {
+  struct ICertAdmin {
     CONST_VTBL struct ICertAdminVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -235,7 +235,7 @@ extern "C"{
       HRESULT (WINAPI *DeleteRow)(ICertAdmin2 *This,const BSTR strConfig,LONG Flags,DATE Date,LONG Table,LONG RowId,LONG *pcDeleted);
     END_INTERFACE
   } ICertAdmin2Vtbl;
-  interface ICertAdmin2 {
+  struct ICertAdmin2 {
     CONST_VTBL struct ICertAdmin2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -10,52 +10,52 @@
 #include <tchar.h>
 #endif
 
-interface _DAODBEngine;
+struct _DAODBEngine;
 #define DAODBEngine _DAODBEngine
-interface DAOError;
-interface _DAOCollection;
+struct DAOError;
+struct _DAOCollection;
 #define DAOCollection _DAOCollection
-interface DAOErrors;
-interface DAOProperty;
-interface _DAODynaCollection;
+struct DAOErrors;
+struct DAOProperty;
+struct _DAODynaCollection;
 #define DAODynaCollection _DAODynaCollection
-interface DAOProperties;
-interface DAOWorkspace;
-interface DAOWorkspaces;
-interface DAOConnection;
-interface DAOConnections;
-interface DAODatabase;
-interface DAODatabases;
-interface _DAOTableDef;
+struct DAOProperties;
+struct DAOWorkspace;
+struct DAOWorkspaces;
+struct DAOConnection;
+struct DAOConnections;
+struct DAODatabase;
+struct DAODatabases;
+struct _DAOTableDef;
 #define DAOTableDef _DAOTableDef
-interface DAOTableDefs;
-interface _DAOQueryDef;
+struct DAOTableDefs;
+struct _DAOQueryDef;
 #define DAOQueryDef _DAOQueryDef
-interface DAOQueryDefs;
-interface DAORecordset;
-interface DAORecordsets;
-interface _DAOField;
+struct DAOQueryDefs;
+struct DAORecordset;
+struct DAORecordsets;
+struct _DAOField;
 #define DAOField _DAOField
-interface DAOFields;
-interface _DAOIndex;
+struct DAOFields;
+struct _DAOIndex;
 #define DAOIndex _DAOIndex
-interface DAOIndexes;
-interface DAOParameter;
-interface DAOParameters;
-interface _DAOUser;
+struct DAOIndexes;
+struct DAOParameter;
+struct DAOParameters;
+struct _DAOUser;
 #define DAOUser _DAOUser
-interface DAOUsers;
-interface _DAOGroup;
+struct DAOUsers;
+struct _DAOGroup;
 #define DAOGroup _DAOGroup
-interface DAOGroups;
-interface _DAORelation;
+struct DAOGroups;
+struct _DAORelation;
 #define DAORelation _DAORelation
-interface DAORelations;
-interface DAOContainer;
-interface DAOContainers;
-interface DAODocument;
-interface DAODocuments;
-interface DAOIndexFields;
+struct DAORelations;
+struct DAOContainer;
+struct DAOContainers;
+struct DAODocument;
+struct DAODocuments;
+struct DAOIndexFields;
 
 typedef enum RecordsetTypeEnum {
   dbOpenTable = 1,dbOpenDynaset = 2,dbOpenSnapshot = 4,dbOpenForwardOnly = 8,dbOpenDynamic = 16

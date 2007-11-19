@@ -19,7 +19,7 @@ extern "C" {
 
 #ifndef __ISimpleDataConverter_FWD_DEFINED__
 #define __ISimpleDataConverter_FWD_DEFINED__
-  typedef interface ISimpleDataConverter ISimpleDataConverter;
+  typedef struct ISimpleDataConverter ISimpleDataConverter;
 #endif
 
 #include "oaidl.h"
@@ -47,7 +47,7 @@ extern "C" {
       HRESULT (WINAPI *CanConvertData)(ISimpleDataConverter *This,long vt1,long vt2);
     END_INTERFACE
   } ISimpleDataConverterVtbl;
-  interface ISimpleDataConverter {
+  struct ISimpleDataConverter {
     CONST_VTBL struct ISimpleDataConverterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

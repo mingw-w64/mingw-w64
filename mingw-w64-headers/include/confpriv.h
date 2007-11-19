@@ -24,37 +24,37 @@
 
 #ifndef __IDummy_FWD_DEFINED__
 #define __IDummy_FWD_DEFINED__
-typedef interface IDummy IDummy;
+typedef struct IDummy IDummy;
 #endif
 
 #ifndef __ITLocalParticipant_FWD_DEFINED__
 #define __ITLocalParticipant_FWD_DEFINED__
-typedef interface ITLocalParticipant ITLocalParticipant;
+typedef struct ITLocalParticipant ITLocalParticipant;
 #endif
 
 #ifndef __IEnumParticipant_FWD_DEFINED__
 #define __IEnumParticipant_FWD_DEFINED__
-typedef interface IEnumParticipant IEnumParticipant;
+typedef struct IEnumParticipant IEnumParticipant;
 #endif
 
 #ifndef __ITParticipantControl_FWD_DEFINED__
 #define __ITParticipantControl_FWD_DEFINED__
-typedef interface ITParticipantControl ITParticipantControl;
+typedef struct ITParticipantControl ITParticipantControl;
 #endif
 
 #ifndef __ITParticipantSubStreamControl_FWD_DEFINED__
 #define __ITParticipantSubStreamControl_FWD_DEFINED__
-typedef interface ITParticipantSubStreamControl ITParticipantSubStreamControl;
+typedef struct ITParticipantSubStreamControl ITParticipantSubStreamControl;
 #endif
 
 #ifndef __ITParticipantEvent_FWD_DEFINED__
 #define __ITParticipantEvent_FWD_DEFINED__
-typedef interface ITParticipantEvent ITParticipantEvent;
+typedef struct ITParticipantEvent ITParticipantEvent;
 #endif
 
 #ifndef __IMulticastControl_FWD_DEFINED__
 #define __IMulticastControl_FWD_DEFINED__
-typedef interface IMulticastControl IMulticastControl;
+typedef struct IMulticastControl IMulticastControl;
 #endif
 
 #include "ipmsp.h"
@@ -88,7 +88,7 @@ extern "C"{
       ULONG (WINAPI *Release)(IDummy *This);
     END_INTERFACE
   } IDummyVtbl;
-  interface IDummy {
+  struct IDummy {
     CONST_VTBL struct IDummyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -122,7 +122,7 @@ extern "C"{
       HRESULT (WINAPI *put_LocalParticipantTypedInfo)(ITLocalParticipant *This,PARTICIPANT_TYPED_INFO InfoType,BSTR pInfo);
     END_INTERFACE
   } ITLocalParticipantVtbl;
-  interface ITLocalParticipant {
+  struct ITLocalParticipant {
     CONST_VTBL struct ITLocalParticipantVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -166,7 +166,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumParticipant *This,IEnumParticipant **ppEnum);
     END_INTERFACE
   } IEnumParticipantVtbl;
-  interface IEnumParticipant {
+  struct IEnumParticipant {
     CONST_VTBL struct IEnumParticipantVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -212,7 +212,7 @@ extern "C"{
       HRESULT (WINAPI *get_Participants)(ITParticipantControl *This,VARIANT *pVariant);
     END_INTERFACE
   } ITParticipantControlVtbl;
-  interface ITParticipantControl {
+  struct ITParticipantControl {
     CONST_VTBL struct ITParticipantControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -258,7 +258,7 @@ extern "C"{
       HRESULT (WINAPI *SwitchTerminalToSubStream)(ITParticipantSubStreamControl *This,ITTerminal *pITTerminal,ITSubStream *pITSubStream);
     END_INTERFACE
   } ITParticipantSubStreamControlVtbl;
-  interface ITParticipantSubStreamControl {
+  struct ITParticipantSubStreamControl {
     CONST_VTBL struct ITParticipantSubStreamControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -307,7 +307,7 @@ extern "C"{
       HRESULT (WINAPI *get_SubStream)(ITParticipantEvent *This,ITSubStream **ppSubStream);
     END_INTERFACE
   } ITParticipantEventVtbl;
-  interface ITParticipantEvent {
+  struct ITParticipantEvent {
     CONST_VTBL struct ITParticipantEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -354,7 +354,7 @@ extern "C"{
       HRESULT (WINAPI *put_LoopbackMode)(IMulticastControl *This,MULTICAST_LOOPBACK_MODE mode);
     END_INTERFACE
   } IMulticastControlVtbl;
-  interface IMulticastControl {
+  struct IMulticastControl {
     CONST_VTBL struct IMulticastControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -103,7 +103,7 @@ extern const GUID DBPROPSET_PROVIDERCONNATTR;
 
 #ifndef __IRowsetChangeExtInfo_FWD_DEFINED__
 #define __IRowsetChangeExtInfo_FWD_DEFINED__
-typedef interface IRowsetChangeExtInfo IRowsetChangeExtInfo;
+typedef struct IRowsetChangeExtInfo IRowsetChangeExtInfo;
 #endif
 
 #include "oledb.h"
@@ -135,7 +135,7 @@ extern "C" {
       HRESULT (WINAPI *GetPendingColumns)(IRowsetChangeExtInfo *This,HCHAPTER hReserved,HROW hRow,ULONG cColumnOrdinals,const ULONG rgiOrdinals[],DBPENDINGSTATUS rgColumnStatus[]);
     END_INTERFACE
   } IRowsetChangeExtInfoVtbl;
-  interface IRowsetChangeExtInfo {
+  struct IRowsetChangeExtInfo {
     CONST_VTBL struct IRowsetChangeExtInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -178,12 +178,12 @@ extern "C" {
 
 #ifndef __ISQLRequestDiagFields_FWD_DEFINED__
 #define __ISQLRequestDiagFields_FWD_DEFINED__
-typedef interface ISQLRequestDiagFields ISQLRequestDiagFields;
+typedef struct ISQLRequestDiagFields ISQLRequestDiagFields;
 #endif
 
 #ifndef __ISQLGetDiagField_FWD_DEFINED__
 #define __ISQLGetDiagField_FWD_DEFINED__
-typedef interface ISQLGetDiagField ISQLGetDiagField;
+typedef struct ISQLGetDiagField ISQLGetDiagField;
 #endif
 
 #include "unknwn.h"
@@ -232,7 +232,7 @@ extern "C" {
       HRESULT (WINAPI *RequestDiagFields)(ISQLRequestDiagFields *This,ULONG cDiagFields,KAGREQDIAG rgDiagFields[]);
     END_INTERFACE
   } ISQLRequestDiagFieldsVtbl;
-  interface ISQLRequestDiagFields {
+  struct ISQLRequestDiagFields {
     CONST_VTBL struct ISQLRequestDiagFieldsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -263,7 +263,7 @@ extern "C" {
       HRESULT (WINAPI *GetDiagField)(ISQLGetDiagField *This,KAGGETDIAG *pDiagInfo);
     END_INTERFACE
   } ISQLGetDiagFieldVtbl;
-  interface ISQLGetDiagField {
+  struct ISQLGetDiagField {
     CONST_VTBL struct ISQLGetDiagFieldVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

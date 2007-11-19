@@ -265,13 +265,13 @@ extern "C" {
 #define STI_RAW_RESERVED 0x1000
 
 #ifdef __cplusplus
-  interface IStillImageW;
-  interface IStillImageA;
-  interface IStiDevice;
+  struct IStillImageW;
+  struct IStillImageA;
+  struct IStiDevice;
 #endif
 
-  STDMETHODIMP StiCreateInstanceW(HINSTANCE hinst,DWORD dwVer,interface IStillImageW **ppSti,LPUNKNOWN punkOuter);
-  STDMETHODIMP StiCreateInstanceA(HINSTANCE hinst,DWORD dwVer,interface IStillImageA **ppSti,LPUNKNOWN punkOuter);
+  STDMETHODIMP StiCreateInstanceW(HINSTANCE hinst,DWORD dwVer,struct IStillImageW **ppSti,LPUNKNOWN punkOuter);
+  STDMETHODIMP StiCreateInstanceA(HINSTANCE hinst,DWORD dwVer,struct IStillImageA **ppSti,LPUNKNOWN punkOuter);
 
 #if defined(UNICODE) || defined(STI_UNICODE)
 #define IID_IStillImage IID_IStillImageW
@@ -283,13 +283,13 @@ extern "C" {
 #define StiCreateInstance StiCreateInstanceA
 #endif
 
-  typedef interface IStiDevice *LPSTILLIMAGEDEVICE;
-  typedef interface IStillImage *PSTI;
-  typedef interface IStiDevice *PSTIDEVICE;
-  typedef interface IStillImageA *PSTIA;
-  typedef interface IStiDeviceA *PSTIDEVICEA;
-  typedef interface IStillImageW *PSTIW;
-  typedef interface IStiDeviceW *PSTIDEVICEW;
+  typedef struct IStiDevice *LPSTILLIMAGEDEVICE;
+  typedef struct IStillImage *PSTI;
+  typedef struct IStiDevice *PSTIDEVICE;
+  typedef struct IStillImageA *PSTIA;
+  typedef struct IStiDeviceA *PSTIDEVICEA;
+  typedef struct IStillImageW *PSTIW;
+  typedef struct IStiDeviceW *PSTIDEVICEW;
 
 #undef INTERFACE
 #define INTERFACE IStillImageW

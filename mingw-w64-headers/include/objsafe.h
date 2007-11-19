@@ -24,7 +24,7 @@
 
 #ifndef __IObjectSafety_FWD_DEFINED__
 #define __IObjectSafety_FWD_DEFINED__
-typedef interface IObjectSafety IObjectSafety;
+typedef struct IObjectSafety IObjectSafety;
 #endif
 
 #include "unknwn.h"
@@ -70,7 +70,7 @@ extern "C" {
       HRESULT (WINAPI *SetInterfaceSafetyOptions)(IObjectSafety *This,REFIID riid,DWORD dwOptionSetMask,DWORD dwEnabledOptions);
     END_INTERFACE
   } IObjectSafetyVtbl;
-  interface IObjectSafety {
+  struct IObjectSafety {
     CONST_VTBL struct IObjectSafetyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

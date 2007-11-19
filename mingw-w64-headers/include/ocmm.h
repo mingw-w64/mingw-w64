@@ -24,32 +24,32 @@
 
 #ifndef __ITimerService_FWD_DEFINED__
 #define __ITimerService_FWD_DEFINED__
-typedef interface ITimerService ITimerService;
+typedef struct ITimerService ITimerService;
 #endif
 
 #ifndef __ITimer_FWD_DEFINED__
 #define __ITimer_FWD_DEFINED__
-typedef interface ITimer ITimer;
+typedef struct ITimer ITimer;
 #endif
 
 #ifndef __ITimerSink_FWD_DEFINED__
 #define __ITimerSink_FWD_DEFINED__
-typedef interface ITimerSink ITimerSink;
+typedef struct ITimerSink ITimerSink;
 #endif
 
 #ifndef __IMapMIMEToCLSID_FWD_DEFINED__
 #define __IMapMIMEToCLSID_FWD_DEFINED__
-typedef interface IMapMIMEToCLSID IMapMIMEToCLSID;
+typedef struct IMapMIMEToCLSID IMapMIMEToCLSID;
 #endif
 
 #ifndef __IImageDecodeFilter_FWD_DEFINED__
 #define __IImageDecodeFilter_FWD_DEFINED__
-typedef interface IImageDecodeFilter IImageDecodeFilter;
+typedef struct IImageDecodeFilter IImageDecodeFilter;
 #endif
 
 #ifndef __IImageDecodeEventSink_FWD_DEFINED__
 #define __IImageDecodeEventSink_FWD_DEFINED__
-typedef interface IImageDecodeEventSink IImageDecodeEventSink;
+typedef struct IImageDecodeEventSink IImageDecodeEventSink;
 #endif
 
 #include "oaidl.h"
@@ -141,7 +141,7 @@ extern "C"{
       HRESULT (WINAPI *SetNamedTimerReference)(ITimerService *This,REFGUID rguidName,ITimer *pReferenceTimer);
     END_INTERFACE
   } ITimerServiceVtbl;
-  interface ITimerService {
+  struct ITimerService {
     CONST_VTBL struct ITimerServiceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -184,7 +184,7 @@ extern "C"{
       HRESULT (WINAPI *GetTime)(ITimer *This,VARIANT *pvtime);
     END_INTERFACE
   } ITimerVtbl;
-  interface ITimer {
+  struct ITimer {
     CONST_VTBL struct ITimerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -224,7 +224,7 @@ extern "C"{
       HRESULT (WINAPI *OnTimer)(ITimerSink *This,VARIANT vtimeAdvise);
     END_INTERFACE
   } ITimerSinkVtbl;
-  interface ITimerSink {
+  struct ITimerSink {
     CONST_VTBL struct ITimerSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -264,7 +264,7 @@ extern "C"{
       HRESULT (WINAPI *SetMapping)(IMapMIMEToCLSID *This,LPCOLESTR pszMIMEType,DWORD dwMapMode,REFCLSID clsid);
     END_INTERFACE
   } IMapMIMEToCLSIDVtbl;
-  interface IMapMIMEToCLSID {
+  struct IMapMIMEToCLSID {
     CONST_VTBL struct IMapMIMEToCLSIDVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -305,7 +305,7 @@ extern "C"{
       HRESULT (WINAPI *Terminate)(IImageDecodeFilter *This,HRESULT hrStatus);
     END_INTERFACE
   } IImageDecodeFilterVtbl;
-  interface IImageDecodeFilter {
+  struct IImageDecodeFilter {
     CONST_VTBL struct IImageDecodeFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -352,7 +352,7 @@ extern "C"{
       HRESULT (WINAPI *OnProgress)(IImageDecodeEventSink *This,RECT *pBounds,WINBOOL bComplete);
     END_INTERFACE
   } IImageDecodeEventSinkVtbl;
-  interface IImageDecodeEventSink {
+  struct IImageDecodeEventSink {
     CONST_VTBL struct IImageDecodeEventSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

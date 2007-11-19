@@ -24,102 +24,102 @@
 
 #ifndef __ICreateTypeInfo_FWD_DEFINED__
 #define __ICreateTypeInfo_FWD_DEFINED__
-typedef interface ICreateTypeInfo ICreateTypeInfo;
+typedef struct ICreateTypeInfo ICreateTypeInfo;
 #endif
 
 #ifndef __ICreateTypeInfo2_FWD_DEFINED__
 #define __ICreateTypeInfo2_FWD_DEFINED__
-typedef interface ICreateTypeInfo2 ICreateTypeInfo2;
+typedef struct ICreateTypeInfo2 ICreateTypeInfo2;
 #endif
 
 #ifndef __ICreateTypeLib_FWD_DEFINED__
 #define __ICreateTypeLib_FWD_DEFINED__
-typedef interface ICreateTypeLib ICreateTypeLib;
+typedef struct ICreateTypeLib ICreateTypeLib;
 #endif
 
 #ifndef __ICreateTypeLib2_FWD_DEFINED__
 #define __ICreateTypeLib2_FWD_DEFINED__
-typedef interface ICreateTypeLib2 ICreateTypeLib2;
+typedef struct ICreateTypeLib2 ICreateTypeLib2;
 #endif
 
 #ifndef __IDispatch_FWD_DEFINED__
 #define __IDispatch_FWD_DEFINED__
-typedef interface IDispatch IDispatch;
+typedef struct IDispatch IDispatch;
 #endif
 
 #ifndef __IEnumVARIANT_FWD_DEFINED__
 #define __IEnumVARIANT_FWD_DEFINED__
-typedef interface IEnumVARIANT IEnumVARIANT;
+typedef struct IEnumVARIANT IEnumVARIANT;
 #endif
 
 #ifndef __ITypeComp_FWD_DEFINED__
 #define __ITypeComp_FWD_DEFINED__
-typedef interface ITypeComp ITypeComp;
+typedef struct ITypeComp ITypeComp;
 #endif
 
 #ifndef __ITypeInfo_FWD_DEFINED__
 #define __ITypeInfo_FWD_DEFINED__
-typedef interface ITypeInfo ITypeInfo;
+typedef struct ITypeInfo ITypeInfo;
 #endif
 
 #ifndef __ITypeInfo2_FWD_DEFINED__
 #define __ITypeInfo2_FWD_DEFINED__
-typedef interface ITypeInfo2 ITypeInfo2;
+typedef struct ITypeInfo2 ITypeInfo2;
 #endif
 
 #ifndef __ITypeLib_FWD_DEFINED__
 #define __ITypeLib_FWD_DEFINED__
-typedef interface ITypeLib ITypeLib;
+typedef struct ITypeLib ITypeLib;
 #endif
 
 #ifndef __ITypeLib2_FWD_DEFINED__
 #define __ITypeLib2_FWD_DEFINED__
-typedef interface ITypeLib2 ITypeLib2;
+typedef struct ITypeLib2 ITypeLib2;
 #endif
 
 #ifndef __ITypeChangeEvents_FWD_DEFINED__
 #define __ITypeChangeEvents_FWD_DEFINED__
-typedef interface ITypeChangeEvents ITypeChangeEvents;
+typedef struct ITypeChangeEvents ITypeChangeEvents;
 #endif
 
 #ifndef __IErrorInfo_FWD_DEFINED__
 #define __IErrorInfo_FWD_DEFINED__
-typedef interface IErrorInfo IErrorInfo;
+typedef struct IErrorInfo IErrorInfo;
 #endif
 
 #ifndef __ICreateErrorInfo_FWD_DEFINED__
 #define __ICreateErrorInfo_FWD_DEFINED__
-typedef interface ICreateErrorInfo ICreateErrorInfo;
+typedef struct ICreateErrorInfo ICreateErrorInfo;
 #endif
 
 #ifndef __ISupportErrorInfo_FWD_DEFINED__
 #define __ISupportErrorInfo_FWD_DEFINED__
-typedef interface ISupportErrorInfo ISupportErrorInfo;
+typedef struct ISupportErrorInfo ISupportErrorInfo;
 #endif
 
 #ifndef __ITypeFactory_FWD_DEFINED__
 #define __ITypeFactory_FWD_DEFINED__
-typedef interface ITypeFactory ITypeFactory;
+typedef struct ITypeFactory ITypeFactory;
 #endif
 
 #ifndef __ITypeMarshal_FWD_DEFINED__
 #define __ITypeMarshal_FWD_DEFINED__
-typedef interface ITypeMarshal ITypeMarshal;
+typedef struct ITypeMarshal ITypeMarshal;
 #endif
 
 #ifndef __IRecordInfo_FWD_DEFINED__
 #define __IRecordInfo_FWD_DEFINED__
-typedef interface IRecordInfo IRecordInfo;
+typedef struct IRecordInfo IRecordInfo;
 #endif
 
 #ifndef __IErrorLog_FWD_DEFINED__
 #define __IErrorLog_FWD_DEFINED__
-typedef interface IErrorLog IErrorLog;
+typedef struct IErrorLog IErrorLog;
 #endif
 
 #ifndef __IPropertyBag_FWD_DEFINED__
 #define __IPropertyBag_FWD_DEFINED__
-typedef interface IPropertyBag IPropertyBag;
+typedef struct IPropertyBag IPropertyBag;
 #endif
 
 #include "objidl.h"
@@ -668,7 +668,7 @@ extern "C" {
       HRESULT (WINAPI *LayOut)(ICreateTypeInfo *This);
     END_INTERFACE
   } ICreateTypeInfoVtbl;
-  interface ICreateTypeInfo {
+  struct ICreateTypeInfo {
     CONST_VTBL struct ICreateTypeInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -818,7 +818,7 @@ extern "C" {
       HRESULT (WINAPI *SetName)(ICreateTypeInfo2 *This,LPOLESTR szName);
     END_INTERFACE
   } ICreateTypeInfo2Vtbl;
-  interface ICreateTypeInfo2 {
+  struct ICreateTypeInfo2 {
     CONST_VTBL struct ICreateTypeInfo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -937,7 +937,7 @@ extern "C" {
       HRESULT (WINAPI *SaveAllChanges)(ICreateTypeLib *This);
     END_INTERFACE
   } ICreateTypeLibVtbl;
-  interface ICreateTypeLib {
+  struct ICreateTypeLib {
     CONST_VTBL struct ICreateTypeLibVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1013,7 +1013,7 @@ extern "C" {
       HRESULT (WINAPI *SetHelpStringDll)(ICreateTypeLib2 *This,LPOLESTR szFileName);
     END_INTERFACE
   } ICreateTypeLib2Vtbl;
-  interface ICreateTypeLib2 {
+  struct ICreateTypeLib2 {
     CONST_VTBL struct ICreateTypeLib2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1083,7 +1083,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(IDispatch *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IDispatchVtbl;
-  interface IDispatch {
+  struct IDispatch {
     CONST_VTBL struct IDispatchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1131,7 +1131,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumVARIANT *This,IEnumVARIANT **ppEnum);
     END_INTERFACE
   } IEnumVARIANTVtbl;
-  interface IEnumVARIANT {
+  struct IEnumVARIANT {
     CONST_VTBL struct IEnumVARIANTVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1191,7 +1191,7 @@ extern "C" {
       HRESULT (WINAPI *BindType)(ITypeComp *This,LPOLESTR szName,ULONG lHashVal,ITypeInfo **ppTInfo,ITypeComp **ppTComp);
     END_INTERFACE
   } ITypeCompVtbl;
-  interface ITypeComp {
+  struct ITypeComp {
     CONST_VTBL struct ITypeCompVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1267,7 +1267,7 @@ extern "C" {
       void (WINAPI *ReleaseVarDesc)(ITypeInfo *This,VARDESC *pVarDesc);
     END_INTERFACE
   } ITypeInfoVtbl;
-  interface ITypeInfo {
+  struct ITypeInfo {
     CONST_VTBL struct ITypeInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1401,7 +1401,7 @@ extern "C" {
       HRESULT (WINAPI *GetAllImplTypeCustData)(ITypeInfo2 *This,UINT index,CUSTDATA *pCustData);
     END_INTERFACE
   } ITypeInfo2Vtbl;
-  interface ITypeInfo2 {
+  struct ITypeInfo2 {
     CONST_VTBL struct ITypeInfo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1535,7 +1535,7 @@ extern "C" {
       void (WINAPI *ReleaseTLibAttr)(ITypeLib *This,TLIBATTR *pTLibAttr);
     END_INTERFACE
   } ITypeLibVtbl;
-  interface ITypeLib {
+  struct ITypeLib {
     CONST_VTBL struct ITypeLibVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1611,7 +1611,7 @@ extern "C" {
       HRESULT (WINAPI *GetAllCustData)(ITypeLib2 *This,CUSTDATA *pCustData);
     END_INTERFACE
   } ITypeLib2Vtbl;
-  interface ITypeLib2 {
+  struct ITypeLib2 {
     CONST_VTBL struct ITypeLib2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1671,7 +1671,7 @@ extern "C" {
       HRESULT (WINAPI *AfterTypeChange)(ITypeChangeEvents *This,CHANGEKIND changeKind,ITypeInfo *pTInfoAfter,LPOLESTR pStrName);
     END_INTERFACE
   } ITypeChangeEventsVtbl;
-  interface ITypeChangeEvents {
+  struct ITypeChangeEvents {
     CONST_VTBL struct ITypeChangeEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1715,7 +1715,7 @@ extern "C" {
       HRESULT (WINAPI *GetHelpContext)(IErrorInfo *This,DWORD *pdwHelpContext);
     END_INTERFACE
   } IErrorInfoVtbl;
-  interface IErrorInfo {
+  struct IErrorInfo {
     CONST_VTBL struct IErrorInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1768,7 +1768,7 @@ extern "C" {
       HRESULT (WINAPI *SetHelpContext)(ICreateErrorInfo *This,DWORD dwHelpContext);
     END_INTERFACE
   } ICreateErrorInfoVtbl;
-  interface ICreateErrorInfo {
+  struct ICreateErrorInfo {
     CONST_VTBL struct ICreateErrorInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1813,7 +1813,7 @@ extern "C" {
       HRESULT (WINAPI *InterfaceSupportsErrorInfo)(ISupportErrorInfo *This,REFIID riid);
     END_INTERFACE
   } ISupportErrorInfoVtbl;
-  interface ISupportErrorInfo {
+  struct ISupportErrorInfo {
     CONST_VTBL struct ISupportErrorInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1844,7 +1844,7 @@ extern "C" {
       HRESULT (WINAPI *CreateFromTypeInfo)(ITypeFactory *This,ITypeInfo *pTypeInfo,REFIID riid,IUnknown **ppv);
     END_INTERFACE
   } ITypeFactoryVtbl;
-  interface ITypeFactory {
+  struct ITypeFactory {
     CONST_VTBL struct ITypeFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1881,7 +1881,7 @@ extern "C" {
       HRESULT (WINAPI *Free)(ITypeMarshal *This,PVOID pvType);
     END_INTERFACE
   } ITypeMarshalVtbl;
-  interface ITypeMarshal {
+  struct ITypeMarshal {
     CONST_VTBL struct ITypeMarshalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1953,7 +1953,7 @@ extern "C" {
       HRESULT (WINAPI *RecordDestroy)(IRecordInfo *This,PVOID pvRecord);
     END_INTERFACE
   } IRecordInfoVtbl;
-  interface IRecordInfo {
+  struct IRecordInfo {
     CONST_VTBL struct IRecordInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2031,7 +2031,7 @@ extern "C" {
       HRESULT (WINAPI *AddError)(IErrorLog *This,LPCOLESTR pszPropName,EXCEPINFO *pExcepInfo);
     END_INTERFACE
   } IErrorLogVtbl;
-  interface IErrorLog {
+  struct IErrorLog {
     CONST_VTBL struct IErrorLogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2066,7 +2066,7 @@ extern "C" {
       HRESULT (WINAPI *Write)(IPropertyBag *This,LPCOLESTR pszPropName,VARIANT *pVar);
     END_INTERFACE
   } IPropertyBagVtbl;
-  interface IPropertyBag {
+  struct IPropertyBag {
     CONST_VTBL struct IPropertyBagVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

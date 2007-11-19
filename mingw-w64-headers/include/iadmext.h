@@ -33,7 +33,7 @@ extern "C"{
 #define __IADMEXT_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IADMEXT;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IADMEXT : public IUnknown {
+  struct IADMEXT : public IUnknown {
 public:
   virtual HRESULT WINAPI Initialize(void) = 0;
   virtual HRESULT WINAPI EnumDcomCLSIDs(CLSID *pclsidDcom,DWORD dwEnumIndex) = 0;

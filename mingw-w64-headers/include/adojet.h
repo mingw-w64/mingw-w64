@@ -15,22 +15,22 @@
 
 #ifndef __IReplica_FWD_DEFINED__
 #define __IReplica_FWD_DEFINED__
-typedef interface IReplica IReplica;
+typedef struct IReplica IReplica;
 #endif
 
 #ifndef __Filter_FWD_DEFINED__
 #define __Filter_FWD_DEFINED__
-typedef interface Filter Filter;
+typedef struct Filter Filter;
 #endif
 
 #ifndef __Filters_FWD_DEFINED__
 #define __Filters_FWD_DEFINED__
-typedef interface Filters Filters;
+typedef struct Filters Filters;
 #endif
 
 #ifndef __IJetEngine_FWD_DEFINED__
 #define __IJetEngine_FWD_DEFINED__
-typedef interface IJetEngine IJetEngine;
+typedef struct IJetEngine IJetEngine;
 #endif
 
 #ifndef __Replica_FWD_DEFINED__
@@ -153,7 +153,7 @@ extern "C"{
       HRESULT (WINAPI *get_Filters)(IReplica *This,Filters **ppFilters);
     END_INTERFACE
   } IReplicaVtbl;
-  interface IReplica {
+  struct IReplica {
     CONST_VTBL struct IReplicaVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -256,7 +256,7 @@ extern "C"{
       HRESULT (WINAPI *get_FilterCriteria)(Filter *This,BSTR *pbstr);
     END_INTERFACE
   } FilterVtbl;
-  interface Filter {
+  struct Filter {
     CONST_VTBL struct FilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -311,7 +311,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(Filters *This,VARIANT Index);
     END_INTERFACE
   } FiltersVtbl;
-  interface Filters {
+  struct Filters {
     CONST_VTBL struct FiltersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -367,7 +367,7 @@ extern "C"{
       HRESULT (WINAPI *RefreshCache)(IJetEngine *This,_Connection *Connection);
     END_INTERFACE
   } IJetEngineVtbl;
-  interface IJetEngine {
+  struct IJetEngine {
     CONST_VTBL struct IJetEngineVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

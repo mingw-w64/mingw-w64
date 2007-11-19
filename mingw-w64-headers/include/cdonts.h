@@ -24,52 +24,52 @@
 
 #ifndef __INewMail_FWD_DEFINED__
 #define __INewMail_FWD_DEFINED__
-typedef interface INewMail INewMail;
+typedef struct INewMail INewMail;
 #endif
 
 #ifndef __ISession_FWD_DEFINED__
 #define __ISession_FWD_DEFINED__
-typedef interface ISession ISession;
+typedef struct ISession ISession;
 #endif
 
 #ifndef __Folder_FWD_DEFINED__
 #define __Folder_FWD_DEFINED__
-typedef interface Folder Folder;
+typedef struct Folder Folder;
 #endif
 
 #ifndef __Messages_FWD_DEFINED__
 #define __Messages_FWD_DEFINED__
-typedef interface Messages Messages;
+typedef struct Messages Messages;
 #endif
 
 #ifndef __Message_FWD_DEFINED__
 #define __Message_FWD_DEFINED__
-typedef interface Message Message;
+typedef struct Message Message;
 #endif
 
 #ifndef __Recipients_FWD_DEFINED__
 #define __Recipients_FWD_DEFINED__
-typedef interface Recipients Recipients;
+typedef struct Recipients Recipients;
 #endif
 
 #ifndef __Recipient_FWD_DEFINED__
 #define __Recipient_FWD_DEFINED__
-typedef interface Recipient Recipient;
+typedef struct Recipient Recipient;
 #endif
 
 #ifndef __Attachments_FWD_DEFINED__
 #define __Attachments_FWD_DEFINED__
-typedef interface Attachments Attachments;
+typedef struct Attachments Attachments;
 #endif
 
 #ifndef __Attachment_FWD_DEFINED__
 #define __Attachment_FWD_DEFINED__
-typedef interface Attachment Attachment;
+typedef struct Attachment Attachment;
 #endif
 
 #ifndef __AddressEntry_FWD_DEFINED__
 #define __AddressEntry_FWD_DEFINED__
-typedef interface AddressEntry AddressEntry;
+typedef struct AddressEntry AddressEntry;
 #endif
 
 #ifndef __NewMail_FWD_DEFINED__
@@ -92,42 +92,42 @@ typedef struct Session Session;
 
 #ifndef __AddressEntry_FWD_DEFINED__
 #define __AddressEntry_FWD_DEFINED__
-typedef interface AddressEntry AddressEntry;
+typedef struct AddressEntry AddressEntry;
 #endif
 
 #ifndef __Attachment_FWD_DEFINED__
 #define __Attachment_FWD_DEFINED__
-typedef interface Attachment Attachment;
+typedef struct Attachment Attachment;
 #endif
 
 #ifndef __Attachments_FWD_DEFINED__
 #define __Attachments_FWD_DEFINED__
-typedef interface Attachments Attachments;
+typedef struct Attachments Attachments;
 #endif
 
 #ifndef __Folder_FWD_DEFINED__
 #define __Folder_FWD_DEFINED__
-typedef interface Folder Folder;
+typedef struct Folder Folder;
 #endif
 
 #ifndef __Messages_FWD_DEFINED__
 #define __Messages_FWD_DEFINED__
-typedef interface Messages Messages;
+typedef struct Messages Messages;
 #endif
 
 #ifndef __Message_FWD_DEFINED__
 #define __Message_FWD_DEFINED__
-typedef interface Message Message;
+typedef struct Message Message;
 #endif
 
 #ifndef __Recipient_FWD_DEFINED__
 #define __Recipient_FWD_DEFINED__
-typedef interface Recipient Recipient;
+typedef struct Recipient Recipient;
 #endif
 
 #ifndef __Recipients_FWD_DEFINED__
 #define __Recipients_FWD_DEFINED__
-typedef interface Recipients Recipients;
+typedef struct Recipients Recipients;
 #endif
 
 #include "oaidl.h"
@@ -232,7 +232,7 @@ extern "C"{
       HRESULT (WINAPI *get_Version)(INewMail *This,BSTR *Version);
     END_INTERFACE
   } INewMailVtbl;
-  interface INewMail {
+  struct INewMail {
     CONST_VTBL struct INewMailVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -349,7 +349,7 @@ extern "C"{
       HRESULT (WINAPI *SetReserved)(ISession *This,VARIANT var1,VARIANT var2);
     END_INTERFACE
   } ISessionVtbl;
-  interface ISession {
+  struct ISession {
     CONST_VTBL struct ISessionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -443,7 +443,7 @@ extern "C"{
       HRESULT (WINAPI *get_Messages)(Folder *This,VARIANT *varMessages);
     END_INTERFACE
   } FolderVtbl;
-  interface Folder {
+  struct Folder {
     CONST_VTBL struct FolderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -521,7 +521,7 @@ extern "C"{
       HRESULT (WINAPI *GetPrevious)(Messages *This,VARIANT *pvarResult);
     END_INTERFACE
   } MessagesVtbl;
-  interface Messages {
+  struct Messages {
     CONST_VTBL struct MessagesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -654,7 +654,7 @@ extern "C"{
       HRESULT (WINAPI *Send)(Message *This);
     END_INTERFACE
   } MessageVtbl;
-  interface Message {
+  struct Message {
     CONST_VTBL struct MessageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -796,7 +796,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(Recipients *This);
     END_INTERFACE
   } RecipientsVtbl;
-  interface Recipients {
+  struct Recipients {
     CONST_VTBL struct RecipientsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -879,7 +879,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(Recipient *This);
     END_INTERFACE
   } RecipientVtbl;
-  interface Recipient {
+  struct Recipient {
     CONST_VTBL struct RecipientVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -964,7 +964,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(Attachments *This);
     END_INTERFACE
   } AttachmentsVtbl;
-  interface Attachments {
+  struct Attachments {
     CONST_VTBL struct AttachmentsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1057,7 +1057,7 @@ extern "C"{
       HRESULT (WINAPI *WriteToFile)(Attachment *This,BSTR FileName);
     END_INTERFACE
   } AttachmentVtbl;
-  interface Attachment {
+  struct Attachment {
     CONST_VTBL struct AttachmentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1153,7 +1153,7 @@ extern "C"{
       HRESULT (WINAPI *get_Type)(AddressEntry *This,BSTR *varType);
     END_INTERFACE
   } AddressEntryVtbl;
-  interface AddressEntry {
+  struct AddressEntry {
     CONST_VTBL struct AddressEntryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

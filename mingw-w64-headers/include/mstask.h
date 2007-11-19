@@ -24,32 +24,32 @@
 
 #ifndef __ITaskTrigger_FWD_DEFINED__
 #define __ITaskTrigger_FWD_DEFINED__
-typedef interface ITaskTrigger ITaskTrigger;
+typedef struct ITaskTrigger ITaskTrigger;
 #endif
 
 #ifndef __IScheduledWorkItem_FWD_DEFINED__
 #define __IScheduledWorkItem_FWD_DEFINED__
-typedef interface IScheduledWorkItem IScheduledWorkItem;
+typedef struct IScheduledWorkItem IScheduledWorkItem;
 #endif
 
 #ifndef __ITask_FWD_DEFINED__
 #define __ITask_FWD_DEFINED__
-typedef interface ITask ITask;
+typedef struct ITask ITask;
 #endif
 
 #ifndef __IEnumWorkItems_FWD_DEFINED__
 #define __IEnumWorkItems_FWD_DEFINED__
-typedef interface IEnumWorkItems IEnumWorkItems;
+typedef struct IEnumWorkItems IEnumWorkItems;
 #endif
 
 #ifndef __ITaskScheduler_FWD_DEFINED__
 #define __ITaskScheduler_FWD_DEFINED__
-typedef interface ITaskScheduler ITaskScheduler;
+typedef struct ITaskScheduler ITaskScheduler;
 #endif
 
 #ifndef __IProvideTaskPage_FWD_DEFINED__
 #define __IProvideTaskPage_FWD_DEFINED__
-typedef interface IProvideTaskPage IProvideTaskPage;
+typedef struct IProvideTaskPage IProvideTaskPage;
 #endif
 
 #include "oaidl.h"
@@ -186,7 +186,7 @@ extern "C" {
       HRESULT (WINAPI *GetTriggerString)(ITaskTrigger *This,LPWSTR *ppwszTrigger);
     END_INTERFACE
   } ITaskTriggerVtbl;
-  interface ITaskTrigger {
+  struct ITaskTrigger {
     CONST_VTBL struct ITaskTriggerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -282,7 +282,7 @@ extern "C" {
       HRESULT (WINAPI *GetAccountInformation)(IScheduledWorkItem *This,LPWSTR *ppwszAccountName);
     END_INTERFACE
   } IScheduledWorkItemVtbl;
-  interface IScheduledWorkItem {
+  struct IScheduledWorkItem {
     CONST_VTBL struct IScheduledWorkItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -453,7 +453,7 @@ extern "C" {
       HRESULT (WINAPI *GetMaxRunTime)(ITask *This,DWORD *pdwMaxRunTimeMS);
     END_INTERFACE
   } ITaskVtbl;
-  interface ITask {
+  struct ITask {
     CONST_VTBL struct ITaskVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -557,7 +557,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumWorkItems *This,IEnumWorkItems **ppEnumWorkItems);
     END_INTERFACE
   } IEnumWorkItemsVtbl;
-  interface IEnumWorkItems {
+  struct IEnumWorkItems {
     CONST_VTBL struct IEnumWorkItemsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -616,7 +616,7 @@ extern "C" {
       HRESULT (WINAPI *IsOfType)(ITaskScheduler *This,LPCWSTR pwszName,REFIID riid);
     END_INTERFACE
   } ITaskSchedulerVtbl;
-  interface ITaskScheduler {
+  struct ITaskScheduler {
     CONST_VTBL struct ITaskSchedulerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -685,7 +685,7 @@ extern "C" {
       HRESULT (WINAPI *GetPage)(IProvideTaskPage *This,TASKPAGE tpType,WINBOOL fPersistChanges,HPROPSHEETPAGE *phPage);
     END_INTERFACE
   } IProvideTaskPageVtbl;
-  interface IProvideTaskPage {
+  struct IProvideTaskPage {
     CONST_VTBL struct IProvideTaskPageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

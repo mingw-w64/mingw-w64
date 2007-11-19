@@ -20,67 +20,67 @@
 
 #ifndef ___ADOCollection_FWD_DEFINED__
 #define ___ADOCollection_FWD_DEFINED__
-typedef interface _ADOCollection _ADOCollection;
+typedef struct _ADOCollection _ADOCollection;
 #endif
 #ifndef ___ADODynaCollection_FWD_DEFINED__
 #define ___ADODynaCollection_FWD_DEFINED__
-typedef interface _ADODynaCollection _ADODynaCollection;
+typedef struct _ADODynaCollection _ADODynaCollection;
 #endif
 #ifndef ___ADO_FWD_DEFINED__
 #define ___ADO_FWD_DEFINED__
-typedef interface _ADO _ADO;
+typedef struct _ADO _ADO;
 #endif
 #ifndef __Error_FWD_DEFINED__
 #define __Error_FWD_DEFINED__
-typedef interface ADOError Error;
+typedef struct ADOError Error;
 #endif
 #ifndef __Errors_FWD_DEFINED__
 #define __Errors_FWD_DEFINED__
-typedef interface ADOErrors Errors;
+typedef struct ADOErrors Errors;
 #endif
 #ifndef __Command15_FWD_DEFINED__
 #define __Command15_FWD_DEFINED__
-typedef interface Command15 Command15;
+typedef struct Command15 Command15;
 #endif
 #ifndef __Command25_FWD_DEFINED__
 #define __Command25_FWD_DEFINED__
-typedef interface Command25 Command25;
+typedef struct Command25 Command25;
 #endif
 #ifndef ___Command_FWD_DEFINED__
 #define ___Command_FWD_DEFINED__
-typedef interface _ADOCommand _Command;
+typedef struct _ADOCommand _Command;
 #endif
 #ifndef __ConnectionEventsVt_FWD_DEFINED__
 #define __ConnectionEventsVt_FWD_DEFINED__
-typedef interface ConnectionEventsVt ConnectionEventsVt;
+typedef struct ConnectionEventsVt ConnectionEventsVt;
 #endif
 #ifndef __RecordsetEventsVt_FWD_DEFINED__
 #define __RecordsetEventsVt_FWD_DEFINED__
-typedef interface RecordsetEventsVt RecordsetEventsVt;
+typedef struct RecordsetEventsVt RecordsetEventsVt;
 #endif
 #ifndef __ConnectionEvents_FWD_DEFINED__
 #define __ConnectionEvents_FWD_DEFINED__
-typedef interface ConnectionEvents ConnectionEvents;
+typedef struct ConnectionEvents ConnectionEvents;
 #endif
 #ifndef __RecordsetEvents_FWD_DEFINED__
 #define __RecordsetEvents_FWD_DEFINED__
-typedef interface RecordsetEvents RecordsetEvents;
+typedef struct RecordsetEvents RecordsetEvents;
 #endif
 #ifndef __Connection15_FWD_DEFINED__
 #define __Connection15_FWD_DEFINED__
-typedef interface Connection15 Connection15;
+typedef struct Connection15 Connection15;
 #endif
 #ifndef ___Connection_FWD_DEFINED__
 #define ___Connection_FWD_DEFINED__
-typedef interface _ADOConnection _Connection;
+typedef struct _ADOConnection _Connection;
 #endif
 #ifndef __ADOConnectionConstruction15_FWD_DEFINED__
 #define __ADOConnectionConstruction15_FWD_DEFINED__
-typedef interface ADOConnectionConstruction15 ADOConnectionConstruction15;
+typedef struct ADOConnectionConstruction15 ADOConnectionConstruction15;
 #endif
 #ifndef __ADOConnectionConstruction_FWD_DEFINED__
 #define __ADOConnectionConstruction_FWD_DEFINED__
-typedef interface ADOConnectionConstruction ADOConnectionConstruction;
+typedef struct ADOConnectionConstruction ADOConnectionConstruction;
 #endif
 #ifndef __Connection_FWD_DEFINED__
 #define __Connection_FWD_DEFINED__
@@ -92,7 +92,7 @@ typedef struct ADOConnection Connection;
 #endif
 #ifndef ___Record_FWD_DEFINED__
 #define ___Record_FWD_DEFINED__
-typedef interface _ADORecord _Record;
+typedef struct _ADORecord _Record;
 #endif
 #ifndef __Record_FWD_DEFINED__
 #define __Record_FWD_DEFINED__
@@ -104,7 +104,7 @@ typedef struct ADORecord Record;
 #endif
 #ifndef ___Stream_FWD_DEFINED__
 #define ___Stream_FWD_DEFINED__
-typedef interface _ADOStream _Stream;
+typedef struct _ADOStream _Stream;
 #endif
 #ifndef __Stream_FWD_DEFINED__
 #define __Stream_FWD_DEFINED__
@@ -116,15 +116,15 @@ typedef struct ADOStream Stream;
 #endif
 #ifndef __ADORecordConstruction_FWD_DEFINED__
 #define __ADORecordConstruction_FWD_DEFINED__
-typedef interface ADORecordConstruction ADORecordConstruction;
+typedef struct ADORecordConstruction ADORecordConstruction;
 #endif
 #ifndef __ADOStreamConstruction_FWD_DEFINED__
 #define __ADOStreamConstruction_FWD_DEFINED__
-typedef interface ADOStreamConstruction ADOStreamConstruction;
+typedef struct ADOStreamConstruction ADOStreamConstruction;
 #endif
 #ifndef __ADOCommandConstruction_FWD_DEFINED__
 #define __ADOCommandConstruction_FWD_DEFINED__
-typedef interface ADOCommandConstruction ADOCommandConstruction;
+typedef struct ADOCommandConstruction ADOCommandConstruction;
 #endif
 #ifndef __Command_FWD_DEFINED__
 #define __Command_FWD_DEFINED__
@@ -144,51 +144,51 @@ typedef struct ADORecordset Recordset;
 #endif
 #ifndef __Recordset15_FWD_DEFINED__
 #define __Recordset15_FWD_DEFINED__
-typedef interface Recordset15 Recordset15;
+typedef struct Recordset15 Recordset15;
 #endif
 #ifndef __Recordset20_FWD_DEFINED__
 #define __Recordset20_FWD_DEFINED__
-typedef interface Recordset20 Recordset20;
+typedef struct Recordset20 Recordset20;
 #endif
 #ifndef __Recordset21_FWD_DEFINED__
 #define __Recordset21_FWD_DEFINED__
-typedef interface Recordset21 Recordset21;
+typedef struct Recordset21 Recordset21;
 #endif
 #ifndef ___Recordset_FWD_DEFINED__
 #define ___Recordset_FWD_DEFINED__
-typedef interface _ADORecordset _Recordset;
+typedef struct _ADORecordset _Recordset;
 #endif
 #ifndef __ADORecordsetConstruction_FWD_DEFINED__
 #define __ADORecordsetConstruction_FWD_DEFINED__
-typedef interface ADORecordsetConstruction ADORecordsetConstruction;
+typedef struct ADORecordsetConstruction ADORecordsetConstruction;
 #endif
 #ifndef __Field15_FWD_DEFINED__
 #define __Field15_FWD_DEFINED__
-typedef interface Field15 Field15;
+typedef struct Field15 Field15;
 #endif
 #ifndef __Field20_FWD_DEFINED__
 #define __Field20_FWD_DEFINED__
-typedef interface Field20 Field20;
+typedef struct Field20 Field20;
 #endif
 #ifndef __Field_FWD_DEFINED__
 #define __Field_FWD_DEFINED__
-typedef interface ADOField Field;
+typedef struct ADOField Field;
 #endif
 #ifndef __Fields15_FWD_DEFINED__
 #define __Fields15_FWD_DEFINED__
-typedef interface Fields15 Fields15;
+typedef struct Fields15 Fields15;
 #endif
 #ifndef __Fields20_FWD_DEFINED__
 #define __Fields20_FWD_DEFINED__
-typedef interface Fields20 Fields20;
+typedef struct Fields20 Fields20;
 #endif
 #ifndef __Fields_FWD_DEFINED__
 #define __Fields_FWD_DEFINED__
-typedef interface ADOFields Fields;
+typedef struct ADOFields Fields;
 #endif
 #ifndef ___Parameter_FWD_DEFINED__
 #define ___Parameter_FWD_DEFINED__
-typedef interface _ADOParameter _Parameter;
+typedef struct _ADOParameter _Parameter;
 #endif
 #ifndef __Parameter_FWD_DEFINED__
 #define __Parameter_FWD_DEFINED__
@@ -200,15 +200,15 @@ typedef struct ADOParameter Parameter;
 #endif
 #ifndef __Parameters_FWD_DEFINED__
 #define __Parameters_FWD_DEFINED__
-typedef interface ADOParameters Parameters;
+typedef struct ADOParameters Parameters;
 #endif
 #ifndef __Property_FWD_DEFINED__
 #define __Property_FWD_DEFINED__
-typedef interface ADOProperty Property;
+typedef struct ADOProperty Property;
 #endif
 #ifndef __Properties_FWD_DEFINED__
 #define __Properties_FWD_DEFINED__
-typedef interface ADOProperties Properties;
+typedef struct ADOProperties Properties;
 #endif
 #ifdef __cplusplus
 extern "C"{
@@ -514,7 +514,7 @@ extern "C"{
       HRESULT (WINAPI *Refresh)(_ADOCollection *This);
     END_INTERFACE
   } _ADOCollectionVtbl;
-  interface _ADOCollection {
+  struct _ADOCollection {
     CONST_VTBL struct _ADOCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -564,7 +564,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(_ADODynaCollection *This,VARIANT Index);
     END_INTERFACE
   } _ADODynaCollectionVtbl;
-  interface _ADODynaCollection {
+  struct _ADODynaCollection {
     CONST_VTBL struct _ADODynaCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -609,7 +609,7 @@ extern "C"{
       HRESULT (WINAPI *get_Properties)(_ADO *This,ADOProperties **ppvObject);
     END_INTERFACE
   } _ADOVtbl;
-  interface _ADO {
+  struct _ADO {
     CONST_VTBL struct _ADOVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -660,7 +660,7 @@ extern "C"{
       HRESULT (WINAPI *get_NativeError)(ADOError *This,long *pl);
     END_INTERFACE
   } ErrorVtbl;
-  interface Error {
+  struct Error {
     CONST_VTBL struct ErrorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -722,7 +722,7 @@ extern "C"{
       HRESULT (WINAPI *Clear)(ADOErrors *This);
     END_INTERFACE
   } ErrorsVtbl;
-  interface Errors {
+  struct Errors {
     CONST_VTBL struct ErrorsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -798,7 +798,7 @@ extern "C"{
       HRESULT (WINAPI *put_Name)(Command15 *This,BSTR bstrName);
     END_INTERFACE
   } Command15Vtbl;
-  interface Command15 {
+  struct Command15 {
     CONST_VTBL struct Command15Vtbl *lpVtbl;
   };
 
@@ -903,7 +903,7 @@ extern "C"{
       HRESULT (WINAPI *Cancel)(Command25 *This);
     END_INTERFACE
   } Command25Vtbl;
-  interface Command25 {
+  struct Command25 {
     CONST_VTBL struct Command25Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -991,7 +991,7 @@ extern "C"{
       HRESULT (WINAPI *get_NamedParameters)(_ADOCommand *This,VARIANT_BOOL *pfNamedParameters);
     END_INTERFACE
   } _CommandVtbl;
-  interface _Command {
+  struct _Command {
     CONST_VTBL struct _CommandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1077,7 +1077,7 @@ extern "C"{
       HRESULT (WINAPI *Disconnect)(ConnectionEventsVt *This,EventStatusEnum *adStatus,_ADOConnection *pConnection);
     END_INTERFACE
   } ConnectionEventsVtVtbl;
-  interface ConnectionEventsVt {
+  struct ConnectionEventsVt {
     CONST_VTBL struct ConnectionEventsVtVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1152,7 +1152,7 @@ extern "C"{
       HRESULT (WINAPI *FetchComplete)(RecordsetEventsVt *This,ADOError *pError,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
     END_INTERFACE
   } RecordsetEventsVtVtbl;
-  interface RecordsetEventsVt {
+  struct RecordsetEventsVt {
     CONST_VTBL struct RecordsetEventsVtVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1214,7 +1214,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(ConnectionEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } ConnectionEventsVtbl;
-  interface ConnectionEvents {
+  struct ConnectionEvents {
     CONST_VTBL struct ConnectionEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1247,7 +1247,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(RecordsetEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } RecordsetEventsVtbl;
-  interface RecordsetEvents {
+  struct RecordsetEvents {
     CONST_VTBL struct RecordsetEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1338,7 +1338,7 @@ extern "C"{
       HRESULT (WINAPI *OpenSchema)(Connection15 *This,SchemaEnum Schema,VARIANT Restrictions,VARIANT SchemaID,_ADORecordset **pprset);
     END_INTERFACE
   } Connection15Vtbl;
-  interface Connection15 {
+  struct Connection15 {
     CONST_VTBL struct Connection15Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1488,7 +1488,7 @@ extern "C"{
       HRESULT (WINAPI *Cancel)(_ADOConnection *This);
     END_INTERFACE
   } _ConnectionVtbl;
-  interface _Connection {
+  struct _Connection {
     CONST_VTBL struct _ConnectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1556,7 +1556,7 @@ extern "C"{
       HRESULT (WINAPI *WrapDSOandSession)(ADOConnectionConstruction15 *This,IUnknown *pDSO,IUnknown *pSession);
     END_INTERFACE
   } ADOConnectionConstruction15Vtbl;
-  interface ADOConnectionConstruction15 {
+  struct ADOConnectionConstruction15 {
     CONST_VTBL struct ADOConnectionConstruction15Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1594,7 +1594,7 @@ extern "C"{
       HRESULT (WINAPI *WrapDSOandSession)(ADOConnectionConstruction *This,IUnknown *pDSO,IUnknown *pSession);
     END_INTERFACE
   } ADOConnectionConstructionVtbl;
-  interface ADOConnectionConstruction {
+  struct ADOConnectionConstruction {
     CONST_VTBL struct ADOConnectionConstructionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1670,7 +1670,7 @@ extern "C"{
       HRESULT (WINAPI *Cancel)(_ADORecord *This);
     END_INTERFACE
   } _RecordVtbl;
-  interface _Record {
+  struct _Record {
     CONST_VTBL struct _RecordVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1818,7 +1818,7 @@ extern "C"{
       HRESULT (WINAPI *Cancel)(_ADOStream *This);
     END_INTERFACE
   } _StreamVtbl;
-  interface _Stream {
+  struct _Stream {
     CONST_VTBL struct _StreamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1940,7 +1940,7 @@ extern "C"{
       HRESULT (WINAPI *put_ParentRow)(ADORecordConstruction *This,IUnknown *pRow);
     END_INTERFACE
   } ADORecordConstructionVtbl;
-  interface ADORecordConstruction {
+  struct ADORecordConstruction {
     CONST_VTBL struct ADORecordConstructionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1987,7 +1987,7 @@ extern "C"{
       HRESULT (WINAPI *put_Stream)(ADOStreamConstruction *This,IUnknown *pStm);
     END_INTERFACE
   } ADOStreamConstructionVtbl;
-  interface ADOStreamConstruction {
+  struct ADOStreamConstruction {
     CONST_VTBL struct ADOStreamConstructionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2027,7 +2027,7 @@ extern "C"{
       HRESULT (WINAPI *put_OLEDBCommand)(ADOCommandConstruction *This,IUnknown *pOLEDBCommand);
     END_INTERFACE
   } ADOCommandConstructionVtbl;
-  interface ADOCommandConstruction {
+  struct ADOCommandConstruction {
     CONST_VTBL struct ADOCommandConstructionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2192,7 +2192,7 @@ extern "C"{
       HRESULT (WINAPI *Find)(Recordset15 *This,BSTR Criteria,ADO_LONGPTR SkipRecords,SearchDirectionEnum SearchDirection,VARIANT Start);
     END_INTERFACE
   } Recordset15Vtbl;
-  interface Recordset15 {
+  struct Recordset15 {
     CONST_VTBL struct Recordset15Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2494,7 +2494,7 @@ extern "C"{
       HRESULT (WINAPI *Resync)(Recordset20 *This,AffectEnum AffectRecords,ResyncEnum ResyncValues);
     END_INTERFACE
   } Recordset20Vtbl;
-  interface Recordset20 {
+  struct Recordset20 {
     CONST_VTBL struct Recordset20Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2708,7 +2708,7 @@ extern "C"{
       HRESULT (WINAPI *get_Index)(Recordset21 *This,BSTR *pbstrIndex);
     END_INTERFACE
   } Recordset21Vtbl;
-  interface Recordset21 {
+  struct Recordset21 {
     CONST_VTBL struct Recordset21Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2904,7 +2904,7 @@ extern "C"{
       HRESULT (WINAPI *Save)(_ADORecordset *This,VARIANT Destination,PersistFormatEnum PersistFormat);
     END_INTERFACE
   } _RecordsetVtbl;
-  interface _Recordset {
+  struct _Recordset {
     CONST_VTBL struct _RecordsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3030,7 +3030,7 @@ extern "C"{
       HRESULT (WINAPI *put_RowPosition)(ADORecordsetConstruction *This,IUnknown *pRowPos);
     END_INTERFACE
   } ADORecordsetConstructionVtbl;
-  interface ADORecordsetConstruction {
+  struct ADORecordsetConstruction {
     CONST_VTBL struct ADORecordsetConstructionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3109,7 +3109,7 @@ extern "C"{
       HRESULT (WINAPI *get_UnderlyingValue)(Field15 *This,VARIANT *pvar);
     END_INTERFACE
   } Field15Vtbl;
-  interface Field15 {
+  struct Field15 {
     CONST_VTBL struct Field15Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3224,7 +3224,7 @@ extern "C"{
       HRESULT (WINAPI *put_Attributes)(Field20 *This,long lAttributes);
     END_INTERFACE
   } Field20Vtbl;
-  interface Field20 {
+  struct Field20 {
     CONST_VTBL struct Field20Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3342,7 +3342,7 @@ extern "C"{
       HRESULT (WINAPI *get_Status)(ADOField *This,long *pFStatus);
     END_INTERFACE
   } FieldVtbl;
-  interface Field {
+  struct Field {
     CONST_VTBL struct FieldVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3405,7 +3405,7 @@ extern "C"{
       HRESULT (WINAPI *get_Item)(Fields15 *This,VARIANT Index,ADOField **ppvObject);
     END_INTERFACE
   } Fields15Vtbl;
-  interface Fields15 {
+  struct Fields15 {
     CONST_VTBL struct Fields15Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3453,7 +3453,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(Fields20 *This,VARIANT Index);
     END_INTERFACE
   } Fields20Vtbl;
-  interface Fields20 {
+  struct Fields20 {
     CONST_VTBL struct Fields20Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3511,7 +3511,7 @@ extern "C"{
       HRESULT (WINAPI *CancelUpdate)(ADOFields *This);
     END_INTERFACE
   } FieldsVtbl;
-  interface Fields {
+  struct Fields {
     CONST_VTBL struct FieldsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3598,7 +3598,7 @@ extern "C"{
       HRESULT (WINAPI *put_Attributes)(_ADOParameter *This,LONG lParmAttribs);
     END_INTERFACE
   } _ParameterVtbl;
-  interface _Parameter {
+  struct _Parameter {
     CONST_VTBL struct _ParameterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3673,7 +3673,7 @@ extern "C"{
 #define __Parameters_INTERFACE_DEFINED__
   EXTERN_C const IID IID_Parameters;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct 
+  struct
 ADOParameters : public _ADODynaCollection {
   public:
     virtual HRESULT WINAPI get_Item(VARIANT Index,_ADOParameter **ppvObject) = 0;
@@ -3696,7 +3696,7 @@ ADOParameters : public _ADODynaCollection {
       HRESULT (WINAPI *get_Item)(ADOParameters *This,VARIANT Index,_ADOParameter **ppvObject);
     END_INTERFACE
   } ParametersVtbl;
-  interface Parameters {
+  struct Parameters {
     CONST_VTBL struct ParametersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3750,7 +3750,7 @@ ADOParameters : public _ADODynaCollection {
       HRESULT (WINAPI *put_Attributes)(ADOProperty *This,long lAttributes);
     END_INTERFACE
   } PropertyVtbl;
-  interface Property {
+  struct Property {
     CONST_VTBL struct PropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3808,7 +3808,7 @@ ADOParameters : public _ADODynaCollection {
       HRESULT (WINAPI *get_Item)(ADOProperties *This,VARIANT Index,ADOProperty **ppvObject);
     END_INTERFACE
   } PropertiesVtbl;
-  interface Properties {
+  struct Properties {
     CONST_VTBL struct PropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,17 +24,17 @@
 
 #ifndef __IWamAdmin_FWD_DEFINED__
 #define __IWamAdmin_FWD_DEFINED__
-typedef interface IWamAdmin IWamAdmin;
+typedef struct IWamAdmin IWamAdmin;
 #endif
 
 #ifndef __IWamAdmin2_FWD_DEFINED__
 #define __IWamAdmin2_FWD_DEFINED__
-typedef interface IWamAdmin2 IWamAdmin2;
+typedef struct IWamAdmin2 IWamAdmin2;
 #endif
 
 #ifndef __IIISApplicationAdmin_FWD_DEFINED__
 #define __IIISApplicationAdmin_FWD_DEFINED__
-typedef interface IIISApplicationAdmin IIISApplicationAdmin;
+typedef struct IIISApplicationAdmin IIISApplicationAdmin;
 #endif
 
 #ifndef __WamAdmin_FWD_DEFINED__
@@ -102,7 +102,7 @@ extern "C"{
       HRESULT (WINAPI *AppRecover)(IWamAdmin *This,LPCWSTR szMDPath,WINBOOL fRecursive);
     END_INTERFACE
   } IWamAdminVtbl;
-  interface IWamAdmin {
+  struct IWamAdmin {
     CONST_VTBL struct IWamAdminVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -154,7 +154,7 @@ extern "C"{
       HRESULT (WINAPI *AppCreate2)(IWamAdmin2 *This,LPCWSTR szMDPath,DWORD dwAppMode);
     END_INTERFACE
   } IWamAdmin2Vtbl;
-  interface IWamAdmin2 {
+  struct IWamAdmin2 {
     CONST_VTBL struct IWamAdmin2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -203,7 +203,7 @@ extern "C"{
       HRESULT (WINAPI *GetProcessMode)(IIISApplicationAdmin *This,DWORD *pdwMode);
     END_INTERFACE
   } IIISApplicationAdminVtbl;
-  interface IIISApplicationAdmin {
+  struct IIISApplicationAdmin {
     CONST_VTBL struct IIISApplicationAdminVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -15,392 +15,392 @@
 
 #ifndef __IXMLDOMImplementation_FWD_DEFINED__
 #define __IXMLDOMImplementation_FWD_DEFINED__
-typedef interface IXMLDOMImplementation IXMLDOMImplementation;
+typedef struct IXMLDOMImplementation IXMLDOMImplementation;
 #endif
 
 #ifndef __IXMLDOMNode_FWD_DEFINED__
 #define __IXMLDOMNode_FWD_DEFINED__
-typedef interface IXMLDOMNode IXMLDOMNode;
+typedef struct IXMLDOMNode IXMLDOMNode;
 #endif
 
 #ifndef __IXMLDOMDocumentFragment_FWD_DEFINED__
 #define __IXMLDOMDocumentFragment_FWD_DEFINED__
-typedef interface IXMLDOMDocumentFragment IXMLDOMDocumentFragment;
+typedef struct IXMLDOMDocumentFragment IXMLDOMDocumentFragment;
 #endif
 
 #ifndef __IXMLDOMDocument_FWD_DEFINED__
 #define __IXMLDOMDocument_FWD_DEFINED__
-typedef interface IXMLDOMDocument IXMLDOMDocument;
+typedef struct IXMLDOMDocument IXMLDOMDocument;
 #endif
 
 #ifndef __IXMLDOMDocument2_FWD_DEFINED__
 #define __IXMLDOMDocument2_FWD_DEFINED__
-typedef interface IXMLDOMDocument2 IXMLDOMDocument2;
+typedef struct IXMLDOMDocument2 IXMLDOMDocument2;
 #endif
 
 #ifndef __IXMLDOMNodeList_FWD_DEFINED__
 #define __IXMLDOMNodeList_FWD_DEFINED__
-typedef interface IXMLDOMNodeList IXMLDOMNodeList;
+typedef struct IXMLDOMNodeList IXMLDOMNodeList;
 #endif
 
 #ifndef __IXMLDOMNamedNodeMap_FWD_DEFINED__
 #define __IXMLDOMNamedNodeMap_FWD_DEFINED__
-typedef interface IXMLDOMNamedNodeMap IXMLDOMNamedNodeMap;
+typedef struct IXMLDOMNamedNodeMap IXMLDOMNamedNodeMap;
 #endif
 
 #ifndef __IXMLDOMCharacterData_FWD_DEFINED__
 #define __IXMLDOMCharacterData_FWD_DEFINED__
-typedef interface IXMLDOMCharacterData IXMLDOMCharacterData;
+typedef struct IXMLDOMCharacterData IXMLDOMCharacterData;
 #endif
 
 #ifndef __IXMLDOMAttribute_FWD_DEFINED__
 #define __IXMLDOMAttribute_FWD_DEFINED__
-typedef interface IXMLDOMAttribute IXMLDOMAttribute;
+typedef struct IXMLDOMAttribute IXMLDOMAttribute;
 #endif
 
 #ifndef __IXMLDOMElement_FWD_DEFINED__
 #define __IXMLDOMElement_FWD_DEFINED__
-typedef interface IXMLDOMElement IXMLDOMElement;
+typedef struct IXMLDOMElement IXMLDOMElement;
 #endif
 
 #ifndef __IXMLDOMText_FWD_DEFINED__
 #define __IXMLDOMText_FWD_DEFINED__
-typedef interface IXMLDOMText IXMLDOMText;
+typedef struct IXMLDOMText IXMLDOMText;
 #endif
 
 #ifndef __IXMLDOMComment_FWD_DEFINED__
 #define __IXMLDOMComment_FWD_DEFINED__
-typedef interface IXMLDOMComment IXMLDOMComment;
+typedef struct IXMLDOMComment IXMLDOMComment;
 #endif
 
 #ifndef __IXMLDOMProcessingInstruction_FWD_DEFINED__
 #define __IXMLDOMProcessingInstruction_FWD_DEFINED__
-typedef interface IXMLDOMProcessingInstruction IXMLDOMProcessingInstruction;
+typedef struct IXMLDOMProcessingInstruction IXMLDOMProcessingInstruction;
 #endif
 
 #ifndef __IXMLDOMCDATASection_FWD_DEFINED__
 #define __IXMLDOMCDATASection_FWD_DEFINED__
-typedef interface IXMLDOMCDATASection IXMLDOMCDATASection;
+typedef struct IXMLDOMCDATASection IXMLDOMCDATASection;
 #endif
 
 #ifndef __IXMLDOMDocumentType_FWD_DEFINED__
 #define __IXMLDOMDocumentType_FWD_DEFINED__
-typedef interface IXMLDOMDocumentType IXMLDOMDocumentType;
+typedef struct IXMLDOMDocumentType IXMLDOMDocumentType;
 #endif
 
 #ifndef __IXMLDOMNotation_FWD_DEFINED__
 #define __IXMLDOMNotation_FWD_DEFINED__
-typedef interface IXMLDOMNotation IXMLDOMNotation;
+typedef struct IXMLDOMNotation IXMLDOMNotation;
 #endif
 
 #ifndef __IXMLDOMEntity_FWD_DEFINED__
 #define __IXMLDOMEntity_FWD_DEFINED__
-typedef interface IXMLDOMEntity IXMLDOMEntity;
+typedef struct IXMLDOMEntity IXMLDOMEntity;
 #endif
 
 #ifndef __IXMLDOMEntityReference_FWD_DEFINED__
 #define __IXMLDOMEntityReference_FWD_DEFINED__
-typedef interface IXMLDOMEntityReference IXMLDOMEntityReference;
+typedef struct IXMLDOMEntityReference IXMLDOMEntityReference;
 #endif
 
 #ifndef __IXMLDOMParseError_FWD_DEFINED__
 #define __IXMLDOMParseError_FWD_DEFINED__
-typedef interface IXMLDOMParseError IXMLDOMParseError;
+typedef struct IXMLDOMParseError IXMLDOMParseError;
 #endif
 
 #ifndef __IXMLDOMSchemaCollection_FWD_DEFINED__
 #define __IXMLDOMSchemaCollection_FWD_DEFINED__
-typedef interface IXMLDOMSchemaCollection IXMLDOMSchemaCollection;
+typedef struct IXMLDOMSchemaCollection IXMLDOMSchemaCollection;
 #endif
 
 #ifndef __IXTLRuntime_FWD_DEFINED__
 #define __IXTLRuntime_FWD_DEFINED__
-typedef interface IXTLRuntime IXTLRuntime;
+typedef struct IXTLRuntime IXTLRuntime;
 #endif
 
 #ifndef __IXSLTemplate_FWD_DEFINED__
 #define __IXSLTemplate_FWD_DEFINED__
-typedef interface IXSLTemplate IXSLTemplate;
+typedef struct IXSLTemplate IXSLTemplate;
 #endif
 
 #ifndef __IXSLProcessor_FWD_DEFINED__
 #define __IXSLProcessor_FWD_DEFINED__
-typedef interface IXSLProcessor IXSLProcessor;
+typedef struct IXSLProcessor IXSLProcessor;
 #endif
 
 #ifndef __ISAXXMLReader_FWD_DEFINED__
 #define __ISAXXMLReader_FWD_DEFINED__
-typedef interface ISAXXMLReader ISAXXMLReader;
+typedef struct ISAXXMLReader ISAXXMLReader;
 #endif
 
 #ifndef __ISAXXMLFilter_FWD_DEFINED__
 #define __ISAXXMLFilter_FWD_DEFINED__
-typedef interface ISAXXMLFilter ISAXXMLFilter;
+typedef struct ISAXXMLFilter ISAXXMLFilter;
 #endif
 
 #ifndef __ISAXLocator_FWD_DEFINED__
 #define __ISAXLocator_FWD_DEFINED__
-typedef interface ISAXLocator ISAXLocator;
+typedef struct ISAXLocator ISAXLocator;
 #endif
 
 #ifndef __ISAXEntityResolver_FWD_DEFINED__
 #define __ISAXEntityResolver_FWD_DEFINED__
-typedef interface ISAXEntityResolver ISAXEntityResolver;
+typedef struct ISAXEntityResolver ISAXEntityResolver;
 #endif
 
 #ifndef __ISAXContentHandler_FWD_DEFINED__
 #define __ISAXContentHandler_FWD_DEFINED__
-typedef interface ISAXContentHandler ISAXContentHandler;
+typedef struct ISAXContentHandler ISAXContentHandler;
 #endif
 
 #ifndef __ISAXDTDHandler_FWD_DEFINED__
 #define __ISAXDTDHandler_FWD_DEFINED__
-typedef interface ISAXDTDHandler ISAXDTDHandler;
+typedef struct ISAXDTDHandler ISAXDTDHandler;
 #endif
 
 #ifndef __ISAXErrorHandler_FWD_DEFINED__
 #define __ISAXErrorHandler_FWD_DEFINED__
-typedef interface ISAXErrorHandler ISAXErrorHandler;
+typedef struct ISAXErrorHandler ISAXErrorHandler;
 #endif
 
 #ifndef __ISAXLexicalHandler_FWD_DEFINED__
 #define __ISAXLexicalHandler_FWD_DEFINED__
-typedef interface ISAXLexicalHandler ISAXLexicalHandler;
+typedef struct ISAXLexicalHandler ISAXLexicalHandler;
 #endif
 
 #ifndef __ISAXDeclHandler_FWD_DEFINED__
 #define __ISAXDeclHandler_FWD_DEFINED__
-typedef interface ISAXDeclHandler ISAXDeclHandler;
+typedef struct ISAXDeclHandler ISAXDeclHandler;
 #endif
 
 #ifndef __ISAXAttributes_FWD_DEFINED__
 #define __ISAXAttributes_FWD_DEFINED__
-typedef interface ISAXAttributes ISAXAttributes;
+typedef struct ISAXAttributes ISAXAttributes;
 #endif
 
 #ifndef __IVBSAXXMLReader_FWD_DEFINED__
 #define __IVBSAXXMLReader_FWD_DEFINED__
-typedef interface IVBSAXXMLReader IVBSAXXMLReader;
+typedef struct IVBSAXXMLReader IVBSAXXMLReader;
 #endif
 
 #ifndef __IVBSAXXMLFilter_FWD_DEFINED__
 #define __IVBSAXXMLFilter_FWD_DEFINED__
-typedef interface IVBSAXXMLFilter IVBSAXXMLFilter;
+typedef struct IVBSAXXMLFilter IVBSAXXMLFilter;
 #endif
 
 #ifndef __IVBSAXLocator_FWD_DEFINED__
 #define __IVBSAXLocator_FWD_DEFINED__
-typedef interface IVBSAXLocator IVBSAXLocator;
+typedef struct IVBSAXLocator IVBSAXLocator;
 #endif
 
 #ifndef __IVBSAXEntityResolver_FWD_DEFINED__
 #define __IVBSAXEntityResolver_FWD_DEFINED__
-typedef interface IVBSAXEntityResolver IVBSAXEntityResolver;
+typedef struct IVBSAXEntityResolver IVBSAXEntityResolver;
 #endif
 
 #ifndef __IVBSAXContentHandler_FWD_DEFINED__
 #define __IVBSAXContentHandler_FWD_DEFINED__
-typedef interface IVBSAXContentHandler IVBSAXContentHandler;
+typedef struct IVBSAXContentHandler IVBSAXContentHandler;
 #endif
 
 #ifndef __IVBSAXDTDHandler_FWD_DEFINED__
 #define __IVBSAXDTDHandler_FWD_DEFINED__
-typedef interface IVBSAXDTDHandler IVBSAXDTDHandler;
+typedef struct IVBSAXDTDHandler IVBSAXDTDHandler;
 #endif
 
 #ifndef __IVBSAXErrorHandler_FWD_DEFINED__
 #define __IVBSAXErrorHandler_FWD_DEFINED__
-typedef interface IVBSAXErrorHandler IVBSAXErrorHandler;
+typedef struct IVBSAXErrorHandler IVBSAXErrorHandler;
 #endif
 
 #ifndef __IVBSAXLexicalHandler_FWD_DEFINED__
 #define __IVBSAXLexicalHandler_FWD_DEFINED__
-typedef interface IVBSAXLexicalHandler IVBSAXLexicalHandler;
+typedef struct IVBSAXLexicalHandler IVBSAXLexicalHandler;
 #endif
 
 #ifndef __IVBSAXDeclHandler_FWD_DEFINED__
 #define __IVBSAXDeclHandler_FWD_DEFINED__
-typedef interface IVBSAXDeclHandler IVBSAXDeclHandler;
+typedef struct IVBSAXDeclHandler IVBSAXDeclHandler;
 #endif
 
 #ifndef __IVBSAXAttributes_FWD_DEFINED__
 #define __IVBSAXAttributes_FWD_DEFINED__
-typedef interface IVBSAXAttributes IVBSAXAttributes;
+typedef struct IVBSAXAttributes IVBSAXAttributes;
 #endif
 
 #ifndef __IMXWriter_FWD_DEFINED__
 #define __IMXWriter_FWD_DEFINED__
-typedef interface IMXWriter IMXWriter;
+typedef struct IMXWriter IMXWriter;
 #endif
 
 #ifndef __IMXAttributes_FWD_DEFINED__
 #define __IMXAttributes_FWD_DEFINED__
-typedef interface IMXAttributes IMXAttributes;
+typedef struct IMXAttributes IMXAttributes;
 #endif
 
 #ifndef __IMXReaderControl_FWD_DEFINED__
 #define __IMXReaderControl_FWD_DEFINED__
-typedef interface IMXReaderControl IMXReaderControl;
+typedef struct IMXReaderControl IMXReaderControl;
 #endif
 
 #ifndef __IMXSchemaDeclHandler_FWD_DEFINED__
 #define __IMXSchemaDeclHandler_FWD_DEFINED__
-typedef interface IMXSchemaDeclHandler IMXSchemaDeclHandler;
+typedef struct IMXSchemaDeclHandler IMXSchemaDeclHandler;
 #endif
 
 #ifndef __IXMLDOMSchemaCollection2_FWD_DEFINED__
 #define __IXMLDOMSchemaCollection2_FWD_DEFINED__
-typedef interface IXMLDOMSchemaCollection2 IXMLDOMSchemaCollection2;
+typedef struct IXMLDOMSchemaCollection2 IXMLDOMSchemaCollection2;
 #endif
 
 #ifndef __ISchemaStringCollection_FWD_DEFINED__
 #define __ISchemaStringCollection_FWD_DEFINED__
-typedef interface ISchemaStringCollection ISchemaStringCollection;
+typedef struct ISchemaStringCollection ISchemaStringCollection;
 #endif
 
 #ifndef __ISchemaItemCollection_FWD_DEFINED__
 #define __ISchemaItemCollection_FWD_DEFINED__
-typedef interface ISchemaItemCollection ISchemaItemCollection;
+typedef struct ISchemaItemCollection ISchemaItemCollection;
 #endif
 
 #ifndef __ISchemaItem_FWD_DEFINED__
 #define __ISchemaItem_FWD_DEFINED__
-typedef interface ISchemaItem ISchemaItem;
+typedef struct ISchemaItem ISchemaItem;
 #endif
 
 #ifndef __ISchema_FWD_DEFINED__
 #define __ISchema_FWD_DEFINED__
-typedef interface ISchema ISchema;
+typedef struct ISchema ISchema;
 #endif
 
 #ifndef __ISchemaParticle_FWD_DEFINED__
 #define __ISchemaParticle_FWD_DEFINED__
-typedef interface ISchemaParticle ISchemaParticle;
+typedef struct ISchemaParticle ISchemaParticle;
 #endif
 
 #ifndef __ISchemaAttribute_FWD_DEFINED__
 #define __ISchemaAttribute_FWD_DEFINED__
-typedef interface ISchemaAttribute ISchemaAttribute;
+typedef struct ISchemaAttribute ISchemaAttribute;
 #endif
 
 #ifndef __ISchemaElement_FWD_DEFINED__
 #define __ISchemaElement_FWD_DEFINED__
-typedef interface ISchemaElement ISchemaElement;
+typedef struct ISchemaElement ISchemaElement;
 #endif
 
 #ifndef __ISchemaType_FWD_DEFINED__
 #define __ISchemaType_FWD_DEFINED__
-typedef interface ISchemaType ISchemaType;
+typedef struct ISchemaType ISchemaType;
 #endif
 
 #ifndef __ISchemaComplexType_FWD_DEFINED__
 #define __ISchemaComplexType_FWD_DEFINED__
-typedef interface ISchemaComplexType ISchemaComplexType;
+typedef struct ISchemaComplexType ISchemaComplexType;
 #endif
 
 #ifndef __ISchemaAttributeGroup_FWD_DEFINED__
 #define __ISchemaAttributeGroup_FWD_DEFINED__
-typedef interface ISchemaAttributeGroup ISchemaAttributeGroup;
+typedef struct ISchemaAttributeGroup ISchemaAttributeGroup;
 #endif
 
 #ifndef __ISchemaModelGroup_FWD_DEFINED__
 #define __ISchemaModelGroup_FWD_DEFINED__
-typedef interface ISchemaModelGroup ISchemaModelGroup;
+typedef struct ISchemaModelGroup ISchemaModelGroup;
 #endif
 
 #ifndef __ISchemaAny_FWD_DEFINED__
 #define __ISchemaAny_FWD_DEFINED__
-typedef interface ISchemaAny ISchemaAny;
+typedef struct ISchemaAny ISchemaAny;
 #endif
 
 #ifndef __ISchemaIdentityConstraint_FWD_DEFINED__
 #define __ISchemaIdentityConstraint_FWD_DEFINED__
-typedef interface ISchemaIdentityConstraint ISchemaIdentityConstraint;
+typedef struct ISchemaIdentityConstraint ISchemaIdentityConstraint;
 #endif
 
 #ifndef __ISchemaNotation_FWD_DEFINED__
 #define __ISchemaNotation_FWD_DEFINED__
-typedef interface ISchemaNotation ISchemaNotation;
+typedef struct ISchemaNotation ISchemaNotation;
 #endif
 
 #ifndef __IXMLElementCollection_FWD_DEFINED__
 #define __IXMLElementCollection_FWD_DEFINED__
-typedef interface IXMLElementCollection IXMLElementCollection;
+typedef struct IXMLElementCollection IXMLElementCollection;
 #endif
 
 #ifndef __IXMLDocument_FWD_DEFINED__
 #define __IXMLDocument_FWD_DEFINED__
-typedef interface IXMLDocument IXMLDocument;
+typedef struct IXMLDocument IXMLDocument;
 #endif
 
 #ifndef __IXMLDocument2_FWD_DEFINED__
 #define __IXMLDocument2_FWD_DEFINED__
-typedef interface IXMLDocument2 IXMLDocument2;
+typedef struct IXMLDocument2 IXMLDocument2;
 #endif
 
 #ifndef __IXMLElement_FWD_DEFINED__
 #define __IXMLElement_FWD_DEFINED__
-typedef interface IXMLElement IXMLElement;
+typedef struct IXMLElement IXMLElement;
 #endif
 
 #ifndef __IXMLElement2_FWD_DEFINED__
 #define __IXMLElement2_FWD_DEFINED__
-typedef interface IXMLElement2 IXMLElement2;
+typedef struct IXMLElement2 IXMLElement2;
 #endif
 
 #ifndef __IXMLAttribute_FWD_DEFINED__
 #define __IXMLAttribute_FWD_DEFINED__
-typedef interface IXMLAttribute IXMLAttribute;
+typedef struct IXMLAttribute IXMLAttribute;
 #endif
 
 #ifndef __IXMLError_FWD_DEFINED__
 #define __IXMLError_FWD_DEFINED__
-typedef interface IXMLError IXMLError;
+typedef struct IXMLError IXMLError;
 #endif
 
 #ifndef __IXMLDOMSelection_FWD_DEFINED__
 #define __IXMLDOMSelection_FWD_DEFINED__
-typedef interface IXMLDOMSelection IXMLDOMSelection;
+typedef struct IXMLDOMSelection IXMLDOMSelection;
 #endif
 
 #ifndef __XMLDOMDocumentEvents_FWD_DEFINED__
 #define __XMLDOMDocumentEvents_FWD_DEFINED__
-typedef interface XMLDOMDocumentEvents XMLDOMDocumentEvents;
+typedef struct XMLDOMDocumentEvents XMLDOMDocumentEvents;
 #endif
 
 #ifndef __IDSOControl_FWD_DEFINED__
 #define __IDSOControl_FWD_DEFINED__
-typedef interface IDSOControl IDSOControl;
+typedef struct IDSOControl IDSOControl;
 #endif
 
 #ifndef __IXMLHTTPRequest_FWD_DEFINED__
 #define __IXMLHTTPRequest_FWD_DEFINED__
-typedef interface IXMLHTTPRequest IXMLHTTPRequest;
+typedef struct IXMLHTTPRequest IXMLHTTPRequest;
 #endif
 
 #ifndef __IServerXMLHTTPRequest_FWD_DEFINED__
 #define __IServerXMLHTTPRequest_FWD_DEFINED__
-typedef interface IServerXMLHTTPRequest IServerXMLHTTPRequest;
+typedef struct IServerXMLHTTPRequest IServerXMLHTTPRequest;
 #endif
 
 #ifndef __IServerXMLHTTPRequest2_FWD_DEFINED__
 #define __IServerXMLHTTPRequest2_FWD_DEFINED__
-typedef interface IServerXMLHTTPRequest2 IServerXMLHTTPRequest2;
+typedef struct IServerXMLHTTPRequest2 IServerXMLHTTPRequest2;
 #endif
 
 #ifndef __IMXNamespacePrefixes_FWD_DEFINED__
 #define __IMXNamespacePrefixes_FWD_DEFINED__
-typedef interface IMXNamespacePrefixes IMXNamespacePrefixes;
+typedef struct IMXNamespacePrefixes IMXNamespacePrefixes;
 #endif
 
 #ifndef __IVBMXNamespaceManager_FWD_DEFINED__
 #define __IVBMXNamespaceManager_FWD_DEFINED__
-typedef interface IVBMXNamespaceManager IVBMXNamespaceManager;
+typedef struct IVBMXNamespaceManager IVBMXNamespaceManager;
 #endif
 
 #ifndef __IMXNamespaceManager_FWD_DEFINED__
 #define __IMXNamespaceManager_FWD_DEFINED__
-typedef interface IMXNamespaceManager IMXNamespaceManager;
+typedef struct IMXNamespaceManager IMXNamespaceManager;
 #endif
 
 #ifndef __DOMDocument_FWD_DEFINED__
@@ -929,7 +929,7 @@ extern "C" {
 	HRESULT (WINAPI *hasFeature)(IXMLDOMImplementation *This,BSTR feature,BSTR version,VARIANT_BOOL *hasFeature);
       END_INTERFACE
     } IXMLDOMImplementationVtbl;
-    interface IXMLDOMImplementation {
+    struct IXMLDOMImplementation {
       CONST_VTBL struct IXMLDOMImplementationVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -1038,7 +1038,7 @@ extern "C" {
 	HRESULT (WINAPI *transformNodeToObject)(IXMLDOMNode *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
       END_INTERFACE
     } IXMLDOMNodeVtbl;
-    interface IXMLDOMNode {
+    struct IXMLDOMNode {
       CONST_VTBL struct IXMLDOMNodeVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -1215,7 +1215,7 @@ extern "C" {
 	HRESULT (WINAPI *transformNodeToObject)(IXMLDOMDocumentFragment *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
       END_INTERFACE
     } IXMLDOMDocumentFragmentVtbl;
-    interface IXMLDOMDocumentFragment {
+    struct IXMLDOMDocumentFragment {
       CONST_VTBL struct IXMLDOMDocumentFragmentVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -1387,7 +1387,7 @@ extern "C" {
 	HRESULT (WINAPI *put_ontransformnode)(IXMLDOMDocument *This,VARIANT ontransformnodeSink);
       END_INTERFACE
     } IXMLDOMDocumentVtbl;
-    interface IXMLDOMDocument {
+    struct IXMLDOMDocument {
       CONST_VTBL struct IXMLDOMDocumentVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -1637,7 +1637,7 @@ extern "C" {
 	HRESULT (WINAPI *getProperty)(IXMLDOMDocument2 *This,BSTR name,VARIANT *value);
       END_INTERFACE
     } IXMLDOMDocument2Vtbl;
-    interface IXMLDOMDocument2 {
+    struct IXMLDOMDocument2 {
       CONST_VTBL struct IXMLDOMDocument2Vtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -1768,7 +1768,7 @@ extern "C" {
 	HRESULT (WINAPI *get__newEnum)(IXMLDOMNodeList *This,IUnknown **ppUnk);
       END_INTERFACE
     } IXMLDOMNodeListVtbl;
-    interface IXMLDOMNodeList {
+    struct IXMLDOMNodeList {
       CONST_VTBL struct IXMLDOMNodeListVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -1837,7 +1837,7 @@ extern "C" {
 	HRESULT (WINAPI *get__newEnum)(IXMLDOMNamedNodeMap *This,IUnknown **ppUnk);
       END_INTERFACE
     } IXMLDOMNamedNodeMapVtbl;
-    interface IXMLDOMNamedNodeMap {
+    struct IXMLDOMNamedNodeMap {
       CONST_VTBL struct IXMLDOMNamedNodeMapVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -1953,7 +1953,7 @@ extern "C" {
 	HRESULT (WINAPI *replaceData)(IXMLDOMCharacterData *This,long offset,long count,BSTR data);
       END_INTERFACE
     } IXMLDOMCharacterDataVtbl;
-    interface IXMLDOMCharacterData {
+    struct IXMLDOMCharacterData {
       CONST_VTBL struct IXMLDOMCharacterDataVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -2089,7 +2089,7 @@ extern "C" {
 	HRESULT (WINAPI *put_value)(IXMLDOMAttribute *This,VARIANT attributeValue);
       END_INTERFACE
     } IXMLDOMAttributeVtbl;
-    interface IXMLDOMAttribute {
+    struct IXMLDOMAttribute {
       CONST_VTBL struct IXMLDOMAttributeVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -2222,7 +2222,7 @@ extern "C" {
 	HRESULT (WINAPI *normalize)(IXMLDOMElement *This);
       END_INTERFACE
     } IXMLDOMElementVtbl;
-    interface IXMLDOMElement {
+    struct IXMLDOMElement {
       CONST_VTBL struct IXMLDOMElementVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -2365,7 +2365,7 @@ extern "C" {
 	HRESULT (WINAPI *splitText)(IXMLDOMText *This,long offset,IXMLDOMText **rightHandTextNode);
       END_INTERFACE
     } IXMLDOMTextVtbl;
-    interface IXMLDOMText {
+    struct IXMLDOMText {
       CONST_VTBL struct IXMLDOMTextVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -2490,7 +2490,7 @@ extern "C" {
 	HRESULT (WINAPI *replaceData)(IXMLDOMComment *This,long offset,long count,BSTR data);
       END_INTERFACE
     } IXMLDOMCommentVtbl;
-    interface IXMLDOMComment {
+    struct IXMLDOMComment {
       CONST_VTBL struct IXMLDOMCommentVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -2610,7 +2610,7 @@ extern "C" {
 	HRESULT (WINAPI *put_data)(IXMLDOMProcessingInstruction *This,BSTR value);
       END_INTERFACE
     } IXMLDOMProcessingInstructionVtbl;
-    interface IXMLDOMProcessingInstruction {
+    struct IXMLDOMProcessingInstruction {
       CONST_VTBL struct IXMLDOMProcessingInstructionVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -2733,7 +2733,7 @@ extern "C" {
 	HRESULT (WINAPI *splitText)(IXMLDOMCDATASection *This,long offset,IXMLDOMText **rightHandTextNode);
       END_INTERFACE
     } IXMLDOMCDATASectionVtbl;
-    interface IXMLDOMCDATASection {
+    struct IXMLDOMCDATASection {
       CONST_VTBL struct IXMLDOMCDATASectionVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -2854,7 +2854,7 @@ extern "C" {
 	HRESULT (WINAPI *get_notations)(IXMLDOMDocumentType *This,IXMLDOMNamedNodeMap **notationMap);
       END_INTERFACE
     } IXMLDOMDocumentTypeVtbl;
-    interface IXMLDOMDocumentType {
+    struct IXMLDOMDocumentType {
       CONST_VTBL struct IXMLDOMDocumentTypeVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -2974,7 +2974,7 @@ extern "C" {
 	HRESULT (WINAPI *get_systemId)(IXMLDOMNotation *This,VARIANT *systemID);
       END_INTERFACE
     } IXMLDOMNotationVtbl;
-    interface IXMLDOMNotation {
+    struct IXMLDOMNotation {
       CONST_VTBL struct IXMLDOMNotationVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3092,7 +3092,7 @@ extern "C" {
 	HRESULT (WINAPI *get_notationName)(IXMLDOMEntity *This,BSTR *name);
       END_INTERFACE
     } IXMLDOMEntityVtbl;
-    interface IXMLDOMEntity {
+    struct IXMLDOMEntity {
       CONST_VTBL struct IXMLDOMEntityVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3206,7 +3206,7 @@ extern "C" {
 	HRESULT (WINAPI *transformNodeToObject)(IXMLDOMEntityReference *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
       END_INTERFACE
     } IXMLDOMEntityReferenceVtbl;
-    interface IXMLDOMEntityReference {
+    struct IXMLDOMEntityReference {
       CONST_VTBL struct IXMLDOMEntityReferenceVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3290,7 +3290,7 @@ extern "C" {
 	HRESULT (WINAPI *get_filepos)(IXMLDOMParseError *This,long *filePosition);
       END_INTERFACE
     } IXMLDOMParseErrorVtbl;
-    interface IXMLDOMParseError {
+    struct IXMLDOMParseError {
       CONST_VTBL struct IXMLDOMParseErrorVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3359,7 +3359,7 @@ extern "C" {
 	HRESULT (WINAPI *get__newEnum)(IXMLDOMSchemaCollection *This,IUnknown **ppUnk);
       END_INTERFACE
     } IXMLDOMSchemaCollectionVtbl;
-    interface IXMLDOMSchemaCollection {
+    struct IXMLDOMSchemaCollection {
       CONST_VTBL struct IXMLDOMSchemaCollectionVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3468,7 +3468,7 @@ extern "C" {
 	HRESULT (WINAPI *formatTime)(IXTLRuntime *This,VARIANT varTime,BSTR bstrFormat,VARIANT varDestLocale,BSTR *pbstrFormattedString);
       END_INTERFACE
     } IXTLRuntimeVtbl;
-    interface IXTLRuntime {
+    struct IXTLRuntime {
       CONST_VTBL struct IXTLRuntimeVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3571,7 +3571,7 @@ extern "C" {
 	HRESULT (WINAPI *createProcessor)(IXSLTemplate *This,IXSLProcessor **ppProcessor);
       END_INTERFACE
     } IXSLTemplateVtbl;
-    interface IXSLTemplate {
+    struct IXSLTemplate {
       CONST_VTBL struct IXSLTemplateVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3642,7 +3642,7 @@ extern "C" {
 	HRESULT (WINAPI *get_stylesheet)(IXSLProcessor *This,IXMLDOMNode **stylesheet);
       END_INTERFACE
     } IXSLProcessorVtbl;
-    interface IXSLProcessor {
+    struct IXSLProcessor {
       CONST_VTBL struct IXSLProcessorVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3750,7 +3750,7 @@ extern "C" {
 	HRESULT (WINAPI *parseURL)(ISAXXMLReader *This,const wchar_t *pwchUrl);
       END_INTERFACE
     } ISAXXMLReaderVtbl;
-    interface ISAXXMLReader {
+    struct ISAXXMLReader {
       CONST_VTBL struct ISAXXMLReaderVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3852,7 +3852,7 @@ extern "C" {
 	HRESULT (WINAPI *putParent)(ISAXXMLFilter *This,ISAXXMLReader *pReader);
       END_INTERFACE
     } ISAXXMLFilterVtbl;
-    interface ISAXXMLFilter {
+    struct ISAXXMLFilter {
       CONST_VTBL struct ISAXXMLFilterVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3910,7 +3910,7 @@ extern "C" {
 	HRESULT (WINAPI *getSystemId)(ISAXLocator *This,const wchar_t **ppwchSystemId);
       END_INTERFACE
     } ISAXLocatorVtbl;
-    interface ISAXLocator {
+    struct ISAXLocator {
       CONST_VTBL struct ISAXLocatorVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -3950,7 +3950,7 @@ extern "C" {
 	HRESULT (WINAPI *resolveEntity)(ISAXEntityResolver *This,const wchar_t *pwchPublicId,const wchar_t *pwchSystemId,VARIANT *pvarInput);
       END_INTERFACE
     } ISAXEntityResolverVtbl;
-    interface ISAXEntityResolver {
+    struct ISAXEntityResolver {
       CONST_VTBL struct ISAXEntityResolverVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4001,7 +4001,7 @@ extern "C" {
 	HRESULT (WINAPI *skippedEntity)(ISAXContentHandler *This,const wchar_t *pwchName,int cchName);
       END_INTERFACE
     } ISAXContentHandlerVtbl;
-    interface ISAXContentHandler {
+    struct ISAXContentHandler {
       CONST_VTBL struct ISAXContentHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4064,7 +4064,7 @@ extern "C" {
 	HRESULT (WINAPI *unparsedEntityDecl)(ISAXDTDHandler *This,const wchar_t *pwchName,int cchName,const wchar_t *pwchPublicId,int cchPublicId,const wchar_t *pwchSystemId,int cchSystemId,const wchar_t *pwchNotationName,int cchNotationName);
       END_INTERFACE
     } ISAXDTDHandlerVtbl;
-    interface ISAXDTDHandler {
+    struct ISAXDTDHandler {
       CONST_VTBL struct ISAXDTDHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4102,7 +4102,7 @@ extern "C" {
 	HRESULT (WINAPI *ignorableWarning)(ISAXErrorHandler *This,ISAXLocator *pLocator,const wchar_t *pwchErrorMessage,HRESULT hrErrorCode);
       END_INTERFACE
     } ISAXErrorHandlerVtbl;
-    interface ISAXErrorHandler {
+    struct ISAXErrorHandler {
       CONST_VTBL struct ISAXErrorHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4151,7 +4151,7 @@ extern "C" {
 	HRESULT (WINAPI *comment)(ISAXLexicalHandler *This,const wchar_t *pwchChars,int cchChars);
       END_INTERFACE
     } ISAXLexicalHandlerVtbl;
-    interface ISAXLexicalHandler {
+    struct ISAXLexicalHandler {
       CONST_VTBL struct ISAXLexicalHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4206,7 +4206,7 @@ extern "C" {
 	HRESULT (WINAPI *externalEntityDecl)(ISAXDeclHandler *This,const wchar_t *pwchName,int cchName,const wchar_t *pwchPublicId,int cchPublicId,const wchar_t *pwchSystemId,int cchSystemId);
       END_INTERFACE
     } ISAXDeclHandlerVtbl;
-    interface ISAXDeclHandler {
+    struct ISAXDeclHandler {
       CONST_VTBL struct ISAXDeclHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4270,7 +4270,7 @@ extern "C" {
 	HRESULT (WINAPI *getValueFromQName)(ISAXAttributes *This,const wchar_t *pwchQName,int cchQName,const wchar_t **ppwchValue,int *pcchValue);
       END_INTERFACE
     } ISAXAttributesVtbl;
-    interface ISAXAttributes {
+    struct ISAXAttributes {
       CONST_VTBL struct ISAXAttributesVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4375,7 +4375,7 @@ extern "C" {
 	HRESULT (WINAPI *parseURL)(IVBSAXXMLReader *This,BSTR strURL);
       END_INTERFACE
     } IVBSAXXMLReaderVtbl;
-    interface IVBSAXXMLReader {
+    struct IVBSAXXMLReader {
       CONST_VTBL struct IVBSAXXMLReaderVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4467,7 +4467,7 @@ extern "C" {
 	HRESULT (WINAPI *putref_parent)(IVBSAXXMLFilter *This,IVBSAXXMLReader *oReader);
       END_INTERFACE
     } IVBSAXXMLFilterVtbl;
-    interface IVBSAXXMLFilter {
+    struct IVBSAXXMLFilter {
       CONST_VTBL struct IVBSAXXMLFilterVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4515,7 +4515,7 @@ extern "C" {
 	HRESULT (WINAPI *get_systemId)(IVBSAXLocator *This,BSTR *strSystemId);
       END_INTERFACE
     } IVBSAXLocatorVtbl;
-    interface IVBSAXLocator {
+    struct IVBSAXLocator {
       CONST_VTBL struct IVBSAXLocatorVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4563,7 +4563,7 @@ extern "C" {
 	HRESULT (WINAPI *resolveEntity)(IVBSAXEntityResolver *This,BSTR *strPublicId,BSTR *strSystemId,VARIANT *varInput);
       END_INTERFACE
     } IVBSAXEntityResolverVtbl;
-    interface IVBSAXEntityResolver {
+    struct IVBSAXEntityResolver {
       CONST_VTBL struct IVBSAXEntityResolverVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4622,7 +4622,7 @@ extern "C" {
 	HRESULT (WINAPI *skippedEntity)(IVBSAXContentHandler *This,BSTR *strName);
       END_INTERFACE
     } IVBSAXContentHandlerVtbl;
-    interface IVBSAXContentHandler {
+    struct IVBSAXContentHandler {
       CONST_VTBL struct IVBSAXContentHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4693,7 +4693,7 @@ extern "C" {
 	HRESULT (WINAPI *unparsedEntityDecl)(IVBSAXDTDHandler *This,BSTR *strName,BSTR *strPublicId,BSTR *strSystemId,BSTR *strNotationName);
       END_INTERFACE
     } IVBSAXDTDHandlerVtbl;
-    interface IVBSAXDTDHandler {
+    struct IVBSAXDTDHandler {
       CONST_VTBL struct IVBSAXDTDHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4739,7 +4739,7 @@ extern "C" {
 	HRESULT (WINAPI *ignorableWarning)(IVBSAXErrorHandler *This,IVBSAXLocator *oLocator,BSTR *strErrorMessage,long nErrorCode);
       END_INTERFACE
     } IVBSAXErrorHandlerVtbl;
-    interface IVBSAXErrorHandler {
+    struct IVBSAXErrorHandler {
       CONST_VTBL struct IVBSAXErrorHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4796,7 +4796,7 @@ extern "C" {
 	HRESULT (WINAPI *comment)(IVBSAXLexicalHandler *This,BSTR *strChars);
       END_INTERFACE
     } IVBSAXLexicalHandlerVtbl;
-    interface IVBSAXLexicalHandler {
+    struct IVBSAXLexicalHandler {
       CONST_VTBL struct IVBSAXLexicalHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4859,7 +4859,7 @@ extern "C" {
 	HRESULT (WINAPI *externalEntityDecl)(IVBSAXDeclHandler *This,BSTR *strName,BSTR *strPublicId,BSTR *strSystemId);
       END_INTERFACE
     } IVBSAXDeclHandlerVtbl;
-    interface IVBSAXDeclHandler {
+    struct IVBSAXDeclHandler {
       CONST_VTBL struct IVBSAXDeclHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -4929,7 +4929,7 @@ extern "C" {
 	HRESULT (WINAPI *getValueFromQName)(IVBSAXAttributes *This,BSTR strQName,BSTR *strValue);
       END_INTERFACE
     } IVBSAXAttributesVtbl;
-    interface IVBSAXAttributes {
+    struct IVBSAXAttributes {
       CONST_VTBL struct IVBSAXAttributesVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5033,7 +5033,7 @@ extern "C" {
 	HRESULT (WINAPI *flush)(IMXWriter *This);
       END_INTERFACE
     } IMXWriterVtbl;
-    interface IMXWriter {
+    struct IMXWriter {
       CONST_VTBL struct IMXWriterVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5141,7 +5141,7 @@ extern "C" {
 	HRESULT (WINAPI *setValue)(IMXAttributes *This,int nIndex,BSTR strValue);
       END_INTERFACE
     } IMXAttributesVtbl;
-    interface IMXAttributes {
+    struct IMXAttributes {
       CONST_VTBL struct IMXAttributesVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5214,7 +5214,7 @@ extern "C" {
 	HRESULT (WINAPI *suspend)(IMXReaderControl *This);
       END_INTERFACE
     } IMXReaderControlVtbl;
-    interface IMXReaderControl {
+    struct IMXReaderControl {
       CONST_VTBL struct IMXReaderControlVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5259,7 +5259,7 @@ extern "C" {
 	HRESULT (WINAPI *schemaElementDecl)(IMXSchemaDeclHandler *This,ISchemaElement *oSchemaElement);
       END_INTERFACE
     } IMXSchemaDeclHandlerVtbl;
-    interface IMXSchemaDeclHandler {
+    struct IMXSchemaDeclHandler {
       CONST_VTBL struct IMXSchemaDeclHandlerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5313,7 +5313,7 @@ extern "C" {
 	HRESULT (WINAPI *getDeclaration)(IXMLDOMSchemaCollection2 *This,IXMLDOMNode *node,ISchemaItem **item);
       END_INTERFACE
     } IXMLDOMSchemaCollection2Vtbl;
-    interface IXMLDOMSchemaCollection2 {
+    struct IXMLDOMSchemaCollection2 {
       CONST_VTBL struct IXMLDOMSchemaCollection2Vtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5375,7 +5375,7 @@ extern "C" {
 	HRESULT (WINAPI *get__newEnum)(ISchemaStringCollection *This,IUnknown **ppunk);
       END_INTERFACE
     } ISchemaStringCollectionVtbl;
-    interface ISchemaStringCollection {
+    struct ISchemaStringCollection {
       CONST_VTBL struct ISchemaStringCollectionVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5428,7 +5428,7 @@ extern "C" {
 	HRESULT (WINAPI *get__newEnum)(ISchemaItemCollection *This,IUnknown **ppunk);
       END_INTERFACE
     } ISchemaItemCollectionVtbl;
-    interface ISchemaItemCollection {
+    struct ISchemaItemCollection {
       CONST_VTBL struct ISchemaItemCollectionVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5491,7 +5491,7 @@ extern "C" {
 	HRESULT (WINAPI *writeAnnotation)(ISchemaItem *This,IUnknown *annotationSink,VARIANT_BOOL *isWritten);
       END_INTERFACE
     } ISchemaItemVtbl;
-    interface ISchemaItem {
+    struct ISchemaItem {
       CONST_VTBL struct ISchemaItemVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5571,7 +5571,7 @@ extern "C" {
 	HRESULT (WINAPI *get_schemaLocations)(ISchema *This,ISchemaStringCollection **schemaLocations);
       END_INTERFACE
     } ISchemaVtbl;
-    interface ISchema {
+    struct ISchema {
       CONST_VTBL struct ISchemaVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5650,7 +5650,7 @@ extern "C" {
 	HRESULT (WINAPI *get_maxOccurs)(ISchemaParticle *This,VARIANT *maxOccurs);
       END_INTERFACE
     } ISchemaParticleVtbl;
-    interface ISchemaParticle {
+    struct ISchemaParticle {
       CONST_VTBL struct ISchemaParticleVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5716,7 +5716,7 @@ extern "C" {
 	HRESULT (WINAPI *get_isReference)(ISchemaAttribute *This,VARIANT_BOOL *reference);
       END_INTERFACE
     } ISchemaAttributeVtbl;
-    interface ISchemaAttribute {
+    struct ISchemaAttribute {
       CONST_VTBL struct ISchemaAttributeVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5806,7 +5806,7 @@ extern "C" {
 	HRESULT (WINAPI *get_isReference)(ISchemaElement *This,VARIANT_BOOL *reference);
       END_INTERFACE
     } ISchemaElementVtbl;
-    interface ISchemaElement {
+    struct ISchemaElement {
       CONST_VTBL struct ISchemaElementVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -5923,7 +5923,7 @@ extern "C" {
 	HRESULT (WINAPI *get_patterns)(ISchemaType *This,ISchemaStringCollection **patterns);
       END_INTERFACE
     } ISchemaTypeVtbl;
-    interface ISchemaType {
+    struct ISchemaType {
       CONST_VTBL struct ISchemaTypeVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6051,7 +6051,7 @@ extern "C" {
 	HRESULT (WINAPI *get_prohibitedSubstitutions)(ISchemaComplexType *This,SCHEMADERIVATIONMETHOD *prohibited);
       END_INTERFACE
     } ISchemaComplexTypeVtbl;
-    interface ISchemaComplexType {
+    struct ISchemaComplexType {
       CONST_VTBL struct ISchemaComplexTypeVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6139,7 +6139,7 @@ extern "C" {
 	HRESULT (WINAPI *get_attributes)(ISchemaAttributeGroup *This,ISchemaItemCollection **attributes);
       END_INTERFACE
     } ISchemaAttributeGroupVtbl;
-    interface ISchemaAttributeGroup {
+    struct ISchemaAttributeGroup {
       CONST_VTBL struct ISchemaAttributeGroupVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6197,7 +6197,7 @@ extern "C" {
 	HRESULT (WINAPI *get_particles)(ISchemaModelGroup *This,ISchemaItemCollection **particles);
       END_INTERFACE
     } ISchemaModelGroupVtbl;
-    interface ISchemaModelGroup {
+    struct ISchemaModelGroup {
       CONST_VTBL struct ISchemaModelGroupVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6256,7 +6256,7 @@ extern "C" {
 	HRESULT (WINAPI *get_processContents)(ISchemaAny *This,SCHEMAPROCESSCONTENTS *processContents);
       END_INTERFACE
     } ISchemaAnyVtbl;
-    interface ISchemaAny {
+    struct ISchemaAny {
       CONST_VTBL struct ISchemaAnyVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6318,7 +6318,7 @@ extern "C" {
 	HRESULT (WINAPI *get_referencedKey)(ISchemaIdentityConstraint *This,ISchemaIdentityConstraint **key);
       END_INTERFACE
     } ISchemaIdentityConstraintVtbl;
-    interface ISchemaIdentityConstraint {
+    struct ISchemaIdentityConstraint {
       CONST_VTBL struct ISchemaIdentityConstraintVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6379,7 +6379,7 @@ extern "C" {
 	HRESULT (WINAPI *get_publicIdentifier)(ISchemaNotation *This,BSTR *uri);
       END_INTERFACE
     } ISchemaNotationVtbl;
-    interface ISchemaNotation {
+    struct ISchemaNotation {
       CONST_VTBL struct ISchemaNotationVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6434,7 +6434,7 @@ extern "C" {
 	HRESULT (WINAPI *item)(IXMLElementCollection *This,VARIANT var1,VARIANT var2,IDispatch **ppDisp);
       END_INTERFACE
     } IXMLElementCollectionVtbl;
-    interface IXMLElementCollection {
+    struct IXMLElementCollection {
       CONST_VTBL struct IXMLElementCollectionVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6508,7 +6508,7 @@ extern "C" {
 	HRESULT (WINAPI *createElement)(IXMLDocument *This,VARIANT vType,VARIANT var1,IXMLElement **ppElem);
       END_INTERFACE
     } IXMLDocumentVtbl;
-    interface IXMLDocument {
+    struct IXMLDocument {
       CONST_VTBL struct IXMLDocumentVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6616,7 +6616,7 @@ extern "C" {
 	HRESULT (WINAPI *put_async)(IXMLDocument2 *This,VARIANT_BOOL f);
       END_INTERFACE
     } IXMLDocument2Vtbl;
-    interface IXMLDocument2 {
+    struct IXMLDocument2 {
       CONST_VTBL struct IXMLDocument2Vtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6722,7 +6722,7 @@ extern "C" {
 	HRESULT (WINAPI *removeChild)(IXMLElement *This,IXMLElement *pChildElem);
       END_INTERFACE
     } IXMLElementVtbl;
-    interface IXMLElement {
+    struct IXMLElement {
       CONST_VTBL struct IXMLElementVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6818,7 +6818,7 @@ extern "C" {
 	HRESULT (WINAPI *get_attributes)(IXMLElement2 *This,IXMLElementCollection **pp);
       END_INTERFACE
     } IXMLElement2Vtbl;
-    interface IXMLElement2 {
+    struct IXMLElement2 {
       CONST_VTBL struct IXMLElement2Vtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6895,7 +6895,7 @@ extern "C" {
 	HRESULT (WINAPI *get_value)(IXMLAttribute *This,BSTR *v);
       END_INTERFACE
     } IXMLAttributeVtbl;
-    interface IXMLAttribute {
+    struct IXMLAttribute {
       CONST_VTBL struct IXMLAttributeVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6933,7 +6933,7 @@ extern "C" {
 	HRESULT (WINAPI *GetErrorInfo)(IXMLError *This,XML_ERROR *pErrorReturn);
       END_INTERFACE
     } IXMLErrorVtbl;
-    interface IXMLError {
+    struct IXMLError {
       CONST_VTBL struct IXMLErrorVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -6993,7 +6993,7 @@ extern "C" {
 	HRESULT (WINAPI *setProperty)(IXMLDOMSelection *This,BSTR name,VARIANT value);
       END_INTERFACE
     } IXMLDOMSelectionVtbl;
-    interface IXMLDOMSelection {
+    struct IXMLDOMSelection {
       CONST_VTBL struct IXMLDOMSelectionVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -7064,7 +7064,7 @@ extern "C" {
 	HRESULT (WINAPI *Invoke)(XMLDOMDocumentEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       END_INTERFACE
     } XMLDOMDocumentEventsVtbl;
-    interface XMLDOMDocumentEvents {
+    struct XMLDOMDocumentEvents {
       CONST_VTBL struct XMLDOMDocumentEventsVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -7108,7 +7108,7 @@ extern "C" {
 	HRESULT (WINAPI *get_readyState)(IDSOControl *This,long *state);
       END_INTERFACE
     } IDSOControlVtbl;
-    interface IDSOControl {
+    struct IDSOControl {
       CONST_VTBL struct IDSOControlVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -7185,7 +7185,7 @@ extern "C" {
 	HRESULT (WINAPI *put_onreadystatechange)(IXMLHTTPRequest *This,IDispatch *pReadyStateSink);
       END_INTERFACE
     } IXMLHTTPRequestVtbl;
-    interface IXMLHTTPRequest {
+    struct IXMLHTTPRequest {
       CONST_VTBL struct IXMLHTTPRequestVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -7283,7 +7283,7 @@ extern "C" {
 	HRESULT (WINAPI *setOption)(IServerXMLHTTPRequest *This,SERVERXMLHTTP_OPTION option,VARIANT value);
       END_INTERFACE
     } IServerXMLHTTPRequestVtbl;
-    interface IServerXMLHTTPRequest {
+    struct IServerXMLHTTPRequest {
       CONST_VTBL struct IServerXMLHTTPRequestVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -7365,7 +7365,7 @@ extern "C" {
 	HRESULT (WINAPI *setProxyCredentials)(IServerXMLHTTPRequest2 *This,BSTR bstrUserName,BSTR bstrPassword);
       END_INTERFACE
     } IServerXMLHTTPRequest2Vtbl;
-    interface IServerXMLHTTPRequest2 {
+    struct IServerXMLHTTPRequest2 {
       CONST_VTBL struct IServerXMLHTTPRequest2Vtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -7429,7 +7429,7 @@ extern "C" {
 	HRESULT (WINAPI *get__newEnum)(IMXNamespacePrefixes *This,IUnknown **ppUnk);
       END_INTERFACE
     } IMXNamespacePrefixesVtbl;
-    interface IMXNamespacePrefixes {
+    struct IMXNamespacePrefixes {
       CONST_VTBL struct IMXNamespacePrefixesVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -7494,7 +7494,7 @@ extern "C" {
 	HRESULT (WINAPI *getURIFromNode)(IVBMXNamespaceManager *This,BSTR strPrefix,IXMLDOMNode *contextNode,VARIANT *uri);
       END_INTERFACE
     } IVBMXNamespaceManagerVtbl;
-    interface IVBMXNamespaceManager {
+    struct IVBMXNamespaceManager {
       CONST_VTBL struct IVBMXNamespaceManagerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS
@@ -7577,7 +7577,7 @@ extern "C" {
 	HRESULT (WINAPI *getURI)(IMXNamespaceManager *This,const wchar_t *pwchPrefix,IXMLDOMNode *pContextNode,wchar_t *pwchUri,int *pcchUri);
       END_INTERFACE
     } IMXNamespaceManagerVtbl;
-    interface IMXNamespaceManager {
+    struct IMXNamespaceManager {
       CONST_VTBL struct IMXNamespaceManagerVtbl *lpVtbl;
     };
 #ifdef COBJMACROS

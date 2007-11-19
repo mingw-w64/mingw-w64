@@ -24,77 +24,77 @@
 
 #ifndef __ITDirectoryObjectConference_FWD_DEFINED__
 #define __ITDirectoryObjectConference_FWD_DEFINED__
-typedef interface ITDirectoryObjectConference ITDirectoryObjectConference;
+typedef struct ITDirectoryObjectConference ITDirectoryObjectConference;
 #endif
 
 #ifndef __ITDirectoryObjectUser_FWD_DEFINED__
 #define __ITDirectoryObjectUser_FWD_DEFINED__
-typedef interface ITDirectoryObjectUser ITDirectoryObjectUser;
+typedef struct ITDirectoryObjectUser ITDirectoryObjectUser;
 #endif
 
 #ifndef __IEnumDialableAddrs_FWD_DEFINED__
 #define __IEnumDialableAddrs_FWD_DEFINED__
-typedef interface IEnumDialableAddrs IEnumDialableAddrs;
+typedef struct IEnumDialableAddrs IEnumDialableAddrs;
 #endif
 
 #ifndef __ITDirectoryObject_FWD_DEFINED__
 #define __ITDirectoryObject_FWD_DEFINED__
-typedef interface ITDirectoryObject ITDirectoryObject;
+typedef struct ITDirectoryObject ITDirectoryObject;
 #endif
 
 #ifndef __IEnumDirectoryObject_FWD_DEFINED__
 #define __IEnumDirectoryObject_FWD_DEFINED__
-typedef interface IEnumDirectoryObject IEnumDirectoryObject;
+typedef struct IEnumDirectoryObject IEnumDirectoryObject;
 #endif
 
 #ifndef __ITILSConfig_FWD_DEFINED__
 #define __ITILSConfig_FWD_DEFINED__
-typedef interface ITILSConfig ITILSConfig;
+typedef struct ITILSConfig ITILSConfig;
 #endif
 
 #ifndef __ITDirectory_FWD_DEFINED__
 #define __ITDirectory_FWD_DEFINED__
-typedef interface ITDirectory ITDirectory;
+typedef struct ITDirectory ITDirectory;
 #endif
 
 #ifndef __IEnumDirectory_FWD_DEFINED__
 #define __IEnumDirectory_FWD_DEFINED__
-typedef interface IEnumDirectory IEnumDirectory;
+typedef struct IEnumDirectory IEnumDirectory;
 #endif
 
 #ifndef __ITRendezvous_FWD_DEFINED__
 #define __ITRendezvous_FWD_DEFINED__
-typedef interface ITRendezvous ITRendezvous;
+typedef struct ITRendezvous ITRendezvous;
 #endif
 
 #ifndef __ITRendezvous_FWD_DEFINED__
 #define __ITRendezvous_FWD_DEFINED__
-typedef interface ITRendezvous ITRendezvous;
+typedef struct ITRendezvous ITRendezvous;
 #endif
 
 #ifndef __ITDirectoryObjectConference_FWD_DEFINED__
 #define __ITDirectoryObjectConference_FWD_DEFINED__
-typedef interface ITDirectoryObjectConference ITDirectoryObjectConference;
+typedef struct ITDirectoryObjectConference ITDirectoryObjectConference;
 #endif
 
 #ifndef __ITDirectoryObjectUser_FWD_DEFINED__
 #define __ITDirectoryObjectUser_FWD_DEFINED__
-typedef interface ITDirectoryObjectUser ITDirectoryObjectUser;
+typedef struct ITDirectoryObjectUser ITDirectoryObjectUser;
 #endif
 
 #ifndef __ITDirectoryObject_FWD_DEFINED__
 #define __ITDirectoryObject_FWD_DEFINED__
-typedef interface ITDirectoryObject ITDirectoryObject;
+typedef struct ITDirectoryObject ITDirectoryObject;
 #endif
 
 #ifndef __ITILSConfig_FWD_DEFINED__
 #define __ITILSConfig_FWD_DEFINED__
-typedef interface ITILSConfig ITILSConfig;
+typedef struct ITILSConfig ITILSConfig;
 #endif
 
 #ifndef __ITDirectory_FWD_DEFINED__
 #define __ITDirectory_FWD_DEFINED__
-typedef interface ITDirectory ITDirectory;
+typedef struct ITDirectory ITDirectory;
 #endif
 
 #ifndef __Rendezvous_FWD_DEFINED__
@@ -186,7 +186,7 @@ extern "C" {
       HRESULT (WINAPI *put_StopTime)(ITDirectoryObjectConference *This,DATE Date);
     END_INTERFACE
   } ITDirectoryObjectConferenceVtbl;
-  interface ITDirectoryObjectConference {
+  struct ITDirectoryObjectConference {
     CONST_VTBL struct ITDirectoryObjectConferenceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -269,7 +269,7 @@ extern "C" {
       HRESULT (WINAPI *put_IPPhonePrimary)(ITDirectoryObjectUser *This,BSTR pName);
     END_INTERFACE
   } ITDirectoryObjectUserVtbl;
-  interface ITDirectoryObjectUser {
+  struct ITDirectoryObjectUser {
     CONST_VTBL struct ITDirectoryObjectUserVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -313,7 +313,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumDialableAddrs *This,IEnumDialableAddrs **ppEnum);
     END_INTERFACE
   } IEnumDialableAddrsVtbl;
-  interface IEnumDialableAddrs {
+  struct IEnumDialableAddrs {
     CONST_VTBL struct IEnumDialableAddrsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -369,7 +369,7 @@ extern "C" {
       HRESULT (WINAPI *put_SecurityDescriptor)(ITDirectoryObject *This,IDispatch *pSecDes);
     END_INTERFACE
   } ITDirectoryObjectVtbl;
-  interface ITDirectoryObject {
+  struct ITDirectoryObject {
     CONST_VTBL struct ITDirectoryObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -428,7 +428,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumDirectoryObject *This,IEnumDirectoryObject **ppEnum);
     END_INTERFACE
   } IEnumDirectoryObjectVtbl;
-  interface IEnumDirectoryObject {
+  struct IEnumDirectoryObject {
     CONST_VTBL struct IEnumDirectoryObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -474,7 +474,7 @@ extern "C" {
       HRESULT (WINAPI *put_Port)(ITILSConfig *This,long Port);
     END_INTERFACE
   } ITILSConfigVtbl;
-  interface ITILSConfig {
+  struct ITILSConfig {
     CONST_VTBL struct ITILSConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -542,7 +542,7 @@ extern "C" {
       HRESULT (WINAPI *EnumerateDirectoryObjects)(ITDirectory *This,DIRECTORY_OBJECT_TYPE DirectoryObjectType,BSTR pName,IEnumDirectoryObject **ppEnumObject);
     END_INTERFACE
   } ITDirectoryVtbl;
-  interface ITDirectory {
+  struct ITDirectory {
     CONST_VTBL struct ITDirectoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -622,7 +622,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumDirectory *This,IEnumDirectory **ppEnum);
     END_INTERFACE
   } IEnumDirectoryVtbl;
-  interface IEnumDirectory {
+  struct IEnumDirectory {
     CONST_VTBL struct IEnumDirectoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -672,7 +672,7 @@ extern "C" {
       HRESULT (WINAPI *CreateDirectoryObject)(ITRendezvous *This,DIRECTORY_OBJECT_TYPE DirectoryObjectType,BSTR pName,ITDirectoryObject **ppDirectoryObject);
     END_INTERFACE
   } ITRendezvousVtbl;
-  interface ITRendezvous {
+  struct ITRendezvous {
     CONST_VTBL struct ITRendezvousVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

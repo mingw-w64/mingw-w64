@@ -35,20 +35,17 @@
 extern "C" {
 #endif
 
-#ifndef _WINSOCKAPI_
   typedef unsigned char u_char;
   typedef unsigned short u_short;
   typedef unsigned int u_int;
   typedef unsigned long u_long;
   typedef unsigned __int64 u_int64;
   typedef INT_PTR SOCKET;
-#endif
 
 #ifndef FD_SETSIZE
 #define FD_SETSIZE 64
 #endif
 
-#ifndef _WINSOCKAPI_
   typedef struct fd_set {
     u_int fd_count;
     SOCKET fd_array[FD_SETSIZE];
@@ -60,7 +57,6 @@ extern "C" {
 #define FD_SET(fd,set) do { u_int __i; for(__i = 0;__i < ((fd_set *)(set))->fd_count;__i++) { if (((fd_set *)(set))->fd_array[__i]==(fd)) { break; } } if (__i==((fd_set *)(set))->fd_count) { if (((fd_set *)(set))->fd_count < FD_SETSIZE) { ((fd_set *)(set))->fd_array[__i] = (fd); ((fd_set *)(set))->fd_count++; } } } while(0)
 #define FD_ZERO(set) (((fd_set *)(set))->fd_count=0)
 #define FD_ISSET(fd,set) __WSAFDIsSet((SOCKET)(fd),(fd_set *)(set))
-#endif
 
 #ifndef _TIMEVAL_DEFINED /* also in winsock[2].h */
 #define _TIMEVAL_DEFINED
@@ -96,7 +92,6 @@ extern "C" {
 
 #define h_addr h_addr_list[0]
 
-#ifndef _WINSOCKAPI_
   struct hostent {
     char *h_name;
     char **h_aliases;
@@ -129,7 +124,6 @@ extern "C" {
     char **p_aliases;
     short p_proto;
   };
-#endif
 
 #define IPPROTO_IP 0
 #define IPPROTO_HOPOPTS 0
@@ -238,19 +232,16 @@ extern "C" {
 
 #define ADDR_ANY INADDR_ANY
 
-#ifndef _WINSOCKAPI_
   struct sockaddr_in {
     short sin_family;
     u_short sin_port;
     struct in_addr sin_addr;
     char sin_zero[8];
   };
-#endif
 
 #define WSADESCRIPTION_LEN 256
 #define WSASYS_STATUS_LEN 128
 
-#ifndef _WINSOCKAPI_
   typedef struct WSAData {
     WORD wVersion;
     WORD wHighVersion;
@@ -268,7 +259,6 @@ extern "C" {
     char *lpVendorInfo;
 #endif
   } WSADATA,*LPWSADATA;
-#endif
 
 #define INVALID_SOCKET (SOCKET)(~0)
 #define SOCKET_ERROR (-1)
@@ -355,12 +345,10 @@ extern "C" {
 
 #define AF_MAX 32
 
-#ifndef _WINSOCKAPI_
   struct sockaddr {
     u_short sa_family;
     char sa_data[14];
   };
-#endif
 
 #define _SS_MAXSIZE 128
 #define _SS_ALIGNSIZE (sizeof(__int64))
@@ -377,12 +365,10 @@ extern "C" {
 
   };
 
-#ifndef _WINSOCKAPI_
   struct sockproto {
     u_short sp_family;
     u_short sp_protocol;
   };
-#endif
 
 #define PF_UNSPEC AF_UNSPEC
 #define PF_UNIX AF_UNIX
@@ -412,12 +398,10 @@ extern "C" {
 
 #define PF_MAX AF_MAX
 
-#ifndef _WINSOCKAPI_
   struct linger {
     u_short l_onoff;
     u_short l_linger;
   };
-#endif
 
 #define SOL_SOCKET 0xffff
 

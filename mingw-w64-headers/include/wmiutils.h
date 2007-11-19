@@ -24,12 +24,12 @@
 
 #ifndef __IWbemPathKeyList_FWD_DEFINED__
 #define __IWbemPathKeyList_FWD_DEFINED__
-typedef interface IWbemPathKeyList IWbemPathKeyList;
+typedef struct IWbemPathKeyList IWbemPathKeyList;
 #endif
 
 #ifndef __IWbemPath_FWD_DEFINED__
 #define __IWbemPath_FWD_DEFINED__
-typedef interface IWbemPath IWbemPath;
+typedef struct IWbemPath IWbemPath;
 #endif
 
 #ifndef __WbemDefPath_FWD_DEFINED__
@@ -44,7 +44,7 @@ typedef struct WbemDefPath WbemDefPath;
 
 #ifndef __IWbemQuery_FWD_DEFINED__
 #define __IWbemQuery_FWD_DEFINED__
-typedef interface IWbemQuery IWbemQuery;
+typedef struct IWbemQuery IWbemQuery;
 #endif
 
 #ifndef __WbemQuery_FWD_DEFINED__
@@ -58,7 +58,7 @@ typedef struct WbemQuery WbemQuery;
 
 #ifndef __IWbemQuery_FWD_DEFINED__
 #define __IWbemQuery_FWD_DEFINED__
-typedef interface IWbemQuery IWbemQuery;
+typedef struct IWbemQuery IWbemQuery;
 #endif
 
 #ifdef __cplusplus
@@ -131,7 +131,7 @@ extern "C" {
       HRESULT (WINAPI *GetText)(IWbemPathKeyList *This,long lFlags,ULONG *puBuffLength,LPWSTR pszText);
     END_INTERFACE
   } IWbemPathKeyListVtbl;
-  interface IWbemPathKeyList {
+  struct IWbemPathKeyList {
     CONST_VTBL struct IWbemPathKeyListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -239,7 +239,7 @@ extern "C" {
       WINBOOL (WINAPI *IsSameClassName)(IWbemPath *This,LPCWSTR wszClass);
     END_INTERFACE
   } IWbemPathVtbl;
-  interface IWbemPath {
+  struct IWbemPath {
     CONST_VTBL struct IWbemPathVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -362,7 +362,7 @@ extern "C" {
       HRESULT (WINAPI *GetQueryInfo)(IWbemQuery *This,ULONG uAnalysisType,ULONG uInfoId,ULONG uBufSize,LPVOID pDestBuf);
     END_INTERFACE
   } IWbemQueryVtbl;
-  interface IWbemQuery {
+  struct IWbemQuery {
     CONST_VTBL struct IWbemQueryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

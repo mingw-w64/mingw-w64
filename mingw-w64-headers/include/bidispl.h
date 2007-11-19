@@ -24,17 +24,17 @@
 
 #ifndef __IBidiRequest_FWD_DEFINED__
 #define __IBidiRequest_FWD_DEFINED__
-typedef interface IBidiRequest IBidiRequest;
+typedef struct IBidiRequest IBidiRequest;
 #endif
 
 #ifndef __IBidiRequestContainer_FWD_DEFINED__
 #define __IBidiRequestContainer_FWD_DEFINED__
-typedef interface IBidiRequestContainer IBidiRequestContainer;
+typedef struct IBidiRequestContainer IBidiRequestContainer;
 #endif
 
 #ifndef __IBidiSpl_FWD_DEFINED__
 #define __IBidiSpl_FWD_DEFINED__
-typedef interface IBidiSpl IBidiSpl;
+typedef struct IBidiSpl IBidiSpl;
 #endif
 
 #ifndef __BidiRequest_FWD_DEFINED__
@@ -98,7 +98,7 @@ extern "C"{
       HRESULT (WINAPI *GetEnumCount)(IBidiRequest *This,DWORD *pdwTotal);
     END_INTERFACE
   } IBidiRequestVtbl;
-  interface IBidiRequest {
+  struct IBidiRequest {
     CONST_VTBL struct IBidiRequestVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -145,7 +145,7 @@ extern "C"{
       HRESULT (WINAPI *GetRequestCount)(IBidiRequestContainer *This,ULONG *puCount);
     END_INTERFACE
   } IBidiRequestContainerVtbl;
-  interface IBidiRequestContainer {
+  struct IBidiRequestContainer {
     CONST_VTBL struct IBidiRequestContainerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -188,7 +188,7 @@ extern "C"{
       HRESULT (WINAPI *MultiSendRecv)(IBidiSpl *This,const LPCWSTR pszAction,IBidiRequestContainer *pRequestContainer);
     END_INTERFACE
   } IBidiSplVtbl;
-  interface IBidiSpl {
+  struct IBidiSpl {
     CONST_VTBL struct IBidiSplVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

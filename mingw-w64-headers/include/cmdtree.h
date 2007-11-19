@@ -24,12 +24,12 @@
 
 #ifndef __ICommandTree_FWD_DEFINED__
 #define __ICommandTree_FWD_DEFINED__
-typedef interface ICommandTree ICommandTree;
+typedef struct ICommandTree ICommandTree;
 #endif
 
 #ifndef __IQuery_FWD_DEFINED__
 #define __IQuery_FWD_DEFINED__
-typedef interface IQuery IQuery;
+typedef struct IQuery IQuery;
 #endif
 
 #include "oledb.h"
@@ -371,7 +371,7 @@ extern "C"{
       HRESULT (WINAPI *SetCommandTree)(ICommandTree *This,DBCOMMANDTREE **ppRoot,DBCOMMANDREUSE dwCommandReuse,WINBOOL fCopy);
     END_INTERFACE
   } ICommandTreeVtbl;
-  interface ICommandTree {
+  struct ICommandTree {
     CONST_VTBL struct ICommandTreeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -417,7 +417,7 @@ extern "C"{
       HRESULT (WINAPI *GetCardinalityEstimate)(IQuery *This,DBORDINAL *pulCardinality);
     END_INTERFACE
   } IQueryVtbl;
-  interface IQuery {
+  struct IQuery {
     CONST_VTBL struct IQueryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

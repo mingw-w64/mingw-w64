@@ -15,27 +15,27 @@
 
 #ifndef ___IUseIMBase_FWD_DEFINED__
 #define ___IUseIMBase_FWD_DEFINED__
-typedef interface _IUseIMBase _IUseIMBase;
+typedef struct _IUseIMBase _IUseIMBase;
 #endif
 
 #ifndef __IMSIMContactView_FWD_DEFINED__
 #define __IMSIMContactView_FWD_DEFINED__
-typedef interface IMSIMContactView IMSIMContactView;
+typedef struct IMSIMContactView IMSIMContactView;
 #endif
 
 #ifndef __DMSIMContactViewEvents_FWD_DEFINED__
 #define __DMSIMContactViewEvents_FWD_DEFINED__
-typedef interface DMSIMContactViewEvents DMSIMContactViewEvents;
+typedef struct DMSIMContactViewEvents DMSIMContactViewEvents;
 #endif
 
 #ifndef __IMSIMMessageView_FWD_DEFINED__
 #define __IMSIMMessageView_FWD_DEFINED__
-typedef interface IMSIMMessageView IMSIMMessageView;
+typedef struct IMSIMMessageView IMSIMMessageView;
 #endif
 
 #ifndef __DMSIMMessageViewEvents_FWD_DEFINED__
 #define __DMSIMMessageViewEvents_FWD_DEFINED__
-typedef interface DMSIMMessageViewEvents DMSIMMessageViewEvents;
+typedef struct DMSIMMessageViewEvents DMSIMMessageViewEvents;
 #endif
 
 #ifndef __MSIMContactView_FWD_DEFINED__
@@ -60,17 +60,17 @@ typedef struct MSIMMessageView MSIMMessageView;
 
 #ifndef __IIMSafeContact_FWD_DEFINED__
 #define __IIMSafeContact_FWD_DEFINED__
-typedef interface IIMSafeContact IIMSafeContact;
+typedef struct IIMSafeContact IIMSafeContact;
 #endif
 
 #ifndef __IMSIMContactList_FWD_DEFINED__
 #define __IMSIMContactList_FWD_DEFINED__
-typedef interface IMSIMContactList IMSIMContactList;
+typedef struct IMSIMContactList IMSIMContactList;
 #endif
 
 #ifndef __DIMContactListEvents_FWD_DEFINED__
 #define __DIMContactListEvents_FWD_DEFINED__
-typedef interface DIMContactListEvents DIMContactListEvents;
+typedef struct DIMContactListEvents DIMContactListEvents;
 #endif
 
 #ifndef __MSIMContactList_FWD_DEFINED__
@@ -192,7 +192,7 @@ extern "C" {
       HRESULT (WINAPI *SetLocalState)(_IUseIMBase *This,long lState,VARIANT varDescription,VARIANT varData);
     END_INTERFACE
   } _IUseIMBaseVtbl;
-  interface _IUseIMBase {
+  struct _IUseIMBase {
     CONST_VTBL struct _IUseIMBaseVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -346,7 +346,7 @@ extern "C" {
       HRESULT (WINAPI *put_AcceptMessages)(IMSIMContactView *This,VARIANT_BOOL newVal);
     END_INTERFACE
   } IMSIMContactViewVtbl;
-  interface IMSIMContactView {
+  struct IMSIMContactView {
     CONST_VTBL struct IMSIMContactViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -504,7 +504,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(DMSIMContactViewEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DMSIMContactViewEventsVtbl;
-  interface DMSIMContactViewEvents {
+  struct DMSIMContactViewEvents {
     CONST_VTBL struct DMSIMContactViewEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -611,7 +611,7 @@ extern "C" {
       HRESULT (WINAPI *get_InSession)(IMSIMMessageView *This,VARIANT_BOOL *pVal);
     END_INTERFACE
   } IMSIMMessageViewVtbl;
-  interface IMSIMMessageView {
+  struct IMSIMMessageView {
     CONST_VTBL struct IMSIMMessageViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -748,7 +748,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(DMSIMMessageViewEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DMSIMMessageViewEventsVtbl;
-  interface DMSIMMessageViewEvents {
+  struct DMSIMMessageViewEvents {
     CONST_VTBL struct DMSIMMessageViewEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -807,7 +807,7 @@ extern "C" {
       HRESULT (WINAPI *LaunchNetMeeting)(IIMSafeContact *This);
     END_INTERFACE
   } IIMSafeContactVtbl;
-  interface IIMSafeContact {
+  struct IIMSafeContact {
     CONST_VTBL struct IIMSafeContactVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -908,7 +908,7 @@ extern "C" {
       HRESULT (WINAPI *get_LocalLogonName)(IMSIMContactList *This,BSTR *pval);
     END_INTERFACE
   } IMSIMContactListVtbl;
-  interface IMSIMContactList {
+  struct IMSIMContactList {
     CONST_VTBL struct IMSIMContactListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1000,7 +1000,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(DIMContactListEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DIMContactListEventsVtbl;
-  interface DIMContactListEvents {
+  struct DIMContactListEvents {
     CONST_VTBL struct DIMContactListEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

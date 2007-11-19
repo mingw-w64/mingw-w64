@@ -24,37 +24,37 @@
 
 #ifndef __ITransaction_FWD_DEFINED__
 #define __ITransaction_FWD_DEFINED__
-typedef interface ITransaction ITransaction;
+typedef struct ITransaction ITransaction;
 #endif
 
 #ifndef __ITransactionCloner_FWD_DEFINED__
 #define __ITransactionCloner_FWD_DEFINED__
-typedef interface ITransactionCloner ITransactionCloner;
+typedef struct ITransactionCloner ITransactionCloner;
 #endif
 
 #ifndef __ITransaction2_FWD_DEFINED__
 #define __ITransaction2_FWD_DEFINED__
-typedef interface ITransaction2 ITransaction2;
+typedef struct ITransaction2 ITransaction2;
 #endif
 
 #ifndef __ITransactionDispenser_FWD_DEFINED__
 #define __ITransactionDispenser_FWD_DEFINED__
-typedef interface ITransactionDispenser ITransactionDispenser;
+typedef struct ITransactionDispenser ITransactionDispenser;
 #endif
 
 #ifndef __ITransactionOptions_FWD_DEFINED__
 #define __ITransactionOptions_FWD_DEFINED__
-typedef interface ITransactionOptions ITransactionOptions;
+typedef struct ITransactionOptions ITransactionOptions;
 #endif
 
 #ifndef __ITransactionOutcomeEvents_FWD_DEFINED__
 #define __ITransactionOutcomeEvents_FWD_DEFINED__
-typedef interface ITransactionOutcomeEvents ITransactionOutcomeEvents;
+typedef struct ITransactionOutcomeEvents ITransactionOutcomeEvents;
 #endif
 
 #ifndef __ITmNodeName_FWD_DEFINED__
 #define __ITmNodeName_FWD_DEFINED__
-typedef interface ITmNodeName ITmNodeName;
+typedef struct ITmNodeName ITmNodeName;
 #endif
 
 #include "unknwn.h"
@@ -171,7 +171,7 @@ extern "C" {
       HRESULT (WINAPI *GetTransactionInfo)(ITransaction *This,XACTTRANSINFO *pinfo);
     END_INTERFACE
   } ITransactionVtbl;
-  interface ITransaction {
+  struct ITransaction {
     CONST_VTBL struct ITransactionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -211,7 +211,7 @@ extern "C" {
       HRESULT (WINAPI *CloneWithCommitDisabled)(ITransactionCloner *This,ITransaction **ppITransaction);
     END_INTERFACE
   } ITransactionClonerVtbl;
-  interface ITransactionCloner {
+  struct ITransactionCloner {
     CONST_VTBL struct ITransactionClonerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -249,7 +249,7 @@ extern "C" {
       HRESULT (WINAPI *GetTransactionInfo2)(ITransaction2 *This,XACTTRANSINFO *pinfo);
     END_INTERFACE
   } ITransaction2Vtbl;
-  interface ITransaction2 {
+  struct ITransaction2 {
     CONST_VTBL struct ITransaction2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -286,7 +286,7 @@ extern "C" {
       HRESULT (WINAPI *BeginTransaction)(ITransactionDispenser *This,IUnknown *punkOuter,ISOLEVEL isoLevel,ULONG isoFlags,ITransactionOptions *pOptions,ITransaction **ppTransaction);
     END_INTERFACE
   } ITransactionDispenserVtbl;
-  interface ITransactionDispenser {
+  struct ITransactionDispenser {
     CONST_VTBL struct ITransactionDispenserVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -322,7 +322,7 @@ extern "C" {
       HRESULT (WINAPI *GetOptions)(ITransactionOptions *This,XACTOPT *pOptions);
     END_INTERFACE
   } ITransactionOptionsVtbl;
-  interface ITransactionOptions {
+  struct ITransactionOptions {
     CONST_VTBL struct ITransactionOptionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -362,7 +362,7 @@ extern "C" {
       HRESULT (WINAPI *Indoubt)(ITransactionOutcomeEvents *This);
     END_INTERFACE
   } ITransactionOutcomeEventsVtbl;
-  interface ITransactionOutcomeEvents {
+  struct ITransactionOutcomeEvents {
     CONST_VTBL struct ITransactionOutcomeEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -404,7 +404,7 @@ extern "C" {
       HRESULT (WINAPI *GetNodeName)(ITmNodeName *This,ULONG cbNodeNameBufferSize,LPWSTR pNodeNameBuffer);
     END_INTERFACE
   } ITmNodeNameVtbl;
-  interface ITmNodeName {
+  struct ITmNodeName {
     CONST_VTBL struct ITmNodeNameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

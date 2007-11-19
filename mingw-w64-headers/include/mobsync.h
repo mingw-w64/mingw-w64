@@ -24,27 +24,27 @@
 
 #ifndef __ISyncMgrSynchronize_FWD_DEFINED__
 #define __ISyncMgrSynchronize_FWD_DEFINED__
-typedef interface ISyncMgrSynchronize ISyncMgrSynchronize;
+typedef struct ISyncMgrSynchronize ISyncMgrSynchronize;
 #endif
 
 #ifndef __ISyncMgrSynchronizeCallback_FWD_DEFINED__
 #define __ISyncMgrSynchronizeCallback_FWD_DEFINED__
-typedef interface ISyncMgrSynchronizeCallback ISyncMgrSynchronizeCallback;
+typedef struct ISyncMgrSynchronizeCallback ISyncMgrSynchronizeCallback;
 #endif
 
 #ifndef __ISyncMgrEnumItems_FWD_DEFINED__
 #define __ISyncMgrEnumItems_FWD_DEFINED__
-typedef interface ISyncMgrEnumItems ISyncMgrEnumItems;
+typedef struct ISyncMgrEnumItems ISyncMgrEnumItems;
 #endif
 
 #ifndef __ISyncMgrSynchronizeInvoke_FWD_DEFINED__
 #define __ISyncMgrSynchronizeInvoke_FWD_DEFINED__
-typedef interface ISyncMgrSynchronizeInvoke ISyncMgrSynchronizeInvoke;
+typedef struct ISyncMgrSynchronizeInvoke ISyncMgrSynchronizeInvoke;
 #endif
 
 #ifndef __ISyncMgrRegister_FWD_DEFINED__
 #define __ISyncMgrRegister_FWD_DEFINED__
-typedef interface ISyncMgrRegister ISyncMgrRegister;
+typedef struct ISyncMgrRegister ISyncMgrRegister;
 #endif
 
 #ifndef __SyncMgr_FWD_DEFINED__
@@ -154,7 +154,7 @@ extern "C" {
       HRESULT (WINAPI *ShowError)(ISyncMgrSynchronize *This,HWND hWndParent,REFSYNCMGRERRORID ErrorID);
     END_INTERFACE
   } ISyncMgrSynchronizeVtbl;
-  interface ISyncMgrSynchronize {
+  struct ISyncMgrSynchronize {
     CONST_VTBL struct ISyncMgrSynchronizeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -268,7 +268,7 @@ extern "C" {
       HRESULT (WINAPI *EstablishConnection)(ISyncMgrSynchronizeCallback *This,LPCWSTR lpwszConnection,DWORD dwReserved);
     END_INTERFACE
   } ISyncMgrSynchronizeCallbackVtbl;
-  interface ISyncMgrSynchronizeCallback {
+  struct ISyncMgrSynchronizeCallback {
     CONST_VTBL struct ISyncMgrSynchronizeCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -351,7 +351,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(ISyncMgrEnumItems *This,ISyncMgrEnumItems **ppenum);
     END_INTERFACE
   } ISyncMgrEnumItemsVtbl;
-  interface ISyncMgrEnumItems {
+  struct ISyncMgrEnumItems {
     CONST_VTBL struct ISyncMgrEnumItemsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -399,7 +399,7 @@ extern "C" {
       HRESULT (WINAPI *UpdateAll)(ISyncMgrSynchronizeInvoke *This);
     END_INTERFACE
   } ISyncMgrSynchronizeInvokeVtbl;
-  interface ISyncMgrSynchronizeInvoke {
+  struct ISyncMgrSynchronizeInvoke {
     CONST_VTBL struct ISyncMgrSynchronizeInvokeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -445,7 +445,7 @@ extern "C" {
       HRESULT (WINAPI *GetHandlerRegistrationInfo)(ISyncMgrRegister *This,REFCLSID rclsidHandler,LPDWORD pdwSyncMgrRegisterFlags);
     END_INTERFACE
   } ISyncMgrRegisterVtbl;
-  interface ISyncMgrRegister {
+  struct ISyncMgrRegister {
     CONST_VTBL struct ISyncMgrRegisterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

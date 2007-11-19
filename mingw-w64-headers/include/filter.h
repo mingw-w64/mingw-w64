@@ -24,7 +24,7 @@
 
 #ifndef __IFilter_FWD_DEFINED__
 #define __IFilter_FWD_DEFINED__
-typedef interface IFilter IFilter;
+typedef struct IFilter IFilter;
 #endif
 
 #include "unknwn.h"
@@ -134,7 +134,7 @@ extern "C"{
       SCODE (WINAPI *BindRegion)(IFilter *This,FILTERREGION origPos,REFIID riid,void **ppunk);
     END_INTERFACE
   } IFilterVtbl;
-  interface IFilter {
+  struct IFilter {
     CONST_VTBL struct IFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

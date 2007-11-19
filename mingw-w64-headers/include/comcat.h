@@ -24,22 +24,22 @@
 
 #ifndef __IEnumGUID_FWD_DEFINED__
 #define __IEnumGUID_FWD_DEFINED__
-typedef interface IEnumGUID IEnumGUID;
+typedef struct IEnumGUID IEnumGUID;
 #endif
 
 #ifndef __IEnumCATEGORYINFO_FWD_DEFINED__
 #define __IEnumCATEGORYINFO_FWD_DEFINED__
-typedef interface IEnumCATEGORYINFO IEnumCATEGORYINFO;
+typedef struct IEnumCATEGORYINFO IEnumCATEGORYINFO;
 #endif
 
 #ifndef __ICatRegister_FWD_DEFINED__
 #define __ICatRegister_FWD_DEFINED__
-typedef interface ICatRegister ICatRegister;
+typedef struct ICatRegister ICatRegister;
 #endif
 
 #ifndef __ICatInformation_FWD_DEFINED__
 #define __ICatInformation_FWD_DEFINED__
-typedef interface ICatInformation ICatInformation;
+typedef struct ICatInformation ICatInformation;
 #endif
 
 #include "unknwn.h"
@@ -113,7 +113,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumGUID *This,IEnumGUID **ppenum);
     END_INTERFACE
   } IEnumGUIDVtbl;
-  interface IEnumGUID {
+  struct IEnumGUID {
     CONST_VTBL struct IEnumGUIDVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -173,7 +173,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumCATEGORYINFO *This,IEnumCATEGORYINFO **ppenum);
     END_INTERFACE
   } IEnumCATEGORYINFOVtbl;
-  interface IEnumCATEGORYINFO {
+  struct IEnumCATEGORYINFO {
     CONST_VTBL struct IEnumCATEGORYINFOVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -229,7 +229,7 @@ extern "C"{
       HRESULT (WINAPI *UnRegisterClassReqCategories)(ICatRegister *This,REFCLSID rclsid,ULONG cCategories,CATID rgcatid[]);
     END_INTERFACE
   } ICatRegisterVtbl;
-  interface ICatRegister {
+  struct ICatRegister {
     CONST_VTBL struct ICatRegisterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -291,7 +291,7 @@ extern "C"{
       HRESULT (WINAPI *EnumReqCategoriesOfClass)(ICatInformation *This,REFCLSID rclsid,IEnumGUID **ppenumCatid);
     END_INTERFACE
   } ICatInformationVtbl;
-  interface ICatInformation {
+  struct ICatInformation {
     CONST_VTBL struct ICatInformationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

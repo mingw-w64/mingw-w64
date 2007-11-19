@@ -24,82 +24,82 @@
 
 #ifndef __ITAgent_FWD_DEFINED__
 #define __ITAgent_FWD_DEFINED__
-typedef interface ITAgent ITAgent;
+typedef struct ITAgent ITAgent;
 #endif
 
 #ifndef __ITAgentSession_FWD_DEFINED__
 #define __ITAgentSession_FWD_DEFINED__
-typedef interface ITAgentSession ITAgentSession;
+typedef struct ITAgentSession ITAgentSession;
 #endif
 
 #ifndef __ITACDGroup_FWD_DEFINED__
 #define __ITACDGroup_FWD_DEFINED__
-typedef interface ITACDGroup ITACDGroup;
+typedef struct ITACDGroup ITACDGroup;
 #endif
 
 #ifndef __ITQueue_FWD_DEFINED__
 #define __ITQueue_FWD_DEFINED__
-typedef interface ITQueue ITQueue;
+typedef struct ITQueue ITQueue;
 #endif
 
 #ifndef __ITAgentEvent_FWD_DEFINED__
 #define __ITAgentEvent_FWD_DEFINED__
-typedef interface ITAgentEvent ITAgentEvent;
+typedef struct ITAgentEvent ITAgentEvent;
 #endif
 
 #ifndef __ITAgentSessionEvent_FWD_DEFINED__
 #define __ITAgentSessionEvent_FWD_DEFINED__
-typedef interface ITAgentSessionEvent ITAgentSessionEvent;
+typedef struct ITAgentSessionEvent ITAgentSessionEvent;
 #endif
 
 #ifndef __ITACDGroupEvent_FWD_DEFINED__
 #define __ITACDGroupEvent_FWD_DEFINED__
-typedef interface ITACDGroupEvent ITACDGroupEvent;
+typedef struct ITACDGroupEvent ITACDGroupEvent;
 #endif
 
 #ifndef __ITQueueEvent_FWD_DEFINED__
 #define __ITQueueEvent_FWD_DEFINED__
-typedef interface ITQueueEvent ITQueueEvent;
+typedef struct ITQueueEvent ITQueueEvent;
 #endif
 
 #ifndef __ITAgentHandlerEvent_FWD_DEFINED__
 #define __ITAgentHandlerEvent_FWD_DEFINED__
-typedef interface ITAgentHandlerEvent ITAgentHandlerEvent;
+typedef struct ITAgentHandlerEvent ITAgentHandlerEvent;
 #endif
 
 #ifndef __ITTAPICallCenter_FWD_DEFINED__
 #define __ITTAPICallCenter_FWD_DEFINED__
-typedef interface ITTAPICallCenter ITTAPICallCenter;
+typedef struct ITTAPICallCenter ITTAPICallCenter;
 #endif
 
 #ifndef __ITAgentHandler_FWD_DEFINED__
 #define __ITAgentHandler_FWD_DEFINED__
-typedef interface ITAgentHandler ITAgentHandler;
+typedef struct ITAgentHandler ITAgentHandler;
 #endif
 
 #ifndef __IEnumAgent_FWD_DEFINED__
 #define __IEnumAgent_FWD_DEFINED__
-typedef interface IEnumAgent IEnumAgent;
+typedef struct IEnumAgent IEnumAgent;
 #endif
 
 #ifndef __IEnumAgentSession_FWD_DEFINED__
 #define __IEnumAgentSession_FWD_DEFINED__
-typedef interface IEnumAgentSession IEnumAgentSession;
+typedef struct IEnumAgentSession IEnumAgentSession;
 #endif
 
 #ifndef __IEnumQueue_FWD_DEFINED__
 #define __IEnumQueue_FWD_DEFINED__
-typedef interface IEnumQueue IEnumQueue;
+typedef struct IEnumQueue IEnumQueue;
 #endif
 
 #ifndef __IEnumACDGroup_FWD_DEFINED__
 #define __IEnumACDGroup_FWD_DEFINED__
-typedef interface IEnumACDGroup IEnumACDGroup;
+typedef struct IEnumACDGroup IEnumACDGroup;
 #endif
 
 #ifndef __IEnumAgentHandler_FWD_DEFINED__
 #define __IEnumAgentHandler_FWD_DEFINED__
-typedef interface IEnumAgentHandler IEnumAgentHandler;
+typedef struct IEnumAgentHandler IEnumAgentHandler;
 #endif
 
 #include "oaidl.h"
@@ -199,7 +199,7 @@ extern "C" {
       HRESULT (WINAPI *get_AgentSessions)(ITAgent *This,VARIANT *pVariant);
     END_INTERFACE
   } ITAgentVtbl;
-  interface ITAgent {
+  struct ITAgent {
     CONST_VTBL struct ITAgentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -318,7 +318,7 @@ extern "C" {
       HRESULT (WINAPI *get_AverageTimeToAnswer)(ITAgentSession *This,long *plAnswerTime);
     END_INTERFACE
   } ITAgentSessionVtbl;
-  interface ITAgentSession {
+  struct ITAgentSession {
     CONST_VTBL struct ITAgentSessionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -409,7 +409,7 @@ extern "C" {
       HRESULT (WINAPI *get_Queues)(ITACDGroup *This,VARIANT *pVariant);
     END_INTERFACE
   } ITACDGroupVtbl;
-  interface ITACDGroup {
+  struct ITACDGroup {
     CONST_VTBL struct ITACDGroupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -476,7 +476,7 @@ extern "C" {
       HRESULT (WINAPI *get_Name)(ITQueue *This,BSTR *ppName);
     END_INTERFACE
   } ITQueueVtbl;
-  interface ITQueue {
+  struct ITQueue {
     CONST_VTBL struct ITQueueVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -550,7 +550,7 @@ extern "C" {
       HRESULT (WINAPI *get_Event)(ITAgentEvent *This,AGENT_EVENT *pEvent);
     END_INTERFACE
   } ITAgentEventVtbl;
-  interface ITAgentEvent {
+  struct ITAgentEvent {
     CONST_VTBL struct ITAgentEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -594,7 +594,7 @@ extern "C" {
       HRESULT (WINAPI *get_Event)(ITAgentSessionEvent *This,AGENT_SESSION_EVENT *pEvent);
     END_INTERFACE
   } ITAgentSessionEventVtbl;
-  interface ITAgentSessionEvent {
+  struct ITAgentSessionEvent {
     CONST_VTBL struct ITAgentSessionEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -638,7 +638,7 @@ extern "C" {
       HRESULT (WINAPI *get_Event)(ITACDGroupEvent *This,ACDGROUP_EVENT *pEvent);
     END_INTERFACE
   } ITACDGroupEventVtbl;
-  interface ITACDGroupEvent {
+  struct ITACDGroupEvent {
     CONST_VTBL struct ITACDGroupEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -682,7 +682,7 @@ extern "C" {
       HRESULT (WINAPI *get_Event)(ITQueueEvent *This,ACDQUEUE_EVENT *pEvent);
     END_INTERFACE
   } ITQueueEventVtbl;
-  interface ITQueueEvent {
+  struct ITQueueEvent {
     CONST_VTBL struct ITQueueEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -726,7 +726,7 @@ extern "C" {
       HRESULT (WINAPI *get_Event)(ITAgentHandlerEvent *This,AGENTHANDLER_EVENT *pEvent);
     END_INTERFACE
   } ITAgentHandlerEventVtbl;
-  interface ITAgentHandlerEvent {
+  struct ITAgentHandlerEvent {
     CONST_VTBL struct ITAgentHandlerEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -770,7 +770,7 @@ extern "C" {
       HRESULT (WINAPI *get_AgentHandlers)(ITTAPICallCenter *This,VARIANT *pVariant);
     END_INTERFACE
   } ITTAPICallCenterVtbl;
-  interface ITTAPICallCenter {
+  struct ITTAPICallCenter {
     CONST_VTBL struct ITTAPICallCenterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -824,7 +824,7 @@ extern "C" {
       HRESULT (WINAPI *get_UsableAddresses)(ITAgentHandler *This,VARIANT *pVariant);
     END_INTERFACE
   } ITAgentHandlerVtbl;
-  interface ITAgentHandler {
+  struct ITAgentHandler {
     CONST_VTBL struct ITAgentHandlerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -883,7 +883,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumAgent *This,IEnumAgent **ppEnum);
     END_INTERFACE
   } IEnumAgentVtbl;
-  interface IEnumAgent {
+  struct IEnumAgent {
     CONST_VTBL struct IEnumAgentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -929,7 +929,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumAgentSession *This,IEnumAgentSession **ppEnum);
     END_INTERFACE
   } IEnumAgentSessionVtbl;
-  interface IEnumAgentSession {
+  struct IEnumAgentSession {
     CONST_VTBL struct IEnumAgentSessionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -975,7 +975,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumQueue *This,IEnumQueue **ppEnum);
     END_INTERFACE
   } IEnumQueueVtbl;
-  interface IEnumQueue {
+  struct IEnumQueue {
     CONST_VTBL struct IEnumQueueVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1021,7 +1021,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumACDGroup *This,IEnumACDGroup **ppEnum);
     END_INTERFACE
   } IEnumACDGroupVtbl;
-  interface IEnumACDGroup {
+  struct IEnumACDGroup {
     CONST_VTBL struct IEnumACDGroupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1067,7 +1067,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumAgentHandler *This,IEnumAgentHandler **ppEnum);
     END_INTERFACE
   } IEnumAgentHandlerVtbl;
-  interface IEnumAgentHandler {
+  struct IEnumAgentHandler {
     CONST_VTBL struct IEnumAgentHandlerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

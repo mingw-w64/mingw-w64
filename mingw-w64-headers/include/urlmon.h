@@ -24,192 +24,192 @@
 
 #ifndef __IPersistMoniker_FWD_DEFINED__
 #define __IPersistMoniker_FWD_DEFINED__
-typedef interface IPersistMoniker IPersistMoniker;
+typedef struct IPersistMoniker IPersistMoniker;
 #endif
 
 #ifndef __IMonikerProp_FWD_DEFINED__
 #define __IMonikerProp_FWD_DEFINED__
-typedef interface IMonikerProp IMonikerProp;
+typedef struct IMonikerProp IMonikerProp;
 #endif
 
 #ifndef __IBindProtocol_FWD_DEFINED__
 #define __IBindProtocol_FWD_DEFINED__
-typedef interface IBindProtocol IBindProtocol;
+typedef struct IBindProtocol IBindProtocol;
 #endif
 
 #ifndef __IBinding_FWD_DEFINED__
 #define __IBinding_FWD_DEFINED__
-typedef interface IBinding IBinding;
+typedef struct IBinding IBinding;
 #endif
 
 #ifndef __IBindStatusCallback_FWD_DEFINED__
 #define __IBindStatusCallback_FWD_DEFINED__
-typedef interface IBindStatusCallback IBindStatusCallback;
+typedef struct IBindStatusCallback IBindStatusCallback;
 #endif
 
 #ifndef __IAuthenticate_FWD_DEFINED__
 #define __IAuthenticate_FWD_DEFINED__
-typedef interface IAuthenticate IAuthenticate;
+typedef struct IAuthenticate IAuthenticate;
 #endif
 
 #ifndef __IHttpNegotiate_FWD_DEFINED__
 #define __IHttpNegotiate_FWD_DEFINED__
-typedef interface IHttpNegotiate IHttpNegotiate;
+typedef struct IHttpNegotiate IHttpNegotiate;
 #endif
 
 #ifndef __IHttpNegotiate2_FWD_DEFINED__
 #define __IHttpNegotiate2_FWD_DEFINED__
-typedef interface IHttpNegotiate2 IHttpNegotiate2;
+typedef struct IHttpNegotiate2 IHttpNegotiate2;
 #endif
 
 #ifndef __IWinInetFileStream_FWD_DEFINED__
 #define __IWinInetFileStream_FWD_DEFINED__
-typedef interface IWinInetFileStream IWinInetFileStream;
+typedef struct IWinInetFileStream IWinInetFileStream;
 #endif
 
 #ifndef __IWindowForBindingUI_FWD_DEFINED__
 #define __IWindowForBindingUI_FWD_DEFINED__
-typedef interface IWindowForBindingUI IWindowForBindingUI;
+typedef struct IWindowForBindingUI IWindowForBindingUI;
 #endif
 
 #ifndef __ICodeInstall_FWD_DEFINED__
 #define __ICodeInstall_FWD_DEFINED__
-typedef interface ICodeInstall ICodeInstall;
+typedef struct ICodeInstall ICodeInstall;
 #endif
 
 #ifndef __IWinInetInfo_FWD_DEFINED__
 #define __IWinInetInfo_FWD_DEFINED__
-typedef interface IWinInetInfo IWinInetInfo;
+typedef struct IWinInetInfo IWinInetInfo;
 #endif
 
 #ifndef __IHttpSecurity_FWD_DEFINED__
 #define __IHttpSecurity_FWD_DEFINED__
-typedef interface IHttpSecurity IHttpSecurity;
+typedef struct IHttpSecurity IHttpSecurity;
 #endif
 
 #ifndef __IWinInetHttpInfo_FWD_DEFINED__
 #define __IWinInetHttpInfo_FWD_DEFINED__
-typedef interface IWinInetHttpInfo IWinInetHttpInfo;
+typedef struct IWinInetHttpInfo IWinInetHttpInfo;
 #endif
 
 #ifndef __IWinInetCacheHints_FWD_DEFINED__
 #define __IWinInetCacheHints_FWD_DEFINED__
-typedef interface IWinInetCacheHints IWinInetCacheHints;
+typedef struct IWinInetCacheHints IWinInetCacheHints;
 #endif
 
 #ifndef __IBindHost_FWD_DEFINED__
 #define __IBindHost_FWD_DEFINED__
-typedef interface IBindHost IBindHost;
+typedef struct IBindHost IBindHost;
 #endif
 
 #ifndef __IInternet_FWD_DEFINED__
 #define __IInternet_FWD_DEFINED__
-typedef interface IInternet IInternet;
+typedef struct IInternet IInternet;
 #endif
 
 #ifndef __IInternetBindInfo_FWD_DEFINED__
 #define __IInternetBindInfo_FWD_DEFINED__
-typedef interface IInternetBindInfo IInternetBindInfo;
+typedef struct IInternetBindInfo IInternetBindInfo;
 #endif
 
 #ifndef __IInternetProtocolRoot_FWD_DEFINED__
 #define __IInternetProtocolRoot_FWD_DEFINED__
-typedef interface IInternetProtocolRoot IInternetProtocolRoot;
+typedef struct IInternetProtocolRoot IInternetProtocolRoot;
 #endif
 
 #ifndef __IInternetProtocol_FWD_DEFINED__
 #define __IInternetProtocol_FWD_DEFINED__
-typedef interface IInternetProtocol IInternetProtocol;
+typedef struct IInternetProtocol IInternetProtocol;
 #endif
 
 #ifndef __IInternetProtocolSink_FWD_DEFINED__
 #define __IInternetProtocolSink_FWD_DEFINED__
-typedef interface IInternetProtocolSink IInternetProtocolSink;
+typedef struct IInternetProtocolSink IInternetProtocolSink;
 #endif
 
 #ifndef __IInternetProtocolSinkStackable_FWD_DEFINED__
 #define __IInternetProtocolSinkStackable_FWD_DEFINED__
-typedef interface IInternetProtocolSinkStackable IInternetProtocolSinkStackable;
+typedef struct IInternetProtocolSinkStackable IInternetProtocolSinkStackable;
 #endif
 
 #ifndef __IInternetSession_FWD_DEFINED__
 #define __IInternetSession_FWD_DEFINED__
-typedef interface IInternetSession IInternetSession;
+typedef struct IInternetSession IInternetSession;
 #endif
 
 #ifndef __IInternetThreadSwitch_FWD_DEFINED__
 #define __IInternetThreadSwitch_FWD_DEFINED__
-typedef interface IInternetThreadSwitch IInternetThreadSwitch;
+typedef struct IInternetThreadSwitch IInternetThreadSwitch;
 #endif
 
 #ifndef __IInternetPriority_FWD_DEFINED__
 #define __IInternetPriority_FWD_DEFINED__
-typedef interface IInternetPriority IInternetPriority;
+typedef struct IInternetPriority IInternetPriority;
 #endif
 
 #ifndef __IInternetProtocolInfo_FWD_DEFINED__
 #define __IInternetProtocolInfo_FWD_DEFINED__
-typedef interface IInternetProtocolInfo IInternetProtocolInfo;
+typedef struct IInternetProtocolInfo IInternetProtocolInfo;
 #endif
 
 #ifndef __IInternetSecurityMgrSite_FWD_DEFINED__
 #define __IInternetSecurityMgrSite_FWD_DEFINED__
-typedef interface IInternetSecurityMgrSite IInternetSecurityMgrSite;
+typedef struct IInternetSecurityMgrSite IInternetSecurityMgrSite;
 #endif
 
 #ifndef __IInternetSecurityManager_FWD_DEFINED__
 #define __IInternetSecurityManager_FWD_DEFINED__
-typedef interface IInternetSecurityManager IInternetSecurityManager;
+typedef struct IInternetSecurityManager IInternetSecurityManager;
 #endif
 
 #ifndef __IInternetSecurityManagerEx_FWD_DEFINED__
 #define __IInternetSecurityManagerEx_FWD_DEFINED__
-typedef interface IInternetSecurityManagerEx IInternetSecurityManagerEx;
+typedef struct IInternetSecurityManagerEx IInternetSecurityManagerEx;
 #endif
 
 #ifndef __IZoneIdentifier_FWD_DEFINED__
 #define __IZoneIdentifier_FWD_DEFINED__
-typedef interface IZoneIdentifier IZoneIdentifier;
+typedef struct IZoneIdentifier IZoneIdentifier;
 #endif
 
 #ifndef __IInternetHostSecurityManager_FWD_DEFINED__
 #define __IInternetHostSecurityManager_FWD_DEFINED__
-typedef interface IInternetHostSecurityManager IInternetHostSecurityManager;
+typedef struct IInternetHostSecurityManager IInternetHostSecurityManager;
 #endif
 
 #ifndef __IInternetZoneManager_FWD_DEFINED__
 #define __IInternetZoneManager_FWD_DEFINED__
-typedef interface IInternetZoneManager IInternetZoneManager;
+typedef struct IInternetZoneManager IInternetZoneManager;
 #endif
 
 #ifndef __IInternetZoneManagerEx_FWD_DEFINED__
 #define __IInternetZoneManagerEx_FWD_DEFINED__
-typedef interface IInternetZoneManagerEx IInternetZoneManagerEx;
+typedef struct IInternetZoneManagerEx IInternetZoneManagerEx;
 #endif
 
 #ifndef __ISoftDistExt_FWD_DEFINED__
 #define __ISoftDistExt_FWD_DEFINED__
-typedef interface ISoftDistExt ISoftDistExt;
+typedef struct ISoftDistExt ISoftDistExt;
 #endif
 
 #ifndef __ICatalogFileInfo_FWD_DEFINED__
 #define __ICatalogFileInfo_FWD_DEFINED__
-typedef interface ICatalogFileInfo ICatalogFileInfo;
+typedef struct ICatalogFileInfo ICatalogFileInfo;
 #endif
 
 #ifndef __IDataFilter_FWD_DEFINED__
 #define __IDataFilter_FWD_DEFINED__
-typedef interface IDataFilter IDataFilter;
+typedef struct IDataFilter IDataFilter;
 #endif
 
 #ifndef __IEncodingFilterFactory_FWD_DEFINED__
 #define __IEncodingFilterFactory_FWD_DEFINED__
-typedef interface IEncodingFilterFactory IEncodingFilterFactory;
+typedef struct IEncodingFilterFactory IEncodingFilterFactory;
 #endif
 
 #ifndef __IWrappedProtocol_FWD_DEFINED__
 #define __IWrappedProtocol_FWD_DEFINED__
-typedef interface IWrappedProtocol IWrappedProtocol;
+typedef struct IWrappedProtocol IWrappedProtocol;
 #endif
 
 #include "objidl.h"
@@ -416,7 +416,7 @@ extern "C" {
       HRESULT (WINAPI *GetCurMoniker)(IPersistMoniker *This,IMoniker **ppimkName);
     END_INTERFACE
   } IPersistMonikerVtbl;
-  interface IPersistMoniker {
+  struct IPersistMoniker {
     CONST_VTBL struct IPersistMonikerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -473,7 +473,7 @@ extern "C" {
       HRESULT (WINAPI *PutProperty)(IMonikerProp *This,MONIKERPROPERTY mkp,LPCWSTR val);
     END_INTERFACE
   } IMonikerPropVtbl;
-  interface IMonikerProp {
+  struct IMonikerProp {
     CONST_VTBL struct IMonikerPropVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -511,7 +511,7 @@ extern "C" {
       HRESULT (WINAPI *CreateBinding)(IBindProtocol *This,LPCWSTR szUrl,IBindCtx *pbc,IBinding **ppb);
     END_INTERFACE
   } IBindProtocolVtbl;
-  interface IBindProtocol {
+  struct IBindProtocol {
     CONST_VTBL struct IBindProtocolVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -559,7 +559,7 @@ extern "C" {
       HRESULT (WINAPI *GetBindResult)(IBinding *This,CLSID *pclsidProtocol,DWORD *pdwResult,LPOLESTR *pszResult,DWORD *pdwReserved);
     END_INTERFACE
   } IBindingVtbl;
-  interface IBinding {
+  struct IBinding {
     CONST_VTBL struct IBindingVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -740,7 +740,7 @@ extern "C" {
       HRESULT (WINAPI *OnObjectAvailable)(IBindStatusCallback *This,REFIID riid,IUnknown *punk);
     END_INTERFACE
   } IBindStatusCallbackVtbl;
-  interface IBindStatusCallback {
+  struct IBindStatusCallback {
     CONST_VTBL struct IBindStatusCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -799,7 +799,7 @@ extern "C" {
       HRESULT (WINAPI *Authenticate)(IAuthenticate *This,HWND *phwnd,LPWSTR *pszUsername,LPWSTR *pszPassword);
     END_INTERFACE
   } IAuthenticateVtbl;
-  interface IAuthenticate {
+  struct IAuthenticate {
     CONST_VTBL struct IAuthenticateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -839,7 +839,7 @@ extern "C" {
       HRESULT (WINAPI *OnResponse)(IHttpNegotiate *This,DWORD dwResponseCode,LPCWSTR szResponseHeaders,LPCWSTR szRequestHeaders,LPWSTR *pszAdditionalRequestHeaders);
     END_INTERFACE
   } IHttpNegotiateVtbl;
-  interface IHttpNegotiate {
+  struct IHttpNegotiate {
     CONST_VTBL struct IHttpNegotiateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -882,7 +882,7 @@ extern "C" {
       HRESULT (WINAPI *GetRootSecurityId)(IHttpNegotiate2 *This,BYTE *pbSecurityId,DWORD *pcbSecurityId,DWORD_PTR dwReserved);
     END_INTERFACE
   } IHttpNegotiate2Vtbl;
-  interface IHttpNegotiate2 {
+  struct IHttpNegotiate2 {
     CONST_VTBL struct IHttpNegotiate2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -924,7 +924,7 @@ extern "C" {
       HRESULT (WINAPI *SetDeleteFile)(IWinInetFileStream *This,DWORD_PTR dwReserved);
     END_INTERFACE
   } IWinInetFileStreamVtbl;
-  interface IWinInetFileStream {
+  struct IWinInetFileStream {
     CONST_VTBL struct IWinInetFileStreamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -965,7 +965,7 @@ extern "C" {
       HRESULT (WINAPI *GetWindow)(IWindowForBindingUI *This,REFGUID rguidReason,HWND *phwnd);
     END_INTERFACE
   } IWindowForBindingUIVtbl;
-  interface IWindowForBindingUI {
+  struct IWindowForBindingUI {
     CONST_VTBL struct IWindowForBindingUIVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1012,7 +1012,7 @@ extern "C" {
       HRESULT (WINAPI *OnCodeInstallProblem)(ICodeInstall *This,ULONG ulStatusCode,LPCWSTR szDestination,LPCWSTR szSource,DWORD dwReserved);
     END_INTERFACE
   } ICodeInstallVtbl;
-  interface ICodeInstall {
+  struct ICodeInstall {
     CONST_VTBL struct ICodeInstallVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1051,7 +1051,7 @@ extern "C" {
       HRESULT (WINAPI *QueryOption)(IWinInetInfo *This,DWORD dwOption,LPVOID pBuffer,DWORD *pcbBuf);
     END_INTERFACE
   } IWinInetInfoVtbl;
-  interface IWinInetInfo {
+  struct IWinInetInfo {
     CONST_VTBL struct IWinInetInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1092,7 +1092,7 @@ extern "C" {
       HRESULT (WINAPI *OnSecurityProblem)(IHttpSecurity *This,DWORD dwProblem);
     END_INTERFACE
   } IHttpSecurityVtbl;
-  interface IHttpSecurity {
+  struct IHttpSecurity {
     CONST_VTBL struct IHttpSecurityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1132,7 +1132,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInfo)(IWinInetHttpInfo *This,DWORD dwOption,LPVOID pBuffer,DWORD *pcbBuf,DWORD *pdwFlags,DWORD *pdwReserved);
     END_INTERFACE
   } IWinInetHttpInfoVtbl;
-  interface IWinInetHttpInfo {
+  struct IWinInetHttpInfo {
     CONST_VTBL struct IWinInetHttpInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1171,7 +1171,7 @@ extern "C" {
       HRESULT (WINAPI *SetCacheExtension)(IWinInetCacheHints *This,LPCWSTR pwzExt,LPVOID pszCacheFile,DWORD *pcbCacheFile,DWORD *pdwWinInetError,DWORD *pdwReserved);
     END_INTERFACE
   } IWinInetCacheHintsVtbl;
-  interface IWinInetCacheHints {
+  struct IWinInetCacheHints {
     CONST_VTBL struct IWinInetCacheHintsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1217,7 +1217,7 @@ extern "C" {
       HRESULT (WINAPI *MonikerBindToObject)(IBindHost *This,IMoniker *pMk,IBindCtx *pBC,IBindStatusCallback *pBSC,REFIID riid,void **ppvObj);
     END_INTERFACE
   } IBindHostVtbl;
-  interface IBindHost {
+  struct IBindHost {
     CONST_VTBL struct IBindHostVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1298,7 +1298,7 @@ extern "C" {
       ULONG (WINAPI *Release)(IInternet *This);
     END_INTERFACE
   } IInternetVtbl;
-  interface IInternet {
+  struct IInternet {
     CONST_VTBL struct IInternetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1346,7 +1346,7 @@ extern "C" {
       HRESULT (WINAPI *GetBindString)(IInternetBindInfo *This,ULONG ulStringType,LPOLESTR *ppwzStr,ULONG cEl,ULONG *pcElFetched);
     END_INTERFACE
   } IInternetBindInfoVtbl;
-  interface IInternetBindInfo {
+  struct IInternetBindInfo {
     CONST_VTBL struct IInternetBindInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1416,7 +1416,7 @@ extern "C" {
       HRESULT (WINAPI *Resume)(IInternetProtocolRoot *This);
     END_INTERFACE
   } IInternetProtocolRootVtbl;
-  interface IInternetProtocolRoot {
+  struct IInternetProtocolRoot {
     CONST_VTBL struct IInternetProtocolRootVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1481,7 +1481,7 @@ extern "C" {
       HRESULT (WINAPI *UnlockRequest)(IInternetProtocol *This);
     END_INTERFACE
   } IInternetProtocolVtbl;
-  interface IInternetProtocol {
+  struct IInternetProtocol {
     CONST_VTBL struct IInternetProtocolVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1540,7 +1540,7 @@ extern "C" {
       HRESULT (WINAPI *ReportResult)(IInternetProtocolSink *This,HRESULT hrResult,DWORD dwError,LPCWSTR szResult);
     END_INTERFACE
   } IInternetProtocolSinkVtbl;
-  interface IInternetProtocolSink {
+  struct IInternetProtocolSink {
     CONST_VTBL struct IInternetProtocolSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1591,7 +1591,7 @@ extern "C" {
       HRESULT (WINAPI *RollbackSwitch)(IInternetProtocolSinkStackable *This);
     END_INTERFACE
   } IInternetProtocolSinkStackableVtbl;
-  interface IInternetProtocolSinkStackable {
+  struct IInternetProtocolSinkStackable {
     CONST_VTBL struct IInternetProtocolSinkStackableVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1651,7 +1651,7 @@ extern "C" {
       HRESULT (WINAPI *GetSessionOption)(IInternetSession *This,DWORD dwOption,LPVOID pBuffer,DWORD *pdwBufferLength,DWORD dwReserved);
     END_INTERFACE
   } IInternetSessionVtbl;
-  interface IInternetSession {
+  struct IInternetSession {
     CONST_VTBL struct IInternetSessionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1709,7 +1709,7 @@ extern "C" {
       HRESULT (WINAPI *Continue)(IInternetThreadSwitch *This);
     END_INTERFACE
   } IInternetThreadSwitchVtbl;
-  interface IInternetThreadSwitch {
+  struct IInternetThreadSwitch {
     CONST_VTBL struct IInternetThreadSwitchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1752,7 +1752,7 @@ extern "C" {
       HRESULT (WINAPI *GetPriority)(IInternetPriority *This,LONG *pnPriority);
     END_INTERFACE
   } IInternetPriorityVtbl;
-  interface IInternetPriority {
+  struct IInternetPriority {
     CONST_VTBL struct IInternetPriorityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1820,7 +1820,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInfo)(IInternetProtocolInfo *This,LPCWSTR pwzUrl,QUERYOPTION OueryOption,DWORD dwQueryFlags,LPVOID pBuffer,DWORD cbBuffer,DWORD *pcbBuf,DWORD dwReserved);
     END_INTERFACE
   } IInternetProtocolInfoVtbl;
-  interface IInternetProtocolInfo {
+  struct IInternetProtocolInfo {
     CONST_VTBL struct IInternetProtocolInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1973,7 +1973,7 @@ extern "C" {
       HRESULT (WINAPI *EnableModeless)(IInternetSecurityMgrSite *This,WINBOOL fEnable);
     END_INTERFACE
   } IInternetSecurityMgrSiteVtbl;
-  interface IInternetSecurityMgrSite {
+  struct IInternetSecurityMgrSite {
     CONST_VTBL struct IInternetSecurityMgrSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2051,7 +2051,7 @@ extern "C" {
       HRESULT (WINAPI *GetZoneMappings)(IInternetSecurityManager *This,DWORD dwZone,IEnumString **ppenumString,DWORD dwFlags);
     END_INTERFACE
   } IInternetSecurityManagerVtbl;
-  interface IInternetSecurityManager {
+  struct IInternetSecurityManager {
     CONST_VTBL struct IInternetSecurityManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2111,7 +2111,7 @@ extern "C" {
       HRESULT (WINAPI *ProcessUrlActionEx)(IInternetSecurityManagerEx *This,LPCWSTR pwszUrl,DWORD dwAction,BYTE *pPolicy,DWORD cbPolicy,BYTE *pContext,DWORD cbContext,DWORD dwFlags,DWORD dwReserved,DWORD *pdwOutFlags);
     END_INTERFACE
   } IInternetSecurityManagerExVtbl;
-  interface IInternetSecurityManagerEx {
+  struct IInternetSecurityManagerEx {
     CONST_VTBL struct IInternetSecurityManagerExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2159,7 +2159,7 @@ extern "C" {
       HRESULT (WINAPI *Remove)(IZoneIdentifier *This);
     END_INTERFACE
   } IZoneIdentifierVtbl;
-  interface IZoneIdentifier {
+  struct IZoneIdentifier {
     CONST_VTBL struct IZoneIdentifierVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2205,7 +2205,7 @@ extern "C" {
       HRESULT (WINAPI *QueryCustomPolicy)(IInternetHostSecurityManager *This,REFGUID guidKey,BYTE **ppPolicy,DWORD *pcbPolicy,BYTE *pContext,DWORD cbContext,DWORD dwReserved);
     END_INTERFACE
   } IInternetHostSecurityManagerVtbl;
-  interface IInternetHostSecurityManager {
+  struct IInternetHostSecurityManager {
     CONST_VTBL struct IInternetHostSecurityManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2452,7 +2452,7 @@ extern "C" {
       HRESULT (WINAPI *CopyTemplatePoliciesToZone)(IInternetZoneManager *This,DWORD dwTemplate,DWORD dwZone,DWORD dwReserved);
     END_INTERFACE
   } IInternetZoneManagerVtbl;
-  interface IInternetZoneManager {
+  struct IInternetZoneManager {
     CONST_VTBL struct IInternetZoneManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2535,7 +2535,7 @@ extern "C" {
       HRESULT (WINAPI *SetZoneActionPolicyEx)(IInternetZoneManagerEx *This,DWORD dwZone,DWORD dwAction,BYTE *pPolicy,DWORD cbPolicy,URLZONEREG urlZoneReg,DWORD dwFlags);
     END_INTERFACE
   } IInternetZoneManagerExVtbl;
-  interface IInternetZoneManagerEx {
+  struct IInternetZoneManagerEx {
     CONST_VTBL struct IInternetZoneManagerExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2634,7 +2634,7 @@ extern "C" {
       HRESULT (WINAPI *AsyncInstallDistributionUnit)(ISoftDistExt *This,IBindCtx *pbc,LPVOID pvReserved,DWORD flags,LPCODEBASEHOLD lpcbh);
     END_INTERFACE
   } ISoftDistExtVtbl;
-  interface ISoftDistExt {
+  struct ISoftDistExt {
     CONST_VTBL struct ISoftDistExtVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2686,7 +2686,7 @@ extern "C" {
       HRESULT (WINAPI *GetJavaTrust)(ICatalogFileInfo *This,void **ppJavaTrust);
     END_INTERFACE
   } ICatalogFileInfoVtbl;
-  interface ICatalogFileInfo {
+  struct ICatalogFileInfo {
     CONST_VTBL struct ICatalogFileInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2731,7 +2731,7 @@ extern "C" {
       HRESULT (WINAPI *SetEncodingLevel)(IDataFilter *This,DWORD dwEncLevel);
     END_INTERFACE
   } IDataFilterVtbl;
-  interface IDataFilter {
+  struct IDataFilter {
     CONST_VTBL struct IDataFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2792,7 +2792,7 @@ extern "C" {
       HRESULT (WINAPI *GetDefaultFilter)(IEncodingFilterFactory *This,LPCWSTR pwzCodeIn,LPCWSTR pwzCodeOut,IDataFilter **ppDF);
     END_INTERFACE
   } IEncodingFilterFactoryVtbl;
-  interface IEncodingFilterFactory {
+  struct IEncodingFilterFactory {
     CONST_VTBL struct IEncodingFilterFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2863,7 +2863,7 @@ extern "C" {
       HRESULT (WINAPI *GetWrapperCode)(IWrappedProtocol *This,LONG *pnCode,DWORD_PTR dwReserved);
     END_INTERFACE
   } IWrappedProtocolVtbl;
-  interface IWrappedProtocol {
+  struct IWrappedProtocol {
     CONST_VTBL struct IWrappedProtocolVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

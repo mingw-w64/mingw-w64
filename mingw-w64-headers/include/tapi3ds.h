@@ -24,12 +24,12 @@
 
 #ifndef __ITAMMediaFormat_FWD_DEFINED__
 #define __ITAMMediaFormat_FWD_DEFINED__
-typedef interface ITAMMediaFormat ITAMMediaFormat;
+typedef struct ITAMMediaFormat ITAMMediaFormat;
 #endif
 
 #ifndef __ITAllocatorProperties_FWD_DEFINED__
 #define __ITAllocatorProperties_FWD_DEFINED__
-typedef interface ITAllocatorProperties ITAllocatorProperties;
+typedef struct ITAllocatorProperties ITAllocatorProperties;
 #endif
 
 #include "oaidl.h"
@@ -63,7 +63,7 @@ extern "C" {
       HRESULT (WINAPI *put_MediaFormat)(ITAMMediaFormat *This,const AM_MEDIA_TYPE *pmt);
     END_INTERFACE
   } ITAMMediaFormatVtbl;
-  interface ITAMMediaFormat {
+  struct ITAMMediaFormat {
     CONST_VTBL struct ITAMMediaFormatVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -107,7 +107,7 @@ extern "C" {
       HRESULT (WINAPI *GetBufferSize)(ITAllocatorProperties *This,DWORD *pBufferSize);
     END_INTERFACE
   } ITAllocatorPropertiesVtbl;
-  interface ITAllocatorProperties {
+  struct ITAllocatorProperties {
     CONST_VTBL struct ITAllocatorPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

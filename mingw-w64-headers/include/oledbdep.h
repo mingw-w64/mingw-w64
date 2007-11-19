@@ -24,77 +24,77 @@
 
 #ifndef __IRowsetNextRowset_FWD_DEFINED__
 #define __IRowsetNextRowset_FWD_DEFINED__
-typedef interface IRowsetNextRowset IRowsetNextRowset;
+typedef struct IRowsetNextRowset IRowsetNextRowset;
 #endif
 
 #ifndef __IRowsetNewRowAfter_FWD_DEFINED__
 #define __IRowsetNewRowAfter_FWD_DEFINED__
-typedef interface IRowsetNewRowAfter IRowsetNewRowAfter;
+typedef struct IRowsetNewRowAfter IRowsetNewRowAfter;
 #endif
 
 #ifndef __IRowsetWithParameters_FWD_DEFINED__
 #define __IRowsetWithParameters_FWD_DEFINED__
-typedef interface IRowsetWithParameters IRowsetWithParameters;
+typedef struct IRowsetWithParameters IRowsetWithParameters;
 #endif
 
 #ifndef __IRowsetAsynch_FWD_DEFINED__
 #define __IRowsetAsynch_FWD_DEFINED__
-typedef interface IRowsetAsynch IRowsetAsynch;
+typedef struct IRowsetAsynch IRowsetAsynch;
 #endif
 
 #ifndef __IRowsetKeys_FWD_DEFINED__
 #define __IRowsetKeys_FWD_DEFINED__
-typedef interface IRowsetKeys IRowsetKeys;
+typedef struct IRowsetKeys IRowsetKeys;
 #endif
 
 #ifndef __IRowsetWatchAll_FWD_DEFINED__
 #define __IRowsetWatchAll_FWD_DEFINED__
-typedef interface IRowsetWatchAll IRowsetWatchAll;
+typedef struct IRowsetWatchAll IRowsetWatchAll;
 #endif
 
 #ifndef __IRowsetWatchNotify_FWD_DEFINED__
 #define __IRowsetWatchNotify_FWD_DEFINED__
-typedef interface IRowsetWatchNotify IRowsetWatchNotify;
+typedef struct IRowsetWatchNotify IRowsetWatchNotify;
 #endif
 
 #ifndef __IRowsetWatchRegion_FWD_DEFINED__
 #define __IRowsetWatchRegion_FWD_DEFINED__
-typedef interface IRowsetWatchRegion IRowsetWatchRegion;
+typedef struct IRowsetWatchRegion IRowsetWatchRegion;
 #endif
 
 #ifndef __IRowsetCopyRows_FWD_DEFINED__
 #define __IRowsetCopyRows_FWD_DEFINED__
-typedef interface IRowsetCopyRows IRowsetCopyRows;
+typedef struct IRowsetCopyRows IRowsetCopyRows;
 #endif
 
 #ifndef __IReadData_FWD_DEFINED__
 #define __IReadData_FWD_DEFINED__
-typedef interface IReadData IReadData;
+typedef struct IReadData IReadData;
 #endif
 
 #ifndef __ICommandCost_FWD_DEFINED__
 #define __ICommandCost_FWD_DEFINED__
-typedef interface ICommandCost ICommandCost;
+typedef struct ICommandCost ICommandCost;
 #endif
 
 #ifndef __ICommandValidate_FWD_DEFINED__
 #define __ICommandValidate_FWD_DEFINED__
-typedef interface ICommandValidate ICommandValidate;
+typedef struct ICommandValidate ICommandValidate;
 #endif
 
 #ifndef __ITableRename_FWD_DEFINED__
 #define __ITableRename_FWD_DEFINED__
-typedef interface ITableRename ITableRename;
+typedef struct ITableRename ITableRename;
 #endif
 
 #ifndef __IDBSchemaCommand_FWD_DEFINED__
 #define __IDBSchemaCommand_FWD_DEFINED__
-typedef interface IDBSchemaCommand IDBSchemaCommand;
+typedef struct IDBSchemaCommand IDBSchemaCommand;
 #endif
 
 #ifndef __IProvideMoniker_FWD_DEFINED__
 #define __IProvideMoniker_FWD_DEFINED__
-typedef interface IProvideMoniker IProvideMoniker;
+typedef struct IProvideMoniker IProvideMoniker;
 #endif
 
 #include "oledb.h"
@@ -194,7 +194,7 @@ extern "C" {
       HRESULT (WINAPI *GetNextRowset)(IRowsetNextRowset *This,IUnknown *pUnkOuter,REFIID riid,IUnknown **ppNextRowset);
     END_INTERFACE
   } IRowsetNextRowsetVtbl;
-  interface IRowsetNextRowset {
+  struct IRowsetNextRowset {
     CONST_VTBL struct IRowsetNextRowsetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -225,7 +225,7 @@ extern "C" {
       HRESULT (WINAPI *SetNewDataAfter)(IRowsetNewRowAfter *This,HCHAPTER hChapter,ULONG cbbmPrevious,const BYTE *pbmPrevious,HACCESSOR hAccessor,BYTE *pData,HROW *phRow);
     END_INTERFACE
   } IRowsetNewRowAfterVtbl;
-  interface IRowsetNewRowAfter {
+  struct IRowsetNewRowAfter {
     CONST_VTBL struct IRowsetNewRowAfterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -258,7 +258,7 @@ extern "C" {
       HRESULT (WINAPI *Requery)(IRowsetWithParameters *This,DBPARAMS *pParams,ULONG *pulErrorParam,HCHAPTER *phReserved);
     END_INTERFACE
   } IRowsetWithParametersVtbl;
-  interface IRowsetWithParameters {
+  struct IRowsetWithParameters {
     CONST_VTBL struct IRowsetWithParametersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -294,7 +294,7 @@ extern "C" {
       HRESULT (WINAPI *Stop)(IRowsetAsynch *This);
     END_INTERFACE
   } IRowsetAsynchVtbl;
-  interface IRowsetAsynch {
+  struct IRowsetAsynch {
     CONST_VTBL struct IRowsetAsynchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -328,7 +328,7 @@ extern "C" {
       HRESULT (WINAPI *ListKeys)(IRowsetKeys *This,DBORDINAL *pcColumns,DBORDINAL **prgColumns);
     END_INTERFACE
   } IRowsetKeysVtbl;
-  interface IRowsetKeys {
+  struct IRowsetKeys {
     CONST_VTBL struct IRowsetKeysVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -363,7 +363,7 @@ extern "C" {
       HRESULT (WINAPI *StopWatching)(IRowsetWatchAll *This);
     END_INTERFACE
   } IRowsetWatchAllVtbl;
-  interface IRowsetWatchAll {
+  struct IRowsetWatchAll {
     CONST_VTBL struct IRowsetWatchAllVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -406,7 +406,7 @@ extern "C" {
       HRESULT (WINAPI *OnChange)(IRowsetWatchNotify *This,IRowset *pRowset,DBWATCHNOTIFY eChangeReason);
     END_INTERFACE
   } IRowsetWatchNotifyVtbl;
-  interface IRowsetWatchNotify {
+  struct IRowsetWatchNotify {
     CONST_VTBL struct IRowsetWatchNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -469,7 +469,7 @@ extern "C" {
       HRESULT (WINAPI *ShrinkWatchRegion)(IRowsetWatchRegion *This,HWATCHREGION hRegion,HCHAPTER hChapter,DBBKMARK cbBookmark,BYTE *pBookmark,DBROWCOUNT cRows);
     END_INTERFACE
   } IRowsetWatchRegionVtbl;
-  interface IRowsetWatchRegion {
+  struct IRowsetWatchRegion {
     CONST_VTBL struct IRowsetWatchRegionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -526,7 +526,7 @@ extern "C" {
       HRESULT (WINAPI *DefineSource)(IRowsetCopyRows *This,const IRowset *pRowsetSource,const DBORDINAL cColIds,const DB_LORDINAL rgSourceColumns[],const DB_LORDINAL rgTargetColumns[],HSOURCE *phSourceID);
     END_INTERFACE
   } IRowsetCopyRowsVtbl;
-  interface IRowsetCopyRows {
+  struct IRowsetCopyRows {
     CONST_VTBL struct IRowsetCopyRowsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -568,7 +568,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseChapter)(IReadData *This,HCHAPTER hChapter);
     END_INTERFACE
   } IReadDataVtbl;
-  interface IReadData {
+  struct IReadData {
     CONST_VTBL struct IReadDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -640,7 +640,7 @@ extern "C" {
       HRESULT (WINAPI *SetCostLimits)(ICommandCost *This,LPCOLESTR pwszRowsetName,ULONG cCostLimits,DBCOST *prgCostLimits,DBEXECLIMITS dwExecutionFlags);
     END_INTERFACE
   } ICommandCostVtbl;
-  interface ICommandCost {
+  struct ICommandCost {
     CONST_VTBL struct ICommandCostVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -688,7 +688,7 @@ extern "C" {
       HRESULT (WINAPI *ValidateSyntax)(ICommandValidate *This);
     END_INTERFACE
   } ICommandValidateVtbl;
-  interface ICommandValidate {
+  struct ICommandValidate {
     CONST_VTBL struct ICommandValidateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -724,7 +724,7 @@ extern "C" {
       HRESULT (WINAPI *RenameTable)(ITableRename *This,DBID *pOldTableId,DBID *pOldIndexId,DBID *pNewTableId,DBID *pNewIndexId);
     END_INTERFACE
   } ITableRenameVtbl;
-  interface ITableRename {
+  struct ITableRename {
     CONST_VTBL struct ITableRenameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -760,7 +760,7 @@ extern "C" {
       HRESULT (WINAPI *GetSchemas)(IDBSchemaCommand *This,ULONG *pcSchemas,GUID **prgSchemas);
     END_INTERFACE
   } IDBSchemaCommandVtbl;
-  interface IDBSchemaCommand {
+  struct IDBSchemaCommand {
     CONST_VTBL struct IDBSchemaCommandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -794,7 +794,7 @@ extern "C" {
       HRESULT (WINAPI *GetMoniker)(IProvideMoniker *This,IMoniker **ppIMoniker);
     END_INTERFACE
   } IProvideMonikerVtbl;
-  interface IProvideMoniker {
+  struct IProvideMoniker {
     CONST_VTBL struct IProvideMonikerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

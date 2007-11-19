@@ -24,32 +24,32 @@
 
 #ifndef __IMSAdminBaseW_FWD_DEFINED__
 #define __IMSAdminBaseW_FWD_DEFINED__
-typedef interface IMSAdminBaseW IMSAdminBaseW;
+typedef struct IMSAdminBaseW IMSAdminBaseW;
 #endif
 
 #ifndef __IMSAdminBase2W_FWD_DEFINED__
 #define __IMSAdminBase2W_FWD_DEFINED__
-typedef interface IMSAdminBase2W IMSAdminBase2W;
+typedef struct IMSAdminBase2W IMSAdminBase2W;
 #endif
 
 #ifndef __IMSAdminBase3W_FWD_DEFINED__
 #define __IMSAdminBase3W_FWD_DEFINED__
-typedef interface IMSAdminBase3W IMSAdminBase3W;
+typedef struct IMSAdminBase3W IMSAdminBase3W;
 #endif
 
 #ifndef __IMSImpExpHelpW_FWD_DEFINED__
 #define __IMSImpExpHelpW_FWD_DEFINED__
-typedef interface IMSImpExpHelpW IMSImpExpHelpW;
+typedef struct IMSImpExpHelpW IMSImpExpHelpW;
 #endif
 
 #ifndef __IMSAdminBaseSinkW_FWD_DEFINED__
 #define __IMSAdminBaseSinkW_FWD_DEFINED__
-typedef interface IMSAdminBaseSinkW IMSAdminBaseSinkW;
+typedef struct IMSAdminBaseSinkW IMSAdminBaseSinkW;
 #endif
 
 #ifndef __AsyncIMSAdminBaseSinkW_FWD_DEFINED__
 #define __AsyncIMSAdminBaseSinkW_FWD_DEFINED__
-typedef interface AsyncIMSAdminBaseSinkW AsyncIMSAdminBaseSinkW;
+typedef struct AsyncIMSAdminBaseSinkW AsyncIMSAdminBaseSinkW;
 #endif
 
 #include "mddefw.h"
@@ -175,7 +175,7 @@ extern "C"{
       HRESULT (WINAPI *GetServerGuid)(IMSAdminBaseW *This);
     END_INTERFACE
   } IMSAdminBaseWVtbl;
-  interface IMSAdminBaseW {
+  struct IMSAdminBaseW {
     CONST_VTBL struct IMSAdminBaseWVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -337,7 +337,7 @@ extern "C"{
       HRESULT (WINAPI *EnumHistory)(IMSAdminBase2W *This,LPWSTR pszMDHistoryLocation,DWORD *pdwMDMajorVersion,DWORD *pdwMDMinorVersion,PFILETIME pftMDHistoryTime,DWORD dwMDEnumIndex);
     END_INTERFACE
   } IMSAdminBase2WVtbl;
-  interface IMSAdminBase2W {
+  struct IMSAdminBase2W {
     CONST_VTBL struct IMSAdminBase2WVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -452,7 +452,7 @@ extern "C"{
       HRESULT (WINAPI *GetChildPaths)(IMSAdminBase3W *This,METADATA_HANDLE hMDHandle,LPCWSTR pszMDPath,DWORD cchMDBufferSize,WCHAR *pszBuffer,DWORD *pcchMDRequiredBufferSize);
     END_INTERFACE
   } IMSAdminBase3WVtbl;
-  interface IMSAdminBase3W {
+  struct IMSAdminBase3W {
     CONST_VTBL struct IMSAdminBase3WVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -520,7 +520,7 @@ extern "C"{
       HRESULT (WINAPI *EnumeratePathsInFile)(IMSImpExpHelpW *This,LPCWSTR pszFileName,LPCWSTR pszKeyType,DWORD dwMDBufferSize,WCHAR *pszBuffer,DWORD *pdwMDRequiredBufferSize);
     END_INTERFACE
   } IMSImpExpHelpWVtbl;
-  interface IMSImpExpHelpW {
+  struct IMSImpExpHelpW {
     CONST_VTBL struct IMSImpExpHelpWVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -553,7 +553,7 @@ extern "C"{
       HRESULT (WINAPI *ShutdownNotify)(IMSAdminBaseSinkW *This);
     END_INTERFACE
   } IMSAdminBaseSinkWVtbl;
-  interface IMSAdminBaseSinkW {
+  struct IMSAdminBaseSinkW {
     CONST_VTBL struct IMSAdminBaseSinkWVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -593,7 +593,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_ShutdownNotify)(AsyncIMSAdminBaseSinkW *This);
     END_INTERFACE
   } AsyncIMSAdminBaseSinkWVtbl;
-  interface AsyncIMSAdminBaseSinkW {
+  struct AsyncIMSAdminBaseSinkW {
     CONST_VTBL struct AsyncIMSAdminBaseSinkWVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

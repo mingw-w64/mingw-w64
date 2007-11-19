@@ -24,7 +24,7 @@
 
 #ifndef __ITfInputScope_FWD_DEFINED__
 #define __ITfInputScope_FWD_DEFINED__
-typedef interface ITfInputScope ITfInputScope;
+typedef struct ITfInputScope ITfInputScope;
 #endif
 
 #include "oaidl.h"
@@ -98,7 +98,7 @@ extern "C" {
       HRESULT (WINAPI *GetXML)(ITfInputScope *This,BSTR *pbstrXML);
     END_INTERFACE
   } ITfInputScopeVtbl;
-  interface ITfInputScope {
+  struct ITfInputScope {
     CONST_VTBL struct ITfInputScopeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

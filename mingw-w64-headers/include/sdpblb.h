@@ -24,72 +24,72 @@
 
 #ifndef __ITConferenceBlob_FWD_DEFINED__
 #define __ITConferenceBlob_FWD_DEFINED__
-typedef interface ITConferenceBlob ITConferenceBlob;
+typedef struct ITConferenceBlob ITConferenceBlob;
 #endif
 
 #ifndef __ITMedia_FWD_DEFINED__
 #define __ITMedia_FWD_DEFINED__
-typedef interface ITMedia ITMedia;
+typedef struct ITMedia ITMedia;
 #endif
 
 #ifndef __IEnumMedia_FWD_DEFINED__
 #define __IEnumMedia_FWD_DEFINED__
-typedef interface IEnumMedia IEnumMedia;
+typedef struct IEnumMedia IEnumMedia;
 #endif
 
 #ifndef __ITMediaCollection_FWD_DEFINED__
 #define __ITMediaCollection_FWD_DEFINED__
-typedef interface ITMediaCollection ITMediaCollection;
+typedef struct ITMediaCollection ITMediaCollection;
 #endif
 
 #ifndef __ITTime_FWD_DEFINED__
 #define __ITTime_FWD_DEFINED__
-typedef interface ITTime ITTime;
+typedef struct ITTime ITTime;
 #endif
 
 #ifndef __IEnumTime_FWD_DEFINED__
 #define __IEnumTime_FWD_DEFINED__
-typedef interface IEnumTime IEnumTime;
+typedef struct IEnumTime IEnumTime;
 #endif
 
 #ifndef __ITTimeCollection_FWD_DEFINED__
 #define __ITTimeCollection_FWD_DEFINED__
-typedef interface ITTimeCollection ITTimeCollection;
+typedef struct ITTimeCollection ITTimeCollection;
 #endif
 
 #ifndef __ITSdp_FWD_DEFINED__
 #define __ITSdp_FWD_DEFINED__
-typedef interface ITSdp ITSdp;
+typedef struct ITSdp ITSdp;
 #endif
 
 #ifndef __ITConnection_FWD_DEFINED__
 #define __ITConnection_FWD_DEFINED__
-typedef interface ITConnection ITConnection;
+typedef struct ITConnection ITConnection;
 #endif
 
 #ifndef __ITAttributeList_FWD_DEFINED__
 #define __ITAttributeList_FWD_DEFINED__
-typedef interface ITAttributeList ITAttributeList;
+typedef struct ITAttributeList ITAttributeList;
 #endif
 
 #ifndef __ITMedia_FWD_DEFINED__
 #define __ITMedia_FWD_DEFINED__
-typedef interface ITMedia ITMedia;
+typedef struct ITMedia ITMedia;
 #endif
 
 #ifndef __ITTime_FWD_DEFINED__
 #define __ITTime_FWD_DEFINED__
-typedef interface ITTime ITTime;
+typedef struct ITTime ITTime;
 #endif
 
 #ifndef __ITConnection_FWD_DEFINED__
 #define __ITConnection_FWD_DEFINED__
-typedef interface ITConnection ITConnection;
+typedef struct ITConnection ITConnection;
 #endif
 
 #ifndef __ITAttributeList_FWD_DEFINED__
 #define __ITAttributeList_FWD_DEFINED__
-typedef interface ITAttributeList ITAttributeList;
+typedef struct ITAttributeList ITAttributeList;
 #endif
 
 #ifndef __SdpConferenceBlob_FWD_DEFINED__
@@ -151,7 +151,7 @@ extern "C" {
       HRESULT (WINAPI *SetConferenceBlob)(ITConferenceBlob *This,BLOB_CHARACTER_SET CharacterSet,BSTR pBlob);
     END_INTERFACE
   } ITConferenceBlobVtbl;
-  interface ITConferenceBlob {
+  struct ITConferenceBlob {
     CONST_VTBL struct ITConferenceBlobVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -219,7 +219,7 @@ extern "C" {
       HRESULT (WINAPI *SetPortInfo)(ITMedia *This,LONG StartPort,LONG NumPorts);
     END_INTERFACE
   } ITMediaVtbl;
-  interface ITMedia {
+  struct ITMedia {
     CONST_VTBL struct ITMediaVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -290,7 +290,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumMedia *This,IEnumMedia **ppEnum);
     END_INTERFACE
   } IEnumMediaVtbl;
-  interface IEnumMedia {
+  struct IEnumMedia {
     CONST_VTBL struct IEnumMediaVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -344,7 +344,7 @@ extern "C" {
       HRESULT (WINAPI *Delete)(ITMediaCollection *This,LONG Index);
     END_INTERFACE
   } ITMediaCollectionVtbl;
-  interface ITMediaCollection {
+  struct ITMediaCollection {
     CONST_VTBL struct ITMediaCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -404,7 +404,7 @@ extern "C" {
       HRESULT (WINAPI *put_StopTime)(ITTime *This,DOUBLE Time);
     END_INTERFACE
   } ITTimeVtbl;
-  interface ITTime {
+  struct ITTime {
     CONST_VTBL struct ITTimeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -454,7 +454,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumTime *This,IEnumTime **ppEnum);
     END_INTERFACE
   } IEnumTimeVtbl;
-  interface IEnumTime {
+  struct IEnumTime {
     CONST_VTBL struct IEnumTimeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -508,7 +508,7 @@ extern "C" {
       HRESULT (WINAPI *Delete)(ITTimeCollection *This,LONG Index);
     END_INTERFACE
   } ITTimeCollectionVtbl;
-  interface ITTimeCollection {
+  struct ITTimeCollection {
     CONST_VTBL struct ITTimeCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -602,7 +602,7 @@ extern "C" {
       HRESULT (WINAPI *get_TimeCollection)(ITSdp *This,ITTimeCollection **ppTimeCollection);
     END_INTERFACE
   } ITSdpVtbl;
-  interface ITSdp {
+  struct ITSdp {
     CONST_VTBL struct ITSdpVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -725,7 +725,7 @@ extern "C" {
       HRESULT (WINAPI *GetEncryptionKey)(ITConnection *This,BSTR *ppKeyType,VARIANT_BOOL *pfValidKeyData,BSTR *ppKeyData);
     END_INTERFACE
   } ITConnectionVtbl;
-  interface ITConnection {
+  struct ITConnection {
     CONST_VTBL struct ITConnectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -810,7 +810,7 @@ extern "C" {
       HRESULT (WINAPI *put_AttributeList)(ITAttributeList *This,VARIANT newVal);
     END_INTERFACE
   } ITAttributeListVtbl;
-  interface ITAttributeList {
+  struct ITAttributeList {
     CONST_VTBL struct ITAttributeListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

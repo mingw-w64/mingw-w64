@@ -24,42 +24,42 @@
 
 #ifndef __IBackgroundCopyFile_FWD_DEFINED__
 #define __IBackgroundCopyFile_FWD_DEFINED__
-typedef interface IBackgroundCopyFile IBackgroundCopyFile;
+typedef struct IBackgroundCopyFile IBackgroundCopyFile;
 #endif
 
 #ifndef __IEnumBackgroundCopyFiles_FWD_DEFINED__
 #define __IEnumBackgroundCopyFiles_FWD_DEFINED__
-typedef interface IEnumBackgroundCopyFiles IEnumBackgroundCopyFiles;
+typedef struct IEnumBackgroundCopyFiles IEnumBackgroundCopyFiles;
 #endif
 
 #ifndef __IBackgroundCopyError_FWD_DEFINED__
 #define __IBackgroundCopyError_FWD_DEFINED__
-typedef interface IBackgroundCopyError IBackgroundCopyError;
+typedef struct IBackgroundCopyError IBackgroundCopyError;
 #endif
 
 #ifndef __IBackgroundCopyJob_FWD_DEFINED__
 #define __IBackgroundCopyJob_FWD_DEFINED__
-typedef interface IBackgroundCopyJob IBackgroundCopyJob;
+typedef struct IBackgroundCopyJob IBackgroundCopyJob;
 #endif
 
 #ifndef __IEnumBackgroundCopyJobs_FWD_DEFINED__
 #define __IEnumBackgroundCopyJobs_FWD_DEFINED__
-typedef interface IEnumBackgroundCopyJobs IEnumBackgroundCopyJobs;
+typedef struct IEnumBackgroundCopyJobs IEnumBackgroundCopyJobs;
 #endif
 
 #ifndef __IBackgroundCopyCallback_FWD_DEFINED__
 #define __IBackgroundCopyCallback_FWD_DEFINED__
-typedef interface IBackgroundCopyCallback IBackgroundCopyCallback;
+typedef struct IBackgroundCopyCallback IBackgroundCopyCallback;
 #endif
 
 #ifndef __AsyncIBackgroundCopyCallback_FWD_DEFINED__
 #define __AsyncIBackgroundCopyCallback_FWD_DEFINED__
-typedef interface AsyncIBackgroundCopyCallback AsyncIBackgroundCopyCallback;
+typedef struct AsyncIBackgroundCopyCallback AsyncIBackgroundCopyCallback;
 #endif
 
 #ifndef __IBackgroundCopyManager_FWD_DEFINED__
 #define __IBackgroundCopyManager_FWD_DEFINED__
-typedef interface IBackgroundCopyManager IBackgroundCopyManager;
+typedef struct IBackgroundCopyManager IBackgroundCopyManager;
 #endif
 
 #ifndef __BackgroundCopyManager_FWD_DEFINED__
@@ -74,7 +74,7 @@ typedef struct BackgroundCopyManager BackgroundCopyManager;
 
 #ifndef __IBackgroundCopyCallback_FWD_DEFINED__
 #define __IBackgroundCopyCallback_FWD_DEFINED__
-typedef interface IBackgroundCopyCallback IBackgroundCopyCallback;
+typedef struct IBackgroundCopyCallback IBackgroundCopyCallback;
 #endif
 
 #include "unknwn.h"
@@ -120,7 +120,7 @@ extern "C"{
       HRESULT (WINAPI *GetProgress)(IBackgroundCopyFile *This,BG_FILE_PROGRESS *pVal);
     END_INTERFACE
   } IBackgroundCopyFileVtbl;
-  interface IBackgroundCopyFile {
+  struct IBackgroundCopyFile {
     CONST_VTBL struct IBackgroundCopyFileVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -165,7 +165,7 @@ extern "C"{
       HRESULT (WINAPI *GetCount)(IEnumBackgroundCopyFiles *This,ULONG *puCount);
     END_INTERFACE
   } IEnumBackgroundCopyFilesVtbl;
-  interface IEnumBackgroundCopyFiles {
+  struct IEnumBackgroundCopyFiles {
     CONST_VTBL struct IEnumBackgroundCopyFilesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -221,7 +221,7 @@ extern "C"{
       HRESULT (WINAPI *GetProtocol)(IBackgroundCopyError *This,LPWSTR *pProtocol);
     END_INTERFACE
   } IBackgroundCopyErrorVtbl;
-  interface IBackgroundCopyError {
+  struct IBackgroundCopyError {
     CONST_VTBL struct IBackgroundCopyErrorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -365,7 +365,7 @@ extern "C"{
       HRESULT (WINAPI *TakeOwnership)(IBackgroundCopyJob *This);
     END_INTERFACE
   } IBackgroundCopyJobVtbl;
-  interface IBackgroundCopyJob {
+  struct IBackgroundCopyJob {
     CONST_VTBL struct IBackgroundCopyJobVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -497,7 +497,7 @@ extern "C"{
       HRESULT (WINAPI *GetCount)(IEnumBackgroundCopyJobs *This,ULONG *puCount);
     END_INTERFACE
   } IEnumBackgroundCopyJobsVtbl;
-  interface IEnumBackgroundCopyJobs {
+  struct IEnumBackgroundCopyJobs {
     CONST_VTBL struct IEnumBackgroundCopyJobsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -552,7 +552,7 @@ extern "C"{
       HRESULT (WINAPI *JobModification)(IBackgroundCopyCallback *This,IBackgroundCopyJob *pJob,DWORD dwReserved);
     END_INTERFACE
   } IBackgroundCopyCallbackVtbl;
-  interface IBackgroundCopyCallback {
+  struct IBackgroundCopyCallback {
     CONST_VTBL struct IBackgroundCopyCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -599,7 +599,7 @@ extern "C"{
       HRESULT (WINAPI *Finish_JobModification)(AsyncIBackgroundCopyCallback *This);
     END_INTERFACE
   } AsyncIBackgroundCopyCallbackVtbl;
-  interface AsyncIBackgroundCopyCallback {
+  struct AsyncIBackgroundCopyCallback {
     CONST_VTBL struct AsyncIBackgroundCopyCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -654,7 +654,7 @@ extern "C"{
       HRESULT (WINAPI *GetErrorDescription)(IBackgroundCopyManager *This,HRESULT hResult,DWORD LanguageId,LPWSTR *pErrorDescription);
     END_INTERFACE
   } IBackgroundCopyManagerVtbl;
-  interface IBackgroundCopyManager {
+  struct IBackgroundCopyManager {
     CONST_VTBL struct IBackgroundCopyManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

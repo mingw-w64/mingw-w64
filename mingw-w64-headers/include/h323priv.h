@@ -24,12 +24,12 @@
 
 #ifndef __IH323LineEx_FWD_DEFINED__
 #define __IH323LineEx_FWD_DEFINED__
-typedef interface IH323LineEx IH323LineEx;
+typedef struct IH323LineEx IH323LineEx;
 #endif
 
 #ifndef __IKeyFrameControl_FWD_DEFINED__
 #define __IKeyFrameControl_FWD_DEFINED__
-typedef interface IKeyFrameControl IKeyFrameControl;
+typedef struct IKeyFrameControl IKeyFrameControl;
 #endif
 
 #include "ipmsp.h"
@@ -69,7 +69,7 @@ extern "C"{
       HRESULT (WINAPI *SetAlias)(IH323LineEx *This,WCHAR *strAlias,DWORD dwLength);
     END_INTERFACE
   } IH323LineExVtbl;
-  interface IH323LineEx {
+  struct IH323LineEx {
     CONST_VTBL struct IH323LineExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -108,7 +108,7 @@ extern "C"{
       HRESULT (WINAPI *PeriodicUpdatePicture)(IKeyFrameControl *This,WINBOOL fEnable,DWORD dwInterval);
     END_INTERFACE
   } IKeyFrameControlVtbl;
-  interface IKeyFrameControl {
+  struct IKeyFrameControl {
     CONST_VTBL struct IKeyFrameControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

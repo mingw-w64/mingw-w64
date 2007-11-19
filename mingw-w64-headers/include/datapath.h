@@ -19,17 +19,17 @@ extern "C"{
 
 #ifndef __IObjectWithSite_FWD_DEFINED__
 #define __IObjectWithSite_FWD_DEFINED__
-  typedef interface IObjectWithSite IObjectWithSite;
+  typedef struct IObjectWithSite IObjectWithSite;
 #endif
 
 #ifndef __IDataPathBrowser_FWD_DEFINED__
 #define __IDataPathBrowser_FWD_DEFINED__
-  typedef interface IDataPathBrowser IDataPathBrowser;
+  typedef struct IDataPathBrowser IDataPathBrowser;
 #endif
 
 #ifndef __IProvideClassInfo3_FWD_DEFINED__
 #define __IProvideClassInfo3_FWD_DEFINED__
-  typedef interface IProvideClassInfo3 IProvideClassInfo3;
+  typedef struct IProvideClassInfo3 IProvideClassInfo3;
 #endif
 
 #include "objidl.h"
@@ -94,7 +94,7 @@ extern "C"{
   typedef IObjectWithSite *LPOBJECTWITHSITE;
   EXTERN_C const IID IID_IObjectWithSite;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IObjectWithSite : public IUnknown {
+  struct IObjectWithSite : public IUnknown {
 public:
   virtual HRESULT WINAPI SetSite(IUnknown *pUnkSite) = 0;
   virtual HRESULT WINAPI GetSite(REFIID riid,void **ppvSite) = 0;
@@ -109,7 +109,7 @@ public:
       HRESULT (WINAPI *GetSite)(IObjectWithSite *This,REFIID riid,void **ppvSite);
     END_INTERFACE
   } IObjectWithSiteVtbl;
-  interface IObjectWithSite {
+  struct IObjectWithSite {
     CONST_VTBL struct IObjectWithSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -135,7 +135,7 @@ public:
 #define __IDataPathBrowser_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IDataPathBrowser;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IDataPathBrowser : public IUnknown {
+  struct IDataPathBrowser : public IUnknown {
   public:
     virtual HRESULT WINAPI BrowseType(REFGUID rguidPathType,LPOLESTR pszDefaultPath,ULONG cchPath,LPOLESTR pszPath,HWND hWnd) = 0;
   };
@@ -148,7 +148,7 @@ public:
       HRESULT (WINAPI *BrowseType)(IDataPathBrowser *This,REFGUID rguidPathType,LPOLESTR pszDefaultPath,ULONG cchPath,LPOLESTR pszPath,HWND hWnd);
     END_INTERFACE
   } IDataPathBrowserVtbl;
-  interface IDataPathBrowser {
+  struct IDataPathBrowser {
     CONST_VTBL struct IDataPathBrowserVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -175,7 +175,7 @@ public:
   };
   EXTERN_C const IID IID_IProvideClassInfo3;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IProvideClassInfo3 : public IProvideClassInfo2 {
+  struct IProvideClassInfo3 : public IProvideClassInfo2 {
   public:
     virtual HRESULT WINAPI GetGUIDDwordArrays(REFGUID rguidArray,CAUUID *pcaUUID,CADWORD *pcadw) = 0;
     virtual HRESULT WINAPI GetClassInfoLocale(ITypeInfo **ppITypeInfo,LCID lcid) = 0;
@@ -194,7 +194,7 @@ public:
       HRESULT (WINAPI *GetFlags)(IProvideClassInfo3 *This,REFGUID guidGroup,DWORD *pdwFlags);
     END_INTERFACE
   } IProvideClassInfo3Vtbl;
-  interface IProvideClassInfo3 {
+  struct IProvideClassInfo3 {
     CONST_VTBL struct IProvideClassInfo3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

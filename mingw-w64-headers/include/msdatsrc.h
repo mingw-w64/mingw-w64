@@ -15,12 +15,12 @@
 
 #ifndef __DataSourceListener_FWD_DEFINED__
 #define __DataSourceListener_FWD_DEFINED__
-typedef interface DataSourceListener DataSourceListener;
+typedef struct DataSourceListener DataSourceListener;
 #endif
 
 #ifndef __DataSource_FWD_DEFINED__
 #define __DataSource_FWD_DEFINED__
-typedef interface DataSource DataSource;
+typedef struct DataSource DataSource;
 #endif
 
 #ifdef __cplusplus
@@ -65,7 +65,7 @@ extern "C" {
       HRESULT (WINAPI *dataMemberRemoved)(DataSourceListener *This,DataMember bstrDM);
     END_INTERFACE
   } DataSourceListenerVtbl;
-  interface DataSourceListener {
+  struct DataSourceListener {
     CONST_VTBL struct DataSourceListenerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -110,7 +110,7 @@ extern "C" {
       HRESULT (WINAPI *removeDataSourceListener)(DataSource *This,DataSourceListener *pDSL);
     END_INTERFACE
   } DataSourceVtbl;
-  interface DataSource {
+  struct DataSource {
     CONST_VTBL struct DataSourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

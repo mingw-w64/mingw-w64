@@ -24,12 +24,12 @@
 
 #ifndef __IFolderViewOC_FWD_DEFINED__
 #define __IFolderViewOC_FWD_DEFINED__
-typedef interface IFolderViewOC IFolderViewOC;
+typedef struct IFolderViewOC IFolderViewOC;
 #endif
 
 #ifndef __DShellFolderViewEvents_FWD_DEFINED__
 #define __DShellFolderViewEvents_FWD_DEFINED__
-typedef interface DShellFolderViewEvents DShellFolderViewEvents;
+typedef struct DShellFolderViewEvents DShellFolderViewEvents;
 #endif
 
 #ifndef __ShellFolderViewOC_FWD_DEFINED__
@@ -43,52 +43,52 @@ typedef struct ShellFolderViewOC ShellFolderViewOC;
 
 #ifndef __DFConstraint_FWD_DEFINED__
 #define __DFConstraint_FWD_DEFINED__
-typedef interface DFConstraint DFConstraint;
+typedef struct DFConstraint DFConstraint;
 #endif
 
 #ifndef __ISearchCommandExt_FWD_DEFINED__
 #define __ISearchCommandExt_FWD_DEFINED__
-typedef interface ISearchCommandExt ISearchCommandExt;
+typedef struct ISearchCommandExt ISearchCommandExt;
 #endif
 
 #ifndef __FolderItem_FWD_DEFINED__
 #define __FolderItem_FWD_DEFINED__
-typedef interface FolderItem FolderItem;
+typedef struct FolderItem FolderItem;
 #endif
 
 #ifndef __FolderItems_FWD_DEFINED__
 #define __FolderItems_FWD_DEFINED__
-typedef interface FolderItems FolderItems;
+typedef struct FolderItems FolderItems;
 #endif
 
 #ifndef __FolderItemVerb_FWD_DEFINED__
 #define __FolderItemVerb_FWD_DEFINED__
-typedef interface FolderItemVerb FolderItemVerb;
+typedef struct FolderItemVerb FolderItemVerb;
 #endif
 
 #ifndef __FolderItemVerbs_FWD_DEFINED__
 #define __FolderItemVerbs_FWD_DEFINED__
-typedef interface FolderItemVerbs FolderItemVerbs;
+typedef struct FolderItemVerbs FolderItemVerbs;
 #endif
 
 #ifndef __Folder_FWD_DEFINED__
 #define __Folder_FWD_DEFINED__
-typedef interface Folder Folder;
+typedef struct Folder Folder;
 #endif
 
 #ifndef __Folder2_FWD_DEFINED__
 #define __Folder2_FWD_DEFINED__
-typedef interface Folder2 Folder2;
+typedef struct Folder2 Folder2;
 #endif
 
 #ifndef __Folder3_FWD_DEFINED__
 #define __Folder3_FWD_DEFINED__
-typedef interface Folder3 Folder3;
+typedef struct Folder3 Folder3;
 #endif
 
 #ifndef __FolderItem2_FWD_DEFINED__
 #define __FolderItem2_FWD_DEFINED__
-typedef interface FolderItem2 FolderItem2;
+typedef struct FolderItem2 FolderItem2;
 #endif
 
 #ifndef __ShellFolderItem_FWD_DEFINED__
@@ -103,22 +103,22 @@ typedef struct ShellFolderItem ShellFolderItem;
 
 #ifndef __FolderItems2_FWD_DEFINED__
 #define __FolderItems2_FWD_DEFINED__
-typedef interface FolderItems2 FolderItems2;
+typedef struct FolderItems2 FolderItems2;
 #endif
 
 #ifndef __FolderItems3_FWD_DEFINED__
 #define __FolderItems3_FWD_DEFINED__
-typedef interface FolderItems3 FolderItems3;
+typedef struct FolderItems3 FolderItems3;
 #endif
 
 #ifndef __IShellLinkDual_FWD_DEFINED__
 #define __IShellLinkDual_FWD_DEFINED__
-typedef interface IShellLinkDual IShellLinkDual;
+typedef struct IShellLinkDual IShellLinkDual;
 #endif
 
 #ifndef __IShellLinkDual2_FWD_DEFINED__
 #define __IShellLinkDual2_FWD_DEFINED__
-typedef interface IShellLinkDual2 IShellLinkDual2;
+typedef struct IShellLinkDual2 IShellLinkDual2;
 #endif
 
 #ifndef __ShellLinkObject_FWD_DEFINED__
@@ -132,12 +132,12 @@ typedef struct ShellLinkObject ShellLinkObject;
 
 #ifndef __IShellFolderViewDual_FWD_DEFINED__
 #define __IShellFolderViewDual_FWD_DEFINED__
-typedef interface IShellFolderViewDual IShellFolderViewDual;
+typedef struct IShellFolderViewDual IShellFolderViewDual;
 #endif
 
 #ifndef __IShellFolderViewDual2_FWD_DEFINED__
 #define __IShellFolderViewDual2_FWD_DEFINED__
-typedef interface IShellFolderViewDual2 IShellFolderViewDual2;
+typedef struct IShellFolderViewDual2 IShellFolderViewDual2;
 #endif
 
 #ifndef __ShellFolderView_FWD_DEFINED__
@@ -151,22 +151,22 @@ typedef struct ShellFolderView ShellFolderView;
 
 #ifndef __IShellDispatch_FWD_DEFINED__
 #define __IShellDispatch_FWD_DEFINED__
-typedef interface IShellDispatch IShellDispatch;
+typedef struct IShellDispatch IShellDispatch;
 #endif
 
 #ifndef __IShellDispatch2_FWD_DEFINED__
 #define __IShellDispatch2_FWD_DEFINED__
-typedef interface IShellDispatch2 IShellDispatch2;
+typedef struct IShellDispatch2 IShellDispatch2;
 #endif
 
 #ifndef __IShellDispatch3_FWD_DEFINED__
 #define __IShellDispatch3_FWD_DEFINED__
-typedef interface IShellDispatch3 IShellDispatch3;
+typedef struct IShellDispatch3 IShellDispatch3;
 #endif
 
 #ifndef __IShellDispatch4_FWD_DEFINED__
 #define __IShellDispatch4_FWD_DEFINED__
-typedef interface IShellDispatch4 IShellDispatch4;
+typedef struct IShellDispatch4 IShellDispatch4;
 #endif
 
 #ifndef __Shell_FWD_DEFINED__
@@ -198,7 +198,7 @@ typedef struct WebViewFolderContents WebViewFolderContents;
 
 #ifndef __DSearchCommandEvents_FWD_DEFINED__
 #define __DSearchCommandEvents_FWD_DEFINED__
-typedef interface DSearchCommandEvents DSearchCommandEvents;
+typedef struct DSearchCommandEvents DSearchCommandEvents;
 #endif
 
 #ifndef __SearchCommand_FWD_DEFINED__
@@ -212,7 +212,7 @@ typedef struct SearchCommand SearchCommand;
 
 #ifndef __IFileSearchBand_FWD_DEFINED__
 #define __IFileSearchBand_FWD_DEFINED__
-typedef interface IFileSearchBand IFileSearchBand;
+typedef struct IFileSearchBand IFileSearchBand;
 #endif
 
 #ifndef __FileSearchBand_FWD_DEFINED__
@@ -226,17 +226,17 @@ typedef struct FileSearchBand FileSearchBand;
 
 #ifndef __IWebWizardHost_FWD_DEFINED__
 #define __IWebWizardHost_FWD_DEFINED__
-typedef interface IWebWizardHost IWebWizardHost;
+typedef struct IWebWizardHost IWebWizardHost;
 #endif
 
 #ifndef __INewWDEvents_FWD_DEFINED__
 #define __INewWDEvents_FWD_DEFINED__
-typedef interface INewWDEvents INewWDEvents;
+typedef struct INewWDEvents INewWDEvents;
 #endif
 
 #ifndef __IPassportClientServices_FWD_DEFINED__
 #define __IPassportClientServices_FWD_DEFINED__
-typedef interface IPassportClientServices IPassportClientServices;
+typedef struct IPassportClientServices IPassportClientServices;
 #endif
 
 #ifndef __PassportClientServices_FWD_DEFINED__
@@ -250,22 +250,22 @@ typedef struct PassportClientServices PassportClientServices;
 
 #ifndef __IAutoComplete_FWD_DEFINED__
 #define __IAutoComplete_FWD_DEFINED__
-typedef interface IAutoComplete IAutoComplete;
+typedef struct IAutoComplete IAutoComplete;
 #endif
 
 #ifndef __IAutoComplete2_FWD_DEFINED__
 #define __IAutoComplete2_FWD_DEFINED__
-typedef interface IAutoComplete2 IAutoComplete2;
+typedef struct IAutoComplete2 IAutoComplete2;
 #endif
 
 #ifndef __IEnumACString_FWD_DEFINED__
 #define __IEnumACString_FWD_DEFINED__
-typedef interface IEnumACString IEnumACString;
+typedef struct IEnumACString IEnumACString;
 #endif
 
 #ifndef __IAsyncOperation_FWD_DEFINED__
 #define __IAsyncOperation_FWD_DEFINED__
-typedef interface IAsyncOperation IAsyncOperation;
+typedef struct IAsyncOperation IAsyncOperation;
 #endif
 
 #include "ocidl.h"
@@ -327,7 +327,7 @@ extern "C" {
       HRESULT (WINAPI *SetFolderView)(IFolderViewOC *This,IDispatch *pdisp);
     END_INTERFACE
   } IFolderViewOCVtbl;
-  interface IFolderViewOC {
+  struct IFolderViewOC {
     CONST_VTBL struct IFolderViewOCVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -363,7 +363,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(DShellFolderViewEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DShellFolderViewEventsVtbl;
-  interface DShellFolderViewEvents {
+  struct DShellFolderViewEvents {
     CONST_VTBL struct DShellFolderViewEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -406,7 +406,7 @@ extern "C" {
       HRESULT (WINAPI *get_Value)(DFConstraint *This,VARIANT *pv);
     END_INTERFACE
   } DFConstraintVtbl;
-  interface DFConstraint {
+  struct DFConstraint {
     CONST_VTBL struct DFConstraintVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -472,7 +472,7 @@ extern "C" {
       HRESULT (WINAPI *GetNextConstraint)(ISearchCommandExt *This,VARIANT_BOOL fReset,DFConstraint **ppdfc);
     END_INTERFACE
   } ISearchCommandExtVtbl;
-  interface ISearchCommandExt {
+  struct ISearchCommandExt {
     CONST_VTBL struct ISearchCommandExtVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -575,7 +575,7 @@ extern "C" {
       HRESULT (WINAPI *InvokeVerb)(FolderItem *This,VARIANT vVerb);
     END_INTERFACE
   } FolderItemVtbl;
-  interface FolderItem {
+  struct FolderItem {
     CONST_VTBL struct FolderItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -670,7 +670,7 @@ extern "C" {
       HRESULT (WINAPI *_NewEnum)(FolderItems *This,IUnknown **ppunk);
     END_INTERFACE
   } FolderItemsVtbl;
-  interface FolderItems {
+  struct FolderItems {
     CONST_VTBL struct FolderItemsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -727,7 +727,7 @@ extern "C" {
       HRESULT (WINAPI *DoIt)(FolderItemVerb *This);
     END_INTERFACE
   } FolderItemVerbVtbl;
-  interface FolderItemVerb {
+  struct FolderItemVerb {
     CONST_VTBL struct FolderItemVerbVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -783,7 +783,7 @@ extern "C" {
       HRESULT (WINAPI *_NewEnum)(FolderItemVerbs *This,IUnknown **ppunk);
     END_INTERFACE
   } FolderItemVerbsVtbl;
-  interface FolderItemVerbs {
+  struct FolderItemVerbs {
     CONST_VTBL struct FolderItemVerbsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -852,7 +852,7 @@ extern "C" {
       HRESULT (WINAPI *GetDetailsOf)(Folder *This,VARIANT vItem,int iColumn,BSTR *pbs);
     END_INTERFACE
   } FolderVtbl;
-  interface Folder {
+  struct Folder {
     CONST_VTBL struct FolderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -936,7 +936,7 @@ extern "C" {
       HRESULT (WINAPI *DismissedWebViewBarricade)(Folder2 *This);
     END_INTERFACE
   } Folder2Vtbl;
-  interface Folder2 {
+  struct Folder2 {
     CONST_VTBL struct Folder2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1014,7 +1014,7 @@ extern "C" {
       HRESULT (WINAPI *put_ShowWebViewBarricade)(Folder3 *This,VARIANT_BOOL bShowWebViewBarricade);
     END_INTERFACE
   } Folder3Vtbl;
-  interface Folder3 {
+  struct Folder3 {
     CONST_VTBL struct Folder3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1090,7 +1090,7 @@ extern "C" {
       HRESULT (WINAPI *ExtendedProperty)(FolderItem2 *This,BSTR bstrPropName,VARIANT *pvRet);
     END_INTERFACE
   } FolderItem2Vtbl;
-  interface FolderItem2 {
+  struct FolderItem2 {
     CONST_VTBL struct FolderItem2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1159,7 +1159,7 @@ extern "C" {
       HRESULT (WINAPI *InvokeVerbEx)(FolderItems2 *This,VARIANT vVerb,VARIANT vArgs);
     END_INTERFACE
   } FolderItems2Vtbl;
-  interface FolderItems2 {
+  struct FolderItems2 {
     CONST_VTBL struct FolderItems2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1211,7 +1211,7 @@ extern "C" {
       HRESULT (WINAPI *get_Verbs)(FolderItems3 *This,FolderItemVerbs **ppfic);
     END_INTERFACE
   } FolderItems3Vtbl;
-  interface FolderItems3 {
+  struct FolderItems3 {
     CONST_VTBL struct FolderItems3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1289,7 +1289,7 @@ extern "C" {
       HRESULT (WINAPI *Save)(IShellLinkDual *This,VARIANT vWhere);
     END_INTERFACE
   } IShellLinkDualVtbl;
-  interface IShellLinkDual {
+  struct IShellLinkDual {
     CONST_VTBL struct IShellLinkDualVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1389,7 +1389,7 @@ extern "C" {
       HRESULT (WINAPI *get_Target)(IShellLinkDual2 *This,FolderItem **ppfi);
     END_INTERFACE
   } IShellLinkDual2Vtbl;
-  interface IShellLinkDual2 {
+  struct IShellLinkDual2 {
     CONST_VTBL struct IShellLinkDual2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1465,7 +1465,7 @@ extern "C" {
       HRESULT (WINAPI *get_ViewOptions)(IShellFolderViewDual *This,long *plViewOptions);
     END_INTERFACE
   } IShellFolderViewDualVtbl;
-  interface IShellFolderViewDual {
+  struct IShellFolderViewDual {
     CONST_VTBL struct IShellFolderViewDualVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1541,7 +1541,7 @@ extern "C" {
       HRESULT (WINAPI *SelectItemRelative)(IShellFolderViewDual2 *This,int iRelative);
     END_INTERFACE
   } IShellFolderViewDual2Vtbl;
-  interface IShellFolderViewDual2 {
+  struct IShellFolderViewDual2 {
     CONST_VTBL struct IShellFolderViewDual2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1644,7 +1644,7 @@ extern "C" {
       HRESULT (WINAPI *ControlPanelItem)(IShellDispatch *This,BSTR szDir);
     END_INTERFACE
   } IShellDispatchVtbl;
-  interface IShellDispatch {
+  struct IShellDispatch {
     CONST_VTBL struct IShellDispatchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1788,7 +1788,7 @@ extern "C" {
       HRESULT (WINAPI *ShowBrowserBar)(IShellDispatch2 *This,BSTR bstrClsid,VARIANT bShow,VARIANT *pSuccess);
     END_INTERFACE
   } IShellDispatch2Vtbl;
-  interface IShellDispatch2 {
+  struct IShellDispatch2 {
     CONST_VTBL struct IShellDispatch2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1906,7 +1906,7 @@ extern "C" {
       HRESULT (WINAPI *AddToRecent)(IShellDispatch3 *This,VARIANT varFile,BSTR bstrCategory);
     END_INTERFACE
   } IShellDispatch3Vtbl;
-  interface IShellDispatch3 {
+  struct IShellDispatch3 {
     CONST_VTBL struct IShellDispatch3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2016,7 +2016,7 @@ extern "C" {
       HRESULT (WINAPI *GetSetting)(IShellDispatch4 *This,long lSetting,VARIANT_BOOL *pResult);
     END_INTERFACE
   } IShellDispatch4Vtbl;
-  interface IShellDispatch4 {
+  struct IShellDispatch4 {
     CONST_VTBL struct IShellDispatch4Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2107,7 +2107,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(DSearchCommandEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DSearchCommandEventsVtbl;
-  interface DSearchCommandEvents {
+  struct DSearchCommandEvents {
     CONST_VTBL struct DSearchCommandEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2156,7 +2156,7 @@ extern "C" {
       HRESULT (WINAPI *get_QueryFile)(IFileSearchBand *This,VARIANT *pvarFile);
     END_INTERFACE
   } IFileSearchBandVtbl;
-  interface IFileSearchBand {
+  struct IFileSearchBand {
     CONST_VTBL struct IFileSearchBandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2228,7 +2228,7 @@ extern "C" {
       HRESULT (WINAPI *SetHeaderText)(IWebWizardHost *This,BSTR bstrHeaderTitle,BSTR bstrHeaderSubtitle);
     END_INTERFACE
   } IWebWizardHostVtbl;
-  interface IWebWizardHost {
+  struct IWebWizardHost {
     CONST_VTBL struct IWebWizardHostVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2300,7 +2300,7 @@ extern "C" {
       HRESULT (WINAPI *PassportAuthenticate)(INewWDEvents *This,BSTR bstrSignInUrl,VARIANT_BOOL *pvfAuthenitcated);
     END_INTERFACE
   } INewWDEventsVtbl;
-  interface INewWDEvents {
+  struct INewWDEvents {
     CONST_VTBL struct INewWDEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2348,7 +2348,7 @@ extern "C" {
       HRESULT (WINAPI *MemberExists)(IPassportClientServices *This,BSTR bstrUser,BSTR bstrPassword,VARIANT_BOOL *pvfExists);
     END_INTERFACE
   } IPassportClientServicesVtbl;
-  interface IPassportClientServices {
+  struct IPassportClientServices {
     CONST_VTBL struct IPassportClientServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2395,7 +2395,7 @@ extern "C" {
       HRESULT (WINAPI *Enable)(IAutoComplete *This,WINBOOL fEnable);
     END_INTERFACE
   } IAutoCompleteVtbl;
-  interface IAutoComplete {
+  struct IAutoComplete {
     CONST_VTBL struct IAutoCompleteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2440,7 +2440,7 @@ extern "C" {
       HRESULT (WINAPI *GetOptions)(IAutoComplete2 *This,DWORD *pdwFlag);
     END_INTERFACE
   } IAutoComplete2Vtbl;
-  interface IAutoComplete2 {
+  struct IAutoComplete2 {
     CONST_VTBL struct IAutoComplete2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2493,7 +2493,7 @@ extern "C" {
       HRESULT (WINAPI *GetEnumOptions)(IEnumACString *This,DWORD *pdwOptions);
     END_INTERFACE
   } IEnumACStringVtbl;
-  interface IEnumACString {
+  struct IEnumACString {
     CONST_VTBL struct IEnumACStringVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2546,7 +2546,7 @@ extern "C" {
       HRESULT (WINAPI *EndOperation)(IAsyncOperation *This,HRESULT hResult,IBindCtx *pbcReserved,DWORD dwEffects);
     END_INTERFACE
   } IAsyncOperationVtbl;
-  interface IAsyncOperation {
+  struct IAsyncOperation {
     CONST_VTBL struct IAsyncOperationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

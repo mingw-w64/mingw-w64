@@ -24,127 +24,127 @@
 
 #ifndef __ISWbemServices_FWD_DEFINED__
 #define __ISWbemServices_FWD_DEFINED__
-typedef interface ISWbemServices ISWbemServices;
+typedef struct ISWbemServices ISWbemServices;
 #endif
 
 #ifndef __ISWbemLocator_FWD_DEFINED__
 #define __ISWbemLocator_FWD_DEFINED__
-typedef interface ISWbemLocator ISWbemLocator;
+typedef struct ISWbemLocator ISWbemLocator;
 #endif
 
 #ifndef __ISWbemObject_FWD_DEFINED__
 #define __ISWbemObject_FWD_DEFINED__
-typedef interface ISWbemObject ISWbemObject;
+typedef struct ISWbemObject ISWbemObject;
 #endif
 
 #ifndef __ISWbemObjectSet_FWD_DEFINED__
 #define __ISWbemObjectSet_FWD_DEFINED__
-typedef interface ISWbemObjectSet ISWbemObjectSet;
+typedef struct ISWbemObjectSet ISWbemObjectSet;
 #endif
 
 #ifndef __ISWbemNamedValue_FWD_DEFINED__
 #define __ISWbemNamedValue_FWD_DEFINED__
-typedef interface ISWbemNamedValue ISWbemNamedValue;
+typedef struct ISWbemNamedValue ISWbemNamedValue;
 #endif
 
 #ifndef __ISWbemNamedValueSet_FWD_DEFINED__
 #define __ISWbemNamedValueSet_FWD_DEFINED__
-typedef interface ISWbemNamedValueSet ISWbemNamedValueSet;
+typedef struct ISWbemNamedValueSet ISWbemNamedValueSet;
 #endif
 
 #ifndef __ISWbemQualifier_FWD_DEFINED__
 #define __ISWbemQualifier_FWD_DEFINED__
-typedef interface ISWbemQualifier ISWbemQualifier;
+typedef struct ISWbemQualifier ISWbemQualifier;
 #endif
 
 #ifndef __ISWbemQualifierSet_FWD_DEFINED__
 #define __ISWbemQualifierSet_FWD_DEFINED__
-typedef interface ISWbemQualifierSet ISWbemQualifierSet;
+typedef struct ISWbemQualifierSet ISWbemQualifierSet;
 #endif
 
 #ifndef __ISWbemProperty_FWD_DEFINED__
 #define __ISWbemProperty_FWD_DEFINED__
-typedef interface ISWbemProperty ISWbemProperty;
+typedef struct ISWbemProperty ISWbemProperty;
 #endif
 
 #ifndef __ISWbemPropertySet_FWD_DEFINED__
 #define __ISWbemPropertySet_FWD_DEFINED__
-typedef interface ISWbemPropertySet ISWbemPropertySet;
+typedef struct ISWbemPropertySet ISWbemPropertySet;
 #endif
 
 #ifndef __ISWbemMethod_FWD_DEFINED__
 #define __ISWbemMethod_FWD_DEFINED__
-typedef interface ISWbemMethod ISWbemMethod;
+typedef struct ISWbemMethod ISWbemMethod;
 #endif
 
 #ifndef __ISWbemMethodSet_FWD_DEFINED__
 #define __ISWbemMethodSet_FWD_DEFINED__
-typedef interface ISWbemMethodSet ISWbemMethodSet;
+typedef struct ISWbemMethodSet ISWbemMethodSet;
 #endif
 
 #ifndef __ISWbemEventSource_FWD_DEFINED__
 #define __ISWbemEventSource_FWD_DEFINED__
-typedef interface ISWbemEventSource ISWbemEventSource;
+typedef struct ISWbemEventSource ISWbemEventSource;
 #endif
 
 #ifndef __ISWbemObjectPath_FWD_DEFINED__
 #define __ISWbemObjectPath_FWD_DEFINED__
-typedef interface ISWbemObjectPath ISWbemObjectPath;
+typedef struct ISWbemObjectPath ISWbemObjectPath;
 #endif
 
 #ifndef __ISWbemLastError_FWD_DEFINED__
 #define __ISWbemLastError_FWD_DEFINED__
-typedef interface ISWbemLastError ISWbemLastError;
+typedef struct ISWbemLastError ISWbemLastError;
 #endif
 
 #ifndef __ISWbemSinkEvents_FWD_DEFINED__
 #define __ISWbemSinkEvents_FWD_DEFINED__
-typedef interface ISWbemSinkEvents ISWbemSinkEvents;
+typedef struct ISWbemSinkEvents ISWbemSinkEvents;
 #endif
 
 #ifndef __ISWbemSink_FWD_DEFINED__
 #define __ISWbemSink_FWD_DEFINED__
-typedef interface ISWbemSink ISWbemSink;
+typedef struct ISWbemSink ISWbemSink;
 #endif
 
 #ifndef __ISWbemSecurity_FWD_DEFINED__
 #define __ISWbemSecurity_FWD_DEFINED__
-typedef interface ISWbemSecurity ISWbemSecurity;
+typedef struct ISWbemSecurity ISWbemSecurity;
 #endif
 
 #ifndef __ISWbemPrivilege_FWD_DEFINED__
 #define __ISWbemPrivilege_FWD_DEFINED__
-typedef interface ISWbemPrivilege ISWbemPrivilege;
+typedef struct ISWbemPrivilege ISWbemPrivilege;
 #endif
 
 #ifndef __ISWbemPrivilegeSet_FWD_DEFINED__
 #define __ISWbemPrivilegeSet_FWD_DEFINED__
-typedef interface ISWbemPrivilegeSet ISWbemPrivilegeSet;
+typedef struct ISWbemPrivilegeSet ISWbemPrivilegeSet;
 #endif
 
 #ifndef __ISWbemServicesEx_FWD_DEFINED__
 #define __ISWbemServicesEx_FWD_DEFINED__
-typedef interface ISWbemServicesEx ISWbemServicesEx;
+typedef struct ISWbemServicesEx ISWbemServicesEx;
 #endif
 
 #ifndef __ISWbemObjectEx_FWD_DEFINED__
 #define __ISWbemObjectEx_FWD_DEFINED__
-typedef interface ISWbemObjectEx ISWbemObjectEx;
+typedef struct ISWbemObjectEx ISWbemObjectEx;
 #endif
 
 #ifndef __ISWbemDateTime_FWD_DEFINED__
 #define __ISWbemDateTime_FWD_DEFINED__
-typedef interface ISWbemDateTime ISWbemDateTime;
+typedef struct ISWbemDateTime ISWbemDateTime;
 #endif
 
 #ifndef __ISWbemRefresher_FWD_DEFINED__
 #define __ISWbemRefresher_FWD_DEFINED__
-typedef interface ISWbemRefresher ISWbemRefresher;
+typedef struct ISWbemRefresher ISWbemRefresher;
 #endif
 
 #ifndef __ISWbemRefreshableItem_FWD_DEFINED__
 #define __ISWbemRefreshableItem_FWD_DEFINED__
-typedef interface ISWbemRefreshableItem ISWbemRefreshableItem;
+typedef struct ISWbemRefreshableItem ISWbemRefreshableItem;
 #endif
 
 #ifndef __SWbemLocator_FWD_DEFINED__
@@ -365,127 +365,127 @@ typedef struct SWbemRefreshableItem SWbemRefreshableItem;
 
 #ifndef __ISWbemLocator_FWD_DEFINED__
 #define __ISWbemLocator_FWD_DEFINED__
-typedef interface ISWbemLocator ISWbemLocator;
+typedef struct ISWbemLocator ISWbemLocator;
 #endif
 
 #ifndef __ISWbemServices_FWD_DEFINED__
 #define __ISWbemServices_FWD_DEFINED__
-typedef interface ISWbemServices ISWbemServices;
+typedef struct ISWbemServices ISWbemServices;
 #endif
 
 #ifndef __ISWbemServicesEx_FWD_DEFINED__
 #define __ISWbemServicesEx_FWD_DEFINED__
-typedef interface ISWbemServicesEx ISWbemServicesEx;
+typedef struct ISWbemServicesEx ISWbemServicesEx;
 #endif
 
 #ifndef __ISWbemObject_FWD_DEFINED__
 #define __ISWbemObject_FWD_DEFINED__
-typedef interface ISWbemObject ISWbemObject;
+typedef struct ISWbemObject ISWbemObject;
 #endif
 
 #ifndef __ISWbemObjectEx_FWD_DEFINED__
 #define __ISWbemObjectEx_FWD_DEFINED__
-typedef interface ISWbemObjectEx ISWbemObjectEx;
+typedef struct ISWbemObjectEx ISWbemObjectEx;
 #endif
 
 #ifndef __ISWbemLastError_FWD_DEFINED__
 #define __ISWbemLastError_FWD_DEFINED__
-typedef interface ISWbemLastError ISWbemLastError;
+typedef struct ISWbemLastError ISWbemLastError;
 #endif
 
 #ifndef __ISWbemObjectSet_FWD_DEFINED__
 #define __ISWbemObjectSet_FWD_DEFINED__
-typedef interface ISWbemObjectSet ISWbemObjectSet;
+typedef struct ISWbemObjectSet ISWbemObjectSet;
 #endif
 
 #ifndef __ISWbemNamedValueSet_FWD_DEFINED__
 #define __ISWbemNamedValueSet_FWD_DEFINED__
-typedef interface ISWbemNamedValueSet ISWbemNamedValueSet;
+typedef struct ISWbemNamedValueSet ISWbemNamedValueSet;
 #endif
 
 #ifndef __ISWbemNamedValue_FWD_DEFINED__
 #define __ISWbemNamedValue_FWD_DEFINED__
-typedef interface ISWbemNamedValue ISWbemNamedValue;
+typedef struct ISWbemNamedValue ISWbemNamedValue;
 #endif
 
 #ifndef __ISWbemObjectPath_FWD_DEFINED__
 #define __ISWbemObjectPath_FWD_DEFINED__
-typedef interface ISWbemObjectPath ISWbemObjectPath;
+typedef struct ISWbemObjectPath ISWbemObjectPath;
 #endif
 
 #ifndef __ISWbemProperty_FWD_DEFINED__
 #define __ISWbemProperty_FWD_DEFINED__
-typedef interface ISWbemProperty ISWbemProperty;
+typedef struct ISWbemProperty ISWbemProperty;
 #endif
 
 #ifndef __ISWbemPropertySet_FWD_DEFINED__
 #define __ISWbemPropertySet_FWD_DEFINED__
-typedef interface ISWbemPropertySet ISWbemPropertySet;
+typedef struct ISWbemPropertySet ISWbemPropertySet;
 #endif
 
 #ifndef __ISWbemQualifier_FWD_DEFINED__
 #define __ISWbemQualifier_FWD_DEFINED__
-typedef interface ISWbemQualifier ISWbemQualifier;
+typedef struct ISWbemQualifier ISWbemQualifier;
 #endif
 
 #ifndef __ISWbemQualifierSet_FWD_DEFINED__
 #define __ISWbemQualifierSet_FWD_DEFINED__
-typedef interface ISWbemQualifierSet ISWbemQualifierSet;
+typedef struct ISWbemQualifierSet ISWbemQualifierSet;
 #endif
 
 #ifndef __ISWbemMethod_FWD_DEFINED__
 #define __ISWbemMethod_FWD_DEFINED__
-typedef interface ISWbemMethod ISWbemMethod;
+typedef struct ISWbemMethod ISWbemMethod;
 #endif
 
 #ifndef __ISWbemMethodSet_FWD_DEFINED__
 #define __ISWbemMethodSet_FWD_DEFINED__
-typedef interface ISWbemMethodSet ISWbemMethodSet;
+typedef struct ISWbemMethodSet ISWbemMethodSet;
 #endif
 
 #ifndef __ISWbemSink_FWD_DEFINED__
 #define __ISWbemSink_FWD_DEFINED__
-typedef interface ISWbemSink ISWbemSink;
+typedef struct ISWbemSink ISWbemSink;
 #endif
 
 #ifndef __ISWbemSinkEvents_FWD_DEFINED__
 #define __ISWbemSinkEvents_FWD_DEFINED__
-typedef interface ISWbemSinkEvents ISWbemSinkEvents;
+typedef struct ISWbemSinkEvents ISWbemSinkEvents;
 #endif
 
 #ifndef __ISWbemEventSource_FWD_DEFINED__
 #define __ISWbemEventSource_FWD_DEFINED__
-typedef interface ISWbemEventSource ISWbemEventSource;
+typedef struct ISWbemEventSource ISWbemEventSource;
 #endif
 
 #ifndef __ISWbemSecurity_FWD_DEFINED__
 #define __ISWbemSecurity_FWD_DEFINED__
-typedef interface ISWbemSecurity ISWbemSecurity;
+typedef struct ISWbemSecurity ISWbemSecurity;
 #endif
 
 #ifndef __ISWbemPrivilege_FWD_DEFINED__
 #define __ISWbemPrivilege_FWD_DEFINED__
-typedef interface ISWbemPrivilege ISWbemPrivilege;
+typedef struct ISWbemPrivilege ISWbemPrivilege;
 #endif
 
 #ifndef __ISWbemPrivilegeSet_FWD_DEFINED__
 #define __ISWbemPrivilegeSet_FWD_DEFINED__
-typedef interface ISWbemPrivilegeSet ISWbemPrivilegeSet;
+typedef struct ISWbemPrivilegeSet ISWbemPrivilegeSet;
 #endif
 
 #ifndef __ISWbemDateTime_FWD_DEFINED__
 #define __ISWbemDateTime_FWD_DEFINED__
-typedef interface ISWbemDateTime ISWbemDateTime;
+typedef struct ISWbemDateTime ISWbemDateTime;
 #endif
 
 #ifndef __ISWbemRefreshableItem_FWD_DEFINED__
 #define __ISWbemRefreshableItem_FWD_DEFINED__
-typedef interface ISWbemRefreshableItem ISWbemRefreshableItem;
+typedef struct ISWbemRefreshableItem ISWbemRefreshableItem;
 #endif
 
 #ifndef __ISWbemRefresher_FWD_DEFINED__
 #define __ISWbemRefresher_FWD_DEFINED__
-typedef interface ISWbemRefresher ISWbemRefresher;
+typedef struct ISWbemRefresher ISWbemRefresher;
 #endif
 
 #include "dispex.h"
@@ -662,7 +662,7 @@ extern "C" {
       HRESULT (WINAPI *get_Security_)(ISWbemServices *This,ISWbemSecurity **objWbemSecurity);
     END_INTERFACE
   } ISWbemServicesVtbl;
-  interface ISWbemServices {
+  struct ISWbemServices {
     CONST_VTBL struct ISWbemServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -757,7 +757,7 @@ extern "C" {
       HRESULT (WINAPI *get_Security_)(ISWbemLocator *This,ISWbemSecurity **objWbemSecurity);
     END_INTERFACE
   } ISWbemLocatorVtbl;
-  interface ISWbemLocator {
+  struct ISWbemLocator {
     CONST_VTBL struct ISWbemLocatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -849,7 +849,7 @@ extern "C" {
       HRESULT (WINAPI *get_Security_)(ISWbemObject *This,ISWbemSecurity **objWbemSecurity);
     END_INTERFACE
   } ISWbemObjectVtbl;
-  interface ISWbemObject {
+  struct ISWbemObject {
     CONST_VTBL struct ISWbemObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -966,7 +966,7 @@ extern "C" {
       HRESULT (WINAPI *get_Security_)(ISWbemObjectSet *This,ISWbemSecurity **objWbemSecurity);
     END_INTERFACE
   } ISWbemObjectSetVtbl;
-  interface ISWbemObjectSet {
+  struct ISWbemObjectSet {
     CONST_VTBL struct ISWbemObjectSetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1018,7 +1018,7 @@ extern "C" {
       HRESULT (WINAPI *get_Name)(ISWbemNamedValue *This,BSTR *strName);
     END_INTERFACE
   } ISWbemNamedValueVtbl;
-  interface ISWbemNamedValue {
+  struct ISWbemNamedValue {
     CONST_VTBL struct ISWbemNamedValueVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1075,7 +1075,7 @@ extern "C" {
       HRESULT (WINAPI *DeleteAll)(ISWbemNamedValueSet *This);
     END_INTERFACE
   } ISWbemNamedValueSetVtbl;
-  interface ISWbemNamedValueSet {
+  struct ISWbemNamedValueSet {
     CONST_VTBL struct ISWbemNamedValueSetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1152,7 +1152,7 @@ extern "C" {
       HRESULT (WINAPI *get_IsAmended)(ISWbemQualifier *This,VARIANT_BOOL *bIsAmended);
     END_INTERFACE
   } ISWbemQualifierVtbl;
-  interface ISWbemQualifier {
+  struct ISWbemQualifier {
     CONST_VTBL struct ISWbemQualifierVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1229,7 +1229,7 @@ extern "C" {
       HRESULT (WINAPI *Remove)(ISWbemQualifierSet *This,BSTR strName,long iFlags);
     END_INTERFACE
   } ISWbemQualifierSetVtbl;
-  interface ISWbemQualifierSet {
+  struct ISWbemQualifierSet {
     CONST_VTBL struct ISWbemQualifierSetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1294,7 +1294,7 @@ extern "C" {
       HRESULT (WINAPI *get_IsArray)(ISWbemProperty *This,VARIANT_BOOL *bIsArray);
     END_INTERFACE
   } ISWbemPropertyVtbl;
-  interface ISWbemProperty {
+  struct ISWbemProperty {
     CONST_VTBL struct ISWbemPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1362,7 +1362,7 @@ extern "C" {
       HRESULT (WINAPI *Remove)(ISWbemPropertySet *This,BSTR strName,long iFlags);
     END_INTERFACE
   } ISWbemPropertySetVtbl;
-  interface ISWbemPropertySet {
+  struct ISWbemPropertySet {
     CONST_VTBL struct ISWbemPropertySetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1421,7 +1421,7 @@ extern "C" {
       HRESULT (WINAPI *get_Qualifiers_)(ISWbemMethod *This,ISWbemQualifierSet **objWbemQualifierSet);
     END_INTERFACE
   } ISWbemMethodVtbl;
-  interface ISWbemMethod {
+  struct ISWbemMethod {
     CONST_VTBL struct ISWbemMethodVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1476,7 +1476,7 @@ extern "C" {
       HRESULT (WINAPI *get_Count)(ISWbemMethodSet *This,long *iCount);
     END_INTERFACE
   } ISWbemMethodSetVtbl;
-  interface ISWbemMethodSet {
+  struct ISWbemMethodSet {
     CONST_VTBL struct ISWbemMethodSetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1523,7 +1523,7 @@ extern "C" {
       HRESULT (WINAPI *get_Security_)(ISWbemEventSource *This,ISWbemSecurity **objWbemSecurity);
     END_INTERFACE
   } ISWbemEventSourceVtbl;
-  interface ISWbemEventSource {
+  struct ISWbemEventSource {
     CONST_VTBL struct ISWbemEventSourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1609,7 +1609,7 @@ extern "C" {
       HRESULT (WINAPI *put_Authority)(ISWbemObjectPath *This,BSTR strAuthority);
     END_INTERFACE
   } ISWbemObjectPathVtbl;
-  interface ISWbemObjectPath {
+  struct ISWbemObjectPath {
     CONST_VTBL struct ISWbemObjectPathVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1736,7 +1736,7 @@ extern "C" {
       HRESULT (WINAPI *get_Security_)(ISWbemLastError *This,ISWbemSecurity **objWbemSecurity);
     END_INTERFACE
   } ISWbemLastErrorVtbl;
-  interface ISWbemLastError {
+  struct ISWbemLastError {
     CONST_VTBL struct ISWbemLastErrorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1794,7 +1794,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ISWbemSinkEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } ISWbemSinkEventsVtbl;
-  interface ISWbemSinkEvents {
+  struct ISWbemSinkEvents {
     CONST_VTBL struct ISWbemSinkEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1830,7 +1830,7 @@ extern "C" {
       HRESULT (WINAPI *Cancel)(ISWbemSink *This);
     END_INTERFACE
   } ISWbemSinkVtbl;
-  interface ISWbemSink {
+  struct ISWbemSink {
     CONST_VTBL struct ISWbemSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1877,7 +1877,7 @@ extern "C" {
       HRESULT (WINAPI *get_Privileges)(ISWbemSecurity *This,ISWbemPrivilegeSet **objWbemPrivilegeSet);
     END_INTERFACE
   } ISWbemSecurityVtbl;
-  interface ISWbemSecurity {
+  struct ISWbemSecurity {
     CONST_VTBL struct ISWbemSecurityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1936,7 +1936,7 @@ extern "C" {
       HRESULT (WINAPI *get_Identifier)(ISWbemPrivilege *This,WbemPrivilegeEnum *iPrivilege);
     END_INTERFACE
   } ISWbemPrivilegeVtbl;
-  interface ISWbemPrivilege {
+  struct ISWbemPrivilege {
     CONST_VTBL struct ISWbemPrivilegeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1999,7 +1999,7 @@ extern "C" {
       HRESULT (WINAPI *AddAsString)(ISWbemPrivilegeSet *This,BSTR strPrivilege,VARIANT_BOOL bIsEnabled,ISWbemPrivilege **objWbemPrivilege);
     END_INTERFACE
   } ISWbemPrivilegeSetVtbl;
-  interface ISWbemPrivilegeSet {
+  struct ISWbemPrivilegeSet {
     CONST_VTBL struct ISWbemPrivilegeSetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2077,7 +2077,7 @@ extern "C" {
       HRESULT (WINAPI *PutAsync)(ISWbemServicesEx *This,ISWbemSink *objWbemSink,ISWbemObjectEx *objWbemObject,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
     END_INTERFACE
   } ISWbemServicesExVtbl;
-  interface ISWbemServicesEx {
+  struct ISWbemServicesEx {
     CONST_VTBL struct ISWbemServicesExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2169,7 +2169,7 @@ extern "C" {
       HRESULT (WINAPI *SetFromText_)(ISWbemObjectEx *This,BSTR bsText,WbemObjectTextFormatEnum iObjectTextFormat,long iFlags,IDispatch *objWbemNamedValueSet);
     END_INTERFACE
   } ISWbemObjectExVtbl;
-  interface ISWbemObjectEx {
+  struct ISWbemObjectEx {
     CONST_VTBL struct ISWbemObjectExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2320,7 +2320,7 @@ extern "C" {
       HRESULT (WINAPI *SetFileTime)(ISWbemDateTime *This,BSTR strFileTime,VARIANT_BOOL bIsLocal);
     END_INTERFACE
   } ISWbemDateTimeVtbl;
-  interface ISWbemDateTime {
+  struct ISWbemDateTime {
     CONST_VTBL struct ISWbemDateTimeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2494,7 +2494,7 @@ extern "C" {
       HRESULT (WINAPI *DeleteAll)(ISWbemRefresher *This);
     END_INTERFACE
   } ISWbemRefresherVtbl;
-  interface ISWbemRefresher {
+  struct ISWbemRefresher {
     CONST_VTBL struct ISWbemRefresherVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2570,7 +2570,7 @@ extern "C" {
       HRESULT (WINAPI *Remove)(ISWbemRefreshableItem *This,long iFlags);
     END_INTERFACE
   } ISWbemRefreshableItemVtbl;
-  interface ISWbemRefreshableItem {
+  struct ISWbemRefreshableItem {
     CONST_VTBL struct ISWbemRefreshableItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

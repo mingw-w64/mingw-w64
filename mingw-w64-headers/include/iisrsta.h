@@ -24,7 +24,7 @@
 
 #ifndef __IIisServiceControl_FWD_DEFINED__
 #define __IIisServiceControl_FWD_DEFINED__
-typedef interface IIisServiceControl IIisServiceControl;
+typedef struct IIisServiceControl IIisServiceControl;
 #endif
 
 #ifndef __IisServiceControl_FWD_DEFINED__
@@ -82,7 +82,7 @@ extern "C"{
       HRESULT (WINAPI *Kill)(IIisServiceControl *This);
     END_INTERFACE
   } IIisServiceControlVtbl;
-  interface IIisServiceControl {
+  struct IIisServiceControl {
     CONST_VTBL struct IIisServiceControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

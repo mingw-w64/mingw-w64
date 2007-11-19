@@ -20,55 +20,55 @@
 
 #ifndef ___ADOCollection_FWD_DEFINED__
 #define ___ADOCollection_FWD_DEFINED__
-typedef interface _ADOADOCollection _ADOCollection;
+typedef struct _ADOADOCollection _ADOCollection;
 #endif
 #ifndef ___ADODynaCollection_FWD_DEFINED__
 #define ___ADODynaCollection_FWD_DEFINED__
-typedef interface _ADODynaADOCollection _ADODynaCollection;
+typedef struct _ADODynaADOCollection _ADODynaCollection;
 #endif
 #ifndef ___Catalog_FWD_DEFINED__
 #define ___Catalog_FWD_DEFINED__
-typedef interface _ADOCatalog _Catalog;
+typedef struct _ADOCatalog _Catalog;
 #endif
 #ifndef ___Table_FWD_DEFINED__
 #define ___Table_FWD_DEFINED__
-typedef interface _ADOTable _Table;
+typedef struct _ADOTable _Table;
 #endif
 #ifndef ___Group25_FWD_DEFINED__
 #define ___Group25_FWD_DEFINED__
-typedef interface _Group25 _Group25;
+typedef struct _Group25 _Group25;
 #endif
 #ifndef ___Group_FWD_DEFINED__
 #define ___Group_FWD_DEFINED__
-typedef interface _ADOGroup _Group;
+typedef struct _ADOGroup _Group;
 #endif
 #ifndef ___User25_FWD_DEFINED__
 #define ___User25_FWD_DEFINED__
-typedef interface _User25 _User25;
+typedef struct _User25 _User25;
 #endif
 #ifndef ___User_FWD_DEFINED__
 #define ___User_FWD_DEFINED__
-typedef interface _ADOUser _User;
+typedef struct _ADOUser _User;
 #endif
 #ifndef ___Column_FWD_DEFINED__
 #define ___Column_FWD_DEFINED__
-typedef interface _ADOColumn _Column;
+typedef struct _ADOColumn _Column;
 #endif
 #ifndef ___Index_FWD_DEFINED__
 #define ___Index_FWD_DEFINED__
-typedef interface _ADOIndex _Index;
+typedef struct _ADOIndex _Index;
 #endif
 #ifndef ___Key_FWD_DEFINED__
 #define ___Key_FWD_DEFINED__
-typedef interface _ADOKey _Key;
+typedef struct _ADOKey _Key;
 #endif
 #ifndef __View_FWD_DEFINED__
 #define __View_FWD_DEFINED__
-typedef interface ADOView View;
+typedef struct ADOView View;
 #endif
 #ifndef __Procedure_FWD_DEFINED__
 #define __Procedure_FWD_DEFINED__
-typedef interface ADOProcedure Procedure;
+typedef struct ADOProcedure Procedure;
 #endif
 #ifndef __Catalog_FWD_DEFINED__
 #define __Catalog_FWD_DEFINED__
@@ -88,7 +88,7 @@ typedef struct ADOTable Table;
 #endif
 #ifndef __Property_FWD_DEFINED__
 #define __Property_FWD_DEFINED__
-typedef interface ADOProperty Property;
+typedef struct ADOProperty Property;
 #endif
 #ifndef __Group_FWD_DEFINED__
 #define __Group_FWD_DEFINED__
@@ -132,39 +132,39 @@ typedef struct ADOKey Key;
 #endif
 #ifndef __Tables_FWD_DEFINED__
 #define __Tables_FWD_DEFINED__
-typedef interface ADOTables Tables;
+typedef struct ADOTables Tables;
 #endif
 #ifndef __Columns_FWD_DEFINED__
 #define __Columns_FWD_DEFINED__
-typedef interface ADOColumns Columns;
+typedef struct ADOColumns Columns;
 #endif
 #ifndef __Procedures_FWD_DEFINED__
 #define __Procedures_FWD_DEFINED__
-typedef interface ADOProcedures Procedures;
+typedef struct ADOProcedures Procedures;
 #endif
 #ifndef __Views_FWD_DEFINED__
 #define __Views_FWD_DEFINED__
-typedef interface ADOViews Views;
+typedef struct ADOViews Views;
 #endif
 #ifndef __Indexes_FWD_DEFINED__
 #define __Indexes_FWD_DEFINED__
-typedef interface ADOIndexes Indexes;
+typedef struct ADOIndexes Indexes;
 #endif
 #ifndef __Keys_FWD_DEFINED__
 #define __Keys_FWD_DEFINED__
-typedef interface ADOKeys Keys;
+typedef struct ADOKeys Keys;
 #endif
 #ifndef __Users_FWD_DEFINED__
 #define __Users_FWD_DEFINED__
-typedef interface ADOUsers Users;
+typedef struct ADOUsers Users;
 #endif
 #ifndef __Groups_FWD_DEFINED__
 #define __Groups_FWD_DEFINED__
-typedef interface ADOGroups Groups;
+typedef struct ADOGroups Groups;
 #endif
 #ifndef __Properties_FWD_DEFINED__
 #define __Properties_FWD_DEFINED__
-typedef interface ADOProperties Properties;
+typedef struct ADOProperties Properties;
 #endif
 
 #include "oaidl.h"
@@ -257,7 +257,7 @@ extern "C"{
       HRESULT (WINAPI *Refresh)(_ADOADOCollection *This);
     END_INTERFACE
   } _ADOCollectionVtbl;
-  interface _ADOCollection {
+  struct _ADOCollection {
     CONST_VTBL struct _ADOCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -307,7 +307,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(_ADODynaADOCollection *This,VARIANT Item);
     END_INTERFACE
   } _ADODynaCollectionVtbl;
-  interface _ADODynaCollection {
+  struct _ADODynaCollection {
     CONST_VTBL struct _ADODynaCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -373,7 +373,7 @@ extern "C"{
       HRESULT (WINAPI *SetObjectOwner)(_ADOCatalog *This,BSTR ObjectName,ObjectTypeEnum ObjectType,BSTR UserName,VARIANT ObjectTypeId);
     END_INTERFACE
   } _CatalogVtbl;
-  interface _Catalog {
+  struct _Catalog {
     CONST_VTBL struct _CatalogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -464,7 +464,7 @@ extern "C"{
       HRESULT (WINAPI *putref_ParentADOCatalog)(_ADOTable *This,_ADOCatalog *ppvObject);
     END_INTERFACE
   } _TableVtbl;
-  interface _Table {
+  struct _Table {
     CONST_VTBL struct _TableVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -544,7 +544,7 @@ extern "C"{
       HRESULT (WINAPI *get_Users)(_Group25 *This,ADOUsers **ppvObject);
     END_INTERFACE
   } _Group25Vtbl;
-  interface _Group25 {
+  struct _Group25 {
     CONST_VTBL struct _Group25Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -606,7 +606,7 @@ extern "C"{
       HRESULT (WINAPI *putref_ParentADOCatalog)(_ADOGroup *This,_ADOCatalog *ppvObject);
     END_INTERFACE
   } _GroupVtbl;
-  interface _Group {
+  struct _Group {
     CONST_VTBL struct _GroupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -669,7 +669,7 @@ extern "C"{
       HRESULT (WINAPI *get_Groups)(_User25 *This,ADOGroups **ppvObject);
     END_INTERFACE
   } _User25Vtbl;
-  interface _User25 {
+  struct _User25 {
     CONST_VTBL struct _User25Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -735,7 +735,7 @@ extern "C"{
       HRESULT (WINAPI *putref_ParentADOCatalog)(_ADOUser *This,_ADOCatalog *ppvObject);
     END_INTERFACE
   } _UserVtbl;
-  interface _User {
+  struct _User {
     CONST_VTBL struct _UserVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -827,7 +827,7 @@ extern "C"{
       HRESULT (WINAPI *putref_ParentADOCatalog)(_ADOColumn *This,_ADOCatalog *ppvObject);
     END_INTERFACE
   } _ColumnVtbl;
-  interface _Column {
+  struct _Column {
     CONST_VTBL struct _ColumnVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -945,7 +945,7 @@ extern "C"{
       HRESULT (WINAPI *get_Properties)(_ADOIndex *This,ADOProperties **ppvObject);
     END_INTERFACE
   } _IndexVtbl;
-  interface _Index {
+  struct _Index {
     CONST_VTBL struct _IndexVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1037,7 +1037,7 @@ extern "C"{
       HRESULT (WINAPI *get_Columns)(_ADOKey *This,ADOColumns **ppvObject);
     END_INTERFACE
   } _KeyVtbl;
-  interface _Key {
+  struct _Key {
     CONST_VTBL struct _KeyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1116,7 +1116,7 @@ extern "C"{
       HRESULT (WINAPI *get_DateModified)(ADOView *This,VARIANT *pVal);
     END_INTERFACE
   } ViewVtbl;
-  interface View {
+  struct View {
     CONST_VTBL struct ViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1180,7 +1180,7 @@ extern "C"{
       HRESULT (WINAPI *get_DateModified)(ADOProcedure *This,VARIANT *pVal);
     END_INTERFACE
   } ProcedureVtbl;
-  interface Procedure {
+  struct Procedure {
     CONST_VTBL struct ProcedureVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1252,7 +1252,7 @@ extern "C"{
       HRESULT (WINAPI *put_Attributes)(ADOProperty *This,long lAttributes);
     END_INTERFACE
   } PropertyVtbl;
-  interface Property {
+  struct Property {
     CONST_VTBL struct PropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1333,7 +1333,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(ADOTables *This,VARIANT Item);
     END_INTERFACE
   } TablesVtbl;
-  interface Tables {
+  struct Tables {
     CONST_VTBL struct TablesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1388,7 +1388,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(ADOColumns *This,VARIANT Item);
     END_INTERFACE
   } ColumnsVtbl;
-  interface Columns {
+  struct Columns {
     CONST_VTBL struct ColumnsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1443,7 +1443,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(ADOProcedures *This,VARIANT Item);
     END_INTERFACE
   } ProceduresVtbl;
-  interface Procedures {
+  struct Procedures {
     CONST_VTBL struct ProceduresVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1498,7 +1498,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(ADOViews *This,VARIANT Item);
     END_INTERFACE
   } ViewsVtbl;
-  interface Views {
+  struct Views {
     CONST_VTBL struct ViewsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1553,7 +1553,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(ADOIndexes *This,VARIANT Item);
     END_INTERFACE
   } IndexesVtbl;
-  interface Indexes {
+  struct Indexes {
     CONST_VTBL struct IndexesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1608,7 +1608,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(ADOKeys *This,VARIANT Item);
     END_INTERFACE
   } KeysVtbl;
-  interface Keys {
+  struct Keys {
     CONST_VTBL struct KeysVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1663,7 +1663,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(ADOUsers *This,VARIANT Item);
     END_INTERFACE
   } UsersVtbl;
-  interface Users {
+  struct Users {
     CONST_VTBL struct UsersVtbl *lpVtbl;
   };
 
@@ -1719,7 +1719,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(ADOGroups *This,VARIANT Item);
     END_INTERFACE
   } GroupsVtbl;
-  interface Groups {
+  struct Groups {
     CONST_VTBL struct GroupsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1770,7 +1770,7 @@ extern "C"{
       HRESULT (WINAPI *get_Item)(ADOProperties *This,VARIANT Item,ADOProperty **ppvObject);
     END_INTERFACE
   } PropertiesVtbl;
-  interface Properties {
+  struct Properties {
     CONST_VTBL struct PropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

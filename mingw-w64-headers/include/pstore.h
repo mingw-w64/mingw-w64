@@ -209,22 +209,22 @@ extern "C" {
 
 #ifndef __IEnumPStoreItems_FWD_DEFINED__
 #define __IEnumPStoreItems_FWD_DEFINED__
-  typedef interface IEnumPStoreItems IEnumPStoreItems;
+  typedef struct IEnumPStoreItems IEnumPStoreItems;
 #endif
 
 #ifndef __IEnumPStoreTypes_FWD_DEFINED__
 #define __IEnumPStoreTypes_FWD_DEFINED__
-  typedef interface IEnumPStoreTypes IEnumPStoreTypes;
+  typedef struct IEnumPStoreTypes IEnumPStoreTypes;
 #endif
 
 #ifndef __IPStore_FWD_DEFINED__
 #define __IPStore_FWD_DEFINED__
-  typedef interface IPStore IPStore;
+  typedef struct IPStore IPStore;
 #endif
 
 #ifndef __IEnumPStoreProviders_FWD_DEFINED__
 #define __IEnumPStoreProviders_FWD_DEFINED__
-  typedef interface IEnumPStoreProviders IEnumPStoreProviders;
+  typedef struct IEnumPStoreProviders IEnumPStoreProviders;
 #endif
 
 #include "oaidl.h"
@@ -236,7 +236,7 @@ extern "C" {
 #define __IEnumPStoreItems_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IEnumPStoreItems;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IEnumPStoreItems : public IUnknown {
+  struct IEnumPStoreItems : public IUnknown {
 public:
   virtual HRESULT WINAPI Next(DWORD celt,LPWSTR *rgelt,DWORD *pceltFetched) = 0;
   virtual HRESULT WINAPI Skip(DWORD celt) = 0;
@@ -255,7 +255,7 @@ public:
       HRESULT (WINAPI *Clone)(IEnumPStoreItems *This,IEnumPStoreItems **ppenum);
     END_INTERFACE
   } IEnumPStoreItemsVtbl;
-  interface IEnumPStoreItems {
+  struct IEnumPStoreItems {
     CONST_VTBL struct IEnumPStoreItemsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -282,7 +282,7 @@ public:
 #define __IEnumPStoreTypes_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IEnumPStoreTypes;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IEnumPStoreTypes : public IUnknown {
+  struct IEnumPStoreTypes : public IUnknown {
   public:
     virtual HRESULT WINAPI Next(DWORD celt,GUID *rgelt,DWORD *pceltFetched) = 0;
     virtual HRESULT WINAPI Skip(DWORD celt) = 0;
@@ -301,7 +301,7 @@ public:
       HRESULT (WINAPI *Clone)(IEnumPStoreTypes *This,IEnumPStoreTypes **ppenum);
     END_INTERFACE
   } IEnumPStoreTypesVtbl;
-  interface IEnumPStoreTypes {
+  struct IEnumPStoreTypes {
     CONST_VTBL struct IEnumPStoreTypesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -328,7 +328,7 @@ public:
 #define __IPStore_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IPStore;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IPStore : public IUnknown {
+  struct IPStore : public IUnknown {
   public:
     virtual HRESULT WINAPI GetInfo(PPST_PROVIDERINFO *ppProperties) = 0;
     virtual HRESULT WINAPI GetProvParam(DWORD dwParam,DWORD *pcbData,BYTE **ppbData,DWORD dwFlags) = 0;
@@ -377,7 +377,7 @@ public:
       HRESULT (WINAPI *EnumItems)(IPStore *This,PST_KEY Key,const GUID *pItemType,const GUID *pItemSubtype,DWORD dwFlags,IEnumPStoreItems **ppenum);
     END_INTERFACE
   } IPStoreVtbl;
-  interface IPStore {
+  struct IPStore {
     CONST_VTBL struct IPStoreVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -449,7 +449,7 @@ public:
 #define __IEnumPStoreProviders_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IEnumPStoreProviders;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IEnumPStoreProviders : public IUnknown {
+  struct IEnumPStoreProviders : public IUnknown {
   public:
     virtual HRESULT WINAPI Next(DWORD celt,PST_PROVIDERINFO **rgelt,DWORD *pceltFetched) = 0;
     virtual HRESULT WINAPI Skip(DWORD celt) = 0;
@@ -468,7 +468,7 @@ public:
       HRESULT (WINAPI *Clone)(IEnumPStoreProviders *This,IEnumPStoreProviders **ppenum);
     END_INTERFACE
   } IEnumPStoreProvidersVtbl;
-  interface IEnumPStoreProviders {
+  struct IEnumPStoreProviders {
     CONST_VTBL struct IEnumPStoreProvidersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

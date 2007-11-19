@@ -24,122 +24,122 @@
 
 #ifndef __IActiveScriptSite_FWD_DEFINED__
 #define __IActiveScriptSite_FWD_DEFINED__
-typedef interface IActiveScriptSite IActiveScriptSite;
+typedef struct IActiveScriptSite IActiveScriptSite;
 #endif
 
 #ifndef __IActiveScriptError_FWD_DEFINED__
 #define __IActiveScriptError_FWD_DEFINED__
-typedef interface IActiveScriptError IActiveScriptError;
+typedef struct IActiveScriptError IActiveScriptError;
 #endif
 
 #ifndef __IActiveScriptError64_FWD_DEFINED__
 #define __IActiveScriptError64_FWD_DEFINED__
-typedef interface IActiveScriptError64 IActiveScriptError64;
+typedef struct IActiveScriptError64 IActiveScriptError64;
 #endif
 
 #ifndef __IActiveScriptSiteWindow_FWD_DEFINED__
 #define __IActiveScriptSiteWindow_FWD_DEFINED__
-typedef interface IActiveScriptSiteWindow IActiveScriptSiteWindow;
+typedef struct IActiveScriptSiteWindow IActiveScriptSiteWindow;
 #endif
 
 #ifndef __IActiveScriptSiteInterruptPoll_FWD_DEFINED__
 #define __IActiveScriptSiteInterruptPoll_FWD_DEFINED__
-typedef interface IActiveScriptSiteInterruptPoll IActiveScriptSiteInterruptPoll;
+typedef struct IActiveScriptSiteInterruptPoll IActiveScriptSiteInterruptPoll;
 #endif
 
 #ifndef __IActiveScript_FWD_DEFINED__
 #define __IActiveScript_FWD_DEFINED__
-typedef interface IActiveScript IActiveScript;
+typedef struct IActiveScript IActiveScript;
 #endif
 
 #ifndef __IActiveScriptParse32_FWD_DEFINED__
 #define __IActiveScriptParse32_FWD_DEFINED__
-typedef interface IActiveScriptParse32 IActiveScriptParse32;
+typedef struct IActiveScriptParse32 IActiveScriptParse32;
 #endif
 
 #ifndef __IActiveScriptParse64_FWD_DEFINED__
 #define __IActiveScriptParse64_FWD_DEFINED__
-typedef interface IActiveScriptParse64 IActiveScriptParse64;
+typedef struct IActiveScriptParse64 IActiveScriptParse64;
 #endif
 
 #ifndef __IActiveScriptParseProcedureOld32_FWD_DEFINED__
 #define __IActiveScriptParseProcedureOld32_FWD_DEFINED__
-typedef interface IActiveScriptParseProcedureOld32 IActiveScriptParseProcedureOld32;
+typedef struct IActiveScriptParseProcedureOld32 IActiveScriptParseProcedureOld32;
 #endif
 
 #ifndef __IActiveScriptParseProcedureOld64_FWD_DEFINED__
 #define __IActiveScriptParseProcedureOld64_FWD_DEFINED__
-typedef interface IActiveScriptParseProcedureOld64 IActiveScriptParseProcedureOld64;
+typedef struct IActiveScriptParseProcedureOld64 IActiveScriptParseProcedureOld64;
 #endif
 
 #ifndef __IActiveScriptParseProcedure32_FWD_DEFINED__
 #define __IActiveScriptParseProcedure32_FWD_DEFINED__
-typedef interface IActiveScriptParseProcedure32 IActiveScriptParseProcedure32;
+typedef struct IActiveScriptParseProcedure32 IActiveScriptParseProcedure32;
 #endif
 
 #ifndef __IActiveScriptParseProcedure64_FWD_DEFINED__
 #define __IActiveScriptParseProcedure64_FWD_DEFINED__
-typedef interface IActiveScriptParseProcedure64 IActiveScriptParseProcedure64;
+typedef struct IActiveScriptParseProcedure64 IActiveScriptParseProcedure64;
 #endif
 
 #ifndef __IActiveScriptParseProcedure2_32_FWD_DEFINED__
 #define __IActiveScriptParseProcedure2_32_FWD_DEFINED__
-typedef interface IActiveScriptParseProcedure2_32 IActiveScriptParseProcedure2_32;
+typedef struct IActiveScriptParseProcedure2_32 IActiveScriptParseProcedure2_32;
 #endif
 
 #ifndef __IActiveScriptParseProcedure2_64_FWD_DEFINED__
 #define __IActiveScriptParseProcedure2_64_FWD_DEFINED__
-typedef interface IActiveScriptParseProcedure2_64 IActiveScriptParseProcedure2_64;
+typedef struct IActiveScriptParseProcedure2_64 IActiveScriptParseProcedure2_64;
 #endif
 
 #ifndef __IActiveScriptEncode_FWD_DEFINED__
 #define __IActiveScriptEncode_FWD_DEFINED__
-typedef interface IActiveScriptEncode IActiveScriptEncode;
+typedef struct IActiveScriptEncode IActiveScriptEncode;
 #endif
 
 #ifndef __IActiveScriptHostEncode_FWD_DEFINED__
 #define __IActiveScriptHostEncode_FWD_DEFINED__
-typedef interface IActiveScriptHostEncode IActiveScriptHostEncode;
+typedef struct IActiveScriptHostEncode IActiveScriptHostEncode;
 #endif
 
 #ifndef __IBindEventHandler_FWD_DEFINED__
 #define __IBindEventHandler_FWD_DEFINED__
-typedef interface IBindEventHandler IBindEventHandler;
+typedef struct IBindEventHandler IBindEventHandler;
 #endif
 
 #ifndef __IActiveScriptStats_FWD_DEFINED__
 #define __IActiveScriptStats_FWD_DEFINED__
-typedef interface IActiveScriptStats IActiveScriptStats;
+typedef struct IActiveScriptStats IActiveScriptStats;
 #endif
 
 #ifndef __IActiveScriptProperty_FWD_DEFINED__
 #define __IActiveScriptProperty_FWD_DEFINED__
-typedef interface IActiveScriptProperty IActiveScriptProperty;
+typedef struct IActiveScriptProperty IActiveScriptProperty;
 #endif
 
 #ifndef __ITridentEventSink_FWD_DEFINED__
 #define __ITridentEventSink_FWD_DEFINED__
-typedef interface ITridentEventSink ITridentEventSink;
+typedef struct ITridentEventSink ITridentEventSink;
 #endif
 
 #ifndef __IActiveScriptGarbageCollector_FWD_DEFINED__
 #define __IActiveScriptGarbageCollector_FWD_DEFINED__
-typedef interface IActiveScriptGarbageCollector IActiveScriptGarbageCollector;
+typedef struct IActiveScriptGarbageCollector IActiveScriptGarbageCollector;
 #endif
 
 #ifndef __IActiveScriptSIPInfo_FWD_DEFINED__
 #define __IActiveScriptSIPInfo_FWD_DEFINED__
-typedef interface IActiveScriptSIPInfo IActiveScriptSIPInfo;
+typedef struct IActiveScriptSIPInfo IActiveScriptSIPInfo;
 #endif
 
 #ifndef __IActiveScriptSiteTraceInfo_FWD_DEFINED__
 #define __IActiveScriptSiteTraceInfo_FWD_DEFINED__
-typedef interface IActiveScriptSiteTraceInfo IActiveScriptSiteTraceInfo;
+typedef struct IActiveScriptSiteTraceInfo IActiveScriptSiteTraceInfo;
 #endif
 
 #ifndef __IActiveScriptTraceInfo_FWD_DEFINED__
 #define __IActiveScriptTraceInfo_FWD_DEFINED__
-typedef interface IActiveScriptTraceInfo IActiveScriptTraceInfo;
+typedef struct IActiveScriptTraceInfo IActiveScriptTraceInfo;
 #endif
 
 #include "ocidl.h"
@@ -308,7 +308,7 @@ extern "C"{
       HRESULT (WINAPI *OnLeaveScript)(IActiveScriptSite *This);
     END_INTERFACE
   } IActiveScriptSiteVtbl;
-  interface IActiveScriptSite {
+  struct IActiveScriptSite {
     CONST_VTBL struct IActiveScriptSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -365,7 +365,7 @@ extern "C"{
       HRESULT (WINAPI *GetSourceLineText)(IActiveScriptError *This,BSTR *pbstrSourceLine);
     END_INTERFACE
   } IActiveScriptErrorVtbl;
-  interface IActiveScriptError {
+  struct IActiveScriptError {
     CONST_VTBL struct IActiveScriptErrorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -406,7 +406,7 @@ extern "C"{
       HRESULT (WINAPI *GetSourcePosition64)(IActiveScriptError64 *This,DWORDLONG *pdwSourceContext,ULONG *pulLineNumber,LONG *plCharacterPosition);
     END_INTERFACE
   } IActiveScriptError64Vtbl;
-  interface IActiveScriptError64 {
+  struct IActiveScriptError64 {
     CONST_VTBL struct IActiveScriptError64Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -443,7 +443,7 @@ extern "C"{
       HRESULT (WINAPI *EnableModeless)(IActiveScriptSiteWindow *This,WINBOOL fEnable);
     END_INTERFACE
   } IActiveScriptSiteWindowVtbl;
-  interface IActiveScriptSiteWindow {
+  struct IActiveScriptSiteWindow {
     CONST_VTBL struct IActiveScriptSiteWindowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -478,7 +478,7 @@ extern "C"{
       HRESULT (WINAPI *QueryContinue)(IActiveScriptSiteInterruptPoll *This);
     END_INTERFACE
   } IActiveScriptSiteInterruptPollVtbl;
-  interface IActiveScriptSiteInterruptPoll {
+  struct IActiveScriptSiteInterruptPoll {
     CONST_VTBL struct IActiveScriptSiteInterruptPollVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -534,7 +534,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IActiveScript *This,IActiveScript **ppscript);
     END_INTERFACE
   } IActiveScriptVtbl;
-  interface IActiveScript {
+  struct IActiveScript {
     CONST_VTBL struct IActiveScriptVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -606,7 +606,7 @@ extern "C"{
       HRESULT (WINAPI *ParseScriptText)(IActiveScriptParse32 *This,LPCOLESTR pstrCode,LPCOLESTR pstrItemName,IUnknown *punkContext,LPCOLESTR pstrDelimiter,DWORD dwSourceContextCookie,ULONG ulStartingLineNumber,DWORD dwFlags,VARIANT *pvarResult,EXCEPINFO *pexcepinfo);
     END_INTERFACE
   } IActiveScriptParse32Vtbl;
-  interface IActiveScriptParse32 {
+  struct IActiveScriptParse32 {
     CONST_VTBL struct IActiveScriptParse32Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -648,7 +648,7 @@ extern "C"{
       HRESULT (WINAPI *ParseScriptText)(IActiveScriptParse64 *This,LPCOLESTR pstrCode,LPCOLESTR pstrItemName,IUnknown *punkContext,LPCOLESTR pstrDelimiter,DWORDLONG dwSourceContextCookie,ULONG ulStartingLineNumber,DWORD dwFlags,VARIANT *pvarResult,EXCEPINFO *pexcepinfo);
     END_INTERFACE
   } IActiveScriptParse64Vtbl;
-  interface IActiveScriptParse64 {
+  struct IActiveScriptParse64 {
     CONST_VTBL struct IActiveScriptParse64Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -698,7 +698,7 @@ extern "C"{
       HRESULT (WINAPI *ParseProcedureText)(IActiveScriptParseProcedureOld32 *This,LPCOLESTR pstrCode,LPCOLESTR pstrFormalParams,LPCOLESTR pstrItemName,IUnknown *punkContext,LPCOLESTR pstrDelimiter,DWORD dwSourceContextCookie,ULONG ulStartingLineNumber,DWORD dwFlags,IDispatch **ppdisp);
     END_INTERFACE
   } IActiveScriptParseProcedureOld32Vtbl;
-  interface IActiveScriptParseProcedureOld32 {
+  struct IActiveScriptParseProcedureOld32 {
     CONST_VTBL struct IActiveScriptParseProcedureOld32Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -730,7 +730,7 @@ extern "C"{
       HRESULT (WINAPI *ParseProcedureText)(IActiveScriptParseProcedureOld64 *This,LPCOLESTR pstrCode,LPCOLESTR pstrFormalParams,LPCOLESTR pstrItemName,IUnknown *punkContext,LPCOLESTR pstrDelimiter,DWORDLONG dwSourceContextCookie,ULONG ulStartingLineNumber,DWORD dwFlags,IDispatch **ppdisp);
     END_INTERFACE
   } IActiveScriptParseProcedureOld64Vtbl;
-  interface IActiveScriptParseProcedureOld64 {
+  struct IActiveScriptParseProcedureOld64 {
     CONST_VTBL struct IActiveScriptParseProcedureOld64Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -774,7 +774,7 @@ extern "C"{
       HRESULT (WINAPI *ParseProcedureText)(IActiveScriptParseProcedure32 *This,LPCOLESTR pstrCode,LPCOLESTR pstrFormalParams,LPCOLESTR pstrProcedureName,LPCOLESTR pstrItemName,IUnknown *punkContext,LPCOLESTR pstrDelimiter,DWORD dwSourceContextCookie,ULONG ulStartingLineNumber,DWORD dwFlags,IDispatch **ppdisp);
     END_INTERFACE
   } IActiveScriptParseProcedure32Vtbl;
-  interface IActiveScriptParseProcedure32 {
+  struct IActiveScriptParseProcedure32 {
     CONST_VTBL struct IActiveScriptParseProcedure32Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -806,7 +806,7 @@ extern "C"{
       HRESULT (WINAPI *ParseProcedureText)(IActiveScriptParseProcedure64 *This,LPCOLESTR pstrCode,LPCOLESTR pstrFormalParams,LPCOLESTR pstrProcedureName,LPCOLESTR pstrItemName,IUnknown *punkContext,LPCOLESTR pstrDelimiter,DWORDLONG dwSourceContextCookie,ULONG ulStartingLineNumber,DWORD dwFlags,IDispatch **ppdisp);
     END_INTERFACE
   } IActiveScriptParseProcedure64Vtbl;
-  interface IActiveScriptParseProcedure64 {
+  struct IActiveScriptParseProcedure64 {
     CONST_VTBL struct IActiveScriptParseProcedure64Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -849,7 +849,7 @@ extern "C"{
       HRESULT (WINAPI *ParseProcedureText)(IActiveScriptParseProcedure2_32 *This,LPCOLESTR pstrCode,LPCOLESTR pstrFormalParams,LPCOLESTR pstrProcedureName,LPCOLESTR pstrItemName,IUnknown *punkContext,LPCOLESTR pstrDelimiter,DWORD dwSourceContextCookie,ULONG ulStartingLineNumber,DWORD dwFlags,IDispatch **ppdisp);
     END_INTERFACE
   } IActiveScriptParseProcedure2_32Vtbl;
-  interface IActiveScriptParseProcedure2_32 {
+  struct IActiveScriptParseProcedure2_32 {
     CONST_VTBL struct IActiveScriptParseProcedure2_32Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -877,7 +877,7 @@ extern "C"{
       HRESULT (WINAPI *ParseProcedureText)(IActiveScriptParseProcedure2_64 *This,LPCOLESTR pstrCode,LPCOLESTR pstrFormalParams,LPCOLESTR pstrProcedureName,LPCOLESTR pstrItemName,IUnknown *punkContext,LPCOLESTR pstrDelimiter,DWORDLONG dwSourceContextCookie,ULONG ulStartingLineNumber,DWORD dwFlags,IDispatch **ppdisp);
     END_INTERFACE
   } IActiveScriptParseProcedure2_64Vtbl;
-  interface IActiveScriptParseProcedure2_64 {
+  struct IActiveScriptParseProcedure2_64 {
     CONST_VTBL struct IActiveScriptParseProcedure2_64Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -922,7 +922,7 @@ extern "C"{
       HRESULT (WINAPI *GetEncodeProgId)(IActiveScriptEncode *This,BSTR *pbstrOut);
     END_INTERFACE
   } IActiveScriptEncodeVtbl;
-  interface IActiveScriptEncode {
+  struct IActiveScriptEncode {
     CONST_VTBL struct IActiveScriptEncodeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -960,7 +960,7 @@ extern "C"{
       HRESULT (WINAPI *EncodeScriptHostFile)(IActiveScriptHostEncode *This,BSTR bstrInFile,BSTR *pbstrOutFile,unsigned long cFlags,BSTR bstrDefaultLang);
     END_INTERFACE
   } IActiveScriptHostEncodeVtbl;
-  interface IActiveScriptHostEncode {
+  struct IActiveScriptHostEncode {
     CONST_VTBL struct IActiveScriptHostEncodeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -993,7 +993,7 @@ extern "C"{
       HRESULT (WINAPI *BindHandler)(IBindEventHandler *This,LPCOLESTR pstrEvent,IDispatch *pdisp);
     END_INTERFACE
   } IBindEventHandlerVtbl;
-  interface IBindEventHandler {
+  struct IBindEventHandler {
     CONST_VTBL struct IBindEventHandlerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1029,7 +1029,7 @@ extern "C"{
       HRESULT (WINAPI *ResetStats)(IActiveScriptStats *This);
     END_INTERFACE
   } IActiveScriptStatsVtbl;
-  interface IActiveScriptStats {
+  struct IActiveScriptStats {
     CONST_VTBL struct IActiveScriptStatsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1069,7 +1069,7 @@ extern "C"{
       HRESULT (WINAPI *SetProperty)(IActiveScriptProperty *This,DWORD dwProperty,VARIANT *pvarIndex,VARIANT *pvarValue);
     END_INTERFACE
   } IActiveScriptPropertyVtbl;
-  interface IActiveScriptProperty {
+  struct IActiveScriptProperty {
     CONST_VTBL struct IActiveScriptPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1104,7 +1104,7 @@ extern "C"{
       HRESULT (WINAPI *FireEvent)(ITridentEventSink *This,LPCOLESTR pstrEvent,DISPPARAMS *pdp,VARIANT *pvarRes,EXCEPINFO *pei);
     END_INTERFACE
   } ITridentEventSinkVtbl;
-  interface ITridentEventSink {
+  struct ITridentEventSink {
     CONST_VTBL struct ITridentEventSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1136,7 +1136,7 @@ extern "C"{
       HRESULT (WINAPI *CollectGarbage)(IActiveScriptGarbageCollector *This,SCRIPTGCTYPE scriptgctype);
     END_INTERFACE
   } IActiveScriptGarbageCollectorVtbl;
-  interface IActiveScriptGarbageCollector {
+  struct IActiveScriptGarbageCollector {
     CONST_VTBL struct IActiveScriptGarbageCollectorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1168,7 +1168,7 @@ extern "C"{
       HRESULT (WINAPI *GetSIPOID)(IActiveScriptSIPInfo *This,GUID *poid_sip);
     END_INTERFACE
   } IActiveScriptSIPInfoVtbl;
-  interface IActiveScriptSIPInfo {
+  struct IActiveScriptSIPInfo {
     CONST_VTBL struct IActiveScriptSIPInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1200,7 +1200,7 @@ extern "C"{
       HRESULT (WINAPI *SendScriptTraceInfo)(IActiveScriptSiteTraceInfo *This,SCRIPTTRACEINFO stiEventType,GUID guidContextID,DWORD dwScriptContextCookie,LONG lScriptStatementStart,LONG lScriptStatementEnd,DWORD64 dwReserved);
     END_INTERFACE
   } IActiveScriptSiteTraceInfoVtbl;
-  interface IActiveScriptSiteTraceInfo {
+  struct IActiveScriptSiteTraceInfo {
     CONST_VTBL struct IActiveScriptSiteTraceInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1234,7 +1234,7 @@ extern "C"{
       HRESULT (WINAPI *StopScriptTracing)(IActiveScriptTraceInfo *This);
     END_INTERFACE
   } IActiveScriptTraceInfoVtbl;
-  interface IActiveScriptTraceInfo {
+  struct IActiveScriptTraceInfo {
     CONST_VTBL struct IActiveScriptTraceInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

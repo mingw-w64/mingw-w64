@@ -19,17 +19,17 @@ extern "C" {
 
 #ifndef __IProvideClassInfo_FWD_DEFINED__
 #define __IProvideClassInfo_FWD_DEFINED__
-  typedef interface IProvideClassInfo IProvideClassInfo;
+  typedef struct IProvideClassInfo IProvideClassInfo;
 #endif
 
 #ifndef __IProvideClassInfo2_FWD_DEFINED__
 #define __IProvideClassInfo2_FWD_DEFINED__
-  typedef interface IProvideClassInfo2 IProvideClassInfo2;
+  typedef struct IProvideClassInfo2 IProvideClassInfo2;
 #endif
 
 #ifndef __IProvideMultipleClassInfo_FWD_DEFINED__
 #define __IProvideMultipleClassInfo_FWD_DEFINED__
-  typedef interface IProvideMultipleClassInfo IProvideMultipleClassInfo;
+  typedef struct IProvideMultipleClassInfo IProvideMultipleClassInfo;
 #endif
 
 #include "oaidl.h"
@@ -57,7 +57,7 @@ extern "C" {
 
   EXTERN_C const IID IID_IProvideMultipleClassInfo;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IProvideMultipleClassInfo : public IProvideClassInfo2 {
+  struct IProvideMultipleClassInfo : public IProvideClassInfo2 {
 public:
   virtual HRESULT WINAPI GetMultiTypeInfoCount(ULONG *pcti) = 0;
   virtual HRESULT WINAPI GetInfoOfIndex(ULONG iti,DWORD dwFlags,ITypeInfo **pptiCoClass,DWORD *pdwTIFlags,ULONG *pcdispidReserved,IID *piidPrimary,IID *piidSource) = 0;
@@ -72,7 +72,7 @@ public:
     HRESULT (WINAPI *GetMultiTypeInfoCount)(IProvideMultipleClassInfo *This,ULONG *pcti);
     HRESULT (WINAPI *GetInfoOfIndex)(IProvideMultipleClassInfo *This,ULONG iti,DWORD dwFlags,ITypeInfo **pptiCoClass,DWORD *pdwTIFlags,ULONG *pcdispidReserved,IID *piidPrimary,IID *piidSource);
   } IProvideMultipleClassInfoVtbl;
-  interface IProvideMultipleClassInfo {
+  struct IProvideMultipleClassInfo {
     CONST_VTBL struct IProvideMultipleClassInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

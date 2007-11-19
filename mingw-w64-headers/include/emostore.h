@@ -24,32 +24,32 @@
 
 #ifndef __IExchangeServer_FWD_DEFINED__
 #define __IExchangeServer_FWD_DEFINED__
-typedef interface IExchangeServer IExchangeServer;
+typedef struct IExchangeServer IExchangeServer;
 #endif
 
 #ifndef __IStorageGroup_FWD_DEFINED__
 #define __IStorageGroup_FWD_DEFINED__
-typedef interface IStorageGroup IStorageGroup;
+typedef struct IStorageGroup IStorageGroup;
 #endif
 
 #ifndef __IPublicStoreDB_FWD_DEFINED__
 #define __IPublicStoreDB_FWD_DEFINED__
-typedef interface IPublicStoreDB IPublicStoreDB;
+typedef struct IPublicStoreDB IPublicStoreDB;
 #endif
 
 #ifndef __IMailboxStoreDB_FWD_DEFINED__
 #define __IMailboxStoreDB_FWD_DEFINED__
-typedef interface IMailboxStoreDB IMailboxStoreDB;
+typedef struct IMailboxStoreDB IMailboxStoreDB;
 #endif
 
 #ifndef __IFolderTree_FWD_DEFINED__
 #define __IFolderTree_FWD_DEFINED__
-typedef interface IFolderTree IFolderTree;
+typedef struct IFolderTree IFolderTree;
 #endif
 
 #ifndef __IDataSource2_FWD_DEFINED__
 #define __IDataSource2_FWD_DEFINED__
-typedef interface IDataSource2 IDataSource2;
+typedef struct IDataSource2 IDataSource2;
 #endif
 
 #include "oaidl.h"
@@ -128,7 +128,7 @@ extern "C"{
       HRESULT (WINAPI *GetInterface)(IExchangeServer *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IExchangeServerVtbl;
-  interface IExchangeServer {
+  struct IExchangeServer {
     CONST_VTBL struct IExchangeServerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -237,7 +237,7 @@ extern "C"{
       HRESULT (WINAPI *MoveSystemFiles)(IStorageGroup *This,BSTR SystemFilePath,long Flags);
     END_INTERFACE
   } IStorageGroupVtbl;
-  interface IStorageGroup {
+  struct IStorageGroup {
     CONST_VTBL struct IStorageGroupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -370,7 +370,7 @@ extern "C"{
       HRESULT (WINAPI *Dismount)(IPublicStoreDB *This,long Timeout);
     END_INTERFACE
   } IPublicStoreDBVtbl;
-  interface IPublicStoreDB {
+  struct IPublicStoreDB {
     CONST_VTBL struct IPublicStoreDBVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -543,7 +543,7 @@ extern "C"{
       HRESULT (WINAPI *Dismount)(IMailboxStoreDB *This,long Timeout);
     END_INTERFACE
   } IMailboxStoreDBVtbl;
-  interface IMailboxStoreDB {
+  struct IMailboxStoreDB {
     CONST_VTBL struct IMailboxStoreDBVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -680,7 +680,7 @@ extern "C"{
       HRESULT (WINAPI *GetInterface)(IFolderTree *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IFolderTreeVtbl;
-  interface IFolderTree {
+  struct IFolderTree {
     CONST_VTBL struct IFolderTreeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -754,7 +754,7 @@ extern "C"{
       HRESULT (WINAPI *MoveToContainer)(IDataSource2 *This,BSTR ContainerURL);
     END_INTERFACE
   } IDataSource2Vtbl;
-  interface IDataSource2 {
+  struct IDataSource2 {
     CONST_VTBL struct IDataSource2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

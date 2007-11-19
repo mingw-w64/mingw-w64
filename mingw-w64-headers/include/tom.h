@@ -28,82 +28,82 @@ extern "C" {
 
 #ifndef __ITextDocument_FWD_DEFINED__
 #define __ITextDocument_FWD_DEFINED__
-  typedef interface ITextDocument ITextDocument;
+  typedef struct ITextDocument ITextDocument;
 #endif
 
 #ifndef __ITextRange_FWD_DEFINED__
 #define __ITextRange_FWD_DEFINED__
-  typedef interface ITextRange ITextRange;
+  typedef struct ITextRange ITextRange;
 #endif
 
 #ifndef __ITextSelection_FWD_DEFINED__
 #define __ITextSelection_FWD_DEFINED__
-  typedef interface ITextSelection ITextSelection;
+  typedef struct ITextSelection ITextSelection;
 #endif
 
 #ifndef __ITextFont_FWD_DEFINED__
 #define __ITextFont_FWD_DEFINED__
-  typedef interface ITextFont ITextFont;
+  typedef struct ITextFont ITextFont;
 #endif
 
 #ifndef __ITextPara_FWD_DEFINED__
 #define __ITextPara_FWD_DEFINED__
-  typedef interface ITextPara ITextPara;
+  typedef struct ITextPara ITextPara;
 #endif
 
 #ifndef __ITextStoryRanges_FWD_DEFINED__
 #define __ITextStoryRanges_FWD_DEFINED__
-  typedef interface ITextStoryRanges ITextStoryRanges;
+  typedef struct ITextStoryRanges ITextStoryRanges;
 #endif
 
 #ifndef __ITextDocument2_FWD_DEFINED__
 #define __ITextDocument2_FWD_DEFINED__
-  typedef interface ITextDocument2 ITextDocument2;
+  typedef struct ITextDocument2 ITextDocument2;
 #endif
 
 #ifndef __ITextMsgFilter_FWD_DEFINED__
 #define __ITextMsgFilter_FWD_DEFINED__
-  typedef interface ITextMsgFilter ITextMsgFilter;
+  typedef struct ITextMsgFilter ITextMsgFilter;
 #endif
 
 #ifndef __ITextDocument_FWD_DEFINED__
 #define __ITextDocument_FWD_DEFINED__
-  typedef interface ITextDocument ITextDocument;
+  typedef struct ITextDocument ITextDocument;
 #endif
 
 #ifndef __ITextRange_FWD_DEFINED__
 #define __ITextRange_FWD_DEFINED__
-  typedef interface ITextRange ITextRange;
+  typedef struct ITextRange ITextRange;
 #endif
 
 #ifndef __ITextSelection_FWD_DEFINED__
 #define __ITextSelection_FWD_DEFINED__
-  typedef interface ITextSelection ITextSelection;
+  typedef struct ITextSelection ITextSelection;
 #endif
 
 #ifndef __ITextFont_FWD_DEFINED__
 #define __ITextFont_FWD_DEFINED__
-  typedef interface ITextFont ITextFont;
+  typedef struct ITextFont ITextFont;
 #endif
 
 #ifndef __ITextPara_FWD_DEFINED__
 #define __ITextPara_FWD_DEFINED__
-  typedef interface ITextPara ITextPara;
+  typedef struct ITextPara ITextPara;
 #endif
 
 #ifndef __ITextStoryRanges_FWD_DEFINED__
 #define __ITextStoryRanges_FWD_DEFINED__
-  typedef interface ITextStoryRanges ITextStoryRanges;
+  typedef struct ITextStoryRanges ITextStoryRanges;
 #endif
 
 #ifndef __ITextDocument2_FWD_DEFINED__
 #define __ITextDocument2_FWD_DEFINED__
-  typedef interface ITextDocument2 ITextDocument2;
+  typedef struct ITextDocument2 ITextDocument2;
 #endif
 
 #ifndef __ITextMsgFilter_FWD_DEFINED__
 #define __ITextMsgFilter_FWD_DEFINED__
-  typedef interface ITextMsgFilter ITextMsgFilter;
+  typedef struct ITextMsgFilter ITextMsgFilter;
 #endif
 
 #include "oaidl.h"
@@ -203,7 +203,7 @@ extern "C" {
       HRESULT (WINAPI *RangeFromPoint)(ITextDocument *This,long x,long y,ITextRange **ppRange);
     END_INTERFACE
   } ITextDocumentVtbl;
-  interface ITextDocument {
+  struct ITextDocument {
     CONST_VTBL struct ITextDocumentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -396,7 +396,7 @@ extern "C" {
       HRESULT (WINAPI *GetEmbeddedObject)(ITextRange *This,IUnknown **ppv);
     END_INTERFACE
   } ITextRangeVtbl;
-  interface ITextRange {
+  struct ITextRange {
     CONST_VTBL struct ITextRangeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -655,7 +655,7 @@ extern "C" {
     END_INTERFACE
   } ITextSelectionVtbl;
 
-  interface ITextSelection {
+  struct ITextSelection {
     CONST_VTBL struct ITextSelectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -880,7 +880,7 @@ extern "C" {
       HRESULT (WINAPI *SetWeight)(ITextFont *This,long Value);
     END_INTERFACE
   } ITextFontVtbl;
-  interface ITextFont {
+  struct ITextFont {
     CONST_VTBL struct ITextFontVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1175,7 +1175,7 @@ extern "C" {
       HRESULT (WINAPI *GetTab)(ITextPara *This,long iTab,float *ptbPos,long *ptbAlign,long *ptbLeader);
     END_INTERFACE
   } ITextParaVtbl;
-  interface ITextPara {
+  struct ITextPara {
     CONST_VTBL struct ITextParaVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1359,7 +1359,7 @@ extern "C" {
       HRESULT (WINAPI *GetCount)(ITextStoryRanges *This,long *pCount);
     END_INTERFACE
   } ITextStoryRangesVtbl;
-  interface ITextStoryRanges {
+  struct ITextStoryRanges {
     CONST_VTBL struct ITextStoryRangesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1461,7 +1461,7 @@ extern "C" {
       HRESULT (WINAPI *Notify)(ITextDocument2 *This,long Notify);
     END_INTERFACE
   } ITextDocument2Vtbl;
-  interface ITextDocument2 {
+  struct ITextDocument2 {
     CONST_VTBL struct ITextDocument2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1576,7 +1576,7 @@ extern "C" {
       HRESULT (WINAPI *AttachMsgFilter)(ITextMsgFilter *This,ITextMsgFilter *pMsgFilter);
     END_INTERFACE
   } ITextMsgFilterVtbl;
-  interface ITextMsgFilter {
+  struct ITextMsgFilter {
     CONST_VTBL struct ITextMsgFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

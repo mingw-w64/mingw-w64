@@ -24,7 +24,7 @@
 
 #ifndef __ISynchronizeRow_FWD_DEFINED__
 #define __ISynchronizeRow_FWD_DEFINED__
-typedef interface ISynchronizeRow ISynchronizeRow;
+typedef struct ISynchronizeRow ISynchronizeRow;
 #endif
 
 #ifndef __MSDAIPP_DSO_FWD_DEFINED__
@@ -198,7 +198,7 @@ extern "C"{
       HRESULT (WINAPI *Synchronize)(ISynchronizeRow *This,MSDAIPP_SYNC_FLAGS dwFlags);
     END_INTERFACE
   } ISynchronizeRowVtbl;
-  interface ISynchronizeRow {
+  struct ISynchronizeRow {
     CONST_VTBL struct ISynchronizeRowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

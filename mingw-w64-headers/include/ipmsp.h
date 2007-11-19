@@ -24,37 +24,37 @@
 
 #ifndef __ITParticipant_FWD_DEFINED__
 #define __ITParticipant_FWD_DEFINED__
-typedef interface ITParticipant ITParticipant;
+typedef struct ITParticipant ITParticipant;
 #endif
 
 #ifndef __ITFormatControl_FWD_DEFINED__
 #define __ITFormatControl_FWD_DEFINED__
-typedef interface ITFormatControl ITFormatControl;
+typedef struct ITFormatControl ITFormatControl;
 #endif
 
 #ifndef __ITStreamQualityControl_FWD_DEFINED__
 #define __ITStreamQualityControl_FWD_DEFINED__
-typedef interface ITStreamQualityControl ITStreamQualityControl;
+typedef struct ITStreamQualityControl ITStreamQualityControl;
 #endif
 
 #ifndef __ITCallQualityControl_FWD_DEFINED__
 #define __ITCallQualityControl_FWD_DEFINED__
-typedef interface ITCallQualityControl ITCallQualityControl;
+typedef struct ITCallQualityControl ITCallQualityControl;
 #endif
 
 #ifndef __ITAudioDeviceControl_FWD_DEFINED__
 #define __ITAudioDeviceControl_FWD_DEFINED__
-typedef interface ITAudioDeviceControl ITAudioDeviceControl;
+typedef struct ITAudioDeviceControl ITAudioDeviceControl;
 #endif
 
 #ifndef __ITAudioSettings_FWD_DEFINED__
 #define __ITAudioSettings_FWD_DEFINED__
-typedef interface ITAudioSettings ITAudioSettings;
+typedef struct ITAudioSettings ITAudioSettings;
 #endif
 
 #ifndef __ITQOSApplicationID_FWD_DEFINED__
 #define __ITQOSApplicationID_FWD_DEFINED__
-typedef interface ITQOSApplicationID ITQOSApplicationID;
+typedef struct ITQOSApplicationID ITQOSApplicationID;
 #endif
 
 #include "tapi3if.h"
@@ -117,7 +117,7 @@ extern "C"{
       HRESULT (WINAPI *EnumerateStreams)(ITParticipant *This,IEnumStream **ppEnumStream);
     END_INTERFACE
   } ITParticipantVtbl;
-  interface ITParticipant {
+  struct ITParticipant {
     CONST_VTBL struct ITParticipantVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -243,7 +243,7 @@ extern "C"{
       HRESULT (WINAPI *ReOrderCapabilities)(ITFormatControl *This,DWORD *pdwIndices,WINBOOL *pfEnabled,WINBOOL *pfPublicize,DWORD dwNumIndices);
     END_INTERFACE
   } ITFormatControlVtbl;
-  interface ITFormatControl {
+  struct ITFormatControl {
     CONST_VTBL struct ITFormatControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -298,7 +298,7 @@ extern "C"{
       HRESULT (WINAPI *Set)(ITStreamQualityControl *This,StreamQualityProperty Property,long lValue,TAPIControlFlags lFlags);
     END_INTERFACE
   } ITStreamQualityControlVtbl;
-  interface ITStreamQualityControl {
+  struct ITStreamQualityControl {
     CONST_VTBL struct ITStreamQualityControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -349,7 +349,7 @@ extern "C"{
       HRESULT (WINAPI *Set)(ITCallQualityControl *This,CallQualityProperty Property,long lValue,TAPIControlFlags lFlags);
     END_INTERFACE
   } ITCallQualityControlVtbl;
-  interface ITCallQualityControl {
+  struct ITCallQualityControl {
     CONST_VTBL struct ITCallQualityControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -398,7 +398,7 @@ extern "C"{
       HRESULT (WINAPI *Set)(ITAudioDeviceControl *This,AudioDeviceProperty Property,long lValue,TAPIControlFlags lFlags);
     END_INTERFACE
   } ITAudioDeviceControlVtbl;
-  interface ITAudioDeviceControl {
+  struct ITAudioDeviceControl {
     CONST_VTBL struct ITAudioDeviceControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -449,7 +449,7 @@ extern "C"{
       HRESULT (WINAPI *Set)(ITAudioSettings *This,AudioSettingsProperty Property,long lValue,TAPIControlFlags lFlags);
     END_INTERFACE
   } ITAudioSettingsVtbl;
-  interface ITAudioSettings {
+  struct ITAudioSettings {
     CONST_VTBL struct ITAudioSettingsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -490,7 +490,7 @@ extern "C"{
       HRESULT (WINAPI *SetQOSApplicationID)(ITQOSApplicationID *This,BSTR pApplicationID,BSTR pApplicationGUID,BSTR pSubIDs);
     END_INTERFACE
   } ITQOSApplicationIDVtbl;
-  interface ITQOSApplicationID {
+  struct ITQOSApplicationID {
     CONST_VTBL struct ITQOSApplicationIDVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

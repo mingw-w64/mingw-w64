@@ -24,87 +24,87 @@
 
 #ifndef __IWbemClassObject_FWD_DEFINED__
 #define __IWbemClassObject_FWD_DEFINED__
-typedef interface IWbemClassObject IWbemClassObject;
+typedef struct IWbemClassObject IWbemClassObject;
 #endif
 
 #ifndef __IWbemObjectAccess_FWD_DEFINED__
 #define __IWbemObjectAccess_FWD_DEFINED__
-typedef interface IWbemObjectAccess IWbemObjectAccess;
+typedef struct IWbemObjectAccess IWbemObjectAccess;
 #endif
 
 #ifndef __IWbemQualifierSet_FWD_DEFINED__
 #define __IWbemQualifierSet_FWD_DEFINED__
-typedef interface IWbemQualifierSet IWbemQualifierSet;
+typedef struct IWbemQualifierSet IWbemQualifierSet;
 #endif
 
 #ifndef __IWbemServices_FWD_DEFINED__
 #define __IWbemServices_FWD_DEFINED__
-typedef interface IWbemServices IWbemServices;
+typedef struct IWbemServices IWbemServices;
 #endif
 
 #ifndef __IWbemLocator_FWD_DEFINED__
 #define __IWbemLocator_FWD_DEFINED__
-typedef interface IWbemLocator IWbemLocator;
+typedef struct IWbemLocator IWbemLocator;
 #endif
 
 #ifndef __IWbemObjectSink_FWD_DEFINED__
 #define __IWbemObjectSink_FWD_DEFINED__
-typedef interface IWbemObjectSink IWbemObjectSink;
+typedef struct IWbemObjectSink IWbemObjectSink;
 #endif
 
 #ifndef __IEnumWbemClassObject_FWD_DEFINED__
 #define __IEnumWbemClassObject_FWD_DEFINED__
-typedef interface IEnumWbemClassObject IEnumWbemClassObject;
+typedef struct IEnumWbemClassObject IEnumWbemClassObject;
 #endif
 
 #ifndef __IWbemCallResult_FWD_DEFINED__
 #define __IWbemCallResult_FWD_DEFINED__
-typedef interface IWbemCallResult IWbemCallResult;
+typedef struct IWbemCallResult IWbemCallResult;
 #endif
 
 #ifndef __IWbemContext_FWD_DEFINED__
 #define __IWbemContext_FWD_DEFINED__
-typedef interface IWbemContext IWbemContext;
+typedef struct IWbemContext IWbemContext;
 #endif
 
 #ifndef __IUnsecuredApartment_FWD_DEFINED__
 #define __IUnsecuredApartment_FWD_DEFINED__
-typedef interface IUnsecuredApartment IUnsecuredApartment;
+typedef struct IUnsecuredApartment IUnsecuredApartment;
 #endif
 
 #ifndef __IWbemUnsecuredApartment_FWD_DEFINED__
 #define __IWbemUnsecuredApartment_FWD_DEFINED__
-typedef interface IWbemUnsecuredApartment IWbemUnsecuredApartment;
+typedef struct IWbemUnsecuredApartment IWbemUnsecuredApartment;
 #endif
 
 #ifndef __IWbemStatusCodeText_FWD_DEFINED__
 #define __IWbemStatusCodeText_FWD_DEFINED__
-typedef interface IWbemStatusCodeText IWbemStatusCodeText;
+typedef struct IWbemStatusCodeText IWbemStatusCodeText;
 #endif
 
 #ifndef __IWbemBackupRestore_FWD_DEFINED__
 #define __IWbemBackupRestore_FWD_DEFINED__
-typedef interface IWbemBackupRestore IWbemBackupRestore;
+typedef struct IWbemBackupRestore IWbemBackupRestore;
 #endif
 
 #ifndef __IWbemBackupRestoreEx_FWD_DEFINED__
 #define __IWbemBackupRestoreEx_FWD_DEFINED__
-typedef interface IWbemBackupRestoreEx IWbemBackupRestoreEx;
+typedef struct IWbemBackupRestoreEx IWbemBackupRestoreEx;
 #endif
 
 #ifndef __IWbemRefresher_FWD_DEFINED__
 #define __IWbemRefresher_FWD_DEFINED__
-typedef interface IWbemRefresher IWbemRefresher;
+typedef struct IWbemRefresher IWbemRefresher;
 #endif
 
 #ifndef __IWbemHiPerfEnum_FWD_DEFINED__
 #define __IWbemHiPerfEnum_FWD_DEFINED__
-typedef interface IWbemHiPerfEnum IWbemHiPerfEnum;
+typedef struct IWbemHiPerfEnum IWbemHiPerfEnum;
 #endif
 
 #ifndef __IWbemConfigureRefresher_FWD_DEFINED__
 #define __IWbemConfigureRefresher_FWD_DEFINED__
-typedef interface IWbemConfigureRefresher IWbemConfigureRefresher;
+typedef struct IWbemConfigureRefresher IWbemConfigureRefresher;
 #endif
 
 #ifndef __WbemLocator_FWD_DEFINED__
@@ -190,102 +190,102 @@ typedef struct WbemObjectTextSrc WbemObjectTextSrc;
 
 #ifndef __IWbemClassObject_FWD_DEFINED__
 #define __IWbemClassObject_FWD_DEFINED__
-typedef interface IWbemClassObject IWbemClassObject;
+typedef struct IWbemClassObject IWbemClassObject;
 #endif
 
 #ifndef __IWbemQualifierSet_FWD_DEFINED__
 #define __IWbemQualifierSet_FWD_DEFINED__
-typedef interface IWbemQualifierSet IWbemQualifierSet;
+typedef struct IWbemQualifierSet IWbemQualifierSet;
 #endif
 
 #ifndef __IWbemLocator_FWD_DEFINED__
 #define __IWbemLocator_FWD_DEFINED__
-typedef interface IWbemLocator IWbemLocator;
+typedef struct IWbemLocator IWbemLocator;
 #endif
 
 #ifndef __IWbemObjectSink_FWD_DEFINED__
 #define __IWbemObjectSink_FWD_DEFINED__
-typedef interface IWbemObjectSink IWbemObjectSink;
+typedef struct IWbemObjectSink IWbemObjectSink;
 #endif
 
 #ifndef __IEnumWbemClassObject_FWD_DEFINED__
 #define __IEnumWbemClassObject_FWD_DEFINED__
-typedef interface IEnumWbemClassObject IEnumWbemClassObject;
+typedef struct IEnumWbemClassObject IEnumWbemClassObject;
 #endif
 
 #ifndef __IWbemContext_FWD_DEFINED__
 #define __IWbemContext_FWD_DEFINED__
-typedef interface IWbemContext IWbemContext;
+typedef struct IWbemContext IWbemContext;
 #endif
 
 #ifndef __IWbemCallResult_FWD_DEFINED__
 #define __IWbemCallResult_FWD_DEFINED__
-typedef interface IWbemCallResult IWbemCallResult;
+typedef struct IWbemCallResult IWbemCallResult;
 #endif
 
 #ifndef __IWbemServices_FWD_DEFINED__
 #define __IWbemServices_FWD_DEFINED__
-typedef interface IWbemServices IWbemServices;
+typedef struct IWbemServices IWbemServices;
 #endif
 
 #ifndef __IWbemShutdown_FWD_DEFINED__
 #define __IWbemShutdown_FWD_DEFINED__
-typedef interface IWbemShutdown IWbemShutdown;
+typedef struct IWbemShutdown IWbemShutdown;
 #endif
 
 #ifndef __IWbemObjectTextSrc_FWD_DEFINED__
 #define __IWbemObjectTextSrc_FWD_DEFINED__
-typedef interface IWbemObjectTextSrc IWbemObjectTextSrc;
+typedef struct IWbemObjectTextSrc IWbemObjectTextSrc;
 #endif
 
 #ifndef __IWbemObjectAccess_FWD_DEFINED__
 #define __IWbemObjectAccess_FWD_DEFINED__
-typedef interface IWbemObjectAccess IWbemObjectAccess;
+typedef struct IWbemObjectAccess IWbemObjectAccess;
 #endif
 
 #ifndef __IMofCompiler_FWD_DEFINED__
 #define __IMofCompiler_FWD_DEFINED__
-typedef interface IMofCompiler IMofCompiler;
+typedef struct IMofCompiler IMofCompiler;
 #endif
 
 #ifndef __IUnsecuredApartment_FWD_DEFINED__
 #define __IUnsecuredApartment_FWD_DEFINED__
-typedef interface IUnsecuredApartment IUnsecuredApartment;
+typedef struct IUnsecuredApartment IUnsecuredApartment;
 #endif
 
 #ifndef __IWbemUnsecuredApartment_FWD_DEFINED__
 #define __IWbemUnsecuredApartment_FWD_DEFINED__
-typedef interface IWbemUnsecuredApartment IWbemUnsecuredApartment;
+typedef struct IWbemUnsecuredApartment IWbemUnsecuredApartment;
 #endif
 
 #ifndef __IWbemStatusCodeText_FWD_DEFINED__
 #define __IWbemStatusCodeText_FWD_DEFINED__
-typedef interface IWbemStatusCodeText IWbemStatusCodeText;
+typedef struct IWbemStatusCodeText IWbemStatusCodeText;
 #endif
 
 #ifndef __IWbemBackupRestore_FWD_DEFINED__
 #define __IWbemBackupRestore_FWD_DEFINED__
-typedef interface IWbemBackupRestore IWbemBackupRestore;
+typedef struct IWbemBackupRestore IWbemBackupRestore;
 #endif
 
 #ifndef __IWbemBackupRestoreEx_FWD_DEFINED__
 #define __IWbemBackupRestoreEx_FWD_DEFINED__
-typedef interface IWbemBackupRestoreEx IWbemBackupRestoreEx;
+typedef struct IWbemBackupRestoreEx IWbemBackupRestoreEx;
 #endif
 
 #ifndef __IWbemRefresher_FWD_DEFINED__
 #define __IWbemRefresher_FWD_DEFINED__
-typedef interface IWbemRefresher IWbemRefresher;
+typedef struct IWbemRefresher IWbemRefresher;
 #endif
 
 #ifndef __IWbemHiPerfEnum_FWD_DEFINED__
 #define __IWbemHiPerfEnum_FWD_DEFINED__
-typedef interface IWbemHiPerfEnum IWbemHiPerfEnum;
+typedef struct IWbemHiPerfEnum IWbemHiPerfEnum;
 #endif
 
 #ifndef __IWbemConfigureRefresher_FWD_DEFINED__
 #define __IWbemConfigureRefresher_FWD_DEFINED__
-typedef interface IWbemConfigureRefresher IWbemConfigureRefresher;
+typedef struct IWbemConfigureRefresher IWbemConfigureRefresher;
 #endif
 
 #ifdef __cplusplus
@@ -518,7 +518,7 @@ extern "C" {
       HRESULT (WINAPI *GetMethodOrigin)(IWbemClassObject *This,LPCWSTR wszMethodName,BSTR *pstrClassName);
     END_INTERFACE
   } IWbemClassObjectVtbl;
-  interface IWbemClassObject {
+  struct IWbemClassObject {
     CONST_VTBL struct IWbemClassObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -660,7 +660,7 @@ extern "C" {
       HRESULT (WINAPI *Unlock)(IWbemObjectAccess *This,long lFlags);
     END_INTERFACE
   } IWbemObjectAccessVtbl;
-  interface IWbemObjectAccess {
+  struct IWbemObjectAccess {
     CONST_VTBL struct IWbemObjectAccessVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -754,7 +754,7 @@ extern "C" {
       HRESULT (WINAPI *EndEnumeration)(IWbemQualifierSet *This);
     END_INTERFACE
   } IWbemQualifierSetVtbl;
-  interface IWbemQualifierSet {
+  struct IWbemQualifierSet {
     CONST_VTBL struct IWbemQualifierSetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -847,7 +847,7 @@ extern "C" {
       HRESULT (WINAPI *ExecMethodAsync)(IWbemServices *This,const BSTR strObjectPath,const BSTR strMethodName,long lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemObjectSink *pResponseHandler);
     END_INTERFACE
   } IWbemServicesVtbl;
-  interface IWbemServices {
+  struct IWbemServices {
     CONST_VTBL struct IWbemServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -944,7 +944,7 @@ extern "C" {
       HRESULT (WINAPI *ConnectServer)(IWbemLocator *This,const BSTR strNetworkResource,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,long lSecurityFlags,const BSTR strAuthority,IWbemContext *pCtx,IWbemServices **ppNamespace);
     END_INTERFACE
   } IWbemLocatorVtbl;
-  interface IWbemLocator {
+  struct IWbemLocator {
     CONST_VTBL struct IWbemLocatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -977,7 +977,7 @@ extern "C" {
       HRESULT (WINAPI *SetStatus)(IWbemObjectSink *This,long lFlags,HRESULT hResult,BSTR strParam,IWbemClassObject *pObjParam);
     END_INTERFACE
   } IWbemObjectSinkVtbl;
-  interface IWbemObjectSink {
+  struct IWbemObjectSink {
     CONST_VTBL struct IWbemObjectSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1019,7 +1019,7 @@ extern "C" {
       HRESULT (WINAPI *Skip)(IEnumWbemClassObject *This,long lTimeout,ULONG nCount);
     END_INTERFACE
   } IEnumWbemClassObjectVtbl;
-  interface IEnumWbemClassObject {
+  struct IEnumWbemClassObject {
     CONST_VTBL struct IEnumWbemClassObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1068,7 +1068,7 @@ extern "C" {
       HRESULT (WINAPI *GetCallStatus)(IWbemCallResult *This,long lTimeout,long *plStatus);
     END_INTERFACE
   } IWbemCallResultVtbl;
-  interface IWbemCallResult {
+  struct IWbemCallResult {
     CONST_VTBL struct IWbemCallResultVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1124,7 +1124,7 @@ extern "C" {
       HRESULT (WINAPI *DeleteAll)(IWbemContext *This);
     END_INTERFACE
   } IWbemContextVtbl;
-  interface IWbemContext {
+  struct IWbemContext {
     CONST_VTBL struct IWbemContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1179,7 +1179,7 @@ extern "C" {
       HRESULT (WINAPI *CreateObjectStub)(IUnsecuredApartment *This,IUnknown *pObject,IUnknown **ppStub);
     END_INTERFACE
   } IUnsecuredApartmentVtbl;
-  interface IUnsecuredApartment {
+  struct IUnsecuredApartment {
     CONST_VTBL struct IUnsecuredApartmentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1211,7 +1211,7 @@ extern "C" {
       HRESULT (WINAPI *CreateSinkStub)(IWbemUnsecuredApartment *This,IWbemObjectSink *pSink,DWORD dwFlags,LPCWSTR wszReserved,IWbemObjectSink **ppStub);
     END_INTERFACE
   } IWbemUnsecuredApartmentVtbl;
-  interface IWbemUnsecuredApartment {
+  struct IWbemUnsecuredApartment {
     CONST_VTBL struct IWbemUnsecuredApartmentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1245,7 +1245,7 @@ extern "C" {
       HRESULT (WINAPI *GetFacilityCodeText)(IWbemStatusCodeText *This,HRESULT hRes,LCID LocaleId,long lFlags,BSTR *MessageText);
     END_INTERFACE
   } IWbemStatusCodeTextVtbl;
-  interface IWbemStatusCodeText {
+  struct IWbemStatusCodeText {
     CONST_VTBL struct IWbemStatusCodeTextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1281,7 +1281,7 @@ extern "C" {
       HRESULT (WINAPI *Restore)(IWbemBackupRestore *This,LPCWSTR strRestoreFromFile,long lFlags);
     END_INTERFACE
   } IWbemBackupRestoreVtbl;
-  interface IWbemBackupRestore {
+  struct IWbemBackupRestore {
     CONST_VTBL struct IWbemBackupRestoreVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1319,7 +1319,7 @@ extern "C" {
       HRESULT (WINAPI *Resume)(IWbemBackupRestoreEx *This);
     END_INTERFACE
   } IWbemBackupRestoreExVtbl;
-  interface IWbemBackupRestoreEx {
+  struct IWbemBackupRestoreEx {
     CONST_VTBL struct IWbemBackupRestoreExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1355,7 +1355,7 @@ extern "C" {
       HRESULT (WINAPI *Refresh)(IWbemRefresher *This,long lFlags);
     END_INTERFACE
   } IWbemRefresherVtbl;
-  interface IWbemRefresher {
+  struct IWbemRefresher {
     CONST_VTBL struct IWbemRefresherVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1392,7 +1392,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveAll)(IWbemHiPerfEnum *This,long lFlags);
     END_INTERFACE
   } IWbemHiPerfEnumVtbl;
-  interface IWbemHiPerfEnum {
+  struct IWbemHiPerfEnum {
     CONST_VTBL struct IWbemHiPerfEnumVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1440,7 +1440,7 @@ extern "C" {
       HRESULT (WINAPI *AddEnum)(IWbemConfigureRefresher *This,IWbemServices *pNamespace,LPCWSTR wszClassName,long lFlags,IWbemContext *pContext,IWbemHiPerfEnum **ppEnum,long *plId);
     END_INTERFACE
   } IWbemConfigureRefresherVtbl;
-  interface IWbemConfigureRefresher {
+  struct IWbemConfigureRefresher {
     CONST_VTBL struct IWbemConfigureRefresherVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1526,7 +1526,7 @@ extern "C" {
       HRESULT (WINAPI *Shutdown)(IWbemShutdown *This,LONG uReason,ULONG uMaxMilliseconds,IWbemContext *pCtx);
     END_INTERFACE
   } IWbemShutdownVtbl;
-  interface IWbemShutdown {
+  struct IWbemShutdown {
     CONST_VTBL struct IWbemShutdownVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1567,7 +1567,7 @@ extern "C" {
       HRESULT (WINAPI *CreateFromText)(IWbemObjectTextSrc *This,long lFlags,BSTR strText,ULONG uObjTextFormat,IWbemContext *pCtx,IWbemClassObject **pNewObj);
     END_INTERFACE
   } IWbemObjectTextSrcVtbl;
-  interface IWbemObjectTextSrc {
+  struct IWbemObjectTextSrc {
     CONST_VTBL struct IWbemObjectTextSrcVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1625,7 +1625,7 @@ extern "C" {
       HRESULT (WINAPI *CreateBMOF)(IMofCompiler *This,LPWSTR TextFileName,LPWSTR BMOFFileName,LPWSTR ServerAndNamespace,LONG lOptionFlags,LONG lClassFlags,LONG lInstanceFlags,WBEM_COMPILE_STATUS_INFO *pInfo);
     END_INTERFACE
   } IMofCompilerVtbl;
-  interface IMofCompiler {
+  struct IMofCompiler {
     CONST_VTBL struct IMofCompilerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

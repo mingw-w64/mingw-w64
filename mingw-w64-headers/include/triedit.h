@@ -28,7 +28,7 @@ extern "C"{
 
 #ifndef __ITriEditDocument_FWD_DEFINED__
 #define __ITriEditDocument_FWD_DEFINED__
-  typedef interface ITriEditDocument ITriEditDocument;
+  typedef struct ITriEditDocument ITriEditDocument;
 #endif
 
 #ifndef __TriEditDocument_FWD_DEFINED__
@@ -42,7 +42,7 @@ extern "C"{
 
 #ifndef __IDocHostDragDropHandler_FWD_DEFINED__
 #define __IDocHostDragDropHandler_FWD_DEFINED__
-  typedef interface IDocHostDragDropHandler IDocHostDragDropHandler;
+  typedef struct IDocHostDragDropHandler IDocHostDragDropHandler;
 #endif
 
 #include "oaidl.h"
@@ -94,7 +94,7 @@ extern "C"{
       HRESULT (WINAPI *FilterOut)(ITriEditDocument *This,IUnknown *pStmOld,IUnknown **ppStmNew,DWORD dwFlags,BSTR bstrBaseURL);
     END_INTERFACE
   } ITriEditDocumentVtbl;
-  interface ITriEditDocument {
+  struct ITriEditDocument {
     CONST_VTBL struct ITriEditDocumentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -141,7 +141,7 @@ extern "C"{
       HRESULT (WINAPI *DrawDragFeedback)(IDocHostDragDropHandler *This,RECT *pRect);
     END_INTERFACE
   } IDocHostDragDropHandlerVtbl;
-  interface IDocHostDragDropHandler {
+  struct IDocHostDragDropHandler {
     CONST_VTBL struct IDocHostDragDropHandlerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

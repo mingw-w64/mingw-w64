@@ -24,22 +24,22 @@
 
 #ifndef __IRouterProtocolConfig_FWD_DEFINED__
 #define __IRouterProtocolConfig_FWD_DEFINED__
-typedef interface IRouterProtocolConfig IRouterProtocolConfig;
+typedef struct IRouterProtocolConfig IRouterProtocolConfig;
 #endif
 
 #ifndef __IAuthenticationProviderConfig_FWD_DEFINED__
 #define __IAuthenticationProviderConfig_FWD_DEFINED__
-typedef interface IAuthenticationProviderConfig IAuthenticationProviderConfig;
+typedef struct IAuthenticationProviderConfig IAuthenticationProviderConfig;
 #endif
 
 #ifndef __IAccountingProviderConfig_FWD_DEFINED__
 #define __IAccountingProviderConfig_FWD_DEFINED__
-typedef interface IAccountingProviderConfig IAccountingProviderConfig;
+typedef struct IAccountingProviderConfig IAccountingProviderConfig;
 #endif
 
 #ifndef __IEAPProviderConfig_FWD_DEFINED__
 #define __IEAPProviderConfig_FWD_DEFINED__
-typedef interface IEAPProviderConfig IEAPProviderConfig;
+typedef struct IEAPProviderConfig IEAPProviderConfig;
 #endif
 
 #include "basetsd.h"
@@ -77,7 +77,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveProtocol)(IRouterProtocolConfig *This,LPCOLESTR pszMachineName,DWORD dwTransportId,DWORD dwProtocolId,HWND hWnd,DWORD dwFlags,IUnknown *pRouter,ULONG_PTR uReserved1);
     END_INTERFACE
   } IRouterProtocolConfigVtbl;
-  interface IRouterProtocolConfig {
+  struct IRouterProtocolConfig {
     CONST_VTBL struct IRouterProtocolConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -124,7 +124,7 @@ extern "C" {
       HRESULT (WINAPI *Deactivate)(IAuthenticationProviderConfig *This,ULONG_PTR uConnectionParam,ULONG_PTR uReserved1,ULONG_PTR uReserved2);
     END_INTERFACE
   } IAuthenticationProviderConfigVtbl;
-  interface IAuthenticationProviderConfig {
+  struct IAuthenticationProviderConfig {
     CONST_VTBL struct IAuthenticationProviderConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -179,7 +179,7 @@ extern "C" {
       HRESULT (WINAPI *Deactivate)(IAccountingProviderConfig *This,ULONG_PTR uConnectionParam,ULONG_PTR uReserved1,ULONG_PTR uReserved2);
     END_INTERFACE
   } IAccountingProviderConfigVtbl;
-  interface IAccountingProviderConfig {
+  struct IAccountingProviderConfig {
     CONST_VTBL struct IAccountingProviderConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -234,7 +234,7 @@ extern "C" {
       HRESULT (WINAPI *RouterInvokeCredentialsUI)(IEAPProviderConfig *This,DWORD dwEapTypeId,ULONG_PTR uConnectionParam,HWND hwndParent,DWORD dwFlags,BYTE *pConnectionDataIn,DWORD dwSizeOfConnectionDataIn,BYTE *pUserDataIn,DWORD dwSizeOfUserDataIn,BYTE **ppUserDataOut,DWORD *pdwSizeOfUserDataOut);
     END_INTERFACE
   } IEAPProviderConfigVtbl;
-  interface IEAPProviderConfig {
+  struct IEAPProviderConfig {
     CONST_VTBL struct IEAPProviderConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

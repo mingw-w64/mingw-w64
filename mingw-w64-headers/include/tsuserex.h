@@ -28,7 +28,7 @@ typedef struct TSUserExInterfaces TSUserExInterfaces;
 
 #ifndef __IADsTSUserEx_FWD_DEFINED__
 #define __IADsTSUserEx_FWD_DEFINED__
-typedef interface IADsTSUserEx IADsTSUserEx;
+typedef struct IADsTSUserEx IADsTSUserEx;
 #endif
 
 #ifndef __ADsTSUserEx_FWD_DEFINED__
@@ -141,7 +141,7 @@ extern "C"{
       HRESULT (WINAPI *put_TerminalServicesInitialProgram)(IADsTSUserEx *This,BSTR pNewVal);
     END_INTERFACE
   } IADsTSUserExVtbl;
-  interface IADsTSUserEx {
+  struct IADsTSUserEx {
     CONST_VTBL struct IADsTSUserExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

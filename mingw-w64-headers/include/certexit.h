@@ -24,12 +24,12 @@
 
 #ifndef __ICertExit_FWD_DEFINED__
 #define __ICertExit_FWD_DEFINED__
-typedef interface ICertExit ICertExit;
+typedef struct ICertExit ICertExit;
 #endif
 
 #ifndef __ICertExit2_FWD_DEFINED__
 #define __ICertExit2_FWD_DEFINED__
-typedef interface ICertExit2 ICertExit2;
+typedef struct ICertExit2 ICertExit2;
 #endif
 
 #include "wtypes.h"
@@ -80,7 +80,7 @@ extern "C"{
       HRESULT (WINAPI *GetDescription)(ICertExit *This,BSTR *pstrDescription);
     END_INTERFACE
   } ICertExitVtbl;
-  interface ICertExit {
+  struct ICertExit {
     CONST_VTBL struct ICertExitVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -128,7 +128,7 @@ extern "C"{
       HRESULT (WINAPI *GetManageModule)(ICertExit2 *This,ICertManageModule **ppManageModule);
     END_INTERFACE
   } ICertExit2Vtbl;
-  interface ICertExit2 {
+  struct ICertExit2 {
     CONST_VTBL struct ICertExit2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

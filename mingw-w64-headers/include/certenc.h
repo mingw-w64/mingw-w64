@@ -24,32 +24,32 @@
 
 #ifndef __ICertEncodeStringArray_FWD_DEFINED__
 #define __ICertEncodeStringArray_FWD_DEFINED__
-typedef interface ICertEncodeStringArray ICertEncodeStringArray;
+typedef struct ICertEncodeStringArray ICertEncodeStringArray;
 #endif
 
 #ifndef __ICertEncodeLongArray_FWD_DEFINED__
 #define __ICertEncodeLongArray_FWD_DEFINED__
-typedef interface ICertEncodeLongArray ICertEncodeLongArray;
+typedef struct ICertEncodeLongArray ICertEncodeLongArray;
 #endif
 
 #ifndef __ICertEncodeDateArray_FWD_DEFINED__
 #define __ICertEncodeDateArray_FWD_DEFINED__
-typedef interface ICertEncodeDateArray ICertEncodeDateArray;
+typedef struct ICertEncodeDateArray ICertEncodeDateArray;
 #endif
 
 #ifndef __ICertEncodeCRLDistInfo_FWD_DEFINED__
 #define __ICertEncodeCRLDistInfo_FWD_DEFINED__
-typedef interface ICertEncodeCRLDistInfo ICertEncodeCRLDistInfo;
+typedef struct ICertEncodeCRLDistInfo ICertEncodeCRLDistInfo;
 #endif
 
 #ifndef __ICertEncodeAltName_FWD_DEFINED__
 #define __ICertEncodeAltName_FWD_DEFINED__
-typedef interface ICertEncodeAltName ICertEncodeAltName;
+typedef struct ICertEncodeAltName ICertEncodeAltName;
 #endif
 
 #ifndef __ICertEncodeBitString_FWD_DEFINED__
 #define __ICertEncodeBitString_FWD_DEFINED__
-typedef interface ICertEncodeBitString ICertEncodeBitString;
+typedef struct ICertEncodeBitString ICertEncodeBitString;
 #endif
 
 #ifndef __CCertEncodeStringArray_FWD_DEFINED__
@@ -150,7 +150,7 @@ extern "C"{
       HRESULT (WINAPI *Encode)(ICertEncodeStringArray *This,BSTR *pstrBinary);
     END_INTERFACE
   } ICertEncodeStringArrayVtbl;
-  interface ICertEncodeStringArray {
+  struct ICertEncodeStringArray {
     CONST_VTBL struct ICertEncodeStringArrayVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -217,7 +217,7 @@ extern "C"{
       HRESULT (WINAPI *Encode)(ICertEncodeLongArray *This,BSTR *pstrBinary);
     END_INTERFACE
   } ICertEncodeLongArrayVtbl;
-  interface ICertEncodeLongArray {
+  struct ICertEncodeLongArray {
     CONST_VTBL struct ICertEncodeLongArrayVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -281,7 +281,7 @@ extern "C"{
       HRESULT (WINAPI *Encode)(ICertEncodeDateArray *This,BSTR *pstrBinary);
     END_INTERFACE
   } ICertEncodeDateArrayVtbl;
-  interface ICertEncodeDateArray {
+  struct ICertEncodeDateArray {
     CONST_VTBL struct ICertEncodeDateArrayVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -351,7 +351,7 @@ extern "C"{
       HRESULT (WINAPI *Encode)(ICertEncodeCRLDistInfo *This,BSTR *pstrBinary);
     END_INTERFACE
   } ICertEncodeCRLDistInfoVtbl;
-  interface ICertEncodeCRLDistInfo {
+  struct ICertEncodeCRLDistInfo {
     CONST_VTBL struct ICertEncodeCRLDistInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -431,7 +431,7 @@ extern "C"{
       HRESULT (WINAPI *Encode)(ICertEncodeAltName *This,BSTR *pstrBinary);
     END_INTERFACE
   } ICertEncodeAltNameVtbl;
-  interface ICertEncodeAltName {
+  struct ICertEncodeAltName {
     CONST_VTBL struct ICertEncodeAltNameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -494,7 +494,7 @@ extern "C"{
       HRESULT (WINAPI *Encode)(ICertEncodeBitString *This,LONG BitCount,BSTR strBitString,BSTR *pstrBinary);
     END_INTERFACE
   } ICertEncodeBitStringVtbl;
-  interface ICertEncodeBitString {
+  struct ICertEncodeBitString {
     CONST_VTBL struct ICertEncodeBitStringVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

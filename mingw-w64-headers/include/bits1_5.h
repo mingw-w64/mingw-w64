@@ -24,7 +24,7 @@
 
 #ifndef __IBackgroundCopyJob2_FWD_DEFINED__
 #define __IBackgroundCopyJob2_FWD_DEFINED__
-typedef interface IBackgroundCopyJob2 IBackgroundCopyJob2;
+typedef struct IBackgroundCopyJob2 IBackgroundCopyJob2;
 #endif
 
 #ifndef __BackgroundCopyManager1_5_FWD_DEFINED__
@@ -38,7 +38,7 @@ typedef struct BackgroundCopyManager1_5 BackgroundCopyManager1_5;
 
 #ifndef __IBackgroundCopyJob2_FWD_DEFINED__
 #define __IBackgroundCopyJob2_FWD_DEFINED__
-typedef interface IBackgroundCopyJob2 IBackgroundCopyJob2;
+typedef struct IBackgroundCopyJob2 IBackgroundCopyJob2;
 #endif
 
 #include "bits.h"
@@ -147,7 +147,7 @@ extern "C"{
       HRESULT (WINAPI *RemoveCredentials)(IBackgroundCopyJob2 *This,BG_AUTH_TARGET Target,BG_AUTH_SCHEME Scheme);
     END_INTERFACE
   } IBackgroundCopyJob2Vtbl;
-  interface IBackgroundCopyJob2 {
+  struct IBackgroundCopyJob2 {
     CONST_VTBL struct IBackgroundCopyJob2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

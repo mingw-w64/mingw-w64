@@ -24,7 +24,7 @@
 
 #ifndef __IWMIExtension_FWD_DEFINED__
 #define __IWMIExtension_FWD_DEFINED__
-typedef interface IWMIExtension IWMIExtension;
+typedef struct IWMIExtension IWMIExtension;
 #endif
 
 #ifndef __WMIExtension_FWD_DEFINED__
@@ -39,7 +39,7 @@ typedef struct WMIExtension WMIExtension;
 
 #ifndef __IWMIExtension_FWD_DEFINED__
 #define __IWMIExtension_FWD_DEFINED__
-typedef interface IWMIExtension IWMIExtension;
+typedef struct IWMIExtension IWMIExtension;
 #endif
 
 #include "oaidl.h"
@@ -83,7 +83,7 @@ extern "C" {
       HRESULT (WINAPI *GetWMIServices)(IWMIExtension *This,ISWbemServices **objWMIServices);
     END_INTERFACE
   } IWMIExtensionVtbl;
-  interface IWMIExtension {
+  struct IWMIExtension {
     CONST_VTBL struct IWMIExtensionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

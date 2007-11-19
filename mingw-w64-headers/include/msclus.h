@@ -375,197 +375,197 @@ typedef struct ClusResDependents ClusResDependents;
 
 #ifndef __ISClusApplication_FWD_DEFINED__
 #define __ISClusApplication_FWD_DEFINED__
-typedef interface ISClusApplication ISClusApplication;
+typedef struct ISClusApplication ISClusApplication;
 #endif
 
 #ifndef __ISDomainNames_FWD_DEFINED__
 #define __ISDomainNames_FWD_DEFINED__
-typedef interface ISDomainNames ISDomainNames;
+typedef struct ISDomainNames ISDomainNames;
 #endif
 
 #ifndef __ISClusterNames_FWD_DEFINED__
 #define __ISClusterNames_FWD_DEFINED__
-typedef interface ISClusterNames ISClusterNames;
+typedef struct ISClusterNames ISClusterNames;
 #endif
 
 #ifndef __ISClusRefObject_FWD_DEFINED__
 #define __ISClusRefObject_FWD_DEFINED__
-typedef interface ISClusRefObject ISClusRefObject;
+typedef struct ISClusRefObject ISClusRefObject;
 #endif
 
 #ifndef __ISClusVersion_FWD_DEFINED__
 #define __ISClusVersion_FWD_DEFINED__
-typedef interface ISClusVersion ISClusVersion;
+typedef struct ISClusVersion ISClusVersion;
 #endif
 
 #ifndef __ISCluster_FWD_DEFINED__
 #define __ISCluster_FWD_DEFINED__
-typedef interface ISCluster ISCluster;
+typedef struct ISCluster ISCluster;
 #endif
 
 #ifndef __ISClusNode_FWD_DEFINED__
 #define __ISClusNode_FWD_DEFINED__
-typedef interface ISClusNode ISClusNode;
+typedef struct ISClusNode ISClusNode;
 #endif
 
 #ifndef __ISClusNodes_FWD_DEFINED__
 #define __ISClusNodes_FWD_DEFINED__
-typedef interface ISClusNodes ISClusNodes;
+typedef struct ISClusNodes ISClusNodes;
 #endif
 
 #ifndef __ISClusNetwork_FWD_DEFINED__
 #define __ISClusNetwork_FWD_DEFINED__
-typedef interface ISClusNetwork ISClusNetwork;
+typedef struct ISClusNetwork ISClusNetwork;
 #endif
 
 #ifndef __ISClusNetworks_FWD_DEFINED__
 #define __ISClusNetworks_FWD_DEFINED__
-typedef interface ISClusNetworks ISClusNetworks;
+typedef struct ISClusNetworks ISClusNetworks;
 #endif
 
 #ifndef __ISClusNetInterface_FWD_DEFINED__
 #define __ISClusNetInterface_FWD_DEFINED__
-typedef interface ISClusNetInterface ISClusNetInterface;
+typedef struct ISClusNetInterface ISClusNetInterface;
 #endif
 
 #ifndef __ISClusNetInterfaces_FWD_DEFINED__
 #define __ISClusNetInterfaces_FWD_DEFINED__
-typedef interface ISClusNetInterfaces ISClusNetInterfaces;
+typedef struct ISClusNetInterfaces ISClusNetInterfaces;
 #endif
 
 #ifndef __ISClusNodeNetInterfaces_FWD_DEFINED__
 #define __ISClusNodeNetInterfaces_FWD_DEFINED__
-typedef interface ISClusNodeNetInterfaces ISClusNodeNetInterfaces;
+typedef struct ISClusNodeNetInterfaces ISClusNodeNetInterfaces;
 #endif
 
 #ifndef __ISClusNetworkNetInterfaces_FWD_DEFINED__
 #define __ISClusNetworkNetInterfaces_FWD_DEFINED__
-typedef interface ISClusNetworkNetInterfaces ISClusNetworkNetInterfaces;
+typedef struct ISClusNetworkNetInterfaces ISClusNetworkNetInterfaces;
 #endif
 
 #ifndef __ISClusResGroup_FWD_DEFINED__
 #define __ISClusResGroup_FWD_DEFINED__
-typedef interface ISClusResGroup ISClusResGroup;
+typedef struct ISClusResGroup ISClusResGroup;
 #endif
 
 #ifndef __ISClusResGroups_FWD_DEFINED__
 #define __ISClusResGroups_FWD_DEFINED__
-typedef interface ISClusResGroups ISClusResGroups;
+typedef struct ISClusResGroups ISClusResGroups;
 #endif
 
 #ifndef __ISClusResource_FWD_DEFINED__
 #define __ISClusResource_FWD_DEFINED__
-typedef interface ISClusResource ISClusResource;
+typedef struct ISClusResource ISClusResource;
 #endif
 
 #ifndef __ISClusResDependencies_FWD_DEFINED__
 #define __ISClusResDependencies_FWD_DEFINED__
-typedef interface ISClusResDependencies ISClusResDependencies;
+typedef struct ISClusResDependencies ISClusResDependencies;
 #endif
 
 #ifndef __ISClusResGroupResources_FWD_DEFINED__
 #define __ISClusResGroupResources_FWD_DEFINED__
-typedef interface ISClusResGroupResources ISClusResGroupResources;
+typedef struct ISClusResGroupResources ISClusResGroupResources;
 #endif
 
 #ifndef __ISClusResTypeResources_FWD_DEFINED__
 #define __ISClusResTypeResources_FWD_DEFINED__
-typedef interface ISClusResTypeResources ISClusResTypeResources;
+typedef struct ISClusResTypeResources ISClusResTypeResources;
 #endif
 
 #ifndef __ISClusResources_FWD_DEFINED__
 #define __ISClusResources_FWD_DEFINED__
-typedef interface ISClusResources ISClusResources;
+typedef struct ISClusResources ISClusResources;
 #endif
 
 #ifndef __ISClusResGroupPreferredOwnerNodes_FWD_DEFINED__
 #define __ISClusResGroupPreferredOwnerNodes_FWD_DEFINED__
-typedef interface ISClusResGroupPreferredOwnerNodes ISClusResGroupPreferredOwnerNodes;
+typedef struct ISClusResGroupPreferredOwnerNodes ISClusResGroupPreferredOwnerNodes;
 #endif
 
 #ifndef __ISClusResPossibleOwnerNodes_FWD_DEFINED__
 #define __ISClusResPossibleOwnerNodes_FWD_DEFINED__
-typedef interface ISClusResPossibleOwnerNodes ISClusResPossibleOwnerNodes;
+typedef struct ISClusResPossibleOwnerNodes ISClusResPossibleOwnerNodes;
 #endif
 
 #ifndef __ISClusResTypePossibleOwnerNodes_FWD_DEFINED__
 #define __ISClusResTypePossibleOwnerNodes_FWD_DEFINED__
-typedef interface ISClusResTypePossibleOwnerNodes ISClusResTypePossibleOwnerNodes;
+typedef struct ISClusResTypePossibleOwnerNodes ISClusResTypePossibleOwnerNodes;
 #endif
 
 #ifndef __ISClusResType_FWD_DEFINED__
 #define __ISClusResType_FWD_DEFINED__
-typedef interface ISClusResType ISClusResType;
+typedef struct ISClusResType ISClusResType;
 #endif
 
 #ifndef __ISClusResTypes_FWD_DEFINED__
 #define __ISClusResTypes_FWD_DEFINED__
-typedef interface ISClusResTypes ISClusResTypes;
+typedef struct ISClusResTypes ISClusResTypes;
 #endif
 
 #ifndef __ISClusProperty_FWD_DEFINED__
 #define __ISClusProperty_FWD_DEFINED__
-typedef interface ISClusProperty ISClusProperty;
+typedef struct ISClusProperty ISClusProperty;
 #endif
 
 #ifndef __ISClusPropertyValue_FWD_DEFINED__
 #define __ISClusPropertyValue_FWD_DEFINED__
-typedef interface ISClusPropertyValue ISClusPropertyValue;
+typedef struct ISClusPropertyValue ISClusPropertyValue;
 #endif
 
 #ifndef __ISClusPropertyValues_FWD_DEFINED__
 #define __ISClusPropertyValues_FWD_DEFINED__
-typedef interface ISClusPropertyValues ISClusPropertyValues;
+typedef struct ISClusPropertyValues ISClusPropertyValues;
 #endif
 
 #ifndef __ISClusProperties_FWD_DEFINED__
 #define __ISClusProperties_FWD_DEFINED__
-typedef interface ISClusProperties ISClusProperties;
+typedef struct ISClusProperties ISClusProperties;
 #endif
 
 #ifndef __ISClusPropertyValueData_FWD_DEFINED__
 #define __ISClusPropertyValueData_FWD_DEFINED__
-typedef interface ISClusPropertyValueData ISClusPropertyValueData;
+typedef struct ISClusPropertyValueData ISClusPropertyValueData;
 #endif
 
 #ifndef __ISClusPartition_FWD_DEFINED__
 #define __ISClusPartition_FWD_DEFINED__
-typedef interface ISClusPartition ISClusPartition;
+typedef struct ISClusPartition ISClusPartition;
 #endif
 
 #ifndef __ISClusPartitions_FWD_DEFINED__
 #define __ISClusPartitions_FWD_DEFINED__
-typedef interface ISClusPartitions ISClusPartitions;
+typedef struct ISClusPartitions ISClusPartitions;
 #endif
 
 #ifndef __ISClusDisk_FWD_DEFINED__
 #define __ISClusDisk_FWD_DEFINED__
-typedef interface ISClusDisk ISClusDisk;
+typedef struct ISClusDisk ISClusDisk;
 #endif
 
 #ifndef __ISClusDisks_FWD_DEFINED__
 #define __ISClusDisks_FWD_DEFINED__
-typedef interface ISClusDisks ISClusDisks;
+typedef struct ISClusDisks ISClusDisks;
 #endif
 
 #ifndef __ISClusScsiAddress_FWD_DEFINED__
 #define __ISClusScsiAddress_FWD_DEFINED__
-typedef interface ISClusScsiAddress ISClusScsiAddress;
+typedef struct ISClusScsiAddress ISClusScsiAddress;
 #endif
 
 #ifndef __ISClusRegistryKeys_FWD_DEFINED__
 #define __ISClusRegistryKeys_FWD_DEFINED__
-typedef interface ISClusRegistryKeys ISClusRegistryKeys;
+typedef struct ISClusRegistryKeys ISClusRegistryKeys;
 #endif
 
 #ifndef __ISClusCryptoKeys_FWD_DEFINED__
 #define __ISClusCryptoKeys_FWD_DEFINED__
-typedef interface ISClusCryptoKeys ISClusCryptoKeys;
+typedef struct ISClusCryptoKeys ISClusCryptoKeys;
 #endif
 
 #ifndef __ISClusResDependents_FWD_DEFINED__
 #define __ISClusResDependents_FWD_DEFINED__
-typedef interface ISClusResDependents ISClusResDependents;
+typedef struct ISClusResDependents ISClusResDependents;
 #endif
 
 #include "basetsd.h"
@@ -1223,7 +1223,7 @@ extern "C" {
       HRESULT (WINAPI *OpenCluster)(ISClusApplication *This,BSTR bstrClusterName,ISCluster **pCluster);
     END_INTERFACE
   } ISClusApplicationVtbl;
-  interface ISClusApplication {
+  struct ISClusApplication {
     CONST_VTBL struct ISClusApplicationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1274,7 +1274,7 @@ extern "C" {
       HRESULT (WINAPI *get_Item)(ISDomainNames *This,VARIANT varIndex,BSTR *pbstrDomainName);
     END_INTERFACE
   } ISDomainNamesVtbl;
-  interface ISDomainNames {
+  struct ISDomainNames {
     CONST_VTBL struct ISDomainNamesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1330,7 +1330,7 @@ extern "C" {
       HRESULT (WINAPI *get_DomainName)(ISClusterNames *This,BSTR *pbstrDomainName);
     END_INTERFACE
   } ISClusterNamesVtbl;
-  interface ISClusterNames {
+  struct ISClusterNames {
     CONST_VTBL struct ISClusterNamesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1381,7 +1381,7 @@ extern "C" {
       HRESULT (WINAPI *get_Handle)(ISClusRefObject *This,ULONG_PTR *phandle);
     END_INTERFACE
   } ISClusRefObjectVtbl;
-  interface ISClusRefObject {
+  struct ISClusRefObject {
     CONST_VTBL struct ISClusRefObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1438,7 +1438,7 @@ extern "C" {
       HRESULT (WINAPI *get_MixedVersion)(ISClusVersion *This,VARIANT *pvarMixedVersion);
     END_INTERFACE
   } ISClusVersionVtbl;
-  interface ISClusVersion {
+  struct ISClusVersion {
     CONST_VTBL struct ISClusVersionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1544,7 +1544,7 @@ extern "C" {
       HRESULT (WINAPI *get_NetInterfaces)(ISCluster *This,ISClusNetInterfaces **ppNetInterfaces);
     END_INTERFACE
   } ISClusterVtbl;
-  interface ISCluster {
+  struct ISCluster {
     CONST_VTBL struct ISClusterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1669,7 +1669,7 @@ extern "C" {
       HRESULT (WINAPI *get_NetInterfaces)(ISClusNode *This,ISClusNodeNetInterfaces **ppClusNetInterfaces);
     END_INTERFACE
   } ISClusNodeVtbl;
-  interface ISClusNode {
+  struct ISClusNode {
     CONST_VTBL struct ISClusNodeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1753,7 +1753,7 @@ extern "C" {
       HRESULT (WINAPI *get_Item)(ISClusNodes *This,VARIANT varIndex,ISClusNode **ppNode);
     END_INTERFACE
   } ISClusNodesVtbl;
-  interface ISClusNodes {
+  struct ISClusNodes {
     CONST_VTBL struct ISClusNodesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1821,7 +1821,7 @@ extern "C" {
       HRESULT (WINAPI *get_Cluster)(ISClusNetwork *This,ISCluster **ppCluster);
     END_INTERFACE
   } ISClusNetworkVtbl;
-  interface ISClusNetwork {
+  struct ISClusNetwork {
     CONST_VTBL struct ISClusNetworkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1896,7 +1896,7 @@ extern "C" {
       HRESULT (WINAPI *get_Item)(ISClusNetworks *This,VARIANT varIndex,ISClusNetwork **ppClusNetwork);
     END_INTERFACE
   } ISClusNetworksVtbl;
-  interface ISClusNetworks {
+  struct ISClusNetworks {
     CONST_VTBL struct ISClusNetworksVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1958,7 +1958,7 @@ extern "C" {
       HRESULT (WINAPI *get_Cluster)(ISClusNetInterface *This,ISCluster **ppCluster);
     END_INTERFACE
   } ISClusNetInterfaceVtbl;
-  interface ISClusNetInterface {
+  struct ISClusNetInterface {
     CONST_VTBL struct ISClusNetInterfaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2024,7 +2024,7 @@ extern "C" {
       HRESULT (WINAPI *get_Item)(ISClusNetInterfaces *This,VARIANT varIndex,ISClusNetInterface **ppClusNetInterface);
     END_INTERFACE
   } ISClusNetInterfacesVtbl;
-  interface ISClusNetInterfaces {
+  struct ISClusNetInterfaces {
     CONST_VTBL struct ISClusNetInterfacesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2078,7 +2078,7 @@ extern "C" {
       HRESULT (WINAPI *get_Item)(ISClusNodeNetInterfaces *This,VARIANT varIndex,ISClusNetInterface **ppClusNetInterface);
     END_INTERFACE
   } ISClusNodeNetInterfacesVtbl;
-  interface ISClusNodeNetInterfaces {
+  struct ISClusNodeNetInterfaces {
     CONST_VTBL struct ISClusNodeNetInterfacesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2132,7 +2132,7 @@ extern "C" {
       HRESULT (WINAPI *get_Item)(ISClusNetworkNetInterfaces *This,VARIANT varIndex,ISClusNetInterface **ppClusNetInterface);
     END_INTERFACE
   } ISClusNetworkNetInterfacesVtbl;
-  interface ISClusNetworkNetInterfaces {
+  struct ISClusNetworkNetInterfaces {
     CONST_VTBL struct ISClusNetworkNetInterfacesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2210,7 +2210,7 @@ extern "C" {
       HRESULT (WINAPI *get_Cluster)(ISClusResGroup *This,ISCluster **ppCluster);
     END_INTERFACE
   } ISClusResGroupVtbl;
-  interface ISClusResGroup {
+  struct ISClusResGroup {
     CONST_VTBL struct ISClusResGroupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2304,7 +2304,7 @@ extern "C" {
       HRESULT (WINAPI *DeleteItem)(ISClusResGroups *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusResGroupsVtbl;
-  interface ISClusResGroups {
+  struct ISClusResGroups {
     CONST_VTBL struct ISClusResGroupsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2420,7 +2420,7 @@ extern "C" {
       HRESULT (WINAPI *put_MaintenanceMode)(ISClusResource *This,WINBOOL bMaintenanceMode);
     END_INTERFACE
   } ISClusResourceVtbl;
-  interface ISClusResource {
+  struct ISClusResource {
     CONST_VTBL struct ISClusResourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2566,7 +2566,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveItem)(ISClusResDependencies *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusResDependenciesVtbl;
-  interface ISClusResDependencies {
+  struct ISClusResDependencies {
     CONST_VTBL struct ISClusResDependenciesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2636,7 +2636,7 @@ extern "C" {
       HRESULT (WINAPI *DeleteItem)(ISClusResGroupResources *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusResGroupResourcesVtbl;
-  interface ISClusResGroupResources {
+  struct ISClusResGroupResources {
     CONST_VTBL struct ISClusResGroupResourcesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2700,7 +2700,7 @@ extern "C" {
       HRESULT (WINAPI *DeleteItem)(ISClusResTypeResources *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusResTypeResourcesVtbl;
-  interface ISClusResTypeResources {
+  struct ISClusResTypeResources {
     CONST_VTBL struct ISClusResTypeResourcesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2764,7 +2764,7 @@ extern "C" {
       HRESULT (WINAPI *DeleteItem)(ISClusResources *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusResourcesVtbl;
-  interface ISClusResources {
+  struct ISClusResources {
     CONST_VTBL struct ISClusResourcesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2834,7 +2834,7 @@ extern "C" {
       HRESULT (WINAPI *AddItem)(ISClusResGroupPreferredOwnerNodes *This,ISClusNode *pNode);
     END_INTERFACE
   } ISClusResGroupPreferredOwnerNodesVtbl;
-  interface ISClusResGroupPreferredOwnerNodes {
+  struct ISClusResGroupPreferredOwnerNodes {
     CONST_VTBL struct ISClusResGroupPreferredOwnerNodesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2909,7 +2909,7 @@ extern "C" {
       HRESULT (WINAPI *get_Modified)(ISClusResPossibleOwnerNodes *This,VARIANT *pvarModified);
     END_INTERFACE
   } ISClusResPossibleOwnerNodesVtbl;
-  interface ISClusResPossibleOwnerNodes {
+  struct ISClusResPossibleOwnerNodes {
     CONST_VTBL struct ISClusResPossibleOwnerNodesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2972,7 +2972,7 @@ extern "C" {
       HRESULT (WINAPI *get_Item)(ISClusResTypePossibleOwnerNodes *This,VARIANT varIndex,ISClusNode **ppNode);
     END_INTERFACE
   } ISClusResTypePossibleOwnerNodesVtbl;
-  interface ISClusResTypePossibleOwnerNodes {
+  struct ISClusResTypePossibleOwnerNodes {
     CONST_VTBL struct ISClusResTypePossibleOwnerNodesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3038,7 +3038,7 @@ extern "C" {
       HRESULT (WINAPI *get_AvailableDisks)(ISClusResType *This,ISClusDisks **ppAvailableDisks);
     END_INTERFACE
   } ISClusResTypeVtbl;
-  interface ISClusResType {
+  struct ISClusResType {
     CONST_VTBL struct ISClusResTypeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3114,7 +3114,7 @@ extern "C" {
       HRESULT (WINAPI *DeleteItem)(ISClusResTypes *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusResTypesVtbl;
-  interface ISClusResTypes {
+  struct ISClusResTypes {
     CONST_VTBL struct ISClusResTypesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3196,7 +3196,7 @@ extern "C" {
       HRESULT (WINAPI *UseDefaultValue)(ISClusProperty *This);
     END_INTERFACE
   } ISClusPropertyVtbl;
-  interface ISClusProperty {
+  struct ISClusProperty {
     CONST_VTBL struct ISClusPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3293,7 +3293,7 @@ extern "C" {
       HRESULT (WINAPI *get_Data)(ISClusPropertyValue *This,ISClusPropertyValueData **ppClusterPropertyValueData);
     END_INTERFACE
   } ISClusPropertyValueVtbl;
-  interface ISClusPropertyValue {
+  struct ISClusPropertyValue {
     CONST_VTBL struct ISClusPropertyValueVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3364,7 +3364,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveItem)(ISClusPropertyValues *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusPropertyValuesVtbl;
-  interface ISClusPropertyValues {
+  struct ISClusPropertyValues {
     CONST_VTBL struct ISClusPropertyValuesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3435,7 +3435,7 @@ extern "C" {
       HRESULT (WINAPI *get_Modified)(ISClusProperties *This,VARIANT *pvarModified);
     END_INTERFACE
   } ISClusPropertiesVtbl;
-  interface ISClusProperties {
+  struct ISClusProperties {
     CONST_VTBL struct ISClusPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3512,7 +3512,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveItem)(ISClusPropertyValueData *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusPropertyValueDataVtbl;
-  interface ISClusPropertyValueData {
+  struct ISClusPropertyValueData {
     CONST_VTBL struct ISClusPropertyValueDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3575,7 +3575,7 @@ extern "C" {
       HRESULT (WINAPI *get_FileSystem)(ISClusPartition *This,BSTR *pbstrFileSystem);
     END_INTERFACE
   } ISClusPartitionVtbl;
-  interface ISClusPartition {
+  struct ISClusPartition {
     CONST_VTBL struct ISClusPartitionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3636,7 +3636,7 @@ extern "C" {
       HRESULT (WINAPI *get_Item)(ISClusPartitions *This,VARIANT varIndex,ISClusPartition **ppPartition);
     END_INTERFACE
   } ISClusPartitionsVtbl;
-  interface ISClusPartitions {
+  struct ISClusPartitions {
     CONST_VTBL struct ISClusPartitionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3687,7 +3687,7 @@ extern "C" {
       HRESULT (WINAPI *get_Partitions)(ISClusDisk *This,ISClusPartitions **ppPartitions);
     END_INTERFACE
   } ISClusDiskVtbl;
-  interface ISClusDisk {
+  struct ISClusDisk {
     CONST_VTBL struct ISClusDiskVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3739,7 +3739,7 @@ extern "C" {
       HRESULT (WINAPI *get_Item)(ISClusDisks *This,VARIANT varIndex,ISClusDisk **ppDisk);
     END_INTERFACE
   } ISClusDisksVtbl;
-  interface ISClusDisks {
+  struct ISClusDisks {
     CONST_VTBL struct ISClusDisksVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3790,7 +3790,7 @@ extern "C" {
       HRESULT (WINAPI *get_Lun)(ISClusScsiAddress *This,VARIANT *pvarLun);
     END_INTERFACE
   } ISClusScsiAddressVtbl;
-  interface ISClusScsiAddress {
+  struct ISClusScsiAddress {
     CONST_VTBL struct ISClusScsiAddressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3848,7 +3848,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveItem)(ISClusRegistryKeys *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusRegistryKeysVtbl;
-  interface ISClusRegistryKeys {
+  struct ISClusRegistryKeys {
     CONST_VTBL struct ISClusRegistryKeysVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3912,7 +3912,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveItem)(ISClusCryptoKeys *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusCryptoKeysVtbl;
-  interface ISClusCryptoKeys {
+  struct ISClusCryptoKeys {
     CONST_VTBL struct ISClusCryptoKeysVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3980,7 +3980,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveItem)(ISClusResDependents *This,VARIANT varIndex);
     END_INTERFACE
   } ISClusResDependentsVtbl;
-  interface ISClusResDependents {
+  struct ISClusResDependents {
     CONST_VTBL struct ISClusResDependentsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

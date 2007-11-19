@@ -24,42 +24,42 @@
 
 #ifndef __IPhraseSink_FWD_DEFINED__
 #define __IPhraseSink_FWD_DEFINED__
-typedef interface IPhraseSink IPhraseSink;
+typedef struct IPhraseSink IPhraseSink;
 #endif
 
 #ifndef __IWordSink_FWD_DEFINED__
 #define __IWordSink_FWD_DEFINED__
-typedef interface IWordSink IWordSink;
+typedef struct IWordSink IWordSink;
 #endif
 
 #ifndef __IWordBreaker_FWD_DEFINED__
 #define __IWordBreaker_FWD_DEFINED__
-typedef interface IWordBreaker IWordBreaker;
+typedef struct IWordBreaker IWordBreaker;
 #endif
 
 #ifndef __IWordFormSink_FWD_DEFINED__
 #define __IWordFormSink_FWD_DEFINED__
-typedef interface IWordFormSink IWordFormSink;
+typedef struct IWordFormSink IWordFormSink;
 #endif
 
 #ifndef __IStemmer_FWD_DEFINED__
 #define __IStemmer_FWD_DEFINED__
-typedef interface IStemmer IStemmer;
+typedef struct IStemmer IStemmer;
 #endif
 
 #ifndef __ISimpleCommandCreator_FWD_DEFINED__
 #define __ISimpleCommandCreator_FWD_DEFINED__
-typedef interface ISimpleCommandCreator ISimpleCommandCreator;
+typedef struct ISimpleCommandCreator ISimpleCommandCreator;
 #endif
 
 #ifndef __IColumnMapper_FWD_DEFINED__
 #define __IColumnMapper_FWD_DEFINED__
-typedef interface IColumnMapper IColumnMapper;
+typedef struct IColumnMapper IColumnMapper;
 #endif
 
 #ifndef __IColumnMapperCreator_FWD_DEFINED__
 #define __IColumnMapperCreator_FWD_DEFINED__
-typedef interface IColumnMapperCreator IColumnMapperCreator;
+typedef struct IColumnMapperCreator IColumnMapperCreator;
 #endif
 
 #include "oaidl.h"
@@ -93,7 +93,7 @@ extern "C"{
       HRESULT (WINAPI *PutPhrase)(IPhraseSink *This,const WCHAR *pwcPhrase,ULONG cwcPhrase);
     END_INTERFACE
   } IPhraseSinkVtbl;
-  interface IPhraseSink {
+  struct IPhraseSink {
     CONST_VTBL struct IPhraseSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -143,7 +143,7 @@ extern "C"{
       HRESULT (WINAPI *PutBreak)(IWordSink *This,WORDREP_BREAK_TYPE breakType);
     END_INTERFACE
   } IWordSinkVtbl;
-  interface IWordSink {
+  struct IWordSink {
     CONST_VTBL struct IWordSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -207,7 +207,7 @@ extern "C"{
       HRESULT (WINAPI *GetLicenseToUse)(IWordBreaker *This,const WCHAR **ppwcsLicense);
     END_INTERFACE
   } IWordBreakerVtbl;
-  interface IWordBreaker {
+  struct IWordBreaker {
     CONST_VTBL struct IWordBreakerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -249,7 +249,7 @@ extern "C"{
       HRESULT (WINAPI *PutWord)(IWordFormSink *This,const WCHAR *pwcInBuf,ULONG cwc);
     END_INTERFACE
   } IWordFormSinkVtbl;
-  interface IWordFormSink {
+  struct IWordFormSink {
     CONST_VTBL struct IWordFormSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -287,7 +287,7 @@ extern "C"{
       HRESULT (WINAPI *GetLicenseToUse)(IStemmer *This,const WCHAR **ppwcsLicense);
     END_INTERFACE
   } IStemmerVtbl;
-  interface IStemmer {
+  struct IStemmer {
     CONST_VTBL struct IStemmerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -331,7 +331,7 @@ extern "C"{
       HRESULT (WINAPI *GetDefaultCatalog)(ISimpleCommandCreator *This,WCHAR *pwszCatalogName,ULONG cwcIn,ULONG *pcwcOut);
     END_INTERFACE
   } ISimpleCommandCreatorVtbl;
-  interface ISimpleCommandCreator {
+  struct ISimpleCommandCreator {
     CONST_VTBL struct ISimpleCommandCreatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -381,7 +381,7 @@ extern "C"{
       HRESULT (WINAPI *IsMapUpToDate)(IColumnMapper *This);
     END_INTERFACE
   } IColumnMapperVtbl;
-  interface IColumnMapper {
+  struct IColumnMapper {
     CONST_VTBL struct IColumnMapperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -428,7 +428,7 @@ extern "C"{
       HRESULT (WINAPI *GetColumnMapper)(IColumnMapperCreator *This,const WCHAR *wcsMachineName,const WCHAR *wcsCatalogName,IColumnMapper **ppColumnMapper);
     END_INTERFACE
   } IColumnMapperCreatorVtbl;
-  interface IColumnMapperCreator {
+  struct IColumnMapperCreator {
     CONST_VTBL struct IColumnMapperCreatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

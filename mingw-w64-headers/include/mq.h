@@ -8,7 +8,7 @@
 
 #ifndef __ITransaction_FWD_DEFINED__
 #define __ITransaction_FWD_DEFINED__
-typedef interface ITransaction ITransaction;
+typedef struct ITransaction ITransaction;
 #endif
 
 typedef struct tagPROPVARIANT tagMQPROPVARIANT;

@@ -19,32 +19,32 @@
 
 #ifndef __IADs_FWD_DEFINED__
 #define __IADs_FWD_DEFINED__
-typedef interface IADs IADs;
+typedef struct IADs IADs;
 #endif
 
 #ifndef __IADsContainer_FWD_DEFINED__
 #define __IADsContainer_FWD_DEFINED__
-typedef interface IADsContainer IADsContainer;
+typedef struct IADsContainer IADsContainer;
 #endif
 
 #ifndef __IADsCollection_FWD_DEFINED__
 #define __IADsCollection_FWD_DEFINED__
-typedef interface IADsCollection IADsCollection;
+typedef struct IADsCollection IADsCollection;
 #endif
 
 #ifndef __IADsMembers_FWD_DEFINED__
 #define __IADsMembers_FWD_DEFINED__
-typedef interface IADsMembers IADsMembers;
+typedef struct IADsMembers IADsMembers;
 #endif
 
 #ifndef __IADsPropertyList_FWD_DEFINED__
 #define __IADsPropertyList_FWD_DEFINED__
-typedef interface IADsPropertyList IADsPropertyList;
+typedef struct IADsPropertyList IADsPropertyList;
 #endif
 
 #ifndef __IADsPropertyEntry_FWD_DEFINED__
 #define __IADsPropertyEntry_FWD_DEFINED__
-typedef interface IADsPropertyEntry IADsPropertyEntry;
+typedef struct IADsPropertyEntry IADsPropertyEntry;
 #endif
 
 #ifndef __PropertyEntry_FWD_DEFINED__
@@ -58,12 +58,12 @@ typedef struct PropertyEntry PropertyEntry;
 
 #ifndef __IADsPropertyValue_FWD_DEFINED__
 #define __IADsPropertyValue_FWD_DEFINED__
-typedef interface IADsPropertyValue IADsPropertyValue;
+typedef struct IADsPropertyValue IADsPropertyValue;
 #endif
 
 #ifndef __IADsPropertyValue2_FWD_DEFINED__
 #define __IADsPropertyValue2_FWD_DEFINED__
-typedef interface IADsPropertyValue2 IADsPropertyValue2;
+typedef struct IADsPropertyValue2 IADsPropertyValue2;
 #endif
 
 #ifndef __PropertyValue_FWD_DEFINED__
@@ -77,172 +77,172 @@ typedef struct PropertyValue PropertyValue;
 
 #ifndef __IPrivateDispatch_FWD_DEFINED__
 #define __IPrivateDispatch_FWD_DEFINED__
-typedef interface IPrivateDispatch IPrivateDispatch;
+typedef struct IPrivateDispatch IPrivateDispatch;
 #endif
 
 #ifndef __IPrivateUnknown_FWD_DEFINED__
 #define __IPrivateUnknown_FWD_DEFINED__
-typedef interface IPrivateUnknown IPrivateUnknown;
+typedef struct IPrivateUnknown IPrivateUnknown;
 #endif
 
 #ifndef __IADsExtension_FWD_DEFINED__
 #define __IADsExtension_FWD_DEFINED__
-typedef interface IADsExtension IADsExtension;
+typedef struct IADsExtension IADsExtension;
 #endif
 
 #ifndef __IADsDeleteOps_FWD_DEFINED__
 #define __IADsDeleteOps_FWD_DEFINED__
-typedef interface IADsDeleteOps IADsDeleteOps;
+typedef struct IADsDeleteOps IADsDeleteOps;
 #endif
 
 #ifndef __IADsNamespaces_FWD_DEFINED__
 #define __IADsNamespaces_FWD_DEFINED__
-typedef interface IADsNamespaces IADsNamespaces;
+typedef struct IADsNamespaces IADsNamespaces;
 #endif
 
 #ifndef __IADsClass_FWD_DEFINED__
 #define __IADsClass_FWD_DEFINED__
-typedef interface IADsClass IADsClass;
+typedef struct IADsClass IADsClass;
 #endif
 
 #ifndef __IADsProperty_FWD_DEFINED__
 #define __IADsProperty_FWD_DEFINED__
-typedef interface IADsProperty IADsProperty;
+typedef struct IADsProperty IADsProperty;
 #endif
 
 #ifndef __IADsSyntax_FWD_DEFINED__
 #define __IADsSyntax_FWD_DEFINED__
-typedef interface IADsSyntax IADsSyntax;
+typedef struct IADsSyntax IADsSyntax;
 #endif
 
 #ifndef __IADsLocality_FWD_DEFINED__
 #define __IADsLocality_FWD_DEFINED__
-typedef interface IADsLocality IADsLocality;
+typedef struct IADsLocality IADsLocality;
 #endif
 
 #ifndef __IADsO_FWD_DEFINED__
 #define __IADsO_FWD_DEFINED__
-typedef interface IADsO IADsO;
+typedef struct IADsO IADsO;
 #endif
 
 #ifndef __IADsOU_FWD_DEFINED__
 #define __IADsOU_FWD_DEFINED__
-typedef interface IADsOU IADsOU;
+typedef struct IADsOU IADsOU;
 #endif
 
 #ifndef __IADsDomain_FWD_DEFINED__
 #define __IADsDomain_FWD_DEFINED__
-typedef interface IADsDomain IADsDomain;
+typedef struct IADsDomain IADsDomain;
 #endif
 
 #ifndef __IADsComputer_FWD_DEFINED__
 #define __IADsComputer_FWD_DEFINED__
-typedef interface IADsComputer IADsComputer;
+typedef struct IADsComputer IADsComputer;
 #endif
 
 #ifndef __IADsComputerOperations_FWD_DEFINED__
 #define __IADsComputerOperations_FWD_DEFINED__
-typedef interface IADsComputerOperations IADsComputerOperations;
+typedef struct IADsComputerOperations IADsComputerOperations;
 #endif
 
 #ifndef __IADsGroup_FWD_DEFINED__
 #define __IADsGroup_FWD_DEFINED__
-typedef interface IADsGroup IADsGroup;
+typedef struct IADsGroup IADsGroup;
 #endif
 
 #ifndef __IADsUser_FWD_DEFINED__
 #define __IADsUser_FWD_DEFINED__
-typedef interface IADsUser IADsUser;
+typedef struct IADsUser IADsUser;
 #endif
 
 #ifndef __IADsPrintQueue_FWD_DEFINED__
 #define __IADsPrintQueue_FWD_DEFINED__
-typedef interface IADsPrintQueue IADsPrintQueue;
+typedef struct IADsPrintQueue IADsPrintQueue;
 #endif
 
 #ifndef __IADsPrintQueueOperations_FWD_DEFINED__
 #define __IADsPrintQueueOperations_FWD_DEFINED__
-typedef interface IADsPrintQueueOperations IADsPrintQueueOperations;
+typedef struct IADsPrintQueueOperations IADsPrintQueueOperations;
 #endif
 
 #ifndef __IADsPrintJob_FWD_DEFINED__
 #define __IADsPrintJob_FWD_DEFINED__
-typedef interface IADsPrintJob IADsPrintJob;
+typedef struct IADsPrintJob IADsPrintJob;
 #endif
 
 #ifndef __IADsPrintJobOperations_FWD_DEFINED__
 #define __IADsPrintJobOperations_FWD_DEFINED__
-typedef interface IADsPrintJobOperations IADsPrintJobOperations;
+typedef struct IADsPrintJobOperations IADsPrintJobOperations;
 #endif
 
 #ifndef __IADsService_FWD_DEFINED__
 #define __IADsService_FWD_DEFINED__
-typedef interface IADsService IADsService;
+typedef struct IADsService IADsService;
 #endif
 
 #ifndef __IADsServiceOperations_FWD_DEFINED__
 #define __IADsServiceOperations_FWD_DEFINED__
-typedef interface IADsServiceOperations IADsServiceOperations;
+typedef struct IADsServiceOperations IADsServiceOperations;
 #endif
 
 #ifndef __IADsFileService_FWD_DEFINED__
 #define __IADsFileService_FWD_DEFINED__
-typedef interface IADsFileService IADsFileService;
+typedef struct IADsFileService IADsFileService;
 #endif
 
 #ifndef __IADsFileServiceOperations_FWD_DEFINED__
 #define __IADsFileServiceOperations_FWD_DEFINED__
-typedef interface IADsFileServiceOperations IADsFileServiceOperations;
+typedef struct IADsFileServiceOperations IADsFileServiceOperations;
 #endif
 
 #ifndef __IADsFileShare_FWD_DEFINED__
 #define __IADsFileShare_FWD_DEFINED__
-typedef interface IADsFileShare IADsFileShare;
+typedef struct IADsFileShare IADsFileShare;
 #endif
 
 #ifndef __IADsSession_FWD_DEFINED__
 #define __IADsSession_FWD_DEFINED__
-typedef interface IADsSession IADsSession;
+typedef struct IADsSession IADsSession;
 #endif
 
 #ifndef __IADsResource_FWD_DEFINED__
 #define __IADsResource_FWD_DEFINED__
-typedef interface IADsResource IADsResource;
+typedef struct IADsResource IADsResource;
 #endif
 
 #ifndef __IADsOpenDSObject_FWD_DEFINED__
 #define __IADsOpenDSObject_FWD_DEFINED__
-typedef interface IADsOpenDSObject IADsOpenDSObject;
+typedef struct IADsOpenDSObject IADsOpenDSObject;
 #endif
 
 #ifndef __IDirectoryObject_FWD_DEFINED__
 #define __IDirectoryObject_FWD_DEFINED__
-typedef interface IDirectoryObject IDirectoryObject;
+typedef struct IDirectoryObject IDirectoryObject;
 #endif
 
 #ifndef __IDirectorySearch_FWD_DEFINED__
 #define __IDirectorySearch_FWD_DEFINED__
-typedef interface IDirectorySearch IDirectorySearch;
+typedef struct IDirectorySearch IDirectorySearch;
 #endif
 
 #ifndef __IDirectorySchemaMgmt_FWD_DEFINED__
 #define __IDirectorySchemaMgmt_FWD_DEFINED__
-typedef interface IDirectorySchemaMgmt IDirectorySchemaMgmt;
+typedef struct IDirectorySchemaMgmt IDirectorySchemaMgmt;
 #endif
 
 #ifndef __IADsAggregatee_FWD_DEFINED__
 #define __IADsAggregatee_FWD_DEFINED__
-typedef interface IADsAggregatee IADsAggregatee;
+typedef struct IADsAggregatee IADsAggregatee;
 #endif
 
 #ifndef __IADsAggregator_FWD_DEFINED__
 #define __IADsAggregator_FWD_DEFINED__
-typedef interface IADsAggregator IADsAggregator;
+typedef struct IADsAggregator IADsAggregator;
 #endif
 
 #ifndef __IADsAccessControlEntry_FWD_DEFINED__
 #define __IADsAccessControlEntry_FWD_DEFINED__
-typedef interface IADsAccessControlEntry IADsAccessControlEntry;
+typedef struct IADsAccessControlEntry IADsAccessControlEntry;
 #endif
 
 #ifndef __AccessControlEntry_FWD_DEFINED__
@@ -256,7 +256,7 @@ typedef struct AccessControlEntry AccessControlEntry;
 
 #ifndef __IADsAccessControlList_FWD_DEFINED__
 #define __IADsAccessControlList_FWD_DEFINED__
-typedef interface IADsAccessControlList IADsAccessControlList;
+typedef struct IADsAccessControlList IADsAccessControlList;
 #endif
 
 #ifndef __AccessControlList_FWD_DEFINED__
@@ -270,7 +270,7 @@ typedef struct AccessControlList AccessControlList;
 
 #ifndef __IADsSecurityDescriptor_FWD_DEFINED__
 #define __IADsSecurityDescriptor_FWD_DEFINED__
-typedef interface IADsSecurityDescriptor IADsSecurityDescriptor;
+typedef struct IADsSecurityDescriptor IADsSecurityDescriptor;
 #endif
 
 #ifndef __SecurityDescriptor_FWD_DEFINED__
@@ -284,7 +284,7 @@ typedef struct SecurityDescriptor SecurityDescriptor;
 
 #ifndef __IADsLargeInteger_FWD_DEFINED__
 #define __IADsLargeInteger_FWD_DEFINED__
-typedef interface IADsLargeInteger IADsLargeInteger;
+typedef struct IADsLargeInteger IADsLargeInteger;
 #endif
 
 #ifndef __LargeInteger_FWD_DEFINED__
@@ -298,7 +298,7 @@ typedef struct LargeInteger LargeInteger;
 
 #ifndef __IADsNameTranslate_FWD_DEFINED__
 #define __IADsNameTranslate_FWD_DEFINED__
-typedef interface IADsNameTranslate IADsNameTranslate;
+typedef struct IADsNameTranslate IADsNameTranslate;
 #endif
 
 #ifndef __NameTranslate_FWD_DEFINED__
@@ -312,7 +312,7 @@ typedef struct NameTranslate NameTranslate;
 
 #ifndef __IADsCaseIgnoreList_FWD_DEFINED__
 #define __IADsCaseIgnoreList_FWD_DEFINED__
-typedef interface IADsCaseIgnoreList IADsCaseIgnoreList;
+typedef struct IADsCaseIgnoreList IADsCaseIgnoreList;
 #endif
 
 #ifndef __CaseIgnoreList_FWD_DEFINED__
@@ -326,7 +326,7 @@ typedef struct CaseIgnoreList CaseIgnoreList;
 
 #ifndef __IADsFaxNumber_FWD_DEFINED__
 #define __IADsFaxNumber_FWD_DEFINED__
-typedef interface IADsFaxNumber IADsFaxNumber;
+typedef struct IADsFaxNumber IADsFaxNumber;
 #endif
 
 #ifndef __FaxNumber_FWD_DEFINED__
@@ -340,7 +340,7 @@ typedef struct FaxNumber FaxNumber;
 
 #ifndef __IADsNetAddress_FWD_DEFINED__
 #define __IADsNetAddress_FWD_DEFINED__
-typedef interface IADsNetAddress IADsNetAddress;
+typedef struct IADsNetAddress IADsNetAddress;
 #endif
 
 #ifndef __NetAddress_FWD_DEFINED__
@@ -354,7 +354,7 @@ typedef struct NetAddress NetAddress;
 
 #ifndef __IADsOctetList_FWD_DEFINED__
 #define __IADsOctetList_FWD_DEFINED__
-typedef interface IADsOctetList IADsOctetList;
+typedef struct IADsOctetList IADsOctetList;
 #endif
 
 #ifndef __OctetList_FWD_DEFINED__
@@ -368,7 +368,7 @@ typedef struct OctetList OctetList;
 
 #ifndef __IADsEmail_FWD_DEFINED__
 #define __IADsEmail_FWD_DEFINED__
-typedef interface IADsEmail IADsEmail;
+typedef struct IADsEmail IADsEmail;
 #endif
 
 #ifndef __Email_FWD_DEFINED__
@@ -382,7 +382,7 @@ typedef struct Email Email;
 
 #ifndef __IADsPath_FWD_DEFINED__
 #define __IADsPath_FWD_DEFINED__
-typedef interface IADsPath IADsPath;
+typedef struct IADsPath IADsPath;
 #endif
 
 #ifndef __Path_FWD_DEFINED__
@@ -396,7 +396,7 @@ typedef struct Path Path;
 
 #ifndef __IADsReplicaPointer_FWD_DEFINED__
 #define __IADsReplicaPointer_FWD_DEFINED__
-typedef interface IADsReplicaPointer IADsReplicaPointer;
+typedef struct IADsReplicaPointer IADsReplicaPointer;
 #endif
 
 #ifndef __ReplicaPointer_FWD_DEFINED__
@@ -410,12 +410,12 @@ typedef struct ReplicaPointer ReplicaPointer;
 
 #ifndef __IADsAcl_FWD_DEFINED__
 #define __IADsAcl_FWD_DEFINED__
-typedef interface IADsAcl IADsAcl;
+typedef struct IADsAcl IADsAcl;
 #endif
 
 #ifndef __IADsTimestamp_FWD_DEFINED__
 #define __IADsTimestamp_FWD_DEFINED__
-typedef interface IADsTimestamp IADsTimestamp;
+typedef struct IADsTimestamp IADsTimestamp;
 #endif
 
 #ifndef __Timestamp_FWD_DEFINED__
@@ -430,7 +430,7 @@ typedef struct Timestamp Timestamp;
 
 #ifndef __IADsPostalAddress_FWD_DEFINED__
 #define __IADsPostalAddress_FWD_DEFINED__
-typedef interface IADsPostalAddress IADsPostalAddress;
+typedef struct IADsPostalAddress IADsPostalAddress;
 #endif
 
 #ifndef __PostalAddress_FWD_DEFINED__
@@ -444,7 +444,7 @@ typedef struct PostalAddress PostalAddress;
 
 #ifndef __IADsBackLink_FWD_DEFINED__
 #define __IADsBackLink_FWD_DEFINED__
-typedef interface IADsBackLink IADsBackLink;
+typedef struct IADsBackLink IADsBackLink;
 #endif
 
 #ifndef __BackLink_FWD_DEFINED__
@@ -458,7 +458,7 @@ typedef struct BackLink BackLink;
 
 #ifndef __IADsTypedName_FWD_DEFINED__
 #define __IADsTypedName_FWD_DEFINED__
-typedef interface IADsTypedName IADsTypedName;
+typedef struct IADsTypedName IADsTypedName;
 #endif
 
 #ifndef __TypedName_FWD_DEFINED__
@@ -472,7 +472,7 @@ typedef struct TypedName TypedName;
 
 #ifndef __IADsHold_FWD_DEFINED__
 #define __IADsHold_FWD_DEFINED__
-typedef interface IADsHold IADsHold;
+typedef struct IADsHold IADsHold;
 #endif
 
 #ifndef __Hold_FWD_DEFINED__
@@ -486,12 +486,12 @@ typedef struct Hold Hold;
 
 #ifndef __IADsObjectOptions_FWD_DEFINED__
 #define __IADsObjectOptions_FWD_DEFINED__
-typedef interface IADsObjectOptions IADsObjectOptions;
+typedef struct IADsObjectOptions IADsObjectOptions;
 #endif
 
 #ifndef __IADsPathname_FWD_DEFINED__
 #define __IADsPathname_FWD_DEFINED__
-typedef interface IADsPathname IADsPathname;
+typedef struct IADsPathname IADsPathname;
 #endif
 
 #ifndef __Pathname_FWD_DEFINED__
@@ -505,7 +505,7 @@ typedef struct Pathname Pathname;
 
 #ifndef __IADsADSystemInfo_FWD_DEFINED__
 #define __IADsADSystemInfo_FWD_DEFINED__
-typedef interface IADsADSystemInfo IADsADSystemInfo;
+typedef struct IADsADSystemInfo IADsADSystemInfo;
 #endif
 
 #ifndef __ADSystemInfo_FWD_DEFINED__
@@ -519,7 +519,7 @@ typedef struct ADSystemInfo ADSystemInfo;
 
 #ifndef __IADsWinNTSystemInfo_FWD_DEFINED__
 #define __IADsWinNTSystemInfo_FWD_DEFINED__
-typedef interface IADsWinNTSystemInfo IADsWinNTSystemInfo;
+typedef struct IADsWinNTSystemInfo IADsWinNTSystemInfo;
 #endif
 
 #ifndef __WinNTSystemInfo_FWD_DEFINED__
@@ -533,7 +533,7 @@ typedef struct WinNTSystemInfo WinNTSystemInfo;
 
 #ifndef __IADsDNWithBinary_FWD_DEFINED__
 #define __IADsDNWithBinary_FWD_DEFINED__
-typedef interface IADsDNWithBinary IADsDNWithBinary;
+typedef struct IADsDNWithBinary IADsDNWithBinary;
 #endif
 
 #ifndef __DNWithBinary_FWD_DEFINED__
@@ -547,7 +547,7 @@ typedef struct DNWithBinary DNWithBinary;
 
 #ifndef __IADsDNWithString_FWD_DEFINED__
 #define __IADsDNWithString_FWD_DEFINED__
-typedef interface IADsDNWithString IADsDNWithString;
+typedef struct IADsDNWithString IADsDNWithString;
 #endif
 
 #ifndef __DNWithString_FWD_DEFINED__
@@ -561,7 +561,7 @@ typedef struct DNWithString DNWithString;
 
 #ifndef __IADsSecurityUtility_FWD_DEFINED__
 #define __IADsSecurityUtility_FWD_DEFINED__
-typedef interface IADsSecurityUtility IADsSecurityUtility;
+typedef struct IADsSecurityUtility IADsSecurityUtility;
 #endif
 
 #ifndef __ADsSecurityUtility_FWD_DEFINED__
@@ -1081,7 +1081,7 @@ extern "C"{
       HRESULT (WINAPI *GetInfoEx)(IADs *This,VARIANT vProperties,long lnReserved);
     END_INTERFACE
   } IADsVtbl;
-  interface IADs {
+  struct IADs {
     CONST_VTBL struct IADsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1176,7 +1176,7 @@ extern "C"{
       HRESULT (WINAPI *MoveHere)(IADsContainer *This,BSTR SourceName,BSTR NewName,IDispatch **ppObject);
     END_INTERFACE
   } IADsContainerVtbl;
-  interface IADsContainer {
+  struct IADsContainer {
     CONST_VTBL struct IADsContainerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1251,7 +1251,7 @@ extern "C"{
       HRESULT (WINAPI *GetObject)(IADsCollection *This,BSTR bstrName,VARIANT *pvItem);
     END_INTERFACE
   } IADsCollectionVtbl;
-  interface IADsCollection {
+  struct IADsCollection {
     CONST_VTBL struct IADsCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1305,7 +1305,7 @@ extern "C"{
       HRESULT (WINAPI *put_Filter)(IADsMembers *This,VARIANT pvFilter);
     END_INTERFACE
   } IADsMembersVtbl;
-  interface IADsMembers {
+  struct IADsMembers {
     CONST_VTBL struct IADsMembersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1369,7 +1369,7 @@ extern "C"{
       HRESULT (WINAPI *PurgePropertyList)(IADsPropertyList *This);
     END_INTERFACE
   } IADsPropertyListVtbl;
-  interface IADsPropertyList {
+  struct IADsPropertyList {
     CONST_VTBL struct IADsPropertyListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1448,7 +1448,7 @@ extern "C"{
       HRESULT (WINAPI *put_Values)(IADsPropertyEntry *This,VARIANT vValues);
     END_INTERFACE
   } IADsPropertyEntryVtbl;
-  interface IADsPropertyEntry {
+  struct IADsPropertyEntry {
     CONST_VTBL struct IADsPropertyEntryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1564,7 +1564,7 @@ extern "C"{
       HRESULT (WINAPI *put_UTCTime)(IADsPropertyValue *This,DATE daUTCTime);
     END_INTERFACE
   } IADsPropertyValueVtbl;
-  interface IADsPropertyValue {
+  struct IADsPropertyValue {
     CONST_VTBL struct IADsPropertyValueVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1677,7 +1677,7 @@ extern "C"{
       HRESULT (WINAPI *PutObjectProperty)(IADsPropertyValue2 *This,long lnADsType,VARIANT vProp);
     END_INTERFACE
   } IADsPropertyValue2Vtbl;
-  interface IADsPropertyValue2 {
+  struct IADsPropertyValue2 {
     CONST_VTBL struct IADsPropertyValue2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1728,7 +1728,7 @@ extern "C"{
       HRESULT (WINAPI *ADSIInvoke)(IPrivateDispatch *This,DISPID dispidMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pdispparams,VARIANT *pvarResult,EXCEPINFO *pexcepinfo,UINT *puArgErr);
     END_INTERFACE
   } IPrivateDispatchVtbl;
-  interface IPrivateDispatch {
+  struct IPrivateDispatch {
     CONST_VTBL struct IPrivateDispatchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1773,7 +1773,7 @@ extern "C"{
       HRESULT (WINAPI *ADSIReleaseObject)(IPrivateUnknown *This);
     END_INTERFACE
   } IPrivateUnknownVtbl;
-  interface IPrivateUnknown {
+  struct IPrivateUnknown {
     CONST_VTBL struct IPrivateUnknownVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1811,7 +1811,7 @@ extern "C"{
       HRESULT (WINAPI *PrivateInvoke)(IADsExtension *This,DISPID dispidMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pdispparams,VARIANT *pvarResult,EXCEPINFO *pexcepinfo,unsigned int *puArgErr);
     END_INTERFACE
   } IADsExtensionVtbl;
-  interface IADsExtension {
+  struct IADsExtension {
     CONST_VTBL struct IADsExtensionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1852,7 +1852,7 @@ extern "C"{
       HRESULT (WINAPI *DeleteObject)(IADsDeleteOps *This,long lnFlags);
     END_INTERFACE
   } IADsDeleteOpsVtbl;
-  interface IADsDeleteOps {
+  struct IADsDeleteOps {
     CONST_VTBL struct IADsDeleteOpsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1906,7 +1906,7 @@ extern "C"{
       HRESULT (WINAPI *put_DefaultContainer)(IADsNamespaces *This,BSTR bstrDefaultContainer);
     END_INTERFACE
   } IADsNamespacesVtbl;
-  interface IADsNamespaces {
+  struct IADsNamespaces {
     CONST_VTBL struct IADsNamespacesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2032,7 +2032,7 @@ extern "C"{
       HRESULT (WINAPI *Qualifiers)(IADsClass *This,IADsCollection **ppQualifiers);
     END_INTERFACE
   } IADsClassVtbl;
-  interface IADsClass {
+  struct IADsClass {
     CONST_VTBL struct IADsClassVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2204,7 +2204,7 @@ extern "C"{
       HRESULT (WINAPI *Qualifiers)(IADsProperty *This,IADsCollection **ppQualifiers);
     END_INTERFACE
   } IADsPropertyVtbl;
-  interface IADsProperty {
+  struct IADsProperty {
     CONST_VTBL struct IADsPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2301,7 +2301,7 @@ extern "C"{
       HRESULT (WINAPI *put_OleAutoDataType)(IADsSyntax *This,long lnOleAutoDataType);
     END_INTERFACE
   } IADsSyntaxVtbl;
-  interface IADsSyntax {
+  struct IADsSyntax {
     CONST_VTBL struct IADsSyntaxVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2383,7 +2383,7 @@ extern "C"{
       HRESULT (WINAPI *put_SeeAlso)(IADsLocality *This,VARIANT vSeeAlso);
     END_INTERFACE
   } IADsLocalityVtbl;
-  interface IADsLocality {
+  struct IADsLocality {
     CONST_VTBL struct IADsLocalityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2491,7 +2491,7 @@ extern "C"{
       HRESULT (WINAPI *put_SeeAlso)(IADsO *This,VARIANT vSeeAlso);
     END_INTERFACE
   } IADsOVtbl;
-  interface IADsO {
+  struct IADsO {
     CONST_VTBL struct IADsOVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2615,7 +2615,7 @@ extern "C"{
       HRESULT (WINAPI *put_BusinessCategory)(IADsOU *This,BSTR bstrBusinessCategory);
     END_INTERFACE
   } IADsOUVtbl;
-  interface IADsOU {
+  struct IADsOU {
     CONST_VTBL struct IADsOUVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2751,7 +2751,7 @@ extern "C"{
       HRESULT (WINAPI *put_LockoutObservationInterval)(IADsDomain *This,long lnLockoutObservationInterval);
     END_INTERFACE
   } IADsDomainVtbl;
-  interface IADsDomain {
+  struct IADsDomain {
     CONST_VTBL struct IADsDomainVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2926,7 +2926,7 @@ extern "C"{
       HRESULT (WINAPI *put_NetAddresses)(IADsComputer *This,VARIANT vNetAddresses);
     END_INTERFACE
   } IADsComputerVtbl;
-  interface IADsComputer {
+  struct IADsComputer {
     CONST_VTBL struct IADsComputerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3086,7 +3086,7 @@ extern "C"{
       HRESULT (WINAPI *Shutdown)(IADsComputerOperations *This,VARIANT_BOOL bReboot);
     END_INTERFACE
   } IADsComputerOperationsVtbl;
-  interface IADsComputerOperations {
+  struct IADsComputerOperations {
     CONST_VTBL struct IADsComputerOperationsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3164,7 +3164,7 @@ extern "C"{
       HRESULT (WINAPI *Remove)(IADsGroup *This,BSTR bstrItemToBeRemoved);
     END_INTERFACE
   } IADsGroupVtbl;
-  interface IADsGroup {
+  struct IADsGroup {
     CONST_VTBL struct IADsGroupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3424,7 +3424,7 @@ extern "C"{
       HRESULT (WINAPI *ChangePassword)(IADsUser *This,BSTR bstrOldPassword,BSTR bstrNewPassword);
     END_INTERFACE
   } IADsUserVtbl;
-  interface IADsUser {
+  struct IADsUser {
     CONST_VTBL struct IADsUserVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3809,7 +3809,7 @@ extern "C"{
       HRESULT (WINAPI *put_NetAddresses)(IADsPrintQueue *This,VARIANT vNetAddresses);
     END_INTERFACE
   } IADsPrintQueueVtbl;
-  interface IADsPrintQueue {
+  struct IADsPrintQueue {
     CONST_VTBL struct IADsPrintQueueVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3957,7 +3957,7 @@ extern "C"{
       HRESULT (WINAPI *Purge)(IADsPrintQueueOperations *This);
     END_INTERFACE
   } IADsPrintQueueOperationsVtbl;
-  interface IADsPrintQueueOperations {
+  struct IADsPrintQueueOperations {
     CONST_VTBL struct IADsPrintQueueOperationsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4068,7 +4068,7 @@ extern "C"{
       HRESULT (WINAPI *put_NotifyPath)(IADsPrintJob *This,BSTR bstrNotifyPath);
     END_INTERFACE
   } IADsPrintJobVtbl;
-  interface IADsPrintJob {
+  struct IADsPrintJob {
     CONST_VTBL struct IADsPrintJobVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4196,7 +4196,7 @@ extern "C"{
       HRESULT (WINAPI *Resume)(IADsPrintJobOperations *This);
     END_INTERFACE
   } IADsPrintJobOperationsVtbl;
-  interface IADsPrintJobOperations {
+  struct IADsPrintJobOperations {
     CONST_VTBL struct IADsPrintJobOperationsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4325,7 +4325,7 @@ extern "C"{
       HRESULT (WINAPI *put_Dependencies)(IADsService *This,VARIANT vDependencies);
     END_INTERFACE
   } IADsServiceVtbl;
-  interface IADsService {
+  struct IADsService {
     CONST_VTBL struct IADsServiceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4469,7 +4469,7 @@ extern "C"{
       HRESULT (WINAPI *SetPassword)(IADsServiceOperations *This,BSTR bstrNewPassword);
     END_INTERFACE
   } IADsServiceOperationsVtbl;
-  interface IADsServiceOperations {
+  struct IADsServiceOperations {
     CONST_VTBL struct IADsServiceOperationsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4579,7 +4579,7 @@ extern "C"{
       HRESULT (WINAPI *put_MaxUserCount)(IADsFileService *This,long lnMaxUserCount);
     END_INTERFACE
   } IADsFileServiceVtbl;
-  interface IADsFileService {
+  struct IADsFileService {
     CONST_VTBL struct IADsFileServiceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4685,7 +4685,7 @@ extern "C"{
       HRESULT (WINAPI *Resources)(IADsFileServiceOperations *This,IADsCollection **ppResources);
     END_INTERFACE
   } IADsFileServiceOperationsVtbl;
-  interface IADsFileServiceOperations {
+  struct IADsFileServiceOperations {
     CONST_VTBL struct IADsFileServiceOperationsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4775,7 +4775,7 @@ extern "C"{
       HRESULT (WINAPI *put_MaxUserCount)(IADsFileShare *This,long lnMaxUserCount);
     END_INTERFACE
   } IADsFileShareVtbl;
-  interface IADsFileShare {
+  struct IADsFileShare {
     CONST_VTBL struct IADsFileShareVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4874,7 +4874,7 @@ extern "C"{
       HRESULT (WINAPI *get_IdleTime)(IADsSession *This,long *retval);
     END_INTERFACE
   } IADsSessionVtbl;
-  interface IADsSession {
+  struct IADsSession {
     CONST_VTBL struct IADsSessionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4960,7 +4960,7 @@ extern "C"{
       HRESULT (WINAPI *get_LockCount)(IADsResource *This,long *retval);
     END_INTERFACE
   } IADsResourceVtbl;
-  interface IADsResource {
+  struct IADsResource {
     CONST_VTBL struct IADsResourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5021,7 +5021,7 @@ extern "C"{
       HRESULT (WINAPI *OpenDSObject)(IADsOpenDSObject *This,BSTR lpszDNName,BSTR lpszUserName,BSTR lpszPassword,long lnReserved,IDispatch **ppOleDsObj);
     END_INTERFACE
   } IADsOpenDSObjectVtbl;
-  interface IADsOpenDSObject {
+  struct IADsOpenDSObject {
     CONST_VTBL struct IADsOpenDSObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5065,7 +5065,7 @@ extern "C"{
       HRESULT (WINAPI *DeleteDSObject)(IDirectoryObject *This,LPWSTR pszRDNName);
     END_INTERFACE
   } IDirectoryObjectVtbl;
-  interface IDirectoryObject {
+  struct IDirectoryObject {
     CONST_VTBL struct IDirectoryObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5126,7 +5126,7 @@ extern "C"{
       HRESULT (WINAPI *CloseSearchHandle)(IDirectorySearch *This,ADS_SEARCH_HANDLE hSearchResult);
     END_INTERFACE
   } IDirectorySearchVtbl;
-  interface IDirectorySearch {
+  struct IDirectorySearch {
     CONST_VTBL struct IDirectorySearchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5198,7 +5198,7 @@ extern "C"{
       HRESULT (WINAPI *DeleteClassDefinition)(IDirectorySchemaMgmt *This,LPWSTR pszClassName);
     END_INTERFACE
   } IDirectorySchemaMgmtVtbl;
-  interface IDirectorySchemaMgmt {
+  struct IDirectorySchemaMgmt {
     CONST_VTBL struct IDirectorySchemaMgmtVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5256,7 +5256,7 @@ extern "C"{
       HRESULT (WINAPI *RestoreInterface)(IADsAggregatee *This,REFIID riid);
     END_INTERFACE
   } IADsAggregateeVtbl;
-  interface IADsAggregatee {
+  struct IADsAggregatee {
     CONST_VTBL struct IADsAggregateeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5298,7 +5298,7 @@ extern "C"{
       HRESULT (WINAPI *DisconnectAsAggregator)(IADsAggregator *This);
     END_INTERFACE
   } IADsAggregatorVtbl;
-  interface IADsAggregator {
+  struct IADsAggregator {
     CONST_VTBL struct IADsAggregatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5362,7 +5362,7 @@ extern "C"{
       HRESULT (WINAPI *put_Trustee)(IADsAccessControlEntry *This,BSTR bstrTrustee);
     END_INTERFACE
   } IADsAccessControlEntryVtbl;
-  interface IADsAccessControlEntry {
+  struct IADsAccessControlEntry {
     CONST_VTBL struct IADsAccessControlEntryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5459,7 +5459,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IADsAccessControlList *This,IUnknown **retval);
     END_INTERFACE
   } IADsAccessControlListVtbl;
-  interface IADsAccessControlList {
+  struct IADsAccessControlList {
     CONST_VTBL struct IADsAccessControlListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5564,7 +5564,7 @@ extern "C"{
       HRESULT (WINAPI *CopySecurityDescriptor)(IADsSecurityDescriptor *This,IDispatch **ppSecurityDescriptor);
     END_INTERFACE
   } IADsSecurityDescriptorVtbl;
-  interface IADsSecurityDescriptor {
+  struct IADsSecurityDescriptor {
     CONST_VTBL struct IADsSecurityDescriptorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5674,7 +5674,7 @@ extern "C"{
       HRESULT (WINAPI *put_LowPart)(IADsLargeInteger *This,long lnLowPart);
     END_INTERFACE
   } IADsLargeIntegerVtbl;
-  interface IADsLargeInteger {
+  struct IADsLargeInteger {
     CONST_VTBL struct IADsLargeIntegerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5739,7 +5739,7 @@ extern "C"{
       HRESULT (WINAPI *GetEx)(IADsNameTranslate *This,long lnFormatType,VARIANT *pvar);
     END_INTERFACE
   } IADsNameTranslateVtbl;
-  interface IADsNameTranslate {
+  struct IADsNameTranslate {
     CONST_VTBL struct IADsNameTranslateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5803,7 +5803,7 @@ extern "C"{
       HRESULT (WINAPI *put_CaseIgnoreList)(IADsCaseIgnoreList *This,VARIANT vCaseIgnoreList);
     END_INTERFACE
   } IADsCaseIgnoreListVtbl;
-  interface IADsCaseIgnoreList {
+  struct IADsCaseIgnoreList {
     CONST_VTBL struct IADsCaseIgnoreListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5856,7 +5856,7 @@ extern "C"{
       HRESULT (WINAPI *put_Parameters)(IADsFaxNumber *This,VARIANT vParameters);
     END_INTERFACE
   } IADsFaxNumberVtbl;
-  interface IADsFaxNumber {
+  struct IADsFaxNumber {
     CONST_VTBL struct IADsFaxNumberVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5915,7 +5915,7 @@ extern "C"{
       HRESULT (WINAPI *put_Address)(IADsNetAddress *This,VARIANT vAddress);
     END_INTERFACE
   } IADsNetAddressVtbl;
-  interface IADsNetAddress {
+  struct IADsNetAddress {
     CONST_VTBL struct IADsNetAddressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5970,7 +5970,7 @@ extern "C"{
       HRESULT (WINAPI *put_OctetList)(IADsOctetList *This,VARIANT vOctetList);
     END_INTERFACE
   } IADsOctetListVtbl;
-  interface IADsOctetList {
+  struct IADsOctetList {
     CONST_VTBL struct IADsOctetListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6023,7 +6023,7 @@ extern "C"{
       HRESULT (WINAPI *put_Address)(IADsEmail *This,BSTR bstrAddress);
     END_INTERFACE
   } IADsEmailVtbl;
-  interface IADsEmail {
+  struct IADsEmail {
     CONST_VTBL struct IADsEmailVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6086,7 +6086,7 @@ extern "C"{
       HRESULT (WINAPI *put_Path)(IADsPath *This,BSTR bstrPath);
     END_INTERFACE
   } IADsPathVtbl;
-  interface IADsPath {
+  struct IADsPath {
     CONST_VTBL struct IADsPathVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6163,7 +6163,7 @@ extern "C"{
       HRESULT (WINAPI *put_ReplicaAddressHints)(IADsReplicaPointer *This,VARIANT vReplicaAddressHints);
     END_INTERFACE
   } IADsReplicaPointerVtbl;
-  interface IADsReplicaPointer {
+  struct IADsReplicaPointer {
     CONST_VTBL struct IADsReplicaPointerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6246,7 +6246,7 @@ extern "C"{
       HRESULT (WINAPI *CopyAcl)(IADsAcl *This,IDispatch **ppAcl);
     END_INTERFACE
   } IADsAclVtbl;
-  interface IADsAcl {
+  struct IADsAcl {
     CONST_VTBL struct IADsAclVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6309,7 +6309,7 @@ extern "C"{
       HRESULT (WINAPI *put_EventID)(IADsTimestamp *This,long lnEventID);
     END_INTERFACE
   } IADsTimestampVtbl;
-  interface IADsTimestamp {
+  struct IADsTimestamp {
     CONST_VTBL struct IADsTimestampVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6364,7 +6364,7 @@ extern "C"{
       HRESULT (WINAPI *put_PostalAddress)(IADsPostalAddress *This,VARIANT vPostalAddress);
     END_INTERFACE
   } IADsPostalAddressVtbl;
-  interface IADsPostalAddress {
+  struct IADsPostalAddress {
     CONST_VTBL struct IADsPostalAddressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6417,7 +6417,7 @@ extern "C"{
       HRESULT (WINAPI *put_ObjectName)(IADsBackLink *This,BSTR bstrObjectName);
     END_INTERFACE
   } IADsBackLinkVtbl;
-  interface IADsBackLink {
+  struct IADsBackLink {
     CONST_VTBL struct IADsBackLinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6480,7 +6480,7 @@ extern "C"{
       HRESULT (WINAPI *put_Interval)(IADsTypedName *This,long lnInterval);
     END_INTERFACE
   } IADsTypedNameVtbl;
-  interface IADsTypedName {
+  struct IADsTypedName {
     CONST_VTBL struct IADsTypedNameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6545,7 +6545,7 @@ extern "C"{
       HRESULT (WINAPI *put_Amount)(IADsHold *This,long lnAmount);
     END_INTERFACE
   } IADsHoldVtbl;
-  interface IADsHold {
+  struct IADsHold {
     CONST_VTBL struct IADsHoldVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6600,7 +6600,7 @@ extern "C"{
       HRESULT (WINAPI *SetOption)(IADsObjectOptions *This,long lnOption,VARIANT vValue);
     END_INTERFACE
   } IADsObjectOptionsVtbl;
-  interface IADsObjectOptions {
+  struct IADsObjectOptions {
     CONST_VTBL struct IADsObjectOptionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6662,7 +6662,7 @@ extern "C"{
       HRESULT (WINAPI *put_EscapedMode)(IADsPathname *This,long lnEscapedMode);
     END_INTERFACE
   } IADsPathnameVtbl;
-  interface IADsPathname {
+  struct IADsPathname {
     CONST_VTBL struct IADsPathnameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6760,7 +6760,7 @@ extern "C"{
       HRESULT (WINAPI *GetTrees)(IADsADSystemInfo *This,VARIANT *pvTrees);
     END_INTERFACE
   } IADsADSystemInfoVtbl;
-  interface IADsADSystemInfo {
+  struct IADsADSystemInfo {
     CONST_VTBL struct IADsADSystemInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6846,7 +6846,7 @@ extern "C"{
       HRESULT (WINAPI *get_PDC)(IADsWinNTSystemInfo *This,BSTR *retval);
     END_INTERFACE
   } IADsWinNTSystemInfoVtbl;
-  interface IADsWinNTSystemInfo {
+  struct IADsWinNTSystemInfo {
     CONST_VTBL struct IADsWinNTSystemInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6905,7 +6905,7 @@ extern "C"{
       HRESULT (WINAPI *put_DNString)(IADsDNWithBinary *This,BSTR bstrDNString);
     END_INTERFACE
   } IADsDNWithBinaryVtbl;
-  interface IADsDNWithBinary {
+  struct IADsDNWithBinary {
     CONST_VTBL struct IADsDNWithBinaryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6964,7 +6964,7 @@ extern "C"{
       HRESULT (WINAPI *put_DNString)(IADsDNWithString *This,BSTR bstrDNString);
     END_INTERFACE
   } IADsDNWithStringVtbl;
-  interface IADsDNWithString {
+  struct IADsDNWithString {
     CONST_VTBL struct IADsDNWithStringVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7025,7 +7025,7 @@ extern "C"{
       HRESULT (WINAPI *put_SecurityMask)(IADsSecurityUtility *This,long lnSecurityMask);
     END_INTERFACE
   } IADsSecurityUtilityVtbl;
-  interface IADsSecurityUtility {
+  struct IADsSecurityUtility {
     CONST_VTBL struct IADsSecurityUtilityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,22 +24,22 @@
 
 #ifndef __IEnumSTATURL_FWD_DEFINED__
 #define __IEnumSTATURL_FWD_DEFINED__
-typedef interface IEnumSTATURL IEnumSTATURL;
+typedef struct IEnumSTATURL IEnumSTATURL;
 #endif
 
 #ifndef __IUrlHistoryStg_FWD_DEFINED__
 #define __IUrlHistoryStg_FWD_DEFINED__
-typedef interface IUrlHistoryStg IUrlHistoryStg;
+typedef struct IUrlHistoryStg IUrlHistoryStg;
 #endif
 
 #ifndef __IUrlHistoryStg2_FWD_DEFINED__
 #define __IUrlHistoryStg2_FWD_DEFINED__
-typedef interface IUrlHistoryStg2 IUrlHistoryStg2;
+typedef struct IUrlHistoryStg2 IUrlHistoryStg2;
 #endif
 
 #ifndef __IUrlHistoryNotify_FWD_DEFINED__
 #define __IUrlHistoryNotify_FWD_DEFINED__
-typedef interface IUrlHistoryNotify IUrlHistoryNotify;
+typedef struct IUrlHistoryNotify IUrlHistoryNotify;
 #endif
 
 #include "objidl.h"
@@ -107,7 +107,7 @@ extern "C" {
       HRESULT (WINAPI *SetFilter)(IEnumSTATURL *This,LPCOLESTR poszFilter,DWORD dwFlags);
     END_INTERFACE
   } IEnumSTATURLVtbl;
-  interface IEnumSTATURL {
+  struct IEnumSTATURL {
     CONST_VTBL struct IEnumSTATURLVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -165,7 +165,7 @@ extern "C" {
       HRESULT (WINAPI *EnumUrls)(IUrlHistoryStg *This,IEnumSTATURL **ppEnum);
     END_INTERFACE
   } IUrlHistoryStgVtbl;
-  interface IUrlHistoryStg {
+  struct IUrlHistoryStg {
     CONST_VTBL struct IUrlHistoryStgVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -222,7 +222,7 @@ extern "C" {
       HRESULT (WINAPI *ClearHistory)(IUrlHistoryStg2 *This);
     END_INTERFACE
   } IUrlHistoryStg2Vtbl;
-  interface IUrlHistoryStg2 {
+  struct IUrlHistoryStg2 {
     CONST_VTBL struct IUrlHistoryStg2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -267,7 +267,7 @@ extern "C" {
       HRESULT (WINAPI *Exec)(IUrlHistoryNotify *This,const GUID *pguidCmdGroup,DWORD nCmdID,DWORD nCmdexecopt,VARIANT *pvaIn,VARIANT *pvaOut);
     END_INTERFACE
   } IUrlHistoryNotifyVtbl;
-  interface IUrlHistoryNotify {
+  struct IUrlHistoryNotify {
     CONST_VTBL struct IUrlHistoryNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

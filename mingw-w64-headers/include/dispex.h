@@ -24,27 +24,27 @@
 
 #ifndef __IDispatchEx_FWD_DEFINED__
 #define __IDispatchEx_FWD_DEFINED__
-typedef interface IDispatchEx IDispatchEx;
+typedef struct IDispatchEx IDispatchEx;
 #endif
 
 #ifndef __IDispError_FWD_DEFINED__
 #define __IDispError_FWD_DEFINED__
-typedef interface IDispError IDispError;
+typedef struct IDispError IDispError;
 #endif
 
 #ifndef __IVariantChangeType_FWD_DEFINED__
 #define __IVariantChangeType_FWD_DEFINED__
-typedef interface IVariantChangeType IVariantChangeType;
+typedef struct IVariantChangeType IVariantChangeType;
 #endif
 
 #ifndef __IObjectIdentity_FWD_DEFINED__
 #define __IObjectIdentity_FWD_DEFINED__
-typedef interface IObjectIdentity IObjectIdentity;
+typedef struct IObjectIdentity IObjectIdentity;
 #endif
 
 #ifndef __IProvideRuntimeContext_FWD_DEFINED__
 #define __IProvideRuntimeContext_FWD_DEFINED__
-typedef interface IProvideRuntimeContext IProvideRuntimeContext;
+typedef struct IProvideRuntimeContext IProvideRuntimeContext;
 #endif
 
 #include "ocidl.h"
@@ -149,7 +149,7 @@ extern "C"{
       HRESULT (WINAPI *GetNameSpaceParent)(IDispatchEx *This,IUnknown **ppunk);
     END_INTERFACE
   } IDispatchExVtbl;
-  interface IDispatchEx {
+  struct IDispatchEx {
     CONST_VTBL struct IDispatchExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -215,7 +215,7 @@ extern "C"{
       HRESULT (WINAPI *GetDescription)(IDispError *This,BSTR *pbstrDescription);
     END_INTERFACE
   } IDispErrorVtbl;
-  interface IDispError {
+  struct IDispError {
     CONST_VTBL struct IDispErrorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -261,7 +261,7 @@ extern "C"{
       HRESULT (WINAPI *ChangeType)(IVariantChangeType *This,VARIANT *pvarDst,VARIANT *pvarSrc,LCID lcid,VARTYPE vtNew);
     END_INTERFACE
   } IVariantChangeTypeVtbl;
-  interface IVariantChangeType {
+  struct IVariantChangeType {
     CONST_VTBL struct IVariantChangeTypeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -292,7 +292,7 @@ extern "C"{
       HRESULT (WINAPI *IsEqualObject)(IObjectIdentity *This,IUnknown *punk);
     END_INTERFACE
   } IObjectIdentityVtbl;
-  interface IObjectIdentity {
+  struct IObjectIdentity {
     CONST_VTBL struct IObjectIdentityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -323,7 +323,7 @@ extern "C"{
       HRESULT (WINAPI *GetCurrentSourceContext)(IProvideRuntimeContext *This,DWORD_PTR *pdwContext,VARIANT_BOOL *pfExecutingGlobalCode);
     END_INTERFACE
   } IProvideRuntimeContextVtbl;
-  interface IProvideRuntimeContext {
+  struct IProvideRuntimeContext {
     CONST_VTBL struct IProvideRuntimeContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

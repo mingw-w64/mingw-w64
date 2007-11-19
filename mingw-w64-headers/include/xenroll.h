@@ -24,37 +24,37 @@
 
 #ifndef __ICEnroll_FWD_DEFINED__
 #define __ICEnroll_FWD_DEFINED__
-typedef interface ICEnroll ICEnroll;
+typedef struct ICEnroll ICEnroll;
 #endif
 
 #ifndef __ICEnroll2_FWD_DEFINED__
 #define __ICEnroll2_FWD_DEFINED__
-typedef interface ICEnroll2 ICEnroll2;
+typedef struct ICEnroll2 ICEnroll2;
 #endif
 
 #ifndef __ICEnroll3_FWD_DEFINED__
 #define __ICEnroll3_FWD_DEFINED__
-typedef interface ICEnroll3 ICEnroll3;
+typedef struct ICEnroll3 ICEnroll3;
 #endif
 
 #ifndef __ICEnroll4_FWD_DEFINED__
 #define __ICEnroll4_FWD_DEFINED__
-typedef interface ICEnroll4 ICEnroll4;
+typedef struct ICEnroll4 ICEnroll4;
 #endif
 
 #ifndef __IEnroll_FWD_DEFINED__
 #define __IEnroll_FWD_DEFINED__
-typedef interface IEnroll IEnroll;
+typedef struct IEnroll IEnroll;
 #endif
 
 #ifndef __IEnroll2_FWD_DEFINED__
 #define __IEnroll2_FWD_DEFINED__
-typedef interface IEnroll2 IEnroll2;
+typedef struct IEnroll2 IEnroll2;
 #endif
 
 #ifndef __IEnroll4_FWD_DEFINED__
 #define __IEnroll4_FWD_DEFINED__
-typedef interface IEnroll4 IEnroll4;
+typedef struct IEnroll4 IEnroll4;
 #endif
 
 #ifndef __CEnroll2_FWD_DEFINED__
@@ -219,7 +219,7 @@ extern "C" {
       HRESULT (WINAPI *put_HashAlgorithm)(ICEnroll *This,BSTR bstr);
     END_INTERFACE
   } ICEnrollVtbl;
-  interface ICEnroll {
+  struct ICEnroll {
     CONST_VTBL struct ICEnrollVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -489,7 +489,7 @@ extern "C" {
       HRESULT (WINAPI *put_EnableT61DNEncoding)(ICEnroll2 *This,WINBOOL fBool);
     END_INTERFACE
   } ICEnroll2Vtbl;
-  interface ICEnroll2 {
+  struct ICEnroll2 {
     CONST_VTBL struct ICEnroll2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -687,7 +687,7 @@ extern "C" {
       HRESULT (WINAPI *get_EnableSMIMECapabilities)(ICEnroll3 *This,WINBOOL *fEnableSMIMECapabilities);
     END_INTERFACE
   } ICEnroll3Vtbl;
-  interface ICEnroll3 {
+  struct ICEnroll3 {
     CONST_VTBL struct ICEnroll3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -967,7 +967,7 @@ extern "C" {
       HRESULT (WINAPI *get_IncludeSubjectKeyID)(ICEnroll4 *This,WINBOOL *pfInclude);
     END_INTERFACE
   } ICEnroll4Vtbl;
-  interface ICEnroll4 {
+  struct ICEnroll4 {
     CONST_VTBL struct ICEnroll4Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1312,7 +1312,7 @@ extern "C" {
       HRESULT (WINAPI *CreatePKCS7RequestFromRequest)(IEnroll *This,PCRYPT_DATA_BLOB pRequest,PCCERT_CONTEXT pSigningCertContext,PCRYPT_DATA_BLOB pPkcs7Blob);
     END_INTERFACE
   } IEnrollVtbl;
-  interface IEnroll {
+  struct IEnroll {
     CONST_VTBL struct IEnrollVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1654,7 +1654,7 @@ extern "C" {
       HRESULT (WINAPI *get_EnableSMIMECapabilities)(IEnroll2 *This,WINBOOL *fEnableSMIMECapabilities);
     END_INTERFACE
   } IEnroll2Vtbl;
-  interface IEnroll2 {
+  struct IEnroll2 {
     CONST_VTBL struct IEnroll2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1956,7 +1956,7 @@ extern "C" {
       HRESULT (WINAPI *get_IncludeSubjectKeyID)(IEnroll4 *This,WINBOOL *pfInclude);
     END_INTERFACE
   } IEnroll4Vtbl;
-  interface IEnroll4 {
+  struct IEnroll4 {
     CONST_VTBL struct IEnroll4Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

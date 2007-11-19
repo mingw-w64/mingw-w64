@@ -24,22 +24,22 @@
 
 #ifndef __IPropertyStorage_FWD_DEFINED__
 #define __IPropertyStorage_FWD_DEFINED__
-typedef interface IPropertyStorage IPropertyStorage;
+typedef struct IPropertyStorage IPropertyStorage;
 #endif
 
 #ifndef __IPropertySetStorage_FWD_DEFINED__
 #define __IPropertySetStorage_FWD_DEFINED__
-typedef interface IPropertySetStorage IPropertySetStorage;
+typedef struct IPropertySetStorage IPropertySetStorage;
 #endif
 
 #ifndef __IEnumSTATPROPSTG_FWD_DEFINED__
 #define __IEnumSTATPROPSTG_FWD_DEFINED__
-typedef interface IEnumSTATPROPSTG IEnumSTATPROPSTG;
+typedef struct IEnumSTATPROPSTG IEnumSTATPROPSTG;
 #endif
 
 #ifndef __IEnumSTATPROPSETSTG_FWD_DEFINED__
 #define __IEnumSTATPROPSETSTG_FWD_DEFINED__
-typedef interface IEnumSTATPROPSETSTG IEnumSTATPROPSETSTG;
+typedef struct IEnumSTATPROPSETSTG IEnumSTATPROPSETSTG;
 #endif
 
 #include "objidl.h"
@@ -412,7 +412,7 @@ extern "C"{
       HRESULT (WINAPI *Stat)(IPropertyStorage *This,STATPROPSETSTG *pstatpsstg);
     END_INTERFACE
   } IPropertyStorageVtbl;
-  interface IPropertyStorage {
+  struct IPropertyStorage {
     CONST_VTBL struct IPropertyStorageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -484,7 +484,7 @@ extern "C"{
       HRESULT (WINAPI *Enum)(IPropertySetStorage *This,IEnumSTATPROPSETSTG **ppenum);
     END_INTERFACE
   } IPropertySetStorageVtbl;
-  interface IPropertySetStorage {
+  struct IPropertySetStorage {
     CONST_VTBL struct IPropertySetStorageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -532,7 +532,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumSTATPROPSTG *This,IEnumSTATPROPSTG **ppenum);
     END_INTERFACE
   } IEnumSTATPROPSTGVtbl;
-  interface IEnumSTATPROPSTG {
+  struct IEnumSTATPROPSTG {
     CONST_VTBL struct IEnumSTATPROPSTGVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -580,7 +580,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumSTATPROPSETSTG *This,IEnumSTATPROPSETSTG **ppenum);
     END_INTERFACE
   } IEnumSTATPROPSETSTGVtbl;
-  interface IEnumSTATPROPSETSTG {
+  struct IEnumSTATPROPSETSTG {
     CONST_VTBL struct IEnumSTATPROPSETSTGVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

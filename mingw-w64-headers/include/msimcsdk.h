@@ -15,52 +15,52 @@
 
 #ifndef __IMSIMHost_FWD_DEFINED__
 #define __IMSIMHost_FWD_DEFINED__
-typedef interface IMSIMHost IMSIMHost;
+typedef struct IMSIMHost IMSIMHost;
 #endif
 
 #ifndef __DMSIMHostEvents_FWD_DEFINED__
 #define __DMSIMHostEvents_FWD_DEFINED__
-typedef interface DMSIMHostEvents DMSIMHostEvents;
+typedef struct DMSIMHostEvents DMSIMHostEvents;
 #endif
 
 #ifndef __IMSIMWindow_FWD_DEFINED__
 #define __IMSIMWindow_FWD_DEFINED__
-typedef interface IMSIMWindow IMSIMWindow;
+typedef struct IMSIMWindow IMSIMWindow;
 #endif
 
 #ifndef __DMSIMWindowEvents_FWD_DEFINED__
 #define __DMSIMWindowEvents_FWD_DEFINED__
-typedef interface DMSIMWindowEvents DMSIMWindowEvents;
+typedef struct DMSIMWindowEvents DMSIMWindowEvents;
 #endif
 
 #ifndef __IIMService_FWD_DEFINED__
 #define __IIMService_FWD_DEFINED__
-typedef interface IIMService IIMService;
+typedef struct IIMService IIMService;
 #endif
 
 #ifndef __DIMServiceEvents_FWD_DEFINED__
 #define __DIMServiceEvents_FWD_DEFINED__
-typedef interface DIMServiceEvents DIMServiceEvents;
+typedef struct DIMServiceEvents DIMServiceEvents;
 #endif
 
 #ifndef __IIMContact_FWD_DEFINED__
 #define __IIMContact_FWD_DEFINED__
-typedef interface IIMContact IIMContact;
+typedef struct IIMContact IIMContact;
 #endif
 
 #ifndef __IIMContacts_FWD_DEFINED__
 #define __IIMContacts_FWD_DEFINED__
-typedef interface IIMContacts IIMContacts;
+typedef struct IIMContacts IIMContacts;
 #endif
 
 #ifndef __IIMSession_FWD_DEFINED__
 #define __IIMSession_FWD_DEFINED__
-typedef interface IIMSession IIMSession;
+typedef struct IIMSession IIMSession;
 #endif
 
 #ifndef __IIMSessions_FWD_DEFINED__
 #define __IIMSessions_FWD_DEFINED__
-typedef interface IIMSessions IIMSessions;
+typedef struct IIMSessions IIMSessions;
 #endif
 
 #ifndef __MSIMHost_FWD_DEFINED__
@@ -247,7 +247,7 @@ extern "C" {
       HRESULT (WINAPI *HostWindowEx)(IMSIMHost *This,BSTR bstrControl,long lStyle,long lExStyle,IStream *pStream,IMSIMWindow **ppMSIMWindow,IUnknown **ppUnk,REFIID iidAdvise,IUnknown *punkSink);
     END_INTERFACE
   } IMSIMHostVtbl;
-  interface IMSIMHost {
+  struct IMSIMHost {
     CONST_VTBL struct IMSIMHostVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -301,7 +301,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(DMSIMHostEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DMSIMHostEventsVtbl;
-  interface DMSIMHostEvents {
+  struct DMSIMHostEvents {
     CONST_VTBL struct DMSIMHostEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -364,7 +364,7 @@ extern "C" {
       HRESULT (WINAPI *get_Window)(IMSIMWindow *This,long *pVal);
     END_INTERFACE
   } IMSIMWindowVtbl;
-  interface IMSIMWindow {
+  struct IMSIMWindow {
     CONST_VTBL struct IMSIMWindowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -439,7 +439,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(DMSIMWindowEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DMSIMWindowEventsVtbl;
-  interface DMSIMWindowEvents {
+  struct DMSIMWindowEvents {
     CONST_VTBL struct DMSIMWindowEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -513,7 +513,7 @@ extern "C" {
       HRESULT (WINAPI *put_BlockByDefault)(IIMService *This,VARIANT_BOOL newVal);
     END_INTERFACE
   } IIMServiceVtbl;
-  interface IIMService {
+  struct IIMService {
     CONST_VTBL struct IIMServiceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -606,7 +606,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(DIMServiceEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DIMServiceEventsVtbl;
-  interface DIMServiceEvents {
+  struct DIMServiceEvents {
     CONST_VTBL struct DIMServiceEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -654,7 +654,7 @@ extern "C" {
       HRESULT (WINAPI *get_Service)(IIMContact *This,IDispatch **ppService);
     END_INTERFACE
   } IIMContactVtbl;
-  interface IIMContact {
+  struct IIMContact {
     CONST_VTBL struct IIMContactVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -727,7 +727,7 @@ extern "C" {
       HRESULT (WINAPI *get__NewEnum)(IIMContacts *This,IUnknown **ppVal);
     END_INTERFACE
   } IIMContactsVtbl;
-  interface IIMContacts {
+  struct IIMContacts {
     CONST_VTBL struct IIMContactsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -802,7 +802,7 @@ extern "C" {
       HRESULT (WINAPI *SendText)(IIMSession *This,BSTR bstrMsgHeader,BSTR bstrMsgText,IM_MSG_TYPE MsgType,LONG *plCookie);
     END_INTERFACE
   } IIMSessionVtbl;
-  interface IIMSession {
+  struct IIMSession {
     CONST_VTBL struct IIMSessionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -863,7 +863,7 @@ extern "C" {
       HRESULT (WINAPI *get__NewEnum)(IIMSessions *This,IUnknown **ppUnknown);
     END_INTERFACE
   } IIMSessionsVtbl;
-  interface IIMSessions {
+  struct IIMSessions {
     CONST_VTBL struct IIMSessionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

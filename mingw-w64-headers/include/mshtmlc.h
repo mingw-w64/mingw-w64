@@ -24,87 +24,87 @@
 
 #ifndef __IHTMLFiltersCollection_FWD_DEFINED__
 #define __IHTMLFiltersCollection_FWD_DEFINED__
-typedef interface IHTMLFiltersCollection IHTMLFiltersCollection;
+typedef struct IHTMLFiltersCollection IHTMLFiltersCollection;
 #endif
 
 #ifndef __IHTMLEventObj_FWD_DEFINED__
 #define __IHTMLEventObj_FWD_DEFINED__
-typedef interface IHTMLEventObj IHTMLEventObj;
+typedef struct IHTMLEventObj IHTMLEventObj;
 #endif
 
 #ifndef __IElementBehaviorSite_FWD_DEFINED__
 #define __IElementBehaviorSite_FWD_DEFINED__
-typedef interface IElementBehaviorSite IElementBehaviorSite;
+typedef struct IElementBehaviorSite IElementBehaviorSite;
 #endif
 
 #ifndef __IElementBehavior_FWD_DEFINED__
 #define __IElementBehavior_FWD_DEFINED__
-typedef interface IElementBehavior IElementBehavior;
+typedef struct IElementBehavior IElementBehavior;
 #endif
 
 #ifndef __IElementBehaviorFactory_FWD_DEFINED__
 #define __IElementBehaviorFactory_FWD_DEFINED__
-typedef interface IElementBehaviorFactory IElementBehaviorFactory;
+typedef struct IElementBehaviorFactory IElementBehaviorFactory;
 #endif
 
 #ifndef __IElementBehaviorSiteOM_FWD_DEFINED__
 #define __IElementBehaviorSiteOM_FWD_DEFINED__
-typedef interface IElementBehaviorSiteOM IElementBehaviorSiteOM;
+typedef struct IElementBehaviorSiteOM IElementBehaviorSiteOM;
 #endif
 
 #ifndef __IElementBehaviorRender_FWD_DEFINED__
 #define __IElementBehaviorRender_FWD_DEFINED__
-typedef interface IElementBehaviorRender IElementBehaviorRender;
+typedef struct IElementBehaviorRender IElementBehaviorRender;
 #endif
 
 #ifndef __IElementBehaviorSiteRender_FWD_DEFINED__
 #define __IElementBehaviorSiteRender_FWD_DEFINED__
-typedef interface IElementBehaviorSiteRender IElementBehaviorSiteRender;
+typedef struct IElementBehaviorSiteRender IElementBehaviorSiteRender;
 #endif
 
 #ifndef __IHTMLStyle_FWD_DEFINED__
 #define __IHTMLStyle_FWD_DEFINED__
-typedef interface IHTMLStyle IHTMLStyle;
+typedef struct IHTMLStyle IHTMLStyle;
 #endif
 
 #ifndef __IHTMLStyle2_FWD_DEFINED__
 #define __IHTMLStyle2_FWD_DEFINED__
-typedef interface IHTMLStyle2 IHTMLStyle2;
+typedef struct IHTMLStyle2 IHTMLStyle2;
 #endif
 
 #ifndef __IHTMLStyle3_FWD_DEFINED__
 #define __IHTMLStyle3_FWD_DEFINED__
-typedef interface IHTMLStyle3 IHTMLStyle3;
+typedef struct IHTMLStyle3 IHTMLStyle3;
 #endif
 
 #ifndef __IHTMLStyle4_FWD_DEFINED__
 #define __IHTMLStyle4_FWD_DEFINED__
-typedef interface IHTMLStyle4 IHTMLStyle4;
+typedef struct IHTMLStyle4 IHTMLStyle4;
 #endif
 
 #ifndef __IHTMLRuleStyle_FWD_DEFINED__
 #define __IHTMLRuleStyle_FWD_DEFINED__
-typedef interface IHTMLRuleStyle IHTMLRuleStyle;
+typedef struct IHTMLRuleStyle IHTMLRuleStyle;
 #endif
 
 #ifndef __IHTMLRuleStyle2_FWD_DEFINED__
 #define __IHTMLRuleStyle2_FWD_DEFINED__
-typedef interface IHTMLRuleStyle2 IHTMLRuleStyle2;
+typedef struct IHTMLRuleStyle2 IHTMLRuleStyle2;
 #endif
 
 #ifndef __IHTMLRuleStyle3_FWD_DEFINED__
 #define __IHTMLRuleStyle3_FWD_DEFINED__
-typedef interface IHTMLRuleStyle3 IHTMLRuleStyle3;
+typedef struct IHTMLRuleStyle3 IHTMLRuleStyle3;
 #endif
 
 #ifndef __IHTMLRuleStyle4_FWD_DEFINED__
 #define __IHTMLRuleStyle4_FWD_DEFINED__
-typedef interface IHTMLRuleStyle4 IHTMLRuleStyle4;
+typedef struct IHTMLRuleStyle4 IHTMLRuleStyle4;
 #endif
 
 #ifndef __DispHTMLStyle_FWD_DEFINED__
 #define __DispHTMLStyle_FWD_DEFINED__
-typedef interface DispHTMLStyle DispHTMLStyle;
+typedef struct DispHTMLStyle DispHTMLStyle;
 #endif
 
 #ifndef __HTMLStyle_FWD_DEFINED__
@@ -118,7 +118,7 @@ typedef struct HTMLStyle HTMLStyle;
 
 #ifndef __DispHTMLRuleStyle_FWD_DEFINED__
 #define __DispHTMLRuleStyle_FWD_DEFINED__
-typedef interface DispHTMLRuleStyle DispHTMLRuleStyle;
+typedef struct DispHTMLRuleStyle DispHTMLRuleStyle;
 #endif
 
 #ifndef __HTMLRuleStyle_FWD_DEFINED__
@@ -132,12 +132,12 @@ typedef struct HTMLRuleStyle HTMLRuleStyle;
 
 #ifndef __IHTMLRenderStyle_FWD_DEFINED__
 #define __IHTMLRenderStyle_FWD_DEFINED__
-typedef interface IHTMLRenderStyle IHTMLRenderStyle;
+typedef struct IHTMLRenderStyle IHTMLRenderStyle;
 #endif
 
 #ifndef __DispHTMLRenderStyle_FWD_DEFINED__
 #define __DispHTMLRenderStyle_FWD_DEFINED__
-typedef interface DispHTMLRenderStyle DispHTMLRenderStyle;
+typedef struct DispHTMLRenderStyle DispHTMLRenderStyle;
 #endif
 
 #ifndef __HTMLRenderStyle_FWD_DEFINED__
@@ -151,22 +151,22 @@ typedef struct HTMLRenderStyle HTMLRenderStyle;
 
 #ifndef __IHTMLCurrentStyle_FWD_DEFINED__
 #define __IHTMLCurrentStyle_FWD_DEFINED__
-typedef interface IHTMLCurrentStyle IHTMLCurrentStyle;
+typedef struct IHTMLCurrentStyle IHTMLCurrentStyle;
 #endif
 
 #ifndef __IHTMLCurrentStyle2_FWD_DEFINED__
 #define __IHTMLCurrentStyle2_FWD_DEFINED__
-typedef interface IHTMLCurrentStyle2 IHTMLCurrentStyle2;
+typedef struct IHTMLCurrentStyle2 IHTMLCurrentStyle2;
 #endif
 
 #ifndef __IHTMLCurrentStyle3_FWD_DEFINED__
 #define __IHTMLCurrentStyle3_FWD_DEFINED__
-typedef interface IHTMLCurrentStyle3 IHTMLCurrentStyle3;
+typedef struct IHTMLCurrentStyle3 IHTMLCurrentStyle3;
 #endif
 
 #ifndef __DispHTMLCurrentStyle_FWD_DEFINED__
 #define __DispHTMLCurrentStyle_FWD_DEFINED__
-typedef interface DispHTMLCurrentStyle DispHTMLCurrentStyle;
+typedef struct DispHTMLCurrentStyle DispHTMLCurrentStyle;
 #endif
 
 #ifndef __HTMLCurrentStyle_FWD_DEFINED__
@@ -180,57 +180,57 @@ typedef struct HTMLCurrentStyle HTMLCurrentStyle;
 
 #ifndef __IHTMLElement_FWD_DEFINED__
 #define __IHTMLElement_FWD_DEFINED__
-typedef interface IHTMLElement IHTMLElement;
+typedef struct IHTMLElement IHTMLElement;
 #endif
 
 #ifndef __IHTMLRect_FWD_DEFINED__
 #define __IHTMLRect_FWD_DEFINED__
-typedef interface IHTMLRect IHTMLRect;
+typedef struct IHTMLRect IHTMLRect;
 #endif
 
 #ifndef __IHTMLRectCollection_FWD_DEFINED__
 #define __IHTMLRectCollection_FWD_DEFINED__
-typedef interface IHTMLRectCollection IHTMLRectCollection;
+typedef struct IHTMLRectCollection IHTMLRectCollection;
 #endif
 
 #ifndef __IHTMLDOMNode_FWD_DEFINED__
 #define __IHTMLDOMNode_FWD_DEFINED__
-typedef interface IHTMLDOMNode IHTMLDOMNode;
+typedef struct IHTMLDOMNode IHTMLDOMNode;
 #endif
 
 #ifndef __IHTMLDOMNode2_FWD_DEFINED__
 #define __IHTMLDOMNode2_FWD_DEFINED__
-typedef interface IHTMLDOMNode2 IHTMLDOMNode2;
+typedef struct IHTMLDOMNode2 IHTMLDOMNode2;
 #endif
 
 #ifndef __IHTMLDOMAttribute_FWD_DEFINED__
 #define __IHTMLDOMAttribute_FWD_DEFINED__
-typedef interface IHTMLDOMAttribute IHTMLDOMAttribute;
+typedef struct IHTMLDOMAttribute IHTMLDOMAttribute;
 #endif
 
 #ifndef __IHTMLDOMAttribute2_FWD_DEFINED__
 #define __IHTMLDOMAttribute2_FWD_DEFINED__
-typedef interface IHTMLDOMAttribute2 IHTMLDOMAttribute2;
+typedef struct IHTMLDOMAttribute2 IHTMLDOMAttribute2;
 #endif
 
 #ifndef __IHTMLDOMTextNode_FWD_DEFINED__
 #define __IHTMLDOMTextNode_FWD_DEFINED__
-typedef interface IHTMLDOMTextNode IHTMLDOMTextNode;
+typedef struct IHTMLDOMTextNode IHTMLDOMTextNode;
 #endif
 
 #ifndef __IHTMLDOMTextNode2_FWD_DEFINED__
 #define __IHTMLDOMTextNode2_FWD_DEFINED__
-typedef interface IHTMLDOMTextNode2 IHTMLDOMTextNode2;
+typedef struct IHTMLDOMTextNode2 IHTMLDOMTextNode2;
 #endif
 
 #ifndef __IHTMLDOMImplementation_FWD_DEFINED__
 #define __IHTMLDOMImplementation_FWD_DEFINED__
-typedef interface IHTMLDOMImplementation IHTMLDOMImplementation;
+typedef struct IHTMLDOMImplementation IHTMLDOMImplementation;
 #endif
 
 #ifndef __DispHTMLDOMAttribute_FWD_DEFINED__
 #define __DispHTMLDOMAttribute_FWD_DEFINED__
-typedef interface DispHTMLDOMAttribute DispHTMLDOMAttribute;
+typedef struct DispHTMLDOMAttribute DispHTMLDOMAttribute;
 #endif
 
 #ifndef __HTMLDOMAttribute_FWD_DEFINED__
@@ -244,7 +244,7 @@ typedef struct HTMLDOMAttribute HTMLDOMAttribute;
 
 #ifndef __DispHTMLDOMTextNode_FWD_DEFINED__
 #define __DispHTMLDOMTextNode_FWD_DEFINED__
-typedef interface DispHTMLDOMTextNode DispHTMLDOMTextNode;
+typedef struct DispHTMLDOMTextNode DispHTMLDOMTextNode;
 #endif
 
 #ifndef __HTMLDOMTextNode_FWD_DEFINED__
@@ -258,7 +258,7 @@ typedef struct HTMLDOMTextNode HTMLDOMTextNode;
 
 #ifndef __DispHTMLDOMImplementation_FWD_DEFINED__
 #define __DispHTMLDOMImplementation_FWD_DEFINED__
-typedef interface DispHTMLDOMImplementation DispHTMLDOMImplementation;
+typedef struct DispHTMLDOMImplementation DispHTMLDOMImplementation;
 #endif
 
 #ifndef __HTMLDOMImplementation_FWD_DEFINED__
@@ -272,22 +272,22 @@ typedef struct HTMLDOMImplementation HTMLDOMImplementation;
 
 #ifndef __IHTMLAttributeCollection_FWD_DEFINED__
 #define __IHTMLAttributeCollection_FWD_DEFINED__
-typedef interface IHTMLAttributeCollection IHTMLAttributeCollection;
+typedef struct IHTMLAttributeCollection IHTMLAttributeCollection;
 #endif
 
 #ifndef __IHTMLAttributeCollection2_FWD_DEFINED__
 #define __IHTMLAttributeCollection2_FWD_DEFINED__
-typedef interface IHTMLAttributeCollection2 IHTMLAttributeCollection2;
+typedef struct IHTMLAttributeCollection2 IHTMLAttributeCollection2;
 #endif
 
 #ifndef __IHTMLDOMChildrenCollection_FWD_DEFINED__
 #define __IHTMLDOMChildrenCollection_FWD_DEFINED__
-typedef interface IHTMLDOMChildrenCollection IHTMLDOMChildrenCollection;
+typedef struct IHTMLDOMChildrenCollection IHTMLDOMChildrenCollection;
 #endif
 
 #ifndef __DispHTMLAttributeCollection_FWD_DEFINED__
 #define __DispHTMLAttributeCollection_FWD_DEFINED__
-typedef interface DispHTMLAttributeCollection DispHTMLAttributeCollection;
+typedef struct DispHTMLAttributeCollection DispHTMLAttributeCollection;
 #endif
 
 #ifndef __HTMLAttributeCollection_FWD_DEFINED__
@@ -301,7 +301,7 @@ typedef struct HTMLAttributeCollection HTMLAttributeCollection;
 
 #ifndef __DispDOMChildrenCollection_FWD_DEFINED__
 #define __DispDOMChildrenCollection_FWD_DEFINED__
-typedef interface DispDOMChildrenCollection DispDOMChildrenCollection;
+typedef struct DispDOMChildrenCollection DispDOMChildrenCollection;
 #endif
 
 #ifndef __DOMChildrenCollection_FWD_DEFINED__
@@ -315,67 +315,67 @@ typedef struct DOMChildrenCollection DOMChildrenCollection;
 
 #ifndef __HTMLElementEvents2_FWD_DEFINED__
 #define __HTMLElementEvents2_FWD_DEFINED__
-typedef interface HTMLElementEvents2 HTMLElementEvents2;
+typedef struct HTMLElementEvents2 HTMLElementEvents2;
 #endif
 
 #ifndef __HTMLElementEvents_FWD_DEFINED__
 #define __HTMLElementEvents_FWD_DEFINED__
-typedef interface HTMLElementEvents HTMLElementEvents;
+typedef struct HTMLElementEvents HTMLElementEvents;
 #endif
 
 #ifndef __IHTMLElementCollection_FWD_DEFINED__
 #define __IHTMLElementCollection_FWD_DEFINED__
-typedef interface IHTMLElementCollection IHTMLElementCollection;
+typedef struct IHTMLElementCollection IHTMLElementCollection;
 #endif
 
 #ifndef __IHTMLFiltersCollection_FWD_DEFINED__
 #define __IHTMLFiltersCollection_FWD_DEFINED__
-typedef interface IHTMLFiltersCollection IHTMLFiltersCollection;
+typedef struct IHTMLFiltersCollection IHTMLFiltersCollection;
 #endif
 
 #ifndef __IHTMLElement2_FWD_DEFINED__
 #define __IHTMLElement2_FWD_DEFINED__
-typedef interface IHTMLElement2 IHTMLElement2;
+typedef struct IHTMLElement2 IHTMLElement2;
 #endif
 
 #ifndef __IHTMLElement3_FWD_DEFINED__
 #define __IHTMLElement3_FWD_DEFINED__
-typedef interface IHTMLElement3 IHTMLElement3;
+typedef struct IHTMLElement3 IHTMLElement3;
 #endif
 
 #ifndef __IHTMLElement4_FWD_DEFINED__
 #define __IHTMLElement4_FWD_DEFINED__
-typedef interface IHTMLElement4 IHTMLElement4;
+typedef struct IHTMLElement4 IHTMLElement4;
 #endif
 
 #ifndef __IHTMLElementRender_FWD_DEFINED__
 #define __IHTMLElementRender_FWD_DEFINED__
-typedef interface IHTMLElementRender IHTMLElementRender;
+typedef struct IHTMLElementRender IHTMLElementRender;
 #endif
 
 #ifndef __IHTMLUniqueName_FWD_DEFINED__
 #define __IHTMLUniqueName_FWD_DEFINED__
-typedef interface IHTMLUniqueName IHTMLUniqueName;
+typedef struct IHTMLUniqueName IHTMLUniqueName;
 #endif
 
 #ifndef __IHTMLDatabinding_FWD_DEFINED__
 #define __IHTMLDatabinding_FWD_DEFINED__
-typedef interface IHTMLDatabinding IHTMLDatabinding;
+typedef struct IHTMLDatabinding IHTMLDatabinding;
 #endif
 
 #ifndef __IHTMLDocument_FWD_DEFINED__
 #define __IHTMLDocument_FWD_DEFINED__
-typedef interface IHTMLDocument IHTMLDocument;
+typedef struct IHTMLDocument IHTMLDocument;
 #endif
 
 #ifndef __IHTMLElementDefaults_FWD_DEFINED__
 #define __IHTMLElementDefaults_FWD_DEFINED__
-typedef interface IHTMLElementDefaults IHTMLElementDefaults;
+typedef struct IHTMLElementDefaults IHTMLElementDefaults;
 #endif
 
 #ifndef __DispHTMLDefaults_FWD_DEFINED__
 #define __DispHTMLDefaults_FWD_DEFINED__
-typedef interface DispHTMLDefaults DispHTMLDefaults;
+typedef struct DispHTMLDefaults DispHTMLDefaults;
 #endif
 
 #ifndef __HTMLDefaults_FWD_DEFINED__
@@ -389,42 +389,42 @@ typedef struct HTMLDefaults HTMLDefaults;
 
 #ifndef __IHTCDefaultDispatch_FWD_DEFINED__
 #define __IHTCDefaultDispatch_FWD_DEFINED__
-typedef interface IHTCDefaultDispatch IHTCDefaultDispatch;
+typedef struct IHTCDefaultDispatch IHTCDefaultDispatch;
 #endif
 
 #ifndef __IHTCPropertyBehavior_FWD_DEFINED__
 #define __IHTCPropertyBehavior_FWD_DEFINED__
-typedef interface IHTCPropertyBehavior IHTCPropertyBehavior;
+typedef struct IHTCPropertyBehavior IHTCPropertyBehavior;
 #endif
 
 #ifndef __IHTCMethodBehavior_FWD_DEFINED__
 #define __IHTCMethodBehavior_FWD_DEFINED__
-typedef interface IHTCMethodBehavior IHTCMethodBehavior;
+typedef struct IHTCMethodBehavior IHTCMethodBehavior;
 #endif
 
 #ifndef __IHTCEventBehavior_FWD_DEFINED__
 #define __IHTCEventBehavior_FWD_DEFINED__
-typedef interface IHTCEventBehavior IHTCEventBehavior;
+typedef struct IHTCEventBehavior IHTCEventBehavior;
 #endif
 
 #ifndef __IHTCAttachBehavior_FWD_DEFINED__
 #define __IHTCAttachBehavior_FWD_DEFINED__
-typedef interface IHTCAttachBehavior IHTCAttachBehavior;
+typedef struct IHTCAttachBehavior IHTCAttachBehavior;
 #endif
 
 #ifndef __IHTCAttachBehavior2_FWD_DEFINED__
 #define __IHTCAttachBehavior2_FWD_DEFINED__
-typedef interface IHTCAttachBehavior2 IHTCAttachBehavior2;
+typedef struct IHTCAttachBehavior2 IHTCAttachBehavior2;
 #endif
 
 #ifndef __IHTCDescBehavior_FWD_DEFINED__
 #define __IHTCDescBehavior_FWD_DEFINED__
-typedef interface IHTCDescBehavior IHTCDescBehavior;
+typedef struct IHTCDescBehavior IHTCDescBehavior;
 #endif
 
 #ifndef __DispHTCDefaultDispatch_FWD_DEFINED__
 #define __DispHTCDefaultDispatch_FWD_DEFINED__
-typedef interface DispHTCDefaultDispatch DispHTCDefaultDispatch;
+typedef struct DispHTCDefaultDispatch DispHTCDefaultDispatch;
 #endif
 
 #ifndef __HTCDefaultDispatch_FWD_DEFINED__
@@ -438,7 +438,7 @@ typedef struct HTCDefaultDispatch HTCDefaultDispatch;
 
 #ifndef __DispHTCPropertyBehavior_FWD_DEFINED__
 #define __DispHTCPropertyBehavior_FWD_DEFINED__
-typedef interface DispHTCPropertyBehavior DispHTCPropertyBehavior;
+typedef struct DispHTCPropertyBehavior DispHTCPropertyBehavior;
 #endif
 
 #ifndef __HTCPropertyBehavior_FWD_DEFINED__
@@ -452,7 +452,7 @@ typedef struct HTCPropertyBehavior HTCPropertyBehavior;
 
 #ifndef __DispHTCMethodBehavior_FWD_DEFINED__
 #define __DispHTCMethodBehavior_FWD_DEFINED__
-typedef interface DispHTCMethodBehavior DispHTCMethodBehavior;
+typedef struct DispHTCMethodBehavior DispHTCMethodBehavior;
 #endif
 
 #ifndef __HTCMethodBehavior_FWD_DEFINED__
@@ -466,7 +466,7 @@ typedef struct HTCMethodBehavior HTCMethodBehavior;
 
 #ifndef __DispHTCEventBehavior_FWD_DEFINED__
 #define __DispHTCEventBehavior_FWD_DEFINED__
-typedef interface DispHTCEventBehavior DispHTCEventBehavior;
+typedef struct DispHTCEventBehavior DispHTCEventBehavior;
 #endif
 
 #ifndef __HTCEventBehavior_FWD_DEFINED__
@@ -480,7 +480,7 @@ typedef struct HTCEventBehavior HTCEventBehavior;
 
 #ifndef __DispHTCAttachBehavior_FWD_DEFINED__
 #define __DispHTCAttachBehavior_FWD_DEFINED__
-typedef interface DispHTCAttachBehavior DispHTCAttachBehavior;
+typedef struct DispHTCAttachBehavior DispHTCAttachBehavior;
 #endif
 
 #ifndef __HTCAttachBehavior_FWD_DEFINED__
@@ -494,7 +494,7 @@ typedef struct HTCAttachBehavior HTCAttachBehavior;
 
 #ifndef __DispHTCDescBehavior_FWD_DEFINED__
 #define __DispHTCDescBehavior_FWD_DEFINED__
-typedef interface DispHTCDescBehavior DispHTCDescBehavior;
+typedef struct DispHTCDescBehavior DispHTCDescBehavior;
 #endif
 
 #ifndef __HTCDescBehavior_FWD_DEFINED__
@@ -508,7 +508,7 @@ typedef struct HTCDescBehavior HTCDescBehavior;
 
 #ifndef __IHTMLUrnCollection_FWD_DEFINED__
 #define __IHTMLUrnCollection_FWD_DEFINED__
-typedef interface IHTMLUrnCollection IHTMLUrnCollection;
+typedef struct IHTMLUrnCollection IHTMLUrnCollection;
 #endif
 
 #ifndef __HTMLUrnCollection_FWD_DEFINED__
@@ -522,12 +522,12 @@ typedef struct HTMLUrnCollection HTMLUrnCollection;
 
 #ifndef __IHTMLGenericElement_FWD_DEFINED__
 #define __IHTMLGenericElement_FWD_DEFINED__
-typedef interface IHTMLGenericElement IHTMLGenericElement;
+typedef struct IHTMLGenericElement IHTMLGenericElement;
 #endif
 
 #ifndef __DispHTMLGenericElement_FWD_DEFINED__
 #define __DispHTMLGenericElement_FWD_DEFINED__
-typedef interface DispHTMLGenericElement DispHTMLGenericElement;
+typedef struct DispHTMLGenericElement DispHTMLGenericElement;
 #endif
 
 #ifndef __HTMLGenericElement_FWD_DEFINED__
@@ -541,12 +541,12 @@ typedef struct HTMLGenericElement HTMLGenericElement;
 
 #ifndef __IHTMLStyleSheetRule_FWD_DEFINED__
 #define __IHTMLStyleSheetRule_FWD_DEFINED__
-typedef interface IHTMLStyleSheetRule IHTMLStyleSheetRule;
+typedef struct IHTMLStyleSheetRule IHTMLStyleSheetRule;
 #endif
 
 #ifndef __IHTMLStyleSheetRulesCollection_FWD_DEFINED__
 #define __IHTMLStyleSheetRulesCollection_FWD_DEFINED__
-typedef interface IHTMLStyleSheetRulesCollection IHTMLStyleSheetRulesCollection;
+typedef struct IHTMLStyleSheetRulesCollection IHTMLStyleSheetRulesCollection;
 #endif
 
 #ifndef __HTMLStyleSheetRule_FWD_DEFINED__
@@ -569,12 +569,12 @@ typedef struct HTMLStyleSheetRulesCollection HTMLStyleSheetRulesCollection;
 
 #ifndef __IHTMLStyleSheetPage_FWD_DEFINED__
 #define __IHTMLStyleSheetPage_FWD_DEFINED__
-typedef interface IHTMLStyleSheetPage IHTMLStyleSheetPage;
+typedef struct IHTMLStyleSheetPage IHTMLStyleSheetPage;
 #endif
 
 #ifndef __IHTMLStyleSheetPagesCollection_FWD_DEFINED__
 #define __IHTMLStyleSheetPagesCollection_FWD_DEFINED__
-typedef interface IHTMLStyleSheetPagesCollection IHTMLStyleSheetPagesCollection;
+typedef struct IHTMLStyleSheetPagesCollection IHTMLStyleSheetPagesCollection;
 #endif
 
 #ifndef __HTMLStyleSheetPage_FWD_DEFINED__
@@ -597,22 +597,22 @@ typedef struct HTMLStyleSheetPagesCollection HTMLStyleSheetPagesCollection;
 
 #ifndef __IHTMLStyleSheetsCollection_FWD_DEFINED__
 #define __IHTMLStyleSheetsCollection_FWD_DEFINED__
-typedef interface IHTMLStyleSheetsCollection IHTMLStyleSheetsCollection;
+typedef struct IHTMLStyleSheetsCollection IHTMLStyleSheetsCollection;
 #endif
 
 #ifndef __IHTMLStyleSheet_FWD_DEFINED__
 #define __IHTMLStyleSheet_FWD_DEFINED__
-typedef interface IHTMLStyleSheet IHTMLStyleSheet;
+typedef struct IHTMLStyleSheet IHTMLStyleSheet;
 #endif
 
 #ifndef __IHTMLStyleSheet2_FWD_DEFINED__
 #define __IHTMLStyleSheet2_FWD_DEFINED__
-typedef interface IHTMLStyleSheet2 IHTMLStyleSheet2;
+typedef struct IHTMLStyleSheet2 IHTMLStyleSheet2;
 #endif
 
 #ifndef __DispHTMLStyleSheet_FWD_DEFINED__
 #define __DispHTMLStyleSheet_FWD_DEFINED__
-typedef interface DispHTMLStyleSheet DispHTMLStyleSheet;
+typedef struct DispHTMLStyleSheet DispHTMLStyleSheet;
 #endif
 
 #ifndef __HTMLStyleSheet_FWD_DEFINED__
@@ -635,32 +635,32 @@ typedef struct HTMLStyleSheetsCollection HTMLStyleSheetsCollection;
 
 #ifndef __HTMLLinkElementEvents2_FWD_DEFINED__
 #define __HTMLLinkElementEvents2_FWD_DEFINED__
-typedef interface HTMLLinkElementEvents2 HTMLLinkElementEvents2;
+typedef struct HTMLLinkElementEvents2 HTMLLinkElementEvents2;
 #endif
 
 #ifndef __HTMLLinkElementEvents_FWD_DEFINED__
 #define __HTMLLinkElementEvents_FWD_DEFINED__
-typedef interface HTMLLinkElementEvents HTMLLinkElementEvents;
+typedef struct HTMLLinkElementEvents HTMLLinkElementEvents;
 #endif
 
 #ifndef __IHTMLLinkElement_FWD_DEFINED__
 #define __IHTMLLinkElement_FWD_DEFINED__
-typedef interface IHTMLLinkElement IHTMLLinkElement;
+typedef struct IHTMLLinkElement IHTMLLinkElement;
 #endif
 
 #ifndef __IHTMLLinkElement2_FWD_DEFINED__
 #define __IHTMLLinkElement2_FWD_DEFINED__
-typedef interface IHTMLLinkElement2 IHTMLLinkElement2;
+typedef struct IHTMLLinkElement2 IHTMLLinkElement2;
 #endif
 
 #ifndef __IHTMLLinkElement3_FWD_DEFINED__
 #define __IHTMLLinkElement3_FWD_DEFINED__
-typedef interface IHTMLLinkElement3 IHTMLLinkElement3;
+typedef struct IHTMLLinkElement3 IHTMLLinkElement3;
 #endif
 
 #ifndef __DispHTMLLinkElement_FWD_DEFINED__
 #define __DispHTMLLinkElement_FWD_DEFINED__
-typedef interface DispHTMLLinkElement DispHTMLLinkElement;
+typedef struct DispHTMLLinkElement DispHTMLLinkElement;
 #endif
 
 #ifndef __HTMLLinkElement_FWD_DEFINED__
@@ -674,57 +674,57 @@ typedef struct HTMLLinkElement HTMLLinkElement;
 
 #ifndef __IHTMLTxtRange_FWD_DEFINED__
 #define __IHTMLTxtRange_FWD_DEFINED__
-typedef interface IHTMLTxtRange IHTMLTxtRange;
+typedef struct IHTMLTxtRange IHTMLTxtRange;
 #endif
 
 #ifndef __IHTMLTextRangeMetrics_FWD_DEFINED__
 #define __IHTMLTextRangeMetrics_FWD_DEFINED__
-typedef interface IHTMLTextRangeMetrics IHTMLTextRangeMetrics;
+typedef struct IHTMLTextRangeMetrics IHTMLTextRangeMetrics;
 #endif
 
 #ifndef __IHTMLTextRangeMetrics2_FWD_DEFINED__
 #define __IHTMLTextRangeMetrics2_FWD_DEFINED__
-typedef interface IHTMLTextRangeMetrics2 IHTMLTextRangeMetrics2;
+typedef struct IHTMLTextRangeMetrics2 IHTMLTextRangeMetrics2;
 #endif
 
 #ifndef __IHTMLTxtRangeCollection_FWD_DEFINED__
 #define __IHTMLTxtRangeCollection_FWD_DEFINED__
-typedef interface IHTMLTxtRangeCollection IHTMLTxtRangeCollection;
+typedef struct IHTMLTxtRangeCollection IHTMLTxtRangeCollection;
 #endif
 
 #ifndef __HTMLFormElementEvents2_FWD_DEFINED__
 #define __HTMLFormElementEvents2_FWD_DEFINED__
-typedef interface HTMLFormElementEvents2 HTMLFormElementEvents2;
+typedef struct HTMLFormElementEvents2 HTMLFormElementEvents2;
 #endif
 
 #ifndef __HTMLFormElementEvents_FWD_DEFINED__
 #define __HTMLFormElementEvents_FWD_DEFINED__
-typedef interface HTMLFormElementEvents HTMLFormElementEvents;
+typedef struct HTMLFormElementEvents HTMLFormElementEvents;
 #endif
 
 #ifndef __IHTMLFormElement_FWD_DEFINED__
 #define __IHTMLFormElement_FWD_DEFINED__
-typedef interface IHTMLFormElement IHTMLFormElement;
+typedef struct IHTMLFormElement IHTMLFormElement;
 #endif
 
 #ifndef __IHTMLFormElement2_FWD_DEFINED__
 #define __IHTMLFormElement2_FWD_DEFINED__
-typedef interface IHTMLFormElement2 IHTMLFormElement2;
+typedef struct IHTMLFormElement2 IHTMLFormElement2;
 #endif
 
 #ifndef __IHTMLFormElement3_FWD_DEFINED__
 #define __IHTMLFormElement3_FWD_DEFINED__
-typedef interface IHTMLFormElement3 IHTMLFormElement3;
+typedef struct IHTMLFormElement3 IHTMLFormElement3;
 #endif
 
 #ifndef __IHTMLSubmitData_FWD_DEFINED__
 #define __IHTMLSubmitData_FWD_DEFINED__
-typedef interface IHTMLSubmitData IHTMLSubmitData;
+typedef struct IHTMLSubmitData IHTMLSubmitData;
 #endif
 
 #ifndef __DispHTMLFormElement_FWD_DEFINED__
 #define __DispHTMLFormElement_FWD_DEFINED__
-typedef interface DispHTMLFormElement DispHTMLFormElement;
+typedef struct DispHTMLFormElement DispHTMLFormElement;
 #endif
 
 #ifndef __HTMLFormElement_FWD_DEFINED__
@@ -738,27 +738,27 @@ typedef struct HTMLFormElement HTMLFormElement;
 
 #ifndef __HTMLControlElementEvents2_FWD_DEFINED__
 #define __HTMLControlElementEvents2_FWD_DEFINED__
-typedef interface HTMLControlElementEvents2 HTMLControlElementEvents2;
+typedef struct HTMLControlElementEvents2 HTMLControlElementEvents2;
 #endif
 
 #ifndef __HTMLControlElementEvents_FWD_DEFINED__
 #define __HTMLControlElementEvents_FWD_DEFINED__
-typedef interface HTMLControlElementEvents HTMLControlElementEvents;
+typedef struct HTMLControlElementEvents HTMLControlElementEvents;
 #endif
 
 #ifndef __IHTMLControlElement_FWD_DEFINED__
 #define __IHTMLControlElement_FWD_DEFINED__
-typedef interface IHTMLControlElement IHTMLControlElement;
+typedef struct IHTMLControlElement IHTMLControlElement;
 #endif
 
 #ifndef __IHTMLTextElement_FWD_DEFINED__
 #define __IHTMLTextElement_FWD_DEFINED__
-typedef interface IHTMLTextElement IHTMLTextElement;
+typedef struct IHTMLTextElement IHTMLTextElement;
 #endif
 
 #ifndef __DispHTMLTextElement_FWD_DEFINED__
 #define __DispHTMLTextElement_FWD_DEFINED__
-typedef interface DispHTMLTextElement DispHTMLTextElement;
+typedef struct DispHTMLTextElement DispHTMLTextElement;
 #endif
 
 #ifndef __HTMLTextElement_FWD_DEFINED__
@@ -772,57 +772,57 @@ typedef struct HTMLTextElement HTMLTextElement;
 
 #ifndef __HTMLTextContainerEvents2_FWD_DEFINED__
 #define __HTMLTextContainerEvents2_FWD_DEFINED__
-typedef interface HTMLTextContainerEvents2 HTMLTextContainerEvents2;
+typedef struct HTMLTextContainerEvents2 HTMLTextContainerEvents2;
 #endif
 
 #ifndef __HTMLTextContainerEvents_FWD_DEFINED__
 #define __HTMLTextContainerEvents_FWD_DEFINED__
-typedef interface HTMLTextContainerEvents HTMLTextContainerEvents;
+typedef struct HTMLTextContainerEvents HTMLTextContainerEvents;
 #endif
 
 #ifndef __IHTMLTextContainer_FWD_DEFINED__
 #define __IHTMLTextContainer_FWD_DEFINED__
-typedef interface IHTMLTextContainer IHTMLTextContainer;
+typedef struct IHTMLTextContainer IHTMLTextContainer;
 #endif
 
 #ifndef __IHTMLControlRange_FWD_DEFINED__
 #define __IHTMLControlRange_FWD_DEFINED__
-typedef interface IHTMLControlRange IHTMLControlRange;
+typedef struct IHTMLControlRange IHTMLControlRange;
 #endif
 
 #ifndef __IHTMLControlRange2_FWD_DEFINED__
 #define __IHTMLControlRange2_FWD_DEFINED__
-typedef interface IHTMLControlRange2 IHTMLControlRange2;
+typedef struct IHTMLControlRange2 IHTMLControlRange2;
 #endif
 
 #ifndef __HTMLImgEvents2_FWD_DEFINED__
 #define __HTMLImgEvents2_FWD_DEFINED__
-typedef interface HTMLImgEvents2 HTMLImgEvents2;
+typedef struct HTMLImgEvents2 HTMLImgEvents2;
 #endif
 
 #ifndef __HTMLImgEvents_FWD_DEFINED__
 #define __HTMLImgEvents_FWD_DEFINED__
-typedef interface HTMLImgEvents HTMLImgEvents;
+typedef struct HTMLImgEvents HTMLImgEvents;
 #endif
 
 #ifndef __IHTMLImgElement_FWD_DEFINED__
 #define __IHTMLImgElement_FWD_DEFINED__
-typedef interface IHTMLImgElement IHTMLImgElement;
+typedef struct IHTMLImgElement IHTMLImgElement;
 #endif
 
 #ifndef __IHTMLImgElement2_FWD_DEFINED__
 #define __IHTMLImgElement2_FWD_DEFINED__
-typedef interface IHTMLImgElement2 IHTMLImgElement2;
+typedef struct IHTMLImgElement2 IHTMLImgElement2;
 #endif
 
 #ifndef __IHTMLImageElementFactory_FWD_DEFINED__
 #define __IHTMLImageElementFactory_FWD_DEFINED__
-typedef interface IHTMLImageElementFactory IHTMLImageElementFactory;
+typedef struct IHTMLImageElementFactory IHTMLImageElementFactory;
 #endif
 
 #ifndef __DispHTMLImg_FWD_DEFINED__
 #define __DispHTMLImg_FWD_DEFINED__
-typedef interface DispHTMLImg DispHTMLImg;
+typedef struct DispHTMLImg DispHTMLImg;
 #endif
 
 #ifndef __HTMLImg_FWD_DEFINED__
@@ -845,17 +845,17 @@ typedef struct HTMLImageElementFactory HTMLImageElementFactory;
 
 #ifndef __IHTMLBodyElement_FWD_DEFINED__
 #define __IHTMLBodyElement_FWD_DEFINED__
-typedef interface IHTMLBodyElement IHTMLBodyElement;
+typedef struct IHTMLBodyElement IHTMLBodyElement;
 #endif
 
 #ifndef __IHTMLBodyElement2_FWD_DEFINED__
 #define __IHTMLBodyElement2_FWD_DEFINED__
-typedef interface IHTMLBodyElement2 IHTMLBodyElement2;
+typedef struct IHTMLBodyElement2 IHTMLBodyElement2;
 #endif
 
 #ifndef __DispHTMLBody_FWD_DEFINED__
 #define __DispHTMLBody_FWD_DEFINED__
-typedef interface DispHTMLBody DispHTMLBody;
+typedef struct DispHTMLBody DispHTMLBody;
 #endif
 
 #ifndef __HTMLBody_FWD_DEFINED__
@@ -869,12 +869,12 @@ typedef struct HTMLBody HTMLBody;
 
 #ifndef __IHTMLFontElement_FWD_DEFINED__
 #define __IHTMLFontElement_FWD_DEFINED__
-typedef interface IHTMLFontElement IHTMLFontElement;
+typedef struct IHTMLFontElement IHTMLFontElement;
 #endif
 
 #ifndef __DispHTMLFontElement_FWD_DEFINED__
 #define __DispHTMLFontElement_FWD_DEFINED__
-typedef interface DispHTMLFontElement DispHTMLFontElement;
+typedef struct DispHTMLFontElement DispHTMLFontElement;
 #endif
 
 #ifndef __HTMLFontElement_FWD_DEFINED__
@@ -888,27 +888,27 @@ typedef struct HTMLFontElement HTMLFontElement;
 
 #ifndef __HTMLAnchorEvents2_FWD_DEFINED__
 #define __HTMLAnchorEvents2_FWD_DEFINED__
-typedef interface HTMLAnchorEvents2 HTMLAnchorEvents2;
+typedef struct HTMLAnchorEvents2 HTMLAnchorEvents2;
 #endif
 
 #ifndef __HTMLAnchorEvents_FWD_DEFINED__
 #define __HTMLAnchorEvents_FWD_DEFINED__
-typedef interface HTMLAnchorEvents HTMLAnchorEvents;
+typedef struct HTMLAnchorEvents HTMLAnchorEvents;
 #endif
 
 #ifndef __IHTMLAnchorElement_FWD_DEFINED__
 #define __IHTMLAnchorElement_FWD_DEFINED__
-typedef interface IHTMLAnchorElement IHTMLAnchorElement;
+typedef struct IHTMLAnchorElement IHTMLAnchorElement;
 #endif
 
 #ifndef __IHTMLAnchorElement2_FWD_DEFINED__
 #define __IHTMLAnchorElement2_FWD_DEFINED__
-typedef interface IHTMLAnchorElement2 IHTMLAnchorElement2;
+typedef struct IHTMLAnchorElement2 IHTMLAnchorElement2;
 #endif
 
 #ifndef __DispHTMLAnchorElement_FWD_DEFINED__
 #define __DispHTMLAnchorElement_FWD_DEFINED__
-typedef interface DispHTMLAnchorElement DispHTMLAnchorElement;
+typedef struct DispHTMLAnchorElement DispHTMLAnchorElement;
 #endif
 
 #ifndef __HTMLAnchorElement_FWD_DEFINED__
@@ -922,27 +922,27 @@ typedef struct HTMLAnchorElement HTMLAnchorElement;
 
 #ifndef __HTMLLabelEvents2_FWD_DEFINED__
 #define __HTMLLabelEvents2_FWD_DEFINED__
-typedef interface HTMLLabelEvents2 HTMLLabelEvents2;
+typedef struct HTMLLabelEvents2 HTMLLabelEvents2;
 #endif
 
 #ifndef __HTMLLabelEvents_FWD_DEFINED__
 #define __HTMLLabelEvents_FWD_DEFINED__
-typedef interface HTMLLabelEvents HTMLLabelEvents;
+typedef struct HTMLLabelEvents HTMLLabelEvents;
 #endif
 
 #ifndef __IHTMLLabelElement_FWD_DEFINED__
 #define __IHTMLLabelElement_FWD_DEFINED__
-typedef interface IHTMLLabelElement IHTMLLabelElement;
+typedef struct IHTMLLabelElement IHTMLLabelElement;
 #endif
 
 #ifndef __IHTMLLabelElement2_FWD_DEFINED__
 #define __IHTMLLabelElement2_FWD_DEFINED__
-typedef interface IHTMLLabelElement2 IHTMLLabelElement2;
+typedef struct IHTMLLabelElement2 IHTMLLabelElement2;
 #endif
 
 #ifndef __DispHTMLLabelElement_FWD_DEFINED__
 #define __DispHTMLLabelElement_FWD_DEFINED__
-typedef interface DispHTMLLabelElement DispHTMLLabelElement;
+typedef struct DispHTMLLabelElement DispHTMLLabelElement;
 #endif
 
 #ifndef __HTMLLabelElement_FWD_DEFINED__
@@ -956,17 +956,17 @@ typedef struct HTMLLabelElement HTMLLabelElement;
 
 #ifndef __IHTMLListElement_FWD_DEFINED__
 #define __IHTMLListElement_FWD_DEFINED__
-typedef interface IHTMLListElement IHTMLListElement;
+typedef struct IHTMLListElement IHTMLListElement;
 #endif
 
 #ifndef __IHTMLListElement2_FWD_DEFINED__
 #define __IHTMLListElement2_FWD_DEFINED__
-typedef interface IHTMLListElement2 IHTMLListElement2;
+typedef struct IHTMLListElement2 IHTMLListElement2;
 #endif
 
 #ifndef __DispHTMLListElement_FWD_DEFINED__
 #define __DispHTMLListElement_FWD_DEFINED__
-typedef interface DispHTMLListElement DispHTMLListElement;
+typedef struct DispHTMLListElement DispHTMLListElement;
 #endif
 
 #ifndef __HTMLListElement_FWD_DEFINED__
@@ -980,12 +980,12 @@ typedef struct HTMLListElement HTMLListElement;
 
 #ifndef __IHTMLUListElement_FWD_DEFINED__
 #define __IHTMLUListElement_FWD_DEFINED__
-typedef interface IHTMLUListElement IHTMLUListElement;
+typedef struct IHTMLUListElement IHTMLUListElement;
 #endif
 
 #ifndef __DispHTMLUListElement_FWD_DEFINED__
 #define __DispHTMLUListElement_FWD_DEFINED__
-typedef interface DispHTMLUListElement DispHTMLUListElement;
+typedef struct DispHTMLUListElement DispHTMLUListElement;
 #endif
 
 #ifndef __HTMLUListElement_FWD_DEFINED__
@@ -999,12 +999,12 @@ typedef struct HTMLUListElement HTMLUListElement;
 
 #ifndef __IHTMLOListElement_FWD_DEFINED__
 #define __IHTMLOListElement_FWD_DEFINED__
-typedef interface IHTMLOListElement IHTMLOListElement;
+typedef struct IHTMLOListElement IHTMLOListElement;
 #endif
 
 #ifndef __DispHTMLOListElement_FWD_DEFINED__
 #define __DispHTMLOListElement_FWD_DEFINED__
-typedef interface DispHTMLOListElement DispHTMLOListElement;
+typedef struct DispHTMLOListElement DispHTMLOListElement;
 #endif
 
 #ifndef __HTMLOListElement_FWD_DEFINED__
@@ -1018,12 +1018,12 @@ typedef struct HTMLOListElement HTMLOListElement;
 
 #ifndef __IHTMLLIElement_FWD_DEFINED__
 #define __IHTMLLIElement_FWD_DEFINED__
-typedef interface IHTMLLIElement IHTMLLIElement;
+typedef struct IHTMLLIElement IHTMLLIElement;
 #endif
 
 #ifndef __DispHTMLLIElement_FWD_DEFINED__
 #define __DispHTMLLIElement_FWD_DEFINED__
-typedef interface DispHTMLLIElement DispHTMLLIElement;
+typedef struct DispHTMLLIElement DispHTMLLIElement;
 #endif
 
 #ifndef __HTMLLIElement_FWD_DEFINED__
@@ -1037,17 +1037,17 @@ typedef struct HTMLLIElement HTMLLIElement;
 
 #ifndef __IHTMLBlockElement_FWD_DEFINED__
 #define __IHTMLBlockElement_FWD_DEFINED__
-typedef interface IHTMLBlockElement IHTMLBlockElement;
+typedef struct IHTMLBlockElement IHTMLBlockElement;
 #endif
 
 #ifndef __IHTMLBlockElement2_FWD_DEFINED__
 #define __IHTMLBlockElement2_FWD_DEFINED__
-typedef interface IHTMLBlockElement2 IHTMLBlockElement2;
+typedef struct IHTMLBlockElement2 IHTMLBlockElement2;
 #endif
 
 #ifndef __DispHTMLBlockElement_FWD_DEFINED__
 #define __DispHTMLBlockElement_FWD_DEFINED__
-typedef interface DispHTMLBlockElement DispHTMLBlockElement;
+typedef struct DispHTMLBlockElement DispHTMLBlockElement;
 #endif
 
 #ifndef __HTMLBlockElement_FWD_DEFINED__
@@ -1061,12 +1061,12 @@ typedef struct HTMLBlockElement HTMLBlockElement;
 
 #ifndef __IHTMLDivElement_FWD_DEFINED__
 #define __IHTMLDivElement_FWD_DEFINED__
-typedef interface IHTMLDivElement IHTMLDivElement;
+typedef struct IHTMLDivElement IHTMLDivElement;
 #endif
 
 #ifndef __DispHTMLDivElement_FWD_DEFINED__
 #define __DispHTMLDivElement_FWD_DEFINED__
-typedef interface DispHTMLDivElement DispHTMLDivElement;
+typedef struct DispHTMLDivElement DispHTMLDivElement;
 #endif
 
 #ifndef __HTMLDivElement_FWD_DEFINED__
@@ -1080,12 +1080,12 @@ typedef struct HTMLDivElement HTMLDivElement;
 
 #ifndef __IHTMLDDElement_FWD_DEFINED__
 #define __IHTMLDDElement_FWD_DEFINED__
-typedef interface IHTMLDDElement IHTMLDDElement;
+typedef struct IHTMLDDElement IHTMLDDElement;
 #endif
 
 #ifndef __DispHTMLDDElement_FWD_DEFINED__
 #define __DispHTMLDDElement_FWD_DEFINED__
-typedef interface DispHTMLDDElement DispHTMLDDElement;
+typedef struct DispHTMLDDElement DispHTMLDDElement;
 #endif
 
 #ifndef __HTMLDDElement_FWD_DEFINED__
@@ -1099,12 +1099,12 @@ typedef struct HTMLDDElement HTMLDDElement;
 
 #ifndef __IHTMLDTElement_FWD_DEFINED__
 #define __IHTMLDTElement_FWD_DEFINED__
-typedef interface IHTMLDTElement IHTMLDTElement;
+typedef struct IHTMLDTElement IHTMLDTElement;
 #endif
 
 #ifndef __DispHTMLDTElement_FWD_DEFINED__
 #define __DispHTMLDTElement_FWD_DEFINED__
-typedef interface DispHTMLDTElement DispHTMLDTElement;
+typedef struct DispHTMLDTElement DispHTMLDTElement;
 #endif
 
 #ifndef __HTMLDTElement_FWD_DEFINED__
@@ -1118,12 +1118,12 @@ typedef struct HTMLDTElement HTMLDTElement;
 
 #ifndef __IHTMLBRElement_FWD_DEFINED__
 #define __IHTMLBRElement_FWD_DEFINED__
-typedef interface IHTMLBRElement IHTMLBRElement;
+typedef struct IHTMLBRElement IHTMLBRElement;
 #endif
 
 #ifndef __DispHTMLBRElement_FWD_DEFINED__
 #define __DispHTMLBRElement_FWD_DEFINED__
-typedef interface DispHTMLBRElement DispHTMLBRElement;
+typedef struct DispHTMLBRElement DispHTMLBRElement;
 #endif
 
 #ifndef __HTMLBRElement_FWD_DEFINED__
@@ -1137,12 +1137,12 @@ typedef struct HTMLBRElement HTMLBRElement;
 
 #ifndef __IHTMLDListElement_FWD_DEFINED__
 #define __IHTMLDListElement_FWD_DEFINED__
-typedef interface IHTMLDListElement IHTMLDListElement;
+typedef struct IHTMLDListElement IHTMLDListElement;
 #endif
 
 #ifndef __DispHTMLDListElement_FWD_DEFINED__
 #define __DispHTMLDListElement_FWD_DEFINED__
-typedef interface DispHTMLDListElement DispHTMLDListElement;
+typedef struct DispHTMLDListElement DispHTMLDListElement;
 #endif
 
 #ifndef __HTMLDListElement_FWD_DEFINED__
@@ -1156,12 +1156,12 @@ typedef struct HTMLDListElement HTMLDListElement;
 
 #ifndef __IHTMLHRElement_FWD_DEFINED__
 #define __IHTMLHRElement_FWD_DEFINED__
-typedef interface IHTMLHRElement IHTMLHRElement;
+typedef struct IHTMLHRElement IHTMLHRElement;
 #endif
 
 #ifndef __DispHTMLHRElement_FWD_DEFINED__
 #define __DispHTMLHRElement_FWD_DEFINED__
-typedef interface DispHTMLHRElement DispHTMLHRElement;
+typedef struct DispHTMLHRElement DispHTMLHRElement;
 #endif
 
 #ifndef __HTMLHRElement_FWD_DEFINED__
@@ -1175,12 +1175,12 @@ typedef struct HTMLHRElement HTMLHRElement;
 
 #ifndef __IHTMLParaElement_FWD_DEFINED__
 #define __IHTMLParaElement_FWD_DEFINED__
-typedef interface IHTMLParaElement IHTMLParaElement;
+typedef struct IHTMLParaElement IHTMLParaElement;
 #endif
 
 #ifndef __DispHTMLParaElement_FWD_DEFINED__
 #define __DispHTMLParaElement_FWD_DEFINED__
-typedef interface DispHTMLParaElement DispHTMLParaElement;
+typedef struct DispHTMLParaElement DispHTMLParaElement;
 #endif
 
 #ifndef __HTMLParaElement_FWD_DEFINED__
@@ -1194,17 +1194,17 @@ typedef struct HTMLParaElement HTMLParaElement;
 
 #ifndef __IHTMLElementCollection2_FWD_DEFINED__
 #define __IHTMLElementCollection2_FWD_DEFINED__
-typedef interface IHTMLElementCollection2 IHTMLElementCollection2;
+typedef struct IHTMLElementCollection2 IHTMLElementCollection2;
 #endif
 
 #ifndef __IHTMLElementCollection3_FWD_DEFINED__
 #define __IHTMLElementCollection3_FWD_DEFINED__
-typedef interface IHTMLElementCollection3 IHTMLElementCollection3;
+typedef struct IHTMLElementCollection3 IHTMLElementCollection3;
 #endif
 
 #ifndef __DispHTMLElementCollection_FWD_DEFINED__
 #define __DispHTMLElementCollection_FWD_DEFINED__
-typedef interface DispHTMLElementCollection DispHTMLElementCollection;
+typedef struct DispHTMLElementCollection DispHTMLElementCollection;
 #endif
 
 #ifndef __HTMLElementCollection_FWD_DEFINED__
@@ -1218,12 +1218,12 @@ typedef struct HTMLElementCollection HTMLElementCollection;
 
 #ifndef __IHTMLHeaderElement_FWD_DEFINED__
 #define __IHTMLHeaderElement_FWD_DEFINED__
-typedef interface IHTMLHeaderElement IHTMLHeaderElement;
+typedef struct IHTMLHeaderElement IHTMLHeaderElement;
 #endif
 
 #ifndef __DispHTMLHeaderElement_FWD_DEFINED__
 #define __DispHTMLHeaderElement_FWD_DEFINED__
-typedef interface DispHTMLHeaderElement DispHTMLHeaderElement;
+typedef struct DispHTMLHeaderElement DispHTMLHeaderElement;
 #endif
 
 #ifndef __HTMLHeaderElement_FWD_DEFINED__
@@ -1237,32 +1237,32 @@ typedef struct HTMLHeaderElement HTMLHeaderElement;
 
 #ifndef __HTMLSelectElementEvents2_FWD_DEFINED__
 #define __HTMLSelectElementEvents2_FWD_DEFINED__
-typedef interface HTMLSelectElementEvents2 HTMLSelectElementEvents2;
+typedef struct HTMLSelectElementEvents2 HTMLSelectElementEvents2;
 #endif
 
 #ifndef __HTMLSelectElementEvents_FWD_DEFINED__
 #define __HTMLSelectElementEvents_FWD_DEFINED__
-typedef interface HTMLSelectElementEvents HTMLSelectElementEvents;
+typedef struct HTMLSelectElementEvents HTMLSelectElementEvents;
 #endif
 
 #ifndef __IHTMLSelectElement_FWD_DEFINED__
 #define __IHTMLSelectElement_FWD_DEFINED__
-typedef interface IHTMLSelectElement IHTMLSelectElement;
+typedef struct IHTMLSelectElement IHTMLSelectElement;
 #endif
 
 #ifndef __IHTMLSelectElement2_FWD_DEFINED__
 #define __IHTMLSelectElement2_FWD_DEFINED__
-typedef interface IHTMLSelectElement2 IHTMLSelectElement2;
+typedef struct IHTMLSelectElement2 IHTMLSelectElement2;
 #endif
 
 #ifndef __IHTMLSelectElement4_FWD_DEFINED__
 #define __IHTMLSelectElement4_FWD_DEFINED__
-typedef interface IHTMLSelectElement4 IHTMLSelectElement4;
+typedef struct IHTMLSelectElement4 IHTMLSelectElement4;
 #endif
 
 #ifndef __DispHTMLSelectElement_FWD_DEFINED__
 #define __DispHTMLSelectElement_FWD_DEFINED__
-typedef interface DispHTMLSelectElement DispHTMLSelectElement;
+typedef struct DispHTMLSelectElement DispHTMLSelectElement;
 #endif
 
 #ifndef __HTMLSelectElement_FWD_DEFINED__
@@ -1276,32 +1276,32 @@ typedef struct HTMLSelectElement HTMLSelectElement;
 
 #ifndef __IHTMLSelectionObject_FWD_DEFINED__
 #define __IHTMLSelectionObject_FWD_DEFINED__
-typedef interface IHTMLSelectionObject IHTMLSelectionObject;
+typedef struct IHTMLSelectionObject IHTMLSelectionObject;
 #endif
 
 #ifndef __IHTMLSelectionObject2_FWD_DEFINED__
 #define __IHTMLSelectionObject2_FWD_DEFINED__
-typedef interface IHTMLSelectionObject2 IHTMLSelectionObject2;
+typedef struct IHTMLSelectionObject2 IHTMLSelectionObject2;
 #endif
 
 #ifndef __IHTMLOptionElement_FWD_DEFINED__
 #define __IHTMLOptionElement_FWD_DEFINED__
-typedef interface IHTMLOptionElement IHTMLOptionElement;
+typedef struct IHTMLOptionElement IHTMLOptionElement;
 #endif
 
 #ifndef __IHTMLOptionElement3_FWD_DEFINED__
 #define __IHTMLOptionElement3_FWD_DEFINED__
-typedef interface IHTMLOptionElement3 IHTMLOptionElement3;
+typedef struct IHTMLOptionElement3 IHTMLOptionElement3;
 #endif
 
 #ifndef __IHTMLOptionElementFactory_FWD_DEFINED__
 #define __IHTMLOptionElementFactory_FWD_DEFINED__
-typedef interface IHTMLOptionElementFactory IHTMLOptionElementFactory;
+typedef struct IHTMLOptionElementFactory IHTMLOptionElementFactory;
 #endif
 
 #ifndef __DispHTMLOptionElement_FWD_DEFINED__
 #define __DispHTMLOptionElement_FWD_DEFINED__
-typedef interface DispHTMLOptionElement DispHTMLOptionElement;
+typedef struct DispHTMLOptionElement DispHTMLOptionElement;
 #endif
 
 #ifndef __HTMLOptionElement_FWD_DEFINED__
@@ -1324,97 +1324,97 @@ typedef struct HTMLOptionElementFactory HTMLOptionElementFactory;
 
 #ifndef __HTMLButtonElementEvents2_FWD_DEFINED__
 #define __HTMLButtonElementEvents2_FWD_DEFINED__
-typedef interface HTMLButtonElementEvents2 HTMLButtonElementEvents2;
+typedef struct HTMLButtonElementEvents2 HTMLButtonElementEvents2;
 #endif
 
 #ifndef __HTMLButtonElementEvents_FWD_DEFINED__
 #define __HTMLButtonElementEvents_FWD_DEFINED__
-typedef interface HTMLButtonElementEvents HTMLButtonElementEvents;
+typedef struct HTMLButtonElementEvents HTMLButtonElementEvents;
 #endif
 
 #ifndef __HTMLInputTextElementEvents2_FWD_DEFINED__
 #define __HTMLInputTextElementEvents2_FWD_DEFINED__
-typedef interface HTMLInputTextElementEvents2 HTMLInputTextElementEvents2;
+typedef struct HTMLInputTextElementEvents2 HTMLInputTextElementEvents2;
 #endif
 
 #ifndef __HTMLOptionButtonElementEvents2_FWD_DEFINED__
 #define __HTMLOptionButtonElementEvents2_FWD_DEFINED__
-typedef interface HTMLOptionButtonElementEvents2 HTMLOptionButtonElementEvents2;
+typedef struct HTMLOptionButtonElementEvents2 HTMLOptionButtonElementEvents2;
 #endif
 
 #ifndef __HTMLInputFileElementEvents2_FWD_DEFINED__
 #define __HTMLInputFileElementEvents2_FWD_DEFINED__
-typedef interface HTMLInputFileElementEvents2 HTMLInputFileElementEvents2;
+typedef struct HTMLInputFileElementEvents2 HTMLInputFileElementEvents2;
 #endif
 
 #ifndef __HTMLInputImageEvents2_FWD_DEFINED__
 #define __HTMLInputImageEvents2_FWD_DEFINED__
-typedef interface HTMLInputImageEvents2 HTMLInputImageEvents2;
+typedef struct HTMLInputImageEvents2 HTMLInputImageEvents2;
 #endif
 
 #ifndef __HTMLInputTextElementEvents_FWD_DEFINED__
 #define __HTMLInputTextElementEvents_FWD_DEFINED__
-typedef interface HTMLInputTextElementEvents HTMLInputTextElementEvents;
+typedef struct HTMLInputTextElementEvents HTMLInputTextElementEvents;
 #endif
 
 #ifndef __HTMLOptionButtonElementEvents_FWD_DEFINED__
 #define __HTMLOptionButtonElementEvents_FWD_DEFINED__
-typedef interface HTMLOptionButtonElementEvents HTMLOptionButtonElementEvents;
+typedef struct HTMLOptionButtonElementEvents HTMLOptionButtonElementEvents;
 #endif
 
 #ifndef __HTMLInputFileElementEvents_FWD_DEFINED__
 #define __HTMLInputFileElementEvents_FWD_DEFINED__
-typedef interface HTMLInputFileElementEvents HTMLInputFileElementEvents;
+typedef struct HTMLInputFileElementEvents HTMLInputFileElementEvents;
 #endif
 
 #ifndef __HTMLInputImageEvents_FWD_DEFINED__
 #define __HTMLInputImageEvents_FWD_DEFINED__
-typedef interface HTMLInputImageEvents HTMLInputImageEvents;
+typedef struct HTMLInputImageEvents HTMLInputImageEvents;
 #endif
 
 #ifndef __IHTMLInputElement_FWD_DEFINED__
 #define __IHTMLInputElement_FWD_DEFINED__
-typedef interface IHTMLInputElement IHTMLInputElement;
+typedef struct IHTMLInputElement IHTMLInputElement;
 #endif
 
 #ifndef __IHTMLInputElement2_FWD_DEFINED__
 #define __IHTMLInputElement2_FWD_DEFINED__
-typedef interface IHTMLInputElement2 IHTMLInputElement2;
+typedef struct IHTMLInputElement2 IHTMLInputElement2;
 #endif
 
 #ifndef __IHTMLInputButtonElement_FWD_DEFINED__
 #define __IHTMLInputButtonElement_FWD_DEFINED__
-typedef interface IHTMLInputButtonElement IHTMLInputButtonElement;
+typedef struct IHTMLInputButtonElement IHTMLInputButtonElement;
 #endif
 
 #ifndef __IHTMLInputHiddenElement_FWD_DEFINED__
 #define __IHTMLInputHiddenElement_FWD_DEFINED__
-typedef interface IHTMLInputHiddenElement IHTMLInputHiddenElement;
+typedef struct IHTMLInputHiddenElement IHTMLInputHiddenElement;
 #endif
 
 #ifndef __IHTMLInputTextElement_FWD_DEFINED__
 #define __IHTMLInputTextElement_FWD_DEFINED__
-typedef interface IHTMLInputTextElement IHTMLInputTextElement;
+typedef struct IHTMLInputTextElement IHTMLInputTextElement;
 #endif
 
 #ifndef __IHTMLInputFileElement_FWD_DEFINED__
 #define __IHTMLInputFileElement_FWD_DEFINED__
-typedef interface IHTMLInputFileElement IHTMLInputFileElement;
+typedef struct IHTMLInputFileElement IHTMLInputFileElement;
 #endif
 
 #ifndef __IHTMLOptionButtonElement_FWD_DEFINED__
 #define __IHTMLOptionButtonElement_FWD_DEFINED__
-typedef interface IHTMLOptionButtonElement IHTMLOptionButtonElement;
+typedef struct IHTMLOptionButtonElement IHTMLOptionButtonElement;
 #endif
 
 #ifndef __IHTMLInputImage_FWD_DEFINED__
 #define __IHTMLInputImage_FWD_DEFINED__
-typedef interface IHTMLInputImage IHTMLInputImage;
+typedef struct IHTMLInputImage IHTMLInputImage;
 #endif
 
 #ifndef __DispHTMLInputElement_FWD_DEFINED__
 #define __DispHTMLInputElement_FWD_DEFINED__
-typedef interface DispHTMLInputElement DispHTMLInputElement;
+typedef struct DispHTMLInputElement DispHTMLInputElement;
 #endif
 
 #ifndef __HTMLInputElement_FWD_DEFINED__
@@ -1428,12 +1428,12 @@ typedef struct HTMLInputElement HTMLInputElement;
 
 #ifndef __IHTMLTextAreaElement_FWD_DEFINED__
 #define __IHTMLTextAreaElement_FWD_DEFINED__
-typedef interface IHTMLTextAreaElement IHTMLTextAreaElement;
+typedef struct IHTMLTextAreaElement IHTMLTextAreaElement;
 #endif
 
 #ifndef __DispHTMLTextAreaElement_FWD_DEFINED__
 #define __DispHTMLTextAreaElement_FWD_DEFINED__
-typedef interface DispHTMLTextAreaElement DispHTMLTextAreaElement;
+typedef struct DispHTMLTextAreaElement DispHTMLTextAreaElement;
 #endif
 
 #ifndef __HTMLTextAreaElement_FWD_DEFINED__
@@ -1447,7 +1447,7 @@ typedef struct HTMLTextAreaElement HTMLTextAreaElement;
 
 #ifndef __DispHTMLRichtextElement_FWD_DEFINED__
 #define __DispHTMLRichtextElement_FWD_DEFINED__
-typedef interface DispHTMLRichtextElement DispHTMLRichtextElement;
+typedef struct DispHTMLRichtextElement DispHTMLRichtextElement;
 #endif
 
 #ifndef __HTMLRichtextElement_FWD_DEFINED__
@@ -1461,12 +1461,12 @@ typedef struct HTMLRichtextElement HTMLRichtextElement;
 
 #ifndef __IHTMLButtonElement_FWD_DEFINED__
 #define __IHTMLButtonElement_FWD_DEFINED__
-typedef interface IHTMLButtonElement IHTMLButtonElement;
+typedef struct IHTMLButtonElement IHTMLButtonElement;
 #endif
 
 #ifndef __DispHTMLButtonElement_FWD_DEFINED__
 #define __DispHTMLButtonElement_FWD_DEFINED__
-typedef interface DispHTMLButtonElement DispHTMLButtonElement;
+typedef struct DispHTMLButtonElement DispHTMLButtonElement;
 #endif
 
 #ifndef __HTMLButtonElement_FWD_DEFINED__
@@ -1480,22 +1480,22 @@ typedef struct HTMLButtonElement HTMLButtonElement;
 
 #ifndef __HTMLMarqueeElementEvents2_FWD_DEFINED__
 #define __HTMLMarqueeElementEvents2_FWD_DEFINED__
-typedef interface HTMLMarqueeElementEvents2 HTMLMarqueeElementEvents2;
+typedef struct HTMLMarqueeElementEvents2 HTMLMarqueeElementEvents2;
 #endif
 
 #ifndef __HTMLMarqueeElementEvents_FWD_DEFINED__
 #define __HTMLMarqueeElementEvents_FWD_DEFINED__
-typedef interface HTMLMarqueeElementEvents HTMLMarqueeElementEvents;
+typedef struct HTMLMarqueeElementEvents HTMLMarqueeElementEvents;
 #endif
 
 #ifndef __IHTMLMarqueeElement_FWD_DEFINED__
 #define __IHTMLMarqueeElement_FWD_DEFINED__
-typedef interface IHTMLMarqueeElement IHTMLMarqueeElement;
+typedef struct IHTMLMarqueeElement IHTMLMarqueeElement;
 #endif
 
 #ifndef __DispHTMLMarqueeElement_FWD_DEFINED__
 #define __DispHTMLMarqueeElement_FWD_DEFINED__
-typedef interface DispHTMLMarqueeElement DispHTMLMarqueeElement;
+typedef struct DispHTMLMarqueeElement DispHTMLMarqueeElement;
 #endif
 
 #ifndef __HTMLMarqueeElement_FWD_DEFINED__
@@ -1509,52 +1509,52 @@ typedef struct HTMLMarqueeElement HTMLMarqueeElement;
 
 #ifndef __IHTMLHtmlElement_FWD_DEFINED__
 #define __IHTMLHtmlElement_FWD_DEFINED__
-typedef interface IHTMLHtmlElement IHTMLHtmlElement;
+typedef struct IHTMLHtmlElement IHTMLHtmlElement;
 #endif
 
 #ifndef __IHTMLHeadElement_FWD_DEFINED__
 #define __IHTMLHeadElement_FWD_DEFINED__
-typedef interface IHTMLHeadElement IHTMLHeadElement;
+typedef struct IHTMLHeadElement IHTMLHeadElement;
 #endif
 
 #ifndef __IHTMLTitleElement_FWD_DEFINED__
 #define __IHTMLTitleElement_FWD_DEFINED__
-typedef interface IHTMLTitleElement IHTMLTitleElement;
+typedef struct IHTMLTitleElement IHTMLTitleElement;
 #endif
 
 #ifndef __IHTMLMetaElement_FWD_DEFINED__
 #define __IHTMLMetaElement_FWD_DEFINED__
-typedef interface IHTMLMetaElement IHTMLMetaElement;
+typedef struct IHTMLMetaElement IHTMLMetaElement;
 #endif
 
 #ifndef __IHTMLMetaElement2_FWD_DEFINED__
 #define __IHTMLMetaElement2_FWD_DEFINED__
-typedef interface IHTMLMetaElement2 IHTMLMetaElement2;
+typedef struct IHTMLMetaElement2 IHTMLMetaElement2;
 #endif
 
 #ifndef __IHTMLBaseElement_FWD_DEFINED__
 #define __IHTMLBaseElement_FWD_DEFINED__
-typedef interface IHTMLBaseElement IHTMLBaseElement;
+typedef struct IHTMLBaseElement IHTMLBaseElement;
 #endif
 
 #ifndef __IHTMLIsIndexElement_FWD_DEFINED__
 #define __IHTMLIsIndexElement_FWD_DEFINED__
-typedef interface IHTMLIsIndexElement IHTMLIsIndexElement;
+typedef struct IHTMLIsIndexElement IHTMLIsIndexElement;
 #endif
 
 #ifndef __IHTMLIsIndexElement2_FWD_DEFINED__
 #define __IHTMLIsIndexElement2_FWD_DEFINED__
-typedef interface IHTMLIsIndexElement2 IHTMLIsIndexElement2;
+typedef struct IHTMLIsIndexElement2 IHTMLIsIndexElement2;
 #endif
 
 #ifndef __IHTMLNextIdElement_FWD_DEFINED__
 #define __IHTMLNextIdElement_FWD_DEFINED__
-typedef interface IHTMLNextIdElement IHTMLNextIdElement;
+typedef struct IHTMLNextIdElement IHTMLNextIdElement;
 #endif
 
 #ifndef __DispHTMLHtmlElement_FWD_DEFINED__
 #define __DispHTMLHtmlElement_FWD_DEFINED__
-typedef interface DispHTMLHtmlElement DispHTMLHtmlElement;
+typedef struct DispHTMLHtmlElement DispHTMLHtmlElement;
 #endif
 
 #ifndef __HTMLHtmlElement_FWD_DEFINED__
@@ -1568,7 +1568,7 @@ typedef struct HTMLHtmlElement HTMLHtmlElement;
 
 #ifndef __DispHTMLHeadElement_FWD_DEFINED__
 #define __DispHTMLHeadElement_FWD_DEFINED__
-typedef interface DispHTMLHeadElement DispHTMLHeadElement;
+typedef struct DispHTMLHeadElement DispHTMLHeadElement;
 #endif
 
 #ifndef __HTMLHeadElement_FWD_DEFINED__
@@ -1582,7 +1582,7 @@ typedef struct HTMLHeadElement HTMLHeadElement;
 
 #ifndef __DispHTMLTitleElement_FWD_DEFINED__
 #define __DispHTMLTitleElement_FWD_DEFINED__
-typedef interface DispHTMLTitleElement DispHTMLTitleElement;
+typedef struct DispHTMLTitleElement DispHTMLTitleElement;
 #endif
 
 #ifndef __HTMLTitleElement_FWD_DEFINED__
@@ -1596,7 +1596,7 @@ typedef struct HTMLTitleElement HTMLTitleElement;
 
 #ifndef __DispHTMLMetaElement_FWD_DEFINED__
 #define __DispHTMLMetaElement_FWD_DEFINED__
-typedef interface DispHTMLMetaElement DispHTMLMetaElement;
+typedef struct DispHTMLMetaElement DispHTMLMetaElement;
 #endif
 
 #ifndef __HTMLMetaElement_FWD_DEFINED__
@@ -1610,7 +1610,7 @@ typedef struct HTMLMetaElement HTMLMetaElement;
 
 #ifndef __DispHTMLBaseElement_FWD_DEFINED__
 #define __DispHTMLBaseElement_FWD_DEFINED__
-typedef interface DispHTMLBaseElement DispHTMLBaseElement;
+typedef struct DispHTMLBaseElement DispHTMLBaseElement;
 #endif
 
 #ifndef __HTMLBaseElement_FWD_DEFINED__
@@ -1624,7 +1624,7 @@ typedef struct HTMLBaseElement HTMLBaseElement;
 
 #ifndef __DispHTMLIsIndexElement_FWD_DEFINED__
 #define __DispHTMLIsIndexElement_FWD_DEFINED__
-typedef interface DispHTMLIsIndexElement DispHTMLIsIndexElement;
+typedef struct DispHTMLIsIndexElement DispHTMLIsIndexElement;
 #endif
 
 #ifndef __HTMLIsIndexElement_FWD_DEFINED__
@@ -1638,7 +1638,7 @@ typedef struct HTMLIsIndexElement HTMLIsIndexElement;
 
 #ifndef __DispHTMLNextIdElement_FWD_DEFINED__
 #define __DispHTMLNextIdElement_FWD_DEFINED__
-typedef interface DispHTMLNextIdElement DispHTMLNextIdElement;
+typedef struct DispHTMLNextIdElement DispHTMLNextIdElement;
 #endif
 
 #ifndef __HTMLNextIdElement_FWD_DEFINED__
@@ -1652,12 +1652,12 @@ typedef struct HTMLNextIdElement HTMLNextIdElement;
 
 #ifndef __IHTMLBaseFontElement_FWD_DEFINED__
 #define __IHTMLBaseFontElement_FWD_DEFINED__
-typedef interface IHTMLBaseFontElement IHTMLBaseFontElement;
+typedef struct IHTMLBaseFontElement IHTMLBaseFontElement;
 #endif
 
 #ifndef __DispHTMLBaseFontElement_FWD_DEFINED__
 #define __DispHTMLBaseFontElement_FWD_DEFINED__
-typedef interface DispHTMLBaseFontElement DispHTMLBaseFontElement;
+typedef struct DispHTMLBaseFontElement DispHTMLBaseFontElement;
 #endif
 
 #ifndef __HTMLBaseFontElement_FWD_DEFINED__
@@ -1671,12 +1671,12 @@ typedef struct HTMLBaseFontElement HTMLBaseFontElement;
 
 #ifndef __IHTMLUnknownElement_FWD_DEFINED__
 #define __IHTMLUnknownElement_FWD_DEFINED__
-typedef interface IHTMLUnknownElement IHTMLUnknownElement;
+typedef struct IHTMLUnknownElement IHTMLUnknownElement;
 #endif
 
 #ifndef __DispHTMLUnknownElement_FWD_DEFINED__
 #define __DispHTMLUnknownElement_FWD_DEFINED__
-typedef interface DispHTMLUnknownElement DispHTMLUnknownElement;
+typedef struct DispHTMLUnknownElement DispHTMLUnknownElement;
 #endif
 
 #ifndef __HTMLUnknownElement_FWD_DEFINED__
@@ -1690,32 +1690,32 @@ typedef struct HTMLUnknownElement HTMLUnknownElement;
 
 #ifndef __IOmHistory_FWD_DEFINED__
 #define __IOmHistory_FWD_DEFINED__
-typedef interface IOmHistory IOmHistory;
+typedef struct IOmHistory IOmHistory;
 #endif
 
 #ifndef __IHTMLMimeTypesCollection_FWD_DEFINED__
 #define __IHTMLMimeTypesCollection_FWD_DEFINED__
-typedef interface IHTMLMimeTypesCollection IHTMLMimeTypesCollection;
+typedef struct IHTMLMimeTypesCollection IHTMLMimeTypesCollection;
 #endif
 
 #ifndef __IHTMLPluginsCollection_FWD_DEFINED__
 #define __IHTMLPluginsCollection_FWD_DEFINED__
-typedef interface IHTMLPluginsCollection IHTMLPluginsCollection;
+typedef struct IHTMLPluginsCollection IHTMLPluginsCollection;
 #endif
 
 #ifndef __IHTMLOpsProfile_FWD_DEFINED__
 #define __IHTMLOpsProfile_FWD_DEFINED__
-typedef interface IHTMLOpsProfile IHTMLOpsProfile;
+typedef struct IHTMLOpsProfile IHTMLOpsProfile;
 #endif
 
 #ifndef __IOmNavigator_FWD_DEFINED__
 #define __IOmNavigator_FWD_DEFINED__
-typedef interface IOmNavigator IOmNavigator;
+typedef struct IOmNavigator IOmNavigator;
 #endif
 
 #ifndef __IHTMLLocation_FWD_DEFINED__
 #define __IHTMLLocation_FWD_DEFINED__
-typedef interface IHTMLLocation IHTMLLocation;
+typedef struct IHTMLLocation IHTMLLocation;
 #endif
 
 #ifndef __HTMLHistory_FWD_DEFINED__
@@ -1774,32 +1774,32 @@ typedef struct HTMLLocation HTMLLocation;
 
 #ifndef __IHTMLBookmarkCollection_FWD_DEFINED__
 #define __IHTMLBookmarkCollection_FWD_DEFINED__
-typedef interface IHTMLBookmarkCollection IHTMLBookmarkCollection;
+typedef struct IHTMLBookmarkCollection IHTMLBookmarkCollection;
 #endif
 
 #ifndef __IHTMLDataTransfer_FWD_DEFINED__
 #define __IHTMLDataTransfer_FWD_DEFINED__
-typedef interface IHTMLDataTransfer IHTMLDataTransfer;
+typedef struct IHTMLDataTransfer IHTMLDataTransfer;
 #endif
 
 #ifndef __IHTMLEventObj2_FWD_DEFINED__
 #define __IHTMLEventObj2_FWD_DEFINED__
-typedef interface IHTMLEventObj2 IHTMLEventObj2;
+typedef struct IHTMLEventObj2 IHTMLEventObj2;
 #endif
 
 #ifndef __IHTMLEventObj3_FWD_DEFINED__
 #define __IHTMLEventObj3_FWD_DEFINED__
-typedef interface IHTMLEventObj3 IHTMLEventObj3;
+typedef struct IHTMLEventObj3 IHTMLEventObj3;
 #endif
 
 #ifndef __IHTMLEventObj4_FWD_DEFINED__
 #define __IHTMLEventObj4_FWD_DEFINED__
-typedef interface IHTMLEventObj4 IHTMLEventObj4;
+typedef struct IHTMLEventObj4 IHTMLEventObj4;
 #endif
 
 #ifndef __DispCEventObj_FWD_DEFINED__
 #define __DispCEventObj_FWD_DEFINED__
-typedef interface DispCEventObj DispCEventObj;
+typedef struct DispCEventObj DispCEventObj;
 #endif
 
 #ifndef __CEventObj_FWD_DEFINED__
@@ -1813,52 +1813,52 @@ typedef struct CEventObj CEventObj;
 
 #ifndef __HTMLWindowEvents2_FWD_DEFINED__
 #define __HTMLWindowEvents2_FWD_DEFINED__
-typedef interface HTMLWindowEvents2 HTMLWindowEvents2;
+typedef struct HTMLWindowEvents2 HTMLWindowEvents2;
 #endif
 
 #ifndef __HTMLWindowEvents_FWD_DEFINED__
 #define __HTMLWindowEvents_FWD_DEFINED__
-typedef interface HTMLWindowEvents HTMLWindowEvents;
+typedef struct HTMLWindowEvents HTMLWindowEvents;
 #endif
 
 #ifndef __IHTMLDocument2_FWD_DEFINED__
 #define __IHTMLDocument2_FWD_DEFINED__
-typedef interface IHTMLDocument2 IHTMLDocument2;
+typedef struct IHTMLDocument2 IHTMLDocument2;
 #endif
 
 #ifndef __IHTMLFramesCollection2_FWD_DEFINED__
 #define __IHTMLFramesCollection2_FWD_DEFINED__
-typedef interface IHTMLFramesCollection2 IHTMLFramesCollection2;
+typedef struct IHTMLFramesCollection2 IHTMLFramesCollection2;
 #endif
 
 #ifndef __IHTMLWindow2_FWD_DEFINED__
 #define __IHTMLWindow2_FWD_DEFINED__
-typedef interface IHTMLWindow2 IHTMLWindow2;
+typedef struct IHTMLWindow2 IHTMLWindow2;
 #endif
 
 #ifndef __IHTMLWindow3_FWD_DEFINED__
 #define __IHTMLWindow3_FWD_DEFINED__
-typedef interface IHTMLWindow3 IHTMLWindow3;
+typedef struct IHTMLWindow3 IHTMLWindow3;
 #endif
 
 #ifndef __IHTMLFrameBase_FWD_DEFINED__
 #define __IHTMLFrameBase_FWD_DEFINED__
-typedef interface IHTMLFrameBase IHTMLFrameBase;
+typedef struct IHTMLFrameBase IHTMLFrameBase;
 #endif
 
 #ifndef __IHTMLScreen_FWD_DEFINED__
 #define __IHTMLScreen_FWD_DEFINED__
-typedef interface IHTMLScreen IHTMLScreen;
+typedef struct IHTMLScreen IHTMLScreen;
 #endif
 
 #ifndef __IHTMLScreen2_FWD_DEFINED__
 #define __IHTMLScreen2_FWD_DEFINED__
-typedef interface IHTMLScreen2 IHTMLScreen2;
+typedef struct IHTMLScreen2 IHTMLScreen2;
 #endif
 
 #ifndef __IHTMLWindow4_FWD_DEFINED__
 #define __IHTMLWindow4_FWD_DEFINED__
-typedef interface IHTMLWindow4 IHTMLWindow4;
+typedef struct IHTMLWindow4 IHTMLWindow4;
 #endif
 
 #ifndef __FramesCollection_FWD_DEFINED__
@@ -1872,7 +1872,7 @@ typedef struct FramesCollection FramesCollection;
 
 #ifndef __DispHTMLScreen_FWD_DEFINED__
 #define __DispHTMLScreen_FWD_DEFINED__
-typedef interface DispHTMLScreen DispHTMLScreen;
+typedef struct DispHTMLScreen DispHTMLScreen;
 #endif
 
 #ifndef __HTMLScreen_FWD_DEFINED__
@@ -1886,7 +1886,7 @@ typedef struct HTMLScreen HTMLScreen;
 
 #ifndef __DispHTMLWindow2_FWD_DEFINED__
 #define __DispHTMLWindow2_FWD_DEFINED__
-typedef interface DispHTMLWindow2 DispHTMLWindow2;
+typedef struct DispHTMLWindow2 DispHTMLWindow2;
 #endif
 
 #ifndef __HTMLWindow2_FWD_DEFINED__
@@ -1900,7 +1900,7 @@ typedef struct HTMLWindow2 HTMLWindow2;
 
 #ifndef __DispHTMLWindowProxy_FWD_DEFINED__
 #define __DispHTMLWindowProxy_FWD_DEFINED__
-typedef interface DispHTMLWindowProxy DispHTMLWindowProxy;
+typedef struct DispHTMLWindowProxy DispHTMLWindowProxy;
 #endif
 
 #ifndef __HTMLWindowProxy_FWD_DEFINED__
@@ -1914,32 +1914,32 @@ typedef struct HTMLWindowProxy HTMLWindowProxy;
 
 #ifndef __HTMLDocumentEvents2_FWD_DEFINED__
 #define __HTMLDocumentEvents2_FWD_DEFINED__
-typedef interface HTMLDocumentEvents2 HTMLDocumentEvents2;
+typedef struct HTMLDocumentEvents2 HTMLDocumentEvents2;
 #endif
 
 #ifndef __HTMLDocumentEvents_FWD_DEFINED__
 #define __HTMLDocumentEvents_FWD_DEFINED__
-typedef interface HTMLDocumentEvents HTMLDocumentEvents;
+typedef struct HTMLDocumentEvents HTMLDocumentEvents;
 #endif
 
 #ifndef __IHTMLDocument3_FWD_DEFINED__
 #define __IHTMLDocument3_FWD_DEFINED__
-typedef interface IHTMLDocument3 IHTMLDocument3;
+typedef struct IHTMLDocument3 IHTMLDocument3;
 #endif
 
 #ifndef __IHTMLDocument4_FWD_DEFINED__
 #define __IHTMLDocument4_FWD_DEFINED__
-typedef interface IHTMLDocument4 IHTMLDocument4;
+typedef struct IHTMLDocument4 IHTMLDocument4;
 #endif
 
 #ifndef __IHTMLDocument5_FWD_DEFINED__
 #define __IHTMLDocument5_FWD_DEFINED__
-typedef interface IHTMLDocument5 IHTMLDocument5;
+typedef struct IHTMLDocument5 IHTMLDocument5;
 #endif
 
 #ifndef __DispHTMLDocument_FWD_DEFINED__
 #define __DispHTMLDocument_FWD_DEFINED__
-typedef interface DispHTMLDocument DispHTMLDocument;
+typedef struct DispHTMLDocument DispHTMLDocument;
 #endif
 
 #ifndef __HTMLDocument_FWD_DEFINED__
@@ -1953,17 +1953,17 @@ typedef struct HTMLDocument HTMLDocument;
 
 #ifndef __DWebBridgeEvents_FWD_DEFINED__
 #define __DWebBridgeEvents_FWD_DEFINED__
-typedef interface DWebBridgeEvents DWebBridgeEvents;
+typedef struct DWebBridgeEvents DWebBridgeEvents;
 #endif
 
 #ifndef __IWebBridge_FWD_DEFINED__
 #define __IWebBridge_FWD_DEFINED__
-typedef interface IWebBridge IWebBridge;
+typedef struct IWebBridge IWebBridge;
 #endif
 
 #ifndef __IWBScriptControl_FWD_DEFINED__
 #define __IWBScriptControl_FWD_DEFINED__
-typedef interface IWBScriptControl IWBScriptControl;
+typedef struct IWBScriptControl IWBScriptControl;
 #endif
 
 #ifndef __Scriptlet_FWD_DEFINED__
@@ -1977,12 +1977,12 @@ typedef struct Scriptlet Scriptlet;
 
 #ifndef __IHTMLEmbedElement_FWD_DEFINED__
 #define __IHTMLEmbedElement_FWD_DEFINED__
-typedef interface IHTMLEmbedElement IHTMLEmbedElement;
+typedef struct IHTMLEmbedElement IHTMLEmbedElement;
 #endif
 
 #ifndef __DispHTMLEmbed_FWD_DEFINED__
 #define __DispHTMLEmbed_FWD_DEFINED__
-typedef interface DispHTMLEmbed DispHTMLEmbed;
+typedef struct DispHTMLEmbed DispHTMLEmbed;
 #endif
 
 #ifndef __HTMLEmbed_FWD_DEFINED__
@@ -1996,37 +1996,37 @@ typedef struct HTMLEmbed HTMLEmbed;
 
 #ifndef __HTMLMapEvents2_FWD_DEFINED__
 #define __HTMLMapEvents2_FWD_DEFINED__
-typedef interface HTMLMapEvents2 HTMLMapEvents2;
+typedef struct HTMLMapEvents2 HTMLMapEvents2;
 #endif
 
 #ifndef __HTMLMapEvents_FWD_DEFINED__
 #define __HTMLMapEvents_FWD_DEFINED__
-typedef interface HTMLMapEvents HTMLMapEvents;
+typedef struct HTMLMapEvents HTMLMapEvents;
 #endif
 
 #ifndef __IHTMLAreasCollection_FWD_DEFINED__
 #define __IHTMLAreasCollection_FWD_DEFINED__
-typedef interface IHTMLAreasCollection IHTMLAreasCollection;
+typedef struct IHTMLAreasCollection IHTMLAreasCollection;
 #endif
 
 #ifndef __IHTMLAreasCollection2_FWD_DEFINED__
 #define __IHTMLAreasCollection2_FWD_DEFINED__
-typedef interface IHTMLAreasCollection2 IHTMLAreasCollection2;
+typedef struct IHTMLAreasCollection2 IHTMLAreasCollection2;
 #endif
 
 #ifndef __IHTMLAreasCollection3_FWD_DEFINED__
 #define __IHTMLAreasCollection3_FWD_DEFINED__
-typedef interface IHTMLAreasCollection3 IHTMLAreasCollection3;
+typedef struct IHTMLAreasCollection3 IHTMLAreasCollection3;
 #endif
 
 #ifndef __IHTMLMapElement_FWD_DEFINED__
 #define __IHTMLMapElement_FWD_DEFINED__
-typedef interface IHTMLMapElement IHTMLMapElement;
+typedef struct IHTMLMapElement IHTMLMapElement;
 #endif
 
 #ifndef __DispHTMLAreasCollection_FWD_DEFINED__
 #define __DispHTMLAreasCollection_FWD_DEFINED__
-typedef interface DispHTMLAreasCollection DispHTMLAreasCollection;
+typedef struct DispHTMLAreasCollection DispHTMLAreasCollection;
 #endif
 
 #ifndef __HTMLAreasCollection_FWD_DEFINED__
@@ -2040,7 +2040,7 @@ typedef struct HTMLAreasCollection HTMLAreasCollection;
 
 #ifndef __DispHTMLMapElement_FWD_DEFINED__
 #define __DispHTMLMapElement_FWD_DEFINED__
-typedef interface DispHTMLMapElement DispHTMLMapElement;
+typedef struct DispHTMLMapElement DispHTMLMapElement;
 #endif
 
 #ifndef __HTMLMapElement_FWD_DEFINED__
@@ -2054,22 +2054,22 @@ typedef struct HTMLMapElement HTMLMapElement;
 
 #ifndef __HTMLAreaEvents2_FWD_DEFINED__
 #define __HTMLAreaEvents2_FWD_DEFINED__
-typedef interface HTMLAreaEvents2 HTMLAreaEvents2;
+typedef struct HTMLAreaEvents2 HTMLAreaEvents2;
 #endif
 
 #ifndef __HTMLAreaEvents_FWD_DEFINED__
 #define __HTMLAreaEvents_FWD_DEFINED__
-typedef interface HTMLAreaEvents HTMLAreaEvents;
+typedef struct HTMLAreaEvents HTMLAreaEvents;
 #endif
 
 #ifndef __IHTMLAreaElement_FWD_DEFINED__
 #define __IHTMLAreaElement_FWD_DEFINED__
-typedef interface IHTMLAreaElement IHTMLAreaElement;
+typedef struct IHTMLAreaElement IHTMLAreaElement;
 #endif
 
 #ifndef __DispHTMLAreaElement_FWD_DEFINED__
 #define __DispHTMLAreaElement_FWD_DEFINED__
-typedef interface DispHTMLAreaElement DispHTMLAreaElement;
+typedef struct DispHTMLAreaElement DispHTMLAreaElement;
 #endif
 
 #ifndef __HTMLAreaElement_FWD_DEFINED__
@@ -2083,12 +2083,12 @@ typedef struct HTMLAreaElement HTMLAreaElement;
 
 #ifndef __IHTMLTableCaption_FWD_DEFINED__
 #define __IHTMLTableCaption_FWD_DEFINED__
-typedef interface IHTMLTableCaption IHTMLTableCaption;
+typedef struct IHTMLTableCaption IHTMLTableCaption;
 #endif
 
 #ifndef __DispHTMLTableCaption_FWD_DEFINED__
 #define __DispHTMLTableCaption_FWD_DEFINED__
-typedef interface DispHTMLTableCaption DispHTMLTableCaption;
+typedef struct DispHTMLTableCaption DispHTMLTableCaption;
 #endif
 
 #ifndef __HTMLTableCaption_FWD_DEFINED__
@@ -2102,17 +2102,17 @@ typedef struct HTMLTableCaption HTMLTableCaption;
 
 #ifndef __IHTMLCommentElement_FWD_DEFINED__
 #define __IHTMLCommentElement_FWD_DEFINED__
-typedef interface IHTMLCommentElement IHTMLCommentElement;
+typedef struct IHTMLCommentElement IHTMLCommentElement;
 #endif
 
 #ifndef __IHTMLCommentElement2_FWD_DEFINED__
 #define __IHTMLCommentElement2_FWD_DEFINED__
-typedef interface IHTMLCommentElement2 IHTMLCommentElement2;
+typedef struct IHTMLCommentElement2 IHTMLCommentElement2;
 #endif
 
 #ifndef __DispHTMLCommentElement_FWD_DEFINED__
 #define __DispHTMLCommentElement_FWD_DEFINED__
-typedef interface DispHTMLCommentElement DispHTMLCommentElement;
+typedef struct DispHTMLCommentElement DispHTMLCommentElement;
 #endif
 
 #ifndef __HTMLCommentElement_FWD_DEFINED__
@@ -2126,22 +2126,22 @@ typedef struct HTMLCommentElement HTMLCommentElement;
 
 #ifndef __IHTMLPhraseElement_FWD_DEFINED__
 #define __IHTMLPhraseElement_FWD_DEFINED__
-typedef interface IHTMLPhraseElement IHTMLPhraseElement;
+typedef struct IHTMLPhraseElement IHTMLPhraseElement;
 #endif
 
 #ifndef __IHTMLPhraseElement2_FWD_DEFINED__
 #define __IHTMLPhraseElement2_FWD_DEFINED__
-typedef interface IHTMLPhraseElement2 IHTMLPhraseElement2;
+typedef struct IHTMLPhraseElement2 IHTMLPhraseElement2;
 #endif
 
 #ifndef __IHTMLSpanElement_FWD_DEFINED__
 #define __IHTMLSpanElement_FWD_DEFINED__
-typedef interface IHTMLSpanElement IHTMLSpanElement;
+typedef struct IHTMLSpanElement IHTMLSpanElement;
 #endif
 
 #ifndef __DispHTMLPhraseElement_FWD_DEFINED__
 #define __DispHTMLPhraseElement_FWD_DEFINED__
-typedef interface DispHTMLPhraseElement DispHTMLPhraseElement;
+typedef struct DispHTMLPhraseElement DispHTMLPhraseElement;
 #endif
 
 #ifndef __HTMLPhraseElement_FWD_DEFINED__
@@ -2155,7 +2155,7 @@ typedef struct HTMLPhraseElement HTMLPhraseElement;
 
 #ifndef __DispHTMLSpanElement_FWD_DEFINED__
 #define __DispHTMLSpanElement_FWD_DEFINED__
-typedef interface DispHTMLSpanElement DispHTMLSpanElement;
+typedef struct DispHTMLSpanElement DispHTMLSpanElement;
 #endif
 
 #ifndef __HTMLSpanElement_FWD_DEFINED__
@@ -2169,87 +2169,87 @@ typedef struct HTMLSpanElement HTMLSpanElement;
 
 #ifndef __HTMLTableEvents2_FWD_DEFINED__
 #define __HTMLTableEvents2_FWD_DEFINED__
-typedef interface HTMLTableEvents2 HTMLTableEvents2;
+typedef struct HTMLTableEvents2 HTMLTableEvents2;
 #endif
 
 #ifndef __HTMLTableEvents_FWD_DEFINED__
 #define __HTMLTableEvents_FWD_DEFINED__
-typedef interface HTMLTableEvents HTMLTableEvents;
+typedef struct HTMLTableEvents HTMLTableEvents;
 #endif
 
 #ifndef __IHTMLTableSection_FWD_DEFINED__
 #define __IHTMLTableSection_FWD_DEFINED__
-typedef interface IHTMLTableSection IHTMLTableSection;
+typedef struct IHTMLTableSection IHTMLTableSection;
 #endif
 
 #ifndef __IHTMLTable_FWD_DEFINED__
 #define __IHTMLTable_FWD_DEFINED__
-typedef interface IHTMLTable IHTMLTable;
+typedef struct IHTMLTable IHTMLTable;
 #endif
 
 #ifndef __IHTMLTable2_FWD_DEFINED__
 #define __IHTMLTable2_FWD_DEFINED__
-typedef interface IHTMLTable2 IHTMLTable2;
+typedef struct IHTMLTable2 IHTMLTable2;
 #endif
 
 #ifndef __IHTMLTable3_FWD_DEFINED__
 #define __IHTMLTable3_FWD_DEFINED__
-typedef interface IHTMLTable3 IHTMLTable3;
+typedef struct IHTMLTable3 IHTMLTable3;
 #endif
 
 #ifndef __IHTMLTableCol_FWD_DEFINED__
 #define __IHTMLTableCol_FWD_DEFINED__
-typedef interface IHTMLTableCol IHTMLTableCol;
+typedef struct IHTMLTableCol IHTMLTableCol;
 #endif
 
 #ifndef __IHTMLTableCol2_FWD_DEFINED__
 #define __IHTMLTableCol2_FWD_DEFINED__
-typedef interface IHTMLTableCol2 IHTMLTableCol2;
+typedef struct IHTMLTableCol2 IHTMLTableCol2;
 #endif
 
 #ifndef __IHTMLTableSection2_FWD_DEFINED__
 #define __IHTMLTableSection2_FWD_DEFINED__
-typedef interface IHTMLTableSection2 IHTMLTableSection2;
+typedef struct IHTMLTableSection2 IHTMLTableSection2;
 #endif
 
 #ifndef __IHTMLTableSection3_FWD_DEFINED__
 #define __IHTMLTableSection3_FWD_DEFINED__
-typedef interface IHTMLTableSection3 IHTMLTableSection3;
+typedef struct IHTMLTableSection3 IHTMLTableSection3;
 #endif
 
 #ifndef __IHTMLTableRow_FWD_DEFINED__
 #define __IHTMLTableRow_FWD_DEFINED__
-typedef interface IHTMLTableRow IHTMLTableRow;
+typedef struct IHTMLTableRow IHTMLTableRow;
 #endif
 
 #ifndef __IHTMLTableRow2_FWD_DEFINED__
 #define __IHTMLTableRow2_FWD_DEFINED__
-typedef interface IHTMLTableRow2 IHTMLTableRow2;
+typedef struct IHTMLTableRow2 IHTMLTableRow2;
 #endif
 
 #ifndef __IHTMLTableRow3_FWD_DEFINED__
 #define __IHTMLTableRow3_FWD_DEFINED__
-typedef interface IHTMLTableRow3 IHTMLTableRow3;
+typedef struct IHTMLTableRow3 IHTMLTableRow3;
 #endif
 
 #ifndef __IHTMLTableRowMetrics_FWD_DEFINED__
 #define __IHTMLTableRowMetrics_FWD_DEFINED__
-typedef interface IHTMLTableRowMetrics IHTMLTableRowMetrics;
+typedef struct IHTMLTableRowMetrics IHTMLTableRowMetrics;
 #endif
 
 #ifndef __IHTMLTableCell_FWD_DEFINED__
 #define __IHTMLTableCell_FWD_DEFINED__
-typedef interface IHTMLTableCell IHTMLTableCell;
+typedef struct IHTMLTableCell IHTMLTableCell;
 #endif
 
 #ifndef __IHTMLTableCell2_FWD_DEFINED__
 #define __IHTMLTableCell2_FWD_DEFINED__
-typedef interface IHTMLTableCell2 IHTMLTableCell2;
+typedef struct IHTMLTableCell2 IHTMLTableCell2;
 #endif
 
 #ifndef __DispHTMLTable_FWD_DEFINED__
 #define __DispHTMLTable_FWD_DEFINED__
-typedef interface DispHTMLTable DispHTMLTable;
+typedef struct DispHTMLTable DispHTMLTable;
 #endif
 
 #ifndef __HTMLTable_FWD_DEFINED__
@@ -2263,7 +2263,7 @@ typedef struct HTMLTable HTMLTable;
 
 #ifndef __DispHTMLTableCol_FWD_DEFINED__
 #define __DispHTMLTableCol_FWD_DEFINED__
-typedef interface DispHTMLTableCol DispHTMLTableCol;
+typedef struct DispHTMLTableCol DispHTMLTableCol;
 #endif
 
 #ifndef __HTMLTableCol_FWD_DEFINED__
@@ -2277,7 +2277,7 @@ typedef struct HTMLTableCol HTMLTableCol;
 
 #ifndef __DispHTMLTableSection_FWD_DEFINED__
 #define __DispHTMLTableSection_FWD_DEFINED__
-typedef interface DispHTMLTableSection DispHTMLTableSection;
+typedef struct DispHTMLTableSection DispHTMLTableSection;
 #endif
 
 #ifndef __HTMLTableSection_FWD_DEFINED__
@@ -2291,7 +2291,7 @@ typedef struct HTMLTableSection HTMLTableSection;
 
 #ifndef __DispHTMLTableRow_FWD_DEFINED__
 #define __DispHTMLTableRow_FWD_DEFINED__
-typedef interface DispHTMLTableRow DispHTMLTableRow;
+typedef struct DispHTMLTableRow DispHTMLTableRow;
 #endif
 
 #ifndef __HTMLTableRow_FWD_DEFINED__
@@ -2305,7 +2305,7 @@ typedef struct HTMLTableRow HTMLTableRow;
 
 #ifndef __DispHTMLTableCell_FWD_DEFINED__
 #define __DispHTMLTableCell_FWD_DEFINED__
-typedef interface DispHTMLTableCell DispHTMLTableCell;
+typedef struct DispHTMLTableCell DispHTMLTableCell;
 #endif
 
 #ifndef __HTMLTableCell_FWD_DEFINED__
@@ -2319,27 +2319,27 @@ typedef struct HTMLTableCell HTMLTableCell;
 
 #ifndef __HTMLScriptEvents2_FWD_DEFINED__
 #define __HTMLScriptEvents2_FWD_DEFINED__
-typedef interface HTMLScriptEvents2 HTMLScriptEvents2;
+typedef struct HTMLScriptEvents2 HTMLScriptEvents2;
 #endif
 
 #ifndef __HTMLScriptEvents_FWD_DEFINED__
 #define __HTMLScriptEvents_FWD_DEFINED__
-typedef interface HTMLScriptEvents HTMLScriptEvents;
+typedef struct HTMLScriptEvents HTMLScriptEvents;
 #endif
 
 #ifndef __IHTMLScriptElement_FWD_DEFINED__
 #define __IHTMLScriptElement_FWD_DEFINED__
-typedef interface IHTMLScriptElement IHTMLScriptElement;
+typedef struct IHTMLScriptElement IHTMLScriptElement;
 #endif
 
 #ifndef __IHTMLScriptElement2_FWD_DEFINED__
 #define __IHTMLScriptElement2_FWD_DEFINED__
-typedef interface IHTMLScriptElement2 IHTMLScriptElement2;
+typedef struct IHTMLScriptElement2 IHTMLScriptElement2;
 #endif
 
 #ifndef __DispHTMLScriptElement_FWD_DEFINED__
 #define __DispHTMLScriptElement_FWD_DEFINED__
-typedef interface DispHTMLScriptElement DispHTMLScriptElement;
+typedef struct DispHTMLScriptElement DispHTMLScriptElement;
 #endif
 
 #ifndef __HTMLScriptElement_FWD_DEFINED__
@@ -2353,12 +2353,12 @@ typedef struct HTMLScriptElement HTMLScriptElement;
 
 #ifndef __IHTMLNoShowElement_FWD_DEFINED__
 #define __IHTMLNoShowElement_FWD_DEFINED__
-typedef interface IHTMLNoShowElement IHTMLNoShowElement;
+typedef struct IHTMLNoShowElement IHTMLNoShowElement;
 #endif
 
 #ifndef __DispHTMLNoShowElement_FWD_DEFINED__
 #define __DispHTMLNoShowElement_FWD_DEFINED__
-typedef interface DispHTMLNoShowElement DispHTMLNoShowElement;
+typedef struct DispHTMLNoShowElement DispHTMLNoShowElement;
 #endif
 
 #ifndef __HTMLNoShowElement_FWD_DEFINED__
@@ -2372,37 +2372,37 @@ typedef struct HTMLNoShowElement HTMLNoShowElement;
 
 #ifndef __HTMLObjectElementEvents2_FWD_DEFINED__
 #define __HTMLObjectElementEvents2_FWD_DEFINED__
-typedef interface HTMLObjectElementEvents2 HTMLObjectElementEvents2;
+typedef struct HTMLObjectElementEvents2 HTMLObjectElementEvents2;
 #endif
 
 #ifndef __HTMLObjectElementEvents_FWD_DEFINED__
 #define __HTMLObjectElementEvents_FWD_DEFINED__
-typedef interface HTMLObjectElementEvents HTMLObjectElementEvents;
+typedef struct HTMLObjectElementEvents HTMLObjectElementEvents;
 #endif
 
 #ifndef __IHTMLObjectElement_FWD_DEFINED__
 #define __IHTMLObjectElement_FWD_DEFINED__
-typedef interface IHTMLObjectElement IHTMLObjectElement;
+typedef struct IHTMLObjectElement IHTMLObjectElement;
 #endif
 
 #ifndef __IHTMLObjectElement2_FWD_DEFINED__
 #define __IHTMLObjectElement2_FWD_DEFINED__
-typedef interface IHTMLObjectElement2 IHTMLObjectElement2;
+typedef struct IHTMLObjectElement2 IHTMLObjectElement2;
 #endif
 
 #ifndef __IHTMLObjectElement3_FWD_DEFINED__
 #define __IHTMLObjectElement3_FWD_DEFINED__
-typedef interface IHTMLObjectElement3 IHTMLObjectElement3;
+typedef struct IHTMLObjectElement3 IHTMLObjectElement3;
 #endif
 
 #ifndef __IHTMLParamElement_FWD_DEFINED__
 #define __IHTMLParamElement_FWD_DEFINED__
-typedef interface IHTMLParamElement IHTMLParamElement;
+typedef struct IHTMLParamElement IHTMLParamElement;
 #endif
 
 #ifndef __DispHTMLObjectElement_FWD_DEFINED__
 #define __DispHTMLObjectElement_FWD_DEFINED__
-typedef interface DispHTMLObjectElement DispHTMLObjectElement;
+typedef struct DispHTMLObjectElement DispHTMLObjectElement;
 #endif
 
 #ifndef __HTMLObjectElement_FWD_DEFINED__
@@ -2416,7 +2416,7 @@ typedef struct HTMLObjectElement HTMLObjectElement;
 
 #ifndef __DispHTMLParamElement_FWD_DEFINED__
 #define __DispHTMLParamElement_FWD_DEFINED__
-typedef interface DispHTMLParamElement DispHTMLParamElement;
+typedef struct DispHTMLParamElement DispHTMLParamElement;
 #endif
 
 #ifndef __HTMLParamElement_FWD_DEFINED__
@@ -2430,27 +2430,27 @@ typedef struct HTMLParamElement HTMLParamElement;
 
 #ifndef __HTMLFrameSiteEvents2_FWD_DEFINED__
 #define __HTMLFrameSiteEvents2_FWD_DEFINED__
-typedef interface HTMLFrameSiteEvents2 HTMLFrameSiteEvents2;
+typedef struct HTMLFrameSiteEvents2 HTMLFrameSiteEvents2;
 #endif
 
 #ifndef __HTMLFrameSiteEvents_FWD_DEFINED__
 #define __HTMLFrameSiteEvents_FWD_DEFINED__
-typedef interface HTMLFrameSiteEvents HTMLFrameSiteEvents;
+typedef struct HTMLFrameSiteEvents HTMLFrameSiteEvents;
 #endif
 
 #ifndef __IHTMLFrameBase2_FWD_DEFINED__
 #define __IHTMLFrameBase2_FWD_DEFINED__
-typedef interface IHTMLFrameBase2 IHTMLFrameBase2;
+typedef struct IHTMLFrameBase2 IHTMLFrameBase2;
 #endif
 
 #ifndef __IHTMLFrameBase3_FWD_DEFINED__
 #define __IHTMLFrameBase3_FWD_DEFINED__
-typedef interface IHTMLFrameBase3 IHTMLFrameBase3;
+typedef struct IHTMLFrameBase3 IHTMLFrameBase3;
 #endif
 
 #ifndef __DispHTMLFrameBase_FWD_DEFINED__
 #define __DispHTMLFrameBase_FWD_DEFINED__
-typedef interface DispHTMLFrameBase DispHTMLFrameBase;
+typedef struct DispHTMLFrameBase DispHTMLFrameBase;
 #endif
 
 #ifndef __HTMLFrameBase_FWD_DEFINED__
@@ -2464,17 +2464,17 @@ typedef struct HTMLFrameBase HTMLFrameBase;
 
 #ifndef __IHTMLFrameElement_FWD_DEFINED__
 #define __IHTMLFrameElement_FWD_DEFINED__
-typedef interface IHTMLFrameElement IHTMLFrameElement;
+typedef struct IHTMLFrameElement IHTMLFrameElement;
 #endif
 
 #ifndef __IHTMLFrameElement2_FWD_DEFINED__
 #define __IHTMLFrameElement2_FWD_DEFINED__
-typedef interface IHTMLFrameElement2 IHTMLFrameElement2;
+typedef struct IHTMLFrameElement2 IHTMLFrameElement2;
 #endif
 
 #ifndef __DispHTMLFrameElement_FWD_DEFINED__
 #define __DispHTMLFrameElement_FWD_DEFINED__
-typedef interface DispHTMLFrameElement DispHTMLFrameElement;
+typedef struct DispHTMLFrameElement DispHTMLFrameElement;
 #endif
 
 #ifndef __HTMLFrameElement_FWD_DEFINED__
@@ -2488,17 +2488,17 @@ typedef struct HTMLFrameElement HTMLFrameElement;
 
 #ifndef __IHTMLIFrameElement_FWD_DEFINED__
 #define __IHTMLIFrameElement_FWD_DEFINED__
-typedef interface IHTMLIFrameElement IHTMLIFrameElement;
+typedef struct IHTMLIFrameElement IHTMLIFrameElement;
 #endif
 
 #ifndef __IHTMLIFrameElement2_FWD_DEFINED__
 #define __IHTMLIFrameElement2_FWD_DEFINED__
-typedef interface IHTMLIFrameElement2 IHTMLIFrameElement2;
+typedef struct IHTMLIFrameElement2 IHTMLIFrameElement2;
 #endif
 
 #ifndef __DispHTMLIFrame_FWD_DEFINED__
 #define __DispHTMLIFrame_FWD_DEFINED__
-typedef interface DispHTMLIFrame DispHTMLIFrame;
+typedef struct DispHTMLIFrame DispHTMLIFrame;
 #endif
 
 #ifndef __HTMLIFrame_FWD_DEFINED__
@@ -2512,32 +2512,32 @@ typedef struct HTMLIFrame HTMLIFrame;
 
 #ifndef __IHTMLDivPosition_FWD_DEFINED__
 #define __IHTMLDivPosition_FWD_DEFINED__
-typedef interface IHTMLDivPosition IHTMLDivPosition;
+typedef struct IHTMLDivPosition IHTMLDivPosition;
 #endif
 
 #ifndef __IHTMLFieldSetElement_FWD_DEFINED__
 #define __IHTMLFieldSetElement_FWD_DEFINED__
-typedef interface IHTMLFieldSetElement IHTMLFieldSetElement;
+typedef struct IHTMLFieldSetElement IHTMLFieldSetElement;
 #endif
 
 #ifndef __IHTMLFieldSetElement2_FWD_DEFINED__
 #define __IHTMLFieldSetElement2_FWD_DEFINED__
-typedef interface IHTMLFieldSetElement2 IHTMLFieldSetElement2;
+typedef struct IHTMLFieldSetElement2 IHTMLFieldSetElement2;
 #endif
 
 #ifndef __IHTMLLegendElement_FWD_DEFINED__
 #define __IHTMLLegendElement_FWD_DEFINED__
-typedef interface IHTMLLegendElement IHTMLLegendElement;
+typedef struct IHTMLLegendElement IHTMLLegendElement;
 #endif
 
 #ifndef __IHTMLLegendElement2_FWD_DEFINED__
 #define __IHTMLLegendElement2_FWD_DEFINED__
-typedef interface IHTMLLegendElement2 IHTMLLegendElement2;
+typedef struct IHTMLLegendElement2 IHTMLLegendElement2;
 #endif
 
 #ifndef __DispHTMLDivPosition_FWD_DEFINED__
 #define __DispHTMLDivPosition_FWD_DEFINED__
-typedef interface DispHTMLDivPosition DispHTMLDivPosition;
+typedef struct DispHTMLDivPosition DispHTMLDivPosition;
 #endif
 
 #ifndef __HTMLDivPosition_FWD_DEFINED__
@@ -2551,7 +2551,7 @@ typedef struct HTMLDivPosition HTMLDivPosition;
 
 #ifndef __DispHTMLFieldSetElement_FWD_DEFINED__
 #define __DispHTMLFieldSetElement_FWD_DEFINED__
-typedef interface DispHTMLFieldSetElement DispHTMLFieldSetElement;
+typedef struct DispHTMLFieldSetElement DispHTMLFieldSetElement;
 #endif
 
 #ifndef __HTMLFieldSetElement_FWD_DEFINED__
@@ -2565,7 +2565,7 @@ typedef struct HTMLFieldSetElement HTMLFieldSetElement;
 
 #ifndef __DispHTMLLegendElement_FWD_DEFINED__
 #define __DispHTMLLegendElement_FWD_DEFINED__
-typedef interface DispHTMLLegendElement DispHTMLLegendElement;
+typedef struct DispHTMLLegendElement DispHTMLLegendElement;
 #endif
 
 #ifndef __HTMLLegendElement_FWD_DEFINED__
@@ -2579,12 +2579,12 @@ typedef struct HTMLLegendElement HTMLLegendElement;
 
 #ifndef __IHTMLSpanFlow_FWD_DEFINED__
 #define __IHTMLSpanFlow_FWD_DEFINED__
-typedef interface IHTMLSpanFlow IHTMLSpanFlow;
+typedef struct IHTMLSpanFlow IHTMLSpanFlow;
 #endif
 
 #ifndef __DispHTMLSpanFlow_FWD_DEFINED__
 #define __DispHTMLSpanFlow_FWD_DEFINED__
-typedef interface DispHTMLSpanFlow DispHTMLSpanFlow;
+typedef struct DispHTMLSpanFlow DispHTMLSpanFlow;
 #endif
 
 #ifndef __HTMLSpanFlow_FWD_DEFINED__
@@ -2598,17 +2598,17 @@ typedef struct HTMLSpanFlow HTMLSpanFlow;
 
 #ifndef __IHTMLFrameSetElement_FWD_DEFINED__
 #define __IHTMLFrameSetElement_FWD_DEFINED__
-typedef interface IHTMLFrameSetElement IHTMLFrameSetElement;
+typedef struct IHTMLFrameSetElement IHTMLFrameSetElement;
 #endif
 
 #ifndef __IHTMLFrameSetElement2_FWD_DEFINED__
 #define __IHTMLFrameSetElement2_FWD_DEFINED__
-typedef interface IHTMLFrameSetElement2 IHTMLFrameSetElement2;
+typedef struct IHTMLFrameSetElement2 IHTMLFrameSetElement2;
 #endif
 
 #ifndef __DispHTMLFrameSetSite_FWD_DEFINED__
 #define __DispHTMLFrameSetSite_FWD_DEFINED__
-typedef interface DispHTMLFrameSetSite DispHTMLFrameSetSite;
+typedef struct DispHTMLFrameSetSite DispHTMLFrameSetSite;
 #endif
 
 #ifndef __HTMLFrameSetSite_FWD_DEFINED__
@@ -2622,12 +2622,12 @@ typedef struct HTMLFrameSetSite HTMLFrameSetSite;
 
 #ifndef __IHTMLBGsound_FWD_DEFINED__
 #define __IHTMLBGsound_FWD_DEFINED__
-typedef interface IHTMLBGsound IHTMLBGsound;
+typedef struct IHTMLBGsound IHTMLBGsound;
 #endif
 
 #ifndef __DispHTMLBGsound_FWD_DEFINED__
 #define __DispHTMLBGsound_FWD_DEFINED__
-typedef interface DispHTMLBGsound DispHTMLBGsound;
+typedef struct DispHTMLBGsound DispHTMLBGsound;
 #endif
 
 #ifndef __HTMLBGsound_FWD_DEFINED__
@@ -2641,37 +2641,37 @@ typedef struct HTMLBGsound HTMLBGsound;
 
 #ifndef __IHTMLFontNamesCollection_FWD_DEFINED__
 #define __IHTMLFontNamesCollection_FWD_DEFINED__
-typedef interface IHTMLFontNamesCollection IHTMLFontNamesCollection;
+typedef struct IHTMLFontNamesCollection IHTMLFontNamesCollection;
 #endif
 
 #ifndef __IHTMLFontSizesCollection_FWD_DEFINED__
 #define __IHTMLFontSizesCollection_FWD_DEFINED__
-typedef interface IHTMLFontSizesCollection IHTMLFontSizesCollection;
+typedef struct IHTMLFontSizesCollection IHTMLFontSizesCollection;
 #endif
 
 #ifndef __IHTMLOptionsHolder_FWD_DEFINED__
 #define __IHTMLOptionsHolder_FWD_DEFINED__
-typedef interface IHTMLOptionsHolder IHTMLOptionsHolder;
+typedef struct IHTMLOptionsHolder IHTMLOptionsHolder;
 #endif
 
 #ifndef __HTMLStyleElementEvents2_FWD_DEFINED__
 #define __HTMLStyleElementEvents2_FWD_DEFINED__
-typedef interface HTMLStyleElementEvents2 HTMLStyleElementEvents2;
+typedef struct HTMLStyleElementEvents2 HTMLStyleElementEvents2;
 #endif
 
 #ifndef __HTMLStyleElementEvents_FWD_DEFINED__
 #define __HTMLStyleElementEvents_FWD_DEFINED__
-typedef interface HTMLStyleElementEvents HTMLStyleElementEvents;
+typedef struct HTMLStyleElementEvents HTMLStyleElementEvents;
 #endif
 
 #ifndef __IHTMLStyleElement_FWD_DEFINED__
 #define __IHTMLStyleElement_FWD_DEFINED__
-typedef interface IHTMLStyleElement IHTMLStyleElement;
+typedef struct IHTMLStyleElement IHTMLStyleElement;
 #endif
 
 #ifndef __DispHTMLStyleElement_FWD_DEFINED__
 #define __DispHTMLStyleElement_FWD_DEFINED__
-typedef interface DispHTMLStyleElement DispHTMLStyleElement;
+typedef struct DispHTMLStyleElement DispHTMLStyleElement;
 #endif
 
 #ifndef __HTMLStyleElement_FWD_DEFINED__
@@ -2685,7 +2685,7 @@ typedef struct HTMLStyleElement HTMLStyleElement;
 
 #ifndef __IHTMLStyleFontFace_FWD_DEFINED__
 #define __IHTMLStyleFontFace_FWD_DEFINED__
-typedef interface IHTMLStyleFontFace IHTMLStyleFontFace;
+typedef struct IHTMLStyleFontFace IHTMLStyleFontFace;
 #endif
 
 #ifndef __HTMLStyleFontFace_FWD_DEFINED__
@@ -2699,192 +2699,192 @@ typedef struct HTMLStyleFontFace HTMLStyleFontFace;
 
 #ifndef __ICSSFilterSite_FWD_DEFINED__
 #define __ICSSFilterSite_FWD_DEFINED__
-typedef interface ICSSFilterSite ICSSFilterSite;
+typedef struct ICSSFilterSite ICSSFilterSite;
 #endif
 
 #ifndef __IMarkupPointer_FWD_DEFINED__
 #define __IMarkupPointer_FWD_DEFINED__
-typedef interface IMarkupPointer IMarkupPointer;
+typedef struct IMarkupPointer IMarkupPointer;
 #endif
 
 #ifndef __IMarkupContainer_FWD_DEFINED__
 #define __IMarkupContainer_FWD_DEFINED__
-typedef interface IMarkupContainer IMarkupContainer;
+typedef struct IMarkupContainer IMarkupContainer;
 #endif
 
 #ifndef __IMarkupContainer2_FWD_DEFINED__
 #define __IMarkupContainer2_FWD_DEFINED__
-typedef interface IMarkupContainer2 IMarkupContainer2;
+typedef struct IMarkupContainer2 IMarkupContainer2;
 #endif
 
 #ifndef __IHTMLChangeLog_FWD_DEFINED__
 #define __IHTMLChangeLog_FWD_DEFINED__
-typedef interface IHTMLChangeLog IHTMLChangeLog;
+typedef struct IHTMLChangeLog IHTMLChangeLog;
 #endif
 
 #ifndef __IHTMLChangeSink_FWD_DEFINED__
 #define __IHTMLChangeSink_FWD_DEFINED__
-typedef interface IHTMLChangeSink IHTMLChangeSink;
+typedef struct IHTMLChangeSink IHTMLChangeSink;
 #endif
 
 #ifndef __IActiveIMMApp_FWD_DEFINED__
 #define __IActiveIMMApp_FWD_DEFINED__
-typedef interface IActiveIMMApp IActiveIMMApp;
+typedef struct IActiveIMMApp IActiveIMMApp;
 #endif
 
 #ifndef __ISegmentList_FWD_DEFINED__
 #define __ISegmentList_FWD_DEFINED__
-typedef interface ISegmentList ISegmentList;
+typedef struct ISegmentList ISegmentList;
 #endif
 
 #ifndef __ISegmentListIterator_FWD_DEFINED__
 #define __ISegmentListIterator_FWD_DEFINED__
-typedef interface ISegmentListIterator ISegmentListIterator;
+typedef struct ISegmentListIterator ISegmentListIterator;
 #endif
 
 #ifndef __IHTMLCaret_FWD_DEFINED__
 #define __IHTMLCaret_FWD_DEFINED__
-typedef interface IHTMLCaret IHTMLCaret;
+typedef struct IHTMLCaret IHTMLCaret;
 #endif
 
 #ifndef __ISegment_FWD_DEFINED__
 #define __ISegment_FWD_DEFINED__
-typedef interface ISegment ISegment;
+typedef struct ISegment ISegment;
 #endif
 
 #ifndef __IElementSegment_FWD_DEFINED__
 #define __IElementSegment_FWD_DEFINED__
-typedef interface IElementSegment IElementSegment;
+typedef struct IElementSegment IElementSegment;
 #endif
 
 #ifndef __IHighlightSegment_FWD_DEFINED__
 #define __IHighlightSegment_FWD_DEFINED__
-typedef interface IHighlightSegment IHighlightSegment;
+typedef struct IHighlightSegment IHighlightSegment;
 #endif
 
 #ifndef __IHighlightRenderingServices_FWD_DEFINED__
 #define __IHighlightRenderingServices_FWD_DEFINED__
-typedef interface IHighlightRenderingServices IHighlightRenderingServices;
+typedef struct IHighlightRenderingServices IHighlightRenderingServices;
 #endif
 
 #ifndef __ILineInfo_FWD_DEFINED__
 #define __ILineInfo_FWD_DEFINED__
-typedef interface ILineInfo ILineInfo;
+typedef struct ILineInfo ILineInfo;
 #endif
 
 #ifndef __IDisplayPointer_FWD_DEFINED__
 #define __IDisplayPointer_FWD_DEFINED__
-typedef interface IDisplayPointer IDisplayPointer;
+typedef struct IDisplayPointer IDisplayPointer;
 #endif
 
 #ifndef __IDisplayServices_FWD_DEFINED__
 #define __IDisplayServices_FWD_DEFINED__
-typedef interface IDisplayServices IDisplayServices;
+typedef struct IDisplayServices IDisplayServices;
 #endif
 
 #ifndef __IHtmlDlgSafeHelper_FWD_DEFINED__
 #define __IHtmlDlgSafeHelper_FWD_DEFINED__
-typedef interface IHtmlDlgSafeHelper IHtmlDlgSafeHelper;
+typedef struct IHtmlDlgSafeHelper IHtmlDlgSafeHelper;
 #endif
 
 #ifndef __IBlockFormats_FWD_DEFINED__
 #define __IBlockFormats_FWD_DEFINED__
-typedef interface IBlockFormats IBlockFormats;
+typedef struct IBlockFormats IBlockFormats;
 #endif
 
 #ifndef __IFontNames_FWD_DEFINED__
 #define __IFontNames_FWD_DEFINED__
-typedef interface IFontNames IFontNames;
+typedef struct IFontNames IFontNames;
 #endif
 
 #ifndef __ICSSFilter_FWD_DEFINED__
 #define __ICSSFilter_FWD_DEFINED__
-typedef interface ICSSFilter ICSSFilter;
+typedef struct ICSSFilter ICSSFilter;
 #endif
 
 #ifndef __ISecureUrlHost_FWD_DEFINED__
 #define __ISecureUrlHost_FWD_DEFINED__
-typedef interface ISecureUrlHost ISecureUrlHost;
+typedef struct ISecureUrlHost ISecureUrlHost;
 #endif
 
 #ifndef __IMarkupServices_FWD_DEFINED__
 #define __IMarkupServices_FWD_DEFINED__
-typedef interface IMarkupServices IMarkupServices;
+typedef struct IMarkupServices IMarkupServices;
 #endif
 
 #ifndef __IMarkupServices2_FWD_DEFINED__
 #define __IMarkupServices2_FWD_DEFINED__
-typedef interface IMarkupServices2 IMarkupServices2;
+typedef struct IMarkupServices2 IMarkupServices2;
 #endif
 
 #ifndef __IHTMLChangePlayback_FWD_DEFINED__
 #define __IHTMLChangePlayback_FWD_DEFINED__
-typedef interface IHTMLChangePlayback IHTMLChangePlayback;
+typedef struct IHTMLChangePlayback IHTMLChangePlayback;
 #endif
 
 #ifndef __IMarkupPointer2_FWD_DEFINED__
 #define __IMarkupPointer2_FWD_DEFINED__
-typedef interface IMarkupPointer2 IMarkupPointer2;
+typedef struct IMarkupPointer2 IMarkupPointer2;
 #endif
 
 #ifndef __IMarkupTextFrags_FWD_DEFINED__
 #define __IMarkupTextFrags_FWD_DEFINED__
-typedef interface IMarkupTextFrags IMarkupTextFrags;
+typedef struct IMarkupTextFrags IMarkupTextFrags;
 #endif
 
 #ifndef __IXMLGenericParse_FWD_DEFINED__
 #define __IXMLGenericParse_FWD_DEFINED__
-typedef interface IXMLGenericParse IXMLGenericParse;
+typedef struct IXMLGenericParse IXMLGenericParse;
 #endif
 
 #ifndef __IHTMLEditHost_FWD_DEFINED__
 #define __IHTMLEditHost_FWD_DEFINED__
-typedef interface IHTMLEditHost IHTMLEditHost;
+typedef struct IHTMLEditHost IHTMLEditHost;
 #endif
 
 #ifndef __IHTMLEditHost2_FWD_DEFINED__
 #define __IHTMLEditHost2_FWD_DEFINED__
-typedef interface IHTMLEditHost2 IHTMLEditHost2;
+typedef struct IHTMLEditHost2 IHTMLEditHost2;
 #endif
 
 #ifndef __ISequenceNumber_FWD_DEFINED__
 #define __ISequenceNumber_FWD_DEFINED__
-typedef interface ISequenceNumber ISequenceNumber;
+typedef struct ISequenceNumber ISequenceNumber;
 #endif
 
 #ifndef __IIMEServices_FWD_DEFINED__
 #define __IIMEServices_FWD_DEFINED__
-typedef interface IIMEServices IIMEServices;
+typedef struct IIMEServices IIMEServices;
 #endif
 
 #ifndef __ISelectionServicesListener_FWD_DEFINED__
 #define __ISelectionServicesListener_FWD_DEFINED__
-typedef interface ISelectionServicesListener ISelectionServicesListener;
+typedef struct ISelectionServicesListener ISelectionServicesListener;
 #endif
 
 #ifndef __ISelectionServices_FWD_DEFINED__
 #define __ISelectionServices_FWD_DEFINED__
-typedef interface ISelectionServices ISelectionServices;
+typedef struct ISelectionServices ISelectionServices;
 #endif
 
 #ifndef __IHTMLEditDesigner_FWD_DEFINED__
 #define __IHTMLEditDesigner_FWD_DEFINED__
-typedef interface IHTMLEditDesigner IHTMLEditDesigner;
+typedef struct IHTMLEditDesigner IHTMLEditDesigner;
 #endif
 
 #ifndef __IHTMLEditServices_FWD_DEFINED__
 #define __IHTMLEditServices_FWD_DEFINED__
-typedef interface IHTMLEditServices IHTMLEditServices;
+typedef struct IHTMLEditServices IHTMLEditServices;
 #endif
 
 #ifndef __IHTMLEditServices2_FWD_DEFINED__
 #define __IHTMLEditServices2_FWD_DEFINED__
-typedef interface IHTMLEditServices2 IHTMLEditServices2;
+typedef struct IHTMLEditServices2 IHTMLEditServices2;
 #endif
 
 #ifndef __IHTMLComputedStyle_FWD_DEFINED__
 #define __IHTMLComputedStyle_FWD_DEFINED__
-typedef interface IHTMLComputedStyle IHTMLComputedStyle;
+typedef struct IHTMLComputedStyle IHTMLComputedStyle;
 #endif
 
 #ifndef __HtmlDlgSafeHelper_FWD_DEFINED__
@@ -2916,17 +2916,17 @@ typedef struct FontNames FontNames;
 
 #ifndef __HTMLNamespaceEvents_FWD_DEFINED__
 #define __HTMLNamespaceEvents_FWD_DEFINED__
-typedef interface HTMLNamespaceEvents HTMLNamespaceEvents;
+typedef struct HTMLNamespaceEvents HTMLNamespaceEvents;
 #endif
 
 #ifndef __IHTMLNamespace_FWD_DEFINED__
 #define __IHTMLNamespace_FWD_DEFINED__
-typedef interface IHTMLNamespace IHTMLNamespace;
+typedef struct IHTMLNamespace IHTMLNamespace;
 #endif
 
 #ifndef __IHTMLNamespaceCollection_FWD_DEFINED__
 #define __IHTMLNamespaceCollection_FWD_DEFINED__
-typedef interface IHTMLNamespaceCollection IHTMLNamespaceCollection;
+typedef struct IHTMLNamespaceCollection IHTMLNamespaceCollection;
 #endif
 
 #ifndef __HTMLNamespace_FWD_DEFINED__
@@ -2949,52 +2949,52 @@ typedef struct HTMLNamespaceCollection HTMLNamespaceCollection;
 
 #ifndef __IHTMLPainter_FWD_DEFINED__
 #define __IHTMLPainter_FWD_DEFINED__
-typedef interface IHTMLPainter IHTMLPainter;
+typedef struct IHTMLPainter IHTMLPainter;
 #endif
 
 #ifndef __IHTMLPaintSite_FWD_DEFINED__
 #define __IHTMLPaintSite_FWD_DEFINED__
-typedef interface IHTMLPaintSite IHTMLPaintSite;
+typedef struct IHTMLPaintSite IHTMLPaintSite;
 #endif
 
 #ifndef __IHTMLPainterEventInfo_FWD_DEFINED__
 #define __IHTMLPainterEventInfo_FWD_DEFINED__
-typedef interface IHTMLPainterEventInfo IHTMLPainterEventInfo;
+typedef struct IHTMLPainterEventInfo IHTMLPainterEventInfo;
 #endif
 
 #ifndef __IHTMLPainterOverlay_FWD_DEFINED__
 #define __IHTMLPainterOverlay_FWD_DEFINED__
-typedef interface IHTMLPainterOverlay IHTMLPainterOverlay;
+typedef struct IHTMLPainterOverlay IHTMLPainterOverlay;
 #endif
 
 #ifndef __IHTMLIPrintCollection_FWD_DEFINED__
 #define __IHTMLIPrintCollection_FWD_DEFINED__
-typedef interface IHTMLIPrintCollection IHTMLIPrintCollection;
+typedef struct IHTMLIPrintCollection IHTMLIPrintCollection;
 #endif
 
 #ifndef __IEnumPrivacyRecords_FWD_DEFINED__
 #define __IEnumPrivacyRecords_FWD_DEFINED__
-typedef interface IEnumPrivacyRecords IEnumPrivacyRecords;
+typedef struct IEnumPrivacyRecords IEnumPrivacyRecords;
 #endif
 
 #ifndef __IHTMLDialog_FWD_DEFINED__
 #define __IHTMLDialog_FWD_DEFINED__
-typedef interface IHTMLDialog IHTMLDialog;
+typedef struct IHTMLDialog IHTMLDialog;
 #endif
 
 #ifndef __IHTMLDialog2_FWD_DEFINED__
 #define __IHTMLDialog2_FWD_DEFINED__
-typedef interface IHTMLDialog2 IHTMLDialog2;
+typedef struct IHTMLDialog2 IHTMLDialog2;
 #endif
 
 #ifndef __IHTMLDialog3_FWD_DEFINED__
 #define __IHTMLDialog3_FWD_DEFINED__
-typedef interface IHTMLDialog3 IHTMLDialog3;
+typedef struct IHTMLDialog3 IHTMLDialog3;
 #endif
 
 #ifndef __IHTMLModelessInit_FWD_DEFINED__
 #define __IHTMLModelessInit_FWD_DEFINED__
-typedef interface IHTMLModelessInit IHTMLModelessInit;
+typedef struct IHTMLModelessInit IHTMLModelessInit;
 #endif
 
 #ifndef __ThreadDialogProcParam_FWD_DEFINED__
@@ -3017,12 +3017,12 @@ typedef struct HTMLDialog HTMLDialog;
 
 #ifndef __IHTMLPopup_FWD_DEFINED__
 #define __IHTMLPopup_FWD_DEFINED__
-typedef interface IHTMLPopup IHTMLPopup;
+typedef struct IHTMLPopup IHTMLPopup;
 #endif
 
 #ifndef __DispHTMLPopup_FWD_DEFINED__
 #define __DispHTMLPopup_FWD_DEFINED__
-typedef interface DispHTMLPopup DispHTMLPopup;
+typedef struct DispHTMLPopup DispHTMLPopup;
 #endif
 
 #ifndef __HTMLPopup_FWD_DEFINED__
@@ -3036,22 +3036,22 @@ typedef struct HTMLPopup HTMLPopup;
 
 #ifndef __IHTMLAppBehavior_FWD_DEFINED__
 #define __IHTMLAppBehavior_FWD_DEFINED__
-typedef interface IHTMLAppBehavior IHTMLAppBehavior;
+typedef struct IHTMLAppBehavior IHTMLAppBehavior;
 #endif
 
 #ifndef __IHTMLAppBehavior2_FWD_DEFINED__
 #define __IHTMLAppBehavior2_FWD_DEFINED__
-typedef interface IHTMLAppBehavior2 IHTMLAppBehavior2;
+typedef struct IHTMLAppBehavior2 IHTMLAppBehavior2;
 #endif
 
 #ifndef __IHTMLAppBehavior3_FWD_DEFINED__
 #define __IHTMLAppBehavior3_FWD_DEFINED__
-typedef interface IHTMLAppBehavior3 IHTMLAppBehavior3;
+typedef struct IHTMLAppBehavior3 IHTMLAppBehavior3;
 #endif
 
 #ifndef __DispHTMLAppBehavior_FWD_DEFINED__
 #define __DispHTMLAppBehavior_FWD_DEFINED__
-typedef interface DispHTMLAppBehavior DispHTMLAppBehavior;
+typedef struct DispHTMLAppBehavior DispHTMLAppBehavior;
 #endif
 
 #ifndef __HTMLAppBehavior_FWD_DEFINED__
@@ -3083,7 +3083,7 @@ typedef struct OldHTMLFormElement OldHTMLFormElement;
 
 #ifndef __DispIHTMLInputButtonElement_FWD_DEFINED__
 #define __DispIHTMLInputButtonElement_FWD_DEFINED__
-typedef interface DispIHTMLInputButtonElement DispIHTMLInputButtonElement;
+typedef struct DispIHTMLInputButtonElement DispIHTMLInputButtonElement;
 #endif
 
 #ifndef __HTMLInputButtonElement_FWD_DEFINED__
@@ -3097,7 +3097,7 @@ typedef struct HTMLInputButtonElement HTMLInputButtonElement;
 
 #ifndef __DispIHTMLInputTextElement_FWD_DEFINED__
 #define __DispIHTMLInputTextElement_FWD_DEFINED__
-typedef interface DispIHTMLInputTextElement DispIHTMLInputTextElement;
+typedef struct DispIHTMLInputTextElement DispIHTMLInputTextElement;
 #endif
 
 #ifndef __HTMLInputTextElement_FWD_DEFINED__
@@ -3111,7 +3111,7 @@ typedef struct HTMLInputTextElement HTMLInputTextElement;
 
 #ifndef __DispIHTMLInputFileElement_FWD_DEFINED__
 #define __DispIHTMLInputFileElement_FWD_DEFINED__
-typedef interface DispIHTMLInputFileElement DispIHTMLInputFileElement;
+typedef struct DispIHTMLInputFileElement DispIHTMLInputFileElement;
 #endif
 
 #ifndef __HTMLInputFileElement_FWD_DEFINED__
@@ -3126,7 +3126,7 @@ typedef struct HTMLInputFileElement HTMLInputFileElement;
 
 #ifndef __DispIHTMLOptionButtonElement_FWD_DEFINED__
 #define __DispIHTMLOptionButtonElement_FWD_DEFINED__
-typedef interface DispIHTMLOptionButtonElement DispIHTMLOptionButtonElement;
+typedef struct DispIHTMLOptionButtonElement DispIHTMLOptionButtonElement;
 #endif
 
 #ifndef __HTMLOptionButtonElement_FWD_DEFINED__
@@ -3141,7 +3141,7 @@ typedef struct HTMLOptionButtonElement HTMLOptionButtonElement;
 
 #ifndef __DispIHTMLInputImage_FWD_DEFINED__
 #define __DispIHTMLInputImage_FWD_DEFINED__
-typedef interface DispIHTMLInputImage DispIHTMLInputImage;
+typedef struct DispIHTMLInputImage DispIHTMLInputImage;
 #endif
 
 #ifndef __HTMLInputImage_FWD_DEFINED__
@@ -3156,77 +3156,77 @@ typedef struct HTMLInputImage HTMLInputImage;
 
 #ifndef __IElementNamespace_FWD_DEFINED__
 #define __IElementNamespace_FWD_DEFINED__
-typedef interface IElementNamespace IElementNamespace;
+typedef struct IElementNamespace IElementNamespace;
 #endif
 
 #ifndef __IElementNamespaceTable_FWD_DEFINED__
 #define __IElementNamespaceTable_FWD_DEFINED__
-typedef interface IElementNamespaceTable IElementNamespaceTable;
+typedef struct IElementNamespaceTable IElementNamespaceTable;
 #endif
 
 #ifndef __IElementNamespaceFactory_FWD_DEFINED__
 #define __IElementNamespaceFactory_FWD_DEFINED__
-typedef interface IElementNamespaceFactory IElementNamespaceFactory;
+typedef struct IElementNamespaceFactory IElementNamespaceFactory;
 #endif
 
 #ifndef __IElementNamespaceFactory2_FWD_DEFINED__
 #define __IElementNamespaceFactory2_FWD_DEFINED__
-typedef interface IElementNamespaceFactory2 IElementNamespaceFactory2;
+typedef struct IElementNamespaceFactory2 IElementNamespaceFactory2;
 #endif
 
 #ifndef __IElementNamespaceFactoryCallback_FWD_DEFINED__
 #define __IElementNamespaceFactoryCallback_FWD_DEFINED__
-typedef interface IElementNamespaceFactoryCallback IElementNamespaceFactoryCallback;
+typedef struct IElementNamespaceFactoryCallback IElementNamespaceFactoryCallback;
 #endif
 
 #ifndef __IElementBehaviorSiteOM2_FWD_DEFINED__
 #define __IElementBehaviorSiteOM2_FWD_DEFINED__
-typedef interface IElementBehaviorSiteOM2 IElementBehaviorSiteOM2;
+typedef struct IElementBehaviorSiteOM2 IElementBehaviorSiteOM2;
 #endif
 
 #ifndef __IElementBehaviorCategory_FWD_DEFINED__
 #define __IElementBehaviorCategory_FWD_DEFINED__
-typedef interface IElementBehaviorCategory IElementBehaviorCategory;
+typedef struct IElementBehaviorCategory IElementBehaviorCategory;
 #endif
 
 #ifndef __IElementBehaviorSiteCategory_FWD_DEFINED__
 #define __IElementBehaviorSiteCategory_FWD_DEFINED__
-typedef interface IElementBehaviorSiteCategory IElementBehaviorSiteCategory;
+typedef struct IElementBehaviorSiteCategory IElementBehaviorSiteCategory;
 #endif
 
 #ifndef __IElementBehaviorSubmit_FWD_DEFINED__
 #define __IElementBehaviorSubmit_FWD_DEFINED__
-typedef interface IElementBehaviorSubmit IElementBehaviorSubmit;
+typedef struct IElementBehaviorSubmit IElementBehaviorSubmit;
 #endif
 
 #ifndef __IElementBehaviorFocus_FWD_DEFINED__
 #define __IElementBehaviorFocus_FWD_DEFINED__
-typedef interface IElementBehaviorFocus IElementBehaviorFocus;
+typedef struct IElementBehaviorFocus IElementBehaviorFocus;
 #endif
 
 #ifndef __IElementBehaviorLayout_FWD_DEFINED__
 #define __IElementBehaviorLayout_FWD_DEFINED__
-typedef interface IElementBehaviorLayout IElementBehaviorLayout;
+typedef struct IElementBehaviorLayout IElementBehaviorLayout;
 #endif
 
 #ifndef __IElementBehaviorLayout2_FWD_DEFINED__
 #define __IElementBehaviorLayout2_FWD_DEFINED__
-typedef interface IElementBehaviorLayout2 IElementBehaviorLayout2;
+typedef struct IElementBehaviorLayout2 IElementBehaviorLayout2;
 #endif
 
 #ifndef __IElementBehaviorSiteLayout_FWD_DEFINED__
 #define __IElementBehaviorSiteLayout_FWD_DEFINED__
-typedef interface IElementBehaviorSiteLayout IElementBehaviorSiteLayout;
+typedef struct IElementBehaviorSiteLayout IElementBehaviorSiteLayout;
 #endif
 
 #ifndef __IElementBehaviorSiteLayout2_FWD_DEFINED__
 #define __IElementBehaviorSiteLayout2_FWD_DEFINED__
-typedef interface IElementBehaviorSiteLayout2 IElementBehaviorSiteLayout2;
+typedef struct IElementBehaviorSiteLayout2 IElementBehaviorSiteLayout2;
 #endif
 
 #ifndef __IHostBehaviorInit_FWD_DEFINED__
 #define __IHostBehaviorInit_FWD_DEFINED__
-typedef interface IHostBehaviorInit IHostBehaviorInit;
+typedef struct IHostBehaviorInit IHostBehaviorInit;
 #endif
 
 #include "ocidl.h"
@@ -3330,7 +3330,7 @@ extern "C"{
       HRESULT (WINAPI *item)(IHTMLFiltersCollection *This,VARIANT *pvarIndex,VARIANT *pvarResult);
     END_INTERFACE
   } IHTMLFiltersCollectionVtbl;
-  interface IHTMLFiltersCollection {
+  struct IHTMLFiltersCollection {
     CONST_VTBL struct IHTMLFiltersCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4141,7 +4141,7 @@ extern "C"{
       HRESULT (WINAPI *get_srcFilter)(IHTMLEventObj *This,IDispatch **p);
     END_INTERFACE
   } IHTMLEventObjVtbl;
-  interface IHTMLEventObj {
+  struct IHTMLEventObj {
     CONST_VTBL struct IHTMLEventObjVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4250,7 +4250,7 @@ extern "C"{
       HRESULT (WINAPI *RegisterNotification)(IElementBehaviorSite *This,LONG lEvent);
     END_INTERFACE
   } IElementBehaviorSiteVtbl;
-  interface IElementBehaviorSite {
+  struct IElementBehaviorSite {
     CONST_VTBL struct IElementBehaviorSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4288,7 +4288,7 @@ extern "C"{
       HRESULT (WINAPI *Detach)(IElementBehavior *This);
     END_INTERFACE
   } IElementBehaviorVtbl;
-  interface IElementBehavior {
+  struct IElementBehavior {
     CONST_VTBL struct IElementBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4325,7 +4325,7 @@ extern "C"{
       HRESULT (WINAPI *FindBehavior)(IElementBehaviorFactory *This,BSTR bstrBehavior,BSTR bstrBehaviorUrl,IElementBehaviorSite *pSite,IElementBehavior **ppBehavior);
     END_INTERFACE
   } IElementBehaviorFactoryVtbl;
-  interface IElementBehaviorFactory {
+  struct IElementBehaviorFactory {
     CONST_VTBL struct IElementBehaviorFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4366,7 +4366,7 @@ extern "C"{
       HRESULT (WINAPI *RegisterUrn)(IElementBehaviorSiteOM *This,LPOLESTR pchUrn);
     END_INTERFACE
   } IElementBehaviorSiteOMVtbl;
-  interface IElementBehaviorSiteOM {
+  struct IElementBehaviorSiteOM {
     CONST_VTBL struct IElementBehaviorSiteOMVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4416,7 +4416,7 @@ extern "C"{
       HRESULT (WINAPI *HitTestPoint)(IElementBehaviorRender *This,POINT *pPoint,IUnknown *pReserved,WINBOOL *pbHit);
     END_INTERFACE
   } IElementBehaviorRenderVtbl;
-  interface IElementBehaviorRender {
+  struct IElementBehaviorRender {
     CONST_VTBL struct IElementBehaviorRenderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4457,7 +4457,7 @@ extern "C"{
       HRESULT (WINAPI *InvalidateStyle)(IElementBehaviorSiteRender *This);
     END_INTERFACE
   } IElementBehaviorSiteRenderVtbl;
-  interface IElementBehaviorSiteRender {
+  struct IElementBehaviorSiteRender {
     CONST_VTBL struct IElementBehaviorSiteRenderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4855,7 +4855,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *toString)(IHTMLStyle *This,BSTR *String);
     END_INTERFACE
   } IHTMLStyleVtbl;
-  interface IHTMLStyle {
+  struct IHTMLStyle {
     CONST_VTBL struct IHTMLStyleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5552,7 +5552,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_accelerator)(IHTMLStyle2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLStyle2Vtbl;
-  interface IHTMLStyle2 {
+  struct IHTMLStyle2 {
     CONST_VTBL struct IHTMLStyle2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5835,7 +5835,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_textKashidaSpace)(IHTMLStyle3 *This,VARIANT *p);
     END_INTERFACE
   } IHTMLStyle3Vtbl;
-  interface IHTMLStyle3 {
+  struct IHTMLStyle3 {
     CONST_VTBL struct IHTMLStyle3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5967,7 +5967,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_minHeight)(IHTMLStyle4 *This,VARIANT *p);
     END_INTERFACE
   } IHTMLStyle4Vtbl;
-  interface IHTMLStyle4 {
+  struct IHTMLStyle4 {
     CONST_VTBL struct IHTMLStyle4Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6337,7 +6337,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *removeAttribute)(IHTMLRuleStyle *This,BSTR strAttributeName,LONG lFlags,VARIANT_BOOL *pfSuccess);
     END_INTERFACE
   } IHTMLRuleStyleVtbl;
-  interface IHTMLRuleStyle {
+  struct IHTMLRuleStyle {
     CONST_VTBL struct IHTMLRuleStyleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6977,7 +6977,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_accelerator)(IHTMLRuleStyle2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLRuleStyle2Vtbl;
-  interface IHTMLRuleStyle2 {
+  struct IHTMLRuleStyle2 {
     CONST_VTBL struct IHTMLRuleStyle2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7251,7 +7251,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_textKashidaSpace)(IHTMLRuleStyle3 *This,VARIANT *p);
     END_INTERFACE
   } IHTMLRuleStyle3Vtbl;
-  interface IHTMLRuleStyle3 {
+  struct IHTMLRuleStyle3 {
     CONST_VTBL struct IHTMLRuleStyle3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7383,7 +7383,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_minHeight)(IHTMLRuleStyle4 *This,VARIANT *p);
     END_INTERFACE
   } IHTMLRuleStyle4Vtbl;
-  interface IHTMLRuleStyle4 {
+  struct IHTMLRuleStyle4 {
     CONST_VTBL struct IHTMLRuleStyle4Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7428,7 +7428,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLStyle *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLStyleVtbl;
-  interface DispHTMLStyle {
+  struct DispHTMLStyle {
     CONST_VTBL struct DispHTMLStyleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7465,7 +7465,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLRuleStyle *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLRuleStyleVtbl;
-  interface DispHTMLRuleStyle {
+  struct DispHTMLRuleStyle {
     CONST_VTBL struct DispHTMLRuleStyleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7539,7 +7539,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_textDecoration)(IHTMLRenderStyle *This,BSTR *p);
     END_INTERFACE
   } IHTMLRenderStyleVtbl;
-  interface IHTMLRenderStyle {
+  struct IHTMLRenderStyle {
     CONST_VTBL struct IHTMLRenderStyleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7626,7 +7626,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLRenderStyle *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLRenderStyleVtbl;
-  interface DispHTMLRenderStyle {
+  struct DispHTMLRenderStyle {
     CONST_VTBL struct DispHTMLRenderStyleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7846,7 +7846,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_textTransform)(IHTMLCurrentStyle *This,BSTR *p);
     END_INTERFACE
   } IHTMLCurrentStyleVtbl;
-  interface IHTMLCurrentStyle {
+  struct IHTMLCurrentStyle {
     CONST_VTBL struct IHTMLCurrentStyleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8189,7 +8189,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_isBlock)(IHTMLCurrentStyle2 *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLCurrentStyle2Vtbl;
-  interface IHTMLCurrentStyle2 {
+  struct IHTMLCurrentStyle2 {
     CONST_VTBL struct IHTMLCurrentStyle2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8285,7 +8285,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_whiteSpace)(IHTMLCurrentStyle3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLCurrentStyle3Vtbl;
-  interface IHTMLCurrentStyle3 {
+  struct IHTMLCurrentStyle3 {
     CONST_VTBL struct IHTMLCurrentStyle3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8330,7 +8330,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLCurrentStyle *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLCurrentStyleVtbl;
-  interface DispHTMLCurrentStyle {
+  struct DispHTMLCurrentStyle {
     CONST_VTBL struct DispHTMLCurrentStyleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8542,7 +8542,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_all)(IHTMLElement *This,IDispatch **p);
     END_INTERFACE
   } IHTMLElementVtbl;
-  interface IHTMLElement {
+  struct IHTMLElement {
     CONST_VTBL struct IHTMLElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8853,7 +8853,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_bottom)(IHTMLRect *This,long *p);
     END_INTERFACE
   } IHTMLRectVtbl;
-  interface IHTMLRect {
+  struct IHTMLRect {
     CONST_VTBL struct IHTMLRectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8917,7 +8917,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLRectCollection *This,VARIANT *pvarIndex,VARIANT *pvarResult);
     END_INTERFACE
   } IHTMLRectCollectionVtbl;
-  interface IHTMLRectCollection {
+  struct IHTMLRectCollection {
     CONST_VTBL struct IHTMLRectCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9000,7 +9000,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_nextSibling)(IHTMLDOMNode *This,IHTMLDOMNode **p);
     END_INTERFACE
   } IHTMLDOMNodeVtbl;
-  interface IHTMLDOMNode {
+  struct IHTMLDOMNode {
     CONST_VTBL struct IHTMLDOMNodeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9096,7 +9096,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_ownerDocument)(IHTMLDOMNode2 *This,IDispatch **p);
     END_INTERFACE
   } IHTMLDOMNode2Vtbl;
-  interface IHTMLDOMNode2 {
+  struct IHTMLDOMNode2 {
     CONST_VTBL struct IHTMLDOMNode2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9141,7 +9141,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_specified)(IHTMLDOMAttribute *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLDOMAttributeVtbl;
-  interface IHTMLDOMAttribute {
+  struct IHTMLDOMAttribute {
     CONST_VTBL struct IHTMLDOMAttributeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9225,7 +9225,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *cloneNode)(IHTMLDOMAttribute2 *This,VARIANT_BOOL fDeep,IHTMLDOMAttribute **clonedNode);
     END_INTERFACE
   } IHTMLDOMAttribute2Vtbl;
-  interface IHTMLDOMAttribute2 {
+  struct IHTMLDOMAttribute2 {
     CONST_VTBL struct IHTMLDOMAttribute2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9326,7 +9326,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *splitText)(IHTMLDOMTextNode *This,long offset,IHTMLDOMNode **pRetNode);
     END_INTERFACE
   } IHTMLDOMTextNodeVtbl;
-  interface IHTMLDOMTextNode {
+  struct IHTMLDOMTextNode {
     CONST_VTBL struct IHTMLDOMTextNodeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9385,7 +9385,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *replaceData)(IHTMLDOMTextNode2 *This,long offset,long Count,BSTR bstrstring);
     END_INTERFACE
   } IHTMLDOMTextNode2Vtbl;
-  interface IHTMLDOMTextNode2 {
+  struct IHTMLDOMTextNode2 {
     CONST_VTBL struct IHTMLDOMTextNode2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9436,7 +9436,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *hasFeature)(IHTMLDOMImplementation *This,BSTR bstrfeature,VARIANT version,VARIANT_BOOL *pfHasFeature);
     END_INTERFACE
   } IHTMLDOMImplementationVtbl;
-  interface IHTMLDOMImplementation {
+  struct IHTMLDOMImplementation {
     CONST_VTBL struct IHTMLDOMImplementationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9472,7 +9472,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLDOMAttribute *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLDOMAttributeVtbl;
-  interface DispHTMLDOMAttribute {
+  struct DispHTMLDOMAttribute {
     CONST_VTBL struct DispHTMLDOMAttributeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9509,7 +9509,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLDOMTextNode *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLDOMTextNodeVtbl;
-  interface DispHTMLDOMTextNode {
+  struct DispHTMLDOMTextNode {
     CONST_VTBL struct DispHTMLDOMTextNodeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9546,7 +9546,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLDOMImplementation *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLDOMImplementationVtbl;
-  interface DispHTMLDOMImplementation {
+  struct DispHTMLDOMImplementation {
     CONST_VTBL struct DispHTMLDOMImplementationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9590,7 +9590,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLAttributeCollection *This,VARIANT *name,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLAttributeCollectionVtbl;
-  interface IHTMLAttributeCollection {
+  struct IHTMLAttributeCollection {
     CONST_VTBL struct IHTMLAttributeCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9639,7 +9639,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *removeNamedItem)(IHTMLAttributeCollection2 *This,BSTR bstrName,IHTMLDOMAttribute **newretNode);
     END_INTERFACE
   } IHTMLAttributeCollection2Vtbl;
-  interface IHTMLAttributeCollection2 {
+  struct IHTMLAttributeCollection2 {
     CONST_VTBL struct IHTMLAttributeCollection2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9688,7 +9688,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLDOMChildrenCollection *This,long index,IDispatch **ppItem);
     END_INTERFACE
   } IHTMLDOMChildrenCollectionVtbl;
-  interface IHTMLDOMChildrenCollection {
+  struct IHTMLDOMChildrenCollection {
     CONST_VTBL struct IHTMLDOMChildrenCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9730,7 +9730,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLAttributeCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLAttributeCollectionVtbl;
-  interface DispHTMLAttributeCollection {
+  struct DispHTMLAttributeCollection {
     CONST_VTBL struct DispHTMLAttributeCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9767,7 +9767,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispDOMChildrenCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispDOMChildrenCollectionVtbl;
-  interface DispDOMChildrenCollection {
+  struct DispDOMChildrenCollection {
     CONST_VTBL struct DispDOMChildrenCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9804,7 +9804,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLElementEvents2Vtbl;
-  interface HTMLElementEvents2 {
+  struct HTMLElementEvents2 {
     CONST_VTBL struct HTMLElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9837,7 +9837,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLElementEventsVtbl;
-  interface HTMLElementEvents {
+  struct HTMLElementEvents {
     CONST_VTBL struct HTMLElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9883,7 +9883,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *tags)(IHTMLElementCollection *This,VARIANT tagName,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLElementCollectionVtbl;
-  interface IHTMLElementCollection {
+  struct IHTMLElementCollection {
     CONST_VTBL struct IHTMLElementCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -10131,7 +10131,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *getElementsByTagName)(IHTMLElement2 *This,BSTR v,IHTMLElementCollection **pelColl);
     END_INTERFACE
   } IHTMLElement2Vtbl;
-  interface IHTMLElement2 {
+  struct IHTMLElement2 {
     CONST_VTBL struct IHTMLElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -10545,7 +10545,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_glyphMode)(IHTMLElement3 *This,LONG *p);
     END_INTERFACE
   } IHTMLElement3Vtbl;
-  interface IHTMLElement3 {
+  struct IHTMLElement3 {
     CONST_VTBL struct IHTMLElement3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -10732,7 +10732,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onfocusout)(IHTMLElement4 *This,VARIANT *p);
     END_INTERFACE
   } IHTMLElement4Vtbl;
-  interface IHTMLElement4 {
+  struct IHTMLElement4 {
     CONST_VTBL struct IHTMLElement4Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -10802,7 +10802,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *SetDocumentPrinter)(IHTMLElementRender *This,BSTR bstrPrinterName,HDC hDC);
     END_INTERFACE
   } IHTMLElementRenderVtbl;
-  interface IHTMLElementRender {
+  struct IHTMLElementRender {
     CONST_VTBL struct IHTMLElementRenderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -10842,7 +10842,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_uniqueID)(IHTMLUniqueName *This,BSTR *p);
     END_INTERFACE
   } IHTMLUniqueNameVtbl;
-  interface IHTMLUniqueName {
+  struct IHTMLUniqueName {
     CONST_VTBL struct IHTMLUniqueNameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -10894,7 +10894,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_dataFormatAs)(IHTMLDatabinding *This,BSTR *p);
     END_INTERFACE
   } IHTMLDatabindingVtbl;
-  interface IHTMLDatabinding {
+  struct IHTMLDatabinding {
     CONST_VTBL struct IHTMLDatabindingVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -10948,7 +10948,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_Script)(IHTMLDocument *This,IDispatch **p);
     END_INTERFACE
   } IHTMLDocumentVtbl;
-  interface IHTMLDocument {
+  struct IHTMLDocument {
     CONST_VTBL struct IHTMLDocumentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11027,7 +11027,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_frozen)(IHTMLElementDefaults *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLElementDefaultsVtbl;
-  interface IHTMLElementDefaults {
+  struct IHTMLElementDefaults {
     CONST_VTBL struct IHTMLElementDefaultsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11123,7 +11123,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLDefaults *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLDefaultsVtbl;
-  interface DispHTMLDefaults {
+  struct DispHTMLDefaults {
     CONST_VTBL struct DispHTMLDefaultsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11169,7 +11169,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_document)(IHTCDefaultDispatch *This,IDispatch **p);
     END_INTERFACE
   } IHTCDefaultDispatchVtbl;
-  interface IHTCDefaultDispatch {
+  struct IHTCDefaultDispatch {
     CONST_VTBL struct IHTCDefaultDispatchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11221,7 +11221,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_value)(IHTCPropertyBehavior *This,VARIANT *p);
     END_INTERFACE
   } IHTCPropertyBehaviorVtbl;
-  interface IHTCPropertyBehavior {
+  struct IHTCPropertyBehavior {
     CONST_VTBL struct IHTCPropertyBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11263,7 +11263,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTCMethodBehavior *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IHTCMethodBehaviorVtbl;
-  interface IHTCMethodBehavior {
+  struct IHTCMethodBehavior {
     CONST_VTBL struct IHTCMethodBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11299,7 +11299,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *fire)(IHTCEventBehavior *This,IHTMLEventObj *pvar);
     END_INTERFACE
   } IHTCEventBehaviorVtbl;
-  interface IHTCEventBehavior {
+  struct IHTCEventBehavior {
     CONST_VTBL struct IHTCEventBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11340,7 +11340,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *detachEvent)(IHTCAttachBehavior *This);
     END_INTERFACE
   } IHTCAttachBehaviorVtbl;
-  interface IHTCAttachBehavior {
+  struct IHTCAttachBehavior {
     CONST_VTBL struct IHTCAttachBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11382,7 +11382,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *fireEvent)(IHTCAttachBehavior2 *This,VARIANT evt);
     END_INTERFACE
   } IHTCAttachBehavior2Vtbl;
-  interface IHTCAttachBehavior2 {
+  struct IHTCAttachBehavior2 {
     CONST_VTBL struct IHTCAttachBehavior2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11423,7 +11423,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_name)(IHTCDescBehavior *This,BSTR *p);
     END_INTERFACE
   } IHTCDescBehaviorVtbl;
-  interface IHTCDescBehavior {
+  struct IHTCDescBehavior {
     CONST_VTBL struct IHTCDescBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11462,7 +11462,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTCDefaultDispatch *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTCDefaultDispatchVtbl;
-  interface DispHTCDefaultDispatch {
+  struct DispHTCDefaultDispatch {
     CONST_VTBL struct DispHTCDefaultDispatchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11499,7 +11499,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTCPropertyBehavior *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTCPropertyBehaviorVtbl;
-  interface DispHTCPropertyBehavior {
+  struct DispHTCPropertyBehavior {
     CONST_VTBL struct DispHTCPropertyBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11536,7 +11536,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTCMethodBehavior *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTCMethodBehaviorVtbl;
-  interface DispHTCMethodBehavior {
+  struct DispHTCMethodBehavior {
     CONST_VTBL struct DispHTCMethodBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11573,7 +11573,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTCEventBehavior *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTCEventBehaviorVtbl;
-  interface DispHTCEventBehavior {
+  struct DispHTCEventBehavior {
     CONST_VTBL struct DispHTCEventBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11610,7 +11610,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTCAttachBehavior *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTCAttachBehaviorVtbl;
-  interface DispHTCAttachBehavior {
+  struct DispHTCAttachBehavior {
     CONST_VTBL struct DispHTCAttachBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11647,7 +11647,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTCDescBehavior *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTCDescBehaviorVtbl;
-  interface DispHTCDescBehavior {
+  struct DispHTCDescBehavior {
     CONST_VTBL struct DispHTCDescBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11689,7 +11689,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLUrnCollection *This,long index,BSTR *ppUrn);
     END_INTERFACE
   } IHTMLUrnCollectionVtbl;
-  interface IHTMLUrnCollection {
+  struct IHTMLUrnCollection {
     CONST_VTBL struct IHTMLUrnCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11737,7 +11737,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *namedRecordset)(IHTMLGenericElement *This,BSTR dataMember,VARIANT *hierarchy,IDispatch **ppRecordset);
     END_INTERFACE
   } IHTMLGenericElementVtbl;
-  interface IHTMLGenericElement {
+  struct IHTMLGenericElement {
     CONST_VTBL struct IHTMLGenericElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11776,7 +11776,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLGenericElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLGenericElementVtbl;
-  interface DispHTMLGenericElement {
+  struct DispHTMLGenericElement {
     CONST_VTBL struct DispHTMLGenericElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11822,7 +11822,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_readOnly)(IHTMLStyleSheetRule *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLStyleSheetRuleVtbl;
-  interface IHTMLStyleSheetRule {
+  struct IHTMLStyleSheetRule {
     CONST_VTBL struct IHTMLStyleSheetRuleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11872,7 +11872,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLStyleSheetRulesCollection *This,long index,IHTMLStyleSheetRule **ppHTMLStyleSheetRule);
     END_INTERFACE
   } IHTMLStyleSheetRulesCollectionVtbl;
-  interface IHTMLStyleSheetRulesCollection {
+  struct IHTMLStyleSheetRulesCollection {
     CONST_VTBL struct IHTMLStyleSheetRulesCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11924,7 +11924,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_pseudoClass)(IHTMLStyleSheetPage *This,BSTR *p);
     END_INTERFACE
   } IHTMLStyleSheetPageVtbl;
-  interface IHTMLStyleSheetPage {
+  struct IHTMLStyleSheetPage {
     CONST_VTBL struct IHTMLStyleSheetPageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -11968,7 +11968,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLStyleSheetPagesCollection *This,long index,IHTMLStyleSheetPage **ppHTMLStyleSheetPage);
     END_INTERFACE
   } IHTMLStyleSheetPagesCollectionVtbl;
-  interface IHTMLStyleSheetPagesCollection {
+  struct IHTMLStyleSheetPagesCollection {
     CONST_VTBL struct IHTMLStyleSheetPagesCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12022,7 +12022,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLStyleSheetsCollection *This,VARIANT *pvarIndex,VARIANT *pvarResult);
     END_INTERFACE
   } IHTMLStyleSheetsCollectionVtbl;
-  interface IHTMLStyleSheetsCollection {
+  struct IHTMLStyleSheetsCollection {
     CONST_VTBL struct IHTMLStyleSheetsCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12107,7 +12107,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_rules)(IHTMLStyleSheet *This,IHTMLStyleSheetRulesCollection **p);
     END_INTERFACE
   } IHTMLStyleSheetVtbl;
-  interface IHTMLStyleSheet {
+  struct IHTMLStyleSheet {
     CONST_VTBL struct IHTMLStyleSheetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12208,7 +12208,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *addPageRule)(IHTMLStyleSheet2 *This,BSTR bstrSelector,BSTR bstrStyle,long lIndex,long *plNewIndex);
     END_INTERFACE
   } IHTMLStyleSheet2Vtbl;
-  interface IHTMLStyleSheet2 {
+  struct IHTMLStyleSheet2 {
     CONST_VTBL struct IHTMLStyleSheet2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12247,7 +12247,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLStyleSheet *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLStyleSheetVtbl;
-  interface DispHTMLStyleSheet {
+  struct DispHTMLStyleSheet {
     CONST_VTBL struct DispHTMLStyleSheetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12288,7 +12288,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLLinkElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLLinkElementEvents2Vtbl;
-  interface HTMLLinkElementEvents2 {
+  struct HTMLLinkElementEvents2 {
     CONST_VTBL struct HTMLLinkElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12321,7 +12321,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLLinkElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLLinkElementEventsVtbl;
-  interface HTMLLinkElementEvents {
+  struct HTMLLinkElementEvents {
     CONST_VTBL struct HTMLLinkElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12395,7 +12395,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_media)(IHTMLLinkElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLLinkElementVtbl;
-  interface IHTMLLinkElement {
+  struct IHTMLLinkElement {
     CONST_VTBL struct IHTMLLinkElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12493,7 +12493,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_target)(IHTMLLinkElement2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLLinkElement2Vtbl;
-  interface IHTMLLinkElement2 {
+  struct IHTMLLinkElement2 {
     CONST_VTBL struct IHTMLLinkElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12541,7 +12541,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_hreflang)(IHTMLLinkElement3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLLinkElement3Vtbl;
-  interface IHTMLLinkElement3 {
+  struct IHTMLLinkElement3 {
     CONST_VTBL struct IHTMLLinkElement3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12586,7 +12586,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLLinkElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLLinkElementVtbl;
-  interface DispHTMLLinkElement {
+  struct DispHTMLLinkElement {
     CONST_VTBL struct DispHTMLLinkElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12684,7 +12684,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *execCommandShowHelp)(IHTMLTxtRange *This,BSTR cmdID,VARIANT_BOOL *pfRet);
     END_INTERFACE
   } IHTMLTxtRangeVtbl;
-  interface IHTMLTxtRange {
+  struct IHTMLTxtRange {
     CONST_VTBL struct IHTMLTxtRangeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12820,7 +12820,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_boundingHeight)(IHTMLTextRangeMetrics *This,long *p);
     END_INTERFACE
   } IHTMLTextRangeMetricsVtbl;
-  interface IHTMLTextRangeMetrics {
+  struct IHTMLTextRangeMetrics {
     CONST_VTBL struct IHTMLTextRangeMetricsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12876,7 +12876,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *getBoundingClientRect)(IHTMLTextRangeMetrics2 *This,IHTMLRect **pRect);
     END_INTERFACE
   } IHTMLTextRangeMetrics2Vtbl;
-  interface IHTMLTextRangeMetrics2 {
+  struct IHTMLTextRangeMetrics2 {
     CONST_VTBL struct IHTMLTextRangeMetrics2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12922,7 +12922,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLTxtRangeCollection *This,VARIANT *pvarIndex,VARIANT *pvarResult);
     END_INTERFACE
   } IHTMLTxtRangeCollectionVtbl;
-  interface IHTMLTxtRangeCollection {
+  struct IHTMLTxtRangeCollection {
     CONST_VTBL struct IHTMLTxtRangeCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12964,7 +12964,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLFormElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLFormElementEvents2Vtbl;
-  interface HTMLFormElementEvents2 {
+  struct HTMLFormElementEvents2 {
     CONST_VTBL struct HTMLFormElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -12997,7 +12997,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLFormElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLFormElementEventsVtbl;
-  interface HTMLFormElementEvents {
+  struct HTMLFormElementEvents {
     CONST_VTBL struct HTMLFormElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13079,7 +13079,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *tags)(IHTMLFormElement *This,VARIANT tagName,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLFormElementVtbl;
-  interface IHTMLFormElement {
+  struct IHTMLFormElement {
     CONST_VTBL struct IHTMLFormElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13191,7 +13191,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *urns)(IHTMLFormElement2 *This,VARIANT urn,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLFormElement2Vtbl;
-  interface IHTMLFormElement2 {
+  struct IHTMLFormElement2 {
     CONST_VTBL struct IHTMLFormElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13236,7 +13236,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *namedItem)(IHTMLFormElement3 *This,BSTR name,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLFormElement3Vtbl;
-  interface IHTMLFormElement3 {
+  struct IHTMLFormElement3 {
     CONST_VTBL struct IHTMLFormElement3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13279,7 +13279,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *appendItemSeparator)(IHTMLSubmitData *This);
     END_INTERFACE
   } IHTMLSubmitDataVtbl;
-  interface IHTMLSubmitData {
+  struct IHTMLSubmitData {
     CONST_VTBL struct IHTMLSubmitDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13321,7 +13321,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLFormElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLFormElementVtbl;
-  interface DispHTMLFormElement {
+  struct DispHTMLFormElement {
     CONST_VTBL struct DispHTMLFormElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13358,7 +13358,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLControlElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLControlElementEvents2Vtbl;
-  interface HTMLControlElementEvents2 {
+  struct HTMLControlElementEvents2 {
     CONST_VTBL struct HTMLControlElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13391,7 +13391,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLControlElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLControlElementEventsVtbl;
-  interface HTMLControlElementEvents {
+  struct HTMLControlElementEvents {
     CONST_VTBL struct HTMLControlElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13461,7 +13461,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_clientLeft)(IHTMLControlElement *This,long *p);
     END_INTERFACE
   } IHTMLControlElementVtbl;
-  interface IHTMLControlElement {
+  struct IHTMLControlElement {
     CONST_VTBL struct IHTMLControlElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13548,7 +13548,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLTextElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IHTMLTextElementVtbl;
-  interface IHTMLTextElement {
+  struct IHTMLTextElement {
     CONST_VTBL struct IHTMLTextElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13581,7 +13581,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLTextElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLTextElementVtbl;
-  interface DispHTMLTextElement {
+  struct DispHTMLTextElement {
     CONST_VTBL struct DispHTMLTextElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13618,7 +13618,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLTextContainerEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLTextContainerEvents2Vtbl;
-  interface HTMLTextContainerEvents2 {
+  struct HTMLTextContainerEvents2 {
     CONST_VTBL struct HTMLTextContainerEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13651,7 +13651,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLTextContainerEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLTextContainerEventsVtbl;
-  interface HTMLTextContainerEvents {
+  struct HTMLTextContainerEvents {
     CONST_VTBL struct HTMLTextContainerEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13703,7 +13703,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onscroll)(IHTMLTextContainer *This,VARIANT *p);
     END_INTERFACE
   } IHTMLTextContainerVtbl;
-  interface IHTMLTextContainer {
+  struct IHTMLTextContainer {
     CONST_VTBL struct IHTMLTextContainerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13794,7 +13794,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_length)(IHTMLControlRange *This,long *p);
     END_INTERFACE
   } IHTMLControlRangeVtbl;
-  interface IHTMLControlRange {
+  struct IHTMLControlRange {
     CONST_VTBL struct IHTMLControlRangeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13875,7 +13875,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *addElement)(IHTMLControlRange2 *This,IHTMLElement *item);
     END_INTERFACE
   } IHTMLControlRange2Vtbl;
-  interface IHTMLControlRange2 {
+  struct IHTMLControlRange2 {
     CONST_VTBL struct IHTMLControlRange2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13911,7 +13911,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLImgEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLImgEvents2Vtbl;
-  interface HTMLImgEvents2 {
+  struct HTMLImgEvents2 {
     CONST_VTBL struct HTMLImgEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -13944,7 +13944,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLImgEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLImgEventsVtbl;
-  interface HTMLImgEvents {
+  struct HTMLImgEvents {
     CONST_VTBL struct HTMLImgEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14074,7 +14074,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_start)(IHTMLImgElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLImgElementVtbl;
-  interface IHTMLImgElement {
+  struct IHTMLImgElement {
     CONST_VTBL struct IHTMLImgElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14256,7 +14256,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_longDesc)(IHTMLImgElement2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLImgElement2Vtbl;
-  interface IHTMLImgElement2 {
+  struct IHTMLImgElement2 {
     CONST_VTBL struct IHTMLImgElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14298,7 +14298,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *create)(IHTMLImageElementFactory *This,VARIANT width,VARIANT height,IHTMLImgElement **__MIDL_0011);
     END_INTERFACE
   } IHTMLImageElementFactoryVtbl;
-  interface IHTMLImageElementFactory {
+  struct IHTMLImageElementFactory {
     CONST_VTBL struct IHTMLImageElementFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14334,7 +14334,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLImg *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLImgVtbl;
-  interface DispHTMLImg {
+  struct DispHTMLImg {
     CONST_VTBL struct DispHTMLImgVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14446,7 +14446,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *createTextRange)(IHTMLBodyElement *This,IHTMLTxtRange **range);
     END_INTERFACE
   } IHTMLBodyElementVtbl;
-  interface IHTMLBodyElement {
+  struct IHTMLBodyElement {
     CONST_VTBL struct IHTMLBodyElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14593,7 +14593,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onafterprint)(IHTMLBodyElement2 *This,VARIANT *p);
     END_INTERFACE
   } IHTMLBodyElement2Vtbl;
-  interface IHTMLBodyElement2 {
+  struct IHTMLBodyElement2 {
     CONST_VTBL struct IHTMLBodyElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14638,7 +14638,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLBody *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLBodyVtbl;
-  interface DispHTMLBody {
+  struct DispHTMLBody {
     CONST_VTBL struct DispHTMLBodyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14688,7 +14688,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_size)(IHTMLFontElement *This,VARIANT *p);
     END_INTERFACE
   } IHTMLFontElementVtbl;
-  interface IHTMLFontElement {
+  struct IHTMLFontElement {
     CONST_VTBL struct IHTMLFontElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14739,7 +14739,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLFontElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLFontElementVtbl;
-  interface DispHTMLFontElement {
+  struct DispHTMLFontElement {
     CONST_VTBL struct DispHTMLFontElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14776,7 +14776,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLAnchorEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLAnchorEvents2Vtbl;
-  interface HTMLAnchorEvents2 {
+  struct HTMLAnchorEvents2 {
     CONST_VTBL struct HTMLAnchorEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14809,7 +14809,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLAnchorEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLAnchorEventsVtbl;
-  interface HTMLAnchorEvents {
+  struct HTMLAnchorEvents {
     CONST_VTBL struct HTMLAnchorEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -14925,7 +14925,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *blur)(IHTMLAnchorElement *This);
     END_INTERFACE
   } IHTMLAnchorElementVtbl;
-  interface IHTMLAnchorElement {
+  struct IHTMLAnchorElement {
     CONST_VTBL struct IHTMLAnchorElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15102,7 +15102,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_type)(IHTMLAnchorElement2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLAnchorElement2Vtbl;
-  interface IHTMLAnchorElement2 {
+  struct IHTMLAnchorElement2 {
     CONST_VTBL struct IHTMLAnchorElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15165,7 +15165,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLAnchorElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLAnchorElementVtbl;
-  interface DispHTMLAnchorElement {
+  struct DispHTMLAnchorElement {
     CONST_VTBL struct DispHTMLAnchorElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15202,7 +15202,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLLabelEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLLabelEvents2Vtbl;
-  interface HTMLLabelEvents2 {
+  struct HTMLLabelEvents2 {
     CONST_VTBL struct HTMLLabelEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15235,7 +15235,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLLabelEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLLabelEventsVtbl;
-  interface HTMLLabelEvents {
+  struct HTMLLabelEvents {
     CONST_VTBL struct HTMLLabelEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15277,7 +15277,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_accessKey)(IHTMLLabelElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLLabelElementVtbl;
-  interface IHTMLLabelElement {
+  struct IHTMLLabelElement {
     CONST_VTBL struct IHTMLLabelElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15325,7 +15325,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_form)(IHTMLLabelElement2 *This,IHTMLFormElement **p);
     END_INTERFACE
   } IHTMLLabelElement2Vtbl;
-  interface IHTMLLabelElement2 {
+  struct IHTMLLabelElement2 {
     CONST_VTBL struct IHTMLLabelElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15361,7 +15361,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLLabelElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLLabelElementVtbl;
-  interface DispHTMLLabelElement {
+  struct DispHTMLLabelElement {
     CONST_VTBL struct DispHTMLLabelElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15398,7 +15398,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLListElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IHTMLListElementVtbl;
-  interface IHTMLListElement {
+  struct IHTMLListElement {
     CONST_VTBL struct IHTMLListElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15436,7 +15436,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_compact)(IHTMLListElement2 *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLListElement2Vtbl;
-  interface IHTMLListElement2 {
+  struct IHTMLListElement2 {
     CONST_VTBL struct IHTMLListElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15475,7 +15475,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLListElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLListElementVtbl;
-  interface DispHTMLListElement {
+  struct DispHTMLListElement {
     CONST_VTBL struct DispHTMLListElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15521,7 +15521,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_type)(IHTMLUListElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLUListElementVtbl;
-  interface IHTMLUListElement {
+  struct IHTMLUListElement {
     CONST_VTBL struct IHTMLUListElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15566,7 +15566,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLUListElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLUListElementVtbl;
-  interface DispHTMLUListElement {
+  struct DispHTMLUListElement {
     CONST_VTBL struct DispHTMLUListElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15616,7 +15616,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_type)(IHTMLOListElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLOListElementVtbl;
-  interface IHTMLOListElement {
+  struct IHTMLOListElement {
     CONST_VTBL struct IHTMLOListElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15667,7 +15667,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLOListElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLOListElementVtbl;
-  interface DispHTMLOListElement {
+  struct DispHTMLOListElement {
     CONST_VTBL struct DispHTMLOListElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15713,7 +15713,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_value)(IHTMLLIElement *This,long *p);
     END_INTERFACE
   } IHTMLLIElementVtbl;
-  interface IHTMLLIElement {
+  struct IHTMLLIElement {
     CONST_VTBL struct IHTMLLIElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15758,7 +15758,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLLIElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLLIElementVtbl;
-  interface DispHTMLLIElement {
+  struct DispHTMLLIElement {
     CONST_VTBL struct DispHTMLLIElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15800,7 +15800,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_clear)(IHTMLBlockElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLBlockElementVtbl;
-  interface IHTMLBlockElement {
+  struct IHTMLBlockElement {
     CONST_VTBL struct IHTMLBlockElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15848,7 +15848,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_width)(IHTMLBlockElement2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLBlockElement2Vtbl;
-  interface IHTMLBlockElement2 {
+  struct IHTMLBlockElement2 {
     CONST_VTBL struct IHTMLBlockElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15893,7 +15893,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLBlockElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLBlockElementVtbl;
-  interface DispHTMLBlockElement {
+  struct DispHTMLBlockElement {
     CONST_VTBL struct DispHTMLBlockElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15939,7 +15939,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_noWrap)(IHTMLDivElement *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLDivElementVtbl;
-  interface IHTMLDivElement {
+  struct IHTMLDivElement {
     CONST_VTBL struct IHTMLDivElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -15984,7 +15984,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLDivElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLDivElementVtbl;
-  interface DispHTMLDivElement {
+  struct DispHTMLDivElement {
     CONST_VTBL struct DispHTMLDivElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16026,7 +16026,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_noWrap)(IHTMLDDElement *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLDDElementVtbl;
-  interface IHTMLDDElement {
+  struct IHTMLDDElement {
     CONST_VTBL struct IHTMLDDElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16065,7 +16065,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLDDElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLDDElementVtbl;
-  interface DispHTMLDDElement {
+  struct DispHTMLDDElement {
     CONST_VTBL struct DispHTMLDDElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16107,7 +16107,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_noWrap)(IHTMLDTElement *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLDTElementVtbl;
-  interface IHTMLDTElement {
+  struct IHTMLDTElement {
     CONST_VTBL struct IHTMLDTElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16146,7 +16146,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLDTElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLDTElementVtbl;
-  interface DispHTMLDTElement {
+  struct DispHTMLDTElement {
     CONST_VTBL struct DispHTMLDTElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16188,7 +16188,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_clear)(IHTMLBRElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLBRElementVtbl;
-  interface IHTMLBRElement {
+  struct IHTMLBRElement {
     CONST_VTBL struct IHTMLBRElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16227,7 +16227,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLBRElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLBRElementVtbl;
-  interface DispHTMLBRElement {
+  struct DispHTMLBRElement {
     CONST_VTBL struct DispHTMLBRElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16269,7 +16269,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_compact)(IHTMLDListElement *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLDListElementVtbl;
-  interface IHTMLDListElement {
+  struct IHTMLDListElement {
     CONST_VTBL struct IHTMLDListElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16308,7 +16308,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLDListElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLDListElementVtbl;
-  interface DispHTMLDListElement {
+  struct DispHTMLDListElement {
     CONST_VTBL struct DispHTMLDListElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16366,7 +16366,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_size)(IHTMLHRElement *This,VARIANT *p);
     END_INTERFACE
   } IHTMLHRElementVtbl;
-  interface IHTMLHRElement {
+  struct IHTMLHRElement {
     CONST_VTBL struct IHTMLHRElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16429,7 +16429,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLHRElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLHRElementVtbl;
-  interface DispHTMLHRElement {
+  struct DispHTMLHRElement {
     CONST_VTBL struct DispHTMLHRElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16471,7 +16471,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_align)(IHTMLParaElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLParaElementVtbl;
-  interface IHTMLParaElement {
+  struct IHTMLParaElement {
     CONST_VTBL struct IHTMLParaElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16510,7 +16510,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLParaElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLParaElementVtbl;
-  interface DispHTMLParaElement {
+  struct DispHTMLParaElement {
     CONST_VTBL struct DispHTMLParaElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16550,7 +16550,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *urns)(IHTMLElementCollection2 *This,VARIANT urn,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLElementCollection2Vtbl;
-  interface IHTMLElementCollection2 {
+  struct IHTMLElementCollection2 {
     CONST_VTBL struct IHTMLElementCollection2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16589,7 +16589,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *namedItem)(IHTMLElementCollection3 *This,BSTR name,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLElementCollection3Vtbl;
-  interface IHTMLElementCollection3 {
+  struct IHTMLElementCollection3 {
     CONST_VTBL struct IHTMLElementCollection3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16625,7 +16625,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLElementCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLElementCollectionVtbl;
-  interface DispHTMLElementCollection {
+  struct DispHTMLElementCollection {
     CONST_VTBL struct DispHTMLElementCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16667,7 +16667,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_align)(IHTMLHeaderElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLHeaderElementVtbl;
-  interface IHTMLHeaderElement {
+  struct IHTMLHeaderElement {
     CONST_VTBL struct IHTMLHeaderElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16706,7 +16706,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLHeaderElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLHeaderElementVtbl;
-  interface DispHTMLHeaderElement {
+  struct DispHTMLHeaderElement {
     CONST_VTBL struct DispHTMLHeaderElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16743,7 +16743,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLSelectElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLSelectElementEvents2Vtbl;
-  interface HTMLSelectElementEvents2 {
+  struct HTMLSelectElementEvents2 {
     CONST_VTBL struct HTMLSelectElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16776,7 +16776,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLSelectElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLSelectElementEventsVtbl;
-  interface HTMLSelectElementEvents {
+  struct HTMLSelectElementEvents {
     CONST_VTBL struct HTMLSelectElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16858,7 +16858,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *tags)(IHTMLSelectElement *This,VARIANT tagName,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLSelectElementVtbl;
-  interface IHTMLSelectElement {
+  struct IHTMLSelectElement {
     CONST_VTBL struct IHTMLSelectElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -16966,7 +16966,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *urns)(IHTMLSelectElement2 *This,VARIANT urn,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLSelectElement2Vtbl;
-  interface IHTMLSelectElement2 {
+  struct IHTMLSelectElement2 {
     CONST_VTBL struct IHTMLSelectElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17005,7 +17005,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *namedItem)(IHTMLSelectElement4 *This,BSTR name,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLSelectElement4Vtbl;
-  interface IHTMLSelectElement4 {
+  struct IHTMLSelectElement4 {
     CONST_VTBL struct IHTMLSelectElement4Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17041,7 +17041,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLSelectElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLSelectElementVtbl;
-  interface DispHTMLSelectElement {
+  struct DispHTMLSelectElement {
     CONST_VTBL struct DispHTMLSelectElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17087,7 +17087,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_type)(IHTMLSelectionObject *This,BSTR *p);
     END_INTERFACE
   } IHTMLSelectionObjectVtbl;
-  interface IHTMLSelectionObject {
+  struct IHTMLSelectionObject {
     CONST_VTBL struct IHTMLSelectionObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17137,7 +17137,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_typeDetail)(IHTMLSelectionObject2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLSelectionObject2Vtbl;
-  interface IHTMLSelectionObject2 {
+  struct IHTMLSelectionObject2 {
     CONST_VTBL struct IHTMLSelectionObject2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17199,7 +17199,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_form)(IHTMLOptionElement *This,IHTMLFormElement **p);
     END_INTERFACE
   } IHTMLOptionElementVtbl;
-  interface IHTMLOptionElement {
+  struct IHTMLOptionElement {
     CONST_VTBL struct IHTMLOptionElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17270,7 +17270,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_label)(IHTMLOptionElement3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLOptionElement3Vtbl;
-  interface IHTMLOptionElement3 {
+  struct IHTMLOptionElement3 {
     CONST_VTBL struct IHTMLOptionElement3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17312,7 +17312,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *create)(IHTMLOptionElementFactory *This,VARIANT text,VARIANT value,VARIANT defaultselected,VARIANT selected,IHTMLOptionElement **__MIDL_0012);
     END_INTERFACE
   } IHTMLOptionElementFactoryVtbl;
-  interface IHTMLOptionElementFactory {
+  struct IHTMLOptionElementFactory {
     CONST_VTBL struct IHTMLOptionElementFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17348,7 +17348,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLOptionElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLOptionElementVtbl;
-  interface DispHTMLOptionElement {
+  struct DispHTMLOptionElement {
     CONST_VTBL struct DispHTMLOptionElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17389,7 +17389,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLButtonElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLButtonElementEvents2Vtbl;
-  interface HTMLButtonElementEvents2 {
+  struct HTMLButtonElementEvents2 {
     CONST_VTBL struct HTMLButtonElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17422,7 +17422,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLButtonElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLButtonElementEventsVtbl;
-  interface HTMLButtonElementEvents {
+  struct HTMLButtonElementEvents {
     CONST_VTBL struct HTMLButtonElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17455,7 +17455,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLInputTextElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLInputTextElementEvents2Vtbl;
-  interface HTMLInputTextElementEvents2 {
+  struct HTMLInputTextElementEvents2 {
     CONST_VTBL struct HTMLInputTextElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17488,7 +17488,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLOptionButtonElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLOptionButtonElementEvents2Vtbl;
-  interface HTMLOptionButtonElementEvents2 {
+  struct HTMLOptionButtonElementEvents2 {
     CONST_VTBL struct HTMLOptionButtonElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17521,7 +17521,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLInputFileElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLInputFileElementEvents2Vtbl;
-  interface HTMLInputFileElementEvents2 {
+  struct HTMLInputFileElementEvents2 {
     CONST_VTBL struct HTMLInputFileElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17554,7 +17554,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLInputImageEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLInputImageEvents2Vtbl;
-  interface HTMLInputImageEvents2 {
+  struct HTMLInputImageEvents2 {
     CONST_VTBL struct HTMLInputImageEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17587,7 +17587,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLInputTextElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLInputTextElementEventsVtbl;
-  interface HTMLInputTextElementEvents {
+  struct HTMLInputTextElementEvents {
     CONST_VTBL struct HTMLInputTextElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17620,7 +17620,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLOptionButtonElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLOptionButtonElementEventsVtbl;
-  interface HTMLOptionButtonElementEvents {
+  struct HTMLOptionButtonElementEvents {
     CONST_VTBL struct HTMLOptionButtonElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17653,7 +17653,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLInputFileElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLInputFileElementEventsVtbl;
-  interface HTMLInputFileElementEvents {
+  struct HTMLInputFileElementEvents {
     CONST_VTBL struct HTMLInputFileElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17686,7 +17686,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLInputImageEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLInputImageEventsVtbl;
-  interface HTMLInputImageEvents {
+  struct HTMLInputImageEvents {
     CONST_VTBL struct HTMLInputImageEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -17850,7 +17850,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_start)(IHTMLInputElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLInputElementVtbl;
-  interface IHTMLInputElement {
+  struct IHTMLInputElement {
     CONST_VTBL struct IHTMLInputElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -18087,7 +18087,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_useMap)(IHTMLInputElement2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLInputElement2Vtbl;
-  interface IHTMLInputElement2 {
+  struct IHTMLInputElement2 {
     CONST_VTBL struct IHTMLInputElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -18155,7 +18155,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *createTextRange)(IHTMLInputButtonElement *This,IHTMLTxtRange **range);
     END_INTERFACE
   } IHTMLInputButtonElementVtbl;
-  interface IHTMLInputButtonElement {
+  struct IHTMLInputButtonElement {
     CONST_VTBL struct IHTMLInputButtonElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -18244,7 +18244,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *createTextRange)(IHTMLInputHiddenElement *This,IHTMLTxtRange **range);
     END_INTERFACE
   } IHTMLInputHiddenElementVtbl;
-  interface IHTMLInputHiddenElement {
+  struct IHTMLInputHiddenElement {
     CONST_VTBL struct IHTMLInputHiddenElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -18359,7 +18359,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *createTextRange)(IHTMLInputTextElement *This,IHTMLTxtRange **range);
     END_INTERFACE
   } IHTMLInputTextElementVtbl;
-  interface IHTMLInputTextElement {
+  struct IHTMLInputTextElement {
     CONST_VTBL struct IHTMLInputTextElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -18503,7 +18503,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_value)(IHTMLInputFileElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLInputFileElementVtbl;
-  interface IHTMLInputFileElement {
+  struct IHTMLInputFileElement {
     CONST_VTBL struct IHTMLInputFileElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -18630,7 +18630,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_form)(IHTMLOptionButtonElement *This,IHTMLFormElement **p);
     END_INTERFACE
   } IHTMLOptionButtonElementVtbl;
-  interface IHTMLOptionButtonElement {
+  struct IHTMLOptionButtonElement {
     CONST_VTBL struct IHTMLOptionButtonElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -18796,7 +18796,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_start)(IHTMLInputImage *This,BSTR *p);
     END_INTERFACE
   } IHTMLInputImageVtbl;
-  interface IHTMLInputImage {
+  struct IHTMLInputImage {
     CONST_VTBL struct IHTMLInputImageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -18946,7 +18946,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLInputElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLInputElementVtbl;
-  interface DispHTMLInputElement {
+  struct DispHTMLInputElement {
     CONST_VTBL struct DispHTMLInputElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19036,7 +19036,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *createTextRange)(IHTMLTextAreaElement *This,IHTMLTxtRange **range);
     END_INTERFACE
   } IHTMLTextAreaElementVtbl;
-  interface IHTMLTextAreaElement {
+  struct IHTMLTextAreaElement {
     CONST_VTBL struct IHTMLTextAreaElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19147,7 +19147,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLTextAreaElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLTextAreaElementVtbl;
-  interface DispHTMLTextAreaElement {
+  struct DispHTMLTextAreaElement {
     CONST_VTBL struct DispHTMLTextAreaElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19184,7 +19184,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLRichtextElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLRichtextElementVtbl;
-  interface DispHTMLRichtextElement {
+  struct DispHTMLRichtextElement {
     CONST_VTBL struct DispHTMLRichtextElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19246,7 +19246,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *createTextRange)(IHTMLButtonElement *This,IHTMLTxtRange **range);
     END_INTERFACE
   } IHTMLButtonElementVtbl;
-  interface IHTMLButtonElement {
+  struct IHTMLButtonElement {
     CONST_VTBL struct IHTMLButtonElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19312,7 +19312,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLButtonElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLButtonElementVtbl;
-  interface DispHTMLButtonElement {
+  struct DispHTMLButtonElement {
     CONST_VTBL struct DispHTMLButtonElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19349,7 +19349,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLMarqueeElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLMarqueeElementEvents2Vtbl;
-  interface HTMLMarqueeElementEvents2 {
+  struct HTMLMarqueeElementEvents2 {
     CONST_VTBL struct HTMLMarqueeElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19382,7 +19382,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLMarqueeElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLMarqueeElementEventsVtbl;
-  interface HTMLMarqueeElementEvents {
+  struct HTMLMarqueeElementEvents {
     CONST_VTBL struct HTMLMarqueeElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19476,7 +19476,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *stop)(IHTMLMarqueeElement *This);
     END_INTERFACE
   } IHTMLMarqueeElementVtbl;
-  interface IHTMLMarqueeElement {
+  struct IHTMLMarqueeElement {
     CONST_VTBL struct IHTMLMarqueeElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19599,7 +19599,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLMarqueeElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLMarqueeElementVtbl;
-  interface DispHTMLMarqueeElement {
+  struct DispHTMLMarqueeElement {
     CONST_VTBL struct DispHTMLMarqueeElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19641,7 +19641,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_version)(IHTMLHtmlElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLHtmlElementVtbl;
-  interface IHTMLHtmlElement {
+  struct IHTMLHtmlElement {
     CONST_VTBL struct IHTMLHtmlElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19685,7 +19685,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_profile)(IHTMLHeadElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLHeadElementVtbl;
-  interface IHTMLHeadElement {
+  struct IHTMLHeadElement {
     CONST_VTBL struct IHTMLHeadElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19729,7 +19729,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_text)(IHTMLTitleElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLTitleElementVtbl;
-  interface IHTMLTitleElement {
+  struct IHTMLTitleElement {
     CONST_VTBL struct IHTMLTitleElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19789,7 +19789,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_charset)(IHTMLMetaElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLMetaElementVtbl;
-  interface IHTMLMetaElement {
+  struct IHTMLMetaElement {
     CONST_VTBL struct IHTMLMetaElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19857,7 +19857,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_scheme)(IHTMLMetaElement2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLMetaElement2Vtbl;
-  interface IHTMLMetaElement2 {
+  struct IHTMLMetaElement2 {
     CONST_VTBL struct IHTMLMetaElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19905,7 +19905,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_target)(IHTMLBaseElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLBaseElementVtbl;
-  interface IHTMLBaseElement {
+  struct IHTMLBaseElement {
     CONST_VTBL struct IHTMLBaseElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -19959,7 +19959,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_action)(IHTMLIsIndexElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLIsIndexElementVtbl;
-  interface IHTMLIsIndexElement {
+  struct IHTMLIsIndexElement {
     CONST_VTBL struct IHTMLIsIndexElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20007,7 +20007,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_form)(IHTMLIsIndexElement2 *This,IHTMLFormElement **p);
     END_INTERFACE
   } IHTMLIsIndexElement2Vtbl;
-  interface IHTMLIsIndexElement2 {
+  struct IHTMLIsIndexElement2 {
     CONST_VTBL struct IHTMLIsIndexElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20048,7 +20048,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_n)(IHTMLNextIdElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLNextIdElementVtbl;
-  interface IHTMLNextIdElement {
+  struct IHTMLNextIdElement {
     CONST_VTBL struct IHTMLNextIdElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20087,7 +20087,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLHtmlElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLHtmlElementVtbl;
-  interface DispHTMLHtmlElement {
+  struct DispHTMLHtmlElement {
     CONST_VTBL struct DispHTMLHtmlElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20124,7 +20124,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLHeadElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLHeadElementVtbl;
-  interface DispHTMLHeadElement {
+  struct DispHTMLHeadElement {
     CONST_VTBL struct DispHTMLHeadElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20161,7 +20161,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLTitleElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLTitleElementVtbl;
-  interface DispHTMLTitleElement {
+  struct DispHTMLTitleElement {
     CONST_VTBL struct DispHTMLTitleElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20198,7 +20198,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLMetaElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLMetaElementVtbl;
-  interface DispHTMLMetaElement {
+  struct DispHTMLMetaElement {
     CONST_VTBL struct DispHTMLMetaElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20235,7 +20235,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLBaseElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLBaseElementVtbl;
-  interface DispHTMLBaseElement {
+  struct DispHTMLBaseElement {
     CONST_VTBL struct DispHTMLBaseElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20272,7 +20272,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLIsIndexElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLIsIndexElementVtbl;
-  interface DispHTMLIsIndexElement {
+  struct DispHTMLIsIndexElement {
     CONST_VTBL struct DispHTMLIsIndexElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20309,7 +20309,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLNextIdElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLNextIdElementVtbl;
-  interface DispHTMLNextIdElement {
+  struct DispHTMLNextIdElement {
     CONST_VTBL struct DispHTMLNextIdElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20359,7 +20359,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_size)(IHTMLBaseFontElement *This,long *p);
     END_INTERFACE
   } IHTMLBaseFontElementVtbl;
-  interface IHTMLBaseFontElement {
+  struct IHTMLBaseFontElement {
     CONST_VTBL struct IHTMLBaseFontElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20410,7 +20410,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLBaseFontElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLBaseFontElementVtbl;
-  interface DispHTMLBaseFontElement {
+  struct DispHTMLBaseFontElement {
     CONST_VTBL struct DispHTMLBaseFontElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20447,7 +20447,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLUnknownElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IHTMLUnknownElementVtbl;
-  interface IHTMLUnknownElement {
+  struct IHTMLUnknownElement {
     CONST_VTBL struct IHTMLUnknownElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20480,7 +20480,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLUnknownElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLUnknownElementVtbl;
-  interface DispHTMLUnknownElement {
+  struct DispHTMLUnknownElement {
     CONST_VTBL struct DispHTMLUnknownElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20526,7 +20526,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *go)(IOmHistory *This,VARIANT *pvargdistance);
     END_INTERFACE
   } IOmHistoryVtbl;
-  interface IOmHistory {
+  struct IOmHistory {
     CONST_VTBL struct IOmHistoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20574,7 +20574,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_length)(IHTMLMimeTypesCollection *This,long *p);
     END_INTERFACE
   } IHTMLMimeTypesCollectionVtbl;
-  interface IHTMLMimeTypesCollection {
+  struct IHTMLMimeTypesCollection {
     CONST_VTBL struct IHTMLMimeTypesCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20615,7 +20615,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *refresh)(IHTMLPluginsCollection *This,VARIANT_BOOL reload);
     END_INTERFACE
   } IHTMLPluginsCollectionVtbl;
-  interface IHTMLPluginsCollection {
+  struct IHTMLPluginsCollection {
     CONST_VTBL struct IHTMLPluginsCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20673,7 +20673,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *doWriteRequest)(IHTMLOpsProfile *This,VARIANT_BOOL *success);
     END_INTERFACE
   } IHTMLOpsProfileVtbl;
-  interface IHTMLOpsProfile {
+  struct IHTMLOpsProfile {
     CONST_VTBL struct IHTMLOpsProfileVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20774,7 +20774,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_userProfile)(IOmNavigator *This,IHTMLOpsProfile **p);
     END_INTERFACE
   } IOmNavigatorVtbl;
-  interface IOmNavigator {
+  struct IOmNavigator {
     CONST_VTBL struct IOmNavigatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -20908,7 +20908,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *toString)(IHTMLLocation *This,BSTR *string);
     END_INTERFACE
   } IHTMLLocationVtbl;
-  interface IHTMLLocation {
+  struct IHTMLLocation {
     CONST_VTBL struct IHTMLLocationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -21032,7 +21032,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLBookmarkCollection *This,long index,VARIANT *pVarBookmark);
     END_INTERFACE
   } IHTMLBookmarkCollectionVtbl;
-  interface IHTMLBookmarkCollection {
+  struct IHTMLBookmarkCollection {
     CONST_VTBL struct IHTMLBookmarkCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -21089,7 +21089,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_effectAllowed)(IHTMLDataTransfer *This,BSTR *p);
     END_INTERFACE
   } IHTMLDataTransferVtbl;
-  interface IHTMLDataTransfer {
+  struct IHTMLDataTransfer {
     CONST_VTBL struct IHTMLDataTransferVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -21256,7 +21256,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_dataTransfer)(IHTMLEventObj2 *This,IHTMLDataTransfer **p);
     END_INTERFACE
   } IHTMLEventObj2Vtbl;
-  interface IHTMLEventObj2 {
+  struct IHTMLEventObj2 {
     CONST_VTBL struct IHTMLEventObj2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -21490,7 +21490,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_nextPage)(IHTMLEventObj3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLEventObj3Vtbl;
-  interface IHTMLEventObj3 {
+  struct IHTMLEventObj3 {
     CONST_VTBL struct IHTMLEventObj3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -21574,7 +21574,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_wheelDelta)(IHTMLEventObj4 *This,long *p);
     END_INTERFACE
   } IHTMLEventObj4Vtbl;
-  interface IHTMLEventObj4 {
+  struct IHTMLEventObj4 {
     CONST_VTBL struct IHTMLEventObj4Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -21610,7 +21610,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispCEventObj *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispCEventObjVtbl;
-  interface DispCEventObj {
+  struct DispCEventObj {
     CONST_VTBL struct DispCEventObjVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -21647,7 +21647,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLWindowEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLWindowEvents2Vtbl;
-  interface HTMLWindowEvents2 {
+  struct HTMLWindowEvents2 {
     CONST_VTBL struct HTMLWindowEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -21680,7 +21680,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLWindowEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLWindowEventsVtbl;
-  interface HTMLWindowEvents {
+  struct HTMLWindowEvents {
     CONST_VTBL struct HTMLWindowEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -21931,7 +21931,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *createStyleSheet)(IHTMLDocument2 *This,BSTR bstrHref,long lIndex,IHTMLStyleSheet **ppnewStyleSheet);
     END_INTERFACE
   } IHTMLDocument2Vtbl;
-  interface IHTMLDocument2 {
+  struct IHTMLDocument2 {
     CONST_VTBL struct IHTMLDocument2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -22294,7 +22294,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_length)(IHTMLFramesCollection2 *This,long *p);
     END_INTERFACE
   } IHTMLFramesCollection2Vtbl;
-  interface IHTMLFramesCollection2 {
+  struct IHTMLFramesCollection2 {
     CONST_VTBL struct IHTMLFramesCollection2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -22472,7 +22472,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_external)(IHTMLWindow2 *This,IDispatch **p);
     END_INTERFACE
   } IHTMLWindow2Vtbl;
-  interface IHTMLWindow2 {
+  struct IHTMLWindow2 {
     CONST_VTBL struct IHTMLWindow2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -22738,7 +22738,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *showModelessDialog)(IHTMLWindow3 *This,BSTR url,VARIANT *varArgIn,VARIANT *options,IHTMLWindow2 **pDialog);
     END_INTERFACE
   } IHTMLWindow3Vtbl;
-  interface IHTMLWindow3 {
+  struct IHTMLWindow3 {
     CONST_VTBL struct IHTMLWindow3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -22847,7 +22847,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_scrolling)(IHTMLFrameBase *This,BSTR *p);
     END_INTERFACE
   } IHTMLFrameBaseVtbl;
-  interface IHTMLFrameBase {
+  struct IHTMLFrameBase {
     CONST_VTBL struct IHTMLFrameBaseVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -22955,7 +22955,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_fontSmoothingEnabled)(IHTMLScreen *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLScreenVtbl;
-  interface IHTMLScreen {
+  struct IHTMLScreen {
     CONST_VTBL struct IHTMLScreenVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23027,7 +23027,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_deviceYDPI)(IHTMLScreen2 *This,long *p);
     END_INTERFACE
   } IHTMLScreen2Vtbl;
-  interface IHTMLScreen2 {
+  struct IHTMLScreen2 {
     CONST_VTBL struct IHTMLScreen2Vtbl *lpVtbl;
   };
 
@@ -23080,7 +23080,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_frameElement)(IHTMLWindow4 *This,IHTMLFrameBase **p);
     END_INTERFACE
   } IHTMLWindow4Vtbl;
-  interface IHTMLWindow4 {
+  struct IHTMLWindow4 {
     CONST_VTBL struct IHTMLWindow4Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23125,7 +23125,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLScreen *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLScreenVtbl;
-  interface DispHTMLScreen {
+  struct DispHTMLScreen {
     CONST_VTBL struct DispHTMLScreenVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23163,7 +23163,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLWindow2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLWindow2Vtbl;
-  interface DispHTMLWindow2 {
+  struct DispHTMLWindow2 {
     CONST_VTBL struct DispHTMLWindow2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23201,7 +23201,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLWindowProxy *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLWindowProxyVtbl;
-  interface DispHTMLWindowProxy {
+  struct DispHTMLWindowProxy {
     CONST_VTBL struct DispHTMLWindowProxyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23239,7 +23239,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLDocumentEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLDocumentEvents2Vtbl;
-  interface HTMLDocumentEvents2 {
+  struct HTMLDocumentEvents2 {
     CONST_VTBL struct HTMLDocumentEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23272,7 +23272,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLDocumentEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLDocumentEventsVtbl;
-  interface HTMLDocumentEvents {
+  struct HTMLDocumentEvents {
     CONST_VTBL struct HTMLDocumentEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23388,7 +23388,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *getElementsByTagName)(IHTMLDocument3 *This,BSTR v,IHTMLElementCollection **pelColl);
     END_INTERFACE
   } IHTMLDocument3Vtbl;
-  interface IHTMLDocument3 {
+  struct IHTMLDocument3 {
     CONST_VTBL struct IHTMLDocument3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23574,7 +23574,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_URLUnencoded)(IHTMLDocument4 *This,BSTR *p);
     END_INTERFACE
   } IHTMLDocument4Vtbl;
-  interface IHTMLDocument4 {
+  struct IHTMLDocument4 {
     CONST_VTBL struct IHTMLDocument4Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23689,7 +23689,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_compatMode)(IHTMLDocument5 *This,BSTR *p);
     END_INTERFACE
   } IHTMLDocument5Vtbl;
-  interface IHTMLDocument5 {
+  struct IHTMLDocument5 {
     CONST_VTBL struct IHTMLDocument5Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23780,7 +23780,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLDocument *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLDocumentVtbl;
-  interface DispHTMLDocument {
+  struct DispHTMLDocument {
     CONST_VTBL struct DispHTMLDocumentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23818,7 +23818,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DWebBridgeEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DWebBridgeEventsVtbl;
-  interface DWebBridgeEvents {
+  struct DWebBridgeEvents {
     CONST_VTBL struct DWebBridgeEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23870,7 +23870,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *AboutBox)(IWebBridge *This);
     END_INTERFACE
   } IWebBridgeVtbl;
-  interface IWebBridge {
+  struct IWebBridge {
     CONST_VTBL struct IWebBridgeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -23955,7 +23955,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onvisibilitychange)(IWBScriptControl *This,VARIANT *p);
     END_INTERFACE
   } IWBScriptControlVtbl;
-  interface IWBScriptControl {
+  struct IWBScriptControl {
     CONST_VTBL struct IWBScriptControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24059,7 +24059,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_height)(IHTMLEmbedElement *This,VARIANT *p);
     END_INTERFACE
   } IHTMLEmbedElementVtbl;
-  interface IHTMLEmbedElement {
+  struct IHTMLEmbedElement {
     CONST_VTBL struct IHTMLEmbedElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24135,7 +24135,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLEmbed *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLEmbedVtbl;
-  interface DispHTMLEmbed {
+  struct DispHTMLEmbed {
     CONST_VTBL struct DispHTMLEmbedVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24173,7 +24173,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLMapEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLMapEvents2Vtbl;
-  interface HTMLMapEvents2 {
+  struct HTMLMapEvents2 {
     CONST_VTBL struct HTMLMapEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24206,7 +24206,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLMapEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLMapEventsVtbl;
-  interface HTMLMapEvents {
+  struct HTMLMapEvents {
     CONST_VTBL struct HTMLMapEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24254,7 +24254,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *remove)(IHTMLAreasCollection *This,long index);
     END_INTERFACE
   } IHTMLAreasCollectionVtbl;
-  interface IHTMLAreasCollection {
+  struct IHTMLAreasCollection {
     CONST_VTBL struct IHTMLAreasCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24312,7 +24312,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *urns)(IHTMLAreasCollection2 *This,VARIANT urn,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLAreasCollection2Vtbl;
-  interface IHTMLAreasCollection2 {
+  struct IHTMLAreasCollection2 {
     CONST_VTBL struct IHTMLAreasCollection2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24352,7 +24352,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *namedItem)(IHTMLAreasCollection3 *This,BSTR name,IDispatch **pdisp);
     END_INTERFACE
   } IHTMLAreasCollection3Vtbl;
-  interface IHTMLAreasCollection3 {
+  struct IHTMLAreasCollection3 {
     CONST_VTBL struct IHTMLAreasCollection3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24396,7 +24396,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_name)(IHTMLMapElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLMapElementVtbl;
-  interface IHTMLMapElement {
+  struct IHTMLMapElement {
     CONST_VTBL struct IHTMLMapElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24439,7 +24439,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLAreasCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLAreasCollectionVtbl;
-  interface DispHTMLAreasCollection {
+  struct DispHTMLAreasCollection {
     CONST_VTBL struct DispHTMLAreasCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24477,7 +24477,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLMapElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLMapElementVtbl;
-  interface DispHTMLMapElement {
+  struct DispHTMLMapElement {
     CONST_VTBL struct DispHTMLMapElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24515,7 +24515,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLAreaEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLAreaEvents2Vtbl;
-  interface HTMLAreaEvents2 {
+  struct HTMLAreaEvents2 {
     CONST_VTBL struct HTMLAreaEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24548,7 +24548,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLAreaEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLAreaEventsVtbl;
-  interface HTMLAreaEvents {
+  struct HTMLAreaEvents {
     CONST_VTBL struct HTMLAreaEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24650,7 +24650,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *blur)(IHTMLAreaElement *This);
     END_INTERFACE
   } IHTMLAreaElementVtbl;
-  interface IHTMLAreaElement {
+  struct IHTMLAreaElement {
     CONST_VTBL struct IHTMLAreaElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24786,7 +24786,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLAreaElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLAreaElementVtbl;
-  interface DispHTMLAreaElement {
+  struct DispHTMLAreaElement {
     CONST_VTBL struct DispHTMLAreaElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24833,7 +24833,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_vAlign)(IHTMLTableCaption *This,BSTR *p);
     END_INTERFACE
   } IHTMLTableCaptionVtbl;
-  interface IHTMLTableCaption {
+  struct IHTMLTableCaption {
     CONST_VTBL struct IHTMLTableCaptionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24879,7 +24879,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLTableCaption *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLTableCaptionVtbl;
-  interface DispHTMLTableCaption {
+  struct DispHTMLTableCaption {
     CONST_VTBL struct DispHTMLTableCaptionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24926,7 +24926,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_atomic)(IHTMLCommentElement *This,long *p);
     END_INTERFACE
   } IHTMLCommentElementVtbl;
-  interface IHTMLCommentElement {
+  struct IHTMLCommentElement {
     CONST_VTBL struct IHTMLCommentElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -24989,7 +24989,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *replaceData)(IHTMLCommentElement2 *This,long offset,long Count,BSTR bstrstring);
     END_INTERFACE
   } IHTMLCommentElement2Vtbl;
-  interface IHTMLCommentElement2 {
+  struct IHTMLCommentElement2 {
     CONST_VTBL struct IHTMLCommentElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25047,7 +25047,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLCommentElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLCommentElementVtbl;
-  interface DispHTMLCommentElement {
+  struct DispHTMLCommentElement {
     CONST_VTBL struct DispHTMLCommentElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25085,7 +25085,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLPhraseElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IHTMLPhraseElementVtbl;
-  interface IHTMLPhraseElement {
+  struct IHTMLPhraseElement {
     CONST_VTBL struct IHTMLPhraseElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25127,7 +25127,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_dateTime)(IHTMLPhraseElement2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLPhraseElement2Vtbl;
-  interface IHTMLPhraseElement2 {
+  struct IHTMLPhraseElement2 {
     CONST_VTBL struct IHTMLPhraseElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25173,7 +25173,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLSpanElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IHTMLSpanElementVtbl;
-  interface IHTMLSpanElement {
+  struct IHTMLSpanElement {
     CONST_VTBL struct IHTMLSpanElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25206,7 +25206,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLPhraseElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLPhraseElementVtbl;
-  interface DispHTMLPhraseElement {
+  struct DispHTMLPhraseElement {
     CONST_VTBL struct DispHTMLPhraseElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25244,7 +25244,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLSpanElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLSpanElementVtbl;
-  interface DispHTMLSpanElement {
+  struct DispHTMLSpanElement {
     CONST_VTBL struct DispHTMLSpanElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25282,7 +25282,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLTableEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLTableEvents2Vtbl;
-  interface HTMLTableEvents2 {
+  struct HTMLTableEvents2 {
     CONST_VTBL struct HTMLTableEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25315,7 +25315,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLTableEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLTableEventsVtbl;
-  interface HTMLTableEvents {
+  struct HTMLTableEvents {
     CONST_VTBL struct HTMLTableEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25367,7 +25367,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *deleteRow)(IHTMLTableSection *This,long index);
     END_INTERFACE
   } IHTMLTableSectionVtbl;
-  interface IHTMLTableSection {
+  struct IHTMLTableSection {
     CONST_VTBL struct IHTMLTableSectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25527,7 +25527,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onreadystatechange)(IHTMLTable *This,VARIANT *p);
     END_INTERFACE
   } IHTMLTableVtbl;
-  interface IHTMLTable {
+  struct IHTMLTable {
     CONST_VTBL struct IHTMLTableVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25717,7 +25717,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *moveRow)(IHTMLTable2 *This,long indexFrom,long indexTo,IDispatch **row);
     END_INTERFACE
   } IHTMLTable2Vtbl;
-  interface IHTMLTable2 {
+  struct IHTMLTable2 {
     CONST_VTBL struct IHTMLTable2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25768,7 +25768,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_summary)(IHTMLTable3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLTable3Vtbl;
-  interface IHTMLTable3 {
+  struct IHTMLTable3 {
     CONST_VTBL struct IHTMLTable3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25825,7 +25825,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_vAlign)(IHTMLTableCol *This,BSTR *p);
     END_INTERFACE
   } IHTMLTableColVtbl;
-  interface IHTMLTableCol {
+  struct IHTMLTableCol {
     CONST_VTBL struct IHTMLTableColVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25891,7 +25891,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_chOff)(IHTMLTableCol2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLTableCol2Vtbl;
-  interface IHTMLTableCol2 {
+  struct IHTMLTableCol2 {
     CONST_VTBL struct IHTMLTableCol2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25940,7 +25940,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *moveRow)(IHTMLTableSection2 *This,long indexFrom,long indexTo,IDispatch **row);
     END_INTERFACE
   } IHTMLTableSection2Vtbl;
-  interface IHTMLTableSection2 {
+  struct IHTMLTableSection2 {
     CONST_VTBL struct IHTMLTableSection2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -25986,7 +25986,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_chOff)(IHTMLTableSection3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLTableSection3Vtbl;
-  interface IHTMLTableSection3 {
+  struct IHTMLTableSection3 {
     CONST_VTBL struct IHTMLTableSection3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26067,7 +26067,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *deleteCell)(IHTMLTableRow *This,long index);
     END_INTERFACE
   } IHTMLTableRowVtbl;
-  interface IHTMLTableRow {
+  struct IHTMLTableRow {
     CONST_VTBL struct IHTMLTableRowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26157,7 +26157,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_height)(IHTMLTableRow2 *This,VARIANT *p);
     END_INTERFACE
   } IHTMLTableRow2Vtbl;
-  interface IHTMLTableRow2 {
+  struct IHTMLTableRow2 {
     CONST_VTBL struct IHTMLTableRow2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26206,7 +26206,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_chOff)(IHTMLTableRow3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLTableRow3Vtbl;
-  interface IHTMLTableRow3 {
+  struct IHTMLTableRow3 {
     CONST_VTBL struct IHTMLTableRow3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26261,7 +26261,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_clientLeft)(IHTMLTableRowMetrics *This,long *p);
     END_INTERFACE
   } IHTMLTableRowMetricsVtbl;
-  interface IHTMLTableRowMetrics {
+  struct IHTMLTableRowMetrics {
     CONST_VTBL struct IHTMLTableRowMetricsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26358,7 +26358,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_cellIndex)(IHTMLTableCell *This,long *p);
     END_INTERFACE
   } IHTMLTableCellVtbl;
-  interface IHTMLTableCell {
+  struct IHTMLTableCell {
     CONST_VTBL struct IHTMLTableCellVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26492,7 +26492,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_scope)(IHTMLTableCell2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLTableCell2Vtbl;
-  interface IHTMLTableCell2 {
+  struct IHTMLTableCell2 {
     CONST_VTBL struct IHTMLTableCell2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26562,7 +26562,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLTable *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLTableVtbl;
-  interface DispHTMLTable {
+  struct DispHTMLTable {
     CONST_VTBL struct DispHTMLTableVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26600,7 +26600,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLTableCol *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLTableColVtbl;
-  interface DispHTMLTableCol {
+  struct DispHTMLTableCol {
     CONST_VTBL struct DispHTMLTableColVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26638,7 +26638,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLTableSection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLTableSectionVtbl;
-  interface DispHTMLTableSection {
+  struct DispHTMLTableSection {
     CONST_VTBL struct DispHTMLTableSectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26676,7 +26676,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLTableRow *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLTableRowVtbl;
-  interface DispHTMLTableRow {
+  struct DispHTMLTableRow {
     CONST_VTBL struct DispHTMLTableRowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26714,7 +26714,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLTableCell *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLTableCellVtbl;
-  interface DispHTMLTableCell {
+  struct DispHTMLTableCell {
     CONST_VTBL struct DispHTMLTableCellVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26752,7 +26752,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLScriptEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLScriptEvents2Vtbl;
-  interface HTMLScriptEvents2 {
+  struct HTMLScriptEvents2 {
     CONST_VTBL struct HTMLScriptEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26785,7 +26785,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLScriptEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLScriptEventsVtbl;
-  interface HTMLScriptEvents {
+  struct HTMLScriptEvents {
     CONST_VTBL struct HTMLScriptEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26849,7 +26849,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_type)(IHTMLScriptElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLScriptElementVtbl;
-  interface IHTMLScriptElement {
+  struct IHTMLScriptElement {
     CONST_VTBL struct IHTMLScriptElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26933,7 +26933,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_charset)(IHTMLScriptElement2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLScriptElement2Vtbl;
-  interface IHTMLScriptElement2 {
+  struct IHTMLScriptElement2 {
     CONST_VTBL struct IHTMLScriptElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -26973,7 +26973,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLScriptElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLScriptElementVtbl;
-  interface DispHTMLScriptElement {
+  struct DispHTMLScriptElement {
     CONST_VTBL struct DispHTMLScriptElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27011,7 +27011,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLNoShowElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IHTMLNoShowElementVtbl;
-  interface IHTMLNoShowElement {
+  struct IHTMLNoShowElement {
     CONST_VTBL struct IHTMLNoShowElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27044,7 +27044,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLNoShowElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLNoShowElementVtbl;
-  interface DispHTMLNoShowElement {
+  struct DispHTMLNoShowElement {
     CONST_VTBL struct DispHTMLNoShowElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27082,7 +27082,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLObjectElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLObjectElementEvents2Vtbl;
-  interface HTMLObjectElementEvents2 {
+  struct HTMLObjectElementEvents2 {
     CONST_VTBL struct HTMLObjectElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27115,7 +27115,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLObjectElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLObjectElementEventsVtbl;
-  interface HTMLObjectElementEvents {
+  struct HTMLObjectElementEvents {
     CONST_VTBL struct HTMLObjectElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27217,7 +27217,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_hspace)(IHTMLObjectElement *This,long *p);
     END_INTERFACE
   } IHTMLObjectElementVtbl;
-  interface IHTMLObjectElement {
+  struct IHTMLObjectElement {
     CONST_VTBL struct IHTMLObjectElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27364,7 +27364,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_data)(IHTMLObjectElement2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLObjectElement2Vtbl;
-  interface IHTMLObjectElement2 {
+  struct IHTMLObjectElement2 {
     CONST_VTBL struct IHTMLObjectElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27438,7 +27438,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_useMap)(IHTMLObjectElement3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLObjectElement3Vtbl;
-  interface IHTMLObjectElement3 {
+  struct IHTMLObjectElement3 {
     CONST_VTBL struct IHTMLObjectElement3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27525,7 +27525,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_valueType)(IHTMLParamElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLParamElementVtbl;
-  interface IHTMLParamElement {
+  struct IHTMLParamElement {
     CONST_VTBL struct IHTMLParamElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27583,7 +27583,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLObjectElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLObjectElementVtbl;
-  interface DispHTMLObjectElement {
+  struct DispHTMLObjectElement {
     CONST_VTBL struct DispHTMLObjectElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27621,7 +27621,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLParamElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLParamElementVtbl;
-  interface DispHTMLParamElement {
+  struct DispHTMLParamElement {
     CONST_VTBL struct DispHTMLParamElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27659,7 +27659,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLFrameSiteEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLFrameSiteEvents2Vtbl;
-  interface HTMLFrameSiteEvents2 {
+  struct HTMLFrameSiteEvents2 {
     CONST_VTBL struct HTMLFrameSiteEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27692,7 +27692,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLFrameSiteEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLFrameSiteEventsVtbl;
-  interface HTMLFrameSiteEvents {
+  struct HTMLFrameSiteEvents {
     CONST_VTBL struct HTMLFrameSiteEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27742,7 +27742,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_allowTransparency)(IHTMLFrameBase2 *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLFrameBase2Vtbl;
-  interface IHTMLFrameBase2 {
+  struct IHTMLFrameBase2 {
     CONST_VTBL struct IHTMLFrameBase2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27805,7 +27805,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_longDesc)(IHTMLFrameBase3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLFrameBase3Vtbl;
-  interface IHTMLFrameBase3 {
+  struct IHTMLFrameBase3 {
     CONST_VTBL struct IHTMLFrameBase3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27845,7 +27845,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLFrameBase *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLFrameBaseVtbl;
-  interface DispHTMLFrameBase {
+  struct DispHTMLFrameBase {
     CONST_VTBL struct DispHTMLFrameBaseVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27888,7 +27888,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_borderColor)(IHTMLFrameElement *This,VARIANT *p);
     END_INTERFACE
   } IHTMLFrameElementVtbl;
-  interface IHTMLFrameElement {
+  struct IHTMLFrameElement {
     CONST_VTBL struct IHTMLFrameElementVtbl *lpVtbl;
   };
 
@@ -27938,7 +27938,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_width)(IHTMLFrameElement2 *This,VARIANT *p);
     END_INTERFACE
   } IHTMLFrameElement2Vtbl;
-  interface IHTMLFrameElement2 {
+  struct IHTMLFrameElement2 {
     CONST_VTBL struct IHTMLFrameElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -27984,7 +27984,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLFrameElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLFrameElementVtbl;
-  interface DispHTMLFrameElement {
+  struct DispHTMLFrameElement {
     CONST_VTBL struct DispHTMLFrameElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28035,7 +28035,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_align)(IHTMLIFrameElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLIFrameElementVtbl;
-  interface IHTMLIFrameElement {
+  struct IHTMLIFrameElement {
     CONST_VTBL struct IHTMLIFrameElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28096,7 +28096,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_width)(IHTMLIFrameElement2 *This,VARIANT *p);
     END_INTERFACE
   } IHTMLIFrameElement2Vtbl;
-  interface IHTMLIFrameElement2 {
+  struct IHTMLIFrameElement2 {
     CONST_VTBL struct IHTMLIFrameElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28142,7 +28142,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLIFrame *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLIFrameVtbl;
-  interface DispHTMLIFrame {
+  struct DispHTMLIFrame {
     CONST_VTBL struct DispHTMLIFrameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28185,7 +28185,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_align)(IHTMLDivPosition *This,BSTR *p);
     END_INTERFACE
   } IHTMLDivPositionVtbl;
-  interface IHTMLDivPosition {
+  struct IHTMLDivPosition {
     CONST_VTBL struct IHTMLDivPositionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28230,7 +28230,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_align)(IHTMLFieldSetElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLFieldSetElementVtbl;
-  interface IHTMLFieldSetElement {
+  struct IHTMLFieldSetElement {
     CONST_VTBL struct IHTMLFieldSetElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28273,7 +28273,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_form)(IHTMLFieldSetElement2 *This,IHTMLFormElement **p);
     END_INTERFACE
   } IHTMLFieldSetElement2Vtbl;
-  interface IHTMLFieldSetElement2 {
+  struct IHTMLFieldSetElement2 {
     CONST_VTBL struct IHTMLFieldSetElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28315,7 +28315,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_align)(IHTMLLegendElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLLegendElementVtbl;
-  interface IHTMLLegendElement {
+  struct IHTMLLegendElement {
     CONST_VTBL struct IHTMLLegendElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28358,7 +28358,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_form)(IHTMLLegendElement2 *This,IHTMLFormElement **p);
     END_INTERFACE
   } IHTMLLegendElement2Vtbl;
-  interface IHTMLLegendElement2 {
+  struct IHTMLLegendElement2 {
     CONST_VTBL struct IHTMLLegendElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28395,7 +28395,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLDivPosition *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLDivPositionVtbl;
-  interface DispHTMLDivPosition {
+  struct DispHTMLDivPosition {
     CONST_VTBL struct DispHTMLDivPositionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28433,7 +28433,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLFieldSetElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLFieldSetElementVtbl;
-  interface DispHTMLFieldSetElement {
+  struct DispHTMLFieldSetElement {
     CONST_VTBL struct DispHTMLFieldSetElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28471,7 +28471,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLLegendElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLLegendElementVtbl;
-  interface DispHTMLLegendElement {
+  struct DispHTMLLegendElement {
     CONST_VTBL struct DispHTMLLegendElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28514,7 +28514,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_align)(IHTMLSpanFlow *This,BSTR *p);
     END_INTERFACE
   } IHTMLSpanFlowVtbl;
-  interface IHTMLSpanFlow {
+  struct IHTMLSpanFlow {
     CONST_VTBL struct IHTMLSpanFlowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28554,7 +28554,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLSpanFlow *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLSpanFlowVtbl;
-  interface DispHTMLSpanFlow {
+  struct DispHTMLSpanFlow {
     CONST_VTBL struct DispHTMLSpanFlowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28633,7 +28633,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onbeforeunload)(IHTMLFrameSetElement *This,VARIANT *p);
     END_INTERFACE
   } IHTMLFrameSetElementVtbl;
-  interface IHTMLFrameSetElement {
+  struct IHTMLFrameSetElement {
     CONST_VTBL struct IHTMLFrameSetElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28736,7 +28736,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onafterprint)(IHTMLFrameSetElement2 *This,VARIANT *p);
     END_INTERFACE
   } IHTMLFrameSetElement2Vtbl;
-  interface IHTMLFrameSetElement2 {
+  struct IHTMLFrameSetElement2 {
     CONST_VTBL struct IHTMLFrameSetElement2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28782,7 +28782,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLFrameSetSite *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLFrameSetSiteVtbl;
-  interface DispHTMLFrameSetSite {
+  struct DispHTMLFrameSetSite {
     CONST_VTBL struct DispHTMLFrameSetSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28837,7 +28837,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_balance)(IHTMLBGsound *This,VARIANT *p);
     END_INTERFACE
   } IHTMLBGsoundVtbl;
-  interface IHTMLBGsound {
+  struct IHTMLBGsound {
     CONST_VTBL struct IHTMLBGsoundVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28895,7 +28895,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLBGsound *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLBGsoundVtbl;
-  interface DispHTMLBGsound {
+  struct DispHTMLBGsound {
     CONST_VTBL struct DispHTMLBGsoundVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28940,7 +28940,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLFontNamesCollection *This,long index,BSTR *pBstr);
     END_INTERFACE
   } IHTMLFontNamesCollectionVtbl;
-  interface IHTMLFontNamesCollection {
+  struct IHTMLFontNamesCollection {
     CONST_VTBL struct IHTMLFontNamesCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -28992,7 +28992,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLFontSizesCollection *This,long index,long *plSize);
     END_INTERFACE
   } IHTMLFontSizesCollectionVtbl;
-  interface IHTMLFontSizesCollection {
+  struct IHTMLFontSizesCollection {
     CONST_VTBL struct IHTMLFontSizesCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29093,7 +29093,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_secureConnectionInfo)(IHTMLOptionsHolder *This,BSTR *p);
     END_INTERFACE
   } IHTMLOptionsHolderVtbl;
-  interface IHTMLOptionsHolder {
+  struct IHTMLOptionsHolder {
     CONST_VTBL struct IHTMLOptionsHolderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29208,7 +29208,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLStyleElementEvents2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLStyleElementEvents2Vtbl;
-  interface HTMLStyleElementEvents2 {
+  struct HTMLStyleElementEvents2 {
     CONST_VTBL struct HTMLStyleElementEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29241,7 +29241,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLStyleElementEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLStyleElementEventsVtbl;
-  interface HTMLStyleElementEvents {
+  struct HTMLStyleElementEvents {
     CONST_VTBL struct HTMLStyleElementEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29303,7 +29303,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_media)(IHTMLStyleElement *This,BSTR *p);
     END_INTERFACE
   } IHTMLStyleElementVtbl;
-  interface IHTMLStyleElement {
+  struct IHTMLStyleElement {
     CONST_VTBL struct IHTMLStyleElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29379,7 +29379,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLStyleElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLStyleElementVtbl;
-  interface DispHTMLStyleElement {
+  struct DispHTMLStyleElement {
     CONST_VTBL struct DispHTMLStyleElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29421,7 +29421,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_fontsrc)(IHTMLStyleFontFace *This,BSTR *p);
     END_INTERFACE
   } IHTMLStyleFontFaceVtbl;
-  interface IHTMLStyleFontFace {
+  struct IHTMLStyleFontFace {
     CONST_VTBL struct IHTMLStyleFontFaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29467,7 +29467,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *FireOnFilterChangeEvent)(ICSSFilterSite *This);
     END_INTERFACE
   } ICSSFilterSiteVtbl;
-  interface ICSSFilterSite {
+  struct ICSSFilterSite {
     CONST_VTBL struct ICSSFilterSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29542,7 +29542,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *FindText)(IMarkupPointer *This,OLECHAR *pchFindText,DWORD dwFlags,IMarkupPointer *pIEndMatch,IMarkupPointer *pIEndSearch);
     END_INTERFACE
   } IMarkupPointerVtbl;
-  interface IMarkupPointer {
+  struct IMarkupPointer {
     CONST_VTBL struct IMarkupPointerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29634,7 +29634,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *OwningDoc)(IMarkupContainer *This,IHTMLDocument2 **ppDoc);
     END_INTERFACE
   } IMarkupContainerVtbl;
-  interface IMarkupContainer {
+  struct IMarkupContainer {
     CONST_VTBL struct IMarkupContainerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29677,7 +29677,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetMasterElement)(IMarkupContainer2 *This,IHTMLElement **ppElementMaster);
     END_INTERFACE
   } IMarkupContainer2Vtbl;
-  interface IMarkupContainer2 {
+  struct IMarkupContainer2 {
     CONST_VTBL struct IMarkupContainer2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29725,7 +29725,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetNextChange)(IHTMLChangeLog *This,BYTE *pbBuffer,long nBufferSize,long *pnRecordLength);
     END_INTERFACE
   } IHTMLChangeLogVtbl;
-  interface IHTMLChangeLog {
+  struct IHTMLChangeLog {
     CONST_VTBL struct IHTMLChangeLogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29757,7 +29757,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Notify)(IHTMLChangeSink *This);
     END_INTERFACE
   } IHTMLChangeSinkVtbl;
-  interface IHTMLChangeSink {
+  struct IHTMLChangeSink {
     CONST_VTBL struct IHTMLChangeSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -29923,7 +29923,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *EnumInputContext)(IActiveIMMApp *This,DWORD idThread,IEnumInputContext **ppEnum);
     END_INTERFACE
   } IActiveIMMAppVtbl;
-  interface IActiveIMMApp {
+  struct IActiveIMMApp {
     CONST_VTBL struct IActiveIMMAppVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30160,7 +30160,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *IsEmpty)(ISegmentList *This,WINBOOL *pfEmpty);
     END_INTERFACE
   } ISegmentListVtbl;
-  interface ISegmentList {
+  struct ISegmentList {
     CONST_VTBL struct ISegmentListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30204,7 +30204,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Advance)(ISegmentListIterator *This);
     END_INTERFACE
   } ISegmentListIteratorVtbl;
-  interface ISegmentListIterator {
+  struct ISegmentListIterator {
     CONST_VTBL struct ISegmentListIteratorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30267,7 +30267,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *SetCaretDirection)(IHTMLCaret *This,CARET_DIRECTION eDir);
     END_INTERFACE
   } IHTMLCaretVtbl;
-  interface IHTMLCaret {
+  struct IHTMLCaret {
     CONST_VTBL struct IHTMLCaretVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30332,7 +30332,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetPointers)(ISegment *This,IMarkupPointer *pIStart,IMarkupPointer *pIEnd);
     END_INTERFACE
   } ISegmentVtbl;
-  interface ISegment {
+  struct ISegment {
     CONST_VTBL struct ISegmentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30369,7 +30369,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *IsPrimary)(IElementSegment *This,WINBOOL *pfPrimary);
     END_INTERFACE
   } IElementSegmentVtbl;
-  interface IElementSegment {
+  struct IElementSegment {
     CONST_VTBL struct IElementSegmentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30406,7 +30406,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetPointers)(IHighlightSegment *This,IMarkupPointer *pIStart,IMarkupPointer *pIEnd);
     END_INTERFACE
   } IHighlightSegmentVtbl;
-  interface IHighlightSegment {
+  struct IHighlightSegment {
     CONST_VTBL struct IHighlightSegmentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30439,7 +30439,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *RemoveSegment)(IHighlightRenderingServices *This,IHighlightSegment *pISegment);
     END_INTERFACE
   } IHighlightRenderingServicesVtbl;
-  interface IHighlightRenderingServices {
+  struct IHighlightRenderingServices {
     CONST_VTBL struct IHighlightRenderingServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30485,7 +30485,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_lineDirection)(ILineInfo *This,LONG *p);
     END_INTERFACE
   } ILineInfoVtbl;
-  interface ILineInfo {
+  struct ILineInfo {
     CONST_VTBL struct ILineInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30565,7 +30565,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *QueryBreaks)(IDisplayPointer *This,DWORD *pdwBreaks);
     END_INTERFACE
   } IDisplayPointerVtbl;
-  interface IDisplayPointer {
+  struct IDisplayPointer {
     CONST_VTBL struct IDisplayPointerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30663,7 +30663,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *HasFlowLayout)(IDisplayServices *This,IHTMLElement *pIElement,WINBOOL *pfHasFlowLayout);
     END_INTERFACE
   } IDisplayServicesVtbl;
-  interface IDisplayServices {
+  struct IDisplayServices {
     CONST_VTBL struct IDisplayServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30723,7 +30723,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_BlockFormats)(IHtmlDlgSafeHelper *This,IDispatch **p);
     END_INTERFACE
   } IHtmlDlgSafeHelperVtbl;
-  interface IHtmlDlgSafeHelper {
+  struct IHtmlDlgSafeHelper {
     CONST_VTBL struct IHtmlDlgSafeHelperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30776,7 +30776,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Item)(IBlockFormats *This,VARIANT *pvarIndex,BSTR *pbstrBlockFormat);
     END_INTERFACE
   } IBlockFormatsVtbl;
-  interface IBlockFormats {
+  struct IBlockFormats {
     CONST_VTBL struct IBlockFormatsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30826,7 +30826,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Item)(IFontNames *This,VARIANT *pvarIndex,BSTR *pbstrFontName);
     END_INTERFACE
   } IFontNamesVtbl;
-  interface IFontNames {
+  struct IFontNames {
     CONST_VTBL struct IFontNamesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30870,7 +30870,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *OnAmbientPropertyChange)(ICSSFilter *This,LONG dispid);
     END_INTERFACE
   } ICSSFilterVtbl;
-  interface ICSSFilter {
+  struct ICSSFilter {
     CONST_VTBL struct ICSSFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30905,7 +30905,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *ValidateSecureUrl)(ISecureUrlHost *This,WINBOOL *pfAllow,OLECHAR *pchUrlInQuestion,DWORD dwFlags);
     END_INTERFACE
   } ISecureUrlHostVtbl;
-  interface ISecureUrlHost {
+  struct ISecureUrlHost {
     CONST_VTBL struct ISecureUrlHostVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -30975,7 +30975,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *EndUndoUnit)(IMarkupServices *This);
     END_INTERFACE
   } IMarkupServicesVtbl;
-  interface IMarkupServices {
+  struct IMarkupServices {
     CONST_VTBL struct IMarkupServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31088,7 +31088,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *SaveSegmentsToClipboard)(IMarkupServices2 *This,ISegmentList *pSegmentList,DWORD dwFlags);
     END_INTERFACE
   } IMarkupServices2Vtbl;
-  interface IMarkupServices2 {
+  struct IMarkupServices2 {
     CONST_VTBL struct IMarkupServices2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31146,7 +31146,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *ExecChange)(IHTMLChangePlayback *This,BYTE *pbRecord,WINBOOL fForward);
     END_INTERFACE
   } IHTMLChangePlaybackVtbl;
-  interface IHTMLChangePlayback {
+  struct IHTMLChangePlayback {
     CONST_VTBL struct IHTMLChangePlaybackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31209,7 +31209,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *MoveToContent)(IMarkupPointer2 *This,IHTMLElement *pIElement,WINBOOL fAtStart);
     END_INTERFACE
   } IMarkupPointer2Vtbl;
-  interface IMarkupPointer2 {
+  struct IMarkupPointer2 {
     CONST_VTBL struct IMarkupPointer2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31285,7 +31285,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *FindTextFragFromMarkupPointer)(IMarkupTextFrags *This,IMarkupPointer *pPointerFind,long *piFrag,WINBOOL *pfFragFound);
     END_INTERFACE
   } IMarkupTextFragsVtbl;
-  interface IMarkupTextFrags {
+  struct IMarkupTextFrags {
     CONST_VTBL struct IMarkupTextFragsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31329,7 +31329,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *SetGenericParse)(IXMLGenericParse *This,VARIANT_BOOL fDoGeneric);
     END_INTERFACE
   } IXMLGenericParseVtbl;
-  interface IXMLGenericParse {
+  struct IXMLGenericParse {
     CONST_VTBL struct IXMLGenericParseVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31361,7 +31361,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *SnapRect)(IHTMLEditHost *This,IHTMLElement *pIElement,RECT *prcNew,ELEMENT_CORNER eHandle);
     END_INTERFACE
   } IHTMLEditHostVtbl;
-  interface IHTMLEditHost {
+  struct IHTMLEditHost {
     CONST_VTBL struct IHTMLEditHostVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31394,7 +31394,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *PreDrag)(IHTMLEditHost2 *This);
     END_INTERFACE
   } IHTMLEditHost2Vtbl;
-  interface IHTMLEditHost2 {
+  struct IHTMLEditHost2 {
     CONST_VTBL struct IHTMLEditHost2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31427,7 +31427,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetSequenceNumber)(ISequenceNumber *This,long nCurrent,long *pnNew);
     END_INTERFACE
   } ISequenceNumberVtbl;
-  interface ISequenceNumber {
+  struct ISequenceNumber {
     CONST_VTBL struct ISequenceNumberVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31459,7 +31459,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetActiveIMM)(IIMEServices *This,IActiveIMMApp **ppActiveIMM);
     END_INTERFACE
   } IIMEServicesVtbl;
-  interface IIMEServices {
+  struct IIMEServices {
     CONST_VTBL struct IIMEServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31499,7 +31499,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeDetail)(ISelectionServicesListener *This,BSTR *pTypeDetail);
     END_INTERFACE
   } ISelectionServicesListenerVtbl;
-  interface ISelectionServicesListener {
+  struct ISelectionServicesListener {
     CONST_VTBL struct ISelectionServicesListenerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31553,7 +31553,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetSelectionServicesListener)(ISelectionServices *This,ISelectionServicesListener **ppISelectionServicesListener);
     END_INTERFACE
   } ISelectionServicesVtbl;
-  interface ISelectionServices {
+  struct ISelectionServices {
     CONST_VTBL struct ISelectionServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31606,7 +31606,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *PostEditorEventNotify)(IHTMLEditDesigner *This,DISPID inEvtDispId,IHTMLEventObj *pIEventObj);
     END_INTERFACE
   } IHTMLEditDesignerVtbl;
-  interface IHTMLEditDesigner {
+  struct IHTMLEditDesigner {
     CONST_VTBL struct IHTMLEditDesignerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31657,7 +31657,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *SelectRange)(IHTMLEditServices *This,IMarkupPointer *pStart,IMarkupPointer *pEnd,SELECTION_TYPE eType);
     END_INTERFACE
   } IHTMLEditServicesVtbl;
-  interface IHTMLEditServices {
+  struct IHTMLEditServices {
     CONST_VTBL struct IHTMLEditServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31716,7 +31716,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *UnFreezeVirtualCaretPos)(IHTMLEditServices2 *This,WINBOOL fReset);
     END_INTERFACE
   } IHTMLEditServices2Vtbl;
-  interface IHTMLEditServices2 {
+  struct IHTMLEditServices2 {
     CONST_VTBL struct IHTMLEditServices2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31799,7 +31799,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *IsEqual)(IHTMLComputedStyle *This,IHTMLComputedStyle *pComputedStyle,VARIANT_BOOL *pfEqual);
     END_INTERFACE
   } IHTMLComputedStyleVtbl;
-  interface IHTMLComputedStyle {
+  struct IHTMLComputedStyle {
     CONST_VTBL struct IHTMLComputedStyleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31899,7 +31899,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(HTMLNamespaceEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } HTMLNamespaceEventsVtbl;
-  interface HTMLNamespaceEvents {
+  struct HTMLNamespaceEvents {
     CONST_VTBL struct HTMLNamespaceEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -31951,7 +31951,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *detachEvent)(IHTMLNamespace *This,BSTR event,IDispatch *pDisp);
     END_INTERFACE
   } IHTMLNamespaceVtbl;
-  interface IHTMLNamespace {
+  struct IHTMLNamespace {
     CONST_VTBL struct IHTMLNamespaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32019,7 +32019,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *add)(IHTMLNamespaceCollection *This,BSTR bstrNamespace,BSTR bstrUrn,VARIANT implementationUrl,IDispatch **ppNamespace);
     END_INTERFACE
   } IHTMLNamespaceCollectionVtbl;
-  interface IHTMLNamespaceCollection {
+  struct IHTMLNamespaceCollection {
     CONST_VTBL struct IHTMLNamespaceCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32076,7 +32076,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *HitTestPoint)(IHTMLPainter *This,POINT pt,WINBOOL *pbHit,LONG *plPartID);
     END_INTERFACE
   } IHTMLPainterVtbl;
-  interface IHTMLPainter {
+  struct IHTMLPainter {
     CONST_VTBL struct IHTMLPainterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32129,7 +32129,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetHitTestCookie)(IHTMLPaintSite *This,LONG *plCookie);
     END_INTERFACE
   } IHTMLPaintSiteVtbl;
-  interface IHTMLPaintSite {
+  struct IHTMLPaintSite {
     CONST_VTBL struct IHTMLPaintSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32185,7 +32185,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *StringFromPartID)(IHTMLPainterEventInfo *This,LONG lPartID,BSTR *pbstrPart);
     END_INTERFACE
   } IHTMLPainterEventInfoVtbl;
-  interface IHTMLPainterEventInfo {
+  struct IHTMLPainterEventInfo {
     CONST_VTBL struct IHTMLPainterEventInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32226,7 +32226,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *OnMove)(IHTMLPainterOverlay *This,RECT rcDevice);
     END_INTERFACE
   } IHTMLPainterOverlayVtbl;
-  interface IHTMLPainterOverlay {
+  struct IHTMLPainterOverlay {
     CONST_VTBL struct IHTMLPainterOverlayVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32266,7 +32266,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *item)(IHTMLIPrintCollection *This,long index,IUnknown **ppIPrint);
     END_INTERFACE
   } IHTMLIPrintCollectionVtbl;
-  interface IHTMLIPrintCollection {
+  struct IHTMLIPrintCollection {
     CONST_VTBL struct IHTMLIPrintCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32314,7 +32314,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Next)(IEnumPrivacyRecords *This,BSTR *pbstrUrl,BSTR *pbstrPolicyRef,LONG *pdwReserved,DWORD *pdwPrivacyFlags);
     END_INTERFACE
   } IEnumPrivacyRecordsVtbl;
-  interface IEnumPrivacyRecords {
+  struct IEnumPrivacyRecords {
     CONST_VTBL struct IEnumPrivacyRecordsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32385,7 +32385,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *toString)(IHTMLDialog *This,BSTR *String);
     END_INTERFACE
   } IHTMLDialogVtbl;
-  interface IHTMLDialog {
+  struct IHTMLDialog {
     CONST_VTBL struct IHTMLDialogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32470,7 +32470,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_resizable)(IHTMLDialog2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLDialog2Vtbl;
-  interface IHTMLDialog2 {
+  struct IHTMLDialog2 {
     CONST_VTBL struct IHTMLDialog2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32525,7 +32525,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_dialogHide)(IHTMLDialog3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLDialog3Vtbl;
-  interface IHTMLDialog3 {
+  struct IHTMLDialog3 {
     CONST_VTBL struct IHTMLDialog3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32580,7 +32580,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_document)(IHTMLModelessInit *This,IUnknown **p);
     END_INTERFACE
   } IHTMLModelessInitVtbl;
-  interface IHTMLModelessInit {
+  struct IHTMLModelessInit {
     CONST_VTBL struct IHTMLModelessInitVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32644,7 +32644,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_isOpen)(IHTMLPopup *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLPopupVtbl;
-  interface IHTMLPopup {
+  struct IHTMLPopup {
     CONST_VTBL struct IHTMLPopupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32690,7 +32690,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLPopup *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLPopupVtbl;
-  interface DispHTMLPopup {
+  struct DispHTMLPopup {
     CONST_VTBL struct DispHTMLPopupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32779,7 +32779,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_commandLine)(IHTMLAppBehavior *This,BSTR *p);
     END_INTERFACE
   } IHTMLAppBehaviorVtbl;
-  interface IHTMLAppBehavior {
+  struct IHTMLAppBehavior {
     CONST_VTBL struct IHTMLAppBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32909,7 +32909,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_selection)(IHTMLAppBehavior2 *This,BSTR *p);
     END_INTERFACE
   } IHTMLAppBehavior2Vtbl;
-  interface IHTMLAppBehavior2 {
+  struct IHTMLAppBehavior2 {
     CONST_VTBL struct IHTMLAppBehavior2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -32978,7 +32978,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_navigable)(IHTMLAppBehavior3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLAppBehavior3Vtbl;
-  interface IHTMLAppBehavior3 {
+  struct IHTMLAppBehavior3 {
     CONST_VTBL struct IHTMLAppBehavior3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33018,7 +33018,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispHTMLAppBehavior *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispHTMLAppBehaviorVtbl;
-  interface DispHTMLAppBehavior {
+  struct DispHTMLAppBehavior {
     CONST_VTBL struct DispHTMLAppBehaviorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33064,7 +33064,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispIHTMLInputButtonElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispIHTMLInputButtonElementVtbl;
-  interface DispIHTMLInputButtonElement {
+  struct DispIHTMLInputButtonElement {
     CONST_VTBL struct DispIHTMLInputButtonElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33102,7 +33102,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispIHTMLInputTextElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispIHTMLInputTextElementVtbl;
-  interface DispIHTMLInputTextElement {
+  struct DispIHTMLInputTextElement {
     CONST_VTBL struct DispIHTMLInputTextElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33140,7 +33140,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispIHTMLInputFileElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispIHTMLInputFileElementVtbl;
-  interface DispIHTMLInputFileElement {
+  struct DispIHTMLInputFileElement {
     CONST_VTBL struct DispIHTMLInputFileElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33178,7 +33178,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispIHTMLOptionButtonElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispIHTMLOptionButtonElementVtbl;
-  interface DispIHTMLOptionButtonElement {
+  struct DispIHTMLOptionButtonElement {
     CONST_VTBL struct DispIHTMLOptionButtonElementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33216,7 +33216,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(DispIHTMLInputImage *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DispIHTMLInputImageVtbl;
-  interface DispIHTMLInputImage {
+  struct DispIHTMLInputImage {
     CONST_VTBL struct DispIHTMLInputImageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33253,7 +33253,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *AddTag)(IElementNamespace *This,BSTR bstrTagName,LONG lFlags);
     END_INTERFACE
   } IElementNamespaceVtbl;
-  interface IElementNamespace {
+  struct IElementNamespace {
     CONST_VTBL struct IElementNamespaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33285,7 +33285,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *AddNamespace)(IElementNamespaceTable *This,BSTR bstrNamespace,BSTR bstrUrn,LONG lFlags,VARIANT *pvarFactory);
     END_INTERFACE
   } IElementNamespaceTableVtbl;
-  interface IElementNamespaceTable {
+  struct IElementNamespaceTable {
     CONST_VTBL struct IElementNamespaceTableVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33317,7 +33317,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Create)(IElementNamespaceFactory *This,IElementNamespace *pNamespace);
     END_INTERFACE
   } IElementNamespaceFactoryVtbl;
-  interface IElementNamespaceFactory {
+  struct IElementNamespaceFactory {
     CONST_VTBL struct IElementNamespaceFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33350,7 +33350,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *CreateWithImplementation)(IElementNamespaceFactory2 *This,IElementNamespace *pNamespace,BSTR bstrImplementation);
     END_INTERFACE
   } IElementNamespaceFactory2Vtbl;
-  interface IElementNamespaceFactory2 {
+  struct IElementNamespaceFactory2 {
     CONST_VTBL struct IElementNamespaceFactory2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33383,7 +33383,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Resolve)(IElementNamespaceFactoryCallback *This,BSTR bstrNamespace,BSTR bstrTagName,BSTR bstrAttrs,IElementNamespace *pNamespace);
     END_INTERFACE
   } IElementNamespaceFactoryCallbackVtbl;
-  interface IElementNamespaceFactoryCallback {
+  struct IElementNamespaceFactoryCallback {
     CONST_VTBL struct IElementNamespaceFactoryCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33421,7 +33421,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetDefaults)(IElementBehaviorSiteOM2 *This,IHTMLElementDefaults **ppDefaults);
     END_INTERFACE
   } IElementBehaviorSiteOM2Vtbl;
-  interface IElementBehaviorSiteOM2 {
+  struct IElementBehaviorSiteOM2 {
     CONST_VTBL struct IElementBehaviorSiteOM2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33459,7 +33459,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetCategory)(IElementBehaviorCategory *This,LPOLESTR *ppchCategory);
     END_INTERFACE
   } IElementBehaviorCategoryVtbl;
-  interface IElementBehaviorCategory {
+  struct IElementBehaviorCategory {
     CONST_VTBL struct IElementBehaviorCategoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33491,7 +33491,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetRelatedBehaviors)(IElementBehaviorSiteCategory *This,LONG lDirection,LPOLESTR pchCategory,IEnumUnknown **ppEnumerator);
     END_INTERFACE
   } IElementBehaviorSiteCategoryVtbl;
-  interface IElementBehaviorSiteCategory {
+  struct IElementBehaviorSiteCategory {
     CONST_VTBL struct IElementBehaviorSiteCategoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33525,7 +33525,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Reset)(IElementBehaviorSubmit *This);
     END_INTERFACE
   } IElementBehaviorSubmitVtbl;
-  interface IElementBehaviorSubmit {
+  struct IElementBehaviorSubmit {
     CONST_VTBL struct IElementBehaviorSubmitVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33560,7 +33560,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetFocusRect)(IElementBehaviorFocus *This,RECT *pRect);
     END_INTERFACE
   } IElementBehaviorFocusVtbl;
-  interface IElementBehaviorFocus {
+  struct IElementBehaviorFocus {
     CONST_VTBL struct IElementBehaviorFocusVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33598,7 +33598,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *MapSize)(IElementBehaviorLayout *This,SIZE *psizeIn,RECT *prcOut);
     END_INTERFACE
   } IElementBehaviorLayoutVtbl;
-  interface IElementBehaviorLayout {
+  struct IElementBehaviorLayout {
     CONST_VTBL struct IElementBehaviorLayoutVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33639,7 +33639,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTextDescent)(IElementBehaviorLayout2 *This,LONG *plDescent);
     END_INTERFACE
   } IElementBehaviorLayout2Vtbl;
-  interface IElementBehaviorLayout2 {
+  struct IElementBehaviorLayout2 {
     CONST_VTBL struct IElementBehaviorLayout2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33675,7 +33675,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetMediaResolution)(IElementBehaviorSiteLayout *This,SIZE *psizeResolution);
     END_INTERFACE
   } IElementBehaviorSiteLayoutVtbl;
-  interface IElementBehaviorSiteLayout {
+  struct IElementBehaviorSiteLayout {
     CONST_VTBL struct IElementBehaviorSiteLayoutVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33713,7 +33713,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetFontInfo)(IElementBehaviorSiteLayout2 *This,LOGFONTW *plf);
     END_INTERFACE
   } IElementBehaviorSiteLayout2Vtbl;
-  interface IElementBehaviorSiteLayout2 {
+  struct IElementBehaviorSiteLayout2 {
     CONST_VTBL struct IElementBehaviorSiteLayout2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -33745,7 +33745,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *PopulateNamespaceTable)(IHostBehaviorInit *This);
     END_INTERFACE
   } IHostBehaviorInitVtbl;
-  interface IHostBehaviorInit {
+  struct IHostBehaviorInit {
     CONST_VTBL struct IHostBehaviorInitVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

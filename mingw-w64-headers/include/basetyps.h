@@ -33,7 +33,6 @@
 #if defined(__cplusplus) && !defined(CINTERFACE)
 
 #define __STRUCT__ struct
-#define interface __STRUCT__
 #define STDMETHOD(method) virtual HRESULT WINAPI method
 #define STDMETHOD_(type,method) virtual type WINAPI method
 #define STDMETHODV(method) virtual HRESULT STDMETHODVCALLTYPE method
@@ -41,11 +40,13 @@
 #define PURE = 0
 #define THIS_
 #define THIS void
-#define DECLARE_INTERFACE(iface) interface iface
-#define DECLARE_INTERFACE_(iface,baseiface) interface iface : public baseiface
+#define DECLARE_INTERFACE(iface) __STRUCT__ iface
+#define DECLARE_INTERFACE_(iface,baseiface) __STRUCT__ iface : public baseiface
 #else
 
+#ifndef __OBJC__
 #define interface struct
+#endif
 
 #define STDMETHOD(method) HRESULT (WINAPI *method)
 #define STDMETHOD_(type,method) type (WINAPI *method)
@@ -56,12 +57,12 @@
 #define THIS_ INTERFACE *This,
 #define THIS INTERFACE *This
 #ifdef CONST_VTABLE
-#define DECLARE_INTERFACE(iface) typedef interface iface { \
+#define DECLARE_INTERFACE(iface) typedef struct iface { \
   const struct iface##Vtbl *lpVtbl; } iface; \
   typedef const struct iface##Vtbl iface##Vtbl; \
   const struct iface##Vtbl
 #else
-#define DECLARE_INTERFACE(iface) typedef interface iface { \
+#define DECLARE_INTERFACE(iface) typedef struct iface { \
     struct iface##Vtbl *lpVtbl; \
   } iface; \
   typedef struct iface##Vtbl iface##Vtbl; \

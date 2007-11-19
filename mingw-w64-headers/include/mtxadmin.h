@@ -19,37 +19,37 @@ extern "C"{
 
 #ifndef __ICatalog_FWD_DEFINED__
 #define __ICatalog_FWD_DEFINED__
-  typedef interface ICatalog ICatalog;
+  typedef struct ICatalog ICatalog;
 #endif
 
 #ifndef __ICatalogObject_FWD_DEFINED__
 #define __ICatalogObject_FWD_DEFINED__
-  typedef interface ICatalogObject ICatalogObject;
+  typedef struct ICatalogObject ICatalogObject;
 #endif
 
 #ifndef __ICatalogCollection_FWD_DEFINED__
 #define __ICatalogCollection_FWD_DEFINED__
-  typedef interface ICatalogCollection ICatalogCollection;
+  typedef struct ICatalogCollection ICatalogCollection;
 #endif
 
 #ifndef __IComponentUtil_FWD_DEFINED__
 #define __IComponentUtil_FWD_DEFINED__
-  typedef interface IComponentUtil IComponentUtil;
+  typedef struct IComponentUtil IComponentUtil;
 #endif
 
 #ifndef __IPackageUtil_FWD_DEFINED__
 #define __IPackageUtil_FWD_DEFINED__
-  typedef interface IPackageUtil IPackageUtil;
+  typedef struct IPackageUtil IPackageUtil;
 #endif
 
 #ifndef __IRemoteComponentUtil_FWD_DEFINED__
 #define __IRemoteComponentUtil_FWD_DEFINED__
-  typedef interface IRemoteComponentUtil IRemoteComponentUtil;
+  typedef struct IRemoteComponentUtil IRemoteComponentUtil;
 #endif
 
 #ifndef __IRoleAssociationUtil_FWD_DEFINED__
 #define __IRoleAssociationUtil_FWD_DEFINED__
-  typedef interface IRoleAssociationUtil IRoleAssociationUtil;
+  typedef struct IRoleAssociationUtil IRoleAssociationUtil;
 #endif
 
 #ifndef __Catalog_FWD_DEFINED__
@@ -130,7 +130,7 @@ extern "C"{
 #define __ICatalog_INTERFACE_DEFINED__
   EXTERN_C const IID IID_ICatalog;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface ICatalog : public IDispatch {
+  struct ICatalog : public IDispatch {
   public:
     virtual HRESULT WINAPI GetCollection(BSTR bstrCollName,IDispatch **ppCatalogCollection) = 0;
     virtual HRESULT WINAPI Connect(BSTR bstrConnectString,IDispatch **ppCatalogCollection) = 0;
@@ -153,7 +153,7 @@ extern "C"{
       HRESULT (WINAPI *get_MinorVersion)(ICatalog *This,long *retval);
     END_INTERFACE
   } ICatalogVtbl;
-  interface ICatalog {
+  struct ICatalog {
     CONST_VTBL struct ICatalogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -184,7 +184,7 @@ extern "C"{
 #define __ICatalogObject_INTERFACE_DEFINED__
   EXTERN_C const IID IID_ICatalogObject;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface ICatalogObject : public IDispatch {
+  struct ICatalogObject : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Value(BSTR bstrPropName,VARIANT *retval) = 0;
     virtual HRESULT WINAPI put_Value(BSTR bstrPropName,VARIANT val) = 0;
@@ -213,7 +213,7 @@ extern "C"{
       HRESULT (WINAPI *IsPropertyWriteOnly)(ICatalogObject *This,BSTR bstrPropName,VARIANT_BOOL *retval);
     END_INTERFACE
   } ICatalogObjectVtbl;
-  interface ICatalogObject {
+  struct ICatalogObject {
     CONST_VTBL struct ICatalogObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -253,7 +253,7 @@ extern "C"{
 #define __ICatalogCollection_INTERFACE_DEFINED__
   EXTERN_C const IID IID_ICatalogCollection;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface ICatalogCollection : public IDispatch {
+  struct ICatalogCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **ppEnumVariant) = 0;
     virtual HRESULT WINAPI get_Item(long lIndex,IDispatch **ppCatalogObject) = 0;
@@ -300,7 +300,7 @@ extern "C"{
       HRESULT (WINAPI *PopulateByQuery)(ICatalogCollection *This,BSTR bstrQueryString,long lQueryType);
     END_INTERFACE
   } ICatalogCollectionVtbl;
-  interface ICatalogCollection {
+  struct ICatalogCollection {
     CONST_VTBL struct ICatalogCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -367,7 +367,7 @@ extern "C"{
 #define __IComponentUtil_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IComponentUtil;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IComponentUtil : public IDispatch {
+  struct IComponentUtil : public IDispatch {
   public:
     virtual HRESULT WINAPI InstallComponent(BSTR bstrDLLFile,BSTR bstrTypelibFile,BSTR bstrProxyStubDLLFile) = 0;
     virtual HRESULT WINAPI ImportComponent(BSTR bstrCLSID) = 0;
@@ -390,7 +390,7 @@ extern "C"{
       HRESULT (WINAPI *GetCLSIDs)(IComponentUtil *This,BSTR bstrDLLFile,BSTR bstrTypelibFile,SAFEARRAY **aCLSIDs);
     END_INTERFACE
   } IComponentUtilVtbl;
-  interface IComponentUtil {
+  struct IComponentUtil {
     CONST_VTBL struct IComponentUtilVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -421,7 +421,7 @@ extern "C"{
 #define __IPackageUtil_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IPackageUtil;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IPackageUtil : public IDispatch {
+  struct IPackageUtil : public IDispatch {
   public:
     virtual HRESULT WINAPI InstallPackage(BSTR bstrPackageFile,BSTR bstrInstallPath,long lOptions) = 0;
     virtual HRESULT WINAPI ExportPackage(BSTR bstrPackageID,BSTR bstrPackageFile,long lOptions) = 0;
@@ -442,7 +442,7 @@ extern "C"{
       HRESULT (WINAPI *ShutdownPackage)(IPackageUtil *This,BSTR bstrPackageID);
     END_INTERFACE
   } IPackageUtilVtbl;
-  interface IPackageUtil {
+  struct IPackageUtil {
     CONST_VTBL struct IPackageUtilVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -470,7 +470,7 @@ extern "C"{
 #define __IRemoteComponentUtil_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IRemoteComponentUtil;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IRemoteComponentUtil : public IDispatch {
+  struct IRemoteComponentUtil : public IDispatch {
   public:
     virtual HRESULT WINAPI InstallRemoteComponent(BSTR bstrServer,BSTR bstrPackageID,BSTR bstrCLSID) = 0;
     virtual HRESULT WINAPI InstallRemoteComponentByName(BSTR bstrServer,BSTR bstrPackageName,BSTR bstrProgID) = 0;
@@ -489,7 +489,7 @@ extern "C"{
       HRESULT (WINAPI *InstallRemoteComponentByName)(IRemoteComponentUtil *This,BSTR bstrServer,BSTR bstrPackageName,BSTR bstrProgID);
     END_INTERFACE
   } IRemoteComponentUtilVtbl;
-  interface IRemoteComponentUtil {
+  struct IRemoteComponentUtil {
     CONST_VTBL struct IRemoteComponentUtilVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -514,7 +514,7 @@ extern "C"{
 #define __IRoleAssociationUtil_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IRoleAssociationUtil;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  interface IRoleAssociationUtil : public IDispatch {
+  struct IRoleAssociationUtil : public IDispatch {
   public:
     virtual HRESULT WINAPI AssociateRole(BSTR bstrRoleID) = 0;
     virtual HRESULT WINAPI AssociateRoleByName(BSTR bstrRoleName) = 0;
@@ -533,7 +533,7 @@ extern "C"{
       HRESULT (WINAPI *AssociateRoleByName)(IRoleAssociationUtil *This,BSTR bstrRoleName);
     END_INTERFACE
   } IRoleAssociationUtilVtbl;
-  interface IRoleAssociationUtil {
+  struct IRoleAssociationUtil {
     CONST_VTBL struct IRoleAssociationUtilVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,37 +24,37 @@
 
 #ifndef __ICallFrame_FWD_DEFINED__
 #define __ICallFrame_FWD_DEFINED__
-typedef interface ICallFrame ICallFrame;
+typedef struct ICallFrame ICallFrame;
 #endif
 
 #ifndef __ICallIndirect_FWD_DEFINED__
 #define __ICallIndirect_FWD_DEFINED__
-typedef interface ICallIndirect ICallIndirect;
+typedef struct ICallIndirect ICallIndirect;
 #endif
 
 #ifndef __ICallInterceptor_FWD_DEFINED__
 #define __ICallInterceptor_FWD_DEFINED__
-typedef interface ICallInterceptor ICallInterceptor;
+typedef struct ICallInterceptor ICallInterceptor;
 #endif
 
 #ifndef __ICallFrameEvents_FWD_DEFINED__
 #define __ICallFrameEvents_FWD_DEFINED__
-typedef interface ICallFrameEvents ICallFrameEvents;
+typedef struct ICallFrameEvents ICallFrameEvents;
 #endif
 
 #ifndef __ICallUnmarshal_FWD_DEFINED__
 #define __ICallUnmarshal_FWD_DEFINED__
-typedef interface ICallUnmarshal ICallUnmarshal;
+typedef struct ICallUnmarshal ICallUnmarshal;
 #endif
 
 #ifndef __ICallFrameWalker_FWD_DEFINED__
 #define __ICallFrameWalker_FWD_DEFINED__
-typedef interface ICallFrameWalker ICallFrameWalker;
+typedef struct ICallFrameWalker ICallFrameWalker;
 #endif
 
 #ifndef __IInterfaceRelated_FWD_DEFINED__
 #define __IInterfaceRelated_FWD_DEFINED__
-typedef interface IInterfaceRelated IInterfaceRelated;
+typedef struct IInterfaceRelated IInterfaceRelated;
 #endif
 
 #include "oaidl.h"
@@ -170,7 +170,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(ICallFrame *This,void *pvReceiver,...);
     END_INTERFACE
   } ICallFrameVtbl;
-  interface ICallFrame {
+  struct ICallFrame {
     CONST_VTBL struct ICallFrameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -261,7 +261,7 @@ extern "C"{
       HRESULT (WINAPI *GetIID)(ICallIndirect *This,IID *piid,WINBOOL *pfDerivesFromIDispatch,ULONG *pcMethod,LPWSTR *pwszInterface);
     END_INTERFACE
   } ICallIndirectVtbl;
-  interface ICallIndirect {
+  struct ICallIndirect {
     CONST_VTBL struct ICallIndirectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -307,7 +307,7 @@ extern "C"{
       HRESULT (WINAPI *GetRegisteredSink)(ICallInterceptor *This,ICallFrameEvents **ppsink);
     END_INTERFACE
   } ICallInterceptorVtbl;
-  interface ICallInterceptor {
+  struct ICallInterceptor {
     CONST_VTBL struct ICallInterceptorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -345,7 +345,7 @@ extern "C"{
       HRESULT (WINAPI *OnCall)(ICallFrameEvents *This,ICallFrame *pFrame);
     END_INTERFACE
   } ICallFrameEventsVtbl;
-  interface ICallFrameEvents {
+  struct ICallFrameEvents {
     CONST_VTBL struct ICallFrameEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -378,7 +378,7 @@ extern "C"{
       HRESULT (WINAPI *ReleaseMarshalData)(ICallUnmarshal *This,ULONG iMethod,PVOID pBuffer,ULONG cbBuffer,ULONG ibFirstRelease,RPCOLEDATAREP dataRep,CALLFRAME_MARSHALCONTEXT *pcontext);
     END_INTERFACE
   } ICallUnmarshalVtbl;
-  interface ICallUnmarshal {
+  struct ICallUnmarshal {
     CONST_VTBL struct ICallUnmarshalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -412,7 +412,7 @@ extern "C"{
       HRESULT (WINAPI *OnWalkInterface)(ICallFrameWalker *This,REFIID iid,PVOID *ppvInterface,WINBOOL fIn,WINBOOL fOut);
     END_INTERFACE
   } ICallFrameWalkerVtbl;
-  interface ICallFrameWalker {
+  struct ICallFrameWalker {
     CONST_VTBL struct ICallFrameWalkerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -445,7 +445,7 @@ extern "C"{
       HRESULT (WINAPI *GetIID)(IInterfaceRelated *This,IID *piid);
     END_INTERFACE
   } IInterfaceRelatedVtbl;
-  interface IInterfaceRelated {
+  struct IInterfaceRelated {
     CONST_VTBL struct IInterfaceRelatedVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

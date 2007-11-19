@@ -28,107 +28,107 @@ extern "C"{
 
 #ifndef __IAgentUserInput_FWD_DEFINED__
 #define __IAgentUserInput_FWD_DEFINED__
-  typedef interface IAgentUserInput IAgentUserInput;
+  typedef struct IAgentUserInput IAgentUserInput;
 #endif
 
 #ifndef __IAgentCommand_FWD_DEFINED__
 #define __IAgentCommand_FWD_DEFINED__
-  typedef interface IAgentCommand IAgentCommand;
+  typedef struct IAgentCommand IAgentCommand;
 #endif
 
 #ifndef __IAgentCommandEx_FWD_DEFINED__
 #define __IAgentCommandEx_FWD_DEFINED__
-  typedef interface IAgentCommandEx IAgentCommandEx;
+  typedef struct IAgentCommandEx IAgentCommandEx;
 #endif
 
 #ifndef __IAgentCommands_FWD_DEFINED__
 #define __IAgentCommands_FWD_DEFINED__
-  typedef interface IAgentCommands IAgentCommands;
+  typedef struct IAgentCommands IAgentCommands;
 #endif
 
 #ifndef __IAgentCommandsEx_FWD_DEFINED__
 #define __IAgentCommandsEx_FWD_DEFINED__
-  typedef interface IAgentCommandsEx IAgentCommandsEx;
+  typedef struct IAgentCommandsEx IAgentCommandsEx;
 #endif
 
 #ifndef __IAgentCommandWindow_FWD_DEFINED__
 #define __IAgentCommandWindow_FWD_DEFINED__
-  typedef interface IAgentCommandWindow IAgentCommandWindow;
+  typedef struct IAgentCommandWindow IAgentCommandWindow;
 #endif
 
 #ifndef __IAgentSpeechInputProperties_FWD_DEFINED__
 #define __IAgentSpeechInputProperties_FWD_DEFINED__
-  typedef interface IAgentSpeechInputProperties IAgentSpeechInputProperties;
+  typedef struct IAgentSpeechInputProperties IAgentSpeechInputProperties;
 #endif
 
 #ifndef __IAgentAudioOutputProperties_FWD_DEFINED__
 #define __IAgentAudioOutputProperties_FWD_DEFINED__
-  typedef interface IAgentAudioOutputProperties IAgentAudioOutputProperties;
+  typedef struct IAgentAudioOutputProperties IAgentAudioOutputProperties;
 #endif
 
 #ifndef __IAgentAudioOutputPropertiesEx_FWD_DEFINED__
 #define __IAgentAudioOutputPropertiesEx_FWD_DEFINED__
-  typedef interface IAgentAudioOutputPropertiesEx IAgentAudioOutputPropertiesEx;
+  typedef struct IAgentAudioOutputPropertiesEx IAgentAudioOutputPropertiesEx;
 #endif
 
 #ifndef __IAgentPropertySheet_FWD_DEFINED__
 #define __IAgentPropertySheet_FWD_DEFINED__
-  typedef interface IAgentPropertySheet IAgentPropertySheet;
+  typedef struct IAgentPropertySheet IAgentPropertySheet;
 #endif
 
 #ifndef __IAgentBalloon_FWD_DEFINED__
 #define __IAgentBalloon_FWD_DEFINED__
-  typedef interface IAgentBalloon IAgentBalloon;
+  typedef struct IAgentBalloon IAgentBalloon;
 #endif
 
 #ifndef __IAgentBalloonEx_FWD_DEFINED__
 #define __IAgentBalloonEx_FWD_DEFINED__
-  typedef interface IAgentBalloonEx IAgentBalloonEx;
+  typedef struct IAgentBalloonEx IAgentBalloonEx;
 #endif
 
 #ifndef __IAgentCharacter_FWD_DEFINED__
 #define __IAgentCharacter_FWD_DEFINED__
-  typedef interface IAgentCharacter IAgentCharacter;
+  typedef struct IAgentCharacter IAgentCharacter;
 #endif
 
 #ifndef __IAgentCharacterEx_FWD_DEFINED__
 #define __IAgentCharacterEx_FWD_DEFINED__
-  typedef interface IAgentCharacterEx IAgentCharacterEx;
+  typedef struct IAgentCharacterEx IAgentCharacterEx;
 #endif
 
 #ifndef __IAgent_FWD_DEFINED__
 #define __IAgent_FWD_DEFINED__
-  typedef interface IAgent IAgent;
+  typedef struct IAgent IAgent;
 #endif
 
 #ifndef __IAgentEx_FWD_DEFINED__
 #define __IAgentEx_FWD_DEFINED__
-  typedef interface IAgentEx IAgentEx;
+  typedef struct IAgentEx IAgentEx;
 #endif
 
 #ifndef __IAgentNotifySink_FWD_DEFINED__
 #define __IAgentNotifySink_FWD_DEFINED__
-  typedef interface IAgentNotifySink IAgentNotifySink;
+  typedef struct IAgentNotifySink IAgentNotifySink;
 #endif
 
 #ifndef __IAgentNotifySinkEx_FWD_DEFINED__
 #define __IAgentNotifySinkEx_FWD_DEFINED__
-  typedef interface IAgentNotifySinkEx IAgentNotifySinkEx;
+  typedef struct IAgentNotifySinkEx IAgentNotifySinkEx;
 #endif
 
 #ifndef __IAgentPrivateNotifySink_FWD_DEFINED__
 #define __IAgentPrivateNotifySink_FWD_DEFINED__
-  typedef interface IAgentPrivateNotifySink IAgentPrivateNotifySink;
+  typedef struct IAgentPrivateNotifySink IAgentPrivateNotifySink;
 #endif
 
 #ifndef __IAgentCustomMarshalMaker_FWD_DEFINED__
 #define __IAgentCustomMarshalMaker_FWD_DEFINED__
-  typedef interface IAgentCustomMarshalMaker IAgentCustomMarshalMaker;
+  typedef struct IAgentCustomMarshalMaker IAgentCustomMarshalMaker;
 #endif
 
 #ifndef __IAgentClientStatus_FWD_DEFINED__
 #define __IAgentClientStatus_FWD_DEFINED__
-  typedef interface IAgentClientStatus IAgentClientStatus;
+  typedef struct IAgentClientStatus IAgentClientStatus;
 #endif
 
 #ifndef __AgentServer_FWD_DEFINED__
@@ -142,92 +142,92 @@ extern "C"{
 
 #ifndef __IAgentUserInput_FWD_DEFINED__
 #define __IAgentUserInput_FWD_DEFINED__
-  typedef interface IAgentUserInput IAgentUserInput;
+  typedef struct IAgentUserInput IAgentUserInput;
 #endif
 
 #ifndef __IAgentCommand_FWD_DEFINED__
 #define __IAgentCommand_FWD_DEFINED__
-  typedef interface IAgentCommand IAgentCommand;
+  typedef struct IAgentCommand IAgentCommand;
 #endif
 
 #ifndef __IAgentCommandEx_FWD_DEFINED__
 #define __IAgentCommandEx_FWD_DEFINED__
-  typedef interface IAgentCommandEx IAgentCommandEx;
+  typedef struct IAgentCommandEx IAgentCommandEx;
 #endif
 
 #ifndef __IAgentCommands_FWD_DEFINED__
 #define __IAgentCommands_FWD_DEFINED__
-  typedef interface IAgentCommands IAgentCommands;
+  typedef struct IAgentCommands IAgentCommands;
 #endif
 
 #ifndef __IAgentCommandsEx_FWD_DEFINED__
 #define __IAgentCommandsEx_FWD_DEFINED__
-  typedef interface IAgentCommandsEx IAgentCommandsEx;
+  typedef struct IAgentCommandsEx IAgentCommandsEx;
 #endif
 
 #ifndef __IAgentSpeechInputProperties_FWD_DEFINED__
 #define __IAgentSpeechInputProperties_FWD_DEFINED__
-  typedef interface IAgentSpeechInputProperties IAgentSpeechInputProperties;
+  typedef struct IAgentSpeechInputProperties IAgentSpeechInputProperties;
 #endif
 
 #ifndef __IAgentAudioOutputProperties_FWD_DEFINED__
 #define __IAgentAudioOutputProperties_FWD_DEFINED__
-  typedef interface IAgentAudioOutputProperties IAgentAudioOutputProperties;
+  typedef struct IAgentAudioOutputProperties IAgentAudioOutputProperties;
 #endif
 
 #ifndef __IAgentAudioOutputPropertiesEx_FWD_DEFINED__
 #define __IAgentAudioOutputPropertiesEx_FWD_DEFINED__
-  typedef interface IAgentAudioOutputPropertiesEx IAgentAudioOutputPropertiesEx;
+  typedef struct IAgentAudioOutputPropertiesEx IAgentAudioOutputPropertiesEx;
 #endif
 
 #ifndef __IAgentPropertySheet_FWD_DEFINED__
 #define __IAgentPropertySheet_FWD_DEFINED__
-  typedef interface IAgentPropertySheet IAgentPropertySheet;
+  typedef struct IAgentPropertySheet IAgentPropertySheet;
 #endif
 
 #ifndef __IAgentBalloon_FWD_DEFINED__
 #define __IAgentBalloon_FWD_DEFINED__
-  typedef interface IAgentBalloon IAgentBalloon;
+  typedef struct IAgentBalloon IAgentBalloon;
 #endif
 
 #ifndef __IAgentBalloonEx_FWD_DEFINED__
 #define __IAgentBalloonEx_FWD_DEFINED__
-  typedef interface IAgentBalloonEx IAgentBalloonEx;
+  typedef struct IAgentBalloonEx IAgentBalloonEx;
 #endif
 
 #ifndef __IAgentCharacter_FWD_DEFINED__
 #define __IAgentCharacter_FWD_DEFINED__
-  typedef interface IAgentCharacter IAgentCharacter;
+  typedef struct IAgentCharacter IAgentCharacter;
 #endif
 
 #ifndef __IAgentCharacterEx_FWD_DEFINED__
 #define __IAgentCharacterEx_FWD_DEFINED__
-  typedef interface IAgentCharacterEx IAgentCharacterEx;
+  typedef struct IAgentCharacterEx IAgentCharacterEx;
 #endif
 
 #ifndef __IAgent_FWD_DEFINED__
 #define __IAgent_FWD_DEFINED__
-  typedef interface IAgent IAgent;
+  typedef struct IAgent IAgent;
 #endif
 
 #ifndef __IAgentEx_FWD_DEFINED__
 #define __IAgentEx_FWD_DEFINED__
-  typedef interface IAgentEx IAgentEx;
+  typedef struct IAgentEx IAgentEx;
 #endif
 
 #ifndef __IAgentNotifySink_FWD_DEFINED__
 #define __IAgentNotifySink_FWD_DEFINED__
-  typedef interface IAgentNotifySink IAgentNotifySink;
+  typedef struct IAgentNotifySink IAgentNotifySink;
 #endif
 
 #ifndef __IAgentNotifySinkEx_FWD_DEFINED__
 #define __IAgentNotifySinkEx_FWD_DEFINED__
-  typedef interface IAgentNotifySinkEx IAgentNotifySinkEx;
+  typedef struct IAgentNotifySinkEx IAgentNotifySinkEx;
 #endif
 
 #ifndef __IAgentCommandWindow_FWD_DEFINED__
 #define __IAgentCommandWindow_FWD_DEFINED__
-  typedef interface IAgentCommandWindow IAgentCommandWindow;
+  typedef struct IAgentCommandWindow IAgentCommandWindow;
 #endif
 
 #include "oaidl.h"
@@ -344,7 +344,7 @@ extern "C"{
       HRESULT (WINAPI *GetAllItemData)(IAgentUserInput *This,VARIANT *pdwItemIndices,VARIANT *plConfidences,VARIANT *pbszText);
     END_INTERFACE
   } IAgentUserInputVtbl;
-  interface IAgentUserInput {
+  struct IAgentUserInput {
     CONST_VTBL struct IAgentUserInputVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -419,7 +419,7 @@ extern "C"{
       HRESULT (WINAPI *GetID)(IAgentCommand *This,long *pdwID);
     END_INTERFACE
   } IAgentCommandVtbl;
-  interface IAgentCommand {
+  struct IAgentCommand {
     CONST_VTBL struct IAgentCommandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -514,7 +514,7 @@ extern "C"{
       HRESULT (WINAPI *GetVoiceCaption)(IAgentCommandEx *This,BSTR *pbszVoiceCaption);
     END_INTERFACE
   } IAgentCommandExVtbl;
-  interface IAgentCommandEx {
+  struct IAgentCommandEx {
     CONST_VTBL struct IAgentCommandExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -597,7 +597,7 @@ extern "C"{
       HRESULT (WINAPI *RemoveAll)(IAgentCommands *This);
     END_INTERFACE
   } IAgentCommandsVtbl;
-  interface IAgentCommands {
+  struct IAgentCommands {
     CONST_VTBL struct IAgentCommandsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -709,7 +709,7 @@ extern "C"{
       HRESULT (WINAPI *GetGlobalVoiceCommandsEnabled)(IAgentCommandsEx *This,long *pbEnabled);
     END_INTERFACE
   } IAgentCommandsExVtbl;
-  interface IAgentCommandsEx {
+  struct IAgentCommandsEx {
     CONST_VTBL struct IAgentCommandsExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -808,7 +808,7 @@ extern "C"{
       HRESULT (WINAPI *GetSize)(IAgentCommandWindow *This,long *plWidth,long *plHeight);
     END_INTERFACE
   } IAgentCommandWindowVtbl;
-  interface IAgentCommandWindow {
+  struct IAgentCommandWindow {
     CONST_VTBL struct IAgentCommandWindowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -868,7 +868,7 @@ extern "C"{
       HRESULT (WINAPI *GetListeningTip)(IAgentSpeechInputProperties *This,long *pbListeningTip);
     END_INTERFACE
   } IAgentSpeechInputPropertiesVtbl;
-  interface IAgentSpeechInputProperties {
+  struct IAgentSpeechInputProperties {
     CONST_VTBL struct IAgentSpeechInputPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -927,7 +927,7 @@ extern "C"{
       HRESULT (WINAPI *GetUsingSoundEffects)(IAgentAudioOutputProperties *This,long *pbUsingSoundEffects);
     END_INTERFACE
   } IAgentAudioOutputPropertiesVtbl;
-  interface IAgentAudioOutputProperties {
+  struct IAgentAudioOutputProperties {
     CONST_VTBL struct IAgentAudioOutputPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -971,7 +971,7 @@ extern "C"{
       HRESULT (WINAPI *GetStatus)(IAgentAudioOutputPropertiesEx *This,long *plStatus);
     END_INTERFACE
   } IAgentAudioOutputPropertiesExVtbl;
-  interface IAgentAudioOutputPropertiesEx {
+  struct IAgentAudioOutputPropertiesEx {
     CONST_VTBL struct IAgentAudioOutputPropertiesExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1022,7 +1022,7 @@ extern "C"{
       HRESULT (WINAPI *SetPage)(IAgentPropertySheet *This,BSTR bszPage);
     END_INTERFACE
   } IAgentPropertySheetVtbl;
-  interface IAgentPropertySheet {
+  struct IAgentPropertySheet {
     CONST_VTBL struct IAgentPropertySheetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1110,7 +1110,7 @@ extern "C"{
       HRESULT (WINAPI *GetFontCharSet)(IAgentBalloon *This,short *psFontCharSet);
     END_INTERFACE
   } IAgentBalloonVtbl;
-  interface IAgentBalloon {
+  struct IAgentBalloon {
     CONST_VTBL struct IAgentBalloonVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1224,7 +1224,7 @@ extern "C"{
       HRESULT (WINAPI *SetNumCharsPerLine)(IAgentBalloonEx *This,long lCharsPerLine);
     END_INTERFACE
   } IAgentBalloonExVtbl;
-  interface IAgentBalloonEx {
+  struct IAgentBalloonEx {
     CONST_VTBL struct IAgentBalloonExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1350,7 +1350,7 @@ extern "C"{
       HRESULT (WINAPI *GetExtraData)(IAgentCharacter *This,BSTR *pbszExtraData);
     END_INTERFACE
   } IAgentCharacterVtbl;
-  interface IAgentCharacter {
+  struct IAgentCharacter {
     CONST_VTBL struct IAgentCharacterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1554,7 +1554,7 @@ extern "C"{
       HRESULT (WINAPI *GetSRStatus)(IAgentCharacterEx *This,long *plStatus);
     END_INTERFACE
   } IAgentCharacterExVtbl;
-  interface IAgentCharacterEx {
+  struct IAgentCharacterEx {
     CONST_VTBL struct IAgentCharacterExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1700,7 +1700,7 @@ extern "C"{
       HRESULT (WINAPI *GetSuspended)(IAgent *This,long *pbSuspended);
     END_INTERFACE
   } IAgentVtbl;
-  interface IAgent {
+  struct IAgent {
     CONST_VTBL struct IAgentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1764,7 +1764,7 @@ extern "C"{
       HRESULT (WINAPI *ShowDefaultCharacterProperties)(IAgentEx *This,short x,short y,long bUseDefaultPosition);
     END_INTERFACE
   } IAgentExVtbl;
-  interface IAgentEx {
+  struct IAgentEx {
     CONST_VTBL struct IAgentExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1845,7 +1845,7 @@ extern "C"{
       HRESULT (WINAPI *BalloonVisibleState)(IAgentNotifySink *This,long dwCharID,long bVisible);
     END_INTERFACE
   } IAgentNotifySinkVtbl;
-  interface IAgentNotifySink {
+  struct IAgentNotifySink {
     CONST_VTBL struct IAgentNotifySinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1953,7 +1953,7 @@ extern "C"{
       HRESULT (WINAPI *ActiveClientChange)(IAgentNotifySinkEx *This,long dwCharID,long lStatus);
     END_INTERFACE
   } IAgentNotifySinkExVtbl;
-  interface IAgentNotifySinkEx {
+  struct IAgentNotifySinkEx {
     CONST_VTBL struct IAgentNotifySinkExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2020,7 +2020,7 @@ extern "C"{
       HRESULT (WINAPI *GetClientID)(IAgentPrivateNotifySink *This,DWORD *pdwClientID);
     END_INTERFACE
   } IAgentPrivateNotifySinkVtbl;
-  interface IAgentPrivateNotifySink {
+  struct IAgentPrivateNotifySink {
     CONST_VTBL struct IAgentPrivateNotifySinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2058,7 +2058,7 @@ extern "C"{
       HRESULT (WINAPI *Create)(IAgentCustomMarshalMaker *This,IUnknown *pSink,REFIID riidSink,IUnknown **pMarshaledSink);
     END_INTERFACE
   } IAgentCustomMarshalMakerVtbl;
-  interface IAgentCustomMarshalMaker {
+  struct IAgentCustomMarshalMaker {
     CONST_VTBL struct IAgentCustomMarshalMakerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2089,7 +2089,7 @@ extern "C"{
       HRESULT (WINAPI *Ping)(IAgentClientStatus *This);
     END_INTERFACE
   } IAgentClientStatusVtbl;
-  interface IAgentClientStatus {
+  struct IAgentClientStatus {
     CONST_VTBL struct IAgentClientStatusVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

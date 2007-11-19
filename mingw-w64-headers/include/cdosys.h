@@ -30,97 +30,97 @@ namespace CDO {
 
 #ifndef __IDataSource_FWD_DEFINED__
 #define __IDataSource_FWD_DEFINED__
-typedef interface IDataSource IDataSource;
+typedef struct IDataSource IDataSource;
 #endif
 
 #ifndef __IMessage_FWD_DEFINED__
 #define __IMessage_FWD_DEFINED__
-typedef interface IMessage IMessage;
+typedef struct IMessage IMessage;
 #endif
 
 #ifndef __IBodyPart_FWD_DEFINED__
 #define __IBodyPart_FWD_DEFINED__
-typedef interface IBodyPart IBodyPart;
+typedef struct IBodyPart IBodyPart;
 #endif
 
 #ifndef __IConfiguration_FWD_DEFINED__
 #define __IConfiguration_FWD_DEFINED__
-typedef interface IConfiguration IConfiguration;
+typedef struct IConfiguration IConfiguration;
 #endif
 
 #ifndef __IMessages_FWD_DEFINED__
 #define __IMessages_FWD_DEFINED__
-typedef interface IMessages IMessages;
+typedef struct IMessages IMessages;
 #endif
 
 #ifndef __IDropDirectory_FWD_DEFINED__
 #define __IDropDirectory_FWD_DEFINED__
-typedef interface IDropDirectory IDropDirectory;
+typedef struct IDropDirectory IDropDirectory;
 #endif
 
 #ifndef __IBodyParts_FWD_DEFINED__
 #define __IBodyParts_FWD_DEFINED__
-typedef interface IBodyParts IBodyParts;
+typedef struct IBodyParts IBodyParts;
 #endif
 
 #ifndef __ISMTPScriptConnector_FWD_DEFINED__
 #define __ISMTPScriptConnector_FWD_DEFINED__
-typedef interface ISMTPScriptConnector ISMTPScriptConnector;
+typedef struct ISMTPScriptConnector ISMTPScriptConnector;
 #endif
 
 #ifndef __INNTPEarlyScriptConnector_FWD_DEFINED__
 #define __INNTPEarlyScriptConnector_FWD_DEFINED__
-typedef interface INNTPEarlyScriptConnector INNTPEarlyScriptConnector;
+typedef struct INNTPEarlyScriptConnector INNTPEarlyScriptConnector;
 #endif
 
 #ifndef __INNTPPostScriptConnector_FWD_DEFINED__
 #define __INNTPPostScriptConnector_FWD_DEFINED__
-typedef interface INNTPPostScriptConnector INNTPPostScriptConnector;
+typedef struct INNTPPostScriptConnector INNTPPostScriptConnector;
 #endif
 
 #ifndef __INNTPFinalScriptConnector_FWD_DEFINED__
 #define __INNTPFinalScriptConnector_FWD_DEFINED__
-typedef interface INNTPFinalScriptConnector INNTPFinalScriptConnector;
+typedef struct INNTPFinalScriptConnector INNTPFinalScriptConnector;
 #endif
 
 #ifndef __ISMTPOnArrival_FWD_DEFINED__
 #define __ISMTPOnArrival_FWD_DEFINED__
-typedef interface ISMTPOnArrival ISMTPOnArrival;
+typedef struct ISMTPOnArrival ISMTPOnArrival;
 #endif
 
 #ifndef __INNTPOnPostEarly_FWD_DEFINED__
 #define __INNTPOnPostEarly_FWD_DEFINED__
-typedef interface INNTPOnPostEarly INNTPOnPostEarly;
+typedef struct INNTPOnPostEarly INNTPOnPostEarly;
 #endif
 
 #ifndef __INNTPOnPost_FWD_DEFINED__
 #define __INNTPOnPost_FWD_DEFINED__
-typedef interface INNTPOnPost INNTPOnPost;
+typedef struct INNTPOnPost INNTPOnPost;
 #endif
 
 #ifndef __INNTPOnPostFinal_FWD_DEFINED__
 #define __INNTPOnPostFinal_FWD_DEFINED__
-typedef interface INNTPOnPostFinal INNTPOnPostFinal;
+typedef struct INNTPOnPostFinal INNTPOnPostFinal;
 #endif
 
 #ifndef __IProxyObject_FWD_DEFINED__
 #define __IProxyObject_FWD_DEFINED__
-typedef interface IProxyObject IProxyObject;
+typedef struct IProxyObject IProxyObject;
 #endif
 
 #ifndef __IGetInterface_FWD_DEFINED__
 #define __IGetInterface_FWD_DEFINED__
-typedef interface IGetInterface IGetInterface;
+typedef struct IGetInterface IGetInterface;
 #endif
 
 #ifndef __IBodyParts_FWD_DEFINED__
 #define __IBodyParts_FWD_DEFINED__
-typedef interface IBodyParts IBodyParts;
+typedef struct IBodyParts IBodyParts;
 #endif
 
 #ifndef __IMessages_FWD_DEFINED__
 #define __IMessages_FWD_DEFINED__
-typedef interface IMessages IMessages;
+typedef struct IMessages IMessages;
 #endif
 
 #ifndef __Message_FWD_DEFINED__
@@ -191,21 +191,21 @@ typedef struct NNTPFinalConnector NNTPFinalConnector;
 #include "ocidl.h"
 
 #ifndef __cplusplus
-typedef interface ADOError ADOError;
-typedef interface ADOErrors ADOErrors;
-typedef interface _ADOCommand _ADOCommand;
-typedef interface _ADOConnection _ADOConnection;
-typedef interface _ADORecord _ADORecord;
-typedef interface IRecADOFields IRecADOFields;
-typedef interface _ADOStream _ADOStream;
-typedef interface _ADORecordset _ADORecordset;
-typedef interface ADOField ADOField;
-typedef interface _ADOField _ADOField;
-typedef interface ADOFields ADOFields;
-typedef interface _ADOParameter _ADOParameter;
-typedef interface ADOParameters ADOParameters;
-typedef interface ADOProperty ADOProperty;
-typedef interface ADOProperties ADOProperties;
+typedef struct ADOError ADOError;
+typedef struct ADOErrors ADOErrors;
+typedef struct _ADOCommand _ADOCommand;
+typedef struct _ADOConnection _ADOConnection;
+typedef struct _ADORecord _ADORecord;
+typedef struct IRecADOFields IRecADOFields;
+typedef struct _ADOStream _ADOStream;
+typedef struct _ADORecordset _ADORecordset;
+typedef struct ADOField ADOField;
+typedef struct _ADOField _ADOField;
+typedef struct ADOFields ADOFields;
+typedef struct _ADOParameter _ADOParameter;
+typedef struct ADOParameters ADOParameters;
+typedef struct ADOProperty ADOProperty;
+typedef struct ADOProperties ADOProperties;
 #endif
 #include "adoint.h"
 
@@ -332,7 +332,7 @@ extern "C" {
       HRESULT (WINAPI *SaveToContainer)(IDataSource *This,BSTR ContainerURL,IDispatch *ActiveConnection,ConnectModeEnum Mode,RecordCreateOptionsEnum CreateOptions,RecordOpenOptionsEnum Options,BSTR UserName,BSTR Password);
     END_INTERFACE
   } IDataSourceVtbl;
-  interface IDataSource {
+  struct IDataSource {
     CONST_VTBL struct IDataSourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -516,7 +516,7 @@ extern "C" {
       HRESULT (WINAPI *GetInterface)(IMessage *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IMessageVtbl;
-  interface IMessage {
+  struct IMessage {
     CONST_VTBL struct IMessageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -765,7 +765,7 @@ extern "C" {
       HRESULT (WINAPI *GetInterface)(IBodyPart *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IBodyPartVtbl;
-  interface IBodyPart {
+  struct IBodyPart {
     CONST_VTBL struct IBodyPartVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -871,7 +871,7 @@ extern "C" {
       HRESULT (WINAPI *GetInterface)(IConfiguration *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IConfigurationVtbl;
-  interface IConfiguration {
+  struct IConfiguration {
     CONST_VTBL struct IConfigurationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -926,7 +926,7 @@ extern "C" {
       HRESULT (WINAPI *get_Filename)(IMessages *This,VARIANT var,BSTR *Filename);
     END_INTERFACE
   } IMessagesVtbl;
-  interface IMessages {
+  struct IMessages {
     CONST_VTBL struct IMessagesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -980,7 +980,7 @@ extern "C" {
       HRESULT (WINAPI *GetMessages)(IDropDirectory *This,BSTR DirName,IMessages **Msgs);
     END_INTERFACE
   } IDropDirectoryVtbl;
-  interface IDropDirectory {
+  struct IDropDirectory {
     CONST_VTBL struct IDropDirectoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1029,7 +1029,7 @@ extern "C" {
       HRESULT (WINAPI *Add)(IBodyParts *This,long Index,IBodyPart **ppPart);
     END_INTERFACE
   } IBodyPartsVtbl;
-  interface IBodyParts {
+  struct IBodyParts {
     CONST_VTBL struct IBodyPartsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1081,7 +1081,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ISMTPScriptConnector *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } ISMTPScriptConnectorVtbl;
-  interface ISMTPScriptConnector {
+  struct ISMTPScriptConnector {
     CONST_VTBL struct ISMTPScriptConnectorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1114,7 +1114,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(INNTPEarlyScriptConnector *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } INNTPEarlyScriptConnectorVtbl;
-  interface INNTPEarlyScriptConnector {
+  struct INNTPEarlyScriptConnector {
     CONST_VTBL struct INNTPEarlyScriptConnectorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1147,7 +1147,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(INNTPPostScriptConnector *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } INNTPPostScriptConnectorVtbl;
-  interface INNTPPostScriptConnector {
+  struct INNTPPostScriptConnector {
     CONST_VTBL struct INNTPPostScriptConnectorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1180,7 +1180,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(INNTPFinalScriptConnector *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } INNTPFinalScriptConnectorVtbl;
-  interface INNTPFinalScriptConnector {
+  struct INNTPFinalScriptConnector {
     CONST_VTBL struct INNTPFinalScriptConnectorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1216,7 +1216,7 @@ extern "C" {
       HRESULT (WINAPI *OnArrival)(ISMTPOnArrival *This,IMessage *Msg,CdoEventStatus *EventStatus);
     END_INTERFACE
   } ISMTPOnArrivalVtbl;
-  interface ISMTPOnArrival {
+  struct ISMTPOnArrival {
     CONST_VTBL struct ISMTPOnArrivalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1256,7 +1256,7 @@ extern "C" {
       HRESULT (WINAPI *OnPostEarly)(INNTPOnPostEarly *This,IMessage *Msg,CdoEventStatus *EventStatus);
     END_INTERFACE
   } INNTPOnPostEarlyVtbl;
-  interface INNTPOnPostEarly {
+  struct INNTPOnPostEarly {
     CONST_VTBL struct INNTPOnPostEarlyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1295,7 +1295,7 @@ extern "C" {
       HRESULT (WINAPI *OnPost)(INNTPOnPost *This,IMessage *Msg,CdoEventStatus *EventStatus);
     END_INTERFACE
   } INNTPOnPostVtbl;
-  interface INNTPOnPost {
+  struct INNTPOnPost {
     CONST_VTBL struct INNTPOnPostVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1334,7 +1334,7 @@ extern "C" {
       HRESULT (WINAPI *OnPostFinal)(INNTPOnPostFinal *This,IMessage *Msg,CdoEventStatus *EventStatus);
     END_INTERFACE
   } INNTPOnPostFinalVtbl;
-  interface INNTPOnPostFinal {
+  struct INNTPOnPostFinal {
     CONST_VTBL struct INNTPOnPostFinalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1369,7 +1369,7 @@ extern "C" {
       HRESULT (WINAPI *get_Object)(IProxyObject *This,IUnknown **ppParent);
     END_INTERFACE
   } IProxyObjectVtbl;
-  interface IProxyObject {
+  struct IProxyObject {
     CONST_VTBL struct IProxyObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1402,7 +1402,7 @@ extern "C" {
       HRESULT (WINAPI *GetInterfaceInner)(IGetInterface *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IGetInterfaceVtbl;
-  interface IGetInterface {
+  struct IGetInterface {
     CONST_VTBL struct IGetInterfaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

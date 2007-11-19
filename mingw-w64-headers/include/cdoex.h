@@ -30,192 +30,192 @@ namespace CDO {
 
 #ifndef __IDataSource_FWD_DEFINED__
 #define __IDataSource_FWD_DEFINED__
-typedef interface IDataSource IDataSource;
+typedef struct IDataSource IDataSource;
 #endif
 
 #ifndef __IMessage_FWD_DEFINED__
 #define __IMessage_FWD_DEFINED__
-typedef interface IMessage IMessage;
+typedef struct IMessage IMessage;
 #endif
 
 #ifndef __IBodyPart_FWD_DEFINED__
 #define __IBodyPart_FWD_DEFINED__
-typedef interface IBodyPart IBodyPart;
+typedef struct IBodyPart IBodyPart;
 #endif
 
 #ifndef __IConfiguration_FWD_DEFINED__
 #define __IConfiguration_FWD_DEFINED__
-typedef interface IConfiguration IConfiguration;
+typedef struct IConfiguration IConfiguration;
 #endif
 
 #ifndef __IMessages_FWD_DEFINED__
 #define __IMessages_FWD_DEFINED__
-typedef interface IMessages IMessages;
+typedef struct IMessages IMessages;
 #endif
 
 #ifndef __IDropDirectory_FWD_DEFINED__
 #define __IDropDirectory_FWD_DEFINED__
-typedef interface IDropDirectory IDropDirectory;
+typedef struct IDropDirectory IDropDirectory;
 #endif
 
 #ifndef __IBodyParts_FWD_DEFINED__
 #define __IBodyParts_FWD_DEFINED__
-typedef interface IBodyParts IBodyParts;
+typedef struct IBodyParts IBodyParts;
 #endif
 
 #ifndef __ISMTPScriptConnector_FWD_DEFINED__
 #define __ISMTPScriptConnector_FWD_DEFINED__
-typedef interface ISMTPScriptConnector ISMTPScriptConnector;
+typedef struct ISMTPScriptConnector ISMTPScriptConnector;
 #endif
 
 #ifndef __INNTPEarlyScriptConnector_FWD_DEFINED__
 #define __INNTPEarlyScriptConnector_FWD_DEFINED__
-typedef interface INNTPEarlyScriptConnector INNTPEarlyScriptConnector;
+typedef struct INNTPEarlyScriptConnector INNTPEarlyScriptConnector;
 #endif
 
 #ifndef __INNTPPostScriptConnector_FWD_DEFINED__
 #define __INNTPPostScriptConnector_FWD_DEFINED__
-typedef interface INNTPPostScriptConnector INNTPPostScriptConnector;
+typedef struct INNTPPostScriptConnector INNTPPostScriptConnector;
 #endif
 
 #ifndef __INNTPFinalScriptConnector_FWD_DEFINED__
 #define __INNTPFinalScriptConnector_FWD_DEFINED__
-typedef interface INNTPFinalScriptConnector INNTPFinalScriptConnector;
+typedef struct INNTPFinalScriptConnector INNTPFinalScriptConnector;
 #endif
 
 #ifndef __ISMTPOnArrival_FWD_DEFINED__
 #define __ISMTPOnArrival_FWD_DEFINED__
-typedef interface ISMTPOnArrival ISMTPOnArrival;
+typedef struct ISMTPOnArrival ISMTPOnArrival;
 #endif
 
 #ifndef __INNTPOnPostEarly_FWD_DEFINED__
 #define __INNTPOnPostEarly_FWD_DEFINED__
-typedef interface INNTPOnPostEarly INNTPOnPostEarly;
+typedef struct INNTPOnPostEarly INNTPOnPostEarly;
 #endif
 
 #ifndef __INNTPOnPost_FWD_DEFINED__
 #define __INNTPOnPost_FWD_DEFINED__
-typedef interface INNTPOnPost INNTPOnPost;
+typedef struct INNTPOnPost INNTPOnPost;
 #endif
 
 #ifndef __INNTPOnPostFinal_FWD_DEFINED__
 #define __INNTPOnPostFinal_FWD_DEFINED__
-typedef interface INNTPOnPostFinal INNTPOnPostFinal;
+typedef struct INNTPOnPostFinal INNTPOnPostFinal;
 #endif
 
 #ifndef __IProxyObject_FWD_DEFINED__
 #define __IProxyObject_FWD_DEFINED__
-typedef interface IProxyObject IProxyObject;
+typedef struct IProxyObject IProxyObject;
 #endif
 
 #ifndef __IItem_FWD_DEFINED__
 #define __IItem_FWD_DEFINED__
-typedef interface IItem IItem;
+typedef struct IItem IItem;
 #endif
 
 #ifndef __IAppointment_FWD_DEFINED__
 #define __IAppointment_FWD_DEFINED__
-typedef interface IAppointment IAppointment;
+typedef struct IAppointment IAppointment;
 #endif
 
 #ifndef __ICalendarMessage_FWD_DEFINED__
 #define __ICalendarMessage_FWD_DEFINED__
-typedef interface ICalendarMessage ICalendarMessage;
+typedef struct ICalendarMessage ICalendarMessage;
 #endif
 
 #ifndef __IIntegers_FWD_DEFINED__
 #define __IIntegers_FWD_DEFINED__
-typedef interface IIntegers IIntegers;
+typedef struct IIntegers IIntegers;
 #endif
 
 #ifndef __IVariants_FWD_DEFINED__
 #define __IVariants_FWD_DEFINED__
-typedef interface IVariants IVariants;
+typedef struct IVariants IVariants;
 #endif
 
 #ifndef __IRecurrencePattern_FWD_DEFINED__
 #define __IRecurrencePattern_FWD_DEFINED__
-typedef interface IRecurrencePattern IRecurrencePattern;
+typedef struct IRecurrencePattern IRecurrencePattern;
 #endif
 
 #ifndef __IException_FWD_DEFINED__
 #define __IException_FWD_DEFINED__
-typedef interface IException IException;
+typedef struct IException IException;
 #endif
 
 #ifndef __IRecurrencePatterns_FWD_DEFINED__
 #define __IRecurrencePatterns_FWD_DEFINED__
-typedef interface IRecurrencePatterns IRecurrencePatterns;
+typedef struct IRecurrencePatterns IRecurrencePatterns;
 #endif
 
 #ifndef __IExceptions_FWD_DEFINED__
 #define __IExceptions_FWD_DEFINED__
-typedef interface IExceptions IExceptions;
+typedef struct IExceptions IExceptions;
 #endif
 
 #ifndef __ICalendarPart_FWD_DEFINED__
 #define __ICalendarPart_FWD_DEFINED__
-typedef interface ICalendarPart ICalendarPart;
+typedef struct ICalendarPart ICalendarPart;
 #endif
 
 #ifndef __ICalendarParts_FWD_DEFINED__
 #define __ICalendarParts_FWD_DEFINED__
-typedef interface ICalendarParts ICalendarParts;
+typedef struct ICalendarParts ICalendarParts;
 #endif
 
 #ifndef __IAttendee_FWD_DEFINED__
 #define __IAttendee_FWD_DEFINED__
-typedef interface IAttendee IAttendee;
+typedef struct IAttendee IAttendee;
 #endif
 
 #ifndef __IAttendees_FWD_DEFINED__
 #define __IAttendees_FWD_DEFINED__
-typedef interface IAttendees IAttendees;
+typedef struct IAttendees IAttendees;
 #endif
 
 #ifndef __IMailbox_FWD_DEFINED__
 #define __IMailbox_FWD_DEFINED__
-typedef interface IMailbox IMailbox;
+typedef struct IMailbox IMailbox;
 #endif
 
 #ifndef __IFolder_FWD_DEFINED__
 #define __IFolder_FWD_DEFINED__
-typedef interface IFolder IFolder;
+typedef struct IFolder IFolder;
 #endif
 
 #ifndef __IContactGroupMembers_FWD_DEFINED__
 #define __IContactGroupMembers_FWD_DEFINED__
-typedef interface IContactGroupMembers IContactGroupMembers;
+typedef struct IContactGroupMembers IContactGroupMembers;
 #endif
 
 #ifndef __IPerson_FWD_DEFINED__
 #define __IPerson_FWD_DEFINED__
-typedef interface IPerson IPerson;
+typedef struct IPerson IPerson;
 #endif
 
 #ifndef __IAddressee_FWD_DEFINED__
 #define __IAddressee_FWD_DEFINED__
-typedef interface IAddressee IAddressee;
+typedef struct IAddressee IAddressee;
 #endif
 
 #ifndef __IAddressees_FWD_DEFINED__
 #define __IAddressees_FWD_DEFINED__
-typedef interface IAddressees IAddressees;
+typedef struct IAddressees IAddressees;
 #endif
 
 #ifndef __IGetInterface_FWD_DEFINED__
 #define __IGetInterface_FWD_DEFINED__
-typedef interface IGetInterface IGetInterface;
+typedef struct IGetInterface IGetInterface;
 #endif
 
 #ifndef __IBodyParts_FWD_DEFINED__
 #define __IBodyParts_FWD_DEFINED__
-typedef interface IBodyParts IBodyParts;
+typedef struct IBodyParts IBodyParts;
 #endif
 
 #ifndef __IMessages_FWD_DEFINED__
 #define __IMessages_FWD_DEFINED__
-typedef interface IMessages IMessages;
+typedef struct IMessages IMessages;
 #endif
 
 #ifndef __Message_FWD_DEFINED__
@@ -348,21 +348,21 @@ typedef struct Addressee Addressee;
 #include "oaidl.h"
 #include "ocidl.h"
 #ifndef __cplusplus
-typedef interface ADOError ADOError;
-typedef interface ADOErrors ADOErrors;
-typedef interface _ADOCommand _ADOCommand;
-typedef interface _ADOConnection _ADOConnection;
-typedef interface _ADORecord _ADORecord;
-typedef interface IRecADOFields IRecADOFields;
-typedef interface _ADOStream _ADOStream;
-typedef interface _ADORecordset _ADORecordset;
-typedef interface ADOField ADOField;
-typedef interface _ADOField _ADOField;
-typedef interface ADOFields ADOFields;
-typedef interface _ADOParameter _ADOParameter;
-typedef interface ADOParameters ADOParameters;
-typedef interface ADOProperty ADOProperty;
-typedef interface ADOProperties ADOProperties;
+typedef struct ADOError ADOError;
+typedef struct ADOErrors ADOErrors;
+typedef struct _ADOCommand _ADOCommand;
+typedef struct _ADOConnection _ADOConnection;
+typedef struct _ADORecord _ADORecord;
+typedef struct IRecADOFields IRecADOFields;
+typedef struct _ADOStream _ADOStream;
+typedef struct _ADORecordset _ADORecordset;
+typedef struct ADOField ADOField;
+typedef struct _ADOField _ADOField;
+typedef struct ADOFields ADOFields;
+typedef struct _ADOParameter _ADOParameter;
+typedef struct ADOParameters ADOParameters;
+typedef struct ADOProperty ADOProperty;
+typedef struct ADOProperties ADOProperties;
 #endif
 #include "adoint.h"
 
@@ -538,7 +538,7 @@ extern "C"{
       HRESULT (WINAPI *SaveToContainer)(IDataSource *This,BSTR ContainerURL,IDispatch *ActiveConnection,ConnectModeEnum Mode,RecordCreateOptionsEnum CreateOptions,RecordOpenOptionsEnum Options,BSTR UserName,BSTR Password);
     END_INTERFACE
   } IDataSourceVtbl;
-  interface IDataSource {
+  struct IDataSource {
     CONST_VTBL struct IDataSourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -722,7 +722,7 @@ extern "C"{
       HRESULT (WINAPI *GetInterface)(IMessage *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IMessageVtbl;
-  interface IMessage {
+  struct IMessage {
     CONST_VTBL struct IMessageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -971,7 +971,7 @@ extern "C"{
       HRESULT (WINAPI *GetInterface)(IBodyPart *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IBodyPartVtbl;
-  interface IBodyPart {
+  struct IBodyPart {
     CONST_VTBL struct IBodyPartVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1077,7 +1077,7 @@ extern "C"{
       HRESULT (WINAPI *GetInterface)(IConfiguration *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IConfigurationVtbl;
-  interface IConfiguration {
+  struct IConfiguration {
     CONST_VTBL struct IConfigurationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1132,7 +1132,7 @@ extern "C"{
       HRESULT (WINAPI *get_Filename)(IMessages *This,VARIANT var,BSTR *Filename);
     END_INTERFACE
   } IMessagesVtbl;
-  interface IMessages {
+  struct IMessages {
     CONST_VTBL struct IMessagesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1186,7 +1186,7 @@ extern "C"{
       HRESULT (WINAPI *GetMessages)(IDropDirectory *This,BSTR DirName,IMessages **Msgs);
     END_INTERFACE
   } IDropDirectoryVtbl;
-  interface IDropDirectory {
+  struct IDropDirectory {
     CONST_VTBL struct IDropDirectoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1235,7 +1235,7 @@ extern "C"{
       HRESULT (WINAPI *Add)(IBodyParts *This,long Index,IBodyPart **ppPart);
     END_INTERFACE
   } IBodyPartsVtbl;
-  interface IBodyParts {
+  struct IBodyParts {
     CONST_VTBL struct IBodyPartsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1287,7 +1287,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(ISMTPScriptConnector *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } ISMTPScriptConnectorVtbl;
-  interface ISMTPScriptConnector {
+  struct ISMTPScriptConnector {
     CONST_VTBL struct ISMTPScriptConnectorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1321,7 +1321,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(INNTPEarlyScriptConnector *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } INNTPEarlyScriptConnectorVtbl;
-  interface INNTPEarlyScriptConnector {
+  struct INNTPEarlyScriptConnector {
     CONST_VTBL struct INNTPEarlyScriptConnectorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1354,7 +1354,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(INNTPPostScriptConnector *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } INNTPPostScriptConnectorVtbl;
-  interface INNTPPostScriptConnector {
+  struct INNTPPostScriptConnector {
     CONST_VTBL struct INNTPPostScriptConnectorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1387,7 +1387,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(INNTPFinalScriptConnector *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } INNTPFinalScriptConnectorVtbl;
-  interface INNTPFinalScriptConnector {
+  struct INNTPFinalScriptConnector {
     CONST_VTBL struct INNTPFinalScriptConnectorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1423,7 +1423,7 @@ extern "C"{
       HRESULT (WINAPI *OnArrival)(ISMTPOnArrival *This,IMessage *Msg,CdoEventStatus *EventStatus);
     END_INTERFACE
   } ISMTPOnArrivalVtbl;
-  interface ISMTPOnArrival {
+  struct ISMTPOnArrival {
     CONST_VTBL struct ISMTPOnArrivalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1462,7 +1462,7 @@ extern "C"{
       HRESULT (WINAPI *OnPostEarly)(INNTPOnPostEarly *This,IMessage *Msg,CdoEventStatus *EventStatus);
     END_INTERFACE
   } INNTPOnPostEarlyVtbl;
-  interface INNTPOnPostEarly {
+  struct INNTPOnPostEarly {
     CONST_VTBL struct INNTPOnPostEarlyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1501,7 +1501,7 @@ extern "C"{
       HRESULT (WINAPI *OnPost)(INNTPOnPost *This,IMessage *Msg,CdoEventStatus *EventStatus);
     END_INTERFACE
   } INNTPOnPostVtbl;
-  interface INNTPOnPost {
+  struct INNTPOnPost {
     CONST_VTBL struct INNTPOnPostVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1541,7 +1541,7 @@ extern "C"{
       HRESULT (WINAPI *OnPostFinal)(INNTPOnPostFinal *This,IMessage *Msg,CdoEventStatus *EventStatus);
     END_INTERFACE
   } INNTPOnPostFinalVtbl;
-  interface INNTPOnPostFinal {
+  struct INNTPOnPostFinal {
     CONST_VTBL struct INNTPOnPostFinalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1576,7 +1576,7 @@ extern "C"{
       HRESULT (WINAPI *get_Object)(IProxyObject *This,IUnknown **ppParent);
     END_INTERFACE
   } IProxyObjectVtbl;
-  interface IProxyObject {
+  struct IProxyObject {
     CONST_VTBL struct IProxyObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1652,7 +1652,7 @@ extern "C"{
       HRESULT (WINAPI *get_VisibleCount)(IItem *This,long *varVisibleCount);
     END_INTERFACE
   } IItemVtbl;
-  interface IItem {
+  struct IItem {
     CONST_VTBL struct IItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1874,7 +1874,7 @@ extern "C"{
       HRESULT (WINAPI *GetRecurringMaster)(IAppointment *This,BSTR CalendarLocation,BSTR UserName,BSTR Password,IAppointment **Appointment);
     END_INTERFACE
   } IAppointmentVtbl;
-  interface IAppointment {
+  struct IAppointment {
     CONST_VTBL struct IAppointmentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2114,7 +2114,7 @@ extern "C"{
       HRESULT (WINAPI *putref_Configuration)(ICalendarMessage *This,IConfiguration *varConfiguration);
     END_INTERFACE
   } ICalendarMessageVtbl;
-  interface ICalendarMessage {
+  struct ICalendarMessage {
     CONST_VTBL struct ICalendarMessageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2179,7 +2179,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IIntegers *This,IUnknown **Unknown);
     END_INTERFACE
   } IIntegersVtbl;
-  interface IIntegers {
+  struct IIntegers {
     CONST_VTBL struct IIntegersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2238,7 +2238,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IVariants *This,IUnknown **Unknown);
     END_INTERFACE
   } IVariantsVtbl;
-  interface IVariants {
+  struct IVariants {
     CONST_VTBL struct IVariantsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2333,7 +2333,7 @@ extern "C"{
       HRESULT (WINAPI *get_ByPosition)(IRecurrencePattern *This,IIntegers **varByPosition);
     END_INTERFACE
   } IRecurrencePatternVtbl;
-  interface IRecurrencePattern {
+  struct IRecurrencePattern {
     CONST_VTBL struct IRecurrencePatternVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2456,7 +2456,7 @@ extern "C"{
       HRESULT (WINAPI *get_Fields)(IException *This,Fields **varFields);
     END_INTERFACE
   } IExceptionVtbl;
-  interface IException {
+  struct IException {
     CONST_VTBL struct IExceptionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2530,7 +2530,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IRecurrencePatterns *This,IUnknown **Unknown);
     END_INTERFACE
   } IRecurrencePatternsVtbl;
-  interface IRecurrencePatterns {
+  struct IRecurrencePatterns {
     CONST_VTBL struct IRecurrencePatternsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2589,7 +2589,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IExceptions *This,IUnknown **Unknown);
     END_INTERFACE
   } IExceptionsVtbl;
-  interface IExceptions {
+  struct IExceptions {
     CONST_VTBL struct IExceptionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2652,7 +2652,7 @@ extern "C"{
       HRESULT (WINAPI *GetUpdatedItem)(ICalendarPart *This,BSTR CalendarLocation,BSTR UserName,BSTR Password,IDispatch **Item);
     END_INTERFACE
   } ICalendarPartVtbl;
-  interface ICalendarPart {
+  struct ICalendarPart {
     CONST_VTBL struct ICalendarPartVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2718,7 +2718,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(ICalendarParts *This,IUnknown **Unknown);
     END_INTERFACE
   } ICalendarPartsVtbl;
-  interface ICalendarParts {
+  struct ICalendarParts {
     CONST_VTBL struct ICalendarPartsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2752,7 +2752,7 @@ extern "C"{
 #define __IAttendee_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IAttendee;
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct 
+  struct
 IAttendee : public IDispatch {
   public:
     virtual HRESULT WINAPI get_DisplayName(BSTR *pDisplayName) = 0;
@@ -2792,7 +2792,7 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *put_Status)(IAttendee *This,CdoAttendeeStatusValues varStatus);
     END_INTERFACE
   } IAttendeeVtbl;
-  interface IAttendee {
+  struct IAttendee {
     CONST_VTBL struct IAttendeeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2872,7 +2872,7 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *get__NewEnum)(IAttendees *This,IUnknown **Unknown);
     END_INTERFACE
   } IAttendeesVtbl;
-  interface IAttendees {
+  struct IAttendees {
     CONST_VTBL struct IAttendeesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2945,7 +2945,7 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *get_Journal)(IMailbox *This,BSTR *varJournal);
     END_INTERFACE
   } IMailboxVtbl;
-  interface IMailbox {
+  struct IMailbox {
     CONST_VTBL struct IMailboxVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3047,7 +3047,7 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *GetInterface)(IFolder *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IFolderVtbl;
-  interface IFolder {
+  struct IFolder {
     CONST_VTBL struct IFolderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3139,7 +3139,7 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *get__NewEnum)(IContactGroupMembers *This,IUnknown **Unknown);
     END_INTERFACE
   } IContactGroupMembersVtbl;
-  interface IContactGroupMembers {
+  struct IContactGroupMembers {
     CONST_VTBL struct IContactGroupMembersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3340,7 +3340,7 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *put_Title)(IPerson *This,BSTR varTitle);
     END_INTERFACE
   } IPersonVtbl;
-  interface IPerson {
+  struct IPerson {
     CONST_VTBL struct IPersonVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3636,7 +3636,7 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *CheckName)(IAddressee *This,BSTR Directory,BSTR UserName,BSTR Password,VARIANT_BOOL *pBRet);
     END_INTERFACE
   } IAddresseeVtbl;
-  interface IAddressee {
+  struct IAddressee {
     CONST_VTBL struct IAddresseeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3727,7 +3727,7 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *get__NewEnum)(IAddressees *This,IUnknown **Unknown);
     END_INTERFACE
   } IAddresseesVtbl;
-  interface IAddressees {
+  struct IAddressees {
     CONST_VTBL struct IAddresseesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3770,7 +3770,7 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *GetInterfaceInner)(IGetInterface *This,BSTR Interface,IDispatch **ppUnknown);
     END_INTERFACE
   } IGetInterfaceVtbl;
-  interface IGetInterface {
+  struct IGetInterface {
     CONST_VTBL struct IGetInterfaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

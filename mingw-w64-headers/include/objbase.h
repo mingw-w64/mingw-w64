@@ -16,7 +16,6 @@
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
 #define __STRUCT__ struct
-#define interface __STRUCT__
 #define STDMETHOD(method) virtual HRESULT WINAPI method
 #define STDMETHOD_(type,method) virtual type WINAPI method
 #define STDMETHODV(method) virtual HRESULT STDMETHODVCALLTYPE method
@@ -24,8 +23,8 @@
 #define PURE = 0
 #define THIS_
 #define THIS void
-#define DECLARE_INTERFACE(iface) interface iface
-#define DECLARE_INTERFACE_(iface,baseiface) interface iface : public baseiface
+#define DECLARE_INTERFACE(iface) __STRUCT__ iface
+#define DECLARE_INTERFACE_(iface,baseiface) __STRUCT__ iface : public baseiface
 
 #if !defined(BEGIN_INTERFACE)
 #define BEGIN_INTERFACE
@@ -33,7 +32,9 @@
 #endif
 #else
 
+#ifndef __OBJC__
 #define interface struct
+#endif
 
 #define STDMETHOD(method) HRESULT (WINAPI *method)
 #define STDMETHOD_(type,method) type (WINAPI *method)
@@ -51,11 +52,11 @@
 #ifdef CONST_VTABLE
 #undef CONST_VTBL
 #define CONST_VTBL const
-#define DECLARE_INTERFACE(iface) typedef interface iface { const struct iface##Vtbl *lpVtbl; } iface; typedef const struct iface##Vtbl iface##Vtbl; const struct iface##Vtbl
+#define DECLARE_INTERFACE(iface) typedef struct iface { const struct iface##Vtbl *lpVtbl; } iface; typedef const struct iface##Vtbl iface##Vtbl; const struct iface##Vtbl
 #else
 #undef CONST_VTBL
 #define CONST_VTBL
-#define DECLARE_INTERFACE(iface) typedef interface iface { struct iface##Vtbl *lpVtbl; } iface; typedef struct iface##Vtbl iface##Vtbl; struct iface##Vtbl
+#define DECLARE_INTERFACE(iface) typedef struct iface { struct iface##Vtbl *lpVtbl; } iface; typedef struct iface##Vtbl iface##Vtbl; struct iface##Vtbl
 #endif
 #define DECLARE_INTERFACE_(iface,baseiface) DECLARE_INTERFACE(iface)
 #endif
@@ -126,11 +127,11 @@ typedef enum tagREGCLS {
 
 #ifndef __IRpcStubBuffer_FWD_DEFINED__
 #define __IRpcStubBuffer_FWD_DEFINED__
-typedef interface IRpcStubBuffer IRpcStubBuffer;
+typedef struct IRpcStubBuffer IRpcStubBuffer;
 #endif
 #ifndef __IRpcChannelBuffer_FWD_DEFINED__
 #define __IRpcChannelBuffer_FWD_DEFINED__
-typedef interface IRpcChannelBuffer IRpcChannelBuffer;
+typedef struct IRpcChannelBuffer IRpcChannelBuffer;
 #endif
 
 #include <wtypes.h>

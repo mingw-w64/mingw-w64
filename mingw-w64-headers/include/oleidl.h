@@ -24,112 +24,112 @@
 
 #ifndef __IOleAdviseHolder_FWD_DEFINED__
 #define __IOleAdviseHolder_FWD_DEFINED__
-typedef interface IOleAdviseHolder IOleAdviseHolder;
+typedef struct IOleAdviseHolder IOleAdviseHolder;
 #endif
 
 #ifndef __IOleCache_FWD_DEFINED__
 #define __IOleCache_FWD_DEFINED__
-typedef interface IOleCache IOleCache;
+typedef struct IOleCache IOleCache;
 #endif
 
 #ifndef __IOleCache2_FWD_DEFINED__
 #define __IOleCache2_FWD_DEFINED__
-typedef interface IOleCache2 IOleCache2;
+typedef struct IOleCache2 IOleCache2;
 #endif
 
 #ifndef __IOleCacheControl_FWD_DEFINED__
 #define __IOleCacheControl_FWD_DEFINED__
-typedef interface IOleCacheControl IOleCacheControl;
+typedef struct IOleCacheControl IOleCacheControl;
 #endif
 
 #ifndef __IParseDisplayName_FWD_DEFINED__
 #define __IParseDisplayName_FWD_DEFINED__
-typedef interface IParseDisplayName IParseDisplayName;
+typedef struct IParseDisplayName IParseDisplayName;
 #endif
 
 #ifndef __IOleContainer_FWD_DEFINED__
 #define __IOleContainer_FWD_DEFINED__
-typedef interface IOleContainer IOleContainer;
+typedef struct IOleContainer IOleContainer;
 #endif
 
 #ifndef __IOleClientSite_FWD_DEFINED__
 #define __IOleClientSite_FWD_DEFINED__
-typedef interface IOleClientSite IOleClientSite;
+typedef struct IOleClientSite IOleClientSite;
 #endif
 
 #ifndef __IOleObject_FWD_DEFINED__
 #define __IOleObject_FWD_DEFINED__
-typedef interface IOleObject IOleObject;
+typedef struct IOleObject IOleObject;
 #endif
 
 #ifndef __IOleWindow_FWD_DEFINED__
 #define __IOleWindow_FWD_DEFINED__
-typedef interface IOleWindow IOleWindow;
+typedef struct IOleWindow IOleWindow;
 #endif
 
 #ifndef __IOleLink_FWD_DEFINED__
 #define __IOleLink_FWD_DEFINED__
-typedef interface IOleLink IOleLink;
+typedef struct IOleLink IOleLink;
 #endif
 
 #ifndef __IOleItemContainer_FWD_DEFINED__
 #define __IOleItemContainer_FWD_DEFINED__
-typedef interface IOleItemContainer IOleItemContainer;
+typedef struct IOleItemContainer IOleItemContainer;
 #endif
 
 #ifndef __IOleInPlaceUIWindow_FWD_DEFINED__
 #define __IOleInPlaceUIWindow_FWD_DEFINED__
-typedef interface IOleInPlaceUIWindow IOleInPlaceUIWindow;
+typedef struct IOleInPlaceUIWindow IOleInPlaceUIWindow;
 #endif
 
 #ifndef __IOleInPlaceActiveObject_FWD_DEFINED__
 #define __IOleInPlaceActiveObject_FWD_DEFINED__
-typedef interface IOleInPlaceActiveObject IOleInPlaceActiveObject;
+typedef struct IOleInPlaceActiveObject IOleInPlaceActiveObject;
 #endif
 
 #ifndef __IOleInPlaceFrame_FWD_DEFINED__
 #define __IOleInPlaceFrame_FWD_DEFINED__
-typedef interface IOleInPlaceFrame IOleInPlaceFrame;
+typedef struct IOleInPlaceFrame IOleInPlaceFrame;
 #endif
 
 #ifndef __IOleInPlaceObject_FWD_DEFINED__
 #define __IOleInPlaceObject_FWD_DEFINED__
-typedef interface IOleInPlaceObject IOleInPlaceObject;
+typedef struct IOleInPlaceObject IOleInPlaceObject;
 #endif
 
 #ifndef __IOleInPlaceSite_FWD_DEFINED__
 #define __IOleInPlaceSite_FWD_DEFINED__
-typedef interface IOleInPlaceSite IOleInPlaceSite;
+typedef struct IOleInPlaceSite IOleInPlaceSite;
 #endif
 
 #ifndef __IContinue_FWD_DEFINED__
 #define __IContinue_FWD_DEFINED__
-typedef interface IContinue IContinue;
+typedef struct IContinue IContinue;
 #endif
 
 #ifndef __IViewObject_FWD_DEFINED__
 #define __IViewObject_FWD_DEFINED__
-typedef interface IViewObject IViewObject;
+typedef struct IViewObject IViewObject;
 #endif
 
 #ifndef __IViewObject2_FWD_DEFINED__
 #define __IViewObject2_FWD_DEFINED__
-typedef interface IViewObject2 IViewObject2;
+typedef struct IViewObject2 IViewObject2;
 #endif
 
 #ifndef __IDropSource_FWD_DEFINED__
 #define __IDropSource_FWD_DEFINED__
-typedef interface IDropSource IDropSource;
+typedef struct IDropSource IDropSource;
 #endif
 
 #ifndef __IDropTarget_FWD_DEFINED__
 #define __IDropTarget_FWD_DEFINED__
-typedef interface IDropTarget IDropTarget;
+typedef struct IDropTarget IDropTarget;
 #endif
 
 #ifndef __IEnumOLEVERB_FWD_DEFINED__
 #define __IEnumOLEVERB_FWD_DEFINED__
-typedef interface IEnumOLEVERB IEnumOLEVERB;
+typedef struct IEnumOLEVERB IEnumOLEVERB;
 #endif
 
 #include "objidl.h"
@@ -173,7 +173,7 @@ extern "C" {
       HRESULT (WINAPI *SendOnClose)(IOleAdviseHolder *This);
     END_INTERFACE
   } IOleAdviseHolderVtbl;
-  interface IOleAdviseHolder {
+  struct IOleAdviseHolder {
     CONST_VTBL struct IOleAdviseHolderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -229,7 +229,7 @@ extern "C" {
       HRESULT (WINAPI *SetData)(IOleCache *This,FORMATETC *pformatetc,STGMEDIUM *pmedium,WINBOOL fRelease);
     END_INTERFACE
   } IOleCacheVtbl;
-  interface IOleCache {
+  struct IOleCache {
     CONST_VTBL struct IOleCacheVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -295,7 +295,7 @@ extern "C" {
       HRESULT (WINAPI *DiscardCache)(IOleCache2 *This,DWORD dwDiscardOptions);
     END_INTERFACE
   } IOleCache2Vtbl;
-  interface IOleCache2 {
+  struct IOleCache2 {
     CONST_VTBL struct IOleCache2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -338,7 +338,7 @@ extern "C" {
       HRESULT (WINAPI *OnStop)(IOleCacheControl *This);
     END_INTERFACE
   } IOleCacheControlVtbl;
-  interface IOleCacheControl {
+  struct IOleCacheControl {
     CONST_VTBL struct IOleCacheControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -374,7 +374,7 @@ extern "C" {
       HRESULT (WINAPI *ParseDisplayName)(IParseDisplayName *This,IBindCtx *pbc,LPOLESTR pszDisplayName,ULONG *pchEaten,IMoniker **ppmkOut);
     END_INTERFACE
   } IParseDisplayNameVtbl;
-  interface IParseDisplayName {
+  struct IParseDisplayName {
     CONST_VTBL struct IParseDisplayNameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -410,7 +410,7 @@ extern "C" {
       HRESULT (WINAPI *LockContainer)(IOleContainer *This,WINBOOL fLock);
     END_INTERFACE
   } IOleContainerVtbl;
-  interface IOleContainer {
+  struct IOleContainer {
     CONST_VTBL struct IOleContainerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -457,7 +457,7 @@ extern "C" {
       HRESULT (WINAPI *RequestNewObjectLayout)(IOleClientSite *This);
     END_INTERFACE
   } IOleClientSiteVtbl;
-  interface IOleClientSite {
+  struct IOleClientSite {
     CONST_VTBL struct IOleClientSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -568,7 +568,7 @@ extern "C" {
       HRESULT (WINAPI *SetColorScheme)(IOleObject *This,LOGPALETTE *pLogpal);
     END_INTERFACE
   } IOleObjectVtbl;
-  interface IOleObject {
+  struct IOleObject {
     CONST_VTBL struct IOleObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -692,7 +692,7 @@ extern "C" {
       HRESULT (WINAPI *ContextSensitiveHelp)(IOleWindow *This,WINBOOL fEnterMode);
     END_INTERFACE
   } IOleWindowVtbl;
-  interface IOleWindow {
+  struct IOleWindow {
     CONST_VTBL struct IOleWindowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -759,7 +759,7 @@ extern "C" {
       HRESULT (WINAPI *Update)(IOleLink *This,IBindCtx *pbc);
     END_INTERFACE
   } IOleLinkVtbl;
-  interface IOleLink {
+  struct IOleLink {
     CONST_VTBL struct IOleLinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -837,7 +837,7 @@ extern "C" {
       HRESULT (WINAPI *IsRunning)(IOleItemContainer *This,LPOLESTR pszItem);
     END_INTERFACE
   } IOleItemContainerVtbl;
-  interface IOleItemContainer {
+  struct IOleItemContainer {
     CONST_VTBL struct IOleItemContainerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -891,7 +891,7 @@ extern "C" {
       HRESULT (WINAPI *SetActiveObject)(IOleInPlaceUIWindow *This,IOleInPlaceActiveObject *pActiveObject,LPCOLESTR pszObjName);
     END_INTERFACE
   } IOleInPlaceUIWindowVtbl;
-  interface IOleInPlaceUIWindow {
+  struct IOleInPlaceUIWindow {
     CONST_VTBL struct IOleInPlaceUIWindowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -945,7 +945,7 @@ extern "C" {
       HRESULT (WINAPI *EnableModeless)(IOleInPlaceActiveObject *This,WINBOOL fEnable);
     END_INTERFACE
   } IOleInPlaceActiveObjectVtbl;
-  interface IOleInPlaceActiveObject {
+  struct IOleInPlaceActiveObject {
     CONST_VTBL struct IOleInPlaceActiveObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1025,7 +1025,7 @@ extern "C" {
       HRESULT (WINAPI *TranslateAccelerator)(IOleInPlaceFrame *This,LPMSG lpmsg,WORD wID);
     END_INTERFACE
   } IOleInPlaceFrameVtbl;
-  interface IOleInPlaceFrame {
+  struct IOleInPlaceFrame {
     CONST_VTBL struct IOleInPlaceFrameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1087,7 +1087,7 @@ extern "C" {
       HRESULT (WINAPI *ReactivateAndUndo)(IOleInPlaceObject *This);
     END_INTERFACE
   } IOleInPlaceObjectVtbl;
-  interface IOleInPlaceObject {
+  struct IOleInPlaceObject {
     CONST_VTBL struct IOleInPlaceObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1151,7 +1151,7 @@ extern "C" {
       HRESULT (WINAPI *OnPosRectChange)(IOleInPlaceSite *This,LPCRECT lprcPosRect);
     END_INTERFACE
   } IOleInPlaceSiteVtbl;
-  interface IOleInPlaceSite {
+  struct IOleInPlaceSite {
     CONST_VTBL struct IOleInPlaceSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1211,7 +1211,7 @@ extern "C" {
       HRESULT (WINAPI *FContinue)(IContinue *This);
     END_INTERFACE
   } IContinueVtbl;
-  interface IContinue {
+  struct IContinue {
     CONST_VTBL struct IContinueVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1254,7 +1254,7 @@ extern "C" {
       HRESULT (WINAPI *GetAdvise)(IViewObject *This,DWORD *pAspects,DWORD *pAdvf,IAdviseSink **ppAdvSink);
     END_INTERFACE
   } IViewObjectVtbl;
-  interface IViewObject {
+  struct IViewObject {
     CONST_VTBL struct IViewObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1308,7 +1308,7 @@ extern "C" {
       HRESULT (WINAPI *GetExtent)(IViewObject2 *This,DWORD dwDrawAspect,LONG lindex,DVTARGETDEVICE *ptd,LPSIZEL lpsizel);
     END_INTERFACE
   } IViewObject2Vtbl;
-  interface IViewObject2 {
+  struct IViewObject2 {
     CONST_VTBL struct IViewObject2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1349,7 +1349,7 @@ extern "C" {
       HRESULT (WINAPI *GiveFeedback)(IDropSource *This,DWORD dwEffect);
     END_INTERFACE
   } IDropSourceVtbl;
-  interface IDropSource {
+  struct IDropSource {
     CONST_VTBL struct IDropSourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1404,7 +1404,7 @@ extern "C" {
       HRESULT (WINAPI *Drop)(IDropTarget *This,IDataObject *pDataObj,DWORD grfKeyState,POINTL pt,DWORD *pdwEffect);
     END_INTERFACE
   } IDropTargetVtbl;
-  interface IDropTarget {
+  struct IDropTarget {
     CONST_VTBL struct IDropTargetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1465,7 +1465,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumOLEVERB *This,IEnumOLEVERB **ppenum);
     END_INTERFACE
   } IEnumOLEVERBVtbl;
-  interface IEnumOLEVERB {
+  struct IEnumOLEVERB {
     CONST_VTBL struct IEnumOLEVERBVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -19,92 +19,92 @@
 
 #ifndef __IMSMQQuery_FWD_DEFINED__
 #define __IMSMQQuery_FWD_DEFINED__
-typedef interface IMSMQQuery IMSMQQuery;
+typedef struct IMSMQQuery IMSMQQuery;
 #endif
 
 #ifndef __IMSMQQueueInfo_FWD_DEFINED__
 #define __IMSMQQueueInfo_FWD_DEFINED__
-typedef interface IMSMQQueueInfo IMSMQQueueInfo;
+typedef struct IMSMQQueueInfo IMSMQQueueInfo;
 #endif
 
 #ifndef __IMSMQQueueInfo2_FWD_DEFINED__
 #define __IMSMQQueueInfo2_FWD_DEFINED__
-typedef interface IMSMQQueueInfo2 IMSMQQueueInfo2;
+typedef struct IMSMQQueueInfo2 IMSMQQueueInfo2;
 #endif
 
 #ifndef __IMSMQQueueInfo3_FWD_DEFINED__
 #define __IMSMQQueueInfo3_FWD_DEFINED__
-typedef interface IMSMQQueueInfo3 IMSMQQueueInfo3;
+typedef struct IMSMQQueueInfo3 IMSMQQueueInfo3;
 #endif
 
 #ifndef __IMSMQQueue_FWD_DEFINED__
 #define __IMSMQQueue_FWD_DEFINED__
-typedef interface IMSMQQueue IMSMQQueue;
+typedef struct IMSMQQueue IMSMQQueue;
 #endif
 
 #ifndef __IMSMQQueue2_FWD_DEFINED__
 #define __IMSMQQueue2_FWD_DEFINED__
-typedef interface IMSMQQueue2 IMSMQQueue2;
+typedef struct IMSMQQueue2 IMSMQQueue2;
 #endif
 
 #ifndef __IMSMQMessage_FWD_DEFINED__
 #define __IMSMQMessage_FWD_DEFINED__
-typedef interface IMSMQMessage IMSMQMessage;
+typedef struct IMSMQMessage IMSMQMessage;
 #endif
 
 #ifndef __IMSMQQueueInfos_FWD_DEFINED__
 #define __IMSMQQueueInfos_FWD_DEFINED__
-typedef interface IMSMQQueueInfos IMSMQQueueInfos;
+typedef struct IMSMQQueueInfos IMSMQQueueInfos;
 #endif
 
 #ifndef __IMSMQQueueInfos2_FWD_DEFINED__
 #define __IMSMQQueueInfos2_FWD_DEFINED__
-typedef interface IMSMQQueueInfos2 IMSMQQueueInfos2;
+typedef struct IMSMQQueueInfos2 IMSMQQueueInfos2;
 #endif
 
 #ifndef __IMSMQQueueInfos3_FWD_DEFINED__
 #define __IMSMQQueueInfos3_FWD_DEFINED__
-typedef interface IMSMQQueueInfos3 IMSMQQueueInfos3;
+typedef struct IMSMQQueueInfos3 IMSMQQueueInfos3;
 #endif
 
 #ifndef __IMSMQEvent_FWD_DEFINED__
 #define __IMSMQEvent_FWD_DEFINED__
-typedef interface IMSMQEvent IMSMQEvent;
+typedef struct IMSMQEvent IMSMQEvent;
 #endif
 
 #ifndef __IMSMQEvent2_FWD_DEFINED__
 #define __IMSMQEvent2_FWD_DEFINED__
-typedef interface IMSMQEvent2 IMSMQEvent2;
+typedef struct IMSMQEvent2 IMSMQEvent2;
 #endif
 
 #ifndef __IMSMQEvent3_FWD_DEFINED__
 #define __IMSMQEvent3_FWD_DEFINED__
-typedef interface IMSMQEvent3 IMSMQEvent3;
+typedef struct IMSMQEvent3 IMSMQEvent3;
 #endif
 
 #ifndef __IMSMQTransaction_FWD_DEFINED__
 #define __IMSMQTransaction_FWD_DEFINED__
-typedef interface IMSMQTransaction IMSMQTransaction;
+typedef struct IMSMQTransaction IMSMQTransaction;
 #endif
 
 #ifndef __IMSMQCoordinatedTransactionDispenser_FWD_DEFINED__
 #define __IMSMQCoordinatedTransactionDispenser_FWD_DEFINED__
-typedef interface IMSMQCoordinatedTransactionDispenser IMSMQCoordinatedTransactionDispenser;
+typedef struct IMSMQCoordinatedTransactionDispenser IMSMQCoordinatedTransactionDispenser;
 #endif
 
 #ifndef __IMSMQTransactionDispenser_FWD_DEFINED__
 #define __IMSMQTransactionDispenser_FWD_DEFINED__
-typedef interface IMSMQTransactionDispenser IMSMQTransactionDispenser;
+typedef struct IMSMQTransactionDispenser IMSMQTransactionDispenser;
 #endif
 
 #ifndef __IMSMQQuery2_FWD_DEFINED__
 #define __IMSMQQuery2_FWD_DEFINED__
-typedef interface IMSMQQuery2 IMSMQQuery2;
+typedef struct IMSMQQuery2 IMSMQQuery2;
 #endif
 
 #ifndef __IMSMQQuery3_FWD_DEFINED__
 #define __IMSMQQuery3_FWD_DEFINED__
-typedef interface IMSMQQuery3 IMSMQQuery3;
+typedef struct IMSMQQuery3 IMSMQQuery3;
 #endif
 
 #ifndef __MSMQQuery_FWD_DEFINED__
@@ -118,12 +118,12 @@ typedef struct MSMQQuery MSMQQuery;
 
 #ifndef __IMSMQMessage2_FWD_DEFINED__
 #define __IMSMQMessage2_FWD_DEFINED__
-typedef interface IMSMQMessage2 IMSMQMessage2;
+typedef struct IMSMQMessage2 IMSMQMessage2;
 #endif
 
 #ifndef __IMSMQMessage3_FWD_DEFINED__
 #define __IMSMQMessage3_FWD_DEFINED__
-typedef interface IMSMQMessage3 IMSMQMessage3;
+typedef struct IMSMQMessage3 IMSMQMessage3;
 #endif
 
 #ifndef __MSMQMessage_FWD_DEFINED__
@@ -137,7 +137,7 @@ typedef struct MSMQMessage MSMQMessage;
 
 #ifndef __IMSMQQueue3_FWD_DEFINED__
 #define __IMSMQQueue3_FWD_DEFINED__
-typedef interface IMSMQQueue3 IMSMQQueue3;
+typedef struct IMSMQQueue3 IMSMQQueue3;
 #endif
 
 #ifndef __MSMQQueue_FWD_DEFINED__
@@ -151,12 +151,12 @@ typedef struct MSMQQueue MSMQQueue;
 
 #ifndef __IMSMQPrivateEvent_FWD_DEFINED__
 #define __IMSMQPrivateEvent_FWD_DEFINED__
-typedef interface IMSMQPrivateEvent IMSMQPrivateEvent;
+typedef struct IMSMQPrivateEvent IMSMQPrivateEvent;
 #endif
 
 #ifndef ___DMSMQEventEvents_FWD_DEFINED__
 #define ___DMSMQEventEvents_FWD_DEFINED__
-typedef interface _DMSMQEventEvents _DMSMQEventEvents;
+typedef struct _DMSMQEventEvents _DMSMQEventEvents;
 #endif
 
 #ifndef __MSMQEvent_FWD_DEFINED__
@@ -188,12 +188,12 @@ typedef struct MSMQQueueInfos MSMQQueueInfos;
 
 #ifndef __IMSMQTransaction2_FWD_DEFINED__
 #define __IMSMQTransaction2_FWD_DEFINED__
-typedef interface IMSMQTransaction2 IMSMQTransaction2;
+typedef struct IMSMQTransaction2 IMSMQTransaction2;
 #endif
 
 #ifndef __IMSMQTransaction3_FWD_DEFINED__
 #define __IMSMQTransaction3_FWD_DEFINED__
-typedef interface IMSMQTransaction3 IMSMQTransaction3;
+typedef struct IMSMQTransaction3 IMSMQTransaction3;
 #endif
 
 #ifndef __MSMQTransaction_FWD_DEFINED__
@@ -207,12 +207,12 @@ typedef struct MSMQTransaction MSMQTransaction;
 
 #ifndef __IMSMQCoordinatedTransactionDispenser2_FWD_DEFINED__
 #define __IMSMQCoordinatedTransactionDispenser2_FWD_DEFINED__
-typedef interface IMSMQCoordinatedTransactionDispenser2 IMSMQCoordinatedTransactionDispenser2;
+typedef struct IMSMQCoordinatedTransactionDispenser2 IMSMQCoordinatedTransactionDispenser2;
 #endif
 
 #ifndef __IMSMQCoordinatedTransactionDispenser3_FWD_DEFINED__
 #define __IMSMQCoordinatedTransactionDispenser3_FWD_DEFINED__
-typedef interface IMSMQCoordinatedTransactionDispenser3 IMSMQCoordinatedTransactionDispenser3;
+typedef struct IMSMQCoordinatedTransactionDispenser3 IMSMQCoordinatedTransactionDispenser3;
 #endif
 
 #ifndef __MSMQCoordinatedTransactionDispenser_FWD_DEFINED__
@@ -226,12 +226,12 @@ typedef struct MSMQCoordinatedTransactionDispenser MSMQCoordinatedTransactionDis
 
 #ifndef __IMSMQTransactionDispenser2_FWD_DEFINED__
 #define __IMSMQTransactionDispenser2_FWD_DEFINED__
-typedef interface IMSMQTransactionDispenser2 IMSMQTransactionDispenser2;
+typedef struct IMSMQTransactionDispenser2 IMSMQTransactionDispenser2;
 #endif
 
 #ifndef __IMSMQTransactionDispenser3_FWD_DEFINED__
 #define __IMSMQTransactionDispenser3_FWD_DEFINED__
-typedef interface IMSMQTransactionDispenser3 IMSMQTransactionDispenser3;
+typedef struct IMSMQTransactionDispenser3 IMSMQTransactionDispenser3;
 #endif
 
 #ifndef __MSMQTransactionDispenser_FWD_DEFINED__
@@ -245,17 +245,17 @@ typedef struct MSMQTransactionDispenser MSMQTransactionDispenser;
 
 #ifndef __IMSMQApplication_FWD_DEFINED__
 #define __IMSMQApplication_FWD_DEFINED__
-typedef interface IMSMQApplication IMSMQApplication;
+typedef struct IMSMQApplication IMSMQApplication;
 #endif
 
 #ifndef __IMSMQApplication2_FWD_DEFINED__
 #define __IMSMQApplication2_FWD_DEFINED__
-typedef interface IMSMQApplication2 IMSMQApplication2;
+typedef struct IMSMQApplication2 IMSMQApplication2;
 #endif
 
 #ifndef __IMSMQApplication3_FWD_DEFINED__
 #define __IMSMQApplication3_FWD_DEFINED__
-typedef interface IMSMQApplication3 IMSMQApplication3;
+typedef struct IMSMQApplication3 IMSMQApplication3;
 #endif
 
 #ifndef __MSMQApplication_FWD_DEFINED__
@@ -269,12 +269,12 @@ typedef struct MSMQApplication MSMQApplication;
 
 #ifndef __IMSMQDestination_FWD_DEFINED__
 #define __IMSMQDestination_FWD_DEFINED__
-typedef interface IMSMQDestination IMSMQDestination;
+typedef struct IMSMQDestination IMSMQDestination;
 #endif
 
 #ifndef __IMSMQPrivateDestination_FWD_DEFINED__
 #define __IMSMQPrivateDestination_FWD_DEFINED__
-typedef interface IMSMQPrivateDestination IMSMQPrivateDestination;
+typedef struct IMSMQPrivateDestination IMSMQPrivateDestination;
 #endif
 
 #ifndef __MSMQDestination_FWD_DEFINED__
@@ -288,7 +288,7 @@ typedef struct MSMQDestination MSMQDestination;
 
 #ifndef __IMSMQCollection_FWD_DEFINED__
 #define __IMSMQCollection_FWD_DEFINED__
-typedef interface IMSMQCollection IMSMQCollection;
+typedef struct IMSMQCollection IMSMQCollection;
 #endif
 
 #ifndef __MSMQCollection_FWD_DEFINED__
@@ -302,7 +302,7 @@ typedef struct MSMQCollection MSMQCollection;
 
 #ifndef __IMSMQManagement_FWD_DEFINED__
 #define __IMSMQManagement_FWD_DEFINED__
-typedef interface IMSMQManagement IMSMQManagement;
+typedef struct IMSMQManagement IMSMQManagement;
 #endif
 
 #ifndef __MSMQManagement_FWD_DEFINED__
@@ -316,7 +316,7 @@ typedef struct MSMQManagement MSMQManagement;
 
 #ifndef __IMSMQOutgoingQueueManagement_FWD_DEFINED__
 #define __IMSMQOutgoingQueueManagement_FWD_DEFINED__
-typedef interface IMSMQOutgoingQueueManagement IMSMQOutgoingQueueManagement;
+typedef struct IMSMQOutgoingQueueManagement IMSMQOutgoingQueueManagement;
 #endif
 
 #ifndef __MSMQOutgoingQueueManagement_FWD_DEFINED__
@@ -330,7 +330,7 @@ typedef struct MSMQOutgoingQueueManagement MSMQOutgoingQueueManagement;
 
 #ifndef __IMSMQQueueManagement_FWD_DEFINED__
 #define __IMSMQQueueManagement_FWD_DEFINED__
-typedef interface IMSMQQueueManagement IMSMQQueueManagement;
+typedef struct IMSMQQueueManagement IMSMQQueueManagement;
 #endif
 
 #ifndef __MSMQQueueManagement_FWD_DEFINED__
@@ -583,7 +583,7 @@ extern "C" {
       HRESULT (WINAPI *LookupQueue)(IMSMQQuery *This,VARIANT *QueueGuid,VARIANT *ServiceTypeGuid,VARIANT *Label,VARIANT *CreateTime,VARIANT *ModifyTime,VARIANT *RelServiceType,VARIANT *RelLabel,VARIANT *RelCreateTime,VARIANT *RelModifyTime,IMSMQQueueInfos **ppqinfos);
     END_INTERFACE
   } IMSMQQueryVtbl;
-  interface IMSMQQuery {
+  struct IMSMQQuery {
     CONST_VTBL struct IMSMQQueryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -680,7 +680,7 @@ extern "C" {
       HRESULT (WINAPI *Update)(IMSMQQueueInfo *This);
     END_INTERFACE
   } IMSMQQueueInfoVtbl;
-  interface IMSMQQueueInfo {
+  struct IMSMQQueueInfo {
     CONST_VTBL struct IMSMQQueueInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -872,7 +872,7 @@ extern "C" {
       HRESULT (WINAPI *put_Security)(IMSMQQueueInfo2 *This,VARIANT varSecurity);
     END_INTERFACE
   } IMSMQQueueInfo2Vtbl;
-  interface IMSMQQueueInfo2 {
+  struct IMSMQQueueInfo2 {
     CONST_VTBL struct IMSMQQueueInfo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1086,7 +1086,7 @@ extern "C" {
       HRESULT (WINAPI *get_ADsPath)(IMSMQQueueInfo3 *This,BSTR *pbstrADsPath);
     END_INTERFACE
   } IMSMQQueueInfo3Vtbl;
-  interface IMSMQQueueInfo3 {
+  struct IMSMQQueueInfo3 {
     CONST_VTBL struct IMSMQQueueInfo3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1263,7 +1263,7 @@ extern "C" {
       HRESULT (WINAPI *PeekCurrent)(IMSMQQueue *This,VARIANT *WantDestinationQueue,VARIANT *WantBody,VARIANT *ReceiveTimeout,IMSMQMessage **ppmsg);
     END_INTERFACE
   } IMSMQQueueVtbl;
-  interface IMSMQQueue {
+  struct IMSMQQueue {
     CONST_VTBL struct IMSMQQueueVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1374,7 +1374,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQQueue2 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQQueue2Vtbl;
-  interface IMSMQQueue2 {
+  struct IMSMQQueue2 {
     CONST_VTBL struct IMSMQQueue2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1563,7 +1563,7 @@ extern "C" {
       HRESULT (WINAPI *AttachCurrentSecurityContext)(IMSMQMessage *This);
     END_INTERFACE
   } IMSMQMessageVtbl;
-  interface IMSMQMessage {
+  struct IMSMQMessage {
     CONST_VTBL struct IMSMQMessageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1748,7 +1748,7 @@ extern "C" {
       HRESULT (WINAPI *Next)(IMSMQQueueInfos *This,IMSMQQueueInfo **ppqinfoNext);
     END_INTERFACE
   } IMSMQQueueInfosVtbl;
-  interface IMSMQQueueInfos {
+  struct IMSMQQueueInfos {
     CONST_VTBL struct IMSMQQueueInfosVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1794,7 +1794,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQQueueInfos2 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQQueueInfos2Vtbl;
-  interface IMSMQQueueInfos2 {
+  struct IMSMQQueueInfos2 {
     CONST_VTBL struct IMSMQQueueInfos2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1843,7 +1843,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQQueueInfos3 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQQueueInfos3Vtbl;
-  interface IMSMQQueueInfos3 {
+  struct IMSMQQueueInfos3 {
     CONST_VTBL struct IMSMQQueueInfos3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1885,7 +1885,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(IMSMQEvent *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } IMSMQEventVtbl;
-  interface IMSMQEvent {
+  struct IMSMQEvent {
     CONST_VTBL struct IMSMQEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1921,7 +1921,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQEvent2 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQEvent2Vtbl;
-  interface IMSMQEvent2 {
+  struct IMSMQEvent2 {
     CONST_VTBL struct IMSMQEvent2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1958,7 +1958,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQEvent3 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQEvent3Vtbl;
-  interface IMSMQEvent3 {
+  struct IMSMQEvent3 {
     CONST_VTBL struct IMSMQEvent3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1999,7 +1999,7 @@ extern "C" {
       HRESULT (WINAPI *Abort)(IMSMQTransaction *This,VARIANT *fRetaining,VARIANT *fAsync);
     END_INTERFACE
   } IMSMQTransactionVtbl;
-  interface IMSMQTransaction {
+  struct IMSMQTransaction {
     CONST_VTBL struct IMSMQTransactionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2045,7 +2045,7 @@ extern "C" {
       HRESULT (WINAPI *BeginTransaction)(IMSMQCoordinatedTransactionDispenser *This,IMSMQTransaction **ptransaction);
     END_INTERFACE
   } IMSMQCoordinatedTransactionDispenserVtbl;
-  interface IMSMQCoordinatedTransactionDispenser {
+  struct IMSMQCoordinatedTransactionDispenser {
     CONST_VTBL struct IMSMQCoordinatedTransactionDispenserVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2084,7 +2084,7 @@ extern "C" {
       HRESULT (WINAPI *BeginTransaction)(IMSMQTransactionDispenser *This,IMSMQTransaction **ptransaction);
     END_INTERFACE
   } IMSMQTransactionDispenserVtbl;
-  interface IMSMQTransactionDispenser {
+  struct IMSMQTransactionDispenser {
     CONST_VTBL struct IMSMQTransactionDispenserVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2125,7 +2125,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQQuery2 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQQuery2Vtbl;
-  interface IMSMQQuery2 {
+  struct IMSMQQuery2 {
     CONST_VTBL struct IMSMQQuery2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2171,7 +2171,7 @@ extern "C" {
       HRESULT (WINAPI *LookupQueue)(IMSMQQuery3 *This,VARIANT *QueueGuid,VARIANT *ServiceTypeGuid,VARIANT *Label,VARIANT *CreateTime,VARIANT *ModifyTime,VARIANT *RelServiceType,VARIANT *RelLabel,VARIANT *RelCreateTime,VARIANT *RelModifyTime,VARIANT *MulticastAddress,VARIANT *RelMulticastAddress,IMSMQQueueInfos3 **ppqinfos);
     END_INTERFACE
   } IMSMQQuery3Vtbl;
-  interface IMSMQQuery3 {
+  struct IMSMQQuery3 {
     CONST_VTBL struct IMSMQQuery3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2369,7 +2369,7 @@ extern "C" {
       HRESULT (WINAPI *get_ReceivedAuthenticationLevel)(IMSMQMessage2 *This,short *psReceivedAuthenticationLevel);
     END_INTERFACE
   } IMSMQMessage2Vtbl;
-  interface IMSMQMessage2 {
+  struct IMSMQMessage2 {
     CONST_VTBL struct IMSMQMessage2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2810,7 +2810,7 @@ extern "C" {
       HRESULT (WINAPI *put_SoapBody)(IMSMQMessage3 *This,BSTR bstrSoapBody);
     END_INTERFACE
   } IMSMQMessage3Vtbl;
-  interface IMSMQMessage3 {
+  struct IMSMQMessage3 {
     CONST_VTBL struct IMSMQMessage3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3186,7 +3186,7 @@ extern "C" {
       HRESULT (WINAPI *get_IsOpen2)(IMSMQQueue3 *This,VARIANT_BOOL *pisOpen);
     END_INTERFACE
   } IMSMQQueue3Vtbl;
-  interface IMSMQQueue3 {
+  struct IMSMQQueue3 {
     CONST_VTBL struct IMSMQQueue3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3327,7 +3327,7 @@ extern "C" {
       HRESULT (WINAPI *FireArrivedErrorEvent)(IMSMQPrivateEvent *This,IMSMQQueue *pq,HRESULT hrStatus,long msgcursor);
     END_INTERFACE
   } IMSMQPrivateEventVtbl;
-  interface IMSMQPrivateEvent {
+  struct IMSMQPrivateEvent {
     CONST_VTBL struct IMSMQPrivateEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3369,7 +3369,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(_DMSMQEventEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } _DMSMQEventEventsVtbl;
-  interface _DMSMQEventEvents {
+  struct _DMSMQEventEvents {
     CONST_VTBL struct _DMSMQEventEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3423,7 +3423,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQTransaction2 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQTransaction2Vtbl;
-  interface IMSMQTransaction2 {
+  struct IMSMQTransaction2 {
     CONST_VTBL struct IMSMQTransaction2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3473,7 +3473,7 @@ extern "C" {
       HRESULT (WINAPI *get_ITransaction)(IMSMQTransaction3 *This,VARIANT *pvarITransaction);
     END_INTERFACE
   } IMSMQTransaction3Vtbl;
-  interface IMSMQTransaction3 {
+  struct IMSMQTransaction3 {
     CONST_VTBL struct IMSMQTransaction3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3524,7 +3524,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQCoordinatedTransactionDispenser2 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQCoordinatedTransactionDispenser2Vtbl;
-  interface IMSMQCoordinatedTransactionDispenser2 {
+  struct IMSMQCoordinatedTransactionDispenser2 {
     CONST_VTBL struct IMSMQCoordinatedTransactionDispenser2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3568,7 +3568,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQCoordinatedTransactionDispenser3 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQCoordinatedTransactionDispenser3Vtbl;
-  interface IMSMQCoordinatedTransactionDispenser3 {
+  struct IMSMQCoordinatedTransactionDispenser3 {
     CONST_VTBL struct IMSMQCoordinatedTransactionDispenser3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3617,7 +3617,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQTransactionDispenser2 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQTransactionDispenser2Vtbl;
-  interface IMSMQTransactionDispenser2 {
+  struct IMSMQTransactionDispenser2 {
     CONST_VTBL struct IMSMQTransactionDispenser2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3661,7 +3661,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQTransactionDispenser3 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQTransactionDispenser3Vtbl;
-  interface IMSMQTransactionDispenser3 {
+  struct IMSMQTransactionDispenser3 {
     CONST_VTBL struct IMSMQTransactionDispenser3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3708,7 +3708,7 @@ extern "C" {
       HRESULT (WINAPI *MachineIdOfMachineName)(IMSMQApplication *This,BSTR MachineName,BSTR *pbstrGuid);
     END_INTERFACE
   } IMSMQApplicationVtbl;
-  interface IMSMQApplication {
+  struct IMSMQApplication {
     CONST_VTBL struct IMSMQApplicationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3760,7 +3760,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQApplication2 *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQApplication2Vtbl;
-  interface IMSMQApplication2 {
+  struct IMSMQApplication2 {
     CONST_VTBL struct IMSMQApplication2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3844,7 +3844,7 @@ extern "C" {
       HRESULT (WINAPI *Tidy)(IMSMQApplication3 *This);
     END_INTERFACE
   } IMSMQApplication3Vtbl;
-  interface IMSMQApplication3 {
+  struct IMSMQApplication3 {
     CONST_VTBL struct IMSMQApplication3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3949,7 +3949,7 @@ extern "C" {
       HRESULT (WINAPI *get_Properties)(IMSMQDestination *This,IDispatch **ppcolProperties);
     END_INTERFACE
   } IMSMQDestinationVtbl;
-  interface IMSMQDestination {
+  struct IMSMQDestination {
     CONST_VTBL struct IMSMQDestinationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4029,7 +4029,7 @@ extern "C" {
       HRESULT (WINAPI *put_Handle)(IMSMQPrivateDestination *This,VARIANT varHandle);
     END_INTERFACE
   } IMSMQPrivateDestinationVtbl;
-  interface IMSMQPrivateDestination {
+  struct IMSMQPrivateDestination {
     CONST_VTBL struct IMSMQPrivateDestinationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4080,7 +4080,7 @@ extern "C" {
       HRESULT (WINAPI *_NewEnum)(IMSMQCollection *This,IUnknown **ppunk);
     END_INTERFACE
   } IMSMQCollectionVtbl;
-  interface IMSMQCollection {
+  struct IMSMQCollection {
     CONST_VTBL struct IMSMQCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4146,7 +4146,7 @@ extern "C" {
       HRESULT (WINAPI *get_BytesInQueue)(IMSMQManagement *This,VARIANT *pvBytesInQueue);
     END_INTERFACE
   } IMSMQManagementVtbl;
-  interface IMSMQManagement {
+  struct IMSMQManagement {
     CONST_VTBL struct IMSMQManagementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4233,7 +4233,7 @@ extern "C" {
       HRESULT (WINAPI *EodResend)(IMSMQOutgoingQueueManagement *This);
     END_INTERFACE
   } IMSMQOutgoingQueueManagementVtbl;
-  interface IMSMQOutgoingQueueManagement {
+  struct IMSMQOutgoingQueueManagement {
     CONST_VTBL struct IMSMQOutgoingQueueManagementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4314,7 +4314,7 @@ extern "C" {
       HRESULT (WINAPI *EodGetReceiveInfo)(IMSMQQueueManagement *This,VARIANT *pvCollection);
     END_INTERFACE
   } IMSMQQueueManagementVtbl;
-  interface IMSMQQueueManagement {
+  struct IMSMQQueueManagement {
     CONST_VTBL struct IMSMQQueueManagementVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -19,47 +19,47 @@
 
 #ifndef __IISApplicationPool_FWD_DEFINED__
 #define __IISApplicationPool_FWD_DEFINED__
-typedef interface IISApplicationPool IISApplicationPool;
+typedef struct IISApplicationPool IISApplicationPool;
 #endif
 
 #ifndef __IISApplicationPools_FWD_DEFINED__
 #define __IISApplicationPools_FWD_DEFINED__
-typedef interface IISApplicationPools IISApplicationPools;
+typedef struct IISApplicationPools IISApplicationPools;
 #endif
 
 #ifndef __IISWebService_FWD_DEFINED__
 #define __IISWebService_FWD_DEFINED__
-typedef interface IISWebService IISWebService;
+typedef struct IISWebService IISWebService;
 #endif
 
 #ifndef __IISDsCrMap_FWD_DEFINED__
 #define __IISDsCrMap_FWD_DEFINED__
-typedef interface IISDsCrMap IISDsCrMap;
+typedef struct IISDsCrMap IISDsCrMap;
 #endif
 
 #ifndef __IISApp_FWD_DEFINED__
 #define __IISApp_FWD_DEFINED__
-typedef interface IISApp IISApp;
+typedef struct IISApp IISApp;
 #endif
 
 #ifndef __IISApp2_FWD_DEFINED__
 #define __IISApp2_FWD_DEFINED__
-typedef interface IISApp2 IISApp2;
+typedef struct IISApp2 IISApp2;
 #endif
 
 #ifndef __IISApp3_FWD_DEFINED__
 #define __IISApp3_FWD_DEFINED__
-typedef interface IISApp3 IISApp3;
+typedef struct IISApp3 IISApp3;
 #endif
 
 #ifndef __IISComputer_FWD_DEFINED__
 #define __IISComputer_FWD_DEFINED__
-typedef interface IISComputer IISComputer;
+typedef struct IISComputer IISComputer;
 #endif
 
 #ifndef __IISComputer2_FWD_DEFINED__
 #define __IISComputer2_FWD_DEFINED__
-typedef interface IISComputer2 IISComputer2;
+typedef struct IISComputer2 IISComputer2;
 #endif
 
 #ifndef __IISExtComputer_FWD_DEFINED__
@@ -175,7 +175,7 @@ extern "C"{
       HRESULT (WINAPI *Stop)(IISApplicationPool *This);
     END_INTERFACE
   } IISApplicationPoolVtbl;
-  interface IISApplicationPool {
+  struct IISApplicationPool {
     CONST_VTBL struct IISApplicationPoolVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -246,7 +246,7 @@ extern "C"{
       HRESULT (WINAPI *GetInfoEx)(IISApplicationPools *This,VARIANT vProperties,signed long lnReserved,void *retval);
     END_INTERFACE
   } IISApplicationPoolsVtbl;
-  interface IISApplicationPools {
+  struct IISApplicationPools {
     CONST_VTBL struct IISApplicationPoolsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -338,7 +338,7 @@ extern "C"{
       HRESULT (WINAPI *QueryGroupIDStatus)(IISWebService *This,BSTR bstrGroupID,VARIANT *bstrBuffer);
     END_INTERFACE
   } IISWebServiceVtbl;
-  interface IISWebService {
+  struct IISWebService {
     CONST_VTBL struct IISWebServiceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -460,7 +460,7 @@ extern "C"{
       HRESULT (WINAPI *SetAcct)(IISDsCrMap *This,LONG lMethod,VARIANT vKey,BSTR bstrAcct);
     END_INTERFACE
   } IISDsCrMapVtbl;
-  interface IISDsCrMap {
+  struct IISDsCrMap {
     CONST_VTBL struct IISDsCrMapVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -563,7 +563,7 @@ extern "C"{
       HRESULT (WINAPI *AspAppRestart)(IISApp *This);
     END_INTERFACE
   } IISAppVtbl;
-  interface IISApp {
+  struct IISApp {
     CONST_VTBL struct IISAppVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -671,7 +671,7 @@ extern "C"{
       HRESULT (WINAPI *AppGetStatus2)(IISApp2 *This,LONG *lpStatus);
     END_INTERFACE
   } IISApp2Vtbl;
-  interface IISApp2 {
+  struct IISApp2 {
     CONST_VTBL struct IISApp2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -763,7 +763,7 @@ extern "C"{
       HRESULT (WINAPI *AppCreate3)(IISApp3 *This,LONG lAppMode,VARIANT bstrAppPooI,VARIANT bCreatePool);
     END_INTERFACE
   } IISApp3Vtbl;
-  interface IISApp3 {
+  struct IISApp3 {
     CONST_VTBL struct IISApp3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -847,7 +847,7 @@ extern "C"{
       HRESULT (WINAPI *DeleteBackup)(IISComputer *This,BSTR bstrLocation,LONG lVersion);
     END_INTERFACE
   } IISComputerVtbl;
-  interface IISComputer {
+  struct IISComputer {
     CONST_VTBL struct IISComputerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -933,7 +933,7 @@ extern "C"{
       HRESULT (WINAPI *SaveData)(IISComputer2 *This);
     END_INTERFACE
   } IISComputer2Vtbl;
-  interface IISComputer2 {
+  struct IISComputer2 {
     CONST_VTBL struct IISComputer2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

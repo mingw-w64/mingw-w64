@@ -15,17 +15,17 @@
 
 #ifndef __IStringList_FWD_DEFINED__
 #define __IStringList_FWD_DEFINED__
-typedef interface IStringList IStringList;
+typedef struct IStringList IStringList;
 #endif
 
 #ifndef __IRequestDictionary_FWD_DEFINED__
 #define __IRequestDictionary_FWD_DEFINED__
-typedef interface IRequestDictionary IRequestDictionary;
+typedef struct IRequestDictionary IRequestDictionary;
 #endif
 
 #ifndef __IRequest_FWD_DEFINED__
 #define __IRequest_FWD_DEFINED__
-typedef interface IRequest IRequest;
+typedef struct IRequest IRequest;
 #endif
 
 #ifndef __Request_FWD_DEFINED__
@@ -39,17 +39,17 @@ typedef struct Request Request;
 
 #ifndef __IReadCookie_FWD_DEFINED__
 #define __IReadCookie_FWD_DEFINED__
-typedef interface IReadCookie IReadCookie;
+typedef struct IReadCookie IReadCookie;
 #endif
 
 #ifndef __IWriteCookie_FWD_DEFINED__
 #define __IWriteCookie_FWD_DEFINED__
-typedef interface IWriteCookie IWriteCookie;
+typedef struct IWriteCookie IWriteCookie;
 #endif
 
 #ifndef __IResponse_FWD_DEFINED__
 #define __IResponse_FWD_DEFINED__
-typedef interface IResponse IResponse;
+typedef struct IResponse IResponse;
 #endif
 
 #ifndef __Response_FWD_DEFINED__
@@ -63,12 +63,12 @@ typedef struct Response Response;
 
 #ifndef __IVariantDictionary_FWD_DEFINED__
 #define __IVariantDictionary_FWD_DEFINED__
-typedef interface IVariantDictionary IVariantDictionary;
+typedef struct IVariantDictionary IVariantDictionary;
 #endif
 
 #ifndef __ISessionObject_FWD_DEFINED__
 #define __ISessionObject_FWD_DEFINED__
-typedef interface ISessionObject ISessionObject;
+typedef struct ISessionObject ISessionObject;
 #endif
 
 #ifndef __Session_FWD_DEFINED__
@@ -82,7 +82,7 @@ typedef struct Session Session;
 
 #ifndef __IApplicationObject_FWD_DEFINED__
 #define __IApplicationObject_FWD_DEFINED__
-typedef interface IApplicationObject IApplicationObject;
+typedef struct IApplicationObject IApplicationObject;
 #endif
 
 #ifndef __Application_FWD_DEFINED__
@@ -96,12 +96,12 @@ typedef struct Application Application;
 
 #ifndef __IASPError_FWD_DEFINED__
 #define __IASPError_FWD_DEFINED__
-typedef interface IASPError IASPError;
+typedef struct IASPError IASPError;
 #endif
 
 #ifndef __IServer_FWD_DEFINED__
 #define __IServer_FWD_DEFINED__
-typedef interface IServer IServer;
+typedef struct IServer IServer;
 #endif
 
 #ifndef __Server_FWD_DEFINED__
@@ -115,7 +115,7 @@ typedef struct Server Server;
 
 #ifndef __IScriptingContext_FWD_DEFINED__
 #define __IScriptingContext_FWD_DEFINED__
-typedef interface IScriptingContext IScriptingContext;
+typedef struct IScriptingContext IScriptingContext;
 #endif
 
 #ifndef __ScriptingContext_FWD_DEFINED__
@@ -163,7 +163,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IStringList *This,IUnknown **ppEnumReturn);
     END_INTERFACE
   } IStringListVtbl;
-  interface IStringList {
+  struct IStringList {
     CONST_VTBL struct IStringListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -214,7 +214,7 @@ extern "C"{
       HRESULT (WINAPI *get_Key)(IRequestDictionary *This,VARIANT VarKey,VARIANT *pvar);
     END_INTERFACE
   } IRequestDictionaryVtbl;
-  interface IRequestDictionary {
+  struct IRequestDictionary {
     CONST_VTBL struct IRequestDictionaryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -278,7 +278,7 @@ extern "C"{
       HRESULT (WINAPI *BinaryRead)(IRequest *This,VARIANT *pvarCountToRead,VARIANT *pvarReturn);
     END_INTERFACE
   } IRequestVtbl;
-  interface IRequest {
+  struct IRequest {
     CONST_VTBL struct IRequestVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -354,7 +354,7 @@ extern "C"{
       HRESULT (WINAPI *get_Key)(IReadCookie *This,VARIANT VarKey,VARIANT *pvar);
     END_INTERFACE
   } IReadCookieVtbl;
-  interface IReadCookie {
+  struct IReadCookie {
     CONST_VTBL struct IReadCookieVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -417,7 +417,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IWriteCookie *This,IUnknown **ppEnumReturn);
     END_INTERFACE
   } IWriteCookieVtbl;
-  interface IWriteCookie {
+  struct IWriteCookie {
     CONST_VTBL struct IWriteCookieVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -526,7 +526,7 @@ extern "C"{
       HRESULT (WINAPI *put_CacheControl)(IResponse *This,BSTR bstrCacheControl);
     END_INTERFACE
   } IResponseVtbl;
-  interface IResponse {
+  struct IResponse {
     CONST_VTBL struct IResponseVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -662,7 +662,7 @@ extern "C"{
       HRESULT (WINAPI *RemoveAll)(IVariantDictionary *This);
     END_INTERFACE
   } IVariantDictionaryVtbl;
-  interface IVariantDictionary {
+  struct IVariantDictionary {
     CONST_VTBL struct IVariantDictionaryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -746,7 +746,7 @@ extern "C"{
       HRESULT (WINAPI *get_Contents)(ISessionObject *This,IVariantDictionary **ppProperties);
     END_INTERFACE
   } ISessionObjectVtbl;
-  interface ISessionObject {
+  struct ISessionObject {
     CONST_VTBL struct ISessionObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -838,7 +838,7 @@ extern "C"{
       HRESULT (WINAPI *get_Contents)(IApplicationObject *This,IVariantDictionary **ppProperties);
     END_INTERFACE
   } IApplicationObjectVtbl;
-  interface IApplicationObject {
+  struct IApplicationObject {
     CONST_VTBL struct IApplicationObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -916,7 +916,7 @@ extern "C"{
       HRESULT (WINAPI *get_Source)(IASPError *This,BSTR *pbstrLineText);
     END_INTERFACE
   } IASPErrorVtbl;
-  interface IASPError {
+  struct IASPError {
     CONST_VTBL struct IASPErrorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -997,7 +997,7 @@ extern "C"{
       HRESULT (WINAPI *GetLastError)(IServer *This,IASPError **ppASPErrorObject);
     END_INTERFACE
   } IServerVtbl;
-  interface IServer {
+  struct IServer {
     CONST_VTBL struct IServerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1076,7 +1076,7 @@ extern "C"{
       HRESULT (WINAPI *get_Application)(IScriptingContext *This,IApplicationObject **ppApplication);
     END_INTERFACE
   } IScriptingContextVtbl;
-  interface IScriptingContext {
+  struct IScriptingContext {
     CONST_VTBL struct IScriptingContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

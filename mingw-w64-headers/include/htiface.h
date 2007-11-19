@@ -24,17 +24,17 @@
 
 #ifndef __ITargetFrame_FWD_DEFINED__
 #define __ITargetFrame_FWD_DEFINED__
-typedef interface ITargetFrame ITargetFrame;
+typedef struct ITargetFrame ITargetFrame;
 #endif
 
 #ifndef __ITargetEmbedding_FWD_DEFINED__
 #define __ITargetEmbedding_FWD_DEFINED__
-typedef interface ITargetEmbedding ITargetEmbedding;
+typedef struct ITargetEmbedding ITargetEmbedding;
 #endif
 
 #ifndef __ITargetFramePriv_FWD_DEFINED__
 #define __ITargetFramePriv_FWD_DEFINED__
-typedef interface ITargetFramePriv ITargetFramePriv;
+typedef struct ITargetFramePriv ITargetFramePriv;
 #endif
 
 #include "objidl.h"
@@ -119,7 +119,7 @@ extern "C"{
       HRESULT (WINAPI *OnChildFrameDeactivate)(ITargetFrame *This,IUnknown *pUnkChildFrame);
     END_INTERFACE
   } ITargetFrameVtbl;
-  interface ITargetFrame {
+  struct ITargetFrame {
     CONST_VTBL struct ITargetFrameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -191,7 +191,7 @@ extern "C"{
       HRESULT (WINAPI *GetTargetFrame)(ITargetEmbedding *This,ITargetFrame **ppTargetFrame);
     END_INTERFACE
   } ITargetEmbeddingVtbl;
-  interface ITargetEmbedding {
+  struct ITargetEmbedding {
     CONST_VTBL struct ITargetEmbeddingVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -235,7 +235,7 @@ extern "C"{
       HRESULT (WINAPI *FindBrowserByIndex)(ITargetFramePriv *This,DWORD dwID,IUnknown **ppunkBrowser);
     END_INTERFACE
   } ITargetFramePrivVtbl;
-  interface ITargetFramePriv {
+  struct ITargetFramePriv {
     CONST_VTBL struct ITargetFramePrivVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

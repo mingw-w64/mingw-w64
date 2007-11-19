@@ -19,32 +19,32 @@ extern "C"{
 
 #ifndef __IDEGetBlockFmtNamesParam_FWD_DEFINED__
 #define __IDEGetBlockFmtNamesParam_FWD_DEFINED__
-  typedef interface IDEGetBlockFmtNamesParam IDEGetBlockFmtNamesParam;
+  typedef struct IDEGetBlockFmtNamesParam IDEGetBlockFmtNamesParam;
 #endif
 
 #ifndef __IDHTMLSafe_FWD_DEFINED__
 #define __IDHTMLSafe_FWD_DEFINED__
-  typedef interface IDHTMLSafe IDHTMLSafe;
+  typedef struct IDHTMLSafe IDHTMLSafe;
 #endif
 
 #ifndef __IDHTMLEdit_FWD_DEFINED__
 #define __IDHTMLEdit_FWD_DEFINED__
-  typedef interface IDHTMLEdit IDHTMLEdit;
+  typedef struct IDHTMLEdit IDHTMLEdit;
 #endif
 
 #ifndef __IDEInsertTableParam_FWD_DEFINED__
 #define __IDEInsertTableParam_FWD_DEFINED__
-  typedef interface IDEInsertTableParam IDEInsertTableParam;
+  typedef struct IDEInsertTableParam IDEInsertTableParam;
 #endif
 
 #ifndef ___DHTMLSafeEvents_FWD_DEFINED__
 #define ___DHTMLSafeEvents_FWD_DEFINED__
-  typedef interface _DHTMLSafeEvents _DHTMLSafeEvents;
+  typedef struct _DHTMLSafeEvents _DHTMLSafeEvents;
 #endif
 
 #ifndef ___DHTMLEditEvents_FWD_DEFINED__
 #define ___DHTMLEditEvents_FWD_DEFINED__
-  typedef interface _DHTMLEditEvents _DHTMLEditEvents;
+  typedef struct _DHTMLEditEvents _DHTMLEditEvents;
 #endif
 
 #ifndef __DHTMLEdit_FWD_DEFINED__
@@ -182,7 +182,7 @@ extern "C"{
       HRESULT (WINAPI *put_Names)(IDEGetBlockFmtNamesParam *This,VARIANT *newVal);
     END_INTERFACE
   } IDEGetBlockFmtNamesParamVtbl;
-  interface IDEGetBlockFmtNamesParam {
+  struct IDEGetBlockFmtNamesParam {
     CONST_VTBL struct IDEGetBlockFmtNamesParamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -310,7 +310,7 @@ extern "C"{
       HRESULT (WINAPI *get_Busy)(IDHTMLSafe *This,VARIANT_BOOL *pVal);
     END_INTERFACE
   } IDHTMLSafeVtbl;
-  interface IDHTMLSafe {
+  struct IDHTMLSafe {
     CONST_VTBL struct IDHTMLSafeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -530,7 +530,7 @@ extern "C"{
       HRESULT (WINAPI *put_BrowseMode)(IDHTMLEdit *This,VARIANT_BOOL newVal);
     END_INTERFACE
   } IDHTMLEditVtbl;
-  interface IDHTMLEdit {
+  struct IDHTMLEdit {
     CONST_VTBL struct IDHTMLEditVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -643,7 +643,7 @@ extern "C"{
       HRESULT (WINAPI *put_Caption)(IDEInsertTableParam *This,BSTR newVal);
     END_INTERFACE
   } IDEInsertTableParamVtbl;
-  interface IDEInsertTableParam {
+  struct IDEInsertTableParam {
     CONST_VTBL struct IDEInsertTableParamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -706,7 +706,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(_DHTMLSafeEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } _DHTMLSafeEventsVtbl;
-  interface _DHTMLSafeEvents {
+  struct _DHTMLSafeEvents {
     CONST_VTBL struct _DHTMLSafeEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -739,7 +739,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(_DHTMLEditEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } _DHTMLEditEventsVtbl;
-  interface _DHTMLEditEvents {
+  struct _DHTMLEditEvents {
     CONST_VTBL struct _DHTMLEditEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

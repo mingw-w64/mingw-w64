@@ -270,7 +270,7 @@ extern "C" {
   void __cdecl qsort(void *_Base,size_t _NumOfElements,size_t _SizeOfElements,int (__cdecl *_PtFuncCompare)(const void *,const void *));
 #endif
   unsigned short __cdecl _byteswap_ushort(unsigned short _Short);
-  unsigned long __cdecl _byteswap_ulong (unsigned long _Long);
+  /*unsigned long __cdecl _byteswap_ulong (unsigned long _Long); */
 #if _INTEGRAL_MAX_BITS >= 64
   unsigned __int64 __cdecl _byteswap_uint64(unsigned __int64 _Int64);
 #endif
@@ -472,7 +472,7 @@ extern "C" {
   long long  __cdecl strtoll(const char* __restrict__, char** __restrict, int);
   unsigned long long  __cdecl strtoull(const char* __restrict__, char** __restrict__, int);
 
-  /* these are stubs for MS _i64 versions */ 
+  /* these are stubs for MS _i64 versions */
   long long  __cdecl atoll (const char *);
 
 #ifndef __STRICT_ANSI__
@@ -487,8 +487,8 @@ extern "C" {
   __CRT_INLINE char *__cdecl lltoa (long long _n, char * _c, int _i) { return _i64toa (_n, _c, _i); }
   __CRT_INLINE char *__cdecl ulltoa (unsigned long long _n, char * _c, int _i) { return _ui64toa (_n, _c, _i); }
   __CRT_INLINE long long  __cdecl wtoll (const wchar_t * _w) { return _wtoi64 (_w); }
-  __CRT_INLINE wchar_t *__cdecl lltow (long long _n, wchar_t * _w, int _i) { return _i64tow (_n, _w, _i); } 
-  __CRT_INLINE wchar_t *__cdecl ulltow (unsigned long long _n, wchar_t * _w, int _i) { return _ui64tow (_n, _w, _i); } 
+  __CRT_INLINE wchar_t *__cdecl lltow (long long _n, wchar_t * _w, int _i) { return _i64tow (_n, _w, _i); }
+  __CRT_INLINE wchar_t *__cdecl ulltow (unsigned long long _n, wchar_t * _w, int _i) { return _ui64tow (_n, _w, _i); }
 #endif /* (__STRICT_ANSI__)  */
 
 #endif /* !__NO_ISOCEXT */
@@ -500,5 +500,6 @@ extern "C" {
 #pragma pack(pop)
 
 #include <sec_api/stdlib_s.h>
+#include <malloc.h>
 
 #endif

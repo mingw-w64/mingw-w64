@@ -24,27 +24,27 @@
 
 #ifndef __ISnapinProperties_FWD_DEFINED__
 #define __ISnapinProperties_FWD_DEFINED__
-typedef interface ISnapinProperties ISnapinProperties;
+typedef struct ISnapinProperties ISnapinProperties;
 #endif
 
 #ifndef __ISnapinPropertiesCallback_FWD_DEFINED__
 #define __ISnapinPropertiesCallback_FWD_DEFINED__
-typedef interface ISnapinPropertiesCallback ISnapinPropertiesCallback;
+typedef struct ISnapinPropertiesCallback ISnapinPropertiesCallback;
 #endif
 
 #ifndef ___Application_FWD_DEFINED__
 #define ___Application_FWD_DEFINED__
-typedef interface _Application _Application;
+typedef struct _Application _Application;
 #endif
 
 #ifndef ___AppEvents_FWD_DEFINED__
 #define ___AppEvents_FWD_DEFINED__
-typedef interface _AppEvents _AppEvents;
+typedef struct _AppEvents _AppEvents;
 #endif
 
 #ifndef __AppEvents_FWD_DEFINED__
 #define __AppEvents_FWD_DEFINED__
-typedef interface AppEvents AppEvents;
+typedef struct AppEvents AppEvents;
 #endif
 
 #ifndef __Application_FWD_DEFINED__
@@ -58,7 +58,7 @@ typedef struct Application Application;
 
 #ifndef ___EventConnector_FWD_DEFINED__
 #define ___EventConnector_FWD_DEFINED__
-typedef interface _EventConnector _EventConnector;
+typedef struct _EventConnector _EventConnector;
 #endif
 
 #ifndef __AppEventsDHTMLConnector_FWD_DEFINED__
@@ -72,87 +72,87 @@ typedef struct AppEventsDHTMLConnector AppEventsDHTMLConnector;
 
 #ifndef __Frame_FWD_DEFINED__
 #define __Frame_FWD_DEFINED__
-typedef interface Frame Frame;
+typedef struct Frame Frame;
 #endif
 
 #ifndef __Node_FWD_DEFINED__
 #define __Node_FWD_DEFINED__
-typedef interface Node Node;
+typedef struct Node Node;
 #endif
 
 #ifndef __ScopeNamespace_FWD_DEFINED__
 #define __ScopeNamespace_FWD_DEFINED__
-typedef interface ScopeNamespace ScopeNamespace;
+typedef struct ScopeNamespace ScopeNamespace;
 #endif
 
 #ifndef __Document_FWD_DEFINED__
 #define __Document_FWD_DEFINED__
-typedef interface Document Document;
+typedef struct Document Document;
 #endif
 
 #ifndef __SnapIn_FWD_DEFINED__
 #define __SnapIn_FWD_DEFINED__
-typedef interface SnapIn SnapIn;
+typedef struct SnapIn SnapIn;
 #endif
 
 #ifndef __SnapIns_FWD_DEFINED__
 #define __SnapIns_FWD_DEFINED__
-typedef interface SnapIns SnapIns;
+typedef struct SnapIns SnapIns;
 #endif
 
 #ifndef __Extension_FWD_DEFINED__
 #define __Extension_FWD_DEFINED__
-typedef interface Extension Extension;
+typedef struct Extension Extension;
 #endif
 
 #ifndef __Extensions_FWD_DEFINED__
 #define __Extensions_FWD_DEFINED__
-typedef interface Extensions Extensions;
+typedef struct Extensions Extensions;
 #endif
 
 #ifndef __Columns_FWD_DEFINED__
 #define __Columns_FWD_DEFINED__
-typedef interface Columns Columns;
+typedef struct Columns Columns;
 #endif
 
 #ifndef __Column_FWD_DEFINED__
 #define __Column_FWD_DEFINED__
-typedef interface Column Column;
+typedef struct Column Column;
 #endif
 
 #ifndef __Views_FWD_DEFINED__
 #define __Views_FWD_DEFINED__
-typedef interface Views Views;
+typedef struct Views Views;
 #endif
 
 #ifndef __View_FWD_DEFINED__
 #define __View_FWD_DEFINED__
-typedef interface View View;
+typedef struct View View;
 #endif
 
 #ifndef __Nodes_FWD_DEFINED__
 #define __Nodes_FWD_DEFINED__
-typedef interface Nodes Nodes;
+typedef struct Nodes Nodes;
 #endif
 
 #ifndef __ContextMenu_FWD_DEFINED__
 #define __ContextMenu_FWD_DEFINED__
-typedef interface ContextMenu ContextMenu;
+typedef struct ContextMenu ContextMenu;
 #endif
 
 #ifndef __MenuItem_FWD_DEFINED__
 #define __MenuItem_FWD_DEFINED__
-typedef interface MenuItem MenuItem;
+typedef struct MenuItem MenuItem;
 #endif
 
 #ifndef __Properties_FWD_DEFINED__
 #define __Properties_FWD_DEFINED__
-typedef interface Properties Properties;
+typedef struct Properties Properties;
 #endif
 
 #ifndef __Property_FWD_DEFINED__
 #define __Property_FWD_DEFINED__
-typedef interface Property Property;
+typedef struct Property Property;
 #endif
 
 #include "oaidl.h"
@@ -249,7 +249,7 @@ extern "C"{
       HRESULT (WINAPI *PropertiesChanged)(ISnapinProperties *This,long cProperties,MMC_SNAPIN_PROPERTY *pProperties);
     END_INTERFACE
   } ISnapinPropertiesVtbl;
-  interface ISnapinProperties {
+  struct ISnapinProperties {
     CONST_VTBL struct ISnapinPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -293,7 +293,7 @@ extern "C"{
       HRESULT (WINAPI *AddPropertyName)(ISnapinPropertiesCallback *This,LPCOLESTR pszPropName,DWORD dwFlags);
     END_INTERFACE
   } ISnapinPropertiesCallbackVtbl;
-  interface ISnapinPropertiesCallback {
+  struct ISnapinPropertiesCallback {
     CONST_VTBL struct ISnapinPropertiesCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -385,7 +385,7 @@ extern "C"{
       HRESULT (WINAPI *get_VersionMinor)(_Application *This,PLONG VersionMinor);
     END_INTERFACE
   } _ApplicationVtbl;
-  interface _Application {
+  struct _Application {
     CONST_VTBL struct _ApplicationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -479,7 +479,7 @@ extern "C"{
       HRESULT (WINAPI *OnListUpdated)(_AppEvents *This,PVIEW View);
     END_INTERFACE
   } _AppEventsVtbl;
-  interface _AppEvents {
+  struct _AppEvents {
     CONST_VTBL struct _AppEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -548,7 +548,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(AppEvents *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } AppEventsVtbl;
-  interface AppEvents {
+  struct AppEvents {
     CONST_VTBL struct AppEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -590,7 +590,7 @@ extern "C"{
       HRESULT (WINAPI *Disconnect)(_EventConnector *This);
     END_INTERFACE
   } _EventConnectorVtbl;
-  interface _EventConnector {
+  struct _EventConnector {
     CONST_VTBL struct _EventConnectorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -657,7 +657,7 @@ extern "C"{
       HRESULT (WINAPI *put_Right)(Frame *This,int right);
     END_INTERFACE
   } FrameVtbl;
-  interface Frame {
+  struct Frame {
     CONST_VTBL struct FrameVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -734,7 +734,7 @@ extern "C"{
       HRESULT (WINAPI *get_Nodetype)(Node *This,PBSTR Nodetype);
     END_INTERFACE
   } NodeVtbl;
-  interface Node {
+  struct Node {
     CONST_VTBL struct NodeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -793,7 +793,7 @@ extern "C"{
       HRESULT (WINAPI *Expand)(ScopeNamespace *This,PNODE Node);
     END_INTERFACE
   } ScopeNamespaceVtbl;
-  interface ScopeNamespace {
+  struct ScopeNamespace {
     CONST_VTBL struct ScopeNamespaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -874,7 +874,7 @@ extern "C"{
       HRESULT (WINAPI *get_Application)(Document *This,PPAPPLICATION Application);
     END_INTERFACE
   } DocumentVtbl;
-  interface Document {
+  struct Document {
     CONST_VTBL struct DocumentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -970,7 +970,7 @@ extern "C"{
       HRESULT (WINAPI *EnableAllExtensions)(SnapIn *This,WINBOOL Enable);
     END_INTERFACE
   } SnapInVtbl;
-  interface SnapIn {
+  struct SnapIn {
     CONST_VTBL struct SnapInVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1035,7 +1035,7 @@ extern "C"{
       HRESULT (WINAPI *Remove)(SnapIns *This,PSNAPIN SnapIn);
     END_INTERFACE
   } SnapInsVtbl;
-  interface SnapIns {
+  struct SnapIns {
     CONST_VTBL struct SnapInsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1098,7 +1098,7 @@ extern "C"{
       HRESULT (WINAPI *Enable)(Extension *This,WINBOOL Enable);
     END_INTERFACE
   } ExtensionVtbl;
-  interface Extension {
+  struct Extension {
     CONST_VTBL struct ExtensionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1159,7 +1159,7 @@ extern "C"{
       HRESULT (WINAPI *get_Count)(Extensions *This,PLONG Count);
     END_INTERFACE
   } ExtensionsVtbl;
-  interface Extensions {
+  struct Extensions {
     CONST_VTBL struct ExtensionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1208,7 +1208,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(Columns *This,IUnknown **retval);
     END_INTERFACE
   } ColumnsVtbl;
-  interface Columns {
+  struct Columns {
     CONST_VTBL struct ColumnsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1275,7 +1275,7 @@ extern "C"{
       HRESULT (WINAPI *IsSortColumn)(Column *This,PBOOL IsSortColumn);
     END_INTERFACE
   } ColumnVtbl;
-  interface Column {
+  struct Column {
     CONST_VTBL struct ColumnVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1344,7 +1344,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(Views *This,IUnknown **retval);
     END_INTERFACE
   } ViewsVtbl;
-  interface Views {
+  struct Views {
     CONST_VTBL struct ViewsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1474,7 +1474,7 @@ extern "C"{
       HRESULT (WINAPI *get_ControlObject)(View *This,PPDISPATCH Control);
     END_INTERFACE
   } ViewVtbl;
-  interface View {
+  struct View {
     CONST_VTBL struct ViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1640,7 +1640,7 @@ extern "C"{
       HRESULT (WINAPI *get_Count)(Nodes *This,PLONG Count);
     END_INTERFACE
   } NodesVtbl;
-  interface Nodes {
+  struct Nodes {
     CONST_VTBL struct NodesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1689,7 +1689,7 @@ extern "C"{
       HRESULT (WINAPI *get_Count)(ContextMenu *This,PLONG Count);
     END_INTERFACE
   } ContextMenuVtbl;
-  interface ContextMenu {
+  struct ContextMenu {
     CONST_VTBL struct ContextMenuVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1744,7 +1744,7 @@ extern "C"{
       HRESULT (WINAPI *get_Enabled)(MenuItem *This,PBOOL Enabled);
     END_INTERFACE
   } MenuItemVtbl;
-  interface MenuItem {
+  struct MenuItem {
     CONST_VTBL struct MenuItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1804,7 +1804,7 @@ extern "C"{
       HRESULT (WINAPI *Remove)(Properties *This,BSTR Name);
     END_INTERFACE
   } PropertiesVtbl;
-  interface Properties {
+  struct Properties {
     CONST_VTBL struct PropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1856,7 +1856,7 @@ extern "C"{
       HRESULT (WINAPI *get_Name)(Property *This,PBSTR Name);
     END_INTERFACE
   } PropertyVtbl;
-  interface Property {
+  struct Property {
     CONST_VTBL struct PropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

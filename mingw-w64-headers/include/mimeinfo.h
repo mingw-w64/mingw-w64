@@ -24,7 +24,7 @@
 
 #ifndef __IMimeInfo_FWD_DEFINED__
 #define __IMimeInfo_FWD_DEFINED__
-typedef interface IMimeInfo IMimeInfo;
+typedef struct IMimeInfo IMimeInfo;
 #endif
 
 #include "objidl.h"
@@ -59,7 +59,7 @@ extern "C" {
       HRESULT (WINAPI *GetMimeCLSIDMapping)(IMimeInfo *This,UINT *pcTypes,LPCSTR **ppszTypes,CLSID **ppclsID);
     END_INTERFACE
   } IMimeInfoVtbl;
-  interface IMimeInfo {
+  struct IMimeInfo {
     CONST_VTBL struct IMimeInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

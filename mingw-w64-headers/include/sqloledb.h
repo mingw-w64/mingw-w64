@@ -246,12 +246,12 @@ struct SSVARIANT {
 };
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IUMSInitialize : public IUnknown {
+struct IUMSInitialize : public IUnknown {
 public:
   virtual HRESULT WINAPI Initialize (VOID *pUMS) = 0;
 };
 
-interface IUMS {
+struct IUMS {
 public:
   virtual VOID WINAPI SqlUmsSuspend (ULONG ticks) = 0;
   virtual VOID WINAPI SqlUmsYield (ULONG ticks) = 0;
@@ -286,17 +286,17 @@ extern "C" {
 
 #ifndef __ISQLServerErrorInfo_FWD_DEFINED__
 #define __ISQLServerErrorInfo_FWD_DEFINED__
-  typedef interface ISQLServerErrorInfo ISQLServerErrorInfo;
+  typedef struct ISQLServerErrorInfo ISQLServerErrorInfo;
 #endif
 
 #ifndef __IRowsetFastLoad_FWD_DEFINED__
 #define __IRowsetFastLoad_FWD_DEFINED__
-  typedef interface IRowsetFastLoad IRowsetFastLoad;
+  typedef struct IRowsetFastLoad IRowsetFastLoad;
 #endif
 
 #ifndef __ISchemaLock_FWD_DEFINED__
 #define __ISchemaLock_FWD_DEFINED__
-  typedef interface ISchemaLock ISchemaLock;
+  typedef struct ISchemaLock ISchemaLock;
 #endif
 
 #include "unknwn.h"
@@ -333,7 +333,7 @@ extern "C" {
       HRESULT (WINAPI *GetErrorInfo)(ISQLServerErrorInfo *This,SSERRORINFO **ppErrorInfo,OLECHAR **ppStringsBuffer);
     END_INTERFACE
   } ISQLServerErrorInfoVtbl;
-  interface ISQLServerErrorInfo {
+  struct ISQLServerErrorInfo {
     CONST_VTBL struct ISQLServerErrorInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -374,7 +374,7 @@ extern "C" {
       HRESULT (WINAPI *Commit)(IRowsetFastLoad *This,WINBOOL fDone);
     END_INTERFACE
   } IRowsetFastLoadVtbl;
-  interface IRowsetFastLoad {
+  struct IRowsetFastLoad {
     CONST_VTBL struct IRowsetFastLoadVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -418,7 +418,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseSchemaLock)(ISchemaLock *This,HANDLE hLockHandle);
     END_INTERFACE
   } ISchemaLockVtbl;
-  interface ISchemaLock {
+  struct ISchemaLock {
     CONST_VTBL struct ISchemaLockVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

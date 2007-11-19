@@ -15,47 +15,47 @@
 
 #ifndef __IEnumRegisterWordA_FWD_DEFINED__
 #define __IEnumRegisterWordA_FWD_DEFINED__
-typedef interface IEnumRegisterWordA IEnumRegisterWordA;
+typedef struct IEnumRegisterWordA IEnumRegisterWordA;
 #endif
 
 #ifndef __IEnumRegisterWordW_FWD_DEFINED__
 #define __IEnumRegisterWordW_FWD_DEFINED__
-typedef interface IEnumRegisterWordW IEnumRegisterWordW;
+typedef struct IEnumRegisterWordW IEnumRegisterWordW;
 #endif
 
 #ifndef __IEnumInputContext_FWD_DEFINED__
 #define __IEnumInputContext_FWD_DEFINED__
-typedef interface IEnumInputContext IEnumInputContext;
+typedef struct IEnumInputContext IEnumInputContext;
 #endif
 
 #ifndef __IActiveIMMRegistrar_FWD_DEFINED__
 #define __IActiveIMMRegistrar_FWD_DEFINED__
-typedef interface IActiveIMMRegistrar IActiveIMMRegistrar;
+typedef struct IActiveIMMRegistrar IActiveIMMRegistrar;
 #endif
 
 #ifndef __IActiveIMMMessagePumpOwner_FWD_DEFINED__
 #define __IActiveIMMMessagePumpOwner_FWD_DEFINED__
-typedef interface IActiveIMMMessagePumpOwner IActiveIMMMessagePumpOwner;
+typedef struct IActiveIMMMessagePumpOwner IActiveIMMMessagePumpOwner;
 #endif
 
 #ifndef __IActiveIMMApp_FWD_DEFINED__
 #define __IActiveIMMApp_FWD_DEFINED__
-typedef interface IActiveIMMApp IActiveIMMApp;
+typedef struct IActiveIMMApp IActiveIMMApp;
 #endif
 
 #ifndef __IActiveIMMIME_FWD_DEFINED__
 #define __IActiveIMMIME_FWD_DEFINED__
-typedef interface IActiveIMMIME IActiveIMMIME;
+typedef struct IActiveIMMIME IActiveIMMIME;
 #endif
 
 #ifndef __IActiveIME_FWD_DEFINED__
 #define __IActiveIME_FWD_DEFINED__
-typedef interface IActiveIME IActiveIME;
+typedef struct IActiveIME IActiveIME;
 #endif
 
 #ifndef __IActiveIME2_FWD_DEFINED__
 #define __IActiveIME2_FWD_DEFINED__
-typedef interface IActiveIME2 IActiveIME2;
+typedef struct IActiveIME2 IActiveIME2;
 #endif
 
 #ifndef __CActiveIMM_FWD_DEFINED__
@@ -143,7 +143,7 @@ extern "C"{
       HRESULT (WINAPI *Skip)(IEnumRegisterWordA *This,ULONG ulCount);
     END_INTERFACE
   } IEnumRegisterWordAVtbl;
-  interface IEnumRegisterWordA {
+  struct IEnumRegisterWordA {
     CONST_VTBL struct IEnumRegisterWordAVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -189,7 +189,7 @@ extern "C"{
       HRESULT (WINAPI *Skip)(IEnumRegisterWordW *This,ULONG ulCount);
     END_INTERFACE
   } IEnumRegisterWordWVtbl;
-  interface IEnumRegisterWordW {
+  struct IEnumRegisterWordW {
     CONST_VTBL struct IEnumRegisterWordWVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -235,7 +235,7 @@ extern "C"{
       HRESULT (WINAPI *Skip)(IEnumInputContext *This,ULONG ulCount);
     END_INTERFACE
   } IEnumInputContextVtbl;
-  interface IEnumInputContext {
+  struct IEnumInputContext {
     CONST_VTBL struct IEnumInputContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -277,7 +277,7 @@ extern "C"{
       HRESULT (WINAPI *UnregisterIME)(IActiveIMMRegistrar *This,REFCLSID rclsid);
     END_INTERFACE
   } IActiveIMMRegistrarVtbl;
-  interface IActiveIMMRegistrar {
+  struct IActiveIMMRegistrar {
     CONST_VTBL struct IActiveIMMRegistrarVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -319,7 +319,7 @@ extern "C"{
       HRESULT (WINAPI *Resume)(IActiveIMMMessagePumpOwner *This,DWORD dwCookie);
     END_INTERFACE
   } IActiveIMMMessagePumpOwnerVtbl;
-  interface IActiveIMMMessagePumpOwner {
+  struct IActiveIMMMessagePumpOwner {
     CONST_VTBL struct IActiveIMMMessagePumpOwnerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -496,7 +496,7 @@ extern "C"{
       HRESULT (WINAPI *EnumInputContext)(IActiveIMMApp *This,DWORD idThread,IEnumInputContext **ppEnum);
     END_INTERFACE
   } IActiveIMMAppVtbl;
-  interface IActiveIMMApp {
+  struct IActiveIMMApp {
     CONST_VTBL struct IActiveIMMAppVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -902,7 +902,7 @@ extern "C"{
       HRESULT (WINAPI *IsSleeping)(IActiveIMMIME *This);
     END_INTERFACE
   } IActiveIMMIMEVtbl;
-  interface IActiveIMMIME {
+  struct IActiveIMMIME {
     CONST_VTBL struct IActiveIMMIMEVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1226,7 +1226,7 @@ extern "C"{
       HRESULT (WINAPI *GetLangId)(IActiveIME *This,LANGID *plid);
     END_INTERFACE
   } IActiveIMEVtbl;
-  interface IActiveIME {
+  struct IActiveIME {
     CONST_VTBL struct IActiveIMEVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1324,7 +1324,7 @@ extern "C"{
       HRESULT (WINAPI *Unsleep)(IActiveIME2 *This,WINBOOL fDead);
     END_INTERFACE
   } IActiveIME2Vtbl;
-  interface IActiveIME2 {
+  struct IActiveIME2 {
     CONST_VTBL struct IActiveIME2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

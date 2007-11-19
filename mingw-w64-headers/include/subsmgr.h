@@ -24,27 +24,27 @@
 
 #ifndef __IEnumItemProperties_FWD_DEFINED__
 #define __IEnumItemProperties_FWD_DEFINED__
-typedef interface IEnumItemProperties IEnumItemProperties;
+typedef struct IEnumItemProperties IEnumItemProperties;
 #endif
 
 #ifndef __ISubscriptionItem_FWD_DEFINED__
 #define __ISubscriptionItem_FWD_DEFINED__
-typedef interface ISubscriptionItem ISubscriptionItem;
+typedef struct ISubscriptionItem ISubscriptionItem;
 #endif
 
 #ifndef __IEnumSubscription_FWD_DEFINED__
 #define __IEnumSubscription_FWD_DEFINED__
-typedef interface IEnumSubscription IEnumSubscription;
+typedef struct IEnumSubscription IEnumSubscription;
 #endif
 
 #ifndef __ISubscriptionMgr_FWD_DEFINED__
 #define __ISubscriptionMgr_FWD_DEFINED__
-typedef interface ISubscriptionMgr ISubscriptionMgr;
+typedef struct ISubscriptionMgr ISubscriptionMgr;
 #endif
 
 #ifndef __ISubscriptionMgr2_FWD_DEFINED__
 #define __ISubscriptionMgr2_FWD_DEFINED__
-typedef interface ISubscriptionMgr2 ISubscriptionMgr2;
+typedef struct ISubscriptionMgr2 ISubscriptionMgr2;
 #endif
 
 #ifndef __SubscriptionMgr_FWD_DEFINED__
@@ -105,7 +105,7 @@ extern "C" {
       HRESULT (WINAPI *GetCount)(IEnumItemProperties *This,ULONG *pnCount);
     END_INTERFACE
   } IEnumItemPropertiesVtbl;
-  interface IEnumItemProperties {
+  struct IEnumItemProperties {
     CONST_VTBL struct IEnumItemPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -175,7 +175,7 @@ extern "C" {
       HRESULT (WINAPI *NotifyChanged)(ISubscriptionItem *This);
     END_INTERFACE
   } ISubscriptionItemVtbl;
-  interface ISubscriptionItem {
+  struct ISubscriptionItem {
     CONST_VTBL struct ISubscriptionItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -234,7 +234,7 @@ extern "C" {
       HRESULT (WINAPI *GetCount)(IEnumSubscription *This,ULONG *pnCount);
     END_INTERFACE
   } IEnumSubscriptionVtbl;
-  interface IEnumSubscription {
+  struct IEnumSubscription {
     CONST_VTBL struct IEnumSubscriptionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -341,7 +341,7 @@ extern "C" {
       HRESULT (WINAPI *CreateSubscription)(ISubscriptionMgr *This,HWND hwnd,LPCWSTR pwszURL,LPCWSTR pwszFriendlyName,DWORD dwFlags,SUBSCRIPTIONTYPE subsType,SUBSCRIPTIONINFO *pInfo);
     END_INTERFACE
   } ISubscriptionMgrVtbl;
-  interface ISubscriptionMgr {
+  struct ISubscriptionMgr {
     CONST_VTBL struct ISubscriptionMgrVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -426,7 +426,7 @@ extern "C" {
       HRESULT (WINAPI *AbortAll)(ISubscriptionMgr2 *This);
     END_INTERFACE
   } ISubscriptionMgr2Vtbl;
-  interface ISubscriptionMgr2 {
+  struct ISubscriptionMgr2 {
     CONST_VTBL struct ISubscriptionMgr2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

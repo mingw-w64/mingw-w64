@@ -24,17 +24,17 @@
 
 #ifndef __IDelaydC_FWD_DEFINED__
 #define __IDelaydC_FWD_DEFINED__
-typedef interface IDelaydC IDelaydC;
+typedef struct IDelaydC IDelaydC;
 #endif
 
 #ifndef __IRTC_FWD_DEFINED__
 #define __IRTC_FWD_DEFINED__
-typedef interface IRTC IRTC;
+typedef struct IRTC IRTC;
 #endif
 
 #ifndef __IStats_FWD_DEFINED__
 #define __IStats_FWD_DEFINED__
-typedef interface IStats IStats;
+typedef struct IStats IStats;
 #endif
 
 #include "unknwn.h"
@@ -2932,7 +2932,7 @@ extern "C"{
       HRESULT (WINAPI *QueryStations)(IDelaydC *This,QUERYTABLE *lpQueryTable);
     END_INTERFACE
   } IDelaydCVtbl;
-  interface IDelaydC {
+  struct IDelaydC {
     CONST_VTBL struct IDelaydCVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3028,7 +3028,7 @@ extern "C"{
       HRESULT (WINAPI *QueryStations)(IRTC *This,QUERYTABLE *lpQueryTable);
     END_INTERFACE
   } IRTCVtbl;
-  interface IRTC {
+  struct IRTC {
     CONST_VTBL struct IRTCVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3122,7 +3122,7 @@ extern "C"{
       HRESULT (WINAPI *QueryStations)(IStats *This,QUERYTABLE *lpQueryTable);
     END_INTERFACE
   } IStatsVtbl;
-  interface IStats {
+  struct IStats {
     CONST_VTBL struct IStatsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

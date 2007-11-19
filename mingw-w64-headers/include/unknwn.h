@@ -25,17 +25,17 @@
 
 #ifndef __IUnknown_FWD_DEFINED__
 #define __IUnknown_FWD_DEFINED__
-typedef interface IUnknown IUnknown;
+typedef struct IUnknown IUnknown;
 #endif
 
 #ifndef __AsyncIUnknown_FWD_DEFINED__
 #define __AsyncIUnknown_FWD_DEFINED__
-typedef interface AsyncIUnknown AsyncIUnknown;
+typedef struct AsyncIUnknown AsyncIUnknown;
 #endif
 
 #ifndef __IClassFactory_FWD_DEFINED__
 #define __IClassFactory_FWD_DEFINED__
-typedef interface IClassFactory IClassFactory;
+typedef struct IClassFactory IClassFactory;
 #endif
 
 #include "wtypes.h"
@@ -95,7 +95,7 @@ extern "C" {
       ULONG (WINAPI *Release)(IUnknown *This);
     END_INTERFACE
   } IUnknownVtbl;
-  interface IUnknown {
+  struct IUnknown {
     CONST_VTBL struct IUnknownVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -142,7 +142,7 @@ extern "C" {
       ULONG (WINAPI *Finish_Release)(AsyncIUnknown *This);
     END_INTERFACE
   } AsyncIUnknownVtbl;
-  interface AsyncIUnknown {
+  struct AsyncIUnknown {
     CONST_VTBL struct AsyncIUnknownVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -192,7 +192,7 @@ extern "C" {
       HRESULT (WINAPI *LockServer)(IClassFactory *This,WINBOOL fLock);
     END_INTERFACE
   } IClassFactoryVtbl;
-  interface IClassFactory {
+  struct IClassFactory {
     CONST_VTBL struct IClassFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

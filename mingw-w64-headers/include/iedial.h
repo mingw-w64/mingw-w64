@@ -24,17 +24,17 @@
 
 #ifndef __IDialEventSink_FWD_DEFINED__
 #define __IDialEventSink_FWD_DEFINED__
-typedef interface IDialEventSink IDialEventSink;
+typedef struct IDialEventSink IDialEventSink;
 #endif
 
 #ifndef __IDialEngine_FWD_DEFINED__
 #define __IDialEngine_FWD_DEFINED__
-typedef interface IDialEngine IDialEngine;
+typedef struct IDialEngine IDialEngine;
 #endif
 
 #ifndef __IDialBranding_FWD_DEFINED__
 #define __IDialBranding_FWD_DEFINED__
-typedef interface IDialBranding IDialBranding;
+typedef struct IDialBranding IDialBranding;
 #endif
 
 #include "unknwn.h"
@@ -66,7 +66,7 @@ extern "C"{
       HRESULT (WINAPI *OnEvent)(IDialEventSink *This,DWORD dwEvent,DWORD dwStatus);
     END_INTERFACE
   } IDialEventSinkVtbl;
-  interface IDialEventSink {
+  struct IDialEventSink {
     CONST_VTBL struct IDialEventSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -109,7 +109,7 @@ extern "C"{
       HRESULT (WINAPI *GetConnectHandle)(IDialEngine *This,DWORD_PTR *pdwHandle);
     END_INTERFACE
   } IDialEngineVtbl;
-  interface IDialEngine {
+  struct IDialEngine {
     CONST_VTBL struct IDialEngineVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -160,7 +160,7 @@ extern "C"{
       HRESULT (WINAPI *GetBitmap)(IDialBranding *This,DWORD dwIndex,HBITMAP *phBitmap);
     END_INTERFACE
   } IDialBrandingVtbl;
-  interface IDialBranding {
+  struct IDialBranding {
     CONST_VTBL struct IDialBrandingVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,7 +24,7 @@
 
 #ifndef __IWmiXMLTransformer_FWD_DEFINED__
 #define __IWmiXMLTransformer_FWD_DEFINED__
-typedef interface IWmiXMLTransformer IWmiXMLTransformer;
+typedef struct IWmiXMLTransformer IWmiXMLTransformer;
 #endif
 
 #ifndef __WmiXMLTransformer_FWD_DEFINED__
@@ -38,12 +38,12 @@ typedef struct WmiXMLTransformer WmiXMLTransformer;
 
 #ifndef __ISWbemXMLDocumentSet_FWD_DEFINED__
 #define __ISWbemXMLDocumentSet_FWD_DEFINED__
-typedef interface ISWbemXMLDocumentSet ISWbemXMLDocumentSet;
+typedef struct ISWbemXMLDocumentSet ISWbemXMLDocumentSet;
 #endif
 
 #ifndef __IWmiXMLTransformer_FWD_DEFINED__
 #define __IWmiXMLTransformer_FWD_DEFINED__
-typedef interface IWmiXMLTransformer IWmiXMLTransformer;
+typedef struct IWmiXMLTransformer IWmiXMLTransformer;
 #endif
 
 #include "msxml.h"
@@ -145,7 +145,7 @@ extern "C" {
       HRESULT (WINAPI *get_CompilationErrors)(IWmiXMLTransformer *This,BSTR *pstrErrors);
     END_INTERFACE
   } IWmiXMLTransformerVtbl;
-  interface IWmiXMLTransformer {
+  struct IWmiXMLTransformer {
     CONST_VTBL struct IWmiXMLTransformerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -282,7 +282,7 @@ extern "C" {
       HRESULT (WINAPI *SkipNextDocument)(ISWbemXMLDocumentSet *This);
     END_INTERFACE
   } ISWbemXMLDocumentSetVtbl;
-  interface ISWbemXMLDocumentSet {
+  struct ISWbemXMLDocumentSet {
     CONST_VTBL struct ISWbemXMLDocumentSetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

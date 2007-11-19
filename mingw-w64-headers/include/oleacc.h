@@ -24,52 +24,52 @@
 
 #ifndef __IAccessible_FWD_DEFINED__
 #define __IAccessible_FWD_DEFINED__
-typedef interface IAccessible IAccessible;
+typedef struct IAccessible IAccessible;
 #endif
 
 #ifndef __IAccessibleHandler_FWD_DEFINED__
 #define __IAccessibleHandler_FWD_DEFINED__
-typedef interface IAccessibleHandler IAccessibleHandler;
+typedef struct IAccessibleHandler IAccessibleHandler;
 #endif
 
 #ifndef __IAccIdentity_FWD_DEFINED__
 #define __IAccIdentity_FWD_DEFINED__
-typedef interface IAccIdentity IAccIdentity;
+typedef struct IAccIdentity IAccIdentity;
 #endif
 
 #ifndef __IAccPropServer_FWD_DEFINED__
 #define __IAccPropServer_FWD_DEFINED__
-typedef interface IAccPropServer IAccPropServer;
+typedef struct IAccPropServer IAccPropServer;
 #endif
 
 #ifndef __IAccPropServices_FWD_DEFINED__
 #define __IAccPropServices_FWD_DEFINED__
-typedef interface IAccPropServices IAccPropServices;
+typedef struct IAccPropServices IAccPropServices;
 #endif
 
 #ifndef __IAccessible_FWD_DEFINED__
 #define __IAccessible_FWD_DEFINED__
-typedef interface IAccessible IAccessible;
+typedef struct IAccessible IAccessible;
 #endif
 
 #ifndef __IAccessibleHandler_FWD_DEFINED__
 #define __IAccessibleHandler_FWD_DEFINED__
-typedef interface IAccessibleHandler IAccessibleHandler;
+typedef struct IAccessibleHandler IAccessibleHandler;
 #endif
 
 #ifndef __IAccIdentity_FWD_DEFINED__
 #define __IAccIdentity_FWD_DEFINED__
-typedef interface IAccIdentity IAccIdentity;
+typedef struct IAccIdentity IAccIdentity;
 #endif
 
 #ifndef __IAccPropServer_FWD_DEFINED__
 #define __IAccPropServer_FWD_DEFINED__
-typedef interface IAccPropServer IAccPropServer;
+typedef struct IAccPropServer IAccPropServer;
 #endif
 
 #ifndef __IAccPropServices_FWD_DEFINED__
 #define __IAccPropServices_FWD_DEFINED__
-typedef interface IAccPropServices IAccPropServices;
+typedef struct IAccPropServices IAccPropServices;
 #endif
 
 #ifndef __CAccPropServices_FWD_DEFINED__
@@ -378,7 +378,7 @@ extern "C"{
       HRESULT (WINAPI *put_accValue)(IAccessible *This,VARIANT varChild,BSTR szValue);
     END_INTERFACE
   } IAccessibleVtbl;
-  interface IAccessible {
+  struct IAccessible {
     CONST_VTBL struct IAccessibleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -475,7 +475,7 @@ extern "C"{
       HRESULT (WINAPI *AccessibleObjectFromID)(IAccessibleHandler *This,long hwnd,long lObjectID,LPACCESSIBLE *pIAccessible);
     END_INTERFACE
   } IAccessibleHandlerVtbl;
-  interface IAccessibleHandler {
+  struct IAccessibleHandler {
     CONST_VTBL struct IAccessibleHandlerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -515,7 +515,7 @@ extern "C"{
       HRESULT (WINAPI *GetIdentityString)(IAccIdentity *This,DWORD dwIDChild,BYTE **ppIDString,DWORD *pdwIDStringLen);
     END_INTERFACE
   } IAccIdentityVtbl;
-  interface IAccIdentity {
+  struct IAccIdentity {
     CONST_VTBL struct IAccIdentityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -546,7 +546,7 @@ extern "C"{
       HRESULT (WINAPI *GetPropValue)(IAccPropServer *This,const BYTE *pIDString,DWORD dwIDStringLen,MSAAPROPID idProp,VARIANT *pvarValue,WINBOOL *pfHasProp);
     END_INTERFACE
   } IAccPropServerVtbl;
-  interface IAccPropServer {
+  struct IAccPropServer {
     CONST_VTBL struct IAccPropServerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -605,7 +605,7 @@ extern "C"{
       HRESULT (WINAPI *DecomposeHmenuIdentityString)(IAccPropServices *This,const BYTE *pIDString,DWORD dwIDStringLen,HMENU *phmenu,DWORD *pidChild);
     END_INTERFACE
   } IAccPropServicesVtbl;
-  interface IAccPropServices {
+  struct IAccPropServices {
     CONST_VTBL struct IAccPropServicesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,417 +24,417 @@
 
 #ifndef __ITTAPI_FWD_DEFINED__
 #define __ITTAPI_FWD_DEFINED__
-typedef interface ITTAPI ITTAPI;
+typedef struct ITTAPI ITTAPI;
 #endif
 
 #ifndef __ITTAPI2_FWD_DEFINED__
 #define __ITTAPI2_FWD_DEFINED__
-typedef interface ITTAPI2 ITTAPI2;
+typedef struct ITTAPI2 ITTAPI2;
 #endif
 
 #ifndef __ITMediaSupport_FWD_DEFINED__
 #define __ITMediaSupport_FWD_DEFINED__
-typedef interface ITMediaSupport ITMediaSupport;
+typedef struct ITMediaSupport ITMediaSupport;
 #endif
 
 #ifndef __ITPluggableTerminalClassInfo_FWD_DEFINED__
 #define __ITPluggableTerminalClassInfo_FWD_DEFINED__
-typedef interface ITPluggableTerminalClassInfo ITPluggableTerminalClassInfo;
+typedef struct ITPluggableTerminalClassInfo ITPluggableTerminalClassInfo;
 #endif
 
 #ifndef __ITPluggableTerminalSuperclassInfo_FWD_DEFINED__
 #define __ITPluggableTerminalSuperclassInfo_FWD_DEFINED__
-typedef interface ITPluggableTerminalSuperclassInfo ITPluggableTerminalSuperclassInfo;
+typedef struct ITPluggableTerminalSuperclassInfo ITPluggableTerminalSuperclassInfo;
 #endif
 
 #ifndef __ITTerminalSupport_FWD_DEFINED__
 #define __ITTerminalSupport_FWD_DEFINED__
-typedef interface ITTerminalSupport ITTerminalSupport;
+typedef struct ITTerminalSupport ITTerminalSupport;
 #endif
 
 #ifndef __ITTerminalSupport2_FWD_DEFINED__
 #define __ITTerminalSupport2_FWD_DEFINED__
-typedef interface ITTerminalSupport2 ITTerminalSupport2;
+typedef struct ITTerminalSupport2 ITTerminalSupport2;
 #endif
 
 #ifndef __ITAddress_FWD_DEFINED__
 #define __ITAddress_FWD_DEFINED__
-typedef interface ITAddress ITAddress;
+typedef struct ITAddress ITAddress;
 #endif
 
 #ifndef __ITAddress2_FWD_DEFINED__
 #define __ITAddress2_FWD_DEFINED__
-typedef interface ITAddress2 ITAddress2;
+typedef struct ITAddress2 ITAddress2;
 #endif
 
 #ifndef __ITAddressCapabilities_FWD_DEFINED__
 #define __ITAddressCapabilities_FWD_DEFINED__
-typedef interface ITAddressCapabilities ITAddressCapabilities;
+typedef struct ITAddressCapabilities ITAddressCapabilities;
 #endif
 
 #ifndef __ITPhone_FWD_DEFINED__
 #define __ITPhone_FWD_DEFINED__
-typedef interface ITPhone ITPhone;
+typedef struct ITPhone ITPhone;
 #endif
 
 #ifndef __ITAutomatedPhoneControl_FWD_DEFINED__
 #define __ITAutomatedPhoneControl_FWD_DEFINED__
-typedef interface ITAutomatedPhoneControl ITAutomatedPhoneControl;
+typedef struct ITAutomatedPhoneControl ITAutomatedPhoneControl;
 #endif
 
 #ifndef __ITBasicCallControl_FWD_DEFINED__
 #define __ITBasicCallControl_FWD_DEFINED__
-typedef interface ITBasicCallControl ITBasicCallControl;
+typedef struct ITBasicCallControl ITBasicCallControl;
 #endif
 
 #ifndef __ITCallInfo_FWD_DEFINED__
 #define __ITCallInfo_FWD_DEFINED__
-typedef interface ITCallInfo ITCallInfo;
+typedef struct ITCallInfo ITCallInfo;
 #endif
 
 #ifndef __ITCallInfo2_FWD_DEFINED__
 #define __ITCallInfo2_FWD_DEFINED__
-typedef interface ITCallInfo2 ITCallInfo2;
+typedef struct ITCallInfo2 ITCallInfo2;
 #endif
 
 #ifndef __ITTerminal_FWD_DEFINED__
 #define __ITTerminal_FWD_DEFINED__
-typedef interface ITTerminal ITTerminal;
+typedef struct ITTerminal ITTerminal;
 #endif
 
 #ifndef __ITMultiTrackTerminal_FWD_DEFINED__
 #define __ITMultiTrackTerminal_FWD_DEFINED__
-typedef interface ITMultiTrackTerminal ITMultiTrackTerminal;
+typedef struct ITMultiTrackTerminal ITMultiTrackTerminal;
 #endif
 
 #ifndef __ITFileTrack_FWD_DEFINED__
 #define __ITFileTrack_FWD_DEFINED__
-typedef interface ITFileTrack ITFileTrack;
+typedef struct ITFileTrack ITFileTrack;
 #endif
 
 #ifndef __ITMediaPlayback_FWD_DEFINED__
 #define __ITMediaPlayback_FWD_DEFINED__
-typedef interface ITMediaPlayback ITMediaPlayback;
+typedef struct ITMediaPlayback ITMediaPlayback;
 #endif
 
 #ifndef __ITMediaRecord_FWD_DEFINED__
 #define __ITMediaRecord_FWD_DEFINED__
-typedef interface ITMediaRecord ITMediaRecord;
+typedef struct ITMediaRecord ITMediaRecord;
 #endif
 
 #ifndef __ITMediaControl_FWD_DEFINED__
 #define __ITMediaControl_FWD_DEFINED__
-typedef interface ITMediaControl ITMediaControl;
+typedef struct ITMediaControl ITMediaControl;
 #endif
 
 #ifndef __ITBasicAudioTerminal_FWD_DEFINED__
 #define __ITBasicAudioTerminal_FWD_DEFINED__
-typedef interface ITBasicAudioTerminal ITBasicAudioTerminal;
+typedef struct ITBasicAudioTerminal ITBasicAudioTerminal;
 #endif
 
 #ifndef __ITStaticAudioTerminal_FWD_DEFINED__
 #define __ITStaticAudioTerminal_FWD_DEFINED__
-typedef interface ITStaticAudioTerminal ITStaticAudioTerminal;
+typedef struct ITStaticAudioTerminal ITStaticAudioTerminal;
 #endif
 
 #ifndef __ITCallHub_FWD_DEFINED__
 #define __ITCallHub_FWD_DEFINED__
-typedef interface ITCallHub ITCallHub;
+typedef struct ITCallHub ITCallHub;
 #endif
 
 #ifndef __ITLegacyAddressMediaControl_FWD_DEFINED__
 #define __ITLegacyAddressMediaControl_FWD_DEFINED__
-typedef interface ITLegacyAddressMediaControl ITLegacyAddressMediaControl;
+typedef struct ITLegacyAddressMediaControl ITLegacyAddressMediaControl;
 #endif
 
 #ifndef __ITPrivateEvent_FWD_DEFINED__
 #define __ITPrivateEvent_FWD_DEFINED__
-typedef interface ITPrivateEvent ITPrivateEvent;
+typedef struct ITPrivateEvent ITPrivateEvent;
 #endif
 
 #ifndef __ITLegacyAddressMediaControl2_FWD_DEFINED__
 #define __ITLegacyAddressMediaControl2_FWD_DEFINED__
-typedef interface ITLegacyAddressMediaControl2 ITLegacyAddressMediaControl2;
+typedef struct ITLegacyAddressMediaControl2 ITLegacyAddressMediaControl2;
 #endif
 
 #ifndef __ITLegacyCallMediaControl_FWD_DEFINED__
 #define __ITLegacyCallMediaControl_FWD_DEFINED__
-typedef interface ITLegacyCallMediaControl ITLegacyCallMediaControl;
+typedef struct ITLegacyCallMediaControl ITLegacyCallMediaControl;
 #endif
 
 #ifndef __ITLegacyCallMediaControl2_FWD_DEFINED__
 #define __ITLegacyCallMediaControl2_FWD_DEFINED__
-typedef interface ITLegacyCallMediaControl2 ITLegacyCallMediaControl2;
+typedef struct ITLegacyCallMediaControl2 ITLegacyCallMediaControl2;
 #endif
 
 #ifndef __ITDetectTone_FWD_DEFINED__
 #define __ITDetectTone_FWD_DEFINED__
-typedef interface ITDetectTone ITDetectTone;
+typedef struct ITDetectTone ITDetectTone;
 #endif
 
 #ifndef __ITCustomTone_FWD_DEFINED__
 #define __ITCustomTone_FWD_DEFINED__
-typedef interface ITCustomTone ITCustomTone;
+typedef struct ITCustomTone ITCustomTone;
 #endif
 
 #ifndef __IEnumPhone_FWD_DEFINED__
 #define __IEnumPhone_FWD_DEFINED__
-typedef interface IEnumPhone IEnumPhone;
+typedef struct IEnumPhone IEnumPhone;
 #endif
 
 #ifndef __IEnumTerminal_FWD_DEFINED__
 #define __IEnumTerminal_FWD_DEFINED__
-typedef interface IEnumTerminal IEnumTerminal;
+typedef struct IEnumTerminal IEnumTerminal;
 #endif
 
 #ifndef __IEnumTerminalClass_FWD_DEFINED__
 #define __IEnumTerminalClass_FWD_DEFINED__
-typedef interface IEnumTerminalClass IEnumTerminalClass;
+typedef struct IEnumTerminalClass IEnumTerminalClass;
 #endif
 
 #ifndef __IEnumCall_FWD_DEFINED__
 #define __IEnumCall_FWD_DEFINED__
-typedef interface IEnumCall IEnumCall;
+typedef struct IEnumCall IEnumCall;
 #endif
 
 #ifndef __IEnumAddress_FWD_DEFINED__
 #define __IEnumAddress_FWD_DEFINED__
-typedef interface IEnumAddress IEnumAddress;
+typedef struct IEnumAddress IEnumAddress;
 #endif
 
 #ifndef __IEnumCallHub_FWD_DEFINED__
 #define __IEnumCallHub_FWD_DEFINED__
-typedef interface IEnumCallHub IEnumCallHub;
+typedef struct IEnumCallHub IEnumCallHub;
 #endif
 
 #ifndef __IEnumBstr_FWD_DEFINED__
 #define __IEnumBstr_FWD_DEFINED__
-typedef interface IEnumBstr IEnumBstr;
+typedef struct IEnumBstr IEnumBstr;
 #endif
 
 #ifndef __IEnumPluggableTerminalClassInfo_FWD_DEFINED__
 #define __IEnumPluggableTerminalClassInfo_FWD_DEFINED__
-typedef interface IEnumPluggableTerminalClassInfo IEnumPluggableTerminalClassInfo;
+typedef struct IEnumPluggableTerminalClassInfo IEnumPluggableTerminalClassInfo;
 #endif
 
 #ifndef __IEnumPluggableSuperclassInfo_FWD_DEFINED__
 #define __IEnumPluggableSuperclassInfo_FWD_DEFINED__
-typedef interface IEnumPluggableSuperclassInfo IEnumPluggableSuperclassInfo;
+typedef struct IEnumPluggableSuperclassInfo IEnumPluggableSuperclassInfo;
 #endif
 
 #ifndef __ITPhoneEvent_FWD_DEFINED__
 #define __ITPhoneEvent_FWD_DEFINED__
-typedef interface ITPhoneEvent ITPhoneEvent;
+typedef struct ITPhoneEvent ITPhoneEvent;
 #endif
 
 #ifndef __ITCallStateEvent_FWD_DEFINED__
 #define __ITCallStateEvent_FWD_DEFINED__
-typedef interface ITCallStateEvent ITCallStateEvent;
+typedef struct ITCallStateEvent ITCallStateEvent;
 #endif
 
 #ifndef __ITPhoneDeviceSpecificEvent_FWD_DEFINED__
 #define __ITPhoneDeviceSpecificEvent_FWD_DEFINED__
-typedef interface ITPhoneDeviceSpecificEvent ITPhoneDeviceSpecificEvent;
+typedef struct ITPhoneDeviceSpecificEvent ITPhoneDeviceSpecificEvent;
 #endif
 
 #ifndef __ITCallMediaEvent_FWD_DEFINED__
 #define __ITCallMediaEvent_FWD_DEFINED__
-typedef interface ITCallMediaEvent ITCallMediaEvent;
+typedef struct ITCallMediaEvent ITCallMediaEvent;
 #endif
 
 #ifndef __ITDigitDetectionEvent_FWD_DEFINED__
 #define __ITDigitDetectionEvent_FWD_DEFINED__
-typedef interface ITDigitDetectionEvent ITDigitDetectionEvent;
+typedef struct ITDigitDetectionEvent ITDigitDetectionEvent;
 #endif
 
 #ifndef __ITDigitGenerationEvent_FWD_DEFINED__
 #define __ITDigitGenerationEvent_FWD_DEFINED__
-typedef interface ITDigitGenerationEvent ITDigitGenerationEvent;
+typedef struct ITDigitGenerationEvent ITDigitGenerationEvent;
 #endif
 
 #ifndef __ITDigitsGatheredEvent_FWD_DEFINED__
 #define __ITDigitsGatheredEvent_FWD_DEFINED__
-typedef interface ITDigitsGatheredEvent ITDigitsGatheredEvent;
+typedef struct ITDigitsGatheredEvent ITDigitsGatheredEvent;
 #endif
 
 #ifndef __ITToneDetectionEvent_FWD_DEFINED__
 #define __ITToneDetectionEvent_FWD_DEFINED__
-typedef interface ITToneDetectionEvent ITToneDetectionEvent;
+typedef struct ITToneDetectionEvent ITToneDetectionEvent;
 #endif
 
 #ifndef __ITTAPIObjectEvent_FWD_DEFINED__
 #define __ITTAPIObjectEvent_FWD_DEFINED__
-typedef interface ITTAPIObjectEvent ITTAPIObjectEvent;
+typedef struct ITTAPIObjectEvent ITTAPIObjectEvent;
 #endif
 
 #ifndef __ITTAPIObjectEvent2_FWD_DEFINED__
 #define __ITTAPIObjectEvent2_FWD_DEFINED__
-typedef interface ITTAPIObjectEvent2 ITTAPIObjectEvent2;
+typedef struct ITTAPIObjectEvent2 ITTAPIObjectEvent2;
 #endif
 
 #ifndef __ITTAPIEventNotification_FWD_DEFINED__
 #define __ITTAPIEventNotification_FWD_DEFINED__
-typedef interface ITTAPIEventNotification ITTAPIEventNotification;
+typedef struct ITTAPIEventNotification ITTAPIEventNotification;
 #endif
 
 #ifndef __ITCallHubEvent_FWD_DEFINED__
 #define __ITCallHubEvent_FWD_DEFINED__
-typedef interface ITCallHubEvent ITCallHubEvent;
+typedef struct ITCallHubEvent ITCallHubEvent;
 #endif
 
 #ifndef __ITAddressEvent_FWD_DEFINED__
 #define __ITAddressEvent_FWD_DEFINED__
-typedef interface ITAddressEvent ITAddressEvent;
+typedef struct ITAddressEvent ITAddressEvent;
 #endif
 
 #ifndef __ITAddressDeviceSpecificEvent_FWD_DEFINED__
 #define __ITAddressDeviceSpecificEvent_FWD_DEFINED__
-typedef interface ITAddressDeviceSpecificEvent ITAddressDeviceSpecificEvent;
+typedef struct ITAddressDeviceSpecificEvent ITAddressDeviceSpecificEvent;
 #endif
 
 #ifndef __ITFileTerminalEvent_FWD_DEFINED__
 #define __ITFileTerminalEvent_FWD_DEFINED__
-typedef interface ITFileTerminalEvent ITFileTerminalEvent;
+typedef struct ITFileTerminalEvent ITFileTerminalEvent;
 #endif
 
 #ifndef __ITTTSTerminalEvent_FWD_DEFINED__
 #define __ITTTSTerminalEvent_FWD_DEFINED__
-typedef interface ITTTSTerminalEvent ITTTSTerminalEvent;
+typedef struct ITTTSTerminalEvent ITTTSTerminalEvent;
 #endif
 
 #ifndef __ITASRTerminalEvent_FWD_DEFINED__
 #define __ITASRTerminalEvent_FWD_DEFINED__
-typedef interface ITASRTerminalEvent ITASRTerminalEvent;
+typedef struct ITASRTerminalEvent ITASRTerminalEvent;
 #endif
 
 #ifndef __ITToneTerminalEvent_FWD_DEFINED__
 #define __ITToneTerminalEvent_FWD_DEFINED__
-typedef interface ITToneTerminalEvent ITToneTerminalEvent;
+typedef struct ITToneTerminalEvent ITToneTerminalEvent;
 #endif
 
 #ifndef __ITQOSEvent_FWD_DEFINED__
 #define __ITQOSEvent_FWD_DEFINED__
-typedef interface ITQOSEvent ITQOSEvent;
+typedef struct ITQOSEvent ITQOSEvent;
 #endif
 
 #ifndef __ITCallInfoChangeEvent_FWD_DEFINED__
 #define __ITCallInfoChangeEvent_FWD_DEFINED__
-typedef interface ITCallInfoChangeEvent ITCallInfoChangeEvent;
+typedef struct ITCallInfoChangeEvent ITCallInfoChangeEvent;
 #endif
 
 #ifndef __ITRequest_FWD_DEFINED__
 #define __ITRequest_FWD_DEFINED__
-typedef interface ITRequest ITRequest;
+typedef struct ITRequest ITRequest;
 #endif
 
 #ifndef __ITRequestEvent_FWD_DEFINED__
 #define __ITRequestEvent_FWD_DEFINED__
-typedef interface ITRequestEvent ITRequestEvent;
+typedef struct ITRequestEvent ITRequestEvent;
 #endif
 
 #ifndef __ITCollection_FWD_DEFINED__
 #define __ITCollection_FWD_DEFINED__
-typedef interface ITCollection ITCollection;
+typedef struct ITCollection ITCollection;
 #endif
 
 #ifndef __ITCollection2_FWD_DEFINED__
 #define __ITCollection2_FWD_DEFINED__
-typedef interface ITCollection2 ITCollection2;
+typedef struct ITCollection2 ITCollection2;
 #endif
 
 #ifndef __ITForwardInformation_FWD_DEFINED__
 #define __ITForwardInformation_FWD_DEFINED__
-typedef interface ITForwardInformation ITForwardInformation;
+typedef struct ITForwardInformation ITForwardInformation;
 #endif
 
 #ifndef __ITForwardInformation2_FWD_DEFINED__
 #define __ITForwardInformation2_FWD_DEFINED__
-typedef interface ITForwardInformation2 ITForwardInformation2;
+typedef struct ITForwardInformation2 ITForwardInformation2;
 #endif
 
 #ifndef __ITAddressTranslation_FWD_DEFINED__
 #define __ITAddressTranslation_FWD_DEFINED__
-typedef interface ITAddressTranslation ITAddressTranslation;
+typedef struct ITAddressTranslation ITAddressTranslation;
 #endif
 
 #ifndef __ITAddressTranslationInfo_FWD_DEFINED__
 #define __ITAddressTranslationInfo_FWD_DEFINED__
-typedef interface ITAddressTranslationInfo ITAddressTranslationInfo;
+typedef struct ITAddressTranslationInfo ITAddressTranslationInfo;
 #endif
 
 #ifndef __ITLocationInfo_FWD_DEFINED__
 #define __ITLocationInfo_FWD_DEFINED__
-typedef interface ITLocationInfo ITLocationInfo;
+typedef struct ITLocationInfo ITLocationInfo;
 #endif
 
 #ifndef __IEnumLocation_FWD_DEFINED__
 #define __IEnumLocation_FWD_DEFINED__
-typedef interface IEnumLocation IEnumLocation;
+typedef struct IEnumLocation IEnumLocation;
 #endif
 
 #ifndef __ITCallingCard_FWD_DEFINED__
 #define __ITCallingCard_FWD_DEFINED__
-typedef interface ITCallingCard ITCallingCard;
+typedef struct ITCallingCard ITCallingCard;
 #endif
 
 #ifndef __IEnumCallingCard_FWD_DEFINED__
 #define __IEnumCallingCard_FWD_DEFINED__
-typedef interface IEnumCallingCard IEnumCallingCard;
+typedef struct IEnumCallingCard IEnumCallingCard;
 #endif
 
 #ifndef __ITCallNotificationEvent_FWD_DEFINED__
 #define __ITCallNotificationEvent_FWD_DEFINED__
-typedef interface ITCallNotificationEvent ITCallNotificationEvent;
+typedef struct ITCallNotificationEvent ITCallNotificationEvent;
 #endif
 
 #ifndef __ITDispatchMapper_FWD_DEFINED__
 #define __ITDispatchMapper_FWD_DEFINED__
-typedef interface ITDispatchMapper ITDispatchMapper;
+typedef struct ITDispatchMapper ITDispatchMapper;
 #endif
 
 #ifndef __ITStreamControl_FWD_DEFINED__
 #define __ITStreamControl_FWD_DEFINED__
-typedef interface ITStreamControl ITStreamControl;
+typedef struct ITStreamControl ITStreamControl;
 #endif
 
 #ifndef __ITStream_FWD_DEFINED__
 #define __ITStream_FWD_DEFINED__
-typedef interface ITStream ITStream;
+typedef struct ITStream ITStream;
 #endif
 
 #ifndef __IEnumStream_FWD_DEFINED__
 #define __IEnumStream_FWD_DEFINED__
-typedef interface IEnumStream IEnumStream;
+typedef struct IEnumStream IEnumStream;
 #endif
 
 #ifndef __ITSubStreamControl_FWD_DEFINED__
 #define __ITSubStreamControl_FWD_DEFINED__
-typedef interface ITSubStreamControl ITSubStreamControl;
+typedef struct ITSubStreamControl ITSubStreamControl;
 #endif
 
 #ifndef __ITSubStream_FWD_DEFINED__
 #define __ITSubStream_FWD_DEFINED__
-typedef interface ITSubStream ITSubStream;
+typedef struct ITSubStream ITSubStream;
 #endif
 
 #ifndef __IEnumSubStream_FWD_DEFINED__
 #define __IEnumSubStream_FWD_DEFINED__
-typedef interface IEnumSubStream IEnumSubStream;
+typedef struct IEnumSubStream IEnumSubStream;
 #endif
 
 #ifndef __ITLegacyWaveSupport_FWD_DEFINED__
 #define __ITLegacyWaveSupport_FWD_DEFINED__
-typedef interface ITLegacyWaveSupport ITLegacyWaveSupport;
+typedef struct ITLegacyWaveSupport ITLegacyWaveSupport;
 #endif
 
 #ifndef __ITBasicCallControl2_FWD_DEFINED__
 #define __ITBasicCallControl2_FWD_DEFINED__
-typedef interface ITBasicCallControl2 ITBasicCallControl2;
+typedef struct ITBasicCallControl2 ITBasicCallControl2;
 #endif
 
 #ifndef __ITScriptableAudioFormat_FWD_DEFINED__
 #define __ITScriptableAudioFormat_FWD_DEFINED__
-typedef interface ITScriptableAudioFormat ITScriptableAudioFormat;
+typedef struct ITScriptableAudioFormat ITScriptableAudioFormat;
 #endif
 
 #include "oaidl.h"
@@ -793,7 +793,7 @@ extern "C" {
       HRESULT (WINAPI *get_EventFilter)(ITTAPI *This,long *plFilterMask);
     END_INTERFACE
   } ITTAPIVtbl;
-  interface ITTAPI {
+  struct ITTAPI {
     CONST_VTBL struct ITTAPIVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -897,7 +897,7 @@ extern "C" {
       HRESULT (WINAPI *CreateEmptyCollectionObject)(ITTAPI2 *This,ITCollection2 **ppCollection);
     END_INTERFACE
   } ITTAPI2Vtbl;
-  interface ITTAPI2 {
+  struct ITTAPI2 {
     CONST_VTBL struct ITTAPI2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -960,7 +960,7 @@ extern "C" {
       HRESULT (WINAPI *QueryMediaType)(ITMediaSupport *This,long lMediaType,VARIANT_BOOL *pfSupport);
     END_INTERFACE
   } ITMediaSupportVtbl;
-  interface ITMediaSupport {
+  struct ITMediaSupport {
     CONST_VTBL struct ITMediaSupportVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1014,7 +1014,7 @@ extern "C" {
       HRESULT (WINAPI *get_MediaTypes)(ITPluggableTerminalClassInfo *This,long *pMediaTypes);
     END_INTERFACE
   } ITPluggableTerminalClassInfoVtbl;
-  interface ITPluggableTerminalClassInfo {
+  struct ITPluggableTerminalClassInfo {
     CONST_VTBL struct ITPluggableTerminalClassInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1073,7 +1073,7 @@ extern "C" {
       HRESULT (WINAPI *get_CLSID)(ITPluggableTerminalSuperclassInfo *This,BSTR *pCLSID);
     END_INTERFACE
   } ITPluggableTerminalSuperclassInfoVtbl;
-  interface ITPluggableTerminalSuperclassInfo {
+  struct ITPluggableTerminalSuperclassInfo {
     CONST_VTBL struct ITPluggableTerminalSuperclassInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1125,7 +1125,7 @@ extern "C" {
       HRESULT (WINAPI *GetDefaultStaticTerminal)(ITTerminalSupport *This,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
     END_INTERFACE
   } ITTerminalSupportVtbl;
-  interface ITTerminalSupport {
+  struct ITTerminalSupport {
     CONST_VTBL struct ITTerminalSupportVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1191,7 +1191,7 @@ extern "C" {
       HRESULT (WINAPI *EnumeratePluggableTerminalClasses)(ITTerminalSupport2 *This,CLSID iidTerminalSuperclass,long lMediaType,IEnumPluggableTerminalClassInfo **ppClassEnumerator);
     END_INTERFACE
   } ITTerminalSupport2Vtbl;
-  interface ITTerminalSupport2 {
+  struct ITTerminalSupport2 {
     CONST_VTBL struct ITTerminalSupport2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1273,7 +1273,7 @@ extern "C" {
       HRESULT (WINAPI *get_DoNotDisturb)(ITAddress *This,VARIANT_BOOL *pfDoNotDisturb);
     END_INTERFACE
   } ITAddressVtbl;
-  interface ITAddress {
+  struct ITAddress {
     CONST_VTBL struct ITAddressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1387,7 +1387,7 @@ extern "C" {
       HRESULT (WINAPI *NegotiateExtVersion)(ITAddress2 *This,long lLowVersion,long lHighVersion,long *plExtVersion);
     END_INTERFACE
   } ITAddress2Vtbl;
-  interface ITAddress2 {
+  struct ITAddress2 {
     CONST_VTBL struct ITAddress2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1482,7 +1482,7 @@ extern "C" {
       HRESULT (WINAPI *EnumerateDeviceClasses)(ITAddressCapabilities *This,IEnumBstr **ppEnumDeviceClass);
     END_INTERFACE
   } ITAddressCapabilitiesVtbl;
-  interface ITAddressCapabilities {
+  struct ITAddressCapabilities {
     CONST_VTBL struct ITAddressCapabilitiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1606,7 +1606,7 @@ extern "C" {
       HRESULT (WINAPI *NegotiateExtVersion)(ITPhone *This,long lLowVersion,long lHighVersion,long *plExtVersion);
     END_INTERFACE
   } ITPhoneVtbl;
-  interface ITPhone {
+  struct ITPhone {
     CONST_VTBL struct ITPhoneVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1803,7 +1803,7 @@ extern "C" {
       HRESULT (WINAPI *get_SelectedCalls)(ITAutomatedPhoneControl *This,VARIANT *pVariant);
     END_INTERFACE
   } ITAutomatedPhoneControlVtbl;
-  interface ITAutomatedPhoneControl {
+  struct ITAutomatedPhoneControl {
     CONST_VTBL struct ITAutomatedPhoneControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1969,7 +1969,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveFromConference)(ITBasicCallControl *This);
     END_INTERFACE
   } ITBasicCallControlVtbl;
-  interface ITBasicCallControl {
+  struct ITBasicCallControl {
     CONST_VTBL struct ITBasicCallControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2083,7 +2083,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseUserUserInfo)(ITCallInfo *This);
     END_INTERFACE
   } ITCallInfoVtbl;
-  interface ITCallInfo {
+  struct ITCallInfo {
     CONST_VTBL struct ITCallInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2173,7 +2173,7 @@ extern "C" {
       HRESULT (WINAPI *put_EventFilter)(ITCallInfo2 *This,TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL bEnable);
     END_INTERFACE
   } ITCallInfo2Vtbl;
-  interface ITCallInfo2 {
+  struct ITCallInfo2 {
     CONST_VTBL struct ITCallInfo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2238,7 +2238,7 @@ extern "C" {
       HRESULT (WINAPI *get_Direction)(ITTerminal *This,TERMINAL_DIRECTION *pDirection);
     END_INTERFACE
   } ITTerminalVtbl;
-  interface ITTerminal {
+  struct ITTerminal {
     CONST_VTBL struct ITTerminalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2302,7 +2302,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveTrackTerminal)(ITMultiTrackTerminal *This,ITTerminal *pTrackTerminalToRemove);
     END_INTERFACE
   } ITMultiTrackTerminalVtbl;
-  interface ITMultiTrackTerminal {
+  struct ITMultiTrackTerminal {
     CONST_VTBL struct ITMultiTrackTerminalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2376,7 +2376,7 @@ extern "C" {
       HRESULT (WINAPI *get_EmptyAudioFormatForScripting)(ITFileTrack *This,ITScriptableAudioFormat **ppAudioFormat);
     END_INTERFACE
   } ITFileTrackVtbl;
-  interface ITFileTrack {
+  struct ITFileTrack {
     CONST_VTBL struct ITFileTrackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2432,7 +2432,7 @@ extern "C" {
       HRESULT (WINAPI *get_PlayList)(ITMediaPlayback *This,VARIANTARG *pPlayListVariant);
     END_INTERFACE
   } ITMediaPlaybackVtbl;
-  interface ITMediaPlayback {
+  struct ITMediaPlayback {
     CONST_VTBL struct ITMediaPlaybackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2476,7 +2476,7 @@ extern "C" {
       HRESULT (WINAPI *get_FileName)(ITMediaRecord *This,BSTR *pbstrFileName);
     END_INTERFACE
   } ITMediaRecordVtbl;
-  interface ITMediaRecord {
+  struct ITMediaRecord {
     CONST_VTBL struct ITMediaRecordVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2524,7 +2524,7 @@ extern "C" {
       HRESULT (WINAPI *get_MediaState)(ITMediaControl *This,TERMINAL_MEDIA_STATE *pTerminalMediaState);
     END_INTERFACE
   } ITMediaControlVtbl;
-  interface ITMediaControl {
+  struct ITMediaControl {
     CONST_VTBL struct ITMediaControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2578,7 +2578,7 @@ extern "C" {
       HRESULT (WINAPI *get_Balance)(ITBasicAudioTerminal *This,long *plBalance);
     END_INTERFACE
   } ITBasicAudioTerminalVtbl;
-  interface ITBasicAudioTerminal {
+  struct ITBasicAudioTerminal {
     CONST_VTBL struct ITBasicAudioTerminalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2626,7 +2626,7 @@ extern "C" {
       HRESULT (WINAPI *get_WaveId)(ITStaticAudioTerminal *This,long *plWaveId);
     END_INTERFACE
   } ITStaticAudioTerminalVtbl;
-  interface ITStaticAudioTerminal {
+  struct ITStaticAudioTerminal {
     CONST_VTBL struct ITStaticAudioTerminalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2673,7 +2673,7 @@ extern "C" {
       HRESULT (WINAPI *get_State)(ITCallHub *This,CALLHUB_STATE *pState);
     END_INTERFACE
   } ITCallHubVtbl;
-  interface ITCallHub {
+  struct ITCallHub {
     CONST_VTBL struct ITCallHubVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2724,7 +2724,7 @@ extern "C" {
       HRESULT (WINAPI *SetDevConfig)(ITLegacyAddressMediaControl *This,BSTR pDeviceClass,DWORD dwSize,BYTE *pDeviceConfig);
     END_INTERFACE
   } ITLegacyAddressMediaControlVtbl;
-  interface ITLegacyAddressMediaControl {
+  struct ITLegacyAddressMediaControl {
     CONST_VTBL struct ITLegacyAddressMediaControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2773,7 +2773,7 @@ extern "C" {
       HRESULT (WINAPI *get_EventInterface)(ITPrivateEvent *This,IDispatch **pEventInterface);
     END_INTERFACE
   } ITPrivateEventVtbl;
-  interface ITPrivateEvent {
+  struct ITPrivateEvent {
     CONST_VTBL struct ITPrivateEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2825,7 +2825,7 @@ extern "C" {
       HRESULT (WINAPI *ConfigDialogEdit)(ITLegacyAddressMediaControl2 *This,HWND hwndOwner,BSTR pDeviceClass,DWORD dwSizeIn,BYTE *pDeviceConfigIn,DWORD *pdwSizeOut,BYTE **ppDeviceConfigOut);
     END_INTERFACE
   } ITLegacyAddressMediaControl2Vtbl;
-  interface ITLegacyAddressMediaControl2 {
+  struct ITLegacyAddressMediaControl2 {
     CONST_VTBL struct ITLegacyAddressMediaControl2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2874,7 +2874,7 @@ extern "C" {
       HRESULT (WINAPI *MonitorMedia)(ITLegacyCallMediaControl *This,long lMediaType);
     END_INTERFACE
   } ITLegacyCallMediaControlVtbl;
-  interface ITLegacyCallMediaControl {
+  struct ITLegacyCallMediaControl {
     CONST_VTBL struct ITLegacyCallMediaControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2948,7 +2948,7 @@ extern "C" {
       HRESULT (WINAPI *GetIDAsVariant)(ITLegacyCallMediaControl2 *This,BSTR bstrDeviceClass,VARIANT *pVarDeviceID);
     END_INTERFACE
   } ITLegacyCallMediaControl2Vtbl;
-  interface ITLegacyCallMediaControl2 {
+  struct ITLegacyCallMediaControl2 {
     CONST_VTBL struct ITLegacyCallMediaControl2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3029,7 +3029,7 @@ extern "C" {
       HRESULT (WINAPI *put_Frequency)(ITDetectTone *This,long Index,long lFrequency);
     END_INTERFACE
   } ITDetectToneVtbl;
-  interface ITDetectTone {
+  struct ITDetectTone {
     CONST_VTBL struct ITDetectToneVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3097,7 +3097,7 @@ extern "C" {
       HRESULT (WINAPI *put_Volume)(ITCustomTone *This,long lVolume);
     END_INTERFACE
   } ITCustomToneVtbl;
-  interface ITCustomTone {
+  struct ITCustomTone {
     CONST_VTBL struct ITCustomToneVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3159,7 +3159,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumPhone *This,IEnumPhone **ppEnum);
     END_INTERFACE
   } IEnumPhoneVtbl;
-  interface IEnumPhone {
+  struct IEnumPhone {
     CONST_VTBL struct IEnumPhoneVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3205,7 +3205,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumTerminal *This,IEnumTerminal **ppEnum);
     END_INTERFACE
   } IEnumTerminalVtbl;
-  interface IEnumTerminal {
+  struct IEnumTerminal {
     CONST_VTBL struct IEnumTerminalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3251,7 +3251,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumTerminalClass *This,IEnumTerminalClass **ppEnum);
     END_INTERFACE
   } IEnumTerminalClassVtbl;
-  interface IEnumTerminalClass {
+  struct IEnumTerminalClass {
     CONST_VTBL struct IEnumTerminalClassVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3297,7 +3297,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumCall *This,IEnumCall **ppEnum);
     END_INTERFACE
   } IEnumCallVtbl;
-  interface IEnumCall {
+  struct IEnumCall {
     CONST_VTBL struct IEnumCallVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3343,7 +3343,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumAddress *This,IEnumAddress **ppEnum);
     END_INTERFACE
   } IEnumAddressVtbl;
-  interface IEnumAddress {
+  struct IEnumAddress {
     CONST_VTBL struct IEnumAddressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3389,7 +3389,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumCallHub *This,IEnumCallHub **ppEnum);
     END_INTERFACE
   } IEnumCallHubVtbl;
-  interface IEnumCallHub {
+  struct IEnumCallHub {
     CONST_VTBL struct IEnumCallHubVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3435,7 +3435,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumBstr *This,IEnumBstr **ppEnum);
     END_INTERFACE
   } IEnumBstrVtbl;
-  interface IEnumBstr {
+  struct IEnumBstr {
     CONST_VTBL struct IEnumBstrVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3481,7 +3481,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumPluggableTerminalClassInfo *This,IEnumPluggableTerminalClassInfo **ppEnum);
     END_INTERFACE
   } IEnumPluggableTerminalClassInfoVtbl;
-  interface IEnumPluggableTerminalClassInfo {
+  struct IEnumPluggableTerminalClassInfo {
     CONST_VTBL struct IEnumPluggableTerminalClassInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3527,7 +3527,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumPluggableSuperclassInfo *This,IEnumPluggableSuperclassInfo **ppEnum);
     END_INTERFACE
   } IEnumPluggableSuperclassInfoVtbl;
-  interface IEnumPluggableSuperclassInfo {
+  struct IEnumPluggableSuperclassInfo {
     CONST_VTBL struct IEnumPluggableSuperclassInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3587,7 +3587,7 @@ extern "C" {
       HRESULT (WINAPI *get_Call)(ITPhoneEvent *This,ITCallInfo **ppCallInfo);
     END_INTERFACE
   } ITPhoneEventVtbl;
-  interface ITPhoneEvent {
+  struct ITPhoneEvent {
     CONST_VTBL struct ITPhoneEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3656,7 +3656,7 @@ extern "C" {
       HRESULT (WINAPI *get_CallbackInstance)(ITCallStateEvent *This,long *plCallbackInstance);
     END_INTERFACE
   } ITCallStateEventVtbl;
-  interface ITCallStateEvent {
+  struct ITCallStateEvent {
     CONST_VTBL struct ITCallStateEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3710,7 +3710,7 @@ extern "C" {
       HRESULT (WINAPI *get_lParam3)(ITPhoneDeviceSpecificEvent *This,long *pParam3);
     END_INTERFACE
   } ITPhoneDeviceSpecificEventVtbl;
-  interface ITPhoneDeviceSpecificEvent {
+  struct ITPhoneDeviceSpecificEvent {
     CONST_VTBL struct ITPhoneDeviceSpecificEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3768,7 +3768,7 @@ extern "C" {
       HRESULT (WINAPI *get_Cause)(ITCallMediaEvent *This,CALL_MEDIA_EVENT_CAUSE *pCause);
     END_INTERFACE
   } ITCallMediaEventVtbl;
-  interface ITCallMediaEvent {
+  struct ITCallMediaEvent {
     CONST_VTBL struct ITCallMediaEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3830,7 +3830,7 @@ extern "C" {
       HRESULT (WINAPI *get_CallbackInstance)(ITDigitDetectionEvent *This,long *plCallbackInstance);
     END_INTERFACE
   } ITDigitDetectionEventVtbl;
-  interface ITDigitDetectionEvent {
+  struct ITDigitDetectionEvent {
     CONST_VTBL struct ITDigitDetectionEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3887,7 +3887,7 @@ extern "C" {
       HRESULT (WINAPI *get_CallbackInstance)(ITDigitGenerationEvent *This,long *plCallbackInstance);
     END_INTERFACE
   } ITDigitGenerationEventVtbl;
-  interface ITDigitGenerationEvent {
+  struct ITDigitGenerationEvent {
     CONST_VTBL struct ITDigitGenerationEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3943,7 +3943,7 @@ extern "C" {
       HRESULT (WINAPI *get_CallbackInstance)(ITDigitsGatheredEvent *This,long *plCallbackInstance);
     END_INTERFACE
   } ITDigitsGatheredEventVtbl;
-  interface ITDigitsGatheredEvent {
+  struct ITDigitsGatheredEvent {
     CONST_VTBL struct ITDigitsGatheredEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4000,7 +4000,7 @@ extern "C" {
       HRESULT (WINAPI *get_CallbackInstance)(ITToneDetectionEvent *This,long *plCallbackInstance);
     END_INTERFACE
   } ITToneDetectionEventVtbl;
-  interface ITToneDetectionEvent {
+  struct ITToneDetectionEvent {
     CONST_VTBL struct ITToneDetectionEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4054,7 +4054,7 @@ extern "C" {
       HRESULT (WINAPI *get_CallbackInstance)(ITTAPIObjectEvent *This,long *plCallbackInstance);
     END_INTERFACE
   } ITTAPIObjectEventVtbl;
-  interface ITTAPIObjectEvent {
+  struct ITTAPIObjectEvent {
     CONST_VTBL struct ITTAPIObjectEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4106,7 +4106,7 @@ extern "C" {
       HRESULT (WINAPI *get_Phone)(ITTAPIObjectEvent2 *This,ITPhone **ppPhone);
     END_INTERFACE
   } ITTAPIObjectEvent2Vtbl;
-  interface ITTAPIObjectEvent2 {
+  struct ITTAPIObjectEvent2 {
     CONST_VTBL struct ITTAPIObjectEvent2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4145,7 +4145,7 @@ extern "C" {
       HRESULT (WINAPI *Event)(ITTAPIEventNotification *This,TAPI_EVENT TapiEvent,IDispatch *pEvent);
     END_INTERFACE
   } ITTAPIEventNotificationVtbl;
-  interface ITTAPIEventNotification {
+  struct ITTAPIEventNotification {
     CONST_VTBL struct ITTAPIEventNotificationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4184,7 +4184,7 @@ extern "C" {
       HRESULT (WINAPI *get_Call)(ITCallHubEvent *This,ITCallInfo **ppCall);
     END_INTERFACE
   } ITCallHubEventVtbl;
-  interface ITCallHubEvent {
+  struct ITCallHubEvent {
     CONST_VTBL struct ITCallHubEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4233,7 +4233,7 @@ extern "C" {
       HRESULT (WINAPI *get_Terminal)(ITAddressEvent *This,ITTerminal **ppTerminal);
     END_INTERFACE
   } ITAddressEventVtbl;
-  interface ITAddressEvent {
+  struct ITAddressEvent {
     CONST_VTBL struct ITAddressEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4286,7 +4286,7 @@ extern "C" {
       HRESULT (WINAPI *get_lParam3)(ITAddressDeviceSpecificEvent *This,long *pParam3);
     END_INTERFACE
   } ITAddressDeviceSpecificEventVtbl;
-  interface ITAddressDeviceSpecificEvent {
+  struct ITAddressDeviceSpecificEvent {
     CONST_VTBL struct ITAddressDeviceSpecificEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4347,7 +4347,7 @@ extern "C" {
       HRESULT (WINAPI *get_Error)(ITFileTerminalEvent *This,HRESULT *phrErrorCode);
     END_INTERFACE
   } ITFileTerminalEventVtbl;
-  interface ITFileTerminalEvent {
+  struct ITFileTerminalEvent {
     CONST_VTBL struct ITFileTerminalEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4405,7 +4405,7 @@ extern "C" {
       HRESULT (WINAPI *get_Error)(ITTTSTerminalEvent *This,HRESULT *phrErrorCode);
     END_INTERFACE
   } ITTTSTerminalEventVtbl;
-  interface ITTTSTerminalEvent {
+  struct ITTTSTerminalEvent {
     CONST_VTBL struct ITTTSTerminalEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4454,7 +4454,7 @@ extern "C" {
       HRESULT (WINAPI *get_Error)(ITASRTerminalEvent *This,HRESULT *phrErrorCode);
     END_INTERFACE
   } ITASRTerminalEventVtbl;
-  interface ITASRTerminalEvent {
+  struct ITASRTerminalEvent {
     CONST_VTBL struct ITASRTerminalEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4503,7 +4503,7 @@ extern "C" {
       HRESULT (WINAPI *get_Error)(ITToneTerminalEvent *This,HRESULT *phrErrorCode);
     END_INTERFACE
   } ITToneTerminalEventVtbl;
-  interface ITToneTerminalEvent {
+  struct ITToneTerminalEvent {
     CONST_VTBL struct ITToneTerminalEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4552,7 +4552,7 @@ extern "C" {
       HRESULT (WINAPI *get_MediaType)(ITQOSEvent *This,long *plMediaType);
     END_INTERFACE
   } ITQOSEventVtbl;
-  interface ITQOSEvent {
+  struct ITQOSEvent {
     CONST_VTBL struct ITQOSEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4601,7 +4601,7 @@ extern "C" {
       HRESULT (WINAPI *get_CallbackInstance)(ITCallInfoChangeEvent *This,long *plCallbackInstance);
     END_INTERFACE
   } ITCallInfoChangeEventVtbl;
-  interface ITCallInfoChangeEvent {
+  struct ITCallInfoChangeEvent {
     CONST_VTBL struct ITCallInfoChangeEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4646,7 +4646,7 @@ extern "C" {
       HRESULT (WINAPI *MakeCall)(ITRequest *This,BSTR pDestAddress,BSTR pAppName,BSTR pCalledParty,BSTR pComment);
     END_INTERFACE
   } ITRequestVtbl;
-  interface ITRequest {
+  struct ITRequest {
     CONST_VTBL struct ITRequestVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4695,7 +4695,7 @@ extern "C" {
       HRESULT (WINAPI *get_Comment)(ITRequestEvent *This,BSTR *ppComment);
     END_INTERFACE
   } ITRequestEventVtbl;
-  interface ITRequestEvent {
+  struct ITRequestEvent {
     CONST_VTBL struct ITRequestEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4753,7 +4753,7 @@ extern "C" {
       HRESULT (WINAPI *get__NewEnum)(ITCollection *This,IUnknown **ppNewEnum);
     END_INTERFACE
   } ITCollectionVtbl;
-  interface ITCollection {
+  struct ITCollection {
     CONST_VTBL struct ITCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4803,7 +4803,7 @@ extern "C" {
       HRESULT (WINAPI *Remove)(ITCollection2 *This,long Index);
     END_INTERFACE
   } ITCollection2Vtbl;
-  interface ITCollection2 {
+  struct ITCollection2 {
     CONST_VTBL struct ITCollection2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4860,7 +4860,7 @@ extern "C" {
       HRESULT (WINAPI *Clear)(ITForwardInformation *This);
     END_INTERFACE
   } ITForwardInformationVtbl;
-  interface ITForwardInformation {
+  struct ITForwardInformation {
     CONST_VTBL struct ITForwardInformationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4930,7 +4930,7 @@ extern "C" {
       HRESULT (WINAPI *get_ForwardTypeCallerAddressType)(ITForwardInformation2 *This,long Forwardtype,long *pCallerAddressType);
     END_INTERFACE
   } ITForwardInformation2Vtbl;
-  interface ITForwardInformation2 {
+  struct ITForwardInformation2 {
     CONST_VTBL struct ITForwardInformation2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4995,7 +4995,7 @@ extern "C" {
       HRESULT (WINAPI *get_CallingCards)(ITAddressTranslation *This,VARIANT *pVariant);
     END_INTERFACE
   } ITAddressTranslationVtbl;
-  interface ITAddressTranslation {
+  struct ITAddressTranslation {
     CONST_VTBL struct ITAddressTranslationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5057,7 +5057,7 @@ extern "C" {
       HRESULT (WINAPI *get_TranslationResults)(ITAddressTranslationInfo *This,long *plResults);
     END_INTERFACE
   } ITAddressTranslationInfoVtbl;
-  interface ITAddressTranslationInfo {
+  struct ITAddressTranslationInfo {
     CONST_VTBL struct ITAddressTranslationInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5128,7 +5128,7 @@ extern "C" {
       HRESULT (WINAPI *get_CancelCallWaitingCode)(ITLocationInfo *This,BSTR *ppCode);
     END_INTERFACE
   } ITLocationInfoVtbl;
-  interface ITLocationInfo {
+  struct ITLocationInfo {
     CONST_VTBL struct ITLocationInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5199,7 +5199,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumLocation *This,IEnumLocation **ppEnum);
     END_INTERFACE
   } IEnumLocationVtbl;
-  interface IEnumLocation {
+  struct IEnumLocation {
     CONST_VTBL struct IEnumLocationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5255,7 +5255,7 @@ extern "C" {
       HRESULT (WINAPI *get_InternationalDialingRule)(ITCallingCard *This,BSTR *ppRule);
     END_INTERFACE
   } ITCallingCardVtbl;
-  interface ITCallingCard {
+  struct ITCallingCard {
     CONST_VTBL struct ITCallingCardVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5314,7 +5314,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumCallingCard *This,IEnumCallingCard **ppEnum);
     END_INTERFACE
   } IEnumCallingCardVtbl;
-  interface IEnumCallingCard {
+  struct IEnumCallingCard {
     CONST_VTBL struct IEnumCallingCardVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5362,7 +5362,7 @@ extern "C" {
       HRESULT (WINAPI *get_CallbackInstance)(ITCallNotificationEvent *This,long *plCallbackInstance);
     END_INTERFACE
   } ITCallNotificationEventVtbl;
-  interface ITCallNotificationEvent {
+  struct ITCallNotificationEvent {
     CONST_VTBL struct ITCallNotificationEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5407,7 +5407,7 @@ extern "C" {
       HRESULT (WINAPI *QueryDispatchInterface)(ITDispatchMapper *This,BSTR pIID,IDispatch *pInterfaceToMap,IDispatch **ppReturnedInterface);
     END_INTERFACE
   } ITDispatchMapperVtbl;
-  interface ITDispatchMapper {
+  struct ITDispatchMapper {
     CONST_VTBL struct ITDispatchMapperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5452,7 +5452,7 @@ extern "C" {
       HRESULT (WINAPI *get_Streams)(ITStreamControl *This,VARIANT *pVariant);
     END_INTERFACE
   } ITStreamControlVtbl;
-  interface ITStreamControl {
+  struct ITStreamControl {
     CONST_VTBL struct ITStreamControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5518,7 +5518,7 @@ extern "C" {
       HRESULT (WINAPI *get_Terminals)(ITStream *This,VARIANT *pTerminals);
     END_INTERFACE
   } ITStreamVtbl;
-  interface ITStream {
+  struct ITStream {
     CONST_VTBL struct ITStreamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5586,7 +5586,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumStream *This,IEnumStream **ppEnum);
     END_INTERFACE
   } IEnumStreamVtbl;
-  interface IEnumStream {
+  struct IEnumStream {
     CONST_VTBL struct IEnumStreamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5636,7 +5636,7 @@ extern "C" {
       HRESULT (WINAPI *get_SubStreams)(ITSubStreamControl *This,VARIANT *pVariant);
     END_INTERFACE
   } ITSubStreamControlVtbl;
-  interface ITSubStreamControl {
+  struct ITSubStreamControl {
     CONST_VTBL struct ITSubStreamControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5698,7 +5698,7 @@ extern "C" {
       HRESULT (WINAPI *get_Stream)(ITSubStream *This,ITStream **ppITStream);
     END_INTERFACE
   } ITSubStreamVtbl;
-  interface ITSubStream {
+  struct ITSubStream {
     CONST_VTBL struct ITSubStreamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5760,7 +5760,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumSubStream *This,IEnumSubStream **ppEnum);
     END_INTERFACE
   } IEnumSubStreamVtbl;
-  interface IEnumSubStream {
+  struct IEnumSubStream {
     CONST_VTBL struct IEnumSubStreamVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5804,7 +5804,7 @@ extern "C" {
       HRESULT (WINAPI *IsFullDuplex)(ITLegacyWaveSupport *This,FULLDUPLEX_SUPPORT *pSupport);
     END_INTERFACE
   } ITLegacyWaveSupportVtbl;
-  interface ITLegacyWaveSupport {
+  struct ITLegacyWaveSupport {
     CONST_VTBL struct ITLegacyWaveSupportVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5865,7 +5865,7 @@ extern "C" {
       HRESULT (WINAPI *UnselectTerminalOnCall)(ITBasicCallControl2 *This,ITTerminal *pTerminal);
     END_INTERFACE
   } ITBasicCallControl2Vtbl;
-  interface ITBasicCallControl2 {
+  struct ITBasicCallControl2 {
     CONST_VTBL struct ITBasicCallControl2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5950,7 +5950,7 @@ extern "C" {
       HRESULT (WINAPI *put_FormatTag)(ITScriptableAudioFormat *This,const long nNewVal);
     END_INTERFACE
   } ITScriptableAudioFormatVtbl;
-  interface ITScriptableAudioFormat {
+  struct ITScriptableAudioFormat {
     CONST_VTBL struct ITScriptableAudioFormatVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

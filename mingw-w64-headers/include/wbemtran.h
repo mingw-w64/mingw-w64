@@ -24,22 +24,22 @@
 
 #ifndef __IWbemTransport_FWD_DEFINED__
 #define __IWbemTransport_FWD_DEFINED__
-typedef interface IWbemTransport IWbemTransport;
+typedef struct IWbemTransport IWbemTransport;
 #endif
 
 #ifndef __IWbemLevel1Login_FWD_DEFINED__
 #define __IWbemLevel1Login_FWD_DEFINED__
-typedef interface IWbemLevel1Login IWbemLevel1Login;
+typedef struct IWbemLevel1Login IWbemLevel1Login;
 #endif
 
 #ifndef __IWbemConnectorLogin_FWD_DEFINED__
 #define __IWbemConnectorLogin_FWD_DEFINED__
-typedef interface IWbemConnectorLogin IWbemConnectorLogin;
+typedef struct IWbemConnectorLogin IWbemConnectorLogin;
 #endif
 
 #ifndef __IWbemAddressResolution_FWD_DEFINED__
 #define __IWbemAddressResolution_FWD_DEFINED__
-typedef interface IWbemAddressResolution IWbemAddressResolution;
+typedef struct IWbemAddressResolution IWbemAddressResolution;
 #endif
 
 #ifndef __WbemLevel1Login_FWD_DEFINED__
@@ -71,12 +71,12 @@ typedef struct WbemUninitializedClassObject WbemUninitializedClassObject;
 
 #ifndef __IWbemClientTransport_FWD_DEFINED__
 #define __IWbemClientTransport_FWD_DEFINED__
-typedef interface IWbemClientTransport IWbemClientTransport;
+typedef struct IWbemClientTransport IWbemClientTransport;
 #endif
 
 #ifndef __IWbemClientConnectionTransport_FWD_DEFINED__
 #define __IWbemClientConnectionTransport_FWD_DEFINED__
-typedef interface IWbemClientConnectionTransport IWbemClientConnectionTransport;
+typedef struct IWbemClientConnectionTransport IWbemClientConnectionTransport;
 #endif
 
 #ifndef __WbemDCOMTransport_FWD_DEFINED__
@@ -90,37 +90,37 @@ typedef struct WbemDCOMTransport WbemDCOMTransport;
 
 #ifndef __IWbemLevel1Login_FWD_DEFINED__
 #define __IWbemLevel1Login_FWD_DEFINED__
-typedef interface IWbemLevel1Login IWbemLevel1Login;
+typedef struct IWbemLevel1Login IWbemLevel1Login;
 #endif
 
 #ifndef __IWbemConnectorLogin_FWD_DEFINED__
 #define __IWbemConnectorLogin_FWD_DEFINED__
-typedef interface IWbemConnectorLogin IWbemConnectorLogin;
+typedef struct IWbemConnectorLogin IWbemConnectorLogin;
 #endif
 
 #ifndef __IWbemAddressResolution_FWD_DEFINED__
 #define __IWbemAddressResolution_FWD_DEFINED__
-typedef interface IWbemAddressResolution IWbemAddressResolution;
+typedef struct IWbemAddressResolution IWbemAddressResolution;
 #endif
 
 #ifndef __IWbemTransport_FWD_DEFINED__
 #define __IWbemTransport_FWD_DEFINED__
-typedef interface IWbemTransport IWbemTransport;
+typedef struct IWbemTransport IWbemTransport;
 #endif
 
 #ifndef __IWbemConstructClassObject_FWD_DEFINED__
 #define __IWbemConstructClassObject_FWD_DEFINED__
-typedef interface IWbemConstructClassObject IWbemConstructClassObject;
+typedef struct IWbemConstructClassObject IWbemConstructClassObject;
 #endif
 
 #ifndef __IWbemClientTransport_FWD_DEFINED__
 #define __IWbemClientTransport_FWD_DEFINED__
-typedef interface IWbemClientTransport IWbemClientTransport;
+typedef struct IWbemClientTransport IWbemClientTransport;
 #endif
 
 #ifndef __IWbemClientConnectionTransport_FWD_DEFINED__
 #define __IWbemClientConnectionTransport_FWD_DEFINED__
-typedef interface IWbemClientConnectionTransport IWbemClientConnectionTransport;
+typedef struct IWbemClientConnectionTransport IWbemClientConnectionTransport;
 #endif
 
 #include "objidl.h"
@@ -165,7 +165,7 @@ extern "C" {
       HRESULT (WINAPI *Initialize)(IWbemTransport *This);
     END_INTERFACE
   } IWbemTransportVtbl;
-  interface IWbemTransport {
+  struct IWbemTransport {
     CONST_VTBL struct IWbemTransportVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -202,7 +202,7 @@ extern "C" {
       HRESULT (WINAPI *NTLMLogin)(IWbemLevel1Login *This,LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,long lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace);
     END_INTERFACE
   } IWbemLevel1LoginVtbl;
-  interface IWbemLevel1Login {
+  struct IWbemLevel1Login {
     CONST_VTBL struct IWbemLevel1LoginVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -242,7 +242,7 @@ extern "C" {
       HRESULT (WINAPI *ConnectorLogin)(IWbemConnectorLogin *This,LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,long lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface);
     END_INTERFACE
   } IWbemConnectorLoginVtbl;
-  interface IWbemConnectorLogin {
+  struct IWbemConnectorLogin {
     CONST_VTBL struct IWbemConnectorLoginVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -273,7 +273,7 @@ extern "C" {
       HRESULT (WINAPI *Resolve)(IWbemAddressResolution *This,LPWSTR wszNamespacePath,LPWSTR wszAddressType,DWORD *pdwAddressLength,BYTE **pabBinaryAddress);
     END_INTERFACE
   } IWbemAddressResolutionVtbl;
-  interface IWbemAddressResolution {
+  struct IWbemAddressResolution {
     CONST_VTBL struct IWbemAddressResolutionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -317,7 +317,7 @@ extern "C" {
       HRESULT (WINAPI *ConnectServer)(IWbemClientTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,BSTR strNetworkResource,BSTR strUser,BSTR strPassword,BSTR strLocale,long lSecurityFlags,BSTR strAuthority,IWbemContext *pCtx,IWbemServices **ppNamespace);
     END_INTERFACE
   } IWbemClientTransportVtbl;
-  interface IWbemClientTransport {
+  struct IWbemClientTransport {
     CONST_VTBL struct IWbemClientTransportVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -352,7 +352,7 @@ extern "C" {
       HRESULT (WINAPI *Cancel)(IWbemClientConnectionTransport *This,long lFlags,IWbemObjectSink *pHandler);
     END_INTERFACE
   } IWbemClientConnectionTransportVtbl;
-  interface IWbemClientConnectionTransport {
+  struct IWbemClientConnectionTransport {
     CONST_VTBL struct IWbemClientConnectionTransportVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -401,7 +401,7 @@ extern "C" {
       HRESULT (WINAPI *SetServerNamespace)(IWbemConstructClassObject *This,LPCWSTR wszServer,LPCWSTR wszNamespace);
     END_INTERFACE
   } IWbemConstructClassObjectVtbl;
-  interface IWbemConstructClassObject {
+  struct IWbemConstructClassObject {
     CONST_VTBL struct IWbemConstructClassObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

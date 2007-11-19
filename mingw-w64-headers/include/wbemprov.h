@@ -24,52 +24,52 @@
 
 #ifndef __IWbemPropertyProvider_FWD_DEFINED__
 #define __IWbemPropertyProvider_FWD_DEFINED__
-typedef interface IWbemPropertyProvider IWbemPropertyProvider;
+typedef struct IWbemPropertyProvider IWbemPropertyProvider;
 #endif
 
 #ifndef __IWbemUnboundObjectSink_FWD_DEFINED__
 #define __IWbemUnboundObjectSink_FWD_DEFINED__
-typedef interface IWbemUnboundObjectSink IWbemUnboundObjectSink;
+typedef struct IWbemUnboundObjectSink IWbemUnboundObjectSink;
 #endif
 
 #ifndef __IWbemEventProvider_FWD_DEFINED__
 #define __IWbemEventProvider_FWD_DEFINED__
-typedef interface IWbemEventProvider IWbemEventProvider;
+typedef struct IWbemEventProvider IWbemEventProvider;
 #endif
 
 #ifndef __IWbemEventProviderQuerySink_FWD_DEFINED__
 #define __IWbemEventProviderQuerySink_FWD_DEFINED__
-typedef interface IWbemEventProviderQuerySink IWbemEventProviderQuerySink;
+typedef struct IWbemEventProviderQuerySink IWbemEventProviderQuerySink;
 #endif
 
 #ifndef __IWbemEventProviderSecurity_FWD_DEFINED__
 #define __IWbemEventProviderSecurity_FWD_DEFINED__
-typedef interface IWbemEventProviderSecurity IWbemEventProviderSecurity;
+typedef struct IWbemEventProviderSecurity IWbemEventProviderSecurity;
 #endif
 
 #ifndef __IWbemEventConsumerProvider_FWD_DEFINED__
 #define __IWbemEventConsumerProvider_FWD_DEFINED__
-typedef interface IWbemEventConsumerProvider IWbemEventConsumerProvider;
+typedef struct IWbemEventConsumerProvider IWbemEventConsumerProvider;
 #endif
 
 #ifndef __IWbemProviderInitSink_FWD_DEFINED__
 #define __IWbemProviderInitSink_FWD_DEFINED__
-typedef interface IWbemProviderInitSink IWbemProviderInitSink;
+typedef struct IWbemProviderInitSink IWbemProviderInitSink;
 #endif
 
 #ifndef __IWbemProviderInit_FWD_DEFINED__
 #define __IWbemProviderInit_FWD_DEFINED__
-typedef interface IWbemProviderInit IWbemProviderInit;
+typedef struct IWbemProviderInit IWbemProviderInit;
 #endif
 
 #ifndef __IWbemHiPerfProvider_FWD_DEFINED__
 #define __IWbemHiPerfProvider_FWD_DEFINED__
-typedef interface IWbemHiPerfProvider IWbemHiPerfProvider;
+typedef struct IWbemHiPerfProvider IWbemHiPerfProvider;
 #endif
 
 #ifndef __IWbemDecoupledRegistrar_FWD_DEFINED__
 #define __IWbemDecoupledRegistrar_FWD_DEFINED__
-typedef interface IWbemDecoupledRegistrar IWbemDecoupledRegistrar;
+typedef struct IWbemDecoupledRegistrar IWbemDecoupledRegistrar;
 #endif
 
 #ifndef __WbemAdministrativeLocator_FWD_DEFINED__
@@ -119,67 +119,67 @@ typedef struct WbemDecoupledBasicEventProvider WbemDecoupledBasicEventProvider;
 
 #ifndef __IWbemUnboundObjectSink_FWD_DEFINED__
 #define __IWbemUnboundObjectSink_FWD_DEFINED__
-typedef interface IWbemUnboundObjectSink IWbemUnboundObjectSink;
+typedef struct IWbemUnboundObjectSink IWbemUnboundObjectSink;
 #endif
 
 #ifndef __IWbemPropertyProvider_FWD_DEFINED__
 #define __IWbemPropertyProvider_FWD_DEFINED__
-typedef interface IWbemPropertyProvider IWbemPropertyProvider;
+typedef struct IWbemPropertyProvider IWbemPropertyProvider;
 #endif
 
 #ifndef __IWbemEventProvider_FWD_DEFINED__
 #define __IWbemEventProvider_FWD_DEFINED__
-typedef interface IWbemEventProvider IWbemEventProvider;
+typedef struct IWbemEventProvider IWbemEventProvider;
 #endif
 
 #ifndef __IWbemEventProviderQuerySink_FWD_DEFINED__
 #define __IWbemEventProviderQuerySink_FWD_DEFINED__
-typedef interface IWbemEventProviderQuerySink IWbemEventProviderQuerySink;
+typedef struct IWbemEventProviderQuerySink IWbemEventProviderQuerySink;
 #endif
 
 #ifndef __IWbemEventProviderSecurity_FWD_DEFINED__
 #define __IWbemEventProviderSecurity_FWD_DEFINED__
-typedef interface IWbemEventProviderSecurity IWbemEventProviderSecurity;
+typedef struct IWbemEventProviderSecurity IWbemEventProviderSecurity;
 #endif
 
 #ifndef __IWbemProviderIdentity_FWD_DEFINED__
 #define __IWbemProviderIdentity_FWD_DEFINED__
-typedef interface IWbemProviderIdentity IWbemProviderIdentity;
+typedef struct IWbemProviderIdentity IWbemProviderIdentity;
 #endif
 
 #ifndef __IWbemEventConsumerProvider_FWD_DEFINED__
 #define __IWbemEventConsumerProvider_FWD_DEFINED__
-typedef interface IWbemEventConsumerProvider IWbemEventConsumerProvider;
+typedef struct IWbemEventConsumerProvider IWbemEventConsumerProvider;
 #endif
 
 #ifndef __IWbemProviderInitSink_FWD_DEFINED__
 #define __IWbemProviderInitSink_FWD_DEFINED__
-typedef interface IWbemProviderInitSink IWbemProviderInitSink;
+typedef struct IWbemProviderInitSink IWbemProviderInitSink;
 #endif
 
 #ifndef __IWbemProviderInit_FWD_DEFINED__
 #define __IWbemProviderInit_FWD_DEFINED__
-typedef interface IWbemProviderInit IWbemProviderInit;
+typedef struct IWbemProviderInit IWbemProviderInit;
 #endif
 
 #ifndef __IWbemHiPerfProvider_FWD_DEFINED__
 #define __IWbemHiPerfProvider_FWD_DEFINED__
-typedef interface IWbemHiPerfProvider IWbemHiPerfProvider;
+typedef struct IWbemHiPerfProvider IWbemHiPerfProvider;
 #endif
 
 #ifndef __IWbemDecoupledRegistrar_FWD_DEFINED__
 #define __IWbemDecoupledRegistrar_FWD_DEFINED__
-typedef interface IWbemDecoupledRegistrar IWbemDecoupledRegistrar;
+typedef struct IWbemDecoupledRegistrar IWbemDecoupledRegistrar;
 #endif
 
 #ifndef __IWbemDecoupledBasicEventProvider_FWD_DEFINED__
 #define __IWbemDecoupledBasicEventProvider_FWD_DEFINED__
-typedef interface IWbemDecoupledBasicEventProvider IWbemDecoupledBasicEventProvider;
+typedef struct IWbemDecoupledBasicEventProvider IWbemDecoupledBasicEventProvider;
 #endif
 
 #ifndef __IWbemEventSink_FWD_DEFINED__
 #define __IWbemEventSink_FWD_DEFINED__
-typedef interface IWbemEventSink IWbemEventSink;
+typedef struct IWbemEventSink IWbemEventSink;
 #endif
 
 #include "objidl.h"
@@ -226,7 +226,7 @@ extern "C" {
       HRESULT (WINAPI *PutProperty)(IWbemPropertyProvider *This,long lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,const VARIANT *pvValue);
     END_INTERFACE
   } IWbemPropertyProviderVtbl;
-  interface IWbemPropertyProvider {
+  struct IWbemPropertyProvider {
     CONST_VTBL struct IWbemPropertyProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -260,7 +260,7 @@ extern "C" {
       HRESULT (WINAPI *IndicateToConsumer)(IWbemUnboundObjectSink *This,IWbemClassObject *pLogicalConsumer,long lNumObjects,IWbemClassObject **apObjects);
     END_INTERFACE
   } IWbemUnboundObjectSinkVtbl;
-  interface IWbemUnboundObjectSink {
+  struct IWbemUnboundObjectSink {
     CONST_VTBL struct IWbemUnboundObjectSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -291,7 +291,7 @@ extern "C" {
       HRESULT (WINAPI *ProvideEvents)(IWbemEventProvider *This,IWbemObjectSink *pSink,long lFlags);
     END_INTERFACE
   } IWbemEventProviderVtbl;
-  interface IWbemEventProvider {
+  struct IWbemEventProvider {
     CONST_VTBL struct IWbemEventProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -324,7 +324,7 @@ extern "C" {
       HRESULT (WINAPI *CancelQuery)(IWbemEventProviderQuerySink *This,unsigned long dwId);
     END_INTERFACE
   } IWbemEventProviderQuerySinkVtbl;
-  interface IWbemEventProviderQuerySink {
+  struct IWbemEventProviderQuerySink {
     CONST_VTBL struct IWbemEventProviderQuerySinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -358,7 +358,7 @@ extern "C" {
       HRESULT (WINAPI *AccessCheck)(IWbemEventProviderSecurity *This,WBEM_CWSTR wszQueryLanguage,WBEM_CWSTR wszQuery,long lSidLength,const BYTE *pSid);
     END_INTERFACE
   } IWbemEventProviderSecurityVtbl;
-  interface IWbemEventProviderSecurity {
+  struct IWbemEventProviderSecurity {
     CONST_VTBL struct IWbemEventProviderSecurityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -389,7 +389,7 @@ extern "C" {
       HRESULT (WINAPI *FindConsumer)(IWbemEventConsumerProvider *This,IWbemClassObject *pLogicalConsumer,IWbemUnboundObjectSink **ppConsumer);
     END_INTERFACE
   } IWbemEventConsumerProviderVtbl;
-  interface IWbemEventConsumerProvider {
+  struct IWbemEventConsumerProvider {
     CONST_VTBL struct IWbemEventConsumerProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -420,7 +420,7 @@ extern "C" {
       HRESULT (WINAPI *SetStatus)(IWbemProviderInitSink *This,LONG lStatus,LONG lFlags);
     END_INTERFACE
   } IWbemProviderInitSinkVtbl;
-  interface IWbemProviderInitSink {
+  struct IWbemProviderInitSink {
     CONST_VTBL struct IWbemProviderInitSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -451,7 +451,7 @@ extern "C" {
       HRESULT (WINAPI *Initialize)(IWbemProviderInit *This,LPWSTR wszUser,LONG lFlags,LPWSTR wszNamespace,LPWSTR wszLocale,IWbemServices *pNamespace,IWbemContext *pCtx,IWbemProviderInitSink *pInitSink);
     END_INTERFACE
   } IWbemProviderInitVtbl;
-  interface IWbemProviderInit {
+  struct IWbemProviderInit {
     CONST_VTBL struct IWbemProviderInitVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -492,7 +492,7 @@ extern "C" {
       HRESULT (WINAPI *GetObjects)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,long lNumObjects,IWbemObjectAccess **apObj,long lFlags,IWbemContext *pContext);
     END_INTERFACE
   } IWbemHiPerfProviderVtbl;
-  interface IWbemHiPerfProvider {
+  struct IWbemHiPerfProvider {
     CONST_VTBL struct IWbemHiPerfProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -540,7 +540,7 @@ extern "C" {
       HRESULT (WINAPI *UnRegister)(IWbemDecoupledRegistrar *This);
     END_INTERFACE
   } IWbemDecoupledRegistrarVtbl;
-  interface IWbemDecoupledRegistrar {
+  struct IWbemDecoupledRegistrar {
     CONST_VTBL struct IWbemDecoupledRegistrarVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -596,7 +596,7 @@ extern "C" {
       HRESULT (WINAPI *SetRegistrationObject)(IWbemProviderIdentity *This,long lFlags,IWbemClassObject *pProvReg);
     END_INTERFACE
   } IWbemProviderIdentityVtbl;
-  interface IWbemProviderIdentity {
+  struct IWbemProviderIdentity {
     CONST_VTBL struct IWbemProviderIdentityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -642,7 +642,7 @@ extern "C" {
       HRESULT (WINAPI *GetService)(IWbemDecoupledBasicEventProvider *This,long a_Flags,IWbemContext *a_Context,IWbemServices **a_Service);
     END_INTERFACE
   } IWbemDecoupledBasicEventProviderVtbl;
-  interface IWbemDecoupledBasicEventProvider {
+  struct IWbemDecoupledBasicEventProvider {
     CONST_VTBL struct IWbemDecoupledBasicEventProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -692,7 +692,7 @@ extern "C" {
       HRESULT (WINAPI *SetBatchingParameters)(IWbemEventSink *This,LONG lFlags,DWORD dwMaxBufferSize,DWORD dwMaxSendLatency);
     END_INTERFACE
   } IWbemEventSinkVtbl;
-  interface IWbemEventSink {
+  struct IWbemEventSink {
     CONST_VTBL struct IWbemEventSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

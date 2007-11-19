@@ -24,152 +24,152 @@
 
 #ifndef __IGPM_FWD_DEFINED__
 #define __IGPM_FWD_DEFINED__
-typedef interface IGPM IGPM;
+typedef struct IGPM IGPM;
 #endif
 
 #ifndef __IGPMDomain_FWD_DEFINED__
 #define __IGPMDomain_FWD_DEFINED__
-typedef interface IGPMDomain IGPMDomain;
+typedef struct IGPMDomain IGPMDomain;
 #endif
 
 #ifndef __IGPMBackupDir_FWD_DEFINED__
 #define __IGPMBackupDir_FWD_DEFINED__
-typedef interface IGPMBackupDir IGPMBackupDir;
+typedef struct IGPMBackupDir IGPMBackupDir;
 #endif
 
 #ifndef __IGPMSitesContainer_FWD_DEFINED__
 #define __IGPMSitesContainer_FWD_DEFINED__
-typedef interface IGPMSitesContainer IGPMSitesContainer;
+typedef struct IGPMSitesContainer IGPMSitesContainer;
 #endif
 
 #ifndef __IGPMSearchCriteria_FWD_DEFINED__
 #define __IGPMSearchCriteria_FWD_DEFINED__
-typedef interface IGPMSearchCriteria IGPMSearchCriteria;
+typedef struct IGPMSearchCriteria IGPMSearchCriteria;
 #endif
 
 #ifndef __IGPMTrustee_FWD_DEFINED__
 #define __IGPMTrustee_FWD_DEFINED__
-typedef interface IGPMTrustee IGPMTrustee;
+typedef struct IGPMTrustee IGPMTrustee;
 #endif
 
 #ifndef __IGPMPermission_FWD_DEFINED__
 #define __IGPMPermission_FWD_DEFINED__
-typedef interface IGPMPermission IGPMPermission;
+typedef struct IGPMPermission IGPMPermission;
 #endif
 
 #ifndef __IGPMSecurityInfo_FWD_DEFINED__
 #define __IGPMSecurityInfo_FWD_DEFINED__
-typedef interface IGPMSecurityInfo IGPMSecurityInfo;
+typedef struct IGPMSecurityInfo IGPMSecurityInfo;
 #endif
 
 #ifndef __IGPMBackup_FWD_DEFINED__
 #define __IGPMBackup_FWD_DEFINED__
-typedef interface IGPMBackup IGPMBackup;
+typedef struct IGPMBackup IGPMBackup;
 #endif
 
 #ifndef __IGPMBackupCollection_FWD_DEFINED__
 #define __IGPMBackupCollection_FWD_DEFINED__
-typedef interface IGPMBackupCollection IGPMBackupCollection;
+typedef struct IGPMBackupCollection IGPMBackupCollection;
 #endif
 
 #ifndef __IGPMSOM_FWD_DEFINED__
 #define __IGPMSOM_FWD_DEFINED__
-typedef interface IGPMSOM IGPMSOM;
+typedef struct IGPMSOM IGPMSOM;
 #endif
 
 #ifndef __IGPMSOMCollection_FWD_DEFINED__
 #define __IGPMSOMCollection_FWD_DEFINED__
-typedef interface IGPMSOMCollection IGPMSOMCollection;
+typedef struct IGPMSOMCollection IGPMSOMCollection;
 #endif
 
 #ifndef __IGPMWMIFilter_FWD_DEFINED__
 #define __IGPMWMIFilter_FWD_DEFINED__
-typedef interface IGPMWMIFilter IGPMWMIFilter;
+typedef struct IGPMWMIFilter IGPMWMIFilter;
 #endif
 
 #ifndef __IGPMWMIFilterCollection_FWD_DEFINED__
 #define __IGPMWMIFilterCollection_FWD_DEFINED__
-typedef interface IGPMWMIFilterCollection IGPMWMIFilterCollection;
+typedef struct IGPMWMIFilterCollection IGPMWMIFilterCollection;
 #endif
 
 #ifndef __IGPMRSOP_FWD_DEFINED__
 #define __IGPMRSOP_FWD_DEFINED__
-typedef interface IGPMRSOP IGPMRSOP;
+typedef struct IGPMRSOP IGPMRSOP;
 #endif
 
 #ifndef __IGPMGPO_FWD_DEFINED__
 #define __IGPMGPO_FWD_DEFINED__
-typedef interface IGPMGPO IGPMGPO;
+typedef struct IGPMGPO IGPMGPO;
 #endif
 
 #ifndef __IGPMGPOCollection_FWD_DEFINED__
 #define __IGPMGPOCollection_FWD_DEFINED__
-typedef interface IGPMGPOCollection IGPMGPOCollection;
+typedef struct IGPMGPOCollection IGPMGPOCollection;
 #endif
 
 #ifndef __IGPMGPOLink_FWD_DEFINED__
 #define __IGPMGPOLink_FWD_DEFINED__
-typedef interface IGPMGPOLink IGPMGPOLink;
+typedef struct IGPMGPOLink IGPMGPOLink;
 #endif
 
 #ifndef __IGPMGPOLinksCollection_FWD_DEFINED__
 #define __IGPMGPOLinksCollection_FWD_DEFINED__
-typedef interface IGPMGPOLinksCollection IGPMGPOLinksCollection;
+typedef struct IGPMGPOLinksCollection IGPMGPOLinksCollection;
 #endif
 
 #ifndef __IGPMCSECollection_FWD_DEFINED__
 #define __IGPMCSECollection_FWD_DEFINED__
-typedef interface IGPMCSECollection IGPMCSECollection;
+typedef struct IGPMCSECollection IGPMCSECollection;
 #endif
 
 #ifndef __IGPMClientSideExtension_FWD_DEFINED__
 #define __IGPMClientSideExtension_FWD_DEFINED__
-typedef interface IGPMClientSideExtension IGPMClientSideExtension;
+typedef struct IGPMClientSideExtension IGPMClientSideExtension;
 #endif
 
 #ifndef __IGPMAsyncCancel_FWD_DEFINED__
 #define __IGPMAsyncCancel_FWD_DEFINED__
-typedef interface IGPMAsyncCancel IGPMAsyncCancel;
+typedef struct IGPMAsyncCancel IGPMAsyncCancel;
 #endif
 
 #ifndef __IGPMAsyncProgress_FWD_DEFINED__
 #define __IGPMAsyncProgress_FWD_DEFINED__
-typedef interface IGPMAsyncProgress IGPMAsyncProgress;
+typedef struct IGPMAsyncProgress IGPMAsyncProgress;
 #endif
 
 #ifndef __IGPMStatusMsgCollection_FWD_DEFINED__
 #define __IGPMStatusMsgCollection_FWD_DEFINED__
-typedef interface IGPMStatusMsgCollection IGPMStatusMsgCollection;
+typedef struct IGPMStatusMsgCollection IGPMStatusMsgCollection;
 #endif
 
 #ifndef __IGPMStatusMessage_FWD_DEFINED__
 #define __IGPMStatusMessage_FWD_DEFINED__
-typedef interface IGPMStatusMessage IGPMStatusMessage;
+typedef struct IGPMStatusMessage IGPMStatusMessage;
 #endif
 
 #ifndef __IGPMConstants_FWD_DEFINED__
 #define __IGPMConstants_FWD_DEFINED__
-typedef interface IGPMConstants IGPMConstants;
+typedef struct IGPMConstants IGPMConstants;
 #endif
 
 #ifndef __IGPMResult_FWD_DEFINED__
 #define __IGPMResult_FWD_DEFINED__
-typedef interface IGPMResult IGPMResult;
+typedef struct IGPMResult IGPMResult;
 #endif
 
 #ifndef __IGPMMapEntryCollection_FWD_DEFINED__
 #define __IGPMMapEntryCollection_FWD_DEFINED__
-typedef interface IGPMMapEntryCollection IGPMMapEntryCollection;
+typedef struct IGPMMapEntryCollection IGPMMapEntryCollection;
 #endif
 
 #ifndef __IGPMMapEntry_FWD_DEFINED__
 #define __IGPMMapEntry_FWD_DEFINED__
-typedef interface IGPMMapEntry IGPMMapEntry;
+typedef struct IGPMMapEntry IGPMMapEntry;
 #endif
 
 #ifndef __IGPMMigrationTable_FWD_DEFINED__
 #define __IGPMMigrationTable_FWD_DEFINED__
-typedef interface IGPMMigrationTable IGPMMigrationTable;
+typedef struct IGPMMigrationTable IGPMMigrationTable;
 #endif
 
 #ifndef __GPM_FWD_DEFINED__
@@ -558,7 +558,7 @@ extern "C"{
       HRESULT (WINAPI *InitializeReporting)(IGPM *This,BSTR bstrAdmPath);
     END_INTERFACE
   } IGPMVtbl;
-  interface IGPM {
+  struct IGPM {
     CONST_VTBL struct IGPMVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -648,7 +648,7 @@ extern "C"{
       HRESULT (WINAPI *SearchWMIFilters)(IGPMDomain *This,IGPMSearchCriteria *pIGPMSearchCriteria,IGPMWMIFilterCollection **ppIGPMWMIFilterCollection);
     END_INTERFACE
   } IGPMDomainVtbl;
-  interface IGPMDomain {
+  struct IGPMDomain {
     CONST_VTBL struct IGPMDomainVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -718,7 +718,7 @@ extern "C"{
       HRESULT (WINAPI *SearchBackups)(IGPMBackupDir *This,IGPMSearchCriteria *pIGPMSearchCriteria,IGPMBackupCollection **ppIGPMBackupCollection);
     END_INTERFACE
   } IGPMBackupDirVtbl;
-  interface IGPMBackupDir {
+  struct IGPMBackupDir {
     CONST_VTBL struct IGPMBackupDirVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -771,7 +771,7 @@ extern "C"{
       HRESULT (WINAPI *SearchSites)(IGPMSitesContainer *This,IGPMSearchCriteria *pIGPMSearchCriteria,IGPMSOMCollection **ppIGPMSOMCollection);
     END_INTERFACE
   } IGPMSitesContainerVtbl;
-  interface IGPMSitesContainer {
+  struct IGPMSitesContainer {
     CONST_VTBL struct IGPMSitesContainerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -822,7 +822,7 @@ extern "C"{
       HRESULT (WINAPI *Add)(IGPMSearchCriteria *This,GPMSearchProperty searchProperty,GPMSearchOperation searchOperation,VARIANT varValue);
     END_INTERFACE
   } IGPMSearchCriteriaVtbl;
-  interface IGPMSearchCriteria {
+  struct IGPMSearchCriteria {
     CONST_VTBL struct IGPMSearchCriteriaVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -869,7 +869,7 @@ extern "C"{
       HRESULT (WINAPI *get_TrusteeType)(IGPMTrustee *This,long *lVal);
     END_INTERFACE
   } IGPMTrusteeVtbl;
-  interface IGPMTrustee {
+  struct IGPMTrustee {
     CONST_VTBL struct IGPMTrusteeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -928,7 +928,7 @@ extern "C"{
       HRESULT (WINAPI *get_Trustee)(IGPMPermission *This,IGPMTrustee **ppIGPMTrustee);
     END_INTERFACE
   } IGPMPermissionVtbl;
-  interface IGPMPermission {
+  struct IGPMPermission {
     CONST_VTBL struct IGPMPermissionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -989,7 +989,7 @@ extern "C"{
       HRESULT (WINAPI *RemoveTrustee)(IGPMSecurityInfo *This,BSTR bstrTrustee);
     END_INTERFACE
   } IGPMSecurityInfoVtbl;
-  interface IGPMSecurityInfo {
+  struct IGPMSecurityInfo {
     CONST_VTBL struct IGPMSecurityInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1061,7 +1061,7 @@ extern "C"{
       HRESULT (WINAPI *GenerateReportToFile)(IGPMBackup *This,GPMReportType gpmReportType,BSTR bstrTargetFilePath,IGPMResult **ppIGPMResult);
     END_INTERFACE
   } IGPMBackupVtbl;
-  interface IGPMBackup {
+  struct IGPMBackup {
     CONST_VTBL struct IGPMBackupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1131,7 +1131,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IGPMBackupCollection *This,IEnumVARIANT **ppIGPMBackup);
     END_INTERFACE
   } IGPMBackupCollectionVtbl;
-  interface IGPMBackupCollection {
+  struct IGPMBackupCollection {
     CONST_VTBL struct IGPMBackupCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1198,7 +1198,7 @@ extern "C"{
       HRESULT (WINAPI *SetSecurityInfo)(IGPMSOM *This,IGPMSecurityInfo *pSecurityInfo);
     END_INTERFACE
   } IGPMSOMVtbl;
-  interface IGPMSOM {
+  struct IGPMSOM {
     CONST_VTBL struct IGPMSOMVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1268,7 +1268,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IGPMSOMCollection *This,IEnumVARIANT **ppIGPMSOM);
     END_INTERFACE
   } IGPMSOMCollectionVtbl;
-  interface IGPMSOMCollection {
+  struct IGPMSOMCollection {
     CONST_VTBL struct IGPMSOMCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1327,7 +1327,7 @@ extern "C"{
       HRESULT (WINAPI *SetSecurityInfo)(IGPMWMIFilter *This,IGPMSecurityInfo *pSecurityInfo);
     END_INTERFACE
   } IGPMWMIFilterVtbl;
-  interface IGPMWMIFilter {
+  struct IGPMWMIFilter {
     CONST_VTBL struct IGPMWMIFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1391,7 +1391,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IGPMWMIFilterCollection *This,IEnumVARIANT **pVal);
     END_INTERFACE
   } IGPMWMIFilterCollectionVtbl;
-  interface IGPMWMIFilterCollection {
+  struct IGPMWMIFilterCollection {
     CONST_VTBL struct IGPMWMIFilterCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1504,7 +1504,7 @@ extern "C"{
       HRESULT (WINAPI *GenerateReportToFile)(IGPMRSOP *This,GPMReportType gpmReportType,BSTR bstrTargetFilePath,IGPMResult **ppIGPMResult);
     END_INTERFACE
   } IGPMRSOPVtbl;
-  interface IGPMRSOP {
+  struct IGPMRSOP {
     CONST_VTBL struct IGPMRSOPVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1701,7 +1701,7 @@ extern "C"{
       HRESULT (WINAPI *MakeACLConsistent)(IGPMGPO *This);
     END_INTERFACE
   } IGPMGPOVtbl;
-  interface IGPMGPO {
+  struct IGPMGPO {
     CONST_VTBL struct IGPMGPOVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1828,7 +1828,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IGPMGPOCollection *This,IEnumVARIANT **ppIGPMGPOs);
     END_INTERFACE
   } IGPMGPOCollectionVtbl;
-  interface IGPMGPOCollection {
+  struct IGPMGPOCollection {
     CONST_VTBL struct IGPMGPOCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1889,7 +1889,7 @@ extern "C"{
       HRESULT (WINAPI *Delete)(IGPMGPOLink *This);
     END_INTERFACE
   } IGPMGPOLinkVtbl;
-  interface IGPMGPOLink {
+  struct IGPMGPOLink {
     CONST_VTBL struct IGPMGPOLinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1956,7 +1956,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IGPMGPOLinksCollection *This,IEnumVARIANT **ppIGPMLinks);
     END_INTERFACE
   } IGPMGPOLinksCollectionVtbl;
-  interface IGPMGPOLinksCollection {
+  struct IGPMGPOLinksCollection {
     CONST_VTBL struct IGPMGPOLinksCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2005,7 +2005,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IGPMCSECollection *This,IEnumVARIANT **ppIGPMCSEs);
     END_INTERFACE
   } IGPMCSECollectionVtbl;
-  interface IGPMCSECollection {
+  struct IGPMCSECollection {
     CONST_VTBL struct IGPMCSECollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2056,7 +2056,7 @@ extern "C"{
       HRESULT (WINAPI *IsComputerEnabled)(IGPMClientSideExtension *This,VARIANT_BOOL *pvbEnabled);
     END_INTERFACE
   } IGPMClientSideExtensionVtbl;
-  interface IGPMClientSideExtension {
+  struct IGPMClientSideExtension {
     CONST_VTBL struct IGPMClientSideExtensionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2104,7 +2104,7 @@ extern "C"{
       HRESULT (WINAPI *Cancel)(IGPMAsyncCancel *This);
     END_INTERFACE
   } IGPMAsyncCancelVtbl;
-  interface IGPMAsyncCancel {
+  struct IGPMAsyncCancel {
     CONST_VTBL struct IGPMAsyncCancelVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2143,7 +2143,7 @@ extern "C"{
       HRESULT (WINAPI *Status)(IGPMAsyncProgress *This,long lProgressNumerator,long lProgressDenominator,HRESULT hrStatus,VARIANT *pResult,IGPMStatusMsgCollection *ppIGPMStatusMsgCollection);
     END_INTERFACE
   } IGPMAsyncProgressVtbl;
-  interface IGPMAsyncProgress {
+  struct IGPMAsyncProgress {
     CONST_VTBL struct IGPMAsyncProgressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2186,7 +2186,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IGPMStatusMsgCollection *This,IEnumVARIANT **pVal);
     END_INTERFACE
   } IGPMStatusMsgCollectionVtbl;
-  interface IGPMStatusMsgCollection {
+  struct IGPMStatusMsgCollection {
     CONST_VTBL struct IGPMStatusMsgCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2241,7 +2241,7 @@ extern "C"{
       HRESULT (WINAPI *get_Message)(IGPMStatusMessage *This,BSTR *pVal);
     END_INTERFACE
   } IGPMStatusMessageVtbl;
-  interface IGPMStatusMessage {
+  struct IGPMStatusMessage {
     CONST_VTBL struct IGPMStatusMessageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2413,7 +2413,7 @@ extern "C"{
       HRESULT (WINAPI *get_RsopPlanningAssumeCompWQLFilterTrue)(IGPMConstants *This,long *pVal);
     END_INTERFACE
   } IGPMConstantsVtbl;
-  interface IGPMConstants {
+  struct IGPMConstants {
     CONST_VTBL struct IGPMConstantsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2633,7 +2633,7 @@ extern "C"{
       HRESULT (WINAPI *OverallStatus)(IGPMResult *This);
     END_INTERFACE
   } IGPMResultVtbl;
-  interface IGPMResult {
+  struct IGPMResult {
     CONST_VTBL struct IGPMResultVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2682,7 +2682,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IGPMMapEntryCollection *This,IEnumVARIANT **pVal);
     END_INTERFACE
   } IGPMMapEntryCollectionVtbl;
-  interface IGPMMapEntryCollection {
+  struct IGPMMapEntryCollection {
     CONST_VTBL struct IGPMMapEntryCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2734,7 +2734,7 @@ extern "C"{
       HRESULT (WINAPI *get_EntryType)(IGPMMapEntry *This,GPMEntryType *pgpmEntryType);
     END_INTERFACE
   } IGPMMapEntryVtbl;
-  interface IGPMMapEntry {
+  struct IGPMMapEntry {
     CONST_VTBL struct IGPMMapEntryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2796,7 +2796,7 @@ extern "C"{
       HRESULT (WINAPI *GetEntries)(IGPMMigrationTable *This,IGPMMapEntryCollection **ppEntries);
     END_INTERFACE
   } IGPMMigrationTableVtbl;
-  interface IGPMMigrationTable {
+  struct IGPMMigrationTable {
     CONST_VTBL struct IGPMMigrationTableVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

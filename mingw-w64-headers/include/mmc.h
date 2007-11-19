@@ -24,197 +24,197 @@
 
 #ifndef __IComponentData_FWD_DEFINED__
 #define __IComponentData_FWD_DEFINED__
-typedef interface IComponentData IComponentData;
+typedef struct IComponentData IComponentData;
 #endif
 
 #ifndef __IComponent_FWD_DEFINED__
 #define __IComponent_FWD_DEFINED__
-typedef interface IComponent IComponent;
+typedef struct IComponent IComponent;
 #endif
 
 #ifndef __IResultDataCompare_FWD_DEFINED__
 #define __IResultDataCompare_FWD_DEFINED__
-typedef interface IResultDataCompare IResultDataCompare;
+typedef struct IResultDataCompare IResultDataCompare;
 #endif
 
 #ifndef __IResultOwnerData_FWD_DEFINED__
 #define __IResultOwnerData_FWD_DEFINED__
-typedef interface IResultOwnerData IResultOwnerData;
+typedef struct IResultOwnerData IResultOwnerData;
 #endif
 
 #ifndef __IConsole_FWD_DEFINED__
 #define __IConsole_FWD_DEFINED__
-typedef interface IConsole IConsole;
+typedef struct IConsole IConsole;
 #endif
 
 #ifndef __IHeaderCtrl_FWD_DEFINED__
 #define __IHeaderCtrl_FWD_DEFINED__
-typedef interface IHeaderCtrl IHeaderCtrl;
+typedef struct IHeaderCtrl IHeaderCtrl;
 #endif
 
 #ifndef __IContextMenuCallback_FWD_DEFINED__
 #define __IContextMenuCallback_FWD_DEFINED__
-typedef interface IContextMenuCallback IContextMenuCallback;
+typedef struct IContextMenuCallback IContextMenuCallback;
 #endif
 
 #ifndef __IContextMenuProvider_FWD_DEFINED__
 #define __IContextMenuProvider_FWD_DEFINED__
-typedef interface IContextMenuProvider IContextMenuProvider;
+typedef struct IContextMenuProvider IContextMenuProvider;
 #endif
 
 #ifndef __IExtendContextMenu_FWD_DEFINED__
 #define __IExtendContextMenu_FWD_DEFINED__
-typedef interface IExtendContextMenu IExtendContextMenu;
+typedef struct IExtendContextMenu IExtendContextMenu;
 #endif
 
 #ifndef __IImageList_FWD_DEFINED__
 #define __IImageList_FWD_DEFINED__
-typedef interface IImageList IImageList;
+typedef struct IImageList IImageList;
 #endif
 
 #ifndef __IResultData_FWD_DEFINED__
 #define __IResultData_FWD_DEFINED__
-typedef interface IResultData IResultData;
+typedef struct IResultData IResultData;
 #endif
 
 #ifndef __IConsoleNameSpace_FWD_DEFINED__
 #define __IConsoleNameSpace_FWD_DEFINED__
-typedef interface IConsoleNameSpace IConsoleNameSpace;
+typedef struct IConsoleNameSpace IConsoleNameSpace;
 #endif
 
 #ifndef __IConsoleNameSpace2_FWD_DEFINED__
 #define __IConsoleNameSpace2_FWD_DEFINED__
-typedef interface IConsoleNameSpace2 IConsoleNameSpace2;
+typedef struct IConsoleNameSpace2 IConsoleNameSpace2;
 #endif
 
 #ifndef __IPropertySheetCallback_FWD_DEFINED__
 #define __IPropertySheetCallback_FWD_DEFINED__
-typedef interface IPropertySheetCallback IPropertySheetCallback;
+typedef struct IPropertySheetCallback IPropertySheetCallback;
 #endif
 
 #ifndef __IPropertySheetProvider_FWD_DEFINED__
 #define __IPropertySheetProvider_FWD_DEFINED__
-typedef interface IPropertySheetProvider IPropertySheetProvider;
+typedef struct IPropertySheetProvider IPropertySheetProvider;
 #endif
 
 #ifndef __IExtendPropertySheet_FWD_DEFINED__
 #define __IExtendPropertySheet_FWD_DEFINED__
-typedef interface IExtendPropertySheet IExtendPropertySheet;
+typedef struct IExtendPropertySheet IExtendPropertySheet;
 #endif
 
 #ifndef __IControlbar_FWD_DEFINED__
 #define __IControlbar_FWD_DEFINED__
-typedef interface IControlbar IControlbar;
+typedef struct IControlbar IControlbar;
 #endif
 
 #ifndef __IExtendControlbar_FWD_DEFINED__
 #define __IExtendControlbar_FWD_DEFINED__
-typedef interface IExtendControlbar IExtendControlbar;
+typedef struct IExtendControlbar IExtendControlbar;
 #endif
 
 #ifndef __IToolbar_FWD_DEFINED__
 #define __IToolbar_FWD_DEFINED__
-typedef interface IToolbar IToolbar;
+typedef struct IToolbar IToolbar;
 #endif
 
 #ifndef __IConsoleVerb_FWD_DEFINED__
 #define __IConsoleVerb_FWD_DEFINED__
-typedef interface IConsoleVerb IConsoleVerb;
+typedef struct IConsoleVerb IConsoleVerb;
 #endif
 
 #ifndef __ISnapinAbout_FWD_DEFINED__
 #define __ISnapinAbout_FWD_DEFINED__
-typedef interface ISnapinAbout ISnapinAbout;
+typedef struct ISnapinAbout ISnapinAbout;
 #endif
 
 #ifndef __IMenuButton_FWD_DEFINED__
 #define __IMenuButton_FWD_DEFINED__
-typedef interface IMenuButton IMenuButton;
+typedef struct IMenuButton IMenuButton;
 #endif
 
 #ifndef __ISnapinHelp_FWD_DEFINED__
 #define __ISnapinHelp_FWD_DEFINED__
-typedef interface ISnapinHelp ISnapinHelp;
+typedef struct ISnapinHelp ISnapinHelp;
 #endif
 
 #ifndef __IExtendPropertySheet2_FWD_DEFINED__
 #define __IExtendPropertySheet2_FWD_DEFINED__
-typedef interface IExtendPropertySheet2 IExtendPropertySheet2;
+typedef struct IExtendPropertySheet2 IExtendPropertySheet2;
 #endif
 
 #ifndef __IHeaderCtrl2_FWD_DEFINED__
 #define __IHeaderCtrl2_FWD_DEFINED__
-typedef interface IHeaderCtrl2 IHeaderCtrl2;
+typedef struct IHeaderCtrl2 IHeaderCtrl2;
 #endif
 
 #ifndef __ISnapinHelp2_FWD_DEFINED__
 #define __ISnapinHelp2_FWD_DEFINED__
-typedef interface ISnapinHelp2 ISnapinHelp2;
+typedef struct ISnapinHelp2 ISnapinHelp2;
 #endif
 
 #ifndef __IEnumTASK_FWD_DEFINED__
 #define __IEnumTASK_FWD_DEFINED__
-typedef interface IEnumTASK IEnumTASK;
+typedef struct IEnumTASK IEnumTASK;
 #endif
 
 #ifndef __IExtendTaskPad_FWD_DEFINED__
 #define __IExtendTaskPad_FWD_DEFINED__
-typedef interface IExtendTaskPad IExtendTaskPad;
+typedef struct IExtendTaskPad IExtendTaskPad;
 #endif
 
 #ifndef __IConsole2_FWD_DEFINED__
 #define __IConsole2_FWD_DEFINED__
-typedef interface IConsole2 IConsole2;
+typedef struct IConsole2 IConsole2;
 #endif
 
 #ifndef __IDisplayHelp_FWD_DEFINED__
 #define __IDisplayHelp_FWD_DEFINED__
-typedef interface IDisplayHelp IDisplayHelp;
+typedef struct IDisplayHelp IDisplayHelp;
 #endif
 
 #ifndef __IRequiredExtensions_FWD_DEFINED__
 #define __IRequiredExtensions_FWD_DEFINED__
-typedef interface IRequiredExtensions IRequiredExtensions;
+typedef struct IRequiredExtensions IRequiredExtensions;
 #endif
 
 #ifndef __IStringTable_FWD_DEFINED__
 #define __IStringTable_FWD_DEFINED__
-typedef interface IStringTable IStringTable;
+typedef struct IStringTable IStringTable;
 #endif
 
 #ifndef __IColumnData_FWD_DEFINED__
 #define __IColumnData_FWD_DEFINED__
-typedef interface IColumnData IColumnData;
+typedef struct IColumnData IColumnData;
 #endif
 
 #ifndef __IMessageView_FWD_DEFINED__
 #define __IMessageView_FWD_DEFINED__
-typedef interface IMessageView IMessageView;
+typedef struct IMessageView IMessageView;
 #endif
 
 #ifndef __IResultDataCompareEx_FWD_DEFINED__
 #define __IResultDataCompareEx_FWD_DEFINED__
-typedef interface IResultDataCompareEx IResultDataCompareEx;
+typedef struct IResultDataCompareEx IResultDataCompareEx;
 #endif
 
 #ifndef __IComponentData2_FWD_DEFINED__
 #define __IComponentData2_FWD_DEFINED__
-typedef interface IComponentData2 IComponentData2;
+typedef struct IComponentData2 IComponentData2;
 #endif
 
 #ifndef __IComponent2_FWD_DEFINED__
 #define __IComponent2_FWD_DEFINED__
-typedef interface IComponent2 IComponent2;
+typedef struct IComponent2 IComponent2;
 #endif
 
 #ifndef __IContextMenuCallback2_FWD_DEFINED__
 #define __IContextMenuCallback2_FWD_DEFINED__
-typedef interface IContextMenuCallback2 IContextMenuCallback2;
+typedef struct IContextMenuCallback2 IContextMenuCallback2;
 #endif
 
 #ifndef __IMMCVersionInfo_FWD_DEFINED__
 #define __IMMCVersionInfo_FWD_DEFINED__
-typedef interface IMMCVersionInfo IMMCVersionInfo;
+typedef struct IMMCVersionInfo IMMCVersionInfo;
 #endif
 
 #ifndef __MMCVersionInfo_FWD_DEFINED__
@@ -237,37 +237,37 @@ typedef struct ConsolePower ConsolePower;
 
 #ifndef __IExtendView_FWD_DEFINED__
 #define __IExtendView_FWD_DEFINED__
-typedef interface IExtendView IExtendView;
+typedef struct IExtendView IExtendView;
 #endif
 
 #ifndef __IViewExtensionCallback_FWD_DEFINED__
 #define __IViewExtensionCallback_FWD_DEFINED__
-typedef interface IViewExtensionCallback IViewExtensionCallback;
+typedef struct IViewExtensionCallback IViewExtensionCallback;
 #endif
 
 #ifndef __IConsolePower_FWD_DEFINED__
 #define __IConsolePower_FWD_DEFINED__
-typedef interface IConsolePower IConsolePower;
+typedef struct IConsolePower IConsolePower;
 #endif
 
 #ifndef __IConsolePowerSink_FWD_DEFINED__
 #define __IConsolePowerSink_FWD_DEFINED__
-typedef interface IConsolePowerSink IConsolePowerSink;
+typedef struct IConsolePowerSink IConsolePowerSink;
 #endif
 
 #ifndef __INodeProperties_FWD_DEFINED__
 #define __INodeProperties_FWD_DEFINED__
-typedef interface INodeProperties INodeProperties;
+typedef struct INodeProperties INodeProperties;
 #endif
 
 #ifndef __IConsole3_FWD_DEFINED__
 #define __IConsole3_FWD_DEFINED__
-typedef interface IConsole3 IConsole3;
+typedef struct IConsole3 IConsole3;
 #endif
 
 #ifndef __IResultData2_FWD_DEFINED__
 #define __IResultData2_FWD_DEFINED__
-typedef interface IResultData2 IResultData2;
+typedef struct IResultData2 IResultData2;
 #endif
 
 #include "basetsd.h"
@@ -691,7 +691,7 @@ extern "C" {
       HRESULT (WINAPI *CompareObjects)(IComponentData *This,LPDATAOBJECT lpDataObjectA,LPDATAOBJECT lpDataObjectB);
     END_INTERFACE
   } IComponentDataVtbl;
-  interface IComponentData {
+  struct IComponentData {
     CONST_VTBL struct IComponentDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -752,7 +752,7 @@ extern "C" {
       HRESULT (WINAPI *CompareObjects)(IComponent *This,LPDATAOBJECT lpDataObjectA,LPDATAOBJECT lpDataObjectB);
     END_INTERFACE
   } IComponentVtbl;
-  interface IComponent {
+  struct IComponent {
     CONST_VTBL struct IComponentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -801,7 +801,7 @@ extern "C" {
       HRESULT (WINAPI *Compare)(IResultDataCompare *This,LPARAM lUserParam,MMC_COOKIE cookieA,MMC_COOKIE cookieB,int *pnResult);
     END_INTERFACE
   } IResultDataCompareVtbl;
-  interface IResultDataCompare {
+  struct IResultDataCompare {
     CONST_VTBL struct IResultDataCompareVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -836,7 +836,7 @@ extern "C" {
       HRESULT (WINAPI *SortItems)(IResultOwnerData *This,int nColumn,DWORD dwSortOptions,LPARAM lUserParam);
     END_INTERFACE
   } IResultOwnerDataVtbl;
-  interface IResultOwnerData {
+  struct IResultOwnerData {
     CONST_VTBL struct IResultOwnerDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -893,7 +893,7 @@ extern "C" {
       HRESULT (WINAPI *NewWindow)(IConsole *This,HSCOPEITEM hScopeItem,unsigned long lOptions);
     END_INTERFACE
   } IConsoleVtbl;
-  interface IConsole {
+  struct IConsole {
     CONST_VTBL struct IConsoleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -968,7 +968,7 @@ extern "C" {
       HRESULT (WINAPI *GetColumnWidth)(IHeaderCtrl *This,int nCol,int *pWidth);
     END_INTERFACE
   } IHeaderCtrlVtbl;
-  interface IHeaderCtrl {
+  struct IHeaderCtrl {
     CONST_VTBL struct IHeaderCtrlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1041,7 +1041,7 @@ extern "C" {
       HRESULT (WINAPI *AddItem)(IContextMenuCallback *This,CONTEXTMENUITEM *pItem);
     END_INTERFACE
   } IContextMenuCallbackVtbl;
-  interface IContextMenuCallback {
+  struct IContextMenuCallback {
     CONST_VTBL struct IContextMenuCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1079,7 +1079,7 @@ extern "C" {
       HRESULT (WINAPI *ShowContextMenu)(IContextMenuProvider *This,HWND hwndParent,long xPos,long yPos,long *plSelected);
     END_INTERFACE
   } IContextMenuProviderVtbl;
-  interface IContextMenuProvider {
+  struct IContextMenuProvider {
     CONST_VTBL struct IContextMenuProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1122,7 +1122,7 @@ extern "C" {
       HRESULT (WINAPI *Command)(IExtendContextMenu *This,long lCommandID,LPDATAOBJECT piDataObject);
     END_INTERFACE
   } IExtendContextMenuVtbl;
-  interface IExtendContextMenu {
+  struct IExtendContextMenu {
     CONST_VTBL struct IExtendContextMenuVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1168,7 +1168,7 @@ extern "C" {
       HRESULT (WINAPI *ImageListSetStrip)(IImageList *This,LONG_PTR *pBMapSm,LONG_PTR *pBMapLg,long nStartLoc,COLORREF cMask);
     END_INTERFACE
   } IImageListVtbl;
-  interface IImageList {
+  struct IImageList {
     CONST_VTBL struct IImageListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1230,7 +1230,7 @@ extern "C" {
       HRESULT (WINAPI *SetItemCount)(IResultData *This,int nItemCount,DWORD dwOptions);
     END_INTERFACE
   } IResultDataVtbl;
-  interface IResultData {
+  struct IResultData {
     CONST_VTBL struct IResultDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1315,7 +1315,7 @@ extern "C" {
       HRESULT (WINAPI *GetParentItem)(IConsoleNameSpace *This,HSCOPEITEM item,HSCOPEITEM *pItemParent,MMC_COOKIE *pCookie);
     END_INTERFACE
   } IConsoleNameSpaceVtbl;
-  interface IConsoleNameSpace {
+  struct IConsoleNameSpace {
     CONST_VTBL struct IConsoleNameSpaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1373,7 +1373,7 @@ extern "C" {
       HRESULT (WINAPI *AddExtension)(IConsoleNameSpace2 *This,HSCOPEITEM hItem,LPCLSID lpClsid);
     END_INTERFACE
   } IConsoleNameSpace2Vtbl;
-  interface IConsoleNameSpace2 {
+  struct IConsoleNameSpace2 {
     CONST_VTBL struct IConsoleNameSpace2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1420,7 +1420,7 @@ extern "C" {
       HRESULT (WINAPI *RemovePage)(IPropertySheetCallback *This,HPROPSHEETPAGE hPage);
     END_INTERFACE
   } IPropertySheetCallbackVtbl;
-  interface IPropertySheetCallback {
+  struct IPropertySheetCallback {
     CONST_VTBL struct IPropertySheetCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1462,7 +1462,7 @@ extern "C" {
       HRESULT (WINAPI *Show)(IPropertySheetProvider *This,LONG_PTR window,int page);
     END_INTERFACE
   } IPropertySheetProviderVtbl;
-  interface IPropertySheetProvider {
+  struct IPropertySheetProvider {
     CONST_VTBL struct IPropertySheetProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1507,7 +1507,7 @@ extern "C" {
       HRESULT (WINAPI *QueryPagesFor)(IExtendPropertySheet *This,LPDATAOBJECT lpDataObject);
     END_INTERFACE
   } IExtendPropertySheetVtbl;
-  interface IExtendPropertySheet {
+  struct IExtendPropertySheet {
     CONST_VTBL struct IExtendPropertySheetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1545,7 +1545,7 @@ extern "C" {
       HRESULT (WINAPI *Detach)(IControlbar *This,LPUNKNOWN lpUnknown);
     END_INTERFACE
   } IControlbarVtbl;
-  interface IControlbar {
+  struct IControlbar {
     CONST_VTBL struct IControlbarVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1584,7 +1584,7 @@ extern "C" {
       HRESULT (WINAPI *ControlbarNotify)(IExtendControlbar *This,MMC_NOTIFY_TYPE event,LPARAM arg,LPARAM param);
     END_INTERFACE
   } IExtendControlbarVtbl;
-  interface IExtendControlbar {
+  struct IExtendControlbar {
     CONST_VTBL struct IExtendControlbarVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1628,7 +1628,7 @@ extern "C" {
       HRESULT (WINAPI *SetButtonState)(IToolbar *This,int idCommand,MMC_BUTTON_STATE nState,WINBOOL bState);
     END_INTERFACE
   } IToolbarVtbl;
-  interface IToolbar {
+  struct IToolbar {
     CONST_VTBL struct IToolbarVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1680,7 +1680,7 @@ extern "C" {
       HRESULT (WINAPI *GetDefaultVerb)(IConsoleVerb *This,MMC_CONSOLE_VERB *peCmdID);
     END_INTERFACE
   } IConsoleVerbVtbl;
-  interface IConsoleVerb {
+  struct IConsoleVerb {
     CONST_VTBL struct IConsoleVerbVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1728,7 +1728,7 @@ extern "C" {
       HRESULT (WINAPI *GetStaticFolderImage)(ISnapinAbout *This,HBITMAP *hSmallImage,HBITMAP *hSmallImageOpen,HBITMAP *hLargeImage,COLORREF *cMask);
     END_INTERFACE
   } ISnapinAboutVtbl;
-  interface ISnapinAbout {
+  struct ISnapinAbout {
     CONST_VTBL struct ISnapinAboutVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1775,7 +1775,7 @@ extern "C" {
       HRESULT (WINAPI *SetButtonState)(IMenuButton *This,int idCommand,MMC_BUTTON_STATE nState,WINBOOL bState);
     END_INTERFACE
   } IMenuButtonVtbl;
-  interface IMenuButton {
+  struct IMenuButton {
     CONST_VTBL struct IMenuButtonVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1812,7 +1812,7 @@ extern "C" {
       HRESULT (WINAPI *GetHelpTopic)(ISnapinHelp *This,LPOLESTR *lpCompiledHelpFile);
     END_INTERFACE
   } ISnapinHelpVtbl;
-  interface ISnapinHelp {
+  struct ISnapinHelp {
     CONST_VTBL struct ISnapinHelpVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1848,7 +1848,7 @@ extern "C" {
       HRESULT (WINAPI *GetWatermarks)(IExtendPropertySheet2 *This,LPDATAOBJECT lpIDataObject,HBITMAP *lphWatermark,HBITMAP *lphHeader,HPALETTE *lphPalette,WINBOOL *bStretch);
     END_INTERFACE
   } IExtendPropertySheet2Vtbl;
-  interface IExtendPropertySheet2 {
+  struct IExtendPropertySheet2 {
     CONST_VTBL struct IExtendPropertySheet2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1891,7 +1891,7 @@ extern "C" {
       HRESULT (WINAPI *GetColumnFilter)(IHeaderCtrl2 *This,UINT nColumn,LPDWORD pdwType,MMC_FILTERDATA *pFilterData);
     END_INTERFACE
   } IHeaderCtrl2Vtbl;
-  interface IHeaderCtrl2 {
+  struct IHeaderCtrl2 {
     CONST_VTBL struct IHeaderCtrl2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1935,7 +1935,7 @@ extern "C" {
       HRESULT (WINAPI *GetLinkedTopics)(ISnapinHelp2 *This,LPOLESTR *lpCompiledHelpFiles);
     END_INTERFACE
   } ISnapinHelp2Vtbl;
-  interface ISnapinHelp2 {
+  struct ISnapinHelp2 {
     CONST_VTBL struct ISnapinHelp2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2026,7 +2026,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumTASK *This,IEnumTASK **ppenum);
     END_INTERFACE
   } IEnumTASKVtbl;
-  interface IEnumTASK {
+  struct IEnumTASK {
     CONST_VTBL struct IEnumTASKVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2076,7 +2076,7 @@ extern "C" {
       HRESULT (WINAPI *GetListPadInfo)(IExtendTaskPad *This,LPOLESTR pszGroup,MMC_LISTPAD_INFO *lpListPadInfo);
     END_INTERFACE
   } IExtendTaskPadVtbl;
-  interface IExtendTaskPad {
+  struct IExtendTaskPad {
     CONST_VTBL struct IExtendTaskPadVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2137,7 +2137,7 @@ extern "C" {
       HRESULT (WINAPI *SetStatusText)(IConsole2 *This,LPOLESTR pszStatusText);
     END_INTERFACE
   } IConsole2Vtbl;
-  interface IConsole2 {
+  struct IConsole2 {
     CONST_VTBL struct IConsole2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2185,7 +2185,7 @@ extern "C" {
       HRESULT (WINAPI *ShowTopic)(IDisplayHelp *This,LPOLESTR pszHelpTopic);
     END_INTERFACE
   } IDisplayHelpVtbl;
-  interface IDisplayHelp {
+  struct IDisplayHelp {
     CONST_VTBL struct IDisplayHelpVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2220,7 +2220,7 @@ extern "C" {
       HRESULT (WINAPI *GetNextExtension)(IRequiredExtensions *This,LPCLSID pExtCLSID);
     END_INTERFACE
   } IRequiredExtensionsVtbl;
-  interface IRequiredExtensions {
+  struct IRequiredExtensions {
     CONST_VTBL struct IRequiredExtensionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2269,7 +2269,7 @@ extern "C" {
       HRESULT (WINAPI *Enumerate)(IStringTable *This,IEnumString **ppEnum);
     END_INTERFACE
   } IStringTableVtbl;
-  interface IStringTable {
+  struct IStringTable {
     CONST_VTBL struct IStringTableVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2355,7 +2355,7 @@ extern "C" {
       HRESULT (WINAPI *GetColumnSortData)(IColumnData *This,SColumnSetID *pColID,MMC_SORT_SET_DATA **ppColSortData);
     END_INTERFACE
   } IColumnDataVtbl;
-  interface IColumnData {
+  struct IColumnData {
     CONST_VTBL struct IColumnDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2406,7 +2406,7 @@ extern "C" {
       HRESULT (WINAPI *Clear)(IMessageView *This);
     END_INTERFACE
   } IMessageViewVtbl;
-  interface IMessageView {
+  struct IMessageView {
     CONST_VTBL struct IMessageViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2466,7 +2466,7 @@ extern "C" {
       HRESULT (WINAPI *Compare)(IResultDataCompareEx *This,RDCOMPARE *prdc,int *pnResult);
     END_INTERFACE
   } IResultDataCompareExVtbl;
-  interface IResultDataCompareEx {
+  struct IResultDataCompareEx {
     CONST_VTBL struct IResultDataCompareExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2574,7 +2574,7 @@ extern "C" {
       HRESULT (WINAPI *QueryDispatch)(IComponentData2 *This,MMC_COOKIE cookie,DATA_OBJECT_TYPES type,LPDISPATCH *ppDispatch);
     END_INTERFACE
   } IComponentData2Vtbl;
-  interface IComponentData2 {
+  struct IComponentData2 {
     CONST_VTBL struct IComponentData2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2623,7 +2623,7 @@ extern "C" {
       HRESULT (WINAPI *RestoreResultView)(IComponent2 *This,MMC_COOKIE cookie,PRESULT_VIEW_TYPE_INFO pResultViewType);
     END_INTERFACE
   } IComponent2Vtbl;
-  interface IComponent2 {
+  struct IComponent2 {
     CONST_VTBL struct IComponent2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2667,7 +2667,7 @@ extern "C" {
       HRESULT (WINAPI *AddItem)(IContextMenuCallback2 *This,CONTEXTMENUITEM2 *pItem);
     END_INTERFACE
   } IContextMenuCallback2Vtbl;
-  interface IContextMenuCallback2 {
+  struct IContextMenuCallback2 {
     CONST_VTBL struct IContextMenuCallback2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2698,7 +2698,7 @@ extern "C" {
       HRESULT (WINAPI *GetMMCVersion)(IMMCVersionInfo *This,long *pVersionMajor,long *pVersionMinor);
     END_INTERFACE
   } IMMCVersionInfoVtbl;
-  interface IMMCVersionInfo {
+  struct IMMCVersionInfo {
     CONST_VTBL struct IMMCVersionInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2742,7 +2742,7 @@ extern "C" {
       HRESULT (WINAPI *GetViews)(IExtendView *This,LPDATAOBJECT pDataObject,LPVIEWEXTENSIONCALLBACK pViewExtensionCallback);
     END_INTERFACE
   } IExtendViewVtbl;
-  interface IExtendView {
+  struct IExtendView {
     CONST_VTBL struct IExtendViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2773,7 +2773,7 @@ extern "C" {
       HRESULT (WINAPI *AddView)(IViewExtensionCallback *This,PMMC_EXT_VIEW_DATA pExtViewData);
     END_INTERFACE
   } IViewExtensionCallbackVtbl;
-  interface IViewExtensionCallback {
+  struct IViewExtensionCallback {
     CONST_VTBL struct IViewExtensionCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2806,7 +2806,7 @@ extern "C" {
       HRESULT (WINAPI *ResetIdleTimer)(IConsolePower *This,DWORD dwFlags);
     END_INTERFACE
   } IConsolePowerVtbl;
-  interface IConsolePower {
+  struct IConsolePower {
     CONST_VTBL struct IConsolePowerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2840,7 +2840,7 @@ extern "C" {
       HRESULT (WINAPI *OnPowerBroadcast)(IConsolePowerSink *This,UINT nEvent,LPARAM lParam,LRESULT *plReturn);
     END_INTERFACE
   } IConsolePowerSinkVtbl;
-  interface IConsolePowerSink {
+  struct IConsolePowerSink {
     CONST_VTBL struct IConsolePowerSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2871,7 +2871,7 @@ extern "C" {
       HRESULT (WINAPI *GetProperty)(INodeProperties *This,LPDATAOBJECT pDataObject,BSTR szPropertyName,PBSTR pbstrProperty);
     END_INTERFACE
   } INodePropertiesVtbl;
-  interface INodeProperties {
+  struct INodeProperties {
     CONST_VTBL struct INodePropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2916,7 +2916,7 @@ extern "C" {
       HRESULT (WINAPI *RenameScopeItem)(IConsole3 *This,HSCOPEITEM hScopeItem);
     END_INTERFACE
   } IConsole3Vtbl;
-  interface IConsole3 {
+  struct IConsole3 {
     CONST_VTBL struct IConsole3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2976,7 +2976,7 @@ extern "C" {
       HRESULT (WINAPI *RenameResultItem)(IResultData2 *This,HRESULTITEM itemID);
     END_INTERFACE
   } IResultData2Vtbl;
-  interface IResultData2 {
+  struct IResultData2 {
     CONST_VTBL struct IResultData2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

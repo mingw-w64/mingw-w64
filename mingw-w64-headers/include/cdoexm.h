@@ -15,17 +15,17 @@
 
 #ifndef __IDistributionList_FWD_DEFINED__
 #define __IDistributionList_FWD_DEFINED__
-typedef interface IDistributionList IDistributionList;
+typedef struct IDistributionList IDistributionList;
 #endif
 
 #ifndef __IMailRecipient_FWD_DEFINED__
 #define __IMailRecipient_FWD_DEFINED__
-typedef interface IMailRecipient IMailRecipient;
+typedef struct IMailRecipient IMailRecipient;
 #endif
 
 #ifndef __IMailboxStore_FWD_DEFINED__
 #define __IMailboxStore_FWD_DEFINED__
-typedef interface IMailboxStore IMailboxStore;
+typedef struct IMailboxStore IMailboxStore;
 #endif
 
 #ifndef __MailGroup_FWD_DEFINED__
@@ -163,7 +163,7 @@ extern "C"{
       HRESULT (WINAPI *put_HideDLMembership)(IDistributionList *This,VARIANT_BOOL varHideDLMembership);
     END_INTERFACE
   } IDistributionListVtbl;
-  interface IDistributionList {
+  struct IDistributionList {
     CONST_VTBL struct IDistributionListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -257,7 +257,7 @@ extern "C"{
       HRESULT (WINAPI *MailDisable)(IMailRecipient *This);
     END_INTERFACE
   } IMailRecipientVtbl;
-  interface IMailRecipient {
+  struct IMailRecipient {
     CONST_VTBL struct IMailRecipientVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -416,7 +416,7 @@ extern "C"{
       HRESULT (WINAPI *MoveMailbox)(IMailboxStore *This,BSTR HomeMDBURL);
     END_INTERFACE
   } IMailboxStoreVtbl;
-  interface IMailboxStore {
+  struct IMailboxStore {
     CONST_VTBL struct IMailboxStoreVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,22 +24,22 @@
 
 #ifndef __ITargetNotify_FWD_DEFINED__
 #define __ITargetNotify_FWD_DEFINED__
-typedef interface ITargetNotify ITargetNotify;
+typedef struct ITargetNotify ITargetNotify;
 #endif
 
 #ifndef __ITargetNotify2_FWD_DEFINED__
 #define __ITargetNotify2_FWD_DEFINED__
-typedef interface ITargetNotify2 ITargetNotify2;
+typedef struct ITargetNotify2 ITargetNotify2;
 #endif
 
 #ifndef __ITargetFrame2_FWD_DEFINED__
 #define __ITargetFrame2_FWD_DEFINED__
-typedef interface ITargetFrame2 ITargetFrame2;
+typedef struct ITargetFrame2 ITargetFrame2;
 #endif
 
 #ifndef __ITargetContainer_FWD_DEFINED__
 #define __ITargetContainer_FWD_DEFINED__
-typedef interface ITargetContainer ITargetContainer;
+typedef struct ITargetContainer ITargetContainer;
 #endif
 
 #include "objidl.h"
@@ -84,7 +84,7 @@ extern "C"{
       HRESULT (WINAPI *OnReuse)(ITargetNotify *This,IUnknown *pUnkDestination);
     END_INTERFACE
   } ITargetNotifyVtbl;
-  interface ITargetNotify {
+  struct ITargetNotify {
     CONST_VTBL struct ITargetNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -122,7 +122,7 @@ extern "C"{
       HRESULT (WINAPI *GetOptionString)(ITargetNotify2 *This,BSTR *pbstrOptions);
     END_INTERFACE
   } ITargetNotify2Vtbl;
-  interface ITargetNotify2 {
+  struct ITargetNotify2 {
     CONST_VTBL struct ITargetNotify2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -188,7 +188,7 @@ extern "C"{
       HRESULT (WINAPI *GetTargetAlias)(ITargetFrame2 *This,LPCWSTR pszTargetName,LPWSTR *ppszTargetAlias);
     END_INTERFACE
   } ITargetFrame2Vtbl;
-  interface ITargetFrame2 {
+  struct ITargetFrame2 {
     CONST_VTBL struct ITargetFrame2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -256,7 +256,7 @@ extern "C"{
       HRESULT (WINAPI *GetFramesContainer)(ITargetContainer *This,IOleContainer **ppContainer);
     END_INTERFACE
   } ITargetContainerVtbl;
-  interface ITargetContainer {
+  struct ITargetContainer {
     CONST_VTBL struct ITargetContainerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

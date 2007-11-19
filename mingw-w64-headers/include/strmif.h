@@ -24,682 +24,682 @@
 
 #ifndef __ICreateDevEnum_FWD_DEFINED__
 #define __ICreateDevEnum_FWD_DEFINED__
-typedef interface ICreateDevEnum ICreateDevEnum;
+typedef struct ICreateDevEnum ICreateDevEnum;
 #endif
 
 #ifndef __IPin_FWD_DEFINED__
 #define __IPin_FWD_DEFINED__
-typedef interface IPin IPin;
+typedef struct IPin IPin;
 #endif
 
 #ifndef __IEnumPins_FWD_DEFINED__
 #define __IEnumPins_FWD_DEFINED__
-typedef interface IEnumPins IEnumPins;
+typedef struct IEnumPins IEnumPins;
 #endif
 
 #ifndef __IEnumMediaTypes_FWD_DEFINED__
 #define __IEnumMediaTypes_FWD_DEFINED__
-typedef interface IEnumMediaTypes IEnumMediaTypes;
+typedef struct IEnumMediaTypes IEnumMediaTypes;
 #endif
 
 #ifndef __IFilterGraph_FWD_DEFINED__
 #define __IFilterGraph_FWD_DEFINED__
-typedef interface IFilterGraph IFilterGraph;
+typedef struct IFilterGraph IFilterGraph;
 #endif
 
 #ifndef __IEnumFilters_FWD_DEFINED__
 #define __IEnumFilters_FWD_DEFINED__
-typedef interface IEnumFilters IEnumFilters;
+typedef struct IEnumFilters IEnumFilters;
 #endif
 
 #ifndef __IMediaFilter_FWD_DEFINED__
 #define __IMediaFilter_FWD_DEFINED__
-typedef interface IMediaFilter IMediaFilter;
+typedef struct IMediaFilter IMediaFilter;
 #endif
 
 #ifndef __IBaseFilter_FWD_DEFINED__
 #define __IBaseFilter_FWD_DEFINED__
-typedef interface IBaseFilter IBaseFilter;
+typedef struct IBaseFilter IBaseFilter;
 #endif
 
 #ifndef __IReferenceClock_FWD_DEFINED__
 #define __IReferenceClock_FWD_DEFINED__
-typedef interface IReferenceClock IReferenceClock;
+typedef struct IReferenceClock IReferenceClock;
 #endif
 
 #ifndef __IReferenceClock2_FWD_DEFINED__
 #define __IReferenceClock2_FWD_DEFINED__
-typedef interface IReferenceClock2 IReferenceClock2;
+typedef struct IReferenceClock2 IReferenceClock2;
 #endif
 
 #ifndef __IMediaSample_FWD_DEFINED__
 #define __IMediaSample_FWD_DEFINED__
-typedef interface IMediaSample IMediaSample;
+typedef struct IMediaSample IMediaSample;
 #endif
 
 #ifndef __IMediaSample2_FWD_DEFINED__
 #define __IMediaSample2_FWD_DEFINED__
-typedef interface IMediaSample2 IMediaSample2;
+typedef struct IMediaSample2 IMediaSample2;
 #endif
 
 #ifndef __IMemAllocator_FWD_DEFINED__
 #define __IMemAllocator_FWD_DEFINED__
-typedef interface IMemAllocator IMemAllocator;
+typedef struct IMemAllocator IMemAllocator;
 #endif
 
 #ifndef __IMemAllocatorCallbackTemp_FWD_DEFINED__
 #define __IMemAllocatorCallbackTemp_FWD_DEFINED__
-typedef interface IMemAllocatorCallbackTemp IMemAllocatorCallbackTemp;
+typedef struct IMemAllocatorCallbackTemp IMemAllocatorCallbackTemp;
 #endif
 
 #ifndef __IMemAllocatorNotifyCallbackTemp_FWD_DEFINED__
 #define __IMemAllocatorNotifyCallbackTemp_FWD_DEFINED__
-typedef interface IMemAllocatorNotifyCallbackTemp IMemAllocatorNotifyCallbackTemp;
+typedef struct IMemAllocatorNotifyCallbackTemp IMemAllocatorNotifyCallbackTemp;
 #endif
 
 #ifndef __IMemInputPin_FWD_DEFINED__
 #define __IMemInputPin_FWD_DEFINED__
-typedef interface IMemInputPin IMemInputPin;
+typedef struct IMemInputPin IMemInputPin;
 #endif
 
 #ifndef __IAMovieSetup_FWD_DEFINED__
 #define __IAMovieSetup_FWD_DEFINED__
-typedef interface IAMovieSetup IAMovieSetup;
+typedef struct IAMovieSetup IAMovieSetup;
 #endif
 
 #ifndef __IMediaSeeking_FWD_DEFINED__
 #define __IMediaSeeking_FWD_DEFINED__
-typedef interface IMediaSeeking IMediaSeeking;
+typedef struct IMediaSeeking IMediaSeeking;
 #endif
 
 #ifndef __IEnumRegFilters_FWD_DEFINED__
 #define __IEnumRegFilters_FWD_DEFINED__
-typedef interface IEnumRegFilters IEnumRegFilters;
+typedef struct IEnumRegFilters IEnumRegFilters;
 #endif
 
 #ifndef __IFilterMapper_FWD_DEFINED__
 #define __IFilterMapper_FWD_DEFINED__
-typedef interface IFilterMapper IFilterMapper;
+typedef struct IFilterMapper IFilterMapper;
 #endif
 
 #ifndef __IFilterMapper2_FWD_DEFINED__
 #define __IFilterMapper2_FWD_DEFINED__
-typedef interface IFilterMapper2 IFilterMapper2;
+typedef struct IFilterMapper2 IFilterMapper2;
 #endif
 
 #ifndef __IFilterMapper3_FWD_DEFINED__
 #define __IFilterMapper3_FWD_DEFINED__
-typedef interface IFilterMapper3 IFilterMapper3;
+typedef struct IFilterMapper3 IFilterMapper3;
 #endif
 
 #ifndef __IQualityControl_FWD_DEFINED__
 #define __IQualityControl_FWD_DEFINED__
-typedef interface IQualityControl IQualityControl;
+typedef struct IQualityControl IQualityControl;
 #endif
 
 #ifndef __IOverlayNotify_FWD_DEFINED__
 #define __IOverlayNotify_FWD_DEFINED__
-typedef interface IOverlayNotify IOverlayNotify;
+typedef struct IOverlayNotify IOverlayNotify;
 #endif
 
 #ifndef __IOverlayNotify2_FWD_DEFINED__
 #define __IOverlayNotify2_FWD_DEFINED__
-typedef interface IOverlayNotify2 IOverlayNotify2;
+typedef struct IOverlayNotify2 IOverlayNotify2;
 #endif
 
 #ifndef __IOverlay_FWD_DEFINED__
 #define __IOverlay_FWD_DEFINED__
-typedef interface IOverlay IOverlay;
+typedef struct IOverlay IOverlay;
 #endif
 
 #ifndef __IMediaEventSink_FWD_DEFINED__
 #define __IMediaEventSink_FWD_DEFINED__
-typedef interface IMediaEventSink IMediaEventSink;
+typedef struct IMediaEventSink IMediaEventSink;
 #endif
 
 #ifndef __IFileSourceFilter_FWD_DEFINED__
 #define __IFileSourceFilter_FWD_DEFINED__
-typedef interface IFileSourceFilter IFileSourceFilter;
+typedef struct IFileSourceFilter IFileSourceFilter;
 #endif
 
 #ifndef __IFileSinkFilter_FWD_DEFINED__
 #define __IFileSinkFilter_FWD_DEFINED__
-typedef interface IFileSinkFilter IFileSinkFilter;
+typedef struct IFileSinkFilter IFileSinkFilter;
 #endif
 
 #ifndef __IFileSinkFilter2_FWD_DEFINED__
 #define __IFileSinkFilter2_FWD_DEFINED__
-typedef interface IFileSinkFilter2 IFileSinkFilter2;
+typedef struct IFileSinkFilter2 IFileSinkFilter2;
 #endif
 
 #ifndef __IGraphBuilder_FWD_DEFINED__
 #define __IGraphBuilder_FWD_DEFINED__
-typedef interface IGraphBuilder IGraphBuilder;
+typedef struct IGraphBuilder IGraphBuilder;
 #endif
 
 #ifndef __ICaptureGraphBuilder_FWD_DEFINED__
 #define __ICaptureGraphBuilder_FWD_DEFINED__
-typedef interface ICaptureGraphBuilder ICaptureGraphBuilder;
+typedef struct ICaptureGraphBuilder ICaptureGraphBuilder;
 #endif
 
 #ifndef __IAMCopyCaptureFileProgress_FWD_DEFINED__
 #define __IAMCopyCaptureFileProgress_FWD_DEFINED__
-typedef interface IAMCopyCaptureFileProgress IAMCopyCaptureFileProgress;
+typedef struct IAMCopyCaptureFileProgress IAMCopyCaptureFileProgress;
 #endif
 
 #ifndef __ICaptureGraphBuilder2_FWD_DEFINED__
 #define __ICaptureGraphBuilder2_FWD_DEFINED__
-typedef interface ICaptureGraphBuilder2 ICaptureGraphBuilder2;
+typedef struct ICaptureGraphBuilder2 ICaptureGraphBuilder2;
 #endif
 
 #ifndef __IFilterGraph2_FWD_DEFINED__
 #define __IFilterGraph2_FWD_DEFINED__
-typedef interface IFilterGraph2 IFilterGraph2;
+typedef struct IFilterGraph2 IFilterGraph2;
 #endif
 
 #ifndef __IStreamBuilder_FWD_DEFINED__
 #define __IStreamBuilder_FWD_DEFINED__
-typedef interface IStreamBuilder IStreamBuilder;
+typedef struct IStreamBuilder IStreamBuilder;
 #endif
 
 #ifndef __IAsyncReader_FWD_DEFINED__
 #define __IAsyncReader_FWD_DEFINED__
-typedef interface IAsyncReader IAsyncReader;
+typedef struct IAsyncReader IAsyncReader;
 #endif
 
 #ifndef __IGraphVersion_FWD_DEFINED__
 #define __IGraphVersion_FWD_DEFINED__
-typedef interface IGraphVersion IGraphVersion;
+typedef struct IGraphVersion IGraphVersion;
 #endif
 
 #ifndef __IResourceConsumer_FWD_DEFINED__
 #define __IResourceConsumer_FWD_DEFINED__
-typedef interface IResourceConsumer IResourceConsumer;
+typedef struct IResourceConsumer IResourceConsumer;
 #endif
 
 #ifndef __IResourceManager_FWD_DEFINED__
 #define __IResourceManager_FWD_DEFINED__
-typedef interface IResourceManager IResourceManager;
+typedef struct IResourceManager IResourceManager;
 #endif
 
 #ifndef __IDistributorNotify_FWD_DEFINED__
 #define __IDistributorNotify_FWD_DEFINED__
-typedef interface IDistributorNotify IDistributorNotify;
+typedef struct IDistributorNotify IDistributorNotify;
 #endif
 
 #ifndef __IAMStreamControl_FWD_DEFINED__
 #define __IAMStreamControl_FWD_DEFINED__
-typedef interface IAMStreamControl IAMStreamControl;
+typedef struct IAMStreamControl IAMStreamControl;
 #endif
 
 #ifndef __ISeekingPassThru_FWD_DEFINED__
 #define __ISeekingPassThru_FWD_DEFINED__
-typedef interface ISeekingPassThru ISeekingPassThru;
+typedef struct ISeekingPassThru ISeekingPassThru;
 #endif
 
 #ifndef __IAMStreamConfig_FWD_DEFINED__
 #define __IAMStreamConfig_FWD_DEFINED__
-typedef interface IAMStreamConfig IAMStreamConfig;
+typedef struct IAMStreamConfig IAMStreamConfig;
 #endif
 
 #ifndef __IConfigInterleaving_FWD_DEFINED__
 #define __IConfigInterleaving_FWD_DEFINED__
-typedef interface IConfigInterleaving IConfigInterleaving;
+typedef struct IConfigInterleaving IConfigInterleaving;
 #endif
 
 #ifndef __IConfigAviMux_FWD_DEFINED__
 #define __IConfigAviMux_FWD_DEFINED__
-typedef interface IConfigAviMux IConfigAviMux;
+typedef struct IConfigAviMux IConfigAviMux;
 #endif
 
 #ifndef __IAMVideoCompression_FWD_DEFINED__
 #define __IAMVideoCompression_FWD_DEFINED__
-typedef interface IAMVideoCompression IAMVideoCompression;
+typedef struct IAMVideoCompression IAMVideoCompression;
 #endif
 
 #ifndef __IAMVfwCaptureDialogs_FWD_DEFINED__
 #define __IAMVfwCaptureDialogs_FWD_DEFINED__
-typedef interface IAMVfwCaptureDialogs IAMVfwCaptureDialogs;
+typedef struct IAMVfwCaptureDialogs IAMVfwCaptureDialogs;
 #endif
 
 #ifndef __IAMVfwCompressDialogs_FWD_DEFINED__
 #define __IAMVfwCompressDialogs_FWD_DEFINED__
-typedef interface IAMVfwCompressDialogs IAMVfwCompressDialogs;
+typedef struct IAMVfwCompressDialogs IAMVfwCompressDialogs;
 #endif
 
 #ifndef __IAMDroppedFrames_FWD_DEFINED__
 #define __IAMDroppedFrames_FWD_DEFINED__
-typedef interface IAMDroppedFrames IAMDroppedFrames;
+typedef struct IAMDroppedFrames IAMDroppedFrames;
 #endif
 
 #ifndef __IAMAudioInputMixer_FWD_DEFINED__
 #define __IAMAudioInputMixer_FWD_DEFINED__
-typedef interface IAMAudioInputMixer IAMAudioInputMixer;
+typedef struct IAMAudioInputMixer IAMAudioInputMixer;
 #endif
 
 #ifndef __IAMBufferNegotiation_FWD_DEFINED__
 #define __IAMBufferNegotiation_FWD_DEFINED__
-typedef interface IAMBufferNegotiation IAMBufferNegotiation;
+typedef struct IAMBufferNegotiation IAMBufferNegotiation;
 #endif
 
 #ifndef __IAMAnalogVideoDecoder_FWD_DEFINED__
 #define __IAMAnalogVideoDecoder_FWD_DEFINED__
-typedef interface IAMAnalogVideoDecoder IAMAnalogVideoDecoder;
+typedef struct IAMAnalogVideoDecoder IAMAnalogVideoDecoder;
 #endif
 
 #ifndef __IAMVideoProcAmp_FWD_DEFINED__
 #define __IAMVideoProcAmp_FWD_DEFINED__
-typedef interface IAMVideoProcAmp IAMVideoProcAmp;
+typedef struct IAMVideoProcAmp IAMVideoProcAmp;
 #endif
 
 #ifndef __IAMCameraControl_FWD_DEFINED__
 #define __IAMCameraControl_FWD_DEFINED__
-typedef interface IAMCameraControl IAMCameraControl;
+typedef struct IAMCameraControl IAMCameraControl;
 #endif
 
 #ifndef __IAMVideoControl_FWD_DEFINED__
 #define __IAMVideoControl_FWD_DEFINED__
-typedef interface IAMVideoControl IAMVideoControl;
+typedef struct IAMVideoControl IAMVideoControl;
 #endif
 
 #ifndef __IAMCrossbar_FWD_DEFINED__
 #define __IAMCrossbar_FWD_DEFINED__
-typedef interface IAMCrossbar IAMCrossbar;
+typedef struct IAMCrossbar IAMCrossbar;
 #endif
 
 #ifndef __IAMTuner_FWD_DEFINED__
 #define __IAMTuner_FWD_DEFINED__
-typedef interface IAMTuner IAMTuner;
+typedef struct IAMTuner IAMTuner;
 #endif
 
 #ifndef __IAMTunerNotification_FWD_DEFINED__
 #define __IAMTunerNotification_FWD_DEFINED__
-typedef interface IAMTunerNotification IAMTunerNotification;
+typedef struct IAMTunerNotification IAMTunerNotification;
 #endif
 
 #ifndef __IAMTVTuner_FWD_DEFINED__
 #define __IAMTVTuner_FWD_DEFINED__
-typedef interface IAMTVTuner IAMTVTuner;
+typedef struct IAMTVTuner IAMTVTuner;
 #endif
 
 #ifndef __IBPCSatelliteTuner_FWD_DEFINED__
 #define __IBPCSatelliteTuner_FWD_DEFINED__
-typedef interface IBPCSatelliteTuner IBPCSatelliteTuner;
+typedef struct IBPCSatelliteTuner IBPCSatelliteTuner;
 #endif
 
 #ifndef __IAMTVAudio_FWD_DEFINED__
 #define __IAMTVAudio_FWD_DEFINED__
-typedef interface IAMTVAudio IAMTVAudio;
+typedef struct IAMTVAudio IAMTVAudio;
 #endif
 
 #ifndef __IAMTVAudioNotification_FWD_DEFINED__
 #define __IAMTVAudioNotification_FWD_DEFINED__
-typedef interface IAMTVAudioNotification IAMTVAudioNotification;
+typedef struct IAMTVAudioNotification IAMTVAudioNotification;
 #endif
 
 #ifndef __IAMAnalogVideoEncoder_FWD_DEFINED__
 #define __IAMAnalogVideoEncoder_FWD_DEFINED__
-typedef interface IAMAnalogVideoEncoder IAMAnalogVideoEncoder;
+typedef struct IAMAnalogVideoEncoder IAMAnalogVideoEncoder;
 #endif
 
 #ifndef __IKsPropertySet_FWD_DEFINED__
 #define __IKsPropertySet_FWD_DEFINED__
-typedef interface IKsPropertySet IKsPropertySet;
+typedef struct IKsPropertySet IKsPropertySet;
 #endif
 
 #ifndef __IMediaPropertyBag_FWD_DEFINED__
 #define __IMediaPropertyBag_FWD_DEFINED__
-typedef interface IMediaPropertyBag IMediaPropertyBag;
+typedef struct IMediaPropertyBag IMediaPropertyBag;
 #endif
 
 #ifndef __IPersistMediaPropertyBag_FWD_DEFINED__
 #define __IPersistMediaPropertyBag_FWD_DEFINED__
-typedef interface IPersistMediaPropertyBag IPersistMediaPropertyBag;
+typedef struct IPersistMediaPropertyBag IPersistMediaPropertyBag;
 #endif
 
 #ifndef __IAMPhysicalPinInfo_FWD_DEFINED__
 #define __IAMPhysicalPinInfo_FWD_DEFINED__
-typedef interface IAMPhysicalPinInfo IAMPhysicalPinInfo;
+typedef struct IAMPhysicalPinInfo IAMPhysicalPinInfo;
 #endif
 
 #ifndef __IAMExtDevice_FWD_DEFINED__
 #define __IAMExtDevice_FWD_DEFINED__
-typedef interface IAMExtDevice IAMExtDevice;
+typedef struct IAMExtDevice IAMExtDevice;
 #endif
 
 #ifndef __IAMExtTransport_FWD_DEFINED__
 #define __IAMExtTransport_FWD_DEFINED__
-typedef interface IAMExtTransport IAMExtTransport;
+typedef struct IAMExtTransport IAMExtTransport;
 #endif
 
 #ifndef __IAMTimecodeReader_FWD_DEFINED__
 #define __IAMTimecodeReader_FWD_DEFINED__
-typedef interface IAMTimecodeReader IAMTimecodeReader;
+typedef struct IAMTimecodeReader IAMTimecodeReader;
 #endif
 
 #ifndef __IAMTimecodeGenerator_FWD_DEFINED__
 #define __IAMTimecodeGenerator_FWD_DEFINED__
-typedef interface IAMTimecodeGenerator IAMTimecodeGenerator;
+typedef struct IAMTimecodeGenerator IAMTimecodeGenerator;
 #endif
 
 #ifndef __IAMTimecodeDisplay_FWD_DEFINED__
 #define __IAMTimecodeDisplay_FWD_DEFINED__
-typedef interface IAMTimecodeDisplay IAMTimecodeDisplay;
+typedef struct IAMTimecodeDisplay IAMTimecodeDisplay;
 #endif
 
 #ifndef __IAMDevMemoryAllocator_FWD_DEFINED__
 #define __IAMDevMemoryAllocator_FWD_DEFINED__
-typedef interface IAMDevMemoryAllocator IAMDevMemoryAllocator;
+typedef struct IAMDevMemoryAllocator IAMDevMemoryAllocator;
 #endif
 
 #ifndef __IAMDevMemoryControl_FWD_DEFINED__
 #define __IAMDevMemoryControl_FWD_DEFINED__
-typedef interface IAMDevMemoryControl IAMDevMemoryControl;
+typedef struct IAMDevMemoryControl IAMDevMemoryControl;
 #endif
 
 #ifndef __IAMStreamSelect_FWD_DEFINED__
 #define __IAMStreamSelect_FWD_DEFINED__
-typedef interface IAMStreamSelect IAMStreamSelect;
+typedef struct IAMStreamSelect IAMStreamSelect;
 #endif
 
 #ifndef __IAMResourceControl_FWD_DEFINED__
 #define __IAMResourceControl_FWD_DEFINED__
-typedef interface IAMResourceControl IAMResourceControl;
+typedef struct IAMResourceControl IAMResourceControl;
 #endif
 
 #ifndef __IAMClockAdjust_FWD_DEFINED__
 #define __IAMClockAdjust_FWD_DEFINED__
-typedef interface IAMClockAdjust IAMClockAdjust;
+typedef struct IAMClockAdjust IAMClockAdjust;
 #endif
 
 #ifndef __IAMFilterMiscFlags_FWD_DEFINED__
 #define __IAMFilterMiscFlags_FWD_DEFINED__
-typedef interface IAMFilterMiscFlags IAMFilterMiscFlags;
+typedef struct IAMFilterMiscFlags IAMFilterMiscFlags;
 #endif
 
 #ifndef __IDrawVideoImage_FWD_DEFINED__
 #define __IDrawVideoImage_FWD_DEFINED__
-typedef interface IDrawVideoImage IDrawVideoImage;
+typedef struct IDrawVideoImage IDrawVideoImage;
 #endif
 
 #ifndef __IDecimateVideoImage_FWD_DEFINED__
 #define __IDecimateVideoImage_FWD_DEFINED__
-typedef interface IDecimateVideoImage IDecimateVideoImage;
+typedef struct IDecimateVideoImage IDecimateVideoImage;
 #endif
 
 #ifndef __IAMVideoDecimationProperties_FWD_DEFINED__
 #define __IAMVideoDecimationProperties_FWD_DEFINED__
-typedef interface IAMVideoDecimationProperties IAMVideoDecimationProperties;
+typedef struct IAMVideoDecimationProperties IAMVideoDecimationProperties;
 #endif
 
 #ifndef __IVideoFrameStep_FWD_DEFINED__
 #define __IVideoFrameStep_FWD_DEFINED__
-typedef interface IVideoFrameStep IVideoFrameStep;
+typedef struct IVideoFrameStep IVideoFrameStep;
 #endif
 
 #ifndef __IAMLatency_FWD_DEFINED__
 #define __IAMLatency_FWD_DEFINED__
-typedef interface IAMLatency IAMLatency;
+typedef struct IAMLatency IAMLatency;
 #endif
 
 #ifndef __IAMPushSource_FWD_DEFINED__
 #define __IAMPushSource_FWD_DEFINED__
-typedef interface IAMPushSource IAMPushSource;
+typedef struct IAMPushSource IAMPushSource;
 #endif
 
 #ifndef __IAMDeviceRemoval_FWD_DEFINED__
 #define __IAMDeviceRemoval_FWD_DEFINED__
-typedef interface IAMDeviceRemoval IAMDeviceRemoval;
+typedef struct IAMDeviceRemoval IAMDeviceRemoval;
 #endif
 
 #ifndef __IDVEnc_FWD_DEFINED__
 #define __IDVEnc_FWD_DEFINED__
-typedef interface IDVEnc IDVEnc;
+typedef struct IDVEnc IDVEnc;
 #endif
 
 #ifndef __IIPDVDec_FWD_DEFINED__
 #define __IIPDVDec_FWD_DEFINED__
-typedef interface IIPDVDec IIPDVDec;
+typedef struct IIPDVDec IIPDVDec;
 #endif
 
 #ifndef __IDVRGB219_FWD_DEFINED__
 #define __IDVRGB219_FWD_DEFINED__
-typedef interface IDVRGB219 IDVRGB219;
+typedef struct IDVRGB219 IDVRGB219;
 #endif
 
 #ifndef __IDVSplitter_FWD_DEFINED__
 #define __IDVSplitter_FWD_DEFINED__
-typedef interface IDVSplitter IDVSplitter;
+typedef struct IDVSplitter IDVSplitter;
 #endif
 
 #ifndef __IAMAudioRendererStats_FWD_DEFINED__
 #define __IAMAudioRendererStats_FWD_DEFINED__
-typedef interface IAMAudioRendererStats IAMAudioRendererStats;
+typedef struct IAMAudioRendererStats IAMAudioRendererStats;
 #endif
 
 #ifndef __IAMGraphStreams_FWD_DEFINED__
 #define __IAMGraphStreams_FWD_DEFINED__
-typedef interface IAMGraphStreams IAMGraphStreams;
+typedef struct IAMGraphStreams IAMGraphStreams;
 #endif
 
 #ifndef __IAMOverlayFX_FWD_DEFINED__
 #define __IAMOverlayFX_FWD_DEFINED__
-typedef interface IAMOverlayFX IAMOverlayFX;
+typedef struct IAMOverlayFX IAMOverlayFX;
 #endif
 
 #ifndef __IAMOpenProgress_FWD_DEFINED__
 #define __IAMOpenProgress_FWD_DEFINED__
-typedef interface IAMOpenProgress IAMOpenProgress;
+typedef struct IAMOpenProgress IAMOpenProgress;
 #endif
 
 #ifndef __IMpeg2Demultiplexer_FWD_DEFINED__
 #define __IMpeg2Demultiplexer_FWD_DEFINED__
-typedef interface IMpeg2Demultiplexer IMpeg2Demultiplexer;
+typedef struct IMpeg2Demultiplexer IMpeg2Demultiplexer;
 #endif
 
 #ifndef __IEnumStreamIdMap_FWD_DEFINED__
 #define __IEnumStreamIdMap_FWD_DEFINED__
-typedef interface IEnumStreamIdMap IEnumStreamIdMap;
+typedef struct IEnumStreamIdMap IEnumStreamIdMap;
 #endif
 
 #ifndef __IMPEG2StreamIdMap_FWD_DEFINED__
 #define __IMPEG2StreamIdMap_FWD_DEFINED__
-typedef interface IMPEG2StreamIdMap IMPEG2StreamIdMap;
+typedef struct IMPEG2StreamIdMap IMPEG2StreamIdMap;
 #endif
 
 #ifndef __IRegisterServiceProvider_FWD_DEFINED__
 #define __IRegisterServiceProvider_FWD_DEFINED__
-typedef interface IRegisterServiceProvider IRegisterServiceProvider;
+typedef struct IRegisterServiceProvider IRegisterServiceProvider;
 #endif
 
 #ifndef __IAMClockSlave_FWD_DEFINED__
 #define __IAMClockSlave_FWD_DEFINED__
-typedef interface IAMClockSlave IAMClockSlave;
+typedef struct IAMClockSlave IAMClockSlave;
 #endif
 
 #ifndef __IAMGraphBuilderCallback_FWD_DEFINED__
 #define __IAMGraphBuilderCallback_FWD_DEFINED__
-typedef interface IAMGraphBuilderCallback IAMGraphBuilderCallback;
+typedef struct IAMGraphBuilderCallback IAMGraphBuilderCallback;
 #endif
 
 #ifndef __ICodecAPI_FWD_DEFINED__
 #define __ICodecAPI_FWD_DEFINED__
-typedef interface ICodecAPI ICodecAPI;
+typedef struct ICodecAPI ICodecAPI;
 #endif
 
 #ifndef __IGetCapabilitiesKey_FWD_DEFINED__
 #define __IGetCapabilitiesKey_FWD_DEFINED__
-typedef interface IGetCapabilitiesKey IGetCapabilitiesKey;
+typedef struct IGetCapabilitiesKey IGetCapabilitiesKey;
 #endif
 
 #ifndef __IEncoderAPI_FWD_DEFINED__
 #define __IEncoderAPI_FWD_DEFINED__
-typedef interface IEncoderAPI IEncoderAPI;
+typedef struct IEncoderAPI IEncoderAPI;
 #endif
 
 #ifndef __IVideoEncoder_FWD_DEFINED__
 #define __IVideoEncoder_FWD_DEFINED__
-typedef interface IVideoEncoder IVideoEncoder;
+typedef struct IVideoEncoder IVideoEncoder;
 #endif
 
 #ifndef __IAMDecoderCaps_FWD_DEFINED__
 #define __IAMDecoderCaps_FWD_DEFINED__
-typedef interface IAMDecoderCaps IAMDecoderCaps;
+typedef struct IAMDecoderCaps IAMDecoderCaps;
 #endif
 
 #ifndef __IAMCertifiedOutputProtection_FWD_DEFINED__
 #define __IAMCertifiedOutputProtection_FWD_DEFINED__
-typedef interface IAMCertifiedOutputProtection IAMCertifiedOutputProtection;
+typedef struct IAMCertifiedOutputProtection IAMCertifiedOutputProtection;
 #endif
 
 #ifndef __IDvdControl_FWD_DEFINED__
 #define __IDvdControl_FWD_DEFINED__
-typedef interface IDvdControl IDvdControl;
+typedef struct IDvdControl IDvdControl;
 #endif
 
 #ifndef __IDvdInfo_FWD_DEFINED__
 #define __IDvdInfo_FWD_DEFINED__
-typedef interface IDvdInfo IDvdInfo;
+typedef struct IDvdInfo IDvdInfo;
 #endif
 
 #ifndef __IDvdCmd_FWD_DEFINED__
 #define __IDvdCmd_FWD_DEFINED__
-typedef interface IDvdCmd IDvdCmd;
+typedef struct IDvdCmd IDvdCmd;
 #endif
 
 #ifndef __IDvdState_FWD_DEFINED__
 #define __IDvdState_FWD_DEFINED__
-typedef interface IDvdState IDvdState;
+typedef struct IDvdState IDvdState;
 #endif
 
 #ifndef __IDvdControl2_FWD_DEFINED__
 #define __IDvdControl2_FWD_DEFINED__
-typedef interface IDvdControl2 IDvdControl2;
+typedef struct IDvdControl2 IDvdControl2;
 #endif
 
 #ifndef __IDvdInfo2_FWD_DEFINED__
 #define __IDvdInfo2_FWD_DEFINED__
-typedef interface IDvdInfo2 IDvdInfo2;
+typedef struct IDvdInfo2 IDvdInfo2;
 #endif
 
 #ifndef __IDvdGraphBuilder_FWD_DEFINED__
 #define __IDvdGraphBuilder_FWD_DEFINED__
-typedef interface IDvdGraphBuilder IDvdGraphBuilder;
+typedef struct IDvdGraphBuilder IDvdGraphBuilder;
 #endif
 
 #ifndef __IDDrawExclModeVideo_FWD_DEFINED__
 #define __IDDrawExclModeVideo_FWD_DEFINED__
-typedef interface IDDrawExclModeVideo IDDrawExclModeVideo;
+typedef struct IDDrawExclModeVideo IDDrawExclModeVideo;
 #endif
 
 #ifndef __IDDrawExclModeVideoCallback_FWD_DEFINED__
 #define __IDDrawExclModeVideoCallback_FWD_DEFINED__
-typedef interface IDDrawExclModeVideoCallback IDDrawExclModeVideoCallback;
+typedef struct IDDrawExclModeVideoCallback IDDrawExclModeVideoCallback;
 #endif
 
 #ifndef __IPinConnection_FWD_DEFINED__
 #define __IPinConnection_FWD_DEFINED__
-typedef interface IPinConnection IPinConnection;
+typedef struct IPinConnection IPinConnection;
 #endif
 
 #ifndef __IPinFlowControl_FWD_DEFINED__
 #define __IPinFlowControl_FWD_DEFINED__
-typedef interface IPinFlowControl IPinFlowControl;
+typedef struct IPinFlowControl IPinFlowControl;
 #endif
 
 #ifndef __IGraphConfig_FWD_DEFINED__
 #define __IGraphConfig_FWD_DEFINED__
-typedef interface IGraphConfig IGraphConfig;
+typedef struct IGraphConfig IGraphConfig;
 #endif
 
 #ifndef __IGraphConfigCallback_FWD_DEFINED__
 #define __IGraphConfigCallback_FWD_DEFINED__
-typedef interface IGraphConfigCallback IGraphConfigCallback;
+typedef struct IGraphConfigCallback IGraphConfigCallback;
 #endif
 
 #ifndef __IFilterChain_FWD_DEFINED__
 #define __IFilterChain_FWD_DEFINED__
-typedef interface IFilterChain IFilterChain;
+typedef struct IFilterChain IFilterChain;
 #endif
 
 #ifndef __IVMRImagePresenter_FWD_DEFINED__
 #define __IVMRImagePresenter_FWD_DEFINED__
-typedef interface IVMRImagePresenter IVMRImagePresenter;
+typedef struct IVMRImagePresenter IVMRImagePresenter;
 #endif
 
 #ifndef __IVMRSurfaceAllocator_FWD_DEFINED__
 #define __IVMRSurfaceAllocator_FWD_DEFINED__
-typedef interface IVMRSurfaceAllocator IVMRSurfaceAllocator;
+typedef struct IVMRSurfaceAllocator IVMRSurfaceAllocator;
 #endif
 
 #ifndef __IVMRSurfaceAllocatorNotify_FWD_DEFINED__
 #define __IVMRSurfaceAllocatorNotify_FWD_DEFINED__
-typedef interface IVMRSurfaceAllocatorNotify IVMRSurfaceAllocatorNotify;
+typedef struct IVMRSurfaceAllocatorNotify IVMRSurfaceAllocatorNotify;
 #endif
 
 #ifndef __IVMRWindowlessControl_FWD_DEFINED__
 #define __IVMRWindowlessControl_FWD_DEFINED__
-typedef interface IVMRWindowlessControl IVMRWindowlessControl;
+typedef struct IVMRWindowlessControl IVMRWindowlessControl;
 #endif
 
 #ifndef __IVMRMixerControl_FWD_DEFINED__
 #define __IVMRMixerControl_FWD_DEFINED__
-typedef interface IVMRMixerControl IVMRMixerControl;
+typedef struct IVMRMixerControl IVMRMixerControl;
 #endif
 
 #ifndef __IVMRMonitorConfig_FWD_DEFINED__
 #define __IVMRMonitorConfig_FWD_DEFINED__
-typedef interface IVMRMonitorConfig IVMRMonitorConfig;
+typedef struct IVMRMonitorConfig IVMRMonitorConfig;
 #endif
 
 #ifndef __IVMRFilterConfig_FWD_DEFINED__
 #define __IVMRFilterConfig_FWD_DEFINED__
-typedef interface IVMRFilterConfig IVMRFilterConfig;
+typedef struct IVMRFilterConfig IVMRFilterConfig;
 #endif
 
 #ifndef __IVMRAspectRatioControl_FWD_DEFINED__
 #define __IVMRAspectRatioControl_FWD_DEFINED__
-typedef interface IVMRAspectRatioControl IVMRAspectRatioControl;
+typedef struct IVMRAspectRatioControl IVMRAspectRatioControl;
 #endif
 
 #ifndef __IVMRDeinterlaceControl_FWD_DEFINED__
 #define __IVMRDeinterlaceControl_FWD_DEFINED__
-typedef interface IVMRDeinterlaceControl IVMRDeinterlaceControl;
+typedef struct IVMRDeinterlaceControl IVMRDeinterlaceControl;
 #endif
 
 #ifndef __IVMRMixerBitmap_FWD_DEFINED__
 #define __IVMRMixerBitmap_FWD_DEFINED__
-typedef interface IVMRMixerBitmap IVMRMixerBitmap;
+typedef struct IVMRMixerBitmap IVMRMixerBitmap;
 #endif
 
 #ifndef __IVMRImageCompositor_FWD_DEFINED__
 #define __IVMRImageCompositor_FWD_DEFINED__
-typedef interface IVMRImageCompositor IVMRImageCompositor;
+typedef struct IVMRImageCompositor IVMRImageCompositor;
 #endif
 
 #ifndef __IVMRVideoStreamControl_FWD_DEFINED__
 #define __IVMRVideoStreamControl_FWD_DEFINED__
-typedef interface IVMRVideoStreamControl IVMRVideoStreamControl;
+typedef struct IVMRVideoStreamControl IVMRVideoStreamControl;
 #endif
 
 #ifndef __IVMRSurface_FWD_DEFINED__
 #define __IVMRSurface_FWD_DEFINED__
-typedef interface IVMRSurface IVMRSurface;
+typedef struct IVMRSurface IVMRSurface;
 #endif
 
 #ifndef __IVMRImagePresenterConfig_FWD_DEFINED__
 #define __IVMRImagePresenterConfig_FWD_DEFINED__
-typedef interface IVMRImagePresenterConfig IVMRImagePresenterConfig;
+typedef struct IVMRImagePresenterConfig IVMRImagePresenterConfig;
 #endif
 
 #ifndef __IVMRImagePresenterExclModeConfig_FWD_DEFINED__
 #define __IVMRImagePresenterExclModeConfig_FWD_DEFINED__
-typedef interface IVMRImagePresenterExclModeConfig IVMRImagePresenterExclModeConfig;
+typedef struct IVMRImagePresenterExclModeConfig IVMRImagePresenterExclModeConfig;
 #endif
 
 #ifndef __IVPManager_FWD_DEFINED__
 #define __IVPManager_FWD_DEFINED__
-typedef interface IVPManager IVPManager;
+typedef struct IVPManager IVPManager;
 #endif
 
 #include "unknwn.h"
@@ -742,7 +742,7 @@ extern "C" {
       HRESULT (WINAPI *CreateClassEnumerator)(ICreateDevEnum *This,REFCLSID clsidDeviceClass,IEnumMoniker **ppEnumMoniker,DWORD dwFlags);
     END_INTERFACE
   } ICreateDevEnumVtbl;
-  interface ICreateDevEnum {
+  struct ICreateDevEnum {
     CONST_VTBL struct ICreateDevEnumVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -840,7 +840,7 @@ extern "C" {
       HRESULT (WINAPI *NewSegment)(IPin *This,REFERENCE_TIME tStart,REFERENCE_TIME tStop,double dRate);
     END_INTERFACE
   } IPinVtbl;
-  interface IPin {
+  struct IPin {
     CONST_VTBL struct IPinVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -923,7 +923,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumPins *This,IEnumPins **ppEnum);
     END_INTERFACE
   } IEnumPinsVtbl;
-  interface IEnumPins {
+  struct IEnumPins {
     CONST_VTBL struct IEnumPinsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -973,7 +973,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumMediaTypes *This,IEnumMediaTypes **ppEnum);
     END_INTERFACE
   } IEnumMediaTypesVtbl;
-  interface IEnumMediaTypes {
+  struct IEnumMediaTypes {
     CONST_VTBL struct IEnumMediaTypesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1032,7 +1032,7 @@ extern "C" {
       HRESULT (WINAPI *SetDefaultSyncSource)(IFilterGraph *This);
     END_INTERFACE
   } IFilterGraphVtbl;
-  interface IFilterGraph {
+  struct IFilterGraph {
     CONST_VTBL struct IFilterGraphVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1094,7 +1094,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumFilters *This,IEnumFilters **ppEnum);
     END_INTERFACE
   } IEnumFiltersVtbl;
-  interface IEnumFilters {
+  struct IEnumFilters {
     CONST_VTBL struct IEnumFiltersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1153,7 +1153,7 @@ extern "C" {
       HRESULT (WINAPI *GetSyncSource)(IMediaFilter *This,IReferenceClock **pClock);
     END_INTERFACE
   } IMediaFilterVtbl;
-  interface IMediaFilter {
+  struct IMediaFilter {
     CONST_VTBL struct IMediaFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1225,7 +1225,7 @@ extern "C" {
       HRESULT (WINAPI *QueryVendorInfo)(IBaseFilter *This,LPWSTR *pVendorInfo);
     END_INTERFACE
   } IBaseFilterVtbl;
-  interface IBaseFilter {
+  struct IBaseFilter {
     CONST_VTBL struct IBaseFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1285,7 +1285,7 @@ extern "C" {
       HRESULT (WINAPI *Unadvise)(IReferenceClock *This,DWORD_PTR dwAdviseCookie);
     END_INTERFACE
   } IReferenceClockVtbl;
-  interface IReferenceClock {
+  struct IReferenceClock {
     CONST_VTBL struct IReferenceClockVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1330,7 +1330,7 @@ extern "C" {
       HRESULT (WINAPI *Unadvise)(IReferenceClock2 *This,DWORD_PTR dwAdviseCookie);
     END_INTERFACE
   } IReferenceClock2Vtbl;
-  interface IReferenceClock2 {
+  struct IReferenceClock2 {
     CONST_VTBL struct IReferenceClock2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1396,7 +1396,7 @@ extern "C" {
       HRESULT (WINAPI *SetMediaTime)(IMediaSample *This,LONGLONG *pTimeStart,LONGLONG *pTimeEnd);
     END_INTERFACE
   } IMediaSampleVtbl;
-  interface IMediaSample {
+  struct IMediaSample {
     CONST_VTBL struct IMediaSampleVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1512,7 +1512,7 @@ extern "C" {
       HRESULT (WINAPI *SetProperties)(IMediaSample2 *This,DWORD cbProperties,const BYTE *pbProperties);
     END_INTERFACE
   } IMediaSample2Vtbl;
-  interface IMediaSample2 {
+  struct IMediaSample2 {
     CONST_VTBL struct IMediaSample2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1581,7 +1581,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseBuffer)(IMemAllocator *This,IMediaSample *pBuffer);
     END_INTERFACE
   } IMemAllocatorVtbl;
-  interface IMemAllocator {
+  struct IMemAllocator {
     CONST_VTBL struct IMemAllocatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1639,7 +1639,7 @@ extern "C" {
       HRESULT (WINAPI *GetFreeCount)(IMemAllocatorCallbackTemp *This,LONG *plBuffersFree);
     END_INTERFACE
   } IMemAllocatorCallbackTempVtbl;
-  interface IMemAllocatorCallbackTemp {
+  struct IMemAllocatorCallbackTemp {
     CONST_VTBL struct IMemAllocatorCallbackTempVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1679,7 +1679,7 @@ extern "C" {
       HRESULT (WINAPI *NotifyRelease)(IMemAllocatorNotifyCallbackTemp *This);
     END_INTERFACE
   } IMemAllocatorNotifyCallbackTempVtbl;
-  interface IMemAllocatorNotifyCallbackTemp {
+  struct IMemAllocatorNotifyCallbackTemp {
     CONST_VTBL struct IMemAllocatorNotifyCallbackTempVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1720,7 +1720,7 @@ extern "C" {
       HRESULT (WINAPI *ReceiveCanBlock)(IMemInputPin *This);
     END_INTERFACE
   } IMemInputPinVtbl;
-  interface IMemInputPin {
+  struct IMemInputPin {
     CONST_VTBL struct IMemInputPinVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1772,7 +1772,7 @@ extern "C" {
       HRESULT (WINAPI *Unregister)(IAMovieSetup *This);
     END_INTERFACE
   } IAMovieSetupVtbl;
-  interface IAMovieSetup {
+  struct IAMovieSetup {
     CONST_VTBL struct IAMovieSetupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1853,7 +1853,7 @@ extern "C" {
       HRESULT (WINAPI *GetPreroll)(IMediaSeeking *This,LONGLONG *pllPreroll);
     END_INTERFACE
   } IMediaSeekingVtbl;
-  interface IMediaSeeking {
+  struct IMediaSeeking {
     CONST_VTBL struct IMediaSeekingVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1951,7 +1951,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumRegFilters *This,IEnumRegFilters **ppEnum);
     END_INTERFACE
   } IEnumRegFiltersVtbl;
-  interface IEnumRegFilters {
+  struct IEnumRegFilters {
     CONST_VTBL struct IEnumRegFiltersVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2013,7 +2013,7 @@ extern "C" {
       HRESULT (WINAPI *EnumMatchingFilters)(IFilterMapper *This,IEnumRegFilters **ppEnum,DWORD dwMerit,WINBOOL bInputNeeded,CLSID clsInMaj,CLSID clsInSub,WINBOOL bRender,WINBOOL bOututNeeded,CLSID clsOutMaj,CLSID clsOutSub);
     END_INTERFACE
   } IFilterMapperVtbl;
-  interface IFilterMapper {
+  struct IFilterMapper {
     CONST_VTBL struct IFilterMapperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2124,7 +2124,7 @@ extern "C" {
       HRESULT (WINAPI *EnumMatchingFilters)(IFilterMapper2 *This,IEnumMoniker **ppEnum,DWORD dwFlags,WINBOOL bExactMatch,DWORD dwMerit,WINBOOL bInputNeeded,DWORD cInputTypes,const GUID *pInputTypes,const REGPINMEDIUM *pMedIn,const CLSID *pPinCategoryIn,WINBOOL bRender,WINBOOL bOutputNeeded,DWORD cOutputTypes,const GUID *pOutputTypes,const REGPINMEDIUM *pMedOut,const CLSID *pPinCategoryOut);
     END_INTERFACE
   } IFilterMapper2Vtbl;
-  interface IFilterMapper2 {
+  struct IFilterMapper2 {
     CONST_VTBL struct IFilterMapper2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2168,7 +2168,7 @@ extern "C" {
       HRESULT (WINAPI *GetICreateDevEnum)(IFilterMapper3 *This,ICreateDevEnum **ppEnum);
     END_INTERFACE
   } IFilterMapper3Vtbl;
-  interface IFilterMapper3 {
+  struct IFilterMapper3 {
     CONST_VTBL struct IFilterMapper3Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2220,7 +2220,7 @@ extern "C" {
       HRESULT (WINAPI *SetSink)(IQualityControl *This,IQualityControl *piqc);
     END_INTERFACE
   } IQualityControlVtbl;
-  interface IQualityControl {
+  struct IQualityControl {
     CONST_VTBL struct IQualityControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2293,7 +2293,7 @@ extern "C" {
       HRESULT (WINAPI *OnPositionChange)(IOverlayNotify *This,const RECT *pSourceRect,const RECT *pDestinationRect);
     END_INTERFACE
   } IOverlayNotifyVtbl;
-  interface IOverlayNotify {
+  struct IOverlayNotify {
     CONST_VTBL struct IOverlayNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2341,7 +2341,7 @@ extern "C" {
       HRESULT (WINAPI *OnDisplayChange)(IOverlayNotify2 *This,HMONITOR hMonitor);
     END_INTERFACE
   } IOverlayNotify2Vtbl;
-  interface IOverlayNotify2 {
+  struct IOverlayNotify2 {
     CONST_VTBL struct IOverlayNotify2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2398,7 +2398,7 @@ extern "C" {
       HRESULT (WINAPI *Unadvise)(IOverlay *This);
     END_INTERFACE
   } IOverlayVtbl;
-  interface IOverlay {
+  struct IOverlay {
     CONST_VTBL struct IOverlayVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2460,7 +2460,7 @@ extern "C" {
       HRESULT (WINAPI *Notify)(IMediaEventSink *This,long EventCode,LONG_PTR EventParam1,LONG_PTR EventParam2);
     END_INTERFACE
   } IMediaEventSinkVtbl;
-  interface IMediaEventSink {
+  struct IMediaEventSink {
     CONST_VTBL struct IMediaEventSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2497,7 +2497,7 @@ extern "C" {
       HRESULT (WINAPI *GetCurFile)(IFileSourceFilter *This,LPOLESTR *ppszFileName,AM_MEDIA_TYPE *pmt);
     END_INTERFACE
   } IFileSourceFilterVtbl;
-  interface IFileSourceFilter {
+  struct IFileSourceFilter {
     CONST_VTBL struct IFileSourceFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2537,7 +2537,7 @@ extern "C" {
       HRESULT (WINAPI *GetCurFile)(IFileSinkFilter *This,LPOLESTR *ppszFileName,AM_MEDIA_TYPE *pmt);
     END_INTERFACE
   } IFileSinkFilterVtbl;
-  interface IFileSinkFilter {
+  struct IFileSinkFilter {
     CONST_VTBL struct IFileSinkFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2579,7 +2579,7 @@ extern "C" {
       HRESULT (WINAPI *GetMode)(IFileSinkFilter2 *This,DWORD *pdwFlags);
     END_INTERFACE
   } IFileSinkFilter2Vtbl;
-  interface IFileSinkFilter2 {
+  struct IFileSinkFilter2 {
     CONST_VTBL struct IFileSinkFilter2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2643,7 +2643,7 @@ extern "C" {
       HRESULT (WINAPI *ShouldOperationContinue)(IGraphBuilder *This);
     END_INTERFACE
   } IGraphBuilderVtbl;
-  interface IGraphBuilder {
+  struct IGraphBuilder {
     CONST_VTBL struct IGraphBuilderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2714,7 +2714,7 @@ extern "C" {
       HRESULT (WINAPI *CopyCaptureFile)(ICaptureGraphBuilder *This,LPOLESTR lpwstrOld,LPOLESTR lpwstrNew,int fAllowEscAbort,IAMCopyCaptureFileProgress *pCallback);
     END_INTERFACE
   } ICaptureGraphBuilderVtbl;
-  interface ICaptureGraphBuilder {
+  struct ICaptureGraphBuilder {
     CONST_VTBL struct ICaptureGraphBuilderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2766,7 +2766,7 @@ extern "C" {
       HRESULT (WINAPI *Progress)(IAMCopyCaptureFileProgress *This,int iProgress);
     END_INTERFACE
   } IAMCopyCaptureFileProgressVtbl;
-  interface IAMCopyCaptureFileProgress {
+  struct IAMCopyCaptureFileProgress {
     CONST_VTBL struct IAMCopyCaptureFileProgressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2813,7 +2813,7 @@ extern "C" {
       HRESULT (WINAPI *FindPin)(ICaptureGraphBuilder2 *This,IUnknown *pSource,PIN_DIRECTION pindir,const GUID *pCategory,const GUID *pType,WINBOOL fUnconnected,int num,IPin **ppPin);
     END_INTERFACE
   } ICaptureGraphBuilder2Vtbl;
-  interface ICaptureGraphBuilder2 {
+  struct ICaptureGraphBuilder2 {
     CONST_VTBL struct ICaptureGraphBuilder2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2893,7 +2893,7 @@ extern "C" {
       HRESULT (WINAPI *RenderEx)(IFilterGraph2 *This,IPin *pPinOut,DWORD dwFlags,DWORD *pvContext);
     END_INTERFACE
   } IFilterGraph2Vtbl;
-  interface IFilterGraph2 {
+  struct IFilterGraph2 {
     CONST_VTBL struct IFilterGraph2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2947,7 +2947,7 @@ extern "C" {
       HRESULT (WINAPI *Backout)(IStreamBuilder *This,IPin *ppinOut,IGraphBuilder *pGraph);
     END_INTERFACE
   } IStreamBuilderVtbl;
-  interface IStreamBuilder {
+  struct IStreamBuilder {
     CONST_VTBL struct IStreamBuilderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2995,7 +2995,7 @@ extern "C" {
       HRESULT (WINAPI *EndFlush)(IAsyncReader *This);
     END_INTERFACE
   } IAsyncReaderVtbl;
-  interface IAsyncReader {
+  struct IAsyncReader {
     CONST_VTBL struct IAsyncReaderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3047,7 +3047,7 @@ extern "C" {
       HRESULT (WINAPI *QueryVersion)(IGraphVersion *This,LONG *pVersion);
     END_INTERFACE
   } IGraphVersionVtbl;
-  interface IGraphVersion {
+  struct IGraphVersion {
     CONST_VTBL struct IGraphVersionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3080,7 +3080,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseResource)(IResourceConsumer *This,LONG idResource);
     END_INTERFACE
   } IResourceConsumerVtbl;
-  interface IResourceConsumer {
+  struct IResourceConsumer {
     CONST_VTBL struct IResourceConsumerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3128,7 +3128,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseFocus)(IResourceManager *This,IUnknown *pFocusObject);
     END_INTERFACE
   } IResourceManagerVtbl;
-  interface IResourceManager {
+  struct IResourceManager {
     CONST_VTBL struct IResourceManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3188,7 +3188,7 @@ extern "C" {
       HRESULT (WINAPI *NotifyGraphChange)(IDistributorNotify *This);
     END_INTERFACE
   } IDistributorNotifyVtbl;
-  interface IDistributorNotify {
+  struct IDistributorNotify {
     CONST_VTBL struct IDistributorNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3249,7 +3249,7 @@ extern "C" {
       HRESULT (WINAPI *GetInfo)(IAMStreamControl *This,AM_STREAM_INFO *pInfo);
     END_INTERFACE
   } IAMStreamControlVtbl;
-  interface IAMStreamControl {
+  struct IAMStreamControl {
     CONST_VTBL struct IAMStreamControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3286,7 +3286,7 @@ extern "C" {
       HRESULT (WINAPI *Init)(ISeekingPassThru *This,WINBOOL bSupportRendering,IPin *pPin);
     END_INTERFACE
   } ISeekingPassThruVtbl;
-  interface ISeekingPassThru {
+  struct ISeekingPassThru {
     CONST_VTBL struct ISeekingPassThruVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3360,7 +3360,7 @@ extern "C" {
       HRESULT (WINAPI *GetStreamCaps)(IAMStreamConfig *This,int iIndex,AM_MEDIA_TYPE **ppmt,BYTE *pSCC);
     END_INTERFACE
   } IAMStreamConfigVtbl;
-  interface IAMStreamConfig {
+  struct IAMStreamConfig {
     CONST_VTBL struct IAMStreamConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3411,7 +3411,7 @@ extern "C" {
       HRESULT (WINAPI *get_Interleaving)(IConfigInterleaving *This,REFERENCE_TIME *prtInterleave,REFERENCE_TIME *prtPreroll);
     END_INTERFACE
   } IConfigInterleavingVtbl;
-  interface IConfigInterleaving {
+  struct IConfigInterleaving {
     CONST_VTBL struct IConfigInterleavingVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3457,7 +3457,7 @@ extern "C" {
       HRESULT (WINAPI *GetOutputCompatibilityIndex)(IConfigAviMux *This,WINBOOL *pfOldIndex);
     END_INTERFACE
   } IConfigAviMuxVtbl;
-  interface IConfigAviMux {
+  struct IConfigAviMux {
     CONST_VTBL struct IConfigAviMuxVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3524,7 +3524,7 @@ extern "C" {
       HRESULT (WINAPI *OverrideFrameSize)(IAMVideoCompression *This,long FrameNumber,long Size);
     END_INTERFACE
   } IAMVideoCompressionVtbl;
-  interface IAMVideoCompression {
+  struct IAMVideoCompression {
     CONST_VTBL struct IAMVideoCompressionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3599,7 +3599,7 @@ extern "C" {
       HRESULT (WINAPI *SendDriverMessage)(IAMVfwCaptureDialogs *This,int iDialog,int uMsg,long dw1,long dw2);
     END_INTERFACE
   } IAMVfwCaptureDialogsVtbl;
-  interface IAMVfwCaptureDialogs {
+  struct IAMVfwCaptureDialogs {
     CONST_VTBL struct IAMVfwCaptureDialogsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3642,7 +3642,7 @@ extern "C" {
       HRESULT (WINAPI *SendDriverMessage)(IAMVfwCompressDialogs *This,int uMsg,long dw1,long dw2);
     END_INTERFACE
   } IAMVfwCompressDialogsVtbl;
-  interface IAMVfwCompressDialogs {
+  struct IAMVfwCompressDialogs {
     CONST_VTBL struct IAMVfwCompressDialogsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3688,7 +3688,7 @@ extern "C" {
       HRESULT (WINAPI *GetAverageFrameSize)(IAMDroppedFrames *This,long *plAverageSize);
     END_INTERFACE
   } IAMDroppedFramesVtbl;
-  interface IAMDroppedFrames {
+  struct IAMDroppedFrames {
     CONST_VTBL struct IAMDroppedFramesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3762,7 +3762,7 @@ extern "C" {
       HRESULT (WINAPI *get_BassRange)(IAMAudioInputMixer *This,double *pRange);
     END_INTERFACE
   } IAMAudioInputMixerVtbl;
-  interface IAMAudioInputMixer {
+  struct IAMAudioInputMixer {
     CONST_VTBL struct IAMAudioInputMixerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3840,7 +3840,7 @@ extern "C" {
       HRESULT (WINAPI *GetAllocatorProperties)(IAMBufferNegotiation *This,ALLOCATOR_PROPERTIES *pprop);
     END_INTERFACE
   } IAMBufferNegotiationVtbl;
-  interface IAMBufferNegotiation {
+  struct IAMBufferNegotiation {
     CONST_VTBL struct IAMBufferNegotiationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3925,7 +3925,7 @@ extern "C" {
       HRESULT (WINAPI *get_OutputEnable)(IAMAnalogVideoDecoder *This,long *plOutputEnable);
     END_INTERFACE
   } IAMAnalogVideoDecoderVtbl;
-  interface IAMAnalogVideoDecoder {
+  struct IAMAnalogVideoDecoder {
     CONST_VTBL struct IAMAnalogVideoDecoderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3997,7 +3997,7 @@ extern "C" {
       HRESULT (WINAPI *Get)(IAMVideoProcAmp *This,long Property,long *lValue,long *Flags);
     END_INTERFACE
   } IAMVideoProcAmpVtbl;
-  interface IAMVideoProcAmp {
+  struct IAMVideoProcAmp {
     CONST_VTBL struct IAMVideoProcAmpVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4050,7 +4050,7 @@ extern "C" {
       HRESULT (WINAPI *Get)(IAMCameraControl *This,long Property,long *lValue,long *Flags);
     END_INTERFACE
   } IAMCameraControlVtbl;
-  interface IAMCameraControl {
+  struct IAMCameraControl {
     CONST_VTBL struct IAMCameraControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4103,7 +4103,7 @@ extern "C" {
       HRESULT (WINAPI *GetFrameRateList)(IAMVideoControl *This,IPin *pPin,long iIndex,SIZE Dimensions,long *ListSize,LONGLONG **FrameRates);
     END_INTERFACE
   } IAMVideoControlVtbl;
-  interface IAMVideoControl {
+  struct IAMVideoControl {
     CONST_VTBL struct IAMVideoControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4157,7 +4157,7 @@ extern "C" {
       HRESULT (WINAPI *get_CrossbarPinInfo)(IAMCrossbar *This,WINBOOL IsInputPin,long PinIndex,long *PinIndexRelated,long *PhysicalType);
     END_INTERFACE
   } IAMCrossbarVtbl;
-  interface IAMCrossbar {
+  struct IAMCrossbar {
     CONST_VTBL struct IAMCrossbarVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4246,7 +4246,7 @@ extern "C" {
       HRESULT (WINAPI *UnRegisterNotificationCallBack)(IAMTuner *This,IAMTunerNotification *pNotify);
     END_INTERFACE
   } IAMTunerVtbl;
-  interface IAMTuner {
+  struct IAMTuner {
     CONST_VTBL struct IAMTunerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4319,7 +4319,7 @@ extern "C" {
       HRESULT (WINAPI *OnEvent)(IAMTunerNotification *This,AMTunerEventType Event);
     END_INTERFACE
   } IAMTunerNotificationVtbl;
-  interface IAMTunerNotification {
+  struct IAMTunerNotification {
     CONST_VTBL struct IAMTunerNotificationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4385,7 +4385,7 @@ extern "C" {
       HRESULT (WINAPI *get_AudioFrequency)(IAMTVTuner *This,long *lFreq);
     END_INTERFACE
   } IAMTVTunerVtbl;
-  interface IAMTVTuner {
+  struct IAMTVTuner {
     CONST_VTBL struct IAMTVTunerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4480,7 +4480,7 @@ extern "C" {
       HRESULT (WINAPI *IsTapingPermitted)(IBPCSatelliteTuner *This);
     END_INTERFACE
   } IBPCSatelliteTunerVtbl;
-  interface IBPCSatelliteTuner {
+  struct IBPCSatelliteTuner {
     CONST_VTBL struct IBPCSatelliteTunerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4552,7 +4552,7 @@ extern "C" {
       HRESULT (WINAPI *UnRegisterNotificationCallBack)(IAMTVAudio *This,IAMTunerNotification *pNotify);
     END_INTERFACE
   } IAMTVAudioVtbl;
-  interface IAMTVAudio {
+  struct IAMTVAudio {
     CONST_VTBL struct IAMTVAudioVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4598,7 +4598,7 @@ extern "C" {
       HRESULT (WINAPI *OnEvent)(IAMTVAudioNotification *This,AMTVAudioEventType Event);
     END_INTERFACE
   } IAMTVAudioNotificationVtbl;
-  interface IAMTVAudioNotification {
+  struct IAMTVAudioNotification {
     CONST_VTBL struct IAMTVAudioNotificationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4641,7 +4641,7 @@ extern "C" {
       HRESULT (WINAPI *get_CCEnable)(IAMAnalogVideoEncoder *This,long *lCCEnable);
     END_INTERFACE
   } IAMAnalogVideoEncoderVtbl;
-  interface IAMAnalogVideoEncoder {
+  struct IAMAnalogVideoEncoder {
     CONST_VTBL struct IAMAnalogVideoEncoderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4705,7 +4705,7 @@ extern "C" {
       HRESULT (WINAPI *QuerySupported)(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,DWORD *pTypeSupport);
     END_INTERFACE
   } IKsPropertySetVtbl;
-  interface IKsPropertySet {
+  struct IKsPropertySet {
     CONST_VTBL struct IKsPropertySetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4749,7 +4749,7 @@ extern "C" {
       HRESULT (WINAPI *EnumProperty)(IMediaPropertyBag *This,ULONG iProperty,VARIANT *pvarPropertyName,VARIANT *pvarPropertyValue);
     END_INTERFACE
   } IMediaPropertyBagVtbl;
-  interface IMediaPropertyBag {
+  struct IMediaPropertyBag {
     CONST_VTBL struct IMediaPropertyBagVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4789,7 +4789,7 @@ extern "C" {
       HRESULT (WINAPI *Save)(IPersistMediaPropertyBag *This,IMediaPropertyBag *pPropBag,WINBOOL fClearDirty,WINBOOL fSaveAllProperties);
     END_INTERFACE
   } IPersistMediaPropertyBagVtbl;
-  interface IPersistMediaPropertyBag {
+  struct IPersistMediaPropertyBag {
     CONST_VTBL struct IPersistMediaPropertyBagVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4827,7 +4827,7 @@ extern "C" {
       HRESULT (WINAPI *GetPhysicalType)(IAMPhysicalPinInfo *This,long *pType,LPOLESTR *ppszType);
     END_INTERFACE
   } IAMPhysicalPinInfoVtbl;
-  interface IAMPhysicalPinInfo {
+  struct IAMPhysicalPinInfo {
     CONST_VTBL struct IAMPhysicalPinInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4876,7 +4876,7 @@ extern "C" {
       HRESULT (WINAPI *get_DevicePort)(IAMExtDevice *This,long *pDevicePort);
     END_INTERFACE
   } IAMExtDeviceVtbl;
-  interface IAMExtDevice {
+  struct IAMExtDevice {
     CONST_VTBL struct IAMExtDeviceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4986,7 +4986,7 @@ extern "C" {
       HRESULT (WINAPI *put_EditStart)(IAMExtTransport *This,long Value);
     END_INTERFACE
   } IAMExtTransportVtbl;
-  interface IAMExtTransport {
+  struct IAMExtTransport {
     CONST_VTBL struct IAMExtTransportVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5133,7 +5133,7 @@ extern "C" {
       HRESULT (WINAPI *GetTimecode)(IAMTimecodeReader *This,PTIMECODE_SAMPLE pTimecodeSample);
     END_INTERFACE
   } IAMTimecodeReaderVtbl;
-  interface IAMTimecodeReader {
+  struct IAMTimecodeReader {
     CONST_VTBL struct IAMTimecodeReaderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5190,7 +5190,7 @@ extern "C" {
       HRESULT (WINAPI *GetTimecode)(IAMTimecodeGenerator *This,PTIMECODE_SAMPLE pTimecodeSample);
     END_INTERFACE
   } IAMTimecodeGeneratorVtbl;
-  interface IAMTimecodeGenerator {
+  struct IAMTimecodeGenerator {
     CONST_VTBL struct IAMTimecodeGeneratorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5246,7 +5246,7 @@ extern "C" {
       HRESULT (WINAPI *SetTCDisplay)(IAMTimecodeDisplay *This,long Param,long Value);
     END_INTERFACE
   } IAMTimecodeDisplayVtbl;
-  interface IAMTimecodeDisplay {
+  struct IAMTimecodeDisplay {
     CONST_VTBL struct IAMTimecodeDisplayVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5298,7 +5298,7 @@ extern "C" {
       HRESULT (WINAPI *GetDevMemoryObject)(IAMDevMemoryAllocator *This,IUnknown **ppUnkInnner,IUnknown *pUnkOuter);
     END_INTERFACE
   } IAMDevMemoryAllocatorVtbl;
-  interface IAMDevMemoryAllocator {
+  struct IAMDevMemoryAllocator {
     CONST_VTBL struct IAMDevMemoryAllocatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5349,7 +5349,7 @@ extern "C" {
       HRESULT (WINAPI *GetDevId)(IAMDevMemoryControl *This,DWORD *pdwDevId);
     END_INTERFACE
   } IAMDevMemoryControlVtbl;
-  interface IAMDevMemoryControl {
+  struct IAMDevMemoryControl {
     CONST_VTBL struct IAMDevMemoryControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5402,7 +5402,7 @@ extern "C" {
       HRESULT (WINAPI *Enable)(IAMStreamSelect *This,long lIndex,DWORD dwFlags);
     END_INTERFACE
   } IAMStreamSelectVtbl;
-  interface IAMStreamSelect {
+  struct IAMStreamSelect {
     CONST_VTBL struct IAMStreamSelectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5447,7 +5447,7 @@ extern "C" {
       HRESULT (WINAPI *Reserve)(IAMResourceControl *This,DWORD dwFlags,PVOID pvReserved);
     END_INTERFACE
   } IAMResourceControlVtbl;
-  interface IAMResourceControl {
+  struct IAMResourceControl {
     CONST_VTBL struct IAMResourceControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5478,7 +5478,7 @@ extern "C" {
       HRESULT (WINAPI *SetClockDelta)(IAMClockAdjust *This,REFERENCE_TIME rtDelta);
     END_INTERFACE
   } IAMClockAdjustVtbl;
-  interface IAMClockAdjust {
+  struct IAMClockAdjust {
     CONST_VTBL struct IAMClockAdjustVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5515,7 +5515,7 @@ extern "C" {
       ULONG (WINAPI *GetMiscFlags)(IAMFilterMiscFlags *This);
     END_INTERFACE
   } IAMFilterMiscFlagsVtbl;
-  interface IAMFilterMiscFlags {
+  struct IAMFilterMiscFlags {
     CONST_VTBL struct IAMFilterMiscFlagsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5550,7 +5550,7 @@ extern "C" {
       HRESULT (WINAPI *DrawVideoImageDraw)(IDrawVideoImage *This,HDC hdc,LPRECT lprcSrc,LPRECT lprcDst);
     END_INTERFACE
   } IDrawVideoImageVtbl;
-  interface IDrawVideoImage {
+  struct IDrawVideoImage {
     CONST_VTBL struct IDrawVideoImageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5589,7 +5589,7 @@ extern "C" {
       HRESULT (WINAPI *ResetDecimationImageSize)(IDecimateVideoImage *This);
     END_INTERFACE
   } IDecimateVideoImageVtbl;
-  interface IDecimateVideoImage {
+  struct IDecimateVideoImage {
     CONST_VTBL struct IDecimateVideoImageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5632,7 +5632,7 @@ extern "C" {
       HRESULT (WINAPI *SetDecimationUsage)(IAMVideoDecimationProperties *This,DECIMATION_USAGE Usage);
     END_INTERFACE
   } IAMVideoDecimationPropertiesVtbl;
-  interface IAMVideoDecimationProperties {
+  struct IAMVideoDecimationProperties {
     CONST_VTBL struct IAMVideoDecimationPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5670,7 +5670,7 @@ extern "C" {
       HRESULT (WINAPI *CancelStep)(IVideoFrameStep *This);
     END_INTERFACE
   } IVideoFrameStepVtbl;
-  interface IVideoFrameStep {
+  struct IVideoFrameStep {
     CONST_VTBL struct IVideoFrameStepVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5714,7 +5714,7 @@ extern "C" {
       HRESULT (WINAPI *GetLatency)(IAMLatency *This,REFERENCE_TIME *prtLatency);
     END_INTERFACE
   } IAMLatencyVtbl;
-  interface IAMLatency {
+  struct IAMLatency {
     CONST_VTBL struct IAMLatencyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5756,7 +5756,7 @@ extern "C" {
       HRESULT (WINAPI *SetMaxStreamOffset)(IAMPushSource *This,REFERENCE_TIME rtMaxOffset);
     END_INTERFACE
   } IAMPushSourceVtbl;
-  interface IAMPushSource {
+  struct IAMPushSource {
     CONST_VTBL struct IAMPushSourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5807,7 +5807,7 @@ extern "C" {
       HRESULT (WINAPI *Disassociate)(IAMDeviceRemoval *This);
     END_INTERFACE
   } IAMDeviceRemovalVtbl;
-  interface IAMDeviceRemoval {
+  struct IAMDeviceRemoval {
     CONST_VTBL struct IAMDeviceRemovalVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5872,7 +5872,7 @@ extern "C" {
       HRESULT (WINAPI *put_IFormatResolution)(IDVEnc *This,int VideoFormat,int DVFormat,int Resolution,BYTE fDVInfo,DVINFO *sDVInfo);
     END_INTERFACE
   } IDVEncVtbl;
-  interface IDVEnc {
+  struct IDVEnc {
     CONST_VTBL struct IDVEncVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5918,7 +5918,7 @@ extern "C" {
       HRESULT (WINAPI *put_IPDisplay)(IIPDVDec *This,int displayPix);
     END_INTERFACE
   } IIPDVDecVtbl;
-  interface IIPDVDec {
+  struct IIPDVDec {
     CONST_VTBL struct IIPDVDecVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5952,7 +5952,7 @@ extern "C" {
       HRESULT (WINAPI *SetRGB219)(IDVRGB219 *This,WINBOOL bState);
     END_INTERFACE
   } IDVRGB219Vtbl;
-  interface IDVRGB219 {
+  struct IDVRGB219 {
     CONST_VTBL struct IDVRGB219Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5983,7 +5983,7 @@ extern "C" {
       HRESULT (WINAPI *DiscardAlternateVideoFrames)(IDVSplitter *This,int nDiscard);
     END_INTERFACE
   } IDVSplitterVtbl;
-  interface IDVSplitter {
+  struct IDVSplitter {
     CONST_VTBL struct IDVSplitterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6030,7 +6030,7 @@ extern "C" {
       HRESULT (WINAPI *GetStatParam)(IAMAudioRendererStats *This,DWORD dwParam,DWORD *pdwParam1,DWORD *pdwParam2);
     END_INTERFACE
   } IAMAudioRendererStatsVtbl;
-  interface IAMAudioRendererStats {
+  struct IAMAudioRendererStats {
     CONST_VTBL struct IAMAudioRendererStatsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6071,7 +6071,7 @@ extern "C" {
       HRESULT (WINAPI *SetMaxGraphLatency)(IAMGraphStreams *This,REFERENCE_TIME rtMaxGraphLatency);
     END_INTERFACE
   } IAMGraphStreamsVtbl;
-  interface IAMGraphStreams {
+  struct IAMGraphStreams {
     CONST_VTBL struct IAMGraphStreamsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6118,7 +6118,7 @@ extern "C" {
       HRESULT (WINAPI *GetOverlayFX)(IAMOverlayFX *This,DWORD *lpdwOverlayFX);
     END_INTERFACE
   } IAMOverlayFXVtbl;
-  interface IAMOverlayFX {
+  struct IAMOverlayFX {
     CONST_VTBL struct IAMOverlayFXVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6157,7 +6157,7 @@ extern "C" {
       HRESULT (WINAPI *AbortOperation)(IAMOpenProgress *This);
     END_INTERFACE
   } IAMOpenProgressVtbl;
-  interface IAMOpenProgress {
+  struct IAMOpenProgress {
     CONST_VTBL struct IAMOpenProgressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6195,7 +6195,7 @@ extern "C" {
       HRESULT (WINAPI *DeleteOutputPin)(IMpeg2Demultiplexer *This,LPWSTR pszPinName);
     END_INTERFACE
   } IMpeg2DemultiplexerVtbl;
-  interface IMpeg2Demultiplexer {
+  struct IMpeg2Demultiplexer {
     CONST_VTBL struct IMpeg2DemultiplexerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6255,7 +6255,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumStreamIdMap *This,IEnumStreamIdMap **ppIEnumStreamIdMap);
     END_INTERFACE
   } IEnumStreamIdMapVtbl;
-  interface IEnumStreamIdMap {
+  struct IEnumStreamIdMap {
     CONST_VTBL struct IEnumStreamIdMapVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6299,7 +6299,7 @@ extern "C" {
       HRESULT (WINAPI *EnumStreamIdMap)(IMPEG2StreamIdMap *This,IEnumStreamIdMap **ppIEnumStreamIdMap);
     END_INTERFACE
   } IMPEG2StreamIdMapVtbl;
-  interface IMPEG2StreamIdMap {
+  struct IMPEG2StreamIdMap {
     CONST_VTBL struct IMPEG2StreamIdMapVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6336,7 +6336,7 @@ extern "C" {
       HRESULT (WINAPI *RegisterService)(IRegisterServiceProvider *This,REFGUID guidService,IUnknown *pUnkObject);
     END_INTERFACE
   } IRegisterServiceProviderVtbl;
-  interface IRegisterServiceProvider {
+  struct IRegisterServiceProvider {
     CONST_VTBL struct IRegisterServiceProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6369,7 +6369,7 @@ extern "C" {
       HRESULT (WINAPI *GetErrorTolerance)(IAMClockSlave *This,DWORD *pdwTolerance);
     END_INTERFACE
   } IAMClockSlaveVtbl;
-  interface IAMClockSlave {
+  struct IAMClockSlave {
     CONST_VTBL struct IAMClockSlaveVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6405,7 +6405,7 @@ extern "C" {
       HRESULT (WINAPI *CreatedFilter)(IAMGraphBuilderCallback *This,IBaseFilter *pFil);
     END_INTERFACE
   } IAMGraphBuilderCallbackVtbl;
-  interface IAMGraphBuilderCallback {
+  struct IAMGraphBuilderCallback {
     CONST_VTBL struct IAMGraphBuilderCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6426,7 +6426,7 @@ extern "C" {
 #ifndef _IAMFilterGraphCallback_
 #define _IAMFilterGraphCallback_
   EXTERN_GUID(IID_IAMFilterGraphCallback,0x56a868fd,0x0ad4,0x11ce,0xb0,0xa3,0x0,0x20,0xaf,0x0b,0xa7,0x70);
-  interface IAMFilterGraphCallback : public IUnknown {
+  struct IAMFilterGraphCallback : public IUnknown {
     virtual HRESULT UnableToRender(IPin *pPin) = 0;
   };
 #endif
@@ -6484,7 +6484,7 @@ extern "C" {
       HRESULT (WINAPI *SetAllSettingsWithNotify)(ICodecAPI *This,IStream *__MIDL_0018,GUID **ChangedParam,ULONG *ChangedParamCount);
     END_INTERFACE
   } ICodecAPIVtbl;
-  interface ICodecAPI {
+  struct ICodecAPI {
     CONST_VTBL struct ICodecAPIVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6557,7 +6557,7 @@ extern "C" {
       HRESULT (WINAPI *GetCapabilitiesKey)(IGetCapabilitiesKey *This,HKEY *pHKey);
     END_INTERFACE
   } IGetCapabilitiesKeyVtbl;
-  interface IGetCapabilitiesKey {
+  struct IGetCapabilitiesKey {
     CONST_VTBL struct IGetCapabilitiesKeyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6600,7 +6600,7 @@ extern "C" {
       HRESULT (WINAPI *SetValue)(IEncoderAPI *This,const GUID *Api,VARIANT *Value);
     END_INTERFACE
   } IEncoderAPIVtbl;
-  interface IEncoderAPI {
+  struct IEncoderAPI {
     CONST_VTBL struct IEncoderAPIVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6654,7 +6654,7 @@ extern "C" {
       HRESULT (WINAPI *SetValue)(IVideoEncoder *This,const GUID *Api,VARIANT *Value);
     END_INTERFACE
   } IVideoEncoderVtbl;
-  interface IVideoEncoder {
+  struct IVideoEncoder {
     CONST_VTBL struct IVideoEncoderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6709,7 +6709,7 @@ extern "C" {
       HRESULT (WINAPI *GetDecoderCaps)(IAMDecoderCaps *This,DWORD dwCapIndex,DWORD *lpdwCap);
     END_INTERFACE
   } IAMDecoderCapsVtbl;
-  interface IAMDecoderCaps {
+  struct IAMDecoderCaps {
     CONST_VTBL struct IAMDecoderCapsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6780,7 +6780,7 @@ extern "C" {
       HRESULT (WINAPI *ProtectionStatus)(IAMCertifiedOutputProtection *This,const AMCOPPStatusInput *pStatusInput,AMCOPPStatusOutput *pStatusOutput);
     END_INTERFACE
   } IAMCertifiedOutputProtectionVtbl;
-  interface IAMCertifiedOutputProtection {
+  struct IAMCertifiedOutputProtection {
     CONST_VTBL struct IAMCertifiedOutputProtectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7125,7 +7125,7 @@ extern "C" {
       HRESULT (WINAPI *ChapterPlayAutoStop)(IDvdControl *This,ULONG ulTitle,ULONG ulChapter,ULONG ulChaptersToPlay);
     END_INTERFACE
   } IDvdControlVtbl;
-  interface IDvdControl {
+  struct IDvdControl {
     CONST_VTBL struct IDvdControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7302,7 +7302,7 @@ extern "C" {
       HRESULT (WINAPI *GetRoot)(IDvdInfo *This,LPSTR pRoot,ULONG ulBufSize,ULONG *pulActualSize);
     END_INTERFACE
   } IDvdInfoVtbl;
-  interface IDvdInfo {
+  struct IDvdInfo {
     CONST_VTBL struct IDvdInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7401,7 +7401,7 @@ extern "C" {
       HRESULT (WINAPI *WaitForEnd)(IDvdCmd *This);
     END_INTERFACE
   } IDvdCmdVtbl;
-  interface IDvdCmd {
+  struct IDvdCmd {
     CONST_VTBL struct IDvdCmdVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7437,7 +7437,7 @@ extern "C" {
       HRESULT (WINAPI *GetParentalLevel)(IDvdState *This,ULONG *pulParentalLevel);
     END_INTERFACE
   } IDvdStateVtbl;
-  interface IDvdState {
+  struct IDvdState {
     CONST_VTBL struct IDvdStateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7549,7 +7549,7 @@ extern "C" {
       HRESULT (WINAPI *SelectDefaultSubpictureLanguage)(IDvdControl2 *This,LCID Language,DVD_SUBPICTURE_LANG_EXT subpictureExtension);
     END_INTERFACE
   } IDvdControl2Vtbl;
-  interface IDvdControl2 {
+  struct IDvdControl2 {
     CONST_VTBL struct IDvdControl2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7815,7 +7815,7 @@ extern "C" {
       HRESULT (WINAPI *IsSubpictureStreamEnabled)(IDvdInfo2 *This,ULONG ulStreamNum,WINBOOL *pbEnabled);
     END_INTERFACE
   } IDvdInfo2Vtbl;
-  interface IDvdInfo2 {
+  struct IDvdInfo2 {
     CONST_VTBL struct IDvdInfo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -7986,7 +7986,7 @@ extern "C" {
       HRESULT (WINAPI *RenderDvdVideoVolume)(IDvdGraphBuilder *This,LPCWSTR lpcwszPathName,DWORD dwFlags,AM_DVD_RENDERSTATUS *pStatus);
     END_INTERFACE
   } IDvdGraphBuilderVtbl;
-  interface IDvdGraphBuilder {
+  struct IDvdGraphBuilder {
     CONST_VTBL struct IDvdGraphBuilderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8035,7 +8035,7 @@ extern "C" {
       HRESULT (WINAPI *SetCallbackInterface)(IDDrawExclModeVideo *This,IDDrawExclModeVideoCallback *pCallback,DWORD dwFlags);
     END_INTERFACE
   } IDDrawExclModeVideoVtbl;
-  interface IDDrawExclModeVideo {
+  struct IDDrawExclModeVideo {
     CONST_VTBL struct IDDrawExclModeVideoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8094,7 +8094,7 @@ extern "C" {
       HRESULT (WINAPI *OnUpdateSize)(IDDrawExclModeVideoCallback *This,DWORD dwWidth,DWORD dwHeight,DWORD dwARWidth,DWORD dwARHeight);
     END_INTERFACE
   } IDDrawExclModeVideoCallbackVtbl;
-  interface IDDrawExclModeVideoCallback {
+  struct IDDrawExclModeVideoCallback {
     CONST_VTBL struct IDDrawExclModeVideoCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8139,7 +8139,7 @@ extern "C" {
       HRESULT (WINAPI *DynamicDisconnect)(IPinConnection *This);
     END_INTERFACE
   } IPinConnectionVtbl;
-  interface IPinConnection {
+  struct IPinConnection {
     CONST_VTBL struct IPinConnectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8179,7 +8179,7 @@ extern "C" {
       HRESULT (WINAPI *Block)(IPinFlowControl *This,DWORD dwBlockFlags,HANDLE hEvent);
     END_INTERFACE
   } IPinFlowControlVtbl;
-  interface IPinFlowControl {
+  struct IPinFlowControl {
     CONST_VTBL struct IPinFlowControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8246,7 +8246,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveFilterEx)(IGraphConfig *This,IBaseFilter *pFilter,DWORD Flags);
     END_INTERFACE
   } IGraphConfigVtbl;
-  interface IGraphConfig {
+  struct IGraphConfig {
     CONST_VTBL struct IGraphConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8304,7 +8304,7 @@ extern "C" {
       HRESULT (WINAPI *Reconfigure)(IGraphConfigCallback *This,PVOID pvContext,DWORD dwFlags);
     END_INTERFACE
   } IGraphConfigCallbackVtbl;
-  interface IGraphConfigCallback {
+  struct IGraphConfigCallback {
     CONST_VTBL struct IGraphConfigCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8341,7 +8341,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveChain)(IFilterChain *This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter);
     END_INTERFACE
   } IFilterChainVtbl;
-  interface IFilterChain {
+  struct IFilterChain {
     CONST_VTBL struct IFilterChainVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8405,7 +8405,7 @@ extern "C" {
       HRESULT (WINAPI *PresentImage)(IVMRImagePresenter *This,DWORD_PTR dwUserID,VMRPRESENTATIONINFO *lpPresInfo);
     END_INTERFACE
   } IVMRImagePresenterVtbl;
-  interface IVMRImagePresenter {
+  struct IVMRImagePresenter {
     CONST_VTBL struct IVMRImagePresenterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8465,7 +8465,7 @@ extern "C" {
       HRESULT (WINAPI *AdviseNotify)(IVMRSurfaceAllocator *This,IVMRSurfaceAllocatorNotify *lpIVMRSurfAllocNotify);
     END_INTERFACE
   } IVMRSurfaceAllocatorVtbl;
-  interface IVMRSurfaceAllocator {
+  struct IVMRSurfaceAllocator {
     CONST_VTBL struct IVMRSurfaceAllocatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8515,7 +8515,7 @@ extern "C" {
       HRESULT (WINAPI *SetBorderColor)(IVMRSurfaceAllocatorNotify *This,COLORREF clrBorder);
     END_INTERFACE
   } IVMRSurfaceAllocatorNotifyVtbl;
-  interface IVMRSurfaceAllocatorNotify {
+  struct IVMRSurfaceAllocatorNotify {
     CONST_VTBL struct IVMRSurfaceAllocatorNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8595,7 +8595,7 @@ extern "C" {
       HRESULT (WINAPI *GetColorKey)(IVMRWindowlessControl *This,COLORREF *lpClr);
     END_INTERFACE
   } IVMRWindowlessControlVtbl;
-  interface IVMRWindowlessControl {
+  struct IVMRWindowlessControl {
     CONST_VTBL struct IVMRWindowlessControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8706,7 +8706,7 @@ extern "C" {
       HRESULT (WINAPI *GetMixingPrefs)(IVMRMixerControl *This,DWORD *pdwMixerPrefs);
     END_INTERFACE
   } IVMRMixerControlVtbl;
-  interface IVMRMixerControl {
+  struct IVMRMixerControl {
     CONST_VTBL struct IVMRMixerControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8794,7 +8794,7 @@ extern "C" {
       HRESULT (WINAPI *GetAvailableMonitors)(IVMRMonitorConfig *This,VMRMONITORINFO *pInfo,DWORD dwMaxInfoArraySize,DWORD *pdwNumDevices);
     END_INTERFACE
   } IVMRMonitorConfigVtbl;
-  interface IVMRMonitorConfig {
+  struct IVMRMonitorConfig {
     CONST_VTBL struct IVMRMonitorConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8865,7 +8865,7 @@ extern "C" {
       HRESULT (WINAPI *GetRenderingMode)(IVMRFilterConfig *This,DWORD *pMode);
     END_INTERFACE
   } IVMRFilterConfigVtbl;
-  interface IVMRFilterConfig {
+  struct IVMRFilterConfig {
     CONST_VTBL struct IVMRFilterConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8916,7 +8916,7 @@ extern "C" {
       HRESULT (WINAPI *SetAspectRatioMode)(IVMRAspectRatioControl *This,DWORD dwARMode);
     END_INTERFACE
   } IVMRAspectRatioControlVtbl;
-  interface IVMRAspectRatioControl {
+  struct IVMRAspectRatioControl {
     CONST_VTBL struct IVMRAspectRatioControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -8997,7 +8997,7 @@ extern "C" {
       HRESULT (WINAPI *GetActualDeinterlaceMode)(IVMRDeinterlaceControl *This,DWORD dwStreamID,LPGUID lpDeinterlaceMode);
     END_INTERFACE
   } IVMRDeinterlaceControlVtbl;
-  interface IVMRDeinterlaceControl {
+  struct IVMRDeinterlaceControl {
     CONST_VTBL struct IVMRDeinterlaceControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9070,7 +9070,7 @@ extern "C" {
       HRESULT (WINAPI *GetAlphaBitmapParameters)(IVMRMixerBitmap *This,PVMRALPHABITMAP pBmpParms);
     END_INTERFACE
   } IVMRMixerBitmapVtbl;
-  interface IVMRMixerBitmap {
+  struct IVMRMixerBitmap {
     CONST_VTBL struct IVMRMixerBitmapVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9125,7 +9125,7 @@ extern "C" {
       HRESULT (WINAPI *CompositeImage)(IVMRImageCompositor *This,IUnknown *pD3DDevice,LPDIRECTDRAWSURFACE7 pddsRenderTarget,AM_MEDIA_TYPE *pmtRenderTarget,REFERENCE_TIME rtStart,REFERENCE_TIME rtEnd,DWORD dwClrBkGnd,VMRVIDEOSTREAMINFO *pVideoStreamInfo,UINT cStreams);
     END_INTERFACE
   } IVMRImageCompositorVtbl;
-  interface IVMRImageCompositor {
+  struct IVMRImageCompositor {
     CONST_VTBL struct IVMRImageCompositorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9171,7 +9171,7 @@ extern "C" {
       HRESULT (WINAPI *GetStreamActiveState)(IVMRVideoStreamControl *This,WINBOOL *lpfActive);
     END_INTERFACE
   } IVMRVideoStreamControlVtbl;
-  interface IVMRVideoStreamControl {
+  struct IVMRVideoStreamControl {
     CONST_VTBL struct IVMRVideoStreamControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9217,7 +9217,7 @@ extern "C" {
       HRESULT (WINAPI *GetSurface)(IVMRSurface *This,LPDIRECTDRAWSURFACE7 *lplpSurface);
     END_INTERFACE
   } IVMRSurfaceVtbl;
-  interface IVMRSurface {
+  struct IVMRSurface {
     CONST_VTBL struct IVMRSurfaceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9260,7 +9260,7 @@ extern "C" {
       HRESULT (WINAPI *GetRenderingPrefs)(IVMRImagePresenterConfig *This,DWORD *dwRenderFlags);
     END_INTERFACE
   } IVMRImagePresenterConfigVtbl;
-  interface IVMRImagePresenterConfig {
+  struct IVMRImagePresenterConfig {
     CONST_VTBL struct IVMRImagePresenterConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9298,7 +9298,7 @@ extern "C" {
       HRESULT (WINAPI *GetXlcModeDDObjAndPrimarySurface)(IVMRImagePresenterExclModeConfig *This,LPDIRECTDRAW7 *lpDDObj,LPDIRECTDRAWSURFACE7 *lpPrimarySurf);
     END_INTERFACE
   } IVMRImagePresenterExclModeConfigVtbl;
-  interface IVMRImagePresenterExclModeConfig {
+  struct IVMRImagePresenterExclModeConfig {
     CONST_VTBL struct IVMRImagePresenterExclModeConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -9336,7 +9336,7 @@ extern "C" {
       HRESULT (WINAPI *GetVideoPortIndex)(IVPManager *This,DWORD *pdwVideoPortIndex);
     END_INTERFACE
   } IVPManagerVtbl;
-  interface IVPManager {
+  struct IVPManager {
     CONST_VTBL struct IVPManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

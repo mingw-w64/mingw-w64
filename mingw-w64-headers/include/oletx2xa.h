@@ -24,22 +24,22 @@
 
 #ifndef __IDtcToXaMapper_FWD_DEFINED__
 #define __IDtcToXaMapper_FWD_DEFINED__
-typedef interface IDtcToXaMapper IDtcToXaMapper;
+typedef struct IDtcToXaMapper IDtcToXaMapper;
 #endif
 
 #ifndef __IDtcToXaHelperFactory_FWD_DEFINED__
 #define __IDtcToXaHelperFactory_FWD_DEFINED__
-typedef interface IDtcToXaHelperFactory IDtcToXaHelperFactory;
+typedef struct IDtcToXaHelperFactory IDtcToXaHelperFactory;
 #endif
 
 #ifndef __IDtcToXaHelper_FWD_DEFINED__
 #define __IDtcToXaHelper_FWD_DEFINED__
-typedef interface IDtcToXaHelper IDtcToXaHelper;
+typedef struct IDtcToXaHelper IDtcToXaHelper;
 #endif
 
 #ifndef __IDtcToXaHelperSinglePipe_FWD_DEFINED__
 #define __IDtcToXaHelperSinglePipe_FWD_DEFINED__
-typedef interface IDtcToXaHelperSinglePipe IDtcToXaHelperSinglePipe;
+typedef struct IDtcToXaHelperSinglePipe IDtcToXaHelperSinglePipe;
 #endif
 
 #include "unknwn.h"
@@ -103,7 +103,7 @@ extern "C" {
       HRESULT (WINAPI *ReleaseResourceManager)(IDtcToXaMapper *This,DWORD dwRMCookie);
     END_INTERFACE
   } IDtcToXaMapperVtbl;
-  interface IDtcToXaMapper {
+  struct IDtcToXaMapper {
     CONST_VTBL struct IDtcToXaMapperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -143,7 +143,7 @@ extern "C" {
       HRESULT (WINAPI *Create)(IDtcToXaHelperFactory *This,char *pszDSN,char *pszClientDllName,GUID *pguidRm,IDtcToXaHelper **ppXaHelper);
     END_INTERFACE
   } IDtcToXaHelperFactoryVtbl;
-  interface IDtcToXaHelperFactory {
+  struct IDtcToXaHelperFactory {
     CONST_VTBL struct IDtcToXaHelperFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -176,7 +176,7 @@ extern "C" {
       HRESULT (WINAPI *TranslateTridToXid)(IDtcToXaHelper *This,ITransaction *pITransaction,GUID *pguidBqual,XID *pXid);
     END_INTERFACE
   } IDtcToXaHelperVtbl;
-  interface IDtcToXaHelper {
+  struct IDtcToXaHelper {
     CONST_VTBL struct IDtcToXaHelperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -216,7 +216,7 @@ extern "C" {
       void (WINAPI *ReleaseRMCookie)(IDtcToXaHelperSinglePipe *This,DWORD i_dwRMCookie,WINBOOL i_fNormal);
     END_INTERFACE
   } IDtcToXaHelperSinglePipeVtbl;
-  interface IDtcToXaHelperSinglePipe {
+  struct IDtcToXaHelperSinglePipe {
     CONST_VTBL struct IDtcToXaHelperSinglePipeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

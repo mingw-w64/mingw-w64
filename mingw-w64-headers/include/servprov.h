@@ -25,7 +25,7 @@
 
 #ifndef __IServiceProvider_FWD_DEFINED__
 #define __IServiceProvider_FWD_DEFINED__
-typedef interface IServiceProvider IServiceProvider;
+typedef struct IServiceProvider IServiceProvider;
 #endif
 
 #include "objidl.h"
@@ -73,7 +73,7 @@ extern "C" {
       HRESULT (WINAPI *QueryService)(IServiceProvider *This,REFGUID guidService,REFIID riid,void **ppvObject);
     END_INTERFACE
   } IServiceProviderVtbl;
-  interface IServiceProvider {
+  struct IServiceProvider {
     CONST_VTBL struct IServiceProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

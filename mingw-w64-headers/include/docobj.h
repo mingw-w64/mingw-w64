@@ -24,37 +24,37 @@
 
 #ifndef __IOleDocument_FWD_DEFINED__
 #define __IOleDocument_FWD_DEFINED__
-typedef interface IOleDocument IOleDocument;
+typedef struct IOleDocument IOleDocument;
 #endif
 
 #ifndef __IOleDocumentSite_FWD_DEFINED__
 #define __IOleDocumentSite_FWD_DEFINED__
-typedef interface IOleDocumentSite IOleDocumentSite;
+typedef struct IOleDocumentSite IOleDocumentSite;
 #endif
 
 #ifndef __IOleDocumentView_FWD_DEFINED__
 #define __IOleDocumentView_FWD_DEFINED__
-typedef interface IOleDocumentView IOleDocumentView;
+typedef struct IOleDocumentView IOleDocumentView;
 #endif
 
 #ifndef __IEnumOleDocumentViews_FWD_DEFINED__
 #define __IEnumOleDocumentViews_FWD_DEFINED__
-typedef interface IEnumOleDocumentViews IEnumOleDocumentViews;
+typedef struct IEnumOleDocumentViews IEnumOleDocumentViews;
 #endif
 
 #ifndef __IContinueCallback_FWD_DEFINED__
 #define __IContinueCallback_FWD_DEFINED__
-typedef interface IContinueCallback IContinueCallback;
+typedef struct IContinueCallback IContinueCallback;
 #endif
 
 #ifndef __IPrint_FWD_DEFINED__
 #define __IPrint_FWD_DEFINED__
-typedef interface IPrint IPrint;
+typedef struct IPrint IPrint;
 #endif
 
 #ifndef __IOleCommandTarget_FWD_DEFINED__
 #define __IOleCommandTarget_FWD_DEFINED__
-typedef interface IOleCommandTarget IOleCommandTarget;
+typedef struct IOleCommandTarget IOleCommandTarget;
 #endif
 
 #include "ocidl.h"
@@ -98,7 +98,7 @@ extern "C"{
       HRESULT (WINAPI *EnumViews)(IOleDocument *This,IEnumOleDocumentViews **ppEnum,IOleDocumentView **ppView);
     END_INTERFACE
   } IOleDocumentVtbl;
-  interface IOleDocument {
+  struct IOleDocument {
     CONST_VTBL struct IOleDocumentVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -141,7 +141,7 @@ extern "C"{
       HRESULT (WINAPI *ActivateMe)(IOleDocumentSite *This,IOleDocumentView *pViewToActivate);
     END_INTERFACE
   } IOleDocumentSiteVtbl;
-  interface IOleDocumentSite {
+  struct IOleDocumentSite {
     CONST_VTBL struct IOleDocumentSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -203,7 +203,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IOleDocumentView *This,IOleInPlaceSite *pIPSiteNew,IOleDocumentView **ppViewNew);
     END_INTERFACE
   } IOleDocumentViewVtbl;
-  interface IOleDocumentView {
+  struct IOleDocumentView {
     CONST_VTBL struct IOleDocumentViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -282,7 +282,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumOleDocumentViews *This,IEnumOleDocumentViews **ppEnum);
     END_INTERFACE
   } IEnumOleDocumentViewsVtbl;
-  interface IEnumOleDocumentViews {
+  struct IEnumOleDocumentViews {
     CONST_VTBL struct IEnumOleDocumentViewsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -330,7 +330,7 @@ extern "C"{
       HRESULT (WINAPI *FContinuePrinting)(IContinueCallback *This,LONG nCntPrinted,LONG nCurPage,wchar_t *pwszPrintStatus);
     END_INTERFACE
   } IContinueCallbackVtbl;
-  interface IContinueCallback {
+  struct IContinueCallback {
     CONST_VTBL struct IContinueCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -392,7 +392,7 @@ extern "C"{
       HRESULT (WINAPI *Print)(IPrint *This,DWORD grfFlags,DVTARGETDEVICE **pptd,PAGESET **ppPageSet,STGMEDIUM *pstgmOptions,IContinueCallback *pcallback,LONG nFirstPage,LONG *pcPagesPrinted,LONG *pnLastPage);
     END_INTERFACE
   } IPrintVtbl;
-  interface IPrint {
+  struct IPrint {
     CONST_VTBL struct IPrintVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -488,7 +488,7 @@ extern "C"{
       HRESULT (WINAPI *Exec)(IOleCommandTarget *This,const GUID *pguidCmdGroup,DWORD nCmdID,DWORD nCmdexecopt,VARIANT *pvaIn,VARIANT *pvaOut);
     END_INTERFACE
   } IOleCommandTargetVtbl;
-  interface IOleCommandTarget {
+  struct IOleCommandTarget {
     CONST_VTBL struct IOleCommandTargetVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,342 +24,342 @@
 
 #ifndef __IPersistFolder_FWD_DEFINED__
 #define __IPersistFolder_FWD_DEFINED__
-typedef interface IPersistFolder IPersistFolder;
+typedef struct IPersistFolder IPersistFolder;
 #endif
 
 #ifndef __IPersistFolder2_FWD_DEFINED__
 #define __IPersistFolder2_FWD_DEFINED__
-typedef interface IPersistFolder2 IPersistFolder2;
+typedef struct IPersistFolder2 IPersistFolder2;
 #endif
 
 #ifndef __IPersistIDList_FWD_DEFINED__
 #define __IPersistIDList_FWD_DEFINED__
-typedef interface IPersistIDList IPersistIDList;
+typedef struct IPersistIDList IPersistIDList;
 #endif
 
 #ifndef __IEnumIDList_FWD_DEFINED__
 #define __IEnumIDList_FWD_DEFINED__
-typedef interface IEnumIDList IEnumIDList;
+typedef struct IEnumIDList IEnumIDList;
 #endif
 
 #ifndef __IShellFolder_FWD_DEFINED__
 #define __IShellFolder_FWD_DEFINED__
-typedef interface IShellFolder IShellFolder;
+typedef struct IShellFolder IShellFolder;
 #endif
 
 #ifndef __IEnumExtraSearch_FWD_DEFINED__
 #define __IEnumExtraSearch_FWD_DEFINED__
-typedef interface IEnumExtraSearch IEnumExtraSearch;
+typedef struct IEnumExtraSearch IEnumExtraSearch;
 #endif
 
 #ifndef __IShellFolder2_FWD_DEFINED__
 #define __IShellFolder2_FWD_DEFINED__
-typedef interface IShellFolder2 IShellFolder2;
+typedef struct IShellFolder2 IShellFolder2;
 #endif
 
 #ifndef __IShellView_FWD_DEFINED__
 #define __IShellView_FWD_DEFINED__
-typedef interface IShellView IShellView;
+typedef struct IShellView IShellView;
 #endif
 
 #ifndef __IShellView2_FWD_DEFINED__
 #define __IShellView2_FWD_DEFINED__
-typedef interface IShellView2 IShellView2;
+typedef struct IShellView2 IShellView2;
 #endif
 
 #ifndef __IFolderView_FWD_DEFINED__
 #define __IFolderView_FWD_DEFINED__
-typedef interface IFolderView IFolderView;
+typedef struct IFolderView IFolderView;
 #endif
 
 #ifndef __IFolderFilterSite_FWD_DEFINED__
 #define __IFolderFilterSite_FWD_DEFINED__
-typedef interface IFolderFilterSite IFolderFilterSite;
+typedef struct IFolderFilterSite IFolderFilterSite;
 #endif
 
 #ifndef __IFolderFilter_FWD_DEFINED__
 #define __IFolderFilter_FWD_DEFINED__
-typedef interface IFolderFilter IFolderFilter;
+typedef struct IFolderFilter IFolderFilter;
 #endif
 
 #ifndef __IShellBrowser_FWD_DEFINED__
 #define __IShellBrowser_FWD_DEFINED__
-typedef interface IShellBrowser IShellBrowser;
+typedef struct IShellBrowser IShellBrowser;
 #endif
 
 #ifndef __IProfferService_FWD_DEFINED__
 #define __IProfferService_FWD_DEFINED__
-typedef interface IProfferService IProfferService;
+typedef struct IProfferService IProfferService;
 #endif
 
 #ifndef __IPropertyUI_FWD_DEFINED__
 #define __IPropertyUI_FWD_DEFINED__
-typedef interface IPropertyUI IPropertyUI;
+typedef struct IPropertyUI IPropertyUI;
 #endif
 
 #ifndef __ICategoryProvider_FWD_DEFINED__
 #define __ICategoryProvider_FWD_DEFINED__
-typedef interface ICategoryProvider ICategoryProvider;
+typedef struct ICategoryProvider ICategoryProvider;
 #endif
 
 #ifndef __ICategorizer_FWD_DEFINED__
 #define __ICategorizer_FWD_DEFINED__
-typedef interface ICategorizer ICategorizer;
+typedef struct ICategorizer ICategorizer;
 #endif
 
 #ifndef __IShellLinkA_FWD_DEFINED__
 #define __IShellLinkA_FWD_DEFINED__
-typedef interface IShellLinkA IShellLinkA;
+typedef struct IShellLinkA IShellLinkA;
 #endif
 
 #ifndef __IShellLinkW_FWD_DEFINED__
 #define __IShellLinkW_FWD_DEFINED__
-typedef interface IShellLinkW IShellLinkW;
+typedef struct IShellLinkW IShellLinkW;
 #endif
 
 #ifndef __IActionProgressDialog_FWD_DEFINED__
 #define __IActionProgressDialog_FWD_DEFINED__
-typedef interface IActionProgressDialog IActionProgressDialog;
+typedef struct IActionProgressDialog IActionProgressDialog;
 #endif
 
 #ifndef __IHWEventHandler_FWD_DEFINED__
 #define __IHWEventHandler_FWD_DEFINED__
-typedef interface IHWEventHandler IHWEventHandler;
+typedef struct IHWEventHandler IHWEventHandler;
 #endif
 
 #ifndef __IQueryCancelAutoPlay_FWD_DEFINED__
 #define __IQueryCancelAutoPlay_FWD_DEFINED__
-typedef interface IQueryCancelAutoPlay IQueryCancelAutoPlay;
+typedef struct IQueryCancelAutoPlay IQueryCancelAutoPlay;
 #endif
 
 #ifndef __IActionProgress_FWD_DEFINED__
 #define __IActionProgress_FWD_DEFINED__
-typedef interface IActionProgress IActionProgress;
+typedef struct IActionProgress IActionProgress;
 #endif
 
 #ifndef __IShellExtInit_FWD_DEFINED__
 #define __IShellExtInit_FWD_DEFINED__
-typedef interface IShellExtInit IShellExtInit;
+typedef struct IShellExtInit IShellExtInit;
 #endif
 
 #ifndef __IShellPropSheetExt_FWD_DEFINED__
 #define __IShellPropSheetExt_FWD_DEFINED__
-typedef interface IShellPropSheetExt IShellPropSheetExt;
+typedef struct IShellPropSheetExt IShellPropSheetExt;
 #endif
 
 #ifndef __IRemoteComputer_FWD_DEFINED__
 #define __IRemoteComputer_FWD_DEFINED__
-typedef interface IRemoteComputer IRemoteComputer;
+typedef struct IRemoteComputer IRemoteComputer;
 #endif
 
 #ifndef __IQueryContinue_FWD_DEFINED__
 #define __IQueryContinue_FWD_DEFINED__
-typedef interface IQueryContinue IQueryContinue;
+typedef struct IQueryContinue IQueryContinue;
 #endif
 
 #ifndef __IUserNotification_FWD_DEFINED__
 #define __IUserNotification_FWD_DEFINED__
-typedef interface IUserNotification IUserNotification;
+typedef struct IUserNotification IUserNotification;
 #endif
 
 #ifndef __IItemNameLimits_FWD_DEFINED__
 #define __IItemNameLimits_FWD_DEFINED__
-typedef interface IItemNameLimits IItemNameLimits;
+typedef struct IItemNameLimits IItemNameLimits;
 #endif
 
 #ifndef __INetCrawler_FWD_DEFINED__
 #define __INetCrawler_FWD_DEFINED__
-typedef interface INetCrawler INetCrawler;
+typedef struct INetCrawler INetCrawler;
 #endif
 
 #ifndef __IExtractImage_FWD_DEFINED__
 #define __IExtractImage_FWD_DEFINED__
-typedef interface IExtractImage IExtractImage;
+typedef struct IExtractImage IExtractImage;
 #endif
 
 #ifndef __IExtractImage2_FWD_DEFINED__
 #define __IExtractImage2_FWD_DEFINED__
-typedef interface IExtractImage2 IExtractImage2;
+typedef struct IExtractImage2 IExtractImage2;
 #endif
 
 #ifndef __IUserEventTimerCallback_FWD_DEFINED__
 #define __IUserEventTimerCallback_FWD_DEFINED__
-typedef interface IUserEventTimerCallback IUserEventTimerCallback;
+typedef struct IUserEventTimerCallback IUserEventTimerCallback;
 #endif
 
 #ifndef __IUserEventTimer_FWD_DEFINED__
 #define __IUserEventTimer_FWD_DEFINED__
-typedef interface IUserEventTimer IUserEventTimer;
+typedef struct IUserEventTimer IUserEventTimer;
 #endif
 
 #ifndef __IDockingWindow_FWD_DEFINED__
 #define __IDockingWindow_FWD_DEFINED__
-typedef interface IDockingWindow IDockingWindow;
+typedef struct IDockingWindow IDockingWindow;
 #endif
 
 #ifndef __IDeskBand_FWD_DEFINED__
 #define __IDeskBand_FWD_DEFINED__
-typedef interface IDeskBand IDeskBand;
+typedef struct IDeskBand IDeskBand;
 #endif
 
 #ifndef __ITaskbarList_FWD_DEFINED__
 #define __ITaskbarList_FWD_DEFINED__
-typedef interface ITaskbarList ITaskbarList;
+typedef struct ITaskbarList ITaskbarList;
 #endif
 
 #ifndef __ITaskbarList2_FWD_DEFINED__
 #define __ITaskbarList2_FWD_DEFINED__
-typedef interface ITaskbarList2 ITaskbarList2;
+typedef struct ITaskbarList2 ITaskbarList2;
 #endif
 
 #ifndef __ICDBurn_FWD_DEFINED__
 #define __ICDBurn_FWD_DEFINED__
-typedef interface ICDBurn ICDBurn;
+typedef struct ICDBurn ICDBurn;
 #endif
 
 #ifndef __IWizardSite_FWD_DEFINED__
 #define __IWizardSite_FWD_DEFINED__
-typedef interface IWizardSite IWizardSite;
+typedef struct IWizardSite IWizardSite;
 #endif
 
 #ifndef __IWizardExtension_FWD_DEFINED__
 #define __IWizardExtension_FWD_DEFINED__
-typedef interface IWizardExtension IWizardExtension;
+typedef struct IWizardExtension IWizardExtension;
 #endif
 
 #ifndef __IWebWizardExtension_FWD_DEFINED__
 #define __IWebWizardExtension_FWD_DEFINED__
-typedef interface IWebWizardExtension IWebWizardExtension;
+typedef struct IWebWizardExtension IWebWizardExtension;
 #endif
 
 #ifndef __IPublishingWizard_FWD_DEFINED__
 #define __IPublishingWizard_FWD_DEFINED__
-typedef interface IPublishingWizard IPublishingWizard;
+typedef struct IPublishingWizard IPublishingWizard;
 #endif
 
 #ifndef __IFolderViewHost_FWD_DEFINED__
 #define __IFolderViewHost_FWD_DEFINED__
-typedef interface IFolderViewHost IFolderViewHost;
+typedef struct IFolderViewHost IFolderViewHost;
 #endif
 
 #ifndef __IAutoCompleteDropDown_FWD_DEFINED__
 #define __IAutoCompleteDropDown_FWD_DEFINED__
-typedef interface IAutoCompleteDropDown IAutoCompleteDropDown;
+typedef struct IAutoCompleteDropDown IAutoCompleteDropDown;
 #endif
 
 #ifndef __IModalWindow_FWD_DEFINED__
 #define __IModalWindow_FWD_DEFINED__
-typedef interface IModalWindow IModalWindow;
+typedef struct IModalWindow IModalWindow;
 #endif
 
 #ifndef __IPassportWizard_FWD_DEFINED__
 #define __IPassportWizard_FWD_DEFINED__
-typedef interface IPassportWizard IPassportWizard;
+typedef struct IPassportWizard IPassportWizard;
 #endif
 
 #ifndef __ICDBurnExt_FWD_DEFINED__
 #define __ICDBurnExt_FWD_DEFINED__
-typedef interface ICDBurnExt ICDBurnExt;
+typedef struct ICDBurnExt ICDBurnExt;
 #endif
 
 #ifndef __IDVGetEnum_FWD_DEFINED__
 #define __IDVGetEnum_FWD_DEFINED__
-typedef interface IDVGetEnum IDVGetEnum;
+typedef struct IDVGetEnum IDVGetEnum;
 #endif
 
 #ifndef __IInsertItem_FWD_DEFINED__
 #define __IInsertItem_FWD_DEFINED__
-typedef interface IInsertItem IInsertItem;
+typedef struct IInsertItem IInsertItem;
 #endif
 
 #ifndef __IDeskBar_FWD_DEFINED__
 #define __IDeskBar_FWD_DEFINED__
-typedef interface IDeskBar IDeskBar;
+typedef struct IDeskBar IDeskBar;
 #endif
 
 #ifndef __IMenuBand_FWD_DEFINED__
 #define __IMenuBand_FWD_DEFINED__
-typedef interface IMenuBand IMenuBand;
+typedef struct IMenuBand IMenuBand;
 #endif
 
 #ifndef __IFolderBandPriv_FWD_DEFINED__
 #define __IFolderBandPriv_FWD_DEFINED__
-typedef interface IFolderBandPriv IFolderBandPriv;
+typedef struct IFolderBandPriv IFolderBandPriv;
 #endif
 
 #ifndef __IBandSite_FWD_DEFINED__
 #define __IBandSite_FWD_DEFINED__
-typedef interface IBandSite IBandSite;
+typedef struct IBandSite IBandSite;
 #endif
 
 #ifndef __INamespaceWalkCB_FWD_DEFINED__
 #define __INamespaceWalkCB_FWD_DEFINED__
-typedef interface INamespaceWalkCB INamespaceWalkCB;
+typedef struct INamespaceWalkCB INamespaceWalkCB;
 #endif
 
 #ifndef __INamespaceWalk_FWD_DEFINED__
 #define __INamespaceWalk_FWD_DEFINED__
-typedef interface INamespaceWalk INamespaceWalk;
+typedef struct INamespaceWalk INamespaceWalk;
 #endif
 
 #ifndef __IRegTreeItem_FWD_DEFINED__
 #define __IRegTreeItem_FWD_DEFINED__
-typedef interface IRegTreeItem IRegTreeItem;
+typedef struct IRegTreeItem IRegTreeItem;
 #endif
 
 #ifndef __IMenuPopup_FWD_DEFINED__
 #define __IMenuPopup_FWD_DEFINED__
-typedef interface IMenuPopup IMenuPopup;
+typedef struct IMenuPopup IMenuPopup;
 #endif
 
 #ifndef __IShellItem_FWD_DEFINED__
 #define __IShellItem_FWD_DEFINED__
-typedef interface IShellItem IShellItem;
+typedef struct IShellItem IShellItem;
 #endif
 
 #ifndef __IImageRecompress_FWD_DEFINED__
 #define __IImageRecompress_FWD_DEFINED__
-typedef interface IImageRecompress IImageRecompress;
+typedef struct IImageRecompress IImageRecompress;
 #endif
 
 #ifndef __IDefViewSafety_FWD_DEFINED__
 #define __IDefViewSafety_FWD_DEFINED__
-typedef interface IDefViewSafety IDefViewSafety;
+typedef struct IDefViewSafety IDefViewSafety;
 #endif
 
 #ifndef __IContextMenuSite_FWD_DEFINED__
 #define __IContextMenuSite_FWD_DEFINED__
-typedef interface IContextMenuSite IContextMenuSite;
+typedef struct IContextMenuSite IContextMenuSite;
 #endif
 
 #ifndef __IDelegateFolder_FWD_DEFINED__
 #define __IDelegateFolder_FWD_DEFINED__
-typedef interface IDelegateFolder IDelegateFolder;
+typedef struct IDelegateFolder IDelegateFolder;
 #endif
 
 #ifndef __IBrowserFrameOptions_FWD_DEFINED__
 #define __IBrowserFrameOptions_FWD_DEFINED__
-typedef interface IBrowserFrameOptions IBrowserFrameOptions;
+typedef struct IBrowserFrameOptions IBrowserFrameOptions;
 #endif
 
 #ifndef __INewWindowManager_FWD_DEFINED__
 #define __INewWindowManager_FWD_DEFINED__
-typedef interface INewWindowManager INewWindowManager;
+typedef struct INewWindowManager INewWindowManager;
 #endif
 
 #ifndef __IShellMenuCallback_FWD_DEFINED__
 #define __IShellMenuCallback_FWD_DEFINED__
-typedef interface IShellMenuCallback IShellMenuCallback;
+typedef struct IShellMenuCallback IShellMenuCallback;
 #endif
 
 #ifndef __IAttachmentExecute_FWD_DEFINED__
 #define __IAttachmentExecute_FWD_DEFINED__
-typedef interface IAttachmentExecute IAttachmentExecute;
+typedef struct IAttachmentExecute IAttachmentExecute;
 #endif
 
 #ifndef __IShellMenu_FWD_DEFINED__
 #define __IShellMenu_FWD_DEFINED__
-typedef interface IShellMenu IShellMenu;
+typedef struct IShellMenu IShellMenu;
 #endif
 
 #ifndef __QueryCancelAutoPlay_FWD_DEFINED__
@@ -640,7 +640,7 @@ extern "C" {
       HRESULT (WINAPI *Initialize)(IPersistFolder *This,LPCITEMIDLIST pidl);
     END_INTERFACE
   } IPersistFolderVtbl;
-  interface IPersistFolder {
+  struct IPersistFolder {
     CONST_VTBL struct IPersistFolderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -678,7 +678,7 @@ extern "C" {
       HRESULT (WINAPI *GetCurFolder)(IPersistFolder2 *This,LPITEMIDLIST *ppidl);
     END_INTERFACE
   } IPersistFolder2Vtbl;
-  interface IPersistFolder2 {
+  struct IPersistFolder2 {
     CONST_VTBL struct IPersistFolder2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -719,7 +719,7 @@ extern "C" {
       HRESULT (WINAPI *GetIDList)(IPersistIDList *This,LPITEMIDLIST *ppidl);
     END_INTERFACE
   } IPersistIDListVtbl;
-  interface IPersistIDList {
+  struct IPersistIDList {
     CONST_VTBL struct IPersistIDListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -760,7 +760,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumIDList *This,IEnumIDList **ppenum);
     END_INTERFACE
   } IEnumIDListVtbl;
-  interface IEnumIDList {
+  struct IEnumIDList {
     CONST_VTBL struct IEnumIDListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -878,7 +878,7 @@ extern "C" {
       HRESULT (WINAPI *SetNameOf)(IShellFolder *This,HWND hwnd,LPCITEMIDLIST pidl,LPCOLESTR pszName,SHGDNF uFlags,LPITEMIDLIST *ppidlOut);
     END_INTERFACE
   } IShellFolderVtbl;
-  interface IShellFolder {
+  struct IShellFolder {
     CONST_VTBL struct IShellFolderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -956,7 +956,7 @@ extern "C" {
       HRESULT (WINAPI *Clone)(IEnumExtraSearch *This,IEnumExtraSearch **ppenum);
     END_INTERFACE
   } IEnumExtraSearchVtbl;
-  interface IEnumExtraSearch {
+  struct IEnumExtraSearch {
     CONST_VTBL struct IEnumExtraSearchVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1035,7 +1035,7 @@ extern "C" {
       HRESULT (WINAPI *MapColumnToSCID)(IShellFolder2 *This,UINT iColumn,SHCOLUMNID *pscid);
     END_INTERFACE
   } IShellFolder2Vtbl;
-  interface IShellFolder2 {
+  struct IShellFolder2 {
     CONST_VTBL struct IShellFolder2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1173,7 +1173,7 @@ extern "C" {
       HRESULT (WINAPI *GetItemObject)(IShellView *This,UINT uItem,REFIID riid,void **ppv);
     END_INTERFACE
   } IShellViewVtbl;
-  interface IShellView {
+  struct IShellView {
     CONST_VTBL struct IShellViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1274,7 +1274,7 @@ extern "C" {
       HRESULT (WINAPI *SelectAndPositionItem)(IShellView2 *This,LPCITEMIDLIST pidlItem,UINT uFlags,POINT *ppt);
     END_INTERFACE
   } IShellView2Vtbl;
-  interface IShellView2 {
+  struct IShellView2 {
     CONST_VTBL struct IShellView2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1353,7 +1353,7 @@ extern "C" {
       HRESULT (WINAPI *SelectAndPositionItems)(IFolderView *This,UINT cidl,LPCITEMIDLIST *apidl,POINT *apt,DWORD dwFlags);
     END_INTERFACE
   } IFolderViewVtbl;
-  interface IFolderView {
+  struct IFolderView {
     CONST_VTBL struct IFolderViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1430,7 +1430,7 @@ extern "C" {
       HRESULT (WINAPI *SetFilter)(IFolderFilterSite *This,IUnknown *punk);
     END_INTERFACE
   } IFolderFilterSiteVtbl;
-  interface IFolderFilterSite {
+  struct IFolderFilterSite {
     CONST_VTBL struct IFolderFilterSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1463,7 +1463,7 @@ extern "C" {
       HRESULT (WINAPI *GetEnumFlags)(IFolderFilter *This,IShellFolder *psf,LPCITEMIDLIST pidlFolder,HWND *phwnd,DWORD *pgrfFlags);
     END_INTERFACE
   } IFolderFilterVtbl;
-  interface IFolderFilter {
+  struct IFolderFilter {
     CONST_VTBL struct IFolderFilterVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1562,7 +1562,7 @@ extern "C" {
       HRESULT (WINAPI *SetToolbarItems)(IShellBrowser *This,LPTBBUTTONSB lpButtons,UINT nButtons,UINT uFlags);
     END_INTERFACE
   } IShellBrowserVtbl;
-  interface IShellBrowser {
+  struct IShellBrowser {
     CONST_VTBL struct IShellBrowserVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1637,7 +1637,7 @@ extern "C" {
       HRESULT (WINAPI *RevokeService)(IProfferService *This,DWORD dwCookie);
     END_INTERFACE
   } IProfferServiceVtbl;
-  interface IProfferService {
+  struct IProfferService {
     CONST_VTBL struct IProfferServiceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1700,7 +1700,7 @@ extern "C" {
       HRESULT (WINAPI *GetHelpInfo)(IPropertyUI *This,REFFMTID fmtid,PROPID pid,LPWSTR pwszHelpFile,DWORD cch,UINT *puHelpID);
     END_INTERFACE
   } IPropertyUIVtbl;
-  interface IPropertyUI {
+  struct IPropertyUI {
     CONST_VTBL struct IPropertyUIVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1765,7 +1765,7 @@ extern "C" {
       HRESULT (WINAPI *CreateCategory)(ICategoryProvider *This,GUID *pguid,REFIID riid,void **ppv);
     END_INTERFACE
   } ICategoryProviderVtbl;
-  interface ICategoryProvider {
+  struct ICategoryProvider {
     CONST_VTBL struct ICategoryProviderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1832,7 +1832,7 @@ extern "C" {
       HRESULT (WINAPI *CompareCategory)(ICategorizer *This,CATSORT_FLAGS csfFlags,DWORD dwCategoryId1,DWORD dwCategoryId2);
     END_INTERFACE
   } ICategorizerVtbl;
-  interface ICategorizer {
+  struct ICategorizer {
     CONST_VTBL struct ICategorizerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1924,7 +1924,7 @@ extern "C" {
       HRESULT (WINAPI *SetPath)(IShellLinkA *This,LPCSTR pszFile);
     END_INTERFACE
   } IShellLinkAVtbl;
-  interface IShellLinkA {
+  struct IShellLinkA {
     CONST_VTBL struct IShellLinkAVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2040,7 +2040,7 @@ extern "C" {
       HRESULT (WINAPI *SetPath)(IShellLinkW *This,LPCWSTR pszFile);
     END_INTERFACE
   } IShellLinkWVtbl;
-  interface IShellLinkW {
+  struct IShellLinkW {
     CONST_VTBL struct IShellLinkWVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2129,7 +2129,7 @@ extern "C" {
       HRESULT (WINAPI *Stop)(IActionProgressDialog *This);
     END_INTERFACE
   } IActionProgressDialogVtbl;
-  interface IActionProgressDialog {
+  struct IActionProgressDialog {
     CONST_VTBL struct IActionProgressDialogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2167,7 +2167,7 @@ extern "C" {
       HRESULT (WINAPI *HandleEventWithContent)(IHWEventHandler *This,LPCWSTR pszDeviceID,LPCWSTR pszAltDeviceID,LPCWSTR pszEventType,LPCWSTR pszContentTypeHandler,IDataObject *pdataobject);
     END_INTERFACE
   } IHWEventHandlerVtbl;
-  interface IHWEventHandler {
+  struct IHWEventHandler {
     CONST_VTBL struct IHWEventHandlerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2216,7 +2216,7 @@ extern "C" {
       HRESULT (WINAPI *AllowAutoPlay)(IQueryCancelAutoPlay *This,LPCWSTR pszPath,DWORD dwContentType,LPCWSTR pszLabel,DWORD dwSerialNumber);
     END_INTERFACE
   } IQueryCancelAutoPlayVtbl;
-  interface IQueryCancelAutoPlay {
+  struct IQueryCancelAutoPlay {
     CONST_VTBL struct IQueryCancelAutoPlayVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2237,7 +2237,7 @@ extern "C" {
   };
   typedef DWORD SPBEGINF;
 
-  typedef enum _SPACTION { 
+  typedef enum _SPACTION {
     SPACTION_NONE = 0,SPACTION_MOVING = SPACTION_NONE + 1,SPACTION_COPYING = SPACTION_MOVING + 1,SPACTION_RECYCLING = SPACTION_COPYING + 1,
     SPACTION_APPLYINGATTRIBS = SPACTION_RECYCLING + 1,SPACTION_DOWNLOADING = SPACTION_APPLYINGATTRIBS + 1,
     SPACTION_SEARCHING_INTERNET = SPACTION_DOWNLOADING + 1,SPACTION_CALCULATING = SPACTION_SEARCHING_INTERNET + 1,
@@ -2272,7 +2272,7 @@ extern "C" {
       HRESULT (WINAPI *End)(IActionProgress *This);
     END_INTERFACE
   } IActionProgressVtbl;
-  interface IActionProgress {
+  struct IActionProgress {
     CONST_VTBL struct IActionProgressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2318,7 +2318,7 @@ extern "C" {
       HRESULT (WINAPI *Initialize)(IShellExtInit *This,LPCITEMIDLIST pidlFolder,IDataObject *pdtobj,HKEY hkeyProgID);
     END_INTERFACE
   } IShellExtInitVtbl;
-  interface IShellExtInit {
+  struct IShellExtInit {
     CONST_VTBL struct IShellExtInitVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2360,7 +2360,7 @@ extern "C" {
       HRESULT (WINAPI *ReplacePage)(IShellPropSheetExt *This,EXPPS uPageID,LPFNSVADDPROPSHEETPAGE pfnReplaceWith,LPARAM lParam);
     END_INTERFACE
   } IShellPropSheetExtVtbl;
-  interface IShellPropSheetExt {
+  struct IShellPropSheetExt {
     CONST_VTBL struct IShellPropSheetExtVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2398,7 +2398,7 @@ extern "C" {
       HRESULT (WINAPI *Initialize)(IRemoteComputer *This,LPCWSTR pszMachine,WINBOOL bEnumerating);
     END_INTERFACE
   } IRemoteComputerVtbl;
-  interface IRemoteComputer {
+  struct IRemoteComputer {
     CONST_VTBL struct IRemoteComputerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2429,7 +2429,7 @@ extern "C" {
       HRESULT (WINAPI *QueryContinue)(IQueryContinue *This);
     END_INTERFACE
   } IQueryContinueVtbl;
-  interface IQueryContinue {
+  struct IQueryContinue {
     CONST_VTBL struct IQueryContinueVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2468,7 +2468,7 @@ extern "C" {
       HRESULT (WINAPI *PlaySound)(IUserNotification *This,LPCWSTR pszSoundName);
     END_INTERFACE
   } IUserNotificationVtbl;
-  interface IUserNotification {
+  struct IUserNotification {
     CONST_VTBL struct IUserNotificationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2513,7 +2513,7 @@ extern "C" {
       HRESULT (WINAPI *GetMaxLength)(IItemNameLimits *This,LPCWSTR pszName,int *piMaxNameLen);
     END_INTERFACE
   } IItemNameLimitsVtbl;
-  interface IItemNameLimits {
+  struct IItemNameLimits {
     CONST_VTBL struct IItemNameLimitsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2551,7 +2551,7 @@ extern "C" {
       HRESULT (WINAPI *Update)(INetCrawler *This,DWORD dwFlags);
     END_INTERFACE
   } INetCrawlerVtbl;
-  interface INetCrawler {
+  struct INetCrawler {
     CONST_VTBL struct INetCrawlerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2602,7 +2602,7 @@ extern "C" {
       HRESULT (WINAPI *Extract)(IExtractImage *This,HBITMAP *phBmpThumbnail);
     END_INTERFACE
   } IExtractImageVtbl;
-  interface IExtractImage {
+  struct IExtractImage {
     CONST_VTBL struct IExtractImageVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2643,7 +2643,7 @@ extern "C" {
       HRESULT (WINAPI *GetDateStamp)(IExtractImage2 *This,FILETIME *pDateStamp);
     END_INTERFACE
   } IExtractImage2Vtbl;
-  interface IExtractImage2 {
+  struct IExtractImage2 {
     CONST_VTBL struct IExtractImage2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2681,7 +2681,7 @@ extern "C" {
       HRESULT (WINAPI *UserEventTimerProc)(IUserEventTimerCallback *This,ULONG uUserEventTimerID,UINT uTimerElapse);
     END_INTERFACE
   } IUserEventTimerCallbackVtbl;
-  interface IUserEventTimerCallback {
+  struct IUserEventTimerCallback {
     CONST_VTBL struct IUserEventTimerCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2720,7 +2720,7 @@ extern "C" {
       HRESULT (WINAPI *InitTimerTickInterval)(IUserEventTimer *This,UINT uTimerTickIntervalMs);
     END_INTERFACE
   } IUserEventTimerVtbl;
-  interface IUserEventTimer {
+  struct IUserEventTimer {
     CONST_VTBL struct IUserEventTimerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2766,7 +2766,7 @@ extern "C" {
       HRESULT (WINAPI *ResizeBorderDW)(IDockingWindow *This,LPCRECT prcBorder,IUnknown *punkToolbarSite,WINBOOL fReserved);
     END_INTERFACE
   } IDockingWindowVtbl;
-  interface IDockingWindow {
+  struct IDockingWindow {
     CONST_VTBL struct IDockingWindowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2858,7 +2858,7 @@ extern "C" {
       HRESULT (WINAPI *GetBandInfo)(IDeskBand *This,DWORD dwBandID,DWORD dwViewMode,DESKBANDINFO *pdbi);
     END_INTERFACE
   } IDeskBandVtbl;
-  interface IDeskBand {
+  struct IDeskBand {
     CONST_VTBL struct IDeskBandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2902,7 +2902,7 @@ extern "C" {
       HRESULT (WINAPI *SetActiveAlt)(ITaskbarList *This,HWND hwnd);
     END_INTERFACE
   } ITaskbarListVtbl;
-  interface ITaskbarList {
+  struct ITaskbarList {
     CONST_VTBL struct ITaskbarListVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2950,7 +2950,7 @@ extern "C" {
       HRESULT (WINAPI *MarkFullscreenWindow)(ITaskbarList2 *This,HWND hwnd,WINBOOL fFullscreen);
     END_INTERFACE
   } ITaskbarList2Vtbl;
-  interface ITaskbarList2 {
+  struct ITaskbarList2 {
     CONST_VTBL struct ITaskbarList2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2990,7 +2990,7 @@ extern "C" {
       HRESULT (WINAPI *HasRecordableDrive)(ICDBurn *This,WINBOOL *pfHasRecorder);
     END_INTERFACE
   } ICDBurnVtbl;
-  interface ICDBurn {
+  struct ICDBurn {
     CONST_VTBL struct ICDBurnVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3036,7 +3036,7 @@ extern "C" {
       HRESULT (WINAPI *GetCancelledPage)(IWizardSite *This,HPROPSHEETPAGE *phpage);
     END_INTERFACE
   } IWizardSiteVtbl;
-  interface IWizardSite {
+  struct IWizardSite {
     CONST_VTBL struct IWizardSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3077,7 +3077,7 @@ extern "C" {
       HRESULT (WINAPI *GetLastPage)(IWizardExtension *This,HPROPSHEETPAGE *phpage);
     END_INTERFACE
   } IWizardExtensionVtbl;
-  interface IWizardExtension {
+  struct IWizardExtension {
     CONST_VTBL struct IWizardExtensionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3119,7 +3119,7 @@ extern "C" {
       HRESULT (WINAPI *SetErrorURL)(IWebWizardExtension *This,LPCWSTR pszErrorURL);
     END_INTERFACE
   } IWebWizardExtensionVtbl;
-  interface IWebWizardExtension {
+  struct IWebWizardExtension {
     CONST_VTBL struct IWebWizardExtensionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3170,7 +3170,7 @@ extern "C" {
       HRESULT (WINAPI *GetTransferManifest)(IPublishingWizard *This,HRESULT *phrFromTransfer,IXMLDOMDocument **pdocManifest);
     END_INTERFACE
   } IPublishingWizardVtbl;
-  interface IPublishingWizard {
+  struct IPublishingWizard {
     CONST_VTBL struct IPublishingWizardVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3207,7 +3207,7 @@ extern "C" {
       HRESULT (WINAPI *Initialize)(IFolderViewHost *This,HWND hwndParent,IDataObject *pdo,RECT *prc);
     END_INTERFACE
   } IFolderViewHostVtbl;
-  interface IFolderViewHost {
+  struct IFolderViewHost {
     CONST_VTBL struct IFolderViewHostVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3244,7 +3244,7 @@ extern "C" {
       HRESULT (WINAPI *ResetEnumerator)(IAutoCompleteDropDown *This);
     END_INTERFACE
   } IAutoCompleteDropDownVtbl;
-  interface IAutoCompleteDropDown {
+  struct IAutoCompleteDropDown {
     CONST_VTBL struct IAutoCompleteDropDownVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3282,7 +3282,7 @@ extern "C" {
       HRESULT (WINAPI *Show)(IModalWindow *This,HWND hwndParent);
     END_INTERFACE
   } IModalWindowVtbl;
-  interface IModalWindow {
+  struct IModalWindow {
     CONST_VTBL struct IModalWindowVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3314,7 +3314,7 @@ extern "C" {
       HRESULT (WINAPI *SetOptions)(IPassportWizard *This,DWORD dwOptions);
     END_INTERFACE
   } IPassportWizardVtbl;
-  interface IPassportWizard {
+  struct IPassportWizard {
     CONST_VTBL struct IPassportWizardVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3359,7 +3359,7 @@ extern "C" {
       HRESULT (WINAPI *GetSupportedActionTypes)(ICDBurnExt *This,DWORD *pdwActions);
     END_INTERFACE
   } ICDBurnExtVtbl;
-  interface ICDBurnExt {
+  struct ICDBurnExt {
     CONST_VTBL struct ICDBurnExtVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3396,7 +3396,7 @@ extern "C" {
       HRESULT (WINAPI *CreateEnumIDListFromContents)(IDVGetEnum *This,LPCITEMIDLIST pidlFolder,DWORD dwEnumFlags,IEnumIDList **ppEnumIDList);
     END_INTERFACE
   } IDVGetEnumVtbl;
-  interface IDVGetEnum {
+  struct IDVGetEnum {
     CONST_VTBL struct IDVGetEnumVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3430,7 +3430,7 @@ extern "C" {
       HRESULT (WINAPI *InsertItem)(IInsertItem *This,LPCITEMIDLIST pidl);
     END_INTERFACE
   } IInsertItemVtbl;
-  interface IInsertItem {
+  struct IInsertItem {
     CONST_VTBL struct IInsertItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3467,7 +3467,7 @@ extern "C" {
       HRESULT (WINAPI *OnPosRectChangeDB)(IDeskBar *This,LPRECT prc);
     END_INTERFACE
   } IDeskBarVtbl;
-  interface IDeskBar {
+  struct IDeskBar {
     CONST_VTBL struct IDeskBarVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3512,7 +3512,7 @@ extern "C" {
       HRESULT (WINAPI *TranslateMenuMessage)(IMenuBand *This,MSG *pmsg,LRESULT *plRet);
     END_INTERFACE
   } IMenuBandVtbl;
-  interface IMenuBand {
+  struct IMenuBand {
     CONST_VTBL struct IMenuBandVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3552,7 +3552,7 @@ extern "C" {
       HRESULT (WINAPI *SetNoText)(IFolderBandPriv *This,WINBOOL f);
     END_INTERFACE
   } IFolderBandPrivVtbl;
-  interface IFolderBandPriv {
+  struct IFolderBandPriv {
     CONST_VTBL struct IFolderBandPrivVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3639,7 +3639,7 @@ extern "C" {
       HRESULT (WINAPI *GetBandSiteInfo)(IBandSite *This,BANDSITEINFO *pbsinfo);
     END_INTERFACE
   } IBandSiteVtbl;
-  interface IBandSite {
+  struct IBandSite {
     CONST_VTBL struct IBandSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3700,7 +3700,7 @@ extern "C" {
       HRESULT (WINAPI *InitializeProgressDialog)(INamespaceWalkCB *This,LPWSTR *ppszTitle,LPWSTR *ppszCancel);
     END_INTERFACE
   } INamespaceWalkCBVtbl;
-  interface INamespaceWalkCB {
+  struct INamespaceWalkCB {
     CONST_VTBL struct INamespaceWalkCBVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3748,7 +3748,7 @@ extern "C" {
       HRESULT (WINAPI *GetIDArrayResult)(INamespaceWalk *This,UINT *pcItems,LPITEMIDLIST **pppidl);
     END_INTERFACE
   } INamespaceWalkVtbl;
-  interface INamespaceWalk {
+  struct INamespaceWalk {
     CONST_VTBL struct INamespaceWalkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3784,7 +3784,7 @@ extern "C" {
       HRESULT (WINAPI *SetCheckState)(IRegTreeItem *This,WINBOOL bCheck);
     END_INTERFACE
   } IRegTreeItemVtbl;
-  interface IRegTreeItem {
+  struct IRegTreeItem {
     CONST_VTBL struct IRegTreeItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3839,7 +3839,7 @@ extern "C" {
       HRESULT (WINAPI *SetSubMenu)(IMenuPopup *This,IMenuPopup *pmp,WINBOOL fSet);
     END_INTERFACE
   } IMenuPopupVtbl;
-  interface IMenuPopup {
+  struct IMenuPopup {
     CONST_VTBL struct IMenuPopupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3900,7 +3900,7 @@ extern "C" {
       HRESULT (WINAPI *Compare)(IShellItem *This,IShellItem *psi,SICHINTF hint,int *piOrder);
     END_INTERFACE
   } IShellItemVtbl;
-  interface IShellItem {
+  struct IShellItem {
     CONST_VTBL struct IShellItemVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3943,7 +3943,7 @@ extern "C" {
       HRESULT (WINAPI *RecompressImage)(IImageRecompress *This,IShellItem *psi,int cx,int cy,int iQuality,IStorage *pstg,IStream **ppstrmOut);
     END_INTERFACE
   } IImageRecompressVtbl;
-  interface IImageRecompress {
+  struct IImageRecompress {
     CONST_VTBL struct IImageRecompressVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3974,7 +3974,7 @@ extern "C" {
       HRESULT (WINAPI *IsSafePage)(IDefViewSafety *This);
     END_INTERFACE
   } IDefViewSafetyVtbl;
-  interface IDefViewSafety {
+  struct IDefViewSafety {
     CONST_VTBL struct IDefViewSafetyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4005,7 +4005,7 @@ extern "C" {
       HRESULT (WINAPI *DoContextMenuPopup)(IContextMenuSite *This,IUnknown *punkContextMenu,UINT fFlags,POINT pt);
     END_INTERFACE
   } IContextMenuSiteVtbl;
-  interface IContextMenuSite {
+  struct IContextMenuSite {
     CONST_VTBL struct IContextMenuSiteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4050,7 +4050,7 @@ extern "C" {
       HRESULT (WINAPI *SetItemAlloc)(IDelegateFolder *This,IMalloc *pmalloc);
     END_INTERFACE
   } IDelegateFolderVtbl;
-  interface IDelegateFolder {
+  struct IDelegateFolder {
     CONST_VTBL struct IDelegateFolderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4094,7 +4094,7 @@ extern "C" {
       HRESULT (WINAPI *GetFrameOptions)(IBrowserFrameOptions *This,BROWSERFRAMEOPTIONS dwMask,BROWSERFRAMEOPTIONS *pdwOptions);
     END_INTERFACE
   } IBrowserFrameOptionsVtbl;
-  interface IBrowserFrameOptions {
+  struct IBrowserFrameOptions {
     CONST_VTBL struct IBrowserFrameOptionsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4134,7 +4134,7 @@ extern "C" {
       HRESULT (WINAPI *EvaluateNewWindow)(INewWindowManager *This,LPCWSTR pszUrl,LPCWSTR pszName,LPCWSTR pszUrlContext,LPCWSTR pszFeatures,WINBOOL fReplace,DWORD dwFlags,DWORD dwUserActionTime);
     END_INTERFACE
   } INewWindowManagerVtbl;
-  interface INewWindowManager {
+  struct INewWindowManager {
     CONST_VTBL struct INewWindowManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4242,7 +4242,7 @@ extern "C" {
       HRESULT (WINAPI *CallbackSM)(IShellMenuCallback *This,LPSMDATA psmd,UINT uMsg,WPARAM wParam,LPARAM lParam);
     END_INTERFACE
   } IShellMenuCallbackVtbl;
-  interface IShellMenuCallback {
+  struct IShellMenuCallback {
     CONST_VTBL struct IShellMenuCallbackVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4303,7 +4303,7 @@ extern "C" {
       HRESULT (WINAPI *ClearClientState)(IAttachmentExecute *This);
     END_INTERFACE
   } IAttachmentExecuteVtbl;
-  interface IAttachmentExecute {
+  struct IAttachmentExecute {
     CONST_VTBL struct IAttachmentExecuteVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4398,7 +4398,7 @@ extern "C" {
       HRESULT (WINAPI *SetMenuToolbar)(IShellMenu *This,IUnknown *punk,DWORD dwFlags);
     END_INTERFACE
   } IShellMenuVtbl;
-  interface IShellMenu {
+  struct IShellMenu {
     CONST_VTBL struct IShellMenuVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

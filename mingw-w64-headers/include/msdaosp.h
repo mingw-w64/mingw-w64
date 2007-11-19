@@ -15,7 +15,7 @@
 
 #ifndef __DataSourceObject_FWD_DEFINED__
 #define __DataSourceObject_FWD_DEFINED__
-typedef interface DataSourceObject DataSourceObject;
+typedef struct DataSourceObject DataSourceObject;
 #endif
 
 #include "oaidl.h"
@@ -62,7 +62,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(DataSourceObject *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
     END_INTERFACE
   } DataSourceObjectVtbl;
-  interface DataSourceObject {
+  struct DataSourceObject {
     CONST_VTBL struct DataSourceObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

@@ -24,7 +24,7 @@
 
 #ifndef __IPersistHistory_FWD_DEFINED__
 #define __IPersistHistory_FWD_DEFINED__
-typedef interface IPersistHistory IPersistHistory;
+typedef struct IPersistHistory IPersistHistory;
 #endif
 
 #include "objidl.h"
@@ -69,7 +69,7 @@ extern "C"{
       HRESULT (WINAPI *GetPositionCookie)(IPersistHistory *This,DWORD *pdwPositioncookie);
     END_INTERFACE
   } IPersistHistoryVtbl;
-  interface IPersistHistory {
+  struct IPersistHistory {
     CONST_VTBL struct IPersistHistoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

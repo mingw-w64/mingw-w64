@@ -24,7 +24,7 @@
 
 #ifndef __IWiaVideo_FWD_DEFINED__
 #define __IWiaVideo_FWD_DEFINED__
-typedef interface IWiaVideo IWiaVideo;
+typedef struct IWiaVideo IWiaVideo;
 #endif
 
 #ifndef __WiaVideo_FWD_DEFINED__
@@ -94,7 +94,7 @@ extern "C" {
       HRESULT (WINAPI *GetCurrentState)(IWiaVideo *This,WIAVIDEO_STATE *pState);
     END_INTERFACE
   } IWiaVideoVtbl;
-  interface IWiaVideo {
+  struct IWiaVideo {
     CONST_VTBL struct IWiaVideoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

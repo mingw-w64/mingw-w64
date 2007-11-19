@@ -25,562 +25,562 @@
 
 #ifndef __ISecurityIdentityColl_FWD_DEFINED__
 #define __ISecurityIdentityColl_FWD_DEFINED__
-typedef interface ISecurityIdentityColl ISecurityIdentityColl;
+typedef struct ISecurityIdentityColl ISecurityIdentityColl;
 #endif
 
 #ifndef __ISecurityCallersColl_FWD_DEFINED__
 #define __ISecurityCallersColl_FWD_DEFINED__
-typedef interface ISecurityCallersColl ISecurityCallersColl;
+typedef struct ISecurityCallersColl ISecurityCallersColl;
 #endif
 
 #ifndef __ISecurityCallContext_FWD_DEFINED__
 #define __ISecurityCallContext_FWD_DEFINED__
-typedef interface ISecurityCallContext ISecurityCallContext;
+typedef struct ISecurityCallContext ISecurityCallContext;
 #endif
 
 #ifndef __IGetSecurityCallContext_FWD_DEFINED__
 #define __IGetSecurityCallContext_FWD_DEFINED__
-typedef interface IGetSecurityCallContext IGetSecurityCallContext;
+typedef struct IGetSecurityCallContext IGetSecurityCallContext;
 #endif
 
 #ifndef __SecurityProperty_FWD_DEFINED__
 #define __SecurityProperty_FWD_DEFINED__
-typedef interface SecurityProperty SecurityProperty;
+typedef struct SecurityProperty SecurityProperty;
 #endif
 
 #ifndef __ContextInfo_FWD_DEFINED__
 #define __ContextInfo_FWD_DEFINED__
-typedef interface ContextInfo ContextInfo;
+typedef struct ContextInfo ContextInfo;
 #endif
 
 #ifndef __ContextInfo2_FWD_DEFINED__
 #define __ContextInfo2_FWD_DEFINED__
-typedef interface ContextInfo2 ContextInfo2;
+typedef struct ContextInfo2 ContextInfo2;
 #endif
 
 #ifndef __ObjectContext_FWD_DEFINED__
 #define __ObjectContext_FWD_DEFINED__
-typedef interface ObjectContext ObjectContext;
+typedef struct ObjectContext ObjectContext;
 #endif
 
 #ifndef __ITransactionContextEx_FWD_DEFINED__
 #define __ITransactionContextEx_FWD_DEFINED__
-typedef interface ITransactionContextEx ITransactionContextEx;
+typedef struct ITransactionContextEx ITransactionContextEx;
 #endif
 
 #ifndef __ITransactionContext_FWD_DEFINED__
 #define __ITransactionContext_FWD_DEFINED__
-typedef interface ITransactionContext ITransactionContext;
+typedef struct ITransactionContext ITransactionContext;
 #endif
 
 #ifndef __ICreateWithTransactionEx_FWD_DEFINED__
 #define __ICreateWithTransactionEx_FWD_DEFINED__
-typedef interface ICreateWithTransactionEx ICreateWithTransactionEx;
+typedef struct ICreateWithTransactionEx ICreateWithTransactionEx;
 #endif
 
 #ifndef __ICreateWithTipTransactionEx_FWD_DEFINED__
 #define __ICreateWithTipTransactionEx_FWD_DEFINED__
-typedef interface ICreateWithTipTransactionEx ICreateWithTipTransactionEx;
+typedef struct ICreateWithTipTransactionEx ICreateWithTipTransactionEx;
 #endif
 
 #ifndef __IComUserEvent_FWD_DEFINED__
 #define __IComUserEvent_FWD_DEFINED__
-typedef interface IComUserEvent IComUserEvent;
+typedef struct IComUserEvent IComUserEvent;
 #endif
 
 #ifndef __IComThreadEvents_FWD_DEFINED__
 #define __IComThreadEvents_FWD_DEFINED__
-typedef interface IComThreadEvents IComThreadEvents;
+typedef struct IComThreadEvents IComThreadEvents;
 #endif
 
 #ifndef __IComAppEvents_FWD_DEFINED__
 #define __IComAppEvents_FWD_DEFINED__
-typedef interface IComAppEvents IComAppEvents;
+typedef struct IComAppEvents IComAppEvents;
 #endif
 
 #ifndef __IComInstanceEvents_FWD_DEFINED__
 #define __IComInstanceEvents_FWD_DEFINED__
-typedef interface IComInstanceEvents IComInstanceEvents;
+typedef struct IComInstanceEvents IComInstanceEvents;
 #endif
 
 #ifndef __IComTransactionEvents_FWD_DEFINED__
 #define __IComTransactionEvents_FWD_DEFINED__
-typedef interface IComTransactionEvents IComTransactionEvents;
+typedef struct IComTransactionEvents IComTransactionEvents;
 #endif
 
 #ifndef __IComMethodEvents_FWD_DEFINED__
 #define __IComMethodEvents_FWD_DEFINED__
-typedef interface IComMethodEvents IComMethodEvents;
+typedef struct IComMethodEvents IComMethodEvents;
 #endif
 
 #ifndef __IComObjectEvents_FWD_DEFINED__
 #define __IComObjectEvents_FWD_DEFINED__
-typedef interface IComObjectEvents IComObjectEvents;
+typedef struct IComObjectEvents IComObjectEvents;
 #endif
 
 #ifndef __IComResourceEvents_FWD_DEFINED__
 #define __IComResourceEvents_FWD_DEFINED__
-typedef interface IComResourceEvents IComResourceEvents;
+typedef struct IComResourceEvents IComResourceEvents;
 #endif
 
 #ifndef __IComSecurityEvents_FWD_DEFINED__
 #define __IComSecurityEvents_FWD_DEFINED__
-typedef interface IComSecurityEvents IComSecurityEvents;
+typedef struct IComSecurityEvents IComSecurityEvents;
 #endif
 
 #ifndef __IComObjectPoolEvents_FWD_DEFINED__
 #define __IComObjectPoolEvents_FWD_DEFINED__
-typedef interface IComObjectPoolEvents IComObjectPoolEvents;
+typedef struct IComObjectPoolEvents IComObjectPoolEvents;
 #endif
 
 #ifndef __IComObjectPoolEvents2_FWD_DEFINED__
 #define __IComObjectPoolEvents2_FWD_DEFINED__
-typedef interface IComObjectPoolEvents2 IComObjectPoolEvents2;
+typedef struct IComObjectPoolEvents2 IComObjectPoolEvents2;
 #endif
 
 #ifndef __IComObjectConstructionEvents_FWD_DEFINED__
 #define __IComObjectConstructionEvents_FWD_DEFINED__
-typedef interface IComObjectConstructionEvents IComObjectConstructionEvents;
+typedef struct IComObjectConstructionEvents IComObjectConstructionEvents;
 #endif
 
 #ifndef __IComActivityEvents_FWD_DEFINED__
 #define __IComActivityEvents_FWD_DEFINED__
-typedef interface IComActivityEvents IComActivityEvents;
+typedef struct IComActivityEvents IComActivityEvents;
 #endif
 
 #ifndef __IComIdentityEvents_FWD_DEFINED__
 #define __IComIdentityEvents_FWD_DEFINED__
-typedef interface IComIdentityEvents IComIdentityEvents;
+typedef struct IComIdentityEvents IComIdentityEvents;
 #endif
 
 #ifndef __IComQCEvents_FWD_DEFINED__
 #define __IComQCEvents_FWD_DEFINED__
-typedef interface IComQCEvents IComQCEvents;
+typedef struct IComQCEvents IComQCEvents;
 #endif
 
 #ifndef __IComExceptionEvents_FWD_DEFINED__
 #define __IComExceptionEvents_FWD_DEFINED__
-typedef interface IComExceptionEvents IComExceptionEvents;
+typedef struct IComExceptionEvents IComExceptionEvents;
 #endif
 
 #ifndef __ILBEvents_FWD_DEFINED__
 #define __ILBEvents_FWD_DEFINED__
-typedef interface ILBEvents ILBEvents;
+typedef struct ILBEvents ILBEvents;
 #endif
 
 #ifndef __IComCRMEvents_FWD_DEFINED__
 #define __IComCRMEvents_FWD_DEFINED__
-typedef interface IComCRMEvents IComCRMEvents;
+typedef struct IComCRMEvents IComCRMEvents;
 #endif
 
 #ifndef __IComMethod2Events_FWD_DEFINED__
 #define __IComMethod2Events_FWD_DEFINED__
-typedef interface IComMethod2Events IComMethod2Events;
+typedef struct IComMethod2Events IComMethod2Events;
 #endif
 
 #ifndef __IComTrackingInfoEvents_FWD_DEFINED__
 #define __IComTrackingInfoEvents_FWD_DEFINED__
-typedef interface IComTrackingInfoEvents IComTrackingInfoEvents;
+typedef struct IComTrackingInfoEvents IComTrackingInfoEvents;
 #endif
 
 #ifndef __IComTrackingInfoCollection_FWD_DEFINED__
 #define __IComTrackingInfoCollection_FWD_DEFINED__
-typedef interface IComTrackingInfoCollection IComTrackingInfoCollection;
+typedef struct IComTrackingInfoCollection IComTrackingInfoCollection;
 #endif
 
 #ifndef __IComTrackingInfoObject_FWD_DEFINED__
 #define __IComTrackingInfoObject_FWD_DEFINED__
-typedef interface IComTrackingInfoObject IComTrackingInfoObject;
+typedef struct IComTrackingInfoObject IComTrackingInfoObject;
 #endif
 
 #ifndef __IComTrackingInfoProperties_FWD_DEFINED__
 #define __IComTrackingInfoProperties_FWD_DEFINED__
-typedef interface IComTrackingInfoProperties IComTrackingInfoProperties;
+typedef struct IComTrackingInfoProperties IComTrackingInfoProperties;
 #endif
 
 #ifndef __IComApp2Events_FWD_DEFINED__
 #define __IComApp2Events_FWD_DEFINED__
-typedef interface IComApp2Events IComApp2Events;
+typedef struct IComApp2Events IComApp2Events;
 #endif
 
 #ifndef __IComTransaction2Events_FWD_DEFINED__
 #define __IComTransaction2Events_FWD_DEFINED__
-typedef interface IComTransaction2Events IComTransaction2Events;
+typedef struct IComTransaction2Events IComTransaction2Events;
 #endif
 
 #ifndef __IComInstance2Events_FWD_DEFINED__
 #define __IComInstance2Events_FWD_DEFINED__
-typedef interface IComInstance2Events IComInstance2Events;
+typedef struct IComInstance2Events IComInstance2Events;
 #endif
 
 #ifndef __IComObjectPool2Events_FWD_DEFINED__
 #define __IComObjectPool2Events_FWD_DEFINED__
-typedef interface IComObjectPool2Events IComObjectPool2Events;
+typedef struct IComObjectPool2Events IComObjectPool2Events;
 #endif
 
 #ifndef __IComObjectConstruction2Events_FWD_DEFINED__
 #define __IComObjectConstruction2Events_FWD_DEFINED__
-typedef interface IComObjectConstruction2Events IComObjectConstruction2Events;
+typedef struct IComObjectConstruction2Events IComObjectConstruction2Events;
 #endif
 
 #ifndef __ISystemAppEventData_FWD_DEFINED__
 #define __ISystemAppEventData_FWD_DEFINED__
-typedef interface ISystemAppEventData ISystemAppEventData;
+typedef struct ISystemAppEventData ISystemAppEventData;
 #endif
 
 #ifndef __IMtsEvents_FWD_DEFINED__
 #define __IMtsEvents_FWD_DEFINED__
-typedef interface IMtsEvents IMtsEvents;
+typedef struct IMtsEvents IMtsEvents;
 #endif
 
 #ifndef __IMtsEventInfo_FWD_DEFINED__
 #define __IMtsEventInfo_FWD_DEFINED__
-typedef interface IMtsEventInfo IMtsEventInfo;
+typedef struct IMtsEventInfo IMtsEventInfo;
 #endif
 
 #ifndef __IMTSLocator_FWD_DEFINED__
 #define __IMTSLocator_FWD_DEFINED__
-typedef interface IMTSLocator IMTSLocator;
+typedef struct IMTSLocator IMTSLocator;
 #endif
 
 #ifndef __IMtsGrp_FWD_DEFINED__
 #define __IMtsGrp_FWD_DEFINED__
-typedef interface IMtsGrp IMtsGrp;
+typedef struct IMtsGrp IMtsGrp;
 #endif
 
 #ifndef __IMessageMover_FWD_DEFINED__
 #define __IMessageMover_FWD_DEFINED__
-typedef interface IMessageMover IMessageMover;
+typedef struct IMessageMover IMessageMover;
 #endif
 
 #ifndef __IEventServerTrace_FWD_DEFINED__
 #define __IEventServerTrace_FWD_DEFINED__
-typedef interface IEventServerTrace IEventServerTrace;
+typedef struct IEventServerTrace IEventServerTrace;
 #endif
 
 #ifndef __IDispenserManager_FWD_DEFINED__
 #define __IDispenserManager_FWD_DEFINED__
-typedef interface IDispenserManager IDispenserManager;
+typedef struct IDispenserManager IDispenserManager;
 #endif
 
 #ifndef __IHolder_FWD_DEFINED__
 #define __IHolder_FWD_DEFINED__
-typedef interface IHolder IHolder;
+typedef struct IHolder IHolder;
 #endif
 
 #ifndef __IDispenserDriver_FWD_DEFINED__
 #define __IDispenserDriver_FWD_DEFINED__
-typedef interface IDispenserDriver IDispenserDriver;
+typedef struct IDispenserDriver IDispenserDriver;
 #endif
 
 #ifndef __IObjectContext_FWD_DEFINED__
 #define __IObjectContext_FWD_DEFINED__
-typedef interface IObjectContext IObjectContext;
+typedef struct IObjectContext IObjectContext;
 #endif
 
 #ifndef __IObjectControl_FWD_DEFINED__
 #define __IObjectControl_FWD_DEFINED__
-typedef interface IObjectControl IObjectControl;
+typedef struct IObjectControl IObjectControl;
 #endif
 
 #ifndef __IEnumNames_FWD_DEFINED__
 #define __IEnumNames_FWD_DEFINED__
-typedef interface IEnumNames IEnumNames;
+typedef struct IEnumNames IEnumNames;
 #endif
 
 #ifndef __ISecurityProperty_FWD_DEFINED__
 #define __ISecurityProperty_FWD_DEFINED__
-typedef interface ISecurityProperty ISecurityProperty;
+typedef struct ISecurityProperty ISecurityProperty;
 #endif
 
 #ifndef __ObjectControl_FWD_DEFINED__
 #define __ObjectControl_FWD_DEFINED__
-typedef interface ObjectControl ObjectControl;
+typedef struct ObjectControl ObjectControl;
 #endif
 
 #ifndef __ISharedProperty_FWD_DEFINED__
 #define __ISharedProperty_FWD_DEFINED__
-typedef interface ISharedProperty ISharedProperty;
+typedef struct ISharedProperty ISharedProperty;
 #endif
 
 #ifndef __ISharedPropertyGroup_FWD_DEFINED__
 #define __ISharedPropertyGroup_FWD_DEFINED__
-typedef interface ISharedPropertyGroup ISharedPropertyGroup;
+typedef struct ISharedPropertyGroup ISharedPropertyGroup;
 #endif
 
 #ifndef __ISharedPropertyGroupManager_FWD_DEFINED__
 #define __ISharedPropertyGroupManager_FWD_DEFINED__
-typedef interface ISharedPropertyGroupManager ISharedPropertyGroupManager;
+typedef struct ISharedPropertyGroupManager ISharedPropertyGroupManager;
 #endif
 
 #ifndef __IObjectConstruct_FWD_DEFINED__
 #define __IObjectConstruct_FWD_DEFINED__
-typedef interface IObjectConstruct IObjectConstruct;
+typedef struct IObjectConstruct IObjectConstruct;
 #endif
 
 #ifndef __IObjectConstructString_FWD_DEFINED__
 #define __IObjectConstructString_FWD_DEFINED__
-typedef interface IObjectConstructString IObjectConstructString;
+typedef struct IObjectConstructString IObjectConstructString;
 #endif
 
 #ifndef __IObjectContextActivity_FWD_DEFINED__
 #define __IObjectContextActivity_FWD_DEFINED__
-typedef interface IObjectContextActivity IObjectContextActivity;
+typedef struct IObjectContextActivity IObjectContextActivity;
 #endif
 
 #ifndef __IObjectContextInfo_FWD_DEFINED__
 #define __IObjectContextInfo_FWD_DEFINED__
-typedef interface IObjectContextInfo IObjectContextInfo;
+typedef struct IObjectContextInfo IObjectContextInfo;
 #endif
 
 #ifndef __IObjectContextInfo2_FWD_DEFINED__
 #define __IObjectContextInfo2_FWD_DEFINED__
-typedef interface IObjectContextInfo2 IObjectContextInfo2;
+typedef struct IObjectContextInfo2 IObjectContextInfo2;
 #endif
 
 #ifndef __ITransactionStatus_FWD_DEFINED__
 #define __ITransactionStatus_FWD_DEFINED__
-typedef interface ITransactionStatus ITransactionStatus;
+typedef struct ITransactionStatus ITransactionStatus;
 #endif
 
 #ifndef __IObjectContextTip_FWD_DEFINED__
 #define __IObjectContextTip_FWD_DEFINED__
-typedef interface IObjectContextTip IObjectContextTip;
+typedef struct IObjectContextTip IObjectContextTip;
 #endif
 
 #ifndef __IPlaybackControl_FWD_DEFINED__
 #define __IPlaybackControl_FWD_DEFINED__
-typedef interface IPlaybackControl IPlaybackControl;
+typedef struct IPlaybackControl IPlaybackControl;
 #endif
 
 #ifndef __IGetContextProperties_FWD_DEFINED__
 #define __IGetContextProperties_FWD_DEFINED__
-typedef interface IGetContextProperties IGetContextProperties;
+typedef struct IGetContextProperties IGetContextProperties;
 #endif
 
 #ifndef __IContextState_FWD_DEFINED__
 #define __IContextState_FWD_DEFINED__
-typedef interface IContextState IContextState;
+typedef struct IContextState IContextState;
 #endif
 
 #ifndef __IPoolManager_FWD_DEFINED__
 #define __IPoolManager_FWD_DEFINED__
-typedef interface IPoolManager IPoolManager;
+typedef struct IPoolManager IPoolManager;
 #endif
 
 #ifndef __ISelectCOMLBServer_FWD_DEFINED__
 #define __ISelectCOMLBServer_FWD_DEFINED__
-typedef interface ISelectCOMLBServer ISelectCOMLBServer;
+typedef struct ISelectCOMLBServer ISelectCOMLBServer;
 #endif
 
 #ifndef __ICOMLBArguments_FWD_DEFINED__
 #define __ICOMLBArguments_FWD_DEFINED__
-typedef interface ICOMLBArguments ICOMLBArguments;
+typedef struct ICOMLBArguments ICOMLBArguments;
 #endif
 
 #ifndef __ICrmLogControl_FWD_DEFINED__
 #define __ICrmLogControl_FWD_DEFINED__
-typedef interface ICrmLogControl ICrmLogControl;
+typedef struct ICrmLogControl ICrmLogControl;
 #endif
 
 #ifndef __ICrmCompensatorVariants_FWD_DEFINED__
 #define __ICrmCompensatorVariants_FWD_DEFINED__
-typedef interface ICrmCompensatorVariants ICrmCompensatorVariants;
+typedef struct ICrmCompensatorVariants ICrmCompensatorVariants;
 #endif
 
 #ifndef __ICrmCompensator_FWD_DEFINED__
 #define __ICrmCompensator_FWD_DEFINED__
-typedef interface ICrmCompensator ICrmCompensator;
+typedef struct ICrmCompensator ICrmCompensator;
 #endif
 
 #ifndef __ICrmMonitorLogRecords_FWD_DEFINED__
 #define __ICrmMonitorLogRecords_FWD_DEFINED__
-typedef interface ICrmMonitorLogRecords ICrmMonitorLogRecords;
+typedef struct ICrmMonitorLogRecords ICrmMonitorLogRecords;
 #endif
 
 #ifndef __ICrmMonitorClerks_FWD_DEFINED__
 #define __ICrmMonitorClerks_FWD_DEFINED__
-typedef interface ICrmMonitorClerks ICrmMonitorClerks;
+typedef struct ICrmMonitorClerks ICrmMonitorClerks;
 #endif
 
 #ifndef __ICrmMonitor_FWD_DEFINED__
 #define __ICrmMonitor_FWD_DEFINED__
-typedef interface ICrmMonitor ICrmMonitor;
+typedef struct ICrmMonitor ICrmMonitor;
 #endif
 
 #ifndef __ICrmFormatLogRecords_FWD_DEFINED__
 #define __ICrmFormatLogRecords_FWD_DEFINED__
-typedef interface ICrmFormatLogRecords ICrmFormatLogRecords;
+typedef struct ICrmFormatLogRecords ICrmFormatLogRecords;
 #endif
 
 #ifndef __IServiceIISIntrinsicsConfig_FWD_DEFINED__
 #define __IServiceIISIntrinsicsConfig_FWD_DEFINED__
-typedef interface IServiceIISIntrinsicsConfig IServiceIISIntrinsicsConfig;
+typedef struct IServiceIISIntrinsicsConfig IServiceIISIntrinsicsConfig;
 #endif
 
 #ifndef __IServiceComTIIntrinsicsConfig_FWD_DEFINED__
 #define __IServiceComTIIntrinsicsConfig_FWD_DEFINED__
-typedef interface IServiceComTIIntrinsicsConfig IServiceComTIIntrinsicsConfig;
+typedef struct IServiceComTIIntrinsicsConfig IServiceComTIIntrinsicsConfig;
 #endif
 
 #ifndef __IServiceSxsConfig_FWD_DEFINED__
 #define __IServiceSxsConfig_FWD_DEFINED__
-typedef interface IServiceSxsConfig IServiceSxsConfig;
+typedef struct IServiceSxsConfig IServiceSxsConfig;
 #endif
 
 #ifndef __ICheckSxsConfig_FWD_DEFINED__
 #define __ICheckSxsConfig_FWD_DEFINED__
-typedef interface ICheckSxsConfig ICheckSxsConfig;
+typedef struct ICheckSxsConfig ICheckSxsConfig;
 #endif
 
 #ifndef __IServiceInheritanceConfig_FWD_DEFINED__
 #define __IServiceInheritanceConfig_FWD_DEFINED__
-typedef interface IServiceInheritanceConfig IServiceInheritanceConfig;
+typedef struct IServiceInheritanceConfig IServiceInheritanceConfig;
 #endif
 
 #ifndef __IServiceThreadPoolConfig_FWD_DEFINED__
 #define __IServiceThreadPoolConfig_FWD_DEFINED__
-typedef interface IServiceThreadPoolConfig IServiceThreadPoolConfig;
+typedef struct IServiceThreadPoolConfig IServiceThreadPoolConfig;
 #endif
 
 #ifndef __IServiceTransactionConfigBase_FWD_DEFINED__
 #define __IServiceTransactionConfigBase_FWD_DEFINED__
-typedef interface IServiceTransactionConfigBase IServiceTransactionConfigBase;
+typedef struct IServiceTransactionConfigBase IServiceTransactionConfigBase;
 #endif
 
 #ifndef __IServiceTransactionConfig_FWD_DEFINED__
 #define __IServiceTransactionConfig_FWD_DEFINED__
-typedef interface IServiceTransactionConfig IServiceTransactionConfig;
+typedef struct IServiceTransactionConfig IServiceTransactionConfig;
 #endif
 
 #ifndef __IServiceSynchronizationConfig_FWD_DEFINED__
 #define __IServiceSynchronizationConfig_FWD_DEFINED__
-typedef interface IServiceSynchronizationConfig IServiceSynchronizationConfig;
+typedef struct IServiceSynchronizationConfig IServiceSynchronizationConfig;
 #endif
 
 #ifndef __IServiceTrackerConfig_FWD_DEFINED__
 #define __IServiceTrackerConfig_FWD_DEFINED__
-typedef interface IServiceTrackerConfig IServiceTrackerConfig;
+typedef struct IServiceTrackerConfig IServiceTrackerConfig;
 #endif
 
 #ifndef __IServicePartitionConfig_FWD_DEFINED__
 #define __IServicePartitionConfig_FWD_DEFINED__
-typedef interface IServicePartitionConfig IServicePartitionConfig;
+typedef struct IServicePartitionConfig IServicePartitionConfig;
 #endif
 
 #ifndef __IServiceCall_FWD_DEFINED__
 #define __IServiceCall_FWD_DEFINED__
-typedef interface IServiceCall IServiceCall;
+typedef struct IServiceCall IServiceCall;
 #endif
 
 #ifndef __IAsyncErrorNotify_FWD_DEFINED__
 #define __IAsyncErrorNotify_FWD_DEFINED__
-typedef interface IAsyncErrorNotify IAsyncErrorNotify;
+typedef struct IAsyncErrorNotify IAsyncErrorNotify;
 #endif
 
 #ifndef __IServiceActivity_FWD_DEFINED__
 #define __IServiceActivity_FWD_DEFINED__
-typedef interface IServiceActivity IServiceActivity;
+typedef struct IServiceActivity IServiceActivity;
 #endif
 
 #ifndef __IThreadPoolKnobs_FWD_DEFINED__
 #define __IThreadPoolKnobs_FWD_DEFINED__
-typedef interface IThreadPoolKnobs IThreadPoolKnobs;
+typedef struct IThreadPoolKnobs IThreadPoolKnobs;
 #endif
 
 #ifndef __IComStaThreadPoolKnobs_FWD_DEFINED__
 #define __IComStaThreadPoolKnobs_FWD_DEFINED__
-typedef interface IComStaThreadPoolKnobs IComStaThreadPoolKnobs;
+typedef struct IComStaThreadPoolKnobs IComStaThreadPoolKnobs;
 #endif
 
 #ifndef __IComMtaThreadPoolKnobs_FWD_DEFINED__
 #define __IComMtaThreadPoolKnobs_FWD_DEFINED__
-typedef interface IComMtaThreadPoolKnobs IComMtaThreadPoolKnobs;
+typedef struct IComMtaThreadPoolKnobs IComMtaThreadPoolKnobs;
 #endif
 
 #ifndef __IComStaThreadPoolKnobs2_FWD_DEFINED__
 #define __IComStaThreadPoolKnobs2_FWD_DEFINED__
-typedef interface IComStaThreadPoolKnobs2 IComStaThreadPoolKnobs2;
+typedef struct IComStaThreadPoolKnobs2 IComStaThreadPoolKnobs2;
 #endif
 
 #ifndef __IProcessInitializer_FWD_DEFINED__
 #define __IProcessInitializer_FWD_DEFINED__
-typedef interface IProcessInitializer IProcessInitializer;
+typedef struct IProcessInitializer IProcessInitializer;
 #endif
 
 #ifndef __IServicePoolConfig_FWD_DEFINED__
 #define __IServicePoolConfig_FWD_DEFINED__
-typedef interface IServicePoolConfig IServicePoolConfig;
+typedef struct IServicePoolConfig IServicePoolConfig;
 #endif
 
 #ifndef __IServicePool_FWD_DEFINED__
 #define __IServicePool_FWD_DEFINED__
-typedef interface IServicePool IServicePool;
+typedef struct IServicePool IServicePool;
 #endif
 
 #ifndef __IManagedPooledObj_FWD_DEFINED__
 #define __IManagedPooledObj_FWD_DEFINED__
-typedef interface IManagedPooledObj IManagedPooledObj;
+typedef struct IManagedPooledObj IManagedPooledObj;
 #endif
 
 #ifndef __IManagedPoolAction_FWD_DEFINED__
 #define __IManagedPoolAction_FWD_DEFINED__
-typedef interface IManagedPoolAction IManagedPoolAction;
+typedef struct IManagedPoolAction IManagedPoolAction;
 #endif
 
 #ifndef __IManagedObjectInfo_FWD_DEFINED__
 #define __IManagedObjectInfo_FWD_DEFINED__
-typedef interface IManagedObjectInfo IManagedObjectInfo;
+typedef struct IManagedObjectInfo IManagedObjectInfo;
 #endif
 
 #ifndef __IAppDomainHelper_FWD_DEFINED__
 #define __IAppDomainHelper_FWD_DEFINED__
-typedef interface IAppDomainHelper IAppDomainHelper;
+typedef struct IAppDomainHelper IAppDomainHelper;
 #endif
 
 #ifndef __IAssemblyLocator_FWD_DEFINED__
 #define __IAssemblyLocator_FWD_DEFINED__
-typedef interface IAssemblyLocator IAssemblyLocator;
+typedef struct IAssemblyLocator IAssemblyLocator;
 #endif
 
 #ifndef __IManagedActivationEvents_FWD_DEFINED__
 #define __IManagedActivationEvents_FWD_DEFINED__
-typedef interface IManagedActivationEvents IManagedActivationEvents;
+typedef struct IManagedActivationEvents IManagedActivationEvents;
 #endif
 
 #ifndef __ISendMethodEvents_FWD_DEFINED__
 #define __ISendMethodEvents_FWD_DEFINED__
-typedef interface ISendMethodEvents ISendMethodEvents;
+typedef struct ISendMethodEvents ISendMethodEvents;
 #endif
 
 #ifndef __ITransactionResourcePool_FWD_DEFINED__
 #define __ITransactionResourcePool_FWD_DEFINED__
-typedef interface ITransactionResourcePool ITransactionResourcePool;
+typedef struct ITransactionResourcePool ITransactionResourcePool;
 #endif
 
 #ifndef __IMTSCall_FWD_DEFINED__
 #define __IMTSCall_FWD_DEFINED__
-typedef interface IMTSCall IMTSCall;
+typedef struct IMTSCall IMTSCall;
 #endif
 
 #ifndef __IContextProperties_FWD_DEFINED__
 #define __IContextProperties_FWD_DEFINED__
-typedef interface IContextProperties IContextProperties;
+typedef struct IContextProperties IContextProperties;
 #endif
 
 #ifndef __IObjPool_FWD_DEFINED__
 #define __IObjPool_FWD_DEFINED__
-typedef interface IObjPool IObjPool;
+typedef struct IObjPool IObjPool;
 #endif
 
 #ifndef __ITransactionProperty_FWD_DEFINED__
 #define __ITransactionProperty_FWD_DEFINED__
-typedef interface ITransactionProperty ITransactionProperty;
+typedef struct ITransactionProperty ITransactionProperty;
 #endif
 
 #ifndef __IMTSActivity_FWD_DEFINED__
 #define __IMTSActivity_FWD_DEFINED__
-typedef interface IMTSActivity IMTSActivity;
+typedef struct IMTSActivity IMTSActivity;
 #endif
 
 #ifndef __SecurityIdentity_FWD_DEFINED__
@@ -621,7 +621,7 @@ typedef struct GetSecurityCallContextAppObject GetSecurityCallContextAppObject;
 
 #ifndef __IContextState_FWD_DEFINED__
 #define __IContextState_FWD_DEFINED__
-typedef interface IContextState IContextState;
+typedef struct IContextState IContextState;
 #endif
 
 #ifndef __Dummy30040732_FWD_DEFINED__
@@ -635,17 +635,17 @@ typedef struct Dummy30040732 Dummy30040732;
 
 #ifndef __ContextInfo_FWD_DEFINED__
 #define __ContextInfo_FWD_DEFINED__
-typedef interface ContextInfo ContextInfo;
+typedef struct ContextInfo ContextInfo;
 #endif
 
 #ifndef __ContextInfo2_FWD_DEFINED__
 #define __ContextInfo2_FWD_DEFINED__
-typedef interface ContextInfo2 ContextInfo2;
+typedef struct ContextInfo2 ContextInfo2;
 #endif
 
 #ifndef __ObjectControl_FWD_DEFINED__
 #define __ObjectControl_FWD_DEFINED__
-typedef interface ObjectControl ObjectControl;
+typedef struct ObjectControl ObjectControl;
 #endif
 
 #ifndef __TransactionContext_FWD_DEFINED__
@@ -898,7 +898,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(ISecurityIdentityColl *This,IUnknown **ppEnum);
     END_INTERFACE
   } ISecurityIdentityCollVtbl;
-  interface ISecurityIdentityColl {
+  struct ISecurityIdentityColl {
     CONST_VTBL struct ISecurityIdentityCollVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -947,7 +947,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(ISecurityCallersColl *This,IUnknown **ppEnum);
     END_INTERFACE
   } ISecurityCallersCollVtbl;
-  interface ISecurityCallersColl {
+  struct ISecurityCallersColl {
     CONST_VTBL struct ISecurityCallersCollVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1002,7 +1002,7 @@ extern "C"{
       HRESULT (WINAPI *IsUserInRole)(ISecurityCallContext *This,VARIANT *pUser,BSTR bstrRole,VARIANT_BOOL *pfInRole);
     END_INTERFACE
   } ISecurityCallContextVtbl;
-  interface ISecurityCallContext {
+  struct ISecurityCallContext {
     CONST_VTBL struct ISecurityCallContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1056,7 +1056,7 @@ extern "C"{
       HRESULT (WINAPI *GetSecurityCallContext)(IGetSecurityCallContext *This,ISecurityCallContext **ppObject);
     END_INTERFACE
   } IGetSecurityCallContextVtbl;
-  interface IGetSecurityCallContext {
+  struct IGetSecurityCallContext {
     CONST_VTBL struct IGetSecurityCallContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1101,7 +1101,7 @@ extern "C"{
       HRESULT (WINAPI *GetOriginalCreatorName)(SecurityProperty *This,BSTR *bstrUserName);
     END_INTERFACE
   } SecurityPropertyVtbl;
-  interface SecurityProperty {
+  struct SecurityProperty {
     CONST_VTBL struct SecurityPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1157,7 +1157,7 @@ extern "C"{
       HRESULT (WINAPI *GetContextId)(ContextInfo *This,BSTR *pbstrCtxId);
     END_INTERFACE
   } ContextInfoVtbl;
-  interface ContextInfo {
+  struct ContextInfo {
     CONST_VTBL struct ContextInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1217,7 +1217,7 @@ extern "C"{
       HRESULT (WINAPI *GetApplicationInstanceId)(ContextInfo2 *This,BSTR *__MIDL_0013);
     END_INTERFACE
   } ContextInfo2Vtbl;
-  interface ContextInfo2 {
+  struct ContextInfo2 {
     CONST_VTBL struct ContextInfo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1291,7 +1291,7 @@ extern "C"{
       HRESULT (WINAPI *get_ContextInfo)(ObjectContext *This,ContextInfo **ppContextInfo);
     END_INTERFACE
   } ObjectContextVtbl;
-  interface ObjectContext {
+  struct ObjectContext {
     CONST_VTBL struct ObjectContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1366,7 +1366,7 @@ extern "C"{
       HRESULT (WINAPI *Abort)(ITransactionContextEx *This);
     END_INTERFACE
   } ITransactionContextExVtbl;
-  interface ITransactionContextEx {
+  struct ITransactionContextEx {
     CONST_VTBL struct ITransactionContextExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1411,7 +1411,7 @@ extern "C"{
       HRESULT (WINAPI *Abort)(ITransactionContext *This);
     END_INTERFACE
   } ITransactionContextVtbl;
-  interface ITransactionContext {
+  struct ITransactionContext {
     CONST_VTBL struct ITransactionContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1452,7 +1452,7 @@ extern "C"{
       HRESULT (WINAPI *CreateInstance)(ICreateWithTransactionEx *This,ITransaction *pTransaction,REFCLSID rclsid,REFIID riid,void **pObject);
     END_INTERFACE
   } ICreateWithTransactionExVtbl;
-  interface ICreateWithTransactionEx {
+  struct ICreateWithTransactionEx {
     CONST_VTBL struct ICreateWithTransactionExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1483,7 +1483,7 @@ extern "C"{
       HRESULT (WINAPI *CreateInstance)(ICreateWithTipTransactionEx *This,BSTR bstrTipUrl,REFCLSID rclsid,REFIID riid,void **pObject);
     END_INTERFACE
   } ICreateWithTipTransactionExVtbl;
-  interface ICreateWithTipTransactionEx {
+  struct ICreateWithTipTransactionEx {
     CONST_VTBL struct ICreateWithTipTransactionExVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1534,7 +1534,7 @@ extern "C"{
       HRESULT (WINAPI *OnUserEvent)(IComUserEvent *This,COMSVCSEVENTINFO *pInfo,VARIANT *pvarEvent);
     END_INTERFACE
   } IComUserEventVtbl;
-  interface IComUserEvent {
+  struct IComUserEvent {
     CONST_VTBL struct IComUserEventVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1585,7 +1585,7 @@ extern "C"{
       HRESULT (WINAPI *OnThreadUnassignApartment)(IComThreadEvents *This,COMSVCSEVENTINFO *pInfo,ULONG64 AptID);
     END_INTERFACE
   } IComThreadEventsVtbl;
-  interface IComThreadEvents {
+  struct IComThreadEvents {
     CONST_VTBL struct IComThreadEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1650,7 +1650,7 @@ extern "C"{
       HRESULT (WINAPI *OnAppForceShutdown)(IComAppEvents *This,COMSVCSEVENTINFO *pInfo,GUID guidApp);
     END_INTERFACE
   } IComAppEventsVtbl;
-  interface IComAppEvents {
+  struct IComAppEvents {
     CONST_VTBL struct IComAppEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1689,7 +1689,7 @@ extern "C"{
       HRESULT (WINAPI *OnObjectDestroy)(IComInstanceEvents *This,COMSVCSEVENTINFO *pInfo,ULONG64 CtxtID);
     END_INTERFACE
   } IComInstanceEventsVtbl;
-  interface IComInstanceEvents {
+  struct IComInstanceEvents {
     CONST_VTBL struct IComInstanceEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1729,7 +1729,7 @@ extern "C"{
       HRESULT (WINAPI *OnTransactionCommit)(IComTransactionEvents *This,COMSVCSEVENTINFO *pInfo,REFGUID guidTx);
     END_INTERFACE
   } IComTransactionEventsVtbl;
-  interface IComTransactionEvents {
+  struct IComTransactionEvents {
     CONST_VTBL struct IComTransactionEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1773,7 +1773,7 @@ extern "C"{
       HRESULT (WINAPI *OnMethodException)(IComMethodEvents *This,COMSVCSEVENTINFO *pInfo,ULONG64 oid,REFCLSID guidCid,REFIID guidRid,ULONG iMeth);
     END_INTERFACE
   } IComMethodEventsVtbl;
-  interface IComMethodEvents {
+  struct IComMethodEvents {
     CONST_VTBL struct IComMethodEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1820,7 +1820,7 @@ extern "C"{
       HRESULT (WINAPI *OnSetAbort)(IComObjectEvents *This,COMSVCSEVENTINFO *pInfo,ULONG64 CtxtID);
     END_INTERFACE
   } IComObjectEventsVtbl;
-  interface IComObjectEvents {
+  struct IComObjectEvents {
     CONST_VTBL struct IComObjectEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1874,7 +1874,7 @@ extern "C"{
       HRESULT (WINAPI *OnResourceTrack)(IComResourceEvents *This,COMSVCSEVENTINFO *pInfo,ULONG64 ObjectID,LPCOLESTR pszType,ULONG64 resId,WINBOOL enlisted);
     END_INTERFACE
   } IComResourceEventsVtbl;
-  interface IComResourceEvents {
+  struct IComResourceEvents {
     CONST_VTBL struct IComResourceEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1919,7 +1919,7 @@ extern "C"{
       HRESULT (WINAPI *OnAuthenticateFail)(IComSecurityEvents *This,COMSVCSEVENTINFO *pInfo,REFGUID guidActivity,ULONG64 ObjectID,REFGUID guidIID,ULONG iMeth,ULONG cbByteOrig,BYTE *pSidOriginalUser,ULONG cbByteCur,BYTE *pSidCurrentUser,WINBOOL bCurrentUserInpersonatingInProc);
     END_INTERFACE
   } IComSecurityEventsVtbl;
-  interface IComSecurityEvents {
+  struct IComSecurityEvents {
     CONST_VTBL struct IComSecurityEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -1959,7 +1959,7 @@ extern "C"{
       HRESULT (WINAPI *OnObjPoolGetFromTx)(IComObjectPoolEvents *This,COMSVCSEVENTINFO *pInfo,REFGUID guidActivity,REFGUID guidObject,REFGUID guidTx,ULONG64 objid);
     END_INTERFACE
   } IComObjectPoolEventsVtbl;
-  interface IComObjectPoolEvents {
+  struct IComObjectPoolEvents {
     CONST_VTBL struct IComObjectPoolEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2007,7 +2007,7 @@ extern "C"{
       HRESULT (WINAPI *OnObjPoolCreatePool)(IComObjectPoolEvents2 *This,COMSVCSEVENTINFO *pInfo,REFGUID guidObject,DWORD dwMin,DWORD dwMax,DWORD dwTimeout);
     END_INTERFACE
   } IComObjectPoolEvents2Vtbl;
-  interface IComObjectPoolEvents2 {
+  struct IComObjectPoolEvents2 {
     CONST_VTBL struct IComObjectPoolEvents2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2050,7 +2050,7 @@ extern "C"{
       HRESULT (WINAPI *OnObjectConstruct)(IComObjectConstructionEvents *This,COMSVCSEVENTINFO *pInfo,REFGUID guidObject,LPCOLESTR sConstructString,ULONG64 oid);
     END_INTERFACE
   } IComObjectConstructionEventsVtbl;
-  interface IComObjectConstructionEvents {
+  struct IComObjectConstructionEvents {
     CONST_VTBL struct IComObjectConstructionEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2093,7 +2093,7 @@ extern "C"{
       HRESULT (WINAPI *OnActivityLeaveSame)(IComActivityEvents *This,COMSVCSEVENTINFO *pInfo,REFGUID guidCurrent,DWORD dwCallDepth);
     END_INTERFACE
   } IComActivityEventsVtbl;
-  interface IComActivityEvents {
+  struct IComActivityEvents {
     CONST_VTBL struct IComActivityEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2142,7 +2142,7 @@ extern "C"{
       HRESULT (WINAPI *OnIISRequestInfo)(IComIdentityEvents *This,COMSVCSEVENTINFO *pInfo,ULONG64 ObjId,LPCOLESTR pszClientIP,LPCOLESTR pszServerIP,LPCOLESTR pszURL);
     END_INTERFACE
   } IComIdentityEventsVtbl;
-  interface IComIdentityEvents {
+  struct IComIdentityEvents {
     CONST_VTBL struct IComIdentityEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2185,7 +2185,7 @@ extern "C"{
       HRESULT (WINAPI *OnQCPlayback)(IComQCEvents *This,COMSVCSEVENTINFO *pInfo,ULONG64 objid,REFGUID guidMsgId,REFGUID guidWorkFlowId,HRESULT hr);
     END_INTERFACE
   } IComQCEventsVtbl;
-  interface IComQCEvents {
+  struct IComQCEvents {
     CONST_VTBL struct IComQCEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2234,7 +2234,7 @@ extern "C"{
       HRESULT (WINAPI *OnExceptionUser)(IComExceptionEvents *This,COMSVCSEVENTINFO *pInfo,ULONG code,ULONG64 address,LPCOLESTR pszStackTrace);
     END_INTERFACE
   } IComExceptionEventsVtbl;
-  interface IComExceptionEvents {
+  struct IComExceptionEvents {
     CONST_VTBL struct IComExceptionEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2269,7 +2269,7 @@ extern "C"{
       HRESULT (WINAPI *EngineDefined)(ILBEvents *This,BSTR bstrPropName,VARIANT *varPropValue,BSTR bstrClsidEng);
     END_INTERFACE
   } ILBEventsVtbl;
-  interface ILBEvents {
+  struct ILBEvents {
     CONST_VTBL struct ILBEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2334,7 +2334,7 @@ extern "C"{
       HRESULT (WINAPI *OnCRMDeliver)(IComCRMEvents *This,COMSVCSEVENTINFO *pInfo,GUID guidClerkCLSID,WINBOOL fVariants,DWORD dwRecordSize);
     END_INTERFACE
   } IComCRMEventsVtbl;
-  interface IComCRMEvents {
+  struct IComCRMEvents {
     CONST_VTBL struct IComCRMEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2411,7 +2411,7 @@ extern "C"{
       HRESULT (WINAPI *OnMethodException2)(IComMethod2Events *This,COMSVCSEVENTINFO *pInfo,ULONG64 oid,REFCLSID guidCid,REFIID guidRid,DWORD dwThread,ULONG iMeth);
     END_INTERFACE
   } IComMethod2EventsVtbl;
-  interface IComMethod2Events {
+  struct IComMethod2Events {
     CONST_VTBL struct IComMethod2EventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2448,7 +2448,7 @@ extern "C"{
       HRESULT (WINAPI *OnNewTrackingInfo)(IComTrackingInfoEvents *This,IUnknown *pToplevelCollection);
     END_INTERFACE
   } IComTrackingInfoEventsVtbl;
-  interface IComTrackingInfoEvents {
+  struct IComTrackingInfoEvents {
     CONST_VTBL struct IComTrackingInfoEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2490,7 +2490,7 @@ extern "C"{
       HRESULT (WINAPI *Item)(IComTrackingInfoCollection *This,ULONG ulIndex,REFIID riid,void **ppv);
     END_INTERFACE
   } IComTrackingInfoCollectionVtbl;
-  interface IComTrackingInfoCollection {
+  struct IComTrackingInfoCollection {
     CONST_VTBL struct IComTrackingInfoCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2527,7 +2527,7 @@ extern "C"{
       HRESULT (WINAPI *GetValue)(IComTrackingInfoObject *This,LPOLESTR szPropertyName,VARIANT *pvarOut);
     END_INTERFACE
   } IComTrackingInfoObjectVtbl;
-  interface IComTrackingInfoObject {
+  struct IComTrackingInfoObject {
     CONST_VTBL struct IComTrackingInfoObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2560,7 +2560,7 @@ extern "C"{
       HRESULT (WINAPI *GetPropName)(IComTrackingInfoProperties *This,ULONG ulIndex,LPOLESTR *ppszPropName);
     END_INTERFACE
   } IComTrackingInfoPropertiesVtbl;
-  interface IComTrackingInfoProperties {
+  struct IComTrackingInfoProperties {
     CONST_VTBL struct IComTrackingInfoPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2602,7 +2602,7 @@ extern "C"{
       HRESULT (WINAPI *OnAppRecycle2)(IComApp2Events *This,COMSVCSEVENTINFO *pInfo,GUID guidApp,GUID guidProcess,long lReason);
     END_INTERFACE
   } IComApp2EventsVtbl;
-  interface IComApp2Events {
+  struct IComApp2Events {
     CONST_VTBL struct IComApp2EventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2651,7 +2651,7 @@ extern "C"{
       HRESULT (WINAPI *OnTransactionCommit2)(IComTransaction2Events *This,COMSVCSEVENTINFO *pInfo,REFGUID guidTx);
     END_INTERFACE
   } IComTransaction2EventsVtbl;
-  interface IComTransaction2Events {
+  struct IComTransaction2Events {
     CONST_VTBL struct IComTransaction2EventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2693,7 +2693,7 @@ extern "C"{
       HRESULT (WINAPI *OnObjectDestroy2)(IComInstance2Events *This,COMSVCSEVENTINFO *pInfo,ULONG64 CtxtID);
     END_INTERFACE
   } IComInstance2EventsVtbl;
-  interface IComInstance2Events {
+  struct IComInstance2Events {
     CONST_VTBL struct IComInstance2EventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2733,7 +2733,7 @@ extern "C"{
       HRESULT (WINAPI *OnObjPoolGetFromTx2)(IComObjectPool2Events *This,COMSVCSEVENTINFO *pInfo,REFGUID guidActivity,REFGUID guidObject,REFGUID guidTx,ULONG64 objid,REFGUID guidPartition);
     END_INTERFACE
   } IComObjectPool2EventsVtbl;
-  interface IComObjectPool2Events {
+  struct IComObjectPool2Events {
     CONST_VTBL struct IComObjectPool2EventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2773,7 +2773,7 @@ extern "C"{
       HRESULT (WINAPI *OnObjectConstruct2)(IComObjectConstruction2Events *This,COMSVCSEVENTINFO *pInfo,REFGUID guidObject,LPCOLESTR sConstructString,ULONG64 oid,REFGUID guidPartition);
     END_INTERFACE
   } IComObjectConstruction2EventsVtbl;
-  interface IComObjectConstruction2Events {
+  struct IComObjectConstruction2Events {
     CONST_VTBL struct IComObjectConstruction2EventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2806,7 +2806,7 @@ extern "C"{
       HRESULT (WINAPI *OnDataChanged)(ISystemAppEventData *This,DWORD dwPID,DWORD dwMask,DWORD dwNumberSinks,BSTR bstrDwMethodMask,DWORD dwReason,ULONG64 u64TraceHandle);
     END_INTERFACE
   } ISystemAppEventDataVtbl;
-  interface ISystemAppEventData {
+  struct ISystemAppEventData {
     CONST_VTBL struct ISystemAppEventDataVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2852,7 +2852,7 @@ extern "C"{
       HRESULT (WINAPI *GetProcessID)(IMtsEvents *This,long *id);
     END_INTERFACE
   } IMtsEventsVtbl;
-  interface IMtsEvents {
+  struct IMtsEvents {
     CONST_VTBL struct IMtsEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2911,7 +2911,7 @@ extern "C"{
       HRESULT (WINAPI *get_Value)(IMtsEventInfo *This,BSTR sKey,VARIANT *pVal);
     END_INTERFACE
   } IMtsEventInfoVtbl;
-  interface IMtsEventInfo {
+  struct IMtsEventInfo {
     CONST_VTBL struct IMtsEventInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -2962,7 +2962,7 @@ extern "C"{
       HRESULT (WINAPI *GetEventDispatcher)(IMTSLocator *This,IUnknown **pUnk);
     END_INTERFACE
   } IMTSLocatorVtbl;
-  interface IMTSLocator {
+  struct IMTSLocator {
     CONST_VTBL struct IMTSLocatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3005,7 +3005,7 @@ extern "C"{
       HRESULT (WINAPI *Refresh)(IMtsGrp *This);
     END_INTERFACE
   } IMtsGrpVtbl;
-  interface IMtsGrp {
+  struct IMtsGrp {
     CONST_VTBL struct IMtsGrpVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3062,7 +3062,7 @@ extern "C"{
       HRESULT (WINAPI *MoveMessages)(IMessageMover *This,long *plMessagesMoved);
     END_INTERFACE
   } IMessageMoverVtbl;
-  interface IMessageMover {
+  struct IMessageMover {
     CONST_VTBL struct IMessageMoverVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3123,7 +3123,7 @@ extern "C"{
       HRESULT (WINAPI *EnumTraceGuid)(IEventServerTrace *This,LONG *plCntGuids,BSTR *pbstrGuidList);
     END_INTERFACE
   } IEventServerTraceVtbl;
-  interface IEventServerTrace {
+  struct IEventServerTrace {
     CONST_VTBL struct IEventServerTraceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3239,7 +3239,7 @@ extern "C"{
       HRESULT (WINAPI *GetContext)(IDispenserManager *This,INSTID *__MIDL_0016,TRANSID *__MIDL_0017);
     END_INTERFACE
   } IDispenserManagerVtbl;
-  interface IDispenserManager {
+  struct IDispenserManager {
     CONST_VTBL struct IDispenserManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3290,7 +3290,7 @@ extern "C"{
       HRESULT (WINAPI *RequestDestroyResource)(IHolder *This,const RESID __MIDL_0027);
     END_INTERFACE
   } IHolderVtbl;
-  interface IHolder {
+  struct IHolder {
     CONST_VTBL struct IHolderVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3355,7 +3355,7 @@ extern "C"{
       HRESULT (WINAPI *DestroyResourceS)(IDispenserDriver *This,constSRESID ResId);
     END_INTERFACE
   } IDispenserDriverVtbl;
-  interface IDispenserDriver {
+  struct IDispenserDriver {
     CONST_VTBL struct IDispenserDriverVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3436,7 +3436,7 @@ extern "C"{
       HRESULT (WINAPI *IsCallerInRole)(IObjectContext *This,BSTR bstrRole,WINBOOL *pfIsInRole);
     END_INTERFACE
   } IObjectContextVtbl;
-  interface IObjectContext {
+  struct IObjectContext {
     CONST_VTBL struct IObjectContextVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3492,7 +3492,7 @@ extern "C"{
       WINBOOL (WINAPI *CanBePooled)(IObjectControl *This);
     END_INTERFACE
   } IObjectControlVtbl;
-  interface IObjectControl {
+  struct IObjectControl {
     CONST_VTBL struct IObjectControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3535,7 +3535,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumNames *This,IEnumNames **ppenum);
     END_INTERFACE
   } IEnumNamesVtbl;
-  interface IEnumNames {
+  struct IEnumNames {
     CONST_VTBL struct IEnumNamesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3583,7 +3583,7 @@ extern "C"{
       HRESULT (WINAPI *ReleaseSID)(ISecurityProperty *This,PSID pSID);
     END_INTERFACE
   } ISecurityPropertyVtbl;
-  interface ISecurityProperty {
+  struct ISecurityProperty {
     CONST_VTBL struct ISecurityPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3630,7 +3630,7 @@ extern "C"{
       HRESULT (WINAPI *CanBePooled)(ObjectControl *This,VARIANT_BOOL *pbPoolable);
     END_INTERFACE
   } ObjectControlVtbl;
-  interface ObjectControl {
+  struct ObjectControl {
     CONST_VTBL struct ObjectControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3673,7 +3673,7 @@ extern "C"{
       HRESULT (WINAPI *put_Value)(ISharedProperty *This,VARIANT val);
     END_INTERFACE
   } ISharedPropertyVtbl;
-  interface ISharedProperty {
+  struct ISharedProperty {
     CONST_VTBL struct ISharedPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3721,7 +3721,7 @@ extern "C"{
       HRESULT (WINAPI *get_Property)(ISharedPropertyGroup *This,BSTR Name,ISharedProperty **ppProperty);
     END_INTERFACE
   } ISharedPropertyGroupVtbl;
-  interface ISharedPropertyGroup {
+  struct ISharedPropertyGroup {
     CONST_VTBL struct ISharedPropertyGroupVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3773,7 +3773,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(ISharedPropertyGroupManager *This,IUnknown **retval);
     END_INTERFACE
   } ISharedPropertyGroupManagerVtbl;
-  interface ISharedPropertyGroupManager {
+  struct ISharedPropertyGroupManager {
     CONST_VTBL struct ISharedPropertyGroupManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3814,7 +3814,7 @@ extern "C"{
       HRESULT (WINAPI *Construct)(IObjectConstruct *This,IDispatch *pCtorObj);
     END_INTERFACE
   } IObjectConstructVtbl;
-  interface IObjectConstruct {
+  struct IObjectConstruct {
     CONST_VTBL struct IObjectConstructVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3849,7 +3849,7 @@ extern "C"{
       HRESULT (WINAPI *get_ConstructString)(IObjectConstructString *This,BSTR *pVal);
     END_INTERFACE
   } IObjectConstructStringVtbl;
-  interface IObjectConstructString {
+  struct IObjectConstructString {
     CONST_VTBL struct IObjectConstructStringVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3884,7 +3884,7 @@ extern "C"{
       HRESULT (WINAPI *GetActivityId)(IObjectContextActivity *This,GUID *pGUID);
     END_INTERFACE
   } IObjectContextActivityVtbl;
-  interface IObjectContextActivity {
+  struct IObjectContextActivity {
     CONST_VTBL struct IObjectContextActivityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3923,7 +3923,7 @@ extern "C"{
       HRESULT (WINAPI *GetContextId)(IObjectContextInfo *This,GUID *pGuid);
     END_INTERFACE
   } IObjectContextInfoVtbl;
-  interface IObjectContextInfo {
+  struct IObjectContextInfo {
     CONST_VTBL struct IObjectContextInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -3975,7 +3975,7 @@ extern "C"{
       HRESULT (WINAPI *GetApplicationInstanceId)(IObjectContextInfo2 *This,GUID *pGuid);
     END_INTERFACE
   } IObjectContextInfo2Vtbl;
-  interface IObjectContextInfo2 {
+  struct IObjectContextInfo2 {
     CONST_VTBL struct IObjectContextInfo2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4019,7 +4019,7 @@ extern "C"{
       HRESULT (WINAPI *GetTransactionStatus)(ITransactionStatus *This,HRESULT *pHrStatus);
     END_INTERFACE
   } ITransactionStatusVtbl;
-  interface ITransactionStatus {
+  struct ITransactionStatus {
     CONST_VTBL struct ITransactionStatusVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4053,7 +4053,7 @@ extern "C"{
       HRESULT (WINAPI *GetTipUrl)(IObjectContextTip *This,BSTR *pTipUrl);
     END_INTERFACE
   } IObjectContextTipVtbl;
-  interface IObjectContextTip {
+  struct IObjectContextTip {
     CONST_VTBL struct IObjectContextTipVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4086,7 +4086,7 @@ extern "C"{
       HRESULT (WINAPI *FinalServerRetry)(IPlaybackControl *This);
     END_INTERFACE
   } IPlaybackControlVtbl;
-  interface IPlaybackControl {
+  struct IPlaybackControl {
     CONST_VTBL struct IPlaybackControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4124,7 +4124,7 @@ extern "C"{
       HRESULT (WINAPI *EnumNames)(IGetContextProperties *This,IEnumNames **ppenum);
     END_INTERFACE
   } IGetContextPropertiesVtbl;
-  interface IGetContextProperties {
+  struct IGetContextProperties {
     CONST_VTBL struct IGetContextPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4174,7 +4174,7 @@ extern "C"{
       HRESULT (WINAPI *GetMyTransactionVote)(IContextState *This,TransactionVote *ptxVote);
     END_INTERFACE
   } IContextStateVtbl;
-  interface IContextState {
+  struct IContextState {
     CONST_VTBL struct IContextStateVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4218,7 +4218,7 @@ extern "C"{
       HRESULT (WINAPI *ShutdownPool)(IPoolManager *This,BSTR CLSIDOrProgID);
     END_INTERFACE
   } IPoolManagerVtbl;
-  interface IPoolManager {
+  struct IPoolManager {
     CONST_VTBL struct IPoolManagerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4255,7 +4255,7 @@ extern "C"{
       HRESULT (WINAPI *GetLBServer)(ISelectCOMLBServer *This,IUnknown *pUnk);
     END_INTERFACE
   } ISelectCOMLBServerVtbl;
-  interface ISelectCOMLBServer {
+  struct ISelectCOMLBServer {
     CONST_VTBL struct ISelectCOMLBServerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4295,7 +4295,7 @@ extern "C"{
       HRESULT (WINAPI *SetMachineName)(ICOMLBArguments *This,ULONG cchSvr,WCHAR szServerName[]);
     END_INTERFACE
   } ICOMLBArgumentsVtbl;
-  interface ICOMLBArguments {
+  struct ICOMLBArguments {
     CONST_VTBL struct ICOMLBArgumentsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4359,7 +4359,7 @@ extern "C"{
       HRESULT (WINAPI *WriteLogRecord)(ICrmLogControl *This,BLOB rgBlob[],ULONG cBlob);
     END_INTERFACE
   } ICrmLogControlVtbl;
-  interface ICrmLogControl {
+  struct ICrmLogControl {
     CONST_VTBL struct ICrmLogControlVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4426,7 +4426,7 @@ extern "C"{
       HRESULT (WINAPI *EndAbortVariants)(ICrmCompensatorVariants *This);
     END_INTERFACE
   } ICrmCompensatorVariantsVtbl;
-  interface ICrmCompensatorVariants {
+  struct ICrmCompensatorVariants {
     CONST_VTBL struct ICrmCompensatorVariantsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4514,7 +4514,7 @@ extern "C"{
       HRESULT (WINAPI *EndAbort)(ICrmCompensator *This);
     END_INTERFACE
   } ICrmCompensatorVtbl;
-  interface ICrmCompensator {
+  struct ICrmCompensator {
     CONST_VTBL struct ICrmCompensatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4590,7 +4590,7 @@ extern "C"{
       HRESULT (WINAPI *GetLogRecordVariants)(ICrmMonitorLogRecords *This,VARIANT IndexNumber,LPVARIANT pLogRecord);
     END_INTERFACE
   } ICrmMonitorLogRecordsVtbl;
-  interface ICrmMonitorLogRecords {
+  struct ICrmMonitorLogRecords {
     CONST_VTBL struct ICrmMonitorLogRecordsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4649,7 +4649,7 @@ extern "C"{
       HRESULT (WINAPI *ActivityId)(ICrmMonitorClerks *This,VARIANT Index,LPVARIANT pItem);
     END_INTERFACE
   } ICrmMonitorClerksVtbl;
-  interface ICrmMonitorClerks {
+  struct ICrmMonitorClerks {
     CONST_VTBL struct ICrmMonitorClerksVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4704,7 +4704,7 @@ extern "C"{
       HRESULT (WINAPI *HoldClerk)(ICrmMonitor *This,VARIANT Index,LPVARIANT pItem);
     END_INTERFACE
   } ICrmMonitorVtbl;
-  interface ICrmMonitor {
+  struct ICrmMonitor {
     CONST_VTBL struct ICrmMonitorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4744,7 +4744,7 @@ extern "C"{
       HRESULT (WINAPI *GetColumnVariants)(ICrmFormatLogRecords *This,VARIANT LogRecord,LPVARIANT pFormattedLogRecord);
     END_INTERFACE
   } ICrmFormatLogRecordsVtbl;
-  interface ICrmFormatLogRecords {
+  struct ICrmFormatLogRecords {
     CONST_VTBL struct ICrmFormatLogRecordsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4829,7 +4829,7 @@ extern "C"{
       HRESULT (WINAPI *IISIntrinsicsConfig)(IServiceIISIntrinsicsConfig *This,CSC_IISIntrinsicsConfig iisIntrinsicsConfig);
     END_INTERFACE
   } IServiceIISIntrinsicsConfigVtbl;
-  interface IServiceIISIntrinsicsConfig {
+  struct IServiceIISIntrinsicsConfig {
     CONST_VTBL struct IServiceIISIntrinsicsConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4860,7 +4860,7 @@ extern "C"{
       HRESULT (WINAPI *ComTIIntrinsicsConfig)(IServiceComTIIntrinsicsConfig *This,CSC_COMTIIntrinsicsConfig comtiIntrinsicsConfig);
     END_INTERFACE
   } IServiceComTIIntrinsicsConfigVtbl;
-  interface IServiceComTIIntrinsicsConfig {
+  struct IServiceComTIIntrinsicsConfig {
     CONST_VTBL struct IServiceComTIIntrinsicsConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4895,7 +4895,7 @@ extern "C"{
       HRESULT (WINAPI *SxsDirectory)(IServiceSxsConfig *This,LPCWSTR szSxsDirectory);
     END_INTERFACE
   } IServiceSxsConfigVtbl;
-  interface IServiceSxsConfig {
+  struct IServiceSxsConfig {
     CONST_VTBL struct IServiceSxsConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4932,7 +4932,7 @@ extern "C"{
       HRESULT (WINAPI *IsSameSxsConfig)(ICheckSxsConfig *This,LPCWSTR wszSxsName,LPCWSTR wszSxsDirectory,LPCWSTR wszSxsAppName);
     END_INTERFACE
   } ICheckSxsConfigVtbl;
-  interface ICheckSxsConfig {
+  struct ICheckSxsConfig {
     CONST_VTBL struct ICheckSxsConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4963,7 +4963,7 @@ extern "C"{
       HRESULT (WINAPI *ContainingContextTreatment)(IServiceInheritanceConfig *This,CSC_InheritanceConfig inheritanceConfig);
     END_INTERFACE
   } IServiceInheritanceConfigVtbl;
-  interface IServiceInheritanceConfig {
+  struct IServiceInheritanceConfig {
     CONST_VTBL struct IServiceInheritanceConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -4996,7 +4996,7 @@ extern "C"{
       HRESULT (WINAPI *SetBindingInfo)(IServiceThreadPoolConfig *This,CSC_Binding binding);
     END_INTERFACE
   } IServiceThreadPoolConfigVtbl;
-  interface IServiceThreadPoolConfig {
+  struct IServiceThreadPoolConfig {
     CONST_VTBL struct IServiceThreadPoolConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5038,7 +5038,7 @@ extern "C"{
       HRESULT (WINAPI *NewTransactionDescription)(IServiceTransactionConfigBase *This,LPCWSTR szTxDesc);
     END_INTERFACE
   } IServiceTransactionConfigBaseVtbl;
-  interface IServiceTransactionConfigBase {
+  struct IServiceTransactionConfigBase {
     CONST_VTBL struct IServiceTransactionConfigBaseVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5086,7 +5086,7 @@ extern "C"{
       HRESULT (WINAPI *ConfigureBYOT)(IServiceTransactionConfig *This,ITransaction *pITxByot);
     END_INTERFACE
   } IServiceTransactionConfigVtbl;
-  interface IServiceTransactionConfig {
+  struct IServiceTransactionConfig {
     CONST_VTBL struct IServiceTransactionConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5122,7 +5122,7 @@ extern "C"{
       HRESULT (WINAPI *ConfigureSynchronization)(IServiceSynchronizationConfig *This,CSC_SynchronizationConfig synchConfig);
     END_INTERFACE
   } IServiceSynchronizationConfigVtbl;
-  interface IServiceSynchronizationConfig {
+  struct IServiceSynchronizationConfig {
     CONST_VTBL struct IServiceSynchronizationConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5153,7 +5153,7 @@ extern "C"{
       HRESULT (WINAPI *TrackerConfig)(IServiceTrackerConfig *This,CSC_TrackerConfig trackerConfig,LPCWSTR szTrackerAppName,LPCWSTR szTrackerCtxName);
     END_INTERFACE
   } IServiceTrackerConfigVtbl;
-  interface IServiceTrackerConfig {
+  struct IServiceTrackerConfig {
     CONST_VTBL struct IServiceTrackerConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5186,7 +5186,7 @@ extern "C"{
       HRESULT (WINAPI *PartitionID)(IServicePartitionConfig *This,REFGUID guidPartitionID);
     END_INTERFACE
   } IServicePartitionConfigVtbl;
-  interface IServicePartitionConfig {
+  struct IServicePartitionConfig {
     CONST_VTBL struct IServicePartitionConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5220,7 +5220,7 @@ extern "C"{
       HRESULT (WINAPI *OnCall)(IServiceCall *This);
     END_INTERFACE
   } IServiceCallVtbl;
-  interface IServiceCall {
+  struct IServiceCall {
     CONST_VTBL struct IServiceCallVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5251,7 +5251,7 @@ extern "C"{
       HRESULT (WINAPI *OnError)(IAsyncErrorNotify *This,HRESULT hr);
     END_INTERFACE
   } IAsyncErrorNotifyVtbl;
-  interface IAsyncErrorNotify {
+  struct IAsyncErrorNotify {
     CONST_VTBL struct IAsyncErrorNotifyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5288,7 +5288,7 @@ extern "C"{
       HRESULT (WINAPI *UnbindFromThread)(IServiceActivity *This);
     END_INTERFACE
   } IServiceActivityVtbl;
-  interface IServiceActivity {
+  struct IServiceActivity {
     CONST_VTBL struct IServiceActivityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5346,7 +5346,7 @@ extern "C"{
       HRESULT (WINAPI *SetQueueDepth)(IThreadPoolKnobs *This,long lcQueueDepth);
     END_INTERFACE
   } IThreadPoolKnobsVtbl;
-  interface IThreadPoolKnobs {
+  struct IThreadPoolKnobs {
     CONST_VTBL struct IThreadPoolKnobsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5424,7 +5424,7 @@ extern "C"{
       HRESULT (WINAPI *SetQueueDepth)(IComStaThreadPoolKnobs *This,long dwQDepth);
     END_INTERFACE
   } IComStaThreadPoolKnobsVtbl;
-  interface IComStaThreadPoolKnobs {
+  struct IComStaThreadPoolKnobs {
     CONST_VTBL struct IComStaThreadPoolKnobsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5491,7 +5491,7 @@ extern "C"{
       HRESULT (WINAPI *MTAGetThrottleValue)(IComMtaThreadPoolKnobs *This,DWORD *pdwThrottle);
     END_INTERFACE
   } IComMtaThreadPoolKnobsVtbl;
-  interface IComMtaThreadPoolKnobs {
+  struct IComMtaThreadPoolKnobs {
     CONST_VTBL struct IComMtaThreadPoolKnobsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5560,7 +5560,7 @@ extern "C"{
       HRESULT (WINAPI *SetWaitTimeForThreadCleanup)(IComStaThreadPoolKnobs2 *This,long dwThreadCleanupWaitTime);
     END_INTERFACE
   } IComStaThreadPoolKnobs2Vtbl;
-  interface IComStaThreadPoolKnobs2 {
+  struct IComStaThreadPoolKnobs2 {
     CONST_VTBL struct IComStaThreadPoolKnobs2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5631,7 +5631,7 @@ extern "C"{
       HRESULT (WINAPI *Shutdown)(IProcessInitializer *This);
     END_INTERFACE
   } IProcessInitializerVtbl;
-  interface IProcessInitializer {
+  struct IProcessInitializer {
     CONST_VTBL struct IProcessInitializerVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5683,7 +5683,7 @@ extern "C"{
       HRESULT (WINAPI *get_ClassFactory)(IServicePoolConfig *This,IClassFactory **pFactory);
     END_INTERFACE
   } IServicePoolConfigVtbl;
-  interface IServicePoolConfig {
+  struct IServicePoolConfig {
     CONST_VTBL struct IServicePoolConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5745,7 +5745,7 @@ extern "C"{
       HRESULT (WINAPI *Shutdown)(IServicePool *This);
     END_INTERFACE
   } IServicePoolVtbl;
-  interface IServicePool {
+  struct IServicePool {
     CONST_VTBL struct IServicePoolVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5782,7 +5782,7 @@ extern "C"{
       HRESULT (WINAPI *SetHeld)(IManagedPooledObj *This,WINBOOL m_bHeld);
     END_INTERFACE
   } IManagedPooledObjVtbl;
-  interface IManagedPooledObj {
+  struct IManagedPooledObj {
     CONST_VTBL struct IManagedPooledObjVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5813,7 +5813,7 @@ extern "C"{
       HRESULT (WINAPI *LastRelease)(IManagedPoolAction *This);
     END_INTERFACE
   } IManagedPoolActionVtbl;
-  interface IManagedPoolAction {
+  struct IManagedPoolAction {
     CONST_VTBL struct IManagedPoolActionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5850,7 +5850,7 @@ extern "C"{
       HRESULT (WINAPI *SetWrapperStrength)(IManagedObjectInfo *This,WINBOOL bStrong);
     END_INTERFACE
   } IManagedObjectInfoVtbl;
-  interface IManagedObjectInfo {
+  struct IManagedObjectInfo {
     CONST_VTBL struct IManagedObjectInfoVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5896,7 +5896,7 @@ extern "C"{
       HRESULT (WINAPI *DoCallback)(IAppDomainHelper *This,IUnknown *pUnkAD,HRESULT (WINAPI __MIDL_0029)(void *pv),void *pPool);
     END_INTERFACE
   } IAppDomainHelperVtbl;
-  interface IAppDomainHelper {
+  struct IAppDomainHelper {
     CONST_VTBL struct IAppDomainHelperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5938,7 +5938,7 @@ extern "C"{
       HRESULT (WINAPI *GetModules)(IAssemblyLocator *This,BSTR applicationDir,BSTR applicationName,BSTR assemblyName,SAFEARRAY **pModules);
     END_INTERFACE
   } IAssemblyLocatorVtbl;
-  interface IAssemblyLocator {
+  struct IAssemblyLocator {
     CONST_VTBL struct IAssemblyLocatorVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -5975,7 +5975,7 @@ extern "C"{
       HRESULT (WINAPI *DestroyManagedStub)(IManagedActivationEvents *This,IManagedObjectInfo *pInfo);
     END_INTERFACE
   } IManagedActivationEventsVtbl;
-  interface IManagedActivationEvents {
+  struct IManagedActivationEvents {
     CONST_VTBL struct IManagedActivationEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6011,7 +6011,7 @@ extern "C"{
       HRESULT (WINAPI *SendMethodReturn)(ISendMethodEvents *This,const void *pIdentity,REFIID riid,DWORD dwMeth,HRESULT hrCall,HRESULT hrServer);
     END_INTERFACE
   } ISendMethodEventsVtbl;
-  interface ISendMethodEvents {
+  struct ISendMethodEvents {
     CONST_VTBL struct ISendMethodEventsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6050,7 +6050,7 @@ extern "C"{
       HRESULT (WINAPI *GetResource)(ITransactionResourcePool *This,IObjPool *pPool,IUnknown **ppUnk);
     END_INTERFACE
   } ITransactionResourcePoolVtbl;
-  interface ITransactionResourcePool {
+  struct ITransactionResourcePool {
     CONST_VTBL struct ITransactionResourcePoolVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6089,7 +6089,7 @@ extern "C"{
       HRESULT (WINAPI *OnCall)(IMTSCall *This);
     END_INTERFACE
   } IMTSCallVtbl;
-  interface IMTSCall {
+  struct IMTSCall {
     CONST_VTBL struct IMTSCallVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6128,7 +6128,7 @@ extern "C"{
       HRESULT (WINAPI *RemoveProperty)(IContextProperties *This,BSTR name);
     END_INTERFACE
   } IContextPropertiesVtbl;
-  interface IContextProperties {
+  struct IContextProperties {
     CONST_VTBL struct IContextPropertiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6183,7 +6183,7 @@ extern "C"{
       void (WINAPI *Reserved6)(IObjPool *This);
     END_INTERFACE
   } IObjPoolVtbl;
-  interface IObjPool {
+  struct IObjPool {
     CONST_VTBL struct IObjPoolVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6266,7 +6266,7 @@ extern "C"{
       void (WINAPI *Reserved17)(ITransactionProperty *This);
     END_INTERFACE
   } ITransactionPropertyVtbl;
-  interface ITransactionProperty {
+  struct ITransactionProperty {
     CONST_VTBL struct ITransactionPropertyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -6356,7 +6356,7 @@ extern "C"{
       HRESULT (WINAPI *UnbindFromThread)(IMTSActivity *This);
     END_INTERFACE
   } IMTSActivityVtbl;
-  interface IMTSActivity {
+  struct IMTSActivity {
     CONST_VTBL struct IMTSActivityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

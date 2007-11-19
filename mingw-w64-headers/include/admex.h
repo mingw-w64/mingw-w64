@@ -24,12 +24,12 @@
 
 #ifndef __IMSAdminReplication_FWD_DEFINED__
 #define __IMSAdminReplication_FWD_DEFINED__
-typedef interface IMSAdminReplication IMSAdminReplication;
+typedef struct IMSAdminReplication IMSAdminReplication;
 #endif
 
 #ifndef __IMSAdminCryptoCapabilities_FWD_DEFINED__
 #define __IMSAdminCryptoCapabilities_FWD_DEFINED__
-typedef interface IMSAdminCryptoCapabilities IMSAdminCryptoCapabilities;
+typedef struct IMSAdminCryptoCapabilities IMSAdminCryptoCapabilities;
 #endif
 
 #include "unknwn.h"
@@ -77,7 +77,7 @@ extern "C"{
       HRESULT (WINAPI *DeSerialize)(IMSAdminReplication *This,DWORD dwBufferSize,unsigned char *pbBuffer);
     END_INTERFACE
   } IMSAdminReplicationVtbl;
-  interface IMSAdminReplication {
+  struct IMSAdminReplication {
     CONST_VTBL struct IMSAdminReplicationVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -132,7 +132,7 @@ extern "C"{
       HRESULT (WINAPI *SetCAList)(IMSAdminCryptoCapabilities *This,DWORD dwBufferSize,unsigned char *pbBuffer);
     END_INTERFACE
   } IMSAdminCryptoCapabilitiesVtbl;
-  interface IMSAdminCryptoCapabilities {
+  struct IMSAdminCryptoCapabilities {
     CONST_VTBL struct IMSAdminCryptoCapabilitiesVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

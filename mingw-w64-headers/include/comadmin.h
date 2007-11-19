@@ -24,22 +24,22 @@
 
 #ifndef __ICOMAdminCatalog_FWD_DEFINED__
 #define __ICOMAdminCatalog_FWD_DEFINED__
-typedef interface ICOMAdminCatalog ICOMAdminCatalog;
+typedef struct ICOMAdminCatalog ICOMAdminCatalog;
 #endif
 
 #ifndef __ICOMAdminCatalog2_FWD_DEFINED__
 #define __ICOMAdminCatalog2_FWD_DEFINED__
-typedef interface ICOMAdminCatalog2 ICOMAdminCatalog2;
+typedef struct ICOMAdminCatalog2 ICOMAdminCatalog2;
 #endif
 
 #ifndef __ICatalogObject_FWD_DEFINED__
 #define __ICatalogObject_FWD_DEFINED__
-typedef interface ICatalogObject ICatalogObject;
+typedef struct ICatalogObject ICatalogObject;
 #endif
 
 #ifndef __ICatalogCollection_FWD_DEFINED__
 #define __ICatalogCollection_FWD_DEFINED__
-typedef interface ICatalogCollection ICatalogCollection;
+typedef struct ICatalogCollection ICatalogCollection;
 #endif
 
 #ifndef __COMAdminCatalog_FWD_DEFINED__
@@ -155,7 +155,7 @@ extern "C"{
       HRESULT (WINAPI *GetEventClassesForIID)(ICOMAdminCatalog *This,BSTR bstrIID,SAFEARRAY **ppsaVarCLSIDs,SAFEARRAY **ppsaVarProgIDs,SAFEARRAY **ppsaVarDescriptions);
     END_INTERFACE
   } ICOMAdminCatalogVtbl;
-  interface ICOMAdminCatalog {
+  struct ICOMAdminCatalog {
     CONST_VTBL struct ICOMAdminCatalogVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -363,7 +363,7 @@ extern "C"{
       HRESULT (WINAPI *GetComponentVersionCount)(ICOMAdminCatalog2 *This,BSTR bstrCLSIDOrProgID,long *plVersionCount);
     END_INTERFACE
   } ICOMAdminCatalog2Vtbl;
-  interface ICOMAdminCatalog2 {
+  struct ICOMAdminCatalog2 {
     CONST_VTBL struct ICOMAdminCatalog2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -530,7 +530,7 @@ extern "C"{
       HRESULT (WINAPI *IsPropertyWriteOnly)(ICatalogObject *This,BSTR bstrPropName,VARIANT_BOOL *pbRetVal);
     END_INTERFACE
   } ICatalogObjectVtbl;
-  interface ICatalogObject {
+  struct ICatalogObject {
     CONST_VTBL struct ICatalogObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -617,7 +617,7 @@ extern "C"{
       HRESULT (WINAPI *PopulateByQuery)(ICatalogCollection *This,BSTR bstrQueryString,long lQueryType);
     END_INTERFACE
   } ICatalogCollectionVtbl;
-  interface ICatalogCollection {
+  struct ICatalogCollection {
     CONST_VTBL struct ICatalogCollectionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

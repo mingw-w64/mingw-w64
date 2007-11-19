@@ -321,6 +321,9 @@ extern "C" {
 #endif
 #endif
 
+#pragma push_macro("socklen_t")
+#undef socklen_t
+
   typedef int socklen_t;
 
 #ifdef UNICODE
@@ -346,6 +349,8 @@ extern "C" {
 #define LPFN_GETNAMEINFOT LPFN_GETNAMEINFOA
 #endif
 #endif
+
+#pragma pop_macro("socklen_t")
 
 #ifdef UNICODE
 #define gai_strerror gai_strerrorW

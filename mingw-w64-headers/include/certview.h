@@ -24,32 +24,32 @@
 
 #ifndef __IEnumCERTVIEWCOLUMN_FWD_DEFINED__
 #define __IEnumCERTVIEWCOLUMN_FWD_DEFINED__
-typedef interface IEnumCERTVIEWCOLUMN IEnumCERTVIEWCOLUMN;
+typedef struct IEnumCERTVIEWCOLUMN IEnumCERTVIEWCOLUMN;
 #endif
 
 #ifndef __IEnumCERTVIEWATTRIBUTE_FWD_DEFINED__
 #define __IEnumCERTVIEWATTRIBUTE_FWD_DEFINED__
-typedef interface IEnumCERTVIEWATTRIBUTE IEnumCERTVIEWATTRIBUTE;
+typedef struct IEnumCERTVIEWATTRIBUTE IEnumCERTVIEWATTRIBUTE;
 #endif
 
 #ifndef __IEnumCERTVIEWEXTENSION_FWD_DEFINED__
 #define __IEnumCERTVIEWEXTENSION_FWD_DEFINED__
-typedef interface IEnumCERTVIEWEXTENSION IEnumCERTVIEWEXTENSION;
+typedef struct IEnumCERTVIEWEXTENSION IEnumCERTVIEWEXTENSION;
 #endif
 
 #ifndef __IEnumCERTVIEWROW_FWD_DEFINED__
 #define __IEnumCERTVIEWROW_FWD_DEFINED__
-typedef interface IEnumCERTVIEWROW IEnumCERTVIEWROW;
+typedef struct IEnumCERTVIEWROW IEnumCERTVIEWROW;
 #endif
 
 #ifndef __ICertView_FWD_DEFINED__
 #define __ICertView_FWD_DEFINED__
-typedef interface ICertView ICertView;
+typedef struct ICertView ICertView;
 #endif
 
 #ifndef __ICertView2_FWD_DEFINED__
 #define __ICertView2_FWD_DEFINED__
-typedef interface ICertView2 ICertView2;
+typedef struct ICertView2 ICertView2;
 #endif
 
 #include "wtypes.h"
@@ -151,7 +151,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumCERTVIEWCOLUMN *This,IEnumCERTVIEWCOLUMN **ppenum);
     END_INTERFACE
   } IEnumCERTVIEWCOLUMNVtbl;
-  interface IEnumCERTVIEWCOLUMN {
+  struct IEnumCERTVIEWCOLUMN {
     CONST_VTBL struct IEnumCERTVIEWCOLUMNVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -227,7 +227,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumCERTVIEWATTRIBUTE *This,IEnumCERTVIEWATTRIBUTE **ppenum);
     END_INTERFACE
   } IEnumCERTVIEWATTRIBUTEVtbl;
-  interface IEnumCERTVIEWATTRIBUTE {
+  struct IEnumCERTVIEWATTRIBUTE {
     CONST_VTBL struct IEnumCERTVIEWATTRIBUTEVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -293,7 +293,7 @@ extern "C"{
       HRESULT (WINAPI *Clone)(IEnumCERTVIEWEXTENSION *This,IEnumCERTVIEWEXTENSION **ppenum);
     END_INTERFACE
   } IEnumCERTVIEWEXTENSIONVtbl;
-  interface IEnumCERTVIEWEXTENSION {
+  struct IEnumCERTVIEWEXTENSION {
     CONST_VTBL struct IEnumCERTVIEWEXTENSIONVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -364,7 +364,7 @@ extern "C"{
       HRESULT (WINAPI *GetMaxIndex)(IEnumCERTVIEWROW *This,LONG *pIndex);
     END_INTERFACE
   } IEnumCERTVIEWROWVtbl;
-  interface IEnumCERTVIEWROW {
+  struct IEnumCERTVIEWROW {
     CONST_VTBL struct IEnumCERTVIEWROWVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -438,7 +438,7 @@ extern "C"{
       HRESULT (WINAPI *OpenView)(ICertView *This,IEnumCERTVIEWROW **ppenum);
     END_INTERFACE
   } ICertViewVtbl;
-  interface ICertView {
+  struct ICertView {
     CONST_VTBL struct ICertViewVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -506,7 +506,7 @@ extern "C"{
       HRESULT (WINAPI *SetTable)(ICertView2 *This,LONG Table);
     END_INTERFACE
   } ICertView2Vtbl;
-  interface ICertView2 {
+  struct ICertView2 {
     CONST_VTBL struct ICertView2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

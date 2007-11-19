@@ -15,7 +15,7 @@
 
 #ifndef __IISMimeType_FWD_DEFINED__
 #define __IISMimeType_FWD_DEFINED__
-typedef interface IISMimeType IISMimeType;
+typedef struct IISMimeType IISMimeType;
 #endif
 
 #ifndef __MimeMap_FWD_DEFINED__
@@ -29,7 +29,7 @@ typedef struct MimeMap MimeMap;
 
 #ifndef __IISIPSecurity_FWD_DEFINED__
 #define __IISIPSecurity_FWD_DEFINED__
-typedef interface IISIPSecurity IISIPSecurity;
+typedef struct IISIPSecurity IISIPSecurity;
 #endif
 
 #ifndef __IPSecurity_FWD_DEFINED__
@@ -61,17 +61,17 @@ typedef struct IISProvider IISProvider;
 
 #ifndef __IISBaseObject_FWD_DEFINED__
 #define __IISBaseObject_FWD_DEFINED__
-typedef interface IISBaseObject IISBaseObject;
+typedef struct IISBaseObject IISBaseObject;
 #endif
 
 #ifndef __IISSchemaObject_FWD_DEFINED__
 #define __IISSchemaObject_FWD_DEFINED__
-typedef interface IISSchemaObject IISSchemaObject;
+typedef struct IISSchemaObject IISSchemaObject;
 #endif
 
 #ifndef __IISPropertyAttribute_FWD_DEFINED__
 #define __IISPropertyAttribute_FWD_DEFINED__
-typedef interface IISPropertyAttribute IISPropertyAttribute;
+typedef struct IISPropertyAttribute IISPropertyAttribute;
 #endif
 
 #ifndef __PropertyAttribute_FWD_DEFINED__
@@ -126,7 +126,7 @@ extern "C"{
       HRESULT (WINAPI *put_Extension)(IISMimeType *This,BSTR bstrExtension);
     END_INTERFACE
   } IISMimeTypeVtbl;
-  interface IISMimeType {
+  struct IISMimeType {
     CONST_VTBL struct IISMimeTypeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -197,7 +197,7 @@ extern "C"{
       HRESULT (WINAPI *put_GrantByDefault)(IISIPSecurity *This,VARIANT_BOOL fGrantByDefault);
     END_INTERFACE
   } IISIPSecurityVtbl;
-  interface IISIPSecurity {
+  struct IISIPSecurity {
     CONST_VTBL struct IISIPSecurityVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -279,7 +279,7 @@ extern "C"{
       HRESULT (WINAPI *GetPropertyAttribObj)(IISBaseObject *This,BSTR bstrName,IDispatch **ppObject);
     END_INTERFACE
   } IISBaseObjectVtbl;
-  interface IISBaseObject {
+  struct IISBaseObject {
     CONST_VTBL struct IISBaseObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -323,7 +323,7 @@ extern "C"{
       HRESULT (WINAPI *PutSchemaPropertyAttributes)(IISSchemaObject *This,IDispatch *pObject);
     END_INTERFACE
   } IISSchemaObjectVtbl;
-  interface IISSchemaObject {
+  struct IISSchemaObject {
     CONST_VTBL struct IISSchemaObjectVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -397,7 +397,7 @@ extern "C"{
       HRESULT (WINAPI *put_Default)(IISPropertyAttribute *This,VARIANT vDefault);
     END_INTERFACE
   } IISPropertyAttributeVtbl;
-  interface IISPropertyAttribute {
+  struct IISPropertyAttribute {
     CONST_VTBL struct IISPropertyAttributeVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

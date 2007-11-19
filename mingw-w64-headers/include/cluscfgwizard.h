@@ -19,12 +19,12 @@
 
 #ifndef __IClusCfgCreateClusterWizard_FWD_DEFINED__
 #define __IClusCfgCreateClusterWizard_FWD_DEFINED__
-typedef interface IClusCfgCreateClusterWizard IClusCfgCreateClusterWizard;
+typedef struct IClusCfgCreateClusterWizard IClusCfgCreateClusterWizard;
 #endif
 
 #ifndef __IClusCfgAddNodesWizard_FWD_DEFINED__
 #define __IClusCfgAddNodesWizard_FWD_DEFINED__
-typedef interface IClusCfgAddNodesWizard IClusCfgAddNodesWizard;
+typedef struct IClusCfgAddNodesWizard IClusCfgAddNodesWizard;
 #endif
 
 #ifndef __ClusCfgCreateClusterWizard_FWD_DEFINED__
@@ -110,7 +110,7 @@ extern "C"{
       HRESULT (WINAPI *ShowWizard)(IClusCfgCreateClusterWizard *This,long lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut);
     END_INTERFACE
   } IClusCfgCreateClusterWizardVtbl;
-  interface IClusCfgCreateClusterWizard {
+  struct IClusCfgCreateClusterWizard {
     CONST_VTBL struct IClusCfgCreateClusterWizardVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -210,7 +210,7 @@ extern "C"{
       HRESULT (WINAPI *ShowWizard)(IClusCfgAddNodesWizard *This,long lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut);
     END_INTERFACE
   } IClusCfgAddNodesWizardVtbl;
-  interface IClusCfgAddNodesWizard {
+  struct IClusCfgAddNodesWizard {
     CONST_VTBL struct IClusCfgAddNodesWizardVtbl *lpVtbl;
   };
 #ifdef COBJMACROS

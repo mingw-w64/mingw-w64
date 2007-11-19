@@ -24,72 +24,72 @@
 
 #ifndef __ITransactionResourceAsync_FWD_DEFINED__
 #define __ITransactionResourceAsync_FWD_DEFINED__
-typedef interface ITransactionResourceAsync ITransactionResourceAsync;
+typedef struct ITransactionResourceAsync ITransactionResourceAsync;
 #endif
 
 #ifndef __ITransactionLastResourceAsync_FWD_DEFINED__
 #define __ITransactionLastResourceAsync_FWD_DEFINED__
-typedef interface ITransactionLastResourceAsync ITransactionLastResourceAsync;
+typedef struct ITransactionLastResourceAsync ITransactionLastResourceAsync;
 #endif
 
 #ifndef __ITransactionResource_FWD_DEFINED__
 #define __ITransactionResource_FWD_DEFINED__
-typedef interface ITransactionResource ITransactionResource;
+typedef struct ITransactionResource ITransactionResource;
 #endif
 
 #ifndef __ITransactionEnlistmentAsync_FWD_DEFINED__
 #define __ITransactionEnlistmentAsync_FWD_DEFINED__
-typedef interface ITransactionEnlistmentAsync ITransactionEnlistmentAsync;
+typedef struct ITransactionEnlistmentAsync ITransactionEnlistmentAsync;
 #endif
 
 #ifndef __ITransactionLastEnlistmentAsync_FWD_DEFINED__
 #define __ITransactionLastEnlistmentAsync_FWD_DEFINED__
-typedef interface ITransactionLastEnlistmentAsync ITransactionLastEnlistmentAsync;
+typedef struct ITransactionLastEnlistmentAsync ITransactionLastEnlistmentAsync;
 #endif
 
 #ifndef __ITransactionExportFactory_FWD_DEFINED__
 #define __ITransactionExportFactory_FWD_DEFINED__
-typedef interface ITransactionExportFactory ITransactionExportFactory;
+typedef struct ITransactionExportFactory ITransactionExportFactory;
 #endif
 
 #ifndef __ITransactionImportWhereabouts_FWD_DEFINED__
 #define __ITransactionImportWhereabouts_FWD_DEFINED__
-typedef interface ITransactionImportWhereabouts ITransactionImportWhereabouts;
+typedef struct ITransactionImportWhereabouts ITransactionImportWhereabouts;
 #endif
 
 #ifndef __ITransactionExport_FWD_DEFINED__
 #define __ITransactionExport_FWD_DEFINED__
-typedef interface ITransactionExport ITransactionExport;
+typedef struct ITransactionExport ITransactionExport;
 #endif
 
 #ifndef __ITransactionImport_FWD_DEFINED__
 #define __ITransactionImport_FWD_DEFINED__
-typedef interface ITransactionImport ITransactionImport;
+typedef struct ITransactionImport ITransactionImport;
 #endif
 
 #ifndef __ITipTransaction_FWD_DEFINED__
 #define __ITipTransaction_FWD_DEFINED__
-typedef interface ITipTransaction ITipTransaction;
+typedef struct ITipTransaction ITipTransaction;
 #endif
 
 #ifndef __ITipHelper_FWD_DEFINED__
 #define __ITipHelper_FWD_DEFINED__
-typedef interface ITipHelper ITipHelper;
+typedef struct ITipHelper ITipHelper;
 #endif
 
 #ifndef __ITipPullSink_FWD_DEFINED__
 #define __ITipPullSink_FWD_DEFINED__
-typedef interface ITipPullSink ITipPullSink;
+typedef struct ITipPullSink ITipPullSink;
 #endif
 
 #ifndef __IDtcNetworkAccessConfig_FWD_DEFINED__
 #define __IDtcNetworkAccessConfig_FWD_DEFINED__
-typedef interface IDtcNetworkAccessConfig IDtcNetworkAccessConfig;
+typedef struct IDtcNetworkAccessConfig IDtcNetworkAccessConfig;
 #endif
 
 #ifndef __IDtcNetworkAccessConfig2_FWD_DEFINED__
 #define __IDtcNetworkAccessConfig2_FWD_DEFINED__
-typedef interface IDtcNetworkAccessConfig2 IDtcNetworkAccessConfig2;
+typedef struct IDtcNetworkAccessConfig2 IDtcNetworkAccessConfig2;
 #endif
 
 #include "transact.h"
@@ -128,7 +128,7 @@ extern "C" {
       HRESULT (WINAPI *TMDown)(ITransactionResourceAsync *This);
     END_INTERFACE
   } ITransactionResourceAsyncVtbl;
-  interface ITransactionResourceAsync {
+  struct ITransactionResourceAsync {
     CONST_VTBL struct ITransactionResourceAsyncVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -170,7 +170,7 @@ extern "C" {
       HRESULT (WINAPI *ForgetRequest)(ITransactionLastResourceAsync *This,XACTUOW *pNewUOW);
     END_INTERFACE
   } ITransactionLastResourceAsyncVtbl;
-  interface ITransactionLastResourceAsync {
+  struct ITransactionLastResourceAsync {
     CONST_VTBL struct ITransactionLastResourceAsyncVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -210,7 +210,7 @@ extern "C" {
       HRESULT (WINAPI *TMDown)(ITransactionResource *This);
     END_INTERFACE
   } ITransactionResourceVtbl;
-  interface ITransactionResource {
+  struct ITransactionResource {
     CONST_VTBL struct ITransactionResourceVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -254,7 +254,7 @@ extern "C" {
       HRESULT (WINAPI *AbortRequestDone)(ITransactionEnlistmentAsync *This,HRESULT hr);
     END_INTERFACE
   } ITransactionEnlistmentAsyncVtbl;
-  interface ITransactionEnlistmentAsync {
+  struct ITransactionEnlistmentAsync {
     CONST_VTBL struct ITransactionEnlistmentAsyncVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -291,7 +291,7 @@ extern "C" {
       HRESULT (WINAPI *TransactionOutcome)(ITransactionLastEnlistmentAsync *This,XACTSTAT XactStat,BOID *pboidReason);
     END_INTERFACE
   } ITransactionLastEnlistmentAsyncVtbl;
-  interface ITransactionLastEnlistmentAsync {
+  struct ITransactionLastEnlistmentAsync {
     CONST_VTBL struct ITransactionLastEnlistmentAsyncVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -324,7 +324,7 @@ extern "C" {
       HRESULT (WINAPI *Create)(ITransactionExportFactory *This,ULONG cbWhereabouts,byte *rgbWhereabouts,ITransactionExport **ppExport);
     END_INTERFACE
   } ITransactionExportFactoryVtbl;
-  interface ITransactionExportFactory {
+  struct ITransactionExportFactory {
     CONST_VTBL struct ITransactionExportFactoryVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -360,7 +360,7 @@ extern "C" {
       HRESULT (WINAPI *GetWhereabouts)(ITransactionImportWhereabouts *This,ULONG cbWhereabouts,byte *rgbWhereabouts,ULONG *pcbUsed);
     END_INTERFACE
   } ITransactionImportWhereaboutsVtbl;
-  interface ITransactionImportWhereabouts {
+  struct ITransactionImportWhereabouts {
     CONST_VTBL struct ITransactionImportWhereaboutsVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -396,7 +396,7 @@ extern "C" {
       HRESULT (WINAPI *GetTransactionCookie)(ITransactionExport *This,IUnknown *punkTransaction,ULONG cbTransactionCookie,byte *rgbTransactionCookie,ULONG *pcbUsed);
     END_INTERFACE
   } ITransactionExportVtbl;
-  interface ITransactionExport {
+  struct ITransactionExport {
     CONST_VTBL struct ITransactionExportVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -430,7 +430,7 @@ extern "C" {
       HRESULT (WINAPI *Import)(ITransactionImport *This,ULONG cbTransactionCookie,byte *rgbTransactionCookie,IID *piid,void **ppvTransaction);
     END_INTERFACE
   } ITransactionImportVtbl;
-  interface ITransactionImport {
+  struct ITransactionImport {
     CONST_VTBL struct ITransactionImportVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -463,7 +463,7 @@ extern "C" {
       HRESULT (WINAPI *GetTransactionUrl)(ITipTransaction *This,char **o_ppszLocalTxUrl);
     END_INTERFACE
   } ITipTransactionVtbl;
-  interface ITipTransaction {
+  struct ITipTransaction {
     CONST_VTBL struct ITipTransactionVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -501,7 +501,7 @@ extern "C" {
       HRESULT (WINAPI *GetLocalTmUrl)(ITipHelper *This,char **o_ppszLocalTmUrl);
     END_INTERFACE
   } ITipHelperVtbl;
-  interface ITipHelper {
+  struct ITipHelper {
     CONST_VTBL struct ITipHelperVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -538,7 +538,7 @@ extern "C" {
       HRESULT (WINAPI *PullComplete)(ITipPullSink *This,HRESULT i_hrPull);
     END_INTERFACE
   } ITipPullSinkVtbl;
-  interface ITipPullSink {
+  struct ITipPullSink {
     CONST_VTBL struct ITipPullSinkVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -593,7 +593,7 @@ extern "C" {
       HRESULT (WINAPI *RestartDtcService)(IDtcNetworkAccessConfig *This);
     END_INTERFACE
   } IDtcNetworkAccessConfigVtbl;
-  interface IDtcNetworkAccessConfig {
+  struct IDtcNetworkAccessConfig {
     CONST_VTBL struct IDtcNetworkAccessConfigVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -690,7 +690,7 @@ extern "C" {
       HRESULT (WINAPI *SetAuthenticationLevel)(IDtcNetworkAccessConfig2 *This,AUTHENTICATION_LEVEL AuthLevel);
     END_INTERFACE
   } IDtcNetworkAccessConfig2Vtbl;
-  interface IDtcNetworkAccessConfig2 {
+  struct IDtcNetworkAccessConfig2 {
     CONST_VTBL struct IDtcNetworkAccessConfig2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS

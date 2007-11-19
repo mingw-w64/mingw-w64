@@ -24,12 +24,12 @@
 
 #ifndef __ICertPolicy_FWD_DEFINED__
 #define __ICertPolicy_FWD_DEFINED__
-typedef interface ICertPolicy ICertPolicy;
+typedef struct ICertPolicy ICertPolicy;
 #endif
 
 #ifndef __ICertPolicy2_FWD_DEFINED__
 #define __ICertPolicy2_FWD_DEFINED__
-typedef interface ICertPolicy2 ICertPolicy2;
+typedef struct ICertPolicy2 ICertPolicy2;
 #endif
 
 #include "wtypes.h"
@@ -69,7 +69,7 @@ extern "C"{
       HRESULT (WINAPI *ShutDown)(ICertPolicy *This);
     END_INTERFACE
   } ICertPolicyVtbl;
-  interface ICertPolicy {
+  struct ICertPolicy {
     CONST_VTBL struct ICertPolicyVtbl *lpVtbl;
   };
 #ifdef COBJMACROS
@@ -121,7 +121,7 @@ extern "C"{
       HRESULT (WINAPI *GetManageModule)(ICertPolicy2 *This,ICertManageModule **ppManageModule);
     END_INTERFACE
   } ICertPolicy2Vtbl;
-  interface ICertPolicy2 {
+  struct ICertPolicy2 {
     CONST_VTBL struct ICertPolicy2Vtbl *lpVtbl;
   };
 #ifdef COBJMACROS
