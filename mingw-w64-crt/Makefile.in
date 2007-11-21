@@ -180,6 +180,10 @@ am__lib32_libuuid_a_SOURCES_DIST = lib32/uuid.c lib32/devguid.c \
 @LIB32_TRUE@	lib32/unknwn-uuid.$(OBJEXT) \
 @LIB32_TRUE@	lib32/urlmon-uuid.$(OBJEXT)
 lib32_libuuid_a_OBJECTS = $(am_lib32_libuuid_a_OBJECTS)
+lib32_libws2_32_a_LIBADD =
+am__lib32_libws2_32_a_SOURCES_DIST = lib32/ws2_32.c
+@LIB32_TRUE@am_lib32_libws2_32_a_OBJECTS = lib32/ws2_32.$(OBJEXT)
+lib32_libws2_32_a_OBJECTS = $(am_lib32_libws2_32_a_OBJECTS)
 lib64_libkernel32_a_LIBADD =
 am__lib64_libkernel32_a_SOURCES_DIST = lib64/kernel32.c
 @LIB64_TRUE@am_lib64_libkernel32_a_OBJECTS = lib64/kernel32.$(OBJEXT)
@@ -693,12 +697,12 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib32_libkernel32_a_SOURCES) $(lib32_liblargeint_a_SOURCES) \
 	$(lib32_libscrnsave_a_SOURCES) $(lib32_libscrnsavw_a_SOURCES) \
 	$(lib32_libshell32_a_SOURCES) $(lib32_libstrmiids_a_SOURCES) \
-	$(lib32_libuuid_a_SOURCES) $(lib64_libkernel32_a_SOURCES) \
-	$(lib64_liblargeint_a_SOURCES) $(nodist_lib64_libm_a_SOURCES) \
-	$(lib64_libmingw32_a_SOURCES) $(lib64_libmingwex_a_SOURCES) \
-	$(lib64_libmoldname_a_SOURCES) $(lib64_libscrnsave_a_SOURCES) \
-	$(lib64_libscrnsavw_a_SOURCES) $(lib64_libshell32_a_SOURCES) \
-	$(lib64_libuuid_a_SOURCES)
+	$(lib32_libuuid_a_SOURCES) $(lib32_libws2_32_a_SOURCES) \
+	$(lib64_libkernel32_a_SOURCES) $(lib64_liblargeint_a_SOURCES) \
+	$(nodist_lib64_libm_a_SOURCES) $(lib64_libmingw32_a_SOURCES) \
+	$(lib64_libmingwex_a_SOURCES) $(lib64_libmoldname_a_SOURCES) \
+	$(lib64_libscrnsave_a_SOURCES) $(lib64_libscrnsavw_a_SOURCES) \
+	$(lib64_libshell32_a_SOURCES) $(lib64_libuuid_a_SOURCES)
 DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdinput8_a_SOURCES_DIST) \
 	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
@@ -712,6 +716,7 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libshell32_a_SOURCES_DIST) \
 	$(am__lib32_libstrmiids_a_SOURCES_DIST) \
 	$(am__lib32_libuuid_a_SOURCES_DIST) \
+	$(am__lib32_libws2_32_a_SOURCES_DIST) \
 	$(am__lib64_libkernel32_a_SOURCES_DIST) \
 	$(am__lib64_liblargeint_a_SOURCES_DIST) \
 	$(am__lib64_libmingw32_a_SOURCES_DIST) \
@@ -874,13 +879,15 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB32_TRUE@ksuser.c \
 @LIB32_TRUE@test.c
 
+
+# Broken -- redefinition of struct ip_mreq
 @LIB32_TRUE@lib32_LIBRARIES = lib32/libkernel32.a lib32/libshell32.a \
 @LIB32_TRUE@	lib32/libdinput.a lib32/libdinput8.a \
 @LIB32_TRUE@	lib32/libdmoguids.a lib32/libdxerr8.a \
 @LIB32_TRUE@	lib32/libdxerr9.a lib32/libdxguid.a \
 @LIB32_TRUE@	lib32/liblargeint.a lib32/libscrnsave.a \
 @LIB32_TRUE@	lib32/libscrnsavw.a lib32/libstrmiids.a \
-@LIB32_TRUE@	lib32/libuuid.a
+@LIB32_TRUE@	lib32/libuuid.a lib32/libws2_32.a
 @LIB32_TRUE@lib32_libkernel32_a_SOURCES = lib32/kernel32.c
 @LIB32_TRUE@lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = lib32/shell32.c
@@ -910,11 +917,8 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB32_TRUE@    lib32/mshtml-uuid.c  lib32/msxml-uuid.c    lib32/oaidl-uuid.c  lib32/objidl-uuid.c   lib32/objsafe-uuid.c lib32/ocidl-uuid.c \
 @LIB32_TRUE@    lib32/oleacc-uuid.c  lib32/olectlid-uuid.c lib32/oleidl-uuid.c lib32/servprov-uuid.c lib32/unknwn-uuid.c  lib32/urlmon-uuid.c
 
-
-# Broken -- redefinition of struct ip_mreq
-#lib32_LIBRARIES += lib32/libws2_32.a
-#lib32_libws2_32_a_SOURCES = lib32/ws2_32.c
-#lib32_libws2_32_a_AR = \
+@LIB32_TRUE@lib32_libws2_32_a_SOURCES = lib32/ws2_32.c
+@LIB32_TRUE@lib32_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 #	$(DLLTOOL) $(DLLOPTS) --def $(top_srcdir)/lib64/ws2_32.def; \
 #	$(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_SCRIPTS = \
@@ -1761,6 +1765,12 @@ lib32/libuuid.a: $(lib32_libuuid_a_OBJECTS) $(lib32_libuuid_a_DEPENDENCIES) lib3
 	-rm -f lib32/libuuid.a
 	$(lib32_libuuid_a_AR) lib32/libuuid.a $(lib32_libuuid_a_OBJECTS) $(lib32_libuuid_a_LIBADD)
 	$(RANLIB) lib32/libuuid.a
+lib32/ws2_32.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/libws2_32.a: $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libws2_32.a
+	$(lib32_libws2_32_a_AR) lib32/libws2_32.a $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_LIBADD)
+	$(RANLIB) lib32/libws2_32.a
 lib64/$(am__dirstamp):
 	@$(MKDIR_P) lib64
 	@: > lib64/$(am__dirstamp)
@@ -2729,6 +2739,7 @@ mostlyclean-compile:
 	-rm -f lib32/unknwn-uuid.$(OBJEXT)
 	-rm -f lib32/urlmon-uuid.$(OBJEXT)
 	-rm -f lib32/uuid.$(OBJEXT)
+	-rm -f lib32/ws2_32.$(OBJEXT)
 	-rm -f lib64/kernel32.$(OBJEXT)
 	-rm -f lib64/largeint.$(OBJEXT)
 	-rm -f lib64/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
@@ -3121,6 +3132,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/unknwn-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/ws2_32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/kernel32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/largeint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po@am__quote@

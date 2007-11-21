@@ -94,12 +94,9 @@ lib32_libuuid_a_SOURCES = lib32/uuid.c lib32/devguid.c \
     lib32/mshtml-uuid.c  lib32/msxml-uuid.c    lib32/oaidl-uuid.c  lib32/objidl-uuid.c   lib32/objsafe-uuid.c lib32/ocidl-uuid.c \
     lib32/oleacc-uuid.c  lib32/olectlid-uuid.c lib32/oleidl-uuid.c lib32/servprov-uuid.c lib32/unknwn-uuid.c  lib32/urlmon-uuid.c
 
-# Broken -- redefinition of struct ip_mreq
-#lib32_LIBRARIES += lib32/libws2_32.a
-#lib32_libws2_32_a_SOURCES = lib32/ws2_32.c
-#lib32_libws2_32_a_AR = \
-#	$(DLLTOOL) $(DLLOPTS) --def $(top_srcdir)/lib64/ws2_32.def; \
-#	$(AR) $(ARFLAGS)
+lib32_LIBRARIES += lib32/libws2_32.a
+lib32_libws2_32_a_SOURCES = lib32/ws2_32.c
+lib32_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_SCRIPTS = \
   lib32/libaclui.a         lib32/libdpnet.a         lib32/libmfcuia32.a      lib32/libolesvr32.a      lib32/libthunk32.a  \
