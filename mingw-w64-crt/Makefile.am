@@ -734,8 +734,9 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 #
 
 
-EXTRA_DIST = $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def
-EXTRA_DIST += $(crt64srcdir)/*.def \
+EXTRA_DIST = DISCLAIMER
+EXTRA_DIST += $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def \
+  $(crt64srcdir)/*.def \
   $(crt64srcdir)/crtexe.c \
   $(crt64srcdir)/crtdll.c \
   $(crt64srcdir)/CRT_fp8.c \
