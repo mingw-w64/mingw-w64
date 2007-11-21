@@ -3,7 +3,7 @@
 # Use AM_MAINTANER_MODE somewhere in this file once reconfigurations settle down.
 
 AC_PREREQ(2.61)
-AC_INIT([x86_64-mingw-runtime],[3.9.1],[mingw-w64-public@lists.sourceforge.net])
+AC_INIT([mingw-w64-runtime],[1.0],[mingw-w64-public@lists.sourceforge.net])
 
 #AC_CANONICAL_SYSTEM is apparently obsolete.. should use AC_CANONICAL_BUILD, _HOST, and _TARGET
 #as needed.  Also, they seem to be hierarchical -- _TARGET includes _HOST, and _HOST includes

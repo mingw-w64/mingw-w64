@@ -745,7 +745,7 @@ EXTRA_DIST += $(crt64srcdir)/*.def \
   $(crt64srcdir)/crtbegin.c \
   $(crt64srcdir)/crtend.c
 
-DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-32
+DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32
 
 dist-hook:
 	rm -rf `find $(top_distdir) -name ".svn"`

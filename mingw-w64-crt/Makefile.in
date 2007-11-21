@@ -879,8 +879,6 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB32_TRUE@ksuser.c \
 @LIB32_TRUE@test.c
 
-
-# Broken -- redefinition of struct ip_mreq
 @LIB32_TRUE@lib32_LIBRARIES = lib32/libkernel32.a lib32/libshell32.a \
 @LIB32_TRUE@	lib32/libdinput.a lib32/libdinput8.a \
 @LIB32_TRUE@	lib32/libdmoguids.a lib32/libdxerr8.a \
@@ -919,8 +917,6 @@ crt32srcdir = $(top_srcdir)/crt32
 
 @LIB32_TRUE@lib32_libws2_32_a_SOURCES = lib32/ws2_32.c
 @LIB32_TRUE@lib32_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-#	$(DLLTOOL) $(DLLOPTS) --def $(top_srcdir)/lib64/ws2_32.def; \
-#	$(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_SCRIPTS = \
 @LIB32_TRUE@  lib32/libaclui.a         lib32/libdpnet.a         lib32/libmfcuia32.a      lib32/libolesvr32.a      lib32/libthunk32.a  \
 @LIB32_TRUE@  lib32/libadvapi32.a      lib32/libdpnlobby.a      lib32/libmgmtapi.a       lib32/libopengl32.a      lib32/liburl.a      \
@@ -1513,7 +1509,7 @@ EXTRA_DIST = $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def \
 	$(crt64srcdir)/CRT_fp10.c $(crt64srcdir)/txtmode.c \
 	$(crt64srcdir)/binmode.c $(crt64srcdir)/crtbegin.c \
 	$(crt64srcdir)/crtend.c
-DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-32
+DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
