@@ -73,9 +73,52 @@ lib32LIBRARIES_INSTALL = $(INSTALL_DATA)
 lib64LIBRARIES_INSTALL = $(INSTALL_DATA)
 LIBRARIES = $(lib32_LIBRARIES) $(lib64_LIBRARIES)
 ARFLAGS = cru
+lib32_libdinput_a_LIBADD =
+am__lib32_libdinput_a_SOURCES_DIST = lib32/dinput_kbd.c \
+	lib32/dinput_joy.c lib32/dinput_joy2.c lib32/dinput_mouse.c \
+	lib32/dinput_mouse2.c
+am__dirstamp = $(am__leading_dot)dirstamp
+@LIB32_TRUE@am_lib32_libdinput_a_OBJECTS = lib32/dinput_kbd.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dinput_joy.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dinput_joy2.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dinput_mouse.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dinput_mouse2.$(OBJEXT)
+lib32_libdinput_a_OBJECTS = $(am_lib32_libdinput_a_OBJECTS)
+lib32_libdinput8_a_LIBADD =
+am__lib32_libdinput8_a_SOURCES_DIST = lib32/dinput_kbd.c \
+	lib32/dinput_joy.c lib32/dinput_joy2.c lib32/dinput_mouse.c \
+	lib32/dinput_mouse2.c
+@LIB32_TRUE@am_lib32_libdinput8_a_OBJECTS =  \
+@LIB32_TRUE@	lib32/dinput_kbd.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dinput_joy.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dinput_joy2.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dinput_mouse.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dinput_mouse2.$(OBJEXT)
+lib32_libdinput8_a_OBJECTS = $(am_lib32_libdinput8_a_OBJECTS)
+lib32_libdmoguids_a_AR = $(AR) $(ARFLAGS)
+lib32_libdmoguids_a_LIBADD =
+am__lib32_libdmoguids_a_SOURCES_DIST = lib32/dmoguids.c
+@LIB32_TRUE@am_lib32_libdmoguids_a_OBJECTS = lib32/dmoguids.$(OBJEXT)
+lib32_libdmoguids_a_OBJECTS = $(am_lib32_libdmoguids_a_OBJECTS)
+lib32_libdxerr8_a_AR = $(AR) $(ARFLAGS)
+lib32_libdxerr8_a_LIBADD =
+am__lib32_libdxerr8_a_SOURCES_DIST = lib32/dxerr8.c lib32/dxerr8w.c
+@LIB32_TRUE@am_lib32_libdxerr8_a_OBJECTS = lib32/dxerr8.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dxerr8w.$(OBJEXT)
+lib32_libdxerr8_a_OBJECTS = $(am_lib32_libdxerr8_a_OBJECTS)
+lib32_libdxerr9_a_AR = $(AR) $(ARFLAGS)
+lib32_libdxerr9_a_LIBADD =
+am__lib32_libdxerr9_a_SOURCES_DIST = lib32/dxerr9.c lib32/dxerr9w.c
+@LIB32_TRUE@am_lib32_libdxerr9_a_OBJECTS = lib32/dxerr9.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dxerr9w.$(OBJEXT)
+lib32_libdxerr9_a_OBJECTS = $(am_lib32_libdxerr9_a_OBJECTS)
+lib32_libdxguid_a_AR = $(AR) $(ARFLAGS)
+lib32_libdxguid_a_LIBADD =
+am__lib32_libdxguid_a_SOURCES_DIST = lib32/dxguid.c
+@LIB32_TRUE@am_lib32_libdxguid_a_OBJECTS = lib32/dxguid.$(OBJEXT)
+lib32_libdxguid_a_OBJECTS = $(am_lib32_libdxguid_a_OBJECTS)
 lib32_libkernel32_a_LIBADD =
 am__lib32_libkernel32_a_SOURCES_DIST = lib32/kernel32.c
-am__dirstamp = $(am__leading_dot)dirstamp
 @LIB32_TRUE@am_lib32_libkernel32_a_OBJECTS = lib32/kernel32.$(OBJEXT)
 lib32_libkernel32_a_OBJECTS = $(am_lib32_libkernel32_a_OBJECTS)
 lib32_liblargeint_a_AR = $(AR) $(ARFLAGS)
@@ -98,17 +141,23 @@ lib32_libshell32_a_LIBADD =
 am__lib32_libshell32_a_SOURCES_DIST = lib32/shell32.c
 @LIB32_TRUE@am_lib32_libshell32_a_OBJECTS = lib32/shell32.$(OBJEXT)
 lib32_libshell32_a_OBJECTS = $(am_lib32_libshell32_a_OBJECTS)
+lib32_libstrmiids_a_AR = $(AR) $(ARFLAGS)
+lib32_libstrmiids_a_LIBADD =
+am__lib32_libstrmiids_a_SOURCES_DIST = lib32/strmiids.c
+@LIB32_TRUE@am_lib32_libstrmiids_a_OBJECTS = lib32/strmiids.$(OBJEXT)
+lib32_libstrmiids_a_OBJECTS = $(am_lib32_libstrmiids_a_OBJECTS)
 lib32_libuuid_a_AR = $(AR) $(ARFLAGS)
 lib32_libuuid_a_LIBADD =
-am__lib32_libuuid_a_SOURCES_DIST = lib32/uuid.c lib32/ativscp-uuid.c \
-	lib32/cguid-uuid.c lib32/comcat-uuid.c lib32/docobj-uuid.c \
-	lib32/exdisp-uuid.c lib32/extras-uuid.c lib32/hlguids-uuid.c \
-	lib32/hlink-uuid.c lib32/mlang-uuid.c lib32/mshtml-uuid.c \
-	lib32/msxml-uuid.c lib32/oaidl-uuid.c lib32/objidl-uuid.c \
-	lib32/objsafe-uuid.c lib32/ocidl-uuid.c lib32/oleacc-uuid.c \
-	lib32/olectlid-uuid.c lib32/oleidl-uuid.c \
+am__lib32_libuuid_a_SOURCES_DIST = lib32/uuid.c lib32/devguid.c \
+	lib32/ativscp-uuid.c lib32/cguid-uuid.c lib32/comcat-uuid.c \
+	lib32/docobj-uuid.c lib32/exdisp-uuid.c lib32/extras-uuid.c \
+	lib32/hlguids-uuid.c lib32/hlink-uuid.c lib32/mlang-uuid.c \
+	lib32/mshtml-uuid.c lib32/msxml-uuid.c lib32/oaidl-uuid.c \
+	lib32/objidl-uuid.c lib32/objsafe-uuid.c lib32/ocidl-uuid.c \
+	lib32/oleacc-uuid.c lib32/olectlid-uuid.c lib32/oleidl-uuid.c \
 	lib32/servprov-uuid.c lib32/unknwn-uuid.c lib32/urlmon-uuid.c
 @LIB32_TRUE@am_lib32_libuuid_a_OBJECTS = lib32/uuid.$(OBJEXT) \
+@LIB32_TRUE@	lib32/devguid.$(OBJEXT) \
 @LIB32_TRUE@	lib32/ativscp-uuid.$(OBJEXT) \
 @LIB32_TRUE@	lib32/cguid-uuid.$(OBJEXT) \
 @LIB32_TRUE@	lib32/comcat-uuid.$(OBJEXT) \
@@ -638,20 +687,30 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(lib32_libkernel32_a_SOURCES) \
-	$(lib32_liblargeint_a_SOURCES) $(lib32_libscrnsave_a_SOURCES) \
-	$(lib32_libscrnsavw_a_SOURCES) $(lib32_libshell32_a_SOURCES) \
+SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
+	$(lib32_libdmoguids_a_SOURCES) $(lib32_libdxerr8_a_SOURCES) \
+	$(lib32_libdxerr9_a_SOURCES) $(lib32_libdxguid_a_SOURCES) \
+	$(lib32_libkernel32_a_SOURCES) $(lib32_liblargeint_a_SOURCES) \
+	$(lib32_libscrnsave_a_SOURCES) $(lib32_libscrnsavw_a_SOURCES) \
+	$(lib32_libshell32_a_SOURCES) $(lib32_libstrmiids_a_SOURCES) \
 	$(lib32_libuuid_a_SOURCES) $(lib64_libkernel32_a_SOURCES) \
 	$(lib64_liblargeint_a_SOURCES) $(nodist_lib64_libm_a_SOURCES) \
 	$(lib64_libmingw32_a_SOURCES) $(lib64_libmingwex_a_SOURCES) \
 	$(lib64_libmoldname_a_SOURCES) $(lib64_libscrnsave_a_SOURCES) \
 	$(lib64_libscrnsavw_a_SOURCES) $(lib64_libshell32_a_SOURCES) \
 	$(lib64_libuuid_a_SOURCES)
-DIST_SOURCES = $(am__lib32_libkernel32_a_SOURCES_DIST) \
+DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
+	$(am__lib32_libdinput8_a_SOURCES_DIST) \
+	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
+	$(am__lib32_libdxerr8_a_SOURCES_DIST) \
+	$(am__lib32_libdxerr9_a_SOURCES_DIST) \
+	$(am__lib32_libdxguid_a_SOURCES_DIST) \
+	$(am__lib32_libkernel32_a_SOURCES_DIST) \
 	$(am__lib32_liblargeint_a_SOURCES_DIST) \
 	$(am__lib32_libscrnsave_a_SOURCES_DIST) \
 	$(am__lib32_libscrnsavw_a_SOURCES_DIST) \
 	$(am__lib32_libshell32_a_SOURCES_DIST) \
+	$(am__lib32_libstrmiids_a_SOURCES_DIST) \
 	$(am__lib32_libuuid_a_SOURCES_DIST) \
 	$(am__lib64_libkernel32_a_SOURCES_DIST) \
 	$(am__lib64_liblargeint_a_SOURCES_DIST) \
@@ -811,35 +870,41 @@ crt32srcdir = $(top_srcdir)/crt32
 # The source files that I did compile somewhere I just guessed at anyway.
 #
 @LIB32_TRUE@temp = \
-@LIB32_TRUE@dinput_joy.c \
-@LIB32_TRUE@dinput_mouse2.c \
-@LIB32_TRUE@devguid.c \
-@LIB32_TRUE@dinput_joy2.c \
 @LIB32_TRUE@dxerr.c \
-@LIB32_TRUE@dxerr8w.c \
-@LIB32_TRUE@dinput_mouse.c \
-@LIB32_TRUE@dmoguids.c \
-@LIB32_TRUE@dinput_kbd.c \
 @LIB32_TRUE@ksuser.c \
-@LIB32_TRUE@dxerr9.c \
-@LIB32_TRUE@dxerr9w.c \
-@LIB32_TRUE@dxerr8.c \
-@LIB32_TRUE@strmiids.c \
-@LIB32_TRUE@test.c \
-@LIB32_TRUE@dxguid.c 
+@LIB32_TRUE@test.c
 
 @LIB32_TRUE@lib32_LIBRARIES = lib32/libkernel32.a lib32/libshell32.a \
+@LIB32_TRUE@	lib32/libdinput.a lib32/libdinput8.a \
+@LIB32_TRUE@	lib32/libdmoguids.a lib32/libdxerr8.a \
+@LIB32_TRUE@	lib32/libdxerr9.a lib32/libdxguid.a \
 @LIB32_TRUE@	lib32/liblargeint.a lib32/libscrnsave.a \
-@LIB32_TRUE@	lib32/libscrnsavw.a lib32/libuuid.a
+@LIB32_TRUE@	lib32/libscrnsavw.a lib32/libstrmiids.a \
+@LIB32_TRUE@	lib32/libuuid.a
 @LIB32_TRUE@lib32_libkernel32_a_SOURCES = lib32/kernel32.c
 @LIB32_TRUE@lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = lib32/shell32.c
 @LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libdinput_a_SOURCES = lib32/dinput_kbd.c \
+@LIB32_TRUE@  lib32/dinput_joy.c   lib32/dinput_joy2.c \
+@LIB32_TRUE@  lib32/dinput_mouse.c lib32/dinput_mouse2.c
+
+@LIB32_TRUE@lib32_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libdinput8_a_SOURCES = lib32/dinput_kbd.c \
+@LIB32_TRUE@  lib32/dinput_joy.c   lib32/dinput_joy2.c \
+@LIB32_TRUE@  lib32/dinput_mouse.c lib32/dinput_mouse2.c
+
+@LIB32_TRUE@lib32_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libdmoguids_a_SOURCES = lib32/dmoguids.c
+@LIB32_TRUE@lib32_libdxerr8_a_SOURCES = lib32/dxerr8.c lib32/dxerr8w.c
+@LIB32_TRUE@lib32_libdxerr9_a_SOURCES = lib32/dxerr9.c lib32/dxerr9w.c
+@LIB32_TRUE@lib32_libdxguid_a_SOURCES = lib32/dxguid.c
 @LIB32_TRUE@lib32_liblargeint_a_SOURCES = lib32/largeint.c
 @LIB32_TRUE@lib32_libscrnsave_a_SOURCES = lib32/scrnsave.c
 @LIB32_TRUE@lib32_libscrnsavw_a_SOURCES = lib32/scrnsave.c
 @LIB32_TRUE@lib32_libscrnsavw_a_CFLAGS = -DUNICODE
-@LIB32_TRUE@lib32_libuuid_a_SOURCES = lib32/uuid.c \
+@LIB32_TRUE@lib32_libstrmiids_a_SOURCES = lib32/strmiids.c
+@LIB32_TRUE@lib32_libuuid_a_SOURCES = lib32/uuid.c lib32/devguid.c \
 @LIB32_TRUE@    lib32/ativscp-uuid.c lib32/cguid-uuid.c    lib32/comcat-uuid.c \
 @LIB32_TRUE@    lib32/docobj-uuid.c  lib32/exdisp-uuid.c   lib32/extras-uuid.c lib32/hlguids-uuid.c  lib32/hlink-uuid.c   lib32/mlang-uuid.c \
 @LIB32_TRUE@    lib32/mshtml-uuid.c  lib32/msxml-uuid.c    lib32/oaidl-uuid.c  lib32/objidl-uuid.c   lib32/objsafe-uuid.c lib32/ocidl-uuid.c \
@@ -1564,6 +1629,52 @@ lib32/$(am__dirstamp):
 lib32/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) lib32/$(DEPDIR)
 	@: > lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/dinput_kbd.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/dinput_joy.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/dinput_joy2.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/dinput_mouse.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/dinput_mouse2.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/libdinput.a: $(lib32_libdinput_a_OBJECTS) $(lib32_libdinput_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libdinput.a
+	$(lib32_libdinput_a_AR) lib32/libdinput.a $(lib32_libdinput_a_OBJECTS) $(lib32_libdinput_a_LIBADD)
+	$(RANLIB) lib32/libdinput.a
+lib32/libdinput8.a: $(lib32_libdinput8_a_OBJECTS) $(lib32_libdinput8_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libdinput8.a
+	$(lib32_libdinput8_a_AR) lib32/libdinput8.a $(lib32_libdinput8_a_OBJECTS) $(lib32_libdinput8_a_LIBADD)
+	$(RANLIB) lib32/libdinput8.a
+lib32/dmoguids.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/libdmoguids.a: $(lib32_libdmoguids_a_OBJECTS) $(lib32_libdmoguids_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libdmoguids.a
+	$(lib32_libdmoguids_a_AR) lib32/libdmoguids.a $(lib32_libdmoguids_a_OBJECTS) $(lib32_libdmoguids_a_LIBADD)
+	$(RANLIB) lib32/libdmoguids.a
+lib32/dxerr8.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/dxerr8w.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/libdxerr8.a: $(lib32_libdxerr8_a_OBJECTS) $(lib32_libdxerr8_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libdxerr8.a
+	$(lib32_libdxerr8_a_AR) lib32/libdxerr8.a $(lib32_libdxerr8_a_OBJECTS) $(lib32_libdxerr8_a_LIBADD)
+	$(RANLIB) lib32/libdxerr8.a
+lib32/dxerr9.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/dxerr9w.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/libdxerr9.a: $(lib32_libdxerr9_a_OBJECTS) $(lib32_libdxerr9_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libdxerr9.a
+	$(lib32_libdxerr9_a_AR) lib32/libdxerr9.a $(lib32_libdxerr9_a_OBJECTS) $(lib32_libdxerr9_a_LIBADD)
+	$(RANLIB) lib32/libdxerr9.a
+lib32/dxguid.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/libdxguid.a: $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libdxguid.a
+	$(lib32_libdxguid_a_AR) lib32/libdxguid.a $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_LIBADD)
+	$(RANLIB) lib32/libdxguid.a
 lib32/kernel32.$(OBJEXT): lib32/$(am__dirstamp) \
 	lib32/$(DEPDIR)/$(am__dirstamp)
 lib32/libkernel32.a: $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_DEPENDENCIES) lib32/$(am__dirstamp)
@@ -1594,7 +1705,15 @@ lib32/libshell32.a: $(lib32_libshell32_a_OBJECTS) $(lib32_libshell32_a_DEPENDENC
 	-rm -f lib32/libshell32.a
 	$(lib32_libshell32_a_AR) lib32/libshell32.a $(lib32_libshell32_a_OBJECTS) $(lib32_libshell32_a_LIBADD)
 	$(RANLIB) lib32/libshell32.a
+lib32/strmiids.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/libstrmiids.a: $(lib32_libstrmiids_a_OBJECTS) $(lib32_libstrmiids_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libstrmiids.a
+	$(lib32_libstrmiids_a_AR) lib32/libstrmiids.a $(lib32_libstrmiids_a_OBJECTS) $(lib32_libstrmiids_a_LIBADD)
+	$(RANLIB) lib32/libstrmiids.a
 lib32/uuid.$(OBJEXT): lib32/$(am__dirstamp) \
+	lib32/$(DEPDIR)/$(am__dirstamp)
+lib32/devguid.$(OBJEXT): lib32/$(am__dirstamp) \
 	lib32/$(DEPDIR)/$(am__dirstamp)
 lib32/ativscp-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
 	lib32/$(DEPDIR)/$(am__dirstamp)
@@ -2573,7 +2692,19 @@ mostlyclean-compile:
 	-rm -f lib32/ativscp-uuid.$(OBJEXT)
 	-rm -f lib32/cguid-uuid.$(OBJEXT)
 	-rm -f lib32/comcat-uuid.$(OBJEXT)
+	-rm -f lib32/devguid.$(OBJEXT)
+	-rm -f lib32/dinput_joy.$(OBJEXT)
+	-rm -f lib32/dinput_joy2.$(OBJEXT)
+	-rm -f lib32/dinput_kbd.$(OBJEXT)
+	-rm -f lib32/dinput_mouse.$(OBJEXT)
+	-rm -f lib32/dinput_mouse2.$(OBJEXT)
+	-rm -f lib32/dmoguids.$(OBJEXT)
 	-rm -f lib32/docobj-uuid.$(OBJEXT)
+	-rm -f lib32/dxerr8.$(OBJEXT)
+	-rm -f lib32/dxerr8w.$(OBJEXT)
+	-rm -f lib32/dxerr9.$(OBJEXT)
+	-rm -f lib32/dxerr9w.$(OBJEXT)
+	-rm -f lib32/dxguid.$(OBJEXT)
 	-rm -f lib32/exdisp-uuid.$(OBJEXT)
 	-rm -f lib32/extras-uuid.$(OBJEXT)
 	-rm -f lib32/hlguids-uuid.$(OBJEXT)
@@ -2594,6 +2725,7 @@ mostlyclean-compile:
 	-rm -f lib32/scrnsave.$(OBJEXT)
 	-rm -f lib32/servprov-uuid.$(OBJEXT)
 	-rm -f lib32/shell32.$(OBJEXT)
+	-rm -f lib32/strmiids.$(OBJEXT)
 	-rm -f lib32/unknwn-uuid.$(OBJEXT)
 	-rm -f lib32/urlmon-uuid.$(OBJEXT)
 	-rm -f lib32/uuid.$(OBJEXT)
@@ -2952,7 +3084,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/ativscp-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/cguid-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/comcat-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/devguid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dinput_joy.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dinput_joy2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dinput_kbd.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dinput_mouse.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dinput_mouse2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dmoguids.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/docobj-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr8.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr8w.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr9.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr9w.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxguid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/exdisp-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/extras-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/hlguids-uuid.Po@am__quote@
@@ -2973,6 +3117,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/servprov-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/shell32.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/strmiids.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/unknwn-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/uuid.Po@am__quote@

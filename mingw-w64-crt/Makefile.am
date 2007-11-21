@@ -38,23 +38,9 @@ COMPILE32=$(COMPILE) $(include32) -c $(crt32srcdir)/
 #
 
 temp= \
-dinput_joy.c \
-dinput_mouse2.c \
-devguid.c \
-dinput_joy2.c \
 dxerr.c \
-dxerr8w.c \
-dinput_mouse.c \
-dmoguids.c \
-dinput_kbd.c \
 ksuser.c \
-dxerr9.c \
-dxerr9w.c \
-dxerr8.c \
-strmiids.c \
-test.c \
-dxguid.c 
-
+test.c
 
 lib32_LIBRARIES = lib32/libkernel32.a
 lib32_libkernel32_a_SOURCES = lib32/kernel32.c
@@ -63,6 +49,30 @@ lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = lib32/shell32.c
 lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+
+lib32_LIBRARIES += lib32/libdinput.a
+lib32_libdinput_a_SOURCES = lib32/dinput_kbd.c \
+  lib32/dinput_joy.c   lib32/dinput_joy2.c \
+  lib32/dinput_mouse.c lib32/dinput_mouse2.c
+lib32_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+
+lib32_LIBRARIES += lib32/libdinput8.a
+lib32_libdinput8_a_SOURCES = lib32/dinput_kbd.c \
+  lib32/dinput_joy.c   lib32/dinput_joy2.c \
+  lib32/dinput_mouse.c lib32/dinput_mouse2.c
+lib32_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+
+lib32_LIBRARIES += lib32/libdmoguids.a
+lib32_libdmoguids_a_SOURCES = lib32/dmoguids.c
+
+lib32_LIBRARIES += lib32/libdxerr8.a
+lib32_libdxerr8_a_SOURCES = lib32/dxerr8.c lib32/dxerr8w.c
+
+lib32_LIBRARIES += lib32/libdxerr9.a
+lib32_libdxerr9_a_SOURCES = lib32/dxerr9.c lib32/dxerr9w.c
+
+lib32_LIBRARIES += lib32/libdxguid.a
+lib32_libdxguid_a_SOURCES = lib32/dxguid.c
 
 lib32_LIBRARIES += lib32/liblargeint.a
 lib32_liblargeint_a_SOURCES = lib32/largeint.c
@@ -74,8 +84,11 @@ lib32_LIBRARIES += lib32/libscrnsavw.a
 lib32_libscrnsavw_a_SOURCES = lib32/scrnsave.c
 lib32_libscrnsavw_a_CFLAGS = -DUNICODE
 
+lib32_LIBRARIES += lib32/libstrmiids.a
+lib32_libstrmiids_a_SOURCES = lib32/strmiids.c
+
 lib32_LIBRARIES += lib32/libuuid.a
-lib32_libuuid_a_SOURCES = lib32/uuid.c \
+lib32_libuuid_a_SOURCES = lib32/uuid.c lib32/devguid.c \
     lib32/ativscp-uuid.c lib32/cguid-uuid.c    lib32/comcat-uuid.c \
     lib32/docobj-uuid.c  lib32/exdisp-uuid.c   lib32/extras-uuid.c lib32/hlguids-uuid.c  lib32/hlink-uuid.c   lib32/mlang-uuid.c \
     lib32/mshtml-uuid.c  lib32/msxml-uuid.c    lib32/oaidl-uuid.c  lib32/objidl-uuid.c   lib32/objsafe-uuid.c lib32/ocidl-uuid.c \
