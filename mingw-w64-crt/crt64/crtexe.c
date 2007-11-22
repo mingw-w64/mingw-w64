@@ -202,10 +202,12 @@ __tmainCRTStartup (void)
     #ifdef _WIN64
     __asm__ __volatile__ (
 	"xorq %rax,%rax\n\t"
+	"decq %rax\n\t"
 	"movq %rax,%gs:0" "\n");
     #else
     __asm__ __volatile__ (
 	"xorl %eax,%eax\n\t"
+	"decl %eax\n\t"
 	"movl %eax,%fs:0" "\n");
     #endif
     AddVectoredExceptionHandler (0, (PVECTORED_EXCEPTION_HANDLER)__mingw_vex);
@@ -391,7 +393,8 @@ _gnu_exception_handler (EXCEPTION_POINTERS * exception_data)
 
 static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data)
 {
-  /* TODO this is not chainablem, therefore need rewrite. */
+  /* TODO this is not chainablem, therefore need rewrite. Disabled the ill code. */
+  #if 0
   #ifdef _WIN64
   __asm__ __volatile__ (
       "movq %gs:0,%rax" "\n\t"
@@ -408,6 +411,7 @@ static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data)
       "jmp *4(%eax)\n\r"
       "l1:\n\t"
       "nop\n");
+#endif
 #endif
   return _gnu_exception_handler(exception_data);
 }

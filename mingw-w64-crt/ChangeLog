@@ -1,3 +1,8 @@
+2007-11-22  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crtexe.c: Corrected fs:0, gs:0 initialization. This
+	let setjmp longjmp work proper.
+
 2007-11-19  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _findfirst64i32.c: Add wide char methods.
