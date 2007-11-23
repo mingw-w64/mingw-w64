@@ -85,15 +85,15 @@ am__dirstamp = $(am__leading_dot)dirstamp
 @LIB32_TRUE@	lib32/dinput_mouse2.$(OBJEXT)
 lib32_libdinput_a_OBJECTS = $(am_lib32_libdinput_a_OBJECTS)
 lib32_libdinput8_a_LIBADD =
-am__lib32_libdinput8_a_SOURCES_DIST = lib32/dinput_kbd.c \
+am__lib32_libdinput8_a_SOURCES_DIST = lib32/dinput_private.h \
 	lib32/dinput_joy.c lib32/dinput_joy2.c lib32/dinput_mouse.c \
-	lib32/dinput_mouse2.c
+	lib32/dinput_mouse2.c lib32/dinput_kbd.c
 @LIB32_TRUE@am_lib32_libdinput8_a_OBJECTS =  \
-@LIB32_TRUE@	lib32/dinput_kbd.$(OBJEXT) \
 @LIB32_TRUE@	lib32/dinput_joy.$(OBJEXT) \
 @LIB32_TRUE@	lib32/dinput_joy2.$(OBJEXT) \
 @LIB32_TRUE@	lib32/dinput_mouse.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dinput_mouse2.$(OBJEXT)
+@LIB32_TRUE@	lib32/dinput_mouse2.$(OBJEXT) \
+@LIB32_TRUE@	lib32/dinput_kbd.$(OBJEXT)
 lib32_libdinput8_a_OBJECTS = $(am_lib32_libdinput8_a_OBJECTS)
 lib32_libdmoguids_a_AR = $(AR) $(ARFLAGS)
 lib32_libdmoguids_a_LIBADD =
@@ -257,11 +257,12 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt64/dirent.c crt64/ftruncate.c \
 	complex/ccosl.c complex/creal.c complex/ctanhl.c \
 	complex/casinh.c complex/cexp.c complex/crealf.c \
 	complex/ctanl.c complex/casinhf.c complex/cexpf.c \
-	complex/creall.c math/acosf.c math/expm1l.c math/ldexpl.c \
-	math/powif.c math/acosh.c math/fabs.c math/lgamma.c \
-	math/powil.c math/acoshf.c math/fabsf.c math/lgammaf.c \
-	math/powl.c math/acoshl.c math/fabsl.c math/lgammal.c \
-	math/remainderf.S math/acosl.c math/fastmath.h math/llrint.c \
+	complex/creall.c math/cephes_emath.h math/cephes_mconf.h \
+	math/fastmath.h math/fp_consts.h math/acosf.c math/expm1l.c \
+	math/ldexpl.c math/powif.c math/acosh.c math/fabs.c \
+	math/lgamma.c math/powil.c math/acoshf.c math/fabsf.c \
+	math/lgammaf.c math/powl.c math/acoshl.c math/fabsl.c \
+	math/lgammal.c math/remainderf.S math/acosl.c math/llrint.c \
 	math/remainderl.S math/asinf.c math/fdim.c math/llrintf.c \
 	math/remainder.S math/asinh.c math/fdimf.c math/llrintl.c \
 	math/remquof.S math/asinhf.c math/fdiml.c math/llround.c \
@@ -280,43 +281,42 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt64/dirent.c crt64/ftruncate.c \
 	math/sf_erf.c math/ceilf.c math/fmodl.c math/logbl.c \
 	math/signbit.c math/ceill.S math/fpclassify.c math/logf.c \
 	math/signbitf.c math/cephes_emath.c math/fpclassifyf.c \
-	math/logl.S math/signbitl.c math/cephes_emath.h \
-	math/fpclassifyl.c math/lrint.c math/sinf.c \
-	math/cephes_mconf.h math/fp_consts.c math/lrintf.c \
-	math/sinhf.c math/copysign.c math/fp_constsf.c math/lrintl.c \
-	math/sinhl.c math/copysignf.c math/fp_consts.h math/lround.c \
-	math/sinl.S math/copysignl.S math/fp_constsl.c math/lroundf.c \
-	math/sqrtf.c math/cosf.c math/frexpf.c math/lroundl.c \
-	math/sqrtl.c math/coshf.c math/frexpl.S math/modff.c \
-	math/tanf.c math/coshl.c math/fucom.c math/modfl.c \
-	math/tanhf.c math/cosl.S math/hypotf.c math/nearbyintf.S \
-	math/tanhl.c math/erfl.c math/hypotl.c math/nearbyintl.S \
-	math/tanl.S math/exp2f.S math/ilogbf.S math/nearbyint.S \
-	math/tgamma.c math/exp2l.S math/ilogbl.S math/nextafterf.c \
-	math/tgammaf.c math/exp2.S math/ilogb.S math/nextafterl.c \
-	math/tgammal.c math/expf.c math/isnan.c math/nexttoward.c \
-	math/trunc.c math/expl.c math/isnanf.c math/nexttowardf.c \
-	math/truncf.c math/expm1.c math/isnanl.c math/powf.c \
-	math/truncl.c math/expm1f.c math/ldexpf.c math/powi.c \
-	misc/alarm.c misc/fesetenv.c misc/mb_wc_common.h \
-	misc/wcrtomb.c misc/btowc.c misc/fesetexceptflag.c \
-	misc/mingw-aligned-malloc.c misc/wcstoimax.c misc/ctime.c \
-	misc/fesetround.c misc/mingw-fseek.c misc/wcstold.c \
-	misc/difftime32.c misc/fetestexcept.c misc/_mkgmtime.c \
-	misc/wcstoumax.c misc/difftime64.c misc/feupdateenv.c \
-	misc/mktime.c misc/wctob.c misc/difftime.c misc/fwide.c \
-	misc/seterrno.c misc/wctrans.c misc/execv.c misc/getlogin.c \
-	misc/sleep.c misc/wctype.c misc/execve.c misc/gettimeofday.c \
-	misc/spawnv.c misc/wininterlocked.c misc/execvp.c \
-	misc/gmtime.c misc/spawnve.c misc/wmemchr.c misc/execvpe.c \
-	misc/imaxabs.c misc/spawnvp.c misc/wmemcmp.c \
-	misc/feclearexcept.c misc/imaxdiv.c misc/spawnvpe.c \
-	misc/wmemcpy.c misc/fegetenv.c misc/isblank.c misc/strtoimax.c \
-	misc/wmemmove.c misc/fegetexceptflag.c misc/iswblank.c \
-	misc/strtold.c misc/wmemset.c misc/fegetround.c \
-	misc/localtime.c misc/strtoumax.c misc/feholdexcept.c \
-	misc/mbrtowc.c misc/time.c misc/feraiseexcept.c misc/mbsinit.c \
-	misc/wassert.c stdio/atoll.c stdio/ftello64.c stdio/strtof.c \
+	math/logl.S math/signbitl.c math/fpclassifyl.c math/lrint.c \
+	math/sinf.c math/fp_consts.c math/lrintf.c math/sinhf.c \
+	math/copysign.c math/fp_constsf.c math/lrintl.c math/sinhl.c \
+	math/copysignf.c math/lround.c math/sinl.S math/copysignl.S \
+	math/fp_constsl.c math/lroundf.c math/sqrtf.c math/cosf.c \
+	math/frexpf.c math/lroundl.c math/sqrtl.c math/coshf.c \
+	math/frexpl.S math/modff.c math/tanf.c math/coshl.c \
+	math/fucom.c math/modfl.c math/tanhf.c math/cosl.S \
+	math/hypotf.c math/nearbyintf.S math/tanhl.c math/erfl.c \
+	math/hypotl.c math/nearbyintl.S math/tanl.S math/exp2f.S \
+	math/ilogbf.S math/nearbyint.S math/tgamma.c math/exp2l.S \
+	math/ilogbl.S math/nextafterf.c math/tgammaf.c math/exp2.S \
+	math/ilogb.S math/nextafterl.c math/tgammal.c math/expf.c \
+	math/isnan.c math/nexttoward.c math/trunc.c math/expl.c \
+	math/isnanf.c math/nexttowardf.c math/truncf.c math/expm1.c \
+	math/isnanl.c math/powf.c math/truncl.c math/expm1f.c \
+	math/ldexpf.c math/powi.c misc/mb_wc_common.h misc/alarm.c \
+	misc/fesetenv.c misc/wcrtomb.c misc/btowc.c \
+	misc/fesetexceptflag.c misc/mingw-aligned-malloc.c \
+	misc/wcstoimax.c misc/ctime.c misc/fesetround.c \
+	misc/mingw-fseek.c misc/wcstold.c misc/difftime32.c \
+	misc/fetestexcept.c misc/_mkgmtime.c misc/wcstoumax.c \
+	misc/difftime64.c misc/feupdateenv.c misc/mktime.c \
+	misc/wctob.c misc/difftime.c misc/fwide.c misc/seterrno.c \
+	misc/wctrans.c misc/execv.c misc/getlogin.c misc/sleep.c \
+	misc/wctype.c misc/execve.c misc/gettimeofday.c misc/spawnv.c \
+	misc/wininterlocked.c misc/execvp.c misc/gmtime.c \
+	misc/spawnve.c misc/wmemchr.c misc/execvpe.c misc/imaxabs.c \
+	misc/spawnvp.c misc/wmemcmp.c misc/feclearexcept.c \
+	misc/imaxdiv.c misc/spawnvpe.c misc/wmemcpy.c misc/fegetenv.c \
+	misc/isblank.c misc/strtoimax.c misc/wmemmove.c \
+	misc/fegetexceptflag.c misc/iswblank.c misc/strtold.c \
+	misc/wmemset.c misc/fegetround.c misc/localtime.c \
+	misc/strtoumax.c misc/feholdexcept.c misc/mbrtowc.c \
+	misc/time.c misc/feraiseexcept.c misc/mbsinit.c misc/wassert.c \
+	stdio/atoll.c stdio/ftello64.c stdio/strtof.c \
 	stdio/vsnwprintf.c stdio/_Exit.c stdio/_fwstat64i32.c \
 	stdio/ulltoa.c stdio/vsscanf.c stdio/_findfirst64i32.c \
 	stdio/lltoa.c stdio/ulltow.c stdio/vswscanf.c \
@@ -895,9 +895,10 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB32_TRUE@  lib32/dinput_mouse.c lib32/dinput_mouse2.c
 
 @LIB32_TRUE@lib32_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-@LIB32_TRUE@lib32_libdinput8_a_SOURCES = lib32/dinput_kbd.c \
+@LIB32_TRUE@lib32_libdinput8_a_SOURCES = lib32/dinput_private.h \
 @LIB32_TRUE@  lib32/dinput_joy.c   lib32/dinput_joy2.c \
-@LIB32_TRUE@  lib32/dinput_mouse.c lib32/dinput_mouse2.c
+@LIB32_TRUE@  lib32/dinput_mouse.c lib32/dinput_mouse2.c \
+@LIB32_TRUE@  lib32/dinput_kbd.c
 
 @LIB32_TRUE@lib32_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libdmoguids_a_SOURCES = lib32/dmoguids.c
@@ -1011,6 +1012,7 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB64_TRUE@  complex/casinh.c   complex/cexp.c     complex/crealf.c  complex/ctanl.c  \
 @LIB64_TRUE@  complex/casinhf.c  complex/cexpf.c    complex/creall.c  \
 @LIB64_TRUE@  \
+@LIB64_TRUE@  math/cephes_emath.h  math/cephes_mconf.h math/fastmath.h     math/fp_consts.h  \
 @LIB64_TRUE@  math/acosf.c         math/expm1l.c       math/ldexpl.c       math/powif.c      \
 @LIB64_TRUE@  math/acosh.c         math/fabs.c         math/lgamma.c       math/powil.c      \
 @LIB64_TRUE@  math/acoshf.c        math/fabsf.c        math/lgammaf.c      math/powl.c       \
@@ -1052,6 +1054,7 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB64_TRUE@  math/expm1.c         math/isnanl.c       math/powf.c         math/truncl.c     \
 @LIB64_TRUE@  math/expm1f.c        math/ldexpf.c       math/powi.c         \
 @LIB64_TRUE@  \
+@LIB64_TRUE@  misc/mb_wc_common.h \
 @LIB64_TRUE@  misc/alarm.c            misc/fesetenv.c         misc/mb_wc_common.h          misc/wcrtomb.c        \
 @LIB64_TRUE@  misc/btowc.c            misc/fesetexceptflag.c  misc/mingw-aligned-malloc.c  misc/wcstoimax.c      \
 @LIB64_TRUE@  misc/ctime.c            misc/fesetround.c       misc/mingw-fseek.c           misc/wcstold.c        \
@@ -1493,8 +1496,7 @@ crt32srcdir = $(top_srcdir)/crt32
 # Installation options
 #
 noinst_HEADERS = \
-  misc/mb_wc_common.h include64/internal.h include64/oscalls.h include64/sect_attribs.h math/fp_consts.h \
-  math/cephes_mconf.h math/fastmath.h math/cephes_emath.h
+ include64/internal.h include64/oscalls.h include64/sect_attribs.h
 
 
 # Cleaning options
@@ -1503,12 +1505,12 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 
 # Distribution options
 #
-EXTRA_DIST = $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def \
-	$(crt64srcdir)/*.def $(crt64srcdir)/crtexe.c \
-	$(crt64srcdir)/crtdll.c $(crt64srcdir)/CRT_fp8.c \
-	$(crt64srcdir)/CRT_fp10.c $(crt64srcdir)/txtmode.c \
-	$(crt64srcdir)/binmode.c $(crt64srcdir)/crtbegin.c \
-	$(crt64srcdir)/crtend.c
+EXTRA_DIST = DISCLAIMER $(top_srcdir)/lib64/*.def \
+	$(top_srcdir)/lib32/*.def $(crt64srcdir)/*.def \
+	$(crt64srcdir)/crtexe.c $(crt64srcdir)/crtdll.c \
+	$(crt64srcdir)/CRT_fp8.c $(crt64srcdir)/CRT_fp10.c \
+	$(crt64srcdir)/txtmode.c $(crt64srcdir)/binmode.c \
+	$(crt64srcdir)/crtbegin.c $(crt64srcdir)/crtend.c
 DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am

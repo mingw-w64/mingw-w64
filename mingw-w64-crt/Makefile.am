@@ -57,9 +57,11 @@ lib32_libdinput_a_SOURCES = lib32/dinput_kbd.c \
 lib32_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libdinput8.a
-lib32_libdinput8_a_SOURCES = lib32/dinput_kbd.c \
+lib32_libdinput8_a_SOURCES = lib32/dinput_private.h \
   lib32/dinput_joy.c   lib32/dinput_joy2.c \
-  lib32/dinput_mouse.c lib32/dinput_mouse2.c
+  lib32/dinput_mouse.c lib32/dinput_mouse2.c \
+  lib32/dinput_kbd.c
+
 lib32_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libdmoguids.a
@@ -231,6 +233,7 @@ lib64_libmingwex_a_SOURCES = \
   complex/casinh.c   complex/cexp.c     complex/crealf.c  complex/ctanl.c  \
   complex/casinhf.c  complex/cexpf.c    complex/creall.c  \
   \
+  math/cephes_emath.h  math/cephes_mconf.h math/fastmath.h     math/fp_consts.h  \
   math/acosf.c         math/expm1l.c       math/ldexpl.c       math/powif.c      \
   math/acosh.c         math/fabs.c         math/lgamma.c       math/powil.c      \
   math/acoshf.c        math/fabsf.c        math/lgammaf.c      math/powl.c       \
@@ -272,6 +275,7 @@ lib64_libmingwex_a_SOURCES = \
   math/expm1.c         math/isnanl.c       math/powf.c         math/truncl.c     \
   math/expm1f.c        math/ldexpf.c       math/powi.c         \
   \
+  misc/mb_wc_common.h \
   misc/alarm.c            misc/fesetenv.c         misc/mb_wc_common.h          misc/wcrtomb.c        \
   misc/btowc.c            misc/fesetexceptflag.c  misc/mingw-aligned-malloc.c  misc/wcstoimax.c      \
   misc/ctime.c            misc/fesetround.c       misc/mingw-fseek.c           misc/wcstold.c        \
@@ -720,8 +724,7 @@ endif
 #
 
 noinst_HEADERS = \
-  misc/mb_wc_common.h include64/internal.h include64/oscalls.h include64/sect_attribs.h math/fp_consts.h \
-  math/cephes_mconf.h math/fastmath.h math/cephes_emath.h
+ include64/internal.h include64/oscalls.h include64/sect_attribs.h
 
 
 # Cleaning options
