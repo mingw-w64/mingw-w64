@@ -118,14 +118,14 @@ extern "C" {
   _CRTIMP __time32_t __cdecl _time32(__time32_t *_Time);
   _CRTIMP __time32_t __cdecl _mktime32(struct tm *_Tm);
   _CRTIMP __time32_t __cdecl _mkgmtime32(struct tm *_Tm);
-#ifdef _POSIX_ || defined(__GNUC__)
+#if defined (_POSIX_) || defined(__GNUC__)
   void __cdecl tzset(void);
 #else
   _CRTIMP void __cdecl _tzset(void);
 #endif
 
 #if _INTEGRAL_MAX_BITS >= 64
-  _CRTIMP double __cdecl _difftime64(__time64_t _Time1,__time64_t _Time2);
+  double __cdecl _difftime64(__time64_t _Time1,__time64_t _Time2);
   _CRTIMP char *__cdecl _ctime64(const __time64_t *_Time);
   _CRTIMP struct tm *__cdecl _gmtime64(const __time64_t *_Time);
   _CRTIMP struct tm *__cdecl _localtime64(const __time64_t *_Time);

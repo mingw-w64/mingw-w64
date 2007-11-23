@@ -128,14 +128,15 @@ typedef CONST void *LPCVOID;
   typedef LONG_PTR LPARAM;
   typedef LONG_PTR LRESULT;
 
+#ifndef __cplusplus
 #ifndef NOMINMAX
-
 #ifndef max
 #define max(a,b) (((a) > (b)) ? (a) : (b))
 #endif
 
 #ifndef min
 #define min(a,b) (((a) < (b)) ? (a) : (b))
+#endif
 #endif
 #endif
 

@@ -106,10 +106,10 @@ extern "C" {
 #define LongToPtr(l) ((VOID *)(LONG_PTR)((long)l))
 #define ULongToPtr(ul) ((VOID *)(ULONG_PTR)((unsigned long)ul))
 
-  static __inline void *PtrToPtr64(const void *p) { return((void *) (unsigned __int64) (ULONG_PTR)p); }
-  static __inline void *Ptr64ToPtr(const void *p) { return((void *) (ULONG_PTR) (unsigned __int64) p); }
+  static __inline void *PtrToPtr64(const void *p) { return((void *) (ULONG_PTR)p); }
+  static __inline void *Ptr64ToPtr(const void *p) { return((void *) (ULONG_PTR) p); }
   static __inline void *HandleToHandle64(const void *h) { return((void *) h); }
-  static __inline void *Handle64ToHandle(const void *h) { return((void *) (ULONG_PTR) (unsigned __int64) h); }
+  static __inline void *Handle64ToHandle(const void *h) { return((void *) (ULONG_PTR) h); }
 
 #define Ptr32ToPtr(p) ((void *) p)
 #define Handle32ToHandle(h) (Ptr32ToPtr(h))

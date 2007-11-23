@@ -48,9 +48,9 @@ typedef unsigned   uint_least32_t;
 typedef long long  int_least64_t;
 typedef unsigned long long   uint_least64_t;
 
-/*  7.18.1.3  Fastest minimum-width integer types 
+/*  7.18.1.3  Fastest minimum-width integer types
  *  Not actually guaranteed to be fastest for all purposes
- *  Here we use the exact-width types for 8 and 16-bit ints. 
+ *  Here we use the exact-width types for 8 and 16-bit ints.
  */
 typedef char int_fast8_t;
 typedef unsigned char uint_fast8_t;
@@ -69,7 +69,7 @@ typedef unsigned long long   uintmax_t;
 #if !defined ( __cplusplus) || defined (__STDC_LIMIT_MACROS)
 
 /* 7.18.2.1  Limits of exact-width integer types */
-#define INT8_MIN (-128) 
+#define INT8_MIN (-128)
 #define INT16_MIN (-32768)
 #define INT32_MIN (-2147483647 - 1)
 #define INT64_MIN  (-9223372036854775807LL - 1)
@@ -117,10 +117,16 @@ typedef unsigned long long   uintmax_t;
 #define UINT_FAST64_MAX UINT64_MAX
 
 /* 7.18.2.4  Limits of integer types capable of holding
-    object pointers */ 
+    object pointers */
+#ifdef _WIN64
+#define INTPTR_MIN INT64_MIN
+#define INTPTR_MAX INT64_MAX
+#define UINTPTR_MAX UINT64_MAX
+#else
 #define INTPTR_MIN INT32_MIN
 #define INTPTR_MAX INT32_MAX
 #define UINTPTR_MAX UINT32_MAX
+#endif
 
 /* 7.18.2.5  Limits of greatest-width integer types */
 #define INTMAX_MIN INT64_MIN
@@ -128,15 +134,26 @@ typedef unsigned long long   uintmax_t;
 #define UINTMAX_MAX UINT64_MAX
 
 /* 7.18.3  Limits of other integer types */
+#ifdef _WIN64
+#define PTRDIFF_MIN INT64_MIN
+#define PTRDIFF_MAX INT64_MAX
+#else
 #define PTRDIFF_MIN INT32_MIN
 #define PTRDIFF_MAX INT32_MAX
+#endif
 
 #define SIG_ATOMIC_MIN INT32_MIN
 #define SIG_ATOMIC_MAX INT32_MAX
 
+#ifndef SIZE_MAX
+#ifdef _WIN64
+#define SIZE_MAX UINT64_MAX
+#else
 #define SIZE_MAX UINT32_MAX
+#endif
+#endif
 
-#ifndef WCHAR_MIN  /* also in wchar.h */ 
+#ifndef WCHAR_MIN  /* also in wchar.h */
 #define WCHAR_MIN 0
 #define WCHAR_MAX ((wchar_t)-1) /* UINT16_MAX */
 #endif
@@ -172,7 +189,7 @@ typedef unsigned long long   uintmax_t;
 #define INT16_C(val) (INT_LEAST16_MAX-INT_LEAST16_MAX+(val))
 #define INT32_C(val) (INT_LEAST32_MAX-INT_LEAST32_MAX+(val))
 /*  The 'trick' doesn't work in C89 for long long because, without
-    suffix, (val) will be evaluated as int, not intmax_t */ 
+    suffix, (val) will be evaluated as int, not intmax_t */
 #define INT64_C(val) val##LL
 
 #define UINT8_C(val) (UINT_LEAST8_MAX-UINT_LEAST8_MAX+(val))

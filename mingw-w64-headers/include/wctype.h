@@ -43,9 +43,9 @@ extern "C" {
 
 #ifndef __PCTYPE_FUNC
 #define __PCTYPE_FUNC __pctype_func()
+#define __pctype_func() (*_imp___pctype)
 #endif
 
-  _CRTIMP const unsigned short *__cdecl __pctype_func(void);
 #ifndef _pctype
   extern unsigned short **_imp___pctype;
 #define _pctype (*_imp___pctype)
@@ -61,10 +61,11 @@ extern "C" {
   extern unsigned short **_imp___wctype;
 #define _wctype (*_imp___wctype)
 #endif
-  _CRTIMP const wctype_t *__cdecl __pwctype_func(void);
+
 #ifndef _pwctype
   extern unsigned short **_imp___pwctype;
 #define _pwctype (*_imp___pwctype)
+#define __pwctype_func() (*_imp___pwctype)
 #endif
 #endif
 #endif

@@ -1,3 +1,20 @@
+2007-11-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* wchar.h: Correct if clauses and (xxx)_func functions. Additionally
+	remove a lot of warnings for 64-bit and 32-bit version.
+	* minmax.h: Likewise.
+	* stdlib.h: Likewise.
+	* stdint.h: Likewise.
+	* windef.h: Likewise.
+	* io.h: Likewise.
+	* winsock2.h: Likewise.
+	* ctype.h: Likewise.
+	* winerror.h: Likewise.
+	* time.h: Likewise.
+	* wctype.h: Likewise.
+	* basetsd.h: Likewise.
+	* setjmp.h: Likewise.
+
 2007-11-19  Kai Tietz  <kai.tietz@onevision.com>
 
 	* all files with interface: Use instead struct for objc sake.

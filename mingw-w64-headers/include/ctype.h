@@ -22,9 +22,9 @@ extern "C" {
 
 #ifndef __PCTYPE_FUNC
 #define __PCTYPE_FUNC __pctype_func()
+#define __pctype_func()	(*_imp___pctype)
 #endif
 
-  _CRTIMP const unsigned short *__cdecl __pctype_func(void);
 #ifndef _pctype
   extern unsigned short **_imp___pctype;
 #define _pctype (*_imp___pctype)
@@ -40,7 +40,7 @@ extern "C" {
   extern unsigned short **_imp___wctype;
 #define _wctype (*_imp___wctype)
 #endif
-  _CRTIMP const wctype_t *__cdecl __pwctype_func(void);
+#define __pwctype_func() (*_imp___pwctype)
 #ifndef _pwctype
   extern unsigned short **_imp___pwctype;
 #define _pwctype (*_imp___pwctype)
@@ -172,8 +172,7 @@ int __cdecl iswblank(wint_t _C);
 #define __mb_cur_max	(*_imp____mb_cur_max)
   extern int *_imp____mb_cur_max;
 #endif
-  int __cdecl ___mb_cur_max_func(void);
-  int __cdecl ___mb_cur_max_l_func(_locale_t);
+#define ___mb_cur_max_func() (*_imp____mb_cur_max)
 #endif
 
 #define __chvalidchk(a,b) (__PCTYPE_FUNC[(a)] & (b))

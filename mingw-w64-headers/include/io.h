@@ -7,6 +7,7 @@
 #define _INC_IO
 
 #include <_mingw.h>
+#include <string.h>
 
 #pragma pack(push,_CRT_PACKING)
 

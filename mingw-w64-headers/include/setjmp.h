@@ -141,8 +141,8 @@ extern "C" {
 #define _JMP_BUF_DEFINED
 #endif
 
-  int __cdecl setjmp(jmp_buf _Buf);
-  __declspec(noreturn) void __cdecl longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
+  _CRTIMP int __cdecl __attribute__ ((__nothrow__)) setjmp(jmp_buf _Buf);
+  _CRTIMP __declspec(noreturn) __attribute__ ((__nothrow__)) void __cdecl longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
 
 #ifdef __cplusplus
 }

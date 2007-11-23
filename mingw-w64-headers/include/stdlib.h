@@ -93,8 +93,8 @@ extern "C" {
 #define __mb_cur_max	(*_imp____mb_cur_max)
   extern int *_imp____mb_cur_max;
 #endif
-  int __cdecl ___mb_cur_max_func(void);
-  int __cdecl ___mb_cur_max_l_func(_locale_t);
+  extern int* _imp____mbcur_max;
+#define ___mb_cur_max_func() (*_imp____mb_cur_max)
 #endif
 
 #define __max(a,b) (((a) > (b)) ? (a) : (b))
@@ -434,18 +434,19 @@ extern "C" {
 
 #ifndef	NO_OLDNAMES
 #ifndef _POSIX_
+#if 0
 #ifndef __cplusplus
 #ifndef NOMINMAX
-#ifdef max
-#undef max
-#endif
-#ifdef min
-#undef min
-#endif
+#ifndef max
 #define max(a,b) (((a) > (b)) ? (a) : (b))
+#endif
+#ifndef min
 #define min(a,b) (((a) < (b)) ? (a) : (b))
 #endif
 #endif
+#endif
+#endif
+
 #define sys_errlist _sys_errlist
 #define sys_nerr _sys_nerr
 #define environ _environ
