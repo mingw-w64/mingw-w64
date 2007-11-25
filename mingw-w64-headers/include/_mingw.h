@@ -233,7 +233,9 @@ extern "C" {
 
 #ifndef _WCHAR_T_DEFINED
 #define _WCHAR_T_DEFINED
+#ifndef __cplusplus
   typedef unsigned short wchar_t;
+#endif
 #endif
 
 #ifndef _WCTYPE_T_DEFINED
