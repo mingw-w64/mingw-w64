@@ -565,6 +565,7 @@ InterlockedCompareExchange
 InterlockedDecrement
 InterlockedExchange
 InterlockedExchangeAdd
+_InterlockedExchangeAdd = InterlockedExchangeAdd
 InterlockedFlushSList
 InterlockedIncrement
 InterlockedPopEntrySList
