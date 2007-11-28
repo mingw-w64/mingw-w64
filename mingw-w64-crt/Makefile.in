@@ -21,7 +21,8 @@
 # Done: fix make dist
 # TODO: Use $(RM) instead of rm?
 # TODO: Use $(TAR) instead of tar?
-# TODO: add --def $(top_srcdir)/ to $(MAKEDLL)
+# TODO: Find a better way to handle dxerr.c -- make it dxerr.h and add to sources list?
+#
 
 #Use AM_MAINTAINER_MODE in configure.ac to disable autoreconf
 
@@ -126,6 +127,10 @@ lib32_liblargeint_a_LIBADD =
 am__lib32_liblargeint_a_SOURCES_DIST = lib32/largeint.c
 @LIB32_TRUE@am_lib32_liblargeint_a_OBJECTS = lib32/largeint.$(OBJEXT)
 lib32_liblargeint_a_OBJECTS = $(am_lib32_liblargeint_a_OBJECTS)
+lib32_libm_a_AR = $(AR) $(ARFLAGS)
+lib32_libm_a_LIBADD =
+@LIB32_TRUE@nodist_lib32_libm_a_OBJECTS = _libm_dummy.$(OBJEXT)
+lib32_libm_a_OBJECTS = $(nodist_lib32_libm_a_OBJECTS)
 lib32_libscrnsave_a_AR = $(AR) $(ARFLAGS)
 lib32_libscrnsave_a_LIBADD =
 am__lib32_libscrnsave_a_SOURCES_DIST = lib32/scrnsave.c
@@ -695,14 +700,15 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib32_libdmoguids_a_SOURCES) $(lib32_libdxerr8_a_SOURCES) \
 	$(lib32_libdxerr9_a_SOURCES) $(lib32_libdxguid_a_SOURCES) \
 	$(lib32_libkernel32_a_SOURCES) $(lib32_liblargeint_a_SOURCES) \
-	$(lib32_libscrnsave_a_SOURCES) $(lib32_libscrnsavw_a_SOURCES) \
-	$(lib32_libshell32_a_SOURCES) $(lib32_libstrmiids_a_SOURCES) \
-	$(lib32_libuuid_a_SOURCES) $(lib32_libws2_32_a_SOURCES) \
-	$(lib64_libkernel32_a_SOURCES) $(lib64_liblargeint_a_SOURCES) \
-	$(nodist_lib64_libm_a_SOURCES) $(lib64_libmingw32_a_SOURCES) \
-	$(lib64_libmingwex_a_SOURCES) $(lib64_libmoldname_a_SOURCES) \
-	$(lib64_libscrnsave_a_SOURCES) $(lib64_libscrnsavw_a_SOURCES) \
-	$(lib64_libshell32_a_SOURCES) $(lib64_libuuid_a_SOURCES)
+	$(nodist_lib32_libm_a_SOURCES) $(lib32_libscrnsave_a_SOURCES) \
+	$(lib32_libscrnsavw_a_SOURCES) $(lib32_libshell32_a_SOURCES) \
+	$(lib32_libstrmiids_a_SOURCES) $(lib32_libuuid_a_SOURCES) \
+	$(lib32_libws2_32_a_SOURCES) $(lib64_libkernel32_a_SOURCES) \
+	$(lib64_liblargeint_a_SOURCES) $(nodist_lib64_libm_a_SOURCES) \
+	$(lib64_libmingw32_a_SOURCES) $(lib64_libmingwex_a_SOURCES) \
+	$(lib64_libmoldname_a_SOURCES) $(lib64_libscrnsave_a_SOURCES) \
+	$(lib64_libscrnsavw_a_SOURCES) $(lib64_libshell32_a_SOURCES) \
+	$(lib64_libuuid_a_SOURCES)
 DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdinput8_a_SOURCES_DIST) \
 	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
@@ -862,6 +868,7 @@ DTDEF = $(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | sed '{s|/lib|/|;s|\.a|.def|}'`
 crt64srcdir = $(top_srcdir)/crt64
 crt32srcdir = $(top_srcdir)/crt32
+BUILT_SOURCES = _libm_dummy.c
 
 #########
 # Compiling 32-bit runtime
@@ -879,13 +886,15 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB32_TRUE@ksuser.c \
 @LIB32_TRUE@test.c
 
-@LIB32_TRUE@lib32_LIBRARIES = lib32/libkernel32.a lib32/libshell32.a \
-@LIB32_TRUE@	lib32/libdinput.a lib32/libdinput8.a \
-@LIB32_TRUE@	lib32/libdmoguids.a lib32/libdxerr8.a \
-@LIB32_TRUE@	lib32/libdxerr9.a lib32/libdxguid.a \
-@LIB32_TRUE@	lib32/liblargeint.a lib32/libscrnsave.a \
-@LIB32_TRUE@	lib32/libscrnsavw.a lib32/libstrmiids.a \
-@LIB32_TRUE@	lib32/libuuid.a lib32/libws2_32.a
+@LIB32_TRUE@lib32_LIBRARIES = lib32/libm.a lib32/libkernel32.a \
+@LIB32_TRUE@	lib32/libshell32.a lib32/libdinput.a \
+@LIB32_TRUE@	lib32/libdinput8.a lib32/libdmoguids.a \
+@LIB32_TRUE@	lib32/libdxerr8.a lib32/libdxerr9.a \
+@LIB32_TRUE@	lib32/libdxguid.a lib32/liblargeint.a \
+@LIB32_TRUE@	lib32/libscrnsave.a lib32/libscrnsavw.a \
+@LIB32_TRUE@	lib32/libstrmiids.a lib32/libuuid.a \
+@LIB32_TRUE@	lib32/libws2_32.a
+@LIB32_TRUE@nodist_lib32_libm_a_SOURCES = _libm_dummy.c
 @LIB32_TRUE@lib32_libkernel32_a_SOURCES = lib32/kernel32.c
 @LIB32_TRUE@lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = lib32/shell32.c
@@ -962,7 +971,6 @@ crt32srcdir = $(top_srcdir)/crt32
 @LIB64_TRUE@  crt64/crt1.o crt64/crt2.o crt64/dllcrt1.o crt64/dllcrt2.o \
 @LIB64_TRUE@  crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o
 
-@LIB64_TRUE@BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@lib64_LIBRARIES = lib64/libm.a lib64/libkernel32.a \
 @LIB64_TRUE@	lib64/libshell32.a lib64/liblargeint.a \
 @LIB64_TRUE@	lib64/libscrnsave.a lib64/libscrnsavw.a \
@@ -1495,7 +1503,7 @@ crt32srcdir = $(top_srcdir)/crt32
 
 # Installation options
 #
-noinst_HEADERS = \
+noinst_HEADERS = lib32/dxerr.c \
  include64/internal.h include64/oscalls.h include64/sect_attribs.h
 
 
@@ -1689,6 +1697,10 @@ lib32/liblargeint.a: $(lib32_liblargeint_a_OBJECTS) $(lib32_liblargeint_a_DEPEND
 	-rm -f lib32/liblargeint.a
 	$(lib32_liblargeint_a_AR) lib32/liblargeint.a $(lib32_liblargeint_a_OBJECTS) $(lib32_liblargeint_a_LIBADD)
 	$(RANLIB) lib32/liblargeint.a
+lib32/libm.a: $(lib32_libm_a_OBJECTS) $(lib32_libm_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libm.a
+	$(lib32_libm_a_AR) lib32/libm.a $(lib32_libm_a_OBJECTS) $(lib32_libm_a_LIBADD)
+	$(RANLIB) lib32/libm.a
 lib32/scrnsave.$(OBJEXT): lib32/$(am__dirstamp) \
 	lib32/$(DEPDIR)/$(am__dirstamp)
 lib32/libscrnsave.a: $(lib32_libscrnsave_a_OBJECTS) $(lib32_libscrnsave_a_DEPENDENCIES) lib32/$(am__dirstamp)
@@ -8540,6 +8552,8 @@ uninstall-am: uninstall-crt64SCRIPTS uninstall-lib32LIBRARIES \
 	uninstall-lib32SCRIPTS uninstall-lib64LIBRARIES \
 	uninstall-lib64SCRIPTS
 
+_libm_dummy.c:
+	echo "static int __mingw_libm_dummy;" > _libm_dummy.c
 
 @LIB32_TRUE@lib32/lib%.a:
 @LIB32_TRUE@	$(DTDEF) $(top_srcdir)/lib32/$*.def
@@ -8554,8 +8568,6 @@ uninstall-am: uninstall-crt64SCRIPTS uninstall-lib32LIBRARIES \
 
 @LIB64_TRUE@crt64/lib%.a: crt64/%.def
 @LIB64_TRUE@	$(DTDEF) $(crt64srcdir)/$*.def --dllname lib64/$*.dll
-@LIB64_TRUE@_libm_dummy.c:
-@LIB64_TRUE@	echo "static int __mingw_libm_dummy;" > _libm_dummy.c
 
 @LIB64_TRUE@lib64/lib%.a:
 @LIB64_TRUE@	$(DTDEF) $(top_srcdir)/lib64/$*.def

@@ -5,7 +5,8 @@
 # Done: fix make dist
 # TODO: Use $(RM) instead of rm?
 # TODO: Use $(TAR) instead of tar?
-# TODO: add --def $(top_srcdir)/ to $(MAKEDLL)
+# TODO: Find a better way to handle dxerr.c -- make it dxerr.h and add to sources list?
+#
 
 #Use AM_MAINTAINER_MODE in configure.ac to disable autoreconf
 
@@ -22,6 +23,12 @@ DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | sed '{s|/lib|/|;s|\.a|.def|}'`
 crt64srcdir=$(top_srcdir)/crt64
 crt32srcdir=$(top_srcdir)/crt32
+
+
+BUILT_SOURCES = _libm_dummy.c
+_libm_dummy.c:
+	echo "static int __mingw_libm_dummy;" > _libm_dummy.c
+
 
 if LIB32
 #########
@@ -42,7 +49,10 @@ dxerr.c \
 ksuser.c \
 test.c
 
-lib32_LIBRARIES = lib32/libkernel32.a
+lib32_LIBRARIES = lib32/libm.a
+nodist_lib32_libm_a_SOURCES = _libm_dummy.c
+
+lib32_LIBRARIES += lib32/libkernel32.a
 lib32_libkernel32_a_SOURCES = lib32/kernel32.c
 lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
@@ -164,11 +174,6 @@ crt64/dllcrt2.o:
 crt64/lib%.a: crt64/%.def
 	$(DTDEF) $(crt64srcdir)/$*.def --dllname lib64/$*.dll
 
-
-
-BUILT_SOURCES = _libm_dummy.c
-_libm_dummy.c:
-	echo "static int __mingw_libm_dummy;" > _libm_dummy.c
 
 lib64_LIBRARIES = lib64/libm.a
 nodist_lib64_libm_a_SOURCES = _libm_dummy.c
@@ -723,7 +728,7 @@ endif
 # Installation options
 #
 
-noinst_HEADERS = \
+noinst_HEADERS = lib32/dxerr.c \
  include64/internal.h include64/oscalls.h include64/sect_attribs.h
 
 
