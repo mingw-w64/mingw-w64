@@ -88,17 +88,13 @@ You have at least two different choices to build the crosscompiler toolchain:
 
 
 5. Building the crt:
-  Step 0) If you are using variant II, may you need to adjust the 'prefix' value in Makefiles.
-  Step 1) Enter into the trunk/mingw-w64-crt root directory.
-  Step 2 for I) Type 'make'
-  Step 2 for II) Type 'make prefix=/mypath'
-	(Note: If building the cross compiler on a system where the default executable extension is not .exe, override
-	the EXEEXT variable on the make commandline by adding "EXEEXT=".)
-  Step 3) Copy all generated *.a files out of the 'mklibs' folder into the
-	'<install-root>/x86_64-pc-mingw32/lib' folder.
-  Step 4) Copy out of the root folder to the '<install-root>/x86_64-pc-mingw32/lib' folder the files
-	crt1.o, crt2.o, lib*.a, *.dll, crtbegin.o, crtend.o, dllcrt1.o, dllcrt2.o, binmode.o, txtmode.o,
-	CRT_fp8.o, and the CRT_fp10.o
+  Step 0) Place the gcc that you just installed into your PATH.
+  Step 1) Enter into the trunk/mingw-w64-crt root directory and generate a
+	directory within (e.g. 'build'), and enter into it.
+  Step 2 for I) Type '../configure --host=x86_64-pc-mingw32'
+  Step 2 for II) Type '../configure --host=x86_64-pc-mingw32 --prefix=/mypath --with-sysroot=/mypath'
+  Step 3) Type 'make'
+  Step 4) Type 'make install'
 	Note: Currently there is no dll build. As long as we use static crt libraries.we won't need a ctor/dtor dll.
 
 
