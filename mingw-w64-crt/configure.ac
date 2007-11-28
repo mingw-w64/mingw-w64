@@ -62,17 +62,13 @@ AM_PROG_CC_C_O
 #AC_CHECK_HEADERS([fcntl.h fenv.h float.h inttypes.h limits.h locale.h malloc.h stddef.h stdint.h stdlib.h string.h sys/ioctl.h sys/time.h sys/timeb.h termios.h unistd.h wchar.h wctype.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
-AC_C_INLINE
-AC_TYPE_INT32_T
-AC_TYPE_PID_T
-AC_TYPE_SIZE_T
-AC_HEADER_TIME
-AC_TYPE_UINT32_T
-AC_C_VOLATILE
-AC_CHECK_TYPES([ptrdiff_t])
+#AC_C_INLINE
+#AC_HEADER_TIME
+#AC_C_VOLATILE
+#AC_CHECK_TYPES([ptrdiff_t])
 
 # Checks for library functions.
-AC_FUNC_MALLOC
+#AC_FUNC_MALLOC
 #AC_FUNC_MBRTOWC
 #AC_FUNC_REALLOC
 #AC_FUNC_STRTOD

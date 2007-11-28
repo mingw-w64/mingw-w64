@@ -861,6 +861,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 @WITHSYSROOT_FALSE@sysincludes = 
 @WITHSYSROOT_TRUE@sysincludes = -I@TARGET_SYSTEM_ROOT@/mingw/include
+@WITHSYSROOT_FALSE@withsys = 
+@WITHSYSROOT_TRUE@withsys = --with-sysroot=@TARGET_SYSTEM_ROOT@
 AM_CPPFLAGS = -D_CRTBLD -D_SYSCRT=1 -DCRTDLL=1 -DWINHEAP=1 $(sysincludes)
 AM_CFLAGS = -pipe
 AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@
@@ -1519,7 +1521,7 @@ EXTRA_DIST = DISCLAIMER $(top_srcdir)/lib64/*.def \
 	$(crt64srcdir)/CRT_fp8.c $(crt64srcdir)/CRT_fp10.c \
 	$(crt64srcdir)/txtmode.c $(crt64srcdir)/binmode.c \
 	$(crt64srcdir)/crtbegin.c $(crt64srcdir)/crtend.c
-DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32
+DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys)
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
