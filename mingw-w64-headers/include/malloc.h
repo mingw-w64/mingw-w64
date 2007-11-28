@@ -38,12 +38,12 @@ extern "C" {
 #define _USEDENTRY 1
 
 #ifndef _HEAPINFO_DEFINED
+#define _HEAPINFO_DEFINED
   typedef struct _heapinfo {
     int *_pentry;
     size_t _size;
     int _useflag;
   } _HEAPINFO;
-#define _HEAPINFO_DEFINED
 #endif
 
   extern unsigned int _amblksiz;
@@ -72,7 +72,6 @@ extern "C" {
   _CRTIMP int __cdecl _resetstkoflw (void);
   _CRTIMP unsigned long __cdecl _set_malloc_crt_max_wait(unsigned long _NewValue);
 
-#ifndef _POSIX_
   _CRTIMP void *__cdecl _expand(void *_Memory,size_t _NewSize);
   _CRTIMP size_t __cdecl _msize(void *_Memory);
 #ifdef __GNUC__
@@ -99,9 +98,7 @@ extern "C" {
 
 #if(defined(_X86_) && !defined(__x86_64))
 #define _ALLOCA_S_MARKER_SIZE 8
-#elif defined(__ia64__)
-#define _ALLOCA_S_MARKER_SIZE 16
-#elif defined(__x86_64)
+#elif defined(__ia64__) || defined(__x86_64)
 #define _ALLOCA_S_MARKER_SIZE 16
 #endif
 
@@ -120,7 +117,6 @@ extern "C" {
 #undef _FREEA_INLINE
 #define _FREEA_INLINE
 
-#ifdef _FREEA_INLINE
 #ifndef RC_INVOKED
 #undef _freea
   static __inline void __cdecl _freea(void *_Memory) {
@@ -138,12 +134,11 @@ extern "C" {
 #endif
     }
   }
-#endif
-#endif
+#endif /* RC_INVOKED */
 
 #ifndef	NO_OLDNAMES
+#undef alloca
 #define alloca _alloca
-#endif
 #endif
 
 #ifdef HEAPHOOK
@@ -167,4 +162,5 @@ extern "C" {
 #endif
 
 #pragma pack(pop)
-#endif
+
+#endif /* _INC_MALLOC */
