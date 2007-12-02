@@ -1,3 +1,4 @@
+
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
@@ -356,6 +357,19 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 }
 #endif
 #endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* Misc stuff */
+char *getlogin(void);
+unsigned int alarm(unsigned int seconds);
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #pragma pack(pop)
 

@@ -11,6 +11,7 @@
 #endif
 
 #include <_mingw.h>
+#include <io.h>
 
 #pragma pack(push,_CRT_PACKING)
 

@@ -1,3 +1,8 @@
+2007-12-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	* sys/stat.h: Include io.h.
+	* io.h: Add prototypes for alarm and getlogin.
+
 2007-11-23  Kai Tietz  <kai.tietz@onevision.com>
 
 	* wchar.h: Correct if clauses and (xxx)_func functions. Additionally
