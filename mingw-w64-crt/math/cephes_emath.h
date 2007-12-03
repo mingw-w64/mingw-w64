@@ -154,6 +154,7 @@
 #include <locale.h>
 #include <ctype.h>
 
+#undef alloca
 #define alloca __builtin_alloca
 
 /* Don't build non-ANSI _IO_ldtoa.  It is not thread safe. */ 
