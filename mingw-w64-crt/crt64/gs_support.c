@@ -92,12 +92,7 @@ __report_gsfailure (ULONGLONG StackCookie)
 
 #ifdef _WIN64
   RtlCaptureContext (&GS_ContextRecord);
-#ifdef _WIN64
   controlPC = GS_ContextRecord.Rip;
-#else
-  controlPC = GS_ContextRecord.Eip;
-#endif
-#ifdef _WIN64
   fctEntry = RtlLookupFunctionEntry (controlPC, &imgBase, NULL);
   if (fctEntry != NULL)
     {
@@ -105,7 +100,6 @@ __report_gsfailure (ULONGLONG StackCookie)
 			&GS_ContextRecord, &hndData, &establisherFrame, NULL);
     }
   else
-#endif
 #endif
     {
 #ifdef _WIN64
