@@ -36,6 +36,8 @@ Boston, MA 02110-1301, USA.  */
 #ifndef _FLOAT_H___
 #define _FLOAT_H___
 
+#include <_mingw.h>
+
 /* Radix of exponent representation, b. */
 #undef FLT_RADIX
 #define FLT_RADIX	__FLT_RADIX__
@@ -242,5 +244,38 @@ Boston, MA 02110-1301, USA.  */
 #define DECFLT_EVAL_METHOD	__DECFLT_EVAL_METHOD__
 
 #endif /* __STDC_WANT_DEC_FP__ */
+
+#pragma pack(push,_CRT_PACKING)
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* Global 'variable' for the current floating point error code. */
+_CRTIMP int * __cdecl __attribute__ ((__nothrow__)) __fpecode(void);
+#define	_fpecode	(*(__fpecode()))
+
+/*
+ * IEEE recommended functions.  MS puts them in float.h
+ * but they really belong in math.h.
+ */
+
+#ifndef _SIGN_DEFINED
+#define _SIGN_DEFINED
+_CRTIMP double __cdecl __attribute__ ((__nothrow__)) _chgsign	(double);
+_CRTIMP double __cdecl __attribute__ ((__nothrow__)) _copysign (double, double);
+#endif
+_CRTIMP double __cdecl __attribute__ ((__nothrow__)) _logb (double);
+_CRTIMP double __cdecl __attribute__ ((__nothrow__)) _nextafter (double, double);
+_CRTIMP double __cdecl __attribute__ ((__nothrow__)) _scalb (double, long);
+
+_CRTIMP int __cdecl __attribute__ ((__nothrow__)) _finite (double);
+_CRTIMP int __cdecl __attribute__ ((__nothrow__)) _fpclass (double);
+_CRTIMP int __cdecl __attribute__ ((__nothrow__)) _isnan (double);
+#ifdef __cplusplus
+}
+#endif
+
+#pragma pack(pop)
 
 #endif /* _FLOAT_H___ */
