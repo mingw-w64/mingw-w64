@@ -1,3 +1,8 @@
+2007-01-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h: Add __USE_MINGW_ACCESS access patch. Merged
+	from mingw project. PR/1858862.
+
 2007-12-02  Kai Tietz  <kai.tietz@onevision.com>
 
 	* sys/stat.h: Include io.h.
