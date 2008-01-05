@@ -1,3 +1,8 @@
+2008-01-05  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/ and crt64/: Removed dos line-endings.
+	* crt64/moldname-msvcrt.def: Removed stat and fstat. PR/1863020.
+
 2007-11-22  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crtexe.c: Corrected fs:0, gs:0 initialization. This
