@@ -1,4 +1,13 @@
-2007-01-02  Kai Tietz  <kai.tietz@onevision.com>
+2008-01-09  Kai Tietz  <kai.tietz@onevision.com>
+
+	* directx/: New directory merged from mingw.
+	* directx/d3d9.h: New.
+	* directx/d3d9caps.h: New.
+	* directx/d3d9types.h: New.
+	* directx/dxerr8.h: New.
+	* directx/dxerr9.h: New.
+
+2008-01-02  Kai Tietz  <kai.tietz@onevision.com>
 
 	* io.h: Add __USE_MINGW_ACCESS access patch. Merged
 	from mingw project. PR/1858862.
