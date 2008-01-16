@@ -968,7 +968,7 @@ BUILT_SOURCES = _libm_dummy.c
 #########################################################################
 # Compiling 64-bit runtime
 # #######################################################################
-@LIB64_TRUE@crt64dir = $(prefix)/$(host)/lib64
+@LIB64_TRUE@crt64dir = $(prefix)/$(host)/lib
 @LIB64_TRUE@lib64dir = $(crt64dir)
 @LIB64_TRUE@include64 = -I$(top_srcdir)/include64
 @LIB64_TRUE@COMPILE64 = $(COMPILE) $(include64) -c $(crt64srcdir)/

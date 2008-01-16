@@ -163,7 +163,7 @@ if LIB64
 # Compiling 64-bit runtime
 # #######################################################################
 
-crt64dir=$(prefix)/$(host)/lib64
+crt64dir=$(prefix)/$(host)/lib
 lib64dir=$(crt64dir)
 include64=-I$(top_srcdir)/include64
 COMPILE64=$(COMPILE) $(include64) -c $(crt64srcdir)/
