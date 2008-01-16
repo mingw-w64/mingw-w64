@@ -1,3 +1,7 @@
+2008-01-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/fseeko64.c: Add os error mapping.
+
 2008-01-05  Kai Tietz  <kai.tietz@onevision.com>
 
 	* misc/ and crt64/: Removed dos line-endings.

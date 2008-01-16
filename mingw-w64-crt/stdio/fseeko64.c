@@ -9,6 +9,11 @@
 #include <windows.h>
 #include <internal.h>
 
+struct oserr_map {
+  unsigned long oscode; /* OS values */
+  int errnocode; /* System V codes */
+};
+
 typedef union doubleint {
   __int64 bigint;
   struct {
@@ -45,8 +50,35 @@ typedef union doubleint {
 #define FDEV            0x40    /* file handle refers to device */
 #define FTEXT           0x80    /* file handle is in text mode */
 
+static struct oserr_map local_errtab[] = {
+  { ERROR_INVALID_FUNCTION, EINVAL }, { ERROR_FILE_NOT_FOUND, ENOENT },
+  { ERROR_PATH_NOT_FOUND, ENOENT }, { ERROR_TOO_MANY_OPEN_FILES, EMFILE },
+  { ERROR_ACCESS_DENIED, EACCES }, { ERROR_INVALID_HANDLE, EBADF },
+  { ERROR_ARENA_TRASHED, ENOMEM }, { ERROR_NOT_ENOUGH_MEMORY, ENOMEM },
+  { ERROR_INVALID_BLOCK, ENOMEM }, { ERROR_BAD_ENVIRONMENT, E2BIG },
+  { ERROR_BAD_FORMAT, ENOEXEC }, { ERROR_INVALID_ACCESS, EINVAL },
+  { ERROR_INVALID_DATA, EINVAL }, { ERROR_INVALID_DRIVE, ENOENT },
+  { ERROR_CURRENT_DIRECTORY, EACCES }, { ERROR_NOT_SAME_DEVICE, EXDEV },
+  { ERROR_NO_MORE_FILES, ENOENT }, { ERROR_LOCK_VIOLATION, EACCES },
+  { ERROR_BAD_NETPATH, ENOENT }, { ERROR_NETWORK_ACCESS_DENIED, EACCES },
+  { ERROR_BAD_NET_NAME, ENOENT }, { ERROR_FILE_EXISTS, EEXIST },
+  { ERROR_CANNOT_MAKE, EACCES }, { ERROR_FAIL_I24, EACCES },
+  { ERROR_INVALID_PARAMETER, EINVAL }, { ERROR_NO_PROC_SLOTS, EAGAIN },
+  { ERROR_DRIVE_LOCKED, EACCES }, { ERROR_BROKEN_PIPE, EPIPE },
+  { ERROR_DISK_FULL, ENOSPC }, { ERROR_INVALID_TARGET_HANDLE, EBADF },
+  { ERROR_INVALID_HANDLE, EINVAL }, { ERROR_WAIT_NO_CHILDREN, ECHILD },
+  { ERROR_CHILD_NOT_COMPLETE, ECHILD }, { ERROR_DIRECT_ACCESS_HANDLE, EBADF },
+  { ERROR_NEGATIVE_SEEK, EINVAL }, { ERROR_SEEK_ON_DEVICE, EACCES },
+  { ERROR_DIR_NOT_EMPTY, ENOTEMPTY }, { ERROR_NOT_LOCKED, EACCES },
+  { ERROR_BAD_PATHNAME, ENOENT }, { ERROR_MAX_THRDS_REACHED, EAGAIN },
+  { ERROR_LOCK_FAILED, EACCES }, { ERROR_ALREADY_EXISTS, EEXIST },
+  { ERROR_FILENAME_EXCED_RANGE, ENOENT }, { ERROR_NESTING_NOT_ALLOWED, EAGAIN },
+  { ERROR_NOT_ENOUGH_QUOTA, ENOMEM }, { 0, -1 }
+};
+
 __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd);
 __int64 __cdecl _ftelli64(FILE *str);
+void mingw_dosmaperr (unsigned long oserrno);
 
 int __cdecl _flush (FILE *str)
 {
@@ -85,7 +117,7 @@ int __cdecl _fseeki64(FILE *str,__int64 offset,int whence)
         if(!stream || ((whence != SEEK_SET) && (whence != SEEK_CUR) && (whence != SEEK_END)))
 	{
 	  errno=EINVAL;
-	  return(-1);
+	  return -1;
         }
         /* Clear EOF flag */
         stream->_flag &= ~_IOEOF;
@@ -110,7 +142,7 @@ int __cdecl _fseeki64(FILE *str,__int64 offset,int whence)
 
         /* Seek to the desired locale and return. */
 
-        return(_lseeki64(_fileno(stream), offset, whence) == -1ll ? -1 : 0);
+        return (_lseeki64(_fileno(stream), offset, whence) == -1ll ? -1 : 0);
 }
 
 __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd)
@@ -130,18 +162,19 @@ __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd)
   if ((osHandle = (HANDLE)_get_osfhandle(fh)) == (HANDLE)-1)
     {
       errno = EBADF;
-      _ASSERTE(("Invalid file descriptor. File possibly closed by a different thread",0));
-      return (-1ll);
+      _doserrno = 0;
+      return -1ll;
   }
 
   if ( ((newpos.twoints.lowerhalf = SetFilePointer(osHandle,newpos.twoints.lowerhalf,&(newpos.twoints.upperhalf),mthd))==-1L)
      && ((err = GetLastError()) != NO_ERROR))
   {
-      return -1ll;
+    mingw_dosmaperr (err);
+    return -1ll;
   }
 
-  _osfile(fh) &= ~FEOFLAG;        /* clear the ctrl-z flag on the file */
-  return( newpos.bigint );        /* return */
+  _osfile(fh) &= ~FEOFLAG; /* clear the ctrl-z flag on the file */
+  return newpos.bigint;
 }
 
 __int64 __cdecl _ftelli64(FILE *str)
@@ -159,10 +192,10 @@ __int64 __cdecl _ftelli64(FILE *str)
         fd = _fileno(stream);
         if (stream->_cnt < 0ll) stream->_cnt = 0ll;
         if ((filepos = _lseeki64(fd, 0ll, SEEK_CUR)) < 0L)
-                return(-1ll);
+                return -1ll;
 
         if (!bigbuf(stream))            /* _IONBF or no buffering designated */
-                return(filepos - (__int64) stream->_cnt);
+                return (filepos - (__int64) stream->_cnt);
 
         offset = (size_t)(stream->_ptr - stream->_base);
 
@@ -174,7 +207,7 @@ __int64 __cdecl _ftelli64(FILE *str)
         }
         else if (!(stream->_flag & _IORW)) {
                 errno=EINVAL;
-                return(-1ll);
+                return -1ll;
         }
 
         if (filepos == 0ll)
@@ -206,5 +239,27 @@ __int64 __cdecl _ftelli64(FILE *str)
 	    } /* end if FTEXT */
 	    filepos -= (__int64)rdcnt;
 	  } /* end else stream->_cnt != 0 */
-        return(filepos + (__int64)offset);
+        return (filepos + (__int64)offset);
+}
+
+void mingw_dosmaperr (unsigned long oserrno)
+{
+  size_t i;
+
+  _doserrno = oserrno;        /* set _doserrno */
+  /* check the table for the OS error code */
+  i = 0;
+  do {
+    if (oserrno == local_errtab[i].oscode)
+    {
+      errno = local_errtab[i].errnocode;
+      return;
+    }
+  } while (local_errtab[++i].errnocode != -1);
+  if (oserrno >= ERROR_WRITE_PROTECT && oserrno <= ERROR_SHARING_BUFFER_EXCEEDED)
+    errno = EACCES;
+  else if (oserrno >= ERROR_INVALID_STARTING_CODESEG && oserrno <= ERROR_INFLOOP_IN_RELOC_CHAIN)
+    errno = ENOEXEC;
+  else
+    errno = EINVAL;
 }
