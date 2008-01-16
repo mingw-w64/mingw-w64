@@ -863,8 +863,12 @@ top_srcdir = @top_srcdir@
 @WITHSYSROOT_TRUE@sysincludes = -I@TARGET_SYSTEM_ROOT@/mingw/include
 @WITHSYSROOT_FALSE@withsys = 
 @WITHSYSROOT_TRUE@withsys = --with-sysroot=@TARGET_SYSTEM_ROOT@
+@VISTA_FALSE@vistasupport = 
+@VISTA_TRUE@vistasupport = -D__USE_MINGW_ACCESS
+@VISTA_FALSE@enablevista = 
+@VISTA_TRUE@enablevista = --enable-vista
 AM_CPPFLAGS = -D_CRTBLD -D_SYSCRT=1 -DCRTDLL=1 -DWINHEAP=1 $(sysincludes)
-AM_CFLAGS = -pipe
+AM_CFLAGS = -pipe $(vistasupport)
 AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@
 DTDEF = $(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | sed '{s|/lib|/|;s|\.a|.def|}'`
@@ -1521,7 +1525,7 @@ EXTRA_DIST = DISCLAIMER $(top_srcdir)/lib64/*.def \
 	$(crt64srcdir)/CRT_fp8.c $(crt64srcdir)/CRT_fp10.c \
 	$(crt64srcdir)/txtmode.c $(crt64srcdir)/binmode.c \
 	$(crt64srcdir)/crtbegin.c $(crt64srcdir)/crtend.c
-DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys)
+DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

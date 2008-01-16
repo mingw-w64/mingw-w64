@@ -18,8 +18,16 @@ else
   withsys=
 endif
 
+if VISTA
+  vistasupport=-D__USE_MINGW_ACCESS
+  enablevista=--enable-vista
+else
+  vistasupport=
+  enablevista=
+endif
+
 AM_CPPFLAGS=-D_CRTBLD -D_SYSCRT=1 -DCRTDLL=1 -DWINHEAP=1 $(sysincludes)
-AM_CFLAGS=-pipe
+AM_CFLAGS=-pipe $(vistasupport)
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | sed '{s|/lib|/|;s|\.a|.def|}'`
@@ -756,7 +764,7 @@ EXTRA_DIST += $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def \
   $(crt64srcdir)/crtbegin.c \
   $(crt64srcdir)/crtend.c
 
-DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys)
+DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
 
 dist-hook:
 	rm -rf `find $(top_distdir) -name ".svn"`
