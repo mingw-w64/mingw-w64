@@ -187,36 +187,52 @@ extern "C" {
 #ifndef _SIZE_T_DEFINED
 #define _SIZE_T_DEFINED
 #ifdef _WIN64
-  typedef unsigned __int64 size_t;
+#if defined(__GNUC__) && defined(__STRICT_ANSI__)
+  typedef unsigned int size_t __attribute__ ((mode (DI)));
 #else
-  typedef unsigned int size_t;
+  typedef unsigned __int64 size_t;
+#endif
+#else
+  typedef unsigned long size_t;
 #endif
 #endif
 
 #ifndef _SSIZE_T_DEFINED
 #define _SSIZE_T_DEFINED
 #ifdef _WIN64
-  typedef __int64 ssize_t;
+#if defined(__GNUC__) && defined(__STRICT_ANSI__)
+  typedef int ssize_t __attribute__ ((mode (DI)));
 #else
-  typedef int ssize_t;
+  typedef __int64 ssize_t;
+#endif
+#else
+  typedef long ssize_t;
 #endif
 #endif
 
 #ifndef _INTPTR_T_DEFINED
 #define _INTPTR_T_DEFINED
 #ifdef _WIN64
-  typedef __int64 intptr_t;
+#if defined(__GNUC__) && defined(__STRICT_ANSI__)
+  typedef int intptr_t __attribute__ ((mode (DI)));
 #else
-  typedef int intptr_t;
+  typedef __int64 intptr_t;
+#endif
+#else
+  typedef long intptr_t;
 #endif
 #endif
 
 #ifndef _UINTPTR_T_DEFINED
 #define _UINTPTR_T_DEFINED
 #ifdef _WIN64
-  typedef unsigned __int64 uintptr_t;
+#if defined(__GNUC__) && defined(__STRICT_ANSI__)
+  typedef unsigned int uintptr_t __attribute__ ((mode (DI)));
 #else
-  typedef unsigned int uintptr_t;
+  typedef unsigned __int64 uintptr_t;
+#endif
+#else
+  typedef unsigned long uintptr_t;
 #endif
 #endif
 
@@ -224,9 +240,13 @@ extern "C" {
 #define _PTRDIFF_T_DEFINED
 #ifndef _PTRDIFF_T_
 #ifdef _WIN64
-  typedef __int64 ptrdiff_t;
+#if defined(__GNUC__) && defined(__STRICT_ANSI__)
+  typedef int ptrdiff_t __attribute__ ((mode (DI)));
 #else
-  typedef int ptrdiff_t;
+  typedef __int64 ptrdiff_t;
+#endif
+#else
+  typedef long ptrdiff_t;
 #endif
 #endif
 #endif
