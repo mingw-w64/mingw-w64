@@ -1271,6 +1271,7 @@ typedef DWORD LCID;
     DWORD64 Rip;
     union {
       XMM_SAVE_AREA32 FltSave;
+      XMM_SAVE_AREA32 FloatSave;
       struct {
 	M128A Header[2];
 	M128A Legacy[8];
