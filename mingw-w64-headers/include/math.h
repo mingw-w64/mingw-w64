@@ -699,3 +699,6 @@ extern "C++" {
 #define M_SQRT2 1.41421356237309504880
 #define M_SQRT1_2 0.707106781186547524401
 #endif
+
+#endif /* End _MATH_H_ */
+
