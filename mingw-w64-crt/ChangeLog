@@ -1,3 +1,7 @@
+2008-01-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt64/dirent.c: Add add _tGetFileAttributes for win95.
+
 2008-01-16  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdio/fseeko64.c: Add os error mapping.
