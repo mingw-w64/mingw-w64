@@ -4,8 +4,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifndef _INC_IO
-#define _INC_IO
+#ifndef _IO_H_
+#define _IO_H_
 
 #include <_mingw.h>
 #include <string.h>
@@ -402,4 +402,5 @@ static inline int __mingw_access (const char *__fname, int __mode) {
 
 #include <sec_api/io_s.h>
 
-#endif
+#endif /* End _IO_H_ */
+
