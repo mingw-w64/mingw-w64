@@ -3,8 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifndef _INC_TIMEB
-#define _INC_TIMEB
+#ifndef _TIMEB_H_
+#define _TIMEB_H_
 
 #include <_mingw.h>
 

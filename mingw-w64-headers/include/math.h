@@ -3,8 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifndef _INC_MATH
-#define _INC_MATH
+#ifndef _MATH_H_
+#define _MATH_H_
 
 #include <_mingw.h>
 

@@ -46,8 +46,6 @@ int getntptimeofday (struct timespec *tp, struct timezone *z)
   return res;
 }
 
-#if 0
-
 int __cdecl gettimeofday (struct timeval *p, struct timezone *z)
 {
   struct timespec tp;
@@ -58,8 +56,6 @@ int __cdecl gettimeofday (struct timeval *p, struct timezone *z)
   p->tv_usec=(tp.tv_nsec/1000);
   return 0;
 }
-
-#endif
 
 int __cdecl mingw_gettimeofday (struct timeval *p, struct timezone *z)
 {

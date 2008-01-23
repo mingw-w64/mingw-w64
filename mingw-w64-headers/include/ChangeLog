@@ -1,3 +1,11 @@
+2008-01-23  Kai Tietz  <kai.tietz@onevision.com>
+
+        * sys/time.h: Add gettimeofday declaration for not __STRICT_ANSI__.
+        * time.h: Protect timezone declaration.
+        Change major protection-clause.
+        * math.h: Change major protection-clause.
+        * sys/timeb.h: Change major protection-clause.
+
 2008-01-19  Kai Tietz  <kai.tietz@onevision.com>
 
         * winnt.h: Added old-style context member for float description.

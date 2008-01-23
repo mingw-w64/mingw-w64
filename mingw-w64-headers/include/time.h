@@ -3,8 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifndef _INC_TIME
-#define _INC_TIME
+#ifndef _TIME_H_
+#define _TIME_H_
 
 #include <_mingw.h>
 
@@ -245,15 +245,17 @@ struct timeval {
 #define timerclear(tvp) (tvp)->tv_sec = (tvp)->tv_usec = 0
 #endif /* _TIMEVAL_DEFINED */
 
+#ifndef __STRICT_ANSI__
+#ifndef _TIMEZONE_DEFINED /* also in sys/time.h */
+#define _TIMEZONE_DEFINED
 struct timezone {
   int tz_minuteswest;
   int tz_dsttime;
 };
 
-/* Disabled for libiberty sake.  */
-#if 0
   extern int __cdecl gettimeofday (struct timeval *p, struct timezone *z);
 #endif
+#endif /* __STRICT_ANSI__ */
 
 #ifdef __cplusplus
 }

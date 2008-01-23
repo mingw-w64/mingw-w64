@@ -3,8 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifndef _INC_TIME_S
-#define _INC_TIME_S
+#ifndef _TIME_H__S
+#define _TIME_H__S
 
 #include <time.h>
 

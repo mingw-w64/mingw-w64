@@ -4,8 +4,8 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-#ifndef _INC_TIMEB_S
-#define _INC_TIMEB_S
+#ifndef _TIMEB_H_S
+#define _TIMEB_H_S
 
 #include <sys/timeb.h>
 

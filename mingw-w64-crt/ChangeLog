@@ -1,6 +1,8 @@
 2008-01-23  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt64/dirent.c: Add add _tGetFileAttributes for win95.
+	* misc/wcrtomb.c: EILSEQ check just for codepage zero.
+	* misc/gettimeofday.c: Reenabled gettimeofday function.
 
 2008-01-16  Kai Tietz  <kai.tietz@onevision.com>
 
