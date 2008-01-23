@@ -680,7 +680,6 @@ extern "C++" {
 #endif
 
 #pragma pack(pop)
-#endif
 
 #if !defined(__STRICT_ANSI__) && !defined(_MATH_DEFINES_DEFINED)
 #define _MATH_DEFINES_DEFINED
