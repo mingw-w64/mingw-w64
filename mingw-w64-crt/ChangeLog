@@ -2,6 +2,7 @@
 
 	* stdio/_findfirst64i32.c: Correct wide-character version to
 	call _wfindfirst64.
+	* misc/io_intrin.c: Add intrin I/O functions.
 
 2008-01-25  Kai Tietz  <kai.tietz@onevision.com>
 
