@@ -7,6 +7,7 @@
         Add declaration of mingw_gettimeofday method.
         * _mingw.h: Add __MINGW_ATTRIB_NORETURN, __MINGW_ATTRIB_CONST,
         __UNUSED_PARAM, and __MINGW_GNUC_PREREQ macros.
+        * conio.h: Add intrin function for I/O as inline methods.
 
 2008-01-23  Kai Tietz  <kai.tietz@onevision.com>
 

@@ -90,6 +90,100 @@ extern "C" {
   int __cdecl outp(unsigned short,int);
   unsigned short __cdecl outpw(unsigned short,unsigned short);
 #endif
+
+  /* I/O intrin functions.  */
+  __CRT_INLINE unsigned char __inbyte(unsigned short Port)
+  {
+      unsigned char value;
+      __asm__ __volatile__ ("inb %w1,%b0"
+          : "=a" (value)
+          : "Nd" (Port));
+      return value;
+  }
+  __CRT_INLINE unsigned short __inword(unsigned short Port)
+  {
+      unsigned short value;
+      __asm__ __volatile__ ("inw %w1,%w0"
+          : "=a" (value)
+          : "Nd" (Port));
+      return value;
+  }
+  __CRT_INLINE unsigned long __indword(unsigned short Port)
+  {
+      unsigned long value;
+      __asm__ __volatile__ ("inl %w1,%0"
+          : "=a" (value)
+          : "Nd" (Port));
+      return value;
+  }
+  __CRT_INLINE void __outbyte(unsigned short Port,unsigned char Data)
+  {
+      __asm__ __volatile__ ("outb %b0,%w1"
+          :
+          : "a" (Data), "Nd" (Port));
+  }
+  __CRT_INLINE void __outword(unsigned short Port,unsigned short Data)
+  {
+      __asm__ __volatile__ ("outw %w0,%w1"
+          :
+          : "a" (Data), "Nd" (Port));
+  }
+  __CRT_INLINE void __outdword(unsigned short Port,unsigned long Data)
+  {
+      __asm__ __volatile__ ("outl %0,%w1"
+          :
+          : "a" (Data), "Nd" (Port));
+  }
+  __CRT_INLINE void __inbytestring(unsigned short Port,unsigned char *Buffer,unsigned long Count)
+  {
+	__asm__ __volatile__ (
+		"cld ; rep ; insb " 
+		: "=D" (Buffer), "=c" (Count)
+		: "d"(Port), "0"(Buffer), "1" (Count)
+		);
+  }
+  __CRT_INLINE void __inwordstring(unsigned short Port,unsigned short *Buffer,unsigned long Count)
+  {
+	__asm__ __volatile__ (
+		"cld ; rep ; insw " 
+		: "=D" (Buffer), "=c" (Count)
+		: "d"(Port), "0"(Buffer), "1" (Count)
+		);
+  }
+  __CRT_INLINE void __indwordstring(unsigned short Port,unsigned long *Buffer,unsigned long Count)
+  {
+	__asm__ __volatile__ (
+		"cld ; rep ; insl " 
+		: "=D" (Buffer), "=c" (Count)
+		: "d"(Port), "0"(Buffer), "1" (Count)
+		);
+  }
+
+  __CRT_INLINE void __outbytestring(unsigned short Port,unsigned char *Buffer,unsigned long Count)
+  {
+      __asm__ __volatile__ (
+          "cld ; rep ; outsb " 
+          : "=S" (Buffer), "=c" (Count)
+          : "d"(Port), "0"(Buffer), "1" (Count)
+          );
+  }
+  __CRT_INLINE void __outwordstring(unsigned short Port,unsigned short *Buffer,unsigned long Count)
+  {
+      __asm__ __volatile__ (
+          "cld ; rep ; outsw " 
+          : "=S" (Buffer), "=c" (Count)
+          : "d"(Port), "0"(Buffer), "1" (Count)
+          );
+  }
+  __CRT_INLINE void __outdwordstring(unsigned short Port,unsigned long *Buffer,unsigned long Count)
+  {
+      __asm__ __volatile__ (
+          "cld ; rep ; outsl " 
+          : "=S" (Buffer), "=c" (Count)
+          : "d"(Port), "0"(Buffer), "1" (Count)
+          );
+  }
+
 #endif
 
 #ifdef __cplusplus
