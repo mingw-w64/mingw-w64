@@ -39,6 +39,10 @@ struct timezone
   int tz_dsttime;     /* type of dst correction to apply */
 };
 
+  extern int __cdecl mingw_gettimeofday (struct timeval *p, struct timezone *z);
+
+#endif
+
 /*
    Implementation as per:
    The Open Group Base Specifications, Issue 6
@@ -46,6 +50,8 @@ struct timezone
 
    The timezone pointer arg is ignored.  Errors are ignored.
 */
+#ifndef _GETTIMEOFDAY_DEFINED
+#define _GETTIMEOFDAY_DEFINED
 int __cdecl gettimeofday(struct timeval *__restrict__,
                          void *__restrict__  /* tzp (unused) */);
 #endif

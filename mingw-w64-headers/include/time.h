@@ -253,7 +253,7 @@ struct timezone {
   int tz_dsttime;
 };
 
-  extern int __cdecl gettimeofday (struct timeval *p, struct timezone *z);
+  extern int __cdecl mingw_gettimeofday (struct timeval *p, struct timezone *z);
 #endif
 #endif /* __STRICT_ANSI__ */
 
