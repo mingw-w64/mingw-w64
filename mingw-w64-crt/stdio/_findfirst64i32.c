@@ -17,7 +17,7 @@ intptr_t __cdecl _findfirst64i32(const char *_Filename,struct _finddata64i32_t *
 intptr_t __cdecl _wfindfirst64i32(const wchar_t *_Filename,struct _wfinddata64i32_t *_FindData)
 {
   struct _wfinddata64_t fd;
-  intptr_t ret = _findfirst64(_Filename,&fd);
+  intptr_t ret = _wfindfirst64(_Filename,&fd);
   _FindData->attrib=fd.attrib;
   _FindData->time_create=fd.time_create;
   _FindData->time_access=fd.time_access;

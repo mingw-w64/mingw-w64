@@ -1,3 +1,8 @@
+2008-01-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/_findfirst64i32.c: Correct wide-character version to
+	call _wfindfirst64.
+
 2008-01-25  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdio/fseeko64.c: Correct feeko64.
