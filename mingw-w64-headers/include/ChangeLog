@@ -5,6 +5,8 @@
         Add declaration of mingw_gettimeofday method.
         * time.h: Add gettimeofday declaration in protected clause.
         Add declaration of mingw_gettimeofday method.
+        * _mingw.h: Add __MINGW_ATTRIB_NORETURN, __MINGW_ATTRIB_CONST,
+        __UNUSED_PARAM, and __MINGW_GNUC_PREREQ macros.
 
 2008-01-23  Kai Tietz  <kai.tietz@onevision.com>
 

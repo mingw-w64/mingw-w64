@@ -40,6 +40,14 @@ limitations in handling dllimport attribute.  */
 # endif /* __declspec */
 #endif
 
+#if defined (__GNUC__) && defined (__GNUC_MINOR__)
+#define __MINGW_GNUC_PREREQ(major, minor) \
+  (__GNUC__ > (major) \
+   || (__GNUC__ == (major) && __GNUC_MINOR__ >= (minor)))
+#else
+#define __MINGW_GNUC_PREREQ(major, minor)  0
+#endif
+
 #define USE___UUIDOF	0
 
 #ifdef __cplusplus
@@ -50,6 +58,24 @@ limitations in handling dllimport attribute.  */
 # else
 #  define __CRT_INLINE extern __inline__
 # endif
+#endif
+
+#ifdef __cplusplus
+# define __UNUSED_PARAM(x)
+#else
+# ifdef __GNUC__
+#  define __UNUSED_PARAM(x) x __attribute__ ((__unused__))
+# else
+#  define __UNUSED_PARAM(x) x
+# endif
+#endif
+
+#ifdef __GNUC__
+#define __MINGW_ATTRIB_NORETURN __attribute__ ((__noreturn__))
+#define __MINGW_ATTRIB_CONST __attribute__ ((__const__))
+#else
+#define __MINGW_ATTRIB_NORETURN
+#define __MINGW_ATTRIB_CONST
 #endif
 
 #ifndef WINVER
