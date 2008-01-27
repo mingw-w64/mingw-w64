@@ -291,7 +291,7 @@ lib64_libmingwex_a_SOURCES = \
   math/expm1f.c        math/ldexpf.c       math/powi.c         \
   \
   misc/mb_wc_common.h \
-  misc/alarm.c            misc/fesetenv.c         misc/mb_wc_common.h          misc/wcrtomb.c        \
+  misc/alarm.c            misc/fesetenv.c         misc/io_intrin.c             misc/wcrtomb.c        \
   misc/btowc.c            misc/fesetexceptflag.c  misc/mingw-aligned-malloc.c  misc/wcstoimax.c      \
   misc/ctime.c            misc/fesetround.c       misc/mingw-fseek.c           misc/wcstold.c        \
   misc/difftime32.c       misc/fetestexcept.c     misc/_mkgmtime.c             misc/wcstoumax.c      \
