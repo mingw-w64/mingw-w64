@@ -1,3 +1,7 @@
+2008-01-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt64/fmode.c: Set default to TEXT.
+
 2008-01-28  sduplichan  <sduplichan@users.sourceforge.net>
 
 	* misc/io_intrin.c: Add further intrinsic functions.

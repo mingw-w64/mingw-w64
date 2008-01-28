@@ -36,6 +36,7 @@ _CRTIMP void __setusermatherr(int (__cdecl *)(struct _exception *));
 extern int *_imp___fmode;
 extern int *_imp___commode;
 
+#undef _fmode
 extern int _fmode;
 extern int *_imp___commode;
 #define _commode (*_imp___commode)
