@@ -1,3 +1,7 @@
+2008-01-28  sduplichan  <sduplichan@users.sourceforge.net>
+
+	* misc/conio.h: Add further intrinsic functions.
+
 2008-01-26  Kai Tietz  <kai.tietz@onevision.com>
 
         * sys/time.h: Remove declaration of gettimeofday for

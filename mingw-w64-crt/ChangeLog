@@ -1,3 +1,7 @@
+2008-01-28  sduplichan  <sduplichan@users.sourceforge.net>
+
+	* misc/io_intrin.c: Add further intrinsic functions.
+
 2008-01-26  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdio/_findfirst64i32.c: Correct wide-character version to

@@ -184,6 +184,221 @@ extern "C" {
           );
   }
 
+  __CRT_INLINE unsigned __int64 __readcr0(void)
+  {
+      unsigned __int64 value;
+      __asm__ __volatile__ (
+          "mov %%cr0, %[value]" 
+          : [value] "=q" (value));
+      return value;
+  }
+ 
+  /* Register sizes are different between 32/64 bit mode. So we have to do this for _WIN64 and _WIN32
+     seperatly.  */
+ 
+#ifdef _WIN64
+  __CRT_INLINE void __writecr0(unsigned __int64 Data)
+  {
+   __asm__ __volatile__ (
+       "mov %[Data], %%cr0"
+       :
+       : [Data] "q" (Data)
+       : "memory");
+  }
+ 
+  __CRT_INLINE unsigned __int64 __readcr2(void)
+  {
+      unsigned __int64 value;
+      __asm__ __volatile__ (
+          "mov %%cr2, %[value]" 
+          : [value] "=q" (value));
+      return value;
+  }
+
+ __CRT_INLINE void __writecr2(unsigned __int64 Data)
+ {
+   __asm__ __volatile__ (
+       "mov %[Data], %%cr2"
+       :
+       : [Data] "q" (Data)
+       : "memory");
+ }
+ 
+  __CRT_INLINE unsigned __int64 __readcr3(void)
+  {
+      unsigned __int64 value;
+      __asm__ __volatile__ (
+          "mov %%cr3, %[value]" 
+          : [value] "=q" (value));
+      return value;
+  }
+
+ __CRT_INLINE void __writecr3(unsigned __int64 Data)
+ {
+   __asm__ __volatile__ (
+       "mov %[Data], %%cr3"
+       :
+       : [Data] "q" (Data)
+       : "memory");
+ }
+ 
+  __CRT_INLINE unsigned __int64 __readcr4(void)
+  {
+      unsigned __int64 value;
+      __asm__ __volatile__ (
+          "mov %%cr4, %[value]" 
+          : [value] "=q" (value));
+      return value;
+  }
+
+ __CRT_INLINE void __writecr4(unsigned __int64 Data)
+ {
+     __asm__ __volatile__ (
+         "mov %[Data], %%cr4"
+         :
+         : [Data] "q" (Data)
+         : "memory");
+ }
+ 
+  __CRT_INLINE unsigned __int64 __readcr8(void)
+  {
+      unsigned __int64 value;
+      __asm__ __volatile__ (
+          "mov %%cr8, %[value]" 
+          : [value] "=q" (value));
+      return value;
+  }
+
+ __CRT_INLINE void __writecr8(unsigned __int64 Data)
+ {
+   __asm__ __volatile__ (
+       "mov %[Data], %%cr8"
+       :
+       : [Data] "q" (Data)
+       : "memory");
+ }
+ 
+#elif defined(_WIN32)
+
+  __CRT_INLINE void __writecr0(unsigned Data)
+  {
+    __asm__ __volatile__ (
+       "mov %[Data], %%cr0"
+       :
+       : [Data] "q" (Data)
+       : "memory");
+  }
+ 
+  __CRT_INLINE unsigned long __readcr2(void)
+  {
+      unsigned long value;
+      __asm__ __volatile__ (
+          "mov %%cr2, %[value]" 
+          : [value] "=q" (value));
+      return value;
+  }
+
+ __CRT_INLINE void __writecr2(unsigned Data)
+ {
+   __asm__ __volatile__ (
+       "mov %[Data], %%cr2"
+       :
+       : [Data] "q" (Data)
+       : "memory");
+ }
+ 
+  __CRT_INLINE unsigned long __readcr3(void)
+  {
+      unsigned long value;
+      __asm__ __volatile__ (
+          "mov %%cr3, %[value]" 
+          : [value] "=q" (value));
+      return value;
+  }
+
+ __CRT_INLINE void __writecr3(unsigned Data)
+ {
+   __asm__ __volatile__ (
+       "mov %[Data], %%cr3"
+       :
+       : [Data] "q" (Data)
+       : "memory");
+ }
+ 
+  __CRT_INLINE unsigned long __readcr4(void)
+  {
+      unsigned long value;
+      __asm__ __volatile__ (
+          "mov %%cr4, %[value]" 
+          : [value] "=q" (value));
+      return value;
+  }
+
+ __CRT_INLINE void __writecr4(unsigned Data)
+ {
+     __asm__ __volatile__ (
+         "mov %[Data], %%cr4"
+         :
+         : [Data] "q" (Data)
+         : "memory");
+ }
+ 
+ __CRT_INLINE unsigned long __readcr8(void)
+ {
+   unsigned long value;      __asm__ __volatile__ (
+          "mov %%cr8, %[value]" 
+          : [value] "=q" (value));
+     return value;
+ }
+
+ __CRT_INLINE void __writecr8(unsigned Data)
+ {
+   __asm__ __volatile__ (
+       "mov %[Data], %%cr8"
+       :
+       : [Data] "q" (Data)
+       : "memory");
+ }
+ 
+#endif
+
+  __CRT_INLINE unsigned __int64 __readmsr(int msr)
+  {
+      unsigned __int64 val1, val2;
+       __asm__ __volatile__(
+           "rdmsr"
+           : "=a" (val1), "=d" (val2)
+           : "c" (msr));
+      return val1 | (val2 << 32);
+  }
+
+ __CRT_INLINE void __writemsr (unsigned long msr, unsigned __int64 Value)
+ {
+    unsigned long val1 = Value, val2 = Value >> 32;
+   __asm__ __volatile__ (
+       "wrmsr"
+       :
+       : "c" (msr), "a" (val1), "d" (val2));
+ }
+ 
+  __CRT_INLINE unsigned __int64 __rdtsc(void)
+  {
+      unsigned __int64 val1, val2;
+      __asm__ __volatile__ (
+          "rdtsc" 
+          : "=a" (val1), "=d" (val2));
+      return val1 | (val2 << 32);
+  }
+
+  __CRT_INLINE void __cpuid(int CPUInfo[4], int InfoType)
+  {
+      unsigned __int64 val1, val2;
+      __asm__ __volatile__ (
+          "cpuid"
+          : "=a" (CPUInfo [0]), "=b" (CPUInfo [1]), "=c" (CPUInfo [2]), "=d" (CPUInfo [3])
+          : "a" (InfoType));
+  }
+
 #endif
 
 #ifdef __cplusplus
