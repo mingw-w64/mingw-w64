@@ -1,3 +1,7 @@
+2008-01-29  Wesley W. Terpstra  <wesley@terpstra.ca>
+
+	* inttypes.h: Correct ,,,PTR macros for 32-bit and 64-bit.
+
 2008-01-28  sduplichan  <sduplichan@users.sourceforge.net>
 
 	* misc/conio.h: Add further intrinsic functions.
