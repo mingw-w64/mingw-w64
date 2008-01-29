@@ -3,6 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+#ifndef __INTRIN_H_
 #define __INTRIN_H_
 #ifndef RC_INVOKED
 
@@ -1483,3 +1484,5 @@ extern "C" {
 }
 #endif
 #endif
+
+#endif /* end __INTRIN_H_ */
