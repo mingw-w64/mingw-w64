@@ -1,3 +1,7 @@
+2008-01-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/io_intrin.c: Correct arguments for __readmsr.
+
 2008-01-28  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt64/fmode.c: Set default to TEXT.
