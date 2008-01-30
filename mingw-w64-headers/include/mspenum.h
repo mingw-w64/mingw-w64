@@ -1,6 +1,8 @@
 #ifndef _MSPENUM_H_
 #define _MSPENUM_H_
 
+#ifdef __cplusplus
+
 template <class Base,const IID *piid,class T,class Copy,class ThreadModel = CComObjectThreadModel>
 class ATL_NO_VTABLE CSafeComEnum : public CComEnumImpl<Base,piid,T,Copy>,public CComObjectRootEx< ThreadModel >
 {
@@ -37,4 +39,8 @@ class ATL_NO_VTABLE CSafeComEnum : public CComEnumImpl<Base,piid,T,Copy>,public 
 protected:
   IUnknown *m_pFTM;
 };
+
+#endif /* __cplusplus */
+
 #endif
+

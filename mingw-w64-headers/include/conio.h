@@ -362,7 +362,7 @@ extern "C" {
  
 #endif
 
-  __CRT_INLINE unsigned __int64 __readmsr(int msr)
+  __CRT_INLINE unsigned __int64 __readmsr(unsigned long msr)
   {
       unsigned __int64 val1, val2;
        __asm__ __volatile__(

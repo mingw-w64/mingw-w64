@@ -6,6 +6,8 @@
 #ifndef _STLLOCK_H_
 #define _STLLOCK_H_
 
+#ifdef __cplusplus
+
 class CCritSec : public CRITICAL_SECTION {
 public:
   CCritSec() { InitializeCriticalSection(this); }
@@ -13,5 +15,7 @@ public:
   void Enter() { EnterCriticalSection(this); }
   void Leave() { LeaveCriticalSection(this); }
 };
+
+#endif /* __cplusplus */
 
 #endif

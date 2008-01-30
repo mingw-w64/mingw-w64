@@ -131,9 +131,9 @@ extern "C" {
 
 #ifndef _CORSAVESIZE_DEFINED_
 #define _CORSAVESIZE_DEFINED_
-  enum CorSaveSize {
+  typedef enum CorSaveSize {
     cssAccurate = 0x0000,cssQuick = 0x0001
-  };
+  } CorSaveSize;
 #endif
 
 #define MAX_CLASS_NAME 255

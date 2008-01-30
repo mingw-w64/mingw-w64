@@ -14,6 +14,8 @@
 #include <mapidefs.h>
 #endif
 
+#include <xcmc.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

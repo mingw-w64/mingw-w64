@@ -25,7 +25,7 @@ STDAPI RatingEnabledQuery();
 STDAPI RatingInit();
 STDAPI_(void) RatingTerm();
 
-static _inline WINBOOL IS_RATINGS_ENABLED() {
+static inline WINBOOL IS_RATINGS_ENABLED() {
   TCHAR szSup[200];
   DWORD dwType;
   DWORD cbSize = sizeof(szSup);

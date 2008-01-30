@@ -6,6 +6,8 @@
 #ifndef __TRAFFIC_H
 #define __TRAFFIC_H
 
+#include <ntddndis.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
