@@ -87,7 +87,10 @@ extern "C" {
   typedef LONG_PTR LHSERVER;
   typedef LONG_PTR LHCLIENTDOC;
   typedef LONG_PTR LHSERVERDOC;
+#ifndef _LPOLEOBJECT_DEFINED
+#define _LPOLEOBJECT_DEFINED
   typedef struct _OLEOBJECT *LPOLEOBJECT;
+#endif
   typedef struct _OLESTREAM *LPOLESTREAM;
   typedef struct _OLECLIENT *LPOLECLIENT;
 

@@ -6,21 +6,10 @@
 #ifndef DXTmpl_h
 #define DXTmpl_h
 
-#ifndef _INC_LIMITS
 #include <limits.h>
-#endif
-
-#ifndef _INC_STRING
 #include <string.h>
-#endif
-
-#ifndef _INC_STDLIB
 #include <stdlib.h>
-#endif
-
-#ifndef _INC_SEARCH
 #include <search.h>
-#endif
 
 #define DXASSERT_VALID(pObj)
 
@@ -34,6 +23,8 @@ typedef DWORD DXLISTHANDLE;
 #define DX_BEFORE_START_POSITION ((void*)-1L)
 
 __CRT_INLINE WINBOOL DXIsValidAddress(const void *lp,UINT nBytes,WINBOOL bReadWrite) { return (lp!=NULL && !IsBadReadPtr(lp,nBytes) && (!bReadWrite || !IsBadWritePtr((LPVOID)lp,nBytes))); }
+
+#ifdef __cplusplus
 
 template<class TYPE>
 inline void DXConstructElements(TYPE *pElements,int nCount) {
@@ -883,4 +874,7 @@ void CDXMap<KEY,ARG_KEY,VALUE,ARG_VALUE>::AssertValid() const {
   _ASSERT((m_nCount==0 || m_pHashTable!=NULL));
 }
 #endif
+
+#endif /* __cplusplus */
+
 #endif

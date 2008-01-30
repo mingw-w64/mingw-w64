@@ -1,6 +1,10 @@
 #ifndef __DBDAO_H_
 #define __DBDAO_H_
 
+#ifndef __cplusplus
+#error This file can be used only in C++
+#else
+
 class COleVariant;
 class CdbBookmark;
 class CdbException;
@@ -344,4 +348,7 @@ DECLARE_INTERFACE_(DAOMFCSCollection,_DAOCollection) {
 DECLARE_INTERFACE_(DAOMFCDCollection,_DAODynaCollection) {
   STDMETHOD(get_Item) (VARIANT index,LPUNKNOWN *ppunk);
 };
+
+#endif /* __cplusplus */
+
 #endif

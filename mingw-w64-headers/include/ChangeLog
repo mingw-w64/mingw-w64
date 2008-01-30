@@ -12,6 +12,8 @@
 	* comip.h: Likewise.
 	* mspenum.h: Likewise.
 	* stllock.h: Likewise.
+	* _dbdao.h: Likewise.
+	* dxtmpl.h: Likewise.
 	* madcapcl.h: Add include winternl.h.
 	* msidef.h: (msidbLocatorType): Correct typo.
 	* mapiwz.h: Add include mapidefs.h for LPMAPIPROP.
@@ -22,6 +24,8 @@
 	* stm.h: Default to MPR50 if not MPR50 or MPR40 is not defined.
 	* wiadef.h: Add error message to include via.h in front.
 	* conio.h: Correct declaration of __readmsr.
+	* ole.h: Add #if clause to protect against double declaration.
+	* oleidl.h: Add #if clause to protect against double declaration.
 
 2008-01-29  Wesley W. Terpstra  <wesley@terpstra.ca>
 
