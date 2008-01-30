@@ -137,7 +137,7 @@ DECLARE_INTERFACE_(IDiskQuotaControl,IConnectionPointContainer) {
   STDMETHOD(CreateUserBatch)(THIS_ PDISKQUOTA_USER_BATCH *ppBatch) PURE;
   STDMETHOD(InvalidateSidNameCache)(THIS) PURE;
   STDMETHOD(GiveUserNameResolutionPriority)(THIS_ PDISKQUOTA_USER pUser) PURE;
-  STDMETHOD(ShutdownNameResolution)(THIS_ VOID) PURE;
+  STDMETHOD(ShutdownNameResolution)(THIS) PURE;
 };
 
 typedef IDiskQuotaControl DISKQUOTA_CONTROL,*PDISKQUOTA_CONTROL;

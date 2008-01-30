@@ -6,6 +6,8 @@
 #ifndef _MADCAPCL_H_
 #define _MADCAPCL_H_
 
+#include <winternl.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

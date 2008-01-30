@@ -326,12 +326,13 @@ enum msidbControlAttributes {
 };
 
 typedef enum _msidbLocatorType {
-  msidbLocatorTypeDirectory = 0x00000000,msidbLocatorTypeFileName = 0x00000001,
+  msidbLocatorTypeDirectory = 0x0,
+  msidbLocatorTypeFileName = 0x1,
 #if (_WIN32_MSI >= 110)
-  msidbLocatorTypeRawValue = 0x00000002
+  msidbLocatorTypeRawValue = 0x2,
 #endif
 #if (_WIN32_MSI >= 150)
-  msidbLocatorType64bit = 0x00000010
+  msidbLocatorType64bit = 0x10
 #endif
 } msidbLocatorType;
 

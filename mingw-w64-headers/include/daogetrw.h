@@ -40,7 +40,13 @@ typedef struct {
   };
 } DAOCOLUMNID;
 typedef DAOCOLUMNID *LPDAOCOLUMNID;
-EXTERN_C typedef HRESULT (WINAPI *LPDAOBINDFUNC)(ULONG cb,DWORD dwUser,LPVOID *ppData);
+#ifdef __cplusplus
+extern "C" {
+#endif
+typedef HRESULT (WINAPI *LPDAOBINDFUNC)(ULONG cb,DWORD dwUser,LPVOID *ppData);
+#ifdef __cplusplus
+}
+#endif
 #define DAOBINDINGFUNC(f) STDAPI f (ULONG cb,DWORD dwUser,LPVOID *ppData)
 
 typedef struct {

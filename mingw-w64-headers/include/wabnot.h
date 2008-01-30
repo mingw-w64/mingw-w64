@@ -10,6 +10,10 @@
 #define BEGIN_INTERFACE
 #endif
 
+#ifndef MAPI_DIM
+#define MAPI_DIM 1
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif

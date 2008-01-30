@@ -3,8 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifndef _INC_USERENV
-#define _INC_USERENV
+#ifndef _USERENV_H_
+#define _USERENV_H_
 
 #include <wbemcli.h>
 #include <profinfo.h>
@@ -22,7 +22,6 @@ extern "C" {
 #define PI_NOUI 0x00000001
 #define PI_APPLYPOLICY 0x00000002
 
-#ifdef UNICODE
 #ifdef UNICODE
 #define LoadUserProfile LoadUserProfileW
 #define GetProfilesDirectory GetProfilesDirectoryW
@@ -238,4 +237,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* _USERENV_H_ */

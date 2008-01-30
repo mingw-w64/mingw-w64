@@ -6,6 +6,8 @@
 #ifndef _MAPIWZ_H
 #define _MAPIWZ_H
 
+#include <mapidefs.h>
+
 #define WIZ_QUERYNUMPAGES (WM_USER +10)
 #define WIZ_NEXT (WM_USER +11)
 #define WIZ_PREV (WM_USER +12)

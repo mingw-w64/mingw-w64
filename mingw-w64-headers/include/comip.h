@@ -3,7 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#if !defined(_INC_COMIP)
+#ifndef _INC_COMIP
 #define _INC_COMIP
 
 #include <_mingw.h>
@@ -16,6 +16,8 @@
 #include <malloc.h>
 
 #include <comutil.h>
+
+#ifdef __cplusplus
 
 #pragma push_macro("new")
 #undef new
@@ -369,4 +371,7 @@ template<typename _Interface> bool operator>=(int null,_com_ptr_t<_Interface> &p
 template<typename _Interface,typename _InterfacePtr> bool operator>=(_Interface *i,_com_ptr_t<_InterfacePtr> &p) { return p<=i; }
 
 #pragma pop_macro("new")
-#endif
+
+#endif /* __cplusplus */
+
+#endif /* _INC_COMIP */

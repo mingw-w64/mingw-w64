@@ -1,3 +1,19 @@
+2008-01-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* userenv.h: Removed duplicate #if-clause.
+	* gb18030.h: Correct typo.
+	* dskquota.h: Correct ShutdownNameResolution declaration.
+	* msimcntl.h: Low case name correction.
+	* wabnot.h: Add MAPI_DIM default.
+	* daogetrw.h: Cleanup extern C declaration via EXTERN_C.
+	* dtchelp.h: Likewise.
+	* comutil.h: Disable c++ code for in c.
+	* comdef.h: Likewise.
+	* comip.h: Likewise.
+	* madcapcl.h: Add dependecy to winternl.h.
+	* msidef.h: (msidbLocatorType): Correct typo.
+	* mapiwz.h: Add dependentcy to mapidefs.h for LPMAPIPROP.
+
 2008-01-29  Wesley W. Terpstra  <wesley@terpstra.ca>
 
 	* inttypes.h: Correct ,,,PTR macros for 32-bit and 64-bit.

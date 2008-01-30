@@ -93,7 +93,7 @@ typedef struct IMSafeContact IMSafeContact;
 
 #include "oaidl.h"
 #include "ocidl.h"
-#include "SIMPDATA.h"
+#include "simpdata.h"
 
 #ifdef __cplusplus
 extern "C" {

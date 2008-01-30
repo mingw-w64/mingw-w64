@@ -22,6 +22,8 @@
 #define WINAPI __stdcall
 #endif
 
+#ifdef __cplusplus
+
 class _com_error;
 void WINAPI _com_raise_error(HRESULT hr,IErrorInfo *perrinfo = 0);
 void WINAPI _set_com_error_handler(void (WINAPI *pHandler)(HRESULT hr,IErrorInfo *perrinfo));
@@ -192,4 +194,7 @@ _COM_SMARTPTR_TYPEDEF(Picture,__uuidof(IDispatch));
 #include "comdefsp.h"
 #endif
 #endif
+
+#endif /* __cplusplus */
+
 #endif

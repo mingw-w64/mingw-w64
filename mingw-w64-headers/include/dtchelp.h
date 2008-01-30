@@ -42,8 +42,9 @@ typedef HRESULT (*DTC_INSTALL_CLIENT)(LPTSTR i_pszRemoteTmHostName,DWORD i_dwPro
 const DWORD DTC_INSTALL_OVERWRITE_CLIENT = 0x00000001;
 const DWORD DTC_INSTALL_OVERWRITE_SERVER = 0x00000002;
 
-EXTERN_C
-{
+#ifdef __cplusplus
+extern "C" {
+#endif
   DTC_GET_TRANSACTION_MANAGER __cdecl LoadDtcHelper(void);
   DTC_GET_TRANSACTION_MANAGER_EX_A __cdecl LoadDtcHelperExA(void);
   DTC_GET_TRANSACTION_MANAGER_EX_W __cdecl LoadDtcHelperExW(void);
@@ -58,5 +59,8 @@ EXTERN_C
   HRESULT __cdecl StopDTCW(WCHAR *wszHostName);
   HRESULT __cdecl StopDTCA(LPSTR szHostName);
   HRESULT __cdecl DtcInstallClient(LPTSTR i_pszRemoteTmHostName,DWORD i_dwProtocol,DWORD i_dwOverwrite);
+#ifdef __cplusplus
 }
+#endif
+
 #endif

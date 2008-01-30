@@ -15,6 +15,8 @@
 #define _COM_MEMCPY_S(dest,destsize,src,count) memcpy(dest,src,count)
 #define _COM_PRINTF_S_1(dest,destsize,format,arg1) wsprintf(dest,format,arg1)
 
+#ifdef __cplusplus
+
 #pragma push_macro("new")
 #undef new
 
@@ -1196,4 +1198,7 @@ extern _variant_t vtMissing;
 #endif
 
 #pragma pop_macro("new")
+
+#endif /* __cplusplus */
+
 #endif
