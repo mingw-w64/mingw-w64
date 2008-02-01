@@ -6,6 +6,8 @@
 #ifndef _ADSPROP_H_
 #define _ADSPROP_H_
 
+#include <iads.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

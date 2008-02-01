@@ -3,6 +3,10 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
+#ifndef _IADS_H_
+#define _IADS_H_
+
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
 #define __REQUIRED_RPCNDR_H_VERSION__ 475
 #endif
@@ -7065,3 +7069,5 @@ extern "C"{
 }
 #endif
 #endif
+
+#endif /* _IADS_H_ */

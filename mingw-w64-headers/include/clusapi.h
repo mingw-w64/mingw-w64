@@ -649,7 +649,7 @@ extern "C" {
 #ifndef __cplusplus
     CLUSPROP_VALUE;
 #endif
-    BYTE rgb[];
+    BYTE rgb[1];
   } CLUSPROP_BINARY,*PCLUSPROP_BINARY;
 
   typedef struct CLUSPROP_WORD
@@ -693,7 +693,7 @@ extern "C" {
 #ifndef __cplusplus
     CLUSPROP_VALUE;
 #endif
-    WCHAR sz[];
+    WCHAR sz[1];
   } CLUSPROP_SZ,*PCLUSPROP_SZ;
 
   typedef CLUSPROP_SZ CLUSPROP_MULTI_SZ,*PCLUSPROP_MULTI_SZ;
@@ -731,7 +731,7 @@ extern "C" {
 #endif
     union {
       SECURITY_DESCRIPTOR_RELATIVE sd;
-      BYTE rgbSecurityDescriptor[];
+      BYTE rgbSecurityDescriptor[1];
     };
   } CLUSPROP_SECURITY_DESCRIPTOR,*PCLUSPROP_SECURITY_DESCRIPTOR;
 

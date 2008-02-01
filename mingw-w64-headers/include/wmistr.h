@@ -60,7 +60,7 @@ typedef struct tagWNODE_ALL_DATA {
   ULONG OffsetInstanceNameOffsets;
   union {
     ULONG FixedInstanceSize;
-    OFFSETINSTANCEDATAANDLENGTH OffsetInstanceDataAndLength[];
+    OFFSETINSTANCEDATAANDLENGTH OffsetInstanceDataAndLength[1];
   };
 } WNODE_ALL_DATA,*PWNODE_ALL_DATA;
 
@@ -103,7 +103,7 @@ typedef struct tagWNODE_EVENT_REFERENCE {
   ULONG TargetDataBlockSize;
   union {
     ULONG TargetInstanceIndex;
-    WCHAR TargetInstanceName[];
+    WCHAR TargetInstanceName[1];
   };
 } WNODE_EVENT_REFERENCE,*PWNODE_EVENT_REFERENCE;
 

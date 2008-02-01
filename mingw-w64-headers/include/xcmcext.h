@@ -6,6 +6,8 @@
 #ifndef _XCMCEXT_H
 #define _XCMCEXT_H
 
+#include <xcmc.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

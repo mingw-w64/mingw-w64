@@ -3,6 +3,8 @@
 
 #define WAVEIN_NAME L"WaveIn Terminal"
 
+#ifdef __cplusplus
+
 class CAudioCaptureTerminal : public IDispatchImpl<ITBasicAudioTerminal,&IID_ITBasicAudioTerminal,&LIBID_TAPI3Lib>,public IDispatchImpl<ITStaticAudioTerminal,&IID_ITStaticAudioTerminal,&LIBID_TAPI3Lib>,public CSingleFilterStaticTerminal,public CMSPObjectSafetyImpl
 {
   BEGIN_COM_MAP(CAudioCaptureTerminal)
@@ -40,5 +42,7 @@ inline HRESULT CAudioCaptureTerminal::CreateFiltersIfRequired() {
   if(!m_pIFilter) return CreateFilters();
   return S_OK;
 }
+
+#endif /* __cplusplus */
 
 #endif

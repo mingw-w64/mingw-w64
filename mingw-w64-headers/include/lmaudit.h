@@ -25,9 +25,9 @@ extern "C" {
 #define LOGFLAGS_SEEK 0x2
 #endif
 
-  NET_API_STATUS WINAPI NetAuditClear(LPCWSTR server,LPCWSTR backupfile,LPCWSTR service);
-  NET_API_STATUS WINAPI NetAuditRead(LPCWSTR server,LPCWSTR service,LPHLOG auditloghandle,DWORD offset,LPDWORD reserved1,DWORD reserved2,DWORD offsetflag,LPBYTE *bufptr,DWORD prefmaxlen,LPDWORD bytesread,LPDWORD totalavailable);
-  NET_API_STATUS WINAPI NetAuditWrite(DWORD type,LPBYTE buf,DWORD numbytes,LPCWSTR service,LPBYTE reserved);
+  DWORD WINAPI NetAuditClear(LPCWSTR server,LPCWSTR backupfile,LPCWSTR service);
+  DWORD WINAPI NetAuditRead(LPCWSTR server,LPCWSTR service,LPHLOG auditloghandle,DWORD offset,LPDWORD reserved1,DWORD reserved2,DWORD offsetflag,LPBYTE *bufptr,DWORD prefmaxlen,LPDWORD bytesread,LPDWORD totalavailable);
+  DWORD WINAPI NetAuditWrite(DWORD type,LPBYTE buf,DWORD numbytes,LPCWSTR service,LPBYTE reserved);
 
   typedef struct _AUDIT_ENTRY {
     DWORD ae_len;
