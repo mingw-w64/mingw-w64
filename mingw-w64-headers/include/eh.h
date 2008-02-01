@@ -5,8 +5,8 @@
  */
 #include <_mingw.h>
 
-#ifndef _INC_EH
-#define _INC_EH
+#ifndef _EH_H_
+#define _EH_H_
 
 #ifndef RC_INVOKED
 
@@ -36,4 +36,5 @@ _CRTIMP bool __cdecl __uncaught_exception();
 
 #pragma pack(pop)
 #endif
-#endif
+#endif /* End _EH_H_ */
+
