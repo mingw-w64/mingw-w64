@@ -10,13 +10,7 @@
 #pragma GCC system_header
 #endif
 
-#if (defined _WINSOCK_H && !defined _WINSOCK2_H)
-#error "ws2tcpip.h is not compatible with winsock.h. Include winsock2.h instead."
-#endif
-
-#ifndef _WINSOCK2_H
 #include <winsock2.h>
-#endif
 
 /**
 struct ip_mreq {
