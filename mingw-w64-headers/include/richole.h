@@ -6,6 +6,8 @@
 #ifndef _RICHOLE_
 #define _RICHOLE_
 
+#include "richedit.h"
+
 typedef struct _reobject {
   DWORD cbStruct;
   LONG cp;
