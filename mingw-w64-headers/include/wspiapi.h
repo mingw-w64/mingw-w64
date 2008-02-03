@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <malloc.h>
 #include <string.h>
+#include <ws2tcpip.h>
 
 #define _WSPIAPI_STRCPY_S(_Dst,_Size,_Src) strcpy((_Dst),(_Src))
 #define _WSPIAPI_STRCAT_S(_Dst,_Size,_Src) strcat((_Dst),(_Src))

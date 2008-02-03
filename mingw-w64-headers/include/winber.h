@@ -6,6 +6,8 @@
 #ifndef _WINBER_DEFINED_
 #define _WINBER_DEFINED_
 
+#include "winldap.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif

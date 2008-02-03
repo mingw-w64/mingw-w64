@@ -90,8 +90,12 @@ extern "C" {
 #ifndef __ICEnroll_INTERFACE_DEFINED__
 #define __ICEnroll_INTERFACE_DEFINED__
 
-  EXTERN_C const IID IID_ICEnroll;
+  extern const IID IID_ICEnroll;
+
 #if defined(__cplusplus) && !defined(CINTERFACE)
+#ifdef __cplusplus
+}
+#endif
   struct ICEnroll : public IDispatch {
   public:
     virtual HRESULT WINAPI createFilePKCS10(BSTR DNName,BSTR Usage,BSTR wszPKCS10FileName) = 0;
@@ -151,6 +155,9 @@ extern "C" {
     virtual HRESULT WINAPI get_HashAlgorithm(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI put_HashAlgorithm(BSTR bstr) = 0;
   };
+#ifdef __cplusplus
+  extern "C" {
+#endif
 #else
   typedef struct ICEnrollVtbl {
     BEGIN_INTERFACE
@@ -404,8 +411,11 @@ extern "C" {
 
 #ifndef __ICEnroll2_INTERFACE_DEFINED__
 #define __ICEnroll2_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_ICEnroll2;
+  extern const IID IID_ICEnroll2;
 #if defined(__cplusplus) && !defined(CINTERFACE)
+#ifdef __cplusplus
+}
+#endif
   struct ICEnroll2 : public ICEnroll {
   public:
     virtual HRESULT WINAPI addCertTypeToRequest(BSTR CertType) = 0;
@@ -415,6 +425,9 @@ extern "C" {
     virtual HRESULT WINAPI get_EnableT61DNEncoding(WINBOOL *fBool) = 0;
     virtual HRESULT WINAPI put_EnableT61DNEncoding(WINBOOL fBool) = 0;
   };
+#ifdef __cplusplus
+  extern "C" {
+#endif
 #else
   typedef struct ICEnroll2Vtbl {
     BEGIN_INTERFACE
@@ -580,8 +593,11 @@ extern "C" {
 
 #ifndef __ICEnroll3_INTERFACE_DEFINED__
 #define __ICEnroll3_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_ICEnroll3;
+  extern const IID IID_ICEnroll3;
 #if defined(__cplusplus) && !defined(CINTERFACE)
+#ifdef __cplusplus
+}
+#endif
   struct ICEnroll3 : public ICEnroll2 {
   public:
     virtual HRESULT WINAPI InstallPKCS7(BSTR PKCS7) = 0;
@@ -599,6 +615,9 @@ extern "C" {
     virtual HRESULT WINAPI put_EnableSMIMECapabilities(WINBOOL fEnableSMIMECapabilities) = 0;
     virtual HRESULT WINAPI get_EnableSMIMECapabilities(WINBOOL *fEnableSMIMECapabilities) = 0;
   };
+#ifdef __cplusplus
+  extern "C" {
+#endif
 #else
   typedef struct ICEnroll3Vtbl {
     BEGIN_INTERFACE
@@ -808,8 +827,11 @@ extern "C" {
 
 #ifndef __ICEnroll4_INTERFACE_DEFINED__
 #define __ICEnroll4_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_ICEnroll4;
+  extern const IID IID_ICEnroll4;
 #if defined(__cplusplus) && !defined(CINTERFACE)
+#ifdef __cplusplus
+}
+#endif
   struct ICEnroll4 : public ICEnroll3 {
   public:
     virtual HRESULT WINAPI put_PrivateKeyArchiveCertificate(BSTR bstrCert) = 0;
@@ -846,6 +868,9 @@ extern "C" {
     virtual HRESULT WINAPI put_IncludeSubjectKeyID(WINBOOL fInclude) = 0;
     virtual HRESULT WINAPI get_IncludeSubjectKeyID(WINBOOL *pfInclude) = 0;
   };
+#ifdef __cplusplus
+  extern "C" {
+#endif
 #else
   typedef struct ICEnroll4Vtbl {
     BEGIN_INTERFACE
@@ -1159,8 +1184,11 @@ extern "C" {
 
 #ifndef __IEnroll_INTERFACE_DEFINED__
 #define __IEnroll_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IEnroll;
+  extern const IID IID_IEnroll;
 #if defined(__cplusplus) && !defined(CINTERFACE)
+#ifdef __cplusplus
+}
+#endif
   struct IEnroll : public IUnknown {
   public:
     virtual HRESULT WINAPI createFilePKCS10WStr(LPCWSTR DNName,LPCWSTR Usage,LPCWSTR wszPKCS10FileName) = 0;
@@ -1234,6 +1262,9 @@ extern "C" {
     virtual HRESULT WINAPI AddAuthenticatedAttributesToPKCS7Request(PCRYPT_ATTRIBUTES pAttributes) = 0;
     virtual HRESULT WINAPI CreatePKCS7RequestFromRequest(PCRYPT_DATA_BLOB pRequest,PCCERT_CONTEXT pSigningCertContext,PCRYPT_DATA_BLOB pPkcs7Blob) = 0;
   };
+#ifdef __cplusplus
+  extern "C" {
+#endif
 #else
   typedef struct IEnrollVtbl {
     BEGIN_INTERFACE
@@ -1535,8 +1566,11 @@ extern "C" {
 
 #ifndef __IEnroll2_INTERFACE_DEFINED__
 #define __IEnroll2_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IEnroll2;
+  extern const IID IID_IEnroll2;
 #if defined(__cplusplus) && !defined(CINTERFACE)
+#ifdef __cplusplus
+}
+#endif
   struct IEnroll2 : public IEnroll {
   public:
     virtual HRESULT WINAPI InstallPKCS7Blob(PCRYPT_DATA_BLOB pBlobPKCS7) = 0;
@@ -1558,6 +1592,9 @@ extern "C" {
     virtual HRESULT WINAPI put_EnableSMIMECapabilities(WINBOOL fEnableSMIMECapabilities) = 0;
     virtual HRESULT WINAPI get_EnableSMIMECapabilities(WINBOOL *fEnableSMIMECapabilities) = 0;
   };
+#ifdef __cplusplus
+  extern "C" {
+#endif
 #else
   typedef struct IEnroll2Vtbl {
     BEGIN_INTERFACE
@@ -1791,8 +1828,11 @@ extern "C" {
 
 #ifndef __IEnroll4_INTERFACE_DEFINED__
 #define __IEnroll4_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IEnroll4;
+  extern const IID IID_IEnroll4;
 #if defined(__cplusplus) && !defined(CINTERFACE)
+#ifdef __cplusplus
+}
+#endif
   struct IEnroll4 : public IEnroll2 {
   public:
     virtual HRESULT WINAPI put_ThumbPrintWStr(CRYPT_DATA_BLOB thumbPrintBlob) = 0;
@@ -1828,6 +1868,9 @@ extern "C" {
     virtual HRESULT WINAPI put_IncludeSubjectKeyID(WINBOOL fInclude) = 0;
     virtual HRESULT WINAPI get_IncludeSubjectKeyID(WINBOOL *pfInclude) = 0;
   };
+#ifdef __cplusplus
+  extern "C" {
+#endif
 #else
   typedef struct IEnroll4Vtbl {
     BEGIN_INTERFACE
@@ -2153,20 +2196,20 @@ extern "C" {
 
 #ifndef __XENROLLLib_LIBRARY_DEFINED__
 #define __XENROLLLib_LIBRARY_DEFINED__
-  EXTERN_C const IID LIBID_XENROLLLib;
-  EXTERN_C const CLSID CLSID_CEnroll2;
+  extern const IID LIBID_XENROLLLib;
+  extern const CLSID CLSID_CEnroll2;
+  extern const CLSID CLSID_CEnroll;
 #ifdef __cplusplus
+}
   class CEnroll2;
-#endif
-  EXTERN_C const CLSID CLSID_CEnroll;
-#ifdef __cplusplus
   class CEnroll;
+  extern "C" {
 #endif
 #endif
 
-  extern "C" IEnroll *WINAPI PIEnrollGetNoCOM(void);
-  extern "C" IEnroll2 *WINAPI PIEnroll2GetNoCOM(void);
-  extern "C" IEnroll4 *WINAPI PIEnroll4GetNoCOM(void);
+  IEnroll *WINAPI PIEnrollGetNoCOM(void);
+  IEnroll2 *WINAPI PIEnroll2GetNoCOM(void);
+  IEnroll4 *WINAPI PIEnroll4GetNoCOM(void);
 
 #define CRYPT_ENUM_ALL_PROVIDERS 0x1
 #define XEPR_ENUM_FIRST -1
