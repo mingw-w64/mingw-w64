@@ -62,4 +62,8 @@ int __cdecl gettimeofday(struct timeval *__restrict__,
 }
 #endif
 
+/* Adding timespec definition.  */
+#include <sys/timeb.h>
+
+
 #endif /* _SYS_TIME_H_ */

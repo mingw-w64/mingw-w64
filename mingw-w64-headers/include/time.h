@@ -264,5 +264,9 @@ struct timezone {
 #pragma pack(pop)
 
 #include <sec_api/time_s.h>
+
+/* Adding timespec definition.  */
+#include <sys/timeb.h>
+
 #endif /* End _TIME_H_ */
 
