@@ -6,6 +6,8 @@
 #if !defined(_MAPIUTIL_H) && !defined(_WABUTIL_H)
 #define _WABUTIL_H
 
+#include "mapidefs.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
