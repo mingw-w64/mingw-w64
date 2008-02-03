@@ -4,7 +4,8 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #if !defined(_KS_)
-#error KS.H must be included before KSMEDIA.H
+#warning ks.h must be included before ksmedia.h
+#include "ks.h"
 #endif
 
 #if !defined(_KSMEDIA_)
