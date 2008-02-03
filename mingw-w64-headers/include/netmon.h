@@ -1318,11 +1318,11 @@ extern "C"{
     WORD LengthEx;
     ULPVOID lpData;
     union {
-      BYTE Byte[];
-      WORD Word[];
-      DWORD Dword[];
-      LARGE_INTEGER LargeInt[];
-      SYSTEMTIME SysTime[];
+      BYTE Byte[1];
+      WORD Word[1];
+      DWORD Dword[1];
+      LARGE_INTEGER LargeInt[1];
+      SYSTEMTIME SysTime[1];
       TYPED_STRING TypedString;
     };
   } PROPERTYINSTEX;
