@@ -6,6 +6,8 @@
 #ifndef _IMESSAGE_H_
 #define _IMESSAGE_H_
 
+#include "mapidefs.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
