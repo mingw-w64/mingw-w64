@@ -6803,7 +6803,16 @@ extern "C" {
   void __RPC_STUB IAMCertifiedOutputProtection_ProtectionStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
+#ifdef MINGW_HAS_DDRAW_H
 #include <ddraw.h>
+#else
+  typedef void *IDirectDraw;
+  typedef void *IDirectDrawSurface;
+  typedef void *LPDIRECTDRAWSURFACE7;
+  typedef void *LPDIRECTDRAW7;
+  typedef void *LPDDPIXELFORMAT;
+  typedef void *LPDDCOLORKEY;
+#endif
 
   typedef enum tagDVD_DOMAIN {
     DVD_DOMAIN_FirstPlay = 1,DVD_DOMAIN_VideoManagerMenu = DVD_DOMAIN_FirstPlay + 1,DVD_DOMAIN_VideoTitleSetMenu = DVD_DOMAIN_VideoManagerMenu + 1,
