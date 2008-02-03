@@ -21,6 +21,7 @@
 #ifndef ___ADOCollection_FWD_DEFINED__
 #define ___ADOCollection_FWD_DEFINED__
 typedef struct _ADOADOCollection _ADOCollection;
+typedef struct _ADOADOCollection _ADOADOCollection;
 #endif
 #ifndef ___ADODynaCollection_FWD_DEFINED__
 #define ___ADODynaCollection_FWD_DEFINED__
