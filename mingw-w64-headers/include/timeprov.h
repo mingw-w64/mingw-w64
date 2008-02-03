@@ -30,11 +30,11 @@ extern "C" {
 
   typedef enum TimeJumpedFlags {
     TJF_Default=0,TJF_UserRequested=1
-  };
+  } TimeJumpedFlags;
 
   typedef enum NetTopoChangeFlags {
     NTC_Default=0,NTC_UserRequested=1
-  };
+  } NetTopoChangeFlags;
 
   typedef enum TimeProvState {
     TPS_Running,TPS_Error
