@@ -6,6 +6,8 @@
 #ifndef __SECEXT_H__
 #define __SECEXT_H__
 
+#include "sspi.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
