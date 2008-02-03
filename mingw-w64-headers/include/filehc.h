@@ -27,13 +27,13 @@ extern "C" {
 
   typedef struct FH_OVERLAPPED *PFH_OVERLAPPED;
 
-  struct FIO_CONTEXT {
+  typedef struct FIO_CONTEXT {
     DWORD m_dwTempHack;
     DWORD m_dwSignature;
     HANDLE m_hFile;
     DWORD m_dwLinesOffset;
     DWORD m_dwHeaderLength;
-  };
+  } FIO_CONTEXT;
 
   typedef FIO_CONTEXT *PFIO_CONTEXT;
 
