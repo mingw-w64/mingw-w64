@@ -3,8 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifndef _INC_MALLOC
-#define _INC_MALLOC
+#ifndef _MALLOC_H_
+#define _MALLOC_H_
 
 #include <_mingw.h>
 
@@ -28,17 +28,21 @@ extern "C" {
 #define _STATIC_ASSERT(expr) typedef char __static_assert_t[(expr)]
 #endif
 
+/* Return codes for _heapwalk()  */
 #define _HEAPEMPTY (-1)
 #define _HEAPOK (-2)
 #define _HEAPBADBEGIN (-3)
 #define _HEAPBADNODE (-4)
 #define _HEAPEND (-5)
 #define _HEAPBADPTR (-6)
+
+/* Values for _heapinfo.useflag */
 #define _FREEENTRY 0
 #define _USEDENTRY 1
 
 #ifndef _HEAPINFO_DEFINED
 #define _HEAPINFO_DEFINED
+ /* The structure used to walk through the heap with _heapwalk.  */
   typedef struct _heapinfo {
     int *_pentry;
     size_t _size;
@@ -113,7 +117,10 @@ extern "C" {
 #endif
 
 #undef _malloca
-#define _malloca(size) ((((size) + _ALLOCA_S_MARKER_SIZE) <= _ALLOCA_S_THRESHOLD) ? _MarkAllocaS(_alloca((size) + _ALLOCA_S_MARKER_SIZE),_ALLOCA_S_STACK_MARKER) : _MarkAllocaS(malloc((size) + _ALLOCA_S_MARKER_SIZE),_ALLOCA_S_HEAP_MARKER))
+#define _malloca(size) \
+  ((((size) + _ALLOCA_S_MARKER_SIZE) <= _ALLOCA_S_THRESHOLD) ? \
+    _MarkAllocaS(_alloca((size) + _ALLOCA_S_MARKER_SIZE),_ALLOCA_S_STACK_MARKER) : \
+    _MarkAllocaS(malloc((size) + _ALLOCA_S_MARKER_SIZE),_ALLOCA_S_HEAP_MARKER))
 #undef _FREEA_INLINE
 #define _FREEA_INLINE
 
@@ -138,7 +145,11 @@ extern "C" {
 
 #ifndef	NO_OLDNAMES
 #undef alloca
+#ifdef __GNUC__
+#define alloca(x) __builtin_alloca((x))
+#else
 #define alloca _alloca
+#endif
 #endif
 
 #ifdef HEAPHOOK
@@ -163,4 +174,4 @@ extern "C" {
 
 #pragma pack(pop)
 
-#endif /* _INC_MALLOC */
+#endif /* _MALLOC_H_ */
