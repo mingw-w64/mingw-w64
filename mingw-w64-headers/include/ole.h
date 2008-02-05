@@ -3,8 +3,12 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifndef _INC_OLE
-#define _INC_OLE
+#ifndef _OLE_H_
+#define _OLE_H_
+
+#ifdef _OLE2_H_
+#error You can't use ole.h and ole2.h together.
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -156,15 +160,21 @@ extern "C" {
     LPOLECLIENTVTBL lpvtbl;
   } OLECLIENT;
 
+#ifndef _DEFINED_OLESTREAMVRBL
+#define _DEFINED_OLESTREAMVRBL
   typedef struct _OLESTREAMVTBL {
     DWORD (CALLBACK *Get)(LPOLESTREAM,void *,DWORD);
     DWORD (CALLBACK *Put)(LPOLESTREAM,const void *,DWORD);
   } OLESTREAMVTBL;
   typedef OLESTREAMVTBL *LPOLESTREAMVTBL;
+#endif
 
+#ifndef _DEFINED_OLESTREAM
+#define _DEFINED_OLESTREAM
   typedef struct _OLESTREAM {
     LPOLESTREAMVTBL lpstbl;
   } OLESTREAM;
+#endif
 
   OLESTATUS WINAPI OleDelete(LPOLEOBJECT);
   OLESTATUS WINAPI OleRelease(LPOLEOBJECT);
@@ -279,4 +289,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* _OLE_H_ */

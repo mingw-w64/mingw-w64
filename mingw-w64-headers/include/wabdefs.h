@@ -13,7 +13,7 @@
 #ifndef _WINDOWS_
 #define INC_OLE2
 #define INC_RPC
-#define _INC_OLE
+#define _OLE_H_
 #include <windows.h>
 #endif
 
