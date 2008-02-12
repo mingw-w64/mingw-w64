@@ -99,14 +99,14 @@ extern "C" {
   : : : "%eax");
 #elif defined(__x86_64)
 #define __try1(pHandler) \
-  __asm__ ("pushq %0;pushq %%gs:0;movq %%rsp,%%fs:0;" : : "g" (pHandler));
+  __asm__ ("pushq %0;pushq %%fs:0;movq %%rsp,%%fs:0;" : : "g" (pHandler));
 
 #define	__except1	\
   __asm__ ("movq (%%rsp),%%rax;movq %%rax,%%fs:0;addq $16,%%rsp;" \
   : : : "%rax");
 #else
 #define __try1(pHandler)
-#define __execpt1
+#define __except1
 #endif
 
 #ifdef __cplusplus
