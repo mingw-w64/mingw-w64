@@ -6,9 +6,7 @@
 #ifndef __ODBCINST_H
 #define __ODBCINST_H
 
-#ifndef __SQL
-#include "sql.h"
-#endif
+#include <sql.h>
 
 #ifdef __cplusplus
 extern "C" {

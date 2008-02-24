@@ -6,9 +6,7 @@
 #ifndef _DBDAOINT_H_
 #define _DBDAOINT_H_
 
-#ifndef _INC_TCHAR
 #include <tchar.h>
-#endif
 
 struct _DAODBEngine;
 #define DAODBEngine _DAODBEngine

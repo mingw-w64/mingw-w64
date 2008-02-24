@@ -6,9 +6,7 @@
 #ifndef _DDEHEADER_INCLUDED_
 #define _DDEHEADER_INCLUDED_
 
-#ifndef _WINDEF_
 #include <windef.h>
-#endif
 
 #ifdef __cplusplus
 extern "C" {

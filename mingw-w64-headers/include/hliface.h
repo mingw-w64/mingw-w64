@@ -24,9 +24,7 @@ extern "C"{
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
 
-#ifndef __hlink_h__
-#include "hlink.h"
-#endif
+#include <hlink.h>
 
   extern RPC_IF_HANDLE __MIDL_itf_hliface_0000_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_hliface_0000_v0_0_s_ifspec;

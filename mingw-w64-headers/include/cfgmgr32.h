@@ -7,10 +7,7 @@
 #define _CFGMGR32_H_
 
 #include <cfg.h>
-
-#ifndef GUID_DEFINED
 #include <guiddef.h>
-#endif
 
 #ifdef __cplusplus
 extern "C" {

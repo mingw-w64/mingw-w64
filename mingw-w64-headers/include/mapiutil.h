@@ -10,9 +10,7 @@
 extern "C" {
 #endif
 
-#ifndef MAPIX_H
 #include <mapix.h>
-#endif
 
 #ifndef BEGIN_INTERFACE
 #define BEGIN_INTERFACE

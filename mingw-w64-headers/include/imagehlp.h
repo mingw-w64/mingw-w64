@@ -12,9 +12,7 @@
 #endif
 #endif
 
-#ifndef WINTRUST_H
 #include <wintrust.h>
-#endif
 
 #ifdef __cplusplus
 extern "C" {

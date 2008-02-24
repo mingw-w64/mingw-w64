@@ -6,18 +6,10 @@
 #ifndef MAPISPI_H
 #define MAPISPI_H
 
-#ifndef MAPIDEFS_H
 #include <mapidefs.h>
-#endif
-#ifndef MAPICODE_H
 #include <mapicode.h>
-#endif
-#ifndef MAPIGUID_H
 #include <mapiguid.h>
-#endif
-#ifndef MAPITAGS_H
 #include <mapitags.h>
-#endif
 
 #ifndef BEGIN_INTERFACE
 #define BEGIN_INTERFACE

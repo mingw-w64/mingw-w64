@@ -35,9 +35,7 @@ extern "C" {
 
 #define rpc_binding_handle_t RPC_BINDING_HANDLE
 
-#ifndef GUID_DEFINED
 #include <guiddef.h>
-#endif
 
 #ifndef UUID_DEFINED
 #define UUID_DEFINED

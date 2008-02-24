@@ -10,9 +10,7 @@
 extern "C" {
 #endif
 
-#ifndef MAPIUTIL_H
 #include <mapiutil.h>
-#endif
 #include <stddef.h>
 #include <stdarg.h>
 

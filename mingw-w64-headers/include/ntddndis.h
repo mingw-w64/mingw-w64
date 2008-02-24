@@ -38,9 +38,7 @@ extern "C" {
     ULONG_PTR Offset;
   } NDIS_VAR_DATA_DESC,*PNDIS_VAR_DATA_DESC;
 
-#ifndef GUID_DEFINED
 #include <guiddef.h>
-#endif
 
 #define OID_GEN_SUPPORTED_LIST 0x00010101
 #define OID_GEN_HARDWARE_STATUS 0x00010102

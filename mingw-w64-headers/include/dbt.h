@@ -19,9 +19,7 @@
 typedef unsigned short wchar_t;
 #endif
 
-#ifndef GUID_DEFINED
 #include <guiddef.h>
-#endif
 
 #define BSF_QUERY 0x00000001
 #define BSF_IGNORECURRENTTASK 0x00000002

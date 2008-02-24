@@ -42,9 +42,7 @@ extern "C" {
     SeAdtParmTypeDuration,SeAdtParmTypeUserAccountControl,SeAdtParmTypeNoUac,SeAdtParmTypeMessage,SeAdtParmTypeDateTime,SeAdtParmTypeSockAddr
   } SE_ADT_PARAMETER_TYPE,*PSE_ADT_PARAMETER_TYPE;
 
-#ifndef GUID_DEFINED
 #include <guiddef.h>
-#endif
 
 #define SE_ADT_OBJECT_ONLY 0x1
 
