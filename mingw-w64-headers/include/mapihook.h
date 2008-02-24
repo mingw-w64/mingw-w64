@@ -6,12 +6,10 @@
 #ifndef MAPIHOOK_H
 #define MAPIHOOK_H
 
-#ifndef MAPIDEFS_H
 #include <mapidefs.h>
 #include <mapicode.h>
 #include <mapiguid.h>
 #include <mapitags.h>
-#endif
 
 #ifndef BEGIN_INTERFACE
 #define BEGIN_INTERFACE
