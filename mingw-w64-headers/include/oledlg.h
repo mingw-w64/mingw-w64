@@ -18,21 +18,13 @@
 #define _UNICODE
 #endif
 
-#ifndef _WINDOWS_
 #include <windows.h>
-#endif
-#ifndef _INC_SHELLAPI
 #include <shellapi.h>
-#endif
-#ifndef _INC_COMMDLG
 #include <commdlg.h>
-#endif
-#ifndef _OLE2_H_
 #include <ole2.h>
-#endif
 #include <string.h>
 #include <tchar.h>
-#endif
+#endif /* End RC_INVOKED */
 
 #include <dlgs.h>
 

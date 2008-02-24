@@ -6,17 +6,9 @@
 #ifndef __DSKQUOTA_H
 #define __DSKQUOTA_H
 
-#ifndef _WINDOWS_
 #include <windows.h>
-#endif
-
-#ifndef _OLE2_H_
 #include <ole2.h>
-#endif
-
-#ifndef _OLECTL_H_
 #include <olectl.h>
-#endif
 
 #ifdef INITGUIDS
 #include <initguid.h>

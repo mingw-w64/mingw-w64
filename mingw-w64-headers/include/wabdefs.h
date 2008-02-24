@@ -20,10 +20,7 @@
 #ifndef _OLEERROR_H_
 #include <objerror.h>
 #endif
-#ifndef _OBJBASE_H_
 #include <objbase.h>
-#endif
-
 #include <stddef.h>
 
 #ifndef MAPI_DIM

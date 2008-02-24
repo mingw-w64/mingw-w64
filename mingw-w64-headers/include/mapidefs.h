@@ -16,10 +16,7 @@
 #ifndef _OLEERROR_H_
 #include <winerror.h>
 #endif
-#ifndef _OBJBASE_H_
 #include <objbase.h>
-#endif
-
 #include <stddef.h>
 
 #ifndef MAPI_DIM

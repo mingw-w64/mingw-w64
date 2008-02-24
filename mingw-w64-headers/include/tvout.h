@@ -6,9 +6,7 @@
 #ifndef __TVOUT__
 #define __TVOUT__
 
-#ifndef GUID_DEFINED
 #include <guiddef.h>
-#endif
 
 typedef struct _VIDEOPARAMETERS {
   GUID Guid;

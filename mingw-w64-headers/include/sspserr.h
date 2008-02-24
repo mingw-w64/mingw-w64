@@ -6,8 +6,6 @@
 #ifndef __SSPSERR_H__
 #define __SSPSERR_H__
 
-#ifndef SCARD_S_SUCCESS
-#include "scarderr.h"
-#endif
+#include <scarderr.h>
 
 #endif

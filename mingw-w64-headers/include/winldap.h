@@ -14,9 +14,7 @@ extern "C" {
 #include <windef.h>
 #endif
 
-#ifndef _SCHNLSP_H_
 #include <schnlsp.h>
-#endif
 
 #define WINLDAPAPI DECLSPEC_IMPORT
 

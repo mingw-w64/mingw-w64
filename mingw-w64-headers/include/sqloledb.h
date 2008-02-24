@@ -6,9 +6,7 @@
 #ifndef _SQLOLEDB_H_
 #define _SQLOLEDB_H_
 
-#ifndef __oledb_h__
-#include "oledb.h"
-#endif
+#include <oledb.h>
 
 #ifdef DBINITCONSTANTS
 extern const GUID CLSID_SQLOLEDB = {0xc7ff16cL,0x38e3,0x11d0,{0x97,0xab,0x0,0xc0,0x4f,0xc2,0xad,0x98}};

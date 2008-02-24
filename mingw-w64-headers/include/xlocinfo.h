@@ -8,9 +8,7 @@
 #include <ctype.h>
 #include <locale.h>
 #include <wchar.h>
-#ifndef _YVALS
 #include <yvals.h>
-#endif
 
 #pragma pack(push,_CRT_PACKING)
 

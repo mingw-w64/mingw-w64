@@ -5,13 +5,8 @@
 #error Requires C++ compilation (use a .cpp suffix)
 #endif
 
-#ifndef __wbemprov_h__
 #include <wbemprov.h>
-#endif
-
-#ifndef __wmiutils_h__
 #include <wmiutils.h>
-#endif
 
 namespace ATL {
   class ATL_NO_VTABLE IWbemInstProviderImpl : public IWbemServices,public IWbemProviderInit {

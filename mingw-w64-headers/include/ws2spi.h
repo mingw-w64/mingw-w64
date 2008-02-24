@@ -10,9 +10,7 @@
 #include <pshpack4.h>
 #endif
 
-#ifndef _WINSOCK2API_
 #include <winsock2.h>
-#endif
 
 #define WSPDESCRIPTION_LEN 255
 

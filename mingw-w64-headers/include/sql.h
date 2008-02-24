@@ -10,9 +10,7 @@
 #define ODBCVER 0x0351
 #endif
 
-#ifndef __SQLTYPES
-#include "sqltypes.h"
-#endif
+#include <sqltypes.h>
 
 #ifdef __cplusplus
 extern "C" {

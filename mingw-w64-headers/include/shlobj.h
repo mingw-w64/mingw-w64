@@ -81,12 +81,8 @@
 #endif
 
 #include <ole2.h>
-#ifndef _PRSHT_H_
 #include <prsht.h>
-#endif
-#ifndef _INC_COMMCTRL
 #include <commctrl.h>
-#endif
 
 #ifndef INITGUID
 #include <shlguid.h>

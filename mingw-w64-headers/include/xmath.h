@@ -8,9 +8,7 @@
 #include <errno.h>
 #include <math.h>
 #include <stddef.h>
-#ifndef _YMATH
 #include <ymath.h>
-#endif
 
 _C_STD_BEGIN
 

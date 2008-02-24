@@ -6,9 +6,7 @@
 #ifndef _ADOCTINT_H_
 #define _ADOCTINT_H_
 
-#ifndef _INC_TCHAR
 #include <tchar.h>
-#endif
 
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
 #define __REQUIRED_RPCNDR_H_VERSION__ 440

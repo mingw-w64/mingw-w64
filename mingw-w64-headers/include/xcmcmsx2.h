@@ -6,14 +6,8 @@
 #ifndef _XCMCMSX2_H
 #define _XCMCMSX2_H
 
-#ifndef XCMCMSXT_H
 #include <xcmcmsxt.h>
-#endif
-
-#ifndef MAPIDEFS_H
 #include <mapidefs.h>
-#endif
-
 #include <xcmc.h>
 
 #ifdef __cplusplus
@@ -36,3 +30,4 @@ extern "C" {
 }
 #endif
 #endif
+

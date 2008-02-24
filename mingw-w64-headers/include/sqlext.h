@@ -6,9 +6,7 @@
 #ifndef __SQLEXT
 #define __SQLEXT
 
-#ifndef __SQL
-#include "sql.h"
-#endif
+#include <sql.h>
 
 #ifdef __cplusplus
 extern "C" {
