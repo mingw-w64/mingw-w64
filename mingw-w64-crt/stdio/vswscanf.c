@@ -11,7 +11,8 @@
 
 
 int vswscanf(const wchar_t * __restrict__ s, const wchar_t * __restrict__ format,
-  va_list arg) {
+  va_list arg)
+{
   int ret;
 
 #ifdef _WIN64
@@ -19,7 +20,7 @@ int vswscanf(const wchar_t * __restrict__ s, const wchar_t * __restrict__ format
 
     // allocate stack (esp += frame - arg3 - (8[arg1,2] + 12))
     "movq	%%rsp, %%r10\n\t"
-    "lea	0xFFFFFFD8(%%rsp, %6), %%rsp\n\t"
+    "lea	0xFFFFFFFFFFFFFFD8(%%rsp, %6), %%rsp\n\t"
     "subq	%5, %%rsp\n\t"
 
     // set up stack
