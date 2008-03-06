@@ -1,3 +1,12 @@
+2008-03-06  Roland Schwingel  <roland.schwingel@onevision.com>
+
+	* winnt.h (PRODUCT_...): New.
+	(LANG_...): Some missing language codes.
+	(SORT_INVARIANT_MATH): New.
+	(SORT_JAPANESE_RADICALSTROKE): New.
+	(LOCALE_NAME_MAX_LENGTH): New.
+	(ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS): New.
+
 2008-01-30  Kai Tietz  <kai.tietz@onevision.com>
 
 	* userenv.h: Removed duplicate #if-clause.
