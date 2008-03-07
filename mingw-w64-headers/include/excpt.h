@@ -19,7 +19,7 @@ extern "C" {
 #ifdef EXCEPTION_DISPOSITION
 #undef EXCEPTION_DISPOSITION
 #endif
-n  typedef enum _EXCEPTION_DISPOSITION {
+  typedef enum _EXCEPTION_DISPOSITION {
     ExceptionContinueExecution,ExceptionContinueSearch,ExceptionNestedException,ExceptionCollidedUnwind
   } EXCEPTION_DISPOSITION;
 
