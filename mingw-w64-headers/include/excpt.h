@@ -16,12 +16,13 @@ extern "C" {
 
   struct _EXCEPTION_POINTERS;
 
-#ifdef EXCEPTION_DISPOSITION
-#undef EXCEPTION_DISPOSITION
+#ifndef EXCEPTION_DISPOSITION
+#define EXCEPTION_DISPOSITION   int
 #endif
-  typedef enum _EXCEPTION_DISPOSITION {
-    ExceptionContinueExecution,ExceptionContinueSearch,ExceptionNestedException,ExceptionCollidedUnwind
-  } EXCEPTION_DISPOSITION;
+#define ExceptionContinueExecution 0
+#define ExceptionContinueSearch 1
+#define ExceptionNestedException 2
+#define ExceptionCollidedUnwind 3
 
 #if (defined(_X86_) && !defined(__x86_64))
   struct _EXCEPTION_RECORD;
