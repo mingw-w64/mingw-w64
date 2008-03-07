@@ -19,7 +19,7 @@ extern "C" {
 #ifdef EXCEPTION_DISPOSITION
 #undef EXCEPTION_DISPOSITION
 #endif
-  typedef enum _EXCEPTION_DISPOSITION {
+n  typedef enum _EXCEPTION_DISPOSITION {
     ExceptionContinueExecution,ExceptionContinueSearch,ExceptionNestedException,ExceptionCollidedUnwind
   } EXCEPTION_DISPOSITION;
 
@@ -81,6 +81,7 @@ extern "C" {
   */
   typedef EXCEPTION_DISPOSITION (*PEXCEPTION_HANDLER)(struct _EXCEPTION_RECORD*, void*, struct _CONTEXT*, void*);
 
+#ifndef HAVE_NO_SEH
   /*
   * This is not entirely necessary, but it is the structure installed by
   * the _try1 primitive below.
@@ -92,6 +93,7 @@ extern "C" {
 
   typedef EXCEPTION_REGISTRATION EXCEPTION_REGISTRATION_RECORD;
   typedef PEXCEPTION_REGISTRATION PEXCEPTION_REGISTRATION_RECORD;
+#endif
 
 #if (defined(_X86_) && !defined(__x86_64))
 #define __try1(pHandler) \
