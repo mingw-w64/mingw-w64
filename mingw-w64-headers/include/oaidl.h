@@ -235,7 +235,7 @@ extern "C" {
 #define FADF_VARIANT (0x800)
 #define FADF_RESERVED (0xf008)
 
-#if !defined(_FORCENAMELESSUNION) || defined(NONAMELESSUNION)
+#if defined(NONAMELESSUNION)
 #define __VARIANT_NAME_1 n1
 #define __VARIANT_NAME_2 n2
 #define __VARIANT_NAME_3 n3
