@@ -8,7 +8,7 @@
 
 #ifndef RC_INVOKED
 #ifndef __cplusplus
-#define NONAMELESSUNION
+/* #define NONAMELESSUNION */
 #endif
 
 #if defined(_UNICODE) && !defined(UNICODE)

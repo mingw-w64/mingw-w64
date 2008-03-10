@@ -1,3 +1,8 @@
+2008-03-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/1910322: trouble using Windows VARIANT type.
+	* oledlg.h: Disable default use of NONAMELESSUNION for C.
+
 2008-03-06  Roland Schwingel  <roland.schwingel@onevision.com>
 
 	* winnt.h (PRODUCT_...): New.
