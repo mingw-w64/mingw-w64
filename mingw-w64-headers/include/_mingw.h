@@ -440,6 +440,6 @@ extern "C" {
 #ifndef MINGW_SDK_INIT
 #define MINGW_SDK_INIT
 
-#include "_mingw_directx.h"
+#include "sdks/_mingw_directx.h"
 
 #endif
