@@ -196,6 +196,9 @@ lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = lib64/shell32.c
 lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
+lib64_LIBRARIES += lib64/libdxguid.a
+lib64_libdxguid_a_SOURCES = lib64/dxguid.c
+
 lib64_LIBRARIES += lib64/liblargeint.a
 lib64_liblargeint_a_SOURCES = lib64/largeint.c
 

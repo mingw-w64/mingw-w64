@@ -189,6 +189,11 @@ lib32_libws2_32_a_LIBADD =
 am__lib32_libws2_32_a_SOURCES_DIST = lib32/ws2_32.c
 @LIB32_TRUE@am_lib32_libws2_32_a_OBJECTS = lib32/ws2_32.$(OBJEXT)
 lib32_libws2_32_a_OBJECTS = $(am_lib32_libws2_32_a_OBJECTS)
+lib64_libdxguid_a_AR = $(AR) $(ARFLAGS)
+lib64_libdxguid_a_LIBADD =
+am__lib64_libdxguid_a_SOURCES_DIST = lib64/dxguid.c
+@LIB64_TRUE@am_lib64_libdxguid_a_OBJECTS = lib64/dxguid.$(OBJEXT)
+lib64_libdxguid_a_OBJECTS = $(am_lib64_libdxguid_a_OBJECTS)
 lib64_libkernel32_a_LIBADD =
 am__lib64_libkernel32_a_SOURCES_DIST = lib64/kernel32.c
 @LIB64_TRUE@am_lib64_libkernel32_a_OBJECTS = lib64/kernel32.$(OBJEXT)
@@ -704,12 +709,12 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(nodist_lib32_libm_a_SOURCES) $(lib32_libscrnsave_a_SOURCES) \
 	$(lib32_libscrnsavw_a_SOURCES) $(lib32_libshell32_a_SOURCES) \
 	$(lib32_libstrmiids_a_SOURCES) $(lib32_libuuid_a_SOURCES) \
-	$(lib32_libws2_32_a_SOURCES) $(lib64_libkernel32_a_SOURCES) \
-	$(lib64_liblargeint_a_SOURCES) $(nodist_lib64_libm_a_SOURCES) \
-	$(lib64_libmingw32_a_SOURCES) $(lib64_libmingwex_a_SOURCES) \
-	$(lib64_libmoldname_a_SOURCES) $(lib64_libscrnsave_a_SOURCES) \
-	$(lib64_libscrnsavw_a_SOURCES) $(lib64_libshell32_a_SOURCES) \
-	$(lib64_libuuid_a_SOURCES)
+	$(lib32_libws2_32_a_SOURCES) $(lib64_libdxguid_a_SOURCES) \
+	$(lib64_libkernel32_a_SOURCES) $(lib64_liblargeint_a_SOURCES) \
+	$(nodist_lib64_libm_a_SOURCES) $(lib64_libmingw32_a_SOURCES) \
+	$(lib64_libmingwex_a_SOURCES) $(lib64_libmoldname_a_SOURCES) \
+	$(lib64_libscrnsave_a_SOURCES) $(lib64_libscrnsavw_a_SOURCES) \
+	$(lib64_libshell32_a_SOURCES) $(lib64_libuuid_a_SOURCES)
 DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdinput8_a_SOURCES_DIST) \
 	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
@@ -724,6 +729,7 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libstrmiids_a_SOURCES_DIST) \
 	$(am__lib32_libuuid_a_SOURCES_DIST) \
 	$(am__lib32_libws2_32_a_SOURCES_DIST) \
+	$(am__lib64_libdxguid_a_SOURCES_DIST) \
 	$(am__lib64_libkernel32_a_SOURCES_DIST) \
 	$(am__lib64_liblargeint_a_SOURCES_DIST) \
 	$(am__lib64_libmingw32_a_SOURCES_DIST) \
@@ -979,15 +985,17 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o
 
 @LIB64_TRUE@lib64_LIBRARIES = lib64/libm.a lib64/libkernel32.a \
-@LIB64_TRUE@	lib64/libshell32.a lib64/liblargeint.a \
-@LIB64_TRUE@	lib64/libscrnsave.a lib64/libscrnsavw.a \
-@LIB64_TRUE@	lib64/libuuid.a lib64/libmingw32.a \
-@LIB64_TRUE@	lib64/libmoldname.a lib64/libmingwex.a
+@LIB64_TRUE@	lib64/libshell32.a lib64/libdxguid.a \
+@LIB64_TRUE@	lib64/liblargeint.a lib64/libscrnsave.a \
+@LIB64_TRUE@	lib64/libscrnsavw.a lib64/libuuid.a \
+@LIB64_TRUE@	lib64/libmingw32.a lib64/libmoldname.a \
+@LIB64_TRUE@	lib64/libmingwex.a
 @LIB64_TRUE@nodist_lib64_libm_a_SOURCES = _libm_dummy.c
 @LIB64_TRUE@lib64_libkernel32_a_SOURCES = lib64/kernel32.c
 @LIB64_TRUE@lib64_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libshell32_a_SOURCES = lib64/shell32.c
 @LIB64_TRUE@lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libdxguid_a_SOURCES = lib64/dxguid.c
 @LIB64_TRUE@lib64_liblargeint_a_SOURCES = lib64/largeint.c
 @LIB64_TRUE@lib64_libscrnsave_a_SOURCES = lib64/scrnsave.c
 @LIB64_TRUE@lib64_libscrnsavw_a_SOURCES = lib64/scrnsave.c
@@ -1794,6 +1802,12 @@ lib64/$(am__dirstamp):
 lib64/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) lib64/$(DEPDIR)
 	@: > lib64/$(DEPDIR)/$(am__dirstamp)
+lib64/dxguid.$(OBJEXT): lib64/$(am__dirstamp) \
+	lib64/$(DEPDIR)/$(am__dirstamp)
+lib64/libdxguid.a: $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_DEPENDENCIES) lib64/$(am__dirstamp)
+	-rm -f lib64/libdxguid.a
+	$(lib64_libdxguid_a_AR) lib64/libdxguid.a $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_LIBADD)
+	$(RANLIB) lib64/libdxguid.a
 lib64/kernel32.$(OBJEXT): lib64/$(am__dirstamp) \
 	lib64/$(DEPDIR)/$(am__dirstamp)
 lib64/libkernel32.a: $(lib64_libkernel32_a_OBJECTS) $(lib64_libkernel32_a_DEPENDENCIES) lib64/$(am__dirstamp)
@@ -2759,6 +2773,7 @@ mostlyclean-compile:
 	-rm -f lib32/urlmon-uuid.$(OBJEXT)
 	-rm -f lib32/uuid.$(OBJEXT)
 	-rm -f lib32/ws2_32.$(OBJEXT)
+	-rm -f lib64/dxguid.$(OBJEXT)
 	-rm -f lib64/kernel32.$(OBJEXT)
 	-rm -f lib64/largeint.$(OBJEXT)
 	-rm -f lib64/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
@@ -3153,6 +3168,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/ws2_32.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/dxguid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/kernel32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/largeint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po@am__quote@
