@@ -238,7 +238,7 @@ extern "C" {
 
 #pragma push_macro("abort")
 #undef abort
-  _CRTIMP void __cdecl __declspec(noreturn) abort(void);
+  void __cdecl __declspec(noreturn) abort(void);
 #pragma pop_macro("abort")
 
 #endif
