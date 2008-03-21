@@ -6,10 +6,14 @@
 //  By aaronwl 2003-01-28 for mingw-msvcrt
 //  Public domain: all copyrights disclaimed, absolutely no warranties */
 
-#include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <malloc.h>
+#include <memory.h>
 
-int vfscanf(FILE * __restrict__ stream, const char * __restrict__ format, va_list arg) {
+int vfscanf(FILE * __restrict__ stream, const char * __restrict__ format, va_list arg)
+{
   int ret;
 #ifdef _WIN64
   __asm__(
@@ -27,10 +31,17 @@ int vfscanf(FILE * __restrict__ stream, const char * __restrict__ format, va_lis
     "movq	%5, 0x8(%%rsp)\n\t"  // memcpy src
     "movq	%5, 0x10(%%rsp)\n\t"
     "subq	%6, 0x10(%%rsp)\n\t"  // memcpy len
+    "movq   0x10(%%rsp), %%r8\n\t"
+    "movq   0x8(%%rsp), %%rdx\n\t"
+    "movq   (%%rsp),  %%rcx\n\t"
     "call	_memcpy\n\t"
     "addq	$24, %%rsp\n\t"
 
     // call fscanf
+    "movq   0x18(%%rsp), %%r9\n\t"
+    "movq   0x10(%%rsp), %%r8\n\t"
+    "movq   0x8(%%rsp), %%rdx\n\t"
+    "movq   (%%rsp),  %%rcx\n\t"
     "call	_fscanf\n\t"
 
     // restore stack

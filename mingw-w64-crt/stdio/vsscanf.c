@@ -28,10 +28,17 @@ int vsscanf(const char * __restrict__ s, const char * __restrict__ format, va_li
     "movq	%5, 0x8(%%rsp)\n\t"  // memcpy src
     "movq	%5, 0x10(%%rsp)\n\t"
     "subq	%6, 0x10(%%rsp)\n\t"  // memcpy len
+    "movq   0x10(%%rsp), %%r8\n\t"
+    "movq   0x8(%%rsp), %%rdx\n\t"
+    "movq   (%%rsp),  %%rcx\n\t"
     "call	_memcpy\n\t"
     "addq	$24, %%rsp\n\t"
 
     // call sscanf
+    "movq   0x18(%%rsp), %%r9\n\t"
+    "movq   0x10(%%rsp), %%r8\n\t"
+    "movq   0x8(%%rsp), %%rdx\n\t"
+    "movq   (%%rsp),  %%rcx\n\t"
     "call	_sscanf\n\t"
 
     // restore stack

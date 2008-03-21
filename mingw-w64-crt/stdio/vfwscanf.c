@@ -30,10 +30,17 @@ int vfwscanf(FILE * __restrict__ stream, const wchar_t * __restrict__ format,
     "movq	%5, 0x8(%%rsp)\n\t"  // memcpy src
     "movq	%5, 0x10(%%rsp)\n\t"
     "subq	%6, 0x10(%%rsp)\n\t"  // memcpy len
+    "movq   0x10(%%rsp), %%r8\n\t"
+    "movq   0x8(%%rsp), %%rdx\n\t"
+    "movq   (%%rsp),  %%rcx\n\t"
     "call	_memcpy\n\t"
     "addq	$24, %%rsp\n\t"
 
-    // call fscanf
+    // call fwscanf
+    "movq   0x18(%%rsp), %%r9\n\t"
+    "movq   0x10(%%rsp), %%r8\n\t"
+    "movq   0x8(%%rsp), %%rdx\n\t"
+    "movq   (%%rsp),  %%rcx\n\t"
     "call	_fwscanf\n\t"
 
     // restore stack
