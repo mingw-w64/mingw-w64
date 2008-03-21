@@ -3,6 +3,10 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
+#ifndef _INC_CRTDEFS
+#define _INC_CRTDEFS
+
 #ifndef __GNUC__
 # ifndef __MINGW_IMPORT
 #  define __MINGW_IMPORT  __declspec(dllimport)
@@ -94,7 +98,9 @@ limitations in handling dllimport attribute.  */
 #define __int32 int
 #define __int64 long long
 #ifdef _WIN64
+
 typedef int __int128 __attribute__ ((mode (TI)));
+
 #endif
 
 #define __ptr32
@@ -103,9 +109,6 @@ typedef int __int128 __attribute__ ((mode (TI)));
 #define __forceinline extern __inline
 #endif
 #endif
-
-#ifndef _INC_CRTDEFS
-#define _INC_CRTDEFS
 
 #ifndef _WIN32
 #error Only Win32 target is supported!
