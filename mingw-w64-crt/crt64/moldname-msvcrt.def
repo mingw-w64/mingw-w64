@@ -108,7 +108,6 @@ strupr
 swab
 tell
 tempnam
-vsnprintf
 
 timezone DATA
 
