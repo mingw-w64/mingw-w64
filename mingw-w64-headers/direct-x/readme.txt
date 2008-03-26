@@ -8,7 +8,7 @@ the macro MINGW_HAVE_DDRAW_H and the version can be obtained by the macro
 MINGW_DDRAW_VERSION.
 
 This is an optional SDK. Its license is LGPL and you can obtain the original source by the
-wine project via http://sourceforge.net/project/showfiles.php?group_id=6241&package_id=112520.
+wine project. We base on the released wine-w32api-0.9.14.zip from the wine project.
 For further details on license please read at the wine project.
 
 How to install this SDK
