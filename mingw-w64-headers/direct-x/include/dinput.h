@@ -128,11 +128,17 @@ typedef struct SysMouseA *LPSYSMOUSEA;
 #define IID_IDirectInput2 IID_IDirectInput2W
 #define IID_IDirectInput7 IID_IDirectInput7W
 #define IID_IDirectInputDevice IID_IDirectInputDeviceW
+#define IID_IDirectInputDevice2 IID_IDirectInputDevice2W
+#define IID_IDirectInputDevice7 IID_IDirectInputDevice7W
+#define IID_IDirectInputDevice8 IID_IDirectInputDevice8W
 
 typedef LPDIRECTINPUTW LPDIRECTINPUT;
 typedef LPDIRECTINPUT2W LPDIRECTINPUT2;
 typedef LPDIRECTINPUT7W LPDIRECTINPUT7;
 typedef LPDIRECTINPUTDEVICEW LPDIRECTINPUTDEVICE;
+typedef LPDIRECTINPUTDEVICE2W LPDIRECTINPUTDEVICE2;
+typedef LPDIRECTINPUTDEVICE7W LPDIRECTINPUTDEVICE7;
+typedef LPDIRECTINPUTDEVICE8W LPDIRECTINPUTDEVICE8;
 
 #else
 
@@ -140,45 +146,18 @@ typedef LPDIRECTINPUTDEVICEW LPDIRECTINPUTDEVICE;
 #define IID_IDirectInput2 IID_IDirectInput2A
 #define IID_IDirectInput7 IID_IDirectInput7A
 #define IID_IDirectInputDevice IID_IDirectInputDeviceA
+#define IID_IDirectInputDevice2 IID_IDirectInputDevice2A
+#define IID_IDirectInputDevice7 IID_IDirectInputDevice7A
+#define IID_IDirectInputDevice8 IID_IDirectInputDevice8A
 
 typedef LPDIRECTINPUTA LPDIRECTINPUT;
 typedef LPDIRECTINPUT2A LPDIRECTINPUT2;
 typedef LPDIRECTINPUT7A LPDIRECTINPUT7;
 typedef LPDIRECTINPUTDEVICEA LPDIRECTINPUTDEVICE;
-
-#endif
-
-#ifdef UNICODE
-#define IID_IDirectInputDevice2 IID_IDirectInputDevice2W
-#else
-#define IID_IDirectInputDevice2 IID_IDirectInputDevice2A
-#endif
-#ifdef UNICODE
-typedef LPDIRECTINPUTDEVICE2W LPDIRECTINPUTDEVICE2;
-#else
 typedef LPDIRECTINPUTDEVICE2A LPDIRECTINPUTDEVICE2;
-#endif
-
-#ifdef UNICODE
-#define IID_IDirectInputDevice7 IID_IDirectInputDevice7W
-#else
-#define IID_IDirectInputDevice7 IID_IDirectInputDevice7A
-#endif
-#ifdef UNICODE
-typedef LPDIRECTINPUTDEVICE7W LPDIRECTINPUTDEVICE7;
-#else
 typedef LPDIRECTINPUTDEVICE7A LPDIRECTINPUTDEVICE7;
-#endif
-
-#ifdef UNICODE
-#define IID_IDirectInputDevice8 IID_IDirectInputDevice8W
-#else
-#define IID_IDirectInputDevice8 IID_IDirectInputDevice8A
-#endif
-#ifdef UNICODE
-typedef LPDIRECTINPUTDEVICE8W LPDIRECTINPUTDEVICE8;
-#else
 typedef LPDIRECTINPUTDEVICE8A LPDIRECTINPUTDEVICE8;
+
 #endif
 
 #define DI_OK                           S_OK
