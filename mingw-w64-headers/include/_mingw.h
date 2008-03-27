@@ -215,6 +215,7 @@ extern "C" {
 
 #ifndef _SIZE_T_DEFINED
 #define _SIZE_T_DEFINED
+#undef size_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef unsigned int size_t __attribute__ ((mode (DI)));
@@ -228,6 +229,7 @@ extern "C" {
 
 #ifndef _SSIZE_T_DEFINED
 #define _SSIZE_T_DEFINED
+#undef ssize_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int ssize_t __attribute__ ((mode (DI)));
@@ -241,6 +243,7 @@ extern "C" {
 
 #ifndef _INTPTR_T_DEFINED
 #define _INTPTR_T_DEFINED
+#undef intptr_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int intptr_t __attribute__ ((mode (DI)));
@@ -254,6 +257,7 @@ extern "C" {
 
 #ifndef _UINTPTR_T_DEFINED
 #define _UINTPTR_T_DEFINED
+#undef uintptr_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef unsigned int uintptr_t __attribute__ ((mode (DI)));
@@ -268,6 +272,7 @@ extern "C" {
 #ifndef _PTRDIFF_T_DEFINED
 #define _PTRDIFF_T_DEFINED
 #ifndef _PTRDIFF_T_
+#undef ptrdiff_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int ptrdiff_t __attribute__ ((mode (DI)));
