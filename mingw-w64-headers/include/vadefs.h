@@ -28,7 +28,7 @@ extern "C" {
   typedef unsigned __int64 uintptr_t;
 #endif
 #else
-  typedef unsigned int uintptr_t;
+  typedef unsigned long uintptr_t;
 #endif
 #define _UINTPTR_T_DEFINED
 #endif
