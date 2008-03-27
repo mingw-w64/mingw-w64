@@ -223,7 +223,7 @@ extern "C" {
   typedef unsigned __int64 size_t;
 #endif
 #else
-  typedef unsigned long size_t;
+  typedef unsigned int size_t;
 #endif
 #endif
 
@@ -237,7 +237,7 @@ extern "C" {
   typedef __int64 ssize_t;
 #endif
 #else
-  typedef long ssize_t;
+  typedef int ssize_t;
 #endif
 #endif
 
@@ -251,7 +251,7 @@ extern "C" {
   typedef __int64 intptr_t;
 #endif
 #else
-  typedef long intptr_t;
+  typedef int intptr_t;
 #endif
 #endif
 
@@ -265,7 +265,7 @@ extern "C" {
   typedef unsigned __int64 uintptr_t;
 #endif
 #else
-  typedef unsigned long uintptr_t;
+  typedef unsigned int uintptr_t;
 #endif
 #endif
 
@@ -280,7 +280,7 @@ extern "C" {
   typedef __int64 ptrdiff_t;
 #endif
 #else
-  typedef long ptrdiff_t;
+  typedef int ptrdiff_t;
 #endif
 #endif
 #endif

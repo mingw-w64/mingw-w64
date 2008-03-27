@@ -69,6 +69,7 @@ extern "C" {
 
 #ifndef _SIZE_T_DEFINED
 #define _SIZE_T_DEFINED
+#undef size_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef unsigned int size_t __attribute__ ((mode (DI)));
@@ -76,12 +77,13 @@ extern "C" {
   typedef unsigned __int64 size_t;
 #endif
 #else
-  typedef unsigned long size_t;
+  typedef unsigned int size_t;
 #endif
 #endif
 
 #ifndef _SSIZE_T_DEFINED
 #define _SSIZE_T_DEFINED
+#undef ssize_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int ssize_t __attribute__ ((mode (DI)));
@@ -89,7 +91,7 @@ extern "C" {
   typedef __int64 ssize_t;
 #endif
 #else
-  typedef long ssize_t;
+  typedef int ssize_t;
 #endif
 #endif
 
