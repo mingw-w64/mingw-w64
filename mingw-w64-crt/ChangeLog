@@ -1,3 +1,15 @@
+2008-04-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* profile/COPYING: New.
+	* profile/CYGWIN_LICENSE: New.
+	* profile/gcrt0.c: New.
+	* profile/gmon.c: New.
+	* profile/gmon.h: New.
+	* profile/mcount.c: New.
+	* profile/profil.c: New.
+	* profile/profil.h: New.
+	* profile/profile.h: New.
+
 2008-01-30  Kai Tietz  <kai.tietz@onevision.com>
 
 	* misc/io_intrin.c: Correct arguments for __readmsr.
