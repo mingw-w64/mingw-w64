@@ -1,3 +1,8 @@
+2008-04-09  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/1938117
+	* vsscanf.c: Fix assembly typo.
+
 2008-04-08  Kai Tietz  <kai.tietz@onevision.com>
 
 	* profile/COPYING: New.
