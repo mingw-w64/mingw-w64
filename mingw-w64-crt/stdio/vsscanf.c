@@ -16,7 +16,7 @@ int vsscanf(const char * __restrict__ s, const char * __restrict__ format, va_li
   __asm__(
 
     // allocate stack (esp += frame - arg3 - (8[arg1,2] + 12))
-    "movq	%%rsp, %%r10\n\t"
+    "movq	%%rsp, %%rbx\n\t"
     "lea	0xFFFFFFFFFFFFFFD8(%%rsp, %6), %%rsp\n\t"
     "subq	%5, %%rsp\n\t"
 
@@ -42,12 +42,12 @@ int vsscanf(const char * __restrict__ s, const char * __restrict__ format, va_li
     "call	_sscanf\n\t"
 
     // restore stack
-    "movq	%%r10, %%rsp\n\t"
+    "movq	%%rbx, %%rsp\n\t"
 
     : "=a"(ret), "=c"(s), "=d"(format)
     : "1"(s), "2"(format), "S"(arg),
       "a"(&ret)
-    : "r10", "rdi");
+    : "rbx", "rdi");
 #else
   __asm__(
 

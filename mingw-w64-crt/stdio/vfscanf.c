@@ -19,7 +19,7 @@ int vfscanf(FILE * __restrict__ stream, const char * __restrict__ format, va_lis
   __asm__(
 
     /* allocate stack (esp += frame - arg3 - (8[arg1,2] + 12)) */
-    "movq	%%rsp, %%r10\n\t"
+    "movq	%%rsp, %%rbx\n\t"
     "lea	0xFFFFFFFFFFFFFFD8(%%rsp, %6), %%rsp\n\t"
     "subq	%5, %%rsp\n\t"
 
@@ -45,12 +45,12 @@ int vfscanf(FILE * __restrict__ stream, const char * __restrict__ format, va_lis
     "call	_fscanf\n\t"
 
     // restore stack
-    "movq	%%r10, %%rsp\n\t"
+    "movq	%%rbx, %%rsp\n\t"
 
     : "=a"(ret), "=c"(stream), "=d"(format)
     : "1"(stream), "2"(format), "S"(arg),
       "a"(&ret)
-    : "r10", "rdi");
+    : "rbx", "rdi");
 #else
   __asm__(
 
