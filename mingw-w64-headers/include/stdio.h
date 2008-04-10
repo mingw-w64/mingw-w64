@@ -234,6 +234,17 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
   int __cdecl ungetc(int _Ch,FILE *_File);
   int __cdecl vfprintf(FILE *_File,const char *_Format,va_list _ArgList);
   int __cdecl vprintf(const char *_Format,va_list _ArgList);
+  /* Make sure macros are not defined.  */
+#pragma push_macro("vsnprintf")
+#pragma push_macro("snprintf")
+  #undef vsnprintf
+  #undef snprintf
+  extern
+  __attribute__((format(gnu_printf, 3, 0))) __attribute__((nonnull (3)))
+  int __mingw_vsnprintf(char *_DstBuf,size_t _MaxCount,const char *_Format,va_list _ArgList);
+  extern
+  __attribute__((format(gnu_printf, 3, 4))) __attribute__((nonnull (3)))
+  int __mingw_snprintf(char* s, size_t n, const char*  format, ...);
   int __cdecl vsnprintf(char *_DstBuf,size_t _MaxCount,const char *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _snprintf(char *_Dest,size_t _Count,const char *_Format,...);
   _CRTIMP int __cdecl _vsnprintf(char *_Dest,size_t _Count,const char *_Format,va_list _Args);
@@ -248,9 +259,19 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
   int __cdecl vfscanf (FILE * fp, const char * Format,va_list argp);
   int __cdecl vsscanf (const char * _Str,const char * Format,va_list argp);
 #endif
+/* Restore may prior defined macros snprintf/vsnprintf.  */
+#pragma pop_macro("snprintf")
+#pragma pop_macro("vsnprintf")
+/* Check if vsnprintf and snprintf are defaulting to gnu-style.  */
+  #if defined(USE_MINGW_GNU_SNPRINTF) && USE_MINGW_GNU_SNPRINTF
+  #ifndef vsnprint
+  #define vsnprintf __mingw_vsnprintf
+  #endif
+  #ifndef snprintf
+  #define snprintf __mingw_snprintf
+  #endif
+  #endif
   _CRTIMP int __cdecl _vscprintf(const char *_Format,va_list _ArgList);
-  _CRTIMP int __cdecl _snprintf_c(char *_DstBuf,size_t _MaxCount,const char *_Format,...);
-  _CRTIMP int __cdecl _vsnprintf_c(char *_DstBuf,size_t _MaxCount,const char *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _fprintf_p(FILE *_File,const char *_Format,...);
   _CRTIMP int __cdecl _printf_p(const char *_Format,...);
   _CRTIMP int __cdecl _sprintf_p(char *_Dst,size_t _MaxCount,const char *_Format,...);
@@ -277,10 +298,6 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _scprintf_p_l(const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vscprintf_l(const char *_Format,_locale_t _Locale,va_list _ArgList);
   _CRTIMP int __cdecl _vscprintf_p_l(const char *_Format,_locale_t _Locale,va_list _ArgList);
-  _CRTIMP int __cdecl _snprintf_l(char *_DstBuf,size_t _MaxCount,const char *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _snprintf_c_l(char *_DstBuf,size_t _MaxCount,const char *_Format,_locale_t _Locale,...);
-  _CRTIMP int __cdecl _vsnprintf_l(char *_DstBuf,size_t _MaxCount,const char *_Format,_locale_t _Locale,va_list _ArgList);
-  _CRTIMP int __cdecl _vsnprintf_c_l(char *_DstBuf,size_t _MaxCount,const char *,_locale_t _Locale,va_list _ArgList);
 
 #ifndef _WSTDIO_DEFINED
 
