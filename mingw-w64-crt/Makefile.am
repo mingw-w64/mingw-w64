@@ -251,6 +251,14 @@ lib64_libmingwex_a_SOURCES = \
   complex/casinh.c   complex/cexp.c     complex/crealf.c  complex/ctanl.c  \
   complex/casinhf.c  complex/cexpf.c    complex/creall.c  \
   \
+  gdtoa/arithchk.c   gdtoa/gdtoa.h      gdtoa/hd_init.c        gdtoa/strtodnrp.c \
+  gdtoa/dmisc.c      gdtoa/gdtoaimp.h   gdtoa/hexnan.c         gdtoa/strtof.c    \
+  gdtoa/dtoa.c       gdtoa/gethex.c     gdtoa/mingw_snprintf.c gdtoa/strtopx.c   \
+  gdtoa/gd_arith.h   gdtoa/g_ffmt.c     gdtoa/misc.c           gdtoa/sum.c       \
+  gdtoa/g_dfmt.c     gdtoa/g__fmt.c     gdtoa/qnan.c           gdtoa/ulp.c       \
+  gdtoa/gd_qnan.h    gdtoa/gmisc.c      gdtoa/smisc.c          \
+  gdtoa/gdtoa.c      gdtoa/g_xfmt.c     gdtoa/strtodg.c        \
+  \
   math/cephes_emath.h  math/cephes_mconf.h math/fastmath.h     math/fp_consts.h  \
   math/acosf.c         math/expm1l.c       math/ldexpl.c       math/powif.c      \
   math/acosh.c         math/fabs.c         math/lgamma.c       math/powil.c      \
@@ -306,7 +314,7 @@ lib64_libmingwex_a_SOURCES = \
   misc/execvpe.c          misc/imaxabs.c          misc/spawnvp.c               misc/wmemcmp.c        \
   misc/feclearexcept.c    misc/imaxdiv.c          misc/spawnvpe.c              misc/wmemcpy.c        \
   misc/fegetenv.c         misc/isblank.c          misc/strtoimax.c             misc/wmemmove.c       \
-  misc/fegetexceptflag.c  misc/iswblank.c         misc/strtold.c               misc/wmemset.c        \
+  misc/fegetexceptflag.c  misc/iswblank.c         misc/wmemset.c        \
   misc/fegetround.c       misc/localtime.c        misc/strtoumax.c \
   misc/feholdexcept.c     misc/mbrtowc.c          misc/time.c      \
   misc/feraiseexcept.c    misc/mbsinit.c          misc/wassert.c   \
