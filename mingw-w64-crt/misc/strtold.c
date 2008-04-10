@@ -3,6 +3,9 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+/* Tobe disabled now in gdtoa/strtopx.c.  */
+#if 1
+
 #include "math/cephes_emath.h"
 #if NE == 10
 
@@ -395,3 +398,5 @@ long double strtold (const char * __restrict__ s, char ** __restrict__ se)
 
   return xx.ld;
 }
+
+#endif
