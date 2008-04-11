@@ -204,6 +204,8 @@ double __cdecl difftime(time_t _Time1,time_t _Time2);
 char *__cdecl ctime(const time_t *_Time);
 struct tm *__cdecl gmtime(const time_t *_Time);
 struct tm *__cdecl localtime(const time_t *_Time);
+struct tm *__cdecl localtime_r(const time_t *_Time,struct tm *);
+
 time_t __cdecl mktime(struct tm *_Tm);
 time_t __cdecl _mkgmtime(struct tm *_Tm);
 time_t __cdecl time(time_t *_Time);
