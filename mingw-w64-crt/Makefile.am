@@ -171,7 +171,8 @@ COMPILE64=$(COMPILE) $(include64) -c $(crt64srcdir)/
 crt64_SCRIPTS = \
   crt64/libcrtdll.a crt64/libmsvcrt.a crt64/libmsvcr80.a \
   crt64/crt1.o crt64/crt2.o crt64/dllcrt1.o crt64/dllcrt2.o \
-  crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o
+  crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o \
+  profile/gcrt0.o profile/gcrt1.o profile/gcrt2.o
 crt64/crt1.o:
 	$(COMPILE64)crtexe.c -o $@ -D__CRTDLL__ -U__MSVCRT__
 crt64/crt2.o:
@@ -183,6 +184,14 @@ crt64/dllcrt2.o:
 
 crt64/lib%.a: crt64/%.def
 	$(DTDEF) $(crt64srcdir)/$*.def --dllname lib64/$*.dll
+
+profile/gcrt0.o: profile/gcrt0.c
+	$(COMPILE) -c $? -o $@ 
+profile/gcrt1.o: profile/gcrt0.c
+	$(COMPILE) -c $? -o $@ -U__MSVCRT__
+profile/gcrt2.o: profile/gcrt0.c
+	$(COMPILE) -c $? -o $@ -D__MSVCRT__
+
 
 
 lib64_LIBRARIES = lib64/libm.a
@@ -773,7 +782,8 @@ EXTRA_DIST += $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def \
   $(crt64srcdir)/txtmode.c \
   $(crt64srcdir)/binmode.c \
   $(crt64srcdir)/crtbegin.c \
-  $(crt64srcdir)/crtend.c
+  $(crt64srcdir)/crtend.c \
+  $(crt64srcdir)/gcrt0.c
 
 DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
 

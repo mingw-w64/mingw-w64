@@ -1011,7 +1011,8 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@crt64_SCRIPTS = \
 @LIB64_TRUE@  crt64/libcrtdll.a crt64/libmsvcrt.a crt64/libmsvcr80.a \
 @LIB64_TRUE@  crt64/crt1.o crt64/crt2.o crt64/dllcrt1.o crt64/dllcrt2.o \
-@LIB64_TRUE@  crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o
+@LIB64_TRUE@  crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o \
+@LIB64_TRUE@  profile/gcrt0.o profile/gcrt1.o profile/gcrt2.o
 
 @LIB64_TRUE@lib64_LIBRARIES = lib64/libm.a lib64/libkernel32.a \
 @LIB64_TRUE@	lib64/libshell32.a lib64/libdxguid.a \
@@ -1570,7 +1571,8 @@ EXTRA_DIST = DISCLAIMER $(top_srcdir)/lib64/*.def \
 	$(crt64srcdir)/crtexe.c $(crt64srcdir)/crtdll.c \
 	$(crt64srcdir)/CRT_fp8.c $(crt64srcdir)/CRT_fp10.c \
 	$(crt64srcdir)/txtmode.c $(crt64srcdir)/binmode.c \
-	$(crt64srcdir)/crtbegin.c $(crt64srcdir)/crtend.c
+	$(crt64srcdir)/crtbegin.c $(crt64srcdir)/crtend.c \
+	$(crt64srcdir)/gcrt0.c
 DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -9032,6 +9034,13 @@ _libm_dummy.c:
 
 @LIB64_TRUE@crt64/lib%.a: crt64/%.def
 @LIB64_TRUE@	$(DTDEF) $(crt64srcdir)/$*.def --dllname lib64/$*.dll
+
+@LIB64_TRUE@profile/gcrt0.o: profile/gcrt0.c
+@LIB64_TRUE@	$(COMPILE) -c $? -o $@ 
+@LIB64_TRUE@profile/gcrt1.o: profile/gcrt0.c
+@LIB64_TRUE@	$(COMPILE) -c $? -o $@ -U__MSVCRT__
+@LIB64_TRUE@profile/gcrt2.o: profile/gcrt0.c
+@LIB64_TRUE@	$(COMPILE) -c $? -o $@ -D__MSVCRT__
 
 @LIB64_TRUE@lib64/lib%.a:
 @LIB64_TRUE@	$(DTDEF) $(top_srcdir)/lib64/$*.def
