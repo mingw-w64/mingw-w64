@@ -16,10 +16,6 @@ extern "C" {
 
 #if (defined(_X86_) && !defined(__x86_64))
 
-#ifndef _INC_SETJMPEX
-#define setjmp _setjmp
-#endif
-
 #define _JBLEN 16
 #define _JBTYPE int
 
@@ -44,9 +40,6 @@ extern "C" {
 
 #define _JBLEN 33
   typedef SETJMP_FLOAT128 _JBTYPE;
-#ifndef _INC_SETJMPEX
-#define setjmp _setjmp
-#endif
 
   typedef struct __JUMP_BUFFER {
 
@@ -107,10 +100,6 @@ extern "C" {
 #define _JBLEN 16
   typedef SETJMP_FLOAT128 _JBTYPE;
 
-#ifndef _INC_SETJMPEX
-#define setjmp _setjmp
-#endif
-
   typedef struct _JUMP_BUFFER {
     unsigned __int64 Frame;
     unsigned __int64 Rbx;
@@ -141,8 +130,17 @@ extern "C" {
 #define _JMP_BUF_DEFINED
 #endif
 
-  _CRTIMP int __cdecl __attribute__ ((__nothrow__)) setjmp(jmp_buf _Buf);
-  _CRTIMP __declspec(noreturn) __attribute__ ((__nothrow__)) void __cdecl longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
+  void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp(void);
+#ifndef _INC_SETJMPEX
+#define setjmp(BUF) _setjmp((BUF),mingw_getsp())
+#else
+#undef setjmp
+#define setjmp(BUF) _setjmpex((BUF),mingw_getsp())
+#define setjmpex(BUF) _setjmpex((BUF),mingw_getsp())
+#endif
+
+  int __cdecl __attribute__ ((__nothrow__)) _setjmp(jmp_buf _Buf,void *_Ctx);
+  __declspec(noreturn) __attribute__ ((__nothrow__)) void __cdecl longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
 
 #ifdef __cplusplus
 }
