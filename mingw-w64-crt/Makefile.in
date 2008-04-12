@@ -331,9 +331,9 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt64/dirent.c crt64/ftruncate.c \
 	misc/imaxdiv.c misc/spawnvpe.c misc/wmemcpy.c misc/fegetenv.c \
 	misc/isblank.c misc/strtoimax.c misc/wmemmove.c \
 	misc/fegetexceptflag.c misc/iswblank.c misc/wmemset.c \
-	misc/fegetround.c misc/localtime.c misc/strtoumax.c \
-	misc/feholdexcept.c misc/mbrtowc.c misc/time.c \
-	misc/feraiseexcept.c misc/mbsinit.c misc/wassert.c \
+	misc/mingw_getsp.S misc/fegetround.c misc/localtime.c \
+	misc/strtoumax.c misc/feholdexcept.c misc/mbrtowc.c \
+	misc/time.c misc/feraiseexcept.c misc/mbsinit.c misc/wassert.c \
 	stdio/atoll.c stdio/ftello64.c stdio/strtof.c \
 	stdio/vsnwprintf.c stdio/_Exit.c stdio/_fwstat64i32.c \
 	stdio/ulltoa.c stdio/vsscanf.c stdio/_findfirst64i32.c \
@@ -639,6 +639,7 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt64/dirent.c crt64/ftruncate.c \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-fegetexceptflag.$(OBJEXT) \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-iswblank.$(OBJEXT) \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-wmemset.$(OBJEXT) \
+@LIB64_TRUE@	misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT) \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-fegetround.$(OBJEXT) \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-localtime.$(OBJEXT) \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-strtoumax.$(OBJEXT) \
@@ -1012,7 +1013,7 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  crt64/libcrtdll.a crt64/libmsvcrt.a crt64/libmsvcr80.a \
 @LIB64_TRUE@  crt64/crt1.o crt64/crt2.o crt64/dllcrt1.o crt64/dllcrt2.o \
 @LIB64_TRUE@  crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o \
-@LIB64_TRUE@  profile/gcrt0.o profile/gcrt1.o profile/gcrt2.o
+@LIB64_TRUE@  crt64/gcrt0.o crt64/gcrt1.o crt64/gcrt2.o
 
 @LIB64_TRUE@lib64_LIBRARIES = lib64/libm.a lib64/libkernel32.a \
 @LIB64_TRUE@	lib64/libshell32.a lib64/libdxguid.a \
@@ -1128,7 +1129,7 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  misc/execvpe.c          misc/imaxabs.c          misc/spawnvp.c               misc/wmemcmp.c        \
 @LIB64_TRUE@  misc/feclearexcept.c    misc/imaxdiv.c          misc/spawnvpe.c              misc/wmemcpy.c        \
 @LIB64_TRUE@  misc/fegetenv.c         misc/isblank.c          misc/strtoimax.c             misc/wmemmove.c       \
-@LIB64_TRUE@  misc/fegetexceptflag.c  misc/iswblank.c         misc/wmemset.c        \
+@LIB64_TRUE@  misc/fegetexceptflag.c  misc/iswblank.c         misc/wmemset.c               misc/mingw_getsp.S    \
 @LIB64_TRUE@  misc/fegetround.c       misc/localtime.c        misc/strtoumax.c \
 @LIB64_TRUE@  misc/feholdexcept.c     misc/mbrtowc.c          misc/time.c      \
 @LIB64_TRUE@  misc/feraiseexcept.c    misc/mbsinit.c          misc/wassert.c   \
@@ -1572,7 +1573,7 @@ EXTRA_DIST = DISCLAIMER $(top_srcdir)/lib64/*.def \
 	$(crt64srcdir)/CRT_fp8.c $(crt64srcdir)/CRT_fp10.c \
 	$(crt64srcdir)/txtmode.c $(crt64srcdir)/binmode.c \
 	$(crt64srcdir)/crtbegin.c $(crt64srcdir)/crtend.c \
-	$(crt64srcdir)/gcrt0.c
+	profile/gcrt0.c
 DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -2535,6 +2536,8 @@ misc/lib64_libmingwex_a-iswblank.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-wmemset.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-fegetround.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-localtime.$(OBJEXT): misc/$(am__dirstamp) \
@@ -3081,6 +3084,7 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-mbsinit.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw-aligned-malloc.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw-fseek.$(OBJEXT)
+	-rm -f misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mktime.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-seterrno.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-sleep.$(OBJEXT)
@@ -3497,6 +3501,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mbsinit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw-aligned-malloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw-fseek.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mktime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-seterrno.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-sleep.Po@am__quote@
@@ -4062,6 +4067,20 @@ math/lib64_libmingwex_a-ilogb.obj: math/ilogb.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/ilogb.S' object='math/lib64_libmingwex_a-ilogb.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-ilogb.obj `if test -f 'math/ilogb.S'; then $(CYGPATH_W) 'math/ilogb.S'; else $(CYGPATH_W) '$(srcdir)/math/ilogb.S'; fi`
+
+misc/lib64_libmingwex_a-mingw_getsp.o: misc/mingw_getsp.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib64_libmingwex_a-mingw_getsp.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Tpo -c -o misc/lib64_libmingwex_a-mingw_getsp.o `test -f 'misc/mingw_getsp.S' || echo '$(srcdir)/'`misc/mingw_getsp.S
+@am__fastdepCCAS_TRUE@	mv -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='misc/mingw_getsp.S' object='misc/lib64_libmingwex_a-mingw_getsp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib64_libmingwex_a-mingw_getsp.o `test -f 'misc/mingw_getsp.S' || echo '$(srcdir)/'`misc/mingw_getsp.S
+
+misc/lib64_libmingwex_a-mingw_getsp.obj: misc/mingw_getsp.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib64_libmingwex_a-mingw_getsp.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Tpo -c -o misc/lib64_libmingwex_a-mingw_getsp.obj `if test -f 'misc/mingw_getsp.S'; then $(CYGPATH_W) 'misc/mingw_getsp.S'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_getsp.S'; fi`
+@am__fastdepCCAS_TRUE@	mv -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='misc/mingw_getsp.S' object='misc/lib64_libmingwex_a-mingw_getsp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib64_libmingwex_a-mingw_getsp.obj `if test -f 'misc/mingw_getsp.S'; then $(CYGPATH_W) 'misc/mingw_getsp.S'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_getsp.S'; fi`
 
 .c.o:
 @am__fastdepCC_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -9035,11 +9054,11 @@ _libm_dummy.c:
 @LIB64_TRUE@crt64/lib%.a: crt64/%.def
 @LIB64_TRUE@	$(DTDEF) $(crt64srcdir)/$*.def --dllname lib64/$*.dll
 
-@LIB64_TRUE@profile/gcrt0.o: profile/gcrt0.c
+@LIB64_TRUE@crt64/gcrt0.o: profile/gcrt0.c
 @LIB64_TRUE@	$(COMPILE) -c $? -o $@ 
-@LIB64_TRUE@profile/gcrt1.o: profile/gcrt0.c
+@LIB64_TRUE@crt64/gcrt1.o: profile/gcrt0.c
 @LIB64_TRUE@	$(COMPILE) -c $? -o $@ -U__MSVCRT__
-@LIB64_TRUE@profile/gcrt2.o: profile/gcrt0.c
+@LIB64_TRUE@crt64/gcrt2.o: profile/gcrt0.c
 @LIB64_TRUE@	$(COMPILE) -c $? -o $@ -D__MSVCRT__
 
 @LIB64_TRUE@lib64/lib%.a:

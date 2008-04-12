@@ -172,7 +172,7 @@ crt64_SCRIPTS = \
   crt64/libcrtdll.a crt64/libmsvcrt.a crt64/libmsvcr80.a \
   crt64/crt1.o crt64/crt2.o crt64/dllcrt1.o crt64/dllcrt2.o \
   crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o \
-  profile/gcrt0.o profile/gcrt1.o profile/gcrt2.o
+  crt64/gcrt0.o crt64/gcrt1.o crt64/gcrt2.o
 crt64/crt1.o:
 	$(COMPILE64)crtexe.c -o $@ -D__CRTDLL__ -U__MSVCRT__
 crt64/crt2.o:
@@ -185,11 +185,11 @@ crt64/dllcrt2.o:
 crt64/lib%.a: crt64/%.def
 	$(DTDEF) $(crt64srcdir)/$*.def --dllname lib64/$*.dll
 
-profile/gcrt0.o: profile/gcrt0.c
+crt64/gcrt0.o: profile/gcrt0.c
 	$(COMPILE) -c $? -o $@ 
-profile/gcrt1.o: profile/gcrt0.c
+crt64/gcrt1.o: profile/gcrt0.c
 	$(COMPILE) -c $? -o $@ -U__MSVCRT__
-profile/gcrt2.o: profile/gcrt0.c
+crt64/gcrt2.o: profile/gcrt0.c
 	$(COMPILE) -c $? -o $@ -D__MSVCRT__
 
 
@@ -323,7 +323,7 @@ lib64_libmingwex_a_SOURCES = \
   misc/execvpe.c          misc/imaxabs.c          misc/spawnvp.c               misc/wmemcmp.c        \
   misc/feclearexcept.c    misc/imaxdiv.c          misc/spawnvpe.c              misc/wmemcpy.c        \
   misc/fegetenv.c         misc/isblank.c          misc/strtoimax.c             misc/wmemmove.c       \
-  misc/fegetexceptflag.c  misc/iswblank.c         misc/wmemset.c        \
+  misc/fegetexceptflag.c  misc/iswblank.c         misc/wmemset.c               misc/mingw_getsp.S    \
   misc/fegetround.c       misc/localtime.c        misc/strtoumax.c \
   misc/feholdexcept.c     misc/mbrtowc.c          misc/time.c      \
   misc/feraiseexcept.c    misc/mbsinit.c          misc/wassert.c   \
@@ -783,7 +783,7 @@ EXTRA_DIST += $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def \
   $(crt64srcdir)/binmode.c \
   $(crt64srcdir)/crtbegin.c \
   $(crt64srcdir)/crtend.c \
-  $(crt64srcdir)/gcrt0.c
+  profile/gcrt0.c
 
 DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
 
