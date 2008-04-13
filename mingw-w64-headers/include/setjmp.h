@@ -131,6 +131,7 @@ extern "C" {
 #endif
 
   void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp(void);
+  __declspec(noreturn) __attribute__ ((__nothrow__)) void __cdecl mingw_longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
 #ifndef _INC_SETJMPEX
 #define setjmp(BUF) _setjmp((BUF),mingw_getsp())
 #else
@@ -140,7 +141,7 @@ extern "C" {
 #endif
 
   int __cdecl __attribute__ ((__nothrow__)) _setjmp(jmp_buf _Buf,void *_Ctx);
-  __declspec(noreturn) __attribute__ ((__nothrow__)) void __cdecl longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
+#define longjmp mingw_longjmp
 
 #ifdef __cplusplus
 }

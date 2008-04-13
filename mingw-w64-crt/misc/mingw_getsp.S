@@ -16,3 +16,10 @@ _mingw_getsp:
 	lea	4(%esp),%eax
 #endif
 	ret
+.globl _mingw_longjmp
+	.def	_mingw_longjmp;	.scl	2;	.type	32;	.endef
+_mingw_longjmp:
+#ifdef _WIN64
+	movl (%rcx), $0
+#endif
+	jmp _longjmp
