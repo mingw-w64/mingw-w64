@@ -345,9 +345,15 @@ extern "C" {
     __MACHINECE(unsigned __int64 __cdecl _rotr64(unsigned __int64,int))
     __MACHINEIA64(void __rsm(int))
     __MACHINEIA64(void __rum(int))
+#ifdef USE_MINGW_SETJMP_TWO_ARGS
     __MACHINE(int __cdecl _setjmp(jmp_buf,void *))
     __MACHINEIA64(int __cdecl _setjmpex(jmp_buf,void *))
     __MACHINEX64(int __cdecl _setjmpex(jmp_buf,void *))
+#else
+    __MACHINE(int __cdecl _setjmp(jmp_buf))
+    __MACHINEIA64(int __cdecl _setjmpex(jmp_buf))
+    __MACHINEX64(int __cdecl _setjmpex(jmp_buf))
+#endif
     __MACHINEIA64(void __setReg(int,unsigned __int64))
     __MACHINEARMX(void _SmulAdd_SL_ACC(int,int))
     __MACHINEARMX(void _SmulAddPack_2SW_ACC(int,int))
