@@ -8,8 +8,8 @@
 	.text
 	.align 4
 .globl _mingw_getsp
-	.def	mingw_getsp;	.scl	2;	.type	32;	.endef
-mingw_getsp:
+	.def	_mingw_getsp;	.scl	2;	.type	32;	.endef
+_mingw_getsp:
 #ifdef _WIN64
     leaq  8(%rsp),%rax
 #else
