@@ -148,7 +148,9 @@ extern "C" {
 #endif
   int __cdecl __attribute__ ((__nothrow__)) setjmp(jmp_buf _Buf);
 #endif
-  
+
+  __declspec(noreturn) __attribute__ ((__nothrow__)) void __cdecl ms_longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
+  __declspec(noreturn) __attribute__ ((__nothrow__)) void __cdecl longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
 #define longjmp mingw_longjmp
 
 #ifdef __cplusplus

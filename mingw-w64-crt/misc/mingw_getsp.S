@@ -18,9 +18,12 @@ _mingw_getsp:
 	ret
 .globl _mingw_longjmp
 	.def	_mingw_longjmp;	.scl	2;	.type	32;	.endef
+.globl _longjmp
+	.def	_longjmp;	.scl	2;	.type	32;	.endef
 _mingw_longjmp:
+_longjmp:
 #ifdef _WIN64
 	xorq  %rax,%rax
 	movl %eax, (%rcx)
 #endif
-	jmp _longjmp
+	jmp _ms_longjmp
