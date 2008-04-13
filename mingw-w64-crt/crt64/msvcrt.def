@@ -732,7 +732,7 @@ log
 log10
 log10f
 logf
-ms_longjmp=longjmp
+longjmp
 malloc
 mblen
 mbstowcs

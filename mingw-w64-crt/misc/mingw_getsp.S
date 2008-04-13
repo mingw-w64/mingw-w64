@@ -20,10 +20,13 @@ _mingw_getsp:
 	.def	_mingw_longjmp;	.scl	2;	.type	32;	.endef
 .globl _longjmp
 	.def	_longjmp;	.scl	2;	.type	32;	.endef
+.global _ms_longjmp
+	.def	_ms_longjmp;	.scl	2;	.type	32;	.endef
 _mingw_longjmp:
 _longjmp:
 #ifdef _WIN64
 	xorq  %rax,%rax
 	movl %eax, (%rcx)
 #endif
-	jmp _ms_longjmp
+_ms_longjmp:
+	jmp __imp__longjmp
