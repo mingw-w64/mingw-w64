@@ -269,55 +269,54 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt64/dirent.c crt64/ftruncate.c \
 	complex/ccosl.c complex/creal.c complex/ctanhl.c \
 	complex/casinh.c complex/cexp.c complex/crealf.c \
 	complex/ctanl.c complex/casinhf.c complex/cexpf.c \
-	complex/creall.c gdtoa/arithchk.c gdtoa/gdtoa.h \
-	gdtoa/hd_init.c gdtoa/strtodnrp.c gdtoa/dmisc.c \
-	gdtoa/gdtoaimp.h gdtoa/hexnan.c gdtoa/strtof.c gdtoa/dtoa.c \
-	gdtoa/gethex.c gdtoa/mingw_snprintf.c gdtoa/strtopx.c \
-	gdtoa/gd_arith.h gdtoa/g_ffmt.c gdtoa/misc.c gdtoa/sum.c \
-	gdtoa/g_dfmt.c gdtoa/g__fmt.c gdtoa/qnan.c gdtoa/ulp.c \
-	gdtoa/gd_qnan.h gdtoa/gmisc.c gdtoa/smisc.c gdtoa/gdtoa.c \
-	gdtoa/g_xfmt.c gdtoa/strtodg.c math/cephes_emath.h \
-	math/cephes_mconf.h math/fastmath.h math/fp_consts.h \
-	math/acosf.c math/expm1l.c math/ldexpl.c math/powif.c \
-	math/acosh.c math/fabs.c math/lgamma.c math/powil.c \
-	math/acoshf.c math/fabsf.c math/lgammaf.c math/powl.c \
-	math/acoshl.c math/fabsl.c math/lgammal.c math/remainderf.S \
-	math/acosl.c math/llrint.c math/remainderl.S math/asinf.c \
-	math/fdim.c math/llrintf.c math/remainder.S math/asinh.c \
-	math/fdimf.c math/llrintl.c math/remquof.S math/asinhf.c \
-	math/fdiml.c math/llround.c math/remquol.S math/asinhl.c \
-	math/floorf.c math/llroundf.c math/remquo.S math/asinl.c \
-	math/floorl.S math/llroundl.c math/rint.c math/atan2f.c \
-	math/fmaf.S math/log10f.c math/rintf.c math/atan2l.c \
-	math/fmal.c math/log10l.S math/rintl.c math/atanf.c math/fma.S \
-	math/log1pf.S math/round.c math/atanh.c math/fmax.c \
-	math/log1pl.S math/roundf.c math/atanhf.c math/fmaxf.c \
-	math/log1p.S math/roundl.c math/atanhl.c math/fmaxl.c \
-	math/log2f.S math/scalbnf.S math/atanl.c math/fmin.c \
-	math/log2l.S math/scalbnl.S math/cbrt.c math/fminf.c \
-	math/log2.S math/scalbn.S math/cbrtf.c math/fminl.c \
-	math/logb.c math/s_erf.c math/cbrtl.c math/fmodf.c \
-	math/logbf.c math/sf_erf.c math/ceilf.c math/fmodl.c \
-	math/logbl.c math/signbit.c math/ceill.S math/fpclassify.c \
-	math/logf.c math/signbitf.c math/cephes_emath.c \
-	math/fpclassifyf.c math/logl.S math/signbitl.c \
-	math/fpclassifyl.c math/lrint.c math/sinf.c math/fp_consts.c \
-	math/lrintf.c math/sinhf.c math/copysign.c math/fp_constsf.c \
-	math/lrintl.c math/sinhl.c math/copysignf.c math/lround.c \
-	math/sinl.S math/copysignl.S math/fp_constsl.c math/lroundf.c \
-	math/sqrtf.c math/cosf.c math/frexpf.c math/lroundl.c \
-	math/sqrtl.c math/coshf.c math/frexpl.S math/modff.c \
-	math/tanf.c math/coshl.c math/fucom.c math/modfl.c \
-	math/tanhf.c math/cosl.S math/hypotf.c math/nearbyintf.S \
-	math/tanhl.c math/erfl.c math/hypotl.c math/nearbyintl.S \
-	math/tanl.S math/exp2f.S math/ilogbf.S math/nearbyint.S \
-	math/tgamma.c math/exp2l.S math/ilogbl.S math/nextafterf.c \
-	math/tgammaf.c math/exp2.S math/ilogb.S math/nextafterl.c \
-	math/tgammal.c math/expf.c math/isnan.c math/nexttoward.c \
-	math/trunc.c math/expl.c math/isnanf.c math/nexttowardf.c \
-	math/truncf.c math/expm1.c math/isnanl.c math/powf.c \
-	math/truncl.c math/expm1f.c math/ldexpf.c math/powi.c \
-	misc/mb_wc_common.h misc/alarm.c misc/fesetenv.c \
+	complex/creall.c gdtoa/arithchk.c gdtoa/dmisc.c gdtoa/dtoa.c \
+	gdtoa/gd_arith.h gdtoa/g_dfmt.c gdtoa/gd_qnan.h gdtoa/gdtoa.c \
+	gdtoa/gdtoa.h gdtoa/gdtoaimp.h gdtoa/gethex.c gdtoa/g_ffmt.c \
+	gdtoa/g__fmt.c gdtoa/gmisc.c gdtoa/g_xfmt.c gdtoa/hd_init.c \
+	gdtoa/hexnan.c gdtoa/mingw_snprintf.c gdtoa/misc.c \
+	gdtoa/qnan.c gdtoa/smisc.c gdtoa/strtodg.c gdtoa/strtodnrp.c \
+	gdtoa/strtof.c gdtoa/strtopx.c gdtoa/sum.c gdtoa/ulp.c \
+	math/cephes_emath.h math/cephes_mconf.h math/fastmath.h \
+	math/fp_consts.h math/acosf.c math/expm1l.c math/ldexpl.c \
+	math/powif.c math/acosh.c math/fabs.c math/lgamma.c \
+	math/powil.c math/acoshf.c math/fabsf.c math/lgammaf.c \
+	math/powl.c math/acoshl.c math/fabsl.c math/lgammal.c \
+	math/remainderf.S math/acosl.c math/llrint.c math/remainderl.S \
+	math/asinf.c math/fdim.c math/llrintf.c math/remainder.S \
+	math/asinh.c math/fdimf.c math/llrintl.c math/remquof.S \
+	math/asinhf.c math/fdiml.c math/llround.c math/remquol.S \
+	math/asinhl.c math/floorf.c math/llroundf.c math/remquo.S \
+	math/asinl.c math/floorl.S math/llroundl.c math/rint.c \
+	math/atan2f.c math/fmaf.S math/log10f.c math/rintf.c \
+	math/atan2l.c math/fmal.c math/log10l.S math/rintl.c \
+	math/atanf.c math/fma.S math/log1pf.S math/round.c \
+	math/atanh.c math/fmax.c math/log1pl.S math/roundf.c \
+	math/atanhf.c math/fmaxf.c math/log1p.S math/roundl.c \
+	math/atanhl.c math/fmaxl.c math/log2f.S math/scalbnf.S \
+	math/atanl.c math/fmin.c math/log2l.S math/scalbnl.S \
+	math/cbrt.c math/fminf.c math/log2.S math/scalbn.S \
+	math/cbrtf.c math/fminl.c math/logb.c math/s_erf.c \
+	math/cbrtl.c math/fmodf.c math/logbf.c math/sf_erf.c \
+	math/ceilf.c math/fmodl.c math/logbl.c math/signbit.c \
+	math/ceill.S math/fpclassify.c math/logf.c math/signbitf.c \
+	math/cephes_emath.c math/fpclassifyf.c math/logl.S \
+	math/signbitl.c math/fpclassifyl.c math/lrint.c math/sinf.c \
+	math/fp_consts.c math/lrintf.c math/sinhf.c math/copysign.c \
+	math/fp_constsf.c math/lrintl.c math/sinhl.c math/copysignf.c \
+	math/lround.c math/sinl.S math/copysignl.S math/fp_constsl.c \
+	math/lroundf.c math/sqrtf.c math/cosf.c math/frexpf.c \
+	math/lroundl.c math/sqrtl.c math/coshf.c math/frexpl.S \
+	math/modff.c math/tanf.c math/coshl.c math/fucom.c \
+	math/modfl.c math/tanhf.c math/cosl.S math/hypotf.c \
+	math/nearbyintf.S math/tanhl.c math/erfl.c math/hypotl.c \
+	math/nearbyintl.S math/tanl.S math/exp2f.S math/ilogbf.S \
+	math/nearbyint.S math/tgamma.c math/exp2l.S math/ilogbl.S \
+	math/nextafterf.c math/tgammaf.c math/exp2.S math/ilogb.S \
+	math/nextafterl.c math/tgammal.c math/expf.c math/isnan.c \
+	math/nexttoward.c math/trunc.c math/expl.c math/isnanf.c \
+	math/nexttowardf.c math/truncf.c math/expm1.c math/isnanl.c \
+	math/powf.c math/truncl.c math/expm1f.c math/ldexpf.c \
+	math/powi.c misc/mb_wc_common.h misc/alarm.c misc/fesetenv.c \
 	misc/io_intrin.c misc/wcrtomb.c misc/btowc.c \
 	misc/fesetexceptflag.c misc/mingw-aligned-malloc.c \
 	misc/wcstoimax.c misc/ctime.c misc/fesetround.c \
@@ -414,27 +413,27 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt64/dirent.c crt64/ftruncate.c \
 @LIB64_TRUE@	complex/lib64_libmingwex_a-cexpf.$(OBJEXT) \
 @LIB64_TRUE@	complex/lib64_libmingwex_a-creall.$(OBJEXT) \
 @LIB64_TRUE@	gdtoa/lib64_libmingwex_a-arithchk.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-hd_init.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-strtodnrp.$(OBJEXT) \
 @LIB64_TRUE@	gdtoa/lib64_libmingwex_a-dmisc.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-hexnan.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-strtof.$(OBJEXT) \
 @LIB64_TRUE@	gdtoa/lib64_libmingwex_a-dtoa.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-gethex.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-mingw_snprintf.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-strtopx.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-g_ffmt.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-misc.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-sum.$(OBJEXT) \
 @LIB64_TRUE@	gdtoa/lib64_libmingwex_a-g_dfmt.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-g__fmt.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-qnan.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-ulp.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-gmisc.$(OBJEXT) \
-@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-smisc.$(OBJEXT) \
 @LIB64_TRUE@	gdtoa/lib64_libmingwex_a-gdtoa.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-gethex.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-g_ffmt.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-g__fmt.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-gmisc.$(OBJEXT) \
 @LIB64_TRUE@	gdtoa/lib64_libmingwex_a-g_xfmt.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-hd_init.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-hexnan.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-mingw_snprintf.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-misc.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-qnan.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-smisc.$(OBJEXT) \
 @LIB64_TRUE@	gdtoa/lib64_libmingwex_a-strtodg.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-strtodnrp.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-strtof.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-strtopx.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-sum.$(OBJEXT) \
+@LIB64_TRUE@	gdtoa/lib64_libmingwex_a-ulp.$(OBJEXT) \
 @LIB64_TRUE@	math/lib64_libmingwex_a-acosf.$(OBJEXT) \
 @LIB64_TRUE@	math/lib64_libmingwex_a-expm1l.$(OBJEXT) \
 @LIB64_TRUE@	math/lib64_libmingwex_a-ldexpl.$(OBJEXT) \
@@ -1068,13 +1067,13 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  complex/casinh.c   complex/cexp.c     complex/crealf.c  complex/ctanl.c  \
 @LIB64_TRUE@  complex/casinhf.c  complex/cexpf.c    complex/creall.c  \
 @LIB64_TRUE@  \
-@LIB64_TRUE@  gdtoa/arithchk.c   gdtoa/gdtoa.h      gdtoa/hd_init.c        gdtoa/strtodnrp.c \
-@LIB64_TRUE@  gdtoa/dmisc.c      gdtoa/gdtoaimp.h   gdtoa/hexnan.c         gdtoa/strtof.c    \
-@LIB64_TRUE@  gdtoa/dtoa.c       gdtoa/gethex.c     gdtoa/mingw_snprintf.c gdtoa/strtopx.c   \
-@LIB64_TRUE@  gdtoa/gd_arith.h   gdtoa/g_ffmt.c     gdtoa/misc.c           gdtoa/sum.c       \
-@LIB64_TRUE@  gdtoa/g_dfmt.c     gdtoa/g__fmt.c     gdtoa/qnan.c           gdtoa/ulp.c       \
-@LIB64_TRUE@  gdtoa/gd_qnan.h    gdtoa/gmisc.c      gdtoa/smisc.c          \
-@LIB64_TRUE@  gdtoa/gdtoa.c      gdtoa/g_xfmt.c     gdtoa/strtodg.c        \
+@LIB64_TRUE@  gdtoa/arithchk.c   gdtoa/dmisc.c      gdtoa/dtoa.c      gdtoa/gd_arith.h \
+@LIB64_TRUE@  gdtoa/g_dfmt.c     gdtoa/gd_qnan.h    gdtoa/gdtoa.c     gdtoa/gdtoa.h    \
+@LIB64_TRUE@  gdtoa/gdtoaimp.h   gdtoa/gethex.c     gdtoa/g_ffmt.c    gdtoa/g__fmt.c   \
+@LIB64_TRUE@  gdtoa/gmisc.c      gdtoa/g_xfmt.c     gdtoa/hd_init.c   gdtoa/hexnan.c   \
+@LIB64_TRUE@  gdtoa/mingw_snprintf.c                gdtoa/misc.c      gdtoa/qnan.c     \
+@LIB64_TRUE@  gdtoa/smisc.c      gdtoa/strtodg.c    gdtoa/strtodnrp.c gdtoa/strtof.c   \
+@LIB64_TRUE@  gdtoa/strtopx.c    gdtoa/sum.c        gdtoa/ulp.c       \
 @LIB64_TRUE@  \
 @LIB64_TRUE@  math/cephes_emath.h  math/cephes_mconf.h math/fastmath.h     math/fp_consts.h  \
 @LIB64_TRUE@  math/acosf.c         math/expm1l.c       math/ldexpl.c       math/powif.c      \
@@ -2074,47 +2073,47 @@ gdtoa/$(DEPDIR)/$(am__dirstamp):
 	@: > gdtoa/$(DEPDIR)/$(am__dirstamp)
 gdtoa/lib64_libmingwex_a-arithchk.$(OBJEXT): gdtoa/$(am__dirstamp) \
 	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-hd_init.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-strtodnrp.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
 gdtoa/lib64_libmingwex_a-dmisc.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-hexnan.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-strtof.$(OBJEXT): gdtoa/$(am__dirstamp) \
 	gdtoa/$(DEPDIR)/$(am__dirstamp)
 gdtoa/lib64_libmingwex_a-dtoa.$(OBJEXT): gdtoa/$(am__dirstamp) \
 	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-gethex.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-mingw_snprintf.$(OBJEXT):  \
-	gdtoa/$(am__dirstamp) gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-strtopx.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-g_ffmt.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-misc.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-sum.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
 gdtoa/lib64_libmingwex_a-g_dfmt.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-g__fmt.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-qnan.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-ulp.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-gmisc.$(OBJEXT): gdtoa/$(am__dirstamp) \
-	gdtoa/$(DEPDIR)/$(am__dirstamp)
-gdtoa/lib64_libmingwex_a-smisc.$(OBJEXT): gdtoa/$(am__dirstamp) \
 	gdtoa/$(DEPDIR)/$(am__dirstamp)
 gdtoa/lib64_libmingwex_a-gdtoa.$(OBJEXT): gdtoa/$(am__dirstamp) \
 	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-gethex.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-g_ffmt.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-g__fmt.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-gmisc.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
 gdtoa/lib64_libmingwex_a-g_xfmt.$(OBJEXT): gdtoa/$(am__dirstamp) \
 	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-hd_init.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-hexnan.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-mingw_snprintf.$(OBJEXT):  \
+	gdtoa/$(am__dirstamp) gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-misc.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-qnan.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-smisc.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
 gdtoa/lib64_libmingwex_a-strtodg.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-strtodnrp.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-strtof.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-strtopx.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-sum.$(OBJEXT): gdtoa/$(am__dirstamp) \
+	gdtoa/$(DEPDIR)/$(am__dirstamp)
+gdtoa/lib64_libmingwex_a-ulp.$(OBJEXT): gdtoa/$(am__dirstamp) \
 	gdtoa/$(DEPDIR)/$(am__dirstamp)
 math/$(am__dirstamp):
 	@$(MKDIR_P) math
@@ -5404,34 +5403,6 @@ gdtoa/lib64_libmingwex_a-arithchk.obj: gdtoa/arithchk.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-arithchk.obj `if test -f 'gdtoa/arithchk.c'; then $(CYGPATH_W) 'gdtoa/arithchk.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/arithchk.c'; fi`
 
-gdtoa/lib64_libmingwex_a-hd_init.o: gdtoa/hd_init.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-hd_init.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Tpo -c -o gdtoa/lib64_libmingwex_a-hd_init.o `test -f 'gdtoa/hd_init.c' || echo '$(srcdir)/'`gdtoa/hd_init.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/hd_init.c' object='gdtoa/lib64_libmingwex_a-hd_init.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-hd_init.o `test -f 'gdtoa/hd_init.c' || echo '$(srcdir)/'`gdtoa/hd_init.c
-
-gdtoa/lib64_libmingwex_a-hd_init.obj: gdtoa/hd_init.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-hd_init.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Tpo -c -o gdtoa/lib64_libmingwex_a-hd_init.obj `if test -f 'gdtoa/hd_init.c'; then $(CYGPATH_W) 'gdtoa/hd_init.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/hd_init.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/hd_init.c' object='gdtoa/lib64_libmingwex_a-hd_init.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-hd_init.obj `if test -f 'gdtoa/hd_init.c'; then $(CYGPATH_W) 'gdtoa/hd_init.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/hd_init.c'; fi`
-
-gdtoa/lib64_libmingwex_a-strtodnrp.o: gdtoa/strtodnrp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtodnrp.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Tpo -c -o gdtoa/lib64_libmingwex_a-strtodnrp.o `test -f 'gdtoa/strtodnrp.c' || echo '$(srcdir)/'`gdtoa/strtodnrp.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtodnrp.c' object='gdtoa/lib64_libmingwex_a-strtodnrp.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtodnrp.o `test -f 'gdtoa/strtodnrp.c' || echo '$(srcdir)/'`gdtoa/strtodnrp.c
-
-gdtoa/lib64_libmingwex_a-strtodnrp.obj: gdtoa/strtodnrp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtodnrp.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Tpo -c -o gdtoa/lib64_libmingwex_a-strtodnrp.obj `if test -f 'gdtoa/strtodnrp.c'; then $(CYGPATH_W) 'gdtoa/strtodnrp.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtodnrp.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtodnrp.c' object='gdtoa/lib64_libmingwex_a-strtodnrp.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtodnrp.obj `if test -f 'gdtoa/strtodnrp.c'; then $(CYGPATH_W) 'gdtoa/strtodnrp.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtodnrp.c'; fi`
-
 gdtoa/lib64_libmingwex_a-dmisc.o: gdtoa/dmisc.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-dmisc.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-dmisc.Tpo -c -o gdtoa/lib64_libmingwex_a-dmisc.o `test -f 'gdtoa/dmisc.c' || echo '$(srcdir)/'`gdtoa/dmisc.c
 @am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-dmisc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-dmisc.Po
@@ -5445,34 +5416,6 @@ gdtoa/lib64_libmingwex_a-dmisc.obj: gdtoa/dmisc.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/dmisc.c' object='gdtoa/lib64_libmingwex_a-dmisc.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-dmisc.obj `if test -f 'gdtoa/dmisc.c'; then $(CYGPATH_W) 'gdtoa/dmisc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/dmisc.c'; fi`
-
-gdtoa/lib64_libmingwex_a-hexnan.o: gdtoa/hexnan.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-hexnan.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Tpo -c -o gdtoa/lib64_libmingwex_a-hexnan.o `test -f 'gdtoa/hexnan.c' || echo '$(srcdir)/'`gdtoa/hexnan.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/hexnan.c' object='gdtoa/lib64_libmingwex_a-hexnan.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-hexnan.o `test -f 'gdtoa/hexnan.c' || echo '$(srcdir)/'`gdtoa/hexnan.c
-
-gdtoa/lib64_libmingwex_a-hexnan.obj: gdtoa/hexnan.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-hexnan.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Tpo -c -o gdtoa/lib64_libmingwex_a-hexnan.obj `if test -f 'gdtoa/hexnan.c'; then $(CYGPATH_W) 'gdtoa/hexnan.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/hexnan.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/hexnan.c' object='gdtoa/lib64_libmingwex_a-hexnan.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-hexnan.obj `if test -f 'gdtoa/hexnan.c'; then $(CYGPATH_W) 'gdtoa/hexnan.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/hexnan.c'; fi`
-
-gdtoa/lib64_libmingwex_a-strtof.o: gdtoa/strtof.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtof.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Tpo -c -o gdtoa/lib64_libmingwex_a-strtof.o `test -f 'gdtoa/strtof.c' || echo '$(srcdir)/'`gdtoa/strtof.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtof.c' object='gdtoa/lib64_libmingwex_a-strtof.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtof.o `test -f 'gdtoa/strtof.c' || echo '$(srcdir)/'`gdtoa/strtof.c
-
-gdtoa/lib64_libmingwex_a-strtof.obj: gdtoa/strtof.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtof.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Tpo -c -o gdtoa/lib64_libmingwex_a-strtof.obj `if test -f 'gdtoa/strtof.c'; then $(CYGPATH_W) 'gdtoa/strtof.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtof.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtof.c' object='gdtoa/lib64_libmingwex_a-strtof.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtof.obj `if test -f 'gdtoa/strtof.c'; then $(CYGPATH_W) 'gdtoa/strtof.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtof.c'; fi`
 
 gdtoa/lib64_libmingwex_a-dtoa.o: gdtoa/dtoa.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-dtoa.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-dtoa.Tpo -c -o gdtoa/lib64_libmingwex_a-dtoa.o `test -f 'gdtoa/dtoa.c' || echo '$(srcdir)/'`gdtoa/dtoa.c
@@ -5488,90 +5431,6 @@ gdtoa/lib64_libmingwex_a-dtoa.obj: gdtoa/dtoa.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-dtoa.obj `if test -f 'gdtoa/dtoa.c'; then $(CYGPATH_W) 'gdtoa/dtoa.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/dtoa.c'; fi`
 
-gdtoa/lib64_libmingwex_a-gethex.o: gdtoa/gethex.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-gethex.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Tpo -c -o gdtoa/lib64_libmingwex_a-gethex.o `test -f 'gdtoa/gethex.c' || echo '$(srcdir)/'`gdtoa/gethex.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/gethex.c' object='gdtoa/lib64_libmingwex_a-gethex.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-gethex.o `test -f 'gdtoa/gethex.c' || echo '$(srcdir)/'`gdtoa/gethex.c
-
-gdtoa/lib64_libmingwex_a-gethex.obj: gdtoa/gethex.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-gethex.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Tpo -c -o gdtoa/lib64_libmingwex_a-gethex.obj `if test -f 'gdtoa/gethex.c'; then $(CYGPATH_W) 'gdtoa/gethex.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/gethex.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/gethex.c' object='gdtoa/lib64_libmingwex_a-gethex.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-gethex.obj `if test -f 'gdtoa/gethex.c'; then $(CYGPATH_W) 'gdtoa/gethex.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/gethex.c'; fi`
-
-gdtoa/lib64_libmingwex_a-mingw_snprintf.o: gdtoa/mingw_snprintf.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-mingw_snprintf.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Tpo -c -o gdtoa/lib64_libmingwex_a-mingw_snprintf.o `test -f 'gdtoa/mingw_snprintf.c' || echo '$(srcdir)/'`gdtoa/mingw_snprintf.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/mingw_snprintf.c' object='gdtoa/lib64_libmingwex_a-mingw_snprintf.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-mingw_snprintf.o `test -f 'gdtoa/mingw_snprintf.c' || echo '$(srcdir)/'`gdtoa/mingw_snprintf.c
-
-gdtoa/lib64_libmingwex_a-mingw_snprintf.obj: gdtoa/mingw_snprintf.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-mingw_snprintf.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Tpo -c -o gdtoa/lib64_libmingwex_a-mingw_snprintf.obj `if test -f 'gdtoa/mingw_snprintf.c'; then $(CYGPATH_W) 'gdtoa/mingw_snprintf.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/mingw_snprintf.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/mingw_snprintf.c' object='gdtoa/lib64_libmingwex_a-mingw_snprintf.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-mingw_snprintf.obj `if test -f 'gdtoa/mingw_snprintf.c'; then $(CYGPATH_W) 'gdtoa/mingw_snprintf.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/mingw_snprintf.c'; fi`
-
-gdtoa/lib64_libmingwex_a-strtopx.o: gdtoa/strtopx.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtopx.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Tpo -c -o gdtoa/lib64_libmingwex_a-strtopx.o `test -f 'gdtoa/strtopx.c' || echo '$(srcdir)/'`gdtoa/strtopx.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtopx.c' object='gdtoa/lib64_libmingwex_a-strtopx.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtopx.o `test -f 'gdtoa/strtopx.c' || echo '$(srcdir)/'`gdtoa/strtopx.c
-
-gdtoa/lib64_libmingwex_a-strtopx.obj: gdtoa/strtopx.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtopx.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Tpo -c -o gdtoa/lib64_libmingwex_a-strtopx.obj `if test -f 'gdtoa/strtopx.c'; then $(CYGPATH_W) 'gdtoa/strtopx.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtopx.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtopx.c' object='gdtoa/lib64_libmingwex_a-strtopx.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtopx.obj `if test -f 'gdtoa/strtopx.c'; then $(CYGPATH_W) 'gdtoa/strtopx.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtopx.c'; fi`
-
-gdtoa/lib64_libmingwex_a-g_ffmt.o: gdtoa/g_ffmt.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-g_ffmt.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Tpo -c -o gdtoa/lib64_libmingwex_a-g_ffmt.o `test -f 'gdtoa/g_ffmt.c' || echo '$(srcdir)/'`gdtoa/g_ffmt.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/g_ffmt.c' object='gdtoa/lib64_libmingwex_a-g_ffmt.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-g_ffmt.o `test -f 'gdtoa/g_ffmt.c' || echo '$(srcdir)/'`gdtoa/g_ffmt.c
-
-gdtoa/lib64_libmingwex_a-g_ffmt.obj: gdtoa/g_ffmt.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-g_ffmt.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Tpo -c -o gdtoa/lib64_libmingwex_a-g_ffmt.obj `if test -f 'gdtoa/g_ffmt.c'; then $(CYGPATH_W) 'gdtoa/g_ffmt.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/g_ffmt.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/g_ffmt.c' object='gdtoa/lib64_libmingwex_a-g_ffmt.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-g_ffmt.obj `if test -f 'gdtoa/g_ffmt.c'; then $(CYGPATH_W) 'gdtoa/g_ffmt.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/g_ffmt.c'; fi`
-
-gdtoa/lib64_libmingwex_a-misc.o: gdtoa/misc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-misc.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Tpo -c -o gdtoa/lib64_libmingwex_a-misc.o `test -f 'gdtoa/misc.c' || echo '$(srcdir)/'`gdtoa/misc.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/misc.c' object='gdtoa/lib64_libmingwex_a-misc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-misc.o `test -f 'gdtoa/misc.c' || echo '$(srcdir)/'`gdtoa/misc.c
-
-gdtoa/lib64_libmingwex_a-misc.obj: gdtoa/misc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-misc.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Tpo -c -o gdtoa/lib64_libmingwex_a-misc.obj `if test -f 'gdtoa/misc.c'; then $(CYGPATH_W) 'gdtoa/misc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/misc.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/misc.c' object='gdtoa/lib64_libmingwex_a-misc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-misc.obj `if test -f 'gdtoa/misc.c'; then $(CYGPATH_W) 'gdtoa/misc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/misc.c'; fi`
-
-gdtoa/lib64_libmingwex_a-sum.o: gdtoa/sum.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-sum.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Tpo -c -o gdtoa/lib64_libmingwex_a-sum.o `test -f 'gdtoa/sum.c' || echo '$(srcdir)/'`gdtoa/sum.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/sum.c' object='gdtoa/lib64_libmingwex_a-sum.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-sum.o `test -f 'gdtoa/sum.c' || echo '$(srcdir)/'`gdtoa/sum.c
-
-gdtoa/lib64_libmingwex_a-sum.obj: gdtoa/sum.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-sum.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Tpo -c -o gdtoa/lib64_libmingwex_a-sum.obj `if test -f 'gdtoa/sum.c'; then $(CYGPATH_W) 'gdtoa/sum.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/sum.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/sum.c' object='gdtoa/lib64_libmingwex_a-sum.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-sum.obj `if test -f 'gdtoa/sum.c'; then $(CYGPATH_W) 'gdtoa/sum.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/sum.c'; fi`
-
 gdtoa/lib64_libmingwex_a-g_dfmt.o: gdtoa/g_dfmt.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-g_dfmt.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_dfmt.Tpo -c -o gdtoa/lib64_libmingwex_a-g_dfmt.o `test -f 'gdtoa/g_dfmt.c' || echo '$(srcdir)/'`gdtoa/g_dfmt.c
 @am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_dfmt.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_dfmt.Po
@@ -5585,76 +5444,6 @@ gdtoa/lib64_libmingwex_a-g_dfmt.obj: gdtoa/g_dfmt.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/g_dfmt.c' object='gdtoa/lib64_libmingwex_a-g_dfmt.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-g_dfmt.obj `if test -f 'gdtoa/g_dfmt.c'; then $(CYGPATH_W) 'gdtoa/g_dfmt.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/g_dfmt.c'; fi`
-
-gdtoa/lib64_libmingwex_a-g__fmt.o: gdtoa/g__fmt.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-g__fmt.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Tpo -c -o gdtoa/lib64_libmingwex_a-g__fmt.o `test -f 'gdtoa/g__fmt.c' || echo '$(srcdir)/'`gdtoa/g__fmt.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/g__fmt.c' object='gdtoa/lib64_libmingwex_a-g__fmt.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-g__fmt.o `test -f 'gdtoa/g__fmt.c' || echo '$(srcdir)/'`gdtoa/g__fmt.c
-
-gdtoa/lib64_libmingwex_a-g__fmt.obj: gdtoa/g__fmt.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-g__fmt.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Tpo -c -o gdtoa/lib64_libmingwex_a-g__fmt.obj `if test -f 'gdtoa/g__fmt.c'; then $(CYGPATH_W) 'gdtoa/g__fmt.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/g__fmt.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/g__fmt.c' object='gdtoa/lib64_libmingwex_a-g__fmt.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-g__fmt.obj `if test -f 'gdtoa/g__fmt.c'; then $(CYGPATH_W) 'gdtoa/g__fmt.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/g__fmt.c'; fi`
-
-gdtoa/lib64_libmingwex_a-qnan.o: gdtoa/qnan.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-qnan.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Tpo -c -o gdtoa/lib64_libmingwex_a-qnan.o `test -f 'gdtoa/qnan.c' || echo '$(srcdir)/'`gdtoa/qnan.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/qnan.c' object='gdtoa/lib64_libmingwex_a-qnan.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-qnan.o `test -f 'gdtoa/qnan.c' || echo '$(srcdir)/'`gdtoa/qnan.c
-
-gdtoa/lib64_libmingwex_a-qnan.obj: gdtoa/qnan.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-qnan.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Tpo -c -o gdtoa/lib64_libmingwex_a-qnan.obj `if test -f 'gdtoa/qnan.c'; then $(CYGPATH_W) 'gdtoa/qnan.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/qnan.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/qnan.c' object='gdtoa/lib64_libmingwex_a-qnan.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-qnan.obj `if test -f 'gdtoa/qnan.c'; then $(CYGPATH_W) 'gdtoa/qnan.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/qnan.c'; fi`
-
-gdtoa/lib64_libmingwex_a-ulp.o: gdtoa/ulp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-ulp.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Tpo -c -o gdtoa/lib64_libmingwex_a-ulp.o `test -f 'gdtoa/ulp.c' || echo '$(srcdir)/'`gdtoa/ulp.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/ulp.c' object='gdtoa/lib64_libmingwex_a-ulp.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-ulp.o `test -f 'gdtoa/ulp.c' || echo '$(srcdir)/'`gdtoa/ulp.c
-
-gdtoa/lib64_libmingwex_a-ulp.obj: gdtoa/ulp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-ulp.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Tpo -c -o gdtoa/lib64_libmingwex_a-ulp.obj `if test -f 'gdtoa/ulp.c'; then $(CYGPATH_W) 'gdtoa/ulp.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/ulp.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/ulp.c' object='gdtoa/lib64_libmingwex_a-ulp.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-ulp.obj `if test -f 'gdtoa/ulp.c'; then $(CYGPATH_W) 'gdtoa/ulp.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/ulp.c'; fi`
-
-gdtoa/lib64_libmingwex_a-gmisc.o: gdtoa/gmisc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-gmisc.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Tpo -c -o gdtoa/lib64_libmingwex_a-gmisc.o `test -f 'gdtoa/gmisc.c' || echo '$(srcdir)/'`gdtoa/gmisc.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/gmisc.c' object='gdtoa/lib64_libmingwex_a-gmisc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-gmisc.o `test -f 'gdtoa/gmisc.c' || echo '$(srcdir)/'`gdtoa/gmisc.c
-
-gdtoa/lib64_libmingwex_a-gmisc.obj: gdtoa/gmisc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-gmisc.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Tpo -c -o gdtoa/lib64_libmingwex_a-gmisc.obj `if test -f 'gdtoa/gmisc.c'; then $(CYGPATH_W) 'gdtoa/gmisc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/gmisc.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/gmisc.c' object='gdtoa/lib64_libmingwex_a-gmisc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-gmisc.obj `if test -f 'gdtoa/gmisc.c'; then $(CYGPATH_W) 'gdtoa/gmisc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/gmisc.c'; fi`
-
-gdtoa/lib64_libmingwex_a-smisc.o: gdtoa/smisc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-smisc.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Tpo -c -o gdtoa/lib64_libmingwex_a-smisc.o `test -f 'gdtoa/smisc.c' || echo '$(srcdir)/'`gdtoa/smisc.c
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/smisc.c' object='gdtoa/lib64_libmingwex_a-smisc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-smisc.o `test -f 'gdtoa/smisc.c' || echo '$(srcdir)/'`gdtoa/smisc.c
-
-gdtoa/lib64_libmingwex_a-smisc.obj: gdtoa/smisc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-smisc.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Tpo -c -o gdtoa/lib64_libmingwex_a-smisc.obj `if test -f 'gdtoa/smisc.c'; then $(CYGPATH_W) 'gdtoa/smisc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/smisc.c'; fi`
-@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/smisc.c' object='gdtoa/lib64_libmingwex_a-smisc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-smisc.obj `if test -f 'gdtoa/smisc.c'; then $(CYGPATH_W) 'gdtoa/smisc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/smisc.c'; fi`
 
 gdtoa/lib64_libmingwex_a-gdtoa.o: gdtoa/gdtoa.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-gdtoa.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-gdtoa.Tpo -c -o gdtoa/lib64_libmingwex_a-gdtoa.o `test -f 'gdtoa/gdtoa.c' || echo '$(srcdir)/'`gdtoa/gdtoa.c
@@ -5670,6 +5459,62 @@ gdtoa/lib64_libmingwex_a-gdtoa.obj: gdtoa/gdtoa.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-gdtoa.obj `if test -f 'gdtoa/gdtoa.c'; then $(CYGPATH_W) 'gdtoa/gdtoa.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/gdtoa.c'; fi`
 
+gdtoa/lib64_libmingwex_a-gethex.o: gdtoa/gethex.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-gethex.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Tpo -c -o gdtoa/lib64_libmingwex_a-gethex.o `test -f 'gdtoa/gethex.c' || echo '$(srcdir)/'`gdtoa/gethex.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/gethex.c' object='gdtoa/lib64_libmingwex_a-gethex.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-gethex.o `test -f 'gdtoa/gethex.c' || echo '$(srcdir)/'`gdtoa/gethex.c
+
+gdtoa/lib64_libmingwex_a-gethex.obj: gdtoa/gethex.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-gethex.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Tpo -c -o gdtoa/lib64_libmingwex_a-gethex.obj `if test -f 'gdtoa/gethex.c'; then $(CYGPATH_W) 'gdtoa/gethex.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/gethex.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-gethex.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/gethex.c' object='gdtoa/lib64_libmingwex_a-gethex.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-gethex.obj `if test -f 'gdtoa/gethex.c'; then $(CYGPATH_W) 'gdtoa/gethex.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/gethex.c'; fi`
+
+gdtoa/lib64_libmingwex_a-g_ffmt.o: gdtoa/g_ffmt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-g_ffmt.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Tpo -c -o gdtoa/lib64_libmingwex_a-g_ffmt.o `test -f 'gdtoa/g_ffmt.c' || echo '$(srcdir)/'`gdtoa/g_ffmt.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/g_ffmt.c' object='gdtoa/lib64_libmingwex_a-g_ffmt.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-g_ffmt.o `test -f 'gdtoa/g_ffmt.c' || echo '$(srcdir)/'`gdtoa/g_ffmt.c
+
+gdtoa/lib64_libmingwex_a-g_ffmt.obj: gdtoa/g_ffmt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-g_ffmt.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Tpo -c -o gdtoa/lib64_libmingwex_a-g_ffmt.obj `if test -f 'gdtoa/g_ffmt.c'; then $(CYGPATH_W) 'gdtoa/g_ffmt.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/g_ffmt.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_ffmt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/g_ffmt.c' object='gdtoa/lib64_libmingwex_a-g_ffmt.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-g_ffmt.obj `if test -f 'gdtoa/g_ffmt.c'; then $(CYGPATH_W) 'gdtoa/g_ffmt.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/g_ffmt.c'; fi`
+
+gdtoa/lib64_libmingwex_a-g__fmt.o: gdtoa/g__fmt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-g__fmt.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Tpo -c -o gdtoa/lib64_libmingwex_a-g__fmt.o `test -f 'gdtoa/g__fmt.c' || echo '$(srcdir)/'`gdtoa/g__fmt.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/g__fmt.c' object='gdtoa/lib64_libmingwex_a-g__fmt.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-g__fmt.o `test -f 'gdtoa/g__fmt.c' || echo '$(srcdir)/'`gdtoa/g__fmt.c
+
+gdtoa/lib64_libmingwex_a-g__fmt.obj: gdtoa/g__fmt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-g__fmt.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Tpo -c -o gdtoa/lib64_libmingwex_a-g__fmt.obj `if test -f 'gdtoa/g__fmt.c'; then $(CYGPATH_W) 'gdtoa/g__fmt.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/g__fmt.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-g__fmt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/g__fmt.c' object='gdtoa/lib64_libmingwex_a-g__fmt.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-g__fmt.obj `if test -f 'gdtoa/g__fmt.c'; then $(CYGPATH_W) 'gdtoa/g__fmt.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/g__fmt.c'; fi`
+
+gdtoa/lib64_libmingwex_a-gmisc.o: gdtoa/gmisc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-gmisc.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Tpo -c -o gdtoa/lib64_libmingwex_a-gmisc.o `test -f 'gdtoa/gmisc.c' || echo '$(srcdir)/'`gdtoa/gmisc.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/gmisc.c' object='gdtoa/lib64_libmingwex_a-gmisc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-gmisc.o `test -f 'gdtoa/gmisc.c' || echo '$(srcdir)/'`gdtoa/gmisc.c
+
+gdtoa/lib64_libmingwex_a-gmisc.obj: gdtoa/gmisc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-gmisc.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Tpo -c -o gdtoa/lib64_libmingwex_a-gmisc.obj `if test -f 'gdtoa/gmisc.c'; then $(CYGPATH_W) 'gdtoa/gmisc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/gmisc.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-gmisc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/gmisc.c' object='gdtoa/lib64_libmingwex_a-gmisc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-gmisc.obj `if test -f 'gdtoa/gmisc.c'; then $(CYGPATH_W) 'gdtoa/gmisc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/gmisc.c'; fi`
+
 gdtoa/lib64_libmingwex_a-g_xfmt.o: gdtoa/g_xfmt.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-g_xfmt.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_xfmt.Tpo -c -o gdtoa/lib64_libmingwex_a-g_xfmt.o `test -f 'gdtoa/g_xfmt.c' || echo '$(srcdir)/'`gdtoa/g_xfmt.c
 @am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_xfmt.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-g_xfmt.Po
@@ -5684,6 +5529,90 @@ gdtoa/lib64_libmingwex_a-g_xfmt.obj: gdtoa/g_xfmt.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-g_xfmt.obj `if test -f 'gdtoa/g_xfmt.c'; then $(CYGPATH_W) 'gdtoa/g_xfmt.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/g_xfmt.c'; fi`
 
+gdtoa/lib64_libmingwex_a-hd_init.o: gdtoa/hd_init.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-hd_init.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Tpo -c -o gdtoa/lib64_libmingwex_a-hd_init.o `test -f 'gdtoa/hd_init.c' || echo '$(srcdir)/'`gdtoa/hd_init.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/hd_init.c' object='gdtoa/lib64_libmingwex_a-hd_init.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-hd_init.o `test -f 'gdtoa/hd_init.c' || echo '$(srcdir)/'`gdtoa/hd_init.c
+
+gdtoa/lib64_libmingwex_a-hd_init.obj: gdtoa/hd_init.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-hd_init.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Tpo -c -o gdtoa/lib64_libmingwex_a-hd_init.obj `if test -f 'gdtoa/hd_init.c'; then $(CYGPATH_W) 'gdtoa/hd_init.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/hd_init.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-hd_init.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/hd_init.c' object='gdtoa/lib64_libmingwex_a-hd_init.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-hd_init.obj `if test -f 'gdtoa/hd_init.c'; then $(CYGPATH_W) 'gdtoa/hd_init.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/hd_init.c'; fi`
+
+gdtoa/lib64_libmingwex_a-hexnan.o: gdtoa/hexnan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-hexnan.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Tpo -c -o gdtoa/lib64_libmingwex_a-hexnan.o `test -f 'gdtoa/hexnan.c' || echo '$(srcdir)/'`gdtoa/hexnan.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/hexnan.c' object='gdtoa/lib64_libmingwex_a-hexnan.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-hexnan.o `test -f 'gdtoa/hexnan.c' || echo '$(srcdir)/'`gdtoa/hexnan.c
+
+gdtoa/lib64_libmingwex_a-hexnan.obj: gdtoa/hexnan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-hexnan.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Tpo -c -o gdtoa/lib64_libmingwex_a-hexnan.obj `if test -f 'gdtoa/hexnan.c'; then $(CYGPATH_W) 'gdtoa/hexnan.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/hexnan.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-hexnan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/hexnan.c' object='gdtoa/lib64_libmingwex_a-hexnan.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-hexnan.obj `if test -f 'gdtoa/hexnan.c'; then $(CYGPATH_W) 'gdtoa/hexnan.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/hexnan.c'; fi`
+
+gdtoa/lib64_libmingwex_a-mingw_snprintf.o: gdtoa/mingw_snprintf.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-mingw_snprintf.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Tpo -c -o gdtoa/lib64_libmingwex_a-mingw_snprintf.o `test -f 'gdtoa/mingw_snprintf.c' || echo '$(srcdir)/'`gdtoa/mingw_snprintf.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/mingw_snprintf.c' object='gdtoa/lib64_libmingwex_a-mingw_snprintf.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-mingw_snprintf.o `test -f 'gdtoa/mingw_snprintf.c' || echo '$(srcdir)/'`gdtoa/mingw_snprintf.c
+
+gdtoa/lib64_libmingwex_a-mingw_snprintf.obj: gdtoa/mingw_snprintf.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-mingw_snprintf.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Tpo -c -o gdtoa/lib64_libmingwex_a-mingw_snprintf.obj `if test -f 'gdtoa/mingw_snprintf.c'; then $(CYGPATH_W) 'gdtoa/mingw_snprintf.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/mingw_snprintf.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/mingw_snprintf.c' object='gdtoa/lib64_libmingwex_a-mingw_snprintf.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-mingw_snprintf.obj `if test -f 'gdtoa/mingw_snprintf.c'; then $(CYGPATH_W) 'gdtoa/mingw_snprintf.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/mingw_snprintf.c'; fi`
+
+gdtoa/lib64_libmingwex_a-misc.o: gdtoa/misc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-misc.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Tpo -c -o gdtoa/lib64_libmingwex_a-misc.o `test -f 'gdtoa/misc.c' || echo '$(srcdir)/'`gdtoa/misc.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/misc.c' object='gdtoa/lib64_libmingwex_a-misc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-misc.o `test -f 'gdtoa/misc.c' || echo '$(srcdir)/'`gdtoa/misc.c
+
+gdtoa/lib64_libmingwex_a-misc.obj: gdtoa/misc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-misc.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Tpo -c -o gdtoa/lib64_libmingwex_a-misc.obj `if test -f 'gdtoa/misc.c'; then $(CYGPATH_W) 'gdtoa/misc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/misc.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-misc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/misc.c' object='gdtoa/lib64_libmingwex_a-misc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-misc.obj `if test -f 'gdtoa/misc.c'; then $(CYGPATH_W) 'gdtoa/misc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/misc.c'; fi`
+
+gdtoa/lib64_libmingwex_a-qnan.o: gdtoa/qnan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-qnan.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Tpo -c -o gdtoa/lib64_libmingwex_a-qnan.o `test -f 'gdtoa/qnan.c' || echo '$(srcdir)/'`gdtoa/qnan.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/qnan.c' object='gdtoa/lib64_libmingwex_a-qnan.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-qnan.o `test -f 'gdtoa/qnan.c' || echo '$(srcdir)/'`gdtoa/qnan.c
+
+gdtoa/lib64_libmingwex_a-qnan.obj: gdtoa/qnan.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-qnan.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Tpo -c -o gdtoa/lib64_libmingwex_a-qnan.obj `if test -f 'gdtoa/qnan.c'; then $(CYGPATH_W) 'gdtoa/qnan.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/qnan.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-qnan.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/qnan.c' object='gdtoa/lib64_libmingwex_a-qnan.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-qnan.obj `if test -f 'gdtoa/qnan.c'; then $(CYGPATH_W) 'gdtoa/qnan.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/qnan.c'; fi`
+
+gdtoa/lib64_libmingwex_a-smisc.o: gdtoa/smisc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-smisc.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Tpo -c -o gdtoa/lib64_libmingwex_a-smisc.o `test -f 'gdtoa/smisc.c' || echo '$(srcdir)/'`gdtoa/smisc.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/smisc.c' object='gdtoa/lib64_libmingwex_a-smisc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-smisc.o `test -f 'gdtoa/smisc.c' || echo '$(srcdir)/'`gdtoa/smisc.c
+
+gdtoa/lib64_libmingwex_a-smisc.obj: gdtoa/smisc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-smisc.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Tpo -c -o gdtoa/lib64_libmingwex_a-smisc.obj `if test -f 'gdtoa/smisc.c'; then $(CYGPATH_W) 'gdtoa/smisc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/smisc.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-smisc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/smisc.c' object='gdtoa/lib64_libmingwex_a-smisc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-smisc.obj `if test -f 'gdtoa/smisc.c'; then $(CYGPATH_W) 'gdtoa/smisc.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/smisc.c'; fi`
+
 gdtoa/lib64_libmingwex_a-strtodg.o: gdtoa/strtodg.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtodg.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodg.Tpo -c -o gdtoa/lib64_libmingwex_a-strtodg.o `test -f 'gdtoa/strtodg.c' || echo '$(srcdir)/'`gdtoa/strtodg.c
 @am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodg.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodg.Po
@@ -5697,6 +5626,76 @@ gdtoa/lib64_libmingwex_a-strtodg.obj: gdtoa/strtodg.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtodg.c' object='gdtoa/lib64_libmingwex_a-strtodg.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtodg.obj `if test -f 'gdtoa/strtodg.c'; then $(CYGPATH_W) 'gdtoa/strtodg.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtodg.c'; fi`
+
+gdtoa/lib64_libmingwex_a-strtodnrp.o: gdtoa/strtodnrp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtodnrp.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Tpo -c -o gdtoa/lib64_libmingwex_a-strtodnrp.o `test -f 'gdtoa/strtodnrp.c' || echo '$(srcdir)/'`gdtoa/strtodnrp.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtodnrp.c' object='gdtoa/lib64_libmingwex_a-strtodnrp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtodnrp.o `test -f 'gdtoa/strtodnrp.c' || echo '$(srcdir)/'`gdtoa/strtodnrp.c
+
+gdtoa/lib64_libmingwex_a-strtodnrp.obj: gdtoa/strtodnrp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtodnrp.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Tpo -c -o gdtoa/lib64_libmingwex_a-strtodnrp.obj `if test -f 'gdtoa/strtodnrp.c'; then $(CYGPATH_W) 'gdtoa/strtodnrp.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtodnrp.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtodnrp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtodnrp.c' object='gdtoa/lib64_libmingwex_a-strtodnrp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtodnrp.obj `if test -f 'gdtoa/strtodnrp.c'; then $(CYGPATH_W) 'gdtoa/strtodnrp.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtodnrp.c'; fi`
+
+gdtoa/lib64_libmingwex_a-strtof.o: gdtoa/strtof.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtof.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Tpo -c -o gdtoa/lib64_libmingwex_a-strtof.o `test -f 'gdtoa/strtof.c' || echo '$(srcdir)/'`gdtoa/strtof.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtof.c' object='gdtoa/lib64_libmingwex_a-strtof.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtof.o `test -f 'gdtoa/strtof.c' || echo '$(srcdir)/'`gdtoa/strtof.c
+
+gdtoa/lib64_libmingwex_a-strtof.obj: gdtoa/strtof.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtof.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Tpo -c -o gdtoa/lib64_libmingwex_a-strtof.obj `if test -f 'gdtoa/strtof.c'; then $(CYGPATH_W) 'gdtoa/strtof.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtof.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtof.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtof.c' object='gdtoa/lib64_libmingwex_a-strtof.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtof.obj `if test -f 'gdtoa/strtof.c'; then $(CYGPATH_W) 'gdtoa/strtof.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtof.c'; fi`
+
+gdtoa/lib64_libmingwex_a-strtopx.o: gdtoa/strtopx.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtopx.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Tpo -c -o gdtoa/lib64_libmingwex_a-strtopx.o `test -f 'gdtoa/strtopx.c' || echo '$(srcdir)/'`gdtoa/strtopx.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtopx.c' object='gdtoa/lib64_libmingwex_a-strtopx.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtopx.o `test -f 'gdtoa/strtopx.c' || echo '$(srcdir)/'`gdtoa/strtopx.c
+
+gdtoa/lib64_libmingwex_a-strtopx.obj: gdtoa/strtopx.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-strtopx.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Tpo -c -o gdtoa/lib64_libmingwex_a-strtopx.obj `if test -f 'gdtoa/strtopx.c'; then $(CYGPATH_W) 'gdtoa/strtopx.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtopx.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/strtopx.c' object='gdtoa/lib64_libmingwex_a-strtopx.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-strtopx.obj `if test -f 'gdtoa/strtopx.c'; then $(CYGPATH_W) 'gdtoa/strtopx.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/strtopx.c'; fi`
+
+gdtoa/lib64_libmingwex_a-sum.o: gdtoa/sum.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-sum.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Tpo -c -o gdtoa/lib64_libmingwex_a-sum.o `test -f 'gdtoa/sum.c' || echo '$(srcdir)/'`gdtoa/sum.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/sum.c' object='gdtoa/lib64_libmingwex_a-sum.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-sum.o `test -f 'gdtoa/sum.c' || echo '$(srcdir)/'`gdtoa/sum.c
+
+gdtoa/lib64_libmingwex_a-sum.obj: gdtoa/sum.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-sum.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Tpo -c -o gdtoa/lib64_libmingwex_a-sum.obj `if test -f 'gdtoa/sum.c'; then $(CYGPATH_W) 'gdtoa/sum.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/sum.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/sum.c' object='gdtoa/lib64_libmingwex_a-sum.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-sum.obj `if test -f 'gdtoa/sum.c'; then $(CYGPATH_W) 'gdtoa/sum.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/sum.c'; fi`
+
+gdtoa/lib64_libmingwex_a-ulp.o: gdtoa/ulp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-ulp.o -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Tpo -c -o gdtoa/lib64_libmingwex_a-ulp.o `test -f 'gdtoa/ulp.c' || echo '$(srcdir)/'`gdtoa/ulp.c
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/ulp.c' object='gdtoa/lib64_libmingwex_a-ulp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-ulp.o `test -f 'gdtoa/ulp.c' || echo '$(srcdir)/'`gdtoa/ulp.c
+
+gdtoa/lib64_libmingwex_a-ulp.obj: gdtoa/ulp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT gdtoa/lib64_libmingwex_a-ulp.obj -MD -MP -MF gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Tpo -c -o gdtoa/lib64_libmingwex_a-ulp.obj `if test -f 'gdtoa/ulp.c'; then $(CYGPATH_W) 'gdtoa/ulp.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/ulp.c'; fi`
+@am__fastdepCC_TRUE@	mv -f gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Tpo gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdtoa/ulp.c' object='gdtoa/lib64_libmingwex_a-ulp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o gdtoa/lib64_libmingwex_a-ulp.obj `if test -f 'gdtoa/ulp.c'; then $(CYGPATH_W) 'gdtoa/ulp.c'; else $(CYGPATH_W) '$(srcdir)/gdtoa/ulp.c'; fi`
 
 math/lib64_libmingwex_a-acosf.o: math/acosf.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-acosf.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-acosf.Tpo -c -o math/lib64_libmingwex_a-acosf.o `test -f 'math/acosf.c' || echo '$(srcdir)/'`math/acosf.c

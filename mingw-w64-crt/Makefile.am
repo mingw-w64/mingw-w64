@@ -260,13 +260,13 @@ lib64_libmingwex_a_SOURCES = \
   complex/casinh.c   complex/cexp.c     complex/crealf.c  complex/ctanl.c  \
   complex/casinhf.c  complex/cexpf.c    complex/creall.c  \
   \
-  gdtoa/arithchk.c   gdtoa/gdtoa.h      gdtoa/hd_init.c        gdtoa/strtodnrp.c \
-  gdtoa/dmisc.c      gdtoa/gdtoaimp.h   gdtoa/hexnan.c         gdtoa/strtof.c    \
-  gdtoa/dtoa.c       gdtoa/gethex.c     gdtoa/mingw_snprintf.c gdtoa/strtopx.c   \
-  gdtoa/gd_arith.h   gdtoa/g_ffmt.c     gdtoa/misc.c           gdtoa/sum.c       \
-  gdtoa/g_dfmt.c     gdtoa/g__fmt.c     gdtoa/qnan.c           gdtoa/ulp.c       \
-  gdtoa/gd_qnan.h    gdtoa/gmisc.c      gdtoa/smisc.c          \
-  gdtoa/gdtoa.c      gdtoa/g_xfmt.c     gdtoa/strtodg.c        \
+  gdtoa/arithchk.c   gdtoa/dmisc.c      gdtoa/dtoa.c      gdtoa/gd_arith.h \
+  gdtoa/g_dfmt.c     gdtoa/gd_qnan.h    gdtoa/gdtoa.c     gdtoa/gdtoa.h    \
+  gdtoa/gdtoaimp.h   gdtoa/gethex.c     gdtoa/g_ffmt.c    gdtoa/g__fmt.c   \
+  gdtoa/gmisc.c      gdtoa/g_xfmt.c     gdtoa/hd_init.c   gdtoa/hexnan.c   \
+  gdtoa/mingw_snprintf.c                gdtoa/misc.c      gdtoa/qnan.c     \
+  gdtoa/smisc.c      gdtoa/strtodg.c    gdtoa/strtodnrp.c gdtoa/strtof.c   \
+  gdtoa/strtopx.c    gdtoa/sum.c        gdtoa/ulp.c       \
   \
   math/cephes_emath.h  math/cephes_mconf.h math/fastmath.h     math/fp_consts.h  \
   math/acosf.c         math/expm1l.c       math/ldexpl.c       math/powif.c      \
