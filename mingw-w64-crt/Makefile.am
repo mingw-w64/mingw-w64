@@ -26,7 +26,7 @@ else
   enablevista=
 endif
 
-AM_CPPFLAGS=-D_CRTBLD -D_SYSCRT=1 -DCRTDLL=1 -DWINHEAP=1 $(sysincludes)
+AM_CPPFLAGS=-D_CRTBLD -D_SYSCRT=1 -DCRTDLL=1 $(sysincludes)
 AM_CFLAGS=-pipe $(vistasupport)
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
@@ -61,14 +61,17 @@ test.c
 
 lib32_LIBRARIES = lib32/libm.a
 nodist_lib32_libm_a_SOURCES = _libm_dummy.c
+lib32_libm_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libkernel32.a
 lib32_libkernel32_a_SOURCES = libsrc/kernel32.c
 lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib32_libkernel32_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = libsrc/shell32.c
 lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib32_libshell32_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libdinput.a
 lib32_libdinput_a_SOURCES = lib32/dinput_kbd.c \
@@ -97,13 +100,13 @@ lib32_LIBRARIES += lib32/libdxguid.a
 lib32_libdxguid_a_SOURCES = libsrc/dxguid.c
 
 lib32_LIBRARIES += lib32/liblargeint.a
-lib32_liblargeint_a_SOURCES = lib32/largeint.c
+lib32_liblargeint_a_SOURCES = libsrc/largeint.c
 
 lib32_LIBRARIES += lib32/libscrnsave.a
-lib32_libscrnsave_a_SOURCES = lib32/scrnsave.c
+lib32_libscrnsave_a_SOURCES = libsrc/scrnsave.c
 
 lib32_LIBRARIES += lib32/libscrnsavw.a
-lib32_libscrnsavw_a_SOURCES = lib32/scrnsave.c
+lib32_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
 lib32_libscrnsavw_a_CFLAGS = -DUNICODE
 
 lib32_LIBRARIES += lib32/libstrmiids.a
@@ -209,13 +212,13 @@ lib64_LIBRARIES += lib64/libdxguid.a
 lib64_libdxguid_a_SOURCES = libsrc/dxguid.c
 
 lib64_LIBRARIES += lib64/liblargeint.a
-lib64_liblargeint_a_SOURCES = lib64/largeint.c
+lib64_liblargeint_a_SOURCES = libsrc/largeint.c
 
 lib64_LIBRARIES += lib64/libscrnsave.a
-lib64_libscrnsave_a_SOURCES = lib64/scrnsave.c
+lib64_libscrnsave_a_SOURCES = libsrc/scrnsave.c
 
 lib64_LIBRARIES += lib64/libscrnsavw.a
-lib64_libscrnsavw_a_SOURCES = lib64/scrnsave.c
+lib64_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
 lib64_libscrnsavw_a_CFLAGS = -DUNICODE
 
 lib64_LIBRARIES += lib64/libuuid.a

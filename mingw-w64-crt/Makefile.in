@@ -121,31 +121,35 @@ lib32_libdxguid_a_OBJECTS = $(am_lib32_libdxguid_a_OBJECTS)
 lib32_libkernel32_a_LIBADD =
 am__lib32_libkernel32_a_SOURCES_DIST = libsrc/kernel32.c
 @LIB32_TRUE@am_lib32_libkernel32_a_OBJECTS =  \
-@LIB32_TRUE@	libsrc/kernel32.$(OBJEXT)
+@LIB32_TRUE@	libsrc/lib32_libkernel32_a-kernel32.$(OBJEXT)
 lib32_libkernel32_a_OBJECTS = $(am_lib32_libkernel32_a_OBJECTS)
 lib32_liblargeint_a_AR = $(AR) $(ARFLAGS)
 lib32_liblargeint_a_LIBADD =
-am__lib32_liblargeint_a_SOURCES_DIST = lib32/largeint.c
-@LIB32_TRUE@am_lib32_liblargeint_a_OBJECTS = lib32/largeint.$(OBJEXT)
+am__lib32_liblargeint_a_SOURCES_DIST = libsrc/largeint.c
+@LIB32_TRUE@am_lib32_liblargeint_a_OBJECTS =  \
+@LIB32_TRUE@	libsrc/largeint.$(OBJEXT)
 lib32_liblargeint_a_OBJECTS = $(am_lib32_liblargeint_a_OBJECTS)
 lib32_libm_a_AR = $(AR) $(ARFLAGS)
 lib32_libm_a_LIBADD =
-@LIB32_TRUE@nodist_lib32_libm_a_OBJECTS = _libm_dummy.$(OBJEXT)
+@LIB32_TRUE@nodist_lib32_libm_a_OBJECTS =  \
+@LIB32_TRUE@	lib32_libm_a-_libm_dummy.$(OBJEXT)
 lib32_libm_a_OBJECTS = $(nodist_lib32_libm_a_OBJECTS)
 lib32_libscrnsave_a_AR = $(AR) $(ARFLAGS)
 lib32_libscrnsave_a_LIBADD =
-am__lib32_libscrnsave_a_SOURCES_DIST = lib32/scrnsave.c
-@LIB32_TRUE@am_lib32_libscrnsave_a_OBJECTS = lib32/scrnsave.$(OBJEXT)
+am__lib32_libscrnsave_a_SOURCES_DIST = libsrc/scrnsave.c
+@LIB32_TRUE@am_lib32_libscrnsave_a_OBJECTS =  \
+@LIB32_TRUE@	libsrc/scrnsave.$(OBJEXT)
 lib32_libscrnsave_a_OBJECTS = $(am_lib32_libscrnsave_a_OBJECTS)
 lib32_libscrnsavw_a_AR = $(AR) $(ARFLAGS)
 lib32_libscrnsavw_a_LIBADD =
-am__lib32_libscrnsavw_a_SOURCES_DIST = lib32/scrnsave.c
+am__lib32_libscrnsavw_a_SOURCES_DIST = libsrc/scrnsave.c
 @LIB32_TRUE@am_lib32_libscrnsavw_a_OBJECTS =  \
-@LIB32_TRUE@	lib32/lib32_libscrnsavw_a-scrnsave.$(OBJEXT)
+@LIB32_TRUE@	libsrc/lib32_libscrnsavw_a-scrnsave.$(OBJEXT)
 lib32_libscrnsavw_a_OBJECTS = $(am_lib32_libscrnsavw_a_OBJECTS)
 lib32_libshell32_a_LIBADD =
 am__lib32_libshell32_a_SOURCES_DIST = libsrc/shell32.c
-@LIB32_TRUE@am_lib32_libshell32_a_OBJECTS = libsrc/shell32.$(OBJEXT)
+@LIB32_TRUE@am_lib32_libshell32_a_OBJECTS =  \
+@LIB32_TRUE@	libsrc/lib32_libshell32_a-shell32.$(OBJEXT)
 lib32_libshell32_a_OBJECTS = $(am_lib32_libshell32_a_OBJECTS)
 lib32_libstrmiids_a_AR = $(AR) $(ARFLAGS)
 lib32_libstrmiids_a_LIBADD =
@@ -202,8 +206,9 @@ am__lib64_libkernel32_a_SOURCES_DIST = libsrc/kernel32.c
 lib64_libkernel32_a_OBJECTS = $(am_lib64_libkernel32_a_OBJECTS)
 lib64_liblargeint_a_AR = $(AR) $(ARFLAGS)
 lib64_liblargeint_a_LIBADD =
-am__lib64_liblargeint_a_SOURCES_DIST = lib64/largeint.c
-@LIB64_TRUE@am_lib64_liblargeint_a_OBJECTS = lib64/largeint.$(OBJEXT)
+am__lib64_liblargeint_a_SOURCES_DIST = libsrc/largeint.c
+@LIB64_TRUE@am_lib64_liblargeint_a_OBJECTS =  \
+@LIB64_TRUE@	libsrc/largeint.$(OBJEXT)
 lib64_liblargeint_a_OBJECTS = $(am_lib64_liblargeint_a_OBJECTS)
 lib64_libm_a_AR = $(AR) $(ARFLAGS)
 lib64_libm_a_LIBADD =
@@ -693,14 +698,15 @@ am__lib64_libmoldname_a_SOURCES_DIST = crt64/isascii.c crt64/iscsym.c \
 lib64_libmoldname_a_OBJECTS = $(am_lib64_libmoldname_a_OBJECTS)
 lib64_libscrnsave_a_AR = $(AR) $(ARFLAGS)
 lib64_libscrnsave_a_LIBADD =
-am__lib64_libscrnsave_a_SOURCES_DIST = lib64/scrnsave.c
-@LIB64_TRUE@am_lib64_libscrnsave_a_OBJECTS = lib64/scrnsave.$(OBJEXT)
+am__lib64_libscrnsave_a_SOURCES_DIST = libsrc/scrnsave.c
+@LIB64_TRUE@am_lib64_libscrnsave_a_OBJECTS =  \
+@LIB64_TRUE@	libsrc/scrnsave.$(OBJEXT)
 lib64_libscrnsave_a_OBJECTS = $(am_lib64_libscrnsave_a_OBJECTS)
 lib64_libscrnsavw_a_AR = $(AR) $(ARFLAGS)
 lib64_libscrnsavw_a_LIBADD =
-am__lib64_libscrnsavw_a_SOURCES_DIST = lib64/scrnsave.c
+am__lib64_libscrnsavw_a_SOURCES_DIST = libsrc/scrnsave.c
 @LIB64_TRUE@am_lib64_libscrnsavw_a_OBJECTS =  \
-@LIB64_TRUE@	lib64/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
+@LIB64_TRUE@	libsrc/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
 lib64_libscrnsavw_a_OBJECTS = $(am_lib64_libscrnsavw_a_OBJECTS)
 lib64_libshell32_a_LIBADD =
 am__lib64_libshell32_a_SOURCES_DIST = libsrc/shell32.c
@@ -905,7 +911,7 @@ top_srcdir = @top_srcdir@
 @VISTA_TRUE@vistasupport = -D__USE_MINGW_ACCESS
 @VISTA_FALSE@enablevista = 
 @VISTA_TRUE@enablevista = --enable-vista
-AM_CPPFLAGS = -D_CRTBLD -D_SYSCRT=1 -DCRTDLL=1 -DWINHEAP=1 $(sysincludes)
+AM_CPPFLAGS = -D_CRTBLD -D_SYSCRT=1 -DCRTDLL=1 $(sysincludes)
 AM_CFLAGS = -pipe $(vistasupport)
 AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@
 DTDEF = $(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
@@ -939,10 +945,13 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB32_TRUE@	lib32/libstrmiids.a lib32/libuuid.a \
 @LIB32_TRUE@	lib32/libws2_32.a
 @LIB32_TRUE@nodist_lib32_libm_a_SOURCES = _libm_dummy.c
+@LIB32_TRUE@lib32_libm_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libkernel32_a_SOURCES = libsrc/kernel32.c
 @LIB32_TRUE@lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libkernel32_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = libsrc/shell32.c
 @LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libshell32_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libdinput_a_SOURCES = lib32/dinput_kbd.c \
 @LIB32_TRUE@  lib32/dinput_joy.c   lib32/dinput_joy2.c \
 @LIB32_TRUE@  lib32/dinput_mouse.c lib32/dinput_mouse2.c
@@ -958,9 +967,9 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB32_TRUE@lib32_libdxerr8_a_SOURCES = lib32/dxerr8.c lib32/dxerr8w.c
 @LIB32_TRUE@lib32_libdxerr9_a_SOURCES = lib32/dxerr9.c lib32/dxerr9w.c
 @LIB32_TRUE@lib32_libdxguid_a_SOURCES = libsrc/dxguid.c
-@LIB32_TRUE@lib32_liblargeint_a_SOURCES = lib32/largeint.c
-@LIB32_TRUE@lib32_libscrnsave_a_SOURCES = lib32/scrnsave.c
-@LIB32_TRUE@lib32_libscrnsavw_a_SOURCES = lib32/scrnsave.c
+@LIB32_TRUE@lib32_liblargeint_a_SOURCES = libsrc/largeint.c
+@LIB32_TRUE@lib32_libscrnsave_a_SOURCES = libsrc/scrnsave.c
+@LIB32_TRUE@lib32_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
 @LIB32_TRUE@lib32_libscrnsavw_a_CFLAGS = -DUNICODE
 @LIB32_TRUE@lib32_libstrmiids_a_SOURCES = lib32/strmiids.c
 @LIB32_TRUE@lib32_libuuid_a_SOURCES = lib32/uuid.c lib32/devguid.c \
@@ -1028,9 +1037,9 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@lib64_libshell32_a_SOURCES = libsrc/shell32.c
 @LIB64_TRUE@lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libdxguid_a_SOURCES = libsrc/dxguid.c
-@LIB64_TRUE@lib64_liblargeint_a_SOURCES = lib64/largeint.c
-@LIB64_TRUE@lib64_libscrnsave_a_SOURCES = lib64/scrnsave.c
-@LIB64_TRUE@lib64_libscrnsavw_a_SOURCES = lib64/scrnsave.c
+@LIB64_TRUE@lib64_liblargeint_a_SOURCES = libsrc/largeint.c
+@LIB64_TRUE@lib64_libscrnsave_a_SOURCES = libsrc/scrnsave.c
+@LIB64_TRUE@lib64_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
 @LIB64_TRUE@lib64_libscrnsavw_a_CFLAGS = -DUNICODE
 @LIB64_TRUE@lib64_libuuid_a_SOURCES = lib64/uuid.c lib64/mshtml-uuid.c
 @LIB64_TRUE@lib64_libmingw32_a_CPPFLAGS = $(include64) $(AM_CPPFLAGS)
@@ -1747,14 +1756,14 @@ lib32/libdxguid.a: $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_DEPENDENCIES
 	-rm -f lib32/libdxguid.a
 	$(lib32_libdxguid_a_AR) lib32/libdxguid.a $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_LIBADD)
 	$(RANLIB) lib32/libdxguid.a
-libsrc/kernel32.$(OBJEXT): libsrc/$(am__dirstamp) \
+libsrc/lib32_libkernel32_a-kernel32.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libkernel32.a: $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libkernel32.a
 	$(lib32_libkernel32_a_AR) lib32/libkernel32.a $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_LIBADD)
 	$(RANLIB) lib32/libkernel32.a
-lib32/largeint.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/largeint.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/liblargeint.a: $(lib32_liblargeint_a_OBJECTS) $(lib32_liblargeint_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/liblargeint.a
 	$(lib32_liblargeint_a_AR) lib32/liblargeint.a $(lib32_liblargeint_a_OBJECTS) $(lib32_liblargeint_a_LIBADD)
@@ -1763,19 +1772,19 @@ lib32/libm.a: $(lib32_libm_a_OBJECTS) $(lib32_libm_a_DEPENDENCIES) lib32/$(am__d
 	-rm -f lib32/libm.a
 	$(lib32_libm_a_AR) lib32/libm.a $(lib32_libm_a_OBJECTS) $(lib32_libm_a_LIBADD)
 	$(RANLIB) lib32/libm.a
-lib32/scrnsave.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/scrnsave.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libscrnsave.a: $(lib32_libscrnsave_a_OBJECTS) $(lib32_libscrnsave_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libscrnsave.a
 	$(lib32_libscrnsave_a_AR) lib32/libscrnsave.a $(lib32_libscrnsave_a_OBJECTS) $(lib32_libscrnsave_a_LIBADD)
 	$(RANLIB) lib32/libscrnsave.a
-lib32/lib32_libscrnsavw_a-scrnsave.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libscrnsavw_a-scrnsave.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libscrnsavw.a: $(lib32_libscrnsavw_a_OBJECTS) $(lib32_libscrnsavw_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libscrnsavw.a
 	$(lib32_libscrnsavw_a_AR) lib32/libscrnsavw.a $(lib32_libscrnsavw_a_OBJECTS) $(lib32_libscrnsavw_a_LIBADD)
 	$(RANLIB) lib32/libscrnsavw.a
-libsrc/shell32.$(OBJEXT): libsrc/$(am__dirstamp) \
+libsrc/lib32_libshell32_a-shell32.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libshell32.a: $(lib32_libshell32_a_OBJECTS) $(lib32_libshell32_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libshell32.a
@@ -1850,15 +1859,12 @@ lib64/libdxguid.a: $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_DEPENDENCIES
 	-rm -f lib64/libdxguid.a
 	$(lib64_libdxguid_a_AR) lib64/libdxguid.a $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_LIBADD)
 	$(RANLIB) lib64/libdxguid.a
+libsrc/kernel32.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib64/libkernel32.a: $(lib64_libkernel32_a_OBJECTS) $(lib64_libkernel32_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libkernel32.a
 	$(lib64_libkernel32_a_AR) lib64/libkernel32.a $(lib64_libkernel32_a_OBJECTS) $(lib64_libkernel32_a_LIBADD)
 	$(RANLIB) lib64/libkernel32.a
-lib64/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) lib64/$(DEPDIR)
-	@: > lib64/$(DEPDIR)/$(am__dirstamp)
-lib64/largeint.$(OBJEXT): lib64/$(am__dirstamp) \
-	lib64/$(DEPDIR)/$(am__dirstamp)
 lib64/liblargeint.a: $(lib64_liblargeint_a_OBJECTS) $(lib64_liblargeint_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/liblargeint.a
 	$(lib64_liblargeint_a_AR) lib64/liblargeint.a $(lib64_liblargeint_a_OBJECTS) $(lib64_liblargeint_a_LIBADD)
@@ -2641,22 +2647,25 @@ lib64/libmoldname.a: $(lib64_libmoldname_a_OBJECTS) $(lib64_libmoldname_a_DEPEND
 	-rm -f lib64/libmoldname.a
 	$(lib64_libmoldname_a_AR) lib64/libmoldname.a $(lib64_libmoldname_a_OBJECTS) $(lib64_libmoldname_a_LIBADD)
 	$(RANLIB) lib64/libmoldname.a
-lib64/scrnsave.$(OBJEXT): lib64/$(am__dirstamp) \
-	lib64/$(DEPDIR)/$(am__dirstamp)
 lib64/libscrnsave.a: $(lib64_libscrnsave_a_OBJECTS) $(lib64_libscrnsave_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libscrnsave.a
 	$(lib64_libscrnsave_a_AR) lib64/libscrnsave.a $(lib64_libscrnsave_a_OBJECTS) $(lib64_libscrnsave_a_LIBADD)
 	$(RANLIB) lib64/libscrnsave.a
-lib64/lib64_libscrnsavw_a-scrnsave.$(OBJEXT): lib64/$(am__dirstamp) \
-	lib64/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libscrnsavw_a-scrnsave.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib64/libscrnsavw.a: $(lib64_libscrnsavw_a_OBJECTS) $(lib64_libscrnsavw_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libscrnsavw.a
 	$(lib64_libscrnsavw_a_AR) lib64/libscrnsavw.a $(lib64_libscrnsavw_a_OBJECTS) $(lib64_libscrnsavw_a_LIBADD)
 	$(RANLIB) lib64/libscrnsavw.a
+libsrc/shell32.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib64/libshell32.a: $(lib64_libshell32_a_OBJECTS) $(lib64_libshell32_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libshell32.a
 	$(lib64_libshell32_a_AR) lib64/libshell32.a $(lib64_libshell32_a_OBJECTS) $(lib64_libshell32_a_LIBADD)
 	$(RANLIB) lib64/libshell32.a
+lib64/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) lib64/$(DEPDIR)
+	@: > lib64/$(DEPDIR)/$(am__dirstamp)
 lib64/uuid.$(OBJEXT): lib64/$(am__dirstamp) \
 	lib64/$(DEPDIR)/$(am__dirstamp)
 lib64/mshtml-uuid.$(OBJEXT): lib64/$(am__dirstamp) \
@@ -2864,8 +2873,6 @@ mostlyclean-compile:
 	-rm -f lib32/extras-uuid.$(OBJEXT)
 	-rm -f lib32/hlguids-uuid.$(OBJEXT)
 	-rm -f lib32/hlink-uuid.$(OBJEXT)
-	-rm -f lib32/largeint.$(OBJEXT)
-	-rm -f lib32/lib32_libscrnsavw_a-scrnsave.$(OBJEXT)
 	-rm -f lib32/mlang-uuid.$(OBJEXT)
 	-rm -f lib32/mshtml-uuid.$(OBJEXT)
 	-rm -f lib32/msxml-uuid.$(OBJEXT)
@@ -2876,20 +2883,22 @@ mostlyclean-compile:
 	-rm -f lib32/oleacc-uuid.$(OBJEXT)
 	-rm -f lib32/olectlid-uuid.$(OBJEXT)
 	-rm -f lib32/oleidl-uuid.$(OBJEXT)
-	-rm -f lib32/scrnsave.$(OBJEXT)
 	-rm -f lib32/servprov-uuid.$(OBJEXT)
 	-rm -f lib32/strmiids.$(OBJEXT)
 	-rm -f lib32/unknwn-uuid.$(OBJEXT)
 	-rm -f lib32/urlmon-uuid.$(OBJEXT)
 	-rm -f lib32/uuid.$(OBJEXT)
 	-rm -f lib32/ws2_32.$(OBJEXT)
-	-rm -f lib64/largeint.$(OBJEXT)
-	-rm -f lib64/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
 	-rm -f lib64/mshtml-uuid.$(OBJEXT)
-	-rm -f lib64/scrnsave.$(OBJEXT)
 	-rm -f lib64/uuid.$(OBJEXT)
 	-rm -f libsrc/dxguid.$(OBJEXT)
 	-rm -f libsrc/kernel32.$(OBJEXT)
+	-rm -f libsrc/largeint.$(OBJEXT)
+	-rm -f libsrc/lib32_libkernel32_a-kernel32.$(OBJEXT)
+	-rm -f libsrc/lib32_libscrnsavw_a-scrnsave.$(OBJEXT)
+	-rm -f libsrc/lib32_libshell32_a-shell32.$(OBJEXT)
+	-rm -f libsrc/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
+	-rm -f libsrc/scrnsave.$(OBJEXT)
 	-rm -f libsrc/shell32.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acosf.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acosh.$(OBJEXT)
@@ -3139,6 +3148,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/_libm_dummy.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lib32_libm_a-_libm_dummy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@complex/$(DEPDIR)/lib64_libmingwex_a-cabs.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@complex/$(DEPDIR)/lib64_libmingwex_a-cabsf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@complex/$(DEPDIR)/lib64_libmingwex_a-cabsl.Po@am__quote@
@@ -3278,8 +3288,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/extras-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/hlguids-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/hlink-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/largeint.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/mlang-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/mshtml-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/msxml-uuid.Po@am__quote@
@@ -3290,20 +3298,22 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/oleacc-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/olectlid-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/oleidl-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/servprov-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/strmiids.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/unknwn-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/ws2_32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/largeint.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/mshtml-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dxguid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/kernel32.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/largeint.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libshell32_a-shell32.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/shell32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acosf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acosh.Po@am__quote@
@@ -4101,19 +4111,61 @@ misc/lib64_libmingwex_a-mingw_getsp.obj: misc/mingw_getsp.S
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-lib32/lib32_libscrnsavw_a-scrnsave.o: lib32/scrnsave.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib32_libscrnsavw_a_CFLAGS) $(CFLAGS) -MT lib32/lib32_libscrnsavw_a-scrnsave.o -MD -MP -MF lib32/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Tpo -c -o lib32/lib32_libscrnsavw_a-scrnsave.o `test -f 'lib32/scrnsave.c' || echo '$(srcdir)/'`lib32/scrnsave.c
-@am__fastdepCC_TRUE@	mv -f lib32/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Tpo lib32/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='lib32/scrnsave.c' object='lib32/lib32_libscrnsavw_a-scrnsave.o' libtool=no @AMDEPBACKSLASH@
+libsrc/lib32_libkernel32_a-kernel32.o: libsrc/kernel32.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libkernel32_a-kernel32.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Tpo -c -o libsrc/lib32_libkernel32_a-kernel32.o `test -f 'libsrc/kernel32.c' || echo '$(srcdir)/'`libsrc/kernel32.c
+@am__fastdepCC_TRUE@	mv -f libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Tpo libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/kernel32.c' object='libsrc/lib32_libkernel32_a-kernel32.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib32_libscrnsavw_a_CFLAGS) $(CFLAGS) -c -o lib32/lib32_libscrnsavw_a-scrnsave.o `test -f 'lib32/scrnsave.c' || echo '$(srcdir)/'`lib32/scrnsave.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libkernel32_a-kernel32.o `test -f 'libsrc/kernel32.c' || echo '$(srcdir)/'`libsrc/kernel32.c
 
-lib32/lib32_libscrnsavw_a-scrnsave.obj: lib32/scrnsave.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib32_libscrnsavw_a_CFLAGS) $(CFLAGS) -MT lib32/lib32_libscrnsavw_a-scrnsave.obj -MD -MP -MF lib32/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Tpo -c -o lib32/lib32_libscrnsavw_a-scrnsave.obj `if test -f 'lib32/scrnsave.c'; then $(CYGPATH_W) 'lib32/scrnsave.c'; else $(CYGPATH_W) '$(srcdir)/lib32/scrnsave.c'; fi`
-@am__fastdepCC_TRUE@	mv -f lib32/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Tpo lib32/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='lib32/scrnsave.c' object='lib32/lib32_libscrnsavw_a-scrnsave.obj' libtool=no @AMDEPBACKSLASH@
+libsrc/lib32_libkernel32_a-kernel32.obj: libsrc/kernel32.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libkernel32_a-kernel32.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Tpo -c -o libsrc/lib32_libkernel32_a-kernel32.obj `if test -f 'libsrc/kernel32.c'; then $(CYGPATH_W) 'libsrc/kernel32.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/kernel32.c'; fi`
+@am__fastdepCC_TRUE@	mv -f libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Tpo libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/kernel32.c' object='libsrc/lib32_libkernel32_a-kernel32.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib32_libscrnsavw_a_CFLAGS) $(CFLAGS) -c -o lib32/lib32_libscrnsavw_a-scrnsave.obj `if test -f 'lib32/scrnsave.c'; then $(CYGPATH_W) 'lib32/scrnsave.c'; else $(CYGPATH_W) '$(srcdir)/lib32/scrnsave.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libkernel32_a-kernel32.obj `if test -f 'libsrc/kernel32.c'; then $(CYGPATH_W) 'libsrc/kernel32.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/kernel32.c'; fi`
+
+lib32_libm_a-_libm_dummy.o: _libm_dummy.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libm_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lib32_libm_a-_libm_dummy.o -MD -MP -MF $(DEPDIR)/lib32_libm_a-_libm_dummy.Tpo -c -o lib32_libm_a-_libm_dummy.o `test -f '_libm_dummy.c' || echo '$(srcdir)/'`_libm_dummy.c
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/lib32_libm_a-_libm_dummy.Tpo $(DEPDIR)/lib32_libm_a-_libm_dummy.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='_libm_dummy.c' object='lib32_libm_a-_libm_dummy.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libm_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lib32_libm_a-_libm_dummy.o `test -f '_libm_dummy.c' || echo '$(srcdir)/'`_libm_dummy.c
+
+lib32_libm_a-_libm_dummy.obj: _libm_dummy.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libm_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lib32_libm_a-_libm_dummy.obj -MD -MP -MF $(DEPDIR)/lib32_libm_a-_libm_dummy.Tpo -c -o lib32_libm_a-_libm_dummy.obj `if test -f '_libm_dummy.c'; then $(CYGPATH_W) '_libm_dummy.c'; else $(CYGPATH_W) '$(srcdir)/_libm_dummy.c'; fi`
+@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/lib32_libm_a-_libm_dummy.Tpo $(DEPDIR)/lib32_libm_a-_libm_dummy.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='_libm_dummy.c' object='lib32_libm_a-_libm_dummy.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libm_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lib32_libm_a-_libm_dummy.obj `if test -f '_libm_dummy.c'; then $(CYGPATH_W) '_libm_dummy.c'; else $(CYGPATH_W) '$(srcdir)/_libm_dummy.c'; fi`
+
+libsrc/lib32_libscrnsavw_a-scrnsave.o: libsrc/scrnsave.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib32_libscrnsavw_a_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libscrnsavw_a-scrnsave.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Tpo -c -o libsrc/lib32_libscrnsavw_a-scrnsave.o `test -f 'libsrc/scrnsave.c' || echo '$(srcdir)/'`libsrc/scrnsave.c
+@am__fastdepCC_TRUE@	mv -f libsrc/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Tpo libsrc/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/scrnsave.c' object='libsrc/lib32_libscrnsavw_a-scrnsave.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib32_libscrnsavw_a_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libscrnsavw_a-scrnsave.o `test -f 'libsrc/scrnsave.c' || echo '$(srcdir)/'`libsrc/scrnsave.c
+
+libsrc/lib32_libscrnsavw_a-scrnsave.obj: libsrc/scrnsave.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib32_libscrnsavw_a_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libscrnsavw_a-scrnsave.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Tpo -c -o libsrc/lib32_libscrnsavw_a-scrnsave.obj `if test -f 'libsrc/scrnsave.c'; then $(CYGPATH_W) 'libsrc/scrnsave.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/scrnsave.c'; fi`
+@am__fastdepCC_TRUE@	mv -f libsrc/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Tpo libsrc/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/scrnsave.c' object='libsrc/lib32_libscrnsavw_a-scrnsave.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib32_libscrnsavw_a_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libscrnsavw_a-scrnsave.obj `if test -f 'libsrc/scrnsave.c'; then $(CYGPATH_W) 'libsrc/scrnsave.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/scrnsave.c'; fi`
+
+libsrc/lib32_libshell32_a-shell32.o: libsrc/shell32.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libshell32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libshell32_a-shell32.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libshell32_a-shell32.Tpo -c -o libsrc/lib32_libshell32_a-shell32.o `test -f 'libsrc/shell32.c' || echo '$(srcdir)/'`libsrc/shell32.c
+@am__fastdepCC_TRUE@	mv -f libsrc/$(DEPDIR)/lib32_libshell32_a-shell32.Tpo libsrc/$(DEPDIR)/lib32_libshell32_a-shell32.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/shell32.c' object='libsrc/lib32_libshell32_a-shell32.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libshell32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libshell32_a-shell32.o `test -f 'libsrc/shell32.c' || echo '$(srcdir)/'`libsrc/shell32.c
+
+libsrc/lib32_libshell32_a-shell32.obj: libsrc/shell32.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libshell32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libshell32_a-shell32.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libshell32_a-shell32.Tpo -c -o libsrc/lib32_libshell32_a-shell32.obj `if test -f 'libsrc/shell32.c'; then $(CYGPATH_W) 'libsrc/shell32.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/shell32.c'; fi`
+@am__fastdepCC_TRUE@	mv -f libsrc/$(DEPDIR)/lib32_libshell32_a-shell32.Tpo libsrc/$(DEPDIR)/lib32_libshell32_a-shell32.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/shell32.c' object='libsrc/lib32_libshell32_a-shell32.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libshell32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libshell32_a-shell32.obj `if test -f 'libsrc/shell32.c'; then $(CYGPATH_W) 'libsrc/shell32.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/shell32.c'; fi`
 
 crt64/lib64_libmingw32_a-crt0_c.o: crt64/crt0_c.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-crt0_c.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-crt0_c.Tpo -c -o crt64/lib64_libmingw32_a-crt0_c.o `test -f 'crt64/crt0_c.c' || echo '$(srcdir)/'`crt64/crt0_c.c
@@ -8693,19 +8745,19 @@ crt64/lib64_libmoldname_a-wcscmpi.obj: crt64/wcscmpi.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmoldname_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmoldname_a-wcscmpi.obj `if test -f 'crt64/wcscmpi.c'; then $(CYGPATH_W) 'crt64/wcscmpi.c'; else $(CYGPATH_W) '$(srcdir)/crt64/wcscmpi.c'; fi`
 
-lib64/lib64_libscrnsavw_a-scrnsave.o: lib64/scrnsave.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib64_libscrnsavw_a_CFLAGS) $(CFLAGS) -MT lib64/lib64_libscrnsavw_a-scrnsave.o -MD -MP -MF lib64/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Tpo -c -o lib64/lib64_libscrnsavw_a-scrnsave.o `test -f 'lib64/scrnsave.c' || echo '$(srcdir)/'`lib64/scrnsave.c
-@am__fastdepCC_TRUE@	mv -f lib64/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Tpo lib64/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='lib64/scrnsave.c' object='lib64/lib64_libscrnsavw_a-scrnsave.o' libtool=no @AMDEPBACKSLASH@
+libsrc/lib64_libscrnsavw_a-scrnsave.o: libsrc/scrnsave.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib64_libscrnsavw_a_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libscrnsavw_a-scrnsave.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Tpo -c -o libsrc/lib64_libscrnsavw_a-scrnsave.o `test -f 'libsrc/scrnsave.c' || echo '$(srcdir)/'`libsrc/scrnsave.c
+@am__fastdepCC_TRUE@	mv -f libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Tpo libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/scrnsave.c' object='libsrc/lib64_libscrnsavw_a-scrnsave.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib64_libscrnsavw_a_CFLAGS) $(CFLAGS) -c -o lib64/lib64_libscrnsavw_a-scrnsave.o `test -f 'lib64/scrnsave.c' || echo '$(srcdir)/'`lib64/scrnsave.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib64_libscrnsavw_a_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libscrnsavw_a-scrnsave.o `test -f 'libsrc/scrnsave.c' || echo '$(srcdir)/'`libsrc/scrnsave.c
 
-lib64/lib64_libscrnsavw_a-scrnsave.obj: lib64/scrnsave.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib64_libscrnsavw_a_CFLAGS) $(CFLAGS) -MT lib64/lib64_libscrnsavw_a-scrnsave.obj -MD -MP -MF lib64/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Tpo -c -o lib64/lib64_libscrnsavw_a-scrnsave.obj `if test -f 'lib64/scrnsave.c'; then $(CYGPATH_W) 'lib64/scrnsave.c'; else $(CYGPATH_W) '$(srcdir)/lib64/scrnsave.c'; fi`
-@am__fastdepCC_TRUE@	mv -f lib64/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Tpo lib64/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='lib64/scrnsave.c' object='lib64/lib64_libscrnsavw_a-scrnsave.obj' libtool=no @AMDEPBACKSLASH@
+libsrc/lib64_libscrnsavw_a-scrnsave.obj: libsrc/scrnsave.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib64_libscrnsavw_a_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libscrnsavw_a-scrnsave.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Tpo -c -o libsrc/lib64_libscrnsavw_a-scrnsave.obj `if test -f 'libsrc/scrnsave.c'; then $(CYGPATH_W) 'libsrc/scrnsave.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/scrnsave.c'; fi`
+@am__fastdepCC_TRUE@	mv -f libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Tpo libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/scrnsave.c' object='libsrc/lib64_libscrnsavw_a-scrnsave.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib64_libscrnsavw_a_CFLAGS) $(CFLAGS) -c -o lib64/lib64_libscrnsavw_a-scrnsave.obj `if test -f 'lib64/scrnsave.c'; then $(CYGPATH_W) 'lib64/scrnsave.c'; else $(CYGPATH_W) '$(srcdir)/lib64/scrnsave.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib64_libscrnsavw_a_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libscrnsavw_a-scrnsave.obj `if test -f 'libsrc/scrnsave.c'; then $(CYGPATH_W) 'libsrc/scrnsave.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/scrnsave.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
