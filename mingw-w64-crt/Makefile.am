@@ -26,7 +26,7 @@ else
   enablevista=
 endif
 
-AM_CPPFLAGS=-D_CRTBLD -D_SYSCRT=1 -DCRTDLL=1 $(sysincludes)
+AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
 AM_CFLAGS=-pipe $(vistasupport)
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
@@ -169,7 +169,7 @@ if LIB64
 crt64dir=$(prefix)/$(host)/lib
 lib64dir=$(crt64dir)
 include64=-I$(top_srcdir)/include64
-COMPILE64=$(COMPILE) $(include64) -c $(crt64srcdir)/
+COMPILE64=$(COMPILE) $(include64) -D_SYSCRT=1 -DCRTDLL=1 -c $(crt64srcdir)/
 
 crt64_SCRIPTS = \
   crt64/libcrtdll.a crt64/libmsvcrt.a crt64/libmsvcr80.a \
@@ -225,7 +225,7 @@ lib64_LIBRARIES += lib64/libuuid.a
 lib64_libuuid_a_SOURCES = lib64/uuid.c lib64/mshtml-uuid.c
 
 lib64_LIBRARIES += lib64/libmingw32.a
-lib64_libmingw32_a_CPPFLAGS=$(include64) $(AM_CPPFLAGS)
+lib64_libmingw32_a_CPPFLAGS=-D_SYSCRT=1 -DCRTDLL=1 $(include64) $(AM_CPPFLAGS)
 lib64_libmingw32_a_SOURCES = \
   crt64/crt0_c.c crt64/crt0_w.c crt64/dll_argv.c crt64/gccmain.c crt64/CRT_fp10.c crt64/pseudo-reloc.c \
   crt64/pseudo-reloc-list.c crt64/pesect.c crt64/cinitexe.c \
