@@ -1,8 +1,16 @@
+#include <windows.h>
 #include <stdlib.h>
+#include <setjmp.h>
 
 typedef void (*func_ptr) (void);
 extern func_ptr __CTOR_LIST__[];
 extern func_ptr __DTOR_LIST__[];
+
+static HMODULE hMsvcrt = NULL;
+
+typedef __declspec(noreturn) void __cdecl flongjmp(jmp_buf _Buf,int _Value);
+
+flongjmp *fctMsvcrtLongJmp = NULL;
 
 void
 __do_global_dtors (void)
@@ -14,6 +22,11 @@ __do_global_dtors (void)
       (*(p)) ();
       p++;
     }
+  if (hMsvcrt)
+    {
+      FreeLibrary (hMsvcrt);
+      hMsvcrt = NULL;
+    }
 }
 
 void
@@ -21,6 +34,11 @@ __do_global_ctors (void)
 {
   unsigned long nptrs = (unsigned long) (ptrdiff_t) __CTOR_LIST__[0];
   unsigned long i;
+
+  if (!hMsvcrt) {
+    hMsvcrt = LoadLibrary ("msvcrt.dll");
+    fctMsvcrtLongJmp = (flongjmp *) GetProcAddress( hMsvcrt, "longjmp");
+  }
 
   if (nptrs == (unsigned long) -1)
     {

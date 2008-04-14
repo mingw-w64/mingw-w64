@@ -1550,7 +1550,6 @@ localeconv
 localtime
 log
 log10
-longjmp
 malloc
 mblen
 mbstowcs
