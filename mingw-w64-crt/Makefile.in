@@ -115,12 +115,13 @@ am__lib32_libdxerr9_a_SOURCES_DIST = lib32/dxerr9.c lib32/dxerr9w.c
 lib32_libdxerr9_a_OBJECTS = $(am_lib32_libdxerr9_a_OBJECTS)
 lib32_libdxguid_a_AR = $(AR) $(ARFLAGS)
 lib32_libdxguid_a_LIBADD =
-am__lib32_libdxguid_a_SOURCES_DIST = lib32/dxguid.c
-@LIB32_TRUE@am_lib32_libdxguid_a_OBJECTS = lib32/dxguid.$(OBJEXT)
+am__lib32_libdxguid_a_SOURCES_DIST = libsrc/dxguid.c
+@LIB32_TRUE@am_lib32_libdxguid_a_OBJECTS = libsrc/dxguid.$(OBJEXT)
 lib32_libdxguid_a_OBJECTS = $(am_lib32_libdxguid_a_OBJECTS)
 lib32_libkernel32_a_LIBADD =
-am__lib32_libkernel32_a_SOURCES_DIST = lib32/kernel32.c
-@LIB32_TRUE@am_lib32_libkernel32_a_OBJECTS = lib32/kernel32.$(OBJEXT)
+am__lib32_libkernel32_a_SOURCES_DIST = libsrc/kernel32.c
+@LIB32_TRUE@am_lib32_libkernel32_a_OBJECTS =  \
+@LIB32_TRUE@	libsrc/kernel32.$(OBJEXT)
 lib32_libkernel32_a_OBJECTS = $(am_lib32_libkernel32_a_OBJECTS)
 lib32_liblargeint_a_AR = $(AR) $(ARFLAGS)
 lib32_liblargeint_a_LIBADD =
@@ -143,8 +144,8 @@ am__lib32_libscrnsavw_a_SOURCES_DIST = lib32/scrnsave.c
 @LIB32_TRUE@	lib32/lib32_libscrnsavw_a-scrnsave.$(OBJEXT)
 lib32_libscrnsavw_a_OBJECTS = $(am_lib32_libscrnsavw_a_OBJECTS)
 lib32_libshell32_a_LIBADD =
-am__lib32_libshell32_a_SOURCES_DIST = lib32/shell32.c
-@LIB32_TRUE@am_lib32_libshell32_a_OBJECTS = lib32/shell32.$(OBJEXT)
+am__lib32_libshell32_a_SOURCES_DIST = libsrc/shell32.c
+@LIB32_TRUE@am_lib32_libshell32_a_OBJECTS = libsrc/shell32.$(OBJEXT)
 lib32_libshell32_a_OBJECTS = $(am_lib32_libshell32_a_OBJECTS)
 lib32_libstrmiids_a_AR = $(AR) $(ARFLAGS)
 lib32_libstrmiids_a_LIBADD =
@@ -191,12 +192,13 @@ am__lib32_libws2_32_a_SOURCES_DIST = lib32/ws2_32.c
 lib32_libws2_32_a_OBJECTS = $(am_lib32_libws2_32_a_OBJECTS)
 lib64_libdxguid_a_AR = $(AR) $(ARFLAGS)
 lib64_libdxguid_a_LIBADD =
-am__lib64_libdxguid_a_SOURCES_DIST = lib64/dxguid.c
-@LIB64_TRUE@am_lib64_libdxguid_a_OBJECTS = lib64/dxguid.$(OBJEXT)
+am__lib64_libdxguid_a_SOURCES_DIST = libsrc/dxguid.c
+@LIB64_TRUE@am_lib64_libdxguid_a_OBJECTS = libsrc/dxguid.$(OBJEXT)
 lib64_libdxguid_a_OBJECTS = $(am_lib64_libdxguid_a_OBJECTS)
 lib64_libkernel32_a_LIBADD =
-am__lib64_libkernel32_a_SOURCES_DIST = lib64/kernel32.c
-@LIB64_TRUE@am_lib64_libkernel32_a_OBJECTS = lib64/kernel32.$(OBJEXT)
+am__lib64_libkernel32_a_SOURCES_DIST = libsrc/kernel32.c
+@LIB64_TRUE@am_lib64_libkernel32_a_OBJECTS =  \
+@LIB64_TRUE@	libsrc/kernel32.$(OBJEXT)
 lib64_libkernel32_a_OBJECTS = $(am_lib64_libkernel32_a_OBJECTS)
 lib64_liblargeint_a_AR = $(AR) $(ARFLAGS)
 lib64_liblargeint_a_LIBADD =
@@ -702,8 +704,8 @@ am__lib64_libscrnsavw_a_SOURCES_DIST = lib64/scrnsave.c
 @LIB64_TRUE@	lib64/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
 lib64_libscrnsavw_a_OBJECTS = $(am_lib64_libscrnsavw_a_OBJECTS)
 lib64_libshell32_a_LIBADD =
-am__lib64_libshell32_a_SOURCES_DIST = lib64/shell32.c
-@LIB64_TRUE@am_lib64_libshell32_a_OBJECTS = lib64/shell32.$(OBJEXT)
+am__lib64_libshell32_a_SOURCES_DIST = libsrc/shell32.c
+@LIB64_TRUE@am_lib64_libshell32_a_OBJECTS = libsrc/shell32.$(OBJEXT)
 lib64_libshell32_a_OBJECTS = $(am_lib64_libshell32_a_OBJECTS)
 lib64_libuuid_a_AR = $(AR) $(ARFLAGS)
 lib64_libuuid_a_LIBADD =
@@ -938,9 +940,9 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB32_TRUE@	lib32/libstrmiids.a lib32/libuuid.a \
 @LIB32_TRUE@	lib32/libws2_32.a
 @LIB32_TRUE@nodist_lib32_libm_a_SOURCES = _libm_dummy.c
-@LIB32_TRUE@lib32_libkernel32_a_SOURCES = lib32/kernel32.c
+@LIB32_TRUE@lib32_libkernel32_a_SOURCES = libsrc/kernel32.c
 @LIB32_TRUE@lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-@LIB32_TRUE@lib32_libshell32_a_SOURCES = lib32/shell32.c
+@LIB32_TRUE@lib32_libshell32_a_SOURCES = libsrc/shell32.c
 @LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libdinput_a_SOURCES = lib32/dinput_kbd.c \
 @LIB32_TRUE@  lib32/dinput_joy.c   lib32/dinput_joy2.c \
@@ -956,7 +958,7 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB32_TRUE@lib32_libdmoguids_a_SOURCES = lib32/dmoguids.c
 @LIB32_TRUE@lib32_libdxerr8_a_SOURCES = lib32/dxerr8.c lib32/dxerr8w.c
 @LIB32_TRUE@lib32_libdxerr9_a_SOURCES = lib32/dxerr9.c lib32/dxerr9w.c
-@LIB32_TRUE@lib32_libdxguid_a_SOURCES = lib32/dxguid.c
+@LIB32_TRUE@lib32_libdxguid_a_SOURCES = libsrc/dxguid.c
 @LIB32_TRUE@lib32_liblargeint_a_SOURCES = lib32/largeint.c
 @LIB32_TRUE@lib32_libscrnsave_a_SOURCES = lib32/scrnsave.c
 @LIB32_TRUE@lib32_libscrnsavw_a_SOURCES = lib32/scrnsave.c
@@ -1022,11 +1024,11 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@	lib64/libmingw32.a lib64/libmoldname.a \
 @LIB64_TRUE@	lib64/libmingwex.a
 @LIB64_TRUE@nodist_lib64_libm_a_SOURCES = _libm_dummy.c
-@LIB64_TRUE@lib64_libkernel32_a_SOURCES = lib64/kernel32.c
+@LIB64_TRUE@lib64_libkernel32_a_SOURCES = libsrc/kernel32.c
 @LIB64_TRUE@lib64_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-@LIB64_TRUE@lib64_libshell32_a_SOURCES = lib64/shell32.c
+@LIB64_TRUE@lib64_libshell32_a_SOURCES = libsrc/shell32.c
 @LIB64_TRUE@lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-@LIB64_TRUE@lib64_libdxguid_a_SOURCES = lib64/dxguid.c
+@LIB64_TRUE@lib64_libdxguid_a_SOURCES = libsrc/dxguid.c
 @LIB64_TRUE@lib64_liblargeint_a_SOURCES = lib64/largeint.c
 @LIB64_TRUE@lib64_libscrnsave_a_SOURCES = lib64/scrnsave.c
 @LIB64_TRUE@lib64_libscrnsavw_a_SOURCES = lib64/scrnsave.c
@@ -1734,14 +1736,20 @@ lib32/libdxerr9.a: $(lib32_libdxerr9_a_OBJECTS) $(lib32_libdxerr9_a_DEPENDENCIES
 	-rm -f lib32/libdxerr9.a
 	$(lib32_libdxerr9_a_AR) lib32/libdxerr9.a $(lib32_libdxerr9_a_OBJECTS) $(lib32_libdxerr9_a_LIBADD)
 	$(RANLIB) lib32/libdxerr9.a
-lib32/dxguid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/$(am__dirstamp):
+	@$(MKDIR_P) libsrc
+	@: > libsrc/$(am__dirstamp)
+libsrc/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) libsrc/$(DEPDIR)
+	@: > libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/dxguid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libdxguid.a: $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libdxguid.a
 	$(lib32_libdxguid_a_AR) lib32/libdxguid.a $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_LIBADD)
 	$(RANLIB) lib32/libdxguid.a
-lib32/kernel32.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/kernel32.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libkernel32.a: $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libkernel32.a
 	$(lib32_libkernel32_a_AR) lib32/libkernel32.a $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_LIBADD)
@@ -1768,8 +1776,8 @@ lib32/libscrnsavw.a: $(lib32_libscrnsavw_a_OBJECTS) $(lib32_libscrnsavw_a_DEPEND
 	-rm -f lib32/libscrnsavw.a
 	$(lib32_libscrnsavw_a_AR) lib32/libscrnsavw.a $(lib32_libscrnsavw_a_OBJECTS) $(lib32_libscrnsavw_a_LIBADD)
 	$(RANLIB) lib32/libscrnsavw.a
-lib32/shell32.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/shell32.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libshell32.a: $(lib32_libshell32_a_OBJECTS) $(lib32_libshell32_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libshell32.a
 	$(lib32_libshell32_a_AR) lib32/libshell32.a $(lib32_libshell32_a_OBJECTS) $(lib32_libshell32_a_LIBADD)
@@ -1839,21 +1847,17 @@ lib32/libws2_32.a: $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_DEPENDENCIES
 lib64/$(am__dirstamp):
 	@$(MKDIR_P) lib64
 	@: > lib64/$(am__dirstamp)
-lib64/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) lib64/$(DEPDIR)
-	@: > lib64/$(DEPDIR)/$(am__dirstamp)
-lib64/dxguid.$(OBJEXT): lib64/$(am__dirstamp) \
-	lib64/$(DEPDIR)/$(am__dirstamp)
 lib64/libdxguid.a: $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libdxguid.a
 	$(lib64_libdxguid_a_AR) lib64/libdxguid.a $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_LIBADD)
 	$(RANLIB) lib64/libdxguid.a
-lib64/kernel32.$(OBJEXT): lib64/$(am__dirstamp) \
-	lib64/$(DEPDIR)/$(am__dirstamp)
 lib64/libkernel32.a: $(lib64_libkernel32_a_OBJECTS) $(lib64_libkernel32_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libkernel32.a
 	$(lib64_libkernel32_a_AR) lib64/libkernel32.a $(lib64_libkernel32_a_OBJECTS) $(lib64_libkernel32_a_LIBADD)
 	$(RANLIB) lib64/libkernel32.a
+lib64/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) lib64/$(DEPDIR)
+	@: > lib64/$(DEPDIR)/$(am__dirstamp)
 lib64/largeint.$(OBJEXT): lib64/$(am__dirstamp) \
 	lib64/$(DEPDIR)/$(am__dirstamp)
 lib64/liblargeint.a: $(lib64_liblargeint_a_OBJECTS) $(lib64_liblargeint_a_DEPENDENCIES) lib64/$(am__dirstamp)
@@ -2650,8 +2654,6 @@ lib64/libscrnsavw.a: $(lib64_libscrnsavw_a_OBJECTS) $(lib64_libscrnsavw_a_DEPEND
 	-rm -f lib64/libscrnsavw.a
 	$(lib64_libscrnsavw_a_AR) lib64/libscrnsavw.a $(lib64_libscrnsavw_a_OBJECTS) $(lib64_libscrnsavw_a_LIBADD)
 	$(RANLIB) lib64/libscrnsavw.a
-lib64/shell32.$(OBJEXT): lib64/$(am__dirstamp) \
-	lib64/$(DEPDIR)/$(am__dirstamp)
 lib64/libshell32.a: $(lib64_libshell32_a_OBJECTS) $(lib64_libshell32_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libshell32.a
 	$(lib64_libshell32_a_AR) lib64/libshell32.a $(lib64_libshell32_a_OBJECTS) $(lib64_libshell32_a_LIBADD)
@@ -2859,12 +2861,10 @@ mostlyclean-compile:
 	-rm -f lib32/dxerr8w.$(OBJEXT)
 	-rm -f lib32/dxerr9.$(OBJEXT)
 	-rm -f lib32/dxerr9w.$(OBJEXT)
-	-rm -f lib32/dxguid.$(OBJEXT)
 	-rm -f lib32/exdisp-uuid.$(OBJEXT)
 	-rm -f lib32/extras-uuid.$(OBJEXT)
 	-rm -f lib32/hlguids-uuid.$(OBJEXT)
 	-rm -f lib32/hlink-uuid.$(OBJEXT)
-	-rm -f lib32/kernel32.$(OBJEXT)
 	-rm -f lib32/largeint.$(OBJEXT)
 	-rm -f lib32/lib32_libscrnsavw_a-scrnsave.$(OBJEXT)
 	-rm -f lib32/mlang-uuid.$(OBJEXT)
@@ -2879,20 +2879,19 @@ mostlyclean-compile:
 	-rm -f lib32/oleidl-uuid.$(OBJEXT)
 	-rm -f lib32/scrnsave.$(OBJEXT)
 	-rm -f lib32/servprov-uuid.$(OBJEXT)
-	-rm -f lib32/shell32.$(OBJEXT)
 	-rm -f lib32/strmiids.$(OBJEXT)
 	-rm -f lib32/unknwn-uuid.$(OBJEXT)
 	-rm -f lib32/urlmon-uuid.$(OBJEXT)
 	-rm -f lib32/uuid.$(OBJEXT)
 	-rm -f lib32/ws2_32.$(OBJEXT)
-	-rm -f lib64/dxguid.$(OBJEXT)
-	-rm -f lib64/kernel32.$(OBJEXT)
 	-rm -f lib64/largeint.$(OBJEXT)
 	-rm -f lib64/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
 	-rm -f lib64/mshtml-uuid.$(OBJEXT)
 	-rm -f lib64/scrnsave.$(OBJEXT)
-	-rm -f lib64/shell32.$(OBJEXT)
 	-rm -f lib64/uuid.$(OBJEXT)
+	-rm -f libsrc/dxguid.$(OBJEXT)
+	-rm -f libsrc/kernel32.$(OBJEXT)
+	-rm -f libsrc/shell32.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acosf.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acosh.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acoshf.$(OBJEXT)
@@ -3276,12 +3275,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr8w.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr9.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr9w.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxguid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/exdisp-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/extras-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/hlguids-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/hlink-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/kernel32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/largeint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/mlang-uuid.Po@am__quote@
@@ -3296,20 +3293,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/oleidl-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/servprov-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/shell32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/strmiids.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/unknwn-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/ws2_32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/dxguid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/kernel32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/largeint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/mshtml-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/scrnsave.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/shell32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dxguid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/kernel32.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/shell32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acosf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acosh.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acoshf.Po@am__quote@
@@ -8937,6 +8933,8 @@ distclean-generic:
 	-rm -f lib32/$(am__dirstamp)
 	-rm -f lib64/$(DEPDIR)/$(am__dirstamp)
 	-rm -f lib64/$(am__dirstamp)
+	-rm -f libsrc/$(DEPDIR)/$(am__dirstamp)
+	-rm -f libsrc/$(am__dirstamp)
 	-rm -f math/$(DEPDIR)/$(am__dirstamp)
 	-rm -f math/$(am__dirstamp)
 	-rm -f misc/$(DEPDIR)/$(am__dirstamp)
@@ -8955,7 +8953,7 @@ clean-am: clean-generic clean-lib32LIBRARIES clean-lib64LIBRARIES \
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
-	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) lib32/$(DEPDIR) lib64/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) stdio/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) lib32/$(DEPDIR) lib64/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) stdio/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-libtool distclean-tags
@@ -8993,7 +8991,7 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
-	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) lib32/$(DEPDIR) lib64/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) stdio/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) lib32/$(DEPDIR) lib64/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) stdio/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

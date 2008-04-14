@@ -94,7 +94,7 @@ lib32_LIBRARIES += lib32/libdxerr9.a
 lib32_libdxerr9_a_SOURCES = lib32/dxerr9.c lib32/dxerr9w.c
 
 lib32_LIBRARIES += lib32/libdxguid.a
-lib32_libdxguid_a_SOURCES = lib32/dxguid.c
+lib32_libdxguid_a_SOURCES = libsrc/dxguid.c
 
 lib32_LIBRARIES += lib32/liblargeint.a
 lib32_liblargeint_a_SOURCES = lib32/largeint.c
@@ -206,7 +206,7 @@ lib64_libshell32_a_SOURCES = libsrc/shell32.c
 lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdxguid.a
-lib64_libdxguid_a_SOURCES = lib64/dxguid.c
+lib64_libdxguid_a_SOURCES = libsrc/dxguid.c
 
 lib64_LIBRARIES += lib64/liblargeint.a
 lib64_liblargeint_a_SOURCES = lib64/largeint.c
