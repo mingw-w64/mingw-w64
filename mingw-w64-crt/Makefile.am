@@ -121,32 +121,32 @@ lib32_libws2_32_a_SOURCES = lib32/ws2_32.c
 lib32_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_SCRIPTS = \
-  lib32/libaclui.a         lib32/libdpnet.a         lib32/libmfcuia32.a      lib32/libolesvr32.a      lib32/libthunk32.a  \
-  lib32/libadvapi32.a      lib32/libdpnlobby.a      lib32/libmgmtapi.a       lib32/libopengl32.a      lib32/liburl.a      \
-  lib32/libapcups.a        lib32/libdpvoice.a       lib32/libmprapi.a        lib32/libpenwin32.a      lib32/libusbcamd2.a \
-  lib32/libavicap32.a      lib32/libdsetup.a        lib32/libmpr.a           lib32/libpkpd32.a        lib32/libusbcamd.a  \
-  lib32/libavifil32.a      lib32/libdsound.a        lib32/libmqrt.a          lib32/libpowrprof.a      lib32/libuser32.a   \
-  lib32/libcap.a           lib32/libdxapi.a         lib32/libmsacm32.a       lib32/libpsapi.a         lib32/libuserenv.a  \
-  lib32/libcfgmgr32.a      lib32/libfaultrep.a      lib32/libmscms.a         lib32/libquartz.a        lib32/libusp10.a    \
-  lib32/libcomctl32.a      lib32/libgdi32.a         lib32/libmsdmo.a         lib32/librapi.a          lib32/libuxtheme.a  \
-  lib32/libcomdlg32.a      lib32/libglaux.a         lib32/libmsimg32.a       lib32/librasapi32.a      lib32/libvdmdbg.a   \
-  lib32/libcrypt32.a       lib32/libglu32.a         lib32/libmsvcp60.a       lib32/librasdlg.a        lib32/libversion.a  \
-  lib32/libctl3d32.a       lib32/libglut32.a        lib32/libmsvfw32.a       lib32/librpcdce4.a       lib32/libvideoprt.a \
-  lib32/libd3d8.a          lib32/libglut.a          lib32/libmswsock.a       lib32/librpcns4.a        lib32/libwin32k.a   \
-  lib32/libd3d9.a          lib32/libhal.a           lib32/libnddeapi.a       lib32/librpcrt4.a        lib32/libwin32spl.a \
-  lib32/libd3dim.a         lib32/libhid.a           lib32/libndis.a          lib32/librtm.a           lib32/libwininet.a  \
-  lib32/libd3drm.a         lib32/libhidparse.a      lib32/libnetapi32.a      lib32/librtutils.a       lib32/libwinmm.a    \
-  lib32/libd3dx8d.a        lib32/libicmui.a         lib32/libnewdev.a        lib32/libscsiport.a      lib32/libwinspool.a \
-  lib32/libd3dx9d.a        lib32/libigmpagnt.a      lib32/libntdll.a         lib32/libsecur32.a       lib32/libwinstrm.a  \
-  lib32/libd3dxof.a        lib32/libimagehlp.a      lib32/libntoskrnl.a      lib32/libsetupapi.a      lib32/libwldap32.a  \
-  lib32/libddraw.a         lib32/libimm32.a         lib32/libodbc32.a                                 lib32/libwow32.a    \
-  lib32/libdhcpcsvc.a      lib32/libiphlpapi.a      lib32/libodbccp32.a      lib32/libshfolder.a                          \
-  lib32/libdinput8.a                                lib32/libole32.a         lib32/libshlwapi.a       lib32/libwsnmp32.a  \
-  lib32/libdinput.a        lib32/libksproxy.a       lib32/liboleacc.a        lib32/libsnmpapi.a       lib32/libwsock32.a  \
-  lib32/libdlcapi.a        lib32/libksuser.a        lib32/liboleaut32.a      lib32/libsvrapi.a        lib32/libwst.a      \
-  lib32/libdnsapi.a        lib32/liblz32.a          lib32/libolecli32.a      lib32/libtapi32.a        lib32/libwtsapi32.a \
-  lib32/libdplayx.a        lib32/libmapi32.a        lib32/liboledlg.a        lib32/libtdi.a           \
-  lib32/libdpnaddr.a       lib32/libmcd.a           lib32/libolepro32.a      lib32/libth32.a
+  lib32/aclui.def     lib32/advapi32.def  lib32/apcups.def    lib32/avicap32.def  lib32/avifil32.def \
+  lib32/cap.def       lib32/cfgmgr32.def  lib32/comctl32.def  lib32/comdlg32.def  lib32/crypt32.def  \
+  lib32/ctl3d32.def   lib32/d3d8.def      lib32/d3d9.def      lib32/d3dim.def     lib32/d3drm.def    \
+  lib32/d3dx8d.def    lib32/d3dx9d.def    lib32/d3dxof.def    lib32/ddraw.def     lib32/dhcpcsvc.def \
+                                          lib32/dlcapi.def    lib32/dnsapi.def    lib32/dplayx.def   \
+  lib32/dpnaddr.def   lib32/dpnet.def     lib32/dpnlobby.def  lib32/dpvoice.def   lib32/dsetup.def   \
+  lib32/dsound.def    lib32/dxapi.def     lib32/faultrep.def  lib32/gdi32.def     lib32/glaux.def    \
+  lib32/glu32.def     lib32/glut32.def    lib32/glut.def      lib32/hal.def       lib32/hid.def      \
+  lib32/hidparse.def  lib32/icmui.def     lib32/igmpagnt.def  lib32/imagehlp.def  lib32/imm32.def    \
+  lib32/iphlpapi.def                      lib32/ksproxy.def   lib32/ksuser.def    lib32/lz32.def     \
+  lib32/mapi32.def    lib32/mcd.def       lib32/mfcuia32.def  lib32/mgmtapi.def   lib32/mprapi.def   \
+  lib32/mpr.def       lib32/mqrt.def      lib32/msacm32.def   lib32/mscms.def     lib32/msdmo.def    \
+  lib32/msimg32.def   lib32/msvcp60.def   lib32/msvfw32.def   lib32/mswsock.def   lib32/nddeapi.def  \
+  lib32/ndis.def      lib32/netapi32.def  lib32/newdev.def    lib32/ntdll.def     lib32/ntoskrnl.def \
+  lib32/odbc32.def    lib32/odbccp32.def  lib32/ole32.def     lib32/oleacc.def    lib32/oleaut32.def \
+  lib32/olecli32.def  lib32/oledlg.def    lib32/olepro32.def  lib32/olesvr32.def  lib32/opengl32.def \
+  lib32/penwin32.def  lib32/pkpd32.def    lib32/powrprof.def  lib32/psapi.def     lib32/quartz.def   \
+  lib32/rapi.def      lib32/rasapi32.def  lib32/rasdlg.def    lib32/rpcdce4.def   lib32/rpcns4.def   \
+  lib32/rpcrt4.def    lib32/rtm.def       lib32/rtutils.def   lib32/scsiport.def  lib32/secur32.def  \
+  lib32/setupapi.def                      lib32/shfolder.def  lib32/shlwapi.def   lib32/snmpapi.def  \
+  lib32/svrapi.def    lib32/tapi32.def    lib32/tdi.def       lib32/th32.def      lib32/thunk32.def  \
+  lib32/url.def       lib32/usbcamd2.def  lib32/usbcamd.def   lib32/user32.def    lib32/userenv.def  \
+  lib32/usp10.def     lib32/uxtheme.def   lib32/vdmdbg.def    lib32/version.def   lib32/videoprt.def \
+  lib32/win32k.def    lib32/win32spl.def  lib32/wininet.def   lib32/winmm.def     lib32/winspool.def \
+  lib32/winstrm.def   lib32/wldap32.def   lib32/wow32.def                         lib32/wsnmp32.def  \
+  lib32/wsock32.def   lib32/wst.def       lib32/wtsapi32.def
 
 lib32/lib%.a:
 	$(DTDEF) $(top_srcdir)/lib32/$*.def
