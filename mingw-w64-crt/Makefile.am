@@ -63,11 +63,11 @@ lib32_LIBRARIES = lib32/libm.a
 nodist_lib32_libm_a_SOURCES = _libm_dummy.c
 
 lib32_LIBRARIES += lib32/libkernel32.a
-lib32_libkernel32_a_SOURCES = lib32/kernel32.c
+lib32_libkernel32_a_SOURCES = libsrc/kernel32.c
 lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libshell32.a
-lib32_libshell32_a_SOURCES = lib32/shell32.c
+lib32_libshell32_a_SOURCES = libsrc/shell32.c
 lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libdinput.a
@@ -198,11 +198,11 @@ lib64_LIBRARIES = lib64/libm.a
 nodist_lib64_libm_a_SOURCES = _libm_dummy.c
 
 lib64_LIBRARIES += lib64/libkernel32.a
-lib64_libkernel32_a_SOURCES = lib64/kernel32.c
+lib64_libkernel32_a_SOURCES = libsrc/kernel32.c
 lib64_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libshell32.a
-lib64_libshell32_a_SOURCES = lib64/shell32.c
+lib64_libshell32_a_SOURCES = libsrc/shell32.c
 lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdxguid.a
