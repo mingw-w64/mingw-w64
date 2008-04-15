@@ -113,11 +113,11 @@ lib32_LIBRARIES += lib32/libstrmiids.a
 lib32_libstrmiids_a_SOURCES = lib32/strmiids.c
 
 lib32_LIBRARIES += lib32/libuuid.a
-lib32_libuuid_a_SOURCES = lib32/uuid.c lib32/devguid.c \
-    lib32/ativscp-uuid.c lib32/cguid-uuid.c    lib32/comcat-uuid.c \
-    lib32/docobj-uuid.c  lib32/exdisp-uuid.c   lib32/extras-uuid.c lib32/hlguids-uuid.c  lib32/hlink-uuid.c   lib32/mlang-uuid.c \
-    lib32/mshtml-uuid.c  lib32/msxml-uuid.c    lib32/oaidl-uuid.c  lib32/objidl-uuid.c   lib32/objsafe-uuid.c lib32/ocidl-uuid.c \
-    lib32/oleacc-uuid.c  lib32/olectlid-uuid.c lib32/oleidl-uuid.c lib32/servprov-uuid.c lib32/unknwn-uuid.c  lib32/urlmon-uuid.c
+lib32_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
+    libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
+    libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
+    libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
+    libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
 
 lib32_LIBRARIES += lib32/libws2_32.a
 lib32_libws2_32_a_SOURCES = lib32/ws2_32.c
@@ -222,7 +222,11 @@ lib64_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
 lib64_libscrnsavw_a_CFLAGS = -DUNICODE
 
 lib64_LIBRARIES += lib64/libuuid.a
-lib64_libuuid_a_SOURCES = lib64/uuid.c lib64/mshtml-uuid.c
+lib64_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
+    libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
+    libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
+    libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
+    libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
 
 lib64_LIBRARIES += lib64/libmingw32.a
 lib64_libmingw32_a_CPPFLAGS=-D_SYSCRT=1 -DCRTDLL=1 $(include64) $(AM_CPPFLAGS)
