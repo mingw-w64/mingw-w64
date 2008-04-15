@@ -75,43 +75,45 @@ lib64LIBRARIES_INSTALL = $(INSTALL_DATA)
 LIBRARIES = $(lib32_LIBRARIES) $(lib64_LIBRARIES)
 ARFLAGS = cru
 lib32_libdinput_a_LIBADD =
-am__lib32_libdinput_a_SOURCES_DIST = lib32/dinput_kbd.c \
-	lib32/dinput_joy.c lib32/dinput_joy2.c lib32/dinput_mouse.c \
-	lib32/dinput_mouse2.c
+am__lib32_libdinput_a_SOURCES_DIST = libsrc/dinput_kbd.c \
+	libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c \
+	libsrc/dinput_mouse2.c
 am__dirstamp = $(am__leading_dot)dirstamp
-@LIB32_TRUE@am_lib32_libdinput_a_OBJECTS = lib32/dinput_kbd.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dinput_joy.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dinput_joy2.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dinput_mouse.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dinput_mouse2.$(OBJEXT)
+@LIB32_TRUE@am_lib32_libdinput_a_OBJECTS =  \
+@LIB32_TRUE@	libsrc/dinput_kbd.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/dinput_joy.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/dinput_joy2.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/dinput_mouse.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/dinput_mouse2.$(OBJEXT)
 lib32_libdinput_a_OBJECTS = $(am_lib32_libdinput_a_OBJECTS)
 lib32_libdinput8_a_LIBADD =
-am__lib32_libdinput8_a_SOURCES_DIST = lib32/dinput_private.h \
-	lib32/dinput_joy.c lib32/dinput_joy2.c lib32/dinput_mouse.c \
-	lib32/dinput_mouse2.c lib32/dinput_kbd.c
+am__lib32_libdinput8_a_SOURCES_DIST = libsrc/dinput_private.h \
+	libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c \
+	libsrc/dinput_mouse2.c libsrc/dinput_kbd.c
 @LIB32_TRUE@am_lib32_libdinput8_a_OBJECTS =  \
-@LIB32_TRUE@	lib32/dinput_joy.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dinput_joy2.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dinput_mouse.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dinput_mouse2.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dinput_kbd.$(OBJEXT)
+@LIB32_TRUE@	libsrc/dinput_joy.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/dinput_joy2.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/dinput_mouse.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/dinput_mouse2.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/dinput_kbd.$(OBJEXT)
 lib32_libdinput8_a_OBJECTS = $(am_lib32_libdinput8_a_OBJECTS)
 lib32_libdmoguids_a_AR = $(AR) $(ARFLAGS)
 lib32_libdmoguids_a_LIBADD =
-am__lib32_libdmoguids_a_SOURCES_DIST = lib32/dmoguids.c
-@LIB32_TRUE@am_lib32_libdmoguids_a_OBJECTS = lib32/dmoguids.$(OBJEXT)
+am__lib32_libdmoguids_a_SOURCES_DIST = libsrc/dmoguids.c
+@LIB32_TRUE@am_lib32_libdmoguids_a_OBJECTS =  \
+@LIB32_TRUE@	libsrc/dmoguids.$(OBJEXT)
 lib32_libdmoguids_a_OBJECTS = $(am_lib32_libdmoguids_a_OBJECTS)
 lib32_libdxerr8_a_AR = $(AR) $(ARFLAGS)
 lib32_libdxerr8_a_LIBADD =
-am__lib32_libdxerr8_a_SOURCES_DIST = lib32/dxerr8.c lib32/dxerr8w.c
-@LIB32_TRUE@am_lib32_libdxerr8_a_OBJECTS = lib32/dxerr8.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dxerr8w.$(OBJEXT)
+am__lib32_libdxerr8_a_SOURCES_DIST = libsrc/dxerr8.c libsrc/dxerr8w.c
+@LIB32_TRUE@am_lib32_libdxerr8_a_OBJECTS = libsrc/dxerr8.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/dxerr8w.$(OBJEXT)
 lib32_libdxerr8_a_OBJECTS = $(am_lib32_libdxerr8_a_OBJECTS)
 lib32_libdxerr9_a_AR = $(AR) $(ARFLAGS)
 lib32_libdxerr9_a_LIBADD =
-am__lib32_libdxerr9_a_SOURCES_DIST = lib32/dxerr9.c lib32/dxerr9w.c
-@LIB32_TRUE@am_lib32_libdxerr9_a_OBJECTS = lib32/dxerr9.$(OBJEXT) \
-@LIB32_TRUE@	lib32/dxerr9w.$(OBJEXT)
+am__lib32_libdxerr9_a_SOURCES_DIST = libsrc/dxerr9.c libsrc/dxerr9w.c
+@LIB32_TRUE@am_lib32_libdxerr9_a_OBJECTS = libsrc/dxerr9.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/dxerr9w.$(OBJEXT)
 lib32_libdxerr9_a_OBJECTS = $(am_lib32_libdxerr9_a_OBJECTS)
 lib32_libdxguid_a_AR = $(AR) $(ARFLAGS)
 lib32_libdxguid_a_LIBADD =
@@ -123,6 +125,10 @@ am__lib32_libkernel32_a_SOURCES_DIST = libsrc/kernel32.c
 @LIB32_TRUE@am_lib32_libkernel32_a_OBJECTS =  \
 @LIB32_TRUE@	libsrc/lib32_libkernel32_a-kernel32.$(OBJEXT)
 lib32_libkernel32_a_OBJECTS = $(am_lib32_libkernel32_a_OBJECTS)
+lib32_libksuser_a_LIBADD =
+am__lib32_libksuser_a_SOURCES_DIST = libsrc/ksuser.c
+@LIB32_TRUE@am_lib32_libksuser_a_OBJECTS = libsrc/ksuser.$(OBJEXT)
+lib32_libksuser_a_OBJECTS = $(am_lib32_libksuser_a_OBJECTS)
 lib32_liblargeint_a_AR = $(AR) $(ARFLAGS)
 lib32_liblargeint_a_LIBADD =
 am__lib32_liblargeint_a_SOURCES_DIST = libsrc/largeint.c
@@ -153,47 +159,89 @@ am__lib32_libshell32_a_SOURCES_DIST = libsrc/shell32.c
 lib32_libshell32_a_OBJECTS = $(am_lib32_libshell32_a_OBJECTS)
 lib32_libstrmiids_a_AR = $(AR) $(ARFLAGS)
 lib32_libstrmiids_a_LIBADD =
-am__lib32_libstrmiids_a_SOURCES_DIST = lib32/strmiids.c
-@LIB32_TRUE@am_lib32_libstrmiids_a_OBJECTS = lib32/strmiids.$(OBJEXT)
+am__lib32_libstrmiids_a_SOURCES_DIST = libsrc/strmiids.c
+@LIB32_TRUE@am_lib32_libstrmiids_a_OBJECTS =  \
+@LIB32_TRUE@	libsrc/strmiids.$(OBJEXT)
 lib32_libstrmiids_a_OBJECTS = $(am_lib32_libstrmiids_a_OBJECTS)
 lib32_libuuid_a_AR = $(AR) $(ARFLAGS)
 lib32_libuuid_a_LIBADD =
-am__lib32_libuuid_a_SOURCES_DIST = lib32/uuid.c lib32/devguid.c \
-	lib32/ativscp-uuid.c lib32/cguid-uuid.c lib32/comcat-uuid.c \
-	lib32/docobj-uuid.c lib32/exdisp-uuid.c lib32/extras-uuid.c \
-	lib32/hlguids-uuid.c lib32/hlink-uuid.c lib32/mlang-uuid.c \
-	lib32/mshtml-uuid.c lib32/msxml-uuid.c lib32/oaidl-uuid.c \
-	lib32/objidl-uuid.c lib32/objsafe-uuid.c lib32/ocidl-uuid.c \
-	lib32/oleacc-uuid.c lib32/olectlid-uuid.c lib32/oleidl-uuid.c \
-	lib32/servprov-uuid.c lib32/unknwn-uuid.c lib32/urlmon-uuid.c
-@LIB32_TRUE@am_lib32_libuuid_a_OBJECTS = lib32/uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/devguid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/ativscp-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/cguid-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/comcat-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/docobj-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/exdisp-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/extras-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/hlguids-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/hlink-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/mlang-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/mshtml-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/msxml-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/oaidl-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/objidl-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/objsafe-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/ocidl-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/oleacc-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/olectlid-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/oleidl-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/servprov-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/unknwn-uuid.$(OBJEXT) \
-@LIB32_TRUE@	lib32/urlmon-uuid.$(OBJEXT)
+am__lib32_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/devguid.c \
+	libsrc/ativscp-uuid.c libsrc/cguid-uuid.c libsrc/comcat-uuid.c \
+	libsrc/docobj-uuid.c libsrc/exdisp-uuid.c libsrc/extras-uuid.c \
+	libsrc/hlguids-uuid.c libsrc/hlink-uuid.c libsrc/mlang-uuid.c \
+	libsrc/mshtml-uuid.c libsrc/msxml-uuid.c libsrc/oaidl-uuid.c \
+	libsrc/objidl-uuid.c libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
+	libsrc/oleacc-uuid.c libsrc/olectlid-uuid.c \
+	libsrc/oleidl-uuid.c libsrc/servprov-uuid.c \
+	libsrc/unknwn-uuid.c libsrc/urlmon-uuid.c
+@LIB32_TRUE@am_lib32_libuuid_a_OBJECTS = libsrc/uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/devguid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/ativscp-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/cguid-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/comcat-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/docobj-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/exdisp-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/extras-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/hlguids-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/hlink-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/mlang-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/mshtml-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/msxml-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/oaidl-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/objidl-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/objsafe-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/ocidl-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/oleacc-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/olectlid-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/oleidl-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/servprov-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/unknwn-uuid.$(OBJEXT) \
+@LIB32_TRUE@	libsrc/urlmon-uuid.$(OBJEXT)
 lib32_libuuid_a_OBJECTS = $(am_lib32_libuuid_a_OBJECTS)
 lib32_libws2_32_a_LIBADD =
-am__lib32_libws2_32_a_SOURCES_DIST = lib32/ws2_32.c
-@LIB32_TRUE@am_lib32_libws2_32_a_OBJECTS = lib32/ws2_32.$(OBJEXT)
+am__lib32_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c
+@LIB32_TRUE@am_lib32_libws2_32_a_OBJECTS = libsrc/ws2_32.$(OBJEXT)
 lib32_libws2_32_a_OBJECTS = $(am_lib32_libws2_32_a_OBJECTS)
+lib64_libdinput_a_LIBADD =
+am__lib64_libdinput_a_SOURCES_DIST = libsrc/dinput_private.h \
+	libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c \
+	libsrc/dinput_mouse2.c libsrc/dinput_kbd.c
+@LIB64_TRUE@am_lib64_libdinput_a_OBJECTS =  \
+@LIB64_TRUE@	libsrc/dinput_joy.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/dinput_joy2.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/dinput_mouse.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/dinput_mouse2.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/dinput_kbd.$(OBJEXT)
+lib64_libdinput_a_OBJECTS = $(am_lib64_libdinput_a_OBJECTS)
+lib64_libdinput8_a_LIBADD =
+am__lib64_libdinput8_a_SOURCES_DIST = libsrc/dinput_private.h \
+	libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c \
+	libsrc/dinput_mouse2.c libsrc/dinput_kbd.c
+@LIB64_TRUE@am_lib64_libdinput8_a_OBJECTS =  \
+@LIB64_TRUE@	libsrc/dinput_joy.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/dinput_joy2.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/dinput_mouse.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/dinput_mouse2.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/dinput_kbd.$(OBJEXT)
+lib64_libdinput8_a_OBJECTS = $(am_lib64_libdinput8_a_OBJECTS)
+lib64_libdmoguids_a_AR = $(AR) $(ARFLAGS)
+lib64_libdmoguids_a_LIBADD =
+am__lib64_libdmoguids_a_SOURCES_DIST = libsrc/dmoguids.c
+@LIB64_TRUE@am_lib64_libdmoguids_a_OBJECTS =  \
+@LIB64_TRUE@	libsrc/dmoguids.$(OBJEXT)
+lib64_libdmoguids_a_OBJECTS = $(am_lib64_libdmoguids_a_OBJECTS)
+lib64_libdxerr8_a_AR = $(AR) $(ARFLAGS)
+lib64_libdxerr8_a_LIBADD =
+am__lib64_libdxerr8_a_SOURCES_DIST = libsrc/dxerr8.c libsrc/dxerr8w.c
+@LIB64_TRUE@am_lib64_libdxerr8_a_OBJECTS = libsrc/dxerr8.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/dxerr8w.$(OBJEXT)
+lib64_libdxerr8_a_OBJECTS = $(am_lib64_libdxerr8_a_OBJECTS)
+lib64_libdxerr9_a_AR = $(AR) $(ARFLAGS)
+lib64_libdxerr9_a_LIBADD =
+am__lib64_libdxerr9_a_SOURCES_DIST = libsrc/dxerr9.c libsrc/dxerr9w.c
+@LIB64_TRUE@am_lib64_libdxerr9_a_OBJECTS = libsrc/dxerr9.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/dxerr9w.$(OBJEXT)
+lib64_libdxerr9_a_OBJECTS = $(am_lib64_libdxerr9_a_OBJECTS)
 lib64_libdxguid_a_AR = $(AR) $(ARFLAGS)
 lib64_libdxguid_a_LIBADD =
 am__lib64_libdxguid_a_SOURCES_DIST = libsrc/dxguid.c
@@ -204,6 +252,10 @@ am__lib64_libkernel32_a_SOURCES_DIST = libsrc/kernel32.c
 @LIB64_TRUE@am_lib64_libkernel32_a_OBJECTS =  \
 @LIB64_TRUE@	libsrc/kernel32.$(OBJEXT)
 lib64_libkernel32_a_OBJECTS = $(am_lib64_libkernel32_a_OBJECTS)
+lib64_libksuser_a_LIBADD =
+am__lib64_libksuser_a_SOURCES_DIST = libsrc/ksuser.c
+@LIB64_TRUE@am_lib64_libksuser_a_OBJECTS = libsrc/ksuser.$(OBJEXT)
+lib64_libksuser_a_OBJECTS = $(am_lib64_libksuser_a_OBJECTS)
 lib64_liblargeint_a_AR = $(AR) $(ARFLAGS)
 lib64_liblargeint_a_LIBADD =
 am__lib64_liblargeint_a_SOURCES_DIST = libsrc/largeint.c
@@ -217,38 +269,38 @@ lib64_libm_a_OBJECTS = $(nodist_lib64_libm_a_OBJECTS)
 lib64_libmingw32_a_AR = $(AR) $(ARFLAGS)
 lib64_libmingw32_a_LIBADD =
 am__lib64_libmingw32_a_SOURCES_DIST = crt64/crt0_c.c crt64/crt0_w.c \
-	crt64/dll_argv.c crt64/gccmain.c crt64/CRT_fp10.c \
-	crt64/pseudo-reloc.c crt64/pseudo-reloc-list.c crt64/pesect.c \
-	crt64/cinitexe.c crt64/natstart.c crt64/gs_support.c \
-	crt64/atonexit.c crt64/dllmain.c crt64/wildcard.c crt64/merr.c \
-	crt64/dllargv.c crt64/charmax.c crt64/xtxtmode.c \
-	crt64/tlssup.c crt64/xncommod.c crt64/_newmode.c \
-	crt64/xthdloc.c crt64/mingw_helpers.c crt64/dllentry.c
+	crt64/CRT_fp10.c crt64/atonexit.c crt64/charmax.c \
+	crt64/cinitexe.c crt64/dll_argv.c crt64/dllentry.c \
+	crt64/dllmain.c crt64/gccmain.c crt64/gs_support.c \
+	crt64/merr.c crt64/mingw_helpers.c crt64/natstart.c \
+	crt64/_newmode.c crt64/pseudo-reloc.c \
+	crt64/pseudo-reloc-list.c crt64/pesect.c crt64/tlssup.c \
+	crt64/wildcard.c crt64/xtxtmode.c crt64/xncommod.c \
+	crt64/xthdloc.c
 @LIB64_TRUE@am_lib64_libmingw32_a_OBJECTS =  \
 @LIB64_TRUE@	crt64/lib64_libmingw32_a-crt0_c.$(OBJEXT) \
 @LIB64_TRUE@	crt64/lib64_libmingw32_a-crt0_w.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-dll_argv.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-gccmain.$(OBJEXT) \
 @LIB64_TRUE@	crt64/lib64_libmingw32_a-CRT_fp10.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-atonexit.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-charmax.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-cinitexe.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-dll_argv.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-dllentry.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-dllmain.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-gccmain.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-gs_support.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-merr.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-mingw_helpers.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-natstart.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-_newmode.$(OBJEXT) \
 @LIB64_TRUE@	crt64/lib64_libmingw32_a-pseudo-reloc.$(OBJEXT) \
 @LIB64_TRUE@	crt64/lib64_libmingw32_a-pseudo-reloc-list.$(OBJEXT) \
 @LIB64_TRUE@	crt64/lib64_libmingw32_a-pesect.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-cinitexe.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-natstart.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-gs_support.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-atonexit.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-dllmain.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-wildcard.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-merr.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-dllargv.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-charmax.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-xtxtmode.$(OBJEXT) \
 @LIB64_TRUE@	crt64/lib64_libmingw32_a-tlssup.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-wildcard.$(OBJEXT) \
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-xtxtmode.$(OBJEXT) \
 @LIB64_TRUE@	crt64/lib64_libmingw32_a-xncommod.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-_newmode.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-xthdloc.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-mingw_helpers.$(OBJEXT) \
-@LIB64_TRUE@	crt64/lib64_libmingw32_a-dllentry.$(OBJEXT)
+@LIB64_TRUE@	crt64/lib64_libmingw32_a-xthdloc.$(OBJEXT)
 lib64_libmingw32_a_OBJECTS = $(am_lib64_libmingw32_a_OBJECTS)
 lib64_libmingwex_a_AR = $(AR) $(ARFLAGS)
 lib64_libmingwex_a_LIBADD =
@@ -712,12 +764,51 @@ lib64_libshell32_a_LIBADD =
 am__lib64_libshell32_a_SOURCES_DIST = libsrc/shell32.c
 @LIB64_TRUE@am_lib64_libshell32_a_OBJECTS = libsrc/shell32.$(OBJEXT)
 lib64_libshell32_a_OBJECTS = $(am_lib64_libshell32_a_OBJECTS)
+lib64_libstrmiids_a_AR = $(AR) $(ARFLAGS)
+lib64_libstrmiids_a_LIBADD =
+am__lib64_libstrmiids_a_SOURCES_DIST = libsrc/strmiids.c
+@LIB64_TRUE@am_lib64_libstrmiids_a_OBJECTS =  \
+@LIB64_TRUE@	libsrc/strmiids.$(OBJEXT)
+lib64_libstrmiids_a_OBJECTS = $(am_lib64_libstrmiids_a_OBJECTS)
 lib64_libuuid_a_AR = $(AR) $(ARFLAGS)
 lib64_libuuid_a_LIBADD =
-am__lib64_libuuid_a_SOURCES_DIST = lib64/uuid.c lib64/mshtml-uuid.c
-@LIB64_TRUE@am_lib64_libuuid_a_OBJECTS = lib64/uuid.$(OBJEXT) \
-@LIB64_TRUE@	lib64/mshtml-uuid.$(OBJEXT)
+am__lib64_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/devguid.c \
+	libsrc/ativscp-uuid.c libsrc/cguid-uuid.c libsrc/comcat-uuid.c \
+	libsrc/docobj-uuid.c libsrc/exdisp-uuid.c libsrc/extras-uuid.c \
+	libsrc/hlguids-uuid.c libsrc/hlink-uuid.c libsrc/mlang-uuid.c \
+	libsrc/mshtml-uuid.c libsrc/msxml-uuid.c libsrc/oaidl-uuid.c \
+	libsrc/objidl-uuid.c libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
+	libsrc/oleacc-uuid.c libsrc/olectlid-uuid.c \
+	libsrc/oleidl-uuid.c libsrc/servprov-uuid.c \
+	libsrc/unknwn-uuid.c libsrc/urlmon-uuid.c
+@LIB64_TRUE@am_lib64_libuuid_a_OBJECTS = libsrc/uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/devguid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/ativscp-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/cguid-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/comcat-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/docobj-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/exdisp-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/extras-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/hlguids-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/hlink-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/mlang-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/mshtml-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/msxml-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/oaidl-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/objidl-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/objsafe-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/ocidl-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/oleacc-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/olectlid-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/oleidl-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/servprov-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/unknwn-uuid.$(OBJEXT) \
+@LIB64_TRUE@	libsrc/urlmon-uuid.$(OBJEXT)
 lib64_libuuid_a_OBJECTS = $(am_lib64_libuuid_a_OBJECTS)
+lib64_libws2_32_a_LIBADD =
+am__lib64_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c
+@LIB64_TRUE@am_lib64_libws2_32_a_OBJECTS = libsrc/ws2_32.$(OBJEXT)
+lib64_libws2_32_a_OBJECTS = $(am_lib64_libws2_32_a_OBJECTS)
 crt64SCRIPT_INSTALL = $(INSTALL_SCRIPT)
 lib32SCRIPT_INSTALL = $(INSTALL_SCRIPT)
 lib64SCRIPT_INSTALL = $(INSTALL_SCRIPT)
@@ -742,16 +833,21 @@ LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib32_libdmoguids_a_SOURCES) $(lib32_libdxerr8_a_SOURCES) \
 	$(lib32_libdxerr9_a_SOURCES) $(lib32_libdxguid_a_SOURCES) \
-	$(lib32_libkernel32_a_SOURCES) $(lib32_liblargeint_a_SOURCES) \
-	$(nodist_lib32_libm_a_SOURCES) $(lib32_libscrnsave_a_SOURCES) \
-	$(lib32_libscrnsavw_a_SOURCES) $(lib32_libshell32_a_SOURCES) \
-	$(lib32_libstrmiids_a_SOURCES) $(lib32_libuuid_a_SOURCES) \
-	$(lib32_libws2_32_a_SOURCES) $(lib64_libdxguid_a_SOURCES) \
-	$(lib64_libkernel32_a_SOURCES) $(lib64_liblargeint_a_SOURCES) \
-	$(nodist_lib64_libm_a_SOURCES) $(lib64_libmingw32_a_SOURCES) \
-	$(lib64_libmingwex_a_SOURCES) $(lib64_libmoldname_a_SOURCES) \
-	$(lib64_libscrnsave_a_SOURCES) $(lib64_libscrnsavw_a_SOURCES) \
-	$(lib64_libshell32_a_SOURCES) $(lib64_libuuid_a_SOURCES)
+	$(lib32_libkernel32_a_SOURCES) $(lib32_libksuser_a_SOURCES) \
+	$(lib32_liblargeint_a_SOURCES) $(nodist_lib32_libm_a_SOURCES) \
+	$(lib32_libscrnsave_a_SOURCES) $(lib32_libscrnsavw_a_SOURCES) \
+	$(lib32_libshell32_a_SOURCES) $(lib32_libstrmiids_a_SOURCES) \
+	$(lib32_libuuid_a_SOURCES) $(lib32_libws2_32_a_SOURCES) \
+	$(lib64_libdinput_a_SOURCES) $(lib64_libdinput8_a_SOURCES) \
+	$(lib64_libdmoguids_a_SOURCES) $(lib64_libdxerr8_a_SOURCES) \
+	$(lib64_libdxerr9_a_SOURCES) $(lib64_libdxguid_a_SOURCES) \
+	$(lib64_libkernel32_a_SOURCES) $(lib64_libksuser_a_SOURCES) \
+	$(lib64_liblargeint_a_SOURCES) $(nodist_lib64_libm_a_SOURCES) \
+	$(lib64_libmingw32_a_SOURCES) $(lib64_libmingwex_a_SOURCES) \
+	$(lib64_libmoldname_a_SOURCES) $(lib64_libscrnsave_a_SOURCES) \
+	$(lib64_libscrnsavw_a_SOURCES) $(lib64_libshell32_a_SOURCES) \
+	$(lib64_libstrmiids_a_SOURCES) $(lib64_libuuid_a_SOURCES) \
+	$(lib64_libws2_32_a_SOURCES)
 DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdinput8_a_SOURCES_DIST) \
 	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
@@ -759,6 +855,7 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdxerr9_a_SOURCES_DIST) \
 	$(am__lib32_libdxguid_a_SOURCES_DIST) \
 	$(am__lib32_libkernel32_a_SOURCES_DIST) \
+	$(am__lib32_libksuser_a_SOURCES_DIST) \
 	$(am__lib32_liblargeint_a_SOURCES_DIST) \
 	$(am__lib32_libscrnsave_a_SOURCES_DIST) \
 	$(am__lib32_libscrnsavw_a_SOURCES_DIST) \
@@ -766,8 +863,14 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libstrmiids_a_SOURCES_DIST) \
 	$(am__lib32_libuuid_a_SOURCES_DIST) \
 	$(am__lib32_libws2_32_a_SOURCES_DIST) \
+	$(am__lib64_libdinput_a_SOURCES_DIST) \
+	$(am__lib64_libdinput8_a_SOURCES_DIST) \
+	$(am__lib64_libdmoguids_a_SOURCES_DIST) \
+	$(am__lib64_libdxerr8_a_SOURCES_DIST) \
+	$(am__lib64_libdxerr9_a_SOURCES_DIST) \
 	$(am__lib64_libdxguid_a_SOURCES_DIST) \
 	$(am__lib64_libkernel32_a_SOURCES_DIST) \
+	$(am__lib64_libksuser_a_SOURCES_DIST) \
 	$(am__lib64_liblargeint_a_SOURCES_DIST) \
 	$(am__lib64_libmingw32_a_SOURCES_DIST) \
 	$(am__lib64_libmingwex_a_SOURCES_DIST) \
@@ -775,7 +878,9 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib64_libscrnsave_a_SOURCES_DIST) \
 	$(am__lib64_libscrnsavw_a_SOURCES_DIST) \
 	$(am__lib64_libshell32_a_SOURCES_DIST) \
-	$(am__lib64_libuuid_a_SOURCES_DIST)
+	$(am__lib64_libstrmiids_a_SOURCES_DIST) \
+	$(am__lib64_libuuid_a_SOURCES_DIST) \
+	$(am__lib64_libws2_32_a_SOURCES_DIST)
 HEADERS = $(noinst_HEADERS)
 ETAGS = etags
 CTAGS = ctags
@@ -940,10 +1045,10 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB32_TRUE@	lib32/libshell32.a lib32/libdinput.a \
 @LIB32_TRUE@	lib32/libdinput8.a lib32/libdmoguids.a \
 @LIB32_TRUE@	lib32/libdxerr8.a lib32/libdxerr9.a \
-@LIB32_TRUE@	lib32/libdxguid.a lib32/liblargeint.a \
-@LIB32_TRUE@	lib32/libscrnsave.a lib32/libscrnsavw.a \
-@LIB32_TRUE@	lib32/libstrmiids.a lib32/libuuid.a \
-@LIB32_TRUE@	lib32/libws2_32.a
+@LIB32_TRUE@	lib32/libdxguid.a lib32/libksuser.a \
+@LIB32_TRUE@	lib32/liblargeint.a lib32/libscrnsave.a \
+@LIB32_TRUE@	lib32/libscrnsavw.a lib32/libstrmiids.a \
+@LIB32_TRUE@	lib32/libuuid.a lib32/libws2_32.a
 @LIB32_TRUE@nodist_lib32_libm_a_SOURCES = _libm_dummy.c
 @LIB32_TRUE@lib32_libm_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libkernel32_a_SOURCES = libsrc/kernel32.c
@@ -952,34 +1057,39 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = libsrc/shell32.c
 @LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libshell32_a_CPPFLAGS = -m32
-@LIB32_TRUE@lib32_libdinput_a_SOURCES = lib32/dinput_kbd.c \
-@LIB32_TRUE@  lib32/dinput_joy.c   lib32/dinput_joy2.c \
-@LIB32_TRUE@  lib32/dinput_mouse.c lib32/dinput_mouse2.c
+@LIB32_TRUE@lib32_libdinput_a_SOURCES = libsrc/dinput_kbd.c \
+@LIB32_TRUE@  libsrc/dinput_joy.c   libsrc/dinput_joy2.c \
+@LIB32_TRUE@  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c
 
 @LIB32_TRUE@lib32_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-@LIB32_TRUE@lib32_libdinput8_a_SOURCES = lib32/dinput_private.h \
-@LIB32_TRUE@  lib32/dinput_joy.c   lib32/dinput_joy2.c \
-@LIB32_TRUE@  lib32/dinput_mouse.c lib32/dinput_mouse2.c \
-@LIB32_TRUE@  lib32/dinput_kbd.c
+@LIB32_TRUE@lib32_libdinput8_a_SOURCES = libsrc/dinput_private.h \
+@LIB32_TRUE@  libsrc/dinput_joy.c   libsrc/dinput_joy2.c \
+@LIB32_TRUE@  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c \
+@LIB32_TRUE@  libsrc/dinput_kbd.c
 
 @LIB32_TRUE@lib32_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-@LIB32_TRUE@lib32_libdmoguids_a_SOURCES = lib32/dmoguids.c
-@LIB32_TRUE@lib32_libdxerr8_a_SOURCES = lib32/dxerr8.c lib32/dxerr8w.c
-@LIB32_TRUE@lib32_libdxerr9_a_SOURCES = lib32/dxerr9.c lib32/dxerr9w.c
+@LIB32_TRUE@lib32_libdmoguids_a_SOURCES = libsrc/dmoguids.c
+@LIB32_TRUE@lib32_libdxerr8_a_SOURCES = libsrc/dxerr8.c libsrc/dxerr8w.c
+@LIB32_TRUE@lib32_libdxerr9_a_SOURCES = libsrc/dxerr9.c libsrc/dxerr9w.c
 @LIB32_TRUE@lib32_libdxguid_a_SOURCES = libsrc/dxguid.c
+@LIB32_TRUE@lib32_libksuser_a_SOURCES = libsrc/ksuser.c
+@LIB32_TRUE@lib32_libksuser_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_liblargeint_a_SOURCES = libsrc/largeint.c
 @LIB32_TRUE@lib32_libscrnsave_a_SOURCES = libsrc/scrnsave.c
 @LIB32_TRUE@lib32_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
 @LIB32_TRUE@lib32_libscrnsavw_a_CFLAGS = -DUNICODE
-@LIB32_TRUE@lib32_libstrmiids_a_SOURCES = lib32/strmiids.c
-@LIB32_TRUE@lib32_libuuid_a_SOURCES = lib32/uuid.c lib32/devguid.c \
-@LIB32_TRUE@    lib32/ativscp-uuid.c lib32/cguid-uuid.c    lib32/comcat-uuid.c \
-@LIB32_TRUE@    lib32/docobj-uuid.c  lib32/exdisp-uuid.c   lib32/extras-uuid.c lib32/hlguids-uuid.c  lib32/hlink-uuid.c   lib32/mlang-uuid.c \
-@LIB32_TRUE@    lib32/mshtml-uuid.c  lib32/msxml-uuid.c    lib32/oaidl-uuid.c  lib32/objidl-uuid.c   lib32/objsafe-uuid.c lib32/ocidl-uuid.c \
-@LIB32_TRUE@    lib32/oleacc-uuid.c  lib32/olectlid-uuid.c lib32/oleidl-uuid.c lib32/servprov-uuid.c lib32/unknwn-uuid.c  lib32/urlmon-uuid.c
+@LIB32_TRUE@lib32_libstrmiids_a_SOURCES = libsrc/strmiids.c
+@LIB32_TRUE@lib32_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
+@LIB32_TRUE@    libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
+@LIB32_TRUE@    libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
+@LIB32_TRUE@    libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
+@LIB32_TRUE@    libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
 
-@LIB32_TRUE@lib32_libws2_32_a_SOURCES = lib32/ws2_32.c
+@LIB32_TRUE@lib32_libws2_32_a_SOURCES = libsrc/ws2_32.c
 @LIB32_TRUE@lib32_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+
+#These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
+#for all libraries, including those with sources.
 @LIB32_TRUE@lib32_SCRIPTS = \
 @LIB32_TRUE@  lib32/aclui.def     lib32/advapi32.def  lib32/apcups.def    lib32/avicap32.def  lib32/avifil32.def \
 @LIB32_TRUE@  lib32/cap.def       lib32/cfgmgr32.def  lib32/comctl32.def  lib32/comdlg32.def  lib32/crypt32.def  \
@@ -990,7 +1100,7 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB32_TRUE@  lib32/dsound.def    lib32/dxapi.def     lib32/faultrep.def  lib32/gdi32.def     lib32/glaux.def    \
 @LIB32_TRUE@  lib32/glu32.def     lib32/glut32.def    lib32/glut.def      lib32/hal.def       lib32/hid.def      \
 @LIB32_TRUE@  lib32/hidparse.def  lib32/icmui.def     lib32/igmpagnt.def  lib32/imagehlp.def  lib32/imm32.def    \
-@LIB32_TRUE@  lib32/iphlpapi.def                      lib32/ksproxy.def   lib32/ksuser.def    lib32/lz32.def     \
+@LIB32_TRUE@  lib32/iphlpapi.def                      lib32/ksproxy.def                       lib32/lz32.def     \
 @LIB32_TRUE@  lib32/mapi32.def    lib32/mcd.def       lib32/mfcuia32.def  lib32/mgmtapi.def   lib32/mprapi.def   \
 @LIB32_TRUE@  lib32/mpr.def       lib32/mqrt.def      lib32/msacm32.def   lib32/mscms.def     lib32/msdmo.def    \
 @LIB32_TRUE@  lib32/msimg32.def   lib32/msvcp60.def   lib32/msvfw32.def   lib32/mswsock.def   lib32/nddeapi.def  \
@@ -1026,35 +1136,63 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  crt64/gcrt0.o crt64/gcrt1.o crt64/gcrt2.o
 
 @LIB64_TRUE@lib64_LIBRARIES = lib64/libm.a lib64/libkernel32.a \
-@LIB64_TRUE@	lib64/libshell32.a lib64/libdxguid.a \
+@LIB64_TRUE@	lib64/libshell32.a lib64/libdinput.a \
+@LIB64_TRUE@	lib64/libdinput8.a lib64/libdmoguids.a \
+@LIB64_TRUE@	lib64/libdxerr8.a lib64/libdxerr9.a \
+@LIB64_TRUE@	lib64/libdxguid.a lib64/libksuser.a \
 @LIB64_TRUE@	lib64/liblargeint.a lib64/libscrnsave.a \
 @LIB64_TRUE@	lib64/libscrnsavw.a lib64/libuuid.a \
 @LIB64_TRUE@	lib64/libmingw32.a lib64/libmoldname.a \
+@LIB64_TRUE@	lib64/libstrmiids.a lib64/libws2_32.a \
 @LIB64_TRUE@	lib64/libmingwex.a
 @LIB64_TRUE@nodist_lib64_libm_a_SOURCES = _libm_dummy.c
 @LIB64_TRUE@lib64_libkernel32_a_SOURCES = libsrc/kernel32.c
 @LIB64_TRUE@lib64_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libshell32_a_SOURCES = libsrc/shell32.c
 @LIB64_TRUE@lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libdinput_a_SOURCES = libsrc/dinput_private.h \
+@LIB64_TRUE@  libsrc/dinput_joy.c   libsrc/dinput_joy2.c        \
+@LIB64_TRUE@  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c      \
+@LIB64_TRUE@  libsrc/dinput_kbd.c
+
+@LIB64_TRUE@lib64_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libdinput8_a_SOURCES = libsrc/dinput_private.h \
+@LIB64_TRUE@  libsrc/dinput_joy.c   libsrc/dinput_joy2.c         \
+@LIB64_TRUE@  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c       \
+@LIB64_TRUE@  libsrc/dinput_kbd.c
+
+@LIB64_TRUE@lib64_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libdmoguids_a_SOURCES = libsrc/dmoguids.c
+@LIB64_TRUE@lib64_libdxerr8_a_SOURCES = libsrc/dxerr8.c libsrc/dxerr8w.c
+@LIB64_TRUE@lib64_libdxerr9_a_SOURCES = libsrc/dxerr9.c libsrc/dxerr9w.c
 @LIB64_TRUE@lib64_libdxguid_a_SOURCES = libsrc/dxguid.c
+@LIB64_TRUE@lib64_libksuser_a_SOURCES = libsrc/ksuser.c
+@LIB64_TRUE@lib64_libksuser_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_liblargeint_a_SOURCES = libsrc/largeint.c
 @LIB64_TRUE@lib64_libscrnsave_a_SOURCES = libsrc/scrnsave.c
 @LIB64_TRUE@lib64_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
 @LIB64_TRUE@lib64_libscrnsavw_a_CFLAGS = -DUNICODE
-@LIB64_TRUE@lib64_libuuid_a_SOURCES = lib64/uuid.c lib64/mshtml-uuid.c
+@LIB64_TRUE@lib64_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
+@LIB64_TRUE@  libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
+@LIB64_TRUE@  libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
+@LIB64_TRUE@  libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
+@LIB64_TRUE@  libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
+
 @LIB64_TRUE@lib64_libmingw32_a_CPPFLAGS = -D_SYSCRT=1 -DCRTDLL=1 $(include64) $(AM_CPPFLAGS)
-@LIB64_TRUE@lib64_libmingw32_a_SOURCES = \
-@LIB64_TRUE@  crt64/crt0_c.c crt64/crt0_w.c crt64/dll_argv.c crt64/gccmain.c crt64/CRT_fp10.c crt64/pseudo-reloc.c \
-@LIB64_TRUE@  crt64/pseudo-reloc-list.c crt64/pesect.c crt64/cinitexe.c \
-@LIB64_TRUE@  crt64/natstart.c crt64/gs_support.c crt64/atonexit.c crt64/dllmain.c crt64/wildcard.c crt64/merr.c \
-@LIB64_TRUE@  crt64/dllargv.c crt64/charmax.c crt64/xtxtmode.c crt64/tlssup.c   \
-@LIB64_TRUE@  crt64/xncommod.c crt64/_newmode.c crt64/xthdloc.c crt64/mingw_helpers.c crt64/dllentry.c
+@LIB64_TRUE@lib64_libmingw32_a_SOURCES = crt64/crt0_c.c crt64/crt0_w.c crt64/CRT_fp10.c \
+@LIB64_TRUE@  crt64/atonexit.c crt64/charmax.c    crt64/cinitexe.c crt64/dll_argv.c      crt64/dllentry.c crt64/dllmain.c  \
+@LIB64_TRUE@  crt64/gccmain.c  crt64/gs_support.c crt64/merr.c     crt64/mingw_helpers.c crt64/natstart.c crt64/_newmode.c \
+@LIB64_TRUE@  crt64/pseudo-reloc.c crt64/pseudo-reloc-list.c       crt64/pesect.c        crt64/tlssup.c   crt64/wildcard.c \
+@LIB64_TRUE@  crt64/xtxtmode.c crt64/xncommod.c   crt64/xthdloc.c 
 
 @LIB64_TRUE@lib64_libmoldname_a_CPPFLAGS = $(include64) $(AM_CPPFLAGS)
 @LIB64_TRUE@lib64_libmoldname_a_SOURCES = \
 @LIB64_TRUE@  crt64/isascii.c crt64/iscsym.c crt64/iscsymf.c crt64/toascii.c crt64/strcasecmp.c crt64/strncasecmp.c crt64/wcscmpi.c
 
 @LIB64_TRUE@lib64_libmoldname_a_AR = $(DTDEF) $(crt64srcdir)/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libstrmiids_a_SOURCES = libsrc/strmiids.c
+@LIB64_TRUE@lib64_libws2_32_a_SOURCES = libsrc/ws2_32.c
+@LIB64_TRUE@lib64_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libmingwex_a_CPPFLAGS = $(include64) $(AM_CPPFLAGS)
 @LIB64_TRUE@lib64_libmingwex_a_SOURCES = \
 @LIB64_TRUE@  crt64/dirent.c     crt64/ftruncate.c  crt64/getopt.c    crt64/wdirent.c  \
@@ -1267,7 +1405,7 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  lib64/libcoadmin.a      lib64/libkeymgr.a         lib64/libsmtpapi.a    lib64/libwfeclient.a  lib64/libwmsdaenum.a  \
 @LIB64_TRUE@  lib64/libcolbact.a      lib64/libkorwbrkr.a       lib64/libsmtpcons.a   lib64/libwfilemgmt.a  lib64/libwmsdaer.a    \
 @LIB64_TRUE@  lib64/libcomaddin.a     lib64/libkrnlprov.a       lib64/libsmtpctrs.a   lib64/libwfldrclnr.a  lib64/libwmsdaora.a   \
-@LIB64_TRUE@  lib64/libcomadmin.a     lib64/libksuser.a         lib64/libsmtpsnap.a   lib64/libwfltlib.a    lib64/libwmsdaosp.a   \
+@LIB64_TRUE@  lib64/libcomadmin.a                               lib64/libsmtpsnap.a   lib64/libwfltlib.a    lib64/libwmsdaosp.a   \
 @LIB64_TRUE@  lib64/libcomcat.a       lib64/liblangwrbk.a       lib64/libsmtpsvc.a    lib64/libwfmifs.a     lib64/libwmsdaprst.a  \
 @LIB64_TRUE@  lib64/libcomctl32.a     lib64/liblicdll.a         lib64/libsniffpol.a   lib64/libwfontext.a   lib64/libwmsdaps.a    \
 @LIB64_TRUE@  lib64/libcomdlg32.a     lib64/liblicmgr10.a       lib64/libsnmpapi.a    lib64/libwfontsub.a   lib64/libwmsdarem.a   \
@@ -1512,7 +1650,7 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  lib64/libimsinsnt.a     lib64/liboleaut32.a       lib64/libwcmpbk32.a   lib64/libwkbdnecNT.a  lib64/libwrtutils.a   \
 @LIB64_TRUE@  lib64/libimskdic.a      lib64/libolecli32.a       lib64/libwcmsetACL.a  lib64/libwkbdne.a     lib64/libwrvse.a      \
 @LIB64_TRUE@  lib64/libimskf.a        lib64/libolecnv32.a       lib64/libwcmutil.a    lib64/libwkbdno.a     lib64/libwrwnh.a      \
-@LIB64_TRUE@  lib64/libinetcfg.a      lib64/liboledb32.a        lib64/libwcnbjmon.a   lib64/libwkbdpl1.a    lib64/libws2_32.a     \
+@LIB64_TRUE@  lib64/libinetcfg.a      lib64/liboledb32.a        lib64/libwcnbjmon.a   lib64/libwkbdpl1.a                          \
 @LIB64_TRUE@  lib64/libinetcomm.a     lib64/liboledb32r.a       lib64/libwcnetcfg.a   lib64/libwkbdpl.a     lib64/libws2help.a    \
 @LIB64_TRUE@  lib64/libinetmgr.a      lib64/liboledlg.a         lib64/libwcnvfat.a    lib64/libwkbdpo.a     lib64/libwsamlib.a    \
 @LIB64_TRUE@  lib64/libinetmib1.a     lib64/liboleprn.a         lib64/libwcolbact.a   lib64/libwkbdro.a     lib64/libwsapi.a      \
@@ -1698,22 +1836,25 @@ uninstall-lib64LIBRARIES:
 
 clean-lib64LIBRARIES:
 	-test -z "$(lib64_LIBRARIES)" || rm -f $(lib64_LIBRARIES)
+libsrc/$(am__dirstamp):
+	@$(MKDIR_P) libsrc
+	@: > libsrc/$(am__dirstamp)
+libsrc/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) libsrc/$(DEPDIR)
+	@: > libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/dinput_kbd.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/dinput_joy.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/dinput_joy2.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/dinput_mouse.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/dinput_mouse2.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/$(am__dirstamp):
 	@$(MKDIR_P) lib32
 	@: > lib32/$(am__dirstamp)
-lib32/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) lib32/$(DEPDIR)
-	@: > lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/dinput_kbd.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/dinput_joy.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/dinput_joy2.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/dinput_mouse.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/dinput_mouse2.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
 lib32/libdinput.a: $(lib32_libdinput_a_OBJECTS) $(lib32_libdinput_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libdinput.a
 	$(lib32_libdinput_a_AR) lib32/libdinput.a $(lib32_libdinput_a_OBJECTS) $(lib32_libdinput_a_LIBADD)
@@ -1722,34 +1863,28 @@ lib32/libdinput8.a: $(lib32_libdinput8_a_OBJECTS) $(lib32_libdinput8_a_DEPENDENC
 	-rm -f lib32/libdinput8.a
 	$(lib32_libdinput8_a_AR) lib32/libdinput8.a $(lib32_libdinput8_a_OBJECTS) $(lib32_libdinput8_a_LIBADD)
 	$(RANLIB) lib32/libdinput8.a
-lib32/dmoguids.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/dmoguids.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libdmoguids.a: $(lib32_libdmoguids_a_OBJECTS) $(lib32_libdmoguids_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libdmoguids.a
 	$(lib32_libdmoguids_a_AR) lib32/libdmoguids.a $(lib32_libdmoguids_a_OBJECTS) $(lib32_libdmoguids_a_LIBADD)
 	$(RANLIB) lib32/libdmoguids.a
-lib32/dxerr8.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/dxerr8w.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/dxerr8.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/dxerr8w.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libdxerr8.a: $(lib32_libdxerr8_a_OBJECTS) $(lib32_libdxerr8_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libdxerr8.a
 	$(lib32_libdxerr8_a_AR) lib32/libdxerr8.a $(lib32_libdxerr8_a_OBJECTS) $(lib32_libdxerr8_a_LIBADD)
 	$(RANLIB) lib32/libdxerr8.a
-lib32/dxerr9.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/dxerr9w.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/dxerr9.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/dxerr9w.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libdxerr9.a: $(lib32_libdxerr9_a_OBJECTS) $(lib32_libdxerr9_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libdxerr9.a
 	$(lib32_libdxerr9_a_AR) lib32/libdxerr9.a $(lib32_libdxerr9_a_OBJECTS) $(lib32_libdxerr9_a_LIBADD)
 	$(RANLIB) lib32/libdxerr9.a
-libsrc/$(am__dirstamp):
-	@$(MKDIR_P) libsrc
-	@: > libsrc/$(am__dirstamp)
-libsrc/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) libsrc/$(DEPDIR)
-	@: > libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/dxguid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libdxguid.a: $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_DEPENDENCIES) lib32/$(am__dirstamp)
@@ -1762,6 +1897,12 @@ lib32/libkernel32.a: $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_DEPEND
 	-rm -f lib32/libkernel32.a
 	$(lib32_libkernel32_a_AR) lib32/libkernel32.a $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_LIBADD)
 	$(RANLIB) lib32/libkernel32.a
+libsrc/ksuser.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+lib32/libksuser.a: $(lib32_libksuser_a_OBJECTS) $(lib32_libksuser_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libksuser.a
+	$(lib32_libksuser_a_AR) lib32/libksuser.a $(lib32_libksuser_a_OBJECTS) $(lib32_libksuser_a_LIBADD)
+	$(RANLIB) lib32/libksuser.a
 libsrc/largeint.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/liblargeint.a: $(lib32_liblargeint_a_OBJECTS) $(lib32_liblargeint_a_DEPENDENCIES) lib32/$(am__dirstamp)
@@ -1790,64 +1931,64 @@ lib32/libshell32.a: $(lib32_libshell32_a_OBJECTS) $(lib32_libshell32_a_DEPENDENC
 	-rm -f lib32/libshell32.a
 	$(lib32_libshell32_a_AR) lib32/libshell32.a $(lib32_libshell32_a_OBJECTS) $(lib32_libshell32_a_LIBADD)
 	$(RANLIB) lib32/libshell32.a
-lib32/strmiids.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/strmiids.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libstrmiids.a: $(lib32_libstrmiids_a_OBJECTS) $(lib32_libstrmiids_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libstrmiids.a
 	$(lib32_libstrmiids_a_AR) lib32/libstrmiids.a $(lib32_libstrmiids_a_OBJECTS) $(lib32_libstrmiids_a_LIBADD)
 	$(RANLIB) lib32/libstrmiids.a
-lib32/uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/devguid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/ativscp-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/cguid-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/comcat-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/docobj-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/exdisp-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/extras-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/hlguids-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/hlink-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/mlang-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/mshtml-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/msxml-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/oaidl-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/objidl-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/objsafe-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/ocidl-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/oleacc-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/olectlid-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/oleidl-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/servprov-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/unknwn-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
-lib32/urlmon-uuid.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/devguid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/ativscp-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/cguid-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/comcat-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/docobj-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/exdisp-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/extras-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/hlguids-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/hlink-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/mlang-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/mshtml-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/msxml-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/oaidl-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/objidl-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/objsafe-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/ocidl-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/oleacc-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/olectlid-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/oleidl-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/servprov-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/unknwn-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/urlmon-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libuuid.a: $(lib32_libuuid_a_OBJECTS) $(lib32_libuuid_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libuuid.a
 	$(lib32_libuuid_a_AR) lib32/libuuid.a $(lib32_libuuid_a_OBJECTS) $(lib32_libuuid_a_LIBADD)
 	$(RANLIB) lib32/libuuid.a
-lib32/ws2_32.$(OBJEXT): lib32/$(am__dirstamp) \
-	lib32/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2_32.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libws2_32.a: $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libws2_32.a
 	$(lib32_libws2_32_a_AR) lib32/libws2_32.a $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_LIBADD)
@@ -1855,6 +1996,26 @@ lib32/libws2_32.a: $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_DEPENDENCIES
 lib64/$(am__dirstamp):
 	@$(MKDIR_P) lib64
 	@: > lib64/$(am__dirstamp)
+lib64/libdinput.a: $(lib64_libdinput_a_OBJECTS) $(lib64_libdinput_a_DEPENDENCIES) lib64/$(am__dirstamp)
+	-rm -f lib64/libdinput.a
+	$(lib64_libdinput_a_AR) lib64/libdinput.a $(lib64_libdinput_a_OBJECTS) $(lib64_libdinput_a_LIBADD)
+	$(RANLIB) lib64/libdinput.a
+lib64/libdinput8.a: $(lib64_libdinput8_a_OBJECTS) $(lib64_libdinput8_a_DEPENDENCIES) lib64/$(am__dirstamp)
+	-rm -f lib64/libdinput8.a
+	$(lib64_libdinput8_a_AR) lib64/libdinput8.a $(lib64_libdinput8_a_OBJECTS) $(lib64_libdinput8_a_LIBADD)
+	$(RANLIB) lib64/libdinput8.a
+lib64/libdmoguids.a: $(lib64_libdmoguids_a_OBJECTS) $(lib64_libdmoguids_a_DEPENDENCIES) lib64/$(am__dirstamp)
+	-rm -f lib64/libdmoguids.a
+	$(lib64_libdmoguids_a_AR) lib64/libdmoguids.a $(lib64_libdmoguids_a_OBJECTS) $(lib64_libdmoguids_a_LIBADD)
+	$(RANLIB) lib64/libdmoguids.a
+lib64/libdxerr8.a: $(lib64_libdxerr8_a_OBJECTS) $(lib64_libdxerr8_a_DEPENDENCIES) lib64/$(am__dirstamp)
+	-rm -f lib64/libdxerr8.a
+	$(lib64_libdxerr8_a_AR) lib64/libdxerr8.a $(lib64_libdxerr8_a_OBJECTS) $(lib64_libdxerr8_a_LIBADD)
+	$(RANLIB) lib64/libdxerr8.a
+lib64/libdxerr9.a: $(lib64_libdxerr9_a_OBJECTS) $(lib64_libdxerr9_a_DEPENDENCIES) lib64/$(am__dirstamp)
+	-rm -f lib64/libdxerr9.a
+	$(lib64_libdxerr9_a_AR) lib64/libdxerr9.a $(lib64_libdxerr9_a_OBJECTS) $(lib64_libdxerr9_a_LIBADD)
+	$(RANLIB) lib64/libdxerr9.a
 lib64/libdxguid.a: $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libdxguid.a
 	$(lib64_libdxguid_a_AR) lib64/libdxguid.a $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_LIBADD)
@@ -1865,6 +2026,10 @@ lib64/libkernel32.a: $(lib64_libkernel32_a_OBJECTS) $(lib64_libkernel32_a_DEPEND
 	-rm -f lib64/libkernel32.a
 	$(lib64_libkernel32_a_AR) lib64/libkernel32.a $(lib64_libkernel32_a_OBJECTS) $(lib64_libkernel32_a_LIBADD)
 	$(RANLIB) lib64/libkernel32.a
+lib64/libksuser.a: $(lib64_libksuser_a_OBJECTS) $(lib64_libksuser_a_DEPENDENCIES) lib64/$(am__dirstamp)
+	-rm -f lib64/libksuser.a
+	$(lib64_libksuser_a_AR) lib64/libksuser.a $(lib64_libksuser_a_OBJECTS) $(lib64_libksuser_a_LIBADD)
+	$(RANLIB) lib64/libksuser.a
 lib64/liblargeint.a: $(lib64_liblargeint_a_OBJECTS) $(lib64_liblargeint_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/liblargeint.a
 	$(lib64_liblargeint_a_AR) lib64/liblargeint.a $(lib64_liblargeint_a_OBJECTS) $(lib64_liblargeint_a_LIBADD)
@@ -1883,11 +2048,31 @@ crt64/lib64_libmingw32_a-crt0_c.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
 crt64/lib64_libmingw32_a-crt0_w.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
+crt64/lib64_libmingw32_a-CRT_fp10.$(OBJEXT): crt64/$(am__dirstamp) \
+	crt64/$(DEPDIR)/$(am__dirstamp)
+crt64/lib64_libmingw32_a-atonexit.$(OBJEXT): crt64/$(am__dirstamp) \
+	crt64/$(DEPDIR)/$(am__dirstamp)
+crt64/lib64_libmingw32_a-charmax.$(OBJEXT): crt64/$(am__dirstamp) \
+	crt64/$(DEPDIR)/$(am__dirstamp)
+crt64/lib64_libmingw32_a-cinitexe.$(OBJEXT): crt64/$(am__dirstamp) \
+	crt64/$(DEPDIR)/$(am__dirstamp)
 crt64/lib64_libmingw32_a-dll_argv.$(OBJEXT): crt64/$(am__dirstamp) \
+	crt64/$(DEPDIR)/$(am__dirstamp)
+crt64/lib64_libmingw32_a-dllentry.$(OBJEXT): crt64/$(am__dirstamp) \
+	crt64/$(DEPDIR)/$(am__dirstamp)
+crt64/lib64_libmingw32_a-dllmain.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
 crt64/lib64_libmingw32_a-gccmain.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-CRT_fp10.$(OBJEXT): crt64/$(am__dirstamp) \
+crt64/lib64_libmingw32_a-gs_support.$(OBJEXT): crt64/$(am__dirstamp) \
+	crt64/$(DEPDIR)/$(am__dirstamp)
+crt64/lib64_libmingw32_a-merr.$(OBJEXT): crt64/$(am__dirstamp) \
+	crt64/$(DEPDIR)/$(am__dirstamp)
+crt64/lib64_libmingw32_a-mingw_helpers.$(OBJEXT):  \
+	crt64/$(am__dirstamp) crt64/$(DEPDIR)/$(am__dirstamp)
+crt64/lib64_libmingw32_a-natstart.$(OBJEXT): crt64/$(am__dirstamp) \
+	crt64/$(DEPDIR)/$(am__dirstamp)
+crt64/lib64_libmingw32_a-_newmode.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
 crt64/lib64_libmingw32_a-pseudo-reloc.$(OBJEXT):  \
 	crt64/$(am__dirstamp) crt64/$(DEPDIR)/$(am__dirstamp)
@@ -1895,37 +2080,15 @@ crt64/lib64_libmingw32_a-pseudo-reloc-list.$(OBJEXT):  \
 	crt64/$(am__dirstamp) crt64/$(DEPDIR)/$(am__dirstamp)
 crt64/lib64_libmingw32_a-pesect.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-cinitexe.$(OBJEXT): crt64/$(am__dirstamp) \
-	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-natstart.$(OBJEXT): crt64/$(am__dirstamp) \
-	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-gs_support.$(OBJEXT): crt64/$(am__dirstamp) \
-	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-atonexit.$(OBJEXT): crt64/$(am__dirstamp) \
-	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-dllmain.$(OBJEXT): crt64/$(am__dirstamp) \
+crt64/lib64_libmingw32_a-tlssup.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
 crt64/lib64_libmingw32_a-wildcard.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-merr.$(OBJEXT): crt64/$(am__dirstamp) \
-	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-dllargv.$(OBJEXT): crt64/$(am__dirstamp) \
-	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-charmax.$(OBJEXT): crt64/$(am__dirstamp) \
-	crt64/$(DEPDIR)/$(am__dirstamp)
 crt64/lib64_libmingw32_a-xtxtmode.$(OBJEXT): crt64/$(am__dirstamp) \
-	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-tlssup.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
 crt64/lib64_libmingw32_a-xncommod.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-_newmode.$(OBJEXT): crt64/$(am__dirstamp) \
-	crt64/$(DEPDIR)/$(am__dirstamp)
 crt64/lib64_libmingw32_a-xthdloc.$(OBJEXT): crt64/$(am__dirstamp) \
-	crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-mingw_helpers.$(OBJEXT):  \
-	crt64/$(am__dirstamp) crt64/$(DEPDIR)/$(am__dirstamp)
-crt64/lib64_libmingw32_a-dllentry.$(OBJEXT): crt64/$(am__dirstamp) \
 	crt64/$(DEPDIR)/$(am__dirstamp)
 lib64/libmingw32.a: $(lib64_libmingw32_a_OBJECTS) $(lib64_libmingw32_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libmingw32.a
@@ -2663,17 +2826,18 @@ lib64/libshell32.a: $(lib64_libshell32_a_OBJECTS) $(lib64_libshell32_a_DEPENDENC
 	-rm -f lib64/libshell32.a
 	$(lib64_libshell32_a_AR) lib64/libshell32.a $(lib64_libshell32_a_OBJECTS) $(lib64_libshell32_a_LIBADD)
 	$(RANLIB) lib64/libshell32.a
-lib64/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) lib64/$(DEPDIR)
-	@: > lib64/$(DEPDIR)/$(am__dirstamp)
-lib64/uuid.$(OBJEXT): lib64/$(am__dirstamp) \
-	lib64/$(DEPDIR)/$(am__dirstamp)
-lib64/mshtml-uuid.$(OBJEXT): lib64/$(am__dirstamp) \
-	lib64/$(DEPDIR)/$(am__dirstamp)
+lib64/libstrmiids.a: $(lib64_libstrmiids_a_OBJECTS) $(lib64_libstrmiids_a_DEPENDENCIES) lib64/$(am__dirstamp)
+	-rm -f lib64/libstrmiids.a
+	$(lib64_libstrmiids_a_AR) lib64/libstrmiids.a $(lib64_libstrmiids_a_OBJECTS) $(lib64_libstrmiids_a_LIBADD)
+	$(RANLIB) lib64/libstrmiids.a
 lib64/libuuid.a: $(lib64_libuuid_a_OBJECTS) $(lib64_libuuid_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libuuid.a
 	$(lib64_libuuid_a_AR) lib64/libuuid.a $(lib64_libuuid_a_OBJECTS) $(lib64_libuuid_a_LIBADD)
 	$(RANLIB) lib64/libuuid.a
+lib64/libws2_32.a: $(lib64_libws2_32_a_OBJECTS) $(lib64_libws2_32_a_DEPENDENCIES) lib64/$(am__dirstamp)
+	-rm -f lib64/libws2_32.a
+	$(lib64_libws2_32_a_AR) lib64/libws2_32.a $(lib64_libws2_32_a_OBJECTS) $(lib64_libws2_32_a_LIBADD)
+	$(RANLIB) lib64/libws2_32.a
 install-crt64SCRIPTS: $(crt64_SCRIPTS)
 	@$(NORMAL_INSTALL)
 	test -z "$(crt64dir)" || $(MKDIR_P) "$(DESTDIR)$(crt64dir)"
@@ -2805,7 +2969,6 @@ mostlyclean-compile:
 	-rm -f crt64/lib64_libmingw32_a-crt0_c.$(OBJEXT)
 	-rm -f crt64/lib64_libmingw32_a-crt0_w.$(OBJEXT)
 	-rm -f crt64/lib64_libmingw32_a-dll_argv.$(OBJEXT)
-	-rm -f crt64/lib64_libmingw32_a-dllargv.$(OBJEXT)
 	-rm -f crt64/lib64_libmingw32_a-dllentry.$(OBJEXT)
 	-rm -f crt64/lib64_libmingw32_a-dllmain.$(OBJEXT)
 	-rm -f crt64/lib64_libmingw32_a-gccmain.$(OBJEXT)
@@ -2854,52 +3017,51 @@ mostlyclean-compile:
 	-rm -f gdtoa/lib64_libmingwex_a-strtopx.$(OBJEXT)
 	-rm -f gdtoa/lib64_libmingwex_a-sum.$(OBJEXT)
 	-rm -f gdtoa/lib64_libmingwex_a-ulp.$(OBJEXT)
-	-rm -f lib32/ativscp-uuid.$(OBJEXT)
-	-rm -f lib32/cguid-uuid.$(OBJEXT)
-	-rm -f lib32/comcat-uuid.$(OBJEXT)
-	-rm -f lib32/devguid.$(OBJEXT)
-	-rm -f lib32/dinput_joy.$(OBJEXT)
-	-rm -f lib32/dinput_joy2.$(OBJEXT)
-	-rm -f lib32/dinput_kbd.$(OBJEXT)
-	-rm -f lib32/dinput_mouse.$(OBJEXT)
-	-rm -f lib32/dinput_mouse2.$(OBJEXT)
-	-rm -f lib32/dmoguids.$(OBJEXT)
-	-rm -f lib32/docobj-uuid.$(OBJEXT)
-	-rm -f lib32/dxerr8.$(OBJEXT)
-	-rm -f lib32/dxerr8w.$(OBJEXT)
-	-rm -f lib32/dxerr9.$(OBJEXT)
-	-rm -f lib32/dxerr9w.$(OBJEXT)
-	-rm -f lib32/exdisp-uuid.$(OBJEXT)
-	-rm -f lib32/extras-uuid.$(OBJEXT)
-	-rm -f lib32/hlguids-uuid.$(OBJEXT)
-	-rm -f lib32/hlink-uuid.$(OBJEXT)
-	-rm -f lib32/mlang-uuid.$(OBJEXT)
-	-rm -f lib32/mshtml-uuid.$(OBJEXT)
-	-rm -f lib32/msxml-uuid.$(OBJEXT)
-	-rm -f lib32/oaidl-uuid.$(OBJEXT)
-	-rm -f lib32/objidl-uuid.$(OBJEXT)
-	-rm -f lib32/objsafe-uuid.$(OBJEXT)
-	-rm -f lib32/ocidl-uuid.$(OBJEXT)
-	-rm -f lib32/oleacc-uuid.$(OBJEXT)
-	-rm -f lib32/olectlid-uuid.$(OBJEXT)
-	-rm -f lib32/oleidl-uuid.$(OBJEXT)
-	-rm -f lib32/servprov-uuid.$(OBJEXT)
-	-rm -f lib32/strmiids.$(OBJEXT)
-	-rm -f lib32/unknwn-uuid.$(OBJEXT)
-	-rm -f lib32/urlmon-uuid.$(OBJEXT)
-	-rm -f lib32/uuid.$(OBJEXT)
-	-rm -f lib32/ws2_32.$(OBJEXT)
-	-rm -f lib64/mshtml-uuid.$(OBJEXT)
-	-rm -f lib64/uuid.$(OBJEXT)
+	-rm -f libsrc/ativscp-uuid.$(OBJEXT)
+	-rm -f libsrc/cguid-uuid.$(OBJEXT)
+	-rm -f libsrc/comcat-uuid.$(OBJEXT)
+	-rm -f libsrc/devguid.$(OBJEXT)
+	-rm -f libsrc/dinput_joy.$(OBJEXT)
+	-rm -f libsrc/dinput_joy2.$(OBJEXT)
+	-rm -f libsrc/dinput_kbd.$(OBJEXT)
+	-rm -f libsrc/dinput_mouse.$(OBJEXT)
+	-rm -f libsrc/dinput_mouse2.$(OBJEXT)
+	-rm -f libsrc/dmoguids.$(OBJEXT)
+	-rm -f libsrc/docobj-uuid.$(OBJEXT)
+	-rm -f libsrc/dxerr8.$(OBJEXT)
+	-rm -f libsrc/dxerr8w.$(OBJEXT)
+	-rm -f libsrc/dxerr9.$(OBJEXT)
+	-rm -f libsrc/dxerr9w.$(OBJEXT)
 	-rm -f libsrc/dxguid.$(OBJEXT)
+	-rm -f libsrc/exdisp-uuid.$(OBJEXT)
+	-rm -f libsrc/extras-uuid.$(OBJEXT)
+	-rm -f libsrc/hlguids-uuid.$(OBJEXT)
+	-rm -f libsrc/hlink-uuid.$(OBJEXT)
 	-rm -f libsrc/kernel32.$(OBJEXT)
+	-rm -f libsrc/ksuser.$(OBJEXT)
 	-rm -f libsrc/largeint.$(OBJEXT)
 	-rm -f libsrc/lib32_libkernel32_a-kernel32.$(OBJEXT)
 	-rm -f libsrc/lib32_libscrnsavw_a-scrnsave.$(OBJEXT)
 	-rm -f libsrc/lib32_libshell32_a-shell32.$(OBJEXT)
 	-rm -f libsrc/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
+	-rm -f libsrc/mlang-uuid.$(OBJEXT)
+	-rm -f libsrc/mshtml-uuid.$(OBJEXT)
+	-rm -f libsrc/msxml-uuid.$(OBJEXT)
+	-rm -f libsrc/oaidl-uuid.$(OBJEXT)
+	-rm -f libsrc/objidl-uuid.$(OBJEXT)
+	-rm -f libsrc/objsafe-uuid.$(OBJEXT)
+	-rm -f libsrc/ocidl-uuid.$(OBJEXT)
+	-rm -f libsrc/oleacc-uuid.$(OBJEXT)
+	-rm -f libsrc/olectlid-uuid.$(OBJEXT)
+	-rm -f libsrc/oleidl-uuid.$(OBJEXT)
 	-rm -f libsrc/scrnsave.$(OBJEXT)
+	-rm -f libsrc/servprov-uuid.$(OBJEXT)
 	-rm -f libsrc/shell32.$(OBJEXT)
+	-rm -f libsrc/strmiids.$(OBJEXT)
+	-rm -f libsrc/unknwn-uuid.$(OBJEXT)
+	-rm -f libsrc/urlmon-uuid.$(OBJEXT)
+	-rm -f libsrc/uuid.$(OBJEXT)
+	-rm -f libsrc/ws2_32.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acosf.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acosh.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acoshf.$(OBJEXT)
@@ -3220,7 +3382,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@crt64/$(DEPDIR)/lib64_libmingw32_a-crt0_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@crt64/$(DEPDIR)/lib64_libmingw32_a-crt0_w.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@crt64/$(DEPDIR)/lib64_libmingw32_a-dll_argv.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@crt64/$(DEPDIR)/lib64_libmingw32_a-dllargv.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@crt64/$(DEPDIR)/lib64_libmingw32_a-gccmain.Po@am__quote@
@@ -3269,52 +3430,51 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/ativscp-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/cguid-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/comcat-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/devguid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dinput_joy.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dinput_joy2.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dinput_kbd.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dinput_mouse.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dinput_mouse2.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dmoguids.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/docobj-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr8.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr8w.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr9.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/dxerr9w.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/exdisp-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/extras-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/hlguids-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/hlink-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/mlang-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/mshtml-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/msxml-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/oaidl-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/objidl-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/objsafe-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/ocidl-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/oleacc-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/olectlid-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/oleidl-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/servprov-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/strmiids.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/unknwn-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/urlmon-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib32/$(DEPDIR)/ws2_32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/mshtml-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@lib64/$(DEPDIR)/uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/ativscp-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/cguid-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/comcat-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/devguid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dinput_joy.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dinput_joy2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dinput_kbd.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dinput_mouse.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dinput_mouse2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dmoguids.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/docobj-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dxerr8.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dxerr8w.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dxerr9.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dxerr9w.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/dxguid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/exdisp-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/extras-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/hlguids-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/hlink-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/kernel32.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/ksuser.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/largeint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libshell32_a-shell32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/mlang-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/mshtml-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/msxml-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/oaidl-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/objidl-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/objsafe-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/ocidl-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/oleacc-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/olectlid-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/oleidl-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/scrnsave.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/servprov-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/shell32.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/strmiids.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/unknwn-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/urlmon-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/ws2_32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acosf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acosh.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acoshf.Po@am__quote@
@@ -4195,6 +4355,62 @@ crt64/lib64_libmingw32_a-crt0_w.obj: crt64/crt0_w.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-crt0_w.obj `if test -f 'crt64/crt0_w.c'; then $(CYGPATH_W) 'crt64/crt0_w.c'; else $(CYGPATH_W) '$(srcdir)/crt64/crt0_w.c'; fi`
 
+crt64/lib64_libmingw32_a-CRT_fp10.o: crt64/CRT_fp10.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-CRT_fp10.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo -c -o crt64/lib64_libmingw32_a-CRT_fp10.o `test -f 'crt64/CRT_fp10.c' || echo '$(srcdir)/'`crt64/CRT_fp10.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/CRT_fp10.c' object='crt64/lib64_libmingw32_a-CRT_fp10.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-CRT_fp10.o `test -f 'crt64/CRT_fp10.c' || echo '$(srcdir)/'`crt64/CRT_fp10.c
+
+crt64/lib64_libmingw32_a-CRT_fp10.obj: crt64/CRT_fp10.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-CRT_fp10.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo -c -o crt64/lib64_libmingw32_a-CRT_fp10.obj `if test -f 'crt64/CRT_fp10.c'; then $(CYGPATH_W) 'crt64/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt64/CRT_fp10.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/CRT_fp10.c' object='crt64/lib64_libmingw32_a-CRT_fp10.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-CRT_fp10.obj `if test -f 'crt64/CRT_fp10.c'; then $(CYGPATH_W) 'crt64/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt64/CRT_fp10.c'; fi`
+
+crt64/lib64_libmingw32_a-atonexit.o: crt64/atonexit.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-atonexit.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Tpo -c -o crt64/lib64_libmingw32_a-atonexit.o `test -f 'crt64/atonexit.c' || echo '$(srcdir)/'`crt64/atonexit.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/atonexit.c' object='crt64/lib64_libmingw32_a-atonexit.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-atonexit.o `test -f 'crt64/atonexit.c' || echo '$(srcdir)/'`crt64/atonexit.c
+
+crt64/lib64_libmingw32_a-atonexit.obj: crt64/atonexit.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-atonexit.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Tpo -c -o crt64/lib64_libmingw32_a-atonexit.obj `if test -f 'crt64/atonexit.c'; then $(CYGPATH_W) 'crt64/atonexit.c'; else $(CYGPATH_W) '$(srcdir)/crt64/atonexit.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/atonexit.c' object='crt64/lib64_libmingw32_a-atonexit.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-atonexit.obj `if test -f 'crt64/atonexit.c'; then $(CYGPATH_W) 'crt64/atonexit.c'; else $(CYGPATH_W) '$(srcdir)/crt64/atonexit.c'; fi`
+
+crt64/lib64_libmingw32_a-charmax.o: crt64/charmax.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-charmax.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Tpo -c -o crt64/lib64_libmingw32_a-charmax.o `test -f 'crt64/charmax.c' || echo '$(srcdir)/'`crt64/charmax.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/charmax.c' object='crt64/lib64_libmingw32_a-charmax.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-charmax.o `test -f 'crt64/charmax.c' || echo '$(srcdir)/'`crt64/charmax.c
+
+crt64/lib64_libmingw32_a-charmax.obj: crt64/charmax.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-charmax.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Tpo -c -o crt64/lib64_libmingw32_a-charmax.obj `if test -f 'crt64/charmax.c'; then $(CYGPATH_W) 'crt64/charmax.c'; else $(CYGPATH_W) '$(srcdir)/crt64/charmax.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/charmax.c' object='crt64/lib64_libmingw32_a-charmax.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-charmax.obj `if test -f 'crt64/charmax.c'; then $(CYGPATH_W) 'crt64/charmax.c'; else $(CYGPATH_W) '$(srcdir)/crt64/charmax.c'; fi`
+
+crt64/lib64_libmingw32_a-cinitexe.o: crt64/cinitexe.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-cinitexe.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Tpo -c -o crt64/lib64_libmingw32_a-cinitexe.o `test -f 'crt64/cinitexe.c' || echo '$(srcdir)/'`crt64/cinitexe.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/cinitexe.c' object='crt64/lib64_libmingw32_a-cinitexe.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-cinitexe.o `test -f 'crt64/cinitexe.c' || echo '$(srcdir)/'`crt64/cinitexe.c
+
+crt64/lib64_libmingw32_a-cinitexe.obj: crt64/cinitexe.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-cinitexe.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Tpo -c -o crt64/lib64_libmingw32_a-cinitexe.obj `if test -f 'crt64/cinitexe.c'; then $(CYGPATH_W) 'crt64/cinitexe.c'; else $(CYGPATH_W) '$(srcdir)/crt64/cinitexe.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/cinitexe.c' object='crt64/lib64_libmingw32_a-cinitexe.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-cinitexe.obj `if test -f 'crt64/cinitexe.c'; then $(CYGPATH_W) 'crt64/cinitexe.c'; else $(CYGPATH_W) '$(srcdir)/crt64/cinitexe.c'; fi`
+
 crt64/lib64_libmingw32_a-dll_argv.o: crt64/dll_argv.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dll_argv.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dll_argv.Tpo -c -o crt64/lib64_libmingw32_a-dll_argv.o `test -f 'crt64/dll_argv.c' || echo '$(srcdir)/'`crt64/dll_argv.c
 @am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dll_argv.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dll_argv.Po
@@ -4208,6 +4424,34 @@ crt64/lib64_libmingw32_a-dll_argv.obj: crt64/dll_argv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dll_argv.c' object='crt64/lib64_libmingw32_a-dll_argv.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dll_argv.obj `if test -f 'crt64/dll_argv.c'; then $(CYGPATH_W) 'crt64/dll_argv.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dll_argv.c'; fi`
+
+crt64/lib64_libmingw32_a-dllentry.o: crt64/dllentry.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dllentry.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Tpo -c -o crt64/lib64_libmingw32_a-dllentry.o `test -f 'crt64/dllentry.c' || echo '$(srcdir)/'`crt64/dllentry.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dllentry.c' object='crt64/lib64_libmingw32_a-dllentry.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dllentry.o `test -f 'crt64/dllentry.c' || echo '$(srcdir)/'`crt64/dllentry.c
+
+crt64/lib64_libmingw32_a-dllentry.obj: crt64/dllentry.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dllentry.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Tpo -c -o crt64/lib64_libmingw32_a-dllentry.obj `if test -f 'crt64/dllentry.c'; then $(CYGPATH_W) 'crt64/dllentry.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dllentry.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dllentry.c' object='crt64/lib64_libmingw32_a-dllentry.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dllentry.obj `if test -f 'crt64/dllentry.c'; then $(CYGPATH_W) 'crt64/dllentry.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dllentry.c'; fi`
+
+crt64/lib64_libmingw32_a-dllmain.o: crt64/dllmain.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dllmain.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Tpo -c -o crt64/lib64_libmingw32_a-dllmain.o `test -f 'crt64/dllmain.c' || echo '$(srcdir)/'`crt64/dllmain.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dllmain.c' object='crt64/lib64_libmingw32_a-dllmain.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dllmain.o `test -f 'crt64/dllmain.c' || echo '$(srcdir)/'`crt64/dllmain.c
+
+crt64/lib64_libmingw32_a-dllmain.obj: crt64/dllmain.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dllmain.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Tpo -c -o crt64/lib64_libmingw32_a-dllmain.obj `if test -f 'crt64/dllmain.c'; then $(CYGPATH_W) 'crt64/dllmain.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dllmain.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dllmain.c' object='crt64/lib64_libmingw32_a-dllmain.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dllmain.obj `if test -f 'crt64/dllmain.c'; then $(CYGPATH_W) 'crt64/dllmain.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dllmain.c'; fi`
 
 crt64/lib64_libmingw32_a-gccmain.o: crt64/gccmain.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-gccmain.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-gccmain.Tpo -c -o crt64/lib64_libmingw32_a-gccmain.o `test -f 'crt64/gccmain.c' || echo '$(srcdir)/'`crt64/gccmain.c
@@ -4223,19 +4467,75 @@ crt64/lib64_libmingw32_a-gccmain.obj: crt64/gccmain.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-gccmain.obj `if test -f 'crt64/gccmain.c'; then $(CYGPATH_W) 'crt64/gccmain.c'; else $(CYGPATH_W) '$(srcdir)/crt64/gccmain.c'; fi`
 
-crt64/lib64_libmingw32_a-CRT_fp10.o: crt64/CRT_fp10.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-CRT_fp10.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo -c -o crt64/lib64_libmingw32_a-CRT_fp10.o `test -f 'crt64/CRT_fp10.c' || echo '$(srcdir)/'`crt64/CRT_fp10.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/CRT_fp10.c' object='crt64/lib64_libmingw32_a-CRT_fp10.o' libtool=no @AMDEPBACKSLASH@
+crt64/lib64_libmingw32_a-gs_support.o: crt64/gs_support.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-gs_support.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Tpo -c -o crt64/lib64_libmingw32_a-gs_support.o `test -f 'crt64/gs_support.c' || echo '$(srcdir)/'`crt64/gs_support.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/gs_support.c' object='crt64/lib64_libmingw32_a-gs_support.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-CRT_fp10.o `test -f 'crt64/CRT_fp10.c' || echo '$(srcdir)/'`crt64/CRT_fp10.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-gs_support.o `test -f 'crt64/gs_support.c' || echo '$(srcdir)/'`crt64/gs_support.c
 
-crt64/lib64_libmingw32_a-CRT_fp10.obj: crt64/CRT_fp10.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-CRT_fp10.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo -c -o crt64/lib64_libmingw32_a-CRT_fp10.obj `if test -f 'crt64/CRT_fp10.c'; then $(CYGPATH_W) 'crt64/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt64/CRT_fp10.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-CRT_fp10.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/CRT_fp10.c' object='crt64/lib64_libmingw32_a-CRT_fp10.obj' libtool=no @AMDEPBACKSLASH@
+crt64/lib64_libmingw32_a-gs_support.obj: crt64/gs_support.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-gs_support.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Tpo -c -o crt64/lib64_libmingw32_a-gs_support.obj `if test -f 'crt64/gs_support.c'; then $(CYGPATH_W) 'crt64/gs_support.c'; else $(CYGPATH_W) '$(srcdir)/crt64/gs_support.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/gs_support.c' object='crt64/lib64_libmingw32_a-gs_support.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-CRT_fp10.obj `if test -f 'crt64/CRT_fp10.c'; then $(CYGPATH_W) 'crt64/CRT_fp10.c'; else $(CYGPATH_W) '$(srcdir)/crt64/CRT_fp10.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-gs_support.obj `if test -f 'crt64/gs_support.c'; then $(CYGPATH_W) 'crt64/gs_support.c'; else $(CYGPATH_W) '$(srcdir)/crt64/gs_support.c'; fi`
+
+crt64/lib64_libmingw32_a-merr.o: crt64/merr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-merr.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Tpo -c -o crt64/lib64_libmingw32_a-merr.o `test -f 'crt64/merr.c' || echo '$(srcdir)/'`crt64/merr.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/merr.c' object='crt64/lib64_libmingw32_a-merr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-merr.o `test -f 'crt64/merr.c' || echo '$(srcdir)/'`crt64/merr.c
+
+crt64/lib64_libmingw32_a-merr.obj: crt64/merr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-merr.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Tpo -c -o crt64/lib64_libmingw32_a-merr.obj `if test -f 'crt64/merr.c'; then $(CYGPATH_W) 'crt64/merr.c'; else $(CYGPATH_W) '$(srcdir)/crt64/merr.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/merr.c' object='crt64/lib64_libmingw32_a-merr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-merr.obj `if test -f 'crt64/merr.c'; then $(CYGPATH_W) 'crt64/merr.c'; else $(CYGPATH_W) '$(srcdir)/crt64/merr.c'; fi`
+
+crt64/lib64_libmingw32_a-mingw_helpers.o: crt64/mingw_helpers.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-mingw_helpers.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Tpo -c -o crt64/lib64_libmingw32_a-mingw_helpers.o `test -f 'crt64/mingw_helpers.c' || echo '$(srcdir)/'`crt64/mingw_helpers.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/mingw_helpers.c' object='crt64/lib64_libmingw32_a-mingw_helpers.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-mingw_helpers.o `test -f 'crt64/mingw_helpers.c' || echo '$(srcdir)/'`crt64/mingw_helpers.c
+
+crt64/lib64_libmingw32_a-mingw_helpers.obj: crt64/mingw_helpers.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-mingw_helpers.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Tpo -c -o crt64/lib64_libmingw32_a-mingw_helpers.obj `if test -f 'crt64/mingw_helpers.c'; then $(CYGPATH_W) 'crt64/mingw_helpers.c'; else $(CYGPATH_W) '$(srcdir)/crt64/mingw_helpers.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/mingw_helpers.c' object='crt64/lib64_libmingw32_a-mingw_helpers.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-mingw_helpers.obj `if test -f 'crt64/mingw_helpers.c'; then $(CYGPATH_W) 'crt64/mingw_helpers.c'; else $(CYGPATH_W) '$(srcdir)/crt64/mingw_helpers.c'; fi`
+
+crt64/lib64_libmingw32_a-natstart.o: crt64/natstart.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-natstart.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Tpo -c -o crt64/lib64_libmingw32_a-natstart.o `test -f 'crt64/natstart.c' || echo '$(srcdir)/'`crt64/natstart.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/natstart.c' object='crt64/lib64_libmingw32_a-natstart.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-natstart.o `test -f 'crt64/natstart.c' || echo '$(srcdir)/'`crt64/natstart.c
+
+crt64/lib64_libmingw32_a-natstart.obj: crt64/natstart.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-natstart.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Tpo -c -o crt64/lib64_libmingw32_a-natstart.obj `if test -f 'crt64/natstart.c'; then $(CYGPATH_W) 'crt64/natstart.c'; else $(CYGPATH_W) '$(srcdir)/crt64/natstart.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/natstart.c' object='crt64/lib64_libmingw32_a-natstart.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-natstart.obj `if test -f 'crt64/natstart.c'; then $(CYGPATH_W) 'crt64/natstart.c'; else $(CYGPATH_W) '$(srcdir)/crt64/natstart.c'; fi`
+
+crt64/lib64_libmingw32_a-_newmode.o: crt64/_newmode.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-_newmode.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Tpo -c -o crt64/lib64_libmingw32_a-_newmode.o `test -f 'crt64/_newmode.c' || echo '$(srcdir)/'`crt64/_newmode.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/_newmode.c' object='crt64/lib64_libmingw32_a-_newmode.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-_newmode.o `test -f 'crt64/_newmode.c' || echo '$(srcdir)/'`crt64/_newmode.c
+
+crt64/lib64_libmingw32_a-_newmode.obj: crt64/_newmode.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-_newmode.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Tpo -c -o crt64/lib64_libmingw32_a-_newmode.obj `if test -f 'crt64/_newmode.c'; then $(CYGPATH_W) 'crt64/_newmode.c'; else $(CYGPATH_W) '$(srcdir)/crt64/_newmode.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/_newmode.c' object='crt64/lib64_libmingw32_a-_newmode.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-_newmode.obj `if test -f 'crt64/_newmode.c'; then $(CYGPATH_W) 'crt64/_newmode.c'; else $(CYGPATH_W) '$(srcdir)/crt64/_newmode.c'; fi`
 
 crt64/lib64_libmingw32_a-pseudo-reloc.o: crt64/pseudo-reloc.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-pseudo-reloc.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-pseudo-reloc.Tpo -c -o crt64/lib64_libmingw32_a-pseudo-reloc.o `test -f 'crt64/pseudo-reloc.c' || echo '$(srcdir)/'`crt64/pseudo-reloc.c
@@ -4279,75 +4579,19 @@ crt64/lib64_libmingw32_a-pesect.obj: crt64/pesect.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-pesect.obj `if test -f 'crt64/pesect.c'; then $(CYGPATH_W) 'crt64/pesect.c'; else $(CYGPATH_W) '$(srcdir)/crt64/pesect.c'; fi`
 
-crt64/lib64_libmingw32_a-cinitexe.o: crt64/cinitexe.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-cinitexe.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Tpo -c -o crt64/lib64_libmingw32_a-cinitexe.o `test -f 'crt64/cinitexe.c' || echo '$(srcdir)/'`crt64/cinitexe.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/cinitexe.c' object='crt64/lib64_libmingw32_a-cinitexe.o' libtool=no @AMDEPBACKSLASH@
+crt64/lib64_libmingw32_a-tlssup.o: crt64/tlssup.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-tlssup.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Tpo -c -o crt64/lib64_libmingw32_a-tlssup.o `test -f 'crt64/tlssup.c' || echo '$(srcdir)/'`crt64/tlssup.c
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/tlssup.c' object='crt64/lib64_libmingw32_a-tlssup.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-cinitexe.o `test -f 'crt64/cinitexe.c' || echo '$(srcdir)/'`crt64/cinitexe.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-tlssup.o `test -f 'crt64/tlssup.c' || echo '$(srcdir)/'`crt64/tlssup.c
 
-crt64/lib64_libmingw32_a-cinitexe.obj: crt64/cinitexe.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-cinitexe.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Tpo -c -o crt64/lib64_libmingw32_a-cinitexe.obj `if test -f 'crt64/cinitexe.c'; then $(CYGPATH_W) 'crt64/cinitexe.c'; else $(CYGPATH_W) '$(srcdir)/crt64/cinitexe.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-cinitexe.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/cinitexe.c' object='crt64/lib64_libmingw32_a-cinitexe.obj' libtool=no @AMDEPBACKSLASH@
+crt64/lib64_libmingw32_a-tlssup.obj: crt64/tlssup.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-tlssup.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Tpo -c -o crt64/lib64_libmingw32_a-tlssup.obj `if test -f 'crt64/tlssup.c'; then $(CYGPATH_W) 'crt64/tlssup.c'; else $(CYGPATH_W) '$(srcdir)/crt64/tlssup.c'; fi`
+@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/tlssup.c' object='crt64/lib64_libmingw32_a-tlssup.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-cinitexe.obj `if test -f 'crt64/cinitexe.c'; then $(CYGPATH_W) 'crt64/cinitexe.c'; else $(CYGPATH_W) '$(srcdir)/crt64/cinitexe.c'; fi`
-
-crt64/lib64_libmingw32_a-natstart.o: crt64/natstart.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-natstart.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Tpo -c -o crt64/lib64_libmingw32_a-natstart.o `test -f 'crt64/natstart.c' || echo '$(srcdir)/'`crt64/natstart.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/natstart.c' object='crt64/lib64_libmingw32_a-natstart.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-natstart.o `test -f 'crt64/natstart.c' || echo '$(srcdir)/'`crt64/natstart.c
-
-crt64/lib64_libmingw32_a-natstart.obj: crt64/natstart.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-natstart.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Tpo -c -o crt64/lib64_libmingw32_a-natstart.obj `if test -f 'crt64/natstart.c'; then $(CYGPATH_W) 'crt64/natstart.c'; else $(CYGPATH_W) '$(srcdir)/crt64/natstart.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-natstart.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/natstart.c' object='crt64/lib64_libmingw32_a-natstart.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-natstart.obj `if test -f 'crt64/natstart.c'; then $(CYGPATH_W) 'crt64/natstart.c'; else $(CYGPATH_W) '$(srcdir)/crt64/natstart.c'; fi`
-
-crt64/lib64_libmingw32_a-gs_support.o: crt64/gs_support.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-gs_support.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Tpo -c -o crt64/lib64_libmingw32_a-gs_support.o `test -f 'crt64/gs_support.c' || echo '$(srcdir)/'`crt64/gs_support.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/gs_support.c' object='crt64/lib64_libmingw32_a-gs_support.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-gs_support.o `test -f 'crt64/gs_support.c' || echo '$(srcdir)/'`crt64/gs_support.c
-
-crt64/lib64_libmingw32_a-gs_support.obj: crt64/gs_support.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-gs_support.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Tpo -c -o crt64/lib64_libmingw32_a-gs_support.obj `if test -f 'crt64/gs_support.c'; then $(CYGPATH_W) 'crt64/gs_support.c'; else $(CYGPATH_W) '$(srcdir)/crt64/gs_support.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-gs_support.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/gs_support.c' object='crt64/lib64_libmingw32_a-gs_support.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-gs_support.obj `if test -f 'crt64/gs_support.c'; then $(CYGPATH_W) 'crt64/gs_support.c'; else $(CYGPATH_W) '$(srcdir)/crt64/gs_support.c'; fi`
-
-crt64/lib64_libmingw32_a-atonexit.o: crt64/atonexit.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-atonexit.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Tpo -c -o crt64/lib64_libmingw32_a-atonexit.o `test -f 'crt64/atonexit.c' || echo '$(srcdir)/'`crt64/atonexit.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/atonexit.c' object='crt64/lib64_libmingw32_a-atonexit.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-atonexit.o `test -f 'crt64/atonexit.c' || echo '$(srcdir)/'`crt64/atonexit.c
-
-crt64/lib64_libmingw32_a-atonexit.obj: crt64/atonexit.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-atonexit.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Tpo -c -o crt64/lib64_libmingw32_a-atonexit.obj `if test -f 'crt64/atonexit.c'; then $(CYGPATH_W) 'crt64/atonexit.c'; else $(CYGPATH_W) '$(srcdir)/crt64/atonexit.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-atonexit.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/atonexit.c' object='crt64/lib64_libmingw32_a-atonexit.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-atonexit.obj `if test -f 'crt64/atonexit.c'; then $(CYGPATH_W) 'crt64/atonexit.c'; else $(CYGPATH_W) '$(srcdir)/crt64/atonexit.c'; fi`
-
-crt64/lib64_libmingw32_a-dllmain.o: crt64/dllmain.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dllmain.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Tpo -c -o crt64/lib64_libmingw32_a-dllmain.o `test -f 'crt64/dllmain.c' || echo '$(srcdir)/'`crt64/dllmain.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dllmain.c' object='crt64/lib64_libmingw32_a-dllmain.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dllmain.o `test -f 'crt64/dllmain.c' || echo '$(srcdir)/'`crt64/dllmain.c
-
-crt64/lib64_libmingw32_a-dllmain.obj: crt64/dllmain.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dllmain.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Tpo -c -o crt64/lib64_libmingw32_a-dllmain.obj `if test -f 'crt64/dllmain.c'; then $(CYGPATH_W) 'crt64/dllmain.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dllmain.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dllmain.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dllmain.c' object='crt64/lib64_libmingw32_a-dllmain.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dllmain.obj `if test -f 'crt64/dllmain.c'; then $(CYGPATH_W) 'crt64/dllmain.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dllmain.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-tlssup.obj `if test -f 'crt64/tlssup.c'; then $(CYGPATH_W) 'crt64/tlssup.c'; else $(CYGPATH_W) '$(srcdir)/crt64/tlssup.c'; fi`
 
 crt64/lib64_libmingw32_a-wildcard.o: crt64/wildcard.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-wildcard.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-wildcard.Tpo -c -o crt64/lib64_libmingw32_a-wildcard.o `test -f 'crt64/wildcard.c' || echo '$(srcdir)/'`crt64/wildcard.c
@@ -4363,48 +4607,6 @@ crt64/lib64_libmingw32_a-wildcard.obj: crt64/wildcard.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-wildcard.obj `if test -f 'crt64/wildcard.c'; then $(CYGPATH_W) 'crt64/wildcard.c'; else $(CYGPATH_W) '$(srcdir)/crt64/wildcard.c'; fi`
 
-crt64/lib64_libmingw32_a-merr.o: crt64/merr.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-merr.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Tpo -c -o crt64/lib64_libmingw32_a-merr.o `test -f 'crt64/merr.c' || echo '$(srcdir)/'`crt64/merr.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/merr.c' object='crt64/lib64_libmingw32_a-merr.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-merr.o `test -f 'crt64/merr.c' || echo '$(srcdir)/'`crt64/merr.c
-
-crt64/lib64_libmingw32_a-merr.obj: crt64/merr.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-merr.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Tpo -c -o crt64/lib64_libmingw32_a-merr.obj `if test -f 'crt64/merr.c'; then $(CYGPATH_W) 'crt64/merr.c'; else $(CYGPATH_W) '$(srcdir)/crt64/merr.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-merr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/merr.c' object='crt64/lib64_libmingw32_a-merr.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-merr.obj `if test -f 'crt64/merr.c'; then $(CYGPATH_W) 'crt64/merr.c'; else $(CYGPATH_W) '$(srcdir)/crt64/merr.c'; fi`
-
-crt64/lib64_libmingw32_a-dllargv.o: crt64/dllargv.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dllargv.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dllargv.Tpo -c -o crt64/lib64_libmingw32_a-dllargv.o `test -f 'crt64/dllargv.c' || echo '$(srcdir)/'`crt64/dllargv.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dllargv.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dllargv.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dllargv.c' object='crt64/lib64_libmingw32_a-dllargv.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dllargv.o `test -f 'crt64/dllargv.c' || echo '$(srcdir)/'`crt64/dllargv.c
-
-crt64/lib64_libmingw32_a-dllargv.obj: crt64/dllargv.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dllargv.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dllargv.Tpo -c -o crt64/lib64_libmingw32_a-dllargv.obj `if test -f 'crt64/dllargv.c'; then $(CYGPATH_W) 'crt64/dllargv.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dllargv.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dllargv.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dllargv.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dllargv.c' object='crt64/lib64_libmingw32_a-dllargv.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dllargv.obj `if test -f 'crt64/dllargv.c'; then $(CYGPATH_W) 'crt64/dllargv.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dllargv.c'; fi`
-
-crt64/lib64_libmingw32_a-charmax.o: crt64/charmax.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-charmax.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Tpo -c -o crt64/lib64_libmingw32_a-charmax.o `test -f 'crt64/charmax.c' || echo '$(srcdir)/'`crt64/charmax.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/charmax.c' object='crt64/lib64_libmingw32_a-charmax.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-charmax.o `test -f 'crt64/charmax.c' || echo '$(srcdir)/'`crt64/charmax.c
-
-crt64/lib64_libmingw32_a-charmax.obj: crt64/charmax.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-charmax.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Tpo -c -o crt64/lib64_libmingw32_a-charmax.obj `if test -f 'crt64/charmax.c'; then $(CYGPATH_W) 'crt64/charmax.c'; else $(CYGPATH_W) '$(srcdir)/crt64/charmax.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-charmax.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/charmax.c' object='crt64/lib64_libmingw32_a-charmax.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-charmax.obj `if test -f 'crt64/charmax.c'; then $(CYGPATH_W) 'crt64/charmax.c'; else $(CYGPATH_W) '$(srcdir)/crt64/charmax.c'; fi`
-
 crt64/lib64_libmingw32_a-xtxtmode.o: crt64/xtxtmode.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-xtxtmode.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-xtxtmode.Tpo -c -o crt64/lib64_libmingw32_a-xtxtmode.o `test -f 'crt64/xtxtmode.c' || echo '$(srcdir)/'`crt64/xtxtmode.c
 @am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-xtxtmode.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-xtxtmode.Po
@@ -4418,20 +4620,6 @@ crt64/lib64_libmingw32_a-xtxtmode.obj: crt64/xtxtmode.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/xtxtmode.c' object='crt64/lib64_libmingw32_a-xtxtmode.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-xtxtmode.obj `if test -f 'crt64/xtxtmode.c'; then $(CYGPATH_W) 'crt64/xtxtmode.c'; else $(CYGPATH_W) '$(srcdir)/crt64/xtxtmode.c'; fi`
-
-crt64/lib64_libmingw32_a-tlssup.o: crt64/tlssup.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-tlssup.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Tpo -c -o crt64/lib64_libmingw32_a-tlssup.o `test -f 'crt64/tlssup.c' || echo '$(srcdir)/'`crt64/tlssup.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/tlssup.c' object='crt64/lib64_libmingw32_a-tlssup.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-tlssup.o `test -f 'crt64/tlssup.c' || echo '$(srcdir)/'`crt64/tlssup.c
-
-crt64/lib64_libmingw32_a-tlssup.obj: crt64/tlssup.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-tlssup.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Tpo -c -o crt64/lib64_libmingw32_a-tlssup.obj `if test -f 'crt64/tlssup.c'; then $(CYGPATH_W) 'crt64/tlssup.c'; else $(CYGPATH_W) '$(srcdir)/crt64/tlssup.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-tlssup.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/tlssup.c' object='crt64/lib64_libmingw32_a-tlssup.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-tlssup.obj `if test -f 'crt64/tlssup.c'; then $(CYGPATH_W) 'crt64/tlssup.c'; else $(CYGPATH_W) '$(srcdir)/crt64/tlssup.c'; fi`
 
 crt64/lib64_libmingw32_a-xncommod.o: crt64/xncommod.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-xncommod.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-xncommod.Tpo -c -o crt64/lib64_libmingw32_a-xncommod.o `test -f 'crt64/xncommod.c' || echo '$(srcdir)/'`crt64/xncommod.c
@@ -4447,20 +4635,6 @@ crt64/lib64_libmingw32_a-xncommod.obj: crt64/xncommod.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-xncommod.obj `if test -f 'crt64/xncommod.c'; then $(CYGPATH_W) 'crt64/xncommod.c'; else $(CYGPATH_W) '$(srcdir)/crt64/xncommod.c'; fi`
 
-crt64/lib64_libmingw32_a-_newmode.o: crt64/_newmode.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-_newmode.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Tpo -c -o crt64/lib64_libmingw32_a-_newmode.o `test -f 'crt64/_newmode.c' || echo '$(srcdir)/'`crt64/_newmode.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/_newmode.c' object='crt64/lib64_libmingw32_a-_newmode.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-_newmode.o `test -f 'crt64/_newmode.c' || echo '$(srcdir)/'`crt64/_newmode.c
-
-crt64/lib64_libmingw32_a-_newmode.obj: crt64/_newmode.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-_newmode.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Tpo -c -o crt64/lib64_libmingw32_a-_newmode.obj `if test -f 'crt64/_newmode.c'; then $(CYGPATH_W) 'crt64/_newmode.c'; else $(CYGPATH_W) '$(srcdir)/crt64/_newmode.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-_newmode.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/_newmode.c' object='crt64/lib64_libmingw32_a-_newmode.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-_newmode.obj `if test -f 'crt64/_newmode.c'; then $(CYGPATH_W) 'crt64/_newmode.c'; else $(CYGPATH_W) '$(srcdir)/crt64/_newmode.c'; fi`
-
 crt64/lib64_libmingw32_a-xthdloc.o: crt64/xthdloc.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-xthdloc.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Tpo -c -o crt64/lib64_libmingw32_a-xthdloc.o `test -f 'crt64/xthdloc.c' || echo '$(srcdir)/'`crt64/xthdloc.c
 @am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-xthdloc.Po
@@ -4474,34 +4648,6 @@ crt64/lib64_libmingw32_a-xthdloc.obj: crt64/xthdloc.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/xthdloc.c' object='crt64/lib64_libmingw32_a-xthdloc.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-xthdloc.obj `if test -f 'crt64/xthdloc.c'; then $(CYGPATH_W) 'crt64/xthdloc.c'; else $(CYGPATH_W) '$(srcdir)/crt64/xthdloc.c'; fi`
-
-crt64/lib64_libmingw32_a-mingw_helpers.o: crt64/mingw_helpers.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-mingw_helpers.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Tpo -c -o crt64/lib64_libmingw32_a-mingw_helpers.o `test -f 'crt64/mingw_helpers.c' || echo '$(srcdir)/'`crt64/mingw_helpers.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/mingw_helpers.c' object='crt64/lib64_libmingw32_a-mingw_helpers.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-mingw_helpers.o `test -f 'crt64/mingw_helpers.c' || echo '$(srcdir)/'`crt64/mingw_helpers.c
-
-crt64/lib64_libmingw32_a-mingw_helpers.obj: crt64/mingw_helpers.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-mingw_helpers.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Tpo -c -o crt64/lib64_libmingw32_a-mingw_helpers.obj `if test -f 'crt64/mingw_helpers.c'; then $(CYGPATH_W) 'crt64/mingw_helpers.c'; else $(CYGPATH_W) '$(srcdir)/crt64/mingw_helpers.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-mingw_helpers.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/mingw_helpers.c' object='crt64/lib64_libmingw32_a-mingw_helpers.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-mingw_helpers.obj `if test -f 'crt64/mingw_helpers.c'; then $(CYGPATH_W) 'crt64/mingw_helpers.c'; else $(CYGPATH_W) '$(srcdir)/crt64/mingw_helpers.c'; fi`
-
-crt64/lib64_libmingw32_a-dllentry.o: crt64/dllentry.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dllentry.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Tpo -c -o crt64/lib64_libmingw32_a-dllentry.o `test -f 'crt64/dllentry.c' || echo '$(srcdir)/'`crt64/dllentry.c
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dllentry.c' object='crt64/lib64_libmingw32_a-dllentry.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dllentry.o `test -f 'crt64/dllentry.c' || echo '$(srcdir)/'`crt64/dllentry.c
-
-crt64/lib64_libmingw32_a-dllentry.obj: crt64/dllentry.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingw32_a-dllentry.obj -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Tpo -c -o crt64/lib64_libmingw32_a-dllentry.obj `if test -f 'crt64/dllentry.c'; then $(CYGPATH_W) 'crt64/dllentry.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dllentry.c'; fi`
-@am__fastdepCC_TRUE@	mv -f crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Tpo crt64/$(DEPDIR)/lib64_libmingw32_a-dllentry.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='crt64/dllentry.c' object='crt64/lib64_libmingw32_a-dllentry.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o crt64/lib64_libmingw32_a-dllentry.obj `if test -f 'crt64/dllentry.c'; then $(CYGPATH_W) 'crt64/dllentry.c'; else $(CYGPATH_W) '$(srcdir)/crt64/dllentry.c'; fi`
 
 crt64/lib64_libmingwex_a-dirent.o: crt64/dirent.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt64/lib64_libmingwex_a-dirent.o -MD -MP -MF crt64/$(DEPDIR)/lib64_libmingwex_a-dirent.Tpo -c -o crt64/lib64_libmingwex_a-dirent.o `test -f 'crt64/dirent.c' || echo '$(srcdir)/'`crt64/dirent.c
@@ -8980,9 +9126,7 @@ distclean-generic:
 	-rm -f crt64/$(am__dirstamp)
 	-rm -f gdtoa/$(DEPDIR)/$(am__dirstamp)
 	-rm -f gdtoa/$(am__dirstamp)
-	-rm -f lib32/$(DEPDIR)/$(am__dirstamp)
 	-rm -f lib32/$(am__dirstamp)
-	-rm -f lib64/$(DEPDIR)/$(am__dirstamp)
 	-rm -f lib64/$(am__dirstamp)
 	-rm -f libsrc/$(DEPDIR)/$(am__dirstamp)
 	-rm -f libsrc/$(am__dirstamp)
@@ -9004,7 +9148,7 @@ clean-am: clean-generic clean-lib32LIBRARIES clean-lib64LIBRARIES \
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
-	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) lib32/$(DEPDIR) lib64/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) stdio/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) stdio/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-libtool distclean-tags
@@ -9042,7 +9186,7 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
-	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) lib32/$(DEPDIR) lib64/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) stdio/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) stdio/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

@@ -74,30 +74,33 @@ lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 lib32_libshell32_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libdinput.a
-lib32_libdinput_a_SOURCES = lib32/dinput_kbd.c \
-  lib32/dinput_joy.c   lib32/dinput_joy2.c \
-  lib32/dinput_mouse.c lib32/dinput_mouse2.c
+lib32_libdinput_a_SOURCES = libsrc/dinput_kbd.c \
+  libsrc/dinput_joy.c   libsrc/dinput_joy2.c \
+  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c
 lib32_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libdinput8.a
-lib32_libdinput8_a_SOURCES = lib32/dinput_private.h \
-  lib32/dinput_joy.c   lib32/dinput_joy2.c \
-  lib32/dinput_mouse.c lib32/dinput_mouse2.c \
-  lib32/dinput_kbd.c
-
+lib32_libdinput8_a_SOURCES = libsrc/dinput_private.h \
+  libsrc/dinput_joy.c   libsrc/dinput_joy2.c \
+  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c \
+  libsrc/dinput_kbd.c
 lib32_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libdmoguids.a
-lib32_libdmoguids_a_SOURCES = lib32/dmoguids.c
+lib32_libdmoguids_a_SOURCES = libsrc/dmoguids.c
 
 lib32_LIBRARIES += lib32/libdxerr8.a
-lib32_libdxerr8_a_SOURCES = lib32/dxerr8.c lib32/dxerr8w.c
+lib32_libdxerr8_a_SOURCES = libsrc/dxerr8.c libsrc/dxerr8w.c
 
 lib32_LIBRARIES += lib32/libdxerr9.a
-lib32_libdxerr9_a_SOURCES = lib32/dxerr9.c lib32/dxerr9w.c
+lib32_libdxerr9_a_SOURCES = libsrc/dxerr9.c libsrc/dxerr9w.c
 
 lib32_LIBRARIES += lib32/libdxguid.a
 lib32_libdxguid_a_SOURCES = libsrc/dxguid.c
+
+lib32_LIBRARIES += lib32/libksuser.a
+lib32_libksuser_a_SOURCES = libsrc/ksuser.c
+lib32_libksuser_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/liblargeint.a
 lib32_liblargeint_a_SOURCES = libsrc/largeint.c
@@ -110,7 +113,7 @@ lib32_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
 lib32_libscrnsavw_a_CFLAGS = -DUNICODE
 
 lib32_LIBRARIES += lib32/libstrmiids.a
-lib32_libstrmiids_a_SOURCES = lib32/strmiids.c
+lib32_libstrmiids_a_SOURCES = libsrc/strmiids.c
 
 lib32_LIBRARIES += lib32/libuuid.a
 lib32_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
@@ -120,9 +123,12 @@ lib32_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
     libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
 
 lib32_LIBRARIES += lib32/libws2_32.a
-lib32_libws2_32_a_SOURCES = lib32/ws2_32.c
+lib32_libws2_32_a_SOURCES = libsrc/ws2_32.c
 lib32_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
+
+#These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
+#for all libraries, including those with sources.
 lib32_SCRIPTS = \
   lib32/aclui.def     lib32/advapi32.def  lib32/apcups.def    lib32/avicap32.def  lib32/avifil32.def \
   lib32/cap.def       lib32/cfgmgr32.def  lib32/comctl32.def  lib32/comdlg32.def  lib32/crypt32.def  \
@@ -133,7 +139,7 @@ lib32_SCRIPTS = \
   lib32/dsound.def    lib32/dxapi.def     lib32/faultrep.def  lib32/gdi32.def     lib32/glaux.def    \
   lib32/glu32.def     lib32/glut32.def    lib32/glut.def      lib32/hal.def       lib32/hid.def      \
   lib32/hidparse.def  lib32/icmui.def     lib32/igmpagnt.def  lib32/imagehlp.def  lib32/imm32.def    \
-  lib32/iphlpapi.def                      lib32/ksproxy.def   lib32/ksuser.def    lib32/lz32.def     \
+  lib32/iphlpapi.def                      lib32/ksproxy.def                       lib32/lz32.def     \
   lib32/mapi32.def    lib32/mcd.def       lib32/mfcuia32.def  lib32/mgmtapi.def   lib32/mprapi.def   \
   lib32/mpr.def       lib32/mqrt.def      lib32/msacm32.def   lib32/mscms.def     lib32/msdmo.def    \
   lib32/msimg32.def   lib32/msvcp60.def   lib32/msvfw32.def   lib32/mswsock.def   lib32/nddeapi.def  \
@@ -208,8 +214,35 @@ lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = libsrc/shell32.c
 lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
+lib64_LIBRARIES += lib64/libdinput.a
+lib64_libdinput_a_SOURCES = libsrc/dinput_private.h \
+  libsrc/dinput_joy.c   libsrc/dinput_joy2.c        \
+  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c      \
+  libsrc/dinput_kbd.c
+lib64_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+
+lib64_LIBRARIES += lib64/libdinput8.a
+lib64_libdinput8_a_SOURCES = libsrc/dinput_private.h \
+  libsrc/dinput_joy.c   libsrc/dinput_joy2.c         \
+  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c       \
+  libsrc/dinput_kbd.c
+lib64_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+
+lib64_LIBRARIES += lib64/libdmoguids.a
+lib64_libdmoguids_a_SOURCES = libsrc/dmoguids.c
+
+lib64_LIBRARIES += lib64/libdxerr8.a
+lib64_libdxerr8_a_SOURCES = libsrc/dxerr8.c libsrc/dxerr8w.c
+
+lib64_LIBRARIES += lib64/libdxerr9.a
+lib64_libdxerr9_a_SOURCES = libsrc/dxerr9.c libsrc/dxerr9w.c
+
 lib64_LIBRARIES += lib64/libdxguid.a
 lib64_libdxguid_a_SOURCES = libsrc/dxguid.c
+
+lib64_LIBRARIES += lib64/libksuser.a
+lib64_libksuser_a_SOURCES = libsrc/ksuser.c
+lib64_libksuser_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/liblargeint.a
 lib64_liblargeint_a_SOURCES = libsrc/largeint.c
@@ -223,20 +256,18 @@ lib64_libscrnsavw_a_CFLAGS = -DUNICODE
 
 lib64_LIBRARIES += lib64/libuuid.a
 lib64_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
-    libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
-    libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
-    libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
-    libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
+  libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
+  libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
+  libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
+  libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
 
 lib64_LIBRARIES += lib64/libmingw32.a
 lib64_libmingw32_a_CPPFLAGS=-D_SYSCRT=1 -DCRTDLL=1 $(include64) $(AM_CPPFLAGS)
-lib64_libmingw32_a_SOURCES = \
-  crt64/crt0_c.c crt64/crt0_w.c crt64/dll_argv.c crt64/gccmain.c crt64/CRT_fp10.c crt64/pseudo-reloc.c \
-  crt64/pseudo-reloc-list.c crt64/pesect.c crt64/cinitexe.c \
-  crt64/natstart.c crt64/gs_support.c crt64/atonexit.c crt64/dllmain.c crt64/wildcard.c crt64/merr.c \
-  crt64/dllargv.c crt64/charmax.c crt64/xtxtmode.c crt64/tlssup.c   \
-  crt64/xncommod.c crt64/_newmode.c crt64/xthdloc.c crt64/mingw_helpers.c crt64/dllentry.c
-
+lib64_libmingw32_a_SOURCES = crt64/crt0_c.c crt64/crt0_w.c crt64/CRT_fp10.c \
+  crt64/atonexit.c crt64/charmax.c    crt64/cinitexe.c crt64/dll_argv.c      crt64/dllentry.c crt64/dllmain.c  \
+  crt64/gccmain.c  crt64/gs_support.c crt64/merr.c     crt64/mingw_helpers.c crt64/natstart.c crt64/_newmode.c \
+  crt64/pseudo-reloc.c crt64/pseudo-reloc-list.c       crt64/pesect.c        crt64/tlssup.c   crt64/wildcard.c \
+  crt64/xtxtmode.c crt64/xncommod.c   crt64/xthdloc.c 
 
 lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=$(include64) $(AM_CPPFLAGS)
@@ -244,6 +275,12 @@ lib64_libmoldname_a_SOURCES = \
   crt64/isascii.c crt64/iscsym.c crt64/iscsymf.c crt64/toascii.c crt64/strcasecmp.c crt64/strncasecmp.c crt64/wcscmpi.c
 lib64_libmoldname_a_AR = $(DTDEF) $(crt64srcdir)/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
   
+lib64_LIBRARIES += lib64/libstrmiids.a
+lib64_libstrmiids_a_SOURCES = libsrc/strmiids.c
+
+lib64_LIBRARIES += lib64/libws2_32.a
+lib64_libws2_32_a_SOURCES = libsrc/ws2_32.c
+lib64_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libmingwex.a
 lib64_libmingwex_a_CPPFLAGS=$(include64) $(AM_CPPFLAGS)
@@ -459,7 +496,7 @@ lib64_SCRIPTS = \
   lib64/libcoadmin.a      lib64/libkeymgr.a         lib64/libsmtpapi.a    lib64/libwfeclient.a  lib64/libwmsdaenum.a  \
   lib64/libcolbact.a      lib64/libkorwbrkr.a       lib64/libsmtpcons.a   lib64/libwfilemgmt.a  lib64/libwmsdaer.a    \
   lib64/libcomaddin.a     lib64/libkrnlprov.a       lib64/libsmtpctrs.a   lib64/libwfldrclnr.a  lib64/libwmsdaora.a   \
-  lib64/libcomadmin.a     lib64/libksuser.a         lib64/libsmtpsnap.a   lib64/libwfltlib.a    lib64/libwmsdaosp.a   \
+  lib64/libcomadmin.a                               lib64/libsmtpsnap.a   lib64/libwfltlib.a    lib64/libwmsdaosp.a   \
   lib64/libcomcat.a       lib64/liblangwrbk.a       lib64/libsmtpsvc.a    lib64/libwfmifs.a     lib64/libwmsdaprst.a  \
   lib64/libcomctl32.a     lib64/liblicdll.a         lib64/libsniffpol.a   lib64/libwfontext.a   lib64/libwmsdaps.a    \
   lib64/libcomdlg32.a     lib64/liblicmgr10.a       lib64/libsnmpapi.a    lib64/libwfontsub.a   lib64/libwmsdarem.a   \
@@ -704,7 +741,7 @@ lib64_SCRIPTS = \
   lib64/libimsinsnt.a     lib64/liboleaut32.a       lib64/libwcmpbk32.a   lib64/libwkbdnecNT.a  lib64/libwrtutils.a   \
   lib64/libimskdic.a      lib64/libolecli32.a       lib64/libwcmsetACL.a  lib64/libwkbdne.a     lib64/libwrvse.a      \
   lib64/libimskf.a        lib64/libolecnv32.a       lib64/libwcmutil.a    lib64/libwkbdno.a     lib64/libwrwnh.a      \
-  lib64/libinetcfg.a      lib64/liboledb32.a        lib64/libwcnbjmon.a   lib64/libwkbdpl1.a    lib64/libws2_32.a     \
+  lib64/libinetcfg.a      lib64/liboledb32.a        lib64/libwcnbjmon.a   lib64/libwkbdpl1.a                          \
   lib64/libinetcomm.a     lib64/liboledb32r.a       lib64/libwcnetcfg.a   lib64/libwkbdpl.a     lib64/libws2help.a    \
   lib64/libinetmgr.a      lib64/liboledlg.a         lib64/libwcnvfat.a    lib64/libwkbdpo.a     lib64/libwsamlib.a    \
   lib64/libinetmib1.a     lib64/liboleprn.a         lib64/libwcolbact.a   lib64/libwkbdro.a     lib64/libwsapi.a      \
