@@ -56,7 +56,6 @@ COMPILE32=$(COMPILE) $(include32) -c $(crt32srcdir)/
 
 temp= \
 dxerr.c \
-ksuser.c \
 test.c
 
 lib32_LIBRARIES = lib32/libm.a
@@ -802,7 +801,7 @@ endif
 # Installation options
 #
 
-noinst_HEADERS = lib32/dxerr.c \
+noinst_HEADERS = libsrc/dxerr.c \
  include64/internal.h include64/oscalls.h include64/sect_attribs.h
 
 

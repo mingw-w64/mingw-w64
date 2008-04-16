@@ -1038,7 +1038,6 @@ BUILT_SOURCES = _libm_dummy.c
 #
 @LIB32_TRUE@temp = \
 @LIB32_TRUE@dxerr.c \
-@LIB32_TRUE@ksuser.c \
 @LIB32_TRUE@test.c
 
 @LIB32_TRUE@lib32_LIBRARIES = lib32/libm.a lib32/libkernel32.a \
@@ -1705,7 +1704,7 @@ BUILT_SOURCES = _libm_dummy.c
 
 # Installation options
 #
-noinst_HEADERS = lib32/dxerr.c \
+noinst_HEADERS = libsrc/dxerr.c \
  include64/internal.h include64/oscalls.h include64/sect_attribs.h
 
 
