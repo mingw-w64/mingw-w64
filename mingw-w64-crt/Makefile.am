@@ -263,10 +263,9 @@ lib64_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
 lib64_LIBRARIES += lib64/libmingw32.a
 lib64_libmingw32_a_CPPFLAGS=-D_SYSCRT=1 -DCRTDLL=1 $(include64) $(AM_CPPFLAGS)
 lib64_libmingw32_a_SOURCES = crt64/crt0_c.c crt64/crt0_w.c crt64/CRT_fp10.c \
-  crt64/atonexit.c crt64/charmax.c    crt64/cinitexe.c crt64/dll_argv.c      crt64/dllentry.c crt64/dllmain.c  \
-  crt64/gccmain.c  crt64/gs_support.c crt64/merr.c     crt64/mingw_helpers.c crt64/natstart.c crt64/_newmode.c \
-  crt64/pseudo-reloc.c crt64/pseudo-reloc-list.c       crt64/pesect.c        crt64/tlssup.c   crt64/wildcard.c \
-  crt64/xtxtmode.c crt64/xncommod.c   crt64/xthdloc.c 
+  crt64/atonexit.c crt64/charmax.c    crt64/cinitexe.c crt64/dll_argv.c      crt64/dllargv.c  crt64/dllentry.c crt64/dllmain.c      \
+  crt64/gccmain.c  crt64/gs_support.c crt64/merr.c     crt64/mingw_helpers.c crt64/natstart.c crt64/_newmode.c crt64/pseudo-reloc.c \
+  crt64/pseudo-reloc-list.c crt64/pesect.c crt64/tlssup.c crt64/wildcard.c   crt64/xtxtmode.c crt64/xncommod.c crt64/xthdloc.c
 
 lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=$(include64) $(AM_CPPFLAGS)
