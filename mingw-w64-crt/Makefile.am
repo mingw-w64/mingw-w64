@@ -244,7 +244,6 @@ lib64_libgmon_a_SOURCES = profile/mcount.c \
   profile/profil.h profile/profil.c        \
   profile/gmon.h   profile/gmon.c
 
-
 lib64_LIBRARIES += lib64/libksuser.a
 lib64_libksuser_a_SOURCES = libsrc/ksuser.c
 lib64_libksuser_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
