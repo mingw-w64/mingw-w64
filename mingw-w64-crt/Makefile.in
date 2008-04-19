@@ -1029,7 +1029,7 @@ AM_CPPFLAGS = -D_CRTBLD $(sysincludes)
 AM_CFLAGS = -pipe $(vistasupport)
 AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@
 DTDEF = $(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
-DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | sed '{s|/lib|/|;s|\.a|.def|}'`
+DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | sed 's|/lib|/|;s|\.a|.def|'`
 crt64srcdir = $(top_srcdir)/crt64
 crt32srcdir = $(top_srcdir)/crt32
 BUILT_SOURCES = _libm_dummy.c
