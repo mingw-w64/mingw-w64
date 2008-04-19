@@ -52,6 +52,7 @@ AM_CONDITIONAL([VISTA], [test $enable_vista = yes])
 # Checks for programs.
 # Checks for headers, libs, etc need to utilize the sysroot... no idea how
 AC_NO_EXECUTABLES
+AC_PROG_SED
 AC_PROG_CC
 AC_PROG_CXX
 AC_PROG_INSTALL
