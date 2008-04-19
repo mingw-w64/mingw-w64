@@ -48,9 +48,8 @@ static char rcsid[] = "$OpenBSD: gmon.c,v 1.8 1997/07/23 21:11:27 kstailey Exp $
 #include <sys/param.h>
 #endif
 #include <sys/types.h>
-#include <gmon.h>
-
-#include <profil.h>
+#include "gmon.h"
+#include "profil.h"
 
 /* XXX needed? */
 //extern char *minbrk __asm ("minbrk");

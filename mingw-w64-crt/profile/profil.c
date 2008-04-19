@@ -18,8 +18,7 @@
 #include <sys/types.h>
 #include <errno.h>
 #include <math.h>
-
-#include <profil.h>
+#include "profil.h"
 
 #define SLEEPTIME (1000 / PROF_HZ)
 

@@ -44,7 +44,7 @@ static char rcsid[] = "$OpenBSD: mcount.c,v 1.6 1997/07/23 21:11:27 kstailey Exp
 #include <sys/param.h>
 #endif
 #include <sys/types.h>
-#include <gmon.h>
+#include "gmon.h"
 
 /*
  * mcount is called on entry to each function compiled with the profiling
