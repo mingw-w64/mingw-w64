@@ -30,7 +30,7 @@ AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
 AM_CFLAGS=-pipe $(vistasupport)
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
-DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $SED 's|/lib|/|;s|\.a|.def|'`
+DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 crt64srcdir=$(top_srcdir)/crt64
 crt32srcdir=$(top_srcdir)/crt32
 
@@ -239,10 +239,10 @@ lib64_libdxerr9_a_SOURCES = libsrc/dxerr9.c libsrc/dxerr9w.c
 lib64_LIBRARIES += lib64/libdxguid.a
 lib64_libdxguid_a_SOURCES = libsrc/dxguid.c
 
-lib64_LIBRARIES += lib64/libgmon.a
-lib64_libgmon_a_SOURCES = profile/mcount.c \
-  profile/profil.h profile/profil.c        \
-  profile/gmon.h   profile/gmon.c
+#lib64_LIBRARIES += lib64/libgmon.a
+#lib64_libgmon_a_SOURCES = profile/mcount.c \
+#  profile/profil.h profile/profil.c        \
+#  profile/gmon.h   profile/gmon.c
 
 lib64_LIBRARIES += lib64/libksuser.a
 lib64_libksuser_a_SOURCES = libsrc/ksuser.c

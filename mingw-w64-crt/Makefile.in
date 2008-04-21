@@ -247,13 +247,6 @@ lib64_libdxguid_a_LIBADD =
 am__lib64_libdxguid_a_SOURCES_DIST = libsrc/dxguid.c
 @LIB64_TRUE@am_lib64_libdxguid_a_OBJECTS = libsrc/dxguid.$(OBJEXT)
 lib64_libdxguid_a_OBJECTS = $(am_lib64_libdxguid_a_OBJECTS)
-lib64_libgmon_a_AR = $(AR) $(ARFLAGS)
-lib64_libgmon_a_LIBADD =
-am__lib64_libgmon_a_SOURCES_DIST = profile/mcount.c profile/profil.h \
-	profile/profil.c profile/gmon.h profile/gmon.c
-@LIB64_TRUE@am_lib64_libgmon_a_OBJECTS = profile/mcount.$(OBJEXT) \
-@LIB64_TRUE@	profile/profil.$(OBJEXT) profile/gmon.$(OBJEXT)
-lib64_libgmon_a_OBJECTS = $(am_lib64_libgmon_a_OBJECTS)
 lib64_libkernel32_a_LIBADD =
 am__lib64_libkernel32_a_SOURCES_DIST = libsrc/kernel32.c
 @LIB64_TRUE@am_lib64_libkernel32_a_OBJECTS =  \
@@ -849,13 +842,13 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib64_libdinput_a_SOURCES) $(lib64_libdinput8_a_SOURCES) \
 	$(lib64_libdmoguids_a_SOURCES) $(lib64_libdxerr8_a_SOURCES) \
 	$(lib64_libdxerr9_a_SOURCES) $(lib64_libdxguid_a_SOURCES) \
-	$(lib64_libgmon_a_SOURCES) $(lib64_libkernel32_a_SOURCES) \
-	$(lib64_libksuser_a_SOURCES) $(lib64_liblargeint_a_SOURCES) \
-	$(nodist_lib64_libm_a_SOURCES) $(lib64_libmingw32_a_SOURCES) \
-	$(lib64_libmingwex_a_SOURCES) $(lib64_libmoldname_a_SOURCES) \
-	$(lib64_libscrnsave_a_SOURCES) $(lib64_libscrnsavw_a_SOURCES) \
-	$(lib64_libshell32_a_SOURCES) $(lib64_libstrmiids_a_SOURCES) \
-	$(lib64_libuuid_a_SOURCES) $(lib64_libws2_32_a_SOURCES)
+	$(lib64_libkernel32_a_SOURCES) $(lib64_libksuser_a_SOURCES) \
+	$(lib64_liblargeint_a_SOURCES) $(nodist_lib64_libm_a_SOURCES) \
+	$(lib64_libmingw32_a_SOURCES) $(lib64_libmingwex_a_SOURCES) \
+	$(lib64_libmoldname_a_SOURCES) $(lib64_libscrnsave_a_SOURCES) \
+	$(lib64_libscrnsavw_a_SOURCES) $(lib64_libshell32_a_SOURCES) \
+	$(lib64_libstrmiids_a_SOURCES) $(lib64_libuuid_a_SOURCES) \
+	$(lib64_libws2_32_a_SOURCES)
 DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdinput8_a_SOURCES_DIST) \
 	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
@@ -877,7 +870,6 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib64_libdxerr8_a_SOURCES_DIST) \
 	$(am__lib64_libdxerr9_a_SOURCES_DIST) \
 	$(am__lib64_libdxguid_a_SOURCES_DIST) \
-	$(am__lib64_libgmon_a_SOURCES_DIST) \
 	$(am__lib64_libkernel32_a_SOURCES_DIST) \
 	$(am__lib64_libksuser_a_SOURCES_DIST) \
 	$(am__lib64_liblargeint_a_SOURCES_DIST) \
@@ -1029,7 +1021,7 @@ AM_CPPFLAGS = -D_CRTBLD $(sysincludes)
 AM_CFLAGS = -pipe $(vistasupport)
 AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@
 DTDEF = $(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
-DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | $SED 's|/lib|/|;s|\.a|.def|'`
+DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 crt64srcdir = $(top_srcdir)/crt64
 crt32srcdir = $(top_srcdir)/crt32
 BUILT_SOURCES = _libm_dummy.c
@@ -1143,16 +1135,21 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o \
 @LIB64_TRUE@  crt64/gcrt0.o crt64/gcrt1.o crt64/gcrt2.o
 
+
+#lib64_LIBRARIES += lib64/libgmon.a
+#lib64_libgmon_a_SOURCES = profile/mcount.c \
+#  profile/profil.h profile/profil.c        \
+#  profile/gmon.h   profile/gmon.c
 @LIB64_TRUE@lib64_LIBRARIES = lib64/libm.a lib64/libkernel32.a \
 @LIB64_TRUE@	lib64/libshell32.a lib64/libdinput.a \
 @LIB64_TRUE@	lib64/libdinput8.a lib64/libdmoguids.a \
 @LIB64_TRUE@	lib64/libdxerr8.a lib64/libdxerr9.a \
-@LIB64_TRUE@	lib64/libdxguid.a lib64/libgmon.a \
-@LIB64_TRUE@	lib64/libksuser.a lib64/liblargeint.a \
-@LIB64_TRUE@	lib64/libscrnsave.a lib64/libscrnsavw.a \
-@LIB64_TRUE@	lib64/libuuid.a lib64/libmingw32.a \
-@LIB64_TRUE@	lib64/libmoldname.a lib64/libstrmiids.a \
-@LIB64_TRUE@	lib64/libws2_32.a lib64/libmingwex.a
+@LIB64_TRUE@	lib64/libdxguid.a lib64/libksuser.a \
+@LIB64_TRUE@	lib64/liblargeint.a lib64/libscrnsave.a \
+@LIB64_TRUE@	lib64/libscrnsavw.a lib64/libuuid.a \
+@LIB64_TRUE@	lib64/libmingw32.a lib64/libmoldname.a \
+@LIB64_TRUE@	lib64/libstrmiids.a lib64/libws2_32.a \
+@LIB64_TRUE@	lib64/libmingwex.a
 @LIB64_TRUE@nodist_lib64_libm_a_SOURCES = _libm_dummy.c
 @LIB64_TRUE@lib64_libkernel32_a_SOURCES = libsrc/kernel32.c
 @LIB64_TRUE@lib64_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
@@ -1174,10 +1171,6 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@lib64_libdxerr8_a_SOURCES = libsrc/dxerr8.c libsrc/dxerr8w.c
 @LIB64_TRUE@lib64_libdxerr9_a_SOURCES = libsrc/dxerr9.c libsrc/dxerr9w.c
 @LIB64_TRUE@lib64_libdxguid_a_SOURCES = libsrc/dxguid.c
-@LIB64_TRUE@lib64_libgmon_a_SOURCES = profile/mcount.c \
-@LIB64_TRUE@  profile/profil.h profile/profil.c        \
-@LIB64_TRUE@  profile/gmon.h   profile/gmon.c
-
 @LIB64_TRUE@lib64_libksuser_a_SOURCES = libsrc/ksuser.c
 @LIB64_TRUE@lib64_libksuser_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_liblargeint_a_SOURCES = libsrc/largeint.c
@@ -2030,22 +2023,6 @@ lib64/libdxguid.a: $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_DEPENDENCIES
 	-rm -f lib64/libdxguid.a
 	$(lib64_libdxguid_a_AR) lib64/libdxguid.a $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_LIBADD)
 	$(RANLIB) lib64/libdxguid.a
-profile/$(am__dirstamp):
-	@$(MKDIR_P) profile
-	@: > profile/$(am__dirstamp)
-profile/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) profile/$(DEPDIR)
-	@: > profile/$(DEPDIR)/$(am__dirstamp)
-profile/mcount.$(OBJEXT): profile/$(am__dirstamp) \
-	profile/$(DEPDIR)/$(am__dirstamp)
-profile/profil.$(OBJEXT): profile/$(am__dirstamp) \
-	profile/$(DEPDIR)/$(am__dirstamp)
-profile/gmon.$(OBJEXT): profile/$(am__dirstamp) \
-	profile/$(DEPDIR)/$(am__dirstamp)
-lib64/libgmon.a: $(lib64_libgmon_a_OBJECTS) $(lib64_libgmon_a_DEPENDENCIES) lib64/$(am__dirstamp)
-	-rm -f lib64/libgmon.a
-	$(lib64_libgmon_a_AR) lib64/libgmon.a $(lib64_libgmon_a_OBJECTS) $(lib64_libgmon_a_LIBADD)
-	$(RANLIB) lib64/libgmon.a
 libsrc/kernel32.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib64/libkernel32.a: $(lib64_libkernel32_a_OBJECTS) $(lib64_libkernel32_a_DEPENDENCIES) lib64/$(am__dirstamp)
@@ -3307,9 +3284,6 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-wmemcpy.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-wmemmove.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-wmemset.$(OBJEXT)
-	-rm -f profile/gmon.$(OBJEXT)
-	-rm -f profile/mcount.$(OBJEXT)
-	-rm -f profile/profil.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_Exit.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_findfirst64i32.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_findnext64i32.$(OBJEXT)
@@ -3724,9 +3698,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wmemcpy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wmemmove.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wmemset.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/gmon.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/mcount.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/profil.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_Exit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_findfirst64i32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_findnext64i32.Po@am__quote@
@@ -9184,8 +9155,6 @@ distclean-generic:
 	-rm -f math/$(am__dirstamp)
 	-rm -f misc/$(DEPDIR)/$(am__dirstamp)
 	-rm -f misc/$(am__dirstamp)
-	-rm -f profile/$(DEPDIR)/$(am__dirstamp)
-	-rm -f profile/$(am__dirstamp)
 	-rm -f stdio/$(DEPDIR)/$(am__dirstamp)
 	-rm -f stdio/$(am__dirstamp)
 
@@ -9200,7 +9169,7 @@ clean-am: clean-generic clean-lib32LIBRARIES clean-lib64LIBRARIES \
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
-	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) profile/$(DEPDIR) stdio/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) stdio/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-libtool distclean-tags
@@ -9238,7 +9207,7 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
-	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) profile/$(DEPDIR) stdio/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt64/$(DEPDIR) gdtoa/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) stdio/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
