@@ -239,10 +239,10 @@ lib64_libdxerr9_a_SOURCES = libsrc/dxerr9.c libsrc/dxerr9w.c
 lib64_LIBRARIES += lib64/libdxguid.a
 lib64_libdxguid_a_SOURCES = libsrc/dxguid.c
 
-#lib64_LIBRARIES += lib64/libgmon.a
-#lib64_libgmon_a_SOURCES = profile/mcount.c \
-#  profile/profil.h profile/profil.c        \
-#  profile/gmon.h   profile/gmon.c
+lib64_LIBRARIES += lib64/libgmon.a
+lib64_libgmon_a_SOURCES = profile/mcount.c \
+  profile/profil.h profile/profil.c        \
+  profile/gmon.h   profile/gmon.c
 
 lib64_LIBRARIES += lib64/libksuser.a
 lib64_libksuser_a_SOURCES = libsrc/ksuser.c
