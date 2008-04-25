@@ -17,6 +17,7 @@
  */
 
 extern void (*_imp___fpreset)( void ) ;
+extern void _fpreset(void);
 
 int fesetenv (const fenv_t * envp)
 {

@@ -7,4 +7,4 @@ int mingw_initcharmax = 0;
 
 int _charmax = 255;
 
-_CRTALLOC(".CRT$XIC") static _PIFV pinit = __lconv_init;
+_CRTALLOC(".CRT$XIC") _PIFV __mingw_pinit = __lconv_init;

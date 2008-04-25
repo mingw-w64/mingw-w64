@@ -307,7 +307,6 @@ void __outdwordstring(unsigned short Port,unsigned long *Buffer,unsigned long Co
 
   void __cpuid(int CPUInfo[4], int InfoType)
   {
-      unsigned __int64 val1, val2;
       __asm__ __volatile__ (
           "cpuid"
           : "=a" (CPUInfo [0]), "=b" (CPUInfo [1]), "=c" (CPUInfo [2]), "=d" (CPUInfo [3])
