@@ -4,6 +4,8 @@
 #define _ATTRIBUTES shared
 #endif
 
+#if 0
+/* Reference list of existing section for msvcrt.  */
 #pragma section(".CRTMP$XCA",long,_ATTRIBUTES)
 #pragma section(".CRTMP$XCZ",long,_ATTRIBUTES)
 #pragma section(".CRTMP$XIA",long,_ATTRIBUTES)
@@ -47,5 +49,6 @@
 #pragma section(".rtc$IZZ",long,read)
 #pragma section(".rtc$TAA",long,read)
 #pragma section(".rtc$TZZ",long,read)
+#endif
 
 #define _CRTALLOC(x) __attribute__ ((section (x) ))
