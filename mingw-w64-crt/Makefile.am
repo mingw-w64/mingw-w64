@@ -26,8 +26,8 @@ else
   enablevista=
 endif
 
-AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
-AM_CFLAGS=-pipe $(vistasupport)
+AM_CPPFLAGS=-D_CRTBLD $(sysincludes) -Wall
+AM_CFLAGS=-pipe $(vistasupport) -Wall
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
@@ -288,7 +288,6 @@ lib64_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 lib64_LIBRARIES += lib64/libmingwex.a
 lib64_libmingwex_a_CPPFLAGS=$(include64) $(AM_CPPFLAGS)
 lib64_libmingwex_a_SOURCES = \
-  crt64/dirent.c     crt64/ftruncate.c  crt64/getopt.c    crt64/wdirent.c  \
   \
   complex/cabs.c     complex/casinhl.c  complex/cexpl.c   complex/csin.c   \
   complex/cabsf.c    complex/casinl.c   complex/cimag.c   complex/csinf.c  \
@@ -371,9 +370,10 @@ lib64_libmingwex_a_SOURCES = \
   misc/feclearexcept.c    misc/imaxdiv.c          misc/spawnvpe.c              misc/wmemcpy.c        \
   misc/fegetenv.c         misc/isblank.c          misc/strtoimax.c             misc/wmemmove.c       \
   misc/fegetexceptflag.c  misc/iswblank.c         misc/wmemset.c               misc/mingw_getsp.S    \
-  misc/fegetround.c       misc/localtime.c        misc/strtoumax.c \
-  misc/feholdexcept.c     misc/mbrtowc.c          misc/time.c      \
-  misc/feraiseexcept.c    misc/mbsinit.c          misc/wassert.c   \
+  misc/fegetround.c       misc/localtime.c        misc/strtoumax.c             misc/dirent.c         \
+  misc/feholdexcept.c     misc/mbrtowc.c          misc/time.c                  misc/wdirent.c        \
+  misc/feraiseexcept.c    misc/mbsinit.c          misc/wassert.c               misc/ftruncate.c      \
+  misc/getopt.c           \
   \
   stdio/atoll.c            stdio/ftello64.c      stdio/strtof.c     stdio/vsnwprintf.c \
   stdio/_Exit.c            stdio/_fwstat64i32.c  stdio/ulltoa.c     stdio/vsscanf.c    \
