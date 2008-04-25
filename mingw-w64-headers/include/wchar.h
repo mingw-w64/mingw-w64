@@ -646,9 +646,9 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
   double __cdecl wcstod(const wchar_t *_Str,wchar_t **_EndPtr);
   _CRTIMP double __cdecl _wcstod_l(const wchar_t *_Str,wchar_t **_EndPtr,_locale_t _Locale);
   float __cdecl wcstof( const wchar_t *nptr, wchar_t **endptr);
-#if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
-  __CRT_INLINE float __cdecl wcstof( const wchar_t *nptr, wchar_t **endptr) { return (wcstod(nptr, endptr)); }
-  long double __cdecl wcstold(const wchar_t *,wchar_t **);
+#if !defined __NO_ISOCEXT /* in libmingwex.a */
+  float __cdecl wcstof (const wchar_t * __restrict__, wchar_t ** __restrict__);
+  long double __cdecl wcstold (const wchar_t * __restrict__, wchar_t ** __restrict__);
 #endif /* __NO_ISOCEXT */
   long __cdecl wcstol(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
   _CRTIMP long __cdecl _wcstol_l(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
