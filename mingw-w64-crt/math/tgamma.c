@@ -123,6 +123,11 @@ static const unsigned short SQT[4] = {
 0040440,0066230,0177661,0034055,
 };
 #define SQTPI *(double *)SQT
+static const union
+{
+  unsigned short s[4];
+  double d;
+} sqt = {{0x2706,0x1ff6,0x0d93,0x4004}};
 #endif
 #if IBMPC
 static const unsigned short STIR[20] = {
