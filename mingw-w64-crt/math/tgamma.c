@@ -139,7 +139,7 @@ static const union
   unsigned short s[4];
   double d;
 } sqt = {{0x2706,0x1ff6,0x0d93,0x4004}};
-#define SQTPI(sqt.d)
+#define SQTPI (sqt.d)
 #endif
 #if MIEEE
 static const unsigned short STIR[20] = {
