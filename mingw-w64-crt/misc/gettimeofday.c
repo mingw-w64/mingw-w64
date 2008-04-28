@@ -15,7 +15,7 @@
 int getntptimeofday (struct timespec *tp, struct timezone *z)
 {
   int res = 0;
-  //	struct _timeb timebuffer;
+  /* struct _timeb timebuffer; */
   ULARGE_INTEGER fti;
   TIME_ZONE_INFORMATION  TimeZoneInformation;
   DWORD tzi;
