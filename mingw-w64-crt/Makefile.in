@@ -120,11 +120,6 @@ lib32_libdxguid_a_LIBADD =
 am__lib32_libdxguid_a_SOURCES_DIST = libsrc/dxguid.c
 @LIB32_TRUE@am_lib32_libdxguid_a_OBJECTS = libsrc/dxguid.$(OBJEXT)
 lib32_libdxguid_a_OBJECTS = $(am_lib32_libdxguid_a_OBJECTS)
-lib32_libkernel32_a_LIBADD =
-am__lib32_libkernel32_a_SOURCES_DIST = libsrc/kernel32.c
-@LIB32_TRUE@am_lib32_libkernel32_a_OBJECTS =  \
-@LIB32_TRUE@	libsrc/lib32_libkernel32_a-kernel32.$(OBJEXT)
-lib32_libkernel32_a_OBJECTS = $(am_lib32_libkernel32_a_OBJECTS)
 lib32_libksuser_a_LIBADD =
 am__lib32_libksuser_a_SOURCES_DIST = libsrc/ksuser.c
 @LIB32_TRUE@am_lib32_libksuser_a_OBJECTS = libsrc/ksuser.$(OBJEXT)
@@ -254,11 +249,6 @@ am__lib64_libgmon_a_SOURCES_DIST = profile/mcount.c profile/profil.h \
 @LIB64_TRUE@am_lib64_libgmon_a_OBJECTS = profile/mcount.$(OBJEXT) \
 @LIB64_TRUE@	profile/profil.$(OBJEXT) profile/gmon.$(OBJEXT)
 lib64_libgmon_a_OBJECTS = $(am_lib64_libgmon_a_OBJECTS)
-lib64_libkernel32_a_LIBADD =
-am__lib64_libkernel32_a_SOURCES_DIST = libsrc/kernel32.c
-@LIB64_TRUE@am_lib64_libkernel32_a_OBJECTS =  \
-@LIB64_TRUE@	libsrc/kernel32.$(OBJEXT)
-lib64_libkernel32_a_OBJECTS = $(am_lib64_libkernel32_a_OBJECTS)
 lib64_libksuser_a_LIBADD =
 am__lib64_libksuser_a_SOURCES_DIST = libsrc/ksuser.c
 @LIB64_TRUE@am_lib64_libksuser_a_OBJECTS = libsrc/ksuser.$(OBJEXT)
@@ -841,15 +831,14 @@ LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib32_libdmoguids_a_SOURCES) $(lib32_libdxerr8_a_SOURCES) \
 	$(lib32_libdxerr9_a_SOURCES) $(lib32_libdxguid_a_SOURCES) \
-	$(lib32_libkernel32_a_SOURCES) $(lib32_libksuser_a_SOURCES) \
-	$(lib32_liblargeint_a_SOURCES) $(nodist_lib32_libm_a_SOURCES) \
-	$(lib32_libscrnsave_a_SOURCES) $(lib32_libscrnsavw_a_SOURCES) \
-	$(lib32_libshell32_a_SOURCES) $(lib32_libstrmiids_a_SOURCES) \
-	$(lib32_libuuid_a_SOURCES) $(lib32_libws2_32_a_SOURCES) \
-	$(lib64_libdinput_a_SOURCES) $(lib64_libdinput8_a_SOURCES) \
-	$(lib64_libdmoguids_a_SOURCES) $(lib64_libdxerr8_a_SOURCES) \
-	$(lib64_libdxerr9_a_SOURCES) $(lib64_libdxguid_a_SOURCES) \
-	$(lib64_libgmon_a_SOURCES) $(lib64_libkernel32_a_SOURCES) \
+	$(lib32_libksuser_a_SOURCES) $(lib32_liblargeint_a_SOURCES) \
+	$(nodist_lib32_libm_a_SOURCES) $(lib32_libscrnsave_a_SOURCES) \
+	$(lib32_libscrnsavw_a_SOURCES) $(lib32_libshell32_a_SOURCES) \
+	$(lib32_libstrmiids_a_SOURCES) $(lib32_libuuid_a_SOURCES) \
+	$(lib32_libws2_32_a_SOURCES) $(lib64_libdinput_a_SOURCES) \
+	$(lib64_libdinput8_a_SOURCES) $(lib64_libdmoguids_a_SOURCES) \
+	$(lib64_libdxerr8_a_SOURCES) $(lib64_libdxerr9_a_SOURCES) \
+	$(lib64_libdxguid_a_SOURCES) $(lib64_libgmon_a_SOURCES) \
 	$(lib64_libksuser_a_SOURCES) $(lib64_liblargeint_a_SOURCES) \
 	$(nodist_lib64_libm_a_SOURCES) $(lib64_libmingw32_a_SOURCES) \
 	$(lib64_libmingwex_a_SOURCES) $(lib64_libmoldname_a_SOURCES) \
@@ -862,7 +851,6 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdxerr8_a_SOURCES_DIST) \
 	$(am__lib32_libdxerr9_a_SOURCES_DIST) \
 	$(am__lib32_libdxguid_a_SOURCES_DIST) \
-	$(am__lib32_libkernel32_a_SOURCES_DIST) \
 	$(am__lib32_libksuser_a_SOURCES_DIST) \
 	$(am__lib32_liblargeint_a_SOURCES_DIST) \
 	$(am__lib32_libscrnsave_a_SOURCES_DIST) \
@@ -878,7 +866,6 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib64_libdxerr9_a_SOURCES_DIST) \
 	$(am__lib64_libdxguid_a_SOURCES_DIST) \
 	$(am__lib64_libgmon_a_SOURCES_DIST) \
-	$(am__lib64_libkernel32_a_SOURCES_DIST) \
 	$(am__lib64_libksuser_a_SOURCES_DIST) \
 	$(am__lib64_liblargeint_a_SOURCES_DIST) \
 	$(am__lib64_libmingw32_a_SOURCES_DIST) \
@@ -1025,8 +1012,8 @@ top_srcdir = @top_srcdir@
 @VISTA_TRUE@vistasupport = -D__USE_MINGW_ACCESS
 @VISTA_FALSE@enablevista = 
 @VISTA_TRUE@enablevista = --enable-vista
-AM_CPPFLAGS = -D_CRTBLD $(sysincludes) -Wall
-AM_CFLAGS = -pipe $(vistasupport) -Wall
+AM_CPPFLAGS = -D_CRTBLD $(sysincludes)
+AM_CFLAGS = -pipe $(vistasupport) -Wall -std=gnu99
 AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@
 DTDEF = $(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
@@ -1049,19 +1036,16 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB32_TRUE@dxerr.c \
 @LIB32_TRUE@test.c
 
-@LIB32_TRUE@lib32_LIBRARIES = lib32/libm.a lib32/libkernel32.a \
-@LIB32_TRUE@	lib32/libshell32.a lib32/libdinput.a \
-@LIB32_TRUE@	lib32/libdinput8.a lib32/libdmoguids.a \
-@LIB32_TRUE@	lib32/libdxerr8.a lib32/libdxerr9.a \
-@LIB32_TRUE@	lib32/libdxguid.a lib32/libksuser.a \
-@LIB32_TRUE@	lib32/liblargeint.a lib32/libscrnsave.a \
-@LIB32_TRUE@	lib32/libscrnsavw.a lib32/libstrmiids.a \
-@LIB32_TRUE@	lib32/libuuid.a lib32/libws2_32.a
+@LIB32_TRUE@lib32_LIBRARIES = lib32/libm.a lib32/libshell32.a \
+@LIB32_TRUE@	lib32/libdinput.a lib32/libdinput8.a \
+@LIB32_TRUE@	lib32/libdmoguids.a lib32/libdxerr8.a \
+@LIB32_TRUE@	lib32/libdxerr9.a lib32/libdxguid.a \
+@LIB32_TRUE@	lib32/libksuser.a lib32/liblargeint.a \
+@LIB32_TRUE@	lib32/libscrnsave.a lib32/libscrnsavw.a \
+@LIB32_TRUE@	lib32/libstrmiids.a lib32/libuuid.a \
+@LIB32_TRUE@	lib32/libws2_32.a
 @LIB32_TRUE@nodist_lib32_libm_a_SOURCES = _libm_dummy.c
 @LIB32_TRUE@lib32_libm_a_CPPFLAGS = -m32
-@LIB32_TRUE@lib32_libkernel32_a_SOURCES = libsrc/kernel32.c
-@LIB32_TRUE@lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-@LIB32_TRUE@lib32_libkernel32_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = libsrc/shell32.c
 @LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libshell32_a_CPPFLAGS = -m32
@@ -1108,7 +1092,7 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB32_TRUE@  lib32/dsound.def    lib32/dxapi.def     lib32/faultrep.def  lib32/gdi32.def     lib32/glaux.def    \
 @LIB32_TRUE@  lib32/glu32.def     lib32/glut32.def    lib32/glut.def      lib32/hal.def       lib32/hid.def      \
 @LIB32_TRUE@  lib32/hidparse.def  lib32/icmui.def     lib32/igmpagnt.def  lib32/imagehlp.def  lib32/imm32.def    \
-@LIB32_TRUE@  lib32/iphlpapi.def                      lib32/ksproxy.def                       lib32/lz32.def     \
+@LIB32_TRUE@  lib32/iphlpapi.def  lib32/kernel32.def  lib32/ksproxy.def                       lib32/lz32.def     \
 @LIB32_TRUE@  lib32/mapi32.def    lib32/mcd.def       lib32/mfcuia32.def  lib32/mgmtapi.def   lib32/mprapi.def   \
 @LIB32_TRUE@  lib32/mpr.def       lib32/mqrt.def      lib32/msacm32.def   lib32/mscms.def     lib32/msdmo.def    \
 @LIB32_TRUE@  lib32/msimg32.def   lib32/msvcp60.def   lib32/msvfw32.def   lib32/mswsock.def   lib32/nddeapi.def  \
@@ -1143,19 +1127,17 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o \
 @LIB64_TRUE@  crt64/gcrt0.o crt64/gcrt1.o crt64/gcrt2.o
 
-@LIB64_TRUE@lib64_LIBRARIES = lib64/libm.a lib64/libkernel32.a \
-@LIB64_TRUE@	lib64/libshell32.a lib64/libdinput.a \
-@LIB64_TRUE@	lib64/libdinput8.a lib64/libdmoguids.a \
-@LIB64_TRUE@	lib64/libdxerr8.a lib64/libdxerr9.a \
-@LIB64_TRUE@	lib64/libdxguid.a lib64/libgmon.a \
-@LIB64_TRUE@	lib64/libksuser.a lib64/liblargeint.a \
-@LIB64_TRUE@	lib64/libscrnsave.a lib64/libscrnsavw.a \
-@LIB64_TRUE@	lib64/libuuid.a lib64/libmingw32.a \
-@LIB64_TRUE@	lib64/libmoldname.a lib64/libstrmiids.a \
-@LIB64_TRUE@	lib64/libws2_32.a lib64/libmingwex.a
+@LIB64_TRUE@lib64_LIBRARIES = lib64/libm.a lib64/libshell32.a \
+@LIB64_TRUE@	lib64/libdinput.a lib64/libdinput8.a \
+@LIB64_TRUE@	lib64/libdmoguids.a lib64/libdxerr8.a \
+@LIB64_TRUE@	lib64/libdxerr9.a lib64/libdxguid.a \
+@LIB64_TRUE@	lib64/libgmon.a lib64/libksuser.a \
+@LIB64_TRUE@	lib64/liblargeint.a lib64/libscrnsave.a \
+@LIB64_TRUE@	lib64/libscrnsavw.a lib64/libuuid.a \
+@LIB64_TRUE@	lib64/libmingw32.a lib64/libmoldname.a \
+@LIB64_TRUE@	lib64/libstrmiids.a lib64/libws2_32.a \
+@LIB64_TRUE@	lib64/libmingwex.a
 @LIB64_TRUE@nodist_lib64_libm_a_SOURCES = _libm_dummy.c
-@LIB64_TRUE@lib64_libkernel32_a_SOURCES = libsrc/kernel32.c
-@LIB64_TRUE@lib64_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libshell32_a_SOURCES = libsrc/shell32.c
 @LIB64_TRUE@lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libdinput_a_SOURCES = libsrc/dinput_private.h \
@@ -1707,7 +1689,7 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  lib64/libwsensapi.a   lib64/libwsenscfg.a   lib64/libwsens.a        lib64/libwseo.a       lib64/libwserialui.a     \
 @LIB64_TRUE@  lib64/libwservdeps.a  lib64/libwserwvdrv.a  lib64/libwsetupapi.a    lib64/libwsfc.a       lib64/libwsfcfiles.a     \
 @LIB64_TRUE@  lib64/libwsfc_os.a    lib64/libwsfmapi.a    lib64/libwshatm.a       lib64/libwshbth.a     lib64/libwshcon.a        \
-@LIB64_TRUE@  lib64/libwwdmaud.a    lib64/libwwinspool.a  lib64/libzoneoc.a
+@LIB64_TRUE@  lib64/libwwdmaud.a    lib64/libwwinspool.a  lib64/libzoneoc.a       lib64/libkernel32.a
 
 
 # End 64-bit runtime
@@ -1901,12 +1883,6 @@ lib32/libdxguid.a: $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_DEPENDENCIES
 	-rm -f lib32/libdxguid.a
 	$(lib32_libdxguid_a_AR) lib32/libdxguid.a $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_LIBADD)
 	$(RANLIB) lib32/libdxguid.a
-libsrc/lib32_libkernel32_a-kernel32.$(OBJEXT): libsrc/$(am__dirstamp) \
-	libsrc/$(DEPDIR)/$(am__dirstamp)
-lib32/libkernel32.a: $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_DEPENDENCIES) lib32/$(am__dirstamp)
-	-rm -f lib32/libkernel32.a
-	$(lib32_libkernel32_a_AR) lib32/libkernel32.a $(lib32_libkernel32_a_OBJECTS) $(lib32_libkernel32_a_LIBADD)
-	$(RANLIB) lib32/libkernel32.a
 libsrc/ksuser.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libksuser.a: $(lib32_libksuser_a_OBJECTS) $(lib32_libksuser_a_DEPENDENCIES) lib32/$(am__dirstamp)
@@ -2046,12 +2022,6 @@ lib64/libgmon.a: $(lib64_libgmon_a_OBJECTS) $(lib64_libgmon_a_DEPENDENCIES) lib6
 	-rm -f lib64/libgmon.a
 	$(lib64_libgmon_a_AR) lib64/libgmon.a $(lib64_libgmon_a_OBJECTS) $(lib64_libgmon_a_LIBADD)
 	$(RANLIB) lib64/libgmon.a
-libsrc/kernel32.$(OBJEXT): libsrc/$(am__dirstamp) \
-	libsrc/$(DEPDIR)/$(am__dirstamp)
-lib64/libkernel32.a: $(lib64_libkernel32_a_OBJECTS) $(lib64_libkernel32_a_DEPENDENCIES) lib64/$(am__dirstamp)
-	-rm -f lib64/libkernel32.a
-	$(lib64_libkernel32_a_AR) lib64/libkernel32.a $(lib64_libkernel32_a_OBJECTS) $(lib64_libkernel32_a_LIBADD)
-	$(RANLIB) lib64/libkernel32.a
 lib64/libksuser.a: $(lib64_libksuser_a_OBJECTS) $(lib64_libksuser_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libksuser.a
 	$(lib64_libksuser_a_AR) lib64/libksuser.a $(lib64_libksuser_a_OBJECTS) $(lib64_libksuser_a_LIBADD)
@@ -3062,10 +3032,8 @@ mostlyclean-compile:
 	-rm -f libsrc/extras-uuid.$(OBJEXT)
 	-rm -f libsrc/hlguids-uuid.$(OBJEXT)
 	-rm -f libsrc/hlink-uuid.$(OBJEXT)
-	-rm -f libsrc/kernel32.$(OBJEXT)
 	-rm -f libsrc/ksuser.$(OBJEXT)
 	-rm -f libsrc/largeint.$(OBJEXT)
-	-rm -f libsrc/lib32_libkernel32_a-kernel32.$(OBJEXT)
 	-rm -f libsrc/lib32_libscrnsavw_a-scrnsave.$(OBJEXT)
 	-rm -f libsrc/lib32_libshell32_a-shell32.$(OBJEXT)
 	-rm -f libsrc/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
@@ -3479,10 +3447,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/extras-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/hlguids-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/hlink-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/kernel32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/ksuser.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/largeint.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libshell32_a-shell32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po@am__quote@
@@ -4306,20 +4272,6 @@ misc/lib64_libmingwex_a-mingw_getsp.obj: misc/mingw_getsp.S
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
-
-libsrc/lib32_libkernel32_a-kernel32.o: libsrc/kernel32.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libkernel32_a-kernel32.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Tpo -c -o libsrc/lib32_libkernel32_a-kernel32.o `test -f 'libsrc/kernel32.c' || echo '$(srcdir)/'`libsrc/kernel32.c
-@am__fastdepCC_TRUE@	mv -f libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Tpo libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/kernel32.c' object='libsrc/lib32_libkernel32_a-kernel32.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libkernel32_a-kernel32.o `test -f 'libsrc/kernel32.c' || echo '$(srcdir)/'`libsrc/kernel32.c
-
-libsrc/lib32_libkernel32_a-kernel32.obj: libsrc/kernel32.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libkernel32_a-kernel32.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Tpo -c -o libsrc/lib32_libkernel32_a-kernel32.obj `if test -f 'libsrc/kernel32.c'; then $(CYGPATH_W) 'libsrc/kernel32.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/kernel32.c'; fi`
-@am__fastdepCC_TRUE@	mv -f libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Tpo libsrc/$(DEPDIR)/lib32_libkernel32_a-kernel32.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/kernel32.c' object='libsrc/lib32_libkernel32_a-kernel32.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libkernel32_a-kernel32.obj `if test -f 'libsrc/kernel32.c'; then $(CYGPATH_W) 'libsrc/kernel32.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/kernel32.c'; fi`
 
 lib32_libm_a-_libm_dummy.o: _libm_dummy.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libm_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lib32_libm_a-_libm_dummy.o -MD -MP -MF $(DEPDIR)/lib32_libm_a-_libm_dummy.Tpo -c -o lib32_libm_a-_libm_dummy.o `test -f '_libm_dummy.c' || echo '$(srcdir)/'`_libm_dummy.c

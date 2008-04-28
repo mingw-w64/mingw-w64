@@ -26,8 +26,8 @@ else
   enablevista=
 endif
 
-AM_CPPFLAGS=-D_CRTBLD $(sysincludes) -Wall
-AM_CFLAGS=-pipe $(vistasupport) -Wall
+AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
+AM_CFLAGS=-pipe $(vistasupport) -Wall -std=gnu99
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
@@ -61,11 +61,6 @@ test.c
 lib32_LIBRARIES = lib32/libm.a
 nodist_lib32_libm_a_SOURCES = _libm_dummy.c
 lib32_libm_a_CPPFLAGS = -m32
-
-lib32_LIBRARIES += lib32/libkernel32.a
-lib32_libkernel32_a_SOURCES = libsrc/kernel32.c
-lib32_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-lib32_libkernel32_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = libsrc/shell32.c
@@ -138,7 +133,7 @@ lib32_SCRIPTS = \
   lib32/dsound.def    lib32/dxapi.def     lib32/faultrep.def  lib32/gdi32.def     lib32/glaux.def    \
   lib32/glu32.def     lib32/glut32.def    lib32/glut.def      lib32/hal.def       lib32/hid.def      \
   lib32/hidparse.def  lib32/icmui.def     lib32/igmpagnt.def  lib32/imagehlp.def  lib32/imm32.def    \
-  lib32/iphlpapi.def                      lib32/ksproxy.def                       lib32/lz32.def     \
+  lib32/iphlpapi.def  lib32/kernel32.def  lib32/ksproxy.def                       lib32/lz32.def     \
   lib32/mapi32.def    lib32/mcd.def       lib32/mfcuia32.def  lib32/mgmtapi.def   lib32/mprapi.def   \
   lib32/mpr.def       lib32/mqrt.def      lib32/msacm32.def   lib32/mscms.def     lib32/msdmo.def    \
   lib32/msimg32.def   lib32/msvcp60.def   lib32/msvfw32.def   lib32/mswsock.def   lib32/nddeapi.def  \
@@ -204,10 +199,6 @@ crt64/gcrt2.o: profile/gcrt0.c
 
 lib64_LIBRARIES = lib64/libm.a
 nodist_lib64_libm_a_SOURCES = _libm_dummy.c
-
-lib64_LIBRARIES += lib64/libkernel32.a
-lib64_libkernel32_a_SOURCES = libsrc/kernel32.c
-lib64_libkernel32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = libsrc/shell32.c
@@ -790,7 +781,7 @@ lib64_SCRIPTS = \
   lib64/libwsensapi.a   lib64/libwsenscfg.a   lib64/libwsens.a        lib64/libwseo.a       lib64/libwserialui.a     \
   lib64/libwservdeps.a  lib64/libwserwvdrv.a  lib64/libwsetupapi.a    lib64/libwsfc.a       lib64/libwsfcfiles.a     \
   lib64/libwsfc_os.a    lib64/libwsfmapi.a    lib64/libwshatm.a       lib64/libwshbth.a     lib64/libwshcon.a        \
-  lib64/libwwdmaud.a    lib64/libwwinspool.a  lib64/libzoneoc.a
+  lib64/libwwdmaud.a    lib64/libwwinspool.a  lib64/libzoneoc.a       lib64/libkernel32.a
 
 lib64/lib%.a:
 	$(DTDEF) $(top_srcdir)/lib64/$*.def
