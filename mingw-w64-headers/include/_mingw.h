@@ -57,8 +57,8 @@ limitations in handling dllimport attribute.  */
 #ifdef __cplusplus
 # define __CRT_INLINE inline
 #else
-# if __GNUC_STDC_INLINE__
-#  define __CRT_INLINE extern __inline __attribute__((__gnu_inline__))
+# if ( __MINGW_GNUC_PREREQ(4, 3)  &&  __STDC_VERSION__ >= 199901L)
+#  define __CRT_INLINE extern __attribute__((__gnu__inline__)) inline
 # else
 #  define __CRT_INLINE extern __inline__
 # endif
@@ -81,6 +81,35 @@ limitations in handling dllimport attribute.  */
 #define __MINGW_ATTRIB_NORETURN
 #define __MINGW_ATTRIB_CONST
 #endif
+
+#if __MINGW_GNUC_PREREQ (3, 0)
+#define __MINGW_ATTRIB_MALLOC __attribute__ ((__malloc__))
+#define __MINGW_ATTRIB_PURE __attribute__ ((__pure__))
+#else
+#define __MINGW_ATTRIB_MALLOC
+#define __MINGW_ATTRIB_PURE
+#endif
+
+/* Attribute `nonnull' was valid as of gcc 3.3.  We don't use GCC's
+   variadiac macro facility, because variadic macros cause syntax
+   errors with  --traditional-cpp.  */
+#if  __MINGW_GNUC_PREREQ (3, 3)
+#define __MINGW_ATTRIB_NONNULL(arg) __attribute__ ((__nonnull__ (arg)))
+#else
+#define __MINGW_ATTRIB_NONNULL(arg)
+#endif /* GNUC >= 3.3 */
+
+#if  __MINGW_GNUC_PREREQ (3, 1)
+#define __MINGW_ATTRIB_DEPRECATED __attribute__ ((__deprecated__))
+#else
+#define __MINGW_ATTRIB_DEPRECATED
+#endif /* GNUC >= 3.1 */
+
+#ifndef __MSVCRT_VERSION__
+/*  High byte is the major version, low byte is the minor. */
+# define __MSVCRT_VERSION__ 0x0700
+#endif
+
 
 #ifndef WINVER
 #define WINVER 0x0502

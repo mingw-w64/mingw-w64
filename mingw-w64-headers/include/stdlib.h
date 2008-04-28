@@ -427,9 +427,10 @@ extern "C" {
   _CRTIMP void __cdecl _wsplitpath(const wchar_t *_FullPath,wchar_t *_Drive,wchar_t *_Dir,wchar_t *_Filename,wchar_t *_Ext);
 #endif
 
-  _CRTIMP void __cdecl _beep(unsigned _Frequency,unsigned _Duration);
-  _CRTIMP void __cdecl _seterrormode(int _Mode);
-  _CRTIMP void __cdecl _sleep(unsigned long _Duration);
+  _CRTIMP void __cdecl _beep(unsigned _Frequency,unsigned _Duration) __MINGW_ATTRIB_DEPRECATED;
+  /* Not to be confused with  _set_error_mode (int).  */
+  _CRTIMP void __cdecl _seterrormode(int _Mode) __MINGW_ATTRIB_DEPRECATED;
+  _CRTIMP void __cdecl _sleep(unsigned long _Duration) __MINGW_ATTRIB_DEPRECATED;
 #endif
 
 #ifndef	NO_OLDNAMES
