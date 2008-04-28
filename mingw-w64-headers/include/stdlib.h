@@ -304,8 +304,8 @@ extern "C" {
   void __cdecl srand(unsigned int _Seed);
   double __cdecl strtod(const char *_Str,char **_EndPtr);
   float __cdecl strtof(const char *nptr, char **endptr);
-#if !defined __NO_ISOCEXT  /* extern stub in static libmingwex.a */
-  __CRT_INLINE float __cdecl strtof(const char *nptr, char **endptr) { return (strtod (nptr, endptr));}
+#if !defined __NO_ISOCEXT  /* in libmingwex.a */
+  float __cdecl strtof (const char * __restrict__, char ** __restrict__);
   long double __cdecl strtold(const char * __restrict__, char ** __restrict__);
 #endif /* __NO_ISOCEXT */
   _CRTIMP double __cdecl _strtod_l(const char *_Str,char **_EndPtr,_locale_t _Locale);
@@ -347,8 +347,8 @@ extern "C" {
   _CRTIMP wchar_t *__cdecl _ultow(unsigned long _Value,wchar_t *_Dest,int _Radix);
   double __cdecl wcstod(const wchar_t *_Str,wchar_t **_EndPtr);
   float __cdecl wcstof(const wchar_t *nptr, wchar_t **endptr);
-#if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
-  __CRT_INLINE float __cdecl wcstof(const wchar_t *nptr, wchar_t **endptr) { return (wcstod(nptr, endptr)); }
+#if !defined __NO_ISOCEXT /* in libmingwex.a */
+  float __cdecl wcstof( const wchar_t * __restrict__, wchar_t ** __restrict__);
   long double __cdecl wcstold(const wchar_t * __restrict__, wchar_t ** __restrict__);
 #endif /* __NO_ISOCEXT */
   _CRTIMP double __cdecl _wcstod_l(const wchar_t *_Str,wchar_t **_EndPtr,_locale_t _Locale);
@@ -427,8 +427,8 @@ extern "C" {
   _CRTIMP void __cdecl _wsplitpath(const wchar_t *_FullPath,wchar_t *_Drive,wchar_t *_Dir,wchar_t *_Filename,wchar_t *_Ext);
 #endif
 
-  _CRTIMP void __cdecl _seterrormode(int _Mode);
   _CRTIMP void __cdecl _beep(unsigned _Frequency,unsigned _Duration);
+  _CRTIMP void __cdecl _seterrormode(int _Mode);
   _CRTIMP void __cdecl _sleep(unsigned long _Duration);
 #endif
 
