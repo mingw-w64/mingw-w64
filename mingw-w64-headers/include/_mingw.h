@@ -7,6 +7,14 @@
 #ifndef _INC_CRTDEFS
 #define _INC_CRTDEFS
 
+#ifndef MINGW64
+#define MINGW64
+#define MINGW64_VERSION	1.0
+#define MINGW64_VERSION_MAJOR	1
+#define MINGW64_VERSION_MINOR	0
+#define MINGW64_VERSION_STATE	"alpha"
+#endif
+
 #ifndef __GNUC__
 # ifndef __MINGW_IMPORT
 #  define __MINGW_IMPORT  __declspec(dllimport)
@@ -277,6 +285,8 @@ extern "C" {
 
 #ifndef _INTPTR_T_DEFINED
 #define _INTPTR_T_DEFINED
+#ifndef __intptr_t_defined
+#define __intptr_t_defined
 #undef intptr_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
@@ -288,9 +298,12 @@ extern "C" {
   typedef int intptr_t;
 #endif
 #endif
+#endif
 
 #ifndef _UINTPTR_T_DEFINED
 #define _UINTPTR_T_DEFINED
+#ifndef __uintptr_t_defined
+#define __uintptr_t_defined
 #undef uintptr_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
@@ -300,6 +313,7 @@ extern "C" {
 #endif
 #else
   typedef unsigned int uintptr_t;
+#endif
 #endif
 #endif
 

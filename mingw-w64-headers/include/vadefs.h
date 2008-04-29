@@ -22,6 +22,8 @@ extern "C" {
 
 #ifndef _UINTPTR_T_DEFINED
 #define _UINTPTR_T_DEFINED
+#ifndef __uintptr_t_defined
+#define __uintptr_t_defined
 #undef uintptr_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
@@ -31,6 +33,7 @@ extern "C" {
 #endif
 #else
   typedef unsigned long uintptr_t;
+#endif
 #endif
 #endif
 
