@@ -8,7 +8,7 @@ extern func_ptr __DTOR_LIST__[];
 
 static HMODULE hMsvcrt = NULL;
 
-typedef __declspec(noreturn) void __cdecl flongjmp(jmp_buf _Buf,int _Value);
+typedef void __cdecl flongjmp(jmp_buf _Buf,int _Value);
 
 flongjmp *fctMsvcrtLongJmp = NULL;
 
