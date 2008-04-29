@@ -58,7 +58,7 @@ limitations in handling dllimport attribute.  */
 # define __CRT_INLINE inline
 #else
 # if ( __MINGW_GNUC_PREREQ(4, 3)  &&  __STDC_VERSION__ >= 199901L)
-#  define __CRT_INLINE extern __attribute__((__gnu__inline__)) inline
+#  define __CRT_INLINE extern __inline __attribute__((__gnu__inline__))
 # else
 #  define __CRT_INLINE extern __inline__
 # endif
