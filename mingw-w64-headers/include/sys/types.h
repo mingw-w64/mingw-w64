@@ -83,9 +83,12 @@ typedef _mode_t	mode_t;
 
 #ifndef _OFF_T_DEFINED
 #define _OFF_T_DEFINED
-typedef long _off_t;
-#ifndef	NO_OLDNAMES
-typedef long off_t;
+#ifndef _OFF_T_
+#define _OFF_T_
+  typedef long _off_t;
+#if !defined(NO_OLDNAMES) || defined(_POSIX)
+  typedef long off_t;
+#endif
 #endif
 #endif
 

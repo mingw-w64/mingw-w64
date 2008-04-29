@@ -353,9 +353,12 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
 
 #ifndef _OFF_T_DEFINED
 #define _OFF_T_DEFINED
+#ifndef _OFF_T_
+#define _OFF_T_
   typedef long _off_t;
-#ifndef	NO_OLDNAMES
+#if !defined(NO_OLDNAMES) || defined(_POSIX)
   typedef long off_t;
+#endif
 #endif
 #endif
 
