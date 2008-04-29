@@ -28,6 +28,7 @@ extern char ***_imp____initenv;
 /* This symbol is defined by ld.  */
 extern IMAGE_DOS_HEADER __ImageBase;
 
+extern void _fpreset (void);
 #define SPACECHAR _T(' ')
 #define DQUOTECHAR _T('\"')
 
@@ -197,7 +198,6 @@ __tmainCRTStartup (void)
     if (__dyn_tls_init_callback != NULL && _IsNonwritableInCurrentImage ((PBYTE) &__dyn_tls_init_callback))
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);
     
-    _CrtSetCheckCount (FALSE);
     _pei386_runtime_relocator ();
     
     #ifdef _WIN64
