@@ -65,6 +65,7 @@ typedef unsigned Long Ulong;
 
 #define UL (unsigned long)
 
+#if MINGW_BUILD_GEN
  int
 main(void)
 {
@@ -108,3 +109,4 @@ main(void)
 #endif /* HAVE_IEEE */
 	return 0;
 	}
+#endif
