@@ -6,6 +6,8 @@
 #ifndef __WINCRYPT_H__
 #define __WINCRYPT_H__
 
+#include <guiddef.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
