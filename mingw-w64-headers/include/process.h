@@ -8,6 +8,9 @@
 
 #include <_mingw.h>
 
+/* Includes a definition of _pid_t and pid_t */
+#include <sys/types.h>
+
 #ifndef _POSIX_
 #ifdef __cplusplus
 extern "C" {
