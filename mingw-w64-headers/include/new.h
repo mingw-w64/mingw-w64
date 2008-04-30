@@ -17,23 +17,10 @@
 
 #ifndef __NOTHROW_T_DEFINED
 #define __NOTHROW_T_DEFINED
-namespace std {
-
-  struct nothrow_t {};
-
-  extern const nothrow_t nothrow;
-};
-
-void *__cdecl operator new(size_t _Size,const std::nothrow_t&) throw();
-void *__cdecl operator new[](size_t _Size,const std::nothrow_t&) throw();
-void __cdecl operator delete(void *,const std::nothrow_t&) throw();
-void __cdecl operator delete[](void *,const std::nothrow_t&) throw();
 #endif
 
 #ifndef __PLACEMENT_NEW_INLINE
 #define __PLACEMENT_NEW_INLINE
-inline void *__cdecl operator new(size_t,void *_Where) { return (_Where); }
-inline void __cdecl operator delete(void *,void *) { return; }
 #endif
 
 _CRTIMP int __cdecl _query_new_mode(void);
