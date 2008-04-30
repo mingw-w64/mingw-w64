@@ -12,7 +12,7 @@
 
 extern int mingw_app_type;
 
-static cpy_wstr (char *buf, const wchar_t *src, size_t max)
+static void cpy_wstr (char *buf, const wchar_t *src, size_t max)
 {
   if (src)
     {
