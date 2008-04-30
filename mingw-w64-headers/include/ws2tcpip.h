@@ -10,19 +10,7 @@
 #pragma GCC system_header
 #endif
 
-#include <winsock2.h>
-
-/**
-struct ip_mreq {
-  struct in_addr imr_multiaddr;
-  struct in_addr imr_interface;
-};
-*/
-struct ip_mreq_source {
-  struct in_addr imr_multiaddr;
-  struct in_addr imr_sourceaddr;
-  struct in_addr imr_interface;
-};
+#include <ws2ipdef.h>
 
 struct ip_msfilter {
   struct in_addr imsf_multiaddr;
