@@ -109,7 +109,6 @@ BOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	{
 	  __dyn_tls_init_callback (hDllHandle, DLL_THREAD_ATTACH, lpreserved);
 	}
-      _CrtSetCheckCount (TRUE);
       __proc_attached++;
     }
   else if (dwReason == DLL_PROCESS_DETACH)
