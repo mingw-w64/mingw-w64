@@ -10,7 +10,8 @@
 .globl _scalbnl
 	.def	_scalbnl;	.scl	2;	.type	32;	.endef
 _scalbnl:
-	fildl	(%r8)
+	movq	%r8.-16(%rsp)
+	fildl	-16(%rsp)
 	fldt	(%rdx)
 	fscale
 	fstp	%st(1)

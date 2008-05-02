@@ -10,14 +10,14 @@
 .globl _scalbnf
 	.def	_scalbnf;	.scl	2;	.type	32;	.endef
 _scalbnf:
-	movss	%xmm1,-12(%rsp)
-	fildl	-12(%rsp)
-	movss	%xmm0,-12(%rsp)
-	flds	-12(%rsp)
+	movq	%rdx.-16(%rsp)
+	fildl	-16(%rsp)
+	movss	%xmm0,-16(%rsp)
+	flds	-16(%rsp)
 	fscale
 	fstp	%st(1)
-	fstps	-12(%rsp)
-	movss	-12(%rsp),%xmm0
+	fstps	-16(%rsp)
+	movss	-16(%rsp),%xmm0
 	ret
 
 .globl _scalblnf
