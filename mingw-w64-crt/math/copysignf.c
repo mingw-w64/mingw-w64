@@ -5,11 +5,15 @@
  */
 #include <math.h>
 
-float copysignf(float x, float y)
+typedef union ui_f {
+	float f;
+	unsigned int ui;
+} ui_f;
+
+float copysignf(float aX, float aY)
 {
-  unsigned int ix,iy;
-  ix = ((unsigned int *) &x)[0];
-  iy = ((unsigned int *) &y)[0];
-  ((unsigned int *) &x)[0] = (ix & 0x7fffffff) | (iy & 0x80000000);
-  return x;
+  ui_f x,y;
+  x.f=aX; y.f=aY;
+  x.ui= (x.ui & 0x7fffffff) | (y.ui & 0x80000000);
+  return x.f;
 }
