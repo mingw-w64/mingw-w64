@@ -10,7 +10,7 @@
 .globl _scalbnf
 	.def	_scalbnf;	.scl	2;	.type	32;	.endef
 _scalbnf:
-	movq	%rdx.-16(%rsp)
+	movq	%rdx,-16(%rsp)
 	fildl	-16(%rsp)
 	movss	%xmm0,-16(%rsp)
 	flds	-16(%rsp)
