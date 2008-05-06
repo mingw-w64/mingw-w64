@@ -6,6 +6,10 @@
 #ifndef _MATH_H_
 #define _MATH_H_
 
+#if __GNUC__ >= 3
+#pragma GCC system_header
+#endif
+
 #include <_mingw.h>
 
 struct exception;
@@ -697,6 +701,63 @@ extern "C++" {
 #define M_2_SQRTPI 1.12837916709551257390
 #define M_SQRT2 1.41421356237309504880
 #define M_SQRT1_2 0.707106781186547524401
+#endif
+
+#ifndef __MINGW_FPCLASS_DEFINED
+#define __MINGW_FPCLASS_DEFINED 1
+#define	_FPCLASS_SNAN	0x0001	/* Signaling "Not a Number" */
+#define	_FPCLASS_QNAN	0x0002	/* Quiet "Not a Number" */
+#define	_FPCLASS_NINF	0x0004	/* Negative Infinity */
+#define	_FPCLASS_NN	0x0008	/* Negative Normal */
+#define	_FPCLASS_ND	0x0010	/* Negative Denormal */
+#define	_FPCLASS_NZ	0x0020	/* Negative Zero */
+#define	_FPCLASS_PZ	0x0040	/* Positive Zero */
+#define	_FPCLASS_PD	0x0080	/* Positive Denormal */
+#define	_FPCLASS_PN	0x0100	/* Positive Normal */
+#define	_FPCLASS_PINF	0x0200	/* Positive Infinity */
+#endif /* __MINGW_FPCLASS_DEFINED */
+
+/* 7.12.14 */
+/* 
+ *  With these functions, comparisons involving quiet NaNs set the FP
+ *  condition code to "unordered".  The IEEE floating-point spec
+ *  dictates that the result of floating-point comparisons should be
+ *  false whenever a NaN is involved, with the exception of the != op, 
+ *  which always returns true: yes, (NaN != NaN) is true).
+ */
+
+#if __GNUC__ >= 3
+
+#define isgreater(x, y) __builtin_isgreater(x, y)
+#define isgreaterequal(x, y) __builtin_isgreaterequal(x, y)
+#define isless(x, y) __builtin_isless(x, y)
+#define islessequal(x, y) __builtin_islessequal(x, y)
+#define islessgreater(x, y) __builtin_islessgreater(x, y)
+#define isunordered(x, y) __builtin_isunordered(x, y)
+
+#else
+/*  helper  */
+__CRT_INLINE int  __cdecl
+__fp_unordered_compare (long double x, long double y){
+  unsigned short retval;
+  __asm__ ("fucom %%st(1);"
+	   "fnstsw;": "=a" (retval) : "t" (x), "u" (y));
+  return retval;
+}
+
+#define isgreater(x, y) ((__fp_unordered_compare(x, y) \
+			   & 0x4500) == 0)
+#define isless(x, y) ((__fp_unordered_compare (y, x) \
+                       & 0x4500) == 0)
+#define isgreaterequal(x, y) ((__fp_unordered_compare (x, y) \
+                               & FP_INFINITE) == 0)
+#define islessequal(x, y) ((__fp_unordered_compare(y, x) \
+			    & FP_INFINITE) == 0)
+#define islessgreater(x, y) ((__fp_unordered_compare(x, y) \
+			      & FP_SUBNORMAL) == 0)
+#define isunordered(x, y) ((__fp_unordered_compare(x, y) \
+			    & 0x4500) == 0x4500)
+
 #endif
 
 #endif /* End _MATH_H_ */
