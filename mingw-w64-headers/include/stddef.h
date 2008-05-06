@@ -6,9 +6,6 @@
 #include <_mingw.h>
 
 #if defined(__need_ptrdiff_t)
-#ifndef __PTRDIFF_TYPE__
-#define __PTRDIFF_TYPE__ long long
-#endif
 #ifdef _PTRDIFF_T_DEFINED
 #undef __need_ptrdiff_t
 #else
@@ -21,10 +18,18 @@
 #endif
 
 #if define(__need_wchar_t)
-#ifdef _WCHAR_T_DEFINED_
+#ifdef _WCHAR_T_DEFINED
 #undef __need_wchar_t
 #else
-#define _WCHAR_T_DEFINED_
+#define _WCHAR_T_DEFINED
+#endif
+#endif
+
+#if defined(__need_wint_t)
+#ifdef _WCTYPE_T_DEFINED
+#undef __need_wint_t
+#else
+#define _WCTYPE_T_DEFINED
 #endif
 #endif
 
