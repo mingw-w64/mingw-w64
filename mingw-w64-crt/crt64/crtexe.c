@@ -443,6 +443,7 @@ static void duplicate_ppstrings (int ac, wchar_t ***av)
 		n[i] = (wchar_t *) malloc (l);
 		memcpy (n[i], av[i], l);
 	  }
+	n[i] = NULL;
 	*av = n;
 }
 #else
@@ -456,6 +457,7 @@ static void duplicate_ppstrings (int ac, char ***av)
 		n[i] = (wchar_t *) malloc (l);
 		memcpy (n[i], av[i], l);
 	  }
+	n[i] = NULL;
 	*av = n;
 }
 #endif
