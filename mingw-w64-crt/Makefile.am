@@ -345,7 +345,7 @@ lib64_libmingwex_a_SOURCES = \
   math/expf.c          math/isnan.c        math/nexttoward.c   math/trunc.c      \
   math/expl.c          math/isnanf.c       math/nexttowardf.c  math/truncf.c     \
   math/expm1.c         math/isnanl.c       math/powf.c         math/truncl.c     \
-  math/expm1f.c        math/ldexpf.c       math/powi.c         \
+  math/expm1f.c        math/ldexpf.c       math/powi.c         math/pow.c        \
   \
   misc/mb_wc_common.h \
   misc/alarm.c            misc/fesetenv.c         misc/io_intrin.c             misc/wcrtomb.c        \

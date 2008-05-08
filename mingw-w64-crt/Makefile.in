@@ -370,7 +370,7 @@ am__lib64_libmingwex_a_SOURCES_DIST = complex/cabs.c complex/casinhl.c \
 	math/trunc.c math/expl.c math/isnanf.c math/nexttowardf.c \
 	math/truncf.c math/expm1.c math/isnanl.c math/powf.c \
 	math/truncl.c math/expm1f.c math/ldexpf.c math/powi.c \
-	misc/mb_wc_common.h misc/alarm.c misc/fesetenv.c \
+	math/pow.c misc/mb_wc_common.h misc/alarm.c misc/fesetenv.c \
 	misc/io_intrin.c misc/wcrtomb.c misc/btowc.c \
 	misc/fesetexceptflag.c misc/mingw-aligned-malloc.c \
 	misc/wcstoimax.c misc/ctime.c misc/fesetround.c \
@@ -640,6 +640,7 @@ am__lib64_libmingwex_a_SOURCES_DIST = complex/cabs.c complex/casinhl.c \
 @LIB64_TRUE@	math/lib64_libmingwex_a-expm1f.$(OBJEXT) \
 @LIB64_TRUE@	math/lib64_libmingwex_a-ldexpf.$(OBJEXT) \
 @LIB64_TRUE@	math/lib64_libmingwex_a-powi.$(OBJEXT) \
+@LIB64_TRUE@	math/lib64_libmingwex_a-pow.$(OBJEXT) \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-alarm.$(OBJEXT) \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-fesetenv.$(OBJEXT) \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-io_intrin.$(OBJEXT) \
@@ -1254,7 +1255,7 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  math/expf.c          math/isnan.c        math/nexttoward.c   math/trunc.c      \
 @LIB64_TRUE@  math/expl.c          math/isnanf.c       math/nexttowardf.c  math/truncf.c     \
 @LIB64_TRUE@  math/expm1.c         math/isnanl.c       math/powf.c         math/truncl.c     \
-@LIB64_TRUE@  math/expm1f.c        math/ldexpf.c       math/powi.c         \
+@LIB64_TRUE@  math/expm1f.c        math/ldexpf.c       math/powi.c         math/pow.c        \
 @LIB64_TRUE@  \
 @LIB64_TRUE@  misc/mb_wc_common.h \
 @LIB64_TRUE@  misc/alarm.c            misc/fesetenv.c         misc/io_intrin.c             misc/wcrtomb.c        \
@@ -2590,6 +2591,8 @@ math/lib64_libmingwex_a-ldexpf.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib64_libmingwex_a-powi.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
+math/lib64_libmingwex_a-pow.$(OBJEXT): math/$(am__dirstamp) \
+	math/$(DEPDIR)/$(am__dirstamp)
 misc/$(am__dirstamp):
 	@$(MKDIR_P) misc
 	@: > misc/$(am__dirstamp)
@@ -3169,6 +3172,7 @@ mostlyclean-compile:
 	-rm -f math/lib64_libmingwex_a-nextafterl.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-nexttoward.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-nexttowardf.$(OBJEXT)
+	-rm -f math/lib64_libmingwex_a-pow.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-powf.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-powi.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-powif.$(OBJEXT)
@@ -3584,6 +3588,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-nextafterl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-nexttoward.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-nexttowardf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-pow.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-powf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-powi.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-powif.Po@am__quote@
@@ -7520,6 +7525,20 @@ math/lib64_libmingwex_a-powi.obj: math/powi.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/powi.c' object='math/lib64_libmingwex_a-powi.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-powi.obj `if test -f 'math/powi.c'; then $(CYGPATH_W) 'math/powi.c'; else $(CYGPATH_W) '$(srcdir)/math/powi.c'; fi`
+
+math/lib64_libmingwex_a-pow.o: math/pow.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-pow.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-pow.Tpo -c -o math/lib64_libmingwex_a-pow.o `test -f 'math/pow.c' || echo '$(srcdir)/'`math/pow.c
+@am__fastdepCC_TRUE@	mv -f math/$(DEPDIR)/lib64_libmingwex_a-pow.Tpo math/$(DEPDIR)/lib64_libmingwex_a-pow.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/pow.c' object='math/lib64_libmingwex_a-pow.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-pow.o `test -f 'math/pow.c' || echo '$(srcdir)/'`math/pow.c
+
+math/lib64_libmingwex_a-pow.obj: math/pow.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-pow.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-pow.Tpo -c -o math/lib64_libmingwex_a-pow.obj `if test -f 'math/pow.c'; then $(CYGPATH_W) 'math/pow.c'; else $(CYGPATH_W) '$(srcdir)/math/pow.c'; fi`
+@am__fastdepCC_TRUE@	mv -f math/$(DEPDIR)/lib64_libmingwex_a-pow.Tpo math/$(DEPDIR)/lib64_libmingwex_a-pow.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/pow.c' object='math/lib64_libmingwex_a-pow.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-pow.obj `if test -f 'math/pow.c'; then $(CYGPATH_W) 'math/pow.c'; else $(CYGPATH_W) '$(srcdir)/math/pow.c'; fi`
 
 misc/lib64_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Tpo -c -o misc/lib64_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c
