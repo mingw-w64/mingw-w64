@@ -78,6 +78,11 @@ static _startupinfo startinfo;
 extern void _pei386_runtime_relocator (void);
 static CALLBACK long _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
 static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data);
+#ifdef WPRFLAG
+static void duplicate_ppstrings (int ac, wchar_t ***av);
+#else
+static void duplicate_ppstrings (int ac, char ***av);
+#endif
 
 static int __cdecl pre_c_init (void);
 static void __cdecl pre_cpp_init (void);
@@ -251,6 +256,7 @@ __tmainCRTStartup (void)
     }
   else
     {
+    duplicate_ppstrings (argc, &argv);
 #ifdef WPRFLAG
     __winitenv = envp;
     mainret = wmain (argc, argv, envp);
@@ -416,3 +422,40 @@ static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data)
 #endif
   return _gnu_exception_handler(exception_data);
 }
+
+#ifdef WPRFLAG
+
+static size_t wbytelen(const wchar_t *p)
+{
+	size_t ret = 1;
+	while (*p!=0) {
+		ret++,++p;
+	}
+	return ret*2;
+}
+static void duplicate_ppstrings (int ac, wchar_t ***av)
+{
+	int i;
+	wchar_t **n = (wchar_t **) malloc (sizeof (wchar_t *) * (ac + 1));
+	for (i=0; i < ac; i++)
+	  {
+		int l = wbytelen (av[i]);
+		n[i] = (wchar_t *) malloc (l);
+		memcpy (n[i], av[i], l);
+	  }
+	*av = n;
+}
+#else
+static void duplicate_ppstrings (int ac, char ***av)
+{
+	int i;
+	char **n = (char **) malloc (sizeof (char *) * (ac + 1));
+	for (i=0; i < ac; i++)
+	  {
+		int l = strlen (av[i]) + 1;
+		n[i] = (wchar_t *) malloc (l);
+		memcpy (n[i], av[i], l);
+	  }
+	*av = n;
+}
+#endif
