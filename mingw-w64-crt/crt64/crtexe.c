@@ -435,13 +435,16 @@ static size_t wbytelen(const wchar_t *p)
 }
 static void duplicate_ppstrings (int ac, wchar_t ***av)
 {
+	wchar_t **avl;
 	int i;
 	wchar_t **n = (wchar_t **) malloc (sizeof (wchar_t *) * (ac + 1));
+
+	avl=*av;
 	for (i=0; i < ac; i++)
 	  {
-		int l = wbytelen (av[i]);
+		int l = wbytelen (avl[i]);
 		n[i] = (wchar_t *) malloc (l);
-		memcpy (n[i], av[i], l);
+		memcpy (n[i], avl[i], l);
 	  }
 	n[i] = NULL;
 	*av = n;
@@ -449,13 +452,16 @@ static void duplicate_ppstrings (int ac, wchar_t ***av)
 #else
 static void duplicate_ppstrings (int ac, char ***av)
 {
+	char **avl;
 	int i;
 	char **n = (char **) malloc (sizeof (char *) * (ac + 1));
+	
+	avl=*av;
 	for (i=0; i < ac; i++)
 	  {
-		int l = strlen (av[i]) + 1;
+		int l = strlen (avl[i]) + 1;
 		n[i] = (wchar_t *) malloc (l);
-		memcpy (n[i], av[i], l);
+		memcpy (n[i], avl[i], l);
 	  }
 	n[i] = NULL;
 	*av = n;
