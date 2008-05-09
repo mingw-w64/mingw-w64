@@ -20,6 +20,11 @@ _mingw_getsp:
 .globl _longjmp
 	.def	_longjmp;	.scl	2;	.type	32;	.endef
 _longjmp:
+#ifdef _WIN64
   xorl %eax,%eax
   movl %eax, (%rcx)
-  jmpq *(_fctMsvcrtLongJmp)
+  leaq _fctMsvcrtLongJmp(%rip), %rax
+  jmpq *(%rax)
+#else
+  jmpl *(_fctMsvcrtLongJmp)
+#endif
