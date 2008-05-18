@@ -10,17 +10,28 @@
 long long
 llround (double x)
 {
-  double c, tmp;
-  c = nextafter (0.5, -1.);
-  /* Add +/- 0.5 then then round towards zero. */
-  tmp = trunc (x + (x >= 0.0 ? c : -c));
-  if (!isfinite (tmp)
-	  || tmp > (double)LONG_LONG_MAX
-	  || tmp < (double)LONG_LONG_MIN)
-	{
-	  errno = ERANGE;
-	  /* Undefined behaviour, so we could return anything. */
-	  /* return tmp > 0.0 ? LONG_LONG_MAX : LONG_LONG_MIN; */
-	}
-  return (long long)tmp;
+  double res;
+  
+  if (x >= 0.0)
+    {
+	  res = ceil (x);
+	  if (res - x > 0.5)
+ 	    res -= 1.0;
+     }
+   else
+     {
+       res = ceil (-x);
+       if (res + x > 0.5)
+ 	     res -= 1.0;
+       res = -res;;
+     }
+   if (!isfinite (res) 
+       || res > (double) LONG_LONG_MAX
+       || res < (double) LONG_LONG_MIN)
+     { 
+       errno = ERANGE;
+       /* Undefined behaviour, so we could return anything.  */
+       /* return res > 0.0 ? LONG_LONG_MAX : LONG_LONG_MIN; */
+     }
+   return (long long) res;
 }
