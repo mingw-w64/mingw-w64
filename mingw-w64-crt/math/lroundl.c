@@ -10,15 +10,17 @@
 long
 lroundl (long double x)
 {
-  /* Add +/- 0.5, then round towards zero.  */
-  long double tmp = truncl (x + (x >= 0.0L ?  0.5L : -0.5L));
-  if (!isfinite (tmp) 
+  long double c, tmp;
+  c = nextafterl (0.5, -1.);
+  /* Add +/- 0.5 then then round towards zero. */
+  tmp = truncl (x + (x >= 0.0 ? c : -c));
+  if (!isfinite (tmp)
       || tmp > (long double)LONG_MAX
       || tmp < (long double)LONG_MIN)
-    { 
-      errno = ERANGE;
-      /* Undefined behaviour, so we could return anything.  */
-      /* return tmp > 0.0L ? LONG_MAX : LONG_MIN;  */
-    }
+    {
+	  errno = ERANGE;
+	  /* Undefined behaviour, so we could return anything. */
+	  /* return tmp > 0.0 ? LONG_LONG_MAX : LONG_LONG_MIN; */
+	}
   return (long)tmp;
 }
