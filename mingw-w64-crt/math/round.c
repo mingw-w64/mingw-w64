@@ -8,6 +8,19 @@
 double
 round (double x)
 {
-  /* Add +/- 0.5 then then round towards zero.  */
-  return trunc ( x + (x >= 0.0 ?  0.5 : -0.5));
+  double res;
+  if (x >= 0.0)
+    {
+      res = ceil (x);
+      if (res - x > 0.5)
+	res -= 1.0;
+    }
+  else
+    {
+      res = ceil (-x);
+      if (res + x > 0.5)
+	res -= 1.0;
+      res = -res;
+    }
+  return res;
 }

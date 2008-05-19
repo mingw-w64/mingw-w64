@@ -8,6 +8,19 @@
 long double
 roundl (long double x)
 {
-  /* Add +/- 0.5 then then round towards zero.  */
-  return truncl ( x + (x >= 0.0L ?  0.5L : -0.5L));
+  long double res;
+  if (x >= 0.0L)
+    {
+      res = ceill (x);
+      if (res - x > 0.5L)
+	res -= 1.0L;
+    }
+  else
+    {
+      res = ceill (-x);
+      if (res + x > 0.5L)
+	res -= 1.0L;
+      res = -res;;
+    }
+  return res;
 }

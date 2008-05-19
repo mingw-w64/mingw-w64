@@ -8,6 +8,19 @@
 float
 roundf (float x)
 {
-  /* Add +/- 0.5 then then round towards zero.  */
-  return truncf ( x + (x >= 0.0F ?  0.5F : -0.5F));
+  float res;
+  if (x >= 0.0F)
+    {
+      res = ceilf (x);
+      if (res - x > 0.5F)
+	res -= 1.0F;
+    }
+  else
+    {
+      res = ceilf (-x);
+      if (res + x > 0.5F)
+	res -= 1.0F;
+      res = -res;
+    }
+  return res;
 }

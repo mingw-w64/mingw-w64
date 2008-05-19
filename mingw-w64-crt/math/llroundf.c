@@ -10,17 +10,28 @@
 long long
 llroundf (float x)
 {
-  float c, tmp;
-  c = nextafterf (0.5F, -1.0F);
-  /* Add +/- 0.5 then then round towards zero. */
-  tmp = truncf (x + (x >= 0.0F ? c : -c));
-  if (!isfinite (tmp)
-	  || tmp > (float)LONG_LONG_MAX
-	  || tmp < (float)LONG_LONG_MIN)
-	{
-	  errno = ERANGE;
-	  /* Undefined behaviour, so we could return anything. */
-	  /* return tmp > 0.0 ? LONG_LONG_MAX : LONG_LONG_MIN; */
-	}
-  return (long long)tmp;
+  float res;
+  
+  if (x >= 0.0F)
+    {
+      res = ceilf (x);
+      if (res - x > 0.5F)
+        res -= 1.0F;
+    }
+  else
+    {
+      res = ceilf (-x);
+      if (res + x > 0.5F)
+        res -= 1.0F;
+      res = -res;
+    }
+  if (!isfinite (res)
+      || res > (float) LONG_LONG_MAX
+      || res < (float) LONG_LONG_MIN)
+    {
+      errno = ERANGE;
+      /* Undefined behaviour, so we could return anything.  */
+      /* return res > 0.0F ? LONG_LONG_MAX : LONG_LONG_MIN; */
+    }
+  return (long long) res;
 }  
