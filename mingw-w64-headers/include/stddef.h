@@ -55,19 +55,6 @@ extern "C" {
 #endif
 
 #ifndef __sys_stdtypes_h
-/* This avoids lossage on SunOS but only if stdtypes.h comes first.
-   There's no way to win with the other order!  Sun lossage.  */
-
-/* On 4.3bsd-net2, make sure ansi.h is included, so we have
-   one less case to deal with in the following.  */
-#if defined (__BSD_NET2__) || defined (____386BSD____) || (defined (__FreeBSD__) && (__FreeBSD__ < 5)) || defined(__NetBSD__)
-#include <machine/ansi.h>
-#endif
-/* On FreeBSD 5, machine/ansi.h does not exist anymore... */
-#if defined (__FreeBSD__) && (__FreeBSD__ >= 5)
-#include <sys/_types.h>
-#endif
-
 /* In 4.3bsd-net2, machine/ansi.h defines these symbols, which are
    defined if the corresponding type is *not* defined.
    FreeBSD-2.1 defines _MACHINE_ANSI_H_ instead of _ANSI_H_ */
@@ -153,7 +140,7 @@ _TYPE_wchar_t;
 #define ___int_ptrdiff_t_h
 #define _GCC_PTRDIFF_T
 #ifndef __PTRDIFF_TYPE__
-#define __PTRDIFF_TYPE__ long int
+#define __PTRDIFF_TYPE__ long long int
 #endif
 #ifndef _PTRDIFF_T_DEFINED
 #define _PTRDIFF_T_DEFINED
@@ -217,7 +204,7 @@ typedef __PTRDIFF_TYPE__ ptrdiff_t;
 #define __size_t
 #endif
 #ifndef __SIZE_TYPE__
-#define __SIZE_TYPE__ long unsigned int
+#define __SIZE_TYPE__ long long unsigned int
 #endif
 #if !(defined (__GNUG__) && defined (size_t))
 typedef __SIZE_TYPE__ size_t;
@@ -314,22 +301,9 @@ typedef _BSD_RUNE_T_ rune_t;
 #endif
 #endif
 #endif
-/* FreeBSD 5 can't be handled well using "traditional" logic above
-   since it no longer defines _BSD_RUNE_T_ yet still desires to export
-   rune_t in some cases... */
-#if defined (__FreeBSD__) && (__FreeBSD__ >= 5)
-#if !defined (_ANSI_SOURCE) && !defined (_POSIX_SOURCE)
-#if __BSD_VISIBLE
-#ifndef _RUNE_T_DECLARED
-typedef __rune_t        rune_t;
-#define _RUNE_T_DECLARED
-#endif
-#endif
-#endif
-#endif
 
 #ifndef __WCHAR_TYPE__
-#define __WCHAR_TYPE__ int
+#define __WCHAR_TYPE__ unsigned short
 #endif
 #ifndef __cplusplus
 typedef __WCHAR_TYPE__ wchar_t;
