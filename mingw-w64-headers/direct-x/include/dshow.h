@@ -47,6 +47,8 @@
 #define OAFALSE (0)
 #endif
 
+#include "dmdls.h"
+
 #ifndef VIDEINFOHEADER_DEFINED
 #define VIDEINFOHEADER_DEFINED
 
