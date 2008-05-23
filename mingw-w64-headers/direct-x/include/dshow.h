@@ -47,4 +47,17 @@
 #define OAFALSE (0)
 #endif
 
+#ifndef VIDEINFOHEADER_DEFINED
+#define VIDEINFOHEADER_DEFINED
+
+typedef struct tagVIDEOINFOHEADER {
+    RECT                rcSource,
+    RECT                rcTarget;
+    DWORD               dwBitRate;
+    DWORD               dwBitErrorRate;
+    REFERENCE_TIME      AvgTimePerFrame;
+    BITMAPINFOHEADER    bmiHeader;
+} VIDEOINFOHEADER;
+#endif
+
 #endif /* __DSHOW_INCLUDED__ */
