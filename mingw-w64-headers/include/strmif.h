@@ -8759,13 +8759,13 @@ extern "C" {
 
 #ifdef __cplusplus
   typedef struct tagVMRGUID {
-    GUID *pGUID;
-    GUID GUID;
+    ::GUID *pGUID;
+    ::GUID GUID;
   } VMRGUID;
 #else
   typedef struct tagVMRGUID {
-    ::GUID *pGUID;
-    ::GUID GUID;
+    GUID *pGUID;
+    GUID GUID;
   } VMRGUID;
 #endif
 
