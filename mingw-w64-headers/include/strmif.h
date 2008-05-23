@@ -8757,10 +8757,17 @@ extern "C" {
   void __RPC_STUB IVMRMixerControl_GetMixingPrefs_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
+#ifdef __cplusplus
   typedef struct tagVMRGUID {
     GUID *pGUID;
     GUID GUID;
   } VMRGUID;
+#else
+  typedef struct tagVMRGUID {
+    ::GUID *pGUID;
+    ::GUID GUID;
+  } VMRGUID;
+#endif
 
   typedef struct tagVMRMONITORINFO {
     VMRGUID guid;
