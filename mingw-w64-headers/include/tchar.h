@@ -614,7 +614,9 @@ extern "C" {
 #define _tcscpy strcpy
 #define _tcsdup _strdup
 #define _tcslen strlen
+#if 0
 #define _tcsnlen strnlen
+#endif
 #define _tcsxfrm strxfrm
 #define _tcsxfrm_l _strxfrm_l
 #define _tcserror strerror
