@@ -460,7 +460,7 @@ static void duplicate_ppstrings (int ac, char ***av)
 	for (i=0; i < ac; i++)
 	  {
 		int l = strlen (avl[i]) + 1;
-		n[i] = (wchar_t *) malloc (l);
+		n[i] = (char *) malloc (l);
 		memcpy (n[i], avl[i], l);
 	  }
 	n[i] = NULL;
