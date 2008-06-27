@@ -87,6 +87,7 @@
 #include <winscard.h>
 #endif
 
+#ifndef NOUSER
 #ifndef NOGDI
 #include <winspool.h>
 #ifdef INC_OLE1
@@ -95,6 +96,7 @@
 #include <ole2.h>
 #endif
 #include <commdlg.h>
+#endif
 #endif
 #endif
 

@@ -637,7 +637,6 @@ extern "C" {
     LPARAM lParam;
   } HARDWAREHOOKSTRUCT,*LPHARDWAREHOOKSTRUCT,*PHARDWAREHOOKSTRUCT;
 #endif
-#endif
 
 #define HKL_PREV 0
 #define HKL_NEXT 1
@@ -1493,6 +1492,7 @@ extern "C" {
 #define CS_IME 0x00010000
 #define CS_DROPSHADOW 0x00020000
 #endif
+
 #define PRF_CHECKVISIBLE 0x00000001L
 #define PRF_NONCLIENT 0x00000002L
 #define PRF_CLIENT 0x00000004L
@@ -3834,7 +3834,6 @@ extern "C" {
 #ifndef NOCTLMGR
 
 #ifndef NOWINSTYLES
-
 #define ES_LEFT 0x0000L
 #define ES_CENTER 0x0001L
 #define ES_RIGHT 0x0002L
@@ -5643,6 +5642,8 @@ extern "C" {
 
   WINUSERAPI UINT WINAPI GetRawInputDeviceList(PRAWINPUTDEVICELIST pRawInputDeviceList,PUINT puiNumDevices,UINT cbSize);
   WINUSERAPI LRESULT WINAPI DefRawInputProc(PRAWINPUT *paRawInput,INT nInput,UINT cbSizeHeader);
+
+#endif /* NOUSER */
 
 #ifdef __cplusplus
 }
