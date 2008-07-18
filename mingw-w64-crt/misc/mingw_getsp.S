@@ -26,5 +26,5 @@ _longjmp:
   leaq _fctMsvcrtLongJmp(%rip), %rax
   jmpq *(%rax)
 #else
-  jmpl *(_fctMsvcrtLongJmp)
+  jmp (_fctMsvcrtLongJmp)
 #endif

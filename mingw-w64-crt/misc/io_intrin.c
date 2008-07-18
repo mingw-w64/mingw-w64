@@ -279,12 +279,16 @@ void __outdwordstring(unsigned short Port,unsigned long *Buffer,unsigned long Co
 
   unsigned __int64 __readmsr(unsigned long msr)
   {
+#ifdef _WIN64
       unsigned __int64 val1, val2;
+#else
+      unsigned val1, val2;
+#endif
        __asm__ __volatile__(
            "rdmsr"
            : "=a" (val1), "=d" (val2)
            : "c" (msr));
-      return val1 | (val2 << 32);
+      return ((unsigned __int64) val1) | (((unsigned __int64)val2) << 32);
   }
 
  void __writemsr (unsigned long msr, unsigned __int64 Value)
@@ -298,11 +302,15 @@ void __outdwordstring(unsigned short Port,unsigned long *Buffer,unsigned long Co
  
   unsigned __int64 __rdtsc(void)
   {
+#ifdef _WIN64    
       unsigned __int64 val1, val2;
+#else
+      unsigned int val1, val2;
+#endif
       __asm__ __volatile__ (
           "rdtsc" 
           : "=a" (val1), "=d" (val2));
-      return val1 | (val2 << 32);
+      return ((unsigned __int64)val1) | (((unsigned __int64)val2) << 32);
   }
 
   void __cpuid(int CPUInfo[4], int InfoType)

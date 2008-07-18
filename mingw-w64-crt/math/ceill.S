@@ -10,6 +10,7 @@
 .globl _ceill
 	.def	_ceill;	.scl	2;	.type	32;	.endef
 _ceill:
+#ifdef _WIN64
 	fldt	(%rdx)
 	subq	$16,%rsp
 
@@ -32,3 +33,17 @@ _ceill:
 	movq	%rcx,%rax
 	fstpt	(%rcx)
 	ret
+#else
+	fldt	4(%esp)
+	subl	$8,%esp
+	fstcw	4(%esp)
+	movl	$0x0800,%edx
+	orl	4(%esp),%edx
+	andl	$0xfbff,%edx
+	movl	%edx,(%esp)
+	fldcw	(%esp)
+	frndint
+	fldcw	4(%esp)
+	addl $8,%esp
+	ret
+#endif
