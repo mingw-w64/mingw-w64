@@ -132,10 +132,17 @@ extern "C" {
 #define WAIT_GRANDCHILD _WAIT_GRANDCHILD
 
   intptr_t __cdecl cwait(int *_TermStat,intptr_t _ProcHandle,int _Action);
-  intptr_t __cdecl execl(const char *_Filename,const char *_ArgList,...);
+#ifdef __GNUC__
+  int __cdecl execl(const char *_Filename,const char *_ArgList,...);
+  int __cdecl execle(const char *_Filename,const char *_ArgList,...);
+  int __cdecl execlp(const char *_Filename,const char *_ArgList,...);
+  int __cdecl execlpe(const char *_Filename,const char *_ArgList,...);
+#else
+    intptr_t __cdecl execl(const char *_Filename,const char *_ArgList,...);
   intptr_t __cdecl execle(const char *_Filename,const char *_ArgList,...);
   intptr_t __cdecl execlp(const char *_Filename,const char *_ArgList,...);
   intptr_t __cdecl execlpe(const char *_Filename,const char *_ArgList,...);
+#endif
   intptr_t __cdecl spawnl(int,const char *_Filename,const char *_ArgList,...);
   intptr_t __cdecl spawnle(int,const char *_Filename,const char *_ArgList,...);
   intptr_t __cdecl spawnlp(int,const char *_Filename,const char *_ArgList,...);
