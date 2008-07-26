@@ -2,6 +2,9 @@
 
 	* process.h (exec...): Adjust prototypes to return type
 	int if used in gcc.
+	* winnt.h (IMAGE_ORDINAL_FLAG64): Make it a unsigned
+	long long constant.
+	(IMAGE_ORDINAL64): Likewise.
 
 2008-03-10  Kai Tietz  <kai.tietz@onevision.com>
 
