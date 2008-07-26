@@ -1,3 +1,8 @@
+2008-07-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* process.h (exec...): Adjust prototypes to return type
+	int if used in gcc.
+
 2008-03-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/1910322: trouble using Windows VARIANT type.
