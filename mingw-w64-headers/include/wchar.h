@@ -15,7 +15,7 @@ extern "C" {
 #endif
 
 #define WCHAR_MIN 0
-#define WCHAR_MAX 0xffff
+#define WCHAR_MAX ((wchar_t) -1) /* UINT16_MAX */
 
 #ifndef __GNUC_VA_LIST
 #define __GNUC_VA_LIST

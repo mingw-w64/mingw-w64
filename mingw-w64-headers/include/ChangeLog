@@ -1,3 +1,7 @@
+2008-07-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* wchar.h (WCHAR_MAX): Make it type wchar_t.
+
 2008-07-26  Kai Tietz  <kai.tietz@onevision.com>
 
 	* process.h (exec...): Adjust prototypes to return type
