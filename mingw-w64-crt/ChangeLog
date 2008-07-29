@@ -1,3 +1,10 @@
+2008-07-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/execv.c: Change return type to int.
+	* misc/execve.c: Likewise.
+	* misc/execvp.c: Likewise.
+	* execvpe.c: Likewise.
+
 2008-06-14  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt64/crtexe.c (duplicate_ppstrings): Correct
