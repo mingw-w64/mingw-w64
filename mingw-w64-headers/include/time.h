@@ -93,6 +93,15 @@ extern "C" {
 #endif
 #endif
 
+#ifdef _USE_32BIT_TIME_T
+#define _localtime32	_localtime
+#define _difftime32	_difftime
+#define _ctime32	_ctime
+#define _gmtime32	_gmtime
+#define _mktime32	_mktime
+#define _time32	_time
+#endif
+
 #ifndef _TM_DEFINED
 #define _TM_DEFINED
   struct tm {
