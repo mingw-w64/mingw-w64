@@ -94,12 +94,12 @@ extern "C" {
 #endif
 
 #ifdef _USE_32BIT_TIME_T
-#define _localtime32	_localtime
-#define _difftime32	_difftime
-#define _ctime32	_ctime
-#define _gmtime32	_gmtime
-#define _mktime32	_mktime
-#define _time32	_time
+#define _localtime32 localtime
+#define _difftime32	difftime
+#define _ctime32	ctime
+#define _gmtime32	gmtime
+#define _mktime32	mktime
+#define _time32	time
 #endif
 
 #ifndef _TM_DEFINED
@@ -220,6 +220,7 @@ time_t __cdecl _mkgmtime(struct tm *_Tm);
 time_t __cdecl time(time_t *_Time);
 
 #ifdef _USE_32BIT_TIME_T
+#if 0
 __CRT_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2) { return _difftime32(_Time1,_Time2); }
 __CRT_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime32(_Time); }
 __CRT_INLINE struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime32(_Time); }
@@ -227,6 +228,7 @@ __CRT_INLINE struct tm *__cdecl localtime(const time_t *_Time) { return _localti
 __CRT_INLINE time_t __cdecl mktime(struct tm *_Tm) { return _mktime32(_Tm); }
 __CRT_INLINE time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
 __CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time32(_Time); }
+#endif
 #else
 __CRT_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2) { return _difftime64(_Time1,_Time2); }
 __CRT_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime64(_Time); }
