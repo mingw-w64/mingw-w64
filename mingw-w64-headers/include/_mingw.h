@@ -15,6 +15,13 @@
 #define MINGW64_VERSION_STATE	"alpha"
 #endif
 
+#ifdef _WIN64
+#ifdef __stdcall
+#undef __stdcall
+#endif
+#define __stdcall
+#endif
+
 #ifndef __GNUC__
 # ifndef __MINGW_IMPORT
 #  define __MINGW_IMPORT  __declspec(dllimport)

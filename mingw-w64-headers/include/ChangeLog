@@ -1,3 +1,8 @@
+2008-08-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winnt.h (PSLIST_ENTRY): Forward typedef without align.
+	* _mingw.h (__stdcall): Disable it for 64-bit.
+
 2008-08-02  Kai Tietz  <kai.tietz@onevision.com>
 
 	* time.h (_localtime32): Alias it for w32 to _localtime.
