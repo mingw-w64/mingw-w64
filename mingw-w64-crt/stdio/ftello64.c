@@ -8,5 +8,9 @@
 _off64_t
 ftello64 (FILE * stream)
 {
-  return (_off64_t) _ftelli64(stream);
+  fpos_t pos;
+  if (fgetpos(stream, &pos))
+    return  -1LL;
+  else
+   return ((off64_t) pos);
 }

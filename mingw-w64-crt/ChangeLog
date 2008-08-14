@@ -1,3 +1,7 @@
+2008-08-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/ftello64.c: Use fgetpos.
+
 2008-07-29  Kai Tietz  <kai.tietz@onevision.com>
 
 	* misc/execv.c: Change return type to int.
