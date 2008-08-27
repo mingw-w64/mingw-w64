@@ -23,7 +23,7 @@ extern "C" {
 #endif
 #ifndef _mbctype
 #ifdef _MSVCRT_
-  extern unsigned char *_mbctype;
+  extern unsigned char _mbctype[257];
 #else
 #define _mbctype	(*_imp___mbctype)
   extern unsigned char **_imp___mbctype;
