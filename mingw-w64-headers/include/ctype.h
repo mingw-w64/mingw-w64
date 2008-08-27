@@ -22,12 +22,20 @@ extern "C" {
 
 #ifndef __PCTYPE_FUNC
 #define __PCTYPE_FUNC __pctype_func()
+#ifdef _MSVCRT_
+#define __pctype_func()	(_pctype)
+#else
 #define __pctype_func()	(*_imp___pctype)
+#endif
 #endif
 
 #ifndef _pctype
+#ifdef _MSVCRT_
+  extern unsigned short *_pctype;
+#else
   extern unsigned short **_imp___pctype;
 #define _pctype (*_imp___pctype)
+#endif
 #endif
 
 #endif
@@ -37,15 +45,25 @@ extern "C" {
 #define _CRT_WCTYPEDATA_DEFINED
 #ifndef _CTYPE_DISABLE_MACROS
 #ifndef _wctype
+#ifdef _MSVCRT_
+  extern unsigned short *_wctype;
+#else
   extern unsigned short **_imp___wctype;
 #define _wctype (*_imp___wctype)
 #endif
+#endif
+#ifdef _MSVCRT_
+#define __pwctype_func() (_pwctype)
+#ifndef _pwctype
+  extern unsigned short *_pwctype;
+#endif
+#else
 #define __pwctype_func() (*_imp___pwctype)
 #ifndef _pwctype
   extern unsigned short **_imp___pwctype;
 #define _pwctype (*_imp___pwctype)
 #endif
-
+#endif
 #endif
 #endif
 
@@ -169,10 +187,18 @@ int __cdecl iswblank(wint_t _C);
 #ifndef MB_CUR_MAX
 #define MB_CUR_MAX ___mb_cur_max_func()
 #ifndef __mb_cur_max
+#ifdef _MSVCRT_
+  extern int __mb_cur_max;
+#else
 #define __mb_cur_max	(*_imp____mb_cur_max)
   extern int *_imp____mb_cur_max;
 #endif
+#endif
+#ifdef _MSVCRT_
+#define ___mb_cur_max_func() (__mb_cur_max)
+#else
 #define ___mb_cur_max_func() (*_imp____mb_cur_max)
+#endif
 #endif
 
 #define __chvalidchk(a,b) (__PCTYPE_FUNC[(a)] & (b))

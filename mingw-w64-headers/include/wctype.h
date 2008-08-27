@@ -43,12 +43,20 @@ extern "C" {
 
 #ifndef __PCTYPE_FUNC
 #define __PCTYPE_FUNC __pctype_func()
+#ifdef _MSVCRT_
+#define __pctype_func() (_pctype)
+#else
 #define __pctype_func() (*_imp___pctype)
+#endif
 #endif
 
 #ifndef _pctype
+#ifdef _MSVCRT_
+  extern unsigned short *_pctype;
+#else
   extern unsigned short **_imp___pctype;
 #define _pctype (*_imp___pctype)
+#endif
 #endif
 
 #endif
@@ -58,14 +66,22 @@ extern "C" {
 #define _CRT_WCTYPEDATA_DEFINED
 #ifndef _CTYPE_DISABLE_MACROS
 #ifndef _wctype
+#ifdef _MSVCRT_
+  extern unsigned short *_wctype;
+#else
   extern unsigned short **_imp___wctype;
 #define _wctype (*_imp___wctype)
 #endif
+#endif
 
 #ifndef _pwctype
+#ifdef _MSVCRT_
+  extern unsigned short *_pwctype;
+#else
   extern unsigned short **_imp___pwctype;
 #define _pwctype (*_imp___pwctype)
 #define __pwctype_func() (*_imp___pwctype)
+#endif
 #endif
 #endif
 #endif

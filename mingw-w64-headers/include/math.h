@@ -49,8 +49,12 @@ extern "C" {
 #define ERANGE 34
 
 #ifndef _HUGE
+#ifdef _MSVCRT_
+  extern double *_HUGE;
+#else
   extern double *_imp___HUGE;
 #define _HUGE	(*_imp___HUGE)
+#endif
 #endif
 
 #define HUGE_VAL _HUGE

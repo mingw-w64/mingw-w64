@@ -1,6 +1,13 @@
 2008-08-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	* fcntl.h (_O_ACCMODE): New.
+	* math.h (_HUGE): Special handling if _MSVCRT_ is defined.
+	* ctype.h (_imp__...): Likewise.
+	* mbctype.h (_imp__...): Likewise.
+	* stdio.h (_imp__...): Likewise.
+	* stdlib.h (_imp__...): Likewise.
+	* wchar.h (_imp__...): Likewise.
+	* wctype.h (_imp__...): Likewise.
 
 2008-08-07  Kai Tietz  <kai.tietz@onevision.com>
 

@@ -90,11 +90,20 @@ extern "C" {
 #ifndef MB_CUR_MAX
 #define MB_CUR_MAX ___mb_cur_max_func()
 #ifndef __mb_cur_max
+#ifdef _MSVCRT_
+  extern int __mb_cur_max;
+#else
 #define __mb_cur_max	(*_imp____mb_cur_max)
   extern int *_imp____mb_cur_max;
 #endif
+#endif
+#ifdef _MSVCRT_
+  extern int __mbcur_max;
+#define ___mb_cur_max_func() (__mb_cur_max)
+#else
   extern int* _imp____mbcur_max;
 #define ___mb_cur_max_func() (*_imp____mb_cur_max)
+#endif
 #endif
 
 #define __max(a,b) (((a) > (b)) ? (a) : (b))
@@ -148,67 +157,126 @@ extern "C" {
   _CRTIMP wchar_t **__cdecl __p__wpgmptr(void);
 #endif
 #ifndef __argc
+#ifdef _MSVCRT_
+  extern int __argc;
+#else
 #define __argc (*_imp____argc)
   extern int *_imp____argc;
 #endif
+#endif
 #ifndef __argv
+#ifdef _MSVCRT_
+  extern char **__argv;
+#else
 #define __argv	(*_imp____argv)
   extern char ***_imp____argv;
 #endif
+#endif
 #ifndef __wargv
+#ifdef _MSVCRT_
+  extern wchar_t **__wargv;
+#else
 #define __wargv (*_imp____wargv)
   extern wchar_t ***_imp____wargv;
+#endif
 #endif
 
 #ifdef _POSIX_
   extern char **environ;
 #else
 #ifndef _environ
+#ifdef _MSVCRT_
+  extern char **_environ;
+#else
 #define _environ (*_imp___environ)
   extern char ***_imp___environ;
 #endif
+#endif
+
 #ifndef _wenviron
+#ifdef _MSVCRT_
+  extern wchar_t **_wenviron;
+#else
 #define _wenviron	(*_imp___wenviron)
   extern wchar_t ***_imp___wenviron;
 #endif
 #endif
+#endif
 #ifndef _pgmptr
+#ifdef _MSVCRT_
+  extern char *_pgmptr;
+#else
 #define _pgmptr	(*_imp___pgmptr)
   extern char **_imp___pgmptr;
 #endif
+#endif
+
 #ifndef _wpgmptr
+#ifdef _MSVCRT_
+  extern wchar_t *_wpgmptr;
+#else
 #define _wpgmptr	(*_imp___wpgmptr)
   extern wchar_t **_imp___wpgmptr;
+#endif
 #endif
   errno_t __cdecl _get_pgmptr(char **_Value);
   errno_t __cdecl _get_wpgmptr(wchar_t **_Value);
 #ifndef _fmode
+#ifdef _MSVCRT_
+  extern int _fmode;
+#else
 #define _fmode	(*_imp___fmode)
   extern int *_imp___fmode;
+#endif
 #endif
   _CRTIMP errno_t __cdecl _set_fmode(int _Mode);
   _CRTIMP errno_t __cdecl _get_fmode(int *_PMode);
 
 #ifndef _osplatform
+#ifdef _MSVCRT_
+  extern unsigned int _osplatform;
+#else
 #define _osplatform (*_imp___osplatform)
   extern unsigned int *_imp___osplatform;
 #endif
+#endif
+
 #ifndef _osver
+#ifdef _MSVCRT_
+  extern unsigned int _osver;
+#else
 #define _osver	(*_imp___osver)
   extern unsigned int *_imp___osver;
 #endif
+#endif
+
 #ifndef _winver
+#ifdef _MSVCRT_
+  extern unsigned int _winver;
+#else
 #define _winver	(*_imp___winver)
   extern unsigned int *_imp___winver;
 #endif
+#endif
+
 #ifndef _winmajor
+#ifdef _MSVCRT_
+  extern unsigned int _winmajor;
+#else
 #define _winmajor	(*_imp___winmajor)
   extern unsigned int *_imp___winmajor;
 #endif
+#endif
+
 #ifndef _winminor
+#ifdef _MSVCRT_
+  extern unsigned int _winminor;
+#else
 #define _winminor	(*_imp___winminor)
   extern unsigned int *_imp___winminor;
 #endif
+#endif
+
   errno_t __cdecl _get_osplatform(unsigned int *_Value);
   errno_t __cdecl _get_osver(unsigned int *_Value);
   errno_t __cdecl _get_winver(unsigned int *_Value);
