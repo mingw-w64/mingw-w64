@@ -1,3 +1,7 @@
+2008-08-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt64/crtexe.c (_TUCHAR): Replaced by _TCHAR.
+
 2008-08-14  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdio/ftello64.c: Use fgetpos.

@@ -158,7 +158,7 @@ int mainCRTStartup (void)
 __declspec(noinline) int
 __tmainCRTStartup (void)
 {
-  _TUCHAR *lpszCommandLine = NULL;
+  _TCHAR *lpszCommandLine = NULL;
   STARTUPINFO StartupInfo;
   BOOL inDoubleQuote = FALSE;
   memset (&StartupInfo, 0, sizeof (STARTUPINFO));
@@ -224,9 +224,9 @@ __tmainCRTStartup (void)
 #ifdef WPRFLAG
     if (_wcmdln == NULL)
       return 255;
-    lpszCommandLine = (wchar_t *) _wcmdln;
+    lpszCommandLine = (_TCHAR *) _wcmdln;
 #else
-    lpszCommandLine = (unsigned char *) _acmdln;
+    lpszCommandLine = (char *) _acmdln;
 #endif
     while (*lpszCommandLine > SPACECHAR || (*lpszCommandLine&&inDoubleQuote))
       {
