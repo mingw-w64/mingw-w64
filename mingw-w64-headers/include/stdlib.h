@@ -145,8 +145,13 @@ extern "C" {
 #define _doserrno (*__doserrno())
   errno_t __cdecl _set_doserrno(unsigned long _Value);
   errno_t __cdecl _get_doserrno(unsigned long *_Value);
+#ifdef _MSVCRT_
+  extern char *_sys_errlist[];
+  extern int _sys_nerr;
+#else
   _CRTIMP char *_sys_errlist[1];
   _CRTIMP int _sys_nerr;
+#endif
 #if (defined(_X86_) && !defined(__x86_64))
   _CRTIMP int *__cdecl __p___argc(void);
   _CRTIMP char ***__cdecl __p___argv(void);
