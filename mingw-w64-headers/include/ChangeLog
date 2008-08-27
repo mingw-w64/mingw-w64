@@ -1,3 +1,7 @@
+2008-08-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* fcntl.h (_O_ACCMODE): New.
+
 2008-08-07  Kai Tietz  <kai.tietz@onevision.com>
 
 	* winnt.h (PSLIST_ENTRY): Forward typedef without align.
