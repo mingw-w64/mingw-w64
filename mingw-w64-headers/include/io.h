@@ -102,7 +102,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     wchar_t name[260];
   };
 
-#if _INTEGRAL_MAX_BITS >= 64
+/* #if _INTEGRAL_MAX_BITS >= 64 */
 
   struct _wfinddata32i64_t {
     unsigned attrib;
@@ -130,7 +130,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     __int64 size;
     wchar_t name[260];
   };
-#endif
+/* #endif */
 
 #ifdef _USE_32BIT_TIME_T
 #define _wfinddata_t _wfinddata32_t
