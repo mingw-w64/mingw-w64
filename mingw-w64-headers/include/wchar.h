@@ -85,7 +85,8 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
     wchar_t name[260];
   };
 
-#if _INTEGRAL_MAX_BITS >= 64
+/* #if _INTEGRAL_MAX_BITS >= 64 */
+
   struct _wfinddata32i64_t {
     unsigned attrib;
     __time32_t time_create;
@@ -112,7 +113,7 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
     __int64 size;
     wchar_t name[260];
   };
-#endif
+/* #endif */
 
 #ifdef _USE_32BIT_TIME_T
 #define _wfinddata_t _wfinddata32_t

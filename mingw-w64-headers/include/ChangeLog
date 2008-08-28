@@ -1,3 +1,8 @@
+2008-08-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h (_INTEGRAL_MAX_BITS): Check disabled.
+	* wchar.h (_INTEGRAL_MAX_BITS): Likewise.
+
 2008-08-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	* fcntl.h (_O_ACCMODE): New.
