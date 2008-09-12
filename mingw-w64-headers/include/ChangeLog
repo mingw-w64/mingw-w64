@@ -1,3 +1,8 @@
+2008-09-12  Kai Tietz  <kai.tietz@onevision.com>
+
+	Patch/2106947 by Jaroslav Smid
+	* dwmapi.h: New.
+
 2008-08-28  Kai Tietz  <kai.tietz@onevision.com>
 
 	* io.h (_INTEGRAL_MAX_BITS): Check disabled.
