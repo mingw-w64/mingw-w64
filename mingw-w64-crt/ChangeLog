@@ -1,3 +1,8 @@
+2008-09-12  Kai Tietz  <kai.tietz@onevision.com>
+
+	Patch/2106947 by Jaroslav Smid
+	* lib64/dwmapi.def: New.
+
 2008-08-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt64/crtexe.c (_TUCHAR): Replaced by _TCHAR.
