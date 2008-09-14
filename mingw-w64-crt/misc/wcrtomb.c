@@ -58,11 +58,11 @@ size_t wcsrtombs (char *dst, const wchar_t **src, size_t len,
   size_t n = 0;
   const unsigned int cp = get_codepage();
   const unsigned int mb_max = MB_CUR_MAX;
-  const wchar_t *pwc = src;
+  const wchar_t *pwc;
 
   if (src == NULL || *src == NULL) /* undefined behavior */
      return 0;
-
+  pwc = *src;
   if (dst != NULL)
     {
       while (n < len)
