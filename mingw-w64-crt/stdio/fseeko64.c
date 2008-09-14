@@ -206,7 +206,7 @@ __int64 __cdecl _ftelli64(FILE *str)
         register char *p;
         char *max;
         int fd;
-        size_t rdcnt;
+        size_t rdcnt = 0;
 
 	errno=0;
         stream = str;
