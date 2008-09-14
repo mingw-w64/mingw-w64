@@ -77,7 +77,7 @@ ratio
 	(Bigint *a, Bigint *b)
 #endif
 {
-	double da, db;
+	double da = 0.0, db = 0.0;
 	int k, ka, kb;
 
 	dval(da) = b2d(a, &ka);

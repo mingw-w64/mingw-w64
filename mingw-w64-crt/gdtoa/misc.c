@@ -709,7 +709,7 @@ b2d
 {
 	ULong *xa, *xa0, w, y, z;
 	int k;
-	double d;
+	double d = 0.0;
 #ifdef VAX
 	ULong d0, d1;
 #else
