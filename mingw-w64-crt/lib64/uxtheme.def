@@ -6,6 +6,11 @@
 ;
 LIBRARY UxTheme.dll
 EXPORTS
+BeginBufferedPaint
+BufferedPaintClear
+BufferedPaintInit
+BufferedPaintSetAlpha
+BufferedPaintUnInit
 CloseThemeData
 DrawThemeBackground
 DrawThemeEdge
@@ -14,8 +19,13 @@ DrawThemeParentBackground
 DrawThemeText
 EnableThemeDialogTexture
 EnableTheming
+EndBufferedPaint
 GetCurrentThemeName
 DrawThemeBackgroundEx
+GetBufferedPaintBits
+GetBufferedPaintDC
+GetBufferedPaintTargetDC
+GetBufferedPaintTargetRect
 GetThemeAppProperties
 GetThemeBackgroundContentRect
 GetThemeBackgroundExtent
