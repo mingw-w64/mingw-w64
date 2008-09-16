@@ -20,6 +20,35 @@
 
 typedef HANDLE HTHEME;
 
+#if _WIN32_WINNT >= 0x0600
+
+DECLARE_HANDLE(HPAINTBUFFER);
+
+typedef enum _BP_BUFFERFORMAT {
+    BPBF_COMPATIBLEBITMAP, BPBF_DIB, BPBF_TOPDOWNDIB, BPBF_TOPDOWNMONODIB
+} BP_BUFFERFORMAT;
+
+typedef struct _BP_PAINTPARAMS {
+    DWORD cbSize;
+    DWORD dwFlags;
+    const RECT *prcExclude;
+    const BLENDFUNCTION *pBlendFunction;
+} BP_PAINTPARAMS, *PBP_PAINTPARAMS;
+
+THEMEAPI_(HPAINTBUFFER) BeginBufferedPaint(HDC hdcTarget,const RECT *prcTarget,BP_BUFFERFORMAT dwFormat,
+					   BP_PAINTPARAMS *pPaintParams,HDC *phdc);
+THEMEAPI_(HRESULT) EndBufferedPaint(HPAINTBUFFER hBufferedPaint,BOOL fUpdateTarget);
+THEMEAPI_(HRESULT) GetBufferedPaintTargetRect(HPAINTBUFFER hBufferedPaint,RECT *prc);
+THEMEAPI_(HDC) GetBufferedPaintTargetDC(HPAINTBUFFER hBufferedPaint);
+THEMEAPI_(HDC) GetBufferedPaintDC(HPAINTBUFFER hBufferedPaint);
+THEMEAPI_(HRESULT) GetBufferedPaintBits(HPAINTBUFFER hBufferedPaint,RGBQUAD **ppbBuffer,int *pcxRow);
+THEMEAPI_(HRESULT) BufferedPaintClear(HPAINTBUFFER hBufferedPaint,const RECT *prc);
+THEMEAPI_(HRESULT) BufferedPaintSetAlpha(HPAINTBUFFER hBufferedPaint,const RECT *prc,BYTE alpha);
+THEMEAPI_(HRESULT) BufferedPaintInit(VOID);
+THEMEAPI_(HRESULT) BufferedPaintUnInit(VOID);
+
+#endif
+
 THEMEAPI_(HTHEME) OpenThemeData(HWND hwnd,LPCWSTR pszClassList);
 THEMEAPI CloseThemeData(HTHEME hTheme);
 THEMEAPI DrawThemeBackground(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,const RECT *pRect,const RECT *pClipRect);
@@ -32,7 +61,7 @@ THEMEAPI GetThemeBackgroundExtent(HTHEME hTheme,HDC hdc,int iPartId,int iStateId
 
 typedef enum THEMESIZE {
   TS_MIN,TS_TRUE,TS_DRAW
-};
+} THEMESIZE;
 
 THEMEAPI GetThemePartSize(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,RECT *prc,enum THEMESIZE eSize,SIZE *psz);
 THEMEAPI GetThemeTextExtent(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,LPCWSTR pszText,int iCharCount,DWORD dwTextFlags,const RECT *pBoundingRect,RECT *pExtentRect);
@@ -87,7 +116,7 @@ THEMEAPI GetThemeIntList(HTHEME hTheme,int iPartId,int iStateId,int iPropId,INTL
 
 typedef enum PROPERTYORIGIN {
   PO_STATE,PO_PART,PO_CLASS,PO_GLOBAL,PO_NOTFOUND
-};
+} PROPERTYORIGIN;
 
 THEMEAPI GetThemePropertyOrigin(HTHEME hTheme,int iPartId,int iStateId,int iPropId,enum PROPERTYORIGIN *pOrigin);
 THEMEAPI SetWindowTheme(HWND hwnd,LPCWSTR pszSubAppName,LPCWSTR pszSubIdList);
