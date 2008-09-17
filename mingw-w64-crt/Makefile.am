@@ -781,7 +781,9 @@ lib64_SCRIPTS = \
   lib64/libwsensapi.a   lib64/libwsenscfg.a   lib64/libwsens.a        lib64/libwseo.a       lib64/libwserialui.a     \
   lib64/libwservdeps.a  lib64/libwserwvdrv.a  lib64/libwsetupapi.a    lib64/libwsfc.a       lib64/libwsfcfiles.a     \
   lib64/libwsfc_os.a    lib64/libwsfmapi.a    lib64/libwshatm.a       lib64/libwshbth.a     lib64/libwshcon.a        \
-  lib64/libwwdmaud.a    lib64/libwwinspool.a  lib64/libzoneoc.a       lib64/libkernel32.a
+  lib64/libwwdmaud.a    lib64/libwwinspool.a  lib64/libzoneoc.a       \
+  \
+  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libuxtheme.a
 
 lib64/lib%.a:
 	$(DTDEF) $(top_srcdir)/lib64/$*.def
