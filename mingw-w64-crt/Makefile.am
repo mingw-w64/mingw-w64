@@ -34,11 +34,10 @@ DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 crt64srcdir=$(top_srcdir)/crt64
 crt32srcdir=$(top_srcdir)/crt32
 
-
+# can move this into libsrc/dummy_libm.c or similar
 BUILT_SOURCES = _libm_dummy.c
 _libm_dummy.c:
 	echo "static int __mingw_libm_dummy;" > _libm_dummy.c
-
 
 if LIB32
 #########
@@ -61,6 +60,10 @@ test.c
 lib32_LIBRARIES = lib32/libm.a
 nodist_lib32_libm_a_SOURCES = _libm_dummy.c
 lib32_libm_a_CPPFLAGS = -m32
+
+lib32_LIBRARIES += lib32/libmingwthrd.a
+lib32_libmingwthrd_a_SOURCES = libsrc/dummy_mingwthrd.c
+lib32_libmingwthrd_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = libsrc/shell32.c
@@ -199,6 +202,9 @@ crt64/gcrt2.o: profile/gcrt0.c
 
 lib64_LIBRARIES = lib64/libm.a
 nodist_lib64_libm_a_SOURCES = _libm_dummy.c
+
+lib64_LIBRARIES += lib64/libmingwthrd.a
+lib64_libmingwthrd_a_SOURCES = libsrc/dummy_mingwthrd.c
 
 lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = libsrc/shell32.c
