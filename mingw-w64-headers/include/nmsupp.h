@@ -85,7 +85,7 @@ extern "C" {
   extern DWORD WINAPI BhStopService(HANDLE ServiceHandle);
   extern DWORD WINAPI BhGetWindowsVersion(VOID);
   extern WINBOOL WINAPI IsDaytona(VOID);
-  extern VOID _cdecl dprintf(LPSTR format,...);
+  extern VOID __cdecl dprintf(LPSTR format,...);
 
 #ifdef __cplusplus
 }

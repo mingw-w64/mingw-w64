@@ -77,7 +77,7 @@ extern "C" {
   typedef PPVALUEA PPVALUE;
 #endif
 
-  typedef DWORD _cdecl QUERYHANDLER(LPVOID keycontext,PVALCONTEXT val_list,DWORD num_vals,LPVOID outputbuffer,DWORD *total_outlen,DWORD input_blen);
+  typedef DWORD __cdecl QUERYHANDLER(LPVOID keycontext,PVALCONTEXT val_list,DWORD num_vals,LPVOID outputbuffer,DWORD *total_outlen,DWORD input_blen);
 
   typedef QUERYHANDLER *PQUERYHANDLER;
 

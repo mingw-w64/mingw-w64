@@ -33,7 +33,7 @@ extern "C" {
   int WINAPI uaw_lstrcmpiW(PCUWSTR String1,PCUWSTR String2);
   int WINAPI uaw_lstrlenW(LPCUWSTR String);
   PUWSTR __cdecl uaw_wcschr(PCUWSTR String,WCHAR Character);
-  PUWSTR _cdecl uaw_wcscpy(PUWSTR Destination,PCUWSTR Source);
+  PUWSTR __cdecl uaw_wcscpy(PUWSTR Destination,PCUWSTR Source);
   int __cdecl uaw_wcsicmp(PCUWSTR String1,PCUWSTR String2);
   size_t __cdecl uaw_wcslen(PCUWSTR String);
   PUWSTR __cdecl uaw_wcsrchr(PCUWSTR String,WCHAR Character);

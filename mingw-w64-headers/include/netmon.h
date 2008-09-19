@@ -868,8 +868,8 @@ extern "C"{
 
 #define ADDRESSINFOTABLE_SIZE sizeof(ADDRESSINFOTABLE)
 
-  DWORD _cdecl SetNPPAddressFilterInBlob(HBLOB hBlob,LPADDRESSTABLE pAddressTable);
-  DWORD _cdecl GetNPPAddressFilterFromBlob(HBLOB hBlob,LPADDRESSTABLE pAddressTable,HBLOB hErrorBlob);
+  DWORD __cdecl SetNPPAddressFilterInBlob(HBLOB hBlob,LPADDRESSTABLE pAddressTable);
+  DWORD __cdecl GetNPPAddressFilterFromBlob(HBLOB hBlob,LPADDRESSTABLE pAddressTable,HBLOB hErrorBlob);
 
 #pragma pack(push,8)
 
@@ -968,11 +968,11 @@ extern "C"{
 
   typedef MBLOB_TABLE *PMBLOB_TABLE;
 
-  DWORD _cdecl GetNPPBlobTable(HBLOB hFilterBlob,PBLOB_TABLE *ppBlobTable);
-  DWORD _cdecl GetNPPBlobFromUI(HWND hwnd,HBLOB hFilterBlob,HBLOB *phBlob);
-  DWORD _cdecl GetNPPBlobFromUIExU(HWND hwnd,HBLOB hFilterBlob,HBLOB *phBlob,char *szHelpFileName);
-  DWORD _cdecl SelectNPPBlobFromTable(HWND hwnd,PBLOB_TABLE pBlobTable,HBLOB *hBlob);
-  DWORD _cdecl SelectNPPBlobFromTableExU(HWND hwnd,PBLOB_TABLE pBlobTable,HBLOB *hBlob,char *szHelpFileName);
+  DWORD __cdecl GetNPPBlobTable(HBLOB hFilterBlob,PBLOB_TABLE *ppBlobTable);
+  DWORD __cdecl GetNPPBlobFromUI(HWND hwnd,HBLOB hFilterBlob,HBLOB *phBlob);
+  DWORD __cdecl GetNPPBlobFromUIExU(HWND hwnd,HBLOB hFilterBlob,HBLOB *phBlob,char *szHelpFileName);
+  DWORD __cdecl SelectNPPBlobFromTable(HWND hwnd,PBLOB_TABLE pBlobTable,HBLOB *hBlob);
+  DWORD __cdecl SelectNPPBlobFromTableExU(HWND hwnd,PBLOB_TABLE pBlobTable,HBLOB *hBlob,char *szHelpFileName);
 
   static __inline DWORD BLOB_TABLE_SIZE(DWORD dwNumBlobs) { return (DWORD) (sizeof(BLOB_TABLE)+dwNumBlobs*sizeof(HBLOB)); }
   static __inline PBLOB_TABLE AllocBlobTable(DWORD dwNumBlobs) {
@@ -984,17 +984,17 @@ extern "C"{
     DWORD size = MBLOB_TABLE_SIZE(dwNumBlobs);
     return (PMBLOB_TABLE)HeapAlloc(GetProcessHeap(),HEAP_ZERO_MEMORY,size);
   }
-  DWORD _cdecl GetNPPBlobs(PBLOB_TABLE *ppBlobTable);
+  DWORD __cdecl GetNPPBlobs(PBLOB_TABLE *ppBlobTable);
 
   typedef DWORD (_cdecl *BLOBSPROC) (PBLOB_TABLE *ppBlobTable);
 
-  DWORD _cdecl GetConfigBlob(HBLOB *phBlob);
+  DWORD __cdecl GetConfigBlob(HBLOB *phBlob);
 
   typedef DWORD (_cdecl *GETCFGBLOB)(HBLOB,HBLOB*);
   typedef DWORD (_cdecl *CFGPROC)(HWND hwnd,HBLOB SpecialBlob,PBLOB_TABLE *ppBlobTable);
 
-  WINBOOL _cdecl FilterNPPBlob(HBLOB hBlob,HBLOB FilterBlob);
-  WINBOOL _cdecl RaiseNMEvent(HINSTANCE hInstance,WORD EventType,DWORD EventID,WORD nStrings,const char **aInsertStrs,LPVOID lpvData,DWORD dwDataSize);
+  WINBOOL __cdecl FilterNPPBlob(HBLOB hBlob,HBLOB FilterBlob);
+  WINBOOL __cdecl RaiseNMEvent(HINSTANCE hInstance,WORD EventType,DWORD EventID,WORD nStrings,const char **aInsertStrs,LPVOID lpvData,DWORD dwDataSize);
 
 #ifndef __cplusplus
 #ifndef try
@@ -1047,7 +1047,7 @@ extern "C"{
   LPADDRESSTABLE2 WINAPI NormalizeAddressTable(LPADDRESSTABLE2 AddressTable);
   DWORD WINAPI BhGetWindowsVersion(VOID);
   WINBOOL WINAPI IsDaytona(VOID);
-  VOID _cdecl dprintf(LPSTR format,...);
+  VOID __cdecl dprintf(LPSTR format,...);
 
   typedef VOID UNALIGNED *ULPVOID;
   typedef BYTE UNALIGNED *ULPBYTE;
@@ -2027,9 +2027,9 @@ extern "C"{
   LPVOID WINAPI CCHeapReAlloc(LPVOID lpMem,DWORD dwBytes,WINBOOL bZeroInit);
   WINBOOL WINAPI CCHeapFree(LPVOID lpMem);
   SIZE_T WINAPI CCHeapSize(LPVOID lpMem);
-  WINBOOL _cdecl BERGetInteger(ULPBYTE pCurrentPointer,ULPBYTE *ppValuePointer,LPDWORD pHeaderLength,LPDWORD pDataLength,ULPBYTE *ppNext);
-  WINBOOL _cdecl BERGetString(ULPBYTE pCurrentPointer,ULPBYTE *ppValuePointer,LPDWORD pHeaderLength,LPDWORD pDataLength,ULPBYTE *ppNext);
-  WINBOOL _cdecl BERGetHeader(ULPBYTE pCurrentPointer,ULPBYTE pTag,LPDWORD pHeaderLength,LPDWORD pDataLength,ULPBYTE *ppNext);
+  WINBOOL __cdecl BERGetInteger(ULPBYTE pCurrentPointer,ULPBYTE *ppValuePointer,LPDWORD pHeaderLength,LPDWORD pDataLength,ULPBYTE *ppNext);
+  WINBOOL __cdecl BERGetString(ULPBYTE pCurrentPointer,ULPBYTE *ppValuePointer,LPDWORD pHeaderLength,LPDWORD pDataLength,ULPBYTE *ppNext);
+  WINBOOL __cdecl BERGetHeader(ULPBYTE pCurrentPointer,ULPBYTE pTag,LPDWORD pHeaderLength,LPDWORD pDataLength,ULPBYTE *ppNext);
 
 #define MAX_PROTOCOL_COMMENT_LEN (256)
 
@@ -2106,7 +2106,7 @@ extern "C"{
 #define BASE10_FORMAT_STR "%ld=%s %ld"
 #define BASE16_FORMAT_STR "%lx=%s %lx"
 
-  LPSTR _cdecl BuildINIPath(char *FullPath,char *IniFileName);
+  LPSTR __cdecl BuildINIPath(char *FullPath,char *IniFileName);
   DWORD WINAPI CreateHandoffTable(LPSTR secName,LPSTR iniFile,LPHANDOFFTABLE *hTable,DWORD nMaxProtocolEntries,DWORD base);
   HPROTOCOL WINAPI GetProtocolFromTable(LPHANDOFFTABLE hTable,DWORD ItemToFind,PDWORD_PTR lpInstData);
   VOID WINAPI DestroyHandoffTable(LPHANDOFFTABLE hTable);
@@ -2289,49 +2289,49 @@ extern "C"{
 
 #define INITIAL_RESTART_KEY (0xffffffff)
 
-  DWORD _cdecl CreateBlob(HBLOB *phBlob);
-  DWORD _cdecl DestroyBlob(HBLOB hBlob);
-  DWORD _cdecl SetStringInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,const char *pString);
-  DWORD _cdecl SetWStringInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,const WCHAR *pwString);
-  DWORD _cdecl ConvertWStringToHexString(const WCHAR *pwsz,char **ppsz);
-  DWORD _cdecl GetStringFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,const char **ppString);
-  DWORD _cdecl ConvertHexStringToWString(CHAR *psz,WCHAR **ppwsz);
-  DWORD _cdecl GetWStringFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,WCHAR **ppwString);
-  DWORD _cdecl GetStringsFromBlob(HBLOB hBlob,const char *pRequestedOwnerName,const char *pRequestedCategoryName,const char *pRequestedTagName,const char **ppReturnedOwnerName,const char **ppReturnedCategoryName,const char **ppReturnedTagName,const char **ppReturnedString,DWORD *pRestartKey);
-  DWORD _cdecl RemoveFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName);
-  DWORD _cdecl LockBlob(HBLOB hBlob);
-  DWORD _cdecl UnlockBlob(HBLOB hBlob);
-  DWORD _cdecl FindUnknownBlobCategories(HBLOB hBlob,const char *pOwnerName,const char *pKnownCategoriesTable[],HBLOB hUnknownCategoriesBlob);
-  DWORD _cdecl MergeBlob(HBLOB hDstBlob,HBLOB hSrcBlob);
-  DWORD _cdecl DuplicateBlob (HBLOB hSrcBlob,HBLOB *hBlobThatWillBeCreated);
-  DWORD _cdecl WriteBlobToFile(HBLOB hBlob,const char *pFileName);
-  DWORD _cdecl ReadBlobFromFile(HBLOB *phBlob,const char *pFileName);
-  DWORD _cdecl RegCreateBlobKey(HKEY hkey,const char *szBlobName,HBLOB hBlob);
-  DWORD _cdecl RegOpenBlobKey(HKEY hkey,const char *szBlobName,HBLOB *phBlob);
-  DWORD _cdecl MarshalBlob(HBLOB hBlob,DWORD *pSize,BYTE **ppBytes);
-  DWORD _cdecl UnMarshalBlob(HBLOB *phBlob,DWORD Size,BYTE *pBytes);
-  DWORD _cdecl SetDwordInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,DWORD Dword);
-  DWORD _cdecl GetDwordFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,DWORD *pDword);
-  DWORD _cdecl SetBoolInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,WINBOOL Bool);
-  DWORD _cdecl GetBoolFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,WINBOOL *pBool);
-  DWORD _cdecl GetMacAddressFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,BYTE *pMacAddress);
-  DWORD _cdecl SetMacAddressInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,const BYTE *pMacAddress);
-  DWORD _cdecl FindUnknownBlobTags(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pKnownTagsTable[],HBLOB hUnknownTagsBlob);
-  DWORD _cdecl SetNetworkInfoInBlob(HBLOB hBlob,LPNETWORKINFO lpNetworkInfo);
-  DWORD _cdecl GetNetworkInfoFromBlob(HBLOB hBlob,LPNETWORKINFO lpNetworkInfo);
-  DWORD _cdecl CreateNPPInterface (HBLOB hBlob,REFIID iid,void **ppvObject);
-  DWORD _cdecl SetClassIDInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,const CLSID *pClsID);
-  DWORD _cdecl GetClassIDFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,CLSID *pClsID);
-  DWORD _cdecl SetNPPPatternFilterInBlob(HBLOB hBlob,LPEXPRESSION pExpression,HBLOB hErrorBlob);
-  DWORD _cdecl GetNPPPatternFilterFromBlob(HBLOB hBlob,LPEXPRESSION pExpression,HBLOB hErrorBlob);
-  DWORD _cdecl SetNPPAddress2FilterInBlob(HBLOB hBlob,LPADDRESSTABLE2 pAddressTable);
-  DWORD _cdecl GetNPPAddress2FilterFromBlob(HBLOB hBlob,LPADDRESSTABLE2 pAddressTable,HBLOB hErrorBlob);
-  DWORD _cdecl SetNPPTriggerInBlob(HBLOB hBlob,LPTRIGGER pTrigger,HBLOB hErrorBlob);
-  DWORD _cdecl GetNPPTriggerFromBlob(HBLOB hBlob,LPTRIGGER pTrigger,HBLOB hErrorBlob);
-  DWORD _cdecl SetNPPEtypeSapFilter(HBLOB hBlob,WORD nSaps,WORD nEtypes,LPBYTE lpSapTable,LPWORD lpEtypeTable,DWORD FilterFlags,HBLOB hErrorBlob);
-  DWORD _cdecl GetNPPEtypeSapFilter(HBLOB hBlob,WORD *pnSaps,WORD *pnEtypes,LPBYTE *ppSapTable,LPWORD *ppEtypeTable,DWORD *pFilterFlags,HBLOB hErrorBlob);
-  DWORD _cdecl GetNPPMacTypeAsNumber(HBLOB hBlob,LPDWORD lpMacType);
-  WINBOOL _cdecl IsRemoteNPP (HBLOB hBLOB);
+  DWORD __cdecl CreateBlob(HBLOB *phBlob);
+  DWORD __cdecl DestroyBlob(HBLOB hBlob);
+  DWORD __cdecl SetStringInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,const char *pString);
+  DWORD __cdecl SetWStringInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,const WCHAR *pwString);
+  DWORD __cdecl ConvertWStringToHexString(const WCHAR *pwsz,char **ppsz);
+  DWORD __cdecl GetStringFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,const char **ppString);
+  DWORD __cdecl ConvertHexStringToWString(CHAR *psz,WCHAR **ppwsz);
+  DWORD __cdecl GetWStringFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,WCHAR **ppwString);
+  DWORD __cdecl GetStringsFromBlob(HBLOB hBlob,const char *pRequestedOwnerName,const char *pRequestedCategoryName,const char *pRequestedTagName,const char **ppReturnedOwnerName,const char **ppReturnedCategoryName,const char **ppReturnedTagName,const char **ppReturnedString,DWORD *pRestartKey);
+  DWORD __cdecl RemoveFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName);
+  DWORD __cdecl LockBlob(HBLOB hBlob);
+  DWORD __cdecl UnlockBlob(HBLOB hBlob);
+  DWORD __cdecl FindUnknownBlobCategories(HBLOB hBlob,const char *pOwnerName,const char *pKnownCategoriesTable[],HBLOB hUnknownCategoriesBlob);
+  DWORD __cdecl MergeBlob(HBLOB hDstBlob,HBLOB hSrcBlob);
+  DWORD __cdecl DuplicateBlob (HBLOB hSrcBlob,HBLOB *hBlobThatWillBeCreated);
+  DWORD __cdecl WriteBlobToFile(HBLOB hBlob,const char *pFileName);
+  DWORD __cdecl ReadBlobFromFile(HBLOB *phBlob,const char *pFileName);
+  DWORD __cdecl RegCreateBlobKey(HKEY hkey,const char *szBlobName,HBLOB hBlob);
+  DWORD __cdecl RegOpenBlobKey(HKEY hkey,const char *szBlobName,HBLOB *phBlob);
+  DWORD __cdecl MarshalBlob(HBLOB hBlob,DWORD *pSize,BYTE **ppBytes);
+  DWORD __cdecl UnMarshalBlob(HBLOB *phBlob,DWORD Size,BYTE *pBytes);
+  DWORD __cdecl SetDwordInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,DWORD Dword);
+  DWORD __cdecl GetDwordFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,DWORD *pDword);
+  DWORD __cdecl SetBoolInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,WINBOOL Bool);
+  DWORD __cdecl GetBoolFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,WINBOOL *pBool);
+  DWORD __cdecl GetMacAddressFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,BYTE *pMacAddress);
+  DWORD __cdecl SetMacAddressInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,const BYTE *pMacAddress);
+  DWORD __cdecl FindUnknownBlobTags(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pKnownTagsTable[],HBLOB hUnknownTagsBlob);
+  DWORD __cdecl SetNetworkInfoInBlob(HBLOB hBlob,LPNETWORKINFO lpNetworkInfo);
+  DWORD __cdecl GetNetworkInfoFromBlob(HBLOB hBlob,LPNETWORKINFO lpNetworkInfo);
+  DWORD __cdecl CreateNPPInterface (HBLOB hBlob,REFIID iid,void **ppvObject);
+  DWORD __cdecl SetClassIDInBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,const CLSID *pClsID);
+  DWORD __cdecl GetClassIDFromBlob(HBLOB hBlob,const char *pOwnerName,const char *pCategoryName,const char *pTagName,CLSID *pClsID);
+  DWORD __cdecl SetNPPPatternFilterInBlob(HBLOB hBlob,LPEXPRESSION pExpression,HBLOB hErrorBlob);
+  DWORD __cdecl GetNPPPatternFilterFromBlob(HBLOB hBlob,LPEXPRESSION pExpression,HBLOB hErrorBlob);
+  DWORD __cdecl SetNPPAddress2FilterInBlob(HBLOB hBlob,LPADDRESSTABLE2 pAddressTable);
+  DWORD __cdecl GetNPPAddress2FilterFromBlob(HBLOB hBlob,LPADDRESSTABLE2 pAddressTable,HBLOB hErrorBlob);
+  DWORD __cdecl SetNPPTriggerInBlob(HBLOB hBlob,LPTRIGGER pTrigger,HBLOB hErrorBlob);
+  DWORD __cdecl GetNPPTriggerFromBlob(HBLOB hBlob,LPTRIGGER pTrigger,HBLOB hErrorBlob);
+  DWORD __cdecl SetNPPEtypeSapFilter(HBLOB hBlob,WORD nSaps,WORD nEtypes,LPBYTE lpSapTable,LPWORD lpEtypeTable,DWORD FilterFlags,HBLOB hErrorBlob);
+  DWORD __cdecl GetNPPEtypeSapFilter(HBLOB hBlob,WORD *pnSaps,WORD *pnEtypes,LPBYTE *ppSapTable,LPWORD *ppEtypeTable,DWORD *pFilterFlags,HBLOB hErrorBlob);
+  DWORD __cdecl GetNPPMacTypeAsNumber(HBLOB hBlob,LPDWORD lpMacType);
+  WINBOOL __cdecl IsRemoteNPP (HBLOB hBLOB);
 
 #define OWNER_NPP "NPP"
 
@@ -2443,10 +2443,10 @@ extern "C"{
 
 #define PATTERN_MATCH_NOT_TXT "NOT"
 
-  LPCSTR _cdecl FindOneOf(LPCSTR p1,LPCSTR p2);
-  LONG _cdecl recursiveDeleteKey(HKEY hKeyParent,const char *lpszKeyChild);
-  WINBOOL _cdecl SubkeyExists(const char *pszPath,const char *szSubkey);
-  WINBOOL _cdecl setKeyAndValue(const char *szKey,const char *szSubkey,const char *szValue,const char *szName);
+  LPCSTR __cdecl FindOneOf(LPCSTR p1,LPCSTR p2);
+  LONG __cdecl recursiveDeleteKey(HKEY hKeyParent,const char *lpszKeyChild);
+  WINBOOL __cdecl SubkeyExists(const char *pszPath,const char *szSubkey);
+  WINBOOL __cdecl setKeyAndValue(const char *szKey,const char *szSubkey,const char *szValue,const char *szName);
 
 #pragma pack(push,1)
 

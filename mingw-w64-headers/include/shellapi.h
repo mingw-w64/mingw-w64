@@ -625,8 +625,8 @@ extern "C" {
 #define ShellMessageBox ShellMessageBoxA
 #endif
 
-  int _cdecl ShellMessageBoxA(HINSTANCE hAppInst,HWND hWnd,LPCSTR lpcText,LPCSTR lpcTitle,UINT fuStyle,...);
-  int _cdecl ShellMessageBoxW(HINSTANCE hAppInst,HWND hWnd,LPCWSTR lpcText,LPCWSTR lpcTitle,UINT fuStyle,...);
+  int __cdecl ShellMessageBoxA(HINSTANCE hAppInst,HWND hWnd,LPCSTR lpcText,LPCSTR lpcTitle,UINT fuStyle,...);
+  int __cdecl ShellMessageBoxW(HINSTANCE hAppInst,HWND hWnd,LPCWSTR lpcText,LPCWSTR lpcTitle,UINT fuStyle,...);
 #endif
 
 #if (_WIN32_IE >= 0x0601)
