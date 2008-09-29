@@ -1,3 +1,8 @@
+2008-09-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wininterlocked.c (InterlockedExchangeAdd): New.
+	(InterlockedExchangeAdd64): New.
+
 2008-09-16  Kai Tietz  <kai.tietz@onevision.com>
 
 	Patch/2108279 by Jaroslav Smid

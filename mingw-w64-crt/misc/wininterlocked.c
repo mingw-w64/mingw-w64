@@ -177,6 +177,30 @@ SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SH
   return prev;
 }
 
+LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value)
+{
+  LONG ret;
+  __asm__ ("lock\n\t"
+           "xaddl %0,(%1)"
+           : "=r" (ret)
+           : "r" (Addend), "0" (Value)
+           : "memory");
+  return ret;
+}
+
+#ifdef _WIN64
+LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value)
+{
+  LONG64 ret;
+  __asm__ ("lock\n\t"
+           "xaddq %0,(%1)"
+           : "=r" (ret)
+           : "r" (Addend), "0" (Value)
+           : "memory");
+  return ret;
+}
+#endif
+
 LONG InterlockedAnd(LONG volatile *Destination,LONG Value)
 {
   __asm__ __volatile__("lock ; andl %0,%1"
