@@ -379,12 +379,12 @@ typedef __WCHAR_TYPE__ wchar_t;
 #endif	/* NULL not defined and <stddef.h> or need NULL.  */
 #undef	__need_NULL
 
-#ifdef _STDDEF_H
+#ifndef offsetof
 
 /* Offset of member MEMBER in a struct of type TYPE. */
 #define offsetof(TYPE, MEMBER) __builtin_offsetof (TYPE, MEMBER)
 
-#endif /* _STDDEF_H was defined this time */
+#endif /* !offsetof */
 
 #endif /* !_STDDEF_H && !_STDDEF_H_ && !_ANSI_STDDEF_H && !__STDDEF_H__
 	  || __need_XXX was not defined before */
