@@ -1,3 +1,9 @@
+2008-10-21  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h (__USE_MINGW_ALARM): New.
+	(alarm): Make declaration dependent on
+	__USE_MINGW_ALARM.
+
 2008-09-30  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stddef.h (offsetof): Make sure it gets defined.
