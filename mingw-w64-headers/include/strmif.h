@@ -6811,7 +6811,11 @@ extern "C" {
   typedef void *LPDIRECTDRAWSURFACE7;
   typedef void *LPDIRECTDRAW7;
   typedef void *LPDDPIXELFORMAT;
-  typedef void *LPDDCOLORKEY;
+  typedef struct DDCOLORKEY {
+    DWORD dw1;
+    DWORD dw2;
+  } DDCOLORKEY;
+  typedef DDCOLORKEY *LPDDCOLORKEY;
 #endif
 
   typedef enum tagDVD_DOMAIN {
@@ -8373,7 +8377,9 @@ extern "C" {
   void __RPC_STUB IFilterChain_RemoveChain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
+#ifdef MINGW_HAS_DDRAW_H
 #include <ddraw.h>
+#endif
 
   typedef enum __MIDL___MIDL_itf_strmif_0397_0002 {
     VMRSample_SyncPoint = 0x1,VMRSample_Preroll = 0x2,VMRSample_Discontinuity = 0x4,VMRSample_TimeValid = 0x8,VMRSample_SrcDstRectsValid = 0x10

@@ -1,3 +1,10 @@
+2008-10-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* strmif.h (DDCOLORKEY): New dummy version.
+	(LPDDCOLORKEY): Declare it as DDCOLORKEY *.
+	(ddraw.h): Include it just when MINGW_HAS_DDRAW_H
+	is defined.
+
 2008-10-21  Kai Tietz  <kai.tietz@onevision.com>
 
 	* io.h (__USE_MINGW_ALARM): New.
