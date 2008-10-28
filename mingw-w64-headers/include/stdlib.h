@@ -128,7 +128,7 @@ extern "C" {
   typedef void (__cdecl *_purecall_handler)(void);
 
   _CRTIMP _purecall_handler __cdecl _set_purecall_handler(_purecall_handler _Handler);
-  _CRTIMP _purecall_handler __cdecl _get_purecall_handler();
+  _CRTIMP _purecall_handler __cdecl _get_purecall_handler(void);
 
   typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *,const wchar_t *,const wchar_t *,unsigned int,uintptr_t);
   _invalid_parameter_handler __cdecl _set_invalid_parameter_handler(_invalid_parameter_handler _Handler);
