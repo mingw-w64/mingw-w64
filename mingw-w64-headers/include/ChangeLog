@@ -1,3 +1,8 @@
+2008-10-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* signal.h (SIGALARM): Define it just when
+	__USE_MINGW_ALARM is set.
+
 2008-10-28  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdlib.h, stdio.h: Fix headers to be save with
