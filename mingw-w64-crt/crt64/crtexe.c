@@ -32,7 +32,7 @@ extern void _fpreset (void);
 #define SPACECHAR _T(' ')
 #define DQUOTECHAR _T('\"')
 
-_CRTIMP void __setusermatherr(int (__cdecl *)(struct _exception *));
+__declspec(dllimport) void __setusermatherr(int (__cdecl *)(struct _exception *));
 
 extern int *_imp___fmode;
 extern int *_imp___commode;
