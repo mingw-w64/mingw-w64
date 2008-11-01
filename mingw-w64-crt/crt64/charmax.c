@@ -7,7 +7,7 @@ int mingw_initcharmax = 0;
 
 int _charmax = 255;
 
-static int my_lconv(void)
+static int my_lconv_init(void)
 {
   return __lconv_init();
 }
