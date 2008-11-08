@@ -47,5 +47,6 @@
 #define O_NOINHERIT _O_NOINHERIT
 #define O_SEQUENTIAL _O_SEQUENTIAL
 #define O_RANDOM _O_RANDOM
+#define O_ACCMODE _O_ACCMODE
 #endif
 #endif
