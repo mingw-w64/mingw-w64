@@ -76,6 +76,7 @@ static UnloadInfo *add_ULI(PCImgDelayDescr pidd_)
     ret->pidd = pidd_;
     ret->puiNext = __puiHead;
     __puiHead = ret;
+	return ret;
 }
 
 static void del_ULI(UnloadInfo *p)
