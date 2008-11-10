@@ -354,23 +354,24 @@ lib64_libmingwex_a_SOURCES = \
   math/expm1f.c        math/ldexpf.c       math/powi.c         math/pow.c        \
   \
   misc/mb_wc_common.h \
-  misc/alarm.c            misc/fesetenv.c         misc/io_intrin.c             misc/wcrtomb.c        \
-  misc/btowc.c            misc/fesetexceptflag.c  misc/mingw-aligned-malloc.c  misc/wcstoimax.c      \
-  misc/ctime.c            misc/fesetround.c       misc/mingw-fseek.c           misc/wcstold.c        \
-  misc/difftime32.c       misc/fetestexcept.c     misc/_mkgmtime.c             misc/wcstoumax.c      \
-  misc/difftime64.c       misc/feupdateenv.c      misc/mktime.c                misc/wctob.c          \
-  misc/difftime.c         misc/fwide.c            misc/seterrno.c              misc/wctrans.c        \
-  misc/execv.c            misc/getlogin.c         misc/sleep.c                 misc/wctype.c         \
-  misc/execve.c           misc/gettimeofday.c     misc/spawnv.c                misc/wininterlocked.c \
-  misc/execvp.c           misc/gmtime.c           misc/spawnve.c               misc/wmemchr.c        \
-  misc/execvpe.c          misc/imaxabs.c          misc/spawnvp.c               misc/wmemcmp.c        \
-  misc/feclearexcept.c    misc/imaxdiv.c          misc/spawnvpe.c              misc/wmemcpy.c        \
-  misc/fegetenv.c         misc/isblank.c          misc/strtoimax.c             misc/wmemmove.c       \
-  misc/fegetexceptflag.c  misc/iswblank.c         misc/wmemset.c               misc/mingw_getsp.S    \
-  misc/fegetround.c       misc/localtime.c        misc/strtoumax.c             misc/dirent.c         \
-  misc/feholdexcept.c     misc/mbrtowc.c          misc/time.c                  misc/wdirent.c        \
-  misc/feraiseexcept.c    misc/mbsinit.c          misc/wassert.c               misc/ftruncate.c      \
-  misc/getopt.c           \
+  misc/alarm.c            misc/fesetenv.c         misc/mbsinit.c               misc/wcstold.c        \
+  misc/btowc.c            misc/fesetexceptflag.c  misc/mingw-aligned-malloc.c  misc/wcstoumax.c      \
+  misc/ctime.c            misc/fesetround.c       misc/mingw-fseek.c           misc/wctob.c          \
+  misc/delayimp.c         misc/fetestexcept.c     misc/_mkgmtime.c             misc/wctrans.c        \
+  misc/difftime32.c       misc/feupdateenv.c      misc/mktime.c                misc/wctype.c         \
+  misc/difftime64.c       misc/ftruncate.c        misc/seterrno.c              misc/wdirent.c        \
+  misc/difftime.c         misc/fwide.c            misc/sleep.c                 misc/winbs_uint64.c   \
+  misc/dirent.c           misc/getlogin.c         misc/spawnv.c                misc/winbs_ulong.c    \
+  misc/execv.c            misc/getopt.c           misc/spawnve.c               misc/winbs_ushort.c   \
+  misc/execve.c           misc/gettimeofday.c     misc/spawnvp.c               misc/wininterlocked.c \
+  misc/execvp.c           misc/gmtime.c           misc/spawnvpe.c              misc/wmemchr.c        \
+  misc/execvpe.c          misc/imaxabs.c          misc/strtoimax.c             misc/wmemcmp.c        \
+  misc/feclearexcept.c    misc/imaxdiv.c          misc/strtold.c               misc/wmemcpy.c        \
+  misc/fegetenv.c         misc/io_intrin.c        misc/strtoumax.c             misc/wmemmove.c       \
+  misc/fegetexceptflag.c  misc/isblank.c          misc/time.c                  misc/wmemset.c        \
+  misc/fegetround.c       misc/iswblank.c         misc/wassert.c               \
+  misc/feholdexcept.c     misc/localtime.c        misc/wcrtomb.c               \
+  misc/feraiseexcept.c    misc/mbrtowc.c          misc/wcstoimax.c             \
   \
   stdio/atoll.c            stdio/ftello64.c      stdio/strtof.c     stdio/vsnwprintf.c \
   stdio/_Exit.c            stdio/_fwstat64i32.c  stdio/ulltoa.c     stdio/vsscanf.c    \
