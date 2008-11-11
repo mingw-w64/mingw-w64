@@ -1,3 +1,8 @@
+2008-11-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt64/pseudo-reloc.c: Support of new pseudo relocation
+	version.
+
 2008-09-29  Kai Tietz  <kai.tietz@onevision.com>
 
 	* misc/wininterlocked.c (InterlockedExchangeAdd): New.
