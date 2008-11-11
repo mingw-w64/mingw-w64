@@ -33,10 +33,10 @@ do_pseudo_reloc (void* start,void *end,void *base)
   runtime_pseudo_reloc_v2 *v2_hdr = (runtime_pseudo_reloc_v2 *) start;
   runtime_pseudo_reloc_item_v2 *r;
 
-  if (reloc_target < 4)
+  if (reloc_target < 8)
     return;
   /* Check if this is old version pseudo relocation version.  */
-  if (reloc_target >= 6
+  if (reloc_target >= 12
       && v2_hdr->magic1 == 0 && v2_hdr->magic2 == 0
       && v2_hdr->version == RP_VERSION_V1)
       v2_hdr++;
