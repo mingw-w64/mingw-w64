@@ -372,6 +372,7 @@ lib64_libmingwex_a_SOURCES = \
   misc/fegetround.c       misc/iswblank.c         misc/wassert.c               \
   misc/feholdexcept.c     misc/localtime.c        misc/wcrtomb.c               \
   misc/feraiseexcept.c    misc/mbrtowc.c          misc/wcstoimax.c             \
+  misc/mingw_getsp.S \
   \
   stdio/atoll.c            stdio/ftello64.c      stdio/strtof.c     stdio/vsnwprintf.c \
   stdio/_Exit.c            stdio/_fwstat64i32.c  stdio/ulltoa.c     stdio/vsscanf.c    \
