@@ -95,8 +95,8 @@ extern "C" {
   _CRTIMP void __cdecl _ftime64(struct __timeb64 *_Time);
 #endif
 
-#ifndef TIMESPEC_DEFINED
-#define TIMESPEC_DEFINED
+#ifndef _TIMESPEC_DEFINED
+#define _TIMESPEC_DEFINED
 struct timespec {
   time_t  tv_sec;   /* Seconds */
   long    tv_nsec;  /* Nanoseconds */
