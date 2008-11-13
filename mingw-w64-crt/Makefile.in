@@ -397,14 +397,14 @@ am__lib64_libmingwex_a_SOURCES_DIST = complex/cabs.c complex/casinhl.c \
 	misc/iswblank.c misc/wassert.c misc/feholdexcept.c \
 	misc/localtime.c misc/wcrtomb.c misc/feraiseexcept.c \
 	misc/mbrtowc.c misc/wcstoimax.c misc/mingw_getsp.S \
-	stdio/atoll.c stdio/ftello64.c \
-	stdio/strtof.c stdio/vsnwprintf.c stdio/_Exit.c \
-	stdio/_fwstat64i32.c stdio/ulltoa.c stdio/vsscanf.c \
-	stdio/_findfirst64i32.c stdio/lltoa.c stdio/ulltow.c \
-	stdio/vswscanf.c stdio/_findnext64i32.c stdio/lltow.c \
-	stdio/vfscanf.c stdio/vwscanf.c stdio/fopen64.c \
-	stdio/lseek64.c stdio/vfwscanf.c stdio/wcstof.c \
-	stdio/fseeko64.c stdio/snprintf.c stdio/vscanf.c stdio/wtoll.c \
+	stdio/atoll.c stdio/ftello64.c stdio/strtof.c \
+	stdio/vsnwprintf.c stdio/_Exit.c stdio/_fwstat64i32.c \
+	stdio/ulltoa.c stdio/vsscanf.c stdio/_findfirst64i32.c \
+	stdio/lltoa.c stdio/ulltow.c stdio/vswscanf.c \
+	stdio/_findnext64i32.c stdio/lltow.c stdio/vfscanf.c \
+	stdio/vwscanf.c stdio/fopen64.c stdio/lseek64.c \
+	stdio/vfwscanf.c stdio/wcstof.c stdio/fseeko64.c \
+	stdio/snprintf.c stdio/vscanf.c stdio/wtoll.c \
 	stdio/_fstat64i32.c stdio/snwprintf.c stdio/vsnprintf.c
 @LIB64_TRUE@am_lib64_libmingwex_a_OBJECTS =  \
 @LIB64_TRUE@	complex/lib64_libmingwex_a-cabs.$(OBJEXT) \
@@ -717,6 +717,7 @@ am__lib64_libmingwex_a_SOURCES_DIST = complex/cabs.c complex/casinhl.c \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-feraiseexcept.$(OBJEXT) \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-mbrtowc.$(OBJEXT) \
 @LIB64_TRUE@	misc/lib64_libmingwex_a-wcstoimax.$(OBJEXT) \
+@LIB64_TRUE@	misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT) \
 @LIB64_TRUE@	stdio/lib64_libmingwex_a-atoll.$(OBJEXT) \
 @LIB64_TRUE@	stdio/lib64_libmingwex_a-ftello64.$(OBJEXT) \
 @LIB64_TRUE@	stdio/lib64_libmingwex_a-strtof.$(OBJEXT) \
@@ -1023,6 +1024,7 @@ sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
+top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 @WITHSYSROOT_FALSE@sysincludes = 
@@ -1301,6 +1303,7 @@ BUILT_SOURCES = _libm_dummy.c
 @LIB64_TRUE@  misc/fegetround.c       misc/iswblank.c         misc/wassert.c               \
 @LIB64_TRUE@  misc/feholdexcept.c     misc/localtime.c        misc/wcrtomb.c               \
 @LIB64_TRUE@  misc/feraiseexcept.c    misc/mbrtowc.c          misc/wcstoimax.c             \
+@LIB64_TRUE@  misc/mingw_getsp.S \
 @LIB64_TRUE@  \
 @LIB64_TRUE@  stdio/atoll.c            stdio/ftello64.c      stdio/strtof.c     stdio/vsnwprintf.c \
 @LIB64_TRUE@  stdio/_Exit.c            stdio/_fwstat64i32.c  stdio/ulltoa.c     stdio/vsscanf.c    \
@@ -2771,6 +2774,8 @@ misc/lib64_libmingwex_a-mbrtowc.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-wcstoimax.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 stdio/$(am__dirstamp):
 	@$(MKDIR_P) stdio
 	@: > stdio/$(am__dirstamp)
@@ -3304,6 +3309,7 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-mbsinit.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw-aligned-malloc.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw-fseek.$(OBJEXT)
+	-rm -f misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mktime.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-seterrno.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-sleep.$(OBJEXT)
@@ -3726,6 +3732,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mbsinit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw-aligned-malloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw-fseek.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mktime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-seterrno.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-sleep.Po@am__quote@
@@ -4299,6 +4306,20 @@ math/lib64_libmingwex_a-ilogb.obj: math/ilogb.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/ilogb.S' object='math/lib64_libmingwex_a-ilogb.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-ilogb.obj `if test -f 'math/ilogb.S'; then $(CYGPATH_W) 'math/ilogb.S'; else $(CYGPATH_W) '$(srcdir)/math/ilogb.S'; fi`
+
+misc/lib64_libmingwex_a-mingw_getsp.o: misc/mingw_getsp.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib64_libmingwex_a-mingw_getsp.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Tpo -c -o misc/lib64_libmingwex_a-mingw_getsp.o `test -f 'misc/mingw_getsp.S' || echo '$(srcdir)/'`misc/mingw_getsp.S
+@am__fastdepCCAS_TRUE@	mv -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='misc/mingw_getsp.S' object='misc/lib64_libmingwex_a-mingw_getsp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib64_libmingwex_a-mingw_getsp.o `test -f 'misc/mingw_getsp.S' || echo '$(srcdir)/'`misc/mingw_getsp.S
+
+misc/lib64_libmingwex_a-mingw_getsp.obj: misc/mingw_getsp.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib64_libmingwex_a-mingw_getsp.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Tpo -c -o misc/lib64_libmingwex_a-mingw_getsp.obj `if test -f 'misc/mingw_getsp.S'; then $(CYGPATH_W) 'misc/mingw_getsp.S'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_getsp.S'; fi`
+@am__fastdepCCAS_TRUE@	mv -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='misc/mingw_getsp.S' object='misc/lib64_libmingwex_a-mingw_getsp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib64_libmingwex_a-mingw_getsp.obj `if test -f 'misc/mingw_getsp.S'; then $(CYGPATH_W) 'misc/mingw_getsp.S'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_getsp.S'; fi`
 
 .c.o:
 @am__fastdepCC_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -9063,7 +9084,7 @@ clean-libtool:
 	-rm -rf .libs _libs
 
 distclean-libtool:
-	-rm -f libtool
+	-rm -f libtool config.lt
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
