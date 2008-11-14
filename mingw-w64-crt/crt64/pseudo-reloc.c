@@ -48,6 +48,7 @@ do_pseudo_reloc (void* start,void *end,void *base)
 	  reloc_target = (ptrdiff_t) base + o->target;
 	  *((DWORD*) reloc_target) += o->addend;
         }
+      return;
     }
   /* Check if this is a known version.  */
   if (v2_hdr->version != RP_VERSION_V2)
