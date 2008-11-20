@@ -16,6 +16,57 @@ struct exception;
 
 #pragma pack(push,_CRT_PACKING)
 
+#define _DOMAIN 1
+#define _SING 2
+#define _OVERFLOW 3
+#define _UNDERFLOW 4
+#define _TLOSS 5
+#define _PLOSS 6
+
+#ifndef __STRICT_ANSI__
+#ifndef	NO_OLDNAMES
+#define DOMAIN _DOMAIN
+#define SING _SING
+#define OVERFLOW _OVERFLOW
+#define UNDERFLOW _UNDERFLOW
+#define TLOSS _TLOSS
+#define PLOSS _PLOSS
+#endif
+#endif
+
+#ifndef __STRICT_ANSI__
+#define M_E 2.71828182845904523536
+#define M_LOG2E 1.44269504088896340736
+#define M_LOG10E 0.434294481903251827651
+#define M_LN2 0.693147180559945309417
+#define M_LN10 2.30258509299404568402
+#define M_PI 3.14159265358979323846
+#define M_PI_2 1.57079632679489661923
+#define M_PI_4 0.785398163397448309616
+#define M_1_PI 0.318309886183790671538
+#define M_2_PI 0.636619772367581343076
+#define M_2_SQRTPI 1.12837916709551257390
+#define M_SQRT2 1.41421356237309504880
+#define M_SQRT1_2 0.707106781186547524401
+#endif
+
+#ifndef __STRICT_ANSI__
+/* See also float.h  */
+#ifndef __MINGW_FPCLASS_DEFINED
+#define __MINGW_FPCLASS_DEFINED 1
+#define	_FPCLASS_SNAN	0x0001	/* Signaling "Not a Number" */
+#define	_FPCLASS_QNAN	0x0002	/* Quiet "Not a Number" */
+#define	_FPCLASS_NINF	0x0004	/* Negative Infinity */
+#define	_FPCLASS_NN	0x0008	/* Negative Normal */
+#define	_FPCLASS_ND	0x0010	/* Negative Denormal */
+#define	_FPCLASS_NZ	0x0020	/* Negative Zero */
+#define	_FPCLASS_PZ	0x0040	/* Positive Zero */
+#define	_FPCLASS_PD	0x0080	/* Positive Denormal */
+#define	_FPCLASS_PN	0x0100	/* Positive Normal */
+#define	_FPCLASS_PINF	0x0200	/* Positive Infinity */
+#endif
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,13 +88,6 @@ extern "C" {
     double x,y;
   };
 #endif
-
-#define _DOMAIN 1
-#define _SING 2
-#define _OVERFLOW 3
-#define _UNDERFLOW 4
-#define _TLOSS 5
-#define _PLOSS 6
 
 #define EDOM 33
 #define ERANGE 34
@@ -229,12 +273,6 @@ extern "C" {
 #endif
 
 #ifndef	NO_OLDNAMES
-#define DOMAIN _DOMAIN
-#define SING _SING
-#define OVERFLOW _OVERFLOW
-#define UNDERFLOW _UNDERFLOW
-#define TLOSS _TLOSS
-#define PLOSS _PLOSS
 #define matherr _matherr
 
 #define HUGE	_HUGE
@@ -691,38 +729,6 @@ extern "C++" {
 #endif
 
 #pragma pack(pop)
-
-#if !defined(__STRICT_ANSI__) && !defined(_MATH_DEFINES_DEFINED)
-#define _MATH_DEFINES_DEFINED
-
-#define M_E 2.71828182845904523536
-#define M_LOG2E 1.44269504088896340736
-#define M_LOG10E 0.434294481903251827651
-#define M_LN2 0.693147180559945309417
-#define M_LN10 2.30258509299404568402
-#define M_PI 3.14159265358979323846
-#define M_PI_2 1.57079632679489661923
-#define M_PI_4 0.785398163397448309616
-#define M_1_PI 0.318309886183790671538
-#define M_2_PI 0.636619772367581343076
-#define M_2_SQRTPI 1.12837916709551257390
-#define M_SQRT2 1.41421356237309504880
-#define M_SQRT1_2 0.707106781186547524401
-#endif
-
-#ifndef __MINGW_FPCLASS_DEFINED
-#define __MINGW_FPCLASS_DEFINED 1
-#define	_FPCLASS_SNAN	0x0001	/* Signaling "Not a Number" */
-#define	_FPCLASS_QNAN	0x0002	/* Quiet "Not a Number" */
-#define	_FPCLASS_NINF	0x0004	/* Negative Infinity */
-#define	_FPCLASS_NN	0x0008	/* Negative Normal */
-#define	_FPCLASS_ND	0x0010	/* Negative Denormal */
-#define	_FPCLASS_NZ	0x0020	/* Negative Zero */
-#define	_FPCLASS_PZ	0x0040	/* Positive Zero */
-#define	_FPCLASS_PD	0x0080	/* Positive Denormal */
-#define	_FPCLASS_PN	0x0100	/* Positive Normal */
-#define	_FPCLASS_PINF	0x0200	/* Positive Infinity */
-#endif /* __MINGW_FPCLASS_DEFINED */
 
 /* 7.12.14 */
 /* 
