@@ -6,6 +6,8 @@
 #ifndef _FENV_H_
 #define _FENV_H_
 
+#include <_mingw.h>
+
 /* FPU status word exception flags */
 #define FE_INVALID	0x01
 #define FE_DENORMAL	0x02
