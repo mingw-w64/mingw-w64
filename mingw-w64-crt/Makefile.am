@@ -44,7 +44,7 @@ if LIB32
 # Compiling 32-bit runtime
 #
 
-crt32dir=$(prefix)/$(host)/lib32
+crt32dir=$(prefix)/$(host)/lib
 lib32dir=$(crt32dir)
 include32=-I$(top_srcdir)/include32
 COMPILE32=$(COMPILE) $(include32) -c $(crt32srcdir)/
@@ -75,6 +75,7 @@ lib32_libdinput_a_SOURCES = libsrc/dinput_kbd.c \
   libsrc/dinput_joy.c   libsrc/dinput_joy2.c \
   libsrc/dinput_mouse.c libsrc/dinput_mouse2.c
 lib32_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib32_libdinput_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libdinput8.a
 lib32_libdinput8_a_SOURCES = libsrc/dinput_private.h \
@@ -82,35 +83,45 @@ lib32_libdinput8_a_SOURCES = libsrc/dinput_private.h \
   libsrc/dinput_mouse.c libsrc/dinput_mouse2.c \
   libsrc/dinput_kbd.c
 lib32_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib32_libdinput8_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libdmoguids.a
 lib32_libdmoguids_a_SOURCES = libsrc/dmoguids.c
+lib32_libdmoguids_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libdxerr8.a
 lib32_libdxerr8_a_SOURCES = libsrc/dxerr8.c libsrc/dxerr8w.c
+lib32_libdxerr8_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libdxerr9.a
 lib32_libdxerr9_a_SOURCES = libsrc/dxerr9.c libsrc/dxerr9w.c
+lib32_libdxerr9_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libdxguid.a
 lib32_libdxguid_a_SOURCES = libsrc/dxguid.c
+lib32_libdxguid_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libksuser.a
 lib32_libksuser_a_SOURCES = libsrc/ksuser.c
+lib32_libksuser_a_CPPFLAGS = -m32
 lib32_libksuser_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/liblargeint.a
 lib32_liblargeint_a_SOURCES = libsrc/largeint.c
+lib32_liblargeint_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libscrnsave.a
 lib32_libscrnsave_a_SOURCES = libsrc/scrnsave.c
+lib32_libscrnsave_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libscrnsavw.a
 lib32_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
+lib32_libscrnsavw_a_CPPFLAGS = -m32
 lib32_libscrnsavw_a_CFLAGS = -DUNICODE
 
 lib32_LIBRARIES += lib32/libstrmiids.a
 lib32_libstrmiids_a_SOURCES = libsrc/strmiids.c
+lib32_libstrmiids_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libuuid.a
 lib32_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
@@ -118,9 +129,11 @@ lib32_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
     libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
     libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
     libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
+lib32_libuuid_a_CPPFLAGS = -m32
 
 lib32_LIBRARIES += lib32/libws2_32.a
 lib32_libws2_32_a_SOURCES = libsrc/ws2_32.c
+lib32_libws2_32_a_CPPFLAGS = -m32
 lib32_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 
 
@@ -169,7 +182,7 @@ if LIB64
 # Compiling 64-bit runtime
 # #######################################################################
 
-crt64dir=$(prefix)/$(host)/lib
+crt64dir=$(prefix)/$(host)/lib64
 lib64dir=$(crt64dir)
 include64=-I$(top_srcdir)/include64
 COMPILE64=$(COMPILE) $(include64) -D_SYSCRT=1 -DCRTDLL=1 -c $(crt64srcdir)/
