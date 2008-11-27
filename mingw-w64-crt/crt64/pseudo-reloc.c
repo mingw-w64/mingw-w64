@@ -120,7 +120,7 @@ do_pseudo_reloc (void* start,void *end,void *base)
 void
 _pei386_runtime_relocator ()
 {
-  static was_init = 0;
+  static int was_init = 0;
   if (was_init)
     return;
   ++was_init;
