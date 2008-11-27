@@ -120,5 +120,9 @@ do_pseudo_reloc (void* start,void *end,void *base)
 void
 _pei386_runtime_relocator ()
 {
+  static was_init = 0;
+  if (was_init)
+    return;
+  ++was_init;
   do_pseudo_reloc (&__RUNTIME_PSEUDO_RELOC_LIST__,&__RUNTIME_PSEUDO_RELOC_LIST_END__,&_image_base__);
 }
