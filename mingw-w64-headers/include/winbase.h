@@ -968,15 +968,15 @@ extern "C" {
   LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
   LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand);
 #else
-  WINBASEAPI LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend);
-  WINBASEAPI LONG WINAPI InterlockedDecrement(LONG volatile *lpAddend);
-  WINBASEAPI LONG WINAPI InterlockedExchange(LONG volatile *Target,LONG Value);
+  LONG InterlockedIncrement(LONG volatile *lpAddend);
+  LONG InterlockedDecrement(LONG volatile *lpAddend);
+  LONG InterlockedExchange(LONG volatile *Target,LONG Value);
 
 #define InterlockedExchangePointer(Target,Value)(PVOID)InterlockedExchange((PLONG)(Target),(LONG)(Value))
 
-  WINBASEAPI LONG WINAPI InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
-  WINBASEAPI LONG WINAPI InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand);
-  WINBASEAPI LONGLONG WINAPI InterlockedCompareExchange64 (LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand);
+  LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
+  LONG InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand);
+  LONGLONG InterlockedCompareExchange64(LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand);
 
   __CRT_INLINE LONGLONG InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value) {
     LONGLONG Old;
@@ -1003,7 +1003,7 @@ extern "C" {
     return Old;
   }
 
-  __CRT_INLINE LONGLONG InterlockedIncrement64 (LONGLONG volatile *Addend) {
+  __CRT_INLINE LONGLONG InterlockedIncrement64(LONGLONG volatile *Addend) {
     LONGLONG Old;
     do {
       Old = *Addend;
@@ -1011,7 +1011,7 @@ extern "C" {
     return Old + 1;
   }
 
-  __CRT_INLINE LONGLONG InterlockedDecrement64 (LONGLONG volatile *Addend) {
+  __CRT_INLINE LONGLONG InterlockedDecrement64(LONGLONG volatile *Addend) {
     LONGLONG Old;
     do {
       Old = *Addend;
@@ -1019,7 +1019,7 @@ extern "C" {
     return Old - 1;
   }
 
-  __CRT_INLINE LONGLONG InterlockedExchange64 (LONGLONG volatile *Target,LONGLONG Value) {
+  __CRT_INLINE LONGLONG InterlockedExchange64(LONGLONG volatile *Target,LONGLONG Value) {
     LONGLONG Old;
     do {
       Old = *Target;
