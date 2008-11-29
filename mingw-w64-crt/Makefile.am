@@ -140,32 +140,32 @@ lib32_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
 lib32_SCRIPTS = \
-  lib32/aclui.a     lib32/advapi32.a  lib32/apcups.a    lib32/avicap32.a  lib32/avifil32.a \
-  lib32/cap.a       lib32/cfgmgr32.a  lib32/comctl32.a  lib32/comdlg32.a  lib32/crypt32.a  \
-  lib32/ctl3d32.a   lib32/d3d8.a      lib32/d3d9.a      lib32/d3dim.a     lib32/d3drm.a    \
-  lib32/d3dx8d.a    lib32/d3dx9d.a    lib32/d3dxof.a    lib32/ddraw.a     lib32/dhcpcsvc.a \
-  lib32/dlcapi.a    lib32/dnsapi.a    lib32/dplayx.a    \
-  lib32/dpnaddr.a   lib32/dpnet.a     lib32/dpnlobby.a  lib32/dpvoice.a   lib32/dsetup.a   \
-  lib32/dsound.a    lib32/dxapi.a     lib32/faultrep.a  lib32/gdi32.a     lib32/glaux.a    \
-  lib32/glu32.a     lib32/glut32.a    lib32/glut.a      lib32/hal.a       lib32/hid.a      \
-  lib32/hidparse.a  lib32/icmui.a     lib32/igmpagnt.a  lib32/imagehlp.a  lib32/imm32.a    \
-  lib32/iphlpapi.a  lib32/kernel32.a  lib32/ksproxy.a                     lib32/lz32.a     \
-  lib32/mapi32.a    lib32/mcd.a       lib32/mfcuia32.a  lib32/mgmtapi.a   lib32/mprapi.a   \
-  lib32/mpr.a       lib32/mqrt.a      lib32/msacm32.a   lib32/mscms.a     lib32/msdmo.a    \
-  lib32/msimg32.a   lib32/msvcp60.a   lib32/msvfw32.a   lib32/mswsock.a   lib32/nddeapi.a  \
-  lib32/ndis.a      lib32/netapi32.a  lib32/newdev.a    lib32/ntdll.a     lib32/ntoskrnl.a \
-  lib32/odbc32.a    lib32/odbccp32.a  lib32/ole32.a     lib32/oleacc.a    lib32/oleaut32.a \
-  lib32/olecli32.a  lib32/oledlg.a    lib32/olepro32.a  lib32/olesvr32.a  lib32/opengl32.a \
-  lib32/penwin32.a  lib32/pkpd32.a    lib32/powrprof.a  lib32/psapi.a     lib32/quartz.a   \
-  lib32/rapi.a      lib32/rasapi32.a  lib32/rasdlg.a    lib32/rpcdce4.a   lib32/rpcns4.a   \
-  lib32/rpcrt4.a    lib32/rtm.a       lib32/rtutils.a   lib32/scsiport.a  lib32/secur32.a  \
-  lib32/setupapi.a                    lib32/shfolder.a  lib32/shlwapi.a   lib32/snmpapi.a  \
-  lib32/svrapi.a    lib32/tapi32.a    lib32/tdi.a       lib32/th32.a      lib32/thunk32.a  \
-  lib32/url.a       lib32/usbcamd2.a  lib32/usbcamd.a   lib32/user32.a    lib32/userenv.a  \
-  lib32/usp10.a     lib32/uxtheme.a   lib32/vdmdbg.a    lib32/version.a   lib32/videoprt.a \
-  lib32/win32k.a    lib32/win32spl.a  lib32/wininet.a   lib32/winmm.a     lib32/winspool.a \
-  lib32/winstrm.a   lib32/wldap32.a   lib32/wow32.a     lib32/wsnmp32.a   \
-  lib32/wsock32.a   lib32/wst.a       lib32/wtsapi32.a
+  lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
+  lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
+  lib32/libctl3d32.a   lib32/libd3d8.a      lib32/libd3d9.a      lib32/libd3dim.a     lib32/libd3drm.a    \
+  lib32/libd3dx8d.a    lib32/libd3dx9d.a    lib32/libd3dxof.a    lib32/libddraw.a     lib32/libdhcpcsvc.a \
+  lib32/libdlcapi.a    lib32/libdnsapi.a    lib32/libdplayx.a    \
+  lib32/libdpnaddr.a   lib32/libdpnet.a     lib32/libdpnlobby.a  lib32/libdpvoice.a   lib32/libdsetup.a   \
+  lib32/libdsound.a    lib32/libdxapi.a     lib32/libfaultrep.a  lib32/libgdi32.a     lib32/libglaux.a    \
+  lib32/libglu32.a     lib32/libglut32.a    lib32/libglut.a      lib32/libhal.a       lib32/libhid.a      \
+  lib32/libhidparse.a  lib32/libicmui.a     lib32/libigmpagnt.a  lib32/libimagehlp.a  lib32/libimm32.a    \
+  lib32/libiphlpapi.a  lib32/libkernel32.a  lib32/libksproxy.a                        lib32/liblz32.a     \
+  lib32/libmapi32.a    lib32/libmcd.a       lib32/libmfcuia32.a  lib32/libmgmtapi.a   lib32/libmprapi.a   \
+  lib32/libmpr.a       lib32/libmqrt.a      lib32/libmsacm32.a   lib32/libmscms.a     lib32/libmsdmo.a    \
+  lib32/libmsimg32.a   lib32/libmsvcp60.a   lib32/libmsvfw32.a   lib32/libmswsock.a   lib32/libnddeapi.a  \
+  lib32/libndis.a      lib32/libnetapi32.a  lib32/libnewdev.a    lib32/libntdll.a     lib32/libntoskrnl.a \
+  lib32/libodbc32.a    lib32/libodbccp32.a  lib32/libole32.a     lib32/liboleacc.a    lib32/liboleaut32.a \
+  lib32/libolecli32.a  lib32/liboledlg.a    lib32/libolepro32.a  lib32/libolesvr32.a  lib32/libopengl32.a \
+  lib32/libpenwin32.a  lib32/libpkpd32.a    lib32/libpowrprof.a  lib32/libpsapi.a     lib32/libquartz.a   \
+  lib32/librapi.a      lib32/librasapi32.a  lib32/librasdlg.a    lib32/librpcdce4.a   lib32/librpcns4.a   \
+  lib32/librpcrt4.a    lib32/librtm.a       lib32/librtutils.a   lib32/libscsiport.a  lib32/libsecur32.a  \
+  lib32/libsetupapi.a                       lib32/libshfolder.a  lib32/libshlwapi.a   lib32/libsnmpapi.a  \
+  lib32/libsvrapi.a    lib32/libtapi32.a    lib32/libtdi.a       lib32/libth32.a      lib32/libthunk32.a  \
+  lib32/liburl.a       lib32/libusbcamd2.a  lib32/libusbcamd.a   lib32/libuser32.a    lib32/libuserenv.a  \
+  lib32/libusp10.a     lib32/libuxtheme.a   lib32/libvdmdbg.a    lib32/libversion.a   lib32/libvideoprt.a \
+  lib32/libwin32k.a    lib32/libwin32spl.a  lib32/libwininet.a   lib32/libwinmm.a     lib32/libwinspool.a \
+  lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a     lib32/libwsnmp32.a   \
+  lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a
 
 lib32/lib%.a:
 	$(DTDEF) $(top_srcdir)/lib32/$*.def
