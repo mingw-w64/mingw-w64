@@ -972,7 +972,7 @@ extern "C" {
   LONG InterlockedDecrement(LONG volatile *lpAddend);
   LONG InterlockedExchange(LONG volatile *Target,LONG Value);
 
-#define InterlockedExchangePointer(Target,Value)(PVOID)InterlockedExchange((PLONG)(Target),(LONG)(Value))
+#define InterlockedExchangePointer(Target,Value) (PVOID)InterlockedExchange((PLONG)(Target),(LONG)(Value))
 
   LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
   LONG InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand);
