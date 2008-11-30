@@ -31,23 +31,142 @@ AM_CFLAGS=-pipe $(vistasupport) -Wall -std=gnu99
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
-crt64srcdir=$(top_srcdir)/crt64
-crt32srcdir=$(top_srcdir)/crt32
+extra_include=-I$(top_srcdir)/include
 
 # can move this into libsrc/dummy_libm.c or similar
 BUILT_SOURCES = _libm_dummy.c
 _libm_dummy.c:
-	echo "static int __mingw_libm_dummy;" > _libm_dummy.c
+	echo "static int __attribute__((unused)) __mingw_libm_dummy;" > _libm_dummy.c
+
+
+src_libm=_libm_dummy.c
+src_libmingwthrd=libsrc/dummy_mingwthrd.c
+src_libshell32=libsrc/shell32.c
+src_libdinput=libsrc/dinput_kbd.c libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c
+src_libdinput8=libsrc/dinput_private.h libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c libsrc/dinput_kbd.c
+src_libdmoguids=libsrc/dmoguids.c
+src_libdxerr8=libsrc/dxerr8.c libsrc/dxerr8w.c
+src_libdxerr9=libsrc/dxerr9.c libsrc/dxerr9w.c
+src_libdxguid=libsrc/dxguid.c
+src_libksuser=libsrc/ksuser.c
+src_liblargeint=libsrc/largeint.c
+src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
+  crt/atonexit.c   crt/charmax.c  crt/cinitexe.c      crt/dll_argv.c crt/dllargv.c  crt/dllentry.c     crt/dllmain.c crt/gccmain.c \
+  crt/gs_support.c crt/merr.c     crt/mingw_helpers.c crt/natstart.c crt/_newmode.c crt/pseudo-reloc.c crt/pseudo-reloc-list.c     \
+  crt/pesect.c     crt/tlssup.c   crt/wildcard.c      crt/xtxtmode.c crt/xncommod.c crt/xthdloc.c      \
+  crt/crt0_c.c     crt/crt0_w.c   crt/CRT_fp10.c
+src_libmoldname=crt/isascii.c crt/iscsym.c crt/iscsymf.c crt/toascii.c crt/strcasecmp.c crt/strncasecmp.c crt/wcscmpi.c
+src_libscrnsave=libsrc/scrnsave.c
+src_libscrnsavw=libsrc/scrnsave.c
+src_libstrmiids=libsrc/strmiids.c
+src_libuuid=libsrc/uuid.c libsrc/devguid.c \
+  libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
+  libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
+  libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
+  libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
+src_libws2_32=libsrc/ws2_32.c
+src_libmingwex=\
+  complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosh.c \
+  complex/cacoshf.c  complex/cacoshl.c  complex/cacosl.c  complex/carg.c     complex/cargf.c    complex/cargl.c  \
+  complex/casin.c    complex/casinf.c   complex/casinh.c  complex/casinhf.c  complex/casinhl.c  complex/casinl.c \
+  complex/catan.c    complex/catanf.c   complex/catanh.c  complex/catanhf.c  complex/catanhl.c  complex/catanl.c \
+  complex/ccos.c     complex/ccosf.c    complex/ccosh.c   complex/ccoshf.c   complex/ccoshl.c   complex/ccosl.c  \
+  complex/cexp.c     complex/cexpf.c    complex/cexpl.c   complex/cimag.c    complex/cimagf.c   complex/cimagl.c \
+  complex/clog.c     complex/clogf.c    complex/clogl.c   complex/cpow.c     complex/cpowf.c    complex/cpowl.c  \
+  complex/cproj.c    complex/cprojf.c   complex/cprojl.c  complex/creal.c    complex/crealf.c   complex/creall.c \
+  complex/csin.c     complex/csinf.c    complex/csinh.c   complex/csinhf.c   complex/csinhl.c   complex/csinl.c  \
+  complex/csqrt.c    complex/csqrtf.c   complex/csqrtl.c  complex/ctan.c     complex/ctanf.c    complex/ctanh.c  \
+  complex/ctanhf.c   complex/ctanhl.c   complex/ctanl.c   \
+  \
+  gdtoa/gd_arith.h        gdtoa/gd_qnan.h  gdtoa/gdtoa.h  gdtoa/gdtoaimp.h \
+  gdtoa/arithchk.c        gdtoa/dmisc.c    gdtoa/dtoa.c   gdtoa/g_dfmt.c   gdtoa/gdtoa.c    gdtoa/gethex.c        \
+  gdtoa/g_ffmt.c          gdtoa/g__fmt.c   gdtoa/gmisc.c  gdtoa/g_xfmt.c   gdtoa/hd_init.c  gdtoa/hexnan.c        \
+  gdtoa/mingw_snprintf.c  gdtoa/misc.c     gdtoa/qnan.c   gdtoa/smisc.c    gdtoa/strtodg.c  gdtoa/strtodnrp.c     \
+  gdtoa/strtof.c          gdtoa/strtopx.c  gdtoa/sum.c    gdtoa/ulp.c      \
+  \
+  math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h \
+  math/ceill.S       math/copysignl.S    math/cosl.S       math/exp2f.S       math/exp2l.S       math/exp2.S       math/floorl.S  \
+  math/fmaf.S        math/fma.S          math/frexpl.S     math/ilogbf.S      math/ilogbl.S      math/ilogb.S      math/log10l.S  \
+  math/log1pf.S      math/log1pl.S       math/log1p.S      math/log2f.S       math/log2l.S       math/log2.S       math/logl.S    \
+  math/nearbyintf.S  math/nearbyintl.S   math/nearbyint.S  math/remainderf.S  math/remainderl.S  math/remainder.S  math/remquof.S \
+  math/remquol.S     math/remquo.S       math/scalbnf.S    math/scalbnl.S     math/scalbn.S      math/sinl.S       math/tanl.S    \
+  math/acosf.c        math/acosh.c        math/acoshf.c       math/acoshl.c        math/acosl.c       math/asinf.c       \
+  math/asinh.c        math/asinhf.c       math/asinhl.c       math/asinl.c         math/atan2f.c      math/atan2l.c      \
+  math/atanf.c        math/atanh.c        math/atanhf.c       math/atanhl.c        math/atanl.c       math/cbrt.c        \
+  math/cbrtf.c        math/cbrtl.c        math/ceilf.c        math/cephes_emath.c  math/copysign.c    math/copysignf.c   \
+  math/cosf.c         math/coshf.c        math/coshl.c        math/erfl.c          math/expf.c        math/expl.c        \
+  math/expm1.c        math/expm1f.c       math/expm1l.c       math/fabs.c          math/fabsf.c       math/fabsl.c       \
+  math/fdim.c         math/fdimf.c        math/fdiml.c        math/floorf.c        math/fmal.c        math/fmax.c        \
+  math/fmaxf.c        math/fmaxl.c        math/fmin.c         math/fminf.c         math/fminl.c       math/fmodf.c       \
+  math/fmodl.c        math/fpclassify.c   math/fpclassifyf.c  math/fpclassifyl.c   math/fp_consts.c   math/fp_constsf.c  \
+  math/fp_constsl.c   math/frexpf.c       math/fucom.c        math/hypotf.c        math/hypotl.c      math/isnan.c       \
+  math/isnanf.c       math/isnanl.c       math/ldexpf.c       math/ldexpl.c        math/lgamma.c      math/lgammaf.c     \
+  math/lgammal.c      math/llrint.c       math/llrintf.c      math/llrintl.c       math/llround.c     math/llroundf.c    \
+  math/llroundl.c     math/log10f.c       math/logb.c         math/logbf.c         math/logbl.c       math/logf.c        \
+  math/lrint.c        math/lrintf.c       math/lrintl.c       math/lround.c        math/lroundf.c     math/lroundl.c     \
+  math/modff.c        math/modfl.c        math/nextafterf.c   math/nextafterl.c    math/nexttoward.c  math/nexttowardf.c \
+  math/pow.c          math/powf.c         math/powi.c         math/powif.c         math/powil.c       math/powl.c        \
+  math/rint.c         math/rintf.c        math/rintl.c        math/round.c         math/roundf.c      math/roundl.c      \
+  math/s_erf.c        math/sf_erf.c       math/signbit.c      math/signbitf.c      math/signbitl.c    math/sinf.c        \
+  math/sinhf.c        math/sinhl.c        math/sqrtf.c        math/sqrtl.c         math/tanf.c        math/tanhf.c       \
+  math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c       math/trunc.c       math/truncf.c      \
+  math/truncl.c       \
+  \
+  misc/mb_wc_common.h \
+  misc/mingw_getsp.S  \
+  misc/alarm.c         misc/btowc.c         misc/ctime.c                 misc/delayimp.c        misc/difftime32.c      \
+  misc/difftime64.c    misc/difftime.c      misc/dirent.c                misc/execv.c           misc/execve.c          \
+  misc/execvp.c        misc/execvpe.c       misc/feclearexcept.c         misc/fegetenv.c        misc/fegetexceptflag.c \
+  misc/fegetround.c    misc/feholdexcept.c  misc/feraiseexcept.c         misc/fesetenv.c        misc/fesetexceptflag.c \
+  misc/fesetround.c    misc/fetestexcept.c  misc/feupdateenv.c           misc/ftruncate.c       misc/fwide.c           \
+  misc/getlogin.c      misc/getopt.c        misc/gettimeofday.c          misc/gmtime.c          misc/imaxabs.c         \
+  misc/imaxdiv.c       misc/io_intrin.c     misc/isblank.c               misc/iswblank.c        misc/localtime.c       \
+  misc/mbrtowc.c       misc/mbsinit.c       misc/mingw-aligned-malloc.c  misc/mingw-fseek.c     misc/_mkgmtime.c       \
+  misc/mktime.c        misc/seterrno.c      misc/sleep.c                 misc/spawnv.c          misc/spawnve.c         \
+  misc/spawnvp.c       misc/spawnvpe.c      misc/strtoimax.c             misc/strtold.c         misc/strtoumax.c       \
+  misc/time.c          misc/wassert.c       misc/wcrtomb.c               misc/wcstoimax.c       misc/wcstold.c         \
+  misc/wcstoumax.c     misc/wctob.c         misc/wctrans.c               misc/wctype.c          misc/wdirent.c         \
+  misc/winbs_uint64.c  misc/winbs_ulong.c   misc/winbs_ushort.c          misc/wininterlocked.c  misc/wmemchr.c         \
+  misc/wmemcmp.c       misc/wmemcpy.c       misc/wmemmove.c              misc/wmemset.c         \
+  \
+  stdio/atoll.c        stdio/_Exit.c      stdio/_findfirst64i32.c  stdio/_findnext64i32.c  stdio/fopen64.c  stdio/fseeko64.c \
+  stdio/_fstat64i32.c  stdio/ftello64.c   stdio/_fwstat64i32.c     stdio/lltoa.c           stdio/lltow.c    stdio/lseek64.c  \
+  stdio/snprintf.c     stdio/snwprintf.c  stdio/strtof.c           stdio/ulltoa.c          stdio/ulltow.c   stdio/vfscanf.c  \
+  stdio/vfwscanf.c     stdio/vscanf.c     stdio/vsnprintf.c        stdio/vsnwprintf.c      stdio/vsscanf.c  stdio/vswscanf.c \
+  stdio/vwscanf.c      stdio/wcstof.c     stdio/wtoll.c
 
 if LIB32
 #########
 # Compiling 32-bit runtime
 #
 
-crt32dir=$(prefix)/$(host)/lib
-lib32dir=$(crt32dir)
-include32=-I$(top_srcdir)/include32
-COMPILE32=$(COMPILE) $(include32) -c $(crt32srcdir)/
+lib32dir=$(prefix)/$(host)/lib
+crt32dir=$(lib32dir)
+
+crt32_SCRIPTS = \
+  lib32/crt1.o    lib32/crt2.o     lib32/dllcrt1.o lib32/dllcrt2.o \
+  lib32/CRT_fp8.o lib32/CRT_fp10.o lib32/txtmode.o lib32/binmode.o lib32/crtbegin.o lib32/crtend.o \
+  lib32/gcrt0.o   lib32/gcrt1.o    lib32/gcrt2.o
+
+COMPILE32=$(COMPILE) -m32 $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
+lib32/crt1.o: crt/crtexe.c
+	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+lib32/crt2.o: crt/crtexe.c
+	$(COMPILE32) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+lib32/dllcrt1.o: crt/crtdll.c
+	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+lib32/dllcrt2.o: crt/crtdll.c
+	$(COMPILE32) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+
+lib32/gcrt0.o: profile/gcrt0.c
+	$(COMPILE) -m32 -c $< -o $@
+lib32/gcrt1.o: profile/gcrt0.c
+	$(COMPILE) -m32 -c $< -o $@ -U__MSVCRT__
+lib32/gcrt2.o: profile/gcrt0.c
+	$(COMPILE) -m32 -c $< -o $@ -D__MSVCRT__
+
+lib32/%.o: crt/%.c
+	$(COMPILE) -m32 -c $< -o $@
 
 # These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
 # The source files that I did compile somewhere I just guessed at anyway.
@@ -58,83 +177,87 @@ dxerr.c \
 test.c
 
 lib32_LIBRARIES = lib32/libm.a
-nodist_lib32_libm_a_SOURCES = _libm_dummy.c
-lib32_libm_a_CPPFLAGS = -m32
+nodist_lib32_libm_a_SOURCES = $(src_libm)
+lib32_libm_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libmingwthrd.a
-lib32_libmingwthrd_a_SOURCES = libsrc/dummy_mingwthrd.c
-lib32_libmingwthrd_a_CPPFLAGS = -m32
+lib32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
+lib32_libmingwthrd_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libshell32.a
-lib32_libshell32_a_SOURCES = libsrc/shell32.c
-lib32_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-lib32_libshell32_a_CPPFLAGS = -m32
+lib32_libshell32_a_SOURCES = $(src_libshell32)
+lib32_libshell32_a_AR = $(DTLIB) -m i386; $(AR) $(ARFLAGS)
+lib32_libshell32_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdinput.a
-lib32_libdinput_a_SOURCES = libsrc/dinput_kbd.c \
-  libsrc/dinput_joy.c   libsrc/dinput_joy2.c \
-  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c
-lib32_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-lib32_libdinput_a_CPPFLAGS = -m32
+lib32_libdinput_a_SOURCES = $(src_libdinput)
+lib32_libdinput_a_AR = $(DTLIB) -m i386; $(AR) $(ARFLAGS)
+lib32_libdinput_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdinput8.a
-lib32_libdinput8_a_SOURCES = libsrc/dinput_private.h \
-  libsrc/dinput_joy.c   libsrc/dinput_joy2.c \
-  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c \
-  libsrc/dinput_kbd.c
-lib32_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
-lib32_libdinput8_a_CPPFLAGS = -m32
+lib32_libdinput8_a_SOURCES = $(src_libdinput8)
+lib32_libdinput8_a_AR = $(DTLIB) -m i386; $(AR) $(ARFLAGS)
+lib32_libdinput8_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdmoguids.a
-lib32_libdmoguids_a_SOURCES = libsrc/dmoguids.c
-lib32_libdmoguids_a_CPPFLAGS = -m32
+lib32_libdmoguids_a_SOURCES = $(src_libdmoguids)
+lib32_libdmoguids_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdxerr8.a
-lib32_libdxerr8_a_SOURCES = libsrc/dxerr8.c libsrc/dxerr8w.c
-lib32_libdxerr8_a_CPPFLAGS = -m32
+lib32_libdxerr8_a_SOURCES = $(src_libdxerr8)
+lib32_libdxerr8_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdxerr9.a
-lib32_libdxerr9_a_SOURCES = libsrc/dxerr9.c libsrc/dxerr9w.c
-lib32_libdxerr9_a_CPPFLAGS = -m32
+lib32_libdxerr9_a_SOURCES = $(src_libdxerr9)
+lib32_libdxerr9_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdxguid.a
-lib32_libdxguid_a_SOURCES = libsrc/dxguid.c
-lib32_libdxguid_a_CPPFLAGS = -m32
+lib32_libdxguid_a_SOURCES = $(src_libdxguid)
+lib32_libdxguid_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libksuser.a
-lib32_libksuser_a_SOURCES = libsrc/ksuser.c
-lib32_libksuser_a_CPPFLAGS = -m32
-lib32_libksuser_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib32_libksuser_a_SOURCES = $(src_libksuser)
+lib32_libksuser_a_CPPFLAGS=-m32
+lib32_libksuser_a_AR = $(DTLIB) -m i386; $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/liblargeint.a
-lib32_liblargeint_a_SOURCES = libsrc/largeint.c
-lib32_liblargeint_a_CPPFLAGS = -m32
+lib32_liblargeint_a_SOURCES = $(src_liblargeint)
+lib32_liblargeint_a_CPPFLAGS=-m32
+
+lib32_LIBRARIES += lib32/libmingw32.a
+lib32_libmingw32_a_CPPFLAGS=-m32 -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+lib32_libmingw32_a_SOURCES = $(src_libmingw32)
+
+lib32_LIBRARIES += lib32/libmingwex.a
+lib32_libmingwex_a_CPPFLAGS=-m32 $(extra_include) $(AM_CPPFLAGS)
+lib32_libmingwex_a_SOURCES = $(src_libmingwex)
+
+lib32_LIBRARIES += lib32/libmoldname.a
+lib32_libmoldname_a_CPPFLAGS=-m32 $(extra_include) $(AM_CPPFLAGS)
+lib32_libmoldname_a_SOURCES = $(src_libmoldname)
+lib32_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386; $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libscrnsave.a
-lib32_libscrnsave_a_SOURCES = libsrc/scrnsave.c
-lib32_libscrnsave_a_CPPFLAGS = -m32
+lib32_libscrnsave_a_SOURCES = $(src_libscrnsave)
+lib32_libscrnsave_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libscrnsavw.a
-lib32_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
-lib32_libscrnsavw_a_CPPFLAGS = -m32
+lib32_libscrnsavw_a_SOURCES = $(src_libscrnsavw)
+lib32_libscrnsavw_a_CPPFLAGS=-m32
 lib32_libscrnsavw_a_CFLAGS = -DUNICODE
 
 lib32_LIBRARIES += lib32/libstrmiids.a
-lib32_libstrmiids_a_SOURCES = libsrc/strmiids.c
-lib32_libstrmiids_a_CPPFLAGS = -m32
+lib32_libstrmiids_a_SOURCES = $(src_libstrmiids)
+lib32_libstrmiids_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libuuid.a
-lib32_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
-    libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
-    libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
-    libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
-    libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
-lib32_libuuid_a_CPPFLAGS = -m32
+lib32_libuuid_a_SOURCES = $(src_libuuid)
+lib32_libuuid_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libws2_32.a
-lib32_libws2_32_a_SOURCES = libsrc/ws2_32.c
-lib32_libws2_32_a_CPPFLAGS = -m32
-lib32_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib32_libws2_32_a_SOURCES = $(src_libws2_32)
+lib32_libws2_32_a_CPPFLAGS=-m32
+lib32_libws2_32_a_AR = $(DTLIB) -m i386; $(AR) $(ARFLAGS)
 
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
@@ -165,10 +288,17 @@ lib32_SCRIPTS = \
   lib32/libusp10.a     lib32/libuxtheme.a   lib32/libvdmdbg.a    lib32/libversion.a   lib32/libvideoprt.a \
   lib32/libwin32k.a    lib32/libwin32spl.a  lib32/libwininet.a   lib32/libwinmm.a     lib32/libwinspool.a \
   lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a     lib32/libwsnmp32.a   \
-  lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a
+  lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  \
+  \
+  lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a
+
+# combine these two rules with the ones for lib64
+# Use two patterns, one for 32/64 in lib32/ and lib64/
+lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a:
+	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib32/lib||;s|\.a|.dll|'` -m i386
 
 lib32/lib%.a:
-	$(DTDEF) $(top_srcdir)/lib32/$*.def
+	$(DTDEF) $(top_srcdir)/lib32/$*.def -m i386
 
 
 endif
@@ -182,72 +312,63 @@ if LIB64
 # Compiling 64-bit runtime
 # #######################################################################
 
-crt64dir=$(prefix)/$(host)/lib64
-lib64dir=$(crt64dir)
-include64=-I$(top_srcdir)/include64
-COMPILE64=$(COMPILE) $(include64) -D_SYSCRT=1 -DCRTDLL=1 -c $(crt64srcdir)/
+lib64dir=$(prefix)/$(host)/lib64
+crt64dir=$(lib64dir)
 
 crt64_SCRIPTS = \
-  crt64/libcrtdll.a crt64/libmsvcrt.a crt64/libmsvcr80.a \
-  crt64/crt1.o crt64/crt2.o crt64/dllcrt1.o crt64/dllcrt2.o \
-  crt64/CRT_fp8.o crt64/CRT_fp10.o crt64/txtmode.o crt64/binmode.o crt64/crtbegin.o crt64/crtend.o \
-  crt64/gcrt0.o crt64/gcrt1.o crt64/gcrt2.o
-crt64/crt1.o:
-	$(COMPILE64)crtexe.c -o $@ -D__CRTDLL__ -U__MSVCRT__
-crt64/crt2.o:
-	$(COMPILE64)crtexe.c -o $@ -D__MSVCRT__ -U__CRTDLL__
-crt64/dllcrt1.o:
-	$(COMPILE64)crtdll.c -o $@ -D__CRTDLL__ -U__MSVCRT__
-crt64/dllcrt2.o:
-	$(COMPILE64)crtdll.c -o $@ -D__MSVCRT__ -U__CRTDLL__
+  lib64/crt1.o    lib64/crt2.o     lib64/dllcrt1.o lib64/dllcrt2.o \
+  lib64/CRT_fp8.o lib64/CRT_fp10.o lib64/txtmode.o lib64/binmode.o lib64/crtbegin.o lib64/crtend.o \
+  lib64/gcrt0.o   lib64/gcrt1.o    lib64/gcrt2.o
 
-crt64/lib%.a: crt64/%.def
-	$(DTDEF) $(crt64srcdir)/$*.def --dllname lib64/$*.dll
+COMPILE64=$(COMPILE) $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
+lib64/crt1.o: crt/crtexe.c
+	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+lib64/crt2.o: crt/crtexe.c
+	$(COMPILE64) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+lib64/dllcrt1.o: crt/crtdll.c
+	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+lib64/dllcrt2.o: crt/crtdll.c
+	$(COMPILE64) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
 
-crt64/gcrt0.o: profile/gcrt0.c
-	$(COMPILE) -c $? -o $@ 
-crt64/gcrt1.o: profile/gcrt0.c
-	$(COMPILE) -c $? -o $@ -U__MSVCRT__
-crt64/gcrt2.o: profile/gcrt0.c
-	$(COMPILE) -c $? -o $@ -D__MSVCRT__
+lib64/gcrt0.o: profile/gcrt0.c
+	$(COMPILE) -c $< -o $@ 
+lib64/gcrt1.o: profile/gcrt0.c
+	$(COMPILE) -c $< -o $@ -U__MSVCRT__
+lib64/gcrt2.o: profile/gcrt0.c
+	$(COMPILE) -c $< -o $@ -D__MSVCRT__
 
-
+lib64/%.o: crt/%.c
+	$(COMPILE) -c $< -o $@
 
 lib64_LIBRARIES = lib64/libm.a
-nodist_lib64_libm_a_SOURCES = _libm_dummy.c
+nodist_lib64_libm_a_SOURCES = $(src_libm)
 
 lib64_LIBRARIES += lib64/libmingwthrd.a
-lib64_libmingwthrd_a_SOURCES = libsrc/dummy_mingwthrd.c
+lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 
 lib64_LIBRARIES += lib64/libshell32.a
-lib64_libshell32_a_SOURCES = libsrc/shell32.c
-lib64_libshell32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib64_libshell32_a_SOURCES = $(src_libshell32)
+lib64_libshell32_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdinput.a
-lib64_libdinput_a_SOURCES = libsrc/dinput_private.h \
-  libsrc/dinput_joy.c   libsrc/dinput_joy2.c        \
-  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c      \
-  libsrc/dinput_kbd.c
-lib64_libdinput_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib64_libdinput_a_SOURCES = $(src_libdinput)
+lib64_libdinput_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdinput8.a
-lib64_libdinput8_a_SOURCES = libsrc/dinput_private.h \
-  libsrc/dinput_joy.c   libsrc/dinput_joy2.c         \
-  libsrc/dinput_mouse.c libsrc/dinput_mouse2.c       \
-  libsrc/dinput_kbd.c
-lib64_libdinput8_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib64_libdinput8_a_SOURCES = $(src_libdinput8)
+lib64_libdinput8_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdmoguids.a
-lib64_libdmoguids_a_SOURCES = libsrc/dmoguids.c
+lib64_libdmoguids_a_SOURCES = $(src_libdmoguids)
 
 lib64_LIBRARIES += lib64/libdxerr8.a
-lib64_libdxerr8_a_SOURCES = libsrc/dxerr8.c libsrc/dxerr8w.c
+lib64_libdxerr8_a_SOURCES = $(src_libdxerr8)
 
 lib64_LIBRARIES += lib64/libdxerr9.a
-lib64_libdxerr9_a_SOURCES = libsrc/dxerr9.c libsrc/dxerr9w.c
+lib64_libdxerr9_a_SOURCES = $(src_libdxerr9)
 
 lib64_LIBRARIES += lib64/libdxguid.a
-lib64_libdxguid_a_SOURCES = libsrc/dxguid.c
+lib64_libdxguid_a_SOURCES = $(src_libdxguid)
 
 lib64_LIBRARIES += lib64/libgmon.a
 lib64_libgmon_a_SOURCES = profile/mcount.c \
@@ -255,145 +376,41 @@ lib64_libgmon_a_SOURCES = profile/mcount.c \
   profile/gmon.h   profile/gmon.c
 
 lib64_LIBRARIES += lib64/libksuser.a
-lib64_libksuser_a_SOURCES = libsrc/ksuser.c
-lib64_libksuser_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib64_libksuser_a_SOURCES = $(src_libksuser)
+lib64_libksuser_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/liblargeint.a
-lib64_liblargeint_a_SOURCES = libsrc/largeint.c
+lib64_liblargeint_a_SOURCES = $(src_liblargeint)
 
 lib64_LIBRARIES += lib64/libscrnsave.a
-lib64_libscrnsave_a_SOURCES = libsrc/scrnsave.c
+lib64_libscrnsave_a_SOURCES = $(src_libscrnsave)
 
 lib64_LIBRARIES += lib64/libscrnsavw.a
 lib64_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
 lib64_libscrnsavw_a_CFLAGS = -DUNICODE
 
-lib64_LIBRARIES += lib64/libuuid.a
-lib64_libuuid_a_SOURCES = libsrc/uuid.c libsrc/devguid.c \
-  libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
-  libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
-  libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
-  libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
+lib64_LIBRARIES += lib64/libstrmiids.a
+lib64_libstrmiids_a_SOURCES = $(src_libstrmiids)
 
 lib64_LIBRARIES += lib64/libmingw32.a
-lib64_libmingw32_a_CPPFLAGS=-D_SYSCRT=1 -DCRTDLL=1 $(include64) $(AM_CPPFLAGS)
-lib64_libmingw32_a_SOURCES = crt64/crt0_c.c crt64/crt0_w.c crt64/CRT_fp10.c \
-  crt64/atonexit.c crt64/charmax.c    crt64/cinitexe.c crt64/dll_argv.c      crt64/dllargv.c  crt64/dllentry.c crt64/dllmain.c      \
-  crt64/gccmain.c  crt64/gs_support.c crt64/merr.c     crt64/mingw_helpers.c crt64/natstart.c crt64/_newmode.c crt64/pseudo-reloc.c \
-  crt64/pseudo-reloc-list.c crt64/pesect.c crt64/tlssup.c crt64/wildcard.c   crt64/xtxtmode.c crt64/xncommod.c crt64/xthdloc.c
-
-lib64_LIBRARIES += lib64/libmoldname.a
-lib64_libmoldname_a_CPPFLAGS=$(include64) $(AM_CPPFLAGS)
-lib64_libmoldname_a_SOURCES = \
-  crt64/isascii.c crt64/iscsym.c crt64/iscsymf.c crt64/toascii.c crt64/strcasecmp.c crt64/strncasecmp.c crt64/wcscmpi.c
-lib64_libmoldname_a_AR = $(DTDEF) $(crt64srcdir)/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
-  
-lib64_LIBRARIES += lib64/libstrmiids.a
-lib64_libstrmiids_a_SOURCES = libsrc/strmiids.c
-
-lib64_LIBRARIES += lib64/libws2_32.a
-lib64_libws2_32_a_SOURCES = libsrc/ws2_32.c
-lib64_libws2_32_a_AR = $(DTLIB); $(AR) $(ARFLAGS)
+lib64_libmingw32_a_CPPFLAGS=-D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib64_LIBRARIES += lib64/libmingwex.a
-lib64_libmingwex_a_CPPFLAGS=$(include64) $(AM_CPPFLAGS)
-lib64_libmingwex_a_SOURCES = \
-  \
-  complex/cabs.c     complex/casinhl.c  complex/cexpl.c   complex/csin.c   \
-  complex/cabsf.c    complex/casinl.c   complex/cimag.c   complex/csinf.c  \
-  complex/cabsl.c    complex/catan.c    complex/cimagf.c  complex/csinh.c  \
-  complex/cacos.c    complex/catanf.c   complex/cimagl.c  complex/csinhf.c \
-  complex/cacosf.c   complex/catanh.c   complex/clog.c    complex/csinhl.c \
-  complex/cacosh.c   complex/catanhf.c  complex/clogf.c   complex/csinl.c  \
-  complex/cacoshf.c  complex/catanhl.c  complex/clogl.c   complex/csqrt.c  \
-  complex/cacoshl.c  complex/catanl.c   complex/cpow.c    complex/csqrtf.c \
-  complex/cacosl.c   complex/ccos.c     complex/cpowf.c   complex/csqrtl.c \
-  complex/carg.c     complex/ccosf.c    complex/cpowl.c   complex/ctan.c   \
-  complex/cargf.c    complex/ccosh.c    complex/cproj.c   complex/ctanf.c  \
-  complex/cargl.c    complex/ccoshf.c   complex/cprojf.c  complex/ctanh.c  \
-  complex/casin.c    complex/ccoshl.c   complex/cprojl.c  complex/ctanhf.c \
-  complex/casinf.c   complex/ccosl.c    complex/creal.c   complex/ctanhl.c \
-  complex/casinh.c   complex/cexp.c     complex/crealf.c  complex/ctanl.c  \
-  complex/casinhf.c  complex/cexpf.c    complex/creall.c  \
-  \
-  gdtoa/arithchk.c   gdtoa/dmisc.c      gdtoa/dtoa.c      gdtoa/gd_arith.h \
-  gdtoa/g_dfmt.c     gdtoa/gd_qnan.h    gdtoa/gdtoa.c     gdtoa/gdtoa.h    \
-  gdtoa/gdtoaimp.h   gdtoa/gethex.c     gdtoa/g_ffmt.c    gdtoa/g__fmt.c   \
-  gdtoa/gmisc.c      gdtoa/g_xfmt.c     gdtoa/hd_init.c   gdtoa/hexnan.c   \
-  gdtoa/mingw_snprintf.c                gdtoa/misc.c      gdtoa/qnan.c     \
-  gdtoa/smisc.c      gdtoa/strtodg.c    gdtoa/strtodnrp.c gdtoa/strtof.c   \
-  gdtoa/strtopx.c    gdtoa/sum.c        gdtoa/ulp.c       \
-  \
-  math/cephes_emath.h  math/cephes_mconf.h math/fastmath.h     math/fp_consts.h  \
-  math/acosf.c         math/expm1l.c       math/ldexpl.c       math/powif.c      \
-  math/acosh.c         math/fabs.c         math/lgamma.c       math/powil.c      \
-  math/acoshf.c        math/fabsf.c        math/lgammaf.c      math/powl.c       \
-  math/acoshl.c        math/fabsl.c        math/lgammal.c      math/remainderf.S \
-  math/acosl.c         math/fastmath.h     math/llrint.c       math/remainderl.S \
-  math/asinf.c         math/fdim.c         math/llrintf.c      math/remainder.S  \
-  math/asinh.c         math/fdimf.c        math/llrintl.c      math/remquof.S    \
-  math/asinhf.c        math/fdiml.c        math/llround.c      math/remquol.S    \
-  math/asinhl.c        math/floorf.c       math/llroundf.c     math/remquo.S     \
-  math/asinl.c         math/floorl.S       math/llroundl.c     math/rint.c       \
-  math/atan2f.c        math/fmaf.S         math/log10f.c       math/rintf.c      \
-  math/atan2l.c        math/fmal.c         math/log10l.S       math/rintl.c      \
-  math/atanf.c         math/fma.S          math/log1pf.S       math/round.c      \
-  math/atanh.c         math/fmax.c         math/log1pl.S       math/roundf.c     \
-  math/atanhf.c        math/fmaxf.c        math/log1p.S        math/roundl.c     \
-  math/atanhl.c        math/fmaxl.c        math/log2f.S        math/scalbnf.S    \
-  math/atanl.c         math/fmin.c         math/log2l.S        math/scalbnl.S    \
-  math/cbrt.c          math/fminf.c        math/log2.S         math/scalbn.S     \
-  math/cbrtf.c         math/fminl.c        math/logb.c         math/s_erf.c      \
-  math/cbrtl.c         math/fmodf.c        math/logbf.c        math/sf_erf.c     \
-  math/ceilf.c         math/fmodl.c        math/logbl.c        math/signbit.c    \
-  math/ceill.S         math/fpclassify.c   math/logf.c         math/signbitf.c   \
-  math/cephes_emath.c  math/fpclassifyf.c  math/logl.S         math/signbitl.c   \
-  math/cephes_emath.h  math/fpclassifyl.c  math/lrint.c        math/sinf.c       \
-  math/cephes_mconf.h  math/fp_consts.c    math/lrintf.c       math/sinhf.c      \
-  math/copysign.c      math/fp_constsf.c   math/lrintl.c       math/sinhl.c      \
-  math/copysignf.c     math/fp_consts.h    math/lround.c       math/sinl.S       \
-  math/copysignl.S     math/fp_constsl.c   math/lroundf.c      math/sqrtf.c      \
-  math/cosf.c          math/frexpf.c       math/lroundl.c      math/sqrtl.c      \
-  math/coshf.c         math/frexpl.S       math/modff.c        math/tanf.c       \
-  math/coshl.c         math/fucom.c        math/modfl.c        math/tanhf.c      \
-  math/cosl.S          math/hypotf.c       math/nearbyintf.S   math/tanhl.c      \
-  math/erfl.c          math/hypotl.c       math/nearbyintl.S   math/tanl.S       \
-  math/exp2f.S         math/ilogbf.S       math/nearbyint.S    math/tgamma.c     \
-  math/exp2l.S         math/ilogbl.S       math/nextafterf.c   math/tgammaf.c    \
-  math/exp2.S          math/ilogb.S        math/nextafterl.c   math/tgammal.c    \
-  math/expf.c          math/isnan.c        math/nexttoward.c   math/trunc.c      \
-  math/expl.c          math/isnanf.c       math/nexttowardf.c  math/truncf.c     \
-  math/expm1.c         math/isnanl.c       math/powf.c         math/truncl.c     \
-  math/expm1f.c        math/ldexpf.c       math/powi.c         math/pow.c        \
-  \
-  misc/mb_wc_common.h \
-  misc/alarm.c            misc/fesetenv.c         misc/mbsinit.c               misc/wcstold.c        \
-  misc/btowc.c            misc/fesetexceptflag.c  misc/mingw-aligned-malloc.c  misc/wcstoumax.c      \
-  misc/ctime.c            misc/fesetround.c       misc/mingw-fseek.c           misc/wctob.c          \
-  misc/delayimp.c         misc/fetestexcept.c     misc/_mkgmtime.c             misc/wctrans.c        \
-  misc/difftime32.c       misc/feupdateenv.c      misc/mktime.c                misc/wctype.c         \
-  misc/difftime64.c       misc/ftruncate.c        misc/seterrno.c              misc/wdirent.c        \
-  misc/difftime.c         misc/fwide.c            misc/sleep.c                 misc/winbs_uint64.c   \
-  misc/dirent.c           misc/getlogin.c         misc/spawnv.c                misc/winbs_ulong.c    \
-  misc/execv.c            misc/getopt.c           misc/spawnve.c               misc/winbs_ushort.c   \
-  misc/execve.c           misc/gettimeofday.c     misc/spawnvp.c               misc/wininterlocked.c \
-  misc/execvp.c           misc/gmtime.c           misc/spawnvpe.c              misc/wmemchr.c        \
-  misc/execvpe.c          misc/imaxabs.c          misc/strtoimax.c             misc/wmemcmp.c        \
-  misc/feclearexcept.c    misc/imaxdiv.c          misc/strtold.c               misc/wmemcpy.c        \
-  misc/fegetenv.c         misc/io_intrin.c        misc/strtoumax.c             misc/wmemmove.c       \
-  misc/fegetexceptflag.c  misc/isblank.c          misc/time.c                  misc/wmemset.c        \
-  misc/fegetround.c       misc/iswblank.c         misc/wassert.c               \
-  misc/feholdexcept.c     misc/localtime.c        misc/wcrtomb.c               \
-  misc/feraiseexcept.c    misc/mbrtowc.c          misc/wcstoimax.c             \
-  misc/mingw_getsp.S \
-  \
-  stdio/atoll.c            stdio/ftello64.c      stdio/strtof.c     stdio/vsnwprintf.c \
-  stdio/_Exit.c            stdio/_fwstat64i32.c  stdio/ulltoa.c     stdio/vsscanf.c    \
-  stdio/_findfirst64i32.c  stdio/lltoa.c         stdio/ulltow.c     stdio/vswscanf.c   \
-  stdio/_findnext64i32.c   stdio/lltow.c         stdio/vfscanf.c    stdio/vwscanf.c    \
-  stdio/fopen64.c          stdio/lseek64.c       stdio/vfwscanf.c   stdio/wcstof.c     \
-  stdio/fseeko64.c         stdio/snprintf.c      stdio/vscanf.c     stdio/wtoll.c      \
-  stdio/_fstat64i32.c      stdio/snwprintf.c     stdio/vsnprintf.c  
+lib64_libmingwex_a_CPPFLAGS=$(extra_include) $(AM_CPPFLAGS)
+lib64_libmingwex_a_SOURCES = $(src_libmingwex)
+
+lib64_LIBRARIES += lib64/libmoldname.a
+lib64_libmoldname_a_CPPFLAGS=$(extra_include) $(AM_CPPFLAGS)
+lib64_libmoldname_a_SOURCES = $(src_libmoldname)
+lib64_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386:x86-64; $(AR) $(ARFLAGS)
+  
+lib64_LIBRARIES += lib64/libuuid.a
+lib64_libuuid_a_SOURCES = $(src_libuuid)
+
+lib64_LIBRARIES += lib64/libws2_32.a
+lib64_libws2_32_a_SOURCES = $(src_libws2_32)
+lib64_libws2_32_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
 
 
 lib64_SCRIPTS = \
@@ -804,10 +821,19 @@ lib64_SCRIPTS = \
   lib64/libwsfc_os.a    lib64/libwsfmapi.a    lib64/libwshatm.a       lib64/libwshbth.a     lib64/libwshcon.a        \
   lib64/libwwdmaud.a    lib64/libwwinspool.a  lib64/libzoneoc.a       \
   \
-  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libuxtheme.a
+  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libuxtheme.a      \
+  \
+  lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a
+
+
+# This is cleaner for watching make output, but is only in GNU Make:
+# $(DTDEF) $(top_srcdir)/$(subst .a,.def,$(subst /lib,/,$@)) --dllname $(subst .a,.dll,$(subst lib,,$(@F)))
+lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a:
+	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib64/lib||;s|\.a|.dll|'` -m i386:x86-64
 
 lib64/lib%.a:
-	$(DTDEF) $(top_srcdir)/lib64/$*.def
+	$(DTDEF) $(top_srcdir)/lib64/$*.def -m i386:x86-64
+
 
 endif
 # End 64-bit runtime
@@ -817,7 +843,7 @@ endif
 #
 
 noinst_HEADERS = libsrc/dxerr.c \
- include64/internal.h include64/oscalls.h include64/sect_attribs.h
+ include/internal.h include/oscalls.h include/sect_attribs.h
 
 
 # Cleaning options
@@ -830,15 +856,14 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 
 EXTRA_DIST = DISCLAIMER
 EXTRA_DIST += $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def \
-  $(crt64srcdir)/*.def \
-  $(crt64srcdir)/crtexe.c \
-  $(crt64srcdir)/crtdll.c \
-  $(crt64srcdir)/CRT_fp8.c \
-  $(crt64srcdir)/CRT_fp10.c \
-  $(crt64srcdir)/txtmode.c \
-  $(crt64srcdir)/binmode.c \
-  $(crt64srcdir)/crtbegin.c \
-  $(crt64srcdir)/crtend.c \
+  crt/crtexe.c \
+  crt/crtdll.c \
+  crt/CRT_fp8.c \
+  crt/CRT_fp10.c \
+  crt/txtmode.c \
+  crt/binmode.c \
+  crt/crtbegin.c \
+  crt/crtend.c \
   profile/gcrt0.c \
   profile/COPYING profile/CYGWIN_LICENSE
 
