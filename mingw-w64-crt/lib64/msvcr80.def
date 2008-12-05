@@ -207,6 +207,7 @@ _chgsign
 _chgsignf
 _chmod
 _chsize
+_chsize_s
 _clearfp
 _close
 _commit
