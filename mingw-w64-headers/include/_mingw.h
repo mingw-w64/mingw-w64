@@ -12,7 +12,7 @@
 #define MINGW64_VERSION	1.0
 #define MINGW64_VERSION_MAJOR	1
 #define MINGW64_VERSION_MINOR	0
-#define MINGW64_VERSION_STATE	"alpha"
+#define MINGW64_VERSION_STATE	"beta"
 #endif
 
 #ifdef _WIN64
