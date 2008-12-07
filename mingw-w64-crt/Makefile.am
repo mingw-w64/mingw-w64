@@ -186,17 +186,17 @@ lib32_libmingwthrd_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = $(src_libshell32)
-lib32_libshell32_a_AR = $(DTLIB) -m i386; $(AR) $(ARFLAGS)
+lib32_libshell32_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
 lib32_libshell32_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdinput.a
 lib32_libdinput_a_SOURCES = $(src_libdinput)
-lib32_libdinput_a_AR = $(DTLIB) -m i386; $(AR) $(ARFLAGS)
+lib32_libdinput_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
 lib32_libdinput_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdinput8.a
 lib32_libdinput8_a_SOURCES = $(src_libdinput8)
-lib32_libdinput8_a_AR = $(DTLIB) -m i386; $(AR) $(ARFLAGS)
+lib32_libdinput8_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
 lib32_libdinput8_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdmoguids.a
@@ -218,7 +218,7 @@ lib32_libdxguid_a_CPPFLAGS=-m32
 lib32_LIBRARIES += lib32/libksuser.a
 lib32_libksuser_a_SOURCES = $(src_libksuser)
 lib32_libksuser_a_CPPFLAGS=-m32
-lib32_libksuser_a_AR = $(DTLIB) -m i386; $(AR) $(ARFLAGS)
+lib32_libksuser_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/liblargeint.a
 lib32_liblargeint_a_SOURCES = $(src_liblargeint)
@@ -235,7 +235,7 @@ lib32_libmingwex_a_SOURCES = $(src_libmingwex)
 lib32_LIBRARIES += lib32/libmoldname.a
 lib32_libmoldname_a_CPPFLAGS=-m32 $(extra_include) $(AM_CPPFLAGS)
 lib32_libmoldname_a_SOURCES = $(src_libmoldname)
-lib32_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386; $(AR) $(ARFLAGS)
+lib32_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libscrnsave.a
 lib32_libscrnsave_a_SOURCES = $(src_libscrnsave)
@@ -257,7 +257,7 @@ lib32_libuuid_a_CPPFLAGS=-m32
 lib32_LIBRARIES += lib32/libws2_32.a
 lib32_libws2_32_a_SOURCES = $(src_libws2_32)
 lib32_libws2_32_a_CPPFLAGS=-m32
-lib32_libws2_32_a_AR = $(DTLIB) -m i386; $(AR) $(ARFLAGS)
+lib32_libws2_32_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
 
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
@@ -295,10 +295,10 @@ lib32_SCRIPTS = \
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
 lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a:
-	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib32/lib||;s|\.a|.dll|'` -m i386
+	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib32/lib||;s|\.a|.dll|'` -m i386 --as-flags=--32
 
 lib32/lib%.a:
-	$(DTDEF) $(top_srcdir)/lib32/$*.def -m i386
+	$(DTDEF) $(top_srcdir)/lib32/$*.def -m i386 --as-flags=--32
 
 
 endif
