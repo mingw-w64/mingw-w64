@@ -4,3 +4,9 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #include <_mingw.h>
+
+#ifndef __ERRCODE_DEFINED_MS
+#define __ERRCODE_DEFINED_MS
+typedef int errcode;
+#endif
+

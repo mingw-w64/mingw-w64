@@ -374,7 +374,6 @@ extern "C" {
 
 #ifndef _ERRCODE_DEFINED
 #define _ERRCODE_DEFINED
-  typedef int errcode;
   typedef int errno_t;
 #endif
 
