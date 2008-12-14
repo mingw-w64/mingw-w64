@@ -10,3 +10,14 @@
 typedef int errcode;
 #endif
 
+#ifndef _CRTNOALIAS
+#define _CRTNOALIAS
+#endif
+
+#ifndef _CRTRESTRICT
+#define _CRTRESTRICT
+#endif
+
+#ifndef __crt_typefix
+#define __crt_typefix(ctype)
+#endif

@@ -418,14 +418,6 @@ extern "C" {
 #define _CRT_ALIGN(x) __attribute__ ((aligned(x)))
 #endif
 
-#ifndef _CRTNOALIAS
-#define _CRTNOALIAS
-#endif
-
-#ifndef _CRTRESTRICT
-#define _CRTRESTRICT
-#endif
-
 #ifndef __CRTDECL
 #define __CRTDECL __cdecl
 #endif
@@ -487,8 +479,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#define __crt_typefix(ctype)
 
 #ifndef _CRT_UNUSED
 #define _CRT_UNUSED(x) (void)x
