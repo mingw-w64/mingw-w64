@@ -154,7 +154,6 @@ extern "C" {
 #define RouterLogWarningString RouterLogWarningStringW
 #define RouterLogInformationString RouterLogInformationStringW
 #define RouterGetErrorString RouterGetErrorStringW
-#
 #else
 #define RouterLogRegister RouterLogRegisterA
 #define RouterLogDeregister RouterLogDeregisterA
