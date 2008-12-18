@@ -120,6 +120,12 @@ limitations in handling dllimport attribute.  */
 #define __MINGW_ATTRIB_DEPRECATED
 #endif /* GNUC >= 3.1 */
 
+#if  __MINGW_GNUC_PREREQ (3, 3)
+#define __MINGW_NOTHROW __attribute__ ((__nothrow__))
+#else
+#define __MINGW_NOTHROW
+#endif
+
 #ifndef __MSVCRT_VERSION__
 /*  High byte is the major version, low byte is the minor. */
 # define __MSVCRT_VERSION__ 0x0700
