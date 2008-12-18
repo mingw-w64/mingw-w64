@@ -305,7 +305,7 @@ extern "C" {
 #if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
   /* C99 function name */
   void __cdecl _Exit(int) __MINGW_ATTRIB_NORETURN;
-  __CRT_INLINE void __cdecl _Exit(int status) __MINGW_ATTRIB_NORETURN
+  __CRT_INLINE __MINGW_ATTRIB_NORETURN void  __cdecl _Exit(int status)
   {  _exit(status); }
 #endif
 
