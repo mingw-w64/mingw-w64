@@ -19,12 +19,12 @@
 
 #ifndef _CRT_TERMINATE_DEFINED
 #define _CRT_TERMINATE_DEFINED
-__declspec(noreturn) void __cdecl exit(int _Code);
-_CRTIMP __declspec(noreturn) void __cdecl _exit(int _Code);
+  void __cdecl __MINGW_NOTHROW exit(int _Code) __MINGW_ATTRIB_NORETURN;
+ _CRTIMP void __cdecl __MINGW_NOTHROW _exit(int _Code) __MINGW_ATTRIB_NORETURN;
 #if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
 /* C99 function name */
-void __cdecl __declspec(noreturn) _Exit(int); /* Declare to get noreturn attribute.  */
-__CRT_INLINE void __cdecl _Exit(int status)
+void __cdecl _Exit(int) __MINGW_ATTRIB_NORETURN;
+__CRT_INLINE void __cdecl _Exit(int status) __MINGW_ATTRIB_NORETURN
 {  _exit(status); }
 #endif
 

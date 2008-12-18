@@ -33,8 +33,8 @@ extern "C" {
 
 #ifndef _CRT_TERMINATE_DEFINED
 #define _CRT_TERMINATE_DEFINED
-  __declspec(noreturn) void __cdecl exit(int _Code);
-  _CRTIMP __declspec(noreturn) void __cdecl _exit(int _Code);
+  void __cdecl __MINGW_NOTHROW exit(int _Code) __MINGW_ATTRIB_NORETURN;
+  _CRTIMP void __cdecl __MINGW_NOTHROW _exit(int _Code) __MINGW_ATTRIB_NORETURN;
 
 #pragma push_macro("abort")
 #undef abort
@@ -43,8 +43,8 @@ extern "C" {
 
 #endif
 
-  _CRTIMP void __cdecl _cexit(void);
-  _CRTIMP void __cdecl _c_exit(void);
+  _CRTIMP void __cdecl __MINGW_NOTHROW _cexit(void);
+  _CRTIMP void __cdecl __MINGW_NOTHROW _c_exit(void);
   _CRTIMP int __cdecl _getpid(void);
   _CRTIMP intptr_t __cdecl _cwait(int *_TermStat,intptr_t _ProcHandle,int _Action);
   _CRTIMP intptr_t __cdecl _execl(const char *_Filename,const char *_ArgList,...);
