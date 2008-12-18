@@ -2737,8 +2737,8 @@ typedef DWORD LCID;
 #define FLS_MAXIMUM_AVAILABLE 128
 #define TLS_MINIMUM_AVAILABLE 64
 
-#ifdef _NT_TIB_DEFINED
-#define  _NT_TIB_DEFINED
+#ifndef _NT_TIB_DEFINED
+#define _NT_TIB_DEFINED
     typedef struct _NT_TIB {
       struct _EXCEPTION_REGISTRATION_RECORD *ExceptionList;
       PVOID StackBase;
