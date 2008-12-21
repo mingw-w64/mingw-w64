@@ -268,6 +268,7 @@ LONG InterlockedDecrement(LONG volatile *Addend)
   return (c != 0 ? 0 : (s != 0 ? -1 : 1));
 }
 
+#undef InterlockedExchange
 LONG InterlockedExchange(LONG volatile *Target,LONG Value)
 {
   __asm__ __volatile("lock ; xchgl %0,%1"
@@ -276,8 +277,23 @@ LONG InterlockedExchange(LONG volatile *Target,LONG Value)
     : "memory");
   return Value;
 }
+LONG _InterlockedExchange(LONG volatile *Target,LONG Value)
+{
+  __asm__ __volatile("lock ; xchgl %0,%1"
+    : "=r"(Value)
+    : "m"(*Target),"0"(Value)
+    : "memory");
+  return Value;
+}
 
+#undef InterlockedCompareExchange
 LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand)
+{
+  LONG prev;
+  __asm__ __volatile__("lock ; cmpxchgl %1,%2" : "=a" (prev) : "q" (ExChange),"m" (*Destination), "0" (Comperand) : "memory");
+  return prev;
+}
+LONG _InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand)
 {
   LONG prev;
   __asm__ __volatile__("lock ; cmpxchgl %1,%2" : "=a" (prev) : "q" (ExChange),"m" (*Destination), "0" (Comperand) : "memory");
