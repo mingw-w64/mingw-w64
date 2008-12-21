@@ -244,6 +244,7 @@ LONG64 InterlockedXor64(LONG64 volatile *Destination,LONG64 Value)
     : : "r"(Value),"m"(*Destination) : "memory");
   return *Destination;
 }
+#endif
 
 LONG InterlockedIncrement(LONG volatile *Addend)
 {
@@ -283,6 +284,7 @@ LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Co
   return prev;
 }
 
+#ifdef _WIN64
 LONG64 InterlockedIncrement64(LONG64 volatile *Addend)
 {
   unsigned char c;
