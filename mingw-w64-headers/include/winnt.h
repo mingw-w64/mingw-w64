@@ -4550,7 +4550,6 @@ typedef DWORD LCID;
       DWORD TimeDateStamp;
       WORD OffsetModuleName;
       WORD NumberOfModuleForwarderRefs;
-
     } IMAGE_BOUND_IMPORT_DESCRIPTOR,*PIMAGE_BOUND_IMPORT_DESCRIPTOR;
 
     typedef struct _IMAGE_BOUND_FORWARDER_REF {
@@ -4566,7 +4565,6 @@ typedef DWORD LCID;
       WORD MinorVersion;
       WORD NumberOfNamedEntries;
       WORD NumberOfIdEntries;
-
     } IMAGE_RESOURCE_DIRECTORY,*PIMAGE_RESOURCE_DIRECTORY;
 
 #define IMAGE_RESOURCE_NAME_IS_STRING 0x80000000
