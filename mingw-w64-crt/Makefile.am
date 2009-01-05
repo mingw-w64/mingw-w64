@@ -144,7 +144,7 @@ lib32dir=$(prefix)/$(host)/lib32
 crt32dir=$(lib32dir)
 
 crt32_SCRIPTS = \
-  lib32/crt1.o    lib32/crt2.o     lib32/dllcrt1.o lib32/dllcrt2.o \
+  lib32/crt1.o    lib32/crt2.o     lib32/crt1u.o   lib32/crt2u.o   lib32/dllcrt1.o lib32/dllcrt2.o \
   lib32/CRT_fp8.o lib32/CRT_fp10.o lib32/txtmode.o lib32/binmode.o lib32/crtbegin.o lib32/crtend.o \
   lib32/gcrt0.o   lib32/gcrt1.o    lib32/gcrt2.o
 
@@ -152,11 +152,15 @@ COMPILE32=$(COMPILE) -m32 $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
 lib32/crt1.o: crt/crtexe.c
 	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 lib32/crt2.o: crt/crtexe.c
-	$(COMPILE32) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+	$(COMPILE32) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
+lib32/crt1u.o: crt/ucrtexe.c
+	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+lib32/crt2u.o: crt/ucrtexe.c
+	$(COMPILE32) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
 lib32/dllcrt1.o: crt/crtdll.c
 	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 lib32/dllcrt2.o: crt/crtdll.c
-	$(COMPILE32) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+	$(COMPILE32) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
 
 lib32/gcrt0.o: profile/gcrt0.c
 	$(COMPILE) -m32 -c $< -o $@
@@ -316,7 +320,7 @@ lib64dir=$(prefix)/$(host)/lib
 crt64dir=$(lib64dir)
 
 crt64_SCRIPTS = \
-  lib64/crt1.o    lib64/crt2.o     lib64/dllcrt1.o lib64/dllcrt2.o \
+  lib64/crt1.o    lib64/crt2.o     lib64/crt1u.o   lib64/crt2u.o   lib64/dllcrt1.o lib64/dllcrt2.o \
   lib64/CRT_fp8.o lib64/CRT_fp10.o lib64/txtmode.o lib64/binmode.o lib64/crtbegin.o lib64/crtend.o \
   lib64/gcrt0.o   lib64/gcrt1.o    lib64/gcrt2.o
 
@@ -324,11 +328,15 @@ COMPILE64=$(COMPILE) $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
 lib64/crt1.o: crt/crtexe.c
 	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 lib64/crt2.o: crt/crtexe.c
-	$(COMPILE64) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+	$(COMPILE64) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
+lib64/crt1u.o: crt/ucrtexe.c
+	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+lib64/crt2u.o: crt/ucrtexe.c
+	$(COMPILE64) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
 lib64/dllcrt1.o: crt/crtdll.c
 	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 lib64/dllcrt2.o: crt/crtdll.c
-	$(COMPILE64) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+	$(COMPILE64) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
 
 lib64/gcrt0.o: profile/gcrt0.c
 	$(COMPILE) -c $< -o $@ 
@@ -856,14 +864,15 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 
 EXTRA_DIST = DISCLAIMER
 EXTRA_DIST += $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def \
-  crt/crtexe.c \
+  crt/binmode.c \
+  crt/crtbegin.c \
   crt/crtdll.c \
+  crt/crtend.c \
+  crt/crtexe.c \
   crt/CRT_fp8.c \
   crt/CRT_fp10.c \
   crt/txtmode.c \
-  crt/binmode.c \
-  crt/crtbegin.c \
-  crt/crtend.c \
+  crt/ucrtexe.c \
   profile/gcrt0.c \
   profile/COPYING profile/CYGWIN_LICENSE
 

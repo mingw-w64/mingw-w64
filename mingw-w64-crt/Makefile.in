@@ -1652,7 +1652,7 @@ src_libmingwex = \
 @LIB32_TRUE@lib32dir = $(prefix)/$(host)/lib32
 @LIB32_TRUE@crt32dir = $(lib32dir)
 @LIB32_TRUE@crt32_SCRIPTS = \
-@LIB32_TRUE@  lib32/crt1.o    lib32/crt2.o     lib32/dllcrt1.o lib32/dllcrt2.o \
+@LIB32_TRUE@  lib32/crt1.o    lib32/crt2.o     lib32/crt1u.o   lib32/crt2u.o   lib32/dllcrt1.o lib32/dllcrt2.o \
 @LIB32_TRUE@  lib32/CRT_fp8.o lib32/CRT_fp10.o lib32/txtmode.o lib32/binmode.o lib32/crtbegin.o lib32/crtend.o \
 @LIB32_TRUE@  lib32/gcrt0.o   lib32/gcrt1.o    lib32/gcrt2.o
 
@@ -1763,7 +1763,7 @@ src_libmingwex = \
 @LIB64_TRUE@lib64dir = $(prefix)/$(host)/lib
 @LIB64_TRUE@crt64dir = $(lib64dir)
 @LIB64_TRUE@crt64_SCRIPTS = \
-@LIB64_TRUE@  lib64/crt1.o    lib64/crt2.o     lib64/dllcrt1.o lib64/dllcrt2.o \
+@LIB64_TRUE@  lib64/crt1.o    lib64/crt2.o     lib64/crt1u.o   lib64/crt2u.o   lib64/dllcrt1.o lib64/dllcrt2.o \
 @LIB64_TRUE@  lib64/CRT_fp8.o lib64/CRT_fp10.o lib64/txtmode.o lib64/binmode.o lib64/crtbegin.o lib64/crtend.o \
 @LIB64_TRUE@  lib64/gcrt0.o   lib64/gcrt1.o    lib64/gcrt2.o
 
@@ -2240,10 +2240,10 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 # Distribution options
 #
 EXTRA_DIST = DISCLAIMER $(top_srcdir)/lib64/*.def \
-	$(top_srcdir)/lib32/*.def crt/crtexe.c crt/crtdll.c \
-	crt/CRT_fp8.c crt/CRT_fp10.c crt/txtmode.c crt/binmode.c \
-	crt/crtbegin.c crt/crtend.c profile/gcrt0.c profile/COPYING \
-	profile/CYGWIN_LICENSE
+	$(top_srcdir)/lib32/*.def crt/binmode.c crt/crtbegin.c \
+	crt/crtdll.c crt/crtend.c crt/crtexe.c crt/CRT_fp8.c \
+	crt/CRT_fp10.c crt/txtmode.c crt/ucrtexe.c profile/gcrt0.c \
+	profile/COPYING profile/CYGWIN_LICENSE
 DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -17450,11 +17450,15 @@ _libm_dummy.c:
 @LIB32_TRUE@lib32/crt1.o: crt/crtexe.c
 @LIB32_TRUE@	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 @LIB32_TRUE@lib32/crt2.o: crt/crtexe.c
-@LIB32_TRUE@	$(COMPILE32) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+@LIB32_TRUE@	$(COMPILE32) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
+@LIB32_TRUE@lib32/crt1u.o: crt/ucrtexe.c
+@LIB32_TRUE@	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+@LIB32_TRUE@lib32/crt2u.o: crt/ucrtexe.c
+@LIB32_TRUE@	$(COMPILE32) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
 @LIB32_TRUE@lib32/dllcrt1.o: crt/crtdll.c
 @LIB32_TRUE@	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 @LIB32_TRUE@lib32/dllcrt2.o: crt/crtdll.c
-@LIB32_TRUE@	$(COMPILE32) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+@LIB32_TRUE@	$(COMPILE32) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
 
 @LIB32_TRUE@lib32/gcrt0.o: profile/gcrt0.c
 @LIB32_TRUE@	$(COMPILE) -m32 -c $< -o $@
@@ -17476,11 +17480,15 @@ _libm_dummy.c:
 @LIB64_TRUE@lib64/crt1.o: crt/crtexe.c
 @LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 @LIB64_TRUE@lib64/crt2.o: crt/crtexe.c
-@LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+@LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
+@LIB64_TRUE@lib64/crt1u.o: crt/ucrtexe.c
+@LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+@LIB64_TRUE@lib64/crt2u.o: crt/ucrtexe.c
+@LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
 @LIB64_TRUE@lib64/dllcrt1.o: crt/crtdll.c
 @LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 @LIB64_TRUE@lib64/dllcrt2.o: crt/crtdll.c
-@LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -D__MSVCRT__ -U__CRTDLL__
+@LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
 
 @LIB64_TRUE@lib64/gcrt0.o: profile/gcrt0.c
 @LIB64_TRUE@	$(COMPILE) -c $< -o $@ 
