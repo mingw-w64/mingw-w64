@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 # Use AM_MAINTANER_MODE somewhere in this file once reconfigurations settle down.
 
-AC_PREREQ(2.63)
+AC_PREREQ([2.63])
 AC_INIT([mingw-w64-runtime],[1.0],[mingw-w64-public@lists.sourceforge.net])
 
 AC_CANONICAL_HOST
@@ -12,7 +12,7 @@ AC_CONFIG_HEADER([config.h])
 
 AC_ARG_WITH([sysroot],
   [AS_HELP_STRING([--with-sysroot=[DIR]],
-    [Search for usr/lib, usr/include, et al, within DIR.])],
+    [Search for include within DIR.])],
   [
     case ${with_sysroot} in
       yes) TARGET_SYSTEM_ROOT='${exec_prefix}/${target_noncanonical}/sys-root' ;;
