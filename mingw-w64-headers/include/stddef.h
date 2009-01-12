@@ -13,6 +13,17 @@
 extern "C" {
 #endif
 
+/* Make sure NULL is declared. It is defined by standard in locale.h,
+   but for user sake, we make sure it is defined, when stddef.h is
+   included.  */
+#ifndef NULL
+#ifdef __cplusplus
+#define NULL 0
+#else
+#define NULL ((void*)0)
+#endif
+#endif
+
 #ifndef _CRT_ERRNO_DEFINED
 #define _CRT_ERRNO_DEFINED
   _CRTIMP extern int *__cdecl _errno(void);
