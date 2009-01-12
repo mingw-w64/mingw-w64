@@ -13,9 +13,7 @@
 extern "C" {
 #endif
 
-/* Make sure NULL is declared. It is defined by standard in locale.h,
-   but for user sake, we make sure it is defined, when stddef.h is
-   included.  */
+/* Make sure NULL is declared. */
 #ifndef NULL
 #ifdef __cplusplus
 #define NULL 0
