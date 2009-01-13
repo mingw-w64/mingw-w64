@@ -13,15 +13,6 @@
 extern "C" {
 #endif
 
-/* Make sure NULL is declared. */
-#ifndef NULL
-#ifdef __cplusplus
-#define NULL 0
-#else
-#define NULL ((void*)0)
-#endif
-#endif
-
 #ifndef _CRT_ERRNO_DEFINED
 #define _CRT_ERRNO_DEFINED
   _CRTIMP extern int *__cdecl _errno(void);
@@ -320,6 +311,7 @@ typedef _BSD_RUNE_T_ rune_t;
 #endif
 
 #ifndef __WCHAR_TYPE__
+/* wchar_t is unsigned short for compatibility with MS runtime */
 #define __WCHAR_TYPE__ unsigned short
 #endif
 #ifndef __cplusplus
@@ -344,6 +336,18 @@ typedef __WCHAR_TYPE__ wchar_t;
 #endif /* __wchar_t__ */
 #undef	__need_wchar_t
 #endif /* _STDDEF_H or __need_wchar_t.  */
+
+#if defined (__need_wint_t)
+#ifndef _WINT_T
+#define _WINT_T
+#ifndef __WINT_TYPE__
+/* wint_t is unsigned short for compatibility with MS runtime */
+#define __WINT_TYPE__ unsigned short
+#endif
+typedef __WINT_TYPE__ wint_t;
+#endif
+#undef __need_wint_t
+#endif
 
 /*  In 4.3bsd-net2, leave these undefined to indicate that size_t, etc.
     are already defined.  */
@@ -396,12 +400,12 @@ typedef __WCHAR_TYPE__ wchar_t;
 #endif	/* NULL not defined and <stddef.h> or need NULL.  */
 #undef	__need_NULL
 
-#ifndef offsetof
+#ifdef _STDDEF_H
 
 /* Offset of member MEMBER in a struct of type TYPE. */
 #define offsetof(TYPE, MEMBER) __builtin_offsetof (TYPE, MEMBER)
 
-#endif /* !offsetof */
+#endif /* _STDDEF_H was defined this time.  */
 
 #endif /* !_STDDEF_H && !_STDDEF_H_ && !_ANSI_STDDEF_H && !__STDDEF_H__
 	  || __need_XXX was not defined before */

@@ -1,3 +1,16 @@
+2009-01-13  Kai Tietz  <kai.tietz@onevision.com>
+	by sezero
+	see http://sourceforge.net/forum/message.php?msg_id=6095326
+
+	* stddef.h:
+	Reverts svn changes 478, 553, 554 which were working around the
+	breakage caused by the old svn change 190. svn190 change is now
+	reverted with modifications. svn190 probably relied on the fact
+	that _mingw.h already defind certain types/macros, but if someone
+	includes stdint.h before stddef.h, it causes the NULL and offsetof
+	macros to be left undefined. still, some clean-up may be done for
+	_mingw.h in the future in order to avoid confusions.
+
 2008-10-30  Kai Tietz  <kai.tietz@onevision.com>
 
 	* signal.h (SIGALARM): Define it just when
