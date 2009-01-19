@@ -1,3 +1,9 @@
+2009-01-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h: Merged from mingw32.
+	* complex.h: Likewise.
+	* float.h: Likewise.
+
 2009-01-13  Kai Tietz  <kai.tietz@onevision.com>
 	by sezero
 	see http://sourceforge.net/forum/message.php?msg_id=6095326
