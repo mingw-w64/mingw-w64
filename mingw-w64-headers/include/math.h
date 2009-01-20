@@ -279,7 +279,7 @@ typedef long double double_t;
   extern int __cdecl __fpclassifyf (float);
   extern int __cdecl __fpclassify (double);
 
-  __CRT_INLINE int __cdecl __fpclassifyl (long double x){
+  __CRT_INLINE int __cdecl __fpclassifyl (long double x) {
     unsigned short sw;
     __asm__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
     return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
@@ -378,12 +378,15 @@ typedef long double double_t;
   extern long double __cdecl atan2l (long double, long double);
 
 /* 7.12.5 Hyperbolic functions: Double in C89  */
+  extern float __cdecl sinhf(float _X);
   __CRT_INLINE float sinhf(float _X) { return ((float)sinh((double)_X)); }
   extern long double __cdecl sinhl(long double);
 
+  extern float __cdecl coshf(float _X);
   __CRT_INLINE float coshf(float _X) { return ((float)cosh((double)_X)); }
   extern long double __cdecl coshl(long double);
 
+  extern float __cdecl tanhf(float _X);
   __CRT_INLINE float tanhf(float _X) { return ((float)tanh((double)_X)); }
   extern long double __cdecl tanhl(long double);
 
@@ -405,6 +408,7 @@ typedef long double double_t;
 
 /* Exponentials and logarithms  */
 /* 7.12.6.1 Double in C89 */
+  extern float __cdecl expf(float _X);
   __CRT_INLINE float expf(float _X) { return ((float)exp((double)_X)); }
   extern long double __cdecl expl(long double);
 
@@ -420,6 +424,7 @@ typedef long double double_t;
   extern long double __cdecl expm1l(long double);
 
 /* 7.12.6.4 Double in C89 */
+  extern float frexpf(float _X,int *_Y);
   __CRT_INLINE float frexpf(float _X,int *_Y) { return ((float)frexp((double)_X,_Y)); }
   extern long double __cdecl frexpl(long double,int *);
 
@@ -431,6 +436,7 @@ typedef long double double_t;
   extern int __cdecl ilogbl (long double);
 
 /* 7.12.6.6  Double in C89 */
+  extern float __cdecl ldexpf(float _X,int _Y);
   __CRT_INLINE float __cdecl ldexpf (float x, int expn) { return (float) ldexp ((double)x, expn); }
   extern long double __cdecl ldexpl (long double, int);
 
@@ -506,14 +512,32 @@ typedef long double double_t;
 
 /* 7.12.7.2 The fabs functions: Double in C89 */
   extern  float __cdecl fabsf (float x);
+#if !defined (__ia64__)
+  __CRT_INLINE float __cdecl fabsf (float x)
+  {
+    float res;
+    __asm__ ("fabs;" : "=t" (res) : "0" (x));
+    return res;
+  }
+#endif
   extern long double __cdecl fabsl (long double);
+#if !defined (__ia64__)
+  __CRT_INLINE long double __cdecl fabsl (long double x)
+  {
+    long double res;
+    __asm__ ("fabs;" : "=t" (res) : "0" (x));
+    return res;
+  }
+#endif
 
 /* 7.12.7.3  */
   extern double __cdecl hypot (double, double); /* in libmoldname.a */
+  extern float __cdecl hypotf (float x, float y);
   __CRT_INLINE float __cdecl hypotf (float x, float y) { return (float) hypot ((double)x, (double)y);}
   extern long double __cdecl hypotl (long double, long double);
 
 /* 7.12.7.4 The pow functions. Double in C89 */
+  extern float __cdecl powf(float _X,float _Y);
   __CRT_INLINE float powf(float _X,float _Y) { return ((float)pow((double)_X,(double)_Y)); }
   extern long double __cdecl powl (long double, long double);
 
@@ -773,13 +797,7 @@ extern long long __cdecl llrintl (long double);
 #if defined(_X86_) && !defined(__x86_64)
   _CRTIMP float __cdecl _hypotf(float _X,float _Y);
 #endif
-  float frexpf(float _X,int *_Y);
-  float __cdecl ldexpf(float _X,int _Y);
-  float __cdecl coshf(float _X);
-  float __cdecl sinhf(float _X);
-  float __cdecl tanhf(float _X);
-  float __cdecl expf(float _X);
-  float __cdecl powf(float _X,float _Y);
+
 #if !defined(__ia64__)
    _CRTIMP float __cdecl _copysignf (float _Number,float _Sign);
    _CRTIMP float __cdecl _chgsignf (float _X);
@@ -790,37 +808,13 @@ extern long long __cdecl llrintl (long double);
    _CRTIMP int __cdecl _fpclassf(float _X);
 #endif
 
-#ifndef __cplusplus
-  __CRT_INLINE long double __cdecl fabsl (long double x)
-  {
-    long double res;
-    __asm__ ("fabs;" : "=t" (res) : "0" (x));
-    return res;
-  }
-#define _hypotl(x,y) ((long double)_hypot((double)(x),(double)(y)))
-#define _matherrl _matherr
+#ifdef _SIGN_DEFINED
   __CRT_INLINE long double _chgsignl(long double _Number) { return _chgsign((double)(_Number)); }
   __CRT_INLINE long double _copysignl(long double _Number,long double _Sign) { return _copysign((double)(_Number),(double)(_Sign)); }
+#endif
 
-#if !defined (__ia64__)
-  __CRT_INLINE float __cdecl fabsf (float x)
-  {
-    float res;
-    __asm__ ("fabs;" : "=t" (res) : "0" (x));
-    return res;
-  }
-#endif
-#else
-#if !defined (__ia64__)
-  __CRT_INLINE long double __cdecl fabsl (long double x)
-  {
-    long double res;
-    __asm__ ("fabs;" : "=t" (res) : "0" (x));
-    return res;
-  }
-#endif
-  __CRT_INLINE long double _chgsignl(long double _Number) { return _chgsign(static_cast<double>(_Number)); }
-  __CRT_INLINE long double _copysignl(long double _Number,long double _Sign) { return _copysign(static_cast<double>(_Number),static_cast<double>(_Sign)); }
+#ifndef __cplusplus
+#define _hypotl(x,y) ((long double)_hypot((double)(x),(double)(y)))
 #endif
 
 #ifndef	NO_OLDNAMES
