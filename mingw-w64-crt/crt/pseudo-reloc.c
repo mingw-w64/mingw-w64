@@ -1,5 +1,7 @@
 #include <windows.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <memory.h>
 
 extern char __RUNTIME_PSEUDO_RELOC_LIST__;
 extern char __RUNTIME_PSEUDO_RELOC_LIST_END__;
@@ -21,6 +23,24 @@ typedef struct {
 	DWORD magic2;
 	DWORD version;
 } runtime_pseudo_reloc_v2;
+
+static void
+__write_memory (void *addr,const void *src,size_t len)
+{
+  MEMORY_BASIC_INFORMATION b;
+  DWORD oldprot;
+  if (!len)
+    return;
+  if (!VirtualQuery (addr, &b, sizeof(b)))
+    abort ();
+  // Protect
+  if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
+    VirtualProtect (b.BaseAddress, b.RegionSize, PAGE_EXECUTE_READWRITE,
+		  &oldprot);
+  memcpy (addr, src, len);
+  if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
+    VirtualProtect (b.BaseAddress, b.RegionSize, oldprot, &oldprot);
+}
 
 #define RP_VERSION_V1 0
 #define RP_VERSION_V2 1
@@ -45,8 +65,10 @@ do_pseudo_reloc (void* start,void *end,void *base)
       runtime_pseudo_reloc_item_v1 *o;
       for (o = (runtime_pseudo_reloc_item_v1 *) v2_hdr; o < (runtime_pseudo_reloc_item_v1 *)end; o++)
         {
+          DWORD newval;
 	  reloc_target = (ptrdiff_t) base + o->target;
-	  *((DWORD*) reloc_target) += o->addend;
+	  newval = (*((DWORD*) reloc_target)) + o->addend;
+	  __write_memory ((void *) reloc_target, &newval, sizeof(DWORD));
         }
       return;
     }
@@ -100,17 +122,17 @@ do_pseudo_reloc (void* start,void *end,void *base)
       switch ((r->flags & 0xff))
         {
          case 8:
-	   *((unsigned char*)reloc_target)=(unsigned char) reldata;
+           __write_memory ((void *) reloc_target, &reldata, 1);
 	   break;
 	 case 16:
-	   *((unsigned short*)reloc_target)=(unsigned short) reldata;
+           __write_memory ((void *) reloc_target, &reldata, 2);
 	   break;
 	 case 32:
-	   *((unsigned int*)reloc_target)=(unsigned int) reldata;
+           __write_memory ((void *) reloc_target, &reldata, 4);
 	   break;
 #ifdef _WIN64
 	 case 64:
-	   *((unsigned long long*)reloc_target)=(unsigned long long) reldata;
+           __write_memory ((void *) reloc_target, &reldata, 8);
 	   break;
 #endif
         }
