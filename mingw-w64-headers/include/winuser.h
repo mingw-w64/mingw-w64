@@ -2443,7 +2443,7 @@ extern "C" {
 
   typedef struct tagINPUT {
     DWORD type;
-    union {
+    __extension__ union {
       MOUSEINPUT mi;
       KEYBDINPUT ki;
       HARDWAREINPUT hi;
@@ -5480,9 +5480,9 @@ extern "C" {
 
   typedef struct tagRAWMOUSE {
     USHORT usFlags;
-    union {
+    __extension__ union {
       ULONG ulButtons;
-      struct {
+      __extension__ struct {
 	USHORT usButtonFlags;
 	USHORT usButtonData;
       };
@@ -5595,7 +5595,7 @@ extern "C" {
   typedef struct tagRID_DEVICE_INFO {
     DWORD cbSize;
     DWORD dwType;
-    union {
+    __extension__ union {
       RID_DEVICE_INFO_MOUSE mouse;
       RID_DEVICE_INFO_KEYBOARD keyboard;
       RID_DEVICE_INFO_HID hid;

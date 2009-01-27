@@ -479,7 +479,7 @@ typedef PARTITION_INFORMATION_GPT SET_PARTITION_INFORMATION_GPT;
 
 typedef struct _SET_PARTITION_INFORMATION_EX {
   PARTITION_STYLE PartitionStyle;
-  union {
+  __extension__ union {
     SET_PARTITION_INFORMATION_MBR Mbr;
     SET_PARTITION_INFORMATION_GPT Gpt;
   };
@@ -496,7 +496,7 @@ typedef struct _CREATE_DISK_MBR {
 
 typedef struct _CREATE_DISK {
   PARTITION_STYLE PartitionStyle;
-  union {
+  __extension__ union {
     CREATE_DISK_MBR Mbr;
     CREATE_DISK_GPT Gpt;
   };
@@ -512,7 +512,7 @@ typedef struct _PARTITION_INFORMATION_EX {
   LARGE_INTEGER PartitionLength;
   DWORD PartitionNumber;
   BOOLEAN RewritePartition;
-  union {
+  __extension__ union {
     PARTITION_INFORMATION_MBR Mbr;
     PARTITION_INFORMATION_GPT Gpt;
   };
@@ -532,7 +532,7 @@ typedef struct _DRIVE_LAYOUT_INFORMATION_MBR {
 typedef struct _DRIVE_LAYOUT_INFORMATION_EX {
   DWORD PartitionStyle;
   DWORD PartitionCount;
-  union {
+  __extension__ union {
     DRIVE_LAYOUT_INFORMATION_MBR Mbr;
     DRIVE_LAYOUT_INFORMATION_GPT Gpt;
   };
@@ -565,8 +565,8 @@ typedef struct _DISK_EX_INT13_INFO {
 typedef struct _DISK_DETECTION_INFO {
   DWORD SizeOfDetectInfo;
   DETECTION_TYPE DetectionType;
-  union {
-    struct {
+  __extension__ union {
+    __extension__ struct {
       DISK_INT13_INFO Int13;
       DISK_EX_INT13_INFO ExInt13;
     };
@@ -576,7 +576,7 @@ typedef struct _DISK_DETECTION_INFO {
 typedef struct _DISK_PARTITION_INFO {
   DWORD SizeOfPartitionInfo;
   PARTITION_STYLE PartitionStyle;
-  union {
+  __extension__ union {
     struct {
       DWORD Signature;
       DWORD CheckSum;
@@ -613,7 +613,7 @@ typedef struct _DISK_CACHE_INFORMATION {
   DISK_CACHE_RETENTION_PRIORITY WriteRetentionPriority;
   WORD DisablePrefetchTransferLength;
   BOOLEAN PrefetchScalar;
-  union {
+  __extension__ union {
     struct {
       WORD Minimum;
       WORD Maximum;
@@ -1506,8 +1506,8 @@ typedef struct _NTFS_STATISTICS {
 
 typedef struct _FILE_OBJECTID_BUFFER {
   BYTE ObjectId[16];
-  union {
-    struct {
+  __extension__ union {
+    __extension__ struct {
       BYTE BirthVolumeId[16];
       BYTE BirthObjectId[16];
       BYTE DomainId[16];

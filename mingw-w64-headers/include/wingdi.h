@@ -1611,8 +1611,8 @@ extern "C" {
     WORD dmSize;
     WORD dmDriverExtra;
     DWORD dmFields;
-    union {
-      struct {
+    __extension__ union {
+      __extension__ struct {
 	short dmOrientation;
 	short dmPaperSize;
 	short dmPaperLength;
@@ -1638,7 +1638,7 @@ extern "C" {
     DWORD dmBitsPerPel;
     DWORD dmPelsWidth;
     DWORD dmPelsHeight;
-    union {
+    __extension__ union {
       DWORD dmDisplayFlags;
       DWORD dmNup;
     };
@@ -1660,8 +1660,8 @@ extern "C" {
     WORD dmSize;
     WORD dmDriverExtra;
     DWORD dmFields;
-    union {
-      struct {
+    __extension__ union {
+      __extension__ struct {
 	short dmOrientation;
 	short dmPaperSize;
 	short dmPaperLength;
@@ -1671,7 +1671,7 @@ extern "C" {
 	short dmDefaultSource;
 	short dmPrintQuality;
       };
-      struct {
+      __extension__ struct {
 	POINTL dmPosition;
 	DWORD dmDisplayOrientation;
 	DWORD dmDisplayFixedOutput;
@@ -1687,7 +1687,7 @@ extern "C" {
     DWORD dmBitsPerPel;
     DWORD dmPelsWidth;
     DWORD dmPelsHeight;
-    union {
+    __extension__ union {
       DWORD dmDisplayFlags;
       DWORD dmNup;
     };

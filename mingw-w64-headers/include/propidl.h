@@ -184,13 +184,13 @@ extern "C"{
 #define tag_inner_PROPVARIANT
 
   struct tagPROPVARIANT {
-    union {
-      struct tag_inner_PROPVARIANT {
+    __extension__ union {
+      __extension__ struct tag_inner_PROPVARIANT {
 	VARTYPE vt;
 	PROPVAR_PAD1 wReserved1;
 	PROPVAR_PAD2 wReserved2;
 	PROPVAR_PAD3 wReserved3;
-	union {
+	__extension__ union {
 	  CHAR cVal;
 	  UCHAR bVal;
 	  SHORT iVal;
@@ -344,7 +344,7 @@ extern "C"{
 
   typedef struct tagPROPSPEC {
     ULONG ulKind;
-    union {
+    __extension__ union {
       PROPID propid;
       LPOLESTR lpwstr;
     };

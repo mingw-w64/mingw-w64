@@ -1229,11 +1229,11 @@ extern "C" {
     CHAR szShortName[MIXER_SHORT_NAME_CHARS];
     CHAR szName[MIXER_LONG_NAME_CHARS];
     union {
-      struct {
+      __extension__ struct {
 	LONG lMinimum;
 	LONG lMaximum;
       };
-      struct {
+      __extension__ struct {
 	DWORD dwMinimum;
 	DWORD dwMaximum;
       };
@@ -1255,11 +1255,11 @@ extern "C" {
     WCHAR szShortName[MIXER_SHORT_NAME_CHARS];
     WCHAR szName[MIXER_LONG_NAME_CHARS];
     union {
-      struct {
+      __extension__ struct {
 	LONG lMinimum;
 	LONG lMaximum;
       };
-      struct {
+      __extension__ struct {
 	DWORD dwMinimum;
 	DWORD dwMaximum;
       };
@@ -1351,7 +1351,7 @@ extern "C" {
   typedef struct tagMIXERLINECONTROLSA {
     DWORD cbStruct;
     DWORD dwLineID;
-    union {
+    __extension__ union {
       DWORD dwControlID;
       DWORD dwControlType;
     };
@@ -1363,7 +1363,7 @@ extern "C" {
   typedef struct tagMIXERLINECONTROLSW {
     DWORD cbStruct;
     DWORD dwLineID;
-    union {
+    __extension__ union {
       DWORD dwControlID;
       DWORD dwControlType;
     };
@@ -1399,7 +1399,7 @@ extern "C" {
     DWORD cbStruct;
     DWORD dwControlID;
     DWORD cChannels;
-    union {
+    __extension__ union {
       HWND hwndOwner;
       DWORD cMultipleItems;
     };

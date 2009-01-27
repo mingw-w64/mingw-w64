@@ -175,7 +175,7 @@ extern "C" {
   typedef struct {
     SCARD_IO_REQUEST ioRequest;
     BYTE bSw1,bSw2;
-    union {
+    __extension__ union {
       SCARD_T0_COMMAND CmdBytes;
       BYTE rgbHeader[5];
     };

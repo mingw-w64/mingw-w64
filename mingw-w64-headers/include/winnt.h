@@ -277,7 +277,7 @@ typedef DWORD LCID;
   typedef LONGLONG USN;
 
   typedef union _LARGE_INTEGER {
-    struct {
+    __extension__ struct {
       DWORD LowPart;
       LONG HighPart;
     };
@@ -291,7 +291,7 @@ typedef DWORD LCID;
   typedef LARGE_INTEGER *PLARGE_INTEGER;
 
   typedef union _ULARGE_INTEGER {
-    struct {
+    __extension__ struct {
       DWORD LowPart;
       DWORD HighPart;
     };
@@ -1375,10 +1375,10 @@ typedef DWORD LCID;
     DWORD64 R14;
     DWORD64 R15;
     DWORD64 Rip;
-    union {
+    __extension__ union {
       XMM_SAVE_AREA32 FltSave;
       XMM_SAVE_AREA32 FloatSave;
-      struct {
+      __extension__ struct {
 	M128A Header[2];
 	M128A Legacy[8];
 	M128A Xmm0;
@@ -2739,12 +2739,12 @@ typedef DWORD LCID;
 
 #ifndef _NT_TIB_DEFINED
 #define _NT_TIB_DEFINED
-    typedef struct _NT_TIB {
+    __extension__ typedef struct _NT_TIB {
       struct _EXCEPTION_REGISTRATION_RECORD *ExceptionList;
       PVOID StackBase;
       PVOID StackLimit;
       PVOID SubSystemTib;
-      union {
+      __extension__ union {
 	PVOID FiberData;
 	DWORD Version;
       };
@@ -2754,12 +2754,12 @@ typedef DWORD LCID;
     typedef NT_TIB *PNT_TIB;
 #endif
 
-    typedef struct _NT_TIB32 {
+    __extension__ typedef struct _NT_TIB32 {
       DWORD ExceptionList;
       DWORD StackBase;
       DWORD StackLimit;
       DWORD SubSystemTib;
-      union {
+      __extension__ union {
 	DWORD FiberData;
 	DWORD Version;
       };
@@ -2767,12 +2767,12 @@ typedef DWORD LCID;
       DWORD Self;
     } NT_TIB32,*PNT_TIB32;
 
-    typedef struct _NT_TIB64 {
+    __extension__ typedef struct _NT_TIB64 {
       DWORD64 ExceptionList;
       DWORD64 StackBase;
       DWORD64 StackLimit;
       DWORD64 SubSystemTib;
-      union {
+      __extension__ union {
 	DWORD64 FiberData;
 	DWORD Version;
       };
@@ -3006,7 +3006,7 @@ typedef DWORD LCID;
     typedef struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
       ULONG_PTR ProcessorMask;
       LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
-      union {
+      __extension__ union {
 	struct {
 	  BYTE Flags;
 	} ProcessorCore;
@@ -4070,7 +4070,7 @@ typedef DWORD LCID;
 #define IMAGE_WEAK_EXTERN_SEARCH_ALIAS 3
 
     typedef struct _IMAGE_RELOCATION {
-      union {
+      __extension__ union {
 	DWORD VirtualAddress;
 	DWORD RelocCount;
       };
@@ -4534,7 +4534,7 @@ typedef DWORD LCID;
 #endif
 
     typedef struct _IMAGE_IMPORT_DESCRIPTOR {
-      union {
+      __extension__ union {
 	DWORD Characteristics;
 	DWORD OriginalFirstThunk;
       };
@@ -4571,17 +4571,17 @@ typedef DWORD LCID;
 #define IMAGE_RESOURCE_DATA_IS_DIRECTORY 0x80000000
 
     typedef struct _IMAGE_RESOURCE_DIRECTORY_ENTRY {
-      union {
-	struct {
+      __extension__ union {
+	__extension__ struct {
 	  DWORD NameOffset:31;
 	  DWORD NameIsString:1;
 	};
 	DWORD Name;
 	WORD Id;
       };
-      union {
+      __extension__  union {
 	DWORD OffsetToData;
-	struct {
+	__extension__ struct {
 	  DWORD OffsetToDirectory:31;
 	  DWORD DataIsDirectory:1;
 	};
@@ -4768,7 +4768,7 @@ typedef DWORD LCID;
     typedef struct _IMAGE_FUNCTION_ENTRY64 {
       ULONGLONG StartingAddress;
       ULONGLONG EndingAddress;
-      union {
+      __extension__ union {
 	ULONGLONG EndOfPrologue;
 	ULONGLONG UnwindInfoAddress;
       };
@@ -4833,7 +4833,7 @@ typedef DWORD LCID;
       WORD Machine;
       DWORD TimeDateStamp;
       DWORD SizeOfData;
-      union {
+      __extension__ union {
 	WORD Ordinal;
 	WORD Hint;
       };

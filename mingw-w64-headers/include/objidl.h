@@ -2198,7 +2198,7 @@ extern "C" {
 #else
   typedef struct tagSTGMEDIUM {
     DWORD tymed;
-    union {
+    __extension__ union {
       HBITMAP hBitmap;
       HMETAFILEPICT hMetaFilePict;
       HENHMETAFILE hEnhMetaFile;
