@@ -149,8 +149,8 @@ extern "C" {
   extern char *_sys_errlist[];
   extern int _sys_nerr;
 #else
-  _CRTIMP char *_sys_errlist[1];
-  _CRTIMP int _sys_nerr;
+  extern _CRTIMP char *_sys_errlist[1];
+  extern _CRTIMP int _sys_nerr;
 #endif
 #if (defined(_X86_) && !defined(__x86_64))
   _CRTIMP int *__cdecl __p___argc(void);
