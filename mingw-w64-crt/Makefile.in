@@ -2219,7 +2219,7 @@ src_libmingwex = \
 @LIB64_TRUE@  lib64/libwsfc_os.a    lib64/libwsfmapi.a    lib64/libwshatm.a       lib64/libwshbth.a     lib64/libwshcon.a        \
 @LIB64_TRUE@  lib64/libwwdmaud.a    lib64/libwwinspool.a  lib64/libzoneoc.a       \
 @LIB64_TRUE@  \
-@LIB64_TRUE@  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libuxtheme.a      \
+@LIB64_TRUE@  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/ntoskrnl.def      lib64/libuxtheme.a      \
 @LIB64_TRUE@  \
 @LIB64_TRUE@  lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a
 
