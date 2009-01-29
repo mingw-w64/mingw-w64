@@ -1,3 +1,7 @@
+2009-01-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* basetsd.h: Add include of _mingw.h for __int64 type.
+
 2009-01-19  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math.h: Merged from mingw32.
