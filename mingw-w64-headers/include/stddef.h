@@ -344,7 +344,11 @@ typedef __WCHAR_TYPE__ wchar_t;
 /* wint_t is unsigned short for compatibility with MS runtime */
 #define __WINT_TYPE__ unsigned short
 #endif
-typedef __WINT_TYPE__ wint_t;
+#ifndef _WCTYPE_T_DEFINED
+#define _WCTYPE_T_DEFINED
+  typedef __WINT_TYPE__ wint_t;
+  typedef unsigned short wctype_t;
+#endif
 #endif
 #undef __need_wint_t
 #endif
