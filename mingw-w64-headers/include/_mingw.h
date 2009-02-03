@@ -353,8 +353,15 @@ extern "C" {
 
 #ifndef _WCTYPE_T_DEFINED
 #define _WCTYPE_T_DEFINED
+#ifndef __WINT_TYPE__
+/* wint_t is unsigned short for compatibility with MS runtime */
+#define __WINT_TYPE__ unsigned short
+#endif
+#ifndef _WINT_T
+#define _WINT_T
   typedef unsigned short wint_t;
   typedef unsigned short wctype_t;
+#endif
 #endif
 
 #ifndef __GNUC_VA_LIST
