@@ -9,10 +9,17 @@
 
 #ifndef MINGW64
 #define MINGW64
-#define MINGW64_VERSION	1.0
+#define MINGW64_VERSION	"1.0"
 #define MINGW64_VERSION_MAJOR	1
 #define MINGW64_VERSION_MINOR	0
 #define MINGW64_VERSION_STATE	"beta"
+#ifdef __cplusplus
+extern "C" {
+#endif
+const char *__mingw_get_crt_info (void);
+#ifdef __cplusplus
+}
+#endif
 #endif
 
 #ifdef _WIN64
