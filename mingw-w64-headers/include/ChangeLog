@@ -1,3 +1,9 @@
+2009-02-06  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2567461
+	* ctype.h (isblank): Declare it always in c++ context.
+	* wctype.h (isblank): Likewise.
+
 2009-01-29  Kai Tietz  <kai.tietz@onevision.com>
 
 	* basetsd.h: Add include of _mingw.h for __int64 type.
