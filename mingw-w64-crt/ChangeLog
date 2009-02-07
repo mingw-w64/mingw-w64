@@ -1,3 +1,7 @@
+2009-02-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	* revstamp.h: New.
+
 2008-11-11  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt64/pseudo-reloc.c: Support of new pseudo relocation
