@@ -3,7 +3,7 @@
 # Use AM_MAINTANER_MODE somewhere in this file once reconfigurations settle down.
 
 AC_PREREQ([2.63])
-AC_INIT([mingw-w64-runtime],[1.0],[mingw-w64-public@lists.sourceforge.net])
+AC_INIT([mingw-w64-runtime],[1.0b],[mingw-w64-public@lists.sourceforge.net])
 
 AC_CANONICAL_HOST
 AM_INIT_AUTOMAKE([foreign subdir-objects])
