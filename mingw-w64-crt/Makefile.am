@@ -829,7 +829,7 @@ lib64_SCRIPTS = \
   lib64/libwsfc_os.a    lib64/libwsfmapi.a    lib64/libwshatm.a       lib64/libwshbth.a     lib64/libwshcon.a        \
   lib64/libwwdmaud.a    lib64/libwwinspool.a  lib64/libzoneoc.a       \
   \
-  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/ntoskrnl.def      lib64/libuxtheme.a      \
+  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a      \
   \
   lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a
 
