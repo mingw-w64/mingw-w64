@@ -93,6 +93,7 @@ extern "C" {
 #ifndef _STDIO_DEFINED
 #ifdef _WIN64
   _CRTIMP FILE *__cdecl __iob_func(void);
+#define _iob  __iob_func()
 #else
 #ifdef _MSVCRT_
 extern FILE _iob[];	/* A pointer to an array of FILE */

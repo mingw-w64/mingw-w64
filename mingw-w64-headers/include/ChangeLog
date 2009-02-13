@@ -1,3 +1,8 @@
+2009-02-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio.h (_iob): Add for 64-bit case.
+	* wchar.h (_iob): Likewise.
+
 2009-02-06  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/2567461
