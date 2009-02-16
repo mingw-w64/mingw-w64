@@ -28,7 +28,7 @@ fileno
 ; fpreset
 fputchar
 fputwchar
-fstat
+;fstat
 ftime
 gcvt
 getch
@@ -68,7 +68,7 @@ spawnv
 spawnve
 spawnvp
 spawnvpe
-stat
+;stat
 strcmpi
 strdup
 stricmp

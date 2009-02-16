@@ -1,3 +1,8 @@
+2009-02-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/moldname-msvcrt.def (fstat): Remove.
+	(stat): Remove.
+
 2009-02-07  Kai Tietz  <kai.tietz@onevision.com>
 
 	* revstamp.h: New.
