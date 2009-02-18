@@ -1,0 +1,19 @@
+LIBRARY  VBARCALL.DLL
+EXPORTS
+VoiceBar_CloseData
+VoiceBar_Create
+VoiceBar_GetMaxRecSize
+VoiceBar_GetPlayFilename
+VoiceBar_GetPlayLoc
+VoiceBar_GetRecordingAddr
+VoiceBar_GetRecordingLoc
+VoiceBar_GetRecordingName
+VoiceBar_IsPlaying
+VoiceBar_IsRecording
+VoiceBar_IsVoiceEnabled
+VoiceBar_OpenFile
+VoiceBar_OpenMem
+VoiceBar_Play
+VoiceBar_SetMaxRecSize
+VoiceBar_SetNewDataLoc
+VoiceBar_Stop

@@ -1,0 +1,88 @@
+LIBRARY  COMMCTRL.DLL
+EXPORTS
+?CreateToolbar@@YAPAUHWND__@@PAU1@KIHPAUHINSTANCE__@@IPBU_TBBUTTON@@H@Z @15 NONAME
+?DPA_Create@@YAPAU_DPA@@H@Z @50 NONAME
+?DPA_DeleteAllPtrs@@YAHPAU_DPA@@@Z @61 NONAME
+?DPA_DeletePtr@@YAPAXPAU_DPA@@H@Z @60 NONAME
+?DPA_Destroy@@YAHPAU_DPA@@@Z @31 NONAME
+?DPA_DestroyCallback@@YAXPAU_DPA@@P6AHPAX1@Z1@Z @56 NONAME
+?DPA_GetPtr@@YAPAXPAU_DPA@@H@Z @32 NONAME
+?DPA_GetPtrIndex@@YAHPAU_DPA@@PAX@Z @62 NONAME
+?DPA_Grow@@YAHPAU_DPA@@H@Z @54 NONAME
+?DPA_InsertPtr@@YAHPAU_DPA@@HPAX@Z @51 NONAME
+?DPA_Search@@YAHPAU_DPA@@PAXHP6AH11J@ZJI@Z @59 NONAME
+?DPA_SetPtr@@YAHPAU_DPA@@HPAX@Z @53 NONAME
+?DPA_Sort@@YAHPAU_DPA@@P6AHPAX1J@ZJ@Z @52 NONAME
+?DSA_Clone@@YAPAU_DSA@@PAU1@0@Z @46 NONAME
+?DSA_Create@@YAPAU_DSA@@HH@Z @23 NONAME
+?DSA_DeleteAllItems@@YAHPAU_DSA@@@Z @30 NONAME
+?DSA_DeleteItem@@YAHPAU_DSA@@H@Z @29 NONAME
+?DSA_Destroy@@YAHPAU_DSA@@@Z @24 NONAME
+?DSA_DestroyCallback@@YAXPAU_DSA@@P6AHPAX1@Z1@Z @47 NONAME
+?DSA_EnumCallback@@YAXPAU_DSA@@P6AHPAX1@Z1@Z @48 NONAME
+?DSA_GetItem@@YAHPAU_DSA@@HPAX@Z @25 NONAME
+?DSA_GetItemPtr@@YAPAXPAU_DSA@@H@Z @26 NONAME
+?DSA_InsertItem@@YAHPAU_DSA@@HPAX@Z @27 NONAME
+?DSA_Search@@YAHPAU_DSA@@PAXHP6AH11J@ZJI@Z @45 NONAME
+?DSA_SetItem@@YAHPAU_DSA@@HPAX@Z @28 NONAME
+?DSA_SetRange@@YAHPAU_DSA@@HHPAX@Z @58 NONAME
+?DSA_Sort@@YAHPAU_DSA@@P6AHPAX1J@ZJ@Z @57 NONAME
+?DrawStatusTextW@@YAXPAUHDC__@@PBUtagRECT@@PBGI@Z @21 NONAME
+?Header_Init@@YAHPAUHINSTANCE__@@@Z
+?ListView_Init@@YAHPAUHINSTANCE__@@@Z
+?TV_Init@@YAHPAUHINSTANCE__@@@Z
+CenterWindow @35 NONAME
+CommandBands_AddAdornments @39 NONAME
+CommandBands_AddBands @37 NONAME
+CommandBands_Create @36 NONAME
+CommandBands_GetCommandBar @38 NONAME
+CommandBands_GetRestoreInformation @41 NONAME
+CommandBands_Show @40 NONAME
+CommandBar_AddAdornments @10 NONAME
+CommandBar_AddBitmap @5 NONAME
+CommandBar_AlignAdornments @44 NONAME
+CommandBar_Create @3 NONAME
+CommandBar_DrawMenuBar @43 NONAME
+CommandBar_GetItemWindow @11 NONAME
+CommandBar_GetMenu @9 NONAME
+CommandBar_Height @12 NONAME
+CommandBar_InsertComboBox @6 NONAME
+CommandBar_InsertControl @7 NONAME
+CommandBar_InsertMenubar @8 NONAME
+CommandBar_InsertMenubarEx @42 NONAME
+CommandBar_Show @4 NONAME
+CreatePropertySheetPageW @19 NONAME
+CreateStatusWindowW @17 NONAME
+CreateToolbarEx @16 NONAME
+CreateUpDownControl @14 NONAME
+DestroyPropertySheetPage @20 NONAME
+InitBoxSelectClass
+InitCapEdit
+InitCommonControls @1 NONAME
+InitCommonControlsEx @2 NONAME
+InitDateClasses
+InitLabelEditClass
+InitProgressClass
+InitReBarClass
+InitSBEdit
+InitStatusClass
+InitTTButton
+InitTTStatic
+InitToolTipsClass
+InitToolbarClass
+InitTrackBar
+InitUpDownClass
+InvertRect @22 NONAME
+IsCapEditAvailable @55 NONAME
+IsCommandBarMessage @13 NONAME
+ListView_SetItemSpacing
+PropertySheetW @18 NONAME
+SHCreateDefaultGradient @80 NONAME
+SHDrawGradient @79 NONAME
+SHDrawText @81 NONAME
+SHGetSysColor @77 NONAME
+SHGetSystemMetrics @78 NONAME
+SHSetSysColors @82 NONAME
+SHSetSystemMetrics @83 NONAME
+Str_SetPtrW @33 NONAME
+Tab_Init

@@ -1,0 +1,19 @@
+LIBRARY  BTHUTIL.DLL
+EXPORTS
+?BthInitializeVCOM@@YAJXZ @14 NONAME
+?BthModifyVCOMPort@@YAJPAUBTH_VCOM_PORT@@W4BTH_VCOM_MODIFY_TYPE@@@Z @15 NONAME
+BthAnswerBondingReq @5 NONAME
+BthDeviceChanged @11 NONAME
+BthGetCachedHardwareStatus @10 NONAME
+BthGetMode @2 NONAME
+BthInitiateBonding @4 NONAME
+BthSetLocalName @3 NONAME
+BthSetMode @1 NONAME
+BthSuppressRetry @13 NONAME
+CancelInquiry @12 NONAME
+DoInquiry @9 NONAME
+GetDeviceByAddr @7 NONAME
+GetDeviceByName @6 NONAME
+GetDeviceList @8 NONAME
+OnBthDeviceAdded @16 NONAME
+OnBthDeviceRemoved @17 NONAME

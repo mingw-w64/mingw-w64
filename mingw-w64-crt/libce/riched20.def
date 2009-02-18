@@ -1,0 +1,10 @@
+LIBRARY  RICHED20.DLL
+EXPORTS
+CreateTextServices @4 NONAME
+IID_IRichEditOle @2 NONAME
+IID_IRichEditOleCallback @3 NONAME
+IID_ITextHost @6 NONAME
+IID_ITextHost2 @7 NONAME
+IID_ITextHostEx @16 NONAME
+IID_ITextServices @5 NONAME
+SetCustomTextOutHandlerEx @11 NONAME

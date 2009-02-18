@@ -1,0 +1,6 @@
+LIBRARY  IMGDECMP.DLL
+EXPORTS
+DecompressImageIndirect @1 NONAME
+Get332Palette @3 NONAME
+GetHalftonePalette @2 NONAME
+GetTransparentColor @4 NONAME

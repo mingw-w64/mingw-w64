@@ -1,0 +1,20 @@
+LIBRARY  INKX.DLL
+EXPORTS
+ConvertInkFile
+InitInkX
+InkCtl_GetAutoCapitalization
+InkCtl_GetAutoScroll
+InkCtl_GetDefaultZoomLevels
+InkCtl_GetGlobalSettings
+InkCtl_GetInkSmoothing
+InkCtl_GetNewDocStartsInTextMode
+InkCtl_GetRecognizeCharAsWord
+InkCtl_SetAutoCapitalization
+InkCtl_SetAutoScroll
+InkCtl_SetDefaultZoomLevels
+InkCtl_SetGlobalSettings
+InkCtl_SetInkSmoothing
+InkCtl_SetNewDocStartsInTextMode
+InkCtl_SetRecognizeCharAsWord
+InkToString
+PrintInk

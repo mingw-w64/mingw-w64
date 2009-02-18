@@ -1,0 +1,5 @@
+LIBRARY  DOCLIST.DLL
+EXPORTS
+DocList_Create
+DocList_GetFirstSelectedWaveFile
+DocList_GetNextSelectedWaveFile

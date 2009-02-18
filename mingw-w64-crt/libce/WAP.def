@@ -1,0 +1,8 @@
+LIBRARY  WAP.DLL
+EXPORTS
+?WapClose@@YAJK@Z
+?WapGetNextPrimitiveSize@@YAJKQAK@Z
+?WapOpen@@YAJW4WAP_LAYER@@KQAKQAPAX@Z
+?WapPing@@YAJQBUWAP_ADDRESS_tag@@GKQAKK@Z
+?WapRead@@YAJKQAUwap_primitive_base_tag@@K@Z
+?WapSend@@YAJKQAUwap_primitive_base_tag@@@Z

@@ -1,0 +1,9 @@
+LIBRARY  PNDTAPI.DLL
+EXPORTS
+?PndtBus_BindCmdMapToAppID@@YAJPBGE@Z
+?PndtBus_DeleteCmdMap@@YAJPBG@Z
+?PndtBus_GetAppInfoFromAppID@@YAJEPAG00@Z @2 NONAME
+?PndtBus_GetCmd@@YAJEKPAUtagCmdMapping@@@Z @1 NONAME
+?PndtBus_GetCmdMap@@YAJPBGPAUtagPndtCmdMapTable@@PAI@Z
+?PndtBus_GetCurrentBindings@@YAJPAUtagPndtBindingTable@@PAI@Z
+?PndtBus_SetCmdMap@@YAJPBGPAUtagPndtCmdMapTable@@@Z

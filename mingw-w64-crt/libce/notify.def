@@ -1,0 +1,10 @@
+LIBRARY  NOTIFY.DLL
+EXPORTS
+NFY_Close
+NFY_Deinit
+NFY_IOControl
+NFY_Init
+NFY_Open
+NFY_Read
+NFY_Seek
+NFY_Write
