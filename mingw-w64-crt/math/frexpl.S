@@ -10,12 +10,12 @@
  * between 0.5 and 1 to y.  Thus  x = y * 2**expn.
  */ 
 #ifdef _WIN64
-.align 2
+.align 16
 .globl _frexpl
 _frexpl:
 	pushq %rbp
 	movq %rsp,%rbp
-	subq $24,%rsp
+	subq $48,%rsp
 	pushq %rsi
 	pushq %rbx
 	fldt (%rdx)
@@ -33,11 +33,11 @@ _frexpl:
 	andb $68,%ah
 	xorb $64,%ah
 	jne L21
-	movq $0,(%rbx)
+	movl $0,(%rbx)
 	fldz
 	jmp L24
-	.align 2,0x90
-	.align 2,0x90
+	.align 4,0x90
+	.align 4,0x90
 L21:
 	fldt -24(%rbp)
 	fadd %st(0),%st
@@ -56,14 +56,14 @@ L25:
 	fstp %st(0)
 L19:
 	addq $-16382,%rdx
-	movq %rdx,(%rbx)
+	movl %edx,(%rbx)
 	movw (%rcx),%ax
 	andq $-32768,%rax
 	orq $16382,%rax
 	movw %ax,(%rcx)
 	fldt -24(%rbp)
 L24:
-	leaq -40(%rbp),%rsp
+	leaq -64(%rbp),%rsp
 	popq %rbx
 	popq %rsi
 	movq	%r9,%rax
