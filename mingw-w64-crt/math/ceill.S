@@ -16,13 +16,13 @@ _ceill:
 
 	fstcw	8(%rsp)			/* store fpu control word */
 
-	/* We use here %rdx although only the low 1 bits are defined.
+	/* We use here %edx although only the low 1 bits are defined.
 	   But none of the operations should care and they are faster
 	   than the 16 bit operations.  */
 	movl	$0x0800,%edx		/* round towards +oo */
 	orl	8(%rsp),%edx
 	andl	$0xfbff,%edx
-	movl	%rdx,(%rsp)
+	movl	%edx,(%rsp)
 	fldcw	(%rsp)			/* load modified control word */
 
 	frndint				/* round */
