@@ -23,7 +23,7 @@ _frexpl:
 	fstpt -12(%rbp)
 	leaq -4(%rbp),%rcx
 	movw -4(%rbp),%dx
-	andl $32767,%rdx
+	andl $32767,%edx
 	jne L25
 	fldz
 	fucompp
@@ -40,7 +40,7 @@ L21:
 	fldt -12(%rbp)
 	fadd %st(0),%st
 	fstpt -12(%rbp)
-	decq %rdx
+	decq %edx
 	movw (%rcx),%si
 	andl $32767,%esi
 	jne L22
