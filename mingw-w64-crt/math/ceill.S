@@ -19,10 +19,10 @@ _ceill:
 	/* We use here %rdx although only the low 1 bits are defined.
 	   But none of the operations should care and they are faster
 	   than the 16 bit operations.  */
-	movq	$0x0800,%rdx		/* round towards +oo */
-	orq	8(%rsp),%rdx
-	andq	$0xfbff,%rdx
-	movq	%rdx,(%rsp)
+	movl	$0x0800,%edx		/* round towards +oo */
+	orl	8(%rsp),%edx
+	andl	$0xfbff,%edx
+	movl	%rdx,(%rsp)
 	fldcw	(%rsp)			/* load modified control word */
 
 	frndint				/* round */
