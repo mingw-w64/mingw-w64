@@ -740,7 +740,7 @@ typedef struct _DDPIXELFORMAT {
     DWORD	dwSize;                 /* 0: size of structure */
     DWORD	dwFlags;                /* 4: pixel format flags */
     DWORD	dwFourCC;               /* 8: (FOURCC code) */
-    union {
+    __extension__ union {
 	DWORD	dwRGBBitCount;          /* C: how many bits per pixel */
 	DWORD	dwYUVBitCount;          /* C: how many bits per pixel */
 	DWORD	dwZBufferBitDepth;      /* C: how many bits for z buffers */
@@ -748,26 +748,26 @@ typedef struct _DDPIXELFORMAT {
 	DWORD	dwLuminanceBitCount;
 	DWORD	dwBumpBitCount;
     } DUMMYUNIONNAME1;
-    union {
+    __extension__ union {
 	DWORD	dwRBitMask;             /* 10: mask for red bit*/
 	DWORD	dwYBitMask;             /* 10: mask for Y bits*/
 	DWORD	dwStencilBitDepth;
 	DWORD	dwLuminanceBitMask;
 	DWORD	dwBumpDuBitMask;
     } DUMMYUNIONNAME2;
-    union {
+    __extension__ union {
 	DWORD	dwGBitMask;             /* 14: mask for green bits*/
 	DWORD	dwUBitMask;             /* 14: mask for U bits*/
 	DWORD	dwZBitMask;
 	DWORD	dwBumpDvBitMask;
     } DUMMYUNIONNAME3;
-    union {
+    __extension__ union {
 	DWORD   dwBBitMask;             /* 18: mask for blue bits*/
 	DWORD   dwVBitMask;             /* 18: mask for V bits*/
 	DWORD	dwStencilBitMask;
 	DWORD	dwBumpLuminanceBitMask;
     } DUMMYUNIONNAME4;
-    union {
+    __extension__ union {
     	DWORD	dwRGBAlphaBitMask;	/* 1C: mask for alpha channel */
     	DWORD	dwYUVAlphaBitMask;	/* 1C: mask for alpha channel */
 	DWORD	dwLuminanceAlphaBitMask;
@@ -976,12 +976,12 @@ typedef struct _DDSURFACEDESC
 	DWORD	dwFlags;	/* 4: determines what fields are valid*/
 	DWORD	dwHeight;	/* 8: height of surface to be created*/
 	DWORD	dwWidth;	/* C: width of input surface*/
-	union {
+	__extension__ union {
 		LONG	lPitch;	/* 10: distance to start of next line (return value only)*/
 		DWORD	dwLinearSize;
 	} DUMMYUNIONNAME1;
 	DWORD	dwBackBufferCount;/* 14: number of back buffers requested*/
-	union {
+	__extension__ union {
 		DWORD	dwMipMapCount;/* 18:number of mip-map levels requested*/
 		DWORD	dwZBufferBitDepth;/*18: depth of Z buffer requested*/
 		DWORD	dwRefreshRate;/* 18:refresh rate (used when display mode is described)*/
@@ -1003,12 +1003,12 @@ typedef struct _DDSURFACEDESC2
 	DWORD	dwFlags;	/* 4: determines what fields are valid*/
 	DWORD	dwHeight;	/* 8: height of surface to be created*/
 	DWORD	dwWidth;	/* C: width of input surface*/
-	union {
+	__extension__ union {
 		LONG	lPitch;	      /*10: distance to start of next line (return value only)*/
 		DWORD   dwLinearSize; /*10: formless late-allocated optimized surface size */
 	} DUMMYUNIONNAME1;
 	DWORD	dwBackBufferCount;/* 14: number of back buffers requested*/
-	union {
+	__extension__ union {
 		DWORD	dwMipMapCount;/* 18:number of mip-map levels requested*/
 		DWORD	dwRefreshRate;/* 18:refresh rate (used when display mode is described)*/
 		DWORD   dwSrcVBHandle;/* 18:source used in VB::Optimize */
@@ -1016,7 +1016,7 @@ typedef struct _DDSURFACEDESC2
 	DWORD	dwAlphaBitDepth;/* 1C:depth of alpha buffer requested*/
 	DWORD	dwReserved;	/* 20:reserved*/
 	LPVOID	lpSurface;	/* 24:pointer to the associated surface memory*/
-	union {
+	__extension__ union {
 		DDCOLORKEY	ddckCKDestOverlay; /* 28: CK for dest overlay use*/
 		DWORD 		dwEmptyFaceColor;  /* 28: color for empty cubemap faces */
 	} DUMMYUNIONNAME3;
@@ -1024,7 +1024,7 @@ typedef struct _DDSURFACEDESC2
 	DDCOLORKEY	ddckCKSrcOverlay;/* 38: CK for source overlay use*/
 	DDCOLORKEY	ddckCKSrcBlt;	/* 40: CK for source blt use*/
 
-	union {
+	__extension__ union {
 		DDPIXELFORMAT	ddpfPixelFormat;/* 48: pixel format description of the surface*/
 		DWORD 		dwFVF;	/* 48: vertex format description of vertex buffers */
 	} DUMMYUNIONNAME4;
@@ -1119,13 +1119,13 @@ typedef struct _DDBLTFX
     DWORD       dwZBufferHigh;                  /* High limit of Z buffer */
     DWORD       dwZBufferBaseDest;              /* Destination base value */
     DWORD       dwZDestConstBitDepth;           /* Bit depth used to specify Z constant for destination */
-    union
+    __extension__ union
     {
         DWORD   dwZDestConst;                   /* Constant to use as Z buffer for dest */
         LPDIRECTDRAWSURFACE lpDDSZBufferDest;   /* Surface to use as Z buffer for dest */
     } DUMMYUNIONNAME1;
     DWORD       dwZSrcConstBitDepth;            /* Bit depth used to specify Z constant for source */
-    union
+    __extension__ union
     {
         DWORD   dwZSrcConst;                    /* Constant to use as Z buffer for src */
         LPDIRECTDRAWSURFACE lpDDSZBufferSrc;    /* Surface to use as Z buffer for src */
@@ -1134,18 +1134,18 @@ typedef struct _DDBLTFX
     DWORD       dwAlphaEdgeBlend;               /* Alpha for edge blending */
     DWORD       dwReserved;
     DWORD       dwAlphaDestConstBitDepth;       /* Bit depth used to specify alpha constant for destination */
-    union
+    __extension__ union
     {
         DWORD   dwAlphaDestConst;               /* Constant to use as Alpha Channel */
         LPDIRECTDRAWSURFACE lpDDSAlphaDest;     /* Surface to use as Alpha Channel */
     } DUMMYUNIONNAME3;
     DWORD       dwAlphaSrcConstBitDepth;        /* Bit depth used to specify alpha constant for source */
-    union
+    __extension__ union
     {
         DWORD   dwAlphaSrcConst;                /* Constant to use as Alpha Channel */
         LPDIRECTDRAWSURFACE lpDDSAlphaSrc;      /* Surface to use as Alpha Channel */
     } DUMMYUNIONNAME4;
-    union
+    __extension__ union
     {
         DWORD   dwFillColor;                    /* color in RGB or Palettized */
         DWORD   dwFillDepth;                    /* depth value for z-buffer */
@@ -1183,13 +1183,13 @@ typedef struct _DDOVERLAYFX
     DWORD       dwAlphaEdgeBlend;               /* Constant to use as alpha for edge blend */
     DWORD       dwReserved;
     DWORD       dwAlphaDestConstBitDepth;       /* Bit depth used to specify alpha constant for destination */
-    union
+    __extension__ union
     {
         DWORD   dwAlphaDestConst;               /* Constant to use as alpha channel for dest */
         LPDIRECTDRAWSURFACE lpDDSAlphaDest;     /* Surface to use as alpha channel for dest */
     } DUMMYUNIONNAME1;
     DWORD       dwAlphaSrcConstBitDepth;        /* Bit depth used to specify alpha constant for source */
-    union
+    __extension__ union
     {
         DWORD   dwAlphaSrcConst;                /* Constant to use as alpha channel for src */
         LPDIRECTDRAWSURFACE lpDDSAlphaSrc;      /* Surface to use as alpha channel for src */
