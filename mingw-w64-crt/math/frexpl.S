@@ -40,7 +40,7 @@ L21:
 	fldt -12(%rbp)
 	fadd %st(0),%st
 	fstpt -12(%rbp)
-	decq %edx
+	decl %edx
 	movw (%rcx),%si
 	andl $32767,%esi
 	jne L22
