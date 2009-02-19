@@ -6,7 +6,7 @@
  #ifdef _WIN64
 	.file	"floorl.S"
 	.text
-	.align 4
+	.align 16
 .globl _floorl
 	.def	_floorl;	.scl	2;	.type	32;	.endef
 _floorl:

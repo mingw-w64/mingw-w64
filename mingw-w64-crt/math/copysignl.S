@@ -21,10 +21,10 @@ _copysignl:
 	andl	$0x8000,%edx
 	andl	$0x7fff,%eax
 	orl	%edx,%eax
-	movl	%eax,8(%r9)
 	fldt	(%r9)
-	movq	%rcx,%rax
 	fstpt	(%rcx)
+	movl	%eax,8(%rcx)
+	movq	%rcx,%rax
 	ret
 #else
 	.file	"copysignl.S"

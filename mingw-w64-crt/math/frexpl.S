@@ -17,14 +17,12 @@ _frexpl:
 	movq %rsp,%rbp
 	subq $48,%rsp
 	pushq %rsi
-	pushq %rbx
 	fldt (%rdx)
-	movq %r8,%rbx
 	movq %rcx,%r9
 	fld %st(0)
-	fstpt -24(%rbp)
-	leaq -8(%rbp),%rcx
-	movw -8(%rbp),%dx
+	fstpt -12(%rbp)
+	leaq -4(%rbp),%rcx
+	movw -4(%rbp),%dx
 	andq $32767,%rdx
 	jne L25
 	fldz
@@ -33,15 +31,15 @@ _frexpl:
 	andb $68,%ah
 	xorb $64,%ah
 	jne L21
-	movl $0,(%rbx)
+	movl $0,(%r8)
 	fldz
 	jmp L24
 	.align 4,0x90
 	.align 4,0x90
 L21:
-	fldt -24(%rbp)
+	fldt -12(%rbp)
 	fadd %st(0),%st
-	fstpt -24(%rbp)
+	fstpt -12(%rbp)
 	decq %rdx
 	movw (%rcx),%si
 	andq $32767,%rsi
@@ -56,15 +54,13 @@ L25:
 	fstp %st(0)
 L19:
 	addq $-16382,%rdx
-	movl %edx,(%rbx)
+	movl %edx,(%r8)
 	movw (%rcx),%ax
 	andq $-32768,%rax
 	orq $16382,%rax
 	movw %ax,(%rcx)
-	fldt -24(%rbp)
+	fldt -12(%rbp)
 L24:
-	leaq -64(%rbp),%rsp
-	popq %rbx
 	popq %rsi
 	movq	%r9,%rax
 	fstpt	(%r9)
