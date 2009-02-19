@@ -44,20 +44,20 @@ L21:
 	movw (%rcx),%si
 	andq $32767,%rsi
 	jne L22
-	cmpq $-66,%rdx
+	cmpl $-66,%edx
 	jg L21
 L22:
-	addq %rsi,%rdx
+	add %esi,%edx
 	jmp L19
 	.align 2,0x90
 L25:
 	fstp %st(0)
 L19:
-	addq $-16382,%rdx
+	addl $-16382,%edx
 	movl %edx,(%r8)
 	movw (%rcx),%ax
-	andq $-32768,%rax
-	orq $16382,%rax
+	andl $-32768,%eax
+	orl $16382,%eax
 	movw %ax,(%rcx)
 	fldt -12(%rbp)
 L24:
