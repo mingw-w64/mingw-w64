@@ -1,0 +1,23 @@
+2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
+
+PA/2619828
+* a bunch of directx header fixes from the wine git repository:
+* ddraw.h, dinput.h: Some DirectX headers are supposed to define COM_NO_WINDOWS_H
+  (wine git 6688acce7dbb00ceea4e755fe0f4a771a5520c24)
+* ddraw.h: Fix the name of DDSPD_IUNKNOWNPOINTER
+  (wine git 47b6392b44dca86b8c61daa902bd35e73cca5e2f)
+* ddraw.h: Define DD_OK to S_OK instead of 0. Add define for DD_FALSE.
+  (wine git fd4a8941032458a9b2870d0068e6fb020a9c9e0c)
+* ddraw.h: Fix a IDirectDrawSurface4 method (EnumAttachedSurfaces) prototype.
+  (wine git 6bdaaa74f3310da48790c3122786aa764f4e221a)
+* ddraw.h: Fix the EnumOverlayZOrders prototype.
+  (wine git 9a080691c6904c0da762690312cc86ee96326dbc)
+* ddraw.h: Fix the IDirectDraw4_RestoreAllSurfaces macro.
+  (wine git c2e5752ac62e646bcb46c0741cd0083179e3c9ed)
+* dinput.h: Fix IDirectInputEffect_GetEffectStatus macro definitions.
+  (wine git 2a0e659335ecf1d8967c75c9efe164c2d9d0214c)
+* dsound.h: Update prototypes for IDirectSoundBuffer::Lock/Unlock.
+  (wine git 9b4f99782ef27239927a0c5d0ae8e788df17cb76)
+* dxsdk_new, dinput.h:  reverted the wine ifdef removal change
+  (wine git bf08b35c0730636ab3dbc4dee0a9f6fa28113b7a). also added
+  a dinput8 ifdef to DIDEVICEOBJECTDATA for the uAppData member.
