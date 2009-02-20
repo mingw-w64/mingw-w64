@@ -1,3 +1,14 @@
+2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2615526
+	* tanhl.c: Add constant padding for 64-bits long double.
+	* lgammal.c: Likewise.
+	* tgammal.c: Likewise.
+	* powl.c: Likewise
+	* cephes_mconf.h: Likewise.
+	* sinhl.c: Likewise.
+	* erfl.c: Likewise.
+
 2009-02-16  Kai Tietz  <kai.tietz@onevision.com>
 
 	* lib32/moldname-msvcrt.def (fstat): Remove.
