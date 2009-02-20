@@ -1,5 +1,8 @@
 2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
 
+	* dinput.h (DIK_...): Add additional keyboard scan codes provided
+	by http://www.alrj.org/docs/hardware/keycode.txt
+
 PA/2619828
 * a bunch of directx header fixes from the wine git repository:
 * ddraw.h, dinput.h: Some DirectX headers are supposed to define COM_NO_WINDOWS_H

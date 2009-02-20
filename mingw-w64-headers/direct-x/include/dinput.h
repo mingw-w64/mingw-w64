@@ -616,15 +616,18 @@ typedef BOOL (CALLBACK *LPDIENUMCREATEDEFFECTOBJECTSCALLBACK)(LPDIRECTINPUTEFFEC
 #define DIK_NUMPAD3         0x51
 #define DIK_NUMPAD0         0x52
 #define DIK_DECIMAL         0x53    /* . on numeric keypad */
+#define DIK_OEM_102         0x56    /* < > | on UK/Germany keyboards */
 #define DIK_F11             0x57
 #define DIK_F12             0x58
 #define DIK_F13             0x64    /*                     (NEC PC98) */
 #define DIK_F14             0x65    /*                     (NEC PC98) */
 #define DIK_F15             0x66    /*                     (NEC PC98) */
 #define DIK_KANA            0x70    /* (Japanese keyboard)            */
+#define DIK_ABNT_C1         0x73    /* / ? on Portugese (Brazilian) keyboards */
 #define DIK_CONVERT         0x79    /* (Japanese keyboard)            */
 #define DIK_NOCONVERT       0x7B    /* (Japanese keyboard)            */
 #define DIK_YEN             0x7D    /* (Japanese keyboard)            */
+#define DIK_ABNT_C2         0x7E    /* Numpad . on Portugese (Brazilian) keyboards */
 #define DIK_NUMPADEQUALS    0x8D    /* = on numeric keypad (NEC PC98) */
 #define DIK_CIRCUMFLEX      0x90    /* (Japanese keyboard)            */
 #define DIK_AT              0x91    /*                     (NEC PC98) */
@@ -634,8 +637,16 @@ typedef BOOL (CALLBACK *LPDIENUMCREATEDEFFECTOBJECTSCALLBACK)(LPDIRECTINPUTEFFEC
 #define DIK_STOP            0x95    /*                     (NEC PC98) */
 #define DIK_AX              0x96    /*                     (Japan AX) */
 #define DIK_UNLABELED       0x97    /*                        (J3100) */
+#define DIK_NEXTTRACK       0x99    /* Next Track */
 #define DIK_NUMPADENTER     0x9C    /* Enter on numeric keypad */
 #define DIK_RCONTROL        0x9D
+#define DIK_MUTE	    0xA0    /* Mute */
+#define DIK_CALCULATOR      0xA1    /* Calculator */
+#define DIK_PLAYPAUSE       0xA2    /* Play / Pause */
+#define DIK_MEDIASTOP       0xA4    /* Media Stop */
+#define DIK_VOLUMEDOWN      0xAE    /* Volume - */
+#define DIK_VOLUMEUP        0xB0    /* Volume + */
+#define DIK_WEBHOME         0xB2    /* Web home */
 #define DIK_NUMPADCOMMA     0xB3    /* , on numeric keypad (NEC PC98) */
 #define DIK_DIVIDE          0xB5    /* / on numeric keypad */
 #define DIK_SYSRQ           0xB7
@@ -656,6 +667,17 @@ typedef BOOL (CALLBACK *LPDIENUMCREATEDEFFECTOBJECTSCALLBACK)(LPDIRECTINPUTEFFEC
 #define DIK_APPS            0xDD    /* AppMenu key */
 #define DIK_POWER           0xDE
 #define DIK_SLEEP           0xDF
+#define DIK_WAKE            0xE3    /* System Wake */
+#define DIK_WEBSEARCH       0xE5    /* Web Search */
+#define DIK_WEBFAVORITES    0xE6    /* Web Favorites */
+#define DIK_WEBREFRESH      0xE7    /* Web Refresh */
+#define DIK_WEBSTOP         0xE8    /* Web Stop */
+#define DIK_WEBFORWARD      0xE9    /* Web Forward */
+#define DIK_WEBBACK         0xEA    /* Web Back */
+#define DIK_MYCOMPUTER      0xEB    /* My Computer */
+#define DIK_MAIL            0xEC    /* Mail */
+#define DIK_MEDIASELECT     0xED    /* Media Select */
+
 #define DIK_BACKSPACE       DIK_BACK            /* backspace */
 #define DIK_NUMPADSTAR      DIK_MULTIPLY        /* * on numeric keypad */
 #define DIK_LALT            DIK_LMENU           /* left Alt */
