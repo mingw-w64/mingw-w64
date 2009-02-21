@@ -284,6 +284,7 @@ _futime64
 _gcvt
 _get_heap_handle
 _get_osfhandle
+_get_output_format
 _get_sbh_threshold
 _getch
 _getche
@@ -466,6 +467,7 @@ _scwprintf
 _searchenv
 _set_error_mode
 _set_sbh_threshold
+_set_output_format
 _seterrormode
 _setjmp
 _setjmpex

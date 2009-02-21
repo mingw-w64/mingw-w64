@@ -192,6 +192,7 @@ _fullpath
 _futime
 _gcvt
 _get_osfhandle
+_get_output_format
 _get_sbh_threshold
 _getch
 _getche
@@ -366,6 +367,7 @@ _scalb
 _searchenv
 _seh_longjmp_unwind
 _set_error_mode
+_set_output_format
 _set_sbh_threshold
 _seterrormode
 _setjmp
