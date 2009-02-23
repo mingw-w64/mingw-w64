@@ -507,6 +507,11 @@ extern "C" {
 #pragma pack(pop)
 #endif
 
+/* Use alias for msvcr80 export of get/set_output_format.  */
+#ifndef __USE_MINGW_OUTPUT_FORMAT_EMU
+#define __USE_MINGW_OUTPUT_FORMAT_EMU 1
+#endif
+
 #ifndef MINGW_SDK_INIT
 #define MINGW_SDK_INIT
 
