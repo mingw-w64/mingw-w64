@@ -156,13 +156,6 @@
   * for which `_TWO_DIGIT_EXPONENT' will be undefined.
   */
 # ifndef _TWO_DIGIT_EXPONENT
- /*
-  * This hack works around the lack of the `_set_output_format()'
-  * feature, when supporting versions of the MSVC runtime library
-  * prior to msvcr80.dll; it simply enforces Microsoft's original
-  * convention, for all cases where the feature is unsupported.
-  */
-#  define _get_output_format()  0
 #  define _TWO_DIGIT_EXPONENT   1
 # endif
 /*
