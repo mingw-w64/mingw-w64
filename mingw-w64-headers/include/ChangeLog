@@ -6,6 +6,8 @@
 	instead of __CRT_INLINE.
 	(WspiapiLegacyGetAddrInfo): Likewise.
 	(WspiapiLegacyGetNameInfo): Likewise.
+	* io.h (_open): Remove C++ variant.
+	(_sopen.h): Likewise.
 
 2009-02-13  Kai Tietz  <kai.tietz@onevision.com>
 

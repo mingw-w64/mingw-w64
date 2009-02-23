@@ -12,7 +12,22 @@
 #include <string.h>
 #include <ws2tcpip.h>
 
-/* TODO: Add legacy functions to library wspiapi by additional module.  */
+/* If you encounter the unresolved symbols
+   _WspiapiLegacyFreeAddrInfo
+   _WspiapiLegacyGetAddrInfo
+   _WspiapiLegacyGetAddrInfo
+
+  when linking code that uses wspiapi, you should consider putting
+
+  #define _WSPIAPI_EMIT_LEGACY
+  #include <wspiapi.h>
+
+  at the top of one of your compilation units, because gcc does not emit
+  compiled versions of these 'extern inline' functions.
+
+  This is a workaround until these functions will go into a well-defined
+  additional library module added to wspiapi. */
+
 #ifdef _WSPIAPI_EMIT_LEGACY
 #define _WSPIAPI_LEGACY_INLINE extern
 #else

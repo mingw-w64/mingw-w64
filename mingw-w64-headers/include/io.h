@@ -310,13 +310,8 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 
   _CRTIMP errno_t __cdecl _sopen_s(int *_FileHandle,const char *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionMode);
 
-#ifndef __cplusplus
   _CRTIMP int __cdecl _open(const char *_Filename,int _OpenFlag,...);
   _CRTIMP int __cdecl _sopen(const char *_Filename,int _OpenFlag,int _ShareFlag,...);
-#else
-  extern "C++" _CRTIMP int __cdecl _open(const char *_Filename,int _Openflag,int _PermissionMode = 0);
-  extern "C++" _CRTIMP int __cdecl _sopen(const char *_Filename,int _Openflag,int _ShareFlag,int _PermissionMode = 0);
-#endif
 
 #ifndef _WIO_DEFINED
 #define _WIO_DEFINED
