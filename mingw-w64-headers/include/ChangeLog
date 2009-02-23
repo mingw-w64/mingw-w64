@@ -1,3 +1,12 @@
+2009-02-23  Kai Tietz  <kai.tietz@onevision.com>
+	    Wolfgang Glas <wolfgang.glas@ev-i.at>
+	* wspiapi.h (_WSPIAPI_EMIT_LEGACY): New.
+	(_WSPIAPI_LEGACY_INLINE): New.
+	(WspiapiLegacyFreeAddrInfo): Use _WSPIAPI_LEGACY_INLINE
+	instead of __CRT_INLINE.
+	(WspiapiLegacyGetAddrInfo): Likewise.
+	(WspiapiLegacyGetNameInfo): Likewise.
+
 2009-02-13  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdio.h (_iob): Add for 64-bit case.

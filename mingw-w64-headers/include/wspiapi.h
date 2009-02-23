@@ -12,6 +12,13 @@
 #include <string.h>
 #include <ws2tcpip.h>
 
+/* TODO: Add legacy functions to library wspiapi by additional module.  */
+#ifdef _WSPIAPI_EMIT_LEGACY
+#define _WSPIAPI_LEGACY_INLINE extern
+#else
+#define _WSPIAPI_LEGACY_INLINE __CRT_INLINE
+#endif
+
 #define _WSPIAPI_STRCPY_S(_Dst,_Size,_Src) strcpy((_Dst),(_Src))
 #define _WSPIAPI_STRCAT_S(_Dst,_Size,_Src) strcat((_Dst),(_Src))
 #define _WSPIAPI_STRNCPY_S(_Dst,_Size,_Src,_Count) strncpy((_Dst),(_Src),(_Count)); (_Dst)[(_Size) - 1] = 0
@@ -153,7 +160,7 @@ extern "C" {
     return 0;
   }
 
-  __CRT_INLINE void WINAPI WspiapiLegacyFreeAddrInfo (struct addrinfo *ptHead) {
+  _WSPIAPI_LEGACY_INLINE void WINAPI WspiapiLegacyFreeAddrInfo (struct addrinfo *ptHead) {
     struct addrinfo *ptNext;
     for(ptNext = ptHead;ptNext!=NULL;ptNext = ptHead) {
       if(ptNext->ai_canonname) WspiapiFree(ptNext->ai_canonname);
@@ -163,7 +170,7 @@ extern "C" {
     }
   }
 
-  __CRT_INLINE int WINAPI WspiapiLegacyGetAddrInfo(const char *pszNodeName,const char *pszServiceName,const struct addrinfo *ptHints,struct addrinfo **pptResult) {
+  _WSPIAPI_LEGACY_INLINE int WINAPI WspiapiLegacyGetAddrInfo(const char *pszNodeName,const char *pszServiceName,const struct addrinfo *ptHints,struct addrinfo **pptResult) {
     int iError = 0;
     int iFlags = 0;
     int iFamily = PF_UNSPEC;
@@ -236,7 +243,7 @@ extern "C" {
     return (iError);
   }
 
-  __CRT_INLINE int WINAPI WspiapiLegacyGetNameInfo(const struct sockaddr *ptSocketAddress,socklen_t tSocketLength,char *pszNodeName,size_t tNodeLength,char *pszServiceName,size_t tServiceLength,int iFlags) {
+  _WSPIAPI_LEGACY_INLINE int WINAPI WspiapiLegacyGetNameInfo(const struct sockaddr *ptSocketAddress,socklen_t tSocketLength,char *pszNodeName,size_t tNodeLength,char *pszServiceName,size_t tServiceLength,int iFlags) {
     struct servent *ptService;
     WORD wPort;
     char szBuffer[] = "65535";
