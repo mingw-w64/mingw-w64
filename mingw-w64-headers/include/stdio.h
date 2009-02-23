@@ -230,6 +230,10 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _setmaxstdio(int _Max);
   _CRTIMP unsigned int __cdecl _set_output_format(unsigned int _Format);
   _CRTIMP unsigned int __cdecl _get_output_format(void);
+#if __USE_MINGW_OUTPUT_FORMAT_EMU == 1
+#define _set_output_format __mingw_set_output_format
+#define _get_output_format __mingw_get_output_format
+#endif
   int __cdecl setvbuf(FILE *_File,char *_Buf,int _Mode,size_t _Size);
   _CRTIMP int __cdecl _scprintf(const char *_Format,...);
   int __cdecl sscanf(const char *_Src,const char *_Format,...);
