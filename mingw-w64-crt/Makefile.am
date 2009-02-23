@@ -78,11 +78,11 @@ src_libmingwex=\
   complex/csqrt.c    complex/csqrtf.c   complex/csqrtl.c  complex/ctan.c     complex/ctanf.c    complex/ctanh.c  \
   complex/ctanhf.c   complex/ctanhl.c   complex/ctanl.c   \
   \
-  gdtoa/gd_arith.h        gdtoa/gd_qnan.h  gdtoa/gdtoa.h  gdtoa/gdtoaimp.h \
-  gdtoa/arithchk.c        gdtoa/dmisc.c    gdtoa/dtoa.c   gdtoa/g_dfmt.c   gdtoa/gdtoa.c    gdtoa/gethex.c        \
-  gdtoa/g_ffmt.c          gdtoa/g__fmt.c   gdtoa/gmisc.c  gdtoa/g_xfmt.c   gdtoa/hd_init.c  gdtoa/hexnan.c        \
-  gdtoa/mingw_snprintf.c  gdtoa/misc.c     gdtoa/qnan.c   gdtoa/smisc.c    gdtoa/strtodg.c  gdtoa/strtodnrp.c     \
-  gdtoa/strtof.c          gdtoa/strtopx.c  gdtoa/sum.c    gdtoa/ulp.c      \
+  gdtoa/gd_arith.h  gdtoa/gd_qnan.h  gdtoa/gdtoa.h  gdtoa/gdtoaimp.h \
+  gdtoa/arithchk.c  gdtoa/dmisc.c    gdtoa/dtoa.c   gdtoa/g_dfmt.c   gdtoa/gdtoa.c      gdtoa/gethex.c     \
+  gdtoa/g_ffmt.c    gdtoa/g__fmt.c   gdtoa/gmisc.c  gdtoa/g_xfmt.c   gdtoa/hd_init.c    gdtoa/hexnan.c     \
+  gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
+  gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
   math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h \
   math/ceill.S       math/copysignl.S    math/cosl.S       math/exp2f.S       math/exp2l.S       math/exp2.S       math/floorl.S  \
@@ -128,12 +128,18 @@ src_libmingwex=\
   misc/wcstoumax.c     misc/wctob.c         misc/wctrans.c               misc/wctype.c          misc/wdirent.c         \
   misc/winbs_uint64.c  misc/winbs_ulong.c   misc/winbs_ushort.c          misc/wininterlocked.c  misc/wmemchr.c         \
   misc/wmemcmp.c       misc/wmemcpy.c       misc/wmemmove.c              misc/wmemset.c         \
+  misc/mingw_output_format.c \
   \
-  stdio/atoll.c        stdio/_Exit.c      stdio/_findfirst64i32.c  stdio/_findnext64i32.c  stdio/fopen64.c  stdio/fseeko64.c \
-  stdio/_fstat64i32.c  stdio/ftello64.c   stdio/_fwstat64i32.c     stdio/lltoa.c           stdio/lltow.c    stdio/lseek64.c  \
-  stdio/snprintf.c     stdio/snwprintf.c  stdio/strtof.c           stdio/ulltoa.c          stdio/ulltow.c   stdio/vfscanf.c  \
-  stdio/vfwscanf.c     stdio/vscanf.c     stdio/vsnprintf.c        stdio/vsnwprintf.c      stdio/vsscanf.c  stdio/vswscanf.c \
-  stdio/vwscanf.c      stdio/wcstof.c     stdio/wtoll.c
+  stdio/mingw_pformat.h \
+  stdio/atoll.c           stdio/_Exit.c          stdio/_findfirst64i32.c  stdio/_findnext64i32.c  stdio/fopen64.c          \
+  stdio/fseeko64.c        stdio/_fstat64i32.c    stdio/ftello64.c         stdio/_fwstat64i32.c    stdio/lltoa.c            \
+  stdio/lltow.c           stdio/lseek64.c        stdio/mingw_fprintf.c    stdio/mingw_pformat.c   stdio/mingw_printf.c     \
+  stdio/mingw_snprintf.c  stdio/mingw_sprintf.c  stdio/mingw_vfprintf.c   stdio/mingw_vprintf.c   stdio/mingw_vsnprintf.c  \
+  stdio/mingw_vsprintf.c  stdio/snprintf.c       stdio/snwprintf.c        stdio/strtof.c          stdio/ulltoa.c           \
+  stdio/ulltow.c          stdio/vfscanf.c        stdio/vfwscanf.c         stdio/vscanf.c          stdio/vsnprintf.c        \
+  stdio/vsnwprintf.c      stdio/vsscanf.c        stdio/vswscanf.c         stdio/vwscanf.c         stdio/wcstof.c           \
+  stdio/wtoll.c
+
 
 if LIB32
 #########
@@ -270,8 +276,8 @@ lib32_SCRIPTS = \
   lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
   lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
   lib32/libctl3d32.a   lib32/libd3d8.a      lib32/libd3d9.a      lib32/libd3dim.a     lib32/libd3drm.a    \
-  lib32/libd3dx8d.a    lib32/libd3dx9d.a    lib32/libd3dxof.a    lib32/libddraw.a     lib32/libdhcpcsvc.a \
-  lib32/libdlcapi.a    lib32/libdnsapi.a    lib32/libdplayx.a    \
+  lib32/libd3dx8d.a    lib32/libd3dx9d.a    lib32/libd3dxof.a    lib32/libdbghelp.a   lib32/libddraw.a    \
+  lib32/libdhcpcsvc.a  lib32/libdlcapi.a    lib32/libdnsapi.a    lib32/libdplayx.a    \
   lib32/libdpnaddr.a   lib32/libdpnet.a     lib32/libdpnlobby.a  lib32/libdpvoice.a   lib32/libdsetup.a   \
   lib32/libdsound.a    lib32/libdxapi.a     lib32/libfaultrep.a  lib32/libgdi32.a     lib32/libglaux.a    \
   lib32/libglu32.a     lib32/libglut32.a    lib32/libglut.a      lib32/libhal.a       lib32/libhid.a      \
@@ -863,7 +869,9 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 #
 
 EXTRA_DIST = DISCLAIMER
-EXTRA_DIST += $(top_srcdir)/lib64/*.def $(top_srcdir)/lib32/*.def \
+EXTRA_DIST += revstamp.h \
+  $(top_srcdir)/lib64/*.def \
+  $(top_srcdir)/lib32/*.def \
   crt/binmode.c \
   crt/crtbegin.c \
   crt/crtdll.c \
