@@ -6,13 +6,15 @@
 
 #include <internal.h>
 #include <math.h>
+#include <stdio.h>
 
-int __defaultmatherr = 1;
+int __defaultmatherr = 0;
 
 int __CRTDECL
 _matherr (struct _exception *pexcept)
 {
   /* Make compiler happy.  */
   pexcept = pexcept;
+  printf ("_matherr\n");
   return 0;
 }

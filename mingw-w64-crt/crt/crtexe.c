@@ -116,7 +116,10 @@ pre_c_init (void)
 #endif
 
   if (! __defaultmatherr)
-    __setusermatherr (_matherr);
+    {
+      __setusermatherr (_matherr);
+      __defaultmatherr = 1;
+    }
 
   if (__globallocalestatus == -1)
     {
@@ -224,6 +227,8 @@ __tmainCRTStartup (void)
     #endif
     AddVectoredExceptionHandler (0, (PVECTORED_EXCEPTION_HANDLER)__mingw_vex);
     SetUnhandledExceptionFilter (_gnu_exception_handler);
+    
+    _fpreset ();
 
     if (mingw_app_type)
       {
@@ -323,7 +328,7 @@ check_managed_app (void)
   return 0;
 }
 
-int __defaultmatherr;
+extern int __defaultmatherr;
 
 static CALLBACK long
 _gnu_exception_handler (EXCEPTION_POINTERS * exception_data)

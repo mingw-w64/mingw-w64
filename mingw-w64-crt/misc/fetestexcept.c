@@ -15,6 +15,8 @@
 int fetestexcept (int excepts)
 {
   unsigned short _sw;
+  int sse_sw;
   __asm__ ("fnstsw %%ax" : "=a" (_sw));
-  return _sw & excepts & FE_ALL_EXCEPT;
+  __asm__ volatile ("stmxcsr %0;" : "=m" (sse_sw));
+  return (_sw | (sse_sw)) & excepts & FE_ALL_EXCEPT;
 }

@@ -12,8 +12,8 @@
 int
 fegetround (void)
 {
-  unsigned short _cw;
-  __asm__ ("fnstcw %0;"	: "=m" (_cw));
-  return _cw
-          & (FE_TONEAREST | FE_DOWNWARD | FE_UPWARD | FE_TOWARDZERO);
+  int _control;
+
+  __asm__ volatile ("fnstcw %0" : "=m" (_control));
+  return (_control & (FE_TONEAREST | FE_DOWNWARD |  FE_UPWARD | FE_TOWARDZERO));
 }

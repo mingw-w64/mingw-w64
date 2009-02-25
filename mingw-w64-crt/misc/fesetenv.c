@@ -6,6 +6,8 @@
 #include <fenv.h>
 #include <float.h>
 
+#define __HAS_SSE() 1
+
 /* 7.6.4.3
    The fesetenv function establishes the floating-point environment
    represented by the object pointed to by envp. The argument envp
@@ -43,7 +45,18 @@ int fesetenv (const fenv_t * envp)
     _fpreset();
 
   else
-    __asm__ ("fldenv %0;" : : "m" (*envp));
+    {
+      fenv_t env = *envp;
+      int _mxcsr;
+      _mxcsr = (env.__unused0 << 16) | env.__unused1; /* mxcsr low and high */
+      env.__unused0 = 0xffff;
+      env.__unused1 = 0xffff;
+      __asm__ volatile ("fldenv %0" : : "m" (env)
+			: "st", "st(1)", "st(2)", "st(3)", "st(4)",
+			"st(5)", "st(6)", "st(7)");
+      if (__HAS_SSE())
+        __asm__ volatile ("ldmxcsr %0" : : "m" (_mxcsr));
+    }
 
   return 0;
 }

@@ -17,11 +17,17 @@
 int fesetexceptflag (const fexcept_t * flagp, int excepts) 
 { 
   fenv_t _env;
+  int sse_cw;
 
   excepts &= FE_ALL_EXCEPT;
   __asm__ volatile ("fnstenv %0;" : "=m" (_env));
   _env.__status_word &= ~excepts;
   _env.__status_word |= (*flagp & excepts);
   __asm__ volatile ("fldenv %0;" : : "m" (_env));
+  __asm__ volatile ("stmxcsr %0;" : "=m" (sse_cw));
+  sse_cw &= ~(excepts << 7);
+  sse_cw |= ((*flagp & excepts) << 7);
+  __asm__ volatile ("ldmxcsr %0" : : "m" (sse_cw));
+  
   return 0;
 }
