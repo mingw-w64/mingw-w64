@@ -37,6 +37,12 @@ AC_ARG_ENABLE([lib64],
   [enable_lib64=yes])
 AM_CONDITIONAL([LIB64], [test $enable_lib64 = yes])
 
+AC_ARG_ENABLE([libce],
+  [AS_HELP_STRING([--enable-libce],
+    [enable compiling the WinCE runtime])],
+  [],
+  [enable_libce=no])
+AM_CONDITIONAL([LIBCE], [test $enable_libce = yes])
 
 # Checks for programs.
 # Checks for headers, libs, etc need to utilize the sysroot... no idea how
