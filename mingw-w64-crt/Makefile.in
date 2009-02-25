@@ -1562,10 +1562,6 @@ top_srcdir = @top_srcdir@
 @WITHSYSROOT_TRUE@sysincludes = -I@TARGET_SYSTEM_ROOT@/mingw/include
 @WITHSYSROOT_FALSE@withsys = 
 @WITHSYSROOT_TRUE@withsys = --with-sysroot=@TARGET_SYSTEM_ROOT@
-@VISTA_FALSE@vistasupport = 
-@VISTA_TRUE@vistasupport = -D__USE_MINGW_ACCESS
-@VISTA_FALSE@enablevista = 
-@VISTA_TRUE@enablevista = --enable-vista
 AM_CPPFLAGS = -D_CRTBLD $(sysincludes)
 AM_CFLAGS = -pipe $(vistasupport) -Wall -Wno-strict-aliasing -std=gnu99
 AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@

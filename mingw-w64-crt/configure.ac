@@ -37,13 +37,6 @@ AC_ARG_ENABLE([lib64],
   [enable_lib64=yes])
 AM_CONDITIONAL([LIB64], [test $enable_lib64 = yes])
 
-AC_ARG_ENABLE([vista],
-  [AS_HELP_STRING([--enable-vista],
-    [enable support for a toolchain hosted on Windows Vista])],
-  [],
-  [enable_vista=no])
-AM_CONDITIONAL([VISTA], [test $enable_vista = yes])
-
 
 # Checks for programs.
 # Checks for headers, libs, etc need to utilize the sysroot... no idea how

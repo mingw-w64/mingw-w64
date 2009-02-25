@@ -18,13 +18,6 @@ else
   withsys=
 endif
 
-if VISTA
-  vistasupport=-D__USE_MINGW_ACCESS
-  enablevista=--enable-vista
-else
-  vistasupport=
-  enablevista=
-endif
 
 AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
 AM_CFLAGS=-pipe $(vistasupport) -Wall -Wno-strict-aliasing -std=gnu99
