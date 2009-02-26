@@ -6,7 +6,7 @@
 #include <fenv.h>
 #include <float.h>
 
-#define __HAS_SSE() 1
+extern int __mingw_has_sse (void);
 
 /* 7.6.4.3
    The fesetenv function establishes the floating-point environment
@@ -54,7 +54,7 @@ int fesetenv (const fenv_t * envp)
       __asm__ volatile ("fldenv %0" : : "m" (env)
 			: "st", "st(1)", "st(2)", "st(3)", "st(4)",
 			"st(5)", "st(6)", "st(7)");
-      if (__HAS_SSE())
+      if (__mingw_has_sse ())
         __asm__ volatile ("ldmxcsr %0" : : "m" (_mxcsr));
     }
 

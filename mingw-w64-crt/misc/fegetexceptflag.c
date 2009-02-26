@@ -5,7 +5,7 @@
  */
 #include <fenv.h>
 
-#define __HAS_SSE() 1
+extern int __mingw_has_sse (void);
 
 /* 7.6.2.2  
    The fegetexceptflag function stores an implementation-defined
@@ -19,7 +19,7 @@ int fegetexceptflag (fexcept_t * flagp, int excepts)
 
   __asm__ volatile ("fnstsw %0" : "=am" (_status));
   _mxcsr = 0;
-  if (__HAS_SSE())
+  if (__mingw_has_sse ())
     __asm__ volatile ("stmxcsr %0" : "=m" (_mxcsr));
     
   *flagp = (_mxcsr | _status) & excepts & FE_ALL_EXCEPT;

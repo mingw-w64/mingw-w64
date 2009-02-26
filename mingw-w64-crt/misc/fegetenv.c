@@ -5,7 +5,7 @@
  */
 #include <fenv.h>
 
-#define __HAS_SSE() 1
+int __mingw_has_sse (void);
 
 /* 7.6.4.1
    The fegetenv function stores the current floating-point environment
@@ -17,7 +17,7 @@ int fegetenv (fenv_t * envp)
  /* fnstenv sets control word to non-stop for all exceptions, so we
     need to reload our env to restore the original mask.  */
   __asm__ ("fldenv %0" : : "m" (*envp));
-  if (__HAS_SSE())
+  if (__mingw_has_sse ())
     {
       int _mxcsr;
       __asm__ volatile ("stmxcsr %0" : "=m" (_mxcsr));
