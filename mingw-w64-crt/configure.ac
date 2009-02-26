@@ -25,14 +25,14 @@ AC_SUBST(TARGET_SYSTEM_ROOT)
 
 AC_ARG_ENABLE([lib32],
   [AS_HELP_STRING([--enable-lib32],
-    [enable compiling the 32-bit runtime])],
+    [enable compiling the Win32 runtime])],
   [],
   [enable_lib32=no])
 AM_CONDITIONAL([LIB32], [test $enable_lib32 = yes])
 
 AC_ARG_ENABLE([lib64],
   [AS_HELP_STRING([--disable-lib64],
-    [disable compiling the 64-bit runtime])],
+    [disable compiling the Win64 runtime])],
   [],
   [enable_lib64=yes])
 AM_CONDITIONAL([LIB64], [test $enable_lib64 = yes])
@@ -80,3 +80,25 @@ AM_PROG_CC_C_O
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
+
+echo
+echo
+echo
+echo "------------------------------------------------------------------------"
+echo "$PACKAGE $VERSION"
+echo "------------------------------------------------------------------------"
+echo
+echo
+echo "Configuration Options Summary:"
+echo
+echo "  WinCE runtime.....: ${enable_libce}"
+echo "  Win32 runtime.....: ${enable_lib32}"
+echo "  Win64 runtime.....: ${enable_lib64}"
+echo
+
+AS_IF([test "$enable_libce" = yes],
+      [AS_IF([test "$enable_lib32" = yes -o "$enable_lib64" = yes],
+             [AC_MSG_WARN([Building the runtime to use libce with lib32 or lib64 is unsupported.])],
+             [])],
+      [])
+

@@ -1580,8 +1580,8 @@ Optional Features:
   --disable-option-checking  ignore unrecognized --enable/--with options
   --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
   --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
-  --enable-lib32          enable compiling the 32-bit runtime
-  --disable-lib64         disable compiling the 64-bit runtime
+  --enable-lib32          enable compiling the Win32 runtime
+  --disable-lib64         disable compiling the Win64 runtime
   --enable-libce          enable compiling the WinCE runtime
   --disable-dependency-tracking  speeds up one-time build
   --enable-dependency-tracking   do not reject slow dependency extractors
@@ -22325,4 +22325,29 @@ if test -n "$ac_unrecognized_opts" && test "$enable_option_checking" != no; then
   { $as_echo "$as_me:$LINENO: WARNING: unrecognized options: $ac_unrecognized_opts" >&5
 $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
 fi
+
+
+echo
+echo
+echo
+echo "------------------------------------------------------------------------"
+echo "$PACKAGE $VERSION"
+echo "------------------------------------------------------------------------"
+echo
+echo
+echo "Configuration Options Summary:"
+echo
+echo "  WinCE runtime.....: ${enable_libce}"
+echo "  Win32 runtime.....: ${enable_lib32}"
+echo "  Win64 runtime.....: ${enable_lib64}"
+echo
+
+if test "$enable_libce" = yes; then
+  if test "$enable_lib32" = yes -o "$enable_lib64" = yes; then
+  { $as_echo "$as_me:$LINENO: WARNING: Building the runtime to use libce with lib32 or lib64 is unsupported." >&5
+$as_echo "$as_me: WARNING: Building the runtime to use libce with lib32 or lib64 is unsupported." >&2;}
+fi
+
+fi
+
 
