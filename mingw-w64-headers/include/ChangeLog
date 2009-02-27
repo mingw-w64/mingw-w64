@@ -1,3 +1,8 @@
+2009-02-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h (__MINGW64): Add underscores.
+	(__MINGW64...): Likewise.
+
 2009-02-23  Kai Tietz  <kai.tietz@onevision.com>
 	    Wolfgang Glas <wolfgang.glas@ev-i.at>
 	* wspiapi.h (_WSPIAPI_EMIT_LEGACY): New.

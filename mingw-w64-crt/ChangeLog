@@ -1,3 +1,8 @@
+2009-02-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/mingw_helper.c (__mingw_get_crt_info): Append
+	underscores to internal macros __MINGW64_VERSION, ...
+
 2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/2615526
