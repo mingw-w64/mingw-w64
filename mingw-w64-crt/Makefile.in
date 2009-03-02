@@ -1559,7 +1559,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 @WITHSYSROOT_FALSE@sysincludes = 
-@WITHSYSROOT_TRUE@sysincludes = -I@TARGET_SYSTEM_ROOT@/mingw/include
+@WITHSYSROOT_TRUE@sysincludes = -I@TARGET_SYSTEM_ROOT@/$(host)/include
 @WITHSYSROOT_FALSE@withsys = 
 @WITHSYSROOT_TRUE@withsys = --with-sysroot=@TARGET_SYSTEM_ROOT@
 AM_CPPFLAGS = -D_CRTBLD $(sysincludes)

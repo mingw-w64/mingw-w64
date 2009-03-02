@@ -11,7 +11,7 @@
 #Use AM_MAINTAINER_MODE in configure.ac to disable autoreconf
 
 if WITHSYSROOT
-  sysincludes=-I@TARGET_SYSTEM_ROOT@/mingw/include
+  sysincludes=-I@TARGET_SYSTEM_ROOT@/$(host)/include
   withsys=--with-sysroot=@TARGET_SYSTEM_ROOT@
 else
   sysincludes=
