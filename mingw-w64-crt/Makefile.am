@@ -139,7 +139,7 @@ if LIB32
 # Compiling 32-bit runtime
 #
 
-lib32dir=$(prefix)/$(host)/lib32
+lib32dir=$(prefix)/$(host)/@LIB32SUFFIXDIR@
 crt32dir=$(lib32dir)
 
 crt32_SCRIPTS = \
@@ -315,7 +315,7 @@ if LIB64
 # Compiling 64-bit runtime
 # #######################################################################
 
-lib64dir=$(prefix)/$(host)/lib
+lib64dir=$(prefix)/$(host)/@LIB64SUFFIXDIR@
 crt64dir=$(lib64dir)
 
 crt64_SCRIPTS = \

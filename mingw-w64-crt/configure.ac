@@ -102,3 +102,12 @@ AS_IF([test "$enable_libce" = yes],
              [])],
       [])
 
+AS_CASE([$host_cpu],
+  [x86_64],[
+    AC_SUBST([LIB64SUFFIXDIR],[lib])
+    AC_SUBST([LIB32SUFFIXDIR],[lib32])],
+  [i*86],[
+    AC_SUBST([LIB64SUFFIXDIR],[lib64])
+    AC_SUBST([LIB32SUFFIXDIR],[lib])
+  ])
+
