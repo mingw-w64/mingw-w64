@@ -44,6 +44,24 @@ AC_ARG_ENABLE([libce],
   [enable_libce=no])
 AM_CONDITIONAL([LIBCE], [test $enable_libce = yes])
 
+AS_IF([test "$enable_libce" = yes],
+      [AS_IF([test "$enable_lib32" = yes -o "$enable_lib64" = yes],
+             [AC_MSG_WARN([Building the runtime to use libce with lib32 or lib64 is unsupported.])],
+             [])],
+      [])
+
+AS_CASE([$host_cpu],
+  [x86_64],[
+    AC_SUBST([LIB64SUFFIXDIR],[lib])
+    AC_SUBST([LIB32SUFFIXDIR],[lib32])],
+  [i*86],[
+    AC_SUBST([LIB64SUFFIXDIR],[lib64])
+    AC_SUBST([LIB32SUFFIXDIR],[lib])],
+  [*],[
+    AC_SUBST([LIB64SUFFIXDIR],[lib64])
+    AC_SUBST([LIB32SUFFIXDIR],[lib32])]
+  )
+
 # Checks for programs.
 # Checks for headers, libs, etc need to utilize the sysroot... no idea how
 AC_NO_EXECUTABLES
@@ -96,18 +114,4 @@ echo "  Win32 runtime.....: ${enable_lib32}"
 echo "  Win64 runtime.....: ${enable_lib64}"
 echo
 
-AS_IF([test "$enable_libce" = yes],
-      [AS_IF([test "$enable_lib32" = yes -o "$enable_lib64" = yes],
-             [AC_MSG_WARN([Building the runtime to use libce with lib32 or lib64 is unsupported.])],
-             [])],
-      [])
-
-AS_CASE([$host_cpu],
-  [x86_64],[
-    AC_SUBST([LIB64SUFFIXDIR],[lib])
-    AC_SUBST([LIB32SUFFIXDIR],[lib32])],
-  [i*86],[
-    AC_SUBST([LIB64SUFFIXDIR],[lib64])
-    AC_SUBST([LIB32SUFFIXDIR],[lib])
-  ])
 
