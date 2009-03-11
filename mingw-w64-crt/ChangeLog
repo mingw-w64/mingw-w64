@@ -1,3 +1,7 @@
+2009-03-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/mingw_usleep.c: New.
+
 2009-03-11  Alexey Pushkin  <Alexey.Pushkin@mererand.com>
 
 	* crt/crtexe.c (_MINGW_INSTALL_DEBUG_MATHERR): Use for
