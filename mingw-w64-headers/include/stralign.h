@@ -24,10 +24,11 @@ extern "C" {
 #define ua_wcsicmp wcsicmp
 #define ua_wcslen wcslen
 #define ua_wcsrchr wcsrchr
-  static __inline PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source) { return wcscpy(Destination,Source); }
+  __CRT_INLINE PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source) { return wcscpy(Destination,Source); }
 #else
 #define WSTR_ALIGNED(s) (((DWORD_PTR)(s) & (sizeof(WCHAR)-1))==0)
 
+  /* TODO: This method seems to be not present for amd64.  */
   LPUWSTR WINAPI uaw_CharUpperW(LPUWSTR String);
   int WINAPI uaw_lstrcmpW(PCUWSTR String1,PCUWSTR String2);
   int WINAPI uaw_lstrcmpiW(PCUWSTR String1,PCUWSTR String2);
@@ -38,28 +39,30 @@ extern "C" {
   size_t __cdecl uaw_wcslen(PCUWSTR String);
   PUWSTR __cdecl uaw_wcsrchr(PCUWSTR String,WCHAR Character);
 #ifdef CharUpper
-  static __inline LPUWSTR ua_CharUpperW(LPUWSTR String) {
+  __CRT_INLINE LPUWSTR ua_CharUpperW(LPUWSTR String) {
     if(WSTR_ALIGNED(String)) return CharUpperW((PWSTR)String);
     return uaw_CharUpperW(String);
   }
 #endif
 
 #ifdef lstrcmp
-  static __inline int ua_lstrcmpW(LPCUWSTR String1,LPCUWSTR String2) {
-    if(WSTR_ALIGNED(String1) && WSTR_ALIGNED(String2)) return lstrcmpW((LPCWSTR)String1,(LPCWSTR)String2);
+  __CRT_INLINE int ua_lstrcmpW(LPCUWSTR String1,LPCUWSTR String2) {
+    if(WSTR_ALIGNED(String1) && WSTR_ALIGNED(String2))
+      return lstrcmpW((LPCWSTR)String1,(LPCWSTR)String2);
     return uaw_lstrcmpW(String1,String2);
   }
 #endif
 
 #ifdef lstrcmpi
-  static __inline int ua_lstrcmpiW(LPCUWSTR String1,LPCUWSTR String2) {
-    if(WSTR_ALIGNED(String1) && WSTR_ALIGNED(String2)) return lstrcmpiW((LPCWSTR)String1,(LPCWSTR)String2);
+  __CRT_INLINE int ua_lstrcmpiW(LPCUWSTR String1,LPCUWSTR String2) {
+    if(WSTR_ALIGNED(String1) && WSTR_ALIGNED(String2))
+      return lstrcmpiW((LPCWSTR)String1,(LPCWSTR)String2);
     return uaw_lstrcmpiW(String1,String2);
   }
 #endif
 
 #ifdef lstrlen
-  static __inline int ua_lstrlenW(LPCUWSTR String) {
+  __CRT_INLINE int ua_lstrlenW(LPCUWSTR String) {
     if(WSTR_ALIGNED(String)) return lstrlenW((PCWSTR)String);
     return uaw_lstrlenW(String);
   }
@@ -71,37 +74,39 @@ extern "C" {
 #else
   typedef WCHAR UNALIGNED *PUWSTR_C;
 #endif
-  static __inline PUWSTR_C ua_wcschr(PCUWSTR String,WCHAR Character) {
+  __CRT_INLINE PUWSTR_C ua_wcschr(PCUWSTR String,WCHAR Character) {
     if(WSTR_ALIGNED(String)) return wcschr((PCWSTR)String,Character);
     return (PUWSTR_C)uaw_wcschr(String,Character);
   }
-  static __inline PUWSTR_C ua_wcsrchr(PCUWSTR String,WCHAR Character) {
+  __CRT_INLINE PUWSTR_C ua_wcsrchr(PCUWSTR String,WCHAR Character) {
     if(WSTR_ALIGNED(String)) return wcsrchr((PCWSTR)String,Character);
     return (PUWSTR_C)uaw_wcsrchr(String,Character);
   }
 #if defined(__cplusplus) && defined(_WConst_Return)
-  static __inline PUWSTR ua_wcschr(PUWSTR String,WCHAR Character) {
+  __CRT_INLINE PUWSTR ua_wcschr(PUWSTR String,WCHAR Character) {
     if(WSTR_ALIGNED(String)) return wcscpy((PWSTR)Destination,(PCWSTR)Source);
     return uaw_wcscpy(Destination,Source);
   }
-  static __inline PUWSTR ua_wcsrchr(PUWSTR String,WCHAR Character) {
+  __CRT_INLINE PUWSTR ua_wcsrchr(PUWSTR String,WCHAR Character) {
     if(WSTR_ALIGNED(String)) return wcsrchr(String,Character);
     return uaw_wcsrchr((PCUWSTR)String,Character);
   }
 #endif
 
-  static __inline PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source) {
-    if(WSTR_ALIGNED(Source) && WSTR_ALIGNED(Destination)) return wcscpy((PWSTR)Destination,(PCWSTR)Source);
+  __CRT_INLINE PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source) {
+    if(WSTR_ALIGNED(Source) && WSTR_ALIGNED(Destination))
+      return wcscpy((PWSTR)Destination,(PCWSTR)Source);
     return uaw_wcscpy(Destination,Source);
   }
-  static __inline size_t ua_wcslen(PCUWSTR String) {
+  __CRT_INLINE size_t ua_wcslen(PCUWSTR String) {
     if(WSTR_ALIGNED(String)) return wcslen((PCWSTR)String);
     return uaw_wcslen(String);
   }
 #endif
 
-  static __inline int ua_wcsicmp(LPCUWSTR String1,LPCUWSTR String2) {
-    if(WSTR_ALIGNED(String1) && WSTR_ALIGNED(String2)) return _wcsicmp((LPCWSTR)String1,(LPCWSTR)String2);
+  __CRT_INLINE int ua_wcsicmp(LPCUWSTR String1,LPCUWSTR String2) {
+    if(WSTR_ALIGNED(String1) && WSTR_ALIGNED(String2))
+      return _wcsicmp((LPCWSTR)String1,(LPCWSTR)String2);
     return uaw_wcsicmp(String1,String2);
   }
 #endif
