@@ -270,20 +270,20 @@ am__lib32_libmingwex_a_SOURCES_DIST = complex/cabs.c complex/cabsf.c \
 	misc/wdirent.c misc/winbs_uint64.c misc/winbs_ulong.c \
 	misc/winbs_ushort.c misc/wininterlocked.c misc/wmemchr.c \
 	misc/wmemcmp.c misc/wmemcpy.c misc/wmemmove.c misc/wmemset.c \
-	misc/mingw_output_format.c stdio/mingw_pformat.h stdio/atoll.c \
-	stdio/_Exit.c stdio/_findfirst64i32.c stdio/_findnext64i32.c \
-	stdio/fopen64.c stdio/fseeko64.c stdio/_fstat64i32.c \
-	stdio/ftello64.c stdio/_fwstat64i32.c stdio/lltoa.c \
-	stdio/lltow.c stdio/lseek64.c stdio/mingw_fprintf.c \
-	stdio/mingw_pformat.c stdio/mingw_printf.c \
-	stdio/mingw_snprintf.c stdio/mingw_sprintf.c \
-	stdio/mingw_vfprintf.c stdio/mingw_vprintf.c \
-	stdio/mingw_vsnprintf.c stdio/mingw_vsprintf.c \
-	stdio/snprintf.c stdio/snwprintf.c stdio/strtof.c \
-	stdio/ulltoa.c stdio/ulltow.c stdio/vfscanf.c stdio/vfwscanf.c \
-	stdio/vscanf.c stdio/vsnprintf.c stdio/vsnwprintf.c \
-	stdio/vsscanf.c stdio/vswscanf.c stdio/vwscanf.c \
-	stdio/wcstof.c stdio/wtoll.c
+	misc/mingw_usleep.c misc/mingw_output_format.c \
+	stdio/mingw_pformat.h stdio/atoll.c stdio/_Exit.c \
+	stdio/_findfirst64i32.c stdio/_findnext64i32.c stdio/fopen64.c \
+	stdio/fseeko64.c stdio/_fstat64i32.c stdio/ftello64.c \
+	stdio/_fwstat64i32.c stdio/lltoa.c stdio/lltow.c \
+	stdio/lseek64.c stdio/mingw_fprintf.c stdio/mingw_pformat.c \
+	stdio/mingw_printf.c stdio/mingw_snprintf.c \
+	stdio/mingw_sprintf.c stdio/mingw_vfprintf.c \
+	stdio/mingw_vprintf.c stdio/mingw_vsnprintf.c \
+	stdio/mingw_vsprintf.c stdio/snprintf.c stdio/snwprintf.c \
+	stdio/strtof.c stdio/ulltoa.c stdio/ulltow.c stdio/vfscanf.c \
+	stdio/vfwscanf.c stdio/vscanf.c stdio/vsnprintf.c \
+	stdio/vsnwprintf.c stdio/vsscanf.c stdio/vswscanf.c \
+	stdio/vwscanf.c stdio/wcstof.c stdio/wtoll.c
 am__objects_11 = complex/lib32_libmingwex_a-cabs.$(OBJEXT) \
 	complex/lib32_libmingwex_a-cabsf.$(OBJEXT) \
 	complex/lib32_libmingwex_a-cabsl.$(OBJEXT) \
@@ -594,6 +594,7 @@ am__objects_11 = complex/lib32_libmingwex_a-cabs.$(OBJEXT) \
 	misc/lib32_libmingwex_a-wmemcpy.$(OBJEXT) \
 	misc/lib32_libmingwex_a-wmemmove.$(OBJEXT) \
 	misc/lib32_libmingwex_a-wmemset.$(OBJEXT) \
+	misc/lib32_libmingwex_a-mingw_usleep.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_output_format.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-atoll.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_Exit.$(OBJEXT) \
@@ -913,20 +914,20 @@ am__lib64_libmingwex_a_SOURCES_DIST = complex/cabs.c complex/cabsf.c \
 	misc/wdirent.c misc/winbs_uint64.c misc/winbs_ulong.c \
 	misc/winbs_ushort.c misc/wininterlocked.c misc/wmemchr.c \
 	misc/wmemcmp.c misc/wmemcpy.c misc/wmemmove.c misc/wmemset.c \
-	misc/mingw_output_format.c stdio/mingw_pformat.h stdio/atoll.c \
-	stdio/_Exit.c stdio/_findfirst64i32.c stdio/_findnext64i32.c \
-	stdio/fopen64.c stdio/fseeko64.c stdio/_fstat64i32.c \
-	stdio/ftello64.c stdio/_fwstat64i32.c stdio/lltoa.c \
-	stdio/lltow.c stdio/lseek64.c stdio/mingw_fprintf.c \
-	stdio/mingw_pformat.c stdio/mingw_printf.c \
-	stdio/mingw_snprintf.c stdio/mingw_sprintf.c \
-	stdio/mingw_vfprintf.c stdio/mingw_vprintf.c \
-	stdio/mingw_vsnprintf.c stdio/mingw_vsprintf.c \
-	stdio/snprintf.c stdio/snwprintf.c stdio/strtof.c \
-	stdio/ulltoa.c stdio/ulltow.c stdio/vfscanf.c stdio/vfwscanf.c \
-	stdio/vscanf.c stdio/vsnprintf.c stdio/vsnwprintf.c \
-	stdio/vsscanf.c stdio/vswscanf.c stdio/vwscanf.c \
-	stdio/wcstof.c stdio/wtoll.c
+	misc/mingw_usleep.c misc/mingw_output_format.c \
+	stdio/mingw_pformat.h stdio/atoll.c stdio/_Exit.c \
+	stdio/_findfirst64i32.c stdio/_findnext64i32.c stdio/fopen64.c \
+	stdio/fseeko64.c stdio/_fstat64i32.c stdio/ftello64.c \
+	stdio/_fwstat64i32.c stdio/lltoa.c stdio/lltow.c \
+	stdio/lseek64.c stdio/mingw_fprintf.c stdio/mingw_pformat.c \
+	stdio/mingw_printf.c stdio/mingw_snprintf.c \
+	stdio/mingw_sprintf.c stdio/mingw_vfprintf.c \
+	stdio/mingw_vprintf.c stdio/mingw_vsnprintf.c \
+	stdio/mingw_vsprintf.c stdio/snprintf.c stdio/snwprintf.c \
+	stdio/strtof.c stdio/ulltoa.c stdio/ulltow.c stdio/vfscanf.c \
+	stdio/vfwscanf.c stdio/vscanf.c stdio/vsnprintf.c \
+	stdio/vsnwprintf.c stdio/vsscanf.c stdio/vswscanf.c \
+	stdio/vwscanf.c stdio/wcstof.c stdio/wtoll.c
 am__objects_30 = complex/lib64_libmingwex_a-cabs.$(OBJEXT) \
 	complex/lib64_libmingwex_a-cabsf.$(OBJEXT) \
 	complex/lib64_libmingwex_a-cabsl.$(OBJEXT) \
@@ -1237,6 +1238,7 @@ am__objects_30 = complex/lib64_libmingwex_a-cabs.$(OBJEXT) \
 	misc/lib64_libmingwex_a-wmemcpy.$(OBJEXT) \
 	misc/lib64_libmingwex_a-wmemmove.$(OBJEXT) \
 	misc/lib64_libmingwex_a-wmemset.$(OBJEXT) \
+	misc/lib64_libmingwex_a-mingw_usleep.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_output_format.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-atoll.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_Exit.$(OBJEXT) \
@@ -1664,7 +1666,7 @@ src_libmingwex = \
   misc/wcstoumax.c     misc/wctob.c         misc/wctrans.c               misc/wctype.c          misc/wdirent.c         \
   misc/winbs_uint64.c  misc/winbs_ulong.c   misc/winbs_ushort.c          misc/wininterlocked.c  misc/wmemchr.c         \
   misc/wmemcmp.c       misc/wmemcpy.c       misc/wmemmove.c              misc/wmemset.c         \
-  misc/mingw_output_format.c \
+  misc/mingw_usleep.c  misc/mingw_output_format.c \
   \
   stdio/mingw_pformat.h \
   stdio/atoll.c           stdio/_Exit.c          stdio/_findfirst64i32.c  stdio/_findnext64i32.c  stdio/fopen64.c          \
@@ -3176,6 +3178,8 @@ misc/lib32_libmingwex_a-wmemmove.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-wmemset.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmingwex_a-mingw_usleep.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-mingw_output_format.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/$(am__dirstamp):
@@ -4121,6 +4125,8 @@ misc/lib64_libmingwex_a-wmemmove.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-wmemset.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-mingw_usleep.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-mingw_output_format.$(OBJEXT):  \
 	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-atoll.$(OBJEXT): stdio/$(am__dirstamp) \
@@ -5059,6 +5065,7 @@ mostlyclean-compile:
 	-rm -f misc/lib32_libmingwex_a-mingw-fseek.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-mingw_getsp.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-mingw_output_format.$(OBJEXT)
+	-rm -f misc/lib32_libmingwex_a-mingw_usleep.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-mktime.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-seterrno.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-sleep.$(OBJEXT)
@@ -5130,6 +5137,7 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-mingw-fseek.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw_output_format.$(OBJEXT)
+	-rm -f misc/lib64_libmingwex_a-mingw_usleep.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mktime.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-seterrno.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-sleep.$(OBJEXT)
@@ -5917,6 +5925,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw-fseek.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_getsp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_output_format.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mktime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-seterrno.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-sleep.Po@am__quote@
@@ -5988,6 +5997,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw-fseek.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_output_format.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mktime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-seterrno.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-sleep.Po@am__quote@
@@ -11615,6 +11625,20 @@ misc/lib32_libmingwex_a-wmemset.obj: misc/wmemset.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-wmemset.obj `if test -f 'misc/wmemset.c'; then $(CYGPATH_W) 'misc/wmemset.c'; else $(CYGPATH_W) '$(srcdir)/misc/wmemset.c'; fi`
 
+misc/lib32_libmingwex_a-mingw_usleep.o: misc/mingw_usleep.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-mingw_usleep.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Tpo -c -o misc/lib32_libmingwex_a-mingw_usleep.o `test -f 'misc/mingw_usleep.c' || echo '$(srcdir)/'`misc/mingw_usleep.c
+@am__fastdepCC_TRUE@	mv -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/mingw_usleep.c' object='misc/lib32_libmingwex_a-mingw_usleep.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-mingw_usleep.o `test -f 'misc/mingw_usleep.c' || echo '$(srcdir)/'`misc/mingw_usleep.c
+
+misc/lib32_libmingwex_a-mingw_usleep.obj: misc/mingw_usleep.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-mingw_usleep.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Tpo -c -o misc/lib32_libmingwex_a-mingw_usleep.obj `if test -f 'misc/mingw_usleep.c'; then $(CYGPATH_W) 'misc/mingw_usleep.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_usleep.c'; fi`
+@am__fastdepCC_TRUE@	mv -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-mingw_usleep.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/mingw_usleep.c' object='misc/lib32_libmingwex_a-mingw_usleep.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-mingw_usleep.obj `if test -f 'misc/mingw_usleep.c'; then $(CYGPATH_W) 'misc/mingw_usleep.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_usleep.c'; fi`
+
 misc/lib32_libmingwex_a-mingw_output_format.o: misc/mingw_output_format.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-mingw_output_format.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-mingw_output_format.Tpo -c -o misc/lib32_libmingwex_a-mingw_output_format.o `test -f 'misc/mingw_output_format.c' || echo '$(srcdir)/'`misc/mingw_output_format.c
 @am__fastdepCC_TRUE@	mv -f misc/$(DEPDIR)/lib32_libmingwex_a-mingw_output_format.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-mingw_output_format.Po
@@ -16836,6 +16860,20 @@ misc/lib64_libmingwex_a-wmemset.obj: misc/wmemset.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/wmemset.c' object='misc/lib64_libmingwex_a-wmemset.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-wmemset.obj `if test -f 'misc/wmemset.c'; then $(CYGPATH_W) 'misc/wmemset.c'; else $(CYGPATH_W) '$(srcdir)/misc/wmemset.c'; fi`
+
+misc/lib64_libmingwex_a-mingw_usleep.o: misc/mingw_usleep.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-mingw_usleep.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Tpo -c -o misc/lib64_libmingwex_a-mingw_usleep.o `test -f 'misc/mingw_usleep.c' || echo '$(srcdir)/'`misc/mingw_usleep.c
+@am__fastdepCC_TRUE@	mv -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/mingw_usleep.c' object='misc/lib64_libmingwex_a-mingw_usleep.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-mingw_usleep.o `test -f 'misc/mingw_usleep.c' || echo '$(srcdir)/'`misc/mingw_usleep.c
+
+misc/lib64_libmingwex_a-mingw_usleep.obj: misc/mingw_usleep.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-mingw_usleep.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Tpo -c -o misc/lib64_libmingwex_a-mingw_usleep.obj `if test -f 'misc/mingw_usleep.c'; then $(CYGPATH_W) 'misc/mingw_usleep.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_usleep.c'; fi`
+@am__fastdepCC_TRUE@	mv -f misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_usleep.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/mingw_usleep.c' object='misc/lib64_libmingwex_a-mingw_usleep.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-mingw_usleep.obj `if test -f 'misc/mingw_usleep.c'; then $(CYGPATH_W) 'misc/mingw_usleep.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_usleep.c'; fi`
 
 misc/lib64_libmingwex_a-mingw_output_format.o: misc/mingw_output_format.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-mingw_output_format.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_output_format.Tpo -c -o misc/lib64_libmingwex_a-mingw_output_format.o `test -f 'misc/mingw_output_format.c' || echo '$(srcdir)/'`misc/mingw_output_format.c
