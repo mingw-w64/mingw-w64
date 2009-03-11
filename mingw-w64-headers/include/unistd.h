@@ -22,6 +22,12 @@
 extern "C" {
 #endif
 
+#ifndef __NO_ISOCEXT
+#include <sys/types.h> /* For useconds_t. */
+
+int __cdecl __MINGW_NOTHROW usleep(useconds_t useconds);
+#endif
+
 #ifndef FTRUNCATE_DEFINED
 #define FTRUNCATE_DEFINED
 /* This is defined as a real library function to allow autoconf

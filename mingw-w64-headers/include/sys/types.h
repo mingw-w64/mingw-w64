@@ -100,6 +100,10 @@ typedef _mode_t	mode_t;
 #endif
 #endif
 
+#ifndef __NO_ISOCEXT
+typedef unsigned int useconds_t;
+#endif
+
 #ifndef _TIMESPEC_DEFINED
 #define _TIMESPEC_DEFINED
 struct timespec {
