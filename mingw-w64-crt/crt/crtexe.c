@@ -49,6 +49,7 @@ extern int *_imp___commode;
 #define _commode (*_imp___commode)
 extern int _dowildcard;
 
+extern int _MINGW_INSTALL_DEBUG_MATHERR;
 extern int __defaultmatherr;
 extern _CRTIMP void __cdecl _initterm(_PVFV *, _PVFV *);
 
@@ -114,11 +115,13 @@ pre_c_init (void)
 #else
   _setargv();
 #endif
-
-  if (! __defaultmatherr)
+  if (_MINGW_INSTALL_DEBUG_MATHERR)
     {
-      __setusermatherr (_matherr);
-      __defaultmatherr = 1;
+      if (! __defaultmatherr)
+	{
+	  __setusermatherr (_matherr);
+	  __defaultmatherr = 1;
+	}
     }
 
   if (__globallocalestatus == -1)
@@ -327,8 +330,6 @@ check_managed_app (void)
     }
   return 0;
 }
-
-extern int __defaultmatherr;
 
 static CALLBACK long
 _gnu_exception_handler (EXCEPTION_POINTERS * exception_data)
