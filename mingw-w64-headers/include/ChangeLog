@@ -1,3 +1,10 @@
+2009-03-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2674460
+	* float.h (_MCW_DN): New.
+	(_DN_SAVE): Likewise.
+	(_DN_FLUSH): Likewise.
+
 2009-02-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw.h (__MINGW64): Add underscores.
