@@ -8,8 +8,6 @@
 #include <math.h>
 #include <stdio.h>
 
-int _MINGW_INSTALL_DEBUG_MATHERR __attribute__((weak)) = 0;
-
 int __defaultmatherr = 0;
 
 int __CRTDECL

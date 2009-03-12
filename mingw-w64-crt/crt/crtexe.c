@@ -49,7 +49,7 @@ extern int *_imp___commode;
 #define _commode (*_imp___commode)
 extern int _dowildcard;
 
-extern int _MINGW_INSTALL_DEBUG_MATHERR;
+int _MINGW_INSTALL_DEBUG_MATHERR __attribute__((weak)) = 0;
 extern int __defaultmatherr;
 extern _CRTIMP void __cdecl _initterm(_PVFV *, _PVFV *);
 
