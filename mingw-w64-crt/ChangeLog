@@ -1,3 +1,10 @@
+2009-03-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/mingw_custom.c (__mingw_get_crt_info): Moved from
+	mingw_helpers.c.
+	* minw_helpers.c (__mingw_get_crt_info): Removed.
+	General check if _DLL was already defined.
+
 2009-03-11  Kai Tietz  <kai.tietz@onevision.com>
 
 	* misc/mingw_usleep.c: New.

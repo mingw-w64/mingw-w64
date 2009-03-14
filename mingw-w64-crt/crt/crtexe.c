@@ -5,7 +5,9 @@
  */
 
 #undef CRTDLL
+#ifndef _DLL
 #define _DLL
+#endif
 
 #define SPECIAL_CRTEXE
 
@@ -210,7 +212,7 @@ __tmainCRTStartup (void)
       }
     _ASSERTE(__native_startup_state == __initialized);
     if (! nested)
-      InterlockedExchangePointer ((volatile PVOID *) &__native_startup_lock, 0);
+      (VOID)InterlockedExchangePointer ((volatile PVOID *) &__native_startup_lock, 0);
     
     if (__dyn_tls_init_callback != NULL && _IsNonwritableInCurrentImage ((PBYTE) &__dyn_tls_init_callback))
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);

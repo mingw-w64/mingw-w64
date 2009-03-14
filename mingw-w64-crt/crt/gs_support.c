@@ -90,11 +90,11 @@ __declspec(noreturn) void __cdecl
 __report_gsfailure (ULONGLONG StackCookie)
 {
   volatile UINT_PTR cookie[2];
-  ULONG64 controlPC, imgBase, establisherFrame;
 #ifdef _WIN64
+  ULONG64 controlPC, imgBase, establisherFrame;
   PRUNTIME_FUNCTION fctEntry;
-#endif
   PVOID hndData;
+#endif
 
 #ifdef _WIN64
   RtlCaptureContext (&GS_ContextRecord);
