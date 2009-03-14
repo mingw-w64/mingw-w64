@@ -44,10 +44,11 @@ src_libdxguid=libsrc/dxguid.c
 src_libksuser=libsrc/ksuser.c
 src_liblargeint=libsrc/largeint.c
 src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
-  crt/atonexit.c  crt/crt0_c.c    crt/dll_argv.c  crt/gccmain.c        crt/natstart.c      crt/pseudo-reloc-list.c  crt/wildcard.c \
-  crt/charmax.c   crt/crt0_w.c    crt/dllargv.c   crt/gs_support.c     crt/_newmode.c      crt/tlssup.c             crt/xncommod.c \
-  crt/cinitexe.c  crt/crt0_w.c    crt/dllentry.c  crt/merr.c           crt/pesect.c        crt/udllargc.c           crt/xthdloc.c  \
-  crt/crt0_c.c    crt/CRT_fp10.c  crt/dllmain.c   crt/mingw_helpers.c  crt/pseudo-reloc.c  crt/udll_argv.c          crt/xtxtmode.c
+  crt/atonexit.c  crt/crt0_c.c    crt/dll_argv.c  crt/gccmain.c       crt/natstart.c       crt/pseudo-reloc-list.c  crt/wildcard.c  \
+  crt/charmax.c   crt/crt0_w.c    crt/dllargv.c   crt/gs_support.c    crt/_newmode.c       crt/tlssup.c             crt/xncommod.c  \
+  crt/cinitexe.c  crt/crt0_w.c    crt/dllentry.c  crt/merr.c          crt/pesect.c         crt/udllargc.c           crt/xthdloc.c   \
+  crt/crt0_c.c    crt/CRT_fp10.c  crt/dllmain.c   crt/mingw_custom.c  crt/mingw_helpers.c  crt/pseudo-reloc.c       crt/udll_argv.c \
+  crt/xtxtmode.c
 src_libmoldname=crt/isascii.c crt/iscsym.c crt/iscsymf.c crt/toascii.c crt/strcasecmp.c crt/strncasecmp.c crt/wcscmpi.c
 src_libscrnsave=libsrc/scrnsave.c
 src_libscrnsavw=libsrc/scrnsave.c
