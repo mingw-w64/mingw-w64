@@ -1436,7 +1436,7 @@ ZwWaitForSingleObject
 ZwWriteFile
 ZwYieldExecution
 __C_specific_handler
-#__chkstk
+;__chkstk
 __misaligned_access
 _itoa
 _itow

@@ -961,7 +961,7 @@ WriteProfileStringW
 WriteTapemark
 ZombifyActCtx
 __C_specific_handler
-#__chkstk
+;__chkstk
 __misaligned_access
 _hread
 _hwrite
