@@ -770,7 +770,7 @@ char *__pformat_cvt( int mode, __pformat_fpreg_t x, int nd, int *dp, int *sign )
 
   /* Finally, get the raw digit string, and radix point position index.
    */
-  return __gdtoa( &fpi, e, &x.__pformat_fpreg_bits, &k, mode, nd, dp, &ep );
+  return __gdtoa( &fpi, e, &x.__pformat_fpreg_bits, (int *) &k, mode, nd, dp, &ep );
 }
 
 static __inline__ __attribute__((__always_inline__))
