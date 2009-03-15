@@ -1256,7 +1256,7 @@ ZwWriteRequestData
 ZwWriteVirtualMemory
 ZwYieldExecution
 __C_specific_handler
-__chkstk
+#__chkstk
 __isascii
 __iscsym
 __iscsymf
