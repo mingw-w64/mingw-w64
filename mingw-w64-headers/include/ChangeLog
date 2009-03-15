@@ -1,3 +1,8 @@
+2009-03-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h (_wopen, _wsopen): Remove wrong c++ variant.
+	* wchar.h: Likewise.
+
 2009-03-11  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/2674460

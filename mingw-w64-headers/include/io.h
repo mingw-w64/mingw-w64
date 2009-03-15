@@ -335,13 +335,8 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 
   _CRTIMP errno_t __cdecl _wsopen_s(int *_FileHandle,const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionFlag);
 
-#if !defined(__cplusplus) || !(defined(_X86_) && !defined(__x86_64))
   _CRTIMP int __cdecl _wopen(const wchar_t *_Filename,int _OpenFlag,...);
   _CRTIMP int __cdecl _wsopen(const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,...);
-#else
-  extern "C++" _CRTIMP int __cdecl _wopen(const wchar_t *_Filename,int _OpenFlag,int _PermissionMode = 0);
-  extern "C++" _CRTIMP int __cdecl _wsopen(const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionMode = 0);
-#endif
 
 #endif
 
