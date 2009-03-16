@@ -1,3 +1,7 @@
+2009-03-16 Ozkan Sezer <sezero@users.sourceforge.net>
+
+	* _mingw.h (__MINGW_USE_UNDERSCORE_PREFIX): really fix typos.
+
 2009-03-16  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw.h (__MINGW_USE_UNDERSCORE_PREFIX): New.

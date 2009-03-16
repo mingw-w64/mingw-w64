@@ -519,9 +519,9 @@ extern "C" {
 #endif
 
 #if __MINGW_USE_UNDERSCORE_PREFIX == 0
-#define __MINGW_IMP_SYMBOL(sym)	_imp_##name
+#define __MINGW_IMP_SYMBOL(sym)	_imp_##sym
 #else
-#define __MINGW_IMP_SYMBOL(sym) _imp__##name
+#define __MINGW_IMP_SYMBOL(sym)	_imp__##sym
 #endif
 
 /* Use alias for msvcr80 export of get/set_output_format.  */
