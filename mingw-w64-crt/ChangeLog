@@ -1,3 +1,8 @@
+2009-03-16 Ozkan Sezer <sezero@users.sourceforge.net>
+
+	* misc/fetestexcept.c: added missing has_sse check.
+	* misc/fesetexceptflag.c: likewise.
+
 2009-03-13  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/mingw_custom.c (__mingw_get_crt_info): Moved from
