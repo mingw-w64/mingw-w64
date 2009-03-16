@@ -507,6 +507,23 @@ extern "C" {
 #pragma pack(pop)
 #endif
 
+#ifdef _WIN64
+/* MS does not prefix symbols by underscores for 64-bit.  */
+#ifndef __MINGW_USE_UNDERSCORE_PREFIX
+#define __MINGW_USE_UNDERSCORE_PREFIX 1
+#endif
+#else
+/* For 32-bits we have always to prefix by underscore.  */
+#undef __MINGW_USE_UNDERSCORE_PREFIX
+#define __MINGW_USE_UNDERSCORE_PREFIX 1
+#endif
+
+#if __MINGW_USE_UNDERSCORE_PREFIX == 0
+#define __MINGW_IMP_SYMBOL(sym)	_imp_##name
+#else
+#define __MINW_IMP_SYMBOL(sym) _imp__##name
+#endif
+
 /* Use alias for msvcr80 export of get/set_output_format.  */
 #ifndef __USE_MINGW_OUTPUT_FORMAT_EMU
 #define __USE_MINGW_OUTPUT_FORMAT_EMU 1

@@ -1,3 +1,8 @@
+2009-03-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h (__MINGW_USE_UNDERSCORE_PREFIX): New.
+	(__MINW_IMP_SYMBOL): New.
+
 2009-03-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* io.h (_wopen, _wsopen): Remove wrong c++ variant.
