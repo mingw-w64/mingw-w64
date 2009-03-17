@@ -1,4 +1,10 @@
-2009-03-16 Ozkan Sezer <sezero@users.sourceforge.net>
+2009-03-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crtexe.c (wmainCRTStartup): Rename it to mainCRTStartup.
+	(wWinMainCRTStartup): Rename to wWinMainCRTStartup.
+	Make sure that for wmain call __main is called, too.
+
+2009-03-16  Ozkan Sezer  <sezero@users.sourceforge.net>
 
 	* misc/fetestexcept.c: added missing has_sse check.
 	* misc/fesetexceptflag.c: likewise.

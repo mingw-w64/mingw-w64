@@ -71,6 +71,7 @@ extern int mingw_app_type;
 
 static int argc;
 #ifdef WPRFLAG
+extern void __main(void);
 static wchar_t **argv;
 static wchar_t **envp;
 #else
@@ -147,7 +148,7 @@ pre_cpp_init (void)
 static int __tmainCRTStartup (void);
 
 #ifdef WPRFLAG
-int wWinMainCRTStartup (void)
+int WinMainCRTStartup (void)
 #else
 int WinMainCRTStartup (void)
 #endif
@@ -158,7 +159,7 @@ int WinMainCRTStartup (void)
 }
 
 #ifdef WPRFLAG
-int wmainCRTStartup (void)
+int mainCRTStartup (void)
 #else
 int mainCRTStartup (void)
 #endif
@@ -238,8 +239,6 @@ __tmainCRTStartup (void)
     if (mingw_app_type)
       {
 #ifdef WPRFLAG
-    if (_wcmdln == NULL)
-      return 255;
     lpszCommandLine = (_TCHAR *) _wcmdln;
 #else
     lpszCommandLine = (char *) _acmdln;
@@ -261,6 +260,7 @@ __tmainCRTStartup (void)
       lpszCommandLine++;
 
 #ifdef WPRFLAG
+    __main ();
     mainret = wmain (
     	(int) (StartupInfo.dwFlags & STARTF_USESHOWWINDOW ? StartupInfo.wShowWindow : SW_SHOWDEFAULT),
     	(wchar_t **) lpszCommandLine, (wchar_t **) (HINSTANCE) &__ImageBase);
