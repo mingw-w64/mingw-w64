@@ -147,22 +147,14 @@ pre_cpp_init (void)
 
 static int __tmainCRTStartup (void);
 
-#ifdef WPRFLAG
 int WinMainCRTStartup (void)
-#else
-int WinMainCRTStartup (void)
-#endif
 {
   mingw_app_type = 1;
   __security_init_cookie ();
   return __tmainCRTStartup ();
 }
 
-#ifdef WPRFLAG
 int mainCRTStartup (void)
-#else
-int mainCRTStartup (void)
-#endif
 {
   mingw_app_type = 0;
   __security_init_cookie ();
