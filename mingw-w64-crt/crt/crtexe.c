@@ -269,6 +269,9 @@ __tmainCRTStartup (void)
     duplicate_ppstrings (argc, &argv);
 #ifdef WPRFLAG
     __winitenv = envp;
+    /* C++ initialization.
+       gcc inserts this call automatically for a function called main, but not for wmain.  */
+    __main ();
     mainret = wmain (argc, argv, envp);
 #else
     __initenv = envp;
