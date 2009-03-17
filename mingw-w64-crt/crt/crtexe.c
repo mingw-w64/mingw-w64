@@ -252,6 +252,8 @@ __tmainCRTStartup (void)
       lpszCommandLine++;
 
 #ifdef WPRFLAG
+    /* C++ initialization.
+       gcc inserts this call automatically for a function called main, but not for wmain.  */
     __main ();
     mainret = wmain (
     	(int) (StartupInfo.dwFlags & STARTF_USESHOWWINDOW ? StartupInfo.wShowWindow : SW_SHOWDEFAULT),
