@@ -100,6 +100,7 @@ static void __cdecl pre_cpp_init (void);
 _CRTALLOC(".CRT$XIAA") _PIFV mingw_pcinit = pre_c_init;
 _CRTALLOC(".CRT$XCAA") _PVFV mingw_pcppinit = pre_cpp_init;
 
+#ifndef _WIN64
 typedef PVOID (*fAddVectoredExceptionHandler)(ULONG,PVECTORED_EXCEPTION_HANDLER);
 
 static PVOID
@@ -120,6 +121,7 @@ __mingw_AddVectoredExceptionHandler (ULONG First, PVECTORED_EXCEPTION_HANDLER Ha
    FreeLibrary (hKern);
  return ret;
 }
+#endif
 
 static int __cdecl
 pre_c_init (void)
@@ -244,7 +246,12 @@ __tmainCRTStartup (void)
 	"decl %eax\n\t"
 	"movl %eax,%fs:0" "\n");
     #endif
-    __mingw_AddVectoredExceptionHandler (0, (PVECTORED_EXCEPTION_HANDLER)__mingw_vex);
+#ifndef _WIN64
+    __mingw_AddVectoredExceptionHandler
+#else
+    AddVectoredExceptionHandler
+#endif
+	 (0, (PVECTORED_EXCEPTION_HANDLER)__mingw_vex);
     SetUnhandledExceptionFilter (_gnu_exception_handler);
     
     _fpreset ();
