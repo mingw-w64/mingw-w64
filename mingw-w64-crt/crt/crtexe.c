@@ -100,6 +100,27 @@ static void __cdecl pre_cpp_init (void);
 _CRTALLOC(".CRT$XIAA") _PIFV mingw_pcinit = pre_c_init;
 _CRTALLOC(".CRT$XCAA") _PVFV mingw_pcppinit = pre_cpp_init;
 
+typedef PVOID (*fAddVectoredExceptionHandler)(ULONG,PVECTORED_EXCEPTION_HANDLER);
+
+static PVOID
+__mingw_AddVectoredExceptionHandler (ULONG First, PVECTORED_EXCEPTION_HANDLER Handler)
+{
+ fAddVectoredExceptionHandler fnAddVectoredExceptionHandler = NULL;
+ HMODULE hKern = LoadLibraryA ("KERNEL32.dll");
+ PVOID ret = NULL;
+ if (hKern)
+   {
+     fnAddVectoredExceptionHandler = (fAddVectoredExceptionHandler) GetProcAddress (hKern,
+	"AddVectoredExceptionHandler");
+   }
+
+ if (fnAddVectoredExceptionHandler)
+   ret = (*fnAddVectoredExceptionHandler)(First,Handler);
+ if (hKern)
+   FreeLibrary (hKern);
+ return ret;
+}
+
 static int __cdecl
 pre_c_init (void)
 {
@@ -223,7 +244,7 @@ __tmainCRTStartup (void)
 	"decl %eax\n\t"
 	"movl %eax,%fs:0" "\n");
     #endif
-    AddVectoredExceptionHandler (0, (PVECTORED_EXCEPTION_HANDLER)__mingw_vex);
+    __mingw_AddVectoredExceptionHandler (0, (PVECTORED_EXCEPTION_HANDLER)__mingw_vex);
     SetUnhandledExceptionFilter (_gnu_exception_handler);
     
     _fpreset ();
