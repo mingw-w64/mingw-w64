@@ -1,3 +1,7 @@
+2009-03-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio.h: Fix typo && build breakage (s/wchar/wchar_t/).
+
 2009-03-28  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdio.h: Replace _imp__<sym> by __MINGW_IMP_SYMBOL.

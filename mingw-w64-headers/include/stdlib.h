@@ -220,7 +220,7 @@ extern "C" {
 #ifdef _MSVCRT_
   extern wchar_t *_wpgmptr;
 #else
-  extern wchar ** __MINGW_IMP_SYMBOL(_wpgmptr);
+  extern wchar_t ** __MINGW_IMP_SYMBOL(_wpgmptr);
 #define _wpgmptr (* __MINGW_IMP_SYMBOL(_wpgmptr))
 #endif
 #endif
