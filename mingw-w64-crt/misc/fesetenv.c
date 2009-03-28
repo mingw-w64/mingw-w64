@@ -3,6 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+#include <_mingw.h>
 #include <fenv.h>
 #include <float.h>
 
@@ -18,7 +19,7 @@ extern int __mingw_has_sse (void);
    exceptions.
  */
 
-extern void (*_imp___fpreset)( void ) ;
+extern void (* __MINGW_IMP_SYMBOL(_fpreset))(void);
 extern void _fpreset(void);
 
 int fesetenv (const fenv_t * envp)
@@ -38,7 +39,7 @@ int fesetenv (const fenv_t * envp)
     * We force calling _fpreset in msvcrt.dll
     */
 
-   (*_imp___fpreset)();
+   (* __MINGW_IMP_SYMBOL(_fpreset))();
 
   else if (envp == FE_DFL_ENV)
     /* Use the choice made at app startup */ 

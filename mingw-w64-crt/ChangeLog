@@ -1,3 +1,8 @@
+2009-03-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/fesetenv.c: Replace _imp__<sym> by __MINGW_IMP_SYMBOL(sym).
+	* complex/cpow.c: Likewise.
+
 2009-03-17  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/crtexe.c (wmainCRTStartup): Rename it to mainCRTStartup.

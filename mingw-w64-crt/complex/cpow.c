@@ -10,13 +10,13 @@
 */
 
 /* cpow(X, Y) = cexp(X * clog(Y)) */
-
+#include <_mingw.h>
 #include <math.h>
 #include <complex.h>
 
 /* Use dll version of pow */
-extern double  (*_imp__pow) (double, double);
-#define pow (*_imp__pow)
+extern double  (* __MINGW_IMP_SYMBOL(pow)) (double, double);
+#define pow (* __MINGW_IMP_SYMBOL(pow))
 
 double complex cpow (double complex X, double complex Y)
 {
