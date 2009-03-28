@@ -2,6 +2,7 @@
 
 	* misc/fesetenv.c: Replace _imp__<sym> by __MINGW_IMP_SYMBOL(sym).
 	* complex/cpow.c: Likewise.
+	* include/internal.h: Likewise.
 
 2009-03-17  Kai Tietz  <kai.tietz@onevision.com>
 
