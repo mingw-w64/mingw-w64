@@ -77,8 +77,8 @@ extern "C" {
 #endif
 
 #ifndef _HUGE
-  extern double *_imp___HUGE;
-#define _HUGE	(*_imp___HUGE)
+  extern double * __MINGW_IMP_SYMBOL(_HUGE);
+#define _HUGE	(* __MINGW_IMP_SYMBOL(_HUGE))
 #endif
 
 #if __MINGW_GNUC_PREREQ(3, 3)

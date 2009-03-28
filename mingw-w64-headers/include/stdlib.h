@@ -93,16 +93,16 @@ extern "C" {
 #ifdef _MSVCRT_
   extern int __mb_cur_max;
 #else
-#define __mb_cur_max	(*_imp____mb_cur_max)
-  extern int *_imp____mb_cur_max;
+  extern int * __MINGW_IMP_SYMBOL(__mb_cur_max);
+#define __mb_cur_max	(* __MINGW_IMP_SYMBOL(__mb_cur_max))
 #endif
 #endif
 #ifdef _MSVCRT_
   extern int __mbcur_max;
 #define ___mb_cur_max_func() (__mb_cur_max)
 #else
-  extern int* _imp____mbcur_max;
-#define ___mb_cur_max_func() (*_imp____mb_cur_max)
+  extern int* __MINGW_IMP_SYMBOL(__mbcur_max);
+#define ___mb_cur_max_func() (* __MINGW_IMP_SYMBOL(__mb_cur_max))
 #endif
 #endif
 
@@ -165,24 +165,24 @@ extern "C" {
 #ifdef _MSVCRT_
   extern int __argc;
 #else
-#define __argc (*_imp____argc)
-  extern int *_imp____argc;
+  extern int * __MINGW_IMP_SYMBOL(__argc);
+#define __argc (* __MINGW_IMP_SYMBOL(__argc))
 #endif
 #endif
 #ifndef __argv
 #ifdef _MSVCRT_
   extern char **__argv;
 #else
-#define __argv	(*_imp____argv)
-  extern char ***_imp____argv;
+  extern char *** __MINGW_IMP_SYMBOL(__argv);
+#define __argv	(* __MINGW_IMP_SYMBOL(__argv))
 #endif
 #endif
 #ifndef __wargv
 #ifdef _MSVCRT_
   extern wchar_t **__wargv;
 #else
-#define __wargv (*_imp____wargv)
-  extern wchar_t ***_imp____wargv;
+  extern wchar_t *** __MINGW_IMP_SYMBOL(__wargv);
+#define __wargv (* __MINGW_IMP_SYMBOL(__wargv))
 #endif
 #endif
 
@@ -193,8 +193,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern char **_environ;
 #else
-#define _environ (*_imp___environ)
-  extern char ***_imp___environ;
+  extern char *** __MINGW_IMP_SYMBOL(_environ);
+#define _environ (* __MINGW_IMP_SYMBOL(_environ))
 #endif
 #endif
 
@@ -202,8 +202,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern wchar_t **_wenviron;
 #else
-#define _wenviron	(*_imp___wenviron)
-  extern wchar_t ***_imp___wenviron;
+  extern wchar_t *** __MINGW_IMP_SYMBOL(_wenviron);
+#define _wenviron (* __MINGW_IMP_SYMBOL(_wenviron))
 #endif
 #endif
 #endif
@@ -211,8 +211,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern char *_pgmptr;
 #else
-#define _pgmptr	(*_imp___pgmptr)
-  extern char **_imp___pgmptr;
+  extern char ** __MINGW_IMP_SYMBOL(_pgmptr);
+#define _pgmptr	(* __MINGW_IMP_SYMBOL(_pgmptr))
 #endif
 #endif
 
@@ -220,8 +220,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern wchar_t *_wpgmptr;
 #else
-#define _wpgmptr	(*_imp___wpgmptr)
-  extern wchar_t **_imp___wpgmptr;
+  extern wchar ** __MINGW_IMP_SYMBOL(_wpgmptr);
+#define _wpgmptr (* __MINGW_IMP_SYMBOL(_wpgmptr))
 #endif
 #endif
   errno_t __cdecl _get_pgmptr(char **_Value);
@@ -230,8 +230,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern int _fmode;
 #else
-#define _fmode	(*_imp___fmode)
-  extern int *_imp___fmode;
+  extern int * __MINGW_IMP_SYMBOL(_fmode);
+#define _fmode	(* __MINGW_IMP_SYMBOL(_fmode))
 #endif
 #endif
   _CRTIMP errno_t __cdecl _set_fmode(int _Mode);
@@ -241,8 +241,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern unsigned int _osplatform;
 #else
-#define _osplatform (*_imp___osplatform)
-  extern unsigned int *_imp___osplatform;
+  extern unsigned int * __MINGW_IMP_SYMBOL(_osplatform);
+#define _osplatform (* __MINGW_IMP_SYMBOL(_osplatform))
 #endif
 #endif
 
@@ -250,8 +250,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern unsigned int _osver;
 #else
-#define _osver	(*_imp___osver)
-  extern unsigned int *_imp___osver;
+  extern unsigned int * __MINGW_IMP_SYMBOL(_osver);
+#define _osver	(* __MINGW_IMP_SYMBOL(_osver))
 #endif
 #endif
 
@@ -259,8 +259,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern unsigned int _winver;
 #else
-#define _winver	(*_imp___winver)
-  extern unsigned int *_imp___winver;
+  extern unsigned int * __MINGW_IMP_SYMBOL(_winver);
+#define _winver	(* __MINGW_IMP_SYMBOL(_winver))
 #endif
 #endif
 
@@ -268,8 +268,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern unsigned int _winmajor;
 #else
-#define _winmajor	(*_imp___winmajor)
-  extern unsigned int *_imp___winmajor;
+  extern unsigned int * __MINGW_IMP_SYMBOL(_winmajor);
+#define _winmajor (* __MINGW_IMP_SYMBOL(_winmajor))
 #endif
 #endif
 
@@ -277,8 +277,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern unsigned int _winminor;
 #else
-#define _winminor	(*_imp___winminor)
-  extern unsigned int *_imp___winminor;
+  extern unsigned int * __MINGW_IMP_SYMBOL(_winminor);
+#define _winminor (* __MINGW_IMP_SYMBOL(_winminor))
 #endif
 #endif
 

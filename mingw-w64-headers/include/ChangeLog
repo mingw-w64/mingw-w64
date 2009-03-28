@@ -1,4 +1,14 @@
-2009-03-16 Ozkan Sezer <sezero@users.sourceforge.net>
+2009-03-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio.h: Replace _imp__<sym> by __MINGW_IMP_SYMBOL.
+	* wchar.h: Likewise.
+	* stdlib.h: Likewise.
+	* math.h: Likewise.
+	* mbctype.h: Likewise.
+	* ctype.h: Likewise.
+	* wctype.h: Likewise.
+
+2009-03-16  Ozkan Sezer  <sezero@users.sourceforge.net>
 
 	* _mingw.h (__MINGW_USE_UNDERSCORE_PREFIX): really fix typos.
 

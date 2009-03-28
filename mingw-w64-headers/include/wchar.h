@@ -57,9 +57,8 @@ extern "C" {
 extern FILE _iob[];	/* A pointer to an array of FILE */
 #define __iob_func()	(_iob)
 #else
-extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
-#define __iob_func()	(*_imp___iob)
-#define _iob __iob_func()
+extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
+#define __iob_func()	(* __MINGW_IMP_SYMBOL(_iob))
 #endif
 #endif
 
@@ -162,7 +161,7 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
 #ifdef _MSVCRT_
 #define __pctype_func() (_pctype)
 #else
-#define __pctype_func() (*_imp___pctype)
+#define __pctype_func() (* __MINGW_IMP_SYMBOL(_pctype))
 #endif
 #endif
 
@@ -170,8 +169,8 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
 #ifdef _MSVCRT_
   extern unsigned short *_pctype;
 #else
-  extern unsigned short **_imp___pctype;
-#define _pctype (*_imp___pctype)
+  extern unsigned short ** __MINGW_IMP_SYMBOL(_pctype);
+#define _pctype (* __MINGW_IMP_SYMBOL(_pctype))
 #endif
 #endif
 #endif
@@ -184,23 +183,23 @@ extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
 #ifdef _MSVCRT_
   extern unsigned short *_wctype;
 #else
-  extern unsigned short **_imp___wctype;
-#define _wctype (*_imp___wctype)
+  extern unsigned short ** __MINGW_IMP_SYMBOL(_wctype);
+#define _wctype (* __MINGW_IMP_SYMBOL(_wctype))
 #endif
 #endif
 
 #ifdef _MSVCRT_
 #define __pwctype_func() (_pwctype)
 #else
-#define __pwctype_func() (*_imp___pwctype)
+#define __pwctype_func() (* __MINGW_IMP_SYMBOL(_pwctype))
 #endif
 
 #ifndef _pwctype
 #ifdef _MSVCRT_
   extern unsigned short *_pwctype;
 #else
-  extern unsigned short **_imp___pwctype;
-#define _pwctype (*_imp___pwctype)
+  extern unsigned short ** __MINGW_IMP_SYMBOL(_pwctype);
+#define _pwctype (* __MINGW_IMP_SYMBOL(_pwctype))
 #endif
 #endif
 

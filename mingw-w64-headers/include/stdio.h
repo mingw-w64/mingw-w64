@@ -99,8 +99,8 @@ extern "C" {
 extern FILE _iob[];	/* A pointer to an array of FILE */
 #define __iob_func()	(_iob)
 #else
-extern FILE (*_imp___iob)[];	/* A pointer to an array of FILE */
-#define __iob_func()	(*_imp___iob)
+extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
+#define __iob_func()	(* __MINGW_IMP_SYMBOL(_iob))
 #define _iob __iob_func()
 #endif
 #endif

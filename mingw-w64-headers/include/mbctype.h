@@ -25,16 +25,16 @@ extern "C" {
 #ifdef _MSVCRT_
   extern unsigned char _mbctype[257];
 #else
-#define _mbctype	(*_imp___mbctype)
-  extern unsigned char **_imp___mbctype;
+  extern unsigned char ** __MINGW_IMP_SYMBOL(_mbctype);
+#define _mbctype (* __MINGW_IMP_SYMBOL(_mbctype))
 #endif
 #endif
 #ifndef _mbcasemap
 #ifdef _MSVCRT_
   extern unsigned char *_mbcasemap;
 #else
-#define _mbcasemap	(*_imp___mbcasemap)
-  extern unsigned char **_imp___mbcasemap;
+  extern unsigned char ** __MINGW_IMP_SYMBOL(_mbcasemap);
+#define _mbcasemap (* __MINGW_IMP_SYMBOL(_mbcasemap))
 #endif
 #endif
 

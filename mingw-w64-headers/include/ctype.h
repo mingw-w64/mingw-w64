@@ -25,7 +25,7 @@ extern "C" {
 #ifdef _MSVCRT_
 #define __pctype_func()	(_pctype)
 #else
-#define __pctype_func()	(*_imp___pctype)
+#define __pctype_func()	(* __MINGW_IMP_SYMBOL(_pctype))
 #endif
 #endif
 
@@ -33,8 +33,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern unsigned short *_pctype;
 #else
-  extern unsigned short **_imp___pctype;
-#define _pctype (*_imp___pctype)
+  extern unsigned short ** __MINGW_IMP_SYMBOL(_pctype);
+#define _pctype (* __MINGW_IMP_SYMBOL(_pctype))
 #endif
 #endif
 
@@ -48,8 +48,8 @@ extern "C" {
 #ifdef _MSVCRT_
   extern unsigned short *_wctype;
 #else
-  extern unsigned short **_imp___wctype;
-#define _wctype (*_imp___wctype)
+  extern unsigned short ** __MINGW_IMP_SYMBOL(_wctype);
+#define _wctype (* __MINGW_IMP_SYMBOL(_wctype))
 #endif
 #endif
 #ifdef _MSVCRT_
@@ -58,10 +58,10 @@ extern "C" {
   extern unsigned short *_pwctype;
 #endif
 #else
-#define __pwctype_func() (*_imp___pwctype)
+#define __pwctype_func() (* __MINGW_IMP_SYMBOL(_pwctype))
 #ifndef _pwctype
-  extern unsigned short **_imp___pwctype;
-#define _pwctype (*_imp___pwctype)
+  extern unsigned short ** __MINGW_IMP_SYMBOL(_pwctype);
+#define _pwctype (* __MINGW_IMP_SYMBOL(_pwctype))
 #endif
 #endif
 #endif
@@ -190,15 +190,11 @@ int __cdecl iswblank(wint_t _C);
 #ifdef _MSVCRT_
   extern int __mb_cur_max;
 #else
-#define __mb_cur_max	(*_imp____mb_cur_max)
-  extern int *_imp____mb_cur_max;
+  extern int * __MINGW_IMP_SYMBOL(__mb_cur_max);
+#define __mb_cur_max (* __MINGW_IMP_SYMBOL(__mb_cur_max))
 #endif
 #endif
-#ifdef _MSVCRT_
 #define ___mb_cur_max_func() (__mb_cur_max)
-#else
-#define ___mb_cur_max_func() (*_imp____mb_cur_max)
-#endif
 #endif
 
 #define __chvalidchk(a,b) (__PCTYPE_FUNC[(a)] & (b))
