@@ -5,6 +5,7 @@
 	* include/internal.h: Likewise.
 	* crt/CRT_fp8.c: Likewise.
 	* crt/atonexit.c: Likewise.
+	* crt/crtexe.c: Likewise.
 
 2009-03-17  Kai Tietz  <kai.tietz@onevision.com>
 

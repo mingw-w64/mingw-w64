@@ -22,13 +22,13 @@
 #include <locale.h>
 
 #ifndef __winitenv
-extern wchar_t ***_imp____winitenv;
-#define __winitenv (*_imp____winitenv)
+extern wchar_t *** __MINGW_IMP_SYMBOL(__winitenv);
+#define __winitenv (* __MINGW_IMP_SYMBOL(__winitenv))
 #endif
 
 #ifndef __initenv
-extern char ***_imp____initenv;
-#define __initenv (*_imp____initenv)
+extern char *** __MINGW_IMP_SYMBOL(__initenv);
+#define __initenv (* __MINGW_IMP_SYMBOL(__initenv))
 #endif
 
 /* Hack, for bug in ld.  Will be removed soon.  */
@@ -42,13 +42,13 @@ extern void _fpreset (void);
 
 __declspec(dllimport) void __setusermatherr(int (__cdecl *)(struct _exception *));
 
-extern int *_imp___fmode;
-extern int *_imp___commode;
+extern int * __MINGW_IMP_SYMBOL(_fmode);
+extern int * __MINGW_IMP_SYMBOL(_commode);
 
 #undef _fmode
 extern int _fmode;
-extern int *_imp___commode;
-#define _commode (*_imp___commode)
+extern int * __MINGW_IMP_SYMBOL(_commode);
+#define _commode (* __MINGW_IMP_SYMBOL(_commode))
 extern int _dowildcard;
 
 int _MINGW_INSTALL_DEBUG_MATHERR __attribute__((weak)) = 0;
@@ -133,8 +133,8 @@ pre_c_init (void)
     __set_app_type (_CONSOLE_APP);
   __onexitbegin = __onexitend = (_PVFV *) _encode_pointer ((_PVFV *)(-1));
 
-  *_imp___fmode = _fmode;
-  *_imp___commode = _commode;
+  * __MINGW_IMP_SYMBOL(_fmode) = _fmode;
+  * __MINGW_IMP_SYMBOL(_commode) = _commode;
 
 #ifdef WPRFLAG
   _wsetargv();
