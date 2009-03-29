@@ -5129,12 +5129,22 @@ extern "C" {
 #endif
 #else
   typedef struct tagMONITORINFOEXA {
-    MONITORINFO mi;
+    __extension__ struct {
+      DWORD cbSize;
+      RECT rcMonitor;
+      RECT rcWork;
+      DWORD dwFlags;
+    };
     CHAR szDevice[CCHDEVICENAME];
   } MONITORINFOEXA,*LPMONITORINFOEXA;
 
   typedef struct tagMONITORINFOEXW {
-    MONITORINFO mi;
+    __extension__ struct {
+      DWORD cbSize;
+      RECT rcMonitor;
+      RECT rcWork;
+      DWORD dwFlags;
+    };
     WCHAR szDevice[CCHDEVICENAME];
   } MONITORINFOEXW,*LPMONITORINFOEXW;
 #ifdef UNICODE

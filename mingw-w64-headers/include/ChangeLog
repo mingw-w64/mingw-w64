@@ -1,3 +1,11 @@
+2009-03-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winuser.h (MONITORINFOEXA): Replace MONITORINFO mi
+	by unnamed structure definition to work-a-round an
+	incompatiblity of gcc to vc. Gcc doesn't supports
+	unnamed types in structures like inline structures.
+	(MONITORINFOEXW): Likewise.
+
 2009-03-28  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* stdlib.h: Fix typo && build breakage (s/wchar/wchar_t/).
