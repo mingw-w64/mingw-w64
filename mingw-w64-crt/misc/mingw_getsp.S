@@ -3,8 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-	.file	"ceill.S"
-	.code64
+	.file	"mingw_getsp.S"
 	.text
 	.align 4
 .globl _mingw_getsp
