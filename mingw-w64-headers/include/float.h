@@ -15,8 +15,135 @@
  *       here.     
  *
  */
+#ifndef _FLOAT_H___
+#define _FLOAT_H___
 
-#include_next<float.h>
+#undef FLT_RADIX
+#undef FLT_MANT_DIG
+#undef DBL_MANT_DIG
+#undef LDBL_MANT_DIG
+#undef FLT_DIG
+#undef DBL_DIG
+#undef LDBL_DIG
+#undef FLT_MIN_EXP
+#undef DBL_MIN_EXP
+#undef LDBL_MIN_EXP
+#undef FLT_MIN_10_EXP
+#undef DBL_MIN_10_EXP
+#undef LDBL_MIN_10_EXP
+#undef FLT_MAX_EXP
+#undef DBL_MAX_EXP
+#undef LDBL_MAX_EXP
+#undef FLT_MAX_10_EXP
+#undef DBL_MAX_10_EXP
+#undef LDBL_MAX_10_EXP
+#undef FLT_MAX
+#undef DBL_MAX
+#undef LDBL_MAX
+#undef FLT_EPSILON
+#undef DBL_EPSILON
+#undef LDBL_EPSILON
+#undef FLT_MIN
+#undef DBL_MIN
+#undef LDBL_MIN
+
+#undef FLT_ROUNDS
+
+#define FLT_RADIX	__FLT_RADIX__
+#define FLT_MANT_DIG	__FLT_MANT_DIG__
+#define DBL_MANT_DIG	__DBL_MANT_DIG__
+#define LDBL_MANT_DIG	__LDBL_MANT_DIG__
+#define FLT_DIG		__FLT_DIG__
+#define DBL_DIG		__DBL_DIG__
+#define LDBL_DIG	__LDBL_DIG__
+#define FLT_MIN_EXP	__FLT_MIN_EXP__
+#define DBL_MIN_EXP	__DBL_MIN_EXP__
+#define LDBL_MIN_EXP	__LDBL_MIN_EXP__
+#define FLT_MIN_10_EXP	__FLT_MIN_10_EXP__
+#define DBL_MIN_10_EXP	__DBL_MIN_10_EXP__
+#define LDBL_MIN_10_EXP	__LDBL_MIN_10_EXP__
+#define FLT_MAX_EXP	__FLT_MAX_EXP__
+#define DBL_MAX_EXP	__DBL_MAX_EXP__
+#define LDBL_MAX_EXP	__LDBL_MAX_EXP__
+#define FLT_MAX_10_EXP	__FLT_MAX_10_EXP__
+#define DBL_MAX_10_EXP	__DBL_MAX_10_EXP__
+#define LDBL_MAX_10_EXP	__LDBL_MAX_10_EXP__
+#define FLT_MAX		__FLT_MAX__
+#define DBL_MAX		__DBL_MAX__
+#define LDBL_MAX	__LDBL_MAX__
+#define FLT_EPSILON	__FLT_EPSILON__
+#define DBL_EPSILON	__DBL_EPSILON__
+#define LDBL_EPSILON	__LDBL_EPSILON__
+#define FLT_MIN		__FLT_MIN__
+#define DBL_MIN		__DBL_MIN__
+#define LDBL_MIN	__LDBL_MIN__
+
+#define FLT_ROUNDS 1
+
+/* C99 specific defines.  */
+#if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+
+#undef FLT_EVAL_METHOD
+#undef DECIMAL_DIG
+
+#define FLT_EVAL_METHOD	__FLT_EVAL_METHOD__
+#define DECIMAL_DIG	__DECIMAL_DIG__
+
+#endif
+
+/* TODO: Decimal floating point stuff.  */
+#ifdef __STDC_WANT_DEC_FP__
+
+#undef DEC32_MANT_DIG
+#undef DEC64_MANT_DIG
+#undef DEC128_MANT_DIG
+#undef DEC32_MIN_EXP
+#undef DEC64_MIN_EXP
+#undef DEC128_MIN_EXP
+#undef DEC32_MAX_EXP
+#undef DEC64_MAX_EXP
+#undef DEC128_MAX_EXP
+#undef DEC32_MAX
+#undef DEC64_MAX
+#undef DEC128_MAX
+#undef DEC32_EPSILON
+#undef DEC64_EPSILON
+#undef DEC128_EPSILON
+#undef DEC32_MIN
+#undef DEC64_MIN
+#undef DEC128_MIN
+#undef DEC32_SUBNORMAL_MIN
+#undef DEC64_SUBNORMAL_MIN
+#undef DEC128_SUBNORMAL_MIN
+#undef DEC_EVAL_METHOD
+
+#define DEC32_MANT_DIG	__DEC32_MANT_DIG__
+#define DEC64_MANT_DIG	__DEC64_MANT_DIG__
+#define DEC128_MANT_DIG	__DEC128_MANT_DIG__
+#define DEC32_MIN_EXP	__DEC32_MIN_EXP__
+#define DEC64_MIN_EXP	__DEC64_MIN_EXP__
+#define DEC128_MIN_EXP	__DEC128_MIN_EXP__
+#define DEC32_MAX_EXP	__DEC32_MAX_EXP__
+#define DEC64_MAX_EXP	__DEC64_MAX_EXP__
+#define DEC128_MAX_EXP	__DEC128_MAX_EXP__
+#define DEC32_MAX       __DEC32_MAX__
+#define DEC64_MAX	__DEC64_MAX__
+#define DEC128_MAX	__DEC128_MAX__
+#define DEC32_EPSILON	__DEC32_EPSILON__
+#define DEC64_EPSILON	__DEC64_EPSILON__
+#define DEC128_EPSILON	__DEC128_EPSILON__
+#define DEC32_MIN	__DEC32_MIN__
+#define DEC64_MIN	__DEC64_MIN__
+#define DEC128_MIN	__DEC128_MIN__
+
+#define DEC32_SUBNORMAL_MIN   __DEC32_SUBNORMAL_MIN__
+#define DEC64_SUBNORMAL_MIN   __DEC64_SUBNORMAL_MIN__
+#define DEC128_SUBNORMAL_MIN  __DEC128_SUBNORMAL_MIN__
+#define DEC_EVAL_METHOD	      __DEC_EVAL_METHOD__
+
+#endif
+
+#endif
 
 #ifndef _MINGW_FLOAT_H_
 #define _MINGW_FLOAT_H_
@@ -155,3 +282,5 @@ _CRTIMP int * __cdecl __MINGW_NOTHROW __fpecode(void);
 #endif	/* Not __STRICT_ANSI__ */
 
 #endif /* _MINGW_FLOAT_H_ */
+
+ 	  	 

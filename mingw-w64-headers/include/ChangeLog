@@ -1,3 +1,9 @@
+2009-04-03  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2675096
+	* float.h: Add gcc dependent defines to prevent use
+	of gcc's version.
+
 2009-03-29  Kai Tietz  <kai.tietz@onevision.com>
 
 	* winuser.h (MONITORINFOEXA): Replace MONITORINFO mi
