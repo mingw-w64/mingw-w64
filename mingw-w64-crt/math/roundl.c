@@ -8,7 +8,7 @@
 long double
 roundl (long double x)
 {
-  long double res;
+  long double res = 0.0L;
   if (x >= 0.0L)
     {
       res = ceill (x);
