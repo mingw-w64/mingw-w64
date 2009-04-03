@@ -107,7 +107,7 @@ long double
 __cdecl
 __strtold (const char * __restrict__ src, char ** __restrict__ endptr)
 {
-   long double ret;
+   long double ret = 0.0;
    __strtopx(src, endptr,  &ret);
    return ret;
 }
