@@ -1,3 +1,8 @@
+2009-04-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* setjmp.h (_setjmp3): Use for 32-bit instead of _setjmp.
+	Additional pass NULL as secondary element for 32-bits.
+
 2009-04-03  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/2675096

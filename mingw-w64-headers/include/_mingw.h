@@ -182,11 +182,6 @@ typedef int __int128 __attribute__ ((mode (TI)));
 #undef _CRT_PACKING
 #define _CRT_PACKING 8
 
-#ifdef _WIN64
-#undef USE_MINGW_SETJMP_TWO_ARGS
-#define USE_MINGW_SETJMP_TWO_ARGS
-#endif
-
 #pragma pack(push,_CRT_PACKING)
 
 #include <vadefs.h>

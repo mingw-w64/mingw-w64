@@ -132,20 +132,33 @@ extern "C" {
 
   void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp(void);
 
-#ifdef USE_MINGW_SETJMP_TWO_ARGS
+#ifndef USE_NO_MINGW_SETJMP_TWO_ARGS
 #ifndef _INC_SETJMPEX
-#define setjmp(BUF) _setjmp((BUF),mingw_getsp())
-  int __cdecl __attribute__ ((__nothrow__)) _setjmp(jmp_buf _Buf,void *_Ctx);
+#ifdef _WIN64
+#define setjmp(BUF) _setjmp((BUF), mingw_getsp())
+#else
+#define setjmp(BUF) _setjmp3((BUF), NULL)
+#endif
+  int __cdecl __attribute__ ((__nothrow__)) _setjmp(jmp_buf _Buf, void *_Ctx);
+  int __cdecl __attribute__ ((__nothrow__)) _setjmp3(jmp_buf _Buf, void *_Ctx);
 #else
 #undef setjmp
-#define setjmp(BUF) _setjmpex((BUF),mingw_getsp())
-#define setjmpex(BUF) _setjmpex((BUF),mingw_getsp())
+#ifdef _WIN64
+#define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
+#define setjmpex(BUF) _setjmpex((BUF), mingw_getsp())
+#else
+#define setjmp(BUF) _setjmpex((BUF), NULL)
+#define setjmpex(BUF) _setjmpex((BUF), NULL)
+#endif
   int __cdecl __attribute__ ((__nothrow__)) _setjmpex(jmp_buf _Buf,void *_Ctx);
 #endif
+
 #else
+
 #ifndef _INC_SETJMPEX
 #define setjmp _setjmp
 #endif
+
   int __cdecl __attribute__ ((__nothrow__)) setjmp(jmp_buf _Buf);
 #endif
 
