@@ -120,7 +120,7 @@ HRESULT WINAPI D3DXAssembleShaderFromFileA(LPCSTR pSrcFile, DWORD Flags,
 				    LPD3DXBUFFER* ppConstants,
 				    LPD3DXBUFFER* ppCompiledShader,
 				    LPD3DXBUFFER* ppCompilationErrors);
-HRESULT WINAPI D3DXAssembleShaderFromFileW(LPWSTR pSrcFile, DWORD Flags,
+HRESULT WINAPI D3DXAssembleShaderFromFileW(LPCWSTR pSrcFile, DWORD Flags,
 				    LPD3DXBUFFER* ppConstants,
 				    LPD3DXBUFFER* ppCompiledShader,
 				    LPD3DXBUFFER* ppCompilationErrors);

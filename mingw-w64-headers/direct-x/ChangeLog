@@ -26,8 +26,8 @@
 		   91d3a794e8b756dbcb7047c77acf1a7f862627dd),
 	remove some extraneous #include directives (wine git 
 		   7e34c708c1b3bdbb7d4921c1153403a8d8840b29),
-	and fix D3DXAssembleShaderFromFileA/W declarations 
-	 (wine git 07cb7c6626292ca508dcd06541110ebb450e0a36).
+	and fix D3DXAssembleShaderFromFileA/W prototypes
+	 (wine git 3d962e27ed69829645f3c8f99c17087f92d89e01).
 
 2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
 
