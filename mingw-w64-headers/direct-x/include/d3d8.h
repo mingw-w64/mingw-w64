@@ -23,8 +23,14 @@
 #define DIRECT3D_VERSION  0x0800
 #endif
 
+#include <stdlib.h>
+
 #define COM_NO_WINDOWS_H
 #include <objbase.h>
+
+#ifndef __WINESRC__
+# include <windows.h>
+#endif
 
 #include <d3d8types.h>
 #include <d3d8caps.h>
@@ -38,6 +44,11 @@
 #define D3DCREATE_SOFTWARE_VERTEXPROCESSING     0x00000020L
 #define D3DCREATE_HARDWARE_VERTEXPROCESSING     0x00000040L
 #define D3DCREATE_MIXED_VERTEXPROCESSING        0x00000080L
+
+/*****************************************************************************
+ * Flags for SetPrivateData
+ */
+#define D3DSPD_IUNKNOWN                         0x00000001L
 
 /*****************************************************************************
  * #defines and error codes

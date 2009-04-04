@@ -8,6 +8,9 @@
 	* dmusicc.h: Likewise.
 	* dmusicf.h: Likewise.
 	* dmusici.h: Likewise.
+	* d3d8.h: Added missing include directives.
+	(wine git 56f7209a949a1805d80ae0a59e093bbe2857677e)
+	* d3d9.h: Likewise.
 
 
 2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
