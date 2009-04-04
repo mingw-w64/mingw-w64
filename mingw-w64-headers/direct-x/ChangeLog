@@ -13,7 +13,9 @@
 	* d3d9.h: Likewise.
 	* d3d9types.h: Fix the value of D3DFVF_POSITION_MASK.
 	(wine git d359a7813fe3d7acd8d3791fe63a4e44bb22ebb2)
-
+	* d3d9types.h: Fix the D3DFMT_XXX constant declarations.
+	(wine git d4ca34dd9bf98ea71226460092c7095847b97509)
+	* d3d8types.h: Likewise.
 
 2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
 
