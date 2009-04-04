@@ -19,11 +19,7 @@
 #ifndef __WINE_D3DX8CORE_H
 #define __WINE_D3DX8CORE_H
 
-#include <objbase.h>
-
 #include <d3d8.h>
-#include <d3d8types.h>
-#include <d3d8caps.h>
 
 /*****************************************************************************
  * #defines and error codes
@@ -109,6 +105,10 @@ DECLARE_INTERFACE_(ID3DXFont,IUnknown)
 /*************************************************************************************
  * Define entrypoints 
  */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 HRESULT WINAPI D3DXCreateBuffer(DWORD NumBytes, LPD3DXBUFFER* ppBuffer);
 HRESULT WINAPI D3DXCreateFont(LPDIRECT3DDEVICE8 pDevice, HFONT hFont, LPD3DXFONT* ppFont);
 UINT WINAPI D3DXGetFVFVertexSize(DWORD FVF);
@@ -116,13 +116,17 @@ HRESULT WINAPI D3DXAssembleShader(LPCVOID pSrcData, UINT SrcDataLen, DWORD Flags
 			   LPD3DXBUFFER* ppConstants, 
 			   LPD3DXBUFFER* ppCompiledShader,
 			   LPD3DXBUFFER* ppCompilationErrors);
-HRESULT WINAPI D3DXAssembleShaderFromFileA(LPSTR pSrcFile, DWORD Flags,
+HRESULT WINAPI D3DXAssembleShaderFromFileA(LPCSTR pSrcFile, DWORD Flags,
 				    LPD3DXBUFFER* ppConstants,
 				    LPD3DXBUFFER* ppCompiledShader,
 				    LPD3DXBUFFER* ppCompilationErrors);
-HRESULT WINAPI D3DXAssembleShaderFromFileW(LPSTR pSrcFile, DWORD Flags,
+HRESULT WINAPI D3DXAssembleShaderFromFileW(LPWSTR pSrcFile, DWORD Flags,
 				    LPD3DXBUFFER* ppConstants,
 				    LPD3DXBUFFER* ppCompiledShader,
 				    LPD3DXBUFFER* ppCompilationErrors);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __WINE_D3DX8CORE_H */
