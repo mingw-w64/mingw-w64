@@ -1,3 +1,15 @@
+2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
+
+	* d3d.h: added missing COM_NO_WINDOWS_H definition.
+	(wine git 6688acce7dbb00ceea4e755fe0f4a771a5520c24)
+	* d3d8.h: Likewise.
+	* d3d9.h: Likewise.
+	* dmplugin.h: Likewise.
+	* dmusicc.h: Likewise.
+	* dmusicf.h: Likewise.
+	* dmusici.h: Likewise.
+
+
 2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
 
 	* dinput.h (DIK_...): Add additional keyboard scan codes provided
