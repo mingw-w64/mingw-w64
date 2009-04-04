@@ -28,6 +28,14 @@
 		   7e34c708c1b3bdbb7d4921c1153403a8d8840b29),
 	and fix D3DXAssembleShaderFromFileA/W prototypes
 	 (wine git 3d962e27ed69829645f3c8f99c17087f92d89e01).
+	* d3d8types.h: Added missing DUMMYUNIONNAME1 macro.
+	* d3d9types.h: Likewise.
+	* d3dhal.h: Likewise.
+	* d3dtypes.h: Likewise.
+	* ddrawi.h: Likewise.
+	* dinput.h: Likewise.
+	* dplay.h: Likewise.
+	* dplobby.h: Likewise.
 
 2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
 
