@@ -18,6 +18,8 @@
 	* dmdls.h, dmerror.h, dmplugin.h, dmusicc.h, dmusicf.h, dmusici.h, dmusics.h:
 	  more long to LONG changes from wine git repository.
 	* dmoreg.h: Likewise.
+	* dmoreg.h: Fix the DMOGetName() prototype (wine git: 
+	  d223716b7bcde8839c741d83865b95c990a8abcc).
 
 2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
 
