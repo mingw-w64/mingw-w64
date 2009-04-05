@@ -24,6 +24,8 @@
 	* dplay.h: Add missing defs (4ab75e121426d8840b6bfb196cef45506091fd25.)
 	* dplay.h: Fix the definition of DirectPlayCreate 
 	  (wine git 5dc0d4d1ed2de76f21ba4f5298ba9ab251c6fd83).
+	* dpnathlp.h: update prototype of DirectPlayNATHelpCreate() 
+	  (wine git ab62cd360f611ea2cc806acee044a7ea25773fd8).
 
 2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
 
