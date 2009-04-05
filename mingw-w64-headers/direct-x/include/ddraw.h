@@ -1086,6 +1086,14 @@ typedef LPDDENUMCALLBACKEXW LPDDENUMCALLBACKEX;
 typedef LPDDENUMCALLBACKEXA LPDDENUMCALLBACKEX;
 #endif
 
+HRESULT WINAPI DirectDrawEnumerateA(LPDDENUMCALLBACKA,LPVOID);
+HRESULT WINAPI DirectDrawEnumerateW(LPDDENUMCALLBACKW,LPVOID);
+#ifdef UNICODE
+#define DirectDrawEnumerate DirectDrawEnumerateW
+#else
+#define DirectDrawEnumerate DirectDrawEnumerateA
+#endif
+
 HRESULT WINAPI DirectDrawEnumerateExA( LPDDENUMCALLBACKEXA lpCallback, LPVOID lpContext, DWORD dwFlags);
 HRESULT WINAPI DirectDrawEnumerateExW( LPDDENUMCALLBACKEXW lpCallback, LPVOID lpContext, DWORD dwFlags);
 #ifdef UNICODE
@@ -2591,17 +2599,9 @@ DECLARE_INTERFACE_(IDirectDrawGammaControl,IUnknown)
 #endif
 
 
-HRESULT WINAPI DirectDrawCreate(LPGUID,LPDIRECTDRAW*,LPUNKNOWN);
-HRESULT WINAPI DirectDrawCreateEx(LPGUID,LPVOID*,REFIID,LPUNKNOWN);
-HRESULT WINAPI DirectDrawEnumerateA(LPDDENUMCALLBACKA,LPVOID);
-HRESULT WINAPI DirectDrawEnumerateW(LPDDENUMCALLBACKW,LPVOID);
-#ifdef UNICODE
-#define DirectDrawEnumerate DirectDrawEnumerateW
-#else
-#define DirectDrawEnumerate DirectDrawEnumerateA
-#endif
-
-HRESULT WINAPI DirectDrawCreateClipper(DWORD,LPDIRECTDRAWCLIPPER*,LPUNKNOWN);
+HRESULT WINAPI DirectDrawCreate(GUID*,LPDIRECTDRAW*,IUnknown*);
+HRESULT WINAPI DirectDrawCreateEx(GUID*,LPVOID*,REFIID,IUnknown*);
+HRESULT WINAPI DirectDrawCreateClipper(DWORD,LPDIRECTDRAWCLIPPER*,IUnknown*);
 
 #ifdef __cplusplus
 } /* extern "C" */
