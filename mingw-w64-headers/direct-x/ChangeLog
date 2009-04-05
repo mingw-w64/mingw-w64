@@ -12,6 +12,9 @@
 	  add some defines for EnumDevicesBySemantics
 	  (80c2cabab451b749efb768403d68ccddfede71d9).
 	  TODO: we _must_ revisit to double check the version ifdefs again.
+	* dls1.h, dls2.h, dmdls.h, dmerror.h, dmplugin.h, dmusbuff.h: Fix license
+	  headers that mistakenly use GPL instead of LGPL.
+	* dmusicc.h, dmusicf.h, dmusici.h, dmusics.h: Likewise.
 
 2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
 
