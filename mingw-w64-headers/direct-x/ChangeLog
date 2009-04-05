@@ -28,6 +28,7 @@
 	  (wine git ab62cd360f611ea2cc806acee044a7ea25773fd8).
 	* dsound.h: added missing A/W function / type definitions 
 	  (wine git 375f8ba23761d75230805e86bc057ef7755cb57c).
+	* dmusici.h: less diff with the wine tree, sigh....
 
 2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
 

@@ -34,6 +34,10 @@
 #include <dmplugin.h>
 #include <pshpack8.h>
 
+#ifdef __WINESRC__
+#undef AddPort
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
