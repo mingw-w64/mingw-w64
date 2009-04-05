@@ -396,14 +396,28 @@ typedef const GUID *LPCGUID;
 
 typedef BOOL (CALLBACK *LPDSENUMCALLBACKW)(LPGUID,LPCWSTR,LPCWSTR,LPVOID);
 typedef BOOL (CALLBACK *LPDSENUMCALLBACKA)(LPGUID,LPCSTR,LPCSTR,LPVOID);
+#ifdef UNICODE
+typedef LPDSENUMCALLBACKW LPDSENUMCALLBACK;
+#else
+typedef LPDSENUMCALLBACKA LPDSENUMCALLBACK;
+#endif
 
 extern HRESULT WINAPI DirectSoundCreate(LPCGUID lpGUID,LPDIRECTSOUND *ppDS,LPUNKNOWN pUnkOuter);
 extern HRESULT WINAPI DirectSoundEnumerateA(LPDSENUMCALLBACKA, LPVOID);
 extern HRESULT WINAPI DirectSoundEnumerateW(LPDSENUMCALLBACKW, LPVOID);
-
+#ifdef UNICODE
+#define DirectSoundEnumerate DirectSoundEnumerateW
+#else
+#define DirectSoundEnumerate DirectSoundEnumerateA
+#endif
 extern HRESULT WINAPI DirectSoundCaptureCreate(LPCGUID lpGUID, LPDIRECTSOUNDCAPTURE *ppDSC, LPUNKNOWN pUnkOuter);
 extern HRESULT WINAPI DirectSoundCaptureEnumerateA(LPDSENUMCALLBACKA, LPVOID);
 extern HRESULT WINAPI DirectSoundCaptureEnumerateW(LPDSENUMCALLBACKW, LPVOID);
+#ifdef UNICODE
+#define DirectSoundCaptureEnumerate DirectSoundCaptureEnumerateW
+#else
+#define DirectSoundCaptureEnumerate DirectSoundCaptureEnumerateA
+#endif
 
 extern HRESULT WINAPI DirectSoundCreate8(LPCGUID lpGUID,LPDIRECTSOUND8 *ppDS8,LPUNKNOWN pUnkOuter);
 extern HRESULT WINAPI DirectSoundCaptureCreate8(LPCGUID lpGUID, LPDIRECTSOUNDCAPTURE8 *ppDSC8, LPUNKNOWN pUnkOuter);
