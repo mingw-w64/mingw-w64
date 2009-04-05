@@ -6,6 +6,12 @@
 	  5b375aec71419a5a5bb57a42293ef348d6dc96a8).
 	* dinput.h: Add missing IID_IDirectInput8 definitions (wine git
 	  59c18ef56d3d33b98e319e8c0cd30c24fc363e4e).
+	* dinput.h: Other bits and pieces from wine git: Add the DIPROP_KEYNAME
+	  property for keyboard device (d939367ac8fc1e7c7461008c86557fd870c4fbe4),
+	  add DISCL_NOWINKEY define (eb3028acc080922996b04f4e0cb36440680fe876),
+	  add some defines for EnumDevicesBySemantics
+	  (80c2cabab451b749efb768403d68ccddfede71d9).
+	  TODO: we _must_ revisit to double check the version ifdefs again.
 
 2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
 
