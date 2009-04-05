@@ -22,6 +22,8 @@
 	  d223716b7bcde8839c741d83865b95c990a8abcc).
 	* dpaddr.h: Fix some typos (wine 9f3c91e41f82ba302afad386aa1be58d6dec2b23).
 	* dplay.h: Add missing defs (4ab75e121426d8840b6bfb196cef45506091fd25.)
+	* dplay.h: Fix the definition of DirectPlayCreate 
+	  (wine git 5dc0d4d1ed2de76f21ba4f5298ba9ab251c6fd83).
 
 2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
 
