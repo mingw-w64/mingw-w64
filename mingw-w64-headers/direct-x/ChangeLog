@@ -29,6 +29,9 @@
 	* dsound.h: added missing A/W function / type definitions 
 	  (wine git 375f8ba23761d75230805e86bc057ef7755cb57c).
 	* dmusici.h: less diff with the wine tree, sigh....
+	* dxfile.h: Fix IDirectXFileDataReference macros (wine git 
+	  b939b8d3452e6ccabde236a2087046c1649343d2,
+	  8597d42cf5f3fe194bd88ccb7ff922e547c44e6d).
 
 2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
 
