@@ -4,6 +4,8 @@
 	  correctly spelled (wine git d476313a49c1b46eeef390c79cadd72cd3eb217d).
 	* ddraw.h: Better match the PSDK types, re order a few things (wine git
 	  5b375aec71419a5a5bb57a42293ef348d6dc96a8).
+	* dinput.h: Add missing IID_IDirectInput8 definitions (wine git
+	  59c18ef56d3d33b98e319e8c0cd30c24fc363e4e).
 
 2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
 
