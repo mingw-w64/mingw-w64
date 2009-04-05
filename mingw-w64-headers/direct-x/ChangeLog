@@ -17,6 +17,7 @@
 	* dmusicc.h, dmusicf.h, dmusici.h, dmusics.h: Likewise.
 	* dmdls.h, dmerror.h, dmplugin.h, dmusicc.h, dmusicf.h, dmusici.h, dmusics.h:
 	  more long to LONG changes from wine git repository.
+	* dmoreg.h: Likewise.
 
 2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
 
