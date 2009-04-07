@@ -20,24 +20,7 @@
 #ifndef __WINE_DPLOBBY_H
 #define __WINE_DPLOBBY_H
 
-#ifndef DUMMYUNIONNAME
-#ifdef NONAMELESSUNION
-#define DUMMYUNIONNAME u
-#define DUMMYUNIONNAME1 u1
-#define DUMMYUNIONNAME2 u2
-#define DUMMYUNIONNAME3 u3
-#define DUMMYUNIONNAME4 u4
-#define DUMMYUNIONNAME5 u5
-#else
-#define DUMMYUNIONNAME
-#define DUMMYUNIONNAME1
-#define DUMMYUNIONNAME2
-#define DUMMYUNIONNAME3
-#define DUMMYUNIONNAME4
-#define DUMMYUNIONNAME5
-#endif
-#endif
-
+#include <_mingw_dxhelper.h>
 #include <dplay.h>
 
 #ifdef __cplusplus

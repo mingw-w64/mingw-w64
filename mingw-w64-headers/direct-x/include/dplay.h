@@ -20,24 +20,7 @@
 #define __WINE_DPLAY_H
 
 #include <ole2.h>
-
-#ifndef DUMMYUNIONNAME
-#ifdef NONAMELESSUNION
-#define DUMMYUNIONNAME u
-#define DUMMYUNIONNAME1 u1
-#define DUMMYUNIONNAME2 u2
-#define DUMMYUNIONNAME3 u3
-#define DUMMYUNIONNAME4 u4
-#define DUMMYUNIONNAME5 u5
-#else
-#define DUMMYUNIONNAME
-#define DUMMYUNIONNAME1
-#define DUMMYUNIONNAME2
-#define DUMMYUNIONNAME3
-#define DUMMYUNIONNAME4
-#define DUMMYUNIONNAME5
-#endif
-#endif
+#include <_mingw_dxhelper.h>
 
 #ifdef __cplusplus
 extern "C" {
