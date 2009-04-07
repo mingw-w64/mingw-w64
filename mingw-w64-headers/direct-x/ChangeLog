@@ -6,6 +6,11 @@
 	  #include _mingw_dxhelper.h instead of defining DUMMYUNIONNAME stuff
 	  in each file.
 	* dinput.h, dplay.h, dplobby.h, dsdriver.h: Likewise.
+	* ddraw.h, dinput.h, dplobby.h, dsound.h, dxerr8.h, dxerr9.h: bite the
+	  bullet and use the WINELIB_* macros we just added to _mingw_dxhelper.h
+	  instead of using UNICODE ifdefs. smaller diffs between the Wine source
+	  tree and ours and this will help us with easier merging with the Wine
+	  changes in the future..
 
 2009-04-05  Ozkan Sezer <sezeroz@gmail.com>
 

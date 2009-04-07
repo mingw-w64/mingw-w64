@@ -347,11 +347,8 @@ typedef struct tagDPAPPLICATIONDESC
 
 extern HRESULT WINAPI DirectPlayLobbyCreateW(LPGUID, LPDIRECTPLAYLOBBY*,  IUnknown*, LPVOID, DWORD );
 extern HRESULT WINAPI DirectPlayLobbyCreateA(LPGUID, LPDIRECTPLAYLOBBYA*, IUnknown*, LPVOID, DWORD );
-#ifdef UNICODE
-#define DirectPlayLobbyCreate DirectPlayLobbyCreateW
-#else
-#define DirectPlayLobbyCreate DirectPlayLobbyCreateA
-#endif
+#define DirectPlayLobbyCreate WINELIB_NAME_AW(DirectPlayLobbyCreate)
+
 
 typedef BOOL (CALLBACK *LPDPENUMADDRESSCALLBACK)(
     REFGUID         guidDataType,
