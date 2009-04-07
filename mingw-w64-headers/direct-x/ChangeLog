@@ -1,3 +1,8 @@
+2009-04-07  Ozkan Sezer <sezeroz@gmail.com>
+
+	* _mingw_dxhelper.h: New. Holds the DUMMYUNIONNAME and some Wine
+	  compatibility macros.
+
 2009-04-05  Ozkan Sezer <sezeroz@gmail.com>
 
 	* d3d8types.h, d3d9types.h: Remove misspelled constants as they exist
