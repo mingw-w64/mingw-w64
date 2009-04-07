@@ -22,13 +22,7 @@
 #ifndef __WINE_DSDRIVER_H
 #define __WINE_DSDRIVER_H
 
-#ifndef DUMMYSTRUCTNAME
-#ifdef NONAMELESSSTRUCT
-#define DUMMYSTRUCTNAME s
-#else
-#define DUMMYSTRUCTNAME
-#endif
-#endif
+#include <_mingw_dxhelper.h>
 
 #ifdef __cplusplus
 extern "C" {

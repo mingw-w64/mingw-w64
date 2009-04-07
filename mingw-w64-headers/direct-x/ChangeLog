@@ -5,7 +5,7 @@
 	* d3d8types.h, d3d9types.h, d3dhal.h, d3dtypes.h, ddraw.h, ddrawi.h:
 	  #include _mingw_dxhelper.h instead of defining DUMMYUNIONNAME stuff
 	  in each file.
-	* dinput.h, dplay.h, dplobby.h: Likewise.
+	* dinput.h, dplay.h, dplobby.h, dsdriver.h: Likewise.
 
 2009-04-05  Ozkan Sezer <sezeroz@gmail.com>
 
