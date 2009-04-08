@@ -27,11 +27,11 @@ DEFINE_GUID(IID_IDownloadManager, 0x988934a4, 0x064b, 0x11d3, 0xbb,0x80, 0x00,0x
 interface IDownloadManager : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Download(
-        IMoniker* pmk,
-        IBindCtx* pbc,
+        IMoniker *pmk,
+        IBindCtx *pbc,
         DWORD dwBindVerb,
         LONG grfBINDF,
-        BINDINFO* pBindInfo,
+        BINDINFO *pBindInfo,
         LPCOLESTR pszHeaders,
         LPCOLESTR pszRedir,
         UINT uiCP) = 0;
@@ -45,7 +45,7 @@ typedef struct IDownloadManagerVtbl {
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
         IDownloadManager* This,
         REFIID riid,
-        void** ppvObject);
+        void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
         IDownloadManager* This);
@@ -56,11 +56,11 @@ typedef struct IDownloadManagerVtbl {
     /*** IDownloadManager methods ***/
     HRESULT (STDMETHODCALLTYPE *Download)(
         IDownloadManager* This,
-        IMoniker* pmk,
-        IBindCtx* pbc,
+        IMoniker *pmk,
+        IBindCtx *pbc,
         DWORD dwBindVerb,
         LONG grfBINDF,
-        BINDINFO* pBindInfo,
+        BINDINFO *pBindInfo,
         LPCOLESTR pszHeaders,
         LPCOLESTR pszRedir,
         UINT uiCP);
@@ -84,11 +84,11 @@ interface IDownloadManager {
 
 HRESULT CALLBACK IDownloadManager_Download_Proxy(
     IDownloadManager* This,
-    IMoniker* pmk,
-    IBindCtx* pbc,
+    IMoniker *pmk,
+    IBindCtx *pbc,
     DWORD dwBindVerb,
     LONG grfBINDF,
-    BINDINFO* pBindInfo,
+    BINDINFO *pBindInfo,
     LPCOLESTR pszHeaders,
     LPCOLESTR pszRedir,
     UINT uiCP);

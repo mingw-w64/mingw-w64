@@ -54,29 +54,29 @@ DEFINE_GUID(IID_IDirectDrawMediaStream, 0xf4104fce, 0x9a70, 0x11d0, 0x8f,0xde, 0
 interface IDirectDrawMediaStream : public IMediaStream
 {
     virtual HRESULT STDMETHODCALLTYPE GetFormat(
-        DDSURFACEDESC* pDDSDCurrent,
-        IDirectDrawPalette** ppDirectDrawPalette,
-        DDSURFACEDESC* pDDSDDesired,
-        DWORD* pdwFlags) = 0;
+        DDSURFACEDESC *pDDSDCurrent,
+        IDirectDrawPalette **ppDirectDrawPalette,
+        DDSURFACEDESC *pDDSDDesired,
+        DWORD *pdwFlags) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetFormat(
-        const DDSURFACEDESC* pDDSurfaceDesc,
-        IDirectDrawPalette* pDirectDrawPalette) = 0;
+        const DDSURFACEDESC *pDDSurfaceDesc,
+        IDirectDrawPalette *pDirectDrawPalette) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetDirectDraw(
-        IDirectDraw** ppDirectDraw) = 0;
+        IDirectDraw **ppDirectDraw) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetDirectDraw(
-        IDirectDraw* pDirectDraw) = 0;
+        IDirectDraw *pDirectDraw) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CreateSample(
-        IDirectDrawSurface* pSurface,
-        const RECT* pRect,
+        IDirectDrawSurface *pSurface,
+        const RECT *pRect,
         DWORD dwFlags,
-        IDirectDrawStreamSample** ppSample) = 0;
+        IDirectDrawStreamSample **ppSample) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetTimePerFrame(
-        STREAM_TIME* pFrameTime) = 0;
+        STREAM_TIME *pFrameTime) = 0;
 
 };
 #else
@@ -87,7 +87,7 @@ typedef struct IDirectDrawMediaStreamVtbl {
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
         IDirectDrawMediaStream* This,
         REFIID riid,
-        void** ppvObject);
+        void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
         IDirectDrawMediaStream* This);
@@ -98,28 +98,28 @@ typedef struct IDirectDrawMediaStreamVtbl {
     /*** IMediaStream methods ***/
     HRESULT (STDMETHODCALLTYPE *GetMultiMediaStream)(
         IDirectDrawMediaStream* This,
-        IMultiMediaStream** ppMultiMediaStream);
+        IMultiMediaStream **ppMultiMediaStream);
 
     HRESULT (STDMETHODCALLTYPE *GetInformation)(
         IDirectDrawMediaStream* This,
-        MSPID* pPurposeId,
-        STREAM_TYPE* pType);
+        MSPID *pPurposeId,
+        STREAM_TYPE *pType);
 
     HRESULT (STDMETHODCALLTYPE *SetSameFormat)(
         IDirectDrawMediaStream* This,
-        IMediaStream* pStreamThatHasDesiredFormat,
+        IMediaStream *pStreamThatHasDesiredFormat,
         DWORD dwFlags);
 
     HRESULT (STDMETHODCALLTYPE *AllocateSample)(
         IDirectDrawMediaStream* This,
         DWORD dwFlags,
-        IStreamSample** ppSample);
+        IStreamSample **ppSample);
 
     HRESULT (STDMETHODCALLTYPE *CreateSharedSample)(
         IDirectDrawMediaStream* This,
-        IStreamSample* pExistingSample,
+        IStreamSample *pExistingSample,
         DWORD dwFlags,
-        IStreamSample** ppNewSample);
+        IStreamSample **ppNewSample);
 
     HRESULT (STDMETHODCALLTYPE *SendEndOfStream)(
         IDirectDrawMediaStream* This,
@@ -128,34 +128,34 @@ typedef struct IDirectDrawMediaStreamVtbl {
     /*** IDirectDrawMediaStream methods ***/
     HRESULT (STDMETHODCALLTYPE *GetFormat)(
         IDirectDrawMediaStream* This,
-        DDSURFACEDESC* pDDSDCurrent,
-        IDirectDrawPalette** ppDirectDrawPalette,
-        DDSURFACEDESC* pDDSDDesired,
-        DWORD* pdwFlags);
+        DDSURFACEDESC *pDDSDCurrent,
+        IDirectDrawPalette **ppDirectDrawPalette,
+        DDSURFACEDESC *pDDSDDesired,
+        DWORD *pdwFlags);
 
     HRESULT (STDMETHODCALLTYPE *SetFormat)(
         IDirectDrawMediaStream* This,
-        const DDSURFACEDESC* pDDSurfaceDesc,
-        IDirectDrawPalette* pDirectDrawPalette);
+        const DDSURFACEDESC *pDDSurfaceDesc,
+        IDirectDrawPalette *pDirectDrawPalette);
 
     HRESULT (STDMETHODCALLTYPE *GetDirectDraw)(
         IDirectDrawMediaStream* This,
-        IDirectDraw** ppDirectDraw);
+        IDirectDraw **ppDirectDraw);
 
     HRESULT (STDMETHODCALLTYPE *SetDirectDraw)(
         IDirectDrawMediaStream* This,
-        IDirectDraw* pDirectDraw);
+        IDirectDraw *pDirectDraw);
 
     HRESULT (STDMETHODCALLTYPE *CreateSample)(
         IDirectDrawMediaStream* This,
-        IDirectDrawSurface* pSurface,
-        const RECT* pRect,
+        IDirectDrawSurface *pSurface,
+        const RECT *pRect,
         DWORD dwFlags,
-        IDirectDrawStreamSample** ppSample);
+        IDirectDrawStreamSample **ppSample);
 
     HRESULT (STDMETHODCALLTYPE *GetTimePerFrame)(
         IDirectDrawMediaStream* This,
-        STREAM_TIME* pFrameTime);
+        STREAM_TIME *pFrameTime);
 
     END_INTERFACE
 } IDirectDrawMediaStreamVtbl;
@@ -188,10 +188,10 @@ interface IDirectDrawMediaStream {
 
 HRESULT CALLBACK IDirectDrawMediaStream_GetFormat_Proxy(
     IDirectDrawMediaStream* This,
-    DDSURFACEDESC* pDDSDCurrent,
-    IDirectDrawPalette** ppDirectDrawPalette,
-    DDSURFACEDESC* pDDSDDesired,
-    DWORD* pdwFlags);
+    DDSURFACEDESC *pDDSDCurrent,
+    IDirectDrawPalette **ppDirectDrawPalette,
+    DDSURFACEDESC *pDDSDDesired,
+    DWORD *pdwFlags);
 void __RPC_STUB IDirectDrawMediaStream_GetFormat_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -199,8 +199,8 @@ void __RPC_STUB IDirectDrawMediaStream_GetFormat_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IDirectDrawMediaStream_SetFormat_Proxy(
     IDirectDrawMediaStream* This,
-    const DDSURFACEDESC* pDDSurfaceDesc,
-    IDirectDrawPalette* pDirectDrawPalette);
+    const DDSURFACEDESC *pDDSurfaceDesc,
+    IDirectDrawPalette *pDirectDrawPalette);
 void __RPC_STUB IDirectDrawMediaStream_SetFormat_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -208,7 +208,7 @@ void __RPC_STUB IDirectDrawMediaStream_SetFormat_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IDirectDrawMediaStream_GetDirectDraw_Proxy(
     IDirectDrawMediaStream* This,
-    IDirectDraw** ppDirectDraw);
+    IDirectDraw **ppDirectDraw);
 void __RPC_STUB IDirectDrawMediaStream_GetDirectDraw_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -216,7 +216,7 @@ void __RPC_STUB IDirectDrawMediaStream_GetDirectDraw_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IDirectDrawMediaStream_SetDirectDraw_Proxy(
     IDirectDrawMediaStream* This,
-    IDirectDraw* pDirectDraw);
+    IDirectDraw *pDirectDraw);
 void __RPC_STUB IDirectDrawMediaStream_SetDirectDraw_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -224,10 +224,10 @@ void __RPC_STUB IDirectDrawMediaStream_SetDirectDraw_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IDirectDrawMediaStream_CreateSample_Proxy(
     IDirectDrawMediaStream* This,
-    IDirectDrawSurface* pSurface,
-    const RECT* pRect,
+    IDirectDrawSurface *pSurface,
+    const RECT *pRect,
     DWORD dwFlags,
-    IDirectDrawStreamSample** ppSample);
+    IDirectDrawStreamSample **ppSample);
 void __RPC_STUB IDirectDrawMediaStream_CreateSample_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -235,7 +235,7 @@ void __RPC_STUB IDirectDrawMediaStream_CreateSample_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IDirectDrawMediaStream_GetTimePerFrame_Proxy(
     IDirectDrawMediaStream* This,
-    STREAM_TIME* pFrameTime);
+    STREAM_TIME *pFrameTime);
 void __RPC_STUB IDirectDrawMediaStream_GetTimePerFrame_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -255,11 +255,11 @@ DEFINE_GUID(IID_IDirectDrawStreamSample, 0xf4104fcf, 0x9a70, 0x11d0, 0x8f,0xde, 
 interface IDirectDrawStreamSample : public IStreamSample
 {
     virtual HRESULT STDMETHODCALLTYPE GetSurface(
-        IDirectDrawSurface** ppDirectDrawSurface,
-        RECT* pRect) = 0;
+        IDirectDrawSurface **ppDirectDrawSurface,
+        RECT *pRect) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetRect(
-        const RECT* pRect) = 0;
+        const RECT *pRect) = 0;
 
 };
 #else
@@ -270,7 +270,7 @@ typedef struct IDirectDrawStreamSampleVtbl {
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
         IDirectDrawStreamSample* This,
         REFIID riid,
-        void** ppvObject);
+        void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
         IDirectDrawStreamSample* This);
@@ -281,18 +281,18 @@ typedef struct IDirectDrawStreamSampleVtbl {
     /*** IStreamSample methods ***/
     HRESULT (STDMETHODCALLTYPE *GetMediaStream)(
         IDirectDrawStreamSample* This,
-        IMediaStream** ppMediaStream);
+        IMediaStream **ppMediaStream);
 
     HRESULT (STDMETHODCALLTYPE *GetSampleTimes)(
         IDirectDrawStreamSample* This,
-        STREAM_TIME* pStartTime,
-        STREAM_TIME* pEndTime,
-        STREAM_TIME* pCurrentTime);
+        STREAM_TIME *pStartTime,
+        STREAM_TIME *pEndTime,
+        STREAM_TIME *pCurrentTime);
 
     HRESULT (STDMETHODCALLTYPE *SetSampleTimes)(
         IDirectDrawStreamSample* This,
-        const STREAM_TIME* pStartTime,
-        const STREAM_TIME* pEndTime);
+        const STREAM_TIME *pStartTime,
+        const STREAM_TIME *pEndTime);
 
     HRESULT (STDMETHODCALLTYPE *Update)(
         IDirectDrawStreamSample* This,
@@ -309,12 +309,12 @@ typedef struct IDirectDrawStreamSampleVtbl {
     /*** IDirectDrawStreamSample methods ***/
     HRESULT (STDMETHODCALLTYPE *GetSurface)(
         IDirectDrawStreamSample* This,
-        IDirectDrawSurface** ppDirectDrawSurface,
-        RECT* pRect);
+        IDirectDrawSurface **ppDirectDrawSurface,
+        RECT *pRect);
 
     HRESULT (STDMETHODCALLTYPE *SetRect)(
         IDirectDrawStreamSample* This,
-        const RECT* pRect);
+        const RECT *pRect);
 
     END_INTERFACE
 } IDirectDrawStreamSampleVtbl;
@@ -342,8 +342,8 @@ interface IDirectDrawStreamSample {
 
 HRESULT CALLBACK IDirectDrawStreamSample_GetSurface_Proxy(
     IDirectDrawStreamSample* This,
-    IDirectDrawSurface** ppDirectDrawSurface,
-    RECT* pRect);
+    IDirectDrawSurface **ppDirectDrawSurface,
+    RECT *pRect);
 void __RPC_STUB IDirectDrawStreamSample_GetSurface_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -351,7 +351,7 @@ void __RPC_STUB IDirectDrawStreamSample_GetSurface_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IDirectDrawStreamSample_SetRect_Proxy(
     IDirectDrawStreamSample* This,
-    const RECT* pRect);
+    const RECT *pRect);
 void __RPC_STUB IDirectDrawStreamSample_SetRect_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,

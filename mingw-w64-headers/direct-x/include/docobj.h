@@ -45,17 +45,17 @@ DEFINE_GUID(IID_IOleDocument, 0xb722bcc5, 0x4e68, 0x101b, 0xa2,0xbc, 0x00,0xaa,0
 interface IOleDocument : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE CreateView(
-        IOleInPlaceSite* pIPSite,
-        IStream* pstm,
+        IOleInPlaceSite *pIPSite,
+        IStream *pstm,
         DWORD dwReserved,
-        IOleDocumentView** ppView) = 0;
+        IOleDocumentView **ppView) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetDocMiscStatus(
-        DWORD* pdwStatus) = 0;
+        DWORD *pdwStatus) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumViews(
-        IEnumOleDocumentViews** ppEnum,
-        IOleDocumentView** ppView) = 0;
+        IEnumOleDocumentViews **ppEnum,
+        IOleDocumentView **ppView) = 0;
 
 };
 #else
@@ -66,7 +66,7 @@ typedef struct IOleDocumentVtbl {
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
         IOleDocument* This,
         REFIID riid,
-        void** ppvObject);
+        void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
         IOleDocument* This);
@@ -77,19 +77,19 @@ typedef struct IOleDocumentVtbl {
     /*** IOleDocument methods ***/
     HRESULT (STDMETHODCALLTYPE *CreateView)(
         IOleDocument* This,
-        IOleInPlaceSite* pIPSite,
-        IStream* pstm,
+        IOleInPlaceSite *pIPSite,
+        IStream *pstm,
         DWORD dwReserved,
-        IOleDocumentView** ppView);
+        IOleDocumentView **ppView);
 
     HRESULT (STDMETHODCALLTYPE *GetDocMiscStatus)(
         IOleDocument* This,
-        DWORD* pdwStatus);
+        DWORD *pdwStatus);
 
     HRESULT (STDMETHODCALLTYPE *EnumViews)(
         IOleDocument* This,
-        IEnumOleDocumentViews** ppEnum,
-        IOleDocumentView** ppView);
+        IEnumOleDocumentViews **ppEnum,
+        IOleDocumentView **ppView);
 
     END_INTERFACE
 } IOleDocumentVtbl;
@@ -112,10 +112,10 @@ interface IOleDocument {
 
 HRESULT CALLBACK IOleDocument_CreateView_Proxy(
     IOleDocument* This,
-    IOleInPlaceSite* pIPSite,
-    IStream* pstm,
+    IOleInPlaceSite *pIPSite,
+    IStream *pstm,
     DWORD dwReserved,
-    IOleDocumentView** ppView);
+    IOleDocumentView **ppView);
 void __RPC_STUB IOleDocument_CreateView_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -123,7 +123,7 @@ void __RPC_STUB IOleDocument_CreateView_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IOleDocument_GetDocMiscStatus_Proxy(
     IOleDocument* This,
-    DWORD* pdwStatus);
+    DWORD *pdwStatus);
 void __RPC_STUB IOleDocument_GetDocMiscStatus_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -131,8 +131,8 @@ void __RPC_STUB IOleDocument_GetDocMiscStatus_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IOleDocument_EnumViews_Proxy(
     IOleDocument* This,
-    IEnumOleDocumentViews** ppEnum,
-    IOleDocumentView** ppView);
+    IEnumOleDocumentViews **ppEnum,
+    IOleDocumentView **ppView);
 void __RPC_STUB IOleDocument_EnumViews_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -158,7 +158,7 @@ DEFINE_GUID(IID_IOleDocumentSite, 0xb722bcc7, 0x4e68, 0x101b, 0xa2,0xbc, 0x00,0x
 interface IOleDocumentSite : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE ActivateMe(
-        IOleDocumentView* pViewToActivate) = 0;
+        IOleDocumentView *pViewToActivate) = 0;
 
 };
 #else
@@ -169,7 +169,7 @@ typedef struct IOleDocumentSiteVtbl {
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
         IOleDocumentSite* This,
         REFIID riid,
-        void** ppvObject);
+        void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
         IOleDocumentSite* This);
@@ -180,7 +180,7 @@ typedef struct IOleDocumentSiteVtbl {
     /*** IOleDocumentSite methods ***/
     HRESULT (STDMETHODCALLTYPE *ActivateMe)(
         IOleDocumentSite* This,
-        IOleDocumentView* pViewToActivate);
+        IOleDocumentView *pViewToActivate);
 
     END_INTERFACE
 } IOleDocumentSiteVtbl;
@@ -201,7 +201,7 @@ interface IOleDocumentSite {
 
 HRESULT CALLBACK IOleDocumentSite_ActivateMe_Proxy(
     IOleDocumentSite* This,
-    IOleDocumentView* pViewToActivate);
+    IOleDocumentView *pViewToActivate);
 void __RPC_STUB IOleDocumentSite_ActivateMe_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -222,13 +222,13 @@ DEFINE_GUID(IID_IOleDocumentView, 0xb722bcc6, 0x4e68, 0x101b, 0xa2,0xbc, 0x00,0x
 interface IOleDocumentView : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetInPlaceSite(
-        IOleInPlaceSite* pIPSite) = 0;
+        IOleInPlaceSite *pIPSite) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetInPlaceSite(
-        IOleInPlaceSite** ppIPSite) = 0;
+        IOleInPlaceSite **ppIPSite) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetDocument(
-        IUnknown** ppunk) = 0;
+        IUnknown **ppunk) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetRect(
         LPRECT prcView) = 0;
@@ -261,8 +261,8 @@ interface IOleDocumentView : public IUnknown
         LPSTREAM pstm) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Clone(
-        IOleInPlaceSite* pIPSiteNew,
-        IOleDocumentView** ppViewNew) = 0;
+        IOleInPlaceSite *pIPSiteNew,
+        IOleDocumentView **ppViewNew) = 0;
 
 };
 #else
@@ -273,7 +273,7 @@ typedef struct IOleDocumentViewVtbl {
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
         IOleDocumentView* This,
         REFIID riid,
-        void** ppvObject);
+        void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
         IOleDocumentView* This);
@@ -284,15 +284,15 @@ typedef struct IOleDocumentViewVtbl {
     /*** IOleDocumentView methods ***/
     HRESULT (STDMETHODCALLTYPE *SetInPlaceSite)(
         IOleDocumentView* This,
-        IOleInPlaceSite* pIPSite);
+        IOleInPlaceSite *pIPSite);
 
     HRESULT (STDMETHODCALLTYPE *GetInPlaceSite)(
         IOleDocumentView* This,
-        IOleInPlaceSite** ppIPSite);
+        IOleInPlaceSite **ppIPSite);
 
     HRESULT (STDMETHODCALLTYPE *GetDocument)(
         IOleDocumentView* This,
-        IUnknown** ppunk);
+        IUnknown **ppunk);
 
     HRESULT (STDMETHODCALLTYPE *SetRect)(
         IOleDocumentView* This,
@@ -334,8 +334,8 @@ typedef struct IOleDocumentViewVtbl {
 
     HRESULT (STDMETHODCALLTYPE *Clone)(
         IOleDocumentView* This,
-        IOleInPlaceSite* pIPSiteNew,
-        IOleDocumentView** ppViewNew);
+        IOleInPlaceSite *pIPSiteNew,
+        IOleDocumentView **ppViewNew);
 
     END_INTERFACE
 } IOleDocumentViewVtbl;
@@ -368,7 +368,7 @@ interface IOleDocumentView {
 
 HRESULT CALLBACK IOleDocumentView_SetInPlaceSite_Proxy(
     IOleDocumentView* This,
-    IOleInPlaceSite* pIPSite);
+    IOleInPlaceSite *pIPSite);
 void __RPC_STUB IOleDocumentView_SetInPlaceSite_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -376,7 +376,7 @@ void __RPC_STUB IOleDocumentView_SetInPlaceSite_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IOleDocumentView_GetInPlaceSite_Proxy(
     IOleDocumentView* This,
-    IOleInPlaceSite** ppIPSite);
+    IOleInPlaceSite **ppIPSite);
 void __RPC_STUB IOleDocumentView_GetInPlaceSite_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -384,7 +384,7 @@ void __RPC_STUB IOleDocumentView_GetInPlaceSite_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IOleDocumentView_GetDocument_Proxy(
     IOleDocumentView* This,
-    IUnknown** ppunk);
+    IUnknown **ppunk);
 void __RPC_STUB IOleDocumentView_GetDocument_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -466,8 +466,8 @@ void __RPC_STUB IOleDocumentView_ApplyViewState_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IOleDocumentView_Clone_Proxy(
     IOleDocumentView* This,
-    IOleInPlaceSite* pIPSiteNew,
-    IOleDocumentView** ppViewNew);
+    IOleInPlaceSite *pIPSiteNew,
+    IOleDocumentView **ppViewNew);
 void __RPC_STUB IOleDocumentView_Clone_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -489,8 +489,8 @@ interface IEnumOleDocumentViews : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Next(
         ULONG cViews,
-        IOleDocumentView** rgpView,
-        ULONG* pcFetched) = 0;
+        IOleDocumentView **rgpView,
+        ULONG *pcFetched) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Skip(
         ULONG cViews) = 0;
@@ -499,7 +499,7 @@ interface IEnumOleDocumentViews : public IUnknown
         ) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Clone(
-        IEnumOleDocumentViews** ppEnum) = 0;
+        IEnumOleDocumentViews **ppEnum) = 0;
 
 };
 #else
@@ -510,7 +510,7 @@ typedef struct IEnumOleDocumentViewsVtbl {
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
         IEnumOleDocumentViews* This,
         REFIID riid,
-        void** ppvObject);
+        void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
         IEnumOleDocumentViews* This);
@@ -522,8 +522,8 @@ typedef struct IEnumOleDocumentViewsVtbl {
     HRESULT (STDMETHODCALLTYPE *Next)(
         IEnumOleDocumentViews* This,
         ULONG cViews,
-        IOleDocumentView** rgpView,
-        ULONG* pcFetched);
+        IOleDocumentView **rgpView,
+        ULONG *pcFetched);
 
     HRESULT (STDMETHODCALLTYPE *Skip)(
         IEnumOleDocumentViews* This,
@@ -534,7 +534,7 @@ typedef struct IEnumOleDocumentViewsVtbl {
 
     HRESULT (STDMETHODCALLTYPE *Clone)(
         IEnumOleDocumentViews* This,
-        IEnumOleDocumentViews** ppEnum);
+        IEnumOleDocumentViews **ppEnum);
 
     END_INTERFACE
 } IEnumOleDocumentViewsVtbl;
@@ -559,8 +559,8 @@ interface IEnumOleDocumentViews {
 HRESULT CALLBACK IEnumOleDocumentViews_RemoteNext_Proxy(
     IEnumOleDocumentViews* This,
     ULONG cViews,
-    IOleDocumentView** rgpView,
-    ULONG* pcFetched);
+    IOleDocumentView **rgpView,
+    ULONG *pcFetched);
 void __RPC_STUB IEnumOleDocumentViews_RemoteNext_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -593,7 +593,7 @@ void __RPC_STUB IEnumOleDocumentViews_Reset_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IEnumOleDocumentViews_Clone_Proxy(
     IEnumOleDocumentViews* This,
-    IEnumOleDocumentViews** ppEnum);
+    IEnumOleDocumentViews **ppEnum);
 void __RPC_STUB IEnumOleDocumentViews_Clone_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -702,17 +702,17 @@ DEFINE_GUID(IID_IOleCommandTarget, 0xb722bccb, 0x4e68, 0x101b, 0xa2,0xbc, 0x00,0
 interface IOleCommandTarget : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE QueryStatus(
-        const GUID* pguidCmdGroup,
+        const GUID *pguidCmdGroup,
         ULONG cCmds,
         OLECMD prgCmds[],
-        OLECMDTEXT* pCmdText) = 0;
+        OLECMDTEXT *pCmdText) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Exec(
-        const GUID* pguidCmdGroup,
+        const GUID *pguidCmdGroup,
         DWORD nCmdID,
         DWORD nCmdexecopt,
-        VARIANT* pvaIn,
-        VARIANT* pvaOut) = 0;
+        VARIANT *pvaIn,
+        VARIANT *pvaOut) = 0;
 
 };
 #else
@@ -723,7 +723,7 @@ typedef struct IOleCommandTargetVtbl {
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
         IOleCommandTarget* This,
         REFIID riid,
-        void** ppvObject);
+        void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
         IOleCommandTarget* This);
@@ -734,18 +734,18 @@ typedef struct IOleCommandTargetVtbl {
     /*** IOleCommandTarget methods ***/
     HRESULT (STDMETHODCALLTYPE *QueryStatus)(
         IOleCommandTarget* This,
-        const GUID* pguidCmdGroup,
+        const GUID *pguidCmdGroup,
         ULONG cCmds,
         OLECMD prgCmds[],
-        OLECMDTEXT* pCmdText);
+        OLECMDTEXT *pCmdText);
 
     HRESULT (STDMETHODCALLTYPE *Exec)(
         IOleCommandTarget* This,
-        const GUID* pguidCmdGroup,
+        const GUID *pguidCmdGroup,
         DWORD nCmdID,
         DWORD nCmdexecopt,
-        VARIANT* pvaIn,
-        VARIANT* pvaOut);
+        VARIANT *pvaIn,
+        VARIANT *pvaOut);
 
     END_INTERFACE
 } IOleCommandTargetVtbl;
@@ -767,10 +767,10 @@ interface IOleCommandTarget {
 
 HRESULT CALLBACK IOleCommandTarget_QueryStatus_Proxy(
     IOleCommandTarget* This,
-    const GUID* pguidCmdGroup,
+    const GUID *pguidCmdGroup,
     ULONG cCmds,
     OLECMD prgCmds[],
-    OLECMDTEXT* pCmdText);
+    OLECMDTEXT *pCmdText);
 void __RPC_STUB IOleCommandTarget_QueryStatus_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -778,11 +778,11 @@ void __RPC_STUB IOleCommandTarget_QueryStatus_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IOleCommandTarget_Exec_Proxy(
     IOleCommandTarget* This,
-    const GUID* pguidCmdGroup,
+    const GUID *pguidCmdGroup,
     DWORD nCmdID,
     DWORD nCmdexecopt,
-    VARIANT* pvaIn,
-    VARIANT* pvaOut);
+    VARIANT *pvaIn,
+    VARIANT *pvaOut);
 void __RPC_STUB IOleCommandTarget_Exec_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -813,7 +813,7 @@ interface IContinueCallback : public IUnknown
     virtual HRESULT STDMETHODCALLTYPE FContinuePrinting(
         LONG nCntPrinted,
         LONG nCurPage,
-        WCHAR* pwszPrintStatus) = 0;
+        WCHAR *pwszPrintStatus) = 0;
 
 };
 #else
@@ -824,7 +824,7 @@ typedef struct IContinueCallbackVtbl {
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
         IContinueCallback* This,
         REFIID riid,
-        void** ppvObject);
+        void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
         IContinueCallback* This);
@@ -840,7 +840,7 @@ typedef struct IContinueCallbackVtbl {
         IContinueCallback* This,
         LONG nCntPrinted,
         LONG nCurPage,
-        WCHAR* pwszPrintStatus);
+        WCHAR *pwszPrintStatus);
 
     END_INTERFACE
 } IContinueCallbackVtbl;
@@ -871,7 +871,7 @@ HRESULT CALLBACK IContinueCallback_FContinuePrinting_Proxy(
     IContinueCallback* This,
     LONG nCntPrinted,
     LONG nCurPage,
-    WCHAR* pwszPrintStatus);
+    WCHAR *pwszPrintStatus);
 void __RPC_STUB IContinueCallback_FContinuePrinting_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -920,18 +920,18 @@ interface IPrint : public IUnknown
         LONG nFirstPage) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetPageInfo(
-        LONG* pnFirstPage,
-        LONG* pcPages) = 0;
+        LONG *pnFirstPage,
+        LONG *pcPages) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Print(
         DWORD grfFlags,
-        DVTARGETDEVICE** pptd,
-        PAGESET** ppPageSet,
-        STGMEDIUM* pstgmOptions,
-        IContinueCallback* pcallback,
+        DVTARGETDEVICE **pptd,
+        PAGESET **ppPageSet,
+        STGMEDIUM *pstgmOptions,
+        IContinueCallback *pcallback,
         LONG nFirstPage,
-        LONG* pcPagesPrinted,
-        LONG* pnLastPage) = 0;
+        LONG *pcPagesPrinted,
+        LONG *pnLastPage) = 0;
 
 };
 #else
@@ -942,7 +942,7 @@ typedef struct IPrintVtbl {
     HRESULT (STDMETHODCALLTYPE *QueryInterface)(
         IPrint* This,
         REFIID riid,
-        void** ppvObject);
+        void **ppvObject);
 
     ULONG (STDMETHODCALLTYPE *AddRef)(
         IPrint* This);
@@ -957,19 +957,19 @@ typedef struct IPrintVtbl {
 
     HRESULT (STDMETHODCALLTYPE *GetPageInfo)(
         IPrint* This,
-        LONG* pnFirstPage,
-        LONG* pcPages);
+        LONG *pnFirstPage,
+        LONG *pcPages);
 
     HRESULT (STDMETHODCALLTYPE *Print)(
         IPrint* This,
         DWORD grfFlags,
-        DVTARGETDEVICE** pptd,
-        PAGESET** ppPageSet,
-        STGMEDIUM* pstgmOptions,
-        IContinueCallback* pcallback,
+        DVTARGETDEVICE **pptd,
+        PAGESET **ppPageSet,
+        STGMEDIUM *pstgmOptions,
+        IContinueCallback *pcallback,
         LONG nFirstPage,
-        LONG* pcPagesPrinted,
-        LONG* pnLastPage);
+        LONG *pcPagesPrinted,
+        LONG *pnLastPage);
 
     END_INTERFACE
 } IPrintVtbl;
@@ -1000,8 +1000,8 @@ void __RPC_STUB IPrint_SetInitialPageNum_Stub(
     DWORD* pdwStubPhase);
 HRESULT CALLBACK IPrint_GetPageInfo_Proxy(
     IPrint* This,
-    LONG* pnFirstPage,
-    LONG* pcPages);
+    LONG *pnFirstPage,
+    LONG *pcPages);
 void __RPC_STUB IPrint_GetPageInfo_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -1010,13 +1010,13 @@ void __RPC_STUB IPrint_GetPageInfo_Stub(
 HRESULT CALLBACK IPrint_RemotePrint_Proxy(
     IPrint* This,
     DWORD grfFlags,
-    DVTARGETDEVICE** pptd,
-    PAGESET** pppageset,
-    RemSTGMEDIUM* pstgmOptions,
-    IContinueCallback* pcallback,
+    DVTARGETDEVICE **pptd,
+    PAGESET **pppageset,
+    RemSTGMEDIUM *pstgmOptions,
+    IContinueCallback *pcallback,
     LONG nFirstPage,
-    LONG* pcPagesPrinted,
-    LONG* pnLastPage);
+    LONG *pcPagesPrinted,
+    LONG *pnLastPage);
 void __RPC_STUB IPrint_RemotePrint_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -1025,23 +1025,23 @@ void __RPC_STUB IPrint_RemotePrint_Stub(
 HRESULT CALLBACK IPrint_Print_Proxy(
     IPrint* This,
     DWORD grfFlags,
-    DVTARGETDEVICE** pptd,
-    PAGESET** ppPageSet,
-    STGMEDIUM* pstgmOptions,
-    IContinueCallback* pcallback,
+    DVTARGETDEVICE **pptd,
+    PAGESET **ppPageSet,
+    STGMEDIUM *pstgmOptions,
+    IContinueCallback *pcallback,
     LONG nFirstPage,
-    LONG* pcPagesPrinted,
-    LONG* pnLastPage);
+    LONG *pcPagesPrinted,
+    LONG *pnLastPage);
 HRESULT __RPC_STUB IPrint_Print_Stub(
     IPrint* This,
     DWORD grfFlags,
-    DVTARGETDEVICE** pptd,
-    PAGESET** pppageset,
-    RemSTGMEDIUM* pstgmOptions,
-    IContinueCallback* pcallback,
+    DVTARGETDEVICE **pptd,
+    PAGESET **pppageset,
+    RemSTGMEDIUM *pstgmOptions,
+    IContinueCallback *pcallback,
     LONG nFirstPage,
-    LONG* pcPagesPrinted,
-    LONG* pnLastPage);
+    LONG *pcPagesPrinted,
+    LONG *pnLastPage);
 
 #endif  /* __IPrint_INTERFACE_DEFINED__ */
 
