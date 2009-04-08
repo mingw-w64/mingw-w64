@@ -334,7 +334,7 @@ typedef struct _DDSCAPS {
 #define DDSCAPS2_RESERVED2              0x00000040
 /* indicates surface will never be locked again */
 #define DDSCAPS2_OPAQUE                 0x00000080
-/* set at CreateSurface() time to indicate antialising will be used */
+/* set at CreateSurface() time to indicate antialiasing will be used */
 #define DDSCAPS2_HINTANTIALIASING       0x00000100
 /* set at CreateSurface() time to indicate cubic environment map */
 #define DDSCAPS2_CUBEMAP                0x00000200
@@ -374,9 +374,9 @@ typedef struct _DDCAPS_DX7		/* DirectX 7 version of caps struct */
 {
     DWORD	dwSize;                 /* size of the DDDRIVERCAPS structure */
     DWORD	dwCaps;                 /* driver specific capabilities */
-    DWORD	dwCaps2;                /* more driver specific capabilites */
+    DWORD	dwCaps2;                /* more driver specific capabilities */
     DWORD	dwCKeyCaps;             /* color key capabilities of the surface */
-    DWORD	dwFXCaps;               /* driver specific stretching and effects capabilites */
+    DWORD	dwFXCaps;               /* driver specific stretching and effects capabilities */
     DWORD	dwFXAlphaCaps;          /* alpha driver specific capabilities */
     DWORD	dwPalCaps;              /* palette capabilities */
     DWORD	dwSVCaps;               /* stereo vision capabilities */
@@ -397,7 +397,7 @@ typedef struct _DDCAPS_DX7		/* DirectX 7 version of caps struct */
     DWORD	dwAlignBoundaryDest;    /* dest rectangle alignment */
     DWORD	dwAlignSizeDest;        /* dest rectangle byte size */
     DWORD	dwAlignStrideAlign;     /* stride alignment */
-    DWORD	dwRops[DD_ROP_SPACE];   /* ROPS supported */
+    DWORD	dwRops[DD_ROP_SPACE];   /* ROPs supported */
     DDSCAPS	ddsOldCaps;             /* old DDSCAPS - superseded for DirectX6+ */
     DWORD	dwMinOverlayStretch;    /* minimum overlay stretch factor multiplied by 1000, eg 1000 == 1.0, 1300 == 1.3 */
     DWORD	dwMaxOverlayStretch;    /* maximum overlay stretch factor multiplied by 1000, eg 1000 == 1.0, 1300 == 1.3 */
@@ -411,15 +411,15 @@ typedef struct _DDCAPS_DX7		/* DirectX 7 version of caps struct */
     DWORD	dwSVBCaps;              /* driver specific capabilities for System->Vmem blts */
     DWORD	dwSVBCKeyCaps;          /* driver color key capabilities for System->Vmem blts */
     DWORD	dwSVBFXCaps;            /* driver FX capabilities for System->Vmem blts */
-    DWORD	dwSVBRops[DD_ROP_SPACE];/* ROPS supported for System->Vmem blts */
+    DWORD	dwSVBRops[DD_ROP_SPACE];/* ROPs supported for System->Vmem blts */
     DWORD	dwVSBCaps;              /* driver specific capabilities for Vmem->System blts */
     DWORD	dwVSBCKeyCaps;          /* driver color key capabilities for Vmem->System blts */
     DWORD	dwVSBFXCaps;            /* driver FX capabilities for Vmem->System blts */
-    DWORD	dwVSBRops[DD_ROP_SPACE];/* ROPS supported for Vmem->System blts */
+    DWORD	dwVSBRops[DD_ROP_SPACE];/* ROPs supported for Vmem->System blts */
     DWORD	dwSSBCaps;              /* driver specific capabilities for System->System blts */
     DWORD	dwSSBCKeyCaps;          /* driver color key capabilities for System->System blts */
     DWORD	dwSSBFXCaps;            /* driver FX capabilities for System->System blts */
-    DWORD	dwSSBRops[DD_ROP_SPACE];/* ROPS supported for System->System blts */
+    DWORD	dwSSBRops[DD_ROP_SPACE];/* ROPs supported for System->System blts */
     DWORD       dwMaxVideoPorts;        /* maximum number of usable video ports */
     DWORD   	dwCurrVideoPorts;       /* current number of video ports used */
     DWORD   	dwSVBCaps2;             /* more driver specific capabilities for System->Vmem blts */
@@ -427,7 +427,7 @@ typedef struct _DDCAPS_DX7		/* DirectX 7 version of caps struct */
     DWORD   	dwNLVBCaps2;            /* more driver specific capabilities non-local->local vidmem blts */
     DWORD   	dwNLVBCKeyCaps;         /* driver color key capabilities for non-local->local vidmem blts */
     DWORD   	dwNLVBFXCaps;           /* driver FX capabilities for non-local->local blts */
-    DWORD   	dwNLVBRops[DD_ROP_SPACE]; /* ROPS supported for non-local->local blts */
+    DWORD   	dwNLVBRops[DD_ROP_SPACE]; /* ROPs supported for non-local->local blts */
     DDSCAPS2    ddsCaps;		/* surface capabilities */
 } DDCAPS_DX7,*LPDDCAPS_DX7;
 
@@ -435,9 +435,9 @@ typedef struct _DDCAPS_DX6		/* DirectX 6 version of caps struct */
 {
     DWORD	dwSize;                 /* size of the DDDRIVERCAPS structure */
     DWORD	dwCaps;                 /* driver specific capabilities */
-    DWORD	dwCaps2;                /* more driver specific capabilites */
+    DWORD	dwCaps2;                /* more driver specific capabilities */
     DWORD	dwCKeyCaps;             /* color key capabilities of the surface */
-    DWORD	dwFXCaps;               /* driver specific stretching and effects capabilites */
+    DWORD	dwFXCaps;               /* driver specific stretching and effects capabilities */
     DWORD	dwFXAlphaCaps;          /* alpha driver specific capabilities */
     DWORD	dwPalCaps;              /* palette capabilities */
     DWORD	dwSVCaps;               /* stereo vision capabilities */
@@ -458,7 +458,7 @@ typedef struct _DDCAPS_DX6		/* DirectX 6 version of caps struct */
     DWORD	dwAlignBoundaryDest;    /* dest rectangle alignment */
     DWORD	dwAlignSizeDest;        /* dest rectangle byte size */
     DWORD	dwAlignStrideAlign;     /* stride alignment */
-    DWORD	dwRops[DD_ROP_SPACE];   /* ROPS supported */
+    DWORD	dwRops[DD_ROP_SPACE];   /* ROPs supported */
     DDSCAPS	ddsOldCaps;             /* old DDSCAPS - superseded for DirectX6+ */
     DWORD	dwMinOverlayStretch;    /* minimum overlay stretch factor multiplied by 1000, eg 1000 == 1.0, 1300 == 1.3 */
     DWORD	dwMaxOverlayStretch;    /* maximum overlay stretch factor multiplied by 1000, eg 1000 == 1.0, 1300 == 1.3 */
@@ -472,15 +472,15 @@ typedef struct _DDCAPS_DX6		/* DirectX 6 version of caps struct */
     DWORD	dwSVBCaps;              /* driver specific capabilities for System->Vmem blts */
     DWORD	dwSVBCKeyCaps;          /* driver color key capabilities for System->Vmem blts */
     DWORD	dwSVBFXCaps;            /* driver FX capabilities for System->Vmem blts */
-    DWORD	dwSVBRops[DD_ROP_SPACE];/* ROPS supported for System->Vmem blts */
+    DWORD	dwSVBRops[DD_ROP_SPACE];/* ROPs supported for System->Vmem blts */
     DWORD	dwVSBCaps;              /* driver specific capabilities for Vmem->System blts */
     DWORD	dwVSBCKeyCaps;          /* driver color key capabilities for Vmem->System blts */
     DWORD	dwVSBFXCaps;            /* driver FX capabilities for Vmem->System blts */
-    DWORD	dwVSBRops[DD_ROP_SPACE];/* ROPS supported for Vmem->System blts */
+    DWORD	dwVSBRops[DD_ROP_SPACE];/* ROPs supported for Vmem->System blts */
     DWORD	dwSSBCaps;              /* driver specific capabilities for System->System blts */
     DWORD	dwSSBCKeyCaps;          /* driver color key capabilities for System->System blts */
     DWORD	dwSSBFXCaps;            /* driver FX capabilities for System->System blts */
-    DWORD	dwSSBRops[DD_ROP_SPACE];/* ROPS supported for System->System blts */
+    DWORD	dwSSBRops[DD_ROP_SPACE];/* ROPs supported for System->System blts */
     DWORD       dwMaxVideoPorts;        /* maximum number of usable video ports */
     DWORD   	dwCurrVideoPorts;       /* current number of video ports used */
     DWORD   	dwSVBCaps2;             /* more driver specific capabilities for System->Vmem blts */
@@ -488,7 +488,7 @@ typedef struct _DDCAPS_DX6		/* DirectX 6 version of caps struct */
     DWORD   	dwNLVBCaps2;            /* more driver specific capabilities non-local->local vidmem blts */
     DWORD   	dwNLVBCKeyCaps;         /* driver color key capabilities for non-local->local vidmem blts */
     DWORD   	dwNLVBFXCaps;           /* driver FX capabilities for non-local->local blts */
-    DWORD   	dwNLVBRops[DD_ROP_SPACE]; /* ROPS supported for non-local->local blts */
+    DWORD   	dwNLVBRops[DD_ROP_SPACE]; /* ROPs supported for non-local->local blts */
     /* and one new member for DirectX 6 */
     DDSCAPS2    ddsCaps;		/* surface capabilities */
 } DDCAPS_DX6,*LPDDCAPS_DX6;
@@ -497,9 +497,9 @@ typedef struct _DDCAPS_DX5		/* DirectX5 version of caps struct */
 {
     DWORD	dwSize;                 /* size of the DDDRIVERCAPS structure */
     DWORD	dwCaps;                 /* driver specific capabilities */
-    DWORD	dwCaps2;                /* more driver specific capabilites */
+    DWORD	dwCaps2;                /* more driver specific capabilities */
     DWORD	dwCKeyCaps;             /* color key capabilities of the surface */
-    DWORD	dwFXCaps;               /* driver specific stretching and effects capabilites */
+    DWORD	dwFXCaps;               /* driver specific stretching and effects capabilities */
     DWORD	dwFXAlphaCaps;          /* alpha driver specific capabilities */
     DWORD	dwPalCaps;              /* palette capabilities */
     DWORD	dwSVCaps;               /* stereo vision capabilities */
@@ -520,7 +520,7 @@ typedef struct _DDCAPS_DX5		/* DirectX5 version of caps struct */
     DWORD	dwAlignBoundaryDest;    /* dest rectangle alignment */
     DWORD	dwAlignSizeDest;        /* dest rectangle byte size */
     DWORD	dwAlignStrideAlign;     /* stride alignment */
-    DWORD	dwRops[DD_ROP_SPACE];   /* ROPS supported */
+    DWORD	dwRops[DD_ROP_SPACE];   /* ROPs supported */
     DDSCAPS	ddsCaps;                /* DDSCAPS structure has all the general capabilities */
     DWORD	dwMinOverlayStretch;    /* minimum overlay stretch factor multiplied by 1000, eg 1000 == 1.0, 1300 == 1.3 */
     DWORD	dwMaxOverlayStretch;    /* maximum overlay stretch factor multiplied by 1000, eg 1000 == 1.0, 1300 == 1.3 */
@@ -534,15 +534,15 @@ typedef struct _DDCAPS_DX5		/* DirectX5 version of caps struct */
     DWORD	dwSVBCaps;              /* driver specific capabilities for System->Vmem blts */
     DWORD	dwSVBCKeyCaps;          /* driver color key capabilities for System->Vmem blts */
     DWORD	dwSVBFXCaps;            /* driver FX capabilities for System->Vmem blts */
-    DWORD	dwSVBRops[DD_ROP_SPACE];/* ROPS supported for System->Vmem blts */
+    DWORD	dwSVBRops[DD_ROP_SPACE];/* ROPs supported for System->Vmem blts */
     DWORD	dwVSBCaps;              /* driver specific capabilities for Vmem->System blts */
     DWORD	dwVSBCKeyCaps;          /* driver color key capabilities for Vmem->System blts */
     DWORD	dwVSBFXCaps;            /* driver FX capabilities for Vmem->System blts */
-    DWORD	dwVSBRops[DD_ROP_SPACE];/* ROPS supported for Vmem->System blts */
+    DWORD	dwVSBRops[DD_ROP_SPACE];/* ROPs supported for Vmem->System blts */
     DWORD	dwSSBCaps;              /* driver specific capabilities for System->System blts */
     DWORD	dwSSBCKeyCaps;          /* driver color key capabilities for System->System blts */
     DWORD	dwSSBFXCaps;            /* driver FX capabilities for System->System blts */
-    DWORD	dwSSBRops[DD_ROP_SPACE];/* ROPS supported for System->System blts */
+    DWORD	dwSSBRops[DD_ROP_SPACE];/* ROPs supported for System->System blts */
     /* the following are the new DirectX 5 members */
     DWORD       dwMaxVideoPorts;        /* maximum number of usable video ports */
     DWORD   	dwCurrVideoPorts;       /* current number of video ports used */
@@ -551,16 +551,16 @@ typedef struct _DDCAPS_DX5		/* DirectX5 version of caps struct */
     DWORD   	dwNLVBCaps2;            /* more driver specific capabilities non-local->local vidmem blts */
     DWORD   	dwNLVBCKeyCaps;         /* driver color key capabilities for non-local->local vidmem blts */
     DWORD   	dwNLVBFXCaps;           /* driver FX capabilities for non-local->local blts */
-    DWORD   	dwNLVBRops[DD_ROP_SPACE]; /* ROPS supported for non-local->local blts */
+    DWORD   	dwNLVBRops[DD_ROP_SPACE]; /* ROPs supported for non-local->local blts */
 } DDCAPS_DX5,*LPDDCAPS_DX5;
 
 typedef struct _DDCAPS_DX3		/* DirectX3 version of caps struct */
 {
     DWORD	dwSize;                 /* size of the DDDRIVERCAPS structure */
     DWORD	dwCaps;                 /* driver specific capabilities */
-    DWORD	dwCaps2;                /* more driver specific capabilites */
+    DWORD	dwCaps2;                /* more driver specific capabilities */
     DWORD	dwCKeyCaps;             /* color key capabilities of the surface */
-    DWORD	dwFXCaps;               /* driver specific stretching and effects capabilites */
+    DWORD	dwFXCaps;               /* driver specific stretching and effects capabilities */
     DWORD	dwFXAlphaCaps;          /* alpha driver specific capabilities */
     DWORD	dwPalCaps;              /* palette capabilities */
     DWORD	dwSVCaps;               /* stereo vision capabilities */
@@ -581,7 +581,7 @@ typedef struct _DDCAPS_DX3		/* DirectX3 version of caps struct */
     DWORD	dwAlignBoundaryDest;    /* dest rectangle alignment */
     DWORD	dwAlignSizeDest;        /* dest rectangle byte size */
     DWORD	dwAlignStrideAlign;     /* stride alignment */
-    DWORD	dwRops[DD_ROP_SPACE];   /* ROPS supported */
+    DWORD	dwRops[DD_ROP_SPACE];   /* ROPs supported */
     DDSCAPS	ddsCaps;                /* DDSCAPS structure has all the general capabilities */
     DWORD	dwMinOverlayStretch;    /* minimum overlay stretch factor multiplied by 1000, eg 1000 == 1.0, 1300 == 1.3 */
     DWORD	dwMaxOverlayStretch;    /* maximum overlay stretch factor multiplied by 1000, eg 1000 == 1.0, 1300 == 1.3 */
@@ -595,15 +595,15 @@ typedef struct _DDCAPS_DX3		/* DirectX3 version of caps struct */
     DWORD	dwSVBCaps;              /* driver specific capabilities for System->Vmem blts */
     DWORD	dwSVBCKeyCaps;          /* driver color key capabilities for System->Vmem blts */
     DWORD	dwSVBFXCaps;            /* driver FX capabilities for System->Vmem blts */
-    DWORD	dwSVBRops[DD_ROP_SPACE];/* ROPS supported for System->Vmem blts */
+    DWORD	dwSVBRops[DD_ROP_SPACE];/* ROPs supported for System->Vmem blts */
     DWORD	dwVSBCaps;              /* driver specific capabilities for Vmem->System blts */
     DWORD	dwVSBCKeyCaps;          /* driver color key capabilities for Vmem->System blts */
     DWORD	dwVSBFXCaps;            /* driver FX capabilities for Vmem->System blts */
-    DWORD	dwVSBRops[DD_ROP_SPACE];/* ROPS supported for Vmem->System blts */
+    DWORD	dwVSBRops[DD_ROP_SPACE];/* ROPs supported for Vmem->System blts */
     DWORD	dwSSBCaps;              /* driver specific capabilities for System->System blts */
     DWORD	dwSSBCKeyCaps;          /* driver color key capabilities for System->System blts */
     DWORD	dwSSBFXCaps;            /* driver FX capabilities for System->System blts */
-    DWORD	dwSSBRops[DD_ROP_SPACE];/* ROPS supported for System->System blts */
+    DWORD	dwSSBRops[DD_ROP_SPACE];/* ROPs supported for System->System blts */
     DWORD	dwReserved4;
     DWORD	dwReserved5;
     DWORD	dwReserved6;

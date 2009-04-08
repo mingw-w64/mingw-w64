@@ -821,7 +821,7 @@ typedef enum _D3DFORMAT {
     D3DFMT_INDEX16              = 101,
     D3DFMT_INDEX32              = 102,
     D3DFMT_Q16W16V16U16         = 110,
-    /* Flaoting point formats */
+    /* Floating point formats */
     D3DFMT_R16F                 = 111,
     D3DFMT_G16R16F              = 112,
     D3DFMT_A16B16G16R16F        = 113,
