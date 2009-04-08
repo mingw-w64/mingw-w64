@@ -1,3 +1,10 @@
+2009-04-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crtexe.c (__mingw_AddVectoredExceptionHandler): Removed.
+	Don't call AddVectoredExceptionHandler in 32-bit case.
+	Don't set fs:[0] to -1.
+	* misc/delayimp.c (PULONG): Don't define in 32-bit case.
+
 2009-04-01  Kai Tietz  <kai.tietz@onevision.com>
 
         PR/2723829
