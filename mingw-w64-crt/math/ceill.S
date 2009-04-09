@@ -4,7 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 	.file	"ceill.S"
-	.code64
 	.text
 	.align 4
 .globl _ceill
