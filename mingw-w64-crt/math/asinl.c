@@ -13,7 +13,7 @@
 
 long double asinl (long double x)
 {
-  long double res;
+  long double res = 0.0L;
 
   asm (	"fld	%%st\n\t"
 	"fmul	%%st(0)\n\t"			/* x^2 */

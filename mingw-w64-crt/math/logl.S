@@ -31,12 +31,14 @@ _logl:
 	fstp	%st(1)		// x-1 : log(2)
 	fyl2xp1			// log(x)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 
 2:	fstp	%st(0)		// x : log(2)
 	fyl2x			// log(x)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 #else

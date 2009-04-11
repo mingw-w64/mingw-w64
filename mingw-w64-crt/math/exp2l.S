@@ -27,6 +27,7 @@ _exp2l:
 	fscale				/* e^x */
 	fstp	%st(1)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 
@@ -35,6 +36,7 @@ _exp2l:
 	fstp	%st
 	fldz				/* Set result to 0.  */
 2:	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 #else

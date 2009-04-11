@@ -25,6 +25,7 @@ _cosl:
 	fstp	%st(1)
 	fcos
 1:	movq %rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt (%rcx)
 	ret
 #else

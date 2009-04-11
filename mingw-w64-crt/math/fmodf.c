@@ -16,7 +16,7 @@
 float
 fmodf (float x, float y)
 {
-  float res;
+  float res = 0.0F;
 
   asm ("1:\tfprem\n\t"
        "fstsw   %%ax\n\t"

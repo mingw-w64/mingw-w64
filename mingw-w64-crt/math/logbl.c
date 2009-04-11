@@ -14,7 +14,7 @@
 long double
 logbl (long double x)
 {
-  long double res;
+  long double res = 0.0L;
 
   asm ("fxtract\n\t"
        "fstp	%%st" : "=t" (res) : "0" (x));

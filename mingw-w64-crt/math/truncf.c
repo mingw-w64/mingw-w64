@@ -9,7 +9,7 @@
 float
 truncf (float _x)
 {
-  float retval;
+  float retval = 0.0F;
   unsigned short saved_cw;
   unsigned short tmp_cw;
   __asm__ ("fnstcw %0;" : "=m" (saved_cw)); /* save FPU control word */

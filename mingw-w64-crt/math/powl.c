@@ -325,7 +325,7 @@ extern long double powl ( long double x, long double y);
 static __inline__ long double
 __fast_ldexpl (long double x, int expn)
 {
-  long double res;
+  long double res = 0.0L;
   __asm__ ("fscale"
   	    : "=t" (res)
 	    : "0" (x), "u" ((long double) expn));

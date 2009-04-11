@@ -28,7 +28,7 @@ nextafterl (long double x, long double y)
   /* The normal bit is explicit for long doubles, unlike
      float and double.  */
   static const unsigned long long normal_bit = 0x8000000000000000ull;
-
+  u.ld = 0.0L;
   if (isnan (y) || isnan (x))
     return x + y;
 

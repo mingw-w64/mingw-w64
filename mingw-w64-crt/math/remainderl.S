@@ -18,6 +18,7 @@ _remainderl:
 	jp	1b
 	fstp	%st(1)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 #else

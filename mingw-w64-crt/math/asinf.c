@@ -12,7 +12,7 @@
 
 float asinf (float x)
 {
-  float res;
+  float res = 0.0F;
 
   asm (	"fld	%%st\n\t"
 	"fmul	%%st(0)\n\t"			/* x^2 */

@@ -9,7 +9,7 @@
 long double
 truncl (long double _x)
 {
-  long double retval = 0.0;
+  long double retval = 0.0L;
   unsigned short saved_cw;
   unsigned short tmp_cw;
   __asm__ ("fnstcw %0;" : "=m" (saved_cw)); /* save FPU control word */

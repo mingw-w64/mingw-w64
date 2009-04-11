@@ -5,7 +5,7 @@
  */
 long double acosl (long double x)
 {
-  long double res;
+  long double res = 0.0L;
 
   /* acosl = atanl (sqrtl(1 - x^2) / x) */
   asm (	"fld	%%st\n\t"

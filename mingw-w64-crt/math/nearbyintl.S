@@ -15,9 +15,9 @@ _nearbyintl:
 	pushq	%rax
 	pushq	%rcx
 	fnstcw	(%rsp)
-	movq	(%rsp), %rax
-	orq	$0x20, %rax
-	movq	%rax, 8(%rsp)
+	movl	(%rsp), %eax
+	orl	$0x20, %eax
+	movl	%eax, 8(%rsp)
 	fldcw	8(%rsp)
 	frndint
 	fclex
@@ -25,6 +25,7 @@ _nearbyintl:
 	popq	%rcx
 	popq	%rax
 	movq	%r8,%rax
+	movq	$0,8(%r8)
 	fstpt	(%r8)
 	ret
 #else

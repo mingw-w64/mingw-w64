@@ -14,7 +14,7 @@
 float
 atanf (float x)
 {
-  float res;
+  float res = 0.0F;
 
   asm ("fld1\n\t"
        "fpatan" : "=t" (res) : "0" (x));

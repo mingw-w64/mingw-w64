@@ -16,6 +16,7 @@ _sinl:
 	testl	$0x400,%eax
 	jnz	1f
 	movq	%rcx,%rax
+        movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 1:	fldpi
@@ -28,6 +29,7 @@ _sinl:
 	fstp	%st(1)
 	fsin
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 #else

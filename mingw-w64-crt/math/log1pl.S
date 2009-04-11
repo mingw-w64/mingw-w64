@@ -41,11 +41,13 @@ _log1pl:
 	faddl	one
 	fyl2x
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 
 2:	fyl2xp1
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 
@@ -53,6 +55,7 @@ _log1pl:
 	fstp	%st(1)
 	fstp	%st(1)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 #else

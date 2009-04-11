@@ -8,7 +8,7 @@
 double
 fabs (double x)
 {
-  double res;
+  double res = 0.0;
 
   asm ("fabs;" : "=t" (res) : "0" (x));
   return res;

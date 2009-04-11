@@ -10,8 +10,9 @@
 .globl _exp2f
 	.def	_exp2f;	.scl	2;	.type	32;	.endef
 _exp2f:
-	movss	%xmm0,-12(%rsp)
-	flds	-12(%rsp)
+	subq	$24, %rsp
+	movss	%xmm0,(%rsp)
+	flds	(%rsp)
 	fxam				/* Is NaN or +-Inf?  */
 	fstsw	%ax
 	movb	$0x45, %dh
@@ -27,16 +28,18 @@ _exp2f:
 	faddp				/* 2^(fract(x)) */
 	fscale				/* e^x */
 	fstp	%st(1)
-	fstps	-12(%rsp)
-	movss	-12(%rsp),%xmm0
+	fstps	(%rsp)
+	movss	(%rsp),%xmm0
+	addq	$24, %rsp
 	ret
 
 1:	testl	$0x200, %eax		/* Test sign.  */
 	jz	2f			/* If positive, jump.  */
 	fstp	%st
 	fldz				/* Set result to 0.  */
-2:	fstps	-12(%rsp)
-	movss	-12(%rsp),%xmm0
+2:	fstps	(%rsp)
+	movss	(%rsp),%xmm0
+	addq	$24, %rsp
 	ret
 #else
 	.file	"exp2f.S"

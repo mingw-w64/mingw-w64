@@ -30,6 +30,7 @@ _ceill:
 
 	addq	$16,%rsp
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 #else

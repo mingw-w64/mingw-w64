@@ -3,44 +3,34 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
-	.file	"floorl.S"
+	.file	"ceilf.S"
 	.text
-	.align 16
-.globl _floorl
-	.def	_floorl;	.scl	2;	.type	32;	.endef
-_floorl:
-	fldt	(%rdx)
-	subq	$16,%rsp
+	.align 4
+.globl _ceilf
+	.def	_ceilf;	.scl	2;	.type	32;	.endef
+_ceilf:
+#ifdef _WIN64
+	subq	$24,%rsp
+	movss	%xmm0,8(%rsp)
+	flds	8(%rsp)
 
-	fstcw	8(%rsp)			/* store fpu control word */
+	fstcw	4(%rsp)			/* store fpu control word */
 
-	/* We use here %edx although only the low 1 bits are defined.
-	   But none of the operations should care and they are faster
-	   than the 16 bit operations.  */
-	movl	$0x400,%edx		/* round towards -oo */
-	orl	8(%rsp),%edx
-	andl	$0xf7ff,%edx
+	movl	$0x0800,%edx		/* round towards +oo */
+	orl		4(%rsp),%edx
+	andl	$0xfbff,%edx
 	movl	%edx,(%rsp)
 	fldcw	(%rsp)			/* load modified control word */
 
 	frndint				/* round */
 
-	fldcw	8(%rsp)			/* restore original control word */
-
-	addq	$16,%rsp
-	movq	%rcx,%rax
-	movq	$0,8(%rcx)
-	fstpt	(%rcx)
+	fldcw	4(%rsp)			/* restore original control word */
+	fstps	8(%rsp)
+	movss	8(%rsp),%xmm0
+	addq	$24,%rsp
 	ret
 #else
-	.file	"floorl.S"
-	.text
-	.align 4
-.globl _floorl
-	.def	_floorl;	.scl	2;	.type	32;	.endef
-_floorl:
-	fldt	4(%esp)
+	flds	4(%esp)
 	subl	$8,%esp
 
 	fstcw	4(%esp)			/* store fpu control word */
@@ -48,9 +38,9 @@ _floorl:
 	/* We use here %edx although only the low 1 bits are defined.
 	   But none of the operations should care and they are faster
 	   than the 16 bit operations.  */
-	movl	$0x400,%edx		/* round towards -oo */
+	movl	$0x0800,%edx		/* round towards +oo */
 	orl	4(%esp),%edx
-	andl	$0xf7ff,%edx
+	andl	$0xfbff,%edx
 	movl	%edx,(%esp)
 	fldcw	(%esp)			/* load modified control word */
 

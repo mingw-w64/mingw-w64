@@ -6,7 +6,7 @@
 #include <math.h>
 
 float rintf (float x){
-  float retval;
+  float retval = 0.0F;
   __asm__ ("frndint;": "=t" (retval) : "0" (x));
   return retval;
 }

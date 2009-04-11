@@ -22,6 +22,7 @@ _copysignl:
 	andl	$0x7fff,%eax
 	orl	%edx,%eax
 	fldt	(%r9)
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	movl	%eax,8(%rcx)
 	movq	%rcx,%rax

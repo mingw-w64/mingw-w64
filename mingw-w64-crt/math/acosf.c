@@ -13,7 +13,7 @@
 float
 acosf (float x)
 {
-  float res;
+  float res = 0.0F;
 
   /* acosl = atanl (sqrtl(1 - x^2) / x) */
   asm (	"fld	%%st\n\t"

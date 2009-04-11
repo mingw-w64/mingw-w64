@@ -6,7 +6,7 @@
 long double
 atanl (long double x)
 {
-  long double res;
+  long double res = 0.0L;
 
   asm ("fld1\n\t"
        "fpatan"

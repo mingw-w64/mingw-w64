@@ -35,12 +35,14 @@ _log10l:
 	fstp	%st(1)		// x-1 : log10(2)
 	fyl2xp1			// log10(x)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 
 2:	fstp	%st(0)		// x : log10(2)
 	fyl2x			// log10(x)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 
@@ -48,6 +50,7 @@ _log10l:
 	fstp	%st(1)
 	fstp	%st(1)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 #else

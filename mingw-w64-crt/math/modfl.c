@@ -12,7 +12,7 @@
 long double
 modfl (long double value, long double* iptr)
 {
-  long double int_part;
+  long double int_part = 0.0L;
   unsigned short saved_cw;
   unsigned short tmp_cw;
   /* truncate */ 

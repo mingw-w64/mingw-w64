@@ -8,7 +8,7 @@
 
 long double ldexpl(long double x, int expn)
 {
-  long double res;
+  long double res = 0.0L;
   if (!isfinite (x) || x == 0.0L)
     return x;
 

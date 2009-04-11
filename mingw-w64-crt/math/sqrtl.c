@@ -18,7 +18,7 @@ sqrtl (long double x)
     }
   else
     {
-      long double res;
+      long double res = 0.0L;
       asm ("fsqrt" : "=t" (res) : "0" (x));
       return res;
     }

@@ -7,7 +7,7 @@
 
 long lrintf (float x) 
 {
-  long retval;
+  long retval = 0l;
   __asm__ __volatile__							      \
     ("fistpl %0"  : "=m" (retval) : "t" (x) : "st");				      \
   return retval;

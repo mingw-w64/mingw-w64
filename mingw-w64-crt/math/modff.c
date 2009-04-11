@@ -12,7 +12,7 @@
 float
 modff (float value, float* iptr)
 {
-  float int_part;
+  float int_part = 0.0F;
   unsigned short saved_cw;
   unsigned short tmp_cw;
   /* truncate */ 

@@ -14,7 +14,7 @@
 float
 logbf (float x)
 {
-  float res;
+  float res = 0.0F;
   asm ("fxtract\n\t"
        "fstp	%%st" : "=t" (res) : "0" (x));
   return res;

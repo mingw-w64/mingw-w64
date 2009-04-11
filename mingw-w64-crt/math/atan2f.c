@@ -14,7 +14,7 @@
 float
 atan2f (float y, float x)
 {
-  float res;
+  float res = 0.0F;
   asm ("fpatan" : "=t" (res) : "u" (y), "0" (x) : "st(1)");
   return res;
 }

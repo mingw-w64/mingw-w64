@@ -63,6 +63,7 @@ L19:
 L24:
 	popq %rsi
 	movq	%r9,%rax
+	movq	$0,8(%r9)
 	fstpt	(%r9)
 	leave
 	ret

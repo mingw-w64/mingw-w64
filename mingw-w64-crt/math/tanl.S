@@ -17,6 +17,7 @@ _tanl:
 	jnz	1f
 	fstp	%st(0)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 1:	fldpi
@@ -30,6 +31,7 @@ _tanl:
 	fptan
 	fstp	%st(0)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 #else

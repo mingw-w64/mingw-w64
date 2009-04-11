@@ -12,7 +12,7 @@ static long double c1 = 7.05260771340735992468e-6L;
 static long double
 __expl (long double x)
 {
-  long double res;
+  long double res = 0.0L;
   asm ("fldl2e\n\t"             /* 1  log2(e)         */
        "fmul %%st(1),%%st\n\t"  /* 1  x log2(e)       */
        "frndint\n\t"            /* 1  i               */

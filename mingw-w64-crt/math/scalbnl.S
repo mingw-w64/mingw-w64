@@ -10,12 +10,13 @@
 .globl _scalbnl
 	.def	_scalbnl;	.scl	2;	.type	32;	.endef
 _scalbnl:
-	movq	%r8,-16(%rsp)
-	fildl	-16(%rsp)
+	movq	%r8, 24(%rsp)
+	fildl	24(%rsp)
 	fldt	(%rdx)
 	fscale
 	fstp	%st(1)
 	movq	%rcx,%rax
+	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
 
