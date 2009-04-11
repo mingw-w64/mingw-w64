@@ -23,6 +23,7 @@ THIS SOFTWARE.
 ****************************************************************/
 
 /* Try to deduce arith.h from arithmetic properties. */
+#ifdef MINGW_BUILD_GEN
 
 #include <stdio.h>
 
@@ -181,3 +182,5 @@ main()
 	fprintf(f, "/* Unknown arithmetic */\n");
 	return 1;
 	}
+#endif /* MINGW_BUILD_GEN */
+

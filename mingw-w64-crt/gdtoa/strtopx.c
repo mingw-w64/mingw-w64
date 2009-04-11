@@ -63,6 +63,7 @@ __strtopx(CONST char *s, char **sp, long double *V)
 	Long exp;
 	int k;
 	UShort *L = (UShort*)V;
+	*V=0.0L;
 
 	k = __strtodg(s, sp, &fpi, &exp, bits);
 	switch(k & STRTOG_Retmask) {
