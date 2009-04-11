@@ -143,7 +143,7 @@ scalb
 finite
 fpclass
 ; C99 functions
-cabs
+;cabs
 hypot
-logb
+;logb
 nextafter
