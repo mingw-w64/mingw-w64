@@ -480,7 +480,7 @@ typedef long double double_t;
 #if !(__MINGW_GNUC_PREREQ (4, 0) && defined (__FAST_MATH__))
   __CRT_INLINE double __cdecl logb (double x)
   {
-    double res;
+    double res = 0.0;
     __asm__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
     return res;
@@ -488,7 +488,7 @@ typedef long double double_t;
 
   __CRT_INLINE float __cdecl logbf (float x)
   {
-    float res;
+    float res = 0.0F;
     __asm__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
     return res;
@@ -496,7 +496,7 @@ typedef long double double_t;
 
   __CRT_INLINE long double __cdecl logbl (long double x)
   {
-    long double res;
+    long double res = 0.0l;
     __asm__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
     return res;
@@ -528,7 +528,7 @@ typedef long double double_t;
 #if !defined (__ia64__)
   __CRT_INLINE float __cdecl fabsf (float x)
   {
-    float res;
+    float res = 0.0F;
     __asm__ ("fabs;" : "=t" (res) : "0" (x));
     return res;
   }
@@ -539,7 +539,7 @@ typedef long double double_t;
 #if !defined (__ia64__)
   __CRT_INLINE long double __cdecl fabsl (long double x)
   {
-    long double res;
+    long double res = 0.0l;
     __asm__ ("fabs;" : "=t" (res) : "0" (x));
     return res;
   }
@@ -617,28 +617,28 @@ extern long long __cdecl llrintl (long double);
 #if !(__MINGW_GNUC_PREREQ (4, 0) && defined __FAST_MATH__ )
   __CRT_INLINE double __cdecl rint (double x)
   {
-    double retval;
+    double retval = 0.0;
     __asm__ ("frndint;": "=t" (retval) : "0" (x));
     return retval;
   }
 
   __CRT_INLINE float __cdecl rintf (float x)
   {
-    float retval;
+    float retval = 0.0;
     __asm__ ("frndint;" : "=t" (retval) : "0" (x) );
     return retval;
   }
 
   __CRT_INLINE long double __cdecl rintl (long double x)
   {
-    long double retval;
+    long double retval = 0.0l;
     __asm__ ("frndint;" : "=t" (retval) : "0" (x) );
     return retval;
   }
 
   __CRT_INLINE long __cdecl lrint (double x) 
   {
-    long retval;  
+    long retval = 0;
     __asm__ __volatile__							      \
       ("fistpl %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
@@ -646,7 +646,7 @@ extern long long __cdecl llrintl (long double);
 
   __CRT_INLINE long __cdecl lrintf (float x) 
   {
-    long retval;
+    long retval = 0;
     __asm__ __volatile__							      \
       ("fistpl %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
@@ -654,7 +654,7 @@ extern long long __cdecl llrintl (long double);
 
   __CRT_INLINE long __cdecl lrintl (long double x) 
   {
-    long retval;
+    long retval = 0;
     __asm__ __volatile__							      \
       ("fistpl %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
@@ -662,7 +662,7 @@ extern long long __cdecl llrintl (long double);
 
   __CRT_INLINE long long __cdecl llrint (double x) 
   {
-    long long retval;
+    long long retval = 0ll;
     __asm__ __volatile__							      \
       ("fistpll %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
@@ -670,7 +670,7 @@ extern long long __cdecl llrintl (long double);
 
   __CRT_INLINE long long __cdecl llrintf (float x) 
   {
-    long long retval;
+    long long retval = 0ll;
     __asm__ __volatile__							      \
       ("fistpll %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
@@ -678,7 +678,7 @@ extern long long __cdecl llrintl (long double);
 
   __CRT_INLINE long long __cdecl llrintl (long double x) 
   {
-    long long retval;
+    long long retval = 0ll;
     __asm__ __volatile__							      \
       ("fistpll %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
@@ -829,12 +829,10 @@ extern long long __cdecl llrintl (long double);
 
 #ifdef _SIGN_DEFINED
   __CRT_INLINE long double _chgsignl(long double _Number) { return _chgsign((double)(_Number)); }
-  __CRT_INLINE long double _copysignl(long double _Number,long double _Sign) { return _copysign((double)(_Number),(double)(_Sign)); }
+#define _copysignl copysignl
 #endif
 
-#ifndef __cplusplus
-#define _hypotl(x,y) ((long double)_hypot((double)(x),(double)(y)))
-#endif
+#define _hypotl hypotl
 
 #ifndef	NO_OLDNAMES
 #define matherr _matherr
