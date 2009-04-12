@@ -1,3 +1,9 @@
+2009-04-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/misc.c (b2d): Don't initialize d to 0.0 despite the 'd is
+	used uninitialized' warning, otherwise gcc >= 4.4 miscompiles this
+	with >= -O2.  Should stay this way until at least gcc is fixed.
+
 2009-04-08  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/crtexe.c (__mingw_AddVectoredExceptionHandler): Removed.

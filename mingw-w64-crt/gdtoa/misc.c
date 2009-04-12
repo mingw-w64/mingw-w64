@@ -709,7 +709,8 @@ b2d
 {
 	ULong *xa, *xa0, w, y, z;
 	int k;
-	double d = 0.0;
+	double d; /* don't initialize to 0 despite the 'd is used uninitialized'
+		   warning, otherwise gcc >= 4.4 miscompiles this with >= -O2 */
 #ifdef VAX
 	ULong d0, d1;
 #else
