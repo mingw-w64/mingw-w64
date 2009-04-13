@@ -40,9 +40,15 @@ ulp
 #endif
 {
 	Long L;
+#ifdef __HAVE_GCC44
+	union _dbl_union a;
+	a.d = x;
+	L = (word0(a) & Exp_mask) - (P-1)*Exp_msk1;
+#else
 	double a = 0.0;
 
 	L = (word0(x) & Exp_mask) - (P-1)*Exp_msk1;
+#endif
 #ifndef Sudden_Underflow
 	if (L > 0) {
 #endif
@@ -66,5 +72,9 @@ ulp
 			}
 		}
 #endif
+#ifdef __HAVE_GCC44
+	return dval(a);
+#else
 	return a;
+#endif
 	}

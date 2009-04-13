@@ -77,7 +77,11 @@ ratio
 	(Bigint *a, Bigint *b)
 #endif
 {
-	double da = 0.0, db = 0.0;
+#ifdef __HAVE_GCC44
+	union _dbl_union da, db;
+#else
+	double da, db;
+#endif
 	int k, ka, kb;
 
 	dval(da) = b2d(a, &ka);

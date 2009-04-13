@@ -1,3 +1,10 @@
+2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoaimp.h, gdtoa/misc.c,
+	gdtoa/smisc.c, gdtoa/strtodg.c gdtoa/ulp.c: Fixed gcc-4.4 strict
+	aliasing issues by adding some ifdef magic. strtopx.c still needs
+	some more work.
+
 2009-04-13  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crtexe.c (__mingw_vex): Removed.

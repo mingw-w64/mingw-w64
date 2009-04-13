@@ -76,10 +76,10 @@ THIS SOFTWARE.
  char *
 __dtoa
 #ifdef KR_headers
-	(d, mode, ndigits, decpt, sign, rve)
-	double d; int mode, ndigits, *decpt, *sign; char **rve;
+	(val, mode, ndigits, decpt, sign, rve)
+	double val; int mode, ndigits, *decpt, *sign; char **rve;
 #else
-	(double d, int mode, int ndigits, int *decpt, int *sign, char **rve)
+	(double val, int mode, int ndigits, int *decpt, int *sign, char **rve)
 #endif
 {
  /*	Arguments ndigits, decpt, sign are similar to those
@@ -125,13 +125,20 @@ __dtoa
 	ULong x;
 #endif
 	Bigint *b, *b1, *delta, *mlo, *mhi, *S;
-	double d2, ds, eps;
+	double ds;
 	char *s, *s0;
 #ifdef Honor_FLT_ROUNDS
 	int rounding;
 #endif
 #ifdef SET_INEXACT
 	int inexact, oldinexact;
+#endif
+#ifdef __HAVE_GCC44
+	union _dbl_union d, d2, eps;
+	d.d = val;
+#else
+#	define d val
+	double d2, eps;
 #endif
 
 #ifndef MULTIPLE_THREADS
@@ -751,3 +758,6 @@ __dtoa
 		*rve = s;
 	return s0;
 	}
+#ifndef __HAVE_GCC44
+#undef d
+#endif

@@ -264,7 +264,12 @@ extern "C" {
 Exactly one of IEEE_8087, IEEE_MC68k, VAX, or IBM should be defined.
 #endif
 
-typedef union { double d; ULong L[2]; } U;
+typedef union _dbl_union { double d; ULong L[2]; } dbl_union;
+
+#if (__GNUC__*100 + __GNUC_MINOR__) >= 404
+#undef YES_ALIAS
+#define __HAVE_GCC44
+#endif	/* gcc 4.4 */
 
 #ifdef YES_ALIAS
 #define dval(x) x
@@ -276,14 +281,29 @@ typedef union { double d; ULong L[2]; } U;
 #define word1(x) ((ULong *)&x)[1]
 #endif
 #else /* !YES_ALIAS */
+#ifdef __HAVE_GCC44
+/* gcc >= 4.4 at -O2 and higher is seriously allergic to aliasing
+   violations, unions must be used instead of typecast assignment:
+   in the following macros, the x argument must be of 'dbl_union'
+   type. */
 #ifdef IEEE_8087
-#define word0(x) ((U*)&x)->L[1]
-#define word1(x) ((U*)&x)->L[0]
+#define word0(x) x.L[1]
+#define word1(x) x.L[0]
 #else
-#define word0(x) ((U*)&x)->L[0]
-#define word1(x) ((U*)&x)->L[1]
+#define word0(x) x.L[0]
+#define word1(x) x.L[1]
 #endif
-#define dval(x) ((U*)&x)->d
+#define dval(x)  x.d
+#else
+#ifdef IEEE_8087
+#define word0(x) ((dbl_union*)&x)->L[1]
+#define word1(x) ((dbl_union*)&x)->L[0]
+#else
+#define word0(x) ((dbl_union*)&x)->L[0]
+#define word1(x) ((dbl_union*)&x)->L[1]
+#endif
+#define dval(x) ((dbl_union*)&x)->d
+#endif
 #endif /* YES_ALIAS */
 
 /* The following definition of Storeinc is appropriate for MIPS processors.

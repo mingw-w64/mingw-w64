@@ -709,8 +709,11 @@ b2d
 {
 	ULong *xa, *xa0, w, y, z;
 	int k;
-	double d; /* don't initialize to 0 despite the 'd is used uninitialized'
-		   warning, otherwise gcc >= 4.4 miscompiles this with >= -O2 */
+#ifdef __HAVE_GCC44
+	union _dbl_union d;
+#else
+	double d = 0.0;
+#endif
 #ifdef VAX
 	ULong d0, d1;
 #else
@@ -772,9 +775,9 @@ b2d
  Bigint *
 d2b
 #ifdef KR_headers
-	(d, e, bits) double d; int *e, *bits;
+	(val, e, bits) double val; int *e, *bits;
 #else
-	(double d, int *e, int *bits)
+	(double val, int *e, int *bits)
 #endif
 {
 	Bigint *b;
@@ -783,6 +786,11 @@ d2b
 #endif
 	int de, k;
 	ULong *x, y, z;
+#ifdef __HAVE_GCC44
+	union _dbl_union d;
+#else
+#	define d val;
+#endif
 #ifdef VAX
 	ULong d0, d1;
 	d0 = word0(d) >> 16 | word0(d) << 16;
@@ -792,6 +800,9 @@ d2b
 #define d1 word1(d)
 #endif
 
+#ifdef __HAVE_GCC44
+	d.d = val;
+#endif
 #ifdef Pack_32
 	b = Balloc(1);
 #else
@@ -904,6 +915,9 @@ d2b
 #endif
 	return b;
 	}
+#ifndef __HAVE_GCC44
+#undef d
+#endif
 #undef d0
 #undef d1
 
