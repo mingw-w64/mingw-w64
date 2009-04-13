@@ -90,7 +90,7 @@ extern "C" {
 extern char* __dtoa (double d, int mode, int ndigits, int *decpt,
 		     int *sign, char **rve);
 extern char* __gdtoa (FPI *fpi, int be, ULong *bits, int *kindp,
-		     int mode, int ndigits, int *decpt, char **rve));
+		     int mode, int ndigits, int *decpt, char **rve);
 extern void __freedtoa (char *);
 
 extern int __strtodg (const char *, char **, FPI *, Long *, ULong *);
