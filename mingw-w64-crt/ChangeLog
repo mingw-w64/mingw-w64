@@ -6,8 +6,9 @@
 	The IBM, CRAY and VAX macros still live in the gdtoa.h and gdtoaimp.h,
 	but all the actual code supporting them are deleted for more a clear
 	code.
-
-	* gd_arith.h, gd_qnan.h: Regenerated.
+	* gdtoa/gdtoa.h: For mingw32/64, define Long as int (32 bit integer)
+	instead of long. Undefine NO_LONG_LONG (we always have 'long long'.)
+	* gdtoa/gd_arith.h, gdtoa/gd_qnan.h: Regenerated.
 
 2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
 	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/g__fmt.c, gdtoa/g_dfmt.c,

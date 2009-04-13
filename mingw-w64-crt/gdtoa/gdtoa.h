@@ -37,6 +37,11 @@ THIS SOFTWARE.
 
 #include "gd_arith.h"
 
+#if defined(__MINGW32__) || defined(__MINGW64__)
+#define Long int	/* define Long as int32_t */
+#undef  NO_LONG_LONG	/* we have long long type */
+#endif	/* MinGW */
+
 #ifndef Long
 #define Long long
 #endif
