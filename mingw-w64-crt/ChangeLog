@@ -1,3 +1,8 @@
+2009-04-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crtexe.c (__mingw_vex): Removed.
+	Don't initialize gs:0 by -1.
+
 2009-04-12  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/misc.c (b2d): Don't initialize d to 0.0 despite the 'd is

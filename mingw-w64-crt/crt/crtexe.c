@@ -87,7 +87,6 @@ static _startupinfo startinfo;
 
 extern void _pei386_runtime_relocator (void);
 static CALLBACK long _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
-static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data);
 #ifdef WPRFLAG
 static void duplicate_ppstrings (int ac, wchar_t ***av);
 #else
@@ -211,15 +210,6 @@ __tmainCRTStartup (void)
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);
     
     _pei386_runtime_relocator ();
-    
-    #ifdef _WIN64
-    __asm__ __volatile__ (
-	"xorq %rax,%rax\n\t"
-	"decq %rax\n\t"
-	"movq %rax,%gs:0" "\n");
-    AddVectoredExceptionHandler
-	 (0, (PVECTORED_EXCEPTION_HANDLER)__mingw_vex);
-    #endif
     SetUnhandledExceptionFilter (_gnu_exception_handler);
     
     _fpreset ();
@@ -405,33 +395,7 @@ _gnu_exception_handler (EXCEPTION_POINTERS * exception_data)
   return action;
 }
 
-static LONG __mingw_vex(EXCEPTION_POINTERS * exception_data)
-{
-  /* TODO this is not chainablem, therefore need rewrite. Disabled the ill code. */
-  #if 0
-  #ifdef _WIN64
-  __asm__ __volatile__ (
-      "movq %gs:0,%rax" "\n\t"
-      "orq %rax,%rax\n\t"
-      "jz l1\n\t"
-      "jmp *8(%rax)\n\r"
-      "l1:\n\t"
-      "nop\n");
-#else
-  __asm__ __volatile__ (
-      "movl %fs:0,%eax" "\n\t"
-      "orl %eax,%eax\n\t"
-      "jz l1\n\t"
-      "jmp *4(%eax)\n\r"
-      "l1:\n\t"
-      "nop\n");
-#endif
-#endif
-  return _gnu_exception_handler(exception_data);
-}
-
 #ifdef WPRFLAG
-
 static size_t wbytelen(const wchar_t *p)
 {
 	size_t ret = 1;
