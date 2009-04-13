@@ -126,14 +126,9 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 #ifdef SET_INEXACT
 	int inexact, oldinexact;
 #endif
-#ifdef __HAVE_GCC44
 	union _dbl_union d, d2, eps;
-	d.d = val;
-#else
-#	define d val
-	double d2, eps;
-#endif
 
+	d.d = val;
 #ifndef MULTIPLE_THREADS
 	if (dtoa_result) {
 		__freedtoa(dtoa_result);
@@ -149,25 +144,14 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 	else
 		*sign = 0;
 
-#if defined(IEEE_Arith) + defined(VAX)
-#ifdef IEEE_Arith
 	if ((word0(d) & Exp_mask) == Exp_mask)
-#else
-	if (word0(d)  == 0x8000)
-#endif
 	{
 		/* Infinity or NaN */
 		*decpt = 9999;
-#ifdef IEEE_Arith
 		if (!word1(d) && !(word0(d) & 0xfffff))
 			return nrv_alloc("Infinity", rve, 8);
-#endif
 		return nrv_alloc("NaN", rve, 3);
 	}
-#endif
-#ifdef IBM
-	dval(d) += 0; /* normalize */
-#endif
 	if (!dval(d)) {
 		*decpt = 1;
 		return nrv_alloc("0", rve, 1);
@@ -196,10 +180,6 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 		dval(d2) = dval(d);
 		word0(d2) &= Frac_mask1;
 		word0(d2) |= Exp_11;
-#ifdef IBM
-		if (( j = 11 - hi0bits(word0(d2) & Frac_mask) )!=0)
-			dval(d2) /= 1 << j;
-#endif
 
 		/* log(x)	~=~ log(1.5) + (x-1.5)/1.5
 		 * log10(x)	 =  log(x) / log(10)
@@ -224,10 +204,6 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 		 */
 
 		i -= Bias;
-#ifdef IBM
-		i <<= 2;
-		i += j;
-#endif
 #ifndef Sudden_Underflow
 		denorm = 0;
 	}
@@ -481,11 +457,7 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 #ifndef Sudden_Underflow
 			denorm ? be + (Bias + (P-1) - 1 + 1) :
 #endif
-#ifdef IBM
-			1 + 4*P - 3 - bbits + ((bbits + be - 1) & 3);
-#else
 			1 + P - bbits;
-#endif
 		b2 += i;
 		s2 += i;
 		mhi = i2b(1);
@@ -749,6 +721,3 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 		*rve = s;
 	return s0;
 }
-#ifndef __HAVE_GCC44
-#undef d
-#endif

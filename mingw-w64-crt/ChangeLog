@@ -1,4 +1,13 @@
 2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoaimp.h, gdtoa/misc.c,
+	gdtoa/smisc.c, gdtoa/strtodg.c, gdtoa/ulp.c: Revmoved support for IBM,
+	CRAY and VAX modes and replaced typecast assignments by union usage:
+	The IBM, CRAY and VAX macros still live in the gdtoa.h and gdtoaimp.h,
+	but all the actual code supporting them are deleted for more a clear
+	code.
+
+2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
 	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/g__fmt.c, gdtoa/g_dfmt.c,
 	gdtoa/g_ffmt.c, gdtoa/g_xfmt.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,
 	gdtoa/gdtoaimp.h, gdtoa/gethex.c, gdtoa/gmisc.c, gdtoa/hd_init.c,

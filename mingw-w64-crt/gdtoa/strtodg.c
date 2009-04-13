@@ -39,9 +39,6 @@ static const int
 fivesbits[] = {	 0,  3,  5,  7, 10, 12, 14, 17, 19, 21,
 		24, 26, 28, 31, 33, 35, 38, 40, 42, 45,
 		47, 49, 52
-#ifdef VAX
-		, 54, 56
-#endif
 };
 
 Bigint *increment (Bigint *b)
@@ -266,28 +263,13 @@ static int rvOK (double d, FPI *fpi, Long *exp, ULong *bits,
 static int mantbits (double val)
 {
 	ULong L;
-#ifdef __HAVE_GCC44
 	union _dbl_union d;
+
 	d.d = val;
-#else
-#	define d val
-#endif
-#ifdef VAX
-	L = word1(d) << 16 | word1(d) >> 16;
-	if (L)
-#else
 	if ( (L = word1(d)) !=0)
-#endif
 		return P - lo0bits(&L);
-#ifdef VAX
-	L = word0(d) << 16 | word0(d) >> 16 | Exp_msk11;
-#else
 	L = word0(d) | Exp_msk1;
-#endif
 	return P - 32 - lo0bits(&L);
-#ifndef __HAVE_GCC44
-#undef d
-#endif
 }
 
 int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
@@ -299,11 +281,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 	int sudden_underflow;
 	const char *s, *s0, *s1;
 	double adj0, tol;
-#ifdef __HAVE_GCC44
 	union _dbl_union adj, rv;
-#else
-	double adj, rv;
-#endif
 	Long L;
 	ULong y, z;
 	Bigint *ab, *bb, *bb1, *bd, *bd0, *bs, *delta, *rvb, *rvb0;
@@ -509,16 +487,12 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 		}
 		else if (e > 0) {
 			if (e <= Ten_pmax) {
-#ifdef VAX
-				goto vax_ovfl_check;
-#else
 				i = fivesbits[e] + mantbits(dval(rv)) <= P;
 				/* rv = */ rounded_product(dval(rv), tens[e]);
 				if (rvOK(dval(rv), fpi, exp, bits, i, rd, &irv))
 					goto ret;
 				e1 -= e;
 				goto rv_notOK;
-#endif
 			}
 			i = DBL_DIG - nd;
 			if (e <= Ten_pmax + i) {
@@ -528,22 +502,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 				e2 = e - i;
 				e1 -= i;
 				dval(rv) *= tens[i];
-#ifdef VAX
-				/* VAX exponent range is so narrow we must
-				 * worry about overflow here...
-				 */
- vax_ovfl_check:
-				dval(adj) = dval(rv);
-				word0(adj) -= P*Exp_msk1;
-				/* adj = */ rounded_product(dval(adj), tens[e2]);
-				if ((word0(adj) & Exp_mask)
-				 > Exp_msk1*(DBL_MAX_EXP+Bias-1-P))
-					goto rv_notOK;
-				word0(adj) += P*Exp_msk1;
-				dval(rv) = dval(adj);
-#else
 				/* rv = */ rounded_product(dval(rv), tens[e2]);
-#endif
 				if (rvOK(dval(rv), fpi, exp, bits, 0, rd, &irv))
 					goto ret;
 				e1 -= e2;
@@ -607,14 +566,6 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 					dval(rv) *= tinytens[j];
 		}
 	}
-#ifdef IBM
-	/* e2 is a correction to the (base 2) exponent of the return
-	 * value, reflecting adjustments above to avoid overflow in the
-	 * native arithmetic.  For native IBM (base 16) arithmetic, we
-	 * must multiply e2 by 4 to change from base 16 to 2.
-	 */
-	e2 <<= 2;
-#endif
 	rvb = d2b(dval(rv), &rve, &rvbits);	/* rv = rvb * 2^rve */
 	rve += e2;
 	if ((j = rvbits - nbits) > 0) {

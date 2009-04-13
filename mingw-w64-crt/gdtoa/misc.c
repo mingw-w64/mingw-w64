@@ -618,17 +618,7 @@ double b2d (Bigint *a, int *e)
 {
 	ULong *xa, *xa0, w, y, z;
 	int k;
-#ifdef __HAVE_GCC44
 	union _dbl_union d;
-#else
-	double d = 0.0;
-#endif
-#ifdef VAX
-	ULong d0, d1;
-#else
-#define d0 word0(d)
-#define d1 word1(d)
-#endif
 
 	xa0 = a->x;
 	xa = xa0 + a->wds;
@@ -640,45 +630,39 @@ double b2d (Bigint *a, int *e)
 	*e = 32 - k;
 #ifdef Pack_32
 	if (k < Ebits) {
-		d0 = Exp_1 | y >> (Ebits - k);
+		word0(d) = Exp_1 | y >> (Ebits - k);
 		w = xa > xa0 ? *--xa : 0;
-		d1 = y << ((32-Ebits) + k) | w >> (Ebits - k);
+		word1(d) = y << ((32-Ebits) + k) | w >> (Ebits - k);
 		goto ret_d;
 	}
 	z = xa > xa0 ? *--xa : 0;
 	if (k -= Ebits) {
-		d0 = Exp_1 | y << k | z >> (32 - k);
+		word0(d) = Exp_1 | y << k | z >> (32 - k);
 		y = xa > xa0 ? *--xa : 0;
-		d1 = z << k | y >> (32 - k);
+		word1(d) = z << k | y >> (32 - k);
 	}
 	else {
-		d0 = Exp_1 | y;
-		d1 = z;
+		word0(d) = Exp_1 | y;
+		word1(d) = z;
 	}
 #else
 	if (k < Ebits + 16) {
 		z = xa > xa0 ? *--xa : 0;
-		d0 = Exp_1 | y << k - Ebits | z >> Ebits + 16 - k;
+		word0(d) = Exp_1 | y << k - Ebits | z >> Ebits + 16 - k;
 		w = xa > xa0 ? *--xa : 0;
 		y = xa > xa0 ? *--xa : 0;
-		d1 = z << k + 16 - Ebits | w << k - Ebits | y >> 16 + Ebits - k;
+		word1(d) = z << k + 16 - Ebits | w << k - Ebits | y >> 16 + Ebits - k;
 		goto ret_d;
 	}
 	z = xa > xa0 ? *--xa : 0;
 	w = xa > xa0 ? *--xa : 0;
 	k -= Ebits + 16;
-	d0 = Exp_1 | y << k + 16 | z << k | w >> 16 - k;
+	word0(d) = Exp_1 | y << k + 16 | z << k | w >> 16 - k;
 	y = xa > xa0 ? *--xa : 0;
-	d1 = w << k + 16 | y << k;
+	word1(d) = w << k + 16 | y << k;
 #endif
  ret_d:
-#ifdef VAX
-	word0(d) = d0 >> 16 | d0 << 16;
-	word1(d) = d1 >> 16 | d1 << 16;
-#endif
 	return dval(d);
-#undef d0
-#undef d1
 }
 
 Bigint *d2b (double val, int *e, int *bits)
@@ -689,23 +673,9 @@ Bigint *d2b (double val, int *e, int *bits)
 #endif
 	int de, k;
 	ULong *x, y, z;
-#ifdef __HAVE_GCC44
 	union _dbl_union d;
-#else
-#	define d val;
-#endif
-#ifdef VAX
-	ULong d0, d1;
-	d0 = word0(d) >> 16 | word0(d) << 16;
-	d1 = word1(d) >> 16 | word1(d) << 16;
-#else
-#define d0 word0(d)
-#define d1 word1(d)
-#endif
 
-#ifdef __HAVE_GCC44
 	d.d = val;
-#endif
 #ifdef Pack_32
 	b = Balloc(1);
 #else
@@ -713,19 +683,17 @@ Bigint *d2b (double val, int *e, int *bits)
 #endif
 	x = b->x;
 
-	z = d0 & Frac_mask;
-	d0 &= 0x7fffffff;	/* clear sign bit, which we ignore */
+	z = word0(d) & Frac_mask;
+	word0(d) &= 0x7fffffff;	/* clear sign bit, which we ignore */
 #ifdef Sudden_Underflow
-	de = (int)(d0 >> Exp_shift);
-#ifndef IBM
+	de = (int)(word0(d) >> Exp_shift);
 	z |= Exp_msk11;
-#endif
 #else
-	if ( (de = (int)(d0 >> Exp_shift)) !=0)
+	if ( (de = (int)(word0(d) >> Exp_shift)) !=0)
 		z |= Exp_msk1;
 #endif
 #ifdef Pack_32
-	if ( (y = d1) !=0) {
+	if ( (y = word1(d)) !=0) {
 		if ( (k = lo0bits(&y)) !=0) {
 			x[0] = y | z << (32 - k);
 			z >>= k;
@@ -751,7 +719,7 @@ Bigint *d2b (double val, int *e, int *bits)
 		k += 32;
 	}
 #else
-	if ( (y = d1) !=0) {
+	if ( (y = word1(d)) !=0) {
 		if ( (k = lo0bits(&y)) !=0)
 			if (k >= 16) {
 				x[0] = y | z << 32 - k & 0xffff;
@@ -798,13 +766,8 @@ Bigint *d2b (double val, int *e, int *bits)
 #ifndef Sudden_Underflow
 	if (de) {
 #endif
-#ifdef IBM
-		*e = (de - Bias - (P-1) << 2) + k;
-		*bits = 4*P + 8 - k - hi0bits(word0(d) & Frac_mask);
-#else
 		*e = de - Bias - (P-1) + k;
 		*bits = P - k;
-#endif
 #ifndef Sudden_Underflow
 	}
 	else {
@@ -817,35 +780,17 @@ Bigint *d2b (double val, int *e, int *bits)
 	}
 #endif
 	return b;
-#ifndef __HAVE_GCC44
-#undef d
-#endif
-#undef d0
-#undef d1
 }
 
 const double
-#ifdef IEEE_Arith
 bigtens[] = { 1e16, 1e32, 1e64, 1e128, 1e256 };
 const double tinytens[] = { 1e-16, 1e-32, 1e-64, 1e-128, 1e-256 };
-#else
-#ifdef IBM
-bigtens[] = { 1e16, 1e32, 1e64 };
-const double tinytens[] = { 1e-16, 1e-32, 1e-64 };
-#else
-bigtens[] = { 1e16, 1e32 };
-const double tinytens[] = { 1e-16, 1e-32 };
-#endif
-#endif
 
 const double
 tens[] = {
 		1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8, 1e9,
 		1e10, 1e11, 1e12, 1e13, 1e14, 1e15, 1e16, 1e17, 1e18, 1e19,
 		1e20, 1e21, 1e22
-#ifdef VAX
-		, 1e23, 1e24
-#endif
 };
 
 char *strcp_D2A (char *a, const char *b)
