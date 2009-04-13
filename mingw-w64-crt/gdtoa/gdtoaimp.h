@@ -170,9 +170,10 @@ THIS SOFTWARE.
 #include "gdtoa.h"
 #include "gd_qnan.h"
 
-#define INFNAN_CHECK 1
+#if defined(__MINGW32__) || defined(__MINGW64__)
 #define MULTIPLE_THREADS 1
 #define USE_LOCALE 1
+#endif		/* MinGW */
 
 #ifdef DEBUG
 #include <stdio.h>
@@ -581,6 +582,10 @@ extern double ulp (double);
  * (On HP Series 700/800 machines, -DNAN_WORD0=0x7ff40000 works.)
  */
 #ifdef IEEE_Arith
+#ifndef NO_INFNAN_CHECK
+#undef INFNAN_CHECK
+#define INFNAN_CHECK
+#endif
 #ifdef IEEE_MC68k
 #define _0 0
 #define _1 1

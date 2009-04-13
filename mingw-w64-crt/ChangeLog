@@ -8,6 +8,10 @@
 	code.
 	* gdtoa/gdtoa.h: For mingw32/64, define Long as int (32 bit integer)
 	instead of long. Undefine NO_LONG_LONG (we always have 'long long'.)
+	* gdtoa/gdtoaimp.h: Always define INFNAN_CHECK when IEEE_Arith is
+	defined (which already is the case for mingw32/64, from current gdtoa
+	source at netlib.org.) Wrap the MULTIPLE_THREADS and USE_LOCALE
+	definitions at the top of the file between __MINGWxx__ ifdefs.
 	* gdtoa/gd_arith.h, gdtoa/gd_qnan.h: Regenerated.
 
 2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
