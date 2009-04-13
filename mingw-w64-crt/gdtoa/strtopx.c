@@ -51,19 +51,24 @@ THIS SOFTWARE.
 #define _4 0
 #endif
 
+typedef union lD {
+  UShort L[5];
+  long double D;
+} lD;
+
 static int
 #ifdef KR_headers
-__strtopx(s, sp, V) CONST char *s; char **sp; long double *V;
+__strtopx(s, sp, V) CONST char *s; char **sp; lD *V;
 #else
-__strtopx(CONST char *s, char **sp, long double *V)
+__strtopx(CONST char *s, char **sp, lD *V)
 #endif
 {
 	static FPI fpi = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, SI };
 	ULong bits[2];
 	Long exp;
 	int k;
-	UShort *L = (UShort*)V;
-	*V=0.0L;
+	UShort *L = & (V->L[0]);
+	V->D=0.0L;
 
 	k = __strtodg(s, sp, &fpi, &exp, bits);
 	switch(k & STRTOG_Retmask) {
@@ -108,9 +113,10 @@ long double
 __cdecl
 __strtold (const char * __restrict__ src, char ** __restrict__ endptr)
 {
-   long double ret = 0.0;
-   __strtopx(src, endptr,  &ret);
-   return ret;
+  lD ret;
+  ret.D = 0.0L;
+  __strtopx(src, endptr,  &ret);
+  return ret.D;
 }
 
 long double
