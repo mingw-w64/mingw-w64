@@ -31,12 +31,7 @@ THIS SOFTWARE.
 
 #include "gdtoaimp.h"
 
- static Bigint *
-#ifdef KR_headers
-bitstob(bits, nbits, bbits) ULong *bits; int nbits; int *bbits;
-#else
-bitstob(ULong *bits, int nbits, int *bbits)
-#endif
+static Bigint *bitstob (ULong *bits, int nbits, int *bbits)
 {
 	int i, k;
 	Bigint *b;
@@ -108,15 +103,8 @@ bitstob(ULong *bits, int nbits, int *bbits)
  *	   calculation.
  */
 
- char *
-__gdtoa
-#ifdef KR_headers
-	(fpi, be, bits, kindp, mode, ndigits, decpt, rve)
-	FPI *fpi; int be; ULong *bits;
-	int *kindp, mode, ndigits, *decpt; char **rve;
-#else
-	(FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits, int *decpt, char **rve)
-#endif
+char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
+							  int *decpt, char **rve)
 {
  /*	Arguments ndigits and decpt are similar to the second and third
 	arguments of ecvt and fcvt; trailing zeros are suppressed from
@@ -187,20 +175,20 @@ __gdtoa
 		return nrv_alloc("NaN", rve, 3);
 	  default:
 		return 0;
-	  }
+	}
 	b = bitstob(bits, nbits = fpi->nbits, &bbits);
 	be0 = be;
 	if ( (i = trailz(b)) !=0) {
 		rshift(b, i);
 		be += i;
 		bbits -= i;
-		}
+	}
 	if (!b->wds) {
 		Bfree(b);
  ret_zero:
 		*decpt = 1;
 		return nrv_alloc("0", rve, 1);
-		}
+	}
 
 	dval(d) = b2d(b, &i);
 	i = be + bbits - 1;
@@ -260,33 +248,33 @@ __gdtoa
 		if (dval(d) < tens[k])
 			k--;
 		k_check = 0;
-		}
+	}
 	j = bbits - i - 1;
 	if (j >= 0) {
 		b2 = 0;
 		s2 = j;
-		}
+	}
 	else {
 		b2 = -j;
 		s2 = 0;
-		}
+	}
 	if (k >= 0) {
 		b5 = 0;
 		s5 = k;
 		s2 += k;
-		}
+	}
 	else {
 		b2 -= k;
 		b5 = -k;
 		s5 = 0;
-		}
+	}
 	if (mode < 0 || mode > 9)
 		mode = 0;
 	try_quick = 1;
 	if (mode > 5) {
 		mode -= 4;
 		try_quick = 0;
-		}
+	}
 	leftright = 1;
 	switch(mode) {
 		case 0:
@@ -312,7 +300,7 @@ __gdtoa
 			ilim1 = i - 1;
 			if (i <= 0)
 				i = 1;
-		}
+	}
 	s = s0 = rv_alloc(i);
 
 	if ( (rdir = fpi->rounding - 1) !=0) {
@@ -320,7 +308,7 @@ __gdtoa
 			rdir = 2;
 		if (kind & STRTOG_Neg)
 			rdir = 3 - rdir;
-		}
+	}
 
 	/* Now rdir = 0 ==> round near, 1 ==> round up, 2 ==> round down. */
 
@@ -349,13 +337,13 @@ __gdtoa
 				j &= Bletch - 1;
 				dval(d) /= bigtens[n_bigtens-1];
 				ieps++;
-				}
+			}
 			for(; j; j >>= 1, i++)
 				if (j & 1) {
 					ieps++;
 					ds *= bigtens[i];
-					}
-			}
+				}
+		}
 		else  {
 			ds = 1.;
 			if ( (j1 = -k) !=0) {
@@ -364,9 +352,9 @@ __gdtoa
 					if (j & 1) {
 						ieps++;
 						dval(d) *= bigtens[i];
-						}
-				}
+					}
 			}
+		}
 		if (k_check && dval(d) < 1. && ilim > 0) {
 			if (ilim1 <= 0)
 				goto fast_failed;
@@ -374,7 +362,7 @@ __gdtoa
 			k--;
 			dval(d) *= 10.;
 			ieps++;
-			}
+		}
 		dval(eps) = ieps*dval(d) + 7.;
 		word0(eps) -= (P-1)*Exp_msk1;
 		if (ilim == 0) {
@@ -385,7 +373,7 @@ __gdtoa
 			if (dval(d) < -dval(eps))
 				goto no_digits;
 			goto fast_failed;
-			}
+		}
 #ifndef No_leftright
 		if (leftright) {
 			/* Use Steele & White method of only
@@ -400,15 +388,15 @@ __gdtoa
 					if (dval(d))
 						inex = STRTOG_Inexlo;
 					goto ret1;
-					}
+				}
 				if (ds - dval(d) < dval(eps))
 					goto bump_up;
 				if (++i >= ilim)
 					break;
 				dval(eps) *= 10.;
 				dval(d) *= 10.;
-				}
 			}
+		}
 		else {
 #endif
 			/* Generate ilim digits, then fix them up. */
@@ -427,19 +415,19 @@ __gdtoa
 						if (dval(d))
 							inex = STRTOG_Inexlo;
 						goto ret1;
-						}
-					break;
 					}
+					break;
 				}
-#ifndef No_leftright
 			}
+#ifndef No_leftright
+		}
 #endif
  fast_failed:
 		s = s0;
 		dval(d) = d2;
 		k = k0;
 		ilim = ilim0;
-		}
+	}
 
 	/* Do we have a "small" integer? */
 
@@ -451,7 +439,7 @@ __gdtoa
 			if (ilim < 0 || dval(d) <= 5*ds)
 				goto no_digits;
 			goto one_digit;
-			}
+		}
 		for(i = 1;; i++, dval(d) *= 10.) {
 			L = dval(d) / ds;
 			dval(d) -= L*ds;
@@ -460,7 +448,7 @@ __gdtoa
 			if (dval(d) < 0) {
 				L--;
 				dval(d) += ds;
-				}
+			}
 #endif
 			*s++ = '0' + (int)L;
 			if (dval(d) == 0.)
@@ -471,7 +459,7 @@ __gdtoa
 						goto bump_up;
 					inex = STRTOG_Inexlo;
 					goto ret1;
-					}
+				}
 				dval(d) += dval(d);
 				if (dval(d) > ds || (dval(d) == ds && L & 1)) {
  bump_up:
@@ -483,14 +471,14 @@ __gdtoa
 							break;
 							}
 					++*s++;
-					}
+				}
 				else
 					inex = STRTOG_Inexlo;
 				break;
-				}
 			}
-		goto ret1;
 		}
+		goto ret1;
+	}
 
 	m2 = b2;
 	m5 = b5;
@@ -501,7 +489,7 @@ __gdtoa
 			if (be - i++ < fpi->emin)
 				/* denormal */
 				i = be - fpi->emin + 1;
-			}
+		}
 		else {
 			j = ilim - 1;
 			if (m5 >= j)
@@ -510,22 +498,22 @@ __gdtoa
 				s5 += j -= m5;
 				b5 += j;
 				m5 = 0;
-				}
+			}
 			if ((i = ilim) < 0) {
 				m2 -= i;
 				i = 0;
-				}
 			}
+		}
 		b2 += i;
 		s2 += i;
 		mhi = i2b(1);
-		}
+	}
 	if (m2 > 0 && s2 > 0) {
 		i = m2 < s2 ? m2 : s2;
 		b2 -= i;
 		m2 -= i;
 		s2 -= i;
-		}
+	}
 	if (b5 > 0) {
 		if (leftright) {
 			if (m5 > 0) {
@@ -533,13 +521,13 @@ __gdtoa
 				b1 = mult(mhi, b);
 				Bfree(b);
 				b = b1;
-				}
+			}
 			if ( (j = b5 - m5) !=0)
 				b = pow5mult(b, j);
-			}
+		}
 		else
 			b = pow5mult(b, b5);
-		}
+	}
 	S = i2b(1);
 	if (s5 > 0)
 		S = pow5mult(S, s5);
@@ -553,8 +541,8 @@ __gdtoa
 			b2++;
 			s2++;
 			spec_case = 1;
-			}
 		}
+	}
 
 	/* Arrange for convenient computation of quotients:
 	 * shift left if necessary so divisor has 4 leading 0 bits.
@@ -575,13 +563,13 @@ __gdtoa
 		b2 += i;
 		m2 += i;
 		s2 += i;
-		}
+	}
 	else if (i < 4) {
 		i += 28;
 		b2 += i;
 		m2 += i;
 		s2 += i;
-		}
+	}
 	if (b2 > 0)
 		b = lshift(b, b2);
 	if (s2 > 0)
@@ -593,8 +581,8 @@ __gdtoa
 			if (leftright)
 				mhi = multadd(mhi, 10, 0);
 			ilim = ilim1;
-			}
 		}
+	}
 	if (ilim <= 0 && mode > 2) {
 		if (ilim < 0 || cmp(b,S = multadd(S,5,0)) <= 0) {
 			/* no digits, fcvt style */
@@ -602,13 +590,13 @@ __gdtoa
 			k = -1 - ndigits;
 			inex = STRTOG_Inexlo;
 			goto ret;
-			}
+		}
  one_digit:
 		inex = STRTOG_Inexhi;
 		*s++ = '1';
 		k++;
 		goto ret;
-		}
+	}
 	if (leftright) {
 		if (m2 > 0)
 			mhi = lshift(mhi, m2);
@@ -622,7 +610,7 @@ __gdtoa
 			mhi = Balloc(mhi->k);
 			Bcopy(mhi, mlo);
 			mhi = lshift(mhi, 1);
-			}
+		}
 
 		for(i = 1;;i++) {
 			dig = quorem(b,S) + '0';
@@ -640,14 +628,14 @@ __gdtoa
 				if (j <= 0) {
 					if (b->wds > 1 || b->x[0])
 						inex = STRTOG_Inexlo;
-					}
+				}
 				else {
 					dig++;
 					inex = STRTOG_Inexhi;
-					}
+				}
 				*s++ = dig;
 				goto ret;
-				}
+			}
 #endif
 			if (j < 0 || (j == 0 && !mode
 #ifndef ROUND_BIASED
@@ -658,7 +646,7 @@ __gdtoa
 					if (rdir == 2) {
 						inex = STRTOG_Inexlo;
 						goto accept;
-						}
+					}
 					while (cmp(S,mhi) > 0) {
 						*s++ = dig;
 						mhi1 = multadd(mhi, 10, 0);
@@ -667,12 +655,12 @@ __gdtoa
 						mhi = mhi1;
 						b = multadd(b, 10, 0);
 						dig = quorem(b,S) + '0';
-						}
+					}
 					if (dig++ == '9')
 						goto round_9_up;
 					inex = STRTOG_Inexhi;
 					goto accept;
-					}
+				}
 				if (j1 > 0) {
 					b = lshift(b, 1);
 					j1 = cmp(b, S);
@@ -680,24 +668,24 @@ __gdtoa
 					&& dig++ == '9')
 						goto round_9_up;
 					inex = STRTOG_Inexhi;
-					}
+				}
 				if (b->wds > 1 || b->x[0])
 					inex = STRTOG_Inexlo;
  accept:
 				*s++ = dig;
 				goto ret;
-				}
+			}
 			if (j1 > 0 && rdir != 2) {
 				if (dig == '9') { /* possible if i == 1 */
  round_9_up:
 					*s++ = '9';
 					inex = STRTOG_Inexhi;
 					goto roundoff;
-					}
+				}
 				inex = STRTOG_Inexhi;
 				*s++ = dig + 1;
 				goto ret;
-				}
+			}
 			*s++ = dig;
 			if (i == ilim)
 				break;
@@ -707,16 +695,16 @@ __gdtoa
 			else {
 				mlo = multadd(mlo, 10, 0);
 				mhi = multadd(mhi, 10, 0);
-				}
 			}
 		}
+	}
 	else
 		for(i = 1;; i++) {
 			*s++ = dig = quorem(b,S) + '0';
 			if (i >= ilim)
 				break;
 			b = multadd(b, 10, 0);
-			}
+		}
 
 	/* Round off last digit */
 
@@ -724,7 +712,7 @@ __gdtoa
 		if (rdir == 2 || (b->wds <= 1 && !b->x[0]))
 			goto chopzeros;
 		goto roundoff;
-		}
+	}
 	b = lshift(b, 1);
 	j = cmp(b, S);
 	if (j > 0 || (j == 0 && dig & 1)) {
@@ -737,21 +725,21 @@ __gdtoa
 				goto ret;
 				}
 		++*s++;
-		}
+	}
 	else {
  chopzeros:
 		if (b->wds > 1 || b->x[0])
 			inex = STRTOG_Inexlo;
 		while(*--s == '0'){}
 		s++;
-		}
+	}
  ret:
 	Bfree(S);
 	if (mhi) {
 		if (mlo && mlo != mhi)
 			Bfree(mlo);
 		Bfree(mhi);
-		}
+	}
  ret1:
 	Bfree(b);
 	*s = 0;
@@ -760,4 +748,4 @@ __gdtoa
 		*rve = s;
 	*kindp |= inex;
 	return s0;
-	}
+}

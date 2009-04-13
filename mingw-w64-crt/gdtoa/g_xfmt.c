@@ -51,12 +51,7 @@ THIS SOFTWARE.
 #define _4 0
 #endif
 
- char*
-#ifdef KR_headers
-__g_xfmt(buf, V, ndig, bufsize) char *buf; char *V; int ndig; unsigned bufsize;
-#else
-__g_xfmt(char *buf, void *V, int ndig, unsigned bufsize)
-#endif
+char *__g_xfmt (char *buf, void *V, int ndig, unsigned bufsize)
 {
 	static FPI fpi = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, 0 };
 	char *b, *s, *se;
@@ -78,29 +73,24 @@ __g_xfmt(char *buf, void *V, int ndig, unsigned bufsize)
 	bits[1] = (L[_1] << 16) | L[_2];
 	bits[0] = (L[_3] << 16) | L[_4];
 
-	if (fptype & FP_NAN) /* NaN or Inf */
-	  {
- 	    if (fptype & FP_NORMAL)
-	      {
-		b = buf;
-		*b++ = sign ? '-': '+';
-		strncpy (b, "Infinity", ndig ? ndig : 8);
+	if (fptype & FP_NAN) { /* NaN or Inf */
+		if (fptype & FP_NORMAL) {
+			b = buf;
+			*b++ = sign ? '-': '+';
+			strncpy (b, "Infinity", ndig ? ndig : 8);
+			return (buf + strlen (buf));
+		}
+		strncpy (buf, "NaN", ndig ? ndig : 3);
 		return (buf + strlen (buf));
-	      }
-	    strncpy (buf, "NaN", ndig ? ndig : 3);
-	    return (buf + strlen (buf));
-	  }
-			
-	else if (fptype & FP_NORMAL) /* Normal or subnormal */
-	  {
-	    if  (fptype & FP_ZERO)
-	      {
-		i = STRTOG_Denormal;
-		ex = 1;
-	      }
-	    else
-	      i = STRTOG_Normal;
-	  }
+	}
+	else if (fptype & FP_NORMAL) { /* Normal or subnormal */
+		if  (fptype & FP_ZERO) {
+			i = STRTOG_Denormal;
+			ex = 1;
+		}
+		else
+			i = STRTOG_Normal;
+	}
 	else {
 		i = STRTOG_Zero;
 		b = buf;
@@ -111,7 +101,7 @@ __g_xfmt(char *buf, void *V, int ndig, unsigned bufsize)
 		*b++ = '0';
 		*b = 0;
 		return b;
-		}
+	}
 
 	ex -= 0x3fff + 63;
 	mode = 2;
@@ -119,7 +109,7 @@ __g_xfmt(char *buf, void *V, int ndig, unsigned bufsize)
 		if (bufsize < 32)
 			return 0;
 		mode = 0;
-		}
+	}
 	s = __gdtoa(&fpi, ex, bits, &i, mode, ndig, &decpt, &se);
 	return __g__fmt(buf, s, se, decpt, sign);
-	}
+}

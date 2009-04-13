@@ -31,12 +31,7 @@ THIS SOFTWARE.
 
 #include "gdtoaimp.h"
 
- char*
-#ifdef KR_headers
-__g_dfmt(buf, d, ndig, bufsize) char *buf; double *d; int ndig; unsigned bufsize;
-#else
-__g_dfmt(char *buf, double *d, int ndig, unsigned bufsize)
-#endif
+char *__g_dfmt (char *buf, double *d, int ndig, unsigned bufsize)
 {
 	static FPI fpi = { 53, 1-1023-53+1, 2046-1023-53+1, 1, 0 };
 	char *b, *s, *se;
@@ -54,12 +49,12 @@ __g_dfmt(char *buf, double *d, int ndig, unsigned bufsize)
 		/* Infinity or NaN */
 		if (L[_0] & 0xfffff || L[_1]) {
 			return strcp(buf, "NaN");
-			}
+		}
 		b = buf;
 		if (sign)
 			*b++ = '-';
 		return strcp(b, "Infinity");
-		}
+	}
 	if (L[_1] == 0 && (L[_0] ^ sign) == 0 /*d == 0.*/) {
 		b = buf;
 #ifndef IGNORE_ZERO_SIGN
@@ -69,7 +64,7 @@ __g_dfmt(char *buf, double *d, int ndig, unsigned bufsize)
 		*b++ = '0';
 		*b = 0;
 		return b;
-		}
+	}
 	bits[0] = L[_1];
 	bits[1] = L[_0] & 0xfffff;
 	if ( (ex = (L[_0] >> 20) & 0x7ff) !=0)
@@ -82,8 +77,8 @@ __g_dfmt(char *buf, double *d, int ndig, unsigned bufsize)
 		if (bufsize < 25)
 			return 0;
 		mode = 0;
-		}
+	}
 	i = STRTOG_Normal;
 	s = __gdtoa(&fpi, ex, bits, &i, mode, ndig, &decpt, &se);
 	return __g__fmt(buf, s, se, decpt, sign);
-	}
+}

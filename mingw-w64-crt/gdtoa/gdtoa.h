@@ -47,25 +47,7 @@ typedef unsigned Long ULong;
 typedef unsigned short UShort;
 #endif
 
-#ifndef ANSI
-#ifdef KR_headers
-#define ANSI(x) ()
-#define Void /*nothing*/
-#else
-#define ANSI(x) x
-#define Void void
-#endif
-#endif /* ANSI */
-
-#ifndef CONST
-#ifdef KR_headers
-#define CONST /* blank */
-#else
-#define CONST const
-#endif
-#endif /* CONST */
-
- enum {	/* return values from strtodg */
+enum {	/* return values from strtodg */
 	STRTOG_Zero	= 0,
 	STRTOG_Normal	= 1,
 	STRTOG_Denormal	= 2,
@@ -85,41 +67,41 @@ typedef unsigned short UShort;
 	STRTOG_Overflow	= 0x80
 	};
 
- typedef struct
+typedef struct
 FPI {
 	int nbits;
 	int emin;
 	int emax;
 	int rounding;
 	int sudden_underflow;
-	} FPI;
+} FPI;
 
 enum {	/* FPI.rounding values: same as FLT_ROUNDS */
 	FPI_Round_zero = 0,
 	FPI_Round_near = 1,
 	FPI_Round_up = 2,
 	FPI_Round_down = 3
-	};
+};
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-extern char* __dtoa  ANSI((double d, int mode, int ndigits, int *decpt,
-			  int *sign, char **rve));
-extern char* __gdtoa ANSI((FPI *fpi, int be, ULong *bits, int *kindp,
-			 int mode, int ndigits, int *decpt, char **rve));
-extern void __freedtoa ANSI((char*));
+extern char* __dtoa (double d, int mode, int ndigits, int *decpt,
+		     int *sign, char **rve);
+extern char* __gdtoa (FPI *fpi, int be, ULong *bits, int *kindp,
+		     int mode, int ndigits, int *decpt, char **rve));
+extern void __freedtoa (char *);
 
-extern int __strtodg ANSI((CONST char*, char**, FPI*, Long*, ULong*));
-extern float  __strtof ANSI((CONST char *, char **));
-extern double  __strtod ANSI((CONST char *, char **));
-extern long double strtold ANSI((CONST char *, char **));
+extern int __strtodg (const char *, char **, FPI *, Long *, ULong *);
+extern float  __strtof (const char *, char **);
+extern double  __strtod (const char *, char **);
+extern long double strtold (const char *, char **);
 
-extern char*	__g__fmt   ANSI((char *, char *, char *e, int, ULong));
-extern char*	__g_dfmt   ANSI((char*, double*, int, unsigned));
-extern char*	__g_ffmt   ANSI((char*, float*,  int, unsigned));
-extern char*	__g_xfmt   ANSI((char*, void*,   int, unsigned));
+extern char*	__g__fmt   (char*, char*, char*, int, ULong);
+extern char*	__g_dfmt   (char*, double*, int, unsigned);
+extern char*	__g_ffmt   (char*, float*,  int, unsigned);
+extern char*	__g_xfmt   (char*, void*,   int, unsigned);
 
 #ifdef __cplusplus
 }

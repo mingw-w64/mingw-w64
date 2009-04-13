@@ -31,12 +31,7 @@ THIS SOFTWARE.
 
 #include "gdtoaimp.h"
 
- float
-#ifdef KR_headers
-__strtof(s, sp) CONST char *s; char **sp;
-#else
-__strtof(CONST char *s, char **sp)
-#endif
+float __strtof (const char *s, char **sp)
 {
 	static FPI fpi = { 24, 1-127-24+1,  254-127-24+1, 1, SI };
 	ULong bits[1];
@@ -66,11 +61,11 @@ __strtof(CONST char *s, char **sp)
 
 	  case STRTOG_NaN:
 		u.L[0] = f_QNAN;
-	  }
+	}
 	if (k & STRTOG_Neg)
 		u.L[0] |= 0x80000000L;
 	return u.f;
-	}
+}
 
 float __cdecl
 strtof (const char * __restrict__ src, char ** __restrict__ endptr)

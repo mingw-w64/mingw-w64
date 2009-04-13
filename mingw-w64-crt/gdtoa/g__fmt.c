@@ -35,12 +35,7 @@ THIS SOFTWARE.
 #include "locale.h"
 #endif
 
- char *
-#ifdef KR_headers
-__g__fmt(b, s, se, decpt, sign) char *b; char *s; char *se; int decpt; ULong sign;
-#else
-__g__fmt(char *b, char *s, char *se, int decpt, ULong sign)
-#endif
+char *__g__fmt (char *b, char *s, char *se, int decpt, ULong sign)
 {
 	int i, j, k;
 	char *s0 = s;
@@ -57,13 +52,13 @@ __g__fmt(char *b, char *s, char *se, int decpt, ULong sign)
 			*b++ = decimalpoint;
 			while((*b = *s++) !=0)
 				b++;
-			}
+		}
 		*b++ = 'e';
 		/* sprintf(b, "%+.2d", decpt - 1); */
 		if (--decpt < 0) {
 			*b++ = '-';
 			decpt = -decpt;
-			}
+		}
 		else
 			*b++ = '+';
 		for(j = 2, k = 10; 10*k <= decpt; j++, k *= 10){}
@@ -74,26 +69,26 @@ __g__fmt(char *b, char *s, char *se, int decpt, ULong sign)
 				break;
 			decpt -= i*k;
 			decpt *= 10;
-			}
-		*b = 0;
 		}
+		*b = 0;
+	}
 	else if (decpt <= 0) {
 		*b++ = decimalpoint;
 		for(; decpt < 0; decpt++)
 			*b++ = '0';
 		while((*b = *s++) !=0)
 			b++;
-		}
+	}
 	else {
 		while((*b = *s++) !=0) {
 			b++;
 			if (--decpt == 0 && *s)
 				*b++ = decimalpoint;
-			}
+		}
 		for(; decpt > 0; decpt--)
 			*b++ = '0';
 		*b = 0;
-		}
+	}
 	__freedtoa(s0);
 	return b;
- 	}
+}

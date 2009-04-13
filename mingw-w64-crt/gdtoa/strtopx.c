@@ -52,23 +52,18 @@ THIS SOFTWARE.
 #endif
 
 typedef union lD {
-  UShort L[5];
-  long double D;
+	UShort L[5];
+	long double D;
 } lD;
 
-static int
-#ifdef KR_headers
-__strtopx(s, sp, V) CONST char *s; char **sp; lD *V;
-#else
-__strtopx(CONST char *s, char **sp, lD *V)
-#endif
+static int __strtopx (const char *s, char **sp, lD *V)
 {
 	static FPI fpi = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, SI };
 	ULong bits[2];
 	Long exp;
 	int k;
 	UShort *L = & (V->L[0]);
-	V->D=0.0L;
+	V->D = 0.0L;
 
 	k = __strtodg(s, sp, &fpi, &exp, bits);
 	switch(k & STRTOG_Retmask) {
@@ -103,24 +98,21 @@ __strtopx(CONST char *s, char **sp, lD *V)
 		L[2] = ldus_QNAN2;
 		L[3] = ldus_QNAN3;
 		L[4] = ldus_QNAN4;
-	  }
+	}
 	if (k & STRTOG_Neg)
 		L[_0] |= 0x8000;
 	return k;
-	}
-
-long double
-__cdecl
-__strtold (const char * __restrict__ src, char ** __restrict__ endptr)
-{
-  lD ret;
-  ret.D = 0.0L;
-  __strtopx(src, endptr,  &ret);
-  return ret.D;
 }
 
-long double
-__cdecl
+long double __cdecl
+__strtold (const char * __restrict__ src, char ** __restrict__ endptr)
+{
+	long double ret = 0.0;
+	__strtopx(src, endptr,  &ret);
+	return ret;
+}
+
+long double __cdecl
 strtold (const char * __restrict__ src, char ** __restrict__ endptr)
   __attribute__((alias("__strtold")));
 

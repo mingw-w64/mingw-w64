@@ -73,14 +73,7 @@ THIS SOFTWARE.
 #define Rounding Flt_Rounds
 #endif
 
- char *
-__dtoa
-#ifdef KR_headers
-	(val, mode, ndigits, decpt, sign, rve)
-	double val; int mode, ndigits, *decpt, *sign; char **rve;
-#else
-	(double val, int mode, int ndigits, int *decpt, int *sign, char **rve)
-#endif
+char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **rve)
 {
  /*	Arguments ndigits, decpt, sign are similar to those
 	of ecvt and fcvt; trailing zeros are suppressed from
@@ -145,14 +138,14 @@ __dtoa
 	if (dtoa_result) {
 		__freedtoa(dtoa_result);
 		dtoa_result = 0;
-		}
+	}
 #endif
 
 	if (word0(d) & Sign_bit) {
 		/* set sign for everything, including 0's and NaNs */
 		*sign = 1;
 		word0(d) &= ~Sign_bit;	/* clear sign bit */
-		}
+	}
 	else
 		*sign = 0;
 
@@ -162,7 +155,7 @@ __dtoa
 #else
 	if (word0(d)  == 0x8000)
 #endif
-		{
+	{
 		/* Infinity or NaN */
 		*decpt = 9999;
 #ifdef IEEE_Arith
@@ -170,7 +163,7 @@ __dtoa
 			return nrv_alloc("Infinity", rve, 8);
 #endif
 		return nrv_alloc("NaN", rve, 3);
-		}
+	}
 #endif
 #ifdef IBM
 	dval(d) += 0; /* normalize */
@@ -178,7 +171,7 @@ __dtoa
 	if (!dval(d)) {
 		*decpt = 1;
 		return nrv_alloc("0", rve, 1);
-		}
+	}
 
 #ifdef SET_INEXACT
 	try_quick = oldinexact = get_inexact();
@@ -191,7 +184,7 @@ __dtoa
 		else
 			if (rounding != 2)
 				rounding = 0;
-		}
+	}
 #endif
 
 	b = d2b(dval(d), &be, &bbits);
@@ -237,7 +230,7 @@ __dtoa
 #endif
 #ifndef Sudden_Underflow
 		denorm = 0;
-		}
+	}
 	else {
 		/* d is denormalized */
 
@@ -248,7 +241,7 @@ __dtoa
 		word0(d2) -= 31*Exp_msk1; /* adjust exponent */
 		i -= (Bias + (P-1) - 1) + 1;
 		denorm = 1;
-		}
+	}
 #endif
 	ds = (dval(d2)-1.5)*0.289529654602168 + 0.1760912590558 + i*0.301029995663981;
 	k = (int)ds;
@@ -259,26 +252,26 @@ __dtoa
 		if (dval(d) < tens[k])
 			k--;
 		k_check = 0;
-		}
+	}
 	j = bbits - i - 1;
 	if (j >= 0) {
 		b2 = 0;
 		s2 = j;
-		}
+	}
 	else {
 		b2 = -j;
 		s2 = 0;
-		}
+	}
 	if (k >= 0) {
 		b5 = 0;
 		s5 = k;
 		s2 += k;
-		}
+	}
 	else {
 		b2 -= k;
 		b5 = -k;
 		s5 = 0;
-		}
+	}
 	if (mode < 0 || mode > 9)
 		mode = 0;
 
@@ -293,7 +286,7 @@ __dtoa
 	if (mode > 5) {
 		mode -= 4;
 		try_quick = 0;
-		}
+	}
 	leftright = 1;
 	switch(mode) {
 		case 0:
@@ -319,7 +312,7 @@ __dtoa
 			ilim1 = i - 1;
 			if (i <= 0)
 				i = 1;
-		}
+	}
 	s = s0 = rv_alloc(i);
 
 #ifdef Honor_FLT_ROUNDS
@@ -328,9 +321,7 @@ __dtoa
 #endif
 
 	if (ilim >= 0 && ilim <= Quick_max && try_quick) {
-
 		/* Try to get by with floating-point arithmetic. */
-
 		i = 0;
 		dval(d2) = dval(d);
 		k0 = k;
@@ -344,22 +335,22 @@ __dtoa
 				j &= Bletch - 1;
 				dval(d) /= bigtens[n_bigtens-1];
 				ieps++;
-				}
+			}
 			for(; j; j >>= 1, i++)
 				if (j & 1) {
 					ieps++;
 					ds *= bigtens[i];
-					}
+				}
 			dval(d) /= ds;
-			}
+		}
 		else if (( j1 = -k )!=0) {
 			dval(d) *= tens[j1 & 0xf];
 			for(j = j1 >> 4; j; j >>= 1, i++)
 				if (j & 1) {
 					ieps++;
 					dval(d) *= bigtens[i];
-					}
-			}
+				}
+		}
 		if (k_check && dval(d) < 1. && ilim > 0) {
 			if (ilim1 <= 0)
 				goto fast_failed;
@@ -367,7 +358,7 @@ __dtoa
 			k--;
 			dval(d) *= 10.;
 			ieps++;
-			}
+		}
 		dval(eps) = ieps*dval(d) + 7.;
 		word0(eps) -= (P-1)*Exp_msk1;
 		if (ilim == 0) {
@@ -378,7 +369,7 @@ __dtoa
 			if (dval(d) < -dval(eps))
 				goto no_digits;
 			goto fast_failed;
-			}
+		}
 #ifndef No_leftright
 		if (leftright) {
 			/* Use Steele & White method of only
@@ -397,8 +388,8 @@ __dtoa
 					break;
 				dval(eps) *= 10.;
 				dval(d) *= 10.;
-				}
 			}
+		}
 		else {
 #endif
 			/* Generate ilim digits, then fix them up. */
@@ -415,19 +406,19 @@ __dtoa
 						while(*--s == '0');
 						s++;
 						goto ret1;
-						}
-					break;
 					}
+					break;
 				}
-#ifndef No_leftright
 			}
+#ifndef No_leftright
+		}
 #endif
  fast_failed:
 		s = s0;
 		dval(d) = dval(d2);
 		k = k0;
 		ilim = ilim0;
-		}
+	}
 
 	/* Do we have a "small" integer? */
 
@@ -439,7 +430,7 @@ __dtoa
 			if (ilim < 0 || dval(d) <= 5*ds)
 				goto no_digits;
 			goto one_digit;
-			}
+		}
 		for(i = 1;; i++, dval(d) *= 10.) {
 			L = (Long)(dval(d) / ds);
 			dval(d) -= L*ds;
@@ -448,7 +439,7 @@ __dtoa
 			if (dval(d) < 0) {
 				L--;
 				dval(d) += ds;
-				}
+			}
 #endif
 			*s++ = '0' + (int)L;
 			if (!dval(d)) {
@@ -456,14 +447,14 @@ __dtoa
 				inexact = 0;
 #endif
 				break;
-				}
+			}
 			if (i == ilim) {
 #ifdef Honor_FLT_ROUNDS
 				if (mode > 1)
-				switch(rounding) {
+				 switch(rounding) {
 				  case 0: goto ret1;
 				  case 2: goto bump_up;
-				  }
+				 }
 #endif
 				dval(d) += dval(d);
 				if (dval(d) > ds || (dval(d) == ds && L & 1)) {
@@ -473,14 +464,14 @@ __dtoa
 							k++;
 							*s = '0';
 							break;
-							}
+						}
 					++*s++;
-					}
-				break;
 				}
+				break;
 			}
-		goto ret1;
 		}
+		goto ret1;
+	}
 
 	m2 = b2;
 	m5 = b5;
@@ -498,13 +489,13 @@ __dtoa
 		b2 += i;
 		s2 += i;
 		mhi = i2b(1);
-		}
+	}
 	if (m2 > 0 && s2 > 0) {
 		i = m2 < s2 ? m2 : s2;
 		b2 -= i;
 		m2 -= i;
 		s2 -= i;
-		}
+	}
 	if (b5 > 0) {
 		if (leftright) {
 			if (m5 > 0) {
@@ -512,13 +503,13 @@ __dtoa
 				b1 = mult(mhi, b);
 				Bfree(b);
 				b = b1;
-				}
+			}
 			if (( j = b5 - m5 )!=0)
 				b = pow5mult(b, j);
-			}
+		}
 		else
 			b = pow5mult(b, b5);
-		}
+	}
 	S = i2b(1);
 	if (s5 > 0)
 		S = pow5mult(S, s5);
@@ -540,8 +531,8 @@ __dtoa
 			b2 += Log2P;
 			s2 += Log2P;
 			spec_case = 1;
-			}
 		}
+	}
 
 	/* Arrange for convenient computation of quotients:
 	 * shift left if necessary so divisor has 4 leading 0 bits.
@@ -562,13 +553,13 @@ __dtoa
 		b2 += i;
 		m2 += i;
 		s2 += i;
-		}
+	}
 	else if (i < 4) {
 		i += 28;
 		b2 += i;
 		m2 += i;
 		s2 += i;
-		}
+	}
 	if (b2 > 0)
 		b = lshift(b, b2);
 	if (s2 > 0)
@@ -580,20 +571,20 @@ __dtoa
 			if (leftright)
 				mhi = multadd(mhi, 10, 0);
 			ilim = ilim1;
-			}
 		}
+	}
 	if (ilim <= 0 && (mode == 3 || mode == 5)) {
 		if (ilim < 0 || cmp(b,S = multadd(S,5,0)) <= 0) {
 			/* no digits, fcvt style */
  no_digits:
 			k = -1 - ndigits;
 			goto ret;
-			}
+		}
  one_digit:
 		*s++ = '1';
 		k++;
 		goto ret;
-		}
+	}
 	if (leftright) {
 		if (m2 > 0)
 			mhi = lshift(mhi, m2);
@@ -607,7 +598,7 @@ __dtoa
 			mhi = Balloc(mhi->k);
 			Bcopy(mhi, mlo);
 			mhi = lshift(mhi, Log2P);
-			}
+		}
 
 		for(i = 1;;i++) {
 			dig = quorem(b,S) + '0';
@@ -634,7 +625,7 @@ __dtoa
 #endif
 				*s++ = dig;
 				goto ret;
-				}
+			}
 #endif
 			if (j < 0 || (j == 0 && mode != 1
 #ifndef ROUND_BIASED
@@ -646,13 +637,13 @@ __dtoa
 					inexact = 0;
 #endif
 					goto accept_dig;
-					}
+				}
 #ifdef Honor_FLT_ROUNDS
 				if (mode > 1)
 				 switch(rounding) {
 				  case 0: goto accept_dig;
 				  case 2: goto keep_dig;
-				  }
+				 }
 #endif /*Honor_FLT_ROUNDS*/
 				if (j1 > 0) {
 					b = lshift(b, 1);
@@ -660,11 +651,11 @@ __dtoa
 					if ((j1 > 0 || (j1 == 0 && dig & 1))
 					&& dig++ == '9')
 						goto round_9_up;
-					}
+				}
  accept_dig:
 				*s++ = dig;
 				goto ret;
-				}
+			}
 			if (j1 > 0) {
 #ifdef Honor_FLT_ROUNDS
 				if (!rounding)
@@ -674,10 +665,10 @@ __dtoa
  round_9_up:
 					*s++ = '9';
 					goto roundoff;
-					}
+				}
 				*s++ = dig + 1;
 				goto ret;
-				}
+			}
 #ifdef Honor_FLT_ROUNDS
  keep_dig:
 #endif
@@ -690,9 +681,9 @@ __dtoa
 			else {
 				mlo = multadd(mlo, 10, 0);
 				mhi = multadd(mhi, 10, 0);
-				}
 			}
 		}
+	}
 	else
 		for(i = 1;; i++) {
 			*s++ = dig = quorem(b,S) + '0';
@@ -701,11 +692,11 @@ __dtoa
 				inexact = 0;
 #endif
 				goto ret;
-				}
+			}
 			if (i >= ilim)
 				break;
 			b = multadd(b, 10, 0);
-			}
+		}
 
 	/* Round off last digit */
 
@@ -713,7 +704,7 @@ __dtoa
 	switch(rounding) {
 	  case 0: goto trimzeros;
 	  case 2: goto roundoff;
-	  }
+	}
 #endif
 	b = lshift(b, 1);
 	j = cmp(b, S);
@@ -724,21 +715,21 @@ __dtoa
 				k++;
 				*s++ = '1';
 				goto ret;
-				}
+			}
 		++*s++;
-		}
+	}
 	else {
  // trimzeros:
 		while(*--s == '0');
 		s++;
-		}
+	}
  ret:
 	Bfree(S);
 	if (mhi) {
 		if (mlo && mlo != mhi)
 			Bfree(mlo);
 		Bfree(mhi);
-		}
+	}
  ret1:
 #ifdef SET_INEXACT
 	if (inexact) {
@@ -746,8 +737,8 @@ __dtoa
 			word0(d) = Exp_1 + (70 << Exp_shift);
 			word1(d) = 0;
 			dval(d) += 1.;
-			}
 		}
+	}
 	else if (!oldinexact)
 		clear_inexact();
 #endif
@@ -757,7 +748,7 @@ __dtoa
 	if (rve)
 		*rve = s;
 	return s0;
-	}
+}
 #ifndef __HAVE_GCC44
 #undef d
 #endif
