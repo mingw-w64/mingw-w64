@@ -3,4 +3,4 @@
 #define Double_Align
 #ifdef _WIN64
 #define X64_bit_pointers
-#endif
+#endif /* w64 */

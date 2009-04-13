@@ -7,6 +7,8 @@
 	but all the actual code supporting them are deleted for more a clear
 	code.
 
+	* gd_arith.h, gd_qnan.h: Regenerated.
+
 2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
 	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/g__fmt.c, gdtoa/g_dfmt.c,
 	gdtoa/g_ffmt.c, gdtoa/g_xfmt.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,

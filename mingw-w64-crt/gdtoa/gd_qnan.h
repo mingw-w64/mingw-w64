@@ -10,4 +10,3 @@
 #define ldus_QNAN2 0x0
 #define ldus_QNAN3 0xc000
 #define ldus_QNAN4 0xffff
-
