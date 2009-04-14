@@ -93,7 +93,9 @@ extern "C" {
 
   typedef unsigned long DWORD;
   typedef int WINBOOL;
+#ifndef __OBJC__
 #define BOOL WINBOOL
+#endif
   typedef unsigned char BYTE;
   typedef unsigned short WORD;
   typedef float FLOAT;
