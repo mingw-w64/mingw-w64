@@ -616,6 +616,8 @@ double b2d (Bigint *a, int *e)
 	ULong *xa, *xa0, w, y, z;
 	int k;
 	union _dbl_union d;
+#define d0 word0(&d)
+#define d1 word1(&d)
 
 	xa0 = a->x;
 	xa = xa0 + a->wds;
@@ -627,42 +629,44 @@ double b2d (Bigint *a, int *e)
 	*e = 32 - k;
 #ifdef Pack_32
 	if (k < Ebits) {
-		word0(&d) = Exp_1 | y >> (Ebits - k);
+		d0 = Exp_1 | y >> (Ebits - k);
 		w = xa > xa0 ? *--xa : 0;
-		word1(&d) = y << ((32-Ebits) + k) | w >> (Ebits - k);
+		d1 = y << ((32-Ebits) + k) | w >> (Ebits - k);
 		goto ret_d;
 	}
 	z = xa > xa0 ? *--xa : 0;
 	if (k -= Ebits) {
-		word0(&d) = Exp_1 | y << k | z >> (32 - k);
+		d0 = Exp_1 | y << k | z >> (32 - k);
 		y = xa > xa0 ? *--xa : 0;
-		word1(&d) = z << k | y >> (32 - k);
+		d1 = z << k | y >> (32 - k);
 	}
 	else {
-		word0(&d) = Exp_1 | y;
-		word1(&d) = z;
+		d0 = Exp_1 | y;
+		d1 = z;
 	}
 #else
 	if (k < Ebits + 16) {
 		z = xa > xa0 ? *--xa : 0;
-		word0(&d) = Exp_1 | y << k - Ebits | z >> Ebits + 16 - k;
+		d0 = Exp_1 | y << k - Ebits | z >> Ebits + 16 - k;
 		w = xa > xa0 ? *--xa : 0;
 		y = xa > xa0 ? *--xa : 0;
-		word1(&d) = z << k + 16 - Ebits | w << k - Ebits | y >> 16 + Ebits - k;
+		d1 = z << k + 16 - Ebits | w << k - Ebits | y >> 16 + Ebits - k;
 		goto ret_d;
 	}
 	z = xa > xa0 ? *--xa : 0;
 	w = xa > xa0 ? *--xa : 0;
 	k -= Ebits + 16;
-	word0(&d) = Exp_1 | y << k + 16 | z << k | w >> 16 - k;
+	d0 = Exp_1 | y << k + 16 | z << k | w >> 16 - k;
 	y = xa > xa0 ? *--xa : 0;
-	word1(&d) = w << k + 16 | y << k;
+	d1 = w << k + 16 | y << k;
 #endif
  ret_d:
 	return dval(&d);
+#undef d0
+#undef d1
 }
 
-Bigint *d2b (double val, int *e, int *bits)
+Bigint *d2b (double dd, int *e, int *bits)
 {
 	Bigint *b;
 	union _dbl_union d;
@@ -671,8 +675,9 @@ Bigint *d2b (double val, int *e, int *bits)
 #endif
 	int de, k;
 	ULong *x, y, z;
-
-	d.d = val;
+#define d0 word0(&d)
+#define d1 word1(&d)
+	d.d = dd;
 
 #ifdef Pack_32
 	b = Balloc(1);
@@ -681,17 +686,17 @@ Bigint *d2b (double val, int *e, int *bits)
 #endif
 	x = b->x;
 
-	z = word0(&d) & Frac_mask;
-	word0(&d) &= 0x7fffffff;	/* clear sign bit, which we ignore */
+	z = d0 & Frac_mask;
+	d0 &= 0x7fffffff;	/* clear sign bit, which we ignore */
 #ifdef Sudden_Underflow
-	de = (int)(word0(&d) >> Exp_shift);
+	de = (int)(d0 >> Exp_shift);
 	z |= Exp_msk11;
 #else
-	if ( (de = (int)(word0(&d) >> Exp_shift)) !=0)
+	if ( (de = (int)(d0 >> Exp_shift)) !=0)
 		z |= Exp_msk1;
 #endif
 #ifdef Pack_32
-	if ( (y = word1(&d)) !=0) {
+	if ( (y = d1) !=0) {
 		if ( (k = lo0bits(&y)) !=0) {
 			x[0] = y | z << (32 - k);
 			z >>= k;
@@ -717,7 +722,7 @@ Bigint *d2b (double val, int *e, int *bits)
 		k += 32;
 	}
 #else
-	if ( (y = word1(&d)) !=0) {
+	if ( (y = d1) !=0) {
 		if ( (k = lo0bits(&y)) !=0)
 			if (k >= 16) {
 				x[0] = y | z << 32 - k & 0xffff;
@@ -749,12 +754,12 @@ Bigint *d2b (double val, int *e, int *bits)
 		if (k >= 16) {
 			x[0] = z;
 			i = 0;
-			}
+		}
 		else {
 			x[0] = z & 0xffff;
 			x[1] = z >> 16;
 			i = 1;
-			}
+		}
 		k += 32;
 	}
 	while(!x[i])
@@ -778,6 +783,8 @@ Bigint *d2b (double val, int *e, int *bits)
 	}
 #endif
 	return b;
+#undef d0
+#undef d1
 }
 
 const double

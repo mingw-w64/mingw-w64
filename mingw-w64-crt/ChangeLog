@@ -5,6 +5,9 @@
 	gdtoa/strtof.c, gdtoa/ulp.c: merged the aliasing violation changes from
 	the latest netlib.org sources.
 
+	* gdtoa/misc.c: Restored the d0 and d1 macros in b2d() and d2b() for
+	smaller diffs with the netlib.org sources.
+
 2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoaimp.h, gdtoa/misc.c,
