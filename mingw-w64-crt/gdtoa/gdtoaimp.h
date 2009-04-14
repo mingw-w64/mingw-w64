@@ -157,11 +157,6 @@ THIS SOFTWARE.
  * #define NO_STRING_H to use private versions of memcpy.
  *	On some K&R systems, it may also be necessary to
  *	#define DECLARE_SIZE_T in this case.
- * #define YES_ALIAS to permit aliasing certain double values with
- *	arrays of ULongs.  This leads to slightly better code with
- *	some compilers and was always used prior to 19990916, but it
- *	is not strictly legal and can cause trouble with aggressively
- *	optimizing compilers (e.g., gcc 2.95.1 under -O2).
  * #define USE_LOCALE to use the current locale's decimal_point value.
  */
 
@@ -261,18 +256,14 @@ Exactly one of IEEE_8087, IEEE_MC68k, VAX, or IBM should be defined.
 
 typedef union _dbl_union { double d; ULong L[2]; } dbl_union;
 
-/* gcc >= 4.4 at -O2 and higher is seriously allergic to aliasing
-   violations, unions must be used instead of typecast assignment:
-   in the following macros, the x argument must be of 'dbl_union'
-   type. */
 #ifdef IEEE_8087
-#define word0(x) x.L[1]
-#define word1(x) x.L[0]
+#define word0(x) (x)->L[1]
+#define word1(x) (x)->L[0]
 #else
-#define word0(x) x.L[0]
-#define word1(x) x.L[1]
+#define word0(x) (x)->L[0]
+#define word1(x) (x)->L[1]
 #endif
-#define dval(x)  x.d
+#define dval(x) (x)->d
 
 /* The following definition of Storeinc is appropriate for MIPS processors.
  * An alternative that might be better on some machines is
@@ -567,7 +558,7 @@ extern Bigint *set_ones (Bigint*, int);
 extern char *strcp (char*, const char*);
 extern Bigint *sum (Bigint*, Bigint*);
 extern int trailz (Bigint*);
-extern double ulp (double);
+extern double ulp (dbl_union *);
 
 #ifdef __cplusplus
 }

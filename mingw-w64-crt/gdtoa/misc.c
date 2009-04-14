@@ -30,16 +30,16 @@ THIS SOFTWARE.
  * with " at " changed at "@" and " dot " changed to ".").	*/
 
 
-#ifdef __MINGW32__
-/* we have to include windows.h before gdtoa headers, otherwise
-   defines cause conflicts.  */
+#if defined(__MINGW32__) || defined(__MINGW64__)
+/* we have to include windows.h before gdtoa
+   headers, otherwise defines cause conflicts. */
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #define NLOCKS 2
 
 #ifdef USE_WIN32_SL
-/* Use spin locks. */ 
+/* Use spin locks. */
 static long dtoa_sl[NLOCKS];
 
 #define ACQUIRE_DTOA_LOCK(n) \
@@ -47,7 +47,8 @@ static long dtoa_sl[NLOCKS];
      Sleep (0);
 #define FREE_DTOA_LOCK(n) InterlockedExchange (&dtoa_sl[n], 0);
 
-#else
+#else	/* USE_WIN32_SL */
+
 #include <stdlib.h>
 static CRITICAL_SECTION dtoa_CritSec[NLOCKS];
 static long dtoa_CS_init = 0;
@@ -101,15 +102,11 @@ static void dtoa_unlock (int n)
 
 #define ACQUIRE_DTOA_LOCK(n) dtoa_lock(n)
 #define FREE_DTOA_LOCK(n) dtoa_unlock(n)
-#endif
+#endif	/* USE_WIN32_SL */
 
-#endif /* __MINGW32__ */
+#endif	/* __MINGW32__ / __MINGW64__ */
 
 #include "gdtoaimp.h"
-
-#ifndef MULTIPLE_THREADS
-char *dtoa_result;
-#endif
 
 static Bigint *freelist[Kmax+1];
 #ifndef Omit_Private_Memory
@@ -630,52 +627,53 @@ double b2d (Bigint *a, int *e)
 	*e = 32 - k;
 #ifdef Pack_32
 	if (k < Ebits) {
-		word0(d) = Exp_1 | y >> (Ebits - k);
+		word0(&d) = Exp_1 | y >> (Ebits - k);
 		w = xa > xa0 ? *--xa : 0;
-		word1(d) = y << ((32-Ebits) + k) | w >> (Ebits - k);
+		word1(&d) = y << ((32-Ebits) + k) | w >> (Ebits - k);
 		goto ret_d;
 	}
 	z = xa > xa0 ? *--xa : 0;
 	if (k -= Ebits) {
-		word0(d) = Exp_1 | y << k | z >> (32 - k);
+		word0(&d) = Exp_1 | y << k | z >> (32 - k);
 		y = xa > xa0 ? *--xa : 0;
-		word1(d) = z << k | y >> (32 - k);
+		word1(&d) = z << k | y >> (32 - k);
 	}
 	else {
-		word0(d) = Exp_1 | y;
-		word1(d) = z;
+		word0(&d) = Exp_1 | y;
+		word1(&d) = z;
 	}
 #else
 	if (k < Ebits + 16) {
 		z = xa > xa0 ? *--xa : 0;
-		word0(d) = Exp_1 | y << k - Ebits | z >> Ebits + 16 - k;
+		word0(&d) = Exp_1 | y << k - Ebits | z >> Ebits + 16 - k;
 		w = xa > xa0 ? *--xa : 0;
 		y = xa > xa0 ? *--xa : 0;
-		word1(d) = z << k + 16 - Ebits | w << k - Ebits | y >> 16 + Ebits - k;
+		word1(&d) = z << k + 16 - Ebits | w << k - Ebits | y >> 16 + Ebits - k;
 		goto ret_d;
 	}
 	z = xa > xa0 ? *--xa : 0;
 	w = xa > xa0 ? *--xa : 0;
 	k -= Ebits + 16;
-	word0(d) = Exp_1 | y << k + 16 | z << k | w >> 16 - k;
+	word0(&d) = Exp_1 | y << k + 16 | z << k | w >> 16 - k;
 	y = xa > xa0 ? *--xa : 0;
-	word1(d) = w << k + 16 | y << k;
+	word1(&d) = w << k + 16 | y << k;
 #endif
  ret_d:
-	return dval(d);
+	return dval(&d);
 }
 
 Bigint *d2b (double val, int *e, int *bits)
 {
 	Bigint *b;
+	union _dbl_union d;
 #ifndef Sudden_Underflow
 	int i;
 #endif
 	int de, k;
 	ULong *x, y, z;
-	union _dbl_union d;
 
 	d.d = val;
+
 #ifdef Pack_32
 	b = Balloc(1);
 #else
@@ -683,17 +681,17 @@ Bigint *d2b (double val, int *e, int *bits)
 #endif
 	x = b->x;
 
-	z = word0(d) & Frac_mask;
-	word0(d) &= 0x7fffffff;	/* clear sign bit, which we ignore */
+	z = word0(&d) & Frac_mask;
+	word0(&d) &= 0x7fffffff;	/* clear sign bit, which we ignore */
 #ifdef Sudden_Underflow
-	de = (int)(word0(d) >> Exp_shift);
+	de = (int)(word0(&d) >> Exp_shift);
 	z |= Exp_msk11;
 #else
-	if ( (de = (int)(word0(d) >> Exp_shift)) !=0)
+	if ( (de = (int)(word0(&d) >> Exp_shift)) !=0)
 		z |= Exp_msk1;
 #endif
 #ifdef Pack_32
-	if ( (y = word1(d)) !=0) {
+	if ( (y = word1(&d)) !=0) {
 		if ( (k = lo0bits(&y)) !=0) {
 			x[0] = y | z << (32 - k);
 			z >>= k;
@@ -719,7 +717,7 @@ Bigint *d2b (double val, int *e, int *bits)
 		k += 32;
 	}
 #else
-	if ( (y = word1(d)) !=0) {
+	if ( (y = word1(&d)) !=0) {
 		if ( (k = lo0bits(&y)) !=0)
 			if (k >= 16) {
 				x[0] = y | z << 32 - k & 0xffff;

@@ -1,3 +1,10 @@
+2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,
+	gdtoa/gdtoaimp.h, gdtoa/misc.c, gdtoa/smisc.c, gdtoa/strtodg.c,
+	gdtoa/strtof.c, gdtoa/ulp.c: merged the aliasing violation changes from
+	the latest netlib.org sources.
+
 2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoaimp.h, gdtoa/misc.c,

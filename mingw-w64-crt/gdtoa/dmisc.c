@@ -31,6 +31,10 @@ THIS SOFTWARE.
 
 #include "gdtoaimp.h"
 
+#ifndef MULTIPLE_THREADS
+char *dtoa_result;
+#endif
+
 char *rv_alloc (int i)
 {
 	int j, k, *r;

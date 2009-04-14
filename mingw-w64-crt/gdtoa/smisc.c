@@ -68,16 +68,16 @@ double ratio (Bigint *a, Bigint *b)
 	union _dbl_union da, db;
 	int k, ka, kb;
 
-	dval(da) = b2d(a, &ka);
-	dval(db) = b2d(b, &kb);
+	dval(&da) = b2d(a, &ka);
+	dval(&db) = b2d(b, &kb);
 	k = ka - kb + ULbits*(a->wds - b->wds);
 	if (k > 0)
-		word0(da) += k*Exp_msk1;
+		word0(&da) += k*Exp_msk1;
 	else {
 		k = -k;
-		word0(db) += k*Exp_msk1;
+		word0(&db) += k*Exp_msk1;
 	}
-	return dval(da) / dval(db);
+	return dval(&da) / dval(&db);
 }
 
 #ifdef INFNAN_CHECK

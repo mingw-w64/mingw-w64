@@ -140,14 +140,14 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 		to hold the suppressed trailing zeros.
 	*/
 
-	int bbits, b2, b5, be0, dig, i, ieps, ilim = 0, ilim0, ilim1 = 0, inex;
+	int bbits, b2, b5, be0, dig, i, ieps, ilim, ilim0, ilim1, inex;
 	int j, j1, k, k0, k_check, kind, leftright, m2, m5, nbits;
 	int rdir, s2, s5, spec_case, try_quick;
 	Long L;
 	Bigint *b, *b1, *delta, *mlo, *mhi, *mhi1, *S;
 	double d2, ds;
-	union _dbl_union d, eps;
 	char *s, *s0;
+	union _dbl_union d, eps;
 
 #ifndef MULTIPLE_THREADS
 	if (dtoa_result) {
@@ -186,17 +186,17 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 		return nrv_alloc("0", rve, 1);
 	}
 
-	dval(d) = b2d(b, &i);
+	dval(&d) = b2d(b, &i);
 	i = be + bbits - 1;
-	word0(d) &= Frac_mask1;
-	word0(d) |= Exp_11;
+	word0(&d) &= Frac_mask1;
+	word0(&d) |= Exp_11;
 
 	/* log(x)	~=~ log(1.5) + (x-1.5)/1.5
 	 * log10(x)	 =  log(x) / log(10)
 	 *		~=~ log(1.5)/log(10) + (x-1.5)/(1.5*log(10))
-	 * log10(d) = (i-Bias)*log(2)/log(10) + log10(d2)
+	 * log10(&d) = (i-Bias)*log(2)/log(10) + log10(d2)
 	 *
-	 * This suggests computing an approximation k to log10(d) by
+	 * This suggests computing an approximation k to log10(&d) by
 	 *
 	 * k = (i - Bias)*0.301029995663981
 	 *	+ ( (d2-1.5)*0.289529654602168 + 0.176091259055681 );
@@ -212,7 +212,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 	 * (We could get a more accurate k by invoking log10,
 	 *  but this is probably not worthwhile.)
 	 */
-	ds = (dval(d)-1.5)*0.289529654602168 + 0.1760912590558 + i*0.301029995663981;
+	ds = (dval(&d)-1.5)*0.289529654602168 + 0.1760912590558 + i*0.301029995663981;
 
 	/* correct assumption about exponent range */
 	if ((j = i) < 0)
@@ -224,9 +224,9 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 	if (ds < 0. && ds != k)
 		k--;	/* want k = floor(ds) */
 	k_check = 1;
-	word0(d) += (be + bbits - 1) << Exp_shift;
+	word0(&d) += (be + bbits - 1) << Exp_shift;
 	if (k >= 0 && k <= Ten_pmax) {
-		if (dval(d) < tens[k])
+		if (dval(&d) < tens[k])
 			k--;
 		k_check = 0;
 	}
@@ -257,10 +257,11 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 		try_quick = 0;
 	}
 	leftright = 1;
+	ilim = ilim1 = -1;	/* Values for cases 0 and 1; done here to */
+				/* silence erroneous "gcc -Wall" warning. */
 	switch(mode) {
 		case 0:
 		case 1:
-			ilim = ilim1 = -1;
 			i = (int)(nbits * .30103) + 3;
 			ndigits = 0;
 			break;
@@ -302,7 +303,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 		/* Try to get by with floating-point arithmetic. */
 
 		i = 0;
-		d2 = dval(d);
+		d2 = dval(&d);
 		k0 = k;
 		ilim0 = ilim;
 		ieps = 2; /* conservative */
@@ -312,7 +313,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 			if (j & Bletch) {
 				/* prevent overflows */
 				j &= Bletch - 1;
-				dval(d) /= bigtens[n_bigtens-1];
+				dval(&d) /= bigtens[n_bigtens-1];
 				ieps++;
 			}
 			for(; j; j >>= 1, i++)
@@ -324,30 +325,30 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 		else  {
 			ds = 1.;
 			if ( (j1 = -k) !=0) {
-				dval(d) *= tens[j1 & 0xf];
+				dval(&d) *= tens[j1 & 0xf];
 				for(j = j1 >> 4; j; j >>= 1, i++)
 					if (j & 1) {
 						ieps++;
-						dval(d) *= bigtens[i];
+						dval(&d) *= bigtens[i];
 					}
 			}
 		}
-		if (k_check && dval(d) < 1. && ilim > 0) {
+		if (k_check && dval(&d) < 1. && ilim > 0) {
 			if (ilim1 <= 0)
 				goto fast_failed;
 			ilim = ilim1;
 			k--;
-			dval(d) *= 10.;
+			dval(&d) *= 10.;
 			ieps++;
 		}
-		dval(eps) = ieps*dval(d) + 7.;
-		word0(eps) -= (P-1)*Exp_msk1;
+		dval(&eps) = ieps*dval(&d) + 7.;
+		word0(&eps) -= (P-1)*Exp_msk1;
 		if (ilim == 0) {
 			S = mhi = 0;
-			dval(d) -= 5.;
-			if (dval(d) > dval(eps))
+			dval(&d) -= 5.;
+			if (dval(&d) > dval(&eps))
 				goto one_digit;
-			if (dval(d) < -dval(eps))
+			if (dval(&d) < -dval(&eps))
 				goto no_digits;
 			goto fast_failed;
 		}
@@ -356,40 +357,40 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 			/* Use Steele & White method of only
 			 * generating digits needed.
 			 */
-			dval(eps) = ds*0.5/tens[ilim-1] - dval(eps);
+			dval(&eps) = ds*0.5/tens[ilim-1] - dval(&eps);
 			for(i = 0;;) {
-				L = (Long)(dval(d)/ds);
-				dval(d) -= L*ds;
+				L = (Long)(dval(&d)/ds);
+				dval(&d) -= L*ds;
 				*s++ = '0' + (int)L;
-				if (dval(d) < dval(eps)) {
-					if (dval(d))
+				if (dval(&d) < dval(&eps)) {
+					if (dval(&d))
 						inex = STRTOG_Inexlo;
 					goto ret1;
 				}
-				if (ds - dval(d) < dval(eps))
+				if (ds - dval(&d) < dval(&eps))
 					goto bump_up;
 				if (++i >= ilim)
 					break;
-				dval(eps) *= 10.;
-				dval(d) *= 10.;
+				dval(&eps) *= 10.;
+				dval(&d) *= 10.;
 			}
 		}
 		else {
 #endif
 			/* Generate ilim digits, then fix them up. */
-			dval(eps) *= tens[ilim-1];
-			for(i = 1;; i++, dval(d) *= 10.) {
-				if ( (L = (Long)(dval(d)/ds)) !=0)
-					dval(d) -= L*ds;
+			dval(&eps) *= tens[ilim-1];
+			for(i = 1;; i++, dval(&d) *= 10.) {
+				if ( (L = (Long)(dval(&d)/ds)) !=0)
+					dval(&d) -= L*ds;
 				*s++ = '0' + (int)L;
 				if (i == ilim) {
 					ds *= 0.5;
-					if (dval(d) > ds + dval(eps))
+					if (dval(&d) > ds + dval(&eps))
 						goto bump_up;
-					else if (dval(d) < ds - dval(eps)) {
+					else if (dval(&d) < ds - dval(&eps)) {
 						while(*--s == '0'){}
 						s++;
-						if (dval(d))
+						if (dval(&d))
 							inex = STRTOG_Inexlo;
 						goto ret1;
 					}
@@ -401,7 +402,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 #endif
  fast_failed:
 		s = s0;
-		dval(d) = d2;
+		dval(&d) = d2;
 		k = k0;
 		ilim = ilim0;
 	}
@@ -413,22 +414,22 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 		ds = tens[k];
 		if (ndigits < 0 && ilim <= 0) {
 			S = mhi = 0;
-			if (ilim < 0 || dval(d) <= 5*ds)
+			if (ilim < 0 || dval(&d) <= 5*ds)
 				goto no_digits;
 			goto one_digit;
 		}
-		for(i = 1;; i++, dval(d) *= 10.) {
-			L = dval(d) / ds;
-			dval(d) -= L*ds;
+		for(i = 1;; i++, dval(&d) *= 10.) {
+			L = dval(&d) / ds;
+			dval(&d) -= L*ds;
 #ifdef Check_FLT_ROUNDS
 			/* If FLT_ROUNDS == 2, L will usually be high by 1 */
-			if (dval(d) < 0) {
+			if (dval(&d) < 0) {
 				L--;
-				dval(d) += ds;
+				dval(&d) += ds;
 			}
 #endif
 			*s++ = '0' + (int)L;
-			if (dval(d) == 0.)
+			if (dval(&d) == 0.)
 				break;
 			if (i == ilim) {
 				if (rdir) {
@@ -437,8 +438,8 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 					inex = STRTOG_Inexlo;
 					goto ret1;
 				}
-				dval(d) += dval(d);
-				if (dval(d) > ds || (dval(d) == ds && L & 1)) {
+				dval(&d) += dval(&d);
+				if (dval(&d) > ds || (dval(&d) == ds && L & 1)) {
  bump_up:
 					inex = STRTOG_Inexhi;
 					while(*--s == '9')

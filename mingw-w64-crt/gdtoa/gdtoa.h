@@ -98,10 +98,10 @@ extern char* __gdtoa (FPI *fpi, int be, ULong *bits, int *kindp,
 		     int mode, int ndigits, int *decpt, char **rve);
 extern void __freedtoa (char *);
 
-extern int __strtodg (const char *, char **, FPI *, Long *, ULong *);
 extern float  __strtof (const char *, char **);
 extern double  __strtod (const char *, char **);
 extern long double strtold (const char *, char **);
+extern int __strtodg (const char *, char **, FPI *, Long *, ULong *);
 
 extern char*	__g__fmt   (char*, char*, char*, int, ULong);
 extern char*	__g_dfmt   (char*, double*, int, unsigned);
