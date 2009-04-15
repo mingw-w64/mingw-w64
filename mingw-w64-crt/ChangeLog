@@ -1,6 +1,6 @@
 2009-04-15  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* gdtoa/dtoa.c: Sync'ed with the netlib.org sources.
+	* gdtoa/dtoa.c, gdtoa/gdtoa.c: Sync'ed with the netlib.org sources.
 
 2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 

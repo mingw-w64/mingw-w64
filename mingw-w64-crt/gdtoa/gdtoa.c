@@ -42,7 +42,7 @@ static Bigint *bitstob (ULong *bits, int nbits, int *bbits)
 	while(i < nbits) {
 		i <<= 1;
 		k++;
-		}
+	}
 #ifndef Pack_32
 	if (!k)
 		k = 1;
@@ -55,19 +55,19 @@ static Bigint *bitstob (ULong *bits, int nbits, int *bbits)
 #ifdef Pack_16
 		*x++ = (*bits >> 16) & ALL_ON;
 #endif
-		} while(++bits <= be);
+	} while(++bits <= be);
 	i = x - x0;
 	while(!x0[--i])
 		if (!i) {
 			b->wds = 0;
 			*bbits = 0;
 			goto ret;
-			}
+		}
 	b->wds = i + 1;
 	*bbits = i*ULbits + 32 - hi0bits(b->x[i]);
  ret:
 	return b;
-	}
+}
 
 /* dtoa for IEEE arithmetic (dmg): convert double to ASCII string.
  *
@@ -153,7 +153,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 	if (dtoa_result) {
 		__freedtoa(dtoa_result);
 		dtoa_result = 0;
-		}
+	}
 #endif
 	inex = 0;
 	kind = *kindp &= ~STRTOG_Inexact;
@@ -388,11 +388,9 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 					if (dval(&d) > ds + dval(&eps))
 						goto bump_up;
 					else if (dval(&d) < ds - dval(&eps)) {
-						while(*--s == '0'){}
-						s++;
 						if (dval(&d))
 							inex = STRTOG_Inexlo;
-						goto ret1;
+						goto clear_trailing0;
 					}
 					break;
 				}
@@ -447,11 +445,15 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 							k++;
 							*s = '0';
 							break;
-							}
+						}
 					++*s++;
 				}
-				else
+				else {
 					inex = STRTOG_Inexlo;
+ clear_trailing0:
+					while(*--s == '0'){}
+					++s;
+				}
 				break;
 			}
 		}
@@ -529,28 +531,11 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 	 * and for all and pass them and a shift to quorem, so it
 	 * can do shifts and ors to compute the numerator for q.
 	 */
-#ifdef Pack_32
-	if ( (i = ((s5 ? 32 - hi0bits(S->x[S->wds-1]) : 1) + s2) & 0x1f) !=0)
-		i = 32 - i;
-#else
-	if ( (i = ((s5 ? 32 - hi0bits(S->x[S->wds-1]) : 1) + s2) & 0xf) !=0)
-		i = 16 - i;
-#endif
-	if (i > 4) {
-		i -= 4;
-		b2 += i;
-		m2 += i;
-		s2 += i;
-	}
-	else if (i < 4) {
-		i += 28;
-		b2 += i;
-		m2 += i;
-		s2 += i;
-	}
-	if (b2 > 0)
+	i = ((s5 ? hi0bits(S->x[S->wds-1]) : ULbits - 1) - s2 - 4) & kmask;
+	m2 += i;
+	if ((b2 += i) > 0)
 		b = lshift(b, b2);
-	if (s2 > 0)
+	if ((s2 += i) > 0)
 		S = lshift(S, s2);
 	if (k_check) {
 		if (cmp(b,S) < 0) {
@@ -701,7 +686,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 				k++;
 				*s++ = '1';
 				goto ret;
-				}
+			}
 		++*s++;
 	}
 	else {
@@ -709,7 +694,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 		if (b->wds > 1 || b->x[0])
 			inex = STRTOG_Inexlo;
 		while(*--s == '0'){}
-		s++;
+		++s;
 	}
  ret:
 	Bfree(S);
