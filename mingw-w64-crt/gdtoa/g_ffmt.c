@@ -31,7 +31,7 @@ THIS SOFTWARE.
 
 #include "gdtoaimp.h"
 
-char *__g_ffmt (char *buf, float *f, int ndig, unsigned bufsize)
+char *__g_ffmt (char *buf, float *f, int ndig, size_t bufsize)
 {
 	static FPI fpi0 = { 24, 1-127-24+1,  254-127-24+1, 1, 0 };
 	char *b, *s, *se;
@@ -84,5 +84,5 @@ char *__g_ffmt (char *buf, float *f, int ndig, unsigned bufsize)
 	}
 	i = STRTOG_Normal;
 	s = __gdtoa(fpi, ex, bits, &i, mode, ndig, &decpt, &se);
-	return __g__fmt(buf, s, se, decpt, sign);
+	return __g__fmt(buf, s, se, decpt, sign, bufsize);
 }

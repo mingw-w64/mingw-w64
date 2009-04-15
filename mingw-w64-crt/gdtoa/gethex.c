@@ -43,9 +43,8 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 	ULong L, lostbits, *x;
 	Long e, e1;
 #ifdef USE_LOCALE
-	unsigned char decimalpoint = *localeconv()->decimal_point;
-#else
-#define decimalpoint '.'
+	int i;
+	const unsigned char *decimalpoint = (unsigned char*)localeconv()->decimal_point;
 #endif
 
 	if (!hexdig['0'])
@@ -64,9 +63,17 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 		havedig++;
 	else {
 		zret = 1;
-		if (*s != decimalpoint)
+#ifdef USE_LOCALE
+		for(i = 0; decimalpoint[i]; ++i) {
+			if (s[i] != decimalpoint[i])
+				goto pcheck;
+		}
+		decpt = s += i;
+#else
+		if (*s != '.')
 			goto pcheck;
 		decpt = ++s;
+#endif
 		if (!hexdig[*s])
 			goto pcheck;
 		while(*s == '0')
@@ -78,8 +85,17 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 	}
 	while(hexdig[*s])
 		s++;
-	if (*s == decimalpoint && !decpt) {
+#ifdef USE_LOCALE
+	if (*s == *decimalpoint && !decpt) {
+		for(i = 1; decimalpoint[i]; ++i) {
+			if (s[i] != decimalpoint[i])
+				goto pcheck;
+		}
+		decpt = s += i;
+#else
+	if (*s == '.' && !decpt) {
 		decpt = ++s;
+#endif
 		while(hexdig[*s])
 			s++;
 	}/*}*/
@@ -170,9 +186,19 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 	x = b->x;
 	n = 0;
 	L = 0;
+#ifdef USE_LOCALE
+	for(i = 0; decimalpoint[i+1]; ++i);
+#endif
 	while(s1 > s0) {
-		if (*--s1 == decimalpoint)
+#ifdef USE_LOCALE
+		if (*--s1 == decimalpoint[i]) {
+			s1 -= i;
 			continue;
+		}
+#else
+		if (*--s1 == '.')
+			continue;
+#endif
 		if (n == ULbits) {
 			*x++ = L;
 			L = 0;

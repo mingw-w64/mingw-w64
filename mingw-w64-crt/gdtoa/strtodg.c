@@ -281,6 +281,12 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 	union _dbl_union adj, rv;
 	ULong *b, *be, y, z;
 	Bigint *ab, *bb, *bb1, *bd, *bd0, *bs, *delta, *rvb, *rvb0;
+#ifdef USE_LOCALE /*{{*/
+	char *decimalpoint = localeconv()->decimal_point;
+	int dplen = strlen(decimalpoint);
+#else  /*USE_LOCALE}{*/
+#define dplen 1
+#endif /*USE_LOCALE}}*/
 
 	irv = STRTOG_Zero;
 	denorm = sign = nz0 = nz = 0;
@@ -339,12 +345,17 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 			z = 10*z + c - '0';
 	nd0 = nd;
 #ifdef USE_LOCALE
-	if (c == *localeconv()->decimal_point) {
+	if (c == *decimalpoint) {
+		for(i = 1; decimalpoint[i]; ++i)
+			if (s[i] != decimalpoint[i])
+				goto dig_done;
+		s += i;
+		c = *s;
 #else
 	if (c == '.') {
+		c = *++s;
 #endif
 		decpt = 1;
-		c = *++s;
 		if (!nd) {
 			for(; c == '0'; c = *++s)
 				nz++;
@@ -605,7 +616,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 
 	/* Put digits into bd: true value = bd * 10^e */
 
-	bd0 = s2b(s0, nd0, nd, y);
+	bd0 = s2b(s0, nd0, nd, y, dplen);
 
 	for(;;) {
 		bd = Balloc(bd0->k);

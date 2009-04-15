@@ -35,21 +35,33 @@ THIS SOFTWARE.
 #include "locale.h"
 #endif
 
-char *__g__fmt (char *b, char *s, char *se, int decpt, ULong sign)
+char *__g__fmt (char *b, char *s, char *se, int decpt, ULong sign, size_t blen)
 {
 	int i, j, k;
-	char *s0 = s;
+	char *be, *s0;
+	size_t len;
 #ifdef USE_LOCALE
-	char decimalpoint = *localeconv()->decimal_point;
+	char *decimalpoint = localeconv()->decimal_point;
+	size_t dlen = strlen(decimalpoint);
 #else
-#define decimalpoint '.'
+#define dlen 0
 #endif
+	s0 = s;
+	len = (se-s) + dlen + 6; /* 6 = sign + e+dd + trailing null */
+	if (blen < len)
+		goto ret0;
+	be = b + blen - 1;
 	if (sign)
 		*b++ = '-';
 	if (decpt <= -4 || decpt > se - s + 5) {
 		*b++ = *s++;
 		if (*s) {
-			*b++ = decimalpoint;
+#ifdef USE_LOCALE
+			while((*b = *decimalpoint++))
+				++b;
+#else
+			*b++ = '.';
+#endif
 			while((*b = *s++) !=0)
 				b++;
 		}
@@ -64,6 +76,8 @@ char *__g__fmt (char *b, char *s, char *se, int decpt, ULong sign)
 		for(j = 2, k = 10; 10*k <= decpt; j++, k *= 10){}
 		for(;;) {
 			i = decpt / k;
+			if (b >= be)
+				goto ret0;
 			*b++ = i + '0';
 			if (--j <= 0)
 				break;
@@ -73,23 +87,41 @@ char *__g__fmt (char *b, char *s, char *se, int decpt, ULong sign)
 		*b = 0;
 	}
 	else if (decpt <= 0) {
-		*b++ = decimalpoint;
+#ifdef USE_LOCALE
+		while((*b = *decimalpoint++))
+			++b;
+#else
+		*b++ = '.';
+#endif
+		if (be < b - decpt + (se - s))
+			goto ret0;
 		for(; decpt < 0; decpt++)
 			*b++ = '0';
-		while((*b = *s++) !=0)
+		while((*b = *s++) != 0)
 			b++;
 	}
 	else {
 		while((*b = *s++) != 0) {
 			b++;
 			if (--decpt == 0 && *s) {
-				*b++ = decimalpoint;
+#ifdef USE_LOCALE
+				while(*b = *decimalpoint++)
+					++b;
+#else
+				*b++ = '.';
+#endif
 			}
+		}
+		if (b + decpt > be) {
+ ret0:
+			b = 0;
+			goto ret;
 		}
 		for(; decpt > 0; decpt--)
 			*b++ = '0';
 		*b = 0;
 	}
+ ret:
 	__freedtoa(s0);
 	return b;
 }

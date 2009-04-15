@@ -32,6 +32,17 @@
 	* gdtoa/gethex.c: fix an off-by-one bug in a rounding test. merge the
 	rest of the rounding stuff. (from netlib.org sources.)
 
+	* gdtoa/README, gdtoa/g__fmt.c, gdtoa/g_dfmt.c, gdtoa/g_ffmt.c,
+	gdtoa/g_xfmt.c, gdtoa/gethex.c, gdtoa/smisc.c, gdtoa/strtodg.c,
+	gdtoa/gdtoa.h, gdtoa/gdtoaimp.h: Merged the locale-specific decimal
+	point fixes from netlib.org: if compiled with -DUSE_LOCALE, use the
+	current locale's decimal point character string. bufsize changed from
+	unsigned to size_t. g__fmt() now explicitly checks bufsize. fix
+	glitches in the strto* routines when compiled with -DUSE_LOCALE and
+	the locale's decimal-point string is two or more characters long.
+	The mingw build does compile with USE_LOCALE and was exposed to this
+	bug.
+
 2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,

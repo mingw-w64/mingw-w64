@@ -347,5 +347,8 @@ standard says it should -- when Honor_FLT_ROUNDS is #defined, the
 current rounding mode is obtained from fegetround() rather than from
 FLT_ROUNDS, unless Trust_FLT_ROUNDS is also #defined.
 
+Compile with -DUSE_LOCALE to use the current locale; otherwise
+decimal points are assumed to be '.'.
+
 Please send comments to	David M. Gay (dmg at acm dot org, with " at "
 changed at "@" and " dot " changed to ".").

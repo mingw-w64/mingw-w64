@@ -2,7 +2,7 @@
 
 The author of this software is David M. Gay.
 
-Copyright (C) 1998-2008 by Lucent Technologies
+Copyright (C) 1998-2000 by Lucent Technologies
 All Rights Reserved
 
 Permission to use, copy, modify, and distribute this software and
@@ -562,7 +562,7 @@ extern int quorem (Bigint*, Bigint*);
 extern double ratio (Bigint*, Bigint*);
 extern void rshift (Bigint*, int);
 extern char *rv_alloc (int);
-extern Bigint *s2b (const char*, int, int, ULong);
+extern Bigint *s2b (const char*, int, int, ULong, int);
 extern Bigint *set_ones (Bigint*, int);
 extern char *strcp (char*, const char*);
 extern Bigint *sum (Bigint*, Bigint*);

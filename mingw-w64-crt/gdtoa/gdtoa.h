@@ -104,10 +104,10 @@ extern double __strtod (const char *, char **);
 extern long double __strtold (const char *, char **);
 extern int __strtodg (const char *, char **, FPI *, Long *, ULong *);
 
-extern char*	__g__fmt   (char*, char*, char*, int, ULong);
-extern char*	__g_dfmt   (char*, double*, int, unsigned);
-extern char*	__g_ffmt   (char*, float*,  int, unsigned);
-extern char*	__g_xfmt   (char*, void*,   int, unsigned);
+extern char*	__g__fmt   (char*, char*, char*, int, ULong, size_t);
+extern char*	__g_dfmt   (char*, double*, int, size_t);
+extern char*	__g_ffmt   (char*, float*,  int, size_t);
+extern char*	__g_xfmt   (char*, void*,   int, size_t);
 
 #ifdef __cplusplus
 }

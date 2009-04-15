@@ -31,7 +31,7 @@ THIS SOFTWARE.
 
 #include "gdtoaimp.h"
 
-Bigint *s2b (const char *s, int nd0, int nd, ULong y9)
+Bigint *s2b (const char *s, int nd0, int nd, ULong y9, int dplen)
 {
 	Bigint *b;
 	int i, k;
@@ -54,10 +54,10 @@ Bigint *s2b (const char *s, int nd0, int nd, ULong y9)
 		s += 9;
 		do b = multadd(b, 10, *s++ - '0');
 			while(++i < nd0);
-		s++;
+		s += dplen;
 	}
 	else
-		s += 10;
+		s += dplen + 9;
 	for(; i < nd; i++)
 		b = multadd(b, 10, *s++ - '0');
 	return b;

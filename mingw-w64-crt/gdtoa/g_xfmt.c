@@ -51,7 +51,7 @@ THIS SOFTWARE.
 #define _4 0
 #endif
 
-char *__g_xfmt (char *buf, void *V, int ndig, unsigned bufsize)
+char *__g_xfmt (char *buf, void *V, int ndig, size_t bufsize)
 {
 	static FPI fpi0 = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, 0 };
 	char *b, *s, *se;
@@ -113,5 +113,5 @@ char *__g_xfmt (char *buf, void *V, int ndig, unsigned bufsize)
 		mode = 0;
 	}
 	s = __gdtoa(fpi, ex, bits, &i, mode, ndig, &decpt, &se);
-	return __g__fmt(buf, s, se, decpt, sign);
+	return __g__fmt(buf, s, se, decpt, sign, bufsize);
 }
