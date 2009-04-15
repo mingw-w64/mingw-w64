@@ -66,14 +66,13 @@ THIS SOFTWARE.
  */
 
 #ifdef Honor_FLT_ROUNDS
-#define Rounding rounding
 #undef Check_FLT_ROUNDS
 #define Check_FLT_ROUNDS
 #else
 #define Rounding Flt_Rounds
 #endif
 
-char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **rve)
+char *__dtoa (double d0, int mode, int ndigits, int *decpt, int *sign, char **rve)
 {
  /*	Arguments ndigits, decpt, sign are similar to those
 	of ecvt and fcvt; trailing zeros are suppressed from
@@ -124,9 +123,19 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 #ifdef SET_INEXACT
 	int inexact, oldinexact;
 #endif
-#ifdef Honor_FLT_ROUNDS
-	int rounding;
-#endif
+#ifdef Honor_FLT_ROUNDS /*{*/
+	int Rounding;
+#ifdef Trust_FLT_ROUNDS /*{{ only define this if FLT_ROUNDS really works! */
+	Rounding = Flt_Rounds;
+#else /*}{*/
+	Rounding = 1;
+	switch(fegetround()) {
+	  case FE_TOWARDZERO:	Rounding = 0; break;
+	  case FE_UPWARD:	Rounding = 2; break;
+	  case FE_DOWNWARD:	Rounding = 3;
+	}
+#endif /*}}*/
+#endif /*}*/
 
 #ifndef MULTIPLE_THREADS
 	if (dtoa_result) {
@@ -134,8 +143,7 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 		dtoa_result = 0;
 	}
 #endif
-
-	d.d = val;
+	d.d = d0;
 	if (word0(&d) & Sign_bit) {
 		/* set sign for everything, including 0's and NaNs */
 		*sign = 1;
@@ -162,12 +170,12 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 	inexact = 1;
 #endif
 #ifdef Honor_FLT_ROUNDS
-	if ((rounding = Flt_Rounds) >= 2) {
+	if (Rounding >= 2) {
 		if (*sign)
-			rounding = rounding == 2 ? 0 : 2;
+			Rounding = Rounding == 2 ? 0 : 2;
 		else
-			if (rounding != 2)
-				rounding = 0;
+			if (Rounding != 2)
+				Rounding = 0;
 	}
 #endif
 
@@ -293,12 +301,14 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 	s = s0 = rv_alloc(i);
 
 #ifdef Honor_FLT_ROUNDS
-	if (mode > 1 && rounding != 1)
+	if (mode > 1 && Rounding != 1)
 		leftright = 0;
 #endif
 
 	if (ilim >= 0 && ilim <= Quick_max && try_quick) {
+
 		/* Try to get by with floating-point arithmetic. */
+
 		i = 0;
 		dval(&d2) = dval(&d);
 		k0 = k;
@@ -428,7 +438,7 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 			if (i == ilim) {
 #ifdef Honor_FLT_ROUNDS
 				if (mode > 1)
-				 switch(rounding) {
+				 switch(Rounding) {
 				  case 0: goto ret1;
 				  case 2: goto bump_up;
 				 }
@@ -492,7 +502,7 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 	spec_case = 0;
 	if ((mode < 2 || leftright)
 #ifdef Honor_FLT_ROUNDS
-			&& rounding == 1
+			&& Rounding == 1
 #endif
 				) {
 		if (!word1(&d) && !(word0(&d) & Bndry_mask)
@@ -585,7 +595,7 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 #ifndef ROUND_BIASED
 			if (j1 == 0 && mode != 1 && !(word1(&d) & 1)
 #ifdef Honor_FLT_ROUNDS
-				&& rounding >= 1
+				&& Rounding >= 1
 #endif
 								   ) {
 				if (dig == '9')
@@ -613,7 +623,7 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 				}
 #ifdef Honor_FLT_ROUNDS
 				if (mode > 1)
-				 switch(rounding) {
+				 switch(Rounding) {
 				  case 0: goto accept_dig;
 				  case 2: goto keep_dig;
 				 }
@@ -631,7 +641,7 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 			}
 			if (j1 > 0) {
 #ifdef Honor_FLT_ROUNDS
-				if (!rounding)
+				if (!Rounding)
 					goto accept_dig;
 #endif
 				if (dig == '9') { /* possible if i == 1 */
@@ -674,7 +684,7 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 	/* Round off last digit */
 
 #ifdef Honor_FLT_ROUNDS
-	switch(rounding) {
+	switch(Rounding) {
 	  case 0: goto trimzeros;
 	  case 2: goto roundoff;
 	}
@@ -692,7 +702,9 @@ char *__dtoa (double val, int mode, int ndigits, int *decpt, int *sign, char **r
 		++*s++;
 	}
 	else {
- // trimzeros:
+#ifdef Honor_FLT_ROUNDS
+ trimzeros:
+#endif
 		while(*--s == '0');
 		s++;
 	}
