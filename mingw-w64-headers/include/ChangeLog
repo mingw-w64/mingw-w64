@@ -1,3 +1,8 @@
+2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* windef.h (BOOL): Check additionally for __OBJC_BOOL
+	to avoid definition of BOOL.
+
 2009-04-14  Roland Schwingel  <Roland.Schwingel@onevision.com>
 
 	* windef.h (BOOL): Don't define it as WINBOOL for ObjC

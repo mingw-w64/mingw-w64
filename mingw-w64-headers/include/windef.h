@@ -93,7 +93,7 @@ extern "C" {
 
   typedef unsigned long DWORD;
   typedef int WINBOOL;
-#ifndef __OBJC__
+#if !define(__OBJC__) && !defined (__OBJC_BOOL)
 #define BOOL WINBOOL
 #endif
   typedef unsigned char BYTE;
