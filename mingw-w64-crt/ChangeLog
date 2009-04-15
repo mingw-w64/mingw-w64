@@ -25,6 +25,9 @@
 	* gdtoa/hexnan.c: Allow optional initial 0x or 0X.
 	* gdtoa/gdtoaimp.h: Update accordingly for GDTOA_NON_PEDANTIC_NANCHECK.
 
+	* gdtoa/gethex.c: fix an off-by-one bug in a rounding test. merge the
+	rest of the rounding stuff. (from netlib.org sources.)
+
 2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,

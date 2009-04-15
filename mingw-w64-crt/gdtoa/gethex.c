@@ -39,7 +39,7 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 {
 	Bigint *b;
 	const unsigned char *decpt, *s0, *s, *s1;
-	int esign, havedig, irv, k, n, nbits, up, zret;
+	int big, esign, havedig, irv, j, k, n, n0, nbits, up, zret;
 	ULong L, lostbits, *x;
 	Long e, e1;
 #ifdef USE_LOCALE
@@ -50,6 +50,7 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 
 	if (!hexdig['0'])
 		hexdig_init_D2A();
+	*bp = 0;
 	havedig = 0;
 	s0 = *(const unsigned char **)sp + 2;
 	while(s0[havedig] == '0')
@@ -59,7 +60,9 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 	decpt = 0;
 	zret = 0;
 	e = 0;
-	if (!hexdig[*s]) {
+	if (hexdig[*s])
+		havedig++;
+	else {
 		zret = 1;
 		if (*s != decimalpoint)
 			goto pcheck;
@@ -79,15 +82,15 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 		decpt = ++s;
 		while(hexdig[*s])
 			s++;
-	}
+	}/*}*/
 	if (decpt)
 		e = -(((Long)(s-decpt)) << 2);
  pcheck:
 	s1 = s;
+	big = esign = 0;
 	switch(*s) {
 	  case 'p':
 	  case 'P':
-		esign = 0;
 		switch(*++s) {
 		  case '-':
 			esign = 1;
@@ -100,17 +103,68 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 			break;
 		}
 		e1 = n - 0x10;
-		while((n = hexdig[*++s]) !=0 && n <= 0x19)
+		while((n = hexdig[*++s]) !=0 && n <= 0x19) {
+			if (e1 & 0xf8000000)
+				big = 1;
 			e1 = 10*e1 + n - 0x10;
+		}
 		if (esign)
 			e1 = -e1;
 		e += e1;
 	}
 	*sp = (char*)s;
+	if (!havedig)
+		*sp = (char*)s0 - 1;
 	if (zret)
-		return havedig ? STRTOG_Zero : STRTOG_NoNumber;
+		return STRTOG_Zero;
+	if (big) {
+		if (esign) {
+			switch(fpi->rounding) {
+			  case FPI_Round_up:
+				if (sign)
+					break;
+				goto ret_tiny;
+			  case FPI_Round_down:
+				if (!sign)
+					break;
+				goto ret_tiny;
+			}
+			goto retz;
+ ret_tiny:
+			b = Balloc(0);
+			b->wds = 1;
+			b->x[0] = 1;
+			goto dret;
+		}
+		switch(fpi->rounding) {
+		  case FPI_Round_near:
+			goto ovfl1;
+		  case FPI_Round_up:
+			if (!sign)
+				goto ovfl1;
+			goto ret_big;
+		  case FPI_Round_down:
+			if (sign)
+				goto ovfl1;
+			goto ret_big;
+		}
+ ret_big:
+		nbits = fpi->nbits;
+		n0 = n = nbits >> kshift;
+		if (nbits & kmask)
+			++n;
+		for(j = n, k = 0; j >>= 1; ++k);
+		*bp = b = Balloc(k);
+		b->wds = n;
+		for(j = 0; j < n0; ++j)
+			b->x[j] = ALL_ON;
+		if (n > n0)
+			b->x[j] = ULbits >> (ULbits - (nbits & kmask));
+		*exp = fpi->emin;
+		return STRTOG_Normal | STRTOG_Inexlo;
+	}
 	n = s1 - s0 - 1;
-	for(k = 0; n > 7; n >>= 1)
+	for(k = 0; n > (1 << (kshift-2)) - 1; n >>= 1)
 		k++;
 	b = Balloc(k);
 	x = b->x;
@@ -140,7 +194,7 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 			k = n - 1;
 			if (x[k>>kshift] & 1 << (k & kmask)) {
 				lostbits = 2;
-				if (k > 1 && any_on(b,k-1))
+				if (k > 0 && any_on(b,k))
 					lostbits = 3;
 			}
 		}
@@ -156,7 +210,7 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 	if (e > fpi->emax) {
  ovfl:
 		Bfree(b);
-		*bp = 0;
+ ovfl1:
 		return STRTOG_Infinite | STRTOG_Overflow | STRTOG_Inexhi;
 	}
 	irv = STRTOG_Normal;
@@ -176,15 +230,16 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 			  case FPI_Round_down:
 				if (sign) {
  one_bit:
-					*exp = fpi->emin;
 					x[0] = b->wds = 1;
+ dret:
 					*bp = b;
+					*exp = fpi->emin;
 					return STRTOG_Denormal | STRTOG_Inexhi
 						| STRTOG_Underflow;
 				}
 			}
 			Bfree(b);
-			*bp = 0;
+ retz:
 			return STRTOG_Zero | STRTOG_Inexlo | STRTOG_Underflow;
 		}
 		k = n - 1;
@@ -205,7 +260,7 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 			break;
 		  case FPI_Round_near:
 			if (lostbits & 2
-			 && (lostbits & 1) | (x[0] & 1))
+			 && (lostbits | x[0]) & 1)
 				up = 1;
 			break;
 		  case FPI_Round_up:
@@ -225,7 +280,7 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 			}
 			else if (b->wds > k
 			 || ((n = nbits & kmask) !=0
-			     && hi0bits(x[k-1]) < 32-n)) {
+			      && hi0bits(x[k-1]) < 32-n)) {
 				rshift(b,1);
 				if (++e > fpi->emax)
 					goto ovfl;
