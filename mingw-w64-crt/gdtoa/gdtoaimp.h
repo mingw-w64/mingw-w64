@@ -538,7 +538,7 @@ extern double b2d (Bigint*, int*);
 extern int cmp (Bigint*, Bigint*);
 extern void copybits (ULong*, int, Bigint*);
 extern Bigint *d2b (double, int*, int*);
-extern int decrement (Bigint*);
+extern void decrement (Bigint*);
 extern Bigint *diff (Bigint*, Bigint*);
 extern int gethex (const char**, FPI*, Long*, Bigint**, int);
 extern void hexdig_init_D2A(void);

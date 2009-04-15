@@ -8,6 +8,8 @@
 	Merged the Honor_FLT_ROUNDS/fegetround() bits from the current
 	netlib.org sources.
 
+	* gdtoa/gdtoaimp.h, gdtoa/strtodg.c: decrement() now returns void.
+
 2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,

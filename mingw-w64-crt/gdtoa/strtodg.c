@@ -81,7 +81,7 @@ Bigint *increment (Bigint *b)
 	return b;
 }
 
-int decrement (Bigint *b)
+void decrement (Bigint *b)
 {
 	ULong *x, *xe;
 #ifdef Pack_16
@@ -105,7 +105,6 @@ int decrement (Bigint *b)
 		*x++ = y & 0xffff;
 	} while(borrow && x < xe);
 #endif
-	return STRTOG_Inexlo;
 }
 
 static int all_on (Bigint *b, int n)
