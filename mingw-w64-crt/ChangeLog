@@ -42,6 +42,7 @@
 	the locale's decimal-point string is two or more characters long.
 	The mingw build does compile with USE_LOCALE and was exposed to this
 	bug.
+	* gdtoa/g__fmt.c: Fixed a compiler warning with -DUSE_LOCALE builds.
 
 2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 

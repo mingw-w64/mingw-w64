@@ -105,7 +105,7 @@ char *__g__fmt (char *b, char *s, char *se, int decpt, ULong sign, size_t blen)
 			b++;
 			if (--decpt == 0 && *s) {
 #ifdef USE_LOCALE
-				while(*b = *decimalpoint++)
+				while((*b = *decimalpoint++))
 					++b;
 #else
 				*b++ = '.';
