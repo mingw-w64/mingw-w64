@@ -80,10 +80,11 @@ char *__g__fmt (char *b, char *s, char *se, int decpt, ULong sign)
 			b++;
 	}
 	else {
-		while((*b = *s++) !=0) {
+		while((*b = *s++) != 0) {
 			b++;
-			if (--decpt == 0 && *s)
+			if (--decpt == 0 && *s) {
 				*b++ = decimalpoint;
+			}
 		}
 		for(; decpt > 0; decpt--)
 			*b++ = '0';

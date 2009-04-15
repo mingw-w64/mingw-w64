@@ -154,21 +154,22 @@ Bigint *Balloc (int k)
 void Bfree (Bigint *v)
 {
 	if (v) {
-		ACQUIRE_DTOA_LOCK(0);
-		v->next = freelist[v->k];
-		freelist[v->k] = v;
-		FREE_DTOA_LOCK(0);
+			ACQUIRE_DTOA_LOCK(0);
+			v->next = freelist[v->k];
+			freelist[v->k] = v;
+			FREE_DTOA_LOCK(0);
 	}
 }
 
-// Shift y so lowest bit is 1 and return the number of bits y was
-// shifted. 
-//  With __GNUC__, we use an inline wrapper for __builtin_clz() 
+/* lo0bits():  Shift y so lowest bit is 1 and return the
+ *		 number of bits y was shifted.
+ * With GCC, we use an inline wrapper for __builtin_clz()
+ */
 #ifndef __GNUC__
 int lo0bits (ULong *y)
 {
-	register int k;
-	register ULong x = *y;
+	int k;
+	ULong x = *y;
 
 	if (x & 7) {
 		if (x & 1)
@@ -258,11 +259,13 @@ Bigint *multadd (Bigint *b, int m, int a)	/* multiply by m and add a */
 	return b;
 }
 
-// With __GNUC__, we use an inline wrapper for __builtin_clz() 
+/* hi0bits(); 
+ * With GCC, we use an inline wrapper for __builtin_clz()
+ */
 #ifndef __GNUC__
-int hi0bits_D2A (register ULong x)
+int hi0bits_D2A (ULong x)
 {
-	register int k = 0;
+	int k = 0;
 
 	if (!(x & 0xffff0000)) {
 		k = 16;
@@ -362,7 +365,7 @@ Bigint *mult (Bigint *a, Bigint *b)
 				Storeinc(xc, z2, z);
 			} while(x < xae);
 			*xc = carry;
-			}
+		}
 		if ( (y = *xb >> 16) !=0) {
 			x = xa;
 			xc = xc0;
@@ -709,10 +712,6 @@ Bigint *d2b (double dd, int *e, int *bits)
 		     b->wds = (x[1] = z) !=0 ? 2 : 1;
 	}
 	else {
-#ifdef DEBUG
-		if (!z)
-			Bug("Zero passed to d2b");
-#endif
 		k = lo0bits(&z);
 		x[0] = z;
 #ifndef Sudden_Underflow
@@ -808,8 +807,8 @@ char *strcp_D2A (char *a, const char *b)
 #ifdef NO_STRING_H
 void *memcpy_D2A (void *a1, void *b1, size_t len)
 {
-	register char *a = (char*)a1, *ae = a + len;
-	register char *b = (char*)b1, *a0 = a;
+	char *a = (char*)a1, *ae = a + len;
+	char *b = (char*)b1, *a0 = a;
 	while(a < ae)
 		*a++ = *b++;
 	return a0;

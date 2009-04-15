@@ -339,11 +339,10 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 			z = 10*z + c - '0';
 	nd0 = nd;
 #ifdef USE_LOCALE
-	if (c == *localeconv()->decimal_point)
+	if (c == *localeconv()->decimal_point) {
 #else
-	if (c == '.')
+	if (c == '.') {
 #endif
-	{
 		decpt = 1;
 		c = *++s;
 		if (!nd) {
@@ -374,7 +373,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 				nz = 0;
 			}
 		}
-	}
+	}/*}*/
  dig_done:
 	e = 0;
 	if (c == 'e' || c == 'E') {
@@ -939,8 +938,9 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 		else  {
 			irv = (irv & ~STRTOG_Retmask) |
 				(rvb->wds > 0 ? STRTOG_Denormal : STRTOG_Zero);
-			if (irv & STRTOG_Inexact)
+			if (irv & STRTOG_Inexact) {
 				irv |= STRTOG_Underflow;
+			}
 		}
 	}
 	if (se)
