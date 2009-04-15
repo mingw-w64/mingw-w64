@@ -17,6 +17,9 @@
 	* gdtoa/gethex.c (gethex): Use ULbits as the multiplier, not 32 (from
 	netlib.org sources.)
 
+	* gdtoa/strtodg.c: Merge the rest of the rounding changes since the
+	commit rev.776.
+
 2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,

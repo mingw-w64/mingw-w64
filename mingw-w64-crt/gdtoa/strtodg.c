@@ -175,9 +175,9 @@ static int rvOK (dbl_union *d, FPI *fpi, Long *exp, ULong *bits,
 		goto ret;
 	}
 	switch(rd) {
-	  case 1:
+	  case 1: /* round down (toward -Infinity) */
 		goto trunc;
-	  case 2:
+	  case 2: /* round up (toward +Infinity) */
 		break;
 	  default: /* round near */
 		k = bdif - 1;
@@ -279,7 +279,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 	double adj0, tol;
 	Long L;
 	union _dbl_union adj, rv;
-	ULong y, z;
+	ULong *b, *be, y, z;
 	Bigint *ab, *bb, *bb1, *bd, *bd0, *bs, *delta, *rvb, *rvb0;
 
 	irv = STRTOG_Zero;
@@ -320,7 +320,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 			if (irv == STRTOG_NoNumber) {
 				s = s00;
 				sign = 0;
-				}
+			}
 			goto ret;
 		}
 #endif
@@ -898,6 +898,29 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 	Bfree(bd0);
 	Bfree(delta);
 	if (rve > fpi->emax) {
+		switch(fpi->rounding & 3) {
+		  case FPI_Round_near:
+			goto huge;
+		  case FPI_Round_up:
+			if (!sign)
+				goto huge;
+			break;
+		  case FPI_Round_down:
+			if (sign)
+				goto huge;
+		}
+		/* Round to largest representable magnitude */
+		Bfree(rvb);
+		rvb = 0;
+		irv = STRTOG_Normal | STRTOG_Inexlo;
+		*exp = fpi->emax;
+		b = bits;
+		be = b + ((fpi->nbits + 31) >> 5);
+		while(b < be)
+			*b++ = -1;
+		if ((j = fpi->nbits & 0x1f))
+			*--be >>= (32 - j);
+		goto ret;
  huge:
 		rvb->wds = 0;
 		irv = STRTOG_Infinite | STRTOG_Overflow | STRTOG_Inexhi;
