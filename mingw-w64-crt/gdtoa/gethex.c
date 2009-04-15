@@ -119,7 +119,7 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 	while(s1 > s0) {
 		if (*--s1 == decimalpoint)
 			continue;
-		if (n == 32) {
+		if (n == ULbits) {
 			*x++ = L;
 			L = 0;
 			n = 0;
