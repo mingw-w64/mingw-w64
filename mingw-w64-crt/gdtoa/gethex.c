@@ -129,7 +129,7 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 	}
 	*x++ = L;
 	b->wds = n = x - b->x;
-	n = 32*n - hi0bits(L);
+	n = ULbits*n - hi0bits(L);
 	nbits = fpi->nbits;
 	lostbits = 0;
 	x = b->x;
