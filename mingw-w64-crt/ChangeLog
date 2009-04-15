@@ -1,3 +1,7 @@
+2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/copysign.c: Avoid breaking of strict aliasing.
+
 2009-04-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/dtoa.c, gdtoa/gdtoa.c: Sync'ed with the netlib.org sources.

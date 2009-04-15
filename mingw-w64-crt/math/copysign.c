@@ -5,11 +5,17 @@
  */
 #include <math.h>
 
+typedef union U
+{
+  unsigned int u[2];
+  double d;
+} U;
+
 double copysign(double x, double y)
 {
-  unsigned int hx,hy;
-  hx = ((unsigned int *)&x)[1];
-  hy = ((unsigned int *)&y)[1];
-  ((unsigned int *)&x)[1] =  (hx & 0x7fffffff) | (hy & 0x80000000);
-  return x;
+  U h,j;
+  h.d = x;
+  j.d = y;
+  h.u[1] = (h.u[1] & 0x7fffffff) | (j.u[1] & 0x80000000);
+  return h.d;
 }
