@@ -53,14 +53,18 @@ THIS SOFTWARE.
 
 char *__g_xfmt (char *buf, void *V, int ndig, unsigned bufsize)
 {
-	static FPI fpi = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, 0 };
+	static FPI fpi0 = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, 0 };
 	char *b, *s, *se;
 	ULong bits[2], sign;
 	UShort *L;
 	int decpt, ex, i, mode;
-
 	int fptype = __fpclassifyl (*(long double*) V);
-          
+#ifdef Honor_FLT_ROUNDS
+#include "gdtoa_fltrnds.h"
+#else
+#define fpi &fpi0
+#endif
+
 	if (ndig < 0)
 		ndig = 0;
 	if (bufsize < ndig + 10)
@@ -68,8 +72,7 @@ char *__g_xfmt (char *buf, void *V, int ndig, unsigned bufsize)
 
 	L = (UShort *)V;
 	sign = L[_0] & 0x8000;
-        ex = L[_0] & 0x7fff;
-
+	ex = L[_0] & 0x7fff;
 	bits[1] = (L[_1] << 16) | L[_2];
 	bits[0] = (L[_3] << 16) | L[_4];
 
@@ -102,7 +105,6 @@ char *__g_xfmt (char *buf, void *V, int ndig, unsigned bufsize)
 		*b = 0;
 		return b;
 	}
-
 	ex -= 0x3fff + 63;
 	mode = 2;
 	if (ndig <= 0) {
@@ -110,6 +112,6 @@ char *__g_xfmt (char *buf, void *V, int ndig, unsigned bufsize)
 			return 0;
 		mode = 0;
 	}
-	s = __gdtoa(&fpi, ex, bits, &i, mode, ndig, &decpt, &se);
+	s = __gdtoa(fpi, ex, bits, &i, mode, ndig, &decpt, &se);
 	return __g__fmt(buf, s, se, decpt, sign);
 }

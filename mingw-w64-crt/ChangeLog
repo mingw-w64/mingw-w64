@@ -3,6 +3,11 @@
 	* gdtoa/dtoa.c, gdtoa/gdtoa.c: Sync'ed with the netlib.org sources.
 	* gdtoa/gdtoa.h:  Minor cleanup.
 
+	* gdtoa/gdtoa_fltrnds.h: New.
+	* gdtoa/README, gdtoa/g_dfmt.c, gdtoa/g_ffmt.c, gdtoa/g_xfmt.c,
+	gdtoa/gdtoaimp.h, gdtoa/strtof.c, gdtoa/strtopx.c: Merged in the
+	Honor_FLT_ROUNDS/fegetround() bits from the current netlib.org sources.
+
 2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,

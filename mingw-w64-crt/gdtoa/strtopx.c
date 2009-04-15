@@ -58,14 +58,19 @@ typedef union lD {
 
 static int __strtopx (const char *s, char **sp, lD *V)
 {
-	static FPI fpi = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, SI };
+	static FPI fpi0 = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, SI };
 	ULong bits[2];
 	Long exp;
 	int k;
 	UShort *L = & (V->L[0]);
+#ifdef Honor_FLT_ROUNDS
+#include "gdtoa_fltrnds.h"
+#else
+#define fpi &fpi0
+#endif
 	V->D = 0.0L;
 
-	k = __strtodg(s, sp, &fpi, &exp, bits);
+	k = __strtodg(s, sp, fpi, &exp, bits);
 	switch(k & STRTOG_Retmask) {
 	  case STRTOG_NoNumber:
 	  case STRTOG_Zero:

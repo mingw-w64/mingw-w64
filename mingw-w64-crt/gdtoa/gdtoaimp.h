@@ -170,6 +170,10 @@ THIS SOFTWARE.
 #define USE_LOCALE 1
 #endif		/* MinGW */
 
+#ifdef Honor_FLT_ROUNDS
+#include <fenv.h>
+#endif
+
 #ifdef DEBUG
 #include <stdio.h>
 #define Bug(x) {fprintf(stderr, "%s\n", x); exit(1);}
@@ -448,7 +452,7 @@ typedef struct Bigint Bigint;
 #ifdef DECLARE_SIZE_T
 typedef unsigned int size_t;
 #endif
-extern void memcpy_D2A (void *, const void *, size_t);
+extern void memcpy_D2A (void*, const void*, size_t);
 #define Bcopy(x,y) memcpy_D2A(&x->sign,&y->sign,y->wds*sizeof(ULong) + 2*sizeof(int))
 #else /* !NO_STRING_H */
 #define Bcopy(x,y) memcpy(&x->sign,&y->sign,y->wds*sizeof(ULong) + 2*sizeof(int))

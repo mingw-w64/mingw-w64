@@ -33,13 +33,18 @@ THIS SOFTWARE.
 
 float __strtof (const char *s, char **sp)
 {
-	static FPI fpi = { 24, 1-127-24+1,  254-127-24+1, 1, SI };
+	static FPI fpi0 = { 24, 1-127-24+1,  254-127-24+1, 1, SI };
 	ULong bits[1];
 	Long exp;
 	int k;
 	union { ULong L[1]; float f; } u;
+#ifdef Honor_FLT_ROUNDS
+#include "gdtoa_fltrnds.h"
+#else
+#define fpi &fpi0
+#endif
 
-	k = __strtodg(s, sp, &fpi, &exp, bits);
+	k = __strtodg(s, sp, fpi, &exp, bits);
 	switch(k & STRTOG_Retmask) {
 	  case STRTOG_NoNumber:
 	  case STRTOG_Zero:
