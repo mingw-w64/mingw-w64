@@ -126,17 +126,22 @@ THIS SOFTWARE.
  *	conversions of IEEE doubles in single-threaded executions with
  *	8-byte pointers, PRIVATE_MEM >= 7400 appears to suffice; with
  *	4-byte pointers, PRIVATE_MEM >= 7112 appears adequate.
- * #define INFNAN_CHECK on IEEE systems to cause strtod to check for
- *	Infinity and NaN (case insensitively).
+ * #define NO_INFNAN_CHECK if you do not wish to have INFNAN_CHECK
+ *	#defined automatically on IEEE systems.  On such systems,
+ *	when INFNAN_CHECK is #defined, strtod checks
+ *	for Infinity and NaN (case insensitively).
  *	When INFNAN_CHECK is #defined and No_Hex_NaN is not #defined,
  *	strtodg also accepts (case insensitively) strings of the form
- *	NaN(x), where x is a string of hexadecimal digits and spaces;
- *	if there is only one string of hexadecimal digits, it is taken
- *	for the fraction bits of the resulting NaN; if there are two or
- *	more strings of hexadecimal digits, each string is assigned
- *	to the next available sequence of 32-bit words of fractions
- *	bits (starting with the most significant), right-aligned in
- *	each sequence.
+ *	NaN(x), where x is a string of hexadecimal digits (optionally
+ *	preceded by 0x or 0X) and spaces; if there is only one string
+ *	of hexadecimal digits, it is taken for the fraction bits of the
+ *	resulting NaN; if there are two or more strings of hexadecimal
+ *	digits, each string is assigned to the next available sequence
+ *	of 32-bit words of fractions bits (starting with the most
+ *	significant), right-aligned in each sequence.
+ *	Unless GDTOA_NON_PEDANTIC_NANCHECK is #defined, input "NaN(...)"
+ *	is consumed even when ... has the wrong form (in which case the
+ *	"(...)" is consumed but ignored).
  * #define MULTIPLE_THREADS if the system offers preemptively scheduled
  *	multiple threads.  In this case, you must provide (or suitably
  *	#define) two locks, acquired by ACQUIRE_DTOA_LOCK(n) and freed
