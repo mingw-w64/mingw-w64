@@ -10,6 +10,10 @@
 
 	* gdtoa/gdtoaimp.h, gdtoa/strtodg.c: decrement() now returns void.
 
+	* gdtoa/strtodg.c: fix a botch in the test of whether to increase
+	rvbits before terminating the big for(;;) loop with dsign true (from
+	netlib.org sources.)
+
 2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,

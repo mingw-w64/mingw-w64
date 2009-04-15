@@ -744,10 +744,8 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 				break;
 			if (dsign) {
 				rvb = increment(rvb);
-				if ( (j = rvbits & kmask) !=0)
-					j = ULbits - j;
-				if (hi0bits(rvb->x[(rvb->wds - 1) >> kshift])
-						!= j)
+				j = kmask & (ULbits - (rvbits & kmask));
+				if (hi0bits(rvb->x[rvb->wds - 1]) != j)
 					rvbits++;
 				irv = STRTOG_Normal | STRTOG_Inexhi;
 			}
