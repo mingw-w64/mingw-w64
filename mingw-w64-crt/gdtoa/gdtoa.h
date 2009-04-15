@@ -36,6 +36,7 @@ THIS SOFTWARE.
 #define GDTOA_H_INCLUDED
 
 #include "gd_arith.h"
+#include <stddef.h> /* for size_t */
 
 #if defined(__MINGW32__) || defined(__MINGW64__)
 #define Long int	/* define Long as int32_t */
@@ -64,13 +65,13 @@ enum {	/* return values from strtodg */
 
 	/* The following may be or-ed into one of the above values. */
 
-	STRTOG_Neg	= 0x08,
-	STRTOG_Inexlo	= 0x10,
-	STRTOG_Inexhi	= 0x20,
+	STRTOG_Neg	= 0x08, /* does not affect STRTOG_Inexlo or STRTOG_Inexhi */
+	STRTOG_Inexlo	= 0x10,	/* returned result rounded toward zero */
+	STRTOG_Inexhi	= 0x20, /* returned result rounded away from zero */
 	STRTOG_Inexact	= 0x30,
 	STRTOG_Underflow= 0x40,
 	STRTOG_Overflow	= 0x80
-	};
+};
 
 typedef struct
 FPI {
@@ -99,8 +100,8 @@ extern char* __gdtoa (FPI *fpi, int be, ULong *bits, int *kindp,
 extern void __freedtoa (char *);
 
 extern float  __strtof (const char *, char **);
-extern double  __strtod (const char *, char **);
-extern long double strtold (const char *, char **);
+extern double __strtod (const char *, char **);
+extern long double __strtold (const char *, char **);
 extern int __strtodg (const char *, char **, FPI *, Long *, ULong *);
 
 extern char*	__g__fmt   (char*, char*, char*, int, ULong);
