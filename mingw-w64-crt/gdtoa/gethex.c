@@ -237,6 +237,9 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
  ovfl:
 		Bfree(b);
  ovfl1:
+#ifndef NO_ERRNO
+		errno = ERANGE;
+#endif
 		return STRTOG_Infinite | STRTOG_Overflow | STRTOG_Inexhi;
 	}
 	irv = STRTOG_Normal;
@@ -260,12 +263,18 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
  dret:
 					*bp = b;
 					*exp = fpi->emin;
+#ifndef NO_ERRNO
+					errno = ERANGE;
+#endif
 					return STRTOG_Denormal | STRTOG_Inexhi
 						| STRTOG_Underflow;
 				}
 			}
 			Bfree(b);
  retz:
+#ifndef NO_ERRNO
+			errno = ERANGE;
+#endif
 			return STRTOG_Zero | STRTOG_Inexlo | STRTOG_Underflow;
 		}
 		k = n - 1;

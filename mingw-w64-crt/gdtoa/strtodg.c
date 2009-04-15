@@ -945,12 +945,18 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 		if (sudden_underflow) {
 			rvb->wds = 0;
 			irv = STRTOG_Underflow | STRTOG_Inexlo;
+#ifndef NO_ERRNO
+			errno = ERANGE;
+#endif
 		}
 		else  {
 			irv = (irv & ~STRTOG_Retmask) |
 				(rvb->wds > 0 ? STRTOG_Denormal : STRTOG_Zero);
 			if (irv & STRTOG_Inexact) {
 				irv |= STRTOG_Underflow;
+#ifndef NO_ERRNO
+				errno = ERANGE;
+#endif
 			}
 		}
 	}

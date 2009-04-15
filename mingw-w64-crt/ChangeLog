@@ -44,6 +44,9 @@
 	bug.
 	* gdtoa/g__fmt.c: Fixed a compiler warning with -DUSE_LOCALE builds.
 
+	* gdtoa/gethex.c, gdtoa/strtodg.c: Add missing cases of setting errno
+	to ERANGE (from netlib.org sources.)
+
 2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,
