@@ -173,6 +173,7 @@ THIS SOFTWARE.
 #if defined(__MINGW32__) || defined(__MINGW64__)
 #define MULTIPLE_THREADS 1
 #define USE_LOCALE 1
+#define NO_LOCALE_CACHE 1
 #endif		/* MinGW */
 
 #ifdef Honor_FLT_ROUNDS

@@ -348,7 +348,10 @@ current rounding mode is obtained from fegetround() rather than from
 FLT_ROUNDS, unless Trust_FLT_ROUNDS is also #defined.
 
 Compile with -DUSE_LOCALE to use the current locale; otherwise
-decimal points are assumed to be '.'.
+decimal points are assumed to be '.'.  With -DUSE_LOCALE, unless
+you also compile with -DNO_LOCALE_CACHE, the details about the
+current "decimal point" character string are cached and assumed not
+to change during the program's execution.
 
 Please send comments to	David M. Gay (dmg at acm dot org, with " at "
 changed at "@" and " dot " changed to ".").

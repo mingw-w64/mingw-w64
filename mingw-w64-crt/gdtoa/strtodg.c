@@ -282,8 +282,23 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 	ULong *b, *be, y, z;
 	Bigint *ab, *bb, *bb1, *bd, *bd0, *bs, *delta, *rvb, *rvb0;
 #ifdef USE_LOCALE /*{{*/
+#ifdef NO_LOCALE_CACHE
 	char *decimalpoint = localeconv()->decimal_point;
 	int dplen = strlen(decimalpoint);
+#else
+	char *decimalpoint;
+	static char *decimalpoint_cache;
+	static int dplen;
+	if (!(s0 = decimalpoint_cache)) {
+		s0 = localeconv()->decimal_point;
+		if ((decimalpoint_cache = (char*)MALLOC(strlen(s0) + 1))) {
+			strcpy(decimalpoint_cache, s0);
+			s0 = decimalpoint_cache;
+		}
+		dplen = strlen(s0);
+	}
+	decimalpoint = (char*)s0;
+#endif /*NO_LOCALE_CACHE*/
 #else  /*USE_LOCALE}{*/
 #define dplen 1
 #endif /*USE_LOCALE}}*/

@@ -7,6 +7,12 @@
 	* gdtoa/qnan.c: Added a comment about why the union has an array of 8
 	instead of 5.
 
+	* gdtoa/README, gdtoa/gdtoaimp.h, gdtoa/gethex.c, gdtoa/g__fmt.c,
+	gdtoa/strtodg.c: Merged the locale-specific decimal point character
+	cache code from netlib.org.  We are building with NO_LOCALE_CACHE,
+	though, because when user alters the decimal point in locale during
+	the execution of a program, we wouldn't do the desired thing.
+
 2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/copysign.c: Avoid breaking of strict aliasing.

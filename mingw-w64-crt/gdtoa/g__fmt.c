@@ -41,8 +41,23 @@ char *__g__fmt (char *b, char *s, char *se, int decpt, ULong sign, size_t blen)
 	char *be, *s0;
 	size_t len;
 #ifdef USE_LOCALE
+#ifdef NO_LOCALE_CACHE
 	char *decimalpoint = localeconv()->decimal_point;
 	size_t dlen = strlen(decimalpoint);
+#else
+	char *decimalpoint;
+	static char *decimalpoint_cache;
+	static size_t dlen;
+	if (!(s0 = decimalpoint_cache)) {
+		s0 = localeconv()->decimal_point;
+		dlen = strlen(s0);
+		if ((decimalpoint_cache = (char*)MALLOC(strlen(s0) + 1))) {
+			strcpy(decimalpoint_cache, s0);
+			s0 = decimalpoint_cache;
+		}
+	}
+	decimalpoint = s0;
+#endif
 #else
 #define dlen 0
 #endif
