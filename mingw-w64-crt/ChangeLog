@@ -1,5 +1,10 @@
 2009-04-16  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* gdtoa/gdtoaimp.h, gdtoa/gethex.c, gdtoa/strtodg.c: Defined a
+	SET_ERRNO() macro for less ifdefs in actual C code.
+
+2009-04-16  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* gdtoa/strtopx.c: Added the maintream code of case STRTOG_Infinite
 	in commented out form: it makes out of Infinite a Zero value. Until
 	we know better we should keep our version.

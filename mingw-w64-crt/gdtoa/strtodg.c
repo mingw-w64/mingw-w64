@@ -245,9 +245,7 @@ static int rvOK (dbl_union *d, FPI *fpi, Long *exp, ULong *bits,
 	else if (e > fpi->emax) {
 		e = fpi->emax + 1;
 		*irv = STRTOG_Infinite | STRTOG_Overflow | STRTOG_Inexhi;
-#ifndef NO_ERRNO
-		errno = ERANGE;
-#endif
+		SET_ERRNO(ERANGE);
 		b->wds = inex = 0;
 	}
 	*exp = e;
@@ -949,9 +947,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
  huge:
 		rvb->wds = 0;
 		irv = STRTOG_Infinite | STRTOG_Overflow | STRTOG_Inexhi;
-#ifndef NO_ERRNO
-		errno = ERANGE;
-#endif
+		SET_ERRNO(ERANGE);
  infnanexp:
 		*exp = fpi->emax + 1;
 	}
@@ -960,18 +956,14 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 		if (sudden_underflow) {
 			rvb->wds = 0;
 			irv = STRTOG_Underflow | STRTOG_Inexlo;
-#ifndef NO_ERRNO
-			errno = ERANGE;
-#endif
+			SET_ERRNO(ERANGE);
 		}
 		else  {
 			irv = (irv & ~STRTOG_Retmask) |
 				(rvb->wds > 0 ? STRTOG_Denormal : STRTOG_Zero);
 			if (irv & STRTOG_Inexact) {
 				irv |= STRTOG_Underflow;
-#ifndef NO_ERRNO
-				errno = ERANGE;
-#endif
+				SET_ERRNO(ERANGE);
 			}
 		}
 	}

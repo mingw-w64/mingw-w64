@@ -204,6 +204,14 @@ extern void *MALLOC (size_t);
 #endif
 
 #include <errno.h>
+
+#ifdef NO_ERRNO
+#define SET_ERRNO(x)
+#else
+#define SET_ERRNO(x) \
+	errno  = (x)
+#endif
+
 #ifdef Bad_float_h
 
 #ifdef IEEE_Arith
