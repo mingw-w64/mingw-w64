@@ -58,7 +58,7 @@ char *__g_xfmt (char *buf, void *V, int ndig, size_t bufsize)
 	ULong bits[2], sign;
 	UShort *L;
 	int decpt, ex, i, mode;
-#if defined(__MIRGW32__) || defined(__MIRGW64__)
+#if defined(__MINGW32__) || defined(__MINGW64__)
 	int fptype = __fpclassifyl (*(long double*) V);
 #endif	/* MinGW */
 #ifdef Honor_FLT_ROUNDS
@@ -78,7 +78,7 @@ char *__g_xfmt (char *buf, void *V, int ndig, size_t bufsize)
 	bits[1] = (L[_1] << 16) | L[_2];
 	bits[0] = (L[_3] << 16) | L[_4];
 
-#if defined(__MIRGW32__) || defined(__MIRGW64__)
+#if defined(__MINGW32__) || defined(__MINGW64__)
 	if (fptype & FP_NAN) {
 		/* NaN or Inf */
 		if (fptype & FP_NORMAL) {
