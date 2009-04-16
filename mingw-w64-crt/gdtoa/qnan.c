@@ -65,7 +65,7 @@ typedef unsigned Long Ulong;
 
 #define UL (unsigned long)
 
-#if MINGW_BUILD_GEN
+#ifdef MINGW_BUILD_GEN
  int
 main(void)
 {
@@ -75,6 +75,7 @@ main(void)
 		double d;
 		Ulong L[4];
 #ifndef NO_LONG_LONG
+/* need u[8] instead of u[5] for 64 bit */
 		unsigned short u[8];
 		long double D;
 #endif

@@ -4,6 +4,9 @@
 	in commented out form: it makes out of Infinite a Zero value. Until
 	we know better we should keep our version.
 
+	* gdtoa/qnan.c: Added a comment about why the union has an array of 8
+	instead of 5.
+
 2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/copysign.c: Avoid breaking of strict aliasing.
