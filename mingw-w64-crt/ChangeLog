@@ -1,5 +1,9 @@
 2009-04-16  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* gdtoa/strtopx.c: All references I found indicate that the
+	mainstream code is correct of the STRTOG_Infinite case.  See, for
+	example, http://docs.sun.com/source/819-3688/data.rep.app.html
+
 	* gdtoa/gdtoaimp.h, gdtoa/gethex.c, gdtoa/strtodg.c: Defined a
 	SET_ERRNO() macro for less ifdefs in actual C code.
 
