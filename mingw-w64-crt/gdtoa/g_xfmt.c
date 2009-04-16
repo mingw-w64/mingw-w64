@@ -58,7 +58,9 @@ char *__g_xfmt (char *buf, void *V, int ndig, size_t bufsize)
 	ULong bits[2], sign;
 	UShort *L;
 	int decpt, ex, i, mode;
+#if defined(__MIRGW32__) || defined(__MIRGW64__)
 	int fptype = __fpclassifyl (*(long double*) V);
+#endif	/* MinGW */
 #ifdef Honor_FLT_ROUNDS
 #include "gdtoa_fltrnds.h"
 #else
@@ -76,7 +78,9 @@ char *__g_xfmt (char *buf, void *V, int ndig, size_t bufsize)
 	bits[1] = (L[_1] << 16) | L[_2];
 	bits[0] = (L[_3] << 16) | L[_4];
 
-	if (fptype & FP_NAN) { /* NaN or Inf */
+#if defined(__MIRGW32__) || defined(__MIRGW64__)
+	if (fptype & FP_NAN) {
+		/* NaN or Inf */
 		if (fptype & FP_NORMAL) {
 			b = buf;
 			*b++ = sign ? '-': '+';
@@ -86,7 +90,8 @@ char *__g_xfmt (char *buf, void *V, int ndig, size_t bufsize)
 		strncpy (buf, "NaN", ndig ? ndig : 3);
 		return (buf + strlen (buf));
 	}
-	else if (fptype & FP_NORMAL) { /* Normal or subnormal */
+	else if (fptype & FP_NORMAL) {
+		/* Normal or subnormal */
 		if  (fptype & FP_ZERO) {
 			i = STRTOG_Denormal;
 			ex = 1;
@@ -94,8 +99,29 @@ char *__g_xfmt (char *buf, void *V, int ndig, size_t bufsize)
 		else
 			i = STRTOG_Normal;
 	}
+#else
+	if (ex != 0) {
+		if (ex == 0x7fff) {
+			/* Infinity or NaN */
+			if (bits[0] | bits[1])
+				b = strcp(buf, "NaN");
+			else {
+				b = buf;
+				if (sign)
+					*b++ = '-';
+				b = strcp(b, "Infinity");
+			}
+			return b;
+		}
+		i = STRTOG_Normal;
+	}
+	else if (bits[0] | bits[1]) {
+		i = STRTOG_Denormal;
+		ex = 1;
+	}
+#endif
 	else {
-		i = STRTOG_Zero;
+	/*	i = STRTOG_Zero; */
 		b = buf;
 #ifndef IGNORE_ZERO_SIGN
 		if (sign)

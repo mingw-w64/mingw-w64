@@ -18,6 +18,9 @@
 	cases, such as dtoa calls in mode 3 with thousands of digits requested,
 	or strtod() calls with thousand of digits. from the netlib.org sources.
 
+	* gdtoa/g_xfmt.c: Added maintream code for general purposes and kept
+	our fpclassiy() code for mingw builds.
+
 2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/copysign.c: Avoid breaking of strict aliasing.
