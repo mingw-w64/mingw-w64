@@ -52,6 +52,8 @@ char *__g_dfmt (char *buf, double *d, int ndig, size_t bufsize)
 	sign = L[_0] & 0x80000000L;
 	if ((L[_0] & 0x7ff00000) == 0x7ff00000) {
 		/* Infinity or NaN */
+		if (bufsize < 10)
+			return 0;
 		if (L[_0] & 0xfffff || L[_1]) {
 			return strcp(buf, "NaN");
 		}
@@ -78,11 +80,8 @@ char *__g_dfmt (char *buf, double *d, int ndig, size_t bufsize)
 		ex = 1;
 	ex -= 0x3ff + 52;
 	mode = 2;
-	if (ndig <= 0) {
-		if (bufsize < 25)
-			return 0;
+	if (ndig <= 0)
 		mode = 0;
-	}
 	i = STRTOG_Normal;
 	s = __gdtoa(fpi, ex, bits, &i, mode, ndig, &decpt, &se);
 	return __g__fmt(buf, s, se, decpt, sign, bufsize);

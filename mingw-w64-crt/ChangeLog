@@ -13,6 +13,11 @@
 	though, because when user alters the decimal point in locale during
 	the execution of a program, we wouldn't do the desired thing.
 
+	* gdtoa/gdtoaimp.h, gdtoa/g_dfmt.c, gdtoa/misc.c: Reduce Kmax, and use
+	MALLOC and free for huge blocks, which are possible only in pathological
+	cases, such as dtoa calls in mode 3 with thousands of digits requested,
+	or strtod() calls with thousand of digits. from the netlib.org sources.
+
 2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/copysign.c: Avoid breaking of strict aliasing.

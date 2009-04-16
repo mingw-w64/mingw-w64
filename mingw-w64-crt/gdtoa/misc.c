@@ -126,7 +126,9 @@ Bigint *Balloc (int k)
 #endif
 
 	ACQUIRE_DTOA_LOCK(0);
-	if ( (rv = freelist[k]) !=0) {
+	/* The k > Kmax case does not need ACQUIRE_DTOA_LOCK(0), */
+	/* but this case seems very unlikely. */
+	if (k <= Kmax && (rv = freelist[k]) !=0) {
 		freelist[k] = rv->next;
 	}
 	else {
@@ -154,10 +156,14 @@ Bigint *Balloc (int k)
 void Bfree (Bigint *v)
 {
 	if (v) {
+		if (v->k > Kmax)
+			free((void*)v);
+		else {
 			ACQUIRE_DTOA_LOCK(0);
 			v->next = freelist[v->k];
 			freelist[v->k] = v;
 			FREE_DTOA_LOCK(0);
+		}
 	}
 }
 

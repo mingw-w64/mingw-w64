@@ -443,7 +443,7 @@ extern double rnd_prod(double, double), rnd_quot(double, double);
 #define FREE_DTOA_LOCK(n)	/*nothing*/
 #endif
 
-#define Kmax 15
+#define Kmax 9
 
 #define Bigint __Bigint
 struct
