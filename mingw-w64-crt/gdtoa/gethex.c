@@ -44,15 +44,17 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 	Long e, e1;
 #ifdef USE_LOCALE
 	int i;
-#ifdef NO_LOCALE_CACHE
-	const unsigned char *decimalpoint = (unsigned char*)localeconv()->decimal_point;
-#else
 	const unsigned char *decimalpoint;
+#ifdef NO_LOCALE_CACHE
+	decimalpoint = (unsigned char *)localeconv()->decimal_point;
+#else
 	static unsigned char *decimalpoint_cache;
 	if (!(s0 = decimalpoint_cache)) {
-		s0 = (unsigned char*)localeconv()->decimal_point;
-		if ((decimalpoint_cache = (char*)MALLOC(strlen(s0) + 1))) {
-			strcpy(decimalpoint_cache, s0);
+		s0 = (unsigned char *)localeconv()->decimal_point;
+		decimalpoint_cache = (unsigned char *)
+					MALLOC(strlen((char *)s0) + 1);
+		if (decimalpoint_cache) {
+			strcpy((char *)decimalpoint_cache, (char *)s0);
 			s0 = decimalpoint_cache;
 		}
 	}

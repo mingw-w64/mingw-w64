@@ -21,6 +21,9 @@
 	* gdtoa/g_xfmt.c: Added maintream code for general purposes and kept
 	our fpclassiy() code for mingw builds.
 
+	* gdtoa/gethex.c: Avoid compiler warnings about pointer targets differing
+	in signedness.
+
 2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/copysign.c: Avoid breaking of strict aliasing.
