@@ -1,7 +1,7 @@
 2009-04-16  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* gdtoa/strtopx.c: All references I found indicate that the
-	mainstream code is correct of the STRTOG_Infinite case.  See, for
+	* gdtoa/strtopx.c: The references I found indicate that the
+	mainstream code is incorrect of the STRTOG_Infinite case.  See,
 	example, http://docs.sun.com/source/819-3688/data.rep.app.html
 
 	* gdtoa/gdtoaimp.h, gdtoa/gethex.c, gdtoa/strtodg.c: Defined a
