@@ -24,6 +24,8 @@
 	* gdtoa/gethex.c: Avoid compiler warnings about pointer targets differing
 	in signedness.
 
+	* gdtoa/README.mingw: New.
+
 2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/copysign.c: Avoid breaking of strict aliasing.
