@@ -1,3 +1,9 @@
+2009-04-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/strtopx.c: Added the maintream code of case STRTOG_Infinite
+	in commented out form: it makes out of Infinite a Zero value. Until
+	we know better we should keep our version.
+
 2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/copysign.c: Avoid breaking of strict aliasing.
