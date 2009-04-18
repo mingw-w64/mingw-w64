@@ -24,6 +24,19 @@
 #define XPD_LONG
 #endif
 
+#if UNK
+typedef union uLD { long double ld; } uLD;
+typedef union uD { double d; } uD;
+#elif IBMPC
+typedef union uLD { const unsigned short sh[8]; const long double ld; } uLD;
+typedef union uD { const unsigned short sh[4]; const double d; } uD;
+#elif MIEEE
+typedef union uLD { long lo[4]; long double ld; } uLD;
+typedef union uD { unsigned short sh[4]; double d; } uD;
+#else
+#error Unknown uLD/uD type definition
+#endif
+
 #define _CEPHES_USE_ERRNO
 
 #ifdef _CEPHES_USE_ERRNO
@@ -173,21 +186,17 @@ Direct inquiries to 30 Frost Street, Cambridge, MA 02140
 /* Polynomial evaluator:
  *  P[0] x^n  +  P[1] x^(n-1)  +  ...  +  P[n]
  */
-static  __inline__ double polevl( x, p, n )
-double x;
-const void *p;
-int n;
+static  __inline__ double polevl(double x, const uD *p, int n)
 {
-register double y;
-register double *P = (double *)p;
+  register double y;
 
-y = *P++;
-do
-	{
-	y = y * x + *P++;
-	}
-while( --n );
-return(y);
+  y = p->d; p++;
+  do
+  {
+    y = y * x + p->d; p++;
+  }
+  while( --n );
+  return(y);
 }
 
 
@@ -269,21 +278,17 @@ Direct inquiries to 30 Frost Street, Cambridge, MA 02140
 /* Polynomial evaluator:
  *  P[0] x^n  +  P[1] x^(n-1)  +  ...  +  P[n]
  */
-static  __inline__ long double polevll( x, p, n )
-long double x;
-const void *p;
-int n;
+static  __inline__ long double polevll(long double x,const uLD *p, int n)
 {
-register long double y;
-register long double *P = (long double *)p;
+  register long double y;
 
-y = *P++;
-do
-	{
-	y = y * x + *P++;
-	}
-while( --n );
-return(y);
+  y = p->ld; p++;
+  do
+    {
+      y = y * x + p->ld; p++;
+    }
+  while( --n );
+  return y;
 }
 
 

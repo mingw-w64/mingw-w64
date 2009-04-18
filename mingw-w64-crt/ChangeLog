@@ -1,3 +1,17 @@
+2009-04-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* pow.c: Fix strict aliasing for scalar/floating point
+	modificatios (required for -O2 of gcc 4.4+).
+	* tanhl.c: Likewise.
+	* lgammal.c: Likewise.
+	* tgammal.c: Likewise.
+	* powl.c: Likewise.
+	* cephes_mconf.h: Likewise.
+	* sinhl.c: Likewise.
+	* erfl.c: Likewise.
+	* lgamma.c: Likewise.
+	* tgamma.c: Likewise.
+
 2009-04-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/strtopx.c: The references I found indicate that the
