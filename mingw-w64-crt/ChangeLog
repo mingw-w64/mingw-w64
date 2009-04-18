@@ -1,7 +1,7 @@
 2009-04-18  Kai Tietz  <kai.tietz@onevision.com>
 
 	* pow.c: Fix strict aliasing for scalar/floating point
-	modificatios (required for -O2 of gcc 4.4+).
+	modifications (required for -O2 and gcc 4.4+).
 	* tanhl.c: Likewise.
 	* lgammal.c: Likewise.
 	* tgammal.c: Likewise.
