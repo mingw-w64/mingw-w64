@@ -296,19 +296,16 @@ static  __inline__ long double polevll(long double x,const uLD *p, int n)
 /* Polynomial evaluator:
  *  x^n  +  P[0] x^(n-1)  +  P[1] x^(n-2)  +  ...  +  P[n]
  */
-static __inline__ long double p1evll( x, p, n )
-long double x;
-const void *p;
-int n;
+static __inline__ long double p1evll(long double x, const uLD *p, int n)
 {
 register long double y;
-register long double *P = (long double *)p;
 
 n -= 1;
-y = x + *P++;
+y = x + p->ld; p++;
+
 do
 	{
-	y = y * x + *P++;
+	y = y * x + p->ld; p++;
 	}
 while( --n );
 return( y );
