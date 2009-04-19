@@ -1,3 +1,8 @@
+2009-04-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/gdtoa.h: Go back to defining 'Long' as 'long' instead of int
+	in order to maintain compatibility and avoid compiler warnings.
+
 2009-04-18  Kai Tietz  <kai.tietz@onevision.com>
 
 	* pow.c: Fix strict aliasing for scalar/floating point
@@ -15,8 +20,9 @@
 2009-04-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/strtopx.c: The references I found indicate that the
-	mainstream code is incorrect of the STRTOG_Infinite case.  See,
-	example, http://docs.sun.com/source/819-3688/data.rep.app.html
+	mainstream code is incorrect for the STRTOG_Infinite case.  See, for
+	example, http://docs.sun.com/source/819-3688/data.rep.app.html, or
+	http://www.amath.unc.edu/sysadmin/DOC4.0/c-compiler/user_guide/data.represent.app.doc.html
 
 	* gdtoa/gdtoaimp.h, gdtoa/gethex.c, gdtoa/strtodg.c: Defined a
 	SET_ERRNO() macro for less ifdefs in actual C code.

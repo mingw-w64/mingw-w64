@@ -39,7 +39,10 @@ THIS SOFTWARE.
 #include <stddef.h> /* for size_t */
 
 #if defined(__MINGW32__) || defined(__MINGW64__)
-#define Long int	/* define Long as int32_t */
+/* keep the 'Long' definition as 'long' for compatibility
+ * with older/other software. long in w64 is 32 bits anyway..
+ */
+#define Long long	/* int */
 #undef  NO_LONG_LONG	/* we have long long type */
 #endif	/* MinGW */
 
