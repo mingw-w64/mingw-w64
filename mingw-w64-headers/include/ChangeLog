@@ -1,6 +1,6 @@
 2009-04-20  Kai Tietz  <kai.tietz@onevision.com>
 
-	* unistd.c (ftuncate): Use _off_t when off_t isn't defined.
+	* unistd.h (ftuncate): Use _off_t when off_t isn't defined.
 
 2009-04-20  Ozkan Sezer  <sezeroz@gmail.com>
 
