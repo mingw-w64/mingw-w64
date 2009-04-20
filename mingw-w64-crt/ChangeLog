@@ -1,3 +1,15 @@
+2009-04-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/misc.c: Sync'ed with the netlib.org sources from April 20, 2009.
+	The author's changelog states: "do not attempt to allocate large memory
+	blocks from the private memory pool (which was an unlikely event, but a
+	bug)."
+	* gdtoa/strtopx.c: Sync'ed with the netlib.org sources from April 20, 2009.
+	The author's changelog states: supply explicit bit for Infinity. "Note
+	that the Q routines (which do not supply this bit) are appropriate for
+	Sparc quad precision (probably known as long double with most current
+	compilers)."
+
 2009-04-19  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/gdtoa.h: Go back to defining 'Long' as 'long' instead of int
