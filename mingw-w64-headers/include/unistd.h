@@ -30,13 +30,21 @@ int __cdecl __MINGW_NOTHROW usleep(useconds_t useconds);
 
 #ifndef FTRUNCATE_DEFINED
 #define FTRUNCATE_DEFINED
-/* This is defined as a real library function to allow autoconf
-   to verify its existence. */
-int ftruncate(int, off_t);
-__CRT_INLINE int ftruncate(int __fd, off_t __length)
-{
-  return _chsize (__fd, __length);
-}
+   /* This is defined as a real library function to allow autoconf
+      to verify its existence. */
+#if !defined(NO_OLDNAMES) || defined(_POSIX)
+  int ftruncate(int, off_t);
+  __CRT_INLINE int ftruncate(int __fd, off_t __length)
+  {
+    return _chsize (__fd, __length);
+  }
+#else
+  int ftruncate(int, _off_t);
+  __CRT_INLINE int ftruncate(int __fd, _off_t __length)
+  {
+    return _chsize (__fd, __length);
+  }
+#endif
 #endif
 
 #ifdef __cplusplus
