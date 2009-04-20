@@ -1,3 +1,13 @@
+2009-04-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	FR/2619978:
+	* mingw-w64-crt/gdtoa/strtof.c, mingw-w64-crt/gdtoa/strtopx.c:  Prepend
+	the strtof and strtold symbols with '__mingw_' to provide both of strtof
+	and strtold which rely on msvcrt, and __mingw_strtof and __mingw_strtold
+	which rely on the internal gdtoa library.
+	* mingw-w64-headers/include/stdlib.h:  Properly provide the prototypes
+	for __mingw_strtof and __mingw_strtold.
+
 2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* windef.h (BOOL): Check additionally for __OBJC_BOOL

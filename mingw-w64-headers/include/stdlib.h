@@ -377,9 +377,10 @@ extern "C" {
   void __cdecl srand(unsigned int _Seed);
   double __cdecl strtod(const char *_Str,char **_EndPtr);
   float __cdecl strtof(const char *nptr, char **endptr);
+  long double __cdecl strtold(const char *, char **);
 #if !defined __NO_ISOCEXT  /* in libmingwex.a */
-  float __cdecl strtof (const char * __restrict__, char ** __restrict__);
-  long double __cdecl strtold(const char * __restrict__, char ** __restrict__);
+  float __cdecl __mingw_strtof (const char * __restrict__, char ** __restrict__);
+  long double __cdecl __mingw_strtold(const char * __restrict__, char ** __restrict__);
 #endif /* __NO_ISOCEXT */
   _CRTIMP double __cdecl _strtod_l(const char *_Str,char **_EndPtr,_locale_t _Locale);
   long __cdecl strtol(const char *_Str,char **_EndPtr,int _Radix);

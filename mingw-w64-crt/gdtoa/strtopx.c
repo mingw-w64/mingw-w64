@@ -119,6 +119,6 @@ __strtold (const char * __restrict__ src, char ** __restrict__ endptr)
 }
 
 long double __cdecl
-strtold (const char * __restrict__ src, char ** __restrict__ endptr)
+__mingw_strtold (const char * __restrict__ src, char ** __restrict__ endptr)
   __attribute__((alias("__strtold")));
 
