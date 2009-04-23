@@ -89,7 +89,9 @@ extern "C" {
 #endif
 
   typedef signed char SCHAR;
+#if (ODBCVER < 0x0300)
   typedef SCHAR SQLSCHAR;
+#endif
   typedef long int SDWORD;
   typedef short int SWORD;
   typedef unsigned long int UDWORD;
