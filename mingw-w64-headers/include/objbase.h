@@ -15,6 +15,11 @@
 #define WINOLEAPI_(type) EXTERN_C DECLSPEC_IMPORT type WINAPI
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
+
+#ifndef __OBJC__
+#define interface struct
+#endif
+
 #define __STRUCT__ struct
 #define STDMETHOD(method) virtual HRESULT WINAPI method
 #define STDMETHOD_(type,method) virtual type WINAPI method
