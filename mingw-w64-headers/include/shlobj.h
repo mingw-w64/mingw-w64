@@ -404,7 +404,10 @@ extern "C" {
 #ifdef __cplusplus
     DATABLOCK_HEADER dbh;
 #else
-    DATABLOCK_HEADER;
+    __extension__ struct {
+      DWORD cbSize;
+      DWIRD dwSignature;
+    };
 #endif
     WORD wFillAttribute;
     WORD wPopupFillAttribute;
@@ -433,7 +436,10 @@ extern "C" {
 #ifdef __cplusplus
     DATABLOCK_HEADER dbh;
 #else
-    DATABLOCK_HEADER;
+    __extension__ struct {
+      DWORD cbSize;
+      DWIRD dwSignature;
+    };
 #endif
     UINT uCodePage;
   } NT_FE_CONSOLE_PROPS,*LPNT_FE_CONSOLE_PROPS;
@@ -443,7 +449,10 @@ extern "C" {
 #ifdef __cplusplus
     DATABLOCK_HEADER dbh;
 #else
-    DATABLOCK_HEADER;
+    __extension__ struct {
+      DWORD cbSize;
+      DWIRD dwSignature;
+    };
 #endif
     CHAR szDarwinID[MAX_PATH];
     WCHAR szwDarwinID[MAX_PATH];
