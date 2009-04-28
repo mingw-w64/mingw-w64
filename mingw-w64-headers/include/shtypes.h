@@ -34,6 +34,7 @@ extern "C" {
 
 #include <poppack.h>
 #if (defined(_X86_) && !defined(__x86_64))
+#undef __unaligned
 #define __unaligned
 #endif
   typedef SHITEMID __unaligned *LPSHITEMID;

@@ -160,7 +160,9 @@ typedef int __int128 __attribute__ ((mode (TI)));
 
 #define __ptr32
 #define __ptr64
-#define __unaligned __attribute ((packed))
+#ifndef __unaligned
+#define __unaligned /* __attribute ((packed)) */
+#endif
 #define __forceinline extern __inline
 #endif
 #endif
