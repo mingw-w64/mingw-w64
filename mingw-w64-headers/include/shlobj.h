@@ -404,9 +404,10 @@ extern "C" {
 #ifdef __cplusplus
     DATABLOCK_HEADER dbh;
 #else
+/*  DATABLOCK_HEADER; */
     __extension__ struct {
       DWORD cbSize;
-      DWIRD dwSignature;
+      DWORD dwSignature;
     };
 #endif
     WORD wFillAttribute;
@@ -436,9 +437,10 @@ extern "C" {
 #ifdef __cplusplus
     DATABLOCK_HEADER dbh;
 #else
+/*  DATABLOCK_HEADER; */
     __extension__ struct {
       DWORD cbSize;
-      DWIRD dwSignature;
+      DWORD dwSignature;
     };
 #endif
     UINT uCodePage;
@@ -449,9 +451,10 @@ extern "C" {
 #ifdef __cplusplus
     DATABLOCK_HEADER dbh;
 #else
+/*  DATABLOCK_HEADER; */
     __extension__ struct {
       DWORD cbSize;
-      DWIRD dwSignature;
+      DWORD dwSignature;
     };
 #endif
     CHAR szDarwinID[MAX_PATH];
