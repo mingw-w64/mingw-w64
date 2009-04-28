@@ -6,6 +6,11 @@
 #ifndef _CEPHES_EMATH_H
 #define _CEPHES_EMATH_H
 
+/**
+ * This is a workaround for a gcc bug
+ */
+#define __restrict__
+
 /* This file is extracted from S L Moshier's  ioldoubl.c,
  * modified for use in MinGW 
  *
