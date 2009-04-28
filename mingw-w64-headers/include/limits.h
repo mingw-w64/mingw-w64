@@ -102,6 +102,7 @@
 #define NAME_MAX 255
 #define NGROUPS_MAX 16
 #define OPEN_MAX 32
+#undef PATH_MAX
 #define PATH_MAX 512
 #define PIPE_BUF _POSIX_PIPE_BUF
 #define SSIZE_MAX _POSIX_SSIZE_MAX
