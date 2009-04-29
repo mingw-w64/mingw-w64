@@ -7,7 +7,7 @@ You can check for existance of this optional package by verifying the definition
 the macro MINGW_HAVE_DDK_H.
 
 This is an optional SDK. Its license is LGPL and you can obtain the original source by the
-ReactOS project. We base on the on the rev 40585 of ReactOS svn. You can find this via svn
+ReactOS project. We base on the on the rev 40733 of ReactOS svn. You can find this via svn
 by svn://svn.reactos.org/reactos/trunk/reactos/include/ddk.
 For further details on license please read at the ReactOS project.
 
