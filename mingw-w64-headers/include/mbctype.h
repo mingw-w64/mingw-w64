@@ -13,14 +13,6 @@
 extern "C" {
 #endif
 
-  /* CRT stuff */
-#if 1
-#if defined (_DLL) && defined (_M_IX86)
-  /* Retained for compatibility with VC++ 5.0 and earlier versions */
-  _CRTIMP unsigned char * __cdecl __p__mbctype(void);
-  _CRTIMP unsigned char * __cdecl __p__mbcasemap(void);
-#endif  /* defined (_DLL) && defined (_M_IX86) */
-#endif
 #ifndef _mbctype
 #ifdef _MSVCRT_
   extern unsigned char _mbctype[257];
@@ -38,14 +30,11 @@ extern "C" {
 #endif
 #endif
 
-  /* CRT stuff */
-#if 1
   extern pthreadmbcinfo __ptmbcinfo;
   extern int __globallocalestatus;
   extern int __locale_changed;
   extern struct threadmbcinfostruct __initialmbcinfo;
   pthreadmbcinfo __cdecl __updatetmbcinfo(void);
-#endif
 
 #define _MS 0x01
 #define _MP 0x02

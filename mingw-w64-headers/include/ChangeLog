@@ -1,3 +1,9 @@
+2009-04-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h (_M_IX86): New define.
+	(_M_AMD64): Likewise.
+	(_M_IA64): Likewise.
+
 2009-04-23  Kai Tietz  <kai.tietz@onevision.com>
 
 	* sqltypes.h (SQLSCHAR): Prevent double type definition.

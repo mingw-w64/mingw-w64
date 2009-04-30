@@ -23,6 +23,43 @@ const char *__mingw_get_crt_info (void);
 #endif
 
 #ifdef _WIN64
+/* MS does not prefix symbols by underscores for 64-bit.  */
+#ifndef __MINGW_USE_UNDERSCORE_PREFIX
+#define __MINGW_USE_UNDERSCORE_PREFIX 1
+#endif
+#else
+/* For 32-bits we have always to prefix by underscore.  */
+#undef __MINGW_USE_UNDERSCORE_PREFIX
+#define __MINGW_USE_UNDERSCORE_PREFIX 1
+#endif
+
+#if __MINGW_USE_UNDERSCORE_PREFIX == 0
+#define __MINGW_IMP_SYMBOL(sym)	_imp_##sym
+#else
+#define __MINGW_IMP_SYMBOL(sym)	_imp__##sym
+#endif
+
+/* Use alias for msvcr80 export of get/set_output_format.  */
+#ifndef __USE_MINGW_OUTPUT_FORMAT_EMU
+#define __USE_MINGW_OUTPUT_FORMAT_EMU 1
+#endif
+
+/* Set VC specific compiler target macros.  */
+#if !defined(_M_IX86) && !defined(_M_IA64) && !defined(_M_AMD64) && (defined(_X86_) && !defined(__x86_64))
+#define _M_IX86
+#endif
+
+#if !defined(_M_IX86) && !defined(_M_IA64) && !defined(_M_AMD64) && defined(__x86_64)
+#define _M_AMD64
+#endif
+
+#if !defined(_M_IX86) && !(defined(_X86_) && !defined(__x86_64)) && !defined(_M_AMD64) && defined(__ia64__)
+#if !defined(_M_IA64)
+#define _M_IA64
+#endif
+#endif
+
+#ifdef _WIN64
 #ifdef __stdcall
 #undef __stdcall
 #endif
@@ -502,28 +539,6 @@ extern "C" {
 #endif
 
 #pragma pack(pop)
-#endif
-
-#ifdef _WIN64
-/* MS does not prefix symbols by underscores for 64-bit.  */
-#ifndef __MINGW_USE_UNDERSCORE_PREFIX
-#define __MINGW_USE_UNDERSCORE_PREFIX 1
-#endif
-#else
-/* For 32-bits we have always to prefix by underscore.  */
-#undef __MINGW_USE_UNDERSCORE_PREFIX
-#define __MINGW_USE_UNDERSCORE_PREFIX 1
-#endif
-
-#if __MINGW_USE_UNDERSCORE_PREFIX == 0
-#define __MINGW_IMP_SYMBOL(sym)	_imp_##sym
-#else
-#define __MINGW_IMP_SYMBOL(sym)	_imp__##sym
-#endif
-
-/* Use alias for msvcr80 export of get/set_output_format.  */
-#ifndef __USE_MINGW_OUTPUT_FORMAT_EMU
-#define __USE_MINGW_OUTPUT_FORMAT_EMU 1
 #endif
 
 #ifndef MINGW_SDK_INIT
