@@ -1,3 +1,8 @@
+2009-05-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h: add a mingw.org compatibility definition of _CRT_glob
+	as our own _dowildcard and document it.
+
 2009-05-11  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw.h (__MINGW32_MINOR_VERSION, __MINGW32_MAJOR_VERSION): Define

@@ -544,11 +544,28 @@ extern "C" {
 #endif
 
 #pragma pack(pop)
-#endif
+
+/* _dowildcard is an int that controls the globbing of the command line.
+ * The MinGW32 (mingw.org) runtime calls it _CRT_glob, so we are adding
+ * a compatibility definition here:  you can use either of _CRT_glob or
+ * _dowildcard .
+ * If _dowildcard is non-zero, the command line will be globbed:  *.*
+ * will be expanded to be all files in the startup directory.
+ * In the mingw-w64 library a _dowildcard variable is defined as being
+ * 0, therefore command line globbing is DISABLED by default. To turn it
+ * on and to leave wildcard command line processing MS's globbing code,
+ * include a line in one of your source modules defining _dowildcard and
+ * setting it to -1, like so:
+ * int _dowildcard = -1;
+ */
+#undef  _CRT_glob
+#define _CRT_glob _dowildcard
+
+#endif /* _INC_CRTDEFS */
 
 #ifndef MINGW_SDK_INIT
 #define MINGW_SDK_INIT
 
 #include "sdks/_mingw_directx.h"
 
-#endif
+#endif /* MINGW_SDK_INIT */
