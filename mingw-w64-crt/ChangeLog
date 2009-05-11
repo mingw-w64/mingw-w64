@@ -1,5 +1,6 @@
 2009-05-11  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* crt/wildcard.c: documented the _dowildcard varible.
 	* crt/crtexe.c (__tmainCRTStartup): added the missing '*' spotted by
 	Ivan Maidanski.
 
