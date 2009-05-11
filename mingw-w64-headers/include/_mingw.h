@@ -13,6 +13,11 @@
 #define __MINGW64_VERSION_MAJOR	1
 #define __MINGW64_VERSION_MINOR	0
 #define __MINGW64_VERSION_STATE	"beta"
+/* The base version of mingw.org's version we support.
+   Those defines are necessary, that libadd of gcc will translate.  */
+#define __MINGW32_MAJOR_VERSION 3
+#define __MINGW32_MINOR_VERSION 11
+
 #ifdef __cplusplus
 extern "C" {
 #endif

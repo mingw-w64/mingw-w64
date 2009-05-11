@@ -1,3 +1,8 @@
+2009-05-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h (__MINGW32_MINOR_VERSION, __MINGW32_MAJOR_VERSION): Define
+	for 3.11 base version.
+
 2009-04-30  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw.h (_M_IX86): New define.
