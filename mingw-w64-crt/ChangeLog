@@ -1,3 +1,8 @@
+2009-05-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/crtexe.c (__tmainCRTStartup): added the missing '*' spotted by
+	Ivan Maidanski.
+
 2009-04-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	FR/2619978:

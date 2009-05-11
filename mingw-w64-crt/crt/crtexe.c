@@ -228,7 +228,7 @@ __tmainCRTStartup (void)
 #ifdef _MBCS
 	if (_ismbblead (*lpszCommandLine))
 	  {
-	    if (lpszCommandLine)
+	    if (*lpszCommandLine)
 	      lpszCommandLine++;
 	  }
 #endif
