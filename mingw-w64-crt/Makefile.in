@@ -1692,7 +1692,7 @@ src_libmingwex = \
 @LIB32_TRUE@crt32_SCRIPTS = \
 @LIB32_TRUE@  lib32/crt1.o    lib32/crt2.o     lib32/crt1u.o   lib32/crt2u.o   lib32/dllcrt1.o lib32/dllcrt2.o \
 @LIB32_TRUE@  lib32/CRT_fp8.o lib32/CRT_fp10.o lib32/txtmode.o lib32/binmode.o lib32/crtbegin.o lib32/crtend.o \
-@LIB32_TRUE@  lib32/gcrt0.o   lib32/gcrt1.o    lib32/gcrt2.o
+@LIB32_TRUE@  lib32/gcrt0.o   lib32/gcrt1.o    lib32/gcrt2.o   lib32/CRT_glob.o
 
 @LIB32_TRUE@COMPILE32 = $(COMPILE) -m32 $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
 
@@ -1803,7 +1803,7 @@ src_libmingwex = \
 @LIB64_TRUE@crt64_SCRIPTS = \
 @LIB64_TRUE@  lib64/crt1.o    lib64/crt2.o     lib64/crt1u.o   lib64/crt2u.o   lib64/dllcrt1.o lib64/dllcrt2.o \
 @LIB64_TRUE@  lib64/CRT_fp8.o lib64/CRT_fp10.o lib64/txtmode.o lib64/binmode.o lib64/crtbegin.o lib64/crtend.o \
-@LIB64_TRUE@  lib64/gcrt0.o   lib64/gcrt1.o    lib64/gcrt2.o
+@LIB64_TRUE@  lib64/gcrt0.o   lib64/gcrt1.o    lib64/gcrt2.o   lib64/CRT_glob.o
 
 @LIB64_TRUE@COMPILE64 = $(COMPILE) $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
 @LIB64_TRUE@lib64_LIBRARIES = lib64/libm.a lib64/libmingwthrd.a \

@@ -1,8 +1,12 @@
 2009-05-11  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* crt/wildcard.c: documented the _dowildcard varible.
+	* crt/wildcard.c: documented the _dowildcard variable.
 	* crt/crtexe.c (__tmainCRTStartup): added the missing '*' spotted by
 	Ivan Maidanski.
+	* crt/CRT_glob.c: New. Used to create CRT_glob.o, a helper object to
+	turn on command line wildcard expansion.
+	* Makefile.am: Added CRT_glob.o.
+	* Makefile.in, config.h.in, configure: regenerated.
 
 2009-04-20  Ozkan Sezer  <sezeroz@gmail.com>
 
