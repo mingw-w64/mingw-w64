@@ -13,11 +13,16 @@
 #define __MINGW64_VERSION_MAJOR	1
 #define __MINGW64_VERSION_MINOR	0
 #define __MINGW64_VERSION_STATE	"beta"
+/* We have to disable the definition of mingw.org's version information,
+   because we don't have the __mingw_dtor_key features.  Possibly we may
+   merge this feature, but for now better disable it. The mingw-crt RT is
+   by default multithreading capable even without this hacky dll.  */
+#if 0
 /* The base version of mingw.org's version we support.
    Those defines are necessary, that libadd of gcc will translate.  */
 #define __MINGW32_MAJOR_VERSION 3
 #define __MINGW32_MINOR_VERSION 11
-
+#endif
 #ifdef __cplusplus
 extern "C" {
 #endif
