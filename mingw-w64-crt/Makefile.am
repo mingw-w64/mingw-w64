@@ -881,7 +881,7 @@ EXTRA_DIST += revstamp.h \
   profile/gcrt0.c \
   profile/COPYING profile/CYGWIN_LICENSE
 
-DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
+DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 
 dist-hook:
 	rm -rf `find $(top_distdir) -name ".svn"`

@@ -2357,7 +2357,7 @@ EXTRA_DIST = DISCLAIMER revstamp.h $(top_srcdir)/lib64/*.def \
 	crt/crtdll.c crt/crtend.c crt/crtexe.c crt/CRT_fp8.c \
 	crt/CRT_fp10.c crt/CRT_glob.c crt/txtmode.c crt/ucrtexe.c \
 	profile/gcrt0.c profile/COPYING profile/CYGWIN_LICENSE
-DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
+DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 testcases_tstwinmain_LDADD = -lgdi32
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
