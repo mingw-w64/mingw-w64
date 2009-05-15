@@ -10,6 +10,8 @@
 
 #Use AM_MAINTAINER_MODE in configure.ac to disable autoreconf
 
+#AUTOMAKE_OPTIONS = color-tests
+
 if WITHSYSROOT
   sysincludes=-I@TARGET_SYSTEM_ROOT@/$(host)/include
   withsys=--with-sysroot=@TARGET_SYSTEM_ROOT@
@@ -884,3 +886,26 @@ dist-hook:
 	rm -rf `find $(top_distdir) -name ".svn"`
 
 
+# Testsuite options
+#
+#  testcases/t_float.c             testcases/t_setjmp.c      testcases/tstmain.cpp        testcases/tstwassert_win.c \
+#  testcases/t_matherr.c           testcases/t_speed_powl.c  testcases/tstmain_sys_xxx.c  testcases/tstwinmain.c     \
+#  testcases/t_nullptrexception.c  testcases/tstmain.c       testcases/tstwassert.c       testcases/t_trycatch.cpp
+check_PROGRAMS = \
+  testcases/t_float  \
+  testcases/t_setjmp \
+  testcases/tstwassert_win \
+  testcases/t_matherr \
+  testcases/t_speed_powl \
+  testcases/tstmain_sys_xxx \
+  testcases/tstwinmain \
+  testcases/t_nullptrexception \
+  testcases/tstwassert \
+  testcases/t_trycatch \
+  testcases/tstmaincpp \
+  testcases/tstmainc
+testcases_tstwinmain_LDADD = -lgdi32
+testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
+testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
+
+TESTS = $(check_PROGRAMS)

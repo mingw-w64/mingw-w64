@@ -26,6 +26,8 @@
 
 #Use AM_MAINTAINER_MODE in configure.ac to disable autoreconf
 
+#AUTOMAKE_OPTIONS = color-tests
+
 
 
 VPATH = @srcdir@
@@ -46,6 +48,14 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
+check_PROGRAMS = testcases/t_float$(EXEEXT) \
+	testcases/t_setjmp$(EXEEXT) testcases/tstwassert_win$(EXEEXT) \
+	testcases/t_matherr$(EXEEXT) testcases/t_speed_powl$(EXEEXT) \
+	testcases/tstmain_sys_xxx$(EXEEXT) \
+	testcases/tstwinmain$(EXEEXT) \
+	testcases/t_nullptrexception$(EXEEXT) \
+	testcases/tstwassert$(EXEEXT) testcases/t_trycatch$(EXEEXT) \
+	testcases/tstmaincpp$(EXEEXT) testcases/tstmainc$(EXEEXT)
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(noinst_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
@@ -1354,6 +1364,44 @@ am__lib64_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c
 am__objects_37 = libsrc/ws2_32.$(OBJEXT)
 @LIB64_TRUE@am_lib64_libws2_32_a_OBJECTS = $(am__objects_37)
 lib64_libws2_32_a_OBJECTS = $(am_lib64_libws2_32_a_OBJECTS)
+testcases_t_float_SOURCES = testcases/t_float.c
+testcases_t_float_OBJECTS = testcases/t_float.$(OBJEXT)
+testcases_t_float_LDADD = $(LDADD)
+testcases_t_matherr_SOURCES = testcases/t_matherr.c
+testcases_t_matherr_OBJECTS = testcases/t_matherr.$(OBJEXT)
+testcases_t_matherr_LDADD = $(LDADD)
+testcases_t_nullptrexception_SOURCES = testcases/t_nullptrexception.c
+testcases_t_nullptrexception_OBJECTS =  \
+	testcases/t_nullptrexception.$(OBJEXT)
+testcases_t_nullptrexception_LDADD = $(LDADD)
+testcases_t_setjmp_SOURCES = testcases/t_setjmp.c
+testcases_t_setjmp_OBJECTS = testcases/t_setjmp.$(OBJEXT)
+testcases_t_setjmp_LDADD = $(LDADD)
+testcases_t_speed_powl_SOURCES = testcases/t_speed_powl.c
+testcases_t_speed_powl_OBJECTS = testcases/t_speed_powl.$(OBJEXT)
+testcases_t_speed_powl_LDADD = $(LDADD)
+am_testcases_t_trycatch_OBJECTS = testcases/t_trycatch.$(OBJEXT)
+testcases_t_trycatch_OBJECTS = $(am_testcases_t_trycatch_OBJECTS)
+testcases_t_trycatch_LDADD = $(LDADD)
+testcases_tstmain_sys_xxx_SOURCES = testcases/tstmain_sys_xxx.c
+testcases_tstmain_sys_xxx_OBJECTS =  \
+	testcases/tstmain_sys_xxx.$(OBJEXT)
+testcases_tstmain_sys_xxx_LDADD = $(LDADD)
+testcases_tstmainc_SOURCES = testcases/tstmainc.c
+testcases_tstmainc_OBJECTS = testcases/tstmainc.$(OBJEXT)
+testcases_tstmainc_LDADD = $(LDADD)
+am_testcases_tstmaincpp_OBJECTS = testcases/tstmaincpp.$(OBJEXT)
+testcases_tstmaincpp_OBJECTS = $(am_testcases_tstmaincpp_OBJECTS)
+testcases_tstmaincpp_LDADD = $(LDADD)
+testcases_tstwassert_SOURCES = testcases/tstwassert.c
+testcases_tstwassert_OBJECTS = testcases/tstwassert.$(OBJEXT)
+testcases_tstwassert_LDADD = $(LDADD)
+testcases_tstwassert_win_SOURCES = testcases/tstwassert_win.c
+testcases_tstwassert_win_OBJECTS = testcases/tstwassert_win.$(OBJEXT)
+testcases_tstwassert_win_LDADD = $(LDADD)
+testcases_tstwinmain_SOURCES = testcases/tstwinmain.c
+testcases_tstwinmain_OBJECTS = testcases/tstwinmain.$(OBJEXT)
+testcases_tstwinmain_DEPENDENCIES =
 crt32SCRIPT_INSTALL = $(INSTALL_SCRIPT)
 crt64SCRIPT_INSTALL = $(INSTALL_SCRIPT)
 lib32SCRIPT_INSTALL = $(INSTALL_SCRIPT)
@@ -1377,6 +1425,15 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+LTCXXCOMPILE = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+CXXLD = $(CXX)
+CXXLINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib32_libdmoguids_a_SOURCES) $(lib32_libdxerr8_a_SOURCES) \
 	$(lib32_libdxerr9_a_SOURCES) $(lib32_libdxguid_a_SOURCES) \
@@ -1396,7 +1453,13 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib64_libmoldname_a_SOURCES) $(lib64_libscrnsave_a_SOURCES) \
 	$(lib64_libscrnsavw_a_SOURCES) $(lib64_libshell32_a_SOURCES) \
 	$(lib64_libstrmiids_a_SOURCES) $(lib64_libuuid_a_SOURCES) \
-	$(lib64_libws2_32_a_SOURCES)
+	$(lib64_libws2_32_a_SOURCES) testcases/t_float.c \
+	testcases/t_matherr.c testcases/t_nullptrexception.c \
+	testcases/t_setjmp.c testcases/t_speed_powl.c \
+	$(testcases_t_trycatch_SOURCES) testcases/tstmain_sys_xxx.c \
+	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
+	testcases/tstwassert.c testcases/tstwassert_win.c \
+	testcases/tstwinmain.c
 DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdinput8_a_SOURCES_DIST) \
 	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
@@ -1433,7 +1496,13 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib64_libshell32_a_SOURCES_DIST) \
 	$(am__lib64_libstrmiids_a_SOURCES_DIST) \
 	$(am__lib64_libuuid_a_SOURCES_DIST) \
-	$(am__lib64_libws2_32_a_SOURCES_DIST)
+	$(am__lib64_libws2_32_a_SOURCES_DIST) testcases/t_float.c \
+	testcases/t_matherr.c testcases/t_nullptrexception.c \
+	testcases/t_setjmp.c testcases/t_speed_powl.c \
+	$(testcases_t_trycatch_SOURCES) testcases/tstmain_sys_xxx.c \
+	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
+	testcases/tstwassert.c testcases/tstwassert_win.c \
+	testcases/tstwinmain.c
 HEADERS = $(noinst_HEADERS)
 ETAGS = etags
 CTAGS = ctags
@@ -1473,33 +1542,38 @@ DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DLLTOOL = @DLLTOOL@
 DSYMUTIL = @DSYMUTIL@
-ECHO = @ECHO@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
-F77 = @F77@
-FFLAGS = @FFLAGS@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIB32SUFFIXDIR = @LIB32SUFFIXDIR@
 LIB64SUFFIXDIR = @LIB64SUFFIXDIR@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
+MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
 NMEDIT = @NMEDIT@
 OBJDUMP = @OBJDUMP@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -1520,7 +1594,7 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
-ac_ct_F77 = @ac_ct_F77@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
@@ -1551,6 +1625,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -2283,14 +2358,18 @@ EXTRA_DIST = DISCLAIMER revstamp.h $(top_srcdir)/lib64/*.def \
 	crt/CRT_fp10.c crt/txtmode.c crt/ucrtexe.c profile/gcrt0.c \
 	profile/COPYING profile/CYGWIN_LICENSE
 DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
+testcases_tstwinmain_LDADD = -lgdi32
+testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
+testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
+TESTS = $(check_PROGRAMS)
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
 .SUFFIXES:
-.SUFFIXES: .S .c .lo .o .obj
+.SUFFIXES: .S .c .cpp .lo .o .obj
 am--refresh:
 	@:
-$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -2317,9 +2396,9 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	$(SHELL) ./config.status --recheck
 
-$(top_srcdir)/configure:  $(am__configure_deps)
+$(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(srcdir) && $(AUTOCONF)
-$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
+$(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 
 config.h: stamp-h1
@@ -2331,7 +2410,7 @@ config.h: stamp-h1
 stamp-h1: $(srcdir)/config.h.in $(top_builddir)/config.status
 	@rm -f stamp-h1
 	cd $(top_builddir) && $(SHELL) ./config.status config.h
-$(srcdir)/config.h.in:  $(am__configure_deps) 
+$(srcdir)/config.h.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps) 
 	cd $(top_srcdir) && $(AUTOHEADER)
 	rm -f stamp-h1
 	touch $@
@@ -4318,6 +4397,79 @@ lib64/libws2_32.a: $(lib64_libws2_32_a_OBJECTS) $(lib64_libws2_32_a_DEPENDENCIES
 	-rm -f lib64/libws2_32.a
 	$(lib64_libws2_32_a_AR) lib64/libws2_32.a $(lib64_libws2_32_a_OBJECTS) $(lib64_libws2_32_a_LIBADD)
 	$(RANLIB) lib64/libws2_32.a
+
+clean-checkPROGRAMS:
+	@list='$(check_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
+	done
+testcases/$(am__dirstamp):
+	@$(MKDIR_P) testcases
+	@: > testcases/$(am__dirstamp)
+testcases/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) testcases/$(DEPDIR)
+	@: > testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_float.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_float$(EXEEXT): $(testcases_t_float_OBJECTS) $(testcases_t_float_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_float$(EXEEXT)
+	$(LINK) $(testcases_t_float_OBJECTS) $(testcases_t_float_LDADD) $(LIBS)
+testcases/t_matherr.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_matherr$(EXEEXT): $(testcases_t_matherr_OBJECTS) $(testcases_t_matherr_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_matherr$(EXEEXT)
+	$(LINK) $(testcases_t_matherr_OBJECTS) $(testcases_t_matherr_LDADD) $(LIBS)
+testcases/t_nullptrexception.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_nullptrexception$(EXEEXT): $(testcases_t_nullptrexception_OBJECTS) $(testcases_t_nullptrexception_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_nullptrexception$(EXEEXT)
+	$(LINK) $(testcases_t_nullptrexception_OBJECTS) $(testcases_t_nullptrexception_LDADD) $(LIBS)
+testcases/t_setjmp.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_setjmp$(EXEEXT): $(testcases_t_setjmp_OBJECTS) $(testcases_t_setjmp_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_setjmp$(EXEEXT)
+	$(LINK) $(testcases_t_setjmp_OBJECTS) $(testcases_t_setjmp_LDADD) $(LIBS)
+testcases/t_speed_powl.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_speed_powl$(EXEEXT): $(testcases_t_speed_powl_OBJECTS) $(testcases_t_speed_powl_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_speed_powl$(EXEEXT)
+	$(LINK) $(testcases_t_speed_powl_OBJECTS) $(testcases_t_speed_powl_LDADD) $(LIBS)
+testcases/t_trycatch.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_trycatch$(EXEEXT): $(testcases_t_trycatch_OBJECTS) $(testcases_t_trycatch_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_trycatch$(EXEEXT)
+	$(CXXLINK) $(testcases_t_trycatch_OBJECTS) $(testcases_t_trycatch_LDADD) $(LIBS)
+testcases/tstmain_sys_xxx.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/tstmain_sys_xxx$(EXEEXT): $(testcases_tstmain_sys_xxx_OBJECTS) $(testcases_tstmain_sys_xxx_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/tstmain_sys_xxx$(EXEEXT)
+	$(LINK) $(testcases_tstmain_sys_xxx_OBJECTS) $(testcases_tstmain_sys_xxx_LDADD) $(LIBS)
+testcases/tstmainc.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/tstmainc$(EXEEXT): $(testcases_tstmainc_OBJECTS) $(testcases_tstmainc_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/tstmainc$(EXEEXT)
+	$(LINK) $(testcases_tstmainc_OBJECTS) $(testcases_tstmainc_LDADD) $(LIBS)
+testcases/tstmaincpp.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/tstmaincpp$(EXEEXT): $(testcases_tstmaincpp_OBJECTS) $(testcases_tstmaincpp_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/tstmaincpp$(EXEEXT)
+	$(CXXLINK) $(testcases_tstmaincpp_OBJECTS) $(testcases_tstmaincpp_LDADD) $(LIBS)
+testcases/tstwassert.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/tstwassert$(EXEEXT): $(testcases_tstwassert_OBJECTS) $(testcases_tstwassert_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/tstwassert$(EXEEXT)
+	$(LINK) $(testcases_tstwassert_OBJECTS) $(testcases_tstwassert_LDADD) $(LIBS)
+testcases/tstwassert_win.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/tstwassert_win$(EXEEXT): $(testcases_tstwassert_win_OBJECTS) $(testcases_tstwassert_win_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/tstwassert_win$(EXEEXT)
+	$(LINK) $(testcases_tstwassert_win_OBJECTS) $(testcases_tstwassert_win_LDADD) $(LIBS)
+testcases/tstwinmain.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/tstwinmain$(EXEEXT): $(testcases_tstwinmain_OBJECTS) $(testcases_tstwinmain_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/tstwinmain$(EXEEXT)
+	$(LINK) $(testcases_tstwinmain_OBJECTS) $(testcases_tstwinmain_LDADD) $(LIBS)
 install-crt32SCRIPTS: $(crt32_SCRIPTS)
 	@$(NORMAL_INSTALL)
 	test -z "$(crt32dir)" || $(MKDIR_P) "$(DESTDIR)$(crt32dir)"
@@ -5253,6 +5405,18 @@ mostlyclean-compile:
 	-rm -f stdio/lib64_libmingwex_a-vwscanf.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-wcstof.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-wtoll.$(OBJEXT)
+	-rm -f testcases/t_float.$(OBJEXT)
+	-rm -f testcases/t_matherr.$(OBJEXT)
+	-rm -f testcases/t_nullptrexception.$(OBJEXT)
+	-rm -f testcases/t_setjmp.$(OBJEXT)
+	-rm -f testcases/t_speed_powl.$(OBJEXT)
+	-rm -f testcases/t_trycatch.$(OBJEXT)
+	-rm -f testcases/tstmain_sys_xxx.$(OBJEXT)
+	-rm -f testcases/tstmainc.$(OBJEXT)
+	-rm -f testcases/tstmaincpp.$(OBJEXT)
+	-rm -f testcases/tstwassert.$(OBJEXT)
+	-rm -f testcases/tstwassert_win.$(OBJEXT)
+	-rm -f testcases/tstwinmain.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
@@ -6115,6 +6279,18 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-vwscanf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-wcstof.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-wtoll.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_float.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_matherr.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_nullptrexception.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_setjmp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_speed_powl.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_trycatch.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstmain_sys_xxx.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstmainc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstmaincpp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstwassert.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstwassert_win.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstwinmain.Po@am__quote@
 
 .S.o:
 @am__fastdepCCAS_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -17546,11 +17722,36 @@ libsrc/lib64_libscrnsavw_a-scrnsave.obj: libsrc/scrnsave.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib64_libscrnsavw_a_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libscrnsavw_a-scrnsave.obj `if test -f 'libsrc/scrnsave.c'; then $(CYGPATH_W) 'libsrc/scrnsave.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/scrnsave.c'; fi`
 
+.cpp.o:
+@am__fastdepCXX_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
+@am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+@am__fastdepCXX_TRUE@	mv -f $$depbase.Tpo $$depbase.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXXCOMPILE) -c -o $@ $<
+
+.cpp.obj:
+@am__fastdepCXX_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
+@am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
+@am__fastdepCXX_TRUE@	mv -f $$depbase.Tpo $$depbase.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+
+.cpp.lo:
+@am__fastdepCXX_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.lo$$||'`;\
+@am__fastdepCXX_TRUE@	$(LTCXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+@am__fastdepCXX_TRUE@	mv -f $$depbase.Tpo $$depbase.Plo
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(LTCXXCOMPILE) -c -o $@ $<
+
 mostlyclean-libtool:
 	-rm -f *.lo
 
 clean-libtool:
 	-rm -rf .libs _libs
+	-rm -rf testcases/.libs testcases/_libs
 
 distclean-libtool:
 	-rm -f libtool config.lt
@@ -17601,6 +17802,92 @@ GTAGS:
 
 distclean-tags:
 	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+
+check-TESTS: $(TESTS)
+	@failed=0; all=0; xfail=0; xpass=0; skip=0; \
+	srcdir=$(srcdir); export srcdir; \
+	list=' $(TESTS) '; \
+	if test -n "$$list"; then \
+	  for tst in $$list; do \
+	    if test -f ./$$tst; then dir=./; \
+	    elif test -f $$tst; then dir=; \
+	    else dir="$(srcdir)/"; fi; \
+	    if $(TESTS_ENVIRONMENT) $${dir}$$tst; then \
+	      all=`expr $$all + 1`; \
+	      case " $(XFAIL_TESTS) " in \
+	      *[\ \	]$$tst[\ \	]*) \
+		xpass=`expr $$xpass + 1`; \
+		failed=`expr $$failed + 1`; \
+		echo "XPASS: $$tst"; \
+	      ;; \
+	      *) \
+		echo "PASS: $$tst"; \
+	      ;; \
+	      esac; \
+	    elif test $$? -ne 77; then \
+	      all=`expr $$all + 1`; \
+	      case " $(XFAIL_TESTS) " in \
+	      *[\ \	]$$tst[\ \	]*) \
+		xfail=`expr $$xfail + 1`; \
+		echo "XFAIL: $$tst"; \
+	      ;; \
+	      *) \
+		failed=`expr $$failed + 1`; \
+		echo "FAIL: $$tst"; \
+	      ;; \
+	      esac; \
+	    else \
+	      skip=`expr $$skip + 1`; \
+	      echo "SKIP: $$tst"; \
+	    fi; \
+	  done; \
+	  if test "$$all" -eq 1; then \
+	    tests="test"; \
+	    All=""; \
+	  else \
+	    tests="tests"; \
+	    All="All "; \
+	  fi; \
+	  if test "$$failed" -eq 0; then \
+	    if test "$$xfail" -eq 0; then \
+	      banner="$$All$$all $$tests passed"; \
+	    else \
+	      if test "$$xfail" -eq 1; then failures=failure; else failures=failures; fi; \
+	      banner="$$All$$all $$tests behaved as expected ($$xfail expected $$failures)"; \
+	    fi; \
+	  else \
+	    if test "$$xpass" -eq 0; then \
+	      banner="$$failed of $$all $$tests failed"; \
+	    else \
+	      if test "$$xpass" -eq 1; then passes=pass; else passes=passes; fi; \
+	      banner="$$failed of $$all $$tests did not behave as expected ($$xpass unexpected $$passes)"; \
+	    fi; \
+	  fi; \
+	  dashes="$$banner"; \
+	  skipped=""; \
+	  if test "$$skip" -ne 0; then \
+	    if test "$$skip" -eq 1; then \
+	      skipped="($$skip test was not run)"; \
+	    else \
+	      skipped="($$skip tests were not run)"; \
+	    fi; \
+	    test `echo "$$skipped" | wc -c` -le `echo "$$banner" | wc -c` || \
+	      dashes="$$skipped"; \
+	  fi; \
+	  report=""; \
+	  if test "$$failed" -ne 0 && test -n "$(PACKAGE_BUGREPORT)"; then \
+	    report="Please report to $(PACKAGE_BUGREPORT)"; \
+	    test `echo "$$report" | wc -c` -le `echo "$$banner" | wc -c` || \
+	      dashes="$$report"; \
+	  fi; \
+	  dashes=`echo "$$dashes" | sed s/./=/g`; \
+	  echo "$$dashes"; \
+	  echo "$$banner"; \
+	  test -z "$$skipped" || echo "$$skipped"; \
+	  test -z "$$report" || echo "$$report"; \
+	  echo "$$dashes"; \
+	  test "$$failed" -eq 0; \
+	else :; fi
 
 distdir: $(DISTFILES)
 	$(am__remove_distdir)
@@ -17737,6 +18024,8 @@ distcleancheck: distclean
 	       $(distcleancheck_listfiles) ; \
 	       exit 1; } >&2
 check-am: all-am
+	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
+	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-am
 all-am: Makefile $(LIBRARIES) $(SCRIPTS) $(HEADERS) config.h
@@ -17784,6 +18073,8 @@ distclean-generic:
 	-rm -f profile/$(am__dirstamp)
 	-rm -f stdio/$(DEPDIR)/$(am__dirstamp)
 	-rm -f stdio/$(am__dirstamp)
+	-rm -f testcases/$(DEPDIR)/$(am__dirstamp)
+	-rm -f testcases/$(am__dirstamp)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
@@ -17791,12 +18082,12 @@ maintainer-clean-generic:
 	-test -z "$(BUILT_SOURCES)" || rm -f $(BUILT_SOURCES)
 clean: clean-am
 
-clean-am: clean-generic clean-lib32LIBRARIES clean-lib64LIBRARIES \
-	clean-libtool mostlyclean-am
+clean-am: clean-checkPROGRAMS clean-generic clean-lib32LIBRARIES \
+	clean-lib64LIBRARIES clean-libtool mostlyclean-am
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
-	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt/$(DEPDIR) gdtoa/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) profile/$(DEPDIR) stdio/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt/$(DEPDIR) gdtoa/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) profile/$(DEPDIR) stdio/$(DEPDIR) testcases/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-libtool distclean-tags
@@ -17834,7 +18125,7 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
-	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt/$(DEPDIR) gdtoa/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) profile/$(DEPDIR) stdio/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt/$(DEPDIR) gdtoa/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) profile/$(DEPDIR) stdio/$(DEPDIR) testcases/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
@@ -17857,27 +18148,27 @@ uninstall-am: uninstall-crt32SCRIPTS uninstall-crt64SCRIPTS \
 
 .MAKE: install-am install-strip
 
-.PHONY: CTAGS GTAGS all all-am am--refresh check check-am clean \
-	clean-generic clean-lib32LIBRARIES clean-lib64LIBRARIES \
-	clean-libtool ctags dist dist-all dist-bzip2 dist-gzip \
-	dist-hook dist-lzma dist-shar dist-tarZ dist-zip distcheck \
-	distclean distclean-compile distclean-generic distclean-hdr \
-	distclean-libtool distclean-tags distcleancheck distdir \
-	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-crt32SCRIPTS install-crt64SCRIPTS \
-	install-data install-data-am install-dvi install-dvi-am \
-	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-lib32LIBRARIES \
-	install-lib32SCRIPTS install-lib64LIBRARIES \
-	install-lib64SCRIPTS install-man install-pdf install-pdf-am \
-	install-ps install-ps-am install-strip installcheck \
-	installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags uninstall uninstall-am uninstall-crt32SCRIPTS \
-	uninstall-crt64SCRIPTS uninstall-lib32LIBRARIES \
-	uninstall-lib32SCRIPTS uninstall-lib64LIBRARIES \
-	uninstall-lib64SCRIPTS
+.PHONY: CTAGS GTAGS all all-am am--refresh check check-TESTS check-am \
+	clean clean-checkPROGRAMS clean-generic clean-lib32LIBRARIES \
+	clean-lib64LIBRARIES clean-libtool ctags dist dist-all \
+	dist-bzip2 dist-gzip dist-hook dist-lzma dist-shar dist-tarZ \
+	dist-zip distcheck distclean distclean-compile \
+	distclean-generic distclean-hdr distclean-libtool \
+	distclean-tags distcleancheck distdir distuninstallcheck dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-crt32SCRIPTS install-crt64SCRIPTS install-data \
+	install-data-am install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-lib32LIBRARIES install-lib32SCRIPTS \
+	install-lib64LIBRARIES install-lib64SCRIPTS install-man \
+	install-pdf install-pdf-am install-ps install-ps-am \
+	install-strip installcheck installcheck-am installdirs \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
+	pdf pdf-am ps ps-am tags uninstall uninstall-am \
+	uninstall-crt32SCRIPTS uninstall-crt64SCRIPTS \
+	uninstall-lib32LIBRARIES uninstall-lib32SCRIPTS \
+	uninstall-lib64LIBRARIES uninstall-lib64SCRIPTS
 
 _libm_dummy.c:
 	echo "static int __attribute__((unused)) __mingw_libm_dummy;" > _libm_dummy.c
