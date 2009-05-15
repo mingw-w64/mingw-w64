@@ -1,3 +1,8 @@
+2009-05-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* threads/: Add sources for EH cleanup DLL.
+	* libsrc/dummy_mingwthrd.c: Likewise.
+
 2009-05-11  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* crt/wildcard.c: documented the _dowildcard variable.
