@@ -875,6 +875,7 @@ EXTRA_DIST += revstamp.h \
   crt/crtexe.c \
   crt/CRT_fp8.c \
   crt/CRT_fp10.c \
+  crt/CRT_glob.c \
   crt/txtmode.c \
   crt/ucrtexe.c \
   profile/gcrt0.c \

@@ -2355,8 +2355,8 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 EXTRA_DIST = DISCLAIMER revstamp.h $(top_srcdir)/lib64/*.def \
 	$(top_srcdir)/lib32/*.def crt/binmode.c crt/crtbegin.c \
 	crt/crtdll.c crt/crtend.c crt/crtexe.c crt/CRT_fp8.c \
-	crt/CRT_fp10.c crt/txtmode.c crt/ucrtexe.c profile/gcrt0.c \
-	profile/COPYING profile/CYGWIN_LICENSE
+	crt/CRT_fp10.c crt/CRT_glob.c crt/txtmode.c crt/ucrtexe.c \
+	profile/gcrt0.c profile/COPYING profile/CYGWIN_LICENSE
 DISTCHECK_CONFIGURE_FLAGS = --host=x86_64-pc-mingw32 --enable-lib32 $(withsys) $(enablevista)
 testcases_tstwinmain_LDADD = -lgdi32
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
