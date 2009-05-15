@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdio.h>
+#include <inttypes.h>
 
 volatile long double in1 = -1.0L / 0.0L;
 volatile long double in2 = 1.0L / 0.0L;
@@ -42,10 +43,16 @@ volatile float ld3 = 3.51F;
    printf (" %g", (double) NAME##f (ld3, &i)); \
    printf ("=%d\n", i); \
   } while(0)
+  
+#ifdef __WIN64__
+#define printfmt PRIu64
+#else
+#define printfmt PRIu32
+#endif
 
 int main()
 {
-  printf ("sizeof(float)=%u, sizeof(double)=%u, sizeof(long double)=%u\n", sizeof (float), sizeof(double), sizeof(long double));
+  printf ("sizeof(float)=%"printfmt", sizeof(double)=%"printfmt", sizeof(long double)=%"printfmt"\n", sizeof (float), sizeof(double), sizeof(long double));
   printf ("%g %g %g\n", (double) ld1, (double) ld2, (double) ld3);
 
   ARG1_FCT (sin);
@@ -104,7 +111,7 @@ int main()
   ARG3_FCT (fma, 2.0, 1.5);
   printf ("%g is%s nan\n", (double) in1, isnan (in1) ? "" :" not");
   printf ("%g is%s inf\n", (double) in1, isinf (in1) ? "" :" not");
-  __mingw_printf ("Ld:%lg d:%g f:%g\n", ld1, ld2, (double) ld3);
+  __mingw_printf ("Ld:%Lg d:%g f:%g\n", ld1, ld2, (double) ld3);
 
   return 0;
 }
