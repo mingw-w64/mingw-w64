@@ -640,7 +640,7 @@ atan
 atan2
 atan2f
 atanf
-atexit
+atexit DATA
 atof
 atoi
 atol
