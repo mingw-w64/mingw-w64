@@ -17,7 +17,7 @@
    because we don't have the __mingw_dtor_key features.  Possibly we may
    merge this feature, but for now better disable it. The mingw-crt RT is
    by default multithreading capable even without this hacky dll.  */
-#if 0
+#if 1
 /* The base version of mingw.org's version we support.
    Those defines are necessary, that libadd of gcc will translate.  */
 #define __MINGW32_MAJOR_VERSION 3
