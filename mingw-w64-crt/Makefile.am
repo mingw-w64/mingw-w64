@@ -35,7 +35,6 @@ _libm_dummy.c:
 
 
 src_libm=_libm_dummy.c
-src_libmingwthrd=libsrc/dummy_mingwthrd.c
 src_libshell32=libsrc/shell32.c
 src_libdinput=libsrc/dinput_kbd.c libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c
 src_libdinput8=libsrc/dinput_private.h libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c libsrc/dinput_kbd.c
@@ -50,11 +49,13 @@ src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/charmax.c   crt/crt0_w.c    crt/dllargv.c   crt/gs_support.c    crt/_newmode.c       crt/tlssup.c             crt/xncommod.c  \
   crt/cinitexe.c  crt/crt0_w.c    crt/dllentry.c  crt/merr.c          crt/pesect.c         crt/udllargc.c           crt/xthdloc.c   \
   crt/crt0_c.c    crt/CRT_fp10.c  crt/dllmain.c   crt/mingw_custom.c  crt/mingw_helpers.c  crt/pseudo-reloc.c       crt/udll_argv.c \
-  crt/xtxtmode.c
+  crt/xtxtmode.c  \
+  libsrc/dummy_mingwthrd.c  libsrc/mingwthrd_nomt.c
 src_libmoldname=crt/isascii.c crt/iscsym.c crt/iscsymf.c crt/toascii.c crt/strcasecmp.c crt/strncasecmp.c crt/wcscmpi.c
 src_libscrnsave=libsrc/scrnsave.c
 src_libscrnsavw=libsrc/scrnsave.c
 src_libstrmiids=libsrc/strmiids.c
+src_libmingwthrd=libsrc/mingwthrd_mt.c
 src_libuuid=libsrc/uuid.c libsrc/devguid.c \
   libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
   libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
@@ -186,10 +187,6 @@ lib32_LIBRARIES = lib32/libm.a
 nodist_lib32_libm_a_SOURCES = $(src_libm)
 lib32_libm_a_CPPFLAGS=-m32
 
-lib32_LIBRARIES += lib32/libmingwthrd.a
-lib32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
-lib32_libmingwthrd_a_CPPFLAGS=-m32
-
 lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = $(src_libshell32)
 lib32_libshell32_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
@@ -255,6 +252,10 @@ lib32_libscrnsavw_a_CFLAGS = -DUNICODE
 lib32_LIBRARIES += lib32/libstrmiids.a
 lib32_libstrmiids_a_SOURCES = $(src_libstrmiids)
 lib32_libstrmiids_a_CPPFLAGS=-m32
+
+lib32_LIBRARIES += lib32/libmingwthrd.a
+lib32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
+lib32_libmingwthrd_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libuuid.a
 lib32_libuuid_a_SOURCES = $(src_libuuid)
@@ -353,9 +354,6 @@ lib64/%.o: crt/%.c
 lib64_LIBRARIES = lib64/libm.a
 nodist_lib64_libm_a_SOURCES = $(src_libm)
 
-lib64_LIBRARIES += lib64/libmingwthrd.a
-lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
-
 lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = $(src_libshell32)
 lib64_libshell32_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
@@ -414,7 +412,10 @@ lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=$(extra_include) $(AM_CPPFLAGS)
 lib64_libmoldname_a_SOURCES = $(src_libmoldname)
 lib64_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386:x86-64; $(AR) $(ARFLAGS)
-  
+
+lib64_LIBRARIES += lib64/libmingwthrd.a
+lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
+
 lib64_LIBRARIES += lib64/libuuid.a
 lib64_libuuid_a_SOURCES = $(src_libuuid)
 
