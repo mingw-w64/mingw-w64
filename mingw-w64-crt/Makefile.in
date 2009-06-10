@@ -57,7 +57,8 @@ check_PROGRAMS = testcases/t_float$(EXEEXT) \
 	testcases/tstwinmain$(EXEEXT) \
 	testcases/t_nullptrexception$(EXEEXT) \
 	testcases/tstwassert$(EXEEXT) testcases/t_trycatch$(EXEEXT) \
-	testcases/tstmaincpp$(EXEEXT) testcases/tstmainc$(EXEEXT)
+	testcases/tstmaincpp$(EXEEXT) testcases/tstmainc$(EXEEXT) \
+	testcases/t_municode$(EXEEXT) testcases/t_tmain$(EXEEXT)
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(noinst_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
@@ -1391,6 +1392,14 @@ testcases_t_float_LDADD = $(LDADD)
 testcases_t_matherr_SOURCES = testcases/t_matherr.c
 testcases_t_matherr_OBJECTS = testcases/t_matherr.$(OBJEXT)
 testcases_t_matherr_LDADD = $(LDADD)
+testcases_t_municode_SOURCES = testcases/t_municode.c
+testcases_t_municode_OBJECTS =  \
+	testcases/testcases_t_municode-t_municode.$(OBJEXT)
+testcases_t_municode_LDADD = $(LDADD)
+testcases_t_municode_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(testcases_t_municode_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 testcases_t_nullptrexception_SOURCES = testcases/t_nullptrexception.c
 testcases_t_nullptrexception_OBJECTS =  \
 	testcases/t_nullptrexception.$(OBJEXT)
@@ -1401,6 +1410,14 @@ testcases_t_setjmp_LDADD = $(LDADD)
 testcases_t_speed_powl_SOURCES = testcases/t_speed_powl.c
 testcases_t_speed_powl_OBJECTS = testcases/t_speed_powl.$(OBJEXT)
 testcases_t_speed_powl_LDADD = $(LDADD)
+testcases_t_tmain_SOURCES = testcases/t_tmain.c
+testcases_t_tmain_OBJECTS =  \
+	testcases/testcases_t_tmain-t_tmain.$(OBJEXT)
+testcases_t_tmain_LDADD = $(LDADD)
+testcases_t_tmain_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(testcases_t_tmain_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
+	-o $@
 am_testcases_t_trycatch_OBJECTS = testcases/t_trycatch.$(OBJEXT)
 testcases_t_trycatch_OBJECTS = $(am_testcases_t_trycatch_OBJECTS)
 testcases_t_trycatch_LDADD = $(LDADD)
@@ -1472,8 +1489,9 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib64_libscrnsavw_a_SOURCES) $(lib64_libshell32_a_SOURCES) \
 	$(lib64_libstrmiids_a_SOURCES) $(lib64_libuuid_a_SOURCES) \
 	$(lib64_libws2_32_a_SOURCES) testcases/t_float.c \
-	testcases/t_matherr.c testcases/t_nullptrexception.c \
-	testcases/t_setjmp.c testcases/t_speed_powl.c \
+	testcases/t_matherr.c testcases/t_municode.c \
+	testcases/t_nullptrexception.c testcases/t_setjmp.c \
+	testcases/t_speed_powl.c testcases/t_tmain.c \
 	$(testcases_t_trycatch_SOURCES) testcases/tstmain_sys_xxx.c \
 	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
 	testcases/tstwassert.c testcases/tstwassert_win.c \
@@ -1515,8 +1533,9 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib64_libstrmiids_a_SOURCES_DIST) \
 	$(am__lib64_libuuid_a_SOURCES_DIST) \
 	$(am__lib64_libws2_32_a_SOURCES_DIST) testcases/t_float.c \
-	testcases/t_matherr.c testcases/t_nullptrexception.c \
-	testcases/t_setjmp.c testcases/t_speed_powl.c \
+	testcases/t_matherr.c testcases/t_municode.c \
+	testcases/t_nullptrexception.c testcases/t_setjmp.c \
+	testcases/t_speed_powl.c testcases/t_tmain.c \
 	$(testcases_t_trycatch_SOURCES) testcases/tstmain_sys_xxx.c \
 	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
 	testcases/tstwassert.c testcases/tstwassert_win.c \
@@ -2382,6 +2401,8 @@ DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 testcases_tstwinmain_LDADD = -lgdi32
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
+testcases_t_municode_CFLAGS = -municode
+testcases_t_tmain_CFLAGS = -municode
 TESTS = $(check_PROGRAMS)
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -4458,6 +4479,11 @@ testcases/t_matherr.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_matherr$(EXEEXT): $(testcases_t_matherr_OBJECTS) $(testcases_t_matherr_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_matherr$(EXEEXT)
 	$(LINK) $(testcases_t_matherr_OBJECTS) $(testcases_t_matherr_LDADD) $(LIBS)
+testcases/testcases_t_municode-t_municode.$(OBJEXT):  \
+	testcases/$(am__dirstamp) testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_municode$(EXEEXT): $(testcases_t_municode_OBJECTS) $(testcases_t_municode_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_municode$(EXEEXT)
+	$(testcases_t_municode_LINK) $(testcases_t_municode_OBJECTS) $(testcases_t_municode_LDADD) $(LIBS)
 testcases/t_nullptrexception.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_nullptrexception$(EXEEXT): $(testcases_t_nullptrexception_OBJECTS) $(testcases_t_nullptrexception_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -4473,6 +4499,11 @@ testcases/t_speed_powl.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_speed_powl$(EXEEXT): $(testcases_t_speed_powl_OBJECTS) $(testcases_t_speed_powl_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_speed_powl$(EXEEXT)
 	$(LINK) $(testcases_t_speed_powl_OBJECTS) $(testcases_t_speed_powl_LDADD) $(LIBS)
+testcases/testcases_t_tmain-t_tmain.$(OBJEXT):  \
+	testcases/$(am__dirstamp) testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_tmain$(EXEEXT): $(testcases_t_tmain_OBJECTS) $(testcases_t_tmain_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_tmain$(EXEEXT)
+	$(testcases_t_tmain_LINK) $(testcases_t_tmain_OBJECTS) $(testcases_t_tmain_LDADD) $(LIBS)
 testcases/t_trycatch.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_trycatch$(EXEEXT): $(testcases_t_trycatch_OBJECTS) $(testcases_t_trycatch_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -5513,6 +5544,8 @@ mostlyclean-compile:
 	-rm -f testcases/t_setjmp.$(OBJEXT)
 	-rm -f testcases/t_speed_powl.$(OBJEXT)
 	-rm -f testcases/t_trycatch.$(OBJEXT)
+	-rm -f testcases/testcases_t_municode-t_municode.$(OBJEXT)
+	-rm -f testcases/testcases_t_tmain-t_tmain.$(OBJEXT)
 	-rm -f testcases/tstmain_sys_xxx.$(OBJEXT)
 	-rm -f testcases/tstmainc.$(OBJEXT)
 	-rm -f testcases/tstmaincpp.$(OBJEXT)
@@ -6391,6 +6424,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_setjmp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_speed_powl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_trycatch.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/testcases_t_municode-t_municode.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/testcases_t_tmain-t_tmain.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstmain_sys_xxx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstmainc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstmaincpp.Po@am__quote@
@@ -17883,6 +17918,34 @@ libsrc/lib64_libscrnsavw_a-scrnsave.obj: libsrc/scrnsave.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/scrnsave.c' object='libsrc/lib64_libscrnsavw_a-scrnsave.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib64_libscrnsavw_a_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libscrnsavw_a-scrnsave.obj `if test -f 'libsrc/scrnsave.c'; then $(CYGPATH_W) 'libsrc/scrnsave.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/scrnsave.c'; fi`
+
+testcases/testcases_t_municode-t_municode.o: testcases/t_municode.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testcases_t_municode_CFLAGS) $(CFLAGS) -MT testcases/testcases_t_municode-t_municode.o -MD -MP -MF testcases/$(DEPDIR)/testcases_t_municode-t_municode.Tpo -c -o testcases/testcases_t_municode-t_municode.o `test -f 'testcases/t_municode.c' || echo '$(srcdir)/'`testcases/t_municode.c
+@am__fastdepCC_TRUE@	$(am__mv) testcases/$(DEPDIR)/testcases_t_municode-t_municode.Tpo testcases/$(DEPDIR)/testcases_t_municode-t_municode.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testcases/t_municode.c' object='testcases/testcases_t_municode-t_municode.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testcases_t_municode_CFLAGS) $(CFLAGS) -c -o testcases/testcases_t_municode-t_municode.o `test -f 'testcases/t_municode.c' || echo '$(srcdir)/'`testcases/t_municode.c
+
+testcases/testcases_t_municode-t_municode.obj: testcases/t_municode.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testcases_t_municode_CFLAGS) $(CFLAGS) -MT testcases/testcases_t_municode-t_municode.obj -MD -MP -MF testcases/$(DEPDIR)/testcases_t_municode-t_municode.Tpo -c -o testcases/testcases_t_municode-t_municode.obj `if test -f 'testcases/t_municode.c'; then $(CYGPATH_W) 'testcases/t_municode.c'; else $(CYGPATH_W) '$(srcdir)/testcases/t_municode.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) testcases/$(DEPDIR)/testcases_t_municode-t_municode.Tpo testcases/$(DEPDIR)/testcases_t_municode-t_municode.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testcases/t_municode.c' object='testcases/testcases_t_municode-t_municode.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testcases_t_municode_CFLAGS) $(CFLAGS) -c -o testcases/testcases_t_municode-t_municode.obj `if test -f 'testcases/t_municode.c'; then $(CYGPATH_W) 'testcases/t_municode.c'; else $(CYGPATH_W) '$(srcdir)/testcases/t_municode.c'; fi`
+
+testcases/testcases_t_tmain-t_tmain.o: testcases/t_tmain.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testcases_t_tmain_CFLAGS) $(CFLAGS) -MT testcases/testcases_t_tmain-t_tmain.o -MD -MP -MF testcases/$(DEPDIR)/testcases_t_tmain-t_tmain.Tpo -c -o testcases/testcases_t_tmain-t_tmain.o `test -f 'testcases/t_tmain.c' || echo '$(srcdir)/'`testcases/t_tmain.c
+@am__fastdepCC_TRUE@	$(am__mv) testcases/$(DEPDIR)/testcases_t_tmain-t_tmain.Tpo testcases/$(DEPDIR)/testcases_t_tmain-t_tmain.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testcases/t_tmain.c' object='testcases/testcases_t_tmain-t_tmain.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testcases_t_tmain_CFLAGS) $(CFLAGS) -c -o testcases/testcases_t_tmain-t_tmain.o `test -f 'testcases/t_tmain.c' || echo '$(srcdir)/'`testcases/t_tmain.c
+
+testcases/testcases_t_tmain-t_tmain.obj: testcases/t_tmain.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testcases_t_tmain_CFLAGS) $(CFLAGS) -MT testcases/testcases_t_tmain-t_tmain.obj -MD -MP -MF testcases/$(DEPDIR)/testcases_t_tmain-t_tmain.Tpo -c -o testcases/testcases_t_tmain-t_tmain.obj `if test -f 'testcases/t_tmain.c'; then $(CYGPATH_W) 'testcases/t_tmain.c'; else $(CYGPATH_W) '$(srcdir)/testcases/t_tmain.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) testcases/$(DEPDIR)/testcases_t_tmain-t_tmain.Tpo testcases/$(DEPDIR)/testcases_t_tmain-t_tmain.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='testcases/t_tmain.c' object='testcases/testcases_t_tmain-t_tmain.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testcases_t_tmain_CFLAGS) $(CFLAGS) -c -o testcases/testcases_t_tmain-t_tmain.obj `if test -f 'testcases/t_tmain.c'; then $(CYGPATH_W) 'testcases/t_tmain.c'; else $(CYGPATH_W) '$(srcdir)/testcases/t_tmain.c'; fi`
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\

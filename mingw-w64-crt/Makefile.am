@@ -905,9 +905,13 @@ check_PROGRAMS = \
   testcases/tstwassert \
   testcases/t_trycatch \
   testcases/tstmaincpp \
-  testcases/tstmainc
+  testcases/tstmainc \
+  testcases/t_municode \
+  testcases/t_tmain
 testcases_tstwinmain_LDADD = -lgdi32
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
+testcases_t_municode_CFLAGS = -municode
+testcases_t_tmain_CFLAGS = -municode
 
 TESTS = $(check_PROGRAMS)
