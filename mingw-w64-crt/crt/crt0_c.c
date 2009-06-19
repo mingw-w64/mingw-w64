@@ -6,7 +6,13 @@
 
 #include <windows.h>
 
+extern HINSTANCE __mingw_winmain_hInstance;
+extern LPSTR __mingw_winmain_lpCmdLine;
+extern DWORD __mingw_winmain_nShowCmd;
+
+/*ARGSUSED*/
 int main (int flags, char **cmdline, char **inst)
 {
-  return (int) WinMain ((HINSTANCE) inst, NULL, (LPSTR) cmdline,(DWORD) flags);
+  return (int) WinMain (__mingw_winmain_hInstance, NULL,
+			__mingw_winmain_lpCmdLine, __mingw_winmain_nShowCmd);
 }

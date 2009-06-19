@@ -1,3 +1,11 @@
+2009-06-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crt0_c.c: Allow use of main/wmain as -mwindows entry point
+	and pass proper Arguments.
+	* crt/crt0_w.c: Likewise.
+	* crt/crtexe.c: Use for -mwindows case also main/wmain with proper
+	arguments.
+
 2009-05-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* threads/: Add sources for EH cleanup DLL.

@@ -69,6 +69,10 @@ extern _PVFV *__onexitend;
 
 extern int mingw_app_type;
 
+HINSTANCE __mingw_winmain_hInstance;
+_TCHAR *__mingw_winmain_lpCmdLine;
+DWORD __mingw_winmain_nShowCmd;
+
 static int argc;
 #ifdef WPRFLAG
 extern void __main(void);
@@ -237,21 +241,11 @@ __tmainCRTStartup (void)
     while (*lpszCommandLine && (*lpszCommandLine <= SPACECHAR))
       lpszCommandLine++;
 
-#ifdef WPRFLAG
-    /* C++ initialization.
-       gcc inserts this call automatically for a function called main, but not for wmain.  */
-    __main ();
-    mainret = wmain (
-    	(int) (StartupInfo.dwFlags & STARTF_USESHOWWINDOW ? StartupInfo.wShowWindow : SW_SHOWDEFAULT),
-    	(wchar_t **) lpszCommandLine, (wchar_t **) (HINSTANCE) &__ImageBase);
-#else
-    mainret = main (
-    	(int) (StartupInfo.dwFlags & STARTF_USESHOWWINDOW ? StartupInfo.wShowWindow : SW_SHOWDEFAULT),
-    	(char **) lpszCommandLine, (char **) (HINSTANCE) &__ImageBase);
-#endif
+    __mingw_winmain_hInstance = (HINSTANCE) &__ImageBase;
+    __mingw_winmain_lpCmdLine = lpszCommandLine;
+    __mingw_winmain_nShowCmd = StartupInfo.dwFlags & STARTF_USESHOWWINDOW ?
+				StartupInfo.wShowWindow : SW_SHOWDEFAULT;
     }
-  else
-    {
     duplicate_ppstrings (argc, &argv);
 #ifdef WPRFLAG
     __winitenv = envp;
@@ -263,7 +257,6 @@ __tmainCRTStartup (void)
     __initenv = envp;
     mainret = main (argc, argv, envp);
 #endif
-    }
     if (!managedapp)
       exit (mainret);
 
