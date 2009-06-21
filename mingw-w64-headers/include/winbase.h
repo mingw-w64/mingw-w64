@@ -1196,7 +1196,6 @@ extern "C" {
 #define GetBinaryType GetBinaryTypeA
 #define GetShortPathName GetShortPathNameA
 #define GetLongPathName GetLongPathNameA
-#define GetEnvironmentStringsA GetEnvironmentStrings
 #define SetEnvironmentStrings SetEnvironmentStringsA
 #define FreeEnvironmentStrings FreeEnvironmentStringsA
 #endif
@@ -1229,7 +1228,11 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI TerminateProcess(HANDLE hProcess,UINT uExitCode);
   WINBASEAPI WINBOOL WINAPI GetExitCodeProcess(HANDLE hProcess,LPDWORD lpExitCode);
   WINBASEAPI VOID WINAPI FatalExit(int ExitCode);
-  /*	WINBASEAPI LPCH WINAPI GetEnvironmentStrings(VOID); */
+#pragma push_macro("GetEnvironmentStrings")
+#undef GetEnvironmentStrings
+#define GetEnvironmentStringsA GetEnvironmentStrings
+  WINBASEAPI LPCH WINAPI GetEnvironmentStrings(VOID);
+#pragma pop_macro("GetEnvironmentStrings")
   WINBASEAPI LPWCH WINAPI GetEnvironmentStringsW(VOID);
   WINBASEAPI WINBOOL WINAPI SetEnvironmentStringsA(LPCH NewEnvironment);
   WINBASEAPI WINBOOL WINAPI SetEnvironmentStringsW(LPWCH NewEnvironment);
