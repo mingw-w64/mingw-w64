@@ -55,32 +55,28 @@ const char *__mingw_get_crt_info (void);
 #endif
 
 /* Set VC specific compiler target macros.  */
-#if !defined(_M_IX86) && !defined(_M_IA64) && !defined(_M_AMD64) && (defined(_X86_) && !defined(__x86_64))
+#if defined(_X86_) && !defined(_M_IX86) && !defined(_M_IA64) \
+   && !defined(_M_AMD64) && !defined(__x86_64)
 #ifdef __i686__
 #define _M_IX86 600
 #elif defined(__i586__)
 #define _M_IX86 500
 #elif defined(__i486__)
 #define _M_IX86 400
-#elif defined(__i386__)
-#define _M_IX86 300
-#elif defined(__i286__)
-#define _M_IX86 200
 #else
-#define _M_IX86 100
+#define _M_IX86 300
 #endif
 #endif
 
-#if !defined(_M_IX86) && !defined(_M_IA64) && !defined(_M_AMD64) && defined(__x86_64)
-#undef _M_IX86
+#if defined(__x86_64) && !defined(_M_IX86) && !defined(_M_IA64) \
+   && !defined(_M_AMD64)
 #define _M_AMD64 100
 #define _M_X64 100
 #endif
 
-#if !defined(_M_IX86) && !(defined(_X86_) && !defined(__x86_64)) && !defined(_M_AMD64) && defined(__ia64__)
-#if !defined(_M_IA64)
+#if defined(__ia64__) && !defined(_M_IX86) && !defined(_M_IA64) \
+   && !defined(_M_AMD64) && !defined(_X86_) && !defined(__x86_64)
 #define _M_IA64 100
-#endif
 #endif
 
 #ifdef _WIN64
