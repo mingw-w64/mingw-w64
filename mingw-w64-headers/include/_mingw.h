@@ -57,14 +57,14 @@ const char *__mingw_get_crt_info (void);
 /* Set VC specific compiler target macros.  */
 #if defined(_X86_) && !defined(_M_IX86) && !defined(_M_IA64) \
    && !defined(_M_AMD64) && !defined(__x86_64)
-#ifdef __i686__
-#define _M_IX86 600
+#if defined(__i486__)
+#define _M_IX86 400
 #elif defined(__i586__)
 #define _M_IX86 500
-#elif defined(__i486__)
-#define _M_IX86 400
 #else
-#define _M_IX86 300
+/* This gives wrong (600 instead of 300) value if -march=i386 is specified
+   but we cannot check for__i386__ as it is defined for all 32-bit CPUs. */
+#define _M_IX86 600
 #endif
 #endif
 
