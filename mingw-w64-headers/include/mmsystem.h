@@ -253,7 +253,7 @@ extern "C" {
 
 #define SND_ALIAS_START 0
 
-#define sndAlias(ch0,ch1) (SND_ALIAS_START + (DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8))
+#define sndAlias(c0,c1) (SND_ALIAS_START+((DWORD)(BYTE)(c0)|((DWORD)(BYTE)(c1)<<8)))
 
 #define SND_ALIAS_SYSTEMASTERISK sndAlias('S','*')
 #define SND_ALIAS_SYSTEMQUESTION sndAlias('S','?')
