@@ -284,7 +284,12 @@ extern "C" {
 #define _MRTIMP2  _CRTIMP
 #endif
 
-#ifndef _DLL
+/* We have to define _DLL for gcc based mingw version. This define is set
+   by VC, when DLL-based runtime is used. So, gcc based runtime just have
+   DLL-base runtime, therefore this define has to be set.
+   As our headers are possibly used by windows compiler having a static
+   C-runtime, we make this definition gnu compiler specific here.  */
+#if !defined (_DLL) && defined (__GNUC__)
 #define _DLL
 #endif
 
