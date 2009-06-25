@@ -24,20 +24,21 @@ typedef struct TlsDtorNode {
 
 ULONG _tls_index = 0;
 
-_CRTALLOC(".tls") char _tls_start = 0;
+/* TLS raw template data start and end. */
+_CRTALLOC(".tls$AAA") char _tls_start = 0;
 _CRTALLOC(".tls$ZZZ") char _tls_end = 0;
 
 _CRTALLOC(".CRT$XLA") PIMAGE_TLS_CALLBACK __xl_a = 0;
 _CRTALLOC(".CRT$XLZ") PIMAGE_TLS_CALLBACK __xl_z = 0;
 
 #ifdef _WIN64
-_CRTALLOC(".rdata$T") const IMAGE_TLS_DIRECTORY64 _tls_used = {
+_CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY64 _tls_used = {
   (ULONGLONG) &_tls_start, (ULONGLONG) &_tls_end, (ULONGLONG) &_tls_index,
   (ULONGLONG) (&__xl_a+1), (ULONG) 0, (ULONG) 0
 };
 #else
-_CRTALLOC(".rdata$T") const IMAGE_TLS_DIRECTORY _tls_used = {
-  (ULONG)(ULONG_PTR) &_tls_start, (ULONG)(ULONG_PTR) &_tls_end,
+_CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY _tls_used = {
+  (ULONG)(ULONG_PTR) &_tls_start+1, (ULONG)(ULONG_PTR) &_tls_end,
   (ULONG)(ULONG_PTR) &_tls_index, (ULONG)(ULONG_PTR) (&__xl_a+1),
   (ULONG) 0, (ULONG) 0
 };
@@ -47,7 +48,7 @@ _CRTALLOC(".rdata$T") const IMAGE_TLS_DIRECTORY _tls_used = {
 #ifdef HAVE_ATTRIBUTE_THREAD
 #define __CRT_THREAD	__declspec(thread)
 #else
-#define __CRT_THREAD
+#define __CRT_THREAD  __thread
 #endif
 #endif
 
@@ -63,7 +64,6 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason != DLL_THREAD_ATTACH)
     return TRUE;
-
   for (pfunc = &__xd_a + 1; pfunc != &__xd_z; ++pfunc)
     {
       if (*pfunc != NULL)
@@ -107,7 +107,6 @@ __dyn_tls_dtor (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason != DLL_THREAD_DETACH && dwReason != DLL_PROCESS_DETACH)
     return TRUE;
-
   for (pnode = dtor_list; pnode != NULL; pnode = pnext)
     {
       for (i = pnode->count - 1; i >= 0; --i)
