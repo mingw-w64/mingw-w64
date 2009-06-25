@@ -22,7 +22,7 @@ extern "C" {
   typedef int (__cdecl *_PIFV)(void);
   typedef void (__cdecl *_PVFI)(int);
 
-#if defined (SPECIAL_CRTEXE) && defined (_DLL)
+#if defined (SPECIAL_CRTEXE) && (defined (_DLL) || defined (__GNUC__))
   extern int _commode;
 #else
   _CRTIMP extern int _commode;
