@@ -50,7 +50,7 @@ src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/cinitexe.c  crt/crt0_w.c    crt/dllentry.c  crt/merr.c          crt/pesect.c         crt/udllargc.c           crt/xthdloc.c   \
   crt/crt0_c.c    crt/CRT_fp10.c  crt/dllmain.c   crt/mingw_custom.c  crt/mingw_helpers.c  crt/pseudo-reloc.c       crt/udll_argv.c \
   crt/xtxtmode.c  \
-  libsrc/dummy_mingwthrd.c  libsrc/mingwthrd_nomt.c
+  libsrc/dummy_mingwthrd.c
 src_libmoldname=crt/isascii.c crt/iscsym.c crt/iscsymf.c crt/toascii.c crt/strcasecmp.c crt/strncasecmp.c crt/wcscmpi.c
 src_libscrnsave=libsrc/scrnsave.c
 src_libscrnsavw=libsrc/scrnsave.c
@@ -135,7 +135,7 @@ src_libmingwex=\
   stdio/mingw_vsprintf.c  stdio/snprintf.c       stdio/snwprintf.c        stdio/strtof.c          stdio/ulltoa.c           \
   stdio/ulltow.c          stdio/vfscanf.c        stdio/vfwscanf.c         stdio/vscanf.c          stdio/vsnprintf.c        \
   stdio/vsnwprintf.c      stdio/vsscanf.c        stdio/vswscanf.c         stdio/vwscanf.c         stdio/wcstof.c           \
-  stdio/wtoll.c
+  stdio/wtoll.c libsrc/mingwthrd_nomt.c
 
 
 if LIB32
