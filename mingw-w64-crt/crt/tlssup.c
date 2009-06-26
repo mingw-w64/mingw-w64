@@ -14,6 +14,9 @@
 #include <malloc.h>
 #include <crtdbg.h>
 
+extern BOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
+extern int _CRT_MT;
+
 #define FUNCS_PER_NODE 30
 
 typedef struct TlsDtorNode {
@@ -63,7 +66,13 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
   _PVFV *pfunc;
 
   if (dwReason != DLL_THREAD_ATTACH)
-    return TRUE;
+    {
+      /* Don't call if we use libgcc_s version.  */
+      if (dwReason == DLL_PROCESS_ATTACH && _CRT_MT == 2)
+        __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
+      return TRUE;
+    }
+
   for (pfunc = &__xd_a + 1; pfunc != &__xd_z; ++pfunc)
     {
       if (*pfunc != NULL)
@@ -107,6 +116,10 @@ __dyn_tls_dtor (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason != DLL_THREAD_DETACH && dwReason != DLL_PROCESS_DETACH)
     return TRUE;
+  /* Don't call if we use libgcc_s version.  */
+  if (_CRT_MT == 2)
+    __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
+
   for (pnode = dtor_list; pnode != NULL; pnode = pnext)
     {
       for (i = pnode->count - 1; i >= 0; --i)
