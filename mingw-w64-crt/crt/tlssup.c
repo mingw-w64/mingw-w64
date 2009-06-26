@@ -41,7 +41,7 @@ _CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY64 _tls_used = {
 };
 #else
 _CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY _tls_used = {
-  (ULONG)(ULONG_PTR) &_tls_start+1, (ULONG)(ULONG_PTR) &_tls_end,
+  (ULONG)(ULONG_PTR) &_tls_start, (ULONG)(ULONG_PTR) &_tls_end,
   (ULONG)(ULONG_PTR) &_tls_index, (ULONG)(ULONG_PTR) (&__xl_a+1),
   (ULONG) 0, (ULONG) 0
 };
