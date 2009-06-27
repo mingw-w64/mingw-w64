@@ -109,19 +109,28 @@ __mingwthr_run_key_dtors (void)
 BOOL
 __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved)
 {
+  static int is_init = 0;
+ 
   switch (reason)
     {
     case DLL_PROCESS_ATTACH:
-       InitializeCriticalSection (&__mingwthr_cs);
+       if (is_init == 0)
+         InitializeCriticalSection (&__mingwthr_cs);
+       is_init = 1;
        break;
     case DLL_PROCESS_DETACH:
-      __mingwthr_run_key_dtors();
-      DeleteCriticalSection (&__mingwthr_cs);
+      if (is_init)
+	{
+          __mingwthr_run_key_dtors();
+          DeleteCriticalSection (&__mingwthr_cs);
+          is_init = 0;
+	}
       break;
     case DLL_THREAD_ATTACH:
       break;
     case DLL_THREAD_DETACH:
-      __mingwthr_run_key_dtors();
+      if (is_init)
+        __mingwthr_run_key_dtors();
       break;
     }
   return TRUE;
