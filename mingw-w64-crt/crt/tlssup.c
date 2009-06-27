@@ -36,12 +36,12 @@ _CRTALLOC(".CRT$XLZ") PIMAGE_TLS_CALLBACK __xl_z = 0;
 
 #ifdef _WIN64
 _CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY64 _tls_used = {
-  (ULONGLONG) &_tls_start, (ULONGLONG) &_tls_end, (ULONGLONG) &_tls_index,
+  (ULONGLONG) &_tls_start+1, (ULONGLONG) &_tls_end, (ULONGLONG) &_tls_index,
   (ULONGLONG) (&__xl_a+1), (ULONG) 0, (ULONG) 0
 };
 #else
 _CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY _tls_used = {
-  (ULONG)(ULONG_PTR) &_tls_start, (ULONG)(ULONG_PTR) &_tls_end,
+  (ULONG)(ULONG_PTR) &_tls_start+1, (ULONG)(ULONG_PTR) &_tls_end,
   (ULONG)(ULONG_PTR) &_tls_index, (ULONG)(ULONG_PTR) (&__xl_a+1),
   (ULONG) 0, (ULONG) 0
 };
