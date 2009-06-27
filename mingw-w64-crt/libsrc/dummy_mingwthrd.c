@@ -27,11 +27,11 @@ typedef struct __mingwthr_key __mingwthr_key_t;
 struct __mingwthr_key {
   DWORD key;
   void (*dtor)(void *);
-  __mingwthr_key_t *next;
+  __mingwthr_key_t volatile *next;
 };
 
 
-static __mingwthr_key_t *key_dtor_list;
+static __mingwthr_key_t volatile *key_dtor_list;
 
 int
 ___w64_mingwthr_add_key_dtor (DWORD key, void (*dtor)(void *))
@@ -57,8 +57,8 @@ ___w64_mingwthr_add_key_dtor (DWORD key, void (*dtor)(void *))
 int
 ___w64_mingwthr_remove_key_dtor (DWORD key)
 {
-  __mingwthr_key_t *prev_key;
-  __mingwthr_key_t *cur_key;
+  __mingwthr_key_t volatile *prev_key;
+  __mingwthr_key_t volatile *cur_key;
 
   EnterCriticalSection (&__mingwthr_cs);
 
@@ -67,14 +67,14 @@ ___w64_mingwthr_remove_key_dtor (DWORD key)
 
   while (cur_key != NULL)
     {
-      if( cur_key->key == key)
+      if ( cur_key->key == key)
         {
           if (prev_key == NULL)
             key_dtor_list = cur_key->next;
           else
             prev_key->next = cur_key->next;
 
-          free (cur_key );
+          free ((void*)cur_key);
           break;
         }
       prev_key = cur_key;
@@ -88,7 +88,7 @@ ___w64_mingwthr_remove_key_dtor (DWORD key)
 static void
 __mingwthr_run_key_dtors (void)
 {
-  __mingwthr_key_t *keyp;
+  __mingwthr_key_t volatile *keyp;
 
   EnterCriticalSection (&__mingwthr_cs);
 
