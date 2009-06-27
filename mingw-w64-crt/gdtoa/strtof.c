@@ -37,7 +37,7 @@ float __strtof (const char *s, char **sp)
 	ULong bits[1];
 	Long exp;
 	int k;
-	union { ULong L[1]; float f; } u;
+	union { ULong L[1]; float f; } u = { { 0 } };
 #ifdef Honor_FLT_ROUNDS
 #include "gdtoa_fltrnds.h"
 #else
