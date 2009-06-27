@@ -51,7 +51,7 @@ _CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY _tls_used = {
 #ifdef HAVE_ATTRIBUTE_THREAD
 #define __CRT_THREAD	__declspec(thread)
 #else
-#define __CRT_THREAD  __thread
+#define __CRT_THREAD
 #endif
 #endif
 
