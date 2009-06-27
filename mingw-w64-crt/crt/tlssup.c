@@ -51,7 +51,7 @@ _CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY _tls_used = {
 #ifdef HAVE_ATTRIBUTE_THREAD
 #define __CRT_THREAD	__declspec(thread)
 #else
-#define __CRT_THREAD
+#define __CRT_THREAD    __thread
 #endif
 #endif
 
@@ -116,9 +116,6 @@ __dyn_tls_dtor (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason != DLL_THREAD_DETACH && dwReason != DLL_PROCESS_DETACH)
     return TRUE;
-  /* Don't call if we use libgcc_s version.  */
-  if (_CRT_MT == 2)
-    __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
 
   for (pnode = dtor_list; pnode != NULL; pnode = pnext)
     {
@@ -131,6 +128,10 @@ __dyn_tls_dtor (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
       if (pnext != NULL)
 	free ((void *) pnode);
     }
+
+  /* Don't call if we use libgcc_s version.  */
+  if (_CRT_MT == 2)
+    __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
   return TRUE;
 }
 
