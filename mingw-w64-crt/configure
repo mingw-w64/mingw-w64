@@ -18990,19 +18990,33 @@ $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
 fi
 
 
-echo
-echo
-echo
-echo "------------------------------------------------------------------------"
-echo "$PACKAGE $VERSION"
-echo "------------------------------------------------------------------------"
-echo
-echo
-echo "Configuration Options Summary:"
-echo
-echo "  WinCE runtime.....: ${enable_libce}"
-echo "  Win32 runtime.....: ${enable_lib32}"
-echo "  Win64 runtime.....: ${enable_lib64}"
-echo
+{ $as_echo "$as_me:$LINENO: " >&5
+$as_echo "$as_me: " >&6;}
+{ $as_echo "$as_me:$LINENO: " >&5
+$as_echo "$as_me: " >&6;}
+{ $as_echo "$as_me:$LINENO: " >&5
+$as_echo "$as_me: " >&6;}
+{ $as_echo "$as_me:$LINENO: ------------------------------------------------------------------------" >&5
+$as_echo "$as_me: ------------------------------------------------------------------------" >&6;}
+{ $as_echo "$as_me:$LINENO: $PACKAGE $VERSION" >&5
+$as_echo "$as_me: $PACKAGE $VERSION" >&6;}
+{ $as_echo "$as_me:$LINENO: ------------------------------------------------------------------------" >&5
+$as_echo "$as_me: ------------------------------------------------------------------------" >&6;}
+{ $as_echo "$as_me:$LINENO: " >&5
+$as_echo "$as_me: " >&6;}
+{ $as_echo "$as_me:$LINENO: " >&5
+$as_echo "$as_me: " >&6;}
+{ $as_echo "$as_me:$LINENO: Configuration Options Summary:" >&5
+$as_echo "$as_me: Configuration Options Summary:" >&6;}
+{ $as_echo "$as_me:$LINENO: " >&5
+$as_echo "$as_me: " >&6;}
+{ $as_echo "$as_me:$LINENO:   WinCE runtime.....: $enable_libce" >&5
+$as_echo "$as_me:   WinCE runtime.....: $enable_libce" >&6;}
+{ $as_echo "$as_me:$LINENO:   Win32 runtime.....: $enable_lib32" >&5
+$as_echo "$as_me:   Win32 runtime.....: $enable_lib32" >&6;}
+{ $as_echo "$as_me:$LINENO:   Win64 runtime.....: $enable_lib64" >&5
+$as_echo "$as_me:   Win64 runtime.....: $enable_lib64" >&6;}
+{ $as_echo "$as_me:$LINENO: " >&5
+$as_echo "$as_me: " >&6;}
 
 

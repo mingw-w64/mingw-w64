@@ -116,19 +116,19 @@ AM_PROG_CC_C_O
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
-echo
-echo
-echo
-echo "------------------------------------------------------------------------"
-echo "$PACKAGE $VERSION"
-echo "------------------------------------------------------------------------"
-echo
-echo
-echo "Configuration Options Summary:"
-echo
-echo "  WinCE runtime.....: ${enable_libce}"
-echo "  Win32 runtime.....: ${enable_lib32}"
-echo "  Win64 runtime.....: ${enable_lib64}"
-echo
+AC_MSG_NOTICE([])
+AC_MSG_NOTICE([])
+AC_MSG_NOTICE([])
+AC_MSG_NOTICE([------------------------------------------------------------------------])
+AC_MSG_NOTICE([$PACKAGE $VERSION])
+AC_MSG_NOTICE([------------------------------------------------------------------------])
+AC_MSG_NOTICE([])
+AC_MSG_NOTICE([])
+AC_MSG_NOTICE([Configuration Options Summary:])
+AC_MSG_NOTICE([])
+AC_MSG_NOTICE([  WinCE runtime.....: $enable_libce])
+AC_MSG_NOTICE([  Win32 runtime.....: $enable_lib32])
+AC_MSG_NOTICE([  Win64 runtime.....: $enable_lib64])
+AC_MSG_NOTICE([])
 
 
