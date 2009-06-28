@@ -61,11 +61,8 @@ AC_ARG_ENABLE([libce],
   [enable_libce=no])
 AM_CONDITIONAL([LIBCE], [test $enable_libce = yes])
 
-AS_IF([test "$enable_libce" = yes],
-      [AS_IF([test "$enable_lib32" = yes -o "$enable_lib64" = yes],
-             [AC_MSG_WARN([Building the runtime to use libce with lib32 or lib64 is unsupported.])],
-             [])],
-      [])
+AS_IF([test $enable_libce = yes && {test $enable_lib32 = yes || test $enable_lib64 = yes}],
+      [AC_MSG_WARN([Building the runtime to use libce with lib32 or lib64 is unsupported.])])
 
 AS_CASE([$host_cpu],
   [x86_64],[
