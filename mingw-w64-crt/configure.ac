@@ -11,17 +11,33 @@ AM_MAINTAINER_MODE
 AC_CONFIG_SRCDIR([ChangeLog])
 AC_CONFIG_HEADER([config.h])
 
+AC_MSG_CHECKING([for sysroot])
 AC_ARG_WITH([sysroot],
-  [AS_HELP_STRING([--with-sysroot=[DIR]],
-    [Search for include within DIR.])],
-  [
-    case ${with_sysroot} in
-      yes) TARGET_SYSTEM_ROOT='${exec_prefix}/${target_noncanonical}/sys-root' ;;
-      *)   TARGET_SYSTEM_ROOT=$with_sysroot; PATH=$with_sysroot/bin:$PATH      ;;
-    esac
+  [AS_HELP_STRING([--with-sysroot=DIR],
+    [Search for include within DIR/mingw.])],
+  [AS_CASE([$with_sysroot],
+    [no],[AC_MSG_RESULT([no])],
+    [yes],[AC_MSG_RESULT([none specified])
+      AC_MSG_ERROR([Please specify a directory to the --with-sysroot=DIR option])
+    ],[
+      AC_MSG_RESULT([$with_sysroot])
+      TARGET_SYSTEM_ROOT=$with_sysroot
+      AC_MSG_CHECKING([if sysroot contains an include directory])
+      AS_IF([test -d $with_sysroot/$host/include],
+        [AC_MSG_RESULT([yes])],
+        [
+          AC_MSG_RESULT([no])
+          AC_MSG_ERROR([Sysroot directory does not contain $host/include])
+          with_sysroot=no
+        ])
+    ])
   ],
-  [TARGET_SYSTEM_ROOT=])
-AM_CONDITIONAL(WITHSYSROOT, test x$TARGET_SYSTEM_ROOT != x)
+  [
+    AC_MSG_RESULT([no])
+    TARGET_SYSTEM_ROOT=
+    with_sysroot=no
+  ])
+AM_CONDITIONAL(WITHSYSROOT, test $with_sysroot != no)
 AC_SUBST(TARGET_SYSTEM_ROOT)
 
 AC_ARG_ENABLE([lib32],
