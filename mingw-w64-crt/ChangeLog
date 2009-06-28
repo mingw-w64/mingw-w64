@@ -1,3 +1,7 @@
+2009-06-28  jonY  <10walls@gmail.com>
+
+	* lib32/normaliz.def, lib64/normaliz.def: New.
+
 2009-06-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	* gdtoa/strtof.c (__strtof): Pre initialize local variable u to

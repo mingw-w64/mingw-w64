@@ -583,6 +583,14 @@ extern "C" {
   enum SYSGEOCLASS {
     GEOCLASS_NATION = 16,GEOCLASS_REGION = 14
   };
+  
+  typedef enum  _NORM_FORM  {
+  NormalizationOther   = 0,
+  NormalizationC       = 0x1,
+  NormalizationD       = 0x2,
+  NormalizationKC      = 0x5,
+  NormalizationKD      = 0x6 
+} NORM_FORM;
 
   typedef WINBOOL (CALLBACK *LANGUAGEGROUP_ENUMPROCA)(LGRPID,LPSTR,LPSTR,DWORD,LONG_PTR);
   typedef WINBOOL (CALLBACK *LANGGROUPLOCALE_ENUMPROCA)(LGRPID,LCID,LPSTR,LONG_PTR);
@@ -756,6 +764,11 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI EnumSystemLocalesW(LOCALE_ENUMPROCW lpLocaleEnumProc,DWORD dwFlags);
   WINBASEAPI WINBOOL WINAPI EnumSystemCodePagesA(CODEPAGE_ENUMPROCA lpCodePageEnumProc,DWORD dwFlags);
   WINBASEAPI WINBOOL WINAPI EnumSystemCodePagesW(CODEPAGE_ENUMPROCW lpCodePageEnumProc,DWORD dwFlags);
+  WINBASEAPI WINBOOL WINAPI IsNormalizedString(NORM_FORM NormForm,LPCWSTR lpString,int cwLength);
+  WINBASEAPI int WINAPI NormalizeString(NORM_FORM NormForm,LPCWSTR lpSrcString,int cwSrcLength,LPWSTR lpDstString,int cwDstLength);
+  WINBASEAPI int WINAPI IdnToAscii(DWORD dwFlags,LPCWSTR lpUnicodeCharStr,int cchUnicodeChar,LPWSTR lpASCIICharStr,int cchASCIIChar);
+  WINBASEAPI int WINAPI IdnToNameprepUnicode(DWORD dwFlags,LPCWSTR lpUnicodeCharStr,int cchUnicodeChar,LPWSTR lpNameprepCharStr,int cchNameprepChar);
+  WINBASEAPI int WINAPI IdnToUnicode(DWORD dwFlags,LPCWSTR lpASCIICharStr,int cchASCIIChar,LPWSTR lpUnicodeCharStr,int cchUnicodeChar);
 
 #endif
 
