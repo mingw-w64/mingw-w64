@@ -88,6 +88,7 @@ static int mainret=0;
 static int managedapp;
 static int has_cctor = 0;
 static _startupinfo startinfo;
+static LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler = NULL;
 
 extern void _pei386_runtime_relocator (void);
 static CALLBACK long _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
@@ -99,7 +100,7 @@ static void duplicate_ppstrings (int ac, char ***av);
 
 static int __cdecl pre_c_init (void);
 static void __cdecl pre_cpp_init (void);
-
+static void __cdecl __mingw_prepare_except_for_msvcr80_and_higher (void);
 _CRTALLOC(".CRT$XIAA") _PIFV mingw_pcinit = pre_c_init;
 _CRTALLOC(".CRT$XCAA") _PVFV mingw_pcppinit = pre_cpp_init;
 
@@ -214,7 +215,14 @@ __tmainCRTStartup (void)
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);
     
     _pei386_runtime_relocator ();
-    SetUnhandledExceptionFilter (_gnu_exception_handler);
+    __mingw_oldexcpt_handler = SetUnhandledExceptionFilter (_gnu_exception_handler);
+#ifdef _WIN64
+   AddVectoredContinueHandler
+	(1, (PVECTORED_EXCEPTION_HANDLER)_gnu_exception_handler);
+   AddVectoredExceptionHandler
+	(1, (PVECTORED_EXCEPTION_HANDLER)_gnu_exception_handler);
+#endif
+    __mingw_prepare_except_for_msvcr80_and_higher ();
     
     _fpreset ();
 
@@ -310,7 +318,7 @@ check_managed_app (void)
 }
 
 static CALLBACK long
-_gnu_exception_handler (EXCEPTION_POINTERS * exception_data)
+_gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 {
   void (*old_handler) (int);
   long action = EXCEPTION_CONTINUE_SEARCH;
@@ -334,6 +342,8 @@ _gnu_exception_handler (EXCEPTION_POINTERS * exception_data)
 	  (*old_handler) (SIGSEGV);
 	  action = EXCEPTION_CONTINUE_EXECUTION;
 	}
+      else
+        abort ();
       break;
 
     case EXCEPTION_ILLEGAL_INSTRUCTION:
@@ -353,6 +363,8 @@ _gnu_exception_handler (EXCEPTION_POINTERS * exception_data)
 	  (*old_handler) (SIGILL);
 	  action = EXCEPTION_CONTINUE_EXECUTION;
 	}
+      else
+        abort ();
       break;
 
     case EXCEPTION_FLT_INVALID_OPERATION:
@@ -384,6 +396,15 @@ _gnu_exception_handler (EXCEPTION_POINTERS * exception_data)
 
     default:
       break;
+    }
+
+  if (action == EXCEPTION_CONTINUE_SEARCH && __mingw_oldexcpt_handler)
+    action = (*__mingw_oldexcpt_handler)(exception_data);
+  if (action == EXCEPTION_CONTINUE_SEARCH)
+    {
+      SetUnhandledExceptionFilter (NULL);
+      action = UnhandledExceptionFilter (exception_data);
+      abort ();
     }
   return action;
 }
@@ -431,3 +452,26 @@ static void duplicate_ppstrings (int ac, char ***av)
 	*av = n;
 }
 #endif
+
+static void
+__mingw_invalidParameterHandler (const wchar_t *expression, const wchar_t *function, const wchar_t *file, unsigned int line, uintptr_t pReserved)
+{
+#ifdef __MINGW_SHOW_INVALID_PARAMETER_EXCEPTION
+   wprintf(L"Invalid parameter detected in function %s. File: %s Line: %d\n", function, file, line);
+   wprintf(L"Expression: %s\n", expression);
+#endif
+}
+
+static void __cdecl 
+__mingw_prepare_except_for_msvcr80_and_higher (void)
+{
+  HMODULE hmsv = LoadLibraryA ("msvcrt.dll");
+  _invalid_parameter_handler (*fIPH)(_invalid_parameter_handler) = NULL;
+  if (!hmsv)
+    return;
+  fIPH = (_invalid_parameter_handler (*)(_invalid_parameter_handler))
+    GetProcAddress (hmsv, "_set_invalid_parameter_handler");
+  if (!fIPH)
+    return;
+  (*fIPH)(__mingw_invalidParameterHandler);
+}

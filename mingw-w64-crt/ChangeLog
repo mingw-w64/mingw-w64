@@ -9,6 +9,10 @@
 
 2009-06-26  Kai Tietz  <kai.tietz@onevision.com>
 
+	* threads/: Removed.
+
+2009-06-26  Kai Tietz  <kai.tietz@onevision.com>
+
 	* crt/tlssup.c (__mingw_TLScallback): Use for TLS cleanup.
 	* libsrc/mingwthrd_mt.c: Make it a dummy library file.
 	* libsrc/dummy_mingwthrd.c: Add TLS clean functions.
