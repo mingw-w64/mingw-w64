@@ -397,7 +397,16 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 	  action = EXCEPTION_CONTINUE_EXECUTION;
 	}
       break;
-
+#ifdef _WIN64
+    case EXCEPTION_DATATYPE_MISALIGNMENT:
+    case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
+    case EXCEPTION_FLT_STACK_CHECK:
+    case EXCEPTION_INT_OVERFLOW:
+    case EXCEPTION_INVALID_HANDLE:
+    case EXCEPTION_POSSIBLE_DEADLOCK:
+      action = EXCEPTION_CONTINUE_EXECUTION;
+      break;
+#endif
     default:
       break;
     }
@@ -409,7 +418,6 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
     {
       SetUnhandledExceptionFilter (NULL);
       action = UnhandledExceptionFilter (exception_data);
-      abort ();
     }
 #endif
   return action;
