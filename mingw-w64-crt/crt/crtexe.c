@@ -342,8 +342,10 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 	  (*old_handler) (SIGSEGV);
 	  action = EXCEPTION_CONTINUE_EXECUTION;
 	}
+#ifdef _WIN64
       else
         abort ();
+#endif
       break;
 
     case EXCEPTION_ILLEGAL_INSTRUCTION:
@@ -363,8 +365,10 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 	  (*old_handler) (SIGILL);
 	  action = EXCEPTION_CONTINUE_EXECUTION;
 	}
+#ifdef _WIN64
       else
         abort ();
+#endif
       break;
 
     case EXCEPTION_FLT_INVALID_OPERATION:
@@ -400,12 +404,14 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 
   if (action == EXCEPTION_CONTINUE_SEARCH && __mingw_oldexcpt_handler)
     action = (*__mingw_oldexcpt_handler)(exception_data);
+#ifdef _WIN64
   if (action == EXCEPTION_CONTINUE_SEARCH)
     {
       SetUnhandledExceptionFilter (NULL);
       action = UnhandledExceptionFilter (exception_data);
       abort ();
     }
+#endif
   return action;
 }
 
