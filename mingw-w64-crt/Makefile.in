@@ -59,7 +59,7 @@ check_PROGRAMS = testcases/t_float$(EXEEXT) \
 	testcases/tstwassert$(EXEEXT) testcases/t_trycatch$(EXEEXT) \
 	testcases/tstmaincpp$(EXEEXT) testcases/tstmainc$(EXEEXT) \
 	testcases/t_municode$(EXEEXT) testcases/t_tmain$(EXEEXT) \
-	testcases/t_tls1$(EXEEXT)
+	testcases/t_tls1$(EXEEXT) testcases/t_sigv$(EXEEXT)
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(noinst_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
@@ -1408,6 +1408,9 @@ testcases_t_nullptrexception_LDADD = $(LDADD)
 testcases_t_setjmp_SOURCES = testcases/t_setjmp.c
 testcases_t_setjmp_OBJECTS = testcases/t_setjmp.$(OBJEXT)
 testcases_t_setjmp_LDADD = $(LDADD)
+testcases_t_sigv_SOURCES = testcases/t_sigv.c
+testcases_t_sigv_OBJECTS = testcases/t_sigv.$(OBJEXT)
+testcases_t_sigv_LDADD = $(LDADD)
 testcases_t_speed_powl_SOURCES = testcases/t_speed_powl.c
 testcases_t_speed_powl_OBJECTS = testcases/t_speed_powl.$(OBJEXT)
 testcases_t_speed_powl_LDADD = $(LDADD)
@@ -1495,7 +1498,7 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib64_libws2_32_a_SOURCES) testcases/t_float.c \
 	testcases/t_matherr.c testcases/t_municode.c \
 	testcases/t_nullptrexception.c testcases/t_setjmp.c \
-	testcases/t_speed_powl.c testcases/t_tls1.c \
+	testcases/t_sigv.c testcases/t_speed_powl.c testcases/t_tls1.c \
 	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
 	testcases/tstmain_sys_xxx.c testcases/tstmainc.c \
 	$(testcases_tstmaincpp_SOURCES) testcases/tstwassert.c \
@@ -1539,7 +1542,7 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib64_libws2_32_a_SOURCES_DIST) testcases/t_float.c \
 	testcases/t_matherr.c testcases/t_municode.c \
 	testcases/t_nullptrexception.c testcases/t_setjmp.c \
-	testcases/t_speed_powl.c testcases/t_tls1.c \
+	testcases/t_sigv.c testcases/t_speed_powl.c testcases/t_tls1.c \
 	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
 	testcases/tstmain_sys_xxx.c testcases/tstmainc.c \
 	$(testcases_tstmaincpp_SOURCES) testcases/tstwassert.c \
@@ -4498,6 +4501,11 @@ testcases/t_setjmp.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_setjmp$(EXEEXT): $(testcases_t_setjmp_OBJECTS) $(testcases_t_setjmp_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_setjmp$(EXEEXT)
 	$(LINK) $(testcases_t_setjmp_OBJECTS) $(testcases_t_setjmp_LDADD) $(LIBS)
+testcases/t_sigv.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_sigv$(EXEEXT): $(testcases_t_sigv_OBJECTS) $(testcases_t_sigv_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_sigv$(EXEEXT)
+	$(LINK) $(testcases_t_sigv_OBJECTS) $(testcases_t_sigv_LDADD) $(LIBS)
 testcases/t_speed_powl.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_speed_powl$(EXEEXT): $(testcases_t_speed_powl_OBJECTS) $(testcases_t_speed_powl_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -5551,6 +5559,7 @@ mostlyclean-compile:
 	-rm -f testcases/t_matherr.$(OBJEXT)
 	-rm -f testcases/t_nullptrexception.$(OBJEXT)
 	-rm -f testcases/t_setjmp.$(OBJEXT)
+	-rm -f testcases/t_sigv.$(OBJEXT)
 	-rm -f testcases/t_speed_powl.$(OBJEXT)
 	-rm -f testcases/t_tls1.$(OBJEXT)
 	-rm -f testcases/t_trycatch.$(OBJEXT)
@@ -6432,6 +6441,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_matherr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_nullptrexception.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_setjmp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_sigv.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_speed_powl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_tls1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_trycatch.Po@am__quote@
