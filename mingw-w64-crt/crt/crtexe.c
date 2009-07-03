@@ -403,7 +403,7 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
     case EXCEPTION_FLT_STACK_CHECK:
     case EXCEPTION_INT_OVERFLOW:
     case EXCEPTION_INVALID_HANDLE:
-    case EXCEPTION_POSSIBLE_DEADLOCK:
+    /*case EXCEPTION_POSSIBLE_DEADLOCK: */
       action = EXCEPTION_CONTINUE_EXECUTION;
       break;
 #endif
