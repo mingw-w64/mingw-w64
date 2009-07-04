@@ -292,22 +292,6 @@ extern "C" {
 #define SEE_MASK_FLAG_LOG_USAGE 0x04000000
 #endif
 
-#ifndef DUMMYUNIONNAME
-#ifdef NONAMELESSUNION
-#define DUMMYUNIONNAME u
-#define DUMMYUNIONNAME2 u2
-#define DUMMYUNIONNAME3 u3
-#define DUMMYUNIONNAME4 u4
-#define DUMMYUNIONNAME5 u5
-#else
-#define DUMMYUNIONNAME
-#define DUMMYUNIONNAME2
-#define DUMMYUNIONNAME3
-#define DUMMYUNIONNAME4
-#define DUMMYUNIONNAME5
-#endif
-#endif
-
   typedef struct _SHELLEXECUTEINFOA {
     DWORD cbSize;
     ULONG fMask;

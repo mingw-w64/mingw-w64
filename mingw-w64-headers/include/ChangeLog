@@ -1,3 +1,19 @@
+2009-07-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h: added comments after many endifs for better clarity.
+	* _mingw.h: tidied the __nothrow, __ptr32, __ptr64, __unaligned
+	and __forceinline ifdefs by moving them out of the _INT128_DEFINED
+	ifdefs.
+	* _mingw.h: removed the #if 1 around the mingw.org version macros,
+	whose corresponding #endif actually was misplaced. also updated the
+	comments of the mingw.org version macros.
+	* _mingw.h: added the new __MINGW_NAME_AW(func) macro which can be
+	used in declaring ASCII and UNICODE versions of functions.
+	* _mingw.h: added the new __MINGW_TYPEDEF_AW(type) macro, similar to
+	__MINGW_NAME_AW but for typedefs.
+	* _mingw.h, commctrl.h, commdlg.h, prsht.h, shellapi.h: moved all
+	DUMMYUNIONNAMEx and DUMMYSTRUCTNAMEx macro definitions to _mingw.h.
+
 2009-05-11  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw.h: add a mingw.org compatibility definition of _CRT_glob

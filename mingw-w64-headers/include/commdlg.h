@@ -43,12 +43,6 @@ extern "C" {
 #define CDSIZEOF_STRUCT(structname,member) (((int)((LPBYTE)(&((structname*)0)->member) - ((LPBYTE)((structname*)0)))) + sizeof(((structname*)0)->member))
 #endif
 
-#ifndef DUMMYUNIONNAME
-#ifdef NONAMELESSUNION
-#define DUMMYUNIONNAME u
-#endif
-#endif
-
   typedef struct tagOFN_NT4A {
     DWORD lStructSize;
     HWND hwndOwner;

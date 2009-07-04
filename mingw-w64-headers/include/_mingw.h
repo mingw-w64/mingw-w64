@@ -13,23 +13,21 @@
 #define __MINGW64_VERSION_MAJOR	1
 #define __MINGW64_VERSION_MINOR	0
 #define __MINGW64_VERSION_STATE	"beta"
-/* We have to disable the definition of mingw.org's version information,
-   because we don't have the __mingw_dtor_key features.  Possibly we may
-   merge this feature, but for now better disable it. The mingw-crt RT is
-   by default multithreading capable even without this hacky dll.  */
-#if 1
-/* The base version of mingw.org's version we support.
-   Those defines are necessary, that libadd of gcc will translate.  */
+
+/* mingw.org's version macros: these make gcc to define
+   MINGW32_SUPPORTS_MT_EH and to use the _CRT_MT global
+   and the __mingwthr_key_dtor() function from the MinGW
+   CRT in its private gthr-win32.h header. */
 #define __MINGW32_MAJOR_VERSION 3
 #define __MINGW32_MINOR_VERSION 11
 #endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 const char *__mingw_get_crt_info (void);
 #ifdef __cplusplus
 }
-#endif
 #endif
 
 #ifdef _WIN64
@@ -121,7 +119,7 @@ limitations in handling dllimport attribute.  */
 #   define _CRTIMP
 #  endif
 # endif /* __declspec */
-#endif
+#endif /* __GNUC__ */
 
 #if defined (__GNUC__) && defined (__GNUC_MINOR__)
 #define __MINGW_GNUC_PREREQ(major, minor) \
@@ -214,29 +212,29 @@ limitations in handling dllimport attribute.  */
 #ifdef _WIN64
 typedef int __int128 __attribute__ ((mode (TI)));
 #endif
+#endif /* __GNUC__ */
+#endif /* _INT128_DEFINED */
 
+#ifdef __GNUC__
 #define __ptr32
 #define __ptr64
 #ifndef __unaligned
 #define __unaligned /* __attribute ((packed)) */
 #endif
 #define __forceinline extern __inline
-#endif
-#endif
+#endif /* __GNUC__ */
 
 #ifndef _WIN32
 #error Only Win32 target is supported!
 #endif
 
+#ifndef __nothrow
 #ifdef __cplusplus
-#ifndef __nothrow
 #define __nothrow __declspec(nothrow)
-#endif
 #else
-#ifndef __nothrow
 #define __nothrow
 #endif
-#endif
+#endif /* __nothrow */
 
 #undef _CRT_PACKING
 #define _CRT_PACKING 8
@@ -252,12 +250,12 @@ extern "C" {
 #ifndef _CRT_STRINGIZE
 #define __CRT_STRINGIZE(_Value) #_Value
 #define _CRT_STRINGIZE(_Value) __CRT_STRINGIZE(_Value)
-#endif
+#endif /* _CRT_STRINGIZE */
 
 #ifndef _CRT_WIDE
 #define __CRT_WIDE(_String) L ## _String
 #define _CRT_WIDE(_String) __CRT_WIDE(_String)
-#endif
+#endif /* _CRT_WIDE */
 
 #ifndef _W64
 #define _W64
@@ -269,7 +267,7 @@ extern "C" {
 #else
 #define _CRTIMP_NOIA64 _CRTIMP
 #endif
-#endif
+#endif /* _CRTIMP_NOIA64 */
 
 #ifndef _CRTIMP2
 #define _CRTIMP2 _CRTIMP
@@ -278,7 +276,7 @@ extern "C" {
 #ifndef _CRTIMP_ALTERNATIVE
 #define _CRTIMP_ALTERNATIVE _CRTIMP
 #define _CRT_ALTERNATIVE_IMPORTED
-#endif
+#endif /* _CRTIMP_ALTERNATIVE */
 
 #ifndef _MRTIMP2
 #define _MRTIMP2  _CRTIMP
@@ -321,9 +319,11 @@ extern "C" {
 #ifndef _CRT_INSECURE_DEPRECATE_MEMORY
 #define _CRT_INSECURE_DEPRECATE_MEMORY(_Replacement)
 #endif
+
 #ifndef _CRT_INSECURE_DEPRECATE_GLOBALS
 #define _CRT_INSECURE_DEPRECATE_GLOBALS(_Replacement)
 #endif
+
 #ifndef _CRT_MANAGED_HEAP_DEPRECATE
 #define _CRT_MANAGED_HEAP_DEPRECATE
 #endif
@@ -336,29 +336,29 @@ extern "C" {
 #define _SIZE_T_DEFINED
 #undef size_t
 #ifdef _WIN64
-#if defined(__GNUC__) && defined(__STRICT_ANSI__)
+# if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef unsigned int size_t __attribute__ ((mode (DI)));
-#else
+# else
   typedef unsigned __int64 size_t;
-#endif
+# endif
 #else
   typedef unsigned int size_t;
-#endif
-#endif
+#endif /* _WIN64 */
+#endif /* _SIZE_T_DEFINED */
 
 #ifndef _SSIZE_T_DEFINED
 #define _SSIZE_T_DEFINED
 #undef ssize_t
 #ifdef _WIN64
-#if defined(__GNUC__) && defined(__STRICT_ANSI__)
+# if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int ssize_t __attribute__ ((mode (DI)));
-#else
+# else
   typedef __int64 ssize_t;
-#endif
+# endif
 #else
   typedef int ssize_t;
-#endif
-#endif
+#endif /* _WIN64 */
+#endif /* _SSIZE_T_DEFINED */
 
 #ifndef _INTPTR_T_DEFINED
 #define _INTPTR_T_DEFINED
@@ -366,16 +366,16 @@ extern "C" {
 #define __intptr_t_defined
 #undef intptr_t
 #ifdef _WIN64
-#if defined(__GNUC__) && defined(__STRICT_ANSI__)
+# if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int intptr_t __attribute__ ((mode (DI)));
-#else
+# else
   typedef __int64 intptr_t;
-#endif
+# endif
 #else
   typedef int intptr_t;
-#endif
-#endif
-#endif
+#endif /* _WIN64 */
+#endif /* __intptr_t_defined */
+#endif /* _INTPTR_T_DEFINED */
 
 #ifndef _UINTPTR_T_DEFINED
 #define _UINTPTR_T_DEFINED
@@ -383,52 +383,52 @@ extern "C" {
 #define __uintptr_t_defined
 #undef uintptr_t
 #ifdef _WIN64
-#if defined(__GNUC__) && defined(__STRICT_ANSI__)
+# if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef unsigned int uintptr_t __attribute__ ((mode (DI)));
-#else
+# else
   typedef unsigned __int64 uintptr_t;
-#endif
+# endif
 #else
   typedef unsigned int uintptr_t;
-#endif
-#endif
-#endif
+#endif /* _WIN64 */
+#endif /* __uintptr_t_defined */
+#endif /* _UINTPTR_T_DEFINED */
 
 #ifndef _PTRDIFF_T_DEFINED
 #define _PTRDIFF_T_DEFINED
 #ifndef _PTRDIFF_T_
 #undef ptrdiff_t
 #ifdef _WIN64
-#if defined(__GNUC__) && defined(__STRICT_ANSI__)
+# if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int ptrdiff_t __attribute__ ((mode (DI)));
-#else
+# else
   typedef __int64 ptrdiff_t;
-#endif
+# endif
 #else
   typedef int ptrdiff_t;
-#endif
-#endif
-#endif
+#endif /* _WIN64 */
+#endif /* _PTRDIFF_T_ */
+#endif /* _PTRDIFF_T_DEFINED */
 
 #ifndef _WCHAR_T_DEFINED
 #define _WCHAR_T_DEFINED
 #ifndef __cplusplus
   typedef unsigned short wchar_t;
 #endif
-#endif
+#endif /* _WCHAR_T_DEFINED */
 
 #ifndef _WCTYPE_T_DEFINED
 #define _WCTYPE_T_DEFINED
 #ifndef __WINT_TYPE__
 /* wint_t is unsigned short for compatibility with MS runtime */
 #define __WINT_TYPE__ unsigned short
-#endif
+#endif /* __WINT_TYPE__ */
 #ifndef _WINT_T
 #define _WINT_T
   typedef unsigned short wint_t;
   typedef unsigned short wctype_t;
-#endif
-#endif
+#endif /* _WINT_T */
+#endif /* _WCTYPE_T_DEFINED */
 
 #ifndef __GNUC_VA_LIST
 #define __GNUC_VA_LIST
@@ -438,7 +438,7 @@ extern "C" {
 #ifndef _VA_LIST_DEFINED
 #define _VA_LIST_DEFINED
   typedef __gnuc_va_list va_list;
-#endif
+#endif /* _VA_LIST_DEFINED */
 
 #ifdef _USE_32BIT_TIME_T
 #ifdef _WIN64
@@ -449,7 +449,7 @@ extern "C" {
 #if _INTEGRAL_MAX_BITS < 64
 #define _USE_32BIT_TIME_T
 #endif
-#endif
+#endif /* _USE_32BIT_TIME_T */
 
 #ifndef _ERRCODE_DEFINED
 #define _ERRCODE_DEFINED
@@ -466,7 +466,7 @@ extern "C" {
 #if _INTEGRAL_MAX_BITS >= 64
   typedef __int64 __time64_t;
 #endif
-#endif
+#endif /* _TIME64_T_DEFINED */
 
 #ifndef _TIME_T_DEFINED
 #define _TIME_T_DEFINED
@@ -475,7 +475,7 @@ extern "C" {
 #else
   typedef __time64_t time_t;
 #endif
-#endif
+#endif /* _TIME_T_DEFINED */
 
 #ifndef _CONST_RETURN
 #define _CONST_RETURN
@@ -491,7 +491,7 @@ extern "C" {
 #else
 #define UNALIGNED
 #endif
-#endif
+#endif /* UNALIGNED */
 
 #ifndef _CRT_ALIGN
 #define _CRT_ALIGN(x) __attribute__ ((aligned(x)))
@@ -524,7 +524,7 @@ extern "C" {
     unsigned short wCountry;
     unsigned short wCodePage;
   } LC_ID,*LPLC_ID;
-#endif
+#endif /* _TAGLC_ID_DEFINED */
 
 #ifndef _THREADLOCALEINFO
 #define _THREADLOCALEINFO
@@ -553,7 +553,7 @@ extern "C" {
     const unsigned char *pcumap;
     struct __lc_time_data *lc_time_curr;
   } threadlocinfo;
-#endif
+#endif /* _THREADLOCALEINFO */
 
 #ifdef __cplusplus
 }
@@ -580,6 +580,40 @@ extern "C" {
  */
 #undef  _CRT_glob
 #define _CRT_glob _dowildcard
+
+#ifdef UNICODE
+# define __MINGW_NAME_AW(func) func##W
+#else
+# define __MINGW_NAME_AW(func) func##A
+#endif
+#define __MINGW_TYPEDEF_AW  \
+    typedef __MINGW_NAME_AW(type) type;
+
+#ifndef DUMMYUNIONNAME
+# ifdef NONAMELESSUNION
+#  define DUMMYUNIONNAME  u
+#  define DUMMYUNIONNAME1 u1
+#  define DUMMYUNIONNAME2 u2
+#  define DUMMYUNIONNAME3 u3
+#  define DUMMYUNIONNAME4 u4
+#  define DUMMYUNIONNAME5 u5
+# else /* NONAMELESSUNION */
+#  define DUMMYUNIONNAME
+#  define DUMMYUNIONNAME1
+#  define DUMMYUNIONNAME2
+#  define DUMMYUNIONNAME3
+#  define DUMMYUNIONNAME4
+#  define DUMMYUNIONNAME5
+# endif
+#endif	/* DUMMYUNIONNAME */
+
+#ifndef DUMMYSTRUCTNAME
+# ifdef NONAMELESSSTRUCT
+#  define DUMMYSTRUCTNAME s
+# else
+#  define DUMMYSTRUCTNAME
+# endif
+#endif /* DUMMYSTRUCTNAME */
 
 #endif /* _INC_CRTDEFS */
 
