@@ -586,7 +586,7 @@ extern "C" {
 #else
 # define __MINGW_NAME_AW(func) func##A
 #endif
-#define __MINGW_TYPEDEF_AW  \
+#define __MINGW_TYPEDEF_AW(type) \
     typedef __MINGW_NAME_AW(type) type;
 
 #ifndef DUMMYUNIONNAME
