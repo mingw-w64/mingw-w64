@@ -13,6 +13,7 @@ extern func_ptr __CTOR_LIST__[];
 extern func_ptr __DTOR_LIST__[];
 
 static HMODULE hMsvcrt = NULL;
+static int free_Msvcrt = 0;
 
 typedef void __cdecl flongjmp(jmp_buf _Buf,int _Value);
 
@@ -28,8 +29,9 @@ __do_global_dtors (void)
       (*(p)) ();
       p++;
     }
-  if (hMsvcrt)
+  if (free_Msvcrt && hMsvcrt)
     {
+      free_Msvcrt = 0;
       FreeLibrary (hMsvcrt);
       hMsvcrt = NULL;
     }
@@ -47,8 +49,10 @@ __do_global_ctors (void)
       hMsvcrt = GetModuleHandleA ("msvcr70.dll");
     if (!hMsvcrt)
       hMsvcrt = GetModuleHandleA ("msvcrt.dll");
-    if (!hMsvcrt)
+    if (!hMsvcrt) {
       hMsvcrt = LoadLibraryA ("msvcrt.dll");
+      free_Msvcrt = 1;
+    }
     fctMsvcrtLongJmp = (flongjmp *) GetProcAddress( hMsvcrt, "longjmp");
   }
 
