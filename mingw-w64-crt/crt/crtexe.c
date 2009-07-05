@@ -479,7 +479,13 @@ __mingw_invalidParameterHandler (const wchar_t *expression, const wchar_t *funct
 static void __cdecl 
 __mingw_prepare_except_for_msvcr80_and_higher (void)
 {
-  HMODULE hmsv = LoadLibraryA ("msvcrt.dll");
+  HMODULE hmsv = GetModuleHandleA ("msvcr80.dll");
+  if(!hmsv)
+    hmsv = GetModuleHandleA ("msvcr70.dll");
+  if (!hmsv)
+    hmsv = GetModuleHandleA ("msvcrt.dll");
+  if (!hmsv)
+    hmsv = LoadLibraryA ("msvcrt.dll");
   _invalid_parameter_handler (*fIPH)(_invalid_parameter_handler) = NULL;
   if (!hmsv)
     return;

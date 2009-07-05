@@ -42,7 +42,13 @@ __do_global_ctors (void)
   unsigned long i;
 
   if (!hMsvcrt) {
-    hMsvcrt = LoadLibrary ("msvcrt.dll");
+    hMsvcrt = GetModuleHandleA ("msvcr80.dll");
+    if (!hMsvcrt)
+      hMsvcrt = GetModuleHandleA ("msvcr70.dll");
+    if (!hMsvcrt)
+      hMsvcrt = GetModuleHandleA ("msvcrt.dll");
+    if (!hMsvcrt)
+      hMsvcrt = LoadLibraryA ("msvcrt.dll");
     fctMsvcrtLongJmp = (flongjmp *) GetProcAddress( hMsvcrt, "longjmp");
   }
 
