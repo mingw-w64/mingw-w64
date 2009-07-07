@@ -4,10 +4,14 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
+/* We need to trick here header, as it prototypes WinMain by itself.  */
+#define WinMain dummyWinMain
 #include <windows.h>
+#undef WinMain
 
 extern void __main(void);
 
+/* Do the UNICODE prototyping of WinMain.  */
 int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPWSTR lpCmdLine,int nShowCmd);
 
 extern HINSTANCE __mingw_winmain_hInstance;
