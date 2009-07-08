@@ -118,6 +118,8 @@ CreateProcessW
 CreateRemoteThread
 CreateSemaphoreA
 CreateSemaphoreW
+CreateSymbolicLinkA
+CreateSymbolicLinkW
 CreateTapePartition
 CreateThread
 CreateTimerQueue
