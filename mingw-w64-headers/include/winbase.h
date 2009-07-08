@@ -2953,6 +2953,21 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI GetNumaNodeProcessorMask(UCHAR Node,PULONGLONG ProcessorMask);
   WINBASEAPI WINBOOL WINAPI GetNumaAvailableMemoryNode(UCHAR Node,PULONGLONG AvailableBytes);
 
+  /* New Windows 7.0 API.  */
+
+#define SYMBOLIC_LINK_FLAG_FILE		0x0
+#define SYMBOLIC_LINK_FLAG_DIRECTORY	0x1
+
+  WINBASEAPI WINBOOL WINAPI CreateSymbolicLinkA (LPSTR lpSymLinkFileName, LPSTR lpTargetFileName, DWORD dwFlags);
+  WINBASEAPI WINBOOL WINAPI CreateSymbolicLinkW (LPWSTR lpSymLinkFileName, LPWSTR lpTargetFileName, DWORD dwFlags);
+#ifdef UNICODE
+#define CreateSymbolicLink CreateSymbolicLinkW
+#else
+#define CreateSymbolicLink CreateSymbolicLinkA
+#endif
+
+);
+
 #ifdef __cplusplus
 }
 #endif
