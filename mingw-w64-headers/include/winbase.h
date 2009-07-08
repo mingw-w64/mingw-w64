@@ -2966,8 +2966,6 @@ extern "C" {
 #define CreateSymbolicLink CreateSymbolicLinkA
 #endif
 
-);
-
 #ifdef __cplusplus
 }
 #endif
