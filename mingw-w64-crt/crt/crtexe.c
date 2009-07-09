@@ -342,10 +342,6 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 	  (*old_handler) (SIGSEGV);
 	  action = EXCEPTION_CONTINUE_EXECUTION;
 	}
-#ifdef _WIN64
-      else
-        abort ();
-#endif
       break;
 
     case EXCEPTION_ILLEGAL_INSTRUCTION:
@@ -365,10 +361,6 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 	  (*old_handler) (SIGILL);
 	  action = EXCEPTION_CONTINUE_EXECUTION;
 	}
-#ifdef _WIN64
-      else
-        abort ();
-#endif
       break;
 
     case EXCEPTION_FLT_INVALID_OPERATION:
