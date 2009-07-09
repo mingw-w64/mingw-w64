@@ -61,7 +61,7 @@ src_libuuid=libsrc/uuid.c libsrc/devguid.c \
   libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
   libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
   libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
-src_libws2_32=libsrc/ws2_32.c
+src_libws2_32=libsrc/ws2_32.c libsrc/wspiapi.c
 src_libmingwex=\
   complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosh.c \
   complex/cacoshf.c  complex/cacoshl.c  complex/cacosl.c  complex/carg.c     complex/cargf.c    complex/cargl.c  \
