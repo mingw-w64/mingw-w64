@@ -139,8 +139,8 @@ extern "C" {
 #else
 #define setjmp(BUF) _setjmp3((BUF), NULL)
 #endif
-  int __cdecl __attribute__ ((__nothrow__)) _setjmp(jmp_buf _Buf, void *_Ctx);
-  int __cdecl __attribute__ ((__nothrow__)) _setjmp3(jmp_buf _Buf, void *_Ctx);
+  int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf, void *_Ctx);
+  int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, void *_Ctx);
 #else
 #undef setjmp
 #ifdef _WIN64
@@ -150,7 +150,7 @@ extern "C" {
 #define setjmp(BUF) _setjmpex((BUF), NULL)
 #define setjmpex(BUF) _setjmpex((BUF), NULL)
 #endif
-  int __cdecl __attribute__ ((__nothrow__)) _setjmpex(jmp_buf _Buf,void *_Ctx);
+  int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf _Buf,void *_Ctx);
 #endif
 
 #else
@@ -159,7 +159,7 @@ extern "C" {
 #define setjmp _setjmp
 #endif
 
-  int __cdecl __attribute__ ((__nothrow__)) setjmp(jmp_buf _Buf);
+  int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) setjmp(jmp_buf _Buf);
 #endif
 
   __declspec(noreturn) __attribute__ ((__nothrow__)) void __cdecl ms_longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
