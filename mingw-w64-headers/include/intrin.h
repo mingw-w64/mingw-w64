@@ -346,13 +346,13 @@ extern "C" {
     __MACHINEIA64(void __rsm(int))
     __MACHINEIA64(void __rum(int))
 #ifndef USE_NO_MINGW_SETJMP_TWO_ARGS
-    __MACHINE(int __cdecl _setjmp(jmp_buf,void *))
-    __MACHINEIA64(int __cdecl _setjmpex(jmp_buf,void *))
-    __MACHINEX64(int __cdecl _setjmpex(jmp_buf,void *))
+    __MACHINE(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf,void *))
+    __MACHINEIA64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf,void *))
+    __MACHINEX64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf,void *))
 #else
-    __MACHINE(int __cdecl _setjmp(jmp_buf))
-    __MACHINEIA64(int __cdecl _setjmpex(jmp_buf))
-    __MACHINEX64(int __cdecl _setjmpex(jmp_buf))
+    __MACHINE(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf))
+    __MACHINEIA64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf))
+    __MACHINEX64(int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf))
 #endif
     __MACHINEIA64(void __setReg(int,unsigned __int64))
     __MACHINEARMX(void _SmulAdd_SL_ACC(int,int))
