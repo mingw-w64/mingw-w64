@@ -236,33 +236,33 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
 #define RtlFillMemory(Destination,Length,Fill) memset((Destination),(Fill),(Length))
 #define RtlZeroMemory(Destination,Length) memset((Destination),0,(Length))
 
-  NTSTATUS NtClose(HANDLE Handle);
-  NTSTATUS NtCreateFile(PHANDLE FileHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PIO_STATUS_BLOCK IoStatusBlock,PLARGE_INTEGER AllocationSize,ULONG FileAttributes,ULONG ShareAccess,ULONG CreateDisposition,ULONG CreateOptions,PVOID EaBuffer,ULONG EaLength);
-  NTSTATUS NtOpenFile(PHANDLE FileHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PIO_STATUS_BLOCK IoStatusBlock,ULONG ShareAccess,ULONG OpenOptions);
-  NTSTATUS NtDeviceIoControlFile(HANDLE FileHandle,HANDLE Event,PIO_APC_ROUTINE ApcRoutine,PVOID ApcContext,PIO_STATUS_BLOCK IoStatusBlock,ULONG IoControlCode,PVOID InputBuffer,ULONG InputBufferLength,PVOID OutputBuffer,ULONG OutputBufferLength);
-  NTSTATUS NtWaitForSingleObject(HANDLE Handle,BOOLEAN Alertable,PLARGE_INTEGER Timeout);
-  BOOLEAN RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name,POEM_STRING OemName,PBOOLEAN NameContainsSpaces);
-  ULONG RtlNtStatusToDosError (NTSTATUS Status);
-  NTSTATUS NtQueryInformationProcess(HANDLE ProcessHandle,PROCESSINFOCLASS ProcessInformationClass,PVOID ProcessInformation,ULONG ProcessInformationLength,PULONG ReturnLength);
-  NTSTATUS NtQueryInformationThread(HANDLE ThreadHandle,THREADINFOCLASS ThreadInformationClass,PVOID ThreadInformation,ULONG ThreadInformationLength,PULONG ReturnLength);
-  NTSTATUS NtQuerySystemInformation(SYSTEM_INFORMATION_CLASS SystemInformationClass,PVOID SystemInformation,ULONG SystemInformationLength,PULONG ReturnLength);
-  NTSTATUS NtQuerySystemTime(PLARGE_INTEGER SystemTime);
-  NTSTATUS RtlLocalTimeToSystemTime(PLARGE_INTEGER LocalTime,PLARGE_INTEGER SystemTime);
-  BOOLEAN RtlTimeToSecondsSince1970(PLARGE_INTEGER Time,PULONG ElapsedSeconds);
-  VOID RtlFreeAnsiString(PANSI_STRING AnsiString);
-  VOID RtlFreeUnicodeString(PUNICODE_STRING UnicodeString);
-  VOID RtlFreeOemString(POEM_STRING OemString);
-  VOID RtlInitString (PSTRING DestinationString,PCSZ SourceString);
-  VOID RtlInitAnsiString(PANSI_STRING DestinationString,PCSZ SourceString);
-  VOID RtlInitUnicodeString(PUNICODE_STRING DestinationString,PCWSTR SourceString);
-  NTSTATUS RtlAnsiStringToUnicodeString(PUNICODE_STRING DestinationString,PCANSI_STRING SourceString,BOOLEAN AllocateDestinationString);
-  NTSTATUS RtlUnicodeStringToAnsiString(PANSI_STRING DestinationString,PCUNICODE_STRING SourceString,BOOLEAN AllocateDestinationString);
-  NTSTATUS RtlUnicodeStringToOemString(POEM_STRING DestinationString,PCUNICODE_STRING SourceString,BOOLEAN AllocateDestinationString);
-  NTSTATUS RtlUnicodeToMultiByteSize(PULONG BytesInMultiByteString,PWCH UnicodeString,ULONG BytesInUnicodeString);
-  NTSTATUS RtlCharToInteger (PCSZ String,ULONG Base,PULONG Value);
-  NTSTATUS RtlConvertSidToUnicodeString(PUNICODE_STRING UnicodeString,PSID Sid,BOOLEAN AllocateDestinationString);
-  ULONG RtlUniform(PULONG Seed);
-  VOID RtlUnwind (PVOID TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue);
+  NTSTATUS WINAPI NtClose(HANDLE Handle);
+  NTSTATUS WINAPI NtCreateFile(PHANDLE FileHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PIO_STATUS_BLOCK IoStatusBlock,PLARGE_INTEGER AllocationSize,ULONG FileAttributes,ULONG ShareAccess,ULONG CreateDisposition,ULONG CreateOptions,PVOID EaBuffer,ULONG EaLength);
+  NTSTATUS WINAPI NtOpenFile(PHANDLE FileHandle,ACCESS_MASK DesiredAccess,POBJECT_ATTRIBUTES ObjectAttributes,PIO_STATUS_BLOCK IoStatusBlock,ULONG ShareAccess,ULONG OpenOptions);
+  NTSTATUS WINAPI NtDeviceIoControlFile(HANDLE FileHandle,HANDLE Event,PIO_APC_ROUTINE ApcRoutine,PVOID ApcContext,PIO_STATUS_BLOCK IoStatusBlock,ULONG IoControlCode,PVOID InputBuffer,ULONG InputBufferLength,PVOID OutputBuffer,ULONG OutputBufferLength);
+  NTSTATUS WINAPI NtWaitForSingleObject(HANDLE Handle,BOOLEAN Alertable,PLARGE_INTEGER Timeout);
+  BOOLEAN WINAPI RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name,POEM_STRING OemName,PBOOLEAN NameContainsSpaces);
+  ULONG WINAPI RtlNtStatusToDosError (NTSTATUS Status);
+  NTSTATUS WINAPI NtQueryInformationProcess(HANDLE ProcessHandle,PROCESSINFOCLASS ProcessInformationClass,PVOID ProcessInformation,ULONG ProcessInformationLength,PULONG ReturnLength);
+  NTSTATUS WINAPI NtQueryInformationThread(HANDLE ThreadHandle,THREADINFOCLASS ThreadInformationClass,PVOID ThreadInformation,ULONG ThreadInformationLength,PULONG ReturnLength);
+  NTSTATUS WINAPI NtQuerySystemInformation(SYSTEM_INFORMATION_CLASS SystemInformationClass,PVOID SystemInformation,ULONG SystemInformationLength,PULONG ReturnLength);
+  NTSTATUS WINAPI NtQuerySystemTime(PLARGE_INTEGER SystemTime);
+  NTSTATUS WINAPI RtlLocalTimeToSystemTime(PLARGE_INTEGER LocalTime,PLARGE_INTEGER SystemTime);
+  BOOLEAN WINAPI RtlTimeToSecondsSince1970(PLARGE_INTEGER Time,PULONG ElapsedSeconds);
+  VOID WINAPI RtlFreeAnsiString(PANSI_STRING AnsiString);
+  VOID WINAPI RtlFreeUnicodeString(PUNICODE_STRING UnicodeString);
+  VOID WINAPI RtlFreeOemString(POEM_STRING OemString);
+  VOID WINAPI RtlInitString (PSTRING DestinationString,PCSZ SourceString);
+  VOID WINAPI RtlInitAnsiString(PANSI_STRING DestinationString,PCSZ SourceString);
+  VOID WINAPI RtlInitUnicodeString(PUNICODE_STRING DestinationString,PCWSTR SourceString);
+  NTSTATUS WINAPI RtlAnsiStringToUnicodeString(PUNICODE_STRING DestinationString,PCANSI_STRING SourceString,BOOLEAN AllocateDestinationString);
+  NTSTATUS WINAPI RtlUnicodeStringToAnsiString(PANSI_STRING DestinationString,PCUNICODE_STRING SourceString,BOOLEAN AllocateDestinationString);
+  NTSTATUS WINAPI RtlUnicodeStringToOemString(POEM_STRING DestinationString,PCUNICODE_STRING SourceString,BOOLEAN AllocateDestinationString);
+  NTSTATUS WINAPI RtlUnicodeToMultiByteSize(PULONG BytesInMultiByteString,PWCH UnicodeString,ULONG BytesInUnicodeString);
+  NTSTATUS WINAPI RtlCharToInteger (PCSZ String,ULONG Base,PULONG Value);
+  NTSTATUS WINAPI RtlConvertSidToUnicodeString(PUNICODE_STRING UnicodeString,PSID Sid,BOOLEAN AllocateDestinationString);
+  ULONG WINAPI RtlUniform(PULONG Seed);
+  VOID WINAPI RtlUnwind (PVOID TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue);
 
 #ifdef __ia64__
   VOID RtlUnwind2(FRAME_POINTERS TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue,PCONTEXT ContextRecord);
