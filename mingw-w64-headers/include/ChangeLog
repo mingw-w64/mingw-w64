@@ -1,3 +1,8 @@
+2009-07-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h: Undefine _X86_ for __x86_64 which may be incorrectly
+	defined by gcc.
+
 2009-07-09  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/2818441

@@ -53,6 +53,10 @@ const char *__mingw_get_crt_info (void);
 #endif
 
 /* Set VC specific compiler target macros.  */
+#if defined(__x86_64) && defined(_X86_)
+#undef _X86_	/* _X86_ is not for __x86_64 */
+#endif
+
 #if defined(_X86_) && !defined(_M_IX86) && !defined(_M_IA64) \
    && !defined(_M_AMD64) && !defined(__x86_64)
 #if defined(__i486__)
