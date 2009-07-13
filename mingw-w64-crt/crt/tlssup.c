@@ -57,8 +57,9 @@ _CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY _tls_used = {
 
 static _CRTALLOC(".CRT$XDA") _PVFV __xd_a = 0;
 static _CRTALLOC(".CRT$XDZ") _PVFV __xd_z = 0;
-static TlsDtorNode *dtor_list;
-static TlsDtorNode dtor_list_head;
+
+static __CRT_THREAD TlsDtorNode *dtor_list;
+static __CRT_THREAD TlsDtorNode dtor_list_head;
 
 BOOL WINAPI
 __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
@@ -67,7 +68,6 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason != DLL_THREAD_ATTACH)
     {
-      /* Don't call if we use libgcc_s version.  */
       if (dwReason == DLL_PROCESS_ATTACH && _CRT_MT == 2)
         __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
       return TRUE;
