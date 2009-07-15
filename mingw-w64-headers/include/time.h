@@ -143,7 +143,8 @@ extern "C" {
   _CRTIMP __time32_t __cdecl _mkgmtime32(struct tm *_Tm);
 #if defined (_POSIX_) || defined(__GNUC__)
   void __cdecl tzset(void);
-#else
+##endif
+#if !defined (_POSIX_)
   _CRTIMP void __cdecl _tzset(void);
 #endif
 
