@@ -10,16 +10,3 @@ double __cdecl difftime(time_t _Time1,time_t _Time2)
 #endif
 }
 
-struct tm *__cdecl localtime_r(const time_t *_Time,struct tm *_Tm)
-{
-  struct tm *p = localtime(_Time);
-  if (!p)
-    return NULL;
-  if (_Tm)
-    {
-      memcpy (_Tm, p, sizeof (struct tm));
-      return _Tm;
-    }
-  else
-    return p;
-}
