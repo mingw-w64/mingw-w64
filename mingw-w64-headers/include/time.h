@@ -214,7 +214,18 @@ double __cdecl difftime(time_t _Time1,time_t _Time2);
 char *__cdecl ctime(const time_t *_Time);
 struct tm *__cdecl gmtime(const time_t *_Time);
 struct tm *__cdecl localtime(const time_t *_Time);
-struct tm *__cdecl localtime_r(const time_t *_Time,struct tm *);
+
+#ifdef _POSIX
+#ifndef localtime_r
+#define localtime_r(_Time, _Tm) (localtime ((_Time)) ? *(_Tm) = *localtime ((_Time),(_Tm)) : 0)
+#endif
+#ifndef gmtime_r
+#define gmtime_r(_Time,_Tm) (gmtime ((_Time)) ? (*(_Tm) = *gmtime (_Time),(_Tm)) : 0)
+#endif
+#ifndef ctime_r
+#define ctime_r(_Time,_Str) (ctime (_Time) ? (strcpy((_Str),ctime ((_Time))),(_Str)) : 0)
+#endif
+#endif /* _POSIX */
 
 time_t __cdecl mktime(struct tm *_Tm);
 time_t __cdecl _mkgmtime(struct tm *_Tm);
