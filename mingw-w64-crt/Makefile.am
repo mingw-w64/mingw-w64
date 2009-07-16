@@ -63,6 +63,13 @@ src_libuuid=libsrc/uuid.c libsrc/devguid.c \
   libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
 src_libws2_32=libsrc/ws2_32.c libsrc/wspiapi.c
 src_libmingwex=\
+  \
+  intrincs/bittest.c    intrincs/bittestc.c    intrincs/bittestci.c intrincs/bittestr.c intrincs/bittestri.c     \
+  intrincs/bittests.c   intrincs/bittestsi.c   intrincs/bitscanfwd.c intrincs/bitscanrev.c intrincs/ilockinc16.c \
+  intrincs/ilockdec16.c intrincs/ilockcxch16.c intrincs/ilockexchadd.c intrincs/ilockand.c intrincs/ilockor.c    \
+  intrincs/ilockxor.c   intrincs/ilockinc.c    intrincs/ilockdec.c intrincs/ilockexch.c intrincs/ilockexch_.c    \
+  intrincs/ilockcxch.c  intrincs/ilockcxch_.c  intrincs/currentteb.c \
+  \
   complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosh.c \
   complex/cacoshf.c  complex/cacoshl.c  complex/cacosl.c  complex/carg.c     complex/cargf.c    complex/cargl.c  \
   complex/casin.c    complex/casinf.c   complex/casinh.c  complex/casinhf.c  complex/casinhl.c  complex/casinl.c \
@@ -123,8 +130,8 @@ src_libmingwex=\
   misc/spawnvp.c       misc/spawnvpe.c      misc/strtoimax.c             misc/strtold.c         misc/strtoumax.c       \
   misc/time.c          misc/wassert.c       misc/wcrtomb.c               misc/wcstoimax.c       misc/wcstold.c         \
   misc/wcstoumax.c     misc/wctob.c         misc/wctrans.c               misc/wctype.c          misc/wdirent.c         \
-  misc/winbs_uint64.c  misc/winbs_ulong.c   misc/winbs_ushort.c          misc/wininterlocked.c  misc/wmemchr.c         \
-  misc/wmemcmp.c       misc/wmemcpy.c       misc/wmemmove.c              misc/wmemset.c         \
+  misc/winbs_uint64.c  misc/winbs_ulong.c   misc/winbs_ushort.c          misc/wmemchr.c         misc/wmemcmp.c         \
+  misc/wmemcpy.c       misc/wmemmove.c      misc/wmemset.c \
   misc/mingw_usleep.c  misc/mingw_output_format.c \
   \
   stdio/mingw_pformat.h \
@@ -136,7 +143,15 @@ src_libmingwex=\
   stdio/ulltow.c          stdio/vfscanf.c        stdio/vfwscanf.c         stdio/vscanf.c          stdio/vsnprintf.c        \
   stdio/vsnwprintf.c      stdio/vsscanf.c        stdio/vswscanf.c         stdio/vwscanf.c         stdio/wcstof.c           \
   stdio/wtoll.c libsrc/mingwthrd_nomt.c
-
+# these only go into the 64 bit version:
+src_libmingwex64=\
+  \
+  intrincs/bittest64.c   intrincs/bittestc64.c   intrincs/bittestr64.c   intrincs/bittestri64.c    intrincs/bittests64.c  \
+  intrincs/bittestsi64.c intrincs/bitscanfwd64.c intrincs/bitscanrev64.c intrincs/ilockexchadd64.c intrincs/ilockand64.c  \
+  intrincs/ilockor64.c   intrincs/ilockxor64.c   intrincs/ilockinc64.c   intrincs/ilockdec64.c     intrincs/ilockexch64.c \
+  intrincs/ilockcxch64.c intrincs/ilockexchptr.c intrincs/ilockcxchptr.c intrincs/currentfiber.c   intrincs/fiberdata.c   \
+  intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  intrincs/readgsqword.c    intrincs/writegsword.c \
+  intrincs/writegsdword.c intrincs/writegsqword.c
 
 if LIB32
 #########
@@ -406,7 +421,7 @@ lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib64_LIBRARIES += lib64/libmingwex.a
 lib64_libmingwex_a_CPPFLAGS=$(extra_include) $(AM_CPPFLAGS)
-lib64_libmingwex_a_SOURCES = $(src_libmingwex)
+lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64)
 
 lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=$(extra_include) $(AM_CPPFLAGS)

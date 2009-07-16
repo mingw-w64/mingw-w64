@@ -1,3 +1,28 @@
+2009-07-16  Ozkan Sezer  <sezeroz@gmail.com>
+	    Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wininterlocked.c: Deleted. Broken out its contents, one function
+	per file, in the new directory 'intrincs'.  Removed an __x86_64 ifdef
+	which was already under a _WIN64 ifdef, because we only support x86_64
+	as w64 for the moment.  Removed all _WIN64 ifdefs in the newly generated
+	files, except for NtCurrentTeb() in intrincs/currentteb.c, and built the
+	win64-only functions only in win64-builds.
+	* intrincs/ :
+	bitscanfwd.c, bitscanfwd64.c, bitscanrev.c, bitscanrev64.c, bittest.c,
+	bittest64.c, bittestc.c, bittestc64.c, bittestci.c, bittestr.c,
+	bittestr64.c, bittestri.c, bittestri64.c, bittests.c, bittests64.c,
+	bittestsi.c, bittestsi64.c, currentfiber.c, currentteb.c, fiberdata.c,
+	ilockand.c, ilockand64.c, ilockcxch.c, ilockcxch16.c, ilockcxch64.c,
+	ilockcxch_.c, ilockcxchptr.c, ilockdec.c, ilockdec16.c, ilockdec64.c,
+	ilockexch.c, ilockexch64.c, ilockexch_.c, ilockexchadd.c, ilockexchadd64.c,
+	ilockexchptr.c, ilockinc.c, ilockinc16.c, ilockinc64.c, ilockor.c,
+	ilockor64.c, ilockxor.c, ilockxor64.c, readgsbyte.c, readgsdword.c,
+	readgsqword.c, readgsword.c, writegsbyte.c, writegsdword.c, writegsqword.c,
+	writegsword.c: New.
+	* Makefile.am: Adjusted for the new intrincs/* files. wininterlocked.c
+	removed from build.
+	* Makefile.in: Regenerated.
+
 2009-06-28  jonY  <10walls@gmail.com>
 
 	* lib32/normaliz.def, lib64/normaliz.def: New.
