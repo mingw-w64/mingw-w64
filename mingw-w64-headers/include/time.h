@@ -216,6 +216,32 @@ struct tm *__cdecl gmtime(const time_t *_Time);
 struct tm *__cdecl localtime(const time_t *_Time);
 
 #ifdef _POSIX
+#ifdef __GNUC__ /* FIXME: Other compilers that these macros work with? */
+#ifndef localtime_r
+#define localtime_r(_Time, _Tm)	{( struct tm *___tmp_tm =		\
+						localtime((_Time));	\
+						if (___tmp_tm)		\
+						  *(_Tm) = *___tmp_tm;	\
+						else *(_Tm) = 0;	\
+						___tmp_tm;	})
+#endif
+#ifndef gmtime_r
+#define gmtime_r(_Time,_Tm)	{( struct tm *___tmp_tm =		\
+						gmtime((_Time));	\
+						if (___tmp_tm)		\
+						  *(_Tm) = *___tmp_tm;	\
+						else *(_Tm) = 0;	\
+						___tmp_tm;	})
+#endif
+#ifndef ctime_r
+#define ctime_r(_Time,_Str)	({ char *___tmp_tm = ctime((_Time));	\
+						if (___tmp_tm)		\
+						   strcpy((_Str),___tmp_tm); \
+						else *(_Tm) = 0;	\
+						___tmp_tm;	})
+#endif
+#else /* NOT GCC: */
+      /* FIXME: These are more generic but call the main function twice! */
 #ifndef localtime_r
 #define localtime_r(_Time, _Tm) (localtime ((_Time)) ? *(_Tm) = *localtime ((_Time),(_Tm)) : 0)
 #endif
@@ -223,8 +249,9 @@ struct tm *__cdecl localtime(const time_t *_Time);
 #define gmtime_r(_Time,_Tm) (gmtime ((_Time)) ? (*(_Tm) = *gmtime (_Time),(_Tm)) : 0)
 #endif
 #ifndef ctime_r
-#define ctime_r(_Time,_Str) (ctime (_Time) ? (strcpy((_Str),ctime ((_Time))),(_Str)) : 0)
+#define ctime_r(_Time,_Str) (ctime ((_Time)) ? (strcpy((_Str),ctime ((_Time))),(_Str)) : 0)
 #endif
+#endif /* __GNUC__ */
 #endif /* _POSIX */
 
 time_t __cdecl mktime(struct tm *_Tm);

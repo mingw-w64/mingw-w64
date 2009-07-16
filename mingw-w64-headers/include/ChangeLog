@@ -1,3 +1,8 @@
+2009-07-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* time.h: Avoid double function calls in *time_r macros, at least
+	for gcc. Added fixme notes about the issue.
+
 2009-07-12  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw.h: Undefine _X86_ for __x86_64 which may be incorrectly
