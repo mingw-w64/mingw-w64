@@ -1,7 +1,7 @@
 /*
  need gcc-4.3.4 (gcc-4_3-branch r149015)
    or gcc-4.4.1 (gcc-4_4-branch r149016)
-   or gcc-4.5.x (trunk r148061) or newer
+   or gcc-4.5.x (trunk r149593) or newer
  which have a properly fixed gcc/emutls.c,
  along with mingw-w64-headers r960 and
  mingw-w64-crt r973.
