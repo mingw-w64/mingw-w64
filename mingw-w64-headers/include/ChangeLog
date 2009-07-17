@@ -1,3 +1,9 @@
+2009-07-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_mac.h: New file. It defines just macros also useful in
+	assembly file. Moved some part from _mingw.h into it.
+	(__MINGW_USYMBOL): New macro for assembly to append underscore if necessary.
+
 2009-07-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* time.h: Avoid double function calls in *time_r macros, at least
