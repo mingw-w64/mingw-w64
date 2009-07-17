@@ -1,5 +1,9 @@
 2009-07-17  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* _mingw_mac.h: Rename __MINGW64_VERSION to __MINGW64_VERSION_STR.
+
+2009-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* _mingw_mac.h: Do not ifdef-guard the version macros.
 	(STRINGIFY): New macro.
 	(__MINGW64_VERSION): Auto-define using STRINGIFY.
