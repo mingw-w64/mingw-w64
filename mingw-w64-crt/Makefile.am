@@ -64,6 +64,13 @@ src_libuuid=libsrc/uuid.c libsrc/devguid.c \
 src_libws2_32=libsrc/ws2_32.c libsrc/wspiapi.c
 src_libmingwex=\
   \
+  intrincs/inbyte.c     intrincs/inbytestring.c   intrincs/indword.c   intrincs/indwordstring.c                \
+  intrincs/inword.c     intrincs/inwordstring.c   intrincs/outbyte.c   intrincs/outbytestring.c                \
+  intrincs/outdword.c   intrincs/outdwordstring.c intrincs/outword.c   intrincs/outwordstring.c                \
+  intrincs/readcr2.c    intrincs/readcr3.c        intrincs/readcr4.c   intrincs/readcr8.c                      \
+  intrincs/writecr0.c   intrincs/writecr2.c       intrincs/writecr3.c  intrincs/writecr4.c intrincs/writecr8.c \
+  intrincs/readmsr.c    intrincs/writemsr.c       intrincs/rdtsc.c     intrincs/cpuid.c \
+  \
   intrincs/bittest.c    intrincs/bittestc.c    intrincs/bittestci.c intrincs/bittestr.c intrincs/bittestri.c     \
   intrincs/bittests.c   intrincs/bittestsi.c   intrincs/bitscanfwd.c intrincs/bitscanrev.c intrincs/ilockinc16.c \
   intrincs/ilockdec16.c intrincs/ilockcxch16.c intrincs/ilockexchadd.c intrincs/ilockand.c intrincs/ilockor.c    \
@@ -124,7 +131,7 @@ src_libmingwex=\
   misc/fegetround.c    misc/feholdexcept.c  misc/feraiseexcept.c         misc/fesetenv.c        misc/fesetexceptflag.c \
   misc/fesetround.c    misc/fetestexcept.c  misc/feupdateenv.c           misc/ftruncate.c       misc/fwide.c           \
   misc/getlogin.c      misc/getopt.c        misc/gettimeofday.c          misc/gmtime.c          misc/imaxabs.c         \
-  misc/imaxdiv.c       misc/io_intrin.c     misc/isblank.c               misc/iswblank.c        misc/localtime.c       \
+  misc/imaxdiv.c       misc/isblank.c       misc/iswblank.c              misc/localtime.c       \
   misc/mbrtowc.c       misc/mbsinit.c       misc/mingw-aligned-malloc.c  misc/mingw-fseek.c     misc/_mkgmtime.c       \
   misc/mktime.c        misc/seterrno.c      misc/sleep.c                 misc/spawnv.c          misc/spawnve.c         \
   misc/spawnvp.c       misc/spawnvpe.c      misc/strtoimax.c             misc/strtold.c         misc/strtoumax.c       \

@@ -213,7 +213,17 @@ am__objects_10 = crt/lib32_libmingw32_a-atonexit.$(OBJEXT) \
 lib32_libmingw32_a_OBJECTS = $(am_lib32_libmingw32_a_OBJECTS)
 lib32_libmingwex_a_AR = $(AR) $(ARFLAGS)
 lib32_libmingwex_a_LIBADD =
-am__lib32_libmingwex_a_SOURCES_DIST = intrincs/bittest.c \
+am__lib32_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
+	intrincs/inbytestring.c intrincs/indword.c \
+	intrincs/indwordstring.c intrincs/inword.c \
+	intrincs/inwordstring.c intrincs/outbyte.c \
+	intrincs/outbytestring.c intrincs/outdword.c \
+	intrincs/outdwordstring.c intrincs/outword.c \
+	intrincs/outwordstring.c intrincs/readcr2.c intrincs/readcr3.c \
+	intrincs/readcr4.c intrincs/readcr8.c intrincs/writecr0.c \
+	intrincs/writecr2.c intrincs/writecr3.c intrincs/writecr4.c \
+	intrincs/writecr8.c intrincs/readmsr.c intrincs/writemsr.c \
+	intrincs/rdtsc.c intrincs/cpuid.c intrincs/bittest.c \
 	intrincs/bittestc.c intrincs/bittestci.c intrincs/bittestr.c \
 	intrincs/bittestri.c intrincs/bittests.c intrincs/bittestsi.c \
 	intrincs/bitscanfwd.c intrincs/bitscanrev.c \
@@ -300,18 +310,17 @@ am__lib32_libmingwex_a_SOURCES_DIST = intrincs/bittest.c \
 	misc/fesetround.c misc/fetestexcept.c misc/feupdateenv.c \
 	misc/ftruncate.c misc/fwide.c misc/getlogin.c misc/getopt.c \
 	misc/gettimeofday.c misc/gmtime.c misc/imaxabs.c \
-	misc/imaxdiv.c misc/io_intrin.c misc/isblank.c misc/iswblank.c \
-	misc/localtime.c misc/mbrtowc.c misc/mbsinit.c \
-	misc/mingw-aligned-malloc.c misc/mingw-fseek.c \
-	misc/_mkgmtime.c misc/mktime.c misc/seterrno.c misc/sleep.c \
-	misc/spawnv.c misc/spawnve.c misc/spawnvp.c misc/spawnvpe.c \
-	misc/strtoimax.c misc/strtold.c misc/strtoumax.c misc/time.c \
-	misc/wassert.c misc/wcrtomb.c misc/wcstoimax.c misc/wcstold.c \
-	misc/wcstoumax.c misc/wctob.c misc/wctrans.c misc/wctype.c \
-	misc/wdirent.c misc/winbs_uint64.c misc/winbs_ulong.c \
-	misc/winbs_ushort.c misc/wmemchr.c misc/wmemcmp.c \
-	misc/wmemcpy.c misc/wmemmove.c misc/wmemset.c \
-	misc/mingw_usleep.c misc/mingw_output_format.c \
+	misc/imaxdiv.c misc/isblank.c misc/iswblank.c misc/localtime.c \
+	misc/mbrtowc.c misc/mbsinit.c misc/mingw-aligned-malloc.c \
+	misc/mingw-fseek.c misc/_mkgmtime.c misc/mktime.c \
+	misc/seterrno.c misc/sleep.c misc/spawnv.c misc/spawnve.c \
+	misc/spawnvp.c misc/spawnvpe.c misc/strtoimax.c misc/strtold.c \
+	misc/strtoumax.c misc/time.c misc/wassert.c misc/wcrtomb.c \
+	misc/wcstoimax.c misc/wcstold.c misc/wcstoumax.c misc/wctob.c \
+	misc/wctrans.c misc/wctype.c misc/wdirent.c \
+	misc/winbs_uint64.c misc/winbs_ulong.c misc/winbs_ushort.c \
+	misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c misc/wmemmove.c \
+	misc/wmemset.c misc/mingw_usleep.c misc/mingw_output_format.c \
 	stdio/mingw_pformat.h stdio/atoll.c stdio/_Exit.c \
 	stdio/_findfirst64i32.c stdio/_findnext64i32.c stdio/fopen64.c \
 	stdio/fseeko64.c stdio/_fstat64i32.c stdio/ftello64.c \
@@ -326,7 +335,32 @@ am__lib32_libmingwex_a_SOURCES_DIST = intrincs/bittest.c \
 	stdio/vsnwprintf.c stdio/vsscanf.c stdio/vswscanf.c \
 	stdio/vwscanf.c stdio/wcstof.c stdio/wtoll.c \
 	libsrc/mingwthrd_nomt.c
-am__objects_11 = intrincs/lib32_libmingwex_a-bittest.$(OBJEXT) \
+am__objects_11 = intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-inbytestring.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-indword.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-indwordstring.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-inword.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-inwordstring.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-outbyte.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-outbytestring.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-outdword.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-outdwordstring.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-outword.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-outwordstring.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-readcr2.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-readcr3.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-readcr4.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-readcr8.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-writecr0.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-writecr2.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-writecr3.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-writecr4.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-writecr8.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-readmsr.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-writemsr.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-rdtsc.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-cpuid.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-bittest.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-bittestc.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-bittestci.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-bittestr.$(OBJEXT) \
@@ -621,7 +655,6 @@ am__objects_11 = intrincs/lib32_libmingwex_a-bittest.$(OBJEXT) \
 	misc/lib32_libmingwex_a-gmtime.$(OBJEXT) \
 	misc/lib32_libmingwex_a-imaxabs.$(OBJEXT) \
 	misc/lib32_libmingwex_a-imaxdiv.$(OBJEXT) \
-	misc/lib32_libmingwex_a-io_intrin.$(OBJEXT) \
 	misc/lib32_libmingwex_a-isblank.$(OBJEXT) \
 	misc/lib32_libmingwex_a-iswblank.$(OBJEXT) \
 	misc/lib32_libmingwex_a-localtime.$(OBJEXT) \
@@ -894,7 +927,17 @@ am__objects_29 = crt/lib64_libmingw32_a-atonexit.$(OBJEXT) \
 lib64_libmingw32_a_OBJECTS = $(am_lib64_libmingw32_a_OBJECTS)
 lib64_libmingwex_a_AR = $(AR) $(ARFLAGS)
 lib64_libmingwex_a_LIBADD =
-am__lib64_libmingwex_a_SOURCES_DIST = intrincs/bittest.c \
+am__lib64_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
+	intrincs/inbytestring.c intrincs/indword.c \
+	intrincs/indwordstring.c intrincs/inword.c \
+	intrincs/inwordstring.c intrincs/outbyte.c \
+	intrincs/outbytestring.c intrincs/outdword.c \
+	intrincs/outdwordstring.c intrincs/outword.c \
+	intrincs/outwordstring.c intrincs/readcr2.c intrincs/readcr3.c \
+	intrincs/readcr4.c intrincs/readcr8.c intrincs/writecr0.c \
+	intrincs/writecr2.c intrincs/writecr3.c intrincs/writecr4.c \
+	intrincs/writecr8.c intrincs/readmsr.c intrincs/writemsr.c \
+	intrincs/rdtsc.c intrincs/cpuid.c intrincs/bittest.c \
 	intrincs/bittestc.c intrincs/bittestci.c intrincs/bittestr.c \
 	intrincs/bittestri.c intrincs/bittests.c intrincs/bittestsi.c \
 	intrincs/bitscanfwd.c intrincs/bitscanrev.c \
@@ -981,18 +1024,17 @@ am__lib64_libmingwex_a_SOURCES_DIST = intrincs/bittest.c \
 	misc/fesetround.c misc/fetestexcept.c misc/feupdateenv.c \
 	misc/ftruncate.c misc/fwide.c misc/getlogin.c misc/getopt.c \
 	misc/gettimeofday.c misc/gmtime.c misc/imaxabs.c \
-	misc/imaxdiv.c misc/io_intrin.c misc/isblank.c misc/iswblank.c \
-	misc/localtime.c misc/mbrtowc.c misc/mbsinit.c \
-	misc/mingw-aligned-malloc.c misc/mingw-fseek.c \
-	misc/_mkgmtime.c misc/mktime.c misc/seterrno.c misc/sleep.c \
-	misc/spawnv.c misc/spawnve.c misc/spawnvp.c misc/spawnvpe.c \
-	misc/strtoimax.c misc/strtold.c misc/strtoumax.c misc/time.c \
-	misc/wassert.c misc/wcrtomb.c misc/wcstoimax.c misc/wcstold.c \
-	misc/wcstoumax.c misc/wctob.c misc/wctrans.c misc/wctype.c \
-	misc/wdirent.c misc/winbs_uint64.c misc/winbs_ulong.c \
-	misc/winbs_ushort.c misc/wmemchr.c misc/wmemcmp.c \
-	misc/wmemcpy.c misc/wmemmove.c misc/wmemset.c \
-	misc/mingw_usleep.c misc/mingw_output_format.c \
+	misc/imaxdiv.c misc/isblank.c misc/iswblank.c misc/localtime.c \
+	misc/mbrtowc.c misc/mbsinit.c misc/mingw-aligned-malloc.c \
+	misc/mingw-fseek.c misc/_mkgmtime.c misc/mktime.c \
+	misc/seterrno.c misc/sleep.c misc/spawnv.c misc/spawnve.c \
+	misc/spawnvp.c misc/spawnvpe.c misc/strtoimax.c misc/strtold.c \
+	misc/strtoumax.c misc/time.c misc/wassert.c misc/wcrtomb.c \
+	misc/wcstoimax.c misc/wcstold.c misc/wcstoumax.c misc/wctob.c \
+	misc/wctrans.c misc/wctype.c misc/wdirent.c \
+	misc/winbs_uint64.c misc/winbs_ulong.c misc/winbs_ushort.c \
+	misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c misc/wmemmove.c \
+	misc/wmemset.c misc/mingw_usleep.c misc/mingw_output_format.c \
 	stdio/mingw_pformat.h stdio/atoll.c stdio/_Exit.c \
 	stdio/_findfirst64i32.c stdio/_findnext64i32.c stdio/fopen64.c \
 	stdio/fseeko64.c stdio/_fstat64i32.c stdio/ftello64.c \
@@ -1020,7 +1062,32 @@ am__lib64_libmingwex_a_SOURCES_DIST = intrincs/bittest.c \
 	intrincs/readgsword.c intrincs/readgsdword.c \
 	intrincs/readgsqword.c intrincs/writegsword.c \
 	intrincs/writegsdword.c intrincs/writegsqword.c
-am__objects_30 = intrincs/lib64_libmingwex_a-bittest.$(OBJEXT) \
+am__objects_30 = intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-inbytestring.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-indword.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-indwordstring.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-inword.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-inwordstring.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-outbyte.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-outbytestring.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-outdword.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-outdwordstring.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-outword.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-outwordstring.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-readcr2.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-readcr3.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-readcr4.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-readcr8.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-writecr0.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-writecr2.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-writecr3.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-writecr4.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-writecr8.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-readmsr.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-writemsr.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-rdtsc.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-cpuid.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-bittest.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-bittestc.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-bittestci.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-bittestr.$(OBJEXT) \
@@ -1315,7 +1382,6 @@ am__objects_30 = intrincs/lib64_libmingwex_a-bittest.$(OBJEXT) \
 	misc/lib64_libmingwex_a-gmtime.$(OBJEXT) \
 	misc/lib64_libmingwex_a-imaxabs.$(OBJEXT) \
 	misc/lib64_libmingwex_a-imaxdiv.$(OBJEXT) \
-	misc/lib64_libmingwex_a-io_intrin.$(OBJEXT) \
 	misc/lib64_libmingwex_a-isblank.$(OBJEXT) \
 	misc/lib64_libmingwex_a-iswblank.$(OBJEXT) \
 	misc/lib64_libmingwex_a-localtime.$(OBJEXT) \
@@ -1838,6 +1904,13 @@ src_libuuid = libsrc/uuid.c libsrc/devguid.c \
 src_libws2_32 = libsrc/ws2_32.c libsrc/wspiapi.c
 src_libmingwex = \
   \
+  intrincs/inbyte.c     intrincs/inbytestring.c   intrincs/indword.c   intrincs/indwordstring.c                \
+  intrincs/inword.c     intrincs/inwordstring.c   intrincs/outbyte.c   intrincs/outbytestring.c                \
+  intrincs/outdword.c   intrincs/outdwordstring.c intrincs/outword.c   intrincs/outwordstring.c                \
+  intrincs/readcr2.c    intrincs/readcr3.c        intrincs/readcr4.c   intrincs/readcr8.c                      \
+  intrincs/writecr0.c   intrincs/writecr2.c       intrincs/writecr3.c  intrincs/writecr4.c intrincs/writecr8.c \
+  intrincs/readmsr.c    intrincs/writemsr.c       intrincs/rdtsc.c     intrincs/cpuid.c \
+  \
   intrincs/bittest.c    intrincs/bittestc.c    intrincs/bittestci.c intrincs/bittestr.c intrincs/bittestri.c     \
   intrincs/bittests.c   intrincs/bittestsi.c   intrincs/bitscanfwd.c intrincs/bitscanrev.c intrincs/ilockinc16.c \
   intrincs/ilockdec16.c intrincs/ilockcxch16.c intrincs/ilockexchadd.c intrincs/ilockand.c intrincs/ilockor.c    \
@@ -1898,7 +1971,7 @@ src_libmingwex = \
   misc/fegetround.c    misc/feholdexcept.c  misc/feraiseexcept.c         misc/fesetenv.c        misc/fesetexceptflag.c \
   misc/fesetround.c    misc/fetestexcept.c  misc/feupdateenv.c           misc/ftruncate.c       misc/fwide.c           \
   misc/getlogin.c      misc/getopt.c        misc/gettimeofday.c          misc/gmtime.c          misc/imaxabs.c         \
-  misc/imaxdiv.c       misc/io_intrin.c     misc/isblank.c               misc/iswblank.c        misc/localtime.c       \
+  misc/imaxdiv.c       misc/isblank.c       misc/iswblank.c              misc/localtime.c       \
   misc/mbrtowc.c       misc/mbsinit.c       misc/mingw-aligned-malloc.c  misc/mingw-fseek.c     misc/_mkgmtime.c       \
   misc/mktime.c        misc/seterrno.c      misc/sleep.c                 misc/spawnv.c          misc/spawnve.c         \
   misc/spawnvp.c       misc/spawnvpe.c      misc/strtoimax.c             misc/strtold.c         misc/strtoumax.c       \
@@ -2807,6 +2880,56 @@ intrincs/$(am__dirstamp):
 intrincs/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) intrincs/$(DEPDIR)
 	@: > intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-inbytestring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-indword.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-indwordstring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-inword.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-inwordstring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-outbyte.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-outbytestring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-outdword.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-outdwordstring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-outword.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-outwordstring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-readcr2.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-readcr3.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-readcr4.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-readcr8.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-writecr0.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-writecr2.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-writecr3.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-writecr4.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-writecr8.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-readmsr.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-writemsr.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-rdtsc.$(OBJEXT): intrincs/$(am__dirstamp) \
+	intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-cpuid.$(OBJEXT): intrincs/$(am__dirstamp) \
+	intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libmingwex_a-bittest.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libmingwex_a-bittestc.$(OBJEXT):  \
@@ -3421,8 +3544,6 @@ misc/lib32_libmingwex_a-imaxabs.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-imaxdiv.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
-misc/lib32_libmingwex_a-io_intrin.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-isblank.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-iswblank.$(OBJEXT): misc/$(am__dirstamp) \
@@ -3830,6 +3951,56 @@ lib64/libmingw32.a: $(lib64_libmingw32_a_OBJECTS) $(lib64_libmingw32_a_DEPENDENC
 	-rm -f lib64/libmingw32.a
 	$(lib64_libmingw32_a_AR) lib64/libmingw32.a $(lib64_libmingw32_a_OBJECTS) $(lib64_libmingw32_a_LIBADD)
 	$(RANLIB) lib64/libmingw32.a
+intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-inbytestring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-indword.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-indwordstring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-inword.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-inwordstring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-outbyte.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-outbytestring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-outdword.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-outdwordstring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-outword.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-outwordstring.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-readcr2.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-readcr3.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-readcr4.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-readcr8.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-writecr0.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-writecr2.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-writecr3.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-writecr4.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-writecr8.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-readmsr.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-writemsr.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-rdtsc.$(OBJEXT): intrincs/$(am__dirstamp) \
+	intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-cpuid.$(OBJEXT): intrincs/$(am__dirstamp) \
+	intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-bittest.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-bittestc.$(OBJEXT):  \
@@ -4419,8 +4590,6 @@ misc/lib64_libmingwex_a-gmtime.$(OBJEXT): misc/$(am__dirstamp) \
 misc/lib64_libmingwex_a-imaxabs.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-imaxdiv.$(OBJEXT): misc/$(am__dirstamp) \
-	misc/$(DEPDIR)/$(am__dirstamp)
-misc/lib64_libmingwex_a-io_intrin.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-isblank.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
@@ -5215,6 +5384,7 @@ mostlyclean-compile:
 	-rm -f intrincs/lib32_libmingwex_a-bittestri.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-bittests.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-bittestsi.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-cpuid.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-currentteb.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-ilockand.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-ilockcxch.$(OBJEXT)
@@ -5229,6 +5399,30 @@ mostlyclean-compile:
 	-rm -f intrincs/lib32_libmingwex_a-ilockinc16.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-ilockor.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-ilockxor.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-inbytestring.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-indword.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-indwordstring.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-inword.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-inwordstring.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-outbyte.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-outbytestring.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-outdword.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-outdwordstring.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-outword.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-outwordstring.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-rdtsc.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-readcr2.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-readcr3.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-readcr4.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-readcr8.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-readmsr.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-writecr0.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-writecr2.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-writecr3.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-writecr4.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-writecr8.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-writemsr.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-bitscanfwd.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-bitscanfwd64.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-bitscanrev.$(OBJEXT)
@@ -5246,6 +5440,7 @@ mostlyclean-compile:
 	-rm -f intrincs/lib64_libmingwex_a-bittests64.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-bittestsi.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-bittestsi64.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-cpuid.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-currentfiber.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-currentteb.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-fiberdata.$(OBJEXT)
@@ -5272,13 +5467,37 @@ mostlyclean-compile:
 	-rm -f intrincs/lib64_libmingwex_a-ilockor64.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-ilockxor.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-ilockxor64.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-inbytestring.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-indword.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-indwordstring.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-inword.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-inwordstring.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-outbyte.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-outbytestring.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-outdword.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-outdwordstring.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-outword.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-outwordstring.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-rdtsc.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-readcr2.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-readcr3.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-readcr4.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-readcr8.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-readgsbyte.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-readgsdword.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-readgsqword.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-readgsword.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-readmsr.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-writecr0.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-writecr2.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-writecr3.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-writecr4.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-writecr8.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-writegsdword.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-writegsqword.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-writegsword.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-writemsr.$(OBJEXT)
 	-rm -f libsrc/ativscp-uuid.$(OBJEXT)
 	-rm -f libsrc/cguid-uuid.$(OBJEXT)
 	-rm -f libsrc/comcat-uuid.$(OBJEXT)
@@ -5718,7 +5937,6 @@ mostlyclean-compile:
 	-rm -f misc/lib32_libmingwex_a-gmtime.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-imaxabs.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-imaxdiv.$(OBJEXT)
-	-rm -f misc/lib32_libmingwex_a-io_intrin.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-isblank.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-iswblank.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-localtime.$(OBJEXT)
@@ -5789,7 +6007,6 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-gmtime.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-imaxabs.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-imaxdiv.$(OBJEXT)
-	-rm -f misc/lib64_libmingwex_a-io_intrin.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-isblank.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-iswblank.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-localtime.$(OBJEXT)
@@ -6170,6 +6387,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-bittestri.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-bittests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-bittestsi.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-cpuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-currentteb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-ilockand.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-ilockcxch.Po@am__quote@
@@ -6184,6 +6402,30 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-ilockinc16.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-ilockor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-ilockxor.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-inbyte.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-inbytestring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-indword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-indwordstring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-inword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-inwordstring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-outbyte.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-outbytestring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-outdword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-outdwordstring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-outword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-outwordstring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-rdtsc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr3.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr4.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr8.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-readmsr.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr0.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr3.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr4.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr8.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writemsr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-bitscanfwd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-bitscanfwd64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-bitscanrev.Po@am__quote@
@@ -6201,6 +6443,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-bittests64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-bittestsi.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-bittestsi64.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-cpuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-currentfiber.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-currentteb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-fiberdata.Po@am__quote@
@@ -6227,13 +6470,37 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-ilockor64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-ilockxor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-ilockxor64.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-inbyte.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-inbytestring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-indword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-indwordstring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-inword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-inwordstring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-outbyte.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-outbytestring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-outdword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-outdwordstring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-outword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-outwordstring.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-rdtsc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr3.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr4.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr8.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-readgsbyte.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-readgsdword.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-readgsqword.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-readgsword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-readmsr.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr0.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr3.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr4.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr8.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-writegsdword.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-writegsqword.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-writegsword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-writemsr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/ativscp-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/cguid-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/comcat-uuid.Po@am__quote@
@@ -6673,7 +6940,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-gmtime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-imaxabs.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-imaxdiv.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-io_intrin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-isblank.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-iswblank.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-localtime.Po@am__quote@
@@ -6744,7 +7010,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-gmtime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-imaxabs.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-imaxdiv.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-io_intrin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-isblank.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-iswblank.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-localtime.Po@am__quote@
@@ -8588,6 +8853,356 @@ libsrc/lib32_libmingw32_a-dummy_mingwthrd.obj: libsrc/dummy_mingwthrd.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/dummy_mingwthrd.c' object='libsrc/lib32_libmingw32_a-dummy_mingwthrd.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libmingw32_a-dummy_mingwthrd.obj `if test -f 'libsrc/dummy_mingwthrd.c'; then $(CYGPATH_W) 'libsrc/dummy_mingwthrd.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/dummy_mingwthrd.c'; fi`
+
+intrincs/lib32_libmingwex_a-inbyte.o: intrincs/inbyte.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-inbyte.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-inbyte.Tpo -c -o intrincs/lib32_libmingwex_a-inbyte.o `test -f 'intrincs/inbyte.c' || echo '$(srcdir)/'`intrincs/inbyte.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-inbyte.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-inbyte.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inbyte.c' object='intrincs/lib32_libmingwex_a-inbyte.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-inbyte.o `test -f 'intrincs/inbyte.c' || echo '$(srcdir)/'`intrincs/inbyte.c
+
+intrincs/lib32_libmingwex_a-inbyte.obj: intrincs/inbyte.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-inbyte.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-inbyte.Tpo -c -o intrincs/lib32_libmingwex_a-inbyte.obj `if test -f 'intrincs/inbyte.c'; then $(CYGPATH_W) 'intrincs/inbyte.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inbyte.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-inbyte.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-inbyte.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inbyte.c' object='intrincs/lib32_libmingwex_a-inbyte.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-inbyte.obj `if test -f 'intrincs/inbyte.c'; then $(CYGPATH_W) 'intrincs/inbyte.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inbyte.c'; fi`
+
+intrincs/lib32_libmingwex_a-inbytestring.o: intrincs/inbytestring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-inbytestring.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-inbytestring.Tpo -c -o intrincs/lib32_libmingwex_a-inbytestring.o `test -f 'intrincs/inbytestring.c' || echo '$(srcdir)/'`intrincs/inbytestring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-inbytestring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-inbytestring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inbytestring.c' object='intrincs/lib32_libmingwex_a-inbytestring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-inbytestring.o `test -f 'intrincs/inbytestring.c' || echo '$(srcdir)/'`intrincs/inbytestring.c
+
+intrincs/lib32_libmingwex_a-inbytestring.obj: intrincs/inbytestring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-inbytestring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-inbytestring.Tpo -c -o intrincs/lib32_libmingwex_a-inbytestring.obj `if test -f 'intrincs/inbytestring.c'; then $(CYGPATH_W) 'intrincs/inbytestring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inbytestring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-inbytestring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-inbytestring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inbytestring.c' object='intrincs/lib32_libmingwex_a-inbytestring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-inbytestring.obj `if test -f 'intrincs/inbytestring.c'; then $(CYGPATH_W) 'intrincs/inbytestring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inbytestring.c'; fi`
+
+intrincs/lib32_libmingwex_a-indword.o: intrincs/indword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-indword.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-indword.Tpo -c -o intrincs/lib32_libmingwex_a-indword.o `test -f 'intrincs/indword.c' || echo '$(srcdir)/'`intrincs/indword.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-indword.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-indword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/indword.c' object='intrincs/lib32_libmingwex_a-indword.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-indword.o `test -f 'intrincs/indword.c' || echo '$(srcdir)/'`intrincs/indword.c
+
+intrincs/lib32_libmingwex_a-indword.obj: intrincs/indword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-indword.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-indword.Tpo -c -o intrincs/lib32_libmingwex_a-indword.obj `if test -f 'intrincs/indword.c'; then $(CYGPATH_W) 'intrincs/indword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/indword.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-indword.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-indword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/indword.c' object='intrincs/lib32_libmingwex_a-indword.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-indword.obj `if test -f 'intrincs/indword.c'; then $(CYGPATH_W) 'intrincs/indword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/indword.c'; fi`
+
+intrincs/lib32_libmingwex_a-indwordstring.o: intrincs/indwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-indwordstring.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-indwordstring.Tpo -c -o intrincs/lib32_libmingwex_a-indwordstring.o `test -f 'intrincs/indwordstring.c' || echo '$(srcdir)/'`intrincs/indwordstring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-indwordstring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-indwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/indwordstring.c' object='intrincs/lib32_libmingwex_a-indwordstring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-indwordstring.o `test -f 'intrincs/indwordstring.c' || echo '$(srcdir)/'`intrincs/indwordstring.c
+
+intrincs/lib32_libmingwex_a-indwordstring.obj: intrincs/indwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-indwordstring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-indwordstring.Tpo -c -o intrincs/lib32_libmingwex_a-indwordstring.obj `if test -f 'intrincs/indwordstring.c'; then $(CYGPATH_W) 'intrincs/indwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/indwordstring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-indwordstring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-indwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/indwordstring.c' object='intrincs/lib32_libmingwex_a-indwordstring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-indwordstring.obj `if test -f 'intrincs/indwordstring.c'; then $(CYGPATH_W) 'intrincs/indwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/indwordstring.c'; fi`
+
+intrincs/lib32_libmingwex_a-inword.o: intrincs/inword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-inword.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-inword.Tpo -c -o intrincs/lib32_libmingwex_a-inword.o `test -f 'intrincs/inword.c' || echo '$(srcdir)/'`intrincs/inword.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-inword.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-inword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inword.c' object='intrincs/lib32_libmingwex_a-inword.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-inword.o `test -f 'intrincs/inword.c' || echo '$(srcdir)/'`intrincs/inword.c
+
+intrincs/lib32_libmingwex_a-inword.obj: intrincs/inword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-inword.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-inword.Tpo -c -o intrincs/lib32_libmingwex_a-inword.obj `if test -f 'intrincs/inword.c'; then $(CYGPATH_W) 'intrincs/inword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inword.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-inword.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-inword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inword.c' object='intrincs/lib32_libmingwex_a-inword.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-inword.obj `if test -f 'intrincs/inword.c'; then $(CYGPATH_W) 'intrincs/inword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inword.c'; fi`
+
+intrincs/lib32_libmingwex_a-inwordstring.o: intrincs/inwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-inwordstring.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-inwordstring.Tpo -c -o intrincs/lib32_libmingwex_a-inwordstring.o `test -f 'intrincs/inwordstring.c' || echo '$(srcdir)/'`intrincs/inwordstring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-inwordstring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-inwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inwordstring.c' object='intrincs/lib32_libmingwex_a-inwordstring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-inwordstring.o `test -f 'intrincs/inwordstring.c' || echo '$(srcdir)/'`intrincs/inwordstring.c
+
+intrincs/lib32_libmingwex_a-inwordstring.obj: intrincs/inwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-inwordstring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-inwordstring.Tpo -c -o intrincs/lib32_libmingwex_a-inwordstring.obj `if test -f 'intrincs/inwordstring.c'; then $(CYGPATH_W) 'intrincs/inwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inwordstring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-inwordstring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-inwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inwordstring.c' object='intrincs/lib32_libmingwex_a-inwordstring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-inwordstring.obj `if test -f 'intrincs/inwordstring.c'; then $(CYGPATH_W) 'intrincs/inwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inwordstring.c'; fi`
+
+intrincs/lib32_libmingwex_a-outbyte.o: intrincs/outbyte.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outbyte.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outbyte.Tpo -c -o intrincs/lib32_libmingwex_a-outbyte.o `test -f 'intrincs/outbyte.c' || echo '$(srcdir)/'`intrincs/outbyte.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outbyte.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outbyte.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outbyte.c' object='intrincs/lib32_libmingwex_a-outbyte.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outbyte.o `test -f 'intrincs/outbyte.c' || echo '$(srcdir)/'`intrincs/outbyte.c
+
+intrincs/lib32_libmingwex_a-outbyte.obj: intrincs/outbyte.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outbyte.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outbyte.Tpo -c -o intrincs/lib32_libmingwex_a-outbyte.obj `if test -f 'intrincs/outbyte.c'; then $(CYGPATH_W) 'intrincs/outbyte.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outbyte.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outbyte.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outbyte.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outbyte.c' object='intrincs/lib32_libmingwex_a-outbyte.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outbyte.obj `if test -f 'intrincs/outbyte.c'; then $(CYGPATH_W) 'intrincs/outbyte.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outbyte.c'; fi`
+
+intrincs/lib32_libmingwex_a-outbytestring.o: intrincs/outbytestring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outbytestring.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outbytestring.Tpo -c -o intrincs/lib32_libmingwex_a-outbytestring.o `test -f 'intrincs/outbytestring.c' || echo '$(srcdir)/'`intrincs/outbytestring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outbytestring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outbytestring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outbytestring.c' object='intrincs/lib32_libmingwex_a-outbytestring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outbytestring.o `test -f 'intrincs/outbytestring.c' || echo '$(srcdir)/'`intrincs/outbytestring.c
+
+intrincs/lib32_libmingwex_a-outbytestring.obj: intrincs/outbytestring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outbytestring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outbytestring.Tpo -c -o intrincs/lib32_libmingwex_a-outbytestring.obj `if test -f 'intrincs/outbytestring.c'; then $(CYGPATH_W) 'intrincs/outbytestring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outbytestring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outbytestring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outbytestring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outbytestring.c' object='intrincs/lib32_libmingwex_a-outbytestring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outbytestring.obj `if test -f 'intrincs/outbytestring.c'; then $(CYGPATH_W) 'intrincs/outbytestring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outbytestring.c'; fi`
+
+intrincs/lib32_libmingwex_a-outdword.o: intrincs/outdword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outdword.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outdword.Tpo -c -o intrincs/lib32_libmingwex_a-outdword.o `test -f 'intrincs/outdword.c' || echo '$(srcdir)/'`intrincs/outdword.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outdword.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outdword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outdword.c' object='intrincs/lib32_libmingwex_a-outdword.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outdword.o `test -f 'intrincs/outdword.c' || echo '$(srcdir)/'`intrincs/outdword.c
+
+intrincs/lib32_libmingwex_a-outdword.obj: intrincs/outdword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outdword.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outdword.Tpo -c -o intrincs/lib32_libmingwex_a-outdword.obj `if test -f 'intrincs/outdword.c'; then $(CYGPATH_W) 'intrincs/outdword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outdword.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outdword.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outdword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outdword.c' object='intrincs/lib32_libmingwex_a-outdword.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outdword.obj `if test -f 'intrincs/outdword.c'; then $(CYGPATH_W) 'intrincs/outdword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outdword.c'; fi`
+
+intrincs/lib32_libmingwex_a-outdwordstring.o: intrincs/outdwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outdwordstring.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outdwordstring.Tpo -c -o intrincs/lib32_libmingwex_a-outdwordstring.o `test -f 'intrincs/outdwordstring.c' || echo '$(srcdir)/'`intrincs/outdwordstring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outdwordstring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outdwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outdwordstring.c' object='intrincs/lib32_libmingwex_a-outdwordstring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outdwordstring.o `test -f 'intrincs/outdwordstring.c' || echo '$(srcdir)/'`intrincs/outdwordstring.c
+
+intrincs/lib32_libmingwex_a-outdwordstring.obj: intrincs/outdwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outdwordstring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outdwordstring.Tpo -c -o intrincs/lib32_libmingwex_a-outdwordstring.obj `if test -f 'intrincs/outdwordstring.c'; then $(CYGPATH_W) 'intrincs/outdwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outdwordstring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outdwordstring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outdwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outdwordstring.c' object='intrincs/lib32_libmingwex_a-outdwordstring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outdwordstring.obj `if test -f 'intrincs/outdwordstring.c'; then $(CYGPATH_W) 'intrincs/outdwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outdwordstring.c'; fi`
+
+intrincs/lib32_libmingwex_a-outword.o: intrincs/outword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outword.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outword.Tpo -c -o intrincs/lib32_libmingwex_a-outword.o `test -f 'intrincs/outword.c' || echo '$(srcdir)/'`intrincs/outword.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outword.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outword.c' object='intrincs/lib32_libmingwex_a-outword.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outword.o `test -f 'intrincs/outword.c' || echo '$(srcdir)/'`intrincs/outword.c
+
+intrincs/lib32_libmingwex_a-outword.obj: intrincs/outword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outword.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outword.Tpo -c -o intrincs/lib32_libmingwex_a-outword.obj `if test -f 'intrincs/outword.c'; then $(CYGPATH_W) 'intrincs/outword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outword.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outword.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outword.c' object='intrincs/lib32_libmingwex_a-outword.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outword.obj `if test -f 'intrincs/outword.c'; then $(CYGPATH_W) 'intrincs/outword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outword.c'; fi`
+
+intrincs/lib32_libmingwex_a-outwordstring.o: intrincs/outwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outwordstring.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outwordstring.Tpo -c -o intrincs/lib32_libmingwex_a-outwordstring.o `test -f 'intrincs/outwordstring.c' || echo '$(srcdir)/'`intrincs/outwordstring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outwordstring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outwordstring.c' object='intrincs/lib32_libmingwex_a-outwordstring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outwordstring.o `test -f 'intrincs/outwordstring.c' || echo '$(srcdir)/'`intrincs/outwordstring.c
+
+intrincs/lib32_libmingwex_a-outwordstring.obj: intrincs/outwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-outwordstring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-outwordstring.Tpo -c -o intrincs/lib32_libmingwex_a-outwordstring.obj `if test -f 'intrincs/outwordstring.c'; then $(CYGPATH_W) 'intrincs/outwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outwordstring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-outwordstring.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-outwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outwordstring.c' object='intrincs/lib32_libmingwex_a-outwordstring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-outwordstring.obj `if test -f 'intrincs/outwordstring.c'; then $(CYGPATH_W) 'intrincs/outwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outwordstring.c'; fi`
+
+intrincs/lib32_libmingwex_a-readcr2.o: intrincs/readcr2.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-readcr2.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr2.Tpo -c -o intrincs/lib32_libmingwex_a-readcr2.o `test -f 'intrincs/readcr2.c' || echo '$(srcdir)/'`intrincs/readcr2.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr2.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr2.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr2.c' object='intrincs/lib32_libmingwex_a-readcr2.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-readcr2.o `test -f 'intrincs/readcr2.c' || echo '$(srcdir)/'`intrincs/readcr2.c
+
+intrincs/lib32_libmingwex_a-readcr2.obj: intrincs/readcr2.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-readcr2.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr2.Tpo -c -o intrincs/lib32_libmingwex_a-readcr2.obj `if test -f 'intrincs/readcr2.c'; then $(CYGPATH_W) 'intrincs/readcr2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr2.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr2.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr2.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr2.c' object='intrincs/lib32_libmingwex_a-readcr2.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-readcr2.obj `if test -f 'intrincs/readcr2.c'; then $(CYGPATH_W) 'intrincs/readcr2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr2.c'; fi`
+
+intrincs/lib32_libmingwex_a-readcr3.o: intrincs/readcr3.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-readcr3.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr3.Tpo -c -o intrincs/lib32_libmingwex_a-readcr3.o `test -f 'intrincs/readcr3.c' || echo '$(srcdir)/'`intrincs/readcr3.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr3.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr3.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr3.c' object='intrincs/lib32_libmingwex_a-readcr3.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-readcr3.o `test -f 'intrincs/readcr3.c' || echo '$(srcdir)/'`intrincs/readcr3.c
+
+intrincs/lib32_libmingwex_a-readcr3.obj: intrincs/readcr3.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-readcr3.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr3.Tpo -c -o intrincs/lib32_libmingwex_a-readcr3.obj `if test -f 'intrincs/readcr3.c'; then $(CYGPATH_W) 'intrincs/readcr3.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr3.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr3.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr3.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr3.c' object='intrincs/lib32_libmingwex_a-readcr3.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-readcr3.obj `if test -f 'intrincs/readcr3.c'; then $(CYGPATH_W) 'intrincs/readcr3.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr3.c'; fi`
+
+intrincs/lib32_libmingwex_a-readcr4.o: intrincs/readcr4.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-readcr4.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr4.Tpo -c -o intrincs/lib32_libmingwex_a-readcr4.o `test -f 'intrincs/readcr4.c' || echo '$(srcdir)/'`intrincs/readcr4.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr4.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr4.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr4.c' object='intrincs/lib32_libmingwex_a-readcr4.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-readcr4.o `test -f 'intrincs/readcr4.c' || echo '$(srcdir)/'`intrincs/readcr4.c
+
+intrincs/lib32_libmingwex_a-readcr4.obj: intrincs/readcr4.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-readcr4.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr4.Tpo -c -o intrincs/lib32_libmingwex_a-readcr4.obj `if test -f 'intrincs/readcr4.c'; then $(CYGPATH_W) 'intrincs/readcr4.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr4.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr4.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr4.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr4.c' object='intrincs/lib32_libmingwex_a-readcr4.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-readcr4.obj `if test -f 'intrincs/readcr4.c'; then $(CYGPATH_W) 'intrincs/readcr4.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr4.c'; fi`
+
+intrincs/lib32_libmingwex_a-readcr8.o: intrincs/readcr8.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-readcr8.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr8.Tpo -c -o intrincs/lib32_libmingwex_a-readcr8.o `test -f 'intrincs/readcr8.c' || echo '$(srcdir)/'`intrincs/readcr8.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr8.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr8.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr8.c' object='intrincs/lib32_libmingwex_a-readcr8.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-readcr8.o `test -f 'intrincs/readcr8.c' || echo '$(srcdir)/'`intrincs/readcr8.c
+
+intrincs/lib32_libmingwex_a-readcr8.obj: intrincs/readcr8.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-readcr8.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr8.Tpo -c -o intrincs/lib32_libmingwex_a-readcr8.obj `if test -f 'intrincs/readcr8.c'; then $(CYGPATH_W) 'intrincs/readcr8.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr8.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr8.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-readcr8.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr8.c' object='intrincs/lib32_libmingwex_a-readcr8.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-readcr8.obj `if test -f 'intrincs/readcr8.c'; then $(CYGPATH_W) 'intrincs/readcr8.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr8.c'; fi`
+
+intrincs/lib32_libmingwex_a-writecr0.o: intrincs/writecr0.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writecr0.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr0.Tpo -c -o intrincs/lib32_libmingwex_a-writecr0.o `test -f 'intrincs/writecr0.c' || echo '$(srcdir)/'`intrincs/writecr0.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr0.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr0.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr0.c' object='intrincs/lib32_libmingwex_a-writecr0.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writecr0.o `test -f 'intrincs/writecr0.c' || echo '$(srcdir)/'`intrincs/writecr0.c
+
+intrincs/lib32_libmingwex_a-writecr0.obj: intrincs/writecr0.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writecr0.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr0.Tpo -c -o intrincs/lib32_libmingwex_a-writecr0.obj `if test -f 'intrincs/writecr0.c'; then $(CYGPATH_W) 'intrincs/writecr0.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr0.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr0.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr0.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr0.c' object='intrincs/lib32_libmingwex_a-writecr0.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writecr0.obj `if test -f 'intrincs/writecr0.c'; then $(CYGPATH_W) 'intrincs/writecr0.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr0.c'; fi`
+
+intrincs/lib32_libmingwex_a-writecr2.o: intrincs/writecr2.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writecr2.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr2.Tpo -c -o intrincs/lib32_libmingwex_a-writecr2.o `test -f 'intrincs/writecr2.c' || echo '$(srcdir)/'`intrincs/writecr2.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr2.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr2.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr2.c' object='intrincs/lib32_libmingwex_a-writecr2.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writecr2.o `test -f 'intrincs/writecr2.c' || echo '$(srcdir)/'`intrincs/writecr2.c
+
+intrincs/lib32_libmingwex_a-writecr2.obj: intrincs/writecr2.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writecr2.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr2.Tpo -c -o intrincs/lib32_libmingwex_a-writecr2.obj `if test -f 'intrincs/writecr2.c'; then $(CYGPATH_W) 'intrincs/writecr2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr2.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr2.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr2.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr2.c' object='intrincs/lib32_libmingwex_a-writecr2.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writecr2.obj `if test -f 'intrincs/writecr2.c'; then $(CYGPATH_W) 'intrincs/writecr2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr2.c'; fi`
+
+intrincs/lib32_libmingwex_a-writecr3.o: intrincs/writecr3.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writecr3.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr3.Tpo -c -o intrincs/lib32_libmingwex_a-writecr3.o `test -f 'intrincs/writecr3.c' || echo '$(srcdir)/'`intrincs/writecr3.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr3.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr3.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr3.c' object='intrincs/lib32_libmingwex_a-writecr3.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writecr3.o `test -f 'intrincs/writecr3.c' || echo '$(srcdir)/'`intrincs/writecr3.c
+
+intrincs/lib32_libmingwex_a-writecr3.obj: intrincs/writecr3.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writecr3.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr3.Tpo -c -o intrincs/lib32_libmingwex_a-writecr3.obj `if test -f 'intrincs/writecr3.c'; then $(CYGPATH_W) 'intrincs/writecr3.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr3.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr3.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr3.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr3.c' object='intrincs/lib32_libmingwex_a-writecr3.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writecr3.obj `if test -f 'intrincs/writecr3.c'; then $(CYGPATH_W) 'intrincs/writecr3.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr3.c'; fi`
+
+intrincs/lib32_libmingwex_a-writecr4.o: intrincs/writecr4.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writecr4.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr4.Tpo -c -o intrincs/lib32_libmingwex_a-writecr4.o `test -f 'intrincs/writecr4.c' || echo '$(srcdir)/'`intrincs/writecr4.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr4.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr4.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr4.c' object='intrincs/lib32_libmingwex_a-writecr4.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writecr4.o `test -f 'intrincs/writecr4.c' || echo '$(srcdir)/'`intrincs/writecr4.c
+
+intrincs/lib32_libmingwex_a-writecr4.obj: intrincs/writecr4.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writecr4.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr4.Tpo -c -o intrincs/lib32_libmingwex_a-writecr4.obj `if test -f 'intrincs/writecr4.c'; then $(CYGPATH_W) 'intrincs/writecr4.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr4.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr4.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr4.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr4.c' object='intrincs/lib32_libmingwex_a-writecr4.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writecr4.obj `if test -f 'intrincs/writecr4.c'; then $(CYGPATH_W) 'intrincs/writecr4.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr4.c'; fi`
+
+intrincs/lib32_libmingwex_a-writecr8.o: intrincs/writecr8.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writecr8.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr8.Tpo -c -o intrincs/lib32_libmingwex_a-writecr8.o `test -f 'intrincs/writecr8.c' || echo '$(srcdir)/'`intrincs/writecr8.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr8.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr8.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr8.c' object='intrincs/lib32_libmingwex_a-writecr8.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writecr8.o `test -f 'intrincs/writecr8.c' || echo '$(srcdir)/'`intrincs/writecr8.c
+
+intrincs/lib32_libmingwex_a-writecr8.obj: intrincs/writecr8.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writecr8.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr8.Tpo -c -o intrincs/lib32_libmingwex_a-writecr8.obj `if test -f 'intrincs/writecr8.c'; then $(CYGPATH_W) 'intrincs/writecr8.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr8.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr8.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr8.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr8.c' object='intrincs/lib32_libmingwex_a-writecr8.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writecr8.obj `if test -f 'intrincs/writecr8.c'; then $(CYGPATH_W) 'intrincs/writecr8.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr8.c'; fi`
+
+intrincs/lib32_libmingwex_a-readmsr.o: intrincs/readmsr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-readmsr.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-readmsr.Tpo -c -o intrincs/lib32_libmingwex_a-readmsr.o `test -f 'intrincs/readmsr.c' || echo '$(srcdir)/'`intrincs/readmsr.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-readmsr.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-readmsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readmsr.c' object='intrincs/lib32_libmingwex_a-readmsr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-readmsr.o `test -f 'intrincs/readmsr.c' || echo '$(srcdir)/'`intrincs/readmsr.c
+
+intrincs/lib32_libmingwex_a-readmsr.obj: intrincs/readmsr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-readmsr.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-readmsr.Tpo -c -o intrincs/lib32_libmingwex_a-readmsr.obj `if test -f 'intrincs/readmsr.c'; then $(CYGPATH_W) 'intrincs/readmsr.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readmsr.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-readmsr.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-readmsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readmsr.c' object='intrincs/lib32_libmingwex_a-readmsr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-readmsr.obj `if test -f 'intrincs/readmsr.c'; then $(CYGPATH_W) 'intrincs/readmsr.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readmsr.c'; fi`
+
+intrincs/lib32_libmingwex_a-writemsr.o: intrincs/writemsr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writemsr.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writemsr.Tpo -c -o intrincs/lib32_libmingwex_a-writemsr.o `test -f 'intrincs/writemsr.c' || echo '$(srcdir)/'`intrincs/writemsr.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writemsr.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writemsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writemsr.c' object='intrincs/lib32_libmingwex_a-writemsr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writemsr.o `test -f 'intrincs/writemsr.c' || echo '$(srcdir)/'`intrincs/writemsr.c
+
+intrincs/lib32_libmingwex_a-writemsr.obj: intrincs/writemsr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-writemsr.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-writemsr.Tpo -c -o intrincs/lib32_libmingwex_a-writemsr.obj `if test -f 'intrincs/writemsr.c'; then $(CYGPATH_W) 'intrincs/writemsr.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writemsr.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-writemsr.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-writemsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writemsr.c' object='intrincs/lib32_libmingwex_a-writemsr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-writemsr.obj `if test -f 'intrincs/writemsr.c'; then $(CYGPATH_W) 'intrincs/writemsr.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writemsr.c'; fi`
+
+intrincs/lib32_libmingwex_a-rdtsc.o: intrincs/rdtsc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-rdtsc.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-rdtsc.Tpo -c -o intrincs/lib32_libmingwex_a-rdtsc.o `test -f 'intrincs/rdtsc.c' || echo '$(srcdir)/'`intrincs/rdtsc.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-rdtsc.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-rdtsc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/rdtsc.c' object='intrincs/lib32_libmingwex_a-rdtsc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-rdtsc.o `test -f 'intrincs/rdtsc.c' || echo '$(srcdir)/'`intrincs/rdtsc.c
+
+intrincs/lib32_libmingwex_a-rdtsc.obj: intrincs/rdtsc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-rdtsc.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-rdtsc.Tpo -c -o intrincs/lib32_libmingwex_a-rdtsc.obj `if test -f 'intrincs/rdtsc.c'; then $(CYGPATH_W) 'intrincs/rdtsc.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/rdtsc.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-rdtsc.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-rdtsc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/rdtsc.c' object='intrincs/lib32_libmingwex_a-rdtsc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-rdtsc.obj `if test -f 'intrincs/rdtsc.c'; then $(CYGPATH_W) 'intrincs/rdtsc.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/rdtsc.c'; fi`
+
+intrincs/lib32_libmingwex_a-cpuid.o: intrincs/cpuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-cpuid.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-cpuid.Tpo -c -o intrincs/lib32_libmingwex_a-cpuid.o `test -f 'intrincs/cpuid.c' || echo '$(srcdir)/'`intrincs/cpuid.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-cpuid.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-cpuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/cpuid.c' object='intrincs/lib32_libmingwex_a-cpuid.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-cpuid.o `test -f 'intrincs/cpuid.c' || echo '$(srcdir)/'`intrincs/cpuid.c
+
+intrincs/lib32_libmingwex_a-cpuid.obj: intrincs/cpuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-cpuid.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-cpuid.Tpo -c -o intrincs/lib32_libmingwex_a-cpuid.obj `if test -f 'intrincs/cpuid.c'; then $(CYGPATH_W) 'intrincs/cpuid.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/cpuid.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-cpuid.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-cpuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/cpuid.c' object='intrincs/lib32_libmingwex_a-cpuid.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-cpuid.obj `if test -f 'intrincs/cpuid.c'; then $(CYGPATH_W) 'intrincs/cpuid.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/cpuid.c'; fi`
 
 intrincs/lib32_libmingwex_a-bittest.o: intrincs/bittest.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-bittest.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-bittest.Tpo -c -o intrincs/lib32_libmingwex_a-bittest.o `test -f 'intrincs/bittest.c' || echo '$(srcdir)/'`intrincs/bittest.c
@@ -12215,20 +12830,6 @@ misc/lib32_libmingwex_a-imaxdiv.obj: misc/imaxdiv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-imaxdiv.obj `if test -f 'misc/imaxdiv.c'; then $(CYGPATH_W) 'misc/imaxdiv.c'; else $(CYGPATH_W) '$(srcdir)/misc/imaxdiv.c'; fi`
 
-misc/lib32_libmingwex_a-io_intrin.o: misc/io_intrin.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-io_intrin.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-io_intrin.Tpo -c -o misc/lib32_libmingwex_a-io_intrin.o `test -f 'misc/io_intrin.c' || echo '$(srcdir)/'`misc/io_intrin.c
-@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-io_intrin.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-io_intrin.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/io_intrin.c' object='misc/lib32_libmingwex_a-io_intrin.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-io_intrin.o `test -f 'misc/io_intrin.c' || echo '$(srcdir)/'`misc/io_intrin.c
-
-misc/lib32_libmingwex_a-io_intrin.obj: misc/io_intrin.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-io_intrin.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-io_intrin.Tpo -c -o misc/lib32_libmingwex_a-io_intrin.obj `if test -f 'misc/io_intrin.c'; then $(CYGPATH_W) 'misc/io_intrin.c'; else $(CYGPATH_W) '$(srcdir)/misc/io_intrin.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-io_intrin.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-io_intrin.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/io_intrin.c' object='misc/lib32_libmingwex_a-io_intrin.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-io_intrin.obj `if test -f 'misc/io_intrin.c'; then $(CYGPATH_W) 'misc/io_intrin.c'; else $(CYGPATH_W) '$(srcdir)/misc/io_intrin.c'; fi`
-
 misc/lib32_libmingwex_a-isblank.o: misc/isblank.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-isblank.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-isblank.Tpo -c -o misc/lib32_libmingwex_a-isblank.o `test -f 'misc/isblank.c' || echo '$(srcdir)/'`misc/isblank.c
 @am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-isblank.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-isblank.Po
@@ -14188,6 +14789,356 @@ libsrc/lib64_libmingw32_a-dummy_mingwthrd.obj: libsrc/dummy_mingwthrd.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/dummy_mingwthrd.c' object='libsrc/lib64_libmingw32_a-dummy_mingwthrd.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libmingw32_a-dummy_mingwthrd.obj `if test -f 'libsrc/dummy_mingwthrd.c'; then $(CYGPATH_W) 'libsrc/dummy_mingwthrd.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/dummy_mingwthrd.c'; fi`
+
+intrincs/lib64_libmingwex_a-inbyte.o: intrincs/inbyte.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-inbyte.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-inbyte.Tpo -c -o intrincs/lib64_libmingwex_a-inbyte.o `test -f 'intrincs/inbyte.c' || echo '$(srcdir)/'`intrincs/inbyte.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-inbyte.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-inbyte.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inbyte.c' object='intrincs/lib64_libmingwex_a-inbyte.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-inbyte.o `test -f 'intrincs/inbyte.c' || echo '$(srcdir)/'`intrincs/inbyte.c
+
+intrincs/lib64_libmingwex_a-inbyte.obj: intrincs/inbyte.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-inbyte.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-inbyte.Tpo -c -o intrincs/lib64_libmingwex_a-inbyte.obj `if test -f 'intrincs/inbyte.c'; then $(CYGPATH_W) 'intrincs/inbyte.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inbyte.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-inbyte.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-inbyte.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inbyte.c' object='intrincs/lib64_libmingwex_a-inbyte.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-inbyte.obj `if test -f 'intrincs/inbyte.c'; then $(CYGPATH_W) 'intrincs/inbyte.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inbyte.c'; fi`
+
+intrincs/lib64_libmingwex_a-inbytestring.o: intrincs/inbytestring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-inbytestring.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-inbytestring.Tpo -c -o intrincs/lib64_libmingwex_a-inbytestring.o `test -f 'intrincs/inbytestring.c' || echo '$(srcdir)/'`intrincs/inbytestring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-inbytestring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-inbytestring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inbytestring.c' object='intrincs/lib64_libmingwex_a-inbytestring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-inbytestring.o `test -f 'intrincs/inbytestring.c' || echo '$(srcdir)/'`intrincs/inbytestring.c
+
+intrincs/lib64_libmingwex_a-inbytestring.obj: intrincs/inbytestring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-inbytestring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-inbytestring.Tpo -c -o intrincs/lib64_libmingwex_a-inbytestring.obj `if test -f 'intrincs/inbytestring.c'; then $(CYGPATH_W) 'intrincs/inbytestring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inbytestring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-inbytestring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-inbytestring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inbytestring.c' object='intrincs/lib64_libmingwex_a-inbytestring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-inbytestring.obj `if test -f 'intrincs/inbytestring.c'; then $(CYGPATH_W) 'intrincs/inbytestring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inbytestring.c'; fi`
+
+intrincs/lib64_libmingwex_a-indword.o: intrincs/indword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-indword.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-indword.Tpo -c -o intrincs/lib64_libmingwex_a-indword.o `test -f 'intrincs/indword.c' || echo '$(srcdir)/'`intrincs/indword.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-indword.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-indword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/indword.c' object='intrincs/lib64_libmingwex_a-indword.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-indword.o `test -f 'intrincs/indword.c' || echo '$(srcdir)/'`intrincs/indword.c
+
+intrincs/lib64_libmingwex_a-indword.obj: intrincs/indword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-indword.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-indword.Tpo -c -o intrincs/lib64_libmingwex_a-indword.obj `if test -f 'intrincs/indword.c'; then $(CYGPATH_W) 'intrincs/indword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/indword.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-indword.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-indword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/indword.c' object='intrincs/lib64_libmingwex_a-indword.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-indword.obj `if test -f 'intrincs/indword.c'; then $(CYGPATH_W) 'intrincs/indword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/indword.c'; fi`
+
+intrincs/lib64_libmingwex_a-indwordstring.o: intrincs/indwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-indwordstring.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-indwordstring.Tpo -c -o intrincs/lib64_libmingwex_a-indwordstring.o `test -f 'intrincs/indwordstring.c' || echo '$(srcdir)/'`intrincs/indwordstring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-indwordstring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-indwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/indwordstring.c' object='intrincs/lib64_libmingwex_a-indwordstring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-indwordstring.o `test -f 'intrincs/indwordstring.c' || echo '$(srcdir)/'`intrincs/indwordstring.c
+
+intrincs/lib64_libmingwex_a-indwordstring.obj: intrincs/indwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-indwordstring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-indwordstring.Tpo -c -o intrincs/lib64_libmingwex_a-indwordstring.obj `if test -f 'intrincs/indwordstring.c'; then $(CYGPATH_W) 'intrincs/indwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/indwordstring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-indwordstring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-indwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/indwordstring.c' object='intrincs/lib64_libmingwex_a-indwordstring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-indwordstring.obj `if test -f 'intrincs/indwordstring.c'; then $(CYGPATH_W) 'intrincs/indwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/indwordstring.c'; fi`
+
+intrincs/lib64_libmingwex_a-inword.o: intrincs/inword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-inword.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-inword.Tpo -c -o intrincs/lib64_libmingwex_a-inword.o `test -f 'intrincs/inword.c' || echo '$(srcdir)/'`intrincs/inword.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-inword.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-inword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inword.c' object='intrincs/lib64_libmingwex_a-inword.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-inword.o `test -f 'intrincs/inword.c' || echo '$(srcdir)/'`intrincs/inword.c
+
+intrincs/lib64_libmingwex_a-inword.obj: intrincs/inword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-inword.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-inword.Tpo -c -o intrincs/lib64_libmingwex_a-inword.obj `if test -f 'intrincs/inword.c'; then $(CYGPATH_W) 'intrincs/inword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inword.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-inword.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-inword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inword.c' object='intrincs/lib64_libmingwex_a-inword.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-inword.obj `if test -f 'intrincs/inword.c'; then $(CYGPATH_W) 'intrincs/inword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inword.c'; fi`
+
+intrincs/lib64_libmingwex_a-inwordstring.o: intrincs/inwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-inwordstring.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-inwordstring.Tpo -c -o intrincs/lib64_libmingwex_a-inwordstring.o `test -f 'intrincs/inwordstring.c' || echo '$(srcdir)/'`intrincs/inwordstring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-inwordstring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-inwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inwordstring.c' object='intrincs/lib64_libmingwex_a-inwordstring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-inwordstring.o `test -f 'intrincs/inwordstring.c' || echo '$(srcdir)/'`intrincs/inwordstring.c
+
+intrincs/lib64_libmingwex_a-inwordstring.obj: intrincs/inwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-inwordstring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-inwordstring.Tpo -c -o intrincs/lib64_libmingwex_a-inwordstring.obj `if test -f 'intrincs/inwordstring.c'; then $(CYGPATH_W) 'intrincs/inwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inwordstring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-inwordstring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-inwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/inwordstring.c' object='intrincs/lib64_libmingwex_a-inwordstring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-inwordstring.obj `if test -f 'intrincs/inwordstring.c'; then $(CYGPATH_W) 'intrincs/inwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/inwordstring.c'; fi`
+
+intrincs/lib64_libmingwex_a-outbyte.o: intrincs/outbyte.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outbyte.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outbyte.Tpo -c -o intrincs/lib64_libmingwex_a-outbyte.o `test -f 'intrincs/outbyte.c' || echo '$(srcdir)/'`intrincs/outbyte.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outbyte.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outbyte.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outbyte.c' object='intrincs/lib64_libmingwex_a-outbyte.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outbyte.o `test -f 'intrincs/outbyte.c' || echo '$(srcdir)/'`intrincs/outbyte.c
+
+intrincs/lib64_libmingwex_a-outbyte.obj: intrincs/outbyte.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outbyte.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outbyte.Tpo -c -o intrincs/lib64_libmingwex_a-outbyte.obj `if test -f 'intrincs/outbyte.c'; then $(CYGPATH_W) 'intrincs/outbyte.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outbyte.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outbyte.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outbyte.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outbyte.c' object='intrincs/lib64_libmingwex_a-outbyte.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outbyte.obj `if test -f 'intrincs/outbyte.c'; then $(CYGPATH_W) 'intrincs/outbyte.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outbyte.c'; fi`
+
+intrincs/lib64_libmingwex_a-outbytestring.o: intrincs/outbytestring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outbytestring.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outbytestring.Tpo -c -o intrincs/lib64_libmingwex_a-outbytestring.o `test -f 'intrincs/outbytestring.c' || echo '$(srcdir)/'`intrincs/outbytestring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outbytestring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outbytestring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outbytestring.c' object='intrincs/lib64_libmingwex_a-outbytestring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outbytestring.o `test -f 'intrincs/outbytestring.c' || echo '$(srcdir)/'`intrincs/outbytestring.c
+
+intrincs/lib64_libmingwex_a-outbytestring.obj: intrincs/outbytestring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outbytestring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outbytestring.Tpo -c -o intrincs/lib64_libmingwex_a-outbytestring.obj `if test -f 'intrincs/outbytestring.c'; then $(CYGPATH_W) 'intrincs/outbytestring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outbytestring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outbytestring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outbytestring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outbytestring.c' object='intrincs/lib64_libmingwex_a-outbytestring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outbytestring.obj `if test -f 'intrincs/outbytestring.c'; then $(CYGPATH_W) 'intrincs/outbytestring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outbytestring.c'; fi`
+
+intrincs/lib64_libmingwex_a-outdword.o: intrincs/outdword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outdword.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outdword.Tpo -c -o intrincs/lib64_libmingwex_a-outdword.o `test -f 'intrincs/outdword.c' || echo '$(srcdir)/'`intrincs/outdword.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outdword.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outdword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outdword.c' object='intrincs/lib64_libmingwex_a-outdword.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outdword.o `test -f 'intrincs/outdword.c' || echo '$(srcdir)/'`intrincs/outdword.c
+
+intrincs/lib64_libmingwex_a-outdword.obj: intrincs/outdword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outdword.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outdword.Tpo -c -o intrincs/lib64_libmingwex_a-outdword.obj `if test -f 'intrincs/outdword.c'; then $(CYGPATH_W) 'intrincs/outdword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outdword.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outdword.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outdword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outdword.c' object='intrincs/lib64_libmingwex_a-outdword.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outdword.obj `if test -f 'intrincs/outdword.c'; then $(CYGPATH_W) 'intrincs/outdword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outdword.c'; fi`
+
+intrincs/lib64_libmingwex_a-outdwordstring.o: intrincs/outdwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outdwordstring.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outdwordstring.Tpo -c -o intrincs/lib64_libmingwex_a-outdwordstring.o `test -f 'intrincs/outdwordstring.c' || echo '$(srcdir)/'`intrincs/outdwordstring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outdwordstring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outdwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outdwordstring.c' object='intrincs/lib64_libmingwex_a-outdwordstring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outdwordstring.o `test -f 'intrincs/outdwordstring.c' || echo '$(srcdir)/'`intrincs/outdwordstring.c
+
+intrincs/lib64_libmingwex_a-outdwordstring.obj: intrincs/outdwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outdwordstring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outdwordstring.Tpo -c -o intrincs/lib64_libmingwex_a-outdwordstring.obj `if test -f 'intrincs/outdwordstring.c'; then $(CYGPATH_W) 'intrincs/outdwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outdwordstring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outdwordstring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outdwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outdwordstring.c' object='intrincs/lib64_libmingwex_a-outdwordstring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outdwordstring.obj `if test -f 'intrincs/outdwordstring.c'; then $(CYGPATH_W) 'intrincs/outdwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outdwordstring.c'; fi`
+
+intrincs/lib64_libmingwex_a-outword.o: intrincs/outword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outword.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outword.Tpo -c -o intrincs/lib64_libmingwex_a-outword.o `test -f 'intrincs/outword.c' || echo '$(srcdir)/'`intrincs/outword.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outword.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outword.c' object='intrincs/lib64_libmingwex_a-outword.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outword.o `test -f 'intrincs/outword.c' || echo '$(srcdir)/'`intrincs/outword.c
+
+intrincs/lib64_libmingwex_a-outword.obj: intrincs/outword.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outword.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outword.Tpo -c -o intrincs/lib64_libmingwex_a-outword.obj `if test -f 'intrincs/outword.c'; then $(CYGPATH_W) 'intrincs/outword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outword.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outword.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outword.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outword.c' object='intrincs/lib64_libmingwex_a-outword.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outword.obj `if test -f 'intrincs/outword.c'; then $(CYGPATH_W) 'intrincs/outword.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outword.c'; fi`
+
+intrincs/lib64_libmingwex_a-outwordstring.o: intrincs/outwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outwordstring.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outwordstring.Tpo -c -o intrincs/lib64_libmingwex_a-outwordstring.o `test -f 'intrincs/outwordstring.c' || echo '$(srcdir)/'`intrincs/outwordstring.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outwordstring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outwordstring.c' object='intrincs/lib64_libmingwex_a-outwordstring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outwordstring.o `test -f 'intrincs/outwordstring.c' || echo '$(srcdir)/'`intrincs/outwordstring.c
+
+intrincs/lib64_libmingwex_a-outwordstring.obj: intrincs/outwordstring.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-outwordstring.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-outwordstring.Tpo -c -o intrincs/lib64_libmingwex_a-outwordstring.obj `if test -f 'intrincs/outwordstring.c'; then $(CYGPATH_W) 'intrincs/outwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outwordstring.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-outwordstring.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-outwordstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/outwordstring.c' object='intrincs/lib64_libmingwex_a-outwordstring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-outwordstring.obj `if test -f 'intrincs/outwordstring.c'; then $(CYGPATH_W) 'intrincs/outwordstring.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/outwordstring.c'; fi`
+
+intrincs/lib64_libmingwex_a-readcr2.o: intrincs/readcr2.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-readcr2.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr2.Tpo -c -o intrincs/lib64_libmingwex_a-readcr2.o `test -f 'intrincs/readcr2.c' || echo '$(srcdir)/'`intrincs/readcr2.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr2.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr2.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr2.c' object='intrincs/lib64_libmingwex_a-readcr2.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-readcr2.o `test -f 'intrincs/readcr2.c' || echo '$(srcdir)/'`intrincs/readcr2.c
+
+intrincs/lib64_libmingwex_a-readcr2.obj: intrincs/readcr2.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-readcr2.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr2.Tpo -c -o intrincs/lib64_libmingwex_a-readcr2.obj `if test -f 'intrincs/readcr2.c'; then $(CYGPATH_W) 'intrincs/readcr2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr2.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr2.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr2.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr2.c' object='intrincs/lib64_libmingwex_a-readcr2.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-readcr2.obj `if test -f 'intrincs/readcr2.c'; then $(CYGPATH_W) 'intrincs/readcr2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr2.c'; fi`
+
+intrincs/lib64_libmingwex_a-readcr3.o: intrincs/readcr3.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-readcr3.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr3.Tpo -c -o intrincs/lib64_libmingwex_a-readcr3.o `test -f 'intrincs/readcr3.c' || echo '$(srcdir)/'`intrincs/readcr3.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr3.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr3.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr3.c' object='intrincs/lib64_libmingwex_a-readcr3.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-readcr3.o `test -f 'intrincs/readcr3.c' || echo '$(srcdir)/'`intrincs/readcr3.c
+
+intrincs/lib64_libmingwex_a-readcr3.obj: intrincs/readcr3.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-readcr3.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr3.Tpo -c -o intrincs/lib64_libmingwex_a-readcr3.obj `if test -f 'intrincs/readcr3.c'; then $(CYGPATH_W) 'intrincs/readcr3.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr3.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr3.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr3.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr3.c' object='intrincs/lib64_libmingwex_a-readcr3.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-readcr3.obj `if test -f 'intrincs/readcr3.c'; then $(CYGPATH_W) 'intrincs/readcr3.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr3.c'; fi`
+
+intrincs/lib64_libmingwex_a-readcr4.o: intrincs/readcr4.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-readcr4.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr4.Tpo -c -o intrincs/lib64_libmingwex_a-readcr4.o `test -f 'intrincs/readcr4.c' || echo '$(srcdir)/'`intrincs/readcr4.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr4.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr4.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr4.c' object='intrincs/lib64_libmingwex_a-readcr4.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-readcr4.o `test -f 'intrincs/readcr4.c' || echo '$(srcdir)/'`intrincs/readcr4.c
+
+intrincs/lib64_libmingwex_a-readcr4.obj: intrincs/readcr4.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-readcr4.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr4.Tpo -c -o intrincs/lib64_libmingwex_a-readcr4.obj `if test -f 'intrincs/readcr4.c'; then $(CYGPATH_W) 'intrincs/readcr4.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr4.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr4.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr4.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr4.c' object='intrincs/lib64_libmingwex_a-readcr4.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-readcr4.obj `if test -f 'intrincs/readcr4.c'; then $(CYGPATH_W) 'intrincs/readcr4.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr4.c'; fi`
+
+intrincs/lib64_libmingwex_a-readcr8.o: intrincs/readcr8.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-readcr8.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr8.Tpo -c -o intrincs/lib64_libmingwex_a-readcr8.o `test -f 'intrincs/readcr8.c' || echo '$(srcdir)/'`intrincs/readcr8.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr8.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr8.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr8.c' object='intrincs/lib64_libmingwex_a-readcr8.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-readcr8.o `test -f 'intrincs/readcr8.c' || echo '$(srcdir)/'`intrincs/readcr8.c
+
+intrincs/lib64_libmingwex_a-readcr8.obj: intrincs/readcr8.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-readcr8.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr8.Tpo -c -o intrincs/lib64_libmingwex_a-readcr8.obj `if test -f 'intrincs/readcr8.c'; then $(CYGPATH_W) 'intrincs/readcr8.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr8.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr8.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-readcr8.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readcr8.c' object='intrincs/lib64_libmingwex_a-readcr8.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-readcr8.obj `if test -f 'intrincs/readcr8.c'; then $(CYGPATH_W) 'intrincs/readcr8.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readcr8.c'; fi`
+
+intrincs/lib64_libmingwex_a-writecr0.o: intrincs/writecr0.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writecr0.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr0.Tpo -c -o intrincs/lib64_libmingwex_a-writecr0.o `test -f 'intrincs/writecr0.c' || echo '$(srcdir)/'`intrincs/writecr0.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr0.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr0.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr0.c' object='intrincs/lib64_libmingwex_a-writecr0.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writecr0.o `test -f 'intrincs/writecr0.c' || echo '$(srcdir)/'`intrincs/writecr0.c
+
+intrincs/lib64_libmingwex_a-writecr0.obj: intrincs/writecr0.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writecr0.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr0.Tpo -c -o intrincs/lib64_libmingwex_a-writecr0.obj `if test -f 'intrincs/writecr0.c'; then $(CYGPATH_W) 'intrincs/writecr0.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr0.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr0.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr0.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr0.c' object='intrincs/lib64_libmingwex_a-writecr0.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writecr0.obj `if test -f 'intrincs/writecr0.c'; then $(CYGPATH_W) 'intrincs/writecr0.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr0.c'; fi`
+
+intrincs/lib64_libmingwex_a-writecr2.o: intrincs/writecr2.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writecr2.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr2.Tpo -c -o intrincs/lib64_libmingwex_a-writecr2.o `test -f 'intrincs/writecr2.c' || echo '$(srcdir)/'`intrincs/writecr2.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr2.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr2.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr2.c' object='intrincs/lib64_libmingwex_a-writecr2.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writecr2.o `test -f 'intrincs/writecr2.c' || echo '$(srcdir)/'`intrincs/writecr2.c
+
+intrincs/lib64_libmingwex_a-writecr2.obj: intrincs/writecr2.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writecr2.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr2.Tpo -c -o intrincs/lib64_libmingwex_a-writecr2.obj `if test -f 'intrincs/writecr2.c'; then $(CYGPATH_W) 'intrincs/writecr2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr2.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr2.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr2.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr2.c' object='intrincs/lib64_libmingwex_a-writecr2.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writecr2.obj `if test -f 'intrincs/writecr2.c'; then $(CYGPATH_W) 'intrincs/writecr2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr2.c'; fi`
+
+intrincs/lib64_libmingwex_a-writecr3.o: intrincs/writecr3.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writecr3.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr3.Tpo -c -o intrincs/lib64_libmingwex_a-writecr3.o `test -f 'intrincs/writecr3.c' || echo '$(srcdir)/'`intrincs/writecr3.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr3.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr3.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr3.c' object='intrincs/lib64_libmingwex_a-writecr3.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writecr3.o `test -f 'intrincs/writecr3.c' || echo '$(srcdir)/'`intrincs/writecr3.c
+
+intrincs/lib64_libmingwex_a-writecr3.obj: intrincs/writecr3.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writecr3.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr3.Tpo -c -o intrincs/lib64_libmingwex_a-writecr3.obj `if test -f 'intrincs/writecr3.c'; then $(CYGPATH_W) 'intrincs/writecr3.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr3.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr3.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr3.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr3.c' object='intrincs/lib64_libmingwex_a-writecr3.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writecr3.obj `if test -f 'intrincs/writecr3.c'; then $(CYGPATH_W) 'intrincs/writecr3.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr3.c'; fi`
+
+intrincs/lib64_libmingwex_a-writecr4.o: intrincs/writecr4.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writecr4.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr4.Tpo -c -o intrincs/lib64_libmingwex_a-writecr4.o `test -f 'intrincs/writecr4.c' || echo '$(srcdir)/'`intrincs/writecr4.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr4.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr4.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr4.c' object='intrincs/lib64_libmingwex_a-writecr4.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writecr4.o `test -f 'intrincs/writecr4.c' || echo '$(srcdir)/'`intrincs/writecr4.c
+
+intrincs/lib64_libmingwex_a-writecr4.obj: intrincs/writecr4.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writecr4.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr4.Tpo -c -o intrincs/lib64_libmingwex_a-writecr4.obj `if test -f 'intrincs/writecr4.c'; then $(CYGPATH_W) 'intrincs/writecr4.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr4.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr4.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr4.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr4.c' object='intrincs/lib64_libmingwex_a-writecr4.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writecr4.obj `if test -f 'intrincs/writecr4.c'; then $(CYGPATH_W) 'intrincs/writecr4.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr4.c'; fi`
+
+intrincs/lib64_libmingwex_a-writecr8.o: intrincs/writecr8.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writecr8.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr8.Tpo -c -o intrincs/lib64_libmingwex_a-writecr8.o `test -f 'intrincs/writecr8.c' || echo '$(srcdir)/'`intrincs/writecr8.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr8.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr8.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr8.c' object='intrincs/lib64_libmingwex_a-writecr8.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writecr8.o `test -f 'intrincs/writecr8.c' || echo '$(srcdir)/'`intrincs/writecr8.c
+
+intrincs/lib64_libmingwex_a-writecr8.obj: intrincs/writecr8.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writecr8.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr8.Tpo -c -o intrincs/lib64_libmingwex_a-writecr8.obj `if test -f 'intrincs/writecr8.c'; then $(CYGPATH_W) 'intrincs/writecr8.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr8.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr8.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writecr8.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writecr8.c' object='intrincs/lib64_libmingwex_a-writecr8.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writecr8.obj `if test -f 'intrincs/writecr8.c'; then $(CYGPATH_W) 'intrincs/writecr8.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writecr8.c'; fi`
+
+intrincs/lib64_libmingwex_a-readmsr.o: intrincs/readmsr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-readmsr.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-readmsr.Tpo -c -o intrincs/lib64_libmingwex_a-readmsr.o `test -f 'intrincs/readmsr.c' || echo '$(srcdir)/'`intrincs/readmsr.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-readmsr.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-readmsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readmsr.c' object='intrincs/lib64_libmingwex_a-readmsr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-readmsr.o `test -f 'intrincs/readmsr.c' || echo '$(srcdir)/'`intrincs/readmsr.c
+
+intrincs/lib64_libmingwex_a-readmsr.obj: intrincs/readmsr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-readmsr.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-readmsr.Tpo -c -o intrincs/lib64_libmingwex_a-readmsr.obj `if test -f 'intrincs/readmsr.c'; then $(CYGPATH_W) 'intrincs/readmsr.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readmsr.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-readmsr.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-readmsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/readmsr.c' object='intrincs/lib64_libmingwex_a-readmsr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-readmsr.obj `if test -f 'intrincs/readmsr.c'; then $(CYGPATH_W) 'intrincs/readmsr.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/readmsr.c'; fi`
+
+intrincs/lib64_libmingwex_a-writemsr.o: intrincs/writemsr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writemsr.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writemsr.Tpo -c -o intrincs/lib64_libmingwex_a-writemsr.o `test -f 'intrincs/writemsr.c' || echo '$(srcdir)/'`intrincs/writemsr.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writemsr.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writemsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writemsr.c' object='intrincs/lib64_libmingwex_a-writemsr.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writemsr.o `test -f 'intrincs/writemsr.c' || echo '$(srcdir)/'`intrincs/writemsr.c
+
+intrincs/lib64_libmingwex_a-writemsr.obj: intrincs/writemsr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-writemsr.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-writemsr.Tpo -c -o intrincs/lib64_libmingwex_a-writemsr.obj `if test -f 'intrincs/writemsr.c'; then $(CYGPATH_W) 'intrincs/writemsr.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writemsr.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-writemsr.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-writemsr.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/writemsr.c' object='intrincs/lib64_libmingwex_a-writemsr.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-writemsr.obj `if test -f 'intrincs/writemsr.c'; then $(CYGPATH_W) 'intrincs/writemsr.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/writemsr.c'; fi`
+
+intrincs/lib64_libmingwex_a-rdtsc.o: intrincs/rdtsc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-rdtsc.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-rdtsc.Tpo -c -o intrincs/lib64_libmingwex_a-rdtsc.o `test -f 'intrincs/rdtsc.c' || echo '$(srcdir)/'`intrincs/rdtsc.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-rdtsc.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-rdtsc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/rdtsc.c' object='intrincs/lib64_libmingwex_a-rdtsc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-rdtsc.o `test -f 'intrincs/rdtsc.c' || echo '$(srcdir)/'`intrincs/rdtsc.c
+
+intrincs/lib64_libmingwex_a-rdtsc.obj: intrincs/rdtsc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-rdtsc.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-rdtsc.Tpo -c -o intrincs/lib64_libmingwex_a-rdtsc.obj `if test -f 'intrincs/rdtsc.c'; then $(CYGPATH_W) 'intrincs/rdtsc.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/rdtsc.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-rdtsc.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-rdtsc.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/rdtsc.c' object='intrincs/lib64_libmingwex_a-rdtsc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-rdtsc.obj `if test -f 'intrincs/rdtsc.c'; then $(CYGPATH_W) 'intrincs/rdtsc.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/rdtsc.c'; fi`
+
+intrincs/lib64_libmingwex_a-cpuid.o: intrincs/cpuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-cpuid.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-cpuid.Tpo -c -o intrincs/lib64_libmingwex_a-cpuid.o `test -f 'intrincs/cpuid.c' || echo '$(srcdir)/'`intrincs/cpuid.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-cpuid.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-cpuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/cpuid.c' object='intrincs/lib64_libmingwex_a-cpuid.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-cpuid.o `test -f 'intrincs/cpuid.c' || echo '$(srcdir)/'`intrincs/cpuid.c
+
+intrincs/lib64_libmingwex_a-cpuid.obj: intrincs/cpuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-cpuid.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-cpuid.Tpo -c -o intrincs/lib64_libmingwex_a-cpuid.obj `if test -f 'intrincs/cpuid.c'; then $(CYGPATH_W) 'intrincs/cpuid.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/cpuid.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-cpuid.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-cpuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/cpuid.c' object='intrincs/lib64_libmingwex_a-cpuid.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-cpuid.obj `if test -f 'intrincs/cpuid.c'; then $(CYGPATH_W) 'intrincs/cpuid.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/cpuid.c'; fi`
 
 intrincs/lib64_libmingwex_a-bittest.o: intrincs/bittest.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-bittest.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-bittest.Tpo -c -o intrincs/lib64_libmingwex_a-bittest.o `test -f 'intrincs/bittest.c' || echo '$(srcdir)/'`intrincs/bittest.c
@@ -17814,20 +18765,6 @@ misc/lib64_libmingwex_a-imaxdiv.obj: misc/imaxdiv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/imaxdiv.c' object='misc/lib64_libmingwex_a-imaxdiv.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-imaxdiv.obj `if test -f 'misc/imaxdiv.c'; then $(CYGPATH_W) 'misc/imaxdiv.c'; else $(CYGPATH_W) '$(srcdir)/misc/imaxdiv.c'; fi`
-
-misc/lib64_libmingwex_a-io_intrin.o: misc/io_intrin.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-io_intrin.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-io_intrin.Tpo -c -o misc/lib64_libmingwex_a-io_intrin.o `test -f 'misc/io_intrin.c' || echo '$(srcdir)/'`misc/io_intrin.c
-@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-io_intrin.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-io_intrin.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/io_intrin.c' object='misc/lib64_libmingwex_a-io_intrin.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-io_intrin.o `test -f 'misc/io_intrin.c' || echo '$(srcdir)/'`misc/io_intrin.c
-
-misc/lib64_libmingwex_a-io_intrin.obj: misc/io_intrin.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-io_intrin.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-io_intrin.Tpo -c -o misc/lib64_libmingwex_a-io_intrin.obj `if test -f 'misc/io_intrin.c'; then $(CYGPATH_W) 'misc/io_intrin.c'; else $(CYGPATH_W) '$(srcdir)/misc/io_intrin.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-io_intrin.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-io_intrin.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/io_intrin.c' object='misc/lib64_libmingwex_a-io_intrin.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-io_intrin.obj `if test -f 'misc/io_intrin.c'; then $(CYGPATH_W) 'misc/io_intrin.c'; else $(CYGPATH_W) '$(srcdir)/misc/io_intrin.c'; fi`
 
 misc/lib64_libmingwex_a-isblank.o: misc/isblank.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-isblank.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-isblank.Tpo -c -o misc/lib64_libmingwex_a-isblank.o `test -f 'misc/isblank.c' || echo '$(srcdir)/'`misc/isblank.c

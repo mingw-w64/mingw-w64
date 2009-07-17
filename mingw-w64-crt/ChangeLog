@@ -1,3 +1,21 @@
+2009-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+	    Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/io_intrin.c: Deleted. Broken out its contents, one function
+	per file, into new sources in the 'intrincs' directory.
+	* intrincs/cpuid.c, intrincs/inbyte.c, intrincs/inbytestring.c,
+	intrincs/indword.c, intrincs/indwordstring.c, intrincs/inword.c,
+	intrincs/inwordstring.c, intrincs/outbyte.c, intrincs/outbytestring.c,
+	intrincs/outdword.c, intrincs/outdwordstring.c, intrincs/outword.c,
+	intrincs/outwordstring.c, intrincs/rdtsc.c, intrincs/readcr2.c,
+	intrincs/readcr3.c, intrincs/readcr4.c, intrincs/readcr8.c,
+	intrincs/readmsr.c, intrincs/writecr0.c, intrincs/writecr2.c,
+	intrincs/writecr3.c, intrincs/writecr4.c, intrincs/writecr8.c,
+	intrincs/writemsr.c: New.
+	* Makefile.am: Removed misc/io_intrin.c from build. Adjusted for the
+	new intrincs/*.c files.
+	* Makefile.in: Regenerated.
+
 2009-07-16  Ozkan Sezer  <sezeroz@gmail.com>
 	    Kai Tietz  <kai.tietz@onevision.com>
 
