@@ -7,11 +7,12 @@
 #ifndef _INC_CRTDEFS_MACRO
 #define _INC_CRTDEFS_MACRO
 
-#ifndef __MINGW64
-#define __MINGW64
-#define __MINGW64_VERSION	"1.0"
+#define __STRINGIFY(x) #x
+#define STRINGIFY(x) __STRINGIFY(x)
+
 #define __MINGW64_VERSION_MAJOR	1
 #define __MINGW64_VERSION_MINOR	0
+#define __MINGW64_VERSION	STRINGIFY(__MINGW64_VERSION_MAJOR) "." STRINGIFY(__MINGW64_VERSION_MINOR)
 #define __MINGW64_VERSION_STATE	"beta"
 
 /* mingw.org's version macros: these make gcc to define
@@ -20,7 +21,6 @@
    CRT in its private gthr-win32.h header. */
 #define __MINGW32_MAJOR_VERSION 3
 #define __MINGW32_MINOR_VERSION 11
-#endif
 
 #ifdef _WIN64
 /* MS does not prefix symbols by underscores for 64-bit.  */
@@ -83,4 +83,5 @@
 #define __MINGW_TYPEDEF_AW(type) \
     typedef __MINGW_NAME_AW(type) type;
 
-#endif
+#endif	/* _INC_CRTDEFS_MACRO */
+
