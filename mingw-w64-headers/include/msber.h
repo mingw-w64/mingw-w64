@@ -97,6 +97,7 @@ extern "C" {
   extern ASN1_PUBLIC int WINAPI ASN1CEREncFlushBlkElement(void *pBlk);
   extern ASN1_PUBLIC int WINAPI ASN1CEREncEndBlk(void *pBlk);
 
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int WINAPI ASN1DEREncGeneralizedTime(ASN1encoding_t enc,ASN1uint32_t tag,ASN1generalizedtime_t *val) { return ASN1CEREncGeneralizedTime(enc,tag,val); }
   __CRT_INLINE int WINAPI ASN1DEREncUTCTime(ASN1encoding_t enc,ASN1uint32_t tag,ASN1utctime_t *val) { return ASN1CEREncUTCTime(enc,tag,val); }
   __CRT_INLINE int WINAPI ASN1DEREncBeginBlk(ASN1encoding_t enc,ASN1blocktype_e eBlkType,void **ppBlk) { return ASN1CEREncBeginBlk(enc,eBlkType,ppBlk); }
@@ -112,6 +113,7 @@ extern "C" {
   __CRT_INLINE int WINAPI ASN1DEREncOctetString(ASN1encoding_t enc,ASN1uint32_t tag,ASN1uint32_t len,ASN1octet_t *val) { return ASN1BEREncOctetString(enc,tag,len,val); }
   __CRT_INLINE int WINAPI ASN1DEREncUTF8String(ASN1encoding_t enc,ASN1uint32_t tag,ASN1uint32_t length,WCHAR *value) { return ASN1BEREncUTF8String(enc,tag,length,value); }
   __CRT_INLINE int WINAPI ASN1CEREncUTF8String(ASN1encoding_t enc,ASN1uint32_t tag,ASN1uint32_t length,WCHAR *value) { return ASN1BEREncUTF8String(enc,tag,length,value); }
+#endif /* !__CRT__NO_INLINE */
 
   extern ASN1_PUBLIC int WINAPI ASN1BEREncEmbeddedPdv(ASN1encoding_t enc,ASN1uint32_t tag,ASN1embeddedpdv_t *);
   extern ASN1_PUBLIC int WINAPI ASN1BEREncExternal(ASN1encoding_t enc,ASN1uint32_t tag,ASN1external_t *);
