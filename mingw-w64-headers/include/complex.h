@@ -118,7 +118,7 @@ long double _Complex  csqrtl (long double _Complex);
 long double _Complex __MINGW_ATTRIB_CONST cprojl (long double _Complex);
 
 #ifdef __GNUC__
-
+#ifndef __CRT__NO_INLINE
 /* double */
 __CRT_INLINE double __MINGW_ATTRIB_CONST creal (double _Complex _Z)
 {
@@ -191,7 +191,7 @@ __CRT_INLINE  long double __MINGW_ATTRIB_CONST cargl (long double _Complex _Z)
 	   : "=t" (res) : "0" (__real__ _Z), "u" (__imag__ _Z) : "st(1)");
   return res;
 }
-
+#endif /* !__CRT__NO_INLINE */
 #endif /* __GNUC__ */
 
 
