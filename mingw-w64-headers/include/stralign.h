@@ -24,7 +24,11 @@ extern "C" {
 #define ua_wcsicmp wcsicmp
 #define ua_wcslen wcslen
 #define ua_wcsrchr wcsrchr
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source) { return wcscpy(Destination,Source); }
+#else
+#define ua_wcscpy wcscpy
+#endif
 #else
 #define WSTR_ALIGNED(s) (((DWORD_PTR)(s) & (sizeof(WCHAR)-1))==0)
 
@@ -39,12 +43,15 @@ extern "C" {
   size_t __cdecl uaw_wcslen(PCUWSTR String);
   PUWSTR __cdecl uaw_wcsrchr(PCUWSTR String,WCHAR Character);
 #ifdef CharUpper
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE LPUWSTR ua_CharUpperW(LPUWSTR String) {
     if(WSTR_ALIGNED(String)) return CharUpperW((PWSTR)String);
     return uaw_CharUpperW(String);
   }
+#endif /* !__CRT__NO_INLINE */
 #endif
 
+#ifndef __CRT__NO_INLINE
 #ifdef lstrcmp
   __CRT_INLINE int ua_lstrcmpW(LPCUWSTR String1,LPCUWSTR String2) {
     if(WSTR_ALIGNED(String1) && WSTR_ALIGNED(String2))
@@ -67,6 +74,7 @@ extern "C" {
     return uaw_lstrlenW(String);
   }
 #endif
+#endif /* !__CRT__NO_INLINE */
 
 #if defined(_WSTRING_DEFINED)
 #ifdef _WConst_return
@@ -74,6 +82,7 @@ extern "C" {
 #else
   typedef WCHAR UNALIGNED *PUWSTR_C;
 #endif
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE PUWSTR_C ua_wcschr(PCUWSTR String,WCHAR Character) {
     if(WSTR_ALIGNED(String)) return wcschr((PCWSTR)String,Character);
     return (PUWSTR_C)uaw_wcschr(String,Character);
@@ -102,13 +111,16 @@ extern "C" {
     if(WSTR_ALIGNED(String)) return wcslen((PCWSTR)String);
     return uaw_wcslen(String);
   }
+#endif /* !__CRT__NO_INLINE */
 #endif
 
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int ua_wcsicmp(LPCUWSTR String1,LPCUWSTR String2) {
     if(WSTR_ALIGNED(String1) && WSTR_ALIGNED(String2))
       return _wcsicmp((LPCWSTR)String1,(LPCWSTR)String2);
     return uaw_wcsicmp(String1,String2);
   }
+#endif /* !__CRT__NO_INLINE */
 #endif
 
 #ifndef __UA_WCSLEN
