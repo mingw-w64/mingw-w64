@@ -305,8 +305,10 @@ extern "C" {
 #if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
   /* C99 function name */
   void __cdecl _Exit(int) __MINGW_ATTRIB_NORETURN;
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE __MINGW_ATTRIB_NORETURN void  __cdecl _Exit(int status)
   {  _exit(status); }
+#endif /* !__CRT__NO_INLINE */
 #endif
 
 #pragma push_macro("abort")
@@ -543,7 +545,10 @@ extern "C" {
 
   lldiv_t __cdecl lldiv(long long, long long);
 
+  long long __cdecl llabs(long long);
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE long long __cdecl llabs(long long _j) { return (_j >= 0 ? _j : -_j); }
+#endif
 
   long long  __cdecl strtoll(const char* __restrict__, char** __restrict, int);
   unsigned long long  __cdecl strtoull(const char* __restrict__, char** __restrict__, int);
@@ -559,12 +564,14 @@ extern "C" {
   wchar_t *__cdecl ulltow (unsigned long long, wchar_t *, int);
 
   /* __CRT_INLINE using non-ansi functions */
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE long long  __cdecl atoll (const char * _c) { return _atoi64 (_c); }
   __CRT_INLINE char *__cdecl lltoa (long long _n, char * _c, int _i) { return _i64toa (_n, _c, _i); }
   __CRT_INLINE char *__cdecl ulltoa (unsigned long long _n, char * _c, int _i) { return _ui64toa (_n, _c, _i); }
   __CRT_INLINE long long  __cdecl wtoll (const wchar_t * _w) { return _wtoi64 (_w); }
   __CRT_INLINE wchar_t *__cdecl lltow (long long _n, wchar_t * _w, int _i) { return _i64tow (_n, _w, _i); }
   __CRT_INLINE wchar_t *__cdecl ulltow (unsigned long long _n, wchar_t * _w, int _i) { return _ui64tow (_n, _w, _i); }
+#endif /* !__CRT__NO_INLINE */
 #endif /* (__STRICT_ANSI__)  */
 
 #endif /* !__NO_ISOCEXT */

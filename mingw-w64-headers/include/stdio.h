@@ -281,9 +281,11 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl vsprintf(char *_Dest,const char *_Format,va_list _Args);
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
   int __cdecl snprintf(char* s, size_t n, const char*  format, ...);
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl vsnprintf (char* s, size_t n, const char* format,va_list arg) {
     return _vsnprintf ( s, n, format, arg);
   }
+#endif /* !__CRT__NO_INLINE */
   int __cdecl vscanf(const char * Format, va_list argp);
   int __cdecl vfscanf (FILE * fp, const char * Format,va_list argp);
   int __cdecl vsscanf (const char * _Str,const char * Format,va_list argp);
@@ -341,7 +343,9 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _vsnwprintf(wchar_t *_Dest,size_t _Count,const wchar_t *_Format,va_list _Args);
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
   int __cdecl snwprintf (wchar_t* s, size_t n, const wchar_t*  format, ...);
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl vsnwprintf (wchar_t* s, size_t n, const wchar_t* format, va_list arg) { return _vsnwprintf(s,n,format,arg); }
+#endif /* !__CRT__NO_INLINE */
   int __cdecl vwscanf (const wchar_t *, va_list);
   int __cdecl vfwscanf (FILE *,const wchar_t *,va_list);
   int __cdecl vswscanf (const wchar_t *,const wchar_t *,va_list);
