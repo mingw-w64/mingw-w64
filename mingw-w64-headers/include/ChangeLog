@@ -1,3 +1,9 @@
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	*  ws2tcpip.h: Removed the IN6* macros and added non-inline versions
+	to libws2_32.a in case someone might thing of something as sickly as
+	making function pointers out of them..
+
 2009-07-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	* wspiapi.h: Add global prototypes for inlines and remove

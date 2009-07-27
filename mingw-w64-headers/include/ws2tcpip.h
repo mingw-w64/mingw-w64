@@ -135,6 +135,26 @@ extern "C" {
 
 #define WS2TCPIP_INLINE __CRT_INLINE
 
+int IN6_ADDR_EQUAL(const struct in6_addr *,const struct in6_addr *);
+int IN6_IS_ADDR_UNSPECIFIED(const struct in6_addr *);
+int IN6_IS_ADDR_LOOPBACK(const struct in6_addr *);
+int IN6_IS_ADDR_MULTICAST(const struct in6_addr *);
+int IN6_IS_ADDR_LINKLOCAL(const struct in6_addr *);
+int IN6_IS_ADDR_SITELOCAL(const struct in6_addr *);
+int IN6_IS_ADDR_V4MAPPED(const struct in6_addr *);
+int IN6_IS_ADDR_V4COMPAT(const struct in6_addr *);
+int IN6_IS_ADDR_MC_NODELOCAL(const struct in6_addr *);
+int IN6_IS_ADDR_MC_LINKLOCAL(const struct in6_addr *);
+int IN6_IS_ADDR_MC_SITELOCAL(const struct in6_addr *);
+int IN6_IS_ADDR_MC_ORGLOCAL(const struct in6_addr *);
+int IN6_IS_ADDR_MC_GLOBAL(const struct in6_addr *);
+int IN6ADDR_ISANY(const struct sockaddr_in6 *);
+int IN6ADDR_ISLOOPBACK(const struct sockaddr_in6 *);
+void IN6_SET_ADDR_UNSPECIFIED(struct in6_addr *);
+void IN6_SET_ADDR_LOOPBACK(struct in6_addr *);
+void IN6ADDR_SETANY(struct sockaddr_in6 *);
+void IN6ADDR_SETLOOPBACK(struct sockaddr_in6 *);
+
 #ifndef __CRT__NO_INLINE
 WS2TCPIP_INLINE int IN6_ADDR_EQUAL(const struct in6_addr *a,const struct in6_addr *b) { return (memcmp(a,b,sizeof(struct in6_addr))==0); }
 WS2TCPIP_INLINE int IN6_IS_ADDR_UNSPECIFIED(const struct in6_addr *a) { return ((a->s6_words[0]==0) && (a->s6_words[1]==0) && (a->s6_words[2]==0) && (a->s6_words[3]==0) && (a->s6_words[4]==0) && (a->s6_words[5]==0) && (a->s6_words[6]==0) && (a->s6_words[7]==0)); }
@@ -170,78 +190,6 @@ WS2TCPIP_INLINE void IN6ADDR_SETLOOPBACK(struct sockaddr_in6 *a) {
   IN6_SET_ADDR_LOOPBACK(&a->sin6_addr);
   a->sin6_scope_id = 0;
 }
-#else /* __CRT__NO_INLINE */
-/* just define them as macros... */
-#define IN6_ADDR_EQUAL(a,b)		(memcmp((a),(b),sizeof(struct in6_addr)) == 0)
-#define IN6_IS_ADDR_UNSPECIFIED(a)	( ((a)->s6_words[0] == 0) &&					\
-					  ((a)->s6_words[1] == 0) &&					\
-					  ((a)->s6_words[2] == 0) &&					\
-					  ((a)->s6_words[3] == 0) &&					\
-					  ((a)->s6_words[4] == 0) &&					\
-					  ((a)->s6_words[5] == 0) &&					\
-					  ((a)->s6_words[6] == 0) &&					\
-					  ((a)->s6_words[7] == 0) )
-#define IN6_IS_ADDR_LOOPBACK(a)		( ((a)->s6_words[0] == 0) &&					\
-					  ((a)->s6_words[1] == 0) &&					\
-					  ((a)->s6_words[2] == 0) &&					\
-					  ((a)->s6_words[3] == 0) &&					\
-					  ((a)->s6_words[4] == 0) &&					\
-					  ((a)->s6_words[5] == 0) &&					\
-					  ((a)->s6_words[6] == 0) &&					\
-					  ((a)->s6_words[7] == 0x0100) )
-#define IN6_IS_ADDR_MULTICAST(a)	( (a)->s6_bytes[0] == 0xff )
-#define IN6_IS_ADDR_LINKLOCAL(a)	( ((a)->s6_bytes[0] == 0xfe) &&					\
-					  (((a)->s6_bytes[1] & 0xc0) == 0x80) )
-#define IN6_IS_ADDR_SITELOCAL(a)	( ((a)->s6_bytes[0] == 0xfe) &&					\
-					  (((a)->s6_bytes[1] & 0xc0) == 0xc0) )
-#define IN6_IS_ADDR_V4MAPPED(a)		( ((a)->s6_words[0] == 0) &&					\
-					  ((a)->s6_words[1] == 0) &&					\
-					  ((a)->s6_words[2] == 0) &&					\
-					  ((a)->s6_words[3] == 0) &&					\
-					  ((a)->s6_words[4] == 0) &&					\
-					  ((a)->s6_words[5] == 0xffff) )
-#define IN6_IS_ADDR_V4COMPAT(a)		( ((a)->s6_words[0] == 0) &&					\
-					  ((a)->s6_words[1] == 0) &&					\
-					  ((a)->s6_words[2] == 0) &&					\
-					  ((a)->s6_words[3] == 0) &&					\
-					  ((a)->s6_words[4] == 0) &&					\
-					  ((a)->s6_words[5] == 0) &&					\
-					!(((a)->s6_words[6] == 0) && ((a)->s6_addr[14] == 0) &&		\
-					 (((a)->s6_addr[15] == 0) || ((a)->s6_addr[15] == 1))) )
-#define IN6_IS_ADDR_MC_NODELOCAL(a)	( IN6_IS_ADDR_MULTICAST((a)) &&					\
-					  (((a)->s6_bytes[1] & 0xf) == 1) )
-#define IN6_IS_ADDR_MC_LINKLOCAL(a)	( IN6_IS_ADDR_MULTICAST((a)) &&					\
-					  (((a)->s6_bytes[1] & 0xf) == 2) )
-#define IN6_IS_ADDR_MC_SITELOCAL(a)	( IN6_IS_ADDR_MULTICAST((a)) &&					\
-					  (((a)->s6_bytes[1] & 0xf) == 5) )
-#define IN6_IS_ADDR_MC_ORGLOCAL(a)	( IN6_IS_ADDR_MULTICAST((a)) &&					\
-					  (((a)->s6_bytes[1] & 0xf) == 8) )
-#define IN6_IS_ADDR_MC_GLOBAL(a)	( IN6_IS_ADDR_MULTICAST((a)) &&					\
-					  (((a)->s6_bytes[1] & 0xf) == 0xe) )
-#define IN6ADDR_ISANY(a)		( (((a)->sin6_family == AF_INET6) &&				\
-					  IN6_IS_ADDR_UNSPECIFIED(&(a)->sin6_addr)) )
-#define IN6ADDR_ISLOOPBACK(a)		( (((a)->sin6_family == AF_INET6) &&				\
-					  IN6_IS_ADDR_LOOPBACK(&(a)->sin6_addr)) )
-
-#define IN6_SET_ADDR_UNSPECIFIED(a)	memset((a)->s6_bytes,0,sizeof(struct in6_addr))
-#define IN6_SET_ADDR_LOOPBACK(a)	do {								\
-						memset((a)->s6_bytes,0,sizeof(struct in6_addr));	\
-						(a)->s6_bytes[15] = 1;					\
-					} while (0)
-#define IN6ADDR_SETANY(a)		do {								\
-						(a)->sin6_family = AF_INET6;				\
-						(a)->sin6_port = 0;					\
-						(a)->sin6_flowinfo = 0;					\
-						IN6_SET_ADDR_UNSPECIFIED(&(a)->sin6_addr);		\
-						(a)->sin6_scope_id = 0;					\
-					} while (0)
-#define IN6ADDR_SETLOOPBACK(a)		do {								\
-						(a)->sin6_family = AF_INET6;				\
-						(a)->sin6_port = 0;					\
-						(a)->sin6_flowinfo = 0;					\
-						IN6_SET_ADDR_LOOPBACK(&a->sin6_addr);			\
-						(a)->sin6_scope_id = 0;					\
-					} while (0)
 #endif /* !__CRT__NO_INLINE */
 
 typedef union sockaddr_gen {
@@ -420,6 +368,10 @@ extern "C" {
 #endif
 
 #define GAI_STRERROR_BUFFER_SIZE 1024
+
+char *gai_strerrorA (int);
+WCHAR *gai_strerrorW(int);
+
 #ifndef __CRT__NO_INLINE
   WS2TCPIP_INLINE char *gai_strerrorA(int ecode) {
     DWORD dwMsgLen;

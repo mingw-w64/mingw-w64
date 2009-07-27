@@ -811,9 +811,11 @@ am__objects_18 = libsrc/lib32_libuuid_a-uuid.$(OBJEXT) \
 @LIB32_TRUE@am_lib32_libuuid_a_OBJECTS = $(am__objects_18)
 lib32_libuuid_a_OBJECTS = $(am_lib32_libuuid_a_OBJECTS)
 lib32_libws2_32_a_LIBADD =
-am__lib32_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c libsrc/wspiapi.c
+am__lib32_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c libsrc/wspiapi.c \
+	libsrc/ws2tcpip.c
 am__objects_19 = libsrc/lib32_libws2_32_a-ws2_32.$(OBJEXT) \
-	libsrc/lib32_libws2_32_a-wspiapi.$(OBJEXT)
+	libsrc/lib32_libws2_32_a-wspiapi.$(OBJEXT) \
+	libsrc/lib32_libws2_32_a-ws2tcpip.$(OBJEXT)
 @LIB32_TRUE@am_lib32_libws2_32_a_OBJECTS = $(am__objects_19)
 lib32_libws2_32_a_OBJECTS = $(am_lib32_libws2_32_a_OBJECTS)
 lib64_libdinput_a_LIBADD =
@@ -1555,8 +1557,10 @@ am__objects_37 = libsrc/uuid.$(OBJEXT) libsrc/devguid.$(OBJEXT) \
 @LIB64_TRUE@am_lib64_libuuid_a_OBJECTS = $(am__objects_37)
 lib64_libuuid_a_OBJECTS = $(am_lib64_libuuid_a_OBJECTS)
 lib64_libws2_32_a_LIBADD =
-am__lib64_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c libsrc/wspiapi.c
-am__objects_38 = libsrc/ws2_32.$(OBJEXT) libsrc/wspiapi.$(OBJEXT)
+am__lib64_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c libsrc/wspiapi.c \
+	libsrc/ws2tcpip.c
+am__objects_38 = libsrc/ws2_32.$(OBJEXT) libsrc/wspiapi.$(OBJEXT) \
+	libsrc/ws2tcpip.$(OBJEXT)
 @LIB64_TRUE@am_lib64_libws2_32_a_OBJECTS = $(am__objects_38)
 lib64_libws2_32_a_OBJECTS = $(am_lib64_libws2_32_a_OBJECTS)
 testcases_t_float_SOURCES = testcases/t_float.c
@@ -1901,7 +1905,7 @@ src_libuuid = libsrc/uuid.c libsrc/devguid.c \
   libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
   libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
 
-src_libws2_32 = libsrc/ws2_32.c libsrc/wspiapi.c
+src_libws2_32 = libsrc/ws2_32.c libsrc/wspiapi.c libsrc/ws2tcpip.c
 src_libmingwex = \
   \
   intrincs/inbyte.c     intrincs/inbytestring.c   intrincs/indword.c   intrincs/indwordstring.c                \
@@ -3806,6 +3810,8 @@ libsrc/lib32_libws2_32_a-ws2_32.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libws2_32_a-wspiapi.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libws2_32_a-ws2tcpip.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libws2_32.a: $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libws2_32.a
 	$(lib32_libws2_32_a_AR) lib32/libws2_32.a $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_LIBADD)
@@ -4901,6 +4907,8 @@ libsrc/ws2_32.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/wspiapi.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib64/libws2_32.a: $(lib64_libws2_32_a_OBJECTS) $(lib64_libws2_32_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libws2_32.a
 	$(lib64_libws2_32_a_AR) lib64/libws2_32.a $(lib64_libws2_32_a_OBJECTS) $(lib64_libws2_32_a_LIBADD)
@@ -5569,6 +5577,7 @@ mostlyclean-compile:
 	-rm -f libsrc/lib32_libuuid_a-urlmon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libws2_32_a-ws2_32.$(OBJEXT)
+	-rm -f libsrc/lib32_libws2_32_a-ws2tcpip.$(OBJEXT)
 	-rm -f libsrc/lib32_libws2_32_a-wspiapi.$(OBJEXT)
 	-rm -f libsrc/lib64_libmingw32_a-dummy_mingwthrd.$(OBJEXT)
 	-rm -f libsrc/lib64_libmingwex_a-mingwthrd_nomt.$(OBJEXT)
@@ -5592,6 +5601,7 @@ mostlyclean-compile:
 	-rm -f libsrc/urlmon-uuid.$(OBJEXT)
 	-rm -f libsrc/uuid.$(OBJEXT)
 	-rm -f libsrc/ws2_32.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip.$(OBJEXT)
 	-rm -f libsrc/wspiapi.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-acosf.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-acosh.$(OBJEXT)
@@ -6572,6 +6582,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2_32.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libws2_32_a-wspiapi.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libmingw32_a-dummy_mingwthrd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libmingwex_a-mingwthrd_nomt.Po@am__quote@
@@ -6595,6 +6606,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/ws2_32.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/ws2tcpip.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/wspiapi.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-acosf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-acosh.Po@am__quote@
@@ -14397,6 +14409,20 @@ libsrc/lib32_libws2_32_a-wspiapi.obj: libsrc/wspiapi.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi.c' object='libsrc/lib32_libws2_32_a-wspiapi.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libws2_32_a-wspiapi.obj `if test -f 'libsrc/wspiapi.c'; then $(CYGPATH_W) 'libsrc/wspiapi.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi.c'; fi`
+
+libsrc/lib32_libws2_32_a-ws2tcpip.o: libsrc/ws2tcpip.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libws2_32_a-ws2tcpip.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Tpo -c -o libsrc/lib32_libws2_32_a-ws2tcpip.o `test -f 'libsrc/ws2tcpip.c' || echo '$(srcdir)/'`libsrc/ws2tcpip.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Tpo libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip.c' object='libsrc/lib32_libws2_32_a-ws2tcpip.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libws2_32_a-ws2tcpip.o `test -f 'libsrc/ws2tcpip.c' || echo '$(srcdir)/'`libsrc/ws2tcpip.c
+
+libsrc/lib32_libws2_32_a-ws2tcpip.obj: libsrc/ws2tcpip.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libws2_32_a-ws2tcpip.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Tpo -c -o libsrc/lib32_libws2_32_a-ws2tcpip.obj `if test -f 'libsrc/ws2tcpip.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Tpo libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip.c' object='libsrc/lib32_libws2_32_a-ws2tcpip.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libws2_32_a-ws2tcpip.obj `if test -f 'libsrc/ws2tcpip.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip.c'; fi`
 
 crt/lib64_libmingw32_a-atonexit.o: crt/atonexit.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-atonexit.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-atonexit.Tpo -c -o crt/lib64_libmingw32_a-atonexit.o `test -f 'crt/atonexit.c' || echo '$(srcdir)/'`crt/atonexit.c
