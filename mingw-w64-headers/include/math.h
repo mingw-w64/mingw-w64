@@ -379,19 +379,19 @@ typedef long double double_t;
 
 /* 7.12.5 Hyperbolic functions: Double in C89  */
   extern float __cdecl sinhf(float _X);
-#ifndef __cplusplus
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE float sinhf(float _X) { return ((float)sinh((double)_X)); }
 #endif
   extern long double __cdecl sinhl(long double);
 
   extern float __cdecl coshf(float _X);
-#ifndef __cplusplus
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE float coshf(float _X) { return ((float)cosh((double)_X)); }
 #endif
   extern long double __cdecl coshl(long double);
 
   extern float __cdecl tanhf(float _X);
-#ifndef __cplusplus
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE float tanhf(float _X) { return ((float)tanh((double)_X)); }
 #endif
   extern long double __cdecl tanhl(long double);
@@ -415,7 +415,7 @@ typedef long double double_t;
 /* Exponentials and logarithms  */
 /* 7.12.6.1 Double in C89 */
   extern float __cdecl expf(float _X);
-#ifndef __cplusplus
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE float expf(float _X) { return ((float)exp((double)_X)); }
 #endif
   extern long double __cdecl expl(long double);
@@ -433,7 +433,7 @@ typedef long double double_t;
 
 /* 7.12.6.4 Double in C89 */
   extern float frexpf(float _X,int *_Y);
-#ifndef __cplusplus
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE float frexpf(float _X,int *_Y) { return ((float)frexp((double)_X,_Y)); }
 #endif
   extern long double __cdecl frexpl(long double,int *);
@@ -447,7 +447,7 @@ typedef long double double_t;
 
 /* 7.12.6.6  Double in C89 */
   extern float __cdecl ldexpf(float _X,int _Y);
-#ifndef __cplusplus
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE float __cdecl ldexpf (float x, int expn) { return (float) ldexp ((double)x, expn); }
 #endif
   extern long double __cdecl ldexpl (long double, int);
@@ -476,7 +476,8 @@ typedef long double double_t;
   extern long double __cdecl logbl (long double);
 
 /* Inline versions.  GCC-4.0+ can do a better fast-math optimization
-   with __builtins. */ 
+   with __builtins. */
+#ifndef __CRT__NO_INLINE
 #if !(__MINGW_GNUC_PREREQ (4, 0) && defined (__FAST_MATH__))
   __CRT_INLINE double __cdecl logb (double x)
   {
@@ -502,6 +503,7 @@ typedef long double double_t;
     return res;
   }
 #endif /* !defined __FAST_MATH__ || !__MINGW_GNUC_PREREQ (4, 0) */
+#endif /* __CRT__NO_INLINE */
 
 /* 7.12.6.12  Double in C89 */
   extern float __cdecl modff (float, float*);
@@ -524,7 +526,7 @@ typedef long double double_t;
 
 /* 7.12.7.2 The fabs functions: Double in C89 */
   extern  float __cdecl fabsf (float x);
-#ifndef __cplusplus
+#ifndef __CRT__NO_INLINE
 #if !defined (__ia64__)
   __CRT_INLINE float __cdecl fabsf (float x)
   {
@@ -535,7 +537,7 @@ typedef long double double_t;
 #endif
 #endif
   extern long double __cdecl fabsl (long double);
-#ifndef __cplusplus
+#ifndef __CRT__NO_INLINE
 #if !defined (__ia64__)
   __CRT_INLINE long double __cdecl fabsl (long double x)
   {
@@ -548,14 +550,14 @@ typedef long double double_t;
 /* 7.12.7.3  */
   extern double __cdecl hypot (double, double); /* in libmoldname.a */
   extern float __cdecl hypotf (float x, float y);
-#ifndef __cplusplus
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE float __cdecl hypotf (float x, float y) { return (float) hypot ((double)x, (double)y);}
 #endif
   extern long double __cdecl hypotl (long double, long double);
 
 /* 7.12.7.4 The pow functions. Double in C89 */
   extern float __cdecl powf(float _X,float _Y);
-#ifndef __cplusplus
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE float powf(float _X,float _Y) { return ((float)pow((double)_X,(double)_Y)); }
 #endif
   extern long double __cdecl powl (long double, long double);
@@ -614,6 +616,8 @@ extern long long __cdecl llrintl (long double);
 
 /* Inline versions of above. 
    GCC 4.0+ can do a better fast-math job with __builtins. */
+
+#ifndef __CRT__NO_INLINE
 #if !(__MINGW_GNUC_PREREQ (4, 0) && defined __FAST_MATH__ )
   __CRT_INLINE double __cdecl rint (double x)
   {
@@ -684,6 +688,7 @@ extern long long __cdecl llrintl (long double);
       return retval;
   }
 #endif /* !__FAST_MATH__ || !__MINGW_GNUC_PREREQ (4,0)  */
+#endif /* !__CRT__NO_INLINE */
 
 /* 7.12.9.6 */
 /* round away from zero, regardless of fpu control word settings */
@@ -793,6 +798,7 @@ extern long long __cdecl llrintl (long double);
 
 #else
 /*  helper  */
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int  __cdecl
     __fp_unordered_compare (long double x, long double y){
       unsigned short retval;
@@ -800,6 +806,7 @@ extern long long __cdecl llrintl (long double);
 	"fnstsw;": "=a" (retval) : "t" (x), "u" (y));
       return retval;
   }
+#endif
 
 #define isgreater(x, y) ((__fp_unordered_compare(x, y)  & 0x4500) == 0)
 #define isless(x, y) ((__fp_unordered_compare (y, x)  & 0x4500) == 0)
@@ -828,7 +835,11 @@ extern long long __cdecl llrintl (long double);
 #endif
 
 #ifdef _SIGN_DEFINED
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE long double _chgsignl(long double _Number) { return _chgsign((double)(_Number)); }
+#else
+#define _chgsignl(NO)	(long double) _chgsign((double)(NO))
+#endif
 #define _copysignl copysignl
 #endif
 
@@ -841,20 +852,6 @@ extern long long __cdecl llrintl (long double);
 
 #ifdef __cplusplus
 }
-
-#if 0
-extern "C++" {
-  template<class _Ty> inline _Ty _Pow_int(_Ty _X,int _Y) {
-    unsigned int _N;
-    if(_Y >= 0) _N = (unsigned int)_Y;
-    else _N = (unsigned int)(-_Y);
-    for(_Ty _Z = _Ty(1);;_X *= _X) {
-      if((_N & 1)!=0) _Z *= _X;
-      if((_N >>= 1)==0) return (_Y < 0 ? _Ty(1) / _Z : _Z); 
-    }
-  }
-}
-#endif
 #endif
 
 #endif	/* Not RC_INVOKED */

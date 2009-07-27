@@ -1,3 +1,8 @@
+2009-07-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h (__cplusplust): Replace for inlines the __cplusplus guard
+	by __CRT__NO_INLINE guard.
+
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* sys/stat.h: Added __CRT__NO_INLINE guards to inlined versions of stat
