@@ -850,6 +850,7 @@ typedef DWORD LCID;
 #define InterlockedBitTestAndSet64 _interlockedbittestandset64
 #define InterlockedBitTestAndReset64 _interlockedbittestandreset64
 
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN _bittest(LONG const *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btl %2,%1\n\tsbbl %0,%0 "
@@ -941,11 +942,14 @@ typedef DWORD LCID;
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
+#endif /* !__CRT__NO_INLINE */
+
 #define BitScanForward _BitScanForward
 #define BitScanReverse _BitScanReverse
 #define BitScanForward64 _BitScanForward64
 #define BitScanReverse64 _BitScanReverse64
 
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask) {
       __asm__ __volatile__("bsfl %1,%0" : "=r" (Mask),"=m" ((*(volatile long *)Index)));
       return Mask!=0;
@@ -962,6 +966,7 @@ typedef DWORD LCID;
       __asm__ __volatile__("bsrq %1,%0" : "=r" (Mask),"=m" ((*(volatile long long *)Index)));
       return Mask!=0;
     }
+#endif /* !__CRT__NO_INLINE */
 
 #define InterlockedIncrement16 _InterlockedIncrement16
 #define InterlockedDecrement16 _InterlockedDecrement16
@@ -1007,6 +1012,7 @@ typedef DWORD LCID;
 #define InterlockedIncrementSizeT(a) InterlockedIncrement64((LONG64 *)a)
 #define InterlockedDecrementSizeT(a) InterlockedDecrement64((LONG64 *)a)
 
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE SHORT InterlockedIncrement16(SHORT volatile *Addend) {
       unsigned char c;
       unsigned char s;
@@ -1090,8 +1096,11 @@ typedef DWORD LCID;
 	: "memory");
       return Value;
     }
+#endif /* !__CRT__NO_INLINE */
+
     LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
 
+#ifndef __CRT__NO_INLINE
 #ifndef _X86AMD64_
     __CRT_INLINE LONG InterlockedAdd(LONG volatile *Addend,LONG Value) { return InterlockedExchangeAdd(Addend,Value) + Value; }
 #endif
@@ -1125,8 +1134,10 @@ typedef DWORD LCID;
 	: "memory");
       return Value;
     }
+#endif /* !__CRT__NO_INLINE */
     LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
 
+#ifndef __CRT__NO_INLINE
 #ifndef _X86AMD64_
     __CRT_INLINE LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value) { return InterlockedExchangeAdd64(Addend,Value) + Value; }
 #endif
@@ -1148,6 +1159,7 @@ typedef DWORD LCID;
 	: "memory");
       return Value;
     }
+#endif /* !__CRT__NO_INLINE */
 
 #define CacheLineFlush(Address) _mm_clflush(Address)
 
@@ -1220,6 +1232,7 @@ typedef DWORD LCID;
 
     DWORD64 UnsignedMultiply128(DWORD64 Multiplier,DWORD64 Multiplicand,DWORD64 *HighProduct);
 
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE LONG64 MultiplyExtract128(LONG64 Multiplier,LONG64 Multiplicand,BYTE Shift) {
       LONG64 extractedProduct;
       LONG64 highProduct;
@@ -1278,6 +1291,7 @@ typedef DWORD LCID;
       __asm__ volatile ("movq	%0,%%gs:%1"
 	: "=r" (Data) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
     }
+#endif /* !__CRT__NO_INLINE */
 
 #ifdef __cplusplus
   }
@@ -1433,6 +1447,7 @@ typedef DWORD LCID;
   extern "C" {
 #endif
 
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN InterlockedBitTestAndSet(LONG *Base,LONG Bit) {
       int old = 0;
       __asm__ __volatile__("lock ; btsl %2,%1\n\tsbbl %0,%0 "
@@ -1456,6 +1471,7 @@ typedef DWORD LCID;
 	:"Ir" (Bit));
       return (BOOLEAN) (old!=0);
     }
+#endif /* !__CRT__NO_INLINE */
 
 #ifdef _PREFIX_
     BYTE __readfsbyte(DWORD Offset);
@@ -1472,11 +1488,14 @@ typedef DWORD LCID;
 #endif
 
 #if(defined(_X86_) && !defined(__x86_64))
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE VOID MemoryBarrier(VOID) {
     LONG Barrier;
     __asm__ __volatile__("xchgl %eax,%0 "
       :"=r" (Barrier));
   }
+#endif /* !__CRT__NO_INLINE */
+
 #define YieldProcessor() __asm__ __volatile__("rep nop ");
 
 #define PreFetchCacheLine(l,a)
@@ -1485,10 +1504,13 @@ typedef DWORD LCID;
 #define PF_TEMPORAL_LEVEL_1
 #define PF_NON_TEMPORAL_LEVEL_ALL
 
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE VOID DbgRaiseAssertionFailure(void) {
     __asm__ __volatile__("int 0x2c ");
   }
+#endif /* !__CRT__NO_INLINE */
   PVOID GetCurrentFiber(void);
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE PVOID GetCurrentFiber(void)
   {
     void *ret;
@@ -1496,7 +1518,9 @@ typedef DWORD LCID;
 	: "=r" (ret));
     return ret;
   }
+#endif /* !__CRT__NO_INLINE */
   PVOID GetFiberData(void);
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE PVOID GetFiberData(void)
   {
     void *ret;
@@ -1505,6 +1529,7 @@ typedef DWORD LCID;
 	: "=r" (ret));
     return ret;
   }
+#endif /* !__CRT__NO_INLINE */
 #endif
 
 #define EXCEPTION_READ_FAULT 0
@@ -4969,6 +4994,7 @@ typedef DWORD LCID;
 #define COMPRESSION_ENGINE_MAXIMUM (0x0100)
 #define COMPRESSION_ENGINE_HIBER (0x0200)
 
+#ifndef __CRT__NO_INLINE
 #if _DBG_MEMCPY_INLINE_ && !defined(_MEMCPY_INLINE_) && !defined(_CRTBLD)
 #define _MEMCPY_INLINE_
     __CRT_INLINE PVOID __cdecl memcpy_inline(void *dst,const void *src,size_t size) {
@@ -4979,6 +5005,7 @@ typedef DWORD LCID;
     }
 #define memcpy memcpy_inline
 #endif
+#endif /* !__CRT__NO_INLINE */
 
     NTSYSAPI SIZE_T NTAPI RtlCompareMemory(const VOID *Source1,const VOID *Source2,SIZE_T Length);
 
@@ -4988,6 +5015,7 @@ typedef DWORD LCID;
 #define RtlFillMemory(Destination,Length,Fill) memset((Destination),(Fill),(Length))
 #define RtlZeroMemory(Destination,Length) memset((Destination),0,(Length))
 
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE PVOID RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt) {
       volatile char *vptr =(volatile char *)ptr;
 #ifdef __x86_64
@@ -5001,6 +5029,7 @@ typedef DWORD LCID;
 #endif
       return ptr;
     }
+#endif /* !__CRT__NO_INLINE */
 
     typedef struct _MESSAGE_RESOURCE_ENTRY {
       WORD Length;
@@ -5736,21 +5765,25 @@ typedef DWORD LCID;
     } TAPE_DRIVE_PROBLEM_TYPE;
 
 #if defined(__x86_64)
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE struct _TEB *NtCurrentTeb(VOID) { return (struct _TEB *)__readgsqword(FIELD_OFFSET(NT_TIB,Self)); }
     __CRT_INLINE PVOID GetCurrentFiber(VOID) { return(PVOID)__readgsqword(FIELD_OFFSET(NT_TIB,FiberData)); }
     __CRT_INLINE PVOID GetFiberData(VOID) {
       return *(PVOID *)GetCurrentFiber();
     }
+#endif /* !__CRT__NO_INLINE */
 #endif
 
 #if(defined(_X86_) && !defined(__x86_64))
 #define PcTeb 0x18
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE struct _TEB *NtCurrentTeb(void) {
       struct _TEB *ret;
       __asm__ volatile ("movl	%%fs:0x18,%0"
 	: "=r" (ret));
       return ret;
     }
+#endif /* !__CRT__NO_INLINE */
 #endif
 
 #define ACTIVATION_CONTEXT_SECTION_ASSEMBLY_INFORMATION (1)
