@@ -12,7 +12,7 @@
 
 	This particular implementation requires the matching <inttypes.h>.
 */
-
+#define __CRT__NO_INLINE
 #include <inttypes.h>
 
 intmax_t
