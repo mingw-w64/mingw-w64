@@ -1974,7 +1974,9 @@
 #define _HRESULT_DEFINED
 typedef long HRESULT;
 #endif
+#ifndef __CRT__NO_INLINE
 __CRT_INLINE HRESULT HRESULT_FROM_WIN32(long x) { return x <= 0 ? (HRESULT)x : (HRESULT) (((x) & 0x0000FFFF) | (FACILITY_WIN32 << 16) | 0x80000000);}
+#endif /* !__CRT__NO_INLINE */
 #else
 #define HRESULT_FROM_WIN32(x) __HRESULT_FROM_WIN32(x)
 #endif
