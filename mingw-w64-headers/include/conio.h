@@ -91,6 +91,7 @@ extern "C" {
   unsigned short __cdecl outpw(unsigned short,unsigned short);
 #endif
 
+#ifndef __CRT__NO_INLINE
   /* I/O intrin functions.  */
   __CRT_INLINE unsigned char __inbyte(unsigned short Port)
   {
@@ -397,7 +398,7 @@ extern "C" {
           : "=a" (CPUInfo [0]), "=b" (CPUInfo [1]), "=c" (CPUInfo [2]), "=d" (CPUInfo [3])
           : "a" (InfoType));
   }
-
+#endif /* !__CRT__NO_INLINE */
 #endif
 
 #ifdef __cplusplus
