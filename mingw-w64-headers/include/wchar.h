@@ -580,7 +580,9 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _vsnwprintf(wchar_t *_Dest,size_t _Count,const wchar_t *_Format,va_list _Args);
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
   int __cdecl snwprintf (wchar_t *s, size_t n, const wchar_t * format, ...);
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl vsnwprintf (wchar_t *s, size_t n, const wchar_t *format, va_list arg) { return _vsnwprintf(s,n,format,arg); }
+#endif /* !__CRT__NO_INLINE */
   int __cdecl vwscanf (const wchar_t *, va_list);
   int __cdecl vfwscanf (FILE *,const wchar_t *,va_list);
   int __cdecl vswscanf (const wchar_t *,const wchar_t *,va_list);
@@ -658,7 +660,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 
 #undef _CRT_GETPUTWCHAR_NOINLINE
 
-#if !defined(__cplusplus) || defined(_CRT_GETPUTWCHAR_NOINLINE)
+#if !defined(__cplusplus) || defined(_CRT_GETPUTWCHAR_NOINLINE) || defined (__CRT__NO_INLINE)
 #define getwchar() fgetwc(stdin)
 #define putwchar(_c) fputwc((_c),stdout)
 #else
@@ -815,9 +817,17 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
 #ifdef _USE_32BIT_TIME_T
+#ifndef __CRT__NO_INLINE
 __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime32(_Time); }
 #else
+#define _wctime _wctime32
+#endif /* __CRT__NO_INLINE */
+#else
+#ifndef __CRT__NO_INLINE
 __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
+#else
+#define _wctime _wctime64
+#endif /* __CRT__NO_INLINE */
 #endif
 #endif
 #endif
@@ -845,6 +855,7 @@ __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_T
 
   void *__cdecl memmove(void *_Dst,const void *_Src,size_t _MaxCount);
   void *__cdecl memcpy(void *_Dst,const void *_Src,size_t _MaxCount);
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl fwide(FILE *_F,int _M) { (void)_F; return (_M); }
   __CRT_INLINE int __cdecl mbsinit(const mbstate_t *_P) { return (!_P || *_P==0); }
   __CRT_INLINE _CONST_RETURN wchar_t *__cdecl wmemchr(const wchar_t *_S,wchar_t _C,size_t _N) { for (;0<_N;++_S,--_N) if (*_S==_C) return (_CONST_RETURN wchar_t *)(_S); return (0); }
@@ -858,6 +869,7 @@ __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_T
     }
     return (_S);
   }
+#endif /* !__CRT__NO_INLINE */
 #ifdef __cplusplus
 }
 #endif
