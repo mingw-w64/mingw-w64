@@ -2,6 +2,7 @@
 #include <io.h>
 #include <string.h>
 
+#if _INTEGRAL_MAX_BITS >= 64
 intptr_t __cdecl _findfirst64i32(const char *_Filename,struct _finddata64i32_t *_FindData)
 {
   struct __finddata64_t fd;
@@ -27,3 +28,5 @@ intptr_t __cdecl _wfindfirst64i32(const wchar_t *_Filename,struct _wfinddata64i3
   memcpy(_FindData->name,fd.name,260*sizeof(wchar_t));
   return ret;
 }
+#endif /* _INTEGRAL_MAX_BITS >= 64 */
+

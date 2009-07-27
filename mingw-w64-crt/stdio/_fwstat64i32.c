@@ -1,6 +1,7 @@
 #define __CRT__NO_INLINE
 #include <sys/stat.h>
 
+#if _INTEGRAL_MAX_BITS >= 64
 int __cdecl _wstat64i32(const wchar_t *_Name,struct _stat64i32 *_Stat)
 {
   struct _stat64 st;
@@ -18,8 +19,13 @@ int __cdecl _wstat64i32(const wchar_t *_Name,struct _stat64i32 *_Stat)
   _Stat->st_ctime=st.st_ctime;
   return ret;
 }
+#endif /* _INTEGRAL_MAX_BITS >= 64 */
 
-#ifdef _USE_32BIT_TIME_T
+/* FIXME: Relying on _USE_32BIT_TIME_T, which is a user-macro,
+during CRT compilation is plainly broken.  Need an appropriate
+implementation to provide users the ability of compiling the
+CRT only with 32-bit time_t behavior. */
+#if _INTEGRAL_MAX_BITS < 64 || defined(_USE_32BIT_TIME_T)
 int __cdecl wstat(const wchar_t *_Filename,struct stat *_Stat)
 {
   return _wstat32(_Filename,(struct _stat32 *)_Stat);
@@ -30,3 +36,4 @@ int __cdecl wstat(const wchar_t *_Filename,struct stat *_Stat)
   return _wstat64i32(_Filename,(struct _stat64i32 *)_Stat);
 }
 #endif
+
