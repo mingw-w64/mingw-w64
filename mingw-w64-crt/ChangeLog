@@ -11,14 +11,17 @@
 	* stdio/vsnprintf.c: Likewise.
 	* stdio/vsnwprintf.c: Likewise.
 	* stdio/wtoll.c: Likewise.
+	* crt/wcscmpi.c: Likewise.
 	* crt/strcasecmp.c: Likewise. Also undefine strcasecmp.
 	* crt/strncasecmp.c: Likewise. Also undefine strncasecmp.
-	* crt/wcscmpi.c: Likewise.
+	* misc/_mkgmtime.c, misc/ctime.c, misc/difftime.c, misc/gmtime.c,
+	misc/localtime.c, misc/mktime.c, misc/time.c: Likewise. Also added fixme
+	notes about the broken _USE_32BIT_TIME_T condition.
 
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	stdio/
-	* _fstat64i32.c, _fwstat64i32.c: Added fixme notes to the broken
+	* _fstat64i32.c, _fwstat64i32.c: Added fixme notes about the broken
 	_USE_32BIT_TIME_T condition. Or'ed the condition with _INTEGRAL_MAX_BITS
 	< 64 because the 64 bit time_t is not available in such a case.
 	* _findfirst64i32.c (_findfirst64i32): only compile if _INTEGRAL_MAX_BITS
