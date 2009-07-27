@@ -1,5 +1,12 @@
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* sys/stat.h: Added __CRT__NO_INLINE guards to inlined versions of stat
+	family of functions.
+	* io.h: Added __CRT__NO_INLINE guards to inlined versions of findfirst
+	family of functions.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* _mingw.h (__CRT__NO_INLINE): New private macro. Always defined when
 	__NO_INLINE__ is defined.
 

@@ -1,3 +1,4 @@
+#define __CRT__NO_INLINE
 #include <sys/stat.h>
 
 int __cdecl _wstat64i32(const wchar_t *_Name,struct _stat64i32 *_Stat)

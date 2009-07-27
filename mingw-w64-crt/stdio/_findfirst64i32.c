@@ -1,3 +1,4 @@
+#define __CRT__NO_INLINE
 #include <io.h>
 #include <string.h>
 

@@ -1,3 +1,11 @@
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio/_findnext64i32.c: Define __CRT__NO_INLINE before the includes to
+	prevent declaration mismatches.
+	* _findnext64i32.c: Likewise.
+	* _fstat64i32.c: Likewise.
+	* _fwstat64i32.c: Likewise.
+
 2009-07-17  Ozkan Sezer  <sezeroz@gmail.com>
 	    Kai Tietz  <kai.tietz@onevision.com>
 

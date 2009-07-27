@@ -260,6 +260,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #include <string.h>
 #endif
   intptr_t __cdecl _findfirst64i32(const char *_Filename,struct _finddata64i32_t *_FindData);
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE intptr_t __cdecl _findfirst64i32(const char *_Filename,struct _finddata64i32_t *_FindData)
   {
     struct __finddata64_t fd;
@@ -272,9 +273,11 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     strncpy(_FindData->name,fd.name,260);
     return ret;
   }
+#endif /* __CRT__NO_INLINE */
   _CRTIMP int __cdecl _findnext32i64(intptr_t _FindHandle,struct _finddata32i64_t *_FindData);
   _CRTIMP int __cdecl _findnext64(intptr_t _FindHandle,struct __finddata64_t *_FindData);
   int __cdecl _findnext64i32(intptr_t _FindHandle,struct _finddata64i32_t *_FindData);
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl _findnext64i32(intptr_t _FindHandle,struct _finddata64i32_t *_FindData)
   {
     struct __finddata64_t fd;
@@ -287,9 +290,11 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     strncpy(_FindData->name,fd.name,260);
     return ret;
   }
+#endif /* __CRT__NO_INLINE */
   __int64 __cdecl _lseeki64(int _FileHandle,__int64 _Offset,int _Origin);
   __int64 __cdecl _telli64(int _FileHandle);
-#endif
+#endif /* _INTEGRAL_MAX_BITS >= 64 */
+
 #ifndef NO_OLDNAMES
 
 #ifndef _UWIN

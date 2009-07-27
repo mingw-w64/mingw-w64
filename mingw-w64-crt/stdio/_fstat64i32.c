@@ -1,3 +1,4 @@
+#define __CRT__NO_INLINE
 #include <sys/stat.h>
 
 int __cdecl _fstat64i32(int _FileDes,struct _stat64i32 *_Stat)
