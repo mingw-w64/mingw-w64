@@ -143,6 +143,7 @@ int __cdecl isblank(int _C);
 #define iswascii(_c) ((unsigned)(_c) < 0x80)
 #define isleadbyte(c) (__pctype_func()[(unsigned char)(c)] & _LEADBYTE)
 #else
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl iswalpha(wint_t _C) {return (iswctype(_C,_ALPHA)); }
   __CRT_INLINE int __cdecl iswupper(wint_t _C) {return (iswctype(_C,_UPPER)); }
   __CRT_INLINE int __cdecl iswlower(wint_t _C) {return (iswctype(_C,_LOWER)); }
@@ -156,7 +157,8 @@ int __cdecl isblank(int _C);
   __CRT_INLINE int __cdecl iswcntrl(wint_t _C) {return (iswctype(_C,_CONTROL)); }
   __CRT_INLINE int __cdecl iswascii(wint_t _C) {return ((unsigned)(_C) < 0x80); }
   __CRT_INLINE int __cdecl isleadbyte(int _C) {return (__pctype_func()[(unsigned char)(_C)] & _LEADBYTE); }
-#endif
+#endif /* !__CRT__NO_INLINE */
+#endif /* __cplusplus */
 #endif
 
   typedef wchar_t wctrans_t;
