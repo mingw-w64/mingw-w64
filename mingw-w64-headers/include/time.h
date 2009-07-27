@@ -200,9 +200,17 @@ extern "C" {
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
 #ifdef _USE_32BIT_TIME_T
+#ifndef __CRT__NO_INLINE
 __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime32(_Time); }
 #else
+#define _wctime _wctime32
+#endif /* __CRT__NO_INLINE */
+#else
+#ifndef __CRT__NO_INLINE
 __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
+#else
+#define _wctime _wctime64
+#endif /* __CRT__NO_INLINE */
 #endif
 #endif
 
@@ -258,6 +266,7 @@ time_t __cdecl mktime(struct tm *_Tm);
 time_t __cdecl _mkgmtime(struct tm *_Tm);
 time_t __cdecl time(time_t *_Time);
 
+#ifndef __CRT__NO_INLINE
 #ifdef _USE_32BIT_TIME_T
 #if 0
 __CRT_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2) { return _difftime32(_Time1,_Time2); }
@@ -277,7 +286,8 @@ __CRT_INLINE time_t __cdecl mktime(struct tm *_Tm) { return _mktime64(_Tm); }
 __CRT_INLINE time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime64(_Tm); }
 __CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time64(_Time); }
 #endif
-#endif
+#endif /* !_USE_32BIT_TIME_T */
+#endif /* !__CRT__NO_INLINE */
 
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
 #define CLK_TCK CLOCKS_PER_SEC

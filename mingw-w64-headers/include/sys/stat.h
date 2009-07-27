@@ -194,8 +194,8 @@ extern "C" {
 # endif /* __CRT__NO_INLINE */
   _CRTIMP int __cdecl _stat64(const char *_Name,struct _stat64 *_Stat);
   _CRTIMP int __cdecl _stat32i64(const char *_Name,struct _stat32i64 *_Stat);
-# ifndef __CRT__NO_INLINE
   int __cdecl _stat64i32(const char *_Name,struct _stat64i32 *_Stat);
+# ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl _stat64i32(const char *_Name,struct _stat64i32 *_Stat)
   {
     struct _stat64 st;

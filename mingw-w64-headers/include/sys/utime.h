@@ -101,6 +101,7 @@ extern "C" {
 #endif
 
 #ifndef RC_INVOKED
+#ifndef __CRT__NO_INLINE
 #ifdef _USE_32BIT_TIME_T
 __CRT_INLINE int __cdecl _utime(const char *_Filename,struct _utimbuf *_Utimbuf) {
   return _utime32(_Filename,(struct __utimbuf32 *)_Utimbuf);
@@ -122,8 +123,11 @@ __CRT_INLINE int __cdecl _wutime(const wchar_t *_Filename,struct _utimbuf *_Utim
   return _wutime64(_Filename,(struct __utimbuf64 *)_Utimbuf);
 }
 #endif
+#endif /* !__CRT__NO_INLINE */
 
 #ifndef	NO_OLDNAMES
+  int __cdecl utime(const char *, struct utimbuf *);
+#ifndef __CRT__NO_INLINE
 #ifdef _USE_32BIT_TIME_T
 __CRT_INLINE int __cdecl utime(const char *_Filename,struct utimbuf *_Utimbuf) {
   return _utime32(_Filename,(struct __utimbuf32 *)_Utimbuf);
@@ -132,7 +136,8 @@ __CRT_INLINE int __cdecl utime(const char *_Filename,struct utimbuf *_Utimbuf) {
 __CRT_INLINE int __cdecl utime(const char *_Filename,struct utimbuf *_Utimbuf) {
   return _utime64(_Filename,(struct __utimbuf64 *)_Utimbuf);
 }
-#endif
+#endif /* !_USE_32BIT_TIME_T */
+#endif /* !__CRT__NO_INLINE */
 #endif
 #endif
 

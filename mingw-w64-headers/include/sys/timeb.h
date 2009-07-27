@@ -109,6 +109,8 @@ struct itimerspec {
 #endif
 
 #if !defined (RC_INVOKED) && !defined (NO_OLDNAMES)
+void __cdecl ftime (struct timeb *);
+#ifndef __CRT__NO_INLINE
 #ifdef _USE_32BIT_TIME_T
 __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
   _ftime32((struct __timeb32 *)_Tmb);
@@ -117,7 +119,8 @@ __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
 __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
   _ftime64((struct __timeb64 *)_Tmb);
 }
-#endif
+#endif /* !_USE_32BIT_TIME_T */
+#endif /* !__CRT__NO_INLINE */
 #endif
 
 #ifdef __cplusplus
