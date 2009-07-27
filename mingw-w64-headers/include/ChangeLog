@@ -1,3 +1,9 @@
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* io.h: Removed dead _WIN64 macros where _USE_32BIT_TIME_T is defined
+	(the two just cannot live together.)
+	* sys/stat.h: Likewise.
+
 2009-07-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_mac.h: Rename __MINGW64_VERSION to __MINGW64_VERSION_STR.

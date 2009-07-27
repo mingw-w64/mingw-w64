@@ -64,15 +64,9 @@ extern "C" {
 #ifndef _STAT_DEFINED
 
 #ifdef _USE_32BIT_TIME_T
-#ifndef _WIN64
 #define _fstat32 _fstat
 #define _stat32 _stat
 #define _wstat32 _wstat
-#else
-#define _fstat _fstat32
-#define _stat _stat32
-#define _wstat _wstat32
-#endif
 #define _fstati64 _fstat32i64
 #define _stati64 _stat32i64
 #define _wstati64 _wstat32i64
@@ -83,7 +77,7 @@ extern "C" {
 #define _stati64 _stat64
 #define _wstat _wstat64i32
 #define _wstati64 _wstat64
-#endif
+#endif /* _USE_32BIT_TIME_T */
 
   struct _stat32 {
     _dev_t st_dev;
@@ -285,4 +279,6 @@ __CRT_INLINE int __cdecl stat(const char *_Filename,struct stat *_Stat) {
 #endif
 
 #pragma pack(pop)
-#endif
+
+#endif /* _INC_STAT */
+

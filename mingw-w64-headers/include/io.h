@@ -69,13 +69,8 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #define _finddata_t _finddata32_t
 #define _finddatai64_t _finddata32i64_t
 
-#ifdef _WIN64
-#define _findfirst _findfirst32
-#define _findnext _findnext32
-#else
 #define _findfirst32 _findfirst
 #define _findnext32 _findnext
-#endif
 #define _findfirsti64 _findfirst32i64
 #define _findnexti64 _findnext32i64
 #else
@@ -86,10 +81,10 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #define _findnext _findnext64i32
 #define _findfirsti64 _findfirst64
 #define _findnexti64 _findnext64
-#endif
+#endif /* _USE_32BIT_TIME_T */
 
 #define _FINDDATA_T_DEFINED
-#endif
+#endif /* _FINDDATA_T_DEFINED */
 
 #ifndef _WFINDDATA_T_DEFINED
 
@@ -148,10 +143,10 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #define _wfindnext _wfindnext64i32
 #define _wfindfirsti64 _wfindfirst64
 #define _wfindnexti64 _wfindnext64
-#endif
+#endif /* _USE_32BIT_TIME_T */
 
 #define _WFINDDATA_T_DEFINED
-#endif
+#endif /* _WFINDDATA_T_DEFINED */
 
 #define _A_NORMAL 0x00
 #define _A_RDONLY 0x01
@@ -171,8 +166,8 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #endif
 #else
   typedef unsigned int size_t;
-#endif
-#endif
+#endif /* _WIN64 */
+#endif /* _SIZE_T_DEFINED */
 
 #ifndef _SSIZE_T_DEFINED
 #define _SSIZE_T_DEFINED
@@ -185,8 +180,8 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #endif
 #else
   typedef int ssize_t;
-#endif
-#endif
+#endif /* _WIN64 */
+#endif /* _SSIZE_T_DEFINED */
 
 #ifndef _OFF_T_DEFINED
 #define _OFF_T_DEFINED
