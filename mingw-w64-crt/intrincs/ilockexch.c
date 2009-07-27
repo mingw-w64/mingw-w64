@@ -5,7 +5,7 @@
 #include <windows.h>
 
 #undef InterlockedExchange
-LONG InterlockedExchange(LONG volatile *Target,LONG Value)
+LONG _InterlockedExchange(LONG volatile *Target,LONG Value)
 {
   __asm__ __volatile("lock ; xchgl %0,%1"
     : "=r"(Value)
@@ -13,4 +13,7 @@ LONG InterlockedExchange(LONG volatile *Target,LONG Value)
     : "memory");
   return Value;
 }
+
+LONG InterlockedExchange(LONG volatile *Target,LONG Value)
+  __attribute__((alias("_InterlockedExchange")));
 

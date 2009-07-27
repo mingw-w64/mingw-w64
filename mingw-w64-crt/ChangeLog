@@ -1,5 +1,18 @@
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* intrincs/ilockcxch.c (_InterlockedCompareExchange): Renamed from
+	InterlockedCompareExchange. Provide InterlockedCompareExchange as an
+	alias to _InterlockedCompareExchange.
+	* intrincs/ilockexch.c (_InterlockedExchange): Renamed from
+	InterlockedExchange. Provide InterlockedExchange as an alias to
+	_InterlockedExchange.
+	* intrincs/ilockcxch_.c, intrincs/ilockexch_.c: Removed.
+	* Makefile.am: Removed intrincs/ilockcxch_.c and intrincs/ilockexch_.c
+	from the build.
+	* Makefile.in: Regenerated.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* intrincs/*: Define __CRT__NO_INLINE before the includes to prevent
 	declaration mismatches.
 
