@@ -1,3 +1,8 @@
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	*  ws2tcpip.h: Make the IN6* inlines into macros when inlining is
+	disabled.
+
 2009-07-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math.h (__cplusplust): Replace for inlines the __cplusplus guard
