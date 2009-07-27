@@ -3,6 +3,7 @@
 	* math.h (__cplusplust): Replace for inlines the __cplusplus guard
 	by __CRT__NO_INLINE guard.
 	* complex.h (_CRT_INLINE): Guard inlines by __CRT__NO_INLINE.
+	* assert.h (_CRT_INLINE): Likewise.
 
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
