@@ -2510,11 +2510,13 @@ extern "C"{
 
 #define IP_CHKSUM_OFF 10
 
+#ifndef __CRT__NO_INLINE
   INLINE BYTE IP_Version(ULPIP pIP) { return (pIP->Version & IP_VERSION_MASK) >> IP_VERSION_SHIFT; }
   INLINE DWORD IP_HdrLen(ULPIP pIP) { return ((pIP->HdrLen & IP_HDRLEN_MASK) >> IP_HDRLEN_SHIFT) << 2; }
   INLINE WORD IP_FragOff(ULPIP pIP) { return (XCHG(pIP->FragOff) & IP_FRAGOFF_MASK) << IP_FRAGOFF_SHIFT; }
   INLINE DWORD IP_TotalLen(ULPIP pIP) { return XCHG(pIP->TotalLen); }
   INLINE DWORD IP_MoreFragments(ULPIP pIP) { return (pIP->Flags & IP_MF_MASK) >> IP_MF_SHIFT; }
+#endif
 
 #define PORT_TCPMUX 1
 #define PORT_RJE 5
@@ -2862,9 +2864,11 @@ extern "C"{
 
   typedef TCP UNALIGNED *ULPTCP;
 
+#ifndef __CRT__NO_INLINE
   INLINE DWORD TCP_HdrLen(ULPTCP pTCP) { return (pTCP->DataOff & 0xf0) >> 2; }
   INLINE DWORD TCP_SrcPort(ULPTCP pTCP) { return XCHG(pTCP->SrcPort); }
   INLINE DWORD TCP_DstPort(ULPTCP pTCP) { return XCHG(pTCP->DstPort); }
+#endif
 
 #define TCP_OPTION_ENDOFOPTIONS (0)
 #define TCP_OPTION_NOP (1)
