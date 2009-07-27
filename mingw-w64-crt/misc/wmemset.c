@@ -3,6 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
+#define __CRT__NO_INLINE
 #include	<wchar.h>
 
 #if 0
@@ -11,7 +13,7 @@ wmemset(s, c, n)
 	register wchar_t	*s;
 	register wchar_t	c;
 	register size_t		n;
-	{
+{
 	wchar_t			*orig_s = s;
 
 	if ( s != NULL )
@@ -19,6 +21,5 @@ wmemset(s, c, n)
 			*s++ = c;
 
 	return orig_s;
-	}
-
+}
 #endif

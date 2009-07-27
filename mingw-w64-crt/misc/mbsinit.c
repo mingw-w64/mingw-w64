@@ -15,11 +15,12 @@
 
 */
 
+#define __CRT__NO_INLINE
 #include	<wchar.h>
+
 #if 0
 int mbsinit(const mbstate_t *ps)
-	{
+{
 	return 1;			/* don't have shift states */
-	}
-
+}
 #endif

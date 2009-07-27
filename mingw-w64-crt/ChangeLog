@@ -1,5 +1,15 @@
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
+	misc/
+	* fwide.c, mbsinit.c, wmemchr.c, wmemcmp.c, wmemcpy.c, wmemmove.c, wmemset.c:
+	Define __CRT__NO_INLINE before the includes to prevent declaration mismatches.
+	FIXME: The functions are #if 0'ed out in all of these sources, so we don't have
+	their non-inlined versions in libmingwex.a.
+	FIXME-2: We also don't have non-inlined versions of several other functions
+	in libmingwex.a, either. To be looked into...
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* misc/imaxabs.c: Define __CRT__NO_INLINE before the includes to prevent
 	declaration mismatches.
 	* stdio/_Exit.c: Likewise.
