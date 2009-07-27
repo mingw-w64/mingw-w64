@@ -4,7 +4,10 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
+#define __CRT__NO_INLINE
 #include <string.h>
+
+#undef strcasecmp
 
 int
 strcasecmp (const char *sz1,const char *sz2)

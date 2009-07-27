@@ -4,7 +4,9 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
+#define __CRT__NO_INLINE
 #include <string.h>
+
 #undef wcscmpi
 
 int

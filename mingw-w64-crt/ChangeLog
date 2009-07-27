@@ -11,6 +11,9 @@
 	* stdio/vsnprintf.c: Likewise.
 	* stdio/vsnwprintf.c: Likewise.
 	* stdio/wtoll.c: Likewise.
+	* crt/strcasecmp.c: Likewise. Also undefine strcasecmp.
+	* crt/strncasecmp.c: Likewise. Also undefine strncasecmp.
+	* crt/wcscmpi.c: Likewise.
 
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
