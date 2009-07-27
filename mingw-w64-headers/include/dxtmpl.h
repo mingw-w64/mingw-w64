@@ -22,7 +22,9 @@ typedef DWORD DXLISTHANDLE;
 
 #define DX_BEFORE_START_POSITION ((void*)-1L)
 
+#ifndef __CRT__NO_INLINE
 __CRT_INLINE WINBOOL DXIsValidAddress(const void *lp,UINT nBytes,WINBOOL bReadWrite) { return (lp!=NULL && !IsBadReadPtr(lp,nBytes) && (!bReadWrite || !IsBadWritePtr((LPVOID)lp,nBytes))); }
+#endif
 
 #ifdef __cplusplus
 
