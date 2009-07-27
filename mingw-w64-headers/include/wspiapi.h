@@ -12,32 +12,6 @@
 #include <string.h>
 #include <ws2tcpip.h>
 
-/* If you encounter the unresolved symbols
-   _WspiapiLegacyFreeAddrInfo
-   _WspiapiLegacyGetAddrInfo
-   _WspiapiLegacyGetAddrInfo
-
-  when linking code that uses wspiapi, you should consider putting
-
-  #define _WSPIAPI_EMIT_LEGACY
-  #include <wspiapi.h>
-
-  at the top of one of your compilation units, because gcc does not emit
-  compiled versions of these 'extern inline' functions.
-
-  This is a workaround until these functions will go into a well-defined
-  additional library module added to wspiapi. */
-
-#ifdef _WSPIAPI_EMIT_LEGACY
-#define _WSPIAPI_LEGACY_INLINE extern
-/* We have to make sure that inlines are used for WSPIAPI_EMIT_LEGACY.  */
-#undef __CRT__NO_INLINE
-#else
-#ifndef __CRT__NO_INLINE
-#define _WSPIAPI_LEGACY_INLINE __CRT_INLINE
-#endif /* !__CRT__NO_INLINE */
-#endif
-
 #define _WSPIAPI_STRCPY_S(_Dst,_Size,_Src) strcpy((_Dst),(_Src))
 #define _WSPIAPI_STRCAT_S(_Dst,_Size,_Src) strcat((_Dst),(_Src))
 #define _WSPIAPI_STRNCPY_S(_Dst,_Size,_Src,_Count) strncpy((_Dst),(_Src),(_Count)); (_Dst)[(_Size) - 1] = 0
@@ -66,6 +40,27 @@ typedef void (WINAPI *WSPIAPI_PFREEADDRINFO)(struct addrinfo *ai);
 #ifdef __cplusplus
 extern "C" {
 #endif
+  typedef struct {
+    char const *pszName;
+    FARPROC pfAddress;
+  } WSPIAPI_FUNCTION;
+
+#define WSPIAPI_FUNCTION_ARRAY { "getaddrinfo",(FARPROC) WspiapiLegacyGetAddrInfo,"getnameinfo",(FARPROC) WspiapiLegacyGetNameInfo,"freeaddrinfo",(FARPROC) WspiapiLegacyFreeAddrInfo,}
+
+  char *WINAPI WspiapiStrdup (const char *pszString);
+  WINBOOL WINAPI WspiapiParseV4Address (const char *pszAddress,PDWORD pdwAddress);
+  struct addrinfo * WINAPI WspiapiNewAddrInfo (int iSocketType,int iProtocol,WORD wPort,DWORD dwAddress);
+  int WINAPI WspiapiQueryDNS(const char *pszNodeName,int iSocketType,int iProtocol,WORD wPort,char pszAlias[NI_MAXHOST],struct addrinfo **pptResult);
+  int WINAPI WspiapiLookupNode(const char *pszNodeName,int iSocketType,int iProtocol,WORD wPort,WINBOOL bAI_CANONNAME,struct addrinfo **pptResult);
+  int WINAPI WspiapiClone (WORD wPort,struct addrinfo *ptResult);
+  void WINAPI WspiapiLegacyFreeAddrInfo (struct addrinfo *ptHead);
+  int WINAPI WspiapiLegacyGetAddrInfo(const char *pszNodeName,const char *pszServiceName,const struct addrinfo *ptHints,struct addrinfo **pptResult);
+  int WINAPI WspiapiLegacyGetNameInfo(const struct sockaddr *ptSocketAddress,socklen_t tSocketLength,char *pszNodeName,size_t tNodeLength,char *pszServiceName,size_t tServiceLength,int iFlags);
+  FARPROC WINAPI WspiapiLoad(WORD wFunction);
+  int WINAPI WspiapiGetAddrInfo(const char *nodename,const char *servname,const struct addrinfo *hints,struct addrinfo **res);
+  int WINAPI WspiapiGetNameInfo (const struct sockaddr *sa,socklen_t salen,char *host,size_t hostlen,char *serv,size_t servlen,int flags);
+  void WINAPI WspiapiFreeAddrInfo (struct addrinfo *ai);
+
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE char *WINAPI WspiapiStrdup (const char *pszString) {
     char *pszMemory;
@@ -179,10 +174,7 @@ extern "C" {
     return 0;
   }
 
-#endif /* !__CRT__NO_INLINE */
-
-#ifdef _WSPIAPI_LEGACY_INLINE
-  _WSPIAPI_LEGACY_INLINE void WINAPI WspiapiLegacyFreeAddrInfo (struct addrinfo *ptHead) {
+  __CRT_INLINE void WINAPI WspiapiLegacyFreeAddrInfo (struct addrinfo *ptHead) {
     struct addrinfo *ptNext;
     for(ptNext = ptHead;ptNext!=NULL;ptNext = ptHead) {
       if(ptNext->ai_canonname) WspiapiFree(ptNext->ai_canonname);
@@ -192,7 +184,7 @@ extern "C" {
     }
   }
 
-  _WSPIAPI_LEGACY_INLINE int WINAPI WspiapiLegacyGetAddrInfo(const char *pszNodeName,const char *pszServiceName,const struct addrinfo *ptHints,struct addrinfo **pptResult) {
+  __CRT_INLINE int WINAPI WspiapiLegacyGetAddrInfo(const char *pszNodeName,const char *pszServiceName,const struct addrinfo *ptHints,struct addrinfo **pptResult) {
     int iError = 0;
     int iFlags = 0;
     int iFamily = PF_UNSPEC;
@@ -265,7 +257,7 @@ extern "C" {
     return (iError);
   }
 
-  _WSPIAPI_LEGACY_INLINE int WINAPI WspiapiLegacyGetNameInfo(const struct sockaddr *ptSocketAddress,socklen_t tSocketLength,char *pszNodeName,size_t tNodeLength,char *pszServiceName,size_t tServiceLength,int iFlags) {
+  __CRT_INLINE int WINAPI WspiapiLegacyGetNameInfo(const struct sockaddr *ptSocketAddress,socklen_t tSocketLength,char *pszNodeName,size_t tNodeLength,char *pszServiceName,size_t tServiceLength,int iFlags) {
     struct servent *ptService;
     WORD wPort;
     char szBuffer[] = "65535";
@@ -321,16 +313,6 @@ extern "C" {
     }
     return 0;
   }
-#endif /* _WSPAPI_LEGACY_INLINE */
-
-  typedef struct {
-    char const *pszName;
-    FARPROC pfAddress;
-  } WSPIAPI_FUNCTION;
-
-#define WSPIAPI_FUNCTION_ARRAY { "getaddrinfo",(FARPROC) WspiapiLegacyGetAddrInfo,"getnameinfo",(FARPROC) WspiapiLegacyGetNameInfo,"freeaddrinfo",(FARPROC) WspiapiLegacyFreeAddrInfo,}
-
-#ifndef __CRT__NO_INLINE
 
   __CRT_INLINE FARPROC WINAPI WspiapiLoad(WORD wFunction) {
     HMODULE hLibrary = NULL;

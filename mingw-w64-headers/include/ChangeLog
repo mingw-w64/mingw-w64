@@ -1,3 +1,9 @@
+2009-07-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* wspiapi.h: Add global prototypes for inlines and remove
+	LEGACY... macro. All are now __CRT_INLINE functions.
+	Implementation of those functionts is in crt's /libsrc/wspiapi.c
+
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	*  ws2tcpip.h: Make the IN6* inlines into macros when inlining is
