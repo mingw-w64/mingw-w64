@@ -170,7 +170,12 @@ extern "C" {
   DWORD WINAPI ResUtilGetBinaryValue(HKEY hkeyClusterKey,LPCWSTR pszValueName,LPBYTE *ppbOutValue,LPDWORD pcbOutValueSize);
   LPWSTR WINAPI ResUtilGetSzValue(HKEY hkeyClusterKey,LPCWSTR pszValueName);
   LPWSTR WINAPI ResUtilGetExpandSzValue(HKEY hkeyClusterKey,LPCWSTR pszValueName,WINBOOL bExpand);
-  __CRT_INLINE DWORD WINAPI ResUtilGetMultiSzValue(HKEY hkeyClusterKey,LPCWSTR pszValueName,LPWSTR *ppszOutValue,LPDWORD pcbOutValueSize) { return ResUtilGetBinaryValue(hkeyClusterKey,pszValueName,(LPBYTE *) ppszOutValue,pcbOutValueSize); }
+#ifndef __CRT__NO_INLINE
+  __CRT_INLINE DWORD WINAPI ResUtilGetMultiSzValue(HKEY hkeyClusterKey,LPCWSTR pszValueName,LPWSTR *ppszOutValue,LPDWORD pcbOutValueSize)
+  {
+   return ResUtilGetBinaryValue(hkeyClusterKey,pszValueName,(LPBYTE *)ppszOutValue,pcbOutValueSize);
+  }
+#endif /* !__CRT__NO_INLINE */
   DWORD WINAPI ResUtilGetDwordValue(HKEY hkeyClusterKey,LPCWSTR pszValueName,LPDWORD pdwOutValue,DWORD dwDefaultValue);
   DWORD WINAPI ResUtilSetBinaryValue(HKEY hkeyClusterKey,LPCWSTR pszValueName,const LPBYTE pbNewValue,DWORD cbNewValueSize,LPBYTE *ppbOutValue,LPDWORD pcbOutValueSize);
   DWORD WINAPI ResUtilSetSzValue(HKEY hkeyClusterKey,LPCWSTR pszValueName,LPCWSTR pszNewValue,LPWSTR *ppszOutString);
