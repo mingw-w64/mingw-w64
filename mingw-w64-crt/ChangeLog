@@ -1,5 +1,10 @@
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* intrincs/*: Define __CRT__NO_INLINE before the includes to prevent
+	declaration mismatches.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* libsrc/ws2tcpip.c: New. Add function implementations of inline
 	version in ws2tcpip.h.
 	* Makefile.am: Added libsrc/ws2tcpip.c to libws2_32.a.

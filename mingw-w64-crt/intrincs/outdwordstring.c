@@ -4,6 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
+#define __CRT__NO_INLINE
 #include <_mingw.h>
 
 void __outdwordstring(unsigned short Port,unsigned long *Buffer,unsigned long Count)
