@@ -82,6 +82,11 @@ limitations in handling dllimport attribute.  */
 # endif
 #endif
 
+#ifdef __NO_INLINE__
+#undef __CRT__NO_INLINE
+#define __CRT__NO_INLINE 1
+#endif
+
 #ifdef __cplusplus
 # define __UNUSED_PARAM(x)
 #else
