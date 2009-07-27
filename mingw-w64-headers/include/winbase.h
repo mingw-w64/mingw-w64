@@ -815,6 +815,7 @@ extern "C" {
   PVOID __cdecl InterlockedCompareExchangePointerAcquire(PVOID volatile *Destination,PVOID Exchange,PVOID Comperand);
   PVOID __cdecl InterlockedCompareExchangePointerRelease(PVOID volatile *Destination,PVOID Exchange,PVOID Comperand);
 
+#ifndef __CRT__NO_INLINE
 #ifndef InterlockedAnd
 #define InterlockedAnd InterlockedAnd_Inline
   __CRT_INLINE LONG InterlockedAnd_Inline(LONG volatile *Target,LONG Set) {
@@ -924,6 +925,7 @@ extern "C" {
     return (BOOLEAN)((InterlockedXor(&Base[Bit/(sizeof(*Base)*8)],tBit)&tBit)!=0);
   }
 #endif
+#endif /* !__CRT__NO_INLINE */
 #elif defined(__x86_64) && !defined(RC_INVOKED)
 
 #define InterlockedIncrement _InterlockedIncrement
@@ -977,7 +979,7 @@ extern "C" {
   LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
   LONG InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand);
   LONGLONG InterlockedCompareExchange64(LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand);
-
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE LONGLONG InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value) {
     LONGLONG Old;
     do {
@@ -1034,8 +1036,9 @@ extern "C" {
     } while(InterlockedCompareExchange64(Addend,Old + Value,Old)!=Old);
     return Old;
   }
+#endif /* !__CRT__NO_INLINE */
 
-#ifdef __cplusplus
+#if defined(__cplusplus) && !defined(__CRT__NO_INLINE)
   __CRT_INLINE PVOID __cdecl __InlineInterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand) {
     return((PVOID)(LONG_PTR)InterlockedCompareExchange((LONG volatile *)Destination,(LONG)(LONG_PTR)ExChange,(LONG)(LONG_PTR)Comperand));
   }
