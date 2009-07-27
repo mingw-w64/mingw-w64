@@ -406,6 +406,7 @@ extern "C" {
 #define ICDecompressSetPalette(hic,lpbiPalette) ICSendMessage(hic,ICM_DECOMPRESS_SET_PALETTE,(DWORD_PTR)(LPVOID)(lpbiPalette),0)
 #define ICDecompressEnd(hic) ICSendMessage(hic,ICM_DECOMPRESS_END,0,0)
 
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE LRESULT WINAPI ICDecompressEx(HIC hic,DWORD dwFlags,LPBITMAPINFOHEADER lpbiSrc,LPVOID lpSrc,int xSrc,int ySrc,int dxSrc,int dySrc,LPBITMAPINFOHEADER lpbiDst,LPVOID lpDst,int xDst,int yDst,int dxDst,int dyDst) {
     ICDECOMPRESSEX ic;
     ic.dwFlags = dwFlags;
@@ -459,6 +460,7 @@ extern "C" {
     ic.dyDst = dyDst;
     return ICSendMessage(hic,ICM_DECOMPRESSEX_QUERY,(DWORD_PTR)&ic,sizeof(ic));
   }
+#endif /* !__CRT__NO_INLINE */
 
 #define ICDecompressExEnd(hic) ICSendMessage(hic,ICM_DECOMPRESSEX_END,0,0)
 
@@ -473,6 +475,7 @@ extern "C" {
 
   DWORD WINAPIV ICDraw(HIC hic,DWORD dwFlags,LPVOID lpFormat,LPVOID lpData,DWORD cbData,LONG lTime);
 
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE LRESULT WINAPI ICDrawSuggestFormat(HIC hic,LPBITMAPINFOHEADER lpbiIn,LPBITMAPINFOHEADER lpbiOut,int dxSrc,int dySrc,int dxDst,int dyDst,HIC hicDecomp) {
     ICDRAWSUGGEST ic;
     ic.lpbiIn = lpbiIn;
@@ -484,6 +487,7 @@ extern "C" {
     ic.hicDecompressor = hicDecomp;
     return ICSendMessage(hic,ICM_DRAW_SUGGESTFORMAT,(DWORD_PTR)&ic,sizeof(ic));
   }
+#endif /* !__CRT__NO_INLINE */
 
 #define ICDrawQuery(hic,lpbiInput) ICSendMessage(hic,ICM_DRAW_QUERY,(DWORD_PTR)(LPVOID)(lpbiInput),0L)
 #define ICDrawChangePalette(hic,lpbiInput) ICSendMessage(hic,ICM_DRAW_CHANGEPALETTE,(DWORD_PTR)(LPVOID)(lpbiInput),0L)
@@ -499,6 +503,7 @@ extern "C" {
 #define ICDrawFlush(hic) ICSendMessage(hic,ICM_DRAW_FLUSH,0,0)
 #define ICDrawRenderBuffer(hic) ICSendMessage(hic,ICM_DRAW_RENDERBUFFER,0,0)
 
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE LRESULT WINAPI ICSetStatusProc(HIC hic,DWORD dwFlags,LRESULT lParam,LONG (CALLBACK *fpfnStatus)(LPARAM,UINT,LONG)) {
     ICSETSTATUSPROC ic;
     ic.dwFlags = dwFlags;
@@ -506,6 +511,7 @@ extern "C" {
     ic.Status = fpfnStatus;
     return ICSendMessage(hic,ICM_SET_STATUS_PROC,(DWORD_PTR)&ic,sizeof(ic));
   }
+#endif /* !__CRT__NO_INLINE */
 
 #define ICDecompressOpen(fccType,fccHandler,lpbiIn,lpbiOut) ICLocate(fccType,fccHandler,lpbiIn,lpbiOut,ICMODE_DECOMPRESS)
 #define ICDrawOpen(fccType,fccHandler,lpbiIn) ICLocate(fccType,fccHandler,lpbiIn,NULL,ICMODE_DRAW)
