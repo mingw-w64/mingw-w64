@@ -135,6 +135,7 @@ extern "C" {
 
 #define WS2TCPIP_INLINE __CRT_INLINE
 
+#ifndef __CRT__NO_INLINE
 WS2TCPIP_INLINE int IN6_ADDR_EQUAL(const struct in6_addr *a,const struct in6_addr *b) { return (memcmp(a,b,sizeof(struct in6_addr))==0); }
 WS2TCPIP_INLINE int IN6_IS_ADDR_UNSPECIFIED(const struct in6_addr *a) { return ((a->s6_words[0]==0) && (a->s6_words[1]==0) && (a->s6_words[2]==0) && (a->s6_words[3]==0) && (a->s6_words[4]==0) && (a->s6_words[5]==0) && (a->s6_words[6]==0) && (a->s6_words[7]==0)); }
 WS2TCPIP_INLINE int IN6_IS_ADDR_LOOPBACK(const struct in6_addr *a) { return ((a->s6_words[0]==0) && (a->s6_words[1]==0) && (a->s6_words[2]==0) && (a->s6_words[3]==0) && (a->s6_words[4]==0) && (a->s6_words[5]==0) && (a->s6_words[6]==0) && (a->s6_words[7]==0x0100)); }
@@ -169,6 +170,7 @@ WS2TCPIP_INLINE void IN6ADDR_SETLOOPBACK(struct sockaddr_in6 *a) {
   IN6_SET_ADDR_LOOPBACK(&a->sin6_addr);
   a->sin6_scope_id = 0;
 }
+#endif /* !__CRT__NO_INLINE */
 
 typedef union sockaddr_gen {
   struct sockaddr Address;
@@ -346,7 +348,7 @@ extern "C" {
 #endif
 
 #define GAI_STRERROR_BUFFER_SIZE 1024
-
+#ifndef __CRT__NO_INLINE
   WS2TCPIP_INLINE char *gai_strerrorA(int ecode) {
     DWORD dwMsgLen;
     static char buff[GAI_STRERROR_BUFFER_SIZE + 1];
@@ -360,6 +362,7 @@ extern "C" {
     dwMsgLen = FormatMessageW(FORMAT_MESSAGE_FROM_SYSTEM|FORMAT_MESSAGE_IGNORE_INSERTS|FORMAT_MESSAGE_MAX_WIDTH_MASK,NULL,ecode,MAKELANGID(LANG_NEUTRAL,SUBLANG_DEFAULT),(LPWSTR)buff,GAI_STRERROR_BUFFER_SIZE,NULL);
     return buff;
   }
+#endif /* !__CRT__NO_INLINE */
 
 #define NI_MAXHOST 1025
 #define NI_MAXSERV 32

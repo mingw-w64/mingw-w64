@@ -30,8 +30,12 @@
 
 #ifdef _WSPIAPI_EMIT_LEGACY
 #define _WSPIAPI_LEGACY_INLINE extern
+/* We have to make sure that inlines are used for WSPIAPI_EMIT_LEGACY.  */
+#undef __CRT__NO_INLINE
 #else
+#ifndef __CRT__NO_INLINE
 #define _WSPIAPI_LEGACY_INLINE __CRT_INLINE
+#endif /* !__CRT__NO_INLINE */
 #endif
 
 #define _WSPIAPI_STRCPY_S(_Dst,_Size,_Src) strcpy((_Dst),(_Src))
@@ -62,7 +66,7 @@ typedef void (WINAPI *WSPIAPI_PFREEADDRINFO)(struct addrinfo *ai);
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE char *WINAPI WspiapiStrdup (const char *pszString) {
     char *pszMemory;
     size_t cchMemory;
@@ -175,6 +179,9 @@ extern "C" {
     return 0;
   }
 
+#endif /* !__CRT__NO_INLINE */
+
+#ifdef _WSPIAPI_LEGACY_INLINE
   _WSPIAPI_LEGACY_INLINE void WINAPI WspiapiLegacyFreeAddrInfo (struct addrinfo *ptHead) {
     struct addrinfo *ptNext;
     for(ptNext = ptHead;ptNext!=NULL;ptNext = ptHead) {
@@ -314,6 +321,7 @@ extern "C" {
     }
     return 0;
   }
+#endif /* _WSPAPI_LEGACY_INLINE */
 
   typedef struct {
     char const *pszName;
@@ -321,6 +329,8 @@ extern "C" {
   } WSPIAPI_FUNCTION;
 
 #define WSPIAPI_FUNCTION_ARRAY { "getaddrinfo",(FARPROC) WspiapiLegacyGetAddrInfo,"getnameinfo",(FARPROC) WspiapiLegacyGetNameInfo,"freeaddrinfo",(FARPROC) WspiapiLegacyFreeAddrInfo,}
+
+#ifndef __CRT__NO_INLINE
 
   __CRT_INLINE FARPROC WINAPI WspiapiLoad(WORD wFunction) {
     HMODULE hLibrary = NULL;
@@ -399,6 +409,7 @@ extern "C" {
     if(!pfFreeAddrInfo) pfFreeAddrInfo = (WSPIAPI_PFREEADDRINFO) WspiapiLoad(2);
     (*pfFreeAddrInfo)(ai);
   }
+#endif /* !__CRT__NO_INLINE */
 
 #ifdef __cplusplus
 }
