@@ -41,9 +41,16 @@ wmemcmp(s1, s2, n)
 
 int __cdecl wmemcmp(const wchar_t *_S1,const wchar_t *_S2,size_t _N)
 {
+	if (_N == 0 || _S1 == _S2)
+		return 0;	/* even for NULL pointers */
+
+	if ((_S1 != NULL) != (_S2 != NULL))
+		return _S2 == NULL ? 1 : -1;	/* robust */
+
 	for ( ; 0 < _N; ++_S1, ++_S2, --_N)
 		if (*_S1 != *_S2)
 			return (*_S1 < *_S2 ? -1 : +1);
-	return (0);
+
+	return 0;
 }
 

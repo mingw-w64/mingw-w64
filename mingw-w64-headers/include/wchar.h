@@ -860,8 +860,24 @@ __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_T
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl fwide(FILE *_F,int _M) { (void)_F; return (_M); }
   __CRT_INLINE int __cdecl mbsinit(const mbstate_t *_P) { return (!_P || *_P==0); }
-  __CRT_INLINE _CONST_RETURN wchar_t *__cdecl wmemchr(const wchar_t *_S,wchar_t _C,size_t _N) { for (;0<_N;++_S,--_N) if (*_S==_C) return (_CONST_RETURN wchar_t *)(_S); return NULL; }
-  __CRT_INLINE int __cdecl wmemcmp(const wchar_t *_S1,const wchar_t *_S2,size_t _N) { for (; 0 < _N; ++_S1,++_S2,--_N) if (*_S1!=*_S2) return (*_S1 < *_S2 ? -1 : +1); return (0); }
+  __CRT_INLINE _CONST_RETURN wchar_t *__cdecl wmemchr(const wchar_t *_S,wchar_t _C,size_t _N) {
+    if (_S != NULL) {
+      for ( ; 0 < _N; ++_S, --_N)
+	if (*_S == _C)
+	  return (_CONST_RETURN wchar_t *)(_S);
+    }
+    return NULL;
+  }
+  __CRT_INLINE int __cdecl wmemcmp(const wchar_t *_S1,const wchar_t *_S2,size_t _N) {
+    if (_N == 0 || _S1 == _S2)
+      return 0;	/* even for NULL pointers */
+    if ((_S1 != NULL) != (_S2 != NULL))
+      return _S2 == NULL ? 1 : -1; /* robust */
+    for ( ; 0 < _N; ++_S1, ++_S2, --_N)
+      if (*_S1! = *_S2)
+	return (*_S1 < *_S2 ? -1 : +1);
+    return (0);
+  }
   __CRT_INLINE wchar_t *__cdecl wmemcpy(wchar_t *_S1,const wchar_t *_S2,size_t _N) { return (wchar_t *)memcpy(_S1,_S2,_N*sizeof(wchar_t)); }
   __CRT_INLINE wchar_t *__cdecl wmemmove(wchar_t *_S1,const wchar_t *_S2,size_t _N) { return (wchar_t *)memmove(_S1,_S2,_N*sizeof(wchar_t)); }
   __CRT_INLINE wchar_t *__cdecl wmemset(wchar_t *_S,wchar_t _C,size_t _N) {
