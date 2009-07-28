@@ -67,7 +67,7 @@ src_libmingwex=\
   intrincs/inbyte.c     intrincs/inbytestring.c   intrincs/indword.c   intrincs/indwordstring.c                \
   intrincs/inword.c     intrincs/inwordstring.c   intrincs/outbyte.c   intrincs/outbytestring.c                \
   intrincs/outdword.c   intrincs/outdwordstring.c intrincs/outword.c   intrincs/outwordstring.c                \
-  intrincs/readcr2.c    intrincs/readcr3.c        intrincs/readcr4.c   intrincs/readcr8.c                      \
+  intrincs/readcr0.c    intrincs/readcr2.c        intrincs/readcr3.c   intrincs/readcr4.c  intrincs/readcr8.c  \
   intrincs/writecr0.c   intrincs/writecr2.c       intrincs/writecr3.c  intrincs/writecr4.c intrincs/writecr8.c \
   intrincs/readmsr.c    intrincs/writemsr.c       intrincs/rdtsc.c     intrincs/cpuid.c \
   \
