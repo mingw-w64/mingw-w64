@@ -3,6 +3,8 @@
 	* conio.h (readcr0): Provided proper w32 and w64 versions.
 	* wchar.h (fwide, mbsinit): Provide prototypes for non-inline cases.
 	(wmemchr, wmemcmp): Added NULL pointer checks.
+	* winnt.h (InterlockedBitTestAndComplement, GetCurrentFiber,
+	GetFiberData, NtCurrentTeb): added protoypes for x86 and/or x86_64.
 
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 

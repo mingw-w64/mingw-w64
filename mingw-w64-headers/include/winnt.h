@@ -865,6 +865,10 @@ typedef DWORD LCID;
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
+#endif /* __CRT__NO_INLINE */
+
+    BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit);
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit) {
       int old = 0;
       __asm__ __volatile__("lock ; btcl %2,%1\n\tsbbl %0,%0 "
@@ -1463,7 +1467,10 @@ typedef DWORD LCID;
 	:"Ir" (Bit));
       return (BOOLEAN) (old!=0);
     }
+#endif /* __CRT__NO_INLINE */
 
+    BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit);
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit) {
       int old = 0;
       __asm__ __volatile__("lock ; btcl %2,%1\n\tsbbl %0,%0 "
@@ -5765,6 +5772,9 @@ typedef DWORD LCID;
     } TAPE_DRIVE_PROBLEM_TYPE;
 
 #if defined(__x86_64)
+    struct _TEB *NtCurrentTeb(VOID);
+    PVOID GetCurrentFiber(VOID);
+    PVOID GetFiberData(VOID);
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE struct _TEB *NtCurrentTeb(VOID) { return (struct _TEB *)__readgsqword(FIELD_OFFSET(NT_TIB,Self)); }
     __CRT_INLINE PVOID GetCurrentFiber(VOID) { return(PVOID)__readgsqword(FIELD_OFFSET(NT_TIB,FiberData)); }
@@ -5776,6 +5786,7 @@ typedef DWORD LCID;
 
 #if(defined(_X86_) && !defined(__x86_64))
 #define PcTeb 0x18
+    struct _TEB *NtCurrentTeb(void);
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE struct _TEB *NtCurrentTeb(void) {
       struct _TEB *ret;
