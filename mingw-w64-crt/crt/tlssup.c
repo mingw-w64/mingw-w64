@@ -116,19 +116,25 @@ __dyn_tls_dtor (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason != DLL_THREAD_DETACH && dwReason != DLL_PROCESS_DETACH)
     return TRUE;
-
-  for (pnode = dtor_list; pnode != NULL; pnode = pnext)
+  /* As TLS variables are detroyed already by DLL_THREAD_DETACH
+     call, we have to avoid access on the possible DLL_PROCESS_DETACH
+     call the already destroyed TLS vars.
+     TODO: The used local thread based variables have to be handled
+     manually, so that we can control their lifetime here.  */
+  if (dwReason != DLL_PROCESS_DETACH)
     {
-      for (i = pnode->count - 1; i >= 0; --i)
-	{
-	  if (pnode->funcs[i] != NULL)
-	    (*pnode->funcs[i])();
-	}
-      pnext = pnode->next;
-      if (pnext != NULL)
-	free ((void *) pnode);
+      for (pnode = dtor_list; pnode != NULL; pnode = pnext)
+        {
+          for (i = pnode->count - 1; i >= 0; --i)
+	    {
+	      if (pnode->funcs[i] != NULL)
+	        (*pnode->funcs[i])();
+	    }
+          pnext = pnode->next;
+          if (pnext != NULL)
+	    free ((void *) pnode);
+        }
     }
-
   /* Don't call if we use libgcc_s version.  */
   if (_CRT_MT == 2)
     __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
