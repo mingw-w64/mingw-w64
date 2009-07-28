@@ -65,3 +65,7 @@ int __cdecl stat(const char *_Filename,struct stat *_Stat)
 }
 #endif
 
+/* Add __imp__fstat and __imp__stat symbols.  */
+int (*__MINGW_IMP_SYMBOL(stat))(const char *,struct stat *) = &stat;
+int (*__MINGW_IMP_SYMBOL(fstat))(int, struct stat *) = &fstat;
+

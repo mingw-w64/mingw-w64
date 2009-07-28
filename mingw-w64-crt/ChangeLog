@@ -1,3 +1,8 @@
+2009-07-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2687501
+	* stdio/_fstat64i32.c (stat,fstat): Add _imp__<symbol> variable.
+
 2009-07-28  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* misc/wmemchr.c: Added NULL pointer checks.
