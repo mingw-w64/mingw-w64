@@ -1,3 +1,7 @@
+2009-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* conio.h (readcr0): Provided proper w32 and w64 versions.
+
 2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	*  ws2tcpip.h: Removed the IN6* macros and added non-inline versions

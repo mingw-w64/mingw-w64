@@ -185,6 +185,10 @@ extern "C" {
           );
   }
 
+  /* Register sizes are different between 32/64 bit mode. So we have to do this for _WIN64 and _WIN32
+     seperatly.  */
+ 
+#ifdef _WIN64
   __CRT_INLINE unsigned __int64 __readcr0(void)
   {
       unsigned __int64 value;
@@ -194,10 +198,6 @@ extern "C" {
       return value;
   }
  
-  /* Register sizes are different between 32/64 bit mode. So we have to do this for _WIN64 and _WIN32
-     seperatly.  */
- 
-#ifdef _WIN64
   __CRT_INLINE void __writecr0(unsigned __int64 Data)
   {
    __asm__ __volatile__ (
@@ -281,6 +281,15 @@ extern "C" {
  
 #elif defined(_WIN32)
 
+  __CRT_INLINE unsigned long __readcr0(void)
+  {
+      unsigned long value;
+      __asm__ __volatile__ (
+          "mov %%cr0, %[value]" 
+          : [value] "=q" (value));
+      return value;
+  }
+ 
   __CRT_INLINE void __writecr0(unsigned Data)
   {
     __asm__ __volatile__ (
