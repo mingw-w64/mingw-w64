@@ -23,3 +23,12 @@ wmemset(s, c, n)
 	return orig_s;
 }
 #endif
+
+wchar_t *__cdecl wmemset(wchar_t *_S,wchar_t _C,size_t _N)
+{
+	wchar_t *_Su = _S;
+	for ( ; 0 < _N; ++_Su, --_N)
+		 *_Su = _C;
+	return (_S);
+}
+

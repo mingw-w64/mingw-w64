@@ -37,3 +37,9 @@ wmemmove(s1, s2, n)
 	return orig_s1;
 }
 #endif
+
+wchar_t *__cdecl wmemmove(wchar_t *_S1,const wchar_t *_S2,size_t _N)
+{
+	return (wchar_t *)memmove(_S1,_S2,_N*sizeof(wchar_t));
+}
+

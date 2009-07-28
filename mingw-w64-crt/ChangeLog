@@ -1,5 +1,11 @@
 2009-07-28  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* misc/fwide.c, misc/mbsinit.c, misc/wmemchr.c, misc/wmemcmp.c,
+	misc/wmemcpy.c, misc/wmemmove.c, misc/wmemset.c:  Copied over code
+	from the inline versions in wchar.h.
+
+2009-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* intrincs/readcr0.c: New.
 	* Makefile.am: Added intrincs/readcr0.c to the build.
 	* Makefile.in: Regenerated.

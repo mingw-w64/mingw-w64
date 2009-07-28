@@ -38,3 +38,12 @@ wmemcmp(s1, s2, n)
 	return 0;
 }
 #endif
+
+int __cdecl wmemcmp(const wchar_t *_S1,const wchar_t *_S2,size_t _N)
+{
+	for ( ; 0 < _N; ++_S1, ++_S2, --_N)
+		if (*_S1 != *_S2)
+			return (*_S1 < *_S2 ? -1 : +1);
+	return (0);
+}
+

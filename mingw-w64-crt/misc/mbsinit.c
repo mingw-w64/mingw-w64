@@ -24,3 +24,9 @@ int mbsinit(const mbstate_t *ps)
 	return 1;			/* don't have shift states */
 }
 #endif
+
+int __cdecl mbsinit(const mbstate_t *_P)
+{
+	return (!_P || *_P == 0);
+}
+

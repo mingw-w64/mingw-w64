@@ -15,3 +15,9 @@ int fwide(FILE *stream,int mode)
 }
 #endif
 
+int __cdecl fwide(FILE *_F,int _M)
+{
+    (void)_F;
+    return (_M);
+}
+

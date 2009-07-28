@@ -22,3 +22,11 @@ wchar_t *wmemchr(s, c, n)
 }
 #endif
 
+_CONST_RETURN wchar_t *__cdecl wmemchr(const wchar_t *_S,wchar_t _C,size_t _N)
+{
+	for ( ; 0 < _N; ++_S, --_N)
+		if (*_S == _C)
+			return (_CONST_RETURN wchar_t *)(_S);
+	return NULL;
+}
+
