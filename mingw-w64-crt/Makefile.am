@@ -76,7 +76,7 @@ src_libmingwex=\
   intrincs/ilockdec16.c intrincs/ilockcxch16.c intrincs/ilockexchadd.c intrincs/ilockand.c intrincs/ilockor.c    \
   intrincs/ilockxor.c   intrincs/ilockinc.c    intrincs/ilockdec.c intrincs/ilockexch.c intrincs/ilockcxch.c     \
   intrincs/membarrier.c intrincs/currentteb.c  intrincs/currentfiber.c intrincs/fiberdata.c \
-  intrincs/__stosb.c \
+  intrincs/__stosb.c intrincs/__stosw.c intrincs/__stosd.c \
   \
   complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosh.c \
   complex/cacoshf.c  complex/cacoshl.c  complex/cacosl.c  complex/carg.c     complex/cargf.c    complex/cargl.c  \
@@ -159,7 +159,8 @@ src_libmingwex64=\
   intrincs/ilockor64.c   intrincs/ilockxor64.c   intrincs/ilockinc64.c   intrincs/ilockdec64.c     intrincs/ilockexch64.c \
   intrincs/ilockcxch64.c intrincs/ilockexchptr.c intrincs/ilockcxchptr.c intrincs/ilockadd.c       intrincs/ilockadd64.c  \
   intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  intrincs/readgsqword.c    intrincs/writegsword.c \
-  intrincs/writegsdword.c intrincs/writegsqword.c intrincs/mul128ex.c    intrincs/umul128ex.c
+  intrincs/writegsdword.c intrincs/writegsqword.c intrincs/mul128ex.c    intrincs/umul128ex.c \
+  intrincs/__stosq.c
 
 if LIB32
 #########
