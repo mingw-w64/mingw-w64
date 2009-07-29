@@ -1103,11 +1103,10 @@ typedef DWORD LCID;
 #endif /* !__CRT__NO_INLINE */
 
     LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
+    LONG InterlockedAdd(LONG volatile *Addend,LONG Value);
 
 #ifndef __CRT__NO_INLINE
-#ifndef _X86AMD64_
     __CRT_INLINE LONG InterlockedAdd(LONG volatile *Addend,LONG Value) { return InterlockedExchangeAdd(Addend,Value) + Value; }
-#endif
     __CRT_INLINE LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand) {
       LONG prev;
       __asm__ __volatile__("lock ; cmpxchgl %1,%2" : "=a" (prev) : "q" (ExChange),"m" (*Destination), "0" (Comperand) : "memory");
@@ -1139,13 +1138,12 @@ typedef DWORD LCID;
       return Value;
     }
 #endif /* !__CRT__NO_INLINE */
+
     LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
+    LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value);
 
 #ifndef __CRT__NO_INLINE
-#ifndef _X86AMD64_
     __CRT_INLINE LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value) { return InterlockedExchangeAdd64(Addend,Value) + Value; }
-#endif
-
     __CRT_INLINE LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand) {
       LONG64 prev;
       __asm__ __volatile__("lock ; cmpxchgq %1,%2" : "=a" (prev) : "q" (ExChange),"m" (*Destination), "0" (Comperand) : "memory");
@@ -1235,6 +1233,9 @@ typedef DWORD LCID;
 #define UnsignedMultiply128 _umul128
 
     DWORD64 UnsignedMultiply128(DWORD64 Multiplier,DWORD64 Multiplicand,DWORD64 *HighProduct);
+
+    LONG64 MultiplyExtract128(LONG64 Multiplier,LONG64 Multiplicand,BYTE Shift);
+    DWORD64 UnsignedMultiplyExtract128(DWORD64 Multiplier,DWORD64 Multiplicand,BYTE Shift);
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE LONG64 MultiplyExtract128(LONG64 Multiplier,LONG64 Multiplicand,BYTE Shift) {

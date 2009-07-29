@@ -1,3 +1,12 @@
+2009-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h (_X86AMD64_): Removed the never defined macro. Probably
+	intended for specifying x86 and x64 shared intrincis functions for
+	inline assembly but then never used.
+	(InterlockedAdd, InterlockedAdd64, UnsignedMultiplyExtract128,
+	MultiplyExtract128): Added prototypes for the non-inline versions
+	under intrincs.
+
 2009-07-28  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* conio.h (readcr0): Provided proper w32 and w64 versions.

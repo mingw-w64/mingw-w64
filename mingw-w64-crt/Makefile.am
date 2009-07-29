@@ -158,7 +158,8 @@ src_libmingwex64=\
   intrincs/ilockor64.c   intrincs/ilockxor64.c   intrincs/ilockinc64.c   intrincs/ilockdec64.c     intrincs/ilockexch64.c \
   intrincs/ilockcxch64.c intrincs/ilockexchptr.c intrincs/ilockcxchptr.c intrincs/currentfiber.c   intrincs/fiberdata.c   \
   intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  intrincs/readgsqword.c    intrincs/writegsword.c \
-  intrincs/writegsdword.c intrincs/writegsqword.c
+  intrincs/writegsdword.c intrincs/writegsqword.c intrincs/mul128ex.c    intrincs/umul128ex.c      intrincs/ilockadd.c    \
+  intrincs/ilockadd64.c
 
 if LIB32
 #########
