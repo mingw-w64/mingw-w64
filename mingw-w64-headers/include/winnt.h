@@ -1223,7 +1223,7 @@ typedef DWORD LCID;
         "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
       );
     }
-}#endif
+#endif
 
 #define MultiplyHigh __mulh
 #define UnsignedMultiplyHigh __umulh
