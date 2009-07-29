@@ -1534,7 +1534,7 @@ typedef DWORD LCID;
   __CRT_INLINE VOID MemoryBarrier(VOID)
   {
     LONG Barrier = 0;
-    __asm__ __volatile__("xchgl %eax,%0 "
+    __asm__ __volatile__("xchgl %%eax,%0 "
       :"=r" (Barrier));
   }
 
