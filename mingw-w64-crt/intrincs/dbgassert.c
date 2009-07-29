@@ -4,7 +4,7 @@
 #define __CRT__NO_INLINE
 #include <windows.h>
 
-#if(defined(_X86_) && !defined(__x86_64))
+#if 0/*#if(defined(_X86_) && !defined(__x86_64))*/
 VOID DbgRaiseAssertionFailure(void)
 {
     __asm__ __volatile__("int 0x2c ");
