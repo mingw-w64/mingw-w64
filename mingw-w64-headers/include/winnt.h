@@ -1496,13 +1496,6 @@ typedef DWORD LCID;
 #endif
 
 #if(defined(_X86_) && !defined(__x86_64))
-#ifndef __CRT__NO_INLINE
-  __CRT_INLINE VOID MemoryBarrier(VOID) {
-    LONG Barrier;
-    __asm__ __volatile__("xchgl %eax,%0 "
-      :"=r" (Barrier));
-  }
-#endif /* !__CRT__NO_INLINE */
 
 #define YieldProcessor() __asm__ __volatile__("rep nop ");
 
@@ -1512,13 +1505,33 @@ typedef DWORD LCID;
 #define PF_TEMPORAL_LEVEL_1
 #define PF_NON_TEMPORAL_LEVEL_ALL
 
+#define PcTeb 0x18
+  struct _TEB *NtCurrentTeb(void);
+  PVOID GetCurrentFiber(void);
+  PVOID GetFiberData(void);
+  VOID MemoryBarrier(VOID);
+  VOID DbgRaiseAssertionFailure(void);
+
 #ifndef __CRT__NO_INLINE
-  __CRT_INLINE VOID DbgRaiseAssertionFailure(void) {
+  __CRT_INLINE VOID MemoryBarrier(VOID)
+  {
+    LONG Barrier;
+    __asm__ __volatile__("xchgl %eax,%0 "
+      :"=r" (Barrier));
+  }
+
+  __CRT_INLINE VOID DbgRaiseAssertionFailure(void)
+  {
     __asm__ __volatile__("int 0x2c ");
   }
-#endif /* !__CRT__NO_INLINE */
-  PVOID GetCurrentFiber(void);
-#ifndef __CRT__NO_INLINE
+
+  __CRT_INLINE struct _TEB *NtCurrentTeb(void)
+  {
+    struct _TEB *ret;
+    __asm__ volatile ("movl	%%fs:0x18,%0"
+	: "=r" (ret));
+    return ret;
+  }
   __CRT_INLINE PVOID GetCurrentFiber(void)
   {
     void *ret;
@@ -1526,9 +1539,6 @@ typedef DWORD LCID;
 	: "=r" (ret));
     return ret;
   }
-#endif /* !__CRT__NO_INLINE */
-  PVOID GetFiberData(void);
-#ifndef __CRT__NO_INLINE
   __CRT_INLINE PVOID GetFiberData(void)
   {
     void *ret;
@@ -5781,19 +5791,6 @@ typedef DWORD LCID;
     __CRT_INLINE PVOID GetCurrentFiber(VOID) { return(PVOID)__readgsqword(FIELD_OFFSET(NT_TIB,FiberData)); }
     __CRT_INLINE PVOID GetFiberData(VOID) {
       return *(PVOID *)GetCurrentFiber();
-    }
-#endif /* !__CRT__NO_INLINE */
-#endif
-
-#if(defined(_X86_) && !defined(__x86_64))
-#define PcTeb 0x18
-    struct _TEB *NtCurrentTeb(void);
-#ifndef __CRT__NO_INLINE
-    __CRT_INLINE struct _TEB *NtCurrentTeb(void) {
-      struct _TEB *ret;
-      __asm__ volatile ("movl	%%fs:0x18,%0"
-	: "=r" (ret));
-      return ret;
     }
 #endif /* !__CRT__NO_INLINE */
 #endif
