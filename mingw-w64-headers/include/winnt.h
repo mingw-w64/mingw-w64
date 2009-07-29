@@ -1059,7 +1059,6 @@ typedef DWORD LCID;
 	: : "r"(Value),"m"(*Destination) : "memory");
       return *Destination;
     }
-    //		$$$$
     __CRT_INLINE LONG64 InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value) {
       __asm__ __volatile__("lock ; andq %0,%1"
 	: : "r"(Value),"m"(*Destination) : "memory");
@@ -1213,6 +1212,18 @@ typedef DWORD LCID;
     VOID __stosw(PWORD Destination,WORD Value,SIZE_T Count);
     VOID __stosd(PDWORD Destination,DWORD Value,SIZE_T Count);
     VOID __stosq(PDWORD64 Destination,DWORD64 Value,SIZE_T Count);
+
+#ifndef __NO_INLINE__
+    __CRT_INLINE VOID __stosb(PBYTE Dest,BYTE Data,SIZE_T Count)
+    {
+      __asm__ __volatile__
+      (
+        "rep; stosb" :
+        [Dest] "=D" (Dest), [Count] "=c" (Count) :
+        "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
+      );
+    }
+}#endif
 
 #define MultiplyHigh __mulh
 #define UnsignedMultiplyHigh __umulh
