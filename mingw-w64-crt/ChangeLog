@@ -1,5 +1,17 @@
 2009-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* intrincs/dbgassert.c, membarrier.c: New. For cases where inlining
+	is disabled.
+	* Makefile.am: Added the new files to build for w64.
+	* Makefile.in: Regenerated.
+
+2009-07-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/currentfiber.c, intrincs/fiberdata.c: Add 32-bit
+	compatible code using inline assembler.
+
+2009-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* intrincs/ilockadd.c, intrincs/ilockadd64.c, intrincs/mul128ex.c,
 	intrincs/umul128ex.c: New. For cases where inlining is disabled.
 	* Makefile.am: Added the new files to build for w64.
