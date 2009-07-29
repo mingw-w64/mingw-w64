@@ -1515,14 +1515,14 @@ typedef DWORD LCID;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE VOID MemoryBarrier(VOID)
   {
-    LONG Barrier;
+    LONG Barrier = 0;
     __asm__ __volatile__("xchgl %eax,%0 "
       :"=r" (Barrier));
   }
 
   __CRT_INLINE VOID DbgRaiseAssertionFailure(void)
   {
-    __asm__ __volatile__("int 0x2c ");
+    __asm__ __volatile__("int $0x2c");
   }
 
   __CRT_INLINE struct _TEB *NtCurrentTeb(void)
