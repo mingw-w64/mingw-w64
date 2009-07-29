@@ -1223,20 +1223,11 @@ typedef DWORD LCID;
         "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
       );
     }
-    __CRT_INLINE VOID __stosw(PBYTE Dest,WORD Data,SIZE_T Count)
+    __CRT_INLINE VOID __stosw(PWORD Dest,WORD Data,SIZE_T Count)
     {
       __asm__ __volatile__
       (
         "rep; stosw" :
-        [Dest] "=D" (Dest), [Count] "=c" (Count) :
-        "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
-      );
-    }
-    __CRT_INLINE VOID __stosw(PWORD Dest,DWORD Data,SIZE_T Count)
-    {
-      __asm__ __volatile__
-      (
-        "rep; stosl" :
         [Dest] "=D" (Dest), [Count] "=c" (Count) :
         "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
       );
