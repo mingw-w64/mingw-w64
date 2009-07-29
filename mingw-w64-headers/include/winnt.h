@@ -1521,7 +1521,14 @@ typedef DWORD LCID;
   PVOID GetCurrentFiber(void);
   PVOID GetFiberData(void);
   VOID MemoryBarrier(VOID);
-  VOID DbgRaiseAssertionFailure(void);
+
+#ifdef __CRT__NO_INLINE
+# define DbgRaiseAssertionFailure() __asm__ __volatile__("int $0x2c")
+#else
+  __CRT_INLINE VOID DbgRaiseAssertionFailure(void) {
+    __asm__ __volatile__("int $0x2c");
+  }
+#endif
 
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE VOID MemoryBarrier(VOID)
@@ -1529,11 +1536,6 @@ typedef DWORD LCID;
     LONG Barrier = 0;
     __asm__ __volatile__("xchgl %eax,%0 "
       :"=r" (Barrier));
-  }
-
-  __CRT_INLINE VOID DbgRaiseAssertionFailure(void)
-  {
-    __asm__ __volatile__("int $0x2c");
   }
 
   __CRT_INLINE struct _TEB *NtCurrentTeb(void)

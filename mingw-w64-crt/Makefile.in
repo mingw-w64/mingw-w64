@@ -231,7 +231,7 @@ am__lib32_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	intrincs/ilockdec16.c intrincs/ilockcxch16.c \
 	intrincs/ilockexchadd.c intrincs/ilockand.c intrincs/ilockor.c \
 	intrincs/ilockxor.c intrincs/ilockinc.c intrincs/ilockdec.c \
-	intrincs/ilockexch.c intrincs/ilockcxch.c intrincs/dbgassert.c \
+	intrincs/ilockexch.c intrincs/ilockcxch.c \
 	intrincs/membarrier.c intrincs/currentteb.c \
 	intrincs/currentfiber.c intrincs/fiberdata.c \
 	intrincs/__stosb.c complex/cabs.c complex/cabsf.c \
@@ -383,7 +383,6 @@ am__objects_11 = intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-ilockdec.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-ilockexch.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-ilockcxch.$(OBJEXT) \
-	intrincs/lib32_libmingwex_a-dbgassert.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-membarrier.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-currentteb.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-currentfiber.$(OBJEXT) \
@@ -953,7 +952,7 @@ am__lib64_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	intrincs/ilockdec16.c intrincs/ilockcxch16.c \
 	intrincs/ilockexchadd.c intrincs/ilockand.c intrincs/ilockor.c \
 	intrincs/ilockxor.c intrincs/ilockinc.c intrincs/ilockdec.c \
-	intrincs/ilockexch.c intrincs/ilockcxch.c intrincs/dbgassert.c \
+	intrincs/ilockexch.c intrincs/ilockcxch.c \
 	intrincs/membarrier.c intrincs/currentteb.c \
 	intrincs/currentfiber.c intrincs/fiberdata.c \
 	intrincs/__stosb.c complex/cabs.c complex/cabsf.c \
@@ -1119,7 +1118,6 @@ am__objects_30 = intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-ilockdec.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-ilockexch.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-ilockcxch.$(OBJEXT) \
-	intrincs/lib64_libmingwex_a-dbgassert.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-membarrier.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-currentteb.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-currentfiber.$(OBJEXT) \
@@ -1934,7 +1932,7 @@ src_libmingwex = \
   intrincs/bittests.c   intrincs/bittestsi.c   intrincs/bitscanfwd.c intrincs/bitscanrev.c intrincs/ilockinc16.c \
   intrincs/ilockdec16.c intrincs/ilockcxch16.c intrincs/ilockexchadd.c intrincs/ilockand.c intrincs/ilockor.c    \
   intrincs/ilockxor.c   intrincs/ilockinc.c    intrincs/ilockdec.c intrincs/ilockexch.c intrincs/ilockcxch.c     \
-  intrincs/dbgassert.c  intrincs/membarrier.c  intrincs/currentteb.c intrincs/currentfiber.c intrincs/fiberdata.c \
+  intrincs/membarrier.c intrincs/currentteb.c  intrincs/currentfiber.c intrincs/fiberdata.c \
   intrincs/__stosb.c \
   \
   complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosh.c \
@@ -2991,8 +2989,6 @@ intrincs/lib32_libmingwex_a-ilockdec.$(OBJEXT):  \
 intrincs/lib32_libmingwex_a-ilockexch.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libmingwex_a-ilockcxch.$(OBJEXT):  \
-	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
-intrincs/lib32_libmingwex_a-dbgassert.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libmingwex_a-membarrier.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
@@ -4072,8 +4068,6 @@ intrincs/lib64_libmingwex_a-ilockdec.$(OBJEXT):  \
 intrincs/lib64_libmingwex_a-ilockexch.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-ilockcxch.$(OBJEXT):  \
-	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
-intrincs/lib64_libmingwex_a-dbgassert.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-membarrier.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
@@ -5432,7 +5426,6 @@ mostlyclean-compile:
 	-rm -f intrincs/lib32_libmingwex_a-cpuid.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-currentfiber.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-currentteb.$(OBJEXT)
-	-rm -f intrincs/lib32_libmingwex_a-dbgassert.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-fiberdata.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-ilockand.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-ilockcxch.$(OBJEXT)
@@ -5492,7 +5485,6 @@ mostlyclean-compile:
 	-rm -f intrincs/lib64_libmingwex_a-cpuid.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-currentfiber.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-currentteb.$(OBJEXT)
-	-rm -f intrincs/lib64_libmingwex_a-dbgassert.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-fiberdata.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-ilockadd.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-ilockadd64.$(OBJEXT)
@@ -6447,7 +6439,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-cpuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-currentfiber.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-currentteb.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-dbgassert.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-fiberdata.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-ilockand.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-ilockcxch.Po@am__quote@
@@ -6507,7 +6498,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-cpuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-currentfiber.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-currentteb.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-dbgassert.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-fiberdata.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-ilockadd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-ilockadd64.Po@am__quote@
@@ -9565,20 +9555,6 @@ intrincs/lib32_libmingwex_a-ilockcxch.obj: intrincs/ilockcxch.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/ilockcxch.c' object='intrincs/lib32_libmingwex_a-ilockcxch.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-ilockcxch.obj `if test -f 'intrincs/ilockcxch.c'; then $(CYGPATH_W) 'intrincs/ilockcxch.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/ilockcxch.c'; fi`
-
-intrincs/lib32_libmingwex_a-dbgassert.o: intrincs/dbgassert.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-dbgassert.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-dbgassert.Tpo -c -o intrincs/lib32_libmingwex_a-dbgassert.o `test -f 'intrincs/dbgassert.c' || echo '$(srcdir)/'`intrincs/dbgassert.c
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-dbgassert.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-dbgassert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/dbgassert.c' object='intrincs/lib32_libmingwex_a-dbgassert.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-dbgassert.o `test -f 'intrincs/dbgassert.c' || echo '$(srcdir)/'`intrincs/dbgassert.c
-
-intrincs/lib32_libmingwex_a-dbgassert.obj: intrincs/dbgassert.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-dbgassert.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-dbgassert.Tpo -c -o intrincs/lib32_libmingwex_a-dbgassert.obj `if test -f 'intrincs/dbgassert.c'; then $(CYGPATH_W) 'intrincs/dbgassert.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/dbgassert.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-dbgassert.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-dbgassert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/dbgassert.c' object='intrincs/lib32_libmingwex_a-dbgassert.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-dbgassert.obj `if test -f 'intrincs/dbgassert.c'; then $(CYGPATH_W) 'intrincs/dbgassert.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/dbgassert.c'; fi`
 
 intrincs/lib32_libmingwex_a-membarrier.o: intrincs/membarrier.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-membarrier.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-membarrier.Tpo -c -o intrincs/lib32_libmingwex_a-membarrier.o `test -f 'intrincs/membarrier.c' || echo '$(srcdir)/'`intrincs/membarrier.c
@@ -15571,20 +15547,6 @@ intrincs/lib64_libmingwex_a-ilockcxch.obj: intrincs/ilockcxch.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/ilockcxch.c' object='intrincs/lib64_libmingwex_a-ilockcxch.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-ilockcxch.obj `if test -f 'intrincs/ilockcxch.c'; then $(CYGPATH_W) 'intrincs/ilockcxch.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/ilockcxch.c'; fi`
-
-intrincs/lib64_libmingwex_a-dbgassert.o: intrincs/dbgassert.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-dbgassert.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-dbgassert.Tpo -c -o intrincs/lib64_libmingwex_a-dbgassert.o `test -f 'intrincs/dbgassert.c' || echo '$(srcdir)/'`intrincs/dbgassert.c
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-dbgassert.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-dbgassert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/dbgassert.c' object='intrincs/lib64_libmingwex_a-dbgassert.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-dbgassert.o `test -f 'intrincs/dbgassert.c' || echo '$(srcdir)/'`intrincs/dbgassert.c
-
-intrincs/lib64_libmingwex_a-dbgassert.obj: intrincs/dbgassert.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-dbgassert.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-dbgassert.Tpo -c -o intrincs/lib64_libmingwex_a-dbgassert.obj `if test -f 'intrincs/dbgassert.c'; then $(CYGPATH_W) 'intrincs/dbgassert.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/dbgassert.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-dbgassert.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-dbgassert.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/dbgassert.c' object='intrincs/lib64_libmingwex_a-dbgassert.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-dbgassert.obj `if test -f 'intrincs/dbgassert.c'; then $(CYGPATH_W) 'intrincs/dbgassert.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/dbgassert.c'; fi`
 
 intrincs/lib64_libmingwex_a-membarrier.o: intrincs/membarrier.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-membarrier.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-membarrier.Tpo -c -o intrincs/lib64_libmingwex_a-membarrier.o `test -f 'intrincs/membarrier.c' || echo '$(srcdir)/'`intrincs/membarrier.c
