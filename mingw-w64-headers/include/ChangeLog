@@ -2,8 +2,8 @@
 
 	* winnt.h (__stosb, __stosd, __stosq, __stosw): New itrinsics with
 	inline asm. Only provided for x86_64 for the moment.
-	(MemoryBarrier, DbgRaiseAssertionFailure): Fix inline assembly for
-	x86.
+	(MemoryBarrier, DbgRaiseAssertionFailure, YieldProcessor): Fix inline
+	assembly for x86.
 
 2009-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 

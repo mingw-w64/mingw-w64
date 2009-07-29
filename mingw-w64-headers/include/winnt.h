@@ -1544,7 +1544,7 @@ typedef DWORD LCID;
 
 #if(defined(_X86_) && !defined(__x86_64))
 
-#define YieldProcessor() __asm__ __volatile__("rep nop ");
+#define YieldProcessor() __asm__ __volatile__("rep; nop");
 
 #define PreFetchCacheLine(l,a)
 #define ReadForWriteAccess(p) (*(p))
@@ -1559,7 +1559,7 @@ typedef DWORD LCID;
   VOID MemoryBarrier(VOID);
 
 #ifdef __CRT__NO_INLINE
-# define DbgRaiseAssertionFailure() __asm__ __volatile__("int $0x2c")
+# define DbgRaiseAssertionFailure() __asm__ __volatile__("int $0x2c");
 #else
   __CRT_INLINE VOID DbgRaiseAssertionFailure(void) {
     __asm__ __volatile__("int $0x2c");
