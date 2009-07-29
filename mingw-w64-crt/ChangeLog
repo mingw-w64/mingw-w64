@@ -2,6 +2,9 @@
 
 	* intrincs/dbgassert.c: Fix assembly for x86.
 	* intrincs/membarrier.c: Likewise.
+	* intrincs/__stosb.c: New.
+	* Makefile.am: Add __stosb.c
+	* Makefile.in: Regenerated.
 
 2009-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 

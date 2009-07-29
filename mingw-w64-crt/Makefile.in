@@ -233,95 +233,96 @@ am__lib32_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	intrincs/ilockxor.c intrincs/ilockinc.c intrincs/ilockdec.c \
 	intrincs/ilockexch.c intrincs/ilockcxch.c intrincs/dbgassert.c \
 	intrincs/membarrier.c intrincs/currentteb.c \
-	intrincs/currentfiber.c intrincs/fiberdata.c complex/cabs.c \
-	complex/cabsf.c complex/cabsl.c complex/cacos.c \
-	complex/cacosf.c complex/cacosh.c complex/cacoshf.c \
-	complex/cacoshl.c complex/cacosl.c complex/carg.c \
-	complex/cargf.c complex/cargl.c complex/casin.c \
-	complex/casinf.c complex/casinh.c complex/casinhf.c \
-	complex/casinhl.c complex/casinl.c complex/catan.c \
-	complex/catanf.c complex/catanh.c complex/catanhf.c \
-	complex/catanhl.c complex/catanl.c complex/ccos.c \
-	complex/ccosf.c complex/ccosh.c complex/ccoshf.c \
-	complex/ccoshl.c complex/ccosl.c complex/cexp.c \
-	complex/cexpf.c complex/cexpl.c complex/cimag.c \
-	complex/cimagf.c complex/cimagl.c complex/clog.c \
-	complex/clogf.c complex/clogl.c complex/cpow.c complex/cpowf.c \
-	complex/cpowl.c complex/cproj.c complex/cprojf.c \
-	complex/cprojl.c complex/creal.c complex/crealf.c \
-	complex/creall.c complex/csin.c complex/csinf.c \
-	complex/csinh.c complex/csinhf.c complex/csinhl.c \
-	complex/csinl.c complex/csqrt.c complex/csqrtf.c \
-	complex/csqrtl.c complex/ctan.c complex/ctanf.c \
-	complex/ctanh.c complex/ctanhf.c complex/ctanhl.c \
-	complex/ctanl.c gdtoa/gd_arith.h gdtoa/gd_qnan.h gdtoa/gdtoa.h \
-	gdtoa/gdtoaimp.h gdtoa/arithchk.c gdtoa/dmisc.c gdtoa/dtoa.c \
-	gdtoa/g_dfmt.c gdtoa/gdtoa.c gdtoa/gethex.c gdtoa/g_ffmt.c \
-	gdtoa/g__fmt.c gdtoa/gmisc.c gdtoa/g_xfmt.c gdtoa/hd_init.c \
-	gdtoa/hexnan.c gdtoa/misc.c gdtoa/qnan.c gdtoa/smisc.c \
-	gdtoa/strtodg.c gdtoa/strtodnrp.c gdtoa/strtof.c \
-	gdtoa/strtopx.c gdtoa/sum.c gdtoa/ulp.c math/cephes_emath.h \
-	math/cephes_mconf.h math/fastmath.h math/fp_consts.h \
-	math/ceill.S math/copysignl.S math/cosl.S math/exp2f.S \
-	math/exp2l.S math/exp2.S math/floorl.S math/fmaf.S math/fma.S \
-	math/frexpl.S math/ilogbf.S math/ilogbl.S math/ilogb.S \
-	math/log10l.S math/log1pf.S math/log1pl.S math/log1p.S \
-	math/log2f.S math/log2l.S math/log2.S math/logl.S \
-	math/nearbyintf.S math/nearbyintl.S math/nearbyint.S \
-	math/remainderf.S math/remainderl.S math/remainder.S \
-	math/remquof.S math/remquol.S math/remquo.S math/scalbnf.S \
-	math/scalbnl.S math/scalbn.S math/sinl.S math/tanl.S \
-	math/acosf.c math/acosh.c math/acoshf.c math/acoshl.c \
-	math/acosl.c math/asinf.c math/asinh.c math/asinhf.c \
-	math/asinhl.c math/asinl.c math/atan2f.c math/atan2l.c \
-	math/atanf.c math/atanh.c math/atanhf.c math/atanhl.c \
-	math/atanl.c math/cbrt.c math/cbrtf.c math/cbrtl.c \
-	math/ceilf.c math/cephes_emath.c math/copysign.c \
-	math/copysignf.c math/cosf.c math/coshf.c math/coshl.c \
-	math/erfl.c math/expf.c math/expl.c math/expm1.c math/expm1f.c \
-	math/expm1l.c math/fabs.c math/fabsf.c math/fabsl.c \
-	math/fdim.c math/fdimf.c math/fdiml.c math/floorf.c \
-	math/fmal.c math/fmax.c math/fmaxf.c math/fmaxl.c math/fmin.c \
-	math/fminf.c math/fminl.c math/fmodf.c math/fmodl.c \
-	math/fpclassify.c math/fpclassifyf.c math/fpclassifyl.c \
-	math/fp_consts.c math/fp_constsf.c math/fp_constsl.c \
-	math/frexpf.c math/fucom.c math/hypotf.c math/hypotl.c \
-	math/isnan.c math/isnanf.c math/isnanl.c math/ldexpf.c \
-	math/ldexpl.c math/lgamma.c math/lgammaf.c math/lgammal.c \
-	math/llrint.c math/llrintf.c math/llrintl.c math/llround.c \
-	math/llroundf.c math/llroundl.c math/log10f.c math/logb.c \
-	math/logbf.c math/logbl.c math/logf.c math/lrint.c \
-	math/lrintf.c math/lrintl.c math/lround.c math/lroundf.c \
-	math/lroundl.c math/modff.c math/modfl.c math/nextafterf.c \
-	math/nextafterl.c math/nexttoward.c math/nexttowardf.c \
-	math/pow.c math/powf.c math/powi.c math/powif.c math/powil.c \
-	math/powl.c math/rint.c math/rintf.c math/rintl.c math/round.c \
-	math/roundf.c math/roundl.c math/s_erf.c math/sf_erf.c \
-	math/signbit.c math/signbitf.c math/signbitl.c math/sinf.c \
-	math/sinhf.c math/sinhl.c math/sqrtf.c math/sqrtl.c \
-	math/tanf.c math/tanhf.c math/tanhl.c math/tgamma.c \
-	math/tgammaf.c math/tgammal.c math/trunc.c math/truncf.c \
-	math/truncl.c misc/mb_wc_common.h misc/mingw_getsp.S \
-	misc/alarm.c misc/btowc.c misc/ctime.c misc/delayimp.c \
-	misc/difftime32.c misc/difftime64.c misc/difftime.c \
-	misc/dirent.c misc/execv.c misc/execve.c misc/execvp.c \
-	misc/execvpe.c misc/feclearexcept.c misc/fegetenv.c \
-	misc/fegetexceptflag.c misc/fegetround.c misc/feholdexcept.c \
-	misc/feraiseexcept.c misc/fesetenv.c misc/fesetexceptflag.c \
-	misc/fesetround.c misc/fetestexcept.c misc/feupdateenv.c \
-	misc/ftruncate.c misc/fwide.c misc/getlogin.c misc/getopt.c \
-	misc/gettimeofday.c misc/gmtime.c misc/imaxabs.c \
-	misc/imaxdiv.c misc/isblank.c misc/iswblank.c misc/localtime.c \
-	misc/mbrtowc.c misc/mbsinit.c misc/mingw-aligned-malloc.c \
-	misc/mingw-fseek.c misc/_mkgmtime.c misc/mktime.c \
-	misc/seterrno.c misc/sleep.c misc/spawnv.c misc/spawnve.c \
-	misc/spawnvp.c misc/spawnvpe.c misc/strtoimax.c misc/strtold.c \
-	misc/strtoumax.c misc/time.c misc/wassert.c misc/wcrtomb.c \
-	misc/wcstoimax.c misc/wcstold.c misc/wcstoumax.c misc/wctob.c \
-	misc/wctrans.c misc/wctype.c misc/wdirent.c \
-	misc/winbs_uint64.c misc/winbs_ulong.c misc/winbs_ushort.c \
-	misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c misc/wmemmove.c \
-	misc/wmemset.c misc/mingw_usleep.c misc/mingw_output_format.c \
+	intrincs/currentfiber.c intrincs/fiberdata.c \
+	intrincs/__stosb.c complex/cabs.c complex/cabsf.c \
+	complex/cabsl.c complex/cacos.c complex/cacosf.c \
+	complex/cacosh.c complex/cacoshf.c complex/cacoshl.c \
+	complex/cacosl.c complex/carg.c complex/cargf.c \
+	complex/cargl.c complex/casin.c complex/casinf.c \
+	complex/casinh.c complex/casinhf.c complex/casinhl.c \
+	complex/casinl.c complex/catan.c complex/catanf.c \
+	complex/catanh.c complex/catanhf.c complex/catanhl.c \
+	complex/catanl.c complex/ccos.c complex/ccosf.c \
+	complex/ccosh.c complex/ccoshf.c complex/ccoshl.c \
+	complex/ccosl.c complex/cexp.c complex/cexpf.c complex/cexpl.c \
+	complex/cimag.c complex/cimagf.c complex/cimagl.c \
+	complex/clog.c complex/clogf.c complex/clogl.c complex/cpow.c \
+	complex/cpowf.c complex/cpowl.c complex/cproj.c \
+	complex/cprojf.c complex/cprojl.c complex/creal.c \
+	complex/crealf.c complex/creall.c complex/csin.c \
+	complex/csinf.c complex/csinh.c complex/csinhf.c \
+	complex/csinhl.c complex/csinl.c complex/csqrt.c \
+	complex/csqrtf.c complex/csqrtl.c complex/ctan.c \
+	complex/ctanf.c complex/ctanh.c complex/ctanhf.c \
+	complex/ctanhl.c complex/ctanl.c gdtoa/gd_arith.h \
+	gdtoa/gd_qnan.h gdtoa/gdtoa.h gdtoa/gdtoaimp.h \
+	gdtoa/arithchk.c gdtoa/dmisc.c gdtoa/dtoa.c gdtoa/g_dfmt.c \
+	gdtoa/gdtoa.c gdtoa/gethex.c gdtoa/g_ffmt.c gdtoa/g__fmt.c \
+	gdtoa/gmisc.c gdtoa/g_xfmt.c gdtoa/hd_init.c gdtoa/hexnan.c \
+	gdtoa/misc.c gdtoa/qnan.c gdtoa/smisc.c gdtoa/strtodg.c \
+	gdtoa/strtodnrp.c gdtoa/strtof.c gdtoa/strtopx.c gdtoa/sum.c \
+	gdtoa/ulp.c math/cephes_emath.h math/cephes_mconf.h \
+	math/fastmath.h math/fp_consts.h math/ceill.S math/copysignl.S \
+	math/cosl.S math/exp2f.S math/exp2l.S math/exp2.S \
+	math/floorl.S math/fmaf.S math/fma.S math/frexpl.S \
+	math/ilogbf.S math/ilogbl.S math/ilogb.S math/log10l.S \
+	math/log1pf.S math/log1pl.S math/log1p.S math/log2f.S \
+	math/log2l.S math/log2.S math/logl.S math/nearbyintf.S \
+	math/nearbyintl.S math/nearbyint.S math/remainderf.S \
+	math/remainderl.S math/remainder.S math/remquof.S \
+	math/remquol.S math/remquo.S math/scalbnf.S math/scalbnl.S \
+	math/scalbn.S math/sinl.S math/tanl.S math/acosf.c \
+	math/acosh.c math/acoshf.c math/acoshl.c math/acosl.c \
+	math/asinf.c math/asinh.c math/asinhf.c math/asinhl.c \
+	math/asinl.c math/atan2f.c math/atan2l.c math/atanf.c \
+	math/atanh.c math/atanhf.c math/atanhl.c math/atanl.c \
+	math/cbrt.c math/cbrtf.c math/cbrtl.c math/ceilf.c \
+	math/cephes_emath.c math/copysign.c math/copysignf.c \
+	math/cosf.c math/coshf.c math/coshl.c math/erfl.c math/expf.c \
+	math/expl.c math/expm1.c math/expm1f.c math/expm1l.c \
+	math/fabs.c math/fabsf.c math/fabsl.c math/fdim.c math/fdimf.c \
+	math/fdiml.c math/floorf.c math/fmal.c math/fmax.c \
+	math/fmaxf.c math/fmaxl.c math/fmin.c math/fminf.c \
+	math/fminl.c math/fmodf.c math/fmodl.c math/fpclassify.c \
+	math/fpclassifyf.c math/fpclassifyl.c math/fp_consts.c \
+	math/fp_constsf.c math/fp_constsl.c math/frexpf.c math/fucom.c \
+	math/hypotf.c math/hypotl.c math/isnan.c math/isnanf.c \
+	math/isnanl.c math/ldexpf.c math/ldexpl.c math/lgamma.c \
+	math/lgammaf.c math/lgammal.c math/llrint.c math/llrintf.c \
+	math/llrintl.c math/llround.c math/llroundf.c math/llroundl.c \
+	math/log10f.c math/logb.c math/logbf.c math/logbl.c \
+	math/logf.c math/lrint.c math/lrintf.c math/lrintl.c \
+	math/lround.c math/lroundf.c math/lroundl.c math/modff.c \
+	math/modfl.c math/nextafterf.c math/nextafterl.c \
+	math/nexttoward.c math/nexttowardf.c math/pow.c math/powf.c \
+	math/powi.c math/powif.c math/powil.c math/powl.c math/rint.c \
+	math/rintf.c math/rintl.c math/round.c math/roundf.c \
+	math/roundl.c math/s_erf.c math/sf_erf.c math/signbit.c \
+	math/signbitf.c math/signbitl.c math/sinf.c math/sinhf.c \
+	math/sinhl.c math/sqrtf.c math/sqrtl.c math/tanf.c \
+	math/tanhf.c math/tanhl.c math/tgamma.c math/tgammaf.c \
+	math/tgammal.c math/trunc.c math/truncf.c math/truncl.c \
+	misc/mb_wc_common.h misc/mingw_getsp.S misc/alarm.c \
+	misc/btowc.c misc/ctime.c misc/delayimp.c misc/difftime32.c \
+	misc/difftime64.c misc/difftime.c misc/dirent.c misc/execv.c \
+	misc/execve.c misc/execvp.c misc/execvpe.c \
+	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
+	misc/fegetround.c misc/feholdexcept.c misc/feraiseexcept.c \
+	misc/fesetenv.c misc/fesetexceptflag.c misc/fesetround.c \
+	misc/fetestexcept.c misc/feupdateenv.c misc/ftruncate.c \
+	misc/fwide.c misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
+	misc/gmtime.c misc/imaxabs.c misc/imaxdiv.c misc/isblank.c \
+	misc/iswblank.c misc/localtime.c misc/mbrtowc.c misc/mbsinit.c \
+	misc/mingw-aligned-malloc.c misc/mingw-fseek.c \
+	misc/_mkgmtime.c misc/mktime.c misc/seterrno.c misc/sleep.c \
+	misc/spawnv.c misc/spawnve.c misc/spawnvp.c misc/spawnvpe.c \
+	misc/strtoimax.c misc/strtold.c misc/strtoumax.c misc/time.c \
+	misc/wassert.c misc/wcrtomb.c misc/wcstoimax.c misc/wcstold.c \
+	misc/wcstoumax.c misc/wctob.c misc/wctrans.c misc/wctype.c \
+	misc/wdirent.c misc/winbs_uint64.c misc/winbs_ulong.c \
+	misc/winbs_ushort.c misc/wmemchr.c misc/wmemcmp.c \
+	misc/wmemcpy.c misc/wmemmove.c misc/wmemset.c \
+	misc/mingw_usleep.c misc/mingw_output_format.c \
 	stdio/mingw_pformat.h stdio/atoll.c stdio/_Exit.c \
 	stdio/_findfirst64i32.c stdio/_findnext64i32.c stdio/fopen64.c \
 	stdio/fseeko64.c stdio/_fstat64i32.c stdio/ftello64.c \
@@ -387,6 +388,7 @@ am__objects_11 = intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-currentteb.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-currentfiber.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-fiberdata.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-__stosb.$(OBJEXT) \
 	complex/lib32_libmingwex_a-cabs.$(OBJEXT) \
 	complex/lib32_libmingwex_a-cabsf.$(OBJEXT) \
 	complex/lib32_libmingwex_a-cabsl.$(OBJEXT) \
@@ -953,95 +955,96 @@ am__lib64_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	intrincs/ilockxor.c intrincs/ilockinc.c intrincs/ilockdec.c \
 	intrincs/ilockexch.c intrincs/ilockcxch.c intrincs/dbgassert.c \
 	intrincs/membarrier.c intrincs/currentteb.c \
-	intrincs/currentfiber.c intrincs/fiberdata.c complex/cabs.c \
-	complex/cabsf.c complex/cabsl.c complex/cacos.c \
-	complex/cacosf.c complex/cacosh.c complex/cacoshf.c \
-	complex/cacoshl.c complex/cacosl.c complex/carg.c \
-	complex/cargf.c complex/cargl.c complex/casin.c \
-	complex/casinf.c complex/casinh.c complex/casinhf.c \
-	complex/casinhl.c complex/casinl.c complex/catan.c \
-	complex/catanf.c complex/catanh.c complex/catanhf.c \
-	complex/catanhl.c complex/catanl.c complex/ccos.c \
-	complex/ccosf.c complex/ccosh.c complex/ccoshf.c \
-	complex/ccoshl.c complex/ccosl.c complex/cexp.c \
-	complex/cexpf.c complex/cexpl.c complex/cimag.c \
-	complex/cimagf.c complex/cimagl.c complex/clog.c \
-	complex/clogf.c complex/clogl.c complex/cpow.c complex/cpowf.c \
-	complex/cpowl.c complex/cproj.c complex/cprojf.c \
-	complex/cprojl.c complex/creal.c complex/crealf.c \
-	complex/creall.c complex/csin.c complex/csinf.c \
-	complex/csinh.c complex/csinhf.c complex/csinhl.c \
-	complex/csinl.c complex/csqrt.c complex/csqrtf.c \
-	complex/csqrtl.c complex/ctan.c complex/ctanf.c \
-	complex/ctanh.c complex/ctanhf.c complex/ctanhl.c \
-	complex/ctanl.c gdtoa/gd_arith.h gdtoa/gd_qnan.h gdtoa/gdtoa.h \
-	gdtoa/gdtoaimp.h gdtoa/arithchk.c gdtoa/dmisc.c gdtoa/dtoa.c \
-	gdtoa/g_dfmt.c gdtoa/gdtoa.c gdtoa/gethex.c gdtoa/g_ffmt.c \
-	gdtoa/g__fmt.c gdtoa/gmisc.c gdtoa/g_xfmt.c gdtoa/hd_init.c \
-	gdtoa/hexnan.c gdtoa/misc.c gdtoa/qnan.c gdtoa/smisc.c \
-	gdtoa/strtodg.c gdtoa/strtodnrp.c gdtoa/strtof.c \
-	gdtoa/strtopx.c gdtoa/sum.c gdtoa/ulp.c math/cephes_emath.h \
-	math/cephes_mconf.h math/fastmath.h math/fp_consts.h \
-	math/ceill.S math/copysignl.S math/cosl.S math/exp2f.S \
-	math/exp2l.S math/exp2.S math/floorl.S math/fmaf.S math/fma.S \
-	math/frexpl.S math/ilogbf.S math/ilogbl.S math/ilogb.S \
-	math/log10l.S math/log1pf.S math/log1pl.S math/log1p.S \
-	math/log2f.S math/log2l.S math/log2.S math/logl.S \
-	math/nearbyintf.S math/nearbyintl.S math/nearbyint.S \
-	math/remainderf.S math/remainderl.S math/remainder.S \
-	math/remquof.S math/remquol.S math/remquo.S math/scalbnf.S \
-	math/scalbnl.S math/scalbn.S math/sinl.S math/tanl.S \
-	math/acosf.c math/acosh.c math/acoshf.c math/acoshl.c \
-	math/acosl.c math/asinf.c math/asinh.c math/asinhf.c \
-	math/asinhl.c math/asinl.c math/atan2f.c math/atan2l.c \
-	math/atanf.c math/atanh.c math/atanhf.c math/atanhl.c \
-	math/atanl.c math/cbrt.c math/cbrtf.c math/cbrtl.c \
-	math/ceilf.c math/cephes_emath.c math/copysign.c \
-	math/copysignf.c math/cosf.c math/coshf.c math/coshl.c \
-	math/erfl.c math/expf.c math/expl.c math/expm1.c math/expm1f.c \
-	math/expm1l.c math/fabs.c math/fabsf.c math/fabsl.c \
-	math/fdim.c math/fdimf.c math/fdiml.c math/floorf.c \
-	math/fmal.c math/fmax.c math/fmaxf.c math/fmaxl.c math/fmin.c \
-	math/fminf.c math/fminl.c math/fmodf.c math/fmodl.c \
-	math/fpclassify.c math/fpclassifyf.c math/fpclassifyl.c \
-	math/fp_consts.c math/fp_constsf.c math/fp_constsl.c \
-	math/frexpf.c math/fucom.c math/hypotf.c math/hypotl.c \
-	math/isnan.c math/isnanf.c math/isnanl.c math/ldexpf.c \
-	math/ldexpl.c math/lgamma.c math/lgammaf.c math/lgammal.c \
-	math/llrint.c math/llrintf.c math/llrintl.c math/llround.c \
-	math/llroundf.c math/llroundl.c math/log10f.c math/logb.c \
-	math/logbf.c math/logbl.c math/logf.c math/lrint.c \
-	math/lrintf.c math/lrintl.c math/lround.c math/lroundf.c \
-	math/lroundl.c math/modff.c math/modfl.c math/nextafterf.c \
-	math/nextafterl.c math/nexttoward.c math/nexttowardf.c \
-	math/pow.c math/powf.c math/powi.c math/powif.c math/powil.c \
-	math/powl.c math/rint.c math/rintf.c math/rintl.c math/round.c \
-	math/roundf.c math/roundl.c math/s_erf.c math/sf_erf.c \
-	math/signbit.c math/signbitf.c math/signbitl.c math/sinf.c \
-	math/sinhf.c math/sinhl.c math/sqrtf.c math/sqrtl.c \
-	math/tanf.c math/tanhf.c math/tanhl.c math/tgamma.c \
-	math/tgammaf.c math/tgammal.c math/trunc.c math/truncf.c \
-	math/truncl.c misc/mb_wc_common.h misc/mingw_getsp.S \
-	misc/alarm.c misc/btowc.c misc/ctime.c misc/delayimp.c \
-	misc/difftime32.c misc/difftime64.c misc/difftime.c \
-	misc/dirent.c misc/execv.c misc/execve.c misc/execvp.c \
-	misc/execvpe.c misc/feclearexcept.c misc/fegetenv.c \
-	misc/fegetexceptflag.c misc/fegetround.c misc/feholdexcept.c \
-	misc/feraiseexcept.c misc/fesetenv.c misc/fesetexceptflag.c \
-	misc/fesetround.c misc/fetestexcept.c misc/feupdateenv.c \
-	misc/ftruncate.c misc/fwide.c misc/getlogin.c misc/getopt.c \
-	misc/gettimeofday.c misc/gmtime.c misc/imaxabs.c \
-	misc/imaxdiv.c misc/isblank.c misc/iswblank.c misc/localtime.c \
-	misc/mbrtowc.c misc/mbsinit.c misc/mingw-aligned-malloc.c \
-	misc/mingw-fseek.c misc/_mkgmtime.c misc/mktime.c \
-	misc/seterrno.c misc/sleep.c misc/spawnv.c misc/spawnve.c \
-	misc/spawnvp.c misc/spawnvpe.c misc/strtoimax.c misc/strtold.c \
-	misc/strtoumax.c misc/time.c misc/wassert.c misc/wcrtomb.c \
-	misc/wcstoimax.c misc/wcstold.c misc/wcstoumax.c misc/wctob.c \
-	misc/wctrans.c misc/wctype.c misc/wdirent.c \
-	misc/winbs_uint64.c misc/winbs_ulong.c misc/winbs_ushort.c \
-	misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c misc/wmemmove.c \
-	misc/wmemset.c misc/mingw_usleep.c misc/mingw_output_format.c \
+	intrincs/currentfiber.c intrincs/fiberdata.c \
+	intrincs/__stosb.c complex/cabs.c complex/cabsf.c \
+	complex/cabsl.c complex/cacos.c complex/cacosf.c \
+	complex/cacosh.c complex/cacoshf.c complex/cacoshl.c \
+	complex/cacosl.c complex/carg.c complex/cargf.c \
+	complex/cargl.c complex/casin.c complex/casinf.c \
+	complex/casinh.c complex/casinhf.c complex/casinhl.c \
+	complex/casinl.c complex/catan.c complex/catanf.c \
+	complex/catanh.c complex/catanhf.c complex/catanhl.c \
+	complex/catanl.c complex/ccos.c complex/ccosf.c \
+	complex/ccosh.c complex/ccoshf.c complex/ccoshl.c \
+	complex/ccosl.c complex/cexp.c complex/cexpf.c complex/cexpl.c \
+	complex/cimag.c complex/cimagf.c complex/cimagl.c \
+	complex/clog.c complex/clogf.c complex/clogl.c complex/cpow.c \
+	complex/cpowf.c complex/cpowl.c complex/cproj.c \
+	complex/cprojf.c complex/cprojl.c complex/creal.c \
+	complex/crealf.c complex/creall.c complex/csin.c \
+	complex/csinf.c complex/csinh.c complex/csinhf.c \
+	complex/csinhl.c complex/csinl.c complex/csqrt.c \
+	complex/csqrtf.c complex/csqrtl.c complex/ctan.c \
+	complex/ctanf.c complex/ctanh.c complex/ctanhf.c \
+	complex/ctanhl.c complex/ctanl.c gdtoa/gd_arith.h \
+	gdtoa/gd_qnan.h gdtoa/gdtoa.h gdtoa/gdtoaimp.h \
+	gdtoa/arithchk.c gdtoa/dmisc.c gdtoa/dtoa.c gdtoa/g_dfmt.c \
+	gdtoa/gdtoa.c gdtoa/gethex.c gdtoa/g_ffmt.c gdtoa/g__fmt.c \
+	gdtoa/gmisc.c gdtoa/g_xfmt.c gdtoa/hd_init.c gdtoa/hexnan.c \
+	gdtoa/misc.c gdtoa/qnan.c gdtoa/smisc.c gdtoa/strtodg.c \
+	gdtoa/strtodnrp.c gdtoa/strtof.c gdtoa/strtopx.c gdtoa/sum.c \
+	gdtoa/ulp.c math/cephes_emath.h math/cephes_mconf.h \
+	math/fastmath.h math/fp_consts.h math/ceill.S math/copysignl.S \
+	math/cosl.S math/exp2f.S math/exp2l.S math/exp2.S \
+	math/floorl.S math/fmaf.S math/fma.S math/frexpl.S \
+	math/ilogbf.S math/ilogbl.S math/ilogb.S math/log10l.S \
+	math/log1pf.S math/log1pl.S math/log1p.S math/log2f.S \
+	math/log2l.S math/log2.S math/logl.S math/nearbyintf.S \
+	math/nearbyintl.S math/nearbyint.S math/remainderf.S \
+	math/remainderl.S math/remainder.S math/remquof.S \
+	math/remquol.S math/remquo.S math/scalbnf.S math/scalbnl.S \
+	math/scalbn.S math/sinl.S math/tanl.S math/acosf.c \
+	math/acosh.c math/acoshf.c math/acoshl.c math/acosl.c \
+	math/asinf.c math/asinh.c math/asinhf.c math/asinhl.c \
+	math/asinl.c math/atan2f.c math/atan2l.c math/atanf.c \
+	math/atanh.c math/atanhf.c math/atanhl.c math/atanl.c \
+	math/cbrt.c math/cbrtf.c math/cbrtl.c math/ceilf.c \
+	math/cephes_emath.c math/copysign.c math/copysignf.c \
+	math/cosf.c math/coshf.c math/coshl.c math/erfl.c math/expf.c \
+	math/expl.c math/expm1.c math/expm1f.c math/expm1l.c \
+	math/fabs.c math/fabsf.c math/fabsl.c math/fdim.c math/fdimf.c \
+	math/fdiml.c math/floorf.c math/fmal.c math/fmax.c \
+	math/fmaxf.c math/fmaxl.c math/fmin.c math/fminf.c \
+	math/fminl.c math/fmodf.c math/fmodl.c math/fpclassify.c \
+	math/fpclassifyf.c math/fpclassifyl.c math/fp_consts.c \
+	math/fp_constsf.c math/fp_constsl.c math/frexpf.c math/fucom.c \
+	math/hypotf.c math/hypotl.c math/isnan.c math/isnanf.c \
+	math/isnanl.c math/ldexpf.c math/ldexpl.c math/lgamma.c \
+	math/lgammaf.c math/lgammal.c math/llrint.c math/llrintf.c \
+	math/llrintl.c math/llround.c math/llroundf.c math/llroundl.c \
+	math/log10f.c math/logb.c math/logbf.c math/logbl.c \
+	math/logf.c math/lrint.c math/lrintf.c math/lrintl.c \
+	math/lround.c math/lroundf.c math/lroundl.c math/modff.c \
+	math/modfl.c math/nextafterf.c math/nextafterl.c \
+	math/nexttoward.c math/nexttowardf.c math/pow.c math/powf.c \
+	math/powi.c math/powif.c math/powil.c math/powl.c math/rint.c \
+	math/rintf.c math/rintl.c math/round.c math/roundf.c \
+	math/roundl.c math/s_erf.c math/sf_erf.c math/signbit.c \
+	math/signbitf.c math/signbitl.c math/sinf.c math/sinhf.c \
+	math/sinhl.c math/sqrtf.c math/sqrtl.c math/tanf.c \
+	math/tanhf.c math/tanhl.c math/tgamma.c math/tgammaf.c \
+	math/tgammal.c math/trunc.c math/truncf.c math/truncl.c \
+	misc/mb_wc_common.h misc/mingw_getsp.S misc/alarm.c \
+	misc/btowc.c misc/ctime.c misc/delayimp.c misc/difftime32.c \
+	misc/difftime64.c misc/difftime.c misc/dirent.c misc/execv.c \
+	misc/execve.c misc/execvp.c misc/execvpe.c \
+	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
+	misc/fegetround.c misc/feholdexcept.c misc/feraiseexcept.c \
+	misc/fesetenv.c misc/fesetexceptflag.c misc/fesetround.c \
+	misc/fetestexcept.c misc/feupdateenv.c misc/ftruncate.c \
+	misc/fwide.c misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
+	misc/gmtime.c misc/imaxabs.c misc/imaxdiv.c misc/isblank.c \
+	misc/iswblank.c misc/localtime.c misc/mbrtowc.c misc/mbsinit.c \
+	misc/mingw-aligned-malloc.c misc/mingw-fseek.c \
+	misc/_mkgmtime.c misc/mktime.c misc/seterrno.c misc/sleep.c \
+	misc/spawnv.c misc/spawnve.c misc/spawnvp.c misc/spawnvpe.c \
+	misc/strtoimax.c misc/strtold.c misc/strtoumax.c misc/time.c \
+	misc/wassert.c misc/wcrtomb.c misc/wcstoimax.c misc/wcstold.c \
+	misc/wcstoumax.c misc/wctob.c misc/wctrans.c misc/wctype.c \
+	misc/wdirent.c misc/winbs_uint64.c misc/winbs_ulong.c \
+	misc/winbs_ushort.c misc/wmemchr.c misc/wmemcmp.c \
+	misc/wmemcpy.c misc/wmemmove.c misc/wmemset.c \
+	misc/mingw_usleep.c misc/mingw_output_format.c \
 	stdio/mingw_pformat.h stdio/atoll.c stdio/_Exit.c \
 	stdio/_findfirst64i32.c stdio/_findnext64i32.c stdio/fopen64.c \
 	stdio/fseeko64.c stdio/_fstat64i32.c stdio/ftello64.c \
@@ -1121,6 +1124,7 @@ am__objects_30 = intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-currentteb.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-currentfiber.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-fiberdata.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-__stosb.$(OBJEXT) \
 	complex/lib64_libmingwex_a-cabs.$(OBJEXT) \
 	complex/lib64_libmingwex_a-cabsf.$(OBJEXT) \
 	complex/lib64_libmingwex_a-cabsl.$(OBJEXT) \
@@ -1931,6 +1935,7 @@ src_libmingwex = \
   intrincs/ilockdec16.c intrincs/ilockcxch16.c intrincs/ilockexchadd.c intrincs/ilockand.c intrincs/ilockor.c    \
   intrincs/ilockxor.c   intrincs/ilockinc.c    intrincs/ilockdec.c intrincs/ilockexch.c intrincs/ilockcxch.c     \
   intrincs/dbgassert.c  intrincs/membarrier.c  intrincs/currentteb.c intrincs/currentfiber.c intrincs/fiberdata.c \
+  intrincs/__stosb.c \
   \
   complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosh.c \
   complex/cacoshf.c  complex/cacoshl.c  complex/cacosl.c  complex/carg.c     complex/cargf.c    complex/cargl.c  \
@@ -2996,6 +3001,8 @@ intrincs/lib32_libmingwex_a-currentteb.$(OBJEXT):  \
 intrincs/lib32_libmingwex_a-currentfiber.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libmingwex_a-fiberdata.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-__stosb.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 complex/$(am__dirstamp):
 	@$(MKDIR_P) complex
@@ -4075,6 +4082,8 @@ intrincs/lib64_libmingwex_a-currentteb.$(OBJEXT):  \
 intrincs/lib64_libmingwex_a-currentfiber.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-fiberdata.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-__stosb.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 complex/lib64_libmingwex_a-cabs.$(OBJEXT): complex/$(am__dirstamp) \
 	complex/$(DEPDIR)/$(am__dirstamp)
@@ -5410,6 +5419,7 @@ mostlyclean-compile:
 	-rm -f gdtoa/lib64_libmingwex_a-strtopx.$(OBJEXT)
 	-rm -f gdtoa/lib64_libmingwex_a-sum.$(OBJEXT)
 	-rm -f gdtoa/lib64_libmingwex_a-ulp.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-__stosb.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-bitscanfwd.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-bitscanrev.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-bittest.$(OBJEXT)
@@ -5461,6 +5471,7 @@ mostlyclean-compile:
 	-rm -f intrincs/lib32_libmingwex_a-writecr4.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-writecr8.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-writemsr.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-__stosb.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-bitscanfwd.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-bitscanfwd64.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-bitscanrev.$(OBJEXT)
@@ -6423,6 +6434,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-__stosb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-bitscanfwd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-bitscanrev.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-bittest.Po@am__quote@
@@ -6474,6 +6486,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr4.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writecr8.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writemsr.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-bitscanfwd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-bitscanfwd64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-bitscanrev.Po@am__quote@
@@ -9622,6 +9635,20 @@ intrincs/lib32_libmingwex_a-fiberdata.obj: intrincs/fiberdata.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/fiberdata.c' object='intrincs/lib32_libmingwex_a-fiberdata.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-fiberdata.obj `if test -f 'intrincs/fiberdata.c'; then $(CYGPATH_W) 'intrincs/fiberdata.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/fiberdata.c'; fi`
+
+intrincs/lib32_libmingwex_a-__stosb.o: intrincs/__stosb.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-__stosb.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-__stosb.Tpo -c -o intrincs/lib32_libmingwex_a-__stosb.o `test -f 'intrincs/__stosb.c' || echo '$(srcdir)/'`intrincs/__stosb.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-__stosb.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-__stosb.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__stosb.c' object='intrincs/lib32_libmingwex_a-__stosb.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-__stosb.o `test -f 'intrincs/__stosb.c' || echo '$(srcdir)/'`intrincs/__stosb.c
+
+intrincs/lib32_libmingwex_a-__stosb.obj: intrincs/__stosb.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-__stosb.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-__stosb.Tpo -c -o intrincs/lib32_libmingwex_a-__stosb.obj `if test -f 'intrincs/__stosb.c'; then $(CYGPATH_W) 'intrincs/__stosb.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__stosb.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-__stosb.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-__stosb.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__stosb.c' object='intrincs/lib32_libmingwex_a-__stosb.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-__stosb.obj `if test -f 'intrincs/__stosb.c'; then $(CYGPATH_W) 'intrincs/__stosb.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__stosb.c'; fi`
 
 complex/lib32_libmingwex_a-cabs.o: complex/cabs.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT complex/lib32_libmingwex_a-cabs.o -MD -MP -MF complex/$(DEPDIR)/lib32_libmingwex_a-cabs.Tpo -c -o complex/lib32_libmingwex_a-cabs.o `test -f 'complex/cabs.c' || echo '$(srcdir)/'`complex/cabs.c
@@ -15614,6 +15641,20 @@ intrincs/lib64_libmingwex_a-fiberdata.obj: intrincs/fiberdata.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/fiberdata.c' object='intrincs/lib64_libmingwex_a-fiberdata.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-fiberdata.obj `if test -f 'intrincs/fiberdata.c'; then $(CYGPATH_W) 'intrincs/fiberdata.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/fiberdata.c'; fi`
+
+intrincs/lib64_libmingwex_a-__stosb.o: intrincs/__stosb.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-__stosb.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosb.Tpo -c -o intrincs/lib64_libmingwex_a-__stosb.o `test -f 'intrincs/__stosb.c' || echo '$(srcdir)/'`intrincs/__stosb.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosb.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosb.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__stosb.c' object='intrincs/lib64_libmingwex_a-__stosb.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-__stosb.o `test -f 'intrincs/__stosb.c' || echo '$(srcdir)/'`intrincs/__stosb.c
+
+intrincs/lib64_libmingwex_a-__stosb.obj: intrincs/__stosb.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-__stosb.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosb.Tpo -c -o intrincs/lib64_libmingwex_a-__stosb.obj `if test -f 'intrincs/__stosb.c'; then $(CYGPATH_W) 'intrincs/__stosb.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__stosb.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosb.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosb.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__stosb.c' object='intrincs/lib64_libmingwex_a-__stosb.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-__stosb.obj `if test -f 'intrincs/__stosb.c'; then $(CYGPATH_W) 'intrincs/__stosb.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__stosb.c'; fi`
 
 complex/lib64_libmingwex_a-cabs.o: complex/cabs.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT complex/lib64_libmingwex_a-cabs.o -MD -MP -MF complex/$(DEPDIR)/lib64_libmingwex_a-cabs.Tpo -c -o complex/lib64_libmingwex_a-cabs.o `test -f 'complex/cabs.c' || echo '$(srcdir)/'`complex/cabs.c
