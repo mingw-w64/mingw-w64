@@ -262,6 +262,8 @@ int __cdecl stat(const char *_Filename,struct stat *_Stat);
 int __cdecl fstat(int _Desc,struct stat *_Stat);
 int __cdecl wstat(const wchar_t *_Filename,struct stat *_Stat);
 #ifndef __CRT__NO_INLINE
+#if 0
+/* Disabled due to strict-aliasing issues to be solved here.  */
 #ifdef _USE_32BIT_TIME_T
 __CRT_INLINE int __cdecl fstat(int _Desc,struct stat *_Stat) {
   return _fstat32(_Desc,(struct _stat32 *)_Stat);
@@ -277,6 +279,7 @@ __CRT_INLINE int __cdecl stat(const char *_Filename,struct stat *_Stat) {
   return _stat64i32(_Filename,(struct _stat64i32 *)_Stat);
 }
 #endif /* _USE_32BIT_TIME_T */
+#endif /* 0 */
 #endif /* __CRT__NO_INLINE */
 #endif /* !RC_INVOKED && !NO_OLDNAMES */
 
