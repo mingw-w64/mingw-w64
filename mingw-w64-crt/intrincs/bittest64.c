@@ -4,6 +4,7 @@
 #define __CRT__NO_INLINE
 #include <windows.h>
 
+#ifdef _WIN64
 BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset)
 {
   int old = 0;
@@ -12,4 +13,5 @@ BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset)
     :"Ir" (Offset));
   return (BOOLEAN) (old != 0);
 }
+#endif
 
