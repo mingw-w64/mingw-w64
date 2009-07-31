@@ -1,6 +1,13 @@
 2009-07-31  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/2829952
+	* wchar.h: Fix unsigned integer min/max constants.
+	* stdint.h: Likewise.
+	* limits.h: Likewise.
+
+2009-07-31  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2829952
 	* stdint.h (int_fast8_t): Make explicit signed.
 
 2009-07-29  Kai Tietz  <kai.tietz@onevision.com>

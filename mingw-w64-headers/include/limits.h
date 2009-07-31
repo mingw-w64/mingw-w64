@@ -29,10 +29,10 @@
 #define MB_LEN_MAX 5
 #define SHRT_MIN (-32768)
 #define SHRT_MAX 32767
-#define USHRT_MAX 0xffff
+#define USHRT_MAX 0xffffU
 #define INT_MIN (-2147483647 - 1)
 #define INT_MAX 2147483647
-#define UINT_MAX 0xffffffff
+#define UINT_MAX 0xffffffffU
 #define LONG_MIN (-2147483647L - 1)
 #define LONG_MAX 2147483647L
 #define ULONG_MAX 0xffffffffUL

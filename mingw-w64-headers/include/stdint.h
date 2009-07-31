@@ -82,9 +82,9 @@ typedef unsigned long long   uintmax_t;
 #define INT32_MAX 2147483647
 #define INT64_MAX 9223372036854775807LL
 
-#define UINT8_MAX 0xff /* 255U */
-#define UINT16_MAX 0xffff /* 65535U */
-#define UINT32_MAX 0xffffffff  /* 4294967295U */
+#define UINT8_MAX 0xffU /* 255U */
+#define UINT16_MAX 0xffffU /* 65535U */
+#define UINT32_MAX 0xffffffffU  /* 4294967295U */
 #define UINT64_MAX 0xffffffffffffffffULL /* 18446744073709551615ULL */
 
 /* 7.18.2.2  Limits of minimum-width integer types */
@@ -157,15 +157,15 @@ typedef unsigned long long   uintmax_t;
 #endif
 
 #ifndef WCHAR_MIN  /* also in wchar.h */
-#define WCHAR_MIN 0
-#define WCHAR_MAX ((wchar_t)-1) /* UINT16_MAX */
+#define WCHAR_MIN 0U
+#define WCHAR_MAX 0xffffU
 #endif
 
 /*
  * wint_t is unsigned short for compatibility with MS runtime
  */
-#define WINT_MIN 0
-#define WINT_MAX ((wint_t)-1) /* UINT16_MAX */
+#define WINT_MIN 0U
+#define WINT_MAX 0xffffU
 
 #endif /* !defined ( __cplusplus) || defined __STDC_LIMIT_MACROS */
 
