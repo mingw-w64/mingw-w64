@@ -1,3 +1,7 @@
+2009-07-31  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__MINGW_ATTRIB_NO_OPTIMIZE): New macro.
+
 2009-07-31  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/2829952

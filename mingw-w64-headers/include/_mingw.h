@@ -134,6 +134,12 @@ limitations in handling dllimport attribute.  */
 #define __MINGW_NOTHROW
 #endif
 
+#if __MINGW_GNUC_PREREQ (4, 4)
+#define __MINGW_ATTRIB_NO_OPTIMIZE __attribute__((optimize("0")))
+#else
+#define __MINGW_ATTRIB_NO_OPTIMIZE
+#endif
+
 #ifndef __MSVCRT_VERSION__
 /*  High byte is the major version, low byte is the minor. */
 # define __MSVCRT_VERSION__ 0x0700
