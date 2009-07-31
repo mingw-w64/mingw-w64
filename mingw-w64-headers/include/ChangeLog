@@ -1,6 +1,8 @@
 2009-07-31  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw.h (__MINGW_ATTRIB_NO_OPTIMIZE): New macro.
+	* sys/stat.h: Do not optimize the stat inlines due to strict aliasing
+	issues.
 
 2009-07-31  Kai Tietz  <kai.tietz@onevision.com>
 
