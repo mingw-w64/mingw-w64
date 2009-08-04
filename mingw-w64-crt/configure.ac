@@ -110,6 +110,8 @@ AM_PROG_CC_C_O
 #AC_FUNC_VPRINTF
 #AC_CHECK_FUNCS([alarm atexit btowc fesetround floor ftruncate gettimeofday isascii localeconv mbrlen memmove memset pow rint setlocale sqrt strcasecmp strchr strncasecmp strtoull strtoumax])
 
+AC_CHECK_HEADER([_mingw_mac.h], [], [AC_MSG_ERROR([Please check if the mingw-w64 header set and the build/host option are set properly.])]);
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
