@@ -16447,7 +16447,7 @@ $as_echo "$as_me: error: Please check if the mingw-w64 header set and the build/
    { (exit 1); exit 1; }; }
 fi
 
-;
+
 
 ac_config_files="$ac_config_files Makefile"
 
