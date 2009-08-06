@@ -48,7 +48,6 @@ extern "C" {
 #define UNALLIGNED
 
 #define CONST const
-#define VOLATILE volatile
 
 #define RESTRICTED_POINTER
 
@@ -188,6 +187,7 @@ struct _COMPRESSED_DATA_INFO;
 
 #if (_M_IX86)
 #define KIP0PCRADDRESS                      0xffdff000
+    
 #endif
 
 #define KERNEL_STACK_SIZE                   12288
@@ -1213,8 +1213,8 @@ typedef enum _KSPIN_LOCK_QUEUE_NUMBER
 } KSPIN_LOCK_QUEUE_NUMBER, *PKSPIN_LOCK_QUEUE_NUMBER;
 
 typedef struct _KSPIN_LOCK_QUEUE {
-  struct _KSPIN_LOCK_QUEUE  *VOLATILE Next;
-  PKSPIN_LOCK VOLATILE  Lock;
+  struct _KSPIN_LOCK_QUEUE  *volatile Next;
+  PKSPIN_LOCK volatile  Lock;
 } KSPIN_LOCK_QUEUE, *PKSPIN_LOCK_QUEUE;
 
 typedef struct _KLOCK_QUEUE_HANDLE {
@@ -1620,27 +1620,6 @@ typedef struct _CM_FLOPPY_DEVICE_DATA {
   UCHAR  DataTransferRate;
 } CM_FLOPPY_DEVICE_DATA, *PCM_FLOPPY_DEVICE_DATA;
 
-typedef enum _INTERFACE_TYPE {
-  InterfaceTypeUndefined = -1,
-  Internal,
-  Isa,
-  Eisa,
-  MicroChannel,
-  TurboChannel,
-  PCIBus,
-  VMEBus,
-  NuBus,
-  PCMCIABus,
-  CBus,
-  MPIBus,
-  MPSABus,
-  ProcessorInternal,
-  InternalPowerBus,
-  PNPISABus,
-  PNPBus,
-  MaximumInterfaceType
-} INTERFACE_TYPE, *PINTERFACE_TYPE;
-
 typedef struct _PNP_BUS_INFORMATION {
   GUID  BusTypeGuid;
   INTERFACE_TYPE  LegacyBusType;
@@ -1648,80 +1627,6 @@ typedef struct _PNP_BUS_INFORMATION {
 } PNP_BUS_INFORMATION, *PPNP_BUS_INFORMATION;
 
 #include <pshpack1.h>
-typedef struct _CM_PARTIAL_RESOURCE_DESCRIPTOR {
-  UCHAR Type;
-  UCHAR ShareDisposition;
-  USHORT Flags;
-  union {
-    struct {
-      PHYSICAL_ADDRESS Start;
-      ULONG Length;
-    } Generic;
-    struct {
-      PHYSICAL_ADDRESS Start;
-      ULONG Length;
-    } Port;
-    struct {
-      ULONG Level;
-      ULONG Vector;
-      KAFFINITY Affinity;
-    } Interrupt;
-#if (NTDDI_VERSION >= NTDDI_LONGHORN)
-    struct {
-      union {
-        struct {
-          USHORT Reserved;
-          USHORT MessageCount;
-          ULONG Vector;
-          KAFFINITY Affinity;
-        } Raw;
-        struct {
-          ULONG Level;
-          ULONG Vector;
-          KAFFINITY Affinity;
-        } Translated;
-      };
-    } MessageInterrupt;
-#endif
-    struct {
-      PHYSICAL_ADDRESS Start;
-      ULONG Length;
-    } Memory;
-    struct {
-      ULONG Channel;
-      ULONG Port;
-      ULONG Reserved1;
-    } Dma;
-    struct {
-      ULONG Data[3];
-    } DevicePrivate;
-    struct {
-      ULONG Start;
-      ULONG Length;
-      ULONG Reserved;
-    } BusNumber;
-    struct {
-      ULONG DataSize;
-      ULONG Reserved1;
-      ULONG Reserved2;
-    } DeviceSpecificData;
-#if (NTDDI_VERSION >= NTDDI_LONGHORN)
-    struct {
-      PHYSICAL_ADDRESS Start;
-      ULONG Length40;
-    } Memory40;
-    struct {
-      PHYSICAL_ADDRESS Start;
-      ULONG Length48;
-    } Memory48;
-    struct {
-      PHYSICAL_ADDRESS Start;
-      ULONG Length64;
-    } Memory64;
-#endif
-  } u;
-} CM_PARTIAL_RESOURCE_DESCRIPTOR, *PCM_PARTIAL_RESOURCE_DESCRIPTOR;
-
 /* CM_PARTIAL_RESOURCE_DESCRIPTOR.Type */
 
 #define CmResourceTypeNull                0
@@ -1837,6 +1742,7 @@ typedef struct _CM_PNP_BIOS_INSTALLATION_CHECK
 } CM_PNP_BIOS_INSTALLATION_CHECK, *PCM_PNP_BIOS_INSTALLATION_CHECK;
 
 #include <poppack.h>
+
 
 typedef struct _CM_DISK_GEOMETRY_DEVICE_DATA
 {
@@ -1962,80 +1868,6 @@ typedef enum _KINTERRUPT_POLARITY
     InterruptActiveHigh,
     InterruptActiveLow
 } KINTERRUPT_POLARITY, *PKINTERRUPT_POLARITY;
-
-/* IO_RESOURCE_DESCRIPTOR.Option */
-
-#define IO_RESOURCE_PREFERRED             0x01
-#define IO_RESOURCE_DEFAULT               0x02
-#define IO_RESOURCE_ALTERNATIVE           0x08
-
-typedef struct _IO_RESOURCE_DESCRIPTOR {
-  UCHAR  Option;
-  UCHAR  Type;
-  UCHAR  ShareDisposition;
-  UCHAR  Spare1;
-  USHORT  Flags;
-  USHORT  Spare2;
-  union {
-    struct {
-      ULONG  Length;
-      ULONG  Alignment;
-      PHYSICAL_ADDRESS  MinimumAddress;
-      PHYSICAL_ADDRESS  MaximumAddress;
-    } Port;
-    struct {
-      ULONG  Length;
-      ULONG  Alignment;
-      PHYSICAL_ADDRESS  MinimumAddress;
-      PHYSICAL_ADDRESS  MaximumAddress;
-    } Memory;
-    struct {
-      ULONG  MinimumVector;
-      ULONG  MaximumVector;
-    } Interrupt;
-    struct {
-      ULONG  MinimumChannel;
-      ULONG  MaximumChannel;
-    } Dma;
-    struct {
-      ULONG  Length;
-      ULONG  Alignment;
-      PHYSICAL_ADDRESS  MinimumAddress;
-      PHYSICAL_ADDRESS  MaximumAddress;
-    } Generic;
-    struct {
-      ULONG  Data[3];
-    } DevicePrivate;
-    struct {
-      ULONG  Length;
-      ULONG  MinBusNumber;
-      ULONG  MaxBusNumber;
-      ULONG  Reserved;
-    } BusNumber;
-    struct {
-      ULONG  Priority;
-      ULONG  Reserved1;
-      ULONG  Reserved2;
-    } ConfigData;
-  } u;
-} IO_RESOURCE_DESCRIPTOR, *PIO_RESOURCE_DESCRIPTOR;
-
-typedef struct _IO_RESOURCE_LIST {
-  USHORT  Version;
-  USHORT  Revision;
-  ULONG  Count;
-  IO_RESOURCE_DESCRIPTOR  Descriptors[1];
-} IO_RESOURCE_LIST, *PIO_RESOURCE_LIST;
-
-typedef struct _IO_RESOURCE_REQUIREMENTS_LIST {
-  ULONG  ListSize;
-  INTERFACE_TYPE  InterfaceType;
-  ULONG  BusNumber;
-  ULONG  SlotNumber;
-  ULONG  Reserved[3];
-  ULONG  AlternativeLists;
-  IO_RESOURCE_LIST  List[1];
-} IO_RESOURCE_REQUIREMENTS_LIST, *PIO_RESOURCE_REQUIREMENTS_LIST;
 
 typedef struct _IO_ERROR_LOG_PACKET {
   UCHAR  MajorFunctionCode;
@@ -4425,7 +4257,7 @@ typedef struct _IO_REMOVE_LOCK_DBG_BLOCK {
 
 typedef struct _IO_REMOVE_LOCK {
   IO_REMOVE_LOCK_COMMON_BLOCK  Common;
-#ifdef DBG
+#if DBG
   IO_REMOVE_LOCK_DBG_BLOCK  Dbg;
 #endif
 } IO_REMOVE_LOCK, *PIO_REMOVE_LOCK;
@@ -5296,9 +5128,17 @@ typedef struct _KFLOATING_SAVE {
   ULONG  Spare1;
 } KFLOATING_SAVE, *PKFLOATING_SAVE;
 
-static __inline
+#ifdef _MSC_VER
+//
+// FIXME: Intrinsics
+//
+unsigned char __readfsbyte(const unsigned long Offset);
+#pragma intrinsic(__readfsbyte)
+#endif
+
+
+FORCEINLINE
 ULONG
-DDKAPI
 KeGetCurrentProcessorNumber(VOID)
 {
 #if defined(__GNUC__)
@@ -5313,7 +5153,7 @@ KeGetCurrentProcessorNumber(VOID)
 #if _MSC_FULL_VER >= 13012035
   return (ULONG)__readfsbyte(FIELD_OFFSET(KPCR, Number));
 #else
-  __asm { movzx eax, _PCR KPCR.Number }
+  __asm { movzx eax, fs:[0] KPCR.Number }
 #endif
 #else
 #error Unknown compiler
@@ -5351,7 +5191,7 @@ extern NTKERNELAPI ULONG_PTR MmUserProbeAddress;
 
 #define MM_KSEG0_BASE       MM_SYSTEM_RANGE_START
 #define MM_SYSTEM_SPACE_END 0xFFFFFFFF
-
+    
 #elif defined(__x86_64__)
 
 #define CONTEXT_AMD64 0x100000
@@ -5732,6 +5572,10 @@ KeGetCurrentProcessorNumber(VOID)
 #error Unknown architecture
 #endif
 
+#define MM_DONT_ZERO_ALLOCATION             0x00000001
+#define MM_ALLOCATE_FROM_LOCAL_NODE_ONLY    0x00000002
+
+    
 #define EFLAG_SIGN                        0x8000
 #define EFLAG_ZERO                        0x4000
 #define EFLAG_SELECT                      (EFLAG_SIGN | EFLAG_ZERO)
@@ -5806,11 +5650,26 @@ KeTestSpinLock(
 
 #if defined (_X86_)
 
+#if defined(WIN9X_COMPAT_SPINLOCK)
+
 NTKERNELAPI
 VOID
 NTAPI
 KeInitializeSpinLock(
-  IN PKSPIN_LOCK  SpinLock);
+    IN PKSPIN_LOCK SpinLock
+);
+
+#else
+
+FORCEINLINE
+VOID
+KeInitializeSpinLock(IN PKSPIN_LOCK SpinLock)
+{
+    /* Clear the lock */
+    *SpinLock = 0;
+}
+
+#endif
 
 NTHALAPI
 KIRQL
@@ -5842,8 +5701,50 @@ KefReleaseSpinLockFromDpcLevel(
 #define KeAcquireSpinLock(a,b)  *(b) = KfAcquireSpinLock(a)
 #define KeReleaseSpinLock(a,b)  KfReleaseSpinLock(a,b)
 
-#else // !defined (_X86_)
-
+#define KeGetDcacheFillSize() 1L
+    
+#elif defined(_M_ARM) // !defined (_X86_)
+    
+    NTHALAPI
+    KIRQL
+    FASTCALL
+    KfAcquireSpinLock(
+                      IN PKSPIN_LOCK SpinLock);
+    
+    NTHALAPI
+    VOID
+    FASTCALL
+    KfReleaseSpinLock(
+                      IN PKSPIN_LOCK SpinLock,
+                      IN KIRQL NewIrql);
+    
+    
+    NTKERNELAPI
+    VOID
+    FASTCALL
+    KefAcquireSpinLockAtDpcLevel(
+                                 IN PKSPIN_LOCK  SpinLock);
+    
+    NTKERNELAPI
+    VOID
+    FASTCALL
+    KefReleaseSpinLockFromDpcLevel(
+                                   IN PKSPIN_LOCK  SpinLock);
+    
+    
+#define KeAcquireSpinLockAtDpcLevel(SpinLock) KefAcquireSpinLockAtDpcLevel(SpinLock)
+#define KeReleaseSpinLockFromDpcLevel(SpinLock) KefReleaseSpinLockFromDpcLevel(SpinLock)
+#define KeAcquireSpinLock(a,b)  *(b) = KfAcquireSpinLock(a)
+#define KeReleaseSpinLock(a,b)  KfReleaseSpinLock(a,b)
+    
+    NTKERNELAPI
+    VOID
+    NTAPI
+    KeInitializeSpinLock(
+                         IN PKSPIN_LOCK  SpinLock);
+    
+#else
+    
 FORCEINLINE
 VOID
 NTAPI
@@ -5876,12 +5777,8 @@ KeAcquireSpinLockRaiseToDpc(
 
 #define KeAcquireSpinLock(SpinLock, OldIrql) \
   *(OldIrql) = KeAcquireSpinLockRaiseToDpc(SpinLock)
-
+    
 #endif // !defined (_X86_)
-
-#define KeGetDcacheFillSize() 1L
-
-
 
 /*
 ** Utillity functions
@@ -5922,7 +5819,7 @@ KeAcquireSpinLockRaiseToDpc(
 #define ROUND_TO_PAGES(Size) \
   ((ULONG_PTR) (((ULONG_PTR) Size + PAGE_SIZE - 1) & ~(PAGE_SIZE - 1)))
 
-#ifdef DBG
+#if DBG
 
 #define ASSERT(exp) \
   (VOID)((!(exp)) ? \
@@ -6056,7 +5953,7 @@ RemoveEntryList(
   OldBlink = Entry->Blink;
   OldFlink->Blink = OldBlink;
   OldBlink->Flink = OldFlink;
-  return (OldFlink == OldBlink);
+  return (BOOLEAN)(OldFlink == OldBlink);
 }
 
 static __inline PLIST_ENTRY
@@ -6103,17 +6000,39 @@ RtlCompareString(
   IN PSTRING  String2,
   BOOLEAN  CaseInSensitive);
 
-NTSYSAPI
+#if !defined(MIDL_PASS)
+
+FORCEINLINE
 LUID
 NTAPI
 RtlConvertLongToLuid(
-  IN LONG  Long);
+    IN LONG Val)
+{
+    LUID Luid;
+    LARGE_INTEGER Temp;
 
-NTSYSAPI
+    Temp.QuadPart = Val;
+    Luid.LowPart = Temp.u.LowPart;
+    Luid.HighPart = Temp.u.HighPart;
+
+    return Luid;
+}
+
+FORCEINLINE
 LUID
 NTAPI
 RtlConvertUlongToLuid(
-  ULONG  Ulong);
+    IN ULONG Val)
+{
+    LUID Luid;
+
+    Luid.LowPart = Val;
+    Luid.HighPart = 0;
+
+    return Luid;
+}
+#endif
+
 
 NTSYSAPI
 VOID
@@ -6442,7 +6361,7 @@ ExUuidCreate(
 #define ExReleaseResourceForThread ExReleaseResourceForThreadLite
 
 
-#ifdef DBG
+#if DBG
 
 #define PAGED_CODE() { \
   if (KeGetCurrentIrql() > APC_LEVEL) { \
@@ -8334,16 +8253,16 @@ KeAreApcsDisabled(
   VOID);
 
 NTKERNELAPI
+DECLSPEC_NORETURN
 VOID
 NTAPI
-__declspec(noreturn)
 KeBugCheck(
   IN ULONG  BugCheckCode);
 
 NTKERNELAPI
+DECLSPEC_NORETURN
 VOID
 NTAPI
-__declspec(noreturn)
 KeBugCheckEx(
   IN ULONG  BugCheckCode,
   IN ULONG_PTR  BugCheckParameter1,
@@ -10389,6 +10308,7 @@ DbgPrint(
   IN PCCH  Format,
   IN ...);
 
+NTSYSAPI
 ULONG
 DDKCDECLAPI
 DbgPrintEx(
@@ -10436,7 +10356,7 @@ DbgSetDebugFilterState(
   IN ULONG  Level,
   IN BOOLEAN  State);
 
-#ifdef DBG
+#if DBG
 
 #define KdPrint(_x_) DbgPrint _x_
 #define KdPrintEx(_x_) DbgPrintEx _x_
@@ -10859,6 +10779,13 @@ Exfi386InterlockedExchangeUlong(
 #define ExInterlockedExchangeUlong(Target, Value, Lock) Exfi386InterlockedExchangeUlong(Target, Value)
 
 #endif /* _X86_ */
+    
+#ifdef _M_ARM
+//
+// NT-ARM is not documented
+//
+#include <armddk.h>   
+#endif
 
 #ifdef __cplusplus
 }

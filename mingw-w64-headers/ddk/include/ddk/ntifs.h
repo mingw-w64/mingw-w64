@@ -1093,7 +1093,7 @@ typedef struct _FILE_FULL_DIRECTORY_INFORMATION {
     ULONG           FileAttributes;
     ULONG           FileNameLength;
     ULONG           EaSize;
-    WCHAR           FileName[0];
+    WCHAR           FileName[ANYSIZE_ARRAY];
 } FILE_FULL_DIRECTORY_INFORMATION, *PFILE_FULL_DIRECTORY_INFORMATION;
     
 typedef struct _FILE_ID_FULL_DIR_INFORMATION {
@@ -4082,6 +4082,32 @@ NTAPI
 IoGetBaseFileSystemDeviceObject (
     IN PFILE_OBJECT FileObject
 );
+
+#if (VER_PRODUCTBUILD >= 2600)
+
+NTKERNELAPI
+PDEVICE_OBJECT
+NTAPI
+IoGetDeviceAttachmentBaseRef (
+    IN PDEVICE_OBJECT DeviceObject
+);
+
+NTKERNELAPI
+NTSTATUS
+NTAPI
+IoGetDiskDeviceObject (
+    IN PDEVICE_OBJECT   FileSystemDeviceObject,
+    OUT PDEVICE_OBJECT  *DiskDeviceObject
+);
+
+NTKERNELAPI
+PDEVICE_OBJECT
+NTAPI
+IoGetLowerDeviceObject (
+    IN PDEVICE_OBJECT DeviceObject
+);
+
+#endif /* (VER_PRODUCTBUILD >= 2600) */
 
 NTKERNELAPI
 PEPROCESS

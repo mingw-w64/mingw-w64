@@ -138,9 +138,9 @@ extern "C"
 #include <mmreg.h>
 #undef NOBITMAP
 
+#include <punknown.h>
 #include <ks.h>
 #include <ksmedia.h>
-#include <punknown.h>
 #include <drmk.h>
 
 #ifdef __cplusplus
@@ -239,7 +239,7 @@ struct _PCPROPERTY_REQUEST;
 
 typedef struct _PCPROPERTY_REQUEST PCPROPERTY_REQUEST, *PPCPROPERTY_REQUEST;
 
-typedef NTSTATUS (*PCPFNPROPERTY_HANDLER)(
+typedef NTSTATUS (NTAPI *PCPFNPROPERTY_HANDLER)(
     IN  PPCPROPERTY_REQUEST PropertyRequest);
 
 typedef struct
@@ -281,7 +281,7 @@ struct _PCPROPERTY_REQUEST
 
 struct _PCEVENT_REQUEST;
 
-typedef NTSTATUS (*PCPFNEVENT_HANDLER)(
+typedef NTSTATUS (NTAPI *PCPFNEVENT_HANDLER)(
     IN  struct _PCEVENT_REQUEST* EventRequest);
 
 typedef struct _PCEVENT_ITEM
@@ -307,7 +307,7 @@ typedef struct _PCEVENT_REQUEST
 
 struct _PCMETHOD_REQUEST;
 
-typedef NTSTATUS (*PCPFNMETHOD_HANDLER)(
+typedef NTSTATUS (NTAPI *PCPFNMETHOD_HANDLER)(
     IN  struct _PCMETHOD_REQUEST* MethodRequest);
 
 typedef struct _PCMETHOD_ITEM
@@ -834,7 +834,7 @@ typedef enum
 
 struct IInterruptSync;
 
-typedef NTSTATUS (*PINTERRUPTSYNCROUTINE)(
+typedef NTSTATUS (NTAPI *PINTERRUPTSYNCROUTINE)(
     IN  struct IInterruptSync* InterruptSync,
     IN  PVOID DynamicContext);
 
@@ -1305,7 +1305,7 @@ DECLARE_INTERFACE_(IMiniportMidi, IMiniport)
     STDMETHOD_(void, Service)(THIS) PURE;
 
     STDMETHOD_(NTSTATUS, NewStream)(THIS_
-        OUT PMINIPORTMIDISTREAM Stream,
+        OUT PMINIPORTMIDISTREAM *Stream,
         IN  PUNKNOWN OuterUnknown OPTIONAL,
         IN  POOL_TYPE PoolType,
         IN  ULONG Pin,
@@ -1343,6 +1343,9 @@ DEFINE_GUIDSTRUCT("0xB4C90A30-5791-11d0-86f9-00a0c911b544", IID_IPortTopology);
 DEFINE_GUID(IID_IPortTopology, 0xb4c90a30L, 0x5791, 0x11d0, 0x86, 0xf9, 0x00, 0xa0, 0xc9, 0x11, 0xb5, 0x44);
 DEFINE_GUID(CLSID_PortTopology, 0xb4c90a32L, 0x5791, 0x11d0, 0x86, 0xf9, 0x00, 0xa0, 0xc9, 0x11, 0xb5, 0x44);
 
+#undef INTERFACE
+#define INTERFACE IPortTopology
+
 DECLARE_INTERFACE_(IPortTopology, IPort)
 {
     DEFINE_ABSTRACT_UNKNOWN()
@@ -1362,6 +1365,9 @@ typedef IPortTopology *PPORTTOPOLOGY;
 #define INTERFACE IMiniportTopology
 
 DEFINE_GUID(IID_IMiniportTopology, 0xb4c90a31L, 0x5791, 0x11d0, 0x86, 0xf9, 0x00, 0xa0, 0xc9, 0x11, 0xb5, 0x44);
+
+#undef INTERFACE
+#define INTERFACE IMiniportTopology
 
 DECLARE_INTERFACE_(IMiniportTopology,IMiniport)
 {
@@ -2026,6 +2032,7 @@ DECLARE_INTERFACE_(IPortClsVersion, IUnknown)
 
 typedef IPortClsVersion *PPORTCLSVERSION;
 
+#undef INTERFACE
 
 /* ===============================================================
     IDmaOperations Interface
@@ -2041,7 +2048,7 @@ typedef IPortClsVersion *PPORTCLSVERSION;
     PortCls API Functions
 */
 
-typedef NTSTATUS (*PCPFNSTARTDEVICE)(
+typedef NTSTATUS (NTAPI *PCPFNSTARTDEVICE)(
     IN  PDEVICE_OBJECT DeviceObject,
     IN  PIRP Irp,
     IN  PRESOURCELIST ResourceList);
