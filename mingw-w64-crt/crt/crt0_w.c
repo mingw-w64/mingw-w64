@@ -5,13 +5,12 @@
  */
 
 /* We need to trick here header, as it prototypes WinMain by itself.  */
-#define WinMain dummyWinMain
 #include <windows.h>
-#undef WinMain
 
 extern void __main(void);
 
-/* Do the UNICODE prototyping of WinMain.  */
+/* Do the UNICODE prototyping of WinMain.  Be aware that in winbase.h WinMain is a macro
+   defined to wWinMain.  */
 int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPWSTR lpCmdLine,int nShowCmd);
 
 extern HINSTANCE __mingw_winmain_hInstance;
