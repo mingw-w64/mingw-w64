@@ -1079,10 +1079,13 @@ extern "C" {
 #define MAKEINTATOM(i) (LPTSTR)((ULONG_PTR)((WORD)(i)))
 #define INVALID_ATOM ((ATOM)0)
 
-#ifndef UNICODE
   int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nShowCmd);
-#else
-  int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPWSTR lpCmdLine,int nShowCmd);
+  int WINAPI wWinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPWSTR lpCmdLine,int nShowCmd);
+/* Unicode entry point is wWinMain, WinMain is just the ANSI version.
+   To make it possible to write even for UNICODE startup (UCB-16) WinMain instead of
+   wWinMain, we add here an macro to alias names.  */
+#ifdef UNICODE
+#define WinMain wWinMain
 #endif
 
   WINBASEAPI WINBOOL WINAPI FreeLibrary(HMODULE hLibModule);
