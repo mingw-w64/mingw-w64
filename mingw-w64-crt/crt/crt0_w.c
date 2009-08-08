@@ -3,7 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-
+#define UNICODE
 /* We need to trick here header, as it prototypes WinMain by itself.  */
 #include <windows.h>
 
