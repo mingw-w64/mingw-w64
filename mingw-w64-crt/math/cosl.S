@@ -3,13 +3,19 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"cosl.S"
 	.text
+#ifdef _WIN64
 	.align 8
-.globl _cosl
-	.def	_cosl;	.scl	2;	.type	32;	.endef
-_cosl:
+#else
+	.align 4
+#endif
+.globl __MINGW_USYMBOL(cosl)
+	.def	__MINGW_USYMBOL(cosl);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(cosl):
+#ifdef _WIN64
 	fldt	(%rdx)
 	fcos
 	fnstsw	%ax
@@ -29,12 +35,6 @@ _cosl:
 	fstpt (%rcx)
 	ret
 #else
-	.file	"cosl.S"
-	.text
-	.align 4
-.globl _cosl
-	.def	_cosl;	.scl	2;	.type	32;	.endef
-_cosl:
 	fldt	4(%esp)
 	fcos
 	fnstsw	%ax
@@ -52,3 +52,4 @@ _cosl:
 	fcos
 	ret
 #endif
+

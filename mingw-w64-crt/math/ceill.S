@@ -3,12 +3,18 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+#include <_mingw_mac.h>
+
 	.file	"ceill.S"
 	.text
+#ifdef _WIN64
+	.align 8
+#else
 	.align 4
-.globl _ceill
-	.def	_ceill;	.scl	2;	.type	32;	.endef
-_ceill:
+#endif
+.globl __MINGW_USYMBOL(ceill)
+	.def	__MINGW_USYMBOL(ceill);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(ceill):
 #ifdef _WIN64
 	fldt	(%rdx)
 	subq	$16,%rsp
