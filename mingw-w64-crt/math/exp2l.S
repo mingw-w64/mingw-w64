@@ -3,13 +3,19 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"exp2l.S"
 	.text
+#ifdef _WIN64
+	.align 8
+#else
 	.align 4
-.globl _exp2l
-	.def	_exp2l;	.scl	2;	.type	32;	.endef
-_exp2l:
+#endif
+.globl __MINGW_USYMBOL(exp2l)
+	.def	__MINGW_USYMBOL(exp2l);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(exp2l):
+#ifdef _WIN64
 	fldt	(%rdx)
 	fxam				/* Is NaN or +-Inf?  */
 	fstsw	%ax
@@ -40,12 +46,6 @@ _exp2l:
 	fstpt	(%rcx)
 	ret
 #else
-	.file	"exp2l.S"
-	.text
-	.align 4
-.globl _exp2l
-	.def	_exp2l;	.scl	2;	.type	32;	.endef
-_exp2l:
 	fldt	4(%esp)
 /* I added the following ugly construct because exp(+-Inf) resulted
    in NaN.  The ugliness results from the bright minds at Intel.
