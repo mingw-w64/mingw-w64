@@ -3,12 +3,18 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"remquol.S"
         .text
-	.align 4;
-.globl _remquol;
- _remquol:
+#ifdef _WIN64
+	.align 8
+#else
+	.align 4
+#endif
+.globl __MINGW_USYMBOL(remquol)
+__MINGW_USYMBOL(remquol):
+#ifdef _WIN64
  	pushq	%rcx
         fldt (%r8)
         fldt (%rdx)
@@ -39,11 +45,6 @@
 	fstpt	(%rcx)
         ret
 #else
-	.file	"remquol.S"
-        .text
-	.align 4;
-.globl _remquol;
- _remquol:
         fldt 4 +12(%esp)
         fldt 4(%esp)
 1:	fprem1

@@ -3,12 +3,18 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"remquo.S"
         .text
-	.align 8;
-.globl _remquo;
-_remquo:
+#ifdef _WIN64
+	.align 8
+#else
+	.align 4
+#endif
+.globl __MINGW_USYMBOL(remquo)
+__MINGW_USYMBOL(remquo):
+#ifdef _WIN64
 	movsd	%xmm1,-16(%rsp)
 	fldl	-16(%rsp)
 	movsd	%xmm0,-16(%rsp)
@@ -39,11 +45,6 @@ _remquo:
 	movsd	-16(%rsp),%xmm0
 	ret
 #else
-	.file	"remquo.S"
-        .text
-	.align 4;
-.globl _remquo;
-_remquo:     
 	fldl 4 +8(%esp)
 	fldl 4(%esp)
 1:	fprem1
