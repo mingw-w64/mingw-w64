@@ -3,21 +3,25 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"logl.S"
 	.text
+#ifdef _WIN64
+	.align 8
+#else
 	.align 4
+#endif
 one:	.double 1.0
 	/* It is not important that this constant is precise.  It is only
 	   a value which is known to be on the safe side for using the
 	   fyl2xp1 instruction.  */
 limit:	.double 0.29
 
-	.text
-	.align 4
-.globl _logl
-	.def	_logl;	.scl	2;	.type	32;	.endef
-_logl:
+.globl __MINGW_USYMBOL(logl)
+	.def	__MINGW_USYMBOL(logl);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(logl):
+#ifdef _WIN64
 	fldln2			// log(2)
 	fldt	(%rdx)		// x : log(2)
 	fld	%st		// x : x : log(2)
@@ -42,20 +46,6 @@ _logl:
 	fstpt	(%rcx)
 	ret
 #else
-	.file	"logl.S"
-	.text
-	.align 4
-one:	.double 1.0
-	/* It is not important that this constant is precise.  It is only
-	   a value which is known to be on the safe side for using the
-	   fyl2xp1 instruction.  */
-limit:	.double 0.29
-
-	.text
-	.align 4
-.globl _logl
-	.def	_logl;	.scl	2;	.type	32;	.endef
-_logl:
 	fldln2			// log(2)
 	fldt	4(%esp)		// x : log(2)
 	fld	%st		// x : x : log(2)
