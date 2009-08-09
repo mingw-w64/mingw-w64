@@ -3,10 +3,15 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"log10l.S"
 	.text
+#ifdef _WIN64
+	.align 8
+#else
 	.align 4
+#endif
 one:	.double 1.0
 	/* It is not important that this constant is precise.  It is only
 	   a value which is known to be on the safe side for using the
@@ -14,10 +19,15 @@ one:	.double 1.0
 limit:	.double 0.29
 
 	.text
+#ifdef _WIN64
 	.align 8
-.globl _log10l
-	.def	_log10l;	.scl	2;	.type	32;	.endef
-_log10l:
+#else
+	.align 4
+#endif
+.globl __MINGW_USYMBOL(log10l)
+	.def	__MINGW_USYMBOL(log10l);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(log10l):
+#ifdef _WIN64
 	fldlg2			// log10(2)
 	fldt	(%rdx)		// x : log10(2)
 	fxam
@@ -54,20 +64,6 @@ _log10l:
 	fstpt	(%rcx)
 	ret
 #else
-	.file	"log10l.S"
-	.text
-	.align 4
-one:	.double 1.0
-	/* It is not important that this constant is precise.  It is only
-	   a value which is known to be on the safe side for using the
-	   fyl2xp1 instruction.  */
-limit:	.double 0.29
-
-	.text
-	.align 4
-.globl _log10l
-	.def	_log10l;	.scl	2;	.type	32;	.endef
-_log10l:
 	fldlg2			// log10(2)
 	fldt	4(%esp)		// x : log10(2)
 	fxam
