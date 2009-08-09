@@ -3,13 +3,19 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"floorl.S"
 	.text
-	.align 16
-.globl _floorl
-	.def	_floorl;	.scl	2;	.type	32;	.endef
-_floorl:
+#ifdef _WIN64
+	.align 8
+#else
+	.align 4
+#endif
+.globl __MINGW_USYMBOL(floorl)
+	.def	__MINGW_USYMBOL(floorl);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(floorl):
+#ifdef _WIN64
 	fldt	(%rdx)
 	subq	$16,%rsp
 
@@ -34,12 +40,6 @@ _floorl:
 	fstpt	(%rcx)
 	ret
 #else
-	.file	"floorl.S"
-	.text
-	.align 4
-.globl _floorl
-	.def	_floorl;	.scl	2;	.type	32;	.endef
-_floorl:
 	fldt	4(%esp)
 	subl	$8,%esp
 

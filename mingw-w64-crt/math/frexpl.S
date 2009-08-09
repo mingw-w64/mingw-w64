@@ -3,6 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+#include <_mingw_mac.h>
 
 /*
  * frexpl(long double x, int* expnt) extracts the exponent from x.
@@ -10,9 +11,13 @@
  * between 0.5 and 1 to y.  Thus  x = y * 2**expn.
  */ 
 #ifdef _WIN64
-.align 16
-.globl _frexpl
-_frexpl:
+	.align 8
+#else
+	.align 2
+#endif
+.globl __MINGW_USYMBOL(frexpl)
+__MINGW_USYMBOL(frexpl):
+#ifdef _WIN64
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
@@ -68,14 +73,6 @@ L24:
 	leave
 	ret
 #else
-/*
- * frexpl(long double x, int* expnt) extracts the exponent from x.
- * It returns an integer power of two to expnt and the significand
- * between 0.5 and 1 to y.  Thus  x = y * 2**expn.
- */ 
-	.align 2
-.globl _frexpl
-_frexpl:
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp

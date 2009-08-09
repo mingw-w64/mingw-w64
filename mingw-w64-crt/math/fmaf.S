@@ -3,14 +3,20 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"fmaf.S"
 	.text
+#ifdef _WIN64
+	.align 8
+#else
 	.align 2
+#endif
 	.p2align 4,,15
-.globl _fmaf
-	.def	_fmaf;	.scl	2;	.type	32;	.endef
-_fmaf:
+.globl __MINGW_USYMBOL(fmaf)
+	.def	__MINGW_USYMBOL(fmaf);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(fmaf):
+#ifdef _WIN64
 	movss	%xmm0,-12(%rsp)
 	movss	%xmm1,-20(%rsp)
 	movss	%xmm2,-28(%rsp)
@@ -22,13 +28,6 @@ _fmaf:
 	movss	-12(%rsp),%xmm0
 	ret
 #else
-	.file	"fmaf.S"
-	.text
-	.align 2
-	.p2align 4,,15
-.globl _fmaf
-	.def	_fmaf;	.scl	2;	.type	32;	.endef
-_fmaf:
 	flds	4(%esp)
 	fmuls	8(%esp)
 	flds	12(%esp)

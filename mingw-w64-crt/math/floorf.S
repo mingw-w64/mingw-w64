@@ -7,12 +7,18 @@
  * Removed header file dependency for use in libmingwex.a by
  *   Danny Smith <dannysmith@users.sourceforge.net>
  */
+#include <_mingw_mac.h>
+
 	.file	"floorf.S"
 	.text
+#ifdef _WIN64
+	.align 8
+#else
 	.align 4
-.globl _floorf
-	.def	_floorf;	.scl	2;	.type	32;	.endef
-_floorf:
+#endif
+.globl __MINGW_USYMBOL(floorf)
+	.def	__MINGW_USYMBOL(floorf);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(floorf):
 #ifdef _WIN64
 	subq	$24,%rsp
 	movss	%xmm0,8(%rsp)
