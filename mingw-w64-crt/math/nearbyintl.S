@@ -3,13 +3,19 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"nearbyintl.S"
 	.text
+#ifdef _WIN64
 	.align 8
-.globl _nearbyintl
-	.def	_nearbyintl;	.scl	2;	.type	32;	.endef
-_nearbyintl:
+#else
+	.align 4
+#endif
+.globl __MINGW_USYMBOL(nearbyintl)
+	.def	__MINGW_USYMBOL(nearbyintl);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(nearbyintl):
+#ifdef _WIN64
 	fldt	(%rdx)
 	movq	%rcx,%r8
 	pushq	%rax
@@ -29,12 +35,6 @@ _nearbyintl:
 	fstpt	(%r8)
 	ret
 #else
-	.file	"nearbyintl.S"
-	.text
-	.align 4
-.globl _nearbyintl
-	.def	_nearbyintl;	.scl	2;	.type	32;	.endef
-_nearbyintl:
 	fldt	4(%esp)
 	pushl	%eax
 	pushl	%ecx
