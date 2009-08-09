@@ -3,13 +3,19 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"tanl.S"
 	.text
+#ifdef _WIN64
 	.align 8
-.globl _tanl
-	.def	_tanl;	.scl	2;	.type	32;	.endef
-_tanl:
+#else
+	.align 4
+#endif
+.globl __MINGW_USYMBOL(tanl)
+	.def	__MINGW_USYMBOL(tanl);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(tanl):
+#ifdef _WIN64
 	fldt	(%rdx)
 	fptan
 	fnstsw	%ax
@@ -35,12 +41,6 @@ _tanl:
 	fstpt	(%rcx)
 	ret
 #else
-	.file	"tanl.S"
-	.text
-	.align 4
-.globl _tanl
-	.def	_tanl;	.scl	2;	.type	32;	.endef
-_tanl:
 	fldt	4(%esp)
 	fptan
 	fnstsw	%ax

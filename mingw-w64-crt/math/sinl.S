@@ -3,13 +3,19 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"sinl.S"
 	.text
+#ifdef _WIN64
 	.align 8
-.globl _sinl
-	.def	_sinl;	.scl	2;	.type	32;	.endef
-_sinl:
+#else
+	.align 4
+#endif
+.globl __MINGW_USYMBOL(sinl)
+	.def	__MINGW_USYMBOL(sinl);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(sinl):
+#ifdef _WIN64
 	fldt	(%rdx)
 	fsin
 	fnstsw	%ax
@@ -33,12 +39,6 @@ _sinl:
 	fstpt	(%rcx)
 	ret
 #else
-	.file	"sinl.S"
-	.text
-	.align 4
-.globl _sinl
-	.def	_sinl;	.scl	2;	.type	32;	.endef
-_sinl:
 	fldt	4(%esp)
 	fsin
 	fnstsw	%ax

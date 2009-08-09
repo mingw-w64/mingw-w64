@@ -3,13 +3,19 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"scalbn.S"
 	.text
+#ifdef _WIN64
+	.align 8
+#else
 	.align 4
-.globl _scalbn
-	.def	_scalbn;	.scl	2;	.type	32;	.endef
-_scalbn:
+#endif
+.globl __MINGW_USYMBOL(scalbn)
+	.def	__MINGW_USYMBOL(scalbn);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(scalbn):
+#ifdef _WIN64
 	movq	%rdx,-16(%rsp)
 	fildl	-16(%rsp)
 	movsd	%xmm0,-16(%rsp)
@@ -20,21 +26,14 @@ _scalbn:
 	movsd	-16(%rsp),%xmm0
 	ret
 
-.globl _scalbln
-	.set	_scalbln,_scalbn
 #else
-	.file	"scalbn.S"
-	.text
-	.align 4
-.globl _scalbn
-	.def	_scalbn;	.scl	2;	.type	32;	.endef
-_scalbn:
 	fildl	12(%esp)
 	fldl	4(%esp)
 	fscale
 	fstp	%st(1)
 	ret
-
-.globl _scalbln
-	.set	_scalbln,_scalbn
 #endif
+
+.globl __MINGW_USYMBOL(scalbln)
+	.set	__MINGW_USYMBOL(scalbln),__MINGW_USYMBOL(scalbn)
+
