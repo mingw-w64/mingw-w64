@@ -3,13 +3,19 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
- #ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"ilogbl.S"
 	.text
+#ifdef _WIN64
+	.align 8
+#else
 	.align 4
-.globl _ilogbl
-	.def	_ilogbl;	.scl	2;	.type	32;	.endef
-_ilogbl:
+#endif
+.globl __MINGW_USYMBOL(ilogbl)
+	.def	__MINGW_USYMBOL(ilogbl);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(ilogbl):
+#ifdef _WIN64
 	fldt	(%rcx)
 	fxam			/* Is NaN or +-Inf?  */
 	fstsw   %ax
@@ -32,12 +38,6 @@ _ilogbl:
 	movl	$0x7fffffff, %eax
 	ret
 #else
-	.file	"ilogbl.S"
-	.text
-	.align 4
-.globl _ilogbl
-	.def	_ilogbl;	.scl	2;	.type	32;	.endef
-_ilogbl:
 	fldt	4(%esp)
 /* I added the following ugly construct because ilogb(+-Inf) is
    required to return INT_MAX in ISO C99.

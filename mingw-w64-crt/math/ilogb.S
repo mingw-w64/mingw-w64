@@ -3,13 +3,19 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifdef _WIN64
+#include <_mingw_mac.h>
+
 	.file	"ilogb.S"
 	.text
+#ifdef _WIN64
 	.align 8
-.globl _ilogb
-	.def	_ilogb;	.scl	2;	.type	32;	.endef
-_ilogb:
+#else
+	.align 4
+#endif
+.globl __MINGW_USYMBOL(ilogb)
+	.def	__MINGW_USYMBOL(ilogb);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(ilogb):
+#ifdef _WIN64
 	movsd	%xmm0,-16(%rsp)
 	fldl	-16(%rsp)
 	fxam			/* Is NaN or +-Inf?  */
@@ -33,12 +39,6 @@ _ilogb:
 	movl	$0x7fffffff, %eax
 	ret
 #else
-	.file	"ilogb.S"
-	.text
-	.align 4
-.globl _ilogb
-	.def	_ilogb;	.scl	2;	.type	32;	.endef
-_ilogb:
 
 	fldl	4(%esp)
 /* I added the following ugly construct because ilogb(+-Inf) is
