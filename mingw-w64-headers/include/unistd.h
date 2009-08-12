@@ -3,13 +3,9 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-/*
- * This file is part of the Mingw32 package.
- *
- * unistd.h maps (roughly) to io.h
- */
-
-#ifndef __STRICT_ANSI__
+#ifndef _UNISTD_H
+#define _UNISTD_H
+#define __UNISTD_H_SOURCED__ 1
 
 #include <io.h>
 #include <process.h>
@@ -55,4 +51,6 @@ int __cdecl __MINGW_NOTHROW usleep(useconds_t useconds);
 }
 #endif
 
-#endif 
+#undef __UNISTD_H_SOURCED__
+#endif /* _UNISTD_H */
+
