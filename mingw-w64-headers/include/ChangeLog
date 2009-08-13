@@ -1,5 +1,7 @@
 2009-08-13  Kai Tietz  <kai.tietz@onevision.com>
 
+	* langinfo.h and nl_types.h: Moved into experimental/langinfo/ folder.
+
 	PR/2836279
 	* io.h, stdio.h, winnt.h, strsafe.h, rpcndr.h, time.h, _mingw.h and
 	vadefs.h: Pre and postfix attribute specifiers by '__'.
