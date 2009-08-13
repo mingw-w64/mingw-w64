@@ -19,28 +19,30 @@ extern "C" {
 
 #define NSIG 23
 
-#define	SIGHUP	1	/* hangup */
 #define SIGINT 2
-#define	SIGQUIT	3	/* quit */
 #define SIGILL 4
-#define	SIGTRAP	5	/* trace trap (not reset when caught) */
-#define	SIGIOT	6	/* IOT instruction */
-#define	SIGABRT 6	/* used by abort, replace SIGIOT in the future */
-#define	SIGEMT	7	/* EMT instruction */
+#define SIGABRT_COMPAT 6
 #define SIGFPE 8
+#define SIGSEGV 11
+#define SIGTERM 15
+#define SIGBREAK 21
+#define SIGABRT 22       /* used by abort, replace SIGIOT in the future */
+#define SIGABRT2 22
+
+#ifdef _POSIX
+#define	SIGHUP	1	/* hangup */
+#define	SIGQUIT	3	/* quit */
+#define	SIGTRAP	5	/* trace trap (not reset when caught) */
+#define SIGIOT  6       /* IOT instruction */
+#define	SIGEMT	7	/* EMT instruction */
 #define	SIGKILL	9	/* kill (cannot be caught or ignored) */
 #define	SIGBUS	10	/* bus error */
-#define SIGSEGV 11
 #define	SIGSYS	12	/* bad argument to system call */
 #define	SIGPIPE	13	/* write on a pipe with no one to read it */
 #ifdef __USE_MINGW_ALARM
 #define	SIGALRM	14	/* alarm clock */
 #endif
-#define SIGTERM 15
-#define SIGBREAK 21
-#define SIGABRT2 22
-
-#define SIGABRT_COMPAT 6
+#endif
 
   typedef	void (*__p_sig_fn_t)(int);
 
