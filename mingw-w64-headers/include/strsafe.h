@@ -16,7 +16,7 @@
 #undef size_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int size_t __attribute__ ((mode (DI)));
+  typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
 #else
 typedef unsigned __int64 size_t;
 #endif
@@ -30,7 +30,7 @@ typedef unsigned int size_t;
 #undef ssize_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int ssize_t __attribute__ ((mode (DI)));
+  typedef int ssize_t __attribute__ ((__mode__ (DI)));
 #else
 typedef __int64 ssize_t;
 #endif

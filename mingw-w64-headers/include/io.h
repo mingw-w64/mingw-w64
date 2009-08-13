@@ -160,7 +160,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #undef size_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int size_t __attribute__ ((mode (DI)));
+  typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
 #else
   typedef unsigned __int64 size_t;
 #endif
@@ -174,7 +174,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #undef ssize_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int ssize_t __attribute__ ((mode (DI)));
+  typedef int ssize_t __attribute__ ((__mode__ (DI)));
 #else
   typedef __int64 ssize_t;
 #endif
@@ -197,9 +197,9 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #ifndef _OFF64_T_DEFINED
 #define _OFF64_T_DEFINED
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int _off64_t __attribute__ ((mode (DI)));
+  typedef int _off64_t __attribute__ ((__mode__ (DI)));
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
-  typedef int off64_t __attribute__ ((mode (DI)));
+  typedef int off64_t __attribute__ ((__mode__ (DI)));
 #endif
 #else
   typedef long long _off64_t;

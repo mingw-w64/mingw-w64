@@ -27,7 +27,7 @@ extern "C" {
 #undef uintptr_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int uintptr_t __attribute__ ((mode (DI)));
+  typedef unsigned int uintptr_t __attribute__ ((__mode__ (DI)));
 #else
   typedef unsigned __int64 uintptr_t;
 #endif

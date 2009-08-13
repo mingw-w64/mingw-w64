@@ -90,7 +90,7 @@ extern "C" {
 #endif
 
 #ifndef DECLSPEC_ALIGN
-#define DECLSPEC_ALIGN(x) __attribute__ ((aligned(x)))
+#define DECLSPEC_ALIGN(x) __attribute__ ((__aligned__ (x)))
 #endif
 
 #ifndef SYSTEM_CACHE_ALIGNMENT_SIZE

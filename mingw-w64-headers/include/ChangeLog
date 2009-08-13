@@ -1,3 +1,9 @@
+2009-08-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2836279
+	* io.h, stdio.h, winnt.h, strsafe.h, rpcndr.h, time.h, _mingw.h and
+	vadefs.h: Pre and postfix attribute specifiers by '__'.
+
 2009-08-07  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/2832682

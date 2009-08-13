@@ -47,7 +47,7 @@ limitations in handling dllimport attribute.  */
 #      define __USE_CRTIMP 1
 #    endif
 #    ifdef __USE_CRTIMP
-#      define _CRTIMP  __attribute__ ((dllimport))
+#      define _CRTIMP  __attribute__ ((__dllimport__))
 #    else
 #      define _CRTIMP
 #    endif
@@ -135,7 +135,7 @@ limitations in handling dllimport attribute.  */
 #endif
 
 #if __MINGW_GNUC_PREREQ (4, 4)
-#define __MINGW_ATTRIB_NO_OPTIMIZE __attribute__((optimize("0")))
+#define __MINGW_ATTRIB_NO_OPTIMIZE __attribute__((__optimize__ ("0")))
 #else
 #define __MINGW_ATTRIB_NO_OPTIMIZE
 #endif
@@ -162,7 +162,7 @@ limitations in handling dllimport attribute.  */
 #define __int32 int
 #define __int64 long long
 #ifdef _WIN64
-typedef int __int128 __attribute__ ((mode (TI)));
+typedef int __int128 __attribute__ ((__mode__ (TI)));
 #endif
 #endif /* __GNUC__ */
 #endif /* _INT128_DEFINED */
@@ -289,7 +289,7 @@ extern "C" {
 #undef size_t
 #ifdef _WIN64
 # if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int size_t __attribute__ ((mode (DI)));
+  typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
 # else
   typedef unsigned __int64 size_t;
 # endif
@@ -303,7 +303,7 @@ extern "C" {
 #undef ssize_t
 #ifdef _WIN64
 # if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int ssize_t __attribute__ ((mode (DI)));
+  typedef int ssize_t __attribute__ ((__mode__ (DI)));
 # else
   typedef __int64 ssize_t;
 # endif
@@ -319,7 +319,7 @@ extern "C" {
 #undef intptr_t
 #ifdef _WIN64
 # if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int intptr_t __attribute__ ((mode (DI)));
+  typedef int intptr_t __attribute__ ((__mode__ (DI)));
 # else
   typedef __int64 intptr_t;
 # endif
@@ -336,7 +336,7 @@ extern "C" {
 #undef uintptr_t
 #ifdef _WIN64
 # if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int uintptr_t __attribute__ ((mode (DI)));
+  typedef unsigned int uintptr_t __attribute__ ((__mode__ (DI)));
 # else
   typedef unsigned __int64 uintptr_t;
 # endif
@@ -352,7 +352,7 @@ extern "C" {
 #undef ptrdiff_t
 #ifdef _WIN64
 # if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int ptrdiff_t __attribute__ ((mode (DI)));
+  typedef int ptrdiff_t __attribute__ ((__mode__ (DI)));
 # else
   typedef __int64 ptrdiff_t;
 # endif
@@ -446,7 +446,7 @@ extern "C" {
 #endif /* UNALIGNED */
 
 #ifndef _CRT_ALIGN
-#define _CRT_ALIGN(x) __attribute__ ((aligned(x)))
+#define _CRT_ALIGN(x) __attribute__ ((__aligned__ (x)))
 #endif
 
 #ifndef __CRTDECL

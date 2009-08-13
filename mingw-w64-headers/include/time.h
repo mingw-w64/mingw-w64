@@ -36,7 +36,7 @@ extern "C" {
 #define _TIME64_T_DEFINED
 #if _INTEGRAL_MAX_BITS >= 64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int _time64_t __attribute__ ((mode (DI)));
+  typedef int _time64_t __attribute__ ((__mode__ (DI)));
 #else
   typedef __int64 __time64_t;
 #endif
@@ -62,7 +62,7 @@ extern "C" {
 #undef size_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int size_t __attribute__ ((mode (DI)));
+  typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
 #else
   typedef unsigned __int64 size_t;
 #endif
@@ -76,7 +76,7 @@ extern "C" {
 #undef ssize_t
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int ssize_t __attribute__ ((mode (DI)));
+  typedef int ssize_t __attribute__ ((__mode__ (DI)));
 #else
   typedef __int64 ssize_t;
 #endif
@@ -164,7 +164,7 @@ extern "C" {
 #define _SIZE_T_DEFINED
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int size_t __attribute__ ((mode (DI)));
+  typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
 #else
   typedef unsigned __int64 size_t;
 #endif
@@ -177,7 +177,7 @@ extern "C" {
 #define _SSIZE_T_DEFINED
 #ifdef _WIN64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int ssize_t __attribute__ ((mode (DI)));
+  typedef int ssize_t __attribute__ ((__mode__ (DI)));
 #else
   typedef __int64 ssize_t;
 #endif
