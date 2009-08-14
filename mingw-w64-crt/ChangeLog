@@ -1,3 +1,9 @@
+2009-08-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/ilockdec.c, intrincs/ilockdec16.c, intrincs/ilockdec64.c,
+	intrincs/ilockinc.c, intrincs/ilockinc16.c, and intrincs/ilockinc64.c:
+	Adjust to emulate VC intrinsic function behavior.
+
 2009-08-08  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/crt0_w.c (UNICODE): Define it for build.
