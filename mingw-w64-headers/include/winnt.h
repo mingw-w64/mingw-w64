@@ -1018,22 +1018,22 @@ typedef DWORD LCID;
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE SHORT InterlockedIncrement16(SHORT volatile *Addend) {
-      unsigned char c;
-      unsigned char s;
-      __asm__ __volatile__(
-	"lock ; addw $1,%0; sete %1 ; sets %2"
-	:"=m" (*Addend), "=qm" (c), "=qm" (s)
-	:"m" (*Addend) : "memory");
-      return (c != 0 ? 0 : (s != 0 ? -1 : 1));
+      SHORT ret, value = 1;
+      __asm__ ("lock\n\t"
+		   "xaddw %0,(%1)"
+		   : "=r" (ret)
+		   : "r" (Addend), "0" (value)
+		   : "memory");
+      return ret + 1;
     }
     __CRT_INLINE SHORT InterlockedDecrement16(SHORT volatile *Addend) {
-      unsigned char c;
-      unsigned char s;
-      __asm__ __volatile__(
-	"lock ; subw $1,%0; sete %1 ; sets %2"
-	:"=m" (*Addend), "=qm" (c), "=qm" (s)
-	:"m" (*Addend) : "memory");
-      return (c != 0 ? 0 : (s != 0 ? -1 : 1));
+      SHORT ret, value = -1;
+      __asm__ ("lock\n\t"
+		   "xaddw %0,(%1)"
+		   : "=r" (ret)
+		   : "r" (Addend), "0" (value)
+		   : "memory");
+      return ret - 1;
     }
     __CRT_INLINE SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SHORT Comperand) {
       SHORT prev;
@@ -1075,22 +1075,22 @@ typedef DWORD LCID;
       return *Destination;
     }
     __CRT_INLINE LONG InterlockedIncrement(LONG volatile *Addend) {
-      unsigned char c;
-      unsigned char s;
-      __asm__ __volatile__(
-	"lock ; addl $1,%0; sete %1 ; sets %2"
-	:"=m" (*Addend), "=qm" (c), "=qm" (s)
-	:"m" (*Addend) : "memory");
-      return (c != 0 ? 0 : (s != 0 ? -1 : 1));
+      LONG ret, value = 1;
+      __asm__ ("lock\n\t"
+	       "xaddl %0,(%1)"
+	       : "=r" (ret)
+	       : "r" (Addend), "0" (value)
+	       : "memory");
+      return ret + 1;
     }
     __CRT_INLINE LONG InterlockedDecrement(LONG volatile *Addend) {
-      unsigned char c;
-      unsigned char s;
-      __asm__ __volatile__(
-	"lock ; subl $1,%0; sete %1 ; sets %2"
-	:"=m" (*Addend), "=qm" (c), "=qm" (s)
-	:"m" (*Addend) : "memory");
-      return (c != 0 ? 0 : (s != 0 ? -1 : 1));
+      LONG ret, value = -1;
+      __asm__ ("lock\n\t"
+	       "xaddl %0,(%1)"
+	       : "=r" (ret)
+	       : "r" (Addend), "0" (value)
+	       : "memory");
+      return ret - 1;
     }
     __CRT_INLINE LONG InterlockedExchange(LONG volatile *Target,LONG Value) {
       __asm__ __volatile("lock ; xchgl %0,%1"
@@ -1112,22 +1112,22 @@ typedef DWORD LCID;
       return prev;
     }
     __CRT_INLINE LONG64 InterlockedIncrement64(LONG64 volatile *Addend) {
-      unsigned char c;
-      unsigned char s;
-      __asm__ __volatile__(
-	"lock ; addq $1,%0; sete %1 ; sets %2"
-	:"=m" (*Addend), "=qm" (c), "=qm" (s)
-	:"m" (*Addend) : "memory");
-      return (c != 0 ? 0 : (s != 0 ? -1 : 1));
+      LONG64 ret, value = 1;
+      __asm__ ("lock\n\t"
+	       "xaddq %0,(%1)"
+	       : "=r" (ret)
+	       : "r" (Addend), "0" (value)
+	       : "memory");
+      return ret + 1LL;
     }
     __CRT_INLINE LONG64 InterlockedDecrement64(LONG64 volatile *Addend) {
-      unsigned char c;
-      unsigned char s;
-      __asm__ __volatile__(
-	"lock ; subq $1,%0; sete %1 ; sets %2"
-	:"=m" (*Addend), "=qm" (c), "=qm" (s)
-	:"m" (*Addend) : "memory");
-      return (c != 0 ? 0 : (s != 0 ? -1 : 1));
+      LONG64 ret, value = -1LL;
+      __asm__ ("lock\n\t"
+	       "xaddq %0,(%1)"
+	       : "=r" (ret)
+	       : "r" (Addend), "0" (value)
+	       : "memory");
+      return ret - 1LL;
     }
     __CRT_INLINE LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value) {
       __asm__ __volatile("lock ; xchgq %0,%1"

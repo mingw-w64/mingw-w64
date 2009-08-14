@@ -1,3 +1,8 @@
+2009-08-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winnt.h (InterlockedIncrement... and InterlockedDecrement...): Adjust
+	inline version to be compatible to VC.
+
 2009-08-13  Kai Tietz  <kai.tietz@onevision.com>
 
 	* langinfo.h and nl_types.h: Moved into experimental/langinfo/ folder.
