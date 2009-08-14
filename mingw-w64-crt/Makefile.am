@@ -919,6 +919,7 @@ dist-hook:
 #  testcases/t_nullptrexception.c  testcases/tstmain.c       testcases/tstwassert.c       testcases/t_trycatch.cpp
 check_PROGRAMS = \
   testcases/t_float  \
+  testcases/t_intrinc \
   testcases/t_setjmp \
   testcases/tstwassert_win \
   testcases/t_matherr \
@@ -938,6 +939,7 @@ testcases_tstwinmain_LDADD = -lgdi32
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
 testcases_t_municode_CFLAGS = -municode
-testcases_t_tmain_CFLAGS = -municode
+testcases_t_tmain_CFLAGS = -municode -D_UNICODE
+testcases_t_intrinc_CFLAGS = -std=c99
 
 TESTS = $(check_PROGRAMS)
