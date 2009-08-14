@@ -1,5 +1,7 @@
 2009-08-14  Kai Tietz  <kai.tietz@onevision.com>
 
+	* testcases/t_intrinc.cc: New testcase.
+
 	* intrincs/ilockdec.c, intrincs/ilockdec16.c, intrincs/ilockdec64.c,
 	intrincs/ilockinc.c, intrincs/ilockinc16.c, and intrincs/ilockinc64.c:
 	Adjust to emulate VC intrinsic function behavior.
