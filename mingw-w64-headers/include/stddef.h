@@ -392,13 +392,17 @@ typedef __WCHAR_TYPE__ wchar_t;
 
 #if defined (_STDDEF_H) || defined (__need_NULL)
 #undef NULL		/* in case <stdio.h> has defined it. */
-#ifdef __GNUG__
+#if defined(__GNUG__) && __GNUG__ >= 3
 #define NULL __null
 #else   /* G++ */
 #ifndef __cplusplus
 #define NULL ((void *)0)
 #else   /* C++ */
+#ifndef _WIN64
 #define NULL 0
+#else
+#define NULL 0LL
+#endif  /* W64 */
 #endif  /* C++ */
 #endif  /* G++ */
 #endif	/* NULL not defined and <stddef.h> or need NULL.  */
