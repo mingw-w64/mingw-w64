@@ -1,5 +1,9 @@
 2009-08-14  Kai Tietz  <kai.tietz@onevision.com>
 
+	PR/2836856
+	* time.h (size_t): Remove double definition code.
+	(ssize_t): Likewise.
+
 	* winnt.h (InterlockedIncrement... and InterlockedDecrement...): Adjust
 	inline version to be compatible to VC.
 
