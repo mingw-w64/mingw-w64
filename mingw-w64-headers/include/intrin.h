@@ -13,6 +13,13 @@
 #include <emmintrin.h>
 #include <xmmintrin.h>
 #include <mmintrin.h>
+#ifndef __MMX__
+typedef union __m64 { char v[7]; } __m64;
+#endif
+#ifndef __SSE__
+typedef union __m128 { char v[16]; } __m128;
+#endif
+
 #ifndef WINAPI
 #define WINAPI __stdcall
 #endif
