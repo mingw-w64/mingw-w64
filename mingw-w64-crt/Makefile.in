@@ -60,7 +60,8 @@ check_PROGRAMS = testcases/t_float$(EXEEXT) \
 	testcases/tstwassert$(EXEEXT) testcases/t_trycatch$(EXEEXT) \
 	testcases/tstmaincpp$(EXEEXT) testcases/tstmainc$(EXEEXT) \
 	testcases/t_municode$(EXEEXT) testcases/t_tmain$(EXEEXT) \
-	testcases/t_tls1$(EXEEXT) testcases/t_sigv$(EXEEXT)
+	testcases/t_tls1$(EXEEXT) testcases/t_sigv$(EXEEXT) \
+	testcases/t_stdint$(EXEEXT)
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(noinst_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
@@ -1629,6 +1630,9 @@ testcases_t_sigv_LDADD = $(LDADD)
 testcases_t_speed_powl_SOURCES = testcases/t_speed_powl.c
 testcases_t_speed_powl_OBJECTS = testcases/t_speed_powl.$(OBJEXT)
 testcases_t_speed_powl_LDADD = $(LDADD)
+testcases_t_stdint_SOURCES = testcases/t_stdint.c
+testcases_t_stdint_OBJECTS = testcases/t_stdint.$(OBJEXT)
+testcases_t_stdint_LDADD = $(LDADD)
 testcases_t_tls1_SOURCES = testcases/t_tls1.c
 testcases_t_tls1_OBJECTS = testcases/t_tls1.$(OBJEXT)
 testcases_t_tls1_LDADD = $(LDADD)
@@ -1714,11 +1718,12 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	testcases/t_intrinc.c testcases/t_matherr.c \
 	testcases/t_municode.c testcases/t_nullptrexception.c \
 	testcases/t_setjmp.c testcases/t_sigv.c \
-	testcases/t_speed_powl.c testcases/t_tls1.c \
-	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
-	testcases/tstmain_sys_xxx.c testcases/tstmainc.c \
-	$(testcases_tstmaincpp_SOURCES) testcases/tstwassert.c \
-	testcases/tstwassert_win.c testcases/tstwinmain.c
+	testcases/t_speed_powl.c testcases/t_stdint.c \
+	testcases/t_tls1.c testcases/t_tmain.c \
+	$(testcases_t_trycatch_SOURCES) testcases/tstmain_sys_xxx.c \
+	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
+	testcases/tstwassert.c testcases/tstwassert_win.c \
+	testcases/tstwinmain.c
 DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdinput8_a_SOURCES_DIST) \
 	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
@@ -1759,11 +1764,12 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	testcases/t_intrinc.c testcases/t_matherr.c \
 	testcases/t_municode.c testcases/t_nullptrexception.c \
 	testcases/t_setjmp.c testcases/t_sigv.c \
-	testcases/t_speed_powl.c testcases/t_tls1.c \
-	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
-	testcases/tstmain_sys_xxx.c testcases/tstmainc.c \
-	$(testcases_tstmaincpp_SOURCES) testcases/tstwassert.c \
-	testcases/tstwassert_win.c testcases/tstwinmain.c
+	testcases/t_speed_powl.c testcases/t_stdint.c \
+	testcases/t_tls1.c testcases/t_tmain.c \
+	$(testcases_t_trycatch_SOURCES) testcases/tstmain_sys_xxx.c \
+	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
+	testcases/tstwassert.c testcases/tstwassert_win.c \
+	testcases/tstwinmain.c
 HEADERS = $(noinst_HEADERS)
 ETAGS = etags
 CTAGS = ctags
@@ -5059,6 +5065,11 @@ testcases/t_speed_powl.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_speed_powl$(EXEEXT): $(testcases_t_speed_powl_OBJECTS) $(testcases_t_speed_powl_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_speed_powl$(EXEEXT)
 	$(LINK) $(testcases_t_speed_powl_OBJECTS) $(testcases_t_speed_powl_LDADD) $(LIBS)
+testcases/t_stdint.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_stdint$(EXEEXT): $(testcases_t_stdint_OBJECTS) $(testcases_t_stdint_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_stdint$(EXEEXT)
+	$(LINK) $(testcases_t_stdint_OBJECTS) $(testcases_t_stdint_LDADD) $(LIBS)
 testcases/t_tls1.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_tls1$(EXEEXT): $(testcases_t_tls1_OBJECTS) $(testcases_t_tls1_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -6252,6 +6263,7 @@ mostlyclean-compile:
 	-rm -f testcases/t_setjmp.$(OBJEXT)
 	-rm -f testcases/t_sigv.$(OBJEXT)
 	-rm -f testcases/t_speed_powl.$(OBJEXT)
+	-rm -f testcases/t_stdint.$(OBJEXT)
 	-rm -f testcases/t_tls1.$(OBJEXT)
 	-rm -f testcases/t_trycatch.$(OBJEXT)
 	-rm -f testcases/testcases_t_intrinc-t_intrinc.$(OBJEXT)
@@ -7278,6 +7290,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_setjmp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_sigv.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_speed_powl.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_stdint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_tls1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_trycatch.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/testcases_t_intrinc-t_intrinc.Po@am__quote@

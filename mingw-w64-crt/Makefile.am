@@ -941,7 +941,8 @@ check_PROGRAMS = \
   testcases/t_municode \
   testcases/t_tmain \
   testcases/t_tls1 \
-  testcases/t_sigv
+  testcases/t_sigv \
+  testcases/t_stdint
 testcases_tstwinmain_LDADD = -lgdi32
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
