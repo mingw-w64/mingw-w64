@@ -209,7 +209,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign subdir-objects
 AM_CPPFLAGS = -I$(srcdir)/include
-AM_CFLAGS = -Wall -Wstrict-aliasing=2
+AM_CFLAGS = -Wall -Wstrict-aliasing=2 -pedantic
 lib_LIBRARIES = libpseh.a
 libpseh_a_SOURCES = \
   src/framebased.c \

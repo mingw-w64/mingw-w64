@@ -1,7 +1,7 @@
 AUTOMAKE_OPTIONS = foreign subdir-objects
 
 AM_CPPFLAGS = -I$(srcdir)/include
-AM_CFLAGS = -Wall -Wstrict-aliasing=2
+AM_CFLAGS = -Wall -Wstrict-aliasing=2 -pedantic
 
 lib_LIBRARIES = libpseh.a
 
