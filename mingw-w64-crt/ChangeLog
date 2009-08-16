@@ -1,3 +1,15 @@
+2009-08-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/writefsbyte.c: New.
+        * intrincs/writefsdword.c New.
+        * intrincs/readfsbyte.c: New.
+        * intrincs/writefsword.c: New.
+        * intrincs/readfsword.c: New.
+        * intrincs/readfsdword.c: New.
+	* Makefile.am (src_libmingwex32): Added 32-bit specific intrinsic
+	function libmingwex,a library.
+	* Makefile.in: Regenerated.
+
 2009-08-14  Kai Tietz  <kai.tietz@onevision.com>
 
 	* testcases/t_intrinc.cc: New testcase.

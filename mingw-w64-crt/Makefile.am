@@ -151,6 +151,7 @@ src_libmingwex=\
   stdio/ulltow.c          stdio/vfscanf.c        stdio/vfwscanf.c         stdio/vscanf.c          stdio/vsnprintf.c        \
   stdio/vsnwprintf.c      stdio/vsscanf.c        stdio/vswscanf.c         stdio/vwscanf.c         stdio/wcstof.c           \
   stdio/wtoll.c libsrc/mingwthrd_nomt.c
+
 # these only go into the 64 bit version:
 src_libmingwex64=\
   \
@@ -159,8 +160,14 @@ src_libmingwex64=\
   intrincs/ilockor64.c   intrincs/ilockxor64.c   intrincs/ilockinc64.c   intrincs/ilockdec64.c     intrincs/ilockexch64.c \
   intrincs/ilockcxch64.c intrincs/ilockexchptr.c intrincs/ilockcxchptr.c intrincs/ilockadd.c       intrincs/ilockadd64.c  \
   intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  intrincs/readgsqword.c    intrincs/writegsword.c \
+  intrincs/writegsbyte.c \
   intrincs/writegsdword.c intrincs/writegsqword.c intrincs/mul128ex.c    intrincs/umul128ex.c \
   intrincs/__stosq.c
+
+src_libmingwex32=\
+  intrincs/readfsbyte.c intrincs/readfsword.c intrincs/readfsdword.c \
+  intrincs/writefsbyte.c intrincs/writefsword.c intrincs/writefsdword.c
+
 
 if LIB32
 #########
@@ -257,7 +264,7 @@ lib32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib32_LIBRARIES += lib32/libmingwex.a
 lib32_libmingwex_a_CPPFLAGS=-m32 $(extra_include) $(AM_CPPFLAGS)
-lib32_libmingwex_a_SOURCES = $(src_libmingwex)
+lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32)
 
 lib32_LIBRARIES += lib32/libmoldname.a
 lib32_libmoldname_a_CPPFLAGS=-m32 $(extra_include) $(AM_CPPFLAGS)
