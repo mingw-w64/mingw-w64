@@ -10,14 +10,25 @@
 #include <_mingw.h>
 #include <setjmp.h>
 #include <stddef.h>
+#ifdef __SSE2__
 #include <emmintrin.h>
+#endif
+#ifdef __SSE__
 #include <xmmintrin.h>
+#endif
+#ifdef __MMX__
 #include <mmintrin.h>
+#endif
+
 #ifndef __MMX__
 typedef union __m64 { char v[7]; } __m64;
 #endif
 #ifndef __SSE__
 typedef union __m128 { char v[16]; } __m128;
+#endif
+#ifndef __SSE2__
+typedef union __m128d { char v[16]; } __m128d;
+typedef union __m128i { char v[16]; } __m128i;
 #endif
 
 #ifndef WINAPI
