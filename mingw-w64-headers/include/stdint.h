@@ -195,9 +195,9 @@ typedef unsigned long long   uintmax_t;
     suffix, (val) will be evaluated as int, not intmax_t */
 #define INT64_C(val) val##LL
 
-#define UINT8_C(val) (UINT_LEAST8_MAX-UINT_LEAST8_MAX+(val))
-#define UINT16_C(val) (UINT_LEAST16_MAX-UINT_LEAST16_MAX+(val))
-#define UINT32_C(val) (UINT_LEAST32_MAX-UINT_LEAST32_MAX+(val))
+#define UINT8_C(val) (val)
+#define UINT16_C(val) (val)
+#define UINT32_C(val) (val##U)
 #define UINT64_C(val) val##ULL
 
 /* 7.18.4.2  Macros for greatest-width integer constants */
