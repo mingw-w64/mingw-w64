@@ -18,7 +18,8 @@ pseh_HEADERS = \
   include/pseh/pseh2.h \
   include/pseh/framebased.h \
   include/pseh/excpt.h \
-  include/pseh/pseh.h
+  include/pseh/pseh.h \
+  include/pseh/pseh2-common.h
 
 framebased_HEADERS = include/pseh/framebased/internal.h
 
