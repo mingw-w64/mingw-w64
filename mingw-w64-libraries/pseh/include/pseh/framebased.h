@@ -109,7 +109,8 @@ static _SEHPortableTryLevel_t * const _SEHPortableTryLevel = 0;
 	)
 
 /* Declares a static filter */
-#define _SEH_STATIC_FILTER(ACTION_) ((_SEHFilter_t)((ACTION_) + 2))
+#define __SEH_STATIC_FILTER(ACTION_) ((ACTION_) + 2)
+#define _SEH_STATIC_FILTER(ACTION_) ((_SEHFilter_t)(__SEH_STATIC_FILTER(ACTION_)))
 
 /* Declares a PSEH filter wrapping a regular filter function */
 #define _SEH_WRAP_FILTER(WRAPPER_, NAME_) \

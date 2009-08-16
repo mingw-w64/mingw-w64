@@ -281,10 +281,6 @@ extern void __cdecl _SEHUnregisterFrame(void);
 extern void __cdecl _SEHGlobalUnwind(_SEHPortableFrame_t *);
 extern _SEHRegistration_t * __cdecl _SEHCurrentRegistration(void);
 
-/* Borland C++ uses a different decoration (i.e. none) for stdcall functions */
-extern void __stdcall RtlUnwind(void *, void *, PEXCEPTION_RECORD, void *);
-void const * _SEHRtlUnwind = RtlUnwind;
-
 static void __stdcall _SEHLocalUnwind
 (
 	_SEHPortableFrame_t * frame,
@@ -393,9 +389,9 @@ static int __cdecl _SEHFrameHandler
 
 			switch((UINT_PTR)pfnFilter)
 			{
-				case (UINT_PTR)_SEH_STATIC_FILTER(_SEH_EXECUTE_HANDLER):
-				case (UINT_PTR)_SEH_STATIC_FILTER(_SEH_CONTINUE_SEARCH):
-				case (UINT_PTR)_SEH_STATIC_FILTER(_SEH_CONTINUE_EXECUTION):
+				case __SEH_STATIC_FILTER(_SEH_EXECUTE_HANDLER):
+				case __SEH_STATIC_FILTER(_SEH_CONTINUE_SEARCH):
+				case __SEH_STATIC_FILTER(_SEH_CONTINUE_EXECUTION):
 				{
 					ret = (int)((UINT_PTR)pfnFilter) - 2;
 					break;

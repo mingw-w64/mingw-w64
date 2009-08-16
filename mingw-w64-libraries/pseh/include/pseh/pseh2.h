@@ -25,67 +25,9 @@
 
 #if !defined (__arm__)
 
+#include <pseh/pseh2-common.h>
+
 #if defined(__GNUC__)
-struct _EXCEPTION_RECORD;
-struct _EXCEPTION_POINTERS;
-struct _CONTEXT;
-
-typedef int (__cdecl * _SEH2FrameHandler_t)
-(
-	struct _EXCEPTION_RECORD *,
-	void *,
-	struct _CONTEXT *,
-	void *
-);
-
-typedef struct __SEH2Registration
-{
-	struct __SEH2Registration * SER_Prev;
-	_SEH2FrameHandler_t SER_Handler;
-}
-_SEH2Registration_t;
-
-typedef struct __SEH2Frame
-{
-	_SEH2Registration_t SF_Registration;
-	volatile struct __SEH2TryLevel * volatile SF_TopTryLevel;
-	volatile unsigned long SF_Code;
-}
-_SEH2Frame_t;
-
-typedef struct __SEH2TryLevel
-{
-	volatile struct __SEH2TryLevel * ST_Next;
-	void * ST_Filter;
-	void * ST_Body;
-}
-_SEH2TryLevel_t;
-
-typedef struct __SEH2HandleTryLevel
-{
-	_SEH2TryLevel_t  SHT_Common;
-	void * volatile SHT_Esp;
-	void * volatile SHT_Ebp;
-	void * volatile SHT_Ebx;
-	void * volatile SHT_Esi;
-	void * volatile SHT_Edi;
-}
-_SEH2HandleTryLevel_t;
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
-extern int __cdecl _SEH2EnterFrameAndTrylevel(_SEH2Frame_t *, volatile _SEH2TryLevel_t *);
-extern __attribute__((returns_twice)) int __cdecl _SEH2EnterFrameAndHandleTrylevel(_SEH2Frame_t *, volatile _SEH2HandleTryLevel_t *, void *);
-extern __attribute__((returns_twice)) int __cdecl _SEH2EnterHandleTrylevel(_SEH2Frame_t *, volatile _SEH2HandleTryLevel_t *, void *);
-extern void __cdecl _SEH2LeaveFrame(void);
-extern void __cdecl _SEH2Return(void);
-
-#ifdef __cplusplus
-}
-#endif
 
 /* A no-op side effect that scares GCC */
 #define __SEH_SIDE_EFFECT __asm__ __volatile__("#")
@@ -111,7 +53,6 @@ extern void __cdecl _SEH2Return(void);
 #define ___SEH_STRINGIFY(X_) # X_
 #define __SEH_STRINGIFY(X_) ___SEH_STRINGIFY(X_)
 
-#define __SEH_EXCEPT_RET long
 #define __SEH_EXCEPT_ARGS __attribute__((unused)) _SEH2Frame_t * _SEH2FrameP, __attribute__((unused)) struct _EXCEPTION_POINTERS * _SEHExceptionInformation
 #define __SEH_EXCEPT_ARGS_ , __SEH_EXCEPT_ARGS
 #define __SEH_EXCEPT_PFN __SEH_DECLARE_EXCEPT_PFN
@@ -265,7 +206,7 @@ extern void __cdecl _SEH2Return(void);
  \
 		__attribute__((noinline)) __SEH_DEFINE_FINALLY(_SEHFinally) \
 		{ \
-			__SEH_END_SCOPE_CHAIN; \
+			__SEH_END_SCOPE_CHAIN \
  \
 			(void)_SEH2ScopeKind; \
 			(void)_SEH2FrameP; \
@@ -274,7 +215,7 @@ extern void __cdecl _SEH2Return(void);
  			for(;; ({ __SEH_RETURN_FINALLY(); })) \
 			{
 
-#define _SEH2_EXCEPT(...) \
+#define _SEH2_EXCEPT(FILTER_...) \
 		} \
 		__SEH_END_TRY; \
  \
@@ -285,9 +226,9 @@ extern void __cdecl _SEH2Return(void);
 		{ \
 			__attribute__((unused)) struct _EXCEPTION_POINTERS * volatile _SEHExceptionInformation; \
  \
-			if(__builtin_constant_p((__VA_ARGS__)) && (__VA_ARGS__) <= 0) \
+			if(__builtin_constant_p((FILTER_)) && (FILTER_) <= 0) \
 			{ \
-				if((__VA_ARGS__) < 0) \
+				if((FILTER_) < 0) \
 				{ \
 					_SEHTryLevel.ST_Filter = (void *)-1; \
 					_SEHTryLevel.ST_Body = 0; \
@@ -304,13 +245,13 @@ extern void __cdecl _SEH2Return(void);
 			} \
 			else \
 			{ \
-				if(__builtin_constant_p((__VA_ARGS__)) && (__VA_ARGS__) > 0) \
+				if(__builtin_constant_p((FILTER_)) && (FILTER_) > 0) \
 					_SEHHandleTryLevel.SHT_Common.ST_Filter = (void *)1; \
 				else \
 				{ \
 					__SEH_DEFINE_EXCEPT(_SEHExcept) \
 					{ \
-						__SEH_RETURN_EXCEPT((__VA_ARGS__)); \
+						__SEH_RETURN_EXCEPT((FILTER_)); \
 					} \
  \
 					_SEHHandleTryLevel.SHT_Common.ST_Filter = &_SEHExcept; \
@@ -364,7 +305,7 @@ extern void __cdecl _SEH2Return(void);
 
 #define _SEH2_LEAVE goto _SEHEndTry
 
-__SEH_END_SCOPE_CHAIN;
+__SEH_END_SCOPE_CHAIN
 
 #else
 

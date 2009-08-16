@@ -61,7 +61,7 @@ __SEHGlobalUnwind:
 	push 0 // ExceptionRecord
 	push .RestoreRegisters // TargetIp
 	push ebx // TargetFrame
-	call [__SEHRtlUnwind]
+	call _RtlUnwind@16
 
 .RestoreRegisters:
 	pop edi
