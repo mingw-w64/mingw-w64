@@ -1,5 +1,8 @@
 2009-08-17  Kai Tietz  <kai.tietz@oenvision.com>
 
+	* io.h (_POSIX): Invert logic about !defined(_POSIX) and _POSIX
+	extension in #if guards.
+
 	* wchar.h (wmemchr): Avoid use of NULL for C++ sake to have not
 	type failures about wchar_t and void.
 	(wmemcmp): Likewise.

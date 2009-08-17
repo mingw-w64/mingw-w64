@@ -1,4 +1,3 @@
-
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
@@ -11,8 +10,6 @@
 #include <string.h>
 
 #pragma pack(push,_CRT_PACKING)
-
-#ifndef _POSIX_
 
 #ifdef __cplusplus
 extern "C" {
@@ -296,7 +293,6 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #endif /* _INTEGRAL_MAX_BITS >= 64 */
 
 #ifndef NO_OLDNAMES
-
 #ifndef _UWIN
   int __cdecl chdir (const char *);
   char *__cdecl getcwd (char *, int);
@@ -305,7 +301,6 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   int __cdecl rmdir (const char*);
   int __cdecl chmod (const char *, int);
 #endif /* _UWIN */
-
 #endif /* Not NO_OLDNAMES */
 
   _CRTIMP errno_t __cdecl _sopen_s(int *_FileHandle,const char *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionMode);
@@ -368,19 +363,14 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   int __cdecl write(int _Filehandle,const void *_Buf,unsigned int _MaxCharCount);
 #endif
 
-#ifdef __cplusplus
-}
-#endif
-#endif
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef _POSIX
 
 /* Misc stuff */
 char *getlogin(void);
 #ifdef __USE_MINGW_ALARM
 unsigned int alarm(unsigned int seconds);
+#endif
+
 #endif
 
 #ifdef __USE_MINGW_ACCESS
