@@ -876,7 +876,7 @@ __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_T
     if (_N == 0 || _S1 == _S2)
       return 0;	/* even for NULL pointers.  */
     if ((_S1 && !(_S2)) || (_S2 && !(_S1)))
-      return _S2 ? 1 : -1; /* robust.  */
+      return !(_S2) ? 1 : -1; /* robust.  */
     for ( ; 0 < _N; ++_S1, ++_S2, --_N)
       if (*_S1 != *_S2)
 	return (*_S1 < *_S2 ? -1 : +1);
