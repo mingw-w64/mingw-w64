@@ -1,3 +1,9 @@
+2009-08-17  Kai Tietz  <kai.tietz@oenvision.com>
+
+	* wchar.h (wmemchr): Avoid use of NULL for C++ sake to have not
+	type failures about wchar_t and void.
+	(wmemcmp): Likewise.
+
 2009-08-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* stddef.h, stdio.h, stdlib.h, string.h, tchar.h, time.h, wchar.h,
