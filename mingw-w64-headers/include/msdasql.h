@@ -112,8 +112,11 @@ typedef struct IRowsetChangeExtInfo IRowsetChangeExtInfo;
 extern "C" {
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
 #ifndef __IRowsetChangeExtInfo_INTERFACE_DEFINED__
 #define __IRowsetChangeExtInfo_INTERFACE_DEFINED__
@@ -193,8 +196,11 @@ typedef struct ISQLGetDiagField ISQLGetDiagField;
 extern "C" {
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   enum KAGREQDIAGFLAGSENUM {
     KAGREQDIAGFLAGS_HEADER = 0x1,KAGREQDIAGFLAGS_RECORD = 0x2

@@ -33,8 +33,11 @@ typedef struct IDebugAutoAttach IDebugAutoAttach;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   DEFINE_GUID(CLSID_DebugAutoAttach,0x70f65411,0xfe8c,0x4248,0xbc,0xff,0x70,0x1c,0x8b,0x2f,0x45,0x29);
   extern RPC_IF_HANDLE __MIDL_itf_dbgautoattach_0000_v0_0_c_ifspec;

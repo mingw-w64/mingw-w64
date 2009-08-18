@@ -59,8 +59,11 @@ typedef struct IImageDecodeEventSink IImageDecodeEventSink;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
 #define SURFACE_LOCK_EXCLUSIVE 0x01
 #define SURFACE_LOCK_ALLOW_DISCARD 0x02

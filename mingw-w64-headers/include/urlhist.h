@@ -51,8 +51,11 @@ typedef struct IUrlHistoryNotify IUrlHistoryNotify;
 extern "C" {
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
 #define STATURL_QUERYFLAG_ISCACHED 0x00010000
 #define STATURL_QUERYFLAG_NOURL 0x00020000

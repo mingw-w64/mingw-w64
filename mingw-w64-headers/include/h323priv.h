@@ -38,8 +38,11 @@ typedef struct IKeyFrameControl IKeyFrameControl;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   typedef enum H245_CAPABILITY {
     HC_G711 = 0,HC_G723 = HC_G711 + 1,HC_H263QCIF = HC_G723 + 1,HC_H261QCIF = HC_H263QCIF + 1

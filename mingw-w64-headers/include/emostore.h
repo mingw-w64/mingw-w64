@@ -61,8 +61,11 @@ typedef struct IDataSource2 IDataSource2;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   typedef enum CDOEXMStoreDBStatus {
     cdoexmOnline = 0,cdoexmOffline = 0x1,cdoexmMounting = 0x2,cdoexmDismounting = 0x3

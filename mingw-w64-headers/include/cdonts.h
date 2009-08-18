@@ -137,8 +137,11 @@ typedef struct Recipients Recipients;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   typedef enum CdoErrorType {
     CdoE_CALL_FAILED = 0x80004005,CdoE_NOT_ENOUGH_MEMORY = 0x8007000e,CdoE_INVALID_PARAMETER = 0x80070057,CdoE_INTERFACE_NOT_SUPPORTED = 0x80004002,

@@ -39,8 +39,11 @@ typedef struct ICertExit2 ICertExit2;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
 #define EXITEVENT_INVALID (0x0)
 #define EXITEVENT_CERTISSUED (0x1)

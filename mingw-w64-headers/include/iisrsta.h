@@ -43,8 +43,11 @@ typedef struct IisServiceControl IisServiceControl;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   DEFINE_GUID(IID_IIisServiceControl,0xE8FB8620,0x588F,0x11d2,0x9d,0x61,0x0,0xc0,0x4f,0x79,0xc5,0xfe);
   DEFINE_GUID(CLSID_IisServiceControl,0xE8FB8621,0x588F,0x11d2,0x9d,0x61,0x0,0xc0,0x4f,0x79,0xc5,0xfe);

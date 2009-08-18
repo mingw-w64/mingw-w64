@@ -610,8 +610,11 @@ typedef struct AttachmentServices AttachmentServices;
 extern "C" {
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
 #ifndef _WINRESRC_
 #ifndef _WIN32_IE

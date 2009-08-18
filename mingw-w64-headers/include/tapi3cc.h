@@ -109,8 +109,11 @@ typedef struct IEnumAgentHandler IEnumAgentHandler;
 extern "C" {
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   typedef enum AGENT_EVENT {
     AE_NOT_READY = 0,AE_READY = AE_NOT_READY + 1,AE_BUSY_ACD = AE_READY + 1,AE_BUSY_INCOMING = AE_BUSY_ACD + 1,AE_BUSY_OUTGOING = AE_BUSY_INCOMING + 1,

@@ -114,8 +114,11 @@ typedef struct IWEExtendWizard97 IWEExtendWizard97;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   typedef enum _CLUADMEX_OBJECT_TYPE {
     CLUADMEX_OT_NONE = 0,CLUADMEX_OT_CLUSTER = CLUADMEX_OT_NONE + 1,CLUADMEX_OT_NODE = CLUADMEX_OT_CLUSTER + 1,CLUADMEX_OT_GROUP = CLUADMEX_OT_NODE + 1,

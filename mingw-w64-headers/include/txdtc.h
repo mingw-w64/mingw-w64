@@ -218,8 +218,11 @@ typedef struct IDtcLuSubordinateDtcFactory IDtcLuSubordinateDtcFactory;
 extern "C" {
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
 #define XACTTOMSG(dwXact) (dwXact-0x00040000+0x40000000)
   typedef enum XACT_DTC_CONSTANTS {

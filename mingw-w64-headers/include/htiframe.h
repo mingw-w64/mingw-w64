@@ -49,8 +49,11 @@ typedef struct ITargetContainer ITargetContainer;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   EXTERN_C const IID IID_ITargetFrame2;
   EXTERN_C const IID IID_ITargetContainer;

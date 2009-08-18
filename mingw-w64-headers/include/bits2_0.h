@@ -52,8 +52,11 @@ typedef struct IBackgroundCopyJob3 IBackgroundCopyJob3;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
 #define BG_LENGTH_TO_EOF (UINT64)(-1)
   typedef struct _BG_FILE_RANGE {

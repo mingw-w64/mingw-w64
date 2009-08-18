@@ -87,8 +87,11 @@ typedef struct PropertyAttribute PropertyAttribute;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   DEFINE_GUID(LIBID_IISOle,0x49D704A0L,0x89F7,0x11D0,0x85,0x27,0x00,0xC0,0x4F,0xD8,0xD5,0x03);
   DEFINE_GUID(IID_IISBaseObject,0x4b42e390,0xe96,0x11d1,0x9c,0x3f,0x0,0xa0,0xc9,0x22,0xe7,0x3);

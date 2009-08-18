@@ -105,8 +105,11 @@ extern "C" {
 #define midl_user_free MIDL_user_free
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
 #define RPC_VAR_ENTRY __cdecl
 

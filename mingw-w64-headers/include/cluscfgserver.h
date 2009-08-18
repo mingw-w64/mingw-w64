@@ -278,8 +278,11 @@ typedef struct AsyncIClusCfgEvictNotify AsyncIClusCfgEvictNotify;
 extern "C"{
 #endif
 
+#ifndef __MIDL_user_allocate_free_DEFINED__
+#define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
+#endif
 
   typedef enum __MIDL___MIDL_itf_cluscfgserver_0000_0001 {
     dluUNKNOWN = 0,dluNO_ROOT_DIRECTORY = dluUNKNOWN + 1,dluREMOVABLE_DISK = dluNO_ROOT_DIRECTORY + 1,dluFIXED_DISK = dluREMOVABLE_DISK + 1,
