@@ -114,6 +114,43 @@ AM_PROG_CC_C_O
 
 AC_CHECK_HEADER([_mingw_mac.h], [], [AC_MSG_ERROR([Please check if the mingw-w64 header set and the build/host option are set properly.])])
 
+#Warnings and errors, default level is 3
+AC_MSG_CHECKING([for warning levels])
+AC_ARG_ENABLE([warnings],
+  [AS_HELP_STRING([[--enable-warnings[=0-5]]], 
+    [Enable compile time warnings @<:@default=3@:>@])],
+  [AS_CASE([$enableval],
+    [yes], [warning_level=3],
+    [no],  [warning_level=0],
+    [[[0-5]]], [warning_level="$enableval"],
+    [warning_level=3])],
+  [warning_level=3])
+AC_MSG_RESULT([Level $warning_level])
+
+#Add warning flags as appropriate. Level 4 and above are only for testing purpose.
+AS_CASE([$warning_level],
+  [0],[ADD_C_CXX_WARNING_FLAGS="-Wall"],
+  [1],[
+    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra"
+    ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration"],
+  [2],[
+    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing -Wsystem-headers -Wshadow -Wmissing-declarations -Wpacked -Wredundant-decls -Winline" 
+    ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration"],
+  [3],[
+    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing -Wsystem-headers -Wshadow -Wmissing-declarations -Wpacked -Wredundant-decls -Winline -Wstrict-aliasing=3" 
+    ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration -Wmissing-noreturn -Wmissing-prototypes"],
+  [4],[
+    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing -Wsystem-headers -Wshadow -Wmissing-declarations -Wpacked -Wredundant-decls -Winline -Wstrict-aliasing=2 -Werror -pedantic" 
+    ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration -Wmissing-noreturn -Wmissing-prototypes"]
+  [5],[
+    ADD_C_CXX_WARNING_FLAGS="-Wall -Wextra -Wformat -Wstrict-aliasing -Wsystem-headers -Wshadow -Wmissing-declarations -Wpacked -Wredundant-decls -Winline -Wstrict-aliasing=2 -Werror -Wfatal-errors -pedantic -pedantic-errors" 
+    ADD_C_ONLY_WARNING_FLAGS="-Wimplicit-function-declaration -Wmissing-noreturn -Wmissing-prototypes"]
+   )
+
+AC_SUBST(ADD_C_ONLY_WARNING_FLAGS)
+AC_SUBST(ADD_C_CXX_WARNING_FLAGS)
+AC_SUBST(ADD_CXX_ONLY_WARNING_FLAGS)
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
@@ -127,9 +164,12 @@ AC_MSG_NOTICE([])
 AC_MSG_NOTICE([])
 AC_MSG_NOTICE([Configuration Options Summary:])
 AC_MSG_NOTICE([])
-AC_MSG_NOTICE([  WinCE runtime.....: $enable_libce])
-AC_MSG_NOTICE([  Win32 runtime.....: $enable_lib32])
-AC_MSG_NOTICE([  Win64 runtime.....: $enable_lib64])
+AC_MSG_NOTICE([  WinCE runtime........: $enable_libce])
+AC_MSG_NOTICE([  Win32 runtime........: $enable_lib32])
+AC_MSG_NOTICE([  Win64 runtime........: $enable_lib64])
+AC_MSG_NOTICE([  C Warning Flags......: $ADD_C_ONLY_WARNING_FLAGS])
+AC_MSG_NOTICE([  C++ Warning Flags....: $ADD_CXX_ONLY_WARNING_FLAGS])
+AC_MSG_NOTICE([  Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS])
 AC_MSG_NOTICE([])
 
 

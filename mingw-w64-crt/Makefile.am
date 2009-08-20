@@ -20,9 +20,9 @@ else
   withsys=
 endif
 
-
 AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
-AM_CFLAGS=-pipe $(vistasupport) -Wall -Wno-strict-aliasing -std=gnu99
+AM_CFLAGS=-pipe $(vistasupport) -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
+AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`

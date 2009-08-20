@@ -1787,6 +1787,9 @@ GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
 ACLOCAL = @ACLOCAL@
+ADD_CXX_ONLY_WARNING_FLAGS = @ADD_CXX_ONLY_WARNING_FLAGS@
+ADD_C_CXX_WARNING_FLAGS = @ADD_C_CXX_WARNING_FLAGS@
+ADD_C_ONLY_WARNING_FLAGS = @ADD_C_ONLY_WARNING_FLAGS@
 AMTAR = @AMTAR@
 AR = @AR@
 AS = @AS@
@@ -1915,7 +1918,8 @@ top_srcdir = @top_srcdir@
 @WITHSYSROOT_FALSE@withsys = 
 @WITHSYSROOT_TRUE@withsys = --with-sysroot=@TARGET_SYSTEM_ROOT@
 AM_CPPFLAGS = -D_CRTBLD $(sysincludes)
-AM_CFLAGS = -pipe $(vistasupport) -Wall -Wno-strict-aliasing -std=gnu99
+AM_CFLAGS = -pipe $(vistasupport) -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
+AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@
 DTDEF = $(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
