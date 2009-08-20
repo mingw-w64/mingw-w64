@@ -15,7 +15,6 @@
 #include <crtdbg.h>
 
 extern BOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
-extern int _CRT_MT;
 
 #define FUNCS_PER_NODE 30
 
@@ -55,11 +54,15 @@ _CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY _tls_used = {
 #endif
 #endif
 
+#define DISABLE_MS_TLS 1
+
 static _CRTALLOC(".CRT$XDA") _PVFV __xd_a = 0;
 static _CRTALLOC(".CRT$XDZ") _PVFV __xd_z = 0;
 
+#if !defined (DISABLE_MS_TLS)
 static __CRT_THREAD TlsDtorNode *dtor_list;
 static __CRT_THREAD TlsDtorNode dtor_list_head;
+#endif
 
 BOOL WINAPI
 __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
@@ -68,7 +71,7 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason != DLL_THREAD_ATTACH)
     {
-      if (dwReason == DLL_PROCESS_ATTACH && _CRT_MT == 2)
+      if (dwReason == DLL_PROCESS_ATTACH)
         __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
       return TRUE;
     }
@@ -78,7 +81,6 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
       if (*pfunc != NULL)
 	(*pfunc)();
     }
-
   return TRUE;
 }
 
@@ -88,6 +90,9 @@ _CRTALLOC(".CRT$XLC") PIMAGE_TLS_CALLBACK __xl_c = (PIMAGE_TLS_CALLBACK) __dyn_t
 int __cdecl
 __tlregdtor (_PVFV func)
 {
+  if (!func)
+    return 0;
+#if !defined (DISABLE_MS_TLS)
   if (dtor_list == NULL)
     {
       dtor_list = &dtor_list_head;
@@ -105,14 +110,17 @@ __tlregdtor (_PVFV func)
       dtor_list->count = 0;
     }
   dtor_list->funcs[dtor_list->count++] = func;
+#endif
   return 0;
 }
 
 static BOOL WINAPI
 __dyn_tls_dtor (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
+#if !defined (DISABLE_MS_TLS)
   TlsDtorNode *pnode, *pnext;
   int i;
+#endif
 
   if (dwReason != DLL_THREAD_DETACH && dwReason != DLL_PROCESS_DETACH)
     return TRUE;
@@ -121,6 +129,7 @@ __dyn_tls_dtor (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
      call the already destroyed TLS vars.
      TODO: The used local thread based variables have to be handled
      manually, so that we can control their lifetime here.  */
+#if !defined (DISABLE_MS_TLS)
   if (dwReason != DLL_PROCESS_DETACH)
     {
       for (pnode = dtor_list; pnode != NULL; pnode = pnext)
@@ -135,9 +144,8 @@ __dyn_tls_dtor (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	    free ((void *) pnode);
         }
     }
-  /* Don't call if we use libgcc_s version.  */
-  if (_CRT_MT == 2)
-    __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
+#endif
+  __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
   return TRUE;
 }
 
