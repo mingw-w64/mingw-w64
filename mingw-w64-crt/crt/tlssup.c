@@ -64,10 +64,16 @@ static __CRT_THREAD TlsDtorNode *dtor_list;
 static __CRT_THREAD TlsDtorNode dtor_list_head;
 #endif
 
+extern int _CRT_MT;
+
 BOOL WINAPI
 __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
   _PVFV *pfunc;
+
+  /* We don't let us trick here.  */
+  if (_CRT_MT != 2)
+   _CRT_MT = 2;
 
   if (dwReason != DLL_THREAD_ATTACH)
     {
