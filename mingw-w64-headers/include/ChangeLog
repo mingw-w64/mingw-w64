@@ -1,3 +1,8 @@
+2009-08-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdint.h: Fix gcc c99-stdint-1 testcase (define UINT8_MAX and
+	UINT16_MAX without the trailing 'U')
+
 2009-08-18  Kai Tietz  <kai.tietz@onevision.com>
 
 	Guard __RPC_API MIDL_user_allocate and __RPC_API MIDL_user_free

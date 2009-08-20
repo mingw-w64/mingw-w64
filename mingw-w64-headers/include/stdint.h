@@ -82,8 +82,8 @@ typedef unsigned long long   uintmax_t;
 #define INT32_MAX 2147483647
 #define INT64_MAX 9223372036854775807LL
 
-#define UINT8_MAX 0xffU /* 255U */
-#define UINT16_MAX 0xffffU /* 65535U */
+#define UINT8_MAX 255
+#define UINT16_MAX 65535
 #define UINT32_MAX 0xffffffffU  /* 4294967295U */
 #define UINT64_MAX 0xffffffffffffffffULL /* 18446744073709551615ULL */
 
