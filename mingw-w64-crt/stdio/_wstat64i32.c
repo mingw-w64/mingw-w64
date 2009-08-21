@@ -2,10 +2,10 @@
 #include <sys/stat.h>
 
 #if _INTEGRAL_MAX_BITS >= 64
-int __cdecl _fstat64i32(int _FileDes,struct _stat64i32 *_Stat)
+int __cdecl _wstat64i32(const wchar_t *_Name,struct _stat64i32 *_Stat)
 {
   struct _stat64 st;
-  int ret=_fstat64(_FileDes,&st);
+  int ret=_wstat64(_Name,&st);
   _Stat->st_dev=st.st_dev;
   _Stat->st_ino=st.st_ino;
   _Stat->st_mode=st.st_mode;

@@ -1,3 +1,12 @@
+2009-08-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Renamed stdio/_fwstat64i32.c to _wstat64i32.c.  Split
+	stdio/_findfirst64i32.c, stdio/_findnext64i32.c, stdio/_fstat64i32.c,
+	stdio/_fwstat64i32.c and stdio/_wstat64i32.c so that we have one
+	function per file.  stdio/_fstat.c, _stat.c, _stat64i32.c, _wstat.c,
+	_wfindfirst64i32.c and _wfindnext64i32.c are the new files.  Adjusted
+	Makefile.am and regenerated Makefile.in.
+
 2009-08-16  Kai Tietz  <kai.tietz@onevision.com>
 
 	* intrincs/writefsbyte.c: New.
