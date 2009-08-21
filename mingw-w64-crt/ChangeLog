@@ -7,6 +7,10 @@
 	_wfindfirst64i32.c and _wfindnext64i32.c are the new files.  Adjusted
 	Makefile.am and regenerated Makefile.in.
 
+	* Split libsrc/ws2tcpip.c and libsrc/wspiapi.c into the new derictories
+	libsrc/ws2tcpip and libsrc/wspiapi respectively so that we have one
+	function per file. Adjusted Makefile.am and regenerated Makefile.in.
+
 2009-08-16  Kai Tietz  <kai.tietz@onevision.com>
 
 	* intrincs/writefsbyte.c: New.

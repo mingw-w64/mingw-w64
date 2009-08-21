@@ -838,11 +838,75 @@ am__objects_19 = libsrc/lib32_libuuid_a-uuid.$(OBJEXT) \
 @LIB32_TRUE@am_lib32_libuuid_a_OBJECTS = $(am__objects_19)
 lib32_libuuid_a_OBJECTS = $(am_lib32_libuuid_a_OBJECTS)
 lib32_libws2_32_a_LIBADD =
-am__lib32_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c libsrc/wspiapi.c \
-	libsrc/ws2tcpip.c
+am__lib32_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c \
+	libsrc/ws2tcpip/in6_addr_equal.c \
+	libsrc/ws2tcpip/in6addr_isany.c \
+	libsrc/ws2tcpip/in6addr_isloopback.c \
+	libsrc/ws2tcpip/in6addr_setany.c \
+	libsrc/ws2tcpip/in6addr_setloopback.c \
+	libsrc/ws2tcpip/in6_is_addr_linklocal.c \
+	libsrc/ws2tcpip/in6_is_addr_loopback.c \
+	libsrc/ws2tcpip/in6_is_addr_mc_global.c \
+	libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c \
+	libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c \
+	libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c \
+	libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c \
+	libsrc/ws2tcpip/in6_is_addr_multicast.c \
+	libsrc/ws2tcpip/in6_is_addr_sitelocal.c \
+	libsrc/ws2tcpip/in6_is_addr_unspecified.c \
+	libsrc/ws2tcpip/in6_is_addr_v4compat.c \
+	libsrc/ws2tcpip/in6_is_addr_v4mapped.c \
+	libsrc/ws2tcpip/in6_set_addr_loopback.c \
+	libsrc/ws2tcpip/in6_set_addr_unspecified.c \
+	libsrc/ws2tcpip/gai_strerrorA.c \
+	libsrc/ws2tcpip/gai_strerrorW.c libsrc/wspiapi/WspiapiStrdup.c \
+	libsrc/wspiapi/WspiapiParseV4Address.c \
+	libsrc/wspiapi/WspiapiNewAddrInfo.c \
+	libsrc/wspiapi/WspiapiQueryDNS.c \
+	libsrc/wspiapi/WspiapiLookupNode.c \
+	libsrc/wspiapi/WspiapiClone.c \
+	libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c \
+	libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c \
+	libsrc/wspiapi/WspiapiLegacyGetNameInfo.c \
+	libsrc/wspiapi/WspiapiLoad.c \
+	libsrc/wspiapi/WspiapiGetAddrInfo.c \
+	libsrc/wspiapi/WspiapiGetNameInfo.c \
+	libsrc/wspiapi/WspiapiFreeAddrInfo.c
 am__objects_20 = libsrc/lib32_libws2_32_a-ws2_32.$(OBJEXT) \
-	libsrc/lib32_libws2_32_a-wspiapi.$(OBJEXT) \
-	libsrc/lib32_libws2_32_a-ws2tcpip.$(OBJEXT)
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.$(OBJEXT) \
+	libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.$(OBJEXT) \
+	libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.$(OBJEXT)
 @LIB32_TRUE@am_lib32_libws2_32_a_OBJECTS = $(am__objects_20)
 lib32_libws2_32_a_OBJECTS = $(am_lib32_libws2_32_a_OBJECTS)
 lib64_libdinput_a_LIBADD =
@@ -1605,10 +1669,75 @@ am__objects_38 = libsrc/uuid.$(OBJEXT) libsrc/devguid.$(OBJEXT) \
 @LIB64_TRUE@am_lib64_libuuid_a_OBJECTS = $(am__objects_38)
 lib64_libuuid_a_OBJECTS = $(am_lib64_libuuid_a_OBJECTS)
 lib64_libws2_32_a_LIBADD =
-am__lib64_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c libsrc/wspiapi.c \
-	libsrc/ws2tcpip.c
-am__objects_39 = libsrc/ws2_32.$(OBJEXT) libsrc/wspiapi.$(OBJEXT) \
-	libsrc/ws2tcpip.$(OBJEXT)
+am__lib64_libws2_32_a_SOURCES_DIST = libsrc/ws2_32.c \
+	libsrc/ws2tcpip/in6_addr_equal.c \
+	libsrc/ws2tcpip/in6addr_isany.c \
+	libsrc/ws2tcpip/in6addr_isloopback.c \
+	libsrc/ws2tcpip/in6addr_setany.c \
+	libsrc/ws2tcpip/in6addr_setloopback.c \
+	libsrc/ws2tcpip/in6_is_addr_linklocal.c \
+	libsrc/ws2tcpip/in6_is_addr_loopback.c \
+	libsrc/ws2tcpip/in6_is_addr_mc_global.c \
+	libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c \
+	libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c \
+	libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c \
+	libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c \
+	libsrc/ws2tcpip/in6_is_addr_multicast.c \
+	libsrc/ws2tcpip/in6_is_addr_sitelocal.c \
+	libsrc/ws2tcpip/in6_is_addr_unspecified.c \
+	libsrc/ws2tcpip/in6_is_addr_v4compat.c \
+	libsrc/ws2tcpip/in6_is_addr_v4mapped.c \
+	libsrc/ws2tcpip/in6_set_addr_loopback.c \
+	libsrc/ws2tcpip/in6_set_addr_unspecified.c \
+	libsrc/ws2tcpip/gai_strerrorA.c \
+	libsrc/ws2tcpip/gai_strerrorW.c libsrc/wspiapi/WspiapiStrdup.c \
+	libsrc/wspiapi/WspiapiParseV4Address.c \
+	libsrc/wspiapi/WspiapiNewAddrInfo.c \
+	libsrc/wspiapi/WspiapiQueryDNS.c \
+	libsrc/wspiapi/WspiapiLookupNode.c \
+	libsrc/wspiapi/WspiapiClone.c \
+	libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c \
+	libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c \
+	libsrc/wspiapi/WspiapiLegacyGetNameInfo.c \
+	libsrc/wspiapi/WspiapiLoad.c \
+	libsrc/wspiapi/WspiapiGetAddrInfo.c \
+	libsrc/wspiapi/WspiapiGetNameInfo.c \
+	libsrc/wspiapi/WspiapiFreeAddrInfo.c
+am__objects_39 = libsrc/ws2_32.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_addr_equal.$(OBJEXT) \
+	libsrc/ws2tcpip/in6addr_isany.$(OBJEXT) \
+	libsrc/ws2tcpip/in6addr_isloopback.$(OBJEXT) \
+	libsrc/ws2tcpip/in6addr_setany.$(OBJEXT) \
+	libsrc/ws2tcpip/in6addr_setloopback.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_linklocal.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_loopback.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_mc_global.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_mc_linklocal.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_mc_orglocal.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_multicast.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_sitelocal.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_unspecified.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_v4compat.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_is_addr_v4mapped.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_set_addr_loopback.$(OBJEXT) \
+	libsrc/ws2tcpip/in6_set_addr_unspecified.$(OBJEXT) \
+	libsrc/ws2tcpip/gai_strerrorA.$(OBJEXT) \
+	libsrc/ws2tcpip/gai_strerrorW.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiStrdup.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiParseV4Address.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiNewAddrInfo.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiQueryDNS.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiLookupNode.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiClone.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiLegacyGetAddrInfo.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiLegacyGetNameInfo.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiLoad.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiGetAddrInfo.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiGetNameInfo.$(OBJEXT) \
+	libsrc/wspiapi/WspiapiFreeAddrInfo.$(OBJEXT)
 @LIB64_TRUE@am_lib64_libws2_32_a_OBJECTS = $(am__objects_39)
 lib64_libws2_32_a_OBJECTS = $(am_lib64_libws2_32_a_OBJECTS)
 testcases_t_float_SOURCES = testcases/t_float.c
@@ -1972,7 +2101,22 @@ src_libuuid = libsrc/uuid.c libsrc/devguid.c \
   libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
   libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
 
-src_libws2_32 = libsrc/ws2_32.c libsrc/wspiapi.c libsrc/ws2tcpip.c
+src_libws2_32 = libsrc/ws2_32.c \
+  \
+  libsrc/ws2tcpip/in6_addr_equal.c           libsrc/ws2tcpip/in6addr_isany.c           libsrc/ws2tcpip/in6addr_isloopback.c       \
+  libsrc/ws2tcpip/in6addr_setany.c           libsrc/ws2tcpip/in6addr_setloopback.c     libsrc/ws2tcpip/in6_is_addr_linklocal.c    \
+  libsrc/ws2tcpip/in6_is_addr_loopback.c     libsrc/ws2tcpip/in6_is_addr_mc_global.c   libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c \
+  libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c \
+  libsrc/ws2tcpip/in6_is_addr_multicast.c    libsrc/ws2tcpip/in6_is_addr_sitelocal.c   libsrc/ws2tcpip/in6_is_addr_unspecified.c  \
+  libsrc/ws2tcpip/in6_is_addr_v4compat.c     libsrc/ws2tcpip/in6_is_addr_v4mapped.c    libsrc/ws2tcpip/in6_set_addr_loopback.c    \
+  libsrc/ws2tcpip/in6_set_addr_unspecified.c libsrc/ws2tcpip/gai_strerrorA.c           libsrc/ws2tcpip/gai_strerrorW.c            \
+  \
+  libsrc/wspiapi/WspiapiStrdup.c             libsrc/wspiapi/WspiapiParseV4Address.c    libsrc/wspiapi/WspiapiNewAddrInfo.c        \
+  libsrc/wspiapi/WspiapiQueryDNS.c           libsrc/wspiapi/WspiapiLookupNode.c        libsrc/wspiapi/WspiapiClone.c              \
+  libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c libsrc/wspiapi/WspiapiLegacyGetNameInfo.c  \
+  libsrc/wspiapi/WspiapiLoad.c               libsrc/wspiapi/WspiapiGetAddrInfo.c       libsrc/wspiapi/WspiapiGetNameInfo.c        \
+  libsrc/wspiapi/WspiapiFreeAddrInfo.c
+
 src_libmingwex = \
   \
   intrincs/inbyte.c     intrincs/inbytestring.c   intrincs/indword.c   intrincs/indwordstring.c                \
@@ -3922,10 +4066,120 @@ lib32/libuuid.a: $(lib32_libuuid_a_OBJECTS) $(lib32_libuuid_a_DEPENDENCIES) lib3
 	$(RANLIB) lib32/libuuid.a
 libsrc/lib32_libws2_32_a-ws2_32.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
-libsrc/lib32_libws2_32_a-wspiapi.$(OBJEXT): libsrc/$(am__dirstamp) \
-	libsrc/$(DEPDIR)/$(am__dirstamp)
-libsrc/lib32_libws2_32_a-ws2tcpip.$(OBJEXT): libsrc/$(am__dirstamp) \
-	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/$(am__dirstamp):
+	@$(MKDIR_P) libsrc/ws2tcpip
+	@: > libsrc/ws2tcpip/$(am__dirstamp)
+libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) libsrc/ws2tcpip/$(DEPDIR)
+	@: > libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/$(am__dirstamp):
+	@$(MKDIR_P) libsrc/wspiapi
+	@: > libsrc/wspiapi/$(am__dirstamp)
+libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) libsrc/wspiapi/$(DEPDIR)
+	@: > libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
 lib32/libws2_32.a: $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libws2_32.a
 	$(lib32_libws2_32_a_AR) lib32/libws2_32.a $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_LIBADD)
@@ -5049,10 +5303,106 @@ lib64/libuuid.a: $(lib64_libuuid_a_OBJECTS) $(lib64_libuuid_a_DEPENDENCIES) lib6
 	$(RANLIB) lib64/libuuid.a
 libsrc/ws2_32.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
-libsrc/wspiapi.$(OBJEXT): libsrc/$(am__dirstamp) \
-	libsrc/$(DEPDIR)/$(am__dirstamp)
-libsrc/ws2tcpip.$(OBJEXT): libsrc/$(am__dirstamp) \
-	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_addr_equal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6addr_isany.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6addr_isloopback.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6addr_setany.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6addr_setloopback.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_linklocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_loopback.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_mc_global.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_mc_linklocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_mc_orglocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_multicast.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_sitelocal.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_unspecified.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_v4compat.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_is_addr_v4mapped.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_set_addr_loopback.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/in6_set_addr_unspecified.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/gai_strerrorA.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/ws2tcpip/gai_strerrorW.$(OBJEXT):  \
+	libsrc/ws2tcpip/$(am__dirstamp) \
+	libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiStrdup.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiParseV4Address.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiNewAddrInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiQueryDNS.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiLookupNode.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiClone.$(OBJEXT): libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiLegacyGetAddrInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiLegacyGetNameInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiLoad.$(OBJEXT): libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiGetAddrInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiGetNameInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+libsrc/wspiapi/WspiapiFreeAddrInfo.$(OBJEXT):  \
+	libsrc/wspiapi/$(am__dirstamp) \
+	libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
 lib64/libws2_32.a: $(lib64_libws2_32_a_OBJECTS) $(lib64_libws2_32_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libws2_32.a
 	$(lib64_libws2_32_a_AR) lib64/libws2_32.a $(lib64_libws2_32_a_OBJECTS) $(lib64_libws2_32_a_LIBADD)
@@ -5751,8 +6101,6 @@ mostlyclean-compile:
 	-rm -f libsrc/lib32_libuuid_a-urlmon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libws2_32_a-ws2_32.$(OBJEXT)
-	-rm -f libsrc/lib32_libws2_32_a-ws2tcpip.$(OBJEXT)
-	-rm -f libsrc/lib32_libws2_32_a-wspiapi.$(OBJEXT)
 	-rm -f libsrc/lib64_libmingw32_a-dummy_mingwthrd.$(OBJEXT)
 	-rm -f libsrc/lib64_libmingwex_a-mingwthrd_nomt.$(OBJEXT)
 	-rm -f libsrc/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
@@ -5775,8 +6123,74 @@ mostlyclean-compile:
 	-rm -f libsrc/urlmon-uuid.$(OBJEXT)
 	-rm -f libsrc/uuid.$(OBJEXT)
 	-rm -f libsrc/ws2_32.$(OBJEXT)
-	-rm -f libsrc/ws2tcpip.$(OBJEXT)
-	-rm -f libsrc/wspiapi.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/gai_strerrorA.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/gai_strerrorW.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_addr_equal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_linklocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_loopback.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_mc_global.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_mc_linklocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_mc_orglocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_multicast.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_sitelocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_unspecified.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_v4compat.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_is_addr_v4mapped.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_set_addr_loopback.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6_set_addr_unspecified.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6addr_isany.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6addr_isloopback.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6addr_setany.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/in6addr_setloopback.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.$(OBJEXT)
+	-rm -f libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiClone.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiFreeAddrInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiGetAddrInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiGetNameInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiLegacyGetAddrInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiLegacyGetNameInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiLoad.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiLookupNode.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiNewAddrInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiParseV4Address.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiQueryDNS.$(OBJEXT)
+	-rm -f libsrc/wspiapi/WspiapiStrdup.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.$(OBJEXT)
+	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-acosf.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-acosh.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-acoshf.$(OBJEXT)
@@ -6790,8 +7204,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2_32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libws2_32_a-wspiapi.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libmingw32_a-dummy_mingwthrd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libmingwex_a-mingwthrd_nomt.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po@am__quote@
@@ -6814,8 +7226,74 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/ws2_32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/ws2tcpip.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/wspiapi.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/gai_strerrorA.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/gai_strerrorW.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_addr_equal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_linklocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_loopback.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_mc_global.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_mc_linklocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_mc_nodelocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_mc_orglocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_mc_sitelocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_multicast.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_sitelocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_unspecified.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_v4compat.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_is_addr_v4mapped.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_set_addr_loopback.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6_set_addr_unspecified.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6addr_isany.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6addr_isloopback.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6addr_setany.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/in6addr_setloopback.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorA.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorW.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_addr_equal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_linklocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_loopback.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_global.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_linklocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_orglocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_multicast.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_sitelocal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_unspecified.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4compat.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4mapped.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_loopback.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_unspecified.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isany.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isloopback.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setany.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setloopback.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiClone.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiFreeAddrInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiGetAddrInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiGetNameInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiLegacyFreeAddrInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiLegacyGetAddrInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiLegacyGetNameInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiLoad.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiLookupNode.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiNewAddrInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiParseV4Address.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiQueryDNS.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/WspiapiStrdup.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiClone.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiFreeAddrInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetAddrInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetNameInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLoad.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLookupNode.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiNewAddrInfo.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiParseV4Address.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiQueryDNS.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiStrdup.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-acosf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-acosh.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-acoshf.Po@am__quote@
@@ -14856,33 +15334,481 @@ libsrc/lib32_libws2_32_a-ws2_32.obj: libsrc/ws2_32.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libws2_32_a-ws2_32.obj `if test -f 'libsrc/ws2_32.c'; then $(CYGPATH_W) 'libsrc/ws2_32.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2_32.c'; fi`
 
-libsrc/lib32_libws2_32_a-wspiapi.o: libsrc/wspiapi.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libws2_32_a-wspiapi.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libws2_32_a-wspiapi.Tpo -c -o libsrc/lib32_libws2_32_a-wspiapi.o `test -f 'libsrc/wspiapi.c' || echo '$(srcdir)/'`libsrc/wspiapi.c
-@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libws2_32_a-wspiapi.Tpo libsrc/$(DEPDIR)/lib32_libws2_32_a-wspiapi.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi.c' object='libsrc/lib32_libws2_32_a-wspiapi.o' libtool=no @AMDEPBACKSLASH@
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.o: libsrc/ws2tcpip/in6_addr_equal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_addr_equal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.o `test -f 'libsrc/ws2tcpip/in6_addr_equal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_addr_equal.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_addr_equal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_addr_equal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_addr_equal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libws2_32_a-wspiapi.o `test -f 'libsrc/wspiapi.c' || echo '$(srcdir)/'`libsrc/wspiapi.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.o `test -f 'libsrc/ws2tcpip/in6_addr_equal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_addr_equal.c
 
-libsrc/lib32_libws2_32_a-wspiapi.obj: libsrc/wspiapi.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libws2_32_a-wspiapi.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libws2_32_a-wspiapi.Tpo -c -o libsrc/lib32_libws2_32_a-wspiapi.obj `if test -f 'libsrc/wspiapi.c'; then $(CYGPATH_W) 'libsrc/wspiapi.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libws2_32_a-wspiapi.Tpo libsrc/$(DEPDIR)/lib32_libws2_32_a-wspiapi.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi.c' object='libsrc/lib32_libws2_32_a-wspiapi.obj' libtool=no @AMDEPBACKSLASH@
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.obj: libsrc/ws2tcpip/in6_addr_equal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_addr_equal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.obj `if test -f 'libsrc/ws2tcpip/in6_addr_equal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_addr_equal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_addr_equal.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_addr_equal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_addr_equal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_addr_equal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libws2_32_a-wspiapi.obj `if test -f 'libsrc/wspiapi.c'; then $(CYGPATH_W) 'libsrc/wspiapi.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_addr_equal.obj `if test -f 'libsrc/ws2tcpip/in6_addr_equal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_addr_equal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_addr_equal.c'; fi`
 
-libsrc/lib32_libws2_32_a-ws2tcpip.o: libsrc/ws2tcpip.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libws2_32_a-ws2tcpip.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Tpo -c -o libsrc/lib32_libws2_32_a-ws2tcpip.o `test -f 'libsrc/ws2tcpip.c' || echo '$(srcdir)/'`libsrc/ws2tcpip.c
-@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Tpo libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip.c' object='libsrc/lib32_libws2_32_a-ws2tcpip.o' libtool=no @AMDEPBACKSLASH@
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.o: libsrc/ws2tcpip/in6addr_isany.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isany.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.o `test -f 'libsrc/ws2tcpip/in6addr_isany.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6addr_isany.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isany.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isany.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6addr_isany.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libws2_32_a-ws2tcpip.o `test -f 'libsrc/ws2tcpip.c' || echo '$(srcdir)/'`libsrc/ws2tcpip.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.o `test -f 'libsrc/ws2tcpip/in6addr_isany.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6addr_isany.c
 
-libsrc/lib32_libws2_32_a-ws2tcpip.obj: libsrc/ws2tcpip.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libws2_32_a-ws2tcpip.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Tpo -c -o libsrc/lib32_libws2_32_a-ws2tcpip.obj `if test -f 'libsrc/ws2tcpip.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Tpo libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2tcpip.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip.c' object='libsrc/lib32_libws2_32_a-ws2tcpip.obj' libtool=no @AMDEPBACKSLASH@
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.obj: libsrc/ws2tcpip/in6addr_isany.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isany.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.obj `if test -f 'libsrc/ws2tcpip/in6addr_isany.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6addr_isany.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6addr_isany.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isany.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isany.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6addr_isany.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libws2_32_a-ws2tcpip.obj `if test -f 'libsrc/ws2tcpip.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isany.obj `if test -f 'libsrc/ws2tcpip/in6addr_isany.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6addr_isany.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6addr_isany.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.o: libsrc/ws2tcpip/in6addr_isloopback.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isloopback.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.o `test -f 'libsrc/ws2tcpip/in6addr_isloopback.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6addr_isloopback.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isloopback.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isloopback.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6addr_isloopback.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.o `test -f 'libsrc/ws2tcpip/in6addr_isloopback.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6addr_isloopback.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.obj: libsrc/ws2tcpip/in6addr_isloopback.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isloopback.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.obj `if test -f 'libsrc/ws2tcpip/in6addr_isloopback.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6addr_isloopback.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6addr_isloopback.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isloopback.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_isloopback.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6addr_isloopback.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_isloopback.obj `if test -f 'libsrc/ws2tcpip/in6addr_isloopback.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6addr_isloopback.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6addr_isloopback.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.o: libsrc/ws2tcpip/in6addr_setany.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setany.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.o `test -f 'libsrc/ws2tcpip/in6addr_setany.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6addr_setany.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setany.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setany.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6addr_setany.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.o `test -f 'libsrc/ws2tcpip/in6addr_setany.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6addr_setany.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.obj: libsrc/ws2tcpip/in6addr_setany.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setany.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.obj `if test -f 'libsrc/ws2tcpip/in6addr_setany.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6addr_setany.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6addr_setany.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setany.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setany.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6addr_setany.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setany.obj `if test -f 'libsrc/ws2tcpip/in6addr_setany.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6addr_setany.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6addr_setany.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.o: libsrc/ws2tcpip/in6addr_setloopback.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setloopback.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.o `test -f 'libsrc/ws2tcpip/in6addr_setloopback.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6addr_setloopback.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setloopback.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setloopback.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6addr_setloopback.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.o `test -f 'libsrc/ws2tcpip/in6addr_setloopback.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6addr_setloopback.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.obj: libsrc/ws2tcpip/in6addr_setloopback.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setloopback.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.obj `if test -f 'libsrc/ws2tcpip/in6addr_setloopback.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6addr_setloopback.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6addr_setloopback.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setloopback.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6addr_setloopback.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6addr_setloopback.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6addr_setloopback.obj `if test -f 'libsrc/ws2tcpip/in6addr_setloopback.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6addr_setloopback.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6addr_setloopback.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.o: libsrc/ws2tcpip/in6_is_addr_linklocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_linklocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_linklocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_linklocal.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_linklocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_linklocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_linklocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_linklocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_linklocal.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.obj: libsrc/ws2tcpip/in6_is_addr_linklocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_linklocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_linklocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_linklocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_linklocal.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_linklocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_linklocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_linklocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_linklocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_linklocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_linklocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_linklocal.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.o: libsrc/ws2tcpip/in6_is_addr_loopback.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_loopback.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.o `test -f 'libsrc/ws2tcpip/in6_is_addr_loopback.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_loopback.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_loopback.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_loopback.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_loopback.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.o `test -f 'libsrc/ws2tcpip/in6_is_addr_loopback.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_loopback.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.obj: libsrc/ws2tcpip/in6_is_addr_loopback.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_loopback.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_loopback.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_loopback.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_loopback.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_loopback.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_loopback.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_loopback.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_loopback.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_loopback.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_loopback.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_loopback.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.o: libsrc/ws2tcpip/in6_is_addr_mc_global.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_global.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.o `test -f 'libsrc/ws2tcpip/in6_is_addr_mc_global.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_mc_global.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_global.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_global.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_mc_global.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.o `test -f 'libsrc/ws2tcpip/in6_is_addr_mc_global.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_mc_global.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.obj: libsrc/ws2tcpip/in6_is_addr_mc_global.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_global.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_mc_global.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_mc_global.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_mc_global.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_global.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_global.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_mc_global.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_global.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_mc_global.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_mc_global.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_mc_global.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.o: libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_linklocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_linklocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_linklocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.obj: libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_linklocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_linklocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_linklocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_linklocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_mc_linklocal.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.o: libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.obj: libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_nodelocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_mc_nodelocal.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.o: libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_orglocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_orglocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_orglocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.obj: libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_orglocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_orglocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_orglocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_orglocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_mc_orglocal.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.o: libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.obj: libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_mc_sitelocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_mc_sitelocal.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.o: libsrc/ws2tcpip/in6_is_addr_multicast.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_multicast.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.o `test -f 'libsrc/ws2tcpip/in6_is_addr_multicast.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_multicast.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_multicast.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_multicast.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_multicast.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.o `test -f 'libsrc/ws2tcpip/in6_is_addr_multicast.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_multicast.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.obj: libsrc/ws2tcpip/in6_is_addr_multicast.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_multicast.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_multicast.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_multicast.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_multicast.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_multicast.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_multicast.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_multicast.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_multicast.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_multicast.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_multicast.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_multicast.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.o: libsrc/ws2tcpip/in6_is_addr_sitelocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_sitelocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_sitelocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_sitelocal.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_sitelocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_sitelocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_sitelocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.o `test -f 'libsrc/ws2tcpip/in6_is_addr_sitelocal.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_sitelocal.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.obj: libsrc/ws2tcpip/in6_is_addr_sitelocal.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_sitelocal.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_sitelocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_sitelocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_sitelocal.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_sitelocal.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_sitelocal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_sitelocal.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_sitelocal.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_sitelocal.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_sitelocal.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_sitelocal.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.o: libsrc/ws2tcpip/in6_is_addr_unspecified.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_unspecified.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.o `test -f 'libsrc/ws2tcpip/in6_is_addr_unspecified.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_unspecified.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_unspecified.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_unspecified.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_unspecified.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.o `test -f 'libsrc/ws2tcpip/in6_is_addr_unspecified.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_unspecified.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.obj: libsrc/ws2tcpip/in6_is_addr_unspecified.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_unspecified.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_unspecified.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_unspecified.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_unspecified.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_unspecified.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_unspecified.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_unspecified.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_unspecified.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_unspecified.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_unspecified.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_unspecified.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.o: libsrc/ws2tcpip/in6_is_addr_v4compat.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4compat.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.o `test -f 'libsrc/ws2tcpip/in6_is_addr_v4compat.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_v4compat.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4compat.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4compat.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_v4compat.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.o `test -f 'libsrc/ws2tcpip/in6_is_addr_v4compat.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_v4compat.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.obj: libsrc/ws2tcpip/in6_is_addr_v4compat.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4compat.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_v4compat.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_v4compat.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_v4compat.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4compat.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4compat.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_v4compat.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4compat.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_v4compat.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_v4compat.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_v4compat.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.o: libsrc/ws2tcpip/in6_is_addr_v4mapped.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4mapped.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.o `test -f 'libsrc/ws2tcpip/in6_is_addr_v4mapped.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_v4mapped.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4mapped.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4mapped.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_v4mapped.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.o `test -f 'libsrc/ws2tcpip/in6_is_addr_v4mapped.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_is_addr_v4mapped.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.obj: libsrc/ws2tcpip/in6_is_addr_v4mapped.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4mapped.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_v4mapped.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_v4mapped.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_v4mapped.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4mapped.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_is_addr_v4mapped.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_is_addr_v4mapped.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_is_addr_v4mapped.obj `if test -f 'libsrc/ws2tcpip/in6_is_addr_v4mapped.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_is_addr_v4mapped.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_is_addr_v4mapped.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.o: libsrc/ws2tcpip/in6_set_addr_loopback.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_loopback.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.o `test -f 'libsrc/ws2tcpip/in6_set_addr_loopback.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_set_addr_loopback.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_loopback.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_loopback.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_set_addr_loopback.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.o `test -f 'libsrc/ws2tcpip/in6_set_addr_loopback.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_set_addr_loopback.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.obj: libsrc/ws2tcpip/in6_set_addr_loopback.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_loopback.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.obj `if test -f 'libsrc/ws2tcpip/in6_set_addr_loopback.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_set_addr_loopback.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_set_addr_loopback.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_loopback.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_loopback.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_set_addr_loopback.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_loopback.obj `if test -f 'libsrc/ws2tcpip/in6_set_addr_loopback.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_set_addr_loopback.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_set_addr_loopback.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.o: libsrc/ws2tcpip/in6_set_addr_unspecified.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_unspecified.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.o `test -f 'libsrc/ws2tcpip/in6_set_addr_unspecified.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_set_addr_unspecified.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_unspecified.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_unspecified.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_set_addr_unspecified.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.o `test -f 'libsrc/ws2tcpip/in6_set_addr_unspecified.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/in6_set_addr_unspecified.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.obj: libsrc/ws2tcpip/in6_set_addr_unspecified.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_unspecified.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.obj `if test -f 'libsrc/ws2tcpip/in6_set_addr_unspecified.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_set_addr_unspecified.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_set_addr_unspecified.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_unspecified.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-in6_set_addr_unspecified.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/in6_set_addr_unspecified.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-in6_set_addr_unspecified.obj `if test -f 'libsrc/ws2tcpip/in6_set_addr_unspecified.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/in6_set_addr_unspecified.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/in6_set_addr_unspecified.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.o: libsrc/ws2tcpip/gai_strerrorA.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorA.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.o `test -f 'libsrc/ws2tcpip/gai_strerrorA.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/gai_strerrorA.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorA.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorA.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/gai_strerrorA.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.o `test -f 'libsrc/ws2tcpip/gai_strerrorA.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/gai_strerrorA.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.obj: libsrc/ws2tcpip/gai_strerrorA.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorA.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.obj `if test -f 'libsrc/ws2tcpip/gai_strerrorA.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/gai_strerrorA.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/gai_strerrorA.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorA.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorA.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/gai_strerrorA.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorA.obj `if test -f 'libsrc/ws2tcpip/gai_strerrorA.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/gai_strerrorA.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/gai_strerrorA.c'; fi`
+
+libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.o: libsrc/ws2tcpip/gai_strerrorW.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.o -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorW.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.o `test -f 'libsrc/ws2tcpip/gai_strerrorW.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/gai_strerrorW.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorW.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorW.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/gai_strerrorW.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.o `test -f 'libsrc/ws2tcpip/gai_strerrorW.c' || echo '$(srcdir)/'`libsrc/ws2tcpip/gai_strerrorW.c
+
+libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.obj: libsrc/ws2tcpip/gai_strerrorW.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.obj -MD -MP -MF libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorW.Tpo -c -o libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.obj `if test -f 'libsrc/ws2tcpip/gai_strerrorW.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/gai_strerrorW.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/gai_strerrorW.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorW.Tpo libsrc/ws2tcpip/$(DEPDIR)/lib32_libws2_32_a-gai_strerrorW.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ws2tcpip/gai_strerrorW.c' object='libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/ws2tcpip/lib32_libws2_32_a-gai_strerrorW.obj `if test -f 'libsrc/ws2tcpip/gai_strerrorW.c'; then $(CYGPATH_W) 'libsrc/ws2tcpip/gai_strerrorW.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ws2tcpip/gai_strerrorW.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.o: libsrc/wspiapi/WspiapiStrdup.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiStrdup.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.o `test -f 'libsrc/wspiapi/WspiapiStrdup.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiStrdup.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiStrdup.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiStrdup.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiStrdup.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.o `test -f 'libsrc/wspiapi/WspiapiStrdup.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiStrdup.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.obj: libsrc/wspiapi/WspiapiStrdup.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiStrdup.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.obj `if test -f 'libsrc/wspiapi/WspiapiStrdup.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiStrdup.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiStrdup.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiStrdup.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiStrdup.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiStrdup.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.obj `if test -f 'libsrc/wspiapi/WspiapiStrdup.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiStrdup.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiStrdup.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.o: libsrc/wspiapi/WspiapiParseV4Address.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiParseV4Address.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.o `test -f 'libsrc/wspiapi/WspiapiParseV4Address.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiParseV4Address.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiParseV4Address.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiParseV4Address.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiParseV4Address.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.o `test -f 'libsrc/wspiapi/WspiapiParseV4Address.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiParseV4Address.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.obj: libsrc/wspiapi/WspiapiParseV4Address.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiParseV4Address.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.obj `if test -f 'libsrc/wspiapi/WspiapiParseV4Address.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiParseV4Address.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiParseV4Address.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiParseV4Address.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiParseV4Address.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiParseV4Address.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.obj `if test -f 'libsrc/wspiapi/WspiapiParseV4Address.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiParseV4Address.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiParseV4Address.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.o: libsrc/wspiapi/WspiapiNewAddrInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiNewAddrInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.o `test -f 'libsrc/wspiapi/WspiapiNewAddrInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiNewAddrInfo.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiNewAddrInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiNewAddrInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiNewAddrInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.o `test -f 'libsrc/wspiapi/WspiapiNewAddrInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiNewAddrInfo.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.obj: libsrc/wspiapi/WspiapiNewAddrInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiNewAddrInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.obj `if test -f 'libsrc/wspiapi/WspiapiNewAddrInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiNewAddrInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiNewAddrInfo.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiNewAddrInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiNewAddrInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiNewAddrInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiNewAddrInfo.obj `if test -f 'libsrc/wspiapi/WspiapiNewAddrInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiNewAddrInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiNewAddrInfo.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.o: libsrc/wspiapi/WspiapiQueryDNS.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiQueryDNS.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.o `test -f 'libsrc/wspiapi/WspiapiQueryDNS.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiQueryDNS.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiQueryDNS.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiQueryDNS.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiQueryDNS.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.o `test -f 'libsrc/wspiapi/WspiapiQueryDNS.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiQueryDNS.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.obj: libsrc/wspiapi/WspiapiQueryDNS.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiQueryDNS.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.obj `if test -f 'libsrc/wspiapi/WspiapiQueryDNS.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiQueryDNS.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiQueryDNS.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiQueryDNS.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiQueryDNS.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiQueryDNS.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.obj `if test -f 'libsrc/wspiapi/WspiapiQueryDNS.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiQueryDNS.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiQueryDNS.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.o: libsrc/wspiapi/WspiapiLookupNode.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLookupNode.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.o `test -f 'libsrc/wspiapi/WspiapiLookupNode.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiLookupNode.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLookupNode.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLookupNode.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiLookupNode.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.o `test -f 'libsrc/wspiapi/WspiapiLookupNode.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiLookupNode.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.obj: libsrc/wspiapi/WspiapiLookupNode.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLookupNode.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.obj `if test -f 'libsrc/wspiapi/WspiapiLookupNode.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiLookupNode.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiLookupNode.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLookupNode.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLookupNode.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiLookupNode.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLookupNode.obj `if test -f 'libsrc/wspiapi/WspiapiLookupNode.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiLookupNode.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiLookupNode.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.o: libsrc/wspiapi/WspiapiClone.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiClone.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.o `test -f 'libsrc/wspiapi/WspiapiClone.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiClone.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiClone.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiClone.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiClone.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.o `test -f 'libsrc/wspiapi/WspiapiClone.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiClone.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.obj: libsrc/wspiapi/WspiapiClone.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiClone.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.obj `if test -f 'libsrc/wspiapi/WspiapiClone.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiClone.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiClone.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiClone.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiClone.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiClone.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiClone.obj `if test -f 'libsrc/wspiapi/WspiapiClone.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiClone.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiClone.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.o: libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.o `test -f 'libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.o `test -f 'libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.obj: libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.obj `if test -f 'libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyFreeAddrInfo.obj `if test -f 'libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.o: libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.o `test -f 'libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.o `test -f 'libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.obj: libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.obj `if test -f 'libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetAddrInfo.obj `if test -f 'libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.o: libsrc/wspiapi/WspiapiLegacyGetNameInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.o `test -f 'libsrc/wspiapi/WspiapiLegacyGetNameInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiLegacyGetNameInfo.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiLegacyGetNameInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.o `test -f 'libsrc/wspiapi/WspiapiLegacyGetNameInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiLegacyGetNameInfo.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.obj: libsrc/wspiapi/WspiapiLegacyGetNameInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.obj `if test -f 'libsrc/wspiapi/WspiapiLegacyGetNameInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiLegacyGetNameInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiLegacyGetNameInfo.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiLegacyGetNameInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLegacyGetNameInfo.obj `if test -f 'libsrc/wspiapi/WspiapiLegacyGetNameInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiLegacyGetNameInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiLegacyGetNameInfo.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.o: libsrc/wspiapi/WspiapiLoad.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLoad.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.o `test -f 'libsrc/wspiapi/WspiapiLoad.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiLoad.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLoad.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLoad.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiLoad.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.o `test -f 'libsrc/wspiapi/WspiapiLoad.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiLoad.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.obj: libsrc/wspiapi/WspiapiLoad.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLoad.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.obj `if test -f 'libsrc/wspiapi/WspiapiLoad.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiLoad.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiLoad.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLoad.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiLoad.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiLoad.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiLoad.obj `if test -f 'libsrc/wspiapi/WspiapiLoad.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiLoad.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiLoad.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.o: libsrc/wspiapi/WspiapiGetAddrInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetAddrInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.o `test -f 'libsrc/wspiapi/WspiapiGetAddrInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiGetAddrInfo.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetAddrInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetAddrInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiGetAddrInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.o `test -f 'libsrc/wspiapi/WspiapiGetAddrInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiGetAddrInfo.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.obj: libsrc/wspiapi/WspiapiGetAddrInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetAddrInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.obj `if test -f 'libsrc/wspiapi/WspiapiGetAddrInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiGetAddrInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiGetAddrInfo.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetAddrInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetAddrInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiGetAddrInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetAddrInfo.obj `if test -f 'libsrc/wspiapi/WspiapiGetAddrInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiGetAddrInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiGetAddrInfo.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.o: libsrc/wspiapi/WspiapiGetNameInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetNameInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.o `test -f 'libsrc/wspiapi/WspiapiGetNameInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiGetNameInfo.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetNameInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetNameInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiGetNameInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.o `test -f 'libsrc/wspiapi/WspiapiGetNameInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiGetNameInfo.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.obj: libsrc/wspiapi/WspiapiGetNameInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetNameInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.obj `if test -f 'libsrc/wspiapi/WspiapiGetNameInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiGetNameInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiGetNameInfo.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetNameInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiGetNameInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiGetNameInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiGetNameInfo.obj `if test -f 'libsrc/wspiapi/WspiapiGetNameInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiGetNameInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiGetNameInfo.c'; fi`
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.o: libsrc/wspiapi/WspiapiFreeAddrInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.o -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiFreeAddrInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.o `test -f 'libsrc/wspiapi/WspiapiFreeAddrInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiFreeAddrInfo.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiFreeAddrInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiFreeAddrInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiFreeAddrInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.o `test -f 'libsrc/wspiapi/WspiapiFreeAddrInfo.c' || echo '$(srcdir)/'`libsrc/wspiapi/WspiapiFreeAddrInfo.c
+
+libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.obj: libsrc/wspiapi/WspiapiFreeAddrInfo.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.obj -MD -MP -MF libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiFreeAddrInfo.Tpo -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.obj `if test -f 'libsrc/wspiapi/WspiapiFreeAddrInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiFreeAddrInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiFreeAddrInfo.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiFreeAddrInfo.Tpo libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiFreeAddrInfo.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/wspiapi/WspiapiFreeAddrInfo.c' object='libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.obj `if test -f 'libsrc/wspiapi/WspiapiFreeAddrInfo.c'; then $(CYGPATH_W) 'libsrc/wspiapi/WspiapiFreeAddrInfo.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/wspiapi/WspiapiFreeAddrInfo.c'; fi`
 
 crt/lib64_libmingw32_a-atonexit.o: crt/atonexit.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingw32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT crt/lib64_libmingw32_a-atonexit.o -MD -MP -MF crt/$(DEPDIR)/lib64_libmingw32_a-atonexit.Tpo -c -o crt/lib64_libmingw32_a-atonexit.o `test -f 'crt/atonexit.c' || echo '$(srcdir)/'`crt/atonexit.c
@@ -21416,6 +22342,10 @@ distclean-generic:
 	-rm -f lib64/$(am__dirstamp)
 	-rm -f libsrc/$(DEPDIR)/$(am__dirstamp)
 	-rm -f libsrc/$(am__dirstamp)
+	-rm -f libsrc/ws2tcpip/$(DEPDIR)/$(am__dirstamp)
+	-rm -f libsrc/ws2tcpip/$(am__dirstamp)
+	-rm -f libsrc/wspiapi/$(DEPDIR)/$(am__dirstamp)
+	-rm -f libsrc/wspiapi/$(am__dirstamp)
 	-rm -f math/$(DEPDIR)/$(am__dirstamp)
 	-rm -f math/$(am__dirstamp)
 	-rm -f misc/$(DEPDIR)/$(am__dirstamp)
@@ -21438,7 +22368,7 @@ clean-am: clean-checkPROGRAMS clean-generic clean-lib32LIBRARIES \
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
-	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt/$(DEPDIR) gdtoa/$(DEPDIR) intrincs/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) profile/$(DEPDIR) stdio/$(DEPDIR) testcases/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt/$(DEPDIR) gdtoa/$(DEPDIR) intrincs/$(DEPDIR) libsrc/$(DEPDIR) libsrc/ws2tcpip/$(DEPDIR) libsrc/wspiapi/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) profile/$(DEPDIR) stdio/$(DEPDIR) testcases/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-libtool distclean-tags
@@ -21488,7 +22418,7 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
-	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt/$(DEPDIR) gdtoa/$(DEPDIR) intrincs/$(DEPDIR) libsrc/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) profile/$(DEPDIR) stdio/$(DEPDIR) testcases/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) complex/$(DEPDIR) crt/$(DEPDIR) gdtoa/$(DEPDIR) intrincs/$(DEPDIR) libsrc/$(DEPDIR) libsrc/ws2tcpip/$(DEPDIR) libsrc/wspiapi/$(DEPDIR) math/$(DEPDIR) misc/$(DEPDIR) profile/$(DEPDIR) stdio/$(DEPDIR) testcases/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
