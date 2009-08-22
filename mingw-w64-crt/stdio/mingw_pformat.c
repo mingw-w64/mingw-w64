@@ -854,7 +854,8 @@ char *__pformat_fcvt( long double x, int precision, int *dp, int *sign )
 /* TODO: end of conditional to be removed. */
 #endif
 
-static __inline__
+/* Can't be inlined, as it uses alloca.  */
+static
 void __pformat_emit_radix_point( __pformat_t *stream )
 {
   /* Helper to place a localised representation of the radix point
