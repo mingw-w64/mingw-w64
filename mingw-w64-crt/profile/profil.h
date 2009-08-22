@@ -37,6 +37,15 @@ details. */
 #define PROFSCALE(range, bins)		(((bins) << 16) / ((range) >> 1))
 
 typedef void *_WINHANDLE;
+#ifdef __MINGW32__
+#ifndef _BSDTYPES_DEFINED
+typedef unsigned char u_char;
+typedef unsigned short u_short;
+typedef unsigned int u_int;
+typedef unsigned long u_long;
+#define _BSDTYPES_DEFINED
+#endif /* _BSDTYPES_DEFINED */
+#endif /* __MINGW32__*/
 
 struct profinfo {
     _WINHANDLE targthr;			/* thread to profile */
