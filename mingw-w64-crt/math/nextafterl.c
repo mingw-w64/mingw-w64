@@ -19,10 +19,11 @@ nextafterl (long double x, long double y)
   union {
       long double ld;
       struct {
+        /* packed attribute is unnecessary on x86/x64 for these three variables */
         unsigned long long mantissa;
         unsigned short expn;
         unsigned short pad;
-      } __attribute__ ((packed)) parts; 
+      } parts; 
   } u;
 
   /* The normal bit is explicit for long doubles, unlike
