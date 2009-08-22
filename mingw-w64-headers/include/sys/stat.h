@@ -267,24 +267,71 @@ int __cdecl fstat(int _Desc,struct stat *_Stat);
 int __cdecl wstat(const wchar_t *_Filename,struct stat *_Stat);
 
 #ifndef __CRT__NO_INLINE
-/* FIXME: Don't optimize due to strict-aliasing issues. */
 #ifdef _USE_32BIT_TIME_T
-__CRT_INLINE int __cdecl __MINGW_ATTRIB_NO_OPTIMIZE
+__CRT_INLINE int __cdecl
  fstat(int _Desc,struct stat *_Stat) {
-  return _fstat32(_Desc,(struct _stat32 *)_Stat);
+  struct _stat32 st;
+  int ret=_fstat32(_Desc,&st);
+  if (ret == -1)
+    return -1;
+  /* struct stat and struct _stat32
+     are the same for this case. */
+  memcpy(_Stat, &st, sizeof(struct _stat32));
+  return ret;
 }
-__CRT_INLINE int __cdecl __MINGW_ATTRIB_NO_OPTIMIZE
+__CRT_INLINE int __cdecl
  stat(const char *_Filename,struct stat *_Stat) {
-  return _stat32(_Filename,(struct _stat32 *)_Stat);
+  struct _stat32 st;
+  int ret=_stat32(_Filename,&st);
+  if (ret == -1)
+    return -1;
+  /* struct stat and struct _stat32
+     are the same for this case. */
+  memcpy(_Stat, &st, sizeof(struct _stat32));
+  return ret;
 }
 #else
-__CRT_INLINE int __cdecl __MINGW_ATTRIB_NO_OPTIMIZE
+__CRT_INLINE int __cdecl
  fstat(int _Desc,struct stat *_Stat) {
-  return _fstat64i32(_Desc,(struct _stat64i32 *)_Stat);
+  struct _stat64 st;
+  int ret=_fstat64(_Desc,&st);
+  if (ret == -1)
+    return -1;
+  /* struct stat and struct _stat64i32
+     are the same for this case. */
+  _Stat->st_dev=st.st_dev;
+  _Stat->st_ino=st.st_ino;
+  _Stat->st_mode=st.st_mode;
+  _Stat->st_nlink=st.st_nlink;
+  _Stat->st_uid=st.st_uid;
+  _Stat->st_gid=st.st_gid;
+  _Stat->st_rdev=st.st_rdev;
+  _Stat->st_size=(_off_t) st.st_size;
+  _Stat->st_atime=st.st_atime;
+  _Stat->st_mtime=st.st_mtime;
+  _Stat->st_ctime=st.st_ctime;
+  return ret;
 }
-__CRT_INLINE int __cdecl __MINGW_ATTRIB_NO_OPTIMIZE
+__CRT_INLINE int __cdecl
  stat(const char *_Filename,struct stat *_Stat) {
-  return _stat64i32(_Filename,(struct _stat64i32 *)_Stat);
+  struct _stat64 st;
+  int ret=_stat64(_Filename,&st);
+  if (ret == -1)
+    return -1;
+  /* struct stat and struct _stat64i32
+     are the same for this case. */
+  _Stat->st_dev=st.st_dev;
+  _Stat->st_ino=st.st_ino;
+  _Stat->st_mode=st.st_mode;
+  _Stat->st_nlink=st.st_nlink;
+  _Stat->st_uid=st.st_uid;
+  _Stat->st_gid=st.st_gid;
+  _Stat->st_rdev=st.st_rdev;
+  _Stat->st_size=(_off_t) st.st_size;
+  _Stat->st_atime=st.st_atime;
+  _Stat->st_mtime=st.st_mtime;
+  _Stat->st_ctime=st.st_ctime;
+  return ret;
 }
 #endif /* _USE_32BIT_TIME_T */
 #endif /* __CRT__NO_INLINE */

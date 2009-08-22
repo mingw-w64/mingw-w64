@@ -1,5 +1,11 @@
 2009-08-22  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* fstat, stat, wstat: Instead of calling a function, "inline" (copy
+	the body of) the called function and avoid the cast which overcomes
+	the strict aliasing violation.  For the _USE_32BIT_TIME_T case, use
+	memcpy.  Remove the _no_optimize attributes which are not necessary
+	anymore.  The inlined versions from sys/stat.h should work fine now.
+
 	* _findfirst64i32, _findnext64i32, _fstat64i32, _stat64i32,
 	_wfindfirst64i32, _wfindnext64i32, _wstat64i32: Do not copy
 	the structures to the argument buffer if the called function
