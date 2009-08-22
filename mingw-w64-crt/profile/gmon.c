@@ -59,7 +59,8 @@ static char rcsid[] = "$OpenBSD: gmon.c,v 1.8 1997/07/23 21:11:27 kstailey Exp $
 #define bzero(ptr,size) memset (ptr, 0, size);
 #endif
 
-struct gmonparam _gmonparam = { GMON_PROF_OFF };
+struct gmonparam _gmonparam = { GMON_PROF_OFF, NULL, 0, NULL, 0, NULL, 0, 0L,
+  0, 0, 0, 0};
 
 static int	s_scale;
 /* see profil(2) where this is describe (incorrectly) */
