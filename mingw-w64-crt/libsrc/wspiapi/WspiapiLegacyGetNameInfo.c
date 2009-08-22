@@ -24,9 +24,9 @@ WspiapiLegacyGetNameInfo(const struct sockaddr *ptSocketAddress,
 
   if ((!ptSocketAddress) || (tSocketLength < sizeof(struct sockaddr)))
     return EAI_FAIL;
-  if (ptSocketAddress->sa_family!=AF_INET)
+  if (ptSocketAddress->sa_family != (unsigned short)AF_INET)
     return EAI_FAMILY;
-  if (tSocketLength < sizeof(struct sockaddr_in))
+  if ((size_t) tSocketLength < sizeof(struct sockaddr_in))
     return EAI_FAIL;
   if (!(pszNodeName && tNodeLength) && !(pszServiceName && tServiceLength))
     return EAI_NONAME;

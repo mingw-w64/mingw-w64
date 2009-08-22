@@ -460,7 +460,11 @@ static void duplicate_ppstrings (int ac, char ***av)
 #endif
 
 static void
-__mingw_invalidParameterHandler (const wchar_t *expression, const wchar_t *function, const wchar_t *file, unsigned int line, uintptr_t pReserved)
+__mingw_invalidParameterHandler (const wchar_t *expression __attribute__ ((__unused__)),
+				 const wchar_t *function __attribute__ ((__unused__)),
+				 const wchar_t *file __attribute__ ((__unused__)),
+				 unsigned int line __attribute__ ((__unused__)),
+				 uintptr_t pReserved __attribute__ ((__unused__)))
 {
 #ifdef __MINGW_SHOW_INVALID_PARAMETER_EXCEPTION
    wprintf(L"Invalid parameter detected in function %s. File: %s Line: %d\n", function, file, line);

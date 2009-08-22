@@ -108,7 +108,9 @@ __mingwthr_run_key_dtors (void)
 }
   
 BOOL
-__mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved)
+__mingw_TLScallback (HANDLE hDllHandle __attribute__ ((__unused__)),
+		     DWORD reason,
+		     LPVOID reserved __attribute__ ((__unused__)))
 {
   switch (reason)
     {

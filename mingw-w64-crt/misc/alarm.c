@@ -4,7 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-unsigned int alarm(unsigned int seconds)
+unsigned int alarm(unsigned int seconds __attribute__ ((__unused__)))
 {
   return 0;
 }

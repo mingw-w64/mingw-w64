@@ -1469,7 +1469,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
     /* taking the rightmost digit in each pass...
      */
     int c = value.__pformat_fpreg_mantissa & 0xF;
-    if( c == value.__pformat_fpreg_mantissa )
+    if( c == (int) value.__pformat_fpreg_mantissa )
     {
       /* inserting the radix point, when we reach the last,
        * (i.e. the most significant digit), unless we found no

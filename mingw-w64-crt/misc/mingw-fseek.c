@@ -34,7 +34,9 @@ __mingw_fwrite (const void *buffer, size_t size, size_t count, FILE *fp)
   if ((_osver & 0x8000) &&  __mingw_fseek_called)
     {
       ULARGE_INTEGER actual_length;
-      LARGE_INTEGER current_position = {{0LL}};
+      LARGE_INTEGER current_position;
+
+      memset (&current_position, 0, sizeof (LARGE_INTEGER));
       __mingw_fseek_called = 0;
       fflush (fp);
       actual_length.LowPart = GetFileSize ((HANDLE) _get_osfhandle (fileno (fp)), 
@@ -46,7 +48,7 @@ __mingw_fwrite (const void *buffer, size_t size, size_t count, FILE *fp)
                                          	 current_position.LowPart,
 					 	 &current_position.HighPart,
 						 FILE_CURRENT);
-      if (current_position.LowPart == 0xFFFFFFFF 
+      if (current_position.LowPart == 0xFFFFFFFF
           && GetLastError() != NO_ERROR )
         return -1;
 

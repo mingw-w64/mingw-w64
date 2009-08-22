@@ -45,7 +45,7 @@ wctrans_t
 wctrans (const char* property)
 {
   int i;
-  for ( i = 0; i < NTMAP; ++i )
+  for ( i = 0; i < (int) NTMAP; ++i )
     if (strcmp (property, tmap[i].name) == 0)
       return tmap[i].val;
    return 0;

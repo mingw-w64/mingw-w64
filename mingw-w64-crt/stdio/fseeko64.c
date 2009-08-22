@@ -187,7 +187,7 @@ __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd)
       return -1ll;
   }
 
-  if ( ((newpos.twoints.lowerhalf = SetFilePointer(osHandle,newpos.twoints.lowerhalf,&(newpos.twoints.upperhalf),mthd))==-1L)
+  if ((long) (newpos.twoints.lowerhalf = SetFilePointer(osHandle,newpos.twoints.lowerhalf,&(newpos.twoints.upperhalf),mthd)) == -1L
      && ((err = GetLastError()) != NO_ERROR))
   {
     mingw_dosmaperr (err);

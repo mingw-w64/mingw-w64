@@ -45,7 +45,7 @@ int __cdecl __vsnprintf( char *buf, size_t length, const char *fmt, va_list argv
    * then add the requisite NUL terminator.
    */
   retval = __pformat( 0, buf, --length, fmt, argv );
-  buf[retval < length ? retval : length] = '\0';
+  buf[retval < (int) length ? retval : (int)length] = '\0';
 
   return retval;
 }
