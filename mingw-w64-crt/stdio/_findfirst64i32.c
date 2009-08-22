@@ -7,6 +7,8 @@ intptr_t __cdecl _findfirst64i32(const char *_Filename,struct _finddata64i32_t *
 {
   struct __finddata64_t fd;
   intptr_t ret = _findfirst64(_Filename,&fd);
+  if (ret == -1)
+    return -1;
   _FindData->attrib=fd.attrib;
   _FindData->time_create=fd.time_create;
   _FindData->time_access=fd.time_access;

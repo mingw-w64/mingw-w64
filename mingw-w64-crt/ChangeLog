@@ -1,3 +1,10 @@
+2009-08-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _findfirst64i32, _findnext64i32, _fstat64i32, _stat64i32,
+	_wfindfirst64i32, _wfindnext64i32, _wstat64i32: Do not copy
+	the structures to the argument buffer if the called function
+	fails.
+
 2009-08-21  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Renamed stdio/_fwstat64i32.c to _wstat64i32.c.  Split

@@ -178,6 +178,8 @@ extern "C" {
   {
     struct _stat64 st;
     int ret=_fstat64(_FileDes,&st);
+    if (ret == -1)
+      return -1;
     _Stat->st_dev=st.st_dev;
     _Stat->st_ino=st.st_ino;
     _Stat->st_mode=st.st_mode;
@@ -200,6 +202,8 @@ extern "C" {
   {
     struct _stat64 st;
     int ret=_stat64(_Name,&st);
+    if (ret == -1)
+      return -1;
     _Stat->st_dev=st.st_dev;
     _Stat->st_ino=st.st_ino;
     _Stat->st_mode=st.st_mode;

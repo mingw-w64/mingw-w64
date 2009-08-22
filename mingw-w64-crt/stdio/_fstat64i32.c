@@ -6,6 +6,8 @@ int __cdecl _fstat64i32(int _FileDes,struct _stat64i32 *_Stat)
 {
   struct _stat64 st;
   int ret=_fstat64(_FileDes,&st);
+  if (ret == -1)
+    return -1;
   _Stat->st_dev=st.st_dev;
   _Stat->st_ino=st.st_ino;
   _Stat->st_mode=st.st_mode;
