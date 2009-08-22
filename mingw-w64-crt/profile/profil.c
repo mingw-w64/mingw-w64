@@ -65,9 +65,9 @@ print_prof (struct profinfo *p)
 /* Everytime we wake up use the main thread pc to hash into the cell in the
    profile buffer ARG. */
 
-static DWORD CALLBACK profthr_func (LPVOID) __MINGW_ATTRIB_NORETURN;
+static void CALLBACK profthr_func (LPVOID) __MINGW_ATTRIB_NORETURN;
 
-static DWORD CALLBACK
+static void CALLBACK
 profthr_func (LPVOID arg)
 {
   struct profinfo *p = (struct profinfo *) arg;
@@ -86,7 +86,6 @@ profthr_func (LPVOID arg)
 #endif
       Sleep (SLEEPTIME);
     }
-  return 0;
 }
 
 /* Stop profiling to the profiling buffer pointed to by P. */
@@ -120,7 +119,7 @@ profile_on (struct profinfo *p)
       return -1;
     }
 
-  p->profthr = CreateThread (0, 0, profthr_func,
+  p->profthr = CreateThread (0, 0, (DWORD (WINAPI *)(LPVOID)) profthr_func,
                              (void *) p, 0, &thrid);
 
   /* Set profiler thread priority to highest to be sure that it gets the

@@ -80,7 +80,7 @@ monstartup(lowpc, highpc)
 	size_t lowpc;
 	size_t highpc;
 {
-	register int o;
+	register size_t o;
 	char *cp;
 	struct gmonparam *p = &_gmonparam;
 
