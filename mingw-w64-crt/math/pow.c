@@ -692,8 +692,7 @@ return( z );
 
 
 /* Find a multiple of 1/16 that is within 1/16 of x. */
-static __inline__ double reduc(x)
-double x;
+static double reduc(double x)
 {
 double t;
 
