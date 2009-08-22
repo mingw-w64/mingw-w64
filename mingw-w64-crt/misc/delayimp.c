@@ -6,9 +6,10 @@
  * This file is derived from Microsoft implementation file delayhlp.cpp, which
  * is free for users to modify and derive.
  */
+#ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
+#endif
 #include <windows.h>
-
 #include <delayimp.h>
 
 static size_t __strlen(const char *sz)

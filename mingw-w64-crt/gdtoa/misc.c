@@ -33,7 +33,9 @@ THIS SOFTWARE.
 #if defined(__MINGW32__) || defined(__MINGW64__)
 /* we have to include windows.h before gdtoa
    headers, otherwise defines cause conflicts. */
+#ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
+#endif
 #include <windows.h>
 
 #define NLOCKS 2

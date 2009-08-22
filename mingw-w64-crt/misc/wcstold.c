@@ -12,7 +12,9 @@
 
  /* This routine has been placed in the public domain.*/
 
+#ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
+#endif
 #include <windows.h>
 #include <locale.h>
 #include <wchar.h>

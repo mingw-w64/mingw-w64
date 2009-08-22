@@ -1,6 +1,7 @@
+#ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
+#endif
 #include <windows.h>
-#undef WIN32_LEAN_AND_MEAN
 #include <stdlib.h>
 
 /* We support TLS cleanup code in any case. If shared version of libgcc is used _CRT_MT has value 1, otherwise

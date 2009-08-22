@@ -3,12 +3,14 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
 #include "mb_wc_common.h"
 #include <wchar.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
-#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 /* Return just the first byte after translating to multibyte.  */
