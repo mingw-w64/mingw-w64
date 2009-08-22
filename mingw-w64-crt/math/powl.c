@@ -672,8 +672,7 @@ __convert_inf_to_maxnum(long double x)
 
 
 /* Find a multiple of 1/NXT that is within 1/NXT of x. */
-static __inline__ long double reducl(x)
-long double x;
+static long double reducl(long double x)
 {
 long double t;
 
