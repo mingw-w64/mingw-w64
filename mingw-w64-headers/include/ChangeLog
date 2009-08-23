@@ -1,3 +1,7 @@
+2009-08-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* ...: Fix missing prototypes before inlined functions are implemented.
+
 2009-08-22  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* fstat, stat, wstat: Instead of calling a function, "inline" (copy
