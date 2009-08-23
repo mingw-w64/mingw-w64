@@ -15,6 +15,8 @@
 extern IMAGE_DOS_HEADER __ImageBase;
 #endif
 
+BOOL _ValidateImageBase (PBYTE);
+
 BOOL
 _ValidateImageBase (PBYTE pImageBase)
 {
@@ -33,6 +35,8 @@ _ValidateImageBase (PBYTE pImageBase)
     return FALSE;
   return TRUE;
 }
+
+PIMAGE_SECTION_HEADER _FindPESection (PBYTE, DWORD_PTR);
 
 PIMAGE_SECTION_HEADER
 _FindPESection (PBYTE pImageBase, DWORD_PTR rva)
@@ -53,6 +57,8 @@ _FindPESection (PBYTE pImageBase, DWORD_PTR rva)
     }
   return NULL;
 }
+
+BOOL _IsNonwritableInCurrentImage (PBYTE);
 
 BOOL
 _IsNonwritableInCurrentImage (PBYTE pTarget)

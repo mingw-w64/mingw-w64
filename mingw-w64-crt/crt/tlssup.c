@@ -66,6 +66,8 @@ static __CRT_THREAD TlsDtorNode dtor_list_head;
 
 extern int _CRT_MT;
 
+BOOL WINAPI __dyn_tls_init (HANDLE, DWORD, LPVOID);
+
 BOOL WINAPI
 __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
@@ -92,6 +94,8 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
 const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback = (const PIMAGE_TLS_CALLBACK) __dyn_tls_init;
 _CRTALLOC(".CRT$XLC") PIMAGE_TLS_CALLBACK __xl_c = (PIMAGE_TLS_CALLBACK) __dyn_tls_init;
+
+int __cdecl __tlregdtor (_PVFV);
 
 int __cdecl
 __tlregdtor (_PVFV func)

@@ -13,6 +13,8 @@ extern HINSTANCE __mingw_winmain_hInstance;
 extern LPWSTR __mingw_winmain_lpCmdLine;
 extern DWORD __mingw_winmain_nShowCmd;
 
+int wmain (int, wchar_t **, whchar_t **);
+
 /*ARGSUSED*/
 int wmain (int flags __attribute__ ((__unused__)),
 	   wchar_t **cmdline __attribute__ ((__unused__)),

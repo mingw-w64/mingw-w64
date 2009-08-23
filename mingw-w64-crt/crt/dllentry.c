@@ -8,6 +8,8 @@
 #define _DECL_DLLMAIN
 #include <process.h>
 
+BOOL WINAPI DllEntryPoint (HANDLE, DWORD, LPVOID);
+
 BOOL WINAPI DllEntryPoint (HANDLE hDllHandle __attribute__ ((__unused__)),
                            DWORD dwReason __attribute__ ((__unused__)),
 			   LPVOID lpreserved __attribute__ ((__unused__)))
