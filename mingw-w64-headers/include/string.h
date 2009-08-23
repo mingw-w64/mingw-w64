@@ -95,6 +95,8 @@ extern "C" {
   int __cdecl stricmp(const char *_Str1,const char *_Str2);
   char *__cdecl strlwr(char *_Str);
   int __cdecl strnicmp(const char *_Str1,const char *_Str,size_t _MaxCount);
+  int __cdecl strncasecmp (const char *, const char *, size_t);
+  int __cdecl strcasecmp (const char *, const char *);
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl strncasecmp (const char *__sz1, const char *__sz2, size_t __sizeMaxCompare) { return _strnicmp (__sz1, __sz2, __sizeMaxCompare); }
   __CRT_INLINE int __cdecl strcasecmp (const char *__sz1, const char *__sz2) { return _stricmp (__sz1, __sz2); }
