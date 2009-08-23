@@ -22,7 +22,7 @@ WspiapiLegacyGetNameInfo(const struct sockaddr *ptSocketAddress,
   char *pszNode = NULL;
   char *pc = NULL;
 
-  if ((!ptSocketAddress) || (tSocketLength < sizeof(struct sockaddr)))
+  if ((!ptSocketAddress) || ((size_t)tSocketLength < sizeof(struct sockaddr)))
     return EAI_FAIL;
   if (ptSocketAddress->sa_family != (unsigned short)AF_INET)
     return EAI_FAMILY;
