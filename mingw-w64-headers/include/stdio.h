@@ -349,6 +349,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _vsnwprintf(wchar_t *_Dest,size_t _Count,const wchar_t *_Format,va_list _Args);
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
   int __cdecl snwprintf (wchar_t* s, size_t n, const wchar_t*  format, ...);
+  int __cdecl vsnwprintf (wchar_t *, size_t, const wchar_t *, va_list);
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl vsnwprintf (wchar_t* s, size_t n, const wchar_t* format, va_list arg) { return _vsnwprintf(s,n,format,arg); }
 #endif /* !__CRT__NO_INLINE */
