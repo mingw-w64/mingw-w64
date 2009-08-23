@@ -271,6 +271,14 @@ _CRTIMP int * __cdecl __MINGW_NOTHROW __fpecode(void);
   _CRTIMP int __cdecl __MINGW_NOTHROW _finite (double);
   _CRTIMP int __cdecl __MINGW_NOTHROW _fpclass (double);
   _CRTIMP int __cdecl __MINGW_NOTHROW _isnan (double);
+
+#ifndef __CRT__NO_INLINE
+   extern long double _chgsignl (long double);
+  __CRT_INLINE long double _chgsignl(long double _Number) { return _chgsign((double)(_Number)); }
+#else
+#define _chgsignl(NO)	(long double) _chgsign((double)(NO))
+#endif
+#define _copysignl copysignl
 #endif
 
 #ifdef	__cplusplus
