@@ -132,6 +132,8 @@ static int WINAPI FLoadedAtPreferredAddress(PIMAGE_NT_HEADERS pinh,HMODULE hmod)
 /*typedef unsigned long *PULONG_PTR;*/
 #endif
 
+FARPROC WINAPI __delayLoadHelper2(PCImgDelayDescr pidd,FARPROC *ppfnIATEntry);
+
 FARPROC WINAPI __delayLoadHelper2(PCImgDelayDescr pidd,FARPROC *ppfnIATEntry)
 {
   InternalImgDelayDescr idd = {
