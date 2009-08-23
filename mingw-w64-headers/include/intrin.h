@@ -11,7 +11,8 @@
 #include <setjmp.h>
 #include <stddef.h>
 
-#ifdef _WIN32
+#if defined(__GNUC__) && \
+   (defined(__i386__) || defined(__x86_64__))
 #include <x86intrin.h>
 #endif
 
