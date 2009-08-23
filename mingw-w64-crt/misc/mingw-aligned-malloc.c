@@ -35,6 +35,8 @@
 /* Pointer must sometimes be aligned; assume sizeof(void*) is a power of two. */
 #define ORIG_PTR(p) (*(((void **) (UI(p) & (~UI(sizeof(void*) - 1)))) - 1))
 
+void *__mingw_aligned_offset_malloc (size_t, size_t, size_t);
+
 void *
 __mingw_aligned_offset_malloc (size_t size, size_t alignment, size_t offset)
 {
