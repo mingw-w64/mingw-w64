@@ -63,6 +63,7 @@ static char rcsid[] = "$OpenBSD: mcount.c,v 1.6 1997/07/23 21:11:27 kstailey Exp
  */
 /* _mcount; may be static, inline, etc */
 _MCOUNT_DECL (size_t, size_t);
+void mcount ();
 
 _MCOUNT_DECL (size_t frompc, size_t selfpc)
 {
