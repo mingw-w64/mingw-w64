@@ -76,10 +76,10 @@ fake_sbrk(int size)
     return malloc(size);
 }
 
+void monstartup (size_t, size_t);
+
 void
-monstartup(lowpc, highpc)
-	size_t lowpc;
-	size_t highpc;
+monstartup (size_t lowpc, size_t highpc)
 {
 	register size_t o;
 	char *cp;
@@ -143,8 +143,9 @@ monstartup(lowpc, highpc)
 	moncontrol(1);
 }
 
+void _mcleanup (void);
 void
-_mcleanup()
+_mcleanup(void)
 {
 	int fd;
 	int hz;
@@ -270,8 +271,7 @@ _mcleanup()
  *	all the data structures are ready.
  */
 void
-moncontrol(mode)
-	int mode;
+moncontrol(int mode)
 {
 	struct gmonparam *p = &_gmonparam;
 
