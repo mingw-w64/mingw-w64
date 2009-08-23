@@ -472,8 +472,20 @@ extern "C" {
   _CRTIMP int __cdecl _atodbl_l(_CRT_DOUBLE *_Result,char *_Str,_locale_t _Locale);
   _CRTIMP int __cdecl _atoldbl_l(_LDOUBLE *_Result,char *_Str,_locale_t _Locale);
   _CRTIMP int __cdecl _atoflt_l(_CRT_FLOAT *_Result,char *_Str,_locale_t _Locale);
+#pragma push_macro ("_lrotr")
+#pragma push_macro ("_lrotl")
+#undef _lrotr
+#undef _lrotl
+#ifdef __x86_64__
+  unsigned long long __cdecl _lrotl(unsigned long long _Val,int _Shift);
+  unsigned long long __cdecl _lrotr(unsigned long long _Val,int _Shift);
+#else
   unsigned long __cdecl _lrotl(unsigned long _Val,int _Shift);
   unsigned long __cdecl _lrotr(unsigned long _Val,int _Shift);
+#endif
+#pragma pop_macro ("_lrotl")
+#pragma pop_macro ("_lrotr")
+
   _CRTIMP void __cdecl _makepath(char *_Path,const char *_Drive,const char *_Dir,const char *_Filename,const char *_Ext);
   _onexit_t __cdecl _onexit(_onexit_t _Func);
 
@@ -482,11 +494,24 @@ extern "C" {
   void __cdecl perror(const char *_ErrMsg);
 #endif
   _CRTIMP int __cdecl _putenv(const char *_EnvString);
-  unsigned int __cdecl _rotl(unsigned int _Val,int _Shift);
 #if _INTEGRAL_MAX_BITS >= 64
+#pragma push_macro ("_rotr64")
+#pragma push_macro ("_rotl64")
+#undef _rotl64
+#undef _rotr64
   unsigned __int64 __cdecl _rotl64(unsigned __int64 _Val,int _Shift);
+  unsigned __int64 __cdecl _rotr64(unsigned __int64 Value,int Shift);
+#pragma pop_macro ("_rotl64")
+#pragma pop_macro ("_rotr64")
 #endif
+#pragma push_macro ("_rotr")
+#pragma push_macro ("_rotl")
+#undef _rotr
+#undef _rotl
   unsigned int __cdecl _rotr(unsigned int _Val,int _Shift);
+  unsigned int __cdecl _rotl(unsigned int _Val,int _Shift);
+#pragma pop_macro ("_rotl")
+#pragma pop_macro ("_rotr")
 #if _INTEGRAL_MAX_BITS >= 64
   unsigned __int64 __cdecl _rotr64(unsigned __int64 _Val,int _Shift);
 #endif

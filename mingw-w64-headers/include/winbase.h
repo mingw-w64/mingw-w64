@@ -979,6 +979,13 @@ extern "C" {
   LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
   LONG InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand);
   LONGLONG InterlockedCompareExchange64(LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand);
+  LONGLONG InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value);
+  LONGLONG InterlockedOr64 (LONGLONG volatile *Destination,LONGLONG Value);
+  LONGLONG InterlockedXor64 (LONGLONG volatile *Destination,LONGLONG Value);
+  LONGLONG InterlockedIncrement64(LONGLONG volatile *Addend);
+  LONGLONG InterlockedDecrement64(LONGLONG volatile *Addend);
+  LONGLONG InterlockedExchange64(LONGLONG volatile *Target,LONGLONG Value);
+  LONGLONG InterlockedExchangeAdd64(LONGLONG volatile *Addend,LONGLONG Value);
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE LONGLONG InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value) {
     LONGLONG Old;

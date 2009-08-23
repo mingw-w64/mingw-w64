@@ -354,10 +354,23 @@ typedef DWORD LCID;
 #define RotateRight32 _rotr
 #define RotateRight64 _rotr64
 
+#pragma push_macro ("_rotl")
+#pragma push_macro ("_rotr")
+#undef _rotl
+#undef _rotr
     unsigned int __cdecl _rotl(unsigned int Value,int Shift);
-    unsigned __int64 __cdecl _rotl64(unsigned __int64 Value,int Shift);
     unsigned int __cdecl _rotr(unsigned int Value,int Shift);
+#pragma pop_macro ("_rotr")
+#pragma pop_macro ("_rotl")
+#pragma push_macro ("_rotr64")
+#pragma push_macro ("_rotl64")
+#undef _rotl64
+#undef _rotr64
+    unsigned __int64 __cdecl _rotl64(unsigned __int64 Value,int Shift);
     unsigned __int64 __cdecl _rotr64(unsigned __int64 Value,int Shift);
+#pragma pop_macro ("_rotl64")
+#pragma pop_macro ("_rotr64")
+
 #ifdef __cplusplus
   }
 #endif
@@ -1544,6 +1557,8 @@ typedef DWORD LCID;
   extern "C" {
 #endif
 
+    BOOLEAN InterlockedBitTestAndSet(LONG *Base,LONG Bit);
+    BOOLEAN InterlockedBitTestAndReset(LONG *Base,LONG Bit);
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN InterlockedBitTestAndSet(LONG *Base,LONG Bit) {
       int old = 0;
@@ -1606,6 +1621,7 @@ typedef DWORD LCID;
 #ifdef __CRT__NO_INLINE
 # define DbgRaiseAssertionFailure() __asm__ __volatile__("int $0x2c");
 #else
+  VOID DbgRaiseAssertionFailure(void);
   __CRT_INLINE VOID DbgRaiseAssertionFailure(void) {
     __asm__ __volatile__("int $0x2c");
   }

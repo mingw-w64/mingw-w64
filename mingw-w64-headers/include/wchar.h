@@ -823,13 +823,15 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define _INC_WTIME_INL
 #ifdef _USE_32BIT_TIME_T
 #ifndef __CRT__NO_INLINE
-__CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime32(_Time); }
+  wchar_t *__cdecl _wctime(const time_t *_Time);
+  __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime32(_Time); }
 #else
 #define _wctime _wctime32
 #endif /* __CRT__NO_INLINE */
 #else
 #ifndef __CRT__NO_INLINE
-__CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
+  wchar_t *__cdecl _wctime(const time_t *_Time);
+  __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
 #else
 #define _wctime _wctime64
 #endif /* __CRT__NO_INLINE */

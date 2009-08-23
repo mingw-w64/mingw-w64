@@ -1,5 +1,9 @@
 2009-08-23  Kai Tietz  <kai.tietz@onevision.com>
 
+	* intrin.h: Use intrin86.h from gcc.
+	* winbase.h, winnt.h: Adjust intrinsic to be prototypes and compatible with
+	gnu's intrin86.h definitions.
+
 	* ...: Fix missing prototypes before inlined functions are implemented.
 
 2009-08-22  Ozkan Sezer  <sezeroz@gmail.com>

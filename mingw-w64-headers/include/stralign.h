@@ -24,6 +24,8 @@ extern "C" {
 #define ua_wcsicmp wcsicmp
 #define ua_wcslen wcslen
 #define ua_wcsrchr wcsrchr
+
+  PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source);
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source) { return wcscpy(Destination,Source); }
 #else

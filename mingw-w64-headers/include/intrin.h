@@ -10,14 +10,9 @@
 #include <_mingw.h>
 #include <setjmp.h>
 #include <stddef.h>
-#ifdef __SSE2__
-#include <emmintrin.h>
-#endif
-#ifdef __SSE__
-#include <xmmintrin.h>
-#endif
-#ifdef __MMX__
-#include <mmintrin.h>
+
+#ifdef _WIN32
+#include <x86intrin.h>
 #endif
 
 #ifndef __MMX__
@@ -287,8 +282,19 @@ extern "C" {
     __MACHINEIA64(__int64 __load128(void *,__int64 *))
     __MACHINEIA64(__int64 __load128_acq(void *,__int64 *))
     __MACHINEZ(void __cdecl longjmp(jmp_buf,int))
+#pragma push_macro ("_lrotl")
+#pragma push_macro ("_lrotr")
+#undef _lrotl
+#undef _lrotr
+#ifdef __x86_64__
+    __MACHINE(unsigned long long __cdecl _lrotl(unsigned long long,int))
+    __MACHINE(unsigned long long __cdecl _lrotr(unsigned long long,int))
+#else
     __MACHINE(unsigned long __cdecl _lrotl(unsigned long,int))
     __MACHINE(unsigned long __cdecl _lrotr(unsigned long,int))
+#endif
+#pragma pop_macro ("_lrotl")
+#pragma pop_macro ("_lrotr")
     __MACHINEI(unsigned __int64 __ll_lshift(unsigned __int64,int))
     __MACHINEI(__int64 __ll_rshift(__int64,int))
     __MACHINEIA64(__m64 __m64_czx1l(__m64))
@@ -357,10 +363,20 @@ extern "C" {
     __MACHINEIA64(void *_ReturnAddress(void))
     __MACHINESA(void *_ReturnAddress(void))
     __MACHINECE(void *_ReturnAddress(void))
+#pragma push_macro ("_rotl")
+#pragma push_macro ("_rotr")
+#undef _rotl
+#undef _rotr
     __MACHINE(unsigned int __cdecl _rotl(unsigned int,int))
-    __MACHINECE(unsigned __int64 __cdecl _rotl64(unsigned __int64,int))
     __MACHINE(unsigned int __cdecl _rotr(unsigned int,int))
+#pragma pop_macro ("_rotr")
+#pragma pop_macro ("_rotl")
+#undef _rotl64
+#undef _rotr64
+    __MACHINECE(unsigned __int64 __cdecl _rotl64(unsigned __int64,int))
     __MACHINECE(unsigned __int64 __cdecl _rotr64(unsigned __int64,int))
+#define _rotl64 __rolq
+#define _rotr64 __rorq
     __MACHINEIA64(void __rsm(int))
     __MACHINEIA64(void __rum(int))
 #ifndef USE_NO_MINGW_SETJMP_TWO_ARGS
