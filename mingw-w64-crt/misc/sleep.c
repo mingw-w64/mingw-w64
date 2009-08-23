@@ -9,6 +9,8 @@
 #include <errno.h>
 #include <windows.h>
 
+unsigned int sleep (unsigned int);
+
 unsigned int sleep (unsigned int seconds)
 {
   Sleep (seconds * 1000);

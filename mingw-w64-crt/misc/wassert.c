@@ -25,8 +25,10 @@ static void cpy_wstr (char *buf, const wchar_t *src, size_t max)
   *buf = 0;
 }
 
+void __cdecl _wassert (const wchar_t *, const wchar_t *,unsigned);
+
 void __cdecl
-_wassert(const wchar_t *_Message,const wchar_t *_File,unsigned _Line)
+_wassert (const wchar_t *_Message, const wchar_t *_File, unsigned _Line)
 {
   char *msgbuf = (char *) malloc (8192);
   char fn[MAX_PATH + 1], msg[MAX_PATH + 1], iFile[MAX_PATH + 1];

@@ -12,6 +12,8 @@
 #define FILETIME_1970 11644473600ull /* seconds between 1/1/1601 and 1/1/1970 */
 #define HECTONANOSEC_PER_SEC 10000000ull
 
+int getntptimeofday (struct timespec *, struct timezone *);
+
 int getntptimeofday (struct timespec *tp, struct timezone *z)
 {
   int res = 0;

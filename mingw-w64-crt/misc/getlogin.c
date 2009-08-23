@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include <windows.h>
 
+char *getlogin(void);
+
 char *getlogin(void)
 {
   static char user_name[MAX_PATH];
