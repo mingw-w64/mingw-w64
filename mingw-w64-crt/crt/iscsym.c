@@ -6,6 +6,9 @@
 
 #include <ctype.h>
 #undef iscsym
+
+int iscsym (int);
+
 int
 iscsym (int c)
 {

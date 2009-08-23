@@ -151,8 +151,10 @@ BOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
 static BOOL __DllMainCRTStartup (HANDLE, DWORD, LPVOID);
 
+BOOL WINAPI DllMainCRTStartup (HANDLE, DWORD, LPVOID);
+
 BOOL WINAPI
-DllMainCRTStartup(HANDLE hDllHandle,DWORD dwReason,LPVOID lpreserved)
+DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
   mingw_app_type = 0;
   if (dwReason == DLL_PROCESS_ATTACH)

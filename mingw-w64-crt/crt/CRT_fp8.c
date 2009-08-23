@@ -7,6 +7,8 @@
 #include <_mingw.h>
 
 extern void (* __MINGW_IMP_SYMBOL(_fpreset))(void);
+void _fpreset (void);
+
 void _fpreset (void)
 {
   (* __MINGW_IMP_SYMBOL(_fpreset))();

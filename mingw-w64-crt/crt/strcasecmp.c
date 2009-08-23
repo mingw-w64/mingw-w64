@@ -8,9 +8,9 @@
 #include <string.h>
 
 #undef strcasecmp
-
+int strcasecmp (const char *, const char *);
 int
-strcasecmp (const char *sz1,const char *sz2)
+strcasecmp (const char *sz1, const char *sz2)
 {
   return _stricmp (sz1,sz2);
 }

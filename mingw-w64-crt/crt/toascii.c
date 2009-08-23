@@ -7,6 +7,9 @@
 #include <ctype.h>
 
 #undef toascii
+
+int toascii (int);
+
 int
 toascii (int c)
 {

@@ -7,6 +7,8 @@
 #include <ctype.h>
 #undef iscsymf
 
+int iscsymf (int);
+
 int
 iscsymf (int c)
 {

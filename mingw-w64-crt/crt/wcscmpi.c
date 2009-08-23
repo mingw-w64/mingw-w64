@@ -8,6 +8,7 @@
 #include <string.h>
 
 #undef wcscmpi
+int wcscmpi (const wchar_t *, const wchar_t *);
 
 int
 wcscmpi (const wchar_t * ws1,const wchar_t * ws2)

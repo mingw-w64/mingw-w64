@@ -7,6 +7,8 @@
 #include <ctype.h>
 
 #undef isascii
+int isascii (int);
+
 int
 isascii (int c)
 {

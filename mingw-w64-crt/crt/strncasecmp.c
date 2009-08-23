@@ -8,6 +8,7 @@
 #include <string.h>
 
 #undef strncasecmp
+int strncasecmp (const char *, const char *, size_t);
 
 int
 strncasecmp (const char *sz1,const char *sz2,size_t sizeMaxCompare)
