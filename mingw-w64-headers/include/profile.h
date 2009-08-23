@@ -51,7 +51,7 @@
 #ifndef _WIN64
 #define	MCOUNT \
 void									\
-mcount()								\
+mcount(void)								\
 {									\
 	size_t selfpc, frompcindex;					\
 	/*								\
@@ -85,7 +85,7 @@ mcount()								\
 #else
 #define	MCOUNT \
 void									\
-mcount()								\
+mcount(void)								\
 {									\
 	size_t selfpc, frompcindex;					\
 	/*								\
