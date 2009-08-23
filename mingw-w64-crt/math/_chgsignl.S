@@ -2,12 +2,20 @@
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
+ *
+ * IEEE 854 double-extended-precision format
+ * unsigned int mantissa1:32
+ * unsigned int mantissa0:32
+ * unsigned int exponent:15
+ * unsigned int negative:1
+ * unsigned int empty:16
+ *
+ * long double _chgsignl(long double x) {
+ *   ((unsigned int *) &x)[2] ^= 0x00008000;
+ *   return x;
+ * }
  */
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Changes for long double by Ulrich Drepper <drepper@cygnus.com>
- * Public domain.
- */
+
 #include <_mingw_mac.h>
 
 	.file	"_chgignl.S"
@@ -17,7 +25,6 @@
 #else
 	.align 4
 #endif
-
 .globl __MINGW_USYMBOL(_chgsignl)
 	.def	__MINGW_USYMBOL(_chgsignl);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(_chgsignl):
@@ -36,3 +43,4 @@ __MINGW_USYMBOL(_chgsignl):
 	fldt	4(%esp)
 	ret
 #endif
+

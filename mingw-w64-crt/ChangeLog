@@ -1,5 +1,7 @@
 2009-08-23  Kai Tietz  <kai.tietz@onevision.com>
 
+	* math/_chgsignl.S: Implemented _chgsignl().
+
 	* ...: Add missing prototypes.
 
 2009-08-22  Ozkan Sezer  <sezeroz@gmail.com>
