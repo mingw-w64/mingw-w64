@@ -151,12 +151,16 @@ pre_cpp_init (void)
 
 static int __tmainCRTStartup (void);
 
+int WinMainCRTStartup (void);
+
 int WinMainCRTStartup (void)
 {
   mingw_app_type = 1;
   __security_init_cookie ();
   return __tmainCRTStartup ();
 }
+
+int mainCRTStartup (void);
 
 int mainCRTStartup (void)
 {
@@ -165,7 +169,7 @@ int mainCRTStartup (void)
   return __tmainCRTStartup ();
 }
 
-
+static
 __declspec(noinline) int
 __tmainCRTStartup (void)
 {
