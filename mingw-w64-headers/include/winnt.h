@@ -850,6 +850,9 @@ typedef DWORD LCID;
 #define InterlockedBitTestAndSet64 _interlockedbittestandset64
 #define InterlockedBitTestAndReset64 _interlockedbittestandreset64
 
+    BOOLEAN _bittest(LONG const *Base,LONG Offset);
+    BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset);
+
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN _bittest(LONG const *Base,LONG Offset) {
       int old = 0;
@@ -868,6 +871,18 @@ typedef DWORD LCID;
 #endif /* __CRT__NO_INLINE */
 
     BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit);
+    BOOLEAN _bittestandset(LONG *Base,LONG Offset);
+    BOOLEAN _bittestandreset(LONG *Base,LONG Offset);
+    BOOLEAN _interlockedbittestandset(LONG *Base,LONG Offset);
+    BOOLEAN _interlockedbittestandreset(LONG *Base,LONG Offset);
+#ifdef _WIN64
+    BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset);
+    BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset);
+    BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset);
+    BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset);
+    BOOLEAN _interlockedbittestandset64(LONG64 *Base,LONG64 Offset);
+    BOOLEAN _interlockedbittestandreset64(LONG64 *Base,LONG64 Offset);
+#endif
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit) {
       int old = 0;
@@ -904,6 +919,7 @@ typedef DWORD LCID;
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
+#ifdef _WIN64
     __CRT_INLINE BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btq %2,%1\n\tsbbl %0,%0 "
@@ -946,12 +962,20 @@ typedef DWORD LCID;
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
+#endif
 #endif /* !__CRT__NO_INLINE */
 
 #define BitScanForward _BitScanForward
 #define BitScanReverse _BitScanReverse
 #define BitScanForward64 _BitScanForward64
 #define BitScanReverse64 _BitScanReverse64
+
+    BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask);
+    BOOLEAN _BitScanReverse(DWORD *Index,DWORD Mask);
+#ifdef _WIN64
+    BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask);
+    BOOLEAN _BitScanReverse64(DWORD *Index,DWORD64 Mask);
+#endif
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask) {
@@ -962,6 +986,7 @@ typedef DWORD LCID;
       __asm__ __volatile__("bsrl %1,%0" : "=r" (Mask),"=m" ((*(volatile long *)Index)));
       return Mask!=0;
     }
+#ifdef _WIN64
     __CRT_INLINE BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask) {
       __asm__ __volatile__("bsfq %1,%0" : "=r" (Mask),"=m" ((*(volatile long long *)Index)));
       return Mask!=0;
@@ -970,6 +995,7 @@ typedef DWORD LCID;
       __asm__ __volatile__("bsrq %1,%0" : "=r" (Mask),"=m" ((*(volatile long long *)Index)));
       return Mask!=0;
     }
+#endif
 #endif /* !__CRT__NO_INLINE */
 
 #define InterlockedIncrement16 _InterlockedIncrement16
@@ -1016,6 +1042,21 @@ typedef DWORD LCID;
 #define InterlockedIncrementSizeT(a) InterlockedIncrement64((LONG64 *)a)
 #define InterlockedDecrementSizeT(a) InterlockedDecrement64((LONG64 *)a)
 
+    SHORT InterlockedIncrement16(SHORT volatile *Addend);
+    SHORT InterlockedDecrement16(SHORT volatile *Addend);
+    SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SHORT Comperand);
+    LONG InterlockedAnd(LONG volatile *Destination,LONG Value);
+    LONG InterlockedOr(LONG volatile *Destination,LONG Value);
+    LONG InterlockedXor(LONG volatile *Destination,LONG Value);
+    LONG InterlockedIncrement(LONG volatile *Addend);
+    LONG InterlockedDecrement(LONG volatile *Addend);
+    LONG InterlockedExchange(LONG volatile *Target,LONG Value);
+#ifdef _WIN64
+    LONG64 InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value);
+    LONG64 InterlockedOr64(LONG64 volatile *Destination,LONG64 Value);
+    LONG64 InterlockedXor64(LONG64 volatile *Destination,LONG64 Value);
+#endif
+
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE SHORT InterlockedIncrement16(SHORT volatile *Addend) {
       SHORT ret, value = 1;
@@ -1059,21 +1100,6 @@ typedef DWORD LCID;
 	: : "r"(Value),"m"(*Destination) : "memory");
       return *Destination;
     }
-    __CRT_INLINE LONG64 InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value) {
-      __asm__ __volatile__("lock ; andq %0,%1"
-	: : "r"(Value),"m"(*Destination) : "memory");
-      return *Destination;
-    }
-    __CRT_INLINE LONG64 InterlockedOr64(LONG64 volatile *Destination,LONG64 Value) {
-      __asm__ __volatile__("lock ; orq %0,%1"
-	: : "r"(Value),"m"(*Destination) : "memory");
-      return *Destination;
-    }
-    __CRT_INLINE LONG64 InterlockedXor64(LONG64 volatile *Destination,LONG64 Value) {
-      __asm__ __volatile__("lock ; xorq %0,%1"
-	: : "r"(Value),"m"(*Destination) : "memory");
-      return *Destination;
-    }
     __CRT_INLINE LONG InterlockedIncrement(LONG volatile *Addend) {
       LONG ret, value = 1;
       __asm__ ("lock\n\t"
@@ -1099,10 +1125,33 @@ typedef DWORD LCID;
 	: "memory");
       return Value;
     }
+#ifdef _WIN64
+    __CRT_INLINE LONG64 InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value) {
+      __asm__ __volatile__("lock ; andq %0,%1"
+	: : "r"(Value),"m"(*Destination) : "memory");
+      return *Destination;
+    }
+    __CRT_INLINE LONG64 InterlockedOr64(LONG64 volatile *Destination,LONG64 Value) {
+      __asm__ __volatile__("lock ; orq %0,%1"
+	: : "r"(Value),"m"(*Destination) : "memory");
+      return *Destination;
+    }
+    __CRT_INLINE LONG64 InterlockedXor64(LONG64 volatile *Destination,LONG64 Value) {
+      __asm__ __volatile__("lock ; xorq %0,%1"
+	: : "r"(Value),"m"(*Destination) : "memory");
+      return *Destination;
+    }
+#endif
 #endif /* !__CRT__NO_INLINE */
 
     LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
+    LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand);
     LONG InterlockedAdd(LONG volatile *Addend,LONG Value);
+#ifdef _WIN64
+    LONG64 InterlockedIncrement64(LONG64 volatile *Addend);
+    LONG64 InterlockedDecrement64(LONG64 volatile *Addend);
+    LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value);
+#endif
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE LONG InterlockedAdd(LONG volatile *Addend,LONG Value) { return InterlockedExchangeAdd(Addend,Value) + Value; }
@@ -1111,6 +1160,7 @@ typedef DWORD LCID;
       __asm__ __volatile__("lock ; cmpxchgl %1,%2" : "=a" (prev) : "q" (ExChange),"m" (*Destination), "0" (Comperand) : "memory");
       return prev;
     }
+#ifdef _WIN64
     __CRT_INLINE LONG64 InterlockedIncrement64(LONG64 volatile *Addend) {
       LONG64 ret, value = 1;
       __asm__ ("lock\n\t"
@@ -1136,10 +1186,14 @@ typedef DWORD LCID;
 	: "memory");
       return Value;
     }
+#endif
 #endif /* !__CRT__NO_INLINE */
 
     LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
     LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value);
+    LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand);
+    PVOID InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand);
+    PVOID InterlockedExchangePointer(PVOID volatile *Target,PVOID Value);
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value) { return InterlockedExchangeAdd64(Addend,Value) + Value; }
