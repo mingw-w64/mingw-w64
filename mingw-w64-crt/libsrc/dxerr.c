@@ -700,16 +700,19 @@ static Error *FindError(unsigned long hr)
 	return &UnknownError;
 }
 
+const TCHAR * __stdcall DXGetErrorString(unsigned long);
 const TCHAR * __stdcall DXGetErrorString(unsigned long hr)
 {
 	return FindError(hr)->Name;
 }
 
+const TCHAR * __stdcall DXGetErrorDescription(unsigned long);
 const TCHAR * __stdcall DXGetErrorDescription(unsigned long hr)
 {
 	return FindError(hr)->Description;
 }
 
+HRESULT __stdcall DXTrace(char *strFile, DWORD, HRESULT, TCHAR *, BOOL);
 HRESULT __stdcall DXTrace(char *strFile, DWORD dwLine, HRESULT hr,
 	TCHAR *strMsg, BOOL bPopMsgBox)
 {
