@@ -276,6 +276,7 @@ typedef long double double_t;
   converted to double, and zero when converted to float.)
 */
 
+  extern int __cdecl __fpclassifyl (long double);
   extern int __cdecl __fpclassifyf (float);
   extern int __cdecl __fpclassify (double);
 
@@ -299,6 +300,9 @@ typedef long double double_t;
 /* We don't need to worry about truncation here:
    A NaN stays a NaN. */
 
+  extern int __cdecl __isnan (double);
+  extern int __cdecl __isnanf (float);
+  extern int __cdecl __isnanl (long double);
   __CRT_INLINE int __cdecl __isnan (double _x)
   {
     unsigned short sw;
@@ -334,6 +338,10 @@ typedef long double double_t;
 #define isnormal(x) (fpclassify(x) == FP_NORMAL)
 
 /* 7.12.3.6 The signbit macro */
+  extern int __cdecl __signbit (double);
+  extern int __cdecl __signbitf (float);
+  extern int __cdecl __signbitl (long double);
+
   __CRT_INLINE int __cdecl __signbit (double x) {
     unsigned short stw;
     __asm__ ( "fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
@@ -836,6 +844,7 @@ extern long long __cdecl llrintl (long double);
 
 #ifdef _SIGN_DEFINED
 #ifndef __CRT__NO_INLINE
+   extern long double _chgsignl (long double);
   __CRT_INLINE long double _chgsignl(long double _Number) { return _chgsign((double)(_Number)); }
 #else
 #define _chgsignl(NO)	(long double) _chgsign((double)(NO))
