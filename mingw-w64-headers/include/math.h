@@ -280,11 +280,13 @@ typedef long double double_t;
   extern int __cdecl __fpclassifyf (float);
   extern int __cdecl __fpclassify (double);
 
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __fpclassifyl (long double x) {
     unsigned short sw;
     __asm__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
     return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
   }
+#endif
 
 #define fpclassify(x) (sizeof (x) == sizeof (float) ? __fpclassifyf (x)	  \
   : sizeof (x) == sizeof (double) ? __fpclassify (x) \
@@ -303,6 +305,8 @@ typedef long double double_t;
   extern int __cdecl __isnan (double);
   extern int __cdecl __isnanf (float);
   extern int __cdecl __isnanl (long double);
+
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __isnan (double _x)
   {
     unsigned short sw;
@@ -329,6 +333,7 @@ typedef long double double_t;
     return (sw & (FP_NAN | FP_NORMAL | FP_INFINITE | FP_ZERO | FP_SUBNORMAL))
       == FP_NAN;
   }
+#endif
 
 #define isnan(x) (sizeof (x) == sizeof (float) ? __isnanf (x)	\
   : sizeof (x) == sizeof (double) ? __isnan (x)	\
@@ -341,7 +346,7 @@ typedef long double double_t;
   extern int __cdecl __signbit (double);
   extern int __cdecl __signbitf (float);
   extern int __cdecl __signbitl (long double);
-
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __signbit (double x) {
     unsigned short stw;
     __asm__ ( "fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
@@ -359,6 +364,7 @@ typedef long double double_t;
     __asm__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
     return stw & 0x0200;
   }
+#endif
 
 #define signbit(x) (sizeof (x) == sizeof (float) ? __signbitf (x)	\
   : sizeof (x) == sizeof (double) ? __signbit (x)	\
