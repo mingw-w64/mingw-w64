@@ -3,6 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+int __fp_unordered_compare (long double x,  long double y);
+
 int 
 __fp_unordered_compare (long double x,  long double y){
   unsigned short retval;

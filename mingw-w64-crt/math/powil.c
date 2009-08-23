@@ -8,10 +8,9 @@
 #ifndef _SET_ERRNO
 #define _SET_ERRNO(x)
 #endif
+long double __powil (long double x,int nn);
 
-long double __powil( x, nn )
-long double x;
-int nn;
+long double __powil (long double x,int nn)
 {
 long double w, y;
 long double s;

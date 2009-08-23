@@ -8,10 +8,9 @@
 #ifndef _SET_ERRNO
 #define _SET_ERRNO(x)
 #endif
+double __powi (double x,int nn);
 
-double __powi( x, nn )
-double x;
-int nn;
+double __powi (double x,int nn)
 {
 int n, e, sign, asign, lx;
 double w, y, s;

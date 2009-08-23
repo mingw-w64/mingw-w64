@@ -10,6 +10,8 @@
 
 /* asin = atan (x / sqrt(1 - x^2)) */
 
+float asinf (float x);
+
 float asinf (float x)
 {
   float res = 0.0F;

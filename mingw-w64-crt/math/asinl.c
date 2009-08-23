@@ -10,6 +10,7 @@
  */
 
 /* asin = atan (x / sqrt(1 - x^2)) */
+long double asinl (long double x);
 
 long double asinl (long double x)
 {

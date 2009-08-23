@@ -13,5 +13,7 @@ const union _ieee_rep __DENORMF = { __FLOAT_DENORM_REP };
 /* ISO C99 */
 #undef nanf
 /* FIXME */
+float nanf(const char *);
+
 float nanf(const char * tagp __attribute__((unused)) )
   { return __QNANF.float_val;}

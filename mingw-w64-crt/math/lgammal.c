@@ -203,6 +203,7 @@ static const long double LS2PI  =  0.91893853320467274178L;
 
 /* Logarithm of gamma function */
 /* Reentrant version */ 
+long double __lgammal_r(long double x, int* sgngaml);
 
 long double __lgammal_r(long double x, int* sgngaml)
 {

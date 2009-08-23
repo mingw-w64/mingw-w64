@@ -156,6 +156,7 @@ static const union
 
 /* Logarithm of gamma function */
 /* Reentrant version */ 
+double __lgamma_r(double x, int* sgngam);
 
 double __lgamma_r(double x, int* sgngam)
 {

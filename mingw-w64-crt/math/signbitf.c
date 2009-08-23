@@ -4,6 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #define __FP_SIGNBIT  0x0200
+int __signbitf (float x);
 
 int __signbitf (float x) {
   unsigned short sw;

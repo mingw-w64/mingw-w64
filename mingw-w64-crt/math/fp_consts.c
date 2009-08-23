@@ -12,6 +12,7 @@ const union _ieee_rep __DENORM = { __DOUBLE_DENORM_REP };
 /* ISO C99 */
 #undef nan
 /* FIXME */
+double nan (const char *);
 double nan (const char * tagp __attribute__((unused)) )
 	{ return __QNAN.double_val; } 
 

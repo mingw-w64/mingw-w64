@@ -8,8 +8,9 @@
 #ifndef _SET_ERRNO
 #define _SET_ERRNO(x)
 #endif
+float __powif (float x, int nn);
 
-float __powif( float x, int nn )
+float __powif (float x, int nn)
 {
 int n, e, sign, asign, lx;
 float w, y, s;

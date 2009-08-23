@@ -13,5 +13,6 @@ const union _ieee_rep __DENORML = { __LONG_DOUBLE_DENORM_REP };
 
 #undef nanl
 /* FIXME */
+long double nanl (const char *);
 long double nanl (const char * tagp __attribute__((unused)) )
   { return __QNANL.ldouble_val; } 

@@ -262,6 +262,7 @@ static long double stirf(long double x)
   return( y );
 }
 
+long double __tgammal_r(long double x, int* sgngaml);
 
 long double __tgammal_r(long double x, int* sgngaml)
 {

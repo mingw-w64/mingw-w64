@@ -3,6 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+long double fmal ( long double _x,  long double _y,  long double _z);
+
 long double
 fmal ( long double _x,  long double _y,  long double _z)
 {

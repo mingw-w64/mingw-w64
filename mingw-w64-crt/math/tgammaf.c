@@ -60,6 +60,8 @@ static const float P[] = {
  9.999999822945073E-001,
 };
 
+float __tgammaf_r( float x, int* sgngamf);
+
 float __tgammaf_r( float x, int* sgngamf)
 {
 float p, q, z, nz;

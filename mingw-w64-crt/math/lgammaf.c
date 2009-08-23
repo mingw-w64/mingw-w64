@@ -36,6 +36,7 @@ static const float PIINV =  0.318309886183790671538;
 
 /* Reentrant version */ 
 /* Logarithm of gamma function */
+float __lgammaf_r( float x, int* sgngamf );
 
 float __lgammaf_r( float x, int* sgngamf )
 {

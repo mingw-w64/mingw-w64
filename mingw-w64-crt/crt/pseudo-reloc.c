@@ -153,8 +153,10 @@ do_pseudo_reloc (void *start, void *end, void *base)
     }
 }
 
+void _pei386_runtime_relocator (void);
+
 void
-_pei386_runtime_relocator ()
+_pei386_runtime_relocator (void)
 {
   static int was_init = 0;
   if (was_init)

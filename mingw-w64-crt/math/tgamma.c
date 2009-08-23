@@ -145,6 +145,7 @@ static double stirf(double x)
 }
 
 
+double __tgamma_r(double x, int *sgngam);
 
 double __tgamma_r(double x, int *sgngam)
 {
