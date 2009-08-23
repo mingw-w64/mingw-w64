@@ -5075,8 +5075,9 @@ typedef DWORD LCID;
 #define RtlFillMemory(Destination,Length,Fill) memset((Destination),(Fill),(Length))
 #define RtlZeroMemory(Destination,Length) memset((Destination),0,(Length))
 
+    PVOID WINAPI RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt);
 #ifndef __CRT__NO_INLINE
-    __CRT_INLINE PVOID RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt) {
+    __CRT_INLINE PVOID WINAPI RtlSecureZeroMemory(PVOID ptr,SIZE_T cnt) {
       volatile char *vptr =(volatile char *)ptr;
 #ifdef __x86_64
       __stosb((PBYTE)((DWORD64)vptr),0,cnt);
