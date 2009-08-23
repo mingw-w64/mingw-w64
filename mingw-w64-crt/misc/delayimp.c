@@ -140,7 +140,7 @@ FARPROC WINAPI __delayLoadHelper2(PCImgDelayDescr pidd,FARPROC *ppfnIATEntry)
     (PCImgThunkData) PtrFromRVA(pidd->rvaBoundIAT), (PCImgThunkData) PtrFromRVA(pidd->rvaUnloadIAT),
     pidd->dwTimeStamp};
   DelayLoadInfo dli = {
-    sizeof(DelayLoadInfo),pidd,ppfnIATEntry,idd.szName,{ 0},0,0,0
+    sizeof(DelayLoadInfo),pidd,ppfnIATEntry,idd.szName,{ 0, { NULL } },0,0,0
   };
   HMODULE hmod;
   unsigned iIAT, iINT;
