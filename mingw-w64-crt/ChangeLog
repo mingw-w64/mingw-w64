@@ -1,3 +1,8 @@
+2009-08-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Added math/_chgsignl.S.
+	* Makefile.in: Regenerated.
+
 2009-08-23  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/_chgsignl.S: Implemented _chgsignl().

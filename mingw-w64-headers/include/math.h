@@ -849,14 +849,9 @@ extern long long __cdecl llrintl (long double);
 #endif
 
 #ifdef _SIGN_DEFINED
-#ifndef __CRT__NO_INLINE
-   extern long double _chgsignl (long double);
-  __CRT_INLINE long double _chgsignl(long double _Number) { return _chgsign((double)(_Number)); }
-#else
-#define _chgsignl(NO)	(long double) _chgsign((double)(NO))
-#endif
+   extern long double __cdecl _chgsignl (long double);
 #define _copysignl copysignl
-#endif
+#endif /* _SIGN_DEFINED */
 
 #define _hypotl hypotl
 

@@ -110,8 +110,8 @@ src_libmingwex=\
   gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
-  math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h \
-  math/ceill.S       math/copysignl.S    math/cosl.S       math/exp2f.S       math/exp2l.S       math/exp2.S       math/floorl.S  \
+  math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h math/ceill.S \
+  math/_chgsignl.S   math/copysignl.S    math/cosl.S       math/exp2f.S       math/exp2l.S       math/exp2.S       math/floorl.S  \
   math/fmaf.S        math/fma.S          math/frexpl.S     math/ilogbf.S      math/ilogbl.S      math/ilogb.S      math/log10l.S  \
   math/log1pf.S      math/log1pl.S       math/log1p.S      math/log2f.S       math/log2l.S       math/log2.S       math/logl.S    \
   math/nearbyintf.S  math/nearbyintl.S   math/nearbyint.S  math/remainderf.S  math/remainderl.S  math/remainder.S  math/remquof.S \

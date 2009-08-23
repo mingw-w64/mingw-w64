@@ -1,3 +1,9 @@
+2009-08-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* float.h (_chgsignl): Removed the old wrappers and added the new
+	implementation.
+	* math.h (chgsignl): Likewise.
+
 2009-08-23  Kai Tietz  <kai.tietz@onevision.com>
 
 	* intrin.h: Use intrin86.h from gcc.

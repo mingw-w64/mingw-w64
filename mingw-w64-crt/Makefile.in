@@ -265,21 +265,21 @@ am__lib32_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	gdtoa/strtodg.c gdtoa/strtodnrp.c gdtoa/strtof.c \
 	gdtoa/strtopx.c gdtoa/sum.c gdtoa/ulp.c math/cephes_emath.h \
 	math/cephes_mconf.h math/fastmath.h math/fp_consts.h \
-	math/ceill.S math/copysignl.S math/cosl.S math/exp2f.S \
-	math/exp2l.S math/exp2.S math/floorl.S math/fmaf.S math/fma.S \
-	math/frexpl.S math/ilogbf.S math/ilogbl.S math/ilogb.S \
-	math/log10l.S math/log1pf.S math/log1pl.S math/log1p.S \
-	math/log2f.S math/log2l.S math/log2.S math/logl.S \
-	math/nearbyintf.S math/nearbyintl.S math/nearbyint.S \
-	math/remainderf.S math/remainderl.S math/remainder.S \
-	math/remquof.S math/remquol.S math/remquo.S math/scalbnf.S \
-	math/scalbnl.S math/scalbn.S math/sinl.S math/tanl.S \
-	math/acosf.c math/acosh.c math/acoshf.c math/acoshl.c \
-	math/acosl.c math/asinf.c math/asinh.c math/asinhf.c \
-	math/asinhl.c math/asinl.c math/atan2f.c math/atan2l.c \
-	math/atanf.c math/atanh.c math/atanhf.c math/atanhl.c \
-	math/atanl.c math/cbrt.c math/cbrtf.c math/cbrtl.c \
-	math/ceilf.c math/cephes_emath.c math/copysign.c \
+	math/ceill.S math/_chgsignl.S math/copysignl.S math/cosl.S \
+	math/exp2f.S math/exp2l.S math/exp2.S math/floorl.S \
+	math/fmaf.S math/fma.S math/frexpl.S math/ilogbf.S \
+	math/ilogbl.S math/ilogb.S math/log10l.S math/log1pf.S \
+	math/log1pl.S math/log1p.S math/log2f.S math/log2l.S \
+	math/log2.S math/logl.S math/nearbyintf.S math/nearbyintl.S \
+	math/nearbyint.S math/remainderf.S math/remainderl.S \
+	math/remainder.S math/remquof.S math/remquol.S math/remquo.S \
+	math/scalbnf.S math/scalbnl.S math/scalbn.S math/sinl.S \
+	math/tanl.S math/acosf.c math/acosh.c math/acoshf.c \
+	math/acoshl.c math/acosl.c math/asinf.c math/asinh.c \
+	math/asinhf.c math/asinhl.c math/asinl.c math/atan2f.c \
+	math/atan2l.c math/atanf.c math/atanh.c math/atanhf.c \
+	math/atanhl.c math/atanl.c math/cbrt.c math/cbrtf.c \
+	math/cbrtl.c math/ceilf.c math/cephes_emath.c math/copysign.c \
 	math/copysignf.c math/cosf.c math/coshf.c math/coshl.c \
 	math/erfl.c math/expf.c math/expl.c math/expm1.c math/expm1f.c \
 	math/expm1l.c math/fabs.c math/fabsf.c math/fabsl.c \
@@ -482,6 +482,7 @@ am__objects_11 = intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT) \
 	gdtoa/lib32_libmingwex_a-sum.$(OBJEXT) \
 	gdtoa/lib32_libmingwex_a-ulp.$(OBJEXT) \
 	math/lib32_libmingwex_a-ceill.$(OBJEXT) \
+	math/lib32_libmingwex_a-_chgsignl.$(OBJEXT) \
 	math/lib32_libmingwex_a-copysignl.$(OBJEXT) \
 	math/lib32_libmingwex_a-cosl.$(OBJEXT) \
 	math/lib32_libmingwex_a-exp2f.$(OBJEXT) \
@@ -1070,21 +1071,21 @@ am__lib64_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	gdtoa/strtodg.c gdtoa/strtodnrp.c gdtoa/strtof.c \
 	gdtoa/strtopx.c gdtoa/sum.c gdtoa/ulp.c math/cephes_emath.h \
 	math/cephes_mconf.h math/fastmath.h math/fp_consts.h \
-	math/ceill.S math/copysignl.S math/cosl.S math/exp2f.S \
-	math/exp2l.S math/exp2.S math/floorl.S math/fmaf.S math/fma.S \
-	math/frexpl.S math/ilogbf.S math/ilogbl.S math/ilogb.S \
-	math/log10l.S math/log1pf.S math/log1pl.S math/log1p.S \
-	math/log2f.S math/log2l.S math/log2.S math/logl.S \
-	math/nearbyintf.S math/nearbyintl.S math/nearbyint.S \
-	math/remainderf.S math/remainderl.S math/remainder.S \
-	math/remquof.S math/remquol.S math/remquo.S math/scalbnf.S \
-	math/scalbnl.S math/scalbn.S math/sinl.S math/tanl.S \
-	math/acosf.c math/acosh.c math/acoshf.c math/acoshl.c \
-	math/acosl.c math/asinf.c math/asinh.c math/asinhf.c \
-	math/asinhl.c math/asinl.c math/atan2f.c math/atan2l.c \
-	math/atanf.c math/atanh.c math/atanhf.c math/atanhl.c \
-	math/atanl.c math/cbrt.c math/cbrtf.c math/cbrtl.c \
-	math/ceilf.c math/cephes_emath.c math/copysign.c \
+	math/ceill.S math/_chgsignl.S math/copysignl.S math/cosl.S \
+	math/exp2f.S math/exp2l.S math/exp2.S math/floorl.S \
+	math/fmaf.S math/fma.S math/frexpl.S math/ilogbf.S \
+	math/ilogbl.S math/ilogb.S math/log10l.S math/log1pf.S \
+	math/log1pl.S math/log1p.S math/log2f.S math/log2l.S \
+	math/log2.S math/logl.S math/nearbyintf.S math/nearbyintl.S \
+	math/nearbyint.S math/remainderf.S math/remainderl.S \
+	math/remainder.S math/remquof.S math/remquol.S math/remquo.S \
+	math/scalbnf.S math/scalbnl.S math/scalbn.S math/sinl.S \
+	math/tanl.S math/acosf.c math/acosh.c math/acoshf.c \
+	math/acoshl.c math/acosl.c math/asinf.c math/asinh.c \
+	math/asinhf.c math/asinhl.c math/asinl.c math/atan2f.c \
+	math/atan2l.c math/atanf.c math/atanh.c math/atanhf.c \
+	math/atanhl.c math/atanl.c math/cbrt.c math/cbrtf.c \
+	math/cbrtl.c math/ceilf.c math/cephes_emath.c math/copysign.c \
 	math/copysignf.c math/cosf.c math/coshf.c math/coshl.c \
 	math/erfl.c math/expf.c math/expl.c math/expm1.c math/expm1f.c \
 	math/expm1l.c math/fabs.c math/fabsf.c math/fabsl.c \
@@ -1299,6 +1300,7 @@ am__objects_31 = intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT) \
 	gdtoa/lib64_libmingwex_a-sum.$(OBJEXT) \
 	gdtoa/lib64_libmingwex_a-ulp.$(OBJEXT) \
 	math/lib64_libmingwex_a-ceill.$(OBJEXT) \
+	math/lib64_libmingwex_a-_chgsignl.$(OBJEXT) \
 	math/lib64_libmingwex_a-copysignl.$(OBJEXT) \
 	math/lib64_libmingwex_a-cosl.$(OBJEXT) \
 	math/lib64_libmingwex_a-exp2f.$(OBJEXT) \
@@ -2151,8 +2153,8 @@ src_libmingwex = \
   gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
-  math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h \
-  math/ceill.S       math/copysignl.S    math/cosl.S       math/exp2f.S       math/exp2l.S       math/exp2.S       math/floorl.S  \
+  math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h math/ceill.S \
+  math/_chgsignl.S   math/copysignl.S    math/cosl.S       math/exp2f.S       math/exp2l.S       math/exp2.S       math/floorl.S  \
   math/fmaf.S        math/fma.S          math/frexpl.S     math/ilogbf.S      math/ilogbl.S      math/ilogb.S      math/log10l.S  \
   math/log1pf.S      math/log1pl.S       math/log1p.S      math/log2f.S       math/log2l.S       math/log2.S       math/logl.S    \
   math/nearbyintf.S  math/nearbyintl.S   math/nearbyint.S  math/remainderf.S  math/remainderl.S  math/remainder.S  math/remquof.S \
@@ -3402,6 +3404,8 @@ math/$(DEPDIR)/$(am__dirstamp):
 	@: > math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-ceill.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
+math/lib32_libmingwex_a-_chgsignl.$(OBJEXT): math/$(am__dirstamp) \
+	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-copysignl.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-cosl.$(OBJEXT): math/$(am__dirstamp) \
@@ -4600,6 +4604,8 @@ gdtoa/lib64_libmingwex_a-sum.$(OBJEXT): gdtoa/$(am__dirstamp) \
 gdtoa/lib64_libmingwex_a-ulp.$(OBJEXT): gdtoa/$(am__dirstamp) \
 	gdtoa/$(DEPDIR)/$(am__dirstamp)
 math/lib64_libmingwex_a-ceill.$(OBJEXT): math/$(am__dirstamp) \
+	math/$(DEPDIR)/$(am__dirstamp)
+math/lib64_libmingwex_a-_chgsignl.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib64_libmingwex_a-copysignl.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
@@ -6191,6 +6197,7 @@ mostlyclean-compile:
 	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiParseV4Address.$(OBJEXT)
 	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiQueryDNS.$(OBJEXT)
 	-rm -f libsrc/wspiapi/lib32_libws2_32_a-WspiapiStrdup.$(OBJEXT)
+	-rm -f math/lib32_libmingwex_a-_chgsignl.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-acosf.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-acosh.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-acoshf.$(OBJEXT)
@@ -6347,6 +6354,7 @@ mostlyclean-compile:
 	-rm -f math/lib32_libmingwex_a-trunc.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-truncf.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-truncl.$(OBJEXT)
+	-rm -f math/lib64_libmingwex_a-_chgsignl.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acosf.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acosh.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-acoshf.$(OBJEXT)
@@ -7294,6 +7302,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiParseV4Address.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiQueryDNS.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/wspiapi/$(DEPDIR)/lib32_libws2_32_a-WspiapiStrdup.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-_chgsignl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-acosf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-acosh.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-acoshf.Po@am__quote@
@@ -7450,6 +7459,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-trunc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-truncf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-truncl.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-_chgsignl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acosf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acosh.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-acoshf.Po@am__quote@
@@ -7889,6 +7899,20 @@ math/lib32_libmingwex_a-ceill.obj: math/ceill.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/ceill.S' object='math/lib32_libmingwex_a-ceill.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-ceill.obj `if test -f 'math/ceill.S'; then $(CYGPATH_W) 'math/ceill.S'; else $(CYGPATH_W) '$(srcdir)/math/ceill.S'; fi`
+
+math/lib32_libmingwex_a-_chgsignl.o: math/_chgsignl.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-_chgsignl.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-_chgsignl.Tpo -c -o math/lib32_libmingwex_a-_chgsignl.o `test -f 'math/_chgsignl.S' || echo '$(srcdir)/'`math/_chgsignl.S
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-_chgsignl.Tpo math/$(DEPDIR)/lib32_libmingwex_a-_chgsignl.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/_chgsignl.S' object='math/lib32_libmingwex_a-_chgsignl.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-_chgsignl.o `test -f 'math/_chgsignl.S' || echo '$(srcdir)/'`math/_chgsignl.S
+
+math/lib32_libmingwex_a-_chgsignl.obj: math/_chgsignl.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-_chgsignl.obj -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-_chgsignl.Tpo -c -o math/lib32_libmingwex_a-_chgsignl.obj `if test -f 'math/_chgsignl.S'; then $(CYGPATH_W) 'math/_chgsignl.S'; else $(CYGPATH_W) '$(srcdir)/math/_chgsignl.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-_chgsignl.Tpo math/$(DEPDIR)/lib32_libmingwex_a-_chgsignl.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/_chgsignl.S' object='math/lib32_libmingwex_a-_chgsignl.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-_chgsignl.obj `if test -f 'math/_chgsignl.S'; then $(CYGPATH_W) 'math/_chgsignl.S'; else $(CYGPATH_W) '$(srcdir)/math/_chgsignl.S'; fi`
 
 math/lib32_libmingwex_a-copysignl.o: math/copysignl.S
 @am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-copysignl.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-copysignl.Tpo -c -o math/lib32_libmingwex_a-copysignl.o `test -f 'math/copysignl.S' || echo '$(srcdir)/'`math/copysignl.S
@@ -8393,6 +8417,20 @@ math/lib64_libmingwex_a-ceill.obj: math/ceill.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/ceill.S' object='math/lib64_libmingwex_a-ceill.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-ceill.obj `if test -f 'math/ceill.S'; then $(CYGPATH_W) 'math/ceill.S'; else $(CYGPATH_W) '$(srcdir)/math/ceill.S'; fi`
+
+math/lib64_libmingwex_a-_chgsignl.o: math/_chgsignl.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-_chgsignl.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-_chgsignl.Tpo -c -o math/lib64_libmingwex_a-_chgsignl.o `test -f 'math/_chgsignl.S' || echo '$(srcdir)/'`math/_chgsignl.S
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-_chgsignl.Tpo math/$(DEPDIR)/lib64_libmingwex_a-_chgsignl.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/_chgsignl.S' object='math/lib64_libmingwex_a-_chgsignl.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-_chgsignl.o `test -f 'math/_chgsignl.S' || echo '$(srcdir)/'`math/_chgsignl.S
+
+math/lib64_libmingwex_a-_chgsignl.obj: math/_chgsignl.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-_chgsignl.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-_chgsignl.Tpo -c -o math/lib64_libmingwex_a-_chgsignl.obj `if test -f 'math/_chgsignl.S'; then $(CYGPATH_W) 'math/_chgsignl.S'; else $(CYGPATH_W) '$(srcdir)/math/_chgsignl.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-_chgsignl.Tpo math/$(DEPDIR)/lib64_libmingwex_a-_chgsignl.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/_chgsignl.S' object='math/lib64_libmingwex_a-_chgsignl.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-_chgsignl.obj `if test -f 'math/_chgsignl.S'; then $(CYGPATH_W) 'math/_chgsignl.S'; else $(CYGPATH_W) '$(srcdir)/math/_chgsignl.S'; fi`
 
 math/lib64_libmingwex_a-copysignl.o: math/copysignl.S
 @am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-copysignl.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-copysignl.Tpo -c -o math/lib64_libmingwex_a-copysignl.o `test -f 'math/copysignl.S' || echo '$(srcdir)/'`math/copysignl.S
