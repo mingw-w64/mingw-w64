@@ -215,7 +215,12 @@ __tmainCRTStartup (void)
     if (! nested)
       (VOID)InterlockedExchangePointer ((volatile PVOID *) &__native_startup_lock, 0);
     
-    if (__dyn_tls_init_callback != NULL && _IsNonwritableInCurrentImage ((PBYTE) &__dyn_tls_init_callback))
+    if (__dyn_tls_init_callback != NULL
+#if 0
+  /* Gnu gcc puts this into read/write section, as it has a relocation.  */
+        && _IsNonwritableInCurrentImage ((PBYTE) &__dyn_tls_init_callback)
+#endif
+      )
       __dyn_tls_init_callback (NULL, DLL_THREAD_ATTACH, NULL);
     
     _pei386_runtime_relocator ();
