@@ -22,17 +22,15 @@
 	.def	__MINGW_USYMBOL(copysignl);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(copysignl):
 #ifdef _WIN64
-	movq	%rdx,%r9
-	movl	8(%rdx),%eax
-	movl	8(%r8),%edx
-	andl	$0x8000,%edx
-	andl	$0x7fff,%eax
-	orl	%edx,%eax
-	fldt	(%r9)
-	movq	$0,8(%rcx)
-	fstpt	(%rcx)
-	movl	%eax,8(%rcx)
-	movq	%rcx,%rax
+	movq	(%rdx), %rax
+	movq	%rax, (%rcx)
+	movq	8(%rdx), %rax
+	movq	8(%r8), %rdx
+	andq	$0x777f, %rax
+	andq	$0x8000, %rdx
+	orq	%rdx, %rax
+	movq	%rax, 8(%rcx)
+	movq	%rcx, %rax
 	ret
 #else
 	movl	24(%esp),%edx
