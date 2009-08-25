@@ -11,6 +11,8 @@
 #define ZEROBLOCKSIZE 512
 static int __mingw_fseek_called;
 
+int __mingw_fseek (FILE *fp, int offset, int whence);
+
 int
 __mingw_fseek (FILE *fp, int offset, int whence)
 {
@@ -19,6 +21,8 @@ __mingw_fseek (FILE *fp, int offset, int whence)
   return fseek (fp, offset, whence);
 }
 
+int __mingw_fseeko64 (FILE *fp, long offset, int whence);
+
 int
 __mingw_fseeko64 (FILE *fp, long offset, int whence)
 {
@@ -26,6 +30,8 @@ __mingw_fseeko64 (FILE *fp, long offset, int whence)
   __mingw_fseek_called = 1;
   return fseeko64 (fp, offset, whence);
 }
+
+size_t __mingw_fwrite (const void *buffer, size_t size, size_t count, FILE *fp);
 
 size_t
 __mingw_fwrite (const void *buffer, size_t size, size_t count, FILE *fp)

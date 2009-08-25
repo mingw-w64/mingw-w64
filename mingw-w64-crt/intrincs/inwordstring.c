@@ -7,6 +7,8 @@
 #define __CRT__NO_INLINE
 #include <_mingw.h>
 
+void __inwordstring(unsigned short Port,unsigned short *Buffer,unsigned long Count);
+
 void __inwordstring(unsigned short Port,unsigned short *Buffer,unsigned long Count)
 {
     __asm__ __volatile__ (

@@ -21,7 +21,7 @@ int ___w64_mingwthr_add_key_dtor (DWORD key, void (*dtor)(void *));
 
 /* To protect the thread/key association data structure modifications. */
 static CRITICAL_SECTION __mingwthr_cs;
-static volatile __mingwthr_cs_init = 0;
+static volatile int __mingwthr_cs_init = 0;
 
 typedef struct __mingwthr_key __mingwthr_key_t;
 

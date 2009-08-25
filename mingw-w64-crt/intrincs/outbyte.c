@@ -7,6 +7,8 @@
 #define __CRT__NO_INLINE
 #include <_mingw.h>
 
+void __outbyte(unsigned short Port,unsigned char Data);
+
 void __outbyte(unsigned short Port,unsigned char Data)
 {
     __asm__ __volatile__ ("outb %b0,%w1"

@@ -79,6 +79,7 @@ static struct oserr_map local_errtab[] = {
 __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd);
 __int64 __cdecl _ftelli64(FILE *str);
 void mingw_dosmaperr (unsigned long oserrno);
+int __cdecl _flush (FILE *str);
 
 int __cdecl _flush (FILE *str)
 {

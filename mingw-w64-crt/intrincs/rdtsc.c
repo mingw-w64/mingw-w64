@@ -7,6 +7,8 @@
 #define __CRT__NO_INLINE
 #include <_mingw.h>
 
+  unsigned __int64 __rdtsc(void);
+
   unsigned __int64 __rdtsc(void)
   {
 #ifdef _WIN64

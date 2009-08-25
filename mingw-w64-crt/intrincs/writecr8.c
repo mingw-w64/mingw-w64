@@ -12,6 +12,8 @@
  */
 
 #ifdef _WIN64
+  void __writecr8(unsigned __int64 Data);
+
   void __writecr8(unsigned __int64 Data)
   {
    __asm__ __volatile__ (
@@ -21,6 +23,8 @@
        : "memory");
   }
 #else
+  void __writecr8(unsigned Data);
+
   void __writecr8(unsigned Data)
   {
    __asm__ __volatile__ (

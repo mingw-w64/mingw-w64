@@ -7,6 +7,8 @@
 #define __CRT__NO_INLINE
 #include <_mingw.h>
 
+unsigned short __inword(unsigned short Port);
+
 unsigned short __inword(unsigned short Port)
 {
     unsigned short value;

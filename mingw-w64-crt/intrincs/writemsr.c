@@ -7,6 +7,8 @@
 #define __CRT__NO_INLINE
 #include <_mingw.h>
 
+  void __writemsr (unsigned long msr, unsigned __int64 Value);
+
   void __writemsr (unsigned long msr, unsigned __int64 Value)
   {
     unsigned long val1 = Value, val2 = Value >> 32;

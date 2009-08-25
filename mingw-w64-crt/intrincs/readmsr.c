@@ -7,6 +7,8 @@
 #define __CRT__NO_INLINE
 #include <_mingw.h>
 
+  unsigned __int64 __readmsr(unsigned long msr);
+
   unsigned __int64 __readmsr(unsigned long msr)
   {
 #ifdef _WIN64
