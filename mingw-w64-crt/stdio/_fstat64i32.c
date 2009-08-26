@@ -1,7 +1,6 @@
 #define __CRT__NO_INLINE
 #include <sys/stat.h>
 
-#if _INTEGRAL_MAX_BITS >= 64
 int __cdecl _fstat64i32(int _FileDes,struct _stat64i32 *_Stat)
 {
   struct _stat64 st;
@@ -21,5 +20,4 @@ int __cdecl _fstat64i32(int _FileDes,struct _stat64i32 *_Stat)
   _Stat->st_ctime=st.st_ctime;
   return ret;
 }
-#endif /* _INTEGRAL_MAX_BITS >= 64 */
 
