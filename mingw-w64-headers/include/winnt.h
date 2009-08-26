@@ -1264,7 +1264,7 @@ typedef DWORD LCID;
 
 #define ReadTimeStampCounter() __rdtsc()
 
-    DWORD64 __rdtsc(VOID);
+    unsigned __int64 __rdtsc(void);
     VOID __movsb(PBYTE Destination,BYTE const *Source,SIZE_T Count);
     VOID __movsw(PWORD Destination,WORD const *Source,SIZE_T Count);
     VOID __movsd(PDWORD Destination,DWORD const *Source,SIZE_T Count);
