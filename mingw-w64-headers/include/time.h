@@ -162,7 +162,7 @@ extern "C" {
 
 #ifndef _WTIME_DEFINED
   _CRTIMP wchar_t *__cdecl _wasctime(const struct tm *_Tm);
-  _CRTIMP wchar_t *__cdecl _wctime32(const __time32_t *_Time);
+  wchar_t *__cdecl _wctime32(const __time32_t *_Time);
   size_t __cdecl wcsftime(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm);
   _CRTIMP size_t __cdecl _wcsftime_l(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wstrdate(wchar_t *_Buffer);

@@ -12,6 +12,8 @@
 #include <string.h>
 #include <ws2tcpip.h>
 
+#include <_mingw_print_push.h>
+
 #define _WSPIAPI_STRCPY_S(_Dst,_Size,_Src) strcpy((_Dst),(_Src))
 #define _WSPIAPI_STRCAT_S(_Dst,_Size,_Src) strcat((_Dst),(_Src))
 #define _WSPIAPI_STRNCPY_S(_Dst,_Size,_Src,_Count) strncpy((_Dst),(_Src),(_Count)); (_Dst)[(_Size) - 1] = 0
@@ -398,4 +400,7 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
+#include <_mingw_print_pop.h>
+
 #endif
