@@ -301,7 +301,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #pragma pop_macro("vsnprintf")
 /* Check if vsnprintf and snprintf are defaulting to gnu-style.  */
   #if defined(USE_MINGW_GNU_SNPRINTF) && USE_MINGW_GNU_SNPRINTF
-  #ifndef vsnprint
+  #ifndef vsnprintf
   #define vsnprintf __mingw_vsnprintf
   #endif
   #ifndef snprintf
