@@ -392,9 +392,11 @@ extern "C" {
   typedef __gnuc_va_list va_list;
 #endif /* _VA_LIST_DEFINED */
 
+#if 0
 #if defined (_WIN32) && !defined (_WIN64) && !defined (__MINGW_USE_VC2005_COMPAT)
 #ifndef _USE_32BIT_TIME_T
 #define _USE_32BIT_TIME_T
+#endif
 #endif
 #endif
 
