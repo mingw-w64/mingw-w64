@@ -12,6 +12,8 @@
  */
 
 #ifdef _WIN64
+  unsigned __int64 __readcr8(void);
+
   unsigned __int64 __readcr8(void)
   {
       unsigned __int64 value;
@@ -21,6 +23,8 @@
       return value;
   }
 #else
+  unsigned long __readcr8(void);
+
   unsigned long __readcr8(void)
   {
       unsigned long value;
