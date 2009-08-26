@@ -5,7 +5,7 @@
 during CRT compilation is plainly broken.  Need an appropriate
 implementation to provide users the ability of compiling the
 CRT only with 32-bit time_t behavior. */
-#if _INTEGRAL_MAX_BITS < 64 || defined(_USE_32BIT_TIME_T)
+#if defined(_USE_32BIT_TIME_T)
 int __cdecl
 wstat(const wchar_t *_Filename,struct stat *_Stat)
 {
