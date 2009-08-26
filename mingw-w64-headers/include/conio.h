@@ -391,15 +391,6 @@ extern "C" {
        : "c" (msr), "a" (val1), "d" (val2));
  }
  
-  __CRT_INLINE unsigned __int64 __rdtsc(void)
-  {
-      unsigned __int64 val1, val2;
-      __asm__ __volatile__ (
-          "rdtsc" 
-          : "=a" (val1), "=d" (val2));
-      return val1 | (val2 << 32);
-  }
-
   __CRT_INLINE void __cpuid(int CPUInfo[4], int InfoType)
   {
       __asm__ __volatile__ (
