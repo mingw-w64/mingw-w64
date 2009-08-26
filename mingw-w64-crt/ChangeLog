@@ -1,3 +1,9 @@
+2009-08-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* ...: Remove use of _INTEGRAL_MAX_BITS checks <= 64.
+	* ...: Cleanup code for _USE_32BIT_TIME_T case.
+	* misc/_wctime32.c: New.
+
 2009-08-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Makefile.am: Added math/_chgsignl.S.

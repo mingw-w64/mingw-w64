@@ -154,7 +154,7 @@ src_libmingwex=\
   misc/wcstoumax.c     misc/wctob.c         misc/wctrans.c               misc/wctype.c          misc/wdirent.c         \
   misc/winbs_uint64.c  misc/winbs_ulong.c   misc/winbs_ushort.c          misc/wmemchr.c         misc/wmemcmp.c         \
   misc/wmemcpy.c       misc/wmemmove.c      misc/wmemset.c \
-  misc/mingw_usleep.c  misc/mingw_output_format.c \
+  misc/mingw_usleep.c  misc/mingw_output_format.c misc/_wctime32.c \
   \
   stdio/mingw_pformat.h \
   stdio/atoll.c           stdio/_Exit.c          stdio/_findfirst64i32.c  stdio/_wfindfirst64i32.c stdio/_findnext64i32.c  \
