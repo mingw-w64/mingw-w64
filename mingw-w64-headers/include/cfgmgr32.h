@@ -39,12 +39,7 @@ extern "C" {
 #define CONFIGMG_VERSION 0x0400
 
 #ifdef NT_INCLUDED
-
-#if (!(defined(_X86_) && !defined(__x86_64)) || (defined(_INTEGRAL_MAX_BITS) && _INTEGRAL_MAX_BITS >= 64))
   typedef unsigned __int64 DWORDLONG;
-#else
-  typedef double DWORDLONG;
-#endif
   typedef DWORDLONG *PDWORDLONG;
 #endif
 

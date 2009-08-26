@@ -260,16 +260,10 @@ typedef DWORD LCID;
   typedef FLOAT128 *PFLOAT128;
 
 #define _ULONGLONG_
-#if((!(defined(_X86_) && !defined(__x86_64)) || (defined(_INTEGRAL_MAX_BITS) && _INTEGRAL_MAX_BITS >= 64)))
   typedef __int64 LONGLONG;
   typedef unsigned __int64 ULONGLONG;
 
 #define MAXLONGLONG (0x7fffffffffffffff)
-#else
-
-  typedef double LONGLONG;
-  typedef double ULONGLONG;
-#endif
 
   typedef LONGLONG *PLONGLONG;
   typedef ULONGLONG *PULONGLONG;

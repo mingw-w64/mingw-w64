@@ -87,8 +87,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
     wchar_t name[260];
   };
 
-/* #if _INTEGRAL_MAX_BITS >= 64 */
-
   struct _wfinddata32i64_t {
     unsigned attrib;
     __time32_t time_create;
@@ -286,14 +284,12 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _wunlink(const wchar_t *_Filename);
   _CRTIMP int __cdecl _wrename(const wchar_t *_NewFilename,const wchar_t *_OldFilename);
   _CRTIMP wchar_t *__cdecl _wmktemp(wchar_t *_TemplateName);
-#if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP intptr_t __cdecl _wfindfirst32i64(const wchar_t *_Filename,struct _wfinddata32i64_t *_FindData);
   intptr_t __cdecl _wfindfirst64i32(const wchar_t *_Filename,struct _wfinddata64i32_t *_FindData);
   _CRTIMP intptr_t __cdecl _wfindfirst64(const wchar_t *_Filename,struct _wfinddata64_t *_FindData);
   _CRTIMP int __cdecl _wfindnext32i64(intptr_t _FindHandle,struct _wfinddata32i64_t *_FindData);
   int __cdecl _wfindnext64i32(intptr_t _FindHandle,struct _wfinddata64i32_t *_FindData);
   _CRTIMP int __cdecl _wfindnext64(intptr_t _FindHandle,struct _wfinddata64_t *_FindData);
-#endif
   _CRTIMP errno_t __cdecl _wsopen_s(int *_FileHandle,const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionFlag);
   _CRTIMP int __cdecl _wopen(const wchar_t *_Filename,int _OpenFlag,...);
   _CRTIMP int __cdecl _wsopen(const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,...);
@@ -403,15 +399,9 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define _STAT_DEFINED
 
 #ifdef _USE_32BIT_TIME_T
-#ifdef WIN64
-#define _fstat _fstat32
-#define _stat _stat32
-#define _wstat _wstat32
-#else
 #define _fstat32 _fstat
 #define _stat32 _stat
 #define _wstat32 _wstat
-#endif
 #define _fstati64 _fstat32i64
 #define _stati64 _stat32i64
 #define _wstati64 _wstat32i64
@@ -454,8 +444,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   };
 #endif
 
-#if _INTEGRAL_MAX_BITS >= 64
-
   struct _stat32i64 {
     _dev_t st_dev;
     _ino_t st_ino;
@@ -497,7 +485,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
     __time64_t st_mtime;
     __time64_t st_ctime;
   };
-#endif
 
 #define __stat64 _stat64
 
@@ -507,11 +494,9 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define _WSTAT_DEFINED
 
   _CRTIMP int __cdecl _wstat32(const wchar_t *_Name,struct _stat32 *_Stat);
-#if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP int __cdecl _wstat32i64(const wchar_t *_Name,struct _stat32i64 *_Stat);
   int __cdecl _wstat64i32(const wchar_t *_Name,struct _stat64i32 *_Stat);
   _CRTIMP int __cdecl _wstat64(const wchar_t *_Name,struct _stat64 *_Stat);
-#endif
 #endif
 #endif
 
@@ -708,7 +693,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP long __cdecl _wtol(const wchar_t *_Str);
   _CRTIMP long __cdecl _wtol_l(const wchar_t *_Str,_locale_t _Locale);
 
-#if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP wchar_t *__cdecl _i64tow(__int64 _Val,wchar_t *_DstBuf,int _Radix);
   _CRTIMP wchar_t *__cdecl _ui64tow(unsigned __int64 _Val,wchar_t *_DstBuf,int _Radix);
   _CRTIMP __int64 __cdecl _wtoi64(const wchar_t *_Str);
@@ -717,7 +701,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP __int64 __cdecl _wcstoi64_l(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
   _CRTIMP unsigned __int64 __cdecl _wcstoui64(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
   _CRTIMP unsigned __int64 __cdecl _wcstoui64_l(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
-#endif
 #endif
 
 #ifndef _POSIX_
@@ -815,22 +798,13 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP size_t __cdecl _wcsftime_l(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wstrdate(wchar_t *_Buffer);
   _CRTIMP wchar_t *__cdecl _wstrtime(wchar_t *_Buffer);
-#if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP wchar_t *__cdecl _wctime64(const __time64_t *_Time);
-#endif
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
-#ifdef _USE_32BIT_TIME_T
-#ifndef __CRT__NO_INLINE
+#ifndef _USE_32BIT_TIME_T
   wchar_t *__cdecl _wctime(const time_t *_Time);
-  __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime32(_Time); }
-#else
-#define _wctime _wctime32
-#endif /* __CRT__NO_INLINE */
-#else
 #ifndef __CRT__NO_INLINE
-  wchar_t *__cdecl _wctime(const time_t *_Time);
   __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
 #else
 #define _wctime _wctime64

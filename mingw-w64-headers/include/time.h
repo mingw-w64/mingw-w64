@@ -34,12 +34,10 @@ extern "C" {
 
 #ifndef _TIME64_T_DEFINED
 #define _TIME64_T_DEFINED
-#if _INTEGRAL_MAX_BITS >= 64
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int _time64_t __attribute__ ((__mode__ (DI)));
 #else
   typedef __int64 __time64_t;
-#endif
 #endif
 #endif
 
@@ -152,7 +150,6 @@ extern "C" {
   _CRTIMP void __cdecl _tzset(void);
 #endif
 
-#if _INTEGRAL_MAX_BITS >= 64
   double __cdecl _difftime64(__time64_t _Time1,__time64_t _Time2);
   _CRTIMP char *__cdecl _ctime64(const __time64_t *_Time);
   _CRTIMP struct tm *__cdecl _gmtime64(const __time64_t *_Time);
@@ -160,7 +157,6 @@ extern "C" {
   _CRTIMP __time64_t __cdecl _mktime64(struct tm *_Tm);
   _CRTIMP __time64_t __cdecl _mkgmtime64(struct tm *_Tm);
   _CRTIMP __time64_t __cdecl _time64(__time64_t *_Time);
-#endif
   unsigned __cdecl _getsystime(struct tm *_Tm);
   unsigned __cdecl _setsystime(struct tm *_Tm,unsigned _MilliSec);
 
@@ -171,21 +167,12 @@ extern "C" {
   _CRTIMP size_t __cdecl _wcsftime_l(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wstrdate(wchar_t *_Buffer);
   _CRTIMP wchar_t *__cdecl _wstrtime(wchar_t *_Buffer);
-#if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP wchar_t *__cdecl _wctime64(const __time64_t *_Time);
-#endif
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
   wchar_t *__cdecl _wctime(const time_t *);
-#ifdef _USE_32BIT_TIME_T
-#ifndef __CRT__NO_INLINE
-  wchar_t *__cdecl _wctime(const time_t *);
-  __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime32(_Time); }
-#else
-#define _wctime _wctime32
-#endif /* __CRT__NO_INLINE */
-#else
+#ifndef _USE_32BIT_TIME_T
 #ifndef __CRT__NO_INLINE
   wchar_t *__cdecl _wctime(const time_t *);
   __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
@@ -248,17 +235,7 @@ time_t __cdecl _mkgmtime(struct tm *_Tm);
 time_t __cdecl time(time_t *_Time);
 
 #ifndef __CRT__NO_INLINE
-#ifdef _USE_32BIT_TIME_T
-#if 0
-__CRT_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2) { return _difftime32(_Time1,_Time2); }
-__CRT_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime32(_Time); }
-__CRT_INLINE struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime32(_Time); }
-__CRT_INLINE struct tm *__cdecl localtime(const time_t *_Time) { return _localtime32(_Time); }
-__CRT_INLINE time_t __cdecl mktime(struct tm *_Tm) { return _mktime32(_Tm); }
-__CRT_INLINE time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
-__CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time32(_Time); }
-#endif
-#else
+#ifndef _USE_32BIT_TIME_T
 __CRT_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2) { return _difftime64(_Time1,_Time2); }
 __CRT_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime64(_Time); }
 __CRT_INLINE struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime64(_Time); }

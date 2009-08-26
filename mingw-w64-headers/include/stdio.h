@@ -114,7 +114,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define _FPOS_T_DEFINED
 #undef _FPOSOFF
 
-#if (!defined(NO_OLDNAMES) || defined(__GNUC__)) && _INTEGRAL_MAX_BITS >= 64
+#if (!defined(NO_OLDNAMES) || defined(__GNUC__))
   typedef __int64 fpos_t;
 #define _FPOSOFF(fp) ((long)(fp))
 #else

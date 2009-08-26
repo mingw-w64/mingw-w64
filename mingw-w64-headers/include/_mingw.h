@@ -392,11 +392,9 @@ extern "C" {
   typedef __gnuc_va_list va_list;
 #endif /* _VA_LIST_DEFINED */
 
-#if 0
 #if defined (_WIN32) && !defined (_WIN64) && !defined (__MINGW_USE_VC2005_COMPAT)
 #ifndef _USE_32BIT_TIME_T
 #define _USE_32BIT_TIME_T
-#endif
 #endif
 #endif
 
@@ -404,10 +402,6 @@ extern "C" {
 #ifdef _WIN64
 #error You cannot use 32-bit time_t (_USE_32BIT_TIME_T) with _WIN64
 #undef _USE_32BIT_TIME_T
-#endif
-#else
-#if _INTEGRAL_MAX_BITS < 64
-#define _USE_32BIT_TIME_T
 #endif
 #endif /* _USE_32BIT_TIME_T */
 
@@ -423,9 +417,7 @@ extern "C" {
 
 #ifndef _TIME64_T_DEFINED
 #define _TIME64_T_DEFINED
-#if _INTEGRAL_MAX_BITS >= 64
   typedef __int64 __time64_t;
-#endif
 #endif /* _TIME64_T_DEFINED */
 
 #ifndef _TIME_T_DEFINED

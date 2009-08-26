@@ -330,9 +330,7 @@ extern "C" {
   long __cdecl labs(long _X);
 #endif
 
-#if _INTEGRAL_MAX_BITS >= 64
   __int64 __cdecl _abs64(__int64);
-#endif
   int __cdecl atexit(void (__cdecl *)(void));
 #ifndef _CRT_ATOF_DEFINED
 #define _CRT_ATOF_DEFINED
@@ -350,13 +348,10 @@ extern "C" {
 #endif
   unsigned short __cdecl _byteswap_ushort(unsigned short _Short);
   /*unsigned long __cdecl _byteswap_ulong (unsigned long _Long); */
-#if _INTEGRAL_MAX_BITS >= 64
   unsigned __int64 __cdecl _byteswap_uint64(unsigned __int64 _Int64);
-#endif
   div_t __cdecl div(int _Numerator,int _Denominator);
   char *__cdecl getenv(const char *_VarName);
   _CRTIMP char *__cdecl _itoa(int _Value,char *_Dest,int _Radix);
-#if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP char *__cdecl _i64toa(__int64 _Val,char *_DstBuf,int _Radix);
   _CRTIMP char *__cdecl _ui64toa(unsigned __int64 _Val,char *_DstBuf,int _Radix);
   _CRTIMP __int64 __cdecl _atoi64(const char *_String);
@@ -365,7 +360,6 @@ extern "C" {
   _CRTIMP __int64 __cdecl _strtoi64_l(const char *_String,char **_EndPtr,int _Radix,_locale_t _Locale);
   _CRTIMP unsigned __int64 __cdecl _strtoui64(const char *_String,char **_EndPtr,int _Radix);
   _CRTIMP unsigned __int64 __cdecl _strtoui64_l(const char *_String,char **_EndPtr,int _Radix,_locale_t _Locale);
-#endif
   ldiv_t __cdecl ldiv(long _Numerator,long _Denominator);
   _CRTIMP char *__cdecl _ltoa(long _Value,char *_Dest,int _Radix);
   int __cdecl mblen(const char *_Ch,size_t _MaxCount);
@@ -448,7 +442,6 @@ extern "C" {
   _CRTIMP long __cdecl _wtol(const wchar_t *_Str);
   _CRTIMP long __cdecl _wtol_l(const wchar_t *_Str,_locale_t _Locale);
 
-#if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP wchar_t *__cdecl _i64tow(__int64 _Val,wchar_t *_DstBuf,int _Radix);
   _CRTIMP wchar_t *__cdecl _ui64tow(unsigned __int64 _Val,wchar_t *_DstBuf,int _Radix);
   _CRTIMP __int64 __cdecl _wtoi64(const wchar_t *_Str);
@@ -457,7 +450,6 @@ extern "C" {
   _CRTIMP __int64 __cdecl _wcstoi64_l(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
   _CRTIMP unsigned __int64 __cdecl _wcstoui64(const wchar_t *_Str,wchar_t **_EndPtr,int _Radix);
   _CRTIMP unsigned __int64 __cdecl _wcstoui64_l(const wchar_t *_Str ,wchar_t **_EndPtr,int _Radix,_locale_t _Locale);
-#endif
 #endif
 
 #ifndef _POSIX_
@@ -494,7 +486,6 @@ extern "C" {
   void __cdecl perror(const char *_ErrMsg);
 #endif
   _CRTIMP int __cdecl _putenv(const char *_EnvString);
-#if _INTEGRAL_MAX_BITS >= 64
 #pragma push_macro ("_rotr64")
 #pragma push_macro ("_rotl64")
 #undef _rotl64
@@ -503,7 +494,6 @@ extern "C" {
   unsigned __int64 __cdecl _rotr64(unsigned __int64 Value,int Shift);
 #pragma pop_macro ("_rotl64")
 #pragma pop_macro ("_rotr64")
-#endif
 #pragma push_macro ("_rotr")
 #pragma push_macro ("_rotl")
 #undef _rotr
@@ -512,9 +502,7 @@ extern "C" {
   unsigned int __cdecl _rotl(unsigned int _Val,int _Shift);
 #pragma pop_macro ("_rotl")
 #pragma pop_macro ("_rotr")
-#if _INTEGRAL_MAX_BITS >= 64
   unsigned __int64 __cdecl _rotr64(unsigned __int64 _Val,int _Shift);
-#endif
   _CRTIMP void __cdecl _searchenv(const char *_Filename,const char *_EnvVar,char *_ResultPath);
   _CRTIMP void __cdecl _splitpath(const char *_FullPath,char *_Drive,char *_Dir,char *_Filename,char *_Ext);
   _CRTIMP void __cdecl _swab(char *_Buf1,char *_Buf2,int _SizeInBytes);

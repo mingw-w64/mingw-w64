@@ -1,3 +1,9 @@
+2009-08-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* ...: Cleanup with _INTEGRAL_MAX_BITS.
+	* ...: Fix 32-bit case with _USE_32BIT_TIME_T.
+	* _mingw.h: Make for 32-bit _USE_32BIT_TIME_T default behavior.
+
 2009-08-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* float.h (_chgsignl): Removed the old wrappers and added the new

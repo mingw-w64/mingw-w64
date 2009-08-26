@@ -40,23 +40,17 @@
 #define LLONG_MIN (-9223372036854775807ll - 1)
 #define ULLONG_MAX 0xffffffffffffffffull
 
-#if _INTEGRAL_MAX_BITS >= 8
 #define _I8_MIN (-127 - 1)
 #define _I8_MAX 127i8
 #define _UI8_MAX 0xffu
-#endif
 
-#if _INTEGRAL_MAX_BITS >= 16
 #define _I16_MIN (-32767 - 1)
 #define _I16_MAX 32767i16
 #define _UI16_MAX 0xffffu
-#endif
 
-#if _INTEGRAL_MAX_BITS >= 32
 #define _I32_MIN (-2147483647 - 1)
 #define _I32_MAX 2147483647
 #define _UI32_MAX 0xffffffffu
-#endif
 
 #if defined(__GNUC__)
 #undef LONG_LONG_MAX
@@ -67,11 +61,9 @@
 #define ULONG_LONG_MAX (2ull * LONG_LONG_MAX + 1ull)
 #endif
 
-#if _INTEGRAL_MAX_BITS >= 64
 #define _I64_MIN (-9223372036854775807ll - 1)
 #define _I64_MAX 9223372036854775807ll
 #define _UI64_MAX 0xffffffffffffffffull
-#endif
 
 #ifndef SIZE_MAX
 #ifdef _WIN64

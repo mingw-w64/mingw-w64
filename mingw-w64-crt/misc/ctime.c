@@ -6,11 +6,9 @@ during CRT compilation is plainly broken.  Need an appropriate
 implementation to provide users the ability of compiling the
 CRT only with 32-bit time_t behavior. */
 
+#ifndef _USE_32BIT_TIME_T
 char *__cdecl ctime(const time_t *_Time)
 {
-#ifdef _USE_32BIT_TIME_T
-  return _ctime32(_Time);
-#else
   return _ctime64(_Time);
-#endif
 }
+#endif

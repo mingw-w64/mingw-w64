@@ -53,13 +53,8 @@ extern "C" {
 
 #ifndef _HYPER_DEFINED
 #define _HYPER_DEFINED
-#if (!(defined(_X86_) && !defined(__x86_64)) || (defined(_INTEGRAL_MAX_BITS) && _INTEGRAL_MAX_BITS >= 64))
 #define hyper __int64
 #define MIDL_uhyper unsigned __int64
-#else
-  typedef double hyper;
-  typedef double MIDL_uhyper;
-#endif
 #endif
 
 #ifndef _WCHAR_T_DEFINED

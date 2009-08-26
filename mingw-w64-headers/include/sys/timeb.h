@@ -26,10 +26,6 @@ extern "C" {
 #ifdef _WIN64
 #undef _USE_32BIT_TIME_T
 #endif
-#else
-#if _INTEGRAL_MAX_BITS < 64
-#define _USE_32BIT_TIME_T
-#endif
 #endif
 
 #ifndef _TIME32_T_DEFINED
@@ -81,19 +77,13 @@ extern "C" {
   };
 #endif
 
-#ifdef _USE_32BIT_TIME_T
-#define _timeb __timeb32
-#define _ftime _ftime32
-#else
+#ifndef _USE_32BIT_TIME_T
 #define _timeb __timeb64
 #define _ftime _ftime64
 #endif
 #endif
 
-  _CRTIMP void __cdecl _ftime32(struct __timeb32 *_Time);
-#if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP void __cdecl _ftime64(struct __timeb64 *_Time);
-#endif
 
 #ifndef _TIMESPEC_DEFINED
 #define _TIMESPEC_DEFINED
@@ -112,11 +102,7 @@ struct itimerspec {
   void __cdecl ftime (struct timeb *);
 #ifndef __CRT__NO_INLINE
   /* TODO: Avoid structure cast here !!!! */
-#ifdef _USE_32BIT_TIME_T
-  __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
-    _ftime32((struct __timeb32 *)_Tmb);
-  }
-#else
+#ifndef _USE_32BIT_TIME_T
   __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
     _ftime64((struct __timeb64 *)_Tmb);
   }
