@@ -108,7 +108,11 @@ struct itimerspec {
   __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
     _ftime64((struct __timeb64 *)_Tmb);
   }
-#endif /* !_USE_32BIT_TIME_T */
+#else
+  __CRT_INLINE void __cdecl ftime(struct timeb *_Tmb) {
+    _ftime((struct __timeb32 *)_Tmb);
+  }
+#endif /* _USE_32BIT_TIME_T */
 #endif /* !__CRT__NO_INLINE */
 #endif
 
