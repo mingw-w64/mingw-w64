@@ -29,7 +29,7 @@ fileno
 fputchar
 fputwchar
 ;fstat
-ftime
+;ftime
 gcvt
 getch
 getche

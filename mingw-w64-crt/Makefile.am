@@ -160,6 +160,7 @@ src_libmingwex=\
   stdio/atoll.c           stdio/_Exit.c          stdio/_findfirst64i32.c  stdio/_wfindfirst64i32.c stdio/_findnext64i32.c  \
   stdio/_wfindnext64i32.c stdio/fopen64.c        stdio/fseeko64.c         stdio/_fstat64i32.c     stdio/_fstat.c           \
   stdio/_stat64i32.c      stdio/_stat.c          stdio/ftello64.c         stdio/_wstat64i32.c     stdio/_wstat.c           \
+  stdio/_ftime.c \
   stdio/lltoa.c           stdio/lltow.c          stdio/lseek64.c          \
   stdio/mingw_fprintf.c   stdio/mingw_pformat.c  stdio/mingw_printf.c     stdio/mingw_snprintf.c  stdio/mingw_sprintf.c    \
   stdio/mingw_vfprintf.c  stdio/mingw_vprintf.c  stdio/mingw_vsnprintf.c  stdio/mingw_vsprintf.c  stdio/snprintf.c         \

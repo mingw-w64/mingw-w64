@@ -1,3 +1,11 @@
+2009-08-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/_ftime.c: New.
+	* lib32/moldname-msvcrt.def: Remove ftime.
+	* lib64/moldname-msvcrt.def: Likewise.
+	* Makefile.am: Add stdio/_ftime.c to build.
+	* Makefile.in: Regenerated.
+
 2009-08-26  Kai Tietz  <kai.tietz@onevision.com>
 
 	* ...: Remove use of _INTEGRAL_MAX_BITS checks <= 64.

@@ -56,7 +56,7 @@ fileno
 ; fpreset
 fputchar
 fputwchar
-ftime
+;ftime
 gcvt
 getch
 getche
