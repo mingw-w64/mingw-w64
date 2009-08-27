@@ -68,22 +68,23 @@ extern "C" {
   };
 #endif
 
-#if _INTEGRAL_MAX_BITS >= 64
   struct __timeb64 {
     __time64_t time;
     unsigned short millitm;
     short timezone;
     short dstflag;
   };
-#endif
 
-#ifndef _USE_32BIT_TIME_T
-#define _timeb __timeb64
-#define _ftime _ftime64
-#endif
 #endif
 
   _CRTIMP void __cdecl _ftime64(struct __timeb64 *_Time);
+  _CRTIMP void __cdecl _ftime(struct __timeb32 *);
+
+#ifndef _USE_32BIT_TIME_T
+#define _timeb __timeb64
+#else
+#define _timeb __timeb32
+#endif
 
 #ifndef _TIMESPEC_DEFINED
 #define _TIMESPEC_DEFINED
@@ -100,6 +101,7 @@ struct itimerspec {
 
 #if !defined (RC_INVOKED) && !defined (NO_OLDNAMES)
   void __cdecl ftime (struct timeb *);
+
 #ifndef __CRT__NO_INLINE
   /* TODO: Avoid structure cast here !!!! */
 #ifndef _USE_32BIT_TIME_T
