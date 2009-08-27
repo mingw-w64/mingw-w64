@@ -63,9 +63,9 @@ extern "C" {
 #define _fstat32 _fstat
 #define _stat32 _stat
 #define _wstat32 _wstat
-#define _fstati64 _fstat32i64
-#define _stati64 _stat32i64
-#define _wstati64 _wstat32i64
+#define _fstat32i64 _fstati64
+#define _stat32i64 _stati64
+#define _wstat32i64 _wstati64
 #else
 #define _fstat _fstat64i32
 #define _fstati64 _fstat64
