@@ -119,10 +119,10 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define _wfinddata_t _wfinddata32_t
 #define _wfinddatai64_t _wfinddata32i64_t
 
-#define _wfindfirst _wfindfirst32
-#define _wfindnext _wfindnext32
-#define _wfindfirsti64 _wfindfirst32i64
-#define _wfindnexti64 _wfindnext32i64
+#define _wfindfirst32 _wfindfirst
+#define _wfindnext32 _wfindnext
+#define _wfindfirst32i64 _wfindfirsti64
+#define _wfindnext32i64 _wfindnexti64
 #else
 #define _wfinddata_t _wfinddata64i32_t
 #define _wfinddatai64_t _wfinddata64_t
