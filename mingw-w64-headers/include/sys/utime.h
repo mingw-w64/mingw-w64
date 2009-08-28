@@ -40,9 +40,7 @@ extern "C" {
 
 #ifndef _TIME64_T_DEFINED
 #define _TIME64_T_DEFINED
-#if _INTEGRAL_MAX_BITS >= 64
   typedef __int64 __time64_t;
-#endif
 #endif
 
 #ifndef _TIME_T_DEFINED
@@ -67,12 +65,10 @@ extern "C" {
     __time32_t modtime;
   };
 
-#if _INTEGRAL_MAX_BITS >= 64
   struct __utimbuf64 {
     __time64_t actime;
     __time64_t modtime;
   };
-#endif
 
 #ifndef	NO_OLDNAMES
   struct utimbuf {

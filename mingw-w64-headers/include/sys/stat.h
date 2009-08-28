@@ -37,9 +37,7 @@ extern "C" {
 #endif
 
 #ifndef _TIME64_T_DEFINED
-#if _INTEGRAL_MAX_BITS >= 64
   typedef __int64 __time64_t;
-#endif
 #define _TIME64_T_DEFINED
 #endif
 
@@ -105,7 +103,6 @@ extern "C" {
   };
 #endif /* NO_OLDNAMES */
 
-#if _INTEGRAL_MAX_BITS >= 64
   struct _stat32i64 {
     _dev_t st_dev;
     _ino_t st_ino;
@@ -147,7 +144,6 @@ extern "C" {
     __time64_t st_mtime;
     __time64_t st_ctime;
   };
-#endif /* _INTEGRAL_MAX_BITS >= 64 */
 
 #define __stat64 _stat64
 #define stat64   _stat64  /* for POSIX */
@@ -167,11 +163,10 @@ extern "C" {
 
   _CRTIMP int __cdecl _fstat32(int _FileDes,struct _stat32 *_Stat);
   _CRTIMP int __cdecl _stat32(const char *_Name,struct _stat32 *_Stat);
-#if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP int __cdecl _fstat64(int _FileDes,struct _stat64 *_Stat);
   _CRTIMP int __cdecl _fstat32i64(int _FileDes,struct _stat32i64 *_Stat);
   int __cdecl _fstat64i32(int _FileDes,struct _stat64i32 *_Stat);
-# ifndef __CRT__NO_INLINE
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl _fstat64i32(int _FileDes,struct _stat64i32 *_Stat)
   {
     struct _stat64 st;
@@ -191,11 +186,11 @@ extern "C" {
     _Stat->st_ctime=st.st_ctime;
     return ret;
   }
-# endif /* __CRT__NO_INLINE */
+#endif /* __CRT__NO_INLINE */
   _CRTIMP int __cdecl _stat64(const char *_Name,struct _stat64 *_Stat);
   _CRTIMP int __cdecl _stat32i64(const char *_Name,struct _stat32i64 *_Stat);
   int __cdecl _stat64i32(const char *_Name,struct _stat64i32 *_Stat);
-# ifndef __CRT__NO_INLINE
+#ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl _stat64i32(const char *_Name,struct _stat64i32 *_Stat)
   {
     struct _stat64 st;
@@ -215,17 +210,14 @@ extern "C" {
     _Stat->st_ctime=st.st_ctime;
     return ret;
   }
-# endif /* __CRT__NO_INLINE */
-#endif /* _INTEGRAL_MAX_BITS >= 64 */
+#endif /* __CRT__NO_INLINE */
 
 #ifndef _WSTAT_DEFINED
 #define _WSTAT_DEFINED
   _CRTIMP int __cdecl _wstat32(const wchar_t *_Name,struct _stat32 *_Stat);
-#if _INTEGRAL_MAX_BITS >= 64
   _CRTIMP int __cdecl _wstat32i64(const wchar_t *_Name,struct _stat32i64 *_Stat);
   int __cdecl _wstat64i32(const wchar_t *_Name,struct _stat64i32 *_Stat);
   _CRTIMP int __cdecl _wstat64(const wchar_t *_Name,struct _stat64 *_Stat);
-#endif
 #endif
 
 #ifndef	NO_OLDNAMES

@@ -34,9 +34,7 @@ extern "C" {
 #endif
 
 #ifndef _TIME64_T_DEFINED
-#if _INTEGRAL_MAX_BITS >= 64
   typedef __int64 __time64_t;
-#endif
 #define _TIME64_T_DEFINED
 #endif
 
