@@ -1,0 +1,42 @@
+2009-08-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gendef.h, gendef.c: Add BSD license.
+	* COPYING: New file.
+
+2009-02-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gendef.c (main): Check if gPEDta or gPEPDta is
+	valid, before trying to dump.
+
+2009-01-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gendef.c (is_reloc): New.
+	(is_data): Check if va is relocated.
+
+2009-01-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gendef.h (IMAGE_FIRST_SECTION): Added.
+	(Gendefopts): Added.
+	(sExportName): Moved from gendef.c.
+	(eOpCodeKind): Likewise.
+	(sAddresses): Likewise.
+	* gendef.c: Remove unused nacro,
+	(IMAGE_DIRECTORY_ENTRY_EXPORT): Removed.
+	(sExportName): Moved to header.
+	(eOpCodeKind): Likewise.
+	(sAddresses): Likewise.
+
+2009-01-07  jonY  <10walls@gmail.com>
+
+	* gendef.c (struct gendefopts): New.
+	(opt_chain): New.
+	(std_output): New.
+	(main): Use opt_chain.
+	(dump_def): Treat std_output.
+	(load_pep): Adjust error messages.
+
+2009-01-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gendef.c: New.
+	* gendef.h: New.
+
