@@ -78,11 +78,7 @@ extern "C" {
   _CRTIMP void __cdecl _ftime64(struct __timeb64 *_Time);
   _CRTIMP void __cdecl _ftime(struct __timeb32 *);
 
-#ifndef _USE_32BIT_TIME_T
-#define _timeb __timeb64
-#else
 #define _timeb __timeb32
-#endif
 
 #ifndef _TIMESPEC_DEFINED
 #define _TIMESPEC_DEFINED
