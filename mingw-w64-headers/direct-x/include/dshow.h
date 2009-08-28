@@ -53,7 +53,7 @@
 #define VIDEINFOHEADER_DEFINED
 
 typedef struct tagVIDEOINFOHEADER {
-    RECT                rcSource,
+    RECT                rcSource;
     RECT                rcTarget;
     DWORD               dwBitRate;
     DWORD               dwBitErrorRate;
