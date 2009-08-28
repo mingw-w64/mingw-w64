@@ -17,6 +17,9 @@ extern "C" {
 
 #if defined(__GNUC__) && \
    (defined(__i386__) || defined(__x86_64__))
+  extern unsigned int __builtin_ia32_crc32qi (unsigned int, unsigned char);
+  extern unsigned int __builtin_ia32_crc32hi (unsigned int, unsigned short);
+  extern unsigned int __builtin_ia32_crc32si (unsigned int, unsigned int);
 #include <x86intrin.h>
 #endif
 
