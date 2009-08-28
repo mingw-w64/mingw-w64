@@ -487,6 +487,8 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   };
 
 #define __stat64 _stat64
+#define stat64   _stat64  /* for POSIX */
+#define fstat64  _fstat64 /* for POSIX */
 
 #endif
 

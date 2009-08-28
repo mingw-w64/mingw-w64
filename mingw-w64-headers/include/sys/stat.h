@@ -150,6 +150,8 @@ extern "C" {
 #endif /* _INTEGRAL_MAX_BITS >= 64 */
 
 #define __stat64 _stat64
+#define stat64   _stat64  /* for POSIX */
+#define fstat64  _fstat64 /* for POSIX */
 
 #define _STAT_DEFINED
 #endif /* _STAT_DEFINED */

@@ -1,3 +1,9 @@
+2009-08-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sys/stat.h: Define stat64 as _stat64 and fstat64 as _fstat64
+	for POSIX compatibility.
+	* wchar.h: Likewise.
+
 2009-08-26  Kai Tietz  <kai.tietz@onevision.com>
 
 	* ...: Cleanup with _INTEGRAL_MAX_BITS.
