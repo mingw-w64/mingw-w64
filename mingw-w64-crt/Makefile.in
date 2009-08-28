@@ -63,8 +63,8 @@ check_PROGRAMS = testcases/t_float$(EXEEXT) \
 	testcases/t_tls1$(EXEEXT) testcases/t_sigv$(EXEEXT) \
 	testcases/t_stdint$(EXEEXT)
 subdir = .
-DIST_COMMON = $(am__configure_deps) $(noinst_HEADERS) \
-	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
+DIST_COMMON = $(am__configure_deps) $(include_HEADERS) \
+	$(noinst_HEADERS) $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/config.h.in $(top_srcdir)/configure ChangeLog \
 	compile config.guess config.sub depcomp install-sh ltmain.sh \
 	missing
@@ -101,7 +101,8 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" \
 	"$(DESTDIR)$(crt32dir)" "$(DESTDIR)$(crt64dir)" \
-	"$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)"
+	"$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" \
+	"$(DESTDIR)$(includedir)"
 LIBRARIES = $(lib32_LIBRARIES) $(lib64_LIBRARIES)
 ARFLAGS = cru
 lib32_libdinput_a_LIBADD =
@@ -1923,7 +1924,7 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
 	testcases/tstwassert.c testcases/tstwassert_win.c \
 	testcases/tstwinmain.c
-HEADERS = $(noinst_HEADERS)
+HEADERS = $(include_HEADERS) $(noinst_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 am__tty_colors = \
@@ -2004,7 +2005,6 @@ PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
 PACKAGE_STRING = @PACKAGE_STRING@
 PACKAGE_TARNAME = @PACKAGE_TARNAME@
-PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
@@ -2832,6 +2832,7 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 
 # Distribution options
 #
+include_HEADERS = *.h
 EXTRA_DIST = DISCLAIMER revstamp.h $(top_srcdir)/lib64/*.def \
 	$(top_srcdir)/lib32/*.def crt/binmode.c crt/crtbegin.c \
 	crt/crtdll.c crt/crtend.c crt/crtexe.c crt/CRT_fp8.c \
@@ -22121,6 +22122,26 @@ clean-libtool:
 
 distclean-libtool:
 	-rm -f libtool config.lt
+install-includeHEADERS: $(include_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(includedir)" || $(MKDIR_P) "$(DESTDIR)$(includedir)"
+	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(includedir)'"; \
+	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(includedir)" || exit $$?; \
+	done
+
+uninstall-includeHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(includedir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(includedir)" && rm -f $$files
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -22422,7 +22443,7 @@ check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-am
 all-am: Makefile $(LIBRARIES) $(SCRIPTS) $(HEADERS) config.h
 installdirs:
-	for dir in "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" "$(DESTDIR)$(crt32dir)" "$(DESTDIR)$(crt64dir)" "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)"; do \
+	for dir in "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" "$(DESTDIR)$(crt32dir)" "$(DESTDIR)$(crt64dir)" "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" "$(DESTDIR)$(includedir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: $(BUILT_SOURCES)
@@ -22504,8 +22525,9 @@ info: info-am
 info-am:
 
 install-data-am: install-crt32SCRIPTS install-crt64SCRIPTS \
-	install-lib32LIBRARIES install-lib32SCRIPTS \
-	install-lib64LIBRARIES install-lib64SCRIPTS
+	install-includeHEADERS install-lib32LIBRARIES \
+	install-lib32SCRIPTS install-lib64LIBRARIES \
+	install-lib64SCRIPTS
 
 install-dvi: install-dvi-am
 
@@ -22554,8 +22576,9 @@ ps: ps-am
 ps-am:
 
 uninstall-am: uninstall-crt32SCRIPTS uninstall-crt64SCRIPTS \
-	uninstall-lib32LIBRARIES uninstall-lib32SCRIPTS \
-	uninstall-lib64LIBRARIES uninstall-lib64SCRIPTS
+	uninstall-includeHEADERS uninstall-lib32LIBRARIES \
+	uninstall-lib32SCRIPTS uninstall-lib64LIBRARIES \
+	uninstall-lib64SCRIPTS
 
 .MAKE: all check check-am install install-am install-strip
 
@@ -22569,8 +22592,9 @@ uninstall-am: uninstall-crt32SCRIPTS uninstall-crt64SCRIPTS \
 	dvi-am html html-am info info-am install install-am \
 	install-crt32SCRIPTS install-crt64SCRIPTS install-data \
 	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-lib32LIBRARIES install-lib32SCRIPTS \
+	install-exec-am install-html install-html-am \
+	install-includeHEADERS install-info install-info-am \
+	install-lib32LIBRARIES install-lib32SCRIPTS \
 	install-lib64LIBRARIES install-lib64SCRIPTS install-man \
 	install-pdf install-pdf-am install-ps install-ps-am \
 	install-strip installcheck installcheck-am installdirs \
@@ -22578,8 +22602,9 @@ uninstall-am: uninstall-crt32SCRIPTS uninstall-crt64SCRIPTS \
 	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
 	pdf pdf-am ps ps-am tags uninstall uninstall-am \
 	uninstall-crt32SCRIPTS uninstall-crt64SCRIPTS \
-	uninstall-lib32LIBRARIES uninstall-lib32SCRIPTS \
-	uninstall-lib64LIBRARIES uninstall-lib64SCRIPTS
+	uninstall-includeHEADERS uninstall-lib32LIBRARIES \
+	uninstall-lib32SCRIPTS uninstall-lib64LIBRARIES \
+	uninstall-lib64SCRIPTS
 
 _libm_dummy.c:
 	echo "static int __attribute__((unused)) __mingw_libm_dummy;" > _libm_dummy.c

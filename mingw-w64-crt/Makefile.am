@@ -915,6 +915,8 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 # Distribution options
 #
 
+include_HEADERS = *.h
+
 EXTRA_DIST = DISCLAIMER
 EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib64/*.def \
