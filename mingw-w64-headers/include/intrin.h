@@ -11,6 +11,10 @@
 #include <setjmp.h>
 #include <stddef.h>
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #if defined(__GNUC__) && \
    (defined(__i386__) || defined(__x86_64__))
 #include <x86intrin.h>
@@ -38,10 +42,6 @@ typedef union __m128i { char v[16]; } __m128i;
 #include <fvec.h>
 #include <ivec.h>
 #endif
-#endif
-
-#if defined(__cplusplus)
-extern "C" {
 #endif
 
 #define __MACHINEX64 __MACHINE
