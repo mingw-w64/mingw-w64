@@ -941,30 +941,36 @@ dist-hook:
 
 
 # Testsuite options
-#
-#  testcases/t_float.c             testcases/t_setjmp.c      testcases/tstmain.cpp        testcases/tstwassert_win.c \
-#  testcases/t_matherr.c           testcases/t_speed_powl.c  testcases/tstmain_sys_xxx.c  testcases/tstwinmain.c     \
-#  testcases/t_nullptrexception.c  testcases/tstmain.c       testcases/tstwassert.c       testcases/t_trycatch.cpp
+
+#old
+#  testcases/tstwassert_win \
+#  testcases/tstwinmain \
+#  testcases/tstwassert \
+#  testcases_tstwinmain_LDADD = -lgdi32
+
 check_PROGRAMS = \
-  testcases/t_float  \
-  testcases/t_intrinc \
-  testcases/t_setjmp \
-  testcases/tstwassert_win \
-  testcases/t_matherr \
-  testcases/t_speed_powl \
-  testcases/tstmain_sys_xxx \
-  testcases/tstwinmain \
-  testcases/t_nullptrexception \
-  testcases/tstwassert \
-  testcases/t_trycatch \
-  testcases/tstmaincpp \
   testcases/tstmainc \
+  testcases/tstmaincpp \
+  testcases/tstmain_sys_xxx \
+  testcases/t_ansi_io \
+  testcases/t_float  \
+  testcases/t_fstat \
+  testcases/t_intrinc \
+  testcases/t_matherr \
   testcases/t_municode \
-  testcases/t_tmain \
-  testcases/t_tls1 \
+  testcases/t_nullptrexception \
+  testcases/t_readdir \
+  testcases/t_setjmp \
   testcases/t_sigv \
-  testcases/t_stdint
-testcases_tstwinmain_LDADD = -lgdi32
+  testcases/t_speed_powl \
+  testcases/t_stat \
+  testcases/t_stdint \
+  testcases/t_time \
+  testcases/t_tls1 \
+  testcases/t_tmain \
+  testcases/t_trycatch \
+  testcases/t_wreadir
+
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
 testcases_t_municode_CFLAGS = -municode

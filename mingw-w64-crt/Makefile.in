@@ -50,18 +50,19 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = testcases/t_float$(EXEEXT) \
-	testcases/t_intrinc$(EXEEXT) testcases/t_setjmp$(EXEEXT) \
-	testcases/tstwassert_win$(EXEEXT) testcases/t_matherr$(EXEEXT) \
-	testcases/t_speed_powl$(EXEEXT) \
+check_PROGRAMS = testcases/tstmainc$(EXEEXT) \
+	testcases/tstmaincpp$(EXEEXT) \
 	testcases/tstmain_sys_xxx$(EXEEXT) \
-	testcases/tstwinmain$(EXEEXT) \
+	testcases/t_ansi_io$(EXEEXT) testcases/t_float$(EXEEXT) \
+	testcases/t_fstat$(EXEEXT) testcases/t_intrinc$(EXEEXT) \
+	testcases/t_matherr$(EXEEXT) testcases/t_municode$(EXEEXT) \
 	testcases/t_nullptrexception$(EXEEXT) \
-	testcases/tstwassert$(EXEEXT) testcases/t_trycatch$(EXEEXT) \
-	testcases/tstmaincpp$(EXEEXT) testcases/tstmainc$(EXEEXT) \
-	testcases/t_municode$(EXEEXT) testcases/t_tmain$(EXEEXT) \
-	testcases/t_tls1$(EXEEXT) testcases/t_sigv$(EXEEXT) \
-	testcases/t_stdint$(EXEEXT)
+	testcases/t_readdir$(EXEEXT) testcases/t_setjmp$(EXEEXT) \
+	testcases/t_sigv$(EXEEXT) testcases/t_speed_powl$(EXEEXT) \
+	testcases/t_stat$(EXEEXT) testcases/t_stdint$(EXEEXT) \
+	testcases/t_time$(EXEEXT) testcases/t_tls1$(EXEEXT) \
+	testcases/t_tmain$(EXEEXT) testcases/t_trycatch$(EXEEXT) \
+	testcases/t_wreadir$(EXEEXT)
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(include_HEADERS) \
 	$(noinst_HEADERS) $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
@@ -1749,9 +1750,15 @@ am__objects_39 = libsrc/ws2_32.$(OBJEXT) \
 	libsrc/wspiapi/WspiapiFreeAddrInfo.$(OBJEXT)
 @LIB64_TRUE@am_lib64_libws2_32_a_OBJECTS = $(am__objects_39)
 lib64_libws2_32_a_OBJECTS = $(am_lib64_libws2_32_a_OBJECTS)
+testcases_t_ansi_io_SOURCES = testcases/t_ansi_io.c
+testcases_t_ansi_io_OBJECTS = testcases/t_ansi_io.$(OBJEXT)
+testcases_t_ansi_io_LDADD = $(LDADD)
 testcases_t_float_SOURCES = testcases/t_float.c
 testcases_t_float_OBJECTS = testcases/t_float.$(OBJEXT)
 testcases_t_float_LDADD = $(LDADD)
+testcases_t_fstat_SOURCES = testcases/t_fstat.c
+testcases_t_fstat_OBJECTS = testcases/t_fstat.$(OBJEXT)
+testcases_t_fstat_LDADD = $(LDADD)
 testcases_t_intrinc_SOURCES = testcases/t_intrinc.c
 testcases_t_intrinc_OBJECTS =  \
 	testcases/testcases_t_intrinc-t_intrinc.$(OBJEXT)
@@ -1775,6 +1782,9 @@ testcases_t_nullptrexception_SOURCES = testcases/t_nullptrexception.c
 testcases_t_nullptrexception_OBJECTS =  \
 	testcases/t_nullptrexception.$(OBJEXT)
 testcases_t_nullptrexception_LDADD = $(LDADD)
+testcases_t_readdir_SOURCES = testcases/t_readdir.c
+testcases_t_readdir_OBJECTS = testcases/t_readdir.$(OBJEXT)
+testcases_t_readdir_LDADD = $(LDADD)
 testcases_t_setjmp_SOURCES = testcases/t_setjmp.c
 testcases_t_setjmp_OBJECTS = testcases/t_setjmp.$(OBJEXT)
 testcases_t_setjmp_LDADD = $(LDADD)
@@ -1784,9 +1794,15 @@ testcases_t_sigv_LDADD = $(LDADD)
 testcases_t_speed_powl_SOURCES = testcases/t_speed_powl.c
 testcases_t_speed_powl_OBJECTS = testcases/t_speed_powl.$(OBJEXT)
 testcases_t_speed_powl_LDADD = $(LDADD)
+testcases_t_stat_SOURCES = testcases/t_stat.c
+testcases_t_stat_OBJECTS = testcases/t_stat.$(OBJEXT)
+testcases_t_stat_LDADD = $(LDADD)
 testcases_t_stdint_SOURCES = testcases/t_stdint.c
 testcases_t_stdint_OBJECTS = testcases/t_stdint.$(OBJEXT)
 testcases_t_stdint_LDADD = $(LDADD)
+testcases_t_time_SOURCES = testcases/t_time.c
+testcases_t_time_OBJECTS = testcases/t_time.$(OBJEXT)
+testcases_t_time_LDADD = $(LDADD)
 testcases_t_tls1_SOURCES = testcases/t_tls1.c
 testcases_t_tls1_OBJECTS = testcases/t_tls1.$(OBJEXT)
 testcases_t_tls1_LDADD = $(LDADD)
@@ -1801,6 +1817,9 @@ testcases_t_tmain_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 am_testcases_t_trycatch_OBJECTS = testcases/t_trycatch.$(OBJEXT)
 testcases_t_trycatch_OBJECTS = $(am_testcases_t_trycatch_OBJECTS)
 testcases_t_trycatch_LDADD = $(LDADD)
+testcases_t_wreadir_SOURCES = testcases/t_wreadir.c
+testcases_t_wreadir_OBJECTS = testcases/t_wreadir.$(OBJEXT)
+testcases_t_wreadir_LDADD = $(LDADD)
 testcases_tstmain_sys_xxx_SOURCES = testcases/tstmain_sys_xxx.c
 testcases_tstmain_sys_xxx_OBJECTS =  \
 	testcases/tstmain_sys_xxx.$(OBJEXT)
@@ -1811,15 +1830,6 @@ testcases_tstmainc_LDADD = $(LDADD)
 am_testcases_tstmaincpp_OBJECTS = testcases/tstmaincpp.$(OBJEXT)
 testcases_tstmaincpp_OBJECTS = $(am_testcases_tstmaincpp_OBJECTS)
 testcases_tstmaincpp_LDADD = $(LDADD)
-testcases_tstwassert_SOURCES = testcases/tstwassert.c
-testcases_tstwassert_OBJECTS = testcases/tstwassert.$(OBJEXT)
-testcases_tstwassert_LDADD = $(LDADD)
-testcases_tstwassert_win_SOURCES = testcases/tstwassert_win.c
-testcases_tstwassert_win_OBJECTS = testcases/tstwassert_win.$(OBJEXT)
-testcases_tstwassert_win_LDADD = $(LDADD)
-testcases_tstwinmain_SOURCES = testcases/tstwinmain.c
-testcases_tstwinmain_OBJECTS = testcases/tstwinmain.$(OBJEXT)
-testcases_tstwinmain_DEPENDENCIES =
 SCRIPTS = $(crt32_SCRIPTS) $(crt64_SCRIPTS) $(lib32_SCRIPTS) \
 	$(lib64_SCRIPTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
@@ -1868,16 +1878,16 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib64_libmoldname_a_SOURCES) $(lib64_libscrnsave_a_SOURCES) \
 	$(lib64_libscrnsavw_a_SOURCES) $(lib64_libshell32_a_SOURCES) \
 	$(lib64_libstrmiids_a_SOURCES) $(lib64_libuuid_a_SOURCES) \
-	$(lib64_libws2_32_a_SOURCES) testcases/t_float.c \
-	testcases/t_intrinc.c testcases/t_matherr.c \
-	testcases/t_municode.c testcases/t_nullptrexception.c \
+	$(lib64_libws2_32_a_SOURCES) testcases/t_ansi_io.c \
+	testcases/t_float.c testcases/t_fstat.c testcases/t_intrinc.c \
+	testcases/t_matherr.c testcases/t_municode.c \
+	testcases/t_nullptrexception.c testcases/t_readdir.c \
 	testcases/t_setjmp.c testcases/t_sigv.c \
-	testcases/t_speed_powl.c testcases/t_stdint.c \
-	testcases/t_tls1.c testcases/t_tmain.c \
-	$(testcases_t_trycatch_SOURCES) testcases/tstmain_sys_xxx.c \
-	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
-	testcases/tstwassert.c testcases/tstwassert_win.c \
-	testcases/tstwinmain.c
+	testcases/t_speed_powl.c testcases/t_stat.c \
+	testcases/t_stdint.c testcases/t_time.c testcases/t_tls1.c \
+	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
+	testcases/t_wreadir.c testcases/tstmain_sys_xxx.c \
+	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES)
 DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdinput8_a_SOURCES_DIST) \
 	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
@@ -1914,16 +1924,16 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib64_libshell32_a_SOURCES_DIST) \
 	$(am__lib64_libstrmiids_a_SOURCES_DIST) \
 	$(am__lib64_libuuid_a_SOURCES_DIST) \
-	$(am__lib64_libws2_32_a_SOURCES_DIST) testcases/t_float.c \
-	testcases/t_intrinc.c testcases/t_matherr.c \
-	testcases/t_municode.c testcases/t_nullptrexception.c \
+	$(am__lib64_libws2_32_a_SOURCES_DIST) testcases/t_ansi_io.c \
+	testcases/t_float.c testcases/t_fstat.c testcases/t_intrinc.c \
+	testcases/t_matherr.c testcases/t_municode.c \
+	testcases/t_nullptrexception.c testcases/t_readdir.c \
 	testcases/t_setjmp.c testcases/t_sigv.c \
-	testcases/t_speed_powl.c testcases/t_stdint.c \
-	testcases/t_tls1.c testcases/t_tmain.c \
-	$(testcases_t_trycatch_SOURCES) testcases/tstmain_sys_xxx.c \
-	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
-	testcases/tstwassert.c testcases/tstwassert_win.c \
-	testcases/tstwinmain.c
+	testcases/t_speed_powl.c testcases/t_stat.c \
+	testcases/t_stdint.c testcases/t_time.c testcases/t_tls1.c \
+	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
+	testcases/t_wreadir.c testcases/tstmain_sys_xxx.c \
+	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES)
 HEADERS = $(include_HEADERS) $(noinst_HEADERS)
 ETAGS = etags
 CTAGS = ctags
@@ -2839,7 +2849,6 @@ EXTRA_DIST = DISCLAIMER revstamp.h $(top_srcdir)/lib64/*.def \
 	crt/CRT_fp10.c crt/CRT_glob.c crt/txtmode.c crt/ucrtexe.c \
 	profile/gcrt0.c profile/COPYING profile/CYGWIN_LICENSE
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
-testcases_tstwinmain_LDADD = -lgdi32
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
 testcases_t_municode_CFLAGS = -municode
@@ -5445,11 +5454,21 @@ testcases/$(am__dirstamp):
 testcases/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) testcases/$(DEPDIR)
 	@: > testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_ansi_io.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_ansi_io$(EXEEXT): $(testcases_t_ansi_io_OBJECTS) $(testcases_t_ansi_io_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_ansi_io$(EXEEXT)
+	$(LINK) $(testcases_t_ansi_io_OBJECTS) $(testcases_t_ansi_io_LDADD) $(LIBS)
 testcases/t_float.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_float$(EXEEXT): $(testcases_t_float_OBJECTS) $(testcases_t_float_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_float$(EXEEXT)
 	$(LINK) $(testcases_t_float_OBJECTS) $(testcases_t_float_LDADD) $(LIBS)
+testcases/t_fstat.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_fstat$(EXEEXT): $(testcases_t_fstat_OBJECTS) $(testcases_t_fstat_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_fstat$(EXEEXT)
+	$(LINK) $(testcases_t_fstat_OBJECTS) $(testcases_t_fstat_LDADD) $(LIBS)
 testcases/testcases_t_intrinc-t_intrinc.$(OBJEXT):  \
 	testcases/$(am__dirstamp) testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_intrinc$(EXEEXT): $(testcases_t_intrinc_OBJECTS) $(testcases_t_intrinc_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -5470,6 +5489,11 @@ testcases/t_nullptrexception.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_nullptrexception$(EXEEXT): $(testcases_t_nullptrexception_OBJECTS) $(testcases_t_nullptrexception_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_nullptrexception$(EXEEXT)
 	$(LINK) $(testcases_t_nullptrexception_OBJECTS) $(testcases_t_nullptrexception_LDADD) $(LIBS)
+testcases/t_readdir.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_readdir$(EXEEXT): $(testcases_t_readdir_OBJECTS) $(testcases_t_readdir_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_readdir$(EXEEXT)
+	$(LINK) $(testcases_t_readdir_OBJECTS) $(testcases_t_readdir_LDADD) $(LIBS)
 testcases/t_setjmp.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_setjmp$(EXEEXT): $(testcases_t_setjmp_OBJECTS) $(testcases_t_setjmp_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -5485,11 +5509,21 @@ testcases/t_speed_powl.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_speed_powl$(EXEEXT): $(testcases_t_speed_powl_OBJECTS) $(testcases_t_speed_powl_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_speed_powl$(EXEEXT)
 	$(LINK) $(testcases_t_speed_powl_OBJECTS) $(testcases_t_speed_powl_LDADD) $(LIBS)
+testcases/t_stat.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_stat$(EXEEXT): $(testcases_t_stat_OBJECTS) $(testcases_t_stat_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_stat$(EXEEXT)
+	$(LINK) $(testcases_t_stat_OBJECTS) $(testcases_t_stat_LDADD) $(LIBS)
 testcases/t_stdint.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_stdint$(EXEEXT): $(testcases_t_stdint_OBJECTS) $(testcases_t_stdint_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_stdint$(EXEEXT)
 	$(LINK) $(testcases_t_stdint_OBJECTS) $(testcases_t_stdint_LDADD) $(LIBS)
+testcases/t_time.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_time$(EXEEXT): $(testcases_t_time_OBJECTS) $(testcases_t_time_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_time$(EXEEXT)
+	$(LINK) $(testcases_t_time_OBJECTS) $(testcases_t_time_LDADD) $(LIBS)
 testcases/t_tls1.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_tls1$(EXEEXT): $(testcases_t_tls1_OBJECTS) $(testcases_t_tls1_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -5505,6 +5539,11 @@ testcases/t_trycatch.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_trycatch$(EXEEXT): $(testcases_t_trycatch_OBJECTS) $(testcases_t_trycatch_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_trycatch$(EXEEXT)
 	$(CXXLINK) $(testcases_t_trycatch_OBJECTS) $(testcases_t_trycatch_LDADD) $(LIBS)
+testcases/t_wreadir.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_wreadir$(EXEEXT): $(testcases_t_wreadir_OBJECTS) $(testcases_t_wreadir_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_wreadir$(EXEEXT)
+	$(LINK) $(testcases_t_wreadir_OBJECTS) $(testcases_t_wreadir_LDADD) $(LIBS)
 testcases/tstmain_sys_xxx.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/tstmain_sys_xxx$(EXEEXT): $(testcases_tstmain_sys_xxx_OBJECTS) $(testcases_tstmain_sys_xxx_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -5520,21 +5559,6 @@ testcases/tstmaincpp.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/tstmaincpp$(EXEEXT): $(testcases_tstmaincpp_OBJECTS) $(testcases_tstmaincpp_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/tstmaincpp$(EXEEXT)
 	$(CXXLINK) $(testcases_tstmaincpp_OBJECTS) $(testcases_tstmaincpp_LDADD) $(LIBS)
-testcases/tstwassert.$(OBJEXT): testcases/$(am__dirstamp) \
-	testcases/$(DEPDIR)/$(am__dirstamp)
-testcases/tstwassert$(EXEEXT): $(testcases_tstwassert_OBJECTS) $(testcases_tstwassert_DEPENDENCIES) testcases/$(am__dirstamp)
-	@rm -f testcases/tstwassert$(EXEEXT)
-	$(LINK) $(testcases_tstwassert_OBJECTS) $(testcases_tstwassert_LDADD) $(LIBS)
-testcases/tstwassert_win.$(OBJEXT): testcases/$(am__dirstamp) \
-	testcases/$(DEPDIR)/$(am__dirstamp)
-testcases/tstwassert_win$(EXEEXT): $(testcases_tstwassert_win_OBJECTS) $(testcases_tstwassert_win_DEPENDENCIES) testcases/$(am__dirstamp)
-	@rm -f testcases/tstwassert_win$(EXEEXT)
-	$(LINK) $(testcases_tstwassert_win_OBJECTS) $(testcases_tstwassert_win_LDADD) $(LIBS)
-testcases/tstwinmain.$(OBJEXT): testcases/$(am__dirstamp) \
-	testcases/$(DEPDIR)/$(am__dirstamp)
-testcases/tstwinmain$(EXEEXT): $(testcases_tstwinmain_OBJECTS) $(testcases_tstwinmain_DEPENDENCIES) testcases/$(am__dirstamp)
-	@rm -f testcases/tstwinmain$(EXEEXT)
-	$(LINK) $(testcases_tstwinmain_OBJECTS) $(testcases_tstwinmain_LDADD) $(LIBS)
 install-crt32SCRIPTS: $(crt32_SCRIPTS)
 	@$(NORMAL_INSTALL)
 	test -z "$(crt32dir)" || $(MKDIR_P) "$(DESTDIR)$(crt32dir)"
@@ -6759,24 +6783,27 @@ mostlyclean-compile:
 	-rm -f stdio/lib64_libmingwex_a-vwscanf.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-wcstof.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-wtoll.$(OBJEXT)
+	-rm -f testcases/t_ansi_io.$(OBJEXT)
 	-rm -f testcases/t_float.$(OBJEXT)
+	-rm -f testcases/t_fstat.$(OBJEXT)
 	-rm -f testcases/t_matherr.$(OBJEXT)
 	-rm -f testcases/t_nullptrexception.$(OBJEXT)
+	-rm -f testcases/t_readdir.$(OBJEXT)
 	-rm -f testcases/t_setjmp.$(OBJEXT)
 	-rm -f testcases/t_sigv.$(OBJEXT)
 	-rm -f testcases/t_speed_powl.$(OBJEXT)
+	-rm -f testcases/t_stat.$(OBJEXT)
 	-rm -f testcases/t_stdint.$(OBJEXT)
+	-rm -f testcases/t_time.$(OBJEXT)
 	-rm -f testcases/t_tls1.$(OBJEXT)
 	-rm -f testcases/t_trycatch.$(OBJEXT)
+	-rm -f testcases/t_wreadir.$(OBJEXT)
 	-rm -f testcases/testcases_t_intrinc-t_intrinc.$(OBJEXT)
 	-rm -f testcases/testcases_t_municode-t_municode.$(OBJEXT)
 	-rm -f testcases/testcases_t_tmain-t_tmain.$(OBJEXT)
 	-rm -f testcases/tstmain_sys_xxx.$(OBJEXT)
 	-rm -f testcases/tstmainc.$(OBJEXT)
 	-rm -f testcases/tstmaincpp.$(OBJEXT)
-	-rm -f testcases/tstwassert.$(OBJEXT)
-	-rm -f testcases/tstwassert_win.$(OBJEXT)
-	-rm -f testcases/tstwinmain.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
@@ -7868,24 +7895,27 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-vwscanf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-wcstof.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-wtoll.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_ansi_io.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_float.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_fstat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_matherr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_nullptrexception.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_readdir.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_setjmp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_sigv.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_speed_powl.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_stat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_stdint.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_time.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_tls1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_trycatch.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_wreadir.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/testcases_t_intrinc-t_intrinc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/testcases_t_municode-t_municode.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/testcases_t_tmain-t_tmain.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstmain_sys_xxx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstmainc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstmaincpp.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstwassert.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstwassert_win.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/tstwinmain.Po@am__quote@
 
 .S.o:
 @am__fastdepCCAS_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
