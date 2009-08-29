@@ -41,11 +41,11 @@ double __strtod (const char *s, char **sp)
 {
 	static FPI fpi = { 53, 1-1023-53+1, 2046-1023-53+1, 1, SI };
 	ULong bits[2];
-	Long exp;
+	Long expo;
 	int k;
 	union { ULong L[2]; double d; } u;
 
-	k = __strtodg(s, sp, &fpi, &exp, bits);
+	k = __strtodg(s, sp, &fpi, &expo, bits);
 	switch(k & STRTOG_Retmask) {
 	  case STRTOG_NoNumber:
 	  case STRTOG_Zero:
@@ -54,7 +54,7 @@ double __strtod (const char *s, char **sp)
 
 	  case STRTOG_Normal:
 		u.L[_1] = bits[0];
-		u.L[_0] = (bits[1] & ~0x100000) | ((exp + 0x3ff + 52) << 20);
+		u.L[_0] = (bits[1] & ~0x100000) | ((expo + 0x3ff + 52) << 20);
 		break;
 
 	  case STRTOG_Denormal:

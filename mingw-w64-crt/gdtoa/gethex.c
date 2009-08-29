@@ -35,7 +35,7 @@ THIS SOFTWARE.
 #include "locale.h"
 #endif
 
-int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
+int gethex (const char **sp, FPI *fpi, Long *expo, Bigint **bp, int sign)
 {
 	Bigint *b;
 	const unsigned char *decpt, *s0, *s, *s1;
@@ -191,7 +191,7 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 			b->x[j] = ALL_ON;
 		if (n > n0)
 			b->x[j] = ULbits >> (ULbits - (nbits & kmask));
-		*exp = fpi->emin;
+		*expo = fpi->emin;
 		return STRTOG_Normal | STRTOG_Inexlo;
 	}
 	n = s1 - s0 - 1;
@@ -275,7 +275,7 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 					x[0] = b->wds = 1;
  dret:
 					*bp = b;
-					*exp = fpi->emin;
+					*expo = fpi->emin;
 					SET_ERRNO(ERANGE);
 					return STRTOG_Denormal | STRTOG_Inexhi
 						| STRTOG_Underflow;
@@ -335,6 +335,6 @@ int gethex (const char **sp, FPI *fpi, Long *exp, Bigint **bp, int sign)
 			irv |= STRTOG_Inexlo;
 	}
 	*bp = b;
-	*exp = e;
+	*expo = e;
 	return irv;
 }

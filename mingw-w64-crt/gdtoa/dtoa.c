@@ -109,7 +109,7 @@ char *__dtoa (double d0, int mode, int ndigits, int *decpt, int *sign, char **rv
 	*/
 
 	int bbits, b2, b5, be, dig, i, ieps, ilim, ilim0, ilim1,
-		j, j1, k, k0, k_check, leftright, m2, m5, s2, s5,
+		j, j2, k, k0, k_check, leftright, m2, m5, s2, s5,
 		spec_case, try_quick;
 	Long L;
 #ifndef Sudden_Underflow
@@ -330,9 +330,9 @@ char *__dtoa (double d0, int mode, int ndigits, int *decpt, int *sign, char **rv
 				}
 			dval(&d) /= ds;
 		}
-		else if (( j1 = -k )!=0) {
-			dval(&d) *= tens[j1 & 0xf];
-			for(j = j1 >> 4; j; j >>= 1, i++)
+		else if (( j2 = -k )!=0) {
+			dval(&d) *= tens[j2 & 0xf];
+			for(j = j2 >> 4; j; j >>= 1, i++)
 				if (j & 1) {
 					ieps++;
 					dval(&d) *= bigtens[i];
@@ -590,10 +590,10 @@ char *__dtoa (double d0, int mode, int ndigits, int *decpt, int *sign, char **rv
 			 */
 			j = cmp(b, mlo);
 			delta = diff(S, mhi);
-			j1 = delta->sign ? 1 : cmp(b, delta);
+			j2 = delta->sign ? 1 : cmp(b, delta);
 			Bfree(delta);
 #ifndef ROUND_BIASED
-			if (j1 == 0 && mode != 1 && !(word1(&d) & 1)
+			if (j2 == 0 && mode != 1 && !(word1(&d) & 1)
 #ifdef Honor_FLT_ROUNDS
 				&& Rounding >= 1
 #endif
@@ -628,10 +628,10 @@ char *__dtoa (double d0, int mode, int ndigits, int *decpt, int *sign, char **rv
 				  case 2: goto keep_dig;
 				 }
 #endif /*Honor_FLT_ROUNDS*/
-				if (j1 > 0) {
+				if (j2 > 0) {
 					b = lshift(b, 1);
-					j1 = cmp(b, S);
-					if ((j1 > 0 || (j1 == 0 && dig & 1))
+					j2 = cmp(b, S);
+					if ((j2 > 0 || (j2 == 0 && dig & 1))
 					&& dig++ == '9')
 						goto round_9_up;
 				}
@@ -639,7 +639,7 @@ char *__dtoa (double d0, int mode, int ndigits, int *decpt, int *sign, char **rv
 				*s++ = dig;
 				goto ret;
 			}
-			if (j1 > 0) {
+			if (j2 > 0) {
 #ifdef Honor_FLT_ROUNDS
 				if (!Rounding)
 					goto accept_dig;

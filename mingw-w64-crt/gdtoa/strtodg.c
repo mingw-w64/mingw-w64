@@ -144,7 +144,7 @@ Bigint *set_ones (Bigint *b, int n)
 	return b;
 }
 
-static int rvOK (dbl_union *d, FPI *fpi, Long *exp, ULong *bits,
+static int rvOK (dbl_union *d, FPI *fpi, Long *expo, ULong *bits,
 				int exact, int rd, int *irv)
 {
 	Bigint *b;
@@ -248,7 +248,7 @@ static int rvOK (dbl_union *d, FPI *fpi, Long *exp, ULong *bits,
 		SET_ERRNO(ERANGE);
 		b->wds = inex = 0;
 	}
-	*exp = e;
+	*expo = e;
 	copybits(bits, nb, b);
 	*irv |= inex;
 	rv = 1;
@@ -266,7 +266,7 @@ static int mantbits (dbl_union *d)
 	return P - 32 - lo0bits(&L);
 }
 
-int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
+int __strtodg (const char *s00, char **se, FPI *fpi, Long *expo, ULong *bits)
 {
 	int abe, abits, asub;
 	int bb0, bb2, bb5, bbe, bd2, bd5, bbbits, bs2, c, decpt, denorm;
@@ -335,7 +335,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 		switch(s[1]) {
 		  case 'x':
 		  case 'X':
-			irv = gethex(&s, fpi, exp, &rvb, sign);
+			irv = gethex(&s, fpi, expo, &rvb, sign);
 			if (irv == STRTOG_NoNumber) {
 				s = s00;
 				sign = 0;
@@ -458,7 +458,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 			  case 'N':
 				if (match(&s, "an")) {
 					irv = STRTOG_NaN;
-					*exp = fpi->emax + 1;
+					*expo = fpi->emax + 1;
 #ifndef No_Hex_NaN
 					if (*s == '(') /*)*/
 						irv = hexnan(&s, fpi, bits);
@@ -501,14 +501,14 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 	bd0 = 0;
 	if (nbits <= P && nd <= DBL_DIG) {
 		if (!e) {
-			if (rvOK(&rv, fpi, exp, bits, 1, rd, &irv))
+			if (rvOK(&rv, fpi, expo, bits, 1, rd, &irv))
 				goto ret;
 		}
 		else if (e > 0) {
 			if (e <= Ten_pmax) {
 				i = fivesbits[e] + mantbits(&rv) <= P;
 				/* rv = */ rounded_product(dval(&rv), tens[e]);
-				if (rvOK(&rv, fpi, exp, bits, i, rd, &irv))
+				if (rvOK(&rv, fpi, expo, bits, i, rd, &irv))
 					goto ret;
 				e1 -= e;
 				goto rv_notOK;
@@ -522,7 +522,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 				e1 -= i;
 				dval(&rv) *= tens[i];
 				/* rv = */ rounded_product(dval(&rv), tens[e2]);
-				if (rvOK(&rv, fpi, exp, bits, 0, rd, &irv))
+				if (rvOK(&rv, fpi, expo, bits, 0, rd, &irv))
 					goto ret;
 				e1 -= e2;
 			}
@@ -530,7 +530,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 #ifndef Inaccurate_Divide
 		else if (e >= -Ten_pmax) {
 			/* rv = */ rounded_quotient(dval(&rv), tens[-e]);
-			if (rvOK(&rv, fpi, exp, bits, 0, rd, &irv))
+			if (rvOK(&rv, fpi, expo, bits, 0, rd, &irv))
 				goto ret;
 			e1 -= e;
 		}
@@ -611,7 +611,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
  ufl:
 					rvb->wds = 0;
 					rvb->x[0] = 0;
-					*exp = emin;
+					*expo = emin;
 					irv = STRTOG_Underflow | STRTOG_Inexlo;
 					goto ret;
 				}
@@ -914,7 +914,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 			rshift(rvb, -j);
 		rve -= j;
 	}
-	*exp = rve;
+	*expo = rve;
 	Bfree(bb);
 	Bfree(bd);
 	Bfree(bs);
@@ -936,7 +936,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 		Bfree(rvb);
 		rvb = 0;
 		irv = STRTOG_Normal | STRTOG_Inexlo;
-		*exp = fpi->emax;
+		*expo = fpi->emax;
 		b = bits;
 		be = b + ((fpi->nbits + 31) >> 5);
 		while(b < be)
@@ -949,7 +949,7 @@ int __strtodg (const char *s00, char **se, FPI *fpi, Long *exp, ULong *bits)
 		irv = STRTOG_Infinite | STRTOG_Overflow | STRTOG_Inexhi;
 		SET_ERRNO(ERANGE);
  infnanexp:
-		*exp = fpi->emax + 1;
+		*expo = fpi->emax + 1;
 	}
  ret:
 	if (denorm) {

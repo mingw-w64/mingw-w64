@@ -18,7 +18,6 @@
  * This program has been placed in the public domain.
  */
 
-   
 
 /*
  * Revision history:
@@ -38,7 +37,6 @@
  * 
  */
 
-  
 
 /*							ieee.c
  *
@@ -192,35 +190,35 @@
 #define EXONE (0x3fff)
 
 
-#define  mtherr(x,y) 
+#define  mtherr(x,y)
 
 
 extern long double strtold (const char * __restrict__ s, char ** __restrict__ se);
 extern int __asctoe64(const char * __restrict__ ss,
-	       short unsigned int * __restrict__ y);
+		      short unsigned int * __restrict__ y);
 extern void __emul(const short unsigned int *  a,
-		 const short unsigned int *  b,
-		 short unsigned int * c);
+		   const short unsigned int *  b,
+		   short unsigned int * c);
 extern int __ecmp(const short unsigned int * __restrict__ a,
-		const short unsigned int *  __restrict__ b);
+		  const short unsigned int *  __restrict__ b);
 extern int __enormlz(short unsigned int *x);
 extern int __eshift(short unsigned int *x, int sc);
 extern void __eaddm(const short unsigned int  *  __restrict__  x,
-	          short unsigned int *  __restrict__  y);
+		    short unsigned int *  __restrict__  y);
 extern void __esubm(const short unsigned int * __restrict__  x,
-		  short unsigned int *  __restrict__ y);
+		    short unsigned int *  __restrict__ y);
 extern void __emdnorm(short unsigned int *s, int lost, int subflg,
 		      int exp, int rcntrl, const int rndprc);
 extern void __toe64(short unsigned int *  __restrict__  a,
-		  short unsigned int *  __restrict__  b);
+		    short unsigned int *  __restrict__  b);
 extern int __edivm(short unsigned int *  __restrict__  den,
-		 short unsigned int * __restrict__  num);
+		   short unsigned int * __restrict__  num);
 extern int __emulm(const short unsigned int *  __restrict__ a,
-		 short unsigned int *  __restrict__ b);
+		   short unsigned int *  __restrict__ b);
 extern void __emovi(const short unsigned int * __restrict__ a,
-		  short unsigned int * __restrict__ b);
+		    short unsigned int * __restrict__ b);
 extern void __emovo(const short unsigned int * __restrict__ a,
-		  short unsigned int * __restrict__ b);
+		    short unsigned int * __restrict__ b);
 
 #if USE_LDTOA
 
@@ -233,9 +231,9 @@ extern void __eiremain(short unsigned int * __restrict__ den,
 		       short unsigned int *__restrict__ equot);
 extern void __efloor(short unsigned int *x, short unsigned int *y);
 extern void __eadd1(const short unsigned int * __restrict__ a,
-		  const short unsigned int * __restrict__ b,
-		  short unsigned int * __restrict__ c,
-		  int subflg);
+		    const short unsigned int * __restrict__ b,
+		    short unsigned int * __restrict__ c,
+		    int subflg);
 extern void __esub(const short unsigned int *a, const short unsigned int *b,
 		   short unsigned int *c);
 extern void __ediv(const short unsigned int *a, const short unsigned int *b,
@@ -257,9 +255,9 @@ static __inline__ void __ecleazs(register short unsigned int *xi);
 static  __inline__ int __eiisinf(const short unsigned int *x);
 static __inline__ int __eiisnan(const short unsigned int *x);
 static __inline__ int __eiiszero(const short unsigned int *x);
-static __inline__ void __enan_64(short unsigned int *nan);
-static __inline__ void __enan_NBITS (short unsigned int *nan);
-static __inline__ void __enan_NI16 (short unsigned int *nan);
+static __inline__ void __enan_64(short unsigned int *nanptr);
+static __inline__ void __enan_NBITS (short unsigned int *nanptr);
+static __inline__ void __enan_NI16 (short unsigned int *nanptr);
 static __inline__ void __einfin(register short unsigned int *x);
 static __inline__ void __eneg(short unsigned int *x);
 static __inline__ void __eshup1(register short unsigned int *x);
@@ -281,7 +279,7 @@ static __inline__ void __eshdn6(register short unsigned int *x);
 #define ANSIC 1
 
 /*define VOLATILE volatile*/
-#define VOLATILE 
+#define VOLATILE
 
 /* For 12-byte long doubles on an i386, pad a 16-bit short 0
  * to the end of real constants initialized by integer arrays.
@@ -320,7 +318,7 @@ static __inline__ void __eshdn6(register short unsigned int *x);
 
 static __inline__ void __eclear(register short unsigned int *x)
 {
-  memset(x, 0, NE * sizeof(unsigned short));
+	memset(x, 0, NE * sizeof(unsigned short));
 }
 
 
@@ -330,9 +328,9 @@ static __inline__ void __eclear(register short unsigned int *x)
  */
 
 static __inline__ void __emov(register const short unsigned int * __restrict__ a,
-			    register short unsigned int * __restrict__ b)
+			      register short unsigned int * __restrict__ b)
 {
-  memcpy(b, a, NE * sizeof(unsigned short));
+	memcpy(b, a, NE * sizeof(unsigned short));
 }
 
 
@@ -345,12 +343,11 @@ static __inline__ void __emov(register const short unsigned int * __restrict__ a
 
 static __inline__ void __eneg(short unsigned int *x)
 {
-
 #ifdef NANS
-if( __eisnan(x) )
-	return;
+	if (__eisnan(x))
+		return;
 #endif
-x[NE-1] ^= 0x8000; /* Toggle the sign bit */
+	x[NE-1] ^= 0x8000; /* Toggle the sign bit */
 }
 
 
@@ -359,15 +356,14 @@ x[NE-1] ^= 0x8000; /* Toggle the sign bit */
  */
 static __inline__ int __eisneg(const short unsigned int *x)
 {
-
 #ifdef NANS
-if( __eisnan(x) )
-	return( 0 );
+	if (__eisnan(x))
+		return (0);
 #endif
-if( x[NE-1] & 0x8000 )
-	return( 1 );
-else
-	return( 0 );
+	if (x[NE-1] & 0x8000)
+		return (1);
+	else
+		return (0);
 }
 
 
@@ -376,17 +372,16 @@ else
  */
 static __inline__ int __eisinf(const short unsigned int *x)
 {
-
-if( (x[NE-1] & 0x7fff) == 0x7fff )
+	if ((x[NE - 1] & 0x7fff) == 0x7fff)
 	{
 #ifdef NANS
-	if( __eisnan(x) )
-		return( 0 );
+		if (__eisnan(x))
+			return (0);
 #endif
-	return( 1 );
+		return (1);
 	}
-else
-	return( 0 );
+	else
+		return (0);
 }
 
 /* Check if e-type number is not a number.
@@ -394,17 +389,17 @@ else
 static __inline__ int __eisnan(const short unsigned int *x)
 {
 #ifdef NANS
-int i;
-/* NaN has maximum __exponent */
-if( (x[NE-1] & 0x7fff) == 0x7fff )
-/* ... and non-zero significand field. */
-    for( i=0; i<NE-1; i++ )
-	{
-	if( *x++ != 0 )
-		return (1);
-	}
+	int i;
+	/* NaN has maximum __exponent */
+	if ((x[NE - 1] & 0x7fff) == 0x7fff)
+		/* ... and non-zero significand field. */
+		for (i = 0; i < NE - 1; i++)
+		{
+			if (*x++ != 0)
+				return (1);
+		}
 #endif
-return (0);
+	return (0);
 }
 
 /*
@@ -418,17 +413,16 @@ return (0);
 
 static __inline__ void __einfin(register short unsigned int *x)
 {
-register int i;
-
+	register int i;
 #ifdef INFINITY
-for( i=0; i<NE-1; i++ )
-	*x++ = 0;
-*x |= 32767;
+	for (i = 0; i < NE - 1; i++)
+		*x++ = 0;
+	*x |= 32767;
 #else
-for( i=0; i<NE-1; i++ )
-	*x++ = 0xffff;
-*x |= 32766;
-*(x-5) = 0;
+	for (i = 0; i < NE - 1; i++)
+		*x++ = 0xffff;
+	*x |= 32766;
+	*(x - 5) = 0;
 #endif
 }
 
@@ -437,26 +431,24 @@ for( i=0; i<NE-1; i++ )
 
 static __inline__ void __ecleaz(register short unsigned int *xi)
 {
-  memset(xi, 0, NI * sizeof(unsigned short));
+	memset(xi, 0, NI * sizeof(unsigned short));
 }
 
 /* same, but don't touch the sign. */
 
 static __inline__ void __ecleazs(register short unsigned int *xi)
 {
-  ++xi;
-  memset(xi, 0, (NI-1) * sizeof(unsigned short));
+	++xi;
+	memset(xi, 0, (NI-1) * sizeof(unsigned short));
 }
-
-
 
 /* Move internal format number from a to b.
  */
 static __inline__ void __emovz(register const short unsigned int * __restrict__ a,
-			     register short unsigned int * __restrict__ b)
+			       register short unsigned int * __restrict__ b)
 {
-  memcpy(b, a, (NI-1) * sizeof(unsigned short));
-  b[NI-1]=0;
+	memcpy(b, a, (NI-1) * sizeof(unsigned short));
+	b[NI - 1] = 0;
 }
 
 /* Return nonzero if internal format number is a NaN.
@@ -464,17 +456,17 @@ static __inline__ void __emovz(register const short unsigned int * __restrict__ 
 
 static __inline__ int __eiisnan (const short unsigned int *x)
 {
-int i;
+	int i;
 
-if( (x[E] & 0x7fff) == 0x7fff )
+	if ((x[E] & 0x7fff) == 0x7fff)
 	{
-	for( i=M+1; i<NI; i++ )
+		for (i = M + 1; i < NI; i++ )
 		{
-		if( x[i] != 0 )
-			return(1);
+			if (x[i] != 0)
+				return (1);
 		}
 	}
-return(0);
+	return (0);
 }
 
 /* Return nonzero if external format number is zero. */
@@ -482,9 +474,9 @@ return(0);
 static __inline__ int
 __eiszero(const short unsigned int * a)
 {
-if (*((long double*) a) == 0)
-	return (1);
-return (0);
+	if (*((long double*) a) == 0)
+		return (1);
+	return (0);
 }
 
 /* Return nonzero if internal format number is zero. */
@@ -492,14 +484,14 @@ return (0);
 static __inline__ int
 __eiiszero(const short unsigned int * ai)
 {
-  int i;
-  /* skip the sign word */
-  for( i=1; i<NI-1; i++ )
-    {
-      if( ai[i] != 0 )
-        return (0);
-    }
-  return (1);
+	int i;
+	/* skip the sign word */
+	for (i = 1; i < NI - 1; i++ )
+	{
+		if (ai[i] != 0)
+			return (0);
+	}
+	return (1);
 }
 
 
@@ -508,14 +500,13 @@ __eiiszero(const short unsigned int * ai)
 static __inline__ int 
 __eiisinf (const unsigned short *x)
 {
-
 #ifdef NANS
-  if (__eiisnan (x))
-    return (0);
+	if (__eiisnan (x))
+		return (0);
 #endif
-  if ((x[E] & 0x7fff) == 0x7fff)
-    return (1);
-  return (0);
+	if ((x[E] & 0x7fff) == 0x7fff)
+		return (1);
+	return (0);
 }
 
 /*
@@ -531,24 +522,24 @@ __eiisinf (const unsigned short *x)
 ;		-1 if a < b
 */
 static __inline__ int __ecmpm(register const short unsigned int * __restrict__ a,
-			    register const short unsigned int *  __restrict__ b)
+			      register const short unsigned int * __restrict__ b)
 {
-int i;
+	int i;
 
-a += M; /* skip up to significand area */
-b += M;
-for( i=M; i<NI; i++ )
+	a += M; /* skip up to significand area */
+	b += M;
+	for (i = M; i < NI; i++)
 	{
-	if( *a++ != *b++ )
+		if( *a++ != *b++ )
 		goto difrnt;
 	}
-return(0);
+	return(0);
 
-difrnt:
-if( *(--a) > *(--b) )
-	return(1);
-else
-	return(-1);
+  difrnt:
+	if ( *(--a) > *(--b) )
+		return (1);
+	else
+		return (-1);
 }
 
 
@@ -558,22 +549,22 @@ else
 
 static __inline__ void __eshdn1(register short unsigned int *x)
 {
-register unsigned short bits;
-int i;
+	register unsigned short bits;
+	int i;
 
-x += M;	/* point to significand area */
+	x += M;	/* point to significand area */
 
-bits = 0;
-for( i=M; i<NI; i++ )
+	bits = 0;
+	for (i = M; i < NI; i++ )
 	{
-	if( *x & 1 )
-		bits |= 1;
-	*x >>= 1;
-	if( bits & 2 )
-		*x |= 0x8000;
-	bits <<= 1;
-	++x;
-	}	
+		if (*x & 1)
+			bits |= 1;
+		*x >>= 1;
+		if (bits & 2)
+			*x |= 0x8000;
+		bits <<= 1;
+		++x;
+	}
 }
 
 /*
@@ -582,24 +573,23 @@ for( i=M; i<NI; i++ )
 
 static __inline__ void __eshup1(register short unsigned int *x)
 {
-register unsigned short bits;
-int i;
+	register unsigned short bits;
+	int i;
 
-x += NI-1;
-bits = 0;
+	x += NI-1;
+	bits = 0;
 
-for( i=M; i<NI; i++ )
+	for (i = M; i < NI; i++)
 	{
-	if( *x & 0x8000 )
-		bits |= 1;
-	*x <<= 1;
-	if( bits & 2 )
-		*x |= 1;
-	bits <<= 1;
-	--x;
+		if (*x & 0x8000)
+			bits |= 1;
+		*x <<= 1;
+		if (bits & 2)
+			*x |= 1;
+		bits <<= 1;
+		--x;
 	}
 }
-
 
 
 /*
@@ -608,18 +598,18 @@ for( i=M; i<NI; i++ )
 
 static __inline__ void __eshdn8(register short unsigned int *x)
 {
-register unsigned short newbyt, oldbyt;
-int i;
+	register unsigned short newbyt, oldbyt;
+	int i;
 
-x += M;
-oldbyt = 0;
-for( i=M; i<NI; i++ )
+	x += M;
+	oldbyt = 0;
+	for (i = M; i < NI; i++)
 	{
-	newbyt = *x << 8;
-	*x >>= 8;
-	*x |= oldbyt;
-	oldbyt = newbyt;
-	++x;
+		newbyt = *x << 8;
+		*x >>= 8;
+		*x |= oldbyt;
+		oldbyt = newbyt;
+		++x;
 	}
 }
 
@@ -629,19 +619,19 @@ for( i=M; i<NI; i++ )
 
 static __inline__ void __eshup8(register short unsigned int *x)
 {
-int i;
-register unsigned short newbyt, oldbyt;
+	int i;
+	register unsigned short newbyt, oldbyt;
 
-x += NI-1;
-oldbyt = 0;
+	x += NI - 1;
+	oldbyt = 0;
 
-for( i=M; i<NI; i++ )
+	for (i = M; i < NI; i++)
 	{
-	newbyt = *x >> 8;
-	*x <<= 8;
-	*x |= oldbyt;
-	oldbyt = newbyt;
-	--x;
+		newbyt = *x >> 8;
+		*x <<= 8;
+		*x |= oldbyt;
+		oldbyt = newbyt;
+		--x;
 	}
 }
 
@@ -651,16 +641,16 @@ for( i=M; i<NI; i++ )
 
 static __inline__ void __eshup6(register short unsigned int *x)
 {
-int i;
-register unsigned short *p;
+	int i;
+	register unsigned short *p;
 
-p = x + M;
-x += M + 1;
+	p = x + M;
+	x += M + 1;
 
-for( i=M; i<NI-1; i++ )
-	*p++ = *x++;
+	for (i = M; i < NI - 1; i++)
+		*p++ = *x++;
 
-*p = 0;
+	*p = 0;
 }
 
 /*
@@ -669,16 +659,16 @@ for( i=M; i<NI-1; i++ )
 
 static __inline__ void __eshdn6(register short unsigned int *x)
 {
-int i;
-register unsigned short *p;
+	int i;
+	register unsigned short *p;
 
-x += NI-1;
-p = x + 1;
+	x += NI - 1;
+	p = x + 1;
 
-for( i=M; i<NI-1; i++ )
-	*(--p) = *(--x);
+	for (i = M; i < NI - 1; i++)
+		*(--p) = *(--x);
 
-*(--p) = 0;
+	*(--p) = 0;
 }
 
 /*
@@ -686,38 +676,37 @@ for( i=M; i<NI-1; i++ )
 ;	x + y replaces y
 */
 
-static __inline__ void __enan_64(unsigned short* nan)
+static __inline__ void __enan_64(unsigned short* nanptr)
 {
-
-  int i;
-  for( i=0; i<3; i++ )
-    *nan++ = 0;
-  *nan++ = 0xc000;
-  *nan++ = 0x7fff;
-  *nan = 0;
-  return;
+	int i;
+	for (i = 0; i < 3; i++)
+		*nanptr++ = 0;
+	*nanptr++ = 0xc000;
+	*nanptr++ = 0x7fff;
+	*nanptr = 0;
+	return;
 }
 
-static __inline__ void __enan_NBITS(unsigned short* nan)
+static __inline__ void __enan_NBITS(unsigned short* nanptr)
 {
-  int i; 
-  for( i=0; i<NE-2; i++ )
-    *nan++ = 0;
-  *nan++ = 0xc000;
-  *nan = 0x7fff;
-  return;
+	int i;
+	for (i = 0; i < NE - 2; i++)
+		*nanptr++ = 0;
+	*nanptr++ = 0xc000;
+	*nanptr = 0x7fff;
+	return;
 }
 
-static __inline__ void __enan_NI16(unsigned short* nan)
+static __inline__ void __enan_NI16(unsigned short* nanptr)
 {
-  int i; 
-  *nan++ = 0;
-  *nan++ = 0x7fff;
-  *nan++ = 0;
-  *nan++ = 0xc000;
-  for( i=4; i<NI; i++ )
-    *nan++ = 0;
-  return;
+	int i;
+	*nanptr++ = 0;
+	*nanptr++ = 0x7fff;
+	*nanptr++ = 0;
+	*nanptr++ = 0xc000;
+	for (i = 4; i < NI; i++)
+		*nanptr++ = 0;
+	return;
 }
 
 #endif /* _CEPHES_EMATH_H */

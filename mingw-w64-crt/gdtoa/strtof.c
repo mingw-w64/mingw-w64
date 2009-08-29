@@ -35,7 +35,7 @@ float __strtof (const char *s, char **sp)
 {
 	static FPI fpi0 = { 24, 1-127-24+1,  254-127-24+1, 1, SI };
 	ULong bits[1];
-	Long exp;
+	Long expo;
 	int k;
 	union { ULong L[1]; float f; } u = { { 0 } };
 #ifdef Honor_FLT_ROUNDS
@@ -44,7 +44,7 @@ float __strtof (const char *s, char **sp)
 #define fpi &fpi0
 #endif
 
-	k = __strtodg(s, sp, fpi, &exp, bits);
+	k = __strtodg(s, sp, fpi, &expo, bits);
 	switch(k & STRTOG_Retmask) {
 	  case STRTOG_NoNumber:
 	  case STRTOG_Zero:
@@ -53,7 +53,7 @@ float __strtof (const char *s, char **sp)
 
 	  case STRTOG_Normal:
 	  case STRTOG_NaNbits:
-		u.L[0] = (bits[0] & 0x7fffff) | ((exp + 0x7f + 23) << 23);
+		u.L[0] = (bits[0] & 0x7fffff) | ((expo + 0x7f + 23) << 23);
 		break;
 
 	  case STRTOG_Denormal:

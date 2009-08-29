@@ -60,7 +60,7 @@ static int __strtopx (const char *s, char **sp, lD *V)
 {
 	static FPI fpi0 = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, SI };
 	ULong bits[2];
-	Long exp;
+	Long expo;
 	int k;
 	UShort *L = & (V->L[0]);
 #ifdef Honor_FLT_ROUNDS
@@ -70,7 +70,7 @@ static int __strtopx (const char *s, char **sp, lD *V)
 #endif
 	V->D = 0.0L;
 
-	k = __strtodg(s, sp, fpi, &exp, bits);
+	k = __strtodg(s, sp, fpi, &expo, bits);
 	switch(k & STRTOG_Retmask) {
 	  case STRTOG_NoNumber:
 	  case STRTOG_Zero:
@@ -83,7 +83,7 @@ static int __strtopx (const char *s, char **sp, lD *V)
 
 	  case STRTOG_Normal:
 	  case STRTOG_NaNbits:
-		L[_0] = exp + 0x3fff + 63;
+		L[_0] = expo + 0x3fff + 63;
  normal_bits:
 		L[_4] = (UShort)bits[0];
 		L[_3] = (UShort)(bits[0] >> 16);

@@ -141,7 +141,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 	*/
 
 	int bbits, b2, b5, be0, dig, i, ieps, ilim, ilim0, ilim1, inex;
-	int j, j1, k, k0, k_check, kind, leftright, m2, m5, nbits;
+	int j, j2, k, k0, k_check, kind, leftright, m2, m5, nbits;
 	int rdir, s2, s5, spec_case, try_quick;
 	Long L;
 	Bigint *b, *b1, *delta, *mlo, *mhi, *mhi1, *S;
@@ -324,9 +324,9 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 		}
 		else  {
 			ds = 1.;
-			if ( (j1 = -k) !=0) {
-				dval(&d) *= tens[j1 & 0xf];
-				for(j = j1 >> 4; j; j >>= 1, i++)
+			if ( (j2 = -k) !=0) {
+				dval(&d) *= tens[j2 & 0xf];
+				for(j = j2 >> 4; j; j >>= 1, i++)
 					if (j & 1) {
 						ieps++;
 						dval(&d) *= bigtens[i];
@@ -582,10 +582,10 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 			 */
 			j = cmp(b, mlo);
 			delta = diff(S, mhi);
-			j1 = delta->sign ? 1 : cmp(b, delta);
+			j2 = delta->sign ? 1 : cmp(b, delta);
 			Bfree(delta);
 #ifndef ROUND_BIASED
-			if (j1 == 0 && !mode && !(bits[0] & 1) && !rdir) {
+			if (j2 == 0 && !mode && !(bits[0] & 1) && !rdir) {
 				if (dig == '9')
 					goto round_9_up;
 				if (j <= 0) {
@@ -624,10 +624,10 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 					inex = STRTOG_Inexhi;
 					goto accept;
 				}
-				if (j1 > 0) {
+				if (j2 > 0) {
 					b = lshift(b, 1);
-					j1 = cmp(b, S);
-					if ((j1 > 0 || (j1 == 0 && dig & 1))
+					j2 = cmp(b, S);
+					if ((j2 > 0 || (j2 == 0 && dig & 1))
 					&& dig++ == '9')
 						goto round_9_up;
 					inex = STRTOG_Inexhi;
@@ -638,7 +638,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 				*s++ = dig;
 				goto ret;
 			}
-			if (j1 > 0 && rdir != 2) {
+			if (j2 > 0 && rdir != 2) {
 				if (dig == '9') { /* possible if i == 1 */
  round_9_up:
 					*s++ = '9';
