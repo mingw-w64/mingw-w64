@@ -48,7 +48,7 @@
    Older versions of GCC (pre-4.1) will still fail with regparm since the
    compiler used %edx to store an unneeded counter variable.  */
 
-ize_t) __builtin_return_address (0)ifndef _WIN64
+#ifndef _WIN64
 #define	MCOUNT \
 void									\
 mcount(void)								\
@@ -89,39 +89,39 @@ mcount(void)								\
 {									\
 	__asm __volatile__ ("pushq %rax\n\t"				\
 			    "pushq %rcx\n\t"				\
-		 	    "pushq %rdx"				\
-                            "pushq %rbx\n\t"                            \
-                            "pushq %rbp\n\t"                            \
-                            "pushq %rsi\n\t"                            \
-                            "pushq %rdi\n\t"                            \
-                            "pushq %r8\n\t"                             \
-                            "pushq %r9\n\t"                             \
-                            "pushq %r10\n\t"                            \
-                            "pushq %r11\n\t"                            \
-                            "pushq %r12\n\t"                            \
-                            "pushq %r13\n\t"                            \
-                            "pushq %r14\n\t"                            \
-                            "pushq %r15\n\t"                            \
+			    "pushq %rdx"				\
+			    "pushq %rbx\n\t"				\
+			    "pushq %rbp\n\t"				\
+			    "pushq %rsi\n\t"				\
+			    "pushq %rdi\n\t"				\
+			    "pushq %r8\n\t"				\
+			    "pushq %r9\n\t"				\
+			    "pushq %r10\n\t"				\
+			    "pushq %r11\n\t"				\
+			    "pushq %r12\n\t"				\
+			    "pushq %r13\n\t"				\
+			    "pushq %r14\n\t"				\
+			    "pushq %r15\n\t"				\
 			    "subq $32, %rsp\n\t");			\
 	_mcount((size_t) __builtin_return_address (1),			\
 			 (size_t) __builtin_return_address (0));	\
 	/*								\
 	 * Restore registers.						\
 	 */								\
-	__asm __volatile__ ("addq $32, %rsp\n\t"				\
-                            "popq %r15\n\t"                             \
-                            "popq %r14\n\t"                             \
-                            "popq %r13\n\t"                             \
-                            "popq %r12\n\t"                             \
-                            "popq %r11\n\t"                             \
-                            "popq %r10\n\t"                             \
-                            "popq %r9\n\t"                              \
-                            "popq %r8\n\t"                              \
-                            "popq %rdi\n\t"                             \
-                            "popq %rsi\n\t"                             \
-                            "popq %rbp\n\t"                             \
-                            "popq %rbx\n\t"                             \
-                            "popq %rdx\n\t"                             \
+	__asm __volatile__ ("addq $32, %rsp\n\t"			\
+			    "popq %r15\n\t"				\
+			    "popq %r14\n\t"				\
+			    "popq %r13\n\t"				\
+			    "popq %r12\n\t"				\
+			    "popq %r11\n\t"				\
+			    "popq %r10\n\t"				\
+			    "popq %r9\n\t"				\
+			    "popq %r8\n\t"				\
+			    "popq %rdi\n\t"				\
+			    "popq %rsi\n\t"				\
+			    "popq %rbp\n\t"				\
+			    "popq %rbx\n\t"				\
+			    "popq %rdx\n\t"				\
 			    "popq %rcx\n\t"				\
 			    "popq %rax");				\
 }
