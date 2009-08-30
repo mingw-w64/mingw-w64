@@ -1,7 +1,8 @@
-HowTo build x86_64-w64-mingw32 cross-compiler
+How to build a Mingw-w64 x86_64-w64-mingw32 cross-compiler. (At this time, building a native compiler is suggested. Documentation to follow. This is all still required to be able to build it.) Top-level configure to do this all with one command is also to follow.
 
-NOTE: x86_64-pc-mingw32 is now replaced by x86_64-w64-mingw32. The change allows for Mingw64 to be independent of Mingw32.
-This is new for GCC 4.5.
+
+As of 2009-05-31, x86_64-w64-mingw32 has been replaced by x86_64-w64-mingw32. The change allows for Mingw64 to have a host/target type independent of mingw.org MinGW.
+
 
 All default libraries work! We are now in a very functional beta stage.
 
@@ -11,143 +12,208 @@ Date /		Version /	Author
 2007-08-21	1.2		NightStrike <nightstrike at gmail.com>
 2007-10-01	1.3		NightStrike <nightstrike at gmail.com>
 2007-11-27	1.4		NightStrike <nightstrike at gmail.com>
-2009-05-31	1.5		Xenofears <xenofears at gmail.com>
+2009-05-31  1.5     Xenofears <xenofears at gmail.com>
+2009-06-06  1.6		Xenofears <xenofears at gmail.com>
+2009-08-28  1.7     Xenofears <xenofears at gmail.com>		
 
+This file describes how to build the Mingw-w64 gcc toolchain as a cross-compiler on [[Cygwin, [[MinGW with [[MSys, and *nix shells.
 
-This document describes how to build the amd64 Mingw32 gcc toolchain as a cross-compiler on Cygwin, MinGW MSys, and Unix shells.
 Cygwin 1.5 and 1.7 currently in beta testing are both supported. This document recommends and assumes Bash (for Cygwin, Unix,)
-or MSys' core sh default shells are used.
+or MSys core sh default shells are used. 
 
-0. Requirements
+== Requirements ==
 
-On a clean cygwin install, you will need the following additional packages installed:
-	A complete gcc toolchain for the host system
-	bison
-	diffutils
-	flex
-	make
-	gmp 4.2.4 or newer (4.3.1 recommended) [found on Cygwin setup under math]
-	mpfr 2.3.1 or newer (2.4.1 recommended) [found on Cygwin setup under math]
-	perl (optional for pod2man)
-	tar & gzip/bzip
-	
+You will need a complete GCC toolchain for the host system (Cygwin, MinGW (MSys), or *nux), which usually includes all of the required components:
+
+GCC (for the native platform)
+Binutils (for the native platform)
+Bison
+Flex
+Coreutils
+Make
+GMP 4.2.4 or newer (4.3.1 recommended) [found on Cygwin setup under math]
+MPFR 2.3.1 or newer (2.4.1 recommended) [found on Cygwin setup under math]
+Perl (optional for pod2man)
+
+== Optional ==
+
 optional for source download / version management:
-	cvs
-	subversion
-	wget
 
-optional for optimization enhancements:
-	ppl 0.10 or newer
-	cloog-ppl 0.15 or newer (must be ppl) 
-	mpc 0.6 or newer
+CVS
+Subversion (SVN)
+wget
+tar & gzip/bzip2
 
-If your host OS is Vista, you must install SP1 or SP2!
+
+optional for optimization enhancements: (Math toolchain dependencies are elaborated on [[GMP)
+
+PPL 0.10 or newer
+ClooG-PPL 0.15 or newer (must be ppl) 
+MPC 0.6 or newer
+
+
+To build with MSys (Minimal SYStem for Win32), to satisfy the requirements download and install functional MinGW (gcc toolchain), MSys (sh shell), Bison, and Flex.
+
+If your host OS is Vista, you must install SP1 or SP2! There is a workaround, and that is to use an unoptimized collect2.exe, but you are on your own.
 	
-To build with MSys (Minimal SYStem for win32), download and install functional MinGW (gcc toolchain), MSys (sh shell), Bison, and Flex.
-Win32 installers to use with mingw msys available for download at http://sourceforge.net/project/showfiles.php?group_id=23617	
+Win32 installers to use with mingw msys available for download at MinGWs Sourceforge Page: http://sourceforge.net/project/showfiles.php?group_id=23617
+
 GMP & MPFR sources may be placed in the gcc source tree root in directories with their names and they will be built automatically
-by gcc's configure (as static libs) with no further action required.
+by gccs configure (as static libs). You might need to make install from inside the directories if gcc doesnt do it for you.
 
 
-1. Download packages
+== Download new packages ==
 
 You need to download the following packages:
 
-	- binutils 2.19 release for stable, or 2.19.51+ or newer or latest snapshot 2.19.51 for experimental as of 06-01-2009.
-	- gcc version 4.4 release for stable, or latest gcc 4.4 (4.4.1) or 4.5 snapshot for experimental as of 06-01-2009.
-	  (gcc 4.5 recommended for proper support for the new -w64-, see note above.) gcc 4.3 support is no longer maintained. 
-	- current mingw-w64 release or snapshot available at https://sourceforge.net/projects/mingw-w64 (snapshot recomended)
+	* Binutils 2.19.1 release for stable, or 2.19.51+ or newer or latest snapshot 2.19.51 for experimental as of 06-01-2009.
 
-Official releases of gcc and binutils may be downloaded from a GNU FTP mirror from http://www.gnu.org/prep/ftp.html
-GCC snapshots may be found at ftp://gcc.gnu.org/pub/gcc/snapshots/
-Binutils snapshots may be found at ftp://sourceware.org/pub/binutils/snapshots
+	* GCC version 4.4.1 release for stable, or latest gcc (4.5) snapshot or svn co for experimental as of 06-01-2009.
+	  (gcc 4.5 good for proper support for the new -w64-, see note above, but is in Stage 1 and may have bugs.) gcc 4.3 support is no longer maintained. 
+
+	* Current Mingw-w64 release available at https://sourceforge.net/projects/mingw-w64 (Snapshot, even better from SVN (refer below), recommended until stable issuance), or you can [http://www.cadforte.com/downloads.html download the latest source release snapshot issued here at Cadforte] (which includes full tree including experimental branch.)
+
+
+* Official releases of gcc and binutils may be downloaded from a GNU FTP mirror from http://www.gnu.org/prep/ftp.html
+
+* GCC snapshots may be found at ftp://gcc.gnu.org/pub/gcc/snapshots/
+
+* Binutils snapshots may be found at ftp://sourceware.org/pub/binutils/snapshots
 	
-Now extract these tarballs to a temporary folder. E.g. use ~/w64src. For the tarballs with
-extension .tar.gz or .tgz use the following command to extract : tar -xzf <tarball>'.  For
-tarballs with extension .tar.bz2 or .tbz2 use the command 'tar -xjf <tarball>'.
-There are now three folders within you temporary folder: trunk, binutils, and gcc.
+Extract the tarballs (i.e. tar -xf filename.tar.gz) to a temporary folders.
 
 
+You can also download the latest working version using SVN & CVS. Both source-control systems are available to Cygwin via Setup, and available to MSys in the MSys/MinGW Packages. To use them:
 
-2. Build type options
+* For Mingw-w64, '<nowiki>svn co https://mingw-w64.svn.sourceforge.net/svnroot/mingw-w64 mingw-w64</nowiki>'
 
-You have at least two different choices to build the crosscompiler toolchain:
- I)  Using standard settings of configure.
- II) Using --prefix and --with-sysroot configuration
+* For GCCs latest working snapshot (4.5.0), '<nowiki>svn checkout svn://gcc.gnu.org/svn/gcc/trunk SomeLocalDir</nowiki>', or for GCC 4.4.x, '<nowiki>svn co svn://gcc.gnu.org/svn/gcc/branches/branchname SomeLocalDir</nowiki>'
 
-  I assume that '/usr/local/' is the <install-root> for build type I, the path specified using --with-sysroot is 
-  the root for type II.  For this example, it will be set to '/mypath'.
+* For Binutils, it is cvs, cvs -z3 -d:pserver:anonymous@cvs.savannah.gnu.org:/web/binutils co binutils (itll put it in a dir named 'src'.)
 
 
+=== Build type options ===
 
-3. Building binutils cross toolchain:
+When you build binutils, gcc, and Mingw-w64, you will be using standard [[Autotools [[Autoconf|configure scripts. It is not a good idea to build in the source directory, so you will make a subdirectory in the tree, enter it, and invoke configure with '../configure' (which is then followed by 'make' and then 'make install'.) You will be providing options to the configure script, in the syntax of ../configure --flag[=setting]. This will be further detailed below.
 
-  Step 1) Enter into the binutils root folder and generate a folder within (e.g.
-	'build'). Then enter into it.
-  Step 2 for I) Type '../configure --target=x86_64-w64-mingw32'
-  Step 2 for II) Type '../configure --target=x86_64-w64-mingw32 --prefix=/mypath --with-sysroot=/mypath'.
-  Step 3) Type 'make'
-  Step 4) Type 'make install'
+You have two main choices to make building the cross-compiler toolchain:
 
-  Create in /usr/local if Type I or /mypath if Type II a symbolic link named 'mingw' pointing to the directory 'x86_64-w64-mingw32'. 
-  For instance:
-    $ cd /mypath [or cd /usr/local if Type I]
-    $ ln -s x86_64-w64-mingw32 mingw
-  For Type I this shouldn't be necessary, but it does come up on a few very rare exceptions.
-	
-  Note:
-  The header-set and crt contains the standard-c and the windows (w32api) specific files. Therefore it is not necessary
-  to install an additional package. Simply use the '-mwindows' option for windows GUI applications. By default '-mconsole'
-  is used and produce console applications. Also you can use the '-mdll' option for generating shared objects (dll).
+1) To build with default standard multilib (allows for building to a 32-bit alternate target, using Mingw-w64s lib32), or to disable multilib. (Multilib is installed by default, if you dont want it, youll have to explicitly disable it, by passing --disable-multilib to configure (i.e. '../configure --disable-multilib')
+
+2) Using standard settings of configure, which installs to /usr/local and requires no setting changes, or to build to a [[sysroot you designate. /usr/local is universally used as the default install point, and you may wish to keep all the Mingw-w64 (64-bit) in a separate sysroot instead. In the example in these instructions, the sysroot is '/mypath'. To use a sysroot, pass --with-sysroot=/mypath and --prefix=/mypath as configure flags (i.e. '../configure --with-sysroot=/mypath --prefix=/mypath')
 
 
-4. Building the gcc core cross-compiler(s):
+== Building binutils cross toolchain ==
 
-  Step 0) If you have to patch gcc, may do this here. There are some optional patches, available by the
-		  'gcc-patches' mailing list at 'gcc.gnu.org' or by taking a look at mingw.org or mingw-w64 sites.
-  Step 1) Enter into the gcc root folder and generate a folder within (e.g. 'build'), then enter it. 
-  Step 2 for I) Type: '../configure --target=x86_64-w64-mingw32'.
-  Step 2 for II) Type: '../configure --target=x86_64-w64-mingw32 --prefix=/mypath --with-sysroot=/mypath'.
-  Step 3) Type 'make all-gcc'
-  Step 4) Type 'make install-gcc'
+Step 1) Enter into the binutils extracted source root folder and create a new folder within (e.g. 'build'). Then enter into it.
 
-  Now the core stuff of gcc is present and we can build the crt itself.
+Step 2) Run configure.
 
+For multilib, type '../configure --target=x86_64-w64-mingw32 --enable-targets=x86_64-w64-mingw32,i686-w64-mingw32'.
 
-5. Building the crt:
+For no multilib, type '../configure --target=x86_64-w64-mingw32 --disable-multilib'   Step 2 for I) Type '../configure --target=x86_64-w64-mingw32 --enable-targets=x86_64-w64-mingw32,i686-w64-mingw32'
 
-  Step 0) Place the gcc that you just installed into your PATH. 
-  Step 0 for I) Type PATH="$PATH:/usr/local/bin" ; export PATH
-  Step 0 for II) Type PATH="$PATH:/mypath/bin" ; export PATH
-  Step 1) Enter into the trunk/mingw-w64-crt root directory and generate a
-	directory within (e.g. 'build'), and enter into it.
-  Step 2 for I) Type '../configure --host=x86_64-w64-mingw32'
-  Step 2 for II) Type '../configure --host=x86_64-w64-mingw32 --prefix=/mypath --with-sysroot=/mypath'
-  Step 3) Type 'make'
-  Step 4) Type 'make install'
-  
-  Note: Currently there is no dll build. As long as we use static crt libraries we won't need a ctor/dtor dll.
+Using a sysroot, add --with-sysroot=/mypath --prefix=/mypath (i.e. for multilib '../configure --target=x86_64-w64-mingw32 --enable-targets=x86_64-w64-mingw32,i686-w64-mingw32 --with-sysroot=/mypath --prefix=/mypath')
+
+Step 3) Run make (type 'make'). This will take a while.
+
+Step 4) Run make install (type 'make install')
 
 
-
-6. Now you are ready to build the rest of gcc:
-
-  Step 1) Enter into your generated folder within your gcc root source folder.
-  Step 2) Type 'make'
-  Step 3) Type 'make install'
-  
-  
-7. Update your path and use your new cross-compiler:
+== Install the Mingw-w64 header set and create required symlinks ==
  
-	Note: Do not add the directories below to the beginning of your path unless you want the cross-compiler to be used by default,
-			effectively making native Mingw/Cygwin/unix builds not possible. 
-	Step 1) Update your path with the following:
-			(See Step 5 for syntax. Add to .bashrc in your /home/user account or to /etc/profile if MinGW MSys.)
-	for I) Add /usr/local/bin (if necessary), /usr/local/x86_64-pc-w64-mingw32/bin, and /usr/local/libexec/gcc/x86_64-w64-mingw32/4.X.X/
-	for II) Add /mypath/bin, /mypath/x86_64-w64-mingw32/bin, and /mypath/local/libexec/gcc/x86_64-w64-mingw32/4.X.X/
-		   Where 4.X.X is the version of gcc you installed (go to the directory and check, latest 4.4 snapshots are 4.4.1 now)
-		   The libexec path shouldn't be necessary, but it does come up on occasion.
+Step 1) Enter into the Mingw-w64 source headers. It is in mingw-w64/trunk/mingw-w64-headers, or mingw-w64/mingw-w64-headers depending on your source.
+ 
+Step 2) Copy the 'include' directory here into your installation directorys new x86_64-w64-mingw32 directory. So, if using configure default /usr/local, type 'cp -r include /usr/local/x86_64-w64-mingw32'. Using a sysroot, 'cp -r include /mypath/x86_64-w64-mingw32/' 
+
+Step 3) GCC requires the x86_64-w64-mingw32 directory be mirrored as a directory 'mingw' in the same root. So, if using configure default /usr/local, type 'ln -s /usr/local/x86_64-w64-mingw32 /usr/local/mingw'. For Sysroot, 'ln -s /mypath/x86_64-w64-mingw32 /mypath/mingw'
+
+While we are doing this, we might as well make the lib64 directory required.
+
+Step 4) x86_64-w64-mingw32/lib must be mirrored as a directory x86_64-w64-mingw32/lib64, but x86_64-w64-mingw32/lib shouldnt exist yet. Type 'mkdir /usr/local/x86_64-w64-mingw32/lib' or 'mkdir /mypath/x86_64-w64-mingw32/lib' for sysroot. If it already exists and you get an error, ignore it.
+
+Step 5) Lets do it. 'ln -s /usr/local/x86_64-w64-mingw32/lib /usr/local/x86_64-w64-mingw32/lib64' or '/mypath/x86_64-w64-mingw32/lib64' for sysroot. 
+
+Note: If you are using MSys, you will need to do Step 5 again after building the crt (it will be noted in the instructions.) 'ln -s' makes symlinks, which are kind of like *nix shortcuts, as a major simplification. MSys doesnt support this, so when you type 'ln -s' it copies the files instead of making a pointer object.
+
+Note:
+The header-set and crt contains the standard-c and the windows (w32api) specific files. Therefore it is not necessary
+to install an additional package. Simply use the -mwindows option for windows GUI applications. By default -mconsole
+is used and produce console applications. Also you can use the -mdll option for generating shared objects (dll), however normal gcc/g++ with the -shared flag or a proper ld (linker) command will do this. 
+
+
+== Building the gcc core cross-compiler(s) ==
+
+There are no gcc patches required or recommended anymore. We keep up with gcc and get any fixes applied upsteam.
+
+Step 1) Enter into the gcc root folder and generate a folder within (e.g. 'build'), then enter it. 
+
+Step 2) Run configure. 
+
+* For multilib, type '../configure --target=x86_64-w64-mingw32 --enable-targets=all'.
+
+* To disable multilib, '../configure --target=x86_64-w64-mingw32 --disable-multilib'.
+
+* Add the --prefix=/mypath and --with-sysroot=/mypath flags if you are using a sysroot.
+
+Step 3) Type 'make all-gcc'. This will build the gcc core.
+
+Step 4) Type 'make install-gcc'. This will install the gcc core.
+  
+Now the core stuff of gcc is present and we can build the crt itself.
+
+
+== Building the crt (Mingw-w64 itself) ==
+
+Step 1) Place the gcc that you just installed into your PATH. 
+
+* For configure default /usr/local, Type 'PATH=$PATH:/usr/local/bin ; export PATH'
+
+* Type 'PATH=$PATH:/mypath/bin ; export PATH'
+
+Step 2) Enter into the [trunk]/mingw-w64-crt source directory and generate a directory within (e.g. build), and enter into it.
+
+Step 3) Run configure.
+
+* For multilib, type ../configure --host=x86_64-w64-mingw32 --enable-lib32 (NOTE: This wont work if you disabled multilib!)
+
+* Without multilib, type ../configure --host=x86_64-w64-mingw32
+
+* If using sysroot/prefix, again add the the --prefix=/mypath and --with-sysroot=/mypath flags 
+
+Step 4) Type make. This will take a while.
+
+Step 5) Type make install
+
+Step 6) If you are using MSys/MinGW, repeat Step 5 in 'Install the Mingw-w64 header set...'
+  
+Note: Currently there is no dll build. As long as we use static crt import libraries we wont need a ctor/dtor dll.
+
+
+== Finishing gcc (the libraries built using gcc core and Mingw-w64) == 
+
+Now you are ready to build the rest of gcc:
+
+Step 1) Enter back into your generated folder within your gcc root source folder.
+
+Step 2) Type 'make'. This will take a while.
+
+Step 3) Type 'make install'
+  
+
+== Path update and using your new cross-compiler ==
+
+Permanently update your path to use your new cross-compiler: 
+
+The binaries are all prefixed with the Mingw-w64 triplet x86_64-w64-mingw32-, so there are no file name clashes.
+
+* If you are using Cygwin or *nix, you will add the directory to your path in .bashrc in your home directory (the file may be hidden).
+
+* If you are using MSys, you will need to add the directory to your path in /etc/profile.
+
+* To reiterate, for default /usr/local, Add /usr/local/bin to your path (this should not be necessary.) If using a sysroot, add /mypath/bin to your path.
 	
 You are finished. To use your cross-compiler, simply use --host=x86_64-w64-mingw32 as a configure option.
-Be sure to -I/usr/local/include or -I/mypath/include and -L/usr/local/lib or -L/mypath/lib to your cflags to link your builds. 
-Often you must --enable-shared if you want DLL's as oppoosed to static libs, but it is not always possible, and the flag doesn't always work.
+Be sure to -I/usr/local/include or -I/mypath/include and -L/usr/local/lib or -L/mypath/lib to your CFLAGS to link your builds. 
+
+Often you must --enable-shared if you want DLLs as oppoosed to static libs, but it is not always the case.
