@@ -331,7 +331,7 @@ __fast_ldexpl (long double x, int expn)
 
 #define ldexpl  __fast_ldexpl
 
-long double powl(long double x, long doubley)
+long double powl(long double x, long double y)
 {
 /*	double F, Fa, Fb, G, Ga, Gb, H, Ha, Hb */
 	int i, nflg, iyflg, yoddint;
