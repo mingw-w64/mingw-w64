@@ -89,7 +89,7 @@ mcount(void)								\
 {									\
 	__asm __volatile__ ("pushq %rax\n\t"				\
 			    "pushq %rcx\n\t"				\
-			    "pushq %rdx"				\
+			    "pushq %rdx\n\t"				\
 			    "pushq %rbx\n\t"				\
 			    "pushq %rbp\n\t"				\
 			    "pushq %rsi\n\t"				\
