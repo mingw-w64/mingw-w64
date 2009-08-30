@@ -62,8 +62,8 @@ long double sinhl(long double x)
   long double a;
 
 #ifdef MINUSZERO
-  if( x == 0.0 )
-    return(x);
+  if (x == 0.0)
+    return (x);
 #endif
 #ifdef NANS
   if (isnanl(x))
@@ -72,39 +72,40 @@ long double sinhl(long double x)
   }
 #endif
   a = fabsl(x);
-  if( (x > (MAXLOGL + LOGE2L)) || (x > -(MINLOGL-LOGE2L) ) )
+  if ((x > (MAXLOGL + LOGE2L)) || (x > -(MINLOGL-LOGE2L)))
   {
-    mtherr( "sinhl", DOMAIN );
+    mtherr("sinhl", DOMAIN);
     _SET_ERRNO(ERANGE);
 #ifdef INFINITIES
-    if( x > 0.0L )
-      return( INFINITYL );
+    if (x > 0.0L)
+      return (INFINITYL);
     else
-      return( -INFINITYL );
+      return (-INFINITYL);
 #else
-    if( x > 0.0L )
-      return( MAXNUML );
+    if (x > 0.0L)
+      return (MAXNUML);
     else
-      return( -MAXNUML );
+      return (-MAXNUML);
 #endif
   }
-  if( a > 1.0L )
+  if (a > 1.0L)
   {
-    if( a >= (MAXLOGL - LOGE2L) )
+    if (a >= (MAXLOGL - LOGE2L))
     {
       a = expl(0.5L*a);
       a = (0.5L * a) * a;
-      if( x < 0.0L )
+      if (x < 0.0L)
 	a = -a;
-      return(a);
+      return (a);
     }
     a = expl(a);
     a = 0.5L*a - (0.5L/a);
-    if( x < 0.0L )
+    if (x < 0.0L)
       a = -a;
-    return(a);
+    return (a);
   }
 
   a *= a;
-  return( x + x * a * (polevll(a,P,3)/polevll(a,Q,4)) );
+  return (x + x * a * (polevll(a,P,3)/polevll(a,Q,4)));
 }
+

@@ -44,7 +44,7 @@
  *    IEEE      0,1         50000       2.0e-19     5.7e-20
  *
  */
-
+
 /*							erfcl.c
  *
  *	Complementary error function
@@ -95,7 +95,7 @@
  *
  *
  */
-
+
 
 /*
 Modified from file ndtrl.c
@@ -215,89 +215,89 @@ static const uLD U[] = {
 
 static long double expx2l (long double x)
 {
-  long double u, u1, m, f;
+	long double u, u1, m, f;
 
-  x = fabsl (x);
-  /* Represent x as an exact multiple of M plus a residual.
-     M is a power of 2 chosen so that exp(m * m) does not overflow
-     or underflow and so that |x - m| is small.  */
-  m = MINV * floorl(M * x + 0.5L);
-  f = x - m;
+	x = fabsl (x);
+	/* Represent x as an exact multiple of M plus a residual.
+	   M is a power of 2 chosen so that exp(m * m) does not overflow
+	   or underflow and so that |x - m| is small.  */
+	m = MINV * floorl(M * x + 0.5L);
+	f = x - m;
 
-  /* x^2 = m^2 + 2mf + f^2 */
-  u = m * m;
-  u1 = 2 * m * f  +  f * f;
+	/* x^2 = m^2 + 2mf + f^2 */
+	u = m * m;
+	u1 = 2 * m * f  +  f * f;
 
-  if ((u+u1) > MAXLOGL)
-    return (INFINITYL);
+	if ((u + u1) > MAXLOGL)
+		return (INFINITYL);
 
-  /* u is exact, u1 is small.  */
-  u = expl(u) * expl(u1);
-  return(u);
+	/* u is exact, u1 is small.  */
+	u = expl(u) * expl(u1);
+	return (u);
 }
 
 long double erfcl(long double a)
 {
-long double p,q,x,y,z;
+	long double p, q, x, y, z;
 
-if (isinf (a))
-	return (signbit (a) ? 2.0 : 0.0);
+	if (isinf (a))
+		return (signbit(a) ? 2.0 : 0.0);
 
-x = fabsl (a);
+	x = fabsl (a);
 
-if (x < 1.0L)
-	return (1.0L - erfl(a));
+	if (x < 1.0L)
+		return (1.0L - erfl(a));
 
-z = a * a;
+	z = a * a;
 
-if( z  > MAXLOGL )
+	if (z  > MAXLOGL)
 	{
 under:
-	mtherr( "erfcl", UNDERFLOW );
-        errno = ERANGE;
-	return (signbit (a) ? 2.0 : 0.0);
+		mtherr("erfcl", UNDERFLOW);
+		errno = ERANGE;
+		return (signbit(a) ? 2.0 : 0.0);
 	}
 
-/* Compute z = expl(a * a).  */
-z = expx2l (a);
-y = 1.0L/x;
+	/* Compute z = expl(a * a).  */
+	z = expx2l(a);
+	y = 1.0L/x;
 
-if (x < 8.0L)
+	if (x < 8.0L)
 	{
-	p = polevll (y, P, 9);
-	q = p1evll (y, Q, 10);
+		p = polevll(y, P, 9);
+		q = p1evll(y, Q, 10);
 	}
-else
+	else
 	{
-	q = y * y;
-	p = y * polevll (q, R, 4);
-	q = p1evll (q, S, 5);
+		q = y * y;
+		p = y * polevll(q, R, 4);
+		q = p1evll(q, S, 5);
 	}
-y = p/(q * z);
+	y = p/(q * z);
 
-if (a < 0.0L)
-	y = 2.0L - y;
+	if (a < 0.0L)
+		y = 2.0L - y;
 
-if (y == 0.0L)
-	goto under;
+	if (y == 0.0L)
+		goto under;
 
-return (y);
+	return (y);
 }
 
 long double erfl(long double x)
 {
-long double y, z;
+	long double y, z;
 
-if( x == 0.0L )
-	return (x);
+	if (x == 0.0L)
+		return (x);
 
-if (isinf (x))
-	return (signbit (x) ?  -1.0L : 1.0L);
+	if (isinf (x))
+		return (signbit(x) ?  -1.0L : 1.0L);
 
-if (fabsl(x) > 1.0L)
-	return (1.0L - erfcl (x));
+	if (fabsl(x) > 1.0L)
+		return (1.0L - erfcl(x));
 
-z = x * x;
-y = x * polevll( z, T, 6 ) / p1evll( z, U, 6 );
-return( y );
+	z = x * x;
+	y = x * polevll(z, T, 6) / p1evll(z, U, 6);
+	return (y);
 }

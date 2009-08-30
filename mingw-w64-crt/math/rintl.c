@@ -5,7 +5,7 @@
  */
 #include <math.h>
 
-long double rintl (long double x){
+long double rintl (long double x) {
   long double retval = 0.0L;
   __asm__ ("frndint;": "=t" (retval) : "0" (x));
   return retval;

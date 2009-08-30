@@ -4,7 +4,10 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 extern double __cdecl frexp(double _X,int *_Y);
-float frexpf (float, int *);
 
+float frexpf (float, int *);
 float frexpf (float x, int *expn)
-  {return (float)frexp(x, expn);}
+{
+  return (float)frexp(x, expn);
+}
+

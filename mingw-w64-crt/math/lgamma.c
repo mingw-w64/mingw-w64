@@ -10,11 +10,11 @@
  */
 #ifdef UNK
 static uD A[] = {
-  { { 8.11614167470508450300E-4 } },
+  { {  8.11614167470508450300E-4 } },
   { { -5.95061904284301438324E-4 } },
-  { { 7.93650340457716943945E-4 } },
+  { {  7.93650340457716943945E-4 } },
   { { -2.77777777730099687205E-3 } },
-  { { 8.33333333333331927722E-2 } }
+  { {  8.33333333333331927722E-2 } }
 };
 static uD B[] = {
   { { -1.37825152569120859100E3 } },
@@ -160,118 +160,118 @@ double __lgamma_r(double x, int* sgngam);
 
 double __lgamma_r(double x, int* sgngam)
 {
-double p, q, u, w, z;
-int i;
+	double p, q, u, w, z;
+	int i;
 
-*sgngam = 1;
+	*sgngam = 1;
 #ifdef NANS
-if( isnan(x) )
-	return(x);
+	if (isnan(x))
+		return (x);
 #endif
 
 #ifdef INFINITIES
-if( !isfinite(x) )
-	return(INFINITY);
+	if (!isfinite(x))
+		return (INFINITY);
 #endif
 
-if( x < -34.0 )
+	if (x < -34.0)
 	{
-	q = -x;
-	w = __lgamma_r(q, sgngam); /* note this modifies sgngam! */
-	p = floor(q);
-	if( p == q )
+		q = -x;
+		w = __lgamma_r(q, sgngam); /* note this modifies sgngam! */
+		p = floor(q);
+		if (p == q)
 		{
 lgsing:
-		_SET_ERRNO(EDOM);
-		mtherr( "lgam", SING );
+			_SET_ERRNO(EDOM);
+			mtherr( "lgam", SING );
 #ifdef INFINITIES
-		return (INFINITY);
+			return (INFINITY);
 #else
-		return (MAXNUM);
+			return (MAXNUM);
 #endif
 		}
-	i = p;
-	if( (i & 1) == 0 )
-		*sgngam = -1;
-	else
-		*sgngam = 1;
-	z = q - p;
-	if( z > 0.5 )
+		i = p;
+		if ((i & 1) == 0)
+			*sgngam = -1;
+		else
+			*sgngam = 1;
+		z = q - p;
+		if (z > 0.5)
 		{
-		p += 1.0;
-		z = p - q;
+			p += 1.0;
+			z = p - q;
 		}
-	z = q * sin( PI * z );
-	if( z == 0.0 )
-		goto lgsing;
-/*	z = log(PI) - log( z ) - w;*/
-	z = LOGPI - log( z ) - w;
-	return( z );
-	}
-
-if( x < 13.0 )
-	{
-	z = 1.0;
-	p = 0.0;
-	u = x;
-	while( u >= 3.0 )
-		{
-		p -= 1.0;
-		u = x + p;
-		z *= u;
-		}
-	while( u < 2.0 )
-		{
-		if( u == 0.0 )
+		z = q * sin( PI * z );
+		if (z == 0.0)
 			goto lgsing;
-		z /= u;
-		p += 1.0;
-		u = x + p;
-		}
-	if( z < 0.0 )
-		{
-		*sgngam = -1;
-		z = -z;
-		}
-	else
-		*sgngam = 1;
-	if( u == 2.0 )
-		return( log(z) );
-	p -= 2.0;
-	x = x + p;
-	p = x * polevl( x, B, 5 ) / p1evl( x, C, 6);
-	return( log(z) + p );
+	/*	z = log(PI) - log( z ) - w;*/
+		z = LOGPI - log( z ) - w;
+		return (z);
 	}
 
-if( x > MAXLGM )
+	if (x < 13.0)
 	{
-	_SET_ERRNO(ERANGE);
-	mtherr( "lgamma", OVERFLOW );
+		z = 1.0;
+		p = 0.0;
+		u = x;
+		while (u >= 3.0)
+		{
+			p -= 1.0;
+			u = x + p;
+			z *= u;
+		}
+		while (u < 2.0)
+		{
+			if (u == 0.0)
+				goto lgsing;
+			z /= u;
+			p += 1.0;
+			u = x + p;
+		}
+		if (z < 0.0)
+		{
+			*sgngam = -1;
+			z = -z;
+		}
+		else
+			*sgngam = 1;
+		if (u == 2.0)
+			return ( log(z) );
+		p -= 2.0;
+		x = x + p;
+		p = x * polevl(x, B, 5) / p1evl(x, C, 6);
+		return ( log(z) + p );
+	}
+
+	if (x > MAXLGM)
+	{
+		_SET_ERRNO(ERANGE);
+		mtherr("lgamma", OVERFLOW);
 #ifdef INFINITIES
-	return( *sgngam * INFINITY );
+		return (*sgngam * INFINITY);
 #else
-	return( *sgngam * MAXNUM );
+		return (*sgngam * MAXNUM);
 #endif
 	}
 
-q = ( x - 0.5 ) * log(x) - x + LS2PI;
-if( x > 1.0e8 )
-	return( q );
+	q = (x - 0.5) * log(x) - x + LS2PI;
+	if (x > 1.0e8)
+		return (q);
 
-p = 1.0/(x*x);
-if( x >= 1000.0 )
-	q += ((   7.9365079365079365079365e-4 * p
-		- 2.7777777777777777777778e-3) *p
-		+ 0.0833333333333333333333) / x;
-else
-	q += polevl( p, A, 4 ) / x;
-return( q );
+	p = 1.0/(x*x);
+	if (x >= 1000.0)
+		q += ((   7.9365079365079365079365e-4 * p
+			- 2.7777777777777777777778e-3) *p
+			+ 0.0833333333333333333333) / x;
+	else
+		q += polevl( p, A, 4 ) / x;
+	return (q);
 }
 
 /* This is the C99 version */
-
 double lgamma(double x)
 {
-  int local_sgngam=0;
-  return (__lgamma_r(x, &local_sgngam));
+	int local_sgngam = 0;
+	return (__lgamma_r(x, &local_sgngam));
 }
+

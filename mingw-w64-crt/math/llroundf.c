@@ -11,7 +11,7 @@ long long
 llroundf (float x)
 {
   float res;
-  
+
   if (x >= 0.0F)
     {
       res = ceilf (x);
@@ -34,4 +34,5 @@ llroundf (float x)
       /* return res > 0.0F ? LONG_LONG_MAX : LONG_LONG_MIN; */
     }
   return (long long) res;
-}  
+}
+

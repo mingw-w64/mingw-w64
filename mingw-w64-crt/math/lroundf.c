@@ -34,4 +34,4 @@ lroundf (float x)
       /* return res > 0.0F ? LONG_MAX : LONG_MIN; */
     }
   return (long) res;
-}  
+}

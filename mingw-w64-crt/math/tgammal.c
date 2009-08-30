@@ -228,168 +228,166 @@ static const uLD SN[9] = {
 };
 #endif
 
-static long double stirf ( long double);
+static long double stirf (long double);
 
 /* Gamma function computed by Stirling's formula.  */
 
 static long double stirf(long double x)
 {
-  long double y, w, v;
+	long double y, w, v;
 
-  w = 1.0L/x;
-  /* For large x, use rational coefficients from the analytical expansion.  */
-  if( x > 1024.0L )
-    w = (((((6.97281375836585777429E-5L * w
-    + 7.84039221720066627474E-4L) * w
-    - 2.29472093621399176955E-4L) * w
-    - 2.68132716049382716049E-3L) * w
-    + 3.47222222222222222222E-3L) * w
-    + 8.33333333333333333333E-2L) * w
-    + 1.0L;
-  else
-    w = 1.0L + w * polevll( w, STIR, 8 );
-  y = expl(x);
-  if( x > MAXSTIR )
-  { /* Avoid overflow in pow() */
-    v = powl( x, 0.5L * x - 0.25L );
-    y = v * (v / y);
-  }
-  else
-  {
-    y = powl( x, x - 0.5L ) / y;
-  }
-  y = SQTPI * y * w;
-  return( y );
+	w = 1.0L/x;
+	/* For large x, use rational coefficients from the analytical expansion.  */
+	if (x > 1024.0L)
+		w = (((((6.97281375836585777429E-5L * w
+		      + 7.84039221720066627474E-4L) * w
+		      - 2.29472093621399176955E-4L) * w
+		      - 2.68132716049382716049E-3L) * w
+		      + 3.47222222222222222222E-3L) * w
+		      + 8.33333333333333333333E-2L) * w
+		      + 1.0L;
+	else
+		w = 1.0L + w * polevll( w, STIR, 8 );
+	y = expl(x);
+	if (x > MAXSTIR)
+	{ /* Avoid overflow in pow() */
+		v = powl(x, 0.5L * x - 0.25L);
+		y = v * (v / y);
+	}
+	else
+	{
+		y = powl(x, x - 0.5L) / y;
+	}
+	y = SQTPI * y * w;
+	return (y);
 }
 
-long double __tgammal_r(long double x, int* sgngaml);
+long double __tgammal_r(long double, int *);
 
 long double __tgammal_r(long double x, int* sgngaml)
 {
-long double p, q, z;
-int i;
+	long double p, q, z;
+	int i;
 
-*sgngaml = 1;
+	*sgngaml = 1;
 #ifdef NANS
-if( isnanl(x) )
-	return(NANL);
+	if (isnanl(x))
+		return (NANL);
 #endif
 #ifdef INFINITIES
 #ifdef NANS
-if( x == INFINITYL )
-	return(x);
-if( x == -INFINITYL )
-	return(NANL);
+	if (x == INFINITYL)
+		return (x);
+	if (x == -INFINITYL)
+		return (NANL);
 #else
-if( !isfinite(x) )
-	return(x);
+	if (!isfinite(x))
+		return (x);
 #endif
 #endif
-q = fabsl(x);
+	q = fabsl(x);
 
-if( q > 13.0L )
+	if (q > 13.0L)
 	{
-	if( q > MAXGAML )
-		goto goverf;
-	if( x < 0.0L )
+		if (q > MAXGAML)
+			goto goverf;
+		if (x < 0.0L)
 		{
-		p = floorl(q);
-		if( p == q )
+			p = floorl(q);
+			if (p == q)
 			{
 gsing:
-			_SET_ERRNO(EDOM);
-			mtherr( "tgammal", SING );
+				_SET_ERRNO(EDOM);
+				mtherr("tgammal", SING);
 #ifdef INFINITIES
-			return (INFINITYL);
+				return (INFINITYL);
 #else
-			return( *sgngaml * MAXNUML);
+				return (*sgngaml * MAXNUML);
 #endif
 			}
-		i = p;
-		if( (i & 1) == 0 )
-			*sgngaml = -1;
-		z = q - p;
-		if( z > 0.5L )
-			{
-			p += 1.0L;
+			i = p;
+			if ((i & 1) == 0)
+				*sgngaml = -1;
 			z = q - p;
+			if (z > 0.5L)
+			{
+				p += 1.0L;
+				z = q - p;
 			}
-		z = q * sinl( PIL * z );
-		z = fabsl(z) * stirf(q);
-		if( z <= PIL/MAXNUML )
+			z = q * sinl(PIL * z);
+			z = fabsl(z) * stirf(q);
+			if (z <= PIL/MAXNUML)
 			{
 goverf:
-			_SET_ERRNO(ERANGE);
-			mtherr( "tgammal", OVERFLOW );
+				_SET_ERRNO(ERANGE);
+				mtherr("tgammal", OVERFLOW);
 #ifdef INFINITIES
-			return( *sgngaml * INFINITYL);
+				return(*sgngaml * INFINITYL);
 #else
-			return( *sgngaml * MAXNUML);
+				return(*sgngaml * MAXNUML);
 #endif
 			}
-		z = PIL/z;
+			z = PIL/z;
 		}
-	else
+		else
 		{
-		z = stirf(x);
+			z = stirf(x);
 		}
-	return( *sgngaml * z );
+		return (*sgngaml * z);
 	}
 
-z = 1.0L;
-while( x >= 3.0L )
+	z = 1.0L;
+	while (x >= 3.0L)
 	{
-	x -= 1.0L;
-	z *= x;
+		x -= 1.0L;
+		z *= x;
 	}
 
-while( x < -0.03125L )
+	while (x < -0.03125L)
 	{
-	z /= x;
-	x += 1.0L;
+		z /= x;
+		x += 1.0L;
 	}
 
-if( x <= 0.03125L )
-	goto Small;
+	if (x <= 0.03125L)
+		goto Small;
 
-while( x < 2.0L )
+	while (x < 2.0L)
 	{
-	z /= x;
-	x += 1.0L;
+		z /= x;
+		x += 1.0L;
 	}
 
-if( x == 2.0L )
-	return(z);
+	if (x == 2.0L)
+		return (z);
 
-x -= 2.0L;
-p = polevll( x, P, 7 );
-q = polevll( x, Q, 8 );
-return( z * p / q );
+	x -= 2.0L;
+	p = polevll( x, P, 7 );
+	q = polevll( x, Q, 8 );
+	return (z * p / q);
 
 Small:
-if( x == 0.0L )
+	if (x == 0.0L)
 	{
-	goto gsing;
+		goto gsing;
 	}
-else
-	{
-	if( x < 0.0L )
-		{
-		x = -x;
-		q = z / (x * polevll( x, SN, 8 ));
-		}
 	else
-		q = z / (x * polevll( x, S, 8 ));
+	{
+		if (x < 0.0L)
+		{
+			x = -x;
+			q = z / (x * polevll(x, SN, 8));
+		}
+		else
+			q = z / (x * polevll(x, S, 8));
 	}
-return q;
+	return q;
 }
 
-
 /* This is the C99 version. */
-
 long double tgammal(long double x)
 {
-  int local_sgngaml=0;
-  return (__tgammal_r(x, &local_sgngaml));
+	int local_sgngaml = 0;
+	return (__tgammal_r(x, &local_sgngaml));
 }
 

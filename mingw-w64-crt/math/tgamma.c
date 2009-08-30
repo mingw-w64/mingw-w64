@@ -119,29 +119,29 @@ static const uD SQT = {
 #define SQTPI SQT.d
 #endif
 
-static double stirf ( double );
+static double stirf (double);
 
 /* Gamma function computed by Stirling's formula.
  * The polynomial STIR is valid for 33 <= x <= 172.
  */
 static double stirf(double x)
 {
-  double y, w, v;
+	double y, w, v;
 
-  w = 1.0/x;
-  w = 1.0 + w * polevl( w, STIR, 4 );
-  y = exp(x);
-  if( x > MAXSTIR )
-  { /* Avoid overflow in pow() */
-    v = pow( x, 0.5 * x - 0.25 );
-    y = v * (v / y);
-  }
-  else
-  {
-    y = pow( x, x - 0.5 ) / y;
-  }
-  y = SQTPI * y * w;
-  return( y );
+	w = 1.0/x;
+	w = 1.0 + w * polevl(w, STIR, 4);
+	y = exp(x);
+	if (x > MAXSTIR)
+	{ /* Avoid overflow in pow() */
+		v = pow(x, 0.5 * x - 0.25);
+		y = v * (v / y);
+	}
+	else
+	{
+		y = pow(x, x - 0.5) / y;
+	}
+	y = SQTPI * y * w;
+	return (y);
 }
 
 
@@ -149,117 +149,117 @@ double __tgamma_r(double x, int *sgngam);
 
 double __tgamma_r(double x, int *sgngam)
 {
-  double p, q, z;
-  int i;
+	double p, q, z;
+	int i;
 
-  *sgngam = 1;
+	*sgngam = 1;
 #ifdef NANS
-  if( isnan(x) )
-    return(x);
+	if (isnan(x))
+		return (x);
 #endif
 #ifdef INFINITIES
 #ifdef NANS
-  if( x == INFINITY )
-    return(x);
-  if( x == -INFINITY )
-    return(NAN);
+	if (x == INFINITY)
+		return (x);
+	if (x == -INFINITY)
+		return (NAN);
 #else
-  if( !isfinite(x) )
-    return(x);
+	if (!isfinite(x))
+		return (x);
 #endif
 #endif
-  q = fabs(x);
+	q = fabs(x);
 
-  if( q > 33.0 )
-  {
-    if( x < 0.0 )
-    {
-      p = floor(q);
-      if( p == q )
-      {
+	if (q > 33.0)
+	{
+		if (x < 0.0)
+		{
+			p = floor(q);
+			if (p == q)
+			{
 gsing:
-	_SET_ERRNO(EDOM);
-	mtherr( "tgamma", SING );
+				_SET_ERRNO(EDOM);
+				mtherr("tgamma", SING);
 #ifdef INFINITIES
-	return (INFINITY);
+				return (INFINITY);
 #else
-	return (MAXNUM);
+				return (MAXNUM);
 #endif
-      }
-      i = p;
-      if( (i & 1) == 0 )
-	*sgngam = -1;
-      z = q - p;
-      if( z > 0.5 )
-      {
-	p += 1.0;
-	z = q - p;
-      }
-      z = q * sin( PI * z );
-      if( z == 0.0 )
-      {
-	_SET_ERRNO(ERANGE);
-	mtherr( "tgamma", OVERFLOW );
+			}
+			i = p;
+			if ((i & 1) == 0)
+				*sgngam = -1;
+			z = q - p;
+			if (z > 0.5)
+			{
+				p += 1.0;
+				z = q - p;
+			}
+			z = q * sin(PI * z);
+			if (z == 0.0)
+			{
+				_SET_ERRNO(ERANGE);
+				mtherr("tgamma", OVERFLOW);
 #ifdef INFINITIES
-	return( *sgngam * INFINITY);
+				return (*sgngam * INFINITY);
 #else
-	return( *sgngam * MAXNUM);
+				return (*sgngam * MAXNUM);
 #endif
-      }
-      z = fabs(z);
-      z = PI/(z * stirf(q) );
-    }
-    else
-    {
-      z = stirf(x);
-    }
-    return( *sgngam * z );
-  }
+			}
+			z = fabs(z);
+			z = PI/(z * stirf(q));
+		}
+		else
+		{
+			z = stirf(x);
+		}
+		return (*sgngam * z);
+	}
 
-  z = 1.0;
-  while( x >= 3.0 )
-  {
-    x -= 1.0;
-    z *= x;
-  }
+	z = 1.0;
+	while (x >= 3.0)
+	{
+		x -= 1.0;
+		z *= x;
+	}
 
-  while( x < 0.0 )
-  {
-    if( x > -1.E-9 )
-      goto Small;
-    z /= x;
-    x += 1.0;
-  }
+	while (x < 0.0)
+	{
+		if (x > -1.E-9)
+			goto Small;
+		z /= x;
+		x += 1.0;
+	}
 
-  while( x < 2.0 )
-  {
-    if( x < 1.e-9 )
-      goto Small;
-    z /= x;
-    x += 1.0;
-  }
+	while (x < 2.0)
+	{
+		if (x < 1.e-9)
+			goto Small;
+		z /= x;
+		x += 1.0;
+	}
 
-  if( x == 2.0 )
-    return(z);
+	if (x == 2.0)
+		return (z);
 
-  x -= 2.0;
-  p = polevl( x, P, 6 );
-  q = polevl( x, Q, 7 );
-  return( z * p / q );
+	x -= 2.0;
+	p = polevl( x, P, 6 );
+	q = polevl( x, Q, 7 );
+	return (z * p / q);
 
 Small:
-  if( x == 0.0 )
-  {
-    goto gsing;
-  }
-  else
-    return( z/((1.0 + 0.5772156649015329 * x) * x) );
+	if (x == 0.0)
+	{
+		goto gsing;
+	}
+	else
+		return (z/((1.0 + 0.5772156649015329 * x) * x));
 }
 
 /* This is the C99 version */
-
 double tgamma(double x)
 {
-  int local_sgngam=0;
-  return (__tgamma_r(x, &local_sgngam));
+	int local_sgngam = 0;
+	return (__tgamma_r(x, &local_sgngam));
 }
+

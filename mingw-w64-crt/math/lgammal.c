@@ -8,14 +8,14 @@
 #if UNK
 static uLD S[9] = {
   { { -1.193945051381510095614E-3L } },
-  { { 7.220599478036909672331E-3L } },
+  { {  7.220599478036909672331E-3L } },
   { { -9.622023360406271645744E-3L } },
   { { -4.219773360705915470089E-2L } },
-  { { 1.665386113720805206758E-1L } },
+  { {  1.665386113720805206758E-1L } },
   { { -4.200263503403344054473E-2L } },
   { { -6.558780715202540684668E-1L } },
-  { { 5.772156649015328608253E-1L } },
-  { { 1.000000000000000000000E0L } }
+  { {  5.772156649015328608253E-1L } },
+  { {  1.000000000000000000000E0L } }
 };
 #endif
 #if IBMPC
@@ -47,14 +47,14 @@ static uLD S[27] = {
 
 #if UNK
 static uLD SN[9] = {
-  { { 1.133374167243894382010E-3L } },
-  { { 7.220837261893170325704E-3L } },
-  { { 9.621911155035976733706E-3L } },
+  { {  1.133374167243894382010E-3L } },
+  { {  7.220837261893170325704E-3L } },
+  { {  9.621911155035976733706E-3L } },
   { { -4.219773343731191721664E-2L } },
   { { -1.665386113944413519335E-1L } },
   { { -4.200263503402112910504E-2L } },
-  { { 6.558780715202536547116E-1L } },
-  { { 5.772156649015328608727E-1L } },
+  { {  6.558780715202536547116E-1L } },
+  { {  5.772156649015328608727E-1L } },
   { { -1.000000000000000000000E0L } }
 };
 #endif
@@ -98,13 +98,13 @@ static uLD SN[] = {
  */
 #if UNK
 static uLD A[7] = {
-  { { 4.885026142432270781165E-3L } },
+  { {  4.885026142432270781165E-3L } },
   { { -1.880801938119376907179E-3L } },
-  { { 8.412723297322498080632E-4L } },
+  { {  8.412723297322498080632E-4L } },
   { { -5.952345851765688514613E-4L } },
-  { { 7.936507795855070755671E-4L } },
+  { {  7.936507795855070755671E-4L } },
   { { -2.777777777750349603440E-3L } },
-  { { 8.333333333333331447505E-2L } }
+  { {  8.333333333333331447505E-2L } }
 };
 #endif
 #if IBMPC
@@ -207,130 +207,129 @@ long double __lgammal_r(long double x, int* sgngaml);
 
 long double __lgammal_r(long double x, int* sgngaml)
 {
-  long double p, q, w, z, f, nx;
-  int i;
+	long double p, q, w, z, f, nx;
+	int i;
 
-  *sgngaml = 1;
+	*sgngaml = 1;
 #ifdef NANS
-  if( isnanl(x) )
-    return(NANL);
+	if (isnanl(x))
+		return(NANL);
 #endif
 #ifdef INFINITIES
-  if( !isfinitel(x) )
-    return(INFINITYL);
+	if (!isfinitel(x))
+		return (INFINITYL);
 #endif
-  if( x < -34.0L )
-  {
-    q = -x;
-    w = __lgammal_r(q, sgngaml); /* note this modifies sgngam! */
-    p = floorl(q);
-    if( p == q )
-    {
+	if (x < -34.0L)
+	{
+		q = -x;
+		w = __lgammal_r(q, sgngaml); /* note this modifies sgngam! */
+		p = floorl(q);
+		if (p == q)
+		{
 lgsing:
-      _SET_ERRNO(EDOM);
-      mtherr( "lgammal", SING );
+			_SET_ERRNO(EDOM);
+			mtherr( "lgammal", SING );
 #ifdef INFINITIES
-      return (INFINITYL);
+			return (INFINITYL);
 #else
-      return (MAXNUML);
+			return (MAXNUML);
 #endif
-    }
-    i = p;
-    if( (i & 1) == 0 )
-      *sgngaml = -1;
-    else
-      *sgngaml = 1;
-    z = q - p;
-    if( z > 0.5L )
-    {
-      p += 1.0L;
-      z = p - q;
-    }
-    z = q * sinl( PIL * z );
-    if( z == 0.0L )
-      goto lgsing;
-    /*	z = LOGPI - logl( z ) - w; */
-    z = logl( PIL/z ) - w;
-    return( z );
-  }
+		}
+		i = p;
+		if ((i & 1) == 0)
+			*sgngaml = -1;
+		else
+			*sgngaml = 1;
+		z = q - p;
+		if (z > 0.5L)
+		{
+			p += 1.0L;
+			z = p - q;
+		}
+		z = q * sinl(PIL * z);
+		if (z == 0.0L)
+			goto lgsing;
+	/*	z = LOGPI - logl( z ) - w; */
+		z = logl(PIL/z) - w;
+		return (z);
+	}
 
-  if( x < 13.0L )
-  {
-    z = 1.0L;
-    nx = floorl( x +  0.5L );
-    f = x - nx;
-    while( x >= 3.0L )
-    {
-      nx -= 1.0L;
-      x = nx + f;
-      z *= x;
-    }
-    while( x < 2.0L )
-    {
-      if( fabsl(x) <= 0.03125 )
-	goto lsmall;
-      z /= nx +  f;
-      nx += 1.0L;
-      x = nx + f;
-    }
-    if( z < 0.0L )
-    {
-      *sgngaml = -1;
-      z = -z;
-    }
-    else
-      *sgngaml = 1;
-    if( x == 2.0L )
-      return( logl(z) );
-    x = (nx - 2.0L) + f;
-    p = x * polevll( x, B, 6 ) / p1evll( x, C, 7);
-    return( logl(z) + p );
-  }
+	if (x < 13.0L)
+	{
+		z = 1.0L;
+		nx = floorl(x +  0.5L);
+		f = x - nx;
+		while (x >= 3.0L)
+		{
+			nx -= 1.0L;
+			x = nx + f;
+			z *= x;
+		}
+		while (x < 2.0L)
+		{
+			if (fabsl(x) <= 0.03125)
+				goto lsmall;
+			z /= nx +  f;
+			nx += 1.0L;
+			x = nx + f;
+		}
+		if (z < 0.0L)
+		{
+			*sgngaml = -1;
+			z = -z;
+		}
+		else
+			*sgngaml = 1;
+		if (x == 2.0L)
+			return ( logl(z) );
+		x = (nx - 2.0L) + f;
+		p = x * polevll(x, B, 6) / p1evll(x, C, 7);
+		return ( logl(z) + p );
+	}
 
-  if( x > MAXLGM )
-  {
-    _SET_ERRNO(ERANGE);
-    mtherr( "lgammal", OVERFLOW );
+	if (x > MAXLGM)
+	{
+		_SET_ERRNO(ERANGE);
+		mtherr("lgammal", OVERFLOW);
 #ifdef INFINITIES
-    return( *sgngaml * INFINITYL );
+		return (*sgngaml * INFINITYL);
 #else
-    return( *sgngaml * MAXNUML );
+		return (*sgngaml * MAXNUML);
 #endif
-  }
+	}
 
-  q = ( x - 0.5L ) * logl(x) - x + LS2PI;
-  if( x > 1.0e10L )
-    return(q);
-  p = 1.0L/(x*x);
-  q += polevll( p, A, 6 ) / x;
-  return( q );
-
+	q = (x - 0.5L) * logl(x) - x + LS2PI;
+	if (x > 1.0e10L)
+		return(q);
+	p = 1.0L/(x*x);
+	q += polevll(p, A, 6) / x;
+	return (q);
 
 lsmall:
-  if( x == 0.0L )
-    goto lgsing;
-  if( x < 0.0L )
-  {
-    x = -x;
-    q = z / (x * polevll( x, SN, 8 ));
-  }
-  else
-    q = z / (x * polevll( x, S, 8 ));
-  if( q < 0.0L )
-  {
-    *sgngaml = -1;
-    q = -q;
-  }
-  else
-    *sgngaml = 1;
-  q = logl( q );
-  return(q);
+	if (x == 0.0L)
+		goto lgsing;
+	if (x < 0.0L)
+	{
+		x = -x;
+		q = z / (x * polevll(x, SN, 8));
+	}
+	else
+		q = z / (x * polevll(x, S, 8));
+	if (q < 0.0L)
+	{
+		*sgngaml = -1;
+		q = -q;
+	}
+	else
+		*sgngaml = 1;
+	q = logl(q);
+	return (q);
 }
 
 /* This is the C99 version */
-
 long double lgammal(long double x)
 {
-  int local_sgngaml=0;
-  return (__lgammal_r(x, &local_sgngaml));
+	int local_sgngaml = 0;
+	return (__lgammal_r(x, &local_sgngaml));
 }
+

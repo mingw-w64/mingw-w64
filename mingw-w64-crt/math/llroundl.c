@@ -11,7 +11,7 @@ long long
 llroundl (long double x)
 {
   long double res;
-  
+
   if (x >= 0.0L)
     {
       res = ceill (x);
@@ -35,3 +35,4 @@ llroundl (long double x)
     }
   return (long long) res;
 }
+

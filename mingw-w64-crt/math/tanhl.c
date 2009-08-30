@@ -55,8 +55,8 @@ long double tanhl(long double x)
   long double s, z;
 
 #ifdef MINUSZERO
-  if( x == 0.0L )
-    return(x);
+  if (x == 0.0L)
+    return (x);
 #endif
   if (isnanl(x))
   {
@@ -65,19 +65,19 @@ long double tanhl(long double x)
   }
 
   z = fabsl(x);
-  if( z > 0.5L * MAXLOGL )
+  if (z > 0.5L * MAXLOGL)
   {
     _SET_ERRNO (ERANGE);
-    if( x > 0 )
-      return( 1.0L );
+    if (x > 0)
+      return (1.0L);
     else
-      return( -1.0L );
+      return (-1.0L);
   }
-  if( z >= 0.625L )
+  if (z >= 0.625L)
   {
     s = expl(2.0*z);
     z =  1.0L  - 2.0/(s + 1.0L);
-    if( x < 0 )
+    if (x < 0)
       z = -z;
   }
   else
@@ -87,5 +87,6 @@ long double tanhl(long double x)
     z = x * s * z;
     z = x + z;
   }
-  return( z );
+  return (z);
 }
+

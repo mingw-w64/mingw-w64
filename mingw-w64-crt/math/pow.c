@@ -276,7 +276,6 @@ extern double pow ( double x,  double y);
 
 #else /* __MINGW32__ */
 
-#ifdef ANSIPROT
 extern double floor ( double );
 extern double fabs ( double );
 extern double frexp ( double, int * );
@@ -288,12 +287,6 @@ extern int signbit ( double );
 extern int isnan ( double );
 extern int isfinite ( double );
 static double reduc ( double );
-#else
-double floor(), fabs(), frexp(), ldexp();
-double polevl(), p1evl(), __powi();
-int signbit(), isnan(), isfinite();
-static double reduc();
-#endif
 extern double MAXNUM;
 #ifdef INFINITIES
 extern double INFINITY;
@@ -307,397 +300,390 @@ extern double NEGZERO;
 
 #endif /* __MINGW32__ */
 
-double pow( x, y )
-double x, y;
+double pow(double x, double y)
 {
-double w, z, W, Wa, Wb, ya, yb, u;
-/* double F, Fa, Fb, G, Ga, Gb, H, Ha, Hb */
-double aw, ay, wy;
-int e, i, nflg, iyflg, yoddint;
+	double w, z, W, Wa, Wb, ya, yb, u;
+/*	double F, Fa, Fb, G, Ga, Gb, H, Ha, Hb */
+	double aw, ay, wy;
+	int e, i, nflg, iyflg, yoddint;
 
-if( y == 0.0 )
-	return( 1.0 );
+	if (y == 0.0)
+		return (1.0);
 #ifdef NANS
-if( isnan(x) || isnan(y) )
+	if (isnan(x) || isnan(y))
 	{
-	_SET_ERRNO (EDOM);
-	return( x + y );
+		_SET_ERRNO (EDOM);
+		return (x + y);
 	}
 #endif
-if( y == 1.0 )
-	return( x );
-
+	if (y == 1.0)
+		return (x);
 
 #ifdef INFINITIES
-if( !isfinite(y) && (x == 1.0 || x == -1.0) )
+	if (!isfinite(y) && (x == 1.0 || x == -1.0))
 	{
-	mtherr( "pow", DOMAIN );
+		mtherr( "pow", DOMAIN );
 #ifdef NANS
-	return( NAN );
+		return( NAN );
 #else
-	return( INFINITY );
-#endif
-	}
-#endif
-
-if( x == 1.0 )
-	return( 1.0 );
-
-if( y >= MAXNUM )
-	{
-	_SET_ERRNO (ERANGE);
-#ifdef INFINITIES
-	if( x > 1.0 )
 		return( INFINITY );
-#else
-	if( x > 1.0 )
-		return( MAXNUM );
 #endif
-	if( x > 0.0 && x < 1.0 )
-		return( 0.0);
-	if( x < -1.0 )
+	}
+#endif
+
+	if (x == 1.0)
+		return (1.0);
+
+	if (y >= MAXNUM)
+	{
+		_SET_ERRNO (ERANGE);
+#ifdef INFINITIES
+		if (x > 1.0)
+			return (INFINITY);
+#else
+		if (x > 1.0)
+			return (MAXNUM);
+#endif
+		if (x > 0.0 && x < 1.0)
+			return (0.0);
+		if (x < -1.0)
 		{
 #ifdef INFINITIES
-		return( INFINITY );
+			return (INFINITY);
 #else
-		return( MAXNUM );
+			return (MAXNUM);
 #endif
 		}
-	if( x > -1.0 && x < 0.0 )
-		return( 0.0 );
+		if (x > -1.0 && x < 0.0)
+			return (0.0);
 	}
-if( y <= -MAXNUM )
+	if (y <= -MAXNUM)
 	{
-	_SET_ERRNO (ERANGE);
-	if( x > 1.0 )
-		return( 0.0 );
+		_SET_ERRNO (ERANGE);
+		if (x > 1.0)
+		return (0.0);
 #ifdef INFINITIES
-	if( x > 0.0 && x < 1.0 )
-		return( INFINITY );
+		if (x > 0.0 && x < 1.0)
+			return (INFINITY);
 #else
-	if( x > 0.0 && x < 1.0 )
-		return( MAXNUM );
+		if (x > 0.0 && x < 1.0)
+			return (MAXNUM);
 #endif
-	if( x < -1.0 )
-		return( 0.0 );
+		if (x < -1.0)
+			return (0.0);
 #ifdef INFINITIES
-	if( x > -1.0 && x < 0.0 )
-		return( INFINITY );
+		if (x > -1.0 && x < 0.0)
+			return (INFINITY);
 #else
-	if( x > -1.0 && x < 0.0 )
-		return( MAXNUM );
+		if (x > -1.0 && x < 0.0)
+			return (MAXNUM);
 #endif
 	}
-if( x >= MAXNUM )
+	if (x >= MAXNUM)
 	{
 #if INFINITIES
-	if( y > 0.0 )
-		return( INFINITY );
+		if (y > 0.0)
+			return (INFINITY);
 #else
-	if( y > 0.0 )
-		return( MAXNUM );
+		if (y > 0.0)
+			return (MAXNUM);
 #endif
-	return(0.0);
+		return (0.0);
 	}
-/* Set iyflg to 1 if y is an integer.  */
-iyflg = 0;
-w = floor(y);
-if( w == y )
-	iyflg = 1;
+	/* Set iyflg to 1 if y is an integer.  */
+	iyflg = 0;
+	w = floor(y);
+	if (w == y)
+		iyflg = 1;
 
 /* Test for odd integer y.  */
-yoddint = 0;
-if( iyflg )
+	yoddint = 0;
+	if (iyflg)
 	{
-	ya = fabs(y);
-	ya = floor(0.5 * ya);
-	yb = 0.5 * fabs(w);
-	if( ya != yb )
-		yoddint = 1;
+		ya = fabs(y);
+		ya = floor(0.5 * ya);
+		yb = 0.5 * fabs(w);
+		if (ya != yb)
+			yoddint = 1;
 	}
 
-if( x <= -MAXNUM )
+	if (x <= -MAXNUM)
 	{
-	if( y > 0.0 )
+		if (y > 0.0)
 		{
 #ifdef INFINITIES
-		if( yoddint )
-			return( -INFINITY );
-		return( INFINITY );
+			if (yoddint)
+				return (-INFINITY);
+			return (INFINITY);
 #else
-		if( yoddint )
-			return( -MAXNUM );
-		return( MAXNUM );
+			if (yoddint)
+				return (-MAXNUM);
+			return (MAXNUM);
 #endif
 		}
-	if( y < 0.0 )
+		if (y < 0.0)
 		{
 #ifdef MINUSZERO
-		if( yoddint )
-			return( NEGZERO );
+			if (yoddint)
+				return (NEGZERO);
 #endif
-		return( 0.0 );
+			return (0.0);
 		}
  	}
 
-nflg = 0;	/* flag = 1 if x<0 raised to integer power */
-if( x <= 0.0 )
+	nflg = 0;	/* flag = 1 if x<0 raised to integer power */
+	if (x <= 0.0)
 	{
-	if( x == 0.0 )
+		if (x == 0.0)
 		{
-		if( y < 0.0 )
+			if (y < 0.0)
 			{
 #ifdef MINUSZERO
-			if( signbit(x) && yoddint )
-				return( -INFINITY );
+				if (signbit(x) && yoddint)
+					return (-INFINITY);
 #endif
 #ifdef INFINITIES
-			return( INFINITY );
+				return (INFINITY);
 #else
-			return( MAXNUM );
+				return (MAXNUM);
 #endif
 			}
-		if( y > 0.0 )
+			if (y > 0.0)
 			{
 #ifdef MINUSZERO
-			if( signbit(x) && yoddint )
-				return( NEGZERO );
+				if (signbit(x) && yoddint)
+					return (NEGZERO);
 #endif
-			return( 0.0 );
+				return (0.0);
 			}
-		return( 1.0 );
+			return (1.0);
 		}
-	else
+		else
 		{
-		if( iyflg == 0 )
+			if (iyflg == 0)
 			{ /* noninteger power of negative number */
-			mtherr( fname, DOMAIN );
-			_SET_ERRNO (EDOM);
+				mtherr(fname, DOMAIN);
+				_SET_ERRNO (EDOM);
 #ifdef NANS
-			return(NAN);
+				return (NAN);
 #else
-			return(0.0L);
+				return (0.0L);
 #endif
 			}
-		nflg = 1;
+			nflg = 1;
 		}
 	}
 
-/* Integer power of an integer.  */
+	/* Integer power of an integer.  */
 
-if( iyflg )
+	if (iyflg)
 	{
-	i = w;
-	w = floor(x);
-	if( (w == x) && (fabs(y) < 32768.0) )
+		i = w;
+		w = floor(x);
+		if( (w == x) && (fabs(y) < 32768.0) )
 		{
-		w = __powi( x, (int) y );
-		return( w );
+			w = __powi(x, (int) y);
+			return (w);
 		}
 	}
 
-if( nflg )
-	x = fabs(x);
+	if (nflg)
+		x = fabs(x);
 
-/* For results close to 1, use a series expansion.  */
-w = x - 1.0;
-aw = fabs(w);
-ay = fabs(y);
-wy = w * y;
-ya = fabs(wy);
-if((aw <= 1.0e-3 && ay <= 1.0)
-   || (ya <= 1.0e-3 && ay >= 1.0))
+	/* For results close to 1, use a series expansion.  */
+	w = x - 1.0;
+	aw = fabs(w);
+	ay = fabs(y);
+	wy = w * y;
+	ya = fabs(wy);
+	if ((aw <= 1.0e-3 && ay <= 1.0)
+	   || (ya <= 1.0e-3 && ay >= 1.0))
 	{
-	z = (((((w*(y-5.)/720. + 1./120.)*w*(y-4.) + 1./24.)*w*(y-3.)
-		+ 1./6.)*w*(y-2.) + 0.5)*w*(y-1.) )*wy + wy + 1.;
-	goto done;
+		z = (((((w*(y-5.)/720. + 1./120.)*w*(y-4.) + 1./24.)*w*(y-3.)
+			+ 1./6.)*w*(y-2.) + 0.5)*w*(y-1.) )*wy + wy + 1.;
+		goto done;
 	}
-/* These are probably too much trouble.  */
+	/* These are probably too much trouble.  */
 #if 0
-w = y * log(x);
-if (aw > 1.0e-3 && fabs(w) < 1.0e-3)
-  {
-    z = ((((((
-    w/7. + 1.)*w/6. + 1.)*w/5. + 1.)*w/4. + 1.)*w/3. + 1.)*w/2. + 1.)*w + 1.;
-    goto done;
-  }
+	w = y * log(x);
+	if (aw > 1.0e-3 && fabs(w) < 1.0e-3)
+	{
+		z = ((((((w/7. + 1.)*w/6. + 1.)*w/5. + 1.)*w/4. + 1.)*w/3. + 1.)*w/2. + 1.)*w + 1.;
+		goto done;
+	}
 
-if(ya <= 1.0e-3 && aw <= 1.0e-4)
-  {
-    z = (((((
-	     wy*1./720.
-	     + (-w*1./48. + 1./120.) )*wy
-	    + ((w*17./144. - 1./12.)*w + 1./24.) )*wy
-	   + (((-w*5./16. + 7./24.)*w - 1./4.)*w + 1./6.) )*wy
-	  + ((((w*137./360. - 5./12.)*w + 11./24.)*w - 1./2.)*w + 1./2.) )*wy
-	 + (((((-w*1./6. + 1./5.)*w - 1./4)*w + 1./3.)*w -1./2.)*w ) )*wy
-	   + wy + 1.0;
-    goto done;
-  }
+	if (ya <= 1.0e-3 && aw <= 1.0e-4)
+	{
+		z = (((((wy*1./720.
+				    + (-w*1./48. + 1./120.) )*wy
+				   + ((w*17./144. - 1./12.)*w + 1./24.) )*wy
+				  + (((-w*5./16. + 7./24.)*w - 1./4.)*w + 1./6.) )*wy
+				 + ((((w*137./360. - 5./12.)*w + 11./24.)*w - 1./2.)*w + 1./2.) )*wy
+				+ (((((-w*1./6. + 1./5.)*w - 1./4)*w + 1./3.)*w -1./2.)*w ) )*wy
+				+ wy + 1.0;
+		goto done;
+	}
 #endif
 
-/* separate significand from exponent */
-x = frexp( x, &e );
+	/* separate significand from exponent */
+	x = frexp(x, &e);
 
 #if 0
-/* For debugging, check for gross overflow. */
-if( (e * y)  > (MEXP + 1024) )
-	goto overflow;
+	/* For debugging, check for gross overflow. */
+	if ((e * y)  > (MEXP + 1024))
+		goto overflow;
 #endif
 
-/* Find significand of x in antilog table A[]. */
-i = 1;
-if( x <= douba(9) )
-	i = 9;
-if( x <= douba(i+4) )
-	i += 4;
-if( x <= douba(i+2) )
-	i += 2;
-if( x >= douba(1) )
-	i = -1;
-i += 1;
+	/* Find significand of x in antilog table A[]. */
+	i = 1;
+	if (x <= douba(9))
+		i = 9;
+	if (x <= douba(i + 4))
+		i += 4;
+	if (x <= douba(i + 2))
+		i += 2;
+	if (x >= douba(1))
+		i = -1;
+	i += 1;
 
+	/* Find (x - A[i])/A[i]
+	 * in order to compute log(x/A[i]):
+	 *
+	 * log(x) = log( a x/a ) = log(a) + log(x/a)
+	 *
+	 * log(x/a) = log(1+v),  v = x/a - 1 = (x-a)/a
+	 */
+	x -= douba(i);
+	x -= doubb(i/2);
+	x /= douba(i);
 
-/* Find (x - A[i])/A[i]
- * in order to compute log(x/A[i]):
- *
- * log(x) = log( a x/a ) = log(a) + log(x/a)
- *
- * log(x/a) = log(1+v),  v = x/a - 1 = (x-a)/a
- */
-x -= douba(i);
-x -= doubb(i/2);
-x /= douba(i);
+	/* rational approximation for log(1+v):
+	 *
+	 * log(1+v)  =  v  -  v**2/2  +  v**3 P(v) / Q(v)
+	 */
+	z = x*x;
+	w = x * ( z * polevl( x, P, 3 ) / p1evl( x, Q, 4 ) );
+	w = w - ldexp( z, -1 );   /*  w - 0.5 * z  */
 
+	/* Convert to base 2 logarithm:
+	 * multiply by log2(e)
+	 */
+	w = w + LOG2EA * w;
+	/* Note x was not yet added in
+	 * to above rational approximation,
+	 * so do it now, while multiplying
+	 * by log2(e).
+	 */
+	z = w + LOG2EA * x;
+	z = z + x;
 
-/* rational approximation for log(1+v):
- *
- * log(1+v)  =  v  -  v**2/2  +  v**3 P(v) / Q(v)
- */
-z = x*x;
-w = x * ( z * polevl( x, P, 3 ) / p1evl( x, Q, 4 ) );
-w = w - ldexp( z, -1 );   /*  w - 0.5 * z  */
+	/* Compute exponent term of the base 2 logarithm. */
+	w = -i;
+	w = ldexp( w, -4 );	/* divide by 16 */
+	w += e;
+	/* Now base 2 log of x is w + z. */
 
-/* Convert to base 2 logarithm:
- * multiply by log2(e)
- */
-w = w + LOG2EA * w;
-/* Note x was not yet added in
- * to above rational approximation,
- * so do it now, while multiplying
- * by log2(e).
- */
-z = w + LOG2EA * x;
-z = z + x;
+	/* Multiply base 2 log by y, in extended precision. */
 
-/* Compute exponent term of the base 2 logarithm. */
-w = -i;
-w = ldexp( w, -4 );	/* divide by 16 */
-w += e;
-/* Now base 2 log of x is w + z. */
+	/* separate y into large part ya
+	 * and small part yb less than 1/16
+	 */
+	ya = reduc(y);
+	yb = y - ya;
 
-/* Multiply base 2 log by y, in extended precision. */
+	F = z * y  +  w * yb;
+	Fa = reduc(F);
+	Fb = F - Fa;
 
-/* separate y into large part ya
- * and small part yb less than 1/16
- */
-ya = reduc(y);
-yb = y - ya;
+	G = Fa + w * ya;
+	Ga = reduc(G);
+	Gb = G - Ga;
 
+	H = Fb + Gb;
+	Ha = reduc(H);
+	w = ldexp(Ga + Ha, 4);
 
-F = z * y  +  w * yb;
-Fa = reduc(F);
-Fb = F - Fa;
-
-G = Fa + w * ya;
-Ga = reduc(G);
-Gb = G - Ga;
-
-H = Fb + Gb;
-Ha = reduc(H);
-w = ldexp( Ga+Ha, 4 );
-
-/* Test the power of 2 for overflow */
-if( w > MEXP )
+	/* Test the power of 2 for overflow */
+	if (w > MEXP)
 	{
 #ifndef INFINITIES
-	mtherr( fname, OVERFLOW );
+		mtherr(fname, OVERFLOW);
 #endif
 #ifdef INFINITIES
-	if( nflg && yoddint )
-	  return( -INFINITY );
-	return( INFINITY );
+		if (nflg && yoddint)
+			return (-INFINITY);
+		return (INFINITY);
 #else
-	if( nflg && yoddint )
-	  return( -MAXNUM );
-	return( MAXNUM );
+		if (nflg && yoddint)
+			return (-MAXNUM);
+		return (MAXNUM);
 #endif
 	}
 
-if( w < (MNEXP - 1) )
+	if (w < (MNEXP - 1))
 	{
 #ifndef DENORMAL
-	mtherr( fname, UNDERFLOW );
+		mtherr(fname, UNDERFLOW);
 #endif
 #ifdef MINUSZERO
-	if( nflg && yoddint )
-	  return( NEGZERO );
+		if (nflg && yoddint)
+			return (NEGZERO);
 #endif
-	return( 0.0 );
+		return (0.0);
 	}
 
-e = w;
-Hb = H - Ha;
+	e = w;
+	Hb = H - Ha;
 
-if( Hb > 0.0 )
+	if (Hb > 0.0)
 	{
-	e += 1;
-	Hb -= 0.0625;
+		e += 1;
+		Hb -= 0.0625;
 	}
 
-/* Now the product y * log2(x)  =  Hb + e/16.0.
- *
- * Compute base 2 exponential of Hb,
- * where -0.0625 <= Hb <= 0.
- */
-z = Hb * polevl( Hb, R, 6 );  /*    z  =  2**Hb - 1    */
+	/* Now the product y * log2(x)  =  Hb + e/16.0.
+	 *
+	 * Compute base 2 exponential of Hb,
+	 * where -0.0625 <= Hb <= 0.
+	 */
+	z = Hb * polevl(Hb, R, 6);  /*    z  =  2**Hb - 1    */
 
-/* Express e/16 as an integer plus a negative number of 16ths.
- * Find lookup table entry for the fractional power of 2.
- */
-if( e < 0 )
-	i = 0;
-else
-	i = 1;
-i = e/16 + i;
-e = 16*i - e;
-w = douba( e );
-z = w + w * z;      /*    2**-e * ( 1 + (2**Hb-1) )    */
-z = ldexp( z, i );  /* multiply by integer power of 2 */
+	/* Express e/16 as an integer plus a negative number of 16ths.
+	 * Find lookup table entry for the fractional power of 2.
+	 */
+	if (e < 0)
+		i = 0;
+	else
+		i = 1;
+	i = e/16 + i;
+	e = 16*i - e;
+	w = douba(e);
+	z = w + w * z;      /*    2**-e * ( 1 + (2**Hb-1) )    */
+	z = ldexp(z, i);  /* multiply by integer power of 2 */
 
 done:
-
-/* Negate if odd integer power of negative number */
-if( nflg && yoddint )
+	/* Negate if odd integer power of negative number */
+	if (nflg && yoddint)
 	{
 #ifdef MINUSZERO
-	if( z == 0.0 )
-		z = NEGZERO;
-	else
+		if (z == 0.0)
+			z = NEGZERO;
+		else
 #endif
-		z = -z;
+			z = -z;
 	}
-return( z );
+	return (z);
 }
 
 
 /* Find a multiple of 1/16 that is within 1/16 of x. */
 static double reduc(double x)
 {
-double t;
+	double t;
 
-t = ldexp( x, 4 );
-t = floor( t );
-t = ldexp( t, -4 );
-return(t);
+	t = ldexp(x, 4);
+	t = floor(t);
+	t = ldexp(t, -4);
+	return (t);
 }
+

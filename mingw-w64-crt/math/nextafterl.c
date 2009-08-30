@@ -59,7 +59,6 @@ nextafterl (long double x, long double y)
 
   /* If we have updated the expn of a normal number,
      or moved from denormal to normal, [re]set the normal bit.  */ 
-     
   if (u.parts.expn & 0x7fff)
     u.parts.mantissa |=  normal_bit;
 
@@ -69,3 +68,4 @@ nextafterl (long double x, long double y)
 /* nexttowardl is the same function with a different name.  */
 long double
 nexttowardl (long double, long double) __attribute__ ((alias("nextafterl")));
+

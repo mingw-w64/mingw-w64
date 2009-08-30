@@ -9,37 +9,36 @@
 #define _SET_ERRNO(x)
 #endif
 
-long double coshl(x)
-long double x;
+long double coshl(long double x)
 {
-long double y;
+	long double y;
 
 #ifdef NANS
-if( isnanl(x) )
+	if (isnanl(x))
 	{
-	_SET_ERRNO(EDOM);
-	return(x);
+		_SET_ERRNO(EDOM);
+		return (x);
   	}
 #endif
-if( x < 0 )
-	x = -x;
-if( x > (MAXLOGL + LOGE2L) )
+	if (x < 0)
+		x = -x;
+	if (x > (MAXLOGL + LOGE2L))
 	{
-	mtherr( "coshl", OVERFLOW );
-	_SET_ERRNO(ERANGE);
+		mtherr( "coshl", OVERFLOW );
+		_SET_ERRNO(ERANGE);
 #ifdef INFINITIES
-	return( INFINITYL );
+		return (INFINITYL);
 #else
-	return( MAXNUML );
+		return (MAXNUML);
 #endif
-	}	
-if( x >= (MAXLOGL - LOGE2L) )
-	{
-	y = expl(0.5L * x);
-	y = (0.5L * y) * y;
-	return(y);
 	}
-y = expl(x);
-y = 0.5L * (y + 1.0L / y);
-return( y );
+	if (x >= (MAXLOGL - LOGE2L))
+	{
+		y = expl(0.5L * x);
+		y = (0.5L * y) * y;
+		return (y);
+	}
+	y = expl(x);
+	y = 0.5L * (y + 1.0L / y);
+	return (y);
 }

@@ -23,7 +23,7 @@ lroundl (long double x)
       res = ceill (-x);
       if (res + x > 0.5L)
 	res -= 1.0L;
-      res = -res;;
+      res = -res;
     }
   if (!isfinite (res)
       || res > (long double)LONG_MAX
