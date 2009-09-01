@@ -110,7 +110,7 @@ BOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	}
       if (! nested)
 	{
-	  InterlockedExchangePointer ((volatile PVOID *) &__native_startup_lock, 0);
+	  (void) InterlockedExchangePointer ((volatile PVOID *) &__native_startup_lock, 0);
 	}
       if (__dyn_tls_init_callback != NULL
 #if 0
@@ -147,7 +147,7 @@ BOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	      __onexitbegin = __onexitend = (_PVFV *) NULL;
 	    }
 	  __native_startup_state = __uninitialized;
-	  InterlockedExchangePointer ((volatile PVOID *) &__native_startup_lock, 0);
+	  (void) InterlockedExchangePointer ((volatile PVOID *) &__native_startup_lock, 0);
 	}
     }
   return TRUE;
