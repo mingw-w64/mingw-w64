@@ -4,6 +4,8 @@
 #define __CRT__NO_INLINE
 #include <windows.h>
 
+BOOLEAN _bittest(LONG const *Base,LONG Offset);
+
 BOOLEAN _bittest(LONG const *Base,LONG Offset)
 {
   int old = 0;

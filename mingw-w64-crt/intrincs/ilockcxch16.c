@@ -4,6 +4,8 @@
 #define __CRT__NO_INLINE
 #include <windows.h>
 
+SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SHORT Comperand);
+
 SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SHORT Comperand)
 {
   SHORT prev;

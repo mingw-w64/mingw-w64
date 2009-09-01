@@ -4,6 +4,8 @@
 #define __CRT__NO_INLINE
 #include <windows.h>
 
+VOID __stosd(PDWORD Dest,DWORD Data,SIZE_T Count);
+
 VOID __stosd(PDWORD Dest,DWORD Data,SIZE_T Count)
 {
   __asm__ __volatile__

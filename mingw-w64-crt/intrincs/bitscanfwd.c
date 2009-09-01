@@ -4,6 +4,8 @@
 #define __CRT__NO_INLINE
 #include <windows.h>
 
+BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask);
+
 BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask)
 {
   __asm__ __volatile__("bsfl %1,%0" : "=r" (Mask),"=m" ((*(volatile long *)Index)));

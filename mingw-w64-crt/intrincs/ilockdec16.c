@@ -4,6 +4,8 @@
 #define __CRT__NO_INLINE
 #include <windows.h>
 
+SHORT InterlockedDecrement16(SHORT volatile *Addend);
+
 SHORT InterlockedDecrement16(SHORT volatile *Addend)
 {
   SHORT ret, value = -1;

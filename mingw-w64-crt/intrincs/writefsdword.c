@@ -5,6 +5,7 @@
 #include <windows.h>
 
 /* for x86 only */
+ VOID __writefsdword(DWORD Offset,DWORD Data);
 
  VOID __writefsdword(DWORD Offset,DWORD Data)
  {

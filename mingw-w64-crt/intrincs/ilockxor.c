@@ -4,6 +4,8 @@
 #define __CRT__NO_INLINE
 #include <windows.h>
 
+LONG InterlockedXor(LONG volatile *Destination,LONG Value);
+
 LONG InterlockedXor(LONG volatile *Destination,LONG Value)
 {
   __asm__ __volatile__("lock ; xorl %0,%1"

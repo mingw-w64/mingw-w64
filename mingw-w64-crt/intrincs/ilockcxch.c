@@ -5,6 +5,8 @@
 #include <windows.h>
 
 #undef InterlockedCompareExchange
+LONG _InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand);
+
 LONG _InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand)
 {
   LONG prev;

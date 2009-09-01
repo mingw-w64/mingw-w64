@@ -4,6 +4,8 @@
 #define __CRT__NO_INLINE
 #include <windows.h>
 
+BOOLEAN _interlockedbittestandset(LONG *Base,LONG Offset);
+
 BOOLEAN _interlockedbittestandset(LONG *Base,LONG Offset)
 {
   int old = 0;

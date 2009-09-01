@@ -5,6 +5,8 @@
 #include <windows.h>
 
 #undef InterlockedExchange
+LONG _InterlockedExchange(LONG volatile *Target,LONG Value);
+
 LONG _InterlockedExchange(LONG volatile *Target,LONG Value)
 {
   __asm__ __volatile("lock ; xchgl %0,%1"

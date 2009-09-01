@@ -5,6 +5,7 @@
 #include <windows.h>
 
 /* for x86 only */
+ BYTE __readfsbyte(DWORD Offset);
 
  BYTE __readfsbyte(DWORD Offset)
  {

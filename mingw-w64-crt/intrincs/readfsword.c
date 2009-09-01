@@ -5,6 +5,7 @@
 #include <windows.h>
 
 /* for x86 only */
+ WORD __readfsword(DWORD Offset);
 
  WORD __readfsword(DWORD Offset)
  {
