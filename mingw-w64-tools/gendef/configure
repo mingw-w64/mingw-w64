@@ -600,7 +600,7 @@ PACKAGE_VERSION='1.0'
 PACKAGE_STRING='mingw-w64-gendef 1.0'
 PACKAGE_BUGREPORT='mingw-w64-public@lists.sourceforge.net'
 
-ac_unique_file="gendef.c"
+ac_unique_file="src/gendef.c"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>

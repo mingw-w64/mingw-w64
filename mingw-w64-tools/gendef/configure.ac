@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.63])
 AC_INIT([mingw-w64-gendef], [1.0], [mingw-w64-public@lists.sourceforge.net])
-AC_CONFIG_SRCDIR([gendef.c])
+AC_CONFIG_SRCDIR([src/gendef.c])
 AC_CONFIG_HEADERS([config.h])
 
 AC_CANONICAL_HOST
