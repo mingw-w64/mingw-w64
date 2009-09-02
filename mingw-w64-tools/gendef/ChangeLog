@@ -1,3 +1,8 @@
+2009-09-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	* src/gendef.c (disassembleRetIntern): Pre-initialize local
+	variables by zero.
+
 2009-08-17  Kai Tietz  <kai.tietz@onevision.com>
 
 	* gendef.h, gendef.c: Add BSD license.

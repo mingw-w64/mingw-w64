@@ -633,9 +633,9 @@ static int
 disassembleRetIntern(uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses *stack,
 		     int *hasret, int *atleast_one, const char *name)
 {
-  size_t sz;
-  int code,break_it;
-  uint32_t tojmp;
+  size_t sz = 0;
+  int code = 0,break_it = 0;
+  uint32_t tojmp = 0;
 
   while(1)
     {
