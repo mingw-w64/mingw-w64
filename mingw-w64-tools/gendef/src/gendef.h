@@ -315,7 +315,7 @@ typedef enum eOpCodeKind {
   c_jmpnjv,c_calljv,c_callfar,
   c_iret,c_int3,
   c_retf,c_retflw,
-  c_retn,c_retnlw,
+  c_retn,c_retnlw
 } eOpCodeKind;
 
 typedef struct sAddresses {
