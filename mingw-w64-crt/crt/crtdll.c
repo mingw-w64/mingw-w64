@@ -112,12 +112,7 @@ BOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	{
 	  (void) InterlockedExchangePointer ((volatile PVOID *) &__native_startup_lock, 0);
 	}
-      if (__dyn_tls_init_callback != NULL
-#if 0
-	  /* gnu linker put the (as it is a relocation necessary) within read/write section.  */
-	  && _IsNonwritableInCurrentImage ((PBYTE) &__dyn_tls_init_callback)
-#endif
-	 )
+      if (__dyn_tls_init_callback != NULL)
 	{
 	  __dyn_tls_init_callback (hDllHandle, DLL_THREAD_ATTACH, lpreserved);
 	}

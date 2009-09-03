@@ -1,5 +1,8 @@
 2009-09-03  Kai Tietz  <kai.tietz@onevision.com>
 
+	* crt/crtdll.c: Cleanup unused code.
+	* crt/crtexe.c: Likewise.
+
 	* Makefile.am: Add file misc/_crt_veh.c.
 	* Makefile.in: Regenerated.
 	* misc/_crt_veh.c: New.
