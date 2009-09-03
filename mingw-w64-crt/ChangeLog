@@ -1,3 +1,11 @@
+2009-09-03  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile.am: Add file misc/_crt_veh.c.
+	* Makefile.in: Regenerated.
+	* misc/_crt_veh.c: New.
+	* crt/crtexec.c (_CRT_VEH): Use variable to decide
+	if vectored exception handling should be used.
+
 2009-08-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdio/_ftime.c: New.

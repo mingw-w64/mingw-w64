@@ -68,6 +68,7 @@ extern _PVFV *__onexitbegin;
 extern _PVFV *__onexitend;
 
 extern int mingw_app_type;
+extern int _CRT_VEH;
 
 HINSTANCE __mingw_winmain_hInstance;
 _TCHAR *__mingw_winmain_lpCmdLine;
@@ -226,10 +227,13 @@ __tmainCRTStartup (void)
     _pei386_runtime_relocator ();
     __mingw_oldexcpt_handler = SetUnhandledExceptionFilter (_gnu_exception_handler);
 #ifdef _WIN64
-   AddVectoredContinueHandler
-	(1, (PVECTORED_EXCEPTION_HANDLER)_gnu_exception_handler);
-   AddVectoredExceptionHandler
-	(1, (PVECTORED_EXCEPTION_HANDLER)_gnu_exception_handler);
+   if (_CRT_VEH != 0)
+     {
+       AddVectoredContinueHandler
+ 	 (1, (PVECTORED_EXCEPTION_HANDLER)_gnu_exception_handler);
+       AddVectoredExceptionHandler
+	 (1, (PVECTORED_EXCEPTION_HANDLER)_gnu_exception_handler);
+     }
 #endif
     __mingw_prepare_except_for_msvcr80_and_higher ();
     
@@ -405,6 +409,8 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
     case EXCEPTION_INT_OVERFLOW:
     case EXCEPTION_INVALID_HANDLE:
     /*case EXCEPTION_POSSIBLE_DEADLOCK: */
+      if (! _CRT_VEH)
+        break;
       action = EXCEPTION_CONTINUE_EXECUTION;
       break;
 #endif
@@ -415,7 +421,7 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
   if (action == EXCEPTION_CONTINUE_SEARCH && __mingw_oldexcpt_handler)
     action = (*__mingw_oldexcpt_handler)(exception_data);
 #ifdef _WIN64
-  if (action == EXCEPTION_CONTINUE_SEARCH)
+  if (_CRT_VEH !=0 && action == EXCEPTION_CONTINUE_SEARCH)
     {
       SetUnhandledExceptionFilter (NULL);
       action = UnhandledExceptionFilter (exception_data);
