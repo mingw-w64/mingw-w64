@@ -163,6 +163,10 @@ int WinMainCRTStartup (void)
 
 int mainCRTStartup (void);
 
+#ifdef _WIN64
+int __mingw_init_ehandler (void);
+#endif
+
 int mainCRTStartup (void)
 {
   mingw_app_type = 0;
@@ -222,13 +226,8 @@ __tmainCRTStartup (void)
     _pei386_runtime_relocator ();
     __mingw_oldexcpt_handler = SetUnhandledExceptionFilter (_gnu_exception_handler);
 #ifdef _WIN64
-   if (_CRT_VEH != 0)
-     {
-       AddVectoredContinueHandler
- 	 (1, (PVECTORED_EXCEPTION_HANDLER)_gnu_exception_handler);
-       AddVectoredExceptionHandler
-	 (1, (PVECTORED_EXCEPTION_HANDLER)_gnu_exception_handler);
-     }
+    __mingw_init_ehandler ();
+   _CRT_VEH = 0;
 #endif
     __mingw_prepare_except_for_msvcr80_and_higher ();
     
@@ -404,8 +403,6 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
     case EXCEPTION_INT_OVERFLOW:
     case EXCEPTION_INVALID_HANDLE:
     /*case EXCEPTION_POSSIBLE_DEADLOCK: */
-      if (! _CRT_VEH)
-        break;
       action = EXCEPTION_CONTINUE_EXECUTION;
       break;
 #endif
@@ -415,13 +412,6 @@ _gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
 
   if (action == EXCEPTION_CONTINUE_SEARCH && __mingw_oldexcpt_handler)
     action = (*__mingw_oldexcpt_handler)(exception_data);
-#ifdef _WIN64
-  if (_CRT_VEH !=0 && action == EXCEPTION_CONTINUE_SEARCH)
-    {
-      SetUnhandledExceptionFilter (NULL);
-      action = UnhandledExceptionFilter (exception_data);
-    }
-#endif
   return action;
 }
 

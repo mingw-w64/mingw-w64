@@ -1,3 +1,13 @@
+2009-09-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crt_handler.c: New.
+	* crt/crtexe.c (__tmainCRTStartup): Call __mingw_init_ehandler
+	for 64-bit case.
+	* crt/crtdll.c: Likewise.
+	* crt/pesect.c (_FindPESectionByName): New.
+	(_FindPESectionExec): New.
+	(_GetPEImageBase): New.
+
 2009-09-03  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/crtdll.c: Cleanup unused code.

@@ -151,6 +151,7 @@ BOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 static BOOL __DllMainCRTStartup (HANDLE, DWORD, LPVOID);
 
 BOOL WINAPI DllMainCRTStartup (HANDLE, DWORD, LPVOID);
+int __mingw_init_ehandler (void);
 
 BOOL WINAPI
 DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
@@ -159,6 +160,9 @@ DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
   if (dwReason == DLL_PROCESS_ATTACH)
     {
       __security_init_cookie ();
+#ifdef _WIN64
+      __mingw_init_ehandler ();
+#endif
     }
   return __DllMainCRTStartup (hDllHandle, dwReason, lpreserved);
 }
