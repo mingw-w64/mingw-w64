@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main() {
-    volatile LONG poop = 0;
+    LONG poop = 0;
     for (int i = 0; i < 5; ++i) {
         printf("[%02I32d]\n", InterlockedIncrement(&poop));
     }
