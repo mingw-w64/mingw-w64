@@ -8,11 +8,10 @@ SHORT InterlockedIncrement16(SHORT volatile *Addend);
 
 SHORT InterlockedIncrement16(SHORT volatile *Addend)
 {
-  SHORT ret, value = 1;
+  SHORT ret = 1;
   __asm__ ("lock\n\t"
 	       "xaddw %0,(%1)"
-	       : "=r" (ret)
-	       : "r" (Addend), "0" (value)
-	       : "memory");
+	       : "+r" (ret), "+m" (*Addend)
+	       : : "memory");
   return ret + 1;
 }

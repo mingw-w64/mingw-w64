@@ -6,11 +6,10 @@
 
 LONG InterlockedIncrement(LONG volatile *Addend)
 {
-  LONG ret, value = 1;
+  LONG ret = 1;
   __asm__ ("lock\n\t"
 	       "xaddl %0,(%1)"
-	       : "=r" (ret)
-	       : "r" (Addend), "0" (value)
-	       : "memory");
+	       : "+r" (ret), "+m" (*Addend)
+	       : : "memory");
   return ret + 1;
 }
