@@ -10,7 +10,7 @@ SHORT InterlockedDecrement16(SHORT volatile *Addend)
 {
   SHORT ret = -1;
   __asm__ ("lock\n\t"
-	       "xaddw %0,(%1)"
+	       "xaddw %0,%1"
 	       : "+r" (ret), "+m" (*Addend)
 	       : : "memory");
   return ret - 1;
