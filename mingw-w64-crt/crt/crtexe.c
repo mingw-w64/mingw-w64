@@ -68,7 +68,6 @@ extern _PVFV *__onexitbegin;
 extern _PVFV *__onexitend;
 
 extern int mingw_app_type;
-extern int _CRT_VEH;
 
 HINSTANCE __mingw_winmain_hInstance;
 _TCHAR *__mingw_winmain_lpCmdLine;
@@ -227,7 +226,6 @@ __tmainCRTStartup (void)
     __mingw_oldexcpt_handler = SetUnhandledExceptionFilter (_gnu_exception_handler);
 #ifdef _WIN64
     __mingw_init_ehandler ();
-   _CRT_VEH = 0;
 #endif
     __mingw_prepare_except_for_msvcr80_and_higher ();
     
