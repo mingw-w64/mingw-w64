@@ -666,6 +666,7 @@ system
 tan
 tanh
 time
+_time32 = time
 tmpfile
 tmpnam
 tolower
