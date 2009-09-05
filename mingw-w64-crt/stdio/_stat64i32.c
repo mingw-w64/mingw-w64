@@ -5,8 +5,10 @@ int __cdecl _stat64i32(const char *_Name,struct _stat64i32 *_Stat)
 {
   struct _stat64 st;
   int ret=_stat64(_Name,&st);
-  if (ret == -1)
+  if (ret == -1) {
+    memset(_Stat,0,sizeof(struct _stat64i32));
     return -1;
+  }
   _Stat->st_dev=st.st_dev;
   _Stat->st_ino=st.st_ino;
   _Stat->st_mode=st.st_mode;

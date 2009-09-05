@@ -171,8 +171,10 @@ extern "C" {
   {
     struct _stat64 st;
     int ret=_fstat64(_FileDes,&st);
-    if (ret == -1)
+    if (ret == -1) {
+      memset(_Stat,0,sizeof(struct _stat64i32));
       return -1;
+    }
     _Stat->st_dev=st.st_dev;
     _Stat->st_ino=st.st_ino;
     _Stat->st_mode=st.st_mode;
@@ -195,8 +197,10 @@ extern "C" {
   {
     struct _stat64 st;
     int ret=_stat64(_Name,&st);
-    if (ret == -1)
+    if (ret == -1) {
+      memset(_Stat,0,sizeof(struct _stat64i32));
       return -1;
+    }
     _Stat->st_dev=st.st_dev;
     _Stat->st_ino=st.st_ino;
     _Stat->st_mode=st.st_mode;
@@ -262,8 +266,10 @@ __CRT_INLINE int __cdecl
  fstat(int _Desc,struct stat *_Stat) {
   struct _stat32 st;
   int ret=_fstat32(_Desc,&st);
-  if (ret == -1)
+  if (ret == -1) {
+    memset(_Stat,0,sizeof(struct stat));
     return -1;
+  }
   /* struct stat and struct _stat32
      are the same for this case. */
   memcpy(_Stat, &st, sizeof(struct _stat32));
@@ -273,8 +279,10 @@ __CRT_INLINE int __cdecl
  stat(const char *_Filename,struct stat *_Stat) {
   struct _stat32 st;
   int ret=_stat32(_Filename,&st);
-  if (ret == -1)
+  if (ret == -1) {
+    memset(_Stat,0,sizeof(struct stat));
     return -1;
+  }
   /* struct stat and struct _stat32
      are the same for this case. */
   memcpy(_Stat, &st, sizeof(struct _stat32));
@@ -285,8 +293,10 @@ __CRT_INLINE int __cdecl
  fstat(int _Desc,struct stat *_Stat) {
   struct _stat64 st;
   int ret=_fstat64(_Desc,&st);
-  if (ret == -1)
+  if (ret == -1) {
+    memset(_Stat,0,sizeof(struct stat));
     return -1;
+  }
   /* struct stat and struct _stat64i32
      are the same for this case. */
   _Stat->st_dev=st.st_dev;
@@ -306,8 +316,10 @@ __CRT_INLINE int __cdecl
  stat(const char *_Filename,struct stat *_Stat) {
   struct _stat64 st;
   int ret=_stat64(_Filename,&st);
-  if (ret == -1)
+  if (ret == -1) {
+    memset(_Stat,0,sizeof(struct stat));
     return -1;
+  }
   /* struct stat and struct _stat64i32
      are the same for this case. */
   _Stat->st_dev=st.st_dev;

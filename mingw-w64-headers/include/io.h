@@ -255,8 +255,10 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   {
     struct __finddata64_t fd;
     intptr_t ret = _findfirst64(_Filename,&fd);
-    if (ret == -1)
+    if (ret == -1) {
+      memset(_FindData,0,sizeof(struct _finddata64i32_t));
       return -1;
+    }
     _FindData->attrib=fd.attrib;
     _FindData->time_create=fd.time_create;
     _FindData->time_access=fd.time_access;
@@ -274,8 +276,10 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   {
     struct __finddata64_t fd;
     int ret = _findnext64(_FindHandle,&fd);
-    if (ret == -1)
+    if (ret == -1) {
+      memset(_FindData,0,sizeof(struct _finddata64i32_t));
       return -1;
+    }
     _FindData->attrib=fd.attrib;
     _FindData->time_create=fd.time_create;
     _FindData->time_access=fd.time_access;

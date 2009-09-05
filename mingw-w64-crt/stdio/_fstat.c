@@ -11,8 +11,10 @@ fstat(int _Desc,struct stat *_Stat)
 {
   struct _stat32 st;
   int ret=_fstat32(_Desc,&st);
-  if (ret == -1)
+  if (ret == -1) {
+    memset(_Stat,0,sizeof(struct stat));
     return -1;
+  }
   /* struct stat and struct _stat32
      are the same for this case. */
   memcpy(_Stat, &st, sizeof(struct _stat32));
@@ -24,8 +26,10 @@ fstat(int _Desc,struct stat *_Stat)
 {
   struct _stat64 st;
   int ret=_fstat64(_Desc,&st);
-  if (ret == -1)
+  if (ret == -1) {
+    memset(_Stat,0,sizeof(struct stat));
     return -1;
+  }
   /* struct stat and struct _stat64i32
      are the same for this case. */
   _Stat->st_dev=st.st_dev;
