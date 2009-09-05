@@ -1,4 +1,5 @@
 2009-09-05  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* _findfirst64i32, _findnext64i32, _fstat64i32, _fstat, _stat64i32,
 	_stat, _wfindfirst64i32, _wfindnext64i32, _wstat64i32, _wstat: Zero
 	the input buffer in case the function we wrap around fails. This
