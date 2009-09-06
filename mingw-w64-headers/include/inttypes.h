@@ -22,6 +22,9 @@ typedef struct {
 	intmax_t rem;
 	} imaxdiv_t;
 
+/* Restore to !define(__USE_MINGW_ANSI_STDIO) */
+#include <_mingw_print_push.h>
+
 #if !defined(__cplusplus) || defined(__STDC_FORMAT_MACROS)
 
 /* 7.8.1 Macros for format specifiers
@@ -291,6 +294,9 @@ intmax_t __cdecl wcstoimax (const wchar_t* __restrict__ nptr,
                             wchar_t** __restrict__ endptr, int base);
 uintmax_t __cdecl wcstoumax (const wchar_t* __restrict__ nptr,
 			     wchar_t** __restrict__ endptr, int base);
+
+/* Set PRI... and SCN... according to __USE_MINGW_ANSI_STDIO.  */
+#include <_mingw_print_pop.h>
 
 #ifdef	__cplusplus
 }

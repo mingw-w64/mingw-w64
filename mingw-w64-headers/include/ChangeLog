@@ -1,3 +1,10 @@
+2009-09-06  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2849068 
+	* inttypes.h: Treat __USE_MINGW_ANSI_STDIO for PRI.. & SCN...
+	* _mingw_print_pop.h: Likewise.
+	* _mingw_print_push.h: Likewise.
+
 2009-09-05  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _findfirst64i32, _findnext64i32, _fstat64i32, _fstat, _stat64i32,
