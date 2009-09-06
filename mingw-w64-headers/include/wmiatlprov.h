@@ -251,7 +251,7 @@ namespace ATL {
 	return WBEM_E_NOT_FOUND;
       }
       delete[] wClass;
-      unsigned __int64 ullPathInfo;
+      __MINGW_EXTENSION unsigned __int64 ullPathInfo;
       hr = pPath->GetInfo(0L,&ullPathInfo);
       if(FAILED(hr)) return hr;
       if(!(ullPathInfo & ullTest)) return WBEM_E_INVALID_OBJECT_PATH;

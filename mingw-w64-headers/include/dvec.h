@@ -47,7 +47,7 @@ class I128vec1;
 #define _MM_4UDW(element,vector) (*((unsigned int*)&##vector + ##element))
 #define _MM_4DW(element,vector) (*((int*)&##vector + ##element))
 
-#define _MM_2QW(element,vector) (*((__int64*)&##vector + ##element))
+#define _MM_2QW(element,vector) (*((__MINGW_EXTENSION __int64*)&##vector + ##element))
 
 inline const __m128i get_mask128()
 {
@@ -98,8 +98,8 @@ public:
 
   I64vec2(__m64 q1,__m64 q0)
   {
-    _MM_2QW(0,vec) = *(__int64*)&q0;
-    _MM_2QW(1,vec) = *(__int64*)&q1;
+    _MM_2QW(0,vec) = *(__MINGW_EXTENSION __int64*)&q0;
+    _MM_2QW(1,vec) = *(__MINGW_EXTENSION __int64*)&q1;
   }
 
   I64vec2& operator= (const M128 &a) { return *this = (I64vec2) a; }
@@ -120,13 +120,13 @@ public:
   I64vec2& operator>>=(const I64vec2 &a) { return *this = (I64vec2) _mm_srl_epi64(vec,a); }
   I64vec2& operator>>=(int count) { return *this = (I64vec2) _mm_srli_epi64(vec,count); }
 
-  const __int64& operator[](int i)const
+  __MINGW_EXTENSION const __int64& operator[](int i)const
   {
     assert(static_cast<unsigned int>(i) < 2);
     return _MM_2QW(i,vec);
   }
 
-  __int64& operator[](int i)
+  __MINGW_EXTENSION __int64& operator[](int i)
   {
     assert(static_cast<unsigned int>(i) < 2);
     return _MM_2QW(i,vec);

@@ -638,7 +638,7 @@ extern "C"{
 #define MAX_SCRIPT_NAME (48)
 
   typedef BYTE SCRIPT_ID;
-  typedef __int64 SCRIPT_IDS;
+  __MINGW_EXTENSION typedef __int64 SCRIPT_IDS;
 
   typedef enum tagSCRIPTCONTF {
     sidDefault = 0,sidMerge = sidDefault + 1,sidAsciiSym = sidMerge + 1,sidAsciiLatin = sidAsciiSym + 1,sidLatin = sidAsciiLatin + 1,

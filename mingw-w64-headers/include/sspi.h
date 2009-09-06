@@ -87,7 +87,7 @@ extern "C" {
   typedef PSecHandle PCtxtHandle;
 
 #ifdef WIN32_CHICAGO
-  typedef unsigned __int64 QWORD;
+  __MINGW_EXTENSION typedef unsigned __int64 QWORD;
   typedef QWORD SECURITY_INTEGER,*PSECURITY_INTEGER;
 #define SEC_SUCCESS(Status) ((Status) >= 0)
 #elif defined(_NTDEF_) || defined(_WINNT_)

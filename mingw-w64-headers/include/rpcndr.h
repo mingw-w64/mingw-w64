@@ -53,8 +53,8 @@ extern "C" {
 
 #ifndef _HYPER_DEFINED
 #define _HYPER_DEFINED
-#define hyper __int64
-#define MIDL_uhyper unsigned __int64
+#define hyper /* __MINGW_EXTENSION */ __int64
+#define MIDL_uhyper /* __MINGW_EXTENSION */ unsigned __int64
 #endif
 
 #ifndef _WCHAR_T_DEFINED
@@ -69,7 +69,7 @@ extern "C" {
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
 #else
-  typedef unsigned __int64 size_t;
+  __MINGW_EXTENSION typedef unsigned __int64 size_t;
 #endif
 #else
   typedef unsigned int size_t;
@@ -83,7 +83,7 @@ extern "C" {
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int ssize_t __attribute__ ((__mode__ (DI)));
 #else
-  typedef __int64 ssize_t;
+  __MINGW_EXTENSION typedef __int64 ssize_t;
 #endif
 #else
   typedef int ssize_t;

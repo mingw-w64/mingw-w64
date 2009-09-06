@@ -10,7 +10,7 @@
 extern "C" {
 #endif
 
-  typedef unsigned __int64 QWORD,*PQWORD;
+  __MINGW_EXTENSION typedef unsigned __int64 QWORD,*PQWORD;
   typedef LONG DNS_STATUS,*PDNS_STATUS;
   typedef DWORD IP4_ADDRESS,*PIP4_ADDRESS;
 

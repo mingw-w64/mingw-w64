@@ -300,8 +300,8 @@ extern "C"{
     struct tagDBCOMMANDTREE *pctFirstChild;
     struct tagDBCOMMANDTREE *pctNextSibling;
     union {
-      __int64 llValue;
-      unsigned __int64 ullValue;
+      __MINGW_EXTENSION __int64 llValue;
+      __MINGW_EXTENSION unsigned __int64 ullValue;
       WINBOOL fValue;
       unsigned char uchValue;
       signed char schValue;

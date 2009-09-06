@@ -253,15 +253,15 @@ typedef DWORD LCID;
   __declspec(align(16))
 #endif
     typedef struct _FLOAT128 {
-      __int64 LowPart;
-      __int64 HighPart;
+      __MINGW_EXTENSION __int64 LowPart;
+      __MINGW_EXTENSION __int64 HighPart;
   } FLOAT128;
 
   typedef FLOAT128 *PFLOAT128;
 
 #define _ULONGLONG_
-  typedef __int64 LONGLONG;
-  typedef unsigned __int64 ULONGLONG;
+  __MINGW_EXTENSION typedef __int64 LONGLONG;
+  __MINGW_EXTENSION typedef unsigned __int64 ULONGLONG;
 
 #define MAXLONGLONG (0x7fffffffffffffff)
 
@@ -360,8 +360,8 @@ typedef DWORD LCID;
 #pragma push_macro ("_rotl64")
 #undef _rotl64
 #undef _rotr64
-    unsigned __int64 __cdecl _rotl64(unsigned __int64 Value,int Shift);
-    unsigned __int64 __cdecl _rotr64(unsigned __int64 Value,int Shift);
+    __MINGW_EXTENSION unsigned __int64 __cdecl _rotl64(unsigned __int64 Value,int Shift);
+    __MINGW_EXTENSION unsigned __int64 __cdecl _rotr64(unsigned __int64 Value,int Shift);
 #pragma pop_macro ("_rotl64")
 #pragma pop_macro ("_rotr64")
 
@@ -930,42 +930,42 @@ typedef DWORD LCID;
     __CRT_INLINE BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long long *) Base))
+	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btcq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long long *) Base))
+	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btsq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long long *) Base))
+	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btrq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long long *) Base))
+	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btsq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long long *) Base))
+	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandreset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btrq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long long *) Base))
+	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
@@ -995,11 +995,11 @@ typedef DWORD LCID;
     }
 #ifdef _WIN64
     __CRT_INLINE BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask) {
-      __asm__ __volatile__("bsfq %1,%0" : "=r" (Mask),"=m" ((*(volatile long long *)Index)));
+      __asm__ __volatile__("bsfq %1,%0" : "=r" (Mask),"=m" ((*(volatile DWORD64 *)Index)));
       return Mask!=0;
     }
     __CRT_INLINE BOOLEAN _BitScanReverse64(DWORD *Index,DWORD64 Mask) {
-      __asm__ __volatile__("bsrq %1,%0" : "=r" (Mask),"=m" ((*(volatile long long *)Index)));
+      __asm__ __volatile__("bsrq %1,%0" : "=r" (Mask),"=m" ((*(volatile DWORD64 *)Index)));
       return Mask!=0;
     }
 #endif
@@ -1258,7 +1258,7 @@ typedef DWORD LCID;
 
 #define ReadTimeStampCounter() __rdtsc()
 
-    unsigned __int64 __rdtsc(void);
+    __MINGW_EXTENSION unsigned __int64 __rdtsc(void);
     VOID __movsb(PBYTE Destination,BYTE const *Source,SIZE_T Count);
     VOID __movsw(PWORD Destination,WORD const *Source,SIZE_T Count);
     VOID __movsd(PDWORD Destination,DWORD const *Source,SIZE_T Count);

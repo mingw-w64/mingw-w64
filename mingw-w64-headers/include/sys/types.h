@@ -25,7 +25,7 @@ typedef long __time32_t;
 
 #ifndef _TIME64_T_DEFINED
 #define _TIME64_T_DEFINED
-typedef __int64 __time64_t;
+__MINGW_EXTENSION typedef __int64 __time64_t;
 #endif
 
 #ifndef _TIME_T_DEFINED
@@ -58,7 +58,7 @@ typedef unsigned int dev_t;
 #ifndef _WIN64
 typedef int	_pid_t;
 #else
-typedef __int64	_pid_t;
+__MINGW_EXTENSION typedef __int64	_pid_t;
 #endif
 
 #ifndef	NO_OLDNAMES
@@ -88,9 +88,9 @@ typedef _mode_t	mode_t;
 
 #ifndef _OFF64_T_DEFINED
 #define _OFF64_T_DEFINED
-  typedef long long _off64_t;
+  __MINGW_EXTENSION typedef long long _off64_t;
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
-  typedef long long off64_t;
+  __MINGW_EXTENSION typedef long long off64_t;
 #endif
 #endif
 

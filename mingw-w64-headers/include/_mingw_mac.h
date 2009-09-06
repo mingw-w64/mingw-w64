@@ -75,6 +75,12 @@
 #define _M_IA64 100
 #endif
 
+#if defined(__GNUC__) || defined(__GNUG__)
+#define __MINGW_EXTENSION	__extension__
+#else
+#define __MINGW_EXTENSION
+#endif
+
 #ifdef UNICODE
 # define __MINGW_NAME_AW(func) func##W
 #else

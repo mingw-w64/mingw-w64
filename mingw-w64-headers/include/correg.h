@@ -139,7 +139,7 @@ extern "C" {
 #define MAX_CLASS_NAME 255
 #define MAX_PACKAGE_NAME 255
 
-  typedef unsigned __int64 CLASSVERSION;
+  __MINGW_EXTENSION typedef unsigned __int64 CLASSVERSION;
 
 #ifndef DECLSPEC_SELECT_ANY
 #define DECLSPEC_SELECT_ANY __declspec(selectany)

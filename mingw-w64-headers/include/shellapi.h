@@ -374,8 +374,8 @@ extern "C" {
 
   typedef struct _SHQUERYRBINFO {
     DWORD cbSize;
-    __int64 i64Size;
-    __int64 i64NumItems;
+    __MINGW_EXTENSION __int64 i64Size;
+    __MINGW_EXTENSION __int64 i64NumItems;
   } SHQUERYRBINFO,*LPSHQUERYRBINFO;
 
 #define SHERB_NOCONFIRMATION 0x00000001

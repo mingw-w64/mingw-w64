@@ -150,13 +150,13 @@ extern "C" {
 
 #ifndef _DWORDLONG_
 #define _DWORDLONG_
-  typedef unsigned __int64 DWORDLONG;
+  __MINGW_EXTENSION typedef unsigned __int64 DWORDLONG;
   typedef DWORDLONG *PDWORDLONG;
 #endif
 
 #ifndef _ULONGLONG_
-  typedef __int64 LONGLONG;
-  typedef unsigned __int64 ULONGLONG;
+  __MINGW_EXTENSION typedef __int64 LONGLONG;
+  __MINGW_EXTENSION typedef unsigned __int64 ULONGLONG;
   typedef LONGLONG *PLONGLONG;
   typedef ULONGLONG *PULONGLONG;
 #endif
@@ -413,7 +413,7 @@ extern "C" {
     union __MIDL_IWinTypes_0003 {
       long hInproc;
       FLAGGED_BYTE_BLOB *hRemote;
-      __int64 hInproc64;
+      __MINGW_EXTENSION __int64 hInproc64;
     } u;
   } userHGLOBAL;
 
@@ -424,7 +424,7 @@ extern "C" {
     union __MIDL_IWinTypes_0004 {
       long hInproc;
       BYTE_BLOB *hRemote;
-      __int64 hInproc64;
+      __MINGW_EXTENSION __int64 hInproc64;
     } u;
   } userHMETAFILE;
 
@@ -440,7 +440,7 @@ extern "C" {
     union __MIDL_IWinTypes_0005 {
       long hInproc;
       remoteMETAFILEPICT *hRemote;
-      __int64 hInproc64;
+      __MINGW_EXTENSION __int64 hInproc64;
     } u;
   } userHMETAFILEPICT;
 
@@ -449,7 +449,7 @@ extern "C" {
     union __MIDL_IWinTypes_0006 {
       long hInproc;
       BYTE_BLOB *hRemote;
-      __int64 hInproc64;
+      __MINGW_EXTENSION __int64 hInproc64;
     } u;
   } userHENHMETAFILE;
 
@@ -469,7 +469,7 @@ extern "C" {
     union __MIDL_IWinTypes_0007 {
       long hInproc;
       userBITMAP *hRemote;
-      __int64 hInproc64;
+      __MINGW_EXTENSION __int64 hInproc64;
     } u;
   } userHBITMAP;
 
@@ -478,7 +478,7 @@ extern "C" {
     union __MIDL_IWinTypes_0008 {
       long hInproc;
       LOGPALETTE *hRemote;
-      __int64 hInproc64;
+      __MINGW_EXTENSION __int64 hInproc64;
     } u;
   } userHPALETTE;
 

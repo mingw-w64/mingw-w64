@@ -615,8 +615,8 @@ extern "C" {
     virtual HRESULT WINAPI ReadPropertyValue(long lHandle,long lBufferSize,long *plNumBytes,byte *aData) = 0;
     virtual HRESULT WINAPI ReadDWORD(long lHandle,DWORD *pdw) = 0;
     virtual HRESULT WINAPI WriteDWORD(long lHandle,DWORD dw) = 0;
-    virtual HRESULT WINAPI ReadQWORD(long lHandle,unsigned __int64 *pqw) = 0;
-    virtual HRESULT WINAPI WriteQWORD(long lHandle,unsigned __int64 pw) = 0;
+    __MINGW_EXTENSION virtual HRESULT WINAPI ReadQWORD(long lHandle,unsigned __int64 *pqw) = 0;
+    __MINGW_EXTENSION virtual HRESULT WINAPI WriteQWORD(long lHandle,unsigned __int64 pw) = 0;
     virtual HRESULT WINAPI GetPropertyInfoByHandle(long lHandle,BSTR *pstrName,CIMTYPE *pType) = 0;
     virtual HRESULT WINAPI Lock(long lFlags) = 0;
     virtual HRESULT WINAPI Unlock(long lFlags) = 0;
@@ -656,8 +656,8 @@ extern "C" {
       HRESULT (WINAPI *ReadPropertyValue)(IWbemObjectAccess *This,long lHandle,long lBufferSize,long *plNumBytes,byte *aData);
       HRESULT (WINAPI *ReadDWORD)(IWbemObjectAccess *This,long lHandle,DWORD *pdw);
       HRESULT (WINAPI *WriteDWORD)(IWbemObjectAccess *This,long lHandle,DWORD dw);
-      HRESULT (WINAPI *ReadQWORD)(IWbemObjectAccess *This,long lHandle,unsigned __int64 *pqw);
-      HRESULT (WINAPI *WriteQWORD)(IWbemObjectAccess *This,long lHandle,unsigned __int64 pw);
+      __MINGW_EXTENSION HRESULT (WINAPI *ReadQWORD)(IWbemObjectAccess *This,long lHandle,unsigned __int64 *pqw);
+      __MINGW_EXTENSION HRESULT (WINAPI *WriteQWORD)(IWbemObjectAccess *This,long lHandle,unsigned __int64 pw);
       HRESULT (WINAPI *GetPropertyInfoByHandle)(IWbemObjectAccess *This,long lHandle,BSTR *pstrName,CIMTYPE *pType);
       HRESULT (WINAPI *Lock)(IWbemObjectAccess *This,long lFlags);
       HRESULT (WINAPI *Unlock)(IWbemObjectAccess *This,long lFlags);
@@ -716,9 +716,9 @@ extern "C" {
   void __RPC_STUB IWbemObjectAccess_ReadDWORD_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWbemObjectAccess_WriteDWORD_Proxy(IWbemObjectAccess *This,long lHandle,DWORD dw);
   void __RPC_STUB IWbemObjectAccess_WriteDWORD_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemObjectAccess_ReadQWORD_Proxy(IWbemObjectAccess *This,long lHandle,unsigned __int64 *pqw);
+  __MINGW_EXTENSION HRESULT WINAPI IWbemObjectAccess_ReadQWORD_Proxy(IWbemObjectAccess *This,long lHandle,unsigned __int64 *pqw);
   void __RPC_STUB IWbemObjectAccess_ReadQWORD_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemObjectAccess_WriteQWORD_Proxy(IWbemObjectAccess *This,long lHandle,unsigned __int64 pw);
+  __MINGW_EXTENSION HRESULT WINAPI IWbemObjectAccess_WriteQWORD_Proxy(IWbemObjectAccess *This,long lHandle,unsigned __int64 pw);
   void __RPC_STUB IWbemObjectAccess_WriteQWORD_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWbemObjectAccess_GetPropertyInfoByHandle_Proxy(IWbemObjectAccess *This,long lHandle,BSTR *pstrName,CIMTYPE *pType);
   void __RPC_STUB IWbemObjectAccess_GetPropertyInfoByHandle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

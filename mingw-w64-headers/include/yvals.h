@@ -168,10 +168,10 @@ typedef bool _Bool;
 _STD_END
 #endif
 
-#define _LONGLONG __int64
-#define _ULONGLONG unsigned __int64
-#define _LLONG_MAX 0x7fffffffffffffff
-#define _ULLONG_MAX 0xffffffffffffffff
+#define _LONGLONG /* __MINGW_EXTENSION */ __int64
+#define _ULONGLONG /* __MINGW_EXTENSION */ unsigned __int64
+#define _LLONG_MAX 0x7fffffffffffffffLL
+#define _ULLONG_MAX 0xffffffffffffffffULL
 
 #define _C2 1
 
@@ -179,8 +179,8 @@ _STD_END
 #define _MAX_INT_DIG 32
 #define _MAX_SIG_DIG 36
 
-typedef _LONGLONG _Longlong;
-typedef _ULONGLONG _ULonglong;
+__MINGW_EXTENSION typedef _LONGLONG _Longlong;
+__MINGW_EXTENSION typedef _ULONGLONG _ULonglong;
 
 #define _Filet _iobuf
 

@@ -37,7 +37,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     __time32_t time_create;
     __time32_t time_access;
     __time32_t time_write;
-    __int64 size;
+    __MINGW_EXTENSION __int64 size;
     char name[260];
   };
 
@@ -55,7 +55,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     __time64_t time_create;
     __time64_t time_access;
     __time64_t time_write;
-    __int64 size;
+    __MINGW_EXTENSION __int64 size;
     char name[260];
   };
 
@@ -96,7 +96,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     __time32_t time_create;
     __time32_t time_access;
     __time32_t time_write;
-    __int64 size;
+    __MINGW_EXTENSION __int64 size;
     wchar_t name[260];
   };
 
@@ -114,7 +114,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     __time64_t time_create;
     __time64_t time_access;
     __time64_t time_write;
-    __int64 size;
+    __MINGW_EXTENSION __int64 size;
     wchar_t name[260];
   };
 
@@ -153,7 +153,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
 #else
-  typedef unsigned __int64 size_t;
+  __MINGW_EXTENSION typedef unsigned __int64 size_t;
 #endif
 #else
   typedef unsigned int size_t;
@@ -167,7 +167,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int ssize_t __attribute__ ((__mode__ (DI)));
 #else
-  typedef __int64 ssize_t;
+  __MINGW_EXTENSION typedef __int64 ssize_t;
 #endif
 #else
   typedef int ssize_t;
@@ -193,9 +193,9 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   typedef int off64_t __attribute__ ((__mode__ (DI)));
 #endif
 #else
-  typedef long long _off64_t;
+  __MINGW_EXTENSION typedef long long _off64_t;
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
-  typedef long long off64_t;
+  __MINGW_EXTENSION typedef long long off64_t;
 #endif
 #endif
 #endif
@@ -243,7 +243,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   _CRTIMP int __cdecl _umask(int _Mode);
   _CRTIMP int __cdecl _write(int _FileHandle,const void *_Buf,unsigned int _MaxCharCount);
 
-  _CRTIMP __int64 __cdecl _filelengthi64(int _FileHandle);
+  __MINGW_EXTENSION _CRTIMP __int64 __cdecl _filelengthi64(int _FileHandle);
   _CRTIMP intptr_t __cdecl _findfirst32i64(const char *_Filename,struct _finddata32i64_t *_FindData);
   _CRTIMP intptr_t __cdecl _findfirst64(const char *_Filename,struct __finddata64_t *_FindData);
 #ifdef __cplusplus
@@ -289,8 +289,8 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
     return ret;
   }
 #endif /* __CRT__NO_INLINE */
-  __int64 __cdecl _lseeki64(int _FileHandle,__int64 _Offset,int _Origin);
-  __int64 __cdecl _telli64(int _FileHandle);
+  __MINGW_EXTENSION __int64 __cdecl _lseeki64(int _FileHandle,__int64 _Offset,int _Origin);
+  __MINGW_EXTENSION __int64 __cdecl _telli64(int _FileHandle);
 
 #ifndef NO_OLDNAMES
 #ifndef _UWIN

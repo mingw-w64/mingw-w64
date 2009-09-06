@@ -85,7 +85,7 @@ extern "C"{
 #define TRANSMITSTATS_SIZE (sizeof(TRANSMITSTATS))
 
   typedef struct _STATISTICS {
-    __int64 TimeElapsed;
+    __MINGW_EXTENSION __int64 TimeElapsed;
     DWORD TotalFramesCaptured;
     DWORD TotalBytesCaptured;
     DWORD TotalFramesFiltered;
@@ -100,7 +100,7 @@ extern "C"{
     DWORD TotalFramesDroppedFromBuffer;
     DWORD MacFramesReceived;
     DWORD MacCRCErrors;
-    __int64 MacBytesReceivedEx;
+    __MINGW_EXTENSION __int64 MacBytesReceivedEx;
     DWORD MacFramesDropped_NoBuffers;
     DWORD MacMulticastsReceived;
     DWORD MacBroadcastsReceived;
@@ -396,7 +396,7 @@ extern "C"{
 #define CAPTUREFILTER_SIZE sizeof(CAPTUREFILTER)
 
   typedef struct _FRAME {
-    __int64 TimeStamp;
+    __MINGW_EXTENSION __int64 TimeStamp;
     DWORD FrameLength;
     DWORD nBytesAvail;
     BYTE MacFrame[1];
@@ -415,7 +415,7 @@ extern "C"{
 
   typedef struct _FRAME_DESCRIPTOR {
     LPBYTE FramePointer;
-    __int64 TimeStamp;
+    __MINGW_EXTENSION __int64 TimeStamp;
     DWORD FrameLength;
     DWORD nBytesAvail;
     WORD Etype;
@@ -563,12 +563,12 @@ extern "C"{
 #define UPDATE_ACTION_PAUSE_CAPTURE (0x3)
 #define UPDATE_ACTION_RTC_BUFFER_SWITCH (0x4)
 
-  typedef struct _UPDATE_EVENT {
+  __MINGW_EXTENSION typedef struct _UPDATE_EVENT {
     USHORT Event;
     DWORD Action;
     DWORD Status;
     DWORD Value;
-    __int64 TimeStamp;
+    __MINGW_EXTENSION __int64 TimeStamp;
     DWORD_PTR lpUserContext;
     DWORD_PTR lpReserved;
     UINT FramesDropped;
@@ -718,7 +718,7 @@ extern "C"{
 #define DEFAULT_FDDI_FC (0x10)
 
   typedef struct _FDDISTATFRAME {
-    __int64 TimeStamp;
+    __MINGW_EXTENSION __int64 TimeStamp;
     DWORD FrameLength;
     DWORD nBytesAvail;
     FDDIFRAMEHDR FrameHeader;
@@ -743,7 +743,7 @@ extern "C"{
   } ATMFRAMEHDR;
 
   typedef struct _ATMSTATFRAME {
-    __int64 TimeStamp;
+    __MINGW_EXTENSION __int64 TimeStamp;
     DWORD FrameLength;
     DWORD nBytesAvail;
     ATMFRAMEHDR FrameHeader;
@@ -761,7 +761,7 @@ extern "C"{
 #define ATMSTATFRAME_SIZE (sizeof(ATMSTATFRAME))
 
   typedef struct _TRSTATFRAME {
-    __int64 TimeStamp;
+    __MINGW_EXTENSION __int64 TimeStamp;
     DWORD FrameLength;
     DWORD nBytesAvail;
     TRFRAMEHDR FrameHeader;
@@ -779,7 +779,7 @@ extern "C"{
 #define TRSTATFRAME_SIZE (sizeof(TRSTATFRAME))
 
   typedef struct _ESTATFRAME {
-    __int64 TimeStamp;
+    __MINGW_EXTENSION __int64 TimeStamp;
     DWORD FrameLength;
     DWORD nBytesAvail;
     EFRAMEHDR FrameHeader;
@@ -2246,9 +2246,9 @@ extern "C"{
   DWORD WINAPI GetFrameMacType(HFRAME hFrame);
   DWORD WINAPI GetFrameMacHeaderLength(HFRAME hFrame);
   DWORD WINAPI GetFrameNumber(HFRAME hFrame);
-  __int64 WINAPI GetFrameTimeStamp(HFRAME hFrame);
+  __MINGW_EXTENSION __int64 WINAPI GetFrameTimeStamp(HFRAME hFrame);
   ULPFRAME WINAPI GetFrameFromFrameHandle(HFRAME hFrame);
-  HFRAME WINAPI ModifyFrame(HCAPTURE hCapture,DWORD FrameNumber,LPBYTE FrameData,DWORD FrameLength,__int64 TimeStamp);
+  __MINGW_EXTENSION HFRAME WINAPI ModifyFrame(HCAPTURE hCapture,DWORD FrameNumber,LPBYTE FrameData,DWORD FrameLength,__int64 TimeStamp);
   HFRAME WINAPI FindNextFrame(HFRAME hCurrentFrame,LPSTR ProtocolName,LPADDRESS2 lpDestAddress,LPADDRESS2 lpSrcAddress,LPWORD ProtocolOffset,DWORD OriginalFrameNumber,DWORD nHighestFrame);
   HFRAME WINAPI FindPreviousFrame(HFRAME hCurrentFrame,LPSTR ProtocolName,LPADDRESS2 lpDstAddress,LPADDRESS2 lpSrcAddress,LPWORD ProtocolOffset,DWORD OriginalFrameNumber,DWORD nLowestFrame);
   HCAPTURE WINAPI GetFrameCaptureHandle(HFRAME);
@@ -2276,7 +2276,7 @@ extern "C"{
   DWORD WINAPI GetCaptureCommentFromFilename(LPSTR lpFilename,LPSTR lpComment,DWORD BufferSize);
   int WINAPI CompareAddresses(LPADDRESS2 lpAddress1,LPADDRESS2 lpAddress2);
   DWORD WINAPIV FormatPropertyInstance(LPPROPERTYINST lpPropertyInst,...);
-  SYSTEMTIME *WINAPI AdjustSystemTime(SYSTEMTIME *SystemTime,__int64 TimeDelta);
+  __MINGW_EXTENSION SYSTEMTIME *WINAPI AdjustSystemTime(SYSTEMTIME *SystemTime,__int64 TimeDelta);
   LPSTR WINAPI NMRtlIpv6AddressToStringA(const BYTE IP6Addr[],LPSTR S);
   LPWSTR WINAPI NMRtlIpv6AddressToStringW(const BYTE IP6Addr[],LPWSTR S);
   ULONG WINAPI NMRtlIpv6StringToAddressA(LPCSTR S,LPCSTR *Terminator,BYTE IP6Addr[]);

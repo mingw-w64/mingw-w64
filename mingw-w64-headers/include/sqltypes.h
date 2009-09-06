@@ -183,11 +183,9 @@ extern "C" {
 #endif
 
 #if (ODBCVER >= 0x0300)
-#define ODBCINT64 __int64
-#ifdef ODBCINT64
-  typedef ODBCINT64 SQLBIGINT;
-  typedef unsigned ODBCINT64 SQLUBIGINT;
-#endif
+#define ODBCINT64 /* __MINGW_EXTENSION */ __int64
+  __MINGW_EXTENSION typedef ODBCINT64 SQLBIGINT;
+  __MINGW_EXTENSION typedef unsigned ODBCINT64 SQLUBIGINT;
 #endif
 
 #if (ODBCVER >= 0x0300)

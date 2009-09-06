@@ -18,7 +18,7 @@
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
 #else
-typedef unsigned __int64 size_t;
+__MINGW_EXTENSION typedef unsigned __int64 size_t;
 #endif
 #else
 typedef unsigned int size_t;
@@ -32,7 +32,7 @@ typedef unsigned int size_t;
 #if defined(__GNUC__) && defined(__STRICT_ANSI__)
   typedef int ssize_t __attribute__ ((__mode__ (DI)));
 #else
-typedef __int64 ssize_t;
+__MINGW_EXTENSION typedef __int64 ssize_t;
 #endif
 #else
 typedef int ssize_t;

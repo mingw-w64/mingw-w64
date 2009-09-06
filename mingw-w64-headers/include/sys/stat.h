@@ -37,7 +37,7 @@ extern "C" {
 #endif
 
 #ifndef _TIME64_T_DEFINED
-  typedef __int64 __time64_t;
+  __MINGW_EXTENSION typedef __int64 __time64_t;
 #define _TIME64_T_DEFINED
 #endif
 
@@ -111,7 +111,7 @@ extern "C" {
     short st_uid;
     short st_gid;
     _dev_t st_rdev;
-    __int64 st_size;
+    __MINGW_EXTENSION __int64 st_size;
     __time32_t st_atime;
     __time32_t st_mtime;
     __time32_t st_ctime;
@@ -139,7 +139,7 @@ extern "C" {
     short st_uid;
     short st_gid;
     _dev_t st_rdev;
-    __int64 st_size;
+    __MINGW_EXTENSION __int64 st_size;
     __time64_t st_atime;
     __time64_t st_mtime;
     __time64_t st_ctime;

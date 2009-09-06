@@ -439,8 +439,8 @@ extern "C" {
     LONG m_lLongVal;
     ULONG m_uLongVal;
     double m_dblVal;
-    __int64 m_lVal64;
-    __int64 m_uVal64;
+    __MINGW_EXTENSION __int64 m_lVal64;
+    __MINGW_EXTENSION __int64 m_uVal64;
   } SWbemRpnConst;
 
   typedef struct tag_SWbemRpnQueryToken {
@@ -486,7 +486,7 @@ extern "C" {
   typedef struct tag_SWbemRpnEncodedQuery {
     ULONG m_uVersion;
     ULONG m_uTokenType;
-    unsigned __int64 m_uParsedFeatureMask;
+    __MINGW_EXTENSION unsigned __int64 m_uParsedFeatureMask;
     ULONG m_uDetectedArraySize;
     ULONG *m_puDetectedFeatures;
     ULONG m_uSelectListSize;

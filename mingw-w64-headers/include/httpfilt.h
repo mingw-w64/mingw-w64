@@ -11,7 +11,7 @@ extern "C" {
 #endif
 
 #ifdef _WIN64
-  typedef unsigned __int64 ULONG_PTR,*PULONG_PTR;
+  __MINGW_EXTENSION typedef unsigned __int64 ULONG_PTR,*PULONG_PTR;
 #else
   typedef unsigned long ULONG_PTR,*PULONG_PTR;
 #endif

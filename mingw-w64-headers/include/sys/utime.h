@@ -40,7 +40,7 @@ extern "C" {
 
 #ifndef _TIME64_T_DEFINED
 #define _TIME64_T_DEFINED
-  typedef __int64 __time64_t;
+  __MINGW_EXTENSION typedef __int64 __time64_t;
 #endif
 
 #ifndef _TIME_T_DEFINED

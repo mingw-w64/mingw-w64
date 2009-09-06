@@ -624,9 +624,9 @@ extern long __cdecl lrint (double);
 extern long __cdecl lrintf (float);
 extern long __cdecl lrintl (long double);
 
-extern long long __cdecl llrint (double);
-extern long long __cdecl llrintf (float);
-extern long long __cdecl llrintl (long double);
+extern __MINGW_EXTENSION long long __cdecl llrint (double);
+extern __MINGW_EXTENSION long long __cdecl llrintf (float);
+extern __MINGW_EXTENSION long long __cdecl llrintl (long double);
 
 /* Inline versions of above. 
    GCC 4.0+ can do a better fast-math job with __builtins. */
@@ -678,25 +678,25 @@ extern long long __cdecl llrintl (long double);
       return retval;
   }
 
-  __CRT_INLINE long long __cdecl llrint (double x) 
+  __MINGW_EXTENSION __CRT_INLINE long long __cdecl llrint (double x) 
   {
-    long long retval = 0ll;
+    __MINGW_EXTENSION long long retval = 0ll;
     __asm__ __volatile__							      \
       ("fistpll %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
   }
 
-  __CRT_INLINE long long __cdecl llrintf (float x) 
+  __MINGW_EXTENSION __CRT_INLINE long long __cdecl llrintf (float x) 
   {
-    long long retval = 0ll;
+    __MINGW_EXTENSION long long retval = 0ll;
     __asm__ __volatile__							      \
       ("fistpll %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
   }
 
-  __CRT_INLINE long long __cdecl llrintl (long double x) 
+  __MINGW_EXTENSION __CRT_INLINE long long __cdecl llrintl (long double x) 
   {
-    long long retval = 0ll;
+    __MINGW_EXTENSION long long retval = 0ll;
     __asm__ __volatile__							      \
       ("fistpll %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
@@ -715,9 +715,9 @@ extern long long __cdecl llrintl (long double);
   extern long __cdecl lroundf (float);
   extern long __cdecl lroundl (long double);
 
-  extern long long __cdecl llround (double);
-  extern long long __cdecl llroundf (float);
-  extern long long __cdecl llroundl (long double);
+  extern __MINGW_EXTENSION long long __cdecl llround (double);
+  extern __MINGW_EXTENSION long long __cdecl llroundf (float);
+  extern __MINGW_EXTENSION long long __cdecl llroundl (long double);
 
 /* 7.12.9.8 */
 /* round towards zero, regardless of fpu control word settings */

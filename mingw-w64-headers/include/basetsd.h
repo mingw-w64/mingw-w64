@@ -9,7 +9,7 @@
 #define _BASETSD_H_
 
 #if (defined(__x86_64) || defined(__ia64__)) && !defined(RC_INVOKED)
-typedef unsigned __int64 POINTER_64_INT;
+__MINGW_EXTENSION typedef unsigned __int64 POINTER_64_INT;
 #else
 typedef unsigned long POINTER_64_INT;
 #endif
@@ -25,11 +25,11 @@ extern "C" {
   typedef signed char INT8,*PINT8;
   typedef signed short INT16,*PINT16;
   typedef signed int INT32,*PINT32;
-  typedef signed __int64 INT64,*PINT64;
+  __MINGW_EXTENSION typedef signed __int64 INT64,*PINT64;
   typedef unsigned char UINT8,*PUINT8;
   typedef unsigned short UINT16,*PUINT16;
   typedef unsigned int UINT32,*PUINT32;
-  typedef unsigned __int64 UINT64,*PUINT64;
+  __MINGW_EXTENSION typedef unsigned __int64 UINT64,*PUINT64;
   typedef signed int LONG32,*PLONG32;
   typedef unsigned int ULONG32,*PULONG32;
   typedef unsigned int DWORD32,*PDWORD32;
@@ -39,10 +39,10 @@ extern "C" {
 #endif
 
 #ifdef _WIN64
-  typedef __int64 INT_PTR,*PINT_PTR;
-  typedef unsigned __int64 UINT_PTR,*PUINT_PTR;
-  typedef __int64 LONG_PTR,*PLONG_PTR;
-  typedef unsigned __int64 ULONG_PTR,*PULONG_PTR;
+  __MINGW_EXTENSION typedef __int64 INT_PTR,*PINT_PTR;
+  __MINGW_EXTENSION typedef unsigned __int64 UINT_PTR,*PUINT_PTR;
+  __MINGW_EXTENSION typedef __int64 LONG_PTR,*PLONG_PTR;
+  __MINGW_EXTENSION typedef unsigned __int64 ULONG_PTR,*PULONG_PTR;
 #define __int3264 __int64
 #else
   typedef int INT_PTR,*PINT_PTR;
@@ -54,8 +54,8 @@ extern "C" {
 
 #ifdef _WIN64
 #define ADDRESS_TAG_BIT 0x40000000000ULL
-  typedef __int64 SHANDLE_PTR;
-  typedef unsigned __int64 HANDLE_PTR;
+  __MINGW_EXTENSION typedef __int64 SHANDLE_PTR;
+  __MINGW_EXTENSION typedef unsigned __int64 HANDLE_PTR;
   typedef unsigned int UHALF_PTR,*PUHALF_PTR;
   typedef int HALF_PTR,*PHALF_PTR;
 
@@ -136,14 +136,14 @@ extern "C" {
 #define MAXHALF_PTR ((HALF_PTR)(MAXUHALF_PTR >> 1))
 #define MINHALF_PTR (~MAXHALF_PTR)
 
-  typedef ULONG_PTR SIZE_T,*PSIZE_T;
-  typedef LONG_PTR SSIZE_T,*PSSIZE_T;
-  typedef ULONG_PTR DWORD_PTR,*PDWORD_PTR;
-  typedef __int64 LONG64,*PLONG64;
-  typedef unsigned __int64 ULONG64,*PULONG64;
-  typedef unsigned __int64 DWORD64,*PDWORD64;
-  typedef ULONG_PTR KAFFINITY;
-  typedef KAFFINITY *PKAFFINITY;
+  __MINGW_EXTENSION typedef ULONG_PTR SIZE_T,*PSIZE_T;
+  __MINGW_EXTENSION typedef LONG_PTR SSIZE_T,*PSSIZE_T;
+  __MINGW_EXTENSION typedef ULONG_PTR DWORD_PTR,*PDWORD_PTR;
+  __MINGW_EXTENSION typedef __int64 LONG64,*PLONG64;
+  __MINGW_EXTENSION typedef unsigned __int64 ULONG64,*PULONG64;
+  __MINGW_EXTENSION typedef unsigned __int64 DWORD64,*PDWORD64;
+  __MINGW_EXTENSION typedef ULONG_PTR KAFFINITY;
+  __MINGW_EXTENSION typedef KAFFINITY *PKAFFINITY;
 
 #ifdef __cplusplus
 }

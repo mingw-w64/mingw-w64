@@ -39,7 +39,7 @@ extern "C" {
   typedef unsigned short u_short;
   typedef unsigned int u_int;
   typedef unsigned long u_long;
-  typedef unsigned __int64 u_int64;
+  __MINGW_EXTENSION typedef unsigned __int64 u_int64;
   typedef INT_PTR SOCKET;
 
 #ifndef FD_SETSIZE
@@ -351,7 +351,7 @@ extern "C" {
   };
 
 #define _SS_MAXSIZE 128
-#define _SS_ALIGNSIZE (sizeof(__int64))
+#define _SS_ALIGNSIZE (8)
 
 #define _SS_PAD1SIZE (_SS_ALIGNSIZE - sizeof (short))
 #define _SS_PAD2SIZE (_SS_MAXSIZE - (sizeof (short) + _SS_PAD1SIZE + _SS_ALIGNSIZE))
@@ -360,7 +360,7 @@ extern "C" {
     short ss_family;
     char __ss_pad1[_SS_PAD1SIZE];
 
-    __int64 __ss_align;
+    __MINGW_EXTENSION __int64 __ss_align;
     char __ss_pad2[_SS_PAD2SIZE];
 
   };

@@ -1500,9 +1500,9 @@ extern "C"{
   void __RPC_STUB ICreateWithTipTransactionEx_CreateInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-  typedef unsigned __int64 MTS_OBJID;
-  typedef unsigned __int64 MTS_RESID;
-  typedef unsigned __int64 ULONG64;
+  __MINGW_EXTENSION typedef unsigned __int64 MTS_OBJID;
+  __MINGW_EXTENSION typedef unsigned __int64 MTS_RESID;
+  __MINGW_EXTENSION typedef unsigned __int64 ULONG64;
 
 #ifndef _COMSVCSEVENTINFO_
 #define _COMSVCSEVENTINFO_

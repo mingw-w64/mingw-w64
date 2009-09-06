@@ -16,12 +16,12 @@ typedef const void *FormatInfoRef;
 typedef unsigned __int8 NDR64_UINT8;
 typedef unsigned __int16 NDR64_UINT16;
 typedef unsigned __int32 NDR64_UINT32;
-typedef unsigned __int64 NDR64_UINT64;
+__MINGW_EXTENSION typedef unsigned __int64 NDR64_UINT64;
 
 typedef __int8 NDR64_INT8;
 typedef __int16 NDR64_INT16;
 typedef __int32 NDR64_INT32;
-typedef __int64 NDR64_INT64;
+__MINGW_EXTENSION typedef __int64 NDR64_INT64;
 
 typedef NDR64_UINT8 NDR64_FORMAT_CHAR;
 typedef const void *PNDR64_FORMAT;

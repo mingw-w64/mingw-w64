@@ -189,16 +189,16 @@ extern "C" {
      seperatly.  */
  
 #ifdef _WIN64
-  __CRT_INLINE unsigned __int64 __readcr0(void)
+  __MINGW_EXTENSION __CRT_INLINE unsigned __int64 __readcr0(void)
   {
-      unsigned __int64 value;
+      __MINGW_EXTENSION unsigned __int64 value;
       __asm__ __volatile__ (
           "mov %%cr0, %[value]" 
           : [value] "=q" (value));
       return value;
   }
  
-  __CRT_INLINE void __writecr0(unsigned __int64 Data)
+  __MINGW_EXTENSION __CRT_INLINE void __writecr0(unsigned __int64 Data)
   {
    __asm__ __volatile__ (
        "mov %[Data], %%cr0"
@@ -207,16 +207,16 @@ extern "C" {
        : "memory");
   }
  
-  __CRT_INLINE unsigned __int64 __readcr2(void)
+  __MINGW_EXTENSION __CRT_INLINE unsigned __int64 __readcr2(void)
   {
-      unsigned __int64 value;
+      __MINGW_EXTENSION unsigned __int64 value;
       __asm__ __volatile__ (
           "mov %%cr2, %[value]" 
           : [value] "=q" (value));
       return value;
   }
 
- __CRT_INLINE void __writecr2(unsigned __int64 Data)
+ __MINGW_EXTENSION __CRT_INLINE void __writecr2(unsigned __int64 Data)
  {
    __asm__ __volatile__ (
        "mov %[Data], %%cr2"
@@ -225,16 +225,16 @@ extern "C" {
        : "memory");
  }
  
-  __CRT_INLINE unsigned __int64 __readcr3(void)
+  __MINGW_EXTENSION __CRT_INLINE unsigned __int64 __readcr3(void)
   {
-      unsigned __int64 value;
+      __MINGW_EXTENSION unsigned __int64 value;
       __asm__ __volatile__ (
           "mov %%cr3, %[value]" 
           : [value] "=q" (value));
       return value;
   }
 
- __CRT_INLINE void __writecr3(unsigned __int64 Data)
+ __MINGW_EXTENSION __CRT_INLINE void __writecr3(unsigned __int64 Data)
  {
    __asm__ __volatile__ (
        "mov %[Data], %%cr3"
@@ -243,16 +243,16 @@ extern "C" {
        : "memory");
  }
  
-  __CRT_INLINE unsigned __int64 __readcr4(void)
+  __MINGW_EXTENSION __CRT_INLINE unsigned __int64 __readcr4(void)
   {
-      unsigned __int64 value;
+      __MINGW_EXTENSION unsigned __int64 value;
       __asm__ __volatile__ (
           "mov %%cr4, %[value]" 
           : [value] "=q" (value));
       return value;
   }
 
- __CRT_INLINE void __writecr4(unsigned __int64 Data)
+ __MINGW_EXTENSION __CRT_INLINE void __writecr4(unsigned __int64 Data)
  {
      __asm__ __volatile__ (
          "mov %[Data], %%cr4"
@@ -261,16 +261,16 @@ extern "C" {
          : "memory");
  }
  
-  __CRT_INLINE unsigned __int64 __readcr8(void)
+  __MINGW_EXTENSION __CRT_INLINE unsigned __int64 __readcr8(void)
   {
-      unsigned __int64 value;
+      __MINGW_EXTENSION unsigned __int64 value;
       __asm__ __volatile__ (
           "mov %%cr8, %[value]" 
           : [value] "=q" (value));
       return value;
   }
 
- __CRT_INLINE void __writecr8(unsigned __int64 Data)
+ __MINGW_EXTENSION __CRT_INLINE void __writecr8(unsigned __int64 Data)
  {
    __asm__ __volatile__ (
        "mov %[Data], %%cr8"
@@ -372,9 +372,9 @@ extern "C" {
  
 #endif
 
-  __CRT_INLINE unsigned __int64 __readmsr(unsigned long msr)
+  __MINGW_EXTENSION __CRT_INLINE unsigned __int64 __readmsr(unsigned long msr)
   {
-      unsigned __int64 val1, val2;
+      __MINGW_EXTENSION unsigned __int64 val1, val2;
        __asm__ __volatile__(
            "rdmsr"
            : "=a" (val1), "=d" (val2)
@@ -382,7 +382,7 @@ extern "C" {
       return val1 | (val2 << 32);
   }
 
- __CRT_INLINE void __writemsr (unsigned long msr, unsigned __int64 Value)
+ __MINGW_EXTENSION __CRT_INLINE void __writemsr (unsigned long msr, unsigned __int64 Value)
  {
     unsigned long val1 = Value, val2 = Value >> 32;
    __asm__ __volatile__ (

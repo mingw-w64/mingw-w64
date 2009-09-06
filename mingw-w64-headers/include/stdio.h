@@ -90,9 +90,9 @@ extern "C" {
 
 #ifndef _OFF64_T_DEFINED
 #define _OFF64_T_DEFINED
-  typedef long long _off64_t;
+  __MINGW_EXTENSION typedef long long _off64_t;
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
-  typedef long long off64_t;
+  __MINGW_EXTENSION typedef long long off64_t;
 #endif
 #endif
 
@@ -117,10 +117,10 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #undef _FPOSOFF
 
 #if (!defined(NO_OLDNAMES) || defined(__GNUC__))
-  typedef __int64 fpos_t;
+  __MINGW_EXTENSION typedef __int64 fpos_t;
 #define _FPOSOFF(fp) ((long)(fp))
 #else
-  typedef long long fpos_t;
+  __MINGW_EXTENSION typedef long long fpos_t;
 #define _FPOSOFF(fp) ((long)(fp))
 #endif
 
@@ -197,8 +197,8 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
    int fseeko64(FILE* stream, _off64_t offset, int whence);
   long __cdecl ftell(FILE *_File);
   _off64_t ftello64(FILE * stream);
-  int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
-  __int64 __cdecl _ftelli64(FILE *_File);
+  __MINGW_EXTENSION int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
+  __MINGW_EXTENSION __int64 __cdecl _ftelli64(FILE *_File);
   size_t __cdecl fwrite(const void *_Str,size_t _Size,size_t _Count,FILE *_File);
   int __cdecl getc(FILE *_File);
   int __cdecl getchar(void);
@@ -419,8 +419,8 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP size_t __cdecl _fread_nolock(void *_DstBuf,size_t _ElementSize,size_t _Count,FILE *_File);
   _CRTIMP int __cdecl _fseek_nolock(FILE *_File,long _Offset,int _Origin);
   _CRTIMP long __cdecl _ftell_nolock(FILE *_File);
-  _CRTIMP int __cdecl _fseeki64_nolock(FILE *_File,__int64 _Offset,int _Origin);
-  _CRTIMP __int64 __cdecl _ftelli64_nolock(FILE *_File);
+  __MINGW_EXTENSION _CRTIMP int __cdecl _fseeki64_nolock(FILE *_File,__int64 _Offset,int _Origin);
+  __MINGW_EXTENSION _CRTIMP __int64 __cdecl _ftelli64_nolock(FILE *_File);
   _CRTIMP size_t __cdecl _fwrite_nolock(const void *_DstBuf,size_t _Size,size_t _Count,FILE *_File);
   _CRTIMP int __cdecl _ungetc_nolock(int _Ch,FILE *_File);
 

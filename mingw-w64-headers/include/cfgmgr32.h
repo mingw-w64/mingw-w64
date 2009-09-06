@@ -39,7 +39,7 @@ extern "C" {
 #define CONFIGMG_VERSION 0x0400
 
 #ifdef NT_INCLUDED
-  typedef unsigned __int64 DWORDLONG;
+  __MINGW_EXTENSION typedef unsigned __int64 DWORDLONG;
   typedef DWORDLONG *PDWORDLONG;
 #endif
 
