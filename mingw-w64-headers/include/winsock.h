@@ -380,6 +380,9 @@ typedef struct timeval *LPTIMEVAL;
 #endif
 #endif
 #else
+#ifndef _INC_WINSOCK_H
+#define _INC_WINSOCK_H
 #include <winsock2.h>
 #include <mswsock.h>
+#endif
 #endif
