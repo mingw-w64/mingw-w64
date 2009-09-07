@@ -1,3 +1,10 @@
+2009-09-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winsock.h (mswsock.h): Add include.
+	By this we add some missing defines for winsock.h file.
+	Additionally I cleaned up it a bit.
+	* mswsock.h (winsock2.h): Add include.
+
 2009-09-06  Kai Tietz  <kai.tietz@onevision.com>
 
 	* ...: Improve -std=cx9 support of header-set.
