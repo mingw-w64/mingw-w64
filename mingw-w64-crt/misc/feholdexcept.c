@@ -13,9 +13,9 @@
 
 int feholdexcept (fenv_t * envp)
 {
-  __asm__ ("fnstenv %0;" : "=m" (* envp)); /* save current into envp */
+  __asm__ __volatile__ ("fnstenv %0;" : "=m" (* envp)); /* save current into envp */
  /* fnstenv sets control word to non-stop for all exceptions, so all we
     need to do is clear the exception flags.  */
-  __asm__ ("fnclex");
+  __asm__ __volatile__ ("fnclex");
   return 0;
 }

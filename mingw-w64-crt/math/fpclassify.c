@@ -16,7 +16,7 @@ and sets C1 flag (signbit) if neg */
 
 int __fpclassify (double _x){
   unsigned short sw;
-  __asm__ (
+  __asm__ __volatile__ (
 	"fxam; fstsw %%ax;"
 	: "=a" (sw)
 	: "t" (_x)

@@ -6,7 +6,7 @@
 LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value)
 {
   LONG64 ret;
-  __asm__ ("lock\n\t"
+  __asm__ __volatile__ ("lock\n\t"
            "xaddq %0,(%1)"
            : "=r" (ret)
            : "r" (Addend), "0" (Value)

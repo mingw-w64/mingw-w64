@@ -15,7 +15,7 @@ int vfwscanf(FILE * __restrict__ stream, const wchar_t * __restrict__ format,
   int ret;
 
 #ifdef _WIN64
-  __asm__(
+  __asm__ __volatile__ (
 
     // allocate stack (esp += frame - arg3 - (8[arg1,2] + 12))
     "movq	%%rsp, %%rbx\n\t"
@@ -51,7 +51,7 @@ int vfwscanf(FILE * __restrict__ stream, const wchar_t * __restrict__ format,
       "a"(&ret)
     : "rbx", "rdi");
 #else
-  __asm__(
+  __asm__ __volatile__ (
 
     // allocate stack (esp += frame - arg3 - (8[arg1,2] + 12))
     "movl	%%esp, %%ebx\n\t"

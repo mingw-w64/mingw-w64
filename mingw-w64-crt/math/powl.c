@@ -323,7 +323,7 @@ static __inline__ long double
 __fast_ldexpl (long double x, int expn)
 {
   long double res = 0.0L;
-  __asm__ ("fscale"
+  __asm__ __volatile__ ("fscale"
   	    : "=t" (res)
 	    : "0" (x), "u" ((long double) expn));
   return res;

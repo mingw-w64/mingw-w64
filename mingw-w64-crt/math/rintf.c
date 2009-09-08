@@ -7,6 +7,6 @@
 
 float rintf (float x) {
   float retval = 0.0F;
-  __asm__ ("frndint;": "=t" (retval) : "0" (x));
+  __asm__ __volatile__ ("frndint;": "=t" (retval) : "0" (x));
   return retval;
 }

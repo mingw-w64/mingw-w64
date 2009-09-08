@@ -25,7 +25,7 @@ double expm1 (double x)
   if (fabs(x) < LOGE2L)
     {
       x *= LOG2EL;
-      __asm__("f2xm1" : "=t" (x) : "0" (x));
+      __asm__ __volatile__ ("f2xm1" : "=t" (x) : "0" (x));
       return x;
     }
   else

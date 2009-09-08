@@ -8,7 +8,7 @@ int __fp_unordered_compare (long double x,  long double y);
 int 
 __fp_unordered_compare (long double x,  long double y){
   unsigned short retval;
-  __asm__ (
+  __asm__ __volatile__ (
 	"fucom %%st(1);"
 	"fnstsw;"
 	: "=a" (retval)

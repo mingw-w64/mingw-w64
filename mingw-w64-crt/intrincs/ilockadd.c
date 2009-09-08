@@ -10,7 +10,7 @@ LONG InterlockedAdd(LONG volatile *Addend,LONG Value)
 {
 /* return InterlockedExchangeAdd(Addend,Value) + Value; */
   LONG ret;
-  __asm__ ("lock\n\t"
+  __asm__ __volatile__ ("lock\n\t"
            "xaddl %0,(%1)"
            : "=r" (ret)
            : "r" (Addend), "0" (Value)

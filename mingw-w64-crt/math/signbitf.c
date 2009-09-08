@@ -8,7 +8,7 @@ int __signbitf (float x);
 
 int __signbitf (float x) {
   unsigned short sw;
-  __asm__ ("fxam; fstsw %%ax;"
+  __asm__ __volatile__ ("fxam; fstsw %%ax;"
 	   : "=a" (sw)
 	   : "t" (x) );
   return (sw & __FP_SIGNBIT) != 0;

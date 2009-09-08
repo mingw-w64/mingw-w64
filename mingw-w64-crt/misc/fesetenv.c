@@ -30,7 +30,7 @@ int fesetenv (const fenv_t * envp)
     *  the status register to zero and the tag word to 0FFFFh.
     *  The other registers are unaffected.
     */
-    __asm__ ("fninit");
+    __asm__ __volatile__ ("fninit");
 
   else if (envp == FE_PC53_ENV)
    /*

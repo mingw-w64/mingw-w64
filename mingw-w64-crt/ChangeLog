@@ -1,3 +1,7 @@
+2009-09-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Add __volatile__ to __asm__ statements.
+
 2009-09-05  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _findfirst64i32, _findnext64i32, _fstat64i32, _fstat, _stat64i32,

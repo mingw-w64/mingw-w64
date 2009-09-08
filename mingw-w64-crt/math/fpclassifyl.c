@@ -6,7 +6,7 @@
 #include <math.h>
 int __fpclassifyl (long double _x){
   unsigned short sw;
-  __asm__ (
+  __asm__ __volatile__ (
 	"fxam; fstsw %%ax;"
 	: "=a" (sw)
 	: "t" (_x)
