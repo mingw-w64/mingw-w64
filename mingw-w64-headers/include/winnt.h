@@ -995,11 +995,11 @@ typedef DWORD LCID;
     }
 #ifdef _WIN64
     __CRT_INLINE BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask) {
-      __asm__ __volatile__("bsfq %1,%0" : "=r" (Mask),"=m" ((*(volatile DWORD64 *)Index)));
+      __asm__ __volatile__("bsfq %1,%0" : "=r" (Mask),"=m" ((*(volatile LONG64 *)Index)));
       return Mask!=0;
     }
     __CRT_INLINE BOOLEAN _BitScanReverse64(DWORD *Index,DWORD64 Mask) {
-      __asm__ __volatile__("bsrq %1,%0" : "=r" (Mask),"=m" ((*(volatile DWORD64 *)Index)));
+      __asm__ __volatile__("bsrq %1,%0" : "=r" (Mask),"=m" ((*(volatile LONG64 *)Index)));
       return Mask!=0;
     }
 #endif
