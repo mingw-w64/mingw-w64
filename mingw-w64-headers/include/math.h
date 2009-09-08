@@ -624,9 +624,15 @@ extern long __cdecl lrint (double);
 extern long __cdecl lrintf (float);
 extern long __cdecl lrintl (long double);
 
+#ifndef __GNUC__ || __GNUG__
 extern __MINGW_EXTENSION long long __cdecl llrint (double);
 extern __MINGW_EXTENSION long long __cdecl llrintf (float);
 extern __MINGW_EXTENSION long long __cdecl llrintl (long double);
+#else
+extern long long __cdecl llrint (double);
+extern long long __cdecl llrintf (float);
+extern long long __cdecl llrintl (long double);
+#endif
 
 /* Inline versions of above. 
    GCC 4.0+ can do a better fast-math job with __builtins. */
@@ -714,11 +720,16 @@ extern __MINGW_EXTENSION long long __cdecl llrintl (long double);
   extern long __cdecl lround (double);
   extern long __cdecl lroundf (float);
   extern long __cdecl lroundl (long double);
-
+#ifndef __GNUC__ || __GNUG__
   extern __MINGW_EXTENSION long long __cdecl llround (double);
   extern __MINGW_EXTENSION long long __cdecl llroundf (float);
   extern __MINGW_EXTENSION long long __cdecl llroundl (long double);
-
+#else
+  extern long long __cdecl llround (double);
+  extern long long __cdecl llroundf (float);
+  extern long long __cdecl llroundl (long double);
+#endif
+  
 /* 7.12.9.8 */
 /* round towards zero, regardless of fpu control word settings */
   extern double __cdecl trunc (double);
