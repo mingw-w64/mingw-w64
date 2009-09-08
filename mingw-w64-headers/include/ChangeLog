@@ -1,3 +1,9 @@
+2009-09-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h: Add __volatile__ to __asm__ statements.
+	* complex.h: Likewise.
+	* excpt.h: Likewise.
+
 2009-09-07  Kai Tietz  <kai.tietz@onevision.com>
 
 	* winsock.h (mswsock.h): Add include.

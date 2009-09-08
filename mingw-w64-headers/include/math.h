@@ -283,7 +283,7 @@ typedef long double double_t;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __fpclassifyl (long double x) {
     unsigned short sw;
-    __asm__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
+    __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
     return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
   }
 #endif
@@ -310,7 +310,7 @@ typedef long double double_t;
   __CRT_INLINE int __cdecl __isnan (double _x)
   {
     unsigned short sw;
-    __asm__ ("fxam;"
+    __asm__ __volatile__ ("fxam;"
       "fstsw %%ax": "=a" (sw) : "t" (_x));
     return (sw & (FP_NAN | FP_NORMAL | FP_INFINITE | FP_ZERO | FP_SUBNORMAL))
       == FP_NAN;
@@ -319,7 +319,7 @@ typedef long double double_t;
   __CRT_INLINE int __cdecl __isnanf (float _x)
   {
     unsigned short sw;
-    __asm__ ("fxam;"
+    __asm__ __volatile__ ("fxam;"
       "fstsw %%ax": "=a" (sw) : "t" (_x));
     return (sw & (FP_NAN | FP_NORMAL | FP_INFINITE | FP_ZERO | FP_SUBNORMAL))
       == FP_NAN;
@@ -328,7 +328,7 @@ typedef long double double_t;
   __CRT_INLINE int __cdecl __isnanl (long double _x)
   {
     unsigned short sw;
-    __asm__ ("fxam;"
+    __asm__ __volatile__ ("fxam;"
       "fstsw %%ax": "=a" (sw) : "t" (_x));
     return (sw & (FP_NAN | FP_NORMAL | FP_INFINITE | FP_ZERO | FP_SUBNORMAL))
       == FP_NAN;
@@ -349,19 +349,19 @@ typedef long double double_t;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __signbit (double x) {
     unsigned short stw;
-    __asm__ ( "fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
+    __asm__ __volatile__ ( "fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
     return stw & 0x0200;
   }
 
   __CRT_INLINE int __cdecl __signbitf (float x) {
     unsigned short stw;
-    __asm__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
+    __asm__ __volatile__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
     return stw & 0x0200;
   }
 
   __CRT_INLINE int __cdecl __signbitl (long double x) {
     unsigned short stw;
-    __asm__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
+    __asm__ __volatile__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
     return stw & 0x0200;
   }
 #endif
@@ -496,7 +496,7 @@ typedef long double double_t;
   __CRT_INLINE double __cdecl logb (double x)
   {
     double res = 0.0;
-    __asm__ ("fxtract\n\t"
+    __asm__ __volatile__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
     return res;
   }
@@ -504,7 +504,7 @@ typedef long double double_t;
   __CRT_INLINE float __cdecl logbf (float x)
   {
     float res = 0.0F;
-    __asm__ ("fxtract\n\t"
+    __asm__ __volatile__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
     return res;
   }
@@ -512,7 +512,7 @@ typedef long double double_t;
   __CRT_INLINE long double __cdecl logbl (long double x)
   {
     long double res = 0.0l;
-    __asm__ ("fxtract\n\t"
+    __asm__ __volatile__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
     return res;
   }
@@ -545,7 +545,7 @@ typedef long double double_t;
   __CRT_INLINE float __cdecl fabsf (float x)
   {
     float res = 0.0F;
-    __asm__ ("fabs;" : "=t" (res) : "0" (x));
+    __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
     return res;
   }
 #endif
@@ -556,7 +556,7 @@ typedef long double double_t;
   __CRT_INLINE long double __cdecl fabsl (long double x)
   {
     long double res = 0.0l;
-    __asm__ ("fabs;" : "=t" (res) : "0" (x));
+    __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
     return res;
   }
 #endif
@@ -636,21 +636,21 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
   __CRT_INLINE double __cdecl rint (double x)
   {
     double retval = 0.0;
-    __asm__ ("frndint;": "=t" (retval) : "0" (x));
+    __asm__ __volatile__ ("frndint;": "=t" (retval) : "0" (x));
     return retval;
   }
 
   __CRT_INLINE float __cdecl rintf (float x)
   {
     float retval = 0.0;
-    __asm__ ("frndint;" : "=t" (retval) : "0" (x) );
+    __asm__ __volatile__ ("frndint;" : "=t" (retval) : "0" (x) );
     return retval;
   }
 
   __CRT_INLINE long double __cdecl rintl (long double x)
   {
     long double retval = 0.0l;
-    __asm__ ("frndint;" : "=t" (retval) : "0" (x) );
+    __asm__ __volatile__ ("frndint;" : "=t" (retval) : "0" (x) );
     return retval;
   }
 
@@ -815,7 +815,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
   __CRT_INLINE int  __cdecl
     __fp_unordered_compare (long double x, long double y){
       unsigned short retval;
-      __asm__ ("fucom %%st(1);"
+      __asm__ __volatile__ ("fucom %%st(1);"
 	"fnstsw;": "=a" (retval) : "t" (x), "u" (y));
       return retval;
   }
