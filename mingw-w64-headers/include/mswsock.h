@@ -8,6 +8,16 @@
 
 #include <winsock2.h>
 
+#ifndef _WINSOCK_SOCKET_DEFINED
+#define _WINSOCK_SOCKET_DEFINED
+  typedef unsigned char u_char;
+  typedef unsigned short u_short;
+  typedef unsigned int u_int;
+  typedef unsigned long u_long;
+  __MINGW_EXTENSION typedef unsigned __int64 u_int64;
+  typedef INT_PTR SOCKET;
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
