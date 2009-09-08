@@ -1,10 +1,6 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
+#include <intrin.h>
 
-LONG64 InterlockedXor64(LONG64 volatile *Destination,LONG64 Value)
+__int64 _InterlockedXor64(__int64 volatile *Destination, __int64 Value)
 {
   __asm__ __volatile__("lock ; xorq %0,%1"
     : : "r"(Value),"m"(*Destination) : "memory");

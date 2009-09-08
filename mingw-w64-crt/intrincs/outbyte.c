@@ -4,10 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-#define __CRT__NO_INLINE
-#include <_mingw.h>
-
-void __outbyte(unsigned short Port,unsigned char Data);
+#include <intrin.h>
 
 void __outbyte(unsigned short Port,unsigned char Data)
 {

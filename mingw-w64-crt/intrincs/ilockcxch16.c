@@ -1,14 +1,8 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
+#include <intrin.h>
 
-SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SHORT Comperand);
-
-SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SHORT Comperand)
+short _InterlockedCompareExchange16(short volatile *Destination, short ExChange, short Comperand)
 {
-  SHORT prev;
+  short prev;
   __asm__ __volatile__("lock ; cmpxchgw %w1,%2"
     :"=a"(prev)
     :"q"(ExChange), "m"(*Destination), "0"(Comperand)

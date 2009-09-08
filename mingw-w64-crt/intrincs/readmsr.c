@@ -4,13 +4,10 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-#define __CRT__NO_INLINE
-#include <_mingw.h>
+#include <intrin.h>
 
-  unsigned __int64 __readmsr(unsigned long msr);
-
-  unsigned __int64 __readmsr(unsigned long msr)
-  {
+unsigned __int64 __readmsr(unsigned long msr)
+{
 #ifdef _WIN64
       unsigned __int64 val1, val2;
 #else
@@ -21,5 +18,5 @@
            : "=a" (val1), "=d" (val2)
            : "c" (msr));
       return ((unsigned __int64) val1) | (((unsigned __int64)val2) << 32);
-  }
+}
 

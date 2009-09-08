@@ -1,11 +1,8 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#include <windows.h>
+#include <intrin.h>
 
-LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value)
+long _InterlockedExchangeAdd(long volatile *Addend, long Value)
 {
-  LONG ret;
+  long ret;
   __asm__ __volatile__ ("lock\n\t"
            "xaddl %0,(%1)"
            : "=r" (ret)

@@ -4,13 +4,10 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-#define __CRT__NO_INLINE
-#include <_mingw.h>
+#include <intrin.h>
 
-  unsigned __int64 __rdtsc(void);
-
-  unsigned __int64 __rdtsc(void)
-  {
+unsigned __int64 __rdtsc(void)
+{
 #ifdef _WIN64
       unsigned __int64 val1, val2;
 #else
@@ -20,5 +17,5 @@
           "rdtsc" 
           : "=a" (val1), "=d" (val2));
       return ((unsigned __int64)val1) | (((unsigned __int64)val2) << 32);
-  }
+}
 

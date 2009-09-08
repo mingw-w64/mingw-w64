@@ -1,12 +1,8 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
+#include <intrin.h>
 
-PVOID InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand)
+void *_InterlockedCompareExchangePointer(void * volatile *Destination, void *ExChange, void *Comperand)
 {
-  PVOID prev;
+  void *prev;
   __asm__ __volatile__("lock ; cmpxchgq %1,%2" : "=a" (prev) : "q" (ExChange),"m" (*Destination), "0" (Comperand) : "memory");
   return prev;
 }

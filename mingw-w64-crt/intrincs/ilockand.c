@@ -1,12 +1,6 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
+#include <intrin.h>
 
-LONG InterlockedAnd(LONG volatile *Destination,LONG Value);
-
-LONG InterlockedAnd(LONG volatile *Destination,LONG Value)
+long _InterlockedAnd(long volatile *Destination, long Value)
 {
   __asm__ __volatile__("lock ; andl %0,%1"
     : :"r"(Value),"m"(*Destination)

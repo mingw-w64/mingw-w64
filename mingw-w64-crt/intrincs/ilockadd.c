@@ -1,15 +1,10 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
+#include <intrin.h>
 
-/* for __x86_64 only */
-
-LONG InterlockedAdd(LONG volatile *Addend,LONG Value)
+long _InterlockedAdd(long volatile *Addend, long Value);			/* not in intrin.h */
+long _InterlockedAdd(long volatile *Addend, long Value)
 {
 /* return InterlockedExchangeAdd(Addend,Value) + Value; */
-  LONG ret;
+  long ret;
   __asm__ __volatile__ ("lock\n\t"
            "xaddl %0,(%1)"
            : "=r" (ret)
@@ -17,4 +12,6 @@ LONG InterlockedAdd(LONG volatile *Addend,LONG Value)
            : "memory");
   return ret + Value;
 }
+
+long InterlockedAdd(long volatile *Addend, long Value) __attribute__((alias("_InterlockedAdd")));
 

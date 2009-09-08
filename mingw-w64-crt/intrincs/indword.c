@@ -4,10 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-#define __CRT__NO_INLINE
-#include <_mingw.h>
-
-unsigned long __indword(unsigned short);
+#include <intrin.h>
 
 unsigned long __indword(unsigned short Port)
 {

@@ -1,10 +1,6 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
-#ifdef _WIN64
-VOID __stosq(PDWORD64 Dest,DWORD64 Data,SIZE_T Count)
+#include <intrin.h>
+
+void __stosq(unsigned __int64 *Dest, unsigned __int64 Data, size_t Count)
 {
   __asm__ __volatile__
   (
@@ -13,6 +9,4 @@ VOID __stosq(PDWORD64 Dest,DWORD64 Data,SIZE_T Count)
     "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
   );
 }
-
-#endif
 

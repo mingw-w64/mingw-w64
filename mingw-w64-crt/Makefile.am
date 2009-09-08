@@ -89,8 +89,8 @@ src_libmingwex=\
   intrincs/bittests.c   intrincs/bittestsi.c   intrincs/bitscanfwd.c intrincs/bitscanrev.c intrincs/ilockinc16.c \
   intrincs/ilockdec16.c intrincs/ilockcxch16.c intrincs/ilockexchadd.c intrincs/ilockand.c intrincs/ilockor.c    \
   intrincs/ilockxor.c   intrincs/ilockinc.c    intrincs/ilockdec.c intrincs/ilockexch.c intrincs/ilockcxch.c     \
-  intrincs/membarrier.c intrincs/currentteb.c  intrincs/currentfiber.c intrincs/fiberdata.c \
-  intrincs/__stosb.c intrincs/__stosw.c intrincs/__stosd.c \
+  intrincs/__stosb.c    intrincs/__stosw.c     intrincs/__stosd.c     \
+  intrincs/currentteb.c intrincs/currentfiber.c intrincs/fiberdata.c  \
   \
   complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosh.c \
   complex/cacoshf.c  complex/cacoshl.c  complex/cacosl.c  complex/carg.c     complex/cargf.c    complex/cargl.c  \
@@ -185,7 +185,8 @@ src_libmingwex64=\
 
 src_libmingwex32=\
   intrincs/readfsbyte.c intrincs/readfsword.c intrincs/readfsdword.c \
-  intrincs/writefsbyte.c intrincs/writefsword.c intrincs/writefsdword.c
+  intrincs/writefsbyte.c intrincs/writefsword.c intrincs/writefsdword.c \
+  intrincs/membarrier.c
 
 
 if LIB32

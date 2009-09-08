@@ -4,10 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-#define __CRT__NO_INLINE
-#include <_mingw.h>
-
-void __inbytestring(unsigned short, unsigned char *, unsigned long);
+#include <intrin.h>
 
 void __inbytestring(unsigned short Port, unsigned char *Buffer, unsigned long Count)
 {

@@ -1,3 +1,16 @@
+2009-09-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/*.c:  Update all declarations to match intrin.h. Include
+	only intrin.h, not windows.h.  Removed aliases for non-underscored
+	InterlockedAdd, InterlockedAdd64 and InterlockedBitTestAndComplement.
+	Added non-underscored aliases for InterlockedAdd, InterlockedAdd64
+	and InterlockedBitTestAndComplement, which aren't actually prototyped
+	in intrin.h but are wrappers around other intrinsics.  currentfiber.c,
+	currentteb.c, fiberdata.c, membarrier.c, mul128ex.c and umul128ex.c
+	remain untouched.
+	* Makefile.am (membarrier.c): Moved under src_libmingwex32 (x86-only)
+	* Makefile.in: Regenerated.
+
 2009-09-08  Kai Tietz  <kai.tietz@onevision.com>
 
 	* Add __volatile__ to __asm__ statements.

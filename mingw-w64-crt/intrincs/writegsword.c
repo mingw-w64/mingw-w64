@@ -1,14 +1,9 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
+#include <intrin.h>
 
 /* for __x86_64 only */
-
- VOID __writegsword(DWORD Offset,WORD Data)
- {
+void __writegsword(unsigned long Offset, unsigned short Data)
+{
     __asm__ volatile ("movw	%0,%%gs:%1"
-      : "=r" (Data) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
- }
+      : "=r" (Data) ,"=m" ((*(volatile long *) (unsigned __int64) Offset)));
+}
 

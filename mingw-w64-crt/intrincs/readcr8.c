@@ -4,16 +4,13 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-#define __CRT__NO_INLINE
-#include <_mingw.h>
+#include <intrin.h>
 
 /* Register sizes are different between 32/64 bit mode.
  * So we have to do this for _WIN64 and _WIN32 seperatly.
  */
 
 #ifdef _WIN64
-  unsigned __int64 __readcr8(void);
-
   unsigned __int64 __readcr8(void)
   {
       unsigned __int64 value;
@@ -23,8 +20,6 @@
       return value;
   }
 #else
-  unsigned long __readcr8(void);
-
   unsigned long __readcr8(void)
   {
       unsigned long value;

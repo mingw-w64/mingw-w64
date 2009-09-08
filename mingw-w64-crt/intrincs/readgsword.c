@@ -1,16 +1,11 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
+#include <intrin.h>
 
 /* for __x86_64 only */
-
- WORD __readgsword(DWORD Offset)
- {
-   WORD ret;
+unsigned short __readgsword(unsigned long Offset)
+{
+   unsigned short ret;
    __asm__ volatile ("movw	%%gs:%1,%0"
-     : "=r" (ret) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+     : "=r" (ret) ,"=m" ((*(volatile long *) (unsigned __int64) Offset)));
    return ret;
- }
+}
 

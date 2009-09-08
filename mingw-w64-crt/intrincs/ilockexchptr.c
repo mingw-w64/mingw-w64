@@ -1,10 +1,6 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
+#include <intrin.h>
 
-PVOID InterlockedExchangePointer(PVOID volatile *Target,PVOID Value)
+void *_InterlockedExchangePointer(void * volatile *Target, void *Value)
 {
   __asm__ __volatile("lock ; xchgq %0,%1"
     : "=r"(Value)

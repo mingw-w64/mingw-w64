@@ -1,17 +1,11 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
+#include <intrin.h>
 
 /* for x86 only */
- DWORD __readfsdword(DWORD Offset);
-
- DWORD __readfsdword(DWORD Offset)
- {
-   DWORD ret;
+unsigned long __readfsdword(unsigned long Offset)
+{
+   unsigned long ret;
    __asm__ volatile ("movl	%%fs:%1,%0"
      : "=r" (ret) ,"=m" ((*(volatile long *) Offset)));
    return ret;
- }
+}
 

@@ -1,12 +1,6 @@
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#define __CRT__NO_INLINE
-#include <windows.h>
+#include <intrin.h>
 
-VOID __stosb(PBYTE Dest,BYTE Data,SIZE_T Count);
-
-VOID __stosb(PBYTE Dest,BYTE Data,SIZE_T Count)
+void __stosb(unsigned char *Dest, unsigned char Data, size_t Count)
 {
   __asm__ __volatile__
   (
@@ -15,6 +9,4 @@ VOID __stosb(PBYTE Dest,BYTE Data,SIZE_T Count)
     "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
   );
 }
-
-
 
