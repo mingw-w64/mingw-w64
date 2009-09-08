@@ -1221,7 +1221,7 @@ typedef DWORD LCID;
 
     VOID _ReadWriteBarrier(VOID);
 
-#define FastFence __faststorefence
+#define FastFence __faststorefence		/* FIXME: implement proprely */
 #define LoadFence _mm_lfence
 #define MemoryFence _mm_mfence
 #define StoreFence _mm_sfence
@@ -1232,7 +1232,7 @@ typedef DWORD LCID;
 #include <intrin.h>
 
 #define YieldProcessor _mm_pause
-#define MemoryBarrier __faststorefence
+#define MemoryBarrier __faststorefence		/* FIXME: implement proprely */
 #define PreFetchCacheLine(l,a) _mm_prefetch((CHAR CONST *) a,l)
 #define PrefetchForWrite(p) _m_prefetchw(p)
 #define ReadForWriteAccess(p) (_m_prefetchw(p),*(p))
@@ -1319,11 +1319,11 @@ typedef DWORD LCID;
     DWORD64 ShiftLeft128(DWORD64 LowPart,DWORD64 HighPart,BYTE Shift);
     DWORD64 ShiftRight128(DWORD64 LowPart,DWORD64 HighPart,BYTE Shift);
 
-#define Multiply128 _mul128
+#define Multiply128 _mul128			/* FIXME: implement proprely */
 
     LONG64 Multiply128(LONG64 Multiplier,LONG64 Multiplicand,LONG64 *HighProduct);
 
-#define UnsignedMultiply128 _umul128
+#define UnsignedMultiply128 _umul128		/* FIXME: implement proprely */
 
     DWORD64 UnsignedMultiply128(DWORD64 Multiplier,DWORD64 Multiplicand,DWORD64 *HighProduct);
 

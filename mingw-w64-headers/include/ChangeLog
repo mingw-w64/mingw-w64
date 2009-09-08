@@ -1,3 +1,8 @@
+2009-09-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h:  Added FIXME notes for __faststorefence, _mul128 and
+	_umul128 intrinsics.
+
 2009-09-08  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math.h: Add __volatile__ to __asm__ statements.
