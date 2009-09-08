@@ -1441,4 +1441,8 @@ extern "C" {
 #define _WINSOCKAPI_
 #endif
 
+#ifdef _INC_WINSOCK_H
+#include <mswsock.h>
+#endif
+
 #endif
