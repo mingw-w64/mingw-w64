@@ -20,7 +20,12 @@ extern "C" {
   extern unsigned int __builtin_ia32_crc32qi (unsigned int, unsigned char);
   extern unsigned int __builtin_ia32_crc32hi (unsigned int, unsigned short);
   extern unsigned int __builtin_ia32_crc32si (unsigned int, unsigned int);
+
+#define _aligned_malloc _gnu_aligned_malloc
+#define _aligned_free _gnu_aligned_free
 #include <x86intrin.h>
+#undef _aligned_malloc
+#undef _aligned_free
 #endif
 
 #ifndef __MMX__
