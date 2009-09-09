@@ -1,5 +1,9 @@
 2009-09-09  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* winnt.h:  Removed extra _WIN64 ifdef guards from the instrins
+	where they are already being declared under the __x86_64 case.
+	Added comments to the #endifs for easier reading.
+
 	* winnt.h:  Added missing intrinsic macros for x86 case.  They
 	were already defined for x86_64 but not for x86, therefore the
 	library versions of them lacked the leading underscore, which

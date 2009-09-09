@@ -341,7 +341,7 @@ typedef DWORD LCID;
     unsigned short __cdecl _rotl16(unsigned short Value,unsigned char Shift);
     unsigned char __cdecl _rotr8(unsigned char Value,unsigned char Shift);
     unsigned short __cdecl _rotr16(unsigned short Value,unsigned char Shift);
-#endif
+#endif /* __x86_64 */
 
 #define RotateLeft32 _rotl
 #define RotateLeft64 _rotl64
@@ -882,14 +882,12 @@ typedef DWORD LCID;
     BOOLEAN _bittestandreset(LONG *Base,LONG Offset);
     BOOLEAN _interlockedbittestandset(LONG *Base,LONG Offset);
     BOOLEAN _interlockedbittestandreset(LONG *Base,LONG Offset);
-#ifdef _WIN64
     BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset);
     BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset);
     BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset);
     BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset);
     BOOLEAN _interlockedbittestandset64(LONG64 *Base,LONG64 Offset);
     BOOLEAN _interlockedbittestandreset64(LONG64 *Base,LONG64 Offset);
-#endif
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit) {
       int old = 0;
@@ -926,7 +924,6 @@ typedef DWORD LCID;
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
-#ifdef _WIN64
     __CRT_INLINE BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btq %2,%1\n\tsbbl %0,%0 "
@@ -969,7 +966,6 @@ typedef DWORD LCID;
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
-#endif
 #endif /* !__CRT__NO_INLINE */
 
 #define BitScanForward _BitScanForward
@@ -979,10 +975,8 @@ typedef DWORD LCID;
 
     BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask);
     BOOLEAN _BitScanReverse(DWORD *Index,DWORD Mask);
-#ifdef _WIN64
     BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask);
     BOOLEAN _BitScanReverse64(DWORD *Index,DWORD64 Mask);
-#endif
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask) {
@@ -993,7 +987,6 @@ typedef DWORD LCID;
       __asm__ __volatile__("bsrl %1,%0" : "=r" (Mask),"=m" ((*(volatile long *)Index)));
       return Mask!=0;
     }
-#ifdef _WIN64
     __CRT_INLINE BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask) {
       __asm__ __volatile__("bsfq %1,%0" : "=r" (Mask),"=m" ((*(volatile LONG64 *)Index)));
       return Mask!=0;
@@ -1002,7 +995,6 @@ typedef DWORD LCID;
       __asm__ __volatile__("bsrq %1,%0" : "=r" (Mask),"=m" ((*(volatile LONG64 *)Index)));
       return Mask!=0;
     }
-#endif
 #endif /* !__CRT__NO_INLINE */
 
 #define InterlockedIncrement16 _InterlockedIncrement16
@@ -1058,11 +1050,9 @@ typedef DWORD LCID;
     LONG InterlockedIncrement(LONG volatile *Addend);
     LONG InterlockedDecrement(LONG volatile *Addend);
     LONG InterlockedExchange(LONG volatile *Target,LONG Value);
-#ifdef _WIN64
     LONG64 InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value);
     LONG64 InterlockedOr64(LONG64 volatile *Destination,LONG64 Value);
     LONG64 InterlockedXor64(LONG64 volatile *Destination,LONG64 Value);
-#endif
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE SHORT InterlockedIncrement16(SHORT volatile *Addend) {
@@ -1128,7 +1118,6 @@ typedef DWORD LCID;
 	: "memory");
       return Value;
     }
-#ifdef _WIN64
     __CRT_INLINE LONG64 InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value) {
       __asm__ __volatile__("lock ; andq %0,%1"
 	: : "r"(Value),"m"(*Destination) : "memory");
@@ -1144,17 +1133,14 @@ typedef DWORD LCID;
 	: : "r"(Value),"m"(*Destination) : "memory");
       return *Destination;
     }
-#endif
 #endif /* !__CRT__NO_INLINE */
 
     LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
     LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand);
     LONG InterlockedAdd(LONG volatile *Addend,LONG Value);
-#ifdef _WIN64
     LONG64 InterlockedIncrement64(LONG64 volatile *Addend);
     LONG64 InterlockedDecrement64(LONG64 volatile *Addend);
     LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value);
-#endif
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE LONG InterlockedAdd(LONG volatile *Addend,LONG Value) { return InterlockedExchangeAdd(Addend,Value) + Value; }
@@ -1163,7 +1149,6 @@ typedef DWORD LCID;
       __asm__ __volatile__("lock ; cmpxchgl %1,%2" : "=a" (prev) : "q" (ExChange),"m" (*Destination), "0" (Comperand) : "memory");
       return prev;
     }
-#ifdef _WIN64
     __CRT_INLINE LONG64 InterlockedIncrement64(LONG64 volatile *Addend) {
       LONG64 ret = 1LL;
       __asm__ __volatile__ ("lock\n\t"
@@ -1187,7 +1172,6 @@ typedef DWORD LCID;
 	: "memory");
       return Value;
     }
-#endif
 #endif /* !__CRT__NO_INLINE */
 
     LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
@@ -1268,7 +1252,7 @@ typedef DWORD LCID;
     VOID __stosd(PDWORD Destination,DWORD Value,SIZE_T Count);
     VOID __stosq(PDWORD64 Destination,DWORD64 Value,SIZE_T Count);
 
-#ifndef __NO_INLINE__
+#ifndef __CRT__NO_INLINE
     __CRT_INLINE VOID __stosb(PBYTE Dest,BYTE Data,SIZE_T Count)
     {
       __asm__ __volatile__
@@ -1305,7 +1289,7 @@ typedef DWORD LCID;
         "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
       );
     }
-#endif
+#endif /* __CRT__NO_INLINE */
 
 #define MultiplyHigh __mulh
 #define UnsignedMultiplyHigh __umulh
@@ -1394,7 +1378,7 @@ typedef DWORD LCID;
 #ifdef __cplusplus
   }
 #endif
-#endif
+#endif /* defined(__x86_64) && !defined(RC_INVOKED) */
 
 #define EXCEPTION_READ_FAULT 0
 #define EXCEPTION_WRITE_FAULT 1
@@ -1417,7 +1401,7 @@ typedef DWORD LCID;
 #define CONTEXT_SERVICE_ACTIVE 0x10000000
 #define CONTEXT_EXCEPTION_REQUEST 0x40000000
 #define CONTEXT_EXCEPTION_REPORTING 0x80000000
-#endif
+#endif /* !defined(RC_INVOKED) */
 
 #define INITIAL_MXCSR 0x1f80
 #define INITIAL_FPCSR 0x027f
@@ -1537,7 +1521,8 @@ typedef DWORD LCID;
   NTSYSAPI BOOLEAN __cdecl RtlAddFunctionTable(PRUNTIME_FUNCTION FunctionTable,DWORD EntryCount,DWORD64 BaseAddress);
   NTSYSAPI BOOLEAN __cdecl RtlInstallFunctionTableCallback(DWORD64 TableIdentifier,DWORD64 BaseAddress,DWORD Length,PGET_RUNTIME_FUNCTION_CALLBACK Callback,PVOID Context,PCWSTR OutOfProcessCallbackDll);
   NTSYSAPI BOOLEAN __cdecl RtlDeleteFunctionTable(PRUNTIME_FUNCTION FunctionTable);
-#endif
+
+#endif /* end of _AMD64_ */
 
 #ifdef I_X86_
 #if(defined(_X86_) && !defined(__x86_64)) && !defined(RC_INVOKED)
@@ -1613,7 +1598,7 @@ typedef DWORD LCID;
 #ifdef __cplusplus
   }
 #endif
-#endif
+#endif /* (defined(_X86_) && !defined(__x86_64)) && !defined(RC_INVOKED) */
 
 #if(defined(_X86_) && !defined(__x86_64))
 
@@ -1671,7 +1656,7 @@ typedef DWORD LCID;
     return ret;
   }
 #endif /* !__CRT__NO_INLINE */
-#endif
+#endif /* (defined(_X86_) && !defined(__x86_64)) */
 
 #define EXCEPTION_READ_FAULT 0
 #define EXCEPTION_WRITE_FAULT 1
@@ -1694,7 +1679,7 @@ typedef DWORD LCID;
 #define CONTEXT_FULL (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_SEGMENTS)
 
 #define CONTEXT_ALL (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_SEGMENTS | CONTEXT_FLOATING_POINT | CONTEXT_DEBUG_REGISTERS | CONTEXT_EXTENDED_REGISTERS)
-#endif
+#endif /* !defined(RC_INVOKED) */
 
 #define MAXIMUM_SUPPORTED_EXTENSION 512
 
@@ -1742,7 +1727,8 @@ typedef DWORD LCID;
     } CONTEXT;
 
     typedef CONTEXT *PCONTEXT;
-#endif
+
+#endif /* end of I_X86_ */
 
 #ifndef _LDT_ENTRY_DEFINED
 #define _LDT_ENTRY_DEFINED
@@ -1771,7 +1757,7 @@ typedef DWORD LCID;
 	} Bits;
       } HighWord;
     } LDT_ENTRY,*PLDT_ENTRY;
-#endif
+#endif /* _LDT_ENTRY_DEFINED */
 
 #if defined(__ia64__) && !defined(RC_INVOKED)
 
@@ -1785,7 +1771,7 @@ typedef DWORD LCID;
 #ifdef __cplusplus
     }
 #endif
-#endif
+#endif /* defined(__ia64__) && !defined(RC_INVOKED) */
 
 #if !defined(GENUTIL) && !defined(_GENIA64_) && defined(_IA64_)
 
@@ -1829,10 +1815,10 @@ typedef DWORD LCID;
 #define UnsignedMultiplyHigh __UMULH
 
     ULONGLONG UnsignedMultiplyHigh(ULONGLONG Multiplier,ULONGLONG Multiplicand);
-#else
+#else  /* __ia64__ */
     struct _TEB *NtCurrentTeb(void);
-#endif
-#endif
+#endif /* __ia64__ */
+#endif /* !defined(GENUTIL) && !defined(_GENIA64_) && defined(_IA64_) */
 
 #ifdef _IA64_
 
@@ -1859,7 +1845,7 @@ typedef DWORD LCID;
 #define CONTEXT_SERVICE_ACTIVE 0x10000000
 #define CONTEXT_EXCEPTION_REQUEST 0x40000000
 #define CONTEXT_EXCEPTION_REPORTING 0x80000000
-#endif
+#endif /* !defined(RC_INVOKED) */
 
     typedef struct _CONTEXT {
       DWORD ContextFlags;
@@ -2093,7 +2079,7 @@ typedef DWORD LCID;
     BOOLEAN RtlDeleteFunctionTable(PRUNTIME_FUNCTION FunctionTable);
     VOID RtlRestoreContext (PCONTEXT ContextRecord,struct _EXCEPTION_RECORD *ExceptionRecord);
     VOID __jump_unwind(ULONGLONG TargetMsFrame,ULONGLONG TargetBsFrame,ULONGLONG TargetPc);
-#endif
+#endif /* end of _IA64_ */
 
 #define EXCEPTION_NONCONTINUABLE 0x1
 #define EXCEPTION_MAXIMUM_PARAMETERS 15
@@ -2186,7 +2172,7 @@ typedef DWORD LCID;
     typedef struct _SID_IDENTIFIER_AUTHORITY {
       BYTE Value[6];
     } SID_IDENTIFIER_AUTHORITY,*PSID_IDENTIFIER_AUTHORITY;
-#endif
+#endif /* SID_IDENTIFIER_AUTHORITY_DEFINED */
 
 #ifndef SID_DEFINED
 #define SID_DEFINED
@@ -2196,7 +2182,7 @@ typedef DWORD LCID;
       SID_IDENTIFIER_AUTHORITY IdentifierAuthority;
       DWORD SubAuthority[ANYSIZE_ARRAY];
     } SID,*PISID;
-#endif
+#endif /* SID_DEFINED */
 
 #define SID_REVISION (1)
 #define SID_MAX_SUB_AUTHORITIES (15)
@@ -2918,7 +2904,7 @@ typedef DWORD LCID;
       struct _NT_TIB *Self;
     } NT_TIB;
     typedef NT_TIB *PNT_TIB;
-#endif
+#endif /* _NT_TIB_DEFINED */
 
     __extension__ typedef struct _NT_TIB32 {
       DWORD ExceptionList;
@@ -3913,12 +3899,12 @@ typedef DWORD LCID;
     typedef PIMAGE_OPTIONAL_HEADER64 PIMAGE_OPTIONAL_HEADER;
 #define IMAGE_SIZEOF_NT_OPTIONAL_HEADER IMAGE_SIZEOF_NT_OPTIONAL64_HEADER
 #define IMAGE_NT_OPTIONAL_HDR_MAGIC IMAGE_NT_OPTIONAL_HDR64_MAGIC
-#else
+#else  /* _WIN64 */
     typedef IMAGE_OPTIONAL_HEADER32 IMAGE_OPTIONAL_HEADER;
     typedef PIMAGE_OPTIONAL_HEADER32 PIMAGE_OPTIONAL_HEADER;
 #define IMAGE_SIZEOF_NT_OPTIONAL_HEADER IMAGE_SIZEOF_NT_OPTIONAL32_HEADER
 #define IMAGE_NT_OPTIONAL_HDR_MAGIC IMAGE_NT_OPTIONAL_HDR32_MAGIC
-#endif
+#endif /* _WIN64 */
 
     typedef struct _IMAGE_NT_HEADERS64 {
       DWORD Signature;
@@ -3940,10 +3926,10 @@ typedef DWORD LCID;
 #ifdef _WIN64
     typedef IMAGE_NT_HEADERS64 IMAGE_NT_HEADERS;
     typedef PIMAGE_NT_HEADERS64 PIMAGE_NT_HEADERS;
-#else
+#else  /* _WIN64 */
     typedef IMAGE_NT_HEADERS32 IMAGE_NT_HEADERS;
     typedef PIMAGE_NT_HEADERS32 PIMAGE_NT_HEADERS;
-#endif
+#endif /* _WIN64 */
 
 #define IMAGE_FIRST_SECTION(ntheader) ((PIMAGE_SECTION_HEADER) ((ULONG_PTR)ntheader + FIELD_OFFSET(IMAGE_NT_HEADERS,OptionalHeader) + ((PIMAGE_NT_HEADERS)(ntheader))->FileHeader.SizeOfOptionalHeader))
 
@@ -4689,7 +4675,7 @@ typedef DWORD LCID;
 #define IMAGE_SNAP_BY_ORDINAL(Ordinal) IMAGE_SNAP_BY_ORDINAL64(Ordinal)
     typedef IMAGE_TLS_DIRECTORY64 IMAGE_TLS_DIRECTORY;
     typedef PIMAGE_TLS_DIRECTORY64 PIMAGE_TLS_DIRECTORY;
-#else
+#else  /* _WIN64 */
 #define IMAGE_ORDINAL_FLAG IMAGE_ORDINAL_FLAG32
 #define IMAGE_ORDINAL(Ordinal) IMAGE_ORDINAL32(Ordinal)
     typedef IMAGE_THUNK_DATA32 IMAGE_THUNK_DATA;
@@ -4697,7 +4683,7 @@ typedef DWORD LCID;
 #define IMAGE_SNAP_BY_ORDINAL(Ordinal) IMAGE_SNAP_BY_ORDINAL32(Ordinal)
     typedef IMAGE_TLS_DIRECTORY32 IMAGE_TLS_DIRECTORY;
     typedef PIMAGE_TLS_DIRECTORY32 PIMAGE_TLS_DIRECTORY;
-#endif
+#endif /* _WIN64 */
 
     typedef struct _IMAGE_IMPORT_DESCRIPTOR {
       __extension__ union {
@@ -4820,10 +4806,10 @@ typedef DWORD LCID;
 #ifdef _WIN64
     typedef IMAGE_LOAD_CONFIG_DIRECTORY64 IMAGE_LOAD_CONFIG_DIRECTORY;
     typedef PIMAGE_LOAD_CONFIG_DIRECTORY64 PIMAGE_LOAD_CONFIG_DIRECTORY;
-#else
+#else  /* _WIN64 */
     typedef IMAGE_LOAD_CONFIG_DIRECTORY32 IMAGE_LOAD_CONFIG_DIRECTORY;
     typedef PIMAGE_LOAD_CONFIG_DIRECTORY32 PIMAGE_LOAD_CONFIG_DIRECTORY;
-#endif
+#endif /* _WIN64 */
 
     typedef struct _IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
       DWORD FuncStart;
@@ -5053,12 +5039,12 @@ typedef DWORD LCID;
     typedef struct DECLSPEC_ALIGN(16) _SLIST_ENTRY {
       PSLIST_ENTRY Next;
     } SLIST_ENTRY;
-#else
+#else  /* _WIN64 */
 
 #define SLIST_ENTRY SINGLE_LIST_ENTRY
 #define _SLIST_ENTRY _SINGLE_LIST_ENTRY
 #define PSLIST_ENTRY PSINGLE_LIST_ENTRY
-#endif
+#endif /* _WIN64 */
 
 #if defined(_WIN64)
 
@@ -5068,7 +5054,7 @@ typedef DWORD LCID;
     } SLIST_HEADER;
 
     typedef struct _SLIST_HEADER *PSLIST_HEADER;
-#else
+#else  /* _WIN64 */
 
     typedef union _SLIST_HEADER {
       ULONGLONG Alignment;
@@ -5078,8 +5064,8 @@ typedef DWORD LCID;
 	WORD Sequence;
       };
     } SLIST_HEADER,*PSLIST_HEADER;
-#endif
-#endif
+#endif /* _WIN64 */
+#endif /* _SLIST_HEADER_ */
 
     NTSYSAPI VOID NTAPI RtlInitializeSListHead(PSLIST_HEADER ListHead);
     NTSYSAPI PSLIST_ENTRY NTAPI RtlFirstEntrySList(const SLIST_HEADER *ListHead);
@@ -5145,7 +5131,7 @@ typedef DWORD LCID;
       return memcpy(dst,src,size);
     }
 #define memcpy memcpy_inline
-#endif
+#endif /* _DBG_MEMCPY_INLINE_ && !defined(_MEMCPY_INLINE_) && !defined(_CRTBLD) */
 #endif /* !__CRT__NO_INLINE */
 
     NTSYSAPI SIZE_T NTAPI RtlCompareMemory(const VOID *Source1,const VOID *Source2,SIZE_T Length);
@@ -5170,7 +5156,7 @@ typedef DWORD LCID;
 	vptr++;
 	cnt--;
       }
-#endif
+#endif /* __x86_64 */
       return ptr;
     }
 #endif /* !__CRT__NO_INLINE */
@@ -5935,4 +5921,6 @@ typedef DWORD LCID;
 #ifdef __cplusplus
   }
 #endif
-#endif
+
+#endif /* _WINNT_ */
+
