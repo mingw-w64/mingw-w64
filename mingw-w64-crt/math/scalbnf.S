@@ -15,15 +15,17 @@
 .globl __MINGW_USYMBOL(scalbnf)
 	.def	__MINGW_USYMBOL(scalbnf);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(scalbnf):
-#ifdef _WIN664
-	movq	%rdx,-16(%rsp)
-	fildl	-16(%rsp)
-	movss	%xmm0,-16(%rsp)
-	flds	-16(%rsp)
+#ifdef _WIN64
+	subq	$24, %rsp
+	movq	%rdx,(%rsp)
+	fildl	(%rsp)
+	movss	%xmm0,(%rsp)
+	flds	(%rsp)
 	fscale
 	fstp	%st(1)
-	fstps	-16(%rsp)
-	movss	-16(%rsp),%xmm0
+	fstps	(%rsp)
+	movss	(%rsp),%xmm0
+	addq	$24, %rsp
 	ret
 #else
 	fildl	8(%esp)

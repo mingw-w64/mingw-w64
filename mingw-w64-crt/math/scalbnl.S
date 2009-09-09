@@ -16,14 +16,17 @@
 	.def	__MINGW_USYMBOL(scalbnl);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(scalbnl):
 #ifdef _WIN64
-	movq	%r8, 24(%rsp)
-	fildl	24(%rsp)
+	subq  $24, %rsp
+	andq    $0xffffffff, %r8
+	movq	%r8, (%rsp)
+	fildl	(%rsp)
 	fldt	(%rdx)
 	fscale
 	fstp	%st(1)
 	movq	%rcx,%rax
 	movq	$0,8(%rcx)
 	fstpt	(%rcx)
+	addq $24, %rsp
 	ret
 #else
 	fildl	16(%esp)
