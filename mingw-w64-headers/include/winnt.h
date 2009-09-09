@@ -1545,6 +1545,31 @@ typedef DWORD LCID;
   extern "C" {
 #endif
 
+#define BitTest _bittest
+#define BitTestAndComplement _bittestandcomplement
+#define BitTestAndSet _bittestandset
+#define BitTestAndReset _bittestandreset
+#define InterlockedBitTestAndSet _interlockedbittestandset
+#define InterlockedBitTestAndReset _interlockedbittestandreset
+
+#define BitScanForward _BitScanForward
+#define BitScanReverse _BitScanReverse
+
+#define InterlockedIncrement16 _InterlockedIncrement16
+#define InterlockedDecrement16 _InterlockedDecrement16
+#define InterlockedCompareExchange16 _InterlockedCompareExchange16
+
+#define InterlockedAnd _InterlockedAnd
+#define InterlockedOr _InterlockedOr
+#define InterlockedXor _InterlockedXor
+#define InterlockedIncrement _InterlockedIncrement
+#define InterlockedIncrementAcquire InterlockedIncrement
+#define InterlockedIncrementRelease InterlockedIncrement
+#define InterlockedDecrement _InterlockedDecrement
+#define InterlockedExchange _InterlockedExchange
+#define InterlockedExchangeAdd _InterlockedExchangeAdd
+#define InterlockedCompareExchange _InterlockedCompareExchange
+
     BOOLEAN InterlockedBitTestAndSet(LONG *Base,LONG Bit);
     BOOLEAN InterlockedBitTestAndReset(LONG *Base,LONG Bit);
 #ifndef __CRT__NO_INLINE

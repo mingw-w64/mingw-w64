@@ -1,3 +1,10 @@
+2009-09-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h:  Added missing intrinsic macros for x86 case.  They
+	were already defined for x86_64 but not for x86, therefore the
+	library versions of them lacked the leading underscore, which
+	caused the commit 1332 of yesterday broke x86 builds. Fixed now.
+
 2009-09-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* winnt.h:  Added FIXME notes for __faststorefence, _mul128 and
