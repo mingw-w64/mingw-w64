@@ -474,9 +474,15 @@ static __inline__ int __eiisnan (const short unsigned int *x)
 static __inline__ int
 __eiszero(const short unsigned int * a)
 {
-	if (*((long double*) a) == 0)
-		return (1);
-	return (0);
+  union {
+    long double ld;
+    unsigned short sh[8];
+  } av;
+  av.ld = 0.0;
+  memcpy (av.sh, a, 12);
+  if (av.ld == 0.0)
+    return (1);
+  return (0);
 }
 
 /* Return nonzero if internal format number is zero. */

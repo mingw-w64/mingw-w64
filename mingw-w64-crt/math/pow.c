@@ -281,7 +281,7 @@ extern double fabs ( double );
 extern double frexp ( double, int * );
 extern double ldexp ( double, int );
 extern double polevl ( double, void *, int );
-extern double p1evl ( double, void *, int );
+extern double p1evl ( double, uD *, int );
 extern double __powi ( double, int );
 extern int signbit ( double );
 extern int isnan ( double );

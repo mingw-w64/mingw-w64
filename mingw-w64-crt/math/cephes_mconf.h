@@ -25,13 +25,13 @@
 #endif
 
 #if UNK
-typedef union uLD { long double ld; } uLD;
-typedef union uD { double d; } uD;
+typedef union uLD { long double ld; unsigned short sh[8]; long lo[4]; } uLD;
+typedef union uD { double d; unsigned short sh[4]; } uD;
 #elif IBMPC
-typedef union uLD { const unsigned short sh[8]; const long double ld; } uLD;
-typedef union uD { const unsigned short sh[4]; const double d; } uD;
+typedef union uLD { unsigned short sh[8]; long double ld; long lo[4]; } uLD;
+typedef union uD { unsigned short sh[4]; double d; } uD;
 #elif MIEEE
-typedef union uLD { long lo[4]; long double ld; } uLD;
+typedef union uLD { long lo[4]; long double ld; unsigned short sh[8]; } uLD;
 typedef union uD { unsigned short sh[4]; double d; } uD;
 #else
 #error Unknown uLD/uD type definition
@@ -205,16 +205,15 @@ static __inline__ double polevl(double x, const uD *p, int n)
 /* Polynomial evaluator:
  *  x^n  +  P[0] x^(n-1)  +  P[1] x^(n-2)  +  ...  +  P[n]
  */
-static __inline__  double p1evl(double x, const void *p, int n)
+static __inline__  double p1evl(double x, const uD *p, int n)
 {
 	register double y;
-	register double *P = (double *)p;
 
 	n -= 1;
-	y = x + *P++;
+	y = x + p->d; p++;
 	do
 	{
-		y = y * x + *P++;
+		y = y * x + p->d; p++;
 	}
 	while (--n);
 	return (y);
