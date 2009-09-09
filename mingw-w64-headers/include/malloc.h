@@ -52,6 +52,12 @@ extern "C" {
 
   extern unsigned int _amblksiz;
 
+/* Make sure that X86intrin.h doesn't produce here collisions.  */
+#pragma push_macro("_aligned_free")
+#pragma push_macro("_aligned_malloc")
+#undef _aligned_free
+#undef _aligned_malloc
+
 #define _mm_free(a) _aligned_free(a)
 #define _mm_malloc(a,b) _aligned_malloc(a,b)
 
@@ -63,15 +69,8 @@ extern "C" {
   void *__cdecl realloc(void *_Memory,size_t _NewSize);
   _CRTIMP void *__cdecl _recalloc(void *_Memory,size_t _Count,size_t _Size);
 
-/* Make sure that X86intrin.h doesn't produce here collisions.  */
-#pragma push_macro("_aligned_free")
-#pragma push_macro("_aligned_malloc")
-#undef _aligned_free
-#undef _aligned_malloc
   _CRTIMP void __cdecl _aligned_free(void *_Memory);
   _CRTIMP void *__cdecl _aligned_malloc(size_t _Size,size_t _Alignment);
-#pragma pop_macro("_aligned_malloc")
-#pragma pop_macro("_aligned_free")
 
   _CRTIMP void *__cdecl _aligned_offset_malloc(size_t _Size,size_t _Alignment,size_t _Offset);
   _CRTIMP void *__cdecl _aligned_realloc(void *_Memory,size_t _Size,size_t _Alignment);
@@ -79,6 +78,9 @@ extern "C" {
   _CRTIMP void *__cdecl _aligned_offset_realloc(void *_Memory,size_t _Size,size_t _Alignment,size_t _Offset);
   _CRTIMP void *__cdecl _aligned_offset_recalloc(void *_Memory,size_t _Count,size_t _Size,size_t _Alignment,size_t _Offset);
 #endif
+
+#pragma pop_macro("_aligned_malloc")
+#pragma pop_macro("_aligned_free")
 
 #define _MAX_WAIT_MALLOC_CRT 60000
 
