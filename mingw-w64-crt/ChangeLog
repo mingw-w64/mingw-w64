@@ -1,5 +1,11 @@
 2009-09-08  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* intrincs/readcr8.c, intrincs/writecr8.c: readcr8() and writecr8()
+	not prototyped in intrin.h for x86. Manually added prototypes to the
+	relevant *.c files.
+
+2009-09-08  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* intrincs/*.c:  Update all declarations to match intrin.h. Include
 	only intrin.h, not windows.h.  Removed aliases for non-underscored
 	InterlockedExchange and InterlockedCompareExchange.  Added non-

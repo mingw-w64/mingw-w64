@@ -20,6 +20,7 @@
        : "memory");
   }
 #else
+  void __writecr8(unsigned Data);		/* not in intrin.h for x86 */
   void __writecr8(unsigned Data)
   {
    __asm__ __volatile__ (

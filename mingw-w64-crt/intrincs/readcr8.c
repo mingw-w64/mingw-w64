@@ -20,6 +20,7 @@
       return value;
   }
 #else
+  unsigned long __readcr8(void);		/* not in intrin.h for x86 */
   unsigned long __readcr8(void)
   {
       unsigned long value;
