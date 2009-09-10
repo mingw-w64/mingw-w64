@@ -614,7 +614,7 @@ memset
 mktime
 modf
 perror
-pow
+;pow
 printf
 putc
 putchar

@@ -747,8 +747,8 @@ mktime
 modf
 modff
 perror
-pow
-powf
+;pow
+;powf
 printf
 putc
 putchar

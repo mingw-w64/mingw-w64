@@ -1,3 +1,8 @@
+2009-09-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/ and lib64/: Comment in msvcrXX.def and in msvcrt.def the
+	symbols pow and powf.
+
 2009-09-09  Mook  <mook.gcc@gmail.com>
 
 	Patch/2820174 r=NightStrike
