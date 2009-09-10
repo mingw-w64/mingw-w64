@@ -23,24 +23,47 @@ BASEHEAD_LIST=$srcdir/include/*.h
 for i in c dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
-
+#FIXME: Add in base directx
 AC_SUBST([BASEHEAD_LIST])
 AC_SUBST([SYSHEAD_LIST])
 AC_SUBST([SECHEAD_LIST])
 AC_SUBST([SECSYSHEAD_LIST])
 AC_SUBST([GLHEAD_LIST])
+AC_SUBST([SDKSHEAD_LIST])
 
-AC_MSG_CHECKING([for optional ddk headers])
-AC_ARG_WITH([ddk],
-  [AS_HELP_STRING([--with-ddk],
-    [Add the ddk directory to the header installation])],
-  [],
-  [with_ddk=no])
-AS_IF([test $with_ddk = yes],
-  [DDKHEAD_LIST=$srcdir/ddk/include/*/*.h],
-  [DDKHEAD_LIST=""])
+AC_MSG_CHECKING([for optional sdk headers])
+AC_ARG_WITH([sdk],
+  [AS_HELP_STRING([--with-sdk=ARG],
+    [Add the desired SDK, where ARG can be one of ddk, directx, or all])],
+  [AS_CASE([$with_sdk],
+    [all|yes],[
+      with_sdk="ddk,directx"
+      with_ddk=yes
+      with_directx=yes],
+    [ddk],[
+      with_ddk=yes
+      with_directx=no],
+    [directx],[
+      with_ddk=no
+      with_directx=yes],
+    [no],[
+      with_ddk=no
+      with_directx=no],
+    [AC_ERROR([Invalid option: $with_sdk.  Please choose one of ddk, directx, or all.])])],
+  [])
+AC_MSG_RESULT([$with_sdk])
+
+AS_IF([test $with_ddk = yes],[
+  DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.[[hi]]*
+  SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/ddk/include/sdks/*.h],
+  [])
 AC_SUBST([DDKHEAD_LIST])
-AC_MSG_RESULT([$with_ddk])
+
+AS_IF([test $with_directx = yes],[
+  DXHEAD_LIST=$srcdir/direct-x/include/*.h
+  SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/direct-x/include/sdks/*.h],
+  [SDKSHEAD_LIST=$srcdir/include/sdks/*.h])
+AC_SUBST([DXHEAD_LIST])
 
 # Checks for typedefs, structures, and compiler characteristics.
 

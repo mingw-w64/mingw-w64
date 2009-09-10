@@ -603,7 +603,9 @@ PACKAGE_BUGREPORT='mingw-w64-public@lists.sourceforge.net'
 ac_unique_file="include/_mingw.h"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
+DXHEAD_LIST
 DDKHEAD_LIST
+SDKSHEAD_LIST
 GLHEAD_LIST
 SECSYSHEAD_LIST
 SECHEAD_LIST
@@ -680,7 +682,7 @@ SHELL'
 ac_subst_files=''
 ac_user_opts='
 enable_option_checking
-with_ddk
+with_sdk
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1315,7 +1317,8 @@ if test -n "$ac_init_help"; then
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
   --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
-  --with-ddk              Add the ddk directory to the header installation
+  --with-sdk=ARG          Add the desired SDK, where ARG can be one of ddk,
+                          directx, or all
 
 Report bugs to <mingw-w64-public@lists.sourceforge.net>.
 _ACEOF
@@ -2385,6 +2388,7 @@ BASEHEAD_LIST=$srcdir/include/*.h
 for i in c dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
+#FIXME: Add in base directx
 
 
 
@@ -2392,22 +2396,52 @@ done
 
 
 
+{ $as_echo "$as_me:$LINENO: checking for optional sdk headers" >&5
+$as_echo_n "checking for optional sdk headers... " >&6; }
 
-# Check whether --with-ddk was given.
-if test "${with_ddk+set}" = set; then
-  withval=$with_ddk;
-else
-    with_ddk=no
+# Check whether --with-sdk was given.
+if test "${with_sdk+set}" = set; then
+  withval=$with_sdk; case $with_sdk in
+  all|yes)
+      with_sdk="ddk,directx"
+      with_ddk=yes
+      with_directx=yes ;;
+  ddk)
+      with_ddk=yes
+      with_directx=no ;;
+  directx)
+      with_ddk=no
+      with_directx=yes ;;
+  no)
+      with_ddk=no
+      with_directx=no ;;
+  *) { { $as_echo "$as_me:$LINENO: error: Invalid option: $with_sdk.  Please choose one of ddk, directx, or all." >&5
+$as_echo "$as_me: error: Invalid option: $with_sdk.  Please choose one of ddk, directx, or all." >&2;}
+   { (exit 1); exit 1; }; } ;;
+esac
+
 fi
+
+{ $as_echo "$as_me:$LINENO: result: $with_sdk" >&5
+$as_echo "$with_sdk" >&6; }
+
 if test $with_ddk = yes; then
-  DDKHEAD_LIST=$srcdir/ddk/include/*/*.h
-else
-  DDKHEAD_LIST=""
+
+  DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.[hi]*
+  SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/ddk/include/sdks/*.h
 fi
 
 
 
-$as_echo headers: $headers
+if test $with_directx = yes; then
+
+  DXHEAD_LIST=$srcdir/direct-x/include/*.h
+  SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/direct-x/include/sdks/*.h
+else
+  SDKSHEAD_LIST=$srcdir/include/sdks/*.h
+fi
+
+
 
 # Checks for typedefs, structures, and compiler characteristics.
 
@@ -3066,7 +3100,7 @@ $debug ||
 if test -n "$CONFIG_FILES"; then
 
 
-ac_cr=`echo X | tr X '\\015'`
+ac_cr=`echo X | tr X '\015'`
 ac_cs_awk_cr=`$AWK 'BEGIN { print "a\rb" }' </dev/null 2>/dev/null`
 if test "$ac_cs_awk_cr" = "a${ac_cr}b"; then
   ac_cs_awk_cr='\\r'
