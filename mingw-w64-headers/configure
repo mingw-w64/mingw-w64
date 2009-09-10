@@ -603,8 +603,8 @@ PACKAGE_BUGREPORT='mingw-w64-public@lists.sourceforge.net'
 ac_unique_file="include/_mingw.h"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
-DXHEAD_LIST
 DDKHEAD_LIST
+DXHEAD_LIST
 SDKSHEAD_LIST
 GLHEAD_LIST
 SECSYSHEAD_LIST
@@ -2425,21 +2425,22 @@ fi
 { $as_echo "$as_me:$LINENO: result: $with_sdk" >&5
 $as_echo "$with_sdk" >&6; }
 
+if test $with_directx = yes; then
+
+  DXHEAD_LIST=$srcdir/direct-x/include/*.[hi]*
+  SDKSHEAD_LIST=$srcdir/direct-x/include/sdks/*.h
+else
+  SDKSHEAD_LIST=$srcdir/include/sdks/*.h
+fi
+
+
+
 if test $with_ddk = yes; then
 
   DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
   SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/ddk/include/sdks/*.h
 fi
 
-
-
-if test $with_directx = yes; then
-
-  DXHEAD_LIST=$srcdir/direct-x/include/*.[hi]*
-  SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/direct-x/include/sdks/*.h
-else
-  SDKSHEAD_LIST=$srcdir/include/sdks/*.h
-fi
 
 
 
