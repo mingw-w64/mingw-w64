@@ -2427,7 +2427,7 @@ $as_echo "$with_sdk" >&6; }
 
 if test $with_ddk = yes; then
 
-  DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.[hi]*
+  DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
   SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/ddk/include/sdks/*.h
 fi
 
@@ -2435,7 +2435,7 @@ fi
 
 if test $with_directx = yes; then
 
-  DXHEAD_LIST=$srcdir/direct-x/include/*.h
+  DXHEAD_LIST=$srcdir/direct-x/include/*.[hi]*
   SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/direct-x/include/sdks/*.h
 else
   SDKSHEAD_LIST=$srcdir/include/sdks/*.h

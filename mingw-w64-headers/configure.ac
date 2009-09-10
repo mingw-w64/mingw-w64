@@ -54,13 +54,13 @@ AC_ARG_WITH([sdk],
 AC_MSG_RESULT([$with_sdk])
 
 AS_IF([test $with_ddk = yes],[
-  DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.[[hi]]*
+  DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
   SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/ddk/include/sdks/*.h],
   [])
 AC_SUBST([DDKHEAD_LIST])
 
 AS_IF([test $with_directx = yes],[
-  DXHEAD_LIST=$srcdir/direct-x/include/*.h
+  DXHEAD_LIST=$srcdir/direct-x/include/*.[[hi]]*
   SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/direct-x/include/sdks/*.h],
   [SDKSHEAD_LIST=$srcdir/include/sdks/*.h])
 AC_SUBST([DXHEAD_LIST])
