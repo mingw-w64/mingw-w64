@@ -1,3 +1,11 @@
+2009-09-09  Mook  <mook.gcc@gmail.com>
+
+	Patch/2820174 r=NightStrike
+	* configure.ac: Automatically detect whether to build the 32 or 64
+	bit library based on what the compiler accepts.
+	* Makefile.am: Explicitly use -m64 for 64 bit library.
+	* configure, Makefile.in: Regenerated.
+
 2009-09-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* intrincs/readcr8.c, intrincs/writecr8.c: readcr8() and writecr8()

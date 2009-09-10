@@ -40,25 +40,67 @@ AC_ARG_WITH([sysroot],
 AM_CONDITIONAL(WITHSYSROOT, test $with_sysroot != no)
 AC_SUBST(TARGET_SYSTEM_ROOT)
 
+# Checks for programs.
+# Checks for headers, libs, etc need to utilize the sysroot... no idea how
+AC_NO_EXECUTABLES
+AC_PROG_SED
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_INSTALL
+AC_LIBTOOL_WIN32_DLL
+AC_DISABLE_STATIC
+AC_PROG_LIBTOOL
+AM_PROG_AS
+AM_PROG_CC_C_O
+
 AC_ARG_ENABLE([lib32],
   [AS_HELP_STRING([--enable-lib32],
     [enable compiling the Win32 runtime])],
   [],
-  [enable_lib32=no])
+  [AC_MSG_CHECKING([whether to build the Win32 runtime])
+   _save_CFLAGS="$CFLAGS"
+   CFLAGS="$CFLAGS -m32"
+   AC_COMPILE_IFELSE(
+     [AC_LANG_PROGRAM(
+       [[const char test[(sizeof(void*)==4)?0:-1];]],
+       []
+     )],
+     [enable_lib32=yes],
+     [enable_lib32=no])
+   AC_MSG_RESULT([$enable_lib32])
+   CFLAGS="$_save_CFLAGS"
+  ])
 AM_CONDITIONAL([LIB32], [test $enable_lib32 = yes])
 
 AC_ARG_ENABLE([lib64],
-  [AS_HELP_STRING([--disable-lib64],
-    [disable compiling the Win64 runtime])],
+  [AS_HELP_STRING([--enable-lib64],
+    [enable compiling the Win64 runtime])],
   [],
-  [enable_lib64=yes])
+  [AC_MSG_CHECKING([whether to build the Win64 runtime])
+   _save_CFLAGS="$CFLAGS"
+   CFLAGS="$CFLAGS -m64"
+   AC_COMPILE_IFELSE(
+     [AC_LANG_PROGRAM(
+       [[const char test[(sizeof(void*)==8)?0:-1];]],
+       []
+     )],
+     [enable_lib64=yes],
+     [enable_lib64=no])
+   AC_MSG_RESULT([$enable_lib64])
+   CFLAGS="$_save_CFLAGS"
+  ])
 AM_CONDITIONAL([LIB64], [test $enable_lib64 = yes])
 
 AC_ARG_ENABLE([libce],
   [AS_HELP_STRING([--enable-libce],
     [enable compiling the WinCE runtime])],
   [],
-  [enable_libce=no])
+  [AS_CASE([$host_cpu],
+    [arm*],
+      [enable_libce=yes],
+    [*],
+      [enable_libce=no])
+  ])
 AM_CONDITIONAL([LIBCE], [test $enable_libce = yes])
 
 AS_IF([test "$enable_lib32" = no && test "$enable_lib64" = no],
@@ -77,19 +119,6 @@ AS_CASE([$host_cpu],
     AC_SUBST([LIB64SUFFIXDIR],[lib64])
     AC_SUBST([LIB32SUFFIXDIR],[lib32])]
   )
-
-# Checks for programs.
-# Checks for headers, libs, etc need to utilize the sysroot... no idea how
-AC_NO_EXECUTABLES
-AC_PROG_SED
-AC_PROG_CC
-AC_PROG_CXX
-AC_PROG_INSTALL
-AC_LIBTOOL_WIN32_DLL
-AC_DISABLE_STATIC
-AC_PROG_LIBTOOL
-AM_PROG_AS
-AM_PROG_CC_C_O
 
 # Checks for libraries.
 

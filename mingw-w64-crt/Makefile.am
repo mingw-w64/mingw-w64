@@ -378,7 +378,7 @@ crt64_SCRIPTS = \
   lib64/CRT_fp8.o lib64/CRT_fp10.o lib64/txtmode.o lib64/binmode.o lib64/crtbegin.o lib64/crtend.o \
   lib64/gcrt0.o   lib64/gcrt1.o    lib64/gcrt2.o   lib64/CRT_glob.o
 
-COMPILE64=$(COMPILE) $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
+COMPILE64=$(COMPILE) -m64 $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
 lib64/crt1.o: crt/crtexe.c
 	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 lib64/crt2.o: crt/crtexe.c
@@ -393,86 +393,103 @@ lib64/dllcrt2.o: crt/crtdll.c
 	$(COMPILE64) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
 
 lib64/gcrt0.o: profile/gcrt0.c
-	$(COMPILE) -c $< -o $@ 
+	$(COMPILE) -m64 -c $< -o $@ 
 lib64/gcrt1.o: profile/gcrt0.c
-	$(COMPILE) -c $< -o $@ -U__MSVCRT__
+	$(COMPILE) -m64 -c $< -o $@ -U__MSVCRT__
 lib64/gcrt2.o: profile/gcrt0.c
-	$(COMPILE) -c $< -o $@ -D__MSVCRT__
+	$(COMPILE) -m64 -c $< -o $@ -D__MSVCRT__
 
 lib64/%.o: crt/%.c
-	$(COMPILE) -c $< -o $@
+	$(COMPILE) -m64 -c $< -o $@
 
 lib64_LIBRARIES = lib64/libm.a
 nodist_lib64_libm_a_SOURCES = $(src_libm)
+lib64_libm_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = $(src_libshell32)
-lib64_libshell32_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
+lib64_libshell32_a_CPPFLAGS=-m64
+lib64_libshell32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdinput.a
 lib64_libdinput_a_SOURCES = $(src_libdinput)
-lib64_libdinput_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
+lib64_libdinput_a_CPPFLAGS=-m64
+lib64_libdinput_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdinput8.a
 lib64_libdinput8_a_SOURCES = $(src_libdinput8)
-lib64_libdinput8_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
+lib64_libdinput8_a_CPPFLAGS=-m64
+lib64_libdinput8_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdmoguids.a
 lib64_libdmoguids_a_SOURCES = $(src_libdmoguids)
+lib64_libdmoguids_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libdxerr8.a
 lib64_libdxerr8_a_SOURCES = $(src_libdxerr8)
+lib64_libdxerr8_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libdxerr9.a
 lib64_libdxerr9_a_SOURCES = $(src_libdxerr9)
+lib64_libdxerr9_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libdxguid.a
 lib64_libdxguid_a_SOURCES = $(src_libdxguid)
+lib64_libdxguid_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libgmon.a
 lib64_libgmon_a_SOURCES = profile/mcount.c \
   profile/profil.h profile/profil.c        \
   profile/gmon.h   profile/gmon.c
+lib64_libgmon_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libksuser.a
 lib64_libksuser_a_SOURCES = $(src_libksuser)
-lib64_libksuser_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
+lib64_libksuser_a_CPPFLAGS=-m64
+lib64_libksuser_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/liblargeint.a
 lib64_liblargeint_a_SOURCES = $(src_liblargeint)
+lib64_liblargeint_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libscrnsave.a
 lib64_libscrnsave_a_SOURCES = $(src_libscrnsave)
+lib64_libscrnsave_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libscrnsavw.a
 lib64_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
+lib64_libscrnsavw_a_CPPFLAGS=-m64
 lib64_libscrnsavw_a_CFLAGS = -DUNICODE
 
 lib64_LIBRARIES += lib64/libstrmiids.a
 lib64_libstrmiids_a_SOURCES = $(src_libstrmiids)
+lib64_libstrmiids_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libmingw32.a
-lib64_libmingw32_a_CPPFLAGS=-D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+lib64_libmingw32_a_CPPFLAGS=-m64 -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
 lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib64_LIBRARIES += lib64/libmingwex.a
-lib64_libmingwex_a_CPPFLAGS=$(extra_include) $(AM_CPPFLAGS)
+lib64_libmingwex_a_CPPFLAGS=-m64 $(extra_include) $(AM_CPPFLAGS)
 lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64)
 
 lib64_LIBRARIES += lib64/libmoldname.a
-lib64_libmoldname_a_CPPFLAGS=$(extra_include) $(AM_CPPFLAGS)
+lib64_libmoldname_a_CPPFLAGS=-m64 $(extra_include) $(AM_CPPFLAGS)
 lib64_libmoldname_a_SOURCES = $(src_libmoldname)
-lib64_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386:x86-64; $(AR) $(ARFLAGS)
+lib64_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libmingwthrd.a
 lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
+lib64_libmingwthrd_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libuuid.a
 lib64_libuuid_a_SOURCES = $(src_libuuid)
+lib64_libuuid_a_CPPFLAGS=-m64
 
 lib64_LIBRARIES += lib64/libws2_32.a
 lib64_libws2_32_a_SOURCES = $(src_libws2_32)
-lib64_libws2_32_a_AR = $(DTLIB) -m i386:x86-64; $(AR) $(ARFLAGS)
+lib64_libws2_32_a_CPPFLAGS=-m64
+lib64_libws2_32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 
 
 lib64_SCRIPTS = \
@@ -969,7 +986,7 @@ check_PROGRAMS = \
   testcases/t_tls1 \
   testcases/t_tmain \
   testcases/t_trycatch \
-  testcases/t_wreadir
+  testcases/t_wreaddir
 
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp

@@ -794,6 +794,14 @@ LIBOBJS
 ADD_CXX_ONLY_WARNING_FLAGS
 ADD_C_CXX_WARNING_FLAGS
 ADD_C_ONLY_WARNING_FLAGS
+LIB32SUFFIXDIR
+LIB64SUFFIXDIR
+LIBCE_FALSE
+LIBCE_TRUE
+LIB64_FALSE
+LIB64_TRUE
+LIB32_FALSE
+LIB32_TRUE
 am__fastdepCCAS_FALSE
 am__fastdepCCAS_TRUE
 CCASDEPMODE
@@ -844,14 +852,6 @@ LDFLAGS
 CFLAGS
 CC
 SED
-LIB32SUFFIXDIR
-LIB64SUFFIXDIR
-LIBCE_FALSE
-LIBCE_TRUE
-LIB64_FALSE
-LIB64_TRUE
-LIB32_FALSE
-LIB32_TRUE
 TARGET_SYSTEM_ROOT
 WITHSYSROOT_FALSE
 WITHSYSROOT_TRUE
@@ -931,9 +931,6 @@ ac_user_opts='
 enable_option_checking
 enable_maintainer_mode
 with_sysroot
-enable_lib32
-enable_lib64
-enable_libce
 enable_dependency_tracking
 enable_static
 enable_shared
@@ -941,6 +938,9 @@ with_pic
 enable_fast_install
 with_gnu_ld
 enable_libtool_lock
+enable_lib32
+enable_lib64
+enable_libce
 enable_warnings
 '
       ac_precious_vars='build_alias
@@ -1591,9 +1591,6 @@ Optional Features:
   --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
   --enable-maintainer-mode  enable make rules and dependencies not useful
 			  (and sometimes confusing) to the casual installer
-  --enable-lib32          enable compiling the Win32 runtime
-  --disable-lib64         disable compiling the Win64 runtime
-  --enable-libce          enable compiling the WinCE runtime
   --disable-dependency-tracking  speeds up one-time build
   --enable-dependency-tracking   do not reject slow dependency extractors
   --enable-static[=PKGS]  build static libraries [default=no]
@@ -1601,6 +1598,9 @@ Optional Features:
   --enable-fast-install[=PKGS]
                           optimize for fast installation [default=yes]
   --disable-libtool-lock  avoid locking (might break parallel builds)
+  --enable-lib32          enable compiling the Win32 runtime
+  --enable-lib64          enable compiling the Win64 runtime
+  --enable-libce          enable compiling the WinCE runtime
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
 
 Optional Packages:
@@ -2761,82 +2761,6 @@ else
   WITHSYSROOT_FALSE=
 fi
 
-
-
-# Check whether --enable-lib32 was given.
-if test "${enable_lib32+set}" = set; then
-  enableval=$enable_lib32;
-else
-  enable_lib32=no
-fi
-
- if test $enable_lib32 = yes; then
-  LIB32_TRUE=
-  LIB32_FALSE='#'
-else
-  LIB32_TRUE='#'
-  LIB32_FALSE=
-fi
-
-
-# Check whether --enable-lib64 was given.
-if test "${enable_lib64+set}" = set; then
-  enableval=$enable_lib64;
-else
-  enable_lib64=yes
-fi
-
- if test $enable_lib64 = yes; then
-  LIB64_TRUE=
-  LIB64_FALSE='#'
-else
-  LIB64_TRUE='#'
-  LIB64_FALSE=
-fi
-
-
-# Check whether --enable-libce was given.
-if test "${enable_libce+set}" = set; then
-  enableval=$enable_libce;
-else
-  enable_libce=no
-fi
-
- if test $enable_libce = yes; then
-  LIBCE_TRUE=
-  LIBCE_FALSE='#'
-else
-  LIBCE_TRUE='#'
-  LIBCE_FALSE=
-fi
-
-
-if test "$enable_lib32" = no && test "$enable_lib64" = no; then
-  :
-elif test "$enable_libce" = yes; then
-  { $as_echo "$as_me:$LINENO: WARNING: Building the runtime to use libce with lib32 or lib64 is unsupported." >&5
-$as_echo "$as_me: WARNING: Building the runtime to use libce with lib32 or lib64 is unsupported." >&2;}
-fi
-
-
-case $host_cpu in
-  x86_64)
-    LIB64SUFFIXDIR=lib
-
-    LIB32SUFFIXDIR=lib32
- ;;
-  i*86)
-    LIB64SUFFIXDIR=lib64
-
-    LIB32SUFFIXDIR=lib
- ;;
-  *)
-    LIB64SUFFIXDIR=lib64
-
-    LIB32SUFFIXDIR=lib32
-
-   ;;
-esac
 
 
 # Checks for programs.
@@ -5624,13 +5548,13 @@ if test "${lt_cv_nm_interface+set}" = set; then
 else
   lt_cv_nm_interface="BSD nm"
   echo "int some_variable = 0;" > conftest.$ac_ext
-  (eval echo "\"\$as_me:5627: $ac_compile\"" >&5)
+  (eval echo "\"\$as_me:5551: $ac_compile\"" >&5)
   (eval "$ac_compile" 2>conftest.err)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:5630: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
+  (eval echo "\"\$as_me:5554: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
   (eval "$NM \"conftest.$ac_objext\"" 2>conftest.err > conftest.out)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:5633: output\"" >&5)
+  (eval echo "\"\$as_me:5557: output\"" >&5)
   cat conftest.out >&5
   if $GREP 'External.*some_variable' conftest.out > /dev/null; then
     lt_cv_nm_interface="MS dumpbin"
@@ -6833,7 +6757,7 @@ ia64-*-hpux*)
   ;;
 *-*-irix6*)
   # Find out which ABI we are using.
-  echo '#line 6836 "configure"' > conftest.$ac_ext
+  echo '#line 6760 "configure"' > conftest.$ac_ext
   if { (eval echo "$as_me:$LINENO: \"$ac_compile\"") >&5
   (eval $ac_compile) 2>&5
   ac_status=$?
@@ -9402,11 +9326,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:9405: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:9329: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:9409: \$? = $ac_status" >&5
+   echo "$as_me:9333: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -9741,11 +9665,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:9744: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:9668: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:9748: \$? = $ac_status" >&5
+   echo "$as_me:9672: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -9846,11 +9770,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:9849: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:9773: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:9853: \$? = $ac_status" >&5
+   echo "$as_me:9777: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -9901,11 +9825,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:9904: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:9828: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:9908: \$? = $ac_status" >&5
+   echo "$as_me:9832: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -11773,13 +11697,10 @@ rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
   # before this can be enabled.
   hardcode_into_libs=yes
 
-  # Add ABI-specific directories to the system library path.
-  sys_lib_dlsearch_path_spec="/lib64 /usr/lib64 /lib /usr/lib"
-
   # Append ld.so.conf contents to the search path
   if test -f /etc/ld.so.conf; then
     lt_ld_extra=`awk '/^include / { system(sprintf("cd /etc; cat %s 2>/dev/null", \$2)); skip = 1; } { if (!skip) print \$0; skip = 0; }' < /etc/ld.so.conf | $SED -e 's/#.*//;/^[	 ]*hwcap[	 ]/d;s/[:,	]/ /g;s/=[^=]*$//;s/=[^= ]* / /g;/^$/d' | tr '\n' ' '`
-    sys_lib_dlsearch_path_spec="$sys_lib_dlsearch_path_spec $lt_ld_extra"
+    sys_lib_dlsearch_path_spec="/lib /usr/lib $lt_ld_extra"
   fi
 
   # We used to test for /lib/ld.so.1 and disable shared libraries on
@@ -12759,7 +12680,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 12762 "configure"
+#line 12683 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -12855,7 +12776,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 12858 "configure"
+#line 12779 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -14885,11 +14806,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:14888: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:14809: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:14892: \$? = $ac_status" >&5
+   echo "$as_me:14813: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -14984,11 +14905,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:14987: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:14908: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:14991: \$? = $ac_status" >&5
+   echo "$as_me:14912: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -15036,11 +14957,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:15039: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:14960: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:15043: \$? = $ac_status" >&5
+   echo "$as_me:14964: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -15688,13 +15609,10 @@ rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
   # before this can be enabled.
   hardcode_into_libs=yes
 
-  # Add ABI-specific directories to the system library path.
-  sys_lib_dlsearch_path_spec="/lib64 /usr/lib64 /lib /usr/lib"
-
   # Append ld.so.conf contents to the search path
   if test -f /etc/ld.so.conf; then
     lt_ld_extra=`awk '/^include / { system(sprintf("cd /etc; cat %s 2>/dev/null", \$2)); skip = 1; } { if (!skip) print \$0; skip = 0; }' < /etc/ld.so.conf | $SED -e 's/#.*//;/^[	 ]*hwcap[	 ]/d;s/[:,	]/ /g;s/=[^=]*$//;s/=[^= ]* / /g;/^$/d' | tr '\n' ' '`
-    sys_lib_dlsearch_path_spec="$sys_lib_dlsearch_path_spec $lt_ld_extra"
+    sys_lib_dlsearch_path_spec="/lib /usr/lib $lt_ld_extra"
   fi
 
   # We used to test for /lib/ld.so.1 and disable shared libraries on
@@ -16293,6 +16211,187 @@ fi
 
 
 
+# Check whether --enable-lib32 was given.
+if test "${enable_lib32+set}" = set; then
+  enableval=$enable_lib32;
+else
+  { $as_echo "$as_me:$LINENO: checking whether to build the Win32 runtime" >&5
+$as_echo_n "checking whether to build the Win32 runtime... " >&6; }
+   _save_CFLAGS="$CFLAGS"
+   CFLAGS="$CFLAGS -m32"
+   cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+const char test[(sizeof(void*)==4)?0:-1];
+int
+main ()
+{
+
+
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext
+if { (ac_try="$ac_compile"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
+$as_echo "$ac_try_echo") >&5
+  (eval "$ac_compile") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest.$ac_objext; then
+  enable_lib32=yes
+else
+  $as_echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	enable_lib32=no
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+   { $as_echo "$as_me:$LINENO: result: $enable_lib32" >&5
+$as_echo "$enable_lib32" >&6; }
+   CFLAGS="$_save_CFLAGS"
+
+fi
+
+ if test $enable_lib32 = yes; then
+  LIB32_TRUE=
+  LIB32_FALSE='#'
+else
+  LIB32_TRUE='#'
+  LIB32_FALSE=
+fi
+
+
+# Check whether --enable-lib64 was given.
+if test "${enable_lib64+set}" = set; then
+  enableval=$enable_lib64;
+else
+  { $as_echo "$as_me:$LINENO: checking whether to build the Win64 runtime" >&5
+$as_echo_n "checking whether to build the Win64 runtime... " >&6; }
+   _save_CFLAGS="$CFLAGS"
+   CFLAGS="$CFLAGS -m64"
+   cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+const char test[(sizeof(void*)==8)?0:-1];
+int
+main ()
+{
+
+
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext
+if { (ac_try="$ac_compile"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
+$as_echo "$ac_try_echo") >&5
+  (eval "$ac_compile") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest.$ac_objext; then
+  enable_lib64=yes
+else
+  $as_echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	enable_lib64=no
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+   { $as_echo "$as_me:$LINENO: result: $enable_lib64" >&5
+$as_echo "$enable_lib64" >&6; }
+   CFLAGS="$_save_CFLAGS"
+
+fi
+
+ if test $enable_lib64 = yes; then
+  LIB64_TRUE=
+  LIB64_FALSE='#'
+else
+  LIB64_TRUE='#'
+  LIB64_FALSE=
+fi
+
+
+# Check whether --enable-libce was given.
+if test "${enable_libce+set}" = set; then
+  enableval=$enable_libce;
+else
+  case $host_cpu in
+  arm*) enable_libce=yes ;;
+  *) enable_libce=no ;;
+esac
+
+
+fi
+
+ if test $enable_libce = yes; then
+  LIBCE_TRUE=
+  LIBCE_FALSE='#'
+else
+  LIBCE_TRUE='#'
+  LIBCE_FALSE=
+fi
+
+
+if test "$enable_lib32" = no && test "$enable_lib64" = no; then
+  :
+elif test "$enable_libce" = yes; then
+  { $as_echo "$as_me:$LINENO: WARNING: Building the runtime to use libce with lib32 or lib64 is unsupported." >&5
+$as_echo "$as_me: WARNING: Building the runtime to use libce with lib32 or lib64 is unsupported." >&2;}
+fi
+
+
+case $host_cpu in
+  x86_64)
+    LIB64SUFFIXDIR=lib
+
+    LIB32SUFFIXDIR=lib32
+ ;;
+  i*86)
+    LIB64SUFFIXDIR=lib64
+
+    LIB32SUFFIXDIR=lib
+ ;;
+  *)
+    LIB64SUFFIXDIR=lib64
+
+    LIB32SUFFIXDIR=lib32
+
+   ;;
+esac
+
+
 # Checks for libraries.
 
 # Checks for header files.
@@ -16623,27 +16722,6 @@ $as_echo "$as_me: error: conditional \"WITHSYSROOT\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
-if test -z "${LIB32_TRUE}" && test -z "${LIB32_FALSE}"; then
-  { { $as_echo "$as_me:$LINENO: error: conditional \"LIB32\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-$as_echo "$as_me: error: conditional \"LIB32\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test -z "${LIB64_TRUE}" && test -z "${LIB64_FALSE}"; then
-  { { $as_echo "$as_me:$LINENO: error: conditional \"LIB64\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-$as_echo "$as_me: error: conditional \"LIB64\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test -z "${LIBCE_TRUE}" && test -z "${LIBCE_FALSE}"; then
-  { { $as_echo "$as_me:$LINENO: error: conditional \"LIBCE\" was never defined.
-Usually this means the macro was only invoked conditionally." >&5
-$as_echo "$as_me: error: conditional \"LIBCE\" was never defined.
-Usually this means the macro was only invoked conditionally." >&2;}
-   { (exit 1); exit 1; }; }
-fi
 if test -z "${AMDEP_TRUE}" && test -z "${AMDEP_FALSE}"; then
   { { $as_echo "$as_me:$LINENO: error: conditional \"AMDEP\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
@@ -16676,6 +16754,27 @@ if test -z "${am__fastdepCCAS_TRUE}" && test -z "${am__fastdepCCAS_FALSE}"; then
   { { $as_echo "$as_me:$LINENO: error: conditional \"am__fastdepCCAS\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
 $as_echo "$as_me: error: conditional \"am__fastdepCCAS\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${LIB32_TRUE}" && test -z "${LIB32_FALSE}"; then
+  { { $as_echo "$as_me:$LINENO: error: conditional \"LIB32\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+$as_echo "$as_me: error: conditional \"LIB32\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${LIB64_TRUE}" && test -z "${LIB64_FALSE}"; then
+  { { $as_echo "$as_me:$LINENO: error: conditional \"LIB64\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+$as_echo "$as_me: error: conditional \"LIB64\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${LIBCE_TRUE}" && test -z "${LIBCE_FALSE}"; then
+  { { $as_echo "$as_me:$LINENO: error: conditional \"LIBCE\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+$as_echo "$as_me: error: conditional \"LIBCE\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
