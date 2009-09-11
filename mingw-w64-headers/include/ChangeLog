@@ -1,6 +1,6 @@
-2009-09-09  Ozkan Sezer  <sezeroz@gmail.com>
+2009-09-11  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* time.h (gmtime_r): Fixed a longstanding nasty typo in macro.
+	* time.h (gmtime_r): Fixed a long standing nasty typo in macro.
 	(localtime_r): Likewise.
 
 2009-09-09  Ozkan Sezer  <sezeroz@gmail.com>
