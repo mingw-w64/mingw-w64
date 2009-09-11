@@ -5,7 +5,7 @@
  */
 
 /* Undefine __mingw_<printf> macros.  */
-#ifdef __USE_MINGW_ANSI_STDIO
+#if defined(__USE_MINGW_ANSI_STDIO) && __USE_MINGW_ANSI_STDIO != 0
 #undef fprintf
 #undef printf
 #undef sprintf
@@ -134,5 +134,5 @@
 #endif
 #endif
 
-#endif /* __USE_MINGW_ANSI_STDIO */
+#endif /* defined(__USE_MINGW_ANSI_STDIO) && __USE_MINGW_ANSI_STDIO != 0 */
 
