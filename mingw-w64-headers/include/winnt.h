@@ -126,7 +126,7 @@ extern "C" {
 #endif
 
 #ifndef FORCEINLINE
-#define FORCEINLINE static __inline__
+#define FORCEINLINE __inline__ __attribute__((always_inline))
 #endif
 
 #ifndef DECLSPEC_DEPRECATED

@@ -1,3 +1,8 @@
+2009-09-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winnt.h (FORCEINLINE): Add __attribute__((always_inline)) to
+	it and remove static.
+
 2009-09-11  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* time.h (gmtime_r): Fixed a long standing nasty typo in macro.
