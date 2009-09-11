@@ -1210,8 +1210,8 @@ typedef DWORD LCID;
 #define MemoryFence _mm_mfence
 #define StoreFence _mm_sfence
 
-    VOID __faststorefence(VOID);
-    VOID _m_prefetchw(volatile CONST VOID *Source);
+    void __faststorefence(void);
+    void _m_prefetchw(void *Source);
 
 #include <intrin.h>
 

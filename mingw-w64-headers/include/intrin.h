@@ -615,7 +615,7 @@ typedef union __m128i { char v[16]; } __m128i;
     __MACHINEX86X_NOIA64(__m128 _mm_movelh_ps(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_movehl_ps(__m128,__m128))
     __MACHINEX86X_NOIA64(void _m_prefetch(void*))
-    __MACHINEX86X_NOIA64(void _m_prefetchw(volatile const void*_Source))
+    __MACHINEX86X_NOIA64(void _m_prefetchw(void*_Source))
     __MACHINEX86X_NOWIN64(void _m_femms(void))
     __MACHINEX86X_NOWIN64(__m64 _m_pavgusb(__m64,__m64))
     __MACHINEX86X_NOWIN64(__m64 _m_pf2id(__m64))
