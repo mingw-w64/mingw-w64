@@ -194,7 +194,7 @@ struct tm *__cdecl localtime(const time_t *_Time);
 #ifdef _POSIX
 #ifdef __GNUC__ /* FIXME: Other compilers that these macros work with? */
 #ifndef localtime_r
-#define localtime_r(_Time, _Tm)	{( struct tm *___tmp_tm =		\
+#define localtime_r(_Time, _Tm)	({ struct tm *___tmp_tm =		\
 						localtime((_Time));	\
 						if (___tmp_tm)		\
 						  *(_Tm) = *___tmp_tm;	\
@@ -202,7 +202,7 @@ struct tm *__cdecl localtime(const time_t *_Time);
 						___tmp_tm;	})
 #endif
 #ifndef gmtime_r
-#define gmtime_r(_Time,_Tm)	{( struct tm *___tmp_tm =		\
+#define gmtime_r(_Time,_Tm)	({ struct tm *___tmp_tm =		\
 						gmtime((_Time));	\
 						if (___tmp_tm)		\
 						  *(_Tm) = *___tmp_tm;	\
