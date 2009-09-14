@@ -35,22 +35,23 @@ AC_MSG_CHECKING([for optional sdk headers])
 AC_ARG_WITH([sdk],
   [AS_HELP_STRING([--with-sdk=ARG],
     [Add the desired SDK, where ARG can be one of ddk, directx, or all])],
-  [AS_CASE([$with_sdk],
-    [all|yes],[
-      with_sdk="ddk,directx"
-      with_ddk=yes
-      with_directx=yes],
-    [ddk],[
-      with_ddk=yes
-      with_directx=no],
-    [directx],[
-      with_ddk=no
-      with_directx=yes],
-    [no],[
-      with_ddk=no
-      with_directx=no],
-    [AC_ERROR([Invalid option: $with_sdk.  Please choose one of ddk, directx, or all.])])],
-  [])
+  [],
+  [with_sdk=no])
+AS_CASE([$with_sdk],
+  [all|yes],[
+    with_sdk="ddk,directx"
+    with_ddk=yes
+    with_directx=yes],
+  [ddk],[
+    with_ddk=yes
+    with_directx=no],
+  [directx],[
+    with_ddk=no
+    with_directx=yes],
+  [no],[
+    with_ddk=no
+    with_directx=no],
+  [AC_ERROR([Invalid option: $with_sdk.  Please choose one of ddk, directx, or all.])])
 AC_MSG_RESULT([$with_sdk])
 
 AS_IF([test $with_directx = yes],[

@@ -2401,26 +2401,29 @@ $as_echo_n "checking for optional sdk headers... " >&6; }
 
 # Check whether --with-sdk was given.
 if test "${with_sdk+set}" = set; then
-  withval=$with_sdk; case $with_sdk in
+  withval=$with_sdk;
+else
+  with_sdk=no
+fi
+
+case $with_sdk in
   all|yes)
-      with_sdk="ddk,directx"
-      with_ddk=yes
-      with_directx=yes ;;
+    with_sdk="ddk,directx"
+    with_ddk=yes
+    with_directx=yes ;;
   ddk)
-      with_ddk=yes
-      with_directx=no ;;
+    with_ddk=yes
+    with_directx=no ;;
   directx)
-      with_ddk=no
-      with_directx=yes ;;
+    with_ddk=no
+    with_directx=yes ;;
   no)
-      with_ddk=no
-      with_directx=no ;;
+    with_ddk=no
+    with_directx=no ;;
   *) { { $as_echo "$as_me:$LINENO: error: Invalid option: $with_sdk.  Please choose one of ddk, directx, or all." >&5
 $as_echo "$as_me: error: Invalid option: $with_sdk.  Please choose one of ddk, directx, or all." >&2;}
    { (exit 1); exit 1; }; } ;;
 esac
-
-fi
 
 { $as_echo "$as_me:$LINENO: result: $with_sdk" >&5
 $as_echo "$with_sdk" >&6; }
