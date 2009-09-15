@@ -4,10 +4,11 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-__declspec(dllimport) unsigned int _lc_codepage;
+#undef __lc_codepage
+__declspec(dllimport) unsigned int __lc_codepage;
 
 static inline
 unsigned int get_codepage (void)
 {
-	return _lc_codepage;
+	return __lc_codepage;
 }
