@@ -96,10 +96,8 @@ extern "C" {
 #endif
 
 #ifdef _USE_32BIT_TIME_T
-#define _localtime32 localtime
 #define _difftime32	difftime
 #define _ctime32	ctime
-#define _gmtime32	gmtime
 #define _mktime32	mktime
 #define _time32	time
 #endif
@@ -243,6 +241,10 @@ __CRT_INLINE struct tm *__cdecl localtime(const time_t *_Time) { return _localti
 __CRT_INLINE time_t __cdecl mktime(struct tm *_Tm) { return _mktime64(_Tm); }
 __CRT_INLINE time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime64(_Tm); }
 __CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time64(_Time); }
+#else
+__CRT_INLINE struct tm *__cdecl localtime(const time_t *_Time) { return _localtime32(_Time); }
+__CRT_INLINE struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime32(_Time); }
+__CRT_INLINE time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
 #endif
 #endif /* !_USE_32BIT_TIME_T */
 #endif /* !__CRT__NO_INLINE */
