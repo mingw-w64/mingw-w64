@@ -5,7 +5,7 @@
  */
 
 #undef __lc_codepage
-extern __declspec(dllimport) unsigned int __lc_codepage;
+__declspec(dllimport) extern unsigned int __lc_codepage;
 
 static inline
 unsigned int get_codepage (void)
