@@ -501,6 +501,7 @@ _memccpy
 _memicmp
 _mkdir
 _mkgmtime
+_mkgmtime32 = _mkgmtime
 _mkgmtime64
 _mktemp
 _mktime64
@@ -767,6 +768,7 @@ gets
 getwc
 getwchar
 gmtime
+_gmtime32 = gmtime
 is_wctype
 isalnum
 isalpha
@@ -798,6 +800,7 @@ ldexp
 ldiv
 localeconv
 localtime
+_localtime32 = localtime
 log
 log10
 malloc

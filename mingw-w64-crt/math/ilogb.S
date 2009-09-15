@@ -16,8 +16,9 @@
 	.def	__MINGW_USYMBOL(ilogb);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(ilogb):
 #ifdef _WIN64
-	movsd	%xmm0,-16(%rsp)
-	fldl	-16(%rsp)
+	subq	$24, %rsp
+	movsd	%xmm0,(%rsp)
+	fldl	(%rsp)
 	fxam			/* Is NaN or +-Inf?  */
 	fstsw   %ax
 	movb    $0x45, %dh
@@ -33,10 +34,13 @@ __MINGW_USYMBOL(ilogb):
 	fwait
 	popq	%rax
 
+	addq	$24, %rsp
+
 	ret
 
 1:	fstp	%st
 	movl	$0x7fffffff, %eax
+	addq	$24, %rsp
 	ret
 #else
 

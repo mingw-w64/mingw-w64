@@ -17,7 +17,7 @@
 __MINGW_USYMBOL(ceill):
 #ifdef _WIN64
 	fldt	(%rdx)
-	subq	$16,%rsp
+	subq	$24,%rsp
 
 	fstcw	8(%rsp)			/* store fpu control word */
 
@@ -34,7 +34,7 @@ __MINGW_USYMBOL(ceill):
 
 	fldcw	8(%rsp)			/* restore original control word */
 
-	addq	$16,%rsp
+	addq	$24,%rsp
 	movq	%rcx,%rax
 	movq	$0,8(%rcx)
 	fstpt	(%rcx)

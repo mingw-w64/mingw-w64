@@ -16,8 +16,9 @@
 	.def	__MINGW_USYMBOL(exp2);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(exp2):
 #ifdef _WIN64
-	movsd	%xmm0,-16(%rsp)
-	fldl	-16(%rsp)
+	subq	$24, %rsp
+	movsd	%xmm0,(%rsp)
+	fldl	(%rsp)
 	fxam				/* Is NaN or +-Inf?  */
 	fstsw	%ax
 	movb	$0x45, %dh
@@ -33,16 +34,18 @@ __MINGW_USYMBOL(exp2):
 	faddp				/* 2^(fract(x)) */
 	fscale				/* e^x */
 	fstp	%st(1)
-	fstpl	-16(%rsp)
-	movsd	-16(%rsp),%xmm0
+	fstpl	(%rsp)
+	movsd	(%rsp),%xmm0
+	addq	$24, %rsp
 	ret
 
 1:	testl	$0x200, %eax		/* Test sign.  */
 	jz	2f			/* If positive, jump.  */
 	fstp	%st
 	fldz				/* Set result to 0.  */
-2:	fstpl	-16(%rsp)
-	movsd	-16(%rsp),%xmm0
+2:	fstpl	(%rsp)
+	movsd	(%rsp),%xmm0
+	addq	$24,%rsp
 	ret
 #else
 	fldl	4(%esp)

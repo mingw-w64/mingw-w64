@@ -11,4 +11,9 @@ time_t __cdecl _mkgmtime(struct tm *_Tm)
 {
   return _mkgmtime64(_Tm);
 }
+#else
+time_t __cdecl _mkgmtime(struct tm *_Tm)
+{
+  return _mkgmtime32(_Tm);
+}
 #endif

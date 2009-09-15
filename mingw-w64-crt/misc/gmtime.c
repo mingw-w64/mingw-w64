@@ -11,5 +11,10 @@ struct tm *__cdecl gmtime(const time_t *_Time)
 {
   return _gmtime64(_Time);
 }
+#else
+struct tm *__cdecl gmtime(const time_t *_Time)
+{
+  return _gmtime32(_Time);
+}
 #endif
 

@@ -17,15 +17,17 @@
 	.def	__MINGW_USYMBOL(fmaf);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(fmaf):
 #ifdef _WIN64
-	movss	%xmm0,-12(%rsp)
-	movss	%xmm1,-20(%rsp)
-	movss	%xmm2,-28(%rsp)
-	flds	-12(%rsp)
-	fmuls	-20(%rsp)
-	flds	-28(%rsp)
+	subq	$56, %rsp
+	movss	%xmm0,(%rsp)
+	movss	%xmm1,16(%rsp)
+	movss	%xmm2,32(%rsp)
+	flds	(%rsp)
+	fmuls	16(%rsp)
+	flds	32(%rsp)
 	faddp
-	fstps	-12(%rsp)
-	movss	-12(%rsp),%xmm0
+	fstps	(%rsp)
+	movss	(%rsp),%xmm0
+	addq	$56, %rsp
 	ret
 #else
 	flds	4(%esp)

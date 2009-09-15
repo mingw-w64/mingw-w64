@@ -1,3 +1,8 @@
+2009-09-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/lib64: Add symbols _localtime32, _gmtime32, and _mkgmtime32.
+	* misc/...: Add version for 32-bit time_t case.
+
 2009-09-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	* lib32/ and lib64/: Comment in msvcrXX.def and in msvcrt.def the

@@ -19,7 +19,7 @@ __MINGW_USYMBOL(ceilf):
 	fstcw	4(%rsp)			/* store fpu control word */
 
 	movl	$0x0800,%edx		/* round towards +oo */
-	orl		4(%rsp),%edx
+	orl	4(%rsp),%edx
 	andl	$0xfbff,%edx
 	movl	%edx,(%rsp)
 	fldcw	(%rsp)			/* load modified control word */

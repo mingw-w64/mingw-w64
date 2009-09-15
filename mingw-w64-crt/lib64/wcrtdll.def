@@ -401,6 +401,7 @@ getchar
 getenv
 gets
 gmtime
+_gmtime32 = gmtime
 is_wctype
 isalnum
 isalpha
@@ -432,6 +433,7 @@ ldexp
 ldiv
 localeconv
 localtime
+_localtime32 = localtime
 log
 log10
 malloc

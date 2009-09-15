@@ -17,15 +17,17 @@
 	.def	__MINGW_USYMBOL(fma);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(fma):
 #ifdef _WIN64
-	movsd	%xmm0,-16(%rsp)
-	movsd	%xmm1,-24(%rsp)
-	movsd	%xmm2,-32(%rsp)
-	fldl	-16(%rsp)
-	fmull	-24(%rsp)
-	fldl	-32(%rsp)
+	subq	$56, %rsp
+	movsd	%xmm0,(%rsp)
+	movsd	%xmm1,16(%rsp)
+	movsd	%xmm2,32(%rsp)
+	fldl	(%rsp)
+	fmull	16(%rsp)
+	fldl	32(%rsp)
 	faddp
-	fstpl	-16(%rsp)
-	movsd	-16(%rsp),%xmm0
+	fstpl	(%rsp)
+	movsd	(%rsp),%xmm0
+	addq	$56, %rsp
 	ret
 #else
 	fldl	4(%esp)

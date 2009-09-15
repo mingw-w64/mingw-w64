@@ -329,6 +329,9 @@ _mbsstr
 _mbstok
 _mbstrlen
 _mbsupr
+_mkgmtime
+_mkgmtime32 = _mkgmtime
+_mkgmtime64
 _memccpy
 _memicmp
 _mkdir
@@ -568,6 +571,7 @@ gets
 getwc
 getwchar
 gmtime
+_gmtime32 = gmtime
 is_wctype
 isalnum
 isalpha
@@ -599,6 +603,7 @@ ldexp
 ldiv
 localeconv
 localtime
+_localtime32 = localtime
 log
 log10
 longjmp

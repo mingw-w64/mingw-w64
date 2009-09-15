@@ -11,5 +11,10 @@ struct tm *__cdecl localtime(const time_t *_Time)
 {
   return _localtime64(_Time);
 }
+#else
+struct tm *__cdecl localtime(const time_t *_Time)
+{
+  return _localtime32(_Time);
+}
 #endif
 
