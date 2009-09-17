@@ -3,17 +3,15 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#include <_mingw.h>
+#define __CRT__NO_INLINE
+#include <time.h>
 
-#undef _wctime
-#undef _wctime32
-
-_CRTIMP wchar_t *__cdecl _wctime(const __time32_t *_Time);
-
-wchar_t *__cdecl _wctime32(const __time32_t *_Time);
-
-wchar_t *__cdecl _wctime32(const __time32_t *_Time)
+wchar_t *__cdecl _wctime(const time_t *_Time)
 {
-  return _wctime (_Time);
+#ifndef _USE_32BIT_TIME_T
+  return _wctime64 (_Time);
+#else
+  return _wctime32 (_Time);
+#endif
 }
 

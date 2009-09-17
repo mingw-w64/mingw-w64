@@ -559,6 +559,7 @@ _wcstoi64
 _wcstoui64
 _wcsupr
 _wctime
+_wctime32 = _wctime
 _wctime64
 _wctype
 _wenviron DATA
@@ -655,6 +656,7 @@ cosf
 cosh
 coshf
 ctime
+_ctime32 = ctime
 difftime
 div
 exit
@@ -745,6 +747,7 @@ memcpy
 memmove
 memset
 mktime
+_mktime32 = mktime
 modf
 modff
 perror
@@ -806,6 +809,7 @@ tan
 tanf
 tanh
 time
+_time32 = time
 tmpfile
 tmpnam
 tolower

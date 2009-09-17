@@ -365,6 +365,7 @@ clock
 cos
 cosh
 ctime
+_ctime32 = ctime
 difftime
 div
 exit
@@ -446,6 +447,7 @@ memcpy
 memmove
 memset
 mktime
+_mktime32 = mktime
 modf
 perror
 pow
@@ -498,6 +500,7 @@ system
 tan
 tanh
 time
+_time32 = time
 tmpfile
 tmpnam
 tolower

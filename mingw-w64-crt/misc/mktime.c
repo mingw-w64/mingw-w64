@@ -11,5 +11,10 @@ time_t __cdecl mktime(struct tm *_Tm)
 {
   return _mktime64(_Tm);
 }
+#else
+time_t __cdecl mktime(struct tm *_Tm)
+{
+  return _mktime32(_Tm);
+}
 #endif
 

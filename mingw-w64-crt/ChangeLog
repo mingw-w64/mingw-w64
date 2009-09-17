@@ -1,3 +1,9 @@
+2009-09-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/lib64: Add for time specific function the _<name>32 version to def
+	files.
+	* misc: Adjust time functions to use _<name>32 on demand.
+
 2009-09-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* lib32/lib64: Add symbols _localtime32, _gmtime32, and _mkgmtime32.

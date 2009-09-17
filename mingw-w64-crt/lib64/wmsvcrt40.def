@@ -1396,6 +1396,7 @@ _wcsrev
 _wcsset
 _wcsupr
 _wctime
+_wctime32 = _wctime
 _wenviron
 _wexecl
 _wexecle
@@ -1477,6 +1478,7 @@ clock
 cos
 cosh
 ctime
+_ctime32 = ctime
 difftime
 div
 exit
@@ -1562,6 +1564,7 @@ memcpy
 memmove
 memset
 mktime
+_mktime32 = mktime
 modf
 perror
 pow
@@ -1616,6 +1619,7 @@ system
 tan
 tanh
 time
+_time32 = time
 tmpfile
 tmpnam
 tolower

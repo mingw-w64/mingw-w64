@@ -7,9 +7,13 @@ implementation to provide users the ability of compiling the
 CRT only with 32-bit time_t behavior. */
 
 #ifndef _USE_32BIT_TIME_T
-
 time_t __cdecl time(time_t *_Time)
 {
   return _time64(_Time);
+}
+#else
+time_t __cdecl time(time_t *_Time)
+{
+  return _time32(_Time);
 }
 #endif

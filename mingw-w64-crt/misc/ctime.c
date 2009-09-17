@@ -11,4 +11,9 @@ char *__cdecl ctime(const time_t *_Time)
 {
   return _ctime64(_Time);
 }
+#else
+char *__cdecl ctime(const time_t *_Time)
+{
+  return _ctime32(_Time);
+}
 #endif
