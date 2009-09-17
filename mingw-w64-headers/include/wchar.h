@@ -795,7 +795,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define _WTIME_DEFINED
 
   _CRTIMP wchar_t *__cdecl _wasctime(const struct tm *_Tm);
-  wchar_t *__cdecl _wctime32(const __time32_t *_Time);
+  _CRTIMP wchar_t *__cdecl _wctime32(const __time32_t *_Time);
   size_t __cdecl wcsftime(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm);
   _CRTIMP size_t __cdecl _wcsftime_l(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wstrdate(wchar_t *_Buffer);
@@ -804,14 +804,14 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
-#ifndef _USE_32BIT_TIME_T
   wchar_t *__cdecl _wctime(const time_t *_Time);
 #ifndef __CRT__NO_INLINE
+#ifndef _USE_32BIT_TIME_T
   __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
 #else
-#define _wctime _wctime64
-#endif /* __CRT__NO_INLINE */
+  __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime32(_Time); }
 #endif
+#endif /* __CRT__NO_INLINE */
 #endif
 #endif
 

@@ -1,3 +1,8 @@
+2009-09-17  Kai Tietz  <kai.tietz@onevision.com>
+
+        * time.h, wchar.h, tchar.h: Add for time specific function the _<name>32 version
+	to headers and use them in inline version.
+
 2009-09-15  Kai Tietz  <kai.tietz@onevision.com>
 
         * time.h: Use of _localtime32, _gmtime32, and _mkgmtime32.

@@ -310,7 +310,7 @@ extern "C" {
 
 #define _tasctime _wasctime
 #define _tctime _wctime
-#define _tctime32 _wctime
+#define _tctime32 _wctime32
 #define _tctime64 _wctime64
 #define _tstrdate _wstrdate
 #define _tstrtime _wstrtime
