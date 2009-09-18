@@ -1416,7 +1416,7 @@ extern "C" {
     LPSTR lpHeaderInfo;
     DWORD dwHeaderInfoSize;
     LPSTR lpszFileExtension;
-    union {
+    __MINGW_EXTENSION union {
       DWORD dwReserved;
       DWORD dwExemptDelta;
     };
@@ -1438,7 +1438,7 @@ extern "C" {
     LPWSTR lpHeaderInfo;
     DWORD dwHeaderInfoSize;
     LPWSTR lpszFileExtension;
-    union {
+    __MINGW_EXTENSION union {
       DWORD dwReserved;
       DWORD dwExemptDelta;
     };

@@ -51,7 +51,7 @@ typedef struct _AUDIT_PARAM {
   AUDIT_PARAM_TYPE Type;
   ULONG Length;
   DWORD Flags;
-  union {
+  __MINGW_EXTENSION union {
     ULONG_PTR Data0;
     PWSTR String;
     ULONG_PTR u;
@@ -60,7 +60,7 @@ typedef struct _AUDIT_PARAM {
     ULONG LogonId_LowPart;
     AUDIT_OBJECT_TYPES *pObjectTypes;
   };
-  union {
+  __MINGW_EXTENSION union {
     ULONG_PTR Data1;
     LONG LogonId_HighPart;
   };

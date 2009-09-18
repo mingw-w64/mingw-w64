@@ -397,7 +397,7 @@ extern "C" {
 #define ACTRL_WIN_EXIT ACTRL_PERM_9
 
     typedef struct _ACTRL_OVERLAPPED {
-      union {
+      __MINGW_EXTENSION union {
 	PVOID Provider;
 	ULONG Reserved1;
       };
