@@ -399,7 +399,7 @@ extern "C" {
   } TYPEKIND;
 
   typedef struct tagTYPEDESC {
-    __MINGW_EXTENSION__MINGW_EXTENSION union {
+    __MINGW_EXTENSION union {
       struct tagTYPEDESC *lptdesc;
       struct tagARRAYDESC *lpadesc;
       HREFTYPE hreftype;
