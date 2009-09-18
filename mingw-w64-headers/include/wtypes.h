@@ -545,7 +545,7 @@ extern "C" {
 #define _tagCY_DEFINED
 #define _CY_DEFINED
   typedef union tagCY {
-    __extension__ struct {
+    __MINGW_EXTENSION struct {
       unsigned long Lo;
       long Hi;
     };
@@ -557,16 +557,16 @@ extern "C" {
 
   typedef struct tagDEC {
     USHORT wReserved;
-    __extension__ union {
-      __extension__ struct {
+    __MINGW_EXTENSION union {
+      __MINGW_EXTENSION struct {
 	BYTE scale;
 	BYTE sign;
       };
       USHORT signscale;
     };
     ULONG Hi32;
-    __extension__ union {
-      __extension__ struct {
+    __MINGW_EXTENSION union {
+      __MINGW_EXTENSION struct {
 	ULONG Lo32;
 	ULONG Mid32;
       };
