@@ -930,7 +930,7 @@ extern "C" {
     ULONG32 NumberOfStreams;
     RVA StreamDirectoryRva;
     ULONG32 CheckSum;
-    union {
+    __MINGW_EXTENSION union {
       ULONG32 Reserved;
       ULONG32 TimeDateStamp;
     };
@@ -969,9 +969,9 @@ extern "C" {
     USHORT ProcessorArchitecture;
     USHORT ProcessorLevel;
     USHORT ProcessorRevision;
-    union {
+    __MINGW_EXTENSION union {
       USHORT Reserved0;
-      struct {
+      __MINGW_EXTENSION struct {
 	UCHAR NumberOfProcessors;
 	UCHAR ProductType;
       };
@@ -981,9 +981,9 @@ extern "C" {
     ULONG32 BuildNumber;
     ULONG32 PlatformId;
     RVA CSDVersionRva;
-    union {
+    __MINGW_EXTENSION union {
       ULONG32 Reserved1;
-      struct {
+      __MINGW_EXTENSION struct {
 	USHORT SuiteMask;
 	USHORT Reserved2;
       };
@@ -1218,7 +1218,7 @@ extern "C" {
     ULONG ProcessId;
     HANDLE ProcessHandle;
     ULONG CallbackType;
-    union {
+    __MINGW_EXTENSION union {
       MINIDUMP_THREAD_CALLBACK Thread;
       MINIDUMP_THREAD_EX_CALLBACK ThreadEx;
       MINIDUMP_MODULE_CALLBACK Module;
@@ -1228,10 +1228,10 @@ extern "C" {
   } MINIDUMP_CALLBACK_INPUT,*PMINIDUMP_CALLBACK_INPUT;
 
   typedef struct _MINIDUMP_CALLBACK_OUTPUT {
-    union {
+    __MINGW_EXTENSION union {
       ULONG ModuleWriteFlags;
       ULONG ThreadWriteFlags;
-      struct {
+      __MINGW_EXTENSION struct {
 	ULONG64 MemoryBase;
 	ULONG MemorySize;
       };
