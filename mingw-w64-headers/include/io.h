@@ -150,11 +150,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #define _SIZE_T_DEFINED
 #undef size_t
 #ifdef _WIN64
-#if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
-#else
   __MINGW_EXTENSION typedef unsigned __int64 size_t;
-#endif
 #else
   typedef unsigned int size_t;
 #endif /* _WIN64 */
@@ -164,11 +160,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #define _SSIZE_T_DEFINED
 #undef ssize_t
 #ifdef _WIN64
-#if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int ssize_t __attribute__ ((__mode__ (DI)));
-#else
   __MINGW_EXTENSION typedef __int64 ssize_t;
-#endif
 #else
   typedef int ssize_t;
 #endif /* _WIN64 */
@@ -187,16 +179,9 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 
 #ifndef _OFF64_T_DEFINED
 #define _OFF64_T_DEFINED
-#if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int _off64_t __attribute__ ((__mode__ (DI)));
-#if !defined(NO_OLDNAMES) || defined(_POSIX)
-  typedef int off64_t __attribute__ ((__mode__ (DI)));
-#endif
-#else
   __MINGW_EXTENSION typedef long long _off64_t;
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
   __MINGW_EXTENSION typedef long long off64_t;
-#endif
 #endif
 #endif
 

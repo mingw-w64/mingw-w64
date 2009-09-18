@@ -288,11 +288,7 @@ extern "C" {
 #define _SIZE_T_DEFINED
 #undef size_t
 #ifdef _WIN64
-# if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
-# else
   __MINGW_EXTENSION typedef unsigned __int64 size_t;
-# endif
 #else
   typedef unsigned int size_t;
 #endif /* _WIN64 */
@@ -302,11 +298,7 @@ extern "C" {
 #define _SSIZE_T_DEFINED
 #undef ssize_t
 #ifdef _WIN64
-# if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int ssize_t __attribute__ ((__mode__ (DI)));
-# else
   __MINGW_EXTENSION typedef __int64 ssize_t;
-# endif
 #else
   typedef int ssize_t;
 #endif /* _WIN64 */
@@ -318,11 +310,7 @@ extern "C" {
 #define __intptr_t_defined
 #undef intptr_t
 #ifdef _WIN64
-# if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int intptr_t __attribute__ ((__mode__ (DI)));
-# else
   __MINGW_EXTENSION typedef __int64 intptr_t;
-# endif
 #else
   typedef int intptr_t;
 #endif /* _WIN64 */
@@ -335,11 +323,7 @@ extern "C" {
 #define __uintptr_t_defined
 #undef uintptr_t
 #ifdef _WIN64
-# if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int uintptr_t __attribute__ ((__mode__ (DI)));
-# else
   __MINGW_EXTENSION typedef unsigned __int64 uintptr_t;
-# endif
 #else
   typedef unsigned int uintptr_t;
 #endif /* _WIN64 */
@@ -351,11 +335,7 @@ extern "C" {
 #ifndef _PTRDIFF_T_
 #undef ptrdiff_t
 #ifdef _WIN64
-# if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int ptrdiff_t __attribute__ ((__mode__ (DI)));
-# else
   __MINGW_EXTENSION typedef __int64 ptrdiff_t;
-# endif
 #else
   typedef int ptrdiff_t;
 #endif /* _WIN64 */

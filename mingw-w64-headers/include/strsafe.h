@@ -15,11 +15,7 @@
 #define _SIZE_T_DEFINED
 #undef size_t
 #ifdef _WIN64
-#if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef unsigned int size_t __attribute__ ((__mode__ (DI)));
-#else
 __MINGW_EXTENSION typedef unsigned __int64 size_t;
-#endif
 #else
 typedef unsigned int size_t;
 #endif
@@ -29,11 +25,7 @@ typedef unsigned int size_t;
 #define _SSIZE_T_DEFINED
 #undef ssize_t
 #ifdef _WIN64
-#if defined(__GNUC__) && defined(__STRICT_ANSI__)
-  typedef int ssize_t __attribute__ ((__mode__ (DI)));
-#else
 __MINGW_EXTENSION typedef __int64 ssize_t;
-#endif
 #else
 typedef int ssize_t;
 #endif

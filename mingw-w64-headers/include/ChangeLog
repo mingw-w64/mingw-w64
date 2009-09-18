@@ -1,3 +1,9 @@
+2009-09-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h, io.h, rpcndr.h, strsafe.h. time.h, vadefs.h:  Now that the
+	__MINGW_EXTENSION macro is in effect, remove the gcc-specific typedefs
+	using machine modes for strict ansi cases and 64 bit scalars.
+
 2009-09-18  Kai Tietz  <kai.tietz@onevision.com>
 
         * Implement time_t related functions by stubs in libmingwex.a and do
@@ -5,7 +11,7 @@
         avoid collisions in names. Reasoned is this patch by dlltool's inability
         to alias symbols.
 
-2009-09-11  Ozkan Sezer  <sezeroz@gmail.com>
+2009-09-18  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_print_pop.h:  Fixed compilation when __USE_MINGW_ANSI_STDIO is defined,
 	but not to a specific value.
