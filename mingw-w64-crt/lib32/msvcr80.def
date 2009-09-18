@@ -329,8 +329,8 @@ _mbsstr
 _mbstok
 _mbstrlen
 _mbsupr
-_mkgmtime
-_mkgmtime32 = _mkgmtime
+_mkgmtime DATA
+;_mkgmtime32 = _mkgmtime
 _mkgmtime64
 _memccpy
 _memicmp
@@ -448,8 +448,8 @@ _wcsnset
 _wcsrev
 _wcsset
 _wcsupr
-_wctime
-_wctime32 = _wctime
+_wctime DATA
+;_wctime32 = _wctime
 _wenviron DATA
 _wexecl
 _wexecle
@@ -531,8 +531,8 @@ clearerr
 clock
 cos
 cosh
-ctime
-_ctime32 = ctime
+ctime DATA
+;_ctime32 = ctime
 difftime
 div
 exit
@@ -572,8 +572,8 @@ getenv
 gets
 getwc
 getwchar
-gmtime
-_gmtime32 = gmtime
+gmtime DATA
+;_gmtime32 = gmtime
 is_wctype
 isalnum
 isalpha
@@ -604,8 +604,8 @@ labs
 ldexp
 ldiv
 localeconv
-localtime
-_localtime32 = localtime
+localtime DATA
+;_localtime32 = localtime
 log
 log10
 longjmp
@@ -618,8 +618,8 @@ memcmp
 memcpy
 memmove
 memset
-mktime
-_mktime32 = mktime
+mktime DATA
+;_mktime32 = mktime
 modf
 perror
 ;pow
@@ -673,8 +673,8 @@ swscanf
 system
 tan
 tanh
-time
-_time32 = time
+time DATA
+;_time32 = time
 tmpfile
 tmpnam
 tolower

@@ -1,3 +1,10 @@
+2009-09-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Implement time_t related functions by stubs in libmingwex.a and do
+	export them in .def as DATA. So just the imp_<name> is present and we
+	avoid collisions in names. Reasoned is this patch by dlltool's inability
+	to alias symbols.
+
 2009-09-17  Kai Tietz  <kai.tietz@onevision.com>
 
 	* lib32/lib64: Add for time specific function the _<name>32 version to def
