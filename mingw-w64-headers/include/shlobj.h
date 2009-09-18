@@ -405,7 +405,7 @@ extern "C" {
     DATABLOCK_HEADER dbh;
 #else
 /*  DATABLOCK_HEADER; */
-    __extension__ struct {
+    __MINGW_EXTENSION struct {
       DWORD cbSize;
       DWORD dwSignature;
     };
@@ -438,7 +438,7 @@ extern "C" {
     DATABLOCK_HEADER dbh;
 #else
 /*  DATABLOCK_HEADER; */
-    __extension__ struct {
+    __MINGW_EXTENSION struct {
       DWORD cbSize;
       DWORD dwSignature;
     };
@@ -452,7 +452,7 @@ extern "C" {
     DATABLOCK_HEADER dbh;
 #else
 /*  DATABLOCK_HEADER; */
-    __extension__ struct {
+    __MINGW_EXTENSION struct {
       DWORD cbSize;
       DWORD dwSignature;
     };

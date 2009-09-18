@@ -306,7 +306,7 @@ extern "C" {
     LPCSTR lpClass;
     HKEY hkeyClass;
     DWORD dwHotKey;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HANDLE hIcon;
       HANDLE hMonitor;
     } DUMMYUNIONNAME;
@@ -327,7 +327,7 @@ extern "C" {
     LPCWSTR lpClass;
     HKEY hkeyClass;
     DWORD dwHotKey;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HANDLE hIcon;
       HANDLE hMonitor;
     } DUMMYUNIONNAME;
@@ -406,7 +406,7 @@ extern "C" {
     DWORD dwState;
     DWORD dwStateMask;
     CHAR szInfo[256];
-    __extension__ union {
+    __MINGW_EXTENSION union {
       UINT uTimeout;
       UINT uVersion;
     } DUMMYUNIONNAME;
@@ -428,7 +428,7 @@ extern "C" {
     DWORD dwState;
     DWORD dwStateMask;
     WCHAR szInfo[256];
-    __extension__ union {
+    __MINGW_EXTENSION union {
       UINT uTimeout;
       UINT uVersion;
     } DUMMYUNIONNAME;

@@ -2443,7 +2443,7 @@ extern "C" {
 
   typedef struct tagINPUT {
     DWORD type;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       MOUSEINPUT mi;
       KEYBDINPUT ki;
       HARDWAREINPUT hi;
@@ -5129,7 +5129,7 @@ extern "C" {
 #endif
 #else
   typedef struct tagMONITORINFOEXA {
-    __extension__ struct {
+    __MINGW_EXTENSION struct {
       DWORD cbSize;
       RECT rcMonitor;
       RECT rcWork;
@@ -5139,7 +5139,7 @@ extern "C" {
   } MONITORINFOEXA,*LPMONITORINFOEXA;
 
   typedef struct tagMONITORINFOEXW {
-    __extension__ struct {
+    __MINGW_EXTENSION struct {
       DWORD cbSize;
       RECT rcMonitor;
       RECT rcWork;
@@ -5490,9 +5490,9 @@ extern "C" {
 
   typedef struct tagRAWMOUSE {
     USHORT usFlags;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       ULONG ulButtons;
-      __extension__ struct {
+      __MINGW_EXTENSION struct {
 	USHORT usButtonFlags;
 	USHORT usButtonData;
       };
@@ -5605,7 +5605,7 @@ extern "C" {
   typedef struct tagRID_DEVICE_INFO {
     DWORD cbSize;
     DWORD dwType;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       RID_DEVICE_INFO_MOUSE mouse;
       RID_DEVICE_INFO_KEYBOARD keyboard;
       RID_DEVICE_INFO_HID hid;

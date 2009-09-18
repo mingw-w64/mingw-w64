@@ -1484,7 +1484,7 @@ extern "C" {
 
   typedef struct _CERT_ALT_NAME_ENTRY {
     DWORD dwAltNameChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       PCERT_OTHER_NAME pOtherName;
       LPWSTR pwszRfc822Name;
       LPWSTR pwszDNSName;
@@ -1642,7 +1642,7 @@ extern "C" {
 
   typedef struct _CRL_DIST_POINT_NAME {
     DWORD dwDistPointNameChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       CERT_ALT_NAME_INFO FullName;
     };
   } CRL_DIST_POINT_NAME,*PCRL_DIST_POINT_NAME;
@@ -1849,7 +1849,7 @@ extern "C" {
 
   typedef struct _CMC_TAGGED_REQUEST {
     DWORD dwTaggedRequestChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       PCMC_TAGGED_CERT_REQUEST pTaggedCertRequest;
     };
   } CMC_TAGGED_REQUEST,*PCMC_TAGGED_REQUEST;
@@ -1898,7 +1898,7 @@ extern "C" {
     DWORD *rgdwBodyList;
     LPWSTR pwszStatusString;
     DWORD dwOtherInfoChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       DWORD dwFailInfo;
       PCMC_PEND_INFO pPendInfo;
     };
@@ -2012,7 +2012,7 @@ extern "C" {
     LPCSTR pszOID;
     LPCWSTR pwszName;
     DWORD dwGroupId;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       DWORD dwValue;
       ALG_ID Algid;
       DWORD dwLength;
@@ -2093,7 +2093,7 @@ extern "C" {
 
   typedef struct _CERT_ID {
     DWORD dwIdChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       CERT_ISSUER_SERIAL_NUMBER IssuerSerialNumber;
       CRYPT_HASH_BLOB KeyId;
       CRYPT_HASH_BLOB HashId;
@@ -2184,7 +2184,7 @@ extern "C" {
     HCRYPTPROV hCryptProv;
     DWORD dwKeySpec;
     DWORD dwKeyChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       PCRYPT_ALGORITHM_IDENTIFIER pEphemeralAlgorithm;
       PCERT_ID pSenderId;
     };
@@ -2202,7 +2202,7 @@ extern "C" {
     void *pvKeyEncryptionAuxInfo;
     HCRYPTPROV hCryptProv;
     DWORD dwKeyChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
 
       HCRYPTKEY hKeyEncryptionKey;
       void *pvKeyEncryptionKey;
@@ -2216,7 +2216,7 @@ extern "C" {
 
   struct _CMSG_RECIPIENT_ENCODE_INFO {
     DWORD dwRecipientChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       PCMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO pKeyTrans;
       PCMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO pKeyAgree;
       PCMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO pMailList;
@@ -2391,7 +2391,7 @@ extern "C" {
   typedef struct _CMSG_KEY_AGREE_RECIPIENT_INFO {
     DWORD dwVersion;
     DWORD dwOriginatorChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       CERT_ID OriginatorCertId;
       CERT_PUBLIC_KEY_INFO OriginatorPublicKeyInfo;
     };
@@ -2415,7 +2415,7 @@ extern "C" {
 
   typedef struct _CMSG_CMS_RECIPIENT_INFO {
     DWORD dwRecipientChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       PCMSG_KEY_TRANS_RECIPIENT_INFO pKeyTrans;
       PCMSG_KEY_AGREE_RECIPIENT_INFO pKeyAgree;
       PCMSG_MAIL_LIST_RECIPIENT_INFO pMailList;
@@ -2496,7 +2496,7 @@ extern "C" {
     PCMSG_MAIL_LIST_RECIPIENT_INFO pMailList;
     DWORD dwRecipientIndex;
     DWORD dwKeyChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HCRYPTKEY hKeyEncryptionKey;
       void *pvKeyEncryptionKey;
     };
@@ -2579,7 +2579,7 @@ extern "C" {
     CRYPT_ALGORITHM_IDENTIFIER KeyEncryptionAlgorithm;
     CRYPT_DATA_BLOB UserKeyingMaterial;
     DWORD dwOriginatorChoice;
-    __extension__ union {
+    __MINGW_EXTENSION union {
 
       CERT_ID OriginatorCertId;
 
@@ -2807,11 +2807,11 @@ extern "C" {
 #define CERT_SYSTEM_STORE_RELOCATE_FLAG 0x80000000
 
   typedef struct _CERT_SYSTEM_STORE_RELOCATE_PARA {
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HKEY hKeyBase;
       void *pvBase;
     };
-    __extension__ union {
+    __MINGW_EXTENSION union {
       void *pvSystemStore;
       LPCSTR pszSystemStore;
       LPCWSTR pwszSystemStore;
@@ -4184,7 +4184,7 @@ extern "C" {
 #define AUTHTYPE_SERVER 2
 
   typedef struct _HTTPSPolicyCallbackData {
-    __extension__ union {
+    __MINGW_EXTENSION union {
       DWORD cbStruct;
       DWORD cbSize;
     };

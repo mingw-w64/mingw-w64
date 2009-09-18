@@ -134,8 +134,8 @@ extern "C" {
   typedef struct _OVERLAPPED {
     ULONG_PTR Internal;
     ULONG_PTR InternalHigh;
-    __extension__ union {
-      __extension__ struct {
+    __MINGW_EXTENSION union {
+      __MINGW_EXTENSION struct {
 	DWORD Offset;
 	DWORD OffsetHigh;
       };
@@ -370,9 +370,9 @@ extern "C" {
   } COMMCONFIG,*LPCOMMCONFIG;
 
   typedef struct _SYSTEM_INFO {
-    __extension__ union {
+    __MINGW_EXTENSION union {
       DWORD dwOemId;
-      __extension__ struct {
+      __MINGW_EXTENSION struct {
 	WORD wProcessorArchitecture;
 	WORD wReserved;
       };
@@ -1164,7 +1164,7 @@ extern "C" {
     BYTE cbOverhead;
     BYTE iRegionIndex;
     WORD wFlags;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       struct {
 	HANDLE hMem;
 	DWORD dwReserved[3];
