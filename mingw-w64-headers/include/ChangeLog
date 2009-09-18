@@ -1,3 +1,10 @@
+2009-09-18  Kai Tietz  <kai.tietz@onevision.com>
+
+        * Implement time_t related functions by stubs in libmingwex.a and do
+        export them in .def as DATA. So just the imp_<name> is present and we
+        avoid collisions in names. Reasoned is this patch by dlltool's inability
+        to alias symbols.
+
 2009-09-11  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_print_pop.h:  Fixed compilation when __USE_MINGW_ANSI_STDIO is defined,

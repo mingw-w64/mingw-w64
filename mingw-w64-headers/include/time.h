@@ -122,18 +122,18 @@ extern "C" {
   _CRTIMP errno_t __cdecl _get_timezone(long *_Timezone);
   _CRTIMP errno_t __cdecl _get_tzname(size_t *_ReturnValue,char *_Buffer,size_t _SizeInBytes,int _Index);
   char *__cdecl asctime(const struct tm *_Tm);
-  _CRTIMP char *__cdecl _ctime32(const __time32_t *_Time);
+  char *__cdecl _ctime32(const __time32_t *_Time);
   clock_t __cdecl clock(void);
   double __cdecl _difftime32(__time32_t _Time1,__time32_t _Time2);
-  _CRTIMP struct tm *__cdecl _gmtime32(const __time32_t *_Time);
-  _CRTIMP struct tm *__cdecl _localtime32(const __time32_t *_Time);
+  struct tm *__cdecl _gmtime32(const __time32_t *_Time);
+  struct tm *__cdecl _localtime32(const __time32_t *_Time);
   size_t __cdecl strftime(char *_Buf,size_t _SizeInBytes,const char *_Format,const struct tm *_Tm);
   _CRTIMP size_t __cdecl _strftime_l(char *_Buf,size_t _Max_size,const char *_Format,const struct tm *_Tm,_locale_t _Locale);
   _CRTIMP char *__cdecl _strdate(char *_Buffer);
   _CRTIMP char *__cdecl _strtime(char *_Buffer);
-  _CRTIMP __time32_t __cdecl _time32(__time32_t *_Time);
-  _CRTIMP __time32_t __cdecl _mktime32(struct tm *_Tm);
-  _CRTIMP __time32_t __cdecl _mkgmtime32(struct tm *_Tm);
+  __time32_t __cdecl _time32(__time32_t *_Time);
+  __time32_t __cdecl _mktime32(struct tm *_Tm);
+  __time32_t __cdecl _mkgmtime32(struct tm *_Tm);
 #if defined (_POSIX_) || defined(__GNUC__)
   void __cdecl tzset(void);
 #endif
@@ -153,7 +153,7 @@ extern "C" {
 
 #ifndef _WTIME_DEFINED
   _CRTIMP wchar_t *__cdecl _wasctime(const struct tm *_Tm);
-  _CRTIMP wchar_t *__cdecl _wctime32(const __time32_t *_Time);
+  wchar_t *__cdecl _wctime32(const __time32_t *_Time);
   size_t __cdecl wcsftime(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm);
   _CRTIMP size_t __cdecl _wcsftime_l(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wstrdate(wchar_t *_Buffer);
