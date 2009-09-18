@@ -73,7 +73,7 @@ struct ip_msfilter {
 #ifndef s6_addr
 
 struct in6_addr {
-  union {
+  __MINGW_EXTENSION union {
     u_char Byte[16];
     u_short Word[8];
   } u;

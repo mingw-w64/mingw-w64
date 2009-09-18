@@ -1701,7 +1701,7 @@ extern "C" {
     DWORD dwClientUserNameOffset;
     DWORD dwClientAppAPIVersion;
     DWORD dwRequestType;
-    union {
+    __MINGW_EXTENSION union {
       struct {
 	DWORD dwAddressID;
 	LINEAGENTGROUPLIST GroupList;

@@ -1263,7 +1263,7 @@ extern "C" {
       LPWSTR sData;
       FLOAT fData;
       BINARY_CONTAINER biData;
-    }u;
+    } u;
   } BIDI_DATA,*PBIDI_DATA,*LPBIDI_DATA;
 
   typedef struct _BIDI_REQUEST_DATA{
