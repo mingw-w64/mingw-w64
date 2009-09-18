@@ -5,7 +5,7 @@
  */
 
 /* Define __mingw_<printf> macros.  */
-#if defined(__USE_MINGW_ANSI_STDIO) && defined(_INC_STDIO) && __USE_MINGW_ANSI_STDIO != 0
+#if defined(__USE_MINGW_ANSI_STDIO) && defined(_INC_STDIO) && ((__USE_MINGW_ANSI_STDIO + 0) != 0)
 #define fprintf		__mingw_fprintf
 #define printf		__mingw_printf
 #define sprintf		__mingw_sprintf

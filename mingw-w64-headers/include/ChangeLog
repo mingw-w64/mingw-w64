@@ -1,3 +1,9 @@
+2009-09-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_print_pop.h:  Fixed compilation when __USE_MINGW_ANSI_STDIO is defined,
+	but not to a specific value.
+	* _mingw_print_push.h: Likewise.
+
 2009-09-17  Kai Tietz  <kai.tietz@onevision.com>
 
         * time.h, wchar.h, tchar.h: Add for time specific function the _<name>32 version
