@@ -1,4 +1,4 @@
-#define __USE_MINGW_ANSI_STDIO
+#define __USE_MINGW_ANSI_STDIO 1
 #include <stdio.h>
 #include <stdint.h>
 #include <inttypes.h>
