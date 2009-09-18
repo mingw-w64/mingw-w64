@@ -176,10 +176,9 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _fgetchar(void);
   int __cdecl fgetpos(FILE *_File ,fpos_t *_Pos);
   char *__cdecl fgets(char *_Buf,int _MaxCount,FILE *_File);
+  _CRTIMP int __cdecl _fileno(FILE *_File);
 #ifdef _POSIX_
   int __cdecl fileno(FILE *_File);
-#else
-  _CRTIMP int __cdecl _fileno(FILE *_File);
 #endif
   _CRTIMP char *__cdecl _tempnam(const char *_DirName,const char *_FilePrefix);
   _CRTIMP int __cdecl _flushall(void);
