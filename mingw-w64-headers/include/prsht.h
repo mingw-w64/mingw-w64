@@ -87,8 +87,36 @@ extern "C" {
 
   typedef LPCDLGTEMPLATE PROPSHEETPAGE_RESOURCE;
 
-#define PROPSHEETPAGEA_V1_FIELDS DWORD dwSize; DWORD dwFlags; HINSTANCE hInstance; __extension__ union { LPCSTR pszTemplate; PROPSHEETPAGE_RESOURCE pResource; } DUMMYUNIONNAME; __extension__ union { HICON hIcon; LPCSTR pszIcon; } DUMMYUNIONNAME2; LPCSTR pszTitle; DLGPROC pfnDlgProc; LPARAM lParam; LPFNPSPCALLBACKA pfnCallback; UINT *pcRefParent;
-#define PROPSHEETPAGEW_V1_FIELDS DWORD dwSize; DWORD dwFlags; HINSTANCE hInstance; __extension__ union { LPCWSTR pszTemplate; PROPSHEETPAGE_RESOURCE pResource; } DUMMYUNIONNAME; __extension__ union { HICON hIcon; LPCWSTR pszIcon; } DUMMYUNIONNAME2; LPCWSTR pszTitle; DLGPROC pfnDlgProc; LPARAM lParam; LPFNPSPCALLBACKW pfnCallback; UINT *pcRefParent;
+#define PROPSHEETPAGEA_V1_FIELDS				\
+  DWORD dwSize,dwFlags;						\
+  HINSTANCE hInstance;						\
+  __MINGW_EXTENSION union {					\
+    LPCSTR pszTemplate; PROPSHEETPAGE_RESOURCE pResource;	\
+  } DUMMYUNIONNAME;						\
+  __MINGW_EXTENSION union {					\
+    HICON hIcon; LPCSTR pszIcon;				\
+  } DUMMYUNIONNAME2;						\
+  LPCSTR pszTitle;						\
+  DLGPROC pfnDlgProc;						\
+  LPARAM lParam;						\
+  LPFNPSPCALLBACKA pfnCallback;					\
+  UINT *pcRefParent;
+
+#define PROPSHEETPAGEW_V1_FIELDS				\
+  DWORD dwSize, dwFlags;					\
+  HINSTANCE hInstance;						\
+  __MINGW_EXTENSION union {					\
+    LPCWSTR pszTemplate; PROPSHEETPAGE_RESOURCE pResource;	\
+  } DUMMYUNIONNAME;						\
+  __MINGW_EXTENSION union {					\
+    HICON hIcon; LPCWSTR pszIcon;				\
+  } DUMMYUNIONNAME2;						\
+  LPCWSTR pszTitle;						\
+  DLGPROC pfnDlgProc;						\
+  LPARAM lParam;						\
+  LPFNPSPCALLBACKW pfnCallback;					\
+  UINT *pcRefParent;
+
 #define _PROPSHEETPAGEA_V3 _PROPSHEETPAGEA
 #define _PROPSHEETPAGEW_V3 _PROPSHEETPAGEW
 
@@ -230,27 +258,27 @@ extern "C" {
     DWORD dwFlags;
     HWND hwndParent;
     HINSTANCE hInstance;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HICON hIcon;
       LPCSTR pszIcon;
     } DUMMYUNIONNAME;
     LPCSTR pszCaption;
     UINT nPages;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       UINT nStartPage;
       LPCSTR pStartPage;
     } DUMMYUNIONNAME2;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       LPCPROPSHEETPAGEA ppsp;
       HPROPSHEETPAGE *phpage;
     } DUMMYUNIONNAME3;
     PFNPROPSHEETCALLBACK pfnCallback;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HBITMAP hbmWatermark;
       LPCSTR pszbmWatermark;
     } DUMMYUNIONNAME4;
     HPALETTE hplWatermark;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HBITMAP hbmHeader;
       LPCSTR pszbmHeader;
     } DUMMYUNIONNAME5;
@@ -263,27 +291,27 @@ extern "C" {
     DWORD dwFlags;
     HWND hwndParent;
     HINSTANCE hInstance;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HICON hIcon;
       LPCWSTR pszIcon;
     } DUMMYUNIONNAME;
     LPCWSTR pszCaption;
     UINT nPages;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       UINT nStartPage;
       LPCWSTR pStartPage;
     } DUMMYUNIONNAME2;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       LPCPROPSHEETPAGEW ppsp;
       HPROPSHEETPAGE *phpage;
     } DUMMYUNIONNAME3;
     PFNPROPSHEETCALLBACK pfnCallback;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HBITMAP hbmWatermark;
       LPCWSTR pszbmWatermark;
     } DUMMYUNIONNAME4;
     HPALETTE hplWatermark;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HBITMAP hbmHeader;
       LPCWSTR pszbmHeader;
     } DUMMYUNIONNAME5;
