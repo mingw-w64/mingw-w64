@@ -42,7 +42,7 @@ typedef struct _RADIUS_ATTRIBUTE {
   DWORD dwAttrType;
   RADIUS_DATA_TYPE fDataType;
   DWORD cbDataLength;
-  union {
+  __MINGW_EXTENSION union {
     DWORD dwValue;
     PCSTR lpValue;
   };

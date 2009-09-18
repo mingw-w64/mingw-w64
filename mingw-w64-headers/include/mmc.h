@@ -1972,7 +1972,7 @@ extern "C" {
 
   typedef struct _MMC_TASK_DISPLAY_OBJECT {
     MMC_TASK_DISPLAY_TYPE eDisplayType;
-    union {
+    __MINGW_EXTENSION union {
       MMC_TASK_DISPLAY_BITMAP uBitmap;
       MMC_TASK_DISPLAY_SYMBOL uSymbol;
     };
@@ -1988,7 +1988,7 @@ extern "C" {
     LPOLESTR szText;
     LPOLESTR szHelpString;
     MMC_ACTION_TYPE eActionType;
-    union {
+    __MINGW_EXTENSION union {
       LONG_PTR nCommandID;
       LPOLESTR szActionURL;
       LPOLESTR szScript;
@@ -2508,13 +2508,13 @@ extern "C" {
     LPOLESTR pstrPersistableViewDescription;
     MMC_VIEW_TYPE eViewType;
     DWORD dwMiscOptions;
-    union {
+    __MINGW_EXTENSION union {
       DWORD dwListOptions;
-      struct {
+      __MINGW_EXTENSION struct {
 	DWORD dwHTMLOptions;
 	LPOLESTR pstrURL;
       };
-      struct {
+      __MINGW_EXTENSION struct {
 	DWORD dwOCXOptions;
 	LPUNKNOWN pUnkControl;
       };

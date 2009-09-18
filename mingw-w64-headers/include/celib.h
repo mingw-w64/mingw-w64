@@ -89,7 +89,7 @@ enum ENUM_PERIOD {
 };
 
 typedef struct _LLFILETIME {
-  union {
+  __MINGW_EXTENSION union {
     LONGLONG ll;
     FILETIME ft;
   };

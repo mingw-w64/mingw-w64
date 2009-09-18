@@ -203,7 +203,7 @@ extern "C"{
 
   typedef struct _ADDRESS2 {
     DWORD Type;
-    union {
+    __MINGW_EXTENSION union {
       BYTE MACAddress[MAC_ADDRESS_SIZE];
       BYTE IPAddress[IP_ADDRESS_SIZE];
       BYTE IP6Address[IP6_ADDRESS_SIZE];
@@ -572,7 +572,7 @@ extern "C"{
     DWORD_PTR lpUserContext;
     DWORD_PTR lpReserved;
     UINT FramesDropped;
-    union {
+    __MINGW_EXTENSION union {
       DWORD Reserved;
       LPFRAMETABLE lpFrameTable;
       DWORD_PTR lpPacketQueue;
@@ -658,7 +658,7 @@ extern "C"{
 
 #pragma pack(push,1)
   typedef struct _CAPTUREFILE_HEADER {
-    union {
+    __MINGW_EXTENSION union {
       CAPTUREFILE_HEADER_VALUES ActualHeader;
       BYTE Buffer[72];
     };
@@ -806,7 +806,7 @@ extern "C"{
 
   typedef struct _ADDRESS {
     DWORD Type;
-    union {
+    __MINGW_EXTENSION union {
       BYTE MACAddress[MAC_ADDRESS_SIZE];
       BYTE IPAddress[IP_ADDRESS_SIZE];
       BYTE IPXRawAddress[IPX_ADDR_SIZE];
@@ -1253,7 +1253,7 @@ extern "C"{
 
   typedef struct _SET {
     DWORD nEntries;
-    union {
+    __MINGW_EXTENSION union {
       LPVOID lpVoidTable;
       LPBYTE lpByteTable;
       LPWORD lpWordTable;
@@ -1301,7 +1301,7 @@ extern "C"{
     LPSTR Comment;
     BYTE DataType;
     BYTE DataQualifier;
-    union {
+    __MINGW_EXTENSION union {
       LPVOID lpExtendedInfo;
       LPRANGE lpRange;
       LPSET lpSet;
@@ -1320,7 +1320,7 @@ extern "C"{
     WORD Length;
     WORD LengthEx;
     ULPVOID lpData;
-    union {
+    __MINGW_EXTENSION union {
       BYTE Byte[1];
       WORD Word[1];
       DWORD Dword[1];
@@ -1337,7 +1337,7 @@ extern "C"{
   typedef struct _PROPERTYINST {
     LPPROPERTYINFO lpPropertyInfo;
     LPSTR szPropertyText;
-    union {
+    __MINGW_EXTENSION union {
       LPVOID lpData;
       ULPBYTE lpByte;
       ULPWORD lpWord;
@@ -1647,7 +1647,7 @@ extern "C"{
   typedef struct _FILTEROBJECT2 {
     FILTERACTIONTYPE Action;
     HPROPERTY hProperty;
-    union {
+    __MINGW_EXTENSION union {
       VALUETYPE Value;
       HPROTOCOL hProtocol;
       LPVOID lpArray;
@@ -1657,7 +1657,7 @@ extern "C"{
       ULPTIME lpTime;
       LPOBJECT_IDENTIFIER lpOID;
     };
-    union {
+    __MINGW_EXTENSION union {
       WORD ByteCount;
       WORD ByteOffset;
     };
@@ -1685,7 +1685,7 @@ extern "C"{
   typedef struct _FILTEROBJECT {
     FILTERACTIONTYPE Action;
     HPROPERTY hProperty;
-    union {
+    __MINGW_EXTENSION union {
       VALUETYPE Value;
       HPROTOCOL hProtocol;
       LPVOID lpArray;
@@ -1695,7 +1695,7 @@ extern "C"{
       ULPTIME lpTime;
       LPOBJECT_IDENTIFIER lpOID;
     };
-    union {
+    __MINGW_EXTENSION union {
       WORD ByteCount;
       WORD ByteOffset;
     };
@@ -1805,7 +1805,7 @@ extern "C"{
   typedef struct _ETHERNET {
     BYTE DstAddr[MAX_ADDR_LENGTH];
     BYTE SrcAddr[MAX_ADDR_LENGTH];
-    union {
+    __MINGW_EXTENSION union {
       WORD Length;
       WORD Type;
     };
@@ -1852,7 +1852,7 @@ extern "C"{
     BYTE FrameCtrl;
     BYTE DstAddr[MAX_ADDR_LENGTH];
     BYTE SrcAddr[MAX_ADDR_LENGTH];
-    union {
+    __MINGW_EXTENSION union {
       BYTE Info[0];
       WORD RoutingInfo[0];
     };
@@ -1902,11 +1902,11 @@ extern "C"{
     BYTE dsap;
     BYTE ssap;
     struct {
-      union {
+      __MINGW_EXTENSION union {
 	BYTE Command;
 	BYTE NextSend;
       };
-      union {
+      __MINGW_EXTENSION union {
 	BYTE NextRecv;
 	BYTE Data[1];
       };
@@ -2454,14 +2454,14 @@ extern "C"{
 #pragma pack(push,1)
 
   typedef struct _IP {
-    union {
+    __MINGW_EXTENSION union {
       BYTE Version;
       BYTE HdrLen;
     };
     BYTE ServiceType;
     WORD TotalLen;
     WORD ID;
-    union {
+    __MINGW_EXTENSION union {
       WORD Flags;
       WORD FragOff;
     };
@@ -2773,14 +2773,14 @@ extern "C"{
     BYTE Type;
     BYTE Code;
     WORD Checksum;
-    union {
+    __MINGW_EXTENSION union {
       DWORD Unused;
       DWORD Address;
       ReqReply RR;
       ParmProb PP;
       RouterAH RAH;
     };
-    union {
+    __MINGW_EXTENSION union {
       TS Time;
       IP IP;
       RouterAE RAE[0];
