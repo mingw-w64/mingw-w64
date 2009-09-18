@@ -63,7 +63,9 @@ extern "C" {
 #define TIME_MIDI 0x0010
 #define TIME_TICKS 0x0020
 
-#define MAKEFOURCC(ch0,ch1,ch2,ch3) ((DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8) | ((DWORD)(BYTE)(ch2) << 16) | ((DWORD)(BYTE)(ch3) << 24))
+#define MAKEFOURCC(ch0,ch1,ch2,ch3)				\
+  ((DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8) | 		\
+   ((DWORD)(BYTE)(ch2) << 16) | ((DWORD)(BYTE)(ch3) << 24))
 
 #define MM_JOY1MOVE 0x3A0
 #define MM_JOY2MOVE 0x3A1
@@ -1170,7 +1172,7 @@ extern "C" {
 #define MIXERLINE_LINEF_DISCONNECTED 0x00008000L
 #define MIXERLINE_LINEF_SOURCE 0x80000000L
 
-#define MIXERLINE_COMPONENTTYPE_DST_FIRST 0x00000000L
+#define MIXERLINE_COMPONENTTYPE_DST_FIRST 0x0L
 #define MIXERLINE_COMPONENTTYPE_DST_UNDEFINED (MIXERLINE_COMPONENTTYPE_DST_FIRST + 0)
 #define MIXERLINE_COMPONENTTYPE_DST_DIGITAL (MIXERLINE_COMPONENTTYPE_DST_FIRST + 1)
 #define MIXERLINE_COMPONENTTYPE_DST_LINE (MIXERLINE_COMPONENTTYPE_DST_FIRST + 2)
@@ -1229,11 +1231,11 @@ extern "C" {
     CHAR szShortName[MIXER_SHORT_NAME_CHARS];
     CHAR szName[MIXER_LONG_NAME_CHARS];
     union {
-      __extension__ struct {
+      __MINGW_EXTENSION struct {
 	LONG lMinimum;
 	LONG lMaximum;
       };
-      __extension__ struct {
+      __MINGW_EXTENSION struct {
 	DWORD dwMinimum;
 	DWORD dwMaximum;
       };
@@ -1255,11 +1257,11 @@ extern "C" {
     WCHAR szShortName[MIXER_SHORT_NAME_CHARS];
     WCHAR szName[MIXER_LONG_NAME_CHARS];
     union {
-      __extension__ struct {
+      __MINGW_EXTENSION struct {
 	LONG lMinimum;
 	LONG lMaximum;
       };
-      __extension__ struct {
+      __MINGW_EXTENSION struct {
 	DWORD dwMinimum;
 	DWORD dwMaximum;
       };
@@ -1351,7 +1353,7 @@ extern "C" {
   typedef struct tagMIXERLINECONTROLSA {
     DWORD cbStruct;
     DWORD dwLineID;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       DWORD dwControlID;
       DWORD dwControlType;
     };
@@ -1363,7 +1365,7 @@ extern "C" {
   typedef struct tagMIXERLINECONTROLSW {
     DWORD cbStruct;
     DWORD dwLineID;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       DWORD dwControlID;
       DWORD dwControlType;
     };
@@ -1399,7 +1401,7 @@ extern "C" {
     DWORD cbStruct;
     DWORD dwControlID;
     DWORD cChannels;
-    __extension__ union {
+    __MINGW_EXTENSION union {
       HWND hwndOwner;
       DWORD cMultipleItems;
     };
