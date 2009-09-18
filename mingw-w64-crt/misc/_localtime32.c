@@ -1,4 +1,6 @@
+#ifndef __NO_INLINE__
 #define __NO_INLINE__
+#endif
 #include <time.h>
 
 extern struct tm * (__cdecl *__MINGW_IMP_SYMBOL(localtime))(const __time32_t *);

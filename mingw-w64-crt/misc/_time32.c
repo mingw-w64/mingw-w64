@@ -1,4 +1,6 @@
+#ifndef __NO_INLINE__
 #define __NO_INLINE__
+#endif
 #include <time.h>
 
 extern __time32_t (__cdecl *__MINGW_IMP_SYMBOL(time))(__time32_t *);
