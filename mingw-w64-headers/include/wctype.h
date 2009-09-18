@@ -23,15 +23,17 @@ extern "C" {
 #endif
 
 #ifndef _WCHAR_T_DEFINED
-  typedef unsigned short wchar_t;
 #define _WCHAR_T_DEFINED
-#endif
+#ifndef __cplusplus
+  typedef unsigned short wchar_t;
+#endif /* C++ */
+#endif /* _WCHAR_T_DEFINED */
 
 #ifndef _WCTYPE_T_DEFINED
+#define _WCTYPE_T_DEFINED
   typedef unsigned short wint_t;
   typedef unsigned short wctype_t;
-#define _WCTYPE_T_DEFINED
-#endif
+#endif /* _WCTYPE_T_DEFINED */
 
 #ifndef WEOF
 #define WEOF (wint_t)(0xFFFF)

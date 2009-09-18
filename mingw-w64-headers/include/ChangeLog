@@ -4,6 +4,8 @@
 	__MINGW_EXTENSION macro is in effect, remove the gcc-specific typedefs
 	using machine modes for strict ansi cases and 64 bit scalars.
 
+	* wctype.h: Added the missing __cplusplus guard around wchar_t typedef.
+
 2009-09-18  Kai Tietz  <kai.tietz@onevision.com>
 
         * Implement time_t related functions by stubs in libmingwex.a and do
