@@ -7,7 +7,7 @@
 
 #define TMSCHEMA_H
 
-#include "SchemaDef.h"
+#include "schemadef.h"
 
 #define THEMEMGR_VERSION 1
 
