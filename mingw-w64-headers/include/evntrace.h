@@ -164,14 +164,14 @@ typedef ULONG64 TRACEHANDLE,*PTRACEHANDLE;
 
 typedef struct _EVENT_TRACE_HEADER {
   USHORT Size;
-  union {
+  __MINGW_EXTENSION union {
     USHORT FieldTypeFlags;
-    struct {
+    __MINGW_EXTENSION struct {
       UCHAR HeaderType;
       UCHAR MarkerFlags;
     };
   };
-  union {
+  __MINGW_EXTENSION union {
     ULONG Version;
     struct {
       UCHAR Type;
@@ -182,16 +182,16 @@ typedef struct _EVENT_TRACE_HEADER {
   ULONG ThreadId;
   ULONG ProcessId;
   LARGE_INTEGER TimeStamp;
-  union {
+  __MINGW_EXTENSION union {
     GUID Guid;
     ULONGLONG GuidPtr;
   };
-  union {
-    struct {
+  __MINGW_EXTENSION union {
+    __MINGW_EXTENSION struct {
       ULONG ClientContext;
       ULONG Flags;
     };
-    struct {
+    __MINGW_EXTENSION struct {
       ULONG KernelTime;
       ULONG UserTime;
     };
@@ -201,14 +201,14 @@ typedef struct _EVENT_TRACE_HEADER {
 
 typedef struct _EVENT_INSTANCE_HEADER {
   USHORT Size;
-  union {
+  __MINGW_EXTENSION union {
     USHORT FieldTypeFlags;
-    struct {
+    __MINGW_EXTENSION struct {
       UCHAR HeaderType;
       UCHAR MarkerFlags;
     };
   };
-  union {
+  __MINGW_EXTENSION union {
     ULONG Version;
     struct {
       UCHAR Type;
@@ -222,12 +222,12 @@ typedef struct _EVENT_INSTANCE_HEADER {
   ULONGLONG RegHandle;
   ULONG InstanceId;
   ULONG ParentInstanceId;
-  union {
-    struct {
+  __MINGW_EXTENSION union {
+    __MINGW_EXTENSION struct {
       ULONG ClientContext;
       ULONG Flags;
     };
-    struct {
+    __MINGW_EXTENSION struct {
       ULONG KernelTime;
       ULONG UserTime;
     };
@@ -248,7 +248,7 @@ typedef struct _MOF_FIELD {
 
 typedef struct _TRACE_LOGFILE_HEADER {
   ULONG BufferSize;
-  union {
+  __MINGW_EXTENSION union {
     ULONG Version;
     struct {
       UCHAR MajorVersion;
@@ -264,9 +264,9 @@ typedef struct _TRACE_LOGFILE_HEADER {
   ULONG MaximumFileSize;
   ULONG LogFileMode;
   ULONG BuffersWritten;
-  union {
+  __MINGW_EXTENSION union {
     GUID LogInstanceGuid;
-    struct {
+    __MINGW_EXTENSION struct {
       ULONG StartBuffers;
       ULONG PointerSize;
       ULONG EventsLost;
