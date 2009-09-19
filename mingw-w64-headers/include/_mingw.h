@@ -171,9 +171,11 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define __ptr32
 #define __ptr64
 #ifndef __unaligned
+/* gcc can not handle packed on base types, so
+ * this is an empty define. */
 #define __unaligned /* __attribute ((packed)) */
 #endif
-#define __forceinline extern __inline
+#define __forceinline __inline__ __attribute__((always_inline))
 #endif /* __GNUC__ */
 
 #ifndef _WIN32

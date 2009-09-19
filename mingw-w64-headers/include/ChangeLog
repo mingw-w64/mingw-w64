@@ -1,3 +1,8 @@
+2009-09-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h: Made the __forceinline definition to mirror the FORCEINLINE
+	definition in winnt.h
+
 2009-09-18  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw.h, io.h, rpcndr.h, strsafe.h. time.h, vadefs.h:  Now that the
