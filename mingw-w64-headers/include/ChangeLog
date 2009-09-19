@@ -1,5 +1,12 @@
 2009-09-19  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* _mingw.h (__USE_MINGW_ANSI_STDIO): If not explicitly defined by the
+	user, but when any of the _POSIX, __STRICT_ANSI__, _ISOC99_SOURCE,
+	_POSIX_SOURCE, _POSIX_C_SOURCE, _XOPEN_SOURCE, _XOPEN_SOURCE_EXTENDED,
+	_GNU_SOURCE, _BSD_SOURCE or _SVID_SOURCE macros is defined, assume that
+	ANSI I/O standards are preferred over Microsoft's and define it as 1.
+	With this we now mimic mingw.org behavior.
+
 	* _mingw.h: Made the __forceinline definition to mirror the FORCEINLINE
 	definition in winnt.h
 
