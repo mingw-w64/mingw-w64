@@ -96,7 +96,7 @@ extern "C" {
 
   typedef struct _HTTP_DATA_CHUNK {
     HTTP_DATA_CHUNK_TYPE DataChunkType;
-    union {
+    __MINGW_EXTENSION union {
       struct {
 	PVOID pBuffer;
 	ULONG BufferLength;

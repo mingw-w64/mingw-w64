@@ -63,7 +63,7 @@ typedef struct _IPXWAN_IF_INFO {
 } IPXWAN_IF_INFO,*PIPXWAN_IF_INFO;
 
 typedef struct _IPX_STATIC_ROUTE_INFO {
-  union {
+  __MINGW_EXTENSION union {
     ULONG DwordAlign;
     UCHAR Network[4];
   };
@@ -75,7 +75,7 @@ typedef struct _IPX_STATIC_ROUTE_INFO {
 typedef IPX_SERVER_ENTRY IPX_STATIC_SERVICE_INFO,*PIPX_STATIC_SERVICE_INFO;
 
 typedef struct _IPX_STATIC_NETBIOS_NAME_INFO {
-  union {
+  __MINGW_EXTENSION union {
     ULONG DwordAlign;
     UCHAR Name[16];
   };

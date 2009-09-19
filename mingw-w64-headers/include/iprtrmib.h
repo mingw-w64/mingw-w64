@@ -180,8 +180,8 @@ typedef struct _MIB_UDPROW_OWNER_MODULE {
   DWORD dwLocalPort;
   DWORD dwOwningPid;
   LARGE_INTEGER liCreateTimestamp;
-  union {
-    struct {
+  __MINGW_EXTENSION union {
+    __MINGW_EXTENSION struct {
       DWORD SpecificPortBind : 1;
     };
     DWORD dwFlags;
@@ -202,8 +202,8 @@ typedef struct _MIB_UDP6ROW_OWNER_MODULE {
   DWORD dwLocalPort;
   DWORD dwOwningPid;
   LARGE_INTEGER liCreateTimestamp;
-  union {
-    struct {
+  __MINGW_EXTENSION union {
+    __MINGW_EXTENSION struct {
       DWORD SpecificPortBind : 1;
     };
     DWORD dwFlags;
@@ -713,7 +713,7 @@ typedef struct _MIB_ROUTESTATE {
 
 typedef struct _MIB_OPAQUE_INFO {
   DWORD dwId;
-  union {
+  __MINGW_EXTENSION union {
     ULONGLONG ullAlign;
     BYTE rgbyData[1];
   };

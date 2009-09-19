@@ -24,7 +24,7 @@ typedef struct _SAP_IF_INFO {
 } SAP_IF_INFO,*PSAP_IF_INFO;
 
 typedef struct _SAP_SERVICE_FILTER_INFO {
-  union {
+  __MINGW_EXTENSION union {
     USHORT ServiceType;
     ULONG ServiceType_align;
   };
