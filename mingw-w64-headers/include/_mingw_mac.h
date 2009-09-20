@@ -75,6 +75,29 @@
 #define _M_IA64 100
 #endif
 
+#ifndef __PTRDIFF_TYPE__
+#ifdef _WIN64
+#define __PTRDIFF_TYPE__ long long int
+#else
+#define __PTRDIFF_TYPE__ long int
+#endif
+#endif
+
+#ifndef __SIZE_TYPE__
+#ifdef _WIN64
+#define __SIZE_TYPE__ long long unsigned int
+#else
+#define __SIZE_TYPE__ long unsigned int
+#endif
+#endif
+
+#ifndef __WCHAR_TYPE__
+#define __WCHAR_TYPE__ unsigned short
+#endif
+#ifndef __WINT_TYPE__
+#define __WINT_TYPE__  unsigned short
+#endif
+
 #if defined(__GNUC__) || defined(__GNUG__)
 #define __MINGW_EXTENSION	__extension__
 #else

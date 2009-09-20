@@ -1,5 +1,9 @@
 2009-09-20  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* _mingw_mac.h: Added default definitions of __PTRDIFF_TYPE__,
+	__SIZE_TYPE__ and __WCHAR_TYPE__ for cases where these headers are not
+	used with gcc.
+
 	* _mingw.h: Added missing #define _PTRDIFF_T_.
 
 	* vadefs.h: Added a noted that _CRT_PACKING definition being duplicated
