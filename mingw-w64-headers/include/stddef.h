@@ -13,14 +13,6 @@
 extern "C" {
 #endif
 
-#ifndef _CRT_ERRNO_DEFINED
-#define _CRT_ERRNO_DEFINED
-  _CRTIMP extern int *__cdecl _errno(void);
-#define errno (*_errno())
-  errno_t __cdecl _set_errno(int _Value);
-  errno_t __cdecl _get_errno(int *_Value);
-#endif
-
   _CRTIMP extern unsigned long __cdecl __threadid(void);
 #define _threadid (__threadid())
   _CRTIMP extern uintptr_t __cdecl __threadhandle(void);
