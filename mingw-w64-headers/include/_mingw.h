@@ -9,14 +9,6 @@
 
 #include "_mingw_mac.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-const char *__mingw_get_crt_info (void);
-#ifdef __cplusplus
-}
-#endif
-
 /* C/C++ specific language defines.  */
 #ifdef _WIN64
 #ifdef __stdcall
@@ -192,14 +184,10 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 
 #undef _CRT_PACKING
 #define _CRT_PACKING 8
-
+/* this is duplicated in vadefs.h */
 #pragma pack(push,_CRT_PACKING)
 
 #include <vadefs.h>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #ifndef _CRT_STRINGIZE
 #define __CRT_STRINGIZE(_Value) #_Value
@@ -441,12 +429,60 @@ extern "C" {
 #define _TRUNCATE ((size_t)-1)
 #endif
 
+#ifndef _CRT_UNUSED
+#define _CRT_UNUSED(x) (void)x
+#endif
+
 #if defined(_POSIX) && !defined(__USE_MINGW_ANSI_STDIO)
 /* Enable __USE_MINGW_ANSI_STDIO if _POSIX defined
  * and If user did _not_ specify it explicitly... */
 #  define __USE_MINGW_ANSI_STDIO			1
 #endif
 
+/* _dowildcard is an int that controls the globbing of the command line.
+ * The MinGW32 (mingw.org) runtime calls it _CRT_glob, so we are adding
+ * a compatibility definition here:  you can use either of _CRT_glob or
+ * _dowildcard .
+ * If _dowildcard is non-zero, the command line will be globbed:  *.*
+ * will be expanded to be all files in the startup directory.
+ * In the mingw-w64 library a _dowildcard variable is defined as being
+ * 0, therefore command line globbing is DISABLED by default. To turn it
+ * on and to leave wildcard command line processing MS's globbing code,
+ * include a line in one of your source modules defining _dowildcard and
+ * setting it to -1, like so:
+ * int _dowildcard = -1;
+ */
+#undef  _CRT_glob
+#define _CRT_glob _dowildcard
+
+#ifndef DUMMYUNIONNAME
+# ifdef NONAMELESSUNION
+#  define DUMMYUNIONNAME  u
+#  define DUMMYUNIONNAME1 u1
+#  define DUMMYUNIONNAME2 u2
+#  define DUMMYUNIONNAME3 u3
+#  define DUMMYUNIONNAME4 u4
+#  define DUMMYUNIONNAME5 u5
+# else /* NONAMELESSUNION */
+#  define DUMMYUNIONNAME
+#  define DUMMYUNIONNAME1
+#  define DUMMYUNIONNAME2
+#  define DUMMYUNIONNAME3
+#  define DUMMYUNIONNAME4
+#  define DUMMYUNIONNAME5
+# endif
+#endif	/* DUMMYUNIONNAME */
+
+#ifndef DUMMYSTRUCTNAME
+# ifdef NONAMELESSSTRUCT
+#  define DUMMYSTRUCTNAME s
+# else
+#  define DUMMYSTRUCTNAME
+# endif
+#endif /* DUMMYSTRUCTNAME */
+
+
+/* MSVC-isms: */
 
   struct threadlocaleinfostruct;
   struct threadmbcinfostruct;
@@ -497,62 +533,23 @@ extern "C" {
   } threadlocinfo;
 #endif /* _THREADLOCALEINFO */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* These two are not documented at MSDN.. */
   _CRTIMP extern unsigned long __cdecl __threadid(void);
 #define _threadid (__threadid())
   _CRTIMP extern uintptr_t __cdecl __threadhandle(void);
 
+/* mingw-w64 specific functions: */
+  const char *__mingw_get_crt_info (void);
+
 #ifdef __cplusplus
 }
 #endif
 
-#ifndef _CRT_UNUSED
-#define _CRT_UNUSED(x) (void)x
-#endif
-
 #pragma pack(pop)
-
-/* _dowildcard is an int that controls the globbing of the command line.
- * The MinGW32 (mingw.org) runtime calls it _CRT_glob, so we are adding
- * a compatibility definition here:  you can use either of _CRT_glob or
- * _dowildcard .
- * If _dowildcard is non-zero, the command line will be globbed:  *.*
- * will be expanded to be all files in the startup directory.
- * In the mingw-w64 library a _dowildcard variable is defined as being
- * 0, therefore command line globbing is DISABLED by default. To turn it
- * on and to leave wildcard command line processing MS's globbing code,
- * include a line in one of your source modules defining _dowildcard and
- * setting it to -1, like so:
- * int _dowildcard = -1;
- */
-#undef  _CRT_glob
-#define _CRT_glob _dowildcard
-
-#ifndef DUMMYUNIONNAME
-# ifdef NONAMELESSUNION
-#  define DUMMYUNIONNAME  u
-#  define DUMMYUNIONNAME1 u1
-#  define DUMMYUNIONNAME2 u2
-#  define DUMMYUNIONNAME3 u3
-#  define DUMMYUNIONNAME4 u4
-#  define DUMMYUNIONNAME5 u5
-# else /* NONAMELESSUNION */
-#  define DUMMYUNIONNAME
-#  define DUMMYUNIONNAME1
-#  define DUMMYUNIONNAME2
-#  define DUMMYUNIONNAME3
-#  define DUMMYUNIONNAME4
-#  define DUMMYUNIONNAME5
-# endif
-#endif	/* DUMMYUNIONNAME */
-
-#ifndef DUMMYSTRUCTNAME
-# ifdef NONAMELESSSTRUCT
-#  define DUMMYSTRUCTNAME s
-# else
-#  define DUMMYSTRUCTNAME
-# endif
-#endif /* DUMMYSTRUCTNAME */
 
 #endif /* _INC_CRTDEFS */
 

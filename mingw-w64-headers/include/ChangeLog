@@ -1,5 +1,12 @@
 2009-09-20  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* vadefs.h: Added a noted that _CRT_PACKING definition being duplicated
+	in _mingw.h.
+	* _mingw.h: Moved some stuff around for better readability.  Moved the
+	extern "C" marker to just the beginning of the function declarations at
+	the end. Added a noted that _CRT_PACKING definition being duplicated in
+	vadefs.h.
+
 	* stddef.h: Moved __threadid() and __threadhandle() from here ..
 	* _mingw.h: .. here, with notes.
 

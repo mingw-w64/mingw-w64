@@ -14,6 +14,7 @@
 
 #undef _CRT_PACKING
 #define _CRT_PACKING 8
+/* this is duplicated in _mingw.h */
 #pragma pack(push,_CRT_PACKING)
 
 #ifdef __cplusplus
