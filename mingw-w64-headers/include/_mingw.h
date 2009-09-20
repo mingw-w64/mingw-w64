@@ -323,6 +323,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #ifndef _PTRDIFF_T_DEFINED
 #define _PTRDIFF_T_DEFINED
 #ifndef _PTRDIFF_T_
+#define _PTRDIFF_T_
 #undef ptrdiff_t
 #ifdef _WIN64
   __MINGW_EXTENSION typedef __int64 ptrdiff_t;
@@ -336,7 +337,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define _WCHAR_T_DEFINED
 #ifndef __cplusplus
   typedef unsigned short wchar_t;
-#endif
+#endif /* C++ */
 #endif /* _WCHAR_T_DEFINED */
 
 #ifndef _WCTYPE_T_DEFINED

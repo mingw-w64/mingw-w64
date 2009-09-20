@@ -1,5 +1,7 @@
 2009-09-20  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* _mingw.h: Added missing #define _PTRDIFF_T_.
+
 	* vadefs.h: Added a noted that _CRT_PACKING definition being duplicated
 	in _mingw.h.
 	* _mingw.h: Moved some stuff around for better readability.  Moved the
