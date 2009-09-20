@@ -441,20 +441,10 @@ extern "C" {
 #define _TRUNCATE ((size_t)-1)
 #endif
 
-#ifndef __USE_MINGW_ANSI_STDIO
-/* If user didn't specify it explicitly... */
-# if defined(__STRICT_ANSI__) || defined(_ISOC99_SOURCE)	\
-    || defined(_POSIX)						\
-    || defined(_POSIX_SOURCE) || defined(_POSIX_C_SOURCE)	\
-    || defined(_XOPEN_SOURCE) || defined(_XOPEN_SOURCE_EXTENDED)\
-    || defined(_GNU_SOURCE)   || defined(_BSD_SOURCE)		\
-    || defined(_SVID_SOURCE)
-   /*
-    * but where any of these source code qualifiers are specified,
-    * then assume ANSI I/O standards are preferred over Microsoft's...
-    */
+#if defined(_POSIX) && !defined(__USE_MINGW_ANSI_STDIO)
+/* Enable __USE_MINGW_ANSI_STDIO if _POSIX defined
+ * and If user did _not_ specify it explicitly... */
 #  define __USE_MINGW_ANSI_STDIO			1
-# endif
 #endif
 
 
