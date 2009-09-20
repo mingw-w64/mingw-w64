@@ -14,12 +14,6 @@
 	the end. Added a noted that _CRT_PACKING definition being duplicated in
 	vadefs.h.
 
-	* stddef.h: Moved __threadid() and __threadhandle() from here ..
-	* _mingw.h: .. here, with notes.
-
-	* stddef.h: Removed the errno.h stuff that have no sane reason to stay
-	in stddef.h for mingw.
-
 	* _mingw.h (__USE_MINGW_ANSI_STDIO): If not explicitly defined by the
 	user, only check against the _POSIX define when forcibly enabling it.
 

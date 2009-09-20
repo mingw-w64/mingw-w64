@@ -534,11 +534,6 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 extern "C" {
 #endif
 
-/* These two are not documented at MSDN.. */
-  _CRTIMP extern unsigned long __cdecl __threadid(void);
-#define _threadid (__threadid())
-  _CRTIMP extern uintptr_t __cdecl __threadhandle(void);
-
 /* mingw-w64 specific functions: */
   const char *__mingw_get_crt_info (void);
 
