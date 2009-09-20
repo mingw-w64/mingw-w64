@@ -497,6 +497,11 @@ extern "C" {
   } threadlocinfo;
 #endif /* _THREADLOCALEINFO */
 
+/* These two are not documented at MSDN.. */
+  _CRTIMP extern unsigned long __cdecl __threadid(void);
+#define _threadid (__threadid())
+  _CRTIMP extern uintptr_t __cdecl __threadhandle(void);
+
 #ifdef __cplusplus
 }
 #endif

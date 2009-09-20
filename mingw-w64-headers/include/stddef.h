@@ -8,19 +8,7 @@
 
 #ifndef _INC_STDDEF
 #define _INC_STDDEF
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-  _CRTIMP extern unsigned long __cdecl __threadid(void);
-#define _threadid (__threadid())
-  _CRTIMP extern uintptr_t __cdecl __threadhandle(void);
-
-#ifdef __cplusplus
-}
-#endif
-
+/* nothing */
 #endif
 
 /*
