@@ -10,3 +10,5 @@ short _InterlockedIncrement16(short volatile *Addend)
   return ret + 1;
 }
 
+short InterlockedIncrement16(short volatile *) __attribute__((alias("_InterlockedIncrement16")));
+

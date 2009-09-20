@@ -9,3 +9,6 @@ long _InterlockedDecrement(long volatile *Addend)
 	       : : "memory");
   return ret - 1;
 }
+
+long InterlockedDecrement(long volatile *) __attribute__((alias("_InterlockedDecrement")));
+

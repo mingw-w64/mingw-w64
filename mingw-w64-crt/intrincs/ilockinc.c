@@ -9,3 +9,6 @@ long _InterlockedIncrement(long volatile *Addend)
 	       : : "memory");
   return ret + 1;
 }
+
+long InterlockedIncrement(long volatile *) __attribute__((alias("_InterlockedIncrement")));
+

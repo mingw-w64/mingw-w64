@@ -10,3 +10,5 @@ __int64 _InterlockedIncrement64(__int64 volatile *Addend)
   return ret + 1LL;
 }
 
+__int64 InterlockedIncrement64(__int64 volatile *) __attribute__((alias("_InterlockedIncrement64")));
+

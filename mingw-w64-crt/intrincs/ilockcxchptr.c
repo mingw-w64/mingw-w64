@@ -7,3 +7,5 @@ void *_InterlockedCompareExchangePointer(void * volatile *Destination, void *ExC
   return prev;
 }
 
+void *InterlockedCompareExchangePointer(void * volatile *, void *, void *) __attribute__((alias("_InterlockedCompareExchangePointer")));
+

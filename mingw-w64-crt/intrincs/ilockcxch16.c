@@ -10,3 +10,5 @@ short _InterlockedCompareExchange16(short volatile *Destination, short ExChange,
   return prev;
 }
 
+short InterlockedCompareExchange16(short volatile *, short, short) __attribute__((alias("_InterlockedCompareExchange16")));
+

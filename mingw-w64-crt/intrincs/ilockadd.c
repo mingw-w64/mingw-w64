@@ -1,6 +1,6 @@
 #include <intrin.h>
 
-long _InterlockedAdd(long volatile *Addend, long Value);			/* not in intrin.h */
+long _InterlockedAdd(long volatile *, long);			/* not in intrin.h */
 long _InterlockedAdd(long volatile *Addend, long Value)
 {
 /* return InterlockedExchangeAdd(Addend,Value) + Value; */
@@ -13,5 +13,5 @@ long _InterlockedAdd(long volatile *Addend, long Value)
   return ret + Value;
 }
 
-long InterlockedAdd(long volatile *Addend, long Value) __attribute__((alias("_InterlockedAdd")));
+long InterlockedAdd(long volatile *, long) __attribute__((alias("_InterlockedAdd")));
 

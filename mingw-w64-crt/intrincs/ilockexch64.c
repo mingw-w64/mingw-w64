@@ -9,3 +9,5 @@ __int64 _InterlockedExchange64(__int64 volatile *Target, __int64 Value)
   return Value;
 }
 
+__int64 InterlockedExchange64(__int64 volatile *, __int64) __attribute__((alias("_InterlockedExchange64")));
+

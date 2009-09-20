@@ -9,3 +9,5 @@ void *_InterlockedExchangePointer(void * volatile *Target, void *Value)
   return Value;
 }
 
+void *InterlockedExchangePointer(void * volatile *, void *) __attribute__((alias("_InterlockedExchangePointer")));
+

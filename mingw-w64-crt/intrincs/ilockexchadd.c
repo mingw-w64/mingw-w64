@@ -11,3 +11,5 @@ long _InterlockedExchangeAdd(long volatile *Addend, long Value)
   return ret;
 }
 
+long InterlockedExchangeAdd(long volatile *, long) __attribute__((alias("_InterlockedExchangeAdd")));
+

@@ -11,3 +11,5 @@ __int64 _InterlockedExchangeAdd64(__int64 volatile *Addend, __int64 Value)
   return ret;
 }
 
+__int64 InterlockedExchangeAdd64(__int64 volatile *, __int64) __attribute__((alias("_InterlockedExchangeAdd64")));
+

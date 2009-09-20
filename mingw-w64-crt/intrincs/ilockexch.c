@@ -9,3 +9,5 @@ long _InterlockedExchange(long volatile *Target, long Value)
   return Value;
 }
 
+long InterlockedExchange(long volatile *, long) __attribute__((alias("_InterlockedExchange")));
+

@@ -7,3 +7,5 @@ long _InterlockedCompareExchange(long volatile *Destination, long ExChange, long
   return prev;
 }
 
+long InterlockedCompareExchange(long volatile *, long, long) __attribute__((alias("_InterlockedCompareExchange")));
+

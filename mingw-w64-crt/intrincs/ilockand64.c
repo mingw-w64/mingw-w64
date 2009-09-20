@@ -7,3 +7,5 @@ __int64 _InterlockedAnd64(__int64 volatile *Destination, __int64 Value)
   return *Destination;
 }
 
+__int64 InterlockedAnd64(__int64 volatile *, __int64) __attribute__((alias("_InterlockedAnd64")));
+

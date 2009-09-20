@@ -7,3 +7,5 @@ long _InterlockedXor(long volatile *Destination, long Value)
   return *Destination;
 }
 
+long InterlockedXor(long volatile *, long) __attribute__((alias("_InterlockedXor")));
+

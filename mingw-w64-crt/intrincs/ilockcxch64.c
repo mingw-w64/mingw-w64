@@ -7,3 +7,5 @@ __int64 _InterlockedCompareExchange64(__int64 volatile *Destination, __int64 ExC
   return prev;
 }
 
+__int64 InterlockedCompareExchange64(__int64 volatile *, __int64, __int64) __attribute__((alias("_InterlockedCompareExchange64")));
+
