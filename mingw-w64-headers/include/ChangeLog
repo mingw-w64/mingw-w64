@@ -1,8 +1,9 @@
 2009-09-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_mac.h: Added default definitions of __PTRDIFF_TYPE__,
-	__SIZE_TYPE__ and __WCHAR_TYPE__ for cases where these headers are not
-	used with gcc.
+	__SIZE_TYPE__, __WINT_TYPE__ and __WCHAR_TYPE__ for cases where these
+	headers are not used with gcc.
+	* _mingw.h: Removed an obsoleted check for __WINT_TYPE__.
 
 	* _mingw.h: Added missing #define _PTRDIFF_T_.
 

@@ -342,10 +342,6 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 
 #ifndef _WCTYPE_T_DEFINED
 #define _WCTYPE_T_DEFINED
-#ifndef __WINT_TYPE__
-/* wint_t is unsigned short for compatibility with MS runtime */
-#define __WINT_TYPE__ unsigned short
-#endif /* __WINT_TYPE__ */
 #ifndef _WINT_T
 #define _WINT_T
   typedef unsigned short wint_t;
