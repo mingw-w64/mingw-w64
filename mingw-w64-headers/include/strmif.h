@@ -2090,12 +2090,12 @@ extern "C" {
   typedef struct __MIDL___MIDL_itf_strmif_0138_0006 {
     DWORD dwVersion;
     DWORD dwMerit;
-    union {
-      struct {
+    __MINGW_EXTENSION union {
+      __MINGW_EXTENSION struct {
 	ULONG cPins;
 	const REGFILTERPINS *rgPins;
       };
-      struct {
+      __MINGW_EXTENSION struct {
 	ULONG cPins2;
 	const REGFILTERPINS2 *rgPins2;
       };
@@ -5089,7 +5089,7 @@ extern "C" {
 #ifndef TIMECODE_DEFINED
 #define TIMECODE_DEFINED
   typedef union _timecode {
-    struct {
+    __MINGW_EXTENSION struct {
       WORD wFrameRate;
       WORD wFrameFract;
       DWORD dwFrames;

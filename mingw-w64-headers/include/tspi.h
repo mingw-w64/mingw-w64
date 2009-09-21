@@ -75,7 +75,7 @@ extern "C" {
     DWORD dwKey;
     DWORD dwTotalSize;
     DWORD dwQOSRequestType;
-    union {
+    __MINGW_EXTENSION union {
       struct {
 	DWORD dwNumServiceLevelEntries;
 	LINEQOSSERVICELEVEL LineQOSServiceLevel[1];
