@@ -488,15 +488,15 @@ typedef struct {
 } KSAUDIO_POSITION,*PKSAUDIO_POSITION;
 
 typedef struct _DS3DVECTOR {
-  union {
+  __MINGW_EXTENSION union {
     FLOAT x;
     FLOAT dvX;
   };
-  union {
+  __MINGW_EXTENSION union {
     FLOAT y;
     FLOAT dvY;
   };
-  union {
+  __MINGW_EXTENSION union {
     FLOAT z;
     FLOAT dvZ;
   };
@@ -1923,7 +1923,7 @@ typedef struct tagKS_VIDEOINFO {
   DWORD dwBitErrorRate;
   REFERENCE_TIME AvgTimePerFrame;
   KS_BITMAPINFOHEADER bmiHeader;
-  union {
+  __MINGW_EXTENSION union {
     KS_RGBQUAD bmiColors[KS_iPALETTE_COLORS];
     DWORD dwBitMasks[KS_iMASK_COLORS];
     KS_TRUECOLORINFO TrueColorInfo;
@@ -3349,25 +3349,25 @@ typedef struct _DDPIXELFORMAT {
   DWORD dwSize;
   DWORD dwFlags;
   DWORD dwFourCC;
-  union {
+  __MINGW_EXTENSION union {
     DWORD dwRGBBitCount;
     DWORD dwYUVBitCount;
     DWORD dwZBufferBitDepth;
     DWORD dwAlphaBitDepth;
   };
-  union {
+  __MINGW_EXTENSION union {
     DWORD dwRBitMask;
     DWORD dwYBitMask;
   };
-  union {
+  __MINGW_EXTENSION union {
     DWORD dwGBitMask;
     DWORD dwUBitMask;
   };
-  union {
+  __MINGW_EXTENSION union {
     DWORD dwBBitMask;
     DWORD dwVBitMask;
   };
-  union {
+  __MINGW_EXTENSION union {
     DWORD dwRGBAlphaBitMask;
     DWORD dwYUVAlphaBitMask;
     DWORD dwRGBZBitMask;

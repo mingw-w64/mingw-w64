@@ -43,7 +43,7 @@ extern "C" {
 #define MSSIP_ADDINFO_CATMEMBER 2
 #define MSSIP_ADDINFO_BLOB 3
 #define MSSIP_ADDINFO_NONMSSIP 500
-    union {
+    __MINGW_EXTENSION union {
       struct MS_ADDINFO_FLAT_ *psFlat;
       struct MS_ADDINFO_CATALOGMEMBER_ *psCatMember;
       struct MS_ADDINFO_BLOB_ *psBlob;

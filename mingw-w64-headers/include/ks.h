@@ -58,8 +58,8 @@ typedef struct {
 } KSPRIORITY,*PKSPRIORITY;
 
 typedef struct {
-  union {
-    struct
+  __MINGW_EXTENSION union {
+    __MINGW_EXTENSION struct
 #ifdef _KS_NO_ANONYMOUS_STRUCTURES_
       _IDENTIFIER
 #endif
@@ -151,7 +151,7 @@ typedef struct {
 } KSPROPERTY_MEMBERSHEADER,*PKSPROPERTY_MEMBERSHEADER;
 
 typedef union {
-  struct
+  __MINGW_EXTENSION struct
 #ifdef _KS_NO_ANONYMOUS_STRUCTURES_
     _SIGNED
 #endif
@@ -159,7 +159,7 @@ typedef union {
     LONG SignedMinimum;
     LONG SignedMaximum;
   };
-  struct
+  __MINGW_EXTENSION struct
 #ifdef _KS_NO_ANONYMOUS_STRUCTURES_
     _UNSIGNED
 #endif
@@ -170,7 +170,7 @@ typedef union {
 } KSPROPERTY_BOUNDS_LONG,*PKSPROPERTY_BOUNDS_LONG;
 
 typedef union {
-  struct
+  __MINGW_EXTENSION struct
 #ifdef _KS_NO_ANONYMOUS_STRUCTURES_
     _SIGNED64
 #endif
@@ -178,7 +178,7 @@ typedef union {
     LONGLONG SignedMinimum;
     LONGLONG SignedMaximum;
   };
-  struct
+  __MINGW_EXTENSION struct
 #ifdef _KS_NO_ANONYMOUS_STRUCTURES_
     _UNSIGNED64
 #endif
@@ -203,7 +203,7 @@ typedef PVOID PKSWORKER;
 
 typedef struct {
   ULONG NotificationType;
-  union {
+  __MINGW_EXTENSION union {
     struct {
       HANDLE Event;
       ULONG_PTR Reserved[2];
@@ -241,7 +241,7 @@ typedef struct {
 typedef struct {
   ULONG Size;
   ULONG Flags;
-  union {
+  __MINGW_EXTENSION union {
     HANDLE ObjectHandle;
     PVOID ObjectPointer;
   };
@@ -537,7 +537,7 @@ typedef enum {
 #define KSDATARANGE_REQUIRED_ATTRIBUTES (1 << KSDATARANGE_BIT_REQUIRED_ATTRIBUTES)
 
 typedef union {
-  struct {
+  __MINGW_EXTENSION struct {
     ULONG FormatSize;
     ULONG Flags;
     ULONG SampleSize;
@@ -710,7 +710,7 @@ typedef enum {
 #define KSALLOCATOR_FLAG_ATTENTION_STEPPING 0x00002000
 
 typedef struct {
-  union {
+  __MINGW_EXTENSION union {
     ULONG OptionsFlags;
     ULONG RequirementsFlags;
   };

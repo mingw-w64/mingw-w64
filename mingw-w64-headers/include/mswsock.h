@@ -86,8 +86,8 @@ extern "C" {
 #define TP_ELEMENT_FILE 2
 #define TP_ELEMENT_EOP 4
     ULONG cLength;
-    union {
-      struct {
+    __MINGW_EXTENSION union {
+      __MINGW_EXTENSION struct {
 	LARGE_INTEGER nFileOffset;
 	HANDLE hFile;
       };
