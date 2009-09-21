@@ -99,7 +99,7 @@ extern "C" {
 
   typedef struct _PATCH_OLD_FILE_INFO {
     ULONG SizeOfThisStruct;
-    union {
+    __MINGW_EXTENSION union {
       LPCSTR OldFileNameA;
       LPCWSTR OldFileNameW;
       HANDLE OldFileHandle;

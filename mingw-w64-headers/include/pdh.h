@@ -72,7 +72,7 @@ extern "C" {
 
   typedef struct _PDH_FMT_COUNTERVALUE {
     DWORD CStatus;
-    union {
+    __MINGW_EXTENSION union {
       LONG longValue;
       double doubleValue;
       LONGLONG largeValue;
@@ -141,10 +141,10 @@ extern "C" {
     DWORD_PTR dwUserData;
     DWORD_PTR dwQueryUserData;
     LPSTR szFullPath;
-    union {
+    __MINGW_EXTENSION union {
       PDH_DATA_ITEM_PATH_ELEMENTS_A DataItemPath;
       PDH_COUNTER_PATH_ELEMENTS_A CounterPath;
-      struct {
+      __MINGW_EXTENSION struct {
 	LPSTR szMachineName;
 	LPSTR szObjectName;
 	LPSTR szInstanceName;
@@ -167,10 +167,10 @@ extern "C" {
     DWORD_PTR dwUserData;
     DWORD_PTR dwQueryUserData;
     LPWSTR szFullPath;
-    union {
+    __MINGW_EXTENSION union {
       PDH_DATA_ITEM_PATH_ELEMENTS_W DataItemPath;
       PDH_COUNTER_PATH_ELEMENTS_W CounterPath;
-      struct {
+      __MINGW_EXTENSION struct {
 	LPWSTR szMachineName;
 	LPWSTR szObjectName;
 	LPWSTR szInstanceName;
@@ -205,8 +205,8 @@ extern "C" {
     LPSTR szBaseFileName;
     DWORD dwFileType;
     DWORD dwReserved;
-    union {
-      struct {
+    __MINGW_EXTENSION union {
+      __MINGW_EXTENSION struct {
 	DWORD PdlAutoNameInterval;
 	DWORD PdlAutoNameUnits;
 	LPSTR PdlCommandFilename;
@@ -216,7 +216,7 @@ extern "C" {
 	FILETIME PdlLogStartTime;
 	FILETIME PdlLogEndTime;
       };
-      struct {
+      __MINGW_EXTENSION struct {
 	DWORD TlNumberOfBuffers;
 	DWORD TlMinimumBuffers;
 	DWORD TlMaximumBuffers;
@@ -240,8 +240,8 @@ extern "C" {
     LPWSTR szBaseFileName;
     DWORD dwFileType;
     DWORD dwReserved;
-    union {
-      struct {
+    __MINGW_EXTENSION union {
+      __MINGW_EXTENSION struct {
 	DWORD PdlAutoNameInterval;
 	DWORD PdlAutoNameUnits;
 	LPWSTR PdlCommandFilename;
@@ -251,7 +251,7 @@ extern "C" {
 	FILETIME PdlLogStartTime;
 	FILETIME PdlLogEndTime;
       };
-      struct {
+      __MINGW_EXTENSION struct {
 	DWORD TlNumberOfBuffers;
 	DWORD TlMinimumBuffers;
 	DWORD TlMaximumBuffers;

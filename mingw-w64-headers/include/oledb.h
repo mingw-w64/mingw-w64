@@ -531,16 +531,16 @@ extern "C" {
 #ifndef DECIMAL_SETZERO
   typedef struct tagDEC {
     USHORT wReserved;
-    union {
-      struct {
+    __MINGW_EXTENSION union {
+      __MINGW_EXTENSION struct {
 	BYTE scale;
 	BYTE sign;
       };
       USHORT signscale;
     };
     ULONG Hi32;
-    union {
-      struct {
+    __MINGW_EXTENSION union {
+      __MINGW_EXTENSION struct {
 	ULONG Lo32;
 	ULONG Mid32;
       };
