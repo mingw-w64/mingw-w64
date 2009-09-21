@@ -41,7 +41,7 @@ extern "C" {
     WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO,*PWTD_GENERIC_CHAIN_POLICY_SIGNER_INFO;
 
   struct _WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
-    union {
+    __MINGW_EXTENSION union {
       DWORD cbStruct;
       DWORD cbSize;
     };
@@ -56,7 +56,7 @@ extern "C" {
   typedef HRESULT (WINAPI *PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK)(PCRYPT_PROVIDER_DATA pProvData,DWORD dwStepError,DWORD dwRegPolicySettings,DWORD cSigner,PWTD_GENERIC_CHAIN_POLICY_SIGNER_INFO *rgpSigner,void *pvPolicyArg);
 
   typedef struct _WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
-    union {
+    __MINGW_EXTENSION union {
       DWORD cbStruct;
       DWORD cbSize;
     };
@@ -67,7 +67,7 @@ extern "C" {
   } WTD_GENERIC_CHAIN_POLICY_CREATE_INFO,*PWTD_GENERIC_CHAIN_POLICY_CREATE_INFO;
 
   typedef struct _WTD_GENERIC_CHAIN_POLICY_DATA {
-    union {
+    __MINGW_EXTENSION union {
       DWORD cbStruct;
       DWORD cbSize;
     };
