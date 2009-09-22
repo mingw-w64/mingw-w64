@@ -40,6 +40,7 @@ DSA_GetItem@12
 DSA_GetItemPtr@8
 DSA_InsertItem@12
 DSA_SetItem@12
+DefSubclassProc@16
 DelMRUString@8
 DestroyPropertySheetPage@4
 DrawInsert@12
@@ -101,6 +102,7 @@ PropertySheet@4
 PropertySheetA@4
 PropertySheetW@4
 ReAlloc@8
+RemoveWindowSubclass@12
 SendNotify@16
 SendNotifyEx@20
 SetWindowSubclass@16
