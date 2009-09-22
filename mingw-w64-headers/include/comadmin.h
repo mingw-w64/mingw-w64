@@ -709,10 +709,9 @@ extern "C"{
   } COMAdminTransactionOptions;
 
   typedef enum COMAdminTxIsolationLevelOptions {
-    COMAdminTxIsolationLevelAny = 0,COMAdminTxIsolationLevelReadUnCommitted = COMAdminTxIsolationLevelAny + 1,
-    COMAdminTxIsolationLevelReadCommitted = COMAdminTxIsolationLevelReadUnCommitted + 1,
-    COMAdminTxIsolationLevelRepeatableRead = COMAdminTxIsolationLevelReadCommitted + 1,
-    COMAdminTxIsolationLevelSerializable = COMAdminTxIsolationLevelRepeatableRead + 1
+    COMAdminTxIsolationLevelAny = 0,COMAdminTxIsolationLevelReadUnCommitted,
+    COMAdminTxIsolationLevelReadCommitted,COMAdminTxIsolationLevelRepeatableRead,
+    COMAdminTxIsolationLevelSerializable
   } COMAdminTxIsolationLevelOptions;
 
   typedef enum COMAdminSynchronizationOptions {
@@ -756,10 +755,9 @@ extern "C"{
   } COMAdminServiceOptions;
 
   typedef enum COMAdminServiceStatusOptions {
-    COMAdminServiceStopped = 0,COMAdminServiceStartPending = COMAdminServiceStopped + 1,COMAdminServiceStopPending = COMAdminServiceStartPending + 1,
-    COMAdminServiceRunning = COMAdminServiceStopPending + 1,COMAdminServiceContinuePending = COMAdminServiceRunning + 1,
-    COMAdminServicePausePending = COMAdminServiceContinuePending + 1,COMAdminServicePaused = COMAdminServicePausePending + 1,
-    COMAdminServiceUnknownState = COMAdminServicePaused + 1
+    COMAdminServiceStopped = 0,COMAdminServiceStartPending,COMAdminServiceStopPending,
+    COMAdminServiceRunning,COMAdminServiceContinuePending,COMAdminServicePausePending,
+    COMAdminServicePaused,COMAdminServiceUnknownState
   } COMAdminServiceStatusOptions;
 
   typedef enum COMAdminQCMessageAuthenticateOptions {

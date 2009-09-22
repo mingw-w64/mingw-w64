@@ -2466,7 +2466,7 @@ extern "C"{
 #endif
 
   typedef enum __MIDL___MIDL_itf_autosvcs_0325_0001 {
-    TRKCOLL_PROCESSES = 0,TRKCOLL_APPLICATIONS = TRKCOLL_PROCESSES + 1,TRKCOLL_COMPONENTS = TRKCOLL_APPLICATIONS + 1
+    TRKCOLL_PROCESSES = 0,TRKCOLL_APPLICATIONS,TRKCOLL_COMPONENTS
   } TRACKING_COLL_TYPE;
 
   extern RPC_IF_HANDLE __MIDL_itf_autosvcs_0325_v0_0_c_ifspec;
@@ -4561,7 +4561,7 @@ extern "C"{
 #ifndef _tagCrmTransactionState_
 #define _tagCrmTransactionState_
   typedef enum tagCrmTransactionState {
-    TxState_Active = 0,TxState_Committed = TxState_Active + 1,TxState_Aborted = TxState_Committed + 1,TxState_Indoubt = TxState_Aborted + 1
+    TxState_Active = 0,TxState_Committed,TxState_Aborted,TxState_Indoubt
   } CrmTransactionState;
 #endif
 
@@ -4775,8 +4775,8 @@ extern "C"{
   } CSC_InheritanceConfig;
 
   typedef enum tagCSC_ThreadPool {
-    CSC_ThreadPoolNone = 0,CSC_ThreadPoolInherit = CSC_ThreadPoolNone + 1,CSC_STAThreadPool = CSC_ThreadPoolInherit + 1,
-    CSC_MTAThreadPool = CSC_STAThreadPool + 1
+    CSC_ThreadPoolNone = 0,CSC_ThreadPoolInherit,CSC_STAThreadPool,
+    CSC_MTAThreadPool
   } CSC_ThreadPool;
 
   typedef enum tagCSC_Binding {
@@ -4784,12 +4784,13 @@ extern "C"{
   } CSC_Binding;
 
   typedef enum tagCSC_TransactionConfig {
-    CSC_NoTransaction = 0,CSC_IfContainerIsTransactional = CSC_NoTransaction + 1,CSC_CreateTransactionIfNecessary = CSC_IfContainerIsTransactional + 1,CSC_NewTransaction = CSC_CreateTransactionIfNecessary + 1
+    CSC_NoTransaction = 0,CSC_IfContainerIsTransactional,CSC_CreateTransactionIfNecessary,
+    CSC_NewTransaction
   } CSC_TransactionConfig;
 
   typedef enum tagCSC_SynchronizationConfig {
-    CSC_NoSynchronization = 0,CSC_IfContainerIsSynchronized = CSC_NoSynchronization + 1,
-    CSC_NewSynchronizationIfNecessary = CSC_IfContainerIsSynchronized + 1,CSC_NewSynchronization = CSC_NewSynchronizationIfNecessary + 1
+    CSC_NoSynchronization = 0,CSC_IfContainerIsSynchronized,
+    CSC_NewSynchronizationIfNecessary,CSC_NewSynchronization
   } CSC_SynchronizationConfig;
 
   typedef enum tagCSC_TrackerConfig {
@@ -4797,7 +4798,7 @@ extern "C"{
   } CSC_TrackerConfig;
 
   typedef enum tagCSC_PartitionConfig {
-    CSC_NoPartition = 0,CSC_InheritPartition = CSC_NoPartition + 1,CSC_NewPartition = CSC_InheritPartition + 1
+    CSC_NoPartition = 0,CSC_InheritPartition,CSC_NewPartition
   } CSC_PartitionConfig;
 
   typedef enum tagCSC_IISIntrinsicsConfig {
@@ -4809,7 +4810,7 @@ extern "C"{
   } CSC_COMTIIntrinsicsConfig;
 
   typedef enum tagCSC_SxsConfig {
-    CSC_NoSxs = 0,CSC_InheritSxs = CSC_NoSxs + 1,CSC_NewSxs = CSC_InheritSxs + 1
+    CSC_NoSxs = 0,CSC_InheritSxs,CSC_NewSxs
   } CSC_SxsConfig;
 
   extern RPC_IF_HANDLE __MIDL_itf_autosvcs_0378_v0_0_c_ifspec;

@@ -869,9 +869,8 @@ extern "C"{
 
 #ifndef __IEventObjectChange_INTERFACE_DEFINED__
 #define __IEventObjectChange_INTERFACE_DEFINED__
-  typedef
-    enum __MIDL_IEventObjectChange_0001 {
-      EOC_NewObject = 0,EOC_ModifiedObject = EOC_NewObject + 1,EOC_DeletedObject = EOC_ModifiedObject + 1
+  typedef enum __MIDL_IEventObjectChange_0001 {
+    EOC_NewObject = 0,EOC_ModifiedObject,EOC_DeletedObject
   } EOC_ChangeType;
   EXTERN_C const IID IID_IEventObjectChange;
 #if defined(__cplusplus) && !defined(CINTERFACE)
