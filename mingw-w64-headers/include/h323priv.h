@@ -45,7 +45,7 @@ extern "C"{
 #endif
 
   typedef enum H245_CAPABILITY {
-    HC_G711 = 0,HC_G723 = HC_G711 + 1,HC_H263QCIF = HC_G723 + 1,HC_H261QCIF = HC_H263QCIF + 1
+    HC_G711 = 0,HC_G723,HC_H263QCIF,HC_H261QCIF
   } H245_CAPABILITY;
 
   extern RPC_IF_HANDLE __MIDL_itf_h323priv_0000_v0_0_c_ifspec;

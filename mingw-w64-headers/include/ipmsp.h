@@ -74,16 +74,16 @@ extern "C"{
 #define MAX_QOS_ID_LEN (128)
 
   typedef enum PARTICIPANT_TYPED_INFO {
-    PTI_CANONICALNAME = 0,PTI_NAME = PTI_CANONICALNAME + 1,PTI_EMAILADDRESS = PTI_NAME + 1,PTI_PHONENUMBER = PTI_EMAILADDRESS + 1,
-    PTI_LOCATION = PTI_PHONENUMBER + 1,PTI_TOOL = PTI_LOCATION + 1,PTI_NOTES = PTI_TOOL + 1,PTI_PRIVATE = PTI_NOTES + 1
+    PTI_CANONICALNAME = 0,PTI_NAME,PTI_EMAILADDRESS,PTI_PHONENUMBER,
+    PTI_LOCATION,PTI_TOOL,PTI_NOTES,PTI_PRIVATE
   } PARTICIPANT_TYPED_INFO;
 
   typedef enum PARTICIPANT_EVENT {
-    PE_NEW_PARTICIPANT = 0,PE_INFO_CHANGE = PE_NEW_PARTICIPANT + 1,PE_PARTICIPANT_LEAVE = PE_INFO_CHANGE + 1,
-    PE_NEW_SUBSTREAM = PE_PARTICIPANT_LEAVE + 1,PE_SUBSTREAM_REMOVED = PE_NEW_SUBSTREAM + 1,PE_SUBSTREAM_MAPPED = PE_SUBSTREAM_REMOVED + 1,
-    PE_SUBSTREAM_UNMAPPED = PE_SUBSTREAM_MAPPED + 1,PE_PARTICIPANT_TIMEOUT = PE_SUBSTREAM_UNMAPPED + 1,
-    PE_PARTICIPANT_RECOVERED = PE_PARTICIPANT_TIMEOUT + 1,PE_PARTICIPANT_ACTIVE = PE_PARTICIPANT_RECOVERED + 1,
-    PE_PARTICIPANT_INACTIVE = PE_PARTICIPANT_ACTIVE + 1,PE_LOCAL_TALKING = PE_PARTICIPANT_INACTIVE + 1,PE_LOCAL_SILENT = PE_LOCAL_TALKING + 1
+    PE_NEW_PARTICIPANT = 0,PE_INFO_CHANGE,PE_PARTICIPANT_LEAVE,
+    PE_NEW_SUBSTREAM,PE_SUBSTREAM_REMOVED,PE_SUBSTREAM_MAPPED,
+    PE_SUBSTREAM_UNMAPPED,PE_PARTICIPANT_TIMEOUT,PE_PARTICIPANT_RECOVERED,
+    PE_PARTICIPANT_ACTIVE,PE_PARTICIPANT_INACTIVE,PE_LOCAL_TALKING,
+    PE_LOCAL_SILENT
   } PARTICIPANT_EVENT;
 
   extern RPC_IF_HANDLE __MIDL_itf_ipmsp_0000_v0_0_c_ifspec;
@@ -273,8 +273,8 @@ extern "C"{
 #endif
 
   typedef enum tagStreamQualityProperty {
-    StreamQuality_MaxBitrate = 0,StreamQuality_CurrBitrate = StreamQuality_MaxBitrate + 1,StreamQuality_MinFrameInterval = StreamQuality_CurrBitrate + 1,
-    StreamQuality_AvgFrameInterval = StreamQuality_MinFrameInterval + 1
+    StreamQuality_MaxBitrate = 0,StreamQuality_CurrBitrate,StreamQuality_MinFrameInterval,
+    StreamQuality_AvgFrameInterval
   } StreamQualityProperty;
 
   extern RPC_IF_HANDLE __MIDL_itf_ipmsp_0503_v0_0_c_ifspec;
@@ -322,10 +322,9 @@ extern "C"{
 #endif
 
   typedef enum tagCallQualityProperty {
-    CallQuality_ControlInterval = 0,CallQuality_ConfBitrate = CallQuality_ControlInterval + 1,CallQuality_MaxInputBitrate = CallQuality_ConfBitrate + 1,
-    CallQuality_CurrInputBitrate = CallQuality_MaxInputBitrate + 1,CallQuality_MaxOutputBitrate = CallQuality_CurrInputBitrate + 1,
-    CallQuality_CurrOutputBitrate = CallQuality_MaxOutputBitrate + 1,CallQuality_MaxCPULoad = CallQuality_CurrOutputBitrate + 1,
-    CallQuality_CurrCPULoad = CallQuality_MaxCPULoad + 1
+    CallQuality_ControlInterval = 0,CallQuality_ConfBitrate,CallQuality_MaxInputBitrate,
+    CallQuality_CurrInputBitrate,CallQuality_MaxOutputBitrate,
+    CallQuality_CurrOutputBitrate,CallQuality_MaxCPULoad,CallQuality_CurrCPULoad
   } CallQualityProperty;
 
   extern RPC_IF_HANDLE __MIDL_itf_ipmsp_0504_v0_0_c_ifspec;
@@ -373,8 +372,8 @@ extern "C"{
 #endif
 
   typedef enum tagAudioDeviceProperty {
-    AudioDevice_DuplexMode = 0,AudioDevice_AutomaticGainControl = AudioDevice_DuplexMode + 1,
-    AudioDevice_AcousticEchoCancellation = AudioDevice_AutomaticGainControl + 1
+    AudioDevice_DuplexMode = 0,AudioDevice_AutomaticGainControl,
+    AudioDevice_AcousticEchoCancellation
   } AudioDeviceProperty;
 
   extern RPC_IF_HANDLE __MIDL_itf_ipmsp_0505_v0_0_c_ifspec;
@@ -422,10 +421,9 @@ extern "C"{
 #endif
 
   typedef enum tagAudioSettingsProperty {
-    AudioSettings_SignalLevel = 0,AudioSettings_SilenceThreshold = AudioSettings_SignalLevel + 1,
-    AudioSettings_Volume = AudioSettings_SilenceThreshold + 1,AudioSettings_Balance = AudioSettings_Volume + 1,
-    AudioSettings_Loudness = AudioSettings_Balance + 1,AudioSettings_Treble = AudioSettings_Loudness + 1,AudioSettings_Bass = AudioSettings_Treble + 1,
-    AudioSettings_Mono = AudioSettings_Bass + 1
+    AudioSettings_SignalLevel = 0,AudioSettings_SilenceThreshold,
+    AudioSettings_Volume,AudioSettings_Balance,AudioSettings_Loudness,
+    AudioSettings_Treble,AudioSettings_Bass,AudioSettings_Mono
   } AudioSettingsProperty;
 
   extern RPC_IF_HANDLE __MIDL_itf_ipmsp_0506_v0_0_c_ifspec;

@@ -607,11 +607,9 @@ extern "C" {
   } NODE_CLUSTER_STATE;
 
   typedef enum CLUSTER_RESOURCE_STATE_CHANGE_REASON {
-    eResourceStateChangeReasonUnknown = 0,eResourceStateChangeReasonMove = eResourceStateChangeReasonUnknown + 1,
-    eResourceStateChangeReasonFailover = eResourceStateChangeReasonMove + 1,
-    eResourceStateChangeReasonFailedMove = eResourceStateChangeReasonFailover + 1,
-    eResourceStateChangeReasonShutdown = eResourceStateChangeReasonFailedMove + 1,
-    eResourceStateChangeReasonRundown = eResourceStateChangeReasonShutdown + 1
+    eResourceStateChangeReasonUnknown = 0,eResourceStateChangeReasonMove,
+    eResourceStateChangeReasonFailover,eResourceStateChangeReasonFailedMove,
+    eResourceStateChangeReasonShutdown,eResourceStateChangeReasonRundown
   } CLUSTER_RESOURCE_STATE_CHANGE_REASON;
 
   typedef enum CLUSTER_SET_PASSWORD_FLAGS {
@@ -644,8 +642,8 @@ extern "C" {
   } CLUSTER_NODE_ENUM;
 
   typedef enum CLUSTER_NODE_STATE {
-    ClusterNodeStateUnknown = -1,ClusterNodeUp = ClusterNodeStateUnknown + 1,ClusterNodeDown = ClusterNodeUp + 1,
-    ClusterNodePaused = ClusterNodeDown + 1,ClusterNodeJoining = ClusterNodePaused + 1
+    ClusterNodeStateUnknown = -1,
+    ClusterNodeUp = 0,ClusterNodeDown,ClusterNodePaused,ClusterNodeJoining
   } CLUSTER_NODE_STATE;
 
   typedef enum CLUSTER_GROUP_ENUM {
@@ -653,27 +651,27 @@ extern "C" {
   } CLUSTER_GROUP_ENUM;
 
   typedef enum CLUSTER_GROUP_STATE {
-    ClusterGroupStateUnknown = -1,ClusterGroupOnline = ClusterGroupStateUnknown + 1,ClusterGroupOffline = ClusterGroupOnline + 1,
-    ClusterGroupFailed = ClusterGroupOffline + 1,ClusterGroupPartialOnline = ClusterGroupFailed + 1,ClusterGroupPending = ClusterGroupPartialOnline + 1
+    ClusterGroupStateUnknown = -1,
+    ClusterGroupOnline = 0,ClusterGroupOffline,ClusterGroupFailed,
+    ClusterGroupPartialOnline,ClusterGroupPending
   } CLUSTER_GROUP_STATE;
 
   typedef enum CLUSTER_GROUP_AUTOFAILBACK_TYPE {
-    ClusterGroupPreventFailback = 0,ClusterGroupAllowFailback = ClusterGroupPreventFailback + 1,
-    ClusterGroupFailbackTypeCount = ClusterGroupAllowFailback + 1
+    ClusterGroupPreventFailback = 0,ClusterGroupAllowFailback,ClusterGroupFailbackTypeCount
   } CLUSTER_GROUP_AUTOFAILBACK_TYPE;
 
   typedef enum CLUSTER_GROUP_AUTOFAILBACK_TYPE CGAFT;
 
   typedef enum CLUSTER_RESOURCE_STATE {
-    ClusterResourceStateUnknown = -1,ClusterResourceInherited = ClusterResourceStateUnknown + 1,
-    ClusterResourceInitializing = ClusterResourceInherited + 1,ClusterResourceOnline = ClusterResourceInitializing + 1,
-    ClusterResourceOffline = ClusterResourceOnline + 1,ClusterResourceFailed = ClusterResourceOffline + 1,ClusterResourcePending = 128,
-    ClusterResourceOnlinePending = ClusterResourcePending + 1,ClusterResourceOfflinePending = ClusterResourceOnlinePending + 1
+    ClusterResourceStateUnknown = -1,
+    ClusterResourceInherited = 0,ClusterResourceInitializing,ClusterResourceOnline,
+    ClusterResourceOffline,ClusterResourceFailed,
+    ClusterResourcePending = 128,ClusterResourceOnlinePending = 129,ClusterResourceOfflinePending = 130
   } CLUSTER_RESOURCE_STATE;
 
   typedef enum CLUSTER_RESOURCE_RESTART_ACTION {
-    ClusterResourceDontRestart = 0,ClusterResourceRestartNoNotify = ClusterResourceDontRestart + 1,
-    ClusterResourceRestartNotify = ClusterResourceRestartNoNotify + 1,ClusterResourceRestartActionCount = ClusterResourceRestartNotify + 1
+    ClusterResourceDontRestart = 0,ClusterResourceRestartNoNotify,
+    ClusterResourceRestartNotify,ClusterResourceRestartActionCount
   } CLUSTER_RESOURCE_RESTART_ACTION;
 
   typedef enum CLUSTER_RESOURCE_RESTART_ACTION CRRA;
@@ -683,21 +681,19 @@ extern "C" {
   } CLUSTER_RESOURCE_CREATE_FLAGS;
 
   typedef enum CLUSTER_PROPERTY_TYPE {
-    CLUSPROP_TYPE_UNKNOWN = -1,CLUSPROP_TYPE_ENDMARK = 0,CLUSPROP_TYPE_LIST_VALUE = CLUSPROP_TYPE_ENDMARK + 1,
-    CLUSPROP_TYPE_RESCLASS = CLUSPROP_TYPE_LIST_VALUE + 1,CLUSPROP_TYPE_RESERVED1 = CLUSPROP_TYPE_RESCLASS + 1,
-    CLUSPROP_TYPE_NAME = CLUSPROP_TYPE_RESERVED1 + 1,CLUSPROP_TYPE_SIGNATURE = CLUSPROP_TYPE_NAME + 1,
-    CLUSPROP_TYPE_SCSI_ADDRESS = CLUSPROP_TYPE_SIGNATURE + 1,CLUSPROP_TYPE_DISK_NUMBER = CLUSPROP_TYPE_SCSI_ADDRESS + 1,
-    CLUSPROP_TYPE_PARTITION_INFO = CLUSPROP_TYPE_DISK_NUMBER + 1,CLUSPROP_TYPE_FTSET_INFO = CLUSPROP_TYPE_PARTITION_INFO + 1,
-    CLUSPROP_TYPE_DISK_SERIALNUMBER = CLUSPROP_TYPE_FTSET_INFO + 1,CLUSPROP_TYPE_USER = 32768
+    CLUSPROP_TYPE_UNKNOWN = -1,
+    CLUSPROP_TYPE_ENDMARK = 0,CLUSPROP_TYPE_LIST_VALUE,CLUSPROP_TYPE_RESCLASS,CLUSPROP_TYPE_RESERVED1,
+    CLUSPROP_TYPE_NAME,CLUSPROP_TYPE_SIGNATURE,CLUSPROP_TYPE_SCSI_ADDRESS,CLUSPROP_TYPE_DISK_NUMBER,
+    CLUSPROP_TYPE_PARTITION_INFO,CLUSPROP_TYPE_FTSET_INFO,CLUSPROP_TYPE_DISK_SERIALNUMBER,
+    CLUSPROP_TYPE_USER = 32768
   } CLUSTER_PROPERTY_TYPE;
 
   typedef enum CLUSTER_PROPERTY_FORMAT {
-    CLUSPROP_FORMAT_UNKNOWN = 0,CLUSPROP_FORMAT_BINARY = CLUSPROP_FORMAT_UNKNOWN + 1,CLUSPROP_FORMAT_DWORD = CLUSPROP_FORMAT_BINARY + 1,
-    CLUSPROP_FORMAT_SZ = CLUSPROP_FORMAT_DWORD + 1,CLUSPROP_FORMAT_EXPAND_SZ = CLUSPROP_FORMAT_SZ + 1,
-    CLUSPROP_FORMAT_MULTI_SZ = CLUSPROP_FORMAT_EXPAND_SZ + 1,CLUSPROP_FORMAT_ULARGE_INTEGER = CLUSPROP_FORMAT_MULTI_SZ + 1,
-    CLUSPROP_FORMAT_LONG = CLUSPROP_FORMAT_ULARGE_INTEGER + 1,CLUSPROP_FORMAT_EXPANDED_SZ = CLUSPROP_FORMAT_LONG + 1,
-    CLUSPROP_FORMAT_SECURITY_DESCRIPTOR = CLUSPROP_FORMAT_EXPANDED_SZ + 1,CLUSPROP_FORMAT_LARGE_INTEGER = CLUSPROP_FORMAT_SECURITY_DESCRIPTOR + 1,
-    CLUSPROP_FORMAT_WORD = CLUSPROP_FORMAT_LARGE_INTEGER + 1,CLUSPROP_FORMAT_USER = 32768
+    CLUSPROP_FORMAT_UNKNOWN = 0,CLUSPROP_FORMAT_BINARY,CLUSPROP_FORMAT_DWORD,
+    CLUSPROP_FORMAT_SZ,CLUSPROP_FORMAT_EXPAND_SZ,CLUSPROP_FORMAT_MULTI_SZ,CLUSPROP_FORMAT_ULARGE_INTEGER,
+    CLUSPROP_FORMAT_LONG,CLUSPROP_FORMAT_EXPANDED_SZ,CLUSPROP_FORMAT_SECURITY_DESCRIPTOR,
+    CLUSPROP_FORMAT_LARGE_INTEGER,CLUSPROP_FORMAT_WORD,
+    CLUSPROP_FORMAT_USER = 32768
   } CLUSTER_PROPERTY_FORMAT;
 
   typedef enum CLUSTER_PROPERTY_SYNTAX {
@@ -723,9 +719,9 @@ extern "C" {
   } CLUSTER_PROPERTY_SYNTAX;
 
   typedef enum CLUSTER_CONTROL_OBJECT {
-    CLUS_OBJECT_INVALID = 0,CLUS_OBJECT_RESOURCE = CLUS_OBJECT_INVALID + 1,CLUS_OBJECT_RESOURCE_TYPE = CLUS_OBJECT_RESOURCE + 1,
-    CLUS_OBJECT_GROUP = CLUS_OBJECT_RESOURCE_TYPE + 1,CLUS_OBJECT_NODE = CLUS_OBJECT_GROUP + 1,CLUS_OBJECT_NETWORK = CLUS_OBJECT_NODE + 1,
-    CLUS_OBJECT_NETINTERFACE = CLUS_OBJECT_NETWORK + 1,CLUS_OBJECT_CLUSTER = CLUS_OBJECT_NETINTERFACE + 1,CLUS_OBJECT_USER = 128
+    CLUS_OBJECT_INVALID = 0,CLUS_OBJECT_RESOURCE,CLUS_OBJECT_RESOURCE_TYPE,CLUS_OBJECT_GROUP,
+    CLUS_OBJECT_NODE,CLUS_OBJECT_NETWORK,CLUS_OBJECT_NETINTERFACE,CLUS_OBJECT_CLUSTER,
+    CLUS_OBJECT_USER = 128
   } CLUSTER_CONTROL_OBJECT;
 
   typedef enum CLCTL_CODES {
@@ -950,7 +946,8 @@ extern "C" {
   } CLUSCTL_CLUSTER_CODES;
 
   typedef enum CLUSTER_RESOURCE_CLASS {
-    CLUS_RESCLASS_UNKNOWN = 0,CLUS_RESCLASS_STORAGE = CLUS_RESCLASS_UNKNOWN + 1,CLUS_RESCLASS_USER = 32768
+    CLUS_RESCLASS_UNKNOWN = 0,CLUS_RESCLASS_STORAGE,
+    CLUS_RESCLASS_USER = 32768
   } CLUSTER_RESOURCE_CLASS;
 
   typedef enum CLUS_RESSUBCLASS {
@@ -984,8 +981,8 @@ extern "C" {
   } CLUSTER_NETWORK_ENUM;
 
   typedef enum CLUSTER_NETWORK_STATE {
-    ClusterNetworkStateUnknown = -1,ClusterNetworkUnavailable = ClusterNetworkStateUnknown + 1,ClusterNetworkDown = ClusterNetworkUnavailable + 1,
-    ClusterNetworkPartitioned = ClusterNetworkDown + 1,ClusterNetworkUp = ClusterNetworkPartitioned + 1
+    ClusterNetworkStateUnknown = -1,
+    ClusterNetworkUnavailable = 0,ClusterNetworkDown,ClusterNetworkPartitioned,ClusterNetworkUp
   } CLUSTER_NETWORK_STATE;
 
   typedef enum CLUSTER_NETWORK_ROLE {
@@ -993,9 +990,9 @@ extern "C" {
   } CLUSTER_NETWORK_ROLE;
 
   typedef enum CLUSTER_NETINTERFACE_STATE {
-    ClusterNetInterfaceStateUnknown = -1,ClusterNetInterfaceUnavailable = ClusterNetInterfaceStateUnknown + 1,
-    ClusterNetInterfaceFailed = ClusterNetInterfaceUnavailable + 1,ClusterNetInterfaceUnreachable = ClusterNetInterfaceFailed + 1,
-    ClusterNetInterfaceUp = ClusterNetInterfaceUnreachable + 1
+    ClusterNetInterfaceStateUnknown = -1,
+    ClusterNetInterfaceUnavailable = 0,ClusterNetInterfaceFailed,ClusterNetInterfaceUnreachable,
+    ClusterNetInterfaceUp
   } CLUSTER_NETINTERFACE_STATE;
 #endif
 

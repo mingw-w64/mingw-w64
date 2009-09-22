@@ -72,7 +72,7 @@ extern "C"{
 #define APPSTATUS_NOTDEFINED 2
 
   typedef enum __MIDL___MIDL_itf_wamreg_0000_0001 {
-    eAppRunInProc = 0,eAppRunOutProcIsolated = eAppRunInProc + 1,eAppRunOutProcInDefaultPool = eAppRunOutProcIsolated + 1
+    eAppRunInProc = 0,eAppRunOutProcIsolated,eAppRunOutProcInDefaultPool
   } EAppMode;
 
   extern RPC_IF_HANDLE __MIDL_itf_wamreg_0000_v0_0_c_ifspec;

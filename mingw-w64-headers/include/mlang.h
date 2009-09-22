@@ -641,15 +641,17 @@ extern "C"{
   __MINGW_EXTENSION typedef __int64 SCRIPT_IDS;
 
   typedef enum tagSCRIPTCONTF {
-    sidDefault = 0,sidMerge = sidDefault + 1,sidAsciiSym = sidMerge + 1,sidAsciiLatin = sidAsciiSym + 1,sidLatin = sidAsciiLatin + 1,
-    sidGreek = sidLatin + 1,sidCyrillic = sidGreek + 1,sidArmenian = sidCyrillic + 1,sidHebrew = sidArmenian + 1,sidArabic = sidHebrew + 1,
-    sidDevanagari = sidArabic + 1,sidBengali = sidDevanagari + 1,sidGurmukhi = sidBengali + 1,sidGujarati = sidGurmukhi + 1,sidOriya = sidGujarati + 1,
-    sidTamil = sidOriya + 1,sidTelugu = sidTamil + 1,sidKannada = sidTelugu + 1,sidMalayalam = sidKannada + 1,sidThai = sidMalayalam + 1,
-    sidLao = sidThai + 1,sidTibetan = sidLao + 1,sidGeorgian = sidTibetan + 1,sidHangul = sidGeorgian + 1,sidKana = sidHangul + 1,
-    sidBopomofo = sidKana + 1,sidHan = sidBopomofo + 1,sidEthiopic = sidHan + 1,sidCanSyllabic = sidEthiopic + 1,sidCherokee = sidCanSyllabic + 1,
-    sidYi = sidCherokee + 1,sidBraille = sidYi + 1,sidRunic = sidBraille + 1,sidOgham = sidRunic + 1,sidSinhala = sidOgham + 1,
-    sidSyriac = sidSinhala + 1,sidBurmese = sidSyriac + 1,sidKhmer = sidBurmese + 1,sidThaana = sidKhmer + 1,sidMongolian = sidThaana + 1,
-    sidUserDefined = sidMongolian + 1,sidLim = sidUserDefined + 1,sidFEFirst = sidHangul,sidFELast = sidHan
+    sidDefault = 0,sidMerge,sidAsciiSym,sidAsciiLatin,sidLatin,
+    sidGreek,sidCyrillic,sidArmenian,sidHebrew,sidArabic,
+    sidDevanagari,sidBengali,sidGurmukhi,sidGujarati,sidOriya,
+    sidTamil,sidTelugu,sidKannada,sidMalayalam,sidThai,
+    sidLao,sidTibetan,sidGeorgian,
+    sidHangul,sidKana,sidBopomofo,sidHan,
+    sidEthiopic,sidCanSyllabic,sidCherokee,
+    sidYi,sidBraille,sidRunic,sidOgham,sidSinhala,
+    sidSyriac,sidBurmese,sidKhmer,sidThaana,sidMongolian,
+    sidUserDefined,sidLim,
+    sidFEFirst = sidHangul,sidFELast = sidHan
   } SCRIPTCONTF;
 
   typedef struct tagSCRIPTINFO {
