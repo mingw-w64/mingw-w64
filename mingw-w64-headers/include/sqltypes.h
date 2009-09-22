@@ -96,9 +96,6 @@ extern "C" {
   typedef short int SWORD;
   typedef unsigned long int UDWORD;
   typedef unsigned short int UWORD;
-#ifndef _WIN64
-  typedef UDWORD SQLUINTEGER;
-#endif
 
   typedef signed long SLONG;
   typedef signed short SSHORT;
