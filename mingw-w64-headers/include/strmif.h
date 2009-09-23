@@ -1127,7 +1127,7 @@ extern "C" {
 #ifndef __IMediaFilter_INTERFACE_DEFINED__
 #define __IMediaFilter_INTERFACE_DEFINED__
   typedef enum _FilterState {
-    State_Stopped = 0,State_Paused = State_Stopped + 1,State_Running = State_Paused + 1
+    State_Stopped = 0,State_Paused,State_Running
   } FILTER_STATE;
 
   EXTERN_C const IID IID_IMediaFilter;
@@ -3389,8 +3389,8 @@ extern "C" {
 #ifndef __IConfigInterleaving_INTERFACE_DEFINED__
 #define __IConfigInterleaving_INTERFACE_DEFINED__
   typedef enum __MIDL_IConfigInterleaving_0001 {
-    INTERLEAVE_NONE = 0,INTERLEAVE_CAPTURE = INTERLEAVE_NONE + 1,INTERLEAVE_FULL = INTERLEAVE_CAPTURE + 1,
-    INTERLEAVE_NONE_BUFFERED = INTERLEAVE_FULL + 1
+    INTERLEAVE_NONE = 0,
+    INTERLEAVE_CAPTURE,INTERLEAVE_FULL,INTERLEAVE_NONE_BUFFERED
   } InterleavingMode;
 
   EXTERN_C const IID IID_IConfigInterleaving;
@@ -3881,16 +3881,15 @@ extern "C" {
   } VideoCopyProtectionType;
 
   typedef enum tagPhysicalConnectorType {
-    PhysConn_Video_Tuner = 1,PhysConn_Video_Composite = PhysConn_Video_Tuner + 1,PhysConn_Video_SVideo = PhysConn_Video_Composite + 1,
-    PhysConn_Video_RGB = PhysConn_Video_SVideo + 1,PhysConn_Video_YRYBY = PhysConn_Video_RGB + 1,PhysConn_Video_SerialDigital = PhysConn_Video_YRYBY + 1,
-    PhysConn_Video_ParallelDigital = PhysConn_Video_SerialDigital + 1,PhysConn_Video_SCSI = PhysConn_Video_ParallelDigital + 1,
-    PhysConn_Video_AUX = PhysConn_Video_SCSI + 1,PhysConn_Video_1394 = PhysConn_Video_AUX + 1,PhysConn_Video_USB = PhysConn_Video_1394 + 1,
-    PhysConn_Video_VideoDecoder = PhysConn_Video_USB + 1,PhysConn_Video_VideoEncoder = PhysConn_Video_VideoDecoder + 1,
-    PhysConn_Video_SCART = PhysConn_Video_VideoEncoder + 1,PhysConn_Video_Black = PhysConn_Video_SCART + 1,PhysConn_Audio_Tuner = 0x1000,
-    PhysConn_Audio_Line = PhysConn_Audio_Tuner + 1,PhysConn_Audio_Mic = PhysConn_Audio_Line + 1,PhysConn_Audio_AESDigital = PhysConn_Audio_Mic + 1,
-    PhysConn_Audio_SPDIFDigital = PhysConn_Audio_AESDigital + 1,PhysConn_Audio_SCSI = PhysConn_Audio_SPDIFDigital + 1,
-    PhysConn_Audio_AUX = PhysConn_Audio_SCSI + 1,PhysConn_Audio_1394 = PhysConn_Audio_AUX + 1,PhysConn_Audio_USB = PhysConn_Audio_1394 + 1,
-    PhysConn_Audio_AudioDecoder = PhysConn_Audio_USB + 1
+    PhysConn_Video_Tuner = 1,
+    PhysConn_Video_Composite,PhysConn_Video_SVideo,PhysConn_Video_RGB,
+    PhysConn_Video_YRYBY,PhysConn_Video_SerialDigital,PhysConn_Video_ParallelDigital,
+    PhysConn_Video_SCSI,PhysConn_Video_AUX,PhysConn_Video_1394,PhysConn_Video_USB,
+    PhysConn_Video_VideoDecoder,PhysConn_Video_VideoEncoder,PhysConn_Video_SCART,PhysConn_Video_Black,
+    PhysConn_Audio_Tuner = 0x1000,PhysConn_Audio_Line = 0x1001,PhysConn_Audio_Mic = 0x1002,
+    PhysConn_Audio_AESDigital = 0x1003,PhysConn_Audio_SPDIFDigital = 0x1004,
+    PhysConn_Audio_SCSI = 0x1005,PhysConn_Audio_AUX = 0x1006,PhysConn_Audio_1394 = 0x1007,
+    PhysConn_Audio_USB = 0x1008,PhysConn_Audio_AudioDecoder = 0x1009
   } PhysicalConnectorType;
 
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0173_v0_0_c_ifspec;
@@ -3967,10 +3966,10 @@ extern "C" {
 #endif
 
   typedef enum tagVideoProcAmpProperty {
-    VideoProcAmp_Brightness = 0,VideoProcAmp_Contrast = VideoProcAmp_Brightness + 1,VideoProcAmp_Hue = VideoProcAmp_Contrast + 1,
-    VideoProcAmp_Saturation = VideoProcAmp_Hue + 1,VideoProcAmp_Sharpness = VideoProcAmp_Saturation + 1,VideoProcAmp_Gamma = VideoProcAmp_Sharpness + 1,
-    VideoProcAmp_ColorEnable = VideoProcAmp_Gamma + 1,VideoProcAmp_WhiteBalance = VideoProcAmp_ColorEnable + 1,
-    VideoProcAmp_BacklightCompensation = VideoProcAmp_WhiteBalance + 1,VideoProcAmp_Gain = VideoProcAmp_BacklightCompensation + 1
+    VideoProcAmp_Brightness = 0,
+    VideoProcAmp_Contrast,VideoProcAmp_Hue,VideoProcAmp_Saturation,VideoProcAmp_Sharpness,
+    VideoProcAmp_Gamma,VideoProcAmp_ColorEnable,VideoProcAmp_WhiteBalance,
+    VideoProcAmp_BacklightCompensation,VideoProcAmp_Gain
   } VideoProcAmpProperty;
 
   typedef enum tagVideoProcAmpFlags {
@@ -4021,9 +4020,9 @@ extern "C" {
 #endif
 
   typedef enum tagCameraControlProperty {
-    CameraControl_Pan = 0,CameraControl_Tilt = CameraControl_Pan + 1,CameraControl_Roll = CameraControl_Tilt + 1,
-    CameraControl_Zoom = CameraControl_Roll + 1,CameraControl_Exposure = CameraControl_Zoom + 1,CameraControl_Iris = CameraControl_Exposure + 1,
-    CameraControl_Focus = CameraControl_Iris + 1
+    CameraControl_Pan = 0,
+    CameraControl_Tilt,CameraControl_Roll,CameraControl_Zoom,CameraControl_Exposure,
+    CameraControl_Iris,CameraControl_Focus
   } CameraControlProperty;
 
   typedef enum tagCameraControlFlags {
@@ -5610,8 +5609,9 @@ extern "C" {
 #endif
 
   typedef enum _DECIMATION_USAGE {
-    DECIMATION_LEGACY = 0,DECIMATION_USE_DECODER_ONLY = DECIMATION_LEGACY + 1,DECIMATION_USE_VIDEOPORT_ONLY = DECIMATION_USE_DECODER_ONLY + 1,
-    DECIMATION_USE_OVERLAY_ONLY = DECIMATION_USE_VIDEOPORT_ONLY + 1,DECIMATION_DEFAULT = DECIMATION_USE_OVERLAY_ONLY + 1
+    DECIMATION_LEGACY = 0,
+    DECIMATION_USE_DECODER_ONLY,DECIMATION_USE_VIDEOPORT_ONLY,DECIMATION_USE_OVERLAY_ONLY,
+    DECIMATION_DEFAULT
   } DECIMATION_USAGE;
 
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0351_v0_0_c_ifspec;
@@ -6001,17 +6001,13 @@ extern "C" {
 #endif
 
   enum _AM_AUDIO_RENDERER_STAT_PARAM {
-    AM_AUDREND_STAT_PARAM_BREAK_COUNT = 1,AM_AUDREND_STAT_PARAM_SLAVE_MODE = AM_AUDREND_STAT_PARAM_BREAK_COUNT + 1,
-    AM_AUDREND_STAT_PARAM_SILENCE_DUR = AM_AUDREND_STAT_PARAM_SLAVE_MODE + 1,
-    AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR = AM_AUDREND_STAT_PARAM_SILENCE_DUR + 1,
-    AM_AUDREND_STAT_PARAM_DISCONTINUITIES = AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR + 1,
-    AM_AUDREND_STAT_PARAM_SLAVE_RATE = AM_AUDREND_STAT_PARAM_DISCONTINUITIES + 1,
-    AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR = AM_AUDREND_STAT_PARAM_SLAVE_RATE + 1,
-    AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR = AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR + 1,
-    AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR = AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR + 1,
-    AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR = AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR + 1,
-    AM_AUDREND_STAT_PARAM_BUFFERFULLNESS = AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR + 1,
-    AM_AUDREND_STAT_PARAM_JITTER = AM_AUDREND_STAT_PARAM_BUFFERFULLNESS + 1
+    AM_AUDREND_STAT_PARAM_BREAK_COUNT = 1,
+    AM_AUDREND_STAT_PARAM_SLAVE_MODE,AM_AUDREND_STAT_PARAM_SILENCE_DUR,
+    AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR,AM_AUDREND_STAT_PARAM_DISCONTINUITIES,
+    AM_AUDREND_STAT_PARAM_SLAVE_RATE,AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR,
+    AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR,AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR,
+    AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR,AM_AUDREND_STAT_PARAM_BUFFERFULLNESS,
+    AM_AUDREND_STAT_PARAM_JITTER
   };
 
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0359_v0_0_c_ifspec;
@@ -6678,7 +6674,8 @@ extern "C" {
 #ifndef __ENCODER_API_DEFINES__
 #define __ENCODER_API_DEFINES__
   typedef enum __MIDL___MIDL_itf_strmif_0374_0001 {
-    ConstantBitRate = 0,VariableBitRateAverage = ConstantBitRate + 1,VariableBitRatePeak = VariableBitRateAverage + 1
+    ConstantBitRate = 0,
+    VariableBitRateAverage,VariableBitRatePeak
   } VIDEOENCODER_BITRATE_MODE;
 #endif
 #define AM_GETDECODERCAP_QUERY_VMR_SUPPORT 0x00000001
@@ -6822,12 +6819,14 @@ extern "C" {
 #endif
 
   typedef enum tagDVD_DOMAIN {
-    DVD_DOMAIN_FirstPlay = 1,DVD_DOMAIN_VideoManagerMenu = DVD_DOMAIN_FirstPlay + 1,DVD_DOMAIN_VideoTitleSetMenu = DVD_DOMAIN_VideoManagerMenu + 1,
-    DVD_DOMAIN_Title = DVD_DOMAIN_VideoTitleSetMenu + 1,DVD_DOMAIN_Stop = DVD_DOMAIN_Title + 1
+    DVD_DOMAIN_FirstPlay = 1,
+    DVD_DOMAIN_VideoManagerMenu,DVD_DOMAIN_VideoTitleSetMenu,DVD_DOMAIN_Title,
+    DVD_DOMAIN_Stop
   } DVD_DOMAIN;
 
   typedef enum tagDVD_MENU_ID {
-    DVD_MENU_Title = 2,DVD_MENU_Root = 3,DVD_MENU_Subpicture = 4,DVD_MENU_Audio = 5,DVD_MENU_Angle = 6,DVD_MENU_Chapter = 7
+    DVD_MENU_Title = 2,DVD_MENU_Root = 3,DVD_MENU_Subpicture = 4,DVD_MENU_Audio = 5,
+    DVD_MENU_Angle = 6,DVD_MENU_Chapter = 7
   } DVD_MENU_ID;
 
   typedef enum tagDVD_DISC_SIDE {
