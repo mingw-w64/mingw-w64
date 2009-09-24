@@ -46,9 +46,9 @@ __MINGW_USYMBOL(mcount):
         movq 8(%rbp),%rdx
         movq (%rbp),%rax
         movq 8(%rax),%rcx
-	sub $28, %rsp
+	sub $40, %rsp
         call __MINGW_USYMBOL(_mcount)
-	add $28, %rsp
+	add $40, %rsp
 	pop %r11
 	pop %r10
 	pop %r9
