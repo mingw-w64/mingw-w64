@@ -40,7 +40,12 @@
  * The differences should be within __MINGW32__ guard.
  */
 /* If compiler doesn't inline, at least avoid passing args on the stack. */
+#ifndef _WIN64
 #define _MCOUNT_CALL __attribute__ ((regparm (2)))
+#else
+#define _MCOUNT_CALL
+#endif
+
 #define _MCOUNT_DECL static __inline__  void _MCOUNT_CALL _mcount
 
 /* FIXME: This works, but it would be cleaner to convert mcount into an
@@ -48,81 +53,5 @@
    Older versions of GCC (pre-4.1) will still fail with regparm since the
    compiler used %edx to store an unneeded counter variable.  */
 
-#ifndef _WIN64
-#define	MCOUNT \
-void									\
-mcount(void)								\
-{									\
-	size_t selfpc, frompcindex;					\
-	/*								\
-	 * Save registers, since this may be called from		\
-	 * the prologue of a regparm function.				\
-	 */								\
-	__asm __volatile__ ("pushl %eax\n\t"				\
-			    "pushl %ecx\n\t"				\
-		 	    "pushl %edx");				\
-	/*								\
-	 * find the return address for mcount,				\
-	 * and the return address for mcount's caller.			\
-	 *								\
-	 * selfpc = pc pushed by mcount call				\
-	 */								\
-	/* __asm  ("movl 4(%%ebp),%0" : "=r" (selfpc));	*/		\
-	selfpc = (size_t) __builtin_return_address (0);			\
-	/*								\
-	 * frompcindex = pc pushed by call into self.			\
-	 */								\
-	/*  __asm ("movl (%%ebp),%0;movl 4(%0),%0" : "=r" (frompcindex)); */  \
-	frompcindex = (size_t) __builtin_return_address (1);		\
-	_mcount(frompcindex, selfpc);					\
-	/*								\
-	 * Restore registers.						\
-	 */								\
-	__asm __volatile__ ("popl %edx\n\t"				\
-			    "popl %ecx\n\t"				\
-			    "popl %eax");				\
-}
-#else
-#define	MCOUNT \
-void									\
-mcount(void)								\
-{									\
-	__asm __volatile__ ("pushq %rax\n\t"				\
-			    "pushq %rcx\n\t"				\
-			    "pushq %rdx\n\t"				\
-			    "pushq %rbx\n\t"				\
-			    "pushq %rbp\n\t"				\
-			    "pushq %rsi\n\t"				\
-			    "pushq %rdi\n\t"				\
-			    "pushq %r8\n\t"				\
-			    "pushq %r9\n\t"				\
-			    "pushq %r10\n\t"				\
-			    "pushq %r11\n\t"				\
-			    "pushq %r12\n\t"				\
-			    "pushq %r13\n\t"				\
-			    "pushq %r14\n\t"				\
-			    "pushq %r15\n\t"				\
-			    "subq $32, %rsp\n\t");			\
-	_mcount((size_t) __builtin_return_address (1),			\
-			 (size_t) __builtin_return_address (0));	\
-	/*								\
-	 * Restore registers.						\
-	 */								\
-	__asm __volatile__ ("addq $32, %rsp\n\t"			\
-			    "popq %r15\n\t"				\
-			    "popq %r14\n\t"				\
-			    "popq %r13\n\t"				\
-			    "popq %r12\n\t"				\
-			    "popq %r11\n\t"				\
-			    "popq %r10\n\t"				\
-			    "popq %r9\n\t"				\
-			    "popq %r8\n\t"				\
-			    "popq %rdi\n\t"				\
-			    "popq %rsi\n\t"				\
-			    "popq %rbp\n\t"				\
-			    "popq %rbx\n\t"				\
-			    "popq %rdx\n\t"				\
-			    "popq %rcx\n\t"				\
-			    "popq %rax");				\
-}
-#endif
+#define	MCOUNT
+
