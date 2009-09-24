@@ -21,10 +21,10 @@ __MINGW_USYMBOL(mcount):
 	push %eax
 	push %ecx
 	push %edx
-	movl 4(%ebp),%ecx
+	movl 4(%ebp),%edx
 	movl (%ebp),%eax
 	movl 4(%eax),%eax
-	push %ecx
+	push %edx
 	push %eax
 	call __MINGW_USYMBOL(_mcount)
 	add $8, %esp
