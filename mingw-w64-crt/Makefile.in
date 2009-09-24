@@ -154,6 +154,16 @@ am__lib32_libdxguid_a_SOURCES_DIST = libsrc/dxguid.c
 am__objects_6 = libsrc/lib32_libdxguid_a-dxguid.$(OBJEXT)
 @LIB32_TRUE@am_lib32_libdxguid_a_OBJECTS = $(am__objects_6)
 lib32_libdxguid_a_OBJECTS = $(am_lib32_libdxguid_a_OBJECTS)
+lib32_libgmon_a_LIBADD =
+am__lib32_libgmon_a_SOURCES_DIST = profile/mcount.c profile/profil.h \
+	profile/profil.c profile/gmon.h profile/gmon.c \
+	profile/mcountFunc.S
+@LIB32_TRUE@am_lib32_libgmon_a_OBJECTS =  \
+@LIB32_TRUE@	profile/lib32_libgmon_a-mcount.$(OBJEXT) \
+@LIB32_TRUE@	profile/lib32_libgmon_a-profil.$(OBJEXT) \
+@LIB32_TRUE@	profile/lib32_libgmon_a-gmon.$(OBJEXT) \
+@LIB32_TRUE@	profile/lib32_libgmon_a-mcountFunc.$(OBJEXT)
+lib32_libgmon_a_OBJECTS = $(am_lib32_libgmon_a_OBJECTS)
 lib32_libksuser_a_LIBADD =
 am__lib32_libksuser_a_SOURCES_DIST = libsrc/ksuser.c
 am__objects_7 = libsrc/lib32_libksuser_a-ksuser.$(OBJEXT)
@@ -971,14 +981,15 @@ am__lib64_libdxguid_a_SOURCES_DIST = libsrc/dxguid.c
 am__objects_26 = libsrc/lib64_libdxguid_a-dxguid.$(OBJEXT)
 @LIB64_TRUE@am_lib64_libdxguid_a_OBJECTS = $(am__objects_26)
 lib64_libdxguid_a_OBJECTS = $(am_lib64_libdxguid_a_OBJECTS)
-lib64_libgmon_a_AR = $(AR) $(ARFLAGS)
 lib64_libgmon_a_LIBADD =
 am__lib64_libgmon_a_SOURCES_DIST = profile/mcount.c profile/profil.h \
-	profile/profil.c profile/gmon.h profile/gmon.c
+	profile/profil.c profile/gmon.h profile/gmon.c \
+	profile/mcountFunc.S
 @LIB64_TRUE@am_lib64_libgmon_a_OBJECTS =  \
 @LIB64_TRUE@	profile/lib64_libgmon_a-mcount.$(OBJEXT) \
 @LIB64_TRUE@	profile/lib64_libgmon_a-profil.$(OBJEXT) \
-@LIB64_TRUE@	profile/lib64_libgmon_a-gmon.$(OBJEXT)
+@LIB64_TRUE@	profile/lib64_libgmon_a-gmon.$(OBJEXT) \
+@LIB64_TRUE@	profile/lib64_libgmon_a-mcountFunc.$(OBJEXT)
 lib64_libgmon_a_OBJECTS = $(am_lib64_libgmon_a_OBJECTS)
 lib64_libksuser_a_LIBADD =
 am__lib64_libksuser_a_SOURCES_DIST = libsrc/ksuser.c
@@ -1897,27 +1908,27 @@ CXXLINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib32_libdmoguids_a_SOURCES) $(lib32_libdxerr8_a_SOURCES) \
 	$(lib32_libdxerr9_a_SOURCES) $(lib32_libdxguid_a_SOURCES) \
-	$(lib32_libksuser_a_SOURCES) $(lib32_liblargeint_a_SOURCES) \
-	$(nodist_lib32_libm_a_SOURCES) $(lib32_libmingw32_a_SOURCES) \
-	$(lib32_libmingwex_a_SOURCES) $(lib32_libmingwthrd_a_SOURCES) \
-	$(lib32_libmoldname_a_SOURCES) $(lib32_libscrnsave_a_SOURCES) \
-	$(lib32_libscrnsavw_a_SOURCES) $(lib32_libshell32_a_SOURCES) \
-	$(lib32_libstrmiids_a_SOURCES) $(lib32_libuuid_a_SOURCES) \
-	$(lib32_libws2_32_a_SOURCES) $(lib64_libdinput_a_SOURCES) \
-	$(lib64_libdinput8_a_SOURCES) $(lib64_libdmoguids_a_SOURCES) \
-	$(lib64_libdxerr8_a_SOURCES) $(lib64_libdxerr9_a_SOURCES) \
-	$(lib64_libdxguid_a_SOURCES) $(lib64_libgmon_a_SOURCES) \
-	$(lib64_libksuser_a_SOURCES) $(lib64_liblargeint_a_SOURCES) \
-	$(nodist_lib64_libm_a_SOURCES) $(lib64_libmingw32_a_SOURCES) \
-	$(lib64_libmingwex_a_SOURCES) $(lib64_libmingwthrd_a_SOURCES) \
-	$(lib64_libmoldname_a_SOURCES) $(lib64_libscrnsave_a_SOURCES) \
-	$(lib64_libscrnsavw_a_SOURCES) $(lib64_libshell32_a_SOURCES) \
-	$(lib64_libstrmiids_a_SOURCES) $(lib64_libuuid_a_SOURCES) \
-	$(lib64_libws2_32_a_SOURCES) testcases/t_ansi_io.c \
-	testcases/t_float.c testcases/t_fstat.c testcases/t_intrinc.c \
-	testcases/t_matherr.c testcases/t_municode.c \
-	testcases/t_nullptrexception.c testcases/t_readdir.c \
-	testcases/t_setjmp.c testcases/t_sigv.c \
+	$(lib32_libgmon_a_SOURCES) $(lib32_libksuser_a_SOURCES) \
+	$(lib32_liblargeint_a_SOURCES) $(nodist_lib32_libm_a_SOURCES) \
+	$(lib32_libmingw32_a_SOURCES) $(lib32_libmingwex_a_SOURCES) \
+	$(lib32_libmingwthrd_a_SOURCES) $(lib32_libmoldname_a_SOURCES) \
+	$(lib32_libscrnsave_a_SOURCES) $(lib32_libscrnsavw_a_SOURCES) \
+	$(lib32_libshell32_a_SOURCES) $(lib32_libstrmiids_a_SOURCES) \
+	$(lib32_libuuid_a_SOURCES) $(lib32_libws2_32_a_SOURCES) \
+	$(lib64_libdinput_a_SOURCES) $(lib64_libdinput8_a_SOURCES) \
+	$(lib64_libdmoguids_a_SOURCES) $(lib64_libdxerr8_a_SOURCES) \
+	$(lib64_libdxerr9_a_SOURCES) $(lib64_libdxguid_a_SOURCES) \
+	$(lib64_libgmon_a_SOURCES) $(lib64_libksuser_a_SOURCES) \
+	$(lib64_liblargeint_a_SOURCES) $(nodist_lib64_libm_a_SOURCES) \
+	$(lib64_libmingw32_a_SOURCES) $(lib64_libmingwex_a_SOURCES) \
+	$(lib64_libmingwthrd_a_SOURCES) $(lib64_libmoldname_a_SOURCES) \
+	$(lib64_libscrnsave_a_SOURCES) $(lib64_libscrnsavw_a_SOURCES) \
+	$(lib64_libshell32_a_SOURCES) $(lib64_libstrmiids_a_SOURCES) \
+	$(lib64_libuuid_a_SOURCES) $(lib64_libws2_32_a_SOURCES) \
+	testcases/t_ansi_io.c testcases/t_float.c testcases/t_fstat.c \
+	testcases/t_intrinc.c testcases/t_matherr.c \
+	testcases/t_municode.c testcases/t_nullptrexception.c \
+	testcases/t_readdir.c testcases/t_setjmp.c testcases/t_sigv.c \
 	testcases/t_speed_powl.c testcases/t_stat.c \
 	testcases/t_stdint.c testcases/t_time.c testcases/t_tls1.c \
 	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
@@ -1929,6 +1940,7 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdxerr8_a_SOURCES_DIST) \
 	$(am__lib32_libdxerr9_a_SOURCES_DIST) \
 	$(am__lib32_libdxguid_a_SOURCES_DIST) \
+	$(am__lib32_libgmon_a_SOURCES_DIST) \
 	$(am__lib32_libksuser_a_SOURCES_DIST) \
 	$(am__lib32_liblargeint_a_SOURCES_DIST) \
 	$(am__lib32_libmingw32_a_SOURCES_DIST) \
@@ -2307,18 +2319,25 @@ src_libmingwex32 = \
 @LIB32_TRUE@dxerr.c \
 @LIB32_TRUE@test.c
 
-@LIB32_TRUE@lib32_LIBRARIES = lib32/libm.a lib32/libshell32.a \
-@LIB32_TRUE@	lib32/libdinput.a lib32/libdinput8.a \
-@LIB32_TRUE@	lib32/libdmoguids.a lib32/libdxerr8.a \
-@LIB32_TRUE@	lib32/libdxerr9.a lib32/libdxguid.a \
-@LIB32_TRUE@	lib32/libksuser.a lib32/liblargeint.a \
-@LIB32_TRUE@	lib32/libmingw32.a lib32/libmingwex.a \
-@LIB32_TRUE@	lib32/libmoldname.a lib32/libscrnsave.a \
-@LIB32_TRUE@	lib32/libscrnsavw.a lib32/libstrmiids.a \
-@LIB32_TRUE@	lib32/libmingwthrd.a lib32/libuuid.a \
-@LIB32_TRUE@	lib32/libws2_32.a
+@LIB32_TRUE@lib32_LIBRARIES = lib32/libm.a lib32/libgmon.a \
+@LIB32_TRUE@	lib32/libshell32.a lib32/libdinput.a \
+@LIB32_TRUE@	lib32/libdinput8.a lib32/libdmoguids.a \
+@LIB32_TRUE@	lib32/libdxerr8.a lib32/libdxerr9.a \
+@LIB32_TRUE@	lib32/libdxguid.a lib32/libksuser.a \
+@LIB32_TRUE@	lib32/liblargeint.a lib32/libmingw32.a \
+@LIB32_TRUE@	lib32/libmingwex.a lib32/libmoldname.a \
+@LIB32_TRUE@	lib32/libscrnsave.a lib32/libscrnsavw.a \
+@LIB32_TRUE@	lib32/libstrmiids.a lib32/libmingwthrd.a \
+@LIB32_TRUE@	lib32/libuuid.a lib32/libws2_32.a
 @LIB32_TRUE@nodist_lib32_libm_a_SOURCES = $(src_libm)
 @LIB32_TRUE@lib32_libm_a_CPPFLAGS = -m32
+@LIB32_TRUE@lib32_libgmon_a_SOURCES = profile/mcount.c \
+@LIB32_TRUE@  profile/profil.h profile/profil.c        \
+@LIB32_TRUE@  profile/gmon.h   profile/gmon.c \
+@LIB32_TRUE@  profile/mcountFunc.S
+
+@LIB32_TRUE@lib32_libgmon_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libgmon_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = $(src_libshell32)
 @LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libshell32_a_CPPFLAGS = -m32
@@ -2441,9 +2460,11 @@ src_libmingwex32 = \
 @LIB64_TRUE@lib64_libdxguid_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libgmon_a_SOURCES = profile/mcount.c \
 @LIB64_TRUE@  profile/profil.h profile/profil.c        \
-@LIB64_TRUE@  profile/gmon.h   profile/gmon.c
+@LIB64_TRUE@  profile/gmon.h   profile/gmon.c \
+@LIB64_TRUE@  profile/mcountFunc.S
 
 @LIB64_TRUE@lib64_libgmon_a_CPPFLAGS = -m64
+@LIB64_TRUE@lib64_libgmon_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libksuser_a_SOURCES = $(src_libksuser)
 @LIB64_TRUE@lib64_libksuser_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libksuser_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
@@ -3095,6 +3116,24 @@ lib32/libdxguid.a: $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_DEPENDENCIES
 	-rm -f lib32/libdxguid.a
 	$(lib32_libdxguid_a_AR) lib32/libdxguid.a $(lib32_libdxguid_a_OBJECTS) $(lib32_libdxguid_a_LIBADD)
 	$(RANLIB) lib32/libdxguid.a
+profile/$(am__dirstamp):
+	@$(MKDIR_P) profile
+	@: > profile/$(am__dirstamp)
+profile/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) profile/$(DEPDIR)
+	@: > profile/$(DEPDIR)/$(am__dirstamp)
+profile/lib32_libgmon_a-mcount.$(OBJEXT): profile/$(am__dirstamp) \
+	profile/$(DEPDIR)/$(am__dirstamp)
+profile/lib32_libgmon_a-profil.$(OBJEXT): profile/$(am__dirstamp) \
+	profile/$(DEPDIR)/$(am__dirstamp)
+profile/lib32_libgmon_a-gmon.$(OBJEXT): profile/$(am__dirstamp) \
+	profile/$(DEPDIR)/$(am__dirstamp)
+profile/lib32_libgmon_a-mcountFunc.$(OBJEXT): profile/$(am__dirstamp) \
+	profile/$(DEPDIR)/$(am__dirstamp)
+lib32/libgmon.a: $(lib32_libgmon_a_OBJECTS) $(lib32_libgmon_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libgmon.a
+	$(lib32_libgmon_a_AR) lib32/libgmon.a $(lib32_libgmon_a_OBJECTS) $(lib32_libgmon_a_LIBADD)
+	$(RANLIB) lib32/libgmon.a
 libsrc/lib32_libksuser_a-ksuser.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libksuser.a: $(lib32_libksuser_a_OBJECTS) $(lib32_libksuser_a_DEPENDENCIES) lib32/$(am__dirstamp)
@@ -4340,17 +4379,13 @@ lib64/libdxguid.a: $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_DEPENDENCIES
 	-rm -f lib64/libdxguid.a
 	$(lib64_libdxguid_a_AR) lib64/libdxguid.a $(lib64_libdxguid_a_OBJECTS) $(lib64_libdxguid_a_LIBADD)
 	$(RANLIB) lib64/libdxguid.a
-profile/$(am__dirstamp):
-	@$(MKDIR_P) profile
-	@: > profile/$(am__dirstamp)
-profile/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) profile/$(DEPDIR)
-	@: > profile/$(DEPDIR)/$(am__dirstamp)
 profile/lib64_libgmon_a-mcount.$(OBJEXT): profile/$(am__dirstamp) \
 	profile/$(DEPDIR)/$(am__dirstamp)
 profile/lib64_libgmon_a-profil.$(OBJEXT): profile/$(am__dirstamp) \
 	profile/$(DEPDIR)/$(am__dirstamp)
 profile/lib64_libgmon_a-gmon.$(OBJEXT): profile/$(am__dirstamp) \
+	profile/$(DEPDIR)/$(am__dirstamp)
+profile/lib64_libgmon_a-mcountFunc.$(OBJEXT): profile/$(am__dirstamp) \
 	profile/$(DEPDIR)/$(am__dirstamp)
 lib64/libgmon.a: $(lib64_libgmon_a_OBJECTS) $(lib64_libgmon_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libgmon.a
@@ -6811,8 +6846,13 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-wmemcpy.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-wmemmove.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-wmemset.$(OBJEXT)
+	-rm -f profile/lib32_libgmon_a-gmon.$(OBJEXT)
+	-rm -f profile/lib32_libgmon_a-mcount.$(OBJEXT)
+	-rm -f profile/lib32_libgmon_a-mcountFunc.$(OBJEXT)
+	-rm -f profile/lib32_libgmon_a-profil.$(OBJEXT)
 	-rm -f profile/lib64_libgmon_a-gmon.$(OBJEXT)
 	-rm -f profile/lib64_libgmon_a-mcount.$(OBJEXT)
+	-rm -f profile/lib64_libgmon_a-mcountFunc.$(OBJEXT)
 	-rm -f profile/lib64_libgmon_a-profil.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_Exit.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_findfirst64i32.$(OBJEXT)
@@ -7943,8 +7983,13 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wmemcpy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wmemmove.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wmemset.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/lib32_libgmon_a-gmon.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/lib32_libgmon_a-mcount.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/lib32_libgmon_a-mcountFunc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/lib32_libgmon_a-profil.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/lib64_libgmon_a-gmon.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/lib64_libgmon_a-mcount.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/lib64_libgmon_a-mcountFunc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@profile/$(DEPDIR)/lib64_libgmon_a-profil.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_Exit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_findfirst64i32.Po@am__quote@
@@ -8077,6 +8122,20 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(LTCPPASCOMPILE) -c -o $@ $<
+
+profile/lib32_libgmon_a-mcountFunc.o: profile/mcountFunc.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT profile/lib32_libgmon_a-mcountFunc.o -MD -MP -MF profile/$(DEPDIR)/lib32_libgmon_a-mcountFunc.Tpo -c -o profile/lib32_libgmon_a-mcountFunc.o `test -f 'profile/mcountFunc.S' || echo '$(srcdir)/'`profile/mcountFunc.S
+@am__fastdepCCAS_TRUE@	$(am__mv) profile/$(DEPDIR)/lib32_libgmon_a-mcountFunc.Tpo profile/$(DEPDIR)/lib32_libgmon_a-mcountFunc.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='profile/mcountFunc.S' object='profile/lib32_libgmon_a-mcountFunc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o profile/lib32_libgmon_a-mcountFunc.o `test -f 'profile/mcountFunc.S' || echo '$(srcdir)/'`profile/mcountFunc.S
+
+profile/lib32_libgmon_a-mcountFunc.obj: profile/mcountFunc.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT profile/lib32_libgmon_a-mcountFunc.obj -MD -MP -MF profile/$(DEPDIR)/lib32_libgmon_a-mcountFunc.Tpo -c -o profile/lib32_libgmon_a-mcountFunc.obj `if test -f 'profile/mcountFunc.S'; then $(CYGPATH_W) 'profile/mcountFunc.S'; else $(CYGPATH_W) '$(srcdir)/profile/mcountFunc.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) profile/$(DEPDIR)/lib32_libgmon_a-mcountFunc.Tpo profile/$(DEPDIR)/lib32_libgmon_a-mcountFunc.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='profile/mcountFunc.S' object='profile/lib32_libgmon_a-mcountFunc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o profile/lib32_libgmon_a-mcountFunc.obj `if test -f 'profile/mcountFunc.S'; then $(CYGPATH_W) 'profile/mcountFunc.S'; else $(CYGPATH_W) '$(srcdir)/profile/mcountFunc.S'; fi`
 
 math/lib32_libmingwex_a-ceill.o: math/ceill.S
 @am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-ceill.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-ceill.Tpo -c -o math/lib32_libmingwex_a-ceill.o `test -f 'math/ceill.S' || echo '$(srcdir)/'`math/ceill.S
@@ -8595,6 +8654,20 @@ misc/lib32_libmingwex_a-mingw_getsp.obj: misc/mingw_getsp.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='misc/mingw_getsp.S' object='misc/lib32_libmingwex_a-mingw_getsp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o misc/lib32_libmingwex_a-mingw_getsp.obj `if test -f 'misc/mingw_getsp.S'; then $(CYGPATH_W) 'misc/mingw_getsp.S'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_getsp.S'; fi`
+
+profile/lib64_libgmon_a-mcountFunc.o: profile/mcountFunc.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT profile/lib64_libgmon_a-mcountFunc.o -MD -MP -MF profile/$(DEPDIR)/lib64_libgmon_a-mcountFunc.Tpo -c -o profile/lib64_libgmon_a-mcountFunc.o `test -f 'profile/mcountFunc.S' || echo '$(srcdir)/'`profile/mcountFunc.S
+@am__fastdepCCAS_TRUE@	$(am__mv) profile/$(DEPDIR)/lib64_libgmon_a-mcountFunc.Tpo profile/$(DEPDIR)/lib64_libgmon_a-mcountFunc.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='profile/mcountFunc.S' object='profile/lib64_libgmon_a-mcountFunc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o profile/lib64_libgmon_a-mcountFunc.o `test -f 'profile/mcountFunc.S' || echo '$(srcdir)/'`profile/mcountFunc.S
+
+profile/lib64_libgmon_a-mcountFunc.obj: profile/mcountFunc.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT profile/lib64_libgmon_a-mcountFunc.obj -MD -MP -MF profile/$(DEPDIR)/lib64_libgmon_a-mcountFunc.Tpo -c -o profile/lib64_libgmon_a-mcountFunc.obj `if test -f 'profile/mcountFunc.S'; then $(CYGPATH_W) 'profile/mcountFunc.S'; else $(CYGPATH_W) '$(srcdir)/profile/mcountFunc.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) profile/$(DEPDIR)/lib64_libgmon_a-mcountFunc.Tpo profile/$(DEPDIR)/lib64_libgmon_a-mcountFunc.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='profile/mcountFunc.S' object='profile/lib64_libgmon_a-mcountFunc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o profile/lib64_libgmon_a-mcountFunc.obj `if test -f 'profile/mcountFunc.S'; then $(CYGPATH_W) 'profile/mcountFunc.S'; else $(CYGPATH_W) '$(srcdir)/profile/mcountFunc.S'; fi`
 
 math/lib64_libmingwex_a-ceill.o: math/ceill.S
 @am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-ceill.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-ceill.Tpo -c -o math/lib64_libmingwex_a-ceill.o `test -f 'math/ceill.S' || echo '$(srcdir)/'`math/ceill.S
@@ -9361,6 +9434,48 @@ libsrc/lib32_libdxguid_a-dxguid.obj: libsrc/dxguid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/dxguid.c' object='libsrc/lib32_libdxguid_a-dxguid.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libdxguid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libdxguid_a-dxguid.obj `if test -f 'libsrc/dxguid.c'; then $(CYGPATH_W) 'libsrc/dxguid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/dxguid.c'; fi`
+
+profile/lib32_libgmon_a-mcount.o: profile/mcount.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT profile/lib32_libgmon_a-mcount.o -MD -MP -MF profile/$(DEPDIR)/lib32_libgmon_a-mcount.Tpo -c -o profile/lib32_libgmon_a-mcount.o `test -f 'profile/mcount.c' || echo '$(srcdir)/'`profile/mcount.c
+@am__fastdepCC_TRUE@	$(am__mv) profile/$(DEPDIR)/lib32_libgmon_a-mcount.Tpo profile/$(DEPDIR)/lib32_libgmon_a-mcount.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='profile/mcount.c' object='profile/lib32_libgmon_a-mcount.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o profile/lib32_libgmon_a-mcount.o `test -f 'profile/mcount.c' || echo '$(srcdir)/'`profile/mcount.c
+
+profile/lib32_libgmon_a-mcount.obj: profile/mcount.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT profile/lib32_libgmon_a-mcount.obj -MD -MP -MF profile/$(DEPDIR)/lib32_libgmon_a-mcount.Tpo -c -o profile/lib32_libgmon_a-mcount.obj `if test -f 'profile/mcount.c'; then $(CYGPATH_W) 'profile/mcount.c'; else $(CYGPATH_W) '$(srcdir)/profile/mcount.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) profile/$(DEPDIR)/lib32_libgmon_a-mcount.Tpo profile/$(DEPDIR)/lib32_libgmon_a-mcount.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='profile/mcount.c' object='profile/lib32_libgmon_a-mcount.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o profile/lib32_libgmon_a-mcount.obj `if test -f 'profile/mcount.c'; then $(CYGPATH_W) 'profile/mcount.c'; else $(CYGPATH_W) '$(srcdir)/profile/mcount.c'; fi`
+
+profile/lib32_libgmon_a-profil.o: profile/profil.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT profile/lib32_libgmon_a-profil.o -MD -MP -MF profile/$(DEPDIR)/lib32_libgmon_a-profil.Tpo -c -o profile/lib32_libgmon_a-profil.o `test -f 'profile/profil.c' || echo '$(srcdir)/'`profile/profil.c
+@am__fastdepCC_TRUE@	$(am__mv) profile/$(DEPDIR)/lib32_libgmon_a-profil.Tpo profile/$(DEPDIR)/lib32_libgmon_a-profil.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='profile/profil.c' object='profile/lib32_libgmon_a-profil.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o profile/lib32_libgmon_a-profil.o `test -f 'profile/profil.c' || echo '$(srcdir)/'`profile/profil.c
+
+profile/lib32_libgmon_a-profil.obj: profile/profil.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT profile/lib32_libgmon_a-profil.obj -MD -MP -MF profile/$(DEPDIR)/lib32_libgmon_a-profil.Tpo -c -o profile/lib32_libgmon_a-profil.obj `if test -f 'profile/profil.c'; then $(CYGPATH_W) 'profile/profil.c'; else $(CYGPATH_W) '$(srcdir)/profile/profil.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) profile/$(DEPDIR)/lib32_libgmon_a-profil.Tpo profile/$(DEPDIR)/lib32_libgmon_a-profil.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='profile/profil.c' object='profile/lib32_libgmon_a-profil.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o profile/lib32_libgmon_a-profil.obj `if test -f 'profile/profil.c'; then $(CYGPATH_W) 'profile/profil.c'; else $(CYGPATH_W) '$(srcdir)/profile/profil.c'; fi`
+
+profile/lib32_libgmon_a-gmon.o: profile/gmon.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT profile/lib32_libgmon_a-gmon.o -MD -MP -MF profile/$(DEPDIR)/lib32_libgmon_a-gmon.Tpo -c -o profile/lib32_libgmon_a-gmon.o `test -f 'profile/gmon.c' || echo '$(srcdir)/'`profile/gmon.c
+@am__fastdepCC_TRUE@	$(am__mv) profile/$(DEPDIR)/lib32_libgmon_a-gmon.Tpo profile/$(DEPDIR)/lib32_libgmon_a-gmon.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='profile/gmon.c' object='profile/lib32_libgmon_a-gmon.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o profile/lib32_libgmon_a-gmon.o `test -f 'profile/gmon.c' || echo '$(srcdir)/'`profile/gmon.c
+
+profile/lib32_libgmon_a-gmon.obj: profile/gmon.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT profile/lib32_libgmon_a-gmon.obj -MD -MP -MF profile/$(DEPDIR)/lib32_libgmon_a-gmon.Tpo -c -o profile/lib32_libgmon_a-gmon.obj `if test -f 'profile/gmon.c'; then $(CYGPATH_W) 'profile/gmon.c'; else $(CYGPATH_W) '$(srcdir)/profile/gmon.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) profile/$(DEPDIR)/lib32_libgmon_a-gmon.Tpo profile/$(DEPDIR)/lib32_libgmon_a-gmon.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='profile/gmon.c' object='profile/lib32_libgmon_a-gmon.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libgmon_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o profile/lib32_libgmon_a-gmon.obj `if test -f 'profile/gmon.c'; then $(CYGPATH_W) 'profile/gmon.c'; else $(CYGPATH_W) '$(srcdir)/profile/gmon.c'; fi`
 
 libsrc/lib32_libksuser_a-ksuser.o: libsrc/ksuser.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libksuser_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libksuser_a-ksuser.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libksuser_a-ksuser.Tpo -c -o libsrc/lib32_libksuser_a-ksuser.o `test -f 'libsrc/ksuser.c' || echo '$(srcdir)/'`libsrc/ksuser.c
