@@ -1,0 +1,6 @@
+#ifndef MINGW_HAS_DDRAW_H
+
+#define MINGW_HAS_DDRAW_H 1
+#define MINGW_DDRAW_VERSION	7
+
+#endif
