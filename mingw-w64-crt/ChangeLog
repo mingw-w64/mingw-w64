@@ -1,0 +1,1016 @@
+2009-09-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrins/ilock*.c:  Added non-underscored functions as aliases to the
+	real ones.
+
+2009-09-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Implement time_t related functions by stubs in libmingwex.a and do
+	export them in .def as DATA. So just the imp_<name> is present and we
+	avoid collisions in names. Reasoned is this patch by dlltool's inability
+	to alias symbols.
+
+2009-09-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/lib64: Add for time specific function the _<name>32 version to def
+	files.
+	* misc: Adjust time functions to use _<name>32 on demand.
+
+2009-09-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/lib64: Add symbols _localtime32, _gmtime32, and _mkgmtime32.
+	* misc/...: Add version for 32-bit time_t case.
+
+2009-09-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/ and lib64/: Comment in msvcrXX.def and in msvcrt.def the
+	symbols pow and powf.
+
+2009-09-09  Mook  <mook.gcc@gmail.com>
+
+	Patch/2820174 r=NightStrike
+	* configure.ac: Automatically detect whether to build the 32 or 64
+	bit library based on what the compiler accepts.
+	* Makefile.am: Explicitly use -m64 for 64 bit library.
+	* configure, Makefile.in: Regenerated.
+
+2009-09-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/readcr8.c, intrincs/writecr8.c: readcr8() and writecr8()
+	not prototyped in intrin.h for x86. Manually added prototypes to the
+	relevant *.c files.
+
+2009-09-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/*.c:  Update all declarations to match intrin.h. Include
+	only intrin.h, not windows.h.  Removed aliases for non-underscored
+	InterlockedExchange and InterlockedCompareExchange.  Added non-
+	underscored aliases for InterlockedAdd, InterlockedAdd64 and
+	InterlockedBitTestAndComplement, which aren't actually prototyped
+	in intrin.h but are wrappers around other intrinsics.  currentfiber.c,
+	currentteb.c, fiberdata.c, membarrier.c, mul128ex.c and umul128ex.c
+	remain untouched.
+	* Makefile.am (membarrier.c): Moved under src_libmingwex32 (x86-only)
+	* Makefile.in: Regenerated.
+
+2009-09-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Add __volatile__ to __asm__ statements.
+
+2009-09-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _findfirst64i32, _findnext64i32, _fstat64i32, _fstat, _stat64i32,
+	_stat, _wfindfirst64i32, _wfindnext64i32, _wstat64i32, _wstat: Zero
+	the input buffer in case the function we wrap around fails. This
+	fixes the native builds of binutils/bfd due to an unitialized use
+	warning about a stat structure, too.
+
+2009-09-05  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/_crt_veh.c: Removed.
+	* crt/crtexe.c (_CRT_VEH): Removed.
+	* Makefile.am (misc/_crt_veh.c): Removed.
+	* Makefile.in: Regenerated.
+
+2009-09-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crt_handler.c: New.
+	* crt/crtexe.c (__tmainCRTStartup): Call __mingw_init_ehandler
+	for 64-bit case.
+	* crt/crtdll.c: Likewise.
+	* crt/pesect.c (_FindPESectionByName): New.
+	(_FindPESectionExec): New.
+	(_GetPEImageBase): New.
+
+2009-09-03  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crtdll.c: Cleanup unused code.
+	* crt/crtexe.c: Likewise.
+
+	* Makefile.am: Add file misc/_crt_veh.c.
+	* Makefile.in: Regenerated.
+	* misc/_crt_veh.c: New.
+	* crt/crtexec.c (_CRT_VEH): Use variable to decide
+	if vectored exception handling should be used.
+
+2009-08-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/_ftime.c: New.
+	* lib32/moldname-msvcrt.def: Remove ftime.
+	* lib64/moldname-msvcrt.def: Likewise.
+	* Makefile.am: Add stdio/_ftime.c to build.
+	* Makefile.in: Regenerated.
+
+2009-08-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* ...: Remove use of _INTEGRAL_MAX_BITS checks <= 64.
+	* ...: Cleanup code for _USE_32BIT_TIME_T case.
+	* misc/_wctime32.c: New.
+
+2009-08-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Added math/_chgsignl.S.
+	* Makefile.in: Regenerated.
+
+2009-08-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/_chgsignl.S: Implemented _chgsignl().
+
+	* ...: Add missing prototypes.
+
+2009-08-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* fstat, stat, wstat: Instead of calling a function, "inline" (copy
+	the body of) the called function and avoid the cast which overcomes
+	the strict aliasing violation.  For the _USE_32BIT_TIME_T case, use
+	memcpy.  Remove the _no_optimize attributes which are not necessary
+	anymore.  The inlined versions from sys/stat.h should work fine now.
+
+	* _findfirst64i32, _findnext64i32, _fstat64i32, _stat64i32,
+	_wfindfirst64i32, _wfindnext64i32, _wstat64i32: Do not copy
+	the structures to the argument buffer if the called function
+	fails.
+
+2009-08-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Renamed stdio/_fwstat64i32.c to _wstat64i32.c.  Split
+	stdio/_findfirst64i32.c, stdio/_findnext64i32.c, stdio/_fstat64i32.c,
+	stdio/_fwstat64i32.c and stdio/_wstat64i32.c so that we have one
+	function per file.  stdio/_fstat.c, _stat.c, _stat64i32.c, _wstat.c,
+	_wfindfirst64i32.c and _wfindnext64i32.c are the new files.  Adjusted
+	Makefile.am and regenerated Makefile.in.
+
+	* Split libsrc/ws2tcpip.c and libsrc/wspiapi.c into the new derictories
+	libsrc/ws2tcpip and libsrc/wspiapi respectively so that we have one
+	function per file. Adjusted Makefile.am and regenerated Makefile.in.
+
+2009-08-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/writefsbyte.c: New.
+        * intrincs/writefsdword.c New.
+        * intrincs/readfsbyte.c: New.
+        * intrincs/writefsword.c: New.
+        * intrincs/readfsword.c: New.
+        * intrincs/readfsdword.c: New.
+	* Makefile.am (src_libmingwex32): Added 32-bit specific intrinsic
+	function libmingwex,a library.
+	* Makefile.in: Regenerated.
+
+2009-08-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* testcases/t_intrinc.cc: New testcase.
+
+	* intrincs/ilockdec.c, intrincs/ilockdec16.c, intrincs/ilockdec64.c,
+	intrincs/ilockinc.c, intrincs/ilockinc16.c, and intrincs/ilockinc64.c:
+	Adjust to emulate VC intrinsic function behavior.
+
+2009-08-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crt0_w.c (UNICODE): Define it for build.
+
+2009-07-31  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _fstat64i32.c (stat, fstat): Do not optimize due to strict aliasing
+	issues.
+	* _fwstat64i32.c(wstat): Likewise.
+
+2009-07-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/__stosd.c: New.
+	* intrincs/__stosq.c: New.
+	* intrincs/__stosw.c: New.
+	* Makefile.am: Add new files above.
+	* Makefile.in: Regenerated.
+
+2009-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/dbgassert.c: Deleted. (made into a macro in winnt.h)
+
+2009-07-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/dbgassert.c: Fix assembly for x86.
+	* intrincs/membarrier.c: Likewise.
+	* intrincs/__stosb.c: New.
+	* Makefile.am: Add __stosb.c
+	* Makefile.in: Regenerated.
+
+2009-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/dbgassert.c, membarrier.c: New. For cases where inlining
+	is disabled.
+	* Makefile.am: Added the new files to build for w64.
+	* Makefile.in: Regenerated.
+
+2009-07-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/currentfiber.c, intrincs/fiberdata.c: Add 32-bit
+	compatible code using inline assembler.
+
+2009-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/ilockadd.c, intrincs/ilockadd64.c, intrincs/mul128ex.c,
+	intrincs/umul128ex.c: New. For cases where inlining is disabled.
+	* Makefile.am: Added the new files to build for w64.
+	* Makefile.in: Regenerated.
+
+2009-07-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2687501
+	* stdio/_fstat64i32.c (stat,fstat): Add _imp__<symbol> variable.
+
+2009-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/wmemchr.c: Added NULL pointer checks.
+	* misc/wmemcmp.c: Likewise.
+
+2009-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/fwide.c, misc/mbsinit.c, misc/wmemchr.c, misc/wmemcmp.c,
+	misc/wmemcpy.c, misc/wmemmove.c, misc/wmemset.c:  Copied over code
+	from the inline versions in wchar.h.
+
+2009-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/readcr0.c: New.
+	* Makefile.am: Added intrincs/readcr0.c to the build.
+	* Makefile.in: Regenerated.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/ilockcxch.c (_InterlockedCompareExchange): Renamed from
+	InterlockedCompareExchange. Provide InterlockedCompareExchange as an
+	alias to _InterlockedCompareExchange.
+	* intrincs/ilockexch.c (_InterlockedExchange): Renamed from
+	InterlockedExchange. Provide InterlockedExchange as an alias to
+	_InterlockedExchange.
+	* intrincs/ilockcxch_.c, intrincs/ilockexch_.c: Removed.
+	* Makefile.am: Removed intrincs/ilockcxch_.c and intrincs/ilockexch_.c
+	from the build.
+	* Makefile.in: Regenerated.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/*: Define __CRT__NO_INLINE before the includes to prevent
+	declaration mismatches.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/ws2tcpip.c: New. Add function implementations of inline
+	version in ws2tcpip.h.
+	* Makefile.am: Added libsrc/ws2tcpip.c to libws2_32.a.
+	* Makefile.in: Regenerated.
+	* libsrc/wspiapi.c: Define WIN32_LEAN_AND_MEAN before includes. 
+	Undef __CRT__NO_INLINE before defining it.
+
+2009-07-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* libsrc/wspiapi.c: Add function implementations of inline
+	version in wspiapi.h
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	misc/
+	* fwide.c, mbsinit.c, wmemchr.c, wmemcmp.c, wmemcpy.c, wmemmove.c, wmemset.c:
+	Define __CRT__NO_INLINE before the includes to prevent declaration mismatches.
+	FIXME: The functions are #if 0'ed out in all of these sources, so we don't have
+	their non-inlined versions in libmingwex.a.
+	FIXME-2: We also don't have non-inlined versions of several other functions
+	in libmingwex.a, either. To be looked into...
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/imaxabs.c: Define __CRT__NO_INLINE before the includes to prevent
+	declaration mismatches.
+	* stdio/_Exit.c: Likewise.
+	* stdio/atoll.c: Likewise.
+	* stdio/lltoa.c: Likewise.
+	* stdio/lltow.c: Likewise.
+	* stdio/ulltoa.c: Likewise.
+	* stdio/ulltow.c: Likewise.
+	* stdio/vsnprintf.c: Likewise.
+	* stdio/vsnwprintf.c: Likewise.
+	* stdio/wtoll.c: Likewise.
+	* crt/wcscmpi.c: Likewise.
+	* crt/strcasecmp.c: Likewise. Also undefine strcasecmp.
+	* crt/strncasecmp.c: Likewise. Also undefine strncasecmp.
+	* misc/_mkgmtime.c, misc/ctime.c, misc/difftime.c, misc/gmtime.c,
+	misc/localtime.c, misc/mktime.c, misc/time.c: Likewise. Also added fixme
+	notes about the broken _USE_32BIT_TIME_T condition.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	stdio/
+	* _fstat64i32.c, _fwstat64i32.c: Added fixme notes about the broken
+	_USE_32BIT_TIME_T condition. Or'ed the condition with _INTEGRAL_MAX_BITS
+	< 64 because the 64 bit time_t is not available in such a case.
+	* _findfirst64i32.c (_findfirst64i32): only compile if _INTEGRAL_MAX_BITS
+	>= 64 because the 64 bit time_t is not available otherwise.
+	(_wfindfirst64i32): Likewise.
+	* _findnext64i32.c (_findnext64i32): Likewise.
+	(_wfindnext64i32): Likewise.
+	* _fstat64i32.c (_fstat64i32): Likewise.
+	(_stat64i32): Likewise.
+	* _fwstat64i32.c (_wstat64i32): Likewise.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio/_findnext64i32.c: Define __CRT__NO_INLINE before the includes to
+	prevent declaration mismatches.
+	* _findnext64i32.c: Likewise.
+	* _fstat64i32.c: Likewise.
+	* _fwstat64i32.c: Likewise.
+
+2009-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+	    Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/io_intrin.c: Deleted. Broken out its contents, one function
+	per file, into new sources in the 'intrincs' directory.
+	* intrincs/cpuid.c, intrincs/inbyte.c, intrincs/inbytestring.c,
+	intrincs/indword.c, intrincs/indwordstring.c, intrincs/inword.c,
+	intrincs/inwordstring.c, intrincs/outbyte.c, intrincs/outbytestring.c,
+	intrincs/outdword.c, intrincs/outdwordstring.c, intrincs/outword.c,
+	intrincs/outwordstring.c, intrincs/rdtsc.c, intrincs/readcr2.c,
+	intrincs/readcr3.c, intrincs/readcr4.c, intrincs/readcr8.c,
+	intrincs/readmsr.c, intrincs/writecr0.c, intrincs/writecr2.c,
+	intrincs/writecr3.c, intrincs/writecr4.c, intrincs/writecr8.c,
+	intrincs/writemsr.c: New.
+	* Makefile.am: Removed misc/io_intrin.c from build. Adjusted for the
+	new intrincs/*.c files.
+	* Makefile.in: Regenerated.
+
+2009-07-16  Ozkan Sezer  <sezeroz@gmail.com>
+	    Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wininterlocked.c: Deleted. Broken out its contents, one function
+	per file, in the new directory 'intrincs'.  Removed an __x86_64 ifdef
+	which was already under a _WIN64 ifdef, because we only support x86_64
+	as w64 for the moment.  Removed all _WIN64 ifdefs in the newly generated
+	files, except for NtCurrentTeb() in intrincs/currentteb.c, and built the
+	win64-only functions only in win64-builds.
+	* intrincs/ :
+	bitscanfwd.c, bitscanfwd64.c, bitscanrev.c, bitscanrev64.c, bittest.c,
+	bittest64.c, bittestc.c, bittestc64.c, bittestci.c, bittestr.c,
+	bittestr64.c, bittestri.c, bittestri64.c, bittests.c, bittests64.c,
+	bittestsi.c, bittestsi64.c, currentfiber.c, currentteb.c, fiberdata.c,
+	ilockand.c, ilockand64.c, ilockcxch.c, ilockcxch16.c, ilockcxch64.c,
+	ilockcxch_.c, ilockcxchptr.c, ilockdec.c, ilockdec16.c, ilockdec64.c,
+	ilockexch.c, ilockexch64.c, ilockexch_.c, ilockexchadd.c, ilockexchadd64.c,
+	ilockexchptr.c, ilockinc.c, ilockinc16.c, ilockinc64.c, ilockor.c,
+	ilockor64.c, ilockxor.c, ilockxor64.c, readgsbyte.c, readgsdword.c,
+	readgsqword.c, readgsword.c, writegsbyte.c, writegsdword.c, writegsqword.c,
+	writegsword.c: New.
+	* Makefile.am: Adjusted for the new intrincs/* files. wininterlocked.c
+	removed from build.
+	* Makefile.in: Regenerated.
+
+2009-06-28  jonY  <10walls@gmail.com>
+
+	* lib32/normaliz.def, lib64/normaliz.def: New.
+
+2009-06-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gdtoa/strtof.c (__strtof): Pre initialize local variable u to
+	avoid warning.
+
+2009-06-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* threads/: Removed.
+
+2009-06-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/tlssup.c (__mingw_TLScallback): Use for TLS cleanup.
+	* libsrc/mingwthrd_mt.c: Make it a dummy library file.
+	* libsrc/dummy_mingwthrd.c: Add TLS clean functions.
+	* libsrc/mingwthrd_nomt.c (_CRT_MT): For default set constant
+	to value 2.
+	Add win32 thread specific call methods.
+
+2009-06-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crt0_c.c: Allow use of main/wmain as -mwindows entry point
+	and pass proper Arguments.
+	* crt/crt0_w.c: Likewise.
+	* crt/crtexe.c: Use for -mwindows case also main/wmain with proper
+	arguments.
+
+2009-05-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* threads/: Add sources for EH cleanup DLL.
+	* libsrc/dummy_mingwthrd.c: Likewise.
+
+2009-05-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/wildcard.c: documented the _dowildcard variable.
+	* crt/crtexe.c (__tmainCRTStartup): added the missing '*' spotted by
+	Ivan Maidanski.
+	* crt/CRT_glob.c: New. Used to create CRT_glob.o, a helper object to
+	turn on command line wildcard expansion.
+	* Makefile.am: Added CRT_glob.o.
+	* Makefile.in, config.h.in, configure: regenerated.
+
+2009-04-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	FR/2619978:
+	* mingw-w64-crt/gdtoa/strtof.c, mingw-w64-crt/gdtoa/strtopx.c:  Prepend
+	the strtof and strtold symbols with '__mingw_' to provide both of strtof
+	and strtold which rely on msvcrt, and __mingw_strtof and __mingw_strtold
+	which rely on the internal gdtoa library.
+	* mingw-w64-headers/include/stdlib.h:  Properly provide the prototypes
+	for __mingw_strtof and __mingw_strtold.
+
+2009-04-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/misc.c: Sync'ed with the netlib.org sources from April 20, 2009.
+	The author's changelog states: "do not attempt to allocate large memory
+	blocks from the private memory pool (which was an unlikely event, but a
+	bug)."
+	* gdtoa/strtopx.c: Sync'ed with the netlib.org sources from April 20, 2009.
+	The author's changelog states: supply explicit bit for Infinity. "Note
+	that the Q routines (which do not supply this bit) are appropriate for
+	Sparc quad precision (probably known as long double with most current
+	compilers)."
+
+2009-04-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/gdtoa.h: Go back to defining 'Long' as 'long' instead of int
+	in order to maintain compatibility and avoid compiler warnings.
+
+2009-04-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* pow.c: Fix strict aliasing for scalar/floating point
+	modifications (required for -O2 and gcc 4.4+).
+	* tanhl.c: Likewise.
+	* lgammal.c: Likewise.
+	* tgammal.c: Likewise.
+	* powl.c: Likewise.
+	* cephes_mconf.h: Likewise.
+	* sinhl.c: Likewise.
+	* erfl.c: Likewise.
+	* lgamma.c: Likewise.
+	* tgamma.c: Likewise.
+
+2009-04-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/strtopx.c: The references I found indicate that the
+	mainstream code is incorrect for the STRTOG_Infinite case.  See, for
+	example, http://docs.sun.com/source/819-3688/data.rep.app.html, or
+	http://www.amath.unc.edu/sysadmin/DOC4.0/c-compiler/user_guide/data.represent.app.doc.html
+
+	* gdtoa/gdtoaimp.h, gdtoa/gethex.c, gdtoa/strtodg.c: Defined a
+	SET_ERRNO() macro for less ifdefs in actual C code.
+
+2009-04-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/strtopx.c: Added the maintream code of case STRTOG_Infinite
+	in commented out form: it makes out of Infinite a Zero value. Until
+	we know better we should keep our version.
+
+	* gdtoa/qnan.c: Added a comment about why the union has an array of 8
+	instead of 5.
+
+	* gdtoa/README, gdtoa/gdtoaimp.h, gdtoa/gethex.c, gdtoa/g__fmt.c,
+	gdtoa/strtodg.c: Merged the locale-specific decimal point character
+	cache code from netlib.org.  We are building with NO_LOCALE_CACHE,
+	though, because when user alters the decimal point in locale during
+	the execution of a program, we wouldn't do the desired thing.
+
+	* gdtoa/gdtoaimp.h, gdtoa/g_dfmt.c, gdtoa/misc.c: Reduce Kmax, and use
+	MALLOC and free for huge blocks, which are possible only in pathological
+	cases, such as dtoa calls in mode 3 with thousands of digits requested,
+	or strtod() calls with thousand of digits. from the netlib.org sources.
+
+	* gdtoa/g_xfmt.c: Added maintream code for general purposes and kept
+	our fpclassiy() code for mingw builds.
+
+	* gdtoa/gethex.c: Avoid compiler warnings about pointer targets differing
+	in signedness.
+
+	* gdtoa/README.mingw: New.
+
+2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/copysign.c: Avoid breaking of strict aliasing.
+
+2009-04-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/dtoa.c, gdtoa/gdtoa.c: Sync'ed with the netlib.org sources.
+	* gdtoa/gdtoa.h:  Minor cleanup.
+	* gdtoa/gdtoa_fltrnds.h: New.
+	* gdtoa/README, gdtoa/dtoa.c, gdtoa/g_dfmt.c, gdtoa/g_ffmt.c,
+	gdtoa/g_xfmt.c, gdtoa/gdtoaimp.h, gdtoa/strtof.c, gdtoa/strtopx.c:
+	Merged the Honor_FLT_ROUNDS/fegetround() bits from the current
+	netlib.org sources.
+
+	* gdtoa/gdtoaimp.h, gdtoa/strtodg.c: decrement() now returns void.
+
+	* gdtoa/strtodg.c: fix a botch in the test of whether to increase
+	rvbits before terminating the big for(;;) loop with dsign true (from
+	netlib.org sources.)
+
+	* gdtoa/gethex.c (gethex): Use ULbits as the multiplier, not 32 (from
+	netlib.org sources.)
+
+	* gdtoa/strtodg.c: Merge the rest of the rounding changes since the
+	commit rev.776.
+
+	* gdtoa/gethex.c (gethex): Another 32/ULbits change.
+
+	* gdtoa/hexnan.c: Allow optional initial 0x or 0X.
+	* gdtoa/gdtoaimp.h: Update accordingly for GDTOA_NON_PEDANTIC_NANCHECK.
+
+	* gdtoa/gethex.c: fix an off-by-one bug in a rounding test. merge the
+	rest of the rounding stuff. (from netlib.org sources.)
+
+	* gdtoa/README, gdtoa/g__fmt.c, gdtoa/g_dfmt.c, gdtoa/g_ffmt.c,
+	gdtoa/g_xfmt.c, gdtoa/gethex.c, gdtoa/smisc.c, gdtoa/strtodg.c,
+	gdtoa/gdtoa.h, gdtoa/gdtoaimp.h: Merged the locale-specific decimal
+	point fixes from netlib.org: if compiled with -DUSE_LOCALE, use the
+	current locale's decimal point character string. bufsize changed from
+	unsigned to size_t. g__fmt() now explicitly checks bufsize. fix
+	glitches in the strto* routines when compiled with -DUSE_LOCALE and
+	the locale's decimal-point string is two or more characters long.
+	The mingw build does compile with USE_LOCALE and was exposed to this
+	bug.
+	* gdtoa/g__fmt.c: Fixed a compiler warning with -DUSE_LOCALE builds.
+
+	* gdtoa/gethex.c, gdtoa/strtodg.c: Add missing cases of setting errno
+	to ERANGE (from netlib.org sources.)
+
+2009-04-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,
+	gdtoa/gdtoaimp.h, gdtoa/misc.c, gdtoa/smisc.c, gdtoa/strtodg.c,
+	gdtoa/strtof.c, gdtoa/ulp.c: merged the aliasing violation changes from
+	the latest netlib.org sources.
+
+	* gdtoa/misc.c: Restored the d0 and d1 macros in b2d() and d2b() for
+	smaller diffs with the netlib.org sources.
+
+2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoaimp.h, gdtoa/misc.c,
+	gdtoa/smisc.c, gdtoa/strtodg.c, gdtoa/ulp.c: Revmoved support for IBM,
+	CRAY and VAX modes and replaced typecast assignments by union usage:
+	The IBM, CRAY and VAX macros still live in the gdtoa.h and gdtoaimp.h,
+	but all the actual code supporting them are deleted for more a clear
+	code.
+	* gdtoa/gdtoa.h: For mingw32/64, define Long as int (32 bit integer)
+	instead of long. Undefine NO_LONG_LONG (we always have 'long long'.)
+	* gdtoa/gdtoaimp.h: Always define INFNAN_CHECK when IEEE_Arith is
+	defined (which already is the case for mingw32/64, from current gdtoa
+	source at netlib.org.) Wrap the MULTIPLE_THREADS and USE_LOCALE
+	definitions at the top of the file between __MINGWxx__ ifdefs.
+	* gdtoa/gd_arith.h, gdtoa/gd_qnan.h: Regenerated.
+
+2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
+	* gdtoa/dmisc.c, gdtoa/dtoa.c, gdtoa/g__fmt.c, gdtoa/g_dfmt.c,
+	gdtoa/g_ffmt.c, gdtoa/g_xfmt.c, gdtoa/gdtoa.c, gdtoa/gdtoa.h,
+	gdtoa/gdtoaimp.h, gdtoa/gethex.c, gdtoa/gmisc.c, gdtoa/hd_init.c,
+	gdtoa/hexnan.c, gdtoa/misc.c, gdtoa/smisc.c, gdtoa/strtodg.c,
+	gdtoa/strtodnrp.c, gdtoa/strtof.c, gdtoa/strtopx.c, gdtoa/sum.c,
+	gdtoa/ulp.c: Removed all KR_headers stuff along with ANSI, CONST,
+	Void and Char things. Aligned the closing braces with the opening
+	braces (wnitespace.)
+
+2009-04-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gdtoa/strtopx.c: Fix strict aliasing warnings.
+
+2009-04-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/dtoa.c, gdtoa/gdtoa.c, gdtoa/gdtoaimp.h, gdtoa/misc.c,
+	gdtoa/smisc.c, gdtoa/strtodg.c gdtoa/ulp.c: Fixed gcc-4.4 strict
+	aliasing issues by adding some ifdef magic. strtopx.c still needs
+	some more work.
+
+2009-04-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crtexe.c (__mingw_vex): Removed.
+	Don't initialize gs:0 by -1.
+
+2009-04-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/misc.c (b2d): Don't initialize d to 0.0 despite the 'd is
+	used uninitialized' warning, otherwise gcc >= 4.4 miscompiles this
+	with >= -O2.  Should stay this way until at least gcc is fixed.
+
+2009-04-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crtexe.c (__mingw_AddVectoredExceptionHandler): Removed.
+	Don't call AddVectoredExceptionHandler in 32-bit case.
+	Don't set fs:[0] to -1.
+	* misc/delayimp.c (PULONG): Don't define in 32-bit case.
+
+2009-04-01  Kai Tietz  <kai.tietz@onevision.com>
+
+        PR/2723829
+        * misc/mingw_getsp.S: Fix wrong .code64.
+
+2009-03-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/fesetenv.c: Replace _imp__<sym> by __MINGW_IMP_SYMBOL(sym).
+	* complex/cpow.c: Likewise.
+	* include/internal.h: Likewise.
+	* crt/CRT_fp8.c: Likewise.
+	* crt/atonexit.c: Likewise.
+	* crt/crtexe.c: Likewise.
+
+2009-03-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crtexe.c (wmainCRTStartup): Rename it to mainCRTStartup.
+	(wWinMainCRTStartup): Rename to wWinMainCRTStartup.
+	Make sure that for wmain call __main is called, too.
+
+2009-03-16  Ozkan Sezer  <sezero@users.sourceforge.net>
+
+	* misc/fetestexcept.c: added missing has_sse check.
+	* misc/fesetexceptflag.c: likewise.
+
+2009-03-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/mingw_custom.c (__mingw_get_crt_info): Moved from
+	mingw_helpers.c.
+	* minw_helpers.c (__mingw_get_crt_info): Removed.
+	General check if _DLL was already defined.
+
+2009-03-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/mingw_usleep.c: New.
+
+2009-03-11  Alexey Pushkin  <Alexey.Pushkin@mererand.com>
+
+	* crt/crtexe.c (_MINGW_INSTALL_DEBUG_MATHERR): Use for
+	optional debugging code for _matherr.
+	* crt/merr.c (_MINGW_INSTALL_DEBUG_MATHERR): New.
+	(_matherr): Show more details for debugging math
+	exceptions.
+
+2009-02-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/mingw_helper.c (__mingw_get_crt_info): Append
+	underscores to internal macros __MINGW64_VERSION, ...
+
+2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2615526
+	* tanhl.c: Add constant padding for 64-bits long double.
+	* lgammal.c: Likewise.
+	* tgammal.c: Likewise.
+	* powl.c: Likewise
+	* cephes_mconf.h: Likewise.
+	* sinhl.c: Likewise.
+	* erfl.c: Likewise.
+
+2009-02-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/moldname-msvcrt.def (fstat): Remove.
+	(stat): Remove.
+
+2009-02-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	* revstamp.h: New.
+
+2008-11-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt64/pseudo-reloc.c: Support of new pseudo relocation
+	version.
+
+2008-09-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wininterlocked.c (InterlockedExchangeAdd): New.
+	(InterlockedExchangeAdd64): New.
+
+2008-09-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	Patch/2108279 by Jaroslav Smid
+	* lib64/uxtheme.def: New Vista API for BeginBufferedPaint,
+	BufferedPaintClear, BufferedPaintInit, BufferedPaintSetAlpha,
+	BufferedPaintUnInit, EndBufferedPaint, GetBufferedPaintBits,
+	GetBufferedPaintDC, GetBufferedPaintTargetDC, and
+	GetBufferedPaintTargetRect.
+
+2008-09-12  Kai Tietz  <kai.tietz@onevision.com>
+
+	Patch/2106947 by Jaroslav Smid
+	* lib64/dwmapi.def: New.
+
+2008-08-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt64/crtexe.c (_TUCHAR): Replaced by _TCHAR.
+
+2008-08-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/ftello64.c: Use fgetpos.
+
+2008-07-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/execv.c: Change return type to int.
+	* misc/execve.c: Likewise.
+	* misc/execvp.c: Likewise.
+	* execvpe.c: Likewise.
+
+2008-06-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt64/crtexe.c (duplicate_ppstrings): Correct
+	type cast of allocated buffer.
+
+2008-04-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gdtoa: New.
+
+2008-04-09  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/1938117
+	* vsscanf.c: Fix assembly typo.
+
+2008-04-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* profile/COPYING: New.
+	* profile/CYGWIN_LICENSE: New.
+	* profile/gcrt0.c: New.
+	* profile/gmon.c: New.
+	* profile/gmon.h: New.
+	* profile/mcount.c: New.
+	* profile/profil.c: New.
+	* profile/profil.h: New.
+	* profile/profile.h: New.
+
+2008-01-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/io_intrin.c: Correct arguments for __readmsr.
+
+2008-01-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt64/fmode.c: Set default to TEXT.
+
+2008-01-28  sduplichan  <sduplichan@users.sourceforge.net>
+
+	* misc/io_intrin.c: Add further intrinsic functions.
+
+2008-01-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/_findfirst64i32.c: Correct wide-character version to
+	call _wfindfirst64.
+	* misc/io_intrin.c: Add intrin I/O functions.
+
+2008-01-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/fseeko64.c: Correct feeko64.
+
+2008-01-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt64/dirent.c: Add add _tGetFileAttributes for win95.
+	* misc/wcrtomb.c: EILSEQ check just for codepage zero.
+	* misc/gettimeofday.c: Reenabled gettimeofday function.
+
+2008-01-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/fseeko64.c: Add os error mapping.
+
+2008-01-05  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/ and crt64/: Removed dos line-endings.
+	* crt64/moldname-msvcrt.def: Removed stat and fstat. PR/1863020.
+
+2007-11-22  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crtexe.c: Corrected fs:0, gs:0 initialization. This
+	let setjmp longjmp work proper.
+
+2007-11-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _findfirst64i32.c: Add wide char methods.
+	* _findnext64i32.c: Likewise.
+
+2007-11-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wininterlocked.c: Add NtCurrentTeb function. PR/1832340.
+
+2007-10-22  20-40  <20-40@annonymous>
+
+	* crtexe.c: Add _pei386_runtime_relocator.
+	* crtdll.c: Likewise.
+
+2007-10-22  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crtexe.c: Add exception handler basic routines.
+	SEH support experimental.
+
+2007-10-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* fseeko64.c: (_flush): New method.
+	(_fseeki64): Use _flush instead of fflush.
+
+2007-10-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: Disable build of alarm.c in misc.
+
+2007-10-09  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _fstat64i32.c,_fwstat64i32.c: New.
+
+2007-10-05  zhou drangon  <drangon.mail@gmail.com>
+
+	* misc/spawnv.c: Corrected mode argument.
+	* misc/spawnve.c: Likewise.
+	* misc/spawnvp.c: Likewise.
+	* misc/spawnvpe.c: Likewise.
+
+2007-10-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/execv.c:
+	* misc/execve.c: New.
+	* misc/execvp.c: New.
+	* misc/execvpe.c: New.
+	* misc/spawnv.c: New.
+	* misc/spawnve.c: New.
+	* misc/spawnvp.c: New.
+	* misc/spawnvpe.c: New.
+	* Makefile: Add execv.c, execve.c, execvp.c, execvpe.c,
+	spawnv.c, spawnve.c, spawnvp.c, and spawnvpe.c to build.
+
+2007-10-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/difftime64.c: New.
+	* misc/difftime32.c: New.
+	* Makefile: Add difftime32.c and difftime64.c.
+
+2007-10-01  zhou drangon  <drangon.mail@gmail.com>
+
+	* math/remquof.S: Fixed typos.
+	* math/ceill.S: Likewise.
+	* math/floorl.S: Likewise.
+
+2007-09-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/logf.S: Removed.
+	* math/floorf.S: Removed.
+	* math/log10f.S: Removed.
+	* math/copysignf.S: Removed.
+	* math/copysign.S: Removed.
+	* math/logf.c: New.
+	* math/floorf.c: New.
+	* math/log10f.c: New.
+	* math/copysignf.c: New.
+	* math/copysign.c: New.
+	* math/ceill.S: Adjust calling convention.
+	* math/copysignl.S: Likewise.
+	* math/cosl.S: Likewise.
+	* math/exp2.S: Likewise.
+	* math/exp2f.S: Likewise.
+	* math/exp2l.S: Likewise.
+	* math/floorl.S: Likewise.
+	* math/fma.S: Likewise.
+	* math/fmaf.S: Likewise.
+	* math/frexpl.S: Likewise.
+	* math/ilogb.S: Likewise.
+	* math/ilogbf.S: Likewise.
+	* math/ilogbl.S: Likewise.
+	* math/log10l.S: Likewise.
+	* math/log1p.S: Likewise.
+	* math/log1pf.S: Likewise.
+	* math/log1pl.S: Likewise.
+	* math/log2.S: Likewise.
+	* math/log2f.S: Likewise.
+	* math/log2l.S: Likewise.
+	* math/logl.S: Likewise.
+	* math/nearbyint.S: Likewise.
+	* math/nearbyintf.S: Likewise.
+	* math/nearbyintl.S: Likewise.
+	* math/remainder.S: Likewise.
+	* math/remainderf.S: Likewise.
+	* math/remainderl.S: Likewise.
+	* math/remquo.S: Likewise.
+	* math/remquof.S: Likewise.
+	* math/remquol.S: Likewise.
+	* math/scalbn.S: Likewise.
+	* math/scalbnf.S: Likewise.
+	* math/scalbnl.S: Likewise.
+	* math/sinl.S: Likewise.
+	* math/tanl.S: Likewise.
+
+2007-09-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: Add _findfirst64i32.c.
+	Add _findnext64i32.c.
+	* stdio/_findfirst64i32.c: New.
+	* stdio/_findnext64i32.c: New.
+	* math/sinf.S: Removed.
+	* math/cosf.S: Removed.
+	* math/tanf.S: Removed.
+	* math/ceilf.S: Removed.
+	* math/sinf.c: New.
+	* math/cosf.c: New.
+	* math/tanf.c: New.
+	* math/ceilf.c: New.
+
+2007-09-24  Kai Tietz  <kai.tietz@onevision.com>
+
+	* dirent.c: (_topendir): Let d_name point to dd_dta.name.
+	PR/1801043
+	* mktime.c, difftime.c, ctime.c, gmtime.c, localtime.c,
+	_mkgmtime.c, time.c: New files in misc.
+	* Makefile: Add new files to build.
+
+2007-09-21  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wininterlocked.c: Remove InterlockedExchangeAdd64 and
+	InterlockedExchangeAdd.
+
+2007-09-20  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: Add build file misc/wininterlocked.c.
+	* misc/wininterlocked.c: New file implementing
+	inline methods defined by winnt.h.
+
+2007-09-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: removed termios and TERMIOS_OBJS.
+	* termios/: Removed.
+
+2007-09-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/cephes_emath.c: (__emdnorm): Work around
+	negation of unsigned short bug by using xor logic
+	PR/1792793.
+	* tlssup.c: (__dyn_tls_init, __dyn_tls_dtor): Type
+	cast warnings PR/1792786.
+	* misc/gettimeofday.c: (mingw_gettimeofday): New POSIX compatible
+	version of gettimeofday method.
+
+2007-08-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/cbrtl.c: [PR/1781604] Warning incompatible implicit declaration.
+	* math/erfl.c: [PR/1781602] Warning incompatible implicit declaration.
+
+2007-08-21  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: Add isblank.c and iswblank.c.
+	* isblank.c, iswblank.c: New.
+
+2007-08-21  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* dllmain.c: Remove deprecated reference to global
+	variable '_pRawDllMain'.
+
+2007-08-14  NightStrike  <nightstrike@gmail.com>
+
+	* Makefile: PR/1772766 remove unused DLLWRAP?.
+
+2007-08-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* dllcrt.c: Introduce call for DllEntryPoint if present.
+	* dllentry.c: New.
+	* Makefile: Add dllentry.c to libmingw.a.
+
+2007-07-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* mingw_helpers.c: New file for libmingw32.a.
+	* crtdll.c, crtexe.c: (__dyn_tls_init_callback,
+	_decode_pointer, _encode_pointer, mingw_app_type): Moved
+	implementation to mingw_helpers.c.
+
+2007-07-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crtbegin.c, crtend.c: New.
+	* Makfile: generate crtbegin.o and crtend.o objects.
+	* CRT_fp10.c: Renamed according to Makefile.
+	* CRT_fp8.c: Renamed according to Makefile.
+
+2007-07-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: Add crt0_c.c and crt0_w.c
+	* crt0_c.c: New.
+	* crt0_w.c: New.
+	* crtexe.c: Combine win/console for sake of -mconsole and
+	-mwindows and move default main for win into libmingw32.a.
+
+2007-07-19  NightStrike  <nightstrike@gmail.com>
+
+	* Makefile: Replace EXE by EXEEXT as autoconf defines it.
+
+2007-07-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile: Enable windows starup.
+	Add misc/wassert.c to libmingwex.a.
+	* misc/wassert.c: Add _wassert method.
+
+2007-07-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crtexe.c: Define argv, envp unicode specific.
+	Corrected definition of __initenv and __winitenv.
+	* internal.h: Corrected definition of __initenv and __winitenv.
+
+2007-07-17  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* Makefile: Replaced hardcoded /usr/local by $prefix.
+	Removed install of none existing docdir.
+
+2007-07-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Contributed initial crt set.
+
+
+Local Variables:
+version-control: never
+End:

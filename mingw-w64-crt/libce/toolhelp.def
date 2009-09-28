@@ -1,0 +1,16 @@
+LIBRARY  TOOLHELP.DLL
+EXPORTS
+CloseToolhelp32Snapshot
+CreateToolhelp32Snapshot
+DllMain
+Heap32First
+Heap32ListFirst
+Heap32ListNext
+Heap32Next
+Module32First
+Module32Next
+Process32First
+Process32Next
+Thread32First
+Thread32Next
+Toolhelp32ReadProcessMemory

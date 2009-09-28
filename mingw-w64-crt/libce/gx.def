@@ -1,0 +1,14 @@
+LIBRARY  GX.DLL
+EXPORTS
+?GXBeginDraw@@YAPAXXZ
+?GXCloseDisplay@@YAHXZ
+?GXCloseInput@@YAHXZ
+?GXEndDraw@@YAHXZ
+?GXGetDefaultKeys@@YA?AUGXKeyList@@H@Z
+?GXGetDisplayProperties@@YA?AUGXDisplayProperties@@XZ
+?GXIsDisplayDRAMBuffer@@YAHXZ
+?GXOpenDisplay@@YAHPAUHWND__@@K@Z
+?GXOpenInput@@YAHXZ
+?GXResume@@YAHXZ
+?GXSetViewport@@YAHKKKK@Z
+?GXSuspend@@YAHXZ

@@ -1,0 +1,6 @@
+LIBRARY  GPSAPI.DLL
+EXPORTS
+GPSCloseDevice
+GPSGetDeviceState
+GPSGetPosition
+GPSOpenDevice

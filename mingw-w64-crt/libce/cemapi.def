@@ -1,0 +1,55 @@
+LIBRARY  CEMAPI.DLL
+EXPORTS
+?CEMAPIComposeMessage@@YAJPBG000000@Z @54 NONAME
+?CEMAPILogoff@@YAJPAPAUIMAPISession@@@Z @21 NONAME
+?CEMAPILogonEx@@YAJPAPAUIMAPISession@@@Z @20 NONAME
+?CEMAPI_SetMessageRecipients@@YAJPAUIMessage@@PBG11111@Z @22 NONAME
+?CreateCeEntryIDCopy@@YAJPAU_CEENTRYID@@KPAPAU1@@Z @44 NONAME
+?DeleteBodyString@@YAXPAPAG@Z @47 NONAME
+?DeleteMapiAllocatedMemory@@YAJPAPAPAX@Z @45 NONAME
+?IMAPIContainer_get_ContentsTable@@YAJPAUIMAPIContainer@@PAPAUIMAPITable@@@Z @43 NONAME
+?IMAPIFolder_CreateMessage@@YAJPAUIMAPIFolder@@KPAPAUIMessage@@@Z @30 NONAME
+?IMAPIFolder_MoveMessage@@YAJPAUIMAPIFolder@@0PAUIMessage@@K@Z @31 NONAME
+?IMAPIProp_get_DateProperty@@YAJPAUIMAPIProp@@KPAK1111111@Z @40 NONAME
+?IMAPIProp_get_LongProperty@@YAJPAUIMAPIProp@@KPAK@Z @41 NONAME
+?IMAPIProp_get_StringProperty@@YAJPAUIMAPIProp@@KPAPAGPAPAU_SPropValue@@@Z @38 NONAME
+?IMAPIProp_set_LongProperty@@YAJPAUIMAPIProp@@KK@Z @42 NONAME
+?IMAPIProp_set_StringProperty@@YAJPAUIMAPIProp@@KPBG@Z @39 NONAME
+?IMAPISession_CompareEntryIDs@@YAJPAUIMAPISession@@KPAUENTRYID@@K1KPAK@Z @26 NONAME
+?IMAPISession_OpenEntry@@YAJPAUIMAPISession@@PAUENTRYID@@KPAKPAPAUIMessage@@@Z @25 NONAME
+?IMAPISession_OpenMsgStore@@YAJPAUIMAPISession@@PAUENTRYID@@KPAPAUIMsgStore@@@Z @24 NONAME
+?IMAPISession_get_MsgStoresTable@@YAJPAUIMAPISession@@PAPAUIMAPITable@@@Z @23 NONAME
+?IMAPITable_get_NextEntryID@@YAJPAUIMAPITable@@PAPAU_CEENTRYID@@PAK@Z @27 NONAME
+?IMAPITable_get_NextRecipient@@YAJPAUIMAPITable@@PAPAG11PAKPAPAU_SRowSet@@@Z @28 NONAME
+?IMessage_SubmitMessage@@YAJPAUIMessage@@@Z @32 NONAME
+?IMessage_delete@@YAJPAUIMAPISession@@PAUIMessage@@PAUENTRYID@@@Z @37 NONAME
+?IMessage_get_Body@@YAJPAUIMAPIProp@@PAKPAPAG@Z @34 NONAME
+?IMessage_get_EntryID@@YAJPAUIMessage@@PAPAUENTRYID@@PAK@Z @33 NONAME
+?IMessage_get_GetRecipientTable@@YAJPAUIMessage@@PAPAUIMAPITable@@@Z @36 NONAME
+?IMessage_set_Body@@YAJPAUIMAPIProp@@PBG@Z @35 NONAME
+?IMsgStore_get_Folder@@YAJPAUIMsgStore@@KPAPAUIMAPIFolder@@@Z @29 NONAME
+?MAPI_CompareEntryIDs@@YAHKPAUENTRYID@@K0@Z
+?MAPI_RefreshRuleClients@@YAJXZ
+?MailComposeMessage@@YAJPAU_MAILCOMPOSEFIELDS@@@Z
+?MailDisplayMessage@@YAJPAUENTRYID@@K@Z
+?MailSwitchToAccount@@YAJPBGK@Z
+?MailSwitchToFolder@@YAJPAUENTRYID@@K@Z
+?MailSyncMessages@@YAJPBGK@Z
+?RegisterForMapiNativeEvent@@YAJPAUIMAPISession@@PAUHWND__@@PAUENTRYID@@KPAPAVManagedMAPIAdviseSink@@@Z @50 NONAME
+?SafeMAPIFreeBuffer@@YAJPAPAU_SPropValue@@@Z @46 NONAME
+?SendSMSMessage@@YAJPBG0I@Z @48 NONAME
+?UnloadSmsDll@@YAJXZ @49 NONAME
+FreeProws
+HrGetOneProp
+HrSetOneProp
+MAPIAllocateBuffer
+MAPIAllocateBuffer_dbg @52 NONAME
+MAPIAllocateMore
+MAPIAllocateMore_dbg @53 NONAME
+MAPIFreeBuffer
+MAPIInitialize
+MAPILogonEx
+MAPIUninitialize
+MAPI_GetStoreByName
+MAPI_GetTotalAttachmentBytes
+MAPI_SetAttachmentPath

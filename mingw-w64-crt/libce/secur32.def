@@ -1,0 +1,26 @@
+LIBRARY  SECUR32.DLL
+EXPORTS
+AcceptSecurityContext
+AcquireCredentialsHandleW
+ApplyControlToken
+CeCredFree
+CeCredRead
+CeCredWrite
+DecryptMessage
+DeleteSecurityContext
+EncryptMessage
+EnumerateSecurityPackagesW
+FreeContextBuffer
+FreeCredentialsHandle
+ImpersonateSecurityContext
+InitSecurityInterfaceA
+InitSecurityInterfaceW
+InitializeSecurityContextW
+MakeSignature
+QueryContextAttributesW
+QueryCredentialsAttributesW
+QuerySecurityPackageInfoW
+RevertSecurityContext
+SealMessage
+UnsealMessage
+VerifySignature

@@ -1,0 +1,37 @@
+LIBRARY  WINSCARD.DLL
+EXPORTS
+SCardBeginTransaction @25 NONAME
+SCardCancel @21 NONAME
+SCardConnectW @22 NONAME
+SCardControl @30 NONAME
+SCardDisconnect @24 NONAME
+SCardEndTransaction @26 NONAME
+SCardEstablishContext @1 NONAME
+SCardForgetCardTypeW @17 NONAME
+SCardForgetReaderW @12 NONAME
+SCardFreeMemory @33 NONAME
+SCardGetAttrib @31 NONAME
+SCardGetCardTypeProviderNameW @8 NONAME
+SCardGetProviderIdW @7 NONAME
+SCardGetStatusChangeW @20 NONAME
+SCardIntroduceCardTypeW @15 NONAME
+SCardIntroduceReaderW @11 NONAME
+SCardIsValidContext @3 NONAME
+SCardListCardsW @5 NONAME
+SCardListInterfacesW @6 NONAME
+SCardListReadersW @4 NONAME
+SCardLocateCardsByATRW @18 NONAME
+SCardLocateCardsW @19 NONAME
+SCardReconnect @23 NONAME
+SCardReleaseContext @2 NONAME
+SCardSetAttrib @32 NONAME
+SCardSetCardTypeProviderNameW @16 NONAME
+SCardStatusW @28 NONAME
+SCardTransmit @29 NONAME
+_AtrCompare @40 NONAME
+_GetCardInfo @43 NONAME
+_GetReaderInfo @42 NONAME
+_ParseAtr @41 NONAME
+g_rgSCardRawPci
+g_rgSCardT0Pci
+g_rgSCardT1Pci

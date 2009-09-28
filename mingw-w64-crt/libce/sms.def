@@ -1,0 +1,17 @@
+LIBRARY  SMS.DLL
+EXPORTS
+SmsClearMessageNotification
+SmsClose
+SmsGetBroadcastMsgRanges
+SmsGetMessageSize
+SmsGetMessageStatus
+SmsGetPhoneNumber
+SmsGetSMSC
+SmsGetTime
+SmsOpen
+SmsReadMessage
+SmsReceiveAllMessagesFromSIM @20 NONAME
+SmsSendMessage
+SmsSetBroadcastMsgRanges
+SmsSetMessageNotification
+SmsSetSMSC

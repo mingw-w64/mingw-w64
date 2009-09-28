@@ -1,0 +1,12 @@
+LIBRARY  WEBVIEW.DLL
+EXPORTS
+?IsNetcardInstalled@@YAHXZ @15 NONAME
+?IsOnline@@YAHXZ @14 NONAME
+?PieLoadCSSSettings@@YAHXZ @19 NONAME
+?PieLoadRegistrySettings@@YAXXZ @13 NONAME
+?ShutDown@@YAJXZ @17 NONAME
+?StartUp@@YAJXZ @16 NONAME
+ReadFromURLFile @10 NONAME
+ReadFromURLFileEx @11 NONAME
+WriteURLFile @12 NONAME
+WriteURLFileEx @20 NONAME

@@ -1,0 +1,9 @@
+2009-02-18  Vincent Richomm  <forumer@smartmobili.com>
+
+	* Add import libraries extracted from WM5
+	On wince,import is generally done by ordinal  
+
+
+Local Variables:
+version-control: never
+End:

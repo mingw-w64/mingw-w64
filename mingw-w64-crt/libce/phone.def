@@ -1,0 +1,9 @@
+LIBRARY  PHONE.DLL
+EXPORTS
+PhoneAddSpeedDial @6 NONAME
+PhoneCloseCallLog @3 NONAME
+PhoneGetCallLogEntry @2 NONAME
+PhoneMakeCall @5 NONAME
+PhoneOpenCallLog @1 NONAME
+PhoneSeekCallLog @4 NONAME
+PhoneShowCallLog @7 NONAME

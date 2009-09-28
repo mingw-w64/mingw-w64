@@ -1,0 +1,9 @@
+LIBRARY  PUSHPRXY.DLL
+EXPORTS
+PushRouter_Close @1 NONAME
+PushRouter_FreeMessage @8 NONAME
+PushRouter_GetMessage @2 NONAME
+PushRouter_Open @3 NONAME
+PushRouter_RegisterClient @4 NONAME
+PushRouter_SubmitPush @6 NONAME
+PushRouter_UnRegisterClient @7 NONAME

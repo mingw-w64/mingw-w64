@@ -1,0 +1,9 @@
+LIBRARY  LAP_PW_WPC.DLL
+EXPORTS
+DeinitLAP
+InitLAP
+LAPCreateEnrollmentConfigDialog
+VerifyUser
+VerifyUserStart
+VerifyUserStop
+VerifyUserToTop
