@@ -19,7 +19,7 @@ secsysheaddir = $(baseheaddir)/sec_api/sys
 glheaddir = $(baseheaddir)/GL
 sdksheaddir = $(baseheaddir)/sdks
 
-basehead_HEADERS = @BASEHEAD_LIST@ $(builddir)/_mingw_features.h
+basehead_HEADERS = @BASEHEAD_LIST@
 syshead_HEADERS = @SYSHEAD_LIST@
 sechead_HEADERS = @SECHEAD_LIST@
 secsyshead_HEADERS = @SECSYSHEAD_LIST@
