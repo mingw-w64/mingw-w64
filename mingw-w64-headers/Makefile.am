@@ -12,13 +12,14 @@ EXTRA_HEADERS = \
   include/sec_api/sys/*.h \
   include/GL/*.h
 
-sysheaddir = $(includedir)/sys
-secheaddir = $(includedir)/sec_api
-secsysheaddir = $(includedir)/sec_api/sys
-glheaddir = $(includedir)/GL
-sdksheaddir = $(includedir)/sdks
+baseheaddir = $(includedir)/../$(host)/include
+sysheaddir = $(baseheaddir)/sys
+secheaddir = $(baseheaddir)/sec_api
+secsysheaddir = $(baseheaddir)/sec_api/sys
+glheaddir = $(baseheaddir)/GL
+sdksheaddir = $(baseheaddir)/sdks
 
-include_HEADERS = @BASEHEAD_LIST@
+basehead_HEADERS = @BASEHEAD_LIST@ $(builddir)/_mingw_features.h
 syshead_HEADERS = @SYSHEAD_LIST@
 sechead_HEADERS = @SECHEAD_LIST@
 secsyshead_HEADERS = @SECSYSHEAD_LIST@
@@ -27,10 +28,9 @@ sdkshead_HEADERS = @SDKSHEAD_LIST@
 
 #Optional headers
 
-ddkheaddir = $(includedir)/ddk
-dxheaddir = $(includedir)
+ddkheaddir = $(baseheaddir)/ddk
+dxheaddir = $(baseheaddir)
 
 ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
-
 

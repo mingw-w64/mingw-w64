@@ -35,8 +35,8 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 subdir = .
-DIST_COMMON = $(am__configure_deps) $(ddkhead_HEADERS) \
-	$(dxhead_HEADERS) $(glhead_HEADERS) $(include_HEADERS) \
+DIST_COMMON = $(am__configure_deps) $(basehead_HEADERS) \
+	$(ddkhead_HEADERS) $(dxhead_HEADERS) $(glhead_HEADERS) \
 	$(sdkshead_HEADERS) $(sechead_HEADERS) $(secsyshead_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/config.h.in $(syshead_HEADERS) \
@@ -75,12 +75,12 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(ddkheaddir)" "$(DESTDIR)$(dxheaddir)" \
-	"$(DESTDIR)$(glheaddir)" "$(DESTDIR)$(includedir)" \
+am__installdirs = "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" \
+	"$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" \
 	"$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" \
 	"$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)"
-HEADERS = $(ddkhead_HEADERS) $(dxhead_HEADERS) $(glhead_HEADERS) \
-	$(include_HEADERS) $(sdkshead_HEADERS) $(sechead_HEADERS) \
+HEADERS = $(basehead_HEADERS) $(ddkhead_HEADERS) $(dxhead_HEADERS) \
+	$(glhead_HEADERS) $(sdkshead_HEADERS) $(sechead_HEADERS) \
 	$(secsyshead_HEADERS) $(syshead_HEADERS)
 ETAGS = etags
 CTAGS = ctags
@@ -195,12 +195,13 @@ EXTRA_HEADERS = \
   include/sec_api/sys/*.h \
   include/GL/*.h
 
-sysheaddir = $(includedir)/sys
-secheaddir = $(includedir)/sec_api
-secsysheaddir = $(includedir)/sec_api/sys
-glheaddir = $(includedir)/GL
-sdksheaddir = $(includedir)/sdks
-include_HEADERS = @BASEHEAD_LIST@
+baseheaddir = $(includedir)/../$(host)/include
+sysheaddir = $(baseheaddir)/sys
+secheaddir = $(baseheaddir)/sec_api
+secsysheaddir = $(baseheaddir)/sec_api/sys
+glheaddir = $(baseheaddir)/GL
+sdksheaddir = $(baseheaddir)/sdks
+basehead_HEADERS = @BASEHEAD_LIST@ $(builddir)/_mingw_features.h
 syshead_HEADERS = @SYSHEAD_LIST@
 sechead_HEADERS = @SECHEAD_LIST@
 secsyshead_HEADERS = @SECSYSHEAD_LIST@
@@ -208,8 +209,8 @@ glhead_HEADERS = @GLHEAD_LIST@
 sdkshead_HEADERS = @SDKSHEAD_LIST@
 
 #Optional headers
-ddkheaddir = $(includedir)/ddk
-dxheaddir = $(includedir)
+ddkheaddir = $(baseheaddir)/ddk
+dxheaddir = $(baseheaddir)
 ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
 all: config.h
@@ -267,6 +268,26 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
+install-baseheadHEADERS: $(basehead_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(baseheaddir)" || $(MKDIR_P) "$(DESTDIR)$(baseheaddir)"
+	@list='$(basehead_HEADERS)'; test -n "$(baseheaddir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(baseheaddir)'"; \
+	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(baseheaddir)" || exit $$?; \
+	done
+
+uninstall-baseheadHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(basehead_HEADERS)'; test -n "$(baseheaddir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(baseheaddir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(baseheaddir)" && rm -f $$files
 install-ddkheadHEADERS: $(ddkhead_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(ddkheaddir)" || $(MKDIR_P) "$(DESTDIR)$(ddkheaddir)"
@@ -327,26 +348,6 @@ uninstall-glheadHEADERS:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(glheaddir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(glheaddir)" && rm -f $$files
-install-includeHEADERS: $(include_HEADERS)
-	@$(NORMAL_INSTALL)
-	test -z "$(includedir)" || $(MKDIR_P) "$(DESTDIR)$(includedir)"
-	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(includedir)'"; \
-	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(includedir)" || exit $$?; \
-	done
-
-uninstall-includeHEADERS:
-	@$(NORMAL_UNINSTALL)
-	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(includedir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(includedir)" && rm -f $$files
 install-sdksheadHEADERS: $(sdkshead_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(sdksheaddir)" || $(MKDIR_P) "$(DESTDIR)$(sdksheaddir)"
@@ -630,7 +631,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(HEADERS) config.h
 installdirs:
-	for dir in "$(DESTDIR)$(ddkheaddir)" "$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" "$(DESTDIR)$(includedir)" "$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" "$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)"; do \
+	for dir in "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" "$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" "$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" "$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -679,8 +680,8 @@ info: info-am
 
 info-am:
 
-install-data-am: install-ddkheadHEADERS install-dxheadHEADERS \
-	install-glheadHEADERS install-includeHEADERS \
+install-data-am: install-baseheadHEADERS install-ddkheadHEADERS \
+	install-dxheadHEADERS install-glheadHEADERS \
 	install-sdksheadHEADERS install-secheadHEADERS \
 	install-secsysheadHEADERS install-sysheadHEADERS
 
@@ -728,8 +729,8 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-ddkheadHEADERS uninstall-dxheadHEADERS \
-	uninstall-glheadHEADERS uninstall-includeHEADERS \
+uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
+	uninstall-dxheadHEADERS uninstall-glheadHEADERS \
 	uninstall-sdksheadHEADERS uninstall-secheadHEADERS \
 	uninstall-secsysheadHEADERS uninstall-sysheadHEADERS
 
@@ -740,22 +741,22 @@ uninstall-am: uninstall-ddkheadHEADERS uninstall-dxheadHEADERS \
 	dist-lzma dist-shar dist-tarZ dist-xz dist-zip distcheck \
 	distclean distclean-generic distclean-hdr distclean-tags \
 	distcleancheck distdir distuninstallcheck dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-ddkheadHEADERS install-dvi \
-	install-dvi-am install-dxheadHEADERS install-exec \
-	install-exec-am install-glheadHEADERS install-html \
-	install-html-am install-includeHEADERS install-info \
-	install-info-am install-man install-pdf install-pdf-am \
-	install-ps install-ps-am install-sdksheadHEADERS \
-	install-secheadHEADERS install-secsysheadHEADERS install-strip \
-	install-sysheadHEADERS installcheck installcheck-am \
-	installdirs maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-generic pdf pdf-am ps ps-am tags \
-	uninstall uninstall-am uninstall-ddkheadHEADERS \
+	html-am info info-am install install-am \
+	install-baseheadHEADERS install-data install-data-am \
+	install-ddkheadHEADERS install-dvi install-dvi-am \
+	install-dxheadHEADERS install-exec install-exec-am \
+	install-glheadHEADERS install-html install-html-am \
+	install-info install-info-am install-man install-pdf \
+	install-pdf-am install-ps install-ps-am \
+	install-sdksheadHEADERS install-secheadHEADERS \
+	install-secsysheadHEADERS install-strip install-sysheadHEADERS \
+	installcheck installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
+	pdf-am ps ps-am tags uninstall uninstall-am \
+	uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 	uninstall-dxheadHEADERS uninstall-glheadHEADERS \
-	uninstall-includeHEADERS uninstall-sdksheadHEADERS \
-	uninstall-secheadHEADERS uninstall-secsysheadHEADERS \
-	uninstall-sysheadHEADERS
+	uninstall-sdksheadHEADERS uninstall-secheadHEADERS \
+	uninstall-secsysheadHEADERS uninstall-sysheadHEADERS
 
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
