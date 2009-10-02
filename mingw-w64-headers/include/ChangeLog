@@ -1,3 +1,8 @@
+2009-10-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk.
+        * libgen.h: New.
+
 2009-09-28  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw_mac.h: Set new version to 1.1 and state to alpha.
