@@ -338,14 +338,15 @@ am__lib32_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	misc/wmemset.c misc/mingw_usleep.c misc/mingw_output_format.c \
 	misc/_wctime32.c misc/_ctime32.c misc/_localtime32.c \
 	misc/_gmtime32.c misc/_wctime.c misc/_time32.c \
-	misc/_mkgmtime32.c misc/_mktime32.c stdio/mingw_pformat.h \
-	stdio/atoll.c stdio/_Exit.c stdio/_findfirst64i32.c \
-	stdio/_wfindfirst64i32.c stdio/_findnext64i32.c \
-	stdio/_wfindnext64i32.c stdio/fopen64.c stdio/fseeko64.c \
-	stdio/_fstat64i32.c stdio/_fstat.c stdio/_stat64i32.c \
-	stdio/_stat.c stdio/ftello64.c stdio/_wstat64i32.c \
-	stdio/_wstat.c stdio/_ftime.c stdio/lltoa.c stdio/lltow.c \
-	stdio/lseek64.c stdio/mingw_fprintf.c stdio/mingw_pformat.c \
+	misc/_mkgmtime32.c misc/_mktime32.c misc/basename.c \
+	misc/dirname.c stdio/mingw_pformat.h stdio/atoll.c \
+	stdio/_Exit.c stdio/_findfirst64i32.c stdio/_wfindfirst64i32.c \
+	stdio/_findnext64i32.c stdio/_wfindnext64i32.c stdio/fopen64.c \
+	stdio/fseeko64.c stdio/_fstat64i32.c stdio/_fstat.c \
+	stdio/_stat64i32.c stdio/_stat.c stdio/ftello64.c \
+	stdio/_wstat64i32.c stdio/_wstat.c stdio/_ftime.c \
+	stdio/lltoa.c stdio/lltow.c stdio/lseek64.c \
+	stdio/mingw_fprintf.c stdio/mingw_pformat.c \
 	stdio/mingw_printf.c stdio/mingw_snprintf.c \
 	stdio/mingw_sprintf.c stdio/mingw_vfprintf.c \
 	stdio/mingw_vprintf.c stdio/mingw_vsnprintf.c \
@@ -729,6 +730,8 @@ am__objects_11 = intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT) \
 	misc/lib32_libmingwex_a-_time32.$(OBJEXT) \
 	misc/lib32_libmingwex_a-_mkgmtime32.$(OBJEXT) \
 	misc/lib32_libmingwex_a-_mktime32.$(OBJEXT) \
+	misc/lib32_libmingwex_a-basename.$(OBJEXT) \
+	misc/lib32_libmingwex_a-dirname.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-atoll.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_Exit.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_findfirst64i32.$(OBJEXT) \
@@ -1165,14 +1168,15 @@ am__lib64_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	misc/wmemset.c misc/mingw_usleep.c misc/mingw_output_format.c \
 	misc/_wctime32.c misc/_ctime32.c misc/_localtime32.c \
 	misc/_gmtime32.c misc/_wctime.c misc/_time32.c \
-	misc/_mkgmtime32.c misc/_mktime32.c stdio/mingw_pformat.h \
-	stdio/atoll.c stdio/_Exit.c stdio/_findfirst64i32.c \
-	stdio/_wfindfirst64i32.c stdio/_findnext64i32.c \
-	stdio/_wfindnext64i32.c stdio/fopen64.c stdio/fseeko64.c \
-	stdio/_fstat64i32.c stdio/_fstat.c stdio/_stat64i32.c \
-	stdio/_stat.c stdio/ftello64.c stdio/_wstat64i32.c \
-	stdio/_wstat.c stdio/_ftime.c stdio/lltoa.c stdio/lltow.c \
-	stdio/lseek64.c stdio/mingw_fprintf.c stdio/mingw_pformat.c \
+	misc/_mkgmtime32.c misc/_mktime32.c misc/basename.c \
+	misc/dirname.c stdio/mingw_pformat.h stdio/atoll.c \
+	stdio/_Exit.c stdio/_findfirst64i32.c stdio/_wfindfirst64i32.c \
+	stdio/_findnext64i32.c stdio/_wfindnext64i32.c stdio/fopen64.c \
+	stdio/fseeko64.c stdio/_fstat64i32.c stdio/_fstat.c \
+	stdio/_stat64i32.c stdio/_stat.c stdio/ftello64.c \
+	stdio/_wstat64i32.c stdio/_wstat.c stdio/_ftime.c \
+	stdio/lltoa.c stdio/lltow.c stdio/lseek64.c \
+	stdio/mingw_fprintf.c stdio/mingw_pformat.c \
 	stdio/mingw_printf.c stdio/mingw_snprintf.c \
 	stdio/mingw_sprintf.c stdio/mingw_vfprintf.c \
 	stdio/mingw_vprintf.c stdio/mingw_vsnprintf.c \
@@ -1568,6 +1572,8 @@ am__objects_31 = intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT) \
 	misc/lib64_libmingwex_a-_time32.$(OBJEXT) \
 	misc/lib64_libmingwex_a-_mkgmtime32.$(OBJEXT) \
 	misc/lib64_libmingwex_a-_mktime32.$(OBJEXT) \
+	misc/lib64_libmingwex_a-basename.$(OBJEXT) \
+	misc/lib64_libmingwex_a-dirname.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-atoll.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_Exit.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_findfirst64i32.$(OBJEXT) \
@@ -2265,6 +2271,7 @@ src_libmingwex = \
   misc/mingw_usleep.c  misc/mingw_output_format.c misc/_wctime32.c \
   misc/_ctime32.c misc/_localtime32.c misc/_gmtime32.c misc/_wctime.c \
   misc/_time32.c misc/_mkgmtime32.c misc/_mktime32.c \
+  misc/basename.c misc/dirname.c \
   \
   stdio/mingw_pformat.h \
   stdio/atoll.c           stdio/_Exit.c          stdio/_findfirst64i32.c  stdio/_wfindfirst64i32.c stdio/_findnext64i32.c  \
@@ -3990,6 +3997,10 @@ misc/lib32_libmingwex_a-_mkgmtime32.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-_mktime32.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmingwex_a-basename.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmingwex_a-dirname.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 stdio/$(am__dirstamp):
 	@$(MKDIR_P) stdio
 	@: > stdio/$(am__dirstamp)
@@ -5210,6 +5221,10 @@ misc/lib64_libmingwex_a-_time32.$(OBJEXT): misc/$(am__dirstamp) \
 misc/lib64_libmingwex_a-_mkgmtime32.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-_mktime32.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-basename.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-dirname.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-atoll.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
@@ -6700,6 +6715,7 @@ mostlyclean-compile:
 	-rm -f misc/lib32_libmingwex_a-_wctime.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-_wctime32.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-alarm.$(OBJEXT)
+	-rm -f misc/lib32_libmingwex_a-basename.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-btowc.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-ctime.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-delayimp.$(OBJEXT)
@@ -6707,6 +6723,7 @@ mostlyclean-compile:
 	-rm -f misc/lib32_libmingwex_a-difftime32.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-difftime64.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-dirent.$(OBJEXT)
+	-rm -f misc/lib32_libmingwex_a-dirname.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-execv.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-execve.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-execvp.$(OBJEXT)
@@ -6778,6 +6795,7 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-_wctime.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-_wctime32.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-alarm.$(OBJEXT)
+	-rm -f misc/lib64_libmingwex_a-basename.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-btowc.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-ctime.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-delayimp.$(OBJEXT)
@@ -6785,6 +6803,7 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-difftime32.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-difftime64.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-dirent.$(OBJEXT)
+	-rm -f misc/lib64_libmingwex_a-dirname.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-execv.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-execve.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-execvp.$(OBJEXT)
@@ -7837,6 +7856,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-_wctime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-_wctime32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-basename.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-btowc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-ctime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-delayimp.Po@am__quote@
@@ -7844,6 +7864,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-difftime32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-difftime64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-dirent.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-dirname.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-execv.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-execve.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-execvp.Po@am__quote@
@@ -7915,6 +7936,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-_wctime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-_wctime32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-basename.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-btowc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-ctime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-delayimp.Po@am__quote@
@@ -7922,6 +7944,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-difftime32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-difftime64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-dirent.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-dirname.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-execv.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-execve.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-execvp.Po@am__quote@
@@ -14600,6 +14623,34 @@ misc/lib32_libmingwex_a-_mktime32.obj: misc/_mktime32.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/_mktime32.c' object='misc/lib32_libmingwex_a-_mktime32.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-_mktime32.obj `if test -f 'misc/_mktime32.c'; then $(CYGPATH_W) 'misc/_mktime32.c'; else $(CYGPATH_W) '$(srcdir)/misc/_mktime32.c'; fi`
+
+misc/lib32_libmingwex_a-basename.o: misc/basename.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-basename.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-basename.Tpo -c -o misc/lib32_libmingwex_a-basename.o `test -f 'misc/basename.c' || echo '$(srcdir)/'`misc/basename.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-basename.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-basename.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/basename.c' object='misc/lib32_libmingwex_a-basename.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-basename.o `test -f 'misc/basename.c' || echo '$(srcdir)/'`misc/basename.c
+
+misc/lib32_libmingwex_a-basename.obj: misc/basename.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-basename.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-basename.Tpo -c -o misc/lib32_libmingwex_a-basename.obj `if test -f 'misc/basename.c'; then $(CYGPATH_W) 'misc/basename.c'; else $(CYGPATH_W) '$(srcdir)/misc/basename.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-basename.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-basename.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/basename.c' object='misc/lib32_libmingwex_a-basename.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-basename.obj `if test -f 'misc/basename.c'; then $(CYGPATH_W) 'misc/basename.c'; else $(CYGPATH_W) '$(srcdir)/misc/basename.c'; fi`
+
+misc/lib32_libmingwex_a-dirname.o: misc/dirname.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-dirname.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-dirname.Tpo -c -o misc/lib32_libmingwex_a-dirname.o `test -f 'misc/dirname.c' || echo '$(srcdir)/'`misc/dirname.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-dirname.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-dirname.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/dirname.c' object='misc/lib32_libmingwex_a-dirname.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-dirname.o `test -f 'misc/dirname.c' || echo '$(srcdir)/'`misc/dirname.c
+
+misc/lib32_libmingwex_a-dirname.obj: misc/dirname.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-dirname.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-dirname.Tpo -c -o misc/lib32_libmingwex_a-dirname.obj `if test -f 'misc/dirname.c'; then $(CYGPATH_W) 'misc/dirname.c'; else $(CYGPATH_W) '$(srcdir)/misc/dirname.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-dirname.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-dirname.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/dirname.c' object='misc/lib32_libmingwex_a-dirname.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-dirname.obj `if test -f 'misc/dirname.c'; then $(CYGPATH_W) 'misc/dirname.c'; else $(CYGPATH_W) '$(srcdir)/misc/dirname.c'; fi`
 
 stdio/lib32_libmingwex_a-atoll.o: stdio/atoll.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-atoll.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-atoll.Tpo -c -o stdio/lib32_libmingwex_a-atoll.o `test -f 'stdio/atoll.c' || echo '$(srcdir)/'`stdio/atoll.c
@@ -21684,6 +21735,34 @@ misc/lib64_libmingwex_a-_mktime32.obj: misc/_mktime32.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/_mktime32.c' object='misc/lib64_libmingwex_a-_mktime32.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-_mktime32.obj `if test -f 'misc/_mktime32.c'; then $(CYGPATH_W) 'misc/_mktime32.c'; else $(CYGPATH_W) '$(srcdir)/misc/_mktime32.c'; fi`
+
+misc/lib64_libmingwex_a-basename.o: misc/basename.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-basename.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-basename.Tpo -c -o misc/lib64_libmingwex_a-basename.o `test -f 'misc/basename.c' || echo '$(srcdir)/'`misc/basename.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-basename.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-basename.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/basename.c' object='misc/lib64_libmingwex_a-basename.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-basename.o `test -f 'misc/basename.c' || echo '$(srcdir)/'`misc/basename.c
+
+misc/lib64_libmingwex_a-basename.obj: misc/basename.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-basename.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-basename.Tpo -c -o misc/lib64_libmingwex_a-basename.obj `if test -f 'misc/basename.c'; then $(CYGPATH_W) 'misc/basename.c'; else $(CYGPATH_W) '$(srcdir)/misc/basename.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-basename.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-basename.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/basename.c' object='misc/lib64_libmingwex_a-basename.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-basename.obj `if test -f 'misc/basename.c'; then $(CYGPATH_W) 'misc/basename.c'; else $(CYGPATH_W) '$(srcdir)/misc/basename.c'; fi`
+
+misc/lib64_libmingwex_a-dirname.o: misc/dirname.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-dirname.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-dirname.Tpo -c -o misc/lib64_libmingwex_a-dirname.o `test -f 'misc/dirname.c' || echo '$(srcdir)/'`misc/dirname.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-dirname.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-dirname.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/dirname.c' object='misc/lib64_libmingwex_a-dirname.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-dirname.o `test -f 'misc/dirname.c' || echo '$(srcdir)/'`misc/dirname.c
+
+misc/lib64_libmingwex_a-dirname.obj: misc/dirname.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-dirname.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-dirname.Tpo -c -o misc/lib64_libmingwex_a-dirname.obj `if test -f 'misc/dirname.c'; then $(CYGPATH_W) 'misc/dirname.c'; else $(CYGPATH_W) '$(srcdir)/misc/dirname.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-dirname.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-dirname.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/dirname.c' object='misc/lib64_libmingwex_a-dirname.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-dirname.obj `if test -f 'misc/dirname.c'; then $(CYGPATH_W) 'misc/dirname.c'; else $(CYGPATH_W) '$(srcdir)/misc/dirname.c'; fi`
 
 stdio/lib64_libmingwex_a-atoll.o: stdio/atoll.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-atoll.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-atoll.Tpo -c -o stdio/lib64_libmingwex_a-atoll.o `test -f 'stdio/atoll.c' || echo '$(srcdir)/'`stdio/atoll.c

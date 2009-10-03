@@ -1,3 +1,9 @@
+2009-10-03  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/basename.c, misc/dirname.c: New.
+	* Makefile.am: Add basename.c and dirname.c to libmingwex.a lib.
+	* Makefile.in: Regenerated.
+
 2009-09-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* intrins/ilock*.c:  Added non-underscored functions as aliases to the

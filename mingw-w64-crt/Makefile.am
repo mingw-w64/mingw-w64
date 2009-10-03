@@ -157,6 +157,7 @@ src_libmingwex=\
   misc/mingw_usleep.c  misc/mingw_output_format.c misc/_wctime32.c \
   misc/_ctime32.c misc/_localtime32.c misc/_gmtime32.c misc/_wctime.c \
   misc/_time32.c misc/_mkgmtime32.c misc/_mktime32.c \
+  misc/basename.c misc/dirname.c \
   \
   stdio/mingw_pformat.h \
   stdio/atoll.c           stdio/_Exit.c          stdio/_findfirst64i32.c  stdio/_wfindfirst64i32.c stdio/_findnext64i32.c  \
