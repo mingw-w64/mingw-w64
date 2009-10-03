@@ -1,5 +1,9 @@
 2009-10-03  Kai Tietz  <kai.tietz@onevision.com>
 
+        * libsrc/wia-uuid.c: New.
+        * Makefile.am: Add libsrc/wia-uuid.c to libuuid.a lib.
+        * Makefile.in: Regenerated.
+
 	* misc/basename.c, misc/dirname.c: New.
 	* Makefile.am: Add basename.c and dirname.c to libmingwex.a lib.
 	* Makefile.in: Regenerated.
