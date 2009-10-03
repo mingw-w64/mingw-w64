@@ -60,7 +60,8 @@ src_libuuid=libsrc/uuid.c libsrc/devguid.c \
   libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
   libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c   libsrc/mlang-uuid.c \
   libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
-  libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c
+  libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/servprov-uuid.c \
+  libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c libsrc/wia-uuid.c
 src_libws2_32=libsrc/ws2_32.c \
   \
   libsrc/ws2tcpip/in6_addr_equal.c           libsrc/ws2tcpip/in6addr_isany.c           libsrc/ws2tcpip/in6addr_isloopback.c       \
