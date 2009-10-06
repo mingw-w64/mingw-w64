@@ -1,3 +1,9 @@
+2009-10-06  Jonathan Yong <jon_y@users.sourceforge.net>
+
+	* _mingw.h (__MINGW_ATTRIB_DEPRECATED_STR): New macro.
+	(__MINGW_MSVC2005_DEPREC_STR): New macro.
+	(__MINGW_ATTRIB_DEPRECATED_MSVC2005): New macro. Warns about msvc 2005 deprecations.
+
 2009-10-02  Kai Tietz  <kai.tietz@onevision.com>
 
 	* libgen.h: New.

@@ -132,6 +132,19 @@ limitations in handling dllimport attribute.  */
 #define __MINGW_ATTRIB_NO_OPTIMIZE
 #endif
 
+#if __MINGW_GNUC_PREREQ (4, 5)
+# define __MINGW_ATTRIB_DEPRECATED_STR(x) __attribute__ ((__deprecated__ (x)))
+#else
+# define __MINGW_ATTRIB_DEPRECATED_STR(X) __MINGW_ATTRIB_DEPRECATED
+#endif
+
+#ifndef _CRT_NONSTDC_NO_DEPRECATE
+# define __MINGW_MSVC2005_DEPREC_STR "This POSIX function is deprecated beginning in Visual C++ 2005"
+# define __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_DEPRECATED_STR (__MINGW_MSVC2005_DEPREC_STR)
+#else
+# define __MINGW_ATTRIB_DEPRECATED_MSVC2005
+#endif
+
 #ifndef __MSVCRT_VERSION__
 /*  High byte is the major version, low byte is the minor. */
 # define __MSVCRT_VERSION__ 0x0700
