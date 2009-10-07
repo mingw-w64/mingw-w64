@@ -11,6 +11,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <memory.h>
 #include <assert.h>
 
@@ -36,13 +37,32 @@ typedef struct {
 } runtime_pseudo_reloc_v2;
 
 static void
+#ifdef __GNUC__
+ __attribute__ ((noreturn))
+#endif
+__report_error (const char *msg, ...)
+{
+  va_list argp;
+  va_start (argp, msg);
+  fprintf (stderr, "Mingw-w64 runtime failure:\n");
+  vfprintf (stderr, msg, argp);
+  va_end (argp);
+  abort ();
+}
+
+static void
 __write_memory (void *addr, const void *src, size_t len)
 {
   MEMORY_BASIC_INFORMATION b;
   DWORD oldprot;
+  
   if (!len)
     return;
-  assert (VirtualQuery (addr, &b, sizeof(b)));
+  if (!VirtualQuery (addr, &b, sizeof(b)))
+    {
+      __report_error ("  VirtualQuery failed for %d bytes at address %p", (int) sizeof(b),
+		      addr);
+    }
   /* Temporarily allow write access to read-only protected memory.  */
   if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
     VirtualProtect (b.BaseAddress, b.RegionSize, PAGE_EXECUTE_READWRITE,
@@ -85,10 +105,8 @@ do_pseudo_reloc (void *start, void *end, void *base)
   /* Check if this is a known version.  */
   if (v2_hdr->version != RP_VERSION_V2)
     {
-#ifdef DEBUG
-      fprintf (stderr, "pseudo_relocation protocol version %d is unknown to this runtime.\n",
-	       (int) v2_hdr->version);
-#endif
+      __report_error ("  Pseudo relocation protocol version %d is unknown to this runtime.\n",
+		      (int) v2_hdr->version);
       return;
     }
   /* Walk over header.  */
@@ -126,9 +144,8 @@ do_pseudo_reloc (void *start, void *end, void *base)
 #endif
 	  default:
 	    reldata=0;
-#ifdef DEBUG
-	    fprintf(stderr, "Unknown pseudo relocation bit size %d\n",(int) (r->flags & 0xff));
-#endif
+	    __report_error ("Unknown pseudo relocation bit size %d\n",
+			    (int) (r->flags & 0xff));
 	    break;
         }
       reldata -= ((ptrdiff_t) base + r->sym);

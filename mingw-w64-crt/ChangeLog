@@ -1,3 +1,7 @@
+2009-10-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/pseudo-reloc.c (__report_error): New.
+
 2009-10-03  Kai Tietz  <kai.tietz@onevision.com>
 
         * libsrc/wia-uuid.c: New.
