@@ -132,17 +132,29 @@ limitations in handling dllimport attribute.  */
 #define __MINGW_ATTRIB_NO_OPTIMIZE
 #endif
 
-#if __MINGW_GNUC_PREREQ (4, 5)
-# define __MINGW_ATTRIB_DEPRECATED_STR(x) __attribute__ ((__deprecated__ (x)))
+#ifdef __MINGW_MSVC_COMPAT_WARNINGS
+# if __MINGW_GNUC_PREREQ (4, 5)
+#  define __MINGW_ATTRIB_DEPRECATED_STR(X) __attribute__ ((__deprecated__ (X)))
+# else
+#  define __MINGW_ATTRIB_DEPRECATED_STR(X) __MINGW_ATTRIB_DEPRECATED
+# endif
 #else
-# define __MINGW_ATTRIB_DEPRECATED_STR(X) __MINGW_ATTRIB_DEPRECATED
+# define __MINGW_ATTRIB_DEPRECATED_STR(X)
 #endif
 
-#ifndef _CRT_NONSTDC_NO_DEPRECATE
-# define __MINGW_MSVC2005_DEPREC_STR "This POSIX function is deprecated beginning in Visual C++ 2005"
+#define __MINGW_SEC_WARN_STR "This function or variable may be unsafe, use _CRT_SECURE_NO_WARNINGS to disable deprecation"
+#define __MINGW_MSVC2005_DEPREC_STR "This POSIX function is deprecated beginning in Visual C++ 2005, use _CRT_NONSTDC_NO_DEPRECATE to disable deprecation"
+
+#if !defined (_CRT_NONSTDC_NO_DEPRECATE)
 # define __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_DEPRECATED_STR (__MINGW_MSVC2005_DEPREC_STR)
 #else
 # define __MINGW_ATTRIB_DEPRECATED_MSVC2005
+#endif
+
+#if !defined (_CRT_SECURE_NO_WARNINGS)
+# define __MINGW_ATTRIB_DEPRECATED_SEC_WARN __MINGW_ATTRIB_DEPRECATED_STR (__MINGW_SEC_WARN_STR)
+#else
+# define __MINGW_ATTRIB_DEPRECATED_SEC_WARN
 #endif
 
 #ifndef __MSVCRT_VERSION__
