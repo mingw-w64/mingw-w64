@@ -1,3 +1,13 @@
+2009-10-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/gpapi.def: New.
+	* lib32/gpedit.def: New.
+	* lib32/gpprefcl.def: New.
+	* lib32/gpscript.def: New.
+	* lib32/gptext.def: New.
+	* Makefile.am: Add new lib32 def-files.
+	* Makefile.in: Regenerated.
+
 2009-10-07  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/pseudo-reloc.c (__report_error): New.

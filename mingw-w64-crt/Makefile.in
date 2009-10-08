@@ -2422,6 +2422,9 @@ src_libmingwex32 = \
 @LIB32_TRUE@  lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a     lib32/libwsnmp32.a   \
 @LIB32_TRUE@  lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a \
 @LIB32_TRUE@  \
+@LIB32_TRUE@  lib32/libgpapi.a lib32/libgpedit.a lib32/libgpprefcl.a lib32/libgpscript.a \
+@LIB32_TRUE@  lib32/libgptext.a \
+@LIB32_TRUE@  \
 @LIB32_TRUE@  lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a
 
 
