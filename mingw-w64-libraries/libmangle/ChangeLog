@@ -1,0 +1,101 @@
+2009-02-15  JonY  <jon_y@users.sourceforge.net>
+
+	* m_token.h: Revert accidental print_decl() documentation
+	removal.
+	* m_token.c (trim_str): New.
+	(sprintf_decl): Use trim_str.
+	* m_token.c: Remove DOS carriage returns.
+
+2009-02-15  JonY  <jon_y@users.sourceforge.net>
+
+	* m_ms.h, m_token.h, m_token.c: Remove reference to print_decl().
+	* m_token.h: Move documentation for print_decl to sprintf_decl().
+	* m_token.c: Use new sprintf_decl() in test main().
+
+2009-02-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* m_token.h (eMST_initframe): Removed.
+	* m_token.c: Likewise.
+	* m_ms.c: Likewise.
+	* m_token.c (print_decl1): Removed.
+	(sprint_decl): New.
+	(sprint_decl1): New.
+	(print_decl): Use sprint_decl.
+	(mt_strcat): New.
+	* m_token.h (sprint_decl): New.
+
+2009-02-04  JonY  <jon_y@users.sourceforge.net>
+
+	* m_token.h: Add documentation for new gc parameters,
+	elements and context.
+
+2009-02-03  Kai Tietz  <kai.tietz@onevision.com>
+
+	* m_ms.c (encode_ms_name): Change return type and add
+	gc parameter.
+	(decode_ms_name): Add gc parameter.
+	* m_ms.h: Likewise.
+	adjust some documentation.
+	* m_token (release_tok): Removed.
+	(release_gc): New.
+	(generate_gc): New.
+	(release_gc): New.
+	(alloc_gc): New.
+	(free_gc): New.
+	(gen_tok): Add argument gc and use alloc_gc for memory
+	allocations.
+
+2009-02-01  JonY  <jon_y@users.sourceforge.net>
+
+	* m_token.h: Document eMSToken enumerators.
+
+2009-02-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* m_ms.c, m_token.c, m_token.h (sGcCtx): New.
+	(sGcElem): New.
+	(sMSCtx): Add new member gc of type sGcCtx.
+	Add to all gen_... methods new argument gc of type sGcCtx *.
+
+2009-01-31  JonY <jon_y@users.sourceforge.net>
+
+	* m_token.h: Add more documentation, cleans up some redundant info.
+
+2009-01-30  JonY  <jon_y@users.sourceforge.net>
+
+	* m_token.h: Document more struct and union data fields.
+	* m_ms.h: Add error code clarification for sMSCtx struct.
+
+2009-01-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* m_ms.c (m_colon): New.
+	(m_opname): New.
+	(m_rtti): New.
+	(m_frame): New.
+	(m_lexical_frame): New.
+	(m_ltgt): New.
+	(m_rframe): New.
+	(m_combine): Add sMSCtx argument.
+	(m_type): Likewise.
+	(m_cv): Likewise.
+	(m_coloncolon): Likewise.
+	(m_element): Likewise.
+	(m_array): Likewise.
+	(m_scope): Likewise.
+	(m_oper): Likewise.
+	(m_name): Likewise.
+
+2009-01-28  JonY  <jon_y@users.sourceforge.net>
+
+	* m_ms.h, m_token.h: Document some enums, structs and unions.
+	* Doxyfile: Add Doxyfile, use "doxygen" to generate HTML docs.
+
+2009-01-26  JonY  <jon_y@users.sourceforge.net>
+
+	* m_ms.c: Add initial doxygen format documentation and fix
+	some gcc pedantic warnings.
+
+2009-01-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* m_ms.c, m_ms.h, m_token.c, m_token.h:
+	Initial version.
+
