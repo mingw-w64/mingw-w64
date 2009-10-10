@@ -1,0 +1,427 @@
+The Advance Guide to
+    Building the Mingw-w64 x86_64-w64-mingw32 cross-compiler
+
+== About this document ==
+
+This document describes more advanced methods in building the mingw-w64
+cross compiler. It also includes details about the toolchain
+dependencies and relevant options that can be passed to the GCC
+configure.
+
+The commands are run under a MSYS/MinGW setup unless specified otherwise.
+
+== Targeted audience ==
+
+This document assumes readers are familiar with the UNIX Command Line
+and building the GNU toolchain in general, but would want a more fine
+grained control over the capabilities of the cross compiler. 
+
+For a basic guide on building the mingw-w64 toolchain, please refer to
+"mingw-w64-howto-build.txt".
+
+== Version changes ==
+
+Date /        Version /    Author
+2009-10-09    1.0          Jonathan Yong <jon_y[a]users.sourceforge.com>
+
+== Table of Contents ==
+
+	* Some Basic Info about mingw-w64                         [SBSCINF]
+	* Host Support Libraries                                  [HOSTLIB]
+	    * The GNU MP Bignum Library                           [BGMPLIB]
+	    * MPFR                                                [BMPFRLB]
+	    * Multiprecision                                      [BMPCLIB]
+	    * The Parma Polyhedra Library                         [BPPLLIB]
+	    * The Clunky Loop Generator (PPL port)                [BCLGLIB]
+	    * Libelf                                              [BELFLIB]
+	* Target Support Libraries                                [TGTSPLB]
+	    * pthreads-win32                                      [PTHRW32]
+	* Building the Multilib Cross MinGW-w64 GCC the
+	    lazy way(With ADA support and libgomp)                [LAZYW64]
+	    * ADA Bootstrap Phase                                 [ADABOOT]
+	    * MinGW-w64 cross Binutils                            [CRSBINU]
+	    * Install mingw-w64 Headers                           [MGW64HD]
+	    * Setup Symlinks                                      [SETSYML]
+	    * Build Core GCC                                      [BCORGCC]
+	    * Build the mingw-w64 CRT                             [BMGWCRT]
+	    * Build libgcc                                        [BLIBGCC]
+	    * Build pthreads                                      [BPTHR32]
+	    * Continue the build                                  [CTNTBLD]
+
+You can search the keys (i.e. [BMPCLIB]) to jump to that section.
+
+== Some Basic Info about MinGW-w64 == [SBSCINF]
+
+MinGW-w64 began as a fork of mingw.org MinGW to support 64bit windows as
+a target.
+
+Canonical Triplet info:
+	mingw.org MinGW:    i686-pc-mingw32
+	mingw-w64 64bit:    x86_64-pc-mingw32   (obsolete triplet)
+	                    x86_64-w64-mingw32  (preferred triplet)
+	mingw-w64 32bit:    i686-pc-mingw32     (mingw.org compatibility mode)
+	                    i686-w64-mingw32    (preferred triplet)
+
+== Host Support Libraries == [HOSTLIB]
+
+These libraries are used by GCC on the "host" side. It means that these
+should be built for the system that will run the newly built GCC.
+
+=== The GNU MP Bignum Library (GMP) === [BGMPLIB]
+
+Homepage:               <http://gmplib.org/>
+Depends on:             None
+Depended by:            MPC, MPFR, PPL, CLooG
+GCC dependency type:    Hard (GCC won't build without it)
+
+GMP is primarily written in C and assembly, but it comes with C++ bindings.
+The asm part is selected by the $host_cpu detected by configure. If your
+platform is not detected properly, you can use --host=none-none-none to
+disable asm optimizations. Be sure to set the correct CC, CXX, NM, RANLIB
+and AR variables.
+
+The C++ bindings are not built by default, but it is required by PPL. To fix
+this, use "--enable-cxx" and "CPPFLAGS=-fexceptions". PPL needs the
+-fexceptions part to throw exceptions properly, but it is not strictly
+required.
+
+On Windows hosts, only static or shared builds can be used at a time, but not
+both. This is reasoned by the incompatible header set used by static/shared
+builds. If you do use static builds, you should build any libs that depend on
+it as static to prevent accidentally exporting GMP symbols in other dlls.
+
+=== MPFR === [BMPFRLB]
+
+Homepage:               <http://www.mpfr.org/>
+Depends on:             GMP
+Depended by:            None
+GCC dependency type:    Hard (GCC won't build without it)
+
+MPFR isn't particularly fussy about configure options, so the usual:
+	./configure
+	make
+	make install
+is fine.
+
+=== Multiprecision (MPC) === [BMPCLIB]
+
+Homepage:               <http://www.multiprecision.org/>
+Depends on:             GMP
+Depended by:            None
+GCC dependency type:    Soft (GCC can build without it)
+
+MPC isn't particularly fussy about configure options, so the usual:
+	./configure
+	make
+	make install
+is fine.
+
+=== The Parma Polyhedra Library (PPL) === [BPPLLIB]
+
+Homepage: <http://www.cs.unipr.it/ppl/>
+Depends on:     GMP
+Depended by:    PPL
+GCC dependency type: None (GCC does not use it directly)
+
+PPL requires that GMP be built with C++ bindings (--enable-cxx) and
+-fexceptions (to allow exceptions to be thrown across GMP).
+
+=== The Clunky Loop Generator (PPL port) === [BCLGLIB]
+
+Homepage: <http://repo.or.cz/w/cloog-ppl.git>
+Depends on:             GMP, PPL
+Depended by:            None
+GCC dependency type:    Soft (GCC can build without it)
+CLooG isn't particularly fussy about configure options, so the usual:
+	./configure
+	make
+	make install
+is fine.
+
+=== Libelf === [BELFLIB]
+
+Homepage: <http://www.mr511.de/software/english.html>
+Depends on:             None
+Depended by:            None
+GCC dependency type:    Soft (Required for GCC lto support)
+Libelf isn't particularly fussy about configure options, so the usual:
+	./configure
+	make
+	make install
+is fine.
+
+== Target Support Libraries == [TGTSPLB]
+
+Target support libraries are for use with mingw-w64 itself. It should not
+be used by the host directly. Hence the target libs will need to be compiled
+with a compiler targeting mingw-w64.
+
+=== pthreads-win32 === [PTHRW32]
+Homepage: <http://sourceware.org/pthreads-win32/>
+Depends on:             None
+Depended by:            None
+GCC dependency type:    Soft (Required for GCC libgomp support)
+
+Download instructions:
+	cvs -d :pserver:anoncvs@sourceware.org:/cvs/pthreads-win32 login
+	{enter ``anoncvs'' for the password}
+	cvs -d :pserver:anoncvs@sourceware.org:/cvs/pthreads-win32 checkout pthreads
+
+Patch: <http://sourceware.org/ml/pthreads-win32/2009/msg00030/w64sup.patch>
+
+Note: pthreads-win32 does not come with a autotools based build system. It
+    uses a Makefile "GNUmakefile" to build the pthreads dll.
+
+Note: To allow win64 support, apply the patch from the mailing list.
+
+General Build and install instructions:
+	Step 1) type "make clean GC CROSS=x86_64-w64-mingw32-"
+		Note: The CROSS variable specifies your win64/win32 toolchain
+		    triplet prefix.
+	Step 2) copy pthreadGC2.dll to your path
+	Step 3) Install the lib by copying pthreadGC2 as libpthread.a to
+	    your GCC libdir
+	Step 4) Copy pthread.h, sched.h and semaphore.h to the GCC include dir
+	Step 5) Edit the pthread.h in your include dir and change the following
+	    section from:
+=======================================================================
+		#if HAVE_CONFIG_H
+		#include "config.h"
+		#endif /* HAVE_CONFIG_H */
+=======================================================================
+			to:
+=======================================================================
+		/* #if HAVE_CONFIG_H */
+		#include "pconfig.h"
+		/* #endif HAVE_CONFIG_H */
+=======================================================================
+	This is needed to prevent conflicts with other autotools based packages
+	that actually use "config.h" for options.
+	Step 6) Copy the pthread-win32 config.h to your include dir as pconfig.h
+
+32bit build instructions (mutilib 64bit default GCC)
+	* Edit the GNUmakefile, and change:
+=======================================================================
+AR      = $(CROSS)ar
+DLLTOOL = $(CROSS)dlltool
+CC      = $(CROSS)gcc
+CXX     = $(CROSS)g++
+RANLIB  = $(CROSS)ranlib
+RC      = $(CROSS)windres
+=======================================================================
+to
+=======================================================================
+AR      = $(CROSS)ar
+DLLTOOL = $(CROSS)dlltool -m i386
+CC      = $(CROSS)gcc -m32
+CXX     = $(CROSS)g++ -m32
+RANLIB  = $(CROSS)ranlib
+RC      = $(CROSS)windres -F pe-i386
+=======================================================================
+	* Next, follow the General Build and install instructions
+
+== Building the Multilib Cross MinGW-w64 GCC the lazy way ==
+    (With ADA support and libgomp)                        [LAZYW64]
+
+Its a lazy method because it involves building GCC with all enabled
+front ends only once, without restarting the cross GCC build.
+
+First of all, your host compiler (usually "gcc") must support ADA.
+If your platform does not have GNAT binaries, use the binaries from: 
+    <https://libre.adacore.com/libre/download/>
+
+If you do not want ADA support, or confident about your host ADA support,
+you can skip the ADA bootstrap phase.
+
+=== ADA Bootstrap Phase === [ADABOOT]
+
+Bootstrapping ADA is needed if ADA is to be supported by the mingw-w64
+cross GCC.
+
+To begin bootstrap ADA, you must grab the GCC source that will be used
+for the mingw-w64 cross GCC, so that the ADA support is as close as
+possible with the target GCC version.
+
+Use the source to build a native compiler for your host machine. You must
+enable at least C, ADA, and C++ support. It is advisable to prefix
+(i.e. using --prefix=/opt/test) the entire native bootstrap toolchain
+in order to avoid overwriting the compiler provided by your host system.
+You should also build a prefixed native Binutils for use with the new
+bootstrap compiler.
+
+Remember to build GCC OUTSIDE its source directory, NOT inside it and
+certainly NOT in a sub-directory.
+
+=== MinGW-w64 cross Binutils === [CRSBINU]
+
+The official method to build the mingw-w64 toolchain is to set --prefix
+and --with-sysroot to the same directory to allow the toolchain to be
+relocatable. To make Multilib support possible, you need to use
+"--enable-targets=x86_64-w64-mingw32,i686-w64-mingw32".
+
+An example configure line for Binutils is:
+../path/to/binutils/configure --prefix=<prefix> --with-sysroot=<prefix> \
+	--enable-targets=x86_64-w64-mingw32,i686-w64-mingw32 \
+	--host=<build triplet> --build=<build triplet> \
+	--target=x86_64-w64-mingw32
+
+=== Install mingw-w64 Headers === [MGW64HD]
+
+When you checkout the svn trunk from the mingw-w64 developer repository, there
+should be a directory called mingw-w64-headers. Install it with:
+	../path/to/mingw-w64-headers/configure --prefix=<prefix> \
+	--with-sdks=none --build=<host triplet> --host=x86_64-w64-mingw32
+	make install
+
+To view the available sdks, use --help. The prefix should be similar to the
+prefix used for cross Binutils. Although the mingw-w64 cross GCC is not
+installed yet, configure will not fail it as it only checks the --host option.
+It is important to set the --host option correctly, failing to do so will
+cause the cross GCC to fail to find the expected system headers.
+
+=== Setup Symlinks === [SETSYML]
+
+Your install root for the mingw-w64 cross toolchain should contain the
+following directories. Create the directories if missing. It is easier
+to use "ln -s" softlinks to link directories than to copy them over.
+
+	<root>/x86_64-w64-mingw32
+	<root>/x86_64-w64-mingw32/include [headers previously installed here]
+	<root>/x86_64-w64-mingw32/lib
+	<root>/x86_64-w64-mingw32/lib32
+	<root>/x86_64-w64-mingw32/lib64 [link to neighbor lib]
+	<root>/mingw [link to x86_64-w64-mingw32]
+	<root>/mingw/include
+	<root>/mingw/lib
+	<root>/mingw/lib32
+	<root>/mingw/lib64 [link to neighbor lib]
+
+On Windows, you can use "ntfs link" <http://elsdoerfer.name/=ntfslink>
+to create "junction points" to link directories. These junction points
+are transparent to user mode applications such as GCC.
+
+Make sure the "mingw" directory mirrors "x86_64-w64-mingw32" exactly. Ditto
+for "lib64" and "lib"
+
+=== Build Core GCC === [BCORGCC]
+
+GCC can be configured in many ways, the following is an example that worked.
+Make sure to add your cross Binutils binaries to your $PATH before continuing.
+
+If you did use the ADA compiler from adacore to produce a bootstrap ADA
+compiler, make sure to add the prefix in such a way that it is found
+before your default host compiler.
+(i.e. export PATH=/opt/adaboot/bin:$PATH:/mingw64/path/bin)
+
+Some of the configure options do not sound possible with a stage-1 cross,
+but be assured that it has been tested.
+
+Remember to build GCC OUTSIDE its source directory, NOT inside it and certainly
+NOT in a sub-directory.
+
+Example:
+	../gcc-trunk/configure --{host,build}=<build triplet> \
+	--target=x86_64-w64-mingw32 --enable-multilib --enable-64bit \
+	--{prefix,with-sysroot}=<prefix> --enable-version-specific-runtime-libs \
+	--enable-shared --with-dwarf --enable-fully-dynamic-string \
+	--enable-languages=c,ada,c++,fortran,objc,obj-c++ --enable-libgomp \
+	--enable-libssp --enable-lto --with-host-libstdcxx="-lstdc++ -lsupc++" \
+	--with-{gmp,mpfr,mpc,cloog,ppl,libelf}=<host dir>
+
+Explanation:
+	--enable-version-specific-runtime-libs
+	Installs libgcc/libstdc++ and other target support libraries in such a
+	way that multiple GCC installs can coexist simultaneously.
+
+	--enable-shared
+	Builds shared support libraries
+
+	--with-dwarf
+	Use Dwarf debugging format by default
+
+	--enable-fully-dynamic-string
+	Enable dynamic std::string class to work around lazy initialization.
+
+	--enable-libgomp
+	Enable OpenMP support, it is not enabled by default on MinGW platforms.
+	Requires pthreads-win32 (target) installed.
+
+	--enable-libssp
+	Enable Stack Smash Protection, a buffer overrun detector.
+
+	--with-host-libstdcxx
+	Lists down the C++ support libraries to link with. This is useful
+	when using static PPL and CLooG.
+
+	--enable-lto
+	Enable Link-Time Optimization. Requires libelf (host) installed.
+
+	--with-{gmp,mpfr,mpc,cloog,ppl,libelf}=<host dir>
+	Tells GCC where the host support libraries are installed to.
+	(i.e. search <host dir>/include & <host dir>/lib)
+
+Use "make all-gcc" to build the standalone GCC compiler without target
+support libs. Install it with "make install-gcc".
+
+Remember, this is a standalone gcc, it won't actually be able to link
+executables, but it is already suitable to compile the CRT.
+
+Do not delete the GCC build directory, we can continue later.
+
+=== Build the mingw-w64 CRT === [BMGWCRT]
+
+When you checkout the svn trunk from the mingw-w64 developer repository, there
+should be a directory called mingw-w64-crt. 
+Example configure:
+	../path/to/crt/configure --prefix=<prefix> --enable-lib32 \
+	--enable-lib64 --build=<build triplet> --host=x86_64-w64-mingw32
+
+Explanation:
+	--enable-lib32
+	If you enabled multilib support in x86_64-w64-mingw32-gcc, this will build
+	32bit libs for use with win32 programming. For $host_cpu i686-w64-mingw32,
+	it is enabled by default.
+
+	--enable-lib64
+	Enable building 64bit libs for use with win64 programming. For $host_cpu
+	x86_64-w64-mingw32, it is enabled by default.
+
+If you used symlinks or ntfs junction points to link the "lib*" directories,
+you should be fine. If you manually copied x86_64-w64-mingw32 to mingw, you
+must copy the "lib*" directories so that "lib64" mirrors "lib" and
+"lib32" in "mingw" mirrors "x86_64-w64-mingw32/lib32"
+
+=== Build libgcc === [BLIBGCC]
+
+Reenter the build directory used earlier in [BCORGCC], and issue
+"make all-target-libgcc", then "make install-target-libgcc".
+
+This will install libgcc. As of writing, there is a minor bug when
+--enable-version-specific-runtime-libs is used, libgcc_s.a is
+installed incorrectly.
+
+Move it from:
+<prefix>/lib/gcc/<arch>/lib32/libgcc_s.a to 
+<prefix>/lib/gcc/<arch>/<version>/32/libgcc_s.a
+and
+<prefix>/lib/gcc/<arch>/lib64/libgcc_s.a to
+<prefix>/lib/gcc/<arch>/<version>/libgcc_s.a
+
+The libgcc dll is also clobbered during install, search the build
+directory for the dll and install it to separate directories as you
+see fit. Make sure 32bit apps only see the 32bit variant, same for
+64bit apps.
+
+=== Build pthreads === [BPTHR32]
+
+pthread-win32 is required for libgomp to work. Now that the CRT and
+libgcc is installed, we can proceed with building the pthread dll.
+
+Please refer to the pthreads-win32 section [PTHRW32] for instructions.
+Make sure to build for both win32 and win64 variants.
+
+=== Continue the build === [CTNTBLD]
+
+Reenter the build directory used earlier in [BCORGCC] and continue
+the build with "make". Finally, install with "make install".
+
