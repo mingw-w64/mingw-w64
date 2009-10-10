@@ -2,7 +2,7 @@
 // See <http://www.doxygen.nl/commands.html>
 // for command help.
 
-/*! \mainpage Libmange
+/*! \mainpage Libmangle
   \author The mingw-w64 Dev Team
   \version 1.0
   \section intro_sec Introduction
