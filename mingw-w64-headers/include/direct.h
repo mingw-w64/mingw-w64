@@ -54,10 +54,10 @@ extern "C" {
 
 #define diskfree_t _diskfree_t
 
-  char *__cdecl getcwd(char *_DstBuf,int _SizeInBytes);
-  int __cdecl chdir(const char *_Path);
-  int __cdecl mkdir(const char *_Path);
-  int __cdecl rmdir(const char *_Path);
+  char *__cdecl getcwd(char *_DstBuf,int _SizeInBytes) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl chdir(const char *_Path) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl mkdir(const char *_Path) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl rmdir(const char *_Path) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
 #ifdef __cplusplus

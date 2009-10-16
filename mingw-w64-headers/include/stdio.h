@@ -165,7 +165,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl fclose(FILE *_File);
   _CRTIMP int __cdecl _fcloseall(void);
 #ifdef _POSIX_
-  FILE *__cdecl fdopen(int _FileHandle,const char *_Mode);
+  FILE *__cdecl fdopen(int _FileHandle,const char *_Mode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #else
   _CRTIMP FILE *__cdecl _fdopen(int _FileHandle,const char *_Mode);
 #endif
@@ -178,7 +178,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   char *__cdecl fgets(char *_Buf,int _MaxCount,FILE *_File);
   _CRTIMP int __cdecl _fileno(FILE *_File);
 #ifdef _POSIX_
-  int __cdecl fileno(FILE *_File);
+  int __cdecl fileno(FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
   _CRTIMP char *__cdecl _tempnam(const char *_DirName,const char *_FilePrefix);
   _CRTIMP int __cdecl _flushall(void);
@@ -225,7 +225,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl rename(const char *_OldFilename,const char *_NewFilename);
   _CRTIMP int __cdecl _unlink(const char *_Filename);
 #ifndef	NO_OLDNAMES
-  int __cdecl unlink(const char *_Filename);
+  int __cdecl unlink(const char *_Filename) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #endif
   void __cdecl rewind(FILE *_File);
@@ -277,7 +277,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   extern
     __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__((__nonnull__ (2)))
     int __cdecl __mingw_vsprintf (char *, const char *, va_list) __MINGW_NOTHROW;
-  int __cdecl vsnprintf(char *_DstBuf,size_t _MaxCount,const char *_Format,va_list _ArgList);
+  int __cdecl vsnprintf(char *_DstBuf,size_t _MaxCount,const char *_Format,va_list _ArgList) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   _CRTIMP int __cdecl _snprintf(char *_Dest,size_t _Count,const char *_Format,...);
   _CRTIMP int __cdecl _vsnprintf(char *_Dest,size_t _Count,const char *_Format,va_list _Args);
   int __cdecl sprintf(char *_Dest,const char *_Format,...);
@@ -427,16 +427,16 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define P_tmpdir _P_tmpdir
 #define SYS_OPEN _SYS_OPEN
 
-  char *__cdecl tempnam(const char *_Directory,const char *_FilePrefix);
-  int __cdecl fcloseall(void);
-  FILE *__cdecl fdopen(int _FileHandle,const char *_Format);
-  int __cdecl fgetchar(void);
-  int __cdecl fileno(FILE *_File);
-  int __cdecl flushall(void);
-  int __cdecl fputchar(int _Ch);
-  int __cdecl getw(FILE *_File);
-  int __cdecl putw(int _Ch,FILE *_File);
-  int __cdecl rmtmp(void);
+  char *__cdecl tempnam(const char *_Directory,const char *_FilePrefix) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl fcloseall(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  FILE *__cdecl fdopen(int _FileHandle,const char *_Format) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl fgetchar(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl fileno(FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl flushall(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl fputchar(int _Ch) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl getw(FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl putw(int _Ch,FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl rmtmp(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
 #ifdef __cplusplus

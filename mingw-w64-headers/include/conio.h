@@ -74,21 +74,21 @@ extern "C" {
 #endif
 
 #ifndef	NO_OLDNAMES
-  char *__cdecl cgets(char *_Buffer);
-  int __cdecl cprintf(const char *_Format,...);
-  int __cdecl cputs(const char *_Str);
-  int __cdecl cscanf(const char *_Format,...);
-  int __cdecl getch(void);
-  int __cdecl getche(void);
-  int __cdecl kbhit(void);
-  int __cdecl putch(int _Ch);
-  int __cdecl ungetch(int _Ch);
+  char *__cdecl cgets(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl cprintf(const char *_Format,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl cputs(const char *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl cscanf(const char *_Format,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl getch(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl getche(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl kbhit(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl putch(int _Ch) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl ungetch(int _Ch) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 
 #if (defined(_X86_) && !defined(__x86_64))
-  int __cdecl inp(unsigned short);
-  unsigned short __cdecl inpw(unsigned short);
-  int __cdecl outp(unsigned short,int);
-  unsigned short __cdecl outpw(unsigned short,unsigned short);
+  int __cdecl inp(unsigned short) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  unsigned short __cdecl inpw(unsigned short) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl outp(unsigned short,int) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  unsigned short __cdecl outpw(unsigned short,unsigned short) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
 #ifndef __CRT__NO_INLINE

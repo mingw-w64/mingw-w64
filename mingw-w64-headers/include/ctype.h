@@ -259,10 +259,10 @@ int __cdecl iswblank(wint_t _C);
 
 #ifndef	NO_OLDNAMES
 #ifndef _CTYPE_DEFINED
-  int __cdecl isascii(int _C);
-  int __cdecl toascii(int _C);
-  int __cdecl iscsymf(int _C);
-  int __cdecl iscsym(int _C);
+  int __cdecl isascii(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl toascii(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl iscsymf(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl iscsym(int _C) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #else
 #define isascii __isascii
 #define toascii __toascii

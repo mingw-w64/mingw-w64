@@ -123,7 +123,7 @@ extern "C" {
   __time32_t __cdecl _mktime32(struct tm *_Tm);
   __time32_t __cdecl _mkgmtime32(struct tm *_Tm);
 #if defined (_POSIX_) || defined(__GNUC__)
-  void __cdecl tzset(void);
+  void __cdecl tzset(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #if !defined (_POSIX_)
   _CRTIMP void __cdecl _tzset(void);
@@ -241,7 +241,7 @@ __CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time32(_Time); }
   _CRTIMP extern int daylight;
   _CRTIMP extern long timezone;
   _CRTIMP extern char *tzname[2];
-  void __cdecl tzset(void);
+  void __cdecl tzset(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
 #ifndef _TIMEVAL_DEFINED /* also in winsock[2].h */

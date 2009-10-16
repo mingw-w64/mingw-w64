@@ -41,8 +41,8 @@ extern "C" {
   void *__cdecl memcpy(void *_Dst,const void *_Src,size_t _Size);
   void *__cdecl memset(void *_Dst,int _Val,size_t _Size);
 #ifndef	NO_OLDNAMES
-  void *__cdecl memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size);
-  int __cdecl memicmp(const void *_Buf1,const void *_Buf2,size_t _Size);
+  void *__cdecl memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl memicmp(const void *_Buf1,const void *_Buf2,size_t _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #endif
   char *__cdecl _strset(char *_Str,int _Val);
@@ -90,11 +90,11 @@ extern "C" {
   _CRTIMP size_t __cdecl _strxfrm_l(char *_Dst,const char *_Src,size_t _MaxCount,_locale_t _Locale);
 
 #ifndef	NO_OLDNAMES
-  char *__cdecl strdup(const char *_Src);
-  int __cdecl strcmpi(const char *_Str1,const char *_Str2);
-  int __cdecl stricmp(const char *_Str1,const char *_Str2);
-  char *__cdecl strlwr(char *_Str);
-  int __cdecl strnicmp(const char *_Str1,const char *_Str,size_t _MaxCount);
+  char *__cdecl strdup(const char *_Src) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl strcmpi(const char *_Str1,const char *_Str2) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl stricmp(const char *_Str1,const char *_Str2) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl strlwr(char *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl strnicmp(const char *_Str1,const char *_Str,size_t _MaxCount) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl strncasecmp (const char *, const char *, size_t);
   int __cdecl strcasecmp (const char *, const char *);
 #ifndef __CRT__NO_INLINE
@@ -104,10 +104,10 @@ extern "C" {
 #define strncasecmp _strnicmp
 #define strcasecmp _stricmp
 #endif /* !__CRT__NO_INLINE */
-  char *__cdecl strnset(char *_Str,int _Val,size_t _MaxCount);
-  char *__cdecl strrev(char *_Str);
-  char *__cdecl strset(char *_Str,int _Val);
-  char *__cdecl strupr(char *_Str);
+  char *__cdecl strnset(char *_Str,int _Val,size_t _MaxCount) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl strrev(char *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl strset(char *_Str,int _Val) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl strupr(char *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
 #ifndef _WSTRING_DEFINED
@@ -154,16 +154,16 @@ extern "C" {
   _CRTIMP int __cdecl _wcsnicoll_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
 
 #ifndef	NO_OLDNAMES
-  wchar_t *__cdecl wcsdup(const wchar_t *_Str);
+  wchar_t *__cdecl wcsdup(const wchar_t *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #define wcswcs wcsstr
-  int __cdecl wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2);
-  int __cdecl wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
-  wchar_t *__cdecl wcsnset(wchar_t *_Str,wchar_t _Val,size_t _MaxCount);
-  wchar_t *__cdecl wcsrev(wchar_t *_Str);
-  wchar_t *__cdecl wcsset(wchar_t *_Str,wchar_t _Val);
-  wchar_t *__cdecl wcslwr(wchar_t *_Str);
-  wchar_t *__cdecl wcsupr(wchar_t *_Str);
-  int __cdecl wcsicoll(const wchar_t *_Str1,const wchar_t *_Str2);
+  int __cdecl wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  wchar_t *__cdecl wcsnset(wchar_t *_Str,wchar_t _Val,size_t _MaxCount) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  wchar_t *__cdecl wcsrev(wchar_t *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  wchar_t *__cdecl wcsset(wchar_t *_Str,wchar_t _Val) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  wchar_t *__cdecl wcslwr(wchar_t *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  wchar_t *__cdecl wcsupr(wchar_t *_Str) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl wcsicoll(const wchar_t *_Str1,const wchar_t *_Str2) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #endif
 

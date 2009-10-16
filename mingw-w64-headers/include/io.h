@@ -219,7 +219,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   int __cdecl rename(const char *_OldFilename,const char *_NewFilename);
   _CRTIMP int __cdecl _unlink(const char *_Filename);
 #ifndef	NO_OLDNAMES
-  int __cdecl unlink(const char *_Filename);
+  int __cdecl unlink(const char *_Filename) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #endif
 
@@ -279,12 +279,12 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 
 #ifndef NO_OLDNAMES
 #ifndef _UWIN
-  int __cdecl chdir (const char *);
-  char *__cdecl getcwd (char *, int);
-  int __cdecl mkdir (const char *);
-  char *__cdecl mktemp(char *);
-  int __cdecl rmdir (const char*);
-  int __cdecl chmod (const char *, int);
+  int __cdecl chdir (const char *) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl getcwd (char *, int) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl mkdir (const char *) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl mktemp(char *) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl rmdir (const char*) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl chmod (const char *, int) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif /* _UWIN */
 #endif /* Not NO_OLDNAMES */
 
@@ -324,26 +324,26 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   _CRTIMP int __cdecl _open_osfhandle(intptr_t _OSFileHandle,int _Flags);
 
 #ifndef	NO_OLDNAMES
-  int __cdecl access(const char *_Filename,int _AccessMode);
-  int __cdecl chmod(const char *_Filename,int _AccessMode);
-  int __cdecl chsize(int _FileHandle,long _Size);
-  int __cdecl close(int _FileHandle);
-  int __cdecl creat(const char *_Filename,int _PermissionMode);
-  int __cdecl dup(int _FileHandle);
-  int __cdecl dup2(int _FileHandleSrc,int _FileHandleDst);
-  int __cdecl eof(int _FileHandle);
-  long __cdecl filelength(int _FileHandle);
-  int __cdecl isatty(int _FileHandle);
-  int __cdecl locking(int _FileHandle,int _LockMode,long _NumOfBytes);
-  long __cdecl lseek(int _FileHandle,long _Offset,int _Origin);
-  char *__cdecl mktemp(char *_TemplateName);
-  int __cdecl open(const char *_Filename,int _OpenFlag,...);
-  int __cdecl read(int _FileHandle,void *_DstBuf,unsigned int _MaxCharCount);
-  int __cdecl setmode(int _FileHandle,int _Mode);
-  int __cdecl sopen(const char *_Filename,int _OpenFlag,int _ShareFlag,...);
-  long __cdecl tell(int _FileHandle);
-  int __cdecl umask(int _Mode);
-  int __cdecl write(int _Filehandle,const void *_Buf,unsigned int _MaxCharCount);
+  int __cdecl access(const char *_Filename,int _AccessMode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl chmod(const char *_Filename,int _AccessMode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl chsize(int _FileHandle,long _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl close(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl creat(const char *_Filename,int _PermissionMode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl dup(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl dup2(int _FileHandleSrc,int _FileHandleDst) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl eof(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  long __cdecl filelength(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl isatty(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl locking(int _FileHandle,int _LockMode,long _NumOfBytes) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  long __cdecl lseek(int _FileHandle,long _Offset,int _Origin) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl mktemp(char *_TemplateName)  __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl open(const char *_Filename,int _OpenFlag,...)  __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl read(int _FileHandle,void *_DstBuf,unsigned int _MaxCharCount)  __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl setmode(int _FileHandle,int _Mode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl sopen(const char *_Filename,int _OpenFlag,int _ShareFlag,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  long __cdecl tell(int _FileHandle) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl umask(int _Mode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl write(int _Filehandle,const void *_Buf,unsigned int _MaxCharCount) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
 #ifdef _POSIX

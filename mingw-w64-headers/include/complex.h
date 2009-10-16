@@ -51,7 +51,7 @@ extern "C" {
 double __MINGW_ATTRIB_CONST creal (double _Complex);
 double __MINGW_ATTRIB_CONST cimag (double _Complex);
 double __MINGW_ATTRIB_CONST carg (double _Complex);
-double __MINGW_ATTRIB_CONST cabs (double _Complex);
+double __MINGW_ATTRIB_CONST cabs (double _Complex) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 double _Complex __MINGW_ATTRIB_CONST conj (double _Complex);
 double _Complex  cacos (double _Complex);
 double _Complex  casin (double _Complex);

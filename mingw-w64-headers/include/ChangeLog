@@ -1,3 +1,128 @@
+2009-10-16 Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* stdio.h (fdopen): Mark as deprecated for msvc 2005.
+	(fileno): Ditto.
+	(unlink): Ditto.
+	(vsnprintf): Ditto.
+	(tempnam): Ditto.
+	(fcloseall): Ditto.
+	(fdopen): Ditto.
+	(fgetchar): Ditto.
+	(fileno): Ditto.
+	(flushall): Ditto.
+	(fputchar): Ditto.
+	(getw): Ditto.
+	(putw): Ditto.
+	(rmtmp): Ditto.
+	* wchar.h (wcsdup): Mark as deprecated for msvc 2005.
+	(wcsnset): Ditto.
+	(wcsrev): Ditto.
+	(wcsset): Ditto.
+	(wcslwr): Ditto.
+	(wcsupr): Ditto.
+	(wcsicoll): Ditto.
+	* process.h (cwait): Mark as deprecated for msvc 2005.
+	(execl): Ditto.
+	(execle): Ditto.
+	(execlp): Ditto.
+	(execlpe): Ditto.
+	(spawnl): Ditto.
+	(spawnle): Ditto.
+	(spawnlp): Ditto.
+	(spawnlpe): Ditto.
+	(execv): Ditto.
+	(execve): Ditto.
+	(execvp): Ditto.
+	(execvpe): Ditto.
+	(spawnv): Ditto.
+	(spawnve): Ditto.
+	(spawnvp): Ditto.
+	(spawnvpe): Ditto.
+	* memory.h (memccpy): Mark as deprecated for msvc 2005.
+	(memicmp): Ditto.
+	* stdlib.h (ecvt): Mark as deprecated for msvc 2005.
+	(fcvt): Ditto.
+	(gcvt): Ditto.
+	(itoa): Ditto.
+	(ltoa): Ditto.
+	* search.h (lfind): Mark as deprecated for msvc 2005.
+	(lsearch): Ditto.
+	* math.h (j0): Mark as deprecated for msvc 2005.
+	(j1): Ditto.
+	(jn): Ditto.
+	(y0): Ditto.
+	(y1): Ditto.
+	(yn): Ditto.
+	(hypot): Ditto.
+	* conio.h (cgets): Mark as deprecated for msvc 2005.
+	(cprintf): Ditto.
+	(cputs): Ditto.
+	(cscanf): Ditto.
+	(getch): Ditto.
+	(getche): Ditto.
+	(kbhit): Ditto.
+	(putch): Ditto.
+	(ungetch): Ditto.
+	(inp): Ditto.
+	(inpw): Ditto.
+	(outp): Ditto.
+	(outpw): Ditto.
+	* io.h (unlink): Mark as deprecated for msvc 2005.
+	(chdir): Ditto.
+	(getcwd): Ditto.
+	(mkdir): Ditto.
+	(mktemp): Ditto.
+	(rmdir): Ditto.
+	(chmod): Ditto.
+	(access): Ditto.
+	(chsize): Ditto.
+	(close): Ditto.
+	(creat): Ditto.
+	(dup): Ditto.
+	(dup2): Ditto.
+	(eof): Ditto.
+	(filelength): Ditto.
+	(isatty): Ditto.
+	(locking): Ditto.
+	(lseek): Ditto.
+	(open): Ditto.
+	(read): Ditto.
+	(setmode): Ditto.
+	(sopen): Ditto.
+	(tell): Ditto.
+	(umask): Ditto.
+	(write): Ditto.
+	* direct.h (getcwd): Mark as deprecated for msvc 2005.
+	(chdir): Ditto.
+	(mkdir): Ditto.
+	(rmdir): Ditto.
+	* ctype.h (isascii): Mark as deprecated for msvc 2005.
+	(toascii): Ditto.
+	(iscsymf): Ditto.
+	(iscsym): Ditto.
+	* complex.h (cabs): Mark as deprecated for msvc 2005.
+	* time.h (tzset): Mark as deprecated for msvc 2005.
+	* string.h (memccpy): Mark as deprecated for msvc 2005.
+	(memicmp): Ditto.
+	(strdup): Ditto.
+	(strcmpi): Ditto.
+	(stricmp): Ditto.
+	(strlwr): Ditto.
+	(strnicmp): Ditto.
+	(strnset): Ditto.
+	(strrev): Ditto.
+	(strset): Ditto.
+	(strupr): Ditto.
+	(wcsdup): Ditto.
+	(wcsicmp): Ditto.
+	(wcsnicmp): Ditto.
+	(wcsnset): Ditto.
+	(wcsrev): Ditto.
+	(wcsset): Ditto.
+	(wcslwr): Ditto.
+	(wcsupr): Ditto.
+	(wcsicoll): Ditto.
+
 2009-10-07  Jonathan Yong <jon_y@users.sourceforge.net>
 
 	* _mingw.h (__MINGW_ATTRIB_DEPRECATED_SEC_WARN): New macro. Warns about use of

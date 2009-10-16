@@ -552,14 +552,14 @@ extern "C" {
 #define sys_errlist _sys_errlist
 #define sys_nerr _sys_nerr
 #define environ _environ
-  char *__cdecl ecvt(double _Val,int _NumOfDigits,int *_PtDec,int *_PtSign);
-  char *__cdecl fcvt(double _Val,int _NumOfDec,int *_PtDec,int *_PtSign);
-  char *__cdecl gcvt(double _Val,int _NumOfDigits,char *_DstBuf);
-  char *__cdecl itoa(int _Val,char *_DstBuf,int _Radix);
-  char *__cdecl ltoa(long _Val,char *_DstBuf,int _Radix);
-  int __cdecl putenv(const char *_EnvString);
-  void __cdecl swab(char *_Buf1,char *_Buf2,int _SizeInBytes);
-  char *__cdecl ultoa(unsigned long _Val,char *_Dstbuf,int _Radix);
+  char *__cdecl ecvt(double _Val,int _NumOfDigits,int *_PtDec,int *_PtSign) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl fcvt(double _Val,int _NumOfDec,int *_PtDec,int *_PtSign) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl gcvt(double _Val,int _NumOfDigits,char *_DstBuf) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl itoa(int _Val,char *_DstBuf,int _Radix) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl ltoa(long _Val,char *_DstBuf,int _Radix) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  int __cdecl putenv(const char *_EnvString) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  void __cdecl swab(char *_Buf1,char *_Buf2,int _SizeInBytes) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  char *__cdecl ultoa(unsigned long _Val,char *_Dstbuf,int _Radix) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   onexit_t __cdecl onexit(onexit_t _Func);
 #endif
 #endif

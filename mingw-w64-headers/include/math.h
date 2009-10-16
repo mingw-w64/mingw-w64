@@ -180,12 +180,12 @@ extern "C" {
 
 #if !defined(NO_OLDNAMES)
 
-_CRTIMP double __cdecl j0 (double);
-_CRTIMP double __cdecl j1 (double);
-_CRTIMP double __cdecl jn (int, double);
-_CRTIMP double __cdecl y0 (double);
-_CRTIMP double __cdecl y1 (double);
-_CRTIMP double __cdecl yn (int, double);
+_CRTIMP double __cdecl j0 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+_CRTIMP double __cdecl j1 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+_CRTIMP double __cdecl jn (int, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+_CRTIMP double __cdecl y0 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+_CRTIMP double __cdecl y1 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+_CRTIMP double __cdecl yn (int, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 
 _CRTIMP double __cdecl chgsign (double);
 /*
@@ -562,7 +562,7 @@ typedef long double double_t;
 #endif
 #endif
 /* 7.12.7.3  */
-  extern double __cdecl hypot (double, double); /* in libmoldname.a */
+  extern double __cdecl hypot (double, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005; /* in libmoldname.a */
   extern float __cdecl hypotf (float x, float y);
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE float __cdecl hypotf (float x, float y) { return (float) hypot ((double)x, (double)y);}
