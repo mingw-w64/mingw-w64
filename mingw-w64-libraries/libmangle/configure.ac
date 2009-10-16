@@ -3,6 +3,7 @@
 
 AC_PREREQ([2.63])
 AC_INIT([mingw-w64-libmangle], [1.0], [mingw-w64-public@lists.sf.net])
+AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 AC_CONFIG_SRCDIR([src/m_token.c])
 AC_CONFIG_HEADERS([config.h])

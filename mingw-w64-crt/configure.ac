@@ -4,12 +4,14 @@
 
 AC_PREREQ([2.63])
 AC_INIT([mingw-w64-runtime],[1.0b],[mingw-w64-public@lists.sourceforge.net])
-
-AC_CANONICAL_HOST
+AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 AM_MAINTAINER_MODE
+
 AC_CONFIG_SRCDIR([ChangeLog])
 AC_CONFIG_HEADER([config.h])
+
+AC_CANONICAL_HOST
 
 AC_MSG_CHECKING([for sysroot])
 AC_ARG_WITH([sysroot],

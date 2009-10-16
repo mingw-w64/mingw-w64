@@ -40,8 +40,8 @@ DIST_COMMON = $(am__configure_deps) $(basehead_HEADERS) \
 	$(sdkshead_HEADERS) $(sechead_HEADERS) $(secsyshead_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/config.h.in $(syshead_HEADERS) \
-	$(top_srcdir)/configure config.guess config.sub install-sh \
-	missing
+	$(top_srcdir)/configure build-aux/config.guess \
+	build-aux/config.sub build-aux/install-sh build-aux/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -134,7 +134,6 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
 SYSHEAD_LIST = @SYSHEAD_LIST@
-VENDOR_ID = @VENDOR_ID@
 VERSION = @VERSION@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
@@ -214,6 +213,7 @@ ddkheaddir = $(baseheaddir)/ddk
 dxheaddir = $(baseheaddir)
 ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
+DISTCHECK_CONFIGURE_FLAGS = --with-sdk=all
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

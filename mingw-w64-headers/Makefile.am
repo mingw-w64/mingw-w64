@@ -34,3 +34,4 @@ dxheaddir = $(baseheaddir)
 ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
 
+DISTCHECK_CONFIGURE_FLAGS = --with-sdk=all

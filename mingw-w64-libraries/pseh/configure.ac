@@ -3,6 +3,8 @@
 
 AC_PREREQ([2.63])
 AC_INIT([PSEH], [2.0], [hackbunny@reactos.org])
+AC_CONFIG_AUX_DIR([build-aux])
+
 AM_INIT_AUTOMAKE
 
 AC_CANONICAL_HOST

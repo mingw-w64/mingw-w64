@@ -4,6 +4,7 @@
 AC_PREREQ([2.63])
 AC_INIT([mingw-w64-headers], [1.0b], [mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_SRCDIR([include/_mingw.h])
+AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_HEADERS([config.h])
 
 AC_CANONICAL_HOST
