@@ -1,4 +1,4 @@
-2009-19-07  Jonathan Yong <jon_y@users.sourceforge.net>
+2009-10-07  Jonathan Yong <jon_y@users.sourceforge.net>
 
 	* _mingw.h (__MINGW_ATTRIB_DEPRECATED_SEC_WARN): New macro. Warns about use of
 	unsafe functions and variables.
