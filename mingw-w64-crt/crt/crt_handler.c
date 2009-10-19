@@ -16,7 +16,7 @@
 #if defined (_WIN64) && defined (__ia64__)
 #error FIXME: Unsupported __ImageBase implementation.
 #else
-#define __ImageBase _image_base__
+#define __ImageBase __MINGW_LSYMBOL(_image_base__)
 /* This symbol is defined by the linker.  */
 extern IMAGE_DOS_HEADER __ImageBase;
 #endif
