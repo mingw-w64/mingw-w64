@@ -1,3 +1,12 @@
+2009-10-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/pseudo-reloc.c:  Backport revs. 1450 and 1483 from trunk:
+	Added the __report_error() helper and removed the assert() calls
+	along with the DEBUG #ifdefs.  Merged documentation updates and
+	most of the whitespace changes from cygwin.  Additional whitespace
+	changes.  Shortened some of the error messages.  Removed assert.h
+	#include which isn't necessary anymore.
+
 2009-10-03  Kai Tietz  <kai.tietz@onevision.com>
 
 	Merged from trunk
