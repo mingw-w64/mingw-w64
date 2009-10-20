@@ -1,3 +1,10 @@
+2009-10-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/pseudo-reloc.c:  Merged documentation updates and most of the
+	whitespace changes from cygwin.  Additional whitespace changes.
+	Shortened some of the error messages.  Removed assert.h #include
+	which isn't necessary any more.
+
 2009-10-08  Kai Tietz  <kai.tietz@onevision.com>
 
 	* lib32/gpapi.def: New.
