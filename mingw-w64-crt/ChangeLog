@@ -1,3 +1,11 @@
+2009-10-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/crt_handler.c (_image_base__): use the __MINGW_LSYMBOL macro for
+	linker symbols instead of hardcoded names (from trunk r1482.)
+	* crt/crtexe.c (_image_base__): Likewise.
+	* crt/pesect.c (_image_base__): Likewise.
+	* misc/delayimp.c (_image_base__): Likewise.
+
 2009-10-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* crt/pseudo-reloc.c:  Backport revs. 1450 and 1483 from trunk:
