@@ -34,7 +34,7 @@
 #endif
 
 #if __MINGW_USE_UNDERSCORE_PREFIX == 0
-#define __MINGW_IMP_SYMBOL(sym)	_imp_##sym
+#define __MINGW_IMP_SYMBOL(sym)	__imp_##sym
 #define __MINGW_USYMBOL(sym) sym
 #else
 #define __MINGW_IMP_SYMBOL(sym)	_imp__##sym
