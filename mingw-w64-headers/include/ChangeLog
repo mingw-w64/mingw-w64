@@ -1,7 +1,9 @@
-2009-10-20  Ozkan Sezer  <sezeroz@gmail.com>
+2009-10-21  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_mac.h (__MINGW_IMP_SYMBOL): fix for non-underscore case (from
 	trunk r1481)
+	* _mingw_mac.h (__MINGW_LSYMBOL): new macro for adding an underscore to
+	linker symbols for none-underscore mode (from trunk r1481)
 
 2009-10-02  Kai Tietz  <kai.tietz@onevision.com>
 
