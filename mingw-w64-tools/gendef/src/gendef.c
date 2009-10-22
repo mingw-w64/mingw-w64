@@ -248,7 +248,8 @@ load_pep(void)
   fclose (fp);
   if (!gDta)
     {
-      fprintf (stderr, "*** [%s] unable to allocate %Iu bytes\n" ,fninput ,gDta_size);
+      fprintf (stderr, "*** [%s] unable to allocate %Iu bytes\n" ,fninput,
+	       (unsigned long) gDta_size);
       return 0;
     }
   gMZDta = (PIMAGE_DOS_HEADER) gDta;
