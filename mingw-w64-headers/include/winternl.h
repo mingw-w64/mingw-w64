@@ -148,15 +148,75 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   } UNWIND_HISTORY_TABLE,*PUNWIND_HISTORY_TABLE;
 #endif
 
-  typedef struct _PROCESS_BASIC_INFORMATION {
-    PVOID Reserved1;
-    PPEB PebBaseAddress;
-    PVOID Reserved2[2];
-    ULONG_PTR UniqueProcessId;
-    PVOID Reserved3;
-  } PROCESS_BASIC_INFORMATION;
+  typedef struct _VM_COUNTERS {
+    SIZE_T PeakVirtualSize;
+    SIZE_T VirtualSize;
+    ULONG PageFaultCount;
+    SIZE_T PeakWorkingSetSize;
+    SIZE_T WorkingSetSize;
+    SIZE_T QuotaPeakPagedPoolUsage;
+    SIZE_T QuotaPagedPoolUsage;
+    SIZE_T QuotaPeakNonPagedPoolUsage;
+    SIZE_T QuotaNonPagedPoolUsage;
+    SIZE_T PagefileUsage;
+    SIZE_T PeakPagefileUsage;
+  } VM_COUNTERS, *PVM_COUNTERS;
 
-  typedef PROCESS_BASIC_INFORMATION *PPROCESS_BASIC_INFORMATION;
+  typedef enum _THREAD_STATE {
+    StateInitialized = 0,
+    StateReady, StateRunning, StateStandby, StateTerminated,
+    StateWait, StateTransition,
+    StateUnknown
+  } THREAD_STATE;
+
+  typedef struct _CLIENT_ID {
+    HANDLE UniqueProcess;
+    HANDLE UniqueThread;
+  } CLIENT_ID, *PCLIENT_ID;
+
+  typedef LONG KPRIORITY;
+
+  typedef enum _KWAIT_REASON {
+    Executive = 0,
+    FreePage, PageIn, PoolAllocation, DelayExecution,
+    Suspended, UserRequest, WrExecutive, WrFreePage, WrPageIn,
+    WrPoolAllocation, WrDelayExecution, WrSuspended,
+    WrUserRequest, WrEventPair, WrQueue, WrLpcReceive,
+    WrLpcReply, WrVirtualMemory, WrPageOut, WrRendezvous,
+    Spare2, Spare3, Spare4, Spare5, Spare6, WrKernel,
+    MaximumWaitReason
+  } KWAIT_REASON;
+
+  typedef struct _SYSTEM_THREADS
+  {
+    LARGE_INTEGER KernelTime;
+    LARGE_INTEGER UserTime;
+    LARGE_INTEGER CreateTime;
+    ULONG WaitTime;
+    PVOID StartAddress;
+    CLIENT_ID ClientId;
+    KPRIORITY Priority;
+    KPRIORITY BasePriority;
+    ULONG ContextSwitchCount;
+    THREAD_STATE State;
+    KWAIT_REASON WaitReason;
+  } SYSTEM_THREADS, *PSYSTEM_THREADS;
+
+  typedef struct _PROCESS_BASIC_INFORMATION {
+    NTSTATUS ExitStatus;
+    PPEB PebBaseAddress;
+    KAFFINITY AffinityMask;
+    KPRIORITY BasePriority;
+    ULONG_PTR UniqueProcessId;
+    ULONG_PTR InheritedFromUniqueProcessId;
+  } PROCESS_BASIC_INFORMATION, *PPROCESS_BASIC_INFORMATION;
+
+  typedef struct _KERNEL_USER_TIMES {
+    FILETIME CreateTime;
+    FILETIME ExitTime;
+    LARGE_INTEGER KernelTime;
+    LARGE_INTEGER UserTime;
+  } KERNEL_USER_TIMES, *PKERNEL_USER_TIMES;
 
   typedef struct _SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
     LARGE_INTEGER IdleTime;
@@ -171,13 +231,12 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
     BYTE Reserved1[52];
     PVOID Reserved2[3];
     HANDLE UniqueProcessId;
-    PVOID Reserved3;
+    HANDLE InheritedFromUniqueProcessId;
     ULONG HandleCount;
-    BYTE Reserved4[4];
-    PVOID Reserved5[11];
-    SIZE_T PeakPagefileUsage;
+    ULONG Reserved4[2];
+    VM_COUNTERS VirtualMemoryCounters;
     SIZE_T PrivatePageCount;
-    LARGE_INTEGER Reserved6[6];
+    IO_COUNTERS IoCounters;
   } SYSTEM_PROCESS_INFORMATION,*PSYSTEM_PROCESS_INFORMATION;
 
   typedef struct _SYSTEM_REGISTRY_QUOTA_INFORMATION {
@@ -187,18 +246,111 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   } SYSTEM_REGISTRY_QUOTA_INFORMATION,*PSYSTEM_REGISTRY_QUOTA_INFORMATION;
 
   typedef struct _SYSTEM_BASIC_INFORMATION {
-    BYTE Reserved1[24];
-    PVOID Reserved2[4];
+    BYTE Reserved1[4];
+    ULONG MaximumIncrement;
+    ULONG PhysicalPageSize;
+    ULONG NumberOfPhysicalPages;
+    ULONG LowestPhysicalPage;
+    ULONG HighestPhysicalPage;
+    ULONG AllocationGranularity;
+    ULONG LowestUserAddress;
+    ULONG HighestUserAddress;
+    ULONG ActiveProcessors;
     CCHAR NumberOfProcessors;
   } SYSTEM_BASIC_INFORMATION,*PSYSTEM_BASIC_INFORMATION;
 
+  typedef struct _SYSTEM_PROCESSOR_INFORMATION {
+    USHORT ProcessorArchitecture;
+    USHORT ProcessorLevel;
+    USHORT ProcessorRevision;
+    USHORT Unknown;
+    ULONG FeatureBits;
+  } SYSTEM_PROCESSOR_INFORMATION, *PSYSTEM_PROCESSOR_INFORMATION;
+
   typedef struct _SYSTEM_TIMEOFDAY_INFORMATION {
-    BYTE Reserved1[48];
+    LARGE_INTEGER BootTime;
+    LARGE_INTEGER CurrentTime;
+    LARGE_INTEGER TimeZoneBias;
+    ULONG CurrentTimeZoneId;
+    BYTE Reserved1[20];
   } SYSTEM_TIMEOFDAY_INFORMATION,*PSYSTEM_TIMEOFDAY_INFORMATION;
 
   typedef struct _SYSTEM_PERFORMANCE_INFORMATION {
-    BYTE Reserved1[312];
-  } SYSTEM_PERFORMANCE_INFORMATION,*PSYSTEM_PERFORMANCE_INFORMATION;
+    LARGE_INTEGER IdleTime;
+    LARGE_INTEGER ReadTransferCount;
+    LARGE_INTEGER WriteTransferCount;
+    LARGE_INTEGER OtherTransferCount;
+    ULONG ReadOperationCount;
+    ULONG WriteOperationCount;
+    ULONG OtherOperationCount;
+    ULONG AvailablePages;
+    ULONG TotalCommittedPages;
+    ULONG TotalCommitLimit;
+    ULONG PeakCommitment;
+    ULONG PageFaults;
+    ULONG WriteCopyFaults;
+    ULONG TransitionFaults;
+    ULONG CacheTransitionFaults;
+    ULONG DemandZeroFaults;
+    ULONG PagesRead;
+    ULONG PageReadIos;
+    ULONG CacheReads;
+    ULONG CacheIos;
+    ULONG PagefilePagesWritten;
+    ULONG PagefilePageWriteIos;
+    ULONG MappedFilePagesWritten;
+    ULONG MappedFilePageWriteIos;
+    ULONG PagedPoolUsage;
+    ULONG NonPagedPoolUsage;
+    ULONG PagedPoolAllocs;
+    ULONG PagedPoolFrees;
+    ULONG NonPagedPoolAllocs;
+    ULONG NonPagedPoolFrees;
+    ULONG TotalFreeSystemPtes;
+    ULONG SystemCodePage;
+    ULONG TotalSystemDriverPages;
+    ULONG TotalSystemCodePages;
+    ULONG SmallNonPagedLookasideListAllocateHits;
+    ULONG SmallPagedLookasideListAllocateHits;
+    ULONG Reserved3;
+    ULONG MmSystemCachePage;
+    ULONG PagedPoolPage;
+    ULONG SystemDriverPage;
+    ULONG FastReadNoWait;
+    ULONG FastReadWait;
+    ULONG FastReadResourceMiss;
+    ULONG FastReadNotPossible;
+    ULONG FastMdlReadNoWait;
+    ULONG FastMdlReadWait;
+    ULONG FastMdlReadResourceMiss;
+    ULONG FastMdlReadNotPossible;
+    ULONG MapDataNoWait;
+    ULONG MapDataWait;
+    ULONG MapDataNoWaitMiss;
+    ULONG MapDataWaitMiss;
+    ULONG PinMappedDataCount;
+    ULONG PinReadNoWait;
+    ULONG PinReadWait;
+    ULONG PinReadNoWaitMiss;
+    ULONG PinReadWaitMiss;
+    ULONG CopyReadNoWait;
+    ULONG CopyReadWait;
+    ULONG CopyReadNoWaitMiss;
+    ULONG CopyReadWaitMiss;
+    ULONG MdlReadNoWait;
+    ULONG MdlReadWait;
+    ULONG MdlReadNoWaitMiss;
+    ULONG MdlReadWaitMiss;
+    ULONG ReadAheadIos;
+    ULONG LazyWriteIos;
+    ULONG LazyWritePages;
+    ULONG DataFlushes;
+    ULONG DataPages;
+    ULONG ContextSwitches;
+    ULONG FirstLevelTbFills;
+    ULONG SecondLevelTbFills;
+    ULONG SystemCalls;
+  } SYSTEM_PERFORMANCE_INFORMATION, *PSYSTEM_PERFORMANCE_INFORMATION;
 
   typedef struct _SYSTEM_EXCEPTION_INFORMATION {
     BYTE Reserved1[16];
@@ -217,7 +369,8 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   } FILE_INFORMATION_CLASS;
 
   typedef enum _PROCESSINFOCLASS {
-    ProcessBasicInformation = 0,ProcessWow64Information = 26
+    ProcessBasicInformation = 0,ProcessQuotaLimits = 1,ProcessIoCounters = 2,ProcessVmCounters = 3,ProcessTimes = 4,ProcessBasePriority = 5,
+    ProcessRaisePriority = 6,ProcessDebugPort = 7,ProcessExceptionPort = 8,ProcessAccessToken = 9,ProcessWow64Information = 26,ProcessImageFileName = 27
   } PROCESSINFOCLASS;
 
   typedef enum _THREADINFOCLASS {
@@ -225,7 +378,7 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   } THREADINFOCLASS;
 
   typedef enum _SYSTEM_INFORMATION_CLASS {
-    SystemBasicInformation = 0,SystemPerformanceInformation = 2,SystemTimeOfDayInformation = 3,SystemProcessInformation = 5,
+    SystemBasicInformation = 0,SystemProcessorInformation = 1,SystemPerformanceInformation = 2,SystemTimeOfDayInformation = 3,SystemProcessInformation = 5,
     SystemProcessorPerformanceInformation = 8,SystemInterruptInformation = 23,SystemExceptionInformation = 33,SystemRegistryQuotaInformation = 37,
     SystemLookasideInformation = 45
   } SYSTEM_INFORMATION_CLASS;
@@ -289,3 +442,4 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
 #endif
 
 #endif
+
