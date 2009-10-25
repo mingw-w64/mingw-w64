@@ -13,7 +13,7 @@
 #define __MINGW64_VERSION_MAJOR	1
 #define __MINGW64_VERSION_MINOR	0
 #define __MINGW64_VERSION_STR	STRINGIFY(__MINGW64_VERSION_MAJOR) "." STRINGIFY(__MINGW64_VERSION_MINOR)
-#define __MINGW64_VERSION_STATE	"beta"
+#define __MINGW64_VERSION_STATE	"stable"
 
 /* mingw.org's version macros: these make gcc to define
    MINGW32_SUPPORTS_MT_EH and to use the _CRT_MT global
@@ -25,7 +25,22 @@
 #ifdef _WIN64
 /* MS does not prefix symbols by underscores for 64-bit.  */
 #ifndef __MINGW_USE_UNDERSCORE_PREFIX
+/* As we have to support older gcc version, which are using underscores
+   as symbol prefix for x64, we have to check here for the user label
+   prefix defined by gcc.  */
+#ifdef __USER_LABEL_PREFIX__
+#pragma push_macro ("_")
+#undef _
+#define _ 1
+#if (__USER_LABEL_PREFIX__ + 0) != 0
 #define __MINGW_USE_UNDERSCORE_PREFIX 1
+#else
+#define __MINGW_USE_UNDERSCORE_PREFIX 0
+#endif
+#pragma pop_macro ("_")
+#else
+#define __MINGW_USE_UNDERSCORE_PREFIX 0
+#endif
 #endif
 #else
 /* For 32-bits we have always to prefix by underscore.  */

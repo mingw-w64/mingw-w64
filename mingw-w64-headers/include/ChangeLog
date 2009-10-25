@@ -1,3 +1,8 @@
+2009-10-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_mac.h: Set branch version status to stable.
+	Use __USER_LABEL_PREFIX__ to detect underscoring default.
+
 2009-10-21  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_mac.h (__MINGW_IMP_SYMBOL): fix for non-underscore case (from
