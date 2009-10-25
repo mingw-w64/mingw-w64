@@ -1,3 +1,7 @@
+2009-10-25  Charles Wilson  <cwilso11@users.sourceforge.net>
+
+	* crt/pseudo-reloc.c:  Merge cygwin-specific code.
+
 2009-10-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* crt/pseudo-reloc.c:  Merged documentation updates and most of the

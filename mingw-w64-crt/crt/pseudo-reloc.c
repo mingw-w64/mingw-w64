@@ -21,6 +21,25 @@
 #include <stdarg.h>
 #include <memory.h>
 
+#if defined(__CYGWIN__)
+#include <wchar.h>
+#include <ntdef.h>
+#include <sys/cygwin.h>
+/* copied from winsup.h */
+# define NO_COPY __attribute__((nocommon)) __attribute__((section(".data_cygwin_nocopy")))
+/* custom status code: */
+#define STATUS_ILLEGAL_DLL_PSEUDO_RELOCATION ((NTSTATUS) 0xe0000269)
+#define SHORT_MSG_BUF_SZ 128
+#else
+# define NO_COPY
+#endif
+
+#ifdef __GNUC__
+#define ATTRIBUTE_NORETURN __attribute__ ((noreturn))
+#else
+#define ATTRIBUTE_NORETURN
+#endif
+
 #ifndef __MINGW_LSYMBOL
 #define __MINGW_LSYMBOL(sym) sym
 #endif
@@ -28,6 +47,8 @@
 extern char __RUNTIME_PSEUDO_RELOC_LIST__;
 extern char __RUNTIME_PSEUDO_RELOC_LIST_END__;
 extern char __MINGW_LSYMBOL(_image_base__);
+
+void _pei386_runtime_relocator (void);
 
 /* v1 relocation is basically:
  *   *(base + .target) += .addend
@@ -57,18 +78,78 @@ typedef struct {
   DWORD version;
 } runtime_pseudo_reloc_v2;
 
-static void
-#ifdef __GNUC__
- __attribute__ ((noreturn))
-#endif
+static void ATTRIBUTE_NORETURN
 __report_error (const char *msg, ...)
 {
+#ifdef __CYGWIN__
+  /* This function is used to print short error messages
+   * to stderr, which may occur during DLL initialization
+   * while fixing up 'pseudo' relocations. This early, we
+   * may not be able to use cygwin stdio functions, so we
+   * use the win32 WriteFile api. This should work with both
+   * normal win32 console IO handles, redirected ones, and
+   * cygwin ptys.
+   */
+  char buf[SHORT_MSG_BUF_SZ];
+  wchar_t module[MAX_PATH];
+  char * posix_module = NULL;
+  static const char * UNKNOWN_MODULE = "<unknown module>: ";
+  static const char * CYGWIN_FAILURE_MSG = "Cygwin runtime failure: ";
+  static const size_t CYGWIN_FAILURE_MSG_LEN = sizeof (CYGWIN_FAILURE_MSG) - 1;
+  DWORD len;
+  DWORD done;
+  va_list args;
+  HANDLE errh = GetStdHandle (STD_ERROR_HANDLE);
+  ssize_t modulelen = GetModuleFileNameW (NULL, module, sizeof (module));
+
+  if (errh == INVALID_HANDLE_VALUE)
+    cygwin_internal (CW_EXIT_PROCESS,
+                     STATUS_ILLEGAL_DLL_PSEUDO_RELOCATION,
+                     1);
+
+  if (modulelen > 0)
+    posix_module = cygwin_create_path (CCP_WIN_W_TO_POSIX, module);
+
+  va_start (args, msg);
+  len = (DWORD) vsnprintf (buf, SHORT_MSG_BUF_SZ, msg, args);
+  va_end (args);
+  buf[SHORT_MSG_BUF_SZ-1] = '\0'; /* paranoia */
+
+  if (posix_module)
+    {
+      WriteFile (errh, (PCVOID)CYGWIN_FAILURE_MSG,
+                 CYGWIN_FAILURE_MSG_LEN, &done, NULL);
+      WriteFile (errh, (PCVOID)posix_module,
+                 strlen(posix_module), &done, NULL);
+      WriteFile (errh, (PCVOID)": ", 2, &done, NULL);
+      WriteFile (errh, (PCVOID)buf, len, &done, NULL);
+      free (posix_module);
+    }
+  else
+    {
+      WriteFile (errh, (PCVOID)CYGWIN_FAILURE_MSG,
+                 CYGWIN_FAILURE_MSG_LEN, &done, NULL);
+      WriteFile (errh, (PCVOID)UNKNOWN_MODULE,
+                 sizeof(UNKNOWN_MODULE), &done, NULL);
+      WriteFile (errh, (PCVOID)buf, len, &done, NULL);
+    }
+  cygwin_internal (CW_EXIT_PROCESS,
+                   STATUS_ILLEGAL_DLL_PSEUDO_RELOCATION,
+                   1);
+  /* not reached, but silences noreturn warning */
+  abort ();
+#else
   va_list argp;
   va_start (argp, msg);
+# ifdef __MINGW64_VERSION_MAJOR
   fprintf (stderr, "Mingw-w64 runtime failure:\n");
+# else
+  fprintf (stderr, "Mingw runtime failure:\n");
+# endif
   vfprintf (stderr, msg, argp);
   va_end (argp);
   abort ();
+#endif
 }
 
 /* This function temporarily marks the page containing addr
@@ -270,12 +351,10 @@ do_pseudo_reloc (void * start, void * end, void * base)
      }
 }
 
-void _pei386_runtime_relocator (void);
-
 void
 _pei386_runtime_relocator (void)
 {
-  static int was_init = 0;
+  static NO_COPY int was_init = 0;
   if (was_init)
     return;
   ++was_init;
