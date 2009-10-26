@@ -94,7 +94,7 @@ __report_error (const char *msg, ...)
   wchar_t module[MAX_PATH];
   char * posix_module = NULL;
   static const char   UNKNOWN_MODULE[] = "<unknown module>: ";
-  static const size_t UNKNOWN_MODULE_LEN = sizeof (CYGWIN_FAILURE_MSG) - 1;
+  static const size_t UNKNOWN_MODULE_LEN = sizeof (UNKNOWN_MODULE) - 1;
   static const char   CYGWIN_FAILURE_MSG[] = "Cygwin runtime failure: ";
   static const size_t CYGWIN_FAILURE_MSG_LEN = sizeof (CYGWIN_FAILURE_MSG) - 1;
   DWORD len;
