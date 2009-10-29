@@ -1,15 +1,15 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.63])
+AC_PREREQ([2.64])
 AC_INIT([PSEH], [2.0], [hackbunny@reactos.org])
 AC_CONFIG_AUX_DIR([build-aux])
+AC_CONFIG_SRCDIR([include/pseh/pseh2.h])
+AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE
 
 AC_CANONICAL_HOST
-AC_CONFIG_SRCDIR([include/pseh/pseh2.h])
-AC_CONFIG_HEADERS([config.h])
 
 AS_CASE([$host],
         [i*86-*-mingw*],[],

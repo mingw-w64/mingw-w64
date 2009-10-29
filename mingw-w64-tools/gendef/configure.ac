@@ -1,14 +1,15 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.63])
+AC_PREREQ([2.64])
 AC_INIT([mingw-w64-gendef], [1.0], [mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([src/gendef.c])
 AC_CONFIG_HEADERS([config.h])
 
-AC_CANONICAL_HOST
 AM_INIT_AUTOMAKE([foreign subdir-objects])
+
+AC_CANONICAL_HOST
 
 # Checks for programs.
 AC_PROG_CC

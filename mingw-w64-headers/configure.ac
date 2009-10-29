@@ -7,8 +7,9 @@ AC_CONFIG_SRCDIR([include/_mingw.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_HEADERS([config.h])
 
-AC_CANONICAL_HOST
 AM_INIT_AUTOMAKE([foreign])
+
+AC_CANONICAL_HOST
 
 # Checks for programs.
 
