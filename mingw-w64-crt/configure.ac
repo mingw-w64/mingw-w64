@@ -2,14 +2,14 @@
 # Process this file with autoconf to produce a configure script.
 # Use AM_MAINTANER_MODE somewhere in this file once reconfigurations settle down.
 
-AC_PREREQ([2.63])
+AC_PREREQ([2.64])
 AC_INIT([mingw-w64-runtime],[1.0b],[mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_AUX_DIR([build-aux])
-AM_INIT_AUTOMAKE([foreign subdir-objects])
-AM_MAINTAINER_MODE
-
 AC_CONFIG_SRCDIR([ChangeLog])
 AC_CONFIG_HEADER([config.h])
+
+AM_MAINTAINER_MODE
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 AC_CANONICAL_HOST
 
