@@ -37,6 +37,7 @@
 #else
 #define __MINGW_USE_UNDERSCORE_PREFIX 0
 #endif
+#undef _
 #pragma pop_macro ("_")
 #else
 #define __MINGW_USE_UNDERSCORE_PREFIX 0
