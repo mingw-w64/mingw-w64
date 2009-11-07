@@ -1,4 +1,9 @@
-2009-10-24 Roland Schwingel  <roland.schwingel@onevision.com>
+2009-11-07  Ivan Maidanski   <ivmai@users.sourceforge.net>
+
+	* sys/utime.h (_futime): New prototype.
+	(_wutime): New prototype.
+
+2009-10-24  Roland Schwingel  <roland.schwingel@onevision.com>
 
 	* winternal.h: Improved structure definitions.
 

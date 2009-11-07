@@ -91,6 +91,9 @@ extern "C" {
   _CRTIMP int __cdecl _wutime64(const wchar_t *_Filename,struct __utimbuf64 *_Time);
 
 #ifndef RC_INVOKED
+int __cdecl _utime(const char *,struct _utimbuf *);
+int __cdecl _futime(int,struct _utimbuf *);
+int __cdecl _wutime(const wchar_t *,struct _utimbuf *);
 #ifndef __CRT__NO_INLINE
 #ifndef _USE_32BIT_TIME_T
 __CRT_INLINE int __cdecl _utime(const char *_Filename,struct _utimbuf *_Utimbuf) {
