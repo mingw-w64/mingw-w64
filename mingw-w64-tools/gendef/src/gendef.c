@@ -248,7 +248,7 @@ load_pep(void)
   fclose (fp);
   if (!gDta)
     {
-      fprintf (stderr, "*** [%s] unable to allocate %Iu bytes\n" ,fninput,
+      fprintf (stderr, "*** [%s] unable to allocate %lu bytes\n", fninput,
 	       (unsigned long) gDta_size);
       return 0;
     }
