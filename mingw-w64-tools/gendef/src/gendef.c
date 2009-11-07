@@ -237,12 +237,17 @@ load_pep(void)
   fseek (fp, 0, SEEK_END);
   gDta_size = (size_t) ftell (fp);
   if (gDta_size > 0) {
-    fseek(fp,0,SEEK_SET);
-    gDta = (unsigned char*)malloc(gDta_size + 1);
+    fseek (fp,0,SEEK_SET);
+    gDta = (unsigned char*) malloc (gDta_size + 1);
     if (gDta)
       {
-        fread (gDta, 1, gDta_size, fp);
-        gDta[gDta_size] = 0;
+        if (fread (gDta, gDta_size, 1, fp) != 1)
+	  {
+	    free (gDta);
+	    gDta = NULL;
+	  }
+	else
+          gDta[gDta_size] = 0;
     }
   }
   fclose (fp);
