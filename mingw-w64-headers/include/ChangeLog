@@ -1,3 +1,8 @@
+2009-11-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* strings.h: Move into ../crt folder.
+	* string.h: Likewise.
+
 2009-11-10  NightStrike
 
 	Move C runtime headers into ../crt folder.
