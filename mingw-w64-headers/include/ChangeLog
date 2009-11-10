@@ -1,3 +1,7 @@
+2009-11-10  NightStrike
+
+	Move C runtime headers into ../crt folder.
+
 2009-11-07  Ivan Maidanski   <ivmai@users.sourceforge.net>
 
 	* sys/utime.h (_futime): New prototype.
