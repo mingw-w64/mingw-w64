@@ -2,6 +2,7 @@
 
 	* strings.h: Move into ../crt folder.
 	* string.h: Likewise.
+	* dlfcn.h: Likewise.
 
 2009-11-10  NightStrike
 
