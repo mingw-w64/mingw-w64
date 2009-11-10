@@ -64,13 +64,12 @@ am__basehead_HEADERS_DIST = @BASEHEAD_LIST@ crt/assert.h crt/complex.h \
 	crt/malloc.h crt/math.h crt/mbctype.h crt/mbstring.h crt/mem.h \
 	crt/memory.h crt/_mingw.h crt/_mingw_mac.h \
 	crt/_mingw_print_pop.h crt/_mingw_print_push.h crt/new.h \
-	crt/poppack.h crt/pshpack1.h crt/pshpack2.h crt/pshpack4.h \
-	crt/pshpack8.h crt/search.h crt/sehmap.h crt/setjmpex.h \
-	crt/setjmp.h crt/share.h crt/stdarg.h crt/stddef.h \
-	crt/stdexcpt.h crt/stdint.h crt/stdio.h crt/stdlib.h \
-	crt/syslimits.h crt/tchar.h crt/time.h crt/unistd.h \
-	crt/utime.h crt/vadefs.h crt/varargs.h crt/wchar.h \
-	crt/xlocinfo.h crt/xmath.h crt/ymath.h crt/yvals.h
+	crt/search.h crt/sehmap.h crt/setjmpex.h crt/setjmp.h \
+	crt/share.h crt/stdarg.h crt/stddef.h crt/stdexcpt.h \
+	crt/stdint.h crt/stdio.h crt/stdlib.h crt/syslimits.h \
+	crt/tchar.h crt/time.h crt/unistd.h crt/utime.h crt/vadefs.h \
+	crt/varargs.h crt/wchar.h crt/xlocinfo.h crt/xmath.h \
+	crt/ymath.h crt/yvals.h
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
     $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
@@ -240,16 +239,14 @@ sdksheaddir = $(baseheaddir)/sdks
 @ENABLE_CRT_TRUE@	crt/mem.h crt/memory.h crt/_mingw.h \
 @ENABLE_CRT_TRUE@	crt/_mingw_mac.h crt/_mingw_print_pop.h \
 @ENABLE_CRT_TRUE@	crt/_mingw_print_push.h crt/new.h \
-@ENABLE_CRT_TRUE@	crt/poppack.h crt/pshpack1.h crt/pshpack2.h \
-@ENABLE_CRT_TRUE@	crt/pshpack4.h crt/pshpack8.h crt/search.h \
-@ENABLE_CRT_TRUE@	crt/sehmap.h crt/setjmpex.h crt/setjmp.h \
-@ENABLE_CRT_TRUE@	crt/share.h crt/stdarg.h crt/stddef.h \
-@ENABLE_CRT_TRUE@	crt/stdexcpt.h crt/stdint.h crt/stdio.h \
-@ENABLE_CRT_TRUE@	crt/stdlib.h crt/syslimits.h crt/tchar.h \
-@ENABLE_CRT_TRUE@	crt/time.h crt/unistd.h crt/utime.h \
-@ENABLE_CRT_TRUE@	crt/vadefs.h crt/varargs.h crt/wchar.h \
-@ENABLE_CRT_TRUE@	crt/xlocinfo.h crt/xmath.h crt/ymath.h \
-@ENABLE_CRT_TRUE@	crt/yvals.h @BASEHEAD_LIST@
+@ENABLE_CRT_TRUE@	crt/search.h crt/sehmap.h crt/setjmpex.h \
+@ENABLE_CRT_TRUE@	crt/setjmp.h crt/share.h crt/stdarg.h \
+@ENABLE_CRT_TRUE@	crt/stddef.h crt/stdexcpt.h crt/stdint.h \
+@ENABLE_CRT_TRUE@	crt/stdio.h crt/stdlib.h crt/syslimits.h \
+@ENABLE_CRT_TRUE@	crt/tchar.h crt/time.h crt/unistd.h \
+@ENABLE_CRT_TRUE@	crt/utime.h crt/vadefs.h crt/varargs.h \
+@ENABLE_CRT_TRUE@	crt/wchar.h crt/xlocinfo.h crt/xmath.h \
+@ENABLE_CRT_TRUE@	crt/ymath.h crt/yvals.h @BASEHEAD_LIST@
 @ENABLE_CRT_FALSE@syshead_HEADERS = 
 @ENABLE_CRT_TRUE@syshead_HEADERS = \
 @ENABLE_CRT_TRUE@  crt/sys/cdefs.h  crt/sys/fcntl.h  crt/sys/file.h  crt/sys/ioctl.h  crt/sys/locking.h  crt/sys/param.h \
