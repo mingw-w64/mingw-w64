@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.64])
 AC_INIT([mingw-w64-headers], [1.0b], [mingw-w64-public@lists.sourceforge.net])
-AC_CONFIG_SRCDIR([include/_mingw.h])
+AC_CONFIG_SRCDIR([crt/_mingw.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_HEADERS([config.h])
 
@@ -17,9 +17,6 @@ AC_CANONICAL_HOST
 
 # Checks for header files.
 
-SYSHEAD_LIST=$srcdir/include/sys/*.h
-SECHEAD_LIST=$srcdir/include/sec_api/*.h
-SECSYSHEAD_LIST=$srcdir/include/sec_api/sys/*.h
 GLHEAD_LIST=$srcdir/include/GL/*.h
 BASEHEAD_LIST=$srcdir/include/*.h
 for i in c dlg h16 hxx rh ver; do
@@ -27,42 +24,48 @@ for i in c dlg h16 hxx rh ver; do
 done
 #FIXME: Add in base directx
 AC_SUBST([BASEHEAD_LIST])
-AC_SUBST([SYSHEAD_LIST])
-AC_SUBST([SECHEAD_LIST])
-AC_SUBST([SECSYSHEAD_LIST])
 AC_SUBST([GLHEAD_LIST])
 AC_SUBST([SDKSHEAD_LIST])
 
+AC_MSG_CHECKING([for c-runtime headers])
+AC_ARG_ENABLE([crt],
+  [AS_HELP_STRING([--disable-crt],
+    [Do not use the default crt headers])],
+  [],
+  [enable_crt=yes])
+AM_CONDITIONAL([ENABLE_CRT],[test x$enable_crt=xyes])
+AC_MSG_RESULT([$enable_crt])
+
 AC_MSG_CHECKING([for optional sdk headers])
-AC_ARG_WITH([sdk],
-  [AS_HELP_STRING([--with-sdk=ARG],
+AC_ARG_ENABLE([sdk],
+  [AS_HELP_STRING([--enable-sdk=ARG],
     [Add the desired SDK, where ARG can be one of ddk, directx, or all])],
   [],
-  [with_sdk=no])
-AS_CASE([$with_sdk],
+  [enable_sdk=no])
+AS_CASE([$enable_sdk],
   [all|yes],[
-    with_sdk="ddk,directx"
-    with_ddk=yes
-    with_directx=yes],
+    enable_sdk="ddk,directx"
+    enable_ddk=yes
+    enable_directx=yes],
   [ddk],[
-    with_ddk=yes
-    with_directx=no],
+    enable_ddk=yes
+    enable_directx=no],
   [directx],[
-    with_ddk=no
-    with_directx=yes],
+    enable_ddk=no
+    enable_directx=yes],
   [no],[
-    with_ddk=no
-    with_directx=no],
-  [AC_ERROR([Invalid option: $with_sdk.  Please choose one of ddk, directx, or all.])])
-AC_MSG_RESULT([$with_sdk])
+    enable_ddk=no
+    enable_directx=no],
+  [AC_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx, or all.])])
+AC_MSG_RESULT([$enable_sdk])
 
-AS_IF([test $with_directx = yes],[
+AS_IF([test $enable_directx = yes],[
   DXHEAD_LIST=$srcdir/direct-x/include/*.[[hi]]*
   SDKSHEAD_LIST=$srcdir/direct-x/include/sdks/*.h],
-  [SDKSHEAD_LIST=$srcdir/include/sdks/*.h])
+  [])
 AC_SUBST([DXHEAD_LIST])
 
-AS_IF([test $with_ddk = yes],[
+AS_IF([test $enable_ddk = yes],[
   DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
   SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/ddk/include/sdks/*.h],
   [])

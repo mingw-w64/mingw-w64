@@ -35,13 +35,14 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 subdir = .
-DIST_COMMON = $(am__configure_deps) $(basehead_HEADERS) \
+DIST_COMMON = $(am__basehead_HEADERS_DIST) $(am__configure_deps) \
+	$(am__sdkshead_HEADERS_DIST) $(am__sechead_HEADERS_DIST) \
+	$(am__secsyshead_HEADERS_DIST) $(am__syshead_HEADERS_DIST) \
 	$(ddkhead_HEADERS) $(dxhead_HEADERS) $(glhead_HEADERS) \
-	$(sdkshead_HEADERS) $(sechead_HEADERS) $(secsyshead_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(srcdir)/config.h.in $(syshead_HEADERS) \
-	$(top_srcdir)/configure build-aux/config.guess \
-	build-aux/config.sub build-aux/install-sh build-aux/missing
+	$(srcdir)/config.h.in $(top_srcdir)/configure \
+	build-aux/config.guess build-aux/config.sub \
+	build-aux/install-sh build-aux/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -54,6 +55,22 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 SOURCES =
 DIST_SOURCES =
+am__basehead_HEADERS_DIST = @BASEHEAD_LIST@ crt/assert.h crt/complex.h \
+	crt/conio.h crt/crtdbg.h crt/crtdefs.h crt/ctype.h \
+	crt/direct.h crt/dirent.h crt/dir.h crt/dos.h crt/dvec.h \
+	crt/eh.h crt/errno.h crt/fcntl.h crt/fenv.h crt/float.h \
+	crt/fpieee.h crt/fvec.h crt/getopt.h crt/ieeefp.h crt/intrin.h \
+	crt/inttypes.h crt/io.h crt/libgen.h crt/limits.h crt/locale.h \
+	crt/malloc.h crt/math.h crt/mbctype.h crt/mbstring.h crt/mem.h \
+	crt/memory.h crt/_mingw.h crt/_mingw_mac.h \
+	crt/_mingw_print_pop.h crt/_mingw_print_push.h crt/new.h \
+	crt/poppack.h crt/pshpack1.h crt/pshpack2.h crt/pshpack4.h \
+	crt/pshpack8.h crt/search.h crt/sehmap.h crt/setjmpex.h \
+	crt/setjmp.h crt/share.h crt/stdarg.h crt/stddef.h \
+	crt/stdexcpt.h crt/stdint.h crt/stdio.h crt/stdlib.h \
+	crt/syslimits.h crt/tchar.h crt/time.h crt/unistd.h \
+	crt/utime.h crt/vadefs.h crt/varargs.h crt/wchar.h \
+	crt/xlocinfo.h crt/xmath.h crt/ymath.h crt/yvals.h
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
     $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
@@ -79,6 +96,19 @@ am__installdirs = "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" \
 	"$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" \
 	"$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" \
 	"$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)"
+am__sdkshead_HEADERS_DIST = @SDKSHEAD_LIST@ crt/sdks/_mingw_directx.h
+am__sechead_HEADERS_DIST = crt/sec_api/conio_s.h \
+	crt/sec_api/crtdbg_s.h crt/sec_api/io_s.h \
+	crt/sec_api/mbstring_s.h crt/sec_api/search_s.h \
+	crt/sec_api/stdio_s.h crt/sec_api/stdlib_s.h \
+	crt/sec_api/stralign_s.h crt/sec_api/string_s.h \
+	crt/sec_api/tchar_s.h crt/sec_api/time_s.h \
+	crt/sec_api/wchar_s.h
+am__secsyshead_HEADERS_DIST = crt/sec_api/sys/timeb_s.h
+am__syshead_HEADERS_DIST = crt/sys/cdefs.h crt/sys/fcntl.h \
+	crt/sys/file.h crt/sys/ioctl.h crt/sys/locking.h \
+	crt/sys/param.h crt/sys/stat.h crt/sys/timeb.h crt/sys/time.h \
+	crt/sys/types.h crt/sys/unistd.h crt/sys/utime.h
 HEADERS = $(basehead_HEADERS) $(ddkhead_HEADERS) $(dxhead_HEADERS) \
 	$(glhead_HEADERS) $(sdkshead_HEADERS) $(sechead_HEADERS) \
 	$(secsyshead_HEADERS) $(syshead_HEADERS)
@@ -129,12 +159,9 @@ PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 SDKSHEAD_LIST = @SDKSHEAD_LIST@
-SECHEAD_LIST = @SECHEAD_LIST@
-SECSYSHEAD_LIST = @SECSYSHEAD_LIST@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
-SYSHEAD_LIST = @SYSHEAD_LIST@
 VERSION = @VERSION@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
@@ -191,9 +218,6 @@ EXTRA_HEADERS = \
   include/*.hxx \
   include/*.rh \
   include/*.ver \
-  include/sys/*.h \
-  include/sec_api/*.h \
-  include/sec_api/sys/*.h \
   include/GL/*.h
 
 baseheaddir = $(includedir)/../$(host)/include
@@ -202,19 +226,52 @@ secheaddir = $(baseheaddir)/sec_api
 secsysheaddir = $(baseheaddir)/sec_api/sys
 glheaddir = $(baseheaddir)/GL
 sdksheaddir = $(baseheaddir)/sdks
-basehead_HEADERS = @BASEHEAD_LIST@
-syshead_HEADERS = @SYSHEAD_LIST@
-sechead_HEADERS = @SECHEAD_LIST@
-secsyshead_HEADERS = @SECSYSHEAD_LIST@
-glhead_HEADERS = @GLHEAD_LIST@
-sdkshead_HEADERS = @SDKSHEAD_LIST@
+@ENABLE_CRT_FALSE@basehead_HEADERS = @BASEHEAD_LIST@
+@ENABLE_CRT_TRUE@basehead_HEADERS = crt/assert.h crt/complex.h \
+@ENABLE_CRT_TRUE@	crt/conio.h crt/crtdbg.h crt/crtdefs.h \
+@ENABLE_CRT_TRUE@	crt/ctype.h crt/direct.h crt/dirent.h \
+@ENABLE_CRT_TRUE@	crt/dir.h crt/dos.h crt/dvec.h crt/eh.h \
+@ENABLE_CRT_TRUE@	crt/errno.h crt/fcntl.h crt/fenv.h \
+@ENABLE_CRT_TRUE@	crt/float.h crt/fpieee.h crt/fvec.h \
+@ENABLE_CRT_TRUE@	crt/getopt.h crt/ieeefp.h crt/intrin.h \
+@ENABLE_CRT_TRUE@	crt/inttypes.h crt/io.h crt/libgen.h \
+@ENABLE_CRT_TRUE@	crt/limits.h crt/locale.h crt/malloc.h \
+@ENABLE_CRT_TRUE@	crt/math.h crt/mbctype.h crt/mbstring.h \
+@ENABLE_CRT_TRUE@	crt/mem.h crt/memory.h crt/_mingw.h \
+@ENABLE_CRT_TRUE@	crt/_mingw_mac.h crt/_mingw_print_pop.h \
+@ENABLE_CRT_TRUE@	crt/_mingw_print_push.h crt/new.h \
+@ENABLE_CRT_TRUE@	crt/poppack.h crt/pshpack1.h crt/pshpack2.h \
+@ENABLE_CRT_TRUE@	crt/pshpack4.h crt/pshpack8.h crt/search.h \
+@ENABLE_CRT_TRUE@	crt/sehmap.h crt/setjmpex.h crt/setjmp.h \
+@ENABLE_CRT_TRUE@	crt/share.h crt/stdarg.h crt/stddef.h \
+@ENABLE_CRT_TRUE@	crt/stdexcpt.h crt/stdint.h crt/stdio.h \
+@ENABLE_CRT_TRUE@	crt/stdlib.h crt/syslimits.h crt/tchar.h \
+@ENABLE_CRT_TRUE@	crt/time.h crt/unistd.h crt/utime.h \
+@ENABLE_CRT_TRUE@	crt/vadefs.h crt/varargs.h crt/wchar.h \
+@ENABLE_CRT_TRUE@	crt/xlocinfo.h crt/xmath.h crt/ymath.h \
+@ENABLE_CRT_TRUE@	crt/yvals.h @BASEHEAD_LIST@
+@ENABLE_CRT_FALSE@syshead_HEADERS = 
+@ENABLE_CRT_TRUE@syshead_HEADERS = \
+@ENABLE_CRT_TRUE@  crt/sys/cdefs.h  crt/sys/fcntl.h  crt/sys/file.h  crt/sys/ioctl.h  crt/sys/locking.h  crt/sys/param.h \
+@ENABLE_CRT_TRUE@  crt/sys/stat.h   crt/sys/timeb.h  crt/sys/time.h  crt/sys/types.h  crt/sys/unistd.h   crt/sys/utime.h
 
-#Optional headers
+@ENABLE_CRT_FALSE@sechead_HEADERS = 
+@ENABLE_CRT_TRUE@sechead_HEADERS = \
+@ENABLE_CRT_TRUE@  crt/sec_api/conio_s.h  crt/sec_api/crtdbg_s.h  crt/sec_api/io_s.h        crt/sec_api/mbstring_s.h  crt/sec_api/search_s.h \
+@ENABLE_CRT_TRUE@  crt/sec_api/stdio_s.h  crt/sec_api/stdlib_s.h  crt/sec_api/stralign_s.h  crt/sec_api/string_s.h    crt/sec_api/tchar_s.h  \
+@ENABLE_CRT_TRUE@  crt/sec_api/time_s.h   crt/sec_api/wchar_s.h
+
+@ENABLE_CRT_FALSE@secsyshead_HEADERS = 
+@ENABLE_CRT_TRUE@secsyshead_HEADERS = crt/sec_api/sys/timeb_s.h
+@ENABLE_CRT_FALSE@sdkshead_HEADERS = @SDKSHEAD_LIST@
+@ENABLE_CRT_TRUE@sdkshead_HEADERS = crt/sdks/_mingw_directx.h \
+@ENABLE_CRT_TRUE@	@SDKSHEAD_LIST@ $(am__empty)
+glhead_HEADERS = @GLHEAD_LIST@
 ddkheaddir = $(baseheaddir)/ddk
 dxheaddir = $(baseheaddir)
 ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
-DISTCHECK_CONFIGURE_FLAGS = --with-sdk=all
+DISTCHECK_CONFIGURE_FLAGS = --enable-sdk=all
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

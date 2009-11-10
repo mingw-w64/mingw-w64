@@ -553,16 +553,15 @@ PACKAGE_STRING='mingw-w64-headers 1.0b'
 PACKAGE_BUGREPORT='mingw-w64-public@lists.sourceforge.net'
 PACKAGE_URL=''
 
-ac_unique_file="include/_mingw.h"
+ac_unique_file="crt/_mingw.h"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
 DDKHEAD_LIST
 DXHEAD_LIST
+ENABLE_CRT_FALSE
+ENABLE_CRT_TRUE
 SDKSHEAD_LIST
 GLHEAD_LIST
-SECSYSHEAD_LIST
-SECHEAD_LIST
-SYSHEAD_LIST
 BASEHEAD_LIST
 host_os
 host_vendor
@@ -636,7 +635,8 @@ SHELL'
 ac_subst_files=''
 ac_user_opts='
 enable_option_checking
-with_sdk
+enable_crt
+enable_sdk
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1257,10 +1257,12 @@ if test -n "$ac_init_help"; then
    esac
   cat <<\_ACEOF
 
-Optional Packages:
-  --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
-  --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
-  --with-sdk=ARG          Add the desired SDK, where ARG can be one of ddk,
+Optional Features:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --disable-crt           Do not use the default crt headers
+  --enable-sdk=ARG        Add the desired SDK, where ARG can be one of ddk,
                           directx, or all
 
 Report bugs to <mingw-w64-public@lists.sourceforge.net>.
@@ -2274,9 +2276,6 @@ case $host_os in *\ *) host_os=`echo "$host_os" | sed 's/ /-/g'`;; esac
 
 # Checks for header files.
 
-SYSHEAD_LIST=$srcdir/include/sys/*.h
-SECHEAD_LIST=$srcdir/include/sec_api/*.h
-SECSYSHEAD_LIST=$srcdir/include/sec_api/sys/*.h
 GLHEAD_LIST=$srcdir/include/GL/*.h
 BASEHEAD_LIST=$srcdir/include/*.h
 for i in c dlg h16 hxx rh ver; do
@@ -2287,53 +2286,67 @@ done
 
 
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for c-runtime headers" >&5
+$as_echo_n "checking for c-runtime headers... " >&6; }
+# Check whether --enable-crt was given.
+if test "${enable_crt+set}" = set; then :
+  enableval=$enable_crt;
+else
+  enable_crt=yes
+fi
 
+ if test x$enable_crt=xyes; then
+  ENABLE_CRT_TRUE=
+  ENABLE_CRT_FALSE='#'
+else
+  ENABLE_CRT_TRUE='#'
+  ENABLE_CRT_FALSE=
+fi
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_crt" >&5
+$as_echo "$enable_crt" >&6; }
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for optional sdk headers" >&5
 $as_echo_n "checking for optional sdk headers... " >&6; }
-
-# Check whether --with-sdk was given.
-if test "${with_sdk+set}" = set; then :
-  withval=$with_sdk;
+# Check whether --enable-sdk was given.
+if test "${enable_sdk+set}" = set; then :
+  enableval=$enable_sdk;
 else
-  with_sdk=no
+  enable_sdk=no
 fi
 
-case $with_sdk in #(
+case $enable_sdk in #(
   all|yes) :
 
-    with_sdk="ddk,directx"
-    with_ddk=yes
-    with_directx=yes ;; #(
+    enable_sdk="ddk,directx"
+    enable_ddk=yes
+    enable_directx=yes ;; #(
   ddk) :
 
-    with_ddk=yes
-    with_directx=no ;; #(
+    enable_ddk=yes
+    enable_directx=no ;; #(
   directx) :
 
-    with_ddk=no
-    with_directx=yes ;; #(
+    enable_ddk=no
+    enable_directx=yes ;; #(
   no) :
 
-    with_ddk=no
-    with_directx=no ;; #(
+    enable_ddk=no
+    enable_directx=no ;; #(
   *) :
-    as_fn_error "Invalid option: $with_sdk.  Please choose one of ddk, directx, or all." "$LINENO" 5 ;;
+    as_fn_error "Invalid option: $enable_sdk.  Please choose one of ddk, directx, or all." "$LINENO" 5 ;;
 esac
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_sdk" >&5
-$as_echo "$with_sdk" >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_sdk" >&5
+$as_echo "$enable_sdk" >&6; }
 
-if test $with_directx = yes; then :
+if test $enable_directx = yes; then :
 
   DXHEAD_LIST=$srcdir/direct-x/include/*.[hi]*
   SDKSHEAD_LIST=$srcdir/direct-x/include/sdks/*.h
-else
-  SDKSHEAD_LIST=$srcdir/include/sdks/*.h
 fi
 
 
-if test $with_ddk = yes; then :
+if test $enable_ddk = yes; then :
 
   DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
   SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/ddk/include/sdks/*.h
@@ -2445,6 +2458,10 @@ LTLIBOBJS=$ac_ltlibobjs
 
 
 
+if test -z "${ENABLE_CRT_TRUE}" && test -z "${ENABLE_CRT_FALSE}"; then
+  as_fn_error "conditional \"ENABLE_CRT\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
 
 : ${CONFIG_STATUS=./config.status}
 ac_write_fail=0
