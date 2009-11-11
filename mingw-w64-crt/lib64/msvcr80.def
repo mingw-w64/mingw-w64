@@ -738,6 +738,7 @@ log
 log10
 log10f
 logf
+longjmp DATA
 malloc
 mblen
 mbstowcs
