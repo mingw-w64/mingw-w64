@@ -41,7 +41,8 @@ int main()
 	for (i=0;i<processors;i++)
 		CloseHandle(threads[i]);
 
-	std::cout << "How is it possible that tls_value is " << tls_value << " ?" << std::endl;
+	std::cout << "How is it possible that tls_value is "
+          << tls_value << " != 0 ?" << std::endl;
 
 	return 0;
 }
