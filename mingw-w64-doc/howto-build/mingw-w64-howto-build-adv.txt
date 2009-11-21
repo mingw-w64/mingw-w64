@@ -108,7 +108,7 @@ is fine.
 Homepage:               <http://www.multiprecision.org/>
 Depends on:             GMP
 Depended by:            None
-GCC dependency type:    Soft (GCC can build without it)
+GCC dependency type:    Hard (GCC won't build without it)
 
 MPC isn't particularly fussy about configure options, so the usual:
 	./configure
