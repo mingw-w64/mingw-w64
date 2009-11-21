@@ -1,3 +1,32 @@
+2009-11-21  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* shlobj.h (IDO_SHGIOI_DEFAULT): Define. Original patch by 
+	Chris Sutcliffe  <ir0nh34d@users.sourceforge.net>
+
+	* include/shlobj.h (SHARD): Add enum. Original patch by 
+	Chris Sutcliffe  <ir0nh34d@users.sourceforge.net>
+
+	* include/winuser.h (WM_TOUCHMOVE, WM_TOUCHDOWN, WM_TOUCHUP,
+	TOUCHEVENTF_DOWN, TOUCHEVENTF_INRANGE, TOUCHEVENTF_MOVE,
+	TOUCHEVENTF_NOCOALESCE, TOUCHEVENTF_PALM, TOUCHEVENTF_PEN,
+	TOUCHEVENTF_PRIMARY, TOUCHEVENTF_UP, TOUCHEVENTMASKF_CONTACTAREA,
+	TOUCHEVENTMASKF_EXTRAINFO, TOUCHEVENTMASKF_TIMEFROMSYSTEM, TOUCHINPUT,
+	CloseTouchInputHandle, RegisterTouchWindow,
+	UnregisterTouchWindow): Define.
+	Original patch by Jarkko Sakkinen  <jarkko.sakkinen@iki.fi>
+
+		2009-13-09  Jacky Lai  <crazyjacky@users.sourceforge.net>
+
+		* include/winerror.h: Fix typos in macro names.
+
+		2009-20-10  Dmitry Potapov  <dpotapov@users.sourceforge.net>
+
+		* include/winver.h (VerQueryValue[AW]): Correct definition.
+
+		2009-20-10  Aleksey Chernov  <virxkane@users.sourceforge.net>
+
+		* include/sspi.h: Include ntsecapi.h to correct postgresql build error.
+
 2009-11-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	* strings.h: Move into ../crt folder.

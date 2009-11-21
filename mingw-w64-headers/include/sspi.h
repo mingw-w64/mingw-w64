@@ -6,6 +6,8 @@
 #ifndef __SSPI_H__
 #define __SSPI_H__
 
+#include <ntsecapi.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
