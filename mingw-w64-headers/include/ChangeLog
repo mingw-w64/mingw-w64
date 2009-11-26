@@ -1,3 +1,10 @@
+2009-11-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk.
+        * ntsecapi.h (STRING): Protect by guard.
+        (UNICODE_STRING): Likewise.
+        * ntsecapi.h: Likewise.
+
 2009-10-25  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw_mac.h: Set branch version status to stable.
