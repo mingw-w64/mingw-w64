@@ -13,17 +13,23 @@ extern "C" {
 #if (!defined(_NTDEF_)) && (!defined(_NTSECAPI_))
   typedef LONG NTSTATUS,*PNTSTATUS;
 
+#ifndef __UNICODE_STRING_DEFINED
+#define __UNICODE_STRING_DEFINED
   typedef struct _UNICODE_STRING {
     USHORT Length;
     USHORT MaximumLength;
     PWSTR Buffer;
   } UNICODE_STRING,*PUNICODE_STRING;
+#endif
 
+#ifndef __STRING_DEFINED
+#define __STRING_DEFINED
   typedef struct _STRING {
     USHORT Length;
     USHORT MaximumLength;
     PCHAR Buffer;
   } STRING,*PSTRING;
+#endif
 #endif
 
 #ifndef _NTDEF_

@@ -1,3 +1,9 @@
+2009-11-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* ntsecapi.h (STRING): Protect by guard.
+	(UNICODE_STRING): Likewise.
+	* ntsecapi.h: Likewise.
+
 2009-11-21  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* shlobj.h (IDO_SHGIOI_DEFAULT): Define. Original patch by 
