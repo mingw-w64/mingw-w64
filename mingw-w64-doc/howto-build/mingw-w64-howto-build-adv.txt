@@ -9,6 +9,7 @@ dependencies and relevant options that can be passed to the GCC
 configure.
 
 The commands are run under a MSYS/MinGW setup unless specified otherwise.
+Using Cygwin or any other POSIX compatible shell should work.
 
 == Targeted audience ==
 
@@ -132,6 +133,8 @@ Homepage: <http://repo.or.cz/w/cloog-ppl.git>
 Depends on:             GMP, PPL
 Depended by:            None
 GCC dependency type:    Soft (GCC can build without it)
+If you are planning to use CLooG with static PPL, remeber to add
+'--with-host-libstdcxx="-lstdc++ -lsupc++"' to configure.
 CLooG isn't particularly fussy about configure options, so the usual:
 	./configure
 	make
@@ -177,11 +180,16 @@ Note: To allow win64 support, apply the patch from the mailing list.
 General Build and install instructions:
 	Step 1) type "make clean GC CROSS=x86_64-w64-mingw32-"
 		Note: The CROSS variable specifies your win64/win32 toolchain
-		    triplet prefix.
-	Step 2) copy pthreadGC2.dll to your path
-	Step 3) Install the lib by copying pthreadGC2 as libpthread.a to
-	    your GCC libdir
+		    triplet prefix. To prevent dll clobbering by 32bit/64bit
+		    builds having the same names, you can edit GC_DLL in the
+		    GNUmakefile (line 440) to produce differently named dlls
+		    based on its "bitness"
+		    (eg. pthreadGC2-64.dll, pthreadGC2-32.dll).
+	Step 2) copy pthreadGC2.dll (or $GC_DLL) to your path
+	Step 3) Install the lib by copying pthreadGC2.dll as libpthread.a to
+	    your GCC libdir (eg. PREFIX/x86_64-w64-mingw32/lib)
 	Step 4) Copy pthread.h, sched.h and semaphore.h to the GCC include dir
+	    (eg. PREFIX/x86_64-w64-mingw32/include)
 	Step 5) Edit the pthread.h in your include dir and change the following
 	    section from:
 =======================================================================
@@ -199,7 +207,7 @@ General Build and install instructions:
 	that actually use "config.h" for options.
 	Step 6) Copy the pthread-win32 config.h to your include dir as pconfig.h
 
-32bit build instructions (mutilib 64bit default GCC)
+32bit build instructions (assuming mutilib 64bit default GCC)
 	* Edit the GNUmakefile, and change:
 =======================================================================
 AR      = $(CROSS)ar
@@ -218,6 +226,8 @@ CXX     = $(CROSS)g++ -m32
 RANLIB  = $(CROSS)ranlib
 RC      = $(CROSS)windres -F pe-i386
 =======================================================================
+	* You can also use a patch for 32bit builds such as 
+	    <http://mingw-w64.pastebin.com/pastebin.php?dl=f7b38df38>
 	* Next, follow the General Build and install instructions
 
 == Building the Multilib Cross MinGW-w64 GCC the lazy way ==
@@ -226,7 +236,7 @@ RC      = $(CROSS)windres -F pe-i386
 Its a lazy method because it involves building GCC with all enabled
 front ends only once, without restarting the cross GCC build.
 
-First of all, your host compiler (usually "gcc") must support ADA.
+First of all, your host compiler (native system "gcc") must support ADA.
 If your platform does not have GNAT binaries, use the binaries from: 
     <https://libre.adacore.com/libre/download/>
 
