@@ -1,3 +1,7 @@
+2009-11-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* rpcndr.h (NDR_SCONTEXT): Add namespace to structure.
+
 2009-11-26  Kai Tietz  <kai.tietz@onevision.com>
 
 	* ntsecapi.h (STRING): Protect by guard.
