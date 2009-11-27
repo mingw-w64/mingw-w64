@@ -280,7 +280,7 @@ An example configure line for Binutils is:
 When you checkout the svn trunk from the mingw-w64 developer repository, there
 should be a directory called mingw-w64-headers. Install it with:
 	../path/to/mingw-w64-headers/configure --prefix=<prefix> \
-	--with-sdks=none --build=<host triplet> --host=x86_64-w64-mingw32
+	--enable-sdk=none --build=<host triplet> --host=x86_64-w64-mingw32
 	make install
 
 To view the available sdks, use --help. The prefix should be similar to the
