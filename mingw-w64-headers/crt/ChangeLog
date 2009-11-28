@@ -1,3 +1,7 @@
+2009-11-28  Tor Lillqvist  <tml@iki.fi>
+
+	* sys/ioctl.h: Moved to the experimental branch.
+	
 2009-11-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	Generated this file.
