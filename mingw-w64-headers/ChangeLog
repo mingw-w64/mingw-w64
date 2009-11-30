@@ -1,0 +1,4 @@
+2009-11-30    <tml@iki.fi>
+
+	* Makefile.am (syshead_HEADERS): Drop sys/ioctl.h from here, too,
+	as the file was moved to the experimental branch.
