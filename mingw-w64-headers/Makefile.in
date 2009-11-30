@@ -40,7 +40,7 @@ DIST_COMMON = $(am__basehead_HEADERS_DIST) $(am__configure_deps) \
 	$(am__secsyshead_HEADERS_DIST) $(am__syshead_HEADERS_DIST) \
 	$(ddkhead_HEADERS) $(dxhead_HEADERS) $(glhead_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(srcdir)/config.h.in $(top_srcdir)/configure \
+	$(srcdir)/config.h.in $(top_srcdir)/configure ChangeLog \
 	build-aux/config.guess build-aux/config.sub \
 	build-aux/install-sh build-aux/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -106,9 +106,9 @@ am__sechead_HEADERS_DIST = crt/sec_api/conio_s.h \
 	crt/sec_api/wchar_s.h
 am__secsyshead_HEADERS_DIST = crt/sec_api/sys/timeb_s.h
 am__syshead_HEADERS_DIST = crt/sys/cdefs.h crt/sys/fcntl.h \
-	crt/sys/file.h crt/sys/ioctl.h crt/sys/locking.h \
-	crt/sys/param.h crt/sys/stat.h crt/sys/timeb.h crt/sys/time.h \
-	crt/sys/types.h crt/sys/unistd.h crt/sys/utime.h
+	crt/sys/file.h crt/sys/locking.h crt/sys/param.h \
+	crt/sys/stat.h crt/sys/timeb.h crt/sys/time.h crt/sys/types.h \
+	crt/sys/unistd.h crt/sys/utime.h
 HEADERS = $(basehead_HEADERS) $(ddkhead_HEADERS) $(dxhead_HEADERS) \
 	$(glhead_HEADERS) $(sdkshead_HEADERS) $(sechead_HEADERS) \
 	$(secsyshead_HEADERS) $(syshead_HEADERS)
@@ -252,7 +252,7 @@ sdksheaddir = $(baseheaddir)/sdks
 @ENABLE_CRT_TRUE@	@BASEHEAD_LIST@ $(am__empty)
 @ENABLE_CRT_FALSE@syshead_HEADERS = 
 @ENABLE_CRT_TRUE@syshead_HEADERS = \
-@ENABLE_CRT_TRUE@  crt/sys/cdefs.h  crt/sys/fcntl.h  crt/sys/file.h  crt/sys/ioctl.h  crt/sys/locking.h  crt/sys/param.h \
+@ENABLE_CRT_TRUE@  crt/sys/cdefs.h  crt/sys/fcntl.h  crt/sys/file.h  crt/sys/locking.h  crt/sys/param.h \
 @ENABLE_CRT_TRUE@  crt/sys/stat.h   crt/sys/timeb.h  crt/sys/time.h  crt/sys/types.h  crt/sys/unistd.h   crt/sys/utime.h
 
 @ENABLE_CRT_FALSE@sechead_HEADERS = 

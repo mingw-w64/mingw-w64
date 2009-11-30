@@ -1,3 +1,7 @@
+2009-11-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile.in: Regenerated.
+
 2009-11-30    <tml@iki.fi>
 
 	* Makefile.am (syshead_HEADERS): Drop sys/ioctl.h from here, too,
