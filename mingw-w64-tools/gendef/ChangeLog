@@ -1,3 +1,9 @@
+2009-12-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* src/gendef.c (show_usage): New.
+	(main): Use show_usage.
+	(opt_chain): use show_usage.
+
 2009-09-02  Kai Tietz  <kai.tietz@onevision.com>
 
 	* src/gendef.c (disassembleRetIntern): Pre-initialize local

@@ -135,7 +135,7 @@ PIMAGE_NT_HEADERS64 gPEPDta;
 static int std_output = 0;
 
 static Gendefopts *chain_ptr = NULL;
-
+ __attribute__((noreturn)) static void show_usage (void);
 void opt_chain (const char *);
 
 void opt_chain (const char *opts)
@@ -146,6 +146,11 @@ void opt_chain (const char *opts)
   if (!strncmp (opts, "-", 2))
     {
       std_output = 1;
+      return;
+    }
+  if (!strncmp (opts, "--help", 7))
+    {
+      show_usage();
       return;
     }
 
@@ -184,6 +189,25 @@ void opt_chain (const char *opts)
   return;
 }
 
+void
+show_usage (void)
+{
+  fprintf (stderr, "Usage: gendef [OPTION]... [DLL]...\n");
+  fprintf (stderr, "Dumps DLL exports information from PE32/PE32+ executables\n");
+  fprintf (stderr, "\n");
+  fprintf (stderr, "Options:\n"
+    "  -                        Dump to stdout\n"
+    "      --help               Show this help.\n"
+  );
+  fprintf (stderr, "\n");
+  fprintf (stderr, "Usage example: \n"
+                   "  By default, the output files are named after their DLL counterparts\n"
+                   "  gendef MYDLL.DLL     Produces MYDLL.def\n"
+                   "  gendef - MYDLL.DLL   Prints the exports to stdout\n");
+  fprintf (stderr, "\nReport bugs to <mingw-w64-public@lists.sourceforge.net>\n");
+  exit (0);
+}
+
 int main(int argc,char **argv)
 {
   int i;
@@ -191,7 +215,7 @@ int main(int argc,char **argv)
 
   if (argc < 2)
   {
-    fprintf (stderr,"gendef.exe input-dll-files ...\n");
+    show_usage();
     return 0;
   }
 
