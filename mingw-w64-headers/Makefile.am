@@ -20,8 +20,9 @@ sdksheaddir = $(baseheaddir)/sdks
 if ENABLE_CRT
 basehead_HEADERS = \
   crt/assert.h             crt/complex.h   crt/conio.h     crt/crtdbg.h    crt/crtdefs.h    crt/ctype.h       crt/direct.h           \
-  crt/dirent.h             crt/dir.h       crt/dos.h       crt/dvec.h      crt/eh.h         crt/errno.h       crt/fcntl.h            \
-  crt/fenv.h               crt/float.h     crt/fpieee.h    crt/fvec.h      crt/getopt.h     crt/ieeefp.h      crt/intrin.h           \
+  crt/dirent.h             crt/dir.h       crt/dos.h       crt/eh.h         crt/errno.h       crt/fcntl.h            \
+  crt/dvec.h  crt/ivec.h crt/fvec.h \
+  crt/fenv.h               crt/float.h     crt/fpieee.h    crt/getopt.h     crt/ieeefp.h      crt/intrin.h           \
   crt/inttypes.h           crt/io.h        crt/libgen.h    crt/limits.h    crt/locale.h     crt/malloc.h      crt/math.h             \
   crt/mbctype.h            crt/mbstring.h  crt/mem.h       crt/memory.h    crt/_mingw.h     crt/_mingw_mac.h  crt/_mingw_print_pop.h \
   crt/_mingw_print_push.h  crt/new.h       crt/string.h	   crt/strings.h   crt/dlfcn.h      \

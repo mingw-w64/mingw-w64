@@ -1,3 +1,11 @@
+2009-12-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/ivec.h: New dummy file.
+	* crt/dvec.h: Use intrin.h and guard definitions for enabled SSE.
+	* crt/fvec.h: Likewise.
+	* Makefile.am: Add crt/ivec.h to crt headers.
+	* Makefile.in: Regenerated.
+
 2009-11-30  Kai Tietz  <kai.tietz@onevision.com>
 
 	* Makefile.in: Regenerated.

@@ -57,20 +57,20 @@ SOURCES =
 DIST_SOURCES =
 am__basehead_HEADERS_DIST = @BASEHEAD_LIST@ crt/assert.h crt/complex.h \
 	crt/conio.h crt/crtdbg.h crt/crtdefs.h crt/ctype.h \
-	crt/direct.h crt/dirent.h crt/dir.h crt/dos.h crt/dvec.h \
-	crt/eh.h crt/errno.h crt/fcntl.h crt/fenv.h crt/float.h \
-	crt/fpieee.h crt/fvec.h crt/getopt.h crt/ieeefp.h crt/intrin.h \
-	crt/inttypes.h crt/io.h crt/libgen.h crt/limits.h crt/locale.h \
-	crt/malloc.h crt/math.h crt/mbctype.h crt/mbstring.h crt/mem.h \
-	crt/memory.h crt/_mingw.h crt/_mingw_mac.h \
-	crt/_mingw_print_pop.h crt/_mingw_print_push.h crt/new.h \
-	crt/string.h crt/strings.h crt/dlfcn.h crt/excpt.h \
-	crt/search.h crt/sehmap.h crt/setjmpex.h crt/setjmp.h \
-	crt/share.h crt/stdarg.h crt/stddef.h crt/stdexcpt.h \
-	crt/stdint.h crt/stdio.h crt/stdlib.h crt/syslimits.h \
-	crt/tchar.h crt/time.h crt/unistd.h crt/utime.h crt/vadefs.h \
-	crt/varargs.h crt/wchar.h crt/xlocinfo.h crt/xmath.h \
-	crt/ymath.h crt/yvals.h
+	crt/direct.h crt/dirent.h crt/dir.h crt/dos.h crt/eh.h \
+	crt/errno.h crt/fcntl.h crt/dvec.h crt/ivec.h crt/fvec.h \
+	crt/fenv.h crt/float.h crt/fpieee.h crt/getopt.h crt/ieeefp.h \
+	crt/intrin.h crt/inttypes.h crt/io.h crt/libgen.h crt/limits.h \
+	crt/locale.h crt/malloc.h crt/math.h crt/mbctype.h \
+	crt/mbstring.h crt/mem.h crt/memory.h crt/_mingw.h \
+	crt/_mingw_mac.h crt/_mingw_print_pop.h \
+	crt/_mingw_print_push.h crt/new.h crt/string.h crt/strings.h \
+	crt/dlfcn.h crt/excpt.h crt/search.h crt/sehmap.h \
+	crt/setjmpex.h crt/setjmp.h crt/share.h crt/stdarg.h \
+	crt/stddef.h crt/stdexcpt.h crt/stdint.h crt/stdio.h \
+	crt/stdlib.h crt/syslimits.h crt/tchar.h crt/time.h \
+	crt/unistd.h crt/utime.h crt/vadefs.h crt/varargs.h \
+	crt/wchar.h crt/xlocinfo.h crt/xmath.h crt/ymath.h crt/yvals.h
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
     $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
@@ -230,9 +230,9 @@ sdksheaddir = $(baseheaddir)/sdks
 @ENABLE_CRT_TRUE@basehead_HEADERS = crt/assert.h crt/complex.h \
 @ENABLE_CRT_TRUE@	crt/conio.h crt/crtdbg.h crt/crtdefs.h \
 @ENABLE_CRT_TRUE@	crt/ctype.h crt/direct.h crt/dirent.h \
-@ENABLE_CRT_TRUE@	crt/dir.h crt/dos.h crt/dvec.h crt/eh.h \
-@ENABLE_CRT_TRUE@	crt/errno.h crt/fcntl.h crt/fenv.h \
-@ENABLE_CRT_TRUE@	crt/float.h crt/fpieee.h crt/fvec.h \
+@ENABLE_CRT_TRUE@	crt/dir.h crt/dos.h crt/eh.h crt/errno.h \
+@ENABLE_CRT_TRUE@	crt/fcntl.h crt/dvec.h crt/ivec.h crt/fvec.h \
+@ENABLE_CRT_TRUE@	crt/fenv.h crt/float.h crt/fpieee.h \
 @ENABLE_CRT_TRUE@	crt/getopt.h crt/ieeefp.h crt/intrin.h \
 @ENABLE_CRT_TRUE@	crt/inttypes.h crt/io.h crt/libgen.h \
 @ENABLE_CRT_TRUE@	crt/limits.h crt/locale.h crt/malloc.h \
