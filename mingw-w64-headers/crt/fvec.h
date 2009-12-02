@@ -21,6 +21,9 @@
 #endif
 
 #pragma pack(push,_CRT_PACKING)
+
+#ifdef __SSE__
+
 #pragma pack(push,16)
 
 #define EXPLICIT explicit
@@ -239,6 +242,8 @@ inline int F32vec1ToInt(const F32vec1 &a)
 }
 
 #pragma pack(pop)
+
+#endif /* #ifdef __SSE__ */
 #pragma pack(pop)
 #endif
 #endif
