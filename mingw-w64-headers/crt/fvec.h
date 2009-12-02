@@ -11,7 +11,7 @@
 #error ERROR: This file is only supported in C++ compilations!
 #endif
 
-#include <xmmintrin.h>
+#include <intrin.h>
 #include <assert.h>
 #include <ivec.h>
 #include <_mingw.h>

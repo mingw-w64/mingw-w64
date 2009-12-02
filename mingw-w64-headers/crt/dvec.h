@@ -11,7 +11,7 @@
 #error This file is only supported in C++ compilations!
 #endif
 
-#include <emmintrin.h>
+#include <intrin.h>
 #include <assert.h>
 #include <fvec.h>
 #include <_mingw.h>
