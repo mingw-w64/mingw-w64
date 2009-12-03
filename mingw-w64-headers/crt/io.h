@@ -194,10 +194,10 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 
   _CRTIMP int __cdecl _access(const char *_Filename,int _AccessMode);
   _CRTIMP int __cdecl _chmod(const char *_Filename,int _Mode);
-  _CRTIMP int __cdecl _chsize(int _FileHandle,long _Size);
+  _CRTIMP int __cdecl _chsize(int _FileHandle,long _Size) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _close(int _FileHandle);
   _CRTIMP int __cdecl _commit(int _FileHandle);
-  _CRTIMP int __cdecl _creat(const char *_Filename,int _PermissionMode);
+  _CRTIMP int __cdecl _creat(const char *_Filename,int _PermissionMode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _dup(int _FileHandle);
   _CRTIMP int __cdecl _dup2(int _FileHandleSrc,int _FileHandleDst);
   _CRTIMP int __cdecl _eof(int _FileHandle);
@@ -209,7 +209,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   _CRTIMP int __cdecl _locking(int _FileHandle,int _LockMode,long _NumOfBytes);
   _CRTIMP long __cdecl _lseek(int _FileHandle,long _Offset,int _Origin);
   _off64_t lseek64(int fd,_off64_t offset, int whence);
-  _CRTIMP char *__cdecl _mktemp(char *_TemplateName);
+  _CRTIMP char *__cdecl _mktemp(char *_TemplateName) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _pipe(int *_PtHandles,unsigned int _PipeSize,int _TextMode);
   _CRTIMP int __cdecl _read(int _FileHandle,void *_DstBuf,unsigned int _MaxCharCount);
 
@@ -225,7 +225,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 
   _CRTIMP int __cdecl _setmode(int _FileHandle,int _Mode);
   _CRTIMP long __cdecl _tell(int _FileHandle);
-  _CRTIMP int __cdecl _umask(int _Mode);
+  _CRTIMP int __cdecl _umask(int _Mode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _write(int _FileHandle,const void *_Buf,unsigned int _MaxCharCount);
 
   __MINGW_EXTENSION _CRTIMP __int64 __cdecl _filelengthi64(int _FileHandle);
@@ -290,19 +290,19 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 
   _CRTIMP errno_t __cdecl _sopen_s(int *_FileHandle,const char *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionMode);
 
-  _CRTIMP int __cdecl _open(const char *_Filename,int _OpenFlag,...);
-  _CRTIMP int __cdecl _sopen(const char *_Filename,int _OpenFlag,int _ShareFlag,...);
+  _CRTIMP int __cdecl _open(const char *_Filename,int _OpenFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP int __cdecl _sopen(const char *_Filename,int _OpenFlag,int _ShareFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
 #ifndef _WIO_DEFINED
 #define _WIO_DEFINED
   _CRTIMP int __cdecl _waccess(const wchar_t *_Filename,int _AccessMode);
   _CRTIMP int __cdecl _wchmod(const wchar_t *_Filename,int _Mode);
-  _CRTIMP int __cdecl _wcreat(const wchar_t *_Filename,int _PermissionMode);
+  _CRTIMP int __cdecl _wcreat(const wchar_t *_Filename,int _PermissionMode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP intptr_t __cdecl _wfindfirst32(const wchar_t *_Filename,struct _wfinddata32_t *_FindData);
   _CRTIMP int __cdecl _wfindnext32(intptr_t _FindHandle,struct _wfinddata32_t *_FindData);
   _CRTIMP int __cdecl _wunlink(const wchar_t *_Filename);
   _CRTIMP int __cdecl _wrename(const wchar_t *_NewFilename,const wchar_t *_OldFilename);
-  _CRTIMP wchar_t *__cdecl _wmktemp(wchar_t *_TemplateName);
+  _CRTIMP wchar_t *__cdecl _wmktemp(wchar_t *_TemplateName) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
   _CRTIMP intptr_t __cdecl _wfindfirst32i64(const wchar_t *_Filename,struct _wfinddata32i64_t *_FindData);
   intptr_t __cdecl _wfindfirst64i32(const wchar_t *_Filename,struct _wfinddata64i32_t *_FindData);
@@ -313,8 +313,8 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 
   _CRTIMP errno_t __cdecl _wsopen_s(int *_FileHandle,const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,int _PermissionFlag);
 
-  _CRTIMP int __cdecl _wopen(const wchar_t *_Filename,int _OpenFlag,...);
-  _CRTIMP int __cdecl _wsopen(const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,...);
+  _CRTIMP int __cdecl _wopen(const wchar_t *_Filename,int _OpenFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP int __cdecl _wsopen(const wchar_t *_Filename,int _OpenFlag,int _ShareFlag,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
 #endif
 

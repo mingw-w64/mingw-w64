@@ -109,16 +109,16 @@ extern "C" {
   _CRTIMP errno_t __cdecl _get_dstbias(long *_Daylight_savings_bias);
   _CRTIMP errno_t __cdecl _get_timezone(long *_Timezone);
   _CRTIMP errno_t __cdecl _get_tzname(size_t *_ReturnValue,char *_Buffer,size_t _SizeInBytes,int _Index);
-  char *__cdecl asctime(const struct tm *_Tm);
-  char *__cdecl _ctime32(const __time32_t *_Time);
+  char *__cdecl asctime(const struct tm *_Tm) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  char *__cdecl _ctime32(const __time32_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   clock_t __cdecl clock(void);
   double __cdecl _difftime32(__time32_t _Time1,__time32_t _Time2);
-  struct tm *__cdecl _gmtime32(const __time32_t *_Time);
-  struct tm *__cdecl _localtime32(const __time32_t *_Time);
+  struct tm *__cdecl _gmtime32(const __time32_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  struct tm *__cdecl _localtime32(const __time32_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   size_t __cdecl strftime(char *_Buf,size_t _SizeInBytes,const char *_Format,const struct tm *_Tm);
   _CRTIMP size_t __cdecl _strftime_l(char *_Buf,size_t _Max_size,const char *_Format,const struct tm *_Tm,_locale_t _Locale);
-  _CRTIMP char *__cdecl _strdate(char *_Buffer);
-  _CRTIMP char *__cdecl _strtime(char *_Buffer);
+  _CRTIMP char *__cdecl _strdate(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP char *__cdecl _strtime(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   __time32_t __cdecl _time32(__time32_t *_Time);
   __time32_t __cdecl _mktime32(struct tm *_Tm);
   __time32_t __cdecl _mkgmtime32(struct tm *_Tm);
@@ -130,9 +130,9 @@ extern "C" {
 #endif
 
   double __cdecl _difftime64(__time64_t _Time1,__time64_t _Time2);
-  _CRTIMP char *__cdecl _ctime64(const __time64_t *_Time);
-  _CRTIMP struct tm *__cdecl _gmtime64(const __time64_t *_Time);
-  _CRTIMP struct tm *__cdecl _localtime64(const __time64_t *_Time);
+  _CRTIMP char *__cdecl _ctime64(const __time64_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP struct tm *__cdecl _gmtime64(const __time64_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP struct tm *__cdecl _localtime64(const __time64_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP __time64_t __cdecl _mktime64(struct tm *_Tm);
   _CRTIMP __time64_t __cdecl _mkgmtime64(struct tm *_Tm);
   _CRTIMP __time64_t __cdecl _time64(__time64_t *_Time);
@@ -141,16 +141,16 @@ extern "C" {
 
 #ifndef _WTIME_DEFINED
   _CRTIMP wchar_t *__cdecl _wasctime(const struct tm *_Tm);
-  wchar_t *__cdecl _wctime32(const __time32_t *_Time);
+  wchar_t *__cdecl _wctime32(const __time32_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   size_t __cdecl wcsftime(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm);
   _CRTIMP size_t __cdecl _wcsftime_l(wchar_t *_Buf,size_t _SizeInWords,const wchar_t *_Format,const struct tm *_Tm,_locale_t _Locale);
-  _CRTIMP wchar_t *__cdecl _wstrdate(wchar_t *_Buffer);
-  _CRTIMP wchar_t *__cdecl _wstrtime(wchar_t *_Buffer);
-  _CRTIMP wchar_t *__cdecl _wctime64(const __time64_t *_Time);
+  _CRTIMP wchar_t *__cdecl _wstrdate(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP wchar_t *__cdecl _wstrtime(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP wchar_t *__cdecl _wctime64(const __time64_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
-  wchar_t *__cdecl _wctime(const time_t *);
+  wchar_t *__cdecl _wctime(const time_t *) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #ifndef __CRT__NO_INLINE
 #ifndef _USE_32BIT_TIME_T
   __CRT_INLINE wchar_t *__cdecl _wctime(const time_t *_Time) { return _wctime64(_Time); }
@@ -165,9 +165,9 @@ extern "C" {
 
 #ifndef RC_INVOKED
 double __cdecl difftime(time_t _Time1,time_t _Time2);
-char *__cdecl ctime(const time_t *_Time);
-struct tm *__cdecl gmtime(const time_t *_Time);
-struct tm *__cdecl localtime(const time_t *_Time);
+char *__cdecl ctime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+struct tm *__cdecl gmtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+struct tm *__cdecl localtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
 #ifdef _POSIX
 #ifdef __GNUC__ /* FIXME: Other compilers that these macros work with? */

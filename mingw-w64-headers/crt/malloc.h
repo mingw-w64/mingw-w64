@@ -93,7 +93,7 @@ extern "C" {
 #undef _alloca
 #define _alloca(x) __builtin_alloca((x))
 #else
-  void *__cdecl _alloca(size_t _Size);
+  void *__cdecl _alloca(size_t _Size) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif
   _CRTIMP size_t __cdecl _get_sbh_threshold(void);
   _CRTIMP int __cdecl _set_sbh_threshold(size_t _NewValue);

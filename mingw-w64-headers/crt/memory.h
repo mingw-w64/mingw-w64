@@ -25,7 +25,7 @@ extern "C" {
   _CRTIMP int __cdecl _memicmp(const void *_Buf1,const void *_Buf2,size_t _Size);
   _CRTIMP int __cdecl _memicmp_l(const void *_Buf1,const void *_Buf2,size_t _Size,_locale_t _Locale);
   int __cdecl memcmp(const void *_Buf1,const void *_Buf2,size_t _Size);
-  void *__cdecl memcpy(void *_Dst,const void *_Src,size_t _Size);
+  void *__cdecl memcpy(void *_Dst,const void *_Src,size_t _Size) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   void *__cdecl memset(void *_Dst,int _Val,size_t _Size);
 
 #ifndef	NO_OLDNAMES

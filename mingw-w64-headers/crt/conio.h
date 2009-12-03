@@ -12,11 +12,11 @@
 extern "C" {
 #endif
 
-  _CRTIMP char *_cgets(char *_Buffer);
+  _CRTIMP char *_cgets(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _cprintf(const char *_Format,...);
   _CRTIMP int __cdecl _cputs(const char *_Str);
-  _CRTIMP int __cdecl _cscanf(const char *_Format,...);
-  _CRTIMP int __cdecl _cscanf_l(const char *_Format,_locale_t _Locale,...);
+  _CRTIMP int __cdecl _cscanf(const char *_Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP int __cdecl _cscanf_l(const char *_Format,_locale_t _Locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _getch(void);
   _CRTIMP int __cdecl _getche(void);
   _CRTIMP int __cdecl _vcprintf(const char *_Format,va_list _ArgList);
@@ -51,15 +51,15 @@ extern "C" {
 #define WEOF (wint_t)(0xFFFF)
 #endif
 
-  _CRTIMP wchar_t *_cgetws(wchar_t *_Buffer);
+  _CRTIMP wchar_t *_cgetws(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP wint_t __cdecl _getwch(void);
   _CRTIMP wint_t __cdecl _getwche(void);
   _CRTIMP wint_t __cdecl _putwch(wchar_t _WCh);
   _CRTIMP wint_t __cdecl _ungetwch(wint_t _WCh);
   _CRTIMP int __cdecl _cputws(const wchar_t *_String);
   _CRTIMP int __cdecl _cwprintf(const wchar_t *_Format,...);
-  _CRTIMP int __cdecl _cwscanf(const wchar_t *_Format,...);
-  _CRTIMP int __cdecl _cwscanf_l(const wchar_t *_Format,_locale_t _Locale,...);
+  _CRTIMP int __cdecl _cwscanf(const wchar_t *_Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP int __cdecl _cwscanf_l(const wchar_t *_Format,_locale_t _Locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _vcwprintf(const wchar_t *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _cwprintf_p(const wchar_t *_Format,...);
   _CRTIMP int __cdecl _vcwprintf_p(const wchar_t *_Format,va_list _ArgList);

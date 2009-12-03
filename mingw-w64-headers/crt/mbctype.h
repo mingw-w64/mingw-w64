@@ -92,6 +92,9 @@ extern "C" {
 #endif
 #endif
 
+_CRTIMP void __cdecl _mbccpy (unsigned char *dest, const unsigned char *src) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+_CRTIMP void __cdecl _mbccpy_l(unsigned char *dest,const unsigned char *src,_locale_t locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+
 #ifdef __cplusplus
 }
 #endif

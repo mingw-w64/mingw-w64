@@ -1,3 +1,230 @@
+2009-12-03  Jonathan Yong  <jon_y@users.sourceforge.net>
+	* conio.h (_cgets): Warn about security deprecations.
+	(_cscanf): ditto.
+	(_cscanf_l): ditto.
+	(_cgetws): ditto.
+	(_cwscanf): ditto.
+	(_cwscanf_l): ditto.
+	* float.h (_controlfp): Warn about security deprecations.
+	* io.h (_chsize): Warn about security deprecations.
+	(_creat): ditto.
+	(_mktemp): ditto.
+	(_umask): ditto.
+	(_open): ditto.
+	(_sopen): ditto.
+	(_wcreat): ditto.
+	(_wmktemp): ditto.
+	(_wopen): ditto.
+	(_wsopen): ditto.
+	* malloc.h (_alloca): Warn about security deprecations.
+	* mbctype.h (_mbccpy): New, Warn about security deprecations.
+	(_mbccpy_l): ditto.
+	* mbstring.h (_mbsnbcat): Warn about security deprecations.
+	(_mbsnbcat_l): ditto.
+	(_mbsnbcpy): ditto.
+	(_mbsnbcpy_l): ditto.
+	(_mbsnbset): ditto.
+	(_mbsnbset_l): ditto.
+	(_mbsncat): ditto.
+	(_mbsncat_l): ditto.
+	(_mbsncpy): ditto.
+	(_mbsncpy_l): ditto.
+	(_mbsnset): ditto.
+	(_mbsnset_l): ditto.
+	(_mbsset): ditto.
+	(_mbsset_l): ditto.
+	(_mbstok): ditto.
+	(_mbstok_l): ditto.
+	(_mbsupr): ditto.
+	(_mbsupr_l): ditto.
+	(_mbccpy): ditto.
+	(_mbccpy_l): ditto.
+	* memory.h (memcpy): Warn about security deprecations.
+	* stdio.h (fopen): Warn about security deprecations.
+	(freopen): ditto.
+	(fscanf): ditto.
+	(_fscanf_l): ditto.
+	(fseeko64): ditto.
+	(gets): ditto.
+	(scanf): ditto.
+	(_scanf_l): ditto.
+	(setbuf): ditto.
+	(sscanf): ditto.
+	(_sscanf_l): New, Warn about security deprecations.
+	(_snscanf): Warn about security deprecations.
+	(_snscanf_l): New, Warn about security deprecations.
+	(tmpfile): Warn about security deprecations.
+	(vsnprintf): ditto.
+	(_snprintf): ditto.
+	(_snprintf_l): New, Warn about security deprecations.
+	(_vsnprintf): Warn about security deprecations.
+	(_vsnprintf_l): New, Warn about security deprecations.
+	(sprintf): Warn about security deprecations.
+	(_sprintf_l): New, Warn about security deprecations.
+	(vsprintf): Warn about security deprecations.
+	(_getws): Ditto.
+	(swprintf): Ditto.
+	(_swprintf_l): New, Warn about security deprecations.
+	(vswprintf): Warn about security deprecations.
+	(_snwprintf): Ditto.
+	(_vsnwprintf): Ditto.
+	(_vsnwprintf_l): New, Warn about security deprecations.
+	(snwprintf): Warn about security deprecations.
+	(vsnwprintf): Ditto.
+	(_fwprintf_p): New.
+	(_wprintf_p): New.
+	(_vfwprintf_p): New.
+	(_vwprintf_p): New.
+	(_swprintf_p): New.
+	(_vswprintf_p): New.
+	(_scwprintf_p): New.
+	(_vscwprintf_p): New.
+	(_wprintf_l): New.
+	(_wprintf_p_l): New.
+	(_vwprintf_l): New.
+	(_vwprintf_p_l): New.
+	(_fwprintf_l): New.
+	(_fwprintf_p_l): New.
+	(_vfwprintf_l): New.
+	(_vfwprintf_p_l): New.
+	(_swprintf_c_l): New.
+	(_swprintf_p_l): New.
+	(_vswprintf_c_l): New.
+	(_vswprintf_p_l): New.
+	(_scwprintf_l): New.
+	(_scwprintf_p_l): New.
+	(_vscwprintf_p_l): New.
+	(_snwprintf_l): New.
+	(_vsnwprintf_l): New.
+	(__swprintf_l): New.
+	(_vswprintf_l): New.
+	(_vscwprintf_l): New.
+	(fwscanf): Warn about security deprecations.
+	(_fwscanf_l): New, Warn about security deprecations.
+	(swscanf): Warn about security deprecations.
+	(_swscanf_l): New, Warn about security deprecations.
+	(_snwscanf_l): Ditto.
+	(wscanf): Warn about security deprecations.
+	(_wfopen): Ditto.
+	(_wfreopen): Ditto.
+	* stdlib.h (getenv): Warn about security deprecations.
+	(_i64toa): Ditto.
+	(_ui64toa): Ditto.
+	(_ltoa): Ditto.
+	(_ultoa): Ditto.
+	(wctomb): Ditto.
+	(_wctomb_l): Ditto.
+	(wcstombs): Ditto.
+	(_wcstombs_l): Ditto.
+	(_itow): Ditto.
+	(_ltow): Ditto.
+	(_ultow): Ditto.
+	(_wgetenv): Ditto.
+	(_i64tow): Ditto.
+	(_ui64tow): Ditto.
+	(_ecvt): Ditto.
+	(_fcvt): Ditto.
+	(_gcvt): Ditto.
+	(_searchenv): Ditto.
+	(_splitpath): Ditto.
+	(_wsearchenv): Ditto.
+	(_wsplitpath): Ditto.
+	* string.h (memcpy): Warn about security deprecations.
+	(_strset): Ditto.
+	(_strset_l): New, Warn about security deprecations.
+	(memmove): Warn about security deprecations.
+	(_strerror): Ditto.
+	(strerror): Ditto.
+	(_strlwr): Ditto.
+	(strlwr_l): Ditto.
+	(strncat): Ditto.
+	(strncpy): Ditto.
+	(_strnset): Ditto.
+	(_strnset_l): New, Warn about security deprecations.
+	(strtok): Warn about security deprecations.
+	(_strupr): Ditto.
+	(_strupr_l): Ditto.
+	(wcscat): Ditto.
+	(wcscpy): Ditto.
+	(wcsncat): Ditto.
+	(_wcsncpy_l): New, Warn about security deprecations.
+	(wcstok): Warn about security deprecations.
+	(_wcserror): Ditto.
+	(__wcserror): Ditto.
+	(_wcsnset): Ditto.
+	(_wcsset): Ditto.
+	(_wcslwr): Ditto.
+	(_wcslwr_l): Ditto.
+	(_wcsupr): Ditto.
+	(_wcsupr_l): Ditto.
+	* time.h (asctime): Warn about security deprecations.
+	(_ctime32): Ditto.
+	(_gmtime32): Ditto.
+	(_localtime32): Ditto.
+	(_strdate): Ditto.
+	(_strtime): Ditto.
+	(_ctime64): Ditto.
+	(_gmtime64): Ditto.
+	(_localtime64): Ditto.
+	(_wctime32): Ditto.
+	(_wstrdate): Ditto.
+	(_wstrtime): Ditto.
+	(_wctime64): Ditto.
+	(_wctime): Ditto.
+	(ctime): Ditto.
+	(gmtime): Ditto.
+	(localtime): Ditto.
+	* wchar.h (_wcreat): Warn about security deprecations.
+	(_wmktemp): Ditto.
+	(_wopen): Ditto.
+	(_wsopen): Ditto.
+	(_cgetws): Ditto.
+	(_getws): Ditto.
+	(swprintf): Ditto.
+	(_swprintf_l): New, Warn about security deprecations.
+	(vswprintf): Warn about security deprecations.
+	(_snwprintf): Ditto.
+	(_vsnwprintf): Ditto.
+	(_vsnwprintf_l): New, Warn about security deprecations.
+	(__swprintf_l): Warn about security deprecations.
+	(_vswprintf_l): 
+	(fwscanf): Warn about security deprecations.
+	(_fwscanf_l): Ditto.
+	(swscanf): Ditto.
+	(_swscanf_l): Ditto.
+	(_wfopen): Ditto.
+	(_wfreopen): Ditto.
+	(_itow): Ditto.
+	(_ltow): Ditto.
+	(_ultow): Ditto.
+	(_wgetenv): Ditto.
+	(_i64tow): Ditto.
+	(_wsearchenv): Ditto.
+	(_wsplitpath): Ditto.
+	(wcscat): Ditto.
+	(wcscpy): Ditto.
+	(wcsncat): Ditto.
+	(wcsncpy): Ditto.
+	(_wcsncpy_l): New, Warn about security deprecations.
+	(wcstok): Warn about security deprecations.
+	(_wcserror): Ditto.
+	(__wcserror): Ditto.
+	(_wcsnset): Ditto.
+	(_wcsset): Ditto.
+	(_wcslwr): Ditto.
+	(_wcslwr_l): Ditto.
+	(_wcsupr): Ditto.
+	(_wcsupr_l): Ditto.
+	(_wstrdate): Ditto.
+	(_wstrtime): Ditto.
+	(_wctime64): Ditto.
+	(mbsrtowcs): Ditto.
+	(wcrtomb): Ditto.
+	(wcsrtombs): Ditto.
+	(wmemcpy): Ditto.
+	(wmemmove): Ditto.
+	(memcpy): Ditto.
+
 2009-11-28  Tor Lillqvist  <tml@iki.fi>
 
 	* sys/ioctl.h: Moved to the experimental branch.
