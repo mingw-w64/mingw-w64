@@ -1,3 +1,9 @@
+2009-12-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* dummy_mingwthrd.c: Moved to /crt/tlsthrd.c
+	* Makefile.am: Adjusted for dummy_mingwthrd.c build rule.
+	* Makefile.in: Regenerated.
+
 2009-12-01  Kai Tietz  <kai.tietz@onevision.com>
 
 	Merged from mingw.org's repository.
