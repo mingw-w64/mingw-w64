@@ -1,4 +1,10 @@
+2009-12-04  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* _mingw_mac.h (STRINGIFY): Rename to __MINGW64_STRINGIFY
+	(__MINGW64_VERSION_STR): Use __MINGW64_STRINGIFY
+
 2009-12-03  Jonathan Yong  <jon_y@users.sourceforge.net>
+
 	* conio.h (_cgets): Warn about security deprecations.
 	(_cscanf): ditto.
 	(_cscanf_l): ditto.
