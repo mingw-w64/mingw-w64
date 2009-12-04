@@ -40,6 +40,7 @@ extern _CRTALLOC(".CRT$XIZ") _PIFV __xi_z[];
 extern _CRTALLOC(".CRT$XCA") _PVFV __xc_a[];
 extern _CRTALLOC(".CRT$XCZ") _PVFV __xc_z[];
 
+/* TLS initialization hook.  */
 extern const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback;
 
 static int __proc_attached = 0;
