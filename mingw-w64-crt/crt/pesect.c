@@ -16,9 +16,9 @@
 extern IMAGE_DOS_HEADER __ImageBase;
 #endif
 
-BOOL _ValidateImageBase (PBYTE);
+WINBOOL _ValidateImageBase (PBYTE);
 
-BOOL
+WINBOOL
 _ValidateImageBase (PBYTE pImageBase)
 {
   PIMAGE_DOS_HEADER pDOSHeader;
@@ -131,9 +131,9 @@ _GetPEImageBase (void)
   return pImageBase;
 }
 
-BOOL _IsNonwritableInCurrentImage (PBYTE);
+WINBOOL _IsNonwritableInCurrentImage (PBYTE);
 
-BOOL
+WINBOOL
 _IsNonwritableInCurrentImage (PBYTE pTarget)
 {
   PBYTE pImageBase;

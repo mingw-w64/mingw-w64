@@ -1,9 +1,9 @@
 /*
- * mthr_stub.c
+ * tlsthrd.c
  *
  * Implement Mingw-w64 thread-support.
  *
- * This file is used by if gcc is built with --enable-threads=win32. 
+ * This file is used by if gcc is built with --enable-threads=win32.
  *
  * Based on version created by Mumit Khan  <khan@nanotech.wisc.edu>
  *
@@ -15,7 +15,7 @@
 #include <windows.h>
 #include <stdlib.h>
 
-BOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
+WINBOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
 int ___w64_mingwthr_remove_key_dtor (DWORD key);
 int ___w64_mingwthr_add_key_dtor (DWORD key, void (*dtor)(void *));
 
@@ -45,7 +45,7 @@ ___w64_mingwthr_add_key_dtor (DWORD key, void (*dtor)(void *))
   new_key = (__mingwthr_key_t *) calloc (1, sizeof (__mingwthr_key_t));
   if (new_key == NULL)
     return -1;
-  
+
   new_key->key = key;
   new_key->dtor = dtor;
 
@@ -114,8 +114,8 @@ __mingwthr_run_key_dtors (void)
 
   LeaveCriticalSection (&__mingwthr_cs);
 }
-  
-BOOL
+
+WINBOOL
 __mingw_TLScallback (HANDLE hDllHandle __attribute__ ((__unused__)),
 		     DWORD reason,
 		     LPVOID reserved __attribute__ ((__unused__)))

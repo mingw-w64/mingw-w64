@@ -179,7 +179,7 @@ __tmainCRTStartup (void)
 {
   _TCHAR *lpszCommandLine = NULL;
   STARTUPINFO StartupInfo;
-  BOOL inDoubleQuote = FALSE;
+  WINBOOL inDoubleQuote = FALSE;
   memset (&StartupInfo, 0, sizeof (STARTUPINFO));
   
   if (mingw_app_type)
