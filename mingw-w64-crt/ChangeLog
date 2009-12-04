@@ -1,5 +1,6 @@
 2009-12-04  Kai Tietz  <kai.tietz@onevision.com>
 
+	* crt/tlsmcrt.c: New.
 	* libsrc/mingwthrd_nomt.c: Moved into libmingw32.a as
 	crt/tlsmthread.c.
 	* dummy_mingwthrd.c: Moved to /crt/tlsthrd.c
