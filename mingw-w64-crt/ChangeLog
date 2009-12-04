@@ -1,5 +1,7 @@
 2009-12-04  Kai Tietz  <kai.tietz@onevision.com>
 
+	* libsrc/mingwthrd_nomt.c: Moved into libmingw32.a as
+	crt/tlsmthread.c.
 	* dummy_mingwthrd.c: Moved to /crt/tlsthrd.c
 	* Makefile.am: Adjusted for dummy_mingwthrd.c build rule.
 	* Makefile.in: Regenerated.
