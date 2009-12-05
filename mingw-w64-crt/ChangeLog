@@ -1,3 +1,7 @@
+2009-12-05  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+       * misc/getopt.c: Merge from Cygwin, new getopt_long_only function
+
 2009-12-04  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/tlsmcrt.c: New.
