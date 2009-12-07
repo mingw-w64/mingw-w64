@@ -1,7 +1,9 @@
-/*
- * tlsthrd.c
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the w64 mingw-runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  *
- * Implement Mingw-w64 thread-support.
+ * Written by Kai Tietz  <kai.tietz@onevision.com>
  *
  * This file is used by if gcc is built with --enable-threads=win32.
  *

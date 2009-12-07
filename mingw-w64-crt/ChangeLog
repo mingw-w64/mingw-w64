@@ -1,3 +1,8 @@
+2009-12-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/tlssup.c: Add old Windows 9X/Me mingwm10.dll support.
+	Cleanup and prepare source for a contribution to mingw.org venture.
+
 2009-12-05  Jonathan Yong  <jon_y@users.sourceforge.net>
 
        * misc/getopt.c: Merge from Cygwin, new getopt_long_only function
