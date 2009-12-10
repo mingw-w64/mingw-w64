@@ -1,3 +1,9 @@
+2009-12-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk.
+        * wspiapi.h: Remove inline functions with static members.
+        General clean up formatting of this file.
+
 2009-12-04  Jonathan Yong  <jon_y@users.sourceforge.net>
 
         * _mingw_mac.h (STRINGIFY): Rename to __MINGW64_STRINGIFY
