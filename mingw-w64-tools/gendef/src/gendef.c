@@ -108,7 +108,7 @@ static void do_export_read(uint32_t va_exp,uint32_t sz_exp,int be64);
 static void add_export_list(uint32_t ord,uint32_t func,const char *name, const char *forward,int be64,int beData);
 static void dump_def(void);
 static int disassembleRet(uint32_t func,uint32_t *retpop,const char *name);
-static size_t getMemonic(int *aCode,uint32_t pc,uint32_t *jmp_pc,const char *name);
+static size_t getMemonic(int *aCode,uint32_t pc,volatile uint32_t *jmp_pc,const char *name);
 
 static void *map_va (uint32_t va);
 static int is_data (uint32_t va);
@@ -665,7 +665,7 @@ disassembleRetIntern(uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses
 {
   size_t sz = 0;
   int code = 0,break_it = 0;
-  uint32_t tojmp = 0;
+  volatile uint32_t tojmp = 0;
 
   while(1)
     {
@@ -674,11 +674,9 @@ disassembleRetIntern(uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses
       sz = getMemonic (&code, pc, &tojmp, name) & 0xffffffff;
       if (!sz || code == c_ill)
         {
-          PRDEBUG(" %s = 0x%x ILL (%x) at least one==%d\n",name,
+          PRDEBUG(" %s = 0x08%x ILL (%u) at least one==%d\n",name,
 	 	  (unsigned int) pc, (unsigned int) sz,atleast_one[0]);
-          break;
-        }
-/*
+#if 0
       {
         unsigned char *ppc = (unsigned char*) map_va (pc);
         size_t i;
@@ -690,7 +688,23 @@ disassembleRetIntern(uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses
           }
         fprintf (stderr, "\n");
       }
-*/
+      exit (0);
+#endif
+          break;
+        }
+#if 0
+      {
+        unsigned char *ppc = (unsigned char*) map_va (pc);
+        size_t i;
+
+        fprintf (stderr, "%s(0x%x): ",name, (unsigned int) pc);
+        for (i = 0;i < sz; i++)
+          {
+            fprintf (stderr, "%s0x%x", (i == 0 ? " ":","), ppc[i]);
+          }
+        fprintf (stderr, "\n");
+      }
+#endif
       atleast_one[0] += 1;
       break_it = 0;
       pc += sz;
@@ -817,7 +831,7 @@ print_save_insn(const char *name, unsigned char *s)
 #endif
 
 static size_t
-getMemonic(int *aCode,uint32_t pc,uint32_t *jmp_pc, __attribute__((unused)) const char *name)
+getMemonic(int *aCode,uint32_t pc,volatile uint32_t *jmp_pc, __attribute__((unused)) const char *name)
 {
 #if ENABLE_DEBUG == 1
   static unsigned char lw[MAX_INSN_SAVE];
@@ -922,8 +936,11 @@ redo_switch:
     if (!p) { *aCode=c_ill; return 0; }
     b = p[0];
     sz++;
-    if ((b&80)!=0) jmp_pc[0]=((uint32_t) pc)+((uint32_t) sz)+(((uint32_t) b)|0xffffff00);
-    else jmp_pc[0]=(uint32_t)pc+(uint32_t)sz+(uint32_t) b;
+    jmp_pc[0]=(uint32_t) pc + (uint32_t) sz;
+    if ((b&0x80)!=0)
+      jmp_pc[0] = jmp_pc[0] - (b&0x7f);
+    else
+      jmp_pc[0] = jmp_pc[0] + (uint32_t) b;
     *aCode=tb1; return sz;
   case c_jmpnjv:
   case c_jxxv: 
@@ -945,7 +962,8 @@ redo_switch:
               (unsigned int) (jmp_pc[0]-(sz+pc)));
     }
 #endif
-    *aCode=(tb1==c_jxxv ? c_jxx : tb1); return sz;
+    *aCode=(tb1==c_jxxv ? c_jxx : tb1);
+    return sz;
   case c_0f:
     p = (unsigned char*)map_va(pc + sz);
     if (!p) { *aCode=c_ill; return 0; }
