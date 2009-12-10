@@ -7,75 +7,82 @@
 #include <wspiapi.h>
 
 int WINAPI
-WspiapiLegacyGetNameInfo(const struct sockaddr *ptSocketAddress,
+WspiapiLegacyGetNameInfo (const struct sockaddr *ptSocketAddress,
 			 socklen_t tSocketLength,
 			 char *pszNodeName, size_t tNodeLength,
 			 char *pszServiceName, size_t tServiceLength,
 			 int iFlags)
 {
-  struct servent *ptService;
-  WORD wPort;
-  char szBuffer[] = "65535";
-  char *pszService = szBuffer;
-  struct hostent *ptHost;
-  struct in_addr tAddress;
-  char *pszNode = NULL;
-  char *pc = NULL;
+  struct servent *svc;
+  WORD port;
+  char str[] = "65535";
+  char *pstr = str;
+  struct hostent *phost;
+  struct in_addr l_inaddr;
+  char *pnode = NULL, *pc = NULL;
 
-  if ((!ptSocketAddress) || ((size_t)tSocketLength < sizeof(struct sockaddr)))
+  if (!ptSocketAddress || tSocketLength < sizeof (struct sockaddr))
     return EAI_FAIL;
-  if (ptSocketAddress->sa_family != (unsigned short)AF_INET)
+  if (ptSocketAddress->sa_family != AF_INET)
     return EAI_FAMILY;
-  if ((size_t) tSocketLength < sizeof(struct sockaddr_in))
+  if (tSocketLength < sizeof (struct sockaddr_in))
     return EAI_FAIL;
   if (!(pszNodeName && tNodeLength) && !(pszServiceName && tServiceLength))
     return EAI_NONAME;
-  if ((iFlags & NI_NUMERICHOST) && (iFlags & NI_NAMEREQD))
+  if ((iFlags & NI_NUMERICHOST) != 0 && (iFlags & NI_NAMEREQD) != 0)
     return EAI_BADFLAGS;
-  if (pszServiceName && tServiceLength) {
-    wPort = ((struct sockaddr_in *) ptSocketAddress)->sin_port;
-    if(iFlags & NI_NUMERICSERV) {
-      _WSPIAPI_SPRINTF_S_1(szBuffer,_WSPIAPI_COUNTOF(szBuffer),"%u",ntohs(wPort));
-    } else {
-      ptService = getservbyport(wPort, (iFlags & NI_DGRAM) ? "udp" : NULL);
-      if (ptService && ptService->s_name) {
-	pszService = ptService->s_name;
-      } else {
-	_WSPIAPI_SPRINTF_S_1(szBuffer,_WSPIAPI_COUNTOF(szBuffer),"%u",ntohs(wPort));
-      }
-    }
-    if (tServiceLength > strlen(pszService))
-      _WSPIAPI_STRCPY_S(pszServiceName,tServiceLength,pszService);
-    else
-      return EAI_FAIL;
-  }
-  if (pszNodeName && tNodeLength) {
-    tAddress = ((struct sockaddr_in *) ptSocketAddress)->sin_addr;
-    if (iFlags & NI_NUMERICHOST) {
-      pszNode = inet_ntoa(tAddress);
-    } else {
-      ptHost = gethostbyaddr((char *) &tAddress, sizeof(struct in_addr), AF_INET);
-      if(ptHost && ptHost->h_name) {
-	pszNode = ptHost->h_name;
-	if ((iFlags & NI_NOFQDN) && ((pc = strchr(pszNode,'.')) != NULL))
-	  *pc = '\0';
-      } else {
-	if (iFlags & NI_NAMEREQD) {
-	  switch(WSAGetLastError()) {
-	    case WSAHOST_NOT_FOUND:	return EAI_NONAME;
-	    case WSATRY_AGAIN:		return EAI_AGAIN;
-	    case WSANO_RECOVERY:	return EAI_FAIL;
-	    default:			return EAI_NONAME;
+  if (pszServiceName && tServiceLength)
+    {
+	port = ((struct sockaddr_in *) ptSocketAddress)->sin_port;
+	if (iFlags & NI_NUMERICSERV)
+	  sprintf (str, "%u", ntohs (port));
+      else
+	  {
+	    svc = getservbyport(port, (iFlags & NI_DGRAM) ? "udp" : NULL);
+	    if (svc && svc->s_name)
+	      pstr = svc->s_name;
+	    else
+	      sprintf (str, "%u", ntohs (port));
 	  }
-	} else {
-	  pszNode = inet_ntoa(tAddress);
-	}
-      }
+	if (tServiceLength > strlen (pstr))
+	  strcpy (pszServiceName, pstr);
+	else
+	  return EAI_FAIL;
     }
-    if (tNodeLength > strlen(pszNode))
-      _WSPIAPI_STRCPY_S(pszNodeName,tNodeLength,pszNode);
-    else
-      return EAI_FAIL;
-  }
+  if (pszNodeName && tNodeLength)
+    {
+	l_inaddr = ((struct sockaddr_in *) ptSocketAddress)->sin_addr;
+	if (iFlags & NI_NUMERICHOST)
+	  pnode = inet_ntoa (l_inaddr);
+	else
+	  {
+	    phost = gethostbyaddr ((char *) &l_inaddr, sizeof (struct in_addr), AF_INET);
+	    if (phost && phost->h_name)
+	      {
+		pnode = phost->h_name;
+		if ((iFlags & NI_NOFQDN) != 0 && ((pc = strchr (pnode,'.')) != NULL))
+		  *pc = 0;
+	      }
+	    else
+	      {
+		if ((iFlags & NI_NAMEREQD) != 0)
+		  {
+		    switch(WSAGetLastError())
+		      {
+		      case WSAHOST_NOT_FOUND: return EAI_NONAME;
+		      case WSATRY_AGAIN: return EAI_AGAIN;
+		      case WSANO_RECOVERY: return EAI_FAIL;
+		      default: return EAI_NONAME;
+		      }
+		  }
+		else
+		  pnode = inet_ntoa (l_inaddr);
+	      }
+	  }
+	if (tNodeLength > strlen (pnode))
+	  strcpy (pszNodeName, pnode);
+	else
+	  return EAI_FAIL;
+    }
   return 0;
 }

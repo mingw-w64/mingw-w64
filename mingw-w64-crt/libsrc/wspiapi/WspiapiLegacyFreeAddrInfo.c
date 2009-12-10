@@ -6,15 +6,18 @@
 #define __CRT__NO_INLINE
 #include <wspiapi.h>
 
-void WINAPI WspiapiLegacyFreeAddrInfo (struct addrinfo *ptHead)
+void WINAPI
+WspiapiLegacyFreeAddrInfo (struct addrinfo *ptHead)
 {
-  struct addrinfo *ptNext;
-  for (ptNext = ptHead; ptNext != NULL; ptNext = ptHead) {
-    if (ptNext->ai_canonname)
-      WspiapiFree(ptNext->ai_canonname);
-    if (ptNext->ai_addr)
-      WspiapiFree(ptNext->ai_addr);
-    ptHead = ptNext->ai_next;
-    WspiapiFree(ptNext);
-  }
+  struct addrinfo *p;
+
+  for (p = ptHead; p != NULL; p = ptHead)
+    {
+	if (p->ai_canonname)
+	  WspiapiFree (p->ai_canonname);
+	if (p->ai_addr)
+	  WspiapiFree (p->ai_addr);
+	ptHead = p->ai_next;
+	WspiapiFree (p);
+    }
 }

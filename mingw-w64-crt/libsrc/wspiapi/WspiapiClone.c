@@ -9,18 +9,20 @@
 int WINAPI
 WspiapiClone (WORD wPort, struct addrinfo *ptResult)
 {
-  struct addrinfo *ptNext = NULL;
-  struct addrinfo *ptNew = NULL;
-  for(ptNext = ptResult; ptNext != NULL; ) {
-    ptNew = WspiapiNewAddrInfo(SOCK_DGRAM, ptNext->ai_protocol, wPort,
-		((struct sockaddr_in *) ptNext->ai_addr)->sin_addr.s_addr);
-    if (!ptNew)
-      break;
-    ptNew->ai_next = ptNext->ai_next;
-    ptNext->ai_next = ptNew;
-    ptNext = ptNew->ai_next;
-  }
-  if (ptNext != NULL)
+  struct addrinfo *p = NULL;
+  struct addrinfo *n = NULL;
+
+  for (p = ptResult; p != NULL;)
+    {
+	n = WspiapiNewAddrInfo (SOCK_DGRAM, p->ai_protocol, wPort,
+				((struct sockaddr_in *) p->ai_addr)->sin_addr.s_addr);
+	if (!n)
+	  break;
+	n->ai_next = p->ai_next;
+	p->ai_next = n;
+	p = n->ai_next;
+    }
+  if (p != NULL)
     return EAI_MEMORY;
   return 0;
 }

@@ -10,15 +10,15 @@ WINBOOL WINAPI
 WspiapiParseV4Address (const char *pszAddress, PDWORD pdwAddress)
 {
   DWORD dwAddress = 0;
-  const char *pcNext = NULL;
-  int iCount = 0;
-  for (pcNext = pszAddress; *pcNext != '\0'; pcNext++) {
-    if (*pcNext=='.')
-      iCount++;
-  }
-  if (iCount != 3)
+  const char *h = NULL;
+  int cnt;
+
+  for (cnt = 0,h = pszAddress; *h != 0; h++)
+    if (h[0] == '.')
+	cnt++;
+  if (cnt != 3)
     return FALSE;
-  dwAddress = inet_addr(pszAddress);
+  dwAddress = inet_addr (pszAddress);
   if (dwAddress == INADDR_NONE)
     return FALSE;
   *pdwAddress = dwAddress;

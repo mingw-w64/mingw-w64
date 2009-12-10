@@ -9,58 +9,67 @@
 FARPROC WINAPI
 WspiapiLoad (WORD wFunction)
 {
-  HMODULE hLibrary = NULL;
-  static WINBOOL bInitialized = FALSE;
+  static WINBOOL isinit = FALSE;
   static WSPIAPI_FUNCTION rgtGlobal[] = WSPIAPI_FUNCTION_ARRAY;
   static const int iNumGlobal = (sizeof(rgtGlobal) / sizeof(WSPIAPI_FUNCTION));
+  HMODULE hlib = NULL;
   WSPIAPI_FUNCTION rgtLocal[] = WSPIAPI_FUNCTION_ARRAY;
   FARPROC fScratch = NULL;
   int i = 0;
-  if (bInitialized)
-    return (rgtGlobal[wFunction].pfAddress);
-  for (;;) {
-    CHAR SystemDir[MAX_PATH + 1];
-    CHAR Path[MAX_PATH + 8];
-    if (GetSystemDirectoryA(SystemDir,MAX_PATH) == 0)
-      break;
-    _WSPIAPI_STRCPY_S(Path, _WSPIAPI_COUNTOF(Path), SystemDir);
-    _WSPIAPI_STRCAT_S(Path, _WSPIAPI_COUNTOF(Path), "\\ws2_32");
-    hLibrary = LoadLibraryA(Path);
-    if (hLibrary != NULL) {
-      fScratch = GetProcAddress(hLibrary, "getaddrinfo");
-      if (!fScratch) {
-	FreeLibrary(hLibrary);
-	hLibrary = NULL;
-      }
-    }
-    if (hLibrary != NULL)
-      break;
-    _WSPIAPI_STRCPY_S(Path, _WSPIAPI_COUNTOF(Path), SystemDir);
-    _WSPIAPI_STRCAT_S(Path, _WSPIAPI_COUNTOF(Path), "\\wship6");
-    hLibrary = LoadLibraryA(Path);
-    if (hLibrary != NULL) {
-      fScratch = GetProcAddress(hLibrary, "getaddrinfo");
-      if (!fScratch) {
-	FreeLibrary(hLibrary);
-	hLibrary = NULL;
-      }
-    }
-    break;
-  }
-  if (hLibrary != NULL) {
-    for (i = 0; i < iNumGlobal; i++) {
-      rgtLocal[i].pfAddress = GetProcAddress(hLibrary, rgtLocal[i].pszName);
-      if (!(rgtLocal[i].pfAddress)) {
-	FreeLibrary(hLibrary);
-	hLibrary = NULL;
+
+  if (isinit)
+    return rgtGlobal[wFunction].pfAddress;
+
+  for (;;)
+    {
+	CHAR systemdir[MAX_PATH + 1], path[MAX_PATH + 8];
+
+	if (GetSystemDirectoryA (systemdir, MAX_PATH) == 0)
+	  break;
+	strcpy (path, systemdir);
+	strcat (path, "\\ws2_32");
+	hlib = LoadLibraryA (path);
+	if(hlib != NULL)
+	  {
+	    fScratch = GetProcAddress (hlib, "getaddrinfo");
+	    if (!fScratch)
+	      {
+		FreeLibrary (hlib);
+		hlib = NULL;
+	      }
+	  }
+	if (hlib != NULL)
+	  break;
+	strcpy (path, systemdir);
+	strcat (path, "\\wship6");
+	hlib = LoadLibraryA (path);
+	if (hlib != NULL)
+	  {
+	    if ((fScratch = GetProcAddress (hlib, "getaddrinfo")) == NULL)
+	      {
+		FreeLibrary (hlib);
+		hlib = NULL;
+	      }
+	  }
 	break;
-      }
     }
-    if (hLibrary != NULL) {
-      for (i = 0; i < iNumGlobal; i++)
-	rgtGlobal[i].pfAddress = rgtLocal[i].pfAddress;
+  if (hlib != NULL)
+    {
+	for (i = 0; i < iNumGlobal; i++)
+	  {
+	    if ((rgtLocal[i].pfAddress = GetProcAddress (hlib, rgtLocal[i].pszName)) == NULL)
+	      {
+		FreeLibrary (hlib);
+		hlib = NULL;
+		break;
+	      }
+	  }
+	if (hlib != NULL)
+	  {
+	    for (i = 0; i < iNumGlobal; i++)
+	      rgtGlobal[i].pfAddress = rgtLocal[i].pfAddress;
+	  }
     }
-  }
-  bInitialized = TRUE;
-  return (rgtGlobal[wFunction].pfAddress);
+  isinit = TRUE;
+  return rgtGlobal[wFunction].pfAddress;
 }

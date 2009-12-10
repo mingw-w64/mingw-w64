@@ -10,7 +10,8 @@ void WINAPI
 WspiapiFreeAddrInfo (struct addrinfo *ai)
 {
   static WSPIAPI_PFREEADDRINFO pfFreeAddrInfo = NULL;
+
   if (!pfFreeAddrInfo)
     pfFreeAddrInfo = (WSPIAPI_PFREEADDRINFO) WspiapiLoad(2);
-  (*pfFreeAddrInfo)(ai);
+  (*pfFreeAddrInfo) (ai);
 }

@@ -1,3 +1,7 @@
+2009-12-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* libsrc/wspiapi/: Take formatting of functions from wspiapi.h header.
+
 2009-12-07  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/tlssup.c: Add old Windows 9X/Me mingwm10.dll support.
