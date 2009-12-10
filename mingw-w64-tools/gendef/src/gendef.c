@@ -676,7 +676,7 @@ disassembleRetIntern(uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses
         {
           PRDEBUG(" %s = 0x08%x ILL (%u) at least one==%d\n",name,
 	 	  (unsigned int) pc, (unsigned int) sz,atleast_one[0]);
-#if 0
+#if ENABLE_DEBUG == 1
       {
         unsigned char *ppc = (unsigned char*) map_va (pc);
         size_t i;
@@ -692,7 +692,7 @@ disassembleRetIntern(uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses
 #endif
           break;
         }
-#if 0
+#if ENABLE_DEBUG == 1
       {
         unsigned char *ppc = (unsigned char*) map_va (pc);
         size_t i;
@@ -938,7 +938,7 @@ redo_switch:
     sz++;
     jmp_pc[0]=(uint32_t) pc + (uint32_t) sz;
     if ((b&0x80)!=0)
-      jmp_pc[0] = jmp_pc[0] - (b&0x7f);
+      jmp_pc[0] = jmp_pc[0] + (((uint32_t) b) | 0xffffff00);
     else
       jmp_pc[0] = jmp_pc[0] + (uint32_t) b;
     *aCode=tb1; return sz;
