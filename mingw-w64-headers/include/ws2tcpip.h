@@ -372,22 +372,6 @@ extern "C" {
 char *gai_strerrorA (int);
 WCHAR *gai_strerrorW(int);
 
-#ifndef __CRT__NO_INLINE
-  WS2TCPIP_INLINE char *gai_strerrorA(int ecode) {
-    DWORD dwMsgLen;
-    static char buff[GAI_STRERROR_BUFFER_SIZE + 1];
-    dwMsgLen = FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM|FORMAT_MESSAGE_IGNORE_INSERTS|FORMAT_MESSAGE_MAX_WIDTH_MASK,NULL,ecode,MAKELANGID(LANG_NEUTRAL,SUBLANG_DEFAULT),(LPSTR)buff,GAI_STRERROR_BUFFER_SIZE,NULL);
-    return buff;
-  }
-
-  WS2TCPIP_INLINE WCHAR *gai_strerrorW(int ecode) {
-    DWORD dwMsgLen;
-    static WCHAR buff[GAI_STRERROR_BUFFER_SIZE + 1];
-    dwMsgLen = FormatMessageW(FORMAT_MESSAGE_FROM_SYSTEM|FORMAT_MESSAGE_IGNORE_INSERTS|FORMAT_MESSAGE_MAX_WIDTH_MASK,NULL,ecode,MAKELANGID(LANG_NEUTRAL,SUBLANG_DEFAULT),(LPWSTR)buff,GAI_STRERROR_BUFFER_SIZE,NULL);
-    return buff;
-  }
-#endif /* !__CRT__NO_INLINE */
-
 #define NI_MAXHOST 1025
 #define NI_MAXSERV 32
 
