@@ -11,11 +11,12 @@ WspiapiGetNameInfo (const struct sockaddr *sa, socklen_t salen,
 		    char *host, size_t hostlen,
 		    char *serv, size_t servlen, int flags)
 {
-  int iError;
   static WSPIAPI_PGETNAMEINFO pfGetNameInfo = NULL;
+  int err;
+
   if (!pfGetNameInfo)
     pfGetNameInfo = (WSPIAPI_PGETNAMEINFO) WspiapiLoad(1);
-  iError = (*pfGetNameInfo)(sa, salen, host, hostlen, serv, servlen, flags);
-  WSASetLastError(iError);
-  return iError;
+  err = (*pfGetNameInfo) (sa, salen, host, hostlen, serv, servlen, flags);
+  WSASetLastError (err);
+  return err;
 }

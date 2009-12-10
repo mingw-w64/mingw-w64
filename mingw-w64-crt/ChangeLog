@@ -1,3 +1,8 @@
+2009-12-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk.
+        * libsrc/wspiapi/: Take formatting of functions from wspiapi.h header.
+
 2009-12-01  Kai Tietz  <kai.tietz@onevision.com>
 
 	Merged from trunk
