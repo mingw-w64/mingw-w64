@@ -183,7 +183,7 @@ opt_chain (const char *opts)
         r1 = r2 + 1;
       else
         r1++;
-      current->fnoutput = (char*) malloc (strlen (current->fninput) + 5);
+      current->fnoutput = (char *) malloc (strlen (current->fninput) + 5);
       strcpy (current->fnoutput,r1);
 
       r1 = strrchr (current->fnoutput,'.');
@@ -270,7 +270,7 @@ load_pep(void)
   gDta_size = (size_t) ftell (fp);
   if (gDta_size > 0) {
     fseek (fp,0,SEEK_SET);
-    gDta = (unsigned char*) malloc (gDta_size + 1);
+    gDta = (unsigned char *) malloc (gDta_size + 1);
     if (gDta)
       {
         if (fread (gDta, gDta_size, 1, fp) != 1)
@@ -447,7 +447,7 @@ map_va (uint32_t va)
     {
       if (va >= sec[i].VirtualAddress && va < (sec[i].VirtualAddress+sec[i].Misc.VirtualSize))
         {
-          dptr = (char*) &gDta[va-sec[i].VirtualAddress+sec[i].PointerToRawData];
+          dptr = (char *) &gDta[va-sec[i].VirtualAddress+sec[i].PointerToRawData];
           return (void *)dptr;
         }
     }
@@ -482,9 +482,9 @@ do_export_read (uint32_t va_exp, uint32_t sz_exp, int be64)
 
   if (va_exp == 0 || sz_exp == 0)
     return;
-  exp_dir = (PIMAGE_EXPORT_DIRECTORY) map_va(va_exp);
+  exp_dir = (PIMAGE_EXPORT_DIRECTORY) map_va (va_exp);
   PRDEBUG(" * export directory at VA = 0x%x size=0x%x\n", (unsigned int) va_exp, (unsigned int) sz_exp);
-  fndllname = strdup ((char*) map_va (exp_dir->Name));
+  fndllname = strdup ((char *) map_va (exp_dir->Name));
   PRDEBUG(" * Name: %s\n * Base: %u\n", fndllname, (unsigned int) exp_dir->Base);
   functions = (uint32_t *) map_va (exp_dir->AddressOfFunctions);
   ordinals = (uint16_t *) map_va (exp_dir->AddressOfNameOrdinals);
@@ -502,9 +502,9 @@ do_export_read (uint32_t va_exp, uint32_t sz_exp, int be64)
       ord = i + exp_dir->Base;
       for (j = 0;j < exp_dir->NumberOfNames;j++)
         if (ordinals[j]==i)
-          fname = (char*) map_va (name[j]);
+          fname = (char *) map_va (name[j]);
       if (entryPointRVA >= va_exp && entryPointRVA <= (va_exp + sz_exp))
-        add_export_list (ord, 0, fname,(char*) map_va (entryPointRVA), be64, 0);
+        add_export_list (ord, 0, fname,(char *) map_va (entryPointRVA), be64, 0);
       else
         add_export_list(ord, entryPointRVA, fname, NULL, be64, is_data (entryPointRVA));
     }
@@ -687,7 +687,7 @@ disassembleRetIntern (uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresse
 	 	  (unsigned int) pc, (unsigned int) sz,atleast_one[0]);
 #if ENABLE_DEBUG == 1
       {
-        unsigned char *ppc = (unsigned char*) map_va (pc);
+        unsigned char *ppc = (unsigned char *) map_va (pc);
         size_t i;
 
         fprintf (stderr, "%s(0x%x): ",name, (unsigned int) pc);
@@ -703,7 +703,7 @@ disassembleRetIntern (uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresse
         }
 #if ENABLE_DEBUG == 1
       {
-        unsigned char *ppc = (unsigned char*) map_va (pc);
+        unsigned char *ppc = (unsigned char *) map_va (pc);
         size_t i;
 
         fprintf (stderr, "%s(0x%x): ",name, (unsigned int) pc);
@@ -820,7 +820,7 @@ static int opMap1[256] = {
 #define MAX_INSN_SAVE	20
 
 static void
-enter_save_insn(unsigned char *s, unsigned char b)
+enter_save_insn (unsigned char *s, unsigned char b)
 {
   int i;
   for (i=0;i<MAX_INSN_SAVE-1;i++)
@@ -829,7 +829,7 @@ enter_save_insn(unsigned char *s, unsigned char b)
 }
 
 static void
-print_save_insn(const char *name, unsigned char *s)
+print_save_insn (const char *name, unsigned char *s)
 {
   int i;
   
@@ -855,7 +855,7 @@ getMemonic(int *aCode,uint32_t pc,volatile uint32_t *jmp_pc, __attribute__((unus
   int tb1;
 
   for(;;) {
-    p = (unsigned char*)map_va(pc + sz);
+    p = (unsigned char *) map_va (pc + sz);
     if (!p) { *aCode=c_ill; return 0; }
     b = p[0];
     if (b==0x26 || b==0x2e || b==0x36 || b==0x3e || b==0x64 || b==0x65)
@@ -896,7 +896,7 @@ redo_switch:
     else sz+=2;
     *aCode=tb1; return sz;
   case c_EG: case c_EGlv: case c_EGlb: case c_g4: case c_EGg3v: case c_EGg3b:
-    p = (unsigned char*)map_va(pc + sz);
+    p = (unsigned char *) map_va (pc + sz);
     sz++;
     if (!p) { *aCode=c_ill; return 0; }
     b = p[0];
@@ -906,7 +906,7 @@ redo_switch:
     if (addr_mode) {
       if((b&0xc0)!=0xc0 && (b&0x7)==4)
         {
-          p = (unsigned char*)map_va(pc + sz);
+          p = (unsigned char *) map_va (pc + sz);
           if (!p) { *aCode=c_ill; return 0; }
 #if ENABLE_DEBUG == 1
     enter_save_insn(lw,p[0]);
@@ -943,7 +943,7 @@ redo_switch:
     }
     *aCode=tb1; return sz;
   case c_jxx: case c_jmpnjb:
-    p = (unsigned char*)map_va(pc + sz);
+    p = (unsigned char *) map_va (pc + sz);
     if (!p) { *aCode=c_ill; return 0; }
     b = p[0];
     sz++;
@@ -955,7 +955,7 @@ redo_switch:
     *aCode=tb1; return sz;
   case c_jmpnjv:
   case c_jxxv: 
-    p = (unsigned char*)map_va(pc + sz);
+    p = (unsigned char *) map_va (pc + sz);
     if (!p) { *aCode=c_ill; return 0; }
     if (oper_mode) { jmp_pc[0]=*((uint32_t *)p); sz+=4; }
     else {
@@ -976,7 +976,7 @@ redo_switch:
     *aCode=(tb1==c_jxxv ? c_jxx : tb1);
     return sz;
   case c_0f:
-    p = (unsigned char*)map_va(pc + sz);
+    p = (unsigned char *) map_va (pc + sz);
     if (!p) { *aCode=c_ill; return 0; }
     b = p[0];
     sz++;
@@ -989,7 +989,7 @@ redo_switch:
     sz+=4; if(oper_mode) sz+=2;
     *aCode=tb1; return sz;
   case c_retflw: case c_retnlw:
-    p = (unsigned char*)map_va(pc + sz);
+    p = (unsigned char *) map_va (pc + sz);
     if (!p) { *aCode=c_ill; return 0; }
     jmp_pc[0]=*((uint16_t*) p);
     sz+=2;
