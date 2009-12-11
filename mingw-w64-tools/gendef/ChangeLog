@@ -1,3 +1,9 @@
+2009-12-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* src/gendef.c (assume_stdcall): New variable.
+	(opt_chain): Check for -a and --assume-stdcall option.
+	(disassembleRetIntern): Use assume_stdcall for ret.
+
 2009-12-10  Kai Tietz  <kai.tietz@onevision.com>
 
         * src/gendef.c (decodeMemonic): Fixed typo.

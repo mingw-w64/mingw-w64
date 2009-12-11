@@ -99,26 +99,26 @@ static const char *spna_names[SPNA_MAX] = {
   "unknown"
 };
 
-void decode_mangle(const char *n);
+void decode_mangle (const char *n);
 
-static int load_pep(void);
-static void do_pedef(void);
-static void do_pepdef(void);
-static void do_export_read(uint32_t va_exp,uint32_t sz_exp,int be64);
-static void add_export_list(uint32_t ord,uint32_t func,const char *name, const char *forward,int be64,int beData);
-static void dump_def(void);
-static int disassembleRet(uint32_t func,uint32_t *retpop,const char *name);
-static size_t getMemonic(int *aCode,uint32_t pc,volatile uint32_t *jmp_pc,const char *name);
+static int load_pep (void);
+static void do_pedef (void);
+static void do_pepdef (void);
+static void do_export_read (uint32_t va_exp,uint32_t sz_exp,int be64);
+static void add_export_list (uint32_t ord,uint32_t func,const char *name, const char *forward,int be64,int beData);
+static void dump_def (void);
+static int disassembleRet (uint32_t func,uint32_t *retpop,const char *name);
+static size_t getMemonic (int *aCode,uint32_t pc,volatile uint32_t *jmp_pc,const char *name);
 
 static void *map_va (uint32_t va);
 static int is_data (uint32_t va);
 static int is_reloc (uint32_t va);
 
-static int disassembleRetIntern(uint32_t pc,uint32_t *retpop,sAddresses *seen,sAddresses *stack,int *hasret,int *atleast_one,const char *name);
-static sAddresses*init_addr(void);
-static void dest_addr(sAddresses *ad);
-static int push_addr(sAddresses *ad,uint32_t val);
-static int pop_addr(sAddresses *ad,uint32_t *val);
+static int disassembleRetIntern (uint32_t pc,uint32_t *retpop,sAddresses *seen,sAddresses *stack,int *hasret,int *atleast_one,const char *name);
+static sAddresses*init_addr (void);
+static void dest_addr (sAddresses *ad);
+static int push_addr (sAddresses *ad,uint32_t val);
+static int pop_addr (sAddresses *ad,uint32_t *val);
 
 static sExportName *gExp = NULL;
 static sExportName *gExpTail = NULL;
@@ -133,12 +133,14 @@ PIMAGE_NT_HEADERS32 gPEDta;
 PIMAGE_NT_HEADERS64 gPEPDta;
 
 static int std_output = 0;
+static int assume_stdcall = 0; /* Set to one, if function symbols should be assumed to have stdcall.  */
 
 static Gendefopts *chain_ptr = NULL;
  __attribute__((noreturn)) static void show_usage (void);
 void opt_chain (const char *);
 
-void opt_chain (const char *opts)
+void
+opt_chain (const char *opts)
 {
   static Gendefopts *prev, *current;
   char *r1, *r2;
@@ -148,9 +150,14 @@ void opt_chain (const char *opts)
       std_output = 1;
       return;
     }
-  if (!strncmp (opts, "--help", 7))
+  if (!strcmp (opts, "--help") || !strcmp (opts, "-h"))
     {
       show_usage();
+      return;
+    }
+  if (!strcmp (opts, "--assume-stdcall") || !strcmp (opts, "-a"))
+    {
+      assume_stdcall = 1;
       return;
     }
 
@@ -197,7 +204,8 @@ show_usage (void)
   fprintf (stderr, "\n");
   fprintf (stderr, "Options:\n"
     "  -                        Dump to stdout\n"
-    "      --help               Show this help.\n"
+    "  -h, --help               Show this help.\n"
+    "  -a, --assume-stdcall     Assume for functions stdcall convention.\n"
   );
   fprintf (stderr, "\n");
   fprintf (stderr, "Usage example: \n"
@@ -532,7 +540,7 @@ add_export_list(uint32_t ord,uint32_t func,const char *name, const char *forward
 }
 
 static void
-dump_def(void)
+dump_def (void)
 {
   sExportName *exp;
   FILE *fp;
@@ -566,7 +574,7 @@ dump_def(void)
           if (!strncmp(exp->name,"??_7",4)) exp->beData=1;
         }
       if (!exp->beData && !exp->be64 && exp->func != 0)
-        exp->beData = disassembleRet (exp->func, &exp->retpop,exp->name);
+        exp->beData = disassembleRet (exp->func, &exp->retpop, exp->name);
       if (exp->retpop != (uint32_t) -1)
         {
           if (exp->name[0]=='?')
@@ -574,7 +582,7 @@ dump_def(void)
           else
             fprintf(fp,"@%u", (unsigned int) exp->retpop);
         }
-      if (exp->name[0]==0)
+      if (exp->name[0] == 0)
         fprintf(fp," @%u", (unsigned int) exp->ord);
       if (exp->beData)
         fprintf(fp," DATA");
@@ -646,10 +654,11 @@ disassembleRet (uint32_t func, uint32_t *retpop, const char *name)
   uint32_t pc;
   int hasret = 0;
   int atleast_one = 0;
+
   *retpop = (uint32_t) -1;
   push_addr (stack, func);
 
-  while (!hasret && pop_addr(stack,&pc))
+  while (!hasret && pop_addr (stack,&pc))
     {
       if (disassembleRetIntern (pc, retpop, seen, stack, &hasret, &atleast_one,name))
         break;
@@ -660,8 +669,8 @@ disassembleRet (uint32_t func, uint32_t *retpop, const char *name)
 }
 
 static int
-disassembleRetIntern(uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses *stack,
-		     int *hasret, int *atleast_one, const char *name)
+disassembleRetIntern (uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses *stack,
+		      int *hasret, int *atleast_one, const char *name)
 {
   size_t sz = 0;
   int code = 0,break_it = 0;
@@ -721,6 +730,8 @@ disassembleRetIntern(uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses
           break;
         case c_iret: case c_retf: case c_retn:
           *hasret = 1;
+          if (assume_stdcall)
+            *retpop = 0;
           return 1;
         case c_retflw: case c_retnlw:
           *hasret = 1;
