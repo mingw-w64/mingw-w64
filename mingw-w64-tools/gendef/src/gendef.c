@@ -598,14 +598,14 @@ dump_def (void)
       int seen_ret;
       seen_ret = 1;
       gExp = exp->next;
-      if (exp->name[0] == 0)
-        fprintf(fp,"ord_%u", (unsigned int) exp->ord);
-      else
-        fprintf(fp,"%s",exp->name);
       if (exp->name[0] == '?')
         {
           decode_mangle (fp, exp->name);
         }
+      if (exp->name[0] == 0)
+        fprintf (fp, "ord_%u", (unsigned int) exp->ord);
+      else
+        fprintf (fp, "%s", exp->name);
       if (exp->name[0] == '?' && exp->name[1] == '?')
         {
           if (!strncmp (exp->name, "??_7", 4))
