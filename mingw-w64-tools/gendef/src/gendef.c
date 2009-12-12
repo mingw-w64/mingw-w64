@@ -27,6 +27,9 @@
 #include <memory.h>
 #include <string.h>
 #include "gendef.h"
+#ifdef HAVE_LIBMANGLE_H
+#include <libmangle.h>
+#endif
 
 #define ENABLE_DEBUG 0
 
@@ -36,71 +39,7 @@
 #define PRDEBUG(ARG...) do { } while(0)
 #endif
 
-typedef enum eSPNA {
-  SPNA_OPER_MINUSEQ=0,SPNA_OPER_PLUSEQ, SPNA_OPER_MULEQ,SPNA_OPER_OROR,SPNA_OPER_ANDAND,SPNA_OPER_OR,SPNA_OPER_XOR,
-  SPNA_OPER_INV, SPNA_OPER_COMMA,SPNA_OPER_CAST, SPNA_OPER_SHR,SPNA_OPER_SHL,SPNA_OPER_SHREQ,SPNA_OPER_SHLEQ,
-  SPNA_OPER_NOT,SPNA_OPER_EQEQ,SPNA_OPER_NOTEQ,SPNA_OPER_ARRAY,
-  SPNA_OPER_RETURNTYPE,SPNA_OPER_POINTTO,SPNA_OPER_MUL,
-  SPNA_OPER_PLUSPLUS,SPNA_OPER_MINUSMINUS,SPNA_OPER_MINUS,SPNA_OPER_PLUS,
-  SPNA_OPER_AND,SPNA_OPER_POINTTOSTAR,SPNA_OPER_DIV,SPNA_OPER_MOD,
-  SPNA_OPER_NEW_ARRAY,SPNA_OPER_DELETE_ARRAY,
-  SPNA_CONSTRUCTOR,SPNA_DESTRUCTOR,SPNA_OPER_NEW,SPNA_OPER_DELETE,
-  SPNA_OPER_EQ,
-  SPNA_OPER_GREATEQ,SPNA_OPER_GREAT,SPNA_OPER_LESSEQ,SPNA_OPER_LESS,
-  SPNA_OPER_DIVEQ,SPNA_OPER_MODEQ,SPNA_OPER_ANDEQ,SPNA_OPER_OREQ,SPNA_OPER_XOREQ,
-
-  SPNA_RTTI_CLASS_HIERACHY_DESCRIPTOR,SPNA_RTTI_COMPLETE_OBJECT_LOCATOR,
-  SPNA_LOCAL_VFTABLE,SPNA_LOCAL_VFTABLE_CONSTRUCTOR_CLOSURE,
-  SPNA_PLACEMENT_DELETE_CLOSURE,SPNA_PLACEMENT_DELETE_ARRAY_CLOSURE,
-  SPNA_VECTOR_DESTRUCTOR_ITER,SPNA_VECTOR_VBASE_CONSTRUCTOR_ITER,
-  SPNA_VIRTUAL_DISPLACEMENT_MAP,SPNA_EH_VECTOR_CONSTRUCTOR_ITER,
-  SPNA_EH_VECTOR_DESTRUCTOR_ITER,SPNA_EH_VECTOR_VBASE_CONSTRUCTOR_ITER,
-  SPNA_COPY_CONSTRUCTOR_CLOSURE,SPNA_UDT_RETURNING,
-  SPNA_RTTI_TYPE_DESCRIPTOR,SPNA_RTTI_BASE_CLASS_DESCRIPTOR,
-  SPNA_RTTI_CLASS_ARRAY,
-  SPNA_MANAGED_VECTOR_CONSTRUCTOR_ITER,SPNA_MANAGED_VECTOR_DESTRUCTOR_ITER,
-  SPNA_EH_VECTOR_COPY_CONSTRUCTOR_ITER,SPNA_EH_VECTOR_VBASE_COPY_CONSTRUCTOR_ITER,
-  SPNA_VFTABLE,SPNA_VBTABLE,SPNA_VCALL,SPNA_TYPEOF,SPNA_LOCAL_STATIC_GUARD,
-  SPNA_STRING,SPNA_VBASE_DESTRUCTOR,SPNA_VECTOR_DELETING_DESTRUCTOR,
-  SPNA_VECTOR_DEFAULT_CONSTRUCTOR_CLOSURE,SPNA_SCALAR_DELETEING_DESTRUCTOR,
-  SPNA_VECTOR_CONSTRUCTOR_ITER,
-  SPNA_UNKNOWN,SPNA_MAX
-} eSPNA;
-
-static const char *spna_names[SPNA_MAX] = {
-  "-=","+=", "*=","||","&&","|","^",
-  "~",",","operand ()", ">>","<<",">>=","<<=",
-  "!","==","!=","operand []",
-  "return type","->","operand *",
-  "++","--","-","+",
-  "&","->*","/","%",
-  "new []","delete []", "()","~()","new","delete",
-  "=",
-  ">=",">","<=","<",
-  "/=","%=","&=","|=","^=",
-
-  "RTTI_CLASS_HIERACHY_DESCRIPTOR","RTTI_COMPLETE_OBJECT_LOCATOR",
-  "LOCAL_VFTABLE","LOCAL_VFTABLE_CONSTRUCTOR_CLOSURE",
-  "PLACEMENT_DELETE_CLOSURE","PLACEMENT_DELETE_ARRAY_CLOSURE",
-  "VECTOR_DESTRUCTOR_ITER","VECTOR_VBASE_CONSTRUCTOR_ITER",
-  "VIRTUAL_DISPLACEMENT_MAP","EH_VECTOR_CONSTRUCTOR_ITER",
-  "EH_VECTOR_DESTRUCTOR_ITER","EH_VECTOR_VBASE_CONSTRUCTOR_ITER",
-  "COPY_CONSTRUCTOR_CLOSURE","UDT_RETURNING",
-  "RTTI_TYPE_DESCRIPTOR","RTTI_BASE_CLASS_DESCRIPTOR",
-  "RTTI_CLASS_ARRAY",
-
-  "MANAGED_VECTOR_CONSTRUCTOR_ITER","MANAGED_VECTOR_DESTRUCTOR_ITER",
-  "EH_VECTOR_COPY_CONSTRUCTOR_ITER","EH_VECTOR_VBASE_COPY_CONSTRUCTOR_ITER",
-  "VFTABLE","VBTABLE","VCALL","TYPEOF","LOCAL_STATIC_GUARD",
-  "STRING","VBASE_DESTRUCTOR","VECTOR_DELETING_DESTRUCTOR",
-  "VECTOR_DEFAULT_CONSTRUCTOR_CLOSURE","SCALAR_DELETEING_DESTRUCTOR",
-  "VECTOR_CONSTRUCTOR_ITER",
-
-  "unknown"
-};
-
-void decode_mangle (const char *n);
-
+static void decode_mangle (FILE *fp, const char *n);
 static int load_pep (void);
 static void do_pedef (void);
 static void do_pepdef (void);
@@ -561,17 +500,18 @@ dump_def (void)
   while ((exp = gExp) != NULL)
     {
       gExp = exp->next;
-      if (exp->name[0]==0)
+      if (exp->name[0] == 0)
         fprintf(fp,"ord_%u", (unsigned int) exp->ord);
       else
         fprintf(fp,"%s",exp->name);
-      if (exp->name[0]=='?')
+      if (exp->name[0] == '?')
         {
-          /* decode_mangle(exp->name); */
+          decode_mangle (fp, exp->name);
         }
-      if (exp->name[0]=='?' && exp->name[1]=='?')
+      if (exp->name[0] == '?' && exp->name[1] == '?')
         {
-          if (!strncmp(exp->name,"??_7",4)) exp->beData=1;
+          if (!strncmp (exp->name, "??_7", 4))
+	    exp->beData = 1;
         }
       if (!exp->beData && !exp->be64 && exp->func != 0)
         exp->beData = disassembleRet (exp->func, &exp->retpop, exp->name);
@@ -1009,129 +949,23 @@ redo_switch:
   return sz;
 }
 
-int get_special_name(const char **np);
-
-void decode_mangle(const char *n)
+static void
+decode_mangle (FILE *fp, const char *n)
 {
-  if(!n || *n!='?') return;
-  fprintf(stderr,"Decode ,%s'\n",n);
-  n++;
-  if(*n=='?') {
-    int ret;
-    n++;
-    ret=get_special_name(&n);
-    fprintf(stderr," %s (%s)\n",spna_names[ret],n);
-  }
-}
-
-int get_special_name(const char **np)
-{
-  int ret = SPNA_UNKNOWN;
-  const char *n = *np;
-  if(*n=='_' && n[1]=='_') {
-    n+=2;
-    switch(n[0]) {
-    case 'A': ret=SPNA_MANAGED_VECTOR_CONSTRUCTOR_ITER; break;
-    case 'B': ret=SPNA_MANAGED_VECTOR_DESTRUCTOR_ITER; break;
-    case 'C': ret=SPNA_EH_VECTOR_COPY_CONSTRUCTOR_ITER; break;
-    case 'D': ret=SPNA_EH_VECTOR_VBASE_COPY_CONSTRUCTOR_ITER; break;
-    default: fprintf(stderr,"SPNA __%c is unknown\n",n[0]); break;
+#ifdef HAVE_LIBMANGLE_H
+  sGcCtx *gc = generate_gc ();
+  pMToken ptok = decode_ms_name (gc, n);
+  if (ptok)
+    {
+      char *h = sprint_decl (ptok);
+      if (h)
+	{
+	  fprintf (fp, "; %s\n", h);
+	  free (h);
+	}
     }
-    n+=1;
-  } else if(n[0]=='_') {
-    n+=1;
-    switch(n[0]) {
-    case '0': ret=SPNA_OPER_DIVEQ; break;
-    case '1': ret=SPNA_OPER_MODEQ; break;
-    case '2': ret=SPNA_OPER_SHREQ; break;
-    case '3': ret=SPNA_OPER_SHLEQ; break;
-    case '4': ret=SPNA_OPER_ANDEQ; break;
-    case '5': ret=SPNA_OPER_OREQ; break;
-    case '6': ret=SPNA_OPER_XOREQ; break;
-    case '7': ret=SPNA_VFTABLE; break;
-    case '8': ret=SPNA_VBTABLE; break;
-    case '9': ret=SPNA_VCALL; break;
-    case 'A': ret=SPNA_TYPEOF; break;
-    case 'B': ret=SPNA_LOCAL_STATIC_GUARD; break;
-    case 'C': ret=SPNA_STRING; break;
-    case 'D': ret=SPNA_VBASE_DESTRUCTOR; break;
-    case 'E': ret=SPNA_VECTOR_DELETING_DESTRUCTOR; break;
-    case 'F': ret=SPNA_VECTOR_DEFAULT_CONSTRUCTOR_CLOSURE; break;
-    case 'G': ret=SPNA_SCALAR_DELETEING_DESTRUCTOR; break;
-    case 'H': ret=SPNA_VECTOR_CONSTRUCTOR_ITER; break;
-    case 'I': ret=SPNA_VECTOR_DESTRUCTOR_ITER; break;
-    case 'J': ret=SPNA_VECTOR_VBASE_CONSTRUCTOR_ITER; break;
-    case 'K': ret=SPNA_VIRTUAL_DISPLACEMENT_MAP; break;
-    case 'L': ret=SPNA_EH_VECTOR_CONSTRUCTOR_ITER; break;
-    case 'M': ret=SPNA_EH_VECTOR_DESTRUCTOR_ITER; break;
-    case 'N': ret=SPNA_EH_VECTOR_VBASE_CONSTRUCTOR_ITER; break;
-    case 'O': ret=SPNA_COPY_CONSTRUCTOR_CLOSURE; break;
-    case 'P': ret=SPNA_UDT_RETURNING; break;
-    case 'R':
-      n+=1;
-      switch(n[0]) {
-      case '0': ret=SPNA_RTTI_TYPE_DESCRIPTOR; break;
-      case '1': ret=SPNA_RTTI_BASE_CLASS_DESCRIPTOR; break;
-      case '2': ret=SPNA_RTTI_CLASS_ARRAY; break;
-      case '3': ret=SPNA_RTTI_CLASS_HIERACHY_DESCRIPTOR; break;
-      case '4': ret=SPNA_RTTI_COMPLETE_OBJECT_LOCATOR; break;
-      default:
-	fprintf(stderr,"SPNA _R%c is unknown\n",n[0]); break;
-      }
-      break;
-    case 'S': ret=SPNA_LOCAL_VFTABLE; break;
-    case 'T': ret=SPNA_LOCAL_VFTABLE_CONSTRUCTOR_CLOSURE; break;
-    case 'U': ret=SPNA_OPER_NEW_ARRAY; break;
-    case 'V': ret=SPNA_OPER_DELETE_ARRAY; break;
-    case 'X': ret=SPNA_PLACEMENT_DELETE_CLOSURE; break;
-    case 'Y': ret=SPNA_PLACEMENT_DELETE_ARRAY_CLOSURE; break;
-    default:
-      fprintf(stderr,"SPNA _%c unknown\n",n[0]); break;
-    }
-    n+=1;
-  } else {
-    switch(n[0]) {
-    case '0': ret=SPNA_CONSTRUCTOR; break;
-    case '1': ret=SPNA_DESTRUCTOR; break;
-    case '2': ret=SPNA_OPER_NEW; break;
-    case '3': ret=SPNA_OPER_DELETE; break;
-    case '4': ret=SPNA_OPER_EQ; break;
-    case '5': ret=SPNA_OPER_SHR; break;
-    case '6': ret=SPNA_OPER_SHL; break;
-    case '7': ret=SPNA_OPER_NOT; break;
-    case '8': ret=SPNA_OPER_EQEQ; break;
-    case '9': ret=SPNA_OPER_NOTEQ; break;
-    case 'A': ret=SPNA_OPER_ARRAY; break;
-    case 'B': ret=SPNA_OPER_RETURNTYPE; break;
-    case 'C': ret=SPNA_OPER_POINTTO; break;
-    case 'D': ret=SPNA_OPER_MUL; break;
-    case 'E': ret=SPNA_OPER_PLUSPLUS; break;
-    case 'F': ret=SPNA_OPER_MINUSMINUS; break;
-    case 'G': ret=SPNA_OPER_MINUS; break;
-    case 'H': ret=SPNA_OPER_PLUS; break;
-    case 'I': ret=SPNA_OPER_AND; break;
-    case 'J': ret=SPNA_OPER_POINTTOSTAR; break;
-    case 'K': ret=SPNA_OPER_DIV; break;
-    case 'L': ret=SPNA_OPER_MOD; break;
-    case 'M': ret=SPNA_OPER_LESS; break;
-    case 'N': ret=SPNA_OPER_LESSEQ; break;
-    case 'O': ret=SPNA_OPER_GREAT; break;
-    case 'P': ret=SPNA_OPER_GREATEQ; break;
-    case 'Q': ret=SPNA_OPER_COMMA; break;
-    case 'R': ret=SPNA_OPER_CAST; break;
-    case 'S': ret=SPNA_OPER_INV; break;
-    case 'T': ret=SPNA_OPER_XOR; break;
-    case 'U': ret=SPNA_OPER_OR; break;
-    case 'V': ret=SPNA_OPER_ANDAND; break;
-    case 'W': ret=SPNA_OPER_OROR; break;
-    case 'X': ret=SPNA_OPER_MULEQ; break;
-    case 'Y': ret=SPNA_OPER_PLUSEQ; break;
-    case 'Z': ret=SPNA_OPER_MINUSEQ; break;
-    default:
-      fprintf(stderr,"SPNA %c unknown\n",n[0]); break;
-    }
-    n+=1;
-  }
-  *np=n;
-  return ret;
+  release_gc (gc);
+#else
+  return;
+#endif
 }
