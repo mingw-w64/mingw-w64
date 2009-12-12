@@ -43,17 +43,25 @@ static void decode_mangle (FILE *fp, const char *n);
 static int load_pep (void);
 static void do_pedef (void);
 static void do_pepdef (void);
+static void do_import_read32 (uint32_t va_imp, uint32_t sz_imp);
 static void do_export_read (uint32_t va_exp,uint32_t sz_exp,int be64);
 static void add_export_list (uint32_t ord,uint32_t func,const char *name, const char *forward,int be64,int beData);
 static void dump_def (void);
-static int disassembleRet (uint32_t func,uint32_t *retpop,const char *name);
-static size_t getMemonic (int *aCode,uint32_t pc,volatile uint32_t *jmp_pc,const char *name);
+static int disassembleRet (uint32_t func,uint32_t *retpop,const char *name, sImportname **ppimpname);
+static size_t getMemonic (int *aCode,uint32_t pc,volatile uint32_t *jmp_pc,const char *name, sImportname **ppimpname);
+
+static sImportname *imp32_add (const char *dll, const char *name, uint32_t addr, uint16_t ord);
+static void imp32_free (void);
+static sImportname *imp32_findbyaddress (uint32_t addr);
+
+static sImportname *theImports = NULL;
 
 static void *map_va (uint32_t va);
 static int is_data (uint32_t va);
 static int is_reloc (uint32_t va);
 
-static int disassembleRetIntern (uint32_t pc,uint32_t *retpop,sAddresses *seen,sAddresses *stack,int *hasret,int *atleast_one,const char *name);
+static int disassembleRetIntern (uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses *stack,
+				 int *hasret, int *atleast_one, const char *name, sImportname **ppimpname);
 static sAddresses*init_addr (void);
 static void dest_addr (sAddresses *ad);
 static int push_addr (sAddresses *ad,uint32_t val);
@@ -399,6 +407,9 @@ do_pepdef (void)
 {
   uint32_t va_exp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
   uint32_t sz_exp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
+  uint32_t va_imp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress;
+  uint32_t sz_imp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size;
+
   do_export_read (va_exp, sz_exp,1);
 }
 
@@ -407,7 +418,88 @@ do_pedef (void)
 {
   uint32_t va_exp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
   uint32_t sz_exp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
+  uint32_t va_imp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress;
+  uint32_t sz_imp = gPEDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size;
+
+  imp32_free ();
+  do_import_read32 (va_imp, sz_imp);
   do_export_read (va_exp, sz_exp, 0);
+}
+
+static void
+do_import_read32 (uint32_t va_imp, uint32_t sz_imp)
+{
+  IMAGE_IMPORT_DESCRIPTOR *pid;
+  if (!sz_imp || !va_imp)
+    return;
+  pid = (IMAGE_IMPORT_DESCRIPTOR *) map_va (va_imp);
+  while (pid != NULL && sz_imp >= 20 && pid->Name != 0 && pid->OriginalFirstThunk != 0)
+    {
+      uint32_t index = 0;
+      PIMAGE_THUNK_DATA32 pIAT;
+      PIMAGE_THUNK_DATA32 pFT;
+      char *imp_name = (char *) map_va (pid->Name);
+
+      for (;;) {
+	char *fctname;
+	pIAT = (PIMAGE_THUNK_DATA32) map_va (pid->OriginalFirstThunk + index);
+	pFT = (PIMAGE_THUNK_DATA32) map_va (pid->FirstThunk + index);
+	if (pIAT->u1.Ordinal == 0 || pFT->u1.Ordinal == 0)
+	  break;
+	if (IMAGE_SNAP_BY_ORDINAL32 (pIAT->u1.Ordinal))
+	  fctname = NULL;
+	else
+	  fctname = (char *) map_va (pIAT->u1.Function + 2);
+	if (fctname)
+	  imp32_add (imp_name, fctname,
+	  //pid->OriginalFirstThunk + index + gPEDta->OptionalHeader.ImageBase,
+	  pid->FirstThunk + index + gPEDta->OptionalHeader.ImageBase,
+	    *((uint16_t *) map_va (pIAT->u1.Function)));
+	index += 4;
+      }
+      sz_imp -= 20;
+      va_imp += 20;
+      if (sz_imp >= 20)
+	pid = (IMAGE_IMPORT_DESCRIPTOR *) map_va (va_imp);
+    }
+}
+
+static sImportname *
+imp32_findbyaddress (uint32_t addr)
+{
+  sImportname *h = theImports;
+  while (h != NULL && h->addr_iat != addr)
+    h = h->next;
+  return h;
+}
+
+static void
+imp32_free (void)
+{
+  while (theImports != NULL)
+    {
+      sImportname *h = theImports;
+      theImports = theImports->next;
+      if (h->dll)
+	free (h->dll);
+      if (h->name)
+	free (h->name);
+      free (h);
+    }
+}
+
+static sImportname *
+imp32_add (const char *dll, const char *name, uint32_t addr, uint16_t ord)
+{
+  sImportname *n = (sImportname *) malloc (sizeof (sImportname));
+  memset (n, 0, sizeof (sImportname));
+  n->dll = strdup (dll);
+  n->name = strdup (name);
+  n->ord = ord;
+  n->addr_iat = addr;
+  n->next = theImports;
+  theImports = n;
+  return n;
 }
 
 static void
@@ -499,6 +591,7 @@ dump_def (void)
   fprintf (fp,"LIBRARY \"%s\"\nEXPORTS\n",fndllname);
   while ((exp = gExp) != NULL)
     {
+      sImportname *pimpname;
       gExp = exp->next;
       if (exp->name[0] == 0)
         fprintf(fp,"ord_%u", (unsigned int) exp->ord);
@@ -513,8 +606,9 @@ dump_def (void)
           if (!strncmp (exp->name, "??_7", 4))
 	    exp->beData = 1;
         }
+      pimpname = NULL;
       if (!exp->beData && !exp->be64 && exp->func != 0)
-        exp->beData = disassembleRet (exp->func, &exp->retpop, exp->name);
+        exp->beData = disassembleRet (exp->func, &exp->retpop, exp->name, &pimpname);
       if (exp->retpop != (uint32_t) -1)
         {
           if (exp->name[0]=='?')
@@ -522,6 +616,15 @@ dump_def (void)
           else
             fprintf(fp,"@%u", (unsigned int) exp->retpop);
         }
+      else if (pimpname)
+        {
+	  fprintf (fp, " ; Check!!! forwards to %s in %s (ordinal %u)",
+	    pimpname->name, pimpname->dll, pimpname->ord);
+        }
+      else if (exp->func == 0 && !exp->beData)
+	{
+	  fprintf (fp, " ; Check!!! forwards to %s", exp->forward);
+	}
       if (exp->name[0] == 0)
         fprintf(fp," @%u", (unsigned int) exp->ord);
       if (exp->beData)
@@ -587,7 +690,7 @@ pop_addr (sAddresses *ad, uint32_t *val)
 
 /* exp->beData */
 static int
-disassembleRet (uint32_t func, uint32_t *retpop, const char *name)
+disassembleRet (uint32_t func, uint32_t *retpop, const char *name, sImportname **ppimpname)
 {
   sAddresses *seen = init_addr ();
   sAddresses *stack = init_addr ();
@@ -600,7 +703,7 @@ disassembleRet (uint32_t func, uint32_t *retpop, const char *name)
 
   while (!hasret && pop_addr (stack,&pc))
     {
-      if (disassembleRetIntern (pc, retpop, seen, stack, &hasret, &atleast_one,name))
+      if (disassembleRetIntern (pc, retpop, seen, stack, &hasret, &atleast_one, name, ppimpname))
         break;
     }
   dest_addr (seen);
@@ -610,7 +713,7 @@ disassembleRet (uint32_t func, uint32_t *retpop, const char *name)
 
 static int
 disassembleRetIntern (uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses *stack,
-		      int *hasret, int *atleast_one, const char *name)
+		      int *hasret, int *atleast_one, const char *name, sImportname **ppimpname)
 {
   size_t sz = 0;
   int code = 0,break_it = 0;
@@ -620,7 +723,7 @@ disassembleRetIntern (uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresse
     {
       if (!push_addr (seen, pc))
         return 0;
-      sz = getMemonic (&code, pc, &tojmp, name) & 0xffffffff;
+      sz = getMemonic (&code, pc, &tojmp, name, ppimpname) & 0xffffffff;
       if (!sz || code == c_ill)
         {
           PRDEBUG(" %s = 0x08%x ILL (%u) at least one==%d\n",name,
@@ -782,7 +885,7 @@ print_save_insn (const char *name, unsigned char *s)
 #endif
 
 static size_t
-getMemonic(int *aCode,uint32_t pc,volatile uint32_t *jmp_pc, __attribute__((unused)) const char *name)
+getMemonic(int *aCode,uint32_t pc,volatile uint32_t *jmp_pc, __attribute__((unused)) const char *name, sImportname **ppimpname)
 {
 #if ENABLE_DEBUG == 1
   static unsigned char lw[MAX_INSN_SAVE];
@@ -854,7 +957,20 @@ redo_switch:
           b&=~0x7; b|=(p[0]&7);
 	  sz+=1;
 	}
-      if((b&0xc0)==0 && (b&7)==5) { sz+=4; }
+      if((b&0xc0)==0 && (b&7)==5)
+        {
+	  /* Here we check if for jmp instruction it points to an IAT entry.  */
+	  if(tb1==c_g4 && ((b&0x38)==0x20 || (b&0x38)==0x28))
+	    {
+	      uint32_t vaddr;
+	      sImportname *inss;
+	      vaddr = *((uint32_t *) map_va (pc + sz));
+	      inss = imp32_findbyaddress (vaddr);
+	      if (inss)
+		*ppimpname = inss;
+	    }
+	  sz+=4;
+        }
       else if((b&0xc0)==0x40)
 	sz+=1;
       else if((b&0xc0)==0x80)

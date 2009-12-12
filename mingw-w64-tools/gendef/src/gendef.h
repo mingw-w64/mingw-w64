@@ -286,6 +286,52 @@ typedef struct _IMAGE_EXPORT_DIRECTORY {
   uint32_t AddressOfNameOrdinals;
 } IMAGE_EXPORT_DIRECTORY,*PIMAGE_EXPORT_DIRECTORY;
 
+typedef struct _IMAGE_IMPORT_BY_NAME {
+  uint16_t Hint;
+  unsigned char Name[1];
+} IMAGE_IMPORT_BY_NAME,*PIMAGE_IMPORT_BY_NAME;
+
+typedef struct _IMAGE_THUNK_DATA64 {
+  union {
+    uint64_t ForwarderString;
+    uint64_t Function;
+    uint64_t Ordinal;
+    uint64_t AddressOfData;
+  } u1;
+} IMAGE_THUNK_DATA64;
+typedef IMAGE_THUNK_DATA64 *PIMAGE_THUNK_DATA64;
+
+typedef struct _IMAGE_THUNK_DATA32 {
+  union {
+    uint32_t ForwarderString;
+    uint32_t Function;
+    uint32_t Ordinal;
+    uint32_t AddressOfData;
+  } u1;
+} IMAGE_THUNK_DATA32;
+typedef IMAGE_THUNK_DATA32 *PIMAGE_THUNK_DATA32;
+
+#define IMAGE_ORDINAL_FLAG64 0x8000000000000000ull
+#define IMAGE_ORDINAL_FLAG32 0x80000000
+#define IMAGE_ORDINAL64(Ordinal) (Ordinal & 0xffffull)
+#define IMAGE_ORDINAL32(Ordinal) (Ordinal & 0xffff)
+#define IMAGE_SNAP_BY_ORDINAL64(Ordinal) ((Ordinal & IMAGE_ORDINAL_FLAG64)!=0)
+#define IMAGE_SNAP_BY_ORDINAL32(Ordinal) ((Ordinal & IMAGE_ORDINAL_FLAG32)!=0)
+
+typedef struct _IMAGE_IMPORT_DESCRIPTOR {
+#ifdef __GNUC__
+  __extension__
+#endif
+  union {
+    uint32_t Characteristics;
+    uint32_t OriginalFirstThunk;
+  };
+  uint32_t TimeDateStamp;
+  uint32_t ForwarderChain;
+  uint32_t Name;
+  uint32_t FirstThunk;
+} IMAGE_IMPORT_DESCRIPTOR;
+
 typedef struct gendefopts
 {
   char *fninput;
@@ -305,6 +351,13 @@ typedef struct sExportname
   int beData;
 } sExportName;
 
+typedef struct sImportname {
+  struct sImportname *next;
+  uint32_t addr_iat;
+  char *dll;
+  char *name;
+  uint16_t ord;
+} sImportname;
 
 typedef enum eOpCodeKind {
   c_ill=-1,c_EG,c_lb,c_lv,c_1,c_2,c_3,c_4,
