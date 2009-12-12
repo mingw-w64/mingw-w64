@@ -668,7 +668,7 @@ dump_def (void)
 	}
       else if (seen_ret == 0 && !exp->beData)
         {
-	  fprintf (fp, " ; Check!!! Couldn't determine function argument count. Function doesn't returns. ");
+	  fprintf (fp, " ; Check!!! Couldn't determine function argument count. Function doesn't return. ");
         }
       fprintf(fp,"\n");
       free (exp);
