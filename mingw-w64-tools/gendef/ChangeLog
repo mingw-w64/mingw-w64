@@ -1,3 +1,11 @@
+2009-12-12  Kai Tietz  <kai.tietz@onevision.com>
+
+	* src/gendef_def.c: New file.
+	* src/gendef.c: Add config.h header.
+	Add optional use of libmangle.
+	Improved output of .def files.
+	Ouput forwarders, too.
+
 2009-12-12  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* configure.ac: Check for libmangle install.
