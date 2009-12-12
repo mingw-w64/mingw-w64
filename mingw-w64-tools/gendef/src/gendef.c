@@ -154,7 +154,8 @@ show_usage (void)
   fprintf (stderr, "Options:\n"
     "  -                        Dump to stdout\n"
     "  -h, --help               Show this help.\n"
-    "  -a, --assume-stdcall     Assume for functions stdcall convention.\n"
+    "  -a, --assume-stdcall     Assume functions with ambiguous call\n"
+    "                           convention as stdcall.\n"
   );
   fprintf (stderr, "\n");
   fprintf (stderr, "Usage example: \n"
