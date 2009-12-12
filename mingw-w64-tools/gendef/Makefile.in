@@ -54,10 +54,11 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_gendef_OBJECTS = src/gendef-gendef.$(OBJEXT)
+am_gendef_OBJECTS = src/gendef-gendef.$(OBJEXT) \
+	src/gendef-gendef_def.$(OBJEXT)
 gendef_OBJECTS = $(am_gendef_OBJECTS)
 gendef_LDADD = $(LDADD)
-gendef_LINK = $(CCLD) $(gendef_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+gendef_LINK = $(CCLD) $(gendef_CFLAGS) $(CFLAGS) $(gendef_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -108,6 +109,9 @@ INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 LDFLAGS = @LDFLAGS@
+LIBMANGLE_CPPFLAGS = @LIBMANGLE_CPPFLAGS@
+LIBMANGLE_LDFLAGS = @LIBMANGLE_LDFLAGS@
+LIBMANGLE_LIB = @LIBMANGLE_LIB@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LTLIBOBJS = @LTLIBOBJS@
@@ -119,6 +123,7 @@ PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
 PACKAGE_STRING = @PACKAGE_STRING@
 PACKAGE_TARNAME = @PACKAGE_TARNAME@
+PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 SET_MAKE = @SET_MAKE@
@@ -175,7 +180,10 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-gendef_SOURCES = src/gendef.h src/gendef.c
+gendef_LIBS = @LIBMANGLE_LIB@
+gendef_CPPFLAGS = @LIBMANGLE_CPPFLAGS@
+gendef_LDFLAGS = @LIBMANGLE_LDFLAGS@
+gendef_SOURCES = src/gendef.h src/gendef.c src/gendef_def.c
 gendef_CFLAGS = -O3 -g -Werror -Wall -Wextra
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -278,6 +286,8 @@ src/$(DEPDIR)/$(am__dirstamp):
 	@: > src/$(DEPDIR)/$(am__dirstamp)
 src/gendef-gendef.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/gendef-gendef_def.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 gendef$(EXEEXT): $(gendef_OBJECTS) $(gendef_DEPENDENCIES) 
 	@rm -f gendef$(EXEEXT)
 	$(gendef_LINK) $(gendef_OBJECTS) $(gendef_LDADD) $(LIBS)
@@ -285,11 +295,13 @@ gendef$(EXEEXT): $(gendef_OBJECTS) $(gendef_DEPENDENCIES)
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f src/gendef-gendef.$(OBJEXT)
+	-rm -f src/gendef-gendef_def.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/gendef-gendef.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/gendef-gendef_def.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -308,18 +320,32 @@ distclean-compile:
 @am__fastdepCC_FALSE@	$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
 src/gendef-gendef.o: src/gendef.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -MT src/gendef-gendef.o -MD -MP -MF src/$(DEPDIR)/gendef-gendef.Tpo -c -o src/gendef-gendef.o `test -f 'src/gendef.c' || echo '$(srcdir)/'`src/gendef.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -MT src/gendef-gendef.o -MD -MP -MF src/$(DEPDIR)/gendef-gendef.Tpo -c -o src/gendef-gendef.o `test -f 'src/gendef.c' || echo '$(srcdir)/'`src/gendef.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/gendef-gendef.Tpo src/$(DEPDIR)/gendef-gendef.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/gendef.c' object='src/gendef-gendef.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-gendef.o `test -f 'src/gendef.c' || echo '$(srcdir)/'`src/gendef.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-gendef.o `test -f 'src/gendef.c' || echo '$(srcdir)/'`src/gendef.c
 
 src/gendef-gendef.obj: src/gendef.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -MT src/gendef-gendef.obj -MD -MP -MF src/$(DEPDIR)/gendef-gendef.Tpo -c -o src/gendef-gendef.obj `if test -f 'src/gendef.c'; then $(CYGPATH_W) 'src/gendef.c'; else $(CYGPATH_W) '$(srcdir)/src/gendef.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -MT src/gendef-gendef.obj -MD -MP -MF src/$(DEPDIR)/gendef-gendef.Tpo -c -o src/gendef-gendef.obj `if test -f 'src/gendef.c'; then $(CYGPATH_W) 'src/gendef.c'; else $(CYGPATH_W) '$(srcdir)/src/gendef.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/gendef-gendef.Tpo src/$(DEPDIR)/gendef-gendef.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/gendef.c' object='src/gendef-gendef.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-gendef.obj `if test -f 'src/gendef.c'; then $(CYGPATH_W) 'src/gendef.c'; else $(CYGPATH_W) '$(srcdir)/src/gendef.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-gendef.obj `if test -f 'src/gendef.c'; then $(CYGPATH_W) 'src/gendef.c'; else $(CYGPATH_W) '$(srcdir)/src/gendef.c'; fi`
+
+src/gendef-gendef_def.o: src/gendef_def.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -MT src/gendef-gendef_def.o -MD -MP -MF src/$(DEPDIR)/gendef-gendef_def.Tpo -c -o src/gendef-gendef_def.o `test -f 'src/gendef_def.c' || echo '$(srcdir)/'`src/gendef_def.c
+@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/gendef-gendef_def.Tpo src/$(DEPDIR)/gendef-gendef_def.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/gendef_def.c' object='src/gendef-gendef_def.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-gendef_def.o `test -f 'src/gendef_def.c' || echo '$(srcdir)/'`src/gendef_def.c
+
+src/gendef-gendef_def.obj: src/gendef_def.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -MT src/gendef-gendef_def.obj -MD -MP -MF src/$(DEPDIR)/gendef-gendef_def.Tpo -c -o src/gendef-gendef_def.obj `if test -f 'src/gendef_def.c'; then $(CYGPATH_W) 'src/gendef_def.c'; else $(CYGPATH_W) '$(srcdir)/src/gendef_def.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/gendef-gendef_def.Tpo src/$(DEPDIR)/gendef-gendef_def.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/gendef_def.c' object='src/gendef-gendef_def.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-gendef_def.obj `if test -f 'src/gendef_def.c'; then $(CYGPATH_W) 'src/gendef_def.c'; else $(CYGPATH_W) '$(srcdir)/src/gendef_def.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \

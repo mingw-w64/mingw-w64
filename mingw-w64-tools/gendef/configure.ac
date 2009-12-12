@@ -31,5 +31,44 @@ AC_TYPE_UINT8_T
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([memset strdup strrchr])
 
+# Check for libmangle
+libmangle_h=no
+libmangle_a=no
+libmangle=yes
+mangle_path=
+
+AC_ARG_WITH([libmangle],
+  [AS_HELP_STRING([--with-libmangle=PATH], [Specify prefix directory for the installed libmangle package])],
+  [],
+  [])
+
+AS_CASE(["$with_libmangle"],
+  [yes], [libmangle=yes],
+  [no], [libmangle=no],
+  [mangle_path="$with_libmangle"])
+
+if test "x$libmangle" = "xyes"; then
+  MCPPFLAGS=-I"$mangle_path/include"
+  MLDFLAGS=-L"$mangle_path/lib"
+  CPPFLAGS="$CPPFLAGS $MCPPFLAGS"
+  LDFLAGS="$LDFLAGS $MLDFLAGS"
+
+  AC_CHECK_HEADERS([libmangle.h], [libmangle_h=yes], [])
+  AC_SEARCH_LIBS([decode_ms_name], [mangle], [libmangle_a=yes])
+
+  AC_MSG_CHECKING([if we want to use libmangle])
+  if test "x$libmangle_h" = "xyes" && test "x$libmangle_a" = "xyes"; then
+    AC_MSG_RESULT([yes])
+    AC_DEFINE([USE_LIBMANGLE], [1], [Define to use libmangle])
+    LIBMANGLE_LIB=-lmangle
+    AC_SUBST([LIBMANGLE_LIB], ["-lmangle"])
+    AC_SUBST([LIBMANGLE_CPPFLAGS], ["$MCPPFLAGS"])
+    AC_SUBST([LIBMANGLE_LDFLAGS], ["$MLDFLAGS"])
+  else
+    AC_MSG_RESULT([no])
+    AC_SUBST([LIBMANGLE_LIB], [""])
+  fi
+fi
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

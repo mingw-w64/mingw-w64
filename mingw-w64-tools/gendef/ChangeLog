@@ -1,3 +1,13 @@
+2009-12-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* configure.ac: Check for libmangle install.
+	* Makefile.am: Add libmangle dependencies.
+
+	* Makefile.am: Add gendef_def.c dependencies.
+	* configure: Regenerate.
+	* Makefile.in: Ditto.
+	* config.h.in: Ditto.
+
 2009-12-11  Kai Tietz  <kai.tietz@onevision.com>
 
 	* src/gendef.c (assume_stdcall): New variable.
