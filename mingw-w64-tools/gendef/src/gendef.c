@@ -49,7 +49,7 @@ static void do_import_read32 (uint32_t va_imp, uint32_t sz_imp);
 static void do_export_read (uint32_t va_exp,uint32_t sz_exp,int be64);
 static void add_export_list (uint32_t ord,uint32_t func,const char *name, const char *forward,int be64,int beData);
 static void dump_def (void);
-static int disassembleRet (uint32_t func,uint32_t *retpop,const char *name, sImportname **ppimpname);
+static int disassembleRet (uint32_t func,uint32_t *retpop,const char *name, sImportname **ppimpname, int *seen_ret);
 static size_t getMemonic (int *aCode,uint32_t pc,volatile uint32_t *jmp_pc,const char *name, sImportname **ppimpname);
 
 static sImportname *imp32_add (const char *dll, const char *name, uint32_t addr, uint16_t ord);
@@ -594,6 +594,8 @@ dump_def (void)
   while ((exp = gExp) != NULL)
     {
       sImportname *pimpname;
+      int seen_ret;
+      seen_ret = 1;
       gExp = exp->next;
       if (exp->name[0] == 0)
         fprintf(fp,"ord_%u", (unsigned int) exp->ord);
@@ -610,7 +612,33 @@ dump_def (void)
         }
       pimpname = NULL;
       if (!exp->beData && !exp->be64 && exp->func != 0)
-        exp->beData = disassembleRet (exp->func, &exp->retpop, exp->name, &pimpname);
+	{
+	  seen_ret = 0;
+	  exp->beData = disassembleRet (exp->func, &exp->retpop, exp->name, &pimpname, &seen_ret);
+        }
+      if (!exp->be64 && exp->retpop == (uint32_t) -1 && pimpname)
+	{
+	  int isD = 0;
+	  uint32_t at = 0;
+	  if (gendef_getsymbol_info (pimpname->dll, pimpname->name, &isD, &at))
+	    {
+	      exp->beData = isD;
+	      if (!isD)
+		exp->retpop = at;
+	    }
+	}
+      else if (exp->func == 0 && !exp->beData)
+	{
+	  int isD = 0;
+	  uint32_t at = 0;
+	  if (gendef_getsymbol_info (exp->forward, NULL, &isD, &at))
+	    {
+	      exp->beData = isD;
+	      if (!isD)
+	        exp->retpop = at;
+	    }
+	}
+
       if (exp->retpop != (uint32_t) -1)
         {
           if (exp->name[0]=='?')
@@ -618,6 +646,16 @@ dump_def (void)
           else
             fprintf(fp,"@%u", (unsigned int) exp->retpop);
         }
+      if (exp->func == 0)
+	fprintf (fp, " = %s", exp->forward);
+      if (exp->name[0] == 0)
+        fprintf(fp," @%u", (unsigned int) exp->ord);
+      if (exp->beData)
+        fprintf(fp," DATA");
+
+      if (exp->retpop != (uint32_t) -1)
+	{
+	}
       else if (pimpname)
         {
 	  fprintf (fp, " ; Check!!! forwards to %s in %s (ordinal %u)",
@@ -627,10 +665,10 @@ dump_def (void)
 	{
 	  fprintf (fp, " ; Check!!! forwards to %s", exp->forward);
 	}
-      if (exp->name[0] == 0)
-        fprintf(fp," @%u", (unsigned int) exp->ord);
-      if (exp->beData)
-        fprintf(fp," DATA");
+      else if (seen_ret == 0 && !exp->beData)
+        {
+	  fprintf (fp, " ; Check!!! Couldn't determine function argument count. Function doesn't returns. ");
+        }
       fprintf(fp,"\n");
       free (exp);
     }
@@ -692,7 +730,7 @@ pop_addr (sAddresses *ad, uint32_t *val)
 
 /* exp->beData */
 static int
-disassembleRet (uint32_t func, uint32_t *retpop, const char *name, sImportname **ppimpname)
+disassembleRet (uint32_t func, uint32_t *retpop, const char *name, sImportname **ppimpname, int *seen_ret)
 {
   sAddresses *seen = init_addr ();
   sAddresses *stack = init_addr ();
@@ -708,6 +746,7 @@ disassembleRet (uint32_t func, uint32_t *retpop, const char *name, sImportname *
       if (disassembleRetIntern (pc, retpop, seen, stack, &hasret, &atleast_one, name, ppimpname))
         break;
     }
+  *seen_ret = hasret;
   dest_addr (seen);
   dest_addr (stack);
   return (atleast_one ? 0 : 1);
