@@ -109,7 +109,7 @@ opt_chain (const char *opts, const char *next)
       assume_stdcall = 1;
       return 0;
     }
-  if (!strcmp (opts, "--path-defs") || !strcmp (opts, "-p"))
+  if (!strcmp (opts, "--include-def-path") || !strcmp (opts, "-I"))
     {
       if (!next)
         {
@@ -166,14 +166,16 @@ show_usage (void)
     "  -h, --help               Show this help.\n"
     "  -a, --assume-stdcall     Assume functions with ambiguous call\n"
     "                           convention as stdcall.\n"
-    "  -p, --path-defs <path>   Add additional search paths to find .def\n"
-    "                           files.\n"
+    "  -I, --include-def-path <path>\n"
+    "                           Add additional search paths to find\n"
+    "                           hint .def files.\n"
   );
   fprintf (stderr, "\n");
   fprintf (stderr, "Usage example: \n"
                    "  By default, the output files are named after their DLL counterparts\n"
                    "  gendef MYDLL.DLL     Produces MYDLL.def\n"
                    "  gendef - MYDLL.DLL   Prints the exports to stdout\n");
+  fprintf (stderr, "\nBuilt on %s\n", __DATE__);
   fprintf (stderr, "\nReport bugs to <mingw-w64-public@lists.sourceforge.net>\n");
   exit (0);
 }
