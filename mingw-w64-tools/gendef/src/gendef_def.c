@@ -239,11 +239,6 @@ get_uint32_by_str (const char *txt)
 int
 gendef_addpath_def (const char *path)
 {
-  if (access (path, 0))
-    {
-      fprintf (stderr, "Path <%s> not found. Will be ignored.\n", path);
-      return 0;
-    }
   if (find_path_def (path))
     return 1;
   return add_path_def (path);

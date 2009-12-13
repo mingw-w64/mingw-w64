@@ -113,7 +113,7 @@ opt_chain (const char *opts, const char *next)
     {
       if (!next)
         {
-	  fprintf (stderr, "Error: %s expects path as next arguement.");
+	  fprintf (stderr, "Error: %s expects path as next arguement.", opts);
 	  return 0;
         }
       gendef_addpath_def (next);
@@ -422,10 +422,8 @@ do_pepdef (void)
 {
   uint32_t va_exp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
   uint32_t sz_exp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
-  uint32_t va_imp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress;
-  uint32_t sz_imp = gPEPDta->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size;
 
-  do_export_read (va_exp, sz_exp,1);
+  do_export_read (va_exp, sz_exp, 1);
 }
 
 static void
