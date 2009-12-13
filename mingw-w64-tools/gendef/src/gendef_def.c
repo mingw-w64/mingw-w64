@@ -40,6 +40,16 @@ typedef struct sImpDef {
 
 static sImpDef *theImpDef = NULL;
 
+typedef struct sDefPaths {
+  struct sDefPaths *next;
+  char path[1];
+} sDefPaths;
+
+static sDefPaths *thePathDefs;
+
+static int find_path_def (const char *path);
+static int add_path_def (const char *path);
+
 static sImpDef *is_def_loaded (const char *);
 static sImpDef *gendef_loaddef (const char *);
 static FILE *fopen_def (const char *name);
@@ -117,9 +127,24 @@ gendef_getsymbol_info (const char *dllname, const char *symbolname, int *isData,
 static FILE *
 fopen_def (const char *name)
 {
+  sDefPaths *l = thePathDefs;
   FILE *fp;
   if ((fp = fopen (name, "rb")) != NULL)
     return fp;
+  while (l != NULL)
+    {
+      char *h = (char *) malloc (strlen (name) + strlen (l->path) + 1);
+      if (h)
+	{
+	  strcpy (h, l->path);
+	  strcat (h, name);
+	  fp = fopen (h, "rb");
+	  free (h);
+	  if (fp)
+	    return fp;
+	}
+      l = l->next;
+    }
   return NULL;
 }
 
@@ -210,3 +235,74 @@ get_uint32_by_str (const char *txt)
     }
   return ret;
 }
+
+int
+gendef_addpath_def (const char *path)
+{
+  if (access (path, 0))
+    {
+      fprintf (stderr, "Path <%s> not found. Will be ignored.\n", path);
+      return 0;
+    }
+  if (find_path_def (path))
+    return 1;
+  return add_path_def (path);
+}
+
+static int
+find_path_def (const char *path)
+{
+  char *h, *p;
+  sDefPaths *l = thePathDefs;
+  if (!l)
+    return 0;
+  h = (char *) malloc (strlen (path) + 2);
+  if (!h)
+    return 0;
+  strcpy (h, path);
+  for (p = h; *p != 0; p++)
+    if (p[0] == '\\')
+      p[0] = '/';
+  if (p != h && p[-1] != '/')
+    strcat (p, "/");
+  while (l != NULL)
+    {
+      if (!strcmp (l->path, h))
+        {
+	  free (h);
+	  return 1;
+        }
+      l = l->next;
+    }
+  free (h);
+  return 0;
+}
+
+static int
+add_path_def (const char *path)
+{
+  char *h, *p;
+  sDefPaths *l;
+  h = (char *) malloc (strlen (path) + 2);
+  if (!h)
+    return 0;
+  strcpy (h, path);
+  for (p = h; *p != 0; p++)
+    if (p[0] == '\\')
+      p[0] = '/';
+  if (p != h && p[-1] != '/')
+    strcat (p, "/");
+  l = (sDefPaths *) malloc (sizeof (sDefPaths) + strlen (h) + 1);
+  if (!l)
+    {
+      free (h);
+      return 0;
+    }
+  memset (l, 0, sizeof (sDefPaths));
+  strcpy (l->path, h);
+  free (h);
+  l->next = thePathDefs;
+  thePathDefs = l;
+  return 1;
+}
+

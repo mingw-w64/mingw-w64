@@ -1,3 +1,8 @@
+2009-12-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* src/gendef.c: Add option -p/-path-defs.
+	* src/gendef_def.c: Add search-paths for def file seeking.
+
 2009-12-12  Jonathan Yong  <jon_y@users.sourceforge.net>
 
         * src/gendef.c (show_usage): Improve help message about -a.

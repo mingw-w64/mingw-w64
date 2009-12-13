@@ -86,10 +86,10 @@ static int assume_stdcall = 0; /* Set to one, if function symbols should be assu
 
 static Gendefopts *chain_ptr = NULL;
  __attribute__((noreturn)) static void show_usage (void);
-void opt_chain (const char *);
+static int opt_chain (const char *, const char *);
 
-void
-opt_chain (const char *opts)
+static int
+opt_chain (const char *opts, const char *next)
 {
   static Gendefopts *prev, *current;
   char *r1, *r2;
@@ -97,17 +97,27 @@ opt_chain (const char *opts)
   if (!strncmp (opts, "-", 2))
     {
       std_output = 1;
-      return;
+      return 0;
     }
   if (!strcmp (opts, "--help") || !strcmp (opts, "-h"))
     {
       show_usage();
-      return;
+      return 0;
     }
   if (!strcmp (opts, "--assume-stdcall") || !strcmp (opts, "-a"))
     {
       assume_stdcall = 1;
-      return;
+      return 0;
+    }
+  if (!strcmp (opts, "--path-defs") || !strcmp (opts, "-p"))
+    {
+      if (!next)
+        {
+	  fprintf (stderr, "Error: %s expects path as next arguement.");
+	  return 0;
+        }
+      gendef_addpath_def (next);
+      return 1;
     }
 
   current = malloc (sizeof(Gendefopts));
@@ -142,7 +152,7 @@ opt_chain (const char *opts)
         strcat (current->fnoutput,".def");
       prev = current;
    }
-  return;
+  return 0;
 }
 
 void
@@ -156,6 +166,8 @@ show_usage (void)
     "  -h, --help               Show this help.\n"
     "  -a, --assume-stdcall     Assume functions with ambiguous call\n"
     "                           convention as stdcall.\n"
+    "  -p, --path-defs <path>   Add additional search paths to find .def\n"
+    "                           files.\n"
   );
   fprintf (stderr, "\n");
   fprintf (stderr, "Usage example: \n"
@@ -178,7 +190,7 @@ int main(int argc,char **argv)
   }
 
   for (i = 1; i < argc; i++)
-    opt_chain (argv[i]);
+    i += opt_chain (argv[i], ((i+1) < argc ? argv[i+1] : NULL));
   opt = chain_ptr;
   while (opt)
     {
