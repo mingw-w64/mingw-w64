@@ -1,3 +1,14 @@
+2009-12-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2916490
+	* include/certbcli.h (IN, OUT, OPTIONAL): Protect definition
+	by _NO_W32_PSEUDO_MODIFIERS guard.
+	* include/lmcons.h: Likewise.
+	* include/ntsecapi.h: Likewise.
+	* include/rpcdce.h: Likewise.
+	* include/wincrypt.h: Likewise.
+	* include/windef.h: Likewise.
+
 2009-12-02  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/ivec.h: New dummy file.

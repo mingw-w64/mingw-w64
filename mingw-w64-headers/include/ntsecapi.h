@@ -94,16 +94,16 @@ extern "C" {
   typedef OBJECT_ATTRIBUTES LSA_OBJECT_ATTRIBUTES,*PLSA_OBJECT_ATTRIBUTES;
 #else
 
+#ifndef _NO_W32_PSEUDO_MODIFIERS
 #ifndef IN
 #define IN
 #endif
-
 #ifndef OUT
 #define OUT
 #endif
-
 #ifndef OPTIONAL
 #define OPTIONAL
+#endif
 #endif
 
   typedef struct _LSA_UNICODE_STRING {
