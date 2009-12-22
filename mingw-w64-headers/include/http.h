@@ -91,7 +91,10 @@ extern "C" {
   } HTTP_UNKNOWN_HEADER,*PHTTP_UNKNOWN_HEADER;
 
   typedef enum _HTTP_DATA_CHUNK_TYPE {
-    HttpDataChunkFromMemory,HttpDataChunkFromFileHandle,HttpDataChunkFromFragmentCache,HttpDataChunkMaximum
+    HttpDataChunkFromMemory,HttpDataChunkFromFileHandle,
+    HttpDataChunkFromFragmentCache,
+    HttpDataChunkFromFragmentCacheEx,
+    HttpDataChunkMaximum
   } HTTP_DATA_CHUNK_TYPE,*PHTTP_DATA_CHUNK_TYPE;
 
   typedef struct _HTTP_DATA_CHUNK {
