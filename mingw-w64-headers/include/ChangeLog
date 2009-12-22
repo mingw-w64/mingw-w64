@@ -1,3 +1,9 @@
+2009-12-22  Kai Tietz  <kai.tietz@onevision.com>
+
+	Back-merged from trunk
+	* http.h (HTTP_DATA_CHUNK_TYPE): Add
+	HttpDataChunkFromFragmentCacheEx.
+
 2009-12-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	Merged from trunk.
