@@ -28,9 +28,9 @@ AC_TYPE_UINT64_T
 AC_TYPE_UINT8_T
 
 # Checks for library functions.
-# Disabled due the fact that once the autoconf detects that gnu malloc
+# Disabled due the fact that once the autoconf detects that malloc
 # is not available, it places in config.h the define of malloc as
-# rpl_malloc. By this linkage could fail.
+# rpl_malloc. By this linkage could fail on cross-compiles.
 #AC_FUNC_MALLOC
 AC_CHECK_FUNCS([memset strdup strrchr])
 
