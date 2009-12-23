@@ -1,2 +1,0 @@
-#undef MINGW_HAS_DDRAW_H
-#undef MINGW_DDRAW_VERSION

@@ -557,6 +557,7 @@ ac_unique_file="crt/_mingw.h"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
 DDKHEAD_LIST
+MINGW_HAS_DX
 DXHEAD_LIST
 ENABLE_CRT_FALSE
 ENABLE_CRT_TRUE
@@ -2339,11 +2340,14 @@ esac
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_sdk" >&5
 $as_echo "$enable_sdk" >&6; }
 
+MINGW_HAS_DX=0
+
 if test $enable_directx = yes; then :
 
   DXHEAD_LIST=$srcdir/direct-x/include/*.[hi]*
-  SDKSHEAD_LIST=$srcdir/direct-x/include/sdks/*.h
+  MINGW_HAS_DX=1
 fi
+
 
 
 if test $enable_ddk = yes; then :
@@ -2353,12 +2357,11 @@ if test $enable_ddk = yes; then :
 fi
 
 
-
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
 
-ac_config_files="$ac_config_files Makefile"
+ac_config_files="$ac_config_files Makefile crt/sdks/_mingw_directx.h"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -3048,6 +3051,7 @@ do
   case $ac_config_target in
     "config.h") CONFIG_HEADERS="$CONFIG_HEADERS config.h" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+    "crt/sdks/_mingw_directx.h") CONFIG_FILES="$CONFIG_FILES crt/sdks/_mingw_directx.h" ;;
 
   *) as_fn_error "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

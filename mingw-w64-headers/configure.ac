@@ -59,11 +59,14 @@ AS_CASE([$enable_sdk],
   [AC_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx, or all.])])
 AC_MSG_RESULT([$enable_sdk])
 
+MINGW_HAS_DX=0
+
 AS_IF([test $enable_directx = yes],[
   DXHEAD_LIST=$srcdir/direct-x/include/*.[[hi]]*
-  SDKSHEAD_LIST=$srcdir/direct-x/include/sdks/*.h],
+  MINGW_HAS_DX=1],
   [])
 AC_SUBST([DXHEAD_LIST])
+AC_SUBST([MINGW_HAS_DX])
 
 AS_IF([test $enable_ddk = yes],[
   DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
@@ -71,10 +74,9 @@ AS_IF([test $enable_ddk = yes],[
   [])
 AC_SUBST([DDKHEAD_LIST])
 
-
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile crt/sdks/_mingw_directx.h])
 AC_OUTPUT
