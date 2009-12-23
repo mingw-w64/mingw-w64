@@ -582,7 +582,7 @@ typedef union __m128i { char v[16]; } __m128i;
     __MACHINEX86X_NOWIN64(__m64 _mm_cvtt_ps2pi(__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_cvt_si2ss(__m128,int))
     __MACHINEX86X_NOWIN64(__m128 _mm_cvt_pi2ps(__m128,__m64))
-    __MACHINEX86X_NOIA64(__m128 _mm_shuffle_ps(__m128,__m128,unsigned int))
+    __MACHINEX86X_NOIA64(__m128 _mm_shuffle_ps(__m128,__m128,int const))
     __MACHINEX86X_NOIA64(__m128 _mm_unpackhi_ps(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_unpacklo_ps(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_loadh_pi(__m128,__m64 const*))
