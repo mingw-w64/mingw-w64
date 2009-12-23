@@ -1124,7 +1124,12 @@ decode_mangle (FILE *fp, const char *n)
 {
 #ifdef HAVE_LIBMANGLE_H
   sGcCtx *gc = generate_gc ();
-  pMToken ptok = decode_ms_name (gc, n);
+  pMToken ptok;
+#endif
+  if (!fp || !n || *n == 0)
+    return;
+#ifdef HAVE_LIBMANGLE_H
+  ptok = decode_ms_name (gc, n);
   if (ptok)
     {
       char *h = sprint_decl (ptok);
@@ -1135,7 +1140,5 @@ decode_mangle (FILE *fp, const char *n)
 	}
     }
   release_gc (gc);
-#else
-  return;
 #endif
 }
