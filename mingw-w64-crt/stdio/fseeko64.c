@@ -76,7 +76,7 @@ static struct oserr_map local_errtab[] = {
   { ERROR_NOT_ENOUGH_QUOTA, ENOMEM }, { 0, -1 }
 };
 
-__int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd);
+_CRTIMP __int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd);
 __int64 __cdecl _ftelli64(FILE *str);
 void mingw_dosmaperr (unsigned long oserrno);
 int __cdecl _flush (FILE *str);
@@ -165,38 +165,6 @@ int __cdecl _fseeki64(FILE *str,__int64 offset,int whence)
         /* Seek to the desired locale and return. */
 
         return (_lseeki64(_fileno(stream), offset, whence) == -1ll ? -1 : 0);
-}
-
-__int64 __cdecl _lseeki64(int fh,__int64 pos,int mthd)
-{
-  DINT newpos;                    /* new file position */
-  unsigned long err;          /* error code from API call */
-  HANDLE osHandle;        /* o.s. handle value */
-
-
-  errno=0;
-  newpos.bigint = pos;
-  /* tell OS to seek */
-
-#if SEEK_SET != FILE_BEGIN || SEEK_CUR != FILE_CURRENT || SEEK_END != FILE_END
-#error Xenix and Win32 seek constants not compatible
-#endif
-  if ((osHandle = (HANDLE)_get_osfhandle(fh)) == (HANDLE)-1)
-    {
-      errno = EBADF;
-      _doserrno = 0;
-      return -1ll;
-  }
-
-  if ((long) (newpos.twoints.lowerhalf = SetFilePointer(osHandle,newpos.twoints.lowerhalf,&(newpos.twoints.upperhalf),mthd)) == -1L
-     && ((err = GetLastError()) != NO_ERROR))
-  {
-    mingw_dosmaperr (err);
-    return -1ll;
-  }
-
-  _osfile(fh) &= ~FEOFLAG; /* clear the ctrl-z flag on the file */
-  return newpos.bigint;
 }
 
 __int64 __cdecl _ftelli64(FILE *str)
