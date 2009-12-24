@@ -55,7 +55,8 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
 am_gendef_OBJECTS = src/gendef-gendef.$(OBJEXT) \
-	src/gendef-gendef_def.$(OBJEXT)
+	src/gendef-gendef_def.$(OBJEXT) \
+	src/gendef-compat_string.$(OBJEXT)
 gendef_OBJECTS = $(am_gendef_OBJECTS)
 gendef_LDADD = $(LDADD)
 gendef_LINK = $(CCLD) $(gendef_CFLAGS) $(CFLAGS) $(gendef_LDFLAGS) \
@@ -183,7 +184,7 @@ top_srcdir = @top_srcdir@
 gendef_LIBS = @LIBMANGLE_LIB@
 gendef_CPPFLAGS = @LIBMANGLE_CPPFLAGS@
 gendef_LDFLAGS = @LIBMANGLE_LDFLAGS@
-gendef_SOURCES = src/gendef.h src/gendef.c src/gendef_def.c
+gendef_SOURCES = src/gendef.h src/gendef.c src/gendef_def.c src/compat_string.c
 gendef_CFLAGS = -O3 -g -Werror -Wall -Wextra
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -288,18 +289,22 @@ src/gendef-gendef.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/gendef-gendef_def.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/gendef-compat_string.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 gendef$(EXEEXT): $(gendef_OBJECTS) $(gendef_DEPENDENCIES) 
 	@rm -f gendef$(EXEEXT)
 	$(gendef_LINK) $(gendef_OBJECTS) $(gendef_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
+	-rm -f src/gendef-compat_string.$(OBJEXT)
 	-rm -f src/gendef-gendef.$(OBJEXT)
 	-rm -f src/gendef-gendef_def.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/gendef-compat_string.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/gendef-gendef.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/gendef-gendef_def.Po@am__quote@
 
@@ -346,6 +351,20 @@ src/gendef-gendef_def.obj: src/gendef_def.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/gendef_def.c' object='src/gendef-gendef_def.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-gendef_def.obj `if test -f 'src/gendef_def.c'; then $(CYGPATH_W) 'src/gendef_def.c'; else $(CYGPATH_W) '$(srcdir)/src/gendef_def.c'; fi`
+
+src/gendef-compat_string.o: src/compat_string.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -MT src/gendef-compat_string.o -MD -MP -MF src/$(DEPDIR)/gendef-compat_string.Tpo -c -o src/gendef-compat_string.o `test -f 'src/compat_string.c' || echo '$(srcdir)/'`src/compat_string.c
+@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/gendef-compat_string.Tpo src/$(DEPDIR)/gendef-compat_string.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/compat_string.c' object='src/gendef-compat_string.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-compat_string.o `test -f 'src/compat_string.c' || echo '$(srcdir)/'`src/compat_string.c
+
+src/gendef-compat_string.obj: src/compat_string.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -MT src/gendef-compat_string.obj -MD -MP -MF src/$(DEPDIR)/gendef-compat_string.Tpo -c -o src/gendef-compat_string.obj `if test -f 'src/compat_string.c'; then $(CYGPATH_W) 'src/compat_string.c'; else $(CYGPATH_W) '$(srcdir)/src/compat_string.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/gendef-compat_string.Tpo src/$(DEPDIR)/gendef-compat_string.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/compat_string.c' object='src/gendef-compat_string.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gendef_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-compat_string.obj `if test -f 'src/compat_string.c'; then $(CYGPATH_W) 'src/compat_string.c'; else $(CYGPATH_W) '$(srcdir)/src/compat_string.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \

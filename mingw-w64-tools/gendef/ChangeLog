@@ -1,3 +1,13 @@
+2009-12-24  Alon Bar-Lev  <alon.barlev@gmail.com>
+
+	* Makefile.am (gendef_SOURCES): Add src/compat_string.c file.
+	* configure.ac (AC_CHECK_FUNCS): Check for strlwr.
+	* src/compat-string.h: New header.
+	* sre/compat_string.c: New source-file.
+	* Makefile.in: Regenerated.
+	* config.h.in: Likewise.
+	* configure: Likewise.
+
 2009-12-23  Kai Tietz  <kai.tietz@onevision.com>
 
 	* src/gendef.c: Avoid warnings by building without libmangle.

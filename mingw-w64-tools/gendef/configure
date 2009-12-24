@@ -4333,11 +4333,11 @@ _ACEOF
 
 
 # Checks for library functions.
-# Disabled due the fact that once the autoconf detects that gnu malloc
+# Disabled due the fact that once the autoconf detects that malloc
 # is not available, it places in config.h the define of malloc as
-# rpl_malloc. By this linkage could fail.
+# rpl_malloc. By this linkage could fail on cross-compiles.
 #AC_FUNC_MALLOC
-for ac_func in memset strdup strrchr
+for ac_func in memset strdup strrchr strlwr
 do :
   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
 ac_fn_c_check_func "$LINENO" "$ac_func" "$as_ac_var"

@@ -32,7 +32,7 @@ AC_TYPE_UINT8_T
 # is not available, it places in config.h the define of malloc as
 # rpl_malloc. By this linkage could fail on cross-compiles.
 #AC_FUNC_MALLOC
-AC_CHECK_FUNCS([memset strdup strrchr])
+AC_CHECK_FUNCS([memset strdup strrchr strlwr])
 
 # Check for libmangle
 libmangle_h=no
