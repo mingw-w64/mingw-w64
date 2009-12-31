@@ -46,7 +46,7 @@
 #define _MCOUNT_CALL
 #endif
 
-#define _MCOUNT_DECL static __inline__  void _MCOUNT_CALL _mcount
+#define _MCOUNT_DECL __attribute__((gnu_inline)) __inline__ void _MCOUNT_CALL _mcount
 
 /* FIXME: This works, but it would be cleaner to convert mcount into an
    assembler stub that calls an extern  _mcount.

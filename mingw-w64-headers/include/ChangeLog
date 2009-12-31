@@ -1,3 +1,8 @@
+2010-01-01  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* include/profile.h (_MCOUNT_DECL): Add gnu_inline attribute
+	and remove static qualifier.
+
 2009-12-22  Kai Tietz  <kai.tietz@onevision.com>
 
 	* http.h (HTTP_DATA_CHUNK_TYPE): Add
