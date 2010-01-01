@@ -1,0 +1,4 @@
+2010-01-01  Jonathan Yong  <jon_y@sourceforge.net>
+
+        * include/profile.h (_MCOUNT_DECL): Add gnu_inline attribute
+        and remove static qualifier.
