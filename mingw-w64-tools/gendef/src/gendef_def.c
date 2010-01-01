@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2009 mingw-w64 project
+   Copyright (c) 2009, 2010 mingw-w64 project
 
    Contributing authors: Kai Tietz, Jonathan Yong
 
