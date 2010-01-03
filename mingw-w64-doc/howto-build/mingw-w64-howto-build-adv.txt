@@ -20,10 +20,17 @@ grained control over the capabilities of the cross compiler.
 For a basic guide on building the mingw-w64 toolchain, please refer to
 "mingw-w64-howto-build.txt".
 
+== Notes about LTO ==
+
+LTO is curently disabled for non-ELF targets, that includes MinGW and
+Cygwin. libelf can't read PE/COFF objects correctly, so it doesn't do
+anything. You may skip building libelf and LTO.
+
 == Version changes ==
 
 Date /        Version /    Author
 2009-10-09    1.0          Jonathan Yong <jon_y[a]users.sourceforge.com>
+2010-01-03    1.1          Jonathan Yong <jon_y[a]users.sourceforge.com>
 
 == Table of Contents ==
 
