@@ -24,7 +24,8 @@ For a basic guide on building the mingw-w64 toolchain, please refer to
 
 LTO is curently disabled for non-ELF targets, that includes MinGW and
 Cygwin. libelf can't read PE/COFF objects correctly, so it doesn't do
-anything. You may skip building libelf and LTO.
+anything. You may skip building libelf and LTO. Using --enable-lto with
+GCC configure may result in an error.
 
 == Version changes ==
 
@@ -342,7 +343,7 @@ Example:
 	--{prefix,with-sysroot}=<prefix> --enable-version-specific-runtime-libs \
 	--enable-shared --with-dwarf --enable-fully-dynamic-string \
 	--enable-languages=c,ada,c++,fortran,objc,obj-c++ --enable-libgomp \
-	--enable-libssp --enable-lto --with-host-libstdcxx="-lstdc++ -lsupc++" \
+	--enable-libssp --with-host-libstdcxx="-lstdc++ -lsupc++" \
 	--with-{gmp,mpfr,mpc,cloog,ppl,libelf}=<host dir>
 
 Explanation:
@@ -369,9 +370,6 @@ Explanation:
 	--with-host-libstdcxx
 	Lists down the C++ support libraries to link with. This is useful
 	when using static PPL and CLooG.
-
-	--enable-lto
-	Enable Link-Time Optimization. Requires libelf (host) installed.
 
 	--with-{gmp,mpfr,mpc,cloog,ppl,libelf}=<host dir>
 	Tells GCC where the host support libraries are installed to.
