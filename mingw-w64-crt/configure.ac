@@ -122,6 +122,20 @@ AS_CASE([$host_cpu],
     AC_SUBST([LIB32SUFFIXDIR],[lib32])]
   )
 
+# Checks for features.
+
+AC_ARG_ENABLE(
+  wildcard,
+  AC_HELP_STRING([--enable-wildcard], [Enable command line globbing [[default=no]]]),
+  [],
+  [enable_wildcard=no]
+)
+AS_IF(
+  [test x$enable_wildcard = xyes],
+  [AC_DEFINE(__ENABLE_GLOBBING,-1, [Define as -1 if want to enable command line globbing, 0 otherwise])],
+  [AC_DEFINE(__ENABLE_GLOBBING, 0, [Define as -1 if want to enable command line globbing, 0 otherwise])]
+)
+
 # Checks for libraries.
 
 # Checks for header files.

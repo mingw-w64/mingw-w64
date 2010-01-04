@@ -1,0 +1,12 @@
+2010-01-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* configure.ac (--enable-wildcard): New configure time option in
+	order to enable command line globbing by default.
+	(__ENABLE_GLOBBING): New config.h macro, 0 or -1.
+	* crt/wildcard.c: Updated to use the new __ENABLE_GLOBBING macro.
+	* crt/CRT_noglob.c: New file with _dowildcard set as 0.
+	* Makefile.am: Added crt/CRT_noglob.c to the build.
+	* configure: Regenerated.
+	* config.h.in: Regenerated.
+	* Makefile.in: Regenerated.
+

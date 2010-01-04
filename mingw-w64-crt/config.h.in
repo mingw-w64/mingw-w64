@@ -63,3 +63,6 @@
 
 /* Version number of package */
 #undef VERSION
+
+/* Define as -1 if want to enable command line globbing, 0 otherwise */
+#undef __ENABLE_GLOBBING
