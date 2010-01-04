@@ -1,3 +1,12 @@
+2010-01-04  Roland Schwingel  <roland.schwingel@onevision.com>
+
+	* include/winternal.h (SYSTEM_HANDLE_INFORMATION): New
+	structure.
+	(SYSTEM_HANDLE_ENTRY): Likewise.
+	(SYSTEM_INFORMATION_CLASS): Add SystemHandleInformation.
+	(SYSTEM_PROCESS_INFORMATION): Improve member information
+	according found information in msdn.
+
 2010-01-04  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/_mingw.h (__int128): Guard typedef by

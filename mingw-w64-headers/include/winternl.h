@@ -228,12 +228,18 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
 
   typedef struct _SYSTEM_PROCESS_INFORMATION {
     ULONG NextEntryOffset;
-    BYTE Reserved1[52];
-    PVOID Reserved2[3];
+    ULONG NumberOfThreads;
+    LARGE_INTEGER Reserved[3];
+    LARGE_INTEGER CreateTime;
+    LARGE_INTEGER UserTime;
+    LARGE_INTEGER KernelTime;
+    UNICODE_STRING ImageName;
+    KPRIORITY BasePriority;
     HANDLE UniqueProcessId;
     HANDLE InheritedFromUniqueProcessId;
     ULONG HandleCount;
-    ULONG Reserved4[2];
+    ULONG SessionId;
+    ULONG PageDirectoryBase;
     VM_COUNTERS VirtualMemoryCounters;
     SIZE_T PrivatePageCount;
     IO_COUNTERS IoCounters;
@@ -364,6 +370,20 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
     BYTE Reserved1[24];
   } SYSTEM_INTERRUPT_INFORMATION,*PSYSTEM_INTERRUPT_INFORMATION;
 
+  typedef struct _SYSTEM_HANDLE_ENTRY {
+    ULONG OwnerPid;
+    BYTE ObjectType;
+    BYTE HandleFlags;
+    USHORT HandleValue;
+    PVOID ObjectPointer;
+    ULONG AccessMask;
+  } SYSTEM_HANDLE_ENTRY, *PSYSTEM_HANDLE_ENTRY;
+
+  typedef struct _SYSTEM_HANDLE_INFORMATION {
+    ULONG Count;
+    SYSTEM_HANDLE_ENTRY Handle[1];
+  } SYSTEM_HANDLE_INFORMATION, *PSYSTEM_HANDLE_INFORMATION;
+
   typedef enum _FILE_INFORMATION_CLASS {
     FileDirectoryInformation = 1
   } FILE_INFORMATION_CLASS;
@@ -379,7 +399,7 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
 
   typedef enum _SYSTEM_INFORMATION_CLASS {
     SystemBasicInformation = 0,SystemProcessorInformation = 1,SystemPerformanceInformation = 2,SystemTimeOfDayInformation = 3,SystemProcessInformation = 5,
-    SystemProcessorPerformanceInformation = 8,SystemInterruptInformation = 23,SystemExceptionInformation = 33,SystemRegistryQuotaInformation = 37,
+    SystemProcessorPerformanceInformation = 8,SystemHandleInformation = 16,SystemInterruptInformation = 23,SystemExceptionInformation = 33,SystemRegistryQuotaInformation = 37,
     SystemLookasideInformation = 45
   } SYSTEM_INFORMATION_CLASS;
 
