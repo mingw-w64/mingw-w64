@@ -1,0 +1,6 @@
+2010-01-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/_mingw.h (__int128): Guard typedef by
+	__SIZEOF_INT128__ to support upcoming __int128 type
+	support of gcc 4.6 version.
+

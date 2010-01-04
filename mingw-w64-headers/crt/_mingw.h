@@ -179,7 +179,9 @@ limitations in handling dllimport attribute.  */
 #define __int32 int
 #define __int64 long long
 #ifdef _WIN64
+#ifndef __SIZEOF_INT128__
 typedef int __int128 __attribute__ ((__mode__ (TI)));
+#endif
 #endif
 #endif /* __GNUC__ */
 #endif /* _INT128_DEFINED */
