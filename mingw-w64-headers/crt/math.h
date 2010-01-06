@@ -98,28 +98,28 @@ extern "C" {
   };
 #endif
 
-  double __cdecl sin(double _X);
-  double __cdecl cos(double _X);
-  double __cdecl tan(double _X);
-  double __cdecl sinh(double _X);
-  double __cdecl cosh(double _X);
-  double __cdecl tanh(double _X);
-  double __cdecl asin(double _X);
-  double __cdecl acos(double _X);
-  double __cdecl atan(double _X);
-  double __cdecl atan2(double _Y,double _X);
-  double __cdecl exp(double _X);
-  double __cdecl log(double _X);
-  double __cdecl log10(double _X);
-  double __cdecl pow(double _X,double _Y);
-  double __cdecl sqrt(double _X);
-  double __cdecl ceil(double _X);
-  double __cdecl floor(double _X);
-  double __cdecl fabs(double _X);
-  double __cdecl ldexp(double _X,int _Y);
-  double __cdecl frexp(double _X,int *_Y);
-  double __cdecl modf(double _X,double *_Y);
-  double __cdecl fmod(double _X,double _Y);
+  double __cdecl sin(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl cos(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl tan(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl sinh(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl cosh(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl tanh(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl asin(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl acos(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl atan(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl atan2(double _Y,double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl exp(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl log(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl log10(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl pow(double _X,double _Y) __MINGW_ATTRIB_PURE;
+  double __cdecl sqrt(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl ceil(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl floor(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl fabs(double _X) __MINGW_ATTRIB_PURE;
+  double __cdecl ldexp(double _X,int _Y) __MINGW_ATTRIB_PURE;
+  double __cdecl frexp(double _X,int *_Y) __MINGW_ATTRIB_PURE;
+  double __cdecl modf(double _X,double *_Y) __MINGW_ATTRIB_PURE;
+  double __cdecl fmod(double _X,double _Y) __MINGW_ATTRIB_PURE;
 
 #ifndef _CRT_ABS_DEFINED
 #define _CRT_ABS_DEFINED
@@ -145,14 +145,14 @@ extern "C" {
   };
 #endif
 
-  _CRTIMP double __cdecl _cabs(struct _complex _ComplexA);
-  double __cdecl _hypot(double _X,double _Y);
-  _CRTIMP double __cdecl _j0(double _X);
-  _CRTIMP double __cdecl _j1(double _X);
-  _CRTIMP double __cdecl _jn(int _X,double _Y);
-  _CRTIMP double __cdecl _y0(double _X);
-  _CRTIMP double __cdecl _y1(double _X);
-  _CRTIMP double __cdecl _yn(int _X,double _Y);
+  _CRTIMP double __cdecl _cabs(struct _complex _ComplexA) __MINGW_ATTRIB_PURE;
+  double __cdecl _hypot(double _X,double _Y) __MINGW_ATTRIB_PURE;
+  _CRTIMP double __cdecl _j0(double _X) __MINGW_ATTRIB_PURE;
+  _CRTIMP double __cdecl _j1(double _X) __MINGW_ATTRIB_PURE;
+  _CRTIMP double __cdecl _jn(int _X,double _Y) __MINGW_ATTRIB_PURE;
+  _CRTIMP double __cdecl _y0(double _X) __MINGW_ATTRIB_PURE;
+  _CRTIMP double __cdecl _y1(double _X) __MINGW_ATTRIB_PURE;
+  _CRTIMP double __cdecl _yn(int _X,double _Y) __MINGW_ATTRIB_PURE;
 #ifndef _CRT_MATHERR_DEFINED
 #define _CRT_MATHERR_DEFINED
   _CRTIMP int __cdecl _matherr (struct _exception *);
@@ -180,12 +180,12 @@ extern "C" {
 
 #if !defined(NO_OLDNAMES)
 
-_CRTIMP double __cdecl j0 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-_CRTIMP double __cdecl j1 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-_CRTIMP double __cdecl jn (int, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-_CRTIMP double __cdecl y0 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-_CRTIMP double __cdecl y1 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-_CRTIMP double __cdecl yn (int, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+_CRTIMP double __cdecl j0 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_PURE;
+_CRTIMP double __cdecl j1 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_PURE;
+_CRTIMP double __cdecl jn (int, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_PURE;
+_CRTIMP double __cdecl y0 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_PURE;
+_CRTIMP double __cdecl y1 (double) __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_PURE;
+_CRTIMP double __cdecl yn (int, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_PURE;
 
 _CRTIMP double __cdecl chgsign (double);
 /*
@@ -196,8 +196,8 @@ _CRTIMP double __cdecl chgsign (double);
 _CRTIMP double __cdecl scalb (double, long);
  *
  */
-  _CRTIMP int __cdecl finite (double);
-  _CRTIMP int __cdecl fpclass (double);
+  _CRTIMP int __cdecl finite (double) __MINGW_ATTRIB_PURE;
+  _CRTIMP int __cdecl fpclass (double) __MINGW_ATTRIB_PURE;
 
 #define FP_SNAN    _FPCLASS_SNAN
 #define FP_QNAN    _FPCLASS_QNAN
@@ -276,9 +276,9 @@ typedef long double double_t;
   converted to double, and zero when converted to float.)
 */
 
-  extern int __cdecl __fpclassifyl (long double);
-  extern int __cdecl __fpclassifyf (float);
-  extern int __cdecl __fpclassify (double);
+  extern int __cdecl __fpclassifyl (long double) __MINGW_ATTRIB_PURE;
+  extern int __cdecl __fpclassifyf (float) __MINGW_ATTRIB_PURE;
+  extern int __cdecl __fpclassify (double) __MINGW_ATTRIB_PURE;
 
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __fpclassifyl (long double x) {
@@ -302,9 +302,9 @@ typedef long double double_t;
 /* We don't need to worry about truncation here:
    A NaN stays a NaN. */
 
-  extern int __cdecl __isnan (double);
-  extern int __cdecl __isnanf (float);
-  extern int __cdecl __isnanl (long double);
+  extern int __cdecl __isnan (double) __MINGW_ATTRIB_PURE;
+  extern int __cdecl __isnanf (float) __MINGW_ATTRIB_PURE;
+  extern int __cdecl __isnanl (long double) __MINGW_ATTRIB_PURE;
 
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __isnan (double _x)
@@ -343,9 +343,9 @@ typedef long double double_t;
 #define isnormal(x) (fpclassify(x) == FP_NORMAL)
 
 /* 7.12.3.6 The signbit macro */
-  extern int __cdecl __signbit (double);
-  extern int __cdecl __signbitf (float);
-  extern int __cdecl __signbitl (long double);
+  extern int __cdecl __signbit (double) __MINGW_ATTRIB_PURE;
+  extern int __cdecl __signbitf (float) __MINGW_ATTRIB_PURE;
+  extern int __cdecl __signbitl (long double) __MINGW_ATTRIB_PURE;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __signbit (double x) {
     unsigned short stw;
@@ -371,123 +371,123 @@ typedef long double double_t;
   : __signbitl (x))
 
 /* 7.12.4 Trigonometric functions: Double in C89 */
-  extern float __cdecl sinf(float _X);
-  extern long double __cdecl sinl(long double);
+  extern float __cdecl sinf(float _X) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl sinl(long double) __MINGW_ATTRIB_PURE;
 
-  extern float __cdecl cosf(float _X);
-  extern long double __cdecl cosl(long double);
+  extern float __cdecl cosf(float _X) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl cosl(long double) __MINGW_ATTRIB_PURE;
 
-  extern float __cdecl tanf(float _X);
-  extern long double __cdecl tanl(long double);
-  extern float __cdecl asinf(float _X);
-  extern long double __cdecl asinl(long double);
+  extern float __cdecl tanf(float _X) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl tanl(long double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl asinf(float _X) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl asinl(long double) __MINGW_ATTRIB_PURE;
 
-  extern float __cdecl acosf (float);
-  extern long double __cdecl acosl (long double);
+  extern float __cdecl acosf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl acosl (long double) __MINGW_ATTRIB_PURE;
 
-  extern float __cdecl atanf (float);
-  extern long double __cdecl atanl (long double);
+  extern float __cdecl atanf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl atanl (long double) __MINGW_ATTRIB_PURE;
 
-  extern float __cdecl atan2f (float, float);
-  extern long double __cdecl atan2l (long double, long double);
+  extern float __cdecl atan2f (float, float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl atan2l (long double, long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.5 Hyperbolic functions: Double in C89  */
-  extern float __cdecl sinhf(float _X);
+  extern float __cdecl sinhf(float _X) __MINGW_ATTRIB_PURE;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE float sinhf(float _X) { return ((float)sinh((double)_X)); }
 #endif
-  extern long double __cdecl sinhl(long double);
+  extern long double __cdecl sinhl(long double) __MINGW_ATTRIB_PURE;
 
-  extern float __cdecl coshf(float _X);
+  extern float __cdecl coshf(float _X) __MINGW_ATTRIB_PURE;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE float coshf(float _X) { return ((float)cosh((double)_X)); }
 #endif
-  extern long double __cdecl coshl(long double);
+  extern long double __cdecl coshl(long double) __MINGW_ATTRIB_PURE;
 
-  extern float __cdecl tanhf(float _X);
+  extern float __cdecl tanhf(float _X) __MINGW_ATTRIB_PURE;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE float tanhf(float _X) { return ((float)tanh((double)_X)); }
 #endif
-  extern long double __cdecl tanhl(long double);
+  extern long double __cdecl tanhl(long double) __MINGW_ATTRIB_PURE;
 
 /* Inverse hyperbolic trig functions  */ 
 /* 7.12.5.1 */
-  extern double __cdecl acosh (double);
-  extern float __cdecl acoshf (float);
-  extern long double __cdecl acoshl (long double);
+  extern double __cdecl acosh (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl acoshf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl acoshl (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.5.2 */
-  extern double __cdecl asinh (double);
-  extern float __cdecl asinhf (float);
-  extern long double __cdecl asinhl (long double);
+  extern double __cdecl asinh (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl asinhf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl asinhl (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.5.3 */
-  extern double __cdecl atanh (double);
-  extern float __cdecl atanhf  (float);
-  extern long double __cdecl atanhl (long double);
+  extern double __cdecl atanh (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl atanhf  (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl atanhl (long double) __MINGW_ATTRIB_PURE;
 
 /* Exponentials and logarithms  */
 /* 7.12.6.1 Double in C89 */
-  extern float __cdecl expf(float _X);
+  extern float __cdecl expf(float _X) __MINGW_ATTRIB_PURE;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE float expf(float _X) { return ((float)exp((double)_X)); }
 #endif
-  extern long double __cdecl expl(long double);
+  extern long double __cdecl expl(long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.2 */
-  extern double __cdecl exp2(double);
-  extern float __cdecl exp2f(float);
-  extern long double __cdecl exp2l(long double);
+  extern double __cdecl exp2(double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl exp2f(float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl exp2l(long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.3 The expm1 functions */
 /* TODO: These could be inlined */
-  extern double __cdecl expm1(double);
-  extern float __cdecl expm1f(float);
-  extern long double __cdecl expm1l(long double);
+  extern double __cdecl expm1(double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl expm1f(float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl expm1l(long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.4 Double in C89 */
-  extern float frexpf(float _X,int *_Y);
+  extern float frexpf(float _X,int *_Y) __MINGW_ATTRIB_PURE;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE float frexpf(float _X,int *_Y) { return ((float)frexp((double)_X,_Y)); }
 #endif
-  extern long double __cdecl frexpl(long double,int *);
+  extern long double __cdecl frexpl(long double,int *) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.5 */
 #define FP_ILOGB0 ((int)0x80000000)
 #define FP_ILOGBNAN ((int)0x80000000)
-  extern int __cdecl ilogb (double);
-  extern int __cdecl ilogbf (float);
-  extern int __cdecl ilogbl (long double);
+  extern int __cdecl ilogb (double) __MINGW_ATTRIB_PURE;
+  extern int __cdecl ilogbf (float) __MINGW_ATTRIB_PURE;
+  extern int __cdecl ilogbl (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.6  Double in C89 */
-  extern float __cdecl ldexpf(float _X,int _Y);
+  extern float __cdecl ldexpf(float _X,int _Y) __MINGW_ATTRIB_PURE;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE float __cdecl ldexpf (float x, int expn) { return (float) ldexp ((double)x, expn); }
 #endif
-  extern long double __cdecl ldexpl (long double, int);
+  extern long double __cdecl ldexpl (long double, int) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.7 Double in C89 */
-  extern float __cdecl logf (float);
-  extern long double __cdecl logl(long double);
+  extern float __cdecl logf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl logl(long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.8 Double in C89 */
-  extern float __cdecl log10f (float);
-  extern long double __cdecl log10l(long double);
+  extern float __cdecl log10f (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl log10l(long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.9 */
-  extern double __cdecl log1p(double);
-  extern float __cdecl log1pf(float);
-  extern long double __cdecl log1pl(long double);
+  extern double __cdecl log1p(double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl log1pf(float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl log1pl(long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.10 */
-  extern double __cdecl log2 (double);
-  extern float __cdecl log2f (float);
-  extern long double __cdecl log2l (long double);
+  extern double __cdecl log2 (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl log2f (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl log2l (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.11 */
-  extern double __cdecl logb (double);
-  extern float __cdecl logbf (float);
-  extern long double __cdecl logbl (long double);
+  extern double __cdecl logb (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl logbf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl logbl (long double) __MINGW_ATTRIB_PURE;
 
 /* Inline versions.  GCC-4.0+ can do a better fast-math optimization
    with __builtins. */
@@ -562,56 +562,56 @@ typedef long double double_t;
 #endif
 #endif
 /* 7.12.7.3  */
-  extern double __cdecl hypot (double, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005; /* in libmoldname.a */
-  extern float __cdecl hypotf (float x, float y);
+  extern double __cdecl hypot (double, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_PURE; /* in libmoldname.a */
+  extern float __cdecl hypotf (float x, float y) __MINGW_ATTRIB_PURE;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE float __cdecl hypotf (float x, float y) { return (float) hypot ((double)x, (double)y);}
 #endif
-  extern long double __cdecl hypotl (long double, long double);
+  extern long double __cdecl hypotl (long double, long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.7.4 The pow functions. Double in C89 */
-  extern float __cdecl powf(float _X,float _Y);
+  extern float __cdecl powf(float _X,float _Y) __MINGW_ATTRIB_PURE;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE float powf(float _X,float _Y) { return ((float)pow((double)_X,(double)_Y)); }
 #endif
-  extern long double __cdecl powl (long double, long double);
+  extern long double __cdecl powl (long double, long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.7.5 The sqrt functions. Double in C89. */
-  extern float __cdecl sqrtf (float);
-  extern long double sqrtl(long double);
+  extern float __cdecl sqrtf (float) __MINGW_ATTRIB_PURE;
+  extern long double sqrtl(long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.8.1 The erf functions  */
-  extern double __cdecl erf (double);
-  extern float __cdecl erff (float);
-  extern long double __cdecl erfl (long double);
+  extern double __cdecl erf (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl erff (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl erfl (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.8.2 The erfc functions  */
-  extern double __cdecl erfc (double);
-  extern float __cdecl erfcf (float);
-  extern long double __cdecl erfcl (long double);
+  extern double __cdecl erfc (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl erfcf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl erfcl (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.8.3 The lgamma functions */
-  extern double __cdecl lgamma (double);
-  extern float __cdecl lgammaf (float);
-  extern long double __cdecl lgammal (long double);
+  extern double __cdecl lgamma (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl lgammaf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl lgammal (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.8.4 The tgamma functions */
-  extern double __cdecl tgamma (double);
-  extern float __cdecl tgammaf (float);
-  extern long double __cdecl tgammal (long double);
+  extern double __cdecl tgamma (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl tgammaf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl tgammal (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.9.1 Double in C89 */
-  extern float __cdecl ceilf (float);
-  extern long double __cdecl ceill (long double);
+  extern float __cdecl ceilf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl ceill (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.9.2 Double in C89 */
-  extern float __cdecl floorf (float);
-  extern long double __cdecl floorl (long double);
+  extern float __cdecl floorf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl floorl (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.9.3 */
-  extern double __cdecl nearbyint ( double);
-  extern float __cdecl nearbyintf (float);
-  extern long double __cdecl nearbyintl (long double);
+  extern double __cdecl nearbyint ( double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl nearbyintf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl nearbyintl (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.9.4 */
 /* round, using fpu control word settings */
@@ -706,42 +706,42 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
 
 /* 7.12.9.6 */
 /* round away from zero, regardless of fpu control word settings */
-  extern double __cdecl round (double);
-  extern float __cdecl roundf (float);
-  extern long double __cdecl roundl (long double);
+  extern double __cdecl round (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl roundf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl roundl (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.9.7  */
-  extern long __cdecl lround (double);
-  extern long __cdecl lroundf (float);
-  extern long __cdecl lroundl (long double);
-  __MINGW_EXTENSION long long __cdecl llround (double);
-  __MINGW_EXTENSION long long __cdecl llroundf (float);
-  __MINGW_EXTENSION long long __cdecl llroundl (long double);
+  extern long __cdecl lround (double) __MINGW_ATTRIB_PURE;
+  extern long __cdecl lroundf (float) __MINGW_ATTRIB_PURE;
+  extern long __cdecl lroundl (long double) __MINGW_ATTRIB_PURE;
+  __MINGW_EXTENSION long long __cdecl llround (double) __MINGW_ATTRIB_PURE;
+  __MINGW_EXTENSION long long __cdecl llroundf (float) __MINGW_ATTRIB_PURE;
+  __MINGW_EXTENSION long long __cdecl llroundl (long double) __MINGW_ATTRIB_PURE;
   
 /* 7.12.9.8 */
 /* round towards zero, regardless of fpu control word settings */
-  extern double __cdecl trunc (double);
-  extern float __cdecl truncf (float);
-  extern long double __cdecl truncl (long double);
+  extern double __cdecl trunc (double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl truncf (float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl truncl (long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.10.1 Double in C89 */
-  extern float __cdecl fmodf (float, float);
-  extern long double __cdecl fmodl (long double, long double);
+  extern float __cdecl fmodf (float, float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl fmodl (long double, long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.10.2 */ 
-  extern double __cdecl remainder (double, double);
-  extern float __cdecl remainderf (float, float);
-  extern long double __cdecl remainderl (long double, long double);
+  extern double __cdecl remainder (double, double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl remainderf (float, float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl remainderl (long double, long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.10.3 */
-  extern double __cdecl remquo(double, double, int *);
-  extern float __cdecl remquof(float, float, int *);
-  extern long double __cdecl remquol(long double, long double, int *);
+  extern double __cdecl remquo(double, double, int *) __MINGW_ATTRIB_PURE;
+  extern float __cdecl remquof(float, float, int *) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl remquol(long double, long double, int *) __MINGW_ATTRIB_PURE;
 
 /* 7.12.11.1 */
-  extern double __cdecl copysign (double, double); /* in libmoldname.a */
-  extern float __cdecl copysignf (float, float);
-  extern long double __cdecl copysignl (long double, long double);
+  extern double __cdecl copysign (double, double) __MINGW_ATTRIB_PURE; /* in libmoldname.a */
+  extern float __cdecl copysignf (float, float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl copysignl (long double, long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.11.2 Return a NaN */
   extern double __cdecl nan(const char *tagp);
@@ -766,9 +766,9 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
 
 /* 7.12.12.1 */
 /*  x > y ? (x - y) : 0.0  */
-  extern double __cdecl fdim (double x, double y);
-  extern float __cdecl fdimf (float x, float y);
-  extern long double __cdecl fdiml (long double x, long double y);
+  extern double __cdecl fdim (double x, double y) __MINGW_ATTRIB_PURE;
+  extern float __cdecl fdimf (float x, float y) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl fdiml (long double x, long double y) __MINGW_ATTRIB_PURE;
 
 /* fmax and fmin.
    NaN arguments are treated as missing data: if one argument is a NaN
@@ -776,20 +776,20 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
    value. */
 
 /* 7.12.12.2 */
-  extern double __cdecl fmax  (double, double);
-  extern float __cdecl fmaxf (float, float);
-  extern long double __cdecl fmaxl (long double, long double);
+  extern double __cdecl fmax  (double, double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl fmaxf (float, float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl fmaxl (long double, long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.12.3 */
-  extern double __cdecl fmin (double, double);
-  extern float __cdecl fminf (float, float);
-  extern long double __cdecl fminl (long double, long double);
+  extern double __cdecl fmin (double, double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl fminf (float, float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl fminl (long double, long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.13.1 */
 /* return x * y + z as a ternary op */ 
-  extern double __cdecl fma (double, double, double);
-  extern float __cdecl fmaf (float, float, float);
-  extern long double __cdecl fmal (long double, long double, long double);
+  extern double __cdecl fma (double, double, double) __MINGW_ATTRIB_PURE;
+  extern float __cdecl fmaf (float, float, float) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl fmal (long double, long double, long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.14 */
 /* 
@@ -834,17 +834,17 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
 #endif /* __NO_ISOCEXT */
 
 #if defined(_X86_) && !defined(__x86_64)
-  _CRTIMP float __cdecl _hypotf(float _X,float _Y);
+  _CRTIMP float __cdecl _hypotf(float _X,float _Y) __MINGW_ATTRIB_PURE;
 #endif
 
 #if !defined(__ia64__)
-   _CRTIMP float __cdecl _copysignf (float _Number,float _Sign);
-   _CRTIMP float __cdecl _chgsignf (float _X);
-   _CRTIMP float __cdecl _logbf(float _X);
-   _CRTIMP float __cdecl _nextafterf(float _X,float _Y);
-   _CRTIMP int __cdecl _finitef(float _X);
-   _CRTIMP int __cdecl _isnanf(float _X);
-   _CRTIMP int __cdecl _fpclassf(float _X);
+   _CRTIMP float __cdecl _copysignf (float _Number,float _Sign) __MINGW_ATTRIB_PURE;
+   _CRTIMP float __cdecl _chgsignf (float _X) __MINGW_ATTRIB_PURE;
+   _CRTIMP float __cdecl _logbf(float _X) __MINGW_ATTRIB_PURE;
+   _CRTIMP float __cdecl _nextafterf(float _X,float _Y) __MINGW_ATTRIB_PURE;
+   _CRTIMP int __cdecl _finitef(float _X) __MINGW_ATTRIB_PURE;
+   _CRTIMP int __cdecl _isnanf(float _X) __MINGW_ATTRIB_PURE;
+   _CRTIMP int __cdecl _fpclassf(float _X) __MINGW_ATTRIB_PURE;
 #endif
 
 #ifdef _SIGN_DEFINED
