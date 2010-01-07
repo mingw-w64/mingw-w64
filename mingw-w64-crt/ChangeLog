@@ -1,3 +1,12 @@
+2009-12-05  Jonathan Yong  <jon_y@users.sourceforge.net>
+	* Makefile.am (src_libmingwex): Add misc/tdelete.c
+	misc/tfind.c misc/tsearch.c misc/twalk.c.
+	* misc/tdelete.c: New.
+	* misc/tfind.c: New.
+	* misc/tsearch.c: New.
+	* misc/twalk.c: New.
+	* Makefile.in: Regenerated.
+
 2010-01-04  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* configure.ac (--enable-wildcard): New configure time option in
