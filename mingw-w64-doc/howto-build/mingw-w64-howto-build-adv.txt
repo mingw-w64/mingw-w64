@@ -129,7 +129,7 @@ is fine.
 
 Homepage: <http://www.cs.unipr.it/ppl/>
 Depends on:     GMP
-Depended by:    PPL
+Depended by:    ClooG
 GCC dependency type: None (GCC does not use it directly)
 
 PPL requires that GMP be built with C++ bindings (--enable-cxx) and
