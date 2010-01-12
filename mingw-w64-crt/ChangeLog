@@ -1,3 +1,11 @@
+2010-01-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mingw-w64-headers/dirent.h: synchronized with the mingw.org
+	version for correct operation with mingw-3.1x version requirements.
+	* mingw-w64-crt/misc/dirent.c: reverted revision 76 change for bug
+	#1801043, not valid any longer. (do we manually need to copy that
+	field???)
+
 2010-01-07  Jonathan Yong  <jon_y@users.sourceforge.net>
 	* Makefile.am (src_libmingwex): Add misc/tdelete.c
 	misc/tfind.c misc/tsearch.c misc/twalk.c.
