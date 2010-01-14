@@ -173,7 +173,7 @@ extern "C" {
 #ifndef _TCHAR_DEFINED
 #define _TCHAR_DEFINED
   typedef WCHAR TCHAR,*PTCHAR;
-  typedef WCHAR TBYTE ,*PTBYTE;
+  typedef WCHAR TBYTE,*PTBYTE;
 #endif
 
   typedef LPWSTR LPTCH,PTCH;
@@ -187,7 +187,7 @@ extern "C" {
 #ifndef _TCHAR_DEFINED
 #define _TCHAR_DEFINED
   typedef char TCHAR,*PTCHAR;
-  typedef unsigned char TBYTE ,*PTBYTE;
+  typedef unsigned char TBYTE,*PTBYTE;
 #endif
 
   typedef LPSTR LPTCH,PTCH;
