@@ -108,9 +108,8 @@ extern "C" {
 
 #ifndef _TCHAR_DEFINED
 #define _TCHAR_DEFINED
-#ifndef	NO_OLDNAMES
-  typedef wchar_t TCHAR;
-#endif
+  typedef wchar_t TCHAR,*PTCHAR;
+  typedef wchar_t TBYTE,*PTBYTE;
 #endif
 
 #define _TEOF WEOF
@@ -756,10 +755,9 @@ extern "C" {
 #endif
 
 #ifndef _TCHAR_DEFINED
-#ifndef	NO_OLDNAMES
-  typedef char TCHAR;
-#endif
 #define _TCHAR_DEFINED
+  typedef char TCHAR,*PTCHAR;
+  typedef unsigned char TBYTE,*PTBYTE;
 #endif
 
 #ifdef _MB_MAP_DIRECT
