@@ -1,3 +1,7 @@
+2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* COPYING: Change license to ZPL 2.1.
+
 2010-01-12  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mingw-w64-headers/dirent.h: synchronized with the mingw.org
