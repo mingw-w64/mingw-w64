@@ -375,6 +375,9 @@ extern "C" {
   int __cdecl rand(void);
   _CRTIMP int __cdecl _set_error_mode(int _Mode);
   void __cdecl srand(unsigned int _Seed);
+#ifdef _CRT_RAND_S
+  _CRTIMP errno_t __cdecl rand_s(unsigned int *randomValue);
+#endif
   double __cdecl strtod(const char *_Str,char **_EndPtr);
   float __cdecl strtof(const char *nptr, char **endptr);
   long double __cdecl strtold(const char *, char **);

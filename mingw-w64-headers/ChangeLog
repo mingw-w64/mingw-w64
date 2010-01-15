@@ -1,3 +1,7 @@
+2010-01-15  Philippe Dunski  <koala01@free.fr>
+
+	* crt/stdlib.h (rand_s): New prototype.
+
 2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* COPYING: Change license to ZPL 2.1.
