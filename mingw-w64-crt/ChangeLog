@@ -1,3 +1,9 @@
+2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* COPYING: New license text.
+	* DISCLAIMER: Updated for New license text.
+	* DISCLAIMER.PD: Moved old disclaimer template for PD.
+
 2010-01-12  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mingw-w64-headers/dirent.h: synchronized with the mingw.org
