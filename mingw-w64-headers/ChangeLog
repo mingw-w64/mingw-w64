@@ -1,3 +1,8 @@
+2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
+        Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/: Change DISCLAIMER to DISCLAIMER.PD.
+
 2010-01-15  Philippe Dunski  <koala01@free.fr>
 
 	* crt/stdlib.h (rand_s): New prototype.

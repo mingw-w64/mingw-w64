@@ -1,7 +1,7 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 /* ISO C9x  7.18  Integer types <stdint.h>
  * Based on ISO/IEC SC22/WG14 9899 Committee draft (SC22 N2794)
