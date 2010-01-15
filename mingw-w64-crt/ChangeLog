@@ -1,3 +1,11 @@
+2010-01-15  Philippe Dunski  <koala01@free.fr>
+
+        * lib32/msvcrt.def (rand_s): New import symbol.
+	* lib32/msvcr80.def (rand_s): Likewise.
+	* lib64/msvcrt.def (rand_s): Likewise.
+	* lib64/wmsvcrt.def (rand_s): Likewise.
+	* lib64/msvcr80.def (rand_s): Likewise.
+
 2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* COPYING: New license text.

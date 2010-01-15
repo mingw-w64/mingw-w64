@@ -764,6 +764,7 @@ putwchar
 qsort
 raise
 rand
+rand_s
 realloc
 remove
 rename
