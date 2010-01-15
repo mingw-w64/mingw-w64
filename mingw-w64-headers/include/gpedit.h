@@ -1,7 +1,7 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 DEFINE_GUID(CLSID_GPESnapIn,0x8fc0b734,0xa0e1,0x11d1,0xa7,0xd3,0x0,0x0,0xf8,0x75,0x71,0xe3);
 DEFINE_GUID(NODEID_Machine,0x8fc0b737,0xa0e1,0x11d1,0xa7,0xd3,0x0,0x0,0xf8,0x75,0x71,0xe3);

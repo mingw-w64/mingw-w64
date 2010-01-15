@@ -1,7 +1,7 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 DEFINE_GUID(cNodetypeSceTemplateServices,0x24a7f717,0x1f0c,0x11d1,0xaf,0xfb,0x0,0xc0,0x4f,0xb9,0x84,0xf9);
 DEFINE_GUID(cNodetypeSceAnalysisServices,0x678050c7,0x1ff8,0x11d1,0xaf,0xfb,0x0,0xc0,0x4f,0xb9,0x84,0xf9);

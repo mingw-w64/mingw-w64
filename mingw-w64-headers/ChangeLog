@@ -1,6 +1,7 @@
 2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
         Ozkan Sezer  <sezeroz@gmail.com>
 
+	* include/: Change DISCLAIMER to DISCLAIMER.PD.
 	* crt/: Change DISCLAIMER to DISCLAIMER.PD.
 
 2010-01-15  Philippe Dunski  <koala01@free.fr>

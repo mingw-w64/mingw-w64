@@ -1,7 +1,7 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 DEFINE_GUID(CLSID_DsAdminCreateObj,0xe301a009,0xf901,0x11d2,0x82,0xb9,0x0,0xc0,0x4f,0x68,0x92,0x8b);
 DEFINE_GUID(IID_IDsAdminCreateObj,0x53554a38,0xf902,0x11d2,0x82,0xb9,0x0,0xc0,0x4f,0x68,0x92,0x8b);

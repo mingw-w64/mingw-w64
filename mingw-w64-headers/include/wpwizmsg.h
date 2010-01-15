@@ -1,7 +1,7 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #define WPWIZ_ERROR_FIRST 0x40042000L
 #define WPWIZ_ERROR_UNKNOWN 0xC0042001L
