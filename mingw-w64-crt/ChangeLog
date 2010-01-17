@@ -1,3 +1,9 @@
+2010-01-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/winusb.def: New.
+	* lib64/winusb.def: New.
+	* Makefile.am: Add both.
+
 2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
 	Ozkan Sezer  <sezeroz@gmail.com>
 
