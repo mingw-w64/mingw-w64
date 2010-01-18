@@ -2409,6 +2409,7 @@ src_libmingwex32 = \
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
 @LIB32_TRUE@lib32_SCRIPTS = \
+@LIB32_TRUE@  lib32/libwinusb.a \
 @LIB32_TRUE@  lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
 @LIB32_TRUE@  lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
 @LIB32_TRUE@  lib32/libctl3d32.a   lib32/libd3d8.a      lib32/libd3d9.a      lib32/libd3dim.a     lib32/libd3drm.a    \
@@ -2519,6 +2520,7 @@ src_libmingwex32 = \
 @LIB64_TRUE@lib64_libws2_32_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libws2_32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_SCRIPTS = \
+@LIB64_TRUE@  lib64/libwinusb.a \
 @LIB64_TRUE@  lib64/lib6to4svc.a    lib64/libaaaamon.a    lib64/libacgen64.a      lib64/libacledit.a    lib64/libaclui.a         \
 @LIB64_TRUE@  lib64/libactiveds.a   lib64/libactxprxy.a   lib64/libadmparse.a     lib64/libadmwprox.a   lib64/libadptif.a        \
 @LIB64_TRUE@  lib64/libadrot.a      lib64/libadsiis.a     lib64/libadsiisex.a     lib64/libadsldpc.a    lib64/libadsldp.a        \
