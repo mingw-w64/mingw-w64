@@ -1,3 +1,8 @@
+2010-01-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* commctrl.h: Relaxed _WIN32_IE version requirement to 0x0500
+	for now. Added a big FIXME note that it should really be 0x0501.
+
 2010-01-01  Jonathan Yong  <jon_y@sourceforge.net>
 
         * include/profile.h (_MCOUNT_DECL): Add gnu_inline attribute
