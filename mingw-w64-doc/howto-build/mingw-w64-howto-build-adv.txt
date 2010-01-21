@@ -401,6 +401,8 @@ Explanation:
 	Enable building 64bit libs for use with win64 programming. For $host_cpu
 	x86_64-w64-mingw32, it is enabled by default.
 
+Once the configure ends successfully, run "make && make install".
+
 If you used symlinks or ntfs junction points to link the "lib*" directories,
 you should be fine. If you manually copied x86_64-w64-mingw32 to mingw, you
 must copy the "lib*" directories so that "lib64" mirrors "lib" and
