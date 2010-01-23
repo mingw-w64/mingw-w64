@@ -60,6 +60,7 @@ AS_CASE([$enable_sdk],
 AC_MSG_RESULT([$enable_sdk])
 
 MINGW_HAS_DX=0
+MINGW_HAS_DDK=0
 
 AS_IF([test $enable_directx = yes],[
   DXHEAD_LIST=$srcdir/direct-x/include/*.[[hi]]*
@@ -70,13 +71,14 @@ AC_SUBST([MINGW_HAS_DX])
 
 AS_IF([test $enable_ddk = yes],[
   DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
-  SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/ddk/include/sdks/*.h],
+  MINGW_HAS_DDK=1],
   [])
 AC_SUBST([DDKHEAD_LIST])
+AC_SUBST([MINGW_HAS_DDK])
 
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile crt/sdks/_mingw_directx.h])
+AC_CONFIG_FILES([Makefile crt/sdks/_mingw_directx.h crt/sdks/_mingw_ddk.h])
 AC_OUTPUT
