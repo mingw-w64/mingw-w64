@@ -1,3 +1,7 @@
+2010-01-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/_mingw.h: Add SDK include of sdks/_mingw_ddk.h.
+
 2010-01-14  Kai Tietz  <kai.tietz@onevision.com>
 
         * tchar.h (PTCHAR, TBYTE, PTBYTE): Added.

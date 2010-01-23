@@ -576,5 +576,6 @@ extern "C" {
 #define MINGW_SDK_INIT
 
 #include "sdks/_mingw_directx.h"
+#include "sdks/_mingw_ddk.h"
 
 #endif /* MINGW_SDK_INIT */
