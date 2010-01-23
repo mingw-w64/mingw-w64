@@ -559,6 +559,7 @@ PACKAGE_URL=''
 ac_unique_file="crt/_mingw.h"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
+MINGW_HAS_DDK
 DDKHEAD_LIST
 MINGW_HAS_DX
 DXHEAD_LIST
@@ -2344,6 +2345,7 @@ esac
 $as_echo "$enable_sdk" >&6; }
 
 MINGW_HAS_DX=0
+MINGW_HAS_DDK=0
 
 if test $enable_directx = yes; then :
 
@@ -2356,15 +2358,16 @@ fi
 if test $enable_ddk = yes; then :
 
   DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
-  SDKSHEAD_LIST="$SDKSHEAD_LIST "$srcdir/ddk/include/sdks/*.h
+  MINGW_HAS_DDK=1
 fi
+
 
 
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
 
-ac_config_files="$ac_config_files Makefile crt/sdks/_mingw_directx.h"
+ac_config_files="$ac_config_files Makefile crt/sdks/_mingw_directx.h crt/sdks/_mingw_ddk.h"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -3059,6 +3062,7 @@ do
     "config.h") CONFIG_HEADERS="$CONFIG_HEADERS config.h" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "crt/sdks/_mingw_directx.h") CONFIG_FILES="$CONFIG_FILES crt/sdks/_mingw_directx.h" ;;
+    "crt/sdks/_mingw_ddk.h") CONFIG_FILES="$CONFIG_FILES crt/sdks/_mingw_ddk.h" ;;
 
   *) as_fn_error "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

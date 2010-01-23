@@ -41,6 +41,7 @@ DIST_COMMON = $(am__basehead_HEADERS_DIST) $(am__configure_deps) \
 	$(ddkhead_HEADERS) $(dxhead_HEADERS) $(glhead_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/config.h.in $(top_srcdir)/configure \
+	$(top_srcdir)/crt/sdks/_mingw_ddk.h.in \
 	$(top_srcdir)/crt/sdks/_mingw_directx.h.in ChangeLog \
 	build-aux/config.guess build-aux/config.sub \
 	build-aux/install-sh build-aux/missing
@@ -52,7 +53,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = crt/sdks/_mingw_directx.h
+CONFIG_CLEAN_FILES = crt/sdks/_mingw_directx.h crt/sdks/_mingw_ddk.h
 CONFIG_CLEAN_VPATH_FILES =
 SOURCES =
 DIST_SOURCES =
@@ -97,7 +98,8 @@ am__installdirs = "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" \
 	"$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" \
 	"$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" \
 	"$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)"
-am__sdkshead_HEADERS_DIST = @SDKSHEAD_LIST@ crt/sdks/_mingw_directx.h
+am__sdkshead_HEADERS_DIST = @SDKSHEAD_LIST@ crt/sdks/_mingw_directx.h \
+	crt/sdks/_mingw_ddk.h
 am__sechead_HEADERS_DIST = crt/sec_api/conio_s.h \
 	crt/sec_api/crtdbg_s.h crt/sec_api/io_s.h \
 	crt/sec_api/mbstring_s.h crt/sec_api/search_s.h \
@@ -150,6 +152,7 @@ LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LTLIBOBJS = @LTLIBOBJS@
 MAKEINFO = @MAKEINFO@
+MINGW_HAS_DDK = @MINGW_HAS_DDK@
 MINGW_HAS_DX = @MINGW_HAS_DX@
 MKDIR_P = @MKDIR_P@
 PACKAGE = @PACKAGE@
@@ -267,7 +270,7 @@ sdksheaddir = $(baseheaddir)/sdks
 @ENABLE_CRT_TRUE@secsyshead_HEADERS = crt/sec_api/sys/timeb_s.h
 @ENABLE_CRT_FALSE@sdkshead_HEADERS = @SDKSHEAD_LIST@
 @ENABLE_CRT_TRUE@sdkshead_HEADERS = crt/sdks/_mingw_directx.h \
-@ENABLE_CRT_TRUE@	@SDKSHEAD_LIST@ $(am__empty)
+@ENABLE_CRT_TRUE@	crt/sdks/_mingw_ddk.h @SDKSHEAD_LIST@
 glhead_HEADERS = @GLHEAD_LIST@
 ddkheaddir = $(baseheaddir)/ddk
 dxheaddir = $(baseheaddir)
@@ -330,6 +333,8 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 distclean-hdr:
 	-rm -f config.h stamp-h1
 crt/sdks/_mingw_directx.h: $(top_builddir)/config.status $(top_srcdir)/crt/sdks/_mingw_directx.h.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
+crt/sdks/_mingw_ddk.h: $(top_builddir)/config.status $(top_srcdir)/crt/sdks/_mingw_ddk.h.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 install-baseheadHEADERS: $(basehead_HEADERS)
 	@$(NORMAL_INSTALL)
