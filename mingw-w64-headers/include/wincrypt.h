@@ -1293,7 +1293,7 @@ extern "C" {
 #define szOID_SUBJECT_ALT_NAME "2.5.29.7"
 #define szOID_ISSUER_ALT_NAME "2.5.29.8"
 #define szOID_BASIC_CONSTRAINTS "2.5.29.10"
-/* szOID_KEY_USAGE is defined incorrectly in msdn as 2.5.29.4 -- See http://www.google.com/codesearch?q=OID_KEY_USAGE */
+/* szOID_KEY_USAGE is defined incorrectly in msdn as 2.5.29.4 -- http://www.oid-info.com/get/2.5.29.15 RFC3280 */
 #define szOID_KEY_USAGE "2.5.29.15"
 #define szOID_PRIVATEKEY_USAGE_PERIOD "2.5.29.16"
 #define szOID_BASIC_CONSTRAINTS2 "2.5.29.19"
