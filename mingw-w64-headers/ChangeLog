@@ -1,3 +1,11 @@
+2010-01-25  Mook <mook.gcc@gmail.com>
+	* include/wincrypt.h: Comment out CERT_ALT_NAME_ENTRY::x400Address.
+
+2010-01-24  NightStrike <NightStrike@gmail.com>
+	* include/wincrypt.h: Update to w32api 3.11 upstream.
+	* include/w32api.h: Update w32api compatibility version number to
+	3.11.
+
 2010-01-23  Jonathan Yong  <jon_y@users.sourceforge.net>
 	* Makefile.am: Add _mingw_ddk.h install rule.
 	* ddk/include/sdks/_mingw_ddk.h: Removed.

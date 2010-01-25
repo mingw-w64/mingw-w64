@@ -1509,7 +1509,12 @@ extern "C" {
       PCERT_OTHER_NAME pOtherName;
       LPWSTR pwszRfc822Name;
       LPWSTR pwszDNSName;
+      /* CERT_DATA_BLOB is not documented, and x400Address is documented
+       * to be not implemented; commented out to prevent compile errors
+       * see http://msdn.microsoft.com/en-us/library/aa377173.aspx for
+       * CERT_ALT_NAME_ENTRY documentation where this is specified.
       CERT_DATA_BLOB x400Address;
+       */
       CERT_NAME_BLOB DirectoryName;
       LPWSTR pEdiPartyName;
       LPWSTR pwszURL;
