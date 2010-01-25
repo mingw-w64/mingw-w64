@@ -98,9 +98,23 @@ extern "C" {
 #define WTS_PROTOCOL_TYPE_RDP 2
 
   typedef enum _WTS_INFO_CLASS {
-    WTSInitialProgram,WTSApplicationName,WTSWorkingDirectory,WTSOEMId,WTSSessionId,WTSUserName,WTSWinStationName,WTSDomainName,WTSConnectState,
-    WTSClientBuildNumber,WTSClientName,WTSClientDirectory,WTSClientProductId,WTSClientHardwareId,WTSClientAddress,WTSClientDisplay,
-    WTSClientProtocolType
+    WTSInitialProgram       = 0,
+    WTSApplicationName      = 1,
+    WTSWorkingDirectory     = 2,
+    WTSOEMId                = 3,
+    WTSSessionId            = 4,
+    WTSUserName             = 5,
+    WTSWinStationName       = 6,
+    WTSDomainName           = 7,
+    WTSConnectState         = 8,
+    WTSClientBuildNumber    = 9,
+    WTSClientName           = 10,
+    WTSClientDirectory      = 11,
+    WTSClientProductId      = 12,
+    WTSClientHardwareId     = 13,
+    WTSClientAddress        = 14,
+    WTSClientDisplay        = 15,
+    WTSClientProtocolType   = 16
   } WTS_INFO_CLASS;
 
   typedef struct _WTS_CLIENT_ADDRESS {
