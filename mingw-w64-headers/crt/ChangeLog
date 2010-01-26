@@ -1,3 +1,7 @@
+2010-01-26  Jonathan Yong  <jon_y@users.sourceforge.net>
+	* getopt.h: Sync with mingw.org, it is also now PD
+	instead of BSD 4 clause.
+
 2010-01-23  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/_mingw.h: Add SDK include of sdks/_mingw_ddk.h.
