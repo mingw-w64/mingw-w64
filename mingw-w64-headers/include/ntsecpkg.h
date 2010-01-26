@@ -226,7 +226,12 @@ extern "C" {
   } SECPKG_PARAMETERS,*PSECPKG_PARAMETERS;
 
   typedef enum _SECPKG_EXTENDED_INFORMATION_CLASS {
-    SecpkgGssInfo = 1,SecpkgContextThunks,SecpkgMutualAuthLevel,SecpkgWowClientDll,SecpkgExtraOids,SecpkgMaxInfo
+    SecpkgGssInfo = 1,
+    SecpkgContextThunks,
+    SecpkgMutualAuthLevel,
+    SecpkgWowClientDll,
+    SecpkgExtraOids,
+    SecpkgMaxInfo
   } SECPKG_EXTENDED_INFORMATION_CLASS;
 
   typedef struct _SECPKG_GSS_INFO {
@@ -322,7 +327,11 @@ extern "C" {
   typedef BOOLEAN (NTAPI LSA_DELETE_SHARED_MEMORY)(PVOID SharedMem);
 
   typedef enum _SECPKG_NAME_TYPE {
-    SecNameSamCompatible,SecNameAlternateId,SecNameFlat,SecNameDN,SecNameSPN
+    SecNameSamCompatible,
+    SecNameAlternateId,
+    SecNameFlat,
+    SecNameDN,
+    SecNameSPN
   } SECPKG_NAME_TYPE;
 
   typedef NTSTATUS (NTAPI LSA_OPEN_SAM_USER)(PSECURITY_STRING Name,SECPKG_NAME_TYPE NameType,PSECURITY_STRING Prefix,BOOLEAN AllowGuest,ULONG Reserved,PVOID *UserHandle);
