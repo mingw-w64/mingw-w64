@@ -117,7 +117,7 @@ CertSerializeCertificateStoreElement@16
 CertSetCRLContextProperty@16
 CertSetCTLContextProperty@16
 CertSetCertificateContextPropertiesFromCTLEntry@12
-CertSetCertificateContextProperty@24
+CertSetCertificateContextProperty@16
 CertSetEnhancedKeyUsage@8
 CertSetStoreProperty@16
 CertStrToNameA@28
@@ -148,7 +148,7 @@ CryptDecryptMessage@24
 CryptEncodeObject@20
 CryptEncodeObjectEx@28
 CryptEncryptMessage@28
-CryptEnumKeyIdentifierProperties@16
+CryptEnumKeyIdentifierProperties@28
 CryptEnumOIDFunction@8
 CryptEnumOIDInfo@12
 CryptEnumProvidersU@24
@@ -163,6 +163,8 @@ CryptFreeOIDFunctionAddress@8
 CryptGetAsyncParam@16
 CryptGetDefaultOIDDllList@16
 CryptGetDefaultOIDFunctionAddress@24
+CryptGetDefaultProviderA@20
+CryptGetDefaultProviderW@20
 CryptGetKeyIdentifierProperty@28
 CryptGetMessageCertificates@20
 CryptGetMessageSignerCount@12
