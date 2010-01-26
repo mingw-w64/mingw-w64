@@ -114,7 +114,15 @@ extern "C" {
     WTSClientHardwareId     = 13,
     WTSClientAddress        = 14,
     WTSClientDisplay        = 15,
-    WTSClientProtocolType   = 16
+    WTSClientProtocolType   = 16,
+    WTSIdleTime             = 17,
+    WTSLogonTime            = 18,
+    WTSIncomingBytes        = 19,
+    WTSOutgoingBytes        = 20,
+    WTSIncomingFrames       = 21,
+    WTSOutgoingFrames       = 22,
+    WTSClientInfo           = 23,
+    WTSSessionInfo          = 24
   } WTS_INFO_CLASS;
 
   typedef struct _WTS_CLIENT_ADDRESS {
