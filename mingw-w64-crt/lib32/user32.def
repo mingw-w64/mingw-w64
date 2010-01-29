@@ -485,6 +485,7 @@ RegisterClipboardFormatW@4
 RegisterDeviceNotificationA@12
 RegisterDeviceNotificationW@12
 RegisterHotKey@16
+RegisterPowerSettingNotification@12
 RegisterRawInputDevices@12
 RegisterWindowMessageA@4
 RegisterWindowMessageW@4
@@ -614,6 +615,7 @@ UnregisterClassA@8
 UnregisterClassW@8
 UnregisterDeviceNotification@4
 UnregisterHotKey@8
+UnregisterPowerSettingNotification@4
 UpdateLayeredWindow@36
 UpdateWindow@4
 UserHandleGrantAccess@12
