@@ -1,5 +1,16 @@
 2010-01-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* stdarg.h: Separate our stdarg.h into two, one which is the gcc-
+	provided header and the other as _mingw_stdarg.h. Make stdarg.h include
+	_mingw_stdarg.h.
+	* float.h: Separate our float.h into two, one which is the gcc-
+	provided header and the other as _mingw_float.h. Make float.h include
+	_mingw_float.h. Fix confused license.
+	* _mingw_float.h: New.
+	* _mingw_stdarg.h: New.
+
+2010-01-29  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* stdarg.h: Sync with the gcc PR c++/36799 fix from
 	gcc trunk 2009-03-27/r145106.
 
