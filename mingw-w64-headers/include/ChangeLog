@@ -1,3 +1,8 @@
+2010-01-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdarg.h: Sync with the gcc PR c++/36799 fix from gcc trunk 
+	2009-03-27/r145106.
+
 2010-01-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* commctrl.h: Relaxed _WIN32_IE version requirement to 0x0500
