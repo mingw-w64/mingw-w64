@@ -1,3 +1,9 @@
+2010-01-29  Kai TIetz  <kai.tietz@onevision.com>
+
+	* Makefile.am: Add libmshtml.a and libmshtmled.a to build.
+	* lib32/mshtml.def: New.
+	* lib32/mshtmled.def: New.
+
 2010-01-16  Kai Tietz  <kai.tietz@onevision.com>
 
 	* lib32/winusb.def: New.

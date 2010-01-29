@@ -363,7 +363,7 @@ lib32_SCRIPTS = \
   lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a \
   \
   lib32/libgpapi.a lib32/libgpedit.a lib32/libgpprefcl.a lib32/libgpscript.a \
-  lib32/libgptext.a \
+  lib32/libgptext.a lib32/libmshtml.a lib32/libmshtmled.a \
   \
   lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a
 
