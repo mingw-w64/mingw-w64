@@ -2131,7 +2131,6 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
-lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -2144,6 +2143,7 @@ sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
+to_host_path_cmd = @to_host_path_cmd@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
@@ -2438,7 +2438,7 @@ src_libmingwex32 = \
 @LIB32_TRUE@  lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a \
 @LIB32_TRUE@  \
 @LIB32_TRUE@  lib32/libgpapi.a lib32/libgpedit.a lib32/libgpprefcl.a lib32/libgpscript.a \
-@LIB32_TRUE@  lib32/libgptext.a \
+@LIB32_TRUE@  lib32/libgptext.a lib32/libmshtml.a lib32/libmshtmled.a \
 @LIB32_TRUE@  \
 @LIB32_TRUE@  lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a
 
