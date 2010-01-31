@@ -25,7 +25,7 @@ basehead_HEADERS = \
   crt/fenv.h               crt/float.h     crt/fpieee.h    crt/getopt.h     crt/ieeefp.h      crt/intrin.h           \
   crt/inttypes.h           crt/io.h        crt/libgen.h    crt/limits.h    crt/locale.h     crt/malloc.h      crt/math.h             \
   crt/mbctype.h            crt/mbstring.h  crt/mem.h       crt/memory.h    crt/_mingw.h     crt/_mingw_mac.h  crt/_mingw_print_pop.h \
-  crt/_mingw_print_push.h  crt/new.h       crt/string.h	   crt/strings.h   crt/dlfcn.h      \
+  crt/_mingw_print_push.h  crt/new.h       crt/string.h	   crt/strings.h   crt/dlfcn.h      crt/_mingw_float.h \
   crt/excpt.h		   \
   crt/search.h             crt/sehmap.h    crt/setjmpex.h  crt/setjmp.h    crt/share.h      crt/stdarg.h      crt/stddef.h           \
   crt/stdexcpt.h           crt/stdint.h    crt/stdio.h     crt/stdlib.h    crt/syslimits.h  crt/tchar.h       crt/time.h             \
