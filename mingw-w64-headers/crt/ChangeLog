@@ -1,3 +1,11 @@
+2010-02-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_print_pop.h: Don't undefine/redifine the inttypes.h
+	SCN* macros, because we don't have a __mingw_scanf() family
+	implementation yet. Ifdef'ed the relevant portions by the yet
+	non-defined HAVE_MINGW_SCANF_IMPL macro.
+	* _mingw_print_push.h: Likewise.
+
 2010-01-29  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* stdarg.h: Separate our stdarg.h into two, one which is the gcc-

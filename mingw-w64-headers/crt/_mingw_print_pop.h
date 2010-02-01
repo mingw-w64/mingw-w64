@@ -41,6 +41,7 @@
 #undef PRIXLEAST64
 #undef PRIXFAST64
 #undef PRIXMAX
+#ifdef HAVE_MINGW_SCANF_IMPL
 #undef SCNd64
 #undef SCNdLEAST64
 #undef SCNdFAST64
@@ -61,6 +62,7 @@
 #undef SCNuLEAST64
 #undef SCNuFAST64
 #undef SCNuMAX
+#endif /* HAVE_MINGW_SCANF_IMPL */
 #ifdef _WIN64
 #undef PRIdPTR
 #undef PRIiPTR
@@ -68,12 +70,14 @@
 #undef PRIuPTR
 #undef PRIxPTR
 #undef PRIXPTR
+#ifdef HAVE_MINGW_SCANF_IMPL
 #undef SCNdPTR
 #undef SCNiPTR
 #undef SCNoPTR
 #undef SCNxPTR
 #undef SCNuPTR
-#endif
+#endif /* HAVE_MINGW_SCANF_IMPL */
+#endif /* _WIN64 */
 
 #define PRId64 "lld"
 #define PRIdLEAST64 "lld"
@@ -99,6 +103,7 @@
 #define PRIXLEAST64 "llX"
 #define PRIXFAST64 "llX"
 #define PRIXMAX "llX"
+#ifdef HAVE_MINGW_SCANF_IMPL
 #define SCNd64 "lld"
 #define SCNdLEAST64 "lld"
 #define SCNdFAST64 "lld"
@@ -119,6 +124,7 @@
 #define SCNuLEAST64 "llu"
 #define SCNuFAST64 "llu"
 #define SCNuMAX "llu"
+#endif /* HAVE_MINGW_SCANF_IMPL */
 #ifdef _WIN64
 #define PRIdPTR "lld"
 #define PRIiPTR "lli"
@@ -126,12 +132,14 @@
 #define PRIuPTR "llu"
 #define PRIxPTR "llx"
 #define PRIXPTR "llX"
+#ifdef HAVE_MINGW_SCANF_IMPL
 #define SCNdPTR "lld"
 #define SCNiPTR "lli"
 #define SCNoPTR "llo"
 #define SCNxPTR "llx"
 #define SCNuPTR "llu"
-#endif
-#endif
+#endif /* HAVE_MINGW_SCANF_IMPL */
+#endif /* _WIN64 */
+#endif /* defined(_INTTYPES_H_) && defined(PRId64) */
 
 #endif /* defined(__USE_MINGW_ANSI_STDIO) && defined(_INC_STDIO) && __USE_MINGW_ANSI_STDIO != 0 */
