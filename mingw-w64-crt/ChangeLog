@@ -1,3 +1,9 @@
+2010-02-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* profile/gmon.c, profile/gmon.h, profile/mcount.c: Remove advertising
+	clause of copyright. Closes our bug #2939623. For reference, see:
+	ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change
+
 2010-01-29  Kai Tietz  <kai.tietz@onevision.com>
 
 	* Makefile.am: Add libmshtml.a and libmshtmled.a to build.

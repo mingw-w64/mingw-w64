@@ -1,3 +1,9 @@
+2010-02-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* profile.h: Remove advertising clause of copyright. For reference, see:
+	ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change
+	Closes our bug #2939623.
+
 2010-02-01  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_print_pop.h: Don't undefine/redifine the inttypes.h
