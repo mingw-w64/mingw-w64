@@ -1,0 +1,11 @@
+2010-02-03  Ozkan Sezer <sezeroz@gmail.com>
+
+	* dinput.h: Add DISEQUENCE_COMPARE macro. (wine git, 23 Aug 2009,
+	a0449a5f64934f6cadd274f6c9442dd72a87b1e8)
+	* dinput.h: Fix _DIACTIONA and _DIACTIONW definitions to match PSDK
+	(dwSemantic). (wine git e1d6e3b258278b0aa456e9ea7a34dcf56598298d)
+	* dsound.h: Fix a dsound define (IDirectSound3DBuffer_SetConeAngles).
+	(wine git, 19 Nov 2009, cd143fb5bf1c4f68b805c06ca33272132f20d653).
+	Also fixed its !__cplusplus || CINTERFACE case which is missed in the
+	wine repo.
+
