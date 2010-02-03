@@ -667,6 +667,8 @@ typedef BOOL (CALLBACK *LPDIENUMCREATEDEFFECTOBJECTSCALLBACK)(LPDIRECTINPUTEFFEC
 
 #define DIGDD_PEEK		0x00000001
 
+#define DISEQUENCE_COMPARE(dwSq1,cmp,dwSq2) ((int)((dwSq1) - (dwSq2)) cmp 0)
+
 typedef struct DIDEVICEOBJECTDATA_DX3 {
     DWORD	dwOfs;
     DWORD	dwData;
@@ -1142,7 +1144,7 @@ typedef BOOL (CALLBACK *LPDIENUMEFFECTSINFILECALLBACK)(LPCDIFILEEFFECT , LPVOID)
 #if DIRECTINPUT_VERSION >= 0x0800
 typedef struct _DIACTIONA {
 	UINT_PTR	uAppData;
-	DWORD		dwSemantics;
+	DWORD		dwSemantic;
 	DWORD		dwFlags;
 	union {
 		LPCSTR	lptszActionName;
@@ -1156,7 +1158,7 @@ typedef const DIACTIONA *LPCDIACTIONA;
 
 typedef struct _DIACTIONW {
 	UINT_PTR	uAppData;
-	DWORD		dwSemantics;
+	DWORD		dwSemantic;
 	DWORD		dwFlags;
 	union {
 		LPCWSTR	lptszActionName;
