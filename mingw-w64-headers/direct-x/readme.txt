@@ -9,7 +9,8 @@ MINGW_DDRAW_VERSION.
 
 This is an optional SDK. Its license is LGPL and you can obtain the original source by the
 wine project. We base on the released wine-w32api-0.9.14.zip from the wine project.
-For further details on license please read at the wine project.
+For further details on license please read at the wine project and the COPYING.LIB file
+included here.
 
 How to install this SDK
 -----------------------
