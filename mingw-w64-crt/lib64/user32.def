@@ -554,6 +554,7 @@ RegisterDeviceNotificationW
 RegisterHotKey
 RegisterLogonProcess
 RegisterMessagePumpHook
+RegisterPowerSettingNotification
 RegisterRawInputDevices
 RegisterServicesProcess
 RegisterShellHookWindow
@@ -709,6 +710,7 @@ UnregisterClassW
 UnregisterDeviceNotification
 UnregisterHotKey
 UnregisterMessagePumpHook
+UnregisterPowerSettingNotification
 UnregisterUserApiHook
 UpdateLayeredWindow
 UpdateLayeredWindowIndirect
