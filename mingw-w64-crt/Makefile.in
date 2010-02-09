@@ -2948,7 +2948,7 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 
 # Distribution options
 #
-EXTRA_DIST = DISCLAIMER revstamp.h $(top_srcdir)/lib64/*.def \
+EXTRA_DIST = revstamp.h $(top_srcdir)/lib64/*.def \
 	$(top_srcdir)/lib32/*.def crt/binmode.c crt/crtbegin.c \
 	crt/crtdll.c crt/crtend.c crt/crtexe.c crt/CRT_fp8.c \
 	crt/CRT_fp10.c crt/CRT_glob.c crt/CRT_noglob.c crt/txtmode.c \
