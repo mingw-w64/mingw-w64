@@ -2,8 +2,8 @@
 
 	Back-merges from the trunk:
 
-	* lib32/netapi32.def, lib32/user32.def, lib64/user32.def: Update defs
-	to coincide with mingw.org w32api 3.12. (trunk r1815, NightStrike.)
+	* lib32/netapi32.def: Update defs to coincide with mingw.org w32api 3.12
+	(trunk r1815, NightStrike.)
 
 	* libsrc/scrnsave.c: Add multi-monitor support for w32api-3.11.
 	(trunk/r1783, NightStrike) (this file is if 0'ed out, but whatever..)
