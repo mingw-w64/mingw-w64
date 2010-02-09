@@ -51,11 +51,13 @@
 	WTSSessionInfo enums to WTS_INFO_CLASS from win32api-3.12. (trunk/r1796,
 	NightStrike).
 
+	* ws2tcpip.h (gai_strerrorA, gai_strerrorW): Remove inline function with
+	static variables. (trunk/r1624, ktietz70)
+
 	* winnt.h: Add FILE_SEQUENTIAL_WRITE_ONCE and FILE_SUPPORTS_TRANSACTIONS
 	from win32api 3.12. (trunk/r1795, NightStrike)
 
-	* libsrc/wspiapi/WspiapiLegacyGetNameInfo.c: Fix build warning about
-	size integer comparison. (trunk/r1807, ktietz70.)
+	* winnt.h: Fix whitespace in formatting. (trunk/r1734, ktietz70.)
 
 2010-02-02  Ozkan Sezer  <sezeroz@gmail.com>
 

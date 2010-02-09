@@ -18,10 +18,8 @@
 	* misc/getopt.c: Update getopt from Cygwin to include getopt_long_only.
 	(trunk/r1606, jon_y.)
 
-	* ws2tcpip.h (gai_strerrorA, gai_strerrorW): Remove inline function with
-	static variables. (trunk/r1624, ktietz70)
-
-	* winnt.h: Fix whitespace in formatting. (trunk/r1734, ktietz70.)
+	* libsrc/wspiapi/WspiapiLegacyGetNameInfo.c: Fix build warning about
+	size integer comparison. (trunk/r1807, ktietz70.)
 
 2010-02-02  Ozkan Sezer  <sezeroz@gmail.com>
 
