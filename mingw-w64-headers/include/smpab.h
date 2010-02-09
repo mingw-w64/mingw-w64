@@ -1,7 +1,7 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #define PR_SAB_FILE PROP_TAG(PT_STRING8,0x6604)
 #define PR_SAB_UID PROP_TAG(PT_BINARY,0x6601)

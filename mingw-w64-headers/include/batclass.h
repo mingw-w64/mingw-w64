@@ -1,7 +1,7 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 DEFINE_GUID(GUID_DEVICE_BATTERY,0x72631e54L,0x78A4,0x11d0,0xbc,0xf7,0x00,0xaa,0x00,0xb7,0xb3,0x2a);
 DEFINE_GUID (BATTERY_STATUS_WMI_GUID,0xfc4670d1,0xebbf,0x416e,0x87,0xce,0x37,0x4a,0x4e,0xbc,0x11,0x1a);

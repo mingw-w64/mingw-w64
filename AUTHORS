@@ -1,0 +1,65 @@
+Note
+====
+
+This file contains information about people who are permitted to make
+changes to various parts of the runtimes, headers, associated tools,
+and associated libraries. Also the list of contributors to mingw-w64
+are listed here, too.
+
+Please do not contact the people in this file directly to report
+problems in mingw-w64.
+
+For general information about mingw-w64, please visit:
+
+  http://sourceforge.net/projects/mingw-w64/
+
+To report problems in mingw-w64, please visit bug-tracker on:
+
+  http://sourceforge.net/projects/mingw-w64/
+
+Maintainers
+===========
+
+Mook         <mook dot gcc at gmail dot com>
+NightStrike  <nightstrike at gmail dot com>
+Kai Tietz    <kai dot tietz at onevision dot com>
+
+Developers with write after approval
+====================================
+
+kjk_hyperion      <hackbunny at reactos dot org>
+Tor Lillqvist     <tlillqvist at gmail dot com>
+Alexey Pushkin    <Alexey dot Pushkin at mererand dot com>
+Roland Schwingel  <roland dot schwingel at onevision dot com>
+Ozkan Sezer       <sezeroz at gmail dot com>
+Fridrich Strba    <fridrich dot strba at bluewin dot ch>
+Chris Sutcliffe   <ir0nh34d at gmail dot com>
+Jonathan Yong     <jon_y at users dot sourceforge dot net>
+
+Project members without SVN access
+==================================
+
+xenofears         <peter at cadforte dot com>
+
+Contributors
+============
+
+We want to thank the following list of people for supporting us
+by contributions:
+
+20-40                   <annonymous>
+Professor Brian Ripley  <ripley at stats dot ox dot ac dot uk>
+sduplichan              <sduplichan at users dot sourceforge dot net>
+Wesley W. Terpstra      <wesley at terpstra dot ca>
+zhou drangon            <drangon dot mail at gmail dot com>
+
+and additional thanks to the following organizations:
+
+OneVision Software Entwicklungs GmbH & Co. Kg
+Reactos project
+Wine project
+
+and many others, we possibly missed to mention here and are sorry for this.
+
+If you think your name is missing and should be menitioned here, please
+contact us for adding you.

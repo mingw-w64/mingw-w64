@@ -1,7 +1,7 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 DEFINE_GUID(GUID_IO_VOLUME_CHANGE,0x7373654aL,0x812a,0x11d0,0xbe,0xc7,0x08,0x00,0x2b,0xe2,0x09,0x2f);
 DEFINE_GUID(GUID_IO_VOLUME_DISMOUNT,0xd16a55e8L,0x1059,0x11d2,0x8f,0xfd,0x00,0xa0,0xc9,0xa0,0x6d,0x32);

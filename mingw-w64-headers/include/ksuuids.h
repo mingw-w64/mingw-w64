@@ -1,7 +1,7 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER within this package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 OUR_GUID_ENTRY(MEDIATYPE_MPEG2_PACK,0x36523B13,0x8EE5,0x11d1,0x8C,0xA3,0x00,0x60,0xB0,0x57,0x66,0x4A)
 OUR_GUID_ENTRY(MEDIATYPE_MPEG2_PES,0xe06d8020,0xdb46,0x11cf,0xb4,0xd1,0x00,0x80,0x5f,0x6c,0xbb,0xea)
