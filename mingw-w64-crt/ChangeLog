@@ -1,3 +1,28 @@
+2010-02-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	* lib32/netapi32.def, lib32/user32.def, lib64/user32.def: Update defs
+	to coincide with mingw.org w32api 3.12. (trunk r1815, NightStrike.)
+
+	* libsrc/scrnsave.c: Add multi-monitor support for w32api-3.11.
+	(trunk/r1783, NightStrike) (this file is if 0'ed out, but whatever..)
+
+	* lib32/crypt32.def, lib64/crypt32.def, libce/crypt32.def:  Add missing
+	crypt defs found in w32api 3.12, as well as correct some of the existing
+	entries. (trunk/r1797, NightStrike.)
+
+	* lib32/hal.def: Update incorrect decoration to HalTranslateBusAddress
+	found in w32api 3.12. (trunk/r1798, NightStrike.)
+
+	* misc/getopt.c: Update getopt from Cygwin to include getopt_long_only.
+	(trunk/r1606, jon_y.)
+
+	* ws2tcpip.h (gai_strerrorA, gai_strerrorW): Remove inline function with
+	static variables. (trunk/r1624, ktietz70)
+
+	* winnt.h: Fix whitespace in formatting. (trunk/r1734, ktietz70.)
+
 2010-02-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* profile/gmon.c, profile/gmon.h, profile/mcount.c: Remove advertising

@@ -1,3 +1,62 @@
+2010-02-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	* 2009-11-07 Ivan Maidanski <ivmai@users.sourceforge.net> (trunk/r1513)
+	* sys/utime.h (_futime): New prototype.
+	(_wutime): New prototype.
+
+	* 2009-11-21 Jonathan Yong <jon_y@sourceforge.net> (trunk/r1530)
+	* shlobj.h (IDO_SHGIOI_DEFAULT): Define. Original patch by Chris
+	Sutcliffe  <ir0nh34d@users.sourceforge.net>
+	* shlobj.h (SHARD): Add enum. Original patch by Chris Sutcliffe
+	<ir0nh34d@users.sourceforge.net>
+	* include/winuser.h (WM_TOUCHMOVE, WM_TOUCHDOWN, WM_TOUCHUP,
+	TOUCHEVENTF_DOWN, TOUCHEVENTF_INRANGE, TOUCHEVENTF_MOVE,
+	TOUCHEVENTF_NOCOALESCE, TOUCHEVENTF_PALM, TOUCHEVENTF_PEN,
+	TOUCHEVENTF_PRIMARY, TOUCHEVENTF_UP, TOUCHEVENTMASKF_CONTACTAREA,
+	TOUCHEVENTMASKF_EXTRAINFO, TOUCHEVENTMASKF_TIMEFROMSYSTEM, TOUCHINPUT,
+	CloseTouchInputHandle, RegisterTouchWindow, UnregisterTouchWindow):
+	Define. Original patch by Jarkko Sakkinen  <jarkko.sakkinen@iki.fi>
+	2009-13-09  Jacky Lai  <crazyjacky@users.sourceforge.net>
+	* include/winerror.h: Fix typos in macro names.
+	2009-20-10  Dmitry Potapov  <dpotapov@users.sourceforge.net>
+	* include/winver.h (VerQueryValue[AW]): Correct definition.
+	2009-20-10  Aleksey Chernov  <virxkane@users.sourceforge.net>
+	* include/sspi.h: Include ntsecapi.h to correct postgresql build
+	error.
+
+	* 2009-12-19  Kai Tietz  <kai.tietz@onevision.com> (trunk/r1668)
+	PR/2916490
+	* include/certbcli.h (IN, OUT, OPTIONAL): Protect definition
+	by _NO_W32_PSEUDO_MODIFIERS guard.
+	* include/lmcons.h: Likewise.
+	* include/ntsecapi.h: Likewise.
+	* include/rpcdce.h: Likewise.
+	* include/wincrypt.h: Likewise.
+	* include/windef.h: Likewise.
+
+	* w32api.h: Update w32api compatibility version number to 3.11 (from
+	trunk/r1785, NightStrike.)
+
+	* 2010-01-04  Kai Tietz  <kai.tietz@onevision.com> (trunk/r1697)
+	* crt/_mingw.h (__int128): Guard typedef by __SIZEOF_INT128__ to
+	support upcoming __int128 type of gcc 4.6.
+
+	* wincrypt.h: Back-merge of NightStrike's w32api-3.11 updates from
+	trunk/r1784-1786-1788-1791.
+
+	* wtsapi32.h: Add WTSIdleTime, WTSLogonTime, WTSIncomingBytes,
+	WTSOutgoingBytes, WTSIncomingFrames, WTSOutgoingFrames, WTSClientInfo,
+	WTSSessionInfo enums to WTS_INFO_CLASS from win32api-3.12. (trunk/r1796,
+	NightStrike).
+
+	* winnt.h: Add FILE_SEQUENTIAL_WRITE_ONCE and FILE_SUPPORTS_TRANSACTIONS
+	from win32api 3.12. (trunk/r1795, NightStrike)
+
+	* libsrc/wspiapi/WspiapiLegacyGetNameInfo.c: Fix build warning about
+	size integer comparison. (trunk/r1807, ktietz70.)
+
 2010-02-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* profile.h: Remove advertising clause of copyright. For reference, see:
