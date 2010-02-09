@@ -1,3 +1,10 @@
+2010-01-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* wincrypt.h (CERT_ALT_NAME_ENTRY): Commented out pEdiPartyName
+	member from the union (not implemented, see:
+	http://msdn.microsoft.com/en-us/library/aa924681.aspx or
+	http://msdn.microsoft.com/en-us/library/aa377173.aspx .)
+
 2010-02-01  Kai Tietz  <kai.tietz@onevision.com>
 
 	Donated by S. Koehler
