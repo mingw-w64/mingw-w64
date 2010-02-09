@@ -100,7 +100,8 @@ extern "C" {
   typedef enum _WTS_INFO_CLASS {
     WTSInitialProgram,WTSApplicationName,WTSWorkingDirectory,WTSOEMId,WTSSessionId,WTSUserName,WTSWinStationName,WTSDomainName,WTSConnectState,
     WTSClientBuildNumber,WTSClientName,WTSClientDirectory,WTSClientProductId,WTSClientHardwareId,WTSClientAddress,WTSClientDisplay,
-    WTSClientProtocolType
+    WTSClientProtocolType,
+    WTSIdleTime,WTSLogonTime,WTSIncomingBytes,WTSOutgoingBytes,WTSIncomingFrames,WTSOutgoingFrames,WTSClientInfo,WTSSessionInfo
   } WTS_INFO_CLASS;
 
   typedef struct _WTS_CLIENT_ADDRESS {
