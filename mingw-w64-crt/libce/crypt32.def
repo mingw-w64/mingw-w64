@@ -86,6 +86,7 @@ CryptFindOIDInfo
 CryptFreeOIDFunctionAddress
 CryptGetKeyIdentifierProperty
 CryptGetOIDFunctionAddress
+CryptGetDefaultProviderW
 CryptHashCertificate
 CryptHashPublicKeyInfo
 CryptHashToBeSigned
