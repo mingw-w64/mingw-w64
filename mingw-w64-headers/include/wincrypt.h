@@ -1516,7 +1516,11 @@ extern "C" {
       CERT_DATA_BLOB x400Address;
        */
       CERT_NAME_BLOB DirectoryName;
+      /* pEdiPartyName is not implemented, either. see:
+       * http://msdn.microsoft.com/en-us/library/aa924681.aspx or
+       * http://msdn.microsoft.com/en-us/library/aa377173.aspx
       LPWSTR pEdiPartyName;
+       */
       LPWSTR pwszURL;
       CRYPT_DATA_BLOB IPAddress;
       LPSTR pszRegisteredID;
