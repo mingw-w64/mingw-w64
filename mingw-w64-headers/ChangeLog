@@ -1,3 +1,10 @@
+2010-02-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* include/winuser.h (POWERBROADCAST_SETTING): New type.
+	(PPOWERBROADCAST_SETTING): Likewise.
+	(RegisterPowerSettingNotification): New API.
+	(UnregisterPowerSettingNotification): Likewise.
+
 2010-01-25  Mook <mook.gcc@gmail.com>
 
 	* include/wincrypt.h: Comment out CERT_ALT_NAME_ENTRY::x400Address.

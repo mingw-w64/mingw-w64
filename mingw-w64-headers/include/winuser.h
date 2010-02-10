@@ -17,6 +17,7 @@ extern "C" {
 #endif
 
 #include <stdarg.h>
+#include <guiddef.h>
 
 #ifndef NOUSER
   typedef HANDLE HDWP;
@@ -1944,8 +1945,32 @@ extern "C" {
 #define GetClassInfoEx GetClassInfoExA
 #endif
 
+#if (_WIN32_WINNT >= 0x0600)
+  typedef HANDLE HPOWERNOTIFY;
+
+  typedef struct {
+    GUID PowerSetting;
+    DWORD DataLength;
+    UCHAR Data[1];
+  } POWERBROADCAST_SETTING, *PPOWERBROADCAST_SETTING;
+
+  extern const GUID GUID_POWERSCHEME_PERSONALITY;
+  extern const GUID GUID_MIN_POWER_SAVINGS;
+  extern const GUID GUID_MAX_POWER_SAVINGS;
+  extern const GUID GUID_TYPICAL_POWER_SAVINGS;
+  extern const GUID GUID_ACDC_POWER_SOURCE;
+  extern const GUID GUID_BATTERY_PERCENTAGE_REMAINING;
+  extern const GUID GUID_IDLE_BACKGROUND_TASK;
+  extern const GUID GUID_SYSTEM_AWAYMODE;
+  extern const GUID GUID_MONITOR_POWER_ON;
+#endif
+
   WINUSERAPI HDEVNOTIFY WINAPI RegisterDeviceNotificationA(HANDLE hRecipient,LPVOID NotificationFilter,DWORD Flags);
   WINUSERAPI HDEVNOTIFY WINAPI RegisterDeviceNotificationW(HANDLE hRecipient,LPVOID NotificationFilter,DWORD Flags);
+#if (_WIN32_WINNT >= 0x0600)
+  WINUSERAPI HPOWERNOTIFY WINAPI RegisterPowerSettingNotification(HANDLE,LPCGUID,DWORD);
+  WINUSERAPI WINBOOL WINAPI UnregisterPowerSettingNotification(HPOWERNOTIFY);
+#endif
   WINUSERAPI WINBOOL WINAPI UnregisterDeviceNotification(HDEVNOTIFY Handle);
   WINUSERAPI WINBOOL WINAPI PostMessageA(HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam);
   WINUSERAPI WINBOOL WINAPI PostMessageW(HWND hWnd,UINT Msg,WPARAM wParam,LPARAM lParam);
