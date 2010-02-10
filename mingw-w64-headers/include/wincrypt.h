@@ -1253,9 +1253,11 @@ extern "C" {
 #define X509_PKIX_POLICY_QUALIFIER_USERNOTICE ((LPCSTR) 46)
 #define X509_DH_PUBLICKEY X509_MULTI_BYTE_UINT
 #define X509_DH_PARAMETERS ((LPCSTR) 47)
-#define X509_ECC_SIGNATURE ((LPCSTR) 47)
 #define PKCS_ATTRIBUTES ((LPCSTR) 48)
 #define PKCS_SORTED_CTL ((LPCSTR) 49)
+
+#define X509_ECC_SIGNATURE ((LPCSTR) 47)
+
 #define X942_DH_PARAMETERS ((LPCSTR) 50)
 #define X509_BITS_WITHOUT_TRAILING_ZEROES ((LPCSTR) 51)
 #define X942_OTHER_INFO ((LPCSTR) 52)
@@ -1293,7 +1295,8 @@ extern "C" {
 #define szOID_SUBJECT_ALT_NAME "2.5.29.7"
 #define szOID_ISSUER_ALT_NAME "2.5.29.8"
 #define szOID_BASIC_CONSTRAINTS "2.5.29.10"
-/* szOID_KEY_USAGE is defined incorrectly in msdn as 2.5.29.4 -- http://www.oid-info.com/get/2.5.29.15 RFC3280 */
+/* szOID_KEY_USAGE is defined incorrectly in msdn as 2.5.29.4 --
+   http://www.oid-info.com/get/2.5.29.15 RFC3280 */
 #define szOID_KEY_USAGE "2.5.29.15"
 #define szOID_PRIVATEKEY_USAGE_PERIOD "2.5.29.16"
 #define szOID_BASIC_CONSTRAINTS2 "2.5.29.19"
@@ -4267,4 +4270,4 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+#endif /* __WINCRYPT_H__ */
