@@ -1,5 +1,13 @@
 2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
 
+	TouchScreen back-merge from the trunk revisions 1530, 1882 and 1885,
+	original patch by Jarkko Sakkinen <jarkko.sakkinen@iki.fi> :
+	* lib32/user32.def: Add exports for IsTouchWindow, RegisterTouchWindow,
+	UnregisterTouchWindow, CloseTouchInputHandle and GetTouchInputInfo.
+	* lib32/user32.def: Likewise.
+
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
 	PowerSettingNotification back-merge from the trunk revisions 1530, 1883
 	and 1884:
 	* lib32/user32.def: Add exports for RegisterPowerSettingNotification and

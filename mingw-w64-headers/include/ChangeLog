@@ -1,5 +1,21 @@
 2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
 
+	TouchScreen back-merge from the trunk revisions 1530, 1882 and 1885,
+	original patch by Jarkko Sakkinen <jarkko.sakkinen@iki.fi> :
+	* winuser.h (WM_TOUCHMOVE, WM_TOUCHDOWN, WM_TOUCHUP, TOUCHEVENTF_DOWN,
+	TOUCHEVENTF_INRANGE, TOUCHEVENTF_MOVE, TOUCHEVENTF_NOCOALESCE,
+	TOUCHEVENTF_PALM, TOUCHEVENTF_PEN, TOUCHEVENTF_PRIMARY, TOUCHEVENTF_UP,
+	TOUCHEVENTMASKF_CONTACTAREA, TOUCHEVENTMASKF_EXTRAINFO,
+	TOUCHEVENTMASKF_TIMEFROMSYSTEM): New macros.
+	(TOUCHINPUT): New type.
+	(CloseTouchInputHandle): New API.
+	(GetTouchInputInfo): Likewise.
+	(IsTouchWindow): Likewise.
+	(RegisterTouchWindow): Likewise.
+	(UnregisterTouchWindow): Likewise.
+
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
 	PowerSettingNotification back-merge from the trunk revisions 1530, 1883
 	and 1884:
 	* winuser.h (POWERBROADCAST_SETTING): New type.
