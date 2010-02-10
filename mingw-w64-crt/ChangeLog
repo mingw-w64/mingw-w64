@@ -1,3 +1,16 @@
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	A couple of lib32/*.def file fixes from mingw:
+	* lib32/comctl32.def (StrCSpnA, StrCSpnIA, StrCSpnW, StrChrA, StrChrIA,
+	StrChrIW, StrChrW, StrCmpNA, StrCmpNIA, StrCmpNIW, StrCmpNW, StrRChrA,
+	StrRChrIA, StrRChrW, StrRStrIA, StrRStrIW, StrStrA, StrStrIA, StrStrIW,
+	StrStrW, StrToIntA, StrToIntW): Removed erroneous exports which already
+	are in shlwapi.def.
+	* lib32/scsiport.def (ScsiPortGetDeviceBase): Fixed suffix.
+	* lib32/ntoskrnl.def (MmAllocateContiguousMemory): Fixed suffix.
+	* lib32/msimg32.def (GetDCBrushColor, GetDCPenColor): Moved from here...
+	* lib32/gdi32.def (GetDCBrushColor, GetDCPenColor): ... to here.
+
 2010-02-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* profile/gmon.c, profile/gmon.h, profile/mcount.c: Remove advertising
