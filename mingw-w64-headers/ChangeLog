@@ -1,3 +1,8 @@
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* include/winuser.h (PBT_POWERSETTINGCHANGE): Define for
+	_WIN32_WINNT >= 0x0600.
+
 2010-02-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	* include/winuser.h (POWERBROADCAST_SETTING): New type.
