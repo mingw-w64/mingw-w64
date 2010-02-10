@@ -74,6 +74,7 @@ ClientToScreen
 ClipCursor
 CloseClipboard
 CloseDesktop
+CloseTouchInputHandle
 CloseWindow
 CloseWindowStation
 CopyAcceleratorTableA
@@ -364,6 +365,7 @@ GetTaskmanWindow
 GetThreadDesktop
 GetTitleBarInfo
 GetTopWindow
+GetTouchInputInfo
 GetUpdateRect
 GetUpdateRgn
 GetUserObjectInformationA

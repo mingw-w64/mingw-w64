@@ -63,6 +63,7 @@ ClientToScreen@8
 ClipCursor@4
 CloseClipboard@0
 CloseDesktop@4
+CloseTouchInputHandle@4
 CloseWindow@4
 CloseWindowStation@4
 CopyAcceleratorTableA@12
@@ -331,6 +332,7 @@ GetTabbedTextExtentW@20
 GetThreadDesktop@4
 GetTitleBarInfo@8
 GetTopWindow@4
+GetTouchInputInfo@16
 GetUpdateRect@12
 GetUpdateRgn@12
 GetUserObjectInformationA@20

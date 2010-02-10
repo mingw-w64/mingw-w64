@@ -5700,8 +5700,10 @@ extern "C" {
     ULONG_PTR dwExtraInfo;
     DWORD cxContact;
     DWORD cyContact;
-} TOUCHINPUT,*PTOUCHINPUT;
+  } TOUCHINPUT,*PTOUCHINPUT;
 
+  WINUSERAPI WINBOOL WINAPI CloseTouchInputHandle(HANDLE hTouchInput);
+  WINUSERAPI WINBOOL WINAPI GetTouchInputInfo(HANDLE hTouchInput, UINT cInputs, PTOUCHINPUT pInputs, int cbSize);
   WINUSERAPI WINBOOL WINAPI IsTouchWindow(HWND hWnd,PULONG pulFlags);
   WINUSERAPI WINBOOL WINAPI RegisterTouchWindow(HWND hWnd,ULONG ulFlags);
   WINUSERAPI WINBOOL WINAPI UnregisterTouchWindow(HWND hWnd);

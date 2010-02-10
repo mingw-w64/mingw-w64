@@ -1,5 +1,9 @@
 2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* include/winuser.h (CloseTouchInputHandle): New API missed in
+	revision 1530.
+	(GetTouchInputInfo): Likewise.
+
 	* include/winuser.h (PBT_POWERSETTINGCHANGE): Define for
 	_WIN32_WINNT >= 0x0600.
 

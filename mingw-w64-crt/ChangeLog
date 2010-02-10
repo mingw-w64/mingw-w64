@@ -1,7 +1,13 @@
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/user32.def: Add CloseTouchInputHandle and GetTouchInputInfo as
+	even more missing parts in revision 1530.
+	* lib64/user32.def: Likewise.
+
 2010-02-10  Kai Tietz  <kai.tietz@onevision.com>
 
-	* lib32/user32.def: Add IsTouchWindow, RegisterTouchWindow and UnregisterTouchWindow
-	missing for support of revision 1530.
+	* lib32/user32.def: Add IsTouchWindow, RegisterTouchWindow and
+	UnregisterTouchWindow missing for support of revision 1530.
 	* lib64/user32.def: Likewise.
 
 2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
