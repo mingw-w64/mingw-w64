@@ -9,6 +9,10 @@
 
 2010-02-10  Kai Tietz  <kai.tietz@onevision.com>
 
+	* include/shlguid.h: Reduce required _WIN32_IE to >= 0x0500.
+	This isn't really correct, but to make it compatible to commctrl.h
+	we have to change it here, too.
+	* include/shlobj.h: Likewise.
 	* include/winuser.h (POWERBROADCAST_SETTING): New type.
 	(PPOWERBROADCAST_SETTING): Likewise.
 	(RegisterPowerSettingNotification): New API.
