@@ -1,5 +1,14 @@
 2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Back-merged from trunk revision 1888:
+	2010-02-10  Kai Tietz  <kai.tietz@onevision.com>
+	* shlguid.h: Reduce required _WIN32_IE to >= 0x0500. This isn't really
+	correct, but to make it compatible to commctrl.h we have to change it
+	here, too.
+	* shlobj.h: Likewise.
+
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
 	TouchScreen back-merge from the trunk revisions 1530, 1882 and 1885,
 	original patch by Jarkko Sakkinen <jarkko.sakkinen@iki.fi> :
 	* winuser.h (WM_TOUCHMOVE, WM_TOUCHDOWN, WM_TOUCHUP, TOUCHEVENTF_DOWN,
@@ -45,29 +54,28 @@
 	* shlobj.h (SHARD): Add enum. Original patch by Chris Sutcliffe
 	<ir0nh34d@users.sourceforge.net>
 	2009-13-09  Jacky Lai  <crazyjacky@users.sourceforge.net>
-	* include/winerror.h: Fix typos in macro names.
+	* winerror.h: Fix typos in macro names.
 	2009-20-10  Dmitry Potapov  <dpotapov@users.sourceforge.net>
-	* include/winver.h (VerQueryValue[AW]): Correct definition.
+	* winver.h (VerQueryValue[AW]): Correct definition.
 	2009-20-10  Aleksey Chernov  <virxkane@users.sourceforge.net>
-	* include/sspi.h: Include ntsecapi.h to correct postgresql build
-	error.
+	* sspi.h: Include ntsecapi.h to correct postgresql build error.
 
 	* 2009-12-19  Kai Tietz  <kai.tietz@onevision.com> (trunk/r1668)
 	PR/2916490
-	* include/certbcli.h (IN, OUT, OPTIONAL): Protect definition
-	by _NO_W32_PSEUDO_MODIFIERS guard.
-	* include/lmcons.h: Likewise.
-	* include/ntsecapi.h: Likewise.
-	* include/rpcdce.h: Likewise.
-	* include/wincrypt.h: Likewise.
-	* include/windef.h: Likewise.
+	* certbcli.h (IN, OUT, OPTIONAL): Protect definition by
+	_NO_W32_PSEUDO_MODIFIERS guard.
+	* lmcons.h: Likewise.
+	* ntsecapi.h: Likewise.
+	* rpcdce.h: Likewise.
+	* wincrypt.h: Likewise.
+	* windef.h: Likewise.
 
 	* w32api.h: Update w32api compatibility version number to 3.11 (from
 	trunk/r1785, NightStrike.)
 
 	* 2010-01-04  Kai Tietz  <kai.tietz@onevision.com> (trunk/r1697)
-	* crt/_mingw.h (__int128): Guard typedef by __SIZEOF_INT128__ to
-	support upcoming __int128 type of gcc 4.6.
+	* _mingw.h (__int128): Guard typedef by __SIZEOF_INT128__ to support
+	upcoming __int128 type of gcc 4.6.
 
 	* wincrypt.h: Back-merge of NightStrike's w32api-3.11 updates from
 	trunk/r1784-1786-1788-1791.
@@ -132,7 +140,7 @@
 2010-01-01  Jonathan Yong  <jon_y@sourceforge.net>
 
 	Back-merged from trunk.
-	* include/profile.h (_MCOUNT_DECL): Add gnu_inline attribute
+	* profile.h (_MCOUNT_DECL): Add gnu_inline attribute
 	and remove static qualifier.
 
 2009-12-23  Kai Tietz  <kai.tietz@onevision.com>
