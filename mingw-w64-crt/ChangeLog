@@ -1,5 +1,13 @@
 2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
 
+	PowerSettingNotification back-merge from the trunk revisions 1530, 1883
+	and 1884:
+	* lib32/user32.def: Add exports for RegisterPowerSettingNotification and
+	UnregisterPowerSettingNotification.
+	* lib64/user32.def: Likewise.
+
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
 	A couple of lib32/*.def file fixes from mingw:
 	* lib32/comctl32.def (StrCSpnA, StrCSpnIA, StrCSpnW, StrChrA, StrChrIA,
 	StrChrIW, StrChrW, StrCmpNA, StrCmpNIA, StrCmpNIW, StrCmpNW, StrRChrA,

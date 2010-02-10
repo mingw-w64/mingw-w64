@@ -1,3 +1,13 @@
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	PowerSettingNotification back-merge from the trunk revisions 1530, 1883
+	and 1884:
+	* winuser.h (POWERBROADCAST_SETTING): New type.
+	(PPOWERBROADCAST_SETTING): Likewise.
+	(PBT_POWERSETTINGCHANGE): New macro.
+	(RegisterPowerSettingNotification): New API.
+	(UnregisterPowerSettingNotification): Likewise.
+
 2010-01-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* wincrypt.h (CERT_ALT_NAME_ENTRY): Commented out pEdiPartyName
