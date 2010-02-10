@@ -390,6 +390,7 @@ IsHungAppWindow@4
 IsIconic@4
 IsMenu@4
 IsRectEmpty@4
+IsTouchWindow@8
 IsWinEventHookInstalled@4
 IsWindow@4
 IsWindowEnabled@4
@@ -487,6 +488,7 @@ RegisterDeviceNotificationW@12
 RegisterHotKey@16
 RegisterPowerSettingNotification@12
 RegisterRawInputDevices@12
+RegisterTouchWindow@8
 RegisterWindowMessageA@4
 RegisterWindowMessageW@4
 ReleaseCapture@0
@@ -616,6 +618,7 @@ UnregisterClassW@8
 UnregisterDeviceNotification@4
 UnregisterHotKey@8
 UnregisterPowerSettingNotification@4
+UnregisterTouchWindow@4
 UpdateLayeredWindow@36
 UpdateWindow@4
 UserHandleGrantAccess@12

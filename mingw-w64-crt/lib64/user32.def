@@ -437,6 +437,7 @@ IsProcess16Bit
 IsRectEmpty
 IsSETEnabled
 IsServerSideWindow
+IsTouchWindow
 IsWinEventHookInstalled
 IsWindow
 IsWindowEnabled
@@ -560,6 +561,7 @@ RegisterServicesProcess
 RegisterShellHookWindow
 RegisterSystemThread
 RegisterTasklist
+RegisterTouchWindow
 RegisterUserApiHook
 RegisterWindowMessageA
 RegisterWindowMessageW
@@ -711,6 +713,7 @@ UnregisterDeviceNotification
 UnregisterHotKey
 UnregisterMessagePumpHook
 UnregisterPowerSettingNotification
+UnregisterTouchWindow
 UnregisterUserApiHook
 UpdateLayeredWindow
 UpdateLayeredWindowIndirect
