@@ -33,12 +33,13 @@ basehead_HEADERS = \
   crt/ymath.h              crt/yvals.h
 syshead_HEADERS = \
   crt/sys/cdefs.h  crt/sys/fcntl.h  crt/sys/file.h  crt/sys/locking.h  crt/sys/param.h    \
-  crt/sys/stat.h   crt/sys/timeb.h  crt/sys/time.h  crt/sys/types.h    crt/sys/unistd.h   crt/sys/utime.h
+  crt/sys/stat.h   crt/sys/timeb.h  crt/sys/time.h  crt/sys/types.h    crt/sys/unistd.h   crt/sys/utime.h \
+  crt/process.h
+
 sechead_HEADERS = \
   crt/sec_api/conio_s.h  crt/sec_api/crtdbg_s.h  crt/sec_api/io_s.h        crt/sec_api/mbstring_s.h  crt/sec_api/search_s.h \
   crt/sec_api/stdio_s.h  crt/sec_api/stdlib_s.h  crt/sec_api/stralign_s.h  crt/sec_api/string_s.h    crt/sec_api/tchar_s.h  \
-  crt/sec_api/time_s.h   crt/sec_api/wchar_s.h \
-  crt/process.h
+  crt/sec_api/time_s.h   crt/sec_api/wchar_s.h
 secsyshead_HEADERS = crt/sec_api/sys/timeb_s.h
 sdkshead_HEADERS = crt/sdks/_mingw_directx.h crt/sdks/_mingw_ddk.h
 else
