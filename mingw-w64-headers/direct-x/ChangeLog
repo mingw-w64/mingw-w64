@@ -1,5 +1,11 @@
 2010-02-11  Ozkan Sezer <sezeroz@gmail.com>
 
+	* dshow.h: Updated from wine-1.1.38.
+	* amaudio.h, amvideo.idl, amvideo.h, audevcod.h, errors.h, evcode.h,
+	vfwmsgs.h: Added missing dshow dependency headers from wine-1.1.38.
+
+2010-02-11  Ozkan Sezer <sezeroz@gmail.com>
+
 	* ddstream.h, docobj.h, downloadmgr.h: Regenerated using widl-1.1.38
 	from the latest wine-1.1.38 *.idl files.
 	* ddstream.idl, docobj.idl, downloadmgr.idl: Added as idl versions.
