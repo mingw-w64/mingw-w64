@@ -30,11 +30,10 @@ basehead_HEADERS = \
   crt/search.h             crt/sehmap.h    crt/setjmpex.h  crt/setjmp.h    crt/share.h      crt/stdarg.h      crt/stddef.h           \
   crt/stdexcpt.h           crt/stdint.h    crt/stdio.h     crt/stdlib.h    crt/syslimits.h  crt/tchar.h       crt/time.h             \
   crt/unistd.h             crt/utime.h     crt/vadefs.h    crt/varargs.h   crt/wchar.h      crt/xlocinfo.h    crt/xmath.h            \
-  crt/ymath.h              crt/yvals.h
+  crt/ymath.h              crt/yvals.h     crt/process.h
 syshead_HEADERS = \
   crt/sys/cdefs.h  crt/sys/fcntl.h  crt/sys/file.h  crt/sys/locking.h  crt/sys/param.h    \
-  crt/sys/stat.h   crt/sys/timeb.h  crt/sys/time.h  crt/sys/types.h    crt/sys/unistd.h   crt/sys/utime.h \
-  crt/process.h
+  crt/sys/stat.h   crt/sys/timeb.h  crt/sys/time.h  crt/sys/types.h    crt/sys/unistd.h   crt/sys/utime.h
 
 sechead_HEADERS = \
   crt/sec_api/conio_s.h  crt/sec_api/crtdbg_s.h  crt/sec_api/io_s.h        crt/sec_api/mbstring_s.h  crt/sec_api/search_s.h \
