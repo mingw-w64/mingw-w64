@@ -1,3 +1,9 @@
+2010-02-11  Ozkan Sezer <sezeroz@gmail.com>
+
+	* ddstream.h, docobj.h, downloadmgr.h: Regenerated using widl-1.1.38
+	from the latest wine-1.1.38 *.idl files.
+	* ddstream.idl, docobj.idl, downloadmgr.idl: Added as idl versions.
+
 2010-02-03  Ozkan Sezer <sezeroz@gmail.com>
 
 	* dinput.h: Add DISEQUENCE_COMPARE macro. (wine git, 23 Aug 2009,
