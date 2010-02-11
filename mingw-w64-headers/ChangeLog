@@ -1,3 +1,9 @@
+2010-02-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* include/process.h: Moved away into
+	* crt/process.h: new loaction.
+	* Makefile.am: Add crt/process.h header.
+
 2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* include/winuser.h (CloseTouchInputHandle): New API missed in
