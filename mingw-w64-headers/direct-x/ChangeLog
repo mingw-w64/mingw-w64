@@ -1,3 +1,9 @@
+2010-02-12  Ozkan Sezer <sezeroz@gmail.com>
+
+	Merged with the dx headers from wine-1.1.38 including the missing
+	d3drmobj.h, mediaerr.h and mediaobj.h, as well as the new d3dx9
+	additions.
+
 2010-02-11  Ozkan Sezer <sezeroz@gmail.com>
 
 	* dshow.h: Updated from wine-1.1.38.
