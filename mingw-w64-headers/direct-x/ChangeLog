@@ -1,5 +1,10 @@
 2010-02-12  Ozkan Sezer <sezeroz@gmail.com>
 
+	added dmodshow, medparam and qnetwork *.idl and *.h files from the
+	KDE project.
+
+2010-02-12  Ozkan Sezer <sezeroz@gmail.com>
+
 	added amstream.[idl|h] and vmr9.[idl|h] from wine sources.
 
 2010-02-12  Ozkan Sezer <sezeroz@gmail.com>
