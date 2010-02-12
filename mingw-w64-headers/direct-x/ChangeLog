@@ -1,5 +1,10 @@
 2010-02-12  Ozkan Sezer <sezeroz@gmail.com>
 
+	* dmoreg.h: Made it C++ compatible by adding extern "C" { ... }
+	when __cplusplus ies defined.
+
+2010-02-12  Ozkan Sezer <sezeroz@gmail.com>
+
 	added dmodshow, medparam and qnetwork *.idl and *.h files from the
 	KDE project.
 
