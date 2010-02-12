@@ -21,6 +21,10 @@
 
 #include "mediaobj.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct _DMO_PARTIAL_MEDIATYPE
 {
    GUID type;
@@ -67,4 +71,9 @@ DEFINE_GUID(DMOCATEGORY_AUDIO_NOISE_SUPPRESS,
 DEFINE_GUID(DMOCATEGORY_AGC,
             0xe88c9ba0,0xc557,0x11d0,0x8a,0x2b,0x00,0xa0,0xc9,0x25,0x5a,0xc1);
 
+#ifdef __cplusplus
+}
+#endif
+
 #endif /* __DMOREG_H__ */
+
