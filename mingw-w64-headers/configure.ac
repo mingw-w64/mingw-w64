@@ -17,15 +17,11 @@ AC_CANONICAL_HOST
 
 # Checks for header files.
 
-GLHEAD_LIST=$srcdir/include/GL/*.h
 BASEHEAD_LIST=$srcdir/include/*.h
 for i in c dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
 #FIXME: Add in base directx
-AC_SUBST([BASEHEAD_LIST])
-AC_SUBST([GLHEAD_LIST])
-AC_SUBST([SDKSHEAD_LIST])
 
 AC_MSG_CHECKING([for c-runtime headers])
 AC_ARG_ENABLE([crt],
@@ -35,6 +31,20 @@ AC_ARG_ENABLE([crt],
   [enable_crt=yes])
 AM_CONDITIONAL([ENABLE_CRT],[test x$enable_crt=xyes])
 AC_MSG_RESULT([$enable_crt])
+AS_VAR_IF([enable_crt],[yes],[
+  BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h
+  SYSHEAD_LIST=$srcdir/crt/sys/*.h
+  SECHEAD_LIST=$srcdir/crt/sec_api/*.h
+  SECSYSHEAD_LIST=$srcdir/crt/sec_api/sys/*.h
+dnl  SDKSHEAD_LIST=$srcdir/crt/sdks/*.h
+])
+GLHEAD_LIST=$srcdir/include/GL/*.h
+AC_SUBST([BASEHEAD_LIST])
+AC_SUBST([GLHEAD_LIST])
+AC_SUBST([SYSHEAD_LIST])
+AC_SUBST([SECHEAD_LIST])
+AC_SUBST([SECSYSHEAD_LIST])
+AC_SUBST([SDKSHEAD_LIST])
 
 AC_MSG_CHECKING([for optional sdk headers])
 AC_ARG_ENABLE([sdk],

@@ -563,11 +563,14 @@ MINGW_HAS_DDK
 DDKHEAD_LIST
 MINGW_HAS_DX
 DXHEAD_LIST
-ENABLE_CRT_FALSE
-ENABLE_CRT_TRUE
 SDKSHEAD_LIST
+SECSYSHEAD_LIST
+SECHEAD_LIST
+SYSHEAD_LIST
 GLHEAD_LIST
 BASEHEAD_LIST
+ENABLE_CRT_FALSE
+ENABLE_CRT_TRUE
 host_os
 host_vendor
 host_cpu
@@ -2281,15 +2284,11 @@ case $host_os in *\ *) host_os=`echo "$host_os" | sed 's/ /-/g'`;; esac
 
 # Checks for header files.
 
-GLHEAD_LIST=$srcdir/include/GL/*.h
 BASEHEAD_LIST=$srcdir/include/*.h
 for i in c dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
 #FIXME: Add in base directx
-
-
-
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for c-runtime headers" >&5
 $as_echo_n "checking for c-runtime headers... " >&6; }
@@ -2310,6 +2309,21 @@ fi
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_crt" >&5
 $as_echo "$enable_crt" >&6; }
+if test "x$enable_crt" = x""yes; then :
+
+  BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h
+  SYSHEAD_LIST=$srcdir/crt/sys/*.h
+  SECHEAD_LIST=$srcdir/crt/sec_api/*.h
+  SECSYSHEAD_LIST=$srcdir/crt/sec_api/sys/*.h
+
+fi
+GLHEAD_LIST=$srcdir/include/GL/*.h
+
+
+
+
+
+
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for optional sdk headers" >&5
 $as_echo_n "checking for optional sdk headers... " >&6; }
