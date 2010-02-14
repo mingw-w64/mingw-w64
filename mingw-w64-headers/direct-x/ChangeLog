@@ -1,3 +1,8 @@
+2010-02-14  Ozkan Sezer <sezeroz@gmail.com>
+
+	* d3dx9shader.h: Add definition for ID3DXConstantTable. (from wine
+	git 6b890be5512e748412a0e21ed3f0329f1aef3057 / 11 Feb 2010)
+
 2010-02-12  Ozkan Sezer <sezeroz@gmail.com>
 
 	* dmoreg.h: Made it C++ compatible by adding extern "C" { ... }
