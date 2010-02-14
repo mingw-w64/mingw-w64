@@ -1,5 +1,8 @@
 2010-02-14  Ozkan Sezer <sezeroz@gmail.com>
 
+	* amaudio.h: quartz: Fix IAMDirectSound interface definition. (from
+	wine git 28acc8398c58f0326d2e3bb21dd9406b9f480529 / 7 Feb 2010.)
+
 	* d3dx9shader.h: Add definition for ID3DXConstantTable. (from wine
 	git 6b890be5512e748412a0e21ed3f0329f1aef3057 / 11 Feb 2010)
 
