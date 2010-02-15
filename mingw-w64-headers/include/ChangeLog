@@ -1,3 +1,8 @@
+2010-02-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winnt.h (UNREFERENCED_PARAMETER): Silence warning.
+	(UNREFERENCED_LOCAL_VARIABLE): Likewise.
+
 2010-01-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* wincrypt.h (CERT_ALT_NAME_ENTRY): Commented out pEdiPartyName
