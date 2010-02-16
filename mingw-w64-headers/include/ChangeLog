@@ -1,3 +1,10 @@
+2010-02-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merge from the trunk revision 1918:
+	2010-02-15  Kai Tietz  <kai.tietz@onevision.com>
+	* winnt.h (UNREFERENCED_PARAMETER): Silence warning.
+	(UNREFERENCED_LOCAL_VARIABLE): Likewise.
+
 2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merged from trunk revision 1888:
