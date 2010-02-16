@@ -1,3 +1,10 @@
+2010-02-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	sync getopt.c with src/winsup/cygwin/libc/getopt.c r1.13 (Dec 14, 2009):
+	* misc/getopt.c (getopt_internal): Set optreset according to optind
+	setting earlier.  Reevaluate POSIXLY_CORRECT if optreset is set to !0.
+	Handle a leading '-' in options independently of posixly_correct.
+
 2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/user32.def: Add CloseTouchInputHandle and GetTouchInputInfo as
