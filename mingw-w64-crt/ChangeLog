@@ -1,4 +1,8 @@
 2010-02-19  Jonathan Yong  <jon_y@sourceforge.net>
+	* libsrc/shell32.c (CLSID_ShellFSFolder): Define.
+	(IID_IShellLinkDataList): Define.
+
+2010-02-19  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* libsrc/shell32.c (IID_IFolderView): Define.
 
