@@ -1,3 +1,7 @@
+2010-02-19  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* include/shlguid.h (IID_IFolderView): Define.
+
 2010-02-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* winnt.h (UNREFERENCED_PARAMETER): Silence warning.

@@ -1,3 +1,7 @@
+2010-02-19  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* libsrc/shell32.c (IID_IFolderView): Define.
+
 2010-02-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	sync getopt.c with src/winsup/cygwin/libc/getopt.c r1.13 (Dec 14, 2009):
