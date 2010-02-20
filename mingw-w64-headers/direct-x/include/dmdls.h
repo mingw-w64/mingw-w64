@@ -112,11 +112,12 @@ struct _DMUS_REGION {
 	ULONG    ulFirstExtCkIdx;
 	WAVELINK WaveLink;
 	WSMPL    WSMP;
-	/* Removed as it leads to compiler error, as WLOOP is a struct typedef.  */
+/* WLOOP is a struct typedef, leads to
+ * a compiler error if __cplusplus . */
 #ifdef __cplusplus
-	WLOOP    WWLOOP[1];
+	WLOOP   WWLOOP[1];
 #else
-	WLOOP	WLOOP[1];
+	WLOOP    WLOOP[1];
 #endif
 };
 
