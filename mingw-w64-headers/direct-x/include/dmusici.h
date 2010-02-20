@@ -34,7 +34,7 @@
 #include <dmplugin.h>
 #include <pshpack8.h>
 
-#ifdef __WINESRC__
+#ifdef WINE_NO_UNICODE_MACROS
 #undef AddPort
 #endif
 

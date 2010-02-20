@@ -1,3 +1,8 @@
+2010-02-20  Ozkan Sezer <sezeroz@gmail.com>
+
+	* dvdmedia.h: added from the wine sources.
+	* Sync'ed with wine-1.1.39 release version.
+
 2010-02-14  Ozkan Sezer <sezeroz@gmail.com>
 
 	* amaudio.h: quartz: Fix IAMDirectSound interface definition. (from

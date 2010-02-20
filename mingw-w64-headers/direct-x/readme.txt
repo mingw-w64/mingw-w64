@@ -8,7 +8,7 @@ definition of the MINGW_HAVE_DDRAW_H macro and the version can be obtained
 by the MINGW_DDRAW_VERSION macro.
 
 This is an optional SDK. Its license is LGPL and you can obtain the original
-source by the wine project. We base on the released wine-1.1.38 from the
+source by the wine project. We base on the released wine-1.1.39 from the
 wine project. For further details on license please read at the wine project
 and the COPYING.LIB file included here.
 
