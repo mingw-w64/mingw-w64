@@ -75,7 +75,12 @@ MINGW_HAS_DDK=0
 AS_IF([test $enable_directx = yes],[
   DXHEAD_LIST=$srcdir/direct-x/include/*.[[hi]]*
   MINGW_HAS_DX=1],
-  [])
+  [
+#FIXME
+SDKSHEAD_LIST=$srcdir/defaults/include/sdks/*.h
+MINGW_HAS_DX=1
+#ENDFIXME Get rid of this hack!
+])
 AC_SUBST([DXHEAD_LIST])
 AC_SUBST([MINGW_HAS_DX])
 

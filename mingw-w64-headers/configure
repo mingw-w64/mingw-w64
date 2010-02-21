@@ -2365,6 +2365,13 @@ if test $enable_directx = yes; then :
 
   DXHEAD_LIST=$srcdir/direct-x/include/*.[hi]*
   MINGW_HAS_DX=1
+else
+
+#FIXME
+SDKSHEAD_LIST=$srcdir/defaults/include/sdks/*.h
+MINGW_HAS_DX=1
+#ENDFIXME Get rid of this hack!
+
 fi
 
 
