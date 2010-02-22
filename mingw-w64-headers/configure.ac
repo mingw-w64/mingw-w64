@@ -68,20 +68,21 @@ AS_CASE([$enable_sdk],
   [AC_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx, or all.])])
 AC_MSG_RESULT([$enable_sdk])
 
-MINGW_HAS_DX=0
-MINGW_HAS_DDK=0
-
-AS_IF([test $enable_directx = yes],[
-  DXHEAD_LIST=$srcdir/direct-x/include/*.[[hi]]*
-  MINGW_HAS_DX=1],
-  [])
+AS_VAR_IF([enable_directx],[yes],[
+    DXHEAD_LIST=$srcdir/direct-x/include/*.[[hi]]*
+    MINGW_HAS_DX=1
+  ],[
+    MINGW_HAS_DX=0
+  ])
 AC_SUBST([DXHEAD_LIST])
 AC_SUBST([MINGW_HAS_DX])
 
-AS_IF([test $enable_ddk = yes],[
-  DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
-  MINGW_HAS_DDK=1],
-  [])
+AS_VAR_IF([enable_ddk],[yes],[
+    DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
+    MINGW_HAS_DDK=1],
+  ],[
+    MINGW_HAS_DDK=0
+  ])
 AC_SUBST([DDKHEAD_LIST])
 AC_SUBST([MINGW_HAS_DDK])
 
@@ -91,3 +92,4 @@ AC_SUBST([MINGW_HAS_DDK])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
+
