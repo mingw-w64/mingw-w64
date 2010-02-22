@@ -11,8 +11,7 @@ syshead_HEADERS = @SYSHEAD_LIST@
 sechead_HEADERS = @SECHEAD_LIST@
 secsyshead_HEADERS = @SECSYSHEAD_LIST@
 glhead_HEADERS = @GLHEAD_LIST@
-sdkshead_HEADERS = @SDKSHEAD_LIST@
-
+sdkshead_HEADERS = _mingw_directx.h _mingw_ddk.h
 
 ddkheaddir = $(baseheaddir)/ddk
 dxheaddir = $(baseheaddir)
@@ -21,7 +20,6 @@ ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-sdk=all
-
 
 EXTRA_HEADERS = \
   include/*.c \
@@ -37,3 +35,12 @@ EXTRA_HEADERS = \
   crt/sec_api/*.h \
   crt/sec_api/sys/*.h
 
+BUILT_SOURCES = \
+  _mingw_directx.h \
+  _mingw_ddk.h
+
+_mingw_directx.h: $(srcdir)/crt/sdks/_mingw_directx.h.in
+	$(SED) s/MINGW_HAS_DX$$/@MINGW_HAS_DX@/ $< > $@
+
+_mingw_ddk.h: $(srcdir)/crt/sdks/_mingw_ddk.h.in
+	$(SED) s/MINGW_HAS_DDK$$/@MINGW_HAS_DDK@/ $< > $@

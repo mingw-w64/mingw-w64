@@ -12,6 +12,7 @@ AM_INIT_AUTOMAKE([foreign])
 AC_CANONICAL_HOST
 
 # Checks for programs.
+AC_PROG_SED
 
 # Checks for libraries.
 
@@ -36,7 +37,6 @@ AS_VAR_IF([enable_crt],[yes],[
   SYSHEAD_LIST=$srcdir/crt/sys/*.h
   SECHEAD_LIST=$srcdir/crt/sec_api/*.h
   SECSYSHEAD_LIST=$srcdir/crt/sec_api/sys/*.h
-dnl  SDKSHEAD_LIST=$srcdir/crt/sdks/*.h
 ])
 GLHEAD_LIST=$srcdir/include/GL/*.h
 AC_SUBST([BASEHEAD_LIST])
@@ -44,7 +44,6 @@ AC_SUBST([GLHEAD_LIST])
 AC_SUBST([SYSHEAD_LIST])
 AC_SUBST([SECHEAD_LIST])
 AC_SUBST([SECSYSHEAD_LIST])
-AC_SUBST([SDKSHEAD_LIST])
 
 AC_MSG_CHECKING([for optional sdk headers])
 AC_ARG_ENABLE([sdk],
@@ -75,12 +74,7 @@ MINGW_HAS_DDK=0
 AS_IF([test $enable_directx = yes],[
   DXHEAD_LIST=$srcdir/direct-x/include/*.[[hi]]*
   MINGW_HAS_DX=1],
-  [
-#FIXME
-SDKSHEAD_LIST=$srcdir/defaults/include/sdks/*.h
-MINGW_HAS_DX=1
-#ENDFIXME Get rid of this hack!
-])
+  [])
 AC_SUBST([DXHEAD_LIST])
 AC_SUBST([MINGW_HAS_DX])
 
@@ -95,5 +89,5 @@ AC_SUBST([MINGW_HAS_DDK])
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile crt/sdks/_mingw_directx.h crt/sdks/_mingw_ddk.h])
+AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

@@ -1,4 +1,4 @@
-#if @MINGW_HAS_DX@
+#if MINGW_HAS_DX
 #ifndef MINGW_HAS_DDRAW_H
 
 #define MINGW_HAS_DDRAW_H 1
