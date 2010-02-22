@@ -33,7 +33,10 @@ EXTRA_HEADERS = \
   crt/*.h \
   crt/sys/*.h \
   crt/sec_api/*.h \
-  crt/sec_api/sys/*.h
+  crt/sec_api/sys/*.h \
+  direct-x/include/*.h \
+  direct-x/include/*.idl \
+  ddk/include/ddk/*.h
 
 BUILT_SOURCES = \
   _mingw_directx.h \

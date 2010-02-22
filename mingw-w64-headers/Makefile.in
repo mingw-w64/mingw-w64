@@ -40,10 +40,8 @@ DIST_COMMON = $(am__configure_deps) $(basehead_HEADERS) \
 	$(sdkshead_HEADERS) $(sechead_HEADERS) $(secsyshead_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/config.h.in $(syshead_HEADERS) \
-	$(top_srcdir)/configure $(top_srcdir)/crt/sdks/_mingw_ddk.h.in \
-	$(top_srcdir)/crt/sdks/_mingw_directx.h.in ChangeLog \
-	build-aux/config.guess build-aux/config.sub \
-	build-aux/install-sh build-aux/missing
+	$(top_srcdir)/configure ChangeLog build-aux/config.guess \
+	build-aux/config.sub build-aux/install-sh build-aux/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -52,7 +50,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = crt/sdks/_mingw_directx.h crt/sdks/_mingw_ddk.h
+CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 SOURCES =
 DIST_SOURCES =
@@ -132,9 +130,9 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
-SDKSHEAD_LIST = @SDKSHEAD_LIST@
 SECHEAD_LIST = @SECHEAD_LIST@
 SECSYSHEAD_LIST = @SECSYSHEAD_LIST@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
@@ -198,7 +196,7 @@ syshead_HEADERS = @SYSHEAD_LIST@
 sechead_HEADERS = @SECHEAD_LIST@
 secsyshead_HEADERS = @SECSYSHEAD_LIST@
 glhead_HEADERS = @GLHEAD_LIST@
-sdkshead_HEADERS = @SDKSHEAD_LIST@
+sdkshead_HEADERS = _mingw_directx.h _mingw_ddk.h
 ddkheaddir = $(baseheaddir)/ddk
 dxheaddir = $(baseheaddir)
 ddkhead_HEADERS = @DDKHEAD_LIST@
@@ -216,9 +214,16 @@ EXTRA_HEADERS = \
   crt/*.h \
   crt/sys/*.h \
   crt/sec_api/*.h \
-  crt/sec_api/sys/*.h
+  crt/sec_api/sys/*.h \
+  direct-x/include/*.h \
+  direct-x/include/*.idl \
+  ddk/include/ddk/*.h
 
-all: config.h
+BUILT_SOURCES = \
+  _mingw_directx.h \
+  _mingw_ddk.h
+
+all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
 .SUFFIXES:
@@ -273,10 +278,6 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-crt/sdks/_mingw_directx.h: $(top_builddir)/config.status $(top_srcdir)/crt/sdks/_mingw_directx.h.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
-crt/sdks/_mingw_ddk.h: $(top_builddir)/config.status $(top_srcdir)/crt/sdks/_mingw_ddk.h.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
 install-baseheadHEADERS: $(basehead_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(baseheaddir)" || $(MKDIR_P) "$(DESTDIR)$(baseheaddir)"
@@ -638,13 +639,15 @@ distcleancheck: distclean
 	       $(distcleancheck_listfiles) ; \
 	       exit 1; } >&2
 check-am: all-am
-check: check-am
+check: $(BUILT_SOURCES)
+	$(MAKE) $(AM_MAKEFLAGS) check-am
 all-am: Makefile $(HEADERS) config.h
 installdirs:
 	for dir in "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" "$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" "$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" "$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
-install: install-am
+install: $(BUILT_SOURCES)
+	$(MAKE) $(AM_MAKEFLAGS) install-am
 install-exec: install-exec-am
 install-data: install-data-am
 uninstall: uninstall-am
@@ -669,6 +672,7 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
+	-test -z "$(BUILT_SOURCES)" || rm -f $(BUILT_SOURCES)
 clean: clean-am
 
 clean-am: clean-generic mostlyclean-am
@@ -744,7 +748,7 @@ uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 	uninstall-sdksheadHEADERS uninstall-secheadHEADERS \
 	uninstall-secsysheadHEADERS uninstall-sysheadHEADERS
 
-.MAKE: all install-am install-strip
+.MAKE: all check install install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am am--refresh check check-am clean \
 	clean-generic ctags dist dist-all dist-bzip2 dist-gzip \
@@ -768,6 +772,12 @@ uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 	uninstall-sdksheadHEADERS uninstall-secheadHEADERS \
 	uninstall-secsysheadHEADERS uninstall-sysheadHEADERS
 
+
+_mingw_directx.h: $(srcdir)/crt/sdks/_mingw_directx.h.in
+	$(SED) s/MINGW_HAS_DX$$/@MINGW_HAS_DX@/ $< > $@
+
+_mingw_ddk.h: $(srcdir)/crt/sdks/_mingw_ddk.h.in
+	$(SED) s/MINGW_HAS_DDK$$/@MINGW_HAS_DDK@/ $< > $@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
