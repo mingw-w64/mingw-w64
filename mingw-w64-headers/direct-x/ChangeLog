@@ -1,3 +1,9 @@
+2010-02-23  Ozkan Sezer <sezeroz@gmail.com>
+
+	* d3dx9shader.h: Merged d3dx9_36 fix of Christian Costa from wine
+	git-3138ba0d5cfcd37d3b457916240a7e20a08f047c / 2010-02-21: Fix
+	AddRef and Release macros and add IID for ID3DXConstantTable.
+
 2010-02-20  Ozkan Sezer <sezeroz@gmail.com>
 
 	* dvdmedia.h: added from the wine sources.
