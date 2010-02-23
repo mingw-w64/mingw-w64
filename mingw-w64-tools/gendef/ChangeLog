@@ -1,0 +1,8 @@
+2010-02-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* src/gendef.c (no_forward_output): New variable
+	for option -f/--no-forward-ouput.
+	(opt_chain): Handle new options.
+	(add_export_list): Handle no_forward_output.
+	(show_usage): Add new option.
+

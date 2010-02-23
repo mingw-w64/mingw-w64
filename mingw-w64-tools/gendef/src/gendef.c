@@ -84,6 +84,7 @@ PIMAGE_NT_HEADERS64 gPEPDta;
 
 static int std_output = 0;
 static int assume_stdcall = 0; /* Set to one, if function symbols should be assumed to have stdcall.  */
+static int no_forward_output = 0; /* Set to one, if in .def files forwarders shouldn't be displayed.  */
 
 static Gendefopts *chain_ptr = NULL;
  __attribute__((noreturn)) static void show_usage (void);
@@ -119,6 +120,11 @@ opt_chain (const char *opts, const char *next)
         }
       gendef_addpath_def (next);
       return 1;
+    }
+  if (!strcmp (opts, "--no-forward-output") || !strcmp (opts, "-f"))
+    {
+      no_forward_output = 1;
+      return 0;
     }
 
   current = malloc (sizeof(Gendefopts));
@@ -170,6 +176,7 @@ show_usage (void)
     "  -I, --include-def-path <path>\n"
     "                           Add additional search paths to find\n"
     "                           hint .def files.\n"
+    " -f, --no-forward-output   Don't output forwarders in .def file\n"
   );
   fprintf (stderr, "\n");
   fprintf (stderr, "Usage example: \n"
@@ -667,7 +674,7 @@ dump_def (void)
           else
             fprintf(fp,"@%u", (unsigned int) exp->retpop);
         }
-      if (exp->func == 0)
+      if (exp->func == 0 && no_forward_output == 0)
 	fprintf (fp, " = %s", exp->forward);
       if (exp->name[0] == 0)
         fprintf(fp," @%u", (unsigned int) exp->ord);
