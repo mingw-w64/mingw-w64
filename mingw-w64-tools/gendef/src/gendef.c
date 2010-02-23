@@ -188,7 +188,7 @@ int main(int argc,char **argv)
 
   if (argc < 2)
   {
-    show_usage();
+    show_usage ();
     return 0;
   }
 
@@ -200,19 +200,22 @@ int main(int argc,char **argv)
       fninput = opt->fninput;
       fnoutput = opt->fnoutput;
 
-      load_pep();
-      if (gPEDta || gPEPDta)
-	{
-	  if (gPEDta)
-	    do_pedef ();
-	  else
-	    do_pepdef ();
-	  dump_def ();
+      if (load_pep ())
+        {
+	  if (gPEDta || gPEPDta)
+	    {
+	      if (gPEDta)
+		do_pedef ();
+	      else
+		do_pepdef ();
+	      dump_def ();
+	    }
 	}
       if (fndllname)
 	free (fndllname);
       fndllname = NULL;
-      free (gDta);
+      if (gDta)
+        free (gDta);
       free(opt->fninput);
       free(opt->fnoutput);
       free(opt);
@@ -222,7 +225,7 @@ int main(int argc,char **argv)
 }
 
 static int
-load_pep(void)
+load_pep (void)
 {
   FILE *fp = fopen (fninput, "rb");
 
@@ -269,6 +272,8 @@ load_pep(void)
     {
       fprintf (stderr, "*** [%s] no PE(+) signature\n", fninput);
       free (gDta);
+      gPEPDta = NULL;
+      gPEDta = NULL;
       return 0;
     }
   if (gPEDta->FileHeader.SizeOfOptionalHeader == IMAGE_SIZEOF_NT_OPTIONAL32_HEADER
@@ -287,6 +292,8 @@ load_pep(void)
     {
       free (gDta);
       fprintf (stderr, "*** [%s] no PE(+) optional header\n", fninput);
+      gPEPDta = NULL;
+      gPEDta = NULL;
       return 0;
     }
   return 1;
