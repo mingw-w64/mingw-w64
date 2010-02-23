@@ -83,14 +83,6 @@ from LGPLv2.1 section 5 paragraph 4:
     of the object file is unrestricted, regardless of whether it
     is legally a derivative work.
 
-FIXME: DDK contains csq.h that is under GPL (no version). ntifs.h
-depends on csq.h. csq.h could be at least partially rewritten with
-info from MSDN. struct _IO_CSQ and struct _IO_CSQ_IRP_CONTEXT may
-be the biggest issues. Problem is addressed to owning project
-ReactOS (www.reactos.org), and they are trying to find author of
-this header to get affirmation for put it under LGPLv2.1+.
-
-
 ====================
 libmangle and gendef
 ====================
