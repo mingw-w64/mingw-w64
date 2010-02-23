@@ -2444,9 +2444,12 @@ if test "x$enable_ddk" = x""yes; then :
 
     DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
     MINGW_HAS_DDK=1
+
 else
 
-]])fi
+    MINGW_HAS_DDK=0
+
+fi
 
 
 
