@@ -954,7 +954,7 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 #
 
 
-EXTRA_DIST = 
+EXTRA_DIST = ChangeLog-2009
 EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib64/*.def \
   $(top_srcdir)/lib32/*.def \

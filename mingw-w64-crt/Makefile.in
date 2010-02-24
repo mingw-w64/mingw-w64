@@ -2131,6 +2131,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -2143,7 +2144,6 @@ sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-to_host_path_cmd = @to_host_path_cmd@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
@@ -2948,7 +2948,7 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS)
 
 # Distribution options
 #
-EXTRA_DIST = revstamp.h $(top_srcdir)/lib64/*.def \
+EXTRA_DIST = ChangeLog-2009 revstamp.h $(top_srcdir)/lib64/*.def \
 	$(top_srcdir)/lib32/*.def crt/binmode.c crt/crtbegin.c \
 	crt/crtdll.c crt/crtend.c crt/crtexe.c crt/CRT_fp8.c \
 	crt/CRT_fp10.c crt/CRT_glob.c crt/CRT_noglob.c crt/txtmode.c \

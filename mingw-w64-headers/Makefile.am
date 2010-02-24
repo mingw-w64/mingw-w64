@@ -19,6 +19,7 @@ dxheaddir = $(baseheaddir)
 ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
 
+EXTRA_DIST = ChangeLog-2009
 DISTCHECK_CONFIGURE_FLAGS = --enable-sdk=all
 
 EXTRA_HEADERS = \
