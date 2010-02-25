@@ -1,5 +1,5 @@
-MinGW-w64 runtime licesing
-**************************
+MinGW-w64 runtime licensing
+***************************
 
 This program or library was built using MinGW-w64 and statically
 linked against the MinGW-w64 runtime. Some parts of the runtime
