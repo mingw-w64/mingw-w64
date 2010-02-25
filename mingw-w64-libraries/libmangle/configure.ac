@@ -12,6 +12,7 @@ AM_INIT_AUTOMAKE([foreign subdir-objects])
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_RANLIB
+AC_CHECK_TOOLS([AR], [ar], [:])
 
 # Checks for libraries.
 
