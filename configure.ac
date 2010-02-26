@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.65])
-AC_INIT([mingw-w64], [1.0b], [mingw-w64-public@lists.sourceforge.net])
+AC_INIT([mingw-w64],[1.0b],[mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([AUTHORS])
 AC_CONFIG_HEADERS([config.h])
@@ -80,22 +80,32 @@ AC_MSG_RESULT([$with_libraries])
 AC_MSG_CHECKING([whether to build the optional tools])
 AC_ARG_WITH([tools],
   [AS_HELP_STRING([--with-tools=ARG],
-    [Build the extra mingw-w64 tools, where ARG is one of gendef, or all])],
+    [Build the extra mingw-w64 tools, where ARG is one of gendef, genidl, or all])],
   [],
   [with_tools=no])
 AS_CASE([$with_tools],
   [yes|all],[
-    with_tools="gendef"
-    with_tools_gendef=yes],
+    with_tools="gendef,genidl"
+    with_tools_gendef=yes
+    with_tools_genidl=yes],
   [gendef],[
     with_tools="gendef"
-    with_tools_gendef=yes],
+    with_tools_gendef=yes
+    with_tools_genidl=no],
+  [genidl],[
+    with_tools="genidl"
+    with_tools_gendef=no
+    with_tools_genidl=yes],
   [no],[
-    with_tools_gendef=no],
+    with_tools_gendef=no
+    with_tools_genidl=no],
   [AC_MSG_ERROR([Invalid argument to --with-tools: $with_tools])])
 AM_CONDITIONAL([TOOLS_GENDEF],[test "x$with_tools_gendef" = xyes])
+AM_CONDITIONAL([TOOLS_GENIDL],[test "x$with_tools_genidl" = xyes])
 AM_COND_IF([TOOLS_GENDEF],[AC_CONFIG_SUBDIRS([mingw-w64-tools/gendef])])
+AM_COND_IF([TOOLS_GENIDL],[AC_CONFIG_SUBDIRS([mingw-w64-tools/genidl])])
 AC_MSG_RESULT([$with_tools])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
+
