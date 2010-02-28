@@ -1,3 +1,8 @@
+2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* src/gendef.c (load_pep): always set gDta to NULL after freeing it.
+	(main): Likewise.
+
 2010-02-23  Kai Tietz  <kai.tietz@onevision.com>
 
 	* src/gendef.c (no_forward_output): New variable

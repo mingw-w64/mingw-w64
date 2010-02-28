@@ -222,7 +222,10 @@ int main(int argc,char **argv)
 	free (fndllname);
       fndllname = NULL;
       if (gDta)
-        free (gDta);
+	{
+	  free (gDta);
+	  gDta = NULL;
+	}
       free(opt->fninput);
       free(opt->fnoutput);
       free(opt);
@@ -271,6 +274,7 @@ load_pep (void)
   {
     fprintf(stderr,"*** [%s] not a PE(+) file\n", fninput);
     free(gDta);
+    gDta = NULL;
     return 0;
   }
   gPEDta = (PIMAGE_NT_HEADERS32) &gDta[gMZDta->e_lfanew];
@@ -279,6 +283,7 @@ load_pep (void)
     {
       fprintf (stderr, "*** [%s] no PE(+) signature\n", fninput);
       free (gDta);
+      gDta = NULL;
       gPEPDta = NULL;
       gPEDta = NULL;
       return 0;
@@ -298,6 +303,7 @@ load_pep (void)
   else
     {
       free (gDta);
+      gDta = NULL;
       fprintf (stderr, "*** [%s] no PE(+) optional header\n", fninput);
       gPEPDta = NULL;
       gPEDta = NULL;
