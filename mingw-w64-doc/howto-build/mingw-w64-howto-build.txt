@@ -42,6 +42,7 @@ Date /          Version /  Author
 2009-08-28      1.7        Xenofears <xenofears at gmail.com>
 2009-08-30      1.8        Ozkan Sezer <sezeroz at gmail dot com>
 2009-10-09      1.9        Jonathan Yong <jon_y[a]users.sourceforge.com>
+2010-02-28      1.10       Ozkan Sezer <sezeroz at gmail dot com>
 
 == Table of Contents ==
 
@@ -113,22 +114,18 @@ GCC doesn't do it for you.
 
 You need to download the following packages:
 
-	* Binutils 2.19.1 release for stable, or 2.20.51+ or newer or latest
-	  snapshot 2.20.51 for experimental as of 08-Oct-2009. As of writing,
-	  stable Binutils 2.20.1 is about to be released.
+	* Binutils 2.20 release for stable, or a CVS snapshot (2.20.51) for
+	  experimental. As of writing, stable Binutils 2.20.1 is about to be
+	  released.
 
-	* GCC version 4.4.1 release for stable, or latest GCC (4.5) snapshot
+	* GCC version 4.4.3 release for stable, or latest GCC (4.5) snapshot
 	  or svn co for experimental as of 06-01-2009.  GCC-4.5 is good for
 	  proper support for the new -w64-, see note above, but is in Stage 1
 	  yet and may have bugs.  GCC-4.3 support is no longer maintained.
-	  As of writing, stable GCC 4.4.2 is about to be released.
 
 	* Current Mingw-w64 release available at
 	  http://sourceforge.net/projects/mingw-w64 .  Snapshot, even better
-	  from SVN (refer below), recommended until stable issuance), or you
-	  can download the latest source release snapshot issued from Cadforte,
-	  http://www.cadforte.com/downloads.html ,  which includes full tree
-	  including experimental branch.
+	  from SVN (refer below), recommended until stable issuance.
 
 Official releases of GCC and binutils may be downloaded from a GNU FTP mirror
 from <http://www.gnu.org/prep/ftp.html>.  GCC snapshots may be found at
@@ -148,9 +145,12 @@ MSys/MinGW Packages. To use them:
 	  or for GCC 4.4.x:
 	svn co svn://gcc.gnu.org/svn/gcc/branches/gcc-4_4-branch gcc44x
 
-	* For Binutils:
+	* For Binutils latest development snapshot (2.20.51):
 	cvs -z9 -d:pserver:anoncvs@sourceware.org:/cvs/src co binutils
-	(a directory named 'src' will be created and will hold the sources.)
+	  or for binutils-2.20 stable branch:
+	cvs -z9 -d:pserver:anoncvs@sourceware.org:/cvs/src co -r binutils-2_20-branch binutils
+	(a directory named 'src' will be created and will hold the sources
+	for either of the cases.)
 
 
 === Build type options === [BTYOPT]
