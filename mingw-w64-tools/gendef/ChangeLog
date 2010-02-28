@@ -1,3 +1,13 @@
+2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-02-23  Kai Tietz  <kai.tietz@onevision.com>
+	* src/gendef.c: Fix crash on none PE(+) images. (r1933)
+
+	2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
+	* src/gendef.c: always set gDta to NULL after freeing it. (r1965)
+
 2009-12-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	Merged from trunk.
