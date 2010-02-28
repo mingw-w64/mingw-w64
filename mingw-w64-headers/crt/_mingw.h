@@ -500,8 +500,18 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #ifndef DUMMYSTRUCTNAME
 # ifdef NONAMELESSSTRUCT
 #  define DUMMYSTRUCTNAME s
+#  define DUMMYSTRUCTNAME1 s1
+#  define DUMMYSTRUCTNAME2 s2
+#  define DUMMYSTRUCTNAME3 s3
+#  define DUMMYSTRUCTNAME4 s4
+#  define DUMMYSTRUCTNAME5 s5
 # else
 #  define DUMMYSTRUCTNAME
+#  define DUMMYSTRUCTNAME1
+#  define DUMMYSTRUCTNAME2
+#  define DUMMYSTRUCTNAME3
+#  define DUMMYSTRUCTNAME4
+#  define DUMMYSTRUCTNAME5
 # endif
 #endif /* DUMMYSTRUCTNAME */
 
