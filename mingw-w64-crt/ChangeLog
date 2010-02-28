@@ -1,3 +1,10 @@
+2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-02-26, NightStrike, r1951:
+	* lib32/iphlpapi.def: Add GetExtendedTcpTable, from w32api 3.12.
+
 2010-02-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merged from trunk r1923-1924:

@@ -116,7 +116,7 @@ extern "C" {
   typedef DWORD *PDWORD;
   typedef DWORD *LPDWORD;
   typedef void *LPVOID;
-  #ifndef _LPCVOID_DEFINED
+#ifndef _LPCVOID_DEFINED
 #define _LPCVOID_DEFINED
 typedef CONST void *LPCVOID;
 #endif

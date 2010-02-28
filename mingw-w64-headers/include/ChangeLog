@@ -1,3 +1,20 @@
+2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-02-26, NightStrike, r1951:
+	* shlwapi.h (ASSOCF_INIT_IGNOREUNKNOWN): Add new enumerated value,
+	from w32api 3.12.
+
+	2010-02-27, ktietz70, r1960:
+	* windef.h: Correct layout. (whitespace.)
+
+	2010-02-27, ktietz70, r1961:
+	* resapi.h: Add guarded IN,OUT,OPTIONAL.
+
+	2010-02-28, ktietz70, r1962:
+	* _mingw.h: Define DUMMYSTRUCT1..DUMMYSTRUCT5.
+
 2010-02-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merged from trunk r1923-1924:
