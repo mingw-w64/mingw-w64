@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.65])
-AC_INIT([mingw-w64-headers], [1.0b], [mingw-w64-public@lists.sourceforge.net])
+AC_INIT([mingw-w64-headers],[1.0b],[mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_SRCDIR([crt/_mingw.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_HEADERS([config.h])
@@ -65,7 +65,7 @@ AS_CASE([$enable_sdk],
   [no],[
     enable_ddk=no
     enable_directx=no],
-  [AC_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx, or all.])])
+  [AC_MSG_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx, or all.])])
 AC_MSG_RESULT([$enable_sdk])
 
 AS_VAR_IF([enable_directx],[yes],[
