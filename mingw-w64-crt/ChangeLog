@@ -3,6 +3,7 @@
 	* aclocal.m4 (_LT_CHECK_MAGIC_METHOD): The latest libtool.m4 w64
 	fix from the libtool git repository applied.
 	* configure: Likewise.
+	* ltmain.sh (func_win32_libid): Update from the libtool git repo.
 
 2010-02-19  Jonathan Yong  <jon_y@sourceforge.net>
 
