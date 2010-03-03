@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.65])
-AC_INIT([PSEH], [2.0], [hackbunny@reactos.org])
+AC_INIT([PSEH],[2.0],[hackbunny@reactos.org])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([include/pseh/pseh2.h])
 AC_CONFIG_HEADERS([config.h])
@@ -13,7 +13,7 @@ AC_CANONICAL_HOST
 
 AS_CASE([$host],
         [i*86-*-mingw*],[],
-        [*],[AC_ERROR([Only Win32 host variants are supported])])
+        [*],[AC_MSG_ERROR([Only Win32 host variants are supported])])
 
 # Checks for programs.
 AC_PROG_CC
