@@ -126,7 +126,7 @@ AS_CASE([$host_cpu],
 
 AC_ARG_ENABLE(
   wildcard,
-  AC_HELP_STRING([--enable-wildcard], [Enable command line globbing [[default=no]]]),
+  AS_HELP_STRING([--enable-wildcard],[Enable command line globbing [[default=no]]]),
   [],
   [enable_wildcard=no]
 )
