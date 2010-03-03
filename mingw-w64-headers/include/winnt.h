@@ -1,7 +1,7 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #ifndef _WINNT_
 #define _WINNT_
@@ -172,8 +172,8 @@ extern "C" {
 #ifdef UNICODE
 #ifndef _TCHAR_DEFINED
 #define _TCHAR_DEFINED
-  typedef WCHAR TCHAR,*PTCHAR;
-  typedef WCHAR TBYTE,*PTBYTE;
+  typedef WCHAR TCHAR, *PTCHAR;
+  typedef WCHAR TBYTE, *PTBYTE;
 #endif
 
   typedef LPWSTR LPTCH,PTCH;
@@ -186,8 +186,8 @@ extern "C" {
 #else
 #ifndef _TCHAR_DEFINED
 #define _TCHAR_DEFINED
-  typedef char TCHAR,*PTCHAR;
-  typedef unsigned char TBYTE,*PTBYTE;
+  typedef char TCHAR, *PTCHAR;
+  typedef unsigned char TBYTE, *PTBYTE;
 #endif
 
   typedef LPSTR LPTCH,PTCH;
@@ -468,36 +468,82 @@ typedef DWORD LCID;
 #define VER_SUITE_SECURITY_APPLIANCE 0x00001000
 #define VER_SUITE_STORAGE_SERVER 0x00002000
 #define VER_SUITE_COMPUTE_SERVER 0x00004000
+#define VER_SUITE_WH_SERVER 0x00008000
 
-#define PRODUCT_UNDEFINED                       0x0
+#define PRODUCT_UNDEFINED                         0x0
 
-#define PRODUCT_ULTIMATE                        0x1
-#define PRODUCT_HOME_BASIC                      0x2
-#define PRODUCT_HOME_PREMIUM                    0x3
-#define PRODUCT_ENTERPRISE                      0x4
-#define PRODUCT_HOME_BASIC_N                    0x5
-#define PRODUCT_BUSINESS                        0x6
-#define PRODUCT_STANDARD_SERVER                 0x7
-#define PRODUCT_DATACENTER_SERVER               0x8
-#define PRODUCT_SMALLBUSINESS_SERVER            0x9
-#define PRODUCT_ENTERPRISE_SERVER               0xa
-#define PRODUCT_STARTER                         0xb
-#define PRODUCT_DATACENTER_SERVER_CORE          0xc
-#define PRODUCT_STANDARD_SERVER_CORE            0xd
-#define PRODUCT_ENTERPRISE_SERVER_CORE          0xe
-#define PRODUCT_ENTERPRISE_SERVER_IA64          0xf
-#define PRODUCT_BUSINESS_N                      0x10
-#define PRODUCT_WEB_SERVER                      0x11
-#define PRODUCT_CLUSTER_SERVER                  0x12
-#define PRODUCT_HOME_SERVER                     0x13
-#define PRODUCT_STORAGE_EXPRESS_SERVER          0x14
-#define PRODUCT_STORAGE_STANDARD_SERVER         0x15
-#define PRODUCT_STORAGE_WORKGROUP_SERVER        0x16
-#define PRODUCT_STORAGE_ENTERPRISE_SERVER       0x17
-#define PRODUCT_SERVER_FOR_SMALLBUSINESS        0x18
-#define PRODUCT_SMALLBUSINESS_SERVER_PREMIUM    0x19
+#define PRODUCT_ULTIMATE                          0x1
+#define PRODUCT_HOME_BASIC                        0x2
+#define PRODUCT_HOME_PREMIUM                      0x3
+#define PRODUCT_ENTERPRISE                        0x4
+#define PRODUCT_HOME_BASIC_N                      0x5
+#define PRODUCT_BUSINESS                          0x6
+#define PRODUCT_STANDARD_SERVER                   0x7
+#define PRODUCT_DATACENTER_SERVER                 0x8
+#define PRODUCT_SMALLBUSINESS_SERVER              0x9
+#define PRODUCT_ENTERPRISE_SERVER                 0xa
+#define PRODUCT_STARTER                           0xb
+#define PRODUCT_DATACENTER_SERVER_CORE            0xc
+#define PRODUCT_STANDARD_SERVER_CORE              0xd
+#define PRODUCT_ENTERPRISE_SERVER_CORE            0xe
+#define PRODUCT_ENTERPRISE_SERVER_IA64            0xf
+#define PRODUCT_BUSINESS_N                        0x10
+#define PRODUCT_WEB_SERVER                        0x11
+#define PRODUCT_CLUSTER_SERVER                    0x12
+#define PRODUCT_HOME_SERVER                       0x13
+#define PRODUCT_STORAGE_EXPRESS_SERVER            0x14
+#define PRODUCT_STORAGE_STANDARD_SERVER           0x15
+#define PRODUCT_STORAGE_WORKGROUP_SERVER          0x16
+#define PRODUCT_STORAGE_ENTERPRISE_SERVER         0x17
+#define PRODUCT_SERVER_FOR_SMALLBUSINESS          0x18
+#define PRODUCT_SMALLBUSINESS_SERVER_PREMIUM      0x19
+#define PRODUCT_HOME_PREMIUM_N                    0x1a
+#define PRODUCT_ENTERPRISE_N                      0x1b
+#define PRODUCT_ULTIMATE_N                        0x1c
+#define PRODUCT_WEB_SERVER_CORE                   0x1d
+#define PRODUCT_MEDIUMBUSINESS_SERVER_MANAGEMENT  0x1e
+#define PRODUCT_MEDIUMBUSINESS_SERVER_SECURITY    0x1f
+#define PRODUCT_MEDIUMBUSINESS_SERVER_MESSAGING   0x20
+#define PRODUCT_SERVER_FOUNDATION                 0x21
+#define PRODUCT_HOME_PREMIUM_SERVER               0x22
+#define PRODUCT_SERVER_FOR_SMALLBUSINESS_V        0x23
+#define PRODUCT_STANDARD_SERVER_V                 0x24
+#define PRODUCT_DATACENTER_SERVER_V               0x25
+#define PRODUCT_ENTERPRISE_SERVER_V               0x26
+#define PRODUCT_DATACENTER_SERVER_CORE_V          0x27
+#define PRODUCT_STANDARD_SERVER_CORE_V            0x28
+#define PRODUCT_ENTERPRISE_SERVER_CORE_V          0x29
+#define PRODUCT_HYPERV                            0x2a
+#define PRODUCT_STORAGE_EXPRESS_SERVER_CORE       0x2b
+#define PRODUCT_STORAGE_STANDARD_SERVER_CORE      0x2c
+#define PRODUCT_STORAGE_WORKGROUP_SERVER_CORE     0x2d
+#define PRODUCT_STORAGE_ENTERPRISE_SERVER_CORE    0x2e
+#define PRODUCT_STARTER_N                         0x2f
+#define PRODUCT_PROFESSIONAL                      0x30
+#define PRODUCT_PROFESSIONAL_N                    0x31
+#define PRODUCT_SB_SOLUTION_SERVER                0x32
+#define PRODUCT_SERVER_FOR_SB_SOLUTIONS           0x33
+#define PRODUCT_STANDARD_SERVER_SOLUTIONS         0x34
+#define PRODUCT_STANDARD_SERVER_SOLUTIONS_CORE    0x35
+#define PRODUCT_SB_SOLUTION_SERVER_EM             0x36
+#define PRODUCT_SERVER_FOR_SB_SOLUTIONS_EM        0x37
+#define PRODUCT_SOLUTION_EMBEDDEDSERVER           0x38
+#define PRODUCT_SOLUTION_EMBEDDEDSERVER_CORE      0x39
+#define PRODUCT_ESSENTIALBUSINESS_SERVER_MGMT     0x3B
+#define PRODUCT_ESSENTIALBUSINESS_SERVER_ADDL     0x3C
+#define PRODUCT_ESSENTIALBUSINESS_SERVER_MGMTSVC  0x3D
+#define PRODUCT_ESSENTIALBUSINESS_SERVER_ADDLSVC  0x3E
+#define PRODUCT_SMALLBUSINESS_SERVER_PREMIUM_CORE 0x3f
+#define PRODUCT_CLUSTER_SERVER_V                  0x40
+#define PRODUCT_EMBEDDED                          0x41
+#define PRODUCT_STARTER_E                         0x42
+#define PRODUCT_HOME_BASIC_E                      0x43
+#define PRODUCT_HOME_PREMIUM_E                    0x44
+#define PRODUCT_PROFESSIONAL_E                    0x45
+#define PRODUCT_ENTERPRISE_E                      0x46
+#define PRODUCT_ULTIMATE_E                        0x47
 
-#define PRODUCT_UNLICENSED                      0xabcdabcd
+#define PRODUCT_UNLICENSED                        0xabcdabcd
 
 #define LANG_NEUTRAL 0x00
 #define LANG_INVARIANT 0x7f
@@ -797,16 +843,21 @@ typedef DWORD LCID;
 #define DBG_TERMINATE_THREAD ((DWORD)0x40010003L)
 #define DBG_TERMINATE_PROCESS ((DWORD)0x40010004L)
 #define DBG_CONTROL_C ((DWORD)0x40010005L)
+#define DBG_PRINTEXCEPTION_C ((DWORD)0x40010006L)
+#define DBG_RIPEXCEPTION ((DWORD)0x40010007L)
 #define DBG_CONTROL_BREAK ((DWORD)0x40010008L)
 #define DBG_COMMAND_EXCEPTION ((DWORD)0x40010009L)
 #define STATUS_GUARD_PAGE_VIOLATION ((DWORD)0x80000001L)
 #define STATUS_DATATYPE_MISALIGNMENT ((DWORD)0x80000002L)
 #define STATUS_BREAKPOINT ((DWORD)0x80000003L)
 #define STATUS_SINGLE_STEP ((DWORD)0x80000004L)
+#define STATUS_LONGJUMP ((DWORD)0x80000026L)    
+#define STATUS_UNWIND_CONSOLIDATE ((DWORD)0x80000029L)    
 #define DBG_EXCEPTION_NOT_HANDLED ((DWORD)0x80010001L)
 #define STATUS_ACCESS_VIOLATION ((DWORD)0xC0000005L)
 #define STATUS_IN_PAGE_ERROR ((DWORD)0xC0000006L)
 #define STATUS_INVALID_HANDLE ((DWORD)0xC0000008L)
+#define STATUS_INVALID_PARAMETER ((DWORD)0xC000000DL)
 #define STATUS_NO_MEMORY ((DWORD)0xC0000017L)
 #define STATUS_ILLEGAL_INSTRUCTION ((DWORD)0xC000001DL)
 #define STATUS_NONCONTINUABLE_EXCEPTION ((DWORD)0xC0000025L)
@@ -823,10 +874,17 @@ typedef DWORD LCID;
 #define STATUS_INTEGER_OVERFLOW ((DWORD)0xC0000095L)
 #define STATUS_PRIVILEGED_INSTRUCTION ((DWORD)0xC0000096L)
 #define STATUS_STACK_OVERFLOW ((DWORD)0xC00000FDL)
+#define STATUS_DLL_NOT_FOUND ((DWORD)0xC0000135L)
+#define STATUS_ORDINAL_NOT_FOUND ((DWORD)0xC0000138L)
+#define STATUS_ENTRYPOINT_NOT_FOUND ((DWORD)0xC0000139L)
 #define STATUS_CONTROL_C_EXIT ((DWORD)0xC000013AL)
+#define STATUS_DLL_INIT_FAILED ((DWORD)0xC0000142L)
 #define STATUS_FLOAT_MULTIPLE_FAULTS ((DWORD)0xC00002B4L)
 #define STATUS_FLOAT_MULTIPLE_TRAPS ((DWORD)0xC00002B5L)
 #define STATUS_REG_NAT_CONSUMPTION ((DWORD)0xC00002C9L)
+#define STATUS_STACK_BUFFER_OVERRUN ((DWORD)0xC0000409L)
+#define STATUS_INVALID_CRUNTIME_PARAMETER ((DWORD)0xC0000417L)
+#define STATUS_ASSERTION_FAILURE ((DWORD)0xC0000420L)
 #define STATUS_SXS_EARLY_DEACTIVATION ((DWORD)0xC015000FL)
 #define STATUS_SXS_INVALID_DEACTIVATION ((DWORD)0xC0150010L)
 #endif
@@ -2446,6 +2504,18 @@ typedef DWORD LCID;
     } SYSTEM_ALARM_ACE;
     typedef SYSTEM_ALARM_ACE *PSYSTEM_ALARM_ACE;
 
+    typedef struct _SYSTEM_MANDATORY_LABEL_ACE {
+      ACE_HEADER Header;
+      ACCESS_MASK Mask;
+      DWORD SidStart;
+    } SYSTEM_MANDATORY_LABEL_ACE, *PSYSTEM_MANDATORY_LABEL_ACE;
+
+#define SYSTEM_MANDATORY_LABEL_NO_WRITE_UP 0x1
+#define SYSTEM_MANDATORY_LABEL_NO_READ_UP 0x2
+#define SYSTEM_MANDATORY_LABEL_NO_EXECUTE_UP 0x4
+
+#define SYSTEM_MANDATORY_LABEL_VALID_MASK (SYSTEM_MANDATORY_LABEL_NO_WRITE_UP | SYSTEM_MANDATORY_LABEL_NO_READ_UP | SYSTEM_MANDATORY_LABEL_NO_EXECUTE_UP)
+
     typedef struct _ACCESS_ALLOWED_OBJECT_ACE {
       ACE_HEADER Header;
       ACCESS_MASK Mask;
@@ -2640,6 +2710,8 @@ typedef DWORD LCID;
 #define SE_PRIVILEGE_REMOVED (0X00000004L)
 #define SE_PRIVILEGE_USED_FOR_ACCESS (0x80000000L)
 
+#define SE_PRIVILEGE_VALID_ATTRIBUTES (SE_PRIVILEGE_ENABLED_BY_DEFAULT | SE_PRIVILEGE_ENABLED | SE_PRIVILEGE_REMOVED | SE_PRIVILEGE_USED_FOR_ACCESS)
+
 #define PRIVILEGE_SET_ALL_NECESSARY (1)
 
     typedef struct _PRIVILEGE_SET {
@@ -2678,6 +2750,11 @@ typedef DWORD LCID;
 #define SE_MANAGE_VOLUME_NAME TEXT("SeManageVolumePrivilege")
 #define SE_IMPERSONATE_NAME TEXT("SeImpersonatePrivilege")
 #define SE_CREATE_GLOBAL_NAME TEXT("SeCreateGlobalPrivilege")
+#define SE_TRUSTED_CREDMAN_ACCESS_NAME TEXT("SeTrustedCredManAccessPrivilege")
+#define SE_RELABEL_NAME TEXT("SeRelabelPrivilege")
+#define SE_INC_WORKING_SET_NAME TEXT("SeIncreaseWorkingSetPrivilege")
+#define SE_TIME_ZONE_NAME TEXT("SeTimeZonePrivilege")
+#define SE_CREATE_SYMBOLIC_LINK_NAME TEXT("SeCreateSymbolicLinkPrivilege")
 
     typedef enum _SECURITY_IMPERSONATION_LEVEL {
       SecurityAnonymous,SecurityIdentification,SecurityImpersonation,SecurityDelegation
@@ -2712,9 +2789,12 @@ typedef DWORD LCID;
     typedef TOKEN_TYPE *PTOKEN_TYPE;
 
     typedef enum _TOKEN_INFORMATION_CLASS {
-      TokenUser = 1,TokenGroups,TokenPrivileges,TokenOwner,TokenPrimaryGroup,TokenDefaultDacl,TokenSource,TokenType,TokenImpersonationLevel,
-      TokenStatistics,TokenRestrictedSids,TokenSessionId,TokenGroupsAndPrivileges,TokenSessionReference,TokenSandBoxInert,TokenAuditPolicy,
-      TokenOrigin,MaxTokenInfoClass
+      TokenUser = 1, TokenGroups, TokenPrivileges, TokenOwner,TokenPrimaryGroup, TokenDefaultDacl, TokenSource,
+      TokenType, TokenImpersonationLevel, TokenStatistics, TokenRestrictedSids, TokenSessionId, TokenGroupsAndPrivileges,
+      TokenSessionReference, TokenSandBoxInert, TokenAuditPolicy, TokenOrigin,TokenElevationType, TokenLinkedToken,
+      TokenElevation, TokenHasRestrictions, TokenAccessInformation, TokenVirtualizationAllowed,
+      TokenIntegrityLevel, TokenUIAccess, TokenMandatoryPolicy, TokenLogonSid,
+      MaxTokenInfoClass
     } TOKEN_INFORMATION_CLASS,*PTOKEN_INFORMATION_CLASS;
 
     typedef struct _TOKEN_USER {
@@ -2829,6 +2909,8 @@ typedef DWORD LCID;
 
 #define DISABLE_MAX_PRIVILEGE 0x1
 #define SANDBOX_INERT 0x2
+#define LUA_TOKEN 0x4
+#define WRITE_RESTRICTED 0x8
 
     typedef DWORD SECURITY_INFORMATION,*PSECURITY_INFORMATION;
 
@@ -2836,6 +2918,7 @@ typedef DWORD LCID;
 #define GROUP_SECURITY_INFORMATION (0x00000002L)
 #define DACL_SECURITY_INFORMATION (0x00000004L)
 #define SACL_SECURITY_INFORMATION (0x00000008L)
+#define LABEL_SECURITY_INFORMATION (0x00000010L)
 
 #define PROTECTED_DACL_SECURITY_INFORMATION (0x80000000L)
 #define PROTECTED_SACL_SECURITY_INFORMATION (0x40000000L)
@@ -2854,6 +2937,7 @@ typedef DWORD LCID;
 #define PROCESS_SET_INFORMATION (0x0200)
 #define PROCESS_QUERY_INFORMATION (0x0400)
 #define PROCESS_SUSPEND_RESUME (0x0800)
+#define PROCESS_QUERY_LIMITED_INFORMATION (0x1000)
 #define PROCESS_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0xFFF)
 
 #ifdef _WIN64
@@ -2871,6 +2955,8 @@ typedef DWORD LCID;
 #define THREAD_SET_THREAD_TOKEN (0x0080)
 #define THREAD_IMPERSONATE (0x0100)
 #define THREAD_DIRECT_IMPERSONATION (0x0200)
+#define THREAD_SET_LIMITED_INFORMATION (0x0400)
+#define THREAD_QUERY_LIMITED_INFORMATION (0x0800)
 
 #define THREAD_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0x3FF)
 
@@ -2955,6 +3041,15 @@ typedef DWORD LCID;
 #define QUOTA_LIMITS_HARDWS_MIN_DISABLE 0x00000002
 #define QUOTA_LIMITS_HARDWS_MAX_ENABLE 0x00000004
 #define QUOTA_LIMITS_HARDWS_MAX_DISABLE 0x00000008
+#define QUOTA_LIMITS_USE_DEFAULT_LIMITS 0x00000010
+
+    typedef union _RATE_QUOTA_LIMIT {
+      DWORD RateData;
+      __MINGW_EXTENSION struct {
+        DWORD RatePercent : 7;
+        DWORD Reserved0   : 25;
+      } DUMMYSTRUCTNAME;
+    } RATE_QUOTA_LIMIT, *PRATE_QUOTA_LIMIT;
 
     typedef struct _QUOTA_LIMITS_EX {
       SIZE_T PagedPoolLimit;
@@ -2963,12 +3058,12 @@ typedef DWORD LCID;
       SIZE_T MaximumWorkingSetSize;
       SIZE_T PagefileLimit;
       LARGE_INTEGER TimeLimit;
-      SIZE_T Reserved1;
+      SIZE_T WorkingSetLimit;
       SIZE_T Reserved2;
       SIZE_T Reserved3;
       SIZE_T Reserved4;
       DWORD Flags;
-      DWORD Reserved5;
+      RATE_QUOTA_LIMIT CpuRateLimit;
     } QUOTA_LIMITS_EX,*PQUOTA_LIMITS_EX;
 
     typedef struct _IO_COUNTERS {
@@ -2980,6 +3075,14 @@ typedef DWORD LCID;
       ULONGLONG OtherTransferCount;
     } IO_COUNTERS;
     typedef IO_COUNTERS *PIO_COUNTERS;
+
+#define MAX_HW_COUNTERS 16
+#define THREAD_PROFILING_FLAG_DISPATCH 0x1
+
+    typedef enum _HARDWARE_COUNTER_TYPE {
+      PMCCounter,
+      MaxHardwareCounterType
+    } HARDWARE_COUNTER_TYPE, *PHARDWARE_COUNTER_TYPE;
 
     typedef struct _JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
       LARGE_INTEGER TotalUserTime;
@@ -3078,7 +3181,7 @@ typedef DWORD LCID;
 #define JOB_OBJECT_LIMIT_SILENT_BREAKAWAY_OK 0x00001000
 #define JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE 0x00002000
 
-#define JOB_OBJECT_LIMIT_RESERVED2 0x00004000
+#define JOB_OBJECT_LIMIT_SUBSET_AFFINITY 0x00004000
 #define JOB_OBJECT_LIMIT_RESERVED3 0x00008000
 #define JOB_OBJECT_LIMIT_RESERVED4 0x00010000
 #define JOB_OBJECT_LIMIT_RESERVED5 0x00020000
@@ -3087,7 +3190,7 @@ typedef DWORD LCID;
 #define JOB_OBJECT_LIMIT_VALID_FLAGS 0x0007ffff
 
 #define JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS 0x000000ff
-#define JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS 0x00003fff
+#define JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS 0x00007fff
 #define JOB_OBJECT_RESERVED_LIMIT_VALID_FLAGS 0x0007ffff
 
 #define JOB_OBJECT_UILIMIT_NONE 0x00000000
@@ -3115,7 +3218,7 @@ typedef DWORD LCID;
     typedef enum _JOBOBJECTINFOCLASS {
       JobObjectBasicAccountingInformation = 1,JobObjectBasicLimitInformation,JobObjectBasicProcessIdList,JobObjectBasicUIRestrictions,
       JobObjectSecurityLimitInformation,JobObjectEndOfJobTimeInformation,JobObjectAssociateCompletionPortInformation,
-      JobObjectBasicAndIoAccountingInformation,JobObjectExtendedLimitInformation,JobObjectJobSetInformation,MaxJobObjectInfoClass
+      JobObjectBasicAndIoAccountingInformation,JobObjectExtendedLimitInformation,JobObjectJobSetInformation,JobObjectGroupInformation,MaxJobObjectInfoClass
     } JOBOBJECTINFOCLASS;
 
 #define EVENT_MODIFY_STATE 0x0002
@@ -3137,7 +3240,7 @@ typedef DWORD LCID;
 #define TIME_ZONE_ID_DAYLIGHT 2
 
     typedef enum _LOGICAL_PROCESSOR_RELATIONSHIP {
-      RelationProcessorCore,RelationNumaNode,RelationCache
+      RelationProcessorCore,RelationNumaNode,RelationCache,RelationProcessorPackage,RelationGroup,RelationAll=0xffff
     } LOGICAL_PROCESSOR_RELATIONSHIP;
 
 #define LTP_PC_SMT 0x1
@@ -3222,6 +3325,11 @@ typedef DWORD LCID;
 #define PF_XMMI64_INSTRUCTIONS_AVAILABLE 10
 #define PF_SSE_DAZ_MODE_AVAILABLE 11
 #define PF_NX_ENABLED 12
+#define PF_SSE3_INSTRUCTIONS_AVAILABLE 13
+#define PF_COMPARE_EXCHANGE128 14
+#define PF_COMPARE64_EXCHANGE128 15
+#define PF_CHANNELS_ENABLED 16
+#define PF_XSAVE_ENABLED 17
 
     typedef struct _MEMORY_BASIC_INFORMATION {
       PVOID BaseAddress;
@@ -3263,6 +3371,12 @@ typedef DWORD LCID;
 #define SECTION_MAP_EXECUTE_EXPLICIT 0x0020
 
 #define SECTION_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED|SECTION_QUERY| SECTION_MAP_WRITE | SECTION_MAP_READ | SECTION_MAP_EXECUTE | SECTION_EXTEND_SIZE)
+
+#define SESSION_QUERY_ACCESS 0x1
+#define SESSION_MODIFY_ACCESS 0x2
+
+#define SESSION_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED | SESSION_QUERY_ACCESS | SESSION_MODIFY_ACCESS)
+
 #define PAGE_NOACCESS 0x01
 #define PAGE_READONLY 0x02
 #define PAGE_READWRITE 0x04
@@ -3285,13 +3399,16 @@ typedef DWORD LCID;
 #define MEM_TOP_DOWN 0x100000
 #define MEM_WRITE_WATCH 0x200000
 #define MEM_PHYSICAL 0x400000
+#define MEM_ROTATE 0x800000
 #define MEM_LARGE_PAGES 0x20000000
 #define MEM_4MB_PAGES 0x80000000
 #define SEC_FILE 0x800000
 #define SEC_IMAGE 0x1000000
+#define SEC_PROTECTED_IMAGE 0x2000000
 #define SEC_RESERVE 0x4000000
 #define SEC_COMMIT 0x8000000
 #define SEC_NOCACHE 0x10000000
+#define SEC_WRITECOMBINE 0x40000000
 #define SEC_LARGE_PAGES 0x80000000
 #define MEM_IMAGE SEC_IMAGE
 #define WRITE_WATCH_FLAG_RESET 0x01
@@ -3341,6 +3458,7 @@ typedef DWORD LCID;
 #define FILE_ATTRIBUTE_OFFLINE 0x00001000
 #define FILE_ATTRIBUTE_NOT_CONTENT_INDEXED 0x00002000
 #define FILE_ATTRIBUTE_ENCRYPTED 0x00004000
+#define FILE_ATTRIBUTE_VIRTUAL 0x00010000
 #define FILE_NOTIFY_CHANGE_FILE_NAME 0x00000001
 #define FILE_NOTIFY_CHANGE_DIR_NAME 0x00000002
 #define FILE_NOTIFY_CHANGE_ATTRIBUTES 0x00000004
@@ -3370,8 +3488,12 @@ typedef DWORD LCID;
 #define FILE_SUPPORTS_ENCRYPTION 0x00020000
 #define FILE_NAMED_STREAMS 0x00040000
 #define FILE_READ_ONLY_VOLUME 0x00080000
-#define FILE_SEQUENTIAL_WRITE_ONCE      0x00100000
-#define FILE_SUPPORTS_TRANSACTIONS      0x00200000
+#define FILE_SEQUENTIAL_WRITE_ONCE 0x00100000
+#define FILE_SUPPORTS_TRANSACTIONS 0x00200000
+#define FILE_SUPPORTS_HARD_LINKS 0x00400000
+#define FILE_SUPPORTS_EXTENDED_ATTRIBUTES 0x00800000
+#define FILE_SUPPORTS_OPEN_BY_FILE_ID 0x01000000
+#define FILE_SUPPORTS_USN_JOURNAL 0x02000000
 
     typedef struct _FILE_NOTIFY_INFORMATION {
       DWORD NextEntryOffset;
@@ -3409,38 +3531,52 @@ typedef DWORD LCID;
 
 #define IO_REPARSE_TAG_MOUNT_POINT (0xA0000003L)
 #define IO_REPARSE_TAG_HSM (0xC0000004L)
+#define IO_REPARSE_TAG_HSM2 (0x80000006L)
 #define IO_REPARSE_TAG_SIS (0x80000007L)
+#define IO_REPARSE_TAG_WIM (0x80000008L)
+#define IO_REPARSE_TAG_CSV (0x80000009L)
 #define IO_REPARSE_TAG_DFS (0x8000000AL)
 #define IO_REPARSE_TAG_FILTER_MANAGER (0x8000000BL)
+#define IO_REPARSE_TAG_DFSR (0x80000012L)
+#define IO_REPARSE_TAG_SYMLINK (0xA000000CL)
+
 #define IO_COMPLETION_MODIFY_STATE 0x0002
 #define IO_COMPLETION_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED|SYNCHRONIZE|0x3)
 #define DUPLICATE_CLOSE_SOURCE 0x00000001
 #define DUPLICATE_SAME_ACCESS 0x00000002
 
-    typedef enum _SYSTEM_POWER_STATE {
-      PowerSystemUnspecified = 0,PowerSystemWorking = 1,PowerSystemSleeping1 = 2,PowerSystemSleeping2 = 3,PowerSystemSleeping3 = 4,PowerSystemHibernate = 5,PowerSystemShutdown = 6,PowerSystemMaximum = 7
-    } SYSTEM_POWER_STATE,*PSYSTEM_POWER_STATE;
+  typedef enum _SYSTEM_POWER_STATE {
+    PowerSystemUnspecified = 0,PowerSystemWorking = 1,PowerSystemSleeping1 = 2,PowerSystemSleeping2 = 3,PowerSystemSleeping3 = 4,PowerSystemHibernate = 5,PowerSystemShutdown = 6,PowerSystemMaximum = 7
+  } SYSTEM_POWER_STATE,*PSYSTEM_POWER_STATE;
 
 #define POWER_SYSTEM_MAXIMUM 7
 
-    typedef enum {
-      PowerActionNone = 0,PowerActionReserved,PowerActionSleep,PowerActionHibernate,PowerActionShutdown,PowerActionShutdownReset,PowerActionShutdownOff,PowerActionWarmEject
-    } POWER_ACTION,*PPOWER_ACTION;
+  typedef enum {
+    PowerActionNone = 0, PowerActionReserved, PowerActionSleep, PowerActionHibernate,
+    PowerActionShutdown, PowerActionShutdownReset, PowerActionShutdownOff,
+    PowerActionWarmEject
+  } POWER_ACTION,*PPOWER_ACTION;
 
-    typedef enum _DEVICE_POWER_STATE {
-      PowerDeviceUnspecified = 0,PowerDeviceD0,PowerDeviceD1,PowerDeviceD2,PowerDeviceD3,PowerDeviceMaximum
-    } DEVICE_POWER_STATE,*PDEVICE_POWER_STATE;
+  typedef enum _DEVICE_POWER_STATE {
+    PowerDeviceUnspecified = 0, PowerDeviceD0, PowerDeviceD1, PowerDeviceD2, PowerDeviceD3,
+    PowerDeviceMaximum
+  } DEVICE_POWER_STATE,*PDEVICE_POWER_STATE;
+
+  typedef enum _MONITOR_DISPLAY_STATE {
+    PowerMonitorOff = 0, PowerMonitorOn, PowerMonitorDim
+  } MONITOR_DISPLAY_STATE, *PMONITOR_DISPLAY_STATE;
 
 #define ES_SYSTEM_REQUIRED ((DWORD)0x00000001)
 #define ES_DISPLAY_REQUIRED ((DWORD)0x00000002)
 #define ES_USER_PRESENT ((DWORD)0x00000004)
+#define ES_AWAYMODE_REQUIRED ((DWORD)0x00000040)
 #define ES_CONTINUOUS ((DWORD)0x80000000)
 
-    typedef DWORD EXECUTION_STATE;
+  typedef DWORD EXECUTION_STATE;
 
-    typedef enum {
-      LT_DONT_CARE,LT_LOWEST_LATENCY
-    } LATENCY_TIME;
+  typedef enum {
+    LT_DONT_CARE,LT_LOWEST_LATENCY
+  } LATENCY_TIME;
 
 #define PDCAP_D0_SUPPORTED 0x00000001
 #define PDCAP_D1_SUPPORTED 0x00000002
@@ -3481,6 +3617,7 @@ typedef DWORD LCID;
 #define POWER_ACTION_QUERY_ALLOWED 0x00000001
 #define POWER_ACTION_UI_ALLOWED 0x00000002
 #define POWER_ACTION_OVERRIDE_APPS 0x00000004
+#define POWER_ACTION_PSEUDO_TRANSITION 0x08000000
 #define POWER_ACTION_LIGHTEST_FIRST 0x10000000
 #define POWER_ACTION_LOCK_CONSOLE 0x20000000
 #define POWER_ACTION_DISABLE_WAKES 0x40000000
@@ -3491,6 +3628,7 @@ typedef DWORD LCID;
 #define POWER_LEVEL_USER_NOTIFY_EXEC 0x00000004
 #define POWER_USER_NOTIFY_BUTTON 0x00000008
 #define POWER_USER_NOTIFY_SHUTDOWN 0x00000010
+#define POWER_USER_NOTIFY_FORCED_SHUTDOWN 0x00000020
 #define POWER_FORCE_TRIGGER_RESET 0x80000000
 
     typedef struct {
@@ -3591,7 +3729,8 @@ typedef DWORD LCID;
       BOOLEAN ProcessorThrottle;
       BYTE ProcessorMinThrottle;
       BYTE ProcessorMaxThrottle;
-      BYTE spare2[4];
+      BOOLEAN FastSystemS4;
+      BYTE spare2[3];
       BOOLEAN DiskSpinDown;
       BYTE spare3[8];
       BOOLEAN SystemBatteriesPresent;
@@ -3949,7 +4088,11 @@ typedef DWORD LCID;
 #define IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER 12
 #define IMAGE_SUBSYSTEM_EFI_ROM 13
 #define IMAGE_SUBSYSTEM_XBOX 14
+#define IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION 16
 
+#define IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE 0x0040
+#define IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY 0x0080
+#define IMAGE_DLLCHARACTERISTICS_NX_COMPAT 0x0100
 #define IMAGE_DLLCHARACTERISTICS_NO_ISOLATION 0x0200
 #define IMAGE_DLLCHARACTERISTICS_NO_SEH 0x0400
 #define IMAGE_DLLCHARACTERISTICS_NO_BIND 0x0800
@@ -4073,6 +4216,7 @@ typedef DWORD LCID;
 #define IMAGE_SYM_ABSOLUTE (SHORT)-1
 #define IMAGE_SYM_DEBUG (SHORT)-2
 #define IMAGE_SYM_SECTION_MAX 0xFEFF
+#define IMAGE_SYM_SECTION_MAX_EX MAXLONG
 
 #define IMAGE_SYM_TYPE_NULL 0x0000
 #define IMAGE_SYM_TYPE_VOID 0x0001
@@ -4452,6 +4596,12 @@ typedef DWORD LCID;
 #define IMAGE_REL_M32R_SECTION 0x000C
 #define IMAGE_REL_M32R_SECREL32 0x000D
 #define IMAGE_REL_M32R_TOKEN 0x000E
+
+#define IMAGE_REL_EBC_ABSOLUTE 0x0000
+#define IMAGE_REL_EBC_ADDR32NB 0x0001
+#define IMAGE_REL_EBC_REL32 0x0002
+#define IMAGE_REL_EBC_SECTION 0x0003
+#define IMAGE_REL_EBC_SECREL 0x0004
 
 #define EXT_IMM64(Value,Address,Size,InstPos,ValPos) Value |= (((ULONGLONG)((*(Address) >> InstPos) & (((ULONGLONG)1 << Size) - 1))) << ValPos)
 #define INS_IMM64(Value,Address,Size,InstPos,ValPos) *(PDWORD)Address = (*(PDWORD)Address & ~(((1 << Size) - 1) << InstPos)) | ((DWORD)((((ULONGLONG)Value >> ValPos) & (((ULONGLONG)1 << Size) - 1))) << InstPos)
@@ -5287,11 +5437,21 @@ typedef DWORD LCID;
       LIST_ENTRY ProcessLocksList;
       DWORD EntryCount;
       DWORD ContentionCount;
-      DWORD Spare[2];
+      DWORD Flags;
+      WORD CreatorBackTraceIndexHigh;
+      WORD SpareWORD;
     } RTL_CRITICAL_SECTION_DEBUG,*PRTL_CRITICAL_SECTION_DEBUG,RTL_RESOURCE_DEBUG,*PRTL_RESOURCE_DEBUG;
 
 #define RTL_CRITSECT_TYPE 0
 #define RTL_RESOURCE_TYPE 1
+
+#define RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO 0x01000000
+#define RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN 0x02000000
+#define RTL_CRITICAL_SECTION_FLAG_STATIC_INIT 0x04000000
+#define RTL_CRITICAL_SECTION_ALL_FLAG_BITS 0xFF000000
+#define RTL_CRITICAL_SECTION_FLAG_RESERVED (RTL_CRITICAL_SECTION_ALL_FLAG_BITS & (~(RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO | RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN | RTL_CRITICAL_SECTION_FLAG_STATIC_INIT)))
+
+#define RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT 0x00000001
 
     typedef struct _RTL_CRITICAL_SECTION {
       PRTL_CRITICAL_SECTION_DEBUG DebugInfo;
