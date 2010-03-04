@@ -1,3 +1,10 @@
+2010-03-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	ktietz70, 2009-10-09, r1452:
+	* iads.h: Add ADS_NO_REFERRAL_CHASING to the ADS_AUTHENTICATION_ENUM.
+
 2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
