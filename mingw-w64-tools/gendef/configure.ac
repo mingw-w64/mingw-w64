@@ -20,14 +20,13 @@ AC_ARG_WITH([mangle],
   [AS_HELP_STRING([--with-mangle[=ARG]],
     [Use the libmangle package to build gendef.  If ARG is given, set to the libmangle installation prefix.])],
   [AS_CASE([$with_mangle],
-    [yes],[],
-    [no],[],
-    [
-      with_mangle_path="$with_mangle"
-      with_mangle=yes])],
-  [with_mangle=no])
-AC_MSG_RESULT([$with_mangle])
-AS_VAR_IF([with_mangle],[yes],[
+    [yes],[with_mangle_result=yes],
+    [no],[with_mangle_result=no],
+    [with_mangle_path="$with_mangle"; with_mangle_result=yes])],
+  [with_mangle=no; with_mangle_result=no])
+AC_MSG_RESULT([$with_mangle_result])
+AC_SUBST([with_mangle])
+AS_VAR_IF([with_mangle_result],[yes],[
   AS_VAR_SET_IF([with_mangle_path],[
     CPPFLAGS="-I$with_mangle_path/include $CPPFLAGS"
     LDFLAGS="-L$with_mangle_path/lib $LDFLAGS"])

@@ -601,6 +601,7 @@ LIBOBJS
 EGREP
 GREP
 CPP
+with_mangle
 am__fastdepCC_FALSE
 am__fastdepCC_TRUE
 CCDEPMODE
@@ -3875,20 +3876,19 @@ $as_echo_n "checking whether to build gendef with libmangle... " >&6; }
 if test "${with_mangle+set}" = set; then :
   withval=$with_mangle; case $with_mangle in #(
   yes) :
-     ;; #(
+    with_mangle_result=yes ;; #(
   no) :
-     ;; #(
+    with_mangle_result=no ;; #(
   *) :
-
-      with_mangle_path="$with_mangle"
-      with_mangle=yes ;;
+    with_mangle_path="$with_mangle"; with_mangle_result=yes ;;
 esac
 else
-  with_mangle=no
+  with_mangle=no; with_mangle_result=no
 fi
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_mangle" >&5
-$as_echo "$with_mangle" >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_mangle_result" >&5
+$as_echo "$with_mangle_result" >&6; }
+
 
 ac_ext=c
 ac_cpp='$CPP $CPPFLAGS'
@@ -4288,7 +4288,7 @@ fi
 done
 
 
-if test "x$with_mangle" = x""yes; then :
+if test "x$with_mangle_result" = x""yes; then :
 
   if test "${with_mangle_path+set}" = set; then :
 
