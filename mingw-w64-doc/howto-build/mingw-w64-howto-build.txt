@@ -114,9 +114,8 @@ GCC doesn't do it for you.
 
 You need to download the following packages:
 
-	* Binutils 2.20 release for stable, or a CVS snapshot (2.20.51) for
-	  experimental. As of writing, stable Binutils 2.20.1 is about to be
-	  released.
+	* Binutils 2.20.1 release for stable, or a CVS snapshot (2.20.51) for
+	  experimental.
 
 	* GCC version 4.4.3 release for stable, or latest GCC (4.5) snapshot
 	  or svn co for experimental as of 06-01-2009.  GCC-4.5 is good for
