@@ -2,6 +2,17 @@
 
 	Back-merges from the trunk:
 
+	ktietz70, 2009-12-13, r1644:
+	[Hand-picked stdcall suffix corrections for certain exports, only]
+	* lib32/ntdll.def (CsrClientConnectToServer): Fixed suffix, 24->20.
+	(LdrLoadAlternateResourceModule): Likewise, 8->16.
+	(NtImpersonateAnonymousToken): Likewise, 8->4.
+	(NtSetLdtEntries): Likewise, 16->24.
+	(RtlOemToUnicodeN): Likewise, 12->20.
+	(RtlUpperString): Likewise, 12->8.
+	(ZwImpersonateAnonymousToken): Likewise, 8->4.
+	(ZwSetLdtEntries): Likewise, 16->24.
+
 	ktietz70, 2009-12-05, r1608:
 	* include/internal.h: Add the __INTERNAL_FUNC_DEFINED guard for
 	function pointer definitions.

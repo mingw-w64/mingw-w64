@@ -11,7 +11,7 @@ CsrCaptureMessageBuffer@16
 CsrCaptureMessageString@20
 CsrCaptureTimeout@8
 CsrClientCallServer@16
-CsrClientConnectToServer@24
+CsrClientConnectToServer@20
 CsrFreeCaptureBuffer@4
 CsrIdentifyAlertableThread@0
 CsrNewThread@0
@@ -43,7 +43,7 @@ LdrFlushAlternateResourceModules@0
 LdrGetDllHandle@16
 LdrGetProcedureAddress@16
 LdrInitializeThunk@16
-LdrLoadAlternateResourceModule@8
+LdrLoadAlternateResourceModule@16
 LdrLoadDll@16
 LdrProcessRelocationBlock@16
 LdrQueryImageFileExecutionOptions@24
@@ -134,7 +134,7 @@ NtGetDevicePowerState@8
 NtGetPlugPlayEvent@16
 NtGetTickCount@0
 NtGetWriteWatch@28
-NtImpersonateAnonymousToken@8
+NtImpersonateAnonymousToken@4
 NtImpersonateClientOfPort@8
 NtImpersonateThread@12
 NtInitializeRegistry@4
@@ -256,7 +256,7 @@ NtSetInformationThread@16
 NtSetInformationToken@16
 NtSetIntervalProfile@8
 NtSetIoCompletion@20
-NtSetLdtEntries@16
+NtSetLdtEntries@24
 NtSetLowEventPair@4
 NtSetLowWaitHighEventPair@4
 NtSetQuotaInformationFile@16
@@ -546,7 +546,7 @@ RtlNumberOfClearBits@4
 RtlNumberOfSetBits@4
 RtlOemStringToUnicodeSize@4
 RtlOemStringToUnicodeString@12
-RtlOemToUnicodeN@12
+RtlOemToUnicodeN@20
 RtlOpenCurrentUser@8
 RtlPcToFileHeader@8
 RtlPinAtomInAtomTable@8
@@ -651,7 +651,7 @@ RtlUpcaseUnicodeToMultiByteN@20
 RtlUpcaseUnicodeToOemN@20
 RtlUpdateTimer@16
 RtlUpperChar@4
-RtlUpperString@12
+RtlUpperString@8
 RtlUsageHeap@12
 RtlUshortByteSwap@4
 RtlValidAcl@4
@@ -756,7 +756,7 @@ ZwGetDevicePowerState@8
 ZwGetPlugPlayEvent@16
 ZwGetTickCount@0
 ZwGetWriteWatch@28
-ZwImpersonateAnonymousToken@8
+ZwImpersonateAnonymousToken@4
 ZwImpersonateClientOfPort@8
 ZwImpersonateThread@12
 ZwInitializeRegistry@4
@@ -878,7 +878,7 @@ ZwSetInformationThread@16
 ZwSetInformationToken@16
 ZwSetIntervalProfile@8
 ZwSetIoCompletion@20
-ZwSetLdtEntries@16
+ZwSetLdtEntries@24
 ZwSetLowEventPair@4
 ZwSetLowWaitHighEventPair@4
 ZwSetQuotaInformationFile@16
