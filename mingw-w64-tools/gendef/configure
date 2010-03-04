@@ -598,9 +598,6 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
-LIBMANGLE_LDFLAGS
-LIBMANGLE_CPPFLAGS
-LIBMANGLE_LIB
 EGREP
 GREP
 CPP
@@ -4467,24 +4464,6 @@ _ACEOF
 fi
 done
 
-
-# Check for libmangle
-
-  if test "x$libmangle_h" = "xyes" && test "x$libmangle_a" = "xyes"; then
-
-$as_echo "#define USE_LIBMANGLE 1" >>confdefs.h
-
-    LIBMANGLE_LIB=-lmangle
-    LIBMANGLE_LIB="-lmangle"
-
-    LIBMANGLE_CPPFLAGS="$MCPPFLAGS"
-
-    LIBMANGLE_LDFLAGS="$MLDFLAGS"
-
-  else
-    LIBMANGLE_LIB=""
-
-  fi
 
 ac_config_files="$ac_config_files Makefile"
 

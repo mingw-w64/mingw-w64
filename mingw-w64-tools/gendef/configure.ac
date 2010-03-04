@@ -52,17 +52,5 @@ AC_TYPE_UINT8_T
 #AC_FUNC_MALLOC
 AC_CHECK_FUNCS([memset strdup strrchr strlwr])
 
-# Check for libmangle
-
-  if test "x$libmangle_h" = "xyes" && test "x$libmangle_a" = "xyes"; then
-    AC_DEFINE([USE_LIBMANGLE], [1], [Define to use libmangle])
-    LIBMANGLE_LIB=-lmangle
-    AC_SUBST([LIBMANGLE_LIB], ["-lmangle"])
-    AC_SUBST([LIBMANGLE_CPPFLAGS], ["$MCPPFLAGS"])
-    AC_SUBST([LIBMANGLE_LDFLAGS], ["$MLDFLAGS"])
-  else
-    AC_SUBST([LIBMANGLE_LIB], [""])
-  fi
-
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
