@@ -5,7 +5,7 @@
 #ifndef HAVE_STRLWER
 
 #include <ctype.h>
-#include "compat-string.h"
+#include "compat_string.h"
 
 char *strlwr(char *s) {
 	while(*s != '\x0') {
