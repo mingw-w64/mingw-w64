@@ -1,3 +1,15 @@
+2010-03-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	ktietz70, 2009-12-04, r1604:
+	* crt/crtdll.c: Make use of WINBOOL instead of BOOL consistant.
+	Cleanup with some whitespace nits.
+	* crt/crtexe.c: Likewise.
+	* crt/pesect.c: Likewise.
+	* crt/tlssup.c: Likewise.
+	* libsrc/dummy_mingwthrd.c: Likewise.
+
 2010-03-03  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* aclocal.m4 (_LT_CHECK_MAGIC_METHOD): The latest libtool.m4 w64

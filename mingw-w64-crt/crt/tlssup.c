@@ -14,7 +14,7 @@
 #include <malloc.h>
 #include <crtdbg.h>
 
-extern BOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
+extern WINBOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
 
 #define FUNCS_PER_NODE 30
 
