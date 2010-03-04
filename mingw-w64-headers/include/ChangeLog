@@ -2,6 +2,9 @@
 
 	Back-merges from the trunk:
 
+	2009-11-28  Tor Lillqvist  <tml@iki.fi>, r1569:
+	* sys/ioctl.h: Deleted. (was moved to the experimental branch.)
+
 	2009-11-27  Kai Tietz  <kai.tietz@onevision.com>, r1568:
 	* rpcndr.h (NDR_SCONTEXT): Add namespace to structure.
 
