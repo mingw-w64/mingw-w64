@@ -110,7 +110,7 @@ extern "C" {
 
   typedef void *NDR_CCONTEXT;
 
-  typedef struct {
+  typedef struct _NDR_SCONTEXT {
     void *pad[2];
     void *userContext;
   } *NDR_SCONTEXT;
@@ -258,16 +258,16 @@ typedef unsigned long error_status_t;
     struct _FULL_PTR_XLAT_TABLES *FullPtrXlatTables;
     unsigned long FullPtrRefId;
     unsigned long PointerLength;
-    int fInDontFree :1;
-    int fDontCallFreeInst :1;
-    int fInOnlyParam :1;
-    int fHasReturn :1;
-    int fHasExtensions :1;
-    int fHasNewCorrDesc :1;
-    int fIsOicfServer :1;
-    int fHasMemoryValidateCallback: 1;
-    int fUnused :8;
-    int fUnused2 :16;
+    int fInDontFree : 1;
+    int fDontCallFreeInst : 1;
+    int fInOnlyParam : 1;
+    int fHasReturn : 1;
+    int fHasExtensions : 1;
+    int fHasNewCorrDesc : 1;
+    int fIsOicfServer : 1;
+    int fHasMemoryValidateCallback : 1;
+    int fUnused : 8;
+    int fUnused2 : 16;
     unsigned long dwDestContext;
     void *pvDestContext;
     NDR_SCONTEXT *SavedContextHandles;

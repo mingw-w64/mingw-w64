@@ -2,6 +2,9 @@
 
 	Back-merges from the trunk:
 
+	2009-11-27  Kai Tietz  <kai.tietz@onevision.com>, r1568:
+	* rpcndr.h (NDR_SCONTEXT): Add namespace to structure.
+
 	ktietz70, 2009-10-09, r1452:
 	* iads.h: Add ADS_NO_REFERRAL_CHASING to the ADS_AUTHENTICATION_ENUM.
 
