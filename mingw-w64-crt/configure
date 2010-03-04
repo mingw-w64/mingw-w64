@@ -1373,7 +1373,7 @@ Optional Features:
   --enable-lib32          enable compiling the Win32 runtime
   --enable-lib64          enable compiling the Win64 runtime
   --enable-libce          enable compiling the WinCE runtime
-  --enable-wildcard       Enable command line globbing [[default=no]]
+  --enable-wildcard       Enable command line globbing
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
 
 Optional Packages:
@@ -5047,16 +5047,19 @@ else
 
 fi
 
-if test x$enable_wildcard = xyes; then :
+case $enable_wildcard in #(
+  yes) :
+    enable_wildcard=-1 ;; #(
+  no) :
+    enable_wildcard=0 ;; #(
+  *) :
+    as_fn_error "Please only use --enable-wildcard or --disable-wildcard, without any additional arguments." "$LINENO" 5 ;;
+esac
 
-$as_echo "#define __ENABLE_GLOBBING -1" >>confdefs.h
+cat >>confdefs.h <<_ACEOF
+#define __ENABLE_GLOBBING $enable_wildcard
+_ACEOF
 
-else
-
-$as_echo "#define __ENABLE_GLOBBING 0" >>confdefs.h
-
-
-fi
 
 # Checks for libraries.
 

@@ -127,17 +127,17 @@ AS_CASE([$host_cpu],
 
 # Checks for features.
 
-AC_ARG_ENABLE(
-  wildcard,
-  AS_HELP_STRING([--enable-wildcard],[Enable command line globbing [[default=no]]]),
+AC_ARG_ENABLE([wildcard],
+  [AS_HELP_STRING([--enable-wildcard],
+    [Enable command line globbing])],
   [],
   [enable_wildcard=no]
 )
-AS_IF(
-  [test x$enable_wildcard = xyes],
-  [AC_DEFINE(__ENABLE_GLOBBING,-1, [Define as -1 if want to enable command line globbing, 0 otherwise])],
-  [AC_DEFINE(__ENABLE_GLOBBING, 0, [Define as -1 if want to enable command line globbing, 0 otherwise])]
-)
+AS_CASE([$enable_wildcard],
+  [yes],[enable_wildcard=-1],
+  [no],[enable_wildcard=0],
+  [AC_MSG_ERROR([Please only use --enable-wildcard or --disable-wildcard, without any additional arguments.])])
+AC_DEFINE_UNQUOTED([__ENABLE_GLOBBING],[$enable_wildcard],[Define as -1 to enable command line globbing or 0 to disable it.])
 
 # Checks for libraries.
 
