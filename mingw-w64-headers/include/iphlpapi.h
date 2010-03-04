@@ -54,6 +54,7 @@ extern "C" {
   DWORD WINAPI GetBestInterface(IPAddr dwDestAddr,PDWORD pdwBestIfIndex);
   DWORD WINAPI GetBestInterfaceEx(struct sockaddr *pDestAddr,PDWORD pdwBestIfIndex);
   DWORD WINAPI GetBestRoute(DWORD dwDestAddr,DWORD dwSourceAddr,PMIB_IPFORWARDROW pBestRoute);
+  DWORD WINAPI GetExtendedTcpTable (PVOID pTcpTable,PDWORD pdwSize,BOOL bOrder,ULONG ulAf,TCP_TABLE_CLASS TableClass,ULONG Reserved);
   DWORD WINAPI NotifyAddrChange(PHANDLE Handle,LPOVERLAPPED overlapped);
   DWORD WINAPI NotifyRouteChange(PHANDLE Handle,LPOVERLAPPED overlapped);
   WINBOOL WINAPI CancelIPChangeNotify(LPOVERLAPPED notifyOverlapped);
