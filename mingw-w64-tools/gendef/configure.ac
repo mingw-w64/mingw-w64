@@ -15,6 +15,24 @@ AC_CANONICAL_HOST
 AC_PROG_CC
 
 # Checks for libraries.
+AC_MSG_CHECKING([whether to build gendef with libmangle])
+AC_ARG_WITH([mangle],
+  [AS_HELP_STRING([--with-mangle[=ARG]],
+    [Use the libmangle package to build gendef.  If ARG is given, set to the libmangle installation prefix.])],
+  [AS_CASE([$with_mangle],
+    [yes],[],
+    [no],[],
+    [
+      with_mangle_path="$with_mangle"
+      with_mangle=yes])],
+  [with_mangle=no])
+AC_MSG_RESULT([$with_mangle])
+AS_VAR_IF([with_mangle],[yes],[
+  AS_VAR_SET_IF([with_mangle_path],[
+    CPPFLAGS="-I$with_mangle_path/include $CPPFLAGS"
+    LDFLAGS="-L$with_mangle_path/lib $LDFLAGS"])
+  AC_CHECK_HEADER([libmangle.h],[],[AC_MSG_ERROR([libmangle enabled, but the header is not usable.])])
+  AC_CHECK_LIB([mangle],[print_decl],[],[AC_MSG_ERROR([libmangle enabled, but the library is not usable.])])])
 
 # Checks for header files.
 AC_CHECK_HEADERS([inttypes.h memory.h stdint.h stdlib.h string.h])
@@ -35,43 +53,16 @@ AC_TYPE_UINT8_T
 AC_CHECK_FUNCS([memset strdup strrchr strlwr])
 
 # Check for libmangle
-libmangle_h=no
-libmangle_a=no
-libmangle=yes
-mangle_path=
 
-AC_ARG_WITH([libmangle],
-  [AS_HELP_STRING([--with-libmangle=PATH], [Specify prefix directory for the installed libmangle package])],
-  [],
-  [])
-
-AS_CASE(["$with_libmangle"],
-  [yes], [libmangle=yes],
-  [no], [libmangle=no],
-  [mangle_path="$with_libmangle"])
-
-if test "x$libmangle" = "xyes"; then
-  MCPPFLAGS=-I"$mangle_path/include"
-  MLDFLAGS=-L"$mangle_path/lib"
-  CPPFLAGS="$CPPFLAGS $MCPPFLAGS"
-  LDFLAGS="$LDFLAGS $MLDFLAGS"
-
-  AC_CHECK_HEADERS([libmangle.h], [libmangle_h=yes], [])
-  AC_SEARCH_LIBS([decode_ms_name], [mangle], [libmangle_a=yes])
-
-  AC_MSG_CHECKING([if we want to use libmangle])
   if test "x$libmangle_h" = "xyes" && test "x$libmangle_a" = "xyes"; then
-    AC_MSG_RESULT([yes])
     AC_DEFINE([USE_LIBMANGLE], [1], [Define to use libmangle])
     LIBMANGLE_LIB=-lmangle
     AC_SUBST([LIBMANGLE_LIB], ["-lmangle"])
     AC_SUBST([LIBMANGLE_CPPFLAGS], ["$MCPPFLAGS"])
     AC_SUBST([LIBMANGLE_LDFLAGS], ["$MLDFLAGS"])
   else
-    AC_MSG_RESULT([no])
     AC_SUBST([LIBMANGLE_LIB], [""])
   fi
-fi
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

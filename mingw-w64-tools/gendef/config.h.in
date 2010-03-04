@@ -3,8 +3,8 @@
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
-/* Define to 1 if you have the <libmangle.h> header file. */
-#undef HAVE_LIBMANGLE_H
+/* Define to 1 if you have the `mangle' library (-lmangle). */
+#undef HAVE_LIBMANGLE
 
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H

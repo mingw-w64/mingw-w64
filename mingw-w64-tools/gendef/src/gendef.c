@@ -30,7 +30,7 @@
 #include <string.h>
 #include "compat-string.h"
 #include "gendef.h"
-#ifdef HAVE_LIBMANGLE_H
+#ifdef HAVE_LIBMANGLE
 #include <libmangle.h>
 #endif
 
@@ -1143,13 +1143,13 @@ redo_switch:
 static void
 decode_mangle (FILE *fp, const char *n)
 {
-#ifdef HAVE_LIBMANGLE_H
+#ifdef HAVE_LIBMANGLE
   sGcCtx *gc = generate_gc ();
   pMToken ptok;
 #endif
   if (!fp || !n || *n == 0)
     return;
-#ifdef HAVE_LIBMANGLE_H
+#ifdef HAVE_LIBMANGLE
   ptok = decode_ms_name (gc, n);
   if (ptok)
     {
