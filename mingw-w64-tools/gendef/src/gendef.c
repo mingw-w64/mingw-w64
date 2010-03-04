@@ -28,7 +28,7 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <string.h>
-#include "compat-string.h"
+#include "compat_string.h"
 #include "gendef.h"
 #ifdef HAVE_LIBMANGLE
 #include <libmangle.h>
