@@ -18,9 +18,12 @@ extern "C" {
 
 #pragma pack(push,_CRT_PACKING)
 
+#ifndef __INTERNAL_FUNC_DEFINED
+#define __INTERNAL_FUNC_DEFINED
   typedef void (__cdecl *_PVFV)(void);
   typedef int (__cdecl *_PIFV)(void);
   typedef void (__cdecl *_PVFI)(int);
+#endif
 
 #if defined (SPECIAL_CRTEXE) && (defined (_DLL) || defined (__GNUC__))
   extern int _commode;

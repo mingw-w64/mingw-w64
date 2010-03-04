@@ -2,6 +2,10 @@
 
 	Back-merges from the trunk:
 
+	ktietz70, 2009-12-05, r1608:
+	* include/internal.h: Add the __INTERNAL_FUNC_DEFINED guard for
+	function pointer definitions.
+
 	ktietz70, 2009-12-04, r1604:
 	* crt/crtdll.c: Make use of WINBOOL instead of BOOL consistant.
 	Cleanup with some whitespace nits.
