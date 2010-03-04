@@ -60,7 +60,7 @@ AM_PROG_CC_C_O
 
 AC_ARG_ENABLE([lib32],
   [AS_HELP_STRING([--enable-lib32],
-    [enable compiling the Win32 runtime])],
+    [Build the Win32 runtime])],
   [],
   [AC_MSG_CHECKING([whether to build the Win32 runtime])
    _save_CFLAGS="$CFLAGS"
@@ -79,7 +79,7 @@ AM_CONDITIONAL([LIB32], [test $enable_lib32 = yes])
 
 AC_ARG_ENABLE([lib64],
   [AS_HELP_STRING([--enable-lib64],
-    [enable compiling the Win64 runtime])],
+    [Build the Win64 runtime])],
   [],
   [AC_MSG_CHECKING([whether to build the Win64 runtime])
    _save_CFLAGS="$CFLAGS"
@@ -98,13 +98,11 @@ AM_CONDITIONAL([LIB64], [test $enable_lib64 = yes])
 
 AC_ARG_ENABLE([libce],
   [AS_HELP_STRING([--enable-libce],
-    [enable compiling the WinCE runtime])],
+    [Build the WinCE runtime])],
   [],
   [AS_CASE([$host_cpu],
-    [arm*],
-      [enable_libce=yes],
-    [*],
-      [enable_libce=no])
+    [arm*],[enable_libce=yes],
+    [*],[enable_libce=no])
   ])
 AM_CONDITIONAL([LIBCE], [test $enable_libce = yes])
 

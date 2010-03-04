@@ -1370,9 +1370,9 @@ Optional Features:
 			  (and sometimes confusing) to the casual installer
   --disable-dependency-tracking  speeds up one-time build
   --enable-dependency-tracking   do not reject slow dependency extractors
-  --enable-lib32          enable compiling the Win32 runtime
-  --enable-lib64          enable compiling the Win64 runtime
-  --enable-libce          enable compiling the WinCE runtime
+  --enable-lib32          Build the Win32 runtime
+  --enable-lib64          Build the Win64 runtime
+  --enable-libce          Build the WinCE runtime
   --enable-wildcard       Enable command line globbing
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
 
