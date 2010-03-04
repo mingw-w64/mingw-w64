@@ -2,6 +2,12 @@
 
 	Back-merges from the trunk:
 
+	NightStrike, 2010-01-25, revs. 1790, 1793, 1799:
+	* ntsecpkg.h (SECPKG_EXTENDED_INFORMATION_CLASS): Add line breaks.
+	(SECPKG_NAME_TYPE): Likewise.
+	* shlwapi.h (ASSOCF_*): Likewise.
+	* wtsapi32.h (WTS_INFO_CLASS): Reformat likewise.
+
 	2009-11-28  Tor Lillqvist  <tml@iki.fi>, r1569:
 	* sys/ioctl.h: Deleted. (was moved to the experimental branch.)
 
