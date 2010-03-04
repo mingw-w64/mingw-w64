@@ -1,5 +1,18 @@
 2010-03-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Following NightStrike's work in the trunk, removed libtool from crt
+	build. It's unused, except to define dlltool, ranlib, etc.
+	* configure.ac: Removed AC_LIBTOOL_WIN32_DLL, AC_DISABLE_STATIC and
+	AC_PROG_LIBTOOL. Added AC_PROG_RANLIB, and AC_CHECK_TOOL()s for ar,
+	as and dlltool.
+	* ltmain.sh: Deleted.
+	* aclocal.m4: Regenerated.
+	* config.h.in: Regenerated.
+	* configure: Regenerated.
+	* Makefile.in: Regenerated.
+
+2010-03-04  Ozkan Sezer  <sezeroz@gmail.com>
+
 	Back-merges from the trunk:
 
 	ktietz70, 2009-12-13, r1644:
