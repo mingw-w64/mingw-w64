@@ -49,10 +49,13 @@ AC_PROG_SED
 AC_PROG_CC
 AC_PROG_CXX
 AC_PROG_INSTALL
-AC_LIBTOOL_WIN32_DLL
-AC_DISABLE_STATIC
-AC_PROG_LIBTOOL
+AC_PROG_RANLIB
+AC_CHECK_TOOL([DLLTOOL], [dlltool], [:])
 AM_PROG_AS
+dnl Remove these once automake fixes the bug where they aren't defined according to $host
+AC_CHECK_TOOL([AR], [ar], [:])
+AC_CHECK_TOOL([AS], [as], [:])
+dnl ---
 AM_PROG_CC_C_O
 
 AC_ARG_ENABLE([lib32],
