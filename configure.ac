@@ -12,6 +12,8 @@ AM_INIT_AUTOMAKE([foreign])
 
 AC_CANONICAL_HOST
 
+AC_DEFUN([MW64_OPTION_ERROR],[AC_MSG_ERROR([Invalid argument to --$1: $AS_TR_SH([$1])])])
+
 # Checks for programs.
 
 # Checks for libraries.
@@ -31,7 +33,7 @@ AC_ARG_WITH([headers],
 AS_CASE([$with_headers],
   [yes],[AC_CONFIG_SUBDIRS([mingw-w64-headers])],
   [no],[],
-  [AC_MSG_ERROR([Invalid argument to --with-headers: $with_headers])])
+  [MW64_OPTION_ERROR([with-headers])])
 AM_CONDITIONAL([HEADER],[test "x$with_headers" = xyes])
 AC_MSG_RESULT([$with_headers])
 
@@ -44,7 +46,7 @@ AC_ARG_WITH([crt],
 AS_CASE([$with_crt],
   [yes],[AC_CONFIG_SUBDIRS([mingw-w64-crt])],
   [no],[],
-  [AC_MSG_ERROR([Invalid argument to --with-crt: $with_crt])])
+  [MW64_OPTION_ERROR([with-crt])])
 AM_CONDITIONAL([CRT],[test "x$with_crt" = xyes])
 AC_MSG_RESULT([$with_crt])
 
@@ -70,7 +72,7 @@ AS_CASE([$with_libraries],
   [no],[
     with_libraries_mangle=no
     with_libraries_pseh=no],
-  [AC_MSG_ERROR([Invalid argument to --with-libraries: $with_libraries])])
+  [MW64_OPTION_ERROR([with-libraries])])
 AM_CONDITIONAL([LIBRARIES_MANGLE],[test "x$with_libraries_mangle" = xyes])
 AM_CONDITIONAL([LIBRARIES_PSEH],[test "x$with_libraries_pseh" = xyes])
 AM_COND_IF([LIBRARIES_MANGLE],[AC_CONFIG_SUBDIRS([mingw-w64-libraries/libmangle])])
@@ -99,7 +101,7 @@ AS_CASE([$with_tools],
   [no],[
     with_tools_gendef=no
     with_tools_genidl=no],
-  [AC_MSG_ERROR([Invalid argument to --with-tools: $with_tools])])
+  [MW64_OPTION_ERROR([with-tools])])
 AM_CONDITIONAL([TOOLS_GENDEF],[test "x$with_tools_gendef" = xyes])
 AM_CONDITIONAL([TOOLS_GENIDL],[test "x$with_tools_genidl" = xyes])
 AM_COND_IF([TOOLS_GENDEF],[AC_CONFIG_SUBDIRS([mingw-w64-tools/gendef])])
