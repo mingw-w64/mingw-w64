@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <string.h>
-#include "compat-string.h"
+#include "compat_string.h"
 #include "gendef.h"
 
 typedef struct sImpDef {
