@@ -605,6 +605,8 @@ ADD_C_ONLY_WARNING_FLAGS
 EGREP
 GREP
 CPP
+ENABLE_TESTS_UNICODE_FALSE
+ENABLE_TESTS_UNICODE_TRUE
 LIB32SUFFIXDIR
 LIB64SUFFIXDIR
 LIBCE_FALSE
@@ -730,6 +732,7 @@ enable_lib32
 enable_lib64
 enable_libce
 enable_wildcard
+enable_tests_unicode
 enable_warnings
 '
       ac_precious_vars='build_alias
@@ -1374,6 +1377,8 @@ Optional Features:
   --enable-lib64          Build the Win64 runtime
   --enable-libce          Build the WinCE runtime
   --enable-wildcard       Enable command line globbing
+  --enable-tests-unicode  Enable the unicode testsuite without testing the
+                          compiler for support.
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
 
 Optional Packages:
@@ -5061,6 +5066,43 @@ cat >>confdefs.h <<_ACEOF
 _ACEOF
 
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the compiler supports -municode" >&5
+$as_echo_n "checking whether the compiler supports -municode... " >&6; }
+# Check whether --enable-tests-unicode was given.
+if test "${enable_tests_unicode+set}" = set; then :
+  enableval=$enable_tests_unicode;
+else
+
+    saved_CFLAGS="$CFLAGS"
+    CFLAGS="$CFLAGS -municode"
+    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+#ifndef UNICODE
+# error UNICODE not defined with -municode
+#endif
+
+_ACEOF
+if ac_fn_c_try_compile "$LINENO"; then :
+  enable_tests_unicode=yes
+else
+  enable_tests_unicode=no
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+    CFLAGS="$saved_CFLAGS"
+fi
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_tests_unicode" >&5
+$as_echo "$enable_tests_unicode" >&6; }
+ if test x$enable_tests_unicode = xyes; then
+  ENABLE_TESTS_UNICODE_TRUE=
+  ENABLE_TESTS_UNICODE_FALSE='#'
+else
+  ENABLE_TESTS_UNICODE_TRUE='#'
+  ENABLE_TESTS_UNICODE_FALSE=
+fi
+
+
 # Checks for libraries.
 
 # Checks for header files.
@@ -5684,6 +5726,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${LIBCE_TRUE}" && test -z "${LIBCE_FALSE}"; then
   as_fn_error "conditional \"LIBCE\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_TESTS_UNICODE_TRUE}" && test -z "${ENABLE_TESTS_UNICODE_FALSE}"; then
+  as_fn_error "conditional \"ENABLE_TESTS_UNICODE\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 

@@ -995,7 +995,6 @@ check_PROGRAMS = \
   testcases/t_fstat \
   testcases/t_intrinc \
   testcases/t_matherr \
-  testcases/t_municode \
   testcases/t_nullptrexception \
   testcases/t_readdir \
   testcases/t_setjmp \
@@ -1005,14 +1004,17 @@ check_PROGRAMS = \
   testcases/t_stdint \
   testcases/t_time \
   testcases/t_tls1 \
-  testcases/t_tmain \
   testcases/t_trycatch \
   testcases/t_wreaddir
 
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
-testcases_t_municode_CFLAGS = -municode
-testcases_t_tmain_CFLAGS = -municode -D_UNICODE
 testcases_t_intrinc_CFLAGS = -std=c99
+
+if ENABLE_TESTS_UNICODE
+  check_PROGRAMS += testcases/t_municode testcases/t_tmain
+  testcases_t_municode_CFLAGS = -municode
+  testcases_t_tmain_CFLAGS = -municode -D_UNICODE
+endif
 
 TESTS = $(check_PROGRAMS)

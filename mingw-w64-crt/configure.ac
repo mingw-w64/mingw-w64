@@ -137,6 +137,24 @@ AS_CASE([$enable_wildcard],
   [AC_MSG_ERROR([Please only use --enable-wildcard or --disable-wildcard, without any additional arguments.])])
 AC_DEFINE_UNQUOTED([__ENABLE_GLOBBING],[$enable_wildcard],[Define as -1 to enable command line globbing or 0 to disable it.])
 
+AC_MSG_CHECKING([whether the compiler supports -municode])
+AC_ARG_ENABLE([tests-unicode],
+  [AS_HELP_STRING([--enable-tests-unicode],
+    [Enable the unicode testsuite without testing the compiler for support.])],
+  [],[
+    saved_CFLAGS="$CFLAGS"
+    CFLAGS="$CFLAGS -municode"
+    AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
+#ifndef UNICODE
+# error UNICODE not defined with -municode
+#endif
+    ]])],
+    [enable_tests_unicode=yes],
+    [enable_tests_unicode=no])
+    CFLAGS="$saved_CFLAGS"])
+AC_MSG_RESULT([$enable_tests_unicode])
+AM_CONDITIONAL([ENABLE_TESTS_UNICODE],[test x$enable_tests_unicode = xyes])
+
 # Checks for libraries.
 
 # Checks for header files.

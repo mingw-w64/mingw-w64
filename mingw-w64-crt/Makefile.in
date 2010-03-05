@@ -55,14 +55,15 @@ check_PROGRAMS = testcases/tstmainc$(EXEEXT) \
 	testcases/tstmain_sys_xxx$(EXEEXT) \
 	testcases/t_ansi_io$(EXEEXT) testcases/t_float$(EXEEXT) \
 	testcases/t_fstat$(EXEEXT) testcases/t_intrinc$(EXEEXT) \
-	testcases/t_matherr$(EXEEXT) testcases/t_municode$(EXEEXT) \
+	testcases/t_matherr$(EXEEXT) \
 	testcases/t_nullptrexception$(EXEEXT) \
 	testcases/t_readdir$(EXEEXT) testcases/t_setjmp$(EXEEXT) \
 	testcases/t_sigv$(EXEEXT) testcases/t_speed_powl$(EXEEXT) \
 	testcases/t_stat$(EXEEXT) testcases/t_stdint$(EXEEXT) \
 	testcases/t_time$(EXEEXT) testcases/t_tls1$(EXEEXT) \
-	testcases/t_tmain$(EXEEXT) testcases/t_trycatch$(EXEEXT) \
-	testcases/t_wreaddir$(EXEEXT)
+	testcases/t_trycatch$(EXEEXT) testcases/t_wreaddir$(EXEEXT) \
+	$(am__EXEEXT_1)
+@ENABLE_TESTS_UNICODE_TRUE@am__append_1 = testcases/t_municode testcases/t_tmain
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(noinst_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
@@ -1817,6 +1818,9 @@ am__objects_39 = libsrc/lib64_libws2_32_a-ws2_32.$(OBJEXT) \
 	libsrc/wspiapi/lib64_libws2_32_a-WspiapiFreeAddrInfo.$(OBJEXT)
 @LIB64_TRUE@am_lib64_libws2_32_a_OBJECTS = $(am__objects_39)
 lib64_libws2_32_a_OBJECTS = $(am_lib64_libws2_32_a_OBJECTS)
+@ENABLE_TESTS_UNICODE_TRUE@am__EXEEXT_1 =  \
+@ENABLE_TESTS_UNICODE_TRUE@	testcases/t_municode$(EXEEXT) \
+@ENABLE_TESTS_UNICODE_TRUE@	testcases/t_tmain$(EXEEXT)
 testcases_t_ansi_io_SOURCES = testcases/t_ansi_io.c
 testcases_t_ansi_io_OBJECTS = testcases/t_ansi_io.$(OBJEXT)
 testcases_t_ansi_io_LDADD = $(LDADD)
@@ -2923,9 +2927,9 @@ EXTRA_DIST = ChangeLog-2009 revstamp.h $(top_srcdir)/lib64/*.def \
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
-testcases_t_municode_CFLAGS = -municode
-testcases_t_tmain_CFLAGS = -municode -D_UNICODE
 testcases_t_intrinc_CFLAGS = -std=c99
+@ENABLE_TESTS_UNICODE_TRUE@testcases_t_municode_CFLAGS = -municode
+@ENABLE_TESTS_UNICODE_TRUE@testcases_t_tmain_CFLAGS = -municode -D_UNICODE
 TESTS = $(check_PROGRAMS)
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
