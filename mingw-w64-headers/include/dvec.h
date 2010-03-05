@@ -11,7 +11,7 @@
 #error This file is only supported in C++ compilations!
 #endif
 
-#include <emmintrin.h>
+#include <intrin.h>
 #include <assert.h>
 #include <fvec.h>
 #include <_mingw.h>
@@ -21,6 +21,8 @@
 #if defined(_ENABLE_VEC_DEBUG)
 #include <iostream>
 #endif
+
+#ifdef __SSE__
 
 #pragma pack(push,16)
 
@@ -838,6 +840,9 @@ inline F32vec4 F64vec2ToF32vec4(const F64vec2 &a) { return _mm_cvtpd_ps(a); }
 inline F64vec2 IntToF64vec2(const F64vec2 &a,int b) { return _mm_cvtsi32_sd(a,b); }
 
 #pragma pack(pop)
+
+#endif /* ifdef __SSE__ */
+
 #pragma pack(pop)
 #endif
 #endif

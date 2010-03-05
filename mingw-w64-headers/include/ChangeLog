@@ -1,3 +1,13 @@
+2010-03-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2009-12-02  Kai Tietz  <kai.tietz@onevision.com>, r1591, r1595:
+	* dvec.h: Include intrin.h instead of emmintrin.h and guard definitions
+	for enabled SSE.
+	* fvec.h: Likewise.
+	* ivec.h: New dummy file.
+
 2010-03-04  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
