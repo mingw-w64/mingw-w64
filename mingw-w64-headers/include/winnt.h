@@ -172,8 +172,8 @@ extern "C" {
 #ifdef UNICODE
 #ifndef _TCHAR_DEFINED
 #define _TCHAR_DEFINED
-  typedef WCHAR TCHAR,*PTCHAR;
-  typedef WCHAR TBYTE,*PTBYTE;
+  typedef WCHAR TCHAR, *PTCHAR;
+  typedef WCHAR TBYTE, *PTBYTE;
 #endif
 
   typedef LPWSTR LPTCH,PTCH;
@@ -186,8 +186,8 @@ extern "C" {
 #else
 #ifndef _TCHAR_DEFINED
 #define _TCHAR_DEFINED
-  typedef char TCHAR,*PTCHAR;
-  typedef unsigned char TBYTE,*PTBYTE;
+  typedef char TCHAR, *PTCHAR;
+  typedef unsigned char TBYTE, *PTBYTE;
 #endif
 
   typedef LPSTR LPTCH,PTCH;
@@ -469,35 +469,35 @@ typedef DWORD LCID;
 #define VER_SUITE_STORAGE_SERVER 0x00002000
 #define VER_SUITE_COMPUTE_SERVER 0x00004000
 
-#define PRODUCT_UNDEFINED                       0x0
+#define PRODUCT_UNDEFINED                         0x0
 
-#define PRODUCT_ULTIMATE                        0x1
-#define PRODUCT_HOME_BASIC                      0x2
-#define PRODUCT_HOME_PREMIUM                    0x3
-#define PRODUCT_ENTERPRISE                      0x4
-#define PRODUCT_HOME_BASIC_N                    0x5
-#define PRODUCT_BUSINESS                        0x6
-#define PRODUCT_STANDARD_SERVER                 0x7
-#define PRODUCT_DATACENTER_SERVER               0x8
-#define PRODUCT_SMALLBUSINESS_SERVER            0x9
-#define PRODUCT_ENTERPRISE_SERVER               0xa
-#define PRODUCT_STARTER                         0xb
-#define PRODUCT_DATACENTER_SERVER_CORE          0xc
-#define PRODUCT_STANDARD_SERVER_CORE            0xd
-#define PRODUCT_ENTERPRISE_SERVER_CORE          0xe
-#define PRODUCT_ENTERPRISE_SERVER_IA64          0xf
-#define PRODUCT_BUSINESS_N                      0x10
-#define PRODUCT_WEB_SERVER                      0x11
-#define PRODUCT_CLUSTER_SERVER                  0x12
-#define PRODUCT_HOME_SERVER                     0x13
-#define PRODUCT_STORAGE_EXPRESS_SERVER          0x14
-#define PRODUCT_STORAGE_STANDARD_SERVER         0x15
-#define PRODUCT_STORAGE_WORKGROUP_SERVER        0x16
-#define PRODUCT_STORAGE_ENTERPRISE_SERVER       0x17
-#define PRODUCT_SERVER_FOR_SMALLBUSINESS        0x18
-#define PRODUCT_SMALLBUSINESS_SERVER_PREMIUM    0x19
+#define PRODUCT_ULTIMATE                          0x1
+#define PRODUCT_HOME_BASIC                        0x2
+#define PRODUCT_HOME_PREMIUM                      0x3
+#define PRODUCT_ENTERPRISE                        0x4
+#define PRODUCT_HOME_BASIC_N                      0x5
+#define PRODUCT_BUSINESS                          0x6
+#define PRODUCT_STANDARD_SERVER                   0x7
+#define PRODUCT_DATACENTER_SERVER                 0x8
+#define PRODUCT_SMALLBUSINESS_SERVER              0x9
+#define PRODUCT_ENTERPRISE_SERVER                 0xa
+#define PRODUCT_STARTER                           0xb
+#define PRODUCT_DATACENTER_SERVER_CORE            0xc
+#define PRODUCT_STANDARD_SERVER_CORE              0xd
+#define PRODUCT_ENTERPRISE_SERVER_CORE            0xe
+#define PRODUCT_ENTERPRISE_SERVER_IA64            0xf
+#define PRODUCT_BUSINESS_N                        0x10
+#define PRODUCT_WEB_SERVER                        0x11
+#define PRODUCT_CLUSTER_SERVER                    0x12
+#define PRODUCT_HOME_SERVER                       0x13
+#define PRODUCT_STORAGE_EXPRESS_SERVER            0x14
+#define PRODUCT_STORAGE_STANDARD_SERVER           0x15
+#define PRODUCT_STORAGE_WORKGROUP_SERVER          0x16
+#define PRODUCT_STORAGE_ENTERPRISE_SERVER         0x17
+#define PRODUCT_SERVER_FOR_SMALLBUSINESS          0x18
+#define PRODUCT_SMALLBUSINESS_SERVER_PREMIUM      0x19
 
-#define PRODUCT_UNLICENSED                      0xabcdabcd
+#define PRODUCT_UNLICENSED                        0xabcdabcd
 
 #define LANG_NEUTRAL 0x00
 #define LANG_INVARIANT 0x7f
@@ -2712,9 +2712,11 @@ typedef DWORD LCID;
     typedef TOKEN_TYPE *PTOKEN_TYPE;
 
     typedef enum _TOKEN_INFORMATION_CLASS {
-      TokenUser = 1,TokenGroups,TokenPrivileges,TokenOwner,TokenPrimaryGroup,TokenDefaultDacl,TokenSource,TokenType,TokenImpersonationLevel,
-      TokenStatistics,TokenRestrictedSids,TokenSessionId,TokenGroupsAndPrivileges,TokenSessionReference,TokenSandBoxInert,TokenAuditPolicy,
-      TokenOrigin,MaxTokenInfoClass
+      TokenUser = 1, TokenGroups, TokenPrivileges, TokenOwner, TokenPrimaryGroup,
+      TokenDefaultDacl, TokenSource, TokenType, TokenImpersonationLevel,
+      TokenStatistics, TokenRestrictedSids, TokenSessionId, TokenGroupsAndPrivileges,
+      TokenSessionReference, TokenSandBoxInert, TokenAuditPolicy, TokenOrigin,
+      MaxTokenInfoClass
     } TOKEN_INFORMATION_CLASS,*PTOKEN_INFORMATION_CLASS;
 
     typedef struct _TOKEN_USER {
@@ -3113,9 +3115,12 @@ typedef DWORD LCID;
 #define JOB_OBJECT_SECURITY_VALID_FLAGS 0x0000000f
 
     typedef enum _JOBOBJECTINFOCLASS {
-      JobObjectBasicAccountingInformation = 1,JobObjectBasicLimitInformation,JobObjectBasicProcessIdList,JobObjectBasicUIRestrictions,
-      JobObjectSecurityLimitInformation,JobObjectEndOfJobTimeInformation,JobObjectAssociateCompletionPortInformation,
-      JobObjectBasicAndIoAccountingInformation,JobObjectExtendedLimitInformation,JobObjectJobSetInformation,MaxJobObjectInfoClass
+      JobObjectBasicAccountingInformation = 1, JobObjectBasicLimitInformation,
+      JobObjectBasicProcessIdList, JobObjectBasicUIRestrictions,
+      JobObjectSecurityLimitInformation, JobObjectEndOfJobTimeInformation,
+      JobObjectAssociateCompletionPortInformation, JobObjectBasicAndIoAccountingInformation,
+      JobObjectExtendedLimitInformation, JobObjectJobSetInformation,
+      MaxJobObjectInfoClass
     } JOBOBJECTINFOCLASS;
 
 #define EVENT_MODIFY_STATE 0x0002
@@ -3370,8 +3375,8 @@ typedef DWORD LCID;
 #define FILE_SUPPORTS_ENCRYPTION 0x00020000
 #define FILE_NAMED_STREAMS 0x00040000
 #define FILE_READ_ONLY_VOLUME 0x00080000
-#define FILE_SEQUENTIAL_WRITE_ONCE      0x00100000
-#define FILE_SUPPORTS_TRANSACTIONS      0x00200000
+#define FILE_SEQUENTIAL_WRITE_ONCE 0x00100000
+#define FILE_SUPPORTS_TRANSACTIONS 0x00200000
 
     typedef struct _FILE_NOTIFY_INFORMATION {
       DWORD NextEntryOffset;
@@ -3417,30 +3422,33 @@ typedef DWORD LCID;
 #define DUPLICATE_CLOSE_SOURCE 0x00000001
 #define DUPLICATE_SAME_ACCESS 0x00000002
 
-    typedef enum _SYSTEM_POWER_STATE {
-      PowerSystemUnspecified = 0,PowerSystemWorking = 1,PowerSystemSleeping1 = 2,PowerSystemSleeping2 = 3,PowerSystemSleeping3 = 4,PowerSystemHibernate = 5,PowerSystemShutdown = 6,PowerSystemMaximum = 7
-    } SYSTEM_POWER_STATE,*PSYSTEM_POWER_STATE;
+  typedef enum _SYSTEM_POWER_STATE {
+    PowerSystemUnspecified = 0,PowerSystemWorking = 1,PowerSystemSleeping1 = 2,PowerSystemSleeping2 = 3,PowerSystemSleeping3 = 4,PowerSystemHibernate = 5,PowerSystemShutdown = 6,PowerSystemMaximum = 7
+  } SYSTEM_POWER_STATE,*PSYSTEM_POWER_STATE;
 
 #define POWER_SYSTEM_MAXIMUM 7
 
-    typedef enum {
-      PowerActionNone = 0,PowerActionReserved,PowerActionSleep,PowerActionHibernate,PowerActionShutdown,PowerActionShutdownReset,PowerActionShutdownOff,PowerActionWarmEject
-    } POWER_ACTION,*PPOWER_ACTION;
+  typedef enum {
+    PowerActionNone = 0, PowerActionReserved, PowerActionSleep, PowerActionHibernate,
+    PowerActionShutdown, PowerActionShutdownReset, PowerActionShutdownOff,
+    PowerActionWarmEject
+  } POWER_ACTION,*PPOWER_ACTION;
 
-    typedef enum _DEVICE_POWER_STATE {
-      PowerDeviceUnspecified = 0,PowerDeviceD0,PowerDeviceD1,PowerDeviceD2,PowerDeviceD3,PowerDeviceMaximum
-    } DEVICE_POWER_STATE,*PDEVICE_POWER_STATE;
+  typedef enum _DEVICE_POWER_STATE {
+    PowerDeviceUnspecified = 0, PowerDeviceD0, PowerDeviceD1, PowerDeviceD2, PowerDeviceD3,
+    PowerDeviceMaximum
+  } DEVICE_POWER_STATE,*PDEVICE_POWER_STATE;
 
 #define ES_SYSTEM_REQUIRED ((DWORD)0x00000001)
 #define ES_DISPLAY_REQUIRED ((DWORD)0x00000002)
 #define ES_USER_PRESENT ((DWORD)0x00000004)
 #define ES_CONTINUOUS ((DWORD)0x80000000)
 
-    typedef DWORD EXECUTION_STATE;
+  typedef DWORD EXECUTION_STATE;
 
-    typedef enum {
-      LT_DONT_CARE,LT_LOWEST_LATENCY
-    } LATENCY_TIME;
+  typedef enum {
+    LT_DONT_CARE,LT_LOWEST_LATENCY
+  } LATENCY_TIME;
 
 #define PDCAP_D0_SUPPORTED 0x00000001
 #define PDCAP_D1_SUPPORTED 0x00000002
