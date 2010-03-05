@@ -137,6 +137,24 @@ AS_IF(
   [AC_DEFINE(__ENABLE_GLOBBING, 0, [Define as -1 if want to enable command line globbing, 0 otherwise])]
 )
 
+AC_MSG_CHECKING([whether the compiler supports -municode])
+AC_ARG_ENABLE([tests-unicode],
+  [AS_HELP_STRING([--enable-tests-unicode],
+    [Enable the unicode testsuite without testing the compiler for support.])],
+  [],[
+    saved_CFLAGS="$CFLAGS"
+    CFLAGS="$CFLAGS -municode"
+    AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
+#ifndef UNICODE
+# error UNICODE not defined with -municode
+#endif
+    ]])],
+    [enable_tests_unicode=yes],
+    [enable_tests_unicode=no])
+    CFLAGS="$saved_CFLAGS"])
+AM_CONDITIONAL([ENABLE_TESTS_UNICODE],[test x$enable_tests_unicode = xyes])
+AC_MSG_RESULT([$enable_tests_unicode])
+
 # Checks for libraries.
 
 # Checks for header files.

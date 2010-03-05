@@ -648,6 +648,8 @@ ADD_C_ONLY_WARNING_FLAGS
 EGREP
 GREP
 CPP
+ENABLE_TESTS_UNICODE_FALSE
+ENABLE_TESTS_UNICODE_TRUE
 LIB32SUFFIXDIR
 LIB64SUFFIXDIR
 LIBCE_FALSE
@@ -772,6 +774,7 @@ enable_lib32
 enable_lib64
 enable_libce
 enable_wildcard
+enable_tests_unicode
 enable_warnings
 '
       ac_precious_vars='build_alias
@@ -1427,6 +1430,8 @@ Optional Features:
   --enable-lib64          enable compiling the Win64 runtime
   --enable-libce          enable compiling the WinCE runtime
   --enable-wildcard       Enable command line globbing [default=no]
+  --enable-tests-unicode  Enable the unicode testsuite without testing the
+                          compiler for support.
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
 
 Optional Packages:
@@ -5258,6 +5263,68 @@ _ACEOF
 fi
 
 
+{ $as_echo "$as_me:$LINENO: checking whether the compiler supports -municode" >&5
+$as_echo_n "checking whether the compiler supports -municode... " >&6; }
+# Check whether --enable-tests-unicode was given.
+if test "${enable_tests_unicode+set}" = set; then
+  enableval=$enable_tests_unicode;
+else
+
+    saved_CFLAGS="$CFLAGS"
+    CFLAGS="$CFLAGS -municode"
+    cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+#ifndef UNICODE
+# error UNICODE not defined with -municode
+#endif
+
+_ACEOF
+rm -f conftest.$ac_objext
+if { (ac_try="$ac_compile"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
+$as_echo "$ac_try_echo") >&5
+  (eval "$ac_compile") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest.$ac_objext; then
+  enable_tests_unicode=yes
+else
+  $as_echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	enable_tests_unicode=no
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+    CFLAGS="$saved_CFLAGS"
+fi
+
+ if test x$enable_tests_unicode = xyes; then
+  ENABLE_TESTS_UNICODE_TRUE=
+  ENABLE_TESTS_UNICODE_FALSE='#'
+else
+  ENABLE_TESTS_UNICODE_TRUE='#'
+  ENABLE_TESTS_UNICODE_FALSE=
+fi
+
+{ $as_echo "$as_me:$LINENO: result: $enable_tests_unicode" >&5
+$as_echo "$enable_tests_unicode" >&6; }
+
 # Checks for libraries.
 
 # Checks for header files.
@@ -6256,6 +6323,13 @@ if test -z "${LIBCE_TRUE}" && test -z "${LIBCE_FALSE}"; then
   { { $as_echo "$as_me:$LINENO: error: conditional \"LIBCE\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
 $as_echo "$as_me: error: conditional \"LIBCE\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${ENABLE_TESTS_UNICODE_TRUE}" && test -z "${ENABLE_TESTS_UNICODE_FALSE}"; then
+  { { $as_echo "$as_me:$LINENO: error: conditional \"ENABLE_TESTS_UNICODE\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+$as_echo "$as_me: error: conditional \"ENABLE_TESTS_UNICODE\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi

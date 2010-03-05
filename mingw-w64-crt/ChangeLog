@@ -1,3 +1,12 @@
+2010-03-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merged test for compiler's -municode support from trunk r2022:
+	* configure.ac: Test gcc to see if it supports the -municode switch.
+	* Makefile.am: Conditionalize the t_tmain and t_municode tests
+	according to the test result for -municode.
+	* configure: Regenerated.
+	* Makefile.in: Regenerated.
+
 2010-03-04  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Following NightStrike's work in the trunk, removed libtool from crt
