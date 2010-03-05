@@ -5044,6 +5044,8 @@ esac
 
 # Checks for features.
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable globbing" >&5
+$as_echo_n "checking whether to enable globbing... " >&6; }
 # Check whether --enable-wildcard was given.
 if test "${enable_wildcard+set}" = set; then :
   enableval=$enable_wildcard;
@@ -5053,17 +5055,19 @@ fi
 
 case $enable_wildcard in #(
   yes) :
-    enable_wildcard=-1 ;; #(
+    enable_wildcard_value=-1 ;; #(
   no) :
-    enable_wildcard=0 ;; #(
+    enable_wildcard_value=0 ;; #(
   *) :
     as_fn_error "Please only use --enable-wildcard or --disable-wildcard, without any additional arguments." "$LINENO" 5 ;;
 esac
 
 cat >>confdefs.h <<_ACEOF
-#define __ENABLE_GLOBBING $enable_wildcard
+#define __ENABLE_GLOBBING $enable_wildcard_value
 _ACEOF
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_wildcard" >&5
+$as_echo "$enable_wildcard" >&6; }
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the compiler supports -municode" >&5
 $as_echo_n "checking whether the compiler supports -municode... " >&6; }
@@ -5091,8 +5095,6 @@ rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
     CFLAGS="$saved_CFLAGS"
 fi
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_tests_unicode" >&5
-$as_echo "$enable_tests_unicode" >&6; }
  if test x$enable_tests_unicode = xyes; then
   ENABLE_TESTS_UNICODE_TRUE=
   ENABLE_TESTS_UNICODE_FALSE='#'
@@ -5101,6 +5103,8 @@ else
   ENABLE_TESTS_UNICODE_FALSE=
 fi
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_tests_unicode" >&5
+$as_echo "$enable_tests_unicode" >&6; }
 
 # Checks for libraries.
 

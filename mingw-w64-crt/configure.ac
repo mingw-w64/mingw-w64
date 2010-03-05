@@ -125,16 +125,18 @@ AS_CASE([$host_cpu],
 
 # Checks for features.
 
+AC_MSG_CHECKING([whether to enable globbing])
 AC_ARG_ENABLE([wildcard],
   [AS_HELP_STRING([--enable-wildcard],
     [Enable command line globbing])],
   [],
   [enable_wildcard=no])
 AS_CASE([$enable_wildcard],
-  [yes],[enable_wildcard=-1],
-  [no],[enable_wildcard=0],
+  [yes],[enable_wildcard_value=-1],
+  [no],[enable_wildcard_value=0],
   [AC_MSG_ERROR([Please only use --enable-wildcard or --disable-wildcard, without any additional arguments.])])
-AC_DEFINE_UNQUOTED([__ENABLE_GLOBBING],[$enable_wildcard],[Define as -1 to enable command line globbing or 0 to disable it.])
+AC_DEFINE_UNQUOTED([__ENABLE_GLOBBING],[$enable_wildcard_value],[Define as -1 to enable command line globbing or 0 to disable it.])
+AC_MSG_RESULT([$enable_wildcard])
 
 AC_MSG_CHECKING([whether the compiler supports -municode])
 AC_ARG_ENABLE([tests-unicode],
@@ -151,8 +153,8 @@ AC_ARG_ENABLE([tests-unicode],
     [enable_tests_unicode=yes],
     [enable_tests_unicode=no])
     CFLAGS="$saved_CFLAGS"])
-AC_MSG_RESULT([$enable_tests_unicode])
 AM_CONDITIONAL([ENABLE_TESTS_UNICODE],[test x$enable_tests_unicode = xyes])
+AC_MSG_RESULT([$enable_tests_unicode])
 
 # Checks for libraries.
 
