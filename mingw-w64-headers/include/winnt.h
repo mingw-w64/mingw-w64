@@ -2789,11 +2789,13 @@ typedef DWORD LCID;
     typedef TOKEN_TYPE *PTOKEN_TYPE;
 
     typedef enum _TOKEN_INFORMATION_CLASS {
-      TokenUser = 1, TokenGroups, TokenPrivileges, TokenOwner,TokenPrimaryGroup, TokenDefaultDacl, TokenSource,
-      TokenType, TokenImpersonationLevel, TokenStatistics, TokenRestrictedSids, TokenSessionId, TokenGroupsAndPrivileges,
-      TokenSessionReference, TokenSandBoxInert, TokenAuditPolicy, TokenOrigin,TokenElevationType, TokenLinkedToken,
-      TokenElevation, TokenHasRestrictions, TokenAccessInformation, TokenVirtualizationAllowed,
-      TokenIntegrityLevel, TokenUIAccess, TokenMandatoryPolicy, TokenLogonSid,
+      TokenUser = 1, TokenGroups, TokenPrivileges, TokenOwner, TokenPrimaryGroup,
+      TokenDefaultDacl, TokenSource, TokenType, TokenImpersonationLevel,
+      TokenStatistics, TokenRestrictedSids, TokenSessionId, TokenGroupsAndPrivileges,
+      TokenSessionReference, TokenSandBoxInert, TokenAuditPolicy, TokenOrigin,
+      TokenElevationType, TokenLinkedToken, TokenElevation, TokenHasRestrictions,
+      TokenAccessInformation, TokenVirtualizationAllowed, TokenIntegrityLevel,
+      TokenUIAccess, TokenMandatoryPolicy, TokenLogonSid,
       MaxTokenInfoClass
     } TOKEN_INFORMATION_CLASS,*PTOKEN_INFORMATION_CLASS;
 
@@ -3216,9 +3218,13 @@ typedef DWORD LCID;
 #define JOB_OBJECT_SECURITY_VALID_FLAGS 0x0000000f
 
     typedef enum _JOBOBJECTINFOCLASS {
-      JobObjectBasicAccountingInformation = 1,JobObjectBasicLimitInformation,JobObjectBasicProcessIdList,JobObjectBasicUIRestrictions,
-      JobObjectSecurityLimitInformation,JobObjectEndOfJobTimeInformation,JobObjectAssociateCompletionPortInformation,
-      JobObjectBasicAndIoAccountingInformation,JobObjectExtendedLimitInformation,JobObjectJobSetInformation,JobObjectGroupInformation,MaxJobObjectInfoClass
+      JobObjectBasicAccountingInformation = 1, JobObjectBasicLimitInformation,
+      JobObjectBasicProcessIdList, JobObjectBasicUIRestrictions,
+      JobObjectSecurityLimitInformation, JobObjectEndOfJobTimeInformation,
+      JobObjectAssociateCompletionPortInformation, JobObjectBasicAndIoAccountingInformation,
+      JobObjectExtendedLimitInformation, JobObjectJobSetInformation,
+      JobObjectGroupInformation,
+      MaxJobObjectInfoClass
     } JOBOBJECTINFOCLASS;
 
 #define EVENT_MODIFY_STATE 0x0002
@@ -3240,7 +3246,8 @@ typedef DWORD LCID;
 #define TIME_ZONE_ID_DAYLIGHT 2
 
     typedef enum _LOGICAL_PROCESSOR_RELATIONSHIP {
-      RelationProcessorCore,RelationNumaNode,RelationCache,RelationProcessorPackage,RelationGroup,RelationAll=0xffff
+      RelationProcessorCore,RelationNumaNode,RelationCache,
+      RelationProcessorPackage,RelationGroup,RelationAll=0xffff
     } LOGICAL_PROCESSOR_RELATIONSHIP;
 
 #define LTP_PC_SMT 0x1
