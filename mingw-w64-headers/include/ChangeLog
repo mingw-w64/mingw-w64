@@ -2,6 +2,11 @@
 
 	Back-merges from the trunk:
 
+	NightStrike, 2010-03-04, r2012 | sezero, , 2010-03-04, r2014
+	* iphlpapi.h (GetExtendedTcpTable): Add prototype from
+	http://msdn.microsoft.com/en-us/library/aa365928%28VS.85%29.aspx
+	for _WIN32_WINNT >= 0x0501.
+
 	NightStrike, 2010-01-25, revs. 1790, 1793, 1799:
 	* ntsecpkg.h (SECPKG_EXTENDED_INFORMATION_CLASS): Add line breaks.
 	(SECPKG_NAME_TYPE): Likewise.
