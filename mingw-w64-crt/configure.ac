@@ -129,8 +129,7 @@ AC_ARG_ENABLE([wildcard],
   [AS_HELP_STRING([--enable-wildcard],
     [Enable command line globbing])],
   [],
-  [enable_wildcard=no]
-)
+  [enable_wildcard=no])
 AS_CASE([$enable_wildcard],
   [yes],[enable_wildcard=-1],
   [no],[enable_wildcard=0],

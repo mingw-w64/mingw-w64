@@ -5049,7 +5049,6 @@ if test "${enable_wildcard+set}" = set; then :
   enableval=$enable_wildcard;
 else
   enable_wildcard=no
-
 fi
 
 case $enable_wildcard in #(
