@@ -8,6 +8,7 @@ AC_CONFIG_SRCDIR([src/genidl.c])
 AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([foreign subdir-objects])
+AM_MAINTAINER_MODE
 
 AC_CANONICAL_HOST
 

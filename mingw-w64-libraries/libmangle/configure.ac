@@ -8,6 +8,7 @@ AC_CONFIG_SRCDIR([src/m_token.c])
 AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([foreign subdir-objects])
+AM_MAINTAINER_MODE
 
 # Checks for programs.
 AC_PROG_CC

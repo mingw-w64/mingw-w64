@@ -57,5 +57,5 @@
 /* Version number of package */
 #undef VERSION
 
-/* Define as -1 if want to enable command line globbing, 0 otherwise */
+/* Define as -1 to enable command line globbing or 0 to disable it. */
 #undef __ENABLE_GLOBBING
