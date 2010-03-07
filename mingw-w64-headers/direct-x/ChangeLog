@@ -1,3 +1,11 @@
+2010-03-07  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* dvdevcod.h: Add from sourceware w32api.
+	* edevdefs.h: Ditto.
+
+	* dvdevcod.h: Add copyright notice and remove pragma system_header.
+	* edevdefs.h: Ditto.
+
 2010-02-23  Ozkan Sezer <sezeroz@gmail.com>
 
 	* d3dx9shader.h: Merged d3dx9_36 fix of Christian Costa from wine
