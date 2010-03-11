@@ -5244,23 +5244,20 @@ if test "${enable_wildcard+set}" = set; then
   enableval=$enable_wildcard;
 else
   enable_wildcard=no
-
 fi
 
-if test x$enable_wildcard = xyes; then
+case $enable_wildcard in
+  yes) enable_wildcard_value=-1 ;;
+  no) enable_wildcard_value=0 ;;
+  *) { { $as_echo "$as_me:$LINENO: error: Please only use --enable-wildcard or --disable-wildcard, without any additional arguments." >&5
+$as_echo "$as_me: error: Please only use --enable-wildcard or --disable-wildcard, without any additional arguments." >&2;}
+   { (exit 1); exit 1; }; } ;;
+esac
 
-cat >>confdefs.h <<\_ACEOF
-#define __ENABLE_GLOBBING -1
+
+cat >>confdefs.h <<_ACEOF
+#define __ENABLE_GLOBBING $enable_wildcard_value
 _ACEOF
-
-else
-
-cat >>confdefs.h <<\_ACEOF
-#define __ENABLE_GLOBBING 0
-_ACEOF
-
-
-fi
 
 
 { $as_echo "$as_me:$LINENO: checking whether the compiler supports -municode" >&5
