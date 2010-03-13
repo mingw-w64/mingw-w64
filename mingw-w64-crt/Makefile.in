@@ -319,27 +319,28 @@ am__lib32_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	math/sinhf.c math/sinhl.c math/sqrtf.c math/sqrtl.c \
 	math/tanf.c math/tanhf.c math/tanhl.c math/tgamma.c \
 	math/tgammaf.c math/tgammal.c math/trunc.c math/truncf.c \
-	math/truncl.c misc/mb_wc_common.h misc/mingw_getsp.S \
-	misc/alarm.c misc/btowc.c misc/ctime.c misc/delayimp.c \
-	misc/difftime32.c misc/difftime64.c misc/difftime.c \
-	misc/dirent.c misc/execv.c misc/execve.c misc/execvp.c \
-	misc/execvpe.c misc/feclearexcept.c misc/fegetenv.c \
-	misc/fegetexceptflag.c misc/fegetround.c misc/feholdexcept.c \
-	misc/feraiseexcept.c misc/fesetenv.c misc/fesetexceptflag.c \
-	misc/fesetround.c misc/fetestexcept.c misc/feupdateenv.c \
-	misc/ftruncate.c misc/fwide.c misc/getlogin.c misc/getopt.c \
-	misc/gettimeofday.c misc/gmtime.c misc/imaxabs.c \
-	misc/imaxdiv.c misc/isblank.c misc/iswblank.c misc/localtime.c \
-	misc/mbrtowc.c misc/mbsinit.c misc/mingw-aligned-malloc.c \
-	misc/mingw-fseek.c misc/_mkgmtime.c misc/mktime.c \
-	misc/seterrno.c misc/sleep.c misc/spawnv.c misc/spawnve.c \
-	misc/spawnvp.c misc/spawnvpe.c misc/strtoimax.c misc/strtold.c \
-	misc/strtoumax.c misc/time.c misc/wassert.c misc/wcrtomb.c \
-	misc/wcstoimax.c misc/wcstold.c misc/wcstoumax.c misc/wctob.c \
-	misc/wctrans.c misc/wctype.c misc/wdirent.c \
-	misc/winbs_uint64.c misc/winbs_ulong.c misc/winbs_ushort.c \
-	misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c misc/wmemmove.c \
-	misc/wmemset.c misc/mingw_usleep.c misc/mingw_output_format.c \
+	math/truncl.c math/cossin.c misc/mb_wc_common.h \
+	misc/mingw_getsp.S misc/alarm.c misc/btowc.c misc/ctime.c \
+	misc/delayimp.c misc/difftime32.c misc/difftime64.c \
+	misc/difftime.c misc/dirent.c misc/execv.c misc/execve.c \
+	misc/execvp.c misc/execvpe.c misc/feclearexcept.c \
+	misc/fegetenv.c misc/fegetexceptflag.c misc/fegetround.c \
+	misc/feholdexcept.c misc/feraiseexcept.c misc/fesetenv.c \
+	misc/fesetexceptflag.c misc/fesetround.c misc/fetestexcept.c \
+	misc/feupdateenv.c misc/ftruncate.c misc/fwide.c \
+	misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
+	misc/gmtime.c misc/imaxabs.c misc/imaxdiv.c misc/isblank.c \
+	misc/iswblank.c misc/localtime.c misc/mbrtowc.c misc/mbsinit.c \
+	misc/mingw-aligned-malloc.c misc/mingw-fseek.c \
+	misc/_mkgmtime.c misc/mktime.c misc/seterrno.c misc/sleep.c \
+	misc/spawnv.c misc/spawnve.c misc/spawnvp.c misc/spawnvpe.c \
+	misc/strtoimax.c misc/strtold.c misc/strtoumax.c misc/time.c \
+	misc/wassert.c misc/wcrtomb.c misc/wcstoimax.c misc/wcstold.c \
+	misc/wcstoumax.c misc/wctob.c misc/wctrans.c misc/wctype.c \
+	misc/wdirent.c misc/winbs_uint64.c misc/winbs_ulong.c \
+	misc/winbs_ushort.c misc/wmemchr.c misc/wmemcmp.c \
+	misc/wmemcpy.c misc/wmemmove.c misc/wmemset.c \
+	misc/mingw_usleep.c misc/mingw_output_format.c \
 	misc/_wctime32.c misc/_ctime32.c misc/_localtime32.c \
 	misc/_gmtime32.c misc/_wctime.c misc/_time32.c \
 	misc/_mkgmtime32.c misc/_mktime32.c misc/basename.c \
@@ -657,6 +658,7 @@ am__objects_11 = intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT) \
 	math/lib32_libmingwex_a-trunc.$(OBJEXT) \
 	math/lib32_libmingwex_a-truncf.$(OBJEXT) \
 	math/lib32_libmingwex_a-truncl.$(OBJEXT) \
+	math/lib32_libmingwex_a-cossin.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_getsp.$(OBJEXT) \
 	misc/lib32_libmingwex_a-alarm.$(OBJEXT) \
 	misc/lib32_libmingwex_a-btowc.$(OBJEXT) \
@@ -1157,27 +1159,28 @@ am__lib64_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	math/sinhf.c math/sinhl.c math/sqrtf.c math/sqrtl.c \
 	math/tanf.c math/tanhf.c math/tanhl.c math/tgamma.c \
 	math/tgammaf.c math/tgammal.c math/trunc.c math/truncf.c \
-	math/truncl.c misc/mb_wc_common.h misc/mingw_getsp.S \
-	misc/alarm.c misc/btowc.c misc/ctime.c misc/delayimp.c \
-	misc/difftime32.c misc/difftime64.c misc/difftime.c \
-	misc/dirent.c misc/execv.c misc/execve.c misc/execvp.c \
-	misc/execvpe.c misc/feclearexcept.c misc/fegetenv.c \
-	misc/fegetexceptflag.c misc/fegetround.c misc/feholdexcept.c \
-	misc/feraiseexcept.c misc/fesetenv.c misc/fesetexceptflag.c \
-	misc/fesetround.c misc/fetestexcept.c misc/feupdateenv.c \
-	misc/ftruncate.c misc/fwide.c misc/getlogin.c misc/getopt.c \
-	misc/gettimeofday.c misc/gmtime.c misc/imaxabs.c \
-	misc/imaxdiv.c misc/isblank.c misc/iswblank.c misc/localtime.c \
-	misc/mbrtowc.c misc/mbsinit.c misc/mingw-aligned-malloc.c \
-	misc/mingw-fseek.c misc/_mkgmtime.c misc/mktime.c \
-	misc/seterrno.c misc/sleep.c misc/spawnv.c misc/spawnve.c \
-	misc/spawnvp.c misc/spawnvpe.c misc/strtoimax.c misc/strtold.c \
-	misc/strtoumax.c misc/time.c misc/wassert.c misc/wcrtomb.c \
-	misc/wcstoimax.c misc/wcstold.c misc/wcstoumax.c misc/wctob.c \
-	misc/wctrans.c misc/wctype.c misc/wdirent.c \
-	misc/winbs_uint64.c misc/winbs_ulong.c misc/winbs_ushort.c \
-	misc/wmemchr.c misc/wmemcmp.c misc/wmemcpy.c misc/wmemmove.c \
-	misc/wmemset.c misc/mingw_usleep.c misc/mingw_output_format.c \
+	math/truncl.c math/cossin.c misc/mb_wc_common.h \
+	misc/mingw_getsp.S misc/alarm.c misc/btowc.c misc/ctime.c \
+	misc/delayimp.c misc/difftime32.c misc/difftime64.c \
+	misc/difftime.c misc/dirent.c misc/execv.c misc/execve.c \
+	misc/execvp.c misc/execvpe.c misc/feclearexcept.c \
+	misc/fegetenv.c misc/fegetexceptflag.c misc/fegetround.c \
+	misc/feholdexcept.c misc/feraiseexcept.c misc/fesetenv.c \
+	misc/fesetexceptflag.c misc/fesetround.c misc/fetestexcept.c \
+	misc/feupdateenv.c misc/ftruncate.c misc/fwide.c \
+	misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
+	misc/gmtime.c misc/imaxabs.c misc/imaxdiv.c misc/isblank.c \
+	misc/iswblank.c misc/localtime.c misc/mbrtowc.c misc/mbsinit.c \
+	misc/mingw-aligned-malloc.c misc/mingw-fseek.c \
+	misc/_mkgmtime.c misc/mktime.c misc/seterrno.c misc/sleep.c \
+	misc/spawnv.c misc/spawnve.c misc/spawnvp.c misc/spawnvpe.c \
+	misc/strtoimax.c misc/strtold.c misc/strtoumax.c misc/time.c \
+	misc/wassert.c misc/wcrtomb.c misc/wcstoimax.c misc/wcstold.c \
+	misc/wcstoumax.c misc/wctob.c misc/wctrans.c misc/wctype.c \
+	misc/wdirent.c misc/winbs_uint64.c misc/winbs_ulong.c \
+	misc/winbs_ushort.c misc/wmemchr.c misc/wmemcmp.c \
+	misc/wmemcpy.c misc/wmemmove.c misc/wmemset.c \
+	misc/mingw_usleep.c misc/mingw_output_format.c \
 	misc/_wctime32.c misc/_ctime32.c misc/_localtime32.c \
 	misc/_gmtime32.c misc/_wctime.c misc/_time32.c \
 	misc/_mkgmtime32.c misc/_mktime32.c misc/basename.c \
@@ -1506,6 +1509,7 @@ am__objects_31 = intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT) \
 	math/lib64_libmingwex_a-trunc.$(OBJEXT) \
 	math/lib64_libmingwex_a-truncf.$(OBJEXT) \
 	math/lib64_libmingwex_a-truncl.$(OBJEXT) \
+	math/lib64_libmingwex_a-cossin.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT) \
 	misc/lib64_libmingwex_a-alarm.$(OBJEXT) \
 	misc/lib64_libmingwex_a-btowc.$(OBJEXT) \
@@ -2237,7 +2241,7 @@ src_libmingwex = \
   math/s_erf.c        math/sf_erf.c       math/signbit.c      math/signbitf.c      math/signbitl.c    math/sinf.c        \
   math/sinhf.c        math/sinhl.c        math/sqrtf.c        math/sqrtl.c         math/tanf.c        math/tanhf.c       \
   math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c       math/trunc.c       math/truncf.c      \
-  math/truncl.c       \
+  math/truncl.c       math/cossin.c       \
   \
   misc/mb_wc_common.h \
   misc/mingw_getsp.S  \
@@ -3832,6 +3836,8 @@ math/lib32_libmingwex_a-truncf.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-truncl.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
+math/lib32_libmingwex_a-cossin.$(OBJEXT): math/$(am__dirstamp) \
+	math/$(DEPDIR)/$(am__dirstamp)
 misc/$(am__dirstamp):
 	@$(MKDIR_P) misc
 	@: > misc/$(am__dirstamp)
@@ -5074,6 +5080,8 @@ math/lib64_libmingwex_a-trunc.$(OBJEXT): math/$(am__dirstamp) \
 math/lib64_libmingwex_a-truncf.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib64_libmingwex_a-truncl.$(OBJEXT): math/$(am__dirstamp) \
+	math/$(DEPDIR)/$(am__dirstamp)
+math/lib64_libmingwex_a-cossin.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
@@ -6437,6 +6445,7 @@ mostlyclean-compile:
 	-rm -f math/lib32_libmingwex_a-coshf.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-coshl.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-cosl.$(OBJEXT)
+	-rm -f math/lib32_libmingwex_a-cossin.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-erfl.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-exp2.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-exp2f.$(OBJEXT)
@@ -6594,6 +6603,7 @@ mostlyclean-compile:
 	-rm -f math/lib64_libmingwex_a-coshf.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-coshl.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-cosl.$(OBJEXT)
+	-rm -f math/lib64_libmingwex_a-cossin.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-erfl.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-exp2.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-exp2f.$(OBJEXT)
@@ -7590,6 +7600,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-coshf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-coshl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-cosl.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-cossin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-erfl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-exp2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-exp2f.Po@am__quote@
@@ -7747,6 +7758,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-coshf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-coshl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-cosl.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-cossin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-erfl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-exp2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-exp2f.Po@am__quote@
@@ -13592,6 +13604,20 @@ math/lib32_libmingwex_a-truncl.obj: math/truncl.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/truncl.c' object='math/lib32_libmingwex_a-truncl.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-truncl.obj `if test -f 'math/truncl.c'; then $(CYGPATH_W) 'math/truncl.c'; else $(CYGPATH_W) '$(srcdir)/math/truncl.c'; fi`
+
+math/lib32_libmingwex_a-cossin.o: math/cossin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-cossin.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-cossin.Tpo -c -o math/lib32_libmingwex_a-cossin.o `test -f 'math/cossin.c' || echo '$(srcdir)/'`math/cossin.c
+@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-cossin.Tpo math/$(DEPDIR)/lib32_libmingwex_a-cossin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/cossin.c' object='math/lib32_libmingwex_a-cossin.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-cossin.o `test -f 'math/cossin.c' || echo '$(srcdir)/'`math/cossin.c
+
+math/lib32_libmingwex_a-cossin.obj: math/cossin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-cossin.obj -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-cossin.Tpo -c -o math/lib32_libmingwex_a-cossin.obj `if test -f 'math/cossin.c'; then $(CYGPATH_W) 'math/cossin.c'; else $(CYGPATH_W) '$(srcdir)/math/cossin.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-cossin.Tpo math/$(DEPDIR)/lib32_libmingwex_a-cossin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/cossin.c' object='math/lib32_libmingwex_a-cossin.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-cossin.obj `if test -f 'math/cossin.c'; then $(CYGPATH_W) 'math/cossin.c'; else $(CYGPATH_W) '$(srcdir)/math/cossin.c'; fi`
 
 misc/lib32_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-alarm.Tpo -c -o misc/lib32_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c
@@ -20788,6 +20814,20 @@ math/lib64_libmingwex_a-truncl.obj: math/truncl.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/truncl.c' object='math/lib64_libmingwex_a-truncl.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-truncl.obj `if test -f 'math/truncl.c'; then $(CYGPATH_W) 'math/truncl.c'; else $(CYGPATH_W) '$(srcdir)/math/truncl.c'; fi`
+
+math/lib64_libmingwex_a-cossin.o: math/cossin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-cossin.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-cossin.Tpo -c -o math/lib64_libmingwex_a-cossin.o `test -f 'math/cossin.c' || echo '$(srcdir)/'`math/cossin.c
+@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-cossin.Tpo math/$(DEPDIR)/lib64_libmingwex_a-cossin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/cossin.c' object='math/lib64_libmingwex_a-cossin.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-cossin.o `test -f 'math/cossin.c' || echo '$(srcdir)/'`math/cossin.c
+
+math/lib64_libmingwex_a-cossin.obj: math/cossin.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-cossin.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-cossin.Tpo -c -o math/lib64_libmingwex_a-cossin.obj `if test -f 'math/cossin.c'; then $(CYGPATH_W) 'math/cossin.c'; else $(CYGPATH_W) '$(srcdir)/math/cossin.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-cossin.Tpo math/$(DEPDIR)/lib64_libmingwex_a-cossin.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/cossin.c' object='math/lib64_libmingwex_a-cossin.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-cossin.obj `if test -f 'math/cossin.c'; then $(CYGPATH_W) 'math/cossin.c'; else $(CYGPATH_W) '$(srcdir)/math/cossin.c'; fi`
 
 misc/lib64_libmingwex_a-alarm.o: misc/alarm.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-alarm.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-alarm.Tpo -c -o misc/lib64_libmingwex_a-alarm.o `test -f 'misc/alarm.c' || echo '$(srcdir)/'`misc/alarm.c

@@ -138,7 +138,7 @@ src_libmingwex=\
   math/s_erf.c        math/sf_erf.c       math/signbit.c      math/signbitf.c      math/signbitl.c    math/sinf.c        \
   math/sinhf.c        math/sinhl.c        math/sqrtf.c        math/sqrtl.c         math/tanf.c        math/tanhf.c       \
   math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c       math/trunc.c       math/truncf.c      \
-  math/truncl.c       \
+  math/truncl.c       math/cossin.c       \
   \
   misc/mb_wc_common.h \
   misc/mingw_getsp.S  \
