@@ -121,6 +121,10 @@ extern "C" {
   double __cdecl modf(double _X,double *_Y) __MINGW_ATTRIB_PURE;
   double __cdecl fmod(double _X,double _Y) __MINGW_ATTRIB_PURE;
 
+  void __cdecl sincos (double __x, double *p_sin, double *p_cos) __MINGW_ATTRIB_PURE;
+  void __cdecl sincosl (long double __x, long double *p_sin, long double *p_cos) __MINGW_ATTRIB_PURE;
+  void __cdecl sincosf (float __x, float *p_sin, float *p_cos) __MINGW_ATTRIB_PURE;
+
 #ifndef _CRT_ABS_DEFINED
 #define _CRT_ABS_DEFINED
   int __cdecl abs(int _X);
