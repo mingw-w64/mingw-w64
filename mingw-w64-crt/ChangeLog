@@ -1,3 +1,7 @@
+2010-03-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/cossin.c: New.
+
 2010-03-03  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* aclocal.m4 (_LT_CHECK_MAGIC_METHOD): The latest libtool.m4 w64
