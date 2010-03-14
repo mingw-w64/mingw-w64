@@ -1,3 +1,12 @@
+2010-03-14  Jonathan Yong  <jon_y@users.sourceforge.net>
+	* math.h (frexp): Remove pure attribute.
+	(modf): ditto.
+	(sincos): ditto.
+	(sincosl): ditto.
+	(sincosf): ditto.
+	(frexpf): ditto.
+	(frexpl): ditto.
+
 2010-02-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* profile.h: Remove advertising clause of copyright. For reference, see:

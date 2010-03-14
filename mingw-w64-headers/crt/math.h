@@ -117,13 +117,13 @@ extern "C" {
   double __cdecl floor(double _X) __MINGW_ATTRIB_PURE;
   double __cdecl fabs(double _X) __MINGW_ATTRIB_PURE;
   double __cdecl ldexp(double _X,int _Y) __MINGW_ATTRIB_PURE;
-  double __cdecl frexp(double _X,int *_Y) __MINGW_ATTRIB_PURE;
-  double __cdecl modf(double _X,double *_Y) __MINGW_ATTRIB_PURE;
+  double __cdecl frexp(double _X,int *_Y);
+  double __cdecl modf(double _X,double *_Y);
   double __cdecl fmod(double _X,double _Y) __MINGW_ATTRIB_PURE;
 
-  void __cdecl sincos (double __x, double *p_sin, double *p_cos) __MINGW_ATTRIB_PURE;
-  void __cdecl sincosl (long double __x, long double *p_sin, long double *p_cos) __MINGW_ATTRIB_PURE;
-  void __cdecl sincosf (float __x, float *p_sin, float *p_cos) __MINGW_ATTRIB_PURE;
+  void __cdecl sincos (double __x, double *p_sin, double *p_cos);
+  void __cdecl sincosl (long double __x, long double *p_sin, long double *p_cos);
+  void __cdecl sincosf (float __x, float *p_sin, float *p_cos);
 
 #ifndef _CRT_ABS_DEFINED
 #define _CRT_ABS_DEFINED
@@ -450,11 +450,11 @@ typedef long double double_t;
   extern long double __cdecl expm1l(long double) __MINGW_ATTRIB_PURE;
 
 /* 7.12.6.4 Double in C89 */
-  extern float frexpf(float _X,int *_Y) __MINGW_ATTRIB_PURE;
+  extern float frexpf(float _X,int *_Y);
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE float frexpf(float _X,int *_Y) { return ((float)frexp((double)_X,_Y)); }
 #endif
-  extern long double __cdecl frexpl(long double,int *) __MINGW_ATTRIB_PURE;
+  extern long double __cdecl frexpl(long double,int *);
 
 /* 7.12.6.5 */
 #define FP_ILOGB0 ((int)0x80000000)
