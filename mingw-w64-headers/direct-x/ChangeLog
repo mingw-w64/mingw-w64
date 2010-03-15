@@ -1,3 +1,8 @@
+2010-03-15  Ozkan Sezer <sezeroz@gmail.com>
+
+	* d3dx9shader.h (ID3DXConstantTable_SetMatrixTranspose): Fix typo.
+	From wine git commit 8991b214b6a60ccd52c4cf493c0486a8e3728d8f .
+
 2010-03-07  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* dvdevcod.h: Add from sourceware w32api.
