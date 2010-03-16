@@ -928,10 +928,10 @@ lib64_SCRIPTS = \
 # This is cleaner for watching make output, but is only in GNU Make:
 # $(DTDEF) $(top_srcdir)/$(subst .a,.def,$(subst /lib,/,$@)) --dllname $(subst .a,.dll,$(subst lib,,$(@F)))
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a:
-	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib64/lib||;s|\.a|.dll|'` -m i386:x86-64
+	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib64/lib||;s|\.a|.dll|'` -m i386:x86-64 --as-flags=--64
 
 lib64/lib%.a:
-	$(DTDEF) $(top_srcdir)/lib64/$*.def -m i386:x86-64
+	$(DTDEF) $(top_srcdir)/lib64/$*.def -m i386:x86-64 --as-flags=--64
 
 
 endif
