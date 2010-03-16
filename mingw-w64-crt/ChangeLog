@@ -1,3 +1,7 @@
+2010-03-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/wassert.c (_wassert): Spelling fix: s/Assertation/Assertion/.
+
 2010-03-13  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/cossin.c: New.
