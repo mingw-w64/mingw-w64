@@ -43,14 +43,14 @@ _wassert (const wchar_t *_Message, const wchar_t *_File, unsigned _Line)
   fn[MAX_PATH] = 0;
   if (! GetModuleFileName (NULL, fn, MAX_PATH))
     strcpy (fn, "<unknown>");
-  sprintf (msgbuf, "Assertation failed!\n\nProgram: %s\nFile: %s, Line %u\n\nExpression: %s",
+  sprintf (msgbuf, "Assertion failed!\n\nProgram: %s\nFile: %s, Line %u\n\nExpression: %s",
       	   fn, iFile,_Line,msg);
   if (mingw_app_type == 0)
     {
       fprintf (stderr, "%s\n", msgbuf);
       abort ();
     }
-  nCode = MessageBoxA (NULL, msgbuf, "MinGW Runtime Assertation", MB_ABORTRETRYIGNORE|
+  nCode = MessageBoxA (NULL, msgbuf, "MinGW Runtime Assertion", MB_ABORTRETRYIGNORE|
     MB_ICONHAND|MB_SETFOREGROUND|MB_TASKMODAL);
   if (nCode == IDABORT)
     {
