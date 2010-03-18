@@ -1,3 +1,7 @@
+2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winsock.h (INVALID_SOCKET): Fix obvious typo.
+
 2010-03-03  Roland Schwingel  <roland.schwingel@onevision.com>
 
 	* include/winnt.h: Add a lot of missing definitions from MSDN.
