@@ -1,3 +1,7 @@
+2010-03-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* iprtrmib.h (TCP_TABLE_CLASS): New.
+
 2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Do not silently include winsock2.h instead of winsock.h:
