@@ -1,3 +1,7 @@
+2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib64/wsock32.def: New.
+
 2010-03-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* misc/wassert.c (_wassert): Spelling fix: s/Assertation/Assertion/.
