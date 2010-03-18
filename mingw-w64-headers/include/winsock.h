@@ -25,7 +25,7 @@ struct ip_mreq {
   struct in_addr imr_interface;
 };
 
-#define INVALID_SOCKET(SOCKET)(~0)
+#define INVALID_SOCKET (SOCKET)(~0)
 #define SOCKET_ERROR (-1)
 
 #define SOCK_STREAM 1

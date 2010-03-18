@@ -1,3 +1,7 @@
+2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winsock.h (INVALID_SOCKET): Fix obvious typo.
+
 2010-03-05  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
