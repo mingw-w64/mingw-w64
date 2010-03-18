@@ -1,5 +1,10 @@
 2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* Makefile.am: Added lib64/wsock32.def to build.
+	* Makefile.in: Regenerated.
+
+2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* lib64/wsock32.def: New.
 
 2010-03-16  Ozkan Sezer  <sezeroz@gmail.com>

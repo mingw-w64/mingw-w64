@@ -1,5 +1,18 @@
 2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Do not silently include winsock2.h instead of winsock.h:
+	* winsock.h: Removed the if 0 comment out and the winsock2.h
+	include. Restored the recently removed definitions.
+	* ws2ipdef.h: Deleted.
+	* winsock2.h: Define _WINSOCKAPI_ to avoid winsock.h inclusions.
+	Removed the _WINSOCK_SOCKET_DEFINED ifdef guards around SOCKET
+	definitions. Removed mswsock.h inclusion.
+	* mswsock.h: Removed the SOCKET definitions.
+	* ws2tcpip.h: Added back ip_mreq and ip_mreq_source structures.
+	Do not try to preserve possible socklen_t macros from the user.
+
+2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* winsock.h (INVALID_SOCKET): Fix obvious typo.
 
 2010-03-03  Roland Schwingel  <roland.schwingel@onevision.com>

@@ -3,14 +3,23 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#ifndef _WS2TCPIP_H
-#define _WS2TCPIP_H
+#ifndef _WS2TCPIP_H_
+#define _WS2TCPIP_H_
 
 #if __GNUC__ >=3
 #pragma GCC system_header
 #endif
 
-#include <ws2ipdef.h>
+struct ip_mreq {
+  struct in_addr imr_multiaddr;
+  struct in_addr imr_interface;
+};
+
+struct ip_mreq_source {
+  struct in_addr imr_multiaddr;
+  struct in_addr imr_sourceaddr;
+  struct in_addr imr_interface;
+};
 
 struct ip_msfilter {
   struct in_addr imsf_multiaddr;
@@ -330,9 +339,6 @@ extern "C" {
 #endif
 #endif
 
-#pragma push_macro("socklen_t")
-#undef socklen_t
-
   typedef int socklen_t;
 
 #ifdef UNICODE
@@ -358,8 +364,6 @@ extern "C" {
 #define LPFN_GETNAMEINFOT LPFN_GETNAMEINFOA
 #endif
 #endif
-
-#pragma pop_macro("socklen_t")
 
 #ifdef UNICODE
 #define gai_strerror gai_strerrorW
@@ -388,4 +392,4 @@ WCHAR *gai_strerrorW(int);
 }
 #endif
 
-#endif
+#endif /* _WS2TCPIP_H_ */

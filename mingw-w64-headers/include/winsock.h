@@ -3,10 +3,230 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#if 0
 #ifndef _WINSOCKAPI_
 #define _WINSOCKAPI_
 
+#ifndef _INC_WINDOWS
+#include <windows.h>
+#endif
+
+typedef unsigned char u_char;
+typedef unsigned short u_short;
+typedef unsigned int u_int;
+typedef unsigned long u_long;
+
+typedef INT_PTR SOCKET;
+
+#ifndef FD_SETSIZE
+#define FD_SETSIZE 64
+#endif
+
+typedef struct fd_set {
+  u_int fd_count;
+  SOCKET fd_array[FD_SETSIZE];
+} fd_set;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+  extern int WINAPI __WSAFDIsSet(SOCKET,fd_set *);
+
+#ifdef __cplusplus
+}
+#endif
+
+#define FD_CLR(fd,set) do { u_int __i; for(__i = 0;__i < ((fd_set *)(set))->fd_count;__i++) { if (((fd_set *)(set))->fd_array[__i]==fd) { while (__i < ((fd_set *)(set))->fd_count-1) { ((fd_set *)(set))->fd_array[__i] = ((fd_set *)(set))->fd_array[__i+1]; __i++; } ((fd_set *)(set))->fd_count--; break; } } } while(0)
+#define FD_SET(fd,set) do { if (((fd_set *)(set))->fd_count < FD_SETSIZE) ((fd_set *)(set))->fd_array[((fd_set *)(set))->fd_count++]=(fd);} while(0)
+#define FD_ZERO(set) (((fd_set *)(set))->fd_count=0)
+#define FD_ISSET(fd,set) __WSAFDIsSet((SOCKET)(fd),(fd_set *)(set))
+
+#ifndef _TIMEVAL_DEFINED /* also in winsock[2].h */
+#define _TIMEVAL_DEFINED
+struct timeval {
+  long tv_sec;
+  long tv_usec;
+};
+
+#define timerisset(tvp) ((tvp)->tv_sec || (tvp)->tv_usec)
+#define timercmp(tvp,uvp,cmp) ((tvp)->tv_sec cmp (uvp)->tv_sec || (tvp)->tv_sec==(uvp)->tv_sec && (tvp)->tv_usec cmp (uvp)->tv_usec)
+#define timerclear(tvp) (tvp)->tv_sec = (tvp)->tv_usec = 0
+#endif /* _TIMEVAL_DEFINED */
+
+#define IOCPARM_MASK 0x7f
+#define IOC_VOID 0x20000000
+#define IOC_OUT 0x40000000
+#define IOC_IN 0x80000000
+#define IOC_INOUT (IOC_IN|IOC_OUT)
+
+#define _IO(x,y) (IOC_VOID|((x)<<8)|(y))
+#define _IOR(x,y,t) (IOC_OUT|(((long)sizeof(t)&IOCPARM_MASK)<<16)|((x)<<8)|(y))
+#define _IOW(x,y,t) (IOC_IN|(((long)sizeof(t)&IOCPARM_MASK)<<16)|((x)<<8)|(y))
+
+#define FIONREAD _IOR('f',127,u_long)
+#define FIONBIO _IOW('f',126,u_long)
+#define FIOASYNC _IOW('f',125,u_long)
+
+#define SIOCSHIWAT _IOW('s',0,u_long)
+#define SIOCGHIWAT _IOR('s',1,u_long)
+#define SIOCSLOWAT _IOW('s',2,u_long)
+#define SIOCGLOWAT _IOR('s',3,u_long)
+#define SIOCATMARK _IOR('s',7,u_long)
+
+#define h_addr h_addr_list[0]
+
+struct hostent {
+  char *h_name;
+  char **h_aliases;
+  short h_addrtype;
+  short h_length;
+  char **h_addr_list;
+};
+
+struct netent {
+  char *n_name;
+  char **n_aliases;
+  short n_addrtype;
+  u_long n_net;
+};
+
+struct servent {
+  char *s_name;
+  char **s_aliases;
+#ifdef _WIN64
+  char *s_proto;
+  short s_port;
+#else
+  short s_port;
+  char *s_proto;
+#endif
+};
+
+struct protoent {
+  char *p_name;
+  char **p_aliases;
+  short p_proto;
+};
+
+#define IPPROTO_IP 0
+#define IPPROTO_ICMP 1
+#define IPPROTO_IGMP 2
+#define IPPROTO_GGP 3
+#define IPPROTO_TCP 6
+#define IPPROTO_PUP 12
+#define IPPROTO_UDP 17
+#define IPPROTO_IDP 22
+#define IPPROTO_ND 77
+
+#define IPPROTO_RAW 255
+#define IPPROTO_MAX 256
+
+#define IPPORT_ECHO 7
+#define IPPORT_DISCARD 9
+#define IPPORT_SYSTAT 11
+#define IPPORT_DAYTIME 13
+#define IPPORT_NETSTAT 15
+#define IPPORT_FTP 21
+#define IPPORT_TELNET 23
+#define IPPORT_SMTP 25
+#define IPPORT_TIMESERVER 37
+#define IPPORT_NAMESERVER 42
+#define IPPORT_WHOIS 43
+#define IPPORT_MTP 57
+
+#define IPPORT_TFTP 69
+#define IPPORT_RJE 77
+#define IPPORT_FINGER 79
+#define IPPORT_TTYLINK 87
+#define IPPORT_SUPDUP 95
+
+#define IPPORT_EXECSERVER 512
+#define IPPORT_LOGINSERVER 513
+#define IPPORT_CMDSERVER 514
+#define IPPORT_EFSSERVER 520
+
+#define IPPORT_BIFFUDP 512
+#define IPPORT_WHOSERVER 513
+#define IPPORT_ROUTESERVER 520
+
+#define IPPORT_RESERVED 1024
+
+#define IMPLINK_IP 155
+#define IMPLINK_LOWEXPER 156
+#define IMPLINK_HIGHEXPER 158
+
+#ifndef s_addr
+
+struct in_addr {
+  union {
+    struct { u_char s_b1,s_b2,s_b3,s_b4; } S_un_b;
+    struct { u_short s_w1,s_w2; } S_un_w;
+    u_long S_addr;
+  } S_un;
+};
+
+#define s_addr S_un.S_addr
+#define s_host S_un.S_un_b.s_b2
+#define s_net S_un.S_un_b.s_b1
+#define s_imp S_un.S_un_w.s_w2
+#define s_impno S_un.S_un_b.s_b4
+#define s_lh S_un.S_un_b.s_b3
+
+#endif
+
+#define IN_CLASSA(i) (((long)(i) & 0x80000000)==0)
+#define IN_CLASSA_NET 0xff000000
+#define IN_CLASSA_NSHIFT 24
+#define IN_CLASSA_HOST 0x00ffffff
+#define IN_CLASSA_MAX 128
+
+#define IN_CLASSB(i) (((long)(i) & 0xc0000000)==0x80000000)
+#define IN_CLASSB_NET 0xffff0000
+#define IN_CLASSB_NSHIFT 16
+#define IN_CLASSB_HOST 0x0000ffff
+#define IN_CLASSB_MAX 65536
+
+#define IN_CLASSC(i) (((long)(i) & 0xe0000000)==0xc0000000)
+#define IN_CLASSC_NET 0xffffff00
+#define IN_CLASSC_NSHIFT 8
+#define IN_CLASSC_HOST 0x000000ff
+
+#define INADDR_ANY (u_long)0x00000000
+#define INADDR_LOOPBACK 0x7f000001
+#define INADDR_BROADCAST (u_long)0xffffffff
+#define INADDR_NONE 0xffffffff
+
+struct sockaddr_in {
+  short sin_family;
+  u_short sin_port;
+  struct in_addr sin_addr;
+  char sin_zero[8];
+};
+
+#define WSADESCRIPTION_LEN 256
+#define WSASYS_STATUS_LEN 128
+
+typedef struct WSAData {
+  WORD wVersion;
+  WORD wHighVersion;
+#ifdef _WIN64
+  unsigned short iMaxSockets;
+  unsigned short iMaxUdpDg;
+  char *lpVendorInfo;
+  char szDescription[WSADESCRIPTION_LEN+1];
+  char szSystemStatus[WSASYS_STATUS_LEN+1];
+#else
+  char szDescription[WSADESCRIPTION_LEN+1];
+  char szSystemStatus[WSASYS_STATUS_LEN+1];
+  unsigned short iMaxSockets;
+  unsigned short iMaxUdpDg;
+  char *lpVendorInfo;
+#endif
+} WSADATA;
+
+typedef WSADATA *LPWSADATA;
+
+#define IP_OPTIONS 1
 #define IP_MULTICAST_IF 2
 #define IP_MULTICAST_TTL 3
 #define IP_MULTICAST_LOOP 4
@@ -64,6 +284,13 @@ struct ip_mreq {
 #define SO_DISCDATALEN 0x7006
 #define SO_DISCOPTLEN 0x7007
 
+#define SO_OPENTYPE 0x7008
+
+#define SO_SYNCHRONOUS_ALERT 0x10
+#define SO_SYNCHRONOUS_NONALERT 0x20
+
+#define SO_MAXDG 0x7009
+#define SO_MAXPATHDG 0x700A
 #define SO_UPDATE_ACCEPT_CONTEXT 0x700B
 #define SO_CONNECT_TIME 0x700C
 
@@ -378,10 +605,4 @@ typedef struct timeval *LPTIMEVAL;
 #ifdef IPV6STRICT
 #error WINSOCK2 required.
 #endif
-#endif
-#else
-#ifndef _INC_WINSOCK_H
-#define _INC_WINSOCK_H
-#endif
-#include <winsock2.h>
 #endif
