@@ -1,3 +1,10 @@
+2010-03-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Fix BR/2973259:
+	* Makefile.am: Tag the built *.o and *.a files as DATA instead of
+	SCRIPT as suggested by Doug Semler.
+	* Makefile.in: Regenerated.
+
 2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib64/wsock32.def: New.
