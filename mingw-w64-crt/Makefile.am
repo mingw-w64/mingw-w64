@@ -202,7 +202,7 @@ if LIB32
 lib32dir=$(prefix)/$(host)/@LIB32SUFFIXDIR@
 crt32dir=$(lib32dir)
 
-crt32_SCRIPTS = \
+crt32_DATA = \
   lib32/crt1.o    lib32/crt2.o     lib32/crt1u.o   lib32/crt2u.o   lib32/dllcrt1.o lib32/dllcrt2.o \
   lib32/CRT_fp8.o lib32/CRT_fp10.o lib32/txtmode.o lib32/binmode.o lib32/crtbegin.o lib32/crtend.o \
   lib32/gcrt0.o   lib32/gcrt1.o    lib32/gcrt2.o   lib32/CRT_glob.o lib32/CRT_noglob.o
@@ -333,7 +333,7 @@ lib32_libws2_32_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
-lib32_SCRIPTS = \
+lib32_DATA = \
   lib32/libwinusb.a \
   lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
   lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
@@ -390,7 +390,7 @@ if LIB64
 lib64dir=$(prefix)/$(host)/@LIB64SUFFIXDIR@
 crt64dir=$(lib64dir)
 
-crt64_SCRIPTS = \
+crt64_DATA = \
   lib64/crt1.o    lib64/crt2.o     lib64/crt1u.o   lib64/crt2u.o   lib64/dllcrt1.o lib64/dllcrt2.o \
   lib64/CRT_fp8.o lib64/CRT_fp10.o lib64/txtmode.o lib64/binmode.o lib64/crtbegin.o lib64/crtend.o \
   lib64/gcrt0.o   lib64/gcrt1.o    lib64/gcrt2.o   lib64/CRT_glob.o lib64/CRT_noglob.o
@@ -511,7 +511,7 @@ lib64_libws2_32_a_CPPFLAGS=-m64
 lib64_libws2_32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 
 
-lib64_SCRIPTS = \
+lib64_DATA = \
   lib64/libwinusb.a \
   lib64/lib6to4svc.a    lib64/libaaaamon.a    lib64/libacgen64.a      lib64/libacledit.a    lib64/libaclui.a         \
   lib64/libactiveds.a   lib64/libactxprxy.a   lib64/libadmparse.a     lib64/libadmwprox.a   lib64/libadptif.a        \
@@ -948,7 +948,7 @@ noinst_HEADERS = libsrc/dxerr.c \
 # Cleaning options
 #
 
-CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS) $(lib32_SCRIPTS)
+CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_DATA)
 
 # Distribution options
 #

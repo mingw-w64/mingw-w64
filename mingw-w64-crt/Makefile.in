@@ -1899,8 +1899,6 @@ testcases_tstmainc_LDADD = $(LDADD)
 am_testcases_tstmaincpp_OBJECTS = testcases/tstmaincpp.$(OBJEXT)
 testcases_tstmaincpp_OBJECTS = $(am_testcases_tstmaincpp_OBJECTS)
 testcases_tstmaincpp_LDADD = $(LDADD)
-SCRIPTS = $(crt32_SCRIPTS) $(crt64_SCRIPTS) $(lib32_SCRIPTS) \
-	$(lib64_SCRIPTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__depfiles_maybe = depfiles
@@ -1992,6 +1990,7 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
 	testcases/t_wreaddir.c testcases/tstmain_sys_xxx.c \
 	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES)
+DATA = $(crt32_DATA) $(crt64_DATA) $(lib32_DATA) $(lib64_DATA)
 HEADERS = $(noinst_HEADERS)
 ETAGS = etags
 CTAGS = ctags
@@ -2303,7 +2302,7 @@ src_libmingwex32 = \
 #
 @LIB32_TRUE@lib32dir = $(prefix)/$(host)/@LIB32SUFFIXDIR@
 @LIB32_TRUE@crt32dir = $(lib32dir)
-@LIB32_TRUE@crt32_SCRIPTS = \
+@LIB32_TRUE@crt32_DATA = \
 @LIB32_TRUE@  lib32/crt1.o    lib32/crt2.o     lib32/crt1u.o   lib32/crt2u.o   lib32/dllcrt1.o lib32/dllcrt2.o \
 @LIB32_TRUE@  lib32/CRT_fp8.o lib32/CRT_fp10.o lib32/txtmode.o lib32/binmode.o lib32/crtbegin.o lib32/crtend.o \
 @LIB32_TRUE@  lib32/gcrt0.o   lib32/gcrt1.o    lib32/gcrt2.o   lib32/CRT_glob.o lib32/CRT_noglob.o
@@ -2382,7 +2381,7 @@ src_libmingwex32 = \
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
-@LIB32_TRUE@lib32_SCRIPTS = \
+@LIB32_TRUE@lib32_DATA = \
 @LIB32_TRUE@  lib32/libwinusb.a \
 @LIB32_TRUE@  lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
 @LIB32_TRUE@  lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
@@ -2425,7 +2424,7 @@ src_libmingwex32 = \
 # #######################################################################
 @LIB64_TRUE@lib64dir = $(prefix)/$(host)/@LIB64SUFFIXDIR@
 @LIB64_TRUE@crt64dir = $(lib64dir)
-@LIB64_TRUE@crt64_SCRIPTS = \
+@LIB64_TRUE@crt64_DATA = \
 @LIB64_TRUE@  lib64/crt1.o    lib64/crt2.o     lib64/crt1u.o   lib64/crt2u.o   lib64/dllcrt1.o lib64/dllcrt2.o \
 @LIB64_TRUE@  lib64/CRT_fp8.o lib64/CRT_fp10.o lib64/txtmode.o lib64/binmode.o lib64/crtbegin.o lib64/crtend.o \
 @LIB64_TRUE@  lib64/gcrt0.o   lib64/gcrt1.o    lib64/gcrt2.o   lib64/CRT_glob.o lib64/CRT_noglob.o
@@ -2493,7 +2492,7 @@ src_libmingwex32 = \
 @LIB64_TRUE@lib64_libws2_32_a_SOURCES = $(src_libws2_32)
 @LIB64_TRUE@lib64_libws2_32_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libws2_32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
-@LIB64_TRUE@lib64_SCRIPTS = \
+@LIB64_TRUE@lib64_DATA = \
 @LIB64_TRUE@  lib64/libwinusb.a \
 @LIB64_TRUE@  lib64/lib6to4svc.a    lib64/libaaaamon.a    lib64/libacgen64.a      lib64/libacledit.a    lib64/libaclui.a         \
 @LIB64_TRUE@  lib64/libactiveds.a   lib64/libactxprxy.a   lib64/libadmparse.a     lib64/libadmwprox.a   lib64/libadptif.a        \
@@ -2918,7 +2917,7 @@ noinst_HEADERS = libsrc/dxerr.c \
 
 # Cleaning options
 #
-CLEANFILES = $(BUILT_SOURCES) $(crt64_SCRIPTS) $(lib64_SCRIPTS) $(crt32_SCRIPTS) $(lib32_SCRIPTS)
+CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_DATA)
 
 # Distribution options
 #
@@ -5725,142 +5724,6 @@ testcases/tstmaincpp.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/tstmaincpp$(EXEEXT): $(testcases_tstmaincpp_OBJECTS) $(testcases_tstmaincpp_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/tstmaincpp$(EXEEXT)
 	$(CXXLINK) $(testcases_tstmaincpp_OBJECTS) $(testcases_tstmaincpp_LDADD) $(LIBS)
-install-crt32SCRIPTS: $(crt32_SCRIPTS)
-	@$(NORMAL_INSTALL)
-	test -z "$(crt32dir)" || $(MKDIR_P) "$(DESTDIR)$(crt32dir)"
-	@list='$(crt32_SCRIPTS)'; test -n "$(crt32dir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  if test -f "$$d$$p"; then echo "$$d$$p"; echo "$$p"; else :; fi; \
-	done | \
-	sed -e 'p;s,.*/,,;n' \
-	    -e 'h;s|.*|.|' \
-	    -e 'p;x;s,.*/,,;$(transform)' | sed 'N;N;N;s,\n, ,g' | \
-	$(AWK) 'BEGIN { files["."] = ""; dirs["."] = 1; } \
-	  { d=$$3; if (dirs[d] != 1) { print "d", d; dirs[d] = 1 } \
-	    if ($$2 == $$4) { files[d] = files[d] " " $$1; \
-	      if (++n[d] == $(am__install_max)) { \
-		print "f", d, files[d]; n[d] = 0; files[d] = "" } } \
-	    else { print "f", d "/" $$4, $$1 } } \
-	  END { for (d in files) print "f", d, files[d] }' | \
-	while read type dir files; do \
-	     if test "$$dir" = .; then dir=; else dir=/$$dir; fi; \
-	     test -z "$$files" || { \
-	       echo " $(INSTALL_SCRIPT) $$files '$(DESTDIR)$(crt32dir)$$dir'"; \
-	       $(INSTALL_SCRIPT) $$files "$(DESTDIR)$(crt32dir)$$dir" || exit $$?; \
-	     } \
-	; done
-
-uninstall-crt32SCRIPTS:
-	@$(NORMAL_UNINSTALL)
-	@list='$(crt32_SCRIPTS)'; test -n "$(crt32dir)" || exit 0; \
-	files=`for p in $$list; do echo "$$p"; done | \
-	       sed -e 's,.*/,,;$(transform)'`; \
-	test -n "$$list" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(crt32dir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(crt32dir)" && rm -f $$files
-install-crt64SCRIPTS: $(crt64_SCRIPTS)
-	@$(NORMAL_INSTALL)
-	test -z "$(crt64dir)" || $(MKDIR_P) "$(DESTDIR)$(crt64dir)"
-	@list='$(crt64_SCRIPTS)'; test -n "$(crt64dir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  if test -f "$$d$$p"; then echo "$$d$$p"; echo "$$p"; else :; fi; \
-	done | \
-	sed -e 'p;s,.*/,,;n' \
-	    -e 'h;s|.*|.|' \
-	    -e 'p;x;s,.*/,,;$(transform)' | sed 'N;N;N;s,\n, ,g' | \
-	$(AWK) 'BEGIN { files["."] = ""; dirs["."] = 1; } \
-	  { d=$$3; if (dirs[d] != 1) { print "d", d; dirs[d] = 1 } \
-	    if ($$2 == $$4) { files[d] = files[d] " " $$1; \
-	      if (++n[d] == $(am__install_max)) { \
-		print "f", d, files[d]; n[d] = 0; files[d] = "" } } \
-	    else { print "f", d "/" $$4, $$1 } } \
-	  END { for (d in files) print "f", d, files[d] }' | \
-	while read type dir files; do \
-	     if test "$$dir" = .; then dir=; else dir=/$$dir; fi; \
-	     test -z "$$files" || { \
-	       echo " $(INSTALL_SCRIPT) $$files '$(DESTDIR)$(crt64dir)$$dir'"; \
-	       $(INSTALL_SCRIPT) $$files "$(DESTDIR)$(crt64dir)$$dir" || exit $$?; \
-	     } \
-	; done
-
-uninstall-crt64SCRIPTS:
-	@$(NORMAL_UNINSTALL)
-	@list='$(crt64_SCRIPTS)'; test -n "$(crt64dir)" || exit 0; \
-	files=`for p in $$list; do echo "$$p"; done | \
-	       sed -e 's,.*/,,;$(transform)'`; \
-	test -n "$$list" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(crt64dir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(crt64dir)" && rm -f $$files
-install-lib32SCRIPTS: $(lib32_SCRIPTS)
-	@$(NORMAL_INSTALL)
-	test -z "$(lib32dir)" || $(MKDIR_P) "$(DESTDIR)$(lib32dir)"
-	@list='$(lib32_SCRIPTS)'; test -n "$(lib32dir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  if test -f "$$d$$p"; then echo "$$d$$p"; echo "$$p"; else :; fi; \
-	done | \
-	sed -e 'p;s,.*/,,;n' \
-	    -e 'h;s|.*|.|' \
-	    -e 'p;x;s,.*/,,;$(transform)' | sed 'N;N;N;s,\n, ,g' | \
-	$(AWK) 'BEGIN { files["."] = ""; dirs["."] = 1; } \
-	  { d=$$3; if (dirs[d] != 1) { print "d", d; dirs[d] = 1 } \
-	    if ($$2 == $$4) { files[d] = files[d] " " $$1; \
-	      if (++n[d] == $(am__install_max)) { \
-		print "f", d, files[d]; n[d] = 0; files[d] = "" } } \
-	    else { print "f", d "/" $$4, $$1 } } \
-	  END { for (d in files) print "f", d, files[d] }' | \
-	while read type dir files; do \
-	     if test "$$dir" = .; then dir=; else dir=/$$dir; fi; \
-	     test -z "$$files" || { \
-	       echo " $(INSTALL_SCRIPT) $$files '$(DESTDIR)$(lib32dir)$$dir'"; \
-	       $(INSTALL_SCRIPT) $$files "$(DESTDIR)$(lib32dir)$$dir" || exit $$?; \
-	     } \
-	; done
-
-uninstall-lib32SCRIPTS:
-	@$(NORMAL_UNINSTALL)
-	@list='$(lib32_SCRIPTS)'; test -n "$(lib32dir)" || exit 0; \
-	files=`for p in $$list; do echo "$$p"; done | \
-	       sed -e 's,.*/,,;$(transform)'`; \
-	test -n "$$list" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(lib32dir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(lib32dir)" && rm -f $$files
-install-lib64SCRIPTS: $(lib64_SCRIPTS)
-	@$(NORMAL_INSTALL)
-	test -z "$(lib64dir)" || $(MKDIR_P) "$(DESTDIR)$(lib64dir)"
-	@list='$(lib64_SCRIPTS)'; test -n "$(lib64dir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  if test -f "$$d$$p"; then echo "$$d$$p"; echo "$$p"; else :; fi; \
-	done | \
-	sed -e 'p;s,.*/,,;n' \
-	    -e 'h;s|.*|.|' \
-	    -e 'p;x;s,.*/,,;$(transform)' | sed 'N;N;N;s,\n, ,g' | \
-	$(AWK) 'BEGIN { files["."] = ""; dirs["."] = 1; } \
-	  { d=$$3; if (dirs[d] != 1) { print "d", d; dirs[d] = 1 } \
-	    if ($$2 == $$4) { files[d] = files[d] " " $$1; \
-	      if (++n[d] == $(am__install_max)) { \
-		print "f", d, files[d]; n[d] = 0; files[d] = "" } } \
-	    else { print "f", d "/" $$4, $$1 } } \
-	  END { for (d in files) print "f", d, files[d] }' | \
-	while read type dir files; do \
-	     if test "$$dir" = .; then dir=; else dir=/$$dir; fi; \
-	     test -z "$$files" || { \
-	       echo " $(INSTALL_SCRIPT) $$files '$(DESTDIR)$(lib64dir)$$dir'"; \
-	       $(INSTALL_SCRIPT) $$files "$(DESTDIR)$(lib64dir)$$dir" || exit $$?; \
-	     } \
-	; done
-
-uninstall-lib64SCRIPTS:
-	@$(NORMAL_UNINSTALL)
-	@list='$(lib64_SCRIPTS)'; test -n "$(lib64dir)" || exit 0; \
-	files=`for p in $$list; do echo "$$p"; done | \
-	       sed -e 's,.*/,,;$(transform)'`; \
-	test -n "$$list" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(lib64dir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(lib64dir)" && rm -f $$files
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -24078,6 +23941,86 @@ testcases/testcases_t_tmain-t_tmain.obj: testcases/t_tmain.c
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+install-crt32DATA: $(crt32_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(crt32dir)" || $(MKDIR_P) "$(DESTDIR)$(crt32dir)"
+	@list='$(crt32_DATA)'; test -n "$(crt32dir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(crt32dir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(crt32dir)" || exit $$?; \
+	done
+
+uninstall-crt32DATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(crt32_DATA)'; test -n "$(crt32dir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(crt32dir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(crt32dir)" && rm -f $$files
+install-crt64DATA: $(crt64_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(crt64dir)" || $(MKDIR_P) "$(DESTDIR)$(crt64dir)"
+	@list='$(crt64_DATA)'; test -n "$(crt64dir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(crt64dir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(crt64dir)" || exit $$?; \
+	done
+
+uninstall-crt64DATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(crt64_DATA)'; test -n "$(crt64dir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(crt64dir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(crt64dir)" && rm -f $$files
+install-lib32DATA: $(lib32_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(lib32dir)" || $(MKDIR_P) "$(DESTDIR)$(lib32dir)"
+	@list='$(lib32_DATA)'; test -n "$(lib32dir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(lib32dir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(lib32dir)" || exit $$?; \
+	done
+
+uninstall-lib32DATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(lib32_DATA)'; test -n "$(lib32dir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(lib32dir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(lib32dir)" && rm -f $$files
+install-lib64DATA: $(lib64_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(lib64dir)" || $(MKDIR_P) "$(DESTDIR)$(lib64dir)"
+	@list='$(lib64_DATA)'; test -n "$(lib64dir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(lib64dir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(lib64dir)" || exit $$?; \
+	done
+
+uninstall-lib64DATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(lib64_DATA)'; test -n "$(lib64dir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(lib64dir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(lib64dir)" && rm -f $$files
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -24378,7 +24321,7 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-am
-all-am: Makefile $(LIBRARIES) $(SCRIPTS) $(HEADERS) config.h
+all-am: Makefile $(LIBRARIES) $(DATA) $(HEADERS) config.h
 installdirs:
 	for dir in "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" "$(DESTDIR)$(crt32dir)" "$(DESTDIR)$(crt64dir)" "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
@@ -24461,9 +24404,9 @@ info: info-am
 
 info-am:
 
-install-data-am: install-crt32SCRIPTS install-crt64SCRIPTS \
-	install-lib32LIBRARIES install-lib32SCRIPTS \
-	install-lib64LIBRARIES install-lib64SCRIPTS
+install-data-am: install-crt32DATA install-crt64DATA install-lib32DATA \
+	install-lib32LIBRARIES install-lib64DATA \
+	install-lib64LIBRARIES
 
 install-dvi: install-dvi-am
 
@@ -24510,9 +24453,9 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-crt32SCRIPTS uninstall-crt64SCRIPTS \
-	uninstall-lib32LIBRARIES uninstall-lib32SCRIPTS \
-	uninstall-lib64LIBRARIES uninstall-lib64SCRIPTS
+uninstall-am: uninstall-crt32DATA uninstall-crt64DATA \
+	uninstall-lib32DATA uninstall-lib32LIBRARIES \
+	uninstall-lib64DATA uninstall-lib64LIBRARIES
 
 .MAKE: all check check-am install install-am install-strip
 
@@ -24523,19 +24466,19 @@ uninstall-am: uninstall-crt32SCRIPTS uninstall-crt64SCRIPTS \
 	distcheck distclean distclean-compile distclean-generic \
 	distclean-hdr distclean-tags distcleancheck distdir \
 	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-crt32SCRIPTS install-crt64SCRIPTS \
+	install install-am install-crt32DATA install-crt64DATA \
 	install-data install-data-am install-dvi install-dvi-am \
 	install-exec install-exec-am install-html install-html-am \
-	install-info install-info-am install-lib32LIBRARIES \
-	install-lib32SCRIPTS install-lib64LIBRARIES \
-	install-lib64SCRIPTS install-man install-pdf install-pdf-am \
+	install-info install-info-am install-lib32DATA \
+	install-lib32LIBRARIES install-lib64DATA \
+	install-lib64LIBRARIES install-man install-pdf install-pdf-am \
 	install-ps install-ps-am install-strip installcheck \
 	installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-crt32SCRIPTS uninstall-crt64SCRIPTS \
-	uninstall-lib32LIBRARIES uninstall-lib32SCRIPTS \
-	uninstall-lib64LIBRARIES uninstall-lib64SCRIPTS
+	uninstall-am uninstall-crt32DATA uninstall-crt64DATA \
+	uninstall-lib32DATA uninstall-lib32LIBRARIES \
+	uninstall-lib64DATA uninstall-lib64LIBRARIES
 
 _libm_dummy.c:
 	echo "static int __attribute__((unused)) __mingw_libm_dummy;" > _libm_dummy.c
