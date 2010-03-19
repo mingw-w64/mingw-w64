@@ -19,7 +19,7 @@ extern "C" {
 #define errno (*_errno())
   errno_t __cdecl _set_errno(int _Value);
   errno_t __cdecl _get_errno(int *_Value);
-#endif
+#endif /* _CRT_ERRNO_DEFINED */
 
   _CRTIMP extern unsigned long __cdecl __threadid(void);
 #define _threadid (__threadid())
@@ -29,7 +29,7 @@ extern "C" {
 }
 #endif
 
-#endif
+#endif /* _INC_STDDEF */
 
 /*
  * ISO C Standard:  7.17  Common definitions  <stddef.h>
@@ -417,3 +417,4 @@ typedef __WCHAR_TYPE__ wchar_t;
 
 #endif /* !_STDDEF_H && !_STDDEF_H_ && !_ANSI_STDDEF_H && !__STDDEF_H__
 	  || __need_XXX was not defined before */
+
