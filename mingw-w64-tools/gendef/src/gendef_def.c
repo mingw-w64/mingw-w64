@@ -72,6 +72,13 @@ gendef_getsymbol_info (const char *dllname, const char *symbolname, int *isData,
       if (!h)
 	return 0;
       r1 = strdup (h + 1);
+      if (*r1 == '#')
+	{
+	  r2 = (char *) malloc (strlen (r1) + 5);
+	  sprintf (r2, "ord_%s", r1 + 1);
+	  free (r1);
+	  r1 = r2;
+	}
       symbolname = r1;
       r2 = strdup (dllname);
       strcpy (strchr (r2, '.'), ".dll");
