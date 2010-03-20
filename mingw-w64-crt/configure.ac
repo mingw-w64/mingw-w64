@@ -138,6 +138,19 @@ AS_CASE([$enable_wildcard],
 AC_DEFINE_UNQUOTED([__ENABLE_GLOBBING],[$enable_wildcard_value],[Define as -1 to enable command line globbing or 0 to disable it.])
 AC_MSG_RESULT([$enable_wildcard])
 
+AC_MSG_CHECKING([whether to disable leading underscores])
+AC_ARG_ENABLE([leading-underscores],
+  [AS_HELP_STRING([--disable-leading-underscores],
+    [Disable leading underscores to match the MSVC calling convention])],
+  [],
+  [enable_leading_underscores=yes])
+AC_CASE([$enable_leading_underscores],
+  [yes],[],
+  [no],[],
+  [AC_MSG_ERROR([Please only use --enable-leading-underscores or --disable-leading-underscores, without any additional arguments.])])
+AM_CONDITIONAL([UNDERSCORES],[test $enable_leading_underscores = yes])
+AC_MSG_RESULT([$enable_leading_underscores])
+
 AC_MSG_CHECKING([whether the compiler supports -municode])
 AC_ARG_ENABLE([tests-unicode],
   [AS_HELP_STRING([--enable-tests-unicode],

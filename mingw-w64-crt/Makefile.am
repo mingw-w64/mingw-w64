@@ -20,10 +20,18 @@ else
   withsys=
 endif
 
+if UNDERSCORES
+  cflags_underscores=
+  dlltool_underscores=
+else
+  cflags_underscores=-fno-leading-underscore
+  dlltool_underscores=--no-leading-underscore
+endif
+
 AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
-AM_CFLAGS=-pipe $(vistasupport) -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
+AM_CFLAGS=$(cflags_underscores) -pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
-AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
+AM_DLLTOOLFLAGS=$(dlltool_underscores) -k --as=$(AS) --output-lib $@
 DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 extra_include=-I$(top_srcdir)/include
@@ -32,7 +40,6 @@ extra_include=-I$(top_srcdir)/include
 BUILT_SOURCES = _libm_dummy.c
 _libm_dummy.c:
 	echo "static int __attribute__((unused)) __mingw_libm_dummy;" > _libm_dummy.c
-
 
 src_libm=_libm_dummy.c
 src_libshell32=libsrc/shell32.c

@@ -607,6 +607,8 @@ GREP
 CPP
 ENABLE_TESTS_UNICODE_FALSE
 ENABLE_TESTS_UNICODE_TRUE
+UNDERSCORES_FALSE
+UNDERSCORES_TRUE
 LIB32SUFFIXDIR
 LIB64SUFFIXDIR
 LIBCE_FALSE
@@ -732,6 +734,7 @@ enable_lib32
 enable_lib64
 enable_libce
 enable_wildcard
+enable_leading_underscores
 enable_tests_unicode
 enable_warnings
 '
@@ -1377,6 +1380,9 @@ Optional Features:
   --enable-lib64          Build the Win64 runtime
   --enable-libce          Build the WinCE runtime
   --enable-wildcard       Enable command line globbing
+  --disable-leading-underscores
+                          Disable leading underscores to match the MSVC
+                          calling convention
   --enable-tests-unicode  Enable the unicode testsuite without testing the
                           compiler for support.
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
@@ -5069,6 +5075,30 @@ _ACEOF
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_wildcard" >&5
 $as_echo "$enable_wildcard" >&6; }
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to disable leading underscores" >&5
+$as_echo_n "checking whether to disable leading underscores... " >&6; }
+# Check whether --enable-leading-underscores was given.
+if test "${enable_leading_underscores+set}" = set; then :
+  enableval=$enable_leading_underscores;
+else
+  enable_leading_underscores=yes
+fi
+
+AC_CASE($enable_leading_underscores,
+  yes,,
+  no,,
+  AC_MSG_ERROR([Please only use --enable-leading-underscores or --disable-leading-underscores, without any additional arguments.]))
+ if test $enable_leading_underscores = yes; then
+  UNDERSCORES_TRUE=
+  UNDERSCORES_FALSE='#'
+else
+  UNDERSCORES_TRUE='#'
+  UNDERSCORES_FALSE=
+fi
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_leading_underscores" >&5
+$as_echo "$enable_leading_underscores" >&6; }
+
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the compiler supports -municode" >&5
 $as_echo_n "checking whether the compiler supports -municode... " >&6; }
 # Check whether --enable-tests-unicode was given.
@@ -5729,6 +5759,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${LIBCE_TRUE}" && test -z "${LIBCE_FALSE}"; then
   as_fn_error "conditional \"LIBCE\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${UNDERSCORES_TRUE}" && test -z "${UNDERSCORES_FALSE}"; then
+  as_fn_error "conditional \"UNDERSCORES\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_TESTS_UNICODE_TRUE}" && test -z "${ENABLE_TESTS_UNICODE_FALSE}"; then

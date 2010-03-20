@@ -2124,10 +2124,14 @@ top_srcdir = @top_srcdir@
 @WITHSYSROOT_TRUE@sysincludes = -I@TARGET_SYSTEM_ROOT@/$(host)/include
 @WITHSYSROOT_FALSE@withsys = 
 @WITHSYSROOT_TRUE@withsys = --with-sysroot=@TARGET_SYSTEM_ROOT@
+@UNDERSCORES_FALSE@cflags_underscores = -fno-leading-underscore
+@UNDERSCORES_TRUE@cflags_underscores = 
+@UNDERSCORES_FALSE@dlltool_underscores = --no-leading-underscore
+@UNDERSCORES_TRUE@dlltool_underscores = 
 AM_CPPFLAGS = -D_CRTBLD $(sysincludes)
-AM_CFLAGS = -pipe $(vistasupport) -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
+AM_CFLAGS = $(cflags_underscores) -pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
-AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@
+AM_DLLTOOLFLAGS = $(dlltool_underscores) -k --as=$(AS) --output-lib $@
 DTDEF = $(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
 DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 extra_include = -I$(top_srcdir)/include
