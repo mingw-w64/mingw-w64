@@ -3,8 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#ifndef _WS2TCPIP_H
-#define _WS2TCPIP_H
+#ifndef _WS2TCPIP_H_
+#define _WS2TCPIP_H_
 
 #if __GNUC__ >=3
 #pragma GCC system_header
@@ -388,4 +388,4 @@ WCHAR *gai_strerrorW(int);
 }
 #endif
 
-#endif
+#endif /* _WS2TCPIP_H_ */
