@@ -5,6 +5,7 @@
 #undef  __CRT__NO_INLINE
 #define __CRT__NO_INLINE
 #include <winsock2.h>
+#include <wspiapi.h>
 
 WINBOOL WINAPI
 WspiapiParseV4Address (const char *pszAddress, PDWORD pdwAddress)
