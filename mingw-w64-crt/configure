@@ -5084,10 +5084,14 @@ else
   enable_leading_underscores=yes
 fi
 
-AC_CASE($enable_leading_underscores,
-  yes,,
-  no,,
-  AC_MSG_ERROR([Please only use --enable-leading-underscores or --disable-leading-underscores, without any additional arguments.]))
+case $enable_leading_underscores in #(
+  yes) :
+     ;; #(
+  no) :
+     ;; #(
+  *) :
+    as_fn_error "Please only use --enable-leading-underscores or --disable-leading-underscores, without any additional arguments." "$LINENO" 5 ;;
+esac
  if test $enable_leading_underscores = yes; then
   UNDERSCORES_TRUE=
   UNDERSCORES_FALSE='#'

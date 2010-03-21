@@ -144,7 +144,7 @@ AC_ARG_ENABLE([leading-underscores],
     [Disable leading underscores to match the MSVC calling convention])],
   [],
   [enable_leading_underscores=yes])
-AC_CASE([$enable_leading_underscores],
+AS_CASE([$enable_leading_underscores],
   [yes],[],
   [no],[],
   [AC_MSG_ERROR([Please only use --enable-leading-underscores or --disable-leading-underscores, without any additional arguments.])])
