@@ -138,7 +138,7 @@ AS_CASE([$enable_wildcard],
 AC_DEFINE_UNQUOTED([__ENABLE_GLOBBING],[$enable_wildcard_value],[Define as -1 to enable command line globbing or 0 to disable it.])
 AC_MSG_RESULT([$enable_wildcard])
 
-AC_MSG_CHECKING([whether to disable leading underscores])
+AC_MSG_CHECKING([whether to enable leading underscores])
 AC_ARG_ENABLE([leading-underscores],
   [AS_HELP_STRING([--disable-leading-underscores],
     [Disable leading underscores to match the MSVC calling convention])],

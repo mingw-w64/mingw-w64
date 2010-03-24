@@ -5075,8 +5075,8 @@ _ACEOF
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_wildcard" >&5
 $as_echo "$enable_wildcard" >&6; }
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to disable leading underscores" >&5
-$as_echo_n "checking whether to disable leading underscores... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable leading underscores" >&5
+$as_echo_n "checking whether to enable leading underscores... " >&6; }
 # Check whether --enable-leading-underscores was given.
 if test "${enable_leading_underscores+set}" = set; then :
   enableval=$enable_leading_underscores;
