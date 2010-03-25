@@ -7,7 +7,7 @@
 #ifndef _DDRAWGDI_H_
 #define _DDRAWGDI_H_
 
-#if defined(MINGW_HAS_DDRAW_H) && defined(MINGW_DDRAW_VERSION) && MINGW_DDRAW_VERSION > 7
+#if defined(MINGW_HAS_DDRAW_H) && defined(MINGW_DDRAW_VERSION) && (MINGW_DDRAW_VERSION + 0) >= 7
 #include <ddraw.h>
 
 #define DdCreateDirectDrawObject GdiEntry1
