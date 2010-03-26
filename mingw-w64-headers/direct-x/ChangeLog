@@ -1,3 +1,7 @@
+2010-03-26  Ozkan Sezer <sezeroz@gmail.com>
+
+	* d3dx9effect.h: Sync'ed with wine git repo.
+
 2010-03-25  Ozkan Sezer <sezeroz@gmail.com>
 
 	* Sync'ed with wine-1.1.41 release version.
