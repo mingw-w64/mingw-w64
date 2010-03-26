@@ -345,7 +345,8 @@ am__lib32_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	misc/_gmtime32.c misc/_wctime.c misc/_time32.c \
 	misc/_mkgmtime32.c misc/_mktime32.c misc/basename.c \
 	misc/dirname.c misc/tdelete.c misc/tfind.c misc/tsearch.c \
-	misc/twalk.c stdio/mingw_pformat.h stdio/atoll.c stdio/_Exit.c \
+	misc/twalk.c misc/delay-f.c misc/delay-n.c \
+	stdio/mingw_pformat.h stdio/atoll.c stdio/_Exit.c \
 	stdio/_findfirst64i32.c stdio/_wfindfirst64i32.c \
 	stdio/_findnext64i32.c stdio/_wfindnext64i32.c stdio/fopen64.c \
 	stdio/fseeko64.c stdio/_fstat64i32.c stdio/_fstat.c \
@@ -743,6 +744,8 @@ am__objects_11 = intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT) \
 	misc/lib32_libmingwex_a-tfind.$(OBJEXT) \
 	misc/lib32_libmingwex_a-tsearch.$(OBJEXT) \
 	misc/lib32_libmingwex_a-twalk.$(OBJEXT) \
+	misc/lib32_libmingwex_a-delay-f.$(OBJEXT) \
+	misc/lib32_libmingwex_a-delay-n.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-atoll.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_Exit.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_findfirst64i32.$(OBJEXT) \
@@ -1185,7 +1188,8 @@ am__lib64_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	misc/_gmtime32.c misc/_wctime.c misc/_time32.c \
 	misc/_mkgmtime32.c misc/_mktime32.c misc/basename.c \
 	misc/dirname.c misc/tdelete.c misc/tfind.c misc/tsearch.c \
-	misc/twalk.c stdio/mingw_pformat.h stdio/atoll.c stdio/_Exit.c \
+	misc/twalk.c misc/delay-f.c misc/delay-n.c \
+	stdio/mingw_pformat.h stdio/atoll.c stdio/_Exit.c \
 	stdio/_findfirst64i32.c stdio/_wfindfirst64i32.c \
 	stdio/_findnext64i32.c stdio/_wfindnext64i32.c stdio/fopen64.c \
 	stdio/fseeko64.c stdio/_fstat64i32.c stdio/_fstat.c \
@@ -1594,6 +1598,8 @@ am__objects_31 = intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT) \
 	misc/lib64_libmingwex_a-tfind.$(OBJEXT) \
 	misc/lib64_libmingwex_a-tsearch.$(OBJEXT) \
 	misc/lib64_libmingwex_a-twalk.$(OBJEXT) \
+	misc/lib64_libmingwex_a-delay-f.$(OBJEXT) \
+	misc/lib64_libmingwex_a-delay-n.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-atoll.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_Exit.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_findfirst64i32.$(OBJEXT) \
@@ -2267,6 +2273,7 @@ src_libmingwex = \
   misc/_time32.c misc/_mkgmtime32.c misc/_mktime32.c \
   misc/basename.c misc/dirname.c \
   misc/tdelete.c misc/tfind.c misc/tsearch.c misc/twalk.c \
+  misc/delay-f.c misc/delay-n.c \
   \
   stdio/mingw_pformat.h \
   stdio/atoll.c           stdio/_Exit.c          stdio/_findfirst64i32.c  stdio/_wfindfirst64i32.c stdio/_findnext64i32.c  \
@@ -4015,6 +4022,10 @@ misc/lib32_libmingwex_a-tsearch.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-twalk.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmingwex_a-delay-f.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmingwex_a-delay-n.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 stdio/$(am__dirstamp):
 	@$(MKDIR_P) stdio
 	@: > stdio/$(am__dirstamp)
@@ -5253,6 +5264,10 @@ misc/lib64_libmingwex_a-tfind.$(OBJEXT): misc/$(am__dirstamp) \
 misc/lib64_libmingwex_a-tsearch.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-twalk.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-delay-f.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-delay-n.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-atoll.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
@@ -6610,6 +6625,8 @@ mostlyclean-compile:
 	-rm -f misc/lib32_libmingwex_a-basename.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-btowc.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-ctime.$(OBJEXT)
+	-rm -f misc/lib32_libmingwex_a-delay-f.$(OBJEXT)
+	-rm -f misc/lib32_libmingwex_a-delay-n.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-delayimp.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-difftime.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-difftime32.$(OBJEXT)
@@ -6694,6 +6711,8 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-basename.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-btowc.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-ctime.$(OBJEXT)
+	-rm -f misc/lib64_libmingwex_a-delay-f.$(OBJEXT)
+	-rm -f misc/lib64_libmingwex_a-delay-n.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-delayimp.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-difftime.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-difftime32.$(OBJEXT)
@@ -7765,6 +7784,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-basename.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-btowc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-ctime.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-delay-n.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-delayimp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-difftime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-difftime32.Po@am__quote@
@@ -7849,6 +7870,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-basename.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-btowc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-ctime.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-delay-n.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-delayimp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-difftime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-difftime32.Po@am__quote@
@@ -14647,6 +14670,34 @@ misc/lib32_libmingwex_a-twalk.obj: misc/twalk.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/twalk.c' object='misc/lib32_libmingwex_a-twalk.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-twalk.obj `if test -f 'misc/twalk.c'; then $(CYGPATH_W) 'misc/twalk.c'; else $(CYGPATH_W) '$(srcdir)/misc/twalk.c'; fi`
+
+misc/lib32_libmingwex_a-delay-f.o: misc/delay-f.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-delay-f.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Tpo -c -o misc/lib32_libmingwex_a-delay-f.o `test -f 'misc/delay-f.c' || echo '$(srcdir)/'`misc/delay-f.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/delay-f.c' object='misc/lib32_libmingwex_a-delay-f.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-delay-f.o `test -f 'misc/delay-f.c' || echo '$(srcdir)/'`misc/delay-f.c
+
+misc/lib32_libmingwex_a-delay-f.obj: misc/delay-f.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-delay-f.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Tpo -c -o misc/lib32_libmingwex_a-delay-f.obj `if test -f 'misc/delay-f.c'; then $(CYGPATH_W) 'misc/delay-f.c'; else $(CYGPATH_W) '$(srcdir)/misc/delay-f.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-delay-f.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/delay-f.c' object='misc/lib32_libmingwex_a-delay-f.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-delay-f.obj `if test -f 'misc/delay-f.c'; then $(CYGPATH_W) 'misc/delay-f.c'; else $(CYGPATH_W) '$(srcdir)/misc/delay-f.c'; fi`
+
+misc/lib32_libmingwex_a-delay-n.o: misc/delay-n.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-delay-n.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-delay-n.Tpo -c -o misc/lib32_libmingwex_a-delay-n.o `test -f 'misc/delay-n.c' || echo '$(srcdir)/'`misc/delay-n.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-delay-n.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-delay-n.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/delay-n.c' object='misc/lib32_libmingwex_a-delay-n.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-delay-n.o `test -f 'misc/delay-n.c' || echo '$(srcdir)/'`misc/delay-n.c
+
+misc/lib32_libmingwex_a-delay-n.obj: misc/delay-n.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-delay-n.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-delay-n.Tpo -c -o misc/lib32_libmingwex_a-delay-n.obj `if test -f 'misc/delay-n.c'; then $(CYGPATH_W) 'misc/delay-n.c'; else $(CYGPATH_W) '$(srcdir)/misc/delay-n.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-delay-n.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-delay-n.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/delay-n.c' object='misc/lib32_libmingwex_a-delay-n.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-delay-n.obj `if test -f 'misc/delay-n.c'; then $(CYGPATH_W) 'misc/delay-n.c'; else $(CYGPATH_W) '$(srcdir)/misc/delay-n.c'; fi`
 
 stdio/lib32_libmingwex_a-atoll.o: stdio/atoll.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-atoll.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-atoll.Tpo -c -o stdio/lib32_libmingwex_a-atoll.o `test -f 'stdio/atoll.c' || echo '$(srcdir)/'`stdio/atoll.c
@@ -21857,6 +21908,34 @@ misc/lib64_libmingwex_a-twalk.obj: misc/twalk.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/twalk.c' object='misc/lib64_libmingwex_a-twalk.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-twalk.obj `if test -f 'misc/twalk.c'; then $(CYGPATH_W) 'misc/twalk.c'; else $(CYGPATH_W) '$(srcdir)/misc/twalk.c'; fi`
+
+misc/lib64_libmingwex_a-delay-f.o: misc/delay-f.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-delay-f.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Tpo -c -o misc/lib64_libmingwex_a-delay-f.o `test -f 'misc/delay-f.c' || echo '$(srcdir)/'`misc/delay-f.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/delay-f.c' object='misc/lib64_libmingwex_a-delay-f.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-delay-f.o `test -f 'misc/delay-f.c' || echo '$(srcdir)/'`misc/delay-f.c
+
+misc/lib64_libmingwex_a-delay-f.obj: misc/delay-f.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-delay-f.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Tpo -c -o misc/lib64_libmingwex_a-delay-f.obj `if test -f 'misc/delay-f.c'; then $(CYGPATH_W) 'misc/delay-f.c'; else $(CYGPATH_W) '$(srcdir)/misc/delay-f.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-delay-f.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/delay-f.c' object='misc/lib64_libmingwex_a-delay-f.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-delay-f.obj `if test -f 'misc/delay-f.c'; then $(CYGPATH_W) 'misc/delay-f.c'; else $(CYGPATH_W) '$(srcdir)/misc/delay-f.c'; fi`
+
+misc/lib64_libmingwex_a-delay-n.o: misc/delay-n.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-delay-n.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-delay-n.Tpo -c -o misc/lib64_libmingwex_a-delay-n.o `test -f 'misc/delay-n.c' || echo '$(srcdir)/'`misc/delay-n.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-delay-n.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-delay-n.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/delay-n.c' object='misc/lib64_libmingwex_a-delay-n.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-delay-n.o `test -f 'misc/delay-n.c' || echo '$(srcdir)/'`misc/delay-n.c
+
+misc/lib64_libmingwex_a-delay-n.obj: misc/delay-n.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-delay-n.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-delay-n.Tpo -c -o misc/lib64_libmingwex_a-delay-n.obj `if test -f 'misc/delay-n.c'; then $(CYGPATH_W) 'misc/delay-n.c'; else $(CYGPATH_W) '$(srcdir)/misc/delay-n.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-delay-n.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-delay-n.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/delay-n.c' object='misc/lib64_libmingwex_a-delay-n.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-delay-n.obj `if test -f 'misc/delay-n.c'; then $(CYGPATH_W) 'misc/delay-n.c'; else $(CYGPATH_W) '$(srcdir)/misc/delay-n.c'; fi`
 
 stdio/lib64_libmingwex_a-atoll.o: stdio/atoll.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-atoll.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-atoll.Tpo -c -o stdio/lib64_libmingwex_a-atoll.o `test -f 'stdio/atoll.c' || echo '$(srcdir)/'`stdio/atoll.c
