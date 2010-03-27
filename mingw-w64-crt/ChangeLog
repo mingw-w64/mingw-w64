@@ -1,10 +1,15 @@
+2010-03-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Added lib64/wsock32.def to build.
+	* Makefile.in: Regenerated.
+
 2010-03-26  Doug Semler  <dougsemler@gmail.com>
 
 	Backmerged from trunk
-        * Makefile.am (misc/delay-n.c, misc/delay-f.c): Add to libmingwex.a library.
-        * misc/delay-f.c: New.
-        * misc/delay-n.c: New.
-        * Makefile.in: Regenerated.
+	* Makefile.am (misc/delay-n.c, misc/delay-f.c): Add to libmingwex.a library.
+	* misc/delay-f.c: New.
+	* misc/delay-n.c: New.
+	* Makefile.in: Regenerated.
 
 2010-03-19  Ozkan Sezer  <sezeroz@gmail.com>
 
@@ -847,8 +852,8 @@
 
 2009-04-01  Kai Tietz  <kai.tietz@onevision.com>
 
-        PR/2723829
-        * misc/mingw_getsp.S: Fix wrong .code64.
+	PR/2723829
+	* misc/mingw_getsp.S: Fix wrong .code64.
 
 2009-03-28  Kai Tietz  <kai.tietz@onevision.com>
 
