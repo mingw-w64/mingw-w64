@@ -97,9 +97,12 @@ extern "C" {
 
   typedef unsigned long DWORD;
   typedef int WINBOOL;
+#pragma push_macro("BOOL")
+#undef BOOL
 #if !defined(__OBJC__) && !defined(__OBJC_BOOL) && !defined(__objc_INCLUDE_GNU)
-#define BOOL WINBOOL
+  typedef WINBOOL BOOL;
 #endif
+#pragma pop_macro("BOOL")
   typedef unsigned char BYTE;
   typedef unsigned short WORD;
   typedef float FLOAT;

@@ -1,3 +1,11 @@
+2010-03-30  Ozkan Sezer  <sezeroz@gmail.com>
+	    Kai Tietz  <kai.tietz@onevision.com>
+
+	* windef.h: Preserve possible BOOL definitions, or lack thereof,
+	from the users by a pairr of push_macro and pop_macro pragmas.
+	Do not define BOOL as a macro, typedef it as WINBOOL and only in
+	non-__OBJC__ cases.
+
 2010-03-25  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ddrawgdi.h: Fixed MINGW_DDRAW_VERSION check.
