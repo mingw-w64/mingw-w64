@@ -61,6 +61,7 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
  ((!!(_Expression)) || \
   (_assert(#_Expression,__FILE__,__LINE__),0))
 #endif
+#endif
 
 #endif
 
