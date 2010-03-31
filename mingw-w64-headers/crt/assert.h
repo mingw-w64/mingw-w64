@@ -40,14 +40,26 @@ __CRT_INLINE __MINGW_ATTRIB_NORETURN void __cdecl _Exit(int status)
 extern "C" {
 #endif
 
-extern void __cdecl _wassert(const wchar_t *_Message,const wchar_t *_File,unsigned _Line);
+extern void __cdecl
+_wassert(const wchar_t *_Message,const wchar_t *_File,unsigned _Line);
+extern void __cdecl
+_assert (const char *_Message, const char *_File, unsigned _Line);
 
 #ifdef __cplusplus
 }
 #endif
 
 #ifndef assert
-#define assert(_Expression) (void)((!!(_Expression)) || (_wassert(_CRT_WIDE(#_Expression),_CRT_WIDE(__FILE__),__LINE__),0))
+#ifdef _UNICODE
+#define assert(_Expression) \
+ (void) \
+ ((!!(_Expression)) || \
+  (_wassert(_CRT_WIDE(#_Expression),_CRT_WIDE(__FILE__),__LINE__),0))
+#else
+#define assert(_Expression) \
+ (void) \
+ ((!!(_Expression)) || \
+  (_assert(#_Expression,__FILE__,__LINE__),0))
 #endif
 
 #endif
