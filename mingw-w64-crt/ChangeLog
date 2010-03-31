@@ -1,3 +1,7 @@
+2010-03-31  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wassert.c (_assert): Add Ascii version.
+
 2010-03-26  Doug Semler  <dougsemler@gmail.com>
 
 	* Makefile.am (misc/delay-n.c, misc/delay-f.c): Add to libmingwex.a library.
