@@ -199,7 +199,7 @@ src_libmingwex64=\
 src_libmingwex32=\
   intrincs/readfsbyte.c intrincs/readfsword.c intrincs/readfsdword.c \
   intrincs/writefsbyte.c intrincs/writefsword.c intrincs/writefsdword.c \
-  intrincs/membarrier.c
+  intrincs/_rotl64.c    intrincs/_rotr64.c    intrincs/membarrier.c
 
 
 if LIB32
