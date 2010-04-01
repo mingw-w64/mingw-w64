@@ -1,3 +1,8 @@
+2010-04-01  Doug Semler  <dougsemler@gmail.com>
+
+	* intrincs/_rotl64.c (_rotl64): Simplify logic, we are unsigned.
+	* intrincs/_rotr64.c (_rotr64): Likewise.
+
 2010-04-01  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Makefile.am (src_libmingwex32): Added intrincs/_rotl64.c and

@@ -8,8 +8,6 @@ unsigned __int64 __cdecl _rotl64 (unsigned __int64 _val, int _Shift)
   _Shift &= 63;
   if (!_Shift)
     return _val;
-  return (_val << _Shift)
-         | ((_val & (0xffffffffffffffffULL << (64 - _Shift)))
-	    >> (64 - _Shift));
+  return (_val >> (64 - _Shift)) | (_val << _Shift);
 }
 
