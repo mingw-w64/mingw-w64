@@ -194,8 +194,9 @@ src_libmingwex64=\
   intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  intrincs/readgsqword.c    intrincs/writegsword.c \
   intrincs/writegsbyte.c \
   intrincs/writegsdword.c intrincs/writegsqword.c intrincs/mul128ex.c    intrincs/umul128ex.c \
-  intrincs/__stosq.c
+  intrincs/__stosq.c     intrincs/_rotl64.c      intrincs/_rotr64.c
 
+# these only go into the 32 bit version:
 src_libmingwex32=\
   intrincs/readfsbyte.c intrincs/readfsword.c intrincs/readfsdword.c \
   intrincs/writefsbyte.c intrincs/writefsword.c intrincs/writefsdword.c \

@@ -2,6 +2,8 @@
 
 	* Makefile.am (src_libmingwex32): Added intrincs/_rotl64.c and
 	intrincs/_rotr64.c to 32 bit libmingwex.a builds.
+	(src_libmingwex64): Add intrincs/_rotl64.c and intrincs/_rotr64.c
+	to 64 bit libmingwex.a builds, too, for now.
 	* Makefile.in: Regenerated.
 
 2010-04-01  Kai Tietz  <kai.tietz@onevision.com>
