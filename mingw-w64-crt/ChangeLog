@@ -1,5 +1,11 @@
 2010-04-01  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* Makefile.am (src_libmingwex32): Added intrincs/_rotl64.c and
+	intrincs/_rotr64.c to 32 bit libmingwex.a builds.
+	* Makefile.in: Regenerated.
+
+2010-04-01  Ozkan Sezer  <sezeroz@gmail.com>
+
 	Back-merge from trunk rev.2134:
 
 	2010-04-01  Kai Tietz  <kai.tietz@onevision.com>
