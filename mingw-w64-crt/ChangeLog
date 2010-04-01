@@ -1,3 +1,8 @@
+2010-04-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/_rotl64.c: New.
+	* intrincs/_rotr64.c: New.
+
 2010-03-31  Kai Tietz  <kai.tietz@onevision.com>
 
 	* misc/wassert.c (_assert): Add Ascii version.
