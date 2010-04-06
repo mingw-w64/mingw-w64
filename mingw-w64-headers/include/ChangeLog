@@ -1,3 +1,7 @@
+2010-04-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* omp.h: Deleted (moved under /experimental/include_old .)
+
 2010-03-30  Ozkan Sezer  <sezeroz@gmail.com>
 	    Kai Tietz  <kai.tietz@onevision.com>
 
