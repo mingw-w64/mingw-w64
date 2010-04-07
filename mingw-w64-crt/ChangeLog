@@ -1,3 +1,7 @@
+2010-04-07  Doug Semler  <dougsemler@gmail.com>
+
+	* complex/cpow.c: Remove declaration of pow().
+
 2010-04-01  Doug Semler  <dougsemler@gmail.com>
 
 	* intrincs/_rotl64.c (_rotl64): Simplify logic, we are unsigned.
