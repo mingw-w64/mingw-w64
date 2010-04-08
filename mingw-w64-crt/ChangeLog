@@ -1,3 +1,11 @@
+2010-04-08  Doug Semler  <dougsemler@gmail.com>
+
+	* stdio/vfscanf.c: Define QUOTE macro expansions and wrap
+	  calls from assembly with __MINGW_USYMBOL.
+	* stdio/vfwscanf.c: Likewise.
+	* stdio/vsscanf.c: Likewise.
+	* stdio/vswscanf.c: Likewise.
+
 2010-04-07  Doug Semler  <dougsemler@gmail.com>
 
 	* complex/cpow.c: Remove declaration of pow().
