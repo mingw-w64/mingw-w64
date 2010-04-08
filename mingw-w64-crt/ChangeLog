@@ -1,3 +1,12 @@
+2010-04-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-04-07  Doug Semler  <dougsemler@gmail.com> (rev. 2150)
+	pow() function is now provided by the libmingwex library and
+	not the native CRT:
+	* complex/cpow.c: Remove bad declaration of pow().
+
 2010-04-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merge from trunk rev.2141:

@@ -14,10 +14,6 @@
 #include <math.h>
 #include <complex.h>
 
-/* Use dll version of pow */
-extern double  (* __MINGW_IMP_SYMBOL(pow)) (double, double);
-#define pow (* __MINGW_IMP_SYMBOL(pow))
-
 double complex cpow (double complex X, double complex Y)
 {
   double complex Res;
