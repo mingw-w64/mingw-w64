@@ -1,3 +1,17 @@
+2010-04-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-04-07  Kai Tietz  <kai.tietz@onevision.com> (rev. 2151)
+	PR/2983397
+	* wctype.h (iswblank): Correct declaration.
+
+	2010-04-08  Kai Tietz  <kai.tietz@onevision.com> (rev. 2154)
+	* wctype.h: Argument of iswblank is wint_t.
+
+	2010-04-08  Kai Tietz  <kai.tietz@onevision.com> (rev. 2155)
+	* wchar.h (iswblank): Add missing prototype.
+
 2010-04-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* omp.h: Deleted (moved under /experimental/include_old .)
