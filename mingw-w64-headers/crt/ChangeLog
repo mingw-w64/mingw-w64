@@ -1,3 +1,7 @@
+2010-04-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* wchar.h (iswblank): Add missing prototype.
+
 2010-03-31  Kai Tietz  <kai.tietz@onevision.com>
 
 	* assert.h (assert): Add default ASCII version.

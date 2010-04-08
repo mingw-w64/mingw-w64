@@ -260,6 +260,11 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl __iswcsym(wint_t _C);
   _CRTIMP int __cdecl _iswcsym_l(wint_t _C,_locale_t _Locale);
   int __cdecl is_wctype(wint_t _C,wctype_t _Type);
+
+#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || !defined (NO_OLDNAMES)
+  int __cdecl iswblank(wint_t _C);
+#endif
+
 #endif
 
 #ifndef _WDIRECT_DEFINED
