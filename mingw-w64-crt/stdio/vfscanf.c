@@ -12,6 +12,9 @@
 #include <malloc.h>
 #include <memory.h>
 
+#define QUOTE_(x) #x
+#define QUOTE(x) QUOTE_(x)
+
 int vfscanf(FILE * __restrict__ stream, const char * __restrict__ format, va_list arg)
 {
   int ret;
@@ -34,7 +37,7 @@ int vfscanf(FILE * __restrict__ stream, const char * __restrict__ format, va_lis
     "movq   0x10(%%rsp), %%r8\n\t"
     "movq   0x8(%%rsp), %%rdx\n\t"
     "movq   (%%rsp),  %%rcx\n\t"
-    "call	_memcpy\n\t"
+    "call	" QUOTE(__MINGW_USYMBOL(memcpy)) "\n\t"
     "addq	$24, %%rsp\n\t"
 
     // call fscanf
@@ -42,7 +45,7 @@ int vfscanf(FILE * __restrict__ stream, const char * __restrict__ format, va_lis
     "movq   0x10(%%rsp), %%r8\n\t"
     "movq   0x8(%%rsp), %%rdx\n\t"
     "movq   (%%rsp),  %%rcx\n\t"
-    "call	_fscanf\n\t"
+    "call	" QUOTE(__MINGW_USYMBOL(fscanf)) "\n\t"
 
     // restore stack
     "movq	%%rbx, %%rsp\n\t"
@@ -67,11 +70,11 @@ int vfscanf(FILE * __restrict__ stream, const char * __restrict__ format, va_lis
     "movl	%5, 0x4(%%esp)\n\t"  // memcpy src
     "movl	%5, 0x8(%%esp)\n\t"
     "subl	%6, 0x8(%%esp)\n\t"  // memcpy len
-    "call	_memcpy\n\t"
+    "call	" QUOTE(__MINGW_USYMBOL(memcpy)) "\n\t"
     "addl	$12, %%esp\n\t"
 
     // call fscanf
-    "call	_fscanf\n\t"
+    "call	" QUOTE(__MINGW_USYMBOL(fscanf)) "\n\t"
 
     // restore stack
     "movl	%%ebx, %%esp\n\t"
