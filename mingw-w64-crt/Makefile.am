@@ -381,8 +381,8 @@ lib32_DATA = \
 lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a:
 	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib32/lib||;s|\.a|.dll|'` -m i386 --as-flags=--32
 
-lib32/lib%.a:
-	$(DTDEF) $(top_srcdir)/lib32/$*.def -m i386 --as-flags=--32
+lib32/lib%.a: lib32/%.def
+	$(DTDEF) $< -m i386 --as-flags=--32
 
 
 endif
@@ -939,8 +939,8 @@ lib64_DATA = \
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a:
 	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib64/lib||;s|\.a|.dll|'` -m i386:x86-64 --as-flags=--64
 
-lib64/lib%.a:
-	$(DTDEF) $(top_srcdir)/lib64/$*.def -m i386:x86-64 --as-flags=--64
+lib64/lib%.a: lib64/%.def
+	$(DTDEF) $< -m i386:x86-64 --as-flags=--64
 
 
 endif

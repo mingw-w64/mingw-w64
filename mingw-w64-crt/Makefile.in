@@ -24672,8 +24672,8 @@ _libm_dummy.c:
 @LIB32_TRUE@lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a:
 @LIB32_TRUE@	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib32/lib||;s|\.a|.dll|'` -m i386 --as-flags=--32
 
-@LIB32_TRUE@lib32/lib%.a:
-@LIB32_TRUE@	$(DTDEF) $(top_srcdir)/lib32/$*.def -m i386 --as-flags=--32
+@LIB32_TRUE@lib32/lib%.a: lib32/%.def
+@LIB32_TRUE@	$(DTDEF) $< -m i386 --as-flags=--32
 @LIB64_TRUE@lib64/crt1.o: crt/crtexe.c
 @LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 @LIB64_TRUE@lib64/crt2.o: crt/crtexe.c
@@ -24702,8 +24702,8 @@ _libm_dummy.c:
 @LIB64_TRUE@lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a:
 @LIB64_TRUE@	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib64/lib||;s|\.a|.dll|'` -m i386:x86-64 --as-flags=--64
 
-@LIB64_TRUE@lib64/lib%.a:
-@LIB64_TRUE@	$(DTDEF) $(top_srcdir)/lib64/$*.def -m i386:x86-64 --as-flags=--64
+@LIB64_TRUE@lib64/lib%.a: lib64/%.def
+@LIB64_TRUE@	$(DTDEF) $< -m i386:x86-64 --as-flags=--64
 
 dist-hook:
 	rm -rf `find $(top_distdir) -name ".svn"`
