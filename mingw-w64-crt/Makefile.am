@@ -378,8 +378,8 @@ lib32_DATA = \
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
-lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a:
-	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib32/lib||;s|\.a|.dll|'` -m i386 --as-flags=--32
+lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a: lib32/lib%.a: lib32/%.def
+	$(DTLIB) $< --dllname $*.dll -m i386 --as-flags=--32
 
 lib32/lib%.a: lib32/%.def
 	$(DTDEF) $< -m i386 --as-flags=--32
@@ -934,10 +934,8 @@ lib64_DATA = \
   lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a
 
 
-# This is cleaner for watching make output, but is only in GNU Make:
-# $(DTDEF) $(top_srcdir)/$(subst .a,.def,$(subst /lib,/,$@)) --dllname $(subst .a,.dll,$(subst lib,,$(@F)))
-lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a:
-	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib64/lib||;s|\.a|.dll|'` -m i386:x86-64 --as-flags=--64
+lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
+        $(DTDEF) $< --dllname $*.dll -m i386:x86-64 --as-flags=--64
 
 lib64/lib%.a: lib64/%.def
 	$(DTDEF) $< -m i386:x86-64 --as-flags=--64
