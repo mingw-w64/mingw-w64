@@ -24670,7 +24670,7 @@ _libm_dummy.c:
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
 @LIB32_TRUE@lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a: lib32/lib%.a: lib32/%.def
-@LIB32_TRUE@	$(DTLIB) $< --dllname $*.dll -m i386 --as-flags=--32
+@LIB32_TRUE@	$(DTDEF) $< --dllname $*.dll -m i386 --as-flags=--32
 
 @LIB32_TRUE@lib32/lib%.a: lib32/%.def
 @LIB32_TRUE@	$(DTDEF) $< -m i386 --as-flags=--32

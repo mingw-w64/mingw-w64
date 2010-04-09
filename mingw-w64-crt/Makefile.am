@@ -379,7 +379,7 @@ lib32_DATA = \
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
 lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a: lib32/lib%.a: lib32/%.def
-	$(DTLIB) $< --dllname $*.dll -m i386 --as-flags=--32
+	$(DTDEF) $< --dllname $*.dll -m i386 --as-flags=--32
 
 lib32/lib%.a: lib32/%.def
 	$(DTDEF) $< -m i386 --as-flags=--32
