@@ -935,7 +935,7 @@ lib64_DATA = \
 
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
-        $(DTDEF) $< --dllname $*.dll -m i386:x86-64 --as-flags=--64
+	$(DTDEF) $< --dllname $*.dll -m i386:x86-64 --as-flags=--64
 
 lib64/lib%.a: lib64/%.def
 	$(DTDEF) $< -m i386:x86-64 --as-flags=--64

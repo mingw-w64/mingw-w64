@@ -24698,7 +24698,7 @@ _libm_dummy.c:
 @LIB64_TRUE@	$(COMPILE) -m64 -c $< -o $@
 
 @LIB64_TRUE@lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
-@LIB64_TRUE@        $(DTDEF) $< --dllname $*.dll -m i386:x86-64 --as-flags=--64
+@LIB64_TRUE@	$(DTDEF) $< --dllname $*.dll -m i386:x86-64 --as-flags=--64
 
 @LIB64_TRUE@lib64/lib%.a: lib64/%.def
 @LIB64_TRUE@	$(DTDEF) $< -m i386:x86-64 --as-flags=--64
