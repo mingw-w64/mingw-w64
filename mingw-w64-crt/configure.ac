@@ -39,8 +39,8 @@ AC_ARG_WITH([sysroot],
     TARGET_SYSTEM_ROOT=
     with_sysroot=no
   ])
-AM_CONDITIONAL(WITHSYSROOT, test $with_sysroot != no)
-AC_SUBST(TARGET_SYSTEM_ROOT)
+AM_CONDITIONAL([WITHSYSROOT],[test $with_sysroot != no])
+AC_SUBST([TARGET_SYSTEM_ROOT])
 
 # Checks for programs.
 # Checks for headers, libs, etc need to utilize the sysroot... no idea how
