@@ -1,3 +1,10 @@
+2010-04-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-04-10  NightStrike  <nightstrike@gmail.com> (rev. 2164)
+	* lib32/gdi32.def: Add SetLayout as per win32api 3.12.
+
 2010-04-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
