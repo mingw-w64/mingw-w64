@@ -1,3 +1,43 @@
+2010-04-13  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* winbase.h: (InitializeConditionVariable): New.
+	(SleepConditionVariableCS): Ditto.
+	(SleepConditionVariableSRW): Ditto.
+	(WakeAllConditionVariable): Ditto.
+	(WakeConditionVariable): Ditto.
+	(AcquireSRWLockExclusive): Ditto.
+	(AcquireSRWLockShared): Ditto.
+	(InitializeSRWLock): Ditto.
+	(ReleaseSRWLockExclusive): Ditto.
+	(ReleaseSRWLockShared): Ditto.
+	(TryAcquireSRWLockExclusive): Ditto.
+	(TryAcquireSRWLockShared): Ditto.
+	(INIT_ONCE_ASYNC): Define.
+	(INIT_ONCE_INIT_FAILED): Ditto.
+	(PINIT_ONCE): Ditto.
+	(LPINIT_ONCE): Ditto.
+	(PINIT_ONCE_FN): Ditto.
+	(InitOnceBeginInitialize): New.
+	(InitOnceComplete): Ditto.
+	(InitOnceExecuteOnce): Ditto.
+
+	* winnt.h: (RTL_CONDITION_VARIABLE): Define.
+	(RTL_SRWLOCK): Ditto.
+	(RTL_RUN_ONCE): Ditto.
+	(PRTL_RUN_ONCE): Ditto.
+	(PRTL_RUN_ONCE_INIT_FN): Ditto.
+	(RTL_RUN_ONCE_INIT): Ditto.
+	(RTL_RUN_ONCE_CHECK_ONLY): Ditto.
+	(RTL_RUN_ONCE_ASYNC): Ditto.
+	(RTL_RUN_ONCE_INIT_FAILED): Ditto.
+	(RTL_RUN_ONCE_CTX_RESERVED_BITS): Ditto.
+	(RTL_SRWLOCK_INIT): Ditto.
+	(RTL_CONDITION_VARIABLE_INIT): Ditto.
+	(RTL_CONDITION_VARIABLE_LOCKMODE_SHARED): Ditto.
+	(CONDITION_VARIABLE_INIT): Ditto.
+	(CONDITION_VARIABLE_LOCKMODE_SHARED): Ditto.
+	(SRWLOCK_INIT): Ditto.
+
 2010-04-07  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/2983397
