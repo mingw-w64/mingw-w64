@@ -3564,6 +3564,15 @@ typedef DWORD LCID;
     PowerActionWarmEject
   } POWER_ACTION,*PPOWER_ACTION;
 
+#if (_WIN32_WINNT >= 0x0600)
+  typedef enum {
+    PoAc = 0,
+    PoDc = 1,
+    PoHot = 2,
+    PoConditionMaximum = 3
+  } SYSTEM_POWER_CONDITION, *PSYSTEM_POWER_CONDITION;
+#endif
+
   typedef enum _DEVICE_POWER_STATE {
     PowerDeviceUnspecified = 0, PowerDeviceD0, PowerDeviceD1, PowerDeviceD2, PowerDeviceD3,
     PowerDeviceMaximum
