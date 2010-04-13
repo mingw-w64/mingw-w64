@@ -2,6 +2,10 @@
 
 	Back-merges from the trunk:
 
+	* winnt.h: Add SYSTEM_POWER_CONDITION from w32api 3.12 and
+	http://msdn.microsoft.com/en-us/library/aa373216%28VS.85%29.aspx
+	(revision 2176 by NightStrike.)
+
 	* winnt.h: Add a bunch of missing sublangs found in w32api 3.12
 	(revisions 2177 and 2178 by NightStrike and 2180 by Ozkan Sezer.)
 
