@@ -1,4 +1,21 @@
-2010-04-13  Jonathan Yong  <jon_y@sourceforge.net>
+2010-04-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h: Fix several SUBLANG ID errors introduced by r2178 and 2179
+	(ref: http://msdn.microsoft.com/en-us/library/dd318693(VS.85).aspx).
+	(SUBLANG_UI_CUSTOM_DEFAULT): 0x05, not 0x03.
+	(SUBLANG_HAUSA_NIGERIA): Bad ID name, correct one is ...
+	(SUBLANG_HAUSA_NIGERIA_LATIN): ... this.
+	(SUBLANG_INUKTITUT_CANADA_LATIN): 0x02, not 0x01.
+	(SUBLANG_IRISH_IRELAND): 0x02, not 0x01.
+	(SUBLANG_LAO_LAO_PDR): Bad ID name, correct one is ...
+	(SUBLANG_LAO_LAO): ... this.
+	(SUBLANG_LOWER_SORBIAN_GERMANY): 0x02, not 0x01.
+	(SUBLANG_SAMI_SKOLT_FINLAND): 0x08, not 0x03.
+	(SUBLANG_SAMI_INARI_FINLAND): 0x09, not 0x03.
+	(SUBLANG_SYRIAC_SYRIA): define as SUBLANG_SYRIAC (what MSDN mentions).
+	(SUBLANG_TIGRIGNA_ERITREA): 0x02, not 0x01.
+
+2010-04-12  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* winbase.h: (InitializeConditionVariable): New.
 	(SleepConditionVariableCS): Ditto.
