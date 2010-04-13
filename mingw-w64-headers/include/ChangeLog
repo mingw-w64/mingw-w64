@@ -1,6 +1,6 @@
 2010-04-13  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* winnt.h: Fix several SUBLANG ID errors introduced by r2178 and 2179
+	* winnt.h: Fix several SUBLANG ID errors introduced by r2177 and 2178
 	(ref: http://msdn.microsoft.com/en-us/library/dd318693(VS.85).aspx).
 	(SUBLANG_UI_CUSTOM_DEFAULT): 0x05, not 0x03.
 	(SUBLANG_HAUSA_NIGERIA): Bad ID name, correct one is ...
