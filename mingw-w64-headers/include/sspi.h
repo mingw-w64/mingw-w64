@@ -712,9 +712,9 @@ extern "C" {
 
   typedef SECURITY_STATUS (WINAPI *REVERT_SECURITY_CONTEXT_FN)(PCtxtHandle);
 
-  KSECDDDECLSPEC SECURITY_STATUS WINAPI QuerySecurityContextToken(PCtxtHandle phContext,HANDLE *phToken);
+  KSECDDDECLSPEC SECURITY_STATUS WINAPI QuerySecurityContextToken(PCtxtHandle phContext,void **Token);
 
-  typedef SECURITY_STATUS (WINAPI *QUERY_SECURITY_CONTEXT_TOKEN_FN)(PCtxtHandle,HANDLE *);
+  typedef SECURITY_STATUS (WINAPI *QUERY_SECURITY_CONTEXT_TOKEN_FN)(PCtxtHandle,void **);
 
   KSECDDDECLSPEC SECURITY_STATUS WINAPI DeleteSecurityContext(PCtxtHandle phContext);
 
@@ -934,7 +934,7 @@ extern "C" {
     QUERY_CREDENTIALS_ATTRIBUTES_FN_W QueryCredentialsAttributesW;
     ACQUIRE_CREDENTIALS_HANDLE_FN_W AcquireCredentialsHandleW;
     FREE_CREDENTIALS_HANDLE_FN FreeCredentialsHandle;
-    void SEC_FAR *Reserved2;
+    void *Reserved2;
     INITIALIZE_SECURITY_CONTEXT_FN_W InitializeSecurityContextW;
     ACCEPT_SECURITY_CONTEXT_FN AcceptSecurityContext;
     COMPLETE_AUTH_TOKEN_FN CompleteAuthToken;
@@ -947,15 +947,17 @@ extern "C" {
     VERIFY_SIGNATURE_FN VerifySignature;
     FREE_CONTEXT_BUFFER_FN FreeContextBuffer;
     QUERY_SECURITY_PACKAGE_INFO_FN_W QuerySecurityPackageInfoW;
-    void * Reserved3;
-    void * Reserved4;
-    void * Reserved5;
-    void * Reserved6;
-    void * Reserved7;
-    void * Reserved8;
+    void *Reserved3;
+    void *Reserved4;
+    EXPORT_SECURITY_CONTEXT_FN ExportSecurityContext;
+    IMPORT_SECURITY_CONTEXT_FN_W ImportSecurityContextW;
+    ADD_CREDENTIALS_FN_W AddCredentialsW;
+    void *Reserved8;
     QUERY_SECURITY_CONTEXT_TOKEN_FN QuerySecurityContextToken;
     ENCRYPT_MESSAGE_FN EncryptMessage;
     DECRYPT_MESSAGE_FN DecryptMessage;
+    SET_CONTEXT_ATTRIBUTES_FN_W SetContextAttributesW;
+    SET_CREDENTIALS_ATTRIBUTES_FN_W SetCredentialsAttributesW;
   } SecurityFunctionTableW,*PSecurityFunctionTableW;
 
   typedef struct _SECURITY_FUNCTION_TABLE_A {
