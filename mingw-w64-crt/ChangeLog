@@ -1,3 +1,11 @@
+2010-04-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-04-12  NightStrike  <nightstrike@gmail.com> (rev. 2171)
+	* lib32/ntoskrnl.def: Add KeFlushQueuedDpcs and KeNumberProcessors
+	for compatibility with w32api 3.12.
+
 2010-04-11  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
