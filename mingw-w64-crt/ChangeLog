@@ -2,6 +2,10 @@
 
 	Back-merges from the trunk:
 
+	2010-04-12  NightStrike  <nightstrike@gmail.com> (rev. 2170)
+	* lib32/ndis.def: Add a bunch of defs for compatibility with w32api
+	3.12.
+
 	2010-04-12  NightStrike  <nightstrike@gmail.com> (rev. 2171)
 	* lib32/ntoskrnl.def: Add KeFlushQueuedDpcs and KeNumberProcessors
 	for compatibility with w32api 3.12.
