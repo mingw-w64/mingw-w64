@@ -187,6 +187,52 @@ extern "C" {
     DWORD dwVpnStrategy;
   } MPR_INTERFACE_2,*PMPR_INTERFACE_2;
 
+#if (_WIN32_WINNT >= 0x0600)
+  typedef struct _MPR_INTERFACE_3 {
+    WCHAR                   wszInterfaceName[MAX_INTERFACE_NAME_LEN+1];
+    HANDLE                  hInterface;
+    BOOL                    fEnabled;
+    ROUTER_INTERFACE_TYPE   dwIfType;
+    ROUTER_CONNECTION_STATE dwConnectionState;
+    DWORD                   fUnReachabilityReasons;
+    DWORD                   dwLastError;
+    DWORD                   dwfOptions;
+    WCHAR                   szLocalPhoneNumber[RAS_MaxPhoneNumber + 1];
+    PWCHAR                  szAlternates;
+    DWORD                   ipaddr;
+    DWORD                   ipaddrDns;
+    DWORD                   ipaddrDnsAlt;
+    DWORD                   ipaddrWins;
+    DWORD                   ipaddrWinsAlt;
+    DWORD                   dwfNetProtocols;
+    WCHAR                   szDeviceType[MPR_MaxDeviceType + 1];
+    WCHAR                   szDeviceName[MPR_MaxDeviceName + 1];
+    WCHAR                   szX25PadType[MPR_MaxPadType + 1];
+    WCHAR                   szX25Address[MPR_MaxX25Address + 1];
+    WCHAR                   szX25Facilities[MPR_MaxFacilities + 1];
+    WCHAR                   szX25UserData[MPR_MaxUserData + 1];
+    DWORD                   dwChannels;
+    DWORD                   dwSubEntries;
+    DWORD                   dwDialMode;
+    DWORD                   dwDialExtraPercent;
+    DWORD                   dwDialExtraSampleSeconds;
+    DWORD                   dwHangUpExtraPercent;
+    DWORD                   dwHangUpExtraSampleSeconds;
+    DWORD                   dwIdleDisconnectSeconds;
+    DWORD                   dwType;
+    DWORD                   dwEncryptionType;
+    DWORD                   dwCustomAuthKey;
+    DWORD                   dwCustomAuthDataSize;
+    LPBYTE                  lpbCustomAuthData;
+    GUID                    guidId;
+    DWORD                   dwVpnStrategy;
+    ULONG                   AddressCount;
+    IN6_ADDR                ipv6addrDns;
+    IN6_ADDR                ipv6addrDnsAlt;
+    IN6_ADDR *              ipv6addr;
+  } MPR_INTERFACE_3, *PMPR_INTERFACE_3;
+#endif
+
   typedef struct _MPR_DEVICE_0 {
     WCHAR szDeviceType[MPR_MaxDeviceType + 1 ];
     WCHAR szDeviceName[MPR_MaxDeviceName + 1 ];
@@ -460,6 +506,10 @@ extern "C" {
   WINBOOL WINAPI MprAdminAcceptNewConnection(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1);
   WINBOOL WINAPI MprAdminAcceptNewConnection2(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1,RAS_CONNECTION_2 *pRasConnection2);
   WINBOOL WINAPI MprAdminAcceptNewLink (RAS_PORT_0 *pRasPort0,RAS_PORT_1 *pRasPort1);
+#if (_WIN32_WINNT >= 0x0600)
+  WINBOOL WINAPI MprAdminAcceptReauthentication(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1,RAS_CONNECTION_2 *pRasConnection2,RAS_CONNECTION_3 *pRasConnection3
+);
+#endif
   VOID WINAPI MprAdminConnectionHangupNotification(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1);
   VOID WINAPI MprAdminConnectionHangupNotification2(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1,RAS_CONNECTION_2 *pRasConnection2);
   DWORD WINAPI MprAdminConnectionRemoveQuarantine(HANDLE hRasServer,HANDLE hRasConnection,WINBOOL fIsIpAddress);
