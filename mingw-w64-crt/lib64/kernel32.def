@@ -7,6 +7,8 @@
 LIBRARY KERNEL32.dll
 EXPORTS
 ActivateActCtx
+AcquireSRWLockExclusive
+AcquireSRWLockShared
 AddAtomA
 AddAtomW
 AddConsoleAliasA
@@ -557,9 +559,14 @@ HeapUsage
 HeapValidate
 HeapWalk
 InitAtomTable
+InitializeConditionVariable
 InitializeCriticalSection
+InitOnceBeginInitialize
+InitOnceComplete
+InitOnceExecuteOnce
 InitializeCriticalSectionAndSpinCount
 InitializeSListHead
+InitializeSRWLock
 InterlockedFlushSList
 InterlockedPopEntrySList
 InterlockedPushEntrySList
@@ -711,6 +718,8 @@ RegisterWowBaseHandlers
 RegisterWowExec
 ReleaseActCtx
 ReleaseMutex
+ReleaseSRWLockExclusive
+ReleaseSRWLockShared
 ReleaseSemaphore
 RemoveDirectoryA
 RemoveDirectoryW
@@ -869,6 +878,7 @@ ShowConsoleCursor
 SignalObjectAndWait
 SizeofResource
 Sleep
+SleepConditionVariableCS
 SleepEx
 SuspendThread
 SwitchToFiber
@@ -888,6 +898,8 @@ TlsSetValue
 Toolhelp32ReadProcessMemory
 TransactNamedPipe
 TransmitCommChar
+TryAcquireSRWLockExclusive
+TryAcquireSRWLockShared
 TryEnterCriticalSection
 TzSpecificLocalTimeToSystemTime
 UTRegister
@@ -930,6 +942,8 @@ WaitForSingleObject
 WaitForSingleObjectEx
 WaitNamedPipeA
 WaitNamedPipeW
+WakeAllConditionVariable
+WakeConditionVariable
 WideCharToMultiByte
 WinExec
 Wow64DisableWow64FsRedirection

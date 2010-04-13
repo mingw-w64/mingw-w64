@@ -1,3 +1,22 @@
+2010-04-14  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* lib64/kernel32.def (AcquireSRWLockExclusive): New.
+	(AcquireSRWLockShared): Likewise.
+	(InitializeConditionVariable): Likewise.
+	(InitOnceBeginInitialize): Likewise.
+	(InitOnceComplete): Likewise.
+	(InitOnceExecuteOnce): Likewise.
+	(InitializeSRWLock): Likewise.
+	(ReleaseSRWLockExclusive): Likewise.
+	(ReleaseSRWLockShared): Likewise.
+	(SleepConditionVariableCS): Likewise.
+	(TryAcquireSRWLockExclusive): Likewise.
+	(TryAcquireSRWLockShared): Likewise.
+	(WakeAllConditionVariable): Likewise.
+	(WakeConditionVariable): Likewise.
+	* lib32/kernel32.def (TryAcquireSRWLockExclusive): New.
+	(TryAcquireSRWLockShared): Likewise.
+
 2010-04-08  Doug Semler  <dougsemler@gmail.com>
 
 	* stdio/vfscanf.c: Define QUOTE macro expansions and wrap

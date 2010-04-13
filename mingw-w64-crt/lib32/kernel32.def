@@ -1116,6 +1116,8 @@ Toolhelp32ReadProcessMemory@20
 TransactNamedPipe@28
 TransmitCommChar@8
 TrimVirtualBuffer@4
+TryAcquireSRWLockExclusive
+TryAcquireSRWLockShared
 TryEnterCriticalSection@4 = NTDLL.RtlTryEnterCriticalSection
 TrySubmitThreadpoolCallback@12
 TzSpecificLocalTimeToSystemTime@12
