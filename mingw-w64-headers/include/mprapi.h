@@ -507,8 +507,7 @@ extern "C" {
   WINBOOL WINAPI MprAdminAcceptNewConnection2(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1,RAS_CONNECTION_2 *pRasConnection2);
   WINBOOL WINAPI MprAdminAcceptNewLink (RAS_PORT_0 *pRasPort0,RAS_PORT_1 *pRasPort1);
 #if (_WIN32_WINNT >= 0x0600)
-  WINBOOL WINAPI MprAdminAcceptReauthentication(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1,RAS_CONNECTION_2 *pRasConnection2,RAS_CONNECTION_3 *pRasConnection3
-);
+  WINBOOL WINAPI MprAdminAcceptReauthentication(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1,RAS_CONNECTION_2 *pRasConnection2,RAS_CONNECTION_3 *pRasConnection3);
 #endif
   VOID WINAPI MprAdminConnectionHangupNotification(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1);
   VOID WINAPI MprAdminConnectionHangupNotification2(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1,RAS_CONNECTION_2 *pRasConnection2);
