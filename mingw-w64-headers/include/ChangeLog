@@ -1,3 +1,10 @@
+2010-04-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	* winnt.h: Add a bunch of missing sublangs found in w32api 3.12
+	(revisions 2177 and 2178 by NightStrike and 2180 by Ozkan Sezer.)
+
 2010-04-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
