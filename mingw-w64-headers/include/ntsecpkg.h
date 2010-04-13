@@ -13,7 +13,9 @@ extern "C" {
   typedef PVOID *PLSA_CLIENT_REQUEST;
 
   typedef enum _LSA_TOKEN_INFORMATION_TYPE {
-    LsaTokenInformationNull,LsaTokenInformationV1,LsaTokenInformationV2
+    LsaTokenInformationNull,
+    LsaTokenInformationV1,
+    LsaTokenInformationV2
   } LSA_TOKEN_INFORMATION_TYPE,*PLSA_TOKEN_INFORMATION_TYPE;
 
   typedef struct _LSA_TOKEN_INFORMATION_NULL {
