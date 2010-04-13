@@ -1,7 +1,7 @@
 # INCLUDES = -I$(top_srcdir) -I$(includedir)
 # Done: lib_LIBRARIES = libm.a libmingw32.a libmoldname.a libmingwex.a libcrtdll.a libmsvcrt.a libmsvcr80.a
 # Done: Turn _libm_dummy.c into a BUILT_SOURCES thing
-# TODO: 32-bit runtime compatibility
+# Done: 32-bit runtime compatibility
 # Done: fix make dist
 # TODO: Use $(RM) instead of rm?
 # TODO: Use $(TAR) instead of tar?
@@ -149,40 +149,34 @@ src_libmingwex=\
   \
   misc/mb_wc_common.h \
   misc/mingw_getsp.S  \
-  misc/alarm.c         misc/btowc.c         misc/ctime.c                 misc/delayimp.c        misc/difftime32.c      \
-  misc/difftime64.c    misc/difftime.c      misc/dirent.c                misc/execv.c           misc/execve.c          \
-  misc/execvp.c        misc/execvpe.c       misc/feclearexcept.c         misc/fegetenv.c        misc/fegetexceptflag.c \
-  misc/fegetround.c    misc/feholdexcept.c  misc/feraiseexcept.c         misc/fesetenv.c        misc/fesetexceptflag.c \
-  misc/fesetround.c    misc/fetestexcept.c  misc/feupdateenv.c           misc/ftruncate.c       misc/fwide.c           \
-  misc/getlogin.c      misc/getopt.c        misc/gettimeofday.c          misc/gmtime.c          misc/imaxabs.c         \
-  misc/imaxdiv.c       misc/isblank.c       misc/iswblank.c              misc/localtime.c       \
-  misc/mbrtowc.c       misc/mbsinit.c       misc/mingw-aligned-malloc.c  misc/mingw-fseek.c     misc/_mkgmtime.c       \
-  misc/mktime.c        misc/seterrno.c      misc/sleep.c                 misc/spawnv.c          misc/spawnve.c         \
-  misc/spawnvp.c       misc/spawnvpe.c      misc/strtoimax.c             misc/strtold.c         misc/strtoumax.c       \
-  misc/time.c          misc/wassert.c       misc/wcrtomb.c               misc/wcstoimax.c       misc/wcstold.c         \
-  misc/wcstoumax.c     misc/wctob.c         misc/wctrans.c               misc/wctype.c          misc/wdirent.c         \
-  misc/winbs_uint64.c  misc/winbs_ulong.c   misc/winbs_ushort.c          misc/wmemchr.c         misc/wmemcmp.c         \
-  misc/wmemcpy.c       misc/wmemmove.c      misc/wmemset.c \
-  misc/mingw_usleep.c  misc/mingw_output_format.c misc/_wctime32.c \
-  misc/_ctime32.c misc/_localtime32.c misc/_gmtime32.c misc/_wctime.c \
-  misc/_time32.c misc/_mkgmtime32.c misc/_mktime32.c \
-  misc/basename.c misc/dirname.c \
-  misc/tdelete.c misc/tfind.c misc/tsearch.c misc/twalk.c \
-  misc/delay-f.c misc/delay-n.c \
+  misc/alarm.c                misc/basename.c      misc/btowc.c          misc/_ctime32.c              misc/ctime.c           \
+  misc/delay-f.c              misc/delayimp.c      misc/delay-n.c        misc/difftime32.c            misc/difftime64.c      \
+  misc/difftime.c             misc/dirent.c        misc/dirname.c        misc/execv.c                 misc/execve.c          \
+  misc/execvp.c               misc/execvpe.c       misc/feclearexcept.c  misc/fegetenv.c              misc/fegetexceptflag.c \
+  misc/fegetround.c           misc/feholdexcept.c  misc/feraiseexcept.c  misc/fesetenv.c              misc/fesetexceptflag.c \
+  misc/fesetround.c           misc/fetestexcept.c  misc/feupdateenv.c    misc/ftruncate.c             misc/fwide.c           \
+  misc/getlogin.c             misc/getopt.c        misc/gettimeofday.c   misc/_gmtime32.c             misc/gmtime.c          \
+  misc/imaxabs.c              misc/imaxdiv.c       misc/isblank.c        misc/iswblank.c              misc/_localtime32.c    \
+  misc/localtime.c            misc/mbrtowc.c       misc/mbsinit.c        misc/mingw-aligned-malloc.c  misc/mingw-fseek.c     \
+  misc/mingw_output_format.c  misc/mingw_usleep.c  misc/_mkgmtime32.c    misc/_mkgmtime.c             misc/_mktime32.c       \
+  misc/mktime.c               misc/seterrno.c      misc/sleep.c          misc/spawnv.c                misc/spawnve.c         \
+  misc/spawnvp.c              misc/spawnvpe.c      misc/strtoimax.c      misc/strtold.c               misc/strtoumax.c       \
+  misc/tdelete.c              misc/tfind.c         misc/_time32.c        misc/time.c                  misc/tsearch.c         \
+  misc/twalk.c                misc/wassert.c       misc/wcrtomb.c        misc/wcstoimax.c             misc/wcstold.c         \
+  misc/wcstoumax.c            misc/_wctime32.c     misc/_wctime.c        misc/wctob.c                 misc/wctrans.c         \
+  misc/wctype.c               misc/wdirent.c       misc/winbs_uint64.c   misc/winbs_ulong.c           misc/winbs_ushort.c    \
+  misc/wmemchr.c              misc/wmemcmp.c       misc/wmemcpy.c        misc/wmemmove.c              misc/wmemset.c         \
   \
   stdio/mingw_pformat.h \
-  stdio/atoll.c           stdio/_Exit.c          stdio/_findfirst64i32.c  stdio/_wfindfirst64i32.c stdio/_findnext64i32.c  \
-  stdio/_wfindnext64i32.c stdio/fopen64.c        stdio/fseeko64.c         stdio/_fstat64i32.c     stdio/_fstat.c           \
-  stdio/_stat64i32.c      stdio/_stat.c          stdio/ftello64.c         stdio/_wstat64i32.c     stdio/_wstat.c           \
-  stdio/_ftime.c \
-  stdio/lltoa.c           stdio/lltow.c          stdio/lseek64.c          \
-  stdio/mingw_fprintf.c   stdio/mingw_pformat.c  stdio/mingw_printf.c     stdio/mingw_snprintf.c  stdio/mingw_sprintf.c    \
-  stdio/mingw_vfprintf.c  stdio/mingw_vprintf.c  stdio/mingw_vsnprintf.c  stdio/mingw_vsprintf.c  stdio/snprintf.c         \
-  stdio/snwprintf.c       \
-  stdio/strtof.c          stdio/ulltoa.c         stdio/ulltow.c           \
-  stdio/vfscanf.c         stdio/vfwscanf.c       stdio/vscanf.c           stdio/vsnprintf.c       stdio/vsnwprintf.c       \
-  stdio/vsscanf.c         \
-  stdio/vswscanf.c        stdio/vwscanf.c        stdio/wcstof.c           stdio/wtoll.c 
+  stdio/atoll.c            stdio/_Exit.c           stdio/_findfirst64i32.c  stdio/_findnext64i32.c    stdio/fopen64.c         \
+  stdio/fseeko64.c         stdio/_fstat64i32.c     stdio/_fstat.c           stdio/ftello64.c          stdio/_ftime.c          \
+  stdio/lltoa.c            stdio/lltow.c           stdio/lseek64.c          stdio/mingw_fprintf.c     stdio/mingw_pformat.c   \
+  stdio/mingw_printf.c     stdio/mingw_snprintf.c  stdio/mingw_sprintf.c    stdio/mingw_vfprintf.c    stdio/mingw_vprintf.c   \
+  stdio/mingw_vsnprintf.c  stdio/mingw_vsprintf.c  stdio/snprintf.c         stdio/snwprintf.c         stdio/_stat64i32.c      \
+  stdio/_stat.c            stdio/strtof.c          stdio/ulltoa.c           stdio/ulltow.c            stdio/vfscanf.c         \
+  stdio/vfwscanf.c         stdio/vscanf.c          stdio/vsnprintf.c        stdio/vsnwprintf.c        stdio/vsscanf.c         \
+  stdio/vswscanf.c         stdio/vwscanf.c         stdio/wcstof.c           stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
+  stdio/_wstat64i32.c      stdio/_wstat.c          stdio/wtoll.c
 
 # these only go into the 64 bit version:
 src_libmingwex64=\
@@ -212,8 +206,8 @@ lib32dir=$(prefix)/$(host)/@LIB32SUFFIXDIR@
 crt32dir=$(lib32dir)
 
 crt32_DATA = \
-  lib32/crt1.o    lib32/crt2.o     lib32/crt1u.o   lib32/crt2u.o   lib32/dllcrt1.o lib32/dllcrt2.o \
-  lib32/CRT_fp8.o lib32/CRT_fp10.o lib32/txtmode.o lib32/binmode.o lib32/crtbegin.o lib32/crtend.o \
+  lib32/crt1.o    lib32/crt2.o     lib32/crt1u.o   lib32/crt2u.o    lib32/dllcrt1.o    lib32/dllcrt2.o \
+  lib32/CRT_fp8.o lib32/CRT_fp10.o lib32/txtmode.o lib32/binmode.o  lib32/crtbegin.o   lib32/crtend.o \
   lib32/gcrt0.o   lib32/gcrt1.o    lib32/gcrt2.o   lib32/CRT_glob.o lib32/CRT_noglob.o
 
 COMPILE32=$(COMPILE) -m32 $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
