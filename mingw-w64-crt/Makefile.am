@@ -32,7 +32,7 @@ AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
 AM_CFLAGS=$(cflags_underscores) -pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 AM_DLLTOOLFLAGS=$(dlltool_underscores) -k --as=$(AS) --output-lib $@
-DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --def
+DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --input-def
 DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 extra_include=-I$(top_srcdir)/include
 
