@@ -1,3 +1,13 @@
+2010-04-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-04-13  NightStrike  <nightstrike@gmail.com> (rev. 2191)
+	Add power-uuid.c from w32api 3.12:
+	* libsrc/power-uuid.c: New.
+	* Makefile.am (src_libuuid): Added libsrc/power-uuid.c.
+	* Makefile.in: Regenerated.
+
 2010-04-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
