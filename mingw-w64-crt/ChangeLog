@@ -1,5 +1,13 @@
 2010-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* Makefile.am: Removed outdated and unused "vistasupport" variable.
+	Use --input-def instead of --def with dlltool for future compatibility
+	(from trunk rev. 2187.) Cleanup some formatting of sources (sync'ing
+	with trunk rev. 2186 .)
+	* Makefile.in: Regenerated.
+
+2010-04-14  Ozkan Sezer  <sezeroz@gmail.com>
+
 	Back-merges from the trunk:
 
 	2010-04-12  NightStrike  <nightstrike@gmail.com> (rev. 2169)
