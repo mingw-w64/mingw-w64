@@ -2,6 +2,13 @@
 
 	Back-merges from the trunk:
 
+	2010-04-13  NightStrike  <nightstrike@gmail.com> (revisions 2196,
+	2197 and 2209.) More updates from w32api 3.12.  See
+	http://msdn.microsoft.com/en-us/library/aa375906(VS.85).aspx and
+	http://msdn.microsoft.com/en-us/library/aa374556(VS.85).aspx
+	* mprapi.h (MPR_INTERFACE_3): New.
+	(MprAdminAcceptReauthentication): New.
+
 	2010-03-18  Kai Tietz  <kai.tietz@onevision.com> (rev. 2079)
 	* iprtrmib.h (TCP_TABLE_CLASS): New.
 
