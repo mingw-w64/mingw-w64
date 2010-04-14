@@ -2,6 +2,9 @@
 
 	Back-merges from the trunk:
 
+	2010-04-12  NightStrike  <nightstrike@gmail.com> (rev. 2169)
+	* lib32/psapi.def: Add GetProcessImageFileNameA and GetProcessImageFileNameW.
+
 	2010-04-13  NightStrike  <nightstrike@gmail.com> (rev. 2191)
 	Add power-uuid.c from w32api 3.12:
 	* libsrc/power-uuid.c: New.
