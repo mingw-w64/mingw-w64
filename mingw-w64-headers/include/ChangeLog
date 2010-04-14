@@ -2,6 +2,10 @@
 
 	Back-merges from the trunk:
 
+	2010-04-14  NightStrike  <nightstrike@gmail.com> (rev. 2214)
+	* w32api.h: Bump w32api compatibility version number to 3.12,
+	as only a few corner cases remain.
+
 	2010-04-14  Doug Semler <dougsemler@gmail.com> (rev. 2213)
 	* winnt.h (InterlockedDecrement16, InterlockedIncrement64):
 	Remove parentheses from destination register.
