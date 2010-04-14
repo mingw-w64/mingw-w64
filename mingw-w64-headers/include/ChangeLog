@@ -1,3 +1,10 @@
+2010-04-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-03-18  Kai Tietz  <kai.tietz@onevision.com> (rev. 2079)
+	* iprtrmib.h (TCP_TABLE_CLASS): New.
+
 2010-04-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
