@@ -1,3 +1,8 @@
+2010-04-14  Doug Semler <dougsemler@gmail.com>
+
+	* winnt.h (inline InterlockedDecrement16, InterlockedIncrement64):
+	Remove parentheses from destination regsiter
+
 2010-04-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* winnt.h: Fix several SUBLANG ID errors introduced by r2177 and 2178

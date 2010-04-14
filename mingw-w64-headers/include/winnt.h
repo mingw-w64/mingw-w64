@@ -1259,7 +1259,7 @@ typedef DWORD LCID;
     __CRT_INLINE SHORT InterlockedDecrement16(SHORT volatile *Addend) {
       SHORT ret = -1;
       __asm__ __volatile__("lock\n\t"
-		   "xaddw %0,(%1)"
+		   "xaddw %0,%1"
 		   : "+r" (ret), "+m" (*Addend)
 		   : : "memory");
       return ret - 1;
@@ -1345,7 +1345,7 @@ typedef DWORD LCID;
     __CRT_INLINE LONG64 InterlockedIncrement64(LONG64 volatile *Addend) {
       LONG64 ret = 1LL;
       __asm__ __volatile__ ("lock\n\t"
-	       "xaddq %0,(%1)"
+	       "xaddq %0,%1"
 	       : "+r" (ret), "+m" (*Addend)
 	       : : "memory");
       return ret + 1LL;
