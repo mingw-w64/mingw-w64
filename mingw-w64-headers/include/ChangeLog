@@ -2,6 +2,10 @@
 
 	Back-merges from the trunk:
 
+	2010-04-14  Doug Semler <dougsemler@gmail.com> (rev. 2213)
+	* winnt.h (InterlockedDecrement16, InterlockedIncrement64):
+	Remove parentheses from destination register.
+
 	2010-04-13  NightStrike  <nightstrike@gmail.com> (revisions 2196,
 	2197 and 2209.) More updates from w32api 3.12.  See
 	http://msdn.microsoft.com/en-us/library/aa375906(VS.85).aspx and
