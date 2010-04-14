@@ -712,9 +712,9 @@ extern "C" {
 
   typedef SECURITY_STATUS (WINAPI *REVERT_SECURITY_CONTEXT_FN)(PCtxtHandle);
 
-  KSECDDDECLSPEC SECURITY_STATUS WINAPI QuerySecurityContextToken(PCtxtHandle phContext,void **Token);
+  KSECDDDECLSPEC SECURITY_STATUS WINAPI QuerySecurityContextToken(PCtxtHandle phContext,HANDLE *Token);
 
-  typedef SECURITY_STATUS (WINAPI *QUERY_SECURITY_CONTEXT_TOKEN_FN)(PCtxtHandle,void **);
+  typedef SECURITY_STATUS (WINAPI *QUERY_SECURITY_CONTEXT_TOKEN_FN)(PCtxtHandle,HANDLE *);
 
   KSECDDDECLSPEC SECURITY_STATUS WINAPI DeleteSecurityContext(PCtxtHandle phContext);
 
