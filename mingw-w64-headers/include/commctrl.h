@@ -2529,22 +2529,22 @@ extern "C" {
     int iOrder;
   } LVCOLUMNA,*LPLVCOLUMNA;
 
- typedef struct tagLVCOLUMNW {
-   UINT mask;
-   int fmt;
-   int cx;
-   LPWSTR pszText;
-   int cchTextMax;
-   int iSubItem;
-  #if (_WIN32_IE >= 0x0300)
-   int iImage;
-   int iOrder;
-  #endif
-  #if (_WIN32_WINNT >= 0x0600)
-   int cxMin;
-   int cxDefault;
-   int cxIdeal;
-  #endif
+  typedef struct tagLVCOLUMNW {
+    UINT mask;
+    int fmt;
+    int cx;
+    LPWSTR pszText;
+    int cchTextMax;
+    int iSubItem;
+# if (_WIN32_IE >= 0x0300)
+    int iImage;
+    int iOrder;
+# endif
+# if (_WIN32_WINNT >= 0x0600)
+    int cxMin;
+    int cxDefault;
+    int cxIdeal;
+# endif
   } LVCOLUMNW,*LPLVCOLUMNW;
 
 #ifdef UNICODE
