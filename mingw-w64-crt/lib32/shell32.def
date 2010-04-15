@@ -59,6 +59,7 @@ SHGetNewLinkInfoA@20
 SHGetNewLinkInfo@20
 SHGetMalloc@4
 SHGetInstanceExplorer@4
+SHGetImageList@12
 SHGetIconOverlayIndexW@8
 SHGetIconOverlayIndexA@8
 SHGetFolderPathAndSubDirW@24
