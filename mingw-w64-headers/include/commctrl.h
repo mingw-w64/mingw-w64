@@ -68,7 +68,7 @@ extern "C" {
 #define ICC_NATIVEFNTCTL_CLASS 0x2000
 #define ICC_STANDARD_CLASSES 0x4000
 #define ICC_LINK_CLASS 0x8000
-  WINCOMMCTRLAPI WINBOOL WINAPI InitCommonControlsEx(LPINITCOMMONCONTROLSEX);
+  WINCOMMCTRLAPI WINBOOL WINAPI InitCommonControlsEx(const INITCOMMONCONTROLSEX *);
 
 #define ODT_HEADER 100
 #define ODT_TAB 101
@@ -195,8 +195,10 @@ extern "C" {
 #define TCN_FIRST (0U-550U)
 #define TCN_LAST (0U-580U)
 
+#ifndef CDN_FIRST
 #define CDN_FIRST (0U-601U)
 #define CDN_LAST (0U-699U)
+#endif
 
 #define TBN_FIRST (0U-700U)
 #define TBN_LAST (0U-720U)
@@ -436,6 +438,11 @@ extern "C" {
 #define HDS_FULLDRAG 0x80
 #define HDS_FILTERBAR 0x100
 #define HDS_FLAT 0x200
+#if (_WIN32_WINNT >= 0x0600)
+#define HDS_CHECKBOXES 0x400
+#define HDS_NOSIZING 0x800
+#define HDS_OVERFLOW 0x1000
+#endif
 
 #define HDFT_ISSTRING 0x0
 #define HDFT_ISNUMBER 0x1
@@ -533,6 +540,12 @@ extern "C" {
 #define HDF_IMAGE 0x800
 #define HDF_SORTUP 0x400
 #define HDF_SORTDOWN 0x200
+#if (_WIN32_WINNT >= 0x0600)
+#define HDF_CHECKBOX 0x40
+#define HDF_CHECKED 0x80
+#define HDF_FIXEDWIDTH 0x100
+#define HDF_SPLITBUTTON 0x1000000
+#endif
 
 #define HDM_GETITEMCOUNT (HDM_FIRST+0)
 #define Header_GetItemCount(hwndHD) (int)SNDMSG((hwndHD),HDM_GETITEMCOUNT,0,0L)
@@ -1125,6 +1138,12 @@ extern "C" {
 #define TB_GETSTRING TB_GETSTRINGA
 #endif
 
+#define TB_SETHOTITEM2 (WM_USER+94)
+#define TB_SETLISTGAP (WM_USER+96)
+#define TB_GETIMAGELISTCOUNT (WM_USER+98)
+#define TB_GETIDEALSIZE (WM_USER+99)
+#define TB_TRANSLATEACCELERATOR CCM_TRANSLATEACCELERATOR
+
 #define TBMF_PAD 0x1
 #define TBMF_BARPAD 0x2
 #define TBMF_BUTTONSPACING 0x4
@@ -1185,6 +1204,11 @@ extern "C" {
 #define TBN_RESTORE (TBN_FIRST - 21)
 #define TBN_SAVE (TBN_FIRST - 22)
 #define TBN_INITCUSTOMIZE (TBN_FIRST - 23)
+#define TBN_WRAPHOTITEM (TBN_FIRST - 24)
+#define TBN_DUPACCELERATOR (TBN_FIRST - 25)
+#define TBN_WRAPACCELERATOR (TBN_FIRST - 26)
+#define TBN_DRAGOVER (TBN_FIRST - 27)
+#define TBN_MAPACCELERATOR (TBN_FIRST - 28)
 #define TBNRF_HIDEHELP 0x1
 #define TBNRF_ENDCUSTOMIZE 0x2
 
@@ -1398,6 +1422,8 @@ extern "C" {
 
 #define REBARBANDINFOA_V3_SIZE CCSIZEOF_STRUCT(REBARBANDINFOA,wID)
 #define REBARBANDINFOW_V3_SIZE CCSIZEOF_STRUCT(REBARBANDINFOW,wID)
+#define REBARBANDINFOA_V6_SIZE CCSIZEOF_STRUCT(REBARBANDINFOA,cxHeader)
+#define REBARBANDINFOW_V6_SIZE CCSIZEOF_STRUCT(REBARBANDINFOW,cxHeader)
 
   typedef struct tagREBARBANDINFOW {
     UINT cbSize;
@@ -1829,8 +1855,8 @@ extern "C" {
 #define SBARS_TOOLTIPS 0x800
 #define SBT_TOOLTIPS 0x800
 
-  WINCOMMCTRLAPI void WINAPI DrawStatusTextA(HDC hDC,LPRECT lprc,LPCSTR pszText,UINT uFlags);
-  WINCOMMCTRLAPI void WINAPI DrawStatusTextW(HDC hDC,LPRECT lprc,LPCWSTR pszText,UINT uFlags);
+  WINCOMMCTRLAPI void WINAPI DrawStatusTextA(HDC hDC,LPCRECT lprc,LPCSTR pszText,UINT uFlags);
+  WINCOMMCTRLAPI void WINAPI DrawStatusTextW(HDC hDC,LPCRECT lprc,LPCWSTR pszText,UINT uFlags);
 
   WINCOMMCTRLAPI HWND WINAPI CreateStatusWindowA(LONG style,LPCSTR lpszText,HWND hwndParent,UINT wID);
   WINCOMMCTRLAPI HWND WINAPI CreateStatusWindowW(LONG style,LPCWSTR lpszText,HWND hwndParent,UINT wID);
@@ -1905,7 +1931,7 @@ extern "C" {
 
   WINCOMMCTRLAPI void WINAPI MenuHelp(UINT uMsg,WPARAM wParam,LPARAM lParam,HMENU hMainMenu,HINSTANCE hInst,HWND hwndStatus,UINT *lpwIDs);
   WINCOMMCTRLAPI WINBOOL WINAPI ShowHideMenuCtl(HWND hWnd,UINT_PTR uFlags,LPINT lpInfo);
-  WINCOMMCTRLAPI void WINAPI GetEffectiveClientRect(HWND hWnd,LPRECT lprc,LPINT lpInfo);
+  WINCOMMCTRLAPI void WINAPI GetEffectiveClientRect(HWND hWnd,LPRECT lprc,const INT *lpInfo);
 
 #define MINSYSCOMMAND SC_SIZE
 #endif
@@ -2108,7 +2134,21 @@ extern "C" {
 
 #define PBS_MARQUEE 0x8
 #define PBM_SETMARQUEE (WM_USER+10)
-#endif
+
+#if (_WIN32_WINNT >= 0x0600)
+#define PBM_GETSTEP (WM_USER+13)
+#define PBM_GETBKCOLOR (WM_USER+14)
+#define PBM_GETBARCOLOR (WM_USER+15)
+#define PBM_SETSTATE (WM_USER+16)
+#define PBM_GETSTATE (WM_USER+17)
+#define PBS_SMOOTHREVERSE 0x10
+#define PBST_NORMAL 1
+#define PBST_ERROR 2
+#define PBST_PAUSED 3
+#endif /* (_WIN32_WINNT >= 0x0600) */
+
+#endif /* !NOPROGRESS */
+
 
 #ifndef NOHOTKEY
 
@@ -2489,15 +2529,22 @@ extern "C" {
     int iOrder;
   } LVCOLUMNA,*LPLVCOLUMNA;
 
-  typedef struct tagLVCOLUMNW {
-    UINT mask;
-    int fmt;
-    int cx;
-    LPWSTR pszText;
-    int cchTextMax;
-    int iSubItem;
-    int iImage;
-    int iOrder;
+ typedef struct tagLVCOLUMNW {
+   UINT mask;
+   int fmt;
+   int cx;
+   LPWSTR pszText;
+   int cchTextMax;
+   int iSubItem;
+  #if (_WIN32_IE >= 0x0300)
+   int iImage;
+   int iOrder;
+  #endif
+  #if (_WIN32_WINNT >= 0x0600)
+   int cxMin;
+   int cxDefault;
+   int cxIdeal;
+  #endif
   } LVCOLUMNW,*LPLVCOLUMNW;
 
 #ifdef UNICODE
@@ -2516,6 +2563,11 @@ extern "C" {
 #define LVCF_SUBITEM 0x8
 #define LVCF_IMAGE 0x10
 #define LVCF_ORDER 0x20
+#if (_WIN32_WINNT >= 0x0600)
+#define LVCF_MINWIDTH 0x40
+#define LVCF_DEFAULTWIDTH 0x80
+#define LVCF_IDEALWIDTH 0x100
+#endif /* (_WIN32_WINNT >= 0x0600) */
 
 #define LVCFMT_LEFT 0x0
 #define LVCFMT_RIGHT 0x1
@@ -2524,6 +2576,17 @@ extern "C" {
 #define LVCFMT_IMAGE 0x800
 #define LVCFMT_BITMAP_ON_RIGHT 0x1000
 #define LVCFMT_COL_HAS_IMAGES 0x8000
+#if (_WIN32_WINNT >= 0x0600)
+#define LVCFMT_FIXED_WIDTH 0x100
+#define LVCFMT_NO_DPI_SCALE 0x40000
+#define LVCFMT_FIXED_RATIO 0x80000
+#define LVCFMT_LINE_BREAK 0x100000
+#define LVCFMT_FILL 0x200000
+#define LVCFMT_WRAP 0x400000
+#define LVCFMT_NO_TITLE 0x800000
+#define LVCFMT_SPLITBUTTON 0x1000000
+#define LVCFMT_TILE_PLACEMENTMASK (LVCFMT_LINE_BREAK|LVCFMT_FILL)
+#endif /* (_WIN32_WINNT >= 0x0600) */
 
 #define LVM_GETCOLUMNA (LVM_FIRST+25)
 #define LVM_GETCOLUMNW (LVM_FIRST+95)
@@ -2679,6 +2742,17 @@ extern "C" {
 #define LVS_EX_SINGLEROW 0x40000
 #define LVS_EX_SNAPTOGRID 0x80000
 #define LVS_EX_SIMPLESELECT 0x100000
+#if _WIN32_WINNT >= 0x0600
+#define LVS_EX_JUSTIFYCOLUMNS 0x200000
+#define LVS_EX_TRANSPARENTBKGND 0x400000
+#define LVS_EX_TRANSPARENTSHADOWTEXT 0x800000
+#define LVS_EX_AUTOAUTOARRANGE 0x1000000
+#define LVS_EX_HEADERINALLVIEWS 0x2000000
+#define LVS_EX_AUTOCHECKSELECT 0x8000000
+#define LVS_EX_AUTOSIZECOLUMNS 0x10000000
+#define LVS_EX_COLUMNSNAPPOINTS 0x40000000
+#define LVS_EX_COLUMNOVERFLOW 0x80000000
+#endif
 
 #define LVM_GETSUBITEMRECT (LVM_FIRST+56)
 #define ListView_GetSubItemRect(hwnd,iItem,iSubItem,code,prc) (WINBOOL)SNDMSG((hwnd),LVM_GETSUBITEMRECT,(WPARAM)(int)(iItem),((prc) ? ((((LPRECT)(prc))->top = iSubItem),(((LPRECT)(prc))->left = code),(LPARAM)(prc)) : (LPARAM)(LPRECT)NULL))
@@ -2936,6 +3010,8 @@ extern "C" {
 #define ListView_MapIndexToID(hwnd,index) (UINT)SNDMSG((hwnd),LVM_MAPINDEXTOID,(WPARAM)index,(LPARAM)0)
 #define LVM_MAPIDTOINDEX (LVM_FIRST+181)
 #define ListView_MapIDToIndex(hwnd,id) (UINT)SNDMSG((hwnd),LVM_MAPIDTOINDEX,(WPARAM)id,(LPARAM)0)
+#define LVM_ISITEMVISIBLE (LVM_FIRST+182)
+#define ListView_IsItemVisible(hwnd,index) (UINT)SNDMSG((hwnd),LVM_ISITEMVISIBLE,(WPARAM)(index),(LPARAM)0)
 
 #ifdef UNICODE
 #define LVBKIMAGE LVBKIMAGEW
@@ -3655,6 +3731,32 @@ extern "C" {
 #define NMTVDISPINFO NMTVDISPINFOA
 #define LPNMTVDISPINFO LPNMTVDISPINFOA
 #endif
+
+#if (_WIN32_IE >= 0x0600)
+
+typedef struct tagTVDISPINFOEXA {
+    NMHDR hdr;
+    TVITEMEXA item;
+} NMTVDISPINFOEXA, *LPNMTVDISPINFOEXA;
+
+typedef struct tagTVDISPINFOEXW {
+    NMHDR hdr;
+    TVITEMEXW item;
+} NMTVDISPINFOEXW, *LPNMTVDISPINFOEXW;
+
+#ifdef UNICODE
+#define NMTVDISPINFOEX   NMTVDISPINFOEXW
+#define LPNMTVDISPINFOEX LPNMTVDISPINFOEXW
+#else
+#define NMTVDISPINFOEX   NMTVDISPINFOEXA
+#define LPNMTVDISPINFOEX LPNMTVDISPINFOEXA
+#endif /* UNICODE */
+
+#define TV_DISPINFOEXA NMTVDISPINFOEXA
+#define TV_DISPINFOEXW NMTVDISPINFOEXW
+#define TV_DISPINFOEX  NMTVDISPINFOEX
+
+#endif /* (_WIN32_IE >= 0x0600) */
 
 #define TVN_ITEMEXPANDINGA (TVN_FIRST-5)
 #define TVN_ITEMEXPANDINGW (TVN_FIRST-54)
@@ -4968,6 +5070,40 @@ extern "C" {
   WINBOOL WINAPI RemoveWindowSubclass(HWND hWnd,SUBCLASSPROC pfnSubclass,UINT_PTR uIdSubclass);
   LRESULT WINAPI DefSubclassProc(HWND hWnd,UINT uMsg,WPARAM wParam,LPARAM lParam);
   int WINAPI DrawShadowText(HDC hdc,LPCWSTR pszText,UINT cch,RECT *prc,DWORD dwFlags,COLORREF crText,COLORREF crShadow,int ixOffset,int iyOffset);
+
+typedef struct _DPASTREAMINFO {
+  int iPos;
+  void *pvItem;
+} DPASTREAMINFO;
+
+struct IStream;
+typedef HRESULT (CALLBACK *PFNDPASTREAM)(DPASTREAMINFO*, struct IStream*, void*);
+typedef void* (CALLBACK *PFNDPAMERGE)(UINT, void*, void*, LPARAM);
+typedef const void* (CALLBACK *PFNDPAMERGECONST)(UINT, const void*, const void*, LPARAM);
+
+  WINCOMMCTRLAPI HRESULT WINAPI DPA_LoadStream(HDPA * phdpa, PFNDPASTREAM pfn, struct IStream * pstream, void *pvInstData);
+  WINCOMMCTRLAPI HRESULT WINAPI DPA_SaveStream(HDPA hdpa, PFNDPASTREAM pfn, struct IStream * pstream, void *pvInstData);
+  WINCOMMCTRLAPI BOOL WINAPI DPA_Grow(HDPA pdpa, IN int cp);
+  WINCOMMCTRLAPI int WINAPI DPA_InsertPtr(HDPA hdpa, IN int i, void *p);
+  WINCOMMCTRLAPI PVOID WINAPI DPA_GetPtr(HDPA hdpa, INT_PTR i);
+  WINCOMMCTRLAPI BOOL WINAPI DPA_SetPtr(HDPA hdpa, IN int i, void *p);
+  WINCOMMCTRLAPI int WINAPI DPA_GetPtrIndex(HDPA hdpa, const void *p);
+
+#define DPA_GetPtrCount(hdpa) (*(int *)(hdpa))
+#define DPA_SetPtrCount(hdpa, cItems) (*(int *)(hdpa) = (cItems))
+#define DPA_GetPtrPtr(hdpa) (*((void * **)((BYTE *)(hdpa) + sizeof(void *))))
+#define DPA_AppendPtr(hdpa, pitem) DPA_InsertPtr(hdpa, DA_LAST, pitem)
+#define DPA_FastDeleteLastPtr(hdpa) (--*(int *)(hdpa))
+#define DPA_FastGetPtr(hdpa, i) (DPA_GetPtrPtr(hdpa)[i])
+
+#define DPAM_SORTED    1
+#define DPAM_NORMAL    2
+#define DPAM_UNION     4
+#define DPAM_INTERSECT 8
+
+#define DPAMM_MERGE    1
+#define DPAMM_DELETE   2
+#define DPAMM_INSERT   3
 
 #ifdef __cplusplus
 }
