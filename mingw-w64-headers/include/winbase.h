@@ -131,6 +131,12 @@ extern "C" {
 #define SECURITY_SQOS_PRESENT 0x100000
 #define SECURITY_VALID_SQOS_FLAGS 0x1f0000
 
+#if (_WIN32_WINNT >= 0x0600)
+/* available in Vista SP1 and higher */ 
+#define PROCESS_DEP_ENABLE 0x1
+#define PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION 0x2
+#endif
+
   typedef struct _OVERLAPPED {
     ULONG_PTR Internal;
     ULONG_PTR InternalHigh;
@@ -1227,6 +1233,11 @@ extern "C" {
   WINBASEAPI DWORD WINAPI GetLongPathNameW(LPCWSTR lpszShortPath,LPWSTR lpszLongPath,DWORD cchBuffer);
   WINBASEAPI WINBOOL WINAPI GetProcessAffinityMask(HANDLE hProcess,PDWORD_PTR lpProcessAffinityMask,PDWORD_PTR lpSystemAffinityMask);
   WINBASEAPI WINBOOL WINAPI SetProcessAffinityMask(HANDLE hProcess,DWORD_PTR dwProcessAffinityMask);
+#if (_WIN32_WINNT >= 0x0600)
+  /* available in Vista SP1 and higher */ 
+  WINBASEAPI WINBOOL WINAPI GetProcessDEPPolicy (HANDLE hProcess,LPDWORD lpFlags,PBOOL lpPermanent);
+  WINBASEAPI WINBOOL WINAPI SetProcessDEPPolicy (DWORD dwFlags);
+#endif
   WINBASEAPI WINBOOL WINAPI GetProcessHandleCount(HANDLE hProcess,PDWORD pdwHandleCount);
   WINBASEAPI WINBOOL WINAPI GetProcessTimes(HANDLE hProcess,LPFILETIME lpCreationTime,LPFILETIME lpExitTime,LPFILETIME lpKernelTime,LPFILETIME lpUserTime);
   WINBASEAPI WINBOOL WINAPI GetProcessIoCounters(HANDLE hProcess,PIO_COUNTERS lpIoCounters);
@@ -1952,6 +1963,17 @@ extern "C" {
   WINBASEAPI HRSRC WINAPI FindResourceW(HMODULE hModule,LPCWSTR lpName,LPCWSTR lpType);
   WINBASEAPI HRSRC WINAPI FindResourceExA(HMODULE hModule,LPCSTR lpType,LPCSTR lpName,WORD wLanguage);
   WINBASEAPI HRSRC WINAPI FindResourceExW(HMODULE hModule,LPCWSTR lpType,LPCWSTR lpName,WORD wLanguage);
+
+#if (_WIN32_WINNT >= 0x0600)
+  /* available in Vista SP1 and higher */ 
+  typedef enum _DEP_SYSTEM_POLICY_TYPE {
+    AlwaysOff = 0,
+    AlwaysOn = 1,
+    OptIn = 2,
+    OptOut = 3
+  } DEP_SYSTEM_POLICY_TYPE;
+  WINBASEAPI DEP_SYSTEM_POLICY_TYPE WINAPI GetSystemDEPPolicy (void);
+#endif
 
 #ifdef UNICODE
 #define ENUMRESTYPEPROC ENUMRESTYPEPROCW
