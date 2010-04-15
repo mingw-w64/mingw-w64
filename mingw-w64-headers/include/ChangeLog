@@ -1,3 +1,11 @@
+2010-04-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-04-15  Timo Kreuzer  <timo.kreuzer@reactos.org> (rev. 2223)
+	* commctrl.h: Add missing const modifier to InitCommonControlsEx parameter,
+	DrawStatusTextA/W, GetEffectiveClientRect.
+
 2010-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:

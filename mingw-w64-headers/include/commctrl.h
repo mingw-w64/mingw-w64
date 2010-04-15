@@ -68,7 +68,7 @@ extern "C" {
 #define ICC_NATIVEFNTCTL_CLASS 0x2000
 #define ICC_STANDARD_CLASSES 0x4000
 #define ICC_LINK_CLASS 0x8000
-  WINCOMMCTRLAPI WINBOOL WINAPI InitCommonControlsEx(LPINITCOMMONCONTROLSEX);
+  WINCOMMCTRLAPI WINBOOL WINAPI InitCommonControlsEx(const INITCOMMONCONTROLSEX *);
 
 #define ODT_HEADER 100
 #define ODT_TAB 101
@@ -1829,8 +1829,8 @@ extern "C" {
 #define SBARS_TOOLTIPS 0x800
 #define SBT_TOOLTIPS 0x800
 
-  WINCOMMCTRLAPI void WINAPI DrawStatusTextA(HDC hDC,LPRECT lprc,LPCSTR pszText,UINT uFlags);
-  WINCOMMCTRLAPI void WINAPI DrawStatusTextW(HDC hDC,LPRECT lprc,LPCWSTR pszText,UINT uFlags);
+  WINCOMMCTRLAPI void WINAPI DrawStatusTextA(HDC hDC,LPCRECT lprc,LPCSTR pszText,UINT uFlags);
+  WINCOMMCTRLAPI void WINAPI DrawStatusTextW(HDC hDC,LPCRECT lprc,LPCWSTR pszText,UINT uFlags);
 
   WINCOMMCTRLAPI HWND WINAPI CreateStatusWindowA(LONG style,LPCSTR lpszText,HWND hwndParent,UINT wID);
   WINCOMMCTRLAPI HWND WINAPI CreateStatusWindowW(LONG style,LPCWSTR lpszText,HWND hwndParent,UINT wID);
@@ -1905,7 +1905,7 @@ extern "C" {
 
   WINCOMMCTRLAPI void WINAPI MenuHelp(UINT uMsg,WPARAM wParam,LPARAM lParam,HMENU hMainMenu,HINSTANCE hInst,HWND hwndStatus,UINT *lpwIDs);
   WINCOMMCTRLAPI WINBOOL WINAPI ShowHideMenuCtl(HWND hWnd,UINT_PTR uFlags,LPINT lpInfo);
-  WINCOMMCTRLAPI void WINAPI GetEffectiveClientRect(HWND hWnd,LPRECT lprc,LPINT lpInfo);
+  WINCOMMCTRLAPI void WINAPI GetEffectiveClientRect(HWND hWnd,LPRECT lprc,const INT *lpInfo);
 
 #define MINSYSCOMMAND SC_SIZE
 #endif
