@@ -654,13 +654,16 @@ extern "C" {
 
   STDAPI SHGetImageList(int iImageList,REFIID riid,void **ppvObj);
 
-#define SHIL_LARGE 0
-#define SHIL_SMALL 1
-#define SHIL_EXTRALARGE 2
-#define SHIL_SYSSMALL 3
-
-#define SHIL_LAST SHIL_SYSSMALL
-
+#define SHIL_LARGE 0x0
+#define SHIL_SMALL 0x1
+#define SHIL_EXTRALARGE 0x2
+#define SHIL_SYSSMALL 0x3
+#if (_WIN32_WINNT >= 0x600)
+#  define SHIL_JUMBO 0x4
+#  define SHIL_LAST SHIL_JUMBO
+#else
+#  define SHIL_LAST SHIL_SYSSMALL
+#endif
   typedef HRESULT (WINAPI *PFNCANSHAREFOLDERW)(LPCWSTR pszPath);
   typedef HRESULT (WINAPI *PFNSHOWSHAREFOLDERUIW)(HWND hwndParent,LPCWSTR pszPath);
 #endif
