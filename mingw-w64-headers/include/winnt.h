@@ -2949,6 +2949,7 @@ typedef DWORD LCID;
       TokenHasRestrictions,
       TokenAccessInformation,
       TokenVirtualizationAllowed,
+      TokenVirtualizationEnabled,
       TokenIntegrityLevel,
       TokenUIAccess,
       TokenMandatoryPolicy,
