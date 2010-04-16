@@ -3048,6 +3048,35 @@ typedef DWORD LCID;
       LUID OriginatingLogonSession;
     } TOKEN_ORIGIN,*PTOKEN_ORIGIN;
 
+#if (_WIN32_WINNT >= 0x0600)
+    typedef struct _TOKEN_LINKED_TOKEN {
+      HANDLE LinkedToken;
+    } TOKEN_LINKED_TOKEN, *PTOKEN_LINKED_TOKEN;
+
+    typedef struct _TOKEN_MANDATORY_LABEL {
+      SID_AND_ATTRIBUTES Label;
+    } TOKEN_MANDATORY_LABEL, *PTOKEN_MANDATORY_LABEL;
+
+    typedef struct _TOKEN_MANDATORY_POLICY {
+      DWORD Policy;
+    } TOKEN_MANDATORY_POLICY, *PTOKEN_MANDATORY_POLICY;
+
+    typedef struct _TOKEN_ELEVATION {
+      DWORD TokenIsElevated;
+    } TOKEN_ELEVATION, *PTOKEN_ELEVATION;
+
+    typedef struct _TOKEN_ACCESS_INFORMATION {
+      PSID_AND_ATTRIBUTES_HASH SidHash;
+      PSID_AND_ATTRIBUTES_HASH RestrictedSidHash;
+      PTOKEN_PRIVILEGES Privileges;
+      LUID AuthenticationId;
+      TOKEN_TYPE TokenType;
+      SECURITY_IMPERSONATION_LEVEL ImpersonationLevel;
+      TOKEN_MANDATORY_POLICY MandatoryPolicy;
+      DWORD Flags;
+    } TOKEN_ACCESS_INFORMATION, *PTOKEN_ACCESS_INFORMATION;
+#endif
+
 #define SECURITY_DYNAMIC_TRACKING (TRUE)
 #define SECURITY_STATIC_TRACKING (FALSE)
 
