@@ -463,6 +463,9 @@ extern "C" {
 #define LGRPID_INDIC 0x000f
 #define LGRPID_GEORGIAN 0x0010
 #define LGRPID_ARMENIAN 0x0011
+#define IS_HIGH_SURROGATE(c) (((c) & 0xFC00) == 0xD800)
+#define IS_LOW_SURROGATE(c) (((c) & 0xFC00) == 0xDC00)
+#define IS_SURROGATE_PAIR(hc,lc) (IS_HIGH_SURROGATE(hc) && IS_LOW_SURROGATE(lc))
 
   typedef DWORD LGRPID;
   typedef DWORD LCTYPE;
