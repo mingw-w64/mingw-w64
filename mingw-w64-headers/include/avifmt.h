@@ -3,6 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
+/* The contents of this file is duplicated in vfw.h */
 #ifndef _INC_AVIFMT
 #define _INC_AVIFMT 100
 
@@ -34,6 +36,7 @@ extern "C" {
 
 #define ckidAVINEWINDEX mmioFOURCC('i','d','x','1')
 
+#define streamtypeANY 0UL
 #define streamtypeVIDEO mmioFOURCC('v','i','d','s')
 #define streamtypeAUDIO mmioFOURCC('a','u','d','s')
 #define streamtypeMIDI mmioFOURCC('m','i','d','s')

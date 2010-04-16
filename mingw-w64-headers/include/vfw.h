@@ -210,7 +210,9 @@ extern "C" {
 #define VIDCF_COMPRESSFRAMES 0x0008
 #define VIDCF_DRAW 0x0010
 #define VIDCF_FASTTEMPORALC 0x0020
+#define VIDCF_QUALITYTIME   0x0040
 #define VIDCF_FASTTEMPORALD 0x0080
+#define VIDCF_FASTTEMPORAL	(VIDCF_FASTTEMPORALC|VIDCF_FASTTEMPORALD)
 
 #define ICCOMPRESS_KEYFRAME 0x00000001L
 
@@ -626,6 +628,7 @@ extern "C" {
   typedef DWORD FOURCC;
 #endif
 
+/* This part of the file is duplicated in avifmt.h */
 #ifndef mmioFOURCC
 #define mmioFOURCC(ch0,ch1,ch2,ch3) ((DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8) | ((DWORD)(BYTE)(ch2) << 16) | ((DWORD)(BYTE)(ch3) << 24))
 #endif
@@ -650,6 +653,7 @@ extern "C" {
 
 #define ckidAVINEWINDEX mmioFOURCC('i','d','x','1')
 
+#define streamtypeANY 0UL
 #define streamtypeVIDEO mmioFOURCC('v','i','d','s')
 #define streamtypeAUDIO mmioFOURCC('a','u','d','s')
 #define streamtypeMIDI mmioFOURCC('m','i','d','s')
@@ -673,6 +677,7 @@ extern "C" {
 #define AVIF_HASINDEX 0x00000010
 #define AVIF_MUSTUSEINDEX 0x00000020
 #define AVIF_ISINTERLEAVED 0x00000100
+#define AVIF_TRUSTCKTYPE 0x00000800
 #define AVIF_WASCAPTUREFILE 0x00010000
 #define AVIF_COPYRIGHTED 0x00020000
 
@@ -735,6 +740,7 @@ extern "C" {
     PALETTEENTRY peNew[];
   } AVIPALCHANGE;
 #endif
+/* End of duplication */
 
 #ifdef __cplusplus
 }
@@ -758,6 +764,7 @@ extern "C" {
 #endif
 
 #ifndef streamtypeVIDEO
+#define streamtypeANY 0UL
 #define streamtypeVIDEO mmioFOURCC('v','i','d','s')
 #define streamtypeAUDIO mmioFOURCC('a','u','d','s')
 #define streamtypeMIDI mmioFOURCC('m','i','d','s')
@@ -864,6 +871,7 @@ extern "C" {
 #define AVIFILEINFO_HASINDEX 0x00000010
 #define AVIFILEINFO_MUSTUSEINDEX 0x00000020
 #define AVIFILEINFO_ISINTERLEAVED 0x00000100
+#define AVIFILEINFO_TRUSTCKTYPE 0x00000800
 #define AVIFILEINFO_WASCAPTUREFILE 0x00010000
 #define AVIFILEINFO_COPYRIGHTED 0x00020000
 
@@ -1117,6 +1125,9 @@ extern "C" {
 #define AVIStreamSampleSize(pavi,lPos,plSize) AVIStreamRead(pavi,lPos,1,NULL,0,plSize,NULL)
 #define AVIStreamFormatSize(pavi,lPos,plSize) AVIStreamReadFormat(pavi,lPos,NULL,plSize)
 #define AVIStreamDataSize(pavi,fcc,plSize) AVIStreamReadData(pavi,fcc,NULL,plSize)
+
+#define AVStreamNextKeyFrame(pavi,pos) AVIStreamFindSample(pavi, pos + 1, FIND_NEXT | FIND_KEY)
+#define AVStreamPrevKeyFrame(pavi,pos) AVIStreamFindSample(pavi, pos - 1, FIND_NEXT | FIND_KEY)
 
 #ifndef comptypeDIB
 #define comptypeDIB mmioFOURCC('D','I','B',' ')

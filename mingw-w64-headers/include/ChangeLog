@@ -1,3 +1,17 @@
+2010-04-16  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* vfw.h: Add comment about unguarded duplication in avifmt.h
+	(VIDCF_QUALITYTIME): Define.
+	(VIDCF_FASTTEMPORAL): Ditto.
+	(streamtypeANY): Ditto.
+	(AVIF_TRUSTCKTYPE): Ditto.
+	(streamtypeANY): Ditto.
+	(AVIFILEINFO_TRUSTCKTYPE): Ditto.
+	(AVStreamNextKeyFrame): Ditto.
+	(AVStreamPrevKeyFrame): Ditto.
+
+	* avifmt.h: Add comment about unguarded duplication in vfw.h
+
 2010-04-15  Timo Kreuzer  <timo.kreuzer@reactos.org>
 
 	* commctrl.h: Add missing const modifier to InitCommonControlsEx parameter,
