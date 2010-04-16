@@ -2383,6 +2383,9 @@ typedef DWORD LCID;
 #define SID_REVISION (1)
 #define SID_MAX_SUB_AUTHORITIES (15)
 #define SID_RECOMMENDED_SUB_AUTHORITIES (1)
+#if (_WIN32_WINNT >= 0x0600)
+#define SID_HASH_SIZE 32
+#endif
 
 #define SECURITY_MAX_SID_SIZE (sizeof(SID) - sizeof(DWORD) + (SID_MAX_SUB_AUTHORITIES *sizeof(DWORD)))
 
