@@ -1,3 +1,15 @@
+2010-04-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Added a few missing exports which were already in lib64/*.def, but not
+	so for lib32/*.def (extracted from trunk r2228.)
+	* lib32/comctl32.def (GetMUILanguage): Add export.
+	(InitMUILanguage): Ditto.
+	* lib32/ntoskrnl.def (NtQueryEaFile): Ditto.
+	(NtSetEaFile): Ditto.
+	(ZwQueryEaFile): Ditto.
+	(ZwSetEaFile): Ditto.
+	* lib32/shell32.def (SHGetImageList): Ditto.
+
 2010-04-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Makefile.am: Removed outdated and unused "vistasupport" variable.
