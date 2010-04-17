@@ -1,3 +1,9 @@
+2010-04-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* malloc.h, stdlib.h: Improve declaration of _aligned_malloc
+	and _aligned_free for not collide by xmmintrin.h/mm_malloc.h
+	provided by gcc.
+
 2010-04-08  Kai Tietz  <kai.tietz@onevision.com>
 
 	* wchar.h (iswblank): Add missing prototype.
