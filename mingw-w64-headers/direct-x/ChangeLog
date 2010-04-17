@@ -1,3 +1,8 @@
+2010-04-17  Ozkan Sezer <sezeroz@gmail.com>
+
+	* d3dx9shape.h: added from the wine-1.1.43 sources.
+	* Sync'ed with wine-1.1.43 release version.
+
 2010-04-03  Ozkan Sezer <sezeroz@gmail.com>
 
 	* Sync'ed with wine-1.1.42 release version.
