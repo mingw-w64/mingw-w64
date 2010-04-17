@@ -408,7 +408,7 @@ extern "C" {
   void *__cdecl realloc(void *_Memory,size_t _NewSize);
   _CRTIMP void *__cdecl _recalloc(void *_Memory,size_t _Count,size_t _Size);
 /* Make sure that X86intrin.h doesn't produce here collisions.  */
-#if (!defined (_XMMINTRIN_H_INCLUDED) && !defined (_MM_MALLOC_H_INCLUDED) || defined(_aligned_malloc)
+#if (!defined (_XMMINTRIN_H_INCLUDED) && !defined (_MM_MALLOC_H_INCLUDED)) || defined(_aligned_malloc)
 #pragma push_macro("_aligned_free")
 #pragma push_macro("_aligned_malloc")
 #undef _aligned_free

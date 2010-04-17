@@ -53,7 +53,7 @@ extern "C" {
   extern unsigned int _amblksiz;
 
 /* Make sure that X86intrin.h doesn't produce here collisions.  */
-#if (!defined (_XMMINTRIN_H_INCLUDED) && !defined (_MM_MALLOC_H_INCLUDED) || defined(_aligned_malloc)
+#if (!defined (_XMMINTRIN_H_INCLUDED) && !defined (_MM_MALLOC_H_INCLUDED)) || defined(_aligned_malloc)
 #define __DO_ALIGN_DEFINES
 #endif
 
