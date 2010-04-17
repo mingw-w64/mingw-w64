@@ -1,3 +1,14 @@
+2010-04-17  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* misc/mbrtowc.c (__mbrtowc_cp): Add nonnull attribute.
+	* misc/wcrtomb.c (wcrtomb): Use __UNUSED_PARAM instead of
+	__attribute__ ((__unused__))
+	(wcsrtombs): Likewise. Sync with mingw.org.
+	* misc/wcstof.c: New.
+	* misc/wcstold.c: Sync with mingw.org.
+	* Makefile.am: Add misc/wcstof.c.
+	* Makefile.in: Regenerated.
+
 2010-04-14  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* lib64/kernel32.def (AcquireSRWLockExclusive): New.

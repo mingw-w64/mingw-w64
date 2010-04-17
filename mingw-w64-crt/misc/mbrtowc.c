@@ -12,7 +12,7 @@
 #include <errno.h>
 #include <windows.h>
 
-static int 
+static int __MINGW_ATTRIB_NONNULL(1) __MINGW_ATTRIB_NONNULL(4)
 __mbrtowc_cp (wchar_t * __restrict__ pwc, const char * __restrict__ s,
 	      size_t n, mbstate_t* __restrict__ ps,
 	      const unsigned int cp, const unsigned int mb_max) 

@@ -1,21 +1,13 @@
-/**
- * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
- */
-/*  Wide char wrapper for strtold
+/*  Wide char wrapper for strtof
  *  Revision history:
- *  6 Nov 2002	Initial version.
- *  25 Aug 2006  Don't use strtold internal functions.
+ *  25 Aug 2006 Initial version.
  *
  *  Contributor:   Danny Smith <dannysmith@users.sourceforege.net>
  */
 
  /* This routine has been placed in the public domain.*/
 
-#ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
-#endif
 #include <windows.h>
 #include <locale.h>
 #include <wchar.h>
@@ -25,21 +17,21 @@
 
 #include "mb_wc_common.h"
 
-long double wcstold (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ wcse)
+float wcstof (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ wcse)
 {
   char * cs;
   char * cse;
   unsigned int i;
-  long double ret;
+  float ret;
   const unsigned int cp = get_codepage ();   
-  
+
   /* Allocate enough room for (possibly) mb chars */
   cs = (char *) malloc ((wcslen(wcs)+1) * MB_CUR_MAX);
 
   if (cp == 0) /* C locale */
     {
       for (i = 0; (wcs[i] != 0) && wcs[i] <= 255; i++)
-        cs[i] = (char) wcs[i];                                                                                                                                                                                                                                                                                                   
+        cs[i] = (char) wcs[i];
       cs[i]  = '\0';
     }
   else
@@ -57,16 +49,16 @@ long double wcstold (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ w
       cs[mb_len] = '\0';
     }
 
-  ret =  strtold (cs, &cse);
+  ret =  strtof (cs, &cse);
 
   if (wcse)
     {
-      /* Make sure temp mbstring has 0 at cse.  */ 
+      /* Make sure temp mbstring cs has 0 at cse.  */ 
       *cse = '\0';
       i = _mbslen ((unsigned char*) cs); /* Number of chars, not bytes */
       *wcse = (wchar_t *) wcs + i;
     }
   free (cs);
-
+ 
   return ret;
 }
