@@ -2846,10 +2846,23 @@ typedef DWORD LCID;
     typedef TOKEN_TYPE *PTOKEN_TYPE;
 
     typedef enum _TOKEN_INFORMATION_CLASS {
-      TokenUser = 1, TokenGroups, TokenPrivileges, TokenOwner, TokenPrimaryGroup,
-      TokenDefaultDacl, TokenSource, TokenType, TokenImpersonationLevel,
-      TokenStatistics, TokenRestrictedSids, TokenSessionId, TokenGroupsAndPrivileges,
-      TokenSessionReference, TokenSandBoxInert, TokenAuditPolicy, TokenOrigin,
+      TokenUser = 1,
+      TokenGroups,
+      TokenPrivileges,
+      TokenOwner,
+      TokenPrimaryGroup,
+      TokenDefaultDacl,
+      TokenSource,
+      TokenType,
+      TokenImpersonationLevel,
+      TokenStatistics,
+      TokenRestrictedSids,
+      TokenSessionId,
+      TokenGroupsAndPrivileges,
+      TokenSessionReference,
+      TokenSandBoxInert,
+      TokenAuditPolicy,
+      TokenOrigin,
       MaxTokenInfoClass
     } TOKEN_INFORMATION_CLASS,*PTOKEN_INFORMATION_CLASS;
 

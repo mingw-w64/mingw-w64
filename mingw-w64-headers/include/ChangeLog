@@ -1,3 +1,8 @@
+2010-04-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* shellapi.h, shlobj.h, shlwapi.h, winnt.h, wtsapi32.h: Back-merged
+	some noop changes extracted from trunk revs. 2217, 2230, 2231, 2235.
+
 2010-04-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:

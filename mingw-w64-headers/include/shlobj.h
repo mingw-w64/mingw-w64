@@ -2699,7 +2699,7 @@ extern "C" {
 
   SHSTDAPI_(void) SHGetSettings(LPSHELLFLAGSTATE lpsfs,DWORD dwMask);
   SHSTDAPI SHBindToParent(LPCITEMIDLIST pidl,REFIID riid,void **ppv,LPCITEMIDLIST *ppidlLast);
-  SHSTDAPI SHParseDisplayName(PCWSTR pszName,IBindCtx *pbc,LPITEMIDLIST *ppidl,SFGAOF sfgaoIn,SFGAOF *psfgaoOut);
+  SHSTDAPI SHParseDisplayName(LPCWSTR pszName,IBindCtx *pbc,LPITEMIDLIST *ppidl,SFGAOF sfgaoIn,SFGAOF *psfgaoOut);
 
 #define SHPPFW_NONE 0x00000000
 #define SHPPFW_DEFAULT SHPPFW_DIRCREATE
