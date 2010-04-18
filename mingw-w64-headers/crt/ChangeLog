@@ -1,3 +1,9 @@
+2010-04-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio.h: push/pop possible [v]snprintf and [v]snwprintf macros.
+	For the problem report about these macros in libxml2, see:
+	http://sourceforge.net/projects/mingw-w64/forums/forum/723797/topic/3482477/
+
 2010-04-17  Kai Tietz  <kai.tietz@onevision.com>
 
 	* malloc.h, stdlib.h: Improve declaration of _aligned_malloc

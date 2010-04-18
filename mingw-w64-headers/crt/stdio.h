@@ -281,7 +281,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   extern
     __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__((__nonnull__ (2)))
     int __cdecl __mingw_vsprintf (char *, const char *, va_list) __MINGW_NOTHROW;
-  int __cdecl vsnprintf(char *_DstBuf,size_t _MaxCount,const char *_Format,va_list _ArgList) __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _snprintf(char *_Dest,size_t _Count,const char *_Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _snprintf_l(char *buffer,size_t count,const char *format,_locale_t locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _vsnprintf(char *_Dest,size_t _Count,const char *_Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
@@ -289,6 +288,14 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl sprintf(char *_Dest,const char *_Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   int __cdecl _sprintf_l(char *buffer,const char *format,_locale_t locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   int __cdecl vsprintf(char *_Dest,const char *_Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+
+/* this is here to deal with software defining
+ * vsnprintf as _vsnprintf, eg. libxml2.  */
+#pragma push_macro("snprintf")
+#pragma push_macro("vsnprintf")
+# undef snprintf
+# undef vsnprintf
+  int __cdecl vsnprintf(char *_DstBuf,size_t _MaxCount,const char *_Format,va_list _ArgList) __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
   int __cdecl snprintf(char* s, size_t n, const char*  format, ...);
 #ifndef __CRT__NO_INLINE
@@ -296,6 +303,11 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
     return _vsnprintf ( s, n, format, arg);
   }
 #endif /* !__CRT__NO_INLINE */
+#endif /* ! __NO_ISOCEXT*/
+#pragma pop_macro ("vsnprintf")
+#pragma pop_macro ("snprintf")
+
+#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
   int __cdecl vscanf(const char * Format, va_list argp);
   int __cdecl vfscanf (FILE * fp, const char * Format,va_list argp);
   int __cdecl vsscanf (const char * _Str,const char * Format,va_list argp);
@@ -344,15 +356,21 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _vsnwprintf(wchar_t *_Dest,size_t _Count,const wchar_t *_Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _vsnwprintf_l(wchar_t *buffer,size_t count,const wchar_t *format,_locale_t locale,va_list argptr) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+#pragma push_macro("snwprintf")
+#pragma push_macro("vsnwprintf")
+# undef snwprintf
+# undef vsnwprintf
   int __cdecl snwprintf (wchar_t *s, size_t n, const wchar_t * format, ...);
   int __cdecl vsnwprintf (wchar_t *, size_t, const wchar_t *, va_list);
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl vsnwprintf (wchar_t *s, size_t n, const wchar_t *format, va_list arg) { return _vsnwprintf(s,n,format,arg); }
 #endif /* !__CRT__NO_INLINE */
+#pragma pop_macro ("vsnwprintf")
+#pragma pop_macro ("snwprintf")
   int __cdecl vwscanf (const wchar_t *, va_list);
   int __cdecl vfwscanf (FILE *,const wchar_t *,va_list);
   int __cdecl vswscanf (const wchar_t *,const wchar_t *,va_list);
-#endif
+#endif /* ! __NO_ISOCEXT */
   _CRTIMP int __cdecl _fwprintf_p(FILE *_File,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _wprintf_p(const wchar_t *_Format,...);
   _CRTIMP int __cdecl _vfwprintf_p(FILE *_File,const wchar_t *_Format,va_list _ArgList);
