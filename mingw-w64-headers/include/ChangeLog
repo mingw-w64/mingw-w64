@@ -1,3 +1,11 @@
+2010-04-19  Patrick von Reth  <patrick.vonreth@gmail.com>
+
+	* dbghelp.h (PSYM_ENUMMODULES_CALLBACK64,
+	PSYM_ENUMSYMBOLS_CALLBACK64, PSYM_ENUMSYMBOLS_CALLBACK64W,
+	CALLBACK *PENUMLOADED_MODULES_CALLBACK64,
+	CALLBACK *PSYM_ENUMMODULES_CALLBACK64): Make string
+	argument const.
+
 2010-04-16  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* vfw.h: Add comment about unguarded duplication in avifmt.h
