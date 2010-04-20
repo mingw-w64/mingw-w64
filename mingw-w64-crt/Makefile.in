@@ -2147,6 +2147,10 @@ AM_CPPFLAGS = -D_CRTBLD $(sysincludes)
 AM_CFLAGS = $(cflags_underscores) -pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 AM_DLLTOOLFLAGS = $(dlltool_underscores) -k --as=$(AS) --output-lib $@
+DLLTOOLFLAGS32 = --as-flags=--32 -m i386
+DLLTOOLFLAGS64 = --as-flags=--64 -m i386:x86-64
+DTDEF32 = $(DLLTOOL) $(DLLTOOLFLAGS32) $(AM_DLLTOOLFLAGS) --input-def
+DTDEF64 = $(DLLTOOL) $(DLLTOOLFLAGS64) $(AM_DLLTOOLFLAGS) --input-def
 DTDEF = $(DLLTOOL) $(AM_DLLTOOLFLAGS) --input-def
 DTLIB = $(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 extra_include = -I$(top_srcdir)/include
@@ -2379,7 +2383,7 @@ src_libmingwex32 = \
 @LIB32_TRUE@lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32)
 @LIB32_TRUE@lib32_libmoldname_a_CPPFLAGS = -m32 $(extra_include) $(AM_CPPFLAGS)
 @LIB32_TRUE@lib32_libmoldname_a_SOURCES = $(src_libmoldname)
-@LIB32_TRUE@lib32_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libmoldname_a_AR = $(DTDEF32) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libscrnsave_a_SOURCES = $(src_libscrnsave)
 @LIB32_TRUE@lib32_libscrnsave_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libscrnsavw_a_SOURCES = $(src_libscrnsavw)
@@ -2500,7 +2504,7 @@ src_libmingwex32 = \
 @LIB64_TRUE@lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64)
 @LIB64_TRUE@lib64_libmoldname_a_CPPFLAGS = -m64 $(extra_include) $(AM_CPPFLAGS)
 @LIB64_TRUE@lib64_libmoldname_a_SOURCES = $(src_libmoldname)
-@LIB64_TRUE@lib64_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libmoldname_a_AR = $(DTDEF64) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 @LIB64_TRUE@lib64_libmingwthrd_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libuuid_a_SOURCES = $(src_libuuid)
@@ -24740,10 +24744,10 @@ _libm_dummy.c:
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
 @LIB32_TRUE@lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a: lib32/lib%.a: lib32/%.def
-@LIB32_TRUE@	$(DTDEF) $< --dllname $*.dll -m i386 --as-flags=--32
+@LIB32_TRUE@	$(DTDEF32) $< --dllname $*.dll
 
 @LIB32_TRUE@lib32/lib%.a: lib32/%.def
-@LIB32_TRUE@	$(DTDEF) $< -m i386 --as-flags=--32
+@LIB32_TRUE@	$(DTDEF32) $<
 @LIB64_TRUE@lib64/crt1.o: crt/crtexe.c
 @LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 @LIB64_TRUE@lib64/crt2.o: crt/crtexe.c
@@ -24768,10 +24772,10 @@ _libm_dummy.c:
 @LIB64_TRUE@	$(COMPILE) -m64 -c $< -o $@
 
 @LIB64_TRUE@lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
-@LIB64_TRUE@	$(DTDEF) $< --dllname $*.dll -m i386:x86-64 --as-flags=--64
+@LIB64_TRUE@	$(DTDEF64) $< --dllname $*.dll
 
 @LIB64_TRUE@lib64/lib%.a: lib64/%.def
-@LIB64_TRUE@	$(DTDEF) $< -m i386:x86-64 --as-flags=--64
+@LIB64_TRUE@	$(DTDEF64) $<
 
 dist-hook:
 	rm -rf `find $(top_distdir) -name ".svn"`
