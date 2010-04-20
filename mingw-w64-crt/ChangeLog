@@ -1,3 +1,12 @@
+2010-04-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/gettimeofday.c (FILETIME_1970): Change from 11644473600ull
+	to 116444736000000000ull as in the mingw.org version, fixing the
+	issue reported by Patrick Galbraith.
+	(getntptimeofday): Use a union of unsigned long long and FILETIME
+	instead of ULARGE_INTEGER, as in the mingw.org version, to fix the
+	strict aliasing violations reported by -Wstrict-aliasing=2.
+
 2010-04-17  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* misc/mbrtowc.c (__mbrtowc_cp): Add nonnull attribute.

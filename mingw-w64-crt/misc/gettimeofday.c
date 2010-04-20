@@ -9,7 +9,7 @@
 #include <errno.h>
 #include <windows.h>
 
-#define FILETIME_1970 11644473600ull /* seconds between 1/1/1601 and 1/1/1970 */
+#define FILETIME_1970 116444736000000000ull /* seconds between 1/1/1601 and 1/1/1970 */
 #define HECTONANOSEC_PER_SEC 10000000ull
 
 int getntptimeofday (struct timespec *, struct timezone *);
@@ -17,8 +17,10 @@ int getntptimeofday (struct timespec *, struct timezone *);
 int getntptimeofday (struct timespec *tp, struct timezone *z)
 {
   int res = 0;
-  /* struct _timeb timebuffer; */
-  ULARGE_INTEGER fti;
+  union {
+    unsigned long long ns100; /*time since 1 Jan 1601 in 100ns units */
+    FILETIME ft;
+  }  _now;
   TIME_ZONE_INFORMATION  TimeZoneInformation;
   DWORD tzi;
 
@@ -39,11 +41,11 @@ int getntptimeofday (struct timespec *tp, struct timezone *z)
     }
 
   if (tp != NULL) {
-    GetSystemTimeAsFileTime ((LPFILETIME) &fti);	 /* 100-nanoseconds since 1-1-1601 */
+    GetSystemTimeAsFileTime (&_now.ft);	 /* 100-nanoseconds since 1-1-1601 */
     /* The actual accuracy on XP seems to be 125,000 nanoseconds = 125 microseconds = 0.125 milliseconds */
-    fti.QuadPart -= FILETIME_1970;	/* 100 nano-seconds since 1-1-1970 */
-    tp->tv_sec = fti.QuadPart / HECTONANOSEC_PER_SEC;	/* seconds since 1-1-1970 */
-    tp->tv_nsec = (long) (fti.QuadPart % HECTONANOSEC_PER_SEC) * 100; /* nanoseconds */
+    _now.ns100 -= FILETIME_1970;	/* 100 nano-seconds since 1-1-1970 */
+    tp->tv_sec = _now.ns100 / HECTONANOSEC_PER_SEC;	/* seconds since 1-1-1970 */
+    tp->tv_nsec = (long) (_now.ns100 % HECTONANOSEC_PER_SEC) * 100; /* nanoseconds */
   }
   return res;
 }
