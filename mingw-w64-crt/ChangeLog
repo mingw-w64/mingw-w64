@@ -1,3 +1,9 @@
+2010-04-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c: Fix strict aliasing
+	violation warning by using a struct in_addr variable instead of a
+	DWORD variable.
+
 2010-04-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* misc/gettimeofday.c (FILETIME_1970): Change from 11644473600ull
