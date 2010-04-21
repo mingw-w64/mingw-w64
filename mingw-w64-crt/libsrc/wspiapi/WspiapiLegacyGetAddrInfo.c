@@ -13,7 +13,7 @@ WspiapiLegacyGetAddrInfo(const char *pszNodeName,
 			 struct addrinfo **pptResult)
 {
   int err = 0, iFlags = 0, iFamily = PF_UNSPEC, iSocketType = 0, iProtocol = 0;
-  DWORD dwAddress = 0;
+  struct in_addr inAddress;
   struct servent *svc = NULL;
   char *pc = NULL;
   WINBOOL isCloned = FALSE;
@@ -75,13 +75,13 @@ WspiapiLegacyGetAddrInfo(const char *pszNodeName,
 	      }
 	  }
     }
-  if (!pszNodeName || WspiapiParseV4Address(pszNodeName,&dwAddress))
+  if (!pszNodeName || WspiapiParseV4Address(pszNodeName,&inAddress.s_addr))
     {
 	if (!pszNodeName)
 	  {
-	    dwAddress = htonl ((iFlags & AI_PASSIVE) ? INADDR_ANY : INADDR_LOOPBACK);
+	    inAddress.s_addr = htonl ((iFlags & AI_PASSIVE) ? INADDR_ANY : INADDR_LOOPBACK);
 	  }
-      *pptResult = WspiapiNewAddrInfo(iSocketType, iProtocol, port, dwAddress);
+      *pptResult = WspiapiNewAddrInfo(iSocketType, iProtocol, port, inAddress.s_addr);
       if (!(*pptResult))
 	  err = EAI_MEMORY;
 	if (!err && pszNodeName)
@@ -90,7 +90,7 @@ WspiapiLegacyGetAddrInfo(const char *pszNodeName,
 	    if (iFlags & AI_CANONNAME)
 	      {
 		(*pptResult)->ai_canonname =
-		  WspiapiStrdup (inet_ntoa (*((struct in_addr *) &dwAddress)));
+		  WspiapiStrdup (inet_ntoa (inAddress));
 		if (!(*pptResult)->ai_canonname)
 		  err = EAI_MEMORY;
 	      }
