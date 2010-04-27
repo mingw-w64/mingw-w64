@@ -1,3 +1,9 @@
+2010-04-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dirent.h (DIR): Change dd_handle from long to intptr_t type for win64
+	compatibility.
+	(_WDIR): Likewise.
+
 2010-04-19  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
