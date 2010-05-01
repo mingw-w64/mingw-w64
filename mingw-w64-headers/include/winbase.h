@@ -1087,7 +1087,8 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI FreeResource(HGLOBAL hResData);
   WINBASEAPI LPVOID WINAPI LockResource(HGLOBAL hResData);
 
-#define UnlockResource(hResData) ((hResData),0)
+/* #define UnlockResource(hResData) ((hResData),0) */
+#define UnlockResource(hResData) ( { (VOID)(hResData); 0; } )
 #define MAXINTATOM 0xC000
 #define MAKEINTATOM(i) (LPTSTR)((ULONG_PTR)((WORD)(i)))
 #define INVALID_ATOM ((ATOM)0)

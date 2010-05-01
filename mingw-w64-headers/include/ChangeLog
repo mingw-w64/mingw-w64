@@ -1,3 +1,9 @@
+2010-05-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Fix for BR/2994499 :
+	* winbase.h (UnlockResource): Make the no-op macro more gcc-friendly
+	and avoid compiler warnings.
+
 2010-04-19  Patrick von Reth  <patrick.vonreth@gmail.com>
 
 	* dbghelp.h (PSYM_ENUMMODULES_CALLBACK64,
