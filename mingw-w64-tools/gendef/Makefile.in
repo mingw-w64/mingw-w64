@@ -56,7 +56,8 @@ PROGRAMS = $(bin_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
 am_gendef_OBJECTS = src/gendef-gendef.$(OBJEXT) \
 	src/gendef-gendef_def.$(OBJEXT) \
-	src/gendef-compat_string.$(OBJEXT)
+	src/gendef-compat_string.$(OBJEXT) \
+	src/gendef-fsredir.$(OBJEXT)
 gendef_OBJECTS = $(am_gendef_OBJECTS)
 gendef_LDADD = $(LDADD)
 gendef_LINK = $(CCLD) $(gendef_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
@@ -180,7 +181,9 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 with_mangle = @with_mangle@
-gendef_SOURCES = src/gendef.h src/compat_string.h src/gendef.c src/gendef_def.c src/compat_string.c
+gendef_SOURCES = src/gendef.h src/compat_string.h src/gendef.c src/gendef_def.c src/compat_string.c \
+                 src/fsredir.c src/fsredir.h
+
 gendef_CFLAGS = $(AM_CFLAGS) -O3 -g -Werror -Wall -Wextra
 EXTRA_DIST = ChangeLog-2009
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host) --with-mangle=@with_mangle@
@@ -289,6 +292,8 @@ src/gendef-gendef_def.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/gendef-compat_string.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/gendef-fsredir.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 gendef$(EXEEXT): $(gendef_OBJECTS) $(gendef_DEPENDENCIES) 
 	@rm -f gendef$(EXEEXT)
 	$(gendef_LINK) $(gendef_OBJECTS) $(gendef_LDADD) $(LIBS)
@@ -296,6 +301,7 @@ gendef$(EXEEXT): $(gendef_OBJECTS) $(gendef_DEPENDENCIES)
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f src/gendef-compat_string.$(OBJEXT)
+	-rm -f src/gendef-fsredir.$(OBJEXT)
 	-rm -f src/gendef-gendef.$(OBJEXT)
 	-rm -f src/gendef-gendef_def.$(OBJEXT)
 
@@ -303,6 +309,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/gendef-compat_string.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/gendef-fsredir.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/gendef-gendef.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/gendef-gendef_def.Po@am__quote@
 
@@ -363,6 +370,20 @@ src/gendef-compat_string.obj: src/compat_string.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/compat_string.c' object='src/gendef-compat_string.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-compat_string.obj `if test -f 'src/compat_string.c'; then $(CYGPATH_W) 'src/compat_string.c'; else $(CYGPATH_W) '$(srcdir)/src/compat_string.c'; fi`
+
+src/gendef-fsredir.o: src/fsredir.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -MT src/gendef-fsredir.o -MD -MP -MF src/$(DEPDIR)/gendef-fsredir.Tpo -c -o src/gendef-fsredir.o `test -f 'src/fsredir.c' || echo '$(srcdir)/'`src/fsredir.c
+@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/gendef-fsredir.Tpo src/$(DEPDIR)/gendef-fsredir.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/fsredir.c' object='src/gendef-fsredir.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-fsredir.o `test -f 'src/fsredir.c' || echo '$(srcdir)/'`src/fsredir.c
+
+src/gendef-fsredir.obj: src/fsredir.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -MT src/gendef-fsredir.obj -MD -MP -MF src/$(DEPDIR)/gendef-fsredir.Tpo -c -o src/gendef-fsredir.obj `if test -f 'src/fsredir.c'; then $(CYGPATH_W) 'src/fsredir.c'; else $(CYGPATH_W) '$(srcdir)/src/fsredir.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/gendef-fsredir.Tpo src/$(DEPDIR)/gendef-fsredir.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/fsredir.c' object='src/gendef-fsredir.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(gendef_CFLAGS) $(CFLAGS) -c -o src/gendef-fsredir.obj `if test -f 'src/fsredir.c'; then $(CYGPATH_W) 'src/fsredir.c'; else $(CYGPATH_W) '$(srcdir)/src/fsredir.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \

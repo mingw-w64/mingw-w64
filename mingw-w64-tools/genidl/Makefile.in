@@ -59,7 +59,7 @@ am_genidl_OBJECTS = src/genidl-genidl_config.$(OBJEXT) \
 	src/genidl-genidl_typeinfo.$(OBJEXT) \
 	src/genidl-genidl_readpe.$(OBJEXT) \
 	src/genidl-genidl_dumpidl.$(OBJEXT) \
-	src/genidl-genidl.$(OBJEXT)
+	src/genidl-fsredir.$(OBJEXT) src/genidl-genidl.$(OBJEXT)
 genidl_OBJECTS = $(am_genidl_OBJECTS)
 genidl_LDADD = $(LDADD)
 genidl_LINK = $(CCLD) $(genidl_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
@@ -185,7 +185,7 @@ top_srcdir = @top_srcdir@
 genidl_SOURCES = \
   src/genidl_cfg.h     src/genidl_typinfo.h  src/genidl_typeinfo.h  src/genidl_readpe.h \
   src/genidl_config.c  src/genidl_typinfo.c  src/genidl_typeinfo.c  src/genidl_readpe.c \
-  src/genidl_dumpidl.c \
+  src/genidl_dumpidl.c src/fsredir.c         src/fsredir.h \
   src/genidl.c
 
 genidl_CFLAGS = -O3 -g -std=gnu99 -Wall -Wextra -Wshadow -Wformat -Wpacked -Wredundant-decls -Winline -pedantic -Wno-pedantic-ms-format -Wmissing-declarations -Wredundant-decls -Wimplicit-function-declaration -Wmissing-noreturn -Wmissing-prototypes -Wstrict-aliasing=2
@@ -301,6 +301,8 @@ src/genidl-genidl_readpe.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/genidl-genidl_dumpidl.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/genidl-fsredir.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/genidl-genidl.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 genidl$(EXEEXT): $(genidl_OBJECTS) $(genidl_DEPENDENCIES) 
@@ -309,6 +311,7 @@ genidl$(EXEEXT): $(genidl_OBJECTS) $(genidl_DEPENDENCIES)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
+	-rm -f src/genidl-fsredir.$(OBJEXT)
 	-rm -f src/genidl-genidl.$(OBJEXT)
 	-rm -f src/genidl-genidl_config.$(OBJEXT)
 	-rm -f src/genidl-genidl_dumpidl.$(OBJEXT)
@@ -319,6 +322,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/genidl-fsredir.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/genidl-genidl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/genidl-genidl_config.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/genidl-genidl_dumpidl.Po@am__quote@
@@ -411,6 +415,20 @@ src/genidl-genidl_dumpidl.obj: src/genidl_dumpidl.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/genidl_dumpidl.c' object='src/genidl-genidl_dumpidl.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(genidl_CFLAGS) $(CFLAGS) -c -o src/genidl-genidl_dumpidl.obj `if test -f 'src/genidl_dumpidl.c'; then $(CYGPATH_W) 'src/genidl_dumpidl.c'; else $(CYGPATH_W) '$(srcdir)/src/genidl_dumpidl.c'; fi`
+
+src/genidl-fsredir.o: src/fsredir.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(genidl_CFLAGS) $(CFLAGS) -MT src/genidl-fsredir.o -MD -MP -MF src/$(DEPDIR)/genidl-fsredir.Tpo -c -o src/genidl-fsredir.o `test -f 'src/fsredir.c' || echo '$(srcdir)/'`src/fsredir.c
+@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/genidl-fsredir.Tpo src/$(DEPDIR)/genidl-fsredir.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/fsredir.c' object='src/genidl-fsredir.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(genidl_CFLAGS) $(CFLAGS) -c -o src/genidl-fsredir.o `test -f 'src/fsredir.c' || echo '$(srcdir)/'`src/fsredir.c
+
+src/genidl-fsredir.obj: src/fsredir.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(genidl_CFLAGS) $(CFLAGS) -MT src/genidl-fsredir.obj -MD -MP -MF src/$(DEPDIR)/genidl-fsredir.Tpo -c -o src/genidl-fsredir.obj `if test -f 'src/fsredir.c'; then $(CYGPATH_W) 'src/fsredir.c'; else $(CYGPATH_W) '$(srcdir)/src/fsredir.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/genidl-fsredir.Tpo src/$(DEPDIR)/genidl-fsredir.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/fsredir.c' object='src/genidl-fsredir.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(genidl_CFLAGS) $(CFLAGS) -c -o src/genidl-fsredir.obj `if test -f 'src/fsredir.c'; then $(CYGPATH_W) 'src/fsredir.c'; else $(CYGPATH_W) '$(srcdir)/src/fsredir.c'; fi`
 
 src/genidl-genidl.o: src/genidl.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(genidl_CFLAGS) $(CFLAGS) -MT src/genidl-genidl.o -MD -MP -MF src/$(DEPDIR)/genidl-genidl.Tpo -c -o src/genidl-genidl.o `test -f 'src/genidl.c' || echo '$(srcdir)/'`src/genidl.c

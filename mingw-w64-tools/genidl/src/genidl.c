@@ -47,6 +47,7 @@
 #include "genidl_readpe.h"
 #include "genidl_typeinfo.h"
 #include "genidl_typinfo.h"
+#include "fsredir.h"
 
 /* Configure globals.  */
 int show_dump_too = 0;
@@ -58,6 +59,10 @@ char **file_args = NULL;
 const char *basedumpname = "";
 
 static char *get_idl_basename (const char *file);
+
+#ifdef REDIRECTOR
+static int use_redirector = 0; /* Use/Disable FS redirector */
+#endif
 
 static void
 show_usage (void)
@@ -72,6 +77,11 @@ show_usage (void)
     "  -d, --dump               Dump additional internal debugging information.\n"
     "  -v, --verbose            Show additional status prints.\n"
     "  -h, --help               Show this help.\n"
+#ifdef REDIRECTOR
+    "  -r, --disable-fs-redirector\n"
+    "                           Disable Win64 FS redirection, for 32-bit\n"
+    "                           gendef on 64-bit Windows\n"
+#endif
   );
   fprintf (stderr, "\nReport bugs to <mingw-w64-public@lists.sourceforge.net>\n");
   exit (1);
@@ -119,6 +129,16 @@ scanArgs (int argc, char **argv)
                 }
             else
                 goto unknown_fail;
+#ifdef REDIRECTOR
+        case 'r':
+            if(! strcmp (h, "disable-fs-redirector"))
+                {
+                    use_redirector = 1;
+                    break;
+                }
+            else
+                goto unknown_fail;
+#endif
         default: goto unknown_fail;
         }
         break;
@@ -146,6 +166,13 @@ scanArgs (int argc, char **argv)
 	      goto unknown_fail;
 	    is_verbose++;
 	    break;
+#ifdef REDIRECTOR
+	  case 'r':
+	    if (h[1] != 0)
+	      goto unknown_fail;
+	    use_redirector = 1;
+	    break;
+#endif
 	  default:
 unknown_fail:
 	    fprintf (stderr, "Option %s' is unknown.\n", *argv);
@@ -178,6 +205,9 @@ int main(int argc,char **argv)
     {
        show_usage ();
     }
+#ifdef REDIRECTOR
+  doredirect(use_redirector);
+#endif
   for (i = 0; i < file_args_cnt; i++)
     {
       char s[1024], *idl_basename,*org_basename;

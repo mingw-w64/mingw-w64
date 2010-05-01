@@ -1,3 +1,12 @@
+2010-05-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* src/fsredir.h (doredirect): Declare.
+	* src/fsredir.c (doredirect): New.
+	(undoredirect): Likewise.
+	* src/gendef.c: (main): Use doredirect.
+	(show_usage): Add new option.
+	(opt_chain): Handle new option.
+
 2010-03-20  Kai Tietz  <kai.tietz@onevision.com>
 
 	* src/gendef_def.c (gendef_getsymbol_info): Handle ordinals forwarders, too.

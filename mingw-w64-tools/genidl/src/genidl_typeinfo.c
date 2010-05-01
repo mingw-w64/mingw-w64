@@ -43,6 +43,7 @@
 */
 
 #define _CRT_SECURE_NO_WARNINGS
+#include <inttypes.h>
 #include "genidl_cfg.h"
 #include "genidl_typeinfo.h"
 #include "genidl_typinfo.h"
@@ -106,10 +107,10 @@ void dumpInfo (FILE *fp, unsigned char *dta, size_t size)
   if (t->magic1 != TYPELIB_MSFT_MAGIC)
   {
     size_t k,j;
-    fprintf (fp, "Unknown magic 0x%x (%Ix)\n", t->magic1, size);
+    fprintf (fp, "Unknown magic 0x%x (%"PRIxMAX")\n", t->magic1, (uintmax_t) size);
     for (k = 0; k < size && k < (16 * 32);)
     {
-      fprintf (fp, "0x%08Ix: ", k);
+      fprintf (fp, "0x%08"PRIxMAX": ", (uintmax_t)k);
       for (j=0; j < 16 && k < size && k < (16 * 32); j++, k++)
       {
 	fprintf (fp, " %02X", dta[k]);

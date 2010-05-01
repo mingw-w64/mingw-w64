@@ -30,6 +30,7 @@
 #include <string.h>
 #include "compat_string.h"
 #include "gendef.h"
+#include "fsredir.h"
 #ifdef HAVE_LIBMANGLE
 #include <libmangle.h>
 #endif
@@ -82,6 +83,10 @@ PIMAGE_DOS_HEADER gMZDta;
 PIMAGE_NT_HEADERS32 gPEDta;
 PIMAGE_NT_HEADERS64 gPEPDta;
 
+#ifdef REDIRECTOR
+static int use_redirector = 0; /* Use/Disable FS redirector */
+#endif
+
 static int std_output = 0;
 static int assume_stdcall = 0; /* Set to one, if function symbols should be assumed to have stdcall.  */
 static int no_forward_output = 0; /* Set to one, if in .def files forwarders shouldn't be displayed.  */
@@ -126,6 +131,14 @@ opt_chain (const char *opts, const char *next)
       no_forward_output = 1;
       return 0;
     }
+
+#ifdef REDIRECTOR
+  if (!strcmp (opts, "--disable-fs-redirector") || !strcmp (opts, "-r"))
+    {
+      use_redirector = 1;
+      return 0;
+    }
+#endif
 
   current = malloc (sizeof(Gendefopts));
   if (current)
@@ -176,7 +189,12 @@ show_usage (void)
     "  -I, --include-def-path <path>\n"
     "                           Add additional search paths to find\n"
     "                           hint .def files.\n"
-    " -f, --no-forward-output   Don't output forwarders in .def file\n"
+    "  -f, --no-forward-output  Don't output forwarders in .def file\n"
+#ifdef REDIRECTOR
+    "  -r, --disable-fs-redirector\n"
+    "                           Disable Win64 FS redirection, for 32-bit\n"
+    "                           gendef on 64-bit Windows\n"
+#endif
   );
   fprintf (stderr, "\n");
   fprintf (stderr, "Usage example: \n"
@@ -201,6 +219,9 @@ int main(int argc,char **argv)
 
   for (i = 1; i < argc; i++)
     i += opt_chain (argv[i], ((i+1) < argc ? argv[i+1] : NULL));
+#ifdef REDIRECTOR
+  doredirect(use_redirector);
+#endif
   opt = chain_ptr;
   while (opt)
     {
