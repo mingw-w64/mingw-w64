@@ -9,6 +9,14 @@
 #define __gl_h_
 #define __GL_H__
 
+#if !(defined(WINGDIAPI) && defined(WINAPI))
+#pragma push_macro("WIN32_LEAN_AND_MEAN")
+#undef  WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN 1
+#include <windows.h>
+#pragma pop_macro ("WIN32_LEAN_AND_MEAN")
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif

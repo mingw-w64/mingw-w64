@@ -1,3 +1,7 @@
+2010-05-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* GL/gl.h: Include windows.h, if necessary.
+
 2010-05-02  Doug Semler <dougsemler@gmail.com>
 
 	* ws2tcpip.h: Include winsock2.h.
@@ -283,5 +287,5 @@
 
 2010-01-01  Jonathan Yong  <jon_y@sourceforge.net>
 
-        * include/profile.h (_MCOUNT_DECL): Add gnu_inline attribute
-        and remove static qualifier.
+	* include/profile.h (_MCOUNT_DECL): Add gnu_inline attribute
+	and remove static qualifier.
