@@ -1,3 +1,7 @@
+2010-05-02  Doug Semler <dougsemler@gmail.com>
+
+	* ws2tcpip.h: Include winsock2.h.
+
 2010-05-01  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Fix for BR/2994499 :
