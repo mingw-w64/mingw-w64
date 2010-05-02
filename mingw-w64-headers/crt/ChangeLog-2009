@@ -1,6 +1,6 @@
 2009-12-05  Jonathan Yong  <jon_y@users.sourceforge.net>
 
-        * getopt.h (getopt_long_only): New.
+	* getopt.h (getopt_long_only): New.
 
 2009-12-04  Jonathan Yong  <jon_y@users.sourceforge.net>
 
@@ -238,7 +238,7 @@
 2009-11-28  Tor Lillqvist  <tml@iki.fi>
 
 	* sys/ioctl.h: Moved to the experimental branch.
-	
+
 2009-11-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	Generated this file.

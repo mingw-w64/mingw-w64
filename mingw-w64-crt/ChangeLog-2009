@@ -9,7 +9,7 @@
 
 2009-12-05  Jonathan Yong  <jon_y@users.sourceforge.net>
 
-       * misc/getopt.c: Merge from Cygwin, new getopt_long_only function
+	* misc/getopt.c: Merge from Cygwin, new getopt_long_only function
 
 2009-12-04  Kai Tietz  <kai.tietz@onevision.com>
 
@@ -25,7 +25,7 @@
 	Merged from mingw.org's repository.
 	2009-11-25  Chris Sutcliffe  <ir0nh34d@users.sourceforge.net>
 
-        * mingwex/gdtoa/misc.c: Fix security vulnerability in gdtoa:
+	* mingwex/gdtoa/misc.c: Fix security vulnerability in gdtoa:
 	http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0689
 
 2009-12-01  Kai Tietz  <kai.tietz@onevision.com>
@@ -59,9 +59,9 @@
 
 2009-10-03  Kai Tietz  <kai.tietz@onevision.com>
 
-        * libsrc/wia-uuid.c: New.
-        * Makefile.am: Add libsrc/wia-uuid.c to libuuid.a lib.
-        * Makefile.in: Regenerated.
+	* libsrc/wia-uuid.c: New.
+	* Makefile.am: Add libsrc/wia-uuid.c to libuuid.a lib.
+	* Makefile.in: Regenerated.
 
 	* misc/basename.c, misc/dirname.c: New.
 	* Makefile.am: Add basename.c and dirname.c to libmingwex.a lib.
@@ -216,11 +216,11 @@
 2009-08-16  Kai Tietz  <kai.tietz@onevision.com>
 
 	* intrincs/writefsbyte.c: New.
-        * intrincs/writefsdword.c New.
-        * intrincs/readfsbyte.c: New.
-        * intrincs/writefsword.c: New.
-        * intrincs/readfsword.c: New.
-        * intrincs/readfsdword.c: New.
+	* intrincs/writefsdword.c New.
+	* intrincs/readfsbyte.c: New.
+	* intrincs/writefsword.c: New.
+	* intrincs/readfsword.c: New.
+	* intrincs/readfsdword.c: New.
 	* Makefile.am (src_libmingwex32): Added 32-bit specific intrinsic
 	function libmingwex,a library.
 	* Makefile.in: Regenerated.
@@ -672,8 +672,8 @@
 
 2009-04-01  Kai Tietz  <kai.tietz@onevision.com>
 
-        PR/2723829
-        * misc/mingw_getsp.S: Fix wrong .code64.
+	PR/2723829
+	* misc/mingw_getsp.S: Fix wrong .code64.
 
 2009-03-28  Kai Tietz  <kai.tietz@onevision.com>
 

@@ -25,6 +25,7 @@
 	* assert.h (assert): Add default ASCII version.
 
 2010-03-14  Jonathan Yong  <jon_y@users.sourceforge.net>
+
 	* math.h (frexp): Remove pure attribute.
 	(modf): ditto.
 	(sincos): ditto.
@@ -74,7 +75,7 @@
 
 2010-01-14  Kai Tietz  <kai.tietz@onevision.com>
 
-        * tchar.h (PTCHAR, TBYTE, PTBYTE): Added.
+	* tchar.h (PTCHAR, TBYTE, PTBYTE): Added.
 
 2010-01-07  Jonathan Yong  <jon_y@users.sourceforge.net>
 

@@ -9,7 +9,8 @@
 
 2010-03-20  Kai Tietz  <kai.tietz@onevision.com>
 
-	* src/gendef_def.c (gendef_getsymbol_info): Handle ordinals forwarders, too.
+	* src/gendef_def.c (gendef_getsymbol_info): Handle ordinals forwarders,
+	too.
 
 2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
 
