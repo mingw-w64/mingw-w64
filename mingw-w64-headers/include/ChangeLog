@@ -1,3 +1,7 @@
+2010-05-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* GL/gl.h: Include windows.h, if necessary.
+
 2010-05-02  Doug Semler <dougsemler@gmail.com>
 
 	* ws2tcpip.h: Include winsock2.h.
@@ -354,20 +358,20 @@
 2009-12-10  Kai Tietz  <kai.tietz@onevision.com>
 
 	Merged from trunk.
-        * wspiapi.h: Remove inline functions with static members.
-        General clean up formatting of this file.
+	* wspiapi.h: Remove inline functions with static members.
+	General clean up formatting of this file.
 
 2009-12-04  Jonathan Yong  <jon_y@users.sourceforge.net>
 
-        * _mingw_mac.h (STRINGIFY): Rename to __MINGW64_STRINGIFY
-        (__MINGW64_VERSION_STR): Use __MINGW64_STRINGIFY
+	* _mingw_mac.h (STRINGIFY): Rename to __MINGW64_STRINGIFY
+	(__MINGW64_VERSION_STR): Use __MINGW64_STRINGIFY
 
 2009-11-26  Kai Tietz  <kai.tietz@onevision.com>
 
 	Merged from trunk.
-        * ntsecapi.h (STRING): Protect by guard.
-        (UNICODE_STRING): Likewise.
-        * ntsecapi.h: Likewise.
+	* ntsecapi.h (STRING): Protect by guard.
+	(UNICODE_STRING): Likewise.
+	* ntsecapi.h: Likewise.
 
 2009-10-25  Kai Tietz  <kai.tietz@onevision.com>
 
@@ -384,7 +388,7 @@
 2009-10-02  Kai Tietz  <kai.tietz@onevision.com>
 
 	Merged from trunk.
-        * libgen.h: New.
+	* libgen.h: New.
 
 2009-09-28  Kai Tietz  <kai.tietz@onevision.com>
 
@@ -434,10 +438,10 @@
 
 2009-09-18  Kai Tietz  <kai.tietz@onevision.com>
 
-        * Implement time_t related functions by stubs in libmingwex.a and do
-        export them in .def as DATA. So just the imp_<name> is present and we
-        avoid collisions in names. Reasoned is this patch by dlltool's inability
-        to alias symbols.
+	* Implement time_t related functions by stubs in libmingwex.a and do
+	export them in .def as DATA. So just the imp_<name> is present and we
+	avoid collisions in names. Reasoned is this patch by dlltool's inability
+	to alias symbols.
 
 2009-09-18  Ozkan Sezer  <sezeroz@gmail.com>
 
@@ -447,12 +451,12 @@
 
 2009-09-17  Kai Tietz  <kai.tietz@onevision.com>
 
-        * time.h, wchar.h, tchar.h: Add for time specific function the _<name>32 version
+	* time.h, wchar.h, tchar.h: Add for time specific function the _<name>32 version
 	to headers and use them in inline version.
 
 2009-09-15  Kai Tietz  <kai.tietz@onevision.com>
 
-        * time.h: Use of _localtime32, _gmtime32, and _mkgmtime32.
+	* time.h: Use of _localtime32, _gmtime32, and _mkgmtime32.
 
 2009-09-11  Kai Tietz  <kai.tietz@onevision.com>
 
@@ -1042,26 +1046,26 @@
 
 2008-01-26  Kai Tietz  <kai.tietz@onevision.com>
 
-        * sys/time.h: Remove declaration of gettimeofday for
-        libiberty sake.
-        Add declaration of mingw_gettimeofday method.
-        * time.h: Add gettimeofday declaration in protected clause.
-        Add declaration of mingw_gettimeofday method.
-        * _mingw.h: Add __MINGW_ATTRIB_NORETURN, __MINGW_ATTRIB_CONST,
-        __UNUSED_PARAM, and __MINGW_GNUC_PREREQ macros.
-        * conio.h: Add intrin function for I/O as inline methods.
+	* sys/time.h: Remove declaration of gettimeofday for
+	libiberty sake.
+	Add declaration of mingw_gettimeofday method.
+	* time.h: Add gettimeofday declaration in protected clause.
+	Add declaration of mingw_gettimeofday method.
+	* _mingw.h: Add __MINGW_ATTRIB_NORETURN, __MINGW_ATTRIB_CONST,
+	__UNUSED_PARAM, and __MINGW_GNUC_PREREQ macros.
+	* conio.h: Add intrin function for I/O as inline methods.
 
 2008-01-23  Kai Tietz  <kai.tietz@onevision.com>
 
-        * sys/time.h: Add gettimeofday declaration for not __STRICT_ANSI__.
-        * time.h: Protect timezone declaration.
-        Change major protection-clause.
-        * math.h: Change major protection-clause.
-        * sys/timeb.h: Change major protection-clause.
+	* sys/time.h: Add gettimeofday declaration for not __STRICT_ANSI__.
+	* time.h: Protect timezone declaration.
+	Change major protection-clause.
+	* math.h: Change major protection-clause.
+	* sys/timeb.h: Change major protection-clause.
 
 2008-01-19  Kai Tietz  <kai.tietz@onevision.com>
 
-        * winnt.h: Added old-style context member for float description.
+	* winnt.h: Added old-style context member for float description.
 	* gdiplus*.h: Moved to experimental.
 
 2008-01-09  Kai Tietz  <kai.tietz@onevision.com>
