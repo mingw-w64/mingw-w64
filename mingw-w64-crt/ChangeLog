@@ -1,3 +1,7 @@
+2010-05-02  Jonathan Yong  <jon_y@sourceforge.net>
+	* misc/mb_wc_common.h (get_codepage): use ___lc_codepage_func
+	instead of __lc_codepage to get codepage.
+
 2010-04-21  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c: Fix strict aliasing
