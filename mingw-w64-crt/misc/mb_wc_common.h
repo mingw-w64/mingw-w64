@@ -4,11 +4,11 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#undef __lc_codepage
-__declspec(dllimport) extern unsigned int __lc_codepage;
+#include <_mingw.h>
+_CRTIMP unsigned int ___lc_codepage_func(void);
 
 static inline
 unsigned int get_codepage (void)
 {
-	return __lc_codepage;
+  return ___lc_codepage_func();
 }
