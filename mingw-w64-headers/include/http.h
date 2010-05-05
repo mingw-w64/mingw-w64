@@ -30,7 +30,7 @@ extern "C" {
   typedef HTTP_OPAQUE_ID HTTP_CONNECTION_ID,*PHTTP_CONNECTION_ID;
   typedef HTTP_OPAQUE_ID HTTP_RAW_CONNECTION_ID,*PHTTP_RAW_CONNECTION_ID;
 
-#define HTTP_NULL_ID (0ui64)
+#define HTTP_NULL_ID (0ull)
 #define HTTP_IS_NULL_ID(pid) (HTTP_NULL_ID==*(pid))
 #define HTTP_SET_NULL_ID(pid) (*(pid) = HTTP_NULL_ID)
 
