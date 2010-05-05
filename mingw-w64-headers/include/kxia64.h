@@ -51,13 +51,13 @@
 #define PSR_MFH 5
 
 #define PSR_MBZ0 6
-#define PSR_MBZ0_V 0x7fi64
+#define PSR_MBZ0_V 0x7fll
 
 #define PSR_IC 13
 #define PSR_I 14
 #define PSR_PK 15
 #define PSR_MBZ1 16
-#define PSR_MBZ1_V 0x1i64
+#define PSR_MBZ1_V 0x1ll
 #define PSR_DT 17
 #define PSR_DFL 18
 #define PSR_DFH 19
@@ -71,7 +71,7 @@
 #define PSR_RT 27
 
 #define PSR_MBZ2 28
-#define PSR_MBZ2_V 0xfi64
+#define PSR_MBZ2_V 0xfll
 
 #define PSR_CPL 32
 #define PSR_CPL_LEN 2
@@ -89,7 +89,7 @@
 #define PSR_IA 45
 
 #define PSR_MBZ3 46
-#define PSR_MBZ3_V 0x3ffffi64
+#define PSR_MBZ3_V 0x3ffffll
 
 #define PL_KERNEL 0
 #define PL_USER 3
@@ -157,7 +157,7 @@
 #define FPSR_I3 57
 
 #define FPSR_MBZ0 58
-#define FPSR_MBZ0_V 0x3fi64
+#define FPSR_MBZ0_V 0x3fll
 
 #define FPSR_FOR_KERNEL 0x9804C0270033F
 
@@ -236,7 +236,7 @@
 #define DCR_DEFER_ALL 0x7f00
 
 #define DCR_MBZ1 2
-#define DCR_MBZ1_V 0xffffffffffffi64
+#define DCR_MBZ1_V 0xffffffffffffll
 
 #define RSC_MODE 0
 #define RSC_PL 2
@@ -249,7 +249,7 @@
 
 #define RSC_MBZ1 30
 #define RSC_MBZ1_LEN 34
-#define RSC_MBZ1_V 0x3ffffffffi64
+#define RSC_MBZ1_V 0x3ffffffffll
 
 #define RSC_MODE_LY (0x0)
 
@@ -269,7 +269,7 @@
 #define IFS_IFM 0
 #define IFS_IFM_LEN 38
 #define IFS_MBZ0 38
-#define IFS_MBZ0_V 0x1ffffffi64
+#define IFS_MBZ0_V 0x1ffffffll
 #define IFS_V 63
 #define IFS_V_LEN 1
 
@@ -551,11 +551,11 @@
 
 #define PSRL_INITIAL 0x086a2008
 
-#define USER_PSR_INITIAL 0x00001013082a6008i64
+#define USER_PSR_INITIAL 0x00001013082a6008ll
 
 #define USER_FPSR_INITIAL 0x9804C0270033F
 
-#define USER_DCR_INITIAL 0x0000000000007f05i64
+#define USER_DCR_INITIAL 0x0000000000007f05ll
 
 #define USER_RSC_INITIAL ((RSC_MODE_LY<<RSC_MODE) | (RSC_BE_LITTLE<<RSC_BE) | (0x3<<RSC_PL))
 
