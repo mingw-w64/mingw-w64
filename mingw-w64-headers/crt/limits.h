@@ -41,11 +41,11 @@
 #define ULLONG_MAX 0xffffffffffffffffull
 
 #define _I8_MIN (-127 - 1)
-#define _I8_MAX 127i8
+#define _I8_MAX 127
 #define _UI8_MAX 0xffu
 
 #define _I16_MIN (-32767 - 1)
-#define _I16_MAX 32767i16
+#define _I16_MAX 32767
 #define _UI16_MAX 0xffffu
 
 #define _I32_MIN (-2147483647 - 1)
