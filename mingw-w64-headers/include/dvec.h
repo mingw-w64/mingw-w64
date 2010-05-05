@@ -53,7 +53,7 @@ class I128vec1;
 
 inline const __m128i get_mask128()
 {
-  static const __m128i mask128 = _mm_set1_epi64(M64(0xffffffffffffffffi64));
+  static const __m128i mask128 = _mm_set1_epi64(M64(0xffffffffffffffffll));
   return mask128;
 }
 
