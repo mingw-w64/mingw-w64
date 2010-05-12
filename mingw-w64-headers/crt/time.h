@@ -174,24 +174,37 @@ struct tm *__cdecl localtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_
 #ifndef localtime_r
 #define localtime_r(_Time, _Tm)	({ struct tm *___tmp_tm =		\
 						localtime((_Time));	\
-						if (___tmp_tm)		\
+						if (___tmp_tm) {	\
 						  *(_Tm) = *___tmp_tm;	\
+						  ___tmp_tm = (_Tm);	\
+						}			\
 						else *(_Tm) = 0;	\
 						___tmp_tm;	})
 #endif
 #ifndef gmtime_r
 #define gmtime_r(_Time,_Tm)	({ struct tm *___tmp_tm =		\
 						gmtime((_Time));	\
-						if (___tmp_tm)		\
+						if (___tmp_tm) {	\
 						  *(_Tm) = *___tmp_tm;	\
+						  ___tmp_tm = (_Tm);	\
+						}			\
 						else *(_Tm) = 0;	\
 						___tmp_tm;	})
 #endif
 #ifndef ctime_r
 #define ctime_r(_Time,_Str)	({ char *___tmp_tm = ctime((_Time));	\
 						if (___tmp_tm)		\
+						 ___tmp_tm =		\
 						   strcpy((_Str),___tmp_tm); \
 						else *(_Tm) = 0;	\
+						___tmp_tm;	})
+#endif
+#ifndef asctime_r
+#define asctime_r(_Tm, _Buf)	({ char *___tmp_tm = asctime((_Tm));	\
+						if (___tmp_tm)		\
+						 ___tmp_tm =		\
+						   strcpy((_Buf),___tmp_tm);\
+						else	*(_Buf) = 0;	\
 						___tmp_tm;	})
 #endif
 #else /* NOT GCC: */
