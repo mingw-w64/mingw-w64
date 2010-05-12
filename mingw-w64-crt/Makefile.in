@@ -55,7 +55,7 @@ check_PROGRAMS = testcases/tstmainc$(EXEEXT) \
 	testcases/tstmain_sys_xxx$(EXEEXT) \
 	testcases/t_ansi_io$(EXEEXT) testcases/t_float$(EXEEXT) \
 	testcases/t_fstat$(EXEEXT) testcases/t_intrinc$(EXEEXT) \
-	testcases/t_matherr$(EXEEXT) \
+	testcases/t_imagebase$(EXEEXT) testcases/t_matherr$(EXEEXT) \
 	testcases/t_nullptrexception$(EXEEXT) \
 	testcases/t_readdir$(EXEEXT) testcases/t_setjmp$(EXEEXT) \
 	testcases/t_sigv$(EXEEXT) testcases/t_speed_powl$(EXEEXT) \
@@ -1849,6 +1849,9 @@ testcases_t_float_LDADD = $(LDADD)
 testcases_t_fstat_SOURCES = testcases/t_fstat.c
 testcases_t_fstat_OBJECTS = testcases/t_fstat.$(OBJEXT)
 testcases_t_fstat_LDADD = $(LDADD)
+testcases_t_imagebase_SOURCES = testcases/t_imagebase.c
+testcases_t_imagebase_OBJECTS = testcases/t_imagebase.$(OBJEXT)
+testcases_t_imagebase_LDADD = $(LDADD)
 testcases_t_intrinc_SOURCES = testcases/t_intrinc.c
 testcases_t_intrinc_OBJECTS =  \
 	testcases/testcases_t_intrinc-t_intrinc.$(OBJEXT)
@@ -1950,9 +1953,10 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(lib64_libshell32_a_SOURCES) $(lib64_libstrmiids_a_SOURCES) \
 	$(lib64_libuuid_a_SOURCES) $(lib64_libws2_32_a_SOURCES) \
 	testcases/t_ansi_io.c testcases/t_float.c testcases/t_fstat.c \
-	testcases/t_intrinc.c testcases/t_matherr.c \
-	testcases/t_municode.c testcases/t_nullptrexception.c \
-	testcases/t_readdir.c testcases/t_setjmp.c testcases/t_sigv.c \
+	testcases/t_imagebase.c testcases/t_intrinc.c \
+	testcases/t_matherr.c testcases/t_municode.c \
+	testcases/t_nullptrexception.c testcases/t_readdir.c \
+	testcases/t_setjmp.c testcases/t_sigv.c \
 	testcases/t_speed_powl.c testcases/t_stat.c \
 	testcases/t_stdint.c testcases/t_time.c testcases/t_tls1.c \
 	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
@@ -1996,7 +2000,8 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib64_libstrmiids_a_SOURCES_DIST) \
 	$(am__lib64_libuuid_a_SOURCES_DIST) \
 	$(am__lib64_libws2_32_a_SOURCES_DIST) testcases/t_ansi_io.c \
-	testcases/t_float.c testcases/t_fstat.c testcases/t_intrinc.c \
+	testcases/t_float.c testcases/t_fstat.c \
+	testcases/t_imagebase.c testcases/t_intrinc.c \
 	testcases/t_matherr.c testcases/t_municode.c \
 	testcases/t_nullptrexception.c testcases/t_readdir.c \
 	testcases/t_setjmp.c testcases/t_sigv.c \
@@ -5678,6 +5683,11 @@ testcases/t_fstat.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_fstat$(EXEEXT): $(testcases_t_fstat_OBJECTS) $(testcases_t_fstat_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_fstat$(EXEEXT)
 	$(LINK) $(testcases_t_fstat_OBJECTS) $(testcases_t_fstat_LDADD) $(LIBS)
+testcases/t_imagebase.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_imagebase$(EXEEXT): $(testcases_t_imagebase_OBJECTS) $(testcases_t_imagebase_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_imagebase$(EXEEXT)
+	$(LINK) $(testcases_t_imagebase_OBJECTS) $(testcases_t_imagebase_LDADD) $(LIBS)
 testcases/testcases_t_intrinc-t_intrinc.$(OBJEXT):  \
 	testcases/$(am__dirstamp) testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_intrinc$(EXEEXT): $(testcases_t_intrinc_OBJECTS) $(testcases_t_intrinc_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -6914,6 +6924,7 @@ mostlyclean-compile:
 	-rm -f testcases/t_ansi_io.$(OBJEXT)
 	-rm -f testcases/t_float.$(OBJEXT)
 	-rm -f testcases/t_fstat.$(OBJEXT)
+	-rm -f testcases/t_imagebase.$(OBJEXT)
 	-rm -f testcases/t_matherr.$(OBJEXT)
 	-rm -f testcases/t_nullptrexception.$(OBJEXT)
 	-rm -f testcases/t_readdir.$(OBJEXT)
@@ -8081,6 +8092,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_ansi_io.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_float.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_fstat.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_imagebase.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_matherr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_nullptrexception.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_readdir.Po@am__quote@
