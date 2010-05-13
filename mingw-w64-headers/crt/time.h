@@ -178,7 +178,6 @@ struct tm *__cdecl localtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_
 						  *(_Tm) = *___tmp_tm;	\
 						  ___tmp_tm = (_Tm);	\
 						}			\
-						else *(_Tm) = 0;	\
 						___tmp_tm;	})
 #endif
 #ifndef gmtime_r
@@ -188,7 +187,6 @@ struct tm *__cdecl localtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_
 						  *(_Tm) = *___tmp_tm;	\
 						  ___tmp_tm = (_Tm);	\
 						}			\
-						else *(_Tm) = 0;	\
 						___tmp_tm;	})
 #endif
 #ifndef ctime_r
@@ -196,7 +194,6 @@ struct tm *__cdecl localtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_
 						if (___tmp_tm)		\
 						 ___tmp_tm =		\
 						   strcpy((_Str),___tmp_tm); \
-						else *(_Tm) = 0;	\
 						___tmp_tm;	})
 #endif
 #ifndef asctime_r
@@ -204,7 +201,6 @@ struct tm *__cdecl localtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_
 						if (___tmp_tm)		\
 						 ___tmp_tm =		\
 						   strcpy((_Buf),___tmp_tm);\
-						else	*(_Buf) = 0;	\
 						___tmp_tm;	})
 #endif
 #else /* NOT GCC: */
