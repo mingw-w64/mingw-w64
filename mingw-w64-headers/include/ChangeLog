@@ -1,3 +1,11 @@
+2010-05-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* time.h (asctime_r): Do not bother zeroing the result buffer upon
+	failure.
+	(ctime_r): Likewise.
+	(gmtime_r): Likewise.
+	(localtime_r): Likewise.
+
 2010-05-12  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* time.h (asctime_r): New macro.
