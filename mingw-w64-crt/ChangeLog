@@ -1,3 +1,10 @@
+2010-05-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	Revert last check-in for getopt. Mingw.org's version is simply
+	broken, so we stick to the Cygwin/NetBSD/OpenBSD version.
+
 2010-05-05  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
