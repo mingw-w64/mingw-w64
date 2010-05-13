@@ -1,3 +1,8 @@
+2010-05-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	Revert last check-in for getopt. Mingw.org's version
+	is simply broken, so we stick to the NetBSD version.
+
 2010-05-03  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/2995926
