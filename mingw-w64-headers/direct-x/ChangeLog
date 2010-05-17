@@ -1,3 +1,8 @@
+2010-05-17  Ozkan Sezer <sezeroz@gmail.com>
+
+	* docobj.h: Deleted, already present in the main headers.
+	* docobj.idl: Deleted.
+
 2010-05-13  Ozkan Sezer <sezeroz@gmail.com>
 
 	* Sync'ed with wine-1.1.44 release version.
