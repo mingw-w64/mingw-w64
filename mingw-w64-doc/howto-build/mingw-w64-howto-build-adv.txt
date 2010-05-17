@@ -32,6 +32,7 @@ GCC configure may result in an error.
 Date /        Version /    Author
 2009-10-09    1.0          Jonathan Yong <jon_y[a]users.sourceforge.com>
 2010-01-03    1.1          Jonathan Yong <jon_y[a]users.sourceforge.com>
+2010-05-18    1.11         Jonathan Yong <jon_y[a]users.sourceforge.com>
 
 == Table of Contents ==
 
@@ -143,11 +144,10 @@ Depended by:            None
 GCC dependency type:    Soft (GCC can build without it)
 If you are planning to use CLooG with static PPL, remeber to add
 '--with-host-libstdcxx="-lstdc++ -lsupc++"' to configure.
-CLooG isn't particularly fussy about configure options, so the usual:
-	./configure
+CLooG needs to be told to use the PPL backend, so use:
+	./configure --with-ppl=<PPL install prefix>
 	make
 	make install
-is fine.
 
 === Libelf === [BELFLIB]
 
