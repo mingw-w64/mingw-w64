@@ -1,3 +1,9 @@
+2010-05-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/ucrtexe.c: Define _UNICODE.
+	* crt/udll_argv.c: Likewise.
+	* crt/udllargc.c: Likewise.
+
 2010-05-13  Kai Tietz  <kai.tietz@onevision.com>
 
 	Revert last check-in for getopt. Mingw.org's version
@@ -7,7 +13,7 @@
 
 	PR/2995926
 	* misc/getopt.c: Replace by PD mingw.org version.
-	
+
 2010-05-02  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* misc/mb_wc_common.h (get_codepage): use ___lc_codepage_func
