@@ -1,5 +1,7 @@
 2010-05-17  Ozkan Sezer <sezeroz@gmail.com>
 
+	* qedit.idl: Added from wine sources for PR/3001189.
+	* qedit.h: Generated.
 	* docobj.h: Deleted, already present in the main headers.
 	* docobj.idl: Deleted.
 
