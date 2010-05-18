@@ -1,3 +1,8 @@
+2010-05-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* GL/gl.h: Don't bother about WIN32_LEAN_AND_MEAN when including
+	windows.h. May cause more problems than it would solve.
+
 2010-05-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* GL/gl.h: Include windows.h, if necessary.
