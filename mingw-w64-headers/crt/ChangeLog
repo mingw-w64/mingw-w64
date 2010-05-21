@@ -1,3 +1,8 @@
+2010-05-21  Doug Semler  <dougsemler@gmail.com>
+
+	* process.h (_endthread): Add noreturn attribute.
+	(_endthreadex): Likewise.
+
 2010-05-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* time.h (asctime_r): Do not bother zeroing the result buffer upon
