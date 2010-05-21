@@ -29,7 +29,7 @@ extern "C" {
   _CRTIMP uintptr_t __cdecl _beginthread(void (__cdecl *_StartAddress) (void *),unsigned _StackSize,void *_ArgList);
   _CRTIMP void __cdecl _endthread(void) __MINGW_ATTRIB_NORETURN;
   _CRTIMP uintptr_t __cdecl _beginthreadex(void *_Security,unsigned _StackSize,unsigned (__stdcall *_StartAddress) (void *),void *_ArgList,unsigned _InitFlag,unsigned *_ThrdAddr);
-  _CRTIMP void __cdecl _endthreadex(unsigned _Retval) _MINGW_ATTRIB_NORETURN;
+  _CRTIMP void __cdecl _endthreadex(unsigned _Retval) __MINGW_ATTRIB_NORETURN;
 
 #ifndef _CRT_TERMINATE_DEFINED
 #define _CRT_TERMINATE_DEFINED
