@@ -35,7 +35,7 @@
  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY DIRECT, INDIRECT,
  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
  OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
@@ -273,10 +273,10 @@ TI2_update_config (sTI2TypLib *tl, const char *orgfname)
   size_t i;
   char *tlbname;
   char *sec = NULL;
-  
+
   genidl_add_lib (tl->name);
   sec = (char *) malloc (strlen (orgfname) + 5);
-  /* Do we have a .tlb input file? If so add alias of name.  */  
+  /* Do we have a .tlb input file? If so add alias of name.  */
   strcpy (sec, orgfname);
   if (strrchr (sec, '.') != NULL)
     {
@@ -506,10 +506,35 @@ TI2_typlib_imports (FILE *fp, sTI2TypLib *tl, const char *prefix)
     fprintf (fp, "\n");
 }
 
+static char *mk_guard (const char *name, const char *addition)
+{
+  char *r, *h;
+  size_t len;
+  if (!addition)
+    addition = "";
+  len = strlen (name) + strlen (addition) + 1 + strlen ("__");
+  r = (char *) malloc (len);
+  sprintf (r, "__%s%s", name, addition);
+  h = r;
+  while (*h != 0)
+    {
+      if (*h >= 'a' && *h <= 'z')
+      {
+        h[0] -= 'a';
+        h[0] += 'A';
+      }
+      else if (*h <= 0x20)
+        *h = '_';
+      h++;
+    }
+  return r;
+}
+
 static void
-TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl)
+TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
 {
   size_t i;
+  char *guard = NULL;
   int befirst;
   befirst = 1;
   for (i=0;i<tl->nr_typinfos;i++)
@@ -521,7 +546,18 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl)
 	  fprintf (fp, "/* Interface forward declarations.  */\n");
 	  befirst = 0;
 	}
+      if (behdr)
+        guard = mk_guard (tl->typb[i].name, "_FORWARDER_DEFINED");
+      if (guard && *guard != 0)
+        fprintf (fp, "#ifndef %s\n#define %s\n", guard, guard);
       fprintf (fp, "%s;\n", tl->typb[i].name);
+      if (guard)
+        {
+	  if (*guard != 0)
+	    fprintf (fp,"#endif /* %s */\n\n", guard);
+	  free (guard);
+	  guard = NULL;
+        }
     }
   if (!befirst)
     fprintf (fp, "\n");
@@ -535,7 +571,18 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl)
 	  fprintf (fp, "/* Structure forward declarations.  */\n");
 	  befirst = 0;
 	}
+      if (behdr)
+        guard = mk_guard (tl->typb[i].name, "_FORWARDER_DEFINED");
+      if (guard && *guard != 0)
+        fprintf (fp, "#ifndef %s\n#define %s\n", guard, guard);
       fprintf (fp, "%s;\n", tl->typb[i].name);
+      if (guard)
+        {
+	  if (*guard != 0)
+	    fprintf (fp,"#endif /* %s */\n\n", guard);
+	  free (guard);
+	  guard = NULL;
+        }
     }
   if (!befirst)
     fprintf (fp, "\n");
@@ -549,15 +596,77 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl)
 	  fprintf (fp, "/* Union record forward declarations.  */\n");
 	  befirst = 0;
 	}
+      if (behdr)
+        guard = mk_guard (tl->typb[i].name, "_FORWARDER_DEFINED");
+      if (guard && *guard != 0)
+        fprintf (fp, "#ifndef %s\n#define %s\n", guard, guard);
       fprintf (fp, "%s;\n", tl->typb[i].name);
+      if (guard)
+        {
+	  if (*guard != 0)
+	    fprintf (fp,"#endif /* %s */\n\n", guard);
+	  free (guard);
+	  guard = NULL;
+        }
+    }
+  if (!befirst)
+    fprintf (fp, "\n");
+  befirst = 1;
+  for (i=0;i<tl->nr_typinfos;i++)
+    {
+      if (tl->typb[i].kind != TKIND_DISPATCH)
+	continue;
+      if (befirst)
+	{
+	  fprintf (fp, "/* Union record forward declarations.  */\n");
+	  befirst = 0;
+	}
+      if (behdr)
+        guard = mk_guard (tl->typb[i].name, "_FORWARDER_DEFINED");
+      if (guard && *guard != 0)
+        fprintf (fp, "#ifndef %s\n#define %s\n", guard, guard);
+      fprintf (fp, "%s;\n", tl->typb[i].name);
+      if (guard)
+        {
+	  if (*guard != 0)
+	    fprintf (fp,"#endif /* %s */\n\n", guard);
+	  free (guard);
+	  guard = NULL;
+        }
+    }
+  if (!befirst)
+    fprintf (fp, "\n");
+  befirst = 1;
+  for (i=0;i<tl->nr_typinfos;i++)
+    {
+      if (tl->typb[i].kind != TKIND_COCLASS)
+	continue;
+      if (befirst)
+	{
+	  fprintf (fp, "/* Union record forward declarations.  */\n");
+	  befirst = 0;
+	}
+      if (behdr)
+        guard = mk_guard (tl->typb[i].name, "_FORWARDER_DEFINED");
+      if (guard && *guard != 0)
+        fprintf (fp, "#ifndef %s\n#define %s\n", guard, guard);
+      fprintf (fp, "%s;\n", tl->typb[i].name);
+      if (guard)
+        {
+	  if (*guard != 0)
+	    fprintf (fp,"#endif /* %s */\n\n", guard);
+	  free (guard);
+	  guard = NULL;
+        }
     }
   if (!befirst)
     fprintf (fp, "\n");
 }
 
 static void
-TI2_typlib_typedefs (FILE *fp, sTI2TypLib *tl, const char *prefix)
+TI2_typlib_typedefs (FILE *fp, sTI2TypLib *tl, const char *prefix, int behdr)
 {
+  char *guard = NULL;
   size_t i;
   int befirst;
   befirst = 1;
@@ -570,18 +679,31 @@ TI2_typlib_typedefs (FILE *fp, sTI2TypLib *tl, const char *prefix)
 	  fprintf (fp, "%s/* Type definitions.  */\n", prefix);
 	  befirst = 0;
 	}
-      print_typb_options (fp,tl, &tl->typb[i],prefix, NULL);
+      if (!behdr)
+        print_typb_options (fp,tl, &tl->typb[i],prefix, NULL);
+      if (behdr)
+        guard = mk_guard (tl->typb[i].name, "_TYPEDEF_DEFINED");
+      if (guard && *guard != 0)
+        fprintf (fp, "#ifndef %s\n#define %s\n", guard, guard);
       fprintf (fp, "%stypedef %s %s;\n", prefix,
 	(tl->typb[i].dataType ? tl->typb[i].dataType : "<unknown>"),
 	tl->typb[i].name);
+      if (guard)
+        {
+	  if (*guard != 0)
+	    fprintf (fp,"#endif /* %s */\n\n", guard);
+	  free (guard);
+	  guard = NULL;
+        }
     }
   if (!befirst)
     fprintf (fp, "\n");
 }
 
 static void
-TI2_typlib_enumerations (FILE *fp, sTI2TypLib *tl, const char *prefix)
+TI2_typlib_enumerations (FILE *fp, sTI2TypLib *tl, const char *prefix, int behdr)
 {
+  char *guard = NULL;
   size_t i;
   int befirst;
   befirst = 1;
@@ -594,10 +716,55 @@ TI2_typlib_enumerations (FILE *fp, sTI2TypLib *tl, const char *prefix)
 	  fprintf (fp, "%s/* Enumeration declarations.  */\n", prefix);
 	  befirst = 0;
 	}
-      print_typb_options (fp,tl, &tl->typb[i],prefix, NULL);
+      if (!behdr)
+        print_typb_options (fp,tl, &tl->typb[i],prefix, NULL);
+      if (behdr)
+        guard = mk_guard (tl->typb[i].name, "_DEFINED");
+      if (guard && *guard != 0)
+        fprintf (fp, "#ifndef %s\n#define %s\n", guard, guard);
       fprintf (fp, "%s%s\n", prefix, tl->typb[i].name);
       fprintf (fp, "%s{\n", prefix);
       printEnum (fp, tl, &tl->typb[i], prefix);
+      fprintf (fp, "%s};\n", prefix);
+      if (guard)
+      {
+	if (*guard != 0)
+	  fprintf (fp, "#endif /* %s */\n\n", guard);
+	  free (guard);
+	  guard = NULL;
+      }
+    }
+  if (!befirst)
+    fprintf (fp, "\n");
+}
+
+static void
+TI2_typlib_dispinterface_hdr (FILE *fp, sTI2TypLib *tl, const char *prefix)
+{
+  size_t i;
+  int befirst;
+  befirst = 1;
+  for (i=0;i<tl->nr_typinfos;i++)
+    {
+      if (tl->typb[i].kind != TKIND_DISPATCH)
+	continue;
+      if (befirst)
+	{
+	  fprintf (fp, "%s/* Dispatch interface declarations.  */\n", prefix);
+	  befirst = 0;
+	}
+      //print_typb_options (fp,tl, &tl->typb[i],prefix, NULL);
+      fprintf (fp, "%s%s", prefix, tl->typb[i].name);
+      if (tl->typb[i].dataType != NULL)
+      {
+	char *h = tl->typb[i].dataType;
+	if (strchr (h, ' ')!=NULL)
+	  h = strchr (h, ' ') + 1;
+	fprintf (fp, " : %s", h);
+      }
+      fprintf (fp, "\n");
+      fprintf (fp, "%s{\n", prefix);
+      printInterfaceFuncVars (fp, tl, &tl->typb[i], prefix);
       fprintf (fp, "%s};\n", prefix);
     }
   if (!befirst)
@@ -630,6 +797,46 @@ TI2_typlib_dispinterface (FILE *fp, sTI2TypLib *tl, const char *prefix)
       }
       fprintf (fp, "\n");
       fprintf (fp, "%s{\n", prefix);
+      printInterfaceFuncVars (fp, tl, &tl->typb[i], prefix);
+      fprintf (fp, "%s};\n", prefix);
+    }
+  if (!befirst)
+    fprintf (fp, "\n");
+}
+
+static void
+TI2_typlib_coclass_hdr (FILE *fp, sTI2TypLib *tl, const char *prefix, int tkind)
+{
+  size_t i;
+  int befirst;
+  befirst = 1;
+  for (i=0;i<tl->nr_typinfos;i++)
+    {
+      if (tl->typb[i].kind != tkind)
+	continue;
+      if (befirst)
+	{
+	  if (tkind == TKIND_COCLASS)
+	    fprintf (fp, "%s/* CoClass declarations.  */\n", prefix);
+	  befirst = 0;
+	}
+      //print_typb_options (fp,tl,&tl->typb[i],prefix, NULL);
+      fprintf (fp, "%s%s\n", prefix, tl->typb[i].name);
+      fprintf (fp, "%s{\n", prefix);
+      if (tl->typb[i].tib->datatype1 != -1)
+      {
+	int offset_ref = tl->typb[i].tib->datatype1;
+	char *ifname;
+	sTITyp *rtyp;
+	do {
+	  rtyp = TI_get_typ (&tl->ti2_typs, (uint32_t) offset_ref, TITYP_REF);
+	  ifname = TI_get_typ_name (&tl->ti2_typs, (uint32_t) offset_ref, TITYP_REF, "");
+	  offset_ref = (rtyp == NULL ? -1 : (int) rtyp->refmem);
+	  if (ifname)
+	    fprintf (fp, "%s  %s;\n",prefix,ifname);
+	} while (offset_ref != -1);
+
+      }
       printInterfaceFuncVars (fp, tl, &tl->typb[i], prefix);
       fprintf (fp, "%s};\n", prefix);
     }
@@ -677,8 +884,9 @@ TI2_typlib_coclass (FILE *fp, sTI2TypLib *tl, const char *prefix)
 }
 
 static void
-TI2_typlib_structures (FILE *fp, sTI2TypLib *tl, const char *prefix)
+TI2_typlib_structures (FILE *fp, sTI2TypLib *tl, const char *prefix, int behdr)
 {
+  char *guard = NULL;
   size_t i;
   int befirst;
   befirst = 1;
@@ -691,11 +899,23 @@ TI2_typlib_structures (FILE *fp, sTI2TypLib *tl, const char *prefix)
 	  fprintf (fp, "%s/* Structure/union declarations.  */\n", prefix);
 	  befirst = 0;
 	}
-      print_typb_options (fp,tl, &tl->typb[i],prefix, NULL);
+      if (!behdr)
+        print_typb_options (fp,tl, &tl->typb[i],prefix, NULL);
+      if (behdr)
+        guard = mk_guard (tl->typb[i].name, "_DEFINED");
+      if (guard && *guard != 0)
+        fprintf (fp, "#ifndef %s\n#define %s\n", guard, guard);
       fprintf (fp, "%s%s\n", prefix, tl->typb[i].name);
       fprintf (fp, "%s{\n", prefix);
       printInterfaceFuncVars (fp, tl, &tl->typb[i], prefix);
       fprintf (fp, "%s};\n", prefix);
+      if (guard)
+      {
+	if (*guard != 0)
+	  fprintf (fp, "#endif /* %s */\n\n", guard);
+	  free (guard);
+	  guard = NULL;
+      }
     }
   if (!befirst)
     fprintf (fp, "\n");
@@ -742,7 +962,7 @@ printEnum (FILE *fp, sTI2TypLib *tl, sTI2TypeBase *tb, const char *prefix_)
   {
     char *name = NULL;
     sTI2TypeBaseMemItem *mi = &tb->mem.items[i];
-    
+
     name = TI_get_typ_name (&tl->ti2_typs, mi->extData[mi->max], TITYP_NAME, "");
     if (mi->beFunc)
     {
@@ -786,7 +1006,7 @@ printInterfaceFuncVars (FILE *fp, sTI2TypLib *tl, sTI2TypeBase *tb, const char *
     char *rtyp = NULL;
     uint32_t id;
     sTI2TypeBaseMemItem *mi = &tb->mem.items[i];
-    
+
     name = TI_get_typ_name (&tl->ti2_typs, mi->extData[mi->max], TITYP_NAME, "");
     id = mi->extData[0];
     if (mi->beFunc)
@@ -845,6 +1065,7 @@ printInterfaceFuncVars (FILE *fp, sTI2TypLib *tl, sTI2TypeBase *tb, const char *
 	fprintf (fp," = %d", mi->var->oValue);
       }
       else if (tb->kind != TKIND_RECORD && tb->kind != TKIND_UNION
+        && !(tb->kind == TKIND_DISPATCH || tb->kind == TKIND_INTERFACE)
 	&& (uint32_t) mi->var->oValue != (uint32_t) -1)
         {
 	  fprintf (fp," = ");
@@ -990,6 +1211,24 @@ printFuncOption (FILE *fp, uint32_t flags, uint32_t id, uint32_t defid,
 }
 
 void
+TI2_typlib_hdr (FILE *fp, sTI2TypLib *tl, const char *orgfname)
+{
+  //int befirst;
+  if (!tl)
+    return;
+  fprintf (fp, "/* Automated generated header file <%s>.\n"
+    " * Generated by genidl tool (c) 2009, 2010 Mingw-w64 project.\n"
+    " */\n\n", (tl->name ? tl->name : "unknown"));
+  TI2_update_config (tl, orgfname);
+  TI2_typlib_forward_declare (fp, tl, 1);
+  TI2_typlib_enumerations (fp, tl, "", 1);
+  TI2_typlib_structures (fp, tl, "",1);
+  TI2_typlib_typedefs (fp, tl, "", 1);
+  if (0) TI2_typlib_coclass_hdr (fp, tl, "", TKIND_COCLASS);
+  TI2_typlib_dispinterface_hdr (fp, tl, "");
+}
+
+void
 TI2_typlib_idl (FILE *fp, sTI2TypLib *tl, const char *orgfname)
 {
   int befirst;
@@ -1000,10 +1239,10 @@ TI2_typlib_idl (FILE *fp, sTI2TypLib *tl, const char *orgfname)
     " */\n\n", (tl->name ? tl->name : "unknown"));
 
   TI2_update_config (tl, orgfname);
-  TI2_typlib_forward_declare (fp, tl);
-  TI2_typlib_enumerations (fp, tl, "");
-  TI2_typlib_structures (fp, tl, "");
-  TI2_typlib_typedefs (fp, tl, "");
+  TI2_typlib_forward_declare (fp, tl, 0);
+  TI2_typlib_enumerations (fp, tl, "", 0);
+  TI2_typlib_structures (fp, tl, "", 0);
+  TI2_typlib_typedefs (fp, tl, "", 0);
   fprintf (fp, "[\n");
   befirst = 1;
   if (tl->guid)

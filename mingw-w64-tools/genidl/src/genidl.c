@@ -35,7 +35,7 @@
  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY DIRECT, INDIRECT,
  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
  OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
@@ -51,6 +51,7 @@
 
 /* Configure globals.  */
 int show_dump_too = 0;
+int generate_header = 0;
 int is_verbose = 0;
 
 /* Process files.  */
@@ -74,6 +75,7 @@ show_usage (void)
   fprintf (stderr, "Options:\n"
     "  -b ARG, --basedumpname=ARG\n"
     "                           Specify ARG as prefix of generated idl files.\n"
+    "  -H, --header				Generate header\n"
     "  -d, --dump               Dump additional internal debugging information.\n"
     "  -v, --verbose            Show additional status prints.\n"
     "  -h, --help               Show this help.\n"
@@ -104,6 +106,9 @@ scanArgs (int argc, char **argv)
       case '-': /* Long arguments section */
         h++;
         switch (*h) {
+		case 'H':
+		  generate_header = 1;
+		  break;
         case 'd':
             if(! strcmp (h, "dump"))
                 {
@@ -113,7 +118,12 @@ scanArgs (int argc, char **argv)
             else
                 goto unknown_fail;
         case 'h':
-            if(! strcmp (h, "help")) return -2;
+        	if (!strcmp (h, "header"))
+        	  {
+				  generate_header = 1;
+				  break;
+			  }
+            if (!strcmp (h, "help")) return -2;
             goto unknown_fail;
         case 'v':
 	    if (! strcmp (h, "verbose"))
@@ -235,28 +245,49 @@ int main(int argc,char **argv)
       for (start = 0; start < end; start++)
 	{
 	  genidl_pe_typelib_resource_read (gp, start, &dta, &len);
-	  if (end != 1)
-	    sprintf (s, "%s%s_%d.idl", idl_basename, basedumpname, start);
-	  else
-	    sprintf (s, "%s%s.idl", idl_basename, basedumpname);
-	  fp = fopen (s, "wb");
-	  if (fp)
-	    {
-	      sTI2TypLib *tl = TI2_typlib_init (dta, (size_t) len);
-	      if (tl)
-		{
-		  TI2_typlib_idl (fp, tl, org_basename);
-		  TI2_typlib_dest (tl);
-		}
+	  if (generate_header == 0)
+	  {
+	    if (end != 1)
+	      sprintf (s, "%s%s_%d.idl", idl_basename, basedumpname, start);
+	    else
+	      sprintf (s, "%s%s.idl", idl_basename, basedumpname);
+	    fp = fopen (s, "wb");
+	    if (fp)
+	      {
+		sTI2TypLib *tl = TI2_typlib_init (dta, (size_t) len);
+		if (tl)
+	      {
+		TI2_typlib_idl (fp, tl, org_basename);
+		TI2_typlib_dest (tl);
+	      }
 	      if (show_dump_too)
 		dumpInfo (fp, dta, len);
 	      fclose (fp);
 	    }
 	}
-      free (idl_basename);
-      free (org_basename);
-      fclose (gp);
-    }
+	else if (generate_header == 1)
+	{
+	    if (end != 1)
+	      sprintf (s, "%s%s_%d.h", idl_basename, basedumpname, start);
+	    else
+	      sprintf (s, "%s%s.h", idl_basename, basedumpname);
+	    fp = fopen (s, "wb");
+	    if (fp)
+		  {
+		    sTI2TypLib *tl = TI2_typlib_init (dta, (size_t) len);
+		    if (tl)
+		  {
+		    TI2_typlib_hdr (fp, tl, org_basename);
+		    TI2_typlib_dest (tl);
+		  }
+		  fclose (fp);
+		}
+	    }
+	}
+	free (idl_basename);
+	free (org_basename);
+	fclose (gp);
+      }
   /* genidl_save_config_fp (stderr); */
   genidl_save_config ("./genidl.conf");
   return 0;
