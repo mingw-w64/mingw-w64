@@ -11,11 +11,7 @@
 #endif
 
 #include <winsock2.h>
-
-struct ip_mreq {
-  struct in_addr imr_multiaddr;
-  struct in_addr imr_interface;
-};
+#include <_ws_helpers/_ip_mreq1.h>
 
 struct ip_mreq_source {
   struct in_addr imr_multiaddr;
@@ -81,24 +77,7 @@ struct ip_msfilter {
 
 #define TCP_EXPEDITED_1122 0x0002
 
-#ifndef s6_addr
-
-struct in6_addr {
-  __MINGW_EXTENSION union {
-    u_char Byte[16];
-    u_short Word[8];
-  } u;
-};
-
-#define in_addr6 in6_addr
-
-#define _S6_un u
-#define _S6_u8 Byte
-#define s6_addr _S6_un._S6_u8
-
-#define s6_bytes u.Byte
-#define s6_words u.Word
-#endif
+#include <in6addr.h>
 
 typedef struct ipv6_mreq {
   struct in6_addr ipv6mr_multiaddr;
@@ -119,10 +98,6 @@ struct sockaddr_in6 {
   struct in6_addr sin6_addr;
   u_long sin6_scope_id;
 };
-
-typedef struct in6_addr IN6_ADDR;
-typedef struct in6_addr *PIN6_ADDR;
-typedef struct in6_addr *LPIN6_ADDR;
 
 typedef struct sockaddr_in6 SOCKADDR_IN6;
 typedef struct sockaddr_in6 *PSOCKADDR_IN6;

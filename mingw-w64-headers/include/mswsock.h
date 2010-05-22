@@ -36,14 +36,9 @@ extern "C" {
 
 #define SIO_SOCKET_CLOSE_NOTIFY _WSAIOW(IOC_VENDOR,13)
 
+#ifndef __MSWSOCK_WS1_SHARED
   int WINAPI WSARecvEx(SOCKET s,char *buf,int len,int *flags);
-
-  typedef struct _TRANSMIT_FILE_BUFFERS {
-    LPVOID Head;
-    DWORD HeadLength;
-    LPVOID Tail;
-    DWORD TailLength;
-  } TRANSMIT_FILE_BUFFERS,*PTRANSMIT_FILE_BUFFERS,*LPTRANSMIT_FILE_BUFFERS;
+#endif /* __MSWSOCK_WS1_SHARED */
 
 #define TF_DISCONNECT 0x01
 #define TF_REUSE_SOCKET 0x02
@@ -52,9 +47,12 @@ extern "C" {
 #define TF_USE_SYSTEM_THREAD 0x10
 #define TF_USE_KERNEL_APC 0x20
 
+#include <_ws_helpers/_xmitfile.h>
+#ifndef __MSWSOCK_WS1_SHARED
   WINBOOL WINAPI TransmitFile(SOCKET hSocket,HANDLE hFile,DWORD nNumberOfBytesToWrite,DWORD nNumberOfBytesPerSend,LPOVERLAPPED lpOverlapped,LPTRANSMIT_FILE_BUFFERS lpTransmitBuffers,DWORD dwReserved);
   WINBOOL WINAPI AcceptEx(SOCKET sListenSocket,SOCKET sAcceptSocket,PVOID lpOutputBuffer,DWORD dwReceiveDataLength,DWORD dwLocalAddressLength,DWORD dwRemoteAddressLength,LPDWORD lpdwBytesReceived,LPOVERLAPPED lpOverlapped);
   VOID WINAPI GetAcceptExSockaddrs(PVOID lpOutputBuffer,DWORD dwReceiveDataLength,DWORD dwLocalAddressLength,DWORD dwRemoteAddressLength,struct sockaddr **LocalSockaddr,LPINT LocalSockaddrLength,struct sockaddr **RemoteSockaddr,LPINT RemoteSockaddrLength);
+#endif /* __MSWSOCK_WS1_SHARED */
 
   typedef WINBOOL (WINAPI *LPFN_TRANSMITFILE)(SOCKET hSocket,HANDLE hFile,DWORD nNumberOfBytesToWrite,DWORD nNumberOfBytesPerSend,LPOVERLAPPED lpOverlapped,LPTRANSMIT_FILE_BUFFERS lpTransmitBuffers,DWORD dwReserved);
 

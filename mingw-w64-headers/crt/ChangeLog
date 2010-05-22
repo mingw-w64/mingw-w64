@@ -1,3 +1,10 @@
+2010-05-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _timeval.h: New.
+	* time.h: Include _timeval.h. Move struct timeval, timerisset,
+	timercmp and timerclear to _timeval.h.
+	* sys/time.h: Likewise.
+
 2010-05-21  Doug Semler  <dougsemler@gmail.com>
 
 	* process.h (_endthread): Add noreturn attribute.

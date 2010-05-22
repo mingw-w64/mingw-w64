@@ -1,3 +1,66 @@
+2010-05-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+	In case winsock2.h is included after winsock.h, probably by way of
+	windows.h, perform a "winsock2 upgrade" on top of winsock1 by splitting
+	the headers into some helpers holding shared data types and undefining
+	macros when necessary:
+
+	* _ws_helpers/_bsd_types.h: New.
+	* _ws_helpers/_fd_types.h: New.
+	* _ws_helpers/_ip_mreq1.h: New.
+	* _ws_helpers/_ip_types.h: New.
+	* _ws_helpers/_socket_types.h: New.
+	* _ws_helpers/_ws1_undef.h: New.
+	* _ws_helpers/_wsa_errnos.h: New.
+	* _ws_helpers/_wsadata.h: New.
+	* _ws_helpers/_xmitfile.h: New.
+	* inaddr.h: New.
+	* in6addr.h: New.
+	* ipexport.h: Include inaddr.h and in6addr.h. Move struct in6_addr
+	and its related macros to in6addr.h. Move struct in_addr and its
+	related macros to inaddr.h.
+	* mswsock.h: Include _ws_helpers/_xmitfile.h.
+	Move struct _TRANSMIT_FILE_BUFFERS to _ws_helpers/_xmitfile.h.
+	Guard WSARecvEx, TransmitFile, AcceptEx and GetAcceptExSockaddrs
+	prototypes by __MSWSOCK_WS1_SHARED ifdefs.
+	* winsock.h: Include _timeval.h, inaddr.h, _ws_helpers/_bsd_types.h,
+	_ws_helpers/_socket_types.h, _ws_helpers/_fd_types.h,
+	_ws_helpers/_ip_types.h, _ws_helpers/_ip_mreq1.h, _ws_helpers/_wsadata.h
+	and _ws_helpers/_xmitfile.h.
+	Define WINSOCK_API_LINKAGE and WSAAPI at the top and undefine them at
+	the end of the file.
+	Move struct timeval, timerisset,timercmp and timerclear to _timeval.h.
+	Move struct in_addr and its related macros to inaddr.h.
+	Move u_char, u_short, u_int, u_long and u_int64 to _ws_helpers/_bsd_types.h.
+	Move SOCKET, INVALID_SOCKET and SOCKET_ERROR to _ws_helpers/_socket_types.h.
+	Move struct fd_set and FD_SETSIZE to _ws_helpers/_fd_types.h.
+	Move struct ip_mreq to _ws_helpers/_ip_mreq1.h.
+	Move structs hostent, netent, servent, protoent, sockaddr_in, sockaddr,
+	sockproto and linger to _ws_helpers/_ip_types.h. Moved struct WSAData
+	to _ws_helpers/_wsadata.h.
+	Move WSA error macros to _ws_helpers/_wsa_errnos.h.
+	Move struct _TRANSMIT_FILE_BUFFERS to _ws_helpers/_xmitfile.h.
+	Define __WINSOCK_WS1_SHARED and __MSWSOCK_WS1_SHARED.
+	* winsock2.h: Do not re-define _WINSOCKAPI_. If it is already defined,
+	do a #warning that winsock2.h must be included before windows.h.
+	Include _ws_helpers/_ws1_undef.h to make sure that macros from winsock.h
+	are undefined. Include _timeval.h, inaddr.h, _ws_helpers/_bsd_types.h,
+	_ws_helpers/_socket_types.h, _ws_helpers/_fd_types.h,
+	_ws_helpers/_ip_types.h and _ws_helpers/_wsadata.h.
+	Move struct timeval, timerisset,timercmp and timerclear to _timeval.h.
+	Move struct in_addr and its related macros to inaddr.h.
+	Move u_char, u_short, u_int, u_long and u_int64 to _ws_helpers/_bsd_types.h.
+	Move SOCKET, INVALID_SOCKET and SOCKET_ERROR to _ws_helpers/_socket_types.h.
+	Move struct fd_set and FD_SETSIZE to _ws_helpers/_fd_types.h.
+	Move structs hostent, netent, servent, protoent, sockaddr_in, sockaddr,
+	sockproto and linger to _ws_helpers/_ip_types.h. Moved struct WSAData
+	to _ws_helpers/_wsadata.h.
+	Move WSA error macros to _ws_helpers/_wsa_errnos.h.
+	Guard the 46 functions shared by 1.1 api using __WINSOCK_WS1_SHARED ifdefs.
+	* ws2tcpip.h: Include _ws_helpers/_ip_mreq1.h.
+	Move struct ip_mreq to _ws_helpers/_ip_mreq1.h.
+	Move struct in6_addr, IN6_ADDR, PIN6_ADDR, LPIN6_ADDR to in6addr.h.
+
 2010-05-18  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* GL/gl.h: Don't bother about WIN32_LEAN_AND_MEAN when including
