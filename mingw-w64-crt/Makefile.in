@@ -155,6 +155,7 @@ am__lib32_libdxguid_a_SOURCES_DIST = libsrc/dxguid.c
 am__objects_6 = libsrc/lib32_libdxguid_a-dxguid.$(OBJEXT)
 @LIB32_TRUE@am_lib32_libdxguid_a_OBJECTS = $(am__objects_6)
 lib32_libdxguid_a_OBJECTS = $(am_lib32_libdxguid_a_OBJECTS)
+lib32_libgmon_a_AR = $(AR) $(ARFLAGS)
 lib32_libgmon_a_LIBADD =
 am__lib32_libgmon_a_SOURCES_DIST = profile/mcount.c profile/profil.h \
 	profile/profil.c profile/gmon.h profile/gmon.c \
@@ -1002,6 +1003,7 @@ am__lib64_libdxguid_a_SOURCES_DIST = libsrc/dxguid.c
 am__objects_26 = libsrc/lib64_libdxguid_a-dxguid.$(OBJEXT)
 @LIB64_TRUE@am_lib64_libdxguid_a_OBJECTS = $(am__objects_26)
 lib64_libdxguid_a_OBJECTS = $(am_lib64_libdxguid_a_OBJECTS)
+lib64_libgmon_a_AR = $(AR) $(ARFLAGS)
 lib64_libgmon_a_LIBADD =
 am__lib64_libgmon_a_SOURCES_DIST = profile/mcount.c profile/profil.h \
 	profile/profil.c profile/gmon.h profile/gmon.c \
@@ -2358,7 +2360,6 @@ src_libmingwex32 = \
 @LIB32_TRUE@  profile/gmon.h   profile/gmon.c \
 @LIB32_TRUE@  profile/mcountFunc.S
 
-@LIB32_TRUE@lib32_libgmon_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libgmon_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = $(src_libshell32)
 @LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
@@ -2490,7 +2491,6 @@ src_libmingwex32 = \
 @LIB64_TRUE@  profile/mcountFunc.S
 
 @LIB64_TRUE@lib64_libgmon_a_CPPFLAGS = -m64
-@LIB64_TRUE@lib64_libgmon_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libksuser_a_SOURCES = $(src_libksuser)
 @LIB64_TRUE@lib64_libksuser_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libksuser_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)

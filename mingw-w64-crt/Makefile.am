@@ -255,7 +255,6 @@ lib32_libgmon_a_SOURCES = profile/mcount.c \
   profile/profil.h profile/profil.c        \
   profile/gmon.h   profile/gmon.c \
   profile/mcountFunc.S
-lib32_libgmon_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
 lib32_libgmon_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libshell32.a
@@ -466,7 +465,6 @@ lib64_libgmon_a_SOURCES = profile/mcount.c \
   profile/gmon.h   profile/gmon.c \
   profile/mcountFunc.S
 lib64_libgmon_a_CPPFLAGS=-m64
-lib64_libgmon_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libksuser.a
 lib64_libksuser_a_SOURCES = $(src_libksuser)
