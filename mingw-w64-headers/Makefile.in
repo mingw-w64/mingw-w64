@@ -37,12 +37,11 @@ host_triplet = @host@
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(basehead_HEADERS) \
 	$(ddkhead_HEADERS) $(dxhead_HEADERS) $(glhead_HEADERS) \
-	$(sdkshead_HEADERS) $(sechead_HEADERS) $(secsyshead_HEADERS) \
-	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(srcdir)/config.h.in $(syshead_HEADERS) \
-	$(top_srcdir)/configure $(wshelperhead_HEADERS) ChangeLog \
-	build-aux/config.guess build-aux/config.sub \
-	build-aux/install-sh build-aux/missing
+	$(mingwhelperhead_HEADERS) $(sdkshead_HEADERS) \
+	$(sechead_HEADERS) $(secsyshead_HEADERS) $(srcdir)/Makefile.am \
+	$(srcdir)/Makefile.in $(srcdir)/config.h.in $(syshead_HEADERS) \
+	$(top_srcdir)/configure ChangeLog build-aux/config.guess \
+	build-aux/config.sub build-aux/install-sh build-aux/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -78,13 +77,13 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" \
 	"$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" \
-	"$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" \
-	"$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)" \
-	"$(DESTDIR)$(wshelperheaddir)"
+	"$(DESTDIR)$(mingwhelperheaddir)" "$(DESTDIR)$(sdksheaddir)" \
+	"$(DESTDIR)$(secheaddir)" "$(DESTDIR)$(secsysheaddir)" \
+	"$(DESTDIR)$(sysheaddir)"
 HEADERS = $(basehead_HEADERS) $(ddkhead_HEADERS) $(dxhead_HEADERS) \
-	$(glhead_HEADERS) $(sdkshead_HEADERS) $(sechead_HEADERS) \
-	$(secsyshead_HEADERS) $(syshead_HEADERS) \
-	$(wshelperhead_HEADERS)
+	$(glhead_HEADERS) $(mingwhelperhead_HEADERS) \
+	$(sdkshead_HEADERS) $(sechead_HEADERS) $(secsyshead_HEADERS) \
+	$(syshead_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -123,6 +122,7 @@ LIBS = @LIBS@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
+MINGWHELPERHEAD_LIST = @MINGWHELPERHEAD_LIST@
 MINGW_HAS_DDK = @MINGW_HAS_DDK@
 MINGW_HAS_DX = @MINGW_HAS_DX@
 MKDIR_P = @MKDIR_P@
@@ -142,7 +142,6 @@ SHELL = @SHELL@
 STRIP = @STRIP@
 SYSHEAD_LIST = @SYSHEAD_LIST@
 VERSION = @VERSION@
-WSHELPERHEAD_LIST = @WSHELPERHEAD_LIST@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -195,14 +194,14 @@ sysheaddir = $(baseheaddir)/sys
 secheaddir = $(baseheaddir)/sec_api
 secsysheaddir = $(baseheaddir)/sec_api/sys
 glheaddir = $(baseheaddir)/GL
-wshelperheaddir = $(baseheaddir)/mingw_inc
+mingwhelperheaddir = $(baseheaddir)/mingw_inc
 sdksheaddir = $(baseheaddir)/sdks
 basehead_HEADERS = @BASEHEAD_LIST@
 syshead_HEADERS = @SYSHEAD_LIST@
 sechead_HEADERS = @SECHEAD_LIST@
 secsyshead_HEADERS = @SECSYSHEAD_LIST@
 glhead_HEADERS = @GLHEAD_LIST@
-wshelperhead_HEADERS = @WSHELPERHEAD_LIST@
+mingwhelperhead_HEADERS = @MINGWHELPERHEAD_LIST@
 sdkshead_HEADERS = _mingw_directx.h _mingw_ddk.h
 ddkheaddir = $(baseheaddir)/ddk
 dxheaddir = $(baseheaddir)
@@ -367,6 +366,26 @@ uninstall-glheadHEADERS:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(glheaddir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(glheaddir)" && rm -f $$files
+install-mingwhelperheadHEADERS: $(mingwhelperhead_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(mingwhelperheaddir)" || $(MKDIR_P) "$(DESTDIR)$(mingwhelperheaddir)"
+	@list='$(mingwhelperhead_HEADERS)'; test -n "$(mingwhelperheaddir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(mingwhelperheaddir)'"; \
+	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(mingwhelperheaddir)" || exit $$?; \
+	done
+
+uninstall-mingwhelperheadHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(mingwhelperhead_HEADERS)'; test -n "$(mingwhelperheaddir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(mingwhelperheaddir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(mingwhelperheaddir)" && rm -f $$files
 install-sdksheadHEADERS: $(sdkshead_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(sdksheaddir)" || $(MKDIR_P) "$(DESTDIR)$(sdksheaddir)"
@@ -447,26 +466,6 @@ uninstall-sysheadHEADERS:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(sysheaddir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(sysheaddir)" && rm -f $$files
-install-wshelperheadHEADERS: $(wshelperhead_HEADERS)
-	@$(NORMAL_INSTALL)
-	test -z "$(wshelperheaddir)" || $(MKDIR_P) "$(DESTDIR)$(wshelperheaddir)"
-	@list='$(wshelperhead_HEADERS)'; test -n "$(wshelperheaddir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(wshelperheaddir)'"; \
-	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(wshelperheaddir)" || exit $$?; \
-	done
-
-uninstall-wshelperheadHEADERS:
-	@$(NORMAL_UNINSTALL)
-	@list='$(wshelperhead_HEADERS)'; test -n "$(wshelperheaddir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(wshelperheaddir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(wshelperheaddir)" && rm -f $$files
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -672,7 +671,7 @@ check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-am
 all-am: Makefile $(HEADERS) config.h
 installdirs:
-	for dir in "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" "$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" "$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" "$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)" "$(DESTDIR)$(wshelperheaddir)"; do \
+	for dir in "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" "$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" "$(DESTDIR)$(mingwhelperheaddir)" "$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" "$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: $(BUILT_SOURCES)
@@ -725,9 +724,9 @@ info-am:
 
 install-data-am: install-baseheadHEADERS install-ddkheadHEADERS \
 	install-dxheadHEADERS install-glheadHEADERS \
-	install-sdksheadHEADERS install-secheadHEADERS \
-	install-secsysheadHEADERS install-sysheadHEADERS \
-	install-wshelperheadHEADERS
+	install-mingwhelperheadHEADERS install-sdksheadHEADERS \
+	install-secheadHEADERS install-secsysheadHEADERS \
+	install-sysheadHEADERS
 
 install-dvi: install-dvi-am
 
@@ -775,9 +774,9 @@ ps-am:
 
 uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 	uninstall-dxheadHEADERS uninstall-glheadHEADERS \
-	uninstall-sdksheadHEADERS uninstall-secheadHEADERS \
-	uninstall-secsysheadHEADERS uninstall-sysheadHEADERS \
-	uninstall-wshelperheadHEADERS
+	uninstall-mingwhelperheadHEADERS uninstall-sdksheadHEADERS \
+	uninstall-secheadHEADERS uninstall-secsysheadHEADERS \
+	uninstall-sysheadHEADERS
 
 .MAKE: all check install install-am install-strip
 
@@ -791,18 +790,18 @@ uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 	install-ddkheadHEADERS install-dvi install-dvi-am \
 	install-dxheadHEADERS install-exec install-exec-am \
 	install-glheadHEADERS install-html install-html-am \
-	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am \
-	install-sdksheadHEADERS install-secheadHEADERS \
-	install-secsysheadHEADERS install-strip install-sysheadHEADERS \
-	install-wshelperheadHEADERS installcheck installcheck-am \
+	install-info install-info-am install-man \
+	install-mingwhelperheadHEADERS install-pdf install-pdf-am \
+	install-ps install-ps-am install-sdksheadHEADERS \
+	install-secheadHEADERS install-secsysheadHEADERS install-strip \
+	install-sysheadHEADERS installcheck installcheck-am \
 	installdirs maintainer-clean maintainer-clean-generic \
 	mostlyclean mostlyclean-generic pdf pdf-am ps ps-am tags \
 	uninstall uninstall-am uninstall-baseheadHEADERS \
 	uninstall-ddkheadHEADERS uninstall-dxheadHEADERS \
-	uninstall-glheadHEADERS uninstall-sdksheadHEADERS \
-	uninstall-secheadHEADERS uninstall-secsysheadHEADERS \
-	uninstall-sysheadHEADERS uninstall-wshelperheadHEADERS
+	uninstall-glheadHEADERS uninstall-mingwhelperheadHEADERS \
+	uninstall-sdksheadHEADERS uninstall-secheadHEADERS \
+	uninstall-secsysheadHEADERS uninstall-sysheadHEADERS
 
 
 _mingw_directx.h: $(srcdir)/crt/sdks/_mingw_directx.h.in

@@ -567,7 +567,7 @@ DXHEAD_LIST
 SECSYSHEAD_LIST
 SECHEAD_LIST
 SYSHEAD_LIST
-WSHELPERHEAD_LIST
+MINGWHELPERHEAD_LIST
 GLHEAD_LIST
 BASEHEAD_LIST
 ENABLE_CRT_FALSE
@@ -2418,7 +2418,7 @@ if test "x$enable_crt" = x""yes; then :
 
 fi
 GLHEAD_LIST=$srcdir/include/GL/*.h
-WSHELPERHEAD_LIST=$srcdir/include/mingw_inc/*.h
+MINGWHELPERHEAD_LIST=$srcdir/include/mingw_inc/*.h
 
 
 

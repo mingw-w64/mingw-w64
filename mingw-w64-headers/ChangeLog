@@ -1,3 +1,11 @@
+2010-05-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Rename wshelperheaddir to mingwhelperheaddir,
+	rename WSHELPERHEAD_LIST to MINGWHELPERHEAD_LIST.
+	* configure.ac: Rename WSHELPERHEAD_LIST to MINGWHELPERHEAD_LIST.
+	* configure: Regenerated.
+	* Makefile.in: Regenerated.
+
 2010-05-23  Kai Tietz  <kai.tietz@onevision.com>
 
 	* configure.ac, Makefile.am: Rename _ws_helper to mingw_inc.

@@ -4,7 +4,7 @@ sysheaddir = $(baseheaddir)/sys
 secheaddir = $(baseheaddir)/sec_api
 secsysheaddir = $(baseheaddir)/sec_api/sys
 glheaddir = $(baseheaddir)/GL
-wshelperheaddir = $(baseheaddir)/mingw_inc
+mingwhelperheaddir = $(baseheaddir)/mingw_inc
 sdksheaddir = $(baseheaddir)/sdks
 
 basehead_HEADERS = @BASEHEAD_LIST@
@@ -12,7 +12,7 @@ syshead_HEADERS = @SYSHEAD_LIST@
 sechead_HEADERS = @SECHEAD_LIST@
 secsyshead_HEADERS = @SECSYSHEAD_LIST@
 glhead_HEADERS = @GLHEAD_LIST@
-wshelperhead_HEADERS = @WSHELPERHEAD_LIST@
+mingwhelperhead_HEADERS = @MINGWHELPERHEAD_LIST@
 sdkshead_HEADERS = _mingw_directx.h _mingw_ddk.h
 
 ddkheaddir = $(baseheaddir)/ddk
