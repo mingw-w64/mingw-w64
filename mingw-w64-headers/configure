@@ -2418,7 +2418,7 @@ if test "x$enable_crt" = x""yes; then :
 
 fi
 GLHEAD_LIST=$srcdir/include/GL/*.h
-WSHELPERHEAD_LIST=$srcdir/include/_ws_helpers/*.h
+WSHELPERHEAD_LIST=$srcdir/include/mingw_inc/*.h
 
 
 

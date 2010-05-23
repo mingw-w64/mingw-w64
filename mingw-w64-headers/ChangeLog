@@ -1,3 +1,8 @@
+2010-05-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* configure.ac, Makefile.am: Rename _ws_helper to mingw_inc.
+	* Makefile.in, configure: Regenerated.
+
 2010-05-23  Doug Semler <dougsemler@gmail.com>
 
 	* configure.ac: Set WSHELPERHEAD_LIST to headers in _ws_helpers
