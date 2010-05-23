@@ -1,5 +1,11 @@
 2010-05-23  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* mingw_inc/_socket_types.h: Provide SOCKET type as UINT_PTR in
+	#if 0'ed out form, just so we know that we do it as INT_PTR on
+	purpose.
+
+2010-05-23  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* Renamed _ws_helpers to mingw_inc, adjusted all its users.
 
 2010-05-22  Ozkan Sezer  <sezeroz@gmail.com>

@@ -7,7 +7,11 @@
 #ifndef ___WSA_SOCKET_TYPES_H
 #define ___WSA_SOCKET_TYPES_H
 
+#if 0
+typedef UINT_PTR	SOCKET;
+#else
 typedef INT_PTR		SOCKET;
+#endif
 
 #define INVALID_SOCKET	(SOCKET)(~0)
 #define SOCKET_ERROR	(-1)
