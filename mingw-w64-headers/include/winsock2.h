@@ -39,15 +39,15 @@
 #define WSAAPI			WINAPI
 
 /* undefine macros from winsock.h */
-#include <_ws_helpers/_ws1_undef.h>
+#include <mingw_inc/_ws1_undef.h>
 
 #include <_timeval.h>
 #include <inaddr.h>
-#include <_ws_helpers/_bsd_types.h>
-#include <_ws_helpers/_socket_types.h>
-#include <_ws_helpers/_fd_types.h>
-#include <_ws_helpers/_ip_types.h>
-#include <_ws_helpers/_wsadata.h>
+#include <mingw_inc/_bsd_types.h>
+#include <mingw_inc/_socket_types.h>
+#include <mingw_inc/_fd_types.h>
+#include <mingw_inc/_ip_types.h>
+#include <mingw_inc/_wsadata.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -374,7 +374,7 @@ extern int WINAPI __WSAFDIsSet(SOCKET,fd_set *);
 #define FD_MAX_EVENTS 10
 #define FD_ALL_EVENTS ((1 << FD_MAX_EVENTS) - 1)
 
-#include <_ws_helpers/_wsa_errnos.h>
+#include <mingw_inc/_wsa_errnos.h>
 
 #define WSAEVENT HANDLE
 #define LPWSAEVENT LPHANDLE

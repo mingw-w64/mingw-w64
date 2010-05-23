@@ -6,7 +6,7 @@
 
 #ifndef s_addr
 
-#include <_ws_helpers/_bsd_types.h>
+#include <mingw_inc/_bsd_types.h>
 
 typedef struct in_addr {
   union {

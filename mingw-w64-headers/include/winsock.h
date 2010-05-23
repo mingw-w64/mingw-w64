@@ -25,13 +25,13 @@
 
 #include <_timeval.h>
 #include <inaddr.h>
-#include <_ws_helpers/_bsd_types.h>
-#include <_ws_helpers/_socket_types.h>
-#include <_ws_helpers/_fd_types.h>
-#include <_ws_helpers/_ip_types.h>
-#include <_ws_helpers/_ip_mreq1.h>
-#include <_ws_helpers/_wsadata.h>
-#include <_ws_helpers/_xmitfile.h>
+#include <mingw_inc/_bsd_types.h>
+#include <mingw_inc/_socket_types.h>
+#include <mingw_inc/_fd_types.h>
+#include <mingw_inc/_ip_types.h>
+#include <mingw_inc/_ip_mreq1.h>
+#include <mingw_inc/_wsadata.h>
+#include <mingw_inc/_xmitfile.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -294,7 +294,7 @@ extern int WINAPI __WSAFDIsSet(SOCKET,fd_set *);
 #define FD_CONNECT 0x10
 #define FD_CLOSE 0x20
 
-#include <_ws_helpers/_wsa_errnos.h>
+#include <mingw_inc/_wsa_errnos.h>
 
 /* these 46 functions have the same prototypes as in winsock2 */
   WINSOCK_API_LINKAGE SOCKET WSAAPI accept(SOCKET s,struct sockaddr *addr,int *addrlen);
