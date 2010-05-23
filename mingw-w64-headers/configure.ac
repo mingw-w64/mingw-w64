@@ -40,8 +40,10 @@ AS_VAR_IF([enable_crt],[yes],[
   SECSYSHEAD_LIST=$srcdir/crt/sec_api/sys/*.h
 ])
 GLHEAD_LIST=$srcdir/include/GL/*.h
+WSHELPERHEAD_LIST=$srcdir/include/_ws_helpers/*.h
 AC_SUBST([BASEHEAD_LIST])
 AC_SUBST([GLHEAD_LIST])
+AC_SUBST([WSHELPERHEAD_LIST])
 AC_SUBST([SYSHEAD_LIST])
 AC_SUBST([SECHEAD_LIST])
 AC_SUBST([SECSYSHEAD_LIST])

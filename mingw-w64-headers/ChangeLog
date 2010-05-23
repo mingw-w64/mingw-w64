@@ -1,3 +1,14 @@
+2010-05-23  Doug Semler <dougsemler@gmail.com>
+
+	* configure.ac: Set WSHELPERHEAD_LIST to headers in _ws_helpers
+	  subdirectory and AC_SUBST for Makefile.in.
+	* Makefile.am: Add _ws_helpers headers to EXTRA_HEADERS.
+	  Set up wshelperheaddir as subdirectory of base include directory.
+	  Install WSHELPERHEAD_LIST headers from configure into wshelperhead
+	  directory.
+	* configure: Regenerate.
+	* Makefile.in: Regenerate.
+
 2010-02-11  Kai Tietz  <kai.tietz@onevision.com>
 
 	* include/process.h: Moved away into
