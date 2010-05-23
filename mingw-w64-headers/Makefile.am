@@ -33,7 +33,7 @@ EXTRA_HEADERS = \
   include/*.rh \
   include/*.ver \
   include/GL/*.h \
-  include/_ws_helpers/*.h \
+  include/mingw_inc/*.h \
   crt/*.h \
   crt/sys/*.h \
   crt/sec_api/*.h \
