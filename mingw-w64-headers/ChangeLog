@@ -1,3 +1,8 @@
+2010-05-23  Jarrod Chesney  <jarrod.chesney@gmail.com>
+
+	* Patch comutil.h, comip.h and comdef.h to compile with GNU GCC
+	  in trunk/mingw-w64-headers. This is required for __uuidof support.
+
 2010-05-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Makefile.am: Rename wshelperheaddir to mingwhelperheaddir,

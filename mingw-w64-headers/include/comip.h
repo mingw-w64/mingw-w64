@@ -55,9 +55,9 @@ public:
     HRESULT hr = _QueryInterface(p);
     if(FAILED(hr) && (hr!=E_NOINTERFACE)) { _com_issue_error(hr); }
   }
-  template<> _com_ptr_t(LPSTR str) { new(this) _com_ptr_t(static_cast<LPCSTR> (str),NULL); }
-  template<> _com_ptr_t(LPWSTR str) { new(this) _com_ptr_t(static_cast<LPCWSTR> (str),NULL); }
-  template<> explicit _com_ptr_t(_com_ptr_t *p) : m_pInterface(NULL) {
+  template<typename _X> _com_ptr_t(LPSTR str) { new(this) _com_ptr_t(static_cast<LPCSTR> (str),NULL); }
+  template<typename _X> _com_ptr_t(LPWSTR str) { new(this) _com_ptr_t(static_cast<LPCWSTR> (str),NULL); }
+  template<typename _X> explicit _com_ptr_t(_com_ptr_t *p) : m_pInterface(NULL) {
     if(!p) { _com_issue_error(E_POINTER); }
     else {
       m_pInterface = p->m_pInterface;
@@ -69,7 +69,7 @@ public:
     if(null!=0) { _com_issue_error(E_POINTER); }
   }
   _com_ptr_t(const _com_ptr_t &cp) throw() : m_pInterface(cp.m_pInterface) { _AddRef(); }
-  template<> _com_ptr_t(Interface *pInterface) throw() : m_pInterface(pInterface) { _AddRef(); }
+  template<typename _X> _com_ptr_t(Interface *pInterface) throw() : m_pInterface(pInterface) { _AddRef(); }
   _com_ptr_t(Interface *pInterface,bool fAddRef) throw() : m_pInterface(pInterface) {
     if(fAddRef) _AddRef();
   }
@@ -99,7 +99,7 @@ public:
     if(FAILED(hr) && (hr!=E_NOINTERFACE)) { _com_issue_error(hr); }
     return *this;
   }
-  template<> _com_ptr_t &operator=(Interface *pInterface) throw() {
+  template<typename _X> _com_ptr_t &operator=(Interface *pInterface) throw() {
     if(m_pInterface!=pInterface) {
       Interface *pOldInterface = m_pInterface;
       m_pInterface = pInterface;
@@ -158,9 +158,9 @@ public:
   template<typename _OtherIID> bool operator==(const _com_ptr_t<_OtherIID> &p) { return _CompareUnknown(p)==0; }
   template<typename _OtherIID> bool operator==(_com_ptr_t<_OtherIID> &p) { return _CompareUnknown(p)==0; }
   template<typename _InterfaceType> bool operator==(_InterfaceType *p) { return _CompareUnknown(p)==0; }
-  template<> bool operator==(Interface *p) { return (m_pInterface==p) ? true : _CompareUnknown(p)==0; }
-  template<> bool operator==(const _com_ptr_t &p) throw() { return operator==(p.m_pInterface); }
-  template<> bool operator==(_com_ptr_t &p) throw() { return operator==(p.m_pInterface); }
+  template<typename _X> bool operator==(Interface *p) { return (m_pInterface==p) ? true : _CompareUnknown(p)==0; }
+  template<typename _X> bool operator==(const _com_ptr_t &p) throw() { return operator==(p.m_pInterface); }
+  template<typename _X> bool operator==(_com_ptr_t &p) throw() { return operator==(p.m_pInterface); }
   bool operator==(int null) {
     if(null!=0) { _com_issue_error(E_POINTER); }
     return !m_pInterface;
@@ -259,9 +259,9 @@ public:
     int size = lstrlenA(clsidStringA) + 1;
     int destSize = MultiByteToWideChar(CP_ACP,0,clsidStringA,size,NULL,0);
     LPWSTR clsidStringW;
-    __try {
+    try {
       clsidStringW = static_cast<LPWSTR>(_alloca(destSize*sizeof(WCHAR)));
-    } __except (1) {
+    } catch (...) {
       clsidStringW = NULL;
     }
     if(!clsidStringW) return E_OUTOFMEMORY;

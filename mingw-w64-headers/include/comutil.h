@@ -32,7 +32,7 @@ class _bstr_t;
 class _variant_t;
 
 namespace _com_util {
-  inline void CheckError(HRESULT hr) throw(...) {
+  inline void CheckError(HRESULT hr) throw() {
     if(FAILED(hr)) { _com_issue_error(hr); }
   }
 }
