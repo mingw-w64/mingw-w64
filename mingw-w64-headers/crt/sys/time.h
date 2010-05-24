@@ -13,7 +13,6 @@
 extern "C" {
 #endif
 
-#ifndef __STRICT_ANSI__
 #include <_timeval.h>
 
 #ifndef _TIMEZONE_DEFINED /* also in sys/time.h */
@@ -43,8 +42,6 @@ struct timezone
 int __cdecl gettimeofday(struct timeval *__restrict__,
                          void *__restrict__  /* tzp (unused) */);
 #endif
-
-#endif /* __STRICT_ANSI__ */
 
 #ifdef  __cplusplus
 }

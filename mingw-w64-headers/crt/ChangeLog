@@ -1,3 +1,16 @@
+2010-05-24  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mem.h: A little syncing with mingw32 (remove the unnecessary
+	__STRICT_ANSI__ guards.)
+	* sys/fcntl.h: Likewise.
+	* sys/file.h: Likewise.
+	* sys/param.h: Likewise.
+	* sys/time.h: Likewise.
+	* sys/unistd.h: Likewise.
+	* time.h: Likewise.
+	* unistd.h: A little syncing with mingw32 (remove the no longer
+	used __UNISTD_GETOPT__ macro.) Whitespace tidy-up.
+
 2010-05-22  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _timeval.h: New.

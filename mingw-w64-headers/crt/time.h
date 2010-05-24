@@ -255,7 +255,6 @@ __CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time32(_Time); }
 
 #include <_timeval.h>
 
-#ifndef __STRICT_ANSI__
 #ifndef _TIMEZONE_DEFINED /* also in sys/time.h */
 #define _TIMEZONE_DEFINED
 struct timezone {
@@ -264,8 +263,7 @@ struct timezone {
 };
 
   extern int __cdecl mingw_gettimeofday (struct timeval *p, struct timezone *z);
-#endif
-#endif /* __STRICT_ANSI__ */
+#endif /* _TIMEZONE_DEFINED */
 
 #ifdef __cplusplus
 }
