@@ -49,15 +49,17 @@ public:
   DWORD HelpContext() const throw();
   _bstr_t HelpFile() const;
   _bstr_t Source() const;
-  GUID GUID() const throw();
+  GUID GUID_() const throw();
   const TCHAR *ErrorMessage() const throw();
   static HRESULT WCodeToHRESULT(WORD wCode) throw();
   static WORD HRESULTToWCode(HRESULT hr) throw();
 private:
+  void Dtor() throw();
+  void Ctor(const _com_error &that) throw();
   enum {
     WCODE_HRESULT_FIRST = MAKE_HRESULT(SEVERITY_ERROR,FACILITY_ITF,0x200),WCODE_HRESULT_LAST = MAKE_HRESULT(SEVERITY_ERROR,FACILITY_ITF+1,0) - 1
   };
-  const HRESULT m_hresult;
+  HRESULT m_hresult;
   IErrorInfo *m_perrinfo;
   mutable TCHAR *m_pszMsg;
 };
@@ -66,19 +68,18 @@ inline _com_error::_com_error(HRESULT hr,IErrorInfo *perrinfo,bool fAddRef) thro
   if(m_perrinfo!=NULL && fAddRef) m_perrinfo->AddRef();
 }
 
-inline _com_error::_com_error(const _com_error &that) throw() : m_hresult(that.m_hresult),m_perrinfo(that.m_perrinfo),m_pszMsg(NULL) {
-  if(m_perrinfo!=NULL) m_perrinfo->AddRef();
+inline _com_error::_com_error(const _com_error &that) throw() {
+  Ctor(that);
 }
 
 inline _com_error::~_com_error() throw() {
-  if(m_perrinfo!=NULL) m_perrinfo->Release();
-  if(m_pszMsg!=NULL) LocalFree((HLOCAL)m_pszMsg);
+	Dtor();
 }
 
 inline _com_error &_com_error::operator=(const _com_error &that) throw() {
   if(this!=&that) {
-    this->_com_error::~_com_error();
-    this->_com_error::_com_error(that);
+    Dtor();
+    Ctor(that); 
   }
   return *this;
 }
@@ -115,7 +116,7 @@ inline _bstr_t _com_error::Source() const {
   return _bstr_t(bstr,false);
 }
 
-inline _GUID _com_error::GUID() const throw() {
+inline _GUID _com_error::GUID_() const throw() {
   _GUID guid;
   memset (&guid, 0, sizeof (_GUID));
   if(m_perrinfo!=NULL) m_perrinfo->GetGUID(&guid);
@@ -149,6 +150,18 @@ inline const TCHAR *_com_error::ErrorMessage() const throw() {
 inline HRESULT _com_error::WCodeToHRESULT(WORD wCode) throw() { return wCode >= 0xFE00 ? WCODE_HRESULT_LAST : WCODE_HRESULT_FIRST + wCode; }
 inline WORD _com_error::HRESULTToWCode(HRESULT hr) throw() { return (hr >= WCODE_HRESULT_FIRST && hr <= WCODE_HRESULT_LAST) ? WORD(hr - WCODE_HRESULT_FIRST) : 0; }
 
+inline void _com_error::Dtor() throw() {
+  if(m_perrinfo!=NULL) m_perrinfo->Release();
+  if(m_pszMsg!=NULL) LocalFree((HLOCAL)m_pszMsg);
+}
+
+inline void _com_error::Ctor(const _com_error &that) throw() {
+  m_hresult = that.m_hresult;
+  m_perrinfo = that.m_perrinfo;
+  m_pszMsg = NULL;
+  if(m_perrinfo!=NULL) m_perrinfo->AddRef();
+}
+
 typedef int __missing_type__;
 
 #if !defined(_COM_SMARTPTR)
@@ -161,33 +174,31 @@ typedef int __missing_type__;
 #if defined(_COM_SMARTPTR)
 #if !defined(_COM_SMARTPTR_TYPEDEF)
 #if defined(_COM_SMARTPTR_LEVEL2)
-#define _COM_SMARTPTR_TYPEDEF(Interface,IID) typedef _COM_SMARTPTR<_COM_SMARTPTR_LEVEL2<Interface,&IID> > Interface ## Ptr
+#define _COM_SMARTPTR_TYPEDEF(Interface,IID) UUID IIDArgForTypedef ## Interface = IID; typedef _COM_SMARTPTR< _COM_SMARTPTR_LEVEL2<Interface, &IIDArgForTypedef ## Interface > > Interface ## Ptr
 #else
-#define _COM_SMARTPTR_TYPEDEF(Interface,IID) typedef _COM_SMARTPTR<Interface,&IID> Interface ## Ptr
+#define _COM_SMARTPTR_TYPEDEF(Interface,IID) UUID IIDArgForTypedef ## Interface  = IID; typedef _COM_SMARTPTR<Interface,&IIDArgForTypedef ## Interface > Interface ## Ptr
 #endif
 #endif
 #endif
 
 #if !defined(_COM_NO_STANDARD_GUIDS_) && USE___UUIDOF != 0
 #if defined(__IFontDisp_INTERFACE_DEFINED__)
-__if_not_exists(Font)
-{
+#if !defined(Font)
   struct Font : IFontDisp {};
-}
+#endif
 _COM_SMARTPTR_TYPEDEF(Font,__uuidof(IDispatch));
+
 #endif
 #if defined(__IFontEventsDisp_INTERFACE_DEFINED__)
-__if_not_exists(FontEvents)
-{
+#if !defined(FontEvents)
   struct FontEvents : IFontEventsDisp {};
-}
+#endif
 _COM_SMARTPTR_TYPEDEF(FontEvents,__uuidof(IDispatch));
 #endif
 #if defined(__IPictureDisp_INTERFACE_DEFINED__)
-__if_not_exists(Picture)
-{
+#if !defined(Picture)
   struct Picture : IPictureDisp {};
-}
+#endif
 _COM_SMARTPTR_TYPEDEF(Picture,__uuidof(IDispatch));
 #endif
 

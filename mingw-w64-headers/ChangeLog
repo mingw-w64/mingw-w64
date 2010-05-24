@@ -22,3 +22,7 @@
 	* Move aux scripts to subdir to tidy up top levels.  Upgrade
 	to autoconf-2.65.  Merge a few pieces from the trunk version
 	of configure.ac.
+
+2010-05-23  Jarrod Chesney  <jarrod.chesney@gmail.com>
+
+	* Patch comutil.h, comip.h and comdef.h to compile with GNU GCC
