@@ -1,3 +1,12 @@
+2010-05-24  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merge from the trunk: (revs. 2160, 2161, 2163, 2166, 2261)
+
+	* Makefile.am: Track generic lib def dependency for synthesized libs
+	correctly. Apply cleaner rules for the three oddball libs. Factor out
+	32-bit and 64-bit specific dlltool options.
+	* Makefile.in: Regenerated.
+
 2010-05-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* crt/ucrtexe.c: Define _UNICODE.

@@ -24,6 +24,10 @@ AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
 AM_CFLAGS=-pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
+DLLTOOLFLAGS32=--as-flags=--32 -m i386
+DLLTOOLFLAGS64=--as-flags=--64 -m i386:x86-64
+DTDEF32=$(DLLTOOL) $(DLLTOOLFLAGS32) $(AM_DLLTOOLFLAGS) --input-def
+DTDEF64=$(DLLTOOL) $(DLLTOOLFLAGS64) $(AM_DLLTOOLFLAGS) --input-def
 DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --input-def
 DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 extra_include=-I$(top_srcdir)/include
@@ -296,7 +300,7 @@ lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32)
 lib32_LIBRARIES += lib32/libmoldname.a
 lib32_libmoldname_a_CPPFLAGS=-m32 $(extra_include) $(AM_CPPFLAGS)
 lib32_libmoldname_a_SOURCES = $(src_libmoldname)
-lib32_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
+lib32_libmoldname_a_AR = $(DTDEF32) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libscrnsave.a
 lib32_libscrnsave_a_SOURCES = $(src_libscrnsave)
@@ -359,12 +363,11 @@ lib32_DATA = \
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
-lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a:
-	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib32/lib||;s|\.a|.dll|'` -m i386 --as-flags=--32
+lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a: lib32/lib%.a: lib32/%.def
+	$(DTDEF32) $< --dllname $*.dll
 
-lib32/lib%.a:
-	$(DTDEF) $(top_srcdir)/lib32/$*.def -m i386 --as-flags=--32
-
+lib32/lib%.a: lib32/%.def
+	$(DTDEF32) $<
 
 endif
 # End 32-bit runtime
@@ -484,7 +487,7 @@ lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64)
 lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=-m64 $(extra_include) $(AM_CPPFLAGS)
 lib64_libmoldname_a_SOURCES = $(src_libmoldname)
-lib64_libmoldname_a_AR = $(DTDEF) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
+lib64_libmoldname_a_AR = $(DTDEF64) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libmingwthrd.a
 lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
@@ -913,13 +916,11 @@ lib64_DATA = \
   lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a
 
 
-# This is cleaner for watching make output, but is only in GNU Make:
-# $(DTDEF) $(top_srcdir)/$(subst .a,.def,$(subst /lib,/,$@)) --dllname $(subst .a,.dll,$(subst lib,,$(@F)))
-lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a:
-	$(DTLIB) --dllname `echo $@ | $(SED) 's|lib64/lib||;s|\.a|.dll|'` -m i386:x86-64 --as-flags=--64
+lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
+	$(DTDEF64) $< --dllname $*.dll
 
-lib64/lib%.a:
-	$(DTDEF) $(top_srcdir)/lib64/$*.def -m i386:x86-64 --as-flags=--64
+lib64/lib%.a: lib64/%.def
+	$(DTDEF64) $<
 
 
 endif
