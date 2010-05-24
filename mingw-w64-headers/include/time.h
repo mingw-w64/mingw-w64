@@ -264,7 +264,6 @@ struct timeval {
 #define timerclear(tvp) (tvp)->tv_sec = (tvp)->tv_usec = 0
 #endif /* _TIMEVAL_DEFINED */
 
-#ifndef __STRICT_ANSI__
 #ifndef _TIMEZONE_DEFINED /* also in sys/time.h */
 #define _TIMEZONE_DEFINED
 struct timezone {
@@ -273,8 +272,7 @@ struct timezone {
 };
 
   extern int __cdecl mingw_gettimeofday (struct timeval *p, struct timezone *z);
-#endif
-#endif /* __STRICT_ANSI__ */
+#endif /* _TIMEZONE_DEFINED */
 
 #ifdef __cplusplus
 }

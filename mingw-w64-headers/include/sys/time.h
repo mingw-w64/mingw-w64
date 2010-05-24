@@ -13,7 +13,6 @@
 extern "C" {
 #endif
 
-#ifndef __STRICT_ANSI__
 #ifndef _TIMEVAL_DEFINED /* also in winsock[2].h */
 #define _TIMEVAL_DEFINED
 struct timeval {
@@ -55,8 +54,6 @@ struct timezone
 int __cdecl gettimeofday(struct timeval *__restrict__,
                          void *__restrict__  /* tzp (unused) */);
 #endif
-
-#endif /* __STRICT_ANSI__ */
 
 #ifdef  __cplusplus
 }
