@@ -182,6 +182,23 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
+baseheaddir = $(includedir)/../$(host)/include
+sysheaddir = $(baseheaddir)/sys
+secheaddir = $(baseheaddir)/sec_api
+secsysheaddir = $(baseheaddir)/sec_api/sys
+glheaddir = $(baseheaddir)/GL
+sdksheaddir = $(baseheaddir)/sdks
+basehead_HEADERS = @BASEHEAD_LIST@
+syshead_HEADERS = @SYSHEAD_LIST@
+sechead_HEADERS = @SECHEAD_LIST@
+secsyshead_HEADERS = @SECSYSHEAD_LIST@
+glhead_HEADERS = @GLHEAD_LIST@
+sdkshead_HEADERS = @SDKSHEAD_LIST@
+ddkheaddir = $(baseheaddir)/ddk
+dxheaddir = $(baseheaddir)
+ddkhead_HEADERS = @DDKHEAD_LIST@
+dxhead_HEADERS = @DXHEAD_LIST@
+EXTRA_DIST = 
 EXTRA_HEADERS = \
   include/*.c \
   include/*.dlg \
@@ -195,24 +212,6 @@ EXTRA_HEADERS = \
   include/sec_api/sys/*.h \
   include/GL/*.h
 
-baseheaddir = $(includedir)/../$(host)/include
-sysheaddir = $(baseheaddir)/sys
-secheaddir = $(baseheaddir)/sec_api
-secsysheaddir = $(baseheaddir)/sec_api/sys
-glheaddir = $(baseheaddir)/GL
-sdksheaddir = $(baseheaddir)/sdks
-basehead_HEADERS = @BASEHEAD_LIST@
-syshead_HEADERS = @SYSHEAD_LIST@
-sechead_HEADERS = @SECHEAD_LIST@
-secsyshead_HEADERS = @SECSYSHEAD_LIST@
-glhead_HEADERS = @GLHEAD_LIST@
-sdkshead_HEADERS = @SDKSHEAD_LIST@
-
-#Optional headers
-ddkheaddir = $(baseheaddir)/ddk
-dxheaddir = $(baseheaddir)
-ddkhead_HEADERS = @DDKHEAD_LIST@
-dxhead_HEADERS = @DXHEAD_LIST@
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
