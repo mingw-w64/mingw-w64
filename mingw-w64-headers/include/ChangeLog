@@ -1,3 +1,8 @@
+2010-05-25  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* afxres.h: Changed header guard check from _WINDOWS_H, which was
+	a left-over from mingw32, to _INC_WINDOWS which is what we define.
+
 2010-05-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mingw_inc/_socket_types.h: Provide SOCKET type as UINT_PTR in
