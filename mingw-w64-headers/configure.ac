@@ -19,6 +19,7 @@ SYSHEAD_LIST=$srcdir/include/sys/*.h
 SECHEAD_LIST=$srcdir/include/sec_api/*.h
 SECSYSHEAD_LIST=$srcdir/include/sec_api/sys/*.h
 GLHEAD_LIST=$srcdir/include/GL/*.h
+MINGWHELPERHEAD_LIST=$srcdir/include/mingw_inc/*.h
 BASEHEAD_LIST=$srcdir/include/*.h
 for i in c dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
@@ -29,6 +30,7 @@ AC_SUBST([SYSHEAD_LIST])
 AC_SUBST([SECHEAD_LIST])
 AC_SUBST([SECSYSHEAD_LIST])
 AC_SUBST([GLHEAD_LIST])
+AC_SUBST([MINGWHELPERHEAD_LIST])
 AC_SUBST([SDKSHEAD_LIST])
 
 AC_MSG_CHECKING([for optional sdk headers])

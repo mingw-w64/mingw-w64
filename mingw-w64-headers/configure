@@ -606,6 +606,7 @@ LIBOBJS
 DDKHEAD_LIST
 DXHEAD_LIST
 SDKSHEAD_LIST
+MINGWHELPERHEAD_LIST
 GLHEAD_LIST
 SECSYSHEAD_LIST
 SECHEAD_LIST
@@ -2384,11 +2385,13 @@ SYSHEAD_LIST=$srcdir/include/sys/*.h
 SECHEAD_LIST=$srcdir/include/sec_api/*.h
 SECSYSHEAD_LIST=$srcdir/include/sec_api/sys/*.h
 GLHEAD_LIST=$srcdir/include/GL/*.h
+MINGWHELPERHEAD_LIST=$srcdir/include/mingw_inc/*.h
 BASEHEAD_LIST=$srcdir/include/*.h
 for i in c dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
 #FIXME: Add in base directx
+
 
 
 

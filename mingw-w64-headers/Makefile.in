@@ -37,9 +37,9 @@ host_triplet = @host@
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(basehead_HEADERS) \
 	$(ddkhead_HEADERS) $(dxhead_HEADERS) $(glhead_HEADERS) \
-	$(sdkshead_HEADERS) $(sechead_HEADERS) $(secsyshead_HEADERS) \
-	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(srcdir)/config.h.in $(syshead_HEADERS) \
+	$(mingwhelperhead_HEADERS) $(sdkshead_HEADERS) \
+	$(sechead_HEADERS) $(secsyshead_HEADERS) $(srcdir)/Makefile.am \
+	$(srcdir)/Makefile.in $(srcdir)/config.h.in $(syshead_HEADERS) \
 	$(top_srcdir)/configure config.guess config.sub install-sh \
 	missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -77,11 +77,13 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" \
 	"$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" \
-	"$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" \
-	"$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)"
+	"$(DESTDIR)$(mingwhelperheaddir)" "$(DESTDIR)$(sdksheaddir)" \
+	"$(DESTDIR)$(secheaddir)" "$(DESTDIR)$(secsysheaddir)" \
+	"$(DESTDIR)$(sysheaddir)"
 HEADERS = $(basehead_HEADERS) $(ddkhead_HEADERS) $(dxhead_HEADERS) \
-	$(glhead_HEADERS) $(sdkshead_HEADERS) $(sechead_HEADERS) \
-	$(secsyshead_HEADERS) $(syshead_HEADERS)
+	$(glhead_HEADERS) $(mingwhelperhead_HEADERS) \
+	$(sdkshead_HEADERS) $(sechead_HEADERS) $(secsyshead_HEADERS) \
+	$(syshead_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -119,6 +121,7 @@ LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LTLIBOBJS = @LTLIBOBJS@
 MAKEINFO = @MAKEINFO@
+MINGWHELPERHEAD_LIST = @MINGWHELPERHEAD_LIST@
 MKDIR_P = @MKDIR_P@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
@@ -187,12 +190,14 @@ sysheaddir = $(baseheaddir)/sys
 secheaddir = $(baseheaddir)/sec_api
 secsysheaddir = $(baseheaddir)/sec_api/sys
 glheaddir = $(baseheaddir)/GL
+mingwhelperheaddir = $(baseheaddir)/mingw_inc
 sdksheaddir = $(baseheaddir)/sdks
 basehead_HEADERS = @BASEHEAD_LIST@
 syshead_HEADERS = @SYSHEAD_LIST@
 sechead_HEADERS = @SECHEAD_LIST@
 secsyshead_HEADERS = @SECSYSHEAD_LIST@
 glhead_HEADERS = @GLHEAD_LIST@
+mingwhelperhead_HEADERS = @MINGWHELPERHEAD_LIST@
 sdkshead_HEADERS = @SDKSHEAD_LIST@
 ddkheaddir = $(baseheaddir)/ddk
 dxheaddir = $(baseheaddir)
@@ -210,7 +215,8 @@ EXTRA_HEADERS = \
   include/sys/*.h \
   include/sec_api/*.h \
   include/sec_api/sys/*.h \
-  include/GL/*.h
+  include/GL/*.h \
+  include/mingw_inc/*.h
 
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -347,6 +353,26 @@ uninstall-glheadHEADERS:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(glheaddir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(glheaddir)" && rm -f $$files
+install-mingwhelperheadHEADERS: $(mingwhelperhead_HEADERS)
+	@$(NORMAL_INSTALL)
+	test -z "$(mingwhelperheaddir)" || $(MKDIR_P) "$(DESTDIR)$(mingwhelperheaddir)"
+	@list='$(mingwhelperhead_HEADERS)'; test -n "$(mingwhelperheaddir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(mingwhelperheaddir)'"; \
+	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(mingwhelperheaddir)" || exit $$?; \
+	done
+
+uninstall-mingwhelperheadHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(mingwhelperhead_HEADERS)'; test -n "$(mingwhelperheaddir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(mingwhelperheaddir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(mingwhelperheaddir)" && rm -f $$files
 install-sdksheadHEADERS: $(sdkshead_HEADERS)
 	@$(NORMAL_INSTALL)
 	test -z "$(sdksheaddir)" || $(MKDIR_P) "$(DESTDIR)$(sdksheaddir)"
@@ -631,7 +657,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(HEADERS) config.h
 installdirs:
-	for dir in "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" "$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" "$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" "$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)"; do \
+	for dir in "$(DESTDIR)$(baseheaddir)" "$(DESTDIR)$(ddkheaddir)" "$(DESTDIR)$(dxheaddir)" "$(DESTDIR)$(glheaddir)" "$(DESTDIR)$(mingwhelperheaddir)" "$(DESTDIR)$(sdksheaddir)" "$(DESTDIR)$(secheaddir)" "$(DESTDIR)$(secsysheaddir)" "$(DESTDIR)$(sysheaddir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -682,8 +708,9 @@ info-am:
 
 install-data-am: install-baseheadHEADERS install-ddkheadHEADERS \
 	install-dxheadHEADERS install-glheadHEADERS \
-	install-sdksheadHEADERS install-secheadHEADERS \
-	install-secsysheadHEADERS install-sysheadHEADERS
+	install-mingwhelperheadHEADERS install-sdksheadHEADERS \
+	install-secheadHEADERS install-secsysheadHEADERS \
+	install-sysheadHEADERS
 
 install-dvi: install-dvi-am
 
@@ -731,8 +758,9 @@ ps-am:
 
 uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 	uninstall-dxheadHEADERS uninstall-glheadHEADERS \
-	uninstall-sdksheadHEADERS uninstall-secheadHEADERS \
-	uninstall-secsysheadHEADERS uninstall-sysheadHEADERS
+	uninstall-mingwhelperheadHEADERS uninstall-sdksheadHEADERS \
+	uninstall-secheadHEADERS uninstall-secsysheadHEADERS \
+	uninstall-sysheadHEADERS
 
 .MAKE: all install-am install-strip
 
@@ -746,15 +774,16 @@ uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 	install-ddkheadHEADERS install-dvi install-dvi-am \
 	install-dxheadHEADERS install-exec install-exec-am \
 	install-glheadHEADERS install-html install-html-am \
-	install-info install-info-am install-man install-pdf \
-	install-pdf-am install-ps install-ps-am \
-	install-sdksheadHEADERS install-secheadHEADERS \
-	install-secsysheadHEADERS install-strip install-sysheadHEADERS \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
-	pdf-am ps ps-am tags uninstall uninstall-am \
-	uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
-	uninstall-dxheadHEADERS uninstall-glheadHEADERS \
+	install-info install-info-am install-man \
+	install-mingwhelperheadHEADERS install-pdf install-pdf-am \
+	install-ps install-ps-am install-sdksheadHEADERS \
+	install-secheadHEADERS install-secsysheadHEADERS install-strip \
+	install-sysheadHEADERS installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-generic pdf pdf-am ps ps-am tags \
+	uninstall uninstall-am uninstall-baseheadHEADERS \
+	uninstall-ddkheadHEADERS uninstall-dxheadHEADERS \
+	uninstall-glheadHEADERS uninstall-mingwhelperheadHEADERS \
 	uninstall-sdksheadHEADERS uninstall-secheadHEADERS \
 	uninstall-secsysheadHEADERS uninstall-sysheadHEADERS
 
