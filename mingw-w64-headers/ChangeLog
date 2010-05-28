@@ -1,7 +1,12 @@
+2010-05-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Moved signal.h and wctype.h from include to under crt/ which is
+	where they belong.
+
 2010-05-23  Jarrod Chesney  <jarrod.chesney@gmail.com>
 
 	* Patch comutil.h, comip.h and comdef.h to compile with GNU GCC
-	  in trunk/mingw-w64-headers. This is required for __uuidof support.
+	in trunk/mingw-w64-headers. This is required for __uuidof support.
 
 2010-05-23  Ozkan Sezer  <sezeroz@gmail.com>
 
@@ -19,11 +24,11 @@
 2010-05-23  Doug Semler <dougsemler@gmail.com>
 
 	* configure.ac: Set WSHELPERHEAD_LIST to headers in _ws_helpers
-	  subdirectory and AC_SUBST for Makefile.in.
+	subdirectory and AC_SUBST for Makefile.in.
 	* Makefile.am: Add _ws_helpers headers to EXTRA_HEADERS.
-	  Set up wshelperheaddir as subdirectory of base include directory.
-	  Install WSHELPERHEAD_LIST headers from configure into wshelperhead
-	  directory.
+	Set up wshelperheaddir as subdirectory of base include directory.
+	Install WSHELPERHEAD_LIST headers from configure into wshelperhead
+	directory.
 	* configure: Regenerate.
 	* Makefile.in: Regenerate.
 
@@ -75,8 +80,7 @@
 
 2010-01-18  Roland Schwingel  <roland.schwingel@onevision.com>
 
-	* include/winternl.h (NtQueryInformationFile): Declare
-	function.
+	* include/winternl.h (NtQueryInformationFile): Declare function.
 	(NTQueryObject): Likewise.
 	(FILE_INFORMATION_CLASS): Filled with all known definitions.
 	(FILE_ALL_INFORMATION): Define struct.
@@ -132,20 +136,19 @@
 
 2010-01-12  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* mingw-w64-headers/dirent.h: synchronized with the mingw.org
-	version for correct operation with mingw-3.1x version requirements.
+	* mingw-w64-headers/dirent.h: synchronized with the mingw.org version
+	for correct operation with mingw-3.1x version requirements.
 	* mingw-w64-crt/misc/dirent.c: reverted revision 76 change for bug
 	#1801043, not valid any longer. (do we manually need to copy that
 	field???)
 
 2010-01-04  Roland Schwingel  <roland.schwingel@onevision.com>
 
-	* include/winternal.h (SYSTEM_HANDLE_INFORMATION): New
-	structure.
+	* include/winternal.h (SYSTEM_HANDLE_INFORMATION): New structure.
 	(SYSTEM_HANDLE_ENTRY): Likewise.
 	(SYSTEM_INFORMATION_CLASS): Add SystemHandleInformation.
-	(SYSTEM_PROCESS_INFORMATION): Improve member information
-	according found information in msdn.
+	(SYSTEM_PROCESS_INFORMATION): Improve member information according to
+	information found in msdn.
 
 2010-01-04  Kai Tietz  <kai.tietz@onevision.com>
 
