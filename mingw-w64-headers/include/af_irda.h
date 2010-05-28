@@ -6,12 +6,7 @@
 #ifndef __AFIRDA__
 #define __AFIRDA__
 
-#ifndef _WINSOCKAPI_
-typedef unsigned char u_char;
-typedef unsigned short u_short;
-typedef unsigned int u_int;
-typedef unsigned long u_long;
-#endif
+#include <mingw_inc/_bsd_types.h>
 
 #define WINDOWS_AF_IRDA 26
 #define WINDOWS_PF_IRDA WINDOWS_AF_IRDA
