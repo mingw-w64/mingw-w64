@@ -1,3 +1,8 @@
+2010-05-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* af_irda.h: Remove the _WINSOCKAPI_ guarded typedefs and include
+	mingw_inc/_bsd_types.h, instead.
+
 2010-05-25  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* afxres.h: Changed header guard check from _WINDOWS_H, which was
