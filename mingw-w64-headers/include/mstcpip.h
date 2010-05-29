@@ -3,6 +3,9 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+#ifndef _MSTCPIP_
+#define _MSTCPIP_
+
 struct tcp_keepalive {
   u_long onoff;
   u_long keepalivetime;
@@ -24,3 +27,6 @@ struct tcp_keepalive {
 #define RCVALL_OFF 0
 #define RCVALL_ON 1
 #define RCVALL_SOCKETLEVELONLY 2
+
+#endif /* _MSTCPIP_ */
+
