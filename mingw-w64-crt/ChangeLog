@@ -1,3 +1,9 @@
+2010-06-02  Doug Semler  <dougsemler@gmail.com>
+	Back-merge from trunk (rev 2457)
+
+	* Makefile.am: Use && instead of ; for compound commands.
+	* Makefile.in: Regenerate.
+
 2010-05-24  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merge from the trunk: (revs. 2160, 2161, 2163, 2166, 2261)
