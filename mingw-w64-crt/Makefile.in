@@ -2362,13 +2362,13 @@ src_libmingwex32 = \
 
 @LIB32_TRUE@lib32_libgmon_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = $(src_libshell32)
-@LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB) -m i386 --as-flags=--32 && $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libshell32_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libdinput_a_SOURCES = $(src_libdinput)
-@LIB32_TRUE@lib32_libdinput_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libdinput_a_AR = $(DTLIB) -m i386 --as-flags=--32 && $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libdinput_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libdinput8_a_SOURCES = $(src_libdinput8)
-@LIB32_TRUE@lib32_libdinput8_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libdinput8_a_AR = $(DTLIB) -m i386 --as-flags=--32 && $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libdinput8_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libdmoguids_a_SOURCES = $(src_libdmoguids)
 @LIB32_TRUE@lib32_libdmoguids_a_CPPFLAGS = -m32
@@ -2380,7 +2380,7 @@ src_libmingwex32 = \
 @LIB32_TRUE@lib32_libdxguid_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libksuser_a_SOURCES = $(src_libksuser)
 @LIB32_TRUE@lib32_libksuser_a_CPPFLAGS = -m32
-@LIB32_TRUE@lib32_libksuser_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libksuser_a_AR = $(DTLIB) -m i386 --as-flags=--32 && $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_liblargeint_a_SOURCES = $(src_liblargeint)
 @LIB32_TRUE@lib32_liblargeint_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libmingw32_a_CPPFLAGS = -m32 -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
@@ -2389,7 +2389,7 @@ src_libmingwex32 = \
 @LIB32_TRUE@lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32)
 @LIB32_TRUE@lib32_libmoldname_a_CPPFLAGS = -m32 $(extra_include) $(AM_CPPFLAGS)
 @LIB32_TRUE@lib32_libmoldname_a_SOURCES = $(src_libmoldname)
-@LIB32_TRUE@lib32_libmoldname_a_AR = $(DTDEF32) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libmoldname_a_AR = $(DTDEF32) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll && $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libscrnsave_a_SOURCES = $(src_libscrnsave)
 @LIB32_TRUE@lib32_libscrnsave_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libscrnsavw_a_SOURCES = $(src_libscrnsavw)
@@ -2403,7 +2403,7 @@ src_libmingwex32 = \
 @LIB32_TRUE@lib32_libuuid_a_CPPFLAGS = -m32
 @LIB32_TRUE@lib32_libws2_32_a_SOURCES = $(src_libws2_32)
 @LIB32_TRUE@lib32_libws2_32_a_CPPFLAGS = -m32
-@LIB32_TRUE@lib32_libws2_32_a_AR = $(DTLIB) -m i386 --as-flags=--32; $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libws2_32_a_AR = $(DTLIB) -m i386 --as-flags=--32 && $(AR) $(ARFLAGS)
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
@@ -2470,13 +2470,13 @@ src_libmingwex32 = \
 @LIB64_TRUE@lib64_libm_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libshell32_a_SOURCES = $(src_libshell32)
 @LIB64_TRUE@lib64_libshell32_a_CPPFLAGS = -m64
-@LIB64_TRUE@lib64_libshell32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libshell32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64 && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libdinput_a_SOURCES = $(src_libdinput)
 @LIB64_TRUE@lib64_libdinput_a_CPPFLAGS = -m64
-@LIB64_TRUE@lib64_libdinput_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libdinput_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64 && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libdinput8_a_SOURCES = $(src_libdinput8)
 @LIB64_TRUE@lib64_libdinput8_a_CPPFLAGS = -m64
-@LIB64_TRUE@lib64_libdinput8_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libdinput8_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64 && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libdmoguids_a_SOURCES = $(src_libdmoguids)
 @LIB64_TRUE@lib64_libdmoguids_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libdxerr8_a_SOURCES = $(src_libdxerr8)
@@ -2493,7 +2493,7 @@ src_libmingwex32 = \
 @LIB64_TRUE@lib64_libgmon_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libksuser_a_SOURCES = $(src_libksuser)
 @LIB64_TRUE@lib64_libksuser_a_CPPFLAGS = -m64
-@LIB64_TRUE@lib64_libksuser_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libksuser_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64 && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_liblargeint_a_SOURCES = $(src_liblargeint)
 @LIB64_TRUE@lib64_liblargeint_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libscrnsave_a_SOURCES = $(src_libscrnsave)
@@ -2509,14 +2509,14 @@ src_libmingwex32 = \
 @LIB64_TRUE@lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64)
 @LIB64_TRUE@lib64_libmoldname_a_CPPFLAGS = -m64 $(extra_include) $(AM_CPPFLAGS)
 @LIB64_TRUE@lib64_libmoldname_a_SOURCES = $(src_libmoldname)
-@LIB64_TRUE@lib64_libmoldname_a_AR = $(DTDEF64) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll; $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libmoldname_a_AR = $(DTDEF64) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 @LIB64_TRUE@lib64_libmingwthrd_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libuuid_a_SOURCES = $(src_libuuid)
 @LIB64_TRUE@lib64_libuuid_a_CPPFLAGS = -m64
 @LIB64_TRUE@lib64_libws2_32_a_SOURCES = $(src_libws2_32)
 @LIB64_TRUE@lib64_libws2_32_a_CPPFLAGS = -m64
-@LIB64_TRUE@lib64_libws2_32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64; $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libws2_32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64 && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_DATA = \
 @LIB64_TRUE@  lib64/libwinusb.a \
 @LIB64_TRUE@  lib64/lib6to4svc.a    lib64/libaaaamon.a    lib64/libacgen64.a      lib64/libacledit.a    lib64/libaclui.a         \

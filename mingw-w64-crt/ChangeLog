@@ -1,3 +1,8 @@
+2010-06-02  Doug Semler  <dougsemler@gmail.com>
+
+	* Makefile.am: Use && instead of ; for compound commands.
+	* Makefile.in: Regenerate.
+
 2010-05-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* crt/ucrtexe.c: Define _UNICODE.
