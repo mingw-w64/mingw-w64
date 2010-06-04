@@ -1,5 +1,9 @@
 LIBRARY WS2_32.DLL
 EXPORTS
+FreeAddrInfoExA@4
+FreeAddrInfoExW@4
+GetAddrInfoExA@40
+GetAddrInfoExW@40
 WEP@0
 WPUCompleteOverlappedRequest@20
 WSAAccept@20

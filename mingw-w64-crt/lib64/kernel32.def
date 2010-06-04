@@ -16,10 +16,15 @@ AddConsoleAliasW
 AddLocalAlternateComputerNameA
 AddLocalAlternateComputerNameW
 AddRefActCtx
+AddSIDToBoundaryDescriptor
+AddSecureMemoryCacheCallback
 AddVectoredContinueHandler
 AddVectoredExceptionHandler
 AllocConsole
 AllocateUserPhysicalPages
+AllocateUserPhysicalPagesNuma
+ApplicationRecoveryFinished
+ApplicationRecoveryInProgress
 AreFileApisANSI
 AssignProcessToJobObject
 AttachConsole
@@ -63,6 +68,7 @@ ClearCommBreak
 ClearCommError
 CloseConsoleHandle
 CloseHandle
+ClosePrivateNamespace
 CloseProfileUserMapping
 CmdBatNotification
 CommConfigDialogA
@@ -85,6 +91,8 @@ CopyFileW
 CopyLZFile
 CreateActCtxA
 CreateActCtxW
+CreateBoundaryDescriptorA
+CreateBoundaryDescriptorW
 CreateConsoleScreenBuffer
 CreateDirectoryA
 CreateDirectoryExA
@@ -113,6 +121,8 @@ CreateNamedPipeA
 CreateNamedPipeW
 CreateNlsSecurityDescriptor
 CreatePipe
+CreatePrivateNamespaceA
+CreatePrivateNamespaceW
 CreateProcessA
 CreateProcessInternalA
 CreateProcessInternalW
@@ -142,6 +152,7 @@ DefineDosDeviceA
 DefineDosDeviceW
 DelayLoadFailureHook
 DeleteAtom
+DeleteBoundaryDescriptor
 DeleteCriticalSection
 DeleteFiber
 DeleteFileA
@@ -657,6 +668,8 @@ OpenJobObjectA
 OpenJobObjectW
 OpenMutexA
 OpenMutexW
+OpenPrivateNamespaceA
+OpenPrivateNamespaceW
 OpenProcess
 OpenProfileUserMapping
 OpenSemaphoreA
@@ -708,6 +721,7 @@ ReadFile
 ReadFileEx
 ReadFileScatter
 ReadProcessMemory
+RegisterApplicationRecoveryCallback
 RegisterConsoleIME
 RegisterConsoleOS2
 RegisterConsoleVDM
@@ -725,6 +739,7 @@ RemoveDirectoryA
 RemoveDirectoryW
 RemoveLocalAlternateComputerNameA
 RemoveLocalAlternateComputerNameW
+RemoveSecureMemoryCacheCallback
 RemoveVectoredContinueHandler
 RemoveVectoredExceptionHandler
 ReplaceFile

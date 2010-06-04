@@ -1,3 +1,108 @@
+2010-06-05  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* lib32/clfsw32.def: New.
+	* lib32/clfsw32.def: Likewise.
+	* lib64/kernel32.def (AddSIDToBoundaryDescriptor): New.
+	(AddSecureMemoryCacheCallback): Likewise.
+	(AllocateUserPhysicalPagesNuma): Likewise.
+	(ApplicationRecoveryFinished): Likewise.
+	(ApplicationRecoveryInProgress): Likewise.
+	(ClosePrivateNamespace): Likewise.
+	(CreateBoundaryDescriptorA): Likewise.
+	(CreateBoundaryDescriptorW): Likewise.
+	(CreatePrivateNamespaceA): Likewise.
+	(CreatePrivateNamespaceW): Likewise.
+	(DeleteBoundaryDescriptor): Likewise.
+	(OpenPrivateNamespaceA): Likewise.
+	(OpenPrivateNamespaceW): Likewise.
+	(RegisterApplicationRecoveryCallback): Likewise.
+	(RemoveSecureMemoryCacheCallback): Likewise.
+	* lib64/ws2_32.def (FreeAddrInfoExA): New.
+	(FreeAddrInfoExW): Likewise.
+	(GetAddrInfoExA): Likewise.
+	(GetAddrInfoExW): Likewise.
+	* lib64/advapi32.def (AddMandatoryAce): New.
+	* lib64/winspool.def (AddPrinterConnection2A): New.
+	(AddPrinterConnection2W): New.
+	* lib32/kernel32.def (InterlockedPushListSList): Remove forwarder.
+	(AcquireSRWLockExclusive): Likewise.
+	(AcquireSRWLockShared): Likewise.
+	(AddVectoredContinueHandler): Likewise.
+	(AddVectoredExceptionHandler): Likewise.
+	(CallbackMayRunLong): Likewise.
+	(CancelThreadpoolIo): Likewise.
+	(CloseThreadpool): Likewise.
+	(CloseThreadpoolCleanupGroup): Likewise.
+	(CloseThreadpoolCleanupGroupMembers): Likewise.
+	(CloseThreadpoolIo): Likewise.
+	(CloseThreadpoolTimer): Likewise.
+	(CloseThreadpoolWait): Likewise.
+	(CloseThreadpoolWork): Likewise.
+	(DecodePointer): Likewise.
+	(DecodeSystemPointer): Likewise.
+	(DeleteBoundaryDescriptor): Likewise.
+	(DeleteCriticalSection): Likewise.
+	(DisassociateCurrentThreadFromCallback): Likewise.
+	(EncodePointer): Likewise.
+	(EncodeSystemPointer): Likewise.
+	(EnterCriticalSection): Likewise.
+	(ExitThread): Likewise.
+	(FlushProcessWriteBuffers): Likewise.
+	(FreeLibraryWhenCallbackReturns): Likewise.
+	(GetCurrentProcessorNumber): Likewise.
+	(HeapAlloc): Likewise.
+	(HeapReAlloc): Likewise.
+	(HeapSize): Likewise.
+	(InitOnceInitialize): Likewise.
+	(InitializeConditionVariable): Likewise.
+	(InitializeCriticalSection): Likewise.
+	(InitializeSListHead): Likewise.
+	(InitializeSRWLock): Likewise.
+	(InterlockedCompareExchange64): Likewise.
+	(InterlockedFlushSList): Likewise.
+	(InterlockedPopEntrySList): Likewise.
+	(InterlockedPushEntrySList): Likewise.
+	(IsThreadpoolTimerSet): Likewise.
+	(LeaveCriticalSection): Likewise.
+	(LeaveCriticalSectionWhenCallbackReturns): Likewise.
+	(QueryDepthSList): Likewise.
+	(ReleaseMutexWhenCallbackReturns): Likewise.
+	(ReleaseSRWLockExclusive): Likewise.
+	(ReleaseSRWLockShared): Likewise.
+	(ReleaseSemaphoreWhenCallbackReturns): Likewise.
+	(RemoveVectoredContinueHandler): Likewise.
+	(RemoveVectoredExceptionHandler): Likewise.
+	(RestoreLastError): Likewise.
+	(RtlCaptureContext): Likewise.
+	(RtlCaptureStackBackTrace): Likewise.
+	(RtlFillMemory): Likewise.
+	(RtlMoveMemory): Likewise.
+	(RtlUnwind): Likewise.
+	(RtlZeroMemory): Likewise.
+	(SetCriticalSectionSpinCount): Likewise.
+	(SetEventWhenCallbackReturns): Likewise.
+	(SetThreadpoolThreadMaximum): Likewise.
+	(SetThreadpoolTimer): Likewise.
+	(SetThreadpoolWait): Likewise.
+	(StartThreadpoolIo): Likewise.
+	(SubmitThreadpoolWork): Likewise.
+	(TryEnterCriticalSection): Likewise.
+	(VerSetConditionMask): Likewise.
+	(WaitForThreadpoolIoCallbacks): Likewise.
+	(WaitForThreadpoolTimerCallbacks): Likewise.
+	(WaitForThreadpoolWaitCallbacks): Likewise.
+	(WaitForThreadpoolWorkCallbacks): Likewise.
+	(WakeAllConditionVariable): Likewise.
+	(WakeConditionVariable): Likewise.
+	* lib32/clfsw32.def: New.
+	lib32/advapi32.def (AddMandatoryAce): New.
+	lib32/ws2_32.def (FreeAddrInfoExA): New.
+	(FreeAddrInfoExW): Likewise.
+	(GetAddrInfoExA): Likewise.
+	(GetAddrInfoExW): Likewise.
+	* lib32/winspool.def (AddPrinterConnection2A): New.
+	(AddPrinterConnection2W): Likewise.
+
 2010-06-02  Doug Semler  <dougsemler@gmail.com>
 
 	* Makefile.am: Use && instead of ; for compound commands.

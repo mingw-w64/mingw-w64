@@ -6,9 +6,9 @@
 LIBRARY "KERNEL32.dll"
 EXPORTS
 BaseThreadInitThunk@4
-InterlockedPushListSList@8 = NTDLL.RtlInterlockedPushListSList
-AcquireSRWLockExclusive@4 = NTDLL.RtlAcquireSRWLockExclusive
-AcquireSRWLockShared@4 = NTDLL.RtlAcquireSRWLockShared
+InterlockedPushListSList@8
+AcquireSRWLockExclusive@4
+AcquireSRWLockShared@4
 ActivateActCtx@8
 AddAtomA@4
 AddAtomW@4
@@ -19,8 +19,8 @@ AddLocalAlternateComputerNameW@8
 AddRefActCtx@4
 AddSIDToBoundaryDescriptor@8
 AddSecureMemoryCacheCallback@4
-AddVectoredContinueHandler@8 = NTDLL.RtlAddVectoredContinueHandler
-AddVectoredExceptionHandler@8 = NTDLL.RtlAddVectoredExceptionHandler
+AddVectoredContinueHandler@8
+AddVectoredExceptionHandler@8
 AdjustCalendarDate@12
 AllocConsole@0
 AllocateUserPhysicalPages@12
@@ -57,12 +57,12 @@ BuildCommDCBAndTimeoutsW@12
 BuildCommDCBW@8
 CallNamedPipeA@28
 CallNamedPipeW@28
-CallbackMayRunLong@4 = NTDLL.TpCallbackMayRunLong
+CallbackMayRunLong@4
 CancelDeviceWakeupRequest@4
 CancelIo@4
 CancelIoEx@8
 CancelSynchronousIo@4
-CancelThreadpoolIo@4 = NTDLL.TpCancelAsyncIoOperation
+CancelThreadpoolIo@4
 CancelTimerQueueTimer@8
 CancelWaitableTimer@4
 ChangeTimerQueueTimer@16
@@ -78,13 +78,13 @@ CloseConsoleHandle@4
 CloseHandle@4
 ClosePrivateNamespace@8
 CloseProfileUserMapping@0
-CloseThreadpool@4 = NTDLL.TpReleasePool
-CloseThreadpoolCleanupGroup@4 = NTDLL.TpReleaseCleanupGroup
-CloseThreadpoolCleanupGroupMembers@12 = NTDLL.TpReleaseCleanupGroupMembers
-CloseThreadpoolIo@4 = NTDLL.TpReleaseIoCompletion
-CloseThreadpoolTimer@4 = NTDLL.TpReleaseTimer
-CloseThreadpoolWait@4 = NTDLL.TpReleaseWait
-CloseThreadpoolWork@4 = NTDLL.TpReleaseWork
+CloseThreadpool@4
+CloseThreadpoolCleanupGroup@4
+CloseThreadpoolCleanupGroupMembers@12
+CloseThreadpoolIo@4
+CloseThreadpoolTimer@4
+CloseThreadpoolWait@4
+CloseThreadpoolWork@4
 CmdBatNotification@4
 CommConfigDialogA@12
 CommConfigDialogW@12
@@ -195,14 +195,14 @@ DebugActiveProcessStop@4
 DebugBreak@0
 DebugBreakProcess@4
 DebugSetProcessKillOnExit@4
-DecodePointer@4 = NTDLL.RtlDecodePointer
-DecodeSystemPointer@4 = NTDLL.RtlDecodeSystemPointer
+DecodePointer@4
+DecodeSystemPointer@4
 DefineDosDeviceA@12
 DefineDosDeviceW@12
 DelayLoadFailureHook@8
 DeleteAtom@4
-DeleteBoundaryDescriptor@4 = NTDLL.RtlDeleteBoundaryDescriptor
-DeleteCriticalSection@4 = NTDLL.RtlDeleteCriticalSection
+DeleteBoundaryDescriptor@4
+DeleteCriticalSection@4
 DeleteFiber@4
 DeleteFileA@4
 DeleteFileTransactedA@8
@@ -216,7 +216,7 @@ DeleteVolumeMountPointA@4
 DeleteVolumeMountPointW@4
 DeviceIoControl@32
 DisableThreadLibraryCalls@4
-DisassociateCurrentThreadFromCallback@4 = NTDLL.TpDisassociateCallback
+DisassociateCurrentThreadFromCallback@4
 DisconnectNamedPipe@4
 DnsHostnameToComputerNameA@12
 DnsHostnameToComputerNameW@12
@@ -225,11 +225,11 @@ DosPathToSessionPathA@12
 DosPathToSessionPathW@12
 DuplicateConsoleHandle@16
 DuplicateHandle@28
-EncodePointer@4 = NTDLL.RtlEncodePointer
-EncodeSystemPointer@4 = NTDLL.RtlEncodeSystemPointer
+EncodePointer@4
+EncodeSystemPointer@4
 EndUpdateResourceA@8
 EndUpdateResourceW@8
-EnterCriticalSection@4 = NTDLL.RtlEnterCriticalSection
+EnterCriticalSection@4
 EnumCalendarInfoA@16
 EnumCalendarInfoExA@16
 EnumCalendarInfoExEx@24
@@ -273,7 +273,7 @@ EnumerateLocalComputerNamesW@16
 EraseTape@12
 EscapeCommFunction@8
 ExitProcess@4
-ExitThread@4 = NTDLL.RtlExitUserThread
+ExitThread@4
 ExitVDM@8
 ExpandEnvironmentStringsA@12
 ExpandEnvironmentStringsW@12
@@ -336,7 +336,7 @@ FlsSetValue@8
 FlushConsoleInputBuffer@4
 FlushFileBuffers@4
 FlushInstructionCache@12
-FlushProcessWriteBuffers@0 = NTDLL.NtFlushProcessWriteBuffers
+FlushProcessWriteBuffers@0
 FlushViewOfFile@8
 FoldStringA@20
 FoldStringW@20
@@ -347,7 +347,7 @@ FreeEnvironmentStringsA@4
 FreeEnvironmentStringsW@4
 FreeLibrary@4
 FreeLibraryAndExitThread@8
-FreeLibraryWhenCallbackReturns@8 = NTDLL.TpCallbackUnloadDllOnCompletion
+FreeLibraryWhenCallbackReturns@8
 FreeResource@4
 FreeUserPhysicalPages@12
 FreeVirtualBuffer@4
@@ -441,7 +441,7 @@ GetCurrentDirectoryA@8
 GetCurrentDirectoryW@8
 GetCurrentProcess@0
 GetCurrentProcessId@0
-GetCurrentProcessorNumber@0 = NTDLL.NtGetCurrentProcessorNumber
+GetCurrentProcessorNumber@0
 GetCurrentThread@0
 GetCurrentThreadId@0
 GetDateFormatA@24
@@ -689,7 +689,7 @@ Heap32First@12
 Heap32ListFirst@8
 Heap32ListNext@8
 Heap32Next@4
-HeapAlloc@12 = NTDLL.RtlAllocateHeap
+HeapAlloc@12
 HeapCompact@8
 HeapCreate@12
 HeapCreateTagsW@16
@@ -699,9 +699,9 @@ HeapFree@12
 HeapLock@4
 HeapQueryInformation@20
 HeapQueryTagW@20
-HeapReAlloc@16 = NTDLL.RtlReAllocateHeap
+HeapReAlloc@16
 HeapSetInformation@16
-HeapSize@12 = NTDLL.RtlSizeHeap
+HeapSize@12
 HeapSummary@12
 HeapUnlock@4
 HeapUsage@20
@@ -715,23 +715,23 @@ InitializeCriticalSection@4
 InitOnceBeginInitialize@16
 InitOnceComplete@12
 InitOnceExecuteOnce@16
-InitOnceInitialize@4 = NTDLL.RtlRunOnceInitialize
-InitializeConditionVariable@4 = NTDLL.RtlInitializeConditionVariable
-InitializeCriticalSection@4 = NTDLL.RtlInitializeCriticalSection
+InitOnceInitialize@4
+InitializeConditionVariable@4
+InitializeCriticalSection@4
 InitializeCriticalSectionAndSpinCount@8
 InitializeCriticalSectionEx@12
 InitializeProcThreadAttributeList@16
-InitializeSListHead@4 = NTDLL.RtlInitializeSListHead
-InitializeSRWLock@4 = NTDLL.RtlInitializeSRWLock
-InterlockedCompareExchange64@20 = NTDLL.RtlInterlockedCompareExchange64
+InitializeSListHead@4
+InitializeSRWLock@4
+InterlockedCompareExchange64@20
 InterlockedCompareExchange@12
 InterlockedDecrement@4
 InterlockedExchange@8
 InterlockedExchangeAdd@8
-InterlockedFlushSList@4 = NTDLL.RtlInterlockedFlushSList
+InterlockedFlushSList@4
 InterlockedIncrement@4
-InterlockedPopEntrySList@4 = NTDLL.RtlInterlockedPopEntrySList
-InterlockedPushEntrySList@8 = NTDLL.RtlInterlockedPushEntrySList
+InterlockedPopEntrySList@4
+InterlockedPushEntrySList@8
 InvalidateConsoleDIBits@8
 IsBadCodePtr@4
 IsBadHugeReadPtr@8
@@ -752,7 +752,7 @@ IsProcessInJob@12
 IsProcessorFeaturePresent@4
 IsSystemResumeAutomatic@0
 IsThreadAFiber@0
-IsThreadpoolTimerSet@4 = NTDLL.TpIsTimerSet
+IsThreadpoolTimerSet@4
 IsTimeZoneRedirectionEnabled@0
 IsValidCalDateTime@8
 IsValidCodePage@4
@@ -775,8 +775,8 @@ LZOpenFileW@12
 LZRead@12
 LZSeek@12
 LZStart@0
-LeaveCriticalSection@4 = NTDLL.RtlLeaveCriticalSection
-LeaveCriticalSectionWhenCallbackReturns@8 = NTDLL.TpCallbackLeaveCriticalSectionOnCompletion
+LeaveCriticalSection@4
+LeaveCriticalSectionWhenCallbackReturns@8
 LoadLibraryA@4
 LoadLibraryExA@12
 LoadLibraryExW@12
@@ -869,7 +869,7 @@ PulseEvent@4
 PurgeComm@8
 QueryActCtxSettingsW@28
 QueryActCtxW@28
-QueryDepthSList@4 = NTDLL.RtlQueryDepthSList
+QueryDepthSList@4
 QueryDosDeviceA@12
 QueryDosDeviceW@12
 QueryFullProcessImageNameA@16
@@ -916,11 +916,11 @@ RegisterWowBaseHandlers@4
 RegisterWowExec@4
 ReleaseActCtx@4
 ReleaseMutex@4
-ReleaseMutexWhenCallbackReturns@8 = NTDLL.TpCallbackReleaseMutexOnCompletion
-ReleaseSRWLockExclusive@4 = NTDLL.RtlReleaseSRWLockExclusive
-ReleaseSRWLockShared@4 = NTDLL.RtlReleaseSRWLockShared
+ReleaseMutexWhenCallbackReturns@8
+ReleaseSRWLockExclusive@4
+ReleaseSRWLockShared@4
 ReleaseSemaphore@12
-ReleaseSemaphoreWhenCallbackReturns@12 = NTDLL.TpCallbackReleaseSemaphoreOnCompletion
+ReleaseSemaphoreWhenCallbackReturns@12
 RemoveDirectoryA@4
 RemoveDirectoryTransactedA@8
 RemoveDirectoryTransactedW@8
@@ -928,8 +928,8 @@ RemoveDirectoryW@4
 RemoveLocalAlternateComputerNameA@8
 RemoveLocalAlternateComputerNameW@8
 RemoveSecureMemoryCacheCallback@4
-RemoveVectoredContinueHandler@4 = NTDLL.RtlRemoveVectoredContinueHandler
-RemoveVectoredExceptionHandler@4 = NTDLL.RtlRemoveVectoredExceptionHandler
+RemoveVectoredContinueHandler@4
+RemoveVectoredExceptionHandler@4
 ReplaceFile@24
 ReplaceFileA@24
 ReplaceFileW@24
@@ -938,14 +938,14 @@ RequestDeviceWakeup@4
 RequestWakeupLatency@4
 ResetEvent@4
 ResetWriteWatch@8
-RestoreLastError@4 = NTDLL.RtlRestoreLastWin32Error
+RestoreLastError@4
 ResumeThread@4
-RtlCaptureContext@4 = NTDLL.RtlCaptureContext
-RtlCaptureStackBackTrace@16 = NTDLL.RtlCaptureStackBackTrace
-RtlFillMemory@12 = NTDLL.RtlFillMemory
-RtlMoveMemory@12 = NTDLL.RtlMoveMemory
-RtlUnwind@16 = NTDLL.RtlUnwind
-RtlZeroMemory@8 = NTDLL.RtlZeroMemory
+RtlCaptureContext@4
+RtlCaptureStackBackTrace@16
+RtlFillMemory@12
+RtlMoveMemory@12
+RtlUnwind@16
+RtlZeroMemory@8
 ScrollConsoleScreenBufferA@20
 ScrollConsoleScreenBufferW@20
 SearchPathA@24
@@ -995,7 +995,7 @@ SetConsoleTextAttribute@8
 SetConsoleTitleA@4
 SetConsoleTitleW@4
 SetConsoleWindowInfo@12
-SetCriticalSectionSpinCount@8 = NTDLL.RtlSetCriticalSectionSpinCount
+SetCriticalSectionSpinCount@8
 SetCurrentConsoleFontEx@12
 SetCurrentDirectoryA@4
 SetCurrentDirectoryW@4
@@ -1011,7 +1011,7 @@ SetEnvironmentVariableA@8
 SetEnvironmentVariableW@8
 SetErrorMode@4
 SetEvent@4
-SetEventWhenCallbackReturns@8 = NTDLL.TpCallbackSetEventOnCompletion
+SetEventWhenCallbackReturns@8
 SetFileApisToANSI@0
 SetFileApisToOEM@0
 SetFileAttributesA@8
@@ -1073,10 +1073,10 @@ SetThreadPriority@8
 SetThreadPriorityBoost@8
 SetThreadStackGuarantee@4
 SetThreadUILanguage@4
-SetThreadpoolThreadMaximum@8 = NTDLL.TpSetPoolMaxThreads
+SetThreadpoolThreadMaximum@8
 SetThreadpoolThreadMinimum@8
-SetThreadpoolTimer@16 = NTDLL.TpSetTimer
-SetThreadpoolWait@12 = NTDLL.TpSetWait
+SetThreadpoolTimer@16
+SetThreadpoolWait@12
 SetTimeZoneInformation@4
 SetTimerQueueTimer@24
 SetUnhandledExceptionFilter@4
@@ -1095,8 +1095,8 @@ Sleep@4
 SleepConditionVariableCS@12
 SleepConditionVariableSRW@16
 SleepEx@8
-StartThreadpoolIo@4 = NTDLL.TpStartAsyncIoOperation
-SubmitThreadpoolWork@4 = NTDLL.TpPostWork
+StartThreadpoolIo@4
+SubmitThreadpoolWork@4
 SuspendThread@4
 SwitchToFiber@4
 SwitchToThread@0
@@ -1118,7 +1118,7 @@ TransmitCommChar@8
 TrimVirtualBuffer@4
 TryAcquireSRWLockExclusive
 TryAcquireSRWLockShared
-TryEnterCriticalSection@4 = NTDLL.RtlTryEnterCriticalSection
+TryEnterCriticalSection@4
 TrySubmitThreadpoolCallback@12
 TzSpecificLocalTimeToSystemTime@12
 UTRegister@28
@@ -1141,7 +1141,7 @@ VDMConsoleOperation@8
 VDMOperationStarted@4
 VerLanguageNameA@12
 VerLanguageNameW@12
-VerSetConditionMask@16 = NTDLL.VerSetConditionMask
+VerSetConditionMask@16
 VerifyConsoleIoHandle@4
 VerifyScripts@20
 VerifyVersionInfoA@16
@@ -1169,14 +1169,14 @@ WaitForMultipleObjects@16
 WaitForMultipleObjectsEx@20
 WaitForSingleObject@8
 WaitForSingleObjectEx@12
-WaitForThreadpoolIoCallbacks@8 = NTDLL.TpWaitForIoCompletion
-WaitForThreadpoolTimerCallbacks@8 = NTDLL.TpWaitForTimer
-WaitForThreadpoolWaitCallbacks@8 = NTDLL.TpWaitForWait
-WaitForThreadpoolWorkCallbacks@8 = NTDLL.TpWaitForWork
+WaitForThreadpoolIoCallbacks@8
+WaitForThreadpoolTimerCallbacks@8
+WaitForThreadpoolWaitCallbacks@8
+WaitForThreadpoolWorkCallbacks@8
 WaitNamedPipeA@8
 WaitNamedPipeW@8
-WakeAllConditionVariable@4 = NTDLL.RtlWakeAllConditionVariable
-WakeConditionVariable@4 = NTDLL.RtlWakeConditionVariable
+WakeAllConditionVariable@4
+WakeConditionVariable@4
 WerGetFlags@8
 WerRegisterFile@12
 WerRegisterMemoryBlock@8

@@ -26,6 +26,8 @@ AddPrintProcessorW
 AddPrintProvidorA
 AddPrintProvidorW
 AddPrinterA
+AddPrinterConnection2A
+AddPrinterConnection2W
 AddPrinterConnectionA
 AddPrinterConnectionW
 AddPrinterDriverA

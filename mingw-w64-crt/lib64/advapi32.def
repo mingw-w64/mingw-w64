@@ -33,6 +33,7 @@ AddAce
 AddAuditAccessAce
 AddAuditAccessAceEx
 AddAuditAccessObjectAce
+AddMandatoryAce
 AddUsersToEncryptedFile
 AdjustTokenGroups
 AdjustTokenPrivileges

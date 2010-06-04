@@ -30,7 +30,11 @@ setsockopt
 shutdown
 socket
 WSApSetPostRoutine
+FreeAddrInfoExA
+FreeAddrInfoExW
 FreeAddrInfoW
+GetAddrInfoExA
+GetAddrInfoExW
 GetAddrInfoW
 GetNameInfoW
 WPUCompleteOverlappedRequest

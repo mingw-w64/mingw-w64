@@ -17,6 +17,8 @@ AddPrintProcessorW@16
 AddPrintProvidorA@12
 AddPrintProvidorW@12
 AddPrinterA@12
+AddPrinterConnection2A@16
+AddPrinterConnection2W@16
 AddPrinterConnectionA@4
 AddPrinterConnectionW@4
 AddPrinterDriverA@12
