@@ -2984,8 +2984,8 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI GetNumaNodeProcessorMask(UCHAR Node,PULONGLONG ProcessorMask);
   WINBASEAPI WINBOOL WINAPI GetNumaAvailableMemoryNode(UCHAR Node,PULONGLONG AvailableBytes);
 
-  /* New Windows 7.0 API.  */
-
+  /* New Windows Vista API.  */
+#if (_WIN32_WINNT >= 0x0600)
 #define SYMBOLIC_LINK_FLAG_FILE		0x0
 #define SYMBOLIC_LINK_FLAG_DIRECTORY	0x1
 
@@ -2997,7 +2997,6 @@ extern "C" {
 #define CreateSymbolicLink CreateSymbolicLinkA
 #endif
 
-#if (_WIN32_WINNT >= 0x0600)
 /*Condition Variables http://msdn.microsoft.com/en-us/library/ms682052%28VS.85%29.aspx*/
 typedef RTL_CONDITION_VARIABLE CONDITION_VARIABLE, *PCONDITION_VARIABLE;
 typedef RTL_SRWLOCK SRWLOCK, *PSRWLOCK;
