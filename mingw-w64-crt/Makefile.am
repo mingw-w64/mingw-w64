@@ -350,7 +350,7 @@ lib32_DATA = \
   lib32/libdsound.a    lib32/libdxapi.a     lib32/libfaultrep.a  lib32/libgdi32.a     lib32/libglaux.a    \
   lib32/libglu32.a     lib32/libglut32.a    lib32/libglut.a      lib32/libhal.a       lib32/libhid.a      \
   lib32/libhidparse.a  lib32/libicmui.a     lib32/libigmpagnt.a  lib32/libimagehlp.a  lib32/libimm32.a    \
-  lib32/libiphlpapi.a  lib32/libkernel32.a  lib32/libksproxy.a                        lib32/liblz32.a     \
+  lib32/libiphlpapi.a  lib32/libkernel32.a  lib32/libksproxy.a   lib32/libclfsw32.a   lib32/liblz32.a     \
   lib32/libmapi32.a    lib32/libmcd.a       lib32/libmfcuia32.a  lib32/libmgmtapi.a   lib32/libmprapi.a   \
   lib32/libmpr.a       lib32/libmqrt.a      lib32/libmsacm32.a   lib32/libmscms.a     lib32/libmsdmo.a    \
   lib32/libmsimg32.a   lib32/libmsvcp60.a   lib32/libmsvfw32.a   lib32/libmswsock.a   lib32/libnddeapi.a  \
@@ -923,7 +923,7 @@ lib64_DATA = \
   lib64/libwservdeps.a  lib64/libwserwvdrv.a  lib64/libwsetupapi.a    lib64/libwsfc.a       lib64/libwsfcfiles.a     \
   lib64/libwsfc_os.a    lib64/libwsfmapi.a    lib64/libwshatm.a       lib64/libwshbth.a     lib64/libwshcon.a        \
   lib64/libwsock32.a    lib64/libwwdmaud.a    lib64/libwwinspool.a    lib64/libzoneoc.a     lib64/libnormaliz.a      \
-  \
+  lib64/libclfsw32.a \
   lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a      \
   \
   lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a
