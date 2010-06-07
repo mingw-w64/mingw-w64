@@ -30,6 +30,7 @@ StrChrIW@8
 StrChrIA@8
 StrChrA@8
 SHUpdateRecycleBinIcon@0
+SHSimpleIDListFromPath@4
 SHSetUnreadMailCountW@12
 SHSetLocalizedName@12
 SHQueryRecycleBinW@8
@@ -173,6 +174,9 @@ ILAppendID@12
 ILClone@4
 ILCloneFirst@4
 ILCombine@8
+ILCreateFromPath@4
+ILCreateFromPathA@4
+ILCreateFromPathW@4
 ILFindChild@8
 ILFindLastID@4
 ILFree@4

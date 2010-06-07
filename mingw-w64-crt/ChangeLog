@@ -1,3 +1,8 @@
+2010-06-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/shell32.def (ILCreateFromPath, ILCreateFromPathA,
+	ILCreateFromPathW, SHSimpleIDListFromPath): Added.
+
 2010-06-05  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* lib32/clfsw32.def: New.
