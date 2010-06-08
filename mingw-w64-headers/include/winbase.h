@@ -2993,8 +2993,14 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI CreateSymbolicLinkW (LPWSTR lpSymLinkFileName, LPWSTR lpTargetFileName, DWORD dwFlags);
 #ifdef UNICODE
 #define CreateSymbolicLink CreateSymbolicLinkW
+#define CreateBoundaryDescriptor CreateBoundaryDescriptorW
+#define OpenPrivateNamespace OpenPrivateNamespaceW
+#define CreatePrivateNamespace CreatePrivateNamespaceW
 #else
 #define CreateSymbolicLink CreateSymbolicLinkA
+#define CreateBoundaryDescriptor CreateBoundaryDescriptorA
+#define OpenPrivateNamespace OpenPrivateNamespaceA
+#define CreatePrivateNamespace CreatePrivateNamespaceA
 #endif
 
 /*Condition Variables http://msdn.microsoft.com/en-us/library/ms682052%28VS.85%29.aspx*/
@@ -3028,6 +3034,61 @@ typedef WINBOOL CALLBACK (*PINIT_ONCE_FN) (PINIT_ONCE InitOnce, PVOID Parameter,
 WINBASEAPI WINBOOL WINAPI InitOnceBeginInitialize(LPINIT_ONCE lpInitOnce, DWORD dwFlags, PBOOL fPending, LPVOID *lpContext);
 WINBASEAPI WINBOOL WINAPI InitOnceComplete(LPINIT_ONCE lpInitOnce, DWORD dwFlags, LPVOID lpContext);
 WINBASEAPI WINBOOL WINAPI InitOnceExecuteOnce(PINIT_ONCE InitOnce, PINIT_ONCE_FN InitFn, PVOID Parameter, LPVOID *Context);
+
+WINBASEAPI WINBOOL WINAPI AddMandatoryAce(PACL pAcl,DWORD dwAceRevision,DWORD AceFlags,DWORD MandatoryPolicy,PSID pLabelSid);
+WINBASEAPI WINBOOL WINAPI AddSIDToBoundaryDescriptor(HANDLE *BoundaryDescriptor,PSID RequiredSid);
+WINBASEAPI HANDLE WINAPI CreateBoundaryDescriptorA(LPCSTR Name,ULONG Flags);
+WINBASEAPI HANDLE WINAPI CreateBoundaryDescriptorW(LPCWSTR Name,ULONG Flags);
+
+WINBASEAPI BOOLEAN WINAPI ClosePrivateNamespace(HANDLE Handle,ULONG Flags);
+WINBASEAPI HANDLE WINAPI OpenPrivateNamespaceA(LPVOID lpBoundaryDescriptor,LPCSTR lpAliasPrefix);
+WINBASEAPI HANDLE WINAPI OpenPrivateNamespaceW(LPVOID lpBoundaryDescriptor,LPCWSTR lpAliasPrefix);
+WINBASEAPI VOID WINAPI DeleteBoundaryDescriptor(HANDLE BoundaryDescriptor);
+WINBASEAPI HANDLE WINAPI CreatePrivateNamespaceA(LPSECURITY_ATTRIBUTES lpPrivateNamespaceAttributes,LPVOID lpBoundaryDescriptor,LPCSTR lpAliasPrefix);
+WINBASEAPI HANDLE WINAPI CreatePrivateNamespaceW(LPSECURITY_ATTRIBUTES lpPrivateNamespaceAttributes,LPVOID lpBoundaryDescriptor,LPCWSTR lpAliasPrefix);
+
+typedef BOOLEAN CALLBACK (*PSECURE_MEMORY_CACHE_CALLBACK) (PVOID Addr,SIZE_T Range);
+
+WINBASEAPI WINBOOL WINAPI AddSecureMemoryCacheCallback(PSECURE_MEMORY_CACHE_CALLBACK pfnCallBack);
+WINBASEAPI WINBOOL WINAPI RemoveSecureMemoryCacheCallback(PSECURE_MEMORY_CACHE_CALLBACK pfnCallBack);
+WINBASEAPI WINBOOL WINAPI AdvanceLogBase(PVOID pvMarshal,PCLFS_LSN plsnBase,ULONG fFlags,LPOVERLAPPED pOverlapped);
+
+WINBASEAPI WINBOOL WINAPI AllocateUserPhysicalPagesNuma(HANDLE hProcess,PULONG_PTR NumberOfPages,PULONG_PTR PageArray,DWORD nndPreferred);
+
+typedef DWORD (WINAPI *APPLICATION_RECOVERY_CALLBACK)(PVOID pvParameter);
+WINBASEAPI HRESULT WINAPI RegisterApplicationRecoveryCallback(APPLICATION_RECOVERY_CALLBACK pRecoveryCallback,PVOID pvParameter,DWORD dwPingInterval,DWORD dwFlags);
+WINBASEAPI VOID WINAPI ApplicationRecoveryFinished(WINBOOL bSuccess);
+WINBASEAPI HRESULT WINAPI ApplicationRecoveryInProgress(PBOOL pbCanceled);
+
+
+/* no associated headers
+  enum CALDATETIME_DATEUNIT {
+    EraUnit,
+    YearUnit,
+    MonthUnit,
+    WeekUnit,
+    DayUnit,
+    HourUnit,
+    MinuteUnit,
+    SecondUnit,
+    TickUnit
+  };
+  typedef struct _caldatetime {
+    CALID CalId;
+    UINT  Era;
+    UINT  Year;
+    UINT  Month;
+    UINT  Day;
+    UINT  DayOfWeek;
+    UINT  Hour;
+    UINT  Minute;
+    UINT  Second;
+    ULONG Tick;
+  } CALDATETIME, *LPCALDATETIME;
+WINBOOL AdjustCalendarDate(LPCALDATETIME lpCalDateTime,CALDATETIME_DATEUNIT calUnit,INT amount);
+*/
+
+
 #endif
 
 #ifdef __cplusplus

@@ -1600,6 +1600,26 @@ extern "C" {
 #define SPLDS_PRINTER_LOCATIONS TEXT("printerLocations")
 #define SPLDS_PRINTER_MODEL TEXT("printerModel")
 
+#if (_WIN32_WINNT >= 0x0600)
+#ifdef UNICODE
+#define AddPrinterConnection2 AddPrinterConnection2W
+#else
+#define AddPrinterConnection2 AddPrinterConnection2A
+#endif
+
+#define PRINTER_CONNECTION_MISMATCH 0x00000020
+#define PRINTER_CONNECTION_NO_UI    0x00000040
+
+typedef struct _PRINTER_CONNECTION_INFO_1 {
+  DWORD  dwFlags;
+  LPTSTR pszDriverName;
+} PRINTER_CONNECTION_INFO_1, *PPRINTER_CONNECTION_INFO_1;
+
+  WINBOOL AddPrinterConnection2W(HWND hWnd,LPCWSTR pszName,DWORD dwLevel,PVOID pConnectionInfo);
+  WINBOOL AddPrinterConnection2A(HWND hWnd,LPCSTR pszName,DWORD dwLevel,PVOID pConnectionInfo); /*Not supported and returns ERROR_NOT_SUPPORTED.*/
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifdef __cplusplus
 }
 #endif

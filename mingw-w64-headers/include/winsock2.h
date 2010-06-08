@@ -132,6 +132,10 @@ extern int WINAPI __WSAFDIsSet(SOCKET,fd_set *);
 #define IPPROTO_ND 77
 #define IPPROTO_ICLFXBM 78
 
+#if (_WIN32_WINNT >= 0x0600)
+#define IPPROTO_RM 113
+#endif
+
 #define IPPROTO_RAW 255
 #define IPPROTO_MAX 256
 
@@ -279,8 +283,8 @@ extern int WINAPI __WSAFDIsSet(SOCKET,fd_set *);
 #define AF_TCNPROCESS 29
 #define AF_TCNMESSAGE 30
 #define AF_ICLFXBM 31
-
-#define AF_MAX 32
+#define AF_BTH 32
+#define AF_MAX 33
 
 #define _SS_MAXSIZE 128
 #define _SS_ALIGNSIZE (8)

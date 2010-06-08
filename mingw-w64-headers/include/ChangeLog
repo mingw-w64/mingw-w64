@@ -1,3 +1,47 @@
+2010-06-08  Jonathan Yong  <jon_y@sourceforge.net>
+	* winnt.h (ACTCTX_REQUESTED_RUN_LEVEL): New.
+	(ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION): Likewise.
+	* winbase.h (CreateBoundaryDescriptorA): New.
+	(CreateBoundaryDescriptorW): Likewise.
+	(OpenPrivateNamespaceA): Likewise.
+	(OpenPrivateNamespaceW): Likewise.
+	(CreatePrivateNamespaceA): Likewise.
+	(CreatePrivateNamespaceW): Likewise.
+	(AddMandatoryAce): Likewise.
+	(AddSIDToBoundaryDescriptor): Likewise.
+	(ClosePrivateNamespace): Likewise.
+	(DeleteBoundaryDescriptor): Likewise.
+	(PSECURE_MEMORY_CACHE_CALLBACK): Likewise.
+	(AddSecureMemoryCacheCallback): Likewise.
+	(RemoveSecureMemoryCacheCallback): Likewise.
+	(AdvanceLogBase): Likewise.
+	(AllocateUserPhysicalPagesNuma): Likewise.
+	(APPLICATION_RECOVERY_CALLBACK): Likewise.
+	(RegisterApplicationRecoveryCallback): Likewise.
+	(ApplicationRecoveryFinished): Likewise.
+	(ApplicationRecoveryInProgress): Likewise.
+	* winspool.h (AddPrinterConnection2A): New.
+	(AddPrinterConnection2W): Likewise.
+	(PRINTER_CONNECTION_MISMATCH): Define.
+	(PRINTER_CONNECTION_NO_UI): Likewise.
+	(PRINTER_CONNECTION_INFO_1): New.
+	(PPRINTER_CONNECTION_INFO_1): Likewise.
+	* winsock2.h (IPPROTO_RM): Define.
+	(AF_BTH): Likewise.
+	(AF_MAX): Bump to 33.
+	* ws2tcpip.h (AI_ADDRCONFIG): Define.
+	(AI_NON_AUTHORITATIVE): Likewise.
+	(AI_SECURE): Likewise.
+	(AI_RETURN_PREFERRED_NAMES): Likewise.
+	(addrinfoExA): New.
+	(addrinfoExW): New.
+	(PADDRINFOEXA): New.
+	(PADDRINFOEXW): New.
+	(GetAddrInfoExA): New.
+	(GetAddrInfoExW): New.
+	(FreeAddrInfoExA): New.
+	(FreeAddrInfoExW): New.
+
 2010-06-04  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* winbase.h (CreateSymbolicLinkA): Move into Vista version guard.
