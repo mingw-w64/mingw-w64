@@ -1,3 +1,8 @@
+2010-06-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sdkddkver.h: Sync'ed with ReactOS version to add new macros
+	_WIN32_WINNT_WIN7, _WIN32_IE_IE80, _WIN32_IE_WIN7 and NTDDI_WIN7.
+
 2010-05-28  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mstcpip.h: Added missing include guard.
