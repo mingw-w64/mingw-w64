@@ -1,3 +1,8 @@
+2010-06-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sdkddkver.h: Sync'ed with ReactOS version to add new macros
+	_WIN32_WINNT_WIN7, _WIN32_IE_IE80, _WIN32_IE_WIN7 and NTDDI_WIN7.
+
 2010-06-08  Jonathan Yong  <jon_y@sourceforge.net>
 	* winnt.h (ACTCTX_REQUESTED_RUN_LEVEL): New.
 	(ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION): Likewise.
