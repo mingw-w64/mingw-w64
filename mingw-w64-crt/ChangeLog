@@ -1,3 +1,14 @@
+2010-06-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk (more missing stuff in lib32/*.def)
+
+	2010-05-28  Jonathan Yong  <jon_y@sourceforge.net> (rev. 2450)
+	* lib32/advapi32.def: Add RegGetValueA and RegGetValueW.
+
+	2010-06-08  Kai Tietz  <kai.tietz@onevision.com> (rev. 2470)
+	* lib32/shell32.def: Added ILCreateFromPath, ILCreateFromPathA,
+	ILCreateFromPathW and SHSimpleIDListFromPath.
+
 2010-06-02  Doug Semler  <dougsemler@gmail.com>
 	Back-merge from trunk (rev 2457)
 
