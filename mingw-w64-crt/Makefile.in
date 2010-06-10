@@ -850,11 +850,12 @@ am__lib32_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/devguid.c \
 	libsrc/ativscp-uuid.c libsrc/cguid-uuid.c libsrc/comcat-uuid.c \
 	libsrc/docobj-uuid.c libsrc/exdisp-uuid.c libsrc/extras-uuid.c \
 	libsrc/hlguids-uuid.c libsrc/hlink-uuid.c libsrc/mlang-uuid.c \
-	libsrc/mshtml-uuid.c libsrc/msxml-uuid.c libsrc/oaidl-uuid.c \
-	libsrc/objidl-uuid.c libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
-	libsrc/oleacc-uuid.c libsrc/olectlid-uuid.c \
-	libsrc/oleidl-uuid.c libsrc/power-uuid.c \
-	libsrc/servprov-uuid.c libsrc/unknwn-uuid.c \
+	libsrc/msctf-uuid.c libsrc/mshtml-uuid.c libsrc/msxml-uuid.c \
+	libsrc/netcon-uuid.c libsrc/oaidl-uuid.c libsrc/objidl-uuid.c \
+	libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c libsrc/oleacc-uuid.c \
+	libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c \
+	libsrc/power-uuid.c libsrc/servprov-uuid.c \
+	libsrc/textstor-uuid.c libsrc/unknwn-uuid.c \
 	libsrc/urlmon-uuid.c libsrc/wia-uuid.c
 am__objects_19 = libsrc/lib32_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-devguid.$(OBJEXT) \
@@ -867,8 +868,10 @@ am__objects_19 = libsrc/lib32_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-hlguids-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-hlink-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-mlang-uuid.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-msctf-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-mshtml-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-msxml-uuid.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-netcon-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-oaidl-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-objidl-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-objsafe-uuid.$(OBJEXT) \
@@ -878,6 +881,7 @@ am__objects_19 = libsrc/lib32_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-oleidl-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-power-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-servprov-uuid.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-textstor-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-unknwn-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-urlmon-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-wia-uuid.$(OBJEXT)
@@ -1734,11 +1738,12 @@ am__lib64_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/devguid.c \
 	libsrc/ativscp-uuid.c libsrc/cguid-uuid.c libsrc/comcat-uuid.c \
 	libsrc/docobj-uuid.c libsrc/exdisp-uuid.c libsrc/extras-uuid.c \
 	libsrc/hlguids-uuid.c libsrc/hlink-uuid.c libsrc/mlang-uuid.c \
-	libsrc/mshtml-uuid.c libsrc/msxml-uuid.c libsrc/oaidl-uuid.c \
-	libsrc/objidl-uuid.c libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c \
-	libsrc/oleacc-uuid.c libsrc/olectlid-uuid.c \
-	libsrc/oleidl-uuid.c libsrc/power-uuid.c \
-	libsrc/servprov-uuid.c libsrc/unknwn-uuid.c \
+	libsrc/msctf-uuid.c libsrc/mshtml-uuid.c libsrc/msxml-uuid.c \
+	libsrc/netcon-uuid.c libsrc/oaidl-uuid.c libsrc/objidl-uuid.c \
+	libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c libsrc/oleacc-uuid.c \
+	libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c \
+	libsrc/power-uuid.c libsrc/servprov-uuid.c \
+	libsrc/textstor-uuid.c libsrc/unknwn-uuid.c \
 	libsrc/urlmon-uuid.c libsrc/wia-uuid.c
 am__objects_38 = libsrc/lib64_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-devguid.$(OBJEXT) \
@@ -1751,8 +1756,10 @@ am__objects_38 = libsrc/lib64_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-hlguids-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-hlink-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-mlang-uuid.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-msctf-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-mshtml-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-msxml-uuid.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-netcon-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-oaidl-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-objidl-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-objsafe-uuid.$(OBJEXT) \
@@ -1762,6 +1769,7 @@ am__objects_38 = libsrc/lib64_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-oleidl-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-power-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-servprov-uuid.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-textstor-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-unknwn-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-urlmon-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-wia-uuid.$(OBJEXT)
@@ -2190,9 +2198,9 @@ src_libmingwthrd = libsrc/mingwthrd_mt.c
 src_libuuid = libsrc/uuid.c libsrc/devguid.c \
   libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
   libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c    libsrc/mlang-uuid.c \
-  libsrc/mshtml-uuid.c  libsrc/msxml-uuid.c    libsrc/oaidl-uuid.c  libsrc/objidl-uuid.c   libsrc/objsafe-uuid.c  libsrc/ocidl-uuid.c \
-  libsrc/oleacc-uuid.c  libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c libsrc/power-uuid.c    libsrc/servprov-uuid.c \
-  libsrc/unknwn-uuid.c  libsrc/urlmon-uuid.c   libsrc/wia-uuid.c
+  libsrc/msctf-uuid.c   libsrc/mshtml-uuid.c   libsrc/msxml-uuid.c  libsrc/netcon-uuid.c   libsrc/oaidl-uuid.c    libsrc/objidl-uuid.c \
+  libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c    libsrc/oleacc-uuid.c libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c   libsrc/power-uuid.c \
+  libsrc/servprov-uuid.c libsrc/textstor-uuid.c libsrc/unknwn-uuid.c libsrc/urlmon-uuid.c  libsrc/wia-uuid.c
 
 src_libws2_32 = libsrc/ws2_32.c \
   \
@@ -4226,9 +4234,13 @@ libsrc/lib32_libuuid_a-hlink-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-mlang-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-msctf-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-mshtml-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-msxml-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-netcon-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-oaidl-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
@@ -4247,6 +4259,8 @@ libsrc/lib32_libuuid_a-oleidl-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 libsrc/lib32_libuuid_a-power-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-servprov-uuid.$(OBJEXT):  \
+	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-textstor-uuid.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-unknwn-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
@@ -5519,9 +5533,13 @@ libsrc/lib64_libuuid_a-hlink-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-mlang-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-msctf-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-mshtml-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-msxml-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-netcon-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-oaidl-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
@@ -5540,6 +5558,8 @@ libsrc/lib64_libuuid_a-oleidl-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 libsrc/lib64_libuuid_a-power-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-servprov-uuid.$(OBJEXT):  \
+	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-textstor-uuid.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-unknwn-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
@@ -6204,8 +6224,10 @@ mostlyclean-compile:
 	-rm -f libsrc/lib32_libuuid_a-hlguids-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-hlink-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-mlang-uuid.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-msctf-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-mshtml-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-msxml-uuid.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-netcon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-oaidl-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-objidl-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-objsafe-uuid.$(OBJEXT)
@@ -6215,6 +6237,7 @@ mostlyclean-compile:
 	-rm -f libsrc/lib32_libuuid_a-oleidl-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-power-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-servprov-uuid.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-textstor-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-unknwn-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-urlmon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-uuid.$(OBJEXT)
@@ -6253,8 +6276,10 @@ mostlyclean-compile:
 	-rm -f libsrc/lib64_libuuid_a-hlguids-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-hlink-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-mlang-uuid.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-msctf-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-mshtml-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-msxml-uuid.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-netcon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-oaidl-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-objidl-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-objsafe-uuid.$(OBJEXT)
@@ -6264,6 +6289,7 @@ mostlyclean-compile:
 	-rm -f libsrc/lib64_libuuid_a-oleidl-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-power-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-servprov-uuid.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-textstor-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-unknwn-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-urlmon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-uuid.$(OBJEXT)
@@ -7372,8 +7398,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-hlguids-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-hlink-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-mlang-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-msctf-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-mshtml-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-msxml-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-netcon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-oaidl-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-objidl-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-objsafe-uuid.Po@am__quote@
@@ -7383,6 +7411,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-oleidl-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-power-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-servprov-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-textstor-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-unknwn-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-uuid.Po@am__quote@
@@ -7421,8 +7450,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-hlguids-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-hlink-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-mlang-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-msctf-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-mshtml-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-msxml-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-netcon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-oaidl-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-objidl-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-objsafe-uuid.Po@am__quote@
@@ -7432,6 +7463,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-oleidl-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-power-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-servprov-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-textstor-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-unknwn-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-uuid.Po@am__quote@
@@ -15816,6 +15848,20 @@ libsrc/lib32_libuuid_a-mlang-uuid.obj: libsrc/mlang-uuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-mlang-uuid.obj `if test -f 'libsrc/mlang-uuid.c'; then $(CYGPATH_W) 'libsrc/mlang-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/mlang-uuid.c'; fi`
 
+libsrc/lib32_libuuid_a-msctf-uuid.o: libsrc/msctf-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-msctf-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-msctf-uuid.Tpo -c -o libsrc/lib32_libuuid_a-msctf-uuid.o `test -f 'libsrc/msctf-uuid.c' || echo '$(srcdir)/'`libsrc/msctf-uuid.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-msctf-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-msctf-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/msctf-uuid.c' object='libsrc/lib32_libuuid_a-msctf-uuid.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-msctf-uuid.o `test -f 'libsrc/msctf-uuid.c' || echo '$(srcdir)/'`libsrc/msctf-uuid.c
+
+libsrc/lib32_libuuid_a-msctf-uuid.obj: libsrc/msctf-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-msctf-uuid.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-msctf-uuid.Tpo -c -o libsrc/lib32_libuuid_a-msctf-uuid.obj `if test -f 'libsrc/msctf-uuid.c'; then $(CYGPATH_W) 'libsrc/msctf-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/msctf-uuid.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-msctf-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-msctf-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/msctf-uuid.c' object='libsrc/lib32_libuuid_a-msctf-uuid.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-msctf-uuid.obj `if test -f 'libsrc/msctf-uuid.c'; then $(CYGPATH_W) 'libsrc/msctf-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/msctf-uuid.c'; fi`
+
 libsrc/lib32_libuuid_a-mshtml-uuid.o: libsrc/mshtml-uuid.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-mshtml-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-mshtml-uuid.Tpo -c -o libsrc/lib32_libuuid_a-mshtml-uuid.o `test -f 'libsrc/mshtml-uuid.c' || echo '$(srcdir)/'`libsrc/mshtml-uuid.c
 @am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-mshtml-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-mshtml-uuid.Po
@@ -15843,6 +15889,20 @@ libsrc/lib32_libuuid_a-msxml-uuid.obj: libsrc/msxml-uuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/msxml-uuid.c' object='libsrc/lib32_libuuid_a-msxml-uuid.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-msxml-uuid.obj `if test -f 'libsrc/msxml-uuid.c'; then $(CYGPATH_W) 'libsrc/msxml-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/msxml-uuid.c'; fi`
+
+libsrc/lib32_libuuid_a-netcon-uuid.o: libsrc/netcon-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-netcon-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-netcon-uuid.Tpo -c -o libsrc/lib32_libuuid_a-netcon-uuid.o `test -f 'libsrc/netcon-uuid.c' || echo '$(srcdir)/'`libsrc/netcon-uuid.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-netcon-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-netcon-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/netcon-uuid.c' object='libsrc/lib32_libuuid_a-netcon-uuid.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-netcon-uuid.o `test -f 'libsrc/netcon-uuid.c' || echo '$(srcdir)/'`libsrc/netcon-uuid.c
+
+libsrc/lib32_libuuid_a-netcon-uuid.obj: libsrc/netcon-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-netcon-uuid.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-netcon-uuid.Tpo -c -o libsrc/lib32_libuuid_a-netcon-uuid.obj `if test -f 'libsrc/netcon-uuid.c'; then $(CYGPATH_W) 'libsrc/netcon-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/netcon-uuid.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-netcon-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-netcon-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/netcon-uuid.c' object='libsrc/lib32_libuuid_a-netcon-uuid.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-netcon-uuid.obj `if test -f 'libsrc/netcon-uuid.c'; then $(CYGPATH_W) 'libsrc/netcon-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/netcon-uuid.c'; fi`
 
 libsrc/lib32_libuuid_a-oaidl-uuid.o: libsrc/oaidl-uuid.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-oaidl-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-oaidl-uuid.Tpo -c -o libsrc/lib32_libuuid_a-oaidl-uuid.o `test -f 'libsrc/oaidl-uuid.c' || echo '$(srcdir)/'`libsrc/oaidl-uuid.c
@@ -15969,6 +16029,20 @@ libsrc/lib32_libuuid_a-servprov-uuid.obj: libsrc/servprov-uuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/servprov-uuid.c' object='libsrc/lib32_libuuid_a-servprov-uuid.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-servprov-uuid.obj `if test -f 'libsrc/servprov-uuid.c'; then $(CYGPATH_W) 'libsrc/servprov-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/servprov-uuid.c'; fi`
+
+libsrc/lib32_libuuid_a-textstor-uuid.o: libsrc/textstor-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-textstor-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-textstor-uuid.Tpo -c -o libsrc/lib32_libuuid_a-textstor-uuid.o `test -f 'libsrc/textstor-uuid.c' || echo '$(srcdir)/'`libsrc/textstor-uuid.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-textstor-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-textstor-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/textstor-uuid.c' object='libsrc/lib32_libuuid_a-textstor-uuid.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-textstor-uuid.o `test -f 'libsrc/textstor-uuid.c' || echo '$(srcdir)/'`libsrc/textstor-uuid.c
+
+libsrc/lib32_libuuid_a-textstor-uuid.obj: libsrc/textstor-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-textstor-uuid.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-textstor-uuid.Tpo -c -o libsrc/lib32_libuuid_a-textstor-uuid.obj `if test -f 'libsrc/textstor-uuid.c'; then $(CYGPATH_W) 'libsrc/textstor-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/textstor-uuid.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-textstor-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-textstor-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/textstor-uuid.c' object='libsrc/lib32_libuuid_a-textstor-uuid.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-textstor-uuid.obj `if test -f 'libsrc/textstor-uuid.c'; then $(CYGPATH_W) 'libsrc/textstor-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/textstor-uuid.c'; fi`
 
 libsrc/lib32_libuuid_a-unknwn-uuid.o: libsrc/unknwn-uuid.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-unknwn-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-unknwn-uuid.Tpo -c -o libsrc/lib32_libuuid_a-unknwn-uuid.o `test -f 'libsrc/unknwn-uuid.c' || echo '$(srcdir)/'`libsrc/unknwn-uuid.c
@@ -23446,6 +23520,20 @@ libsrc/lib64_libuuid_a-mlang-uuid.obj: libsrc/mlang-uuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-mlang-uuid.obj `if test -f 'libsrc/mlang-uuid.c'; then $(CYGPATH_W) 'libsrc/mlang-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/mlang-uuid.c'; fi`
 
+libsrc/lib64_libuuid_a-msctf-uuid.o: libsrc/msctf-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-msctf-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-msctf-uuid.Tpo -c -o libsrc/lib64_libuuid_a-msctf-uuid.o `test -f 'libsrc/msctf-uuid.c' || echo '$(srcdir)/'`libsrc/msctf-uuid.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-msctf-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-msctf-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/msctf-uuid.c' object='libsrc/lib64_libuuid_a-msctf-uuid.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-msctf-uuid.o `test -f 'libsrc/msctf-uuid.c' || echo '$(srcdir)/'`libsrc/msctf-uuid.c
+
+libsrc/lib64_libuuid_a-msctf-uuid.obj: libsrc/msctf-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-msctf-uuid.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-msctf-uuid.Tpo -c -o libsrc/lib64_libuuid_a-msctf-uuid.obj `if test -f 'libsrc/msctf-uuid.c'; then $(CYGPATH_W) 'libsrc/msctf-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/msctf-uuid.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-msctf-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-msctf-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/msctf-uuid.c' object='libsrc/lib64_libuuid_a-msctf-uuid.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-msctf-uuid.obj `if test -f 'libsrc/msctf-uuid.c'; then $(CYGPATH_W) 'libsrc/msctf-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/msctf-uuid.c'; fi`
+
 libsrc/lib64_libuuid_a-mshtml-uuid.o: libsrc/mshtml-uuid.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-mshtml-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-mshtml-uuid.Tpo -c -o libsrc/lib64_libuuid_a-mshtml-uuid.o `test -f 'libsrc/mshtml-uuid.c' || echo '$(srcdir)/'`libsrc/mshtml-uuid.c
 @am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-mshtml-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-mshtml-uuid.Po
@@ -23473,6 +23561,20 @@ libsrc/lib64_libuuid_a-msxml-uuid.obj: libsrc/msxml-uuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/msxml-uuid.c' object='libsrc/lib64_libuuid_a-msxml-uuid.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-msxml-uuid.obj `if test -f 'libsrc/msxml-uuid.c'; then $(CYGPATH_W) 'libsrc/msxml-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/msxml-uuid.c'; fi`
+
+libsrc/lib64_libuuid_a-netcon-uuid.o: libsrc/netcon-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-netcon-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-netcon-uuid.Tpo -c -o libsrc/lib64_libuuid_a-netcon-uuid.o `test -f 'libsrc/netcon-uuid.c' || echo '$(srcdir)/'`libsrc/netcon-uuid.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-netcon-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-netcon-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/netcon-uuid.c' object='libsrc/lib64_libuuid_a-netcon-uuid.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-netcon-uuid.o `test -f 'libsrc/netcon-uuid.c' || echo '$(srcdir)/'`libsrc/netcon-uuid.c
+
+libsrc/lib64_libuuid_a-netcon-uuid.obj: libsrc/netcon-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-netcon-uuid.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-netcon-uuid.Tpo -c -o libsrc/lib64_libuuid_a-netcon-uuid.obj `if test -f 'libsrc/netcon-uuid.c'; then $(CYGPATH_W) 'libsrc/netcon-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/netcon-uuid.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-netcon-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-netcon-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/netcon-uuid.c' object='libsrc/lib64_libuuid_a-netcon-uuid.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-netcon-uuid.obj `if test -f 'libsrc/netcon-uuid.c'; then $(CYGPATH_W) 'libsrc/netcon-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/netcon-uuid.c'; fi`
 
 libsrc/lib64_libuuid_a-oaidl-uuid.o: libsrc/oaidl-uuid.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-oaidl-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-oaidl-uuid.Tpo -c -o libsrc/lib64_libuuid_a-oaidl-uuid.o `test -f 'libsrc/oaidl-uuid.c' || echo '$(srcdir)/'`libsrc/oaidl-uuid.c
@@ -23599,6 +23701,20 @@ libsrc/lib64_libuuid_a-servprov-uuid.obj: libsrc/servprov-uuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/servprov-uuid.c' object='libsrc/lib64_libuuid_a-servprov-uuid.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-servprov-uuid.obj `if test -f 'libsrc/servprov-uuid.c'; then $(CYGPATH_W) 'libsrc/servprov-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/servprov-uuid.c'; fi`
+
+libsrc/lib64_libuuid_a-textstor-uuid.o: libsrc/textstor-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-textstor-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-textstor-uuid.Tpo -c -o libsrc/lib64_libuuid_a-textstor-uuid.o `test -f 'libsrc/textstor-uuid.c' || echo '$(srcdir)/'`libsrc/textstor-uuid.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-textstor-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-textstor-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/textstor-uuid.c' object='libsrc/lib64_libuuid_a-textstor-uuid.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-textstor-uuid.o `test -f 'libsrc/textstor-uuid.c' || echo '$(srcdir)/'`libsrc/textstor-uuid.c
+
+libsrc/lib64_libuuid_a-textstor-uuid.obj: libsrc/textstor-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-textstor-uuid.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-textstor-uuid.Tpo -c -o libsrc/lib64_libuuid_a-textstor-uuid.obj `if test -f 'libsrc/textstor-uuid.c'; then $(CYGPATH_W) 'libsrc/textstor-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/textstor-uuid.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-textstor-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-textstor-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/textstor-uuid.c' object='libsrc/lib64_libuuid_a-textstor-uuid.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-textstor-uuid.obj `if test -f 'libsrc/textstor-uuid.c'; then $(CYGPATH_W) 'libsrc/textstor-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/textstor-uuid.c'; fi`
 
 libsrc/lib64_libuuid_a-unknwn-uuid.o: libsrc/unknwn-uuid.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-unknwn-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-unknwn-uuid.Tpo -c -o libsrc/lib64_libuuid_a-unknwn-uuid.o `test -f 'libsrc/unknwn-uuid.c' || echo '$(srcdir)/'`libsrc/unknwn-uuid.c
