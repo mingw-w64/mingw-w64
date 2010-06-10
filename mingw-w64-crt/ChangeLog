@@ -1,3 +1,11 @@
+2010-06-10  Jacek Caban  <jacek@codeweavers.com>
+
+	* libsrc/msctf-uuid.c: New.
+	* libsrc/netcon-uuid.c: New.
+	* libsrc/textstor-uuid.c: New.
+	* Makefile.am: Add libsrc/msctf-uuid.c libsrc/netcon-uuid.c and
+	libsrc/textstor-uuid to libuuid.a lib.
+
 2010-06-08  Kai Tietz  <kai.tietz@onevision.com>
 
 	* lib32/shell32.def (ILCreateFromPath, ILCreateFromPathA,
