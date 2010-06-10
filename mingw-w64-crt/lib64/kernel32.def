@@ -697,10 +697,13 @@ QueryActCtxW
 QueryDepthSList
 QueryDosDeviceA
 QueryDosDeviceW
+QueryIdleProcessorCycleTime
 QueryInformationJobObject
 QueryMemoryResourceNotification
 QueryPerformanceCounter
 QueryPerformanceFrequency
+QueryProcessCycleTime
+QueryThreadCycleTime
 QueueUserAPC
 QueueUserWorkItem
 RaiseException
