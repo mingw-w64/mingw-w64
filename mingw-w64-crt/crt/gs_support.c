@@ -25,7 +25,6 @@ PVOID RtlVirtualUnwind (ULONG HandlerType, ULONG64, ULONG64, PRUNTIME_FUNCTION,
 typedef LONG NTSTATUS;
 
 #define UNW_FLAG_NHANDLER 0x00
-#define STATUS_STACK_BUFFER_OVERRUN ((NTSTATUS)0xC0000409L)
 
 typedef union
 {
@@ -93,7 +92,7 @@ __declspec(noreturn) void __cdecl __report_gsfailure (ULONGLONG);
 __declspec(noreturn) void __cdecl
 __report_gsfailure (ULONGLONG StackCookie)
 {
-  volatile UINT_PTR cookie[2];
+  volatile UINT_PTR cookie[2] __attribute__((unused));
 #ifdef _WIN64
   ULONG64 controlPC, imgBase, establisherFrame;
   PRUNTIME_FUNCTION fctEntry;
