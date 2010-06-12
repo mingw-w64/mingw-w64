@@ -1,3 +1,9 @@
+2010-06-12  Ozkan Sezer <sezeroz@gmail.com>
+
+	* _mingw_dxhelper.h: Updated DUMMYSTRUCTNAME* macros from _mingw.h.
+	* amvideo.h, d3dx9core.h, d3dx9tex.h, dvdmedia.h, errors.h: Included
+	_mingw_dxhelper.h for wine macros.
+
 2010-05-17  Ozkan Sezer <sezeroz@gmail.com>
 
 	* qedit.idl: Added from wine sources for PR/3001189.
