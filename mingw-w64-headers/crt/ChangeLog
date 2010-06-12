@@ -1,3 +1,9 @@
+2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Kill definitions of I_X86_ macro and adjust places it was used:
+	* sec_api/stralign_s.h: Replace checks against I_X86_ by checks
+	against _X86_.
+
 2010-05-24  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mem.h: A little syncing with mingw32 (remove the unnecessary
