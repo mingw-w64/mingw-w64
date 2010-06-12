@@ -1,5 +1,7 @@
 2010-06-12  Kai Tietz  <kai.tietz@onevision.com>
 
+	* winuser.h: Use __MINGW_TYPEDEF_AW for UNICODE specific
+	type-definitions.
 	* zmouse.h: Use for string constant definitions
 	__MINGW_STRING_AW macro.
 
