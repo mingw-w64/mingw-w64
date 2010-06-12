@@ -55,25 +55,14 @@ extern "C" {
 }
 #endif
 
-#ifdef UNICODE
-#define WpPost WpPostW
-#define WpListSites WpListSitesW
-#define WpDoesSiteExist WpDoesSiteExistW
-#define WpDeleteSite WpDeleteSiteW
-#define WpBindToSite WpBindToSiteW
-#define WpCreateSite WpCreateSiteW
-#define WpEnumProviders WpEnumProvidersW
-#define WpGetErrorString WpGetErrorStringW
-#else
-#define WpPost WpPostA
-#define WpListSites WpListSitesA
-#define WpDoesSiteExist WpDoesSiteExistA
-#define WpDeleteSite WpDeleteSiteA
-#define WpBindToSite WpBindToSiteA
-#define WpCreateSite WpCreateSiteA
-#define WpEnumProviders WpEnumProvidersA
-#define WpGetErrorString WpGetErrorStringA
-#endif
+#define WpPost __MINGW_NAME_AW(WpPost)
+#define WpListSites __MINGW_NAME_AW(WpListSites)
+#define WpDoesSiteExist __MINGW_NAME_AW(WpDoesSiteExist)
+#define WpDeleteSite __MINGW_NAME_AW(WpDeleteSite)
+#define WpBindToSite __MINGW_NAME_AW(WpBindToSite)
+#define WpCreateSite __MINGW_NAME_AW(WpCreateSite)
+#define WpEnumProviders __MINGW_NAME_AW(WpEnumProviders)
+#define WpGetErrorString __MINGW_NAME_AW(WpGetErrorString)
 
 #include <poppack.h>
 #endif

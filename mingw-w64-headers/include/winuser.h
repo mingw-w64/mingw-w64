@@ -108,13 +108,8 @@ extern "C" {
 #endif
 #endif
 
-#ifdef UNICODE
-#define wvsprintf wvsprintfW
-#define wsprintf wsprintfW
-#else
-#define wvsprintf wvsprintfA
-#define wsprintf wsprintfA
-#endif
+#define wvsprintf __MINGW_NAME_AW(wvsprintf)
+#define wsprintf __MINGW_NAME_AW(wsprintf)
 
   WINUSERAPI int WINAPI wvsprintfA(LPSTR,LPCSTR,va_list arglist);
   WINUSERAPI int WINAPI wvsprintfW(LPWSTR,LPCWSTR,va_list arglist);
@@ -637,13 +632,8 @@ extern "C" {
 
 #define KL_NAMELENGTH 9
 
-#ifdef UNICODE
-#define LoadKeyboardLayout LoadKeyboardLayoutW
-#define GetKeyboardLayoutName GetKeyboardLayoutNameW
-#else
-#define LoadKeyboardLayout LoadKeyboardLayoutA
-#define GetKeyboardLayoutName GetKeyboardLayoutNameA
-#endif
+#define LoadKeyboardLayout __MINGW_NAME_AW(LoadKeyboardLayout)
+#define GetKeyboardLayoutName __MINGW_NAME_AW(GetKeyboardLayoutName)
 
   WINUSERAPI HKL WINAPI LoadKeyboardLayoutA(LPCSTR pwszKLID,UINT Flags);
   WINUSERAPI HKL WINAPI LoadKeyboardLayoutW(LPCWSTR pwszKLID,UINT Flags);
@@ -683,24 +673,15 @@ extern "C" {
 
 #ifdef _WINGDI_
 #ifndef NOGDI
-#ifdef UNICODE
-#define CreateDesktop CreateDesktopW
-#else
-#define CreateDesktop CreateDesktopA
-#endif
+#define CreateDesktop __MINGW_NAME_AW(CreateDesktop)
 
   WINUSERAPI HDESK WINAPI CreateDesktopA(LPCSTR lpszDesktop,LPCSTR lpszDevice,LPDEVMODEA pDevmode,DWORD dwFlags,ACCESS_MASK dwDesiredAccess,LPSECURITY_ATTRIBUTES lpsa);
   WINUSERAPI HDESK WINAPI CreateDesktopW(LPCWSTR lpszDesktop,LPCWSTR lpszDevice,LPDEVMODEW pDevmode,DWORD dwFlags,ACCESS_MASK dwDesiredAccess,LPSECURITY_ATTRIBUTES lpsa);
 #endif
 #endif
 
-#ifdef UNICODE
-#define OpenDesktop OpenDesktopW
-#define EnumDesktops EnumDesktopsW
-#else
-#define OpenDesktop OpenDesktopA
-#define EnumDesktops EnumDesktopsA
-#endif
+#define OpenDesktop __MINGW_NAME_AW(OpenDesktop)
+#define EnumDesktops __MINGW_NAME_AW(EnumDesktops)
 
   WINUSERAPI HDESK WINAPI OpenDesktopA(LPCSTR lpszDesktop,DWORD dwFlags,WINBOOL fInherit,ACCESS_MASK dwDesiredAccess);
   WINUSERAPI HDESK WINAPI OpenDesktopW(LPCWSTR lpszDesktop,DWORD dwFlags,WINBOOL fInherit,ACCESS_MASK dwDesiredAccess);
@@ -730,15 +711,9 @@ extern "C" {
 
 #define WSF_VISIBLE 0x0001L
 
-#ifdef UNICODE
-#define CreateWindowStation CreateWindowStationW
-#define OpenWindowStation OpenWindowStationW
-#define EnumWindowStations EnumWindowStationsW
-#else
-#define CreateWindowStation CreateWindowStationA
-#define OpenWindowStation OpenWindowStationA
-#define EnumWindowStations EnumWindowStationsA
-#endif
+#define CreateWindowStation __MINGW_NAME_AW(CreateWindowStation)
+#define OpenWindowStation __MINGW_NAME_AW(OpenWindowStation)
+#define EnumWindowStations __MINGW_NAME_AW(EnumWindowStations)
 
   WINUSERAPI HWINSTA WINAPI CreateWindowStationA(LPCSTR lpwinsta,DWORD dwFlags,ACCESS_MASK dwDesiredAccess,LPSECURITY_ATTRIBUTES lpsa);
   WINUSERAPI HWINSTA WINAPI CreateWindowStationW(LPCWSTR lpwinsta,DWORD dwFlags,ACCESS_MASK dwDesiredAccess,LPSECURITY_ATTRIBUTES lpsa);
@@ -766,13 +741,8 @@ extern "C" {
     DWORD dwFlags;
   } USEROBJECTFLAGS,*PUSEROBJECTFLAGS;
 
-#ifdef UNICODE
-#define GetUserObjectInformation GetUserObjectInformationW
-#define SetUserObjectInformation SetUserObjectInformationW
-#else
-#define GetUserObjectInformation GetUserObjectInformationA
-#define SetUserObjectInformation SetUserObjectInformationA
-#endif
+#define GetUserObjectInformation __MINGW_NAME_AW(GetUserObjectInformation)
+#define SetUserObjectInformation __MINGW_NAME_AW(SetUserObjectInformation)
 
   WINUSERAPI WINBOOL WINAPI GetUserObjectInformationA(HANDLE hObj,int nIndex,PVOID pvInfo,DWORD nLength,LPDWORD lpnLengthNeeded);
   WINUSERAPI WINBOOL WINAPI GetUserObjectInformationW(HANDLE hObj,int nIndex,PVOID pvInfo,DWORD nLength,LPDWORD lpnLengthNeeded);
@@ -1316,11 +1286,7 @@ extern "C" {
 #define ICON_BIG 1
 #define ICON_SMALL2 2
 
-#ifdef UNICODE
-#define RegisterWindowMessage RegisterWindowMessageW
-#else
-#define RegisterWindowMessage RegisterWindowMessageA
-#endif
+#define RegisterWindowMessage __MINGW_NAME_AW(RegisterWindowMessage)
 
   WINUSERAPI UINT WINAPI RegisterWindowMessageA(LPCSTR lpString);
   WINUSERAPI UINT WINAPI RegisterWindowMessageW(LPCWSTR lpString);
@@ -1749,15 +1715,9 @@ extern "C" {
   } COMPAREITEMSTRUCT,*PCOMPAREITEMSTRUCT,*LPCOMPAREITEMSTRUCT;
 
 #ifndef NOMSG
-#ifdef UNICODE
-#define GetMessage GetMessageW
-#define DispatchMessage DispatchMessageW
-#define PeekMessage PeekMessageW
-#else
-#define GetMessage GetMessageA
-#define DispatchMessage DispatchMessageA
-#define PeekMessage PeekMessageA
-#endif
+#define GetMessage __MINGW_NAME_AW(GetMessage)
+#define DispatchMessage __MINGW_NAME_AW(DispatchMessage)
+#define PeekMessage __MINGW_NAME_AW(PeekMessage)
 
   WINUSERAPI WINBOOL WINAPI GetMessageA(LPMSG lpMsg,HWND hWnd,UINT wMsgFilterMin,UINT wMsgFilterMax);
   WINUSERAPI WINBOOL WINAPI GetMessageW(LPMSG lpMsg,HWND hWnd,UINT wMsgFilterMin,UINT wMsgFilterMax);
@@ -1808,17 +1768,10 @@ extern "C" {
 
 #define ExitWindows(dwReserved,Code) ExitWindowsEx(EWX_LOGOFF,0xFFFFFFFF)
 
-#ifdef UNICODE
-#define SendMessage SendMessageW
-#define SendMessageTimeout SendMessageTimeoutW
-#define SendNotifyMessage SendNotifyMessageW
-#define SendMessageCallback SendMessageCallbackW
-#else
-#define SendMessage SendMessageA
-#define SendMessageTimeout SendMessageTimeoutA
-#define SendNotifyMessage SendNotifyMessageA
-#define SendMessageCallback SendMessageCallbackA
-#endif
+#define SendMessage __MINGW_NAME_AW(SendMessage)
+#define SendMessageTimeout __MINGW_NAME_AW(SendMessageTimeout)
+#define SendNotifyMessage __MINGW_NAME_AW(SendNotifyMessage)
+#define SendMessageCallback __MINGW_NAME_AW(SendMessageCallback)
 
   WINUSERAPI WINBOOL WINAPI ExitWindowsEx(UINT uFlags,DWORD dwReason);
   WINUSERAPI WINBOOL WINAPI SwapMouseButton(WINBOOL fSwap);
@@ -1843,13 +1796,8 @@ extern "C" {
     LUID luid;
   } BSMINFO,*PBSMINFO;
 
-#ifdef UNICODE
-#define BroadcastSystemMessageEx BroadcastSystemMessageExW
-#define BroadcastSystemMessage BroadcastSystemMessageW
-#else
-#define BroadcastSystemMessageEx BroadcastSystemMessageExA
-#define BroadcastSystemMessage BroadcastSystemMessageA
-#endif
+#define BroadcastSystemMessageEx __MINGW_NAME_AW(BroadcastSystemMessageEx)
+#define BroadcastSystemMessage __MINGW_NAME_AW(BroadcastSystemMessage)
 
   WINUSERAPI long WINAPI BroadcastSystemMessageExA(DWORD flags,LPDWORD lpInfo,UINT Msg,WPARAM wParam,LPARAM lParam,PBSMINFO pbsmInfo);
   WINUSERAPI long WINAPI BroadcastSystemMessageExW(DWORD flags,LPDWORD lpInfo,UINT Msg,WPARAM wParam,LPARAM lParam,PBSMINFO pbsmInfo);
@@ -1884,31 +1832,17 @@ extern "C" {
 #define DEVICE_NOTIFY_SERVICE_HANDLE 0x00000001
 #define DEVICE_NOTIFY_ALL_INTERFACE_CLASSES 0x00000004
 
-#ifdef UNICODE
-#define RegisterDeviceNotification RegisterDeviceNotificationW
-#define PostMessage PostMessageW
-#define PostThreadMessage PostThreadMessageW
-#define PostAppMessage PostAppMessageW
-#define DefWindowProc DefWindowProcW
-#define CallWindowProc CallWindowProcW
-#define RegisterClass RegisterClassW
-#define UnregisterClass UnregisterClassW
-#define GetClassInfo GetClassInfoW
-#define RegisterClassEx RegisterClassExW
-#define GetClassInfoEx GetClassInfoExW
-#else
-#define RegisterDeviceNotification RegisterDeviceNotificationA
-#define PostMessage PostMessageA
-#define PostThreadMessage PostThreadMessageA
-#define PostAppMessage PostAppMessageA
-#define DefWindowProc DefWindowProcA
-#define CallWindowProc CallWindowProcA
-#define RegisterClass RegisterClassA
-#define UnregisterClass UnregisterClassA
-#define GetClassInfo GetClassInfoA
-#define RegisterClassEx RegisterClassExA
-#define GetClassInfoEx GetClassInfoExA
-#endif
+#define RegisterDeviceNotification __MINGW_NAME_AW(RegisterDeviceNotification)
+#define PostMessage __MINGW_NAME_AW(PostMessage)
+#define PostThreadMessage __MINGW_NAME_AW(PostThreadMessage)
+#define PostAppMessage __MINGW_NAME_AW(PostAppMessage)
+#define DefWindowProc __MINGW_NAME_AW(DefWindowProc)
+#define CallWindowProc __MINGW_NAME_AW(CallWindowProc)
+#define RegisterClass __MINGW_NAME_AW(RegisterClass)
+#define UnregisterClass __MINGW_NAME_AW(UnregisterClass)
+#define GetClassInfo __MINGW_NAME_AW(GetClassInfo)
+#define RegisterClassEx __MINGW_NAME_AW(RegisterClassEx)
+#define GetClassInfoEx __MINGW_NAME_AW(GetClassInfoEx)
 
 #if (_WIN32_WINNT >= 0x0600)
   typedef HANDLE HPOWERNOTIFY;
@@ -1984,13 +1918,8 @@ extern "C" {
 
   typedef BOOLEAN (WINAPI *PREGISTERCLASSNAMEW)(LPCWSTR);
 
-#ifdef UNICODE
-#define CreateWindowEx CreateWindowExW
-#define CreateWindow CreateWindowW
-#else
-#define CreateWindowEx CreateWindowExA
-#define CreateWindow CreateWindowA
-#endif
+#define CreateWindowEx __MINGW_NAME_AW(CreateWindowEx)
+#define CreateWindow __MINGW_NAME_AW(CreateWindow)
 
   WINUSERAPI HWND WINAPI CreateWindowExA(DWORD dwExStyle,LPCSTR lpClassName,LPCSTR lpWindowName,DWORD dwStyle,int X,int Y,int nWidth,int nHeight,HWND hWndParent,HMENU hMenu,HINSTANCE hInstance,LPVOID lpParam);
   WINUSERAPI HWND WINAPI CreateWindowExW(DWORD dwExStyle,LPCWSTR lpClassName,LPCWSTR lpWindowName,DWORD dwStyle,int X,int Y,int nWidth,int nHeight,HWND hWndParent,HMENU hMenu,HINSTANCE hInstance,LPVOID lpParam);
@@ -2144,33 +2073,18 @@ extern "C" {
 
 #include <poppack.h>
 
-#ifdef UNICODE
-#define CreateDialogParam CreateDialogParamW
-#define CreateDialogIndirectParam CreateDialogIndirectParamW
-#define CreateDialog CreateDialogW
-#define CreateDialogIndirect CreateDialogIndirectW
-#define DialogBoxParam DialogBoxParamW
-#define DialogBoxIndirectParam DialogBoxIndirectParamW
-#define DialogBox DialogBoxW
-#define DialogBoxIndirect DialogBoxIndirectW
-#define SetDlgItemText SetDlgItemTextW
-#define GetDlgItemText GetDlgItemTextW
-#define SendDlgItemMessage SendDlgItemMessageW
-#define DefDlgProc DefDlgProcW
-#else
-#define CreateDialogParam CreateDialogParamA
-#define CreateDialogIndirectParam CreateDialogIndirectParamA
-#define CreateDialog CreateDialogA
-#define CreateDialogIndirect CreateDialogIndirectA
-#define DialogBoxParam DialogBoxParamA
-#define DialogBoxIndirectParam DialogBoxIndirectParamA
-#define DialogBox DialogBoxA
-#define DialogBoxIndirect DialogBoxIndirectA
-#define SetDlgItemText SetDlgItemTextA
-#define GetDlgItemText GetDlgItemTextA
-#define SendDlgItemMessage SendDlgItemMessageA
-#define DefDlgProc DefDlgProcA
-#endif
+#define CreateDialogParam __MINGW_NAME_AW(CreateDialogParam)
+#define CreateDialogIndirectParam __MINGW_NAME_AW(CreateDialogIndirectParam)
+#define CreateDialog __MINGW_NAME_AW(CreateDialog)
+#define CreateDialogIndirect __MINGW_NAME_AW(CreateDialogIndirect)
+#define DialogBoxParam __MINGW_NAME_AW(DialogBoxParam)
+#define DialogBoxIndirectParam __MINGW_NAME_AW(DialogBoxIndirectParam)
+#define DialogBox __MINGW_NAME_AW(DialogBox)
+#define DialogBoxIndirect __MINGW_NAME_AW(DialogBoxIndirect)
+#define SetDlgItemText __MINGW_NAME_AW(SetDlgItemText)
+#define GetDlgItemText __MINGW_NAME_AW(GetDlgItemText)
+#define SendDlgItemMessage __MINGW_NAME_AW(SendDlgItemMessage)
+#define DefDlgProc __MINGW_NAME_AW(DefDlgProc)
 
   WINUSERAPI HWND WINAPI CreateDialogParamA(HINSTANCE hInstance,LPCSTR lpTemplateName,HWND hWndParent,DLGPROC lpDialogFunc,LPARAM dwInitParam);
   WINUSERAPI HWND WINAPI CreateDialogParamW(HINSTANCE hInstance,LPCWSTR lpTemplateName,HWND hWndParent,DLGPROC lpDialogFunc,LPARAM dwInitParam);
@@ -2213,11 +2127,7 @@ extern "C" {
 
 #ifndef NOMSG
 
-#ifdef UNICODE
-#define CallMsgFilter CallMsgFilterW
-#else
-#define CallMsgFilter CallMsgFilterA
-#endif
+#define CallMsgFilter __MINGW_NAME_AW(CallMsgFilter)
 
   WINUSERAPI WINBOOL WINAPI CallMsgFilterA(LPMSG lpMsg,int nCode);
   WINUSERAPI WINBOOL WINAPI CallMsgFilterW(LPMSG lpMsg,int nCode);
@@ -2225,13 +2135,8 @@ extern "C" {
 
 #ifndef NOCLIPBOARD
 
-#ifdef UNICODE
-#define RegisterClipboardFormat RegisterClipboardFormatW
-#define GetClipboardFormatName GetClipboardFormatNameW
-#else
-#define RegisterClipboardFormat RegisterClipboardFormatA
-#define GetClipboardFormatName GetClipboardFormatNameA
-#endif
+#define RegisterClipboardFormat __MINGW_NAME_AW(RegisterClipboardFormat)
+#define GetClipboardFormatName __MINGW_NAME_AW(GetClipboardFormatName)
 
   WINUSERAPI WINBOOL WINAPI OpenClipboard(HWND hWndNewOwner);
   WINUSERAPI WINBOOL WINAPI CloseClipboard(VOID);
@@ -2254,29 +2159,16 @@ extern "C" {
   WINUSERAPI HWND WINAPI GetOpenClipboardWindow(VOID);
 #endif
 
-#ifdef UNICODE
-#define CharToOem CharToOemW
-#define OemToChar OemToCharW
-#define CharToOemBuff CharToOemBuffW
-#define OemToCharBuff OemToCharBuffW
-#define CharUpper CharUpperW
-#define CharUpperBuff CharUpperBuffW
-#define CharLower CharLowerW
-#define CharLowerBuff CharLowerBuffW
-#define CharNext CharNextW
-#define CharPrev CharPrevW
-#else
-#define CharToOem CharToOemA
-#define OemToChar OemToCharA
-#define CharToOemBuff CharToOemBuffA
-#define OemToCharBuff OemToCharBuffA
-#define CharUpper CharUpperA
-#define CharUpperBuff CharUpperBuffA
-#define CharLower CharLowerA
-#define CharLowerBuff CharLowerBuffA
-#define CharNext CharNextA
-#define CharPrev CharPrevA
-#endif
+#define CharToOem __MINGW_NAME_AW(CharToOem)
+#define OemToChar __MINGW_NAME_AW(OemToChar)
+#define CharToOemBuff __MINGW_NAME_AW(CharToOemBuff)
+#define OemToCharBuff __MINGW_NAME_AW(OemToCharBuff)
+#define CharUpper __MINGW_NAME_AW(CharUpper)
+#define CharUpperBuff __MINGW_NAME_AW(CharUpperBuff)
+#define CharLower __MINGW_NAME_AW(CharLower)
+#define CharLowerBuff __MINGW_NAME_AW(CharLowerBuff)
+#define CharNext __MINGW_NAME_AW(CharNext)
+#define CharPrev __MINGW_NAME_AW(CharPrev)
 
   WINUSERAPI WINBOOL WINAPI CharToOemA(LPCSTR lpszSrc,LPSTR lpszDst);
   WINUSERAPI WINBOOL WINAPI CharToOemW(LPCWSTR lpszSrc,LPSTR lpszDst);
@@ -2314,17 +2206,10 @@ extern "C" {
 
 #ifndef NOLANGUAGE
 
-#ifdef UNICODE
-#define IsCharAlpha IsCharAlphaW
-#define IsCharAlphaNumeric IsCharAlphaNumericW
-#define IsCharUpper IsCharUpperW
-#define IsCharLower IsCharLowerW
-#else
-#define IsCharAlpha IsCharAlphaA
-#define IsCharAlphaNumeric IsCharAlphaNumericA
-#define IsCharUpper IsCharUpperA
-#define IsCharLower IsCharLowerA
-#endif
+#define IsCharAlpha __MINGW_NAME_AW(IsCharAlpha)
+#define IsCharAlphaNumeric __MINGW_NAME_AW(IsCharAlphaNumeric)
+#define IsCharUpper __MINGW_NAME_AW(IsCharUpper)
+#define IsCharLower __MINGW_NAME_AW(IsCharLower)
 
   WINUSERAPI WINBOOL WINAPI IsCharAlphaA(CHAR ch);
   WINUSERAPI WINBOOL WINAPI IsCharAlphaW(WCHAR ch);
@@ -2336,15 +2221,9 @@ extern "C" {
   WINUSERAPI WINBOOL WINAPI IsCharLowerW(WCHAR ch);
 #endif
 
-#ifdef UNICODE
-#define GetKeyNameText GetKeyNameTextW
-#define VkKeyScan VkKeyScanW
-#define VkKeyScanEx VkKeyScanExW
-#else
-#define GetKeyNameText GetKeyNameTextA
-#define VkKeyScan VkKeyScanA
-#define VkKeyScanEx VkKeyScanExA
-#endif
+#define GetKeyNameText __MINGW_NAME_AW(GetKeyNameText)
+#define VkKeyScan __MINGW_NAME_AW(VkKeyScan)
+#define VkKeyScanEx __MINGW_NAME_AW(VkKeyScanEx)
 
   WINUSERAPI HWND WINAPI SetFocus(HWND hWnd);
   WINUSERAPI HWND WINAPI GetActiveWindow(VOID);
@@ -2431,13 +2310,8 @@ extern "C" {
     DWORD dwTime;
   } LASTINPUTINFO,*PLASTINPUTINFO;
 
-#ifdef UNICODE
-#define MapVirtualKey MapVirtualKeyW
-#define MapVirtualKeyEx MapVirtualKeyExW
-#else
-#define MapVirtualKey MapVirtualKeyA
-#define MapVirtualKeyEx MapVirtualKeyExA
-#endif
+#define MapVirtualKey __MINGW_NAME_AW(MapVirtualKey)
+#define MapVirtualKeyEx __MINGW_NAME_AW(MapVirtualKeyEx)
 
   WINUSERAPI WINBOOL WINAPI GetLastInputInfo(PLASTINPUTINFO plii);
   WINUSERAPI UINT WINAPI MapVirtualKeyA(UINT uCode,UINT uMapType);
@@ -2474,15 +2348,9 @@ extern "C" {
 #define USER_TIMER_MAXIMUM 0x7FFFFFFF
 #define USER_TIMER_MINIMUM 0x0000000A
 
-#ifdef UNICODE
-#define LoadAccelerators LoadAcceleratorsW
-#define CreateAcceleratorTable CreateAcceleratorTableW
-#define CopyAcceleratorTable CopyAcceleratorTableW
-#else
-#define LoadAccelerators LoadAcceleratorsA
-#define CreateAcceleratorTable CreateAcceleratorTableA
-#define CopyAcceleratorTable CopyAcceleratorTableA
-#endif
+#define LoadAccelerators __MINGW_NAME_AW(LoadAccelerators)
+#define CreateAcceleratorTable __MINGW_NAME_AW(CreateAcceleratorTable)
+#define CopyAcceleratorTable __MINGW_NAME_AW(CopyAcceleratorTable)
 
   WINUSERAPI UINT_PTR WINAPI SetTimer(HWND hWnd,UINT_PTR nIDEvent,UINT uElapse,TIMERPROC lpTimerFunc);
   WINUSERAPI WINBOOL WINAPI KillTimer(HWND hWnd,UINT_PTR uIDEvent);
@@ -2499,11 +2367,7 @@ extern "C" {
 
 #ifndef NOMSG
 
-#ifdef UNICODE
-#define TranslateAccelerator TranslateAcceleratorW
-#else
-#define TranslateAccelerator TranslateAcceleratorA
-#endif
+#define TranslateAccelerator __MINGW_NAME_AW(TranslateAccelerator)
 
   WINUSERAPI int WINAPI TranslateAcceleratorA(HWND hWnd,HACCEL hAccTable,LPMSG lpMsg);
   WINUSERAPI int WINAPI TranslateAcceleratorW(HWND hWnd,HACCEL hAccTable,LPMSG lpMsg);
@@ -2614,23 +2478,13 @@ extern "C" {
 
 #ifndef NOMENUS
 
-#ifdef UNICODE
-#define LoadMenu LoadMenuW
-#define LoadMenuIndirect LoadMenuIndirectW
-#define ChangeMenu ChangeMenuW
-#define GetMenuString GetMenuStringW
-#define InsertMenu InsertMenuW
-#define AppendMenu AppendMenuW
-#define ModifyMenu ModifyMenuW
-#else
-#define LoadMenu LoadMenuA
-#define LoadMenuIndirect LoadMenuIndirectA
-#define ChangeMenu ChangeMenuA
-#define GetMenuString GetMenuStringA
-#define InsertMenu InsertMenuA
-#define AppendMenu AppendMenuA
-#define ModifyMenu ModifyMenuA
-#endif
+#define LoadMenu __MINGW_NAME_AW(LoadMenu)
+#define LoadMenuIndirect __MINGW_NAME_AW(LoadMenuIndirect)
+#define ChangeMenu __MINGW_NAME_AW(ChangeMenu)
+#define GetMenuString __MINGW_NAME_AW(GetMenuString)
+#define InsertMenu __MINGW_NAME_AW(InsertMenu)
+#define AppendMenu __MINGW_NAME_AW(AppendMenu)
+#define ModifyMenu __MINGW_NAME_AW(ModifyMenu)
 
   WINUSERAPI HMENU WINAPI LoadMenuA(HINSTANCE hInstance,LPCSTR lpMenuName);
   WINUSERAPI HMENU WINAPI LoadMenuW(HINSTANCE hInstance,LPCWSTR lpMenuName);
@@ -2791,15 +2645,9 @@ extern "C" {
 
   __MINGW_TYPEDEF_AW(LPCMENUITEMINFO)
 
-#ifdef UNICODE
-#define InsertMenuItem InsertMenuItemW
-#define GetMenuItemInfo GetMenuItemInfoW
-#define SetMenuItemInfo SetMenuItemInfoW
-#else
-#define InsertMenuItem InsertMenuItemA
-#define GetMenuItemInfo GetMenuItemInfoA
-#define SetMenuItemInfo SetMenuItemInfoA
-#endif
+#define InsertMenuItem __MINGW_NAME_AW(InsertMenuItem)
+#define GetMenuItemInfo __MINGW_NAME_AW(GetMenuItemInfo)
+#define SetMenuItemInfo __MINGW_NAME_AW(SetMenuItemInfo)
 
   WINUSERAPI WINBOOL WINAPI InsertMenuItemA(HMENU hmenu,UINT item,WINBOOL fByPosition,LPCMENUITEMINFOA lpmi);
   WINUSERAPI WINBOOL WINAPI InsertMenuItemW(HMENU hmenu,UINT item,WINBOOL fByPosition,LPCMENUITEMINFOW lpmi);
@@ -2897,13 +2745,8 @@ extern "C" {
     UINT uiLengthDrawn;
   } DRAWTEXTPARAMS,*LPDRAWTEXTPARAMS;
 
-#ifdef UNICODE
-#define DrawText DrawTextW
-#define DrawTextEx DrawTextExW
-#else
-#define DrawText DrawTextA
-#define DrawTextEx DrawTextExA
-#endif
+#define DrawText __MINGW_NAME_AW(DrawText)
+#define DrawTextEx __MINGW_NAME_AW(DrawTextEx)
 
   WINUSERAPI int WINAPI DrawTextA(HDC hdc,LPCSTR lpchText,int cchText,LPRECT lprc,UINT format);
   WINUSERAPI int WINAPI DrawTextW(HDC hdc,LPCWSTR lpchText,int cchText,LPRECT lprc,UINT format);
@@ -2911,17 +2754,10 @@ extern "C" {
   WINUSERAPI int WINAPI DrawTextExW(HDC hdc,LPWSTR lpchText,int cchText,LPRECT lprc,UINT format,LPDRAWTEXTPARAMS lpdtp);
 #endif
 
-#ifdef UNICODE
-#define GrayString GrayStringW
-#define DrawState DrawStateW
-#define TabbedTextOut TabbedTextOutW
-#define GetTabbedTextExtent GetTabbedTextExtentW
-#else
-#define GrayString GrayStringA
-#define DrawState DrawStateA
-#define TabbedTextOut TabbedTextOutA
-#define GetTabbedTextExtent GetTabbedTextExtentA
-#endif
+#define GrayString __MINGW_NAME_AW(GrayString)
+#define DrawState __MINGW_NAME_AW(DrawState)
+#define TabbedTextOut __MINGW_NAME_AW(TabbedTextOut)
+#define GetTabbedTextExtent __MINGW_NAME_AW(GetTabbedTextExtent)
 
   WINUSERAPI WINBOOL WINAPI GrayStringA(HDC hDC,HBRUSH hBrush,GRAYSTRINGPROC lpOutputFunc,LPARAM lpData,int nCount,int X,int Y,int nWidth,int nHeight);
   WINUSERAPI WINBOOL WINAPI GrayStringW(HDC hDC,HBRUSH hBrush,GRAYSTRINGPROC lpOutputFunc,LPARAM lpData,int nCount,int X,int Y,int nWidth,int nHeight);
