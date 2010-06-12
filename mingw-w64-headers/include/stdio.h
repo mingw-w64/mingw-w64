@@ -193,7 +193,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl fscanf(FILE *_File,const char *_Format,...);
   int __cdecl fsetpos(FILE *_File,const fpos_t *_Pos);
   int __cdecl fseek(FILE *_File,long _Offset,int _Origin);
-   int fseeko64(FILE* stream, _off64_t offset, int whence);
+  int fseeko64(FILE* stream, _off64_t offset, int whence);
   long __cdecl ftell(FILE *_File);
   _off64_t ftello64(FILE * stream);
   __MINGW_EXTENSION int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
@@ -310,6 +310,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _get_printf_count_output(void);
 
 #ifndef _WSTDIO_DEFINED
+#define _WSTDIO_DEFINED
 
 #ifndef WEOF
 #define WEOF (wint_t)(0xFFFF)
@@ -320,6 +321,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #else
   _CRTIMP FILE *__cdecl _wfsopen(const wchar_t *_Filename,const wchar_t *_Mode,int _ShFlag);
 #endif
+
   wint_t __cdecl fgetwc(FILE *_File);
   _CRTIMP wint_t __cdecl _fgetwchar(void);
   wint_t __cdecl fputwc(wchar_t _Ch,FILE *_File);
@@ -349,10 +351,10 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #pragma push_macro("vsnwprintf")
 # undef snwprintf
 # undef vsnwprintf
-  int __cdecl snwprintf (wchar_t* s, size_t n, const wchar_t*  format, ...);
+  int __cdecl snwprintf (wchar_t *s, size_t n, const wchar_t * format, ...);
   int __cdecl vsnwprintf (wchar_t *, size_t, const wchar_t *, va_list);
 #ifndef __CRT__NO_INLINE
-  __CRT_INLINE int __cdecl vsnwprintf (wchar_t* s, size_t n, const wchar_t* format, va_list arg) { return _vsnwprintf(s,n,format,arg); }
+  __CRT_INLINE int __cdecl vsnwprintf (wchar_t *s, size_t n, const wchar_t *format, va_list arg) { return _vsnwprintf(s,n,format,arg); }
 #endif /* !__CRT__NO_INLINE */
 #pragma pop_macro ("vsnwprintf")
 #pragma pop_macro ("snwprintf")
@@ -405,16 +407,14 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define getwchar() fgetwc(stdin)
 #define putwchar(_c) fputwc((_c),stdout)
 #else
-  __CRT_INLINE wint_t __cdecl getwchar() { return (fgetwc(stdin)); }
-  __CRT_INLINE wint_t __cdecl putwchar(wchar_t _C) { return (fputwc(_C,stdout)); }
+  __CRT_INLINE wint_t __cdecl getwchar() {return (fgetwc(stdin)); }
+  __CRT_INLINE wint_t __cdecl putwchar(wchar_t _C) {return (fputwc(_C,stdout)); }
 #endif
 
 #define getwc(_stm) fgetwc(_stm)
 #define putwc(_c,_stm) fputwc(_c,_stm)
 #define _putwc_nolock(_c,_stm) _fputwc_nolock(_c,_stm)
-#define _getwc_nolock(_stm) _fgetwc_nolock(_stm)
-
-#define _WSTDIO_DEFINED
+#define _getwc_nolock(_c) _fgetwc_nolock(_c)
 #endif
 
 #define _STDIO_DEFINED

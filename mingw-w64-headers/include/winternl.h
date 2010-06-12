@@ -105,9 +105,11 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
     ULONG Attributes;
     PVOID SecurityDescriptor;
     PVOID SecurityQualityOfService;
-  } OBJECT_ATTRIBUTES;
+  } OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
 
-  typedef OBJECT_ATTRIBUTES *POBJECT_ATTRIBUTES;
+  typedef enum _FILE_INFORMATION_CLASS {
+    FileDirectoryInformation = 1
+  } FILE_INFORMATION_CLASS, *PFILE_INFORMATION_CLASS;
 
   typedef struct _IO_STATUS_BLOCK {
     __MINGW_EXTENSION union {
@@ -154,9 +156,7 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
     PVOID Reserved2[2];
     ULONG_PTR UniqueProcessId;
     PVOID Reserved3;
-  } PROCESS_BASIC_INFORMATION;
-
-  typedef PROCESS_BASIC_INFORMATION *PPROCESS_BASIC_INFORMATION;
+  } PROCESS_BASIC_INFORMATION, *PPROCESS_BASIC_INFORMATION;
 
   typedef struct _SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
     LARGE_INTEGER IdleTime;
@@ -198,7 +198,7 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
 
   typedef struct _SYSTEM_PERFORMANCE_INFORMATION {
     BYTE Reserved1[312];
-  } SYSTEM_PERFORMANCE_INFORMATION,*PSYSTEM_PERFORMANCE_INFORMATION;
+  } SYSTEM_PERFORMANCE_INFORMATION, *PSYSTEM_PERFORMANCE_INFORMATION;
 
   typedef struct _SYSTEM_EXCEPTION_INFORMATION {
     BYTE Reserved1[16];
@@ -212,12 +212,9 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
     BYTE Reserved1[24];
   } SYSTEM_INTERRUPT_INFORMATION,*PSYSTEM_INTERRUPT_INFORMATION;
 
-  typedef enum _FILE_INFORMATION_CLASS {
-    FileDirectoryInformation = 1
-  } FILE_INFORMATION_CLASS;
-
   typedef enum _PROCESSINFOCLASS {
-    ProcessBasicInformation = 0,ProcessWow64Information = 26
+    ProcessBasicInformation = 0,
+    ProcessWow64Information = 26
   } PROCESSINFOCLASS;
 
   typedef enum _THREADINFOCLASS {
@@ -289,3 +286,4 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
 #endif
 
 #endif
+

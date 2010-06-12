@@ -92,7 +92,8 @@ extern "C" {
 
   typedef enum _HTTP_DATA_CHUNK_TYPE {
     HttpDataChunkFromMemory,HttpDataChunkFromFileHandle,
-    HttpDataChunkFromFragmentCache, HttpDataChunkFromFragmentCacheEx,
+    HttpDataChunkFromFragmentCache,
+    HttpDataChunkFromFragmentCacheEx,
     HttpDataChunkMaximum
   } HTTP_DATA_CHUNK_TYPE,*PHTTP_DATA_CHUNK_TYPE;
 

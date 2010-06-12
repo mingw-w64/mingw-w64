@@ -138,7 +138,7 @@ extern "C" {
   int __cdecl execlp(const char *_Filename,const char *_ArgList,...);
   int __cdecl execlpe(const char *_Filename,const char *_ArgList,...);
 #else
-    intptr_t __cdecl execl(const char *_Filename,const char *_ArgList,...);
+  intptr_t __cdecl execl(const char *_Filename,const char *_ArgList,...);
   intptr_t __cdecl execle(const char *_Filename,const char *_ArgList,...);
   intptr_t __cdecl execlp(const char *_Filename,const char *_ArgList,...);
   intptr_t __cdecl execlpe(const char *_Filename,const char *_ArgList,...);

@@ -2108,7 +2108,9 @@ extern "C" {
 
 #define PBS_MARQUEE 0x8
 #define PBM_SETMARQUEE (WM_USER+10)
-#endif
+
+#endif /* !NOPROGRESS */
+
 
 #ifndef NOHOTKEY
 

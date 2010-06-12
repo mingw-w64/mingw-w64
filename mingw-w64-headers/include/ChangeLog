@@ -3,6 +3,18 @@
 	* stdio.h: Backport from the trunk: also check whether __CRT__NO_INLINE
 	is defined before defining inlines for getwchar() and putwchar().
 
+2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* commctrl.h, excpt.h, http.h, process.h, stdio.h, winbase.h, winnt.h:
+	Minor spelling, formatting and whitespace changes from the trunk.
+	* winternl.h: Likewise and the following tidy-ups from the trunk:
+	(POBJECT_ATTRIBUTES): Move to typedef of struct OBJECT_ATTRIBUTES and
+	remove the extra typedef.
+	(PROCESS_BASIC_INFORMATION): Move to typedef of struct
+	PROCESS_BASIC_INFORMATION and remove the extra typedef.
+	(FILE_INFORMATION_CLASS): Move before struct _IO_STATUS_BLOCK.
+	(PFILE_INFORMATION_CLASS): Define along with FILE_INFORMATION_CLASS.
+
 2010-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* sdkddkver.h: Sync'ed with ReactOS version to add new macros
