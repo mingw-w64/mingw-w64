@@ -199,7 +199,7 @@ extern "C" {
   WINBASEAPI PVOID WINAPI EncodeSystemPointer(PVOID Ptr);
   WINBASEAPI PVOID WINAPI DecodeSystemPointer(PVOID Ptr);
 
-#ifdef I_X86_
+#ifdef _X86_
   typedef PLDT_ENTRY LPLDT_ENTRY;
 #else
   typedef LPVOID LPLDT_ENTRY;

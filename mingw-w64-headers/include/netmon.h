@@ -54,7 +54,7 @@ extern "C"{
 
 #pragma pack(1)
 
-#ifdef I_X86_
+#ifdef _X86_
 #pragma pack(1)
 #else
 #pragma pack()

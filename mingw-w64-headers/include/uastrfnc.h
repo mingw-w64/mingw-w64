@@ -10,7 +10,7 @@
 extern "C" {
 #endif
 
-#ifndef I_X86_
+#ifndef _X86_
 #define ALIGNMENT_MACHINE
 #endif
 

@@ -33,19 +33,19 @@ extern "C" {
 #define UNALIGNED64
 #endif
 
-#if !defined(I_X86_) && !defined(_IA64_) && !defined(_AMD64_) && (defined(_X86_) && !defined(__x86_64))
-#define I_X86_
-#endif
-
-#if !defined(I_X86_) && !defined(_IA64_) && !defined(_AMD64_) && defined(__x86_64)
+#if defined(__x86_64) && \
+  !(defined(_X86_) || defined(__i386__) || defined(_IA64_))
+#if !defined(_AMD64_)
 #define _AMD64_
 #endif
+#endif /* _AMD64_ */
 
-#if !defined(I_X86_) && !(defined(_X86_) && !defined(__x86_64)) && !defined(_AMD64_) && defined(__ia64__)
+#if defined(__ia64__) && \
+  !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_))
 #if !defined(_IA64_)
 #define _IA64_
 #endif
-#endif
+#endif /* _IA64_ */
 
 
 #ifdef _WIN64
@@ -94,7 +94,7 @@ extern "C" {
 #endif
 
 #ifndef SYSTEM_CACHE_ALIGNMENT_SIZE
-#if defined(_AMD64_) || defined(I_X86_)
+#if defined(_AMD64_) || defined(_X86_)
 #define SYSTEM_CACHE_ALIGNMENT_SIZE 64
 #else
 #define SYSTEM_CACHE_ALIGNMENT_SIZE 128
@@ -1720,8 +1720,10 @@ typedef DWORD LCID;
 
 #endif /* end of _AMD64_ */
 
-#ifdef I_X86_
-#if(defined(_X86_) && !defined(__x86_64)) && !defined(RC_INVOKED)
+
+#ifdef _X86_
+
+#if defined(__i386__) && !defined(__x86_64) && !defined(RC_INVOKED)
 #ifdef __cplusplus
   extern "C" {
 #endif
@@ -1794,9 +1796,9 @@ typedef DWORD LCID;
 #ifdef __cplusplus
   }
 #endif
-#endif /* (defined(_X86_) && !defined(__x86_64)) && !defined(RC_INVOKED) */
+#endif /* defined(__i386__) && !defined(__x86_64) && !defined(RC_INVOKED) */
 
-#if(defined(_X86_) && !defined(__x86_64))
+#if defined(__i386__) && !defined(__x86_64)
 
 #define YieldProcessor() __asm__ __volatile__("rep; nop");
 
@@ -1852,7 +1854,7 @@ typedef DWORD LCID;
     return ret;
   }
 #endif /* !__CRT__NO_INLINE */
-#endif /* (defined(_X86_) && !defined(__x86_64)) */
+#endif /* defined(__i386__) && !defined(__x86_64) */
 
 #define EXCEPTION_READ_FAULT 0
 #define EXCEPTION_WRITE_FAULT 1
@@ -1924,7 +1926,7 @@ typedef DWORD LCID;
 
     typedef CONTEXT *PCONTEXT;
 
-#endif /* end of I_X86_ */
+#endif /* end of _X86_ */
 
 #ifndef _LDT_ENTRY_DEFINED
 #define _LDT_ENTRY_DEFINED
@@ -3226,7 +3228,7 @@ typedef DWORD LCID;
       DWORD64 Self;
     } NT_TIB64,*PNT_TIB64;
 
-#if !defined(I_X86_) && !defined(_IA64_) && !defined(_AMD64_)
+#if !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_)
 #define WX86
 #endif
 

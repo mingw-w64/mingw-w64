@@ -40,19 +40,19 @@
 #define NOMCX
 #endif
 
-#if !defined(I_X86_) && !defined(_IA64_) && !defined(_AMD64_) && (defined(_X86_) && !defined(__x86_64))
-#define I_X86_
-#endif
-
-#if !defined(I_X86_) && !defined(_IA64_) && !defined(_AMD64_) && defined(__x86_64)
+#if defined(__x86_64) && \
+  !(defined(_X86_) || defined(__i386__) || defined(_IA64_))
+#if !defined(_AMD64_)
 #define _AMD64_
 #endif
+#endif /* _AMD64_ */
 
-#if !defined(I_X86_) && !(defined(_X86_) && !defined(__x86_64)) && !defined(_AMD64_) && defined(__ia64__)
+#if defined(__ia64__) && \
+  !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_))
 #if !defined(_IA64_)
 #define _IA64_
 #endif
-#endif
+#endif /* _IA64_ */
 
 #ifndef RC_INVOKED
 #include <excpt.h>

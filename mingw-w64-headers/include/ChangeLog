@@ -1,3 +1,22 @@
+2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Kill definitions of I_X86_ macro and adjust places it was used:
+	* windows.h: Remove I_X86_ definition. Adjust and tweak _AMD64_
+	and _IA64_ macro definitions to use _X86_ and/or __i386__.
+	* winnt.h: Likewise as in windows.h. Replace checks against I_X86_
+	by checks against _X86_. Replace checks against _X86_ which were
+	already under I_X86_ ifdefs by checks against __i386__.
+	* mapidbg.h: Replace checks against I_X86_ by checks against _X86_.
+	* mapiutil.h: Likewise.
+	* mapival.h: Likewise.
+	* netmon.h: Likewise.
+	* stralign.h: Likewise.
+	* tapi3if.h: Likewise.
+	* uastrfnc.h: Likewise.
+	* vdmdbg.h: Likewise.
+	* wabutil.h: Likewise.
+	* winbase.h: Likewise.
+
 2010-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* sdkddkver.h: Sync'ed with ReactOS version to add new macros
