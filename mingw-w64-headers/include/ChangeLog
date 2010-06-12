@@ -1,3 +1,8 @@
+2010-06-12  Kai Tietz  <kai.tietz@onevision.com>
+
+	* zmouse.h: Use for string constant definitions
+	__MINGW_STRING_AW macro.
+
 2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Kill definitions of I_X86_ macro and adjust places it was used:

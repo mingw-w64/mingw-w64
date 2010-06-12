@@ -3,11 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#ifdef UNICODE
-#define MSH_MOUSEWHEEL L"MSWHEEL_ROLLMSG"
-#else
-#define MSH_MOUSEWHEEL "MSWHEEL_ROLLMSG"
-#endif
+
+#define MSH_MOUSEWHEEL __MINGW_STRING_AW("MSWHEEL_ROLLMSG")
 
 #define WHEEL_DELTA 120
 
@@ -15,28 +12,14 @@
 #define WM_MOUSEWHEEL (WM_MOUSELAST+1)
 #endif
 
-#ifdef UNICODE
-#define MOUSEZ_CLASSNAME L"MouseZ"
-#define MOUSEZ_TITLE L"Magellan MSWHEEL"
-#else
-#define MOUSEZ_CLASSNAME "MouseZ"
-#define MOUSEZ_TITLE "Magellan MSWHEEL"
-#endif
+#define MOUSEZ_CLASSNAME __MINGW_STRING_AW("MouseZ")
+#define MOUSEZ_TITLE __MINGW_STRING_AW("Magellan MSWHEEL")
 
 #define MSH_WHEELMODULE_CLASS (MOUSEZ_CLASSNAME)
 #define MSH_WHEELMODULE_TITLE (MOUSEZ_TITLE)
 
-#ifdef UNICODE
-#define MSH_WHEELSUPPORT L"MSH_WHEELSUPPORT_MSG"
-#else
-#define MSH_WHEELSUPPORT "MSH_WHEELSUPPORT_MSG"
-#endif
-
-#ifdef UNICODE
-#define MSH_SCROLL_LINES L"MSH_SCROLL_LINES_MSG"
-#else
-#define MSH_SCROLL_LINES "MSH_SCROLL_LINES_MSG"
-#endif
+#define MSH_WHEELSUPPORT __MINGW_STRING_AW("MSH_WHEELSUPPORT_MSG")
+#define MSH_SCROLL_LINES __MINGW_STRING_AW("MSH_SCROLL_LINES_MSG")
 
 #ifndef WHEEL_PAGESCROLL
 #define WHEEL_PAGESCROLL (UINT_MAX)
