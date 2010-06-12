@@ -1,3 +1,7 @@
+2010-06-12  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_mac.h (__MINGW_STRING_AW): New helper macro.
+
 2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Kill definitions of I_X86_ macro and adjust places it was used:
