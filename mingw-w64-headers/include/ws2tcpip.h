@@ -274,11 +274,7 @@ typedef ADDRINFOA ADDRINFO,*LPADDRINFO;
 extern "C" {
 #endif
 
-#ifdef UNICODE
-#define GetAddrInfo GetAddrInfoW
-#else
-#define GetAddrInfo GetAddrInfoA
-#endif
+#define GetAddrInfo __MINGW_NAME_AW(GetAddrInfo)
 
   WINSOCK_API_LINKAGE int WSAAPI getaddrinfo(const char *nodename,const char *servname,const struct addrinfo *hints,struct addrinfo **res);
   WINSOCK_API_LINKAGE int WSAAPI GetAddrInfoW(PCWSTR pNodeName,PCWSTR pServiceName,const ADDRINFOW *pHints,PADDRINFOW *ppResult);
@@ -298,11 +294,7 @@ extern "C" {
 #endif
 #endif
 
-#ifdef UNICODE
-#define FreeAddrInfo FreeAddrInfoW
-#else
-#define FreeAddrInfo FreeAddrInfoA
-#endif
+#define FreeAddrInfo __MINGW_NAME_AW(FreeAddrInfo)
 
   WINSOCK_API_LINKAGE void WSAAPI freeaddrinfo(LPADDRINFO pAddrInfo);
   WINSOCK_API_LINKAGE void WSAAPI FreeAddrInfoW(PADDRINFOW pAddrInfo);
@@ -324,11 +316,7 @@ extern "C" {
 
   typedef int socklen_t;
 
-#ifdef UNICODE
-#define GetNameInfo GetNameInfoW
-#else
-#define GetNameInfo GetNameInfoA
-#endif
+#define GetNameInfo __MINGW_NAME_AW(GetNameInfo)
 
   WINSOCK_API_LINKAGE int WSAAPI getnameinfo(const struct sockaddr *sa,socklen_t salen,char *host,DWORD hostlen,char *serv,DWORD servlen,int flags);
   WINSOCK_API_LINKAGE INT WSAAPI GetNameInfoW(const SOCKADDR *pSockaddr,socklen_t SockaddrLength,PWCHAR pNodeBuffer,DWORD NodeBufferSize,PWCHAR pServiceBuffer,DWORD ServiceBufferSize,INT Flags);
@@ -348,11 +336,7 @@ extern "C" {
 #endif
 #endif
 
-#ifdef UNICODE
-#define gai_strerror gai_strerrorW
-#else
-#define gai_strerror gai_strerrorA
-#endif
+#define gai_strerror __MINGW_NAME_AW(gai_strerror)
 
 #define GAI_STRERROR_BUFFER_SIZE 1024
 
@@ -372,17 +356,10 @@ WCHAR *gai_strerrorW(int);
 #define NI_DGRAM 0x10
 
 #if (_WIN32_WINNT >= 0x0600)
-#ifdef UNICODE
-#define addrinfoEx addrinfoExW
-#define PADDRINFOEX PADDRINFOEXW
-#define GetAddrInfoEx GetAddrInfoExW
-#define FreeAddrInfoEx FreeAddrInfoExW
-#else
-#define addrinfoEx addrinfoExA
-#define PADDRINFOEX PADDRINFOEXA
-#define GetAddrInfoEx GetAddrInfoExA
-#define FreeAddrInfoEx FreeAddrInfoExA
-#endif
+#define addrinfoEx __MINGW_NAME_AW(addrinfoEx)
+#define PADDRINFOEX __MINGW_NAME_AW(PADDRINFOEX)
+#define GetAddrInfoEx __MINGW_NAME_AW(GetAddrInfoEx)
+#define FreeAddrInfoEx __MINGW_NAME_AW(FreeAddrInfoEx)
 
   typedef struct addrinfoExA {
     int                ai_flags;

@@ -124,21 +124,12 @@ extern "C" {
     DWORD dwFileDateLS;
   } VS_FIXEDFILEINFO;
 
-#ifdef UNICODE
-#define VerFindFile VerFindFileW
-#define VerInstallFile VerInstallFileW
-#define GetFileVersionInfoSize GetFileVersionInfoSizeW
-#define GetFileVersionInfo GetFileVersionInfoW
-#define VerLanguageName VerLanguageNameW
-#define VerQueryValue VerQueryValueW
-#else
-#define VerFindFile VerFindFileA
-#define VerInstallFile VerInstallFileA
-#define GetFileVersionInfoSize GetFileVersionInfoSizeA
-#define GetFileVersionInfo GetFileVersionInfoA
-#define VerLanguageName VerLanguageNameA
-#define VerQueryValue VerQueryValueA
-#endif
+#define VerFindFile __MINGW_NAME_AW(VerFindFile)
+#define VerInstallFile __MINGW_NAME_AW(VerInstallFile)
+#define GetFileVersionInfoSize __MINGW_NAME_AW(GetFileVersionInfoSize)
+#define GetFileVersionInfo __MINGW_NAME_AW(GetFileVersionInfo)
+#define VerLanguageName __MINGW_NAME_AW(VerLanguageName)
+#define VerQueryValue __MINGW_NAME_AW(VerQueryValue)
 
   DWORD WINAPI VerFindFileA(DWORD uFlags,LPSTR szFileName,LPSTR szWinDir,LPSTR szAppDir,LPSTR szCurDir,PUINT lpuCurDirLen,LPSTR szDestDir,PUINT lpuDestDirLen);
   DWORD WINAPI VerFindFileW(DWORD uFlags,LPWSTR szFileName,LPWSTR szWinDir,LPWSTR szAppDir,LPWSTR szCurDir,PUINT lpuCurDirLen,LPWSTR szDestDir,PUINT lpuDestDirLen);

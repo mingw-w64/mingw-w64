@@ -1,5 +1,6 @@
 2010-06-12  Kai Tietz  <kai.tietz@onevision.com>
 
+	Change unicode-dependent defines to use __MINGW_NAME_AW.
 	* winuser.h: Use __MINGW_TYPEDEF_AW for UNICODE specific
 	type-definitions.
 	* zmouse.h: Use for string constant definitions

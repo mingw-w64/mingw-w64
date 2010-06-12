@@ -20,11 +20,7 @@ typedef struct _OLE_TM_CONFIG_PARAMS_V1 {
   DWORD dwcConcurrencyHint;
 } OLE_TM_CONFIG_PARAMS_V1;
 
-#ifdef UNICODE
-#define DtcGetTransactionManagerEx DtcGetTransactionManagerExW
-#else
-#define DtcGetTransactionManagerEx DtcGetTransactionManagerExA
-#endif
+#define DtcGetTransactionManagerEx __MINGW_NAME_AW(DtcGetTransactionManagerEx)
 
 EXPORTAPI __cdecl DtcGetTransactionManager(char *i_pszHost,char *i_pszTmName,REFIID i_riid,DWORD i_dwReserved1,WORD i_wcbReserved2,void *i_pvReserved2,void **o_ppvObject);
 EXTERN_C HRESULT __cdecl DtcGetTransactionManagerC(char *i_pszHost,char *i_pszTmName,REFIID i_riid,DWORD i_dwReserved1,WORD i_wcbReserved2,void *i_pvReserved2,void **o_ppvObject);

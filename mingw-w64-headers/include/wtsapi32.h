@@ -42,13 +42,8 @@ extern "C" {
     LPSTR pServerName;
   } WTS_SERVER_INFOA,*PWTS_SERVER_INFOA;
 
-#ifdef UNICODE
-#define WTS_SERVER_INFO WTS_SERVER_INFOW
-#define PWTS_SERVER_INFO PWTS_SERVER_INFOW
-#else
-#define WTS_SERVER_INFO WTS_SERVER_INFOA
-#define PWTS_SERVER_INFO PWTS_SERVER_INFOA
-#endif
+#define WTS_SERVER_INFO __MINGW_NAME_AW(WTS_SERVER_INFO)
+#define PWTS_SERVER_INFO __MINGW_NAME_AW(PWTS_SERVER_INFO)
 
   typedef struct _WTS_SESSION_INFOW {
     DWORD SessionId;
@@ -62,13 +57,8 @@ extern "C" {
     WTS_CONNECTSTATE_CLASS State;
   } WTS_SESSION_INFOA,*PWTS_SESSION_INFOA;
 
-#ifdef UNICODE
-#define WTS_SESSION_INFO WTS_SESSION_INFOW
-#define PWTS_SESSION_INFO PWTS_SESSION_INFOW
-#else
-#define WTS_SESSION_INFO WTS_SESSION_INFOA
-#define PWTS_SESSION_INFO PWTS_SESSION_INFOA
-#endif
+#define WTS_SESSION_INFO __MINGW_NAME_AW(WTS_SESSION_INFO)
+#define PWTS_SESSION_INFO __MINGW_NAME_AW(PWTS_SESSION_INFO)
 
   typedef struct _WTS_PROCESS_INFOW {
     DWORD SessionId;
@@ -84,13 +74,8 @@ extern "C" {
     PSID pUserSid;
   } WTS_PROCESS_INFOA,*PWTS_PROCESS_INFOA;
 
-#ifdef UNICODE
-#define WTS_PROCESS_INFO WTS_PROCESS_INFOW
-#define PWTS_PROCESS_INFO PWTS_PROCESS_INFOW
-#else
-#define WTS_PROCESS_INFO WTS_PROCESS_INFOA
-#define PWTS_PROCESS_INFO PWTS_PROCESS_INFOA
-#endif
+#define WTS_PROCESS_INFO __MINGW_NAME_AW(WTS_PROCESS_INFO)
+#define PWTS_PROCESS_INFO __MINGW_NAME_AW(PWTS_PROCESS_INFO)
 
 #define WTS_PROTOCOL_TYPE_CONSOLE 0
 #define WTS_PROTOCOL_TYPE_ICA 1
@@ -161,25 +146,14 @@ extern "C" {
     WTSVirtualClientData,WTSVirtualFileHandle
   } WTS_VIRTUAL_CLASS;
 
-#ifdef UNICODE
-#define WTSEnumerateServers WTSEnumerateServersW
-#define WTSOpenServer WTSOpenServerW
-#define WTSEnumerateSessions WTSEnumerateSessionsW
-#define WTSEnumerateProcesses WTSEnumerateProcessesW
-#define WTSQuerySessionInformation WTSQuerySessionInformationW
-#define WTSQueryUserConfig WTSQueryUserConfigW
-#define WTSSetUserConfig WTSSetUserConfigW
-#define WTSSendMessage WTSSendMessageW
-#else
-#define WTSEnumerateServers WTSEnumerateServersA
-#define WTSOpenServer WTSOpenServerA
-#define WTSEnumerateSessions WTSEnumerateSessionsA
-#define WTSEnumerateProcesses WTSEnumerateProcessesA
-#define WTSQuerySessionInformation WTSQuerySessionInformationA
-#define WTSQueryUserConfig WTSQueryUserConfigA
-#define WTSSetUserConfig WTSSetUserConfigA
-#define WTSSendMessage WTSSendMessageA
-#endif
+#define WTSEnumerateServers __MINGW_NAME_AW(WTSEnumerateServers)
+#define WTSOpenServer __MINGW_NAME_AW(WTSOpenServer)
+#define WTSEnumerateSessions __MINGW_NAME_AW(WTSEnumerateSessions)
+#define WTSEnumerateProcesses __MINGW_NAME_AW(WTSEnumerateProcesses)
+#define WTSQuerySessionInformation __MINGW_NAME_AW(WTSQuerySessionInformation)
+#define WTSQueryUserConfig __MINGW_NAME_AW(WTSQueryUserConfig)
+#define WTSSetUserConfig __MINGW_NAME_AW(WTSSetUserConfig)
+#define WTSSendMessage __MINGW_NAME_AW(WTSSendMessage)
 
   WINBOOL WINAPI WTSEnumerateServersW(LPWSTR pDomainName,DWORD Reserved,DWORD Version,PWTS_SERVER_INFOW *ppServerInfo,DWORD *pCount);
   WINBOOL WINAPI WTSEnumerateServersA(LPSTR pDomainName,DWORD Reserved,DWORD Version,PWTS_SERVER_INFOA *ppServerInfo,DWORD *pCount);
