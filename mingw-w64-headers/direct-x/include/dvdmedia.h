@@ -19,6 +19,8 @@
 #ifndef __DVDMEDIA_H__
 #define __DVDMEDIA_H__
 
+#include <_mingw_dxhelper.h>
+
 #define AMCONTROL_USED 0x00000001
 #define AMCONTROL_PAD_TO_4x3 0x00000002
 #define AMCONTROL_PAD_TO_16x9 0x00000004

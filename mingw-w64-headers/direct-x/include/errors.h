@@ -19,6 +19,8 @@
 #ifndef __ERRORS__
 #define __ERRORS__
 
+#include <_mingw_dxhelper.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
