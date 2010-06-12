@@ -1,3 +1,8 @@
+2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio.h: Backport from the trunk: also check whether __CRT__NO_INLINE
+	is defined before defining inlines for getwchar() and putwchar().
+
 2010-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* sdkddkver.h: Sync'ed with ReactOS version to add new macros
