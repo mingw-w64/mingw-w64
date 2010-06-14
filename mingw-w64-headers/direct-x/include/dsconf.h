@@ -18,6 +18,7 @@
 
 #ifndef __WINE_DSCONF_H
 #define __WINE_DSCONF_H
+#define __DSCONF_INCLUDED__
 
 #ifdef __cplusplus
 extern "C" {

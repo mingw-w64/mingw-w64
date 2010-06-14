@@ -18,6 +18,7 @@
 
 #ifndef __WINE_DINPUT_H
 #define __WINE_DINPUT_H
+#define __DINPUT_INCLUDED__
 
 #define COM_NO_WINDOWS_H
 #include <objbase.h>

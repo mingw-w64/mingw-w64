@@ -18,6 +18,7 @@
 
 #ifndef __WINE_DDRAW_H
 #define __WINE_DDRAW_H
+#define __DDRAW_INCLUDED__
 
 #define COM_NO_WINDOWS_H
 #include <objbase.h>

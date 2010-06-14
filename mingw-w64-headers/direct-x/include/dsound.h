@@ -18,6 +18,7 @@
 
 #ifndef __WINE_DSOUND_H
 #define __WINE_DSOUND_H
+#define __DSOUND_INCLUDED__
 
 #include <_mingw_dxhelper.h>
 #ifndef DIRECTSOUND_VERSION

@@ -1,3 +1,10 @@
+2010-06-14  Ozkan Sezer <sezeroz@gmail.com>
+
+	* ddraw.h: Define __DDRAW_INCLUDED__ for compatibility.
+	* dinput.h: Define __DINPUT_INCLUDED__ for compatibility.
+	* dsconf.h: Define __DSCONF_INCLUDED__ for compatibility.
+	* dsound.h: Define __DSOUND_INCLUDED__ for compatibility.
+
 2010-06-12  Ozkan Sezer <sezeroz@gmail.com>
 
 	* _mingw_dxhelper.h: Updated DUMMYSTRUCTNAME* macros from _mingw.h.
