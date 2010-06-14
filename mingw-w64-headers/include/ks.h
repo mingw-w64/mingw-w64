@@ -17,7 +17,7 @@
 #ifndef STATICGUIDOF
 #define STATICGUIDOF(guid) STATIC_##guid
 #endif
-#endif
+#endif /* _NTRTL_ */
 
 #ifndef SIZEOF_ARRAY
 #define SIZEOF_ARRAY(ar) (sizeof(ar)/sizeof((ar)[0]))
@@ -578,7 +578,7 @@ typedef struct {
 } KSPIN_PHYSICALCONNECTION,*PKSPIN_PHYSICALCONNECTION;
 
 #define DEFINE_KSPIN_INTERFACE_TABLE(tablename) const KSPIN_INTERFACE tablename[] =
-#define DEFINE_KSPIN_INTERFACE_ITEM(guid,INTERFACE) { STATICGUIDOF(guid),(INTERFACE),0 }
+#define DEFINE_KSPIN_INTERFACE_ITEM(guid,_interFace) { STATICGUIDOF(guid),(_interFace),0 }
 #define DEFINE_KSPIN_MEDIUM_TABLE(tablename) const KSPIN_MEDIUM tablename[] =
 #define DEFINE_KSPIN_MEDIUM_ITEM(guid,medium) DEFINE_KSPIN_INTERFACE_ITEM(guid,medium)
 #define DEFINE_KSPROPERTY_ITEM_PIN_CINSTANCES(Handler) DEFINE_KSPROPERTY_ITEM(KSPROPERTY_PIN_CINSTANCES,(Handler),sizeof(KSP_PIN),sizeof(KSPIN_CINSTANCES),NULL,NULL,0,NULL,NULL,0)
@@ -1351,8 +1351,8 @@ DEFINE_GUID(IID_IKsControl,0x28F54685L,0x06FD,0x11D2,0xB2,0x7A,0x00,0xA0,0xC9,0x
 DEFINE_GUID(IID_IKsFastClock,0xc9902485,0xc180,0x11d2,0x84,0x73,0xd4,0x23,0x94,0x45,0x9e,0x5e);
 #define STATIC_IID_IKsDeviceFunctions 0xe234f2e2,0xbd69,0x4f8c,0xb3,0xf2,0x7c,0xd7,0x9e,0xd4,0x66,0xbd
 DEFINE_GUID(IID_IKsDeviceFunctions,0xe234f2e2,0xbd69,0x4f8c,0xb3,0xf2,0x7c,0xd7,0x9e,0xd4,0x66,0xbd);
-#endif
-#endif
+#endif /* _IKsControl_ */
+#endif /* defined(_UNKNOWN_H_) || defined(__IUnknown_INTERFACE_DEFINED__) */
 
 #ifdef __cplusplus
 extern "C" {
@@ -1376,4 +1376,6 @@ extern "C" {
 #endif
 
 #define DENY_USERMODE_ACCESS(pIrp,CompleteRequest) if(pIrp->RequestorMode!=KernelMode) { pIrp->IoStatus.Information = 0; pIrp->IoStatus.Status = STATUS_INVALID_DEVICE_REQUEST; if(CompleteRequest) IoCompleteRequest (pIrp,IO_NO_INCREMENT); return STATUS_INVALID_DEVICE_REQUEST; }
-#endif
+
+#endif /* _KS_ */
+

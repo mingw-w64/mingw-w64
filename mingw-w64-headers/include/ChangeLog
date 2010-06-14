@@ -1,3 +1,9 @@
+2010-06-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h, ksmedia.h, ksproxy.h: Added #endif comments.
+	* ks.h (DEFINE_KSPIN_INTERFACE_ITEM): Renamed macro argument
+	INTERFACE to _interFace.
+
 2010-06-12  Kai Tietz  <kai.tietz@onevision.com>
 
 	Change unicode-dependent defines to use __MINGW_NAME_AW.

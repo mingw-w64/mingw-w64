@@ -38,7 +38,7 @@ typedef enum {
 #define DEFINE_USBAUDIO_MID_GUID(id) 0x4e1cecd2+(USHORT)(id),0x1679,0x463b,0xa7,0x2f,0xa5,0xbf,0x64,0xc8,0x6e,0xba
 
 #define IS_COMPATIBLE_USBAUDIO_MID(guid) (((guid)->Data1 >= 0x4e1cecd2) && ((guid)->Data1 < 0x4e1cecd2 + 0xffff) && ((guid)->Data2==0x1679) && ((guid)->Data3==0x463b) && ((guid)->Data4[0]==0xa7) && ((guid)->Data4[1]==0x2f) && ((guid)->Data4[2]==0xa5) && ((guid)->Data4[3]==0xbf) && ((guid)->Data4[4]==0x64) && ((guid)->Data4[5]==0xc8) && ((guid)->Data4[6]==0x6e) && ((guid)->Data4[7]==0xba))
-#endif
+#endif /* INIT_USBAUDIO_MID */
 
 #ifndef INIT_USBAUDIO_PID
 #define INIT_USBAUDIO_PID(guid,id){ (guid)->Data1 = 0xabcc5a5e + (USHORT)(id); (guid)->Data2 = 0xc263; (guid)->Data3 = 0x463b; (guid)->Data4[0] = 0xa7; (guid)->Data4[1] = 0x2f; (guid)->Data4[2] = 0xa5; (guid)->Data4[3] = 0xbf; (guid)->Data4[4] = 0x64; (guid)->Data4[5] = 0xc8; (guid)->Data4[6] = 0x6e; (guid)->Data4[7] = 0xba;}
@@ -46,12 +46,12 @@ typedef enum {
 #define DEFINE_USBAUDIO_PID_GUID(id) 0xabcc5a5e+(USHORT)(id),0xc263,0x463b,0xa7,0x2f,0xa5,0xbf,0x64,0xc8,0x6e,0xba
 
 #define IS_COMPATIBLE_USBAUDIO_PID(guid) (((guid)->Data1 >= 0xabcc5a5e) && ((guid)->Data1 < 0xabcc5a5e + 0xffff) && ((guid)->Data2==0xc263) && ((guid)->Data3==0x463b) && ((guid)->Data4[0]==0xa7) && ((guid)->Data4[1]==0x2f) && ((guid)->Data4[2]==0xa5) && ((guid)->Data4[3]==0xbf) && ((guid)->Data4[4]==0x64) && ((guid)->Data4[5]==0xc8) && ((guid)->Data4[6]==0x6e) && ((guid)->Data4[7]==0xba))
-#endif
+#endif /* INIT_USBAUDIO_PID */
 
 #ifndef INIT_USBAUDIO_PRODUCT_NAME
 #define INIT_USBAUDIO_PRODUCT_NAME(guid,vid,pid,strIndex){ (guid)->Data1 = 0XFC575048 + (USHORT)(vid); (guid)->Data2 = 0x2E08 + (USHORT)(pid); (guid)->Data3 = 0x463B + (USHORT)(strIndex); (guid)->Data4[0] = 0xA7; (guid)->Data4[1] = 0x2F; (guid)->Data4[2] = 0xA5; (guid)->Data4[3] = 0xBF; (guid)->Data4[4] = 0x64; (guid)->Data4[5] = 0xC8; (guid)->Data4[6] = 0x6E; (guid)->Data4[7] = 0xBA;}
 #define DEFINE_USBAUDIO_PRODUCT_NAME(vid,pid,strIndex) 0xFC575048+(USHORT)(vid),0x2E08+(USHORT)(pid),0x463B+(USHORT)(strIndex),0xA7,0x2F,0xA5,0xBF,0x64,0xC8,0x6E,0xBA
-#endif
+#endif /* INIT_USBAUDIO_PRODUCT_NAME */
 
 #define STATIC_KSCOMPONENTID_USBAUDIO 0x8F1275F0,0x26E9,0x4264,0xBA,0x4D,0x39,0xFF,0xF0,0x1D,0x94,0xAA
 DEFINE_GUIDSTRUCT("8F1275F0-26E9-4264-BA4D-39FFF01D94AA",KSCOMPONENTID_USBAUDIO);
@@ -371,7 +371,7 @@ DEFINE_GUIDSTRUCT("00000000-0000-0010-8000-00aa00389b71",KSDATAFORMAT_SUBTYPE_WA
 #define DEFINE_MMREG_MID_GUID(id) 0xd5a47fa7+(USHORT)(id),0x6d98,0x11d1,0xa2,0x1a,0x00,0xa0,0xc9,0x22,0x31,0x96
 
 #define IS_COMPATIBLE_MMREG_MID(guid) (((guid)->Data1 >= 0xd5a47fa7) && ((guid)->Data1 < 0xd5a47fa7 + 0xffff) && ((guid)->Data2==0x6d98) && ((guid)->Data3==0x11d1) && ((guid)->Data4[0]==0xa2) && ((guid)->Data4[1]==0x1a) && ((guid)->Data4[2]==0x00) && ((guid)->Data4[3]==0xa0) && ((guid)->Data4[4]==0xc9) && ((guid)->Data4[5]==0x22) && ((guid)->Data4[6]==0x31) && ((guid)->Data4[7]==0x96))
-#endif
+#endif /* INIT_MMREG_MID */
 
 #ifndef INIT_MMREG_PID
 #define INIT_MMREG_PID(guid,id){ (guid)->Data1 = 0xe36dc2ac + (USHORT)(id); (guid)->Data2 = 0x6d9a; (guid)->Data3 = 0x11d1; (guid)->Data4[0] = 0xa2; (guid)->Data4[1] = 0x1a; (guid)->Data4[2] = 0x00; (guid)->Data4[3] = 0xa0; (guid)->Data4[4] = 0xc9; (guid)->Data4[5] = 0x22; (guid)->Data4[6] = 0x31; (guid)->Data4[7] = 0x96;}
@@ -379,7 +379,7 @@ DEFINE_GUIDSTRUCT("00000000-0000-0010-8000-00aa00389b71",KSDATAFORMAT_SUBTYPE_WA
 #define DEFINE_MMREG_PID_GUID(id) 0xe36dc2ac+(USHORT)(id),0x6d9a,0x11d1,0xa2,0x1a,0x00,0xa0,0xc9,0x22,0x31,0x96
 
 #define IS_COMPATIBLE_MMREG_PID(guid) (((guid)->Data1 >= 0xe36dc2ac) && ((guid)->Data1 < 0xe36dc2ac + 0xffff) && ((guid)->Data2==0x6d9a) && ((guid)->Data3==0x11d1) && ((guid)->Data4[0]==0xa2) && ((guid)->Data4[1]==0x1a) && ((guid)->Data4[2]==0x00) && ((guid)->Data4[3]==0xa0) && ((guid)->Data4[4]==0xc9) && ((guid)->Data4[5]==0x22) && ((guid)->Data4[6]==0x31) && ((guid)->Data4[7]==0x96))
-#endif
+#endif /* INIT_MMREG_PID */
 
 #define STATIC_KSDATAFORMAT_SUBTYPE_ANALOG 0x6dba3190L,0x67bd,0x11cf,0xa0,0xf7,0x00,0x20,0xaf,0xd1,0x56,0xe4
 DEFINE_GUIDSTRUCT("6dba3190-67bd-11cf-a0f7-0020afd156e4",KSDATAFORMAT_SUBTYPE_ANALOG);
@@ -413,7 +413,7 @@ DEFINE_GUIDSTRUCT("00000002-0000-0010-8000-00aa00389b71",KSDATAFORMAT_SUBTYPE_AD
 #define STATIC_KSDATAFORMAT_SUBTYPE_MPEG DEFINE_WAVEFORMATEX_GUID(WAVE_FORMAT_MPEG)
 DEFINE_GUIDSTRUCT("00000050-0000-0010-8000-00aa00389b71",KSDATAFORMAT_SUBTYPE_MPEG);
 #define KSDATAFORMAT_SUBTYPE_MPEG DEFINE_GUIDNAMED(KSDATAFORMAT_SUBTYPE_MPEG)
-#endif
+#endif /* _INC_MMREG */
 
 #define STATIC_KSDATAFORMAT_SPECIFIER_VC_ID 0xAD98D184L,0xAAC3,0x11D0,0xA4,0x1C,0x00,0xA0,0xC9,0x22,0x31,0x96
 DEFINE_GUIDSTRUCT("AD98D184-AAC3-11D0-A41C-00A0C9223196",KSDATAFORMAT_SPECIFIER_VC_ID);
@@ -449,7 +449,7 @@ typedef struct {
 
   GUID SubFormat;
 } WAVEFORMATEXTENSIBLE,*PWAVEFORMATEXTENSIBLE;
-#endif
+#endif /* _WAVEFORMATEXTENSIBLE_ */
 
 #if !defined(WAVE_FORMAT_EXTENSIBLE)
 #define WAVE_FORMAT_EXTENSIBLE 0xFFFE
@@ -469,7 +469,7 @@ typedef struct {
 #if !defined(PACK_PRAGMAS_NOT_SUPPORTED)
 #include <poppack.h>
 #endif
-#endif
+#endif /* defined(_INC_MMSYSTEM) || defined(_INC_MMREG) */
 
 #define KSDSOUND_BUFFER_PRIMARY 0x00000001
 #define KSDSOUND_BUFFER_STATIC 0x00000002
@@ -3076,7 +3076,7 @@ typedef struct tagTIMECODE_SAMPLE {
 } TIMECODE_SAMPLE;
 
 typedef TIMECODE_SAMPLE *PTIMECODE_SAMPLE;
-#endif
+#endif /* TIMECODE_DEFINED */
 
 typedef struct {
   KSPROPERTY Property;
@@ -3097,7 +3097,7 @@ typedef enum {
   KSEVENT_EXTDEV_TIMECODE_UPDATE,KSEVENT_EXTDEV_OPERATION_MODE_UPDATE,KSEVENT_EXTDEV_TRANSPORT_STATE_UPDATE,KSEVENT_EXTDEV_NOTIFY_REMOVAL,
   KSEVENT_EXTDEV_NOTIFY_MEDIUM_CHANGE
 } KSEVENT_DEVCMD;
-#endif
+#endif /* __EDevCtrl__ */
 
 #define STATIC_PROPSETID_VIDCAP_CROSSBAR 0x6a2e0640L,0x28e4,0x11d0,0xa1,0x8c,0x00,0xa0,0xc9,0x11,0x89,0x56
 DEFINE_GUIDSTRUCT("6a2e0640-28e4-11d0-a18c-00a0c9118956",PROPSETID_VIDCAP_CROSSBAR);
@@ -3340,7 +3340,7 @@ typedef struct {
   DWORD dwXOrigin;
   DWORD dwYOrigin;
 } KSVPSURFACEPARAMS,*PKSVPSURFACEPARAMS;
-#else
+#else /* __IVPType__ */
 
 #ifndef __DDRAW_INCLUDED__
 #define DDPF_FOURCC 0x00000004l
@@ -3374,7 +3374,7 @@ typedef struct _DDPIXELFORMAT {
     DWORD dwYUVZBitMask;
   };
 } DDPIXELFORMAT,*LPDDPIXELFORMAT;
-#endif
+#endif /* __DDRAW_INCLUDED__ */
 
 #ifndef __DVP_INCLUDED__
 typedef struct _DDVIDEOPORTCONNECT {
@@ -3387,7 +3387,7 @@ typedef struct _DDVIDEOPORTCONNECT {
 
 #define DDVPTYPE_E_HREFH_VREFH 0x54F39980L,0xDA60,0x11CF,0x9B,0x06,0x00,0xA0,0xC9,0x03,0xA3,0xB8
 #define DDVPTYPE_E_HREFL_VREFL 0xE09C77E0L,0xDA60,0x11CF,0x9B,0x06,0x00,0xA0,0xC9,0x03,0xA3,0xB8
-#endif
+#endif /* __DVP_INCLUDED__ */
 
 typedef enum {
   KS_PixAspectRatio_NTSC4x3,KS_PixAspectRatio_NTSC16x9,KS_PixAspectRatio_PAL4x3,KS_PixAspectRatio_PAL16x9
@@ -3446,7 +3446,7 @@ typedef struct {
   DWORD dwXOrigin;
   DWORD dwYOrigin;
 } KSVPSURFACEPARAMS,*PKSVPSURFACEPARAMS;
-#endif
+#endif /* __IVPType__ */
 
 #define STATIC_KSEVENTSETID_VPNotify 0x20c5598eL,0xd3c8,0x11d0,0x8d,0xfc,0x00,0xc0,0x4f,0xd7,0xc0,0x8b
 DEFINE_GUIDSTRUCT("20c5598e-d3c8-11d0-8dfc-00c04fd7c08b",KSEVENTSETID_VPNotify);
@@ -3572,13 +3572,14 @@ DEFINE_GUIDSTRUCT("0581AF97-7693-4DBD-9DCA-3F9EBD6585A1",CODECAPI_SUPPORTSEVENTS
 #define STATIC_CODECAPI_CURRENTCHANGELIST 0x1cb14e83,0x7d72,0x4657,0x83,0xfd,0x47,0xa2,0xc5,0xb9,0xd1,0x3d
 DEFINE_GUIDSTRUCT("1CB14E83-7D72-4657-83FD-47A2C5B9D13D",CODECAPI_CURRENTCHANGELIST);
 #define CODECAPI_CURRENTCHANGELIST DEFINE_GUIDNAMED(CODECAPI_CURRENTCHANGELIST)
-#endif
+#endif /* __ENCODER_API_GUIDS__ */
 
 #ifndef __ENCODER_API_DEFINES__
 #define __ENCODER_API_DEFINES__
 typedef enum {
   ConstantBitRate = 0,VariableBitRateAverage,VariableBitRatePeak
 } VIDEOENCODER_BITRATE_MODE;
-#endif
+#endif /* __ENCODER_API_DEFINES__ */
 
-#endif
+#endif /* _KSMEDIA_ */
+
