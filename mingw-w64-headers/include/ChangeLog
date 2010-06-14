@@ -1,5 +1,12 @@
 2010-06-14  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Back-merge from the trunk:
+
+	2010-06-12  Kai Tietz  <kai.tietz@onevision.com>
+	* _mingw_mac.h (__MINGW_STRING_AW): New helper macro.
+
+2010-06-14  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* ks.h, ksmedia.h, ksproxy.h: Added #endif comments.
 	* ks.h (DEFINE_KSPIN_INTERFACE_ITEM): Renamed macro argument
 	INTERFACE to _interFace.
