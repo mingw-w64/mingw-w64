@@ -61,11 +61,7 @@ extern "C" {
 #define IS_INTRESOURCE(_r) ((((ULONG_PTR)(_r)) >> 16)==0)
 #define MAKEINTRESOURCEA(i) ((LPSTR)((ULONG_PTR)((WORD)(i))))
 #define MAKEINTRESOURCEW(i) ((LPWSTR)((ULONG_PTR)((WORD)(i))))
-#ifdef UNICODE
-#define MAKEINTRESOURCE MAKEINTRESOURCEW
-#else
-#define MAKEINTRESOURCE MAKEINTRESOURCEA
-#endif
+#define MAKEINTRESOURCE __MINGW_NAME_AW(MAKEINTRESOURCE)
 
 #ifndef NORESOURCE
 
@@ -2879,25 +2875,14 @@ extern "C" {
 #define ESB_DISABLE_RTDN ESB_DISABLE_RIGHT
 #endif
 
-#ifdef UNICODE
-#define SetProp SetPropW
-#define GetProp GetPropW
-#define RemoveProp RemovePropW
-#define EnumPropsEx EnumPropsExW
-#define EnumProps EnumPropsW
-#define SetWindowText SetWindowTextW
-#define GetWindowText GetWindowTextW
-#define GetWindowTextLength GetWindowTextLengthW
-#else
-#define SetProp SetPropA
-#define GetProp GetPropA
-#define RemoveProp RemovePropA
-#define EnumPropsEx EnumPropsExA
-#define EnumProps EnumPropsA
-#define SetWindowText SetWindowTextA
-#define GetWindowText GetWindowTextA
-#define GetWindowTextLength GetWindowTextLengthA
-#endif
+#define SetProp __MINGW_NAME_AW(SetProp)
+#define GetProp __MINGW_NAME_AW(GetProp)
+#define RemoveProp __MINGW_NAME_AW(RemoveProp)
+#define EnumPropsEx __MINGW_NAME_AW(EnumPropsEx)
+#define EnumProps __MINGW_NAME_AW(EnumProps)
+#define SetWindowText __MINGW_NAME_AW(SetWindowText)
+#define GetWindowText __MINGW_NAME_AW(GetWindowText)
+#define GetWindowTextLength __MINGW_NAME_AW(GetWindowTextLength)
 
   WINUSERAPI WINBOOL WINAPI SetPropA(HWND hWnd,LPCSTR lpString,HANDLE hData);
   WINUSERAPI WINBOOL WINAPI SetPropW(HWND hWnd,LPCWSTR lpString,HANDLE hData);
@@ -2977,13 +2962,8 @@ extern "C" {
 #define MB_MODEMASK 0x00003000L
 #define MB_MISCMASK 0x0000C000L
 
-#ifdef UNICODE
-#define MessageBox MessageBoxW
-#define MessageBoxEx MessageBoxExW
-#else
-#define MessageBox MessageBoxA
-#define MessageBoxEx MessageBoxExA
-#endif
+#define MessageBox __MINGW_NAME_AW(MessageBox)
+#define MessageBoxEx __MINGW_NAME_AW(MessageBoxEx)
 
   WINUSERAPI int WINAPI MessageBoxA(HWND hWnd,LPCSTR lpText,LPCSTR lpCaption,UINT uType);
   WINUSERAPI int WINAPI MessageBoxW(HWND hWnd,LPCWSTR lpText,LPCWSTR lpCaption,UINT uType);
@@ -3022,11 +3002,7 @@ extern "C" {
   __MINGW_TYPEDEF_AW(PMSGBOXPARAMS)
   __MINGW_TYPEDEF_AW(LPMSGBOXPARAMS)
 
-#ifdef UNICODE
-#define MessageBoxIndirect MessageBoxIndirectW
-#else
-#define MessageBoxIndirect MessageBoxIndirectA
-#endif
+#define MessageBoxIndirect __MINGW_NAME_AW(MessageBoxIndirect)
 
   WINUSERAPI int WINAPI MessageBoxIndirectA(CONST MSGBOXPARAMSA *lpmbp);
   WINUSERAPI int WINAPI MessageBoxIndirectW(CONST MSGBOXPARAMSW *lpmbp);
@@ -3135,13 +3111,8 @@ extern "C" {
 
 #ifndef NOWINOFFSETS
 
-#ifdef UNICODE
-#define GetWindowLong GetWindowLongW
-#define SetWindowLong SetWindowLongW
-#else
-#define GetWindowLong GetWindowLongA
-#define SetWindowLong SetWindowLongA
-#endif
+#define GetWindowLong __MINGW_NAME_AW(GetWindowLong)
+#define SetWindowLong __MINGW_NAME_AW(SetWindowLong)
 
   WINUSERAPI WORD WINAPI GetWindowWord(HWND hWnd,int nIndex);
   WINUSERAPI WORD WINAPI SetWindowWord(HWND hWnd,int nIndex,WORD wNewWord);
@@ -3152,13 +3123,8 @@ extern "C" {
 
 #ifdef _WIN64
 
-#ifdef UNICODE
-#define GetWindowLongPtr GetWindowLongPtrW
-#define SetWindowLongPtr SetWindowLongPtrW
-#else
-#define GetWindowLongPtr GetWindowLongPtrA
-#define SetWindowLongPtr SetWindowLongPtrA
-#endif
+#define GetWindowLongPtr __MINGW_NAME_AW(GetWindowLongPtr)
+#define SetWindowLongPtr __MINGW_NAME_AW(SetWindowLongPtr)
 
   WINUSERAPI LONG_PTR WINAPI GetWindowLongPtrA(HWND hWnd,int nIndex);
   WINUSERAPI LONG_PTR WINAPI GetWindowLongPtrW(HWND hWnd,int nIndex);
@@ -3166,13 +3132,8 @@ extern "C" {
   WINUSERAPI LONG_PTR WINAPI SetWindowLongPtrW(HWND hWnd,int nIndex,LONG_PTR dwNewLong);
 #else
 
-#ifdef UNICODE
-#define GetWindowLongPtr GetWindowLongPtrW
-#define SetWindowLongPtr SetWindowLongPtrW
-#else
-#define GetWindowLongPtr GetWindowLongPtrA
-#define SetWindowLongPtr SetWindowLongPtrA
-#endif
+#define GetWindowLongPtr __MINGW_NAME_AW(GetWindowLongPtr)
+#define SetWindowLongPtr __MINGW_NAME_AW(SetWindowLongPtr)
 
 #define GetWindowLongPtrA GetWindowLongA
 #define GetWindowLongPtrW GetWindowLongW
@@ -3180,13 +3141,8 @@ extern "C" {
 #define SetWindowLongPtrW SetWindowLongW
 #endif
 
-#ifdef UNICODE
-#define GetClassLong GetClassLongW
-#define SetClassLong SetClassLongW
-#else
-#define GetClassLong GetClassLongA
-#define SetClassLong SetClassLongA
-#endif
+#define GetClassLong __MINGW_NAME_AW(GetClassLong)
+#define SetClassLong __MINGW_NAME_AW(SetClassLong)
 
   WINUSERAPI WORD WINAPI GetClassWord(HWND hWnd,int nIndex);
   WINUSERAPI WORD WINAPI SetClassWord(HWND hWnd,int nIndex,WORD wNewWord);
@@ -3197,26 +3153,16 @@ extern "C" {
 
 #ifdef _WIN64
 
-#ifdef UNICODE
-#define GetClassLongPtr GetClassLongPtrW
-#define SetClassLongPtr SetClassLongPtrW
-#else
-#define GetClassLongPtr GetClassLongPtrA
-#define SetClassLongPtr SetClassLongPtrA
-#endif
+#define GetClassLongPtr __MINGW_NAME_AW(GetClassLongPtr)
+#define SetClassLongPtr __MINGW_NAME_AW(SetClassLongPtr)
 
   WINUSERAPI ULONG_PTR WINAPI GetClassLongPtrA(HWND hWnd,int nIndex);
   WINUSERAPI ULONG_PTR WINAPI GetClassLongPtrW(HWND hWnd,int nIndex);
   WINUSERAPI ULONG_PTR WINAPI SetClassLongPtrA(HWND hWnd,int nIndex,LONG_PTR dwNewLong);
   WINUSERAPI ULONG_PTR WINAPI SetClassLongPtrW(HWND hWnd,int nIndex,LONG_PTR dwNewLong);
 #else
-#ifdef UNICODE
-#define GetClassLongPtr GetClassLongPtrW
-#define SetClassLongPtr SetClassLongPtrW
-#else
-#define GetClassLongPtr GetClassLongPtrA
-#define SetClassLongPtr SetClassLongPtrA
-#endif
+#define GetClassLongPtr __MINGW_NAME_AW(GetClassLongPtr)
+#define SetClassLongPtr __MINGW_NAME_AW(SetClassLongPtr)
 
 #define GetClassLongPtrA GetClassLongA
 #define GetClassLongPtrW GetClassLongW
@@ -3225,15 +3171,9 @@ extern "C" {
 #endif
 #endif
 
-#ifdef UNICODE
-#define FindWindow FindWindowW
-#define FindWindowEx FindWindowExW
-#define GetClassName GetClassNameW
-#else
-#define FindWindow FindWindowA
-#define FindWindowEx FindWindowExA
-#define GetClassName GetClassNameA
-#endif
+#define FindWindow __MINGW_NAME_AW(FindWindow)
+#define FindWindowEx __MINGW_NAME_AW(FindWindowEx)
+#define GetClassName __MINGW_NAME_AW(GetClassName)
 
   WINUSERAPI WINBOOL WINAPI GetProcessDefaultLayout(DWORD *pdwDefaultLayout);
   WINUSERAPI WINBOOL WINAPI SetProcessDefaultLayout(DWORD dwDefaultLayout);
@@ -3281,13 +3221,8 @@ extern "C" {
 
 #ifndef NOWH
 
-#ifdef UNICODE
-#define SetWindowsHook SetWindowsHookW
-#define SetWindowsHookEx SetWindowsHookExW
-#else
-#define SetWindowsHook SetWindowsHookA
-#define SetWindowsHookEx SetWindowsHookExA
-#endif
+#define SetWindowsHook __MINGW_NAME_AW(SetWindowsHook)
+#define SetWindowsHookEx __MINGW_NAME_AW(SetWindowsHookEx)
 
   WINUSERAPI HHOOK WINAPI SetWindowsHookA(int nFilterType,HOOKPROC pfnFilterProc);
   WINUSERAPI HHOOK WINAPI SetWindowsHookW(int nFilterType,HOOKPROC pfnFilterProc);
@@ -3390,15 +3325,9 @@ extern "C" {
 #define SC_ZOOM SC_MAXIMIZE
 #endif
 
-#ifdef UNICODE
-#define LoadBitmap LoadBitmapW
-#define LoadCursor LoadCursorW
-#define LoadCursorFromFile LoadCursorFromFileW
-#else
-#define LoadBitmap LoadBitmapA
-#define LoadCursor LoadCursorA
-#define LoadCursorFromFile LoadCursorFromFileA
-#endif
+#define LoadBitmap __MINGW_NAME_AW(LoadBitmap)
+#define LoadCursor __MINGW_NAME_AW(LoadCursor)
+#define LoadCursorFromFile __MINGW_NAME_AW(LoadCursorFromFile)
 
   WINUSERAPI HBITMAP WINAPI LoadBitmapA(HINSTANCE hInstance,LPCSTR lpBitmapName);
   WINUSERAPI HBITMAP WINAPI LoadBitmapW(HINSTANCE hInstance,LPCWSTR lpBitmapName);
@@ -3439,13 +3368,8 @@ extern "C" {
   } ICONINFO;
   typedef ICONINFO *PICONINFO;
 
-#ifdef UNICODE
-#define LoadIcon LoadIconW
-#define PrivateExtractIcons PrivateExtractIconsW
-#else
-#define LoadIcon LoadIconA
-#define PrivateExtractIcons PrivateExtractIconsA
-#endif
+#define LoadIcon __MINGW_NAME_AW(LoadIcon)
+#define PrivateExtractIcons __MINGW_NAME_AW(PrivateExtractIcons)
 
   WINUSERAPI HICON WINAPI LoadIconA(HINSTANCE hInstance,LPCSTR lpIconName);
   WINUSERAPI HICON WINAPI LoadIconW(HINSTANCE hInstance,LPCWSTR lpIconName);
@@ -3487,11 +3411,7 @@ extern "C" {
 #define LR_COPYFROMRESOURCE 0x4000
 #define LR_SHARED 0x8000
 
-#ifdef UNICODE
-#define LoadImage LoadImageW
-#else
-#define LoadImage LoadImageA
-#endif
+#define LoadImage __MINGW_NAME_AW(LoadImage)
 
   WINUSERAPI HANDLE WINAPI LoadImageA(HINSTANCE hInst,LPCSTR name,UINT type,int cx,int cy,UINT fuLoad);
   WINUSERAPI HANDLE WINAPI LoadImageW(HINSTANCE hInst,LPCWSTR name,UINT type,int cx,int cy,UINT fuLoad);
@@ -3603,11 +3523,7 @@ extern "C" {
 #define IDI_INFORMATION IDI_ASTERISK
 #endif
 
-#ifdef UNICODE
-#define LoadString LoadStringW
-#else
-#define LoadString LoadStringA
-#endif
+#define LoadString __MINGW_NAME_AW(LoadString)
 
   WINUSERAPI int WINAPI LoadStringA(HINSTANCE hInstance,UINT uID,LPSTR lpBuffer,int cchBufferMax);
   WINUSERAPI int WINAPI LoadStringW(HINSTANCE hInstance,UINT uID,LPWSTR lpBuffer,int cchBufferMax);
@@ -3836,27 +3752,16 @@ extern "C" {
 
 #ifndef NOMSG
 
-#ifdef UNICODE
-#define IsDialogMessage IsDialogMessageW
-#else
-#define IsDialogMessage IsDialogMessageA
-#endif
+#define IsDialogMessage __MINGW_NAME_AW(IsDialogMessage)
 
   WINUSERAPI WINBOOL WINAPI IsDialogMessageA(HWND hDlg,LPMSG lpMsg);
   WINUSERAPI WINBOOL WINAPI IsDialogMessageW(HWND hDlg,LPMSG lpMsg);
 #endif
 
-#ifdef UNICODE
-#define DlgDirList DlgDirListW
-#define DlgDirSelectEx DlgDirSelectExW
-#define DlgDirListComboBox DlgDirListComboBoxW
-#define DlgDirSelectComboBoxEx DlgDirSelectComboBoxExW
-#else
-#define DlgDirList DlgDirListA
-#define DlgDirSelectEx DlgDirSelectExA
-#define DlgDirListComboBox DlgDirListComboBoxA
-#define DlgDirSelectComboBoxEx DlgDirSelectComboBoxExA
-#endif
+#define DlgDirList __MINGW_NAME_AW(DlgDirList)
+#define DlgDirSelectEx __MINGW_NAME_AW(DlgDirSelectEx)
+#define DlgDirListComboBox __MINGW_NAME_AW(DlgDirListComboBox)
+#define DlgDirSelectComboBoxEx __MINGW_NAME_AW(DlgDirSelectComboBoxEx)
 
   WINUSERAPI WINBOOL WINAPI MapDialogRect(HWND hDlg,LPRECT lpRect);
   WINUSERAPI int WINAPI DlgDirListA(HWND hDlg,LPSTR lpPathSpec,int nIDListBox,int nIDStaticPath,UINT uFileType);
@@ -4168,15 +4073,9 @@ extern "C" {
     UINT idFirstChild;
   } CLIENTCREATESTRUCT,*LPCLIENTCREATESTRUCT;
 
-#ifdef UNICODE
-#define DefFrameProc DefFrameProcW
-#define DefMDIChildProc DefMDIChildProcW
-#define CreateMDIWindow CreateMDIWindowW
-#else
-#define DefFrameProc DefFrameProcA
-#define DefMDIChildProc DefMDIChildProcA
-#define CreateMDIWindow CreateMDIWindowA
-#endif
+#define DefFrameProc __MINGW_NAME_AW(DefFrameProc)
+#define DefMDIChildProc __MINGW_NAME_AW(DefMDIChildProc)
+#define CreateMDIWindow __MINGW_NAME_AW(CreateMDIWindow)
 
   WINUSERAPI LRESULT WINAPI DefFrameProcA(HWND hWnd,HWND hWndMDIClient,UINT uMsg,WPARAM wParam,LPARAM lParam);
   WINUSERAPI LRESULT WINAPI DefFrameProcW(HWND hWnd,HWND hWndMDIClient,UINT uMsg,WPARAM wParam,LPARAM lParam);
@@ -4268,11 +4167,7 @@ extern "C" {
 #define IDH_CANCEL 28444
 #define IDH_HELP 28445
 
-#ifdef UNICODE
-#define WinHelp WinHelpW
-#else
-#define WinHelp WinHelpA
-#endif
+#define WinHelp __MINGW_NAME_AW(WinHelp)
 
   WINUSERAPI WINBOOL WINAPI WinHelpA(HWND hWndMain,LPCSTR lpszHelp,UINT uCommand,ULONG_PTR dwData);
   WINUSERAPI WINBOOL WINAPI WinHelpW(HWND hWndMain,LPCWSTR lpszHelp,UINT uCommand,ULONG_PTR dwData);
@@ -4642,19 +4537,11 @@ extern "C" {
 #ifdef _WINGDI_
 #ifndef NOGDI
 
-#ifdef UNICODE
-#define ChangeDisplaySettings ChangeDisplaySettingsW
-#define ChangeDisplaySettingsEx ChangeDisplaySettingsExW
-#define EnumDisplaySettings EnumDisplaySettingsW
-#define EnumDisplaySettingsEx EnumDisplaySettingsExW
-#define EnumDisplayDevices EnumDisplayDevicesW
-#else
-#define ChangeDisplaySettings ChangeDisplaySettingsA
-#define ChangeDisplaySettingsEx ChangeDisplaySettingsExA
-#define EnumDisplaySettings EnumDisplaySettingsA
-#define EnumDisplaySettingsEx EnumDisplaySettingsExA
-#define EnumDisplayDevices EnumDisplayDevicesA
-#endif
+#define ChangeDisplaySettings __MINGW_NAME_AW(ChangeDisplaySettings)
+#define ChangeDisplaySettingsEx __MINGW_NAME_AW(ChangeDisplaySettingsEx)
+#define EnumDisplaySettings __MINGW_NAME_AW(EnumDisplaySettings)
+#define EnumDisplaySettingsEx __MINGW_NAME_AW(EnumDisplaySettingsEx)
+#define EnumDisplayDevices __MINGW_NAME_AW(EnumDisplayDevices)
 
   WINUSERAPI LONG WINAPI ChangeDisplaySettingsA(LPDEVMODEA lpDevMode,DWORD dwFlags);
   WINUSERAPI LONG WINAPI ChangeDisplaySettingsW(LPDEVMODEW lpDevMode,DWORD dwFlags);
@@ -4676,11 +4563,7 @@ extern "C" {
 #endif
 #endif
 
-#ifdef UNICODE
-#define SystemParametersInfo SystemParametersInfoW
-#else
-#define SystemParametersInfo SystemParametersInfoA
-#endif
+#define SystemParametersInfo __MINGW_NAME_AW(SystemParametersInfo)
 
   WINUSERAPI WINBOOL WINAPI SystemParametersInfoA(UINT uiAction,UINT uiParam,PVOID pvParam,UINT fWinIni);
   WINUSERAPI WINBOOL WINAPI SystemParametersInfoW(UINT uiAction,UINT uiParam,PVOID pvParam,UINT fWinIni);
@@ -4900,11 +4783,7 @@ extern "C" {
   __MINGW_TYPEDEF_AW(LPMONITORINFOEX)
 #endif
 
-#ifdef UNICODE 
-#define GetMonitorInfo GetMonitorInfoW
-#else
-#define GetMonitorInfo GetMonitorInfoA
-#endif
+#define GetMonitorInfo __MINGW_NAME_AW(GetMonitorInfo)
 
   WINUSERAPI WINBOOL WINAPI GetMonitorInfoA(HMONITOR hMonitor,LPMONITORINFO lpmi);
   WINUSERAPI WINBOOL WINAPI GetMonitorInfoW(HMONITOR hMonitor,LPMONITORINFO lpmi);
@@ -5055,11 +4934,7 @@ extern "C" {
 #define GUI_POPUPMENUMODE 0x00000010
 #define GUI_16BITTASK 0x00000020
 
-#ifdef UNICODE
-#define GetWindowModuleFileName GetWindowModuleFileNameW
-#else
-#define GetWindowModuleFileName GetWindowModuleFileNameA
-#endif
+#define GetWindowModuleFileName __MINGW_NAME_AW(GetWindowModuleFileName)
 
   WINUSERAPI WINBOOL WINAPI GetGUIThreadInfo(DWORD idThread,PGUITHREADINFO pgui);
   WINUSERAPI UINT WINAPI GetWindowModuleFileNameA(HWND hwnd,LPSTR pszFileName,UINT cchFileNameMax);
@@ -5182,11 +5057,8 @@ extern "C" {
   WINUSERAPI HWND WINAPI RealChildWindowFromPoint(HWND hwndParent,POINT ptParentClientCoords);
   WINUSERAPI UINT WINAPI RealGetWindowClassA(HWND hwnd,LPSTR ptszClassName,UINT cchClassNameMax);
   WINUSERAPI UINT WINAPI RealGetWindowClassW(HWND hwnd,LPWSTR ptszClassName,UINT cchClassNameMax);
-#ifdef UNICODE
-#define RealGetWindowClass RealGetWindowClassW
-#else
-#define RealGetWindowClass RealGetWindowClassA
-#endif
+
+#define RealGetWindowClass __MINGW_NAME_AW(RealGetWindowClass)
 
   typedef struct tagALTTABINFO {
     DWORD cbSize;
@@ -5200,11 +5072,7 @@ extern "C" {
     POINT ptStart;
   } ALTTABINFO,*PALTTABINFO,*LPALTTABINFO;
 
-#ifdef UNICODE
-#define GetAltTabInfo GetAltTabInfoW
-#else
-#define GetAltTabInfo GetAltTabInfoA
-#endif
+#define GetAltTabInfo __MINGW_NAME_AW(GetAltTabInfo)
 
   WINUSERAPI WINBOOL WINAPI GetAltTabInfoA(HWND hwnd,int iItem,PALTTABINFO pati,LPSTR pszItemText,UINT cchItemText);
   WINUSERAPI WINBOOL WINAPI GetAltTabInfoW(HWND hwnd,int iItem,PALTTABINFO pati,LPWSTR pszItemText,UINT cchItemText);
@@ -5356,11 +5224,7 @@ extern "C" {
     };
   } RID_DEVICE_INFO,*PRID_DEVICE_INFO,*LPRID_DEVICE_INFO;
 
-#ifdef UNICODE
-#define GetRawInputDeviceInfo GetRawInputDeviceInfoW
-#else
-#define GetRawInputDeviceInfo GetRawInputDeviceInfoA
-#endif
+#define GetRawInputDeviceInfo __MINGW_NAME_AW(GetRawInputDeviceInfo)
 
   WINUSERAPI UINT WINAPI GetRawInputDeviceInfoA(HANDLE hDevice,UINT uiCommand,LPVOID pData,PUINT pcbSize);
   WINUSERAPI UINT WINAPI GetRawInputDeviceInfoW(HANDLE hDevice,UINT uiCommand,LPVOID pData,PUINT pcbSize);

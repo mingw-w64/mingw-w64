@@ -23,17 +23,10 @@ extern "C" {
 #define SC_GROUP_IDENTIFIERW L'+'
 #define SC_GROUP_IDENTIFIERA '+'
 
-#ifdef UNICODE
-#define SERVICES_ACTIVE_DATABASE SERVICES_ACTIVE_DATABASEW
-#define SERVICES_FAILED_DATABASE SERVICES_FAILED_DATABASEW
+#define SERVICES_ACTIVE_DATABASE __MINGW_NAME_AW(SERVICES_ACTIVE_DATABASE)
+#define SERVICES_FAILED_DATABASE __MINGW_NAME_AW(SERVICES_FAILED_DATABASE)
 
-#define SC_GROUP_IDENTIFIER SC_GROUP_IDENTIFIERW
-#else
-#define SERVICES_ACTIVE_DATABASE SERVICES_ACTIVE_DATABASEA
-#define SERVICES_FAILED_DATABASE SERVICES_FAILED_DATABASEA
-
-#define SC_GROUP_IDENTIFIER SC_GROUP_IDENTIFIERA
-#endif
+#define SC_GROUP_IDENTIFIER __MINGW_NAME_AW(SC_GROUP_IDENTIFIER)
 
 #define SERVICE_NO_CHANGE 0xffffffff
 
@@ -107,13 +100,8 @@ extern "C" {
     LPWSTR lpDescription;
   } SERVICE_DESCRIPTIONW,*LPSERVICE_DESCRIPTIONW;
 
-#ifdef UNICODE
-  typedef SERVICE_DESCRIPTIONW SERVICE_DESCRIPTION;
-  typedef LPSERVICE_DESCRIPTIONW LPSERVICE_DESCRIPTION;
-#else
-  typedef SERVICE_DESCRIPTIONA SERVICE_DESCRIPTION;
-  typedef LPSERVICE_DESCRIPTIONA LPSERVICE_DESCRIPTION;
-#endif
+  __MINGW_TYPEDEF_AW(SERVICE_DESCRIPTION)
+  __MINGW_TYPEDEF_AW(LPSERVICE_DESCRIPTION)
 
   typedef enum _SC_ACTION_TYPE {
     SC_ACTION_NONE = 0,SC_ACTION_RESTART = 1,SC_ACTION_REBOOT = 2,SC_ACTION_RUN_COMMAND = 3
@@ -140,13 +128,8 @@ extern "C" {
     SC_ACTION *lpsaActions;
   } SERVICE_FAILURE_ACTIONSW,*LPSERVICE_FAILURE_ACTIONSW;
 
-#ifdef UNICODE
-  typedef SERVICE_FAILURE_ACTIONSW SERVICE_FAILURE_ACTIONS;
-  typedef LPSERVICE_FAILURE_ACTIONSW LPSERVICE_FAILURE_ACTIONS;
-#else
-  typedef SERVICE_FAILURE_ACTIONSA SERVICE_FAILURE_ACTIONS;
-  typedef LPSERVICE_FAILURE_ACTIONSA LPSERVICE_FAILURE_ACTIONS;
-#endif
+  __MINGW_TYPEDEF_AW(SERVICE_FAILURE_ACTIONS)
+  __MINGW_TYPEDEF_AW(LPSERVICE_FAILURE_ACTIONS)
 
   DECLARE_HANDLE(SC_HANDLE);
   typedef SC_HANDLE *LPSC_HANDLE;
@@ -195,13 +178,8 @@ extern "C" {
     SERVICE_STATUS ServiceStatus;
   } ENUM_SERVICE_STATUSW,*LPENUM_SERVICE_STATUSW;
 
-#ifdef UNICODE
-  typedef ENUM_SERVICE_STATUSW ENUM_SERVICE_STATUS;
-  typedef LPENUM_SERVICE_STATUSW LPENUM_SERVICE_STATUS;
-#else
-  typedef ENUM_SERVICE_STATUSA ENUM_SERVICE_STATUS;
-  typedef LPENUM_SERVICE_STATUSA LPENUM_SERVICE_STATUS;
-#endif
+  __MINGW_TYPEDEF_AW(ENUM_SERVICE_STATUS)
+  __MINGW_TYPEDEF_AW(LPENUM_SERVICE_STATUS)
 
   typedef struct _ENUM_SERVICE_STATUS_PROCESSA {
     LPSTR lpServiceName;
@@ -215,13 +193,8 @@ extern "C" {
     SERVICE_STATUS_PROCESS ServiceStatusProcess;
   } ENUM_SERVICE_STATUS_PROCESSW,*LPENUM_SERVICE_STATUS_PROCESSW;
 
-#ifdef UNICODE
-  typedef ENUM_SERVICE_STATUS_PROCESSW ENUM_SERVICE_STATUS_PROCESS;
-  typedef LPENUM_SERVICE_STATUS_PROCESSW LPENUM_SERVICE_STATUS_PROCESS;
-#else
-  typedef ENUM_SERVICE_STATUS_PROCESSA ENUM_SERVICE_STATUS_PROCESS;
-  typedef LPENUM_SERVICE_STATUS_PROCESSA LPENUM_SERVICE_STATUS_PROCESS;
-#endif
+  __MINGW_TYPEDEF_AW(ENUM_SERVICE_STATUS_PROCESS)
+  __MINGW_TYPEDEF_AW(LPENUM_SERVICE_STATUS_PROCESS)
 
   typedef LPVOID SC_LOCK;
 
@@ -237,13 +210,8 @@ extern "C" {
     DWORD dwLockDuration;
   } QUERY_SERVICE_LOCK_STATUSW,*LPQUERY_SERVICE_LOCK_STATUSW;
 
-#ifdef UNICODE
-  typedef QUERY_SERVICE_LOCK_STATUSW QUERY_SERVICE_LOCK_STATUS;
-  typedef LPQUERY_SERVICE_LOCK_STATUSW LPQUERY_SERVICE_LOCK_STATUS;
-#else
-  typedef QUERY_SERVICE_LOCK_STATUSA QUERY_SERVICE_LOCK_STATUS;
-  typedef LPQUERY_SERVICE_LOCK_STATUSA LPQUERY_SERVICE_LOCK_STATUS;
-#endif
+  __MINGW_TYPEDEF_AW(QUERY_SERVICE_LOCK_STATUS)
+  __MINGW_TYPEDEF_AW(LPQUERY_SERVICE_LOCK_STATUS)
 
   typedef struct _QUERY_SERVICE_CONFIGA {
     DWORD dwServiceType;
@@ -269,22 +237,13 @@ extern "C" {
     LPWSTR lpDisplayName;
   } QUERY_SERVICE_CONFIGW,*LPQUERY_SERVICE_CONFIGW;
 
-#ifdef UNICODE
-  typedef QUERY_SERVICE_CONFIGW QUERY_SERVICE_CONFIG;
-  typedef LPQUERY_SERVICE_CONFIGW LPQUERY_SERVICE_CONFIG;
-#else
-  typedef QUERY_SERVICE_CONFIGA QUERY_SERVICE_CONFIG;
-  typedef LPQUERY_SERVICE_CONFIGA LPQUERY_SERVICE_CONFIG;
-#endif
+  __MINGW_TYPEDEF_AW(QUERY_SERVICE_CONFIG)
+  __MINGW_TYPEDEF_AW(LPQUERY_SERVICE_CONFIG)
 
   typedef VOID (WINAPI *LPSERVICE_MAIN_FUNCTIONW)(DWORD dwNumServicesArgs,LPWSTR *lpServiceArgVectors);
   typedef VOID (WINAPI *LPSERVICE_MAIN_FUNCTIONA)(DWORD dwNumServicesArgs,LPSTR *lpServiceArgVectors);
 
-#ifdef UNICODE
-#define LPSERVICE_MAIN_FUNCTION LPSERVICE_MAIN_FUNCTIONW
-#else
-#define LPSERVICE_MAIN_FUNCTION LPSERVICE_MAIN_FUNCTIONA
-#endif
+#define LPSERVICE_MAIN_FUNCTION __MINGW_NAME_AW(LPSERVICE_MAIN_FUNCTION)
 
   typedef struct _SERVICE_TABLE_ENTRYA {
     LPSTR lpServiceName;
@@ -296,54 +255,29 @@ extern "C" {
     LPSERVICE_MAIN_FUNCTIONW lpServiceProc;
   } SERVICE_TABLE_ENTRYW,*LPSERVICE_TABLE_ENTRYW;
 
-#ifdef UNICODE
-  typedef SERVICE_TABLE_ENTRYW SERVICE_TABLE_ENTRY;
-  typedef LPSERVICE_TABLE_ENTRYW LPSERVICE_TABLE_ENTRY;
-#else
-  typedef SERVICE_TABLE_ENTRYA SERVICE_TABLE_ENTRY;
-  typedef LPSERVICE_TABLE_ENTRYA LPSERVICE_TABLE_ENTRY;
-#endif
+  __MINGW_TYPEDEF_AW(SERVICE_TABLE_ENTRY)
+  __MINGW_TYPEDEF_AW(LPSERVICE_TABLE_ENTRY)
 
   typedef VOID (WINAPI *LPHANDLER_FUNCTION)(DWORD dwControl);
   typedef DWORD (WINAPI *LPHANDLER_FUNCTION_EX)(DWORD dwControl,DWORD dwEventType,LPVOID lpEventData,LPVOID lpContext);
 
-#ifdef UNICODE
-#define ChangeServiceConfig ChangeServiceConfigW
-#define ChangeServiceConfig2 ChangeServiceConfig2W
-#define CreateService CreateServiceW
-#define EnumDependentServices EnumDependentServicesW
-#define EnumServicesStatus EnumServicesStatusW
-#define EnumServicesStatusEx EnumServicesStatusExW
-#define GetServiceKeyName GetServiceKeyNameW
-#define GetServiceDisplayName GetServiceDisplayNameW
-#define OpenSCManager OpenSCManagerW
-#define OpenService OpenServiceW
-#define QueryServiceConfig QueryServiceConfigW
-#define QueryServiceConfig2 QueryServiceConfig2W
-#define QueryServiceLockStatus QueryServiceLockStatusW
-#define RegisterServiceCtrlHandler RegisterServiceCtrlHandlerW
-#define RegisterServiceCtrlHandlerEx RegisterServiceCtrlHandlerExW
-#define StartServiceCtrlDispatcher StartServiceCtrlDispatcherW
-#define StartService StartServiceW
-#else
-#define ChangeServiceConfig ChangeServiceConfigA
-#define ChangeServiceConfig2 ChangeServiceConfig2A
-#define CreateService CreateServiceA
-#define EnumDependentServices EnumDependentServicesA
-#define EnumServicesStatus EnumServicesStatusA
-#define EnumServicesStatusEx EnumServicesStatusExA
-#define GetServiceKeyName GetServiceKeyNameA
-#define GetServiceDisplayName GetServiceDisplayNameA
-#define OpenSCManager OpenSCManagerA
-#define OpenService OpenServiceA
-#define QueryServiceConfig QueryServiceConfigA
-#define QueryServiceConfig2 QueryServiceConfig2A
-#define QueryServiceLockStatus QueryServiceLockStatusA
-#define RegisterServiceCtrlHandler RegisterServiceCtrlHandlerA
-#define RegisterServiceCtrlHandlerEx RegisterServiceCtrlHandlerExA
-#define StartServiceCtrlDispatcher StartServiceCtrlDispatcherA
-#define StartService StartServiceA
-#endif
+#define ChangeServiceConfig __MINGW_NAME_AW(ChangeServiceConfig)
+#define ChangeServiceConfig2 __MINGW_NAME_AW(ChangeServiceConfig2)
+#define CreateService __MINGW_NAME_AW(CreateService)
+#define EnumDependentServices __MINGW_NAME_AW(EnumDependentServices)
+#define EnumServicesStatus __MINGW_NAME_AW(EnumServicesStatus)
+#define EnumServicesStatusEx __MINGW_NAME_AW(EnumServicesStatusEx)
+#define GetServiceKeyName __MINGW_NAME_AW(GetServiceKeyName)
+#define GetServiceDisplayName __MINGW_NAME_AW(GetServiceDisplayName)
+#define OpenSCManager __MINGW_NAME_AW(OpenSCManager)
+#define OpenService __MINGW_NAME_AW(OpenService)
+#define QueryServiceConfig __MINGW_NAME_AW(QueryServiceConfig)
+#define QueryServiceConfig2 __MINGW_NAME_AW(QueryServiceConfig2)
+#define QueryServiceLockStatus __MINGW_NAME_AW(QueryServiceLockStatus)
+#define RegisterServiceCtrlHandler __MINGW_NAME_AW(RegisterServiceCtrlHandler)
+#define RegisterServiceCtrlHandlerEx __MINGW_NAME_AW(RegisterServiceCtrlHandlerEx)
+#define StartServiceCtrlDispatcher __MINGW_NAME_AW(StartServiceCtrlDispatcher)
+#define StartService __MINGW_NAME_AW(StartService)
 
   WINADVAPI WINBOOL WINAPI ChangeServiceConfigA(SC_HANDLE hService,DWORD dwServiceType,DWORD dwStartType,DWORD dwErrorControl,LPCSTR lpBinaryPathName,LPCSTR lpLoadOrderGroup,LPDWORD lpdwTagId,LPCSTR lpDependencies,LPCSTR lpServiceStartName,LPCSTR lpPassword,LPCSTR lpDisplayName);
   WINADVAPI WINBOOL WINAPI ChangeServiceConfigW(SC_HANDLE hService,DWORD dwServiceType,DWORD dwStartType,DWORD dwErrorControl,LPCWSTR lpBinaryPathName,LPCWSTR lpLoadOrderGroup,LPDWORD lpdwTagId,LPCWSTR lpDependencies,LPCWSTR lpServiceStartName,LPCWSTR lpPassword,LPCWSTR lpDisplayName);
