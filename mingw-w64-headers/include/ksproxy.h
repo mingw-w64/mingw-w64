@@ -313,7 +313,7 @@ extern "C" {
   KSDDKAPI HRESULT WINAPI KsGetMultiplePinFactoryItems(HANDLE FilterHandle,ULONG PinFactoryId,ULONG PropertyId,PVOID *Items);
   KSDDKAPI HRESULT WINAPI KsGetMediaTypeCount(HANDLE FilterHandle,ULONG PinFactoryId,ULONG *MediaTypeCount);
   KSDDKAPI HRESULT WINAPI KsGetMediaType(int Position,AM_MEDIA_TYPE *AmMediaType,HANDLE FilterHandle,ULONG PinFactoryId);
-#endif
+#endif /* __STREAMS__ */
 
 #ifndef _IKsPropertySet_
   DEFINE_GUIDEX(IID_IKsPropertySet);
@@ -329,13 +329,15 @@ extern "C" {
 #endif
   DEFINE_GUIDSTRUCT("17CCA71B-ECD7-11D0-B908-00A0C9223196",CLSID_Proxy);
 #define CLSID_Proxy DEFINE_GUIDNAMED(CLSID_Proxy)
-#else
+
+#else /* _KS_ */
 
 #ifndef _IKsPropertySet_
   DEFINE_GUID(IID_IKsPropertySet,STATIC_IID_IKsPropertySet);
 #endif
   DEFINE_GUID(CLSID_Proxy,STATIC_CLSID_Proxy);
-#endif
+
+#endif /* _KS_ */
 
 #ifndef _IKsPropertySet_
 #define _IKsPropertySet_
@@ -351,8 +353,8 @@ extern "C" {
     STDMETHOD(Get)(THIS_ REFGUID PropSet,ULONG Id,LPVOID InstanceData,ULONG InstanceLength,LPVOID PropertyData,ULONG DataLength,ULONG *BytesReturned) PURE;
     STDMETHOD(QuerySupported)(THIS_ REFGUID PropSet,ULONG Id,ULONG *TypeSupport) PURE;
   };
-#endif
-#endif
+#endif /* DECLARE_INTERFACE_ */
+#endif /* _IKsPropertySet_ */
 
 #ifndef _IKsControl_
 #define _IKsControl_
@@ -365,8 +367,8 @@ extern "C" {
     STDMETHOD(KsMethod)(THIS_ PKSMETHOD Method,ULONG MethodLength,LPVOID MethodData,ULONG DataLength,ULONG *BytesReturned) PURE;
     STDMETHOD(KsEvent)(THIS_ PKSEVENT Event,ULONG EventLength,LPVOID EventData,ULONG DataLength,ULONG *BytesReturned) PURE;
   };
-#endif
-#endif
+#endif /* DECLARE_INTERFACE_ */
+#endif /* _IKsControl_ */
 
 #ifdef DECLARE_INTERFACE_
   struct IKsAggregateControl;
@@ -376,7 +378,7 @@ extern "C" {
     STDMETHOD(KsAddAggregate)(THIS_ REFGUID AggregateClass) PURE;
     STDMETHOD(KsRemoveAggregate)(THIS_ REFGUID AggregateClass) PURE;
   };
-#endif
+#endif /* DECLARE_INTERFACE_ */
 
 #ifndef _IKsTopology_
 #define _IKsTopology_
@@ -387,10 +389,12 @@ extern "C" {
   DECLARE_INTERFACE_(IKsTopology,IUnknown) {
     STDMETHOD(CreateNodeInstance)(THIS_ ULONG NodeId,ULONG Flags,ACCESS_MASK DesiredAccess,IUnknown *UnkOuter,REFGUID InterfaceId,LPVOID *Interface) PURE;
   };
-#endif
-#endif
+#endif /* DECLARE_INTERFACE_ */
+#endif /* _IKsTopology_ */
 
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* __KSPROXY__ */
+
