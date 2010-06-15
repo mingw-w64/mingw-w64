@@ -1,7 +1,12 @@
 2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* profile/mcountFunc.S: Spaces-to-tabs.
+
+2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* profile/gmon.h: Don't define BSD u_* types. Include _bsd_types.h
 	instead.
+	* profile/gcrt0.c: Likewise.
 	* profile/profil.h: Likewise.
 
 2010-06-09  Ozkan Sezer  <sezeroz@gmail.com>
