@@ -925,6 +925,7 @@ lib64_DATA = \
   lib64/libwsock32.a    lib64/libwwdmaud.a    lib64/libwwinspool.a    lib64/libzoneoc.a     lib64/libnormaliz.a      \
   lib64/libclfsw32.a \
   lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a      \
+  lib64/libwtsapi32.a \
   \
   lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a
 
