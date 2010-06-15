@@ -1,3 +1,9 @@
+2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* profile/gmon.h: Don't define BSD u_* types. Include _bsd_types.h
+	instead.
+	* profile/profil.h: Likewise.
+
 2010-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk (more missing stuff in lib32/*.def)

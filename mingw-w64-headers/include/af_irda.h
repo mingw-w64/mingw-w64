@@ -6,7 +6,7 @@
 #ifndef __AFIRDA__
 #define __AFIRDA__
 
-#include <mingw_inc/_bsd_types.h>
+#include <_bsd_types.h>
 
 #define WINDOWS_AF_IRDA 26
 #define WINDOWS_PF_IRDA WINDOWS_AF_IRDA
