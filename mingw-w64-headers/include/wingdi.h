@@ -530,13 +530,8 @@ extern "C" {
     WCHAR lcsFilename[MAX_PATH];
   } LOGCOLORSPACEW,*LPLOGCOLORSPACEW;
 
-#ifdef UNICODE
-  typedef LOGCOLORSPACEW LOGCOLORSPACE;
-  typedef LPLOGCOLORSPACEW LPLOGCOLORSPACE;
-#else
-  typedef LOGCOLORSPACEA LOGCOLORSPACE;
-  typedef LPLOGCOLORSPACEA LPLOGCOLORSPACE;
-#endif
+  __MINGW_TYPEDEF_AW(LOGCOLORSPACE)
+  __MINGW_TYPEDEF_AW(LPLOGCOLORSPACE)
 
   typedef struct tagBITMAPCOREHEADER {
     DWORD bcSize;
@@ -790,17 +785,11 @@ extern "C" {
     BYTE tmPitchAndFamily;
     BYTE tmCharSet;
   } TEXTMETRICW,*PTEXTMETRICW,*NPTEXTMETRICW,*LPTEXTMETRICW;
-#ifdef UNICODE
-  typedef TEXTMETRICW TEXTMETRIC;
-  typedef PTEXTMETRICW PTEXTMETRIC;
-  typedef NPTEXTMETRICW NPTEXTMETRIC;
-  typedef LPTEXTMETRICW LPTEXTMETRIC;
-#else
-  typedef TEXTMETRICA TEXTMETRIC;
-  typedef PTEXTMETRICA PTEXTMETRIC;
-  typedef NPTEXTMETRICA NPTEXTMETRIC;
-  typedef LPTEXTMETRICA LPTEXTMETRIC;
-#endif
+
+  __MINGW_TYPEDEF_AW(TEXTMETRIC)
+  __MINGW_TYPEDEF_AW(PTEXTMETRIC)
+  __MINGW_TYPEDEF_AW(NPTEXTMETRIC)
+  __MINGW_TYPEDEF_AW(LPTEXTMETRIC)
 #endif
 
 #define NTM_REGULAR 0x00000040L
@@ -868,17 +857,12 @@ extern "C" {
     UINT ntmCellHeight;
     UINT ntmAvgWidth;
   } NEWTEXTMETRICW,*PNEWTEXTMETRICW,*NPNEWTEXTMETRICW,*LPNEWTEXTMETRICW;
-#ifdef UNICODE
-  typedef NEWTEXTMETRICW NEWTEXTMETRIC;
-  typedef PNEWTEXTMETRICW PNEWTEXTMETRIC;
-  typedef NPNEWTEXTMETRICW NPNEWTEXTMETRIC;
-  typedef LPNEWTEXTMETRICW LPNEWTEXTMETRIC;
-#else
-  typedef NEWTEXTMETRICA NEWTEXTMETRIC;
-  typedef PNEWTEXTMETRICA PNEWTEXTMETRIC;
-  typedef NPNEWTEXTMETRICA NPNEWTEXTMETRIC;
-  typedef LPNEWTEXTMETRICA LPNEWTEXTMETRIC;
-#endif
+
+  __MINGW_TYPEDEF_AW(NEWTEXTMETRIC)
+  __MINGW_TYPEDEF_AW(PNEWTEXTMETRIC)
+  __MINGW_TYPEDEF_AW(NPNEWTEXTMETRIC)
+  __MINGW_TYPEDEF_AW(LPNEWTEXTMETRIC)
+
 #include <poppack.h>
 
   typedef struct tagNEWTEXTMETRICEXA {
@@ -890,11 +874,8 @@ extern "C" {
     NEWTEXTMETRICW ntmTm;
     FONTSIGNATURE ntmFontSig;
   } NEWTEXTMETRICEXW;
-#ifdef UNICODE
-  typedef NEWTEXTMETRICEXW NEWTEXTMETRICEX;
-#else
-  typedef NEWTEXTMETRICEXA NEWTEXTMETRICEX;
-#endif
+
+  __MINGW_TYPEDEF_AW(NEWTEXTMETRICEX)
 #endif
 
   typedef struct tagPELARRAY {
@@ -993,17 +974,11 @@ extern "C" {
     BYTE lfPitchAndFamily;
     WCHAR lfFaceName[LF_FACESIZE];
   } LOGFONTW,*PLOGFONTW,*NPLOGFONTW,*LPLOGFONTW;
-#ifdef UNICODE
-  typedef LOGFONTW LOGFONT;
-  typedef PLOGFONTW PLOGFONT;
-  typedef NPLOGFONTW NPLOGFONT;
-  typedef LPLOGFONTW LPLOGFONT;
-#else
-  typedef LOGFONTA LOGFONT;
-  typedef PLOGFONTA PLOGFONT;
-  typedef NPLOGFONTA NPLOGFONT;
-  typedef LPLOGFONTA LPLOGFONT;
-#endif
+
+  __MINGW_TYPEDEF_AW(LOGFONT)
+  __MINGW_TYPEDEF_AW(PLOGFONT)
+  __MINGW_TYPEDEF_AW(NPLOGFONT)
+  __MINGW_TYPEDEF_AW(LPLOGFONT)
 
 #define LF_FULLFACESIZE 64
 
@@ -1018,13 +993,9 @@ extern "C" {
     WCHAR elfFullName[LF_FULLFACESIZE];
     WCHAR elfStyle[LF_FACESIZE];
   } ENUMLOGFONTW,*LPENUMLOGFONTW;
-#ifdef UNICODE
-  typedef ENUMLOGFONTW ENUMLOGFONT;
-  typedef LPENUMLOGFONTW LPENUMLOGFONT;
-#else
-  typedef ENUMLOGFONTA ENUMLOGFONT;
-  typedef LPENUMLOGFONTA LPENUMLOGFONT;
-#endif
+
+  __MINGW_TYPEDEF_AW(ENUMLOGFONT)
+  __MINGW_TYPEDEF_AW(LPENUMLOGFONT)
 
   typedef struct tagENUMLOGFONTEXA {
     LOGFONTA elfLogFont;
@@ -1039,13 +1010,9 @@ extern "C" {
     WCHAR elfStyle[LF_FACESIZE];
     WCHAR elfScript[LF_FACESIZE];
   } ENUMLOGFONTEXW,*LPENUMLOGFONTEXW;
-#ifdef UNICODE
-  typedef ENUMLOGFONTEXW ENUMLOGFONTEX;
-  typedef LPENUMLOGFONTEXW LPENUMLOGFONTEX;
-#else
-  typedef ENUMLOGFONTEXA ENUMLOGFONTEX;
-  typedef LPENUMLOGFONTEXA LPENUMLOGFONTEX;
-#endif
+
+  __MINGW_TYPEDEF_AW(ENUMLOGFONTEX)
+  __MINGW_TYPEDEF_AW(LPENUMLOGFONTEX)
 
 #define OUT_DEFAULT_PRECIS 0
 #define OUT_STRING_PRECIS 1
@@ -1308,17 +1275,11 @@ extern "C" {
     DWORD elfCulture;
     PANOSE elfPanose;
   } EXTLOGFONTW,*PEXTLOGFONTW,*NPEXTLOGFONTW,*LPEXTLOGFONTW;
-#ifdef UNICODE
-  typedef EXTLOGFONTW EXTLOGFONT;
-  typedef PEXTLOGFONTW PEXTLOGFONT;
-  typedef NPEXTLOGFONTW NPEXTLOGFONT;
-  typedef LPEXTLOGFONTW LPEXTLOGFONT;
-#else
-  typedef EXTLOGFONTA EXTLOGFONT;
-  typedef PEXTLOGFONTA PEXTLOGFONT;
-  typedef NPEXTLOGFONTA NPEXTLOGFONT;
-  typedef LPEXTLOGFONTA LPEXTLOGFONT;
-#endif
+
+  __MINGW_TYPEDEF_AW(EXTLOGFONT)
+  __MINGW_TYPEDEF_AW(PEXTLOGFONT)
+  __MINGW_TYPEDEF_AW(NPEXTLOGFONT)
+  __MINGW_TYPEDEF_AW(LPEXTLOGFONT)
 
 #define ELF_VERSION 0
 #define ELF_CULTURE_LATIN 0
@@ -1701,17 +1662,11 @@ extern "C" {
     DWORD dmPanningWidth;
     DWORD dmPanningHeight;
   } DEVMODEW,*PDEVMODEW,*NPDEVMODEW,*LPDEVMODEW;
-#ifdef UNICODE
-  typedef DEVMODEW DEVMODE;
-  typedef PDEVMODEW PDEVMODE;
-  typedef NPDEVMODEW NPDEVMODE;
-  typedef LPDEVMODEW LPDEVMODE;
-#else
-  typedef DEVMODEA DEVMODE;
-  typedef PDEVMODEA PDEVMODE;
-  typedef NPDEVMODEA NPDEVMODE;
-  typedef LPDEVMODEA LPDEVMODE;
-#endif
+
+  __MINGW_TYPEDEF_AW(DEVMODE)
+  __MINGW_TYPEDEF_AW(PDEVMODE)
+  __MINGW_TYPEDEF_AW(NPDEVMODE)
+  __MINGW_TYPEDEF_AW(LPDEVMODE)
 
 #define DM_SPECVERSION 0x0401
 
@@ -1975,15 +1930,10 @@ extern "C" {
     WCHAR DeviceID[128];
     WCHAR DeviceKey[128];
   } DISPLAY_DEVICEW,*PDISPLAY_DEVICEW,*LPDISPLAY_DEVICEW;
-#ifdef UNICODE
-  typedef DISPLAY_DEVICEW DISPLAY_DEVICE;
-  typedef PDISPLAY_DEVICEW PDISPLAY_DEVICE;
-  typedef LPDISPLAY_DEVICEW LPDISPLAY_DEVICE;
-#else
-  typedef DISPLAY_DEVICEA DISPLAY_DEVICE;
-  typedef PDISPLAY_DEVICEA PDISPLAY_DEVICE;
-  typedef LPDISPLAY_DEVICEA LPDISPLAY_DEVICE;
-#endif
+
+  __MINGW_TYPEDEF_AW(DISPLAY_DEVICE)
+  __MINGW_TYPEDEF_AW(PDISPLAY_DEVICE)
+  __MINGW_TYPEDEF_AW(LPDISPLAY_DEVICE)
 
 #define DISPLAY_DEVICE_ATTACHED_TO_DESKTOP 0x00000001
 #define DISPLAY_DEVICE_MULTI_DRIVER 0x00000002
@@ -2098,17 +2048,11 @@ extern "C" {
     PSTR otmpStyleName;
     PSTR otmpFullName;
   } OUTLINETEXTMETRICW,*POUTLINETEXTMETRICW,*NPOUTLINETEXTMETRICW,*LPOUTLINETEXTMETRICW;
-#ifdef UNICODE
-  typedef OUTLINETEXTMETRICW OUTLINETEXTMETRIC;
-  typedef POUTLINETEXTMETRICW POUTLINETEXTMETRIC;
-  typedef NPOUTLINETEXTMETRICW NPOUTLINETEXTMETRIC;
-  typedef LPOUTLINETEXTMETRICW LPOUTLINETEXTMETRIC;
-#else
-  typedef OUTLINETEXTMETRICA OUTLINETEXTMETRIC;
-  typedef POUTLINETEXTMETRICA POUTLINETEXTMETRIC;
-  typedef NPOUTLINETEXTMETRICA NPOUTLINETEXTMETRIC;
-  typedef LPOUTLINETEXTMETRICA LPOUTLINETEXTMETRIC;
-#endif
+
+  __MINGW_TYPEDEF_AW(OUTLINETEXTMETRIC)
+  __MINGW_TYPEDEF_AW(POUTLINETEXTMETRIC)
+  __MINGW_TYPEDEF_AW(NPOUTLINETEXTMETRIC)
+  __MINGW_TYPEDEF_AW(LPOUTLINETEXTMETRIC)
 #endif
 
   typedef struct tagPOLYTEXTA {
@@ -2130,17 +2074,11 @@ extern "C" {
     RECT rcl;
     int *pdx;
   } POLYTEXTW,*PPOLYTEXTW,*NPPOLYTEXTW,*LPPOLYTEXTW;
-#ifdef UNICODE
-  typedef POLYTEXTW POLYTEXT;
-  typedef PPOLYTEXTW PPOLYTEXT;
-  typedef NPPOLYTEXTW NPPOLYTEXT;
-  typedef LPPOLYTEXTW LPPOLYTEXT;
-#else
-  typedef POLYTEXTA POLYTEXT;
-  typedef PPOLYTEXTA PPOLYTEXT;
-  typedef NPPOLYTEXTA NPPOLYTEXT;
-  typedef LPPOLYTEXTA LPPOLYTEXT;
-#endif
+
+  __MINGW_TYPEDEF_AW(POLYTEXT)
+  __MINGW_TYPEDEF_AW(PPOLYTEXT)
+  __MINGW_TYPEDEF_AW(NPPOLYTEXT)
+  __MINGW_TYPEDEF_AW(LPPOLYTEXT)
 
   typedef struct _FIXED {
     WORD fract;
@@ -2259,13 +2197,9 @@ extern "C" {
     UINT nGlyphs;
     int nMaxFit;
   } GCP_RESULTSW,*LPGCP_RESULTSW;
-#ifdef UNICODE
-  typedef GCP_RESULTSW GCP_RESULTS;
-  typedef LPGCP_RESULTSW LPGCP_RESULTS;
-#else
-  typedef GCP_RESULTSA GCP_RESULTS;
-  typedef LPGCP_RESULTSA LPGCP_RESULTS;
-#endif
+
+  __MINGW_TYPEDEF_AW(GCP_RESULTS)
+  __MINGW_TYPEDEF_AW(LPGCP_RESULTS)
 
   typedef struct _RASTERIZER_STATUS {
     short nSize;
@@ -2334,51 +2268,32 @@ extern "C" {
 #ifndef NOTEXTMETRIC
   typedef int (CALLBACK *OLDFONTENUMPROCA)(CONST LOGFONTA *,CONST TEXTMETRICA *,DWORD,LPARAM);
   typedef int (CALLBACK *OLDFONTENUMPROCW)(CONST LOGFONTW *,CONST TEXTMETRICW *,DWORD,LPARAM);
-#ifdef UNICODE
-#define OLDFONTENUMPROC OLDFONTENUMPROCW
-#else
-#define OLDFONTENUMPROC OLDFONTENUMPROCA
-#endif
+
+#define OLDFONTENUMPROC __MINGW_NAME_AW(OLDFONTENUMPROC)
 #else
   typedef int (CALLBACK *OLDFONTENUMPROCA)(CONST LOGFONTA *,CONST VOID *,DWORD,LPARAM);
   typedef int (CALLBACK *OLDFONTENUMPROCW)(CONST LOGFONTW *,CONST VOID *,DWORD,LPARAM);
-#ifdef UNICODE
-#define OLDFONTENUMPROC OLDFONTENUMPROCW
-#else
-#define OLDFONTENUMPROC OLDFONTENUMPROCA
-#endif
+
+#define OLDFONTENUMPROC __MINGW_NAME_AW(OLDFONTENUMPROC)
 #endif
 
   typedef OLDFONTENUMPROCA FONTENUMPROCA;
   typedef OLDFONTENUMPROCW FONTENUMPROCW;
-#ifdef UNICODE
-  typedef FONTENUMPROCW FONTENUMPROC;
-#else
-  typedef FONTENUMPROCA FONTENUMPROC;
-#endif
+
+  __MINGW_TYPEDEF_AW(FONTENUMPROC)
 
   typedef int (CALLBACK *GOBJENUMPROC)(LPVOID,LPARAM);
   typedef VOID (CALLBACK *LINEDDAPROC)(int,int,LPARAM);
 
-#ifdef UNICODE
-#define AddFontResource AddFontResourceW
-#define CopyMetaFile CopyMetaFileW
-#define CreateDC CreateDCW
-#define CreateFontIndirect CreateFontIndirectW
-#define CreateFont CreateFontW
-#define CreateIC CreateICW
-#define CreateMetaFile CreateMetaFileW
-#define CreateScalableFontResource CreateScalableFontResourceW
-#else
-#define AddFontResource AddFontResourceA
-#define CopyMetaFile CopyMetaFileA
-#define CreateDC CreateDCA
-#define CreateFontIndirect CreateFontIndirectA
-#define CreateFont CreateFontA
-#define CreateIC CreateICA
-#define CreateMetaFile CreateMetaFileA
-#define CreateScalableFontResource CreateScalableFontResourceA
-#endif
+#define AddFontResource __MINGW_NAME_AW(AddFontResource)
+#define CopyMetaFile __MINGW_NAME_AW(CopyMetaFile)
+#define CreateDC __MINGW_NAME_AW(CreateDC)
+#define CreateFontIndirect __MINGW_NAME_AW(CreateFontIndirect)
+#define CreateFont __MINGW_NAME_AW(CreateFont)
+#define CreateIC __MINGW_NAME_AW(CreateIC)
+#define CreateMetaFile __MINGW_NAME_AW(CreateMetaFile)
+#define CreateScalableFontResource __MINGW_NAME_AW(CreateScalableFontResource)
+
 
   WINGDIAPI int WINAPI AddFontResourceA(LPCSTR);
   WINGDIAPI int WINAPI AddFontResourceW(LPCWSTR);
@@ -2497,31 +2412,17 @@ extern "C" {
 #define DCBA_FACEDOWNLEFT 0x0102
 #define DCBA_FACEDOWNRIGHT 0x0103
 
-#ifdef UNICODE
-#define DeviceCapabilities DeviceCapabilitiesW
-#define EnumFontFamiliesEx EnumFontFamiliesExW
-#define EnumFontFamilies EnumFontFamiliesW
-#define EnumFonts EnumFontsW
-#define GetCharWidth GetCharWidthW
-#define GetCharWidth32 GetCharWidth32W
-#define GetCharWidthFloat GetCharWidthFloatW
-#define GetCharABCWidths GetCharABCWidthsW
-#define GetCharABCWidthsFloat GetCharABCWidthsFloatW
-#define GetGlyphOutline GetGlyphOutlineW
-#define GetMetaFile GetMetaFileW
-#else
-#define DeviceCapabilities DeviceCapabilitiesA
-#define EnumFontFamiliesEx EnumFontFamiliesExA
-#define EnumFontFamilies EnumFontFamiliesA
-#define EnumFonts EnumFontsA
-#define GetCharWidth GetCharWidthA
-#define GetCharWidth32 GetCharWidth32A
-#define GetCharWidthFloat GetCharWidthFloatA
-#define GetCharABCWidths GetCharABCWidthsA
-#define GetCharABCWidthsFloat GetCharABCWidthsFloatA
-#define GetGlyphOutline GetGlyphOutlineA
-#define GetMetaFile GetMetaFileA
-#endif
+#define DeviceCapabilities __MINGW_NAME_AW(DeviceCapabilities)
+#define EnumFontFamiliesEx __MINGW_NAME_AW(EnumFontFamiliesEx)
+#define EnumFontFamilies __MINGW_NAME_AW(EnumFontFamilies)
+#define EnumFonts __MINGW_NAME_AW(EnumFonts)
+#define GetCharWidth __MINGW_NAME_AW(GetCharWidth)
+#define GetCharWidth32 __MINGW_NAME_AW(GetCharWidth32)
+#define GetCharWidthFloat __MINGW_NAME_AW(GetCharWidthFloat)
+#define GetCharABCWidths __MINGW_NAME_AW(GetCharABCWidths)
+#define GetCharABCWidthsFloat __MINGW_NAME_AW(GetCharABCWidthsFloat)
+#define GetGlyphOutline __MINGW_NAME_AW(GetGlyphOutline)
+#define GetMetaFile __MINGW_NAME_AW(GetMetaFile)
 
   WINSPOOLAPI int WINAPI DeviceCapabilitiesA(LPCSTR pDevice,LPCSTR pPort,WORD fwCapability,LPSTR pOutput,CONST DEVMODEA *pDevMode);
   WINSPOOLAPI int WINAPI DeviceCapabilitiesW(LPCWSTR pDevice,LPCWSTR pPort,WORD fwCapability,LPWSTR pOutput,CONST DEVMODEW *pDevMode);
@@ -2583,27 +2484,17 @@ extern "C" {
   WINGDIAPI DWORD WINAPI GetObjectType(HGDIOBJ h);
 
 #ifndef NOTEXTMETRIC
-#ifdef UNICODE
-#define GetOutlineTextMetrics GetOutlineTextMetricsW
-#else
-#define GetOutlineTextMetrics GetOutlineTextMetricsA
-#endif
+
+#define GetOutlineTextMetrics __MINGW_NAME_AW(GetOutlineTextMetrics)
 
   WINGDIAPI UINT WINAPI GetOutlineTextMetricsA(HDC hdc,UINT cjCopy,LPOUTLINETEXTMETRICA potm);
   WINGDIAPI UINT WINAPI GetOutlineTextMetricsW(HDC hdc,UINT cjCopy,LPOUTLINETEXTMETRICW potm);
 #endif
 
-#ifdef UNICODE
-#define GetTextExtentPoint GetTextExtentPointW
-#define GetTextExtentPoint32 GetTextExtentPoint32W
-#define GetTextExtentExPoint GetTextExtentExPointW
-#define GetCharacterPlacement GetCharacterPlacementW
-#else
-#define GetTextExtentPoint GetTextExtentPointA
-#define GetTextExtentPoint32 GetTextExtentPoint32A
-#define GetTextExtentExPoint GetTextExtentExPointA
-#define GetCharacterPlacement GetCharacterPlacementA
-#endif
+#define GetTextExtentPoint __MINGW_NAME_AW(GetTextExtentPoint)
+#define GetTextExtentPoint32 __MINGW_NAME_AW(GetTextExtentPoint32)
+#define GetTextExtentExPoint __MINGW_NAME_AW(GetTextExtentExPoint)
+#define GetCharacterPlacement __MINGW_NAME_AW(GetCharacterPlacement)
 
   WINGDIAPI UINT WINAPI GetPaletteEntries(HPALETTE hpal,UINT iStart,UINT cEntries,LPPALETTEENTRY pPalEntries);
   WINGDIAPI COLORREF WINAPI GetPixel(HDC hdc,int x,int y);
@@ -2650,11 +2541,7 @@ extern "C" {
 
 #define GGI_MARK_NONEXISTING_GLYPHS 0X0001
 
-#ifdef UNICODE
-#define GetGlyphIndices GetGlyphIndicesW
-#else
-#define GetGlyphIndices GetGlyphIndicesA
-#endif
+#define GetGlyphIndices __MINGW_NAME_AW(GetGlyphIndices)
 
   WINGDIAPI DWORD WINAPI GetFontUnicodeRanges(HDC hdc,LPGLYPHSET lpgs);
   WINGDIAPI DWORD WINAPI GetGlyphIndicesA(HDC hdc,LPCSTR lpstr,int c,LPWORD pgi,DWORD fl);
@@ -2674,13 +2561,8 @@ extern "C" {
     LONG dvValues[MM_MAX_NUMAXES];
   } DESIGNVECTOR,*PDESIGNVECTOR,*LPDESIGNVECTOR;
 
-#ifdef UNICODE
-#define AddFontResourceEx AddFontResourceExW
-#define RemoveFontResourceEx RemoveFontResourceExW
-#else
-#define AddFontResourceEx AddFontResourceExA
-#define RemoveFontResourceEx RemoveFontResourceExA
-#endif
+#define AddFontResourceEx __MINGW_NAME_AW(AddFontResourceEx)
+#define RemoveFontResourceEx __MINGW_NAME_AW(RemoveFontResourceEx)
 
   WINGDIAPI int WINAPI AddFontResourceExA(LPCSTR name,DWORD fl,PVOID res);
   WINGDIAPI int WINAPI AddFontResourceExW(LPCWSTR name,DWORD fl,PVOID res);
@@ -2705,15 +2587,10 @@ extern "C" {
     LONG axMaxValue;
     WCHAR axAxisName[MM_MAX_AXES_NAMELEN];
   } AXISINFOW,*PAXISINFOW,*LPAXISINFOW;
-#ifdef UNICODE
-  typedef AXISINFOW AXISINFO;
-  typedef PAXISINFOW PAXISINFO;
-  typedef LPAXISINFOW LPAXISINFO;
-#else
-  typedef AXISINFOA AXISINFO;
-  typedef PAXISINFOA PAXISINFO;
-  typedef LPAXISINFOA LPAXISINFO;
-#endif
+
+  __MINGW_TYPEDEF_AW(AXISINFO)
+  __MINGW_TYPEDEF_AW(PAXISINFO)
+  __MINGW_TYPEDEF_AW(LPAXISINFO)
 
   typedef struct tagAXESLISTA {
     DWORD axlReserved;
@@ -2726,15 +2603,10 @@ extern "C" {
     DWORD axlNumAxes;
     AXISINFOW axlAxisInfo[MM_MAX_NUMAXES];
   } AXESLISTW,*PAXESLISTW,*LPAXESLISTW;
-#ifdef UNICODE
-  typedef AXESLISTW AXESLIST;
-  typedef PAXESLISTW PAXESLIST;
-  typedef LPAXESLISTW LPAXESLIST;
-#else
-  typedef AXESLISTA AXESLIST;
-  typedef PAXESLISTA PAXESLIST;
-  typedef LPAXESLISTA LPAXESLIST;
-#endif
+
+  __MINGW_TYPEDEF_AW(AXESLIST)
+  __MINGW_TYPEDEF_AW(PAXESLIST)
+  __MINGW_TYPEDEF_AW(LPAXESLIST)
 
   typedef struct tagENUMLOGFONTEXDVA {
     ENUMLOGFONTEXA elfEnumLogfontEx;
@@ -2745,21 +2617,12 @@ extern "C" {
     ENUMLOGFONTEXW elfEnumLogfontEx;
     DESIGNVECTOR elfDesignVector;
   } ENUMLOGFONTEXDVW,*PENUMLOGFONTEXDVW,*LPENUMLOGFONTEXDVW;
-#ifdef UNICODE
-  typedef ENUMLOGFONTEXDVW ENUMLOGFONTEXDV;
-  typedef PENUMLOGFONTEXDVW PENUMLOGFONTEXDV;
-  typedef LPENUMLOGFONTEXDVW LPENUMLOGFONTEXDV;
-#else
-  typedef ENUMLOGFONTEXDVA ENUMLOGFONTEXDV;
-  typedef PENUMLOGFONTEXDVA PENUMLOGFONTEXDV;
-  typedef LPENUMLOGFONTEXDVA LPENUMLOGFONTEXDV;
-#endif
 
-#ifdef UNICODE
-#define CreateFontIndirectEx CreateFontIndirectExW
-#else
-#define CreateFontIndirectEx CreateFontIndirectExA
-#endif
+  __MINGW_TYPEDEF_AW(ENUMLOGFONTEXDV)
+  __MINGW_TYPEDEF_AW(PENUMLOGFONTEXDV)
+  __MINGW_TYPEDEF_AW(LPENUMLOGFONTEXDV)
+
+#define CreateFontIndirectEx __MINGW_NAME_AW(CreateFontIndirectEx)
 
   WINGDIAPI HFONT WINAPI CreateFontIndirectExA(CONST ENUMLOGFONTEXDVA *);
   WINGDIAPI HFONT WINAPI CreateFontIndirectExW(CONST ENUMLOGFONTEXDVW *);
@@ -2774,24 +2637,14 @@ extern "C" {
     NEWTEXTMETRICEXW etmNewTextMetricEx;
     AXESLISTW etmAxesList;
   } ENUMTEXTMETRICW,*PENUMTEXTMETRICW,*LPENUMTEXTMETRICW;
-#ifdef UNICODE
-  typedef ENUMTEXTMETRICW ENUMTEXTMETRIC;
-  typedef PENUMTEXTMETRICW PENUMTEXTMETRIC;
-  typedef LPENUMTEXTMETRICW LPENUMTEXTMETRIC;
-#else
-  typedef ENUMTEXTMETRICA ENUMTEXTMETRIC;
-  typedef PENUMTEXTMETRICA PENUMTEXTMETRIC;
-  typedef LPENUMTEXTMETRICA LPENUMTEXTMETRIC;
-#endif
+
+  __MINGW_TYPEDEF_AW(ENUMTEXTMETRIC)
+  __MINGW_TYPEDEF_AW(PENUMTEXTMETRIC)
+  __MINGW_TYPEDEF_AW(LPENUMTEXTMETRIC)
 #endif
 
-#ifdef UNICODE
-#define ResetDC ResetDCW
-#define RemoveFontResource RemoveFontResourceW
-#else
-#define ResetDC ResetDCA
-#define RemoveFontResource RemoveFontResourceA
-#endif
+#define ResetDC __MINGW_NAME_AW(ResetDC)
+#define RemoveFontResource __MINGW_NAME_AW(RemoveFontResource)
 
   WINGDIAPI WINBOOL WINAPI GetViewportExtEx(HDC hdc,LPSIZE lpsize);
   WINGDIAPI WINBOOL WINAPI GetViewportOrgEx(HDC hdc,LPPOINT lppoint);
@@ -2904,17 +2757,10 @@ extern "C" {
 
 #ifndef NOMETAFILE
 
-#ifdef UNICODE
-#define CopyEnhMetaFile CopyEnhMetaFileW
-#define CreateEnhMetaFile CreateEnhMetaFileW
-#define GetEnhMetaFile GetEnhMetaFileW
-#define GetEnhMetaFileDescription GetEnhMetaFileDescriptionW
-#else
-#define CopyEnhMetaFile CopyEnhMetaFileA
-#define CreateEnhMetaFile CreateEnhMetaFileA
-#define GetEnhMetaFile GetEnhMetaFileA
-#define GetEnhMetaFileDescription GetEnhMetaFileDescriptionA
-#endif
+#define CopyEnhMetaFile __MINGW_NAME_AW(CopyEnhMetaFile)
+#define CreateEnhMetaFile __MINGW_NAME_AW(CreateEnhMetaFile)
+#define GetEnhMetaFile __MINGW_NAME_AW(GetEnhMetaFile)
+#define GetEnhMetaFileDescription __MINGW_NAME_AW(GetEnhMetaFileDescription)
 
   WINGDIAPI WINBOOL WINAPI PlayMetaFileRecord(HDC hdc,LPHANDLETABLE lpHandleTable,LPMETARECORD lpMR,UINT noObjs);
 
@@ -2948,11 +2794,7 @@ extern "C" {
 #endif
 
 #ifndef NOTEXTMETRIC
-#ifdef UNICODE
-#define GetTextMetrics GetTextMetricsW
-#else
-#define GetTextMetrics GetTextMetricsA
-#endif
+#define GetTextMetrics __MINGW_NAME_AW(GetTextMetrics)
 
   WINGDIAPI WINBOOL WINAPI GetTextMetricsA(HDC hdc,LPTEXTMETRICA lptm);
   WINGDIAPI WINBOOL WINAPI GetTextMetricsW(HDC hdc,LPTEXTMETRICW lptm);
@@ -3043,32 +2885,18 @@ extern "C" {
     DWORD fwType;
   } DOCINFOW,*LPDOCINFOW;
 
-#ifdef UNICODE
-  typedef DOCINFOW DOCINFO;
-  typedef LPDOCINFOW LPDOCINFO;
-#else
-  typedef DOCINFOA DOCINFO;
-  typedef LPDOCINFOA LPDOCINFO;
-#endif
+  __MINGW_TYPEDEF_AW(DOCINFO)
+  __MINGW_TYPEDEF_AW(LPDOCINFO)
 
 #define DI_APPBANDING 0x00000001
 #define DI_ROPS_READ_DESTINATION 0x00000002
 
-#ifdef UNICODE
-#define StartDoc StartDocW
-#define GetObject GetObjectW
-#define TextOut TextOutW
-#define ExtTextOut ExtTextOutW
-#define PolyTextOut PolyTextOutW
-#define GetTextFace GetTextFaceW
-#else
-#define StartDoc StartDocA
-#define GetObject GetObjectA
-#define TextOut TextOutA
-#define ExtTextOut ExtTextOutA
-#define PolyTextOut PolyTextOutA
-#define GetTextFace GetTextFaceA
-#endif
+#define StartDoc __MINGW_NAME_AW(StartDoc)
+#define GetObject __MINGW_NAME_AW(GetObject)
+#define TextOut __MINGW_NAME_AW(TextOut)
+#define ExtTextOut __MINGW_NAME_AW(ExtTextOut)
+#define PolyTextOut __MINGW_NAME_AW(PolyTextOut)
+#define GetTextFace __MINGW_NAME_AW(GetTextFace)
 
   WINGDIAPI int WINAPI StartDocA(HDC hdc,CONST DOCINFOA *lpdi);
   WINGDIAPI int WINAPI StartDocW(HDC hdc,CONST DOCINFOW *lpdi);
@@ -3134,11 +2962,7 @@ extern "C" {
     int iKernAmount;
   } KERNINGPAIR,*LPKERNINGPAIR;
 
-#ifdef UNICODE
-#define GetKerningPairs GetKerningPairsW
-#else
-#define GetKerningPairs GetKerningPairsA
-#endif
+#define GetKerningPairs __MINGW_NAME_AW(GetKerningPairs)
 
   WINGDIAPI DWORD WINAPI GetKerningPairsA(HDC hdc,DWORD nPairs,LPKERNINGPAIR lpKernPair);
   WINGDIAPI DWORD WINAPI GetKerningPairsW(HDC hdc,DWORD nPairs,LPKERNINGPAIR lpKernPair);
@@ -3157,23 +2981,13 @@ extern "C" {
   typedef int (CALLBACK *ICMENUMPROCA)(LPSTR,LPARAM);
   typedef int (CALLBACK *ICMENUMPROCW)(LPWSTR,LPARAM);
 
-#ifdef UNICODE
-#define ICMENUMPROC ICMENUMPROCW
-#define EnumICMProfiles EnumICMProfilesW
-#define UpdateICMRegKey UpdateICMRegKeyW
-#define GetLogColorSpace GetLogColorSpaceW
-#define CreateColorSpace CreateColorSpaceW
-#define GetICMProfile GetICMProfileW
-#define SetICMProfile SetICMProfileW
-#else
-#define ICMENUMPROC ICMENUMPROCA
-#define EnumICMProfiles EnumICMProfilesA
-#define UpdateICMRegKey UpdateICMRegKeyA
-#define GetLogColorSpace GetLogColorSpaceA
-#define CreateColorSpace CreateColorSpaceA
-#define GetICMProfile GetICMProfileA
-#define SetICMProfile SetICMProfileA
-#endif
+#define ICMENUMPROC __MINGW_NAME_AW(ICMENUMPROC)
+#define EnumICMProfiles __MINGW_NAME_AW(EnumICMProfiles)
+#define UpdateICMRegKey __MINGW_NAME_AW(UpdateICMRegKey)
+#define GetLogColorSpace __MINGW_NAME_AW(GetLogColorSpace)
+#define CreateColorSpace __MINGW_NAME_AW(CreateColorSpace)
+#define GetICMProfile __MINGW_NAME_AW(GetICMProfile)
+#define SetICMProfile __MINGW_NAME_AW(SetICMProfile)
 
   WINGDIAPI int WINAPI SetICMMode(HDC hdc,int mode);
   WINGDIAPI WINBOOL WINAPI CheckColorsInGamut(HDC hdc,LPVOID lpRGBTriple,LPVOID dlpBuffer,DWORD nCount);
@@ -3942,11 +3756,7 @@ extern "C" {
 #define GDICOMMENT_UNICODE_END 0x00000080
 #endif
 
-#ifdef UNICODE
-#define wglUseFontBitmaps wglUseFontBitmapsW
-#else
-#define wglUseFontBitmaps wglUseFontBitmapsA
-#endif
+#define wglUseFontBitmaps __MINGW_NAME_AW(wglUseFontBitmaps)
 
   WINGDIAPI WINBOOL WINAPI wglCopyContext(HGLRC,HGLRC,UINT);
   WINGDIAPI HGLRC WINAPI wglCreateContext(HDC);
@@ -3977,11 +3787,7 @@ extern "C" {
 #define WGL_FONT_LINES 0
 #define WGL_FONT_POLYGONS 1
 
-#ifdef UNICODE
-#define wglUseFontOutlines wglUseFontOutlinesW
-#else
-#define wglUseFontOutlines wglUseFontOutlinesA
-#endif
+#define wglUseFontOutlines __MINGW_NAME_AW(wglUseFontOutlines)
 
   WINGDIAPI WINBOOL WINAPI wglUseFontOutlinesA(HDC,DWORD,DWORD,DWORD,FLOAT,FLOAT,int,LPGLYPHMETRICSFLOAT);
   WINGDIAPI WINBOOL WINAPI wglUseFontOutlinesW(HDC,DWORD,DWORD,DWORD,FLOAT,FLOAT,int,LPGLYPHMETRICSFLOAT);
