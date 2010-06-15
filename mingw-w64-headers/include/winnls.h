@@ -496,13 +496,8 @@ extern "C" {
     WCHAR CodePageName[MAX_PATH];
   } CPINFOEXW,*LPCPINFOEXW;
 
-#ifdef UNICODE
-  typedef CPINFOEXW CPINFOEX;
-  typedef LPCPINFOEXW LPCPINFOEX;
-#else
-  typedef CPINFOEXA CPINFOEX;
-  typedef LPCPINFOEXA LPCPINFOEX;
-#endif
+  __MINGW_TYPEDEF_AW(CPINFOEX)
+  __MINGW_TYPEDEF_AW(LPCPINFOEX)
 
   typedef struct _numberfmtA {
     UINT NumDigits;
@@ -522,13 +517,8 @@ extern "C" {
     UINT NegativeOrder;
   } NUMBERFMTW,*LPNUMBERFMTW;
 
-#ifdef UNICODE
-  typedef NUMBERFMTW NUMBERFMT;
-  typedef LPNUMBERFMTW LPNUMBERFMT;
-#else
-  typedef NUMBERFMTA NUMBERFMT;
-  typedef LPNUMBERFMTA LPNUMBERFMT;
-#endif
+  __MINGW_TYPEDEF_AW(NUMBERFMT)
+  __MINGW_TYPEDEF_AW(LPNUMBERFMT)
 
   typedef struct _currencyfmtA {
     UINT NumDigits;
@@ -552,13 +542,8 @@ extern "C" {
     LPWSTR lpCurrencySymbol;
   } CURRENCYFMTW,*LPCURRENCYFMTW;
 
-#ifdef UNICODE
-  typedef CURRENCYFMTW CURRENCYFMT;
-  typedef LPCURRENCYFMTW LPCURRENCYFMT;
-#else
-  typedef CURRENCYFMTA CURRENCYFMT;
-  typedef LPCURRENCYFMTA LPCURRENCYFMT;
-#endif
+  __MINGW_TYPEDEF_AW(CURRENCYFMT)
+  __MINGW_TYPEDEF_AW(LPCURRENCYFMT)
 
   enum SYSNLS_FUNCTION {
     COMPARE_STRING = 0x0001
@@ -617,81 +602,41 @@ extern "C" {
   typedef WINBOOL (CALLBACK *CALINFO_ENUMPROCEXW)(LPWSTR,CALID);
   typedef WINBOOL (CALLBACK *GEO_ENUMPROC)(GEOID);
 
-#ifdef UNICODE
-#define LANGUAGEGROUP_ENUMPROC LANGUAGEGROUP_ENUMPROCW
-#define LANGGROUPLOCALE_ENUMPROC LANGGROUPLOCALE_ENUMPROCW
-#define UILANGUAGE_ENUMPROC UILANGUAGE_ENUMPROCW
-#define LOCALE_ENUMPROC LOCALE_ENUMPROCW
-#define CODEPAGE_ENUMPROC CODEPAGE_ENUMPROCW
-#define DATEFMT_ENUMPROC DATEFMT_ENUMPROCW
-#define DATEFMT_ENUMPROCEX DATEFMT_ENUMPROCEXW
-#define TIMEFMT_ENUMPROC TIMEFMT_ENUMPROCW
-#define CALINFO_ENUMPROC CALINFO_ENUMPROCW
-#define CALINFO_ENUMPROCEX CALINFO_ENUMPROCEXW
-#else
-#define LANGUAGEGROUP_ENUMPROC LANGUAGEGROUP_ENUMPROCA
-#define LANGGROUPLOCALE_ENUMPROC LANGGROUPLOCALE_ENUMPROCA
-#define UILANGUAGE_ENUMPROC UILANGUAGE_ENUMPROCA
-#define LOCALE_ENUMPROC LOCALE_ENUMPROCA
-#define CODEPAGE_ENUMPROC CODEPAGE_ENUMPROCA
-#define DATEFMT_ENUMPROC DATEFMT_ENUMPROCA
-#define DATEFMT_ENUMPROCEX DATEFMT_ENUMPROCEXA
-#define TIMEFMT_ENUMPROC TIMEFMT_ENUMPROCA
-#define CALINFO_ENUMPROC CALINFO_ENUMPROCA
-#define CALINFO_ENUMPROCEX CALINFO_ENUMPROCEXA
-#endif
+#define LANGUAGEGROUP_ENUMPROC __MINGW_NAME_AW(LANGUAGEGROUP_ENUMPROC)
+#define LANGGROUPLOCALE_ENUMPROC __MINGW_NAME_AW(LANGGROUPLOCALE_ENUMPROC)
+#define UILANGUAGE_ENUMPROC __MINGW_NAME_AW(UILANGUAGE_ENUMPROC)
+#define LOCALE_ENUMPROC __MINGW_NAME_AW(LOCALE_ENUMPROC)
+#define CODEPAGE_ENUMPROC __MINGW_NAME_AW(CODEPAGE_ENUMPROC)
+#define DATEFMT_ENUMPROC __MINGW_NAME_AW(DATEFMT_ENUMPROC)
+#define DATEFMT_ENUMPROCEX __MINGW_NAME_AW(DATEFMT_ENUMPROCEX)
+#define TIMEFMT_ENUMPROC __MINGW_NAME_AW(TIMEFMT_ENUMPROC)
+#define CALINFO_ENUMPROC __MINGW_NAME_AW(CALINFO_ENUMPROC)
+#define CALINFO_ENUMPROCEX __MINGW_NAME_AW(CALINFO_ENUMPROCEX)
 
-#ifdef UNICODE
-#define GetCPInfoEx GetCPInfoExW
-#define CompareString CompareStringW
-#define LCMapString LCMapStringW
-#define GetLocaleInfo GetLocaleInfoW
-#define SetLocaleInfo SetLocaleInfoW
-#define GetCalendarInfo GetCalendarInfoW
-#define SetCalendarInfo SetCalendarInfoW
-#define GetTimeFormat GetTimeFormatW
-#define GetDateFormat GetDateFormatW
-#define GetNumberFormat GetNumberFormatW
-#define GetCurrencyFormat GetCurrencyFormatW
-#define EnumCalendarInfo EnumCalendarInfoW
-#define EnumCalendarInfoEx EnumCalendarInfoExW
-#define EnumTimeFormats EnumTimeFormatsW
-#define EnumDateFormats EnumDateFormatsW
-#define EnumDateFormatsEx EnumDateFormatsExW
-#define GetGeoInfo GetGeoInfoW
-#define GetStringTypeEx GetStringTypeExW
-#define FoldString FoldStringW
-#define EnumSystemLanguageGroups EnumSystemLanguageGroupsW
-#define EnumLanguageGroupLocales EnumLanguageGroupLocalesW
-#define EnumUILanguages EnumUILanguagesW
-#define EnumSystemLocales EnumSystemLocalesW
-#define EnumSystemCodePages EnumSystemCodePagesW
-#else
-#define GetCPInfoEx GetCPInfoExA
-#define CompareString CompareStringA
-#define LCMapString LCMapStringA
-#define GetLocaleInfo GetLocaleInfoA
-#define SetLocaleInfo SetLocaleInfoA
-#define GetCalendarInfo GetCalendarInfoA
-#define SetCalendarInfo SetCalendarInfoA
-#define GetTimeFormat GetTimeFormatA
-#define GetDateFormat GetDateFormatA
-#define GetNumberFormat GetNumberFormatA
-#define GetCurrencyFormat GetCurrencyFormatA
-#define EnumCalendarInfo EnumCalendarInfoA
-#define EnumCalendarInfoEx EnumCalendarInfoExA
-#define EnumTimeFormats EnumTimeFormatsA
-#define EnumDateFormats EnumDateFormatsA
-#define EnumDateFormatsEx EnumDateFormatsExA
-#define GetGeoInfo GetGeoInfoA
-#define GetStringTypeEx GetStringTypeExA
-#define FoldString FoldStringA
-#define EnumSystemLanguageGroups EnumSystemLanguageGroupsA
-#define EnumLanguageGroupLocales EnumLanguageGroupLocalesA
-#define EnumUILanguages EnumUILanguagesA
-#define EnumSystemLocales EnumSystemLocalesA
-#define EnumSystemCodePages EnumSystemCodePagesA
-#endif
+#define GetCPInfoEx __MINGW_NAME_AW(GetCPInfoEx)
+#define CompareString __MINGW_NAME_AW(CompareString)
+#define LCMapString __MINGW_NAME_AW(LCMapString)
+#define GetLocaleInfo __MINGW_NAME_AW(GetLocaleInfo)
+#define SetLocaleInfo __MINGW_NAME_AW(SetLocaleInfo)
+#define GetCalendarInfo __MINGW_NAME_AW(GetCalendarInfo)
+#define SetCalendarInfo __MINGW_NAME_AW(SetCalendarInfo)
+#define GetTimeFormat __MINGW_NAME_AW(GetTimeFormat)
+#define GetDateFormat __MINGW_NAME_AW(GetDateFormat)
+#define GetNumberFormat __MINGW_NAME_AW(GetNumberFormat)
+#define GetCurrencyFormat __MINGW_NAME_AW(GetCurrencyFormat)
+#define EnumCalendarInfo __MINGW_NAME_AW(EnumCalendarInfo)
+#define EnumCalendarInfoEx __MINGW_NAME_AW(EnumCalendarInfoEx)
+#define EnumTimeFormats __MINGW_NAME_AW(EnumTimeFormats)
+#define EnumDateFormats __MINGW_NAME_AW(EnumDateFormats)
+#define EnumDateFormatsEx __MINGW_NAME_AW(EnumDateFormatsEx)
+#define GetGeoInfo __MINGW_NAME_AW(GetGeoInfo)
+#define GetStringTypeEx __MINGW_NAME_AW(GetStringTypeEx)
+#define FoldString __MINGW_NAME_AW(FoldString)
+#define EnumSystemLanguageGroups __MINGW_NAME_AW(EnumSystemLanguageGroups)
+#define EnumLanguageGroupLocales __MINGW_NAME_AW(EnumLanguageGroupLocales)
+#define EnumUILanguages __MINGW_NAME_AW(EnumUILanguages)
+#define EnumSystemLocales __MINGW_NAME_AW(EnumSystemLocales)
+#define EnumSystemCodePages __MINGW_NAME_AW(EnumSystemCodePages)
 
   WINBASEAPI WINBOOL WINAPI IsValidCodePage(UINT CodePage);
   WINBASEAPI UINT WINAPI GetACP(void);

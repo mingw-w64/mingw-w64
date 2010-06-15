@@ -69,13 +69,8 @@ extern "C" {
     DWORD pv_type;
   }PVALUEW,*PPVALUEW;
 
-#ifdef UNICODE
-  typedef PVALUEW PVALUE;
-  typedef PPVALUEW PPVALUE;
-#else
-  typedef PVALUEA PVALUE;
-  typedef PPVALUEA PPVALUE;
-#endif
+  __MINGW_TYPEDEF_AW(PVALUE)
+  __MINGW_TYPEDEF_AW(PPVALUE)
 
   typedef DWORD __cdecl QUERYHANDLER(LPVOID keycontext,PVALCONTEXT val_list,DWORD num_vals,LPVOID outputbuffer,DWORD *total_outlen,DWORD input_blen);
 
@@ -106,72 +101,38 @@ extern "C" {
     DWORD ve_type;
   } VALENTW,*PVALENTW;
 
-#ifdef UNICODE
-  typedef VALENTW VALENT;
-  typedef PVALENTW PVALENT;
-#else
-  typedef VALENTA VALENT;
-  typedef PVALENTA PVALENT;
-#endif
+  __MINGW_TYPEDEF_AW(VALENT)
+  __MINGW_TYPEDEF_AW(PVALENT)
 #endif
 
 #define WIN31_CLASS NULL
 
-#ifdef UNICODE
-#define RegConnectRegistry RegConnectRegistryW
-#define RegConnectRegistryEx RegConnectRegistryExW
-#define RegCreateKey RegCreateKeyW
-#define RegCreateKeyEx RegCreateKeyExW
-#define RegDeleteKey RegDeleteKeyW
-#define RegDeleteKeyEx RegDeleteKeyExW
-#define RegDeleteValue RegDeleteValueW
-#define RegEnumKey RegEnumKeyW
-#define RegEnumKeyEx RegEnumKeyExW
-#define RegEnumValue RegEnumValueW
-#define RegLoadKey RegLoadKeyW
-#define RegOpenKey RegOpenKeyW
-#define RegOpenKeyEx RegOpenKeyExW
-#define RegQueryInfoKey RegQueryInfoKeyW
-#define RegQueryValue RegQueryValueW
-#define RegQueryMultipleValues RegQueryMultipleValuesW
-#define RegQueryValueEx RegQueryValueExW
-#define RegReplaceKey RegReplaceKeyW
-#define RegRestoreKey RegRestoreKeyW
-#define RegSaveKey RegSaveKeyW
-#define RegSetValue RegSetValueW
-#define RegSetValueEx RegSetValueExW
-#define RegUnLoadKey RegUnLoadKeyW
-#define RegGetValue RegGetValueW
-#define InitiateSystemShutdown InitiateSystemShutdownW
-#define AbortSystemShutdown AbortSystemShutdownW
-#else
-#define RegConnectRegistry RegConnectRegistryA
-#define RegConnectRegistryEx RegConnectRegistryExA
-#define RegCreateKey RegCreateKeyA
-#define RegCreateKeyEx RegCreateKeyExA
-#define RegDeleteKey RegDeleteKeyA
-#define RegDeleteKeyEx RegDeleteKeyExA
-#define RegDeleteValue RegDeleteValueA
-#define RegEnumKey RegEnumKeyA
-#define RegEnumKeyEx RegEnumKeyExA
-#define RegEnumValue RegEnumValueA
-#define RegLoadKey RegLoadKeyA
-#define RegOpenKey RegOpenKeyA
-#define RegOpenKeyEx RegOpenKeyExA
-#define RegQueryInfoKey RegQueryInfoKeyA
-#define RegQueryValue RegQueryValueA
-#define RegQueryMultipleValues RegQueryMultipleValuesA
-#define RegQueryValueEx RegQueryValueExA
-#define RegReplaceKey RegReplaceKeyA
-#define RegRestoreKey RegRestoreKeyA
-#define RegSaveKey RegSaveKeyA
-#define RegSetValue RegSetValueA
-#define RegSetValueEx RegSetValueExA
-#define RegUnLoadKey RegUnLoadKeyA
-#define RegGetValue RegGetValueA
-#define InitiateSystemShutdown InitiateSystemShutdownA
-#define AbortSystemShutdown AbortSystemShutdownA
-#endif
+#define RegConnectRegistry __MINGW_NAME_AW(RegConnectRegistry)
+#define RegConnectRegistryEx __MINGW_NAME_AW(RegConnectRegistryEx)
+#define RegCreateKey __MINGW_NAME_AW(RegCreateKey)
+#define RegCreateKeyEx __MINGW_NAME_AW(RegCreateKeyEx)
+#define RegDeleteKey __MINGW_NAME_AW(RegDeleteKey)
+#define RegDeleteKeyEx __MINGW_NAME_AW(RegDeleteKeyEx)
+#define RegDeleteValue __MINGW_NAME_AW(RegDeleteValue)
+#define RegEnumKey __MINGW_NAME_AW(RegEnumKey)
+#define RegEnumKeyEx __MINGW_NAME_AW(RegEnumKeyEx)
+#define RegEnumValue __MINGW_NAME_AW(RegEnumValue)
+#define RegLoadKey __MINGW_NAME_AW(RegLoadKey)
+#define RegOpenKey __MINGW_NAME_AW(RegOpenKey)
+#define RegOpenKeyEx __MINGW_NAME_AW(RegOpenKeyEx)
+#define RegQueryInfoKey __MINGW_NAME_AW(RegQueryInfoKey)
+#define RegQueryValue __MINGW_NAME_AW(RegQueryValue)
+#define RegQueryMultipleValues __MINGW_NAME_AW(RegQueryMultipleValues)
+#define RegQueryValueEx __MINGW_NAME_AW(RegQueryValueEx)
+#define RegReplaceKey __MINGW_NAME_AW(RegReplaceKey)
+#define RegRestoreKey __MINGW_NAME_AW(RegRestoreKey)
+#define RegSaveKey __MINGW_NAME_AW(RegSaveKey)
+#define RegSetValue __MINGW_NAME_AW(RegSetValue)
+#define RegSetValueEx __MINGW_NAME_AW(RegSetValueEx)
+#define RegUnLoadKey __MINGW_NAME_AW(RegUnLoadKey)
+#define RegGetValue __MINGW_NAME_AW(RegGetValue)
+#define InitiateSystemShutdown __MINGW_NAME_AW(InitiateSystemShutdown)
+#define AbortSystemShutdown __MINGW_NAME_AW(AbortSystemShutdown)
 
   WINADVAPI LONG WINAPI RegCloseKey(HKEY hKey);
   WINADVAPI LONG WINAPI RegOverridePredefKey(HKEY hKey,HKEY hNewHKey);
@@ -252,13 +213,8 @@ extern "C" {
 
 #define MAX_SHUTDOWN_TIMEOUT (10*365*24*60*60)
 
-#ifdef UNICODE
-#define InitiateSystemShutdownEx InitiateSystemShutdownExW
-#define RegSaveKeyEx RegSaveKeyExW
-#else
-#define InitiateSystemShutdownEx InitiateSystemShutdownExA
-#define RegSaveKeyEx RegSaveKeyExA
-#endif
+#define InitiateSystemShutdownEx __MINGW_NAME_AW(InitiateSystemShutdownEx)
+#define RegSaveKeyEx __MINGW_NAME_AW(RegSaveKeyEx)
 
   WINADVAPI WINBOOL WINAPI InitiateSystemShutdownExA(LPSTR lpMachineName,LPSTR lpMessage,DWORD dwTimeout,WINBOOL bForceAppsClosed,WINBOOL bRebootAfterShutdown,DWORD dwReason);
   WINADVAPI WINBOOL WINAPI InitiateSystemShutdownExW(LPWSTR lpMachineName,LPWSTR lpMessage,DWORD dwTimeout,WINBOOL bForceAppsClosed,WINBOOL bRebootAfterShutdown,DWORD dwReason);

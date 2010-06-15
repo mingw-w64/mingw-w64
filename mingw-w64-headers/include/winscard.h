@@ -61,39 +61,21 @@ extern "C" {
 #define SCARD_PROVIDER_PRIMARY 1
 #define SCARD_PROVIDER_CSP 2
 
-#ifdef UNICODE
-#define SCardListReaderGroups SCardListReaderGroupsW
-#define SCardListReaders SCardListReadersW
-#define SCardListCards SCardListCardsW
-#define SCardListInterfaces SCardListInterfacesW
-#define SCardGetProviderId SCardGetProviderIdW
-#define SCardGetCardTypeProviderName SCardGetCardTypeProviderNameW
-#define SCardIntroduceReaderGroup SCardIntroduceReaderGroupW
-#define SCardForgetReaderGroup SCardForgetReaderGroupW
-#define SCardIntroduceReader SCardIntroduceReaderW
-#define SCardForgetReader SCardForgetReaderW
-#define SCardAddReaderToGroup SCardAddReaderToGroupW
-#define SCardRemoveReaderFromGroup SCardRemoveReaderFromGroupW
-#define SCardIntroduceCardType SCardIntroduceCardTypeW
-#define SCardSetCardTypeProviderName SCardSetCardTypeProviderNameW
-#define SCardForgetCardType SCardForgetCardTypeW
-#else
-#define SCardListReaderGroups SCardListReaderGroupsA
-#define SCardListReaders SCardListReadersA
-#define SCardListCards SCardListCardsA
-#define SCardListInterfaces SCardListInterfacesA
-#define SCardGetProviderId SCardGetProviderIdA
-#define SCardGetCardTypeProviderName SCardGetCardTypeProviderNameA
-#define SCardIntroduceReaderGroup SCardIntroduceReaderGroupA
-#define SCardForgetReaderGroup SCardForgetReaderGroupA
-#define SCardIntroduceReader SCardIntroduceReaderA
-#define SCardForgetReader SCardForgetReaderA
-#define SCardAddReaderToGroup SCardAddReaderToGroupA
-#define SCardRemoveReaderFromGroup SCardRemoveReaderFromGroupA
-#define SCardIntroduceCardType SCardIntroduceCardTypeA
-#define SCardSetCardTypeProviderName SCardSetCardTypeProviderNameA
-#define SCardForgetCardType SCardForgetCardTypeA
-#endif
+#define SCardListReaderGroups __MINGW_NAME_AW(SCardListReaderGroups)
+#define SCardListReaders __MINGW_NAME_AW(SCardListReaders)
+#define SCardListCards __MINGW_NAME_AW(SCardListCards)
+#define SCardListInterfaces __MINGW_NAME_AW(SCardListInterfaces)
+#define SCardGetProviderId __MINGW_NAME_AW(SCardGetProviderId)
+#define SCardGetCardTypeProviderName __MINGW_NAME_AW(SCardGetCardTypeProviderName)
+#define SCardIntroduceReaderGroup __MINGW_NAME_AW(SCardIntroduceReaderGroup)
+#define SCardForgetReaderGroup __MINGW_NAME_AW(SCardForgetReaderGroup)
+#define SCardIntroduceReader __MINGW_NAME_AW(SCardIntroduceReader)
+#define SCardForgetReader __MINGW_NAME_AW(SCardForgetReader)
+#define SCardAddReaderToGroup __MINGW_NAME_AW(SCardAddReaderToGroup)
+#define SCardRemoveReaderFromGroup __MINGW_NAME_AW(SCardRemoveReaderFromGroup)
+#define SCardIntroduceCardType __MINGW_NAME_AW(SCardIntroduceCardType)
+#define SCardSetCardTypeProviderName __MINGW_NAME_AW(SCardSetCardTypeProviderName)
+#define SCardForgetCardType __MINGW_NAME_AW(SCardForgetCardType)
 
   extern WINSCARDAPI LONG WINAPI SCardListReaderGroupsA(SCARDCONTEXT hContext,LPSTR mszGroups,LPDWORD pcchGroups);
   extern WINSCARDAPI LONG WINAPI SCardListReaderGroupsW(SCARDCONTEXT hContext,LPWSTR mszGroups,LPDWORD pcchGroups);
@@ -151,29 +133,15 @@ extern "C" {
     BYTE rgbAtr[36];
   } SCARD_READERSTATEW,*PSCARD_READERSTATEW,*LPSCARD_READERSTATEW;
 
-#ifdef UNICODE
-  typedef SCARD_READERSTATEW SCARD_READERSTATE;
-  typedef PSCARD_READERSTATEW PSCARD_READERSTATE;
-  typedef LPSCARD_READERSTATEW LPSCARD_READERSTATE;
-#else
-  typedef SCARD_READERSTATEA SCARD_READERSTATE;
-  typedef PSCARD_READERSTATEA PSCARD_READERSTATE;
-  typedef LPSCARD_READERSTATEA LPSCARD_READERSTATE;
-#endif
+  __MINGW_TYPEDEF_AW(SCARD_READERSTATE)
+  __MINGW_TYPEDEF_AW(PSCARD_READERSTATE)
+  __MINGW_TYPEDEF_AW(LPSCARD_READERSTATE)
 
-#ifdef UNICODE
-#define SCardLocateCards SCardLocateCardsW
-#define SCardLocateCardsByATR SCardLocateCardsByATRW
-#define SCardGetStatusChange SCardGetStatusChangeW
-#define SCardConnect SCardConnectW
-#define SCardStatus SCardStatusW
-#else
-#define SCardLocateCards SCardLocateCardsA
-#define SCardLocateCardsByATR SCardLocateCardsByATRA
-#define SCardGetStatusChange SCardGetStatusChangeA
-#define SCardConnect SCardConnectA
-#define SCardStatus SCardStatusA
-#endif
+#define SCardLocateCards __MINGW_NAME_AW(SCardLocateCards)
+#define SCardLocateCardsByATR __MINGW_NAME_AW(SCardLocateCardsByATR)
+#define SCardGetStatusChange __MINGW_NAME_AW(SCardGetStatusChange)
+#define SCardConnect __MINGW_NAME_AW(SCardConnect)
+#define SCardStatus __MINGW_NAME_AW(SCardStatus)
 
 #define SCARD_READERSTATE_A SCARD_READERSTATEA
 #define SCARD_READERSTATE_W SCARD_READERSTATEW
@@ -246,11 +214,7 @@ extern "C" {
 #define SCERR_NOCARDNAME 0x4000
 #define SCERR_NOGUIDS 0x8000
 
-#ifdef UNICODE
-#define LPOCNCONNPROC LPOCNCONNPROCW
-#else
-#define LPOCNCONNPROC LPOCNCONNPROCA
-#endif
+#define LPOCNCONNPROC __MINGW_NAME_AW(LPOCNCONNPROC)
 
   typedef SCARDHANDLE (WINAPI *LPOCNCONNPROCA) (SCARDCONTEXT,LPSTR,LPSTR,PVOID);
   typedef SCARDHANDLE (WINAPI *LPOCNCONNPROCW) (SCARDCONTEXT,LPWSTR,LPWSTR,PVOID);
@@ -289,15 +253,9 @@ extern "C" {
     DWORD dwPreferredProtocols;
   } OPENCARD_SEARCH_CRITERIAW,*POPENCARD_SEARCH_CRITERIAW,*LPOPENCARD_SEARCH_CRITERIAW;
 
-#ifdef UNICODE
-  typedef OPENCARD_SEARCH_CRITERIAW OPENCARD_SEARCH_CRITERIA;
-  typedef POPENCARD_SEARCH_CRITERIAW POPENCARD_SEARCH_CRITERIA;
-  typedef LPOPENCARD_SEARCH_CRITERIAW LPOPENCARD_SEARCH_CRITERIA;
-#else
-  typedef OPENCARD_SEARCH_CRITERIAA OPENCARD_SEARCH_CRITERIA;
-  typedef POPENCARD_SEARCH_CRITERIAA POPENCARD_SEARCH_CRITERIA;
-  typedef LPOPENCARD_SEARCH_CRITERIAA LPOPENCARD_SEARCH_CRITERIA;
-#endif
+  __MINGW_TYPEDEF_AW(OPENCARD_SEARCH_CRITERIA)
+  __MINGW_TYPEDEF_AW(POPENCARD_SEARCH_CRITERIA)
+  __MINGW_TYPEDEF_AW(LPOPENCARD_SEARCH_CRITERIA)
 
   typedef struct {
     DWORD dwStructSize;
@@ -341,15 +299,9 @@ extern "C" {
     SCARDHANDLE hCardHandle;
   } OPENCARDNAME_EXW,*POPENCARDNAME_EXW,*LPOPENCARDNAME_EXW;
 
-#ifdef UNICODE
-  typedef OPENCARDNAME_EXW OPENCARDNAME_EX;
-  typedef POPENCARDNAME_EXW POPENCARDNAME_EX;
-  typedef LPOPENCARDNAME_EXW LPOPENCARDNAME_EX;
-#else
-  typedef OPENCARDNAME_EXA OPENCARDNAME_EX;
-  typedef POPENCARDNAME_EXA POPENCARDNAME_EX;
-  typedef LPOPENCARDNAME_EXA LPOPENCARDNAME_EX;
-#endif
+  __MINGW_TYPEDEF_AW(OPENCARDNAME_EX)
+  __MINGW_TYPEDEF_AW(POPENCARDNAME_EX)
+  __MINGW_TYPEDEF_AW(LPOPENCARDNAME_EX)
 
 #define OPENCARDNAMEA_EX OPENCARDNAME_EXA
 #define OPENCARDNAMEW_EX OPENCARDNAME_EXW
@@ -358,11 +310,7 @@ extern "C" {
 #define LPOPENCARDNAMEA_EX LPOPENCARDNAME_EXA
 #define LPOPENCARDNAMEW_EX LPOPENCARDNAME_EXW
 
-#ifdef UNICODE
-#define SCardUIDlgSelectCard SCardUIDlgSelectCardW
-#else
-#define SCardUIDlgSelectCard SCardUIDlgSelectCardA
-#endif
+#define SCardUIDlgSelectCard __MINGW_NAME_AW(SCardUIDlgSelectCard)
 
   extern WINSCARDAPI LONG WINAPI SCardUIDlgSelectCardA(LPOPENCARDNAMEA_EX);
   extern WINSCARDAPI LONG WINAPI SCardUIDlgSelectCardW(LPOPENCARDNAMEW_EX);
@@ -419,15 +367,9 @@ extern "C" {
     SCARDHANDLE hCardHandle;
   } OPENCARDNAMEW,*POPENCARDNAMEW,*LPOPENCARDNAMEW;
 
-#ifdef UNICODE
-  typedef OPENCARDNAMEW OPENCARDNAME;
-  typedef POPENCARDNAMEW POPENCARDNAME;
-  typedef LPOPENCARDNAMEW LPOPENCARDNAME;
-#else
-  typedef OPENCARDNAMEA OPENCARDNAME;
-  typedef POPENCARDNAMEA POPENCARDNAME;
-  typedef LPOPENCARDNAMEA LPOPENCARDNAME;
-#endif
+  __MINGW_TYPEDEF_AW(OPENCARDNAME)
+  __MINGW_TYPEDEF_AW(POPENCARDNAME)
+  __MINGW_TYPEDEF_AW(LPOPENCARDNAME)
 
 #define OPENCARDNAME_A OPENCARDNAMEA
 #define OPENCARDNAME_W OPENCARDNAMEW
@@ -436,11 +378,7 @@ extern "C" {
 #define LPOPENCARDNAME_A LPOPENCARDNAMEA
 #define LPOPENCARDNAME_W LPOPENCARDNAMEW
 
-#ifdef UNICODE
-#define GetOpenCardName GetOpenCardNameW
-#else
-#define GetOpenCardName GetOpenCardNameA
-#endif
+#define GetOpenCardName __MINGW_NAME_AW(GetOpenCardName)
 
   extern WINSCARDAPI LONG WINAPI GetOpenCardNameA(LPOPENCARDNAMEA);
   extern WINSCARDAPI LONG WINAPI GetOpenCardNameW(LPOPENCARDNAMEW);
