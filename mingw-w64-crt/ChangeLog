@@ -1,5 +1,15 @@
 2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Back-merges from the trunk (more missing *.def stuff)
+
+	2010-06-15  Kai Tietz  <kai.tietz@onevision.com> (revs. 2535-2537)
+	* lib32/wtsapi32.def: Updated.
+	* lib64/wtsapi32.def: New def.
+	* Makefile.am: Add lib64/wtsapi32.def to build.
+	* Makefile.in: Regenerate.
+
+2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* profile/gmon.c: Spaces-to-tabs in two places.
 	(fake_sbrk): Make it to return (void*)-1, because sbrk() returns that
 	on failure and its user monstartup() checks its return value that way,
