@@ -110,7 +110,7 @@ extern "C" {
     LPSTR lpRemoteName;
     LPSTR lpComment;
     LPSTR lpProvider;
-  }NETRESOURCEA,*LPNETRESOURCEA;
+  } NETRESOURCEA,*LPNETRESOURCEA;
   typedef struct _NETRESOURCEW {
     DWORD dwScope;
     DWORD dwType;
@@ -120,14 +120,10 @@ extern "C" {
     LPWSTR lpRemoteName;
     LPWSTR lpComment;
     LPWSTR lpProvider;
-  }NETRESOURCEW,*LPNETRESOURCEW;
-#ifdef UNICODE
-  typedef NETRESOURCEW NETRESOURCE;
-  typedef LPNETRESOURCEW LPNETRESOURCE;
-#else
-  typedef NETRESOURCEA NETRESOURCE;
-  typedef LPNETRESOURCEA LPNETRESOURCE;
-#endif
+  } NETRESOURCEW,*LPNETRESOURCEW;
+
+  __MINGW_TYPEDEF_AW(NETRESOURCE)
+  __MINGW_TYPEDEF_AW(LPNETRESOURCE)
 
 #define NETPROPERTY_PERSISTENT 1
 
@@ -146,25 +142,14 @@ extern "C" {
 #define CONNECT_COMMANDLINE 0x00000800
 #define CONNECT_CMD_SAVECRED 0x00001000
 
-#ifdef UNICODE
-#define WNetAddConnection WNetAddConnectionW
-#define WNetAddConnection2 WNetAddConnection2W
-#define WNetAddConnection3 WNetAddConnection3W
-#define WNetCancelConnection WNetCancelConnectionW
-#define WNetCancelConnection2 WNetCancelConnection2W
-#define WNetGetConnection WNetGetConnectionW
-#define WNetRestoreConnection WNetRestoreConnectionW
-#define WNetUseConnection WNetUseConnectionW
-#else
-#define WNetAddConnection WNetAddConnectionA
-#define WNetAddConnection2 WNetAddConnection2A
-#define WNetAddConnection3 WNetAddConnection3A
-#define WNetCancelConnection WNetCancelConnectionA
-#define WNetCancelConnection2 WNetCancelConnection2A
-#define WNetGetConnection WNetGetConnectionA
-#define WNetRestoreConnection WNetRestoreConnectionA
-#define WNetUseConnection WNetUseConnectionA
-#endif
+#define WNetAddConnection __MINGW_NAME_AW(WNetAddConnection)
+#define WNetAddConnection2 __MINGW_NAME_AW(WNetAddConnection2)
+#define WNetAddConnection3 __MINGW_NAME_AW(WNetAddConnection3)
+#define WNetCancelConnection __MINGW_NAME_AW(WNetCancelConnection)
+#define WNetCancelConnection2 __MINGW_NAME_AW(WNetCancelConnection2)
+#define WNetGetConnection __MINGW_NAME_AW(WNetGetConnection)
+#define WNetRestoreConnection __MINGW_NAME_AW(WNetRestoreConnection)
+#define WNetUseConnection __MINGW_NAME_AW(WNetUseConnection)
 
   DWORD WINAPI WNetAddConnectionA(LPCSTR lpRemoteName,LPCSTR lpPassword,LPCSTR lpLocalName);
   DWORD WINAPI WNetAddConnectionW(LPCWSTR lpRemoteName,LPCWSTR lpPassword,LPCWSTR lpLocalName);
@@ -200,13 +185,9 @@ extern "C" {
     DWORD dwFlags;
     DWORD dwDevNum;
   } CONNECTDLGSTRUCTW,*LPCONNECTDLGSTRUCTW;
-#ifdef UNICODE
-  typedef CONNECTDLGSTRUCTW CONNECTDLGSTRUCT;
-  typedef LPCONNECTDLGSTRUCTW LPCONNECTDLGSTRUCT;
-#else
-  typedef CONNECTDLGSTRUCTA CONNECTDLGSTRUCT;
-  typedef LPCONNECTDLGSTRUCTA LPCONNECTDLGSTRUCT;
-#endif
+
+  __MINGW_TYPEDEF_AW(CONNECTDLGSTRUCT)
+  __MINGW_TYPEDEF_AW(LPCONNECTDLGSTRUCT)
 
 #define CONNDLG_RO_PATH 0x00000001
 #define CONNDLG_CONN_POINT 0x00000002
@@ -216,11 +197,7 @@ extern "C" {
 #define CONNDLG_PERSIST 0x00000010
 #define CONNDLG_NOT_PERSIST 0x00000020
 
-#ifdef UNICODE
-#define WNetConnectionDialog1 WNetConnectionDialog1W
-#else
-#define WNetConnectionDialog1 WNetConnectionDialog1A
-#endif
+#define WNetConnectionDialog1 __MINGW_NAME_AW(WNetConnectionDialog1)
 
   DWORD WINAPI WNetConnectionDialog1A(LPCONNECTDLGSTRUCTA lpConnDlgStruct);
   DWORD WINAPI WNetConnectionDialog1W(LPCONNECTDLGSTRUCTW lpConnDlgStruct);
@@ -241,30 +218,17 @@ extern "C" {
     DWORD dwFlags;
   } DISCDLGSTRUCTW,*LPDISCDLGSTRUCTW;
 
-#ifdef UNICODE
-  typedef DISCDLGSTRUCTW DISCDLGSTRUCT;
-  typedef LPDISCDLGSTRUCTW LPDISCDLGSTRUCT;
-#else
-  typedef DISCDLGSTRUCTA DISCDLGSTRUCT;
-  typedef LPDISCDLGSTRUCTA LPDISCDLGSTRUCT;
-#endif
+  __MINGW_TYPEDEF_AW(DISCDLGSTRUCT)
+  __MINGW_TYPEDEF_AW(LPDISCDLGSTRUCT)
 
 #define DISC_UPDATE_PROFILE 0x00000001
 #define DISC_NO_FORCE 0x00000040
 
-#ifdef UNICODE
-#define WNetDisconnectDialog1 WNetDisconnectDialog1W
-#define WNetOpenEnum WNetOpenEnumW
-#define WNetEnumResource WNetEnumResourceW
-#define WNetGetResourceParent WNetGetResourceParentW
-#define WNetGetResourceInformation WNetGetResourceInformationW
-#else
-#define WNetDisconnectDialog1 WNetDisconnectDialog1A
-#define WNetOpenEnum WNetOpenEnumA
-#define WNetEnumResource WNetEnumResourceA
-#define WNetGetResourceParent WNetGetResourceParentA
-#define WNetGetResourceInformation WNetGetResourceInformationA
-#endif
+#define WNetDisconnectDialog1 __MINGW_NAME_AW(WNetDisconnectDialog1)
+#define WNetOpenEnum __MINGW_NAME_AW(WNetOpenEnum)
+#define WNetEnumResource __MINGW_NAME_AW(WNetEnumResource)
+#define WNetGetResourceParent __MINGW_NAME_AW(WNetGetResourceParent)
+#define WNetGetResourceInformation __MINGW_NAME_AW(WNetGetResourceInformation)
 
   DWORD WINAPI WNetDisconnectDialog1A(LPDISCDLGSTRUCTA lpConnDlgStruct);
   DWORD WINAPI WNetDisconnectDialog1W(LPDISCDLGSTRUCTW lpConnDlgStruct);
@@ -289,13 +253,8 @@ extern "C" {
     LPWSTR lpUniversalName;
   } UNIVERSAL_NAME_INFOW,*LPUNIVERSAL_NAME_INFOW;
 
-#ifdef UNICODE
-  typedef UNIVERSAL_NAME_INFOW UNIVERSAL_NAME_INFO;
-  typedef LPUNIVERSAL_NAME_INFOW LPUNIVERSAL_NAME_INFO;
-#else
-  typedef UNIVERSAL_NAME_INFOA UNIVERSAL_NAME_INFO;
-  typedef LPUNIVERSAL_NAME_INFOA LPUNIVERSAL_NAME_INFO;
-#endif
+  __MINGW_TYPEDEF_AW(UNIVERSAL_NAME_INFO)
+  __MINGW_TYPEDEF_AW(LPUNIVERSAL_NAME_INFO)
 
   typedef struct _REMOTE_NAME_INFOA {
     LPSTR lpUniversalName;
@@ -309,23 +268,12 @@ extern "C" {
     LPWSTR lpRemainingPath;
   } REMOTE_NAME_INFOW,*LPREMOTE_NAME_INFOW;
 
-#ifdef UNICODE
-  typedef REMOTE_NAME_INFOW REMOTE_NAME_INFO;
-  typedef LPREMOTE_NAME_INFOW LPREMOTE_NAME_INFO;
-#else
-  typedef REMOTE_NAME_INFOA REMOTE_NAME_INFO;
-  typedef LPREMOTE_NAME_INFOA LPREMOTE_NAME_INFO;
-#endif
+  __MINGW_TYPEDEF_AW(REMOTE_NAME_INFO)
+  __MINGW_TYPEDEF_AW(LPREMOTE_NAME_INFO)
 
-#ifdef UNICODE
-#define WNetGetUniversalName WNetGetUniversalNameW
-#define WNetGetUser WNetGetUserW
-#define WNetGetProviderName WNetGetProviderNameW
-#else
-#define WNetGetUniversalName WNetGetUniversalNameA
-#define WNetGetUser WNetGetUserA
-#define WNetGetProviderName WNetGetProviderNameA
-#endif
+#define WNetGetUniversalName __MINGW_NAME_AW(WNetGetUniversalName)
+#define WNetGetUser __MINGW_NAME_AW(WNetGetUser)
+#define WNetGetProviderName __MINGW_NAME_AW(WNetGetProviderName)
 
   DWORD WINAPI WNetGetUniversalNameA(LPCSTR lpLocalPath,DWORD dwInfoLevel,LPVOID lpBuffer,LPDWORD lpBufferSize);
   DWORD WINAPI WNetGetUniversalNameW(LPCWSTR lpLocalPath,DWORD dwInfoLevel,LPVOID lpBuffer,LPDWORD lpBufferSize);
@@ -355,11 +303,7 @@ extern "C" {
 #define NETINFO_DISKRED 0x00000004
 #define NETINFO_PRINTERRED 0x00000008
 
-#ifdef UNICODE
-#define WNetGetNetworkInformation WNetGetNetworkInformationW
-#else
-#define WNetGetNetworkInformation WNetGetNetworkInformationA
-#endif
+#define WNetGetNetworkInformation __MINGW_NAME_AW(WNetGetNetworkInformation)
 
   DWORD WINAPI WNetGetNetworkInformationA(LPCSTR lpProvider,LPNETINFOSTRUCT lpNetInfoStruct);
   DWORD WINAPI WNetGetNetworkInformationW(LPCWSTR lpProvider,LPNETINFOSTRUCT lpNetInfoStruct);
@@ -367,20 +311,12 @@ extern "C" {
   typedef UINT (WINAPI *PFNGETPROFILEPATHA) (LPCSTR pszUsername,LPSTR pszBuffer,UINT cbBuffer);
   typedef UINT (WINAPI *PFNGETPROFILEPATHW) (LPCWSTR pszUsername,LPWSTR pszBuffer,UINT cbBuffer);
 
-#ifdef UNICODE
-#define PFNGETPROFILEPATH PFNGETPROFILEPATHW
-#else
-#define PFNGETPROFILEPATH PFNGETPROFILEPATHA
-#endif
+#define PFNGETPROFILEPATH __MINGW_NAME_AW(PFNGETPROFILEPATH)
 
   typedef UINT (WINAPI *PFNRECONCILEPROFILEA) (LPCSTR pszCentralFile,LPCSTR pszLocalFile,DWORD dwFlags);
   typedef UINT (WINAPI *PFNRECONCILEPROFILEW) (LPCWSTR pszCentralFile,LPCWSTR pszLocalFile,DWORD dwFlags);
 
-#ifdef UNICODE
-#define PFNRECONCILEPROFILE PFNRECONCILEPROFILEW
-#else
-#define PFNRECONCILEPROFILE PFNRECONCILEPROFILEA
-#endif
+#define PFNRECONCILEPROFILE __MINGW_NAME_AW(PFNRECONCILEPROFILE)
 
 #define RP_LOGON 0x01
 #define RP_INIFILE 0x02
@@ -388,19 +324,11 @@ extern "C" {
   typedef WINBOOL (WINAPI *PFNPROCESSPOLICIESA) (HWND hwnd,LPCSTR pszPath,LPCSTR pszUsername,LPCSTR pszComputerName,DWORD dwFlags);
   typedef WINBOOL (WINAPI *PFNPROCESSPOLICIESW) (HWND hwnd,LPCWSTR pszPath,LPCWSTR pszUsername,LPCWSTR pszComputerName,DWORD dwFlags);
 
-#ifdef UNICODE
-#define PFNPROCESSPOLICIES PFNPROCESSPOLICIESW
-#else
-#define PFNPROCESSPOLICIES PFNPROCESSPOLICIESA
-#endif
+#define PFNPROCESSPOLICIES __MINGW_NAME_AW(PFNPROCESSPOLICIES)
 
 #define PP_DISPLAYERRORS 0x01
 
-#ifdef UNICODE
-#define WNetGetLastError WNetGetLastErrorW
-#else
-#define WNetGetLastError WNetGetLastErrorA
-#endif
+#define WNetGetLastError __MINGW_NAME_AW(WNetGetLastError)
 
   DWORD WINAPI WNetGetLastErrorA(LPDWORD lpError,LPSTR lpErrorBuf,DWORD nErrorBufSize,LPSTR lpNameBuf,DWORD nNameBufSize);
   DWORD WINAPI WNetGetLastErrorW(LPDWORD lpError,LPWSTR lpErrorBuf,DWORD nErrorBufSize,LPWSTR lpNameBuf,DWORD nNameBufSize);
@@ -461,11 +389,7 @@ extern "C" {
 #define WNCON_SLOWLINK 0x00000004
 #define WNCON_DYNAMIC 0x00000008
 
-#ifdef UNICODE
-#define MultinetGetConnectionPerformance MultinetGetConnectionPerformanceW
-#else
-#define MultinetGetConnectionPerformance MultinetGetConnectionPerformanceA
-#endif
+#define MultinetGetConnectionPerformance __MINGW_NAME_AW(MultinetGetConnectionPerformance)
 
   DWORD WINAPI MultinetGetConnectionPerformanceA(LPNETRESOURCEA lpNetResource,LPNETCONNECTINFOSTRUCT lpNetConnectInfoStruct);
   DWORD WINAPI MultinetGetConnectionPerformanceW(LPNETRESOURCEW lpNetResource,LPNETCONNECTINFOSTRUCT lpNetConnectInfoStruct);
