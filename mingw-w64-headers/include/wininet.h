@@ -166,13 +166,8 @@ extern "C" {
     } Value;
   } INTERNET_PER_CONN_OPTIONW,*LPINTERNET_PER_CONN_OPTIONW;
 
-#ifdef UNICODE
-  typedef INTERNET_PER_CONN_OPTIONW INTERNET_PER_CONN_OPTION;
-  typedef LPINTERNET_PER_CONN_OPTIONW LPINTERNET_PER_CONN_OPTION;
-#else
-  typedef INTERNET_PER_CONN_OPTIONA INTERNET_PER_CONN_OPTION;
-  typedef LPINTERNET_PER_CONN_OPTIONA LPINTERNET_PER_CONN_OPTION;
-#endif
+  __MINGW_TYPEDEF_AW(INTERNET_PER_CONN_OPTION)
+  __MINGW_TYPEDEF_AW(LPINTERNET_PER_CONN_OPTION)
 
   typedef struct {
     DWORD dwSize;
@@ -190,13 +185,8 @@ extern "C" {
     LPINTERNET_PER_CONN_OPTIONW pOptions;
   } INTERNET_PER_CONN_OPTION_LISTW,*LPINTERNET_PER_CONN_OPTION_LISTW;
 
-#ifdef UNICODE
-  typedef INTERNET_PER_CONN_OPTION_LISTW INTERNET_PER_CONN_OPTION_LIST;
-  typedef LPINTERNET_PER_CONN_OPTION_LISTW LPINTERNET_PER_CONN_OPTION_LIST;
-#else
-  typedef INTERNET_PER_CONN_OPTION_LISTA INTERNET_PER_CONN_OPTION_LIST;
-  typedef LPINTERNET_PER_CONN_OPTION_LISTA LPINTERNET_PER_CONN_OPTION_LIST;
-#endif
+  __MINGW_TYPEDEF_AW(INTERNET_PER_CONN_OPTION_LIST)
+  __MINGW_TYPEDEF_AW(LPINTERNET_PER_CONN_OPTION_LIST)
 
 #define INTERNET_PER_CONN_FLAGS 1
 #define INTERNET_PER_CONN_PROXY_SERVER 2
@@ -274,13 +264,8 @@ extern "C" {
     DWORD dwExtraInfoLength;
   } URL_COMPONENTSW,*LPURL_COMPONENTSW;
 
-#ifdef UNICODE
-  typedef URL_COMPONENTSW URL_COMPONENTS;
-  typedef LPURL_COMPONENTSW LPURL_COMPONENTS;
-#else
-  typedef URL_COMPONENTSA URL_COMPONENTS;
-  typedef LPURL_COMPONENTSA LPURL_COMPONENTS;
-#endif
+  __MINGW_TYPEDEF_AW(URL_COMPONENTS)
+  __MINGW_TYPEDEF_AW(LPURL_COMPONENTS)
 
   typedef struct {
     FILETIME ftExpiry;
@@ -319,13 +304,8 @@ extern "C" {
     DWORD dwOffsetHigh;
   } INTERNET_BUFFERSW,*LPINTERNET_BUFFERSW;
 
-#ifdef UNICODE
-  typedef INTERNET_BUFFERSW INTERNET_BUFFERS;
-  typedef LPINTERNET_BUFFERSW LPINTERNET_BUFFERS;
-#else
-  typedef INTERNET_BUFFERSA INTERNET_BUFFERS;
-  typedef LPINTERNET_BUFFERSA LPINTERNET_BUFFERS;
-#endif
+  __MINGW_TYPEDEF_AW(INTERNET_BUFFERS)
+  __MINGW_TYPEDEF_AW(LPINTERNET_BUFFERS)
 
 #ifdef UNICODE
 #define InternetTimeFromSystemTime InternetTimeFromSystemTimeW
@@ -339,18 +319,15 @@ extern "C" {
 #define INTERNET_RFC1123_FORMAT 0
 #define INTERNET_RFC1123_BUFSIZE 30
 
+#define InternetCrackUrl __MINGW_NAME_AW(InternetCrackUrl)
+#define InternetCreateUrl __MINGW_NAME_AW(InternetCreateUrl)
+#define InternetCanonicalizeUrl __MINGW_NAME_AW(InternetCanonicalizeUrl)
+#define InternetCombineUrl __MINGW_NAME_AW(InternetCombineUrl)
+
 #ifdef UNICODE
 #define InternetTimeToSystemTime InternetTimeToSystemTimeW
-#define InternetCrackUrl InternetCrackUrlW
-#define InternetCreateUrl InternetCreateUrlW
-#define InternetCanonicalizeUrl InternetCanonicalizeUrlW
-#define InternetCombineUrl InternetCombineUrlW
 #else
   BOOLAPI InternetTimeToSystemTime(LPCSTR lpszTime,SYSTEMTIME *pst,DWORD dwReserved);
-#define InternetCrackUrl InternetCrackUrlA
-#define InternetCreateUrl InternetCreateUrlA
-#define InternetCanonicalizeUrl InternetCanonicalizeUrlA
-#define InternetCombineUrl InternetCombineUrlA
 #endif
 
   BOOLAPI InternetTimeToSystemTimeA(LPCSTR lpszTime,SYSTEMTIME *pst,DWORD dwReserved);
@@ -374,11 +351,7 @@ extern "C" {
 #define ICU_BROWSER_MODE 0x02000000
 #define ICU_ENCODE_PERCENT 0x00001000
 
-#ifdef UNICODE
-#define InternetOpen InternetOpenW
-#else
-#define InternetOpen InternetOpenA
-#endif
+#define InternetOpen __MINGW_NAME_AW(InternetOpen)
 
   INTERNETAPI_(HINTERNET) InternetOpenA(LPCSTR lpszAgent,DWORD dwAccessType,LPCSTR lpszProxy,LPCSTR lpszProxyBypass,DWORD dwFlags);
   INTERNETAPI_(HINTERNET) InternetOpenW(LPCWSTR lpszAgent,DWORD dwAccessType,LPCWSTR lpszProxy,LPCWSTR lpszProxyBypass,DWORD dwFlags);
@@ -392,11 +365,7 @@ extern "C" {
 #define LOCAL_INTERNET_ACCESS INTERNET_OPEN_TYPE_DIRECT
 #define CERN_PROXY_INTERNET_ACCESS INTERNET_OPEN_TYPE_PROXY
 
-#ifdef UNICODE
-#define InternetConnect InternetConnectW
-#else
-#define InternetConnect InternetConnectA
-#endif
+#define InternetConnect __MINGW_NAME_AW(InternetConnect)
 
   BOOLAPI InternetCloseHandle(HINTERNET hInternet);
   INTERNETAPI_(HINTERNET) InternetConnectA(HINTERNET hInternet,LPCSTR lpszServerName,INTERNET_PORT nServerPort,LPCSTR lpszUserName,LPCSTR lpszPassword,DWORD dwService,DWORD dwFlags,DWORD_PTR dwContext);
@@ -406,13 +375,8 @@ extern "C" {
 #define INTERNET_SERVICE_GOPHER 2
 #define INTERNET_SERVICE_HTTP 3
 
-#ifdef UNICODE
-#define InternetOpenUrl InternetOpenUrlW
-#define InternetReadFileEx InternetReadFileExW
-#else
-#define InternetOpenUrl InternetOpenUrlA
-#define InternetReadFileEx InternetReadFileExA
-#endif
+#define InternetOpenUrl __MINGW_NAME_AW(InternetOpenUrl)
+#define InternetReadFileEx __MINGW_NAME_AW(InternetReadFileEx)
 
   INTERNETAPI_(HINTERNET) InternetOpenUrlA(HINTERNET hInternet,LPCSTR lpszUrl,LPCSTR lpszHeaders,DWORD dwHeadersLength,DWORD dwFlags,DWORD_PTR dwContext);
   INTERNETAPI_(HINTERNET) InternetOpenUrlW(HINTERNET hInternet,LPCWSTR lpszUrl,LPCWSTR lpszHeaders,DWORD dwHeadersLength,DWORD dwFlags,DWORD_PTR dwContext);
@@ -425,17 +389,10 @@ extern "C" {
 #define IRF_USE_CONTEXT WININET_API_FLAG_USE_CONTEXT
 #define IRF_NO_WAIT 0x00000008
 
-#ifdef UNICODE
-#define InternetFindNextFile InternetFindNextFileW
-#define InternetQueryOption InternetQueryOptionW
-#define InternetSetOption InternetSetOptionW
-#define InternetSetOptionEx InternetSetOptionExW
-#else
-#define InternetFindNextFile InternetFindNextFileA
-#define InternetQueryOption InternetQueryOptionA
-#define InternetSetOption InternetSetOptionA
-#define InternetSetOptionEx InternetSetOptionExA
-#endif
+#define InternetFindNextFile __MINGW_NAME_AW(InternetFindNextFile)
+#define InternetQueryOption __MINGW_NAME_AW(InternetQueryOption)
+#define InternetSetOption __MINGW_NAME_AW(InternetSetOption)
+#define InternetSetOptionEx __MINGW_NAME_AW(InternetSetOptionEx)
 
   INTERNETAPI_(DWORD) InternetSetFilePointer(HINTERNET hFile,LONG lDistanceToMove,PVOID pReserved,DWORD dwMoveMethod,DWORD_PTR dwContext);
   BOOLAPI InternetWriteFile(HINTERNET hFile,LPCVOID lpBuffer,DWORD dwNumberOfBytesToWrite,LPDWORD lpdwNumberOfBytesWritten);
@@ -606,11 +563,7 @@ extern "C" {
 #define AUTODIAL_MODE_ALWAYS 2
 #define AUTODIAL_MODE_NO_NETWORK_PRESENT 4
 
-#ifdef UNICODE
-#define InternetGetLastResponseInfo InternetGetLastResponseInfoW
-#else
-#define InternetGetLastResponseInfo InternetGetLastResponseInfoA
-#endif
+#define InternetGetLastResponseInfo __MINGW_NAME_AW(InternetGetLastResponseInfo)
 
   BOOLAPI InternetGetLastResponseInfoA(LPDWORD lpdwError,LPSTR lpszBuffer,LPDWORD lpdwBufferLength);
   BOOLAPI InternetGetLastResponseInfoW(LPDWORD lpdwError,LPWSTR lpszBuffer,LPDWORD lpdwBufferLength);
@@ -702,31 +655,17 @@ extern "C" {
 
 #define FTP_TRANSFER_TYPE_MASK (FTP_TRANSFER_TYPE_ASCII | FTP_TRANSFER_TYPE_BINARY)
 
-#ifdef UNICODE
-#define FtpFindFirstFile FtpFindFirstFileW
-#define FtpGetFile FtpGetFileW
-#define FtpPutFile FtpPutFileW
-#define FtpDeleteFile FtpDeleteFileW
-#define FtpRenameFile FtpRenameFileW
-#define FtpOpenFile FtpOpenFileW
-#define FtpCreateDirectory FtpCreateDirectoryW
-#define FtpRemoveDirectory FtpRemoveDirectoryW
-#define FtpSetCurrentDirectory FtpSetCurrentDirectoryW
-#define FtpGetCurrentDirectory FtpGetCurrentDirectoryW
-#define FtpCommand FtpCommandW
-#else
-#define FtpFindFirstFile FtpFindFirstFileA
-#define FtpGetFile FtpGetFileA
-#define FtpPutFile FtpPutFileA
-#define FtpDeleteFile FtpDeleteFileA
-#define FtpRenameFile FtpRenameFileA
-#define FtpOpenFile FtpOpenFileA
-#define FtpCreateDirectory FtpCreateDirectoryA
-#define FtpRemoveDirectory FtpRemoveDirectoryA
-#define FtpSetCurrentDirectory FtpSetCurrentDirectoryA
-#define FtpGetCurrentDirectory FtpGetCurrentDirectoryA
-#define FtpCommand FtpCommandA
-#endif
+#define FtpFindFirstFile __MINGW_NAME_AW(FtpFindFirstFile)
+#define FtpGetFile __MINGW_NAME_AW(FtpGetFile)
+#define FtpPutFile __MINGW_NAME_AW(FtpPutFile)
+#define FtpDeleteFile __MINGW_NAME_AW(FtpDeleteFile)
+#define FtpRenameFile __MINGW_NAME_AW(FtpRenameFile)
+#define FtpOpenFile __MINGW_NAME_AW(FtpOpenFile)
+#define FtpCreateDirectory __MINGW_NAME_AW(FtpCreateDirectory)
+#define FtpRemoveDirectory __MINGW_NAME_AW(FtpRemoveDirectory)
+#define FtpSetCurrentDirectory __MINGW_NAME_AW(FtpSetCurrentDirectory)
+#define FtpGetCurrentDirectory __MINGW_NAME_AW(FtpGetCurrentDirectory)
+#define FtpCommand __MINGW_NAME_AW(FtpCommand)
 
   INTERNETAPI_(HINTERNET) FtpFindFirstFileA(HINTERNET hConnect,LPCSTR lpszSearchFile,LPWIN32_FIND_DATAA lpFindFileData,DWORD dwFlags,DWORD_PTR dwContext);
   INTERNETAPI_(HINTERNET) FtpFindFirstFileW(HINTERNET hConnect,LPCWSTR lpszSearchFile,LPWIN32_FIND_DATAW lpFindFileData,DWORD dwFlags,DWORD_PTR dwContext);
@@ -777,13 +716,8 @@ extern "C" {
     WCHAR Locator[MAX_GOPHER_LOCATOR_LENGTH + 1];
   } GOPHER_FIND_DATAW,*LPGOPHER_FIND_DATAW;
 
-#ifdef UNICODE
-  typedef GOPHER_FIND_DATAW GOPHER_FIND_DATA;
-  typedef LPGOPHER_FIND_DATAW LPGOPHER_FIND_DATA;
-#else
-  typedef GOPHER_FIND_DATAA GOPHER_FIND_DATA;
-  typedef LPGOPHER_FIND_DATAA LPGOPHER_FIND_DATA;
-#endif
+  __MINGW_TYPEDEF_AW(GOPHER_FIND_DATA)
+  __MINGW_TYPEDEF_AW(LPGOPHER_FIND_DATA)
 
 #define GOPHER_TYPE_TEXT_FILE 0x00000001
 #define GOPHER_TYPE_DIRECTORY 0x00000002
@@ -987,19 +921,11 @@ extern "C" {
 
 #define GOPHER_ATTRIBUTE_ID_UNKNOWN (GOPHER_ATTRIBUTE_ID_BASE + 25)
 
-#ifdef UNICODE
-#define GopherCreateLocator GopherCreateLocatorW
-#define GopherGetLocatorType GopherGetLocatorTypeW
-#define GopherFindFirstFile GopherFindFirstFileW
-#define GopherOpenFile GopherOpenFileW
-#define GopherGetAttribute GopherGetAttributeW
-#else
-#define GopherCreateLocator GopherCreateLocatorA
-#define GopherGetLocatorType GopherGetLocatorTypeA
-#define GopherFindFirstFile GopherFindFirstFileA
-#define GopherOpenFile GopherOpenFileA
-#define GopherGetAttribute GopherGetAttributeA
-#endif
+#define GopherCreateLocator __MINGW_NAME_AW(GopherCreateLocator)
+#define GopherGetLocatorType __MINGW_NAME_AW(GopherGetLocatorType)
+#define GopherFindFirstFile __MINGW_NAME_AW(GopherFindFirstFile)
+#define GopherOpenFile __MINGW_NAME_AW(GopherOpenFile)
+#define GopherGetAttribute __MINGW_NAME_AW(GopherGetAttribute)
 
   BOOLAPI GopherCreateLocatorA(LPCSTR lpszHost,INTERNET_PORT nServerPort,LPCSTR lpszDisplayString,LPCSTR lpszSelectorString,DWORD dwGopherType,LPSTR lpszLocator,LPDWORD lpdwBufferLength);
   BOOLAPI GopherCreateLocatorW(LPCWSTR lpszHost,INTERNET_PORT nServerPort,LPCWSTR lpszDisplayString,LPCWSTR lpszSelectorString,DWORD dwGopherType,LPWSTR lpszLocator,LPDWORD lpdwBufferLength);
@@ -1021,11 +947,7 @@ extern "C" {
 #define HTTP_VERSIONA "HTTP/1.0"
 #define HTTP_VERSIONW L"HTTP/1.0"
 
-#ifdef UNICODE
-#define HTTP_VERSION HTTP_VERSIONW
-#else
-#define HTTP_VERSION HTTP_VERSIONA
-#endif
+#define HTTP_VERSION __MINGW_NAME_AW(HTTP_VERSION)
 
 #define HTTP_QUERY_MIME_VERSION 0
 #define HTTP_QUERY_CONTENT_TYPE 1
@@ -1168,13 +1090,8 @@ extern "C" {
 #define HTTP_STATUS_FIRST HTTP_STATUS_CONTINUE
 #define HTTP_STATUS_LAST HTTP_STATUS_VERSION_NOT_SUP
 
-#ifdef UNICODE
-#define HttpOpenRequest HttpOpenRequestW
-#define HttpAddRequestHeaders HttpAddRequestHeadersW
-#else
-#define HttpOpenRequest HttpOpenRequestA
-#define HttpAddRequestHeaders HttpAddRequestHeadersA
-#endif
+#define HttpOpenRequest __MINGW_NAME_AW(HttpOpenRequest)
+#define HttpAddRequestHeaders __MINGW_NAME_AW(HttpAddRequestHeaders)
 
   INTERNETAPI_(HINTERNET) HttpOpenRequestA(HINTERNET hConnect,LPCSTR lpszVerb,LPCSTR lpszObjectName,LPCSTR lpszVersion,LPCSTR lpszReferrer,LPCSTR *lplpszAcceptTypes,DWORD dwFlags,DWORD_PTR dwContext);
   INTERNETAPI_(HINTERNET) HttpOpenRequestW(HINTERNET hConnect,LPCWSTR lpszVerb,LPCWSTR lpszObjectName,LPCWSTR lpszVersion,LPCWSTR lpszReferrer,LPCWSTR *lplpszAcceptTypes,DWORD dwFlags,DWORD_PTR dwContext);
@@ -1191,13 +1108,8 @@ extern "C" {
 #define HTTP_ADDREQ_FLAG_COALESCE HTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA
 #define HTTP_ADDREQ_FLAG_REPLACE 0x80000000
 
-#ifdef UNICODE
-#define HttpSendRequest HttpSendRequestW
-#define HttpSendRequestEx HttpSendRequestExW
-#else
-#define HttpSendRequest HttpSendRequestA
-#define HttpSendRequestEx HttpSendRequestExA
-#endif
+#define HttpSendRequest __MINGW_NAME_AW(HttpSendRequest)
+#define HttpSendRequestEx __MINGW_NAME_AW(HttpSendRequestEx)
 
   BOOLAPI HttpSendRequestA(HINTERNET hRequest,LPCSTR lpszHeaders,DWORD dwHeadersLength,LPVOID lpOptional,DWORD dwOptionalLength);
   BOOLAPI HttpSendRequestW(HINTERNET hRequest,LPCWSTR lpszHeaders,DWORD dwHeadersLength,LPVOID lpOptional,DWORD dwOptionalLength);
@@ -1211,13 +1123,8 @@ extern "C" {
 #define HSR_DOWNLOAD 0x00000010
 #define HSR_CHUNKED 0x00000020
 
-#ifdef UNICODE
-#define HttpEndRequest HttpEndRequestW
-#define HttpQueryInfo HttpQueryInfoW
-#else
-#define HttpEndRequest HttpEndRequestA
-#define HttpQueryInfo HttpQueryInfoA
-#endif
+#define HttpEndRequest __MINGW_NAME_AW(HttpEndRequest)
+#define HttpQueryInfo __MINGW_NAME_AW(HttpQueryInfo)
 
   INTERNETAPI_(WINBOOL) HttpEndRequestA(HINTERNET hRequest,LPINTERNET_BUFFERSA lpBuffersOut,DWORD dwFlags,DWORD_PTR dwContext);
   INTERNETAPI_(WINBOOL) HttpEndRequestW(HINTERNET hRequest,LPINTERNET_BUFFERSW lpBuffersOut,DWORD dwFlags,DWORD_PTR dwContext);
@@ -1237,19 +1144,11 @@ extern "C" {
 #define INTERNET_COOKIE_IE6 0x400
 #define INTERNET_COOKIE_IS_LEGACY 0x800
 
-#ifdef UNICODE
-#define InternetSetCookie InternetSetCookieW
-#define InternetGetCookie InternetGetCookieW
-#define InternetSetCookieEx InternetSetCookieExW
-#define InternetGetCookieEx InternetGetCookieExW
-#define InternetCheckConnection InternetCheckConnectionW
-#else
-#define InternetSetCookie InternetSetCookieA
-#define InternetGetCookie InternetGetCookieA
-#define InternetSetCookieEx InternetSetCookieExA
-#define InternetGetCookieEx InternetGetCookieExA
-#define InternetCheckConnection InternetCheckConnectionA
-#endif
+#define InternetSetCookie __MINGW_NAME_AW(InternetSetCookie)
+#define InternetGetCookie __MINGW_NAME_AW(InternetGetCookie)
+#define InternetSetCookieEx __MINGW_NAME_AW(InternetSetCookieEx)
+#define InternetGetCookieEx __MINGW_NAME_AW(InternetGetCookieEx)
+#define InternetCheckConnection __MINGW_NAME_AW(InternetCheckConnection)
 
   BOOLAPI InternetSetCookieA(LPCSTR lpszUrl,LPCSTR lpszCookieName,LPCSTR lpszCookieData);
   BOOLAPI InternetSetCookieW(LPCWSTR lpszUrl,LPCWSTR lpszCookieName,LPCWSTR lpszCookieData);
@@ -1444,13 +1343,8 @@ extern "C" {
     };
   } INTERNET_CACHE_ENTRY_INFOW,*LPINTERNET_CACHE_ENTRY_INFOW;
 
-#ifdef UNICODE
-  typedef INTERNET_CACHE_ENTRY_INFOW INTERNET_CACHE_ENTRY_INFO;
-  typedef LPINTERNET_CACHE_ENTRY_INFOW LPINTERNET_CACHE_ENTRY_INFO;
-#else
-  typedef INTERNET_CACHE_ENTRY_INFOA INTERNET_CACHE_ENTRY_INFO;
-  typedef LPINTERNET_CACHE_ENTRY_INFOA LPINTERNET_CACHE_ENTRY_INFO;
-#endif
+  __MINGW_TYPEDEF_AW(INTERNET_CACHE_ENTRY_INFO)
+  __MINGW_TYPEDEF_AW(LPINTERNET_CACHE_ENTRY_INFO)
 
   typedef struct _INTERNET_CACHE_TIMESTAMPS {
     FILETIME ftExpires;
@@ -1501,35 +1395,18 @@ extern "C" {
     WCHAR szGroupName[GROUPNAME_MAX_LENGTH];
   } INTERNET_CACHE_GROUP_INFOW,*LPINTERNET_CACHE_GROUP_INFOW;
 
-#ifdef UNICODE
-  typedef INTERNET_CACHE_GROUP_INFOW INTERNET_CACHE_GROUP_INFO;
-  typedef LPINTERNET_CACHE_GROUP_INFOW LPINTERNET_CACHE_GROUP_INFO;
-#else
-  typedef INTERNET_CACHE_GROUP_INFOA INTERNET_CACHE_GROUP_INFO;
-  typedef LPINTERNET_CACHE_GROUP_INFOA LPINTERNET_CACHE_GROUP_INFO;
-#endif
+  __MINGW_TYPEDEF_AW(INTERNET_CACHE_GROUP_INFO)
+  __MINGW_TYPEDEF_AW(LPINTERNET_CACHE_GROUP_INFO)
 
-#ifdef UNICODE
-#define CreateUrlCacheEntry CreateUrlCacheEntryW
-#define CommitUrlCacheEntry CommitUrlCacheEntryW
-#define RetrieveUrlCacheEntryFile RetrieveUrlCacheEntryFileW
-#define UnlockUrlCacheEntryFile UnlockUrlCacheEntryFileW
-#define RetrieveUrlCacheEntryStream RetrieveUrlCacheEntryStreamW
-#define GetUrlCacheEntryInfo GetUrlCacheEntryInfoW
-#define GetUrlCacheGroupAttribute GetUrlCacheGroupAttributeW
-#define SetUrlCacheGroupAttribute SetUrlCacheGroupAttributeW
-#define GetUrlCacheEntryInfoEx GetUrlCacheEntryInfoExW
-#else
-#define CreateUrlCacheEntry CreateUrlCacheEntryA
-#define CommitUrlCacheEntry CommitUrlCacheEntryA
-#define RetrieveUrlCacheEntryFile RetrieveUrlCacheEntryFileA
-  BOOLAPI UnlockUrlCacheEntryFile(LPCSTR lpszUrlName,DWORD dwReserved);
-#define RetrieveUrlCacheEntryStream RetrieveUrlCacheEntryStreamA
-#define GetUrlCacheEntryInfo GetUrlCacheEntryInfoA
-#define GetUrlCacheGroupAttribute GetUrlCacheGroupAttributeA
-#define SetUrlCacheGroupAttribute SetUrlCacheGroupAttributeA
-#define GetUrlCacheEntryInfoEx GetUrlCacheEntryInfoExA
-#endif
+#define CreateUrlCacheEntry __MINGW_NAME_AW(CreateUrlCacheEntry)
+#define CommitUrlCacheEntry __MINGW_NAME_AW(CommitUrlCacheEntry)
+#define RetrieveUrlCacheEntryFile __MINGW_NAME_AW(RetrieveUrlCacheEntryFile)
+#define UnlockUrlCacheEntryFile __MINGW_NAME_AW(UnlockUrlCacheEntryFile)
+#define RetrieveUrlCacheEntryStream __MINGW_NAME_AW(RetrieveUrlCacheEntryStream)
+#define GetUrlCacheEntryInfo __MINGW_NAME_AW(GetUrlCacheEntryInfo)
+#define GetUrlCacheGroupAttribute __MINGW_NAME_AW(GetUrlCacheGroupAttribute)
+#define SetUrlCacheGroupAttribute __MINGW_NAME_AW(SetUrlCacheGroupAttribute)
+#define GetUrlCacheEntryInfoEx __MINGW_NAME_AW(GetUrlCacheEntryInfoEx)
 
   BOOLAPI CreateUrlCacheEntryA(LPCSTR lpszUrlName,DWORD dwExpectedFileSize,LPCSTR lpszFileExtension,LPSTR lpszFileName,DWORD dwReserved);
   BOOLAPI CreateUrlCacheEntryW(LPCWSTR lpszUrlName,DWORD dwExpectedFileSize,LPCWSTR lpszFileExtension,LPWSTR lpszFileName,DWORD dwReserved);
@@ -1570,23 +1447,19 @@ extern "C" {
 #define CACHE_ENTRY_HEADERINFO_FC 0x00000400
 #define CACHE_ENTRY_EXEMPT_DELTA_FC 0x00000800
 
+#define SetUrlCacheEntryInfo __MINGW_NAME_AW(SetUrlCacheEntryInfo)
+#define FindFirstUrlCacheEntryEx __MINGW_NAME_AW(FindFirstUrlCacheEntryEx)
+#define FindNextUrlCacheEntryEx __MINGW_NAME_AW(FindNextUrlCacheEntryEx)
+#define FindFirstUrlCacheEntry __MINGW_NAME_AW(FindFirstUrlCacheEntry)
+#define FindNextUrlCacheEntry __MINGW_NAME_AW(FindNextUrlCacheEntry)
+
 #ifdef UNICODE
-#define SetUrlCacheEntryInfo SetUrlCacheEntryInfoW
-#define SetUrlCacheEntryGroup SetUrlCacheEntryGroupW
-#define FindFirstUrlCacheEntryEx FindFirstUrlCacheEntryExW
-#define FindNextUrlCacheEntryEx FindNextUrlCacheEntryExW
-#define FindFirstUrlCacheEntry FindFirstUrlCacheEntryW
-#define FindNextUrlCacheEntry FindNextUrlCacheEntryW
-#define DeleteUrlCacheEntry DeleteUrlCacheEntryW
 #define InternetDial InternetDialW
 #define InternetGoOnline InternetGoOnlineW
+#define DeleteUrlCacheEntry DeleteUrlCacheEntryW
+#define SetUrlCacheEntryGroup SetUrlCacheEntryGroupW
 #else
-#define SetUrlCacheEntryInfo SetUrlCacheEntryInfoA
   BOOLAPI SetUrlCacheEntryGroup(LPCSTR lpszUrlName,DWORD dwFlags,GROUPID GroupId,LPBYTE pbGroupAttributes,DWORD cbGroupAttributes,LPVOID lpReserved);
-#define FindFirstUrlCacheEntryEx FindFirstUrlCacheEntryExA
-#define FindNextUrlCacheEntryEx FindNextUrlCacheEntryExA
-#define FindFirstUrlCacheEntry FindFirstUrlCacheEntryA
-#define FindNextUrlCacheEntry FindNextUrlCacheEntryA
   BOOLAPI DeleteUrlCacheEntry(LPCSTR lpszUrlName);
   INTERNETAPI_(DWORD) InternetDial(HWND hwndParent,LPSTR lpszConnectoid,DWORD dwFlags,LPDWORD lpdwConnection,DWORD dwReserved);
   INTERNETAPI_(WINBOOL) InternetGoOnline(LPSTR lpszURL,HWND hwndParent,DWORD dwFlags);
@@ -1699,16 +1572,14 @@ extern "C" {
 #define INTERNET_CUSTOMDIAL_WILL_SUPPLY_STATE 2
 #define INTERNET_CUSTOMDIAL_CAN_HANGUP 4
 
+#define InternetSetPerSiteCookieDecision __MINGW_NAME_AW(InternetSetPerSiteCookieDecision)
+#define InternetGetPerSiteCookieDecision __MINGW_NAME_AW(InternetGetPerSiteCookieDecision)
+#define InternetEnumPerSiteCookieDecision __MINGW_NAME_AW(InternetEnumPerSiteCookieDecision)
+
 #ifdef UNICODE
 #define InternetSetDialState InternetSetDialStateW
-#define InternetSetPerSiteCookieDecision InternetSetPerSiteCookieDecisionW
-#define InternetGetPerSiteCookieDecision InternetGetPerSiteCookieDecisionW
-#define InternetEnumPerSiteCookieDecision InternetEnumPerSiteCookieDecisionW
 #else
   INTERNETAPI_(WINBOOL) InternetSetDialState(LPCSTR lpszConnectoid,DWORD dwState,DWORD dwReserved);
-#define InternetSetPerSiteCookieDecision InternetSetPerSiteCookieDecisionA
-#define InternetGetPerSiteCookieDecision InternetGetPerSiteCookieDecisionA
-#define InternetEnumPerSiteCookieDecision InternetEnumPerSiteCookieDecisionA
 #endif
 
   INTERNETAPI_(WINBOOL) InternetSetDialStateA(LPCSTR lpszConnectoid,DWORD dwState,DWORD dwReserved);
