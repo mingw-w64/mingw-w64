@@ -1,3 +1,9 @@
+2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* profile/gmon.h: Don't define BSD u_* types. Include _bsd_types.h
+	instead.
+	* profile/profil.h: Likewise.
+
 2010-06-10  Jacek Caban  <jacek@codeweavers.com>
 
 	* libsrc/msctf-uuid.c: New.

@@ -1,3 +1,14 @@
+2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mingw_inc/_bsd_types.h: Moved to crt/_bsd_types.h. Changed its
+	include guard to _BSDTYPES_DEFINED.
+	* af_irda.h: Adjusted for _bsdtypes.h.
+	* inaddr.h: Likewise.
+	* in6addr.h: Likewise.
+	* mingw_inc/_ip_types.h: Likewise.
+	* winsock.h: Likewise.
+	* winsock2.h: Likewise.
+
 2010-06-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ks.h, ksmedia.h, ksproxy.h: Added #endif comments.
