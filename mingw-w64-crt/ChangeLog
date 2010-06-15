@@ -1,7 +1,30 @@
 2010-06-15  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* lib64/mf.def: New.
+	* lib64/ktmw32.def: Likewise.
+	* lib64/iscsidsc.def: Likewise.
+	* lib64/ncrypt.def: Likewise.
+	* lib64/mfplat.def: Likewise.
+	* lib64/evr.def: Likewise.
+	* lib32/mfplat.def: Likewise.
+	* lib64/bcrypt.def: Likewise.
+	* lib32/evr.def: Likewise.
+	* lib32/ncrypt.def: Likewise.
+	* lib32/bcrypt.def: Likewise.
+	* lib32/clusapi.def: Likewise.
+	* lib32/credui.def: Likewise.
+	* lib32/cryptnet.def: Likewise.
+	* lib32/cmutil.def: Likewise.
+	* lib32/mf.def: Likewise.
+	* lib32/iscsidsc.def: Likewise.
+	* lib32/sxs.def: Likewise.
+	* lib32/ktmw32.def: Likewise.
+
+2010-06-15  Jonathan Yong  <jon_y@sourceforge.net>
+
 	* lib32/bthprops.def: Sync with Vista exports.
-	* lib32/iphlpapi.def Likewise.
-	* lib64/iphlpapi.def Likewise.
+	* lib32/iphlpapi.def: Likewise.
+	* lib64/iphlpapi.def: Likewise.
 	* lib64/bthprops.def: New, sync with Vista exports.
 
 2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
