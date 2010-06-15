@@ -50,6 +50,12 @@ static char rcsid[] = "$OpenBSD: gmon.c,v 1.8 1997/07/23 21:11:27 kstailey Exp $
 /* XXX needed? */
 //extern char *minbrk __asm ("minbrk");
 
+#ifdef _WIN64
+#define MINUS_ONE_P (-1LL)
+#else
+#define MINUS_ONE_P (-1)
+#endif
+
 #ifdef __MINGW32__
 #include <string.h>
 #define bzero(ptr,size) memset (ptr, 0, size);
@@ -69,7 +75,11 @@ void	moncontrol __P((int));
 static void *
 fake_sbrk(int size)
 {
-    return malloc(size);
+    void *rv = malloc(size);
+    if (rv)
+      return rv;
+    else
+      return (void *) MINUS_ONE_P;
 }
 
 void monstartup (size_t, size_t);
@@ -99,7 +109,7 @@ monstartup (size_t lowpc, size_t highpc)
 	p->tossize = p->tolimit * sizeof(struct tostruct);
 
 	cp = fake_sbrk(p->kcountsize + p->fromssize + p->tossize);
-	if (cp == (char *)-1) {
+	if (cp == (char *)MINUS_ONE_P) {
 		ERR("monstartup: out of memory\n");
 		return;
 	}
@@ -113,7 +123,7 @@ monstartup (size_t lowpc, size_t highpc)
 	cp += p->kcountsize;
 	p->froms = (u_short *)cp;
 
-        /* XXX minbrk needed? */
+	/* XXX minbrk needed? */
 	//minbrk = fake_sbrk(0);
 	p->tos[0].link = 0;
 
@@ -143,6 +153,7 @@ void _mcleanup (void);
 void
 _mcleanup(void)
 {
+	static char gmon_out[] = "gmon.out";
 	int fd;
 	int hz;
 	int fromindex;
@@ -152,7 +163,7 @@ _mcleanup(void)
 	struct rawarc rawarc;
 	struct gmonparam *p = &_gmonparam;
 	struct gmonhdr gmonhdr, *hdr;
-	char *proffile;
+	const char *proffile;
 #ifdef DEBUG
 	int log, len;
 	char dbuf[200];
@@ -161,7 +172,7 @@ _mcleanup(void)
 	if (p->state == GMON_PROF_ERROR)
 		ERR("_mcleanup: tos overflow\n");
 
-        hz = PROF_HZ;
+	hz = PROF_HZ;
 	moncontrol(0);
 
 #ifdef nope
@@ -207,10 +218,10 @@ _mcleanup(void)
 
 		proffile = buf;
 	} else {
-		proffile = "gmon.out";
+		proffile = gmon_out;
 	}
 #else
-	proffile = "gmon.out";
+	proffile = gmon_out;
 #endif
 
 	fd = open(proffile , O_CREAT|O_TRUNC|O_WRONLY|O_BINARY, 0666);

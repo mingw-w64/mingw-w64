@@ -1,6 +1,14 @@
 2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* profile/mcountFunc.S: Spaces-to-tabs.
+	* profile/gmon.c: Spaces-to-tabs in two places.
+	(fake_sbrk): Make it to return (void*)-1, because sbrk() returns that
+	on failure and its user monstartup() checks its return value that way,
+	too. From the Cygwin CVS.
+	(MINUS_ONE_P): New macro, -1LL for w64, -1 for all else. Use it with
+	void* casting in fake_sbrk() return and in monstartup() when checking
+	fake_sbrk() return value.
+	(_mcleanup): Constified proffile. Added a static char gmon_out[] as
+	"gmon.out" and assigned gmon_out to proffile.
 
 2010-06-15  Jonathan Yong  <jon_y@sourceforge.net>
 
@@ -42,6 +50,7 @@
 	instead.
 	* profile/gcrt0.c: Likewise.
 	* profile/profil.h: Likewise.
+	* profile/mcountFunc.S: Spaces-to-tabs.
 
 2010-06-10  Jacek Caban  <jacek@codeweavers.com>
 
