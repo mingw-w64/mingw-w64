@@ -17,10 +17,7 @@ details. */
 #include <stdlib.h>
 
 #ifdef __MINGW32__
-typedef unsigned char u_char;
-typedef unsigned short u_short;
-typedef unsigned int u_int;
-typedef unsigned long u_long;
+#include <_bsd_types.h>
 #endif
 
 extern u_char etext asm ("etext");
