@@ -68,7 +68,7 @@ print_prof (struct profinfo *p)
 /* Everytime we wake up use the main thread pc to hash into the cell in the
    profile buffer ARG. */
 
-static void CALLBACK profthr_func (LPVOID) __MINGW_ATTRIB_NORETURN;
+static void CALLBACK profthr_func (LPVOID);
 
 static void CALLBACK
 profthr_func (LPVOID arg)
@@ -87,7 +87,9 @@ profthr_func (LPVOID arg)
 #if 0
       print_prof (p);
 #endif
-      Sleep (SLEEPTIME);
+      /* Check quit condition, WAIT_OBJECT_0 or WAIT_TIMEOUT */
+      if (WaitForSingleObject (p->quitevt, SLEEPTIME) == WAIT_OBJECT_0)
+	return;
     }
 }
 
@@ -98,7 +100,8 @@ profile_off (struct profinfo *p)
 {
   if (p->profthr)
     {
-      TerminateThread (p->profthr, 0);
+      SignalObjectAndWait (p->quitevt, p->profthr, INFINITE, FALSE);
+      CloseHandle (p->quitevt);
       CloseHandle (p->profthr);
     }
   if (p->targthr)
@@ -122,8 +125,27 @@ profile_on (struct profinfo *p)
       return -1;
     }
 
+  p->quitevt = CreateEvent (NULL, TRUE, FALSE, NULL);
+
+  if (!p->quitevt)
+    {
+      CloseHandle (p->quitevt);
+      p->targthr = 0;
+      errno = EAGAIN;
+      return -1;
+    }
+
   p->profthr = CreateThread (0, 0, (DWORD (WINAPI *)(LPVOID)) profthr_func,
                              (void *) p, 0, &thrid);
+
+  if (!p->profthr)
+    {
+      CloseHandle (p->targthr);
+      CloseHandle (p->quitevt);
+      p->targthr = 0;
+      errno = EAGAIN;
+      return -1;
+    }
 
   /* Set profiler thread priority to highest to be sure that it gets the
      processor as soon it request it (i.e. when the Sleep terminate) to get
@@ -131,13 +153,6 @@ profile_on (struct profinfo *p)
 
   SetThreadPriority (p->profthr, THREAD_PRIORITY_TIME_CRITICAL);
 
-  if (!p->profthr)
-    {
-      CloseHandle (p->targthr);
-      p->targthr = 0;
-      errno = EAGAIN;
-      return -1;
-    }
   return 0;
 }
 

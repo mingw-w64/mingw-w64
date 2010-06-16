@@ -1,5 +1,16 @@
 2010-06-16  Doug Semler  <dougsemler@gmail.com>
 
+	* profile/profil.h (struct profile): Add quit event member.
+	* profile/profil.c (profthr_func): Make function returnable.
+	  Wait for quit event and return when set.
+	  (profile_off): Signal quit event and wait for thread return instead
+	  of terminating thread.
+	  (profile_on): Create quit event and handle error conditions.  Move
+	  error checking prior to setting the priority of potentially invalid
+	  handle.
+
+2010-06-16  Doug Semler  <dougsemler@gmail.com>
+
 	* profile/mcountFunc.S: Export _mcount always with single underscore.
 	  (_mcount): Call renamed internal function.
 	* profile/mcount.c: Remove extern declaration and move to profile.h
