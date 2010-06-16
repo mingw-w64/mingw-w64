@@ -1205,19 +1205,14 @@ extern "C" {
 #define SCS_OS216_BINARY 5
 #define SCS_64BIT_BINARY 6
 
+#define GetBinaryType __MINGW_NAME_AW(GetBinaryType)
+#define GetShortPathName __MINGW_NAME_AW(GetShortPathName)
+#define GetLongPathName __MINGW_NAME_AW(GetLongPathName)
+#define SetEnvironmentStrings __MINGW_NAME_AW(SetEnvironmentStrings)
+#define FreeEnvironmentStrings __MINGW_NAME_AW(FreeEnvironmentStrings)
+
 #ifdef UNICODE
-#define GetBinaryType GetBinaryTypeW
-#define GetShortPathName GetShortPathNameW
-#define GetLongPathName GetLongPathNameW
 #define GetEnvironmentStrings GetEnvironmentStringsW
-#define SetEnvironmentStrings SetEnvironmentStringsW
-#define FreeEnvironmentStrings FreeEnvironmentStringsW
-#else
-#define GetBinaryType GetBinaryTypeA
-#define GetShortPathName GetShortPathNameA
-#define GetLongPathName GetLongPathNameA
-#define SetEnvironmentStrings SetEnvironmentStringsA
-#define FreeEnvironmentStrings FreeEnvironmentStringsA
 #endif
 
 #ifdef _WIN64
@@ -1399,11 +1394,7 @@ extern "C" {
     DWORD nFileIndexLow;
   } BY_HANDLE_FILE_INFORMATION,*PBY_HANDLE_FILE_INFORMATION,*LPBY_HANDLE_FILE_INFORMATION;
 
-#ifdef UNICODE
-#define SetFileShortName SetFileShortNameW
-#else
-#define SetFileShortName SetFileShortNameA
-#endif
+#define SetFileShortName __MINGW_NAME_AW(SetFileShortName)
 
   WINBASEAPI WINBOOL WINAPI GetFileInformationByHandle(HANDLE hFile,LPBY_HANDLE_FILE_INFORMATION lpFileInformation);
   WINBASEAPI DWORD WINAPI GetFileType(HANDLE hFile);
@@ -1500,11 +1491,7 @@ extern "C" {
     LONG DaylightBias;
   } TIME_ZONE_INFORMATION,*PTIME_ZONE_INFORMATION,*LPTIME_ZONE_INFORMATION;
 
-#ifdef UNICODE
-#define FormatMessage FormatMessageW
-#else
-#define FormatMessage FormatMessageA
-#endif
+#define FormatMessage __MINGW_NAME_AW(FormatMessage)
 
   WINBASEAPI WINBOOL WINAPI SystemTimeToTzSpecificLocalTime(LPTIME_ZONE_INFORMATION lpTimeZoneInformation,LPSYSTEMTIME lpUniversalTime,LPSYSTEMTIME lpLocalTime);
   WINBASEAPI WINBOOL WINAPI TzSpecificLocalTimeToSystemTime(LPTIME_ZONE_INFORMATION lpTimeZoneInformation,LPSYSTEMTIME lpLocalTime,LPSYSTEMTIME lpUniversalTime);
@@ -1531,17 +1518,10 @@ extern "C" {
 #define FORMAT_MESSAGE_ARGUMENT_ARRAY 0x2000
 #define FORMAT_MESSAGE_MAX_WIDTH_MASK 0xff
 
-#ifdef UNICODE
-#define CreateMailslot CreateMailslotW
-#define EncryptFile EncryptFileW
-#define DecryptFile DecryptFileW
-#define FileEncryptionStatus FileEncryptionStatusW
-#else
-#define CreateMailslot CreateMailslotA
-#define EncryptFile EncryptFileA
-#define DecryptFile DecryptFileA
-#define FileEncryptionStatus FileEncryptionStatusA
-#endif
+#define CreateMailslot __MINGW_NAME_AW(CreateMailslot)
+#define EncryptFile __MINGW_NAME_AW(EncryptFile)
+#define DecryptFile __MINGW_NAME_AW(DecryptFile)
+#define FileEncryptionStatus __MINGW_NAME_AW(FileEncryptionStatus)
 
   WINBASEAPI WINBOOL WINAPI CreatePipe(PHANDLE hReadPipe,PHANDLE hWritePipe,LPSECURITY_ATTRIBUTES lpPipeAttributes,DWORD nSize);
   WINBASEAPI WINBOOL WINAPI ConnectNamedPipe(HANDLE hNamedPipe,LPOVERLAPPED lpOverlapped);
@@ -1585,23 +1565,13 @@ extern "C" {
 #define CREATE_FOR_DIR (2)
 #define OVERWRITE_HIDDEN (4)
 
-#ifdef UNICODE
-#define OpenEncryptedFileRaw OpenEncryptedFileRawW
-#define lstrcmp lstrcmpW
-#define lstrcmpi lstrcmpiW
-#define lstrcpyn lstrcpynW
-#define lstrcpy lstrcpyW
-#define lstrcat lstrcatW
-#define lstrlen lstrlenW
-#else
-#define OpenEncryptedFileRaw OpenEncryptedFileRawA
-#define lstrcmp lstrcmpA
-#define lstrcmpi lstrcmpiA
-#define lstrcpyn lstrcpynA
-#define lstrcpy lstrcpyA
-#define lstrcat lstrcatA
-#define lstrlen lstrlenA
-#endif
+#define OpenEncryptedFileRaw __MINGW_NAME_AW(OpenEncryptedFileRaw)
+#define lstrcmp __MINGW_NAME_AW(lstrcmp)
+#define lstrcmpi __MINGW_NAME_AW(lstrcmpi)
+#define lstrcpyn __MINGW_NAME_AW(lstrcpyn)
+#define lstrcpy __MINGW_NAME_AW(lstrcpy)
+#define lstrcat __MINGW_NAME_AW(lstrcat)
+#define lstrlen __MINGW_NAME_AW(lstrlen)
 
   WINADVAPI DWORD WINAPI OpenEncryptedFileRawA(LPCSTR lpFileName,ULONG ulFlags,PVOID *pvContext);
   WINADVAPI DWORD WINAPI OpenEncryptedFileRawW(LPCWSTR lpFileName,ULONG ulFlags,PVOID *pvContext);
@@ -1739,13 +1709,8 @@ extern "C" {
     HANDLE hStdError;
   } STARTUPINFOW,*LPSTARTUPINFOW;
 
-#ifdef UNICODE
-  typedef STARTUPINFOW STARTUPINFO;
-  typedef LPSTARTUPINFOW LPSTARTUPINFO;
-#else
-  typedef STARTUPINFOA STARTUPINFO;
-  typedef LPSTARTUPINFOA LPSTARTUPINFO;
-#endif
+  __MINGW_TYPEDEF_AW(STARTUPINFO)
+  __MINGW_TYPEDEF_AW(LPSTARTUPINFO)
 
 #define SHUTDOWN_NORETRY 0x1
 
@@ -1775,15 +1740,9 @@ extern "C" {
     WCHAR cAlternateFileName[14];
   } WIN32_FIND_DATAW,*PWIN32_FIND_DATAW,*LPWIN32_FIND_DATAW;
 
-#ifdef UNICODE
-  typedef WIN32_FIND_DATAW WIN32_FIND_DATA;
-  typedef PWIN32_FIND_DATAW PWIN32_FIND_DATA;
-  typedef LPWIN32_FIND_DATAW LPWIN32_FIND_DATA;
-#else
-  typedef WIN32_FIND_DATAA WIN32_FIND_DATA;
-  typedef PWIN32_FIND_DATAA PWIN32_FIND_DATA;
-  typedef LPWIN32_FIND_DATAA LPWIN32_FIND_DATA;
-#endif
+  __MINGW_TYPEDEF_AW(WIN32_FIND_DATA)
+  __MINGW_TYPEDEF_AW(PWIN32_FIND_DATA)
+  __MINGW_TYPEDEF_AW(LPWIN32_FIND_DATA)
 
   typedef struct _WIN32_FILE_ATTRIBUTE_DATA {
     DWORD dwFileAttributes;
@@ -1794,21 +1753,12 @@ extern "C" {
     DWORD nFileSizeLow;
   } WIN32_FILE_ATTRIBUTE_DATA,*LPWIN32_FILE_ATTRIBUTE_DATA;
 
-#ifdef UNICODE
-#define CreateMutex CreateMutexW
-#define OpenMutex OpenMutexW
-#define CreateEvent CreateEventW
-#define OpenEvent OpenEventW
-#define CreateSemaphore CreateSemaphoreW
-#define OpenSemaphore OpenSemaphoreW
-#else
-#define CreateMutex CreateMutexA
-#define OpenMutex OpenMutexA
-#define CreateEvent CreateEventA
-#define OpenEvent OpenEventA
-#define CreateSemaphore CreateSemaphoreA
-#define OpenSemaphore OpenSemaphoreA
-#endif
+#define CreateMutex __MINGW_NAME_AW(CreateMutex)
+#define OpenMutex __MINGW_NAME_AW(OpenMutex)
+#define CreateEvent __MINGW_NAME_AW(CreateEvent)
+#define OpenEvent __MINGW_NAME_AW(OpenEvent)
+#define CreateSemaphore __MINGW_NAME_AW(CreateSemaphore)
+#define OpenSemaphore __MINGW_NAME_AW(OpenSemaphore)
 
   WINBASEAPI HANDLE WINAPI CreateMutexA(LPSECURITY_ATTRIBUTES lpMutexAttributes,WINBOOL bInitialOwner,LPCSTR lpName);
   WINBASEAPI HANDLE WINAPI CreateMutexW(LPSECURITY_ATTRIBUTES lpMutexAttributes,WINBOOL bInitialOwner,LPCWSTR lpName);
@@ -1825,27 +1775,15 @@ extern "C" {
 
   typedef VOID (WINAPI *PTIMERAPCROUTINE)(LPVOID lpArgToCompletionRoutine,DWORD dwTimerLowValue,DWORD dwTimerHighValue);
 
-#ifdef UNICODE
-#define CreateWaitableTimer CreateWaitableTimerW
-#define OpenWaitableTimer OpenWaitableTimerW
-#define CreateFileMapping CreateFileMappingW
-#define OpenFileMapping OpenFileMappingW
-#define GetLogicalDriveStrings GetLogicalDriveStringsW
-#define LoadLibrary LoadLibraryW
-#define LoadLibraryEx LoadLibraryExW
-#define GetModuleFileName GetModuleFileNameW
-#define GetModuleHandle GetModuleHandleW
-#else
-#define CreateWaitableTimer CreateWaitableTimerA
-#define OpenWaitableTimer OpenWaitableTimerA
-#define CreateFileMapping CreateFileMappingA
-#define OpenFileMapping OpenFileMappingA
-#define GetLogicalDriveStrings GetLogicalDriveStringsA
-#define LoadLibrary LoadLibraryA
-#define LoadLibraryEx LoadLibraryExA
-#define GetModuleFileName GetModuleFileNameA
-#define GetModuleHandle GetModuleHandleA
-#endif
+#define CreateWaitableTimer __MINGW_NAME_AW(CreateWaitableTimer)
+#define OpenWaitableTimer __MINGW_NAME_AW(OpenWaitableTimer)
+#define CreateFileMapping __MINGW_NAME_AW(CreateFileMapping)
+#define OpenFileMapping __MINGW_NAME_AW(OpenFileMapping)
+#define GetLogicalDriveStrings __MINGW_NAME_AW(GetLogicalDriveStrings)
+#define LoadLibrary __MINGW_NAME_AW(LoadLibrary)
+#define LoadLibraryEx __MINGW_NAME_AW(LoadLibraryEx)
+#define GetModuleFileName __MINGW_NAME_AW(GetModuleFileName)
+#define GetModuleHandle __MINGW_NAME_AW(GetModuleHandle)
 
   WINBASEAPI HANDLE WINAPI CreateWaitableTimerA(LPSECURITY_ATTRIBUTES lpTimerAttributes,WINBOOL bManualReset,LPCSTR lpTimerName);
   WINBASEAPI HANDLE WINAPI CreateWaitableTimerW(LPSECURITY_ATTRIBUTES lpTimerAttributes,WINBOOL bManualReset,LPCWSTR lpTimerName);
@@ -1891,47 +1829,26 @@ extern "C" {
   typedef WINBOOL (WINAPI *PGET_MODULE_HANDLE_EXA)(DWORD dwFlags,LPCSTR lpModuleName,HMODULE *phModule);
   typedef WINBOOL (WINAPI *PGET_MODULE_HANDLE_EXW)(DWORD dwFlags,LPCWSTR lpModuleName,HMODULE *phModule);
 
-#ifdef UNICODE
-#define PGET_MODULE_HANDLE_EX PGET_MODULE_HANDLE_EXW
-#define GetModuleHandleEx GetModuleHandleExW
-#else
-#define PGET_MODULE_HANDLE_EX PGET_MODULE_HANDLE_EXA
-#define GetModuleHandleEx GetModuleHandleExA
-#endif
+#define PGET_MODULE_HANDLE_EX __MINGW_NAME_AW(PGET_MODULE_HANDLE_EX)
+#define GetModuleHandleEx __MINGW_NAME_AW(GetModuleHandleEx)
 
   WINBASEAPI WINBOOL WINAPI GetModuleHandleExA(DWORD dwFlags,LPCSTR lpModuleName,HMODULE *phModule);
   WINBASEAPI WINBOOL WINAPI GetModuleHandleExW(DWORD dwFlags,LPCWSTR lpModuleName,HMODULE *phModule);
 #endif
 
-#ifdef UNICODE
-#define NeedCurrentDirectoryForExePath NeedCurrentDirectoryForExePathW
-#define CreateProcess CreateProcessW
-#define FatalAppExit FatalAppExitW
-#define GetStartupInfo GetStartupInfoW
-#define GetCommandLine GetCommandLineW
-#define GetEnvironmentVariable GetEnvironmentVariableW
-#define SetEnvironmentVariable SetEnvironmentVariableW
-#define ExpandEnvironmentStrings ExpandEnvironmentStringsW
-#define GetFirmwareEnvironmentVariable GetFirmwareEnvironmentVariableW
-#define SetFirmwareEnvironmentVariable SetFirmwareEnvironmentVariableW
-#define OutputDebugString OutputDebugStringW
-#define FindResource FindResourceW
-#define FindResourceEx FindResourceExW
-#else
-#define NeedCurrentDirectoryForExePath NeedCurrentDirectoryForExePathA
-#define CreateProcess CreateProcessA
-#define FatalAppExit FatalAppExitA
-#define GetStartupInfo GetStartupInfoA
-#define GetCommandLine GetCommandLineA
-#define GetEnvironmentVariable GetEnvironmentVariableA
-#define SetEnvironmentVariable SetEnvironmentVariableA
-#define ExpandEnvironmentStrings ExpandEnvironmentStringsA
-#define GetFirmwareEnvironmentVariable GetFirmwareEnvironmentVariableA
-#define SetFirmwareEnvironmentVariable SetFirmwareEnvironmentVariableA
-#define OutputDebugString OutputDebugStringA
-#define FindResource FindResourceA
-#define FindResourceEx FindResourceExA
-#endif
+#define NeedCurrentDirectoryForExePath __MINGW_NAME_AW(NeedCurrentDirectoryForExePath)
+#define CreateProcess __MINGW_NAME_AW(CreateProcess)
+#define FatalAppExit __MINGW_NAME_AW(FatalAppExit)
+#define GetStartupInfo __MINGW_NAME_AW(GetStartupInfo)
+#define GetCommandLine __MINGW_NAME_AW(GetCommandLine)
+#define GetEnvironmentVariable __MINGW_NAME_AW(GetEnvironmentVariable)
+#define SetEnvironmentVariable __MINGW_NAME_AW(SetEnvironmentVariable)
+#define ExpandEnvironmentStrings __MINGW_NAME_AW(ExpandEnvironmentStrings)
+#define GetFirmwareEnvironmentVariable __MINGW_NAME_AW(GetFirmwareEnvironmentVariable)
+#define SetFirmwareEnvironmentVariable __MINGW_NAME_AW(SetFirmwareEnvironmentVariable)
+#define OutputDebugString __MINGW_NAME_AW(OutputDebugString)
+#define FindResource __MINGW_NAME_AW(FindResource)
+#define FindResourceEx __MINGW_NAME_AW(FindResourceEx)
 
   WINBASEAPI WINBOOL WINAPI NeedCurrentDirectoryForExePathA(LPCSTR ExeName);
   WINBASEAPI WINBOOL WINAPI NeedCurrentDirectoryForExePathW(LPCWSTR ExeName);
@@ -1976,79 +1893,41 @@ extern "C" {
   WINBASEAPI DEP_SYSTEM_POLICY_TYPE WINAPI GetSystemDEPPolicy (void);
 #endif
 
-#ifdef UNICODE
-#define ENUMRESTYPEPROC ENUMRESTYPEPROCW
-#define ENUMRESNAMEPROC ENUMRESNAMEPROCW
-#define ENUMRESLANGPROC ENUMRESLANGPROCW
-#define EnumResourceTypes EnumResourceTypesW
-#define EnumResourceNames EnumResourceNamesW
-#define EnumResourceLanguages EnumResourceLanguagesW
-#define BeginUpdateResource BeginUpdateResourceW
-#define UpdateResource UpdateResourceW
-#define EndUpdateResource EndUpdateResourceW
-#define GlobalAddAtom GlobalAddAtomW
-#define GlobalFindAtom GlobalFindAtomW
-#define GlobalGetAtomName GlobalGetAtomNameW
-#define AddAtom AddAtomW
-#define FindAtom FindAtomW
-#define GetAtomName GetAtomNameW
-#define GetProfileInt GetProfileIntW
-#define GetProfileString GetProfileStringW
-#define WriteProfileString WriteProfileStringW
-#define GetProfileSection GetProfileSectionW
-#define WriteProfileSection WriteProfileSectionW
-#define GetPrivateProfileInt GetPrivateProfileIntW
-#define GetPrivateProfileString GetPrivateProfileStringW
-#define WritePrivateProfileString WritePrivateProfileStringW
-#define GetPrivateProfileSection GetPrivateProfileSectionW
-#define WritePrivateProfileSection WritePrivateProfileSectionW
-#define GetPrivateProfileSectionNames GetPrivateProfileSectionNamesW
-#define GetPrivateProfileStruct GetPrivateProfileStructW
-#define WritePrivateProfileStruct WritePrivateProfileStructW
-#define GetDriveType GetDriveTypeW
-#define GetSystemDirectory GetSystemDirectoryW
-#define GetTempPath GetTempPathW
-#define GetTempFileName GetTempFileNameW
-#define GetWindowsDirectory GetWindowsDirectoryW
-#define GetSystemWindowsDirectory GetSystemWindowsDirectoryW
-#define AddLocalAlternateComputerName AddLocalAlternateComputerNameW
-#else
-#define ENUMRESTYPEPROC ENUMRESTYPEPROCA
-#define ENUMRESNAMEPROC ENUMRESNAMEPROCA
-#define ENUMRESLANGPROC ENUMRESLANGPROCA
-#define EnumResourceTypes EnumResourceTypesA
-#define EnumResourceNames EnumResourceNamesA
-#define EnumResourceLanguages EnumResourceLanguagesA
-#define BeginUpdateResource BeginUpdateResourceA
-#define UpdateResource UpdateResourceA
-#define EndUpdateResource EndUpdateResourceA
-#define GlobalAddAtom GlobalAddAtomA
-#define GlobalFindAtom GlobalFindAtomA
-#define GlobalGetAtomName GlobalGetAtomNameA
-#define AddAtom AddAtomA
-#define FindAtom FindAtomA
-#define GetAtomName GetAtomNameA
-#define GetProfileInt GetProfileIntA
-#define GetProfileString GetProfileStringA
-#define WriteProfileString WriteProfileStringA
-#define GetProfileSection GetProfileSectionA
-#define WriteProfileSection WriteProfileSectionA
-#define GetPrivateProfileInt GetPrivateProfileIntA
-#define GetPrivateProfileString GetPrivateProfileStringA
-#define WritePrivateProfileString WritePrivateProfileStringA
-#define GetPrivateProfileSection GetPrivateProfileSectionA
-#define WritePrivateProfileSection WritePrivateProfileSectionA
-#define GetPrivateProfileSectionNames GetPrivateProfileSectionNamesA
-#define GetPrivateProfileStruct GetPrivateProfileStructA
-#define WritePrivateProfileStruct WritePrivateProfileStructA
-#define GetDriveType GetDriveTypeA
-#define GetSystemDirectory GetSystemDirectoryA
-#define GetTempPath GetTempPathA
-#define GetTempFileName GetTempFileNameA
-#define GetWindowsDirectory GetWindowsDirectoryA
-#define GetSystemWindowsDirectory GetSystemWindowsDirectoryA
-#define AddLocalAlternateComputerName AddLocalAlternateComputerNameA
-#endif
+#define ENUMRESTYPEPROC __MINGW_NAME_AW(ENUMRESTYPEPROC)
+#define ENUMRESNAMEPROC __MINGW_NAME_AW(ENUMRESNAMEPROC)
+#define ENUMRESLANGPROC __MINGW_NAME_AW(ENUMRESLANGPROC)
+#define EnumResourceTypes __MINGW_NAME_AW(EnumResourceTypes)
+#define EnumResourceNames __MINGW_NAME_AW(EnumResourceNames)
+#define EnumResourceLanguages __MINGW_NAME_AW(EnumResourceLanguages)
+#define BeginUpdateResource __MINGW_NAME_AW(BeginUpdateResource)
+#define UpdateResource __MINGW_NAME_AW(UpdateResource)
+#define EndUpdateResource __MINGW_NAME_AW(EndUpdateResource)
+#define GlobalAddAtom __MINGW_NAME_AW(GlobalAddAtom)
+#define GlobalFindAtom __MINGW_NAME_AW(GlobalFindAtom)
+#define GlobalGetAtomName __MINGW_NAME_AW(GlobalGetAtomName)
+#define AddAtom __MINGW_NAME_AW(AddAtom)
+#define FindAtom __MINGW_NAME_AW(FindAtom)
+#define GetAtomName __MINGW_NAME_AW(GetAtomName)
+#define GetProfileInt __MINGW_NAME_AW(GetProfileInt)
+#define GetProfileString __MINGW_NAME_AW(GetProfileString)
+#define WriteProfileString __MINGW_NAME_AW(WriteProfileString)
+#define GetProfileSection __MINGW_NAME_AW(GetProfileSection)
+#define WriteProfileSection __MINGW_NAME_AW(WriteProfileSection)
+#define GetPrivateProfileInt __MINGW_NAME_AW(GetPrivateProfileInt)
+#define GetPrivateProfileString __MINGW_NAME_AW(GetPrivateProfileString)
+#define WritePrivateProfileString __MINGW_NAME_AW(WritePrivateProfileString)
+#define GetPrivateProfileSection __MINGW_NAME_AW(GetPrivateProfileSection)
+#define WritePrivateProfileSection __MINGW_NAME_AW(WritePrivateProfileSection)
+#define GetPrivateProfileSectionNames __MINGW_NAME_AW(GetPrivateProfileSectionNames)
+#define GetPrivateProfileStruct __MINGW_NAME_AW(GetPrivateProfileStruct)
+#define WritePrivateProfileStruct __MINGW_NAME_AW(WritePrivateProfileStruct)
+#define GetDriveType __MINGW_NAME_AW(GetDriveType)
+#define GetSystemDirectory __MINGW_NAME_AW(GetSystemDirectory)
+#define GetTempPath __MINGW_NAME_AW(GetTempPath)
+#define GetTempFileName __MINGW_NAME_AW(GetTempFileName)
+#define GetWindowsDirectory __MINGW_NAME_AW(GetWindowsDirectory)
+#define GetSystemWindowsDirectory __MINGW_NAME_AW(GetSystemWindowsDirectory)
+#define AddLocalAlternateComputerName __MINGW_NAME_AW(AddLocalAlternateComputerName)
 
   typedef WINBOOL (CALLBACK *ENUMRESTYPEPROCA)(HMODULE hModule,LPSTR lpType,LONG_PTR lParam);
   typedef WINBOOL (CALLBACK *ENUMRESTYPEPROCW)(HMODULE hModule,LPWSTR lpType,LONG_PTR lParam);
@@ -2121,11 +2000,7 @@ extern "C" {
   WINBASEAPI UINT WINAPI GetSystemWindowsDirectoryW(LPWSTR lpBuffer,UINT uSize);
 
 #ifndef RC_INVOKED
-#ifdef UNICODE
-#define GetSystemWow64Directory GetSystemWow64DirectoryW
-#else
-#define GetSystemWow64Directory GetSystemWow64DirectoryA
-#endif
+#define GetSystemWow64Directory __MINGW_NAME_AW(GetSystemWow64Directory)
 
   WINBASEAPI UINT WINAPI GetSystemWow64DirectoryA(LPSTR lpBuffer,UINT uSize);
   WINBASEAPI UINT WINAPI GetSystemWow64DirectoryW(LPWSTR lpBuffer,UINT uSize);
@@ -2154,39 +2029,21 @@ extern "C" {
 #endif
 #endif
 
-#ifdef UNICODE
-#define SetCurrentDirectory SetCurrentDirectoryW
-#define GetCurrentDirectory GetCurrentDirectoryW
-#define SetDllDirectory SetDllDirectoryW
-#define GetDllDirectory GetDllDirectoryW
-#define GetDiskFreeSpace GetDiskFreeSpaceW
-#define GetDiskFreeSpaceEx GetDiskFreeSpaceExW
-#define CreateDirectory CreateDirectoryW
-#define CreateDirectoryEx CreateDirectoryExW
-#define RemoveDirectory RemoveDirectoryW
-#define GetFullPathName GetFullPathNameW
-#define DefineDosDevice DefineDosDeviceW
-#define QueryDosDevice QueryDosDeviceW
-#define CreateFile CreateFileW
-#define SetFileAttributes SetFileAttributesW
-#define GetFileAttributes GetFileAttributesW
-#else
-#define SetCurrentDirectory SetCurrentDirectoryA
-#define GetCurrentDirectory GetCurrentDirectoryA
-#define SetDllDirectory SetDllDirectoryA
-#define GetDllDirectory GetDllDirectoryA
-#define GetDiskFreeSpace GetDiskFreeSpaceA
-#define GetDiskFreeSpaceEx GetDiskFreeSpaceExA
-#define CreateDirectory CreateDirectoryA
-#define CreateDirectoryEx CreateDirectoryExA
-#define RemoveDirectory RemoveDirectoryA
-#define GetFullPathName GetFullPathNameA
-#define DefineDosDevice DefineDosDeviceA
-#define QueryDosDevice QueryDosDeviceA
-#define CreateFile CreateFileA
-#define SetFileAttributes SetFileAttributesA
-#define GetFileAttributes GetFileAttributesA
-#endif
+#define SetCurrentDirectory __MINGW_NAME_AW(SetCurrentDirectory)
+#define GetCurrentDirectory __MINGW_NAME_AW(GetCurrentDirectory)
+#define SetDllDirectory __MINGW_NAME_AW(SetDllDirectory)
+#define GetDllDirectory __MINGW_NAME_AW(GetDllDirectory)
+#define GetDiskFreeSpace __MINGW_NAME_AW(GetDiskFreeSpace)
+#define GetDiskFreeSpaceEx __MINGW_NAME_AW(GetDiskFreeSpaceEx)
+#define CreateDirectory __MINGW_NAME_AW(CreateDirectory)
+#define CreateDirectoryEx __MINGW_NAME_AW(CreateDirectoryEx)
+#define RemoveDirectory __MINGW_NAME_AW(RemoveDirectory)
+#define GetFullPathName __MINGW_NAME_AW(GetFullPathName)
+#define DefineDosDevice __MINGW_NAME_AW(DefineDosDevice)
+#define QueryDosDevice __MINGW_NAME_AW(QueryDosDevice)
+#define CreateFile __MINGW_NAME_AW(CreateFile)
+#define SetFileAttributes __MINGW_NAME_AW(SetFileAttributes)
+#define GetFileAttributes __MINGW_NAME_AW(GetFileAttributes)
 
   WINBASEAPI WINBOOL WINAPI SetCurrentDirectoryA(LPCSTR lpPathName);
   WINBASEAPI WINBOOL WINAPI SetCurrentDirectoryW(LPCWSTR lpPathName);
@@ -2234,17 +2091,10 @@ extern "C" {
     GetFileExInfoStandard,GetFileExMaxInfoLevel
   } GET_FILEEX_INFO_LEVELS;
 
-#ifdef UNICODE
-#define GetFileAttributesEx GetFileAttributesExW
-#define GetCompressedFileSize GetCompressedFileSizeW
-#define DeleteFile DeleteFileW
-#define CheckNameLegalDOS8Dot3 CheckNameLegalDOS8Dot3W
-#else
-#define GetFileAttributesEx GetFileAttributesExA
-#define GetCompressedFileSize GetCompressedFileSizeA
-#define DeleteFile DeleteFileA
-#define CheckNameLegalDOS8Dot3 CheckNameLegalDOS8Dot3A
-#endif
+#define GetFileAttributesEx __MINGW_NAME_AW(GetFileAttributesEx)
+#define GetCompressedFileSize __MINGW_NAME_AW(GetCompressedFileSize)
+#define DeleteFile __MINGW_NAME_AW(DeleteFile)
+#define CheckNameLegalDOS8Dot3 __MINGW_NAME_AW(CheckNameLegalDOS8Dot3)
 
   WINBASEAPI WINBOOL WINAPI GetFileAttributesExA(LPCSTR lpFileName,GET_FILEEX_INFO_LEVELS fInfoLevelId,LPVOID lpFileInformation);
   WINBASEAPI WINBOOL WINAPI GetFileAttributesExW(LPCWSTR lpFileName,GET_FILEEX_INFO_LEVELS fInfoLevelId,LPVOID lpFileInformation);
@@ -2265,115 +2115,59 @@ extern "C" {
 
 #define FIND_FIRST_EX_CASE_SENSITIVE 0x1
 
-#ifdef UNICODE
-#define FindFirstFileEx FindFirstFileExW
-#define FindFirstFile FindFirstFileW
-#define FindNextFile FindNextFileW
-#define SearchPath SearchPathW
-#define CopyFile CopyFileW
-#define CopyFileEx CopyFileExW
-#define MoveFile MoveFileW
-#define MoveFileEx MoveFileExW
-#define MoveFileWithProgress MoveFileWithProgressW
-#define ReplaceFile ReplaceFileW
-#define CreateHardLink CreateHardLinkW
-#define CreateNamedPipe CreateNamedPipeW
-#define GetNamedPipeHandleState GetNamedPipeHandleStateW
-#define CallNamedPipe CallNamedPipeW
-#define WaitNamedPipe WaitNamedPipeW
-#define SetVolumeLabel SetVolumeLabelW
-#define GetVolumeInformation GetVolumeInformationW
-#define ClearEventLog ClearEventLogW
-#define BackupEventLog BackupEventLogW
-#define OpenEventLog OpenEventLogW
-#define RegisterEventSource RegisterEventSourceW
-#define OpenBackupEventLog OpenBackupEventLogW
-#define ReadEventLog ReadEventLogW
-#define ReportEvent ReportEventW
-#define AccessCheckAndAuditAlarm AccessCheckAndAuditAlarmW
-#define AccessCheckByTypeAndAuditAlarm AccessCheckByTypeAndAuditAlarmW
-#define AccessCheckByTypeResultListAndAuditAlarm AccessCheckByTypeResultListAndAuditAlarmW
-#define AccessCheckByTypeResultListAndAuditAlarmByHandle AccessCheckByTypeResultListAndAuditAlarmByHandleW
-#define ObjectOpenAuditAlarm ObjectOpenAuditAlarmW
-#define ObjectPrivilegeAuditAlarm ObjectPrivilegeAuditAlarmW
-#define ObjectCloseAuditAlarm ObjectCloseAuditAlarmW
-#define ObjectDeleteAuditAlarm ObjectDeleteAuditAlarmW
-#define PrivilegedServiceAuditAlarm PrivilegedServiceAuditAlarmW
-#define SetFileSecurity SetFileSecurityW
-#define GetFileSecurity GetFileSecurityW
-#define FindFirstChangeNotification FindFirstChangeNotificationW
-#define IsBadStringPtr IsBadStringPtrW
-#define LookupAccountSid LookupAccountSidW
-#define LookupAccountName LookupAccountNameW
-#define LookupPrivilegeValue LookupPrivilegeValueW
-#define LookupPrivilegeName LookupPrivilegeNameW
-#define LookupPrivilegeDisplayName LookupPrivilegeDisplayNameW
-#define BuildCommDCB BuildCommDCBW
-#define BuildCommDCBAndTimeouts BuildCommDCBAndTimeoutsW
-#define CommConfigDialog CommConfigDialogW
-#define GetDefaultCommConfig GetDefaultCommConfigW
-#define SetDefaultCommConfig SetDefaultCommConfigW
-#define GetComputerName GetComputerNameW
-#define SetComputerName SetComputerNameW
-#define GetComputerNameEx GetComputerNameExW
-#define SetComputerNameEx SetComputerNameExW
-#define DnsHostnameToComputerName DnsHostnameToComputerNameW
-#define GetUserName GetUserNameW
-#else
-#define FindFirstFileEx FindFirstFileExA
-#define FindFirstFile FindFirstFileA
-#define FindNextFile FindNextFileA
-#define SearchPath SearchPathA
-#define CopyFile CopyFileA
-#define CopyFileEx CopyFileExA
-#define MoveFile MoveFileA
-#define MoveFileEx MoveFileExA
-#define MoveFileWithProgress MoveFileWithProgressA
-#define ReplaceFile ReplaceFileA
-#define CreateHardLink CreateHardLinkA
-#define CreateNamedPipe CreateNamedPipeA
-#define GetNamedPipeHandleState GetNamedPipeHandleStateA
-#define CallNamedPipe CallNamedPipeA
-#define WaitNamedPipe WaitNamedPipeA
-#define SetVolumeLabel SetVolumeLabelA
-#define GetVolumeInformation GetVolumeInformationA
-#define ClearEventLog ClearEventLogA
-#define BackupEventLog BackupEventLogA
-#define OpenEventLog OpenEventLogA
-#define RegisterEventSource RegisterEventSourceA
-#define OpenBackupEventLog OpenBackupEventLogA
-#define ReadEventLog ReadEventLogA
-#define ReportEvent ReportEventA
-#define AccessCheckAndAuditAlarm AccessCheckAndAuditAlarmA
-#define AccessCheckByTypeAndAuditAlarm AccessCheckByTypeAndAuditAlarmA
-#define AccessCheckByTypeResultListAndAuditAlarm AccessCheckByTypeResultListAndAuditAlarmA
-#define AccessCheckByTypeResultListAndAuditAlarmByHandle AccessCheckByTypeResultListAndAuditAlarmByHandleA
-#define ObjectOpenAuditAlarm ObjectOpenAuditAlarmA
-#define ObjectPrivilegeAuditAlarm ObjectPrivilegeAuditAlarmA
-#define ObjectCloseAuditAlarm ObjectCloseAuditAlarmA
-#define ObjectDeleteAuditAlarm ObjectDeleteAuditAlarmA
-#define PrivilegedServiceAuditAlarm PrivilegedServiceAuditAlarmA
-#define SetFileSecurity SetFileSecurityA
-#define GetFileSecurity GetFileSecurityA
-#define FindFirstChangeNotification FindFirstChangeNotificationA
-#define IsBadStringPtr IsBadStringPtrA
-#define LookupAccountSid LookupAccountSidA
-#define LookupAccountName LookupAccountNameA
-#define LookupPrivilegeValue LookupPrivilegeValueA
-#define LookupPrivilegeName LookupPrivilegeNameA
-#define LookupPrivilegeDisplayName LookupPrivilegeDisplayNameA
-#define BuildCommDCB BuildCommDCBA
-#define BuildCommDCBAndTimeouts BuildCommDCBAndTimeoutsA
-#define CommConfigDialog CommConfigDialogA
-#define GetDefaultCommConfig GetDefaultCommConfigA
-#define SetDefaultCommConfig SetDefaultCommConfigA
-#define GetComputerName GetComputerNameA
-#define SetComputerName SetComputerNameA
-#define GetComputerNameEx GetComputerNameExA
-#define SetComputerNameEx SetComputerNameExA
-#define DnsHostnameToComputerName DnsHostnameToComputerNameA
-#define GetUserName GetUserNameA
-#endif
+#define FindFirstFileEx __MINGW_NAME_AW(FindFirstFileEx)
+#define FindFirstFile __MINGW_NAME_AW(FindFirstFile)
+#define FindNextFile __MINGW_NAME_AW(FindNextFile)
+#define SearchPath __MINGW_NAME_AW(SearchPath)
+#define CopyFile __MINGW_NAME_AW(CopyFile)
+#define CopyFileEx __MINGW_NAME_AW(CopyFileEx)
+#define MoveFile __MINGW_NAME_AW(MoveFile)
+#define MoveFileEx __MINGW_NAME_AW(MoveFileEx)
+#define MoveFileWithProgress __MINGW_NAME_AW(MoveFileWithProgress)
+#define ReplaceFile __MINGW_NAME_AW(ReplaceFile)
+#define CreateHardLink __MINGW_NAME_AW(CreateHardLink)
+#define CreateNamedPipe __MINGW_NAME_AW(CreateNamedPipe)
+#define GetNamedPipeHandleState __MINGW_NAME_AW(GetNamedPipeHandleState)
+#define CallNamedPipe __MINGW_NAME_AW(CallNamedPipe)
+#define WaitNamedPipe __MINGW_NAME_AW(WaitNamedPipe)
+#define SetVolumeLabel __MINGW_NAME_AW(SetVolumeLabel)
+#define GetVolumeInformation __MINGW_NAME_AW(GetVolumeInformation)
+#define ClearEventLog __MINGW_NAME_AW(ClearEventLog)
+#define BackupEventLog __MINGW_NAME_AW(BackupEventLog)
+#define OpenEventLog __MINGW_NAME_AW(OpenEventLog)
+#define RegisterEventSource __MINGW_NAME_AW(RegisterEventSource)
+#define OpenBackupEventLog __MINGW_NAME_AW(OpenBackupEventLog)
+#define ReadEventLog __MINGW_NAME_AW(ReadEventLog)
+#define ReportEvent __MINGW_NAME_AW(ReportEvent)
+#define AccessCheckAndAuditAlarm __MINGW_NAME_AW(AccessCheckAndAuditAlarm)
+#define AccessCheckByTypeAndAuditAlarm __MINGW_NAME_AW(AccessCheckByTypeAndAuditAlarm)
+#define AccessCheckByTypeResultListAndAuditAlarm __MINGW_NAME_AW(AccessCheckByTypeResultListAndAuditAlarm)
+#define AccessCheckByTypeResultListAndAuditAlarmByHandle __MINGW_NAME_AW(AccessCheckByTypeResultListAndAuditAlarmByHandle)
+#define ObjectOpenAuditAlarm __MINGW_NAME_AW(ObjectOpenAuditAlarm)
+#define ObjectPrivilegeAuditAlarm __MINGW_NAME_AW(ObjectPrivilegeAuditAlarm)
+#define ObjectCloseAuditAlarm __MINGW_NAME_AW(ObjectCloseAuditAlarm)
+#define ObjectDeleteAuditAlarm __MINGW_NAME_AW(ObjectDeleteAuditAlarm)
+#define PrivilegedServiceAuditAlarm __MINGW_NAME_AW(PrivilegedServiceAuditAlarm)
+#define SetFileSecurity __MINGW_NAME_AW(SetFileSecurity)
+#define GetFileSecurity __MINGW_NAME_AW(GetFileSecurity)
+#define FindFirstChangeNotification __MINGW_NAME_AW(FindFirstChangeNotification)
+#define IsBadStringPtr __MINGW_NAME_AW(IsBadStringPtr)
+#define LookupAccountSid __MINGW_NAME_AW(LookupAccountSid)
+#define LookupAccountName __MINGW_NAME_AW(LookupAccountName)
+#define LookupPrivilegeValue __MINGW_NAME_AW(LookupPrivilegeValue)
+#define LookupPrivilegeName __MINGW_NAME_AW(LookupPrivilegeName)
+#define LookupPrivilegeDisplayName __MINGW_NAME_AW(LookupPrivilegeDisplayName)
+#define BuildCommDCB __MINGW_NAME_AW(BuildCommDCB)
+#define BuildCommDCBAndTimeouts __MINGW_NAME_AW(BuildCommDCBAndTimeouts)
+#define CommConfigDialog __MINGW_NAME_AW(CommConfigDialog)
+#define GetDefaultCommConfig __MINGW_NAME_AW(GetDefaultCommConfig)
+#define SetDefaultCommConfig __MINGW_NAME_AW(SetDefaultCommConfig)
+#define GetComputerName __MINGW_NAME_AW(GetComputerName)
+#define SetComputerName __MINGW_NAME_AW(SetComputerName)
+#define GetComputerNameEx __MINGW_NAME_AW(GetComputerNameEx)
+#define SetComputerNameEx __MINGW_NAME_AW(SetComputerNameEx)
+#define DnsHostnameToComputerName __MINGW_NAME_AW(DnsHostnameToComputerName)
+#define GetUserName __MINGW_NAME_AW(GetUserName)
 
   WINBASEAPI HANDLE WINAPI FindFirstFileExA(LPCSTR lpFileName,FINDEX_INFO_LEVELS fInfoLevelId,LPVOID lpFindFileData,FINDEX_SEARCH_OPS fSearchOp,LPVOID lpSearchFilter,DWORD dwAdditionalFlags);
   WINBASEAPI HANDLE WINAPI FindFirstFileExW(LPCWSTR lpFileName,FINDEX_INFO_LEVELS fInfoLevelId,LPVOID lpFindFileData,FINDEX_SEARCH_OPS fSearchOp,LPVOID lpSearchFilter,DWORD dwAdditionalFlags);
@@ -2636,15 +2430,9 @@ extern "C" {
 #define LOGON32_PROVIDER_WINNT40 2
 #define LOGON32_PROVIDER_WINNT50 3
 
-#ifdef UNICODE
-#define LogonUser LogonUserW
-#define LogonUserEx LogonUserExW
-#define CreateProcessAsUser CreateProcessAsUserW
-#else
-#define LogonUser LogonUserA
-#define LogonUserEx LogonUserExA
-#define CreateProcessAsUser CreateProcessAsUserA
-#endif
+#define LogonUser __MINGW_NAME_AW(LogonUser)
+#define LogonUserEx __MINGW_NAME_AW(LogonUserEx)
+#define CreateProcessAsUser __MINGW_NAME_AW(CreateProcessAsUser)
 
   WINADVAPI WINBOOL WINAPI LogonUserA(LPCSTR lpszUsername,LPCSTR lpszDomain,LPCSTR lpszPassword,DWORD dwLogonType,DWORD dwLogonProvider,PHANDLE phToken);
   WINADVAPI WINBOOL WINAPI LogonUserW(LPCWSTR lpszUsername,LPCWSTR lpszDomain,LPCWSTR lpszPassword,DWORD dwLogonType,DWORD dwLogonProvider,PHANDLE phToken);
@@ -2705,23 +2493,12 @@ extern "C" {
     WCHAR szHwProfileName[MAX_PROFILE_LEN];
   } HW_PROFILE_INFOW,*LPHW_PROFILE_INFOW;
 
-#ifdef UNICODE
-  typedef HW_PROFILE_INFOW HW_PROFILE_INFO;
-  typedef LPHW_PROFILE_INFOW LPHW_PROFILE_INFO;
-#else
-  typedef HW_PROFILE_INFOA HW_PROFILE_INFO;
-  typedef LPHW_PROFILE_INFOA LPHW_PROFILE_INFO;
-#endif
+  __MINGW_TYPEDEF_AW(HW_PROFILE_INFO)
+  __MINGW_TYPEDEF_AW(LPHW_PROFILE_INFO)
 
-#ifdef UNICODE
-#define GetCurrentHwProfile GetCurrentHwProfileW
-#define GetVersionEx GetVersionExW
-#define VerifyVersionInfo VerifyVersionInfoW
-#else
-#define GetCurrentHwProfile GetCurrentHwProfileA
-#define GetVersionEx GetVersionExA
-#define VerifyVersionInfo VerifyVersionInfoA
-#endif
+#define GetCurrentHwProfile __MINGW_NAME_AW(GetCurrentHwProfile)
+#define GetVersionEx __MINGW_NAME_AW(GetVersionEx)
+#define VerifyVersionInfo __MINGW_NAME_AW(VerifyVersionInfo)
 
   WINADVAPI WINBOOL WINAPI GetCurrentHwProfileA (LPHW_PROFILE_INFOA lpHwProfileInfo);
   WINADVAPI WINBOOL WINAPI GetCurrentHwProfileW (LPHW_PROFILE_INFOW lpHwProfileInfo);
@@ -2764,31 +2541,17 @@ extern "C" {
     DWORD BatteryFullLifeTime;
   } SYSTEM_POWER_STATUS,*LPSYSTEM_POWER_STATUS;
 
-#ifdef UNICODE
-#define CreateJobObject CreateJobObjectW
-#define OpenJobObject OpenJobObjectW
-#define FindFirstVolume FindFirstVolumeW
-#define FindNextVolume FindNextVolumeW
-#define FindFirstVolumeMountPoint FindFirstVolumeMountPointW
-#define FindNextVolumeMountPoint FindNextVolumeMountPointW
-#define SetVolumeMountPoint SetVolumeMountPointW
-#define DeleteVolumeMountPoint DeleteVolumeMountPointW
-#define GetVolumeNameForVolumeMountPoint GetVolumeNameForVolumeMountPointW
-#define GetVolumePathName GetVolumePathNameW
-#define GetVolumePathNamesForVolumeName GetVolumePathNamesForVolumeNameW
-#else
-#define CreateJobObject CreateJobObjectA
-#define OpenJobObject OpenJobObjectA
-#define FindFirstVolume FindFirstVolumeA
-#define FindNextVolume FindNextVolumeA
-#define FindFirstVolumeMountPoint FindFirstVolumeMountPointA
-#define FindNextVolumeMountPoint FindNextVolumeMountPointA
-#define SetVolumeMountPoint SetVolumeMountPointA
-#define DeleteVolumeMountPoint DeleteVolumeMountPointA
-#define GetVolumeNameForVolumeMountPoint GetVolumeNameForVolumeMountPointA
-#define GetVolumePathName GetVolumePathNameA
-#define GetVolumePathNamesForVolumeName GetVolumePathNamesForVolumeNameA
-#endif
+#define CreateJobObject __MINGW_NAME_AW(CreateJobObject)
+#define OpenJobObject __MINGW_NAME_AW(OpenJobObject)
+#define FindFirstVolume __MINGW_NAME_AW(FindFirstVolume)
+#define FindNextVolume __MINGW_NAME_AW(FindNextVolume)
+#define FindFirstVolumeMountPoint __MINGW_NAME_AW(FindFirstVolumeMountPoint)
+#define FindNextVolumeMountPoint __MINGW_NAME_AW(FindNextVolumeMountPoint)
+#define SetVolumeMountPoint __MINGW_NAME_AW(SetVolumeMountPoint)
+#define DeleteVolumeMountPoint __MINGW_NAME_AW(DeleteVolumeMountPoint)
+#define GetVolumeNameForVolumeMountPoint __MINGW_NAME_AW(GetVolumeNameForVolumeMountPoint)
+#define GetVolumePathName __MINGW_NAME_AW(GetVolumePathName)
+#define GetVolumePathNamesForVolumeName __MINGW_NAME_AW(GetVolumePathNamesForVolumeName)
 
   WINBOOL WINAPI GetSystemPowerStatus(LPSYSTEM_POWER_STATUS lpSystemPowerStatus);
   WINBOOL WINAPI SetSystemPowerState(WINBOOL fSuspend,WINBOOL fForce);
@@ -2867,21 +2630,11 @@ extern "C" {
   typedef const ACTCTXA *PCACTCTXA;
   typedef const ACTCTXW *PCACTCTXW;
 
-#ifdef UNICODE
-  typedef ACTCTXW ACTCTX;
-  typedef PACTCTXW PACTCTX;
-  typedef PCACTCTXW PCACTCTX;
-#else
-  typedef ACTCTXA ACTCTX;
-  typedef PACTCTXA PACTCTX;
-  typedef PCACTCTXA PCACTCTX;
-#endif
+  __MINGW_TYPEDEF_AW(ACTCTX)
+  __MINGW_TYPEDEF_AW(PACTCTX)
+  __MINGW_TYPEDEF_AW(PCACTCTX)
 
-#ifdef UNICODE
-#define CreateActCtx CreateActCtxW
-#else
-#define CreateActCtx CreateActCtxA
-#endif
+#define CreateActCtx __MINGW_NAME_AW(CreateActCtx)
 
   WINBASEAPI HANDLE WINAPI CreateActCtxA(PCACTCTXA pActCtx);
   WINBASEAPI HANDLE WINAPI CreateActCtxW(PCACTCTXW pActCtx);
@@ -2942,11 +2695,7 @@ extern "C" {
 #define FIND_ACTCTX_SECTION_KEY_RETURN_FLAGS 0x2
 #define FIND_ACTCTX_SECTION_KEY_RETURN_ASSEMBLY_METADATA 0x4
 
-#ifdef UNICODE
-#define FindActCtxSectionString FindActCtxSectionStringW
-#else
-#define FindActCtxSectionString FindActCtxSectionStringA
-#endif
+#define FindActCtxSectionString __MINGW_NAME_AW(FindActCtxSectionString)
 
   WINBASEAPI WINBOOL WINAPI FindActCtxSectionStringA(DWORD dwFlags,const GUID *lpExtensionGuid,ULONG ulSectionId,LPCSTR lpStringToFind,PACTCTX_SECTION_KEYED_DATA ReturnedData);
   WINBASEAPI WINBOOL WINAPI FindActCtxSectionStringW(DWORD dwFlags,const GUID *lpExtensionGuid,ULONG ulSectionId,LPCWSTR lpStringToFind,PACTCTX_SECTION_KEYED_DATA ReturnedData);
@@ -2991,19 +2740,13 @@ extern "C" {
 
   WINBASEAPI WINBOOL WINAPI CreateSymbolicLinkA (LPSTR lpSymLinkFileName, LPSTR lpTargetFileName, DWORD dwFlags);
   WINBASEAPI WINBOOL WINAPI CreateSymbolicLinkW (LPWSTR lpSymLinkFileName, LPWSTR lpTargetFileName, DWORD dwFlags);
-#ifdef UNICODE
-#define CreateSymbolicLink CreateSymbolicLinkW
-#define CreateBoundaryDescriptor CreateBoundaryDescriptorW
-#define OpenPrivateNamespace OpenPrivateNamespaceW
-#define CreatePrivateNamespace CreatePrivateNamespaceW
-#else
-#define CreateSymbolicLink CreateSymbolicLinkA
-#define CreateBoundaryDescriptor CreateBoundaryDescriptorA
-#define OpenPrivateNamespace OpenPrivateNamespaceA
-#define CreatePrivateNamespace CreatePrivateNamespaceA
-#endif
 
-/*Condition Variables http://msdn.microsoft.com/en-us/library/ms682052%28VS.85%29.aspx*/
+#define CreateSymbolicLink __MINGW_NAME_AW(CreateSymbolicLink)
+#define CreateBoundaryDescriptor __MINGW_NAME_AW(CreateBoundaryDescriptor)
+#define OpenPrivateNamespace __MINGW_NAME_AW(OpenPrivateNamespace)
+#define CreatePrivateNamespace __MINGW_NAME_AW(CreatePrivateNamespace)
+
+/* Condition Variables http://msdn.microsoft.com/en-us/library/ms682052%28VS.85%29.aspx  */
 typedef RTL_CONDITION_VARIABLE CONDITION_VARIABLE, *PCONDITION_VARIABLE;
 typedef RTL_SRWLOCK SRWLOCK, *PSRWLOCK;
 

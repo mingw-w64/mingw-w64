@@ -92,23 +92,14 @@ extern "C" {
     LPBYTE Value;
   } CREDENTIAL_ATTRIBUTEW,*PCREDENTIAL_ATTRIBUTEW;
 
-#ifdef UNICODE
-  typedef CREDENTIAL_ATTRIBUTEW CREDENTIAL_ATTRIBUTE;
-  typedef PCREDENTIAL_ATTRIBUTEW PCREDENTIAL_ATTRIBUTE;
-#else
-  typedef CREDENTIAL_ATTRIBUTEA CREDENTIAL_ATTRIBUTE;
-  typedef PCREDENTIAL_ATTRIBUTEA PCREDENTIAL_ATTRIBUTE;
-#endif
+  __MINGW_TYPEDEF_AW(CREDENTIAL_ATTRIBUTE)
+  __MINGW_TYPEDEF_AW(PCREDENTIAL_ATTRIBUTE)
 
 #define CRED_SESSION_WILDCARD_NAME_W L"*Session"
 #define CRED_SESSION_WILDCARD_NAME_A "*Session"
 #define CRED_SESSION_WILDCARD_NAME_LENGTH (sizeof(CRED_SESSION_WILDCARD_NAME_A)-1)
 
-#ifdef UNICODE
-#define CRED_SESSION_WILDCARD_NAME CRED_SESSION_WILDCARD_NAME_W
-#else
-#define CRED_SESSION_WILDCARD_NAME CRED_SESSION_WILDCARD_NAME_A
-#endif
+#define CRED_SESSION_WILDCARD_NAME __MINGW_NAME__AW(CRED_SESSION_WILDCARD_NAME)
 
 #define CRED_FLAGS_PASSWORD_FOR_CERT 0x0001
 #define CRED_FLAGS_PROMPT_NOW 0x0002
@@ -160,13 +151,8 @@ extern "C" {
     LPWSTR UserName;
   } CREDENTIALW,*PCREDENTIALW;
 
-#ifdef UNICODE
-  typedef CREDENTIALW CREDENTIAL;
-  typedef PCREDENTIALW PCREDENTIAL;
-#else
-  typedef CREDENTIALA CREDENTIAL;
-  typedef PCREDENTIALA PCREDENTIAL;
-#endif
+  __MINGW_TYPEDEF_AW(CREDENTIAL)
+  __MINGW_TYPEDEF_AW(PCREDENTIAL)
 
 #define CRED_TI_SERVER_FORMAT_UNKNOWN 0x0001
 #define CRED_TI_DOMAIN_FORMAT_UNKNOWN 0x0002
@@ -202,13 +188,8 @@ extern "C" {
     LPDWORD CredTypes;
   } CREDENTIAL_TARGET_INFORMATIONW,*PCREDENTIAL_TARGET_INFORMATIONW;
 
-#ifdef UNICODE
-  typedef CREDENTIAL_TARGET_INFORMATIONW CREDENTIAL_TARGET_INFORMATION;
-  typedef PCREDENTIAL_TARGET_INFORMATIONW PCREDENTIAL_TARGET_INFORMATION;
-#else
-  typedef CREDENTIAL_TARGET_INFORMATIONA CREDENTIAL_TARGET_INFORMATION;
-  typedef PCREDENTIAL_TARGET_INFORMATIONA PCREDENTIAL_TARGET_INFORMATION;
-#endif
+  __MINGW_TYPEDEF_AW(CREDENTIAL_TARGET_INFORMATION)
+  __MINGW_TYPEDEF_AW(PCREDENTIAL_TARGET_INFORMATION)
 
 #define CERT_HASH_LENGTH 20
 
@@ -241,13 +222,8 @@ extern "C" {
     HBITMAP hbmBanner;
   } CREDUI_INFOW,*PCREDUI_INFOW;
 
-#ifdef UNICODE
-  typedef CREDUI_INFOW CREDUI_INFO;
-  typedef PCREDUI_INFOW PCREDUI_INFO;
-#else
-  typedef CREDUI_INFOA CREDUI_INFO;
-  typedef PCREDUI_INFOA PCREDUI_INFO;
-#endif
+  __MINGW_TYPEDEF_AW(CREDUI_INFO)
+  __MINGW_TYPEDEF_AW(PCREDUI_INFO)
 
 #define CREDUI_MAX_MESSAGE_LENGTH 32767
 #define CREDUI_MAX_CAPTION_LENGTH 128
@@ -278,39 +254,21 @@ extern "C" {
 
 #define CRED_PRESERVE_CREDENTIAL_BLOB 0x1
 
-#ifdef UNICODE
-#define CredWrite CredWriteW
-#define CredRead CredReadW
-#define CredEnumerate CredEnumerateW
-#define CredWriteDomainCredentials CredWriteDomainCredentialsW
-#define CredReadDomainCredentials CredReadDomainCredentialsW
-#define CredDelete CredDeleteW
-#define CredRename CredRenameW
-#define CredGetTargetInfo CredGetTargetInfoW
-#define CredMarshalCredential CredMarshalCredentialW
-#define CredUnmarshalCredential CredUnmarshalCredentialW
-#define CredIsMarshaledCredential CredIsMarshaledCredentialW
-#define CredUIPromptForCredentials CredUIPromptForCredentialsW
-#define CredUIParseUserName CredUIParseUserNameW
-#define CredUICmdLinePromptForCredentials CredUICmdLinePromptForCredentialsW
-#define CredUIConfirmCredentials CredUIConfirmCredentialsW
-#else
-#define CredWrite CredWriteA
-#define CredRead CredReadA
-#define CredEnumerate CredEnumerateA
-#define CredWriteDomainCredentials CredWriteDomainCredentialsA
-#define CredReadDomainCredentials CredReadDomainCredentialsA
-#define CredDelete CredDeleteA
-#define CredRename CredRenameA
-#define CredGetTargetInfo CredGetTargetInfoA
-#define CredMarshalCredential CredMarshalCredentialA
-#define CredUnmarshalCredential CredUnmarshalCredentialA
-#define CredIsMarshaledCredential CredIsMarshaledCredentialA
-#define CredUIPromptForCredentials CredUIPromptForCredentialsA
-#define CredUIParseUserName CredUIParseUserNameA
-#define CredUICmdLinePromptForCredentials CredUICmdLinePromptForCredentialsA
-#define CredUIConfirmCredentials CredUIConfirmCredentialsA
-#endif
+#define CredWrite __MINGW_NAME_AW(CredWrite)
+#define CredRead __MINGW_NAME_AW(CredRead)
+#define CredEnumerate __MINGW_NAME_AW(CredEnumerate)
+#define CredWriteDomainCredentials __MINGW_NAME_AW(CredWriteDomainCredentials)
+#define CredReadDomainCredentials __MINGW_NAME_AW(CredReadDomainCredentials)
+#define CredDelete __MINGW_NAME_AW(CredDelete)
+#define CredRename __MINGW_NAME_AW(CredRename)
+#define CredGetTargetInfo __MINGW_NAME_AW(CredGetTargetInfo)
+#define CredMarshalCredential __MINGW_NAME_AW(CredMarshalCredential)
+#define CredUnmarshalCredential __MINGW_NAME_AW(CredUnmarshalCredential)
+#define CredIsMarshaledCredential __MINGW_NAME_AW(CredIsMarshaledCredential)
+#define CredUIPromptForCredentials __MINGW_NAME_AW(CredUIPromptForCredentials)
+#define CredUIParseUserName __MINGW_NAME_AW(CredUIParseUserName)
+#define CredUICmdLinePromptForCredentials __MINGW_NAME_AW(CredUICmdLinePromptForCredentials)
+#define CredUIConfirmCredentials __MINGW_NAME_AW(CredUIConfirmCredentials)
 
   WINADVAPI WINBOOL WINAPI CredWriteW(PCREDENTIALW Credential,DWORD Flags);
   WINADVAPI WINBOOL WINAPI CredWriteA(PCREDENTIALA Credential,DWORD Flags);

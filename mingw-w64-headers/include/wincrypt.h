@@ -429,27 +429,15 @@ extern "C" {
 #define PROV_REPLACE_OWF 23
 #define PROV_RSA_AES 24
 
-#ifdef UNICODE
-#define MS_DEF_PROV MS_DEF_PROV_W
-#define MS_ENHANCED_PROV MS_ENHANCED_PROV_W
-#define MS_STRONG_PROV MS_STRONG_PROV_W
-#define MS_DEF_RSA_SIG_PROV MS_DEF_RSA_SIG_PROV_W
-#define MS_DEF_RSA_SCHANNEL_PROV MS_DEF_RSA_SCHANNEL_PROV_W
-#define MS_DEF_DSS_PROV MS_DEF_DSS_PROV_W
-#define MS_DEF_DSS_DH_PROV MS_DEF_DSS_DH_PROV_W
-#define MS_ENH_DSS_DH_PROV MS_ENH_DSS_DH_PROV_W
-#define MS_DEF_DH_SCHANNEL_PROV MS_DEF_DH_SCHANNEL_PROV_W
-#else
-#define MS_DEF_PROV MS_DEF_PROV_A
-#define MS_ENHANCED_PROV MS_ENHANCED_PROV_A
-#define MS_STRONG_PROV MS_STRONG_PROV_A
-#define MS_DEF_RSA_SIG_PROV MS_DEF_RSA_SIG_PROV_A
-#define MS_DEF_RSA_SCHANNEL_PROV MS_DEF_RSA_SCHANNEL_PROV_A
-#define MS_DEF_DSS_PROV MS_DEF_DSS_PROV_A
-#define MS_DEF_DSS_DH_PROV MS_DEF_DSS_DH_PROV_A
-#define MS_ENH_DSS_DH_PROV MS_ENH_DSS_DH_PROV_A
-#define MS_DEF_DH_SCHANNEL_PROV MS_DEF_DH_SCHANNEL_PROV_A
-#endif
+#define MS_DEF_PROV __MINGW_NAME__AW(MS_DEF_PROV)
+#define MS_ENHANCED_PROV __MINGW_NAME__AW(MS_ENHANCED_PROV)
+#define MS_STRONG_PROV __MINGW_NAME__AW(MS_STRONG_PROV)
+#define MS_DEF_RSA_SIG_PROV __MINGW_NAME__AW(MS_DEF_RSA_SIG_PROV)
+#define MS_DEF_RSA_SCHANNEL_PROV __MINGW_NAME__AW(MS_DEF_RSA_SCHANNEL_PROV)
+#define MS_DEF_DSS_PROV __MINGW_NAME__AW(MS_DEF_DSS_PROV)
+#define MS_DEF_DSS_DH_PROV __MINGW_NAME__AW(MS_DEF_DSS_DH_PROV)
+#define MS_ENH_DSS_DH_PROV __MINGW_NAME__AW(MS_ENH_DSS_DH_PROV)
+#define MS_DEF_DH_SCHANNEL_PROV __MINGW_NAME__AW(MS_DEF_DH_SCHANNEL_PROV)
 
 #define MS_DEF_PROV_A "Microsoft Base Cryptographic Provider v1.0"
 #define MS_DEF_PROV_W L"Microsoft Base Cryptographic Provider v1.0"
@@ -470,13 +458,8 @@ extern "C" {
 #define MS_DEF_DH_SCHANNEL_PROV_A "Microsoft DH SChannel Cryptographic Provider"
 #define MS_DEF_DH_SCHANNEL_PROV_W L"Microsoft DH SChannel Cryptographic Provider"
 
-#ifdef UNICODE
-#define MS_SCARD_PROV MS_SCARD_PROV_W
-#define MS_ENH_RSA_AES_PROV MS_ENH_RSA_AES_PROV_W
-#else
-#define MS_SCARD_PROV MS_SCARD_PROV_A
-#define MS_ENH_RSA_AES_PROV MS_ENH_RSA_AES_PROV_A
-#endif
+#define MS_SCARD_PROV __MINGW_NAME__AW(MS_SCARD_PROV)
+#define MS_ENH_RSA_AES_PROV __MINGW_NAME__AW(MS_ENH_RSA_AES_PROV)
 
 #define MS_SCARD_PROV_A "Microsoft Base Smart Card Crypto Provider"
 #define MS_SCARD_PROV_W L"Microsoft Base Smart Card Crypto Provider"
@@ -640,15 +623,9 @@ extern "C" {
     void *pReserved;
   } CMS_DH_KEY_INFO,*PCMS_DH_KEY_INFO;
 
-#ifdef UNICODE
-#define CryptAcquireContext CryptAcquireContextW
-#define CryptSignHash CryptSignHashW
-#define CryptVerifySignature CryptVerifySignatureW
-#else
-#define CryptAcquireContext CryptAcquireContextA
-#define CryptSignHash CryptSignHashA
-#define CryptVerifySignature CryptVerifySignatureA
-#endif
+#define CryptAcquireContext __MINGW_NAME_AW(CryptAcquireContext)
+#define CryptSignHash __MINGW_NAME_AW(CryptSignHash)
+#define CryptVerifySignature __MINGW_NAME_AW(CryptVerifySignature)
 
   WINIMPM WINBOOL WINAPI CryptAcquireContextA(HCRYPTPROV *phProv,LPCSTR szContainer,LPCSTR szProvider,DWORD dwProvType,DWORD dwFlags);
   WINIMPM WINBOOL WINAPI CryptAcquireContextW(HCRYPTPROV *phProv,LPCWSTR szContainer,LPCWSTR szProvider,DWORD dwProvType,DWORD dwFlags);
@@ -678,19 +655,12 @@ extern "C" {
   WINIMPM WINBOOL WINAPI CryptVerifySignatureW(HCRYPTHASH hHash,CONST BYTE *pbSignature,DWORD dwSigLen,HCRYPTKEY hPubKey,LPCWSTR szDescription,DWORD dwFlags);
   WINIMPM WINBOOL WINAPI CryptSetProviderA(LPCSTR pszProvName,DWORD dwProvType);
   WINIMPM WINBOOL WINAPI CryptSetProviderW(LPCWSTR pszProvName,DWORD dwProvType);
-#ifdef UNICODE
-#define CryptSetProvider CryptSetProviderW
-#define CryptSetProviderEx CryptSetProviderExW
-#define CryptGetDefaultProvider CryptGetDefaultProviderW
-#define CryptEnumProviderTypes CryptEnumProviderTypesW
-#define CryptEnumProviders CryptEnumProvidersW
-#else
-#define CryptSetProvider CryptSetProviderA
-#define CryptSetProviderEx CryptSetProviderExA
-#define CryptGetDefaultProvider CryptGetDefaultProviderA
-#define CryptEnumProviderTypes CryptEnumProviderTypesA
-#define CryptEnumProviders CryptEnumProvidersA
-#endif
+
+#define CryptSetProvider __MINGW_NAME_AW(CryptSetProvider)
+#define CryptSetProviderEx __MINGW_NAME_AW(CryptSetProviderEx)
+#define CryptGetDefaultProvider __MINGW_NAME_AW(CryptGetDefaultProvider)
+#define CryptEnumProviderTypes __MINGW_NAME_AW(CryptEnumProviderTypes)
+#define CryptEnumProviders __MINGW_NAME_AW(CryptEnumProviders)
 
   WINIMPM WINBOOL WINAPI CryptSetProviderExA(LPCSTR pszProvName,DWORD dwProvType,DWORD *pdwReserved,DWORD dwFlags);
   WINIMPM WINBOOL WINAPI CryptSetProviderExW(LPCWSTR pszProvName,DWORD dwProvType,DWORD *pdwReserved,DWORD dwFlags);
@@ -3491,13 +3461,8 @@ extern "C" {
 #define CRYPT_OID_EXPORT_PRIVATE_KEY_INFO_FUNC "CryptDllExportPrivateKeyInfoEx"
 #define CRYPT_DELETE_KEYSET 0x1
 
-#ifdef UNICODE
-#define CertRDNValueToStr CertRDNValueToStrW
-#define CertNameToStr CertNameToStrW
-#else
-#define CertRDNValueToStr CertRDNValueToStrA
-#define CertNameToStr CertNameToStrA
-#endif
+#define CertRDNValueToStr __MINGW_NAME_AW(CertRDNValueToStr)
+#define CertNameToStr __MINGW_NAME_AW(CertNameToStr)
 
   WINIMPM WINBOOL WINAPI CryptExportPKCS8(HCRYPTPROV hCryptProv,DWORD dwKeySpec,LPSTR pszPrivateKeyObjId,DWORD dwFlags,void *pvAuxInfo,BYTE *pbPrivateKeyBlob,DWORD *pcbPrivateKeyBlob);
   WINIMPM WINBOOL WINAPI CryptExportPKCS8Ex(CRYPT_PKCS8_EXPORT_PARAMS *psExportParams,DWORD dwFlags,void *pvAuxInfo,BYTE *pbPrivateKeyBlob,DWORD *pcbPrivateKeyBlob);
@@ -3523,13 +3488,8 @@ extern "C" {
 #define CERT_NAME_STR_ENABLE_UTF8_UNICODE_FLAG 0x40000
 #define CERT_NAME_STR_FORCE_UTF8_DIR_STR_FLAG 0x80000
 
-#ifdef UNICODE
-#define CertStrToName CertStrToNameW
-#define CertGetNameString CertGetNameStringW
-#else
-#define CertStrToName CertStrToNameA
-#define CertGetNameString CertGetNameStringA
-#endif
+#define CertStrToName __MINGW_NAME_AW(CertStrToName)
+#define CertGetNameString __MINGW_NAME_AW(CertGetNameString)
 
   WINIMPM WINBOOL WINAPI CertStrToNameA(DWORD dwCertEncodingType,LPCSTR pszX500,DWORD dwStrType,void *pvReserved,BYTE *pbEncoded,DWORD *pcbEncoded,LPCSTR *ppszError);
   WINIMPM WINBOOL WINAPI CertStrToNameW(DWORD dwCertEncodingType,LPCWSTR pszX500,DWORD dwStrType,void *pvReserved,BYTE *pbEncoded,DWORD *pcbEncoded,LPCWSTR *ppszError);
@@ -3634,13 +3594,8 @@ extern "C" {
     HCRYPTPROV hCryptProv;
   } CRYPT_KEY_VERIFY_MESSAGE_PARA,*PCRYPT_KEY_VERIFY_MESSAGE_PARA;
 
-#ifdef UNICODE
-#define CertOpenSystemStore CertOpenSystemStoreW
-#define CertAddEncodedCertificateToSystemStore CertAddEncodedCertificateToSystemStoreW
-#else
-#define CertOpenSystemStore CertOpenSystemStoreA
-#define CertAddEncodedCertificateToSystemStore CertAddEncodedCertificateToSystemStoreA
-#endif
+#define CertOpenSystemStore __MINGW_NAME_AW(CertOpenSystemStore)
+#define CertAddEncodedCertificateToSystemStore __MINGW_NAME_AW(CertAddEncodedCertificateToSystemStore)
 
   WINIMPM WINBOOL WINAPI CryptSignMessage(PCRYPT_SIGN_MESSAGE_PARA pSignPara,WINBOOL fDetachedSignature,DWORD cToBeSigned,const BYTE *rgpbToBeSigned[],DWORD rgcbToBeSigned[],BYTE *pbSignedBlob,DWORD *pcbSignedBlob);
   WINIMPM WINBOOL WINAPI CryptVerifyMessageSignature(PCRYPT_VERIFY_MESSAGE_PARA pVerifyPara,DWORD dwSignerIndex,const BYTE *pbSignedBlob,DWORD cbSignedBlob,BYTE *pbDecoded,DWORD *pcbDecoded,PCCERT_CONTEXT *ppSignerCert);
@@ -3735,11 +3690,7 @@ extern "C" {
 #define CREDENTIAL_OID_PASSWORD_CREDENTIALS_A ((LPCSTR)1)
 #define CREDENTIAL_OID_PASSWORD_CREDENTIALS_W ((LPCSTR)2)
 
-#ifdef UNICODE
-#define CREDENTIAL_OID_PASSWORD_CREDENTIALS CREDENTIAL_OID_PASSWORD_CREDENTIALS_W
-#else
-#define CREDENTIAL_OID_PASSWORD_CREDENTIALS CREDENTIAL_OID_PASSWORD_CREDENTIALS_A
-#endif
+#define CREDENTIAL_OID_PASSWORD_CREDENTIALS __MINGW_NAME__AW(CREDENTIAL_OID_PASSWORD_CREDENTIALS)
 
   typedef struct _CRYPT_PASSWORD_CREDENTIALSA {
     DWORD cbSize;
@@ -3751,19 +3702,13 @@ extern "C" {
     LPWSTR pszUsername;
     LPWSTR pszPassword;
   } CRYPT_PASSWORD_CREDENTIALSW,*PCRYPT_PASSWORD_CREDENTIALSW;
-#ifdef UNICODE
-  typedef CRYPT_PASSWORD_CREDENTIALSW CRYPT_PASSWORD_CREDENTIALS;
-  typedef PCRYPT_PASSWORD_CREDENTIALSW PCRYPT_PASSWORD_CREDENTIALS;
-#define CryptRetrieveObjectByUrl CryptRetrieveObjectByUrlW
-#define CryptStringToBinary CryptStringToBinaryW
-#define CryptBinaryToString CryptBinaryToStringW
-#else
-  typedef CRYPT_PASSWORD_CREDENTIALSA CRYPT_PASSWORD_CREDENTIALS;
-  typedef PCRYPT_PASSWORD_CREDENTIALSA PCRYPT_PASSWORD_CREDENTIALS;
-#define CryptRetrieveObjectByUrl CryptRetrieveObjectByUrlA
-#define CryptStringToBinary CryptStringToBinaryA
-#define CryptBinaryToString CryptBinaryToStringA
-#endif
+
+  __MINGW_TYPEDEF_AW(CRYPT_PASSWORD_CREDENTIALS)
+  __MINGW_TYPEDEF_AW(PCRYPT_PASSWORD_CREDENTIALS)
+
+#define CryptRetrieveObjectByUrl __MINGW_NAME_AW(CryptRetrieveObjectByUrl)
+#define CryptStringToBinary __MINGW_NAME_AW(CryptStringToBinary)
+#define CryptBinaryToString __MINGW_NAME_AW(CryptBinaryToString)
 
 #define SCHEME_OID_RETRIEVE_ENCODED_OBJECT_FUNC "SchemeDllRetrieveEncodedObject"
 #define SCHEME_OID_RETRIEVE_ENCODED_OBJECTW_FUNC "SchemeDllRetrieveEncodedObjectW"
