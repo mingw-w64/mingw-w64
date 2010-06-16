@@ -36,19 +36,11 @@ extern "C" {
 #define ualstrlenA lstrlenA
 #define ualstrcpyA lstrcpyA
 
-#ifdef UNICODE
-#define ualstrcpyn ualstrcpynW
-#define ualstrcmpi ualstrcmpiW
-#define ualstrcmp ualstrcmpW
-#define ualstrlen ualstrlenW
-#define ualstrcpy ualstrcpyW
-#else
-#define ualstrcpyn ualstrcpynA
-#define ualstrcmpi ualstrcmpiA
-#define ualstrcmp ualstrcmpA
-#define ualstrlen ualstrlenA
-#define ualstrcpy ualstrcpyA
-#endif
+#define ualstrcpyn __MINGW_NAME_AW(ualstrcpyn)
+#define ualstrcmpi __MINGW_NAME_AW(ualstrcmpi)
+#define ualstrcmp __MINGW_NAME_AW(ualstrcmp)
+#define ualstrlen __MINGW_NAME_AW(ualstrlen)
+#define ualstrcpy __MINGW_NAME_AW(ualstrcpy)
 
 #ifdef __cplusplus
 }

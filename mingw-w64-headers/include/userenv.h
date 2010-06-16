@@ -22,23 +22,13 @@ extern "C" {
 #define PI_NOUI 0x00000001
 #define PI_APPLYPOLICY 0x00000002
 
-#ifdef UNICODE
-#define LoadUserProfile LoadUserProfileW
-#define GetProfilesDirectory GetProfilesDirectoryW
-#define DeleteProfile DeleteProfileW
-#define GetDefaultUserProfileDirectory GetDefaultUserProfileDirectoryW
-#define GetAllUsersProfileDirectory GetAllUsersProfileDirectoryW
-#define GetUserProfileDirectory GetUserProfileDirectoryW
-#define ExpandEnvironmentStringsForUser ExpandEnvironmentStringsForUserW
-#else
-#define LoadUserProfile LoadUserProfileA
-#define GetProfilesDirectory GetProfilesDirectoryA
-#define DeleteProfile DeleteProfileA
-#define GetDefaultUserProfileDirectory GetDefaultUserProfileDirectoryA
-#define GetAllUsersProfileDirectory GetAllUsersProfileDirectoryA
-#define GetUserProfileDirectory GetUserProfileDirectoryA
-#define ExpandEnvironmentStringsForUser ExpandEnvironmentStringsForUserA
-#endif
+#define LoadUserProfile __MINGW_NAME_AW(LoadUserProfile)
+#define GetProfilesDirectory __MINGW_NAME_AW(GetProfilesDirectory)
+#define DeleteProfile __MINGW_NAME_AW(DeleteProfile)
+#define GetDefaultUserProfileDirectory __MINGW_NAME_AW(GetDefaultUserProfileDirectory)
+#define GetAllUsersProfileDirectory __MINGW_NAME_AW(GetAllUsersProfileDirectory)
+#define GetUserProfileDirectory __MINGW_NAME_AW(GetUserProfileDirectory)
+#define ExpandEnvironmentStringsForUser __MINGW_NAME_AW(ExpandEnvironmentStringsForUser)
 
   USERENVAPI WINBOOL WINAPI LoadUserProfileA(HANDLE hToken,LPPROFILEINFOA lpProfileInfo);
   USERENVAPI WINBOOL WINAPI LoadUserProfileW(HANDLE hToken,LPPROFILEINFOW lpProfileInfo);
@@ -114,27 +104,16 @@ extern "C" {
     LPWSTR lpLink;
   } GROUP_POLICY_OBJECTW,*PGROUP_POLICY_OBJECTW;
 
-#ifdef UNICODE
-  typedef GROUP_POLICY_OBJECTW GROUP_POLICY_OBJECT;
-  typedef PGROUP_POLICY_OBJECTW PGROUP_POLICY_OBJECT;
-#else
-  typedef GROUP_POLICY_OBJECTA GROUP_POLICY_OBJECT;
-  typedef PGROUP_POLICY_OBJECTA PGROUP_POLICY_OBJECT;
-#endif
+  __MINGW_TYPEDEF_AW(GROUP_POLICY_OBJECT)
+  __MINGW_TYPEDEF_AW(PGROUP_POLICY_OBJECT)
 
 #define GPO_LIST_FLAG_MACHINE 0x00000001
 #define GPO_LIST_FLAG_SITEONLY 0x00000002
 #define GPO_LIST_FLAG_NO_WMIFILTERS 0x00000004
 
-#ifdef UNICODE
-#define GetGPOList GetGPOListW
-#define FreeGPOList FreeGPOListW
-#define GetAppliedGPOList GetAppliedGPOListW
-#else
-#define GetGPOList GetGPOListA
-#define FreeGPOList FreeGPOListA
-#define GetAppliedGPOList GetAppliedGPOListA
-#endif
+#define GetGPOList __MINGW_NAME_AW(GetGPOList)
+#define FreeGPOList __MINGW_NAME_AW(FreeGPOList)
+#define GetAppliedGPOList __MINGW_NAME_AW(GetAppliedGPOList)
 
   USERENVAPI WINBOOL WINAPI GetGPOListA(HANDLE hToken,LPCSTR lpName,LPCSTR lpHostName,LPCSTR lpComputerName,DWORD dwFlags,PGROUP_POLICY_OBJECTA *pGPOList);
   USERENVAPI WINBOOL WINAPI GetGPOListW(HANDLE hToken,LPCWSTR lpName,LPCWSTR lpHostName,LPCWSTR lpComputerName,DWORD dwFlags,PGROUP_POLICY_OBJECTW *pGPOList);

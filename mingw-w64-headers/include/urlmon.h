@@ -1252,19 +1252,11 @@ extern "C" {
   STDAPI URLOpenBlockingStreamA(LPUNKNOWN,LPCSTR,LPSTREAM*,DWORD,LPBINDSTATUSCALLBACK);
   STDAPI URLOpenBlockingStreamW(LPUNKNOWN,LPCWSTR,LPSTREAM*,DWORD,LPBINDSTATUSCALLBACK);
 
-#ifdef UNICODE
-#define URLOpenStream URLOpenStreamW
-#define URLOpenPullStream URLOpenPullStreamW
-#define URLDownloadToFile URLDownloadToFileW
-#define URLDownloadToCacheFile URLDownloadToCacheFileW
-#define URLOpenBlockingStream URLOpenBlockingStreamW
-#else
-#define URLOpenStream URLOpenStreamA
-#define URLOpenPullStream URLOpenPullStreamA
-#define URLDownloadToFile URLDownloadToFileA
-#define URLDownloadToCacheFile URLDownloadToCacheFileA
-#define URLOpenBlockingStream URLOpenBlockingStreamA
-#endif
+#define URLOpenStream __MINGW_NAME_AW(URLOpenStream)
+#define URLOpenPullStream __MINGW_NAME_AW(URLOpenPullStream)
+#define URLDownloadToFile __MINGW_NAME_AW(URLDownloadToFile)
+#define URLDownloadToCacheFile __MINGW_NAME_AW(URLDownloadToCacheFile)
+#define URLOpenBlockingStream __MINGW_NAME_AW(URLOpenBlockingStream)
 
   STDAPI HlinkGoBack(IUnknown *pUnk);
   STDAPI HlinkGoForward(IUnknown *pUnk);
@@ -2813,11 +2805,9 @@ extern "C" {
 #define _HITLOGGING_DEFINED
   WINBOOL WINAPI IsLoggingEnabledA(LPCSTR pszUrl);
   WINBOOL WINAPI IsLoggingEnabledW(LPCWSTR pwszUrl);
-#ifdef UNICODE
-#define IsLoggingEnabled IsLoggingEnabledW
-#else
-#define IsLoggingEnabled IsLoggingEnabledA
-#endif
+
+#define IsLoggingEnabled __MINGW_NAME_AW(IsLoggingEnabled)
+
   typedef struct _tagHIT_LOGGING_INFO {
     DWORD dwStructSize;
     LPSTR lpszLoggedUrlName;
