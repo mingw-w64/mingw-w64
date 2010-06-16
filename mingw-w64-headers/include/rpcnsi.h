@@ -77,51 +77,27 @@ RPCNSAPI RPC_STATUS RPC_ENTRY RpcNsBindingImportNext(RPC_NS_HANDLE ImportContext
 RPCNSAPI RPC_STATUS RPC_ENTRY RpcNsBindingImportDone(RPC_NS_HANDLE *ImportContext);
 RPCNSAPI RPC_STATUS RPC_ENTRY RpcNsBindingSelect(RPC_BINDING_VECTOR *BindingVec,RPC_BINDING_HANDLE *Binding);
 
-#ifdef UNICODE
-#define RpcNsBindingLookupBegin RpcNsBindingLookupBeginW
-#define RpcNsBindingImportBegin RpcNsBindingImportBeginW
-#define RpcNsBindingExport RpcNsBindingExportW
-#define RpcNsBindingUnexport RpcNsBindingUnexportW
-#define RpcNsGroupDelete RpcNsGroupDeleteW
-#define RpcNsGroupMbrAdd RpcNsGroupMbrAddW
-#define RpcNsGroupMbrRemove RpcNsGroupMbrRemoveW
-#define RpcNsGroupMbrInqBegin RpcNsGroupMbrInqBeginW
-#define RpcNsGroupMbrInqNext RpcNsGroupMbrInqNextW
-#define RpcNsEntryExpandName RpcNsEntryExpandNameW
-#define RpcNsEntryObjectInqBegin RpcNsEntryObjectInqBeginW
-#define RpcNsMgmtBindingUnexport RpcNsMgmtBindingUnexportW
-#define RpcNsMgmtEntryCreate RpcNsMgmtEntryCreateW
-#define RpcNsMgmtEntryDelete RpcNsMgmtEntryDeleteW
-#define RpcNsMgmtEntryInqIfIds RpcNsMgmtEntryInqIfIdsW
-#define RpcNsProfileDelete RpcNsProfileDeleteW
-#define RpcNsProfileEltAdd RpcNsProfileEltAddW
-#define RpcNsProfileEltRemove RpcNsProfileEltRemoveW
-#define RpcNsProfileEltInqBegin RpcNsProfileEltInqBeginW
-#define RpcNsProfileEltInqNext RpcNsProfileEltInqNextW
-#define RpcNsBindingExportPnP RpcNsBindingExportPnPW
-#define RpcNsBindingUnexportPnP RpcNsBindingUnexportPnPW
-#else
-#define RpcNsBindingLookupBegin RpcNsBindingLookupBeginA
-#define RpcNsBindingImportBegin RpcNsBindingImportBeginA
-#define RpcNsBindingExport RpcNsBindingExportA
-#define RpcNsBindingUnexport RpcNsBindingUnexportA
-#define RpcNsGroupDelete RpcNsGroupDeleteA
-#define RpcNsGroupMbrAdd RpcNsGroupMbrAddA
-#define RpcNsGroupMbrRemove RpcNsGroupMbrRemoveA
-#define RpcNsGroupMbrInqBegin RpcNsGroupMbrInqBeginA
-#define RpcNsGroupMbrInqNext RpcNsGroupMbrInqNextA
-#define RpcNsEntryExpandName RpcNsEntryExpandNameA
-#define RpcNsEntryObjectInqBegin RpcNsEntryObjectInqBeginA
-#define RpcNsMgmtBindingUnexport RpcNsMgmtBindingUnexportA
-#define RpcNsMgmtEntryCreate RpcNsMgmtEntryCreateA
-#define RpcNsMgmtEntryDelete RpcNsMgmtEntryDeleteA
-#define RpcNsMgmtEntryInqIfIds RpcNsMgmtEntryInqIfIdsA
-#define RpcNsProfileDelete RpcNsProfileDeleteA
-#define RpcNsProfileEltAdd RpcNsProfileEltAddA
-#define RpcNsProfileEltRemove RpcNsProfileEltRemoveA
-#define RpcNsProfileEltInqBegin RpcNsProfileEltInqBeginA
-#define RpcNsProfileEltInqNext RpcNsProfileEltInqNextA
-#define RpcNsBindingExportPnP RpcNsBindingExportPnPA
-#define RpcNsBindingUnexportPnP RpcNsBindingUnexportPnPA
-#endif
+#define RpcNsBindingLookupBegin __MINGW_NAME_AW(RpcNsBindingLookupBegin)
+#define RpcNsBindingImportBegin __MINGW_NAME_AW(RpcNsBindingImportBegin)
+#define RpcNsBindingExport __MINGW_NAME_AW(RpcNsBindingExport)
+#define RpcNsBindingUnexport __MINGW_NAME_AW(RpcNsBindingUnexport)
+#define RpcNsGroupDelete __MINGW_NAME_AW(RpcNsGroupDelete)
+#define RpcNsGroupMbrAdd __MINGW_NAME_AW(RpcNsGroupMbrAdd)
+#define RpcNsGroupMbrRemove __MINGW_NAME_AW(RpcNsGroupMbrRemove)
+#define RpcNsGroupMbrInqBegin __MINGW_NAME_AW(RpcNsGroupMbrInqBegin)
+#define RpcNsGroupMbrInqNext __MINGW_NAME_AW(RpcNsGroupMbrInqNext)
+#define RpcNsEntryExpandName __MINGW_NAME_AW(RpcNsEntryExpandName)
+#define RpcNsEntryObjectInqBegin __MINGW_NAME_AW(RpcNsEntryObjectInqBegin)
+#define RpcNsMgmtBindingUnexport __MINGW_NAME_AW(RpcNsMgmtBindingUnexport)
+#define RpcNsMgmtEntryCreate __MINGW_NAME_AW(RpcNsMgmtEntryCreate)
+#define RpcNsMgmtEntryDelete __MINGW_NAME_AW(RpcNsMgmtEntryDelete)
+#define RpcNsMgmtEntryInqIfIds __MINGW_NAME_AW(RpcNsMgmtEntryInqIfIds)
+#define RpcNsProfileDelete __MINGW_NAME_AW(RpcNsProfileDelete)
+#define RpcNsProfileEltAdd __MINGW_NAME_AW(RpcNsProfileEltAdd)
+#define RpcNsProfileEltRemove __MINGW_NAME_AW(RpcNsProfileEltRemove)
+#define RpcNsProfileEltInqBegin __MINGW_NAME_AW(RpcNsProfileEltInqBegin)
+#define RpcNsProfileEltInqNext __MINGW_NAME_AW(RpcNsProfileEltInqNext)
+#define RpcNsBindingExportPnP __MINGW_NAME_AW(RpcNsBindingExportPnP)
+#define RpcNsBindingUnexportPnP __MINGW_NAME_AW(RpcNsBindingUnexportPnP)
+
 #endif

@@ -51,48 +51,27 @@ extern "C" {
 #define TracePutsW(a,b) TracePutsExW(a,0,b)
 #define TraceDumpW(a,b,c,d,e,f) TraceDumpExW(a,0,b,c,d,e,f)
 
-#ifdef UNICODE
-#define TraceRegister TraceRegisterW
-#define TraceDeregister TraceDeregisterW
-#define TraceDeregisterEx TraceDeregisterExW
-#define TraceGetConsole TraceGetConsoleW
-#define TracePrintf TracePrintfW
-#define TraceVprintf TraceVprintfW
-#define TracePuts TracePutsW
-#define TraceDump TraceDumpW
-#define TraceRegisterEx TraceRegisterExW
-#define TracePrintfEx TracePrintfExW
-#define TraceVprintfEx TraceVprintfExW
-#define TracePutsEx TracePutsExW
-#define TraceDumpEx TraceDumpExW
-#else
-#define TraceRegister TraceRegisterA
-#define TraceDeregister TraceDeregisterA
-#define TraceDeregisterEx TraceDeregisterExA
-#define TraceGetConsole TraceGetConsoleA
-#define TracePrintf TracePrintfA
-#define TraceVprintf TraceVprintfA
-#define TracePuts TracePutsA
-#define TraceDump TraceDumpA
-#define TraceRegisterEx TraceRegisterExA
-#define TracePrintfEx TracePrintfExA
-#define TraceVprintfEx TraceVprintfExA
-#define TracePutsEx TracePutsExA
-#define TraceDumpEx TraceDumpExA
-#endif
+#define TraceRegister __MINGW_NAME_AW(TraceRegister)
+#define TraceDeregister __MINGW_NAME_AW(TraceDeregister)
+#define TraceDeregisterEx __MINGW_NAME_AW(TraceDeregisterEx)
+#define TraceGetConsole __MINGW_NAME_AW(TraceGetConsole)
+#define TracePrintf __MINGW_NAME_AW(TracePrintf)
+#define TraceVprintf __MINGW_NAME_AW(TraceVprintf)
+#define TracePuts __MINGW_NAME_AW(TracePuts)
+#define TraceDump __MINGW_NAME_AW(TraceDump)
+#define TraceRegisterEx __MINGW_NAME_AW(TraceRegisterEx)
+#define TracePrintfEx __MINGW_NAME_AW(TracePrintfEx)
+#define TraceVprintfEx __MINGW_NAME_AW(TraceVprintfEx)
+#define TracePutsEx __MINGW_NAME_AW(TracePutsEx)
+#define TraceDumpEx __MINGW_NAME_AW(TraceDumpEx)
 
   VOID WINAPI LogErrorA(DWORD dwMessageId,DWORD cNumberOfSubStrings,LPSTR *plpwsSubStrings,DWORD dwErrorCode);
   VOID WINAPI LogEventA(DWORD wEventType,DWORD dwMessageId,DWORD cNumberOfSubStrings,LPSTR *plpwsSubStrings);
   VOID LogErrorW(DWORD dwMessageId,DWORD cNumberOfSubStrings,LPWSTR *plpwsSubStrings,DWORD dwErrorCode);
   VOID LogEventW(DWORD wEventType,DWORD dwMessageId,DWORD cNumberOfSubStrings,LPWSTR *plpwsSubStrings);
 
-#ifdef UNICODE
-#define LogError LogErrorW
-#define LogEvent LogEventW
-#else
-#define LogError LogErrorA
-#define LogEvent LogEventA
-#endif
+#define LogError __MINGW_NAME_AW(LogError)
+#define LogEvent __MINGW_NAME_AW(LogEvent)
 
   HANDLE RouterLogRegisterA(LPCSTR lpszSource);
   VOID RouterLogDeregisterA(HANDLE hLogHandle);
@@ -136,43 +115,24 @@ extern "C" {
 #define RouterLogWarningStringW(h,msg,count,array,err,index) RouterLogEventStringW(h,EVENTLOG_WARNING_TYPE,msg,count,array,err,index)
 #define RouterLogInformationStringW(h,msg,count,array,err,index) RouterLogEventStringW(h,EVENTLOG_INFORMATION_TYPE,msg,count,array,err,index)
 
-#ifdef UNICODE
-#define RouterLogRegister RouterLogRegisterW
-#define RouterLogDeregister RouterLogDeregisterW
-#define RouterLogEvent RouterLogEventW
-#define RouterLogError RouterLogErrorW
-#define RouterLogWarning RouterLogWarningW
-#define RouterLogInformation RouterLogInformationW
-#define RouterLogEventData RouterLogEventDataW
-#define RouterLogErrorData RouterLogErrorDataW
-#define RouterLogWarningData RouterLogWarningDataW
-#define RouterLogInformationData RouterLogInformationDataW
-#define RouterLogEventString RouterLogEventStringW
-#define RouterLogEventEx RouterLogEventExW
-#define RouterLogEventValistEx RouterLogEventValistExW
-#define RouterLogErrorString RouterLogErrorStringW
-#define RouterLogWarningString RouterLogWarningStringW
-#define RouterLogInformationString RouterLogInformationStringW
-#define RouterGetErrorString RouterGetErrorStringW
-#else
-#define RouterLogRegister RouterLogRegisterA
-#define RouterLogDeregister RouterLogDeregisterA
-#define RouterLogEvent RouterLogEventA
-#define RouterLogError RouterLogErrorA
-#define RouterLogWarning RouterLogWarningA
-#define RouterLogInformation RouterLogInformationA
-#define RouterLogEventData RouterLogEventDataA
-#define RouterLogErrorData RouterLogErrorDataA
-#define RouterLogWarningData RouterLogWarningDataA
-#define RouterLogInformationData RouterLogInformationDataA
-#define RouterLogEventString RouterLogEventStringA
-#define RouterLogEventEx RouterLogEventExA
-#define RouterLogEventValistEx RouterLogEventValistExA
-#define RouterLogErrorString RouterLogErrorStringA
-#define RouterLogWarningString RouterLogWarningStringA
-#define RouterLogInformationString RouterLogInformationStringA
-#define RouterGetErrorString RouterGetErrorStringA
-#endif
+#define RouterLogRegister __MINGW_NAME_AW(RouterLogRegister)
+#define RouterLogDeregister __MINGW_NAME_AW(RouterLogDeregister)
+#define RouterLogEvent __MINGW_NAME_AW(RouterLogEvent)
+#define RouterLogError __MINGW_NAME_AW(RouterLogError)
+#define RouterLogWarning __MINGW_NAME_AW(RouterLogWarning)
+#define RouterLogInformation __MINGW_NAME_AW(RouterLogInformation)
+
+#define RouterLogEventData __MINGW_NAME_AW(RouterLogEventData)
+#define RouterLogErrorData __MINGW_NAME_AW(RouterLogErrorData)
+#define RouterLogWarningData __MINGW_NAME_AW(RouterLogWarningData)
+#define RouterLogInformationData __MINGW_NAME_AW(RouterLogInformationData)
+#define RouterLogEventString __MINGW_NAME_AW(RouterLogEventString)
+#define RouterLogEventEx __MINGW_NAME_AW(RouterLogEventEx)
+#define RouterLogEventValistEx __MINGW_NAME_AW(RouterLogEventValistEx)
+#define RouterLogErrorString __MINGW_NAME_AW(RouterLogErrorString)
+#define RouterLogWarningString __MINGW_NAME_AW(RouterLogWarningString)
+#define RouterLogInformationString __MINGW_NAME_AW(RouterLogInformationString)
+#define RouterGetErrorString __MINGW_NAME_AW(RouterGetErrorString)
 
   typedef VOID (WINAPI *WORKERFUNCTION)(PVOID);
 

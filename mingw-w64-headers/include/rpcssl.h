@@ -7,11 +7,7 @@
 extern "C" {
 #endif
 
-#ifdef UNICODE
-#define RpcCertGeneratePrincipalName RpcCertGeneratePrincipalNameW
-#else
-#define RpcCertGeneratePrincipalName RpcCertGeneratePrincipalNameA
-#endif
+#define RpcCertGeneratePrincipalName __MINGW_NAME_AW(RpcCertGeneratePrincipalName)
 
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcCertGeneratePrincipalNameW(PCCERT_CONTEXT Context,DWORD Flags,RPC_WSTR *pBuffer);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcCertGeneratePrincipalNameA(PCCERT_CONTEXT Context,DWORD Flags,RPC_CSTR *pBuffer);

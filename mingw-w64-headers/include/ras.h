@@ -67,11 +67,7 @@ extern "C" {
     LUID luid;
   };
 
-#ifdef UNICODE
-#define RASCONN RASCONNW
-#else
-#define RASCONN RASCONNA
-#endif
+#define RASCONN __MINGW_NAME_AW(RASCONN)
 
 #define LPRASCONNW RASCONNW*
 #define LPRASCONNA RASCONNA*
@@ -112,11 +108,7 @@ extern "C" {
     CHAR szPhoneNumber[RAS_MaxPhoneNumber + 1 ];
   };
 
-#ifdef UNICODE
-#define RASCONNSTATUS RASCONNSTATUSW
-#else
-#define RASCONNSTATUS RASCONNSTATUSA
-#endif
+#define RASCONNSTATUS __MINGW_NAME_AW(RASCONNSTATUS)
 
 #define LPRASCONNSTATUSW RASCONNSTATUSW*
 #define LPRASCONNSTATUSA RASCONNSTATUSA*
@@ -148,11 +140,7 @@ extern "C" {
     ULONG_PTR dwCallbackId;
   };
 
-#ifdef UNICODE
-#define RASDIALPARAMS RASDIALPARAMSW
-#else
-#define RASDIALPARAMS RASDIALPARAMSA
-#endif
+#define RASDIALPARAMS __MINGW_NAME_AW(RASDIALPARAMS)
 
 #define LPRASDIALPARAMSW RASDIALPARAMSW*
 #define LPRASDIALPARAMSA RASDIALPARAMSA*
@@ -210,11 +198,7 @@ extern "C" {
     CHAR szPhonebookPath[MAX_PATH + 1];
   };
 
-#ifdef UNICODE
-#define RASENTRYNAME RASENTRYNAMEW
-#else
-#define RASENTRYNAME RASENTRYNAMEA
-#endif
+#define RASENTRYNAME __MINGW_NAME_AW(RASENTRYNAME)
 
 #define LPRASENTRYNAMEW RASENTRYNAMEW*
 #define LPRASENTRYNAMEA RASENTRYNAMEA*
@@ -244,11 +228,7 @@ extern "C" {
     BYTE bLana;
   };
 
-#ifdef UNICODE
-#define RASAMB RASAMBW
-#else
-#define RASAMB RASAMBA
-#endif
+#define RASAMB __MINGW_NAME_AW(RASAMB)
 
 #define LPRASAMBW RASAMBW*
 #define LPRASAMBA RASAMBA*
@@ -274,11 +254,7 @@ extern "C" {
     BYTE bLana;
   };
 
-#ifdef UNICODE
-#define RASPPPNBF RASPPPNBFW
-#else
-#define RASPPPNBF RASPPPNBFA
-#endif
+#define RASPPPNBF __MINGW_NAME_AW(RASPPPNBF)
 
 #define LPRASPPPNBFW RASPPPNBFW*
 #define LPRASPPPNBFA RASPPPNBFA*
@@ -298,11 +274,7 @@ extern "C" {
     CHAR szIpxAddress[RAS_MaxIpxAddress + 1 ];
   };
 
-#ifdef UNICODE
-#define RASPPPIPX RASPPPIPXW
-#else
-#define RASPPPIPX RASPPPIPXA
-#endif
+#define RASPPPIPX __MINGW_NAME_AW(RASPPPIPX)
 
 #define LPRASPPPIPXW RASPPPIPXW *
 #define LPRASPPPIPXA RASPPPIPXA *
@@ -336,11 +308,7 @@ extern "C" {
     DWORD dwServerOptions;
   };
 
-#ifdef UNICODE
-#define RASPPPIP RASPPPIPW
-#else
-#define RASPPPIP RASPPPIPA
-#endif
+#define RASPPPIP __MINGW_NAME_AW(RASPPPIP)
 
 #define LPRASPPPIPW RASPPPIPW*
 #define LPRASPPPIPA RASPPPIPA*
@@ -399,11 +367,7 @@ extern "C" {
     DWORD dwServerOptions;
   };
 
-#ifdef UNICODE
-#define RASPPPLCP RASPPPLCPW
-#else
-#define RASPPPLCP RASPPPLCPA
-#endif
+#define RASPPPLCP __MINGW_NAME_AW(RASPPPLCP)
 
 #define LPRASPPPLCPW RASPPPLCPW *
 #define LPRASPPPLCPA RASPPPLCPA *
@@ -423,11 +387,7 @@ extern "C" {
     CHAR szIpAddress[RAS_MaxIpAddress + 1 ];
   };
 
-#ifdef UNICODE
-#define RASSLIP RASSLIPW
-#else
-#define RASSLIP RASSLIPA
-#endif
+#define RASSLIP __MINGW_NAME_AW(RASSLIP)
 
 #define LPRASSLIPW RASSLIPW*
 #define LPRASSLIPA RASSLIPA*
@@ -475,11 +435,7 @@ extern "C" {
     CHAR szDeviceName[RAS_MaxDeviceName + 1 ];
   };
 
-#ifdef UNICODE
-#define RASDEVINFO RASDEVINFOW
-#else
-#define RASDEVINFO RASDEVINFOA
-#endif
+#define RASDEVINFO __MINGW_NAME_AW(RASDEVINFO)
 
 #define LPRASDEVINFOW RASDEVINFOW*
 #define LPRASDEVINFOA RASDEVINFOA*
@@ -624,11 +580,7 @@ extern "C" {
     DWORD dwRedialPause;
   };
 
-#ifdef UNICODE
-#define RASENTRY RASENTRYW
-#else
-#define RASENTRY RASENTRYA
-#endif
+#define RASENTRY __MINGW_NAME_AW(RASENTRY)
 
 #define LPRASENTRYW RASENTRYW*
 #define LPRASENTRYA RASENTRYA*
@@ -735,11 +687,7 @@ extern "C" {
   typedef WINBOOL (WINAPI *RASADFUNCA)(LPSTR,LPSTR,LPRASADPARAMS,LPDWORD);
   typedef WINBOOL (WINAPI *RASADFUNCW)(LPWSTR,LPWSTR,LPRASADPARAMS,LPDWORD);
 
-#ifdef UNICODE
-#define RASADFUNC RASADFUNCW
-#else
-#define RASADFUNC RASADFUNCA
-#endif
+#define RASADFUNC __MINGW_NAME_AW(RASADFUNC)
 
 #define RASSUBENTRYA struct tagRASSUBENTRYA
   RASSUBENTRYA {
@@ -761,11 +709,7 @@ extern "C" {
     DWORD dwAlternateOffset;
   };
 
-#ifdef UNICODE
-#define RASSUBENTRY RASSUBENTRYW
-#else
-#define RASSUBENTRY RASSUBENTRYA
-#endif
+#define RASSUBENTRY __MINGW_NAME_AW(RASSUBENTRY)
 
 #define LPRASSUBENTRYW RASSUBENTRYW*
 #define LPRASSUBENTRYA RASSUBENTRYA*
@@ -789,11 +733,7 @@ extern "C" {
     WCHAR szDomain[DNLEN + 1 ];
   };
 
-#ifdef UNICODE
-#define RASCREDENTIALS RASCREDENTIALSW
-#else
-#define RASCREDENTIALS RASCREDENTIALSA
-#endif
+#define RASCREDENTIALS __MINGW_NAME_AW(RASCREDENTIALS)
 
 #define LPRASCREDENTIALSW RASCREDENTIALSW*
 #define LPRASCREDENTIALSA RASCREDENTIALSA*
@@ -823,11 +763,7 @@ extern "C" {
     WCHAR szEntry[RAS_MaxEntryName + 1];
   };
 
-#ifdef UNICODE
-#define RASAUTODIALENTRY RASAUTODIALENTRYW
-#else
-#define RASAUTODIALENTRY RASAUTODIALENTRYA
-#endif
+#define RASAUTODIALENTRY __MINGW_NAME_AW(RASAUTODIALENTRY)
 
 #define LPRASAUTODIALENTRYW RASAUTODIALENTRYW*
 #define LPRASAUTODIALENTRYA RASAUTODIALENTRYA*
@@ -857,11 +793,7 @@ extern "C" {
     BYTE pbEapInfo[1 ];
   };
 
-#ifdef UNICODE
-#define RASEAPUSERIDENTITY RASEAPUSERIDENTITYW
-#else
-#define RASEAPUSERIDENTITY RASEAPUSERIDENTITYA
-#endif
+#define RASEAPUSERIDENTITY __MINGW_NAME_AW(RASEAPUSERIDENTITY)
 
 #define LPRASEAPUSERIDENTITYW RASEAPUSERIDENTITYW*
 #define LPRASEAPUSERIDENTITYA RASEAPUSERIDENTITYA*
@@ -1000,85 +932,44 @@ extern "C" {
   DWORD WINAPI RasDeleteSubEntryA(LPCSTR pszPhonebook,LPCSTR pszEntry,DWORD dwSubentryId);
   DWORD WINAPI RasDeleteSubEntryW(LPCWSTR pszPhonebook,LPCWSTR pszEntry,DWORD dwSubEntryId);
 
-#ifdef UNICODE
-#define RasDial RasDialW
-#define RasEnumConnections RasEnumConnectionsW
-#define RasEnumEntries RasEnumEntriesW
-#define RasGetConnectStatus RasGetConnectStatusW
-#define RasGetErrorString RasGetErrorStringW
-#define RasHangUp RasHangUpW
-#define RasGetProjectionInfo RasGetProjectionInfoW
-#define RasCreatePhonebookEntry RasCreatePhonebookEntryW
-#define RasEditPhonebookEntry RasEditPhonebookEntryW
-#define RasSetEntryDialParams RasSetEntryDialParamsW
-#define RasGetEntryDialParams RasGetEntryDialParamsW
-#define RasEnumDevices RasEnumDevicesW
-#define RasGetCountryInfo RasGetCountryInfoW
-#define RasGetEntryProperties RasGetEntryPropertiesW
-#define RasSetEntryProperties RasSetEntryPropertiesW
-#define RasRenameEntry RasRenameEntryW
-#define RasDeleteEntry RasDeleteEntryW
-#define RasValidateEntryName RasValidateEntryNameW
-#define RasGetSubEntryHandle RasGetSubEntryHandleW
-#define RasConnectionNotification RasConnectionNotificationW
-#define RasGetSubEntryProperties RasGetSubEntryPropertiesW
-#define RasSetSubEntryProperties RasSetSubEntryPropertiesW
-#define RasGetCredentials RasGetCredentialsW
-#define RasSetCredentials RasSetCredentialsW
-#define RasGetAutodialAddress RasGetAutodialAddressW
-#define RasSetAutodialAddress RasSetAutodialAddressW
-#define RasEnumAutodialAddresses RasEnumAutodialAddressesW
-#define RasGetAutodialEnable RasGetAutodialEnableW
-#define RasSetAutodialEnable RasSetAutodialEnableW
-#define RasGetAutodialParam RasGetAutodialParamW
-#define RasSetAutodialParam RasSetAutodialParamW
-#define RasGetEapUserData RasGetEapUserDataW
-#define RasSetEapUserData RasSetEapUserDataW
-#define RasGetCustomAuthData RasGetCustomAuthDataW
-#define RasSetCustomAuthData RasSetCustomAuthDataW
-#define RasGetEapUserIdentity RasGetEapUserIdentityW
-#define RasFreeEapUserIdentity RasFreeEapUserIdentityW
-#define RasDeleteSubEntry RasDeleteSubEntryW
-#else
-#define RasDial RasDialA
-#define RasEnumConnections RasEnumConnectionsA
-#define RasEnumEntries RasEnumEntriesA
-#define RasGetConnectStatus RasGetConnectStatusA
-#define RasGetErrorString RasGetErrorStringA
-#define RasHangUp RasHangUpA
-#define RasGetProjectionInfo RasGetProjectionInfoA
-#define RasCreatePhonebookEntry RasCreatePhonebookEntryA
-#define RasEditPhonebookEntry RasEditPhonebookEntryA
-#define RasSetEntryDialParams RasSetEntryDialParamsA
-#define RasGetEntryDialParams RasGetEntryDialParamsA
-#define RasEnumDevices RasEnumDevicesA
-#define RasGetCountryInfo RasGetCountryInfoA
-#define RasGetEntryProperties RasGetEntryPropertiesA
-#define RasSetEntryProperties RasSetEntryPropertiesA
-#define RasRenameEntry RasRenameEntryA
-#define RasDeleteEntry RasDeleteEntryA
-#define RasValidateEntryName RasValidateEntryNameA
-#define RasGetSubEntryHandle RasGetSubEntryHandleA
-#define RasConnectionNotification RasConnectionNotificationA
-#define RasGetSubEntryProperties RasGetSubEntryPropertiesA
-#define RasSetSubEntryProperties RasSetSubEntryPropertiesA
-#define RasGetCredentials RasGetCredentialsA
-#define RasSetCredentials RasSetCredentialsA
-#define RasGetAutodialAddress RasGetAutodialAddressA
-#define RasSetAutodialAddress RasSetAutodialAddressA
-#define RasEnumAutodialAddresses RasEnumAutodialAddressesA
-#define RasGetAutodialEnable RasGetAutodialEnableA
-#define RasSetAutodialEnable RasSetAutodialEnableA
-#define RasGetAutodialParam RasGetAutodialParamA
-#define RasSetAutodialParam RasSetAutodialParamA
-#define RasGetEapUserData RasGetEapUserDataA
-#define RasSetEapUserData RasSetEapUserDataA
-#define RasGetCustomAuthData RasGetCustomAuthDataA
-#define RasSetCustomAuthData RasSetCustomAuthDataA
-#define RasGetEapUserIdentity RasGetEapUserIdentityA
-#define RasFreeEapUserIdentity RasFreeEapUserIdentityA
-#define RasDeleteSubEntry RasDeleteSubEntryA
-#endif
+#define RasDial __MINGW_NAME_AW(RasDial)
+#define RasEnumConnections __MINGW_NAME_AW(RasEnumConnections)
+#define RasEnumEntries __MINGW_NAME_AW(RasEnumEntries)
+#define RasGetConnectStatus __MINGW_NAME_AW(RasGetConnectStatus)
+#define RasGetErrorString __MINGW_NAME_AW(RasGetErrorString)
+#define RasHangUp __MINGW_NAME_AW(RasHangUp)
+#define RasGetProjectionInfo __MINGW_NAME_AW(RasGetProjectionInfo)
+#define RasCreatePhonebookEntry __MINGW_NAME_AW(RasCreatePhonebookEntry)
+#define RasEditPhonebookEntry __MINGW_NAME_AW(RasEditPhonebookEntry)
+#define RasSetEntryDialParams __MINGW_NAME_AW(RasSetEntryDialParams)
+#define RasGetEntryDialParams __MINGW_NAME_AW(RasGetEntryDialParams)
+#define RasEnumDevices __MINGW_NAME_AW(RasEnumDevices)
+#define RasGetCountryInfo __MINGW_NAME_AW(RasGetCountryInfo)
+#define RasGetEntryProperties __MINGW_NAME_AW(RasGetEntryProperties)
+#define RasSetEntryProperties __MINGW_NAME_AW(RasSetEntryProperties)
+#define RasRenameEntry __MINGW_NAME_AW(RasRenameEntry)
+#define RasDeleteEntry __MINGW_NAME_AW(RasDeleteEntry)
+#define RasValidateEntryName __MINGW_NAME_AW(RasValidateEntryName)
+#define RasGetSubEntryHandle __MINGW_NAME_AW(RasGetSubEntryHandle)
+#define RasConnectionNotification __MINGW_NAME_AW(RasConnectionNotification)
+#define RasGetSubEntryProperties __MINGW_NAME_AW(RasGetSubEntryProperties)
+#define RasSetSubEntryProperties __MINGW_NAME_AW(RasSetSubEntryProperties)
+#define RasGetCredentials __MINGW_NAME_AW(RasGetCredentials)
+#define RasSetCredentials __MINGW_NAME_AW(RasSetCredentials)
+#define RasGetAutodialAddress __MINGW_NAME_AW(RasGetAutodialAddress)
+#define RasSetAutodialAddress __MINGW_NAME_AW(RasSetAutodialAddress)
+#define RasEnumAutodialAddresses __MINGW_NAME_AW(RasEnumAutodialAddresses)
+#define RasGetAutodialEnable __MINGW_NAME_AW(RasGetAutodialEnable)
+#define RasSetAutodialEnable __MINGW_NAME_AW(RasSetAutodialEnable)
+#define RasGetAutodialParam __MINGW_NAME_AW(RasGetAutodialParam)
+#define RasSetAutodialParam __MINGW_NAME_AW(RasSetAutodialParam)
+#define RasGetEapUserData __MINGW_NAME_AW(RasGetEapUserData)
+#define RasSetEapUserData __MINGW_NAME_AW(RasSetEapUserData)
+#define RasGetCustomAuthData __MINGW_NAME_AW(RasGetCustomAuthData)
+#define RasSetCustomAuthData __MINGW_NAME_AW(RasSetCustomAuthData)
+#define RasGetEapUserIdentity __MINGW_NAME_AW(RasGetEapUserIdentity)
+#define RasFreeEapUserIdentity __MINGW_NAME_AW(RasFreeEapUserIdentity)
+#define RasDeleteSubEntry __MINGW_NAME_AW(RasDeleteSubEntry)
 
 #ifdef __cplusplus
 }
