@@ -1,3 +1,8 @@
+2010-06-16  Doug Semler  <dougsemler@gmail.com>
+
+	* profile.h: Rename _mcount to _mcount_private to make it obvious.
+	  Declare public _mcount here.
+
 2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mingw_inc/_bsd_types.h: Moved to crt/_bsd_types.h. Changed its

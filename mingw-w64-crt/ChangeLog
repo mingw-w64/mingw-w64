@@ -1,3 +1,9 @@
+2010-06-16  Doug Semler  <dougsemler@gmail.com>
+
+	* profile/mcountFunc.S: Export _mcount always with single underscore.
+	  (_mcount): Call renamed internal function.
+	* profile/mcount.c: Remove extern declaration and move to profile.h
+
 2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* profile/gmon.c: Spaces-to-tabs in two places.
