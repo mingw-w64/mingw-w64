@@ -44,23 +44,13 @@ extern "C" {
 
   DECLARE_HANDLE(HDROP);
 
-#ifdef UNICODE
-#define DragQueryFile DragQueryFileW
-#define ShellExecute ShellExecuteW
-#define FindExecutable FindExecutableW
-#define ShellAbout ShellAboutW
-#define ExtractAssociatedIcon ExtractAssociatedIconW
-#define ExtractAssociatedIconEx ExtractAssociatedIconExW
-#define ExtractIcon ExtractIconW
-#else
-#define DragQueryFile DragQueryFileA
-#define ShellExecute ShellExecuteA
-#define FindExecutable FindExecutableA
-#define ShellAbout ShellAboutA
-#define ExtractAssociatedIcon ExtractAssociatedIconA
-#define ExtractAssociatedIconEx ExtractAssociatedIconExA
-#define ExtractIcon ExtractIconA
-#endif
+#define DragQueryFile __MINGW_NAME_AW(DragQueryFile)
+#define ShellExecute __MINGW_NAME_AW(ShellExecute)
+#define FindExecutable __MINGW_NAME_AW(FindExecutable)
+#define ShellAbout __MINGW_NAME_AW(ShellAbout)
+#define ExtractAssociatedIcon __MINGW_NAME_AW(ExtractAssociatedIcon)
+#define ExtractAssociatedIconEx __MINGW_NAME_AW(ExtractAssociatedIconEx)
+#define ExtractIcon __MINGW_NAME_AW(ExtractIcon)
 
   SHSTDAPI_(UINT) DragQueryFileA(HDROP,UINT,LPSTR,UINT);
   SHSTDAPI_(UINT) DragQueryFileW(HDROP,UINT,LPWSTR,UINT);
@@ -99,13 +89,9 @@ extern "C" {
     LPWSTR lpFileList;
     DWORD grfKeyState;
   } DRAGINFOW,*LPDRAGINFOW;
-#ifdef UNICODE
-  typedef DRAGINFOW DRAGINFO;
-  typedef LPDRAGINFOW LPDRAGINFO;
-#else
-  typedef DRAGINFOA DRAGINFO;
-  typedef LPDRAGINFOA LPDRAGINFO;
-#endif
+
+  __MINGW_TYPEDEF_AW(DRAGINFO)
+  __MINGW_TYPEDEF_AW(LPDRAGINFO)
 
 #define ABM_NEW 0x00000000
 #define ABM_REMOVE 0x00000001
@@ -144,13 +130,8 @@ extern "C" {
 
 #define EIRESID(x) (-1 *(int)(x))
 
-#ifdef UNICODE
-#define DoEnvironmentSubst DoEnvironmentSubstW
-#define ExtractIconEx ExtractIconExW
-#else
-#define DoEnvironmentSubst DoEnvironmentSubstA
-#define ExtractIconEx ExtractIconExA
-#endif
+#define DoEnvironmentSubst __MINGW_NAME_AW(DoEnvironmentSubst)
+#define ExtractIconEx __MINGW_NAME_AW(ExtractIconEx)
 
   SHSTDAPI_(UINT_PTR) SHAppBarMessage(DWORD dwMessage,PAPPBARDATA pData);
   SHSTDAPI_(DWORD) DoEnvironmentSubstA(LPSTR szString,UINT cchString);
@@ -215,19 +196,11 @@ extern "C" {
     LPVOID hNameMappings;
     LPCWSTR lpszProgressTitle;
   } SHFILEOPSTRUCTW,*LPSHFILEOPSTRUCTW;
-#ifdef UNICODE
-  typedef SHFILEOPSTRUCTW SHFILEOPSTRUCT;
-  typedef LPSHFILEOPSTRUCTW LPSHFILEOPSTRUCT;
-#else
-  typedef SHFILEOPSTRUCTA SHFILEOPSTRUCT;
-  typedef LPSHFILEOPSTRUCTA LPSHFILEOPSTRUCT;
-#endif
 
-#ifdef UNICODE
-#define SHFileOperation SHFileOperationW
-#else
-#define SHFileOperation SHFileOperationA
-#endif
+  __MINGW_TYPEDEF_AW(SHFILEOPSTRUCT)
+  __MINGW_TYPEDEF_AW(LPSHFILEOPSTRUCT)
+
+#define SHFileOperation __MINGW_NAME_AW(SHFileOperation)
 
   SHSTDAPI_(int) SHFileOperationA(LPSHFILEOPSTRUCTA lpFileOp);
   SHSTDAPI_(int) SHFileOperationW(LPSHFILEOPSTRUCTW lpFileOp);
@@ -246,13 +219,9 @@ extern "C" {
     int cchOldPath;
     int cchNewPath;
   } SHNAMEMAPPINGW,*LPSHNAMEMAPPINGW;
-#ifdef UNICODE
-  typedef SHNAMEMAPPINGW SHNAMEMAPPING;
-  typedef LPSHNAMEMAPPINGW LPSHNAMEMAPPING;
-#else
-  typedef SHNAMEMAPPINGA SHNAMEMAPPING;
-  typedef LPSHNAMEMAPPINGA LPSHNAMEMAPPING;
-#endif
+
+  __MINGW_TYPEDEF_AW(SHNAMEMAPPING)
+  __MINGW_TYPEDEF_AW(LPSHNAMEMAPPING)
 
 #define SE_ERR_FNF 2
 #define SE_ERR_PNF 3
@@ -333,21 +302,12 @@ extern "C" {
     } DUMMYUNIONNAME;
     HANDLE hProcess;
   } SHELLEXECUTEINFOW,*LPSHELLEXECUTEINFOW;
-#ifdef UNICODE
-  typedef SHELLEXECUTEINFOW SHELLEXECUTEINFO;
-  typedef LPSHELLEXECUTEINFOW LPSHELLEXECUTEINFO;
-#else
-  typedef SHELLEXECUTEINFOA SHELLEXECUTEINFO;
-  typedef LPSHELLEXECUTEINFOA LPSHELLEXECUTEINFO;
-#endif
 
-#ifdef UNICODE
-#define ShellExecuteEx ShellExecuteExW
-#define WinExecError WinExecErrorW
-#else
-#define ShellExecuteEx ShellExecuteExA
-#define WinExecError WinExecErrorA
-#endif
+  __MINGW_TYPEDEF_AW(SHELLEXECUTEINFO)
+  __MINGW_TYPEDEF_AW(LPSHELLEXECUTEINFO)
+
+#define ShellExecuteEx __MINGW_NAME_AW(ShellExecuteEx)
+#define WinExecError __MINGW_NAME_AW(WinExecError)
 
   SHSTDAPI_(WINBOOL) ShellExecuteExA(LPSHELLEXECUTEINFOA lpExecInfo);
   SHSTDAPI_(WINBOOL) ShellExecuteExW(LPSHELLEXECUTEINFOW lpExecInfo);
@@ -382,13 +342,8 @@ extern "C" {
 #define SHERB_NOPROGRESSUI 0x00000002
 #define SHERB_NOSOUND 0x00000004
 
-#ifdef UNICODE
-#define SHQueryRecycleBin SHQueryRecycleBinW
-#define SHEmptyRecycleBin SHEmptyRecycleBinW
-#else
-#define SHQueryRecycleBin SHQueryRecycleBinA
-#define SHEmptyRecycleBin SHEmptyRecycleBinA
-#endif
+#define SHQueryRecycleBin __MINGW_NAME_AW(SHQueryRecycleBin)
+#define SHEmptyRecycleBin __MINGW_NAME_AW(SHEmptyRecycleBin)
 
   SHSTDAPI SHQueryRecycleBinA(LPCSTR pszRootPath,LPSHQUERYRBINFO pSHQueryRBInfo);
   SHSTDAPI SHQueryRecycleBinW(LPCWSTR pszRootPath,LPSHQUERYRBINFO pSHQueryRBInfo);
@@ -438,29 +393,24 @@ extern "C" {
     GUID guidItem;
 #endif
   } NOTIFYICONDATAW,*PNOTIFYICONDATAW;
-#ifdef UNICODE
-  typedef NOTIFYICONDATAW NOTIFYICONDATA;
-  typedef PNOTIFYICONDATAW PNOTIFYICONDATA;
-#else
-  typedef NOTIFYICONDATAA NOTIFYICONDATA;
-  typedef PNOTIFYICONDATAA PNOTIFYICONDATA;
-#endif
+
+  __MINGW_TYPEDEF_AW(NOTIFYICONDATA)
+  __MINGW_TYPEDEF_AW(PNOTIFYICONDATA)
 
 #define NOTIFYICONDATAA_V1_SIZE FIELD_OFFSET(NOTIFYICONDATAA,szTip[64])
 #define NOTIFYICONDATAW_V1_SIZE FIELD_OFFSET(NOTIFYICONDATAW,szTip[64])
-#ifdef UNICODE
-#define NOTIFYICONDATA_V1_SIZE NOTIFYICONDATAW_V1_SIZE
-#else
-#define NOTIFYICONDATA_V1_SIZE NOTIFYICONDATAA_V1_SIZE
-#endif
 
 #define NOTIFYICONDATAA_V2_SIZE FIELD_OFFSET(NOTIFYICONDATAA,guidItem)
 #define NOTIFYICONDATAW_V2_SIZE FIELD_OFFSET(NOTIFYICONDATAW,guidItem)
+
 #ifdef UNICODE
+#define NOTIFYICONDATA_V1_SIZE NOTIFYICONDATAW_V1_SIZE
 #define NOTIFYICONDATA_V2_SIZE NOTIFYICONDATAW_V2_SIZE
 #else
+#define NOTIFYICONDATA_V1_SIZE NOTIFYICONDATAA_V1_SIZE
 #define NOTIFYICONDATA_V2_SIZE NOTIFYICONDATAA_V2_SIZE
 #endif
+
 
 #define NIN_SELECT (WM_USER + 0)
 #define NINF_KEY 0x1
@@ -501,11 +451,7 @@ extern "C" {
 #define NIIF_ICON_MASK 0x0000000F
 #define NIIF_NOSOUND 0x00000010
 
-#ifdef UNICODE
-#define Shell_NotifyIcon Shell_NotifyIconW
-#else
-#define Shell_NotifyIcon Shell_NotifyIconA
-#endif
+#define Shell_NotifyIcon __MINGW_NAME_AW(Shell_NotifyIcon)
 
   SHSTDAPI_(WINBOOL) Shell_NotifyIconA(DWORD dwMessage,PNOTIFYICONDATAA lpData);
   SHSTDAPI_(WINBOOL) Shell_NotifyIconW(DWORD dwMessage,PNOTIFYICONDATAW lpData);
@@ -527,11 +473,8 @@ extern "C" {
     WCHAR szDisplayName[MAX_PATH];
     WCHAR szTypeName[80];
   } SHFILEINFOW;
-#ifdef UNICODE
-  typedef SHFILEINFOW SHFILEINFO;
-#else
-  typedef SHFILEINFOA SHFILEINFO;
-#endif
+
+  __MINGW_TYPEDEF_AW(SHFILEINFO)
 #endif
 
 #define SHGFI_ICON 0x000000100
@@ -553,15 +496,9 @@ extern "C" {
 #define SHGFI_ADDOVERLAYS 0x000000020
 #define SHGFI_OVERLAYINDEX 0x000000040
 
-#ifdef UNICODE
-#define SHGetFileInfo SHGetFileInfoW
-#define SHGetDiskFreeSpaceEx SHGetDiskFreeSpaceExW
-#define SHGetNewLinkInfo SHGetNewLinkInfoW
-#else
-#define SHGetFileInfo SHGetFileInfoA
-#define SHGetDiskFreeSpaceEx SHGetDiskFreeSpaceExA
-#define SHGetNewLinkInfo SHGetNewLinkInfoA
-#endif
+#define SHGetFileInfo __MINGW_NAME_AW(SHGetFileInfo)
+#define SHGetDiskFreeSpaceEx __MINGW_NAME_AW(SHGetDiskFreeSpaceEx)
+#define SHGetNewLinkInfo __MINGW_NAME_AW(SHGetNewLinkInfo)
 
   SHSTDAPI_(DWORD_PTR) SHGetFileInfoA(LPCSTR pszPath,DWORD dwFileAttributes,SHFILEINFOA *psfi,UINT cbFileInfo,UINT uFlags);
   SHSTDAPI_(DWORD_PTR) SHGetFileInfoW(LPCWSTR pszPath,DWORD dwFileAttributes,SHFILEINFOW *psfi,UINT cbFileInfo,UINT uFlags);
@@ -587,11 +524,7 @@ extern "C" {
 #define PRINTACTION_SERVERPROPERTIES 7
 #endif
 
-#ifdef UNICODE
-#define SHInvokePrinterCommand SHInvokePrinterCommandW
-#else
-#define SHInvokePrinterCommand SHInvokePrinterCommandA
-#endif
+#define SHInvokePrinterCommand __MINGW_NAME_AW(SHInvokePrinterCommand)
 
   SHSTDAPI_(WINBOOL) SHInvokePrinterCommandA(HWND hwnd,UINT uAction,LPCSTR lpBuf1,LPCSTR lpBuf2,WINBOOL fModal);
   SHSTDAPI_(WINBOOL) SHInvokePrinterCommandW(HWND hwnd,UINT uAction,LPCWSTR lpBuf1,LPCWSTR lpBuf2,WINBOOL fModal);
@@ -606,37 +539,25 @@ extern "C" {
 
 #if (_WIN32_IE >= 0x0601)
 
-#ifdef UNICODE
-#define ShellMessageBox ShellMessageBoxW
-#else
-#define ShellMessageBox ShellMessageBoxA
-#endif
+#define ShellMessageBox __MINGW_NAME_AW(ShellMessageBox)
 
   int __cdecl ShellMessageBoxA(HINSTANCE hAppInst,HWND hWnd,LPCSTR lpcText,LPCSTR lpcTitle,UINT fuStyle,...);
   int __cdecl ShellMessageBoxW(HINSTANCE hAppInst,HWND hWnd,LPCWSTR lpcText,LPCWSTR lpcTitle,UINT fuStyle,...);
 #endif
 
 #if (_WIN32_IE >= 0x0601)
-#ifdef UNICODE
-#define IsLFNDrive IsLFNDriveW
-#else
-#define IsLFNDrive IsLFNDriveA
-#endif
+
+#define IsLFNDrive __MINGW_NAME_AW(IsLFNDrive)
 
   SHSTDAPI_(WINBOOL) IsLFNDriveA(LPCSTR pszPath);
   SHSTDAPI_(WINBOOL) IsLFNDriveW(LPCWSTR pszPath);
 #endif
 
 #if _WIN32_IE >= 0x0600
-#ifdef UNICODE
-#define SHEnumerateUnreadMailAccounts SHEnumerateUnreadMailAccountsW
-#define SHGetUnreadMailCount SHGetUnreadMailCountW
-#define SHSetUnreadMailCount SHSetUnreadMailCountW
-#else
-#define SHEnumerateUnreadMailAccounts SHEnumerateUnreadMailAccountsA
-#define SHGetUnreadMailCount SHGetUnreadMailCountA
-#define SHSetUnreadMailCount SHSetUnreadMailCountA
-#endif
+
+#define SHEnumerateUnreadMailAccounts __MINGW_NAME_AW(SHEnumerateUnreadMailAccounts)
+#define SHGetUnreadMailCount __MINGW_NAME_AW(SHGetUnreadMailCount)
+#define SHSetUnreadMailCount __MINGW_NAME_AW(SHSetUnreadMailCount)
 
   STDAPI SHEnumerateUnreadMailAccountsA(HKEY hKeyUser,DWORD dwIndex,LPSTR pszMailAddress,int cchMailAddress);
   STDAPI SHEnumerateUnreadMailAccountsW(HKEY hKeyUser,DWORD dwIndex,LPWSTR pszMailAddress,int cchMailAddress);

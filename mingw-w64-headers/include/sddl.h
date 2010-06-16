@@ -118,17 +118,10 @@ extern "C" {
 #define SDDL_ACE_BEGIN TEXT("(")
 #define SDDL_ACE_END TEXT(")")
 
-#ifdef UNICODE
-#define ConvertSidToStringSid ConvertSidToStringSidW
-#define ConvertStringSidToSid ConvertStringSidToSidW
-#define ConvertStringSecurityDescriptorToSecurityDescriptor ConvertStringSecurityDescriptorToSecurityDescriptorW
-#define ConvertSecurityDescriptorToStringSecurityDescriptor ConvertSecurityDescriptorToStringSecurityDescriptorW
-#else
-#define ConvertSidToStringSid ConvertSidToStringSidA
-#define ConvertStringSidToSid ConvertStringSidToSidA
-#define ConvertStringSecurityDescriptorToSecurityDescriptor ConvertStringSecurityDescriptorToSecurityDescriptorA
-#define ConvertSecurityDescriptorToStringSecurityDescriptor ConvertSecurityDescriptorToStringSecurityDescriptorA
-#endif
+#define ConvertSidToStringSid __MINGW_NAME_AW(ConvertSidToStringSid)
+#define ConvertStringSidToSid __MINGW_NAME_AW(ConvertStringSidToSid)
+#define ConvertStringSecurityDescriptorToSecurityDescriptor __MINGW_NAME_AW(ConvertStringSecurityDescriptorToSecurityDescriptor)
+#define ConvertSecurityDescriptorToStringSecurityDescriptor __MINGW_NAME_AW(ConvertSecurityDescriptorToStringSecurityDescriptor)
 
   WINADVAPI WINBOOL WINAPI ConvertSidToStringSidA(PSID Sid,LPSTR *StringSid);
   WINADVAPI WINBOOL WINAPI ConvertSidToStringSidW(PSID Sid,LPWSTR *StringSid);

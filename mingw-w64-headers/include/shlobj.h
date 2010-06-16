@@ -121,15 +121,9 @@ extern "C" {
 #define GCS_VALIDATEW 0x00000006
 #define GCS_UNICODE 0x00000004
 
-#ifdef UNICODE
-#define GCS_VERB GCS_VERBW
-#define GCS_HELPTEXT GCS_HELPTEXTW
-#define GCS_VALIDATE GCS_VALIDATEW
-#else
-#define GCS_VERB GCS_VERBA
-#define GCS_HELPTEXT GCS_HELPTEXTA
-#define GCS_VALIDATE GCS_VALIDATEA
-#endif
+#define GCS_VERB __MINGW_NAME_AW(GCS_VERB)
+#define GCS_HELPTEXT __MINGW_NAME_AW(GCS_HELPTEXT)
+#define GCS_VALIDATE __MINGW_NAME_AW(GCS_VALIDATE)
 
 #define CMDSTR_NEWFOLDERA "NewFolder"
 #define CMDSTR_VIEWLISTA "ViewList"
@@ -138,15 +132,9 @@ extern "C" {
 #define CMDSTR_VIEWLISTW L"ViewList"
 #define CMDSTR_VIEWDETAILSW L"ViewDetails"
 
-#ifdef UNICODE
-#define CMDSTR_NEWFOLDER CMDSTR_NEWFOLDERW
-#define CMDSTR_VIEWLIST CMDSTR_VIEWLISTW
-#define CMDSTR_VIEWDETAILS CMDSTR_VIEWDETAILSW
-#else
-#define CMDSTR_NEWFOLDER CMDSTR_NEWFOLDERA
-#define CMDSTR_VIEWLIST CMDSTR_VIEWLISTA
-#define CMDSTR_VIEWDETAILS CMDSTR_VIEWDETAILSA
-#endif
+#define CMDSTR_NEWFOLDER __MINGW_NAME_AW(CMDSTR_NEWFOLDER)
+#define CMDSTR_VIEWLIST __MINGW_NAME_AW(CMDSTR_VIEWLIST)
+#define CMDSTR_VIEWDETAILS __MINGW_NAME_AW(CMDSTR_VIEWDETAILS)
 
 #define CMIC_MASK_HOTKEY SEE_MASK_HOTKEY
 #define CMIC_MASK_ICON SEE_MASK_ICON
@@ -310,14 +298,13 @@ extern "C" {
 
   typedef IExtractIconW *LPEXTRACTICONW;
 
+#define IExtractIcon __MINGW_NAME_AW(IExtractIcon)
+#define LPEXTRACTICON __MINGW_NAME_AW(LPEXTRACTICON)
+
 #ifdef UNICODE
-#define IExtractIcon IExtractIconW
 #define IExtractIconVtbl IExtractIconWVtbl
-#define LPEXTRACTICON LPEXTRACTICONW
 #else
-#define IExtractIcon IExtractIconA
 #define IExtractIconVtbl IExtractIconAVtbl
-#define LPEXTRACTICON LPEXTRACTICONA
 #endif
 
 #undef INTERFACE
@@ -383,11 +370,8 @@ extern "C" {
 #define IDO_SHGIOI_DEFAULT 0x0FFFFFFC
   SHSTDAPI_(int) SHGetIconOverlayIndexA(LPCSTR pszIconPath,int iIconIndex);
   SHSTDAPI_(int) SHGetIconOverlayIndexW(LPCWSTR pszIconPath,int iIconIndex);
-#ifdef UNICODE
-#define SHGetIconOverlayIndex SHGetIconOverlayIndexW
-#else
-#define SHGetIconOverlayIndex SHGetIconOverlayIndexA
-#endif
+
+#define SHGetIconOverlayIndex __MINGW_NAME_AW(SHGetIconOverlayIndex)
 
   typedef enum {
     SLDF_HAS_ID_LIST = 0x00000001,SLDF_HAS_LINK_INFO = 0x00000002,SLDF_HAS_NAME = 0x00000004,SLDF_HAS_RELPATH = 0x00000008,
@@ -525,11 +509,11 @@ extern "C" {
     STDMETHOD(Execute)(THIS_ LPSHELLEXECUTEINFOW pei) PURE;
   };
 
+#define IShellExecuteHook __MINGW_NAME_AW(IShellExecuteHook)
+
 #ifdef UNICODE
-#define IShellExecuteHook IShellExecuteHookW
 #define IShellExecuteHookVtbl IShellExecuteHookWVtbl
 #else
-#define IShellExecuteHook IShellExecuteHookA
 #define IShellExecuteHookVtbl IShellExecuteHookAVtbl
 #endif
 #endif
@@ -589,11 +573,10 @@ extern "C" {
     STDMETHOD(GetExtension)(THIS_ LPWSTR pszExtension,int cchExtension) PURE;
   };
 
+#define INewShortcutHook __MINGW_NAME_AW(INewShortcutHook)
 #ifdef UNICODE
-#define INewShortcutHook INewShortcutHookW
 #define INewShortcutHookVtbl INewShortcutHookWVtbl
 #else
-#define INewShortcutHook INewShortcutHookA
 #define INewShortcutHookVtbl INewShortcutHookAVtbl
 #endif
 
@@ -655,14 +638,13 @@ extern "C" {
 
   typedef ICopyHookW *LPCOPYHOOKW;
 
+#define ICopyHook __MINGW_NAME_AW(ICopyHook)
+#define LPCOPYHOOK __MINGW_NAME_AW(LPCOPYHOOK)
+
 #ifdef UNICODE
-#define ICopyHook ICopyHookW
 #define ICopyHookVtbl ICopyHookWVtbl
-#define LPCOPYHOOK LPCOPYHOOKW
 #else
-#define ICopyHook ICopyHookA
 #define ICopyHookVtbl ICopyHookAVtbl
-#define LPCOPYHOOK LPCOPYHOOKA
 #endif
 
 #undef INTERFACE
@@ -725,13 +707,8 @@ extern "C" {
 
   typedef IFileViewerW *LPFILEVIEWERW;
 
-#ifdef UNICODE
-#define IFileViewer IFileViewerW
-#define LPFILEVIEWER LPFILEVIEWERW
-#else
-#define IFileViewer IFileViewerA
-#define LPFILEVIEWER LPFILEVIEWERA
-#endif
+#define IFileViewer __MINGW_NAME_AW(IFileViewer)
+#define LPFILEVIEWER __MINGW_NAME_AW(LPFILEVIEWER)
 
 #define FCIDM_SHVIEWFIRST 0x0000
 #define FCIDM_SHVIEWLAST 0x7fff
@@ -805,13 +782,8 @@ extern "C" {
 
   typedef ICommDlgBrowser2 *LPCOMMDLGBROWSER2;
 
-#ifdef UNICODE
-#define SHGetPathFromIDList SHGetPathFromIDListW
-#define SHCreateDirectoryEx SHCreateDirectoryExW
-#else
-#define SHGetPathFromIDList SHGetPathFromIDListA
-#define SHCreateDirectoryEx SHCreateDirectoryExA
-#endif
+#define SHGetPathFromIDList __MINGW_NAME_AW(SHGetPathFromIDList)
+#define SHCreateDirectoryEx __MINGW_NAME_AW(SHCreateDirectoryEx)
 
   SHSTDAPI_(WINBOOL) SHGetPathFromIDListA(LPCITEMIDLIST pidl,LPSTR pszPath);
   SHSTDAPI_(WINBOOL) SHGetPathFromIDListW(LPCITEMIDLIST pidl,LPWSTR pszPath);
@@ -911,15 +883,9 @@ extern "C" {
 #define CSIDL_FLAG_PER_USER_INIT 0x0800
 #define CSIDL_FLAG_MASK 0xFF00
 
-#ifdef UNICODE
-#define SHGetSpecialFolderPath SHGetSpecialFolderPathW
-#define SHGetFolderPath SHGetFolderPathW
-#define SHGetFolderPathAndSubDir SHGetFolderPathAndSubDirW
-#else
-#define SHGetSpecialFolderPath SHGetSpecialFolderPathA
-#define SHGetFolderPath SHGetFolderPathA
-#define SHGetFolderPathAndSubDir SHGetFolderPathAndSubDirA
-#endif
+#define SHGetSpecialFolderPath __MINGW_NAME_AW(SHGetSpecialFolderPath)
+#define SHGetFolderPath __MINGW_NAME_AW(SHGetFolderPath)
+#define SHGetFolderPathAndSubDir __MINGW_NAME_AW(SHGetFolderPathAndSubDir)
 
   SHSTDAPI SHGetSpecialFolderLocation(HWND hwnd,int csidl,LPITEMIDLIST *ppidl);
   SHSTDAPI_(void) SHFlushSFCache(void);
@@ -990,15 +956,9 @@ extern "C" {
 
 #include <poppack.h>
 
-#ifdef UNICODE
-#define SHFOLDERCUSTOMSETTINGS SHFOLDERCUSTOMSETTINGSW
-#define SHGetSetFolderCustomSettings SHGetSetFolderCustomSettingsW
-#define LPSHFOLDERCUSTOMSETTINGS LPSHFOLDERCUSTOMSETTINGSW
-#else
-#define SHFOLDERCUSTOMSETTINGS SHFOLDERCUSTOMSETTINGSA
-#define SHGetSetFolderCustomSettings SHGetSetFolderCustomSettingsA
-#define LPSHFOLDERCUSTOMSETTINGS LPSHFOLDERCUSTOMSETTINGSA
-#endif
+#define SHFOLDERCUSTOMSETTINGS __MINGW_NAME_AW(SHFOLDERCUSTOMSETTINGS)
+#define SHGetSetFolderCustomSettings __MINGW_NAME_AW(SHGetSetFolderCustomSettings)
+#define LPSHFOLDERCUSTOMSETTINGS __MINGW_NAME_AW(LPSHFOLDERCUSTOMSETTINGS)
 
   SHSTDAPI SHGetSetFolderCustomSettingsA(LPSHFOLDERCUSTOMSETTINGSA pfcs,LPCSTR pszPath,DWORD dwReadWrite);
   SHSTDAPI SHGetSetFolderCustomSettingsW(LPSHFOLDERCUSTOMSETTINGSW pfcs,LPCWSTR pszPath,DWORD dwReadWrite);
@@ -1031,15 +991,9 @@ extern "C" {
 
 #include <poppack.h>
 
-#ifdef UNICODE
-#define BROWSEINFO BROWSEINFOW
-#define PBROWSEINFO PBROWSEINFOW
-#define LPBROWSEINFO LPBROWSEINFOW
-#else
-#define BROWSEINFO BROWSEINFOA
-#define PBROWSEINFO PBROWSEINFOA
-#define LPBROWSEINFO LPBROWSEINFOA
-#endif
+#define BROWSEINFO __MINGW_NAME_AW(BROWSEINFO)
+#define PBROWSEINFO __MINGW_NAME_AW(PBROWSEINFO)
+#define LPBROWSEINFO __MINGW_NAME_AW(LPBROWSEINFO)
 
 #define BIF_RETURNONLYFSDIRS 0x0001
 #define BIF_DONTGOBELOWDOMAIN 0x0002
@@ -1080,19 +1034,10 @@ extern "C" {
   SHSTDAPI_(LPITEMIDLIST) SHBrowseForFolderA(LPBROWSEINFOA lpbi);
   SHSTDAPI_(LPITEMIDLIST) SHBrowseForFolderW(LPBROWSEINFOW lpbi);
 
-#ifdef UNICODE
-#define SHBrowseForFolder SHBrowseForFolderW
-#define BFFM_SETSTATUSTEXT BFFM_SETSTATUSTEXTW
-#define BFFM_SETSELECTION BFFM_SETSELECTIONW
-
-#define BFFM_VALIDATEFAILED BFFM_VALIDATEFAILEDW
-#else
-#define SHBrowseForFolder SHBrowseForFolderA
-#define BFFM_SETSTATUSTEXT BFFM_SETSTATUSTEXTA
-#define BFFM_SETSELECTION BFFM_SETSELECTIONA
-
-#define BFFM_VALIDATEFAILED BFFM_VALIDATEFAILEDA
-#endif
+#define SHBrowseForFolder __MINGW_NAME_AW(SHBrowseForFolder)
+#define BFFM_SETSTATUSTEXT __MINGW_NAME_AW(BFFM_SETSTATUSTEXT)
+#define BFFM_SETSELECTION __MINGW_NAME_AW(BFFM_SETSELECTION)
+#define BFFM_VALIDATEFAILED __MINGW_NAME_AW(BFFM_VALIDATEFAILED)
 
   SHSTDAPI SHLoadInProc(REFCLSID rclsid);
 
@@ -1779,17 +1724,10 @@ extern "C" {
 #define CFSTR_AUTOPLAY_SHELLIDLISTS TEXT("Autoplay Enumerated IDList Array")
 #define CFSTR_UNTRUSTEDDRAGDROP TEXT("UntrustedDragDrop")
 
-#ifdef UNICODE
-#define CFSTR_FILEDESCRIPTOR CFSTR_FILEDESCRIPTORW
-#define CFSTR_FILENAME CFSTR_FILENAMEW
-#define CFSTR_FILENAMEMAP CFSTR_FILENAMEMAPW
-#define CFSTR_INETURL CFSTR_INETURLW
-#else
-#define CFSTR_FILEDESCRIPTOR CFSTR_FILEDESCRIPTORA
-#define CFSTR_FILENAME CFSTR_FILENAMEA
-#define CFSTR_FILENAMEMAP CFSTR_FILENAMEMAPA
-#define CFSTR_INETURL CFSTR_INETURLA
-#endif
+#define CFSTR_FILEDESCRIPTOR __MINGW_NAME_AW(CFSTR_FILEDESCRIPTOR)
+#define CFSTR_FILENAME __MINGW_NAME_AW(CFSTR_FILENAME)
+#define CFSTR_FILENAMEMAP __MINGW_NAME_AW(CFSTR_FILENAMEMAP)
+#define CFSTR_INETURL __MINGW_NAME_AW(CFSTR_INETURL)
 
 #define DVASPECT_SHORTNAME 2
 #define DVASPECT_COPY 3
@@ -1842,13 +1780,8 @@ extern "C" {
     WCHAR cFileName[MAX_PATH ];
   } FILEDESCRIPTORW,*LPFILEDESCRIPTORW;
 
-#ifdef UNICODE
-#define FILEDESCRIPTOR FILEDESCRIPTORW
-#define LPFILEDESCRIPTOR LPFILEDESCRIPTORW
-#else
-#define FILEDESCRIPTOR FILEDESCRIPTORA
-#define LPFILEDESCRIPTOR LPFILEDESCRIPTORA
-#endif
+#define FILEDESCRIPTOR __MINGW_NAME_AW(FILEDESCRIPTOR)
+#define LPFILEDESCRIPTOR __MINGW_NAME_AW(LPFILEDESCRIPTOR)
 
   typedef struct _FILEGROUPDESCRIPTORA {
     UINT cItems;
@@ -1860,13 +1793,8 @@ extern "C" {
     FILEDESCRIPTORW fgd[1];
   } FILEGROUPDESCRIPTORW,*LPFILEGROUPDESCRIPTORW;
 
-#ifdef UNICODE
-#define FILEGROUPDESCRIPTOR FILEGROUPDESCRIPTORW
-#define LPFILEGROUPDESCRIPTOR LPFILEGROUPDESCRIPTORW
-#else
-#define FILEGROUPDESCRIPTOR FILEGROUPDESCRIPTORA
-#define LPFILEGROUPDESCRIPTOR LPFILEGROUPDESCRIPTORA
-#endif
+#define FILEGROUPDESCRIPTOR __MINGW_NAME_AW(FILEGROUPDESCRIPTOR)
+#define LPFILEGROUPDESCRIPTOR __MINGW_NAME_AW(LPFILEGROUPDESCRIPTOR)
 
   typedef struct _DROPFILES {
     DWORD pFiles;
@@ -1922,13 +1850,8 @@ extern "C" {
 #define SHCNF_FLUSH 0x1000
 #define SHCNF_FLUSHNOWAIT 0x2000
 
-#ifdef UNICODE
-#define SHCNF_PATH SHCNF_PATHW
-#define SHCNF_PRINTER SHCNF_PRINTERW
-#else
-#define SHCNF_PATH SHCNF_PATHA
-#define SHCNF_PRINTER SHCNF_PRINTERA
-#endif
+#define SHCNF_PATH __MINGW_NAME_AW(SHCNF_PATH)
+#define SHCNF_PRINTER __MINGW_NAME_AW(SHCNF_PRINTER)
 
   SHSTDAPI_(void) SHChangeNotify(LONG wEventId,UINT uFlags,LPCVOID dwItem1,LPCVOID dwItem2);
 
@@ -1971,11 +1894,7 @@ extern "C" {
     SHARD_SHELLITEM = 0x00000008
   } SHARD;
 
-#ifdef UNICODE
-#define SHARD_PATH SHARD_PATHW
-#else
-#define SHARD_PATH SHARD_PATHA
-#endif
+#define SHARD_PATH __MINGW_NAME_AW(SHARD_PATH)
 
   SHSTDAPI_(void) SHAddToRecentDocs(UINT uFlags,LPCVOID pv);
 
@@ -2004,11 +1923,7 @@ extern "C" {
     USHORT cbZero;
   } SHChangeProductKeyAsIDList,*LPSHChangeProductKeyAsIDList;
 
-#ifdef UNICODE
-#define SHUpdateImage SHUpdateImageW
-#else
-#define SHUpdateImage SHUpdateImageA
-#endif
+#define SHUpdateImage __MINGW_NAME_AW(SHUpdateImage)
 
   SHSTDAPI_(void) SHUpdateImageA(LPCSTR pszHashItem,int iIndex,UINT uFlags,int iImageIndex);
   SHSTDAPI_(void) SHUpdateImageW(LPCWSTR pszHashItem,int iIndex,UINT uFlags,int iImageIndex);
@@ -2053,11 +1968,7 @@ extern "C" {
 
 #include <poppack.h>
 
-#ifdef UNICODE
-#define SHGetDataFromIDList SHGetDataFromIDListW
-#else
-#define SHGetDataFromIDList SHGetDataFromIDListA
-#endif
+#define SHGetDataFromIDList __MINGW_NAME_AW(SHGetDataFromIDList)
 
   SHSTDAPI SHGetDataFromIDListA(IShellFolder *psf,LPCITEMIDLIST pidl,int nFormat,void *pv,int cb);
   SHSTDAPI SHGetDataFromIDListW(IShellFolder *psf,LPCITEMIDLIST pidl,int nFormat,void *pv,int cb);
@@ -2109,11 +2020,7 @@ extern "C" {
 
 #define CABINETSTATE_VERSION 2
 
-#ifdef UNICODE
-#define PathIsSlow PathIsSlowW
-#else
-#define PathIsSlow PathIsSlowA
-#endif
+#define PathIsSlow __MINGW_NAME_AW(PathIsSlow)
 
   SHSTDAPI_(WINBOOL) ReadCabinetState(LPCABINETSTATE lpState,int iSize);
   SHSTDAPI_(WINBOOL) WriteCabinetState(LPCABINETSTATE lpState);
@@ -2186,11 +2093,7 @@ extern "C" {
 #ifdef NO_WRAPPERS_FOR_ILCREATEFROMPATH
   SHSTDAPI_(LPITEMIDLIST) ILCreateFromPath(LPCTSTR pszPath);
 #else
-#ifdef UNICODE
-#define ILCreateFromPath ILCreateFromPathW
-#else
-#define ILCreateFromPath ILCreateFromPathA
-#endif
+#define ILCreateFromPath __MINGW_NAME_AW(ILCreateFromPath)
 #endif
   SHSTDAPI SHILCreateFromPath(LPCWSTR szPath,LPITEMIDLIST *ppidl,DWORD *rgfInOut);
 
@@ -2265,13 +2168,8 @@ extern "C" {
 #define PPCF_FORCEQUALIFY 0x00000040
 #define PPCF_LONGESTPOSSIBLE 0x00000080
 
-#ifdef UNICODE
-#define SHStartNetConnectionDialog SHStartNetConnectionDialogW
-#define SHDefExtractIcon SHDefExtractIconW
-#else
-#define SHStartNetConnectionDialog SHStartNetConnectionDialogA
-#define SHDefExtractIcon SHDefExtractIconA
-#endif
+#define SHStartNetConnectionDialog __MINGW_NAME_AW(SHStartNetConnectionDialog)
+#define SHDefExtractIcon __MINGW_NAME_AW(SHDefExtractIcon)
 
   SHSTDAPI_(LONG) PathProcessCommand(LPCWSTR lpSrc,LPWSTR lpDest,int iMax,DWORD dwFlags);
   SHSTDAPI_(DWORD) SHRestricted(RESTRICTIONS rest);
@@ -2478,11 +2376,7 @@ extern "C" {
 
   typedef HRESULT (CALLBACK *LPFNDFMCALLBACK)(IShellFolder *psf,HWND hwnd,IDataObject *pdtobj,UINT uMsg,WPARAM wParam,LPARAM lParam);
 
-#ifdef UNICODE
-#define SHOpenPropSheet SHOpenPropSheetW
-#else
-#define SHOpenPropSheet SHOpenPropSheetA
-#endif
+#define SHOpenPropSheet __MINGW_NAME_AW(SHOpenPropSheet)
 
   SHSTDAPI CDefFolderMenu_Create2(LPCITEMIDLIST pidlFolder,HWND hwnd,UINT cidl,LPCITEMIDLIST *apidl,IShellFolder *psf,LPFNDFMCALLBACK lpfn,UINT nKeys,const HKEY *ahkeyClsKeys,IContextMenu **ppcm);
   SHSTDAPI_(WINBOOL) SHOpenPropSheetA(LPCSTR pszCaption,HKEY ahkeys[],UINT cikeys,const CLSID *pclsidDefault,IDataObject *pdtobj,IShellBrowser *psb,LPCSTR pStartPage);
@@ -2641,13 +2535,8 @@ extern "C" {
 #define SHELLSTATEVERSION_IE4 9
 #define SHELLSTATEVERSION_WIN2K 10
 
-#ifdef UNICODE
-#define SHELLSTATE SHELLSTATEW
-#define LPSHELLSTATE LPSHELLSTATEW
-#else
-#define SHELLSTATE SHELLSTATEA
-#define LPSHELLSTATE LPSHELLSTATEA
-#endif
+#define SHELLSTATE __MINGW_NAME_AW(SHELLSTATE)
+#define LPSHELLSTATE __MINGW_NAME_AW(LPSHELLSTATE)
 
 #define SHELLSTATE_SIZE_WIN95 FIELD_OFFSET(SHELLSTATE,lParamSort)
 #define SHELLSTATE_SIZE_NT4 FIELD_OFFSET(SHELLSTATE,version)
@@ -2709,11 +2598,7 @@ extern "C" {
 #define SHPPFW_NOWRITECHECK 0x00000008
 #define SHPPFW_MEDIACHECKONLY 0x00000010
 
-#ifdef UNICODE
-#define SHPathPrepareForWrite SHPathPrepareForWriteW
-#else
-#define SHPathPrepareForWrite SHPathPrepareForWriteA
-#endif
+#define SHPathPrepareForWrite __MINGW_NAME_AW(SHPathPrepareForWrite)
 
   SHSTDAPI SHPathPrepareForWriteA(HWND hwnd,IUnknown *punkEnableModless,LPCSTR pszPath,DWORD dwFlags);
   SHSTDAPI SHPathPrepareForWriteW(HWND hwnd,IUnknown *punkEnableModless,LPCWSTR pszPath,DWORD dwFlags);
@@ -2734,11 +2619,7 @@ extern "C" {
   SHDOCAPI_(DWORD) SoftwareUpdateMessageBox(HWND hWnd,LPCWSTR szDistUnit,DWORD dwFlags,LPSOFTDISTINFO psdi);
 #endif
 
-#ifdef UNICODE
-#define SHCreateFileExtractIcon SHCreateFileExtractIconW
-#else
-#define SHCreateFileExtractIcon SHCreateFileExtractIconA
-#endif
+#define SHCreateFileExtractIcon __MINGW_NAME_AW(SHCreateFileExtractIcon)
 
   SHSTDAPI SHPropStgCreate(IPropertySetStorage *psstg,REFFMTID fmtid,CLSID *pclsid,DWORD grfFlags,DWORD grfMode,DWORD dwDisposition,IPropertyStorage**ppstg,UINT *puCodePage);
   SHSTDAPI SHPropStgReadMultiple(IPropertyStorage *pps,UINT uCodePage,ULONG cpspec,PROPSPEC const rgpspec[],PROPVARIANT rgvar[]);

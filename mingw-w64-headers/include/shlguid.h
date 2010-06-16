@@ -133,21 +133,12 @@ DEFINE_GUID(VID_ThumbStrip,0x8EEFA624,0xD1E9,0x445B,0x94,0xB7,0x74,0xFB,0xCE,0x2
 DEFINE_GUID(IID_IDiscardableBrowserProperty,0x49c3de7c,0xd329,0x11d0,0xab,0x73,0x00,0xc0,0x4f,0xc3,0x3e,0x80);
 DEFINE_GUID(IID_IShellChangeNotify,0xD82BE2B1L,0x5764,0x11D0,0xA9,0x6E,0x00,0xC0,0x4F,0xD7,0x05,0xA2);
 
-#ifdef UNICODE
-#define IID_IFileViewer IID_IFileViewerW
-#define IID_IShellLink IID_IShellLinkW
-#define IID_IExtractIcon IID_IExtractIconW
-#define IID_IShellCopyHook IID_IShellCopyHookW
-#define IID_IShellExecuteHook IID_IShellExecuteHookW
-#define IID_INewShortcutHook IID_INewShortcutHookW
-#else
-#define IID_IFileViewer IID_IFileViewerA
-#define IID_IShellLink IID_IShellLinkA
-#define IID_IExtractIcon IID_IExtractIconA
-#define IID_IShellCopyHook IID_IShellCopyHookA
-#define IID_IShellExecuteHook IID_IShellExecuteHookA
-#define IID_INewShortcutHook IID_INewShortcutHookA
-#endif
+#define IID_IFileViewer __MINGW_NAME_AW(IID_IFileViewer)
+#define IID_IShellLink __MINGW_NAME_AW(IID_IShellLink)
+#define IID_IExtractIcon __MINGW_NAME_AW(IID_IExtractIcon)
+#define IID_IShellCopyHook __MINGW_NAME_AW(IID_IShellCopyHook)
+#define IID_IShellExecuteHook __MINGW_NAME_AW(IID_IShellExecuteHook)
+#define IID_INewShortcutHook __MINGW_NAME_AW(IID_INewShortcutHook)
 
 #ifndef NO_INTSHCUT_GUIDS
 #include <isguids.h>

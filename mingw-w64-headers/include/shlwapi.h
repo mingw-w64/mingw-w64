@@ -106,15 +106,9 @@ extern "C" {
 #define StrIntlEqNIA(s1,s2,nChar) StrIsIntlEqualA(FALSE,s1,s2,nChar)
 #define StrIntlEqNIW(s1,s2,nChar) StrIsIntlEqualW(FALSE,s1,s2,nChar)
 
-#ifdef UNICODE
-#define StrRetToStr StrRetToStrW
-#define StrRetToBuf StrRetToBufW
-#define SHStrDup SHStrDupW
-#else
-#define StrRetToStr StrRetToStrA
-#define StrRetToBuf StrRetToBufA
-#define SHStrDup SHStrDupA
-#endif
+#define StrRetToStr __MINGW_NAME_AW(StrRetToStr)
+#define StrRetToBuf __MINGW_NAME_AW(StrRetToBuf)
+#define SHStrDup __MINGW_NAME_AW(SHStrDup)
 
   LWSTDAPI StrRetToStrA(STRRET *pstr,LPCITEMIDLIST pidl,LPSTR *ppsz);
   LWSTDAPI StrRetToStrW(STRRET *pstr,LPCITEMIDLIST pidl,LPWSTR *ppsz);
@@ -129,95 +123,60 @@ extern "C" {
 #if (_WIN32_IE >= 0x0603)
   LWSTDAPI_(WINBOOL) IsCharSpaceA(CHAR wch);
   LWSTDAPI_(WINBOOL) IsCharSpaceW(WCHAR wch);
-#ifdef UNICODE
-#define IsCharSpace IsCharSpaceW
-#else
-#define IsCharSpace IsCharSpaceA
-#endif
+
+#define IsCharSpace __MINGW_NAME_AW(IsCharSpace)
 
   LWSTDAPI_(int) StrCmpCA(LPCSTR pszStr1,LPCSTR pszStr2);
   LWSTDAPI_(int) StrCmpCW(LPCWSTR pszStr1,LPCWSTR pszStr2);
-#ifdef UNICODE
-#define StrCmpC StrCmpCW
-#else
-#define StrCmpC StrCmpCA
-#endif
+
+#define StrCmpC __MINGW_NAME_AW(StrCmpC)
 
   LWSTDAPI_(int) StrCmpICA(LPCSTR pszStr1,LPCSTR pszStr2);
   LWSTDAPI_(int) StrCmpICW(LPCWSTR pszStr1,LPCWSTR pszStr2);
-#ifdef UNICODE
-#define StrCmpIC StrCmpICW
-#else
-#define StrCmpIC StrCmpICA
-#endif
+
+#define StrCmpIC __MINGW_NAME_AW(StrCmpIC)
 #endif
 
+#define StrChr __MINGW_NAME_AW(StrChr)
+#define StrRChr __MINGW_NAME_AW(StrRChr)
+#define StrChrI __MINGW_NAME_AW(StrChrI)
+#define StrRChrI __MINGW_NAME_AW(StrRChrI)
+#define StrCmpN __MINGW_NAME_AW(StrCmpN)
+#define StrCmpNI __MINGW_NAME_AW(StrCmpNI)
+#define StrStr __MINGW_NAME_AW(StrStr)
+
+#define StrStrI __MINGW_NAME_AW(StrStrI)
+#define StrDup __MINGW_NAME_AW(StrDup)
+#define StrRStrI __MINGW_NAME_AW(StrRStrI)
+#define StrCSpn __MINGW_NAME_AW(StrCSpn)
+#define StrCSpnI __MINGW_NAME_AW(StrCSpnI)
+#define StrSpn __MINGW_NAME_AW(StrSpn)
+#define StrToInt __MINGW_NAME_AW(StrToInt)
+#define StrPBrk __MINGW_NAME_AW(StrPBrk)
+#define StrToIntEx __MINGW_NAME_AW(StrToIntEx)
+
+#if (_WIN32_IE >= 0x0600)
+#define StrToInt64Ex __MINGW_NAME_AW(StrToInt64Ex)
+#endif
+
+#define StrFromTimeInterval __MINGW_NAME_AW(StrFromTimeInterval)
+#define StrIntlEqN __MINGW_NAME_AW(StrIntlEqN)
+#define StrIntlEqNI __MINGW_NAME_AW(StrIntlEqNI)
+#define StrFormatByteSize __MINGW_NAME_AW(StrFormatByteSize)
+#define StrFormatKBSize __MINGW_NAME_AW(StrFormatKBSize)
+
+#define StrNCat __MINGW_NAME_AW(StrNCat)
+#define StrTrim __MINGW_NAME_AW(StrTrim)
+#define StrCatBuff __MINGW_NAME_AW(StrCatBuff)
+#define ChrCmpI __MINGW_NAME_AW(ChrCmpI)
+#define wvnsprintf __MINGW_NAME_AW(wvnsprintf)
+#define wnsprintf __MINGW_NAME_AW(wnsprintf)
+#define StrIsIntlEqual __MINGW_NAME_AW(StrIsIntlEqual)
+
 #ifdef UNICODE
-#define StrChr StrChrW
-#define StrRChr StrRChrW
-#define StrChrI StrChrIW
-#define StrRChrI StrRChrIW
-#define StrCmpN StrCmpNW
-#define StrCmpNI StrCmpNIW
-#define StrStr StrStrW
-#define StrStrI StrStrIW
-#define StrDup StrDupW
-#define StrRStrI StrRStrIW
-#define StrCSpn StrCSpnW
-#define StrCSpnI StrCSpnIW
-#define StrSpn StrSpnW
-#define StrToInt StrToIntW
-#define StrPBrk StrPBrkW
-#define StrToIntEx StrToIntExW
-#if (_WIN32_IE >= 0x0600)
-#define StrToInt64Ex StrToInt64ExW
-#endif
-#define StrFromTimeInterval StrFromTimeIntervalW
-#define StrIntlEqN StrIntlEqNW
-#define StrIntlEqNI StrIntlEqNIW
-#define StrFormatByteSize StrFormatByteSizeW
 #define StrFormatByteSize64 StrFormatByteSizeW
-#define StrFormatKBSize StrFormatKBSizeW
-#define StrNCat StrNCatW
-#define StrTrim StrTrimW
-#define StrCatBuff StrCatBuffW
-#define ChrCmpI ChrCmpIW
-#define wvnsprintf wvnsprintfW
-#define wnsprintf wnsprintfW
-#define StrIsIntlEqual StrIsIntlEqualW
 #else
-#define StrChr StrChrA
-#define StrRChr StrRChrA
-#define StrChrI StrChrIA
-#define StrRChrI StrRChrIA
-#define StrCmpN StrCmpNA
-#define StrCmpNI StrCmpNIA
-#define StrStr StrStrA
-#define StrStrI StrStrIA
-#define StrDup StrDupA
-#define StrRStrI StrRStrIA
-#define StrCSpn StrCSpnA
-#define StrCSpnI StrCSpnIA
-#define StrSpn StrSpnA
-#define StrToInt StrToIntA
-#define StrPBrk StrPBrkA
-#define StrToIntEx StrToIntExA
-#if (_WIN32_IE >= 0x0600)
-#define StrToInt64Ex StrToInt64ExA
-#endif
-#define StrFromTimeInterval StrFromTimeIntervalA
-#define StrIntlEqN StrIntlEqNA
-#define StrIntlEqNI StrIntlEqNIA
-#define StrFormatByteSize StrFormatByteSizeA
 #define StrFormatByteSize64 StrFormatByteSize64A
-#define StrFormatKBSize StrFormatKBSizeA
-#define StrNCat StrNCatA
-#define StrTrim StrTrimA
-#define StrCatBuff StrCatBuffA
-#define ChrCmpI ChrCmpIA
-#define wvnsprintf wvnsprintfA
-#define wnsprintf wnsprintfA
-#define StrIsIntlEqual StrIsIntlEqualA
 #endif
 
   LWSTDAPI_(WINBOOL) IntlStrEqWorkerA(WINBOOL fCaseSens,LPCSTR lpString1,LPCSTR lpString2,int nChar);
@@ -228,26 +187,16 @@ extern "C" {
 #define IntlStrEqNIA(s1,s2,nChar) IntlStrEqWorkerA(FALSE,s1,s2,nChar)
 #define IntlStrEqNIW(s1,s2,nChar) IntlStrEqWorkerW(FALSE,s1,s2,nChar)
 
-#ifdef UNICODE
-#define IntlStrEqN IntlStrEqNW
-#define IntlStrEqNI IntlStrEqNIW
-#else
-#define IntlStrEqN IntlStrEqNA
-#define IntlStrEqNI IntlStrEqNIA
-#endif
+#define IntlStrEqN __MINGW_NAME_AW(IntlStrEqN)
+#define IntlStrEqNI __MINGW_NAME_AW(IntlStrEqNI)
 
 #define SZ_CONTENTTYPE_HTMLA "text/html"
 #define SZ_CONTENTTYPE_HTMLW L"text/html"
 #define SZ_CONTENTTYPE_CDFA "application/x-cdf"
 #define SZ_CONTENTTYPE_CDFW L"application/x-cdf"
 
-#ifdef UNICODE
-#define SZ_CONTENTTYPE_HTML SZ_CONTENTTYPE_HTMLW
-#define SZ_CONTENTTYPE_CDF SZ_CONTENTTYPE_CDFW
-#else
-#define SZ_CONTENTTYPE_HTML SZ_CONTENTTYPE_HTMLA
-#define SZ_CONTENTTYPE_CDF SZ_CONTENTTYPE_CDFA
-#endif
+#define SZ_CONTENTTYPE_HTML __MINGW_NAME_AW(SZ_CONTENTTYPE_HTML)
+#define SZ_CONTENTTYPE_CDF __MINGW_NAME_AW(SZ_CONTENTTYPE_CDF)
 
 #define PathIsHTMLFileA(pszPath) PathIsContentTypeA(pszPath,SZ_CONTENTTYPE_HTMLA)
 #define PathIsHTMLFileW(pszPath) PathIsContentTypeW(pszPath,SZ_CONTENTTYPE_HTMLW)
@@ -267,57 +216,50 @@ extern "C" {
 #define StrNCpy StrCpyN
 #define StrCatN StrNCat
 
+#define StrCatBuff __MINGW_NAME_AW(StrCatBuff)
+
 #ifdef UNICODE
 #define StrCat StrCatW
 #define StrCmp StrCmpW
 #define StrCmpI StrCmpIW
 #define StrCpy StrCpyW
 #define StrCpyN StrCpyNW
-#define StrCatBuff StrCatBuffW
 #else
 #define StrCat lstrcatA
 #define StrCmp lstrcmpA
 #define StrCmpI lstrcmpiA
 #define StrCpy lstrcpyA
 #define StrCpyN lstrcpynA
-#define StrCatBuff StrCatBuffA
 #endif
+
 #endif
 
 #ifndef NO_SHLWAPI_PATH
 
   LWSTDAPI_(LPSTR) PathAddBackslashA(LPSTR pszPath);
   LWSTDAPI_(LPWSTR) PathAddBackslashW(LPWSTR pszPath);
-#ifdef UNICODE
-#define PathAddBackslash PathAddBackslashW
-#else
-#define PathAddBackslash PathAddBackslashA
-#endif
+
+#define PathAddBackslash __MINGW_NAME_AW(PathAddBackslash)
+
   LWSTDAPI_(WINBOOL) PathAddExtensionA(LPSTR pszPath,LPCSTR pszExt);
   LWSTDAPI_(WINBOOL) PathAddExtensionW(LPWSTR pszPath,LPCWSTR pszExt);
-#ifdef UNICODE
-#define PathAddExtension PathAddExtensionW
-#else
-#define PathAddExtension PathAddExtensionA
-#endif
+
+#define PathAddExtension __MINGW_NAME_AW(PathAddExtension)
+
   LWSTDAPI_(WINBOOL) PathAppendA(LPSTR pszPath,LPCSTR pMore);
   LWSTDAPI_(WINBOOL) PathAppendW(LPWSTR pszPath,LPCWSTR pMore);
   LWSTDAPI_(LPSTR) PathBuildRootA(LPSTR pszRoot,int iDrive);
   LWSTDAPI_(LPWSTR) PathBuildRootW(LPWSTR pszRoot,int iDrive);
-#ifdef UNICODE
-#define PathBuildRoot PathBuildRootW
-#else
-#define PathBuildRoot PathBuildRootA
-#endif
+
+#define PathBuildRoot __MINGW_NAME_AW(PathBuildRoot)
+
   LWSTDAPI_(WINBOOL) PathCanonicalizeA(LPSTR pszBuf,LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathCanonicalizeW(LPWSTR pszBuf,LPCWSTR pszPath);
   LWSTDAPI_(LPSTR) PathCombineA(LPSTR pszDest,LPCSTR pszDir,LPCSTR pszFile);
   LWSTDAPI_(LPWSTR) PathCombineW(LPWSTR pszDest,LPCWSTR pszDir,LPCWSTR pszFile);
-#ifdef UNICODE
-#define PathCombine PathCombineW
-#else
-#define PathCombine PathCombineA
-#endif
+
+#define PathCombine __MINGW_NAME_AW(PathCombine)
+
   LWSTDAPI_(WINBOOL) PathCompactPathA(HDC hDC,LPSTR pszPath,UINT dx);
   LWSTDAPI_(WINBOOL) PathCompactPathW(HDC hDC,LPWSTR pszPath,UINT dx);
   LWSTDAPI_(WINBOOL) PathCompactPathExA(LPSTR pszOut,LPCSTR pszSrc,UINT cchMax,DWORD dwFlags);
@@ -326,55 +268,40 @@ extern "C" {
   LWSTDAPI_(int) PathCommonPrefixW(LPCWSTR pszFile1,LPCWSTR pszFile2,LPWSTR achPath);
   LWSTDAPI_(WINBOOL) PathFileExistsA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathFileExistsW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathFileExists PathFileExistsW
-#else
-#define PathFileExists PathFileExistsA
-#endif
+
+#define PathFileExists __MINGW_NAME_AW(PathFileExists)
+
   LWSTDAPI_(LPSTR) PathFindExtensionA(LPCSTR pszPath);
   LWSTDAPI_(LPWSTR) PathFindExtensionW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathFindExtension PathFindExtensionW
-#else
-#define PathFindExtension PathFindExtensionA
-#endif
+
+#define PathFindExtension __MINGW_NAME_AW(PathFindExtension)
+
   LWSTDAPI_(LPSTR) PathFindFileNameA(LPCSTR pszPath);
   LWSTDAPI_(LPWSTR) PathFindFileNameW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathFindFileName PathFindFileNameW
-#else
-#define PathFindFileName PathFindFileNameA
-#endif
+
+#define PathFindFileName __MINGW_NAME_AW(PathFindFileName)
+
   LWSTDAPI_(LPSTR) PathFindNextComponentA(LPCSTR pszPath);
   LWSTDAPI_(LPWSTR) PathFindNextComponentW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathFindNextComponent PathFindNextComponentW
-#else
-#define PathFindNextComponent PathFindNextComponentA
-#endif
+
+#define PathFindNextComponent __MINGW_NAME_AW(PathFindNextComponent)
+
   LWSTDAPI_(WINBOOL) PathFindOnPathA(LPSTR pszPath,LPCSTR *ppszOtherDirs);
   LWSTDAPI_(WINBOOL) PathFindOnPathW(LPWSTR pszPath,LPCWSTR *ppszOtherDirs);
   LWSTDAPI_(LPSTR) PathGetArgsA(LPCSTR pszPath);
   LWSTDAPI_(LPWSTR) PathGetArgsW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathGetArgs PathGetArgsW
-#else
-#define PathGetArgs PathGetArgsA
-#endif
+
+#define PathGetArgs __MINGW_NAME_AW(PathGetArgs)
+
   LWSTDAPI_(LPCSTR) PathFindSuffixArrayA(LPCSTR pszPath,const LPCSTR *apszSuffix,int iArraySize);
   LWSTDAPI_(LPCWSTR) PathFindSuffixArrayW(LPCWSTR pszPath,const LPCWSTR *apszSuffix,int iArraySize);
-#ifdef UNICODE
-#define PathFindSuffixArray PathFindSuffixArrayW
-#else
-#define PathFindSuffixArray PathFindSuffixArrayA
-#endif
+
+#define PathFindSuffixArray __MINGW_NAME_AW(PathFindSuffixArray)
+
   LWSTDAPI_(WINBOOL) PathIsLFNFileSpecA(LPCSTR lpName);
   LWSTDAPI_(WINBOOL) PathIsLFNFileSpecW(LPCWSTR lpName);
-#ifdef UNICODE
-#define PathIsLFNFileSpec PathIsLFNFileSpecW
-#else
-#define PathIsLFNFileSpec PathIsLFNFileSpecA
-#endif
+
+#define PathIsLFNFileSpec __MINGW_NAME_AW(PathIsLFNFileSpec)
 
   LWSTDAPI_(UINT) PathGetCharTypeA(UCHAR ch);
   LWSTDAPI_(UINT) PathGetCharTypeW(WCHAR ch);
@@ -387,97 +314,71 @@ extern "C" {
 
   LWSTDAPI_(int) PathGetDriveNumberA(LPCSTR pszPath);
   LWSTDAPI_(int) PathGetDriveNumberW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathGetDriveNumber PathGetDriveNumberW
-#else
-#define PathGetDriveNumber PathGetDriveNumberA
-#endif
+
+#define PathGetDriveNumber __MINGW_NAME_AW(PathGetDriveNumber)
+
   LWSTDAPI_(WINBOOL) PathIsDirectoryA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsDirectoryW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsDirectory PathIsDirectoryW
-#else
-#define PathIsDirectory PathIsDirectoryA
-#endif
+
+#define PathIsDirectory __MINGW_NAME_AW(PathIsDirectory)
+
   LWSTDAPI_(WINBOOL) PathIsDirectoryEmptyA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsDirectoryEmptyW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsDirectoryEmpty PathIsDirectoryEmptyW
-#else
-#define PathIsDirectoryEmpty PathIsDirectoryEmptyA
-#endif
+
+#define PathIsDirectoryEmpty __MINGW_NAME_AW(PathIsDirectoryEmpty)
+
   LWSTDAPI_(WINBOOL) PathIsFileSpecA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsFileSpecW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsFileSpec PathIsFileSpecW
-#else
-#define PathIsFileSpec PathIsFileSpecA
-#endif
+
+#define PathIsFileSpec __MINGW_NAME_AW(PathIsFileSpec)
+
   LWSTDAPI_(WINBOOL) PathIsPrefixA(LPCSTR pszPrefix,LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsPrefixW(LPCWSTR pszPrefix,LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsPrefix PathIsPrefixW
-#else
-#define PathIsPrefix PathIsPrefixA
-#endif
+
+#define PathIsPrefix __MINGW_NAME_AW(PathIsPrefix)
+
   LWSTDAPI_(WINBOOL) PathIsRelativeA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsRelativeW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsRelative PathIsRelativeW
-#else
-#define PathIsRelative PathIsRelativeA
-#endif
+
+#define PathIsRelative __MINGW_NAME_AW(PathIsRelative)
+
   LWSTDAPI_(WINBOOL) PathIsRootA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsRootW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsRoot PathIsRootW
-#else
-#define PathIsRoot PathIsRootA
-#endif
+
+#define PathIsRoot __MINGW_NAME_AW(PathIsRoot)
+
   LWSTDAPI_(WINBOOL) PathIsSameRootA(LPCSTR pszPath1,LPCSTR pszPath2);
   LWSTDAPI_(WINBOOL) PathIsSameRootW(LPCWSTR pszPath1,LPCWSTR pszPath2);
-#ifdef UNICODE
-#define PathIsSameRoot PathIsSameRootW
-#else
-#define PathIsSameRoot PathIsSameRootA
-#endif
+
+#define PathIsSameRoot __MINGW_NAME_AW(PathIsSameRoot)
+
   LWSTDAPI_(WINBOOL) PathIsUNCA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsUNCW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsUNC PathIsUNCW
-#else
-#define PathIsUNC PathIsUNCA
-#endif
+
+#define PathIsUNC __MINGW_NAME_AW(PathIsUNC)
+
   LWSTDAPI_(WINBOOL) PathIsNetworkPathA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsNetworkPathW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsNetworkPath PathIsNetworkPathW
-#else
-#define PathIsNetworkPath PathIsNetworkPathA
-#endif
+
+#define PathIsNetworkPath __MINGW_NAME_AW(PathIsNetworkPath)
+
   LWSTDAPI_(WINBOOL) PathIsUNCServerA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsUNCServerW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsUNCServer PathIsUNCServerW
-#else
-#define PathIsUNCServer PathIsUNCServerA
-#endif
+
+#define PathIsUNCServer __MINGW_NAME_AW(PathIsUNCServer)
+
   LWSTDAPI_(WINBOOL) PathIsUNCServerShareA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsUNCServerShareW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsUNCServerShare PathIsUNCServerShareW
-#else
-#define PathIsUNCServerShare PathIsUNCServerShareA
-#endif
+
+#define PathIsUNCServerShare __MINGW_NAME_AW(PathIsUNCServerShare)
+
   LWSTDAPI_(WINBOOL) PathIsContentTypeA(LPCSTR pszPath,LPCSTR pszContentType);
   LWSTDAPI_(WINBOOL) PathIsContentTypeW(LPCWSTR pszPath,LPCWSTR pszContentType);
   LWSTDAPI_(WINBOOL) PathIsURLA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathIsURLW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathIsURL PathIsURLW
-#else
-#define PathIsURL PathIsURLA
-#endif
+
+#define PathIsURL __MINGW_NAME_AW(PathIsURL)
+
   LWSTDAPI_(WINBOOL) PathMakePrettyA(LPSTR pszPath);
   LWSTDAPI_(WINBOOL) PathMakePrettyW(LPWSTR pszPath);
   LWSTDAPI_(WINBOOL) PathMatchSpecA(LPCSTR pszFile,LPCSTR pszSpec);
@@ -492,11 +393,9 @@ extern "C" {
   LWSTDAPI_(void) PathRemoveArgsW(LPWSTR pszPath);
   LWSTDAPI_(LPSTR) PathRemoveBackslashA(LPSTR pszPath);
   LWSTDAPI_(LPWSTR) PathRemoveBackslashW(LPWSTR pszPath);
-#ifdef UNICODE
-#define PathRemoveBackslash PathRemoveBackslashW
-#else
-#define PathRemoveBackslash PathRemoveBackslashA
-#endif
+
+#define PathRemoveBackslash __MINGW_NAME_AW(PathRemoveBackslash)
+
   LWSTDAPI_(void) PathRemoveBlanksA(LPSTR pszPath);
   LWSTDAPI_(void) PathRemoveBlanksW(LPWSTR pszPath);
   LWSTDAPI_(void) PathRemoveExtensionA(LPSTR pszPath);
@@ -511,110 +410,67 @@ extern "C" {
   LWSTDAPI_(void) PathSetDlgItemPathW(HWND hDlg,int id,LPCWSTR pszPath);
   LWSTDAPI_(LPSTR) PathSkipRootA(LPCSTR pszPath);
   LWSTDAPI_(LPWSTR) PathSkipRootW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathSkipRoot PathSkipRootW
-#else
-#define PathSkipRoot PathSkipRootA
-#endif
+
+#define PathSkipRoot __MINGW_NAME_AW(PathSkipRoot)
+
   LWSTDAPI_(void) PathStripPathA(LPSTR pszPath);
   LWSTDAPI_(void) PathStripPathW(LPWSTR pszPath);
-#ifdef UNICODE
-#define PathStripPath PathStripPathW
-#else
-#define PathStripPath PathStripPathA
-#endif
+
+#define PathStripPath __MINGW_NAME_AW(PathStripPath)
+
   LWSTDAPI_(WINBOOL) PathStripToRootA(LPSTR pszPath);
   LWSTDAPI_(WINBOOL) PathStripToRootW(LPWSTR pszPath);
-#ifdef UNICODE
-#define PathStripToRoot PathStripToRootW
-#else
-#define PathStripToRoot PathStripToRootA
-#endif
+
+#define PathStripToRoot __MINGW_NAME_AW(PathStripToRoot)
+
   LWSTDAPI_(void) PathUnquoteSpacesA(LPSTR lpsz);
   LWSTDAPI_(void) PathUnquoteSpacesW(LPWSTR lpsz);
   LWSTDAPI_(WINBOOL) PathMakeSystemFolderA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathMakeSystemFolderW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathMakeSystemFolder PathMakeSystemFolderW
-#else
-#define PathMakeSystemFolder PathMakeSystemFolderA
-#endif
+
+#define PathMakeSystemFolder __MINGW_NAME_AW(PathMakeSystemFolder)
+
   LWSTDAPI_(WINBOOL) PathUnmakeSystemFolderA(LPCSTR pszPath);
   LWSTDAPI_(WINBOOL) PathUnmakeSystemFolderW(LPCWSTR pszPath);
-#ifdef UNICODE
-#define PathUnmakeSystemFolder PathUnmakeSystemFolderW
-#else
-#define PathUnmakeSystemFolder PathUnmakeSystemFolderA
-#endif
+
+#define PathUnmakeSystemFolder __MINGW_NAME_AW(PathUnmakeSystemFolder)
+
   LWSTDAPI_(WINBOOL) PathIsSystemFolderA(LPCSTR pszPath,DWORD dwAttrb);
   LWSTDAPI_(WINBOOL) PathIsSystemFolderW(LPCWSTR pszPath,DWORD dwAttrb);
-#ifdef UNICODE
-#define PathIsSystemFolder PathIsSystemFolderW
-#else
-#define PathIsSystemFolder PathIsSystemFolderA
-#endif
+
+#define PathIsSystemFolder __MINGW_NAME_AW(PathIsSystemFolder)
+
   LWSTDAPI_(void) PathUndecorateA(LPSTR pszPath);
   LWSTDAPI_(void) PathUndecorateW(LPWSTR pszPath);
-#ifdef UNICODE
-#define PathUndecorate PathUndecorateW
-#else
-#define PathUndecorate PathUndecorateA
-#endif
+
+#define PathUndecorate __MINGW_NAME_AW(PathUndecorate)
+
   LWSTDAPI_(WINBOOL) PathUnExpandEnvStringsA(LPCSTR pszPath,LPSTR pszBuf,UINT cchBuf);
   LWSTDAPI_(WINBOOL) PathUnExpandEnvStringsW(LPCWSTR pszPath,LPWSTR pszBuf,UINT cchBuf);
-#ifdef UNICODE
-#define PathUnExpandEnvStrings PathUnExpandEnvStringsW
-#else
-#define PathUnExpandEnvStrings PathUnExpandEnvStringsA
-#endif
 
-#ifdef UNICODE
-#define PathAppend PathAppendW
-#define PathCanonicalize PathCanonicalizeW
-#define PathCompactPath PathCompactPathW
-#define PathCompactPathEx PathCompactPathExW
-#define PathCommonPrefix PathCommonPrefixW
-#define PathFindOnPath PathFindOnPathW
-#define PathGetCharType PathGetCharTypeW
-#define PathIsContentType PathIsContentTypeW
-#define PathIsHTMLFile PathIsHTMLFileW
-#define PathMakePretty PathMakePrettyW
-#define PathMatchSpec PathMatchSpecW
-#define PathParseIconLocation PathParseIconLocationW
-#define PathQuoteSpaces PathQuoteSpacesW
-#define PathRelativePathTo PathRelativePathToW
-#define PathRemoveArgs PathRemoveArgsW
-#define PathRemoveBlanks PathRemoveBlanksW
-#define PathRemoveExtension PathRemoveExtensionW
-#define PathRemoveFileSpec PathRemoveFileSpecW
-#define PathRenameExtension PathRenameExtensionW
-#define PathSearchAndQualify PathSearchAndQualifyW
-#define PathSetDlgItemPath PathSetDlgItemPathW
-#define PathUnquoteSpaces PathUnquoteSpacesW
-#else
-#define PathAppend PathAppendA
-#define PathCanonicalize PathCanonicalizeA
-#define PathCompactPath PathCompactPathA
-#define PathCompactPathEx PathCompactPathExA
-#define PathCommonPrefix PathCommonPrefixA
-#define PathFindOnPath PathFindOnPathA
-#define PathGetCharType PathGetCharTypeA
-#define PathIsContentType PathIsContentTypeA
-#define PathIsHTMLFile PathIsHTMLFileA
-#define PathMakePretty PathMakePrettyA
-#define PathMatchSpec PathMatchSpecA
-#define PathParseIconLocation PathParseIconLocationA
-#define PathQuoteSpaces PathQuoteSpacesA
-#define PathRelativePathTo PathRelativePathToA
-#define PathRemoveArgs PathRemoveArgsA
-#define PathRemoveBlanks PathRemoveBlanksA
-#define PathRemoveExtension PathRemoveExtensionA
-#define PathRemoveFileSpec PathRemoveFileSpecA
-#define PathRenameExtension PathRenameExtensionA
-#define PathSearchAndQualify PathSearchAndQualifyA
-#define PathSetDlgItemPath PathSetDlgItemPathA
-#define PathUnquoteSpaces PathUnquoteSpacesA
-#endif
+#define PathUnExpandEnvStrings __MINGW_NAME_AW(PathUnExpandEnvStrings)
+#define PathAppend __MINGW_NAME_AW(PathAppend)
+#define PathCanonicalize __MINGW_NAME_AW(PathCanonicalize)
+#define PathCompactPath __MINGW_NAME_AW(PathCompactPath)
+#define PathCompactPathEx __MINGW_NAME_AW(PathCompactPathEx)
+#define PathCommonPrefix __MINGW_NAME_AW(PathCommonPrefix)
+#define PathFindOnPath __MINGW_NAME_AW(PathFindOnPath)
+#define PathGetCharType __MINGW_NAME_AW(PathGetCharType)
+#define PathIsContentType __MINGW_NAME_AW(PathIsContentType)
+#define PathIsHTMLFile __MINGW_NAME_AW(PathIsHTMLFile)
+#define PathMakePretty __MINGW_NAME_AW(PathMakePretty)
+#define PathMatchSpec __MINGW_NAME_AW(PathMatchSpec)
+#define PathParseIconLocation __MINGW_NAME_AW(PathParseIconLocation)
+#define PathQuoteSpaces __MINGW_NAME_AW(PathQuoteSpaces)
+#define PathRelativePathTo __MINGW_NAME_AW(PathRelativePathTo)
+#define PathRemoveArgs __MINGW_NAME_AW(PathRemoveArgs)
+#define PathRemoveBlanks __MINGW_NAME_AW(PathRemoveBlanks)
+#define PathRemoveExtension __MINGW_NAME_AW(PathRemoveExtension)
+#define PathRemoveFileSpec __MINGW_NAME_AW(PathRemoveFileSpec)
+#define PathRenameExtension __MINGW_NAME_AW(PathRenameExtension)
+#define PathSearchAndQualify __MINGW_NAME_AW(PathSearchAndQualify)
+#define PathSetDlgItemPath __MINGW_NAME_AW(PathSetDlgItemPath)
+#define PathUnquoteSpaces __MINGW_NAME_AW(PathUnquoteSpaces)
 
   typedef enum {
     URL_SCHEME_INVALID = -1,URL_SCHEME_UNKNOWN = 0,URL_SCHEME_FTP,URL_SCHEME_HTTP,URL_SCHEME_GOPHER,URL_SCHEME_MAILTO,URL_SCHEME_NEWS,URL_SCHEME_NNTP,URL_SCHEME_TELNET,URL_SCHEME_WAIS,URL_SCHEME_FILE,URL_SCHEME_MK,URL_SCHEME_HTTPS,URL_SCHEME_SHELL,URL_SCHEME_SNEWS,URL_SCHEME_LOCAL,URL_SCHEME_JAVASCRIPT,URL_SCHEME_VBSCRIPT,URL_SCHEME_ABOUT,URL_SCHEME_RES,URL_SCHEME_MSSHELLROOTED,URL_SCHEME_MSSHELLIDLIST,URL_SCHEME_MSHELP,URL_SCHEME_MAXVALUE
@@ -686,37 +542,20 @@ extern "C" {
   LWSTDAPI UrlApplySchemeW(LPCWSTR pszIn,LPWSTR pszOut,LPDWORD pcchOut,DWORD dwFlags);
   LWSTDAPI HashData(LPBYTE pbData,DWORD cbData,LPBYTE pbHash,DWORD cbHash);
 
-#ifdef UNICODE
-#define UrlCompare UrlCompareW
-#define UrlCombine UrlCombineW
-#define UrlCanonicalize UrlCanonicalizeW
-#define UrlIsOpaque UrlIsOpaqueW
-#define UrlIsFileUrl UrlIsFileUrlW
-#define UrlGetLocation UrlGetLocationW
-#define UrlUnescape UrlUnescapeW
-#define UrlEscape UrlEscapeW
-#define UrlCreateFromPath UrlCreateFromPathW
-#define PathCreateFromUrl PathCreateFromUrlW
-#define UrlHash UrlHashW
-#define UrlGetPart UrlGetPartW
-#define UrlApplyScheme UrlApplySchemeW
-#define UrlIs UrlIsW
-#else
-#define UrlCompare UrlCompareA
-#define UrlCombine UrlCombineA
-#define UrlCanonicalize UrlCanonicalizeA
-#define UrlIsOpaque UrlIsOpaqueA
-#define UrlIsFileUrl UrlIsFileUrlA
-#define UrlGetLocation UrlGetLocationA
-#define UrlUnescape UrlUnescapeA
-#define UrlEscape UrlEscapeA
-#define UrlCreateFromPath UrlCreateFromPathA
-#define PathCreateFromUrl PathCreateFromUrlA
-#define UrlHash UrlHashA
-#define UrlGetPart UrlGetPartA
-#define UrlApplyScheme UrlApplySchemeA
-#define UrlIs UrlIsA
-#endif
+#define UrlCompare __MINGW_NAME_AW(UrlCompare)
+#define UrlCombine __MINGW_NAME_AW(UrlCombine)
+#define UrlCanonicalize __MINGW_NAME_AW(UrlCanonicalize)
+#define UrlIsOpaque __MINGW_NAME_AW(UrlIsOpaque)
+#define UrlIsFileUrl __MINGW_NAME_AW(UrlIsFileUrl)
+#define UrlGetLocation __MINGW_NAME_AW(UrlGetLocation)
+#define UrlUnescape __MINGW_NAME_AW(UrlUnescape)
+#define UrlEscape __MINGW_NAME_AW(UrlEscape)
+#define UrlCreateFromPath __MINGW_NAME_AW(UrlCreateFromPath)
+#define PathCreateFromUrl __MINGW_NAME_AW(PathCreateFromUrl)
+#define UrlHash __MINGW_NAME_AW(UrlHash)
+#define UrlGetPart __MINGW_NAME_AW(UrlGetPart)
+#define UrlApplyScheme __MINGW_NAME_AW(UrlApplyScheme)
+#define UrlIs __MINGW_NAME_AW(UrlIs)
 
 #define UrlEscapeSpaces(pszUrl,pszEscaped,pcchEscaped) UrlCanonicalize(pszUrl,pszEscaped,pcchEscaped,URL_ESCAPE_SPACES_ONLY |URL_DONT_ESCAPE_EXTRA_INFO)
 #define UrlUnescapeInPlace(pszUrl,dwFlags) UrlUnescape(pszUrl,NULL,NULL,dwFlags | URL_UNESCAPE_INPLACE)
@@ -726,41 +565,30 @@ extern "C" {
 
   LWSTDAPI_(DWORD) SHDeleteEmptyKeyA(HKEY hkey,LPCSTR pszSubKey);
   LWSTDAPI_(DWORD) SHDeleteEmptyKeyW(HKEY hkey,LPCWSTR pszSubKey);
-#ifdef UNICODE
-#define SHDeleteEmptyKey SHDeleteEmptyKeyW
-#else
-#define SHDeleteEmptyKey SHDeleteEmptyKeyA
-#endif
+
+#define SHDeleteEmptyKey __MINGW_NAME_AW(SHDeleteEmptyKey)
+
   LWSTDAPI_(DWORD) SHDeleteKeyA(HKEY hkey,LPCSTR pszSubKey);
   LWSTDAPI_(DWORD) SHDeleteKeyW(HKEY hkey,LPCWSTR pszSubKey);
-#ifdef UNICODE
-#define SHDeleteKey SHDeleteKeyW
-#else
-#define SHDeleteKey SHDeleteKeyA
-#endif
+
+#define SHDeleteKey __MINGW_NAME_AW(SHDeleteKey)
+
   LWSTDAPI_(HKEY) SHRegDuplicateHKey(HKEY hkey);
 
   LWSTDAPI_(DWORD) SHDeleteValueA(HKEY hkey,LPCSTR pszSubKey,LPCSTR pszValue);
   LWSTDAPI_(DWORD) SHDeleteValueW(HKEY hkey,LPCWSTR pszSubKey,LPCWSTR pszValue);
-#ifdef UNICODE
-#define SHDeleteValue SHDeleteValueW
-#else
-#define SHDeleteValue SHDeleteValueA
-#endif
+
+#define SHDeleteValue __MINGW_NAME_AW(SHDeleteValue)
+
   LWSTDAPI_(DWORD) SHGetValueA(HKEY hkey,LPCSTR pszSubKey,LPCSTR pszValue,DWORD *pdwType,void *pvData,DWORD *pcbData);
   LWSTDAPI_(DWORD) SHGetValueW(HKEY hkey,LPCWSTR pszSubKey,LPCWSTR pszValue,DWORD *pdwType,void *pvData,DWORD *pcbData);
-#ifdef UNICODE
-#define SHGetValue SHGetValueW
-#else
-#define SHGetValue SHGetValueA
-#endif
+
+#define SHGetValue __MINGW_NAME_AW(SHGetValue)
+
   LWSTDAPI_(DWORD) SHSetValueA(HKEY hkey,LPCSTR pszSubKey,LPCSTR pszValue,DWORD dwType,LPCVOID pvData,DWORD cbData);
   LWSTDAPI_(DWORD) SHSetValueW(HKEY hkey,LPCWSTR pszSubKey,LPCWSTR pszValue,DWORD dwType,LPCVOID pvData,DWORD cbData);
-#ifdef UNICODE
-#define SHSetValue SHSetValueW
-#else
-#define SHSetValue SHSetValueA
-#endif
+
+#define SHSetValue __MINGW_NAME_AW(SHSetValue)
 
 #if (_WIN32_IE >= 0x0602)
 
@@ -788,30 +616,17 @@ extern "C" {
 
   LWSTDAPI_(LONG) SHRegGetValueA(HKEY hkey,LPCSTR pszSubKey,LPCSTR pszValue,SRRF dwFlags,DWORD *pdwType,void *pvData,DWORD *pcbData);
   LWSTDAPI_(LONG) SHRegGetValueW(HKEY hkey,LPCWSTR pszSubKey,LPCWSTR pszValue,SRRF dwFlags,DWORD *pdwType,void *pvData,DWORD *pcbData);
-#ifdef UNICODE
-#define SHRegGetValue SHRegGetValueW
-#else
-#define SHRegGetValue SHRegGetValueA
-#endif
+
+#define SHRegGetValue __MINGW_NAME_AW(SHRegGetValue)
 #endif
 
-#ifdef UNICODE
-#define SHQueryValueEx SHQueryValueExW
-#define SHEnumKeyEx SHEnumKeyExW
-#define SHEnumValue SHEnumValueW
-#define SHQueryInfoKey SHQueryInfoKeyW
-#define SHCopyKey SHCopyKeyW
-#define SHRegGetPath SHRegGetPathW
-#define SHRegSetPath SHRegSetPathW
-#else
-#define SHQueryValueEx SHQueryValueExA
-#define SHEnumKeyEx SHEnumKeyExA
-#define SHEnumValue SHEnumValueA
-#define SHQueryInfoKey SHQueryInfoKeyA
-#define SHCopyKey SHCopyKeyA
-#define SHRegGetPath SHRegGetPathA
-#define SHRegSetPath SHRegSetPathA
-#endif
+#define SHQueryValueEx __MINGW_NAME_AW(SHQueryValueEx)
+#define SHEnumKeyEx __MINGW_NAME_AW(SHEnumKeyEx)
+#define SHEnumValue __MINGW_NAME_AW(SHEnumValue)
+#define SHQueryInfoKey __MINGW_NAME_AW(SHQueryInfoKey)
+#define SHCopyKey __MINGW_NAME_AW(SHCopyKey)
+#define SHRegGetPath __MINGW_NAME_AW(SHRegGetPath)
+#define SHRegSetPath __MINGW_NAME_AW(SHRegSetPath)
 
   LWSTDAPI_(DWORD) SHQueryValueExA(HKEY hkey,LPCSTR pszValue,DWORD *pdwReserved,DWORD *pdwType,void *pvData,DWORD *pcbData);
   LWSTDAPI_(DWORD) SHQueryValueExW(HKEY hkey,LPCWSTR pszValue,DWORD *pdwReserved,DWORD *pdwType,void *pvData,DWORD *pcbData);
@@ -870,34 +685,19 @@ extern "C" {
   LWSTDAPI_(LONG) SHRegSetUSValueW(LPCWSTR pwzSubKey,LPCWSTR pwzValue,DWORD dwType,const void *pvData,DWORD cbData,DWORD dwFlags);
   LWSTDAPI_(int) SHRegGetIntW(HKEY hk,LPCWSTR pwzKey,int iDefault);
 
-#ifdef UNICODE
-#define SHRegCreateUSKey SHRegCreateUSKeyW
-#define SHRegOpenUSKey SHRegOpenUSKeyW
-#define SHRegQueryUSValue SHRegQueryUSValueW
-#define SHRegWriteUSValue SHRegWriteUSValueW
-#define SHRegDeleteUSValue SHRegDeleteUSValueW
-#define SHRegDeleteEmptyUSKey SHRegDeleteEmptyUSKeyW
-#define SHRegEnumUSKey SHRegEnumUSKeyW
-#define SHRegEnumUSValue SHRegEnumUSValueW
-#define SHRegQueryInfoUSKey SHRegQueryInfoUSKeyW
-#define SHRegGetUSValue SHRegGetUSValueW
-#define SHRegSetUSValue SHRegSetUSValueW
-#define SHRegGetInt SHRegGetIntW
-#define SHRegGetBoolUSValue SHRegGetBoolUSValueW
-#else
-#define SHRegCreateUSKey SHRegCreateUSKeyA
-#define SHRegOpenUSKey SHRegOpenUSKeyA
-#define SHRegQueryUSValue SHRegQueryUSValueA
-#define SHRegWriteUSValue SHRegWriteUSValueA
-#define SHRegDeleteUSValue SHRegDeleteUSValueA
-#define SHRegDeleteEmptyUSKey SHRegDeleteEmptyUSKeyA
-#define SHRegEnumUSKey SHRegEnumUSKeyA
-#define SHRegEnumUSValue SHRegEnumUSValueA
-#define SHRegQueryInfoUSKey SHRegQueryInfoUSKeyA
-#define SHRegGetUSValue SHRegGetUSValueA
-#define SHRegSetUSValue SHRegSetUSValueA
-#define SHRegGetBoolUSValue SHRegGetBoolUSValueA
-#endif
+#define SHRegCreateUSKey __MINGW_NAME_AW(SHRegCreateUSKey)
+#define SHRegOpenUSKey __MINGW_NAME_AW(SHRegOpenUSKey)
+#define SHRegQueryUSValue __MINGW_NAME_AW(SHRegQueryUSValue)
+#define SHRegWriteUSValue __MINGW_NAME_AW(SHRegWriteUSValue)
+#define SHRegDeleteUSValue __MINGW_NAME_AW(SHRegDeleteUSValue)
+#define SHRegDeleteEmptyUSKey __MINGW_NAME_AW(SHRegDeleteEmptyUSKey)
+#define SHRegEnumUSKey __MINGW_NAME_AW(SHRegEnumUSKey)
+#define SHRegEnumUSValue __MINGW_NAME_AW(SHRegEnumUSValue)
+#define SHRegQueryInfoUSKey __MINGW_NAME_AW(SHRegQueryInfoUSKey)
+#define SHRegGetUSValue __MINGW_NAME_AW(SHRegGetUSValue)
+#define SHRegSetUSValue __MINGW_NAME_AW(SHRegSetUSValue)
+#define SHRegGetInt __MINGW_NAME_AW(SHRegGetInt)
+#define SHRegGetBoolUSValue __MINGW_NAME_AW(SHRegGetBoolUSValue)
 
   LWSTDAPI_(WINBOOL) SHRegGetBoolUSValueA(LPCSTR pszSubKey,LPCSTR pszValue,WINBOOL fIgnoreHKCU,WINBOOL fDefault);
   LWSTDAPI_(WINBOOL) SHRegGetBoolUSValueW(LPCWSTR pszSubKey,LPCWSTR pszValue,WINBOOL fIgnoreHKCU,WINBOOL fDefault);
@@ -978,15 +778,9 @@ extern "C" {
     STDMETHOD (GetEnum)(THIS_ ASSOCF flags,ASSOCENUM assocenum,LPCWSTR pszExtra,REFIID riid,LPVOID *ppvOut) PURE;
   };
 
-#ifdef UNICODE
-#define AssocQueryString AssocQueryStringW
-#define AssocQueryStringByKey AssocQueryStringByKeyW
-#define AssocQueryKey AssocQueryKeyW
-#else
-#define AssocQueryString AssocQueryStringA
-#define AssocQueryStringByKey AssocQueryStringByKeyA
-#define AssocQueryKey AssocQueryKeyA
-#endif
+#define AssocQueryString __MINGW_NAME_AW(AssocQueryString)
+#define AssocQueryStringByKey __MINGW_NAME_AW(AssocQueryStringByKey)
+#define AssocQueryKey __MINGW_NAME_AW(AssocQueryKey)
 
   LWSTDAPI AssocCreate(CLSID clsid,REFIID riid,LPVOID *ppv);
   LWSTDAPI AssocQueryStringA(ASSOCF flags,ASSOCSTR str,LPCSTR pszAssoc,LPCSTR pszExtra,LPSTR pszOut,DWORD *pcchOut);
@@ -1022,15 +816,9 @@ extern "C" {
 #endif
 
 #ifndef NO_SHLWAPI_STREAM
-#ifdef UNICODE
-#define SHOpenRegStream SHOpenRegStreamW
-#define SHOpenRegStream2 SHOpenRegStream2W
-#define SHCreateStreamOnFile SHCreateStreamOnFileW
-#else
-#define SHOpenRegStream SHOpenRegStreamA
-#define SHOpenRegStream2 SHOpenRegStream2A
-#define SHCreateStreamOnFile SHCreateStreamOnFileA
-#endif
+#define SHOpenRegStream __MINGW_NAME_AW(SHOpenRegStream)
+#define SHOpenRegStream2 __MINGW_NAME_AW(SHOpenRegStream2)
+#define SHCreateStreamOnFile __MINGW_NAME_AW(SHCreateStreamOnFile)
 
   LWSTDAPI_(struct IStream *) SHOpenRegStreamA(HKEY hkey,LPCSTR pszSubkey,LPCSTR pszValue,DWORD grfMode);
   LWSTDAPI_(struct IStream *) SHOpenRegStreamW(HKEY hkey,LPCWSTR pszSubkey,LPCWSTR pszValue,DWORD grfMode);
@@ -1049,11 +837,8 @@ extern "C" {
 
 #ifndef NO_SHLWAPI_HTTP
 #if (_WIN32_IE >= 0x0603)
-#ifdef UNICODE
-#define GetAcceptLanguages GetAcceptLanguagesW
-#else
-#define GetAcceptLanguages GetAcceptLanguagesA
-#endif
+
+#define GetAcceptLanguages __MINGW_NAME_AW(GetAcceptLanguages)
 
   LWSTDAPI GetAcceptLanguagesA(LPSTR psz,DWORD *pcch);
   LWSTDAPI GetAcceptLanguagesW(LPWSTR psz,DWORD *pcch);

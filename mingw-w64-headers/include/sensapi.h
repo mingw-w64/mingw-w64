@@ -21,11 +21,7 @@ extern "C" {
     DWORD dwOutSpeed;
   } QOCINFO,*LPQOCINFO;
 
-#ifdef UNICODE
-#define IsDestinationReachable IsDestinationReachableW
-#else
-#define IsDestinationReachable IsDestinationReachableA
-#endif
+#define IsDestinationReachable __MINGW_NAME_AW(IsDestinationReachable)
 
   WINBOOL WINAPI IsDestinationReachableA(LPCSTR lpszDestination,LPQOCINFO lpQOCInfo);
   WINBOOL WINAPI IsDestinationReachableW(LPCWSTR lpszDestination,LPQOCINFO lpQOCInfo);

@@ -17,15 +17,9 @@ extern "C" {
     NameCanonicalEx = 9,NameServicePrincipal = 10,NameDnsDomain = 12
   } EXTENDED_NAME_FORMAT,*PEXTENDED_NAME_FORMAT;
 
-#ifdef UNICODE
-#define GetUserNameEx GetUserNameExW
-#define GetComputerObjectName GetComputerObjectNameW
-#define TranslateName TranslateNameW
-#else
-#define GetUserNameEx GetUserNameExA
-#define GetComputerObjectName GetComputerObjectNameA
-#define TranslateName TranslateNameA
-#endif
+#define GetUserNameEx __MINGW_NAME_AW(GetUserNameEx)
+#define GetComputerObjectName __MINGW_NAME_AW(GetComputerObjectName)
+#define TranslateName __MINGW_NAME_AW(TranslateName)
 
   BOOLEAN SEC_ENTRY GetUserNameExA(EXTENDED_NAME_FORMAT NameFormat,LPSTR lpNameBuffer,PULONG nSize);
   BOOLEAN SEC_ENTRY GetUserNameExW(EXTENDED_NAME_FORMAT NameFormat,LPWSTR lpNameBuffer,PULONG nSize);

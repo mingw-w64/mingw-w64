@@ -1859,15 +1859,11 @@ extern "C" {
 #endif
 #endif
 
-#ifdef UNICODE
-#define IShellLink IShellLinkW
-#else
-#define IShellLink IShellLinkA
-#endif
-  typedef
-    enum __MIDL___MIDL_itf_shobjidl_0212_0001 {
-      SLR_NO_UI = 0x1,SLR_ANY_MATCH = 0x2,SLR_UPDATE = 0x4,SLR_NOUPDATE = 0x8,SLR_NOSEARCH = 0x10,SLR_NOTRACK = 0x20,SLR_NOLINKINFO = 0x40,
-      SLR_INVOKE_MSI = 0x80,SLR_NO_UI_WITH_MSG_PUMP = 0x101
+#define IShellLink __MINGW_NAME_AW(IShellLink)
+
+  typedef enum __MIDL___MIDL_itf_shobjidl_0212_0001 {
+    SLR_NO_UI = 0x1,SLR_ANY_MATCH = 0x2,SLR_UPDATE = 0x4,SLR_NOUPDATE = 0x8,SLR_NOSEARCH = 0x10,SLR_NOTRACK = 0x20,SLR_NOLINKINFO = 0x40,
+    SLR_INVOKE_MSI = 0x80,SLR_NO_UI_WITH_MSG_PUMP = 0x101
   } SLR_FLAGS;
 
   typedef enum __MIDL___MIDL_itf_shobjidl_0212_0002 {

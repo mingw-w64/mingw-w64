@@ -48,13 +48,8 @@
 #define CSIDL_ADMINTOOLS 0x0030
 #endif
 
-#ifdef UNICODE
-#define SHGetFolderPath SHGetFolderPathW
-#define PFNSHGETFOLDERPATH PFNSHGETFOLDERPATHW
-#else
-#define SHGetFolderPath SHGetFolderPathA
-#define PFNSHGETFOLDERPATH PFNSHGETFOLDERPATHA
-#endif
+#define SHGetFolderPath __MINGW_NAME_AW(SHGetFolderPath)
+#define PFNSHGETFOLDERPATH __MINGW_NAME_AW(PFNSHGETFOLDERPATH)
 
 SHFOLDERAPI SHGetFolderPathA(HWND hwnd,int csidl,HANDLE hToken,DWORD dwFlags,LPSTR pszPath);
 SHFOLDERAPI SHGetFolderPathW(HWND hwnd,int csidl,HANDLE hToken,DWORD dwFlags,LPWSTR pszPath);

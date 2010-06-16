@@ -66,8 +66,8 @@ extern "C" {
 #define DNS_MAX_REVERSE_NAME_LENGTH DNS_MAX_IP6_REVERSE_NAME_LENGTH
 #define DNS_MAX_REVERSE_NAME_BUFFER_LENGTH DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH
 
-#define DNS_IP4_REVERSE_DOMAIN_STRING __MINGW_NAME__AW(DNS_IP4_REVERSE_DOMAIN_STRING)
-#define DNS_IP6_REVERSE_DOMAIN_STRING __MINGW_NAME__AW(DNS_IP6_REVERSE_DOMAIN_STRING)
+#define DNS_IP4_REVERSE_DOMAIN_STRING __MINGW_NAME_UAW(DNS_IP4_REVERSE_DOMAIN_STRING)
+#define DNS_IP6_REVERSE_DOMAIN_STRING __MINGW_NAME_UAW(DNS_IP6_REVERSE_DOMAIN_STRING)
 
 #define DNS_MAX_TEXT_STRING_LENGTH (255)
 
@@ -775,7 +775,7 @@ extern "C" {
   DNS_STATUS WINAPI DnsQuery_UTF8(PCSTR pszName,WORD wType,DWORD Options,PIP4_ARRAY aipServers,PDNS_RECORD *ppQueryResults,PVOID *pReserved);
   DNS_STATUS WINAPI DnsQuery_W(PCWSTR pszName,WORD wType,DWORD Options,PIP4_ARRAY aipServers,PDNS_RECORD *ppQueryResults,PVOID *pReserved);
 
-#define DnsQuery __MINGW_NAME__AW(DnsQuery)
+#define DnsQuery __MINGW_NAME_UAW(DnsQuery)
 
 #define DNS_UPDATE_SECURITY_USE_DEFAULT 0x00000000
 #define DNS_UPDATE_SECURITY_OFF 0x00000010
@@ -789,11 +789,11 @@ extern "C" {
 #define DNS_UPDATE_REMOTE_SERVER 0x00004000
 #define DNS_UPDATE_RESERVED 0xffff0000
 
-#define DnsAcquireContextHandle __MINGW_NAME__AW(DnsAcquireContextHandle)
-#define DnsModifyRecordsInSet __MINGW_NAME__AW(DnsModifyRecordsInSet)
+#define DnsAcquireContextHandle __MINGW_NAME_UAW(DnsAcquireContextHandle)
+#define DnsModifyRecordsInSet __MINGW_NAME_UAW(DnsModifyRecordsInSet)
 #define DnsReplaceRecordSet __MINGW_NAME_AW(DnsReplaceRecordSet)
-#define DnsValidateName(p,f) __MINGW_NAME__AW(DnsValidateName)((p),(f))
-#define DnsNameCompare(n1,n2) __MINGW_NAME__AW(DnsNameCompare)((n1),(n2))
+#define DnsValidateName(p,f) __MINGW_NAME_UAW(DnsValidateName)((p),(f))
+#define DnsNameCompare(n1,n2) __MINGW_NAME_UAW(DnsNameCompare)((n1),(n2))
 
   DNS_STATUS WINAPI DnsAcquireContextHandle_W(DWORD CredentialFlags,PVOID pCredentials,PHANDLE pContextHandle);
   DNS_STATUS WINAPI DnsAcquireContextHandle_A(DWORD CredentialFlags,PVOID pCredentials,PHANDLE pContextHandle);
