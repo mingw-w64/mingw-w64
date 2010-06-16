@@ -124,11 +124,11 @@
 
 #ifdef UNICODE
 # define __MINGW_NAME_AW(func) func##W
-# define __MINGW_NAME__AW(func) func##_W
+# define __MINGW_NAME_UAW(func) func##_W
 # define __MINGW_STRING_AW(str) L##str
 #else
 # define __MINGW_NAME_AW(func) func##A
-# define __MINGW_NAME__AW(func) func##_A
+# define __MINGW_NAME_UAW(func) func##_A
 # define __MINGW_STRING_AW(str) str
 #endif
 #define __MINGW_TYPEDEF_AW(type) \
