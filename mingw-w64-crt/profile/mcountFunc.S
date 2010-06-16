@@ -12,9 +12,13 @@
 #else
 	.align 4
 #endif
-.globl __MINGW_USYMBOL(mcount)
-        .def    __MINGW_USYMBOL(mcount);  .scl    2;      .type   32;     .endef
-__MINGW_USYMBOL(mcount):
+
+/* gcc always assumes the mcount public symbol has a single leading underscore
+   for our target.  See gcc/config/i386.h; it isn't overridden in
+   config/i386/cygming.h or any other places for mingw */
+.globl _mcount
+        .def    _mcount;  .scl    2;      .type   32;     .endef
+_mcount:
 #ifndef _WIN64
 	push %ebp
 	mov %esp, %ebp
@@ -26,7 +30,7 @@ __MINGW_USYMBOL(mcount):
 	movl 4(%eax),%eax
 	push %edx
 	push %eax
-	call __MINGW_USYMBOL(_mcount)
+	call __MINGW_USYMBOL(_mcount_private)
 	add $8, %esp
 	pop %edx
 	pop %ecx
@@ -47,7 +51,7 @@ __MINGW_USYMBOL(mcount):
 	movq (%rbp),%rax
 	movq 8(%rax),%rcx
 	sub $40, %rsp
-	call __MINGW_USYMBOL(_mcount)
+	call __MINGW_USYMBOL(_mcount_private)
 	add $40, %rsp
 	pop %r11
 	pop %r10
@@ -59,4 +63,3 @@ __MINGW_USYMBOL(mcount):
 	leave
 	ret
 #endif
-
