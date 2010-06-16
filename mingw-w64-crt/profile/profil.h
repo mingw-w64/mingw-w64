@@ -44,6 +44,7 @@ typedef void *_WINHANDLE;
 struct profinfo {
     _WINHANDLE targthr;			/* thread to profile */
     _WINHANDLE profthr;			/* profiling thread */
+    _WINHANDLE quitevt;			/* quit event */
     u_short *counter;			/* profiling counters */
     size_t lowpc, highpc;		/* range to be profiled */
     u_int scale;			/* scale value of bins */
