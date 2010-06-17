@@ -1,3 +1,12 @@
+2010-06-17  Doug Semler  <dougsemler@gmail.com>
+
+	* Makefile.am (DTLIB, DTDEF): Remove generic versions.
+	  (DTLIB32, DTLIB64): Create architecture specific versions based on
+	  architecture specific $(DTDEF).
+	  Replace all occurences of architecture specific flags with new
+	  definitions.
+	* Makefile.in: Regenerate.
+
 2010-06-16  Doug Semler  <dougsemler@gmail.com>
 
 	* profile/profil.h (struct profile): Add quit event member.
