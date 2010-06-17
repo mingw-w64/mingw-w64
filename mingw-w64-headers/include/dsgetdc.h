@@ -63,13 +63,8 @@ extern "C" {
     LPWSTR ClientSiteName;
   } DOMAIN_CONTROLLER_INFOW,*PDOMAIN_CONTROLLER_INFOW;
 
-#ifdef UNICODE
-#define DOMAIN_CONTROLLER_INFO DOMAIN_CONTROLLER_INFOW
-#define PDOMAIN_CONTROLLER_INFO PDOMAIN_CONTROLLER_INFOW
-#else
-#define DOMAIN_CONTROLLER_INFO DOMAIN_CONTROLLER_INFOA
-#define PDOMAIN_CONTROLLER_INFO PDOMAIN_CONTROLLER_INFOA
-#endif
+#define DOMAIN_CONTROLLER_INFO __MINGW_NAME_AW(DOMAIN_CONTROLLER_INFO)
+#define PDOMAIN_CONTROLLER_INFO __MINGW_NAME_AW(PDOMAIN_CONTROLLER_INFO)
 
 #define DS_INET_ADDRESS 1
 #define DS_NETBIOS_ADDRESS 2
@@ -90,15 +85,9 @@ extern "C" {
 #define DS_DNS_DOMAIN_FLAG 0x40000000
 #define DS_DNS_FOREST_FLAG 0x80000000
 
-#ifdef UNICODE
-#define DsGetDcName DsGetDcNameW
-#define DsGetSiteName DsGetSiteNameW
-#define DsValidateSubnetName DsValidateSubnetNameW
-#else
-#define DsGetDcName DsGetDcNameA
-#define DsGetSiteName DsGetSiteNameA
-#define DsValidateSubnetName DsValidateSubnetNameA
-#endif
+#define DsGetDcName __MINGW_NAME_AW(DsGetDcName)
+#define DsGetSiteName __MINGW_NAME_AW(DsGetSiteName)
+#define DsValidateSubnetName __MINGW_NAME_AW(DsValidateSubnetName)
 
   DSGETDCAPI DWORD WINAPI DsGetDcNameA(LPCSTR ComputerName,LPCSTR DomainName,GUID *DomainGuid,LPCSTR SiteName,ULONG Flags,PDOMAIN_CONTROLLER_INFOA *DomainControllerInfo);
   DSGETDCAPI DWORD WINAPI DsGetDcNameW(LPCWSTR ComputerName,LPCWSTR DomainName,GUID *DomainGuid,LPCWSTR SiteName,ULONG Flags,PDOMAIN_CONTROLLER_INFOW *DomainControllerInfo);
@@ -109,13 +98,8 @@ extern "C" {
 
 #ifdef _WINSOCK2API_
 
-#ifdef UNICODE
-#define DsAddressToSiteNames DsAddressToSiteNamesW
-#define DsAddressToSiteNamesEx DsAddressToSiteNamesExW
-#else
-#define DsAddressToSiteNames DsAddressToSiteNamesA
-#define DsAddressToSiteNamesEx DsAddressToSiteNamesExA
-#endif
+#define DsAddressToSiteNames __MINGW_NAME_AW(DsAddressToSiteNames)
+#define DsAddressToSiteNamesEx __MINGW_NAME_AW(DsAddressToSiteNamesEx)
 
   DSGETDCAPI DWORD WINAPI DsAddressToSiteNamesW(LPCWSTR ComputerName,DWORD EntryCount,PSOCKET_ADDRESS SocketAddresses,LPWSTR **SiteNames);
   DSGETDCAPI DWORD WINAPI DsAddressToSiteNamesA(LPCSTR ComputerName,DWORD EntryCount,PSOCKET_ADDRESS SocketAddresses,LPSTR **SiteNames);
@@ -153,19 +137,12 @@ extern "C" {
     GUID DomainGuid;
   } DS_DOMAIN_TRUSTSA,*PDS_DOMAIN_TRUSTSA;
 
-#ifdef UNICODE
-#define DS_DOMAIN_TRUSTS DS_DOMAIN_TRUSTSW
-#define PDS_DOMAIN_TRUSTS PDS_DOMAIN_TRUSTSW
-#define DsEnumerateDomainTrusts DsEnumerateDomainTrustsW
-#define DsGetDcSiteCoverage DsGetDcSiteCoverageW
-#define DsDeregisterDnsHostRecords DsDeregisterDnsHostRecordsW
-#else
-#define DS_DOMAIN_TRUSTS DS_DOMAIN_TRUSTSA
-#define PDS_DOMAIN_TRUSTS PDS_DOMAIN_TRUSTSA
-#define DsEnumerateDomainTrusts DsEnumerateDomainTrustsA
-#define DsGetDcSiteCoverage DsGetDcSiteCoverageA
-#define DsDeregisterDnsHostRecords DsDeregisterDnsHostRecordsA
-#endif
+#define DS_DOMAIN_TRUSTS __MINGW_NAME_AW(DS_DOMAIN_TRUSTS)
+#define PDS_DOMAIN_TRUSTS __MINGW_NAME_AW(PDS_DOMAIN_TRUSTS)
+
+#define DsEnumerateDomainTrusts __MINGW_NAME_AW(DsEnumerateDomainTrusts)
+#define DsGetDcSiteCoverage __MINGW_NAME_AW(DsGetDcSiteCoverage)
+#define DsDeregisterDnsHostRecords __MINGW_NAME_AW(DsDeregisterDnsHostRecords)
 
   DSGETDCAPI DWORD WINAPI DsEnumerateDomainTrustsW (LPWSTR ServerName,ULONG Flags,PDS_DOMAIN_TRUSTSW *Domains,PULONG DomainCount);
   DSGETDCAPI DWORD WINAPI DsEnumerateDomainTrustsA (LPSTR ServerName,ULONG Flags,PDS_DOMAIN_TRUSTSA *Domains,PULONG DomainCount);
@@ -191,15 +168,9 @@ extern "C" {
 
 #define DS_OPEN_VALID_FLAGS (DS_FORCE_REDISCOVERY | DS_ONLY_LDAP_NEEDED | DS_KDC_REQUIRED | DS_PDC_REQUIRED | DS_GC_SERVER_REQUIRED | DS_WRITABLE_REQUIRED)
 
-#ifdef UNICODE
-#define DsGetDcOpen DsGetDcOpenW
-#define DsGetDcNext DsGetDcNextW
-#define DsGetDcClose DsGetDcCloseW
-#else
-#define DsGetDcOpen DsGetDcOpenA
-#define DsGetDcNext DsGetDcNextA
-#define DsGetDcClose DsGetDcCloseW
-#endif
+#define DsGetDcOpen __MINGW_NAME_AW(DsGetDcOpen)
+#define DsGetDcNext __MINGW_NAME_AW(DsGetDcNext)
+#define DsGetDcClose __MINGW_NAME_AW(DsGetDcClose)
 
   DSGETDCAPI DWORD WINAPI DsGetDcOpenW(LPCWSTR DnsName,ULONG OptionFlags,LPCWSTR SiteName,GUID *DomainGuid,LPCWSTR DnsForestName,ULONG DcFlags,PHANDLE RetGetDcContext);
   DSGETDCAPI DWORD WINAPI DsGetDcOpenA(LPCSTR DnsName,ULONG OptionFlags,LPCSTR SiteName,GUID *DomainGuid,LPCSTR DnsForestName,ULONG DcFlags,PHANDLE RetGetDcContext);

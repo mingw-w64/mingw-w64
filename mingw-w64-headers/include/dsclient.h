@@ -195,13 +195,8 @@ typedef struct {
   ULONG cchObjectClass;
 } DSBROWSEINFOA,*PDSBROWSEINFOA;
 
-#ifdef UNICODE
-#define DSBROWSEINFO DSBROWSEINFOW
-#define PDSBROWSEINFO PDSBROWSEINFOW
-#else
-#define DSBROWSEINFO DSBROWSEINFOA
-#define PDSBROWSEINFO PDSBROWSEINFOA
-#endif
+#define DSBROWSEINFO __MINGW_NAME_AW(DSBROWSEINFO)
+#define PDSBROWSEINFO __MINGW_NAME_AW(PDSBROWSEINFO)
 
 #define DSBI_NOBUTTONS 0x00000001
 #define DSBI_NOLINES 0x00000002
@@ -244,13 +239,8 @@ typedef struct {
   INT iIconResID;
 } DSBITEMA,*PDSBITEMA;
 
-#ifdef UNICODE
-#define DSBITEM DSBITEMW
-#define PDSBITEM PDSBITEMW
-#else
-#define DSBITEM DSBITEMA
-#define PDSBITEM PDSBITEMA
-#endif
+#define DSBITEM __MINGW_NAME_AW(DSBITEM)
+#define PDSBITEM __MINGW_NAME_AW(PDSBITEM)
 
 #define DSBF_STATE 0x00000001
 #define DSBF_ICONLOCATION 0x00000002
@@ -263,11 +253,7 @@ typedef struct {
 #define DSBM_QUERYINSERTW 100
 #define DSBM_QUERYINSERTA 101
 
-#ifdef UNICODE
-#define DSBM_QUERYINSERT DSBM_QUERYINSERTW
-#else
-#define DSBM_QUERYINSERT DSBM_QUERYINSERTA
-#endif
+#define DSBM_QUERYINSERT __MINGW_NAME_AW(DSBM_QUERYINSERT)
 
 #define DSBM_CHANGEIMAGESTATE 102
 #define DSBM_HELP 103
@@ -279,11 +265,7 @@ typedef struct {
 STDAPI_(int) DsBrowseForContainerW(PDSBROWSEINFOW pInfo);
 STDAPI_(int) DsBrowseForContainerA(PDSBROWSEINFOA pInfo);
 
-#ifdef UNICODE
-#define DsBrowseForContainer DsBrowseForContainerW
-#else
-#define DsBrowseForContainer DsBrowseForContainerA
-#endif
+#define DsBrowseForContainer __MINGW_NAME_AW(DsBrowseForContainer)
 
 STDAPI_(HICON) DsGetIcon(DWORD dwFlags,LPWSTR pszObjectClass,INT cxImage,INT cyImage);
 STDAPI DsGetFriendlyClassName(LPWSTR pszObjectClass,LPWSTR pszBuffer,UINT cchBuffer);

@@ -134,30 +134,20 @@ extern "C" {
 
 #ifdef UNICODE
 #define CP_WINNEUTRAL CP_WINUNICODE
-
-#define SZDDESYS_TOPIC L"System"
-#define SZDDESYS_ITEM_TOPICS L"Topics"
-#define SZDDESYS_ITEM_SYSITEMS L"SysItems"
-#define SZDDESYS_ITEM_RTNMSG L"ReturnMessage"
-#define SZDDESYS_ITEM_STATUS L"Status"
-#define SZDDESYS_ITEM_FORMATS L"Formats"
-#define SZDDESYS_ITEM_HELP L"Help"
-#define SZDDE_ITEM_ITEMLIST L"TopicItemList"
-
-#define DdeInitialize DdeInitializeW
 #else
 #define CP_WINNEUTRAL CP_WINANSI
-
-#define SZDDESYS_TOPIC "System"
-#define SZDDESYS_ITEM_TOPICS "Topics"
-#define SZDDESYS_ITEM_SYSITEMS "SysItems"
-#define SZDDESYS_ITEM_RTNMSG "ReturnMessage"
-#define SZDDESYS_ITEM_STATUS "Status"
-#define SZDDESYS_ITEM_FORMATS "Formats"
-#define SZDDESYS_ITEM_HELP "Help"
-#define SZDDE_ITEM_ITEMLIST "TopicItemList"
-#define DdeInitialize DdeInitializeA
 #endif
+
+#define SZDDESYS_TOPIC __MINGW_STRING_AW("System")
+#define SZDDESYS_ITEM_TOPICS __MINGW_STRING_AW("Topics")
+#define SZDDESYS_ITEM_SYSITEMS __MINGW_STRING_AW("SysItems")
+#define SZDDESYS_ITEM_RTNMSG __MINGW_STRING_AW("ReturnMessage")
+#define SZDDESYS_ITEM_STATUS __MINGW_STRING_AW("Status")
+#define SZDDESYS_ITEM_FORMATS __MINGW_STRING_AW("Formats")
+#define SZDDESYS_ITEM_HELP __MINGW_STRING_AW("Help")
+#define SZDDE_ITEM_ITEMLIST __MINGW_STRING_AW("TopicItemList")
+
+#define DdeInitialize __MINGW_NAME_AW(DdeInitialize)
 
   typedef HDDEDATA CALLBACK FNCALLBACK(UINT wType,UINT wFmt,HCONV hConv,HSZ hsz1,HSZ hsz2,HDDEDATA hData,ULONG_PTR dwData1,ULONG_PTR dwData2);
   typedef HDDEDATA (CALLBACK *PFNCALLBACK)(UINT wType,UINT wFmt,HCONV hConv,HSZ hsz1,HSZ hsz2,HDDEDATA hData,ULONG_PTR dwData1,ULONG_PTR dwData2);
@@ -257,13 +247,8 @@ extern "C" {
   WINBOOL WINAPI DdeKeepStringHandle(DWORD idInst,HSZ hsz);
   int WINAPI DdeCmpStringHandles(HSZ hsz1,HSZ hsz2);
 
-#ifdef UNICODE
-#define DdeCreateStringHandle DdeCreateStringHandleW
-#define DdeQueryString DdeQueryStringW
-#else
-#define DdeCreateStringHandle DdeCreateStringHandleA
-#define DdeQueryString DdeQueryStringA
-#endif
+#define DdeCreateStringHandle __MINGW_NAME_AW(DdeCreateStringHandle)
+#define DdeQueryString __MINGW_NAME_AW(DdeQueryString)
 
 #ifndef NODDEMLSPY
   typedef struct tagDDEML_MSG_HOOK_DATA {
@@ -320,13 +305,8 @@ extern "C" {
     WCHAR str[1];
   } MONHSZSTRUCTW,*PMONHSZSTRUCTW;
 
-#ifdef UNICODE
-  typedef MONHSZSTRUCTW MONHSZSTRUCT;
-  typedef PMONHSZSTRUCTW PMONHSZSTRUCT;
-#else
-  typedef MONHSZSTRUCTA MONHSZSTRUCT;
-  typedef PMONHSZSTRUCTA PMONHSZSTRUCT;
-#endif
+  __MINGW_TYPEDEF_AW(MONHSZSTRUCT)
+  __MINGW_TYPEDEF_AW(PMONHSZSTRUCT)
 
 #define MH_CREATE 1
 #define MH_KEEP 2
