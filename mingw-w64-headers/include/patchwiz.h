@@ -151,8 +151,4 @@ extern "C" {
 }
 #endif
 
-#ifdef UNICODE
-#define UiCreatePatchPackage UiCreatePatchPackageW
-#else
-#define UiCreatePatchPackage UiCreatePatchPackageA
-#endif
+#define UiCreatePatchPackage __MINGW_NAME_AW(UiCreatePatchPackage)

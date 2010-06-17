@@ -23,8 +23,4 @@ extern
 #endif
 POGOAUTOSWEEPPROCA PogoAutoSweepA;
 
-#ifdef UNICODE
-#define PgoAutoSweep PogoAutoSweepW
-#else
-#define PgoAutoSweep PogoAutoSweepA
-#endif
+#define PgoAutoSweep __MINGW_NAME_AW(PogoAutoSweep)
