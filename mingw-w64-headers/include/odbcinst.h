@@ -154,8 +154,8 @@ extern "C" {
 #endif
 
 #ifndef SQL_NOUNICODEMAP
-#ifdef UNICODE
 
+#ifdef UNICODE
 #define SQLInstallODBC SQLInstallODBCW
 #define SQLCreateDataSource SQLCreateDataSourceW
 #define SQLGetTranslator SQLGetTranslatorW
@@ -180,6 +180,7 @@ extern "C" {
 #define SQLInstallDriverEx SQLInstallDriverExW
 #define SQLInstallTranslatorEx SQLInstallTranslatorExW
 #endif
+
 #endif
 #endif
 

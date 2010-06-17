@@ -111,15 +111,9 @@ extern "C"{
   DEFINE_GUID(CLSID_AccPropServices,0xb5f8350b,0x0548,0x48b1,0xa6,0xee,0x88,0xbd,0x00,0xb4,0xa5,0xe7);
   DEFINE_GUID(IIS_IsOleaccProxy,0x902697fa,0x80e4,0x4560,0x80,0x2a,0xa1,0x3f,0x22,0xa6,0x47,0x09);
 
-#ifdef UNICODE
-#define GetRoleText GetRoleTextW
-#define GetStateText GetStateTextW
-#define CreateStdAccessibleProxy CreateStdAccessibleProxyW
-#else
-#define GetRoleText GetRoleTextA
-#define GetStateText GetStateTextA
-#define CreateStdAccessibleProxy CreateStdAccessibleProxyA
-#endif
+#define GetRoleText __MINGW_NAME_AW(GetRoleText)
+#define GetStateText __MINGW_NAME_AW(GetStateText)
+#define CreateStdAccessibleProxy __MINGW_NAME_AW(CreateStdAccessibleProxy)
 
   STDAPI_(LRESULT) LresultFromObject(REFIID riid,WPARAM wParam,LPUNKNOWN punk);
   STDAPI ObjectFromLresult(LRESULT lResult,REFIID riid,WPARAM wParam,void **ppvObject);

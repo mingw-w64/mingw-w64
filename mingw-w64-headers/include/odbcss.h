@@ -251,11 +251,8 @@ extern "C" {
 #define SQL_INFO_SS_NETLIB_NAMEW (SQL_INFO_SS_FIRST+0)
 #define SQL_INFO_SS_NETLIB_NAMEA (SQL_INFO_SS_FIRST+1)
 #define SQL_INFO_SS_MAX_USED SQL_INFO_SS_NETLIB_NAMEA
-#ifdef UNICODE
-#define SQL_INFO_SS_NETLIB_NAME SQL_INFO_SS_NETLIB_NAMEW
-#else
-#define SQL_INFO_SS_NETLIB_NAME SQL_INFO_SS_NETLIB_NAMEA
-#endif
+
+#define SQL_INFO_SS_NETLIB_NAME __MINGW_NAME_AW(SQL_INFO_SS_NETLIB_NAME)
 
 #define SQL_SS_VARIANT -150
 
@@ -519,19 +516,11 @@ extern "C" {
   CHAR *SQL_API dbprtypeA(INT);
   WCHAR *SQL_API dbprtypeW(INT);
 
-#ifdef UNICODE
-#define bcp_init bcp_initW
-#define bcp_readfmt bcp_readfmtW
-#define bcp_writefmt bcp_writefmtW
-#define dbprtype dbprtypeW
-#define BCPHINTS BCPHINTSW
-#else
-#define bcp_init bcp_initA
-#define bcp_readfmt bcp_readfmtA
-#define bcp_writefmt bcp_writefmtA
-#define dbprtype dbprtypeA
-#define BCPHINTS BCPHINTSA
-#endif
+#define bcp_init __MINGW_NAME_AW(bcp_init)
+#define bcp_readfmt __MINGW_NAME_AW(bcp_readfmt)
+#define bcp_writefmt __MINGW_NAME_AW(bcp_writefmt)
+#define dbprtype __MINGW_NAME_AW(dbprtype)
+#define BCPHINTS __MINGW_NAME_AW(BCPHINTS)
 
   SQLRETURN SQL_API SQLLinkedServers(SQLHSTMT);
   SQLRETURN SQL_API SQLLinkedCatalogsA(SQLHSTMT,LPCSTR,SWORD);
@@ -540,11 +529,7 @@ extern "C" {
   RETCODE SQL_API SQLGetNextEnumeration(HANDLE hEnumHandle,BYTE *prgEnumData,INT *piEnumLength);
   RETCODE SQL_API SQLCloseEnumServers(HANDLE hEnumHandle);
 
-#ifdef UNICODE
-#define SQLLinkedCatalogs SQLLinkedCatalogsW
-#else
-#define SQLLinkedCatalogs SQLLinkedCatalogsA
-#endif
+#define SQLLinkedCatalogs __MINGW_NAME_AW(SQLLinkedCatalogs)
 
 #define BCP_FMT_TYPE 0x01
 #define BCP_FMT_INDICATOR_LEN 0x02
