@@ -487,14 +487,14 @@ extern "C" {
   PDH_FUNCTION PdhGetLogSetGUID(PDH_HLOG hLog,GUID *pGuid,int *pRunId);
   PDH_FUNCTION PdhSetLogSetRunID(PDH_HLOG hLog,int RunId);
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #ifndef _UNICODE
 #define _UNICODE
 #endif
 #endif
 
-#ifdef _UNICODE
-#ifndef UNICODE
+#if defined(_UNICODE)
+#if !defined(UNICODE)
 #define UNICODE
 #endif
 #endif

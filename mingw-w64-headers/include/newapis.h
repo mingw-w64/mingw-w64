@@ -36,11 +36,7 @@ extern "C" {
     WINBOOL fRc;
     WINBOOL (CALLBACK *RealGetDiskFreeSpaceEx) (LPCTSTR,PULARGE_INTEGER,PULARGE_INTEGER,PULARGE_INTEGER);
     hinst = GetModuleHandle(TEXT("KERNEL32"));
-#ifdef UNICODE
-    fp = GetProcAddress(hinst,"GetDiskFreeSpaceExW");
-#else
-    fp = GetProcAddress(hinst,"GetDiskFreeSpaceExA");
-#endif
+    fp = GetProcAddress(hinst,"GetDiskFreeSpaceEx" __MINGW_PROCNAMEEXT_AW);
     if(fp) {
       *(FARPROC *)&RealGetDiskFreeSpaceEx = fp;
       fRc = RealGetDiskFreeSpaceEx(ptszRoot,pliQuota,pliTotal,pliFree);
@@ -87,7 +83,7 @@ extern "C" {
       hr = SHGetDesktopFolder(&psfDesk);
       if(SUCCEEDED(hr)) {
 	ULONG cwchEaten;
-#ifdef UNICODE
+#if defined(UNICODE)
 #ifdef __cplusplus
 	hr = psfDesk->ParseDisplayName(NULL,NULL,tsz,&cwchEaten,&pidl,NULL);
 #else
@@ -139,7 +135,7 @@ extern "C" {
 #endif
 	    }
 	  }
-#ifndef UNICODE
+#if !defined(UNICODE)
 	}
 #endif
 #ifdef __cplusplus
@@ -158,11 +154,8 @@ extern "C" {
     DWORD dwRc;
     DWORD (CALLBACK *RealGetLongPathName)(LPCTSTR,LPTSTR,DWORD);
     hinst = GetModuleHandle(TEXT("KERNEL32"));
-#ifdef UNICODE
-    fp = GetProcAddress(hinst,"GetLongPathNameW");
-#else
-    fp = GetProcAddress(hinst,"GetLongPathNameA");
-#endif
+
+    fp = GetProcAddress(hinst,"GetLongPathName" __MINGW_PROCNAMEEXT_AW);
     if(fp) {
       *(FARPROC *)&RealGetLongPathName = fp;
       dwRc = RealGetLongPathName(ptszShort,ptszLong,ctchBuf);
@@ -231,11 +224,7 @@ extern "C" {
     WINBOOL fRc;
     WINBOOL (CALLBACK *RealGetFileAttributesEx)(LPCTSTR,GET_FILEEX_INFO_LEVELS,LPVOID);
     hinst = GetModuleHandle(TEXT("KERNEL32"));
-#ifdef UNICODE
-    fp = GetProcAddress(hinst,"GetFileAttributesExW");
-#else
-    fp = GetProcAddress(hinst,"GetFileAttributesExA");
-#endif
+    fp = GetProcAddress(hinst,"GetFileAttributesEx" __MINGW_PROCNAMEEXT_AW);
     if(fp) {
       *(FARPROC *)&RealGetFileAttributesEx = fp;
       fRc = RealGetFileAttributesEx(ptszFile,level,pv);

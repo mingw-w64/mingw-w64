@@ -169,7 +169,7 @@ extern "C" {
   typedef CONST CHAR *LPCSTR,*PCSTR;
   typedef PCSTR *PZPCSTR;
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #ifndef _TCHAR_DEFINED
 #define _TCHAR_DEFINED
   typedef WCHAR TCHAR, *PTCHAR;

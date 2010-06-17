@@ -733,7 +733,7 @@ extern "C" {
   PDNS_RECORD WINAPI DnsRecordCopyEx(PDNS_RECORD pRecord,DNS_CHARSET CharSetIn,DNS_CHARSET CharSetOut);
   PDNS_RECORD WINAPI DnsRecordSetCopyEx(PDNS_RECORD pRecordSet,DNS_CHARSET CharSetIn,DNS_CHARSET CharSetOut);
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define DnsRecordCopy(pRR) DnsRecordCopyEx((pRR),DnsCharSetUnicode,DnsCharSetUnicode)
 #define DnsRecordSetCopy(pRR) DnsRecordSetCopyEx((pRR),DnsCharSetUnicode,DnsCharSetUnicode)
 #else

@@ -852,7 +852,7 @@ extern "C" {
   NTDSAPI DWORD WINAPI DsReplicaGetInfo2W(HANDLE hDS,DS_REPL_INFO_TYPE InfoType,LPCWSTR pszObject,UUID *puuidForSourceDsaObjGuid,LPCWSTR pszAttributeName,LPCWSTR pszValue,DWORD dwFlags,DWORD dwEnumerationContext,VOID **ppInfo);
   NTDSAPI void WINAPI DsReplicaFreeInfo(DS_REPL_INFO_TYPE InfoType,VOID *pInfo);
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define DsReplicaGetInfo DsReplicaGetInfoW
 #define DsReplicaGetInfo2 DsReplicaGetInfo2W
 #define DS_REPL_NEIGHBOR DS_REPL_NEIGHBORW

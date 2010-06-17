@@ -461,11 +461,7 @@ extern "C" {
 #define IOleUILinkContainer __MINGW_NAME_AW(IOleUILinkContainer)
 #define LPOLEUILINKCONTAINER __MINGW_NAME_AW(LPOLEUILINKCONTAINER)
 
-#ifdef UNICODE
-#define IOleUILinkContainerVtbl IOleUILinkContainerWVtbl
-#else
-#define IOleUILinkContainerVtbl IOleUILinkContainerAVtbl
-#endif
+#define IOleUILinkContainerVtbl __MINGW_NAME_AW_EXT(IOleUILinkContainer,Vtbl)
 
   typedef struct tagOLEUIEDITLINKSW {
     DWORD cbStruct;
@@ -798,11 +794,7 @@ extern "C" {
 #define IOleUIObjInfo __MINGW_NAME_AW(IOleUIObjInfo)
 #define LPOLEUIOBJINFO __MINGW_NAME_AW(LPOLEUIOBJINFO)
 
-#ifdef UNICODE
-#define IOleUIObjInfoVtbl IOleUIObjInfoWVtbl
-#else
-#define IOleUIObjInfoVtbl IOleUIObjInfoAVtbl
-#endif
+#define IOleUIObjInfoVtbl __MINGW_NAME_AW_EXT(IOleUIObjInfo,Vtbl)
 
 #undef INTERFACE
 #define INTERFACE IOleUILinkInfoW
@@ -847,11 +839,7 @@ extern "C" {
 #define IOleUILinkInfo __MINGW_NAME_AW(IOleUILinkInfo)
 #define LPOLEUILINKINFO __MINGW_NAME_AW(LPOLEUILINKINFO)
 
-#ifdef UNICODE
-#define IOleUILinkInfoVtbl IOleUILinkInfoWVtbl
-#else
-#define IOleUILinkInfoVtbl IOleUILinkInfoAVtbl
-#endif
+#define IOleUILinkInfoVtbl __MINGW_NAME_AW_EXT(IOleUILinkInfo,Vtbl)
 
   struct tagOLEUIOBJECTPROPSW;
   struct tagOLEUIOBJECTPROPSA;

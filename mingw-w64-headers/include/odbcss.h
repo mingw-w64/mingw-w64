@@ -347,7 +347,7 @@ extern "C" {
 #define DBMAXCHAR (8000+1)
 #define MAXNAME (SQL_MAX_SQLSERVERNAME+1)
 
-#ifdef UNICODE
+#if defined(UNICODE)
   typedef wchar_t DBCHAR;
 #else
   typedef char DBCHAR;

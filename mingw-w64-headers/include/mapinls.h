@@ -32,7 +32,7 @@ extern "C" {
   typedef char CHAR;
 #endif
 
-#ifdef UNICODE
+#if defined(UNICODE)
   typedef WCHAR TCHAR;
 #else
   typedef char TCHAR;

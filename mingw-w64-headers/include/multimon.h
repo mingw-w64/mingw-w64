@@ -209,7 +209,7 @@ extern "C" {
     RECT rcWork;
     if(InitMultipleMonitorStubs()) {
       WINBOOL f = g_pfnGetMonitorInfo(hMonitor,lpMonitorInfo);
-#ifdef UNICODE
+#if defined(UNICODE)
       if(f && !g_fMultimonPlatformNT && (lpMonitorInfo->cbSize >= sizeof(MONITORINFOEX))) {
 	MultiByteToWideChar(CP_ACP,0,(LPSTR)((MONITORINFOEX*)lpMonitorInfo)->szDevice,-1,((MONITORINFOEX*)lpMonitorInfo)->szDevice,(sizeof(((MONITORINFOEX*)lpMonitorInfo)->szDevice)/sizeof(TCHAR)));
       }
@@ -228,7 +228,7 @@ extern "C" {
       lpMonitorInfo->rcWork = rcWork;
       lpMonitorInfo->dwFlags = MONITORINFOF_PRIMARY;
       if(lpMonitorInfo->cbSize >= sizeof(MONITORINFOEX)) {
-#ifdef UNICODE
+#if defined(UNICODE)
 	MultiByteToWideChar(CP_ACP,0,"DISPLAY",-1,((MONITORINFOEX*)lpMonitorInfo)->szDevice,(sizeof(((MONITORINFOEX*)lpMonitorInfo)->szDevice)/sizeof(TCHAR)));
 #else
 	lstrcpyn(((MONITORINFOEX*)lpMonitorInfo)->szDevice,TEXT("DISPLAY"),(sizeof(((MONITORINFOEX*)lpMonitorInfo)->szDevice)/sizeof(TCHAR)));
@@ -308,7 +308,7 @@ extern "C" {
     if(!lpDisplayDevice || lpDisplayDevice->cb < sizeof(DISPLAY_DEVICE))
       return FALSE;
 
-#ifdef UNICODE
+#if defined(UNICODE)
     MultiByteToWideChar(CP_ACP,0,"DISPLAY",-1,lpDisplayDevice->DeviceName,(sizeof(lpDisplayDevice->DeviceName)/sizeof(TCHAR)));
     MultiByteToWideChar(CP_ACP,0,"DISPLAY",-1,lpDisplayDevice->DeviceString,(sizeof(lpDisplayDevice->DeviceString)/sizeof(TCHAR)));
 #else

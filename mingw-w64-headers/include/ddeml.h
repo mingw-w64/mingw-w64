@@ -132,7 +132,7 @@ extern "C" {
 
 #define QID_SYNC 0xFFFFFFFF
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define CP_WINNEUTRAL CP_WINUNICODE
 #else
 #define CP_WINNEUTRAL CP_WINANSI

@@ -732,7 +732,7 @@ extern "C" {
 #define TMPF_DEVICE 0x08
 #define TMPF_TRUETYPE 0x04
 
-#ifdef UNICODE
+#if defined(UNICODE)
   typedef WCHAR BCHAR;
 #else
   typedef BYTE BCHAR;

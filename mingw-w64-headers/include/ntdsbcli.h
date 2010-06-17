@@ -31,7 +31,7 @@ extern "C" {
 #define g_wszRestoreAnnotation L"NTDS Restore Interface"
 #define g_aszRestoreAnnotation "NTDS Restore Interface"
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define g_szBackupAnnotation g_wszBackupAnnotation
 #define g_szRestoreAnnotation g_wszRestoreAnnotation
 #else
@@ -49,7 +49,7 @@ extern "C" {
 
 #define BACKUP_DISABLE_INCREMENTAL 0xffffffff
 
-#ifdef UNICODE
+#if defined(UNICODE)
   typedef WCHAR BFT;
 #else
   typedef CHAR BFT;

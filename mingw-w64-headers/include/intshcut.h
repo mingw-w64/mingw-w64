@@ -83,11 +83,7 @@ extern "C" {
 
 #define IUniformResourceLocator __MINGW_NAME_AW(IUniformResourceLocator)
 
-#ifdef UNICODE
-#define IUniformResourceLocatorVtbl IUniformResourceLocatorWVtbl
-#else
-#define IUniformResourceLocatorVtbl IUniformResourceLocatorAVtbl
-#endif
+#define IUniformResourceLocatorVtbl __MINGW_NAME_AW_EXT(IUniformResourceLocator,Vtbl)
 
   typedef IUniformResourceLocator *PIUniformResourceLocator;
   typedef const IUniformResourceLocator CIUniformResourceLocator;

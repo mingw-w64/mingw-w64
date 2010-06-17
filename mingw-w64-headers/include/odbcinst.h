@@ -155,7 +155,7 @@ extern "C" {
 
 #ifndef SQL_NOUNICODEMAP
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define SQLInstallODBC SQLInstallODBCW
 #define SQLCreateDataSource SQLCreateDataSourceW
 #define SQLGetTranslator SQLGetTranslatorW

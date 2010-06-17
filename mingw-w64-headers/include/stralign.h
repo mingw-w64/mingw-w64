@@ -171,7 +171,7 @@ extern "C" {
 #define STRUC_ALIGNED_STACK_COPY(t,s) ((CONST t *)(s))
 #endif
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define TSTR_ALIGNED_STACK_COPY(d,s) WSTR_ALIGNED_STACK_COPY(d,s)
 #define TSTR_ALIGNED(x) WSTR_ALIGNED(x)
 #define ua_CharUpper ua_CharUpperW

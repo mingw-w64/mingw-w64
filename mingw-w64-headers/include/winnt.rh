@@ -3,11 +3,12 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#ifdef UNICODE
+#if defined(UNICODE)
 #define __TEXT(quote) L##quote
 #else
 #define __TEXT(quote) quote
 #endif
+
 #define TEXT(quote) __TEXT(quote)
 
 #define LANG_NEUTRAL 0x00

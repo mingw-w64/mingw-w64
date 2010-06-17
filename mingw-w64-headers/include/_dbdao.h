@@ -141,7 +141,7 @@ inline VOID CdbVariant::operator =(LPCTSTR pstr) {
     vt = VT_ERROR;
     scode = DISP_E_PARAMNOTFOUND;
   } else {
-#ifdef UNICODE
+#if defined(UNICODE)
     bstrVal = SysAllocString(pstr);
 #else
     bstrVal = SysAllocStringByteLen(pstr,strlen(pstr));

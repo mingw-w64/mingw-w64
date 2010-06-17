@@ -301,11 +301,7 @@ extern "C" {
 #define IExtractIcon __MINGW_NAME_AW(IExtractIcon)
 #define LPEXTRACTICON __MINGW_NAME_AW(LPEXTRACTICON)
 
-#ifdef UNICODE
-#define IExtractIconVtbl IExtractIconWVtbl
-#else
-#define IExtractIconVtbl IExtractIconAVtbl
-#endif
+#define IExtractIconVtbl __MINGW_NAME_AW_EXT(IExtractIcon,Vtbl)
 
 #undef INTERFACE
 #define INTERFACE IShellIcon
@@ -511,11 +507,8 @@ extern "C" {
 
 #define IShellExecuteHook __MINGW_NAME_AW(IShellExecuteHook)
 
-#ifdef UNICODE
-#define IShellExecuteHookVtbl IShellExecuteHookWVtbl
-#else
-#define IShellExecuteHookVtbl IShellExecuteHookAVtbl
-#endif
+#define IShellExecuteHookVtbl __MINGW_NAME_AW_EXT(IShellExecuteHook,Vtbl)
+
 #endif
 
 #undef INTERFACE
@@ -574,11 +567,8 @@ extern "C" {
   };
 
 #define INewShortcutHook __MINGW_NAME_AW(INewShortcutHook)
-#ifdef UNICODE
-#define INewShortcutHookVtbl INewShortcutHookWVtbl
-#else
-#define INewShortcutHookVtbl INewShortcutHookAVtbl
-#endif
+
+#define INewShortcutHookVtbl __MINGW_NAME_AW_EXT(INewShortcutHook,Vtbl)
 
 #ifndef FO_MOVE
 
@@ -641,11 +631,7 @@ extern "C" {
 #define ICopyHook __MINGW_NAME_AW(ICopyHook)
 #define LPCOPYHOOK __MINGW_NAME_AW(LPCOPYHOOK)
 
-#ifdef UNICODE
-#define ICopyHookVtbl ICopyHookWVtbl
-#else
-#define ICopyHookVtbl ICopyHookAVtbl
-#endif
+#define ICopyHookVtbl __MINGW_NAME_AW_EXT(ICopyHook,Vtbl)
 
 #undef INTERFACE
 #define INTERFACE IFileViewerSite

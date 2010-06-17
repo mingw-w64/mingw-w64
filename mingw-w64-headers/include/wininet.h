@@ -307,7 +307,7 @@ extern "C" {
   __MINGW_TYPEDEF_AW(INTERNET_BUFFERS)
   __MINGW_TYPEDEF_AW(LPINTERNET_BUFFERS)
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetTimeFromSystemTime InternetTimeFromSystemTimeW
 #else
   BOOLAPI InternetTimeFromSystemTime(CONST SYSTEMTIME *pst,DWORD dwRFC,LPSTR lpszTime,DWORD cbTime);
@@ -324,7 +324,7 @@ extern "C" {
 #define InternetCanonicalizeUrl __MINGW_NAME_AW(InternetCanonicalizeUrl)
 #define InternetCombineUrl __MINGW_NAME_AW(InternetCombineUrl)
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetTimeToSystemTime InternetTimeToSystemTimeW
 #else
   BOOLAPI InternetTimeToSystemTime(LPCSTR lpszTime,SYSTEMTIME *pst,DWORD dwReserved);
@@ -571,7 +571,7 @@ extern "C" {
   typedef VOID (CALLBACK *INTERNET_STATUS_CALLBACK)(HINTERNET hInternet,DWORD_PTR dwContext,DWORD dwInternetStatus,LPVOID lpvStatusInformation,DWORD dwStatusInformationLength);
   typedef INTERNET_STATUS_CALLBACK *LPINTERNET_STATUS_CALLBACK;
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetSetStatusCallback InternetSetStatusCallbackW
 #else
   INTERNETAPI_(INTERNET_STATUS_CALLBACK) InternetSetStatusCallback(HINTERNET hInternet,INTERNET_STATUS_CALLBACK lpfnInternetCallback);
@@ -1180,7 +1180,7 @@ extern "C" {
     DWORD_PTR dwContext;
   } INTERNET_AUTH_NOTIFY_DATA;
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetConfirmZoneCrossing InternetConfirmZoneCrossingW
 #else
   INTERNETAPI_(DWORD) InternetConfirmZoneCrossing(HWND hWnd,LPSTR szUrlPrev,LPSTR szUrlNew,WINBOOL bPost);
@@ -1453,7 +1453,7 @@ extern "C" {
 #define FindFirstUrlCacheEntry __MINGW_NAME_AW(FindFirstUrlCacheEntry)
 #define FindNextUrlCacheEntry __MINGW_NAME_AW(FindNextUrlCacheEntry)
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetDial InternetDialW
 #define InternetGoOnline InternetGoOnlineW
 #define DeleteUrlCacheEntry DeleteUrlCacheEntryW
@@ -1541,7 +1541,7 @@ extern "C" {
   typedef WINBOOL (CALLBACK *pfnInternetDeInitializeAutoProxyDll)(LPSTR lpszMime,DWORD dwReserved);
   typedef WINBOOL (CALLBACK *pfnInternetGetProxyInfo)(LPCSTR lpszUrl,DWORD dwUrlLength,LPSTR lpszUrlHostName,DWORD dwUrlHostNameLength,LPSTR *lplpszProxyHostName,LPDWORD lpdwProxyHostNameLength);
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetGetConnectedStateEx InternetGetConnectedStateExW
 #else
   INTERNETAPI_(WINBOOL) InternetGetConnectedStateEx(LPDWORD lpdwFlags,LPSTR lpszConnectionName,DWORD dwNameLen,DWORD dwReserved);
@@ -1576,7 +1576,7 @@ extern "C" {
 #define InternetGetPerSiteCookieDecision __MINGW_NAME_AW(InternetGetPerSiteCookieDecision)
 #define InternetEnumPerSiteCookieDecision __MINGW_NAME_AW(InternetEnumPerSiteCookieDecision)
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetSetDialState InternetSetDialStateW
 #else
   INTERNETAPI_(WINBOOL) InternetSetDialState(LPCSTR lpszConnectoid,DWORD dwState,DWORD dwReserved);

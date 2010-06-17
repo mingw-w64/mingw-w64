@@ -173,7 +173,7 @@ extern "C" {
 #define wnsprintf __MINGW_NAME_AW(wnsprintf)
 #define StrIsIntlEqual __MINGW_NAME_AW(StrIsIntlEqual)
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define StrFormatByteSize64 StrFormatByteSizeW
 #else
 #define StrFormatByteSize64 StrFormatByteSize64A
@@ -218,7 +218,7 @@ extern "C" {
 
 #define StrCatBuff __MINGW_NAME_AW(StrCatBuff)
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define StrCat StrCatW
 #define StrCmp StrCmpW
 #define StrCmpI StrCmpIW
