@@ -1,3 +1,7 @@
+2010-06-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_mac (__MINGW_PROCNAMEEXT_AW): New define.
+
 2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _bsd_types.h: Moved from include/mingw_inc/_bsd_types.h.
