@@ -1,5 +1,13 @@
 2010-06-17  Doug Semler  <dougsemler@gmail.com>
 
+	* Makefile.am (CFLAGS32): New 32-bit specific flags.
+	  (CFLAGS64): New 64-bit specific flags.
+	  Replace all occurences of architecture specific flags with new
+	  definitions.
+	* Makefile.in: Regenerate.
+
+2010-06-17  Doug Semler  <dougsemler@gmail.com>
+
 	* Makefile.am (DTLIB, DTDEF): Remove generic versions.
 	  (DTLIB32, DTLIB64): Create architecture specific versions based on
 	  architecture specific $(DTDEF).
