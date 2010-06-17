@@ -2,6 +2,14 @@
 
 	Backport from the trunk:
 
+	2010-06-17  Kai Tietz  <kai.tietz@onevision.com>  (rev. 2567)
+	* intrin.h: Make sure that _mm_shuffle_ps function does not get
+	confused by a define.
+
+2010-06-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk:
+
 	2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>  (revs. 2497-2498)
 	Kill definitions of I_X86_ macro and adjust places it was used:
 	* windows.h: Remove I_X86_ definition. Adjust and tweak _AMD64_
