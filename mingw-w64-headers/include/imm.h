@@ -55,17 +55,10 @@ extern "C" {
     LPWSTR lpWord;
   } REGISTERWORDW,*PREGISTERWORDW,*NPREGISTERWORDW,*LPREGISTERWORDW;
 
-#ifdef UNICODE
-  typedef REGISTERWORDW REGISTERWORD;
-  typedef PREGISTERWORDW PREGISTERWORD;
-  typedef NPREGISTERWORDW NPREGISTERWORD;
-  typedef LPREGISTERWORDW LPREGISTERWORD;
-#else
-  typedef REGISTERWORDA REGISTERWORD;
-  typedef PREGISTERWORDA PREGISTERWORD;
-  typedef NPREGISTERWORDA NPREGISTERWORD;
-  typedef LPREGISTERWORDA LPREGISTERWORD;
-#endif
+  __MINGW_TYPEDEF_AW(REGISTERWORD)
+  __MINGW_TYPEDEF_AW(PREGISTERWORD)
+  __MINGW_TYPEDEF_AW(NPREGISTERWORD)
+  __MINGW_TYPEDEF_AW(LPREGISTERWORD)
 
   typedef struct tagRECONVERTSTRING {
     DWORD dwSize;
@@ -84,22 +77,16 @@ extern "C" {
     DWORD dwStyle;
     CHAR szDescription[STYLE_DESCRIPTION_SIZE];
   } STYLEBUFA,*PSTYLEBUFA,*NPSTYLEBUFA,*LPSTYLEBUFA;
+
   typedef struct tagSTYLEBUFW {
     DWORD dwStyle;
     WCHAR szDescription[STYLE_DESCRIPTION_SIZE];
   } STYLEBUFW,*PSTYLEBUFW,*NPSTYLEBUFW,*LPSTYLEBUFW;
 
-#ifdef UNICODE
-  typedef STYLEBUFW STYLEBUF;
-  typedef PSTYLEBUFW PSTYLEBUF;
-  typedef NPSTYLEBUFW NPSTYLEBUF;
-  typedef LPSTYLEBUFW LPSTYLEBUF;
-#else
-  typedef STYLEBUFA STYLEBUF;
-  typedef PSTYLEBUFA PSTYLEBUF;
-  typedef NPSTYLEBUFA NPSTYLEBUF;
-  typedef LPSTYLEBUFA LPSTYLEBUF;
-#endif
+  __MINGW_TYPEDEF_AW(STYLEBUF)
+  __MINGW_TYPEDEF_AW(PSTYLEBUF)
+  __MINGW_TYPEDEF_AW(NPSTYLEBUF)
+  __MINGW_TYPEDEF_AW(LPSTYLEBUF)
 
 #define IMEMENUITEM_STRING_SIZE 80
 
@@ -127,17 +114,10 @@ extern "C" {
     HBITMAP hbmpItem;
   } IMEMENUITEMINFOW,*PIMEMENUITEMINFOW,*NPIMEMENUITEMINFOW,*LPIMEMENUITEMINFOW;
 
-#ifdef UNICODE
-  typedef IMEMENUITEMINFOW IMEMENUITEMINFO;
-  typedef PIMEMENUITEMINFOW PIMEMENUITEMINFO;
-  typedef NPIMEMENUITEMINFOW NPIMEMENUITEMINFO;
-  typedef LPIMEMENUITEMINFOW LPIMEMENUITEMINFO;
-#else
-  typedef IMEMENUITEMINFOA IMEMENUITEMINFO;
-  typedef PIMEMENUITEMINFOA PIMEMENUITEMINFO;
-  typedef NPIMEMENUITEMINFOA NPIMEMENUITEMINFO;
-  typedef LPIMEMENUITEMINFOA LPIMEMENUITEMINFO;
-#endif
+  __MINGW_TYPEDEF_AW(IMEMENUITEMINFO)
+  __MINGW_TYPEDEF_AW(PIMEMENUITEMINFO)
+  __MINGW_TYPEDEF_AW(NPIMEMENUITEMINFO)
+  __MINGW_TYPEDEF_AW(LPIMEMENUITEMINFO)
 
   typedef struct tagIMECHARPOSITION {
     DWORD dwSize;
@@ -149,25 +129,14 @@ extern "C" {
 
   typedef WINBOOL (CALLBACK *IMCENUMPROC)(HIMC,LPARAM);
 
-#ifdef UNICODE
-#define ImmInstallIME ImmInstallIMEW
-#define ImmGetDescription ImmGetDescriptionW
-#define ImmGetIMEFileName ImmGetIMEFileNameW
-#define ImmGetCompositionString ImmGetCompositionStringW
-#define ImmSetCompositionString ImmSetCompositionStringW
-#define ImmGetCandidateListCount ImmGetCandidateListCountW
-#define ImmGetCandidateList ImmGetCandidateListW
-#define ImmGetGuideLine ImmGetGuideLineW
-#else
-#define ImmInstallIME ImmInstallIMEA
-#define ImmGetDescription ImmGetDescriptionA
-#define ImmGetIMEFileName ImmGetIMEFileNameA
-#define ImmGetCompositionString ImmGetCompositionStringA
-#define ImmSetCompositionString ImmSetCompositionStringA
-#define ImmGetCandidateListCount ImmGetCandidateListCountA
-#define ImmGetCandidateList ImmGetCandidateListA
-#define ImmGetGuideLine ImmGetGuideLineA
-#endif
+#define ImmInstallIME __MINGW_NAME_AW(ImmInstallIME)
+#define ImmGetDescription __MINGW_NAME_AW(ImmGetDescription)
+#define ImmGetIMEFileName __MINGW_NAME_AW(ImmGetIMEFileName)
+#define ImmGetCompositionString __MINGW_NAME_AW(ImmGetCompositionString)
+#define ImmSetCompositionString __MINGW_NAME_AW(ImmSetCompositionString)
+#define ImmGetCandidateListCount __MINGW_NAME_AW(ImmGetCandidateListCount)
+#define ImmGetCandidateList __MINGW_NAME_AW(ImmGetCandidateList)
+#define ImmGetGuideLine __MINGW_NAME_AW(ImmGetGuideLine)
 
   HKL WINAPI ImmInstallIMEA(LPCSTR lpszIMEFileName,LPCSTR lpszLayoutText);
   HKL WINAPI ImmInstallIMEW(LPCWSTR lpszIMEFileName,LPCWSTR lpszLayoutText);
@@ -202,13 +171,8 @@ extern "C" {
 
 #if defined(_WINGDI_) && !defined(NOGDI)
 
-#ifdef UNICODE
-#define ImmGetCompositionFont ImmGetCompositionFontW
-#define ImmSetCompositionFont ImmSetCompositionFontW
-#else
-#define ImmGetCompositionFont ImmGetCompositionFontA
-#define ImmSetCompositionFont ImmSetCompositionFontA
-#endif
+#define ImmGetCompositionFont __MINGW_NAME_AW(ImmGetCompositionFont)
+#define ImmSetCompositionFont __MINGW_NAME_AW(ImmSetCompositionFont)
 
   WINBOOL WINAPI ImmGetCompositionFontA(HIMC,LPLOGFONTA);
   WINBOOL WINAPI ImmGetCompositionFontW(HIMC,LPLOGFONTW);
@@ -218,29 +182,17 @@ extern "C" {
 
   typedef int (CALLBACK *REGISTERWORDENUMPROCA)(LPCSTR,DWORD,LPCSTR,LPVOID);
   typedef int (CALLBACK *REGISTERWORDENUMPROCW)(LPCWSTR,DWORD,LPCWSTR,LPVOID);
-#ifdef UNICODE
-#define REGISTERWORDENUMPROC REGISTERWORDENUMPROCW
-#define ImmConfigureIME ImmConfigureIMEW
-#define ImmEscape ImmEscapeW
-#define ImmGetConversionList ImmGetConversionListW
-#define ImmIsUIMessage ImmIsUIMessageW
-#define ImmRegisterWord ImmRegisterWordW
-#define ImmUnregisterWord ImmUnregisterWordW
-#define ImmGetRegisterWordStyle ImmGetRegisterWordStyleW
-#define ImmEnumRegisterWord ImmEnumRegisterWordW
-#define ImmGetImeMenuItems ImmGetImeMenuItemsW
-#else
-#define REGISTERWORDENUMPROC REGISTERWORDENUMPROCA
-#define ImmConfigureIME ImmConfigureIMEA
-#define ImmEscape ImmEscapeA
-#define ImmGetConversionList ImmGetConversionListA
-#define ImmIsUIMessage ImmIsUIMessageA
-#define ImmRegisterWord ImmRegisterWordA
-#define ImmUnregisterWord ImmUnregisterWordA
-#define ImmGetRegisterWordStyle ImmGetRegisterWordStyleA
-#define ImmEnumRegisterWord ImmEnumRegisterWordA
-#define ImmGetImeMenuItems ImmGetImeMenuItemsA
-#endif
+
+#define REGISTERWORDENUMPROC __MINGW_NAME_AW(REGISTERWORDENUMPROC)
+#define ImmConfigureIME __MINGW_NAME_AW(ImmConfigureIME)
+#define ImmEscape __MINGW_NAME_AW(ImmEscape)
+#define ImmGetConversionList __MINGW_NAME_AW(ImmGetConversionList)
+#define ImmIsUIMessage __MINGW_NAME_AW(ImmIsUIMessage)
+#define ImmRegisterWord __MINGW_NAME_AW(ImmRegisterWord)
+#define ImmUnregisterWord __MINGW_NAME_AW(ImmUnregisterWord)
+#define ImmGetRegisterWordStyle __MINGW_NAME_AW(ImmGetRegisterWordStyle)
+#define ImmEnumRegisterWord __MINGW_NAME_AW(ImmEnumRegisterWord)
+#define ImmGetImeMenuItems __MINGW_NAME_AW(ImmGetImeMenuItems)
 
   WINBOOL WINAPI ImmConfigureIMEA(HKL,HWND,DWORD,LPVOID);
   WINBOOL WINAPI ImmConfigureIMEW(HKL,HWND,DWORD,LPVOID);

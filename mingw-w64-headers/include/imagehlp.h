@@ -76,11 +76,7 @@ extern "C" {
 #define SPLITSYM_EXTRACT_ALL 0x00000002
 #define SPLITSYM_SYMBOLPATH_IS_SRC 0x00000004
 
-#ifdef UNICODE
-#define MapFileAndCheckSum MapFileAndCheckSumW
-#else
-#define MapFileAndCheckSum MapFileAndCheckSumA
-#endif
+#define MapFileAndCheckSum __MINGW_NAME_AW(MapFileAndCheckSum)
 
   WINBOOL IMAGEAPI BindImage(PSTR ImageName,PSTR DllPath,PSTR SymbolPath);
   WINBOOL IMAGEAPI BindImageEx(DWORD Flags,PSTR ImageName,PSTR DllPath,PSTR SymbolPath,PIMAGEHLP_STATUS_ROUTINE StatusRoutine);

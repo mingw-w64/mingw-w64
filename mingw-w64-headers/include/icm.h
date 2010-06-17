@@ -413,50 +413,27 @@ extern "C" {
   WINBOOL WINAPI SetupColorMatchingW(PCOLORMATCHSETUPW pcms);
   WINBOOL WINAPI SetupColorMatchingA(PCOLORMATCHSETUPA pcms);
 
-#ifdef UNICODE
-#define ENUMTYPE ENUMTYPEW
-#define PENUMTYPE PENUMTYPEW
-#define COLORMATCHSETUP COLORMATCHSETUPW
-#define PCOLORMATCHSETUP PCOLORMATCHSETUPW
-#define LPCOLORMATCHSETUP LPCOLORMATCHSETUPW
-#define PCMSCALLBACK PCMSCALLBACKW
-#define CreateColorTransform CreateColorTransformW
-#define OpenColorProfile OpenColorProfileW
-#define CreateProfileFromLogColorSpace CreateProfileFromLogColorSpaceW
-#define RegisterCMM RegisterCMMW
-#define UnregisterCMM UnregisterCMMW
-#define GetColorDirectory GetColorDirectoryW
-#define InstallColorProfile InstallColorProfileW
-#define UninstallColorProfile UninstallColorProfileW
-#define AssociateColorProfileWithDevice AssociateColorProfileWithDeviceW
-#define DisassociateColorProfileFromDevice DisassociateColorProfileFromDeviceW
-#define EnumColorProfiles EnumColorProfilesW
-#define SetStandardColorSpaceProfile SetStandardColorSpaceProfileW
-#define GetStandardColorSpaceProfile GetStandardColorSpaceProfileW
-#define SetupColorMatching SetupColorMatchingW
+#define ENUMTYPE __MINGW_NAME_AW(ENUMTYPE)
+#define PENUMTYPE __MINGW_NAME_AW(PENUMTYPE)
+#define COLORMATCHSETUP __MINGW_NAME_AW(COLORMATCHSETUP)
+#define PCOLORMATCHSETUP __MINGW_NAME_AW(PCOLORMATCHSETUP)
+#define LPCOLORMATCHSETUP __MINGW_NAME_AW(LPCOLORMATCHSETUP)
+#define PCMSCALLBACK __MINGW_NAME_AW(PCMSCALLBACK)
 
-#else
-#define ENUMTYPE ENUMTYPEA
-#define PENUMTYPE PENUMTYPEA
-#define COLORMATCHSETUP COLORMATCHSETUPA
-#define PCOLORMATCHSETUP PCOLORMATCHSETUPA
-#define LPCOLORMATCHSETUP LPCOLORMATCHSETUPA
-#define PCMSCALLBACK PCMSCALLBACKA
-#define CreateColorTransform CreateColorTransformA
-#define OpenColorProfile OpenColorProfileA
-#define CreateProfileFromLogColorSpace CreateProfileFromLogColorSpaceA
-#define RegisterCMM RegisterCMMA
-#define UnregisterCMM UnregisterCMMA
-#define GetColorDirectory GetColorDirectoryA
-#define InstallColorProfile InstallColorProfileA
-#define UninstallColorProfile UninstallColorProfileA
-#define AssociateColorProfileWithDevice AssociateColorProfileWithDeviceA
-#define DisassociateColorProfileFromDevice DisassociateColorProfileFromDeviceA
-#define EnumColorProfiles EnumColorProfilesA
-#define SetStandardColorSpaceProfile SetStandardColorSpaceProfileA
-#define GetStandardColorSpaceProfile GetStandardColorSpaceProfileA
-#define SetupColorMatching SetupColorMatchingA
-#endif
+#define CreateColorTransform __MINGW_NAME_AW(CreateColorTransform)
+#define OpenColorProfile __MINGW_NAME_AW(OpenColorProfile)
+#define CreateProfileFromLogColorSpace __MINGW_NAME_AW(CreateProfileFromLogColorSpace)
+#define RegisterCMM __MINGW_NAME_AW(RegisterCMM)
+#define UnregisterCMM __MINGW_NAME_AW(UnregisterCMM)
+#define GetColorDirectory __MINGW_NAME_AW(GetColorDirectory)
+#define InstallColorProfile __MINGW_NAME_AW(InstallColorProfile)
+#define UninstallColorProfile __MINGW_NAME_AW(UninstallColorProfile)
+#define AssociateColorProfileWithDevice __MINGW_NAME_AW(AssociateColorProfileWithDevice)
+#define DisassociateColorProfileFromDevice __MINGW_NAME_AW(DisassociateColorProfileFromDevice)
+#define EnumColorProfiles __MINGW_NAME_AW(EnumColorProfiles)
+#define SetStandardColorSpaceProfile __MINGW_NAME_AW(SetStandardColorSpaceProfile)
+#define GetStandardColorSpaceProfile __MINGW_NAME_AW(GetStandardColorSpaceProfile)
+#define SetupColorMatching __MINGW_NAME_AW(SetupColorMatching)
 
   typedef HANDLE HCMTRANSFORM;
   typedef PVOID LPDEVCHARACTER;

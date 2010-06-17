@@ -53,17 +53,10 @@ extern "C" {
   typedef const URLINVOKECOMMANDINFOW CURLINVOKECOMMANDINFOW;
   typedef const URLINVOKECOMMANDINFOW *PCURLINVOKECOMMANDINFOW;
 
-#ifdef UNICODE
-#define URLINVOKECOMMANDINFO URLINVOKECOMMANDINFOW
-#define PURLINVOKECOMMANDINFO PURLINVOKECOMMANDINFOW
-#define CURLINVOKECOMMANDINFO CURLINVOKECOMMANDINFOW
-#define PCURLINVOKECOMMANDINFO PCURLINVOKECOMMANDINFOW
-#else
-#define URLINVOKECOMMANDINFO URLINVOKECOMMANDINFOA
-#define PURLINVOKECOMMANDINFO PURLINVOKECOMMANDINFOA
-#define CURLINVOKECOMMANDINFO CURLINVOKECOMMANDINFOA
-#define PCURLINVOKECOMMANDINFO PCURLINVOKECOMMANDINFOA
-#endif
+#define URLINVOKECOMMANDINFO __MINGW_NAME_AW(URLINVOKECOMMANDINFO)
+#define PURLINVOKECOMMANDINFO __MINGW_NAME_AW(PURLINVOKECOMMANDINFO)
+#define CURLINVOKECOMMANDINFO __MINGW_NAME_AW(CURLINVOKECOMMANDINFO)
+#define PCURLINVOKECOMMANDINFO __MINGW_NAME_AW(PCURLINVOKECOMMANDINFO)
 
 #undef INTERFACE
 #define INTERFACE IUniformResourceLocatorA
@@ -88,11 +81,11 @@ extern "C" {
     STDMETHOD(InvokeCommand)(THIS_ PURLINVOKECOMMANDINFOW purlici) PURE;
   };
 
+#define IUniformResourceLocator __MINGW_NAME_AW(IUniformResourceLocator)
+
 #ifdef UNICODE
-#define IUniformResourceLocator IUniformResourceLocatorW
 #define IUniformResourceLocatorVtbl IUniformResourceLocatorWVtbl
 #else
-#define IUniformResourceLocator IUniformResourceLocatorA
 #define IUniformResourceLocatorVtbl IUniformResourceLocatorAVtbl
 #endif
 
@@ -106,11 +99,8 @@ extern "C" {
 
   INTSHCUTAPI HRESULT WINAPI TranslateURLA(PCSTR pcszURL,DWORD dwInFlags,PSTR *ppszTranslatedURL);
   INTSHCUTAPI HRESULT WINAPI TranslateURLW(PCWSTR pcszURL,DWORD dwInFlags,PWSTR UNALIGNED *ppszTranslatedURL);
-#ifdef UNICODE
-#define TranslateURL TranslateURLW
-#else
-#define TranslateURL TranslateURLA
-#endif
+
+#define TranslateURL __MINGW_NAME_AW(TranslateURL)
 
   typedef enum urlassociationdialog_in_flags {
     URLASSOCDLG_FL_USE_DEFAULT_NAME = 0x0001,URLASSOCDLG_FL_REGISTER_ASSOC = 0x0002
@@ -118,11 +108,8 @@ extern "C" {
 
   INTSHCUTAPI HRESULT WINAPI URLAssociationDialogA(HWND hwndParent,DWORD dwInFlags,PCSTR pcszFile,PCSTR pcszURL,PSTR pszAppBuf,UINT ucAppBufLen);
   INTSHCUTAPI HRESULT WINAPI URLAssociationDialogW(HWND hwndParent,DWORD dwInFlags,PCWSTR pcszFile,PCWSTR pcszURL,PWSTR pszAppBuf,UINT ucAppBufLen);
-#ifdef UNICODE
-#define URLAssociationDialog URLAssociationDialogW
-#else
-#define URLAssociationDialog URLAssociationDialogA
-#endif
+
+#define URLAssociationDialog __MINGW_NAME_AW(URLAssociationDialog)
 
   typedef enum mimeassociationdialog_in_flags {
     MIMEASSOCDLG_FL_REGISTER_ASSOC = 0x0001
@@ -130,11 +117,8 @@ extern "C" {
 
   INTSHCUTAPI HRESULT WINAPI MIMEAssociationDialogA(HWND hwndParent,DWORD dwInFlags,PCSTR pcszFile,PCSTR pcszMIMEContentType,PSTR pszAppBuf,UINT ucAppBufLen);
   INTSHCUTAPI HRESULT WINAPI MIMEAssociationDialogW(HWND hwndParent,DWORD dwInFlags,PCWSTR pcszFile,PCWSTR pcszMIMEContentType,PWSTR pszAppBuf,UINT ucAppBufLen);
-#ifdef UNICODE
-#define MIMEAssociationDialog MIMEAssociationDialogW
-#else
-#define MIMEAssociationDialog MIMEAssociationDialogA
-#endif
+
+#define MIMEAssociationDialog __MINGW_NAME_AW(MIMEAssociationDialog)
 
   INTSHCUTAPI WINBOOL WINAPI InetIsOffline(DWORD dwFlags);
 
