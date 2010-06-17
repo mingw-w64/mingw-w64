@@ -529,13 +529,8 @@ extern "C" {
   int WINAPI SyncMgrResolveConflictW(HWND hWndParent,RFCDLGPARAMW *pdlgParam);
   int WINAPI SyncMgrResolveConflictA(HWND hWndParent,RFCDLGPARAMA *pdlgParam);
 
-#ifdef UNICODE
-#define SyncMgrResolveConflict SyncMgrResolveConflictW
-#define RFCDLGPARAM RFCDLGPARAMW
-#else
-#define SyncMgrResolveConflict SyncMgrResolveConflictA
-#define RFCDLGPARAM RFCDLGPARAMA
-#endif
+#define SyncMgrResolveConflict __MINGW_NAME_AW(SyncMgrResolveConflict)
+#define RFCDLGPARAM __MINGW_NAME_AW(RFCDLGPARAM)
 
   extern RPC_IF_HANDLE __MIDL_itf_mobsync_0122_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_mobsync_0122_v0_0_s_ifspec;

@@ -40,13 +40,9 @@ extern "C" {
   typedef struct tagMONITORINFOEXW : public tagMONITORINFO {
     WCHAR szDevice[CCHDEVICENAME];
   } MONITORINFOEXW,*LPMONITORINFOEXW;
-#ifdef UNICODE
-  typedef MONITORINFOEXW MONITORINFOEX;
-  typedef LPMONITORINFOEXW LPMONITORINFOEX;
-#else
-  typedef MONITORINFOEXA MONITORINFOEX;
-  typedef LPMONITORINFOEXA LPMONITORINFOEX;
-#endif
+
+  __MINGW_TYPEDEF_AW(MONITORINFOEX)
+  __MINGW_TYPEDEF_AW(LPMONITORINFOEX)
 #else
   typedef struct tagMONITORINFOEXA {
     MONITORINFO;
@@ -57,13 +53,8 @@ extern "C" {
     MONITORINFO;
     WCHAR szDevice[CCHDEVICENAME];
   } MONITORINFOEXW,*LPMONITORINFOEXW;
-#ifdef UNICODE
-  typedef MONITORINFOEXW MONITORINFOEX;
-  typedef LPMONITORINFOEXW LPMONITORINFOEX;
-#else
-  typedef MONITORINFOEXA MONITORINFOEX;
-  typedef LPMONITORINFOEXA LPMONITORINFOEX;
-#endif
+  __MINGW_TYPEDEF_AW(MONITORINFOEX)
+  __MINGW_TYPEDEF_AW(LPMONITORINFOEX)
 #endif
 
   typedef WINBOOL (CALLBACK *MONITORENUMPROC)(HMONITOR,HDC,LPRECT,LPARAM);
@@ -86,15 +77,10 @@ extern "C" {
     WCHAR DeviceID[128];
     WCHAR DeviceKey[128];
   } DISPLAY_DEVICEW,*PDISPLAY_DEVICEW,*LPDISPLAY_DEVICEW;
-#ifdef UNICODE
-  typedef DISPLAY_DEVICEW DISPLAY_DEVICE;
-  typedef PDISPLAY_DEVICEW PDISPLAY_DEVICE;
-  typedef LPDISPLAY_DEVICEW LPDISPLAY_DEVICE;
-#else
-  typedef DISPLAY_DEVICEA DISPLAY_DEVICE;
-  typedef PDISPLAY_DEVICEA PDISPLAY_DEVICE;
-  typedef LPDISPLAY_DEVICEA LPDISPLAY_DEVICE;
-#endif
+
+  __MINGW_TYPEDEF_AW(DISPLAY_DEVICE)
+  __MINGW_TYPEDEF_AW(PDISPLAY_DEVICE)
+  __MINGW_TYPEDEF_AW(LPDISPLAY_DEVICE)
 
 #define DISPLAY_DEVICE_ATTACHED_TO_DESKTOP 0x00000001
 #define DISPLAY_DEVICE_MULTI_DRIVER 0x00000002
@@ -144,14 +130,9 @@ extern "C" {
       (*(FARPROC*)&g_pfnMonitorFromRect = GetProcAddress(hUser32,"MonitorFromRect"))!=NULL &&
       (*(FARPROC*)&g_pfnMonitorFromPoint = GetProcAddress(hUser32,"MonitorFromPoint"))!=NULL &&
       (*(FARPROC*)&g_pfnEnumDisplayMonitors = GetProcAddress(hUser32,"EnumDisplayMonitors"))!=NULL &&
-#ifdef UNICODE
-      (*(FARPROC*)&g_pfnEnumDisplayDevices = GetProcAddress(hUser32,"EnumDisplayDevicesW"))!=NULL &&
-      (*(FARPROC*)&g_pfnGetMonitorInfo = g_fMultimonPlatformNT ? GetProcAddress(hUser32,"GetMonitorInfoW") :
+      (*(FARPROC*)&g_pfnEnumDisplayDevices = GetProcAddress(hUser32,"EnumDisplayDevices" __MINGW_PROCNAMEEXT_AW))!=NULL &&
+      (*(FARPROC*)&g_pfnGetMonitorInfo = g_fMultimonPlatformNT ? GetProcAddress(hUser32,"GetMonitorInfo" __MINGW_PROCNAMEEXT_AW) :
       GetProcAddress(hUser32,"GetMonitorInfoA"))!=NULL
-#else
-      (*(FARPROC*)&g_pfnGetMonitorInfo = GetProcAddress(hUser32,"GetMonitorInfoA"))!=NULL &&
-      (*(FARPROC*)&g_pfnEnumDisplayDevices = GetProcAddress(hUser32,"EnumDisplayDevicesA"))!=NULL
-#endif
       ) {
 	g_fMultiMonInitDone = TRUE;
 	return TRUE;
