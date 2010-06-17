@@ -36,8 +36,8 @@ DLLTOOLFLAGS32=--as-flags=--32 -m i386
 DLLTOOLFLAGS64=--as-flags=--64 -m i386:x86-64
 DTDEF32=$(DLLTOOL) $(DLLTOOLFLAGS32) $(AM_DLLTOOLFLAGS) --input-def
 DTDEF64=$(DLLTOOL) $(DLLTOOLFLAGS64) $(AM_DLLTOOLFLAGS) --input-def
-DTDEF=$(DLLTOOL) $(AM_DLLTOOLFLAGS) --input-def
-DTLIB=$(DTDEF) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
+DTLIB32=$(DTDEF32) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
+DTLIB64=$(DTDEF64) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 extra_include=-I$(top_srcdir)/include
 
 # can move this into libsrc/dummy_libm.c or similar
@@ -259,17 +259,17 @@ lib32_libgmon_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = $(src_libshell32)
-lib32_libshell32_a_AR = $(DTLIB) -m i386 --as-flags=--32 && $(AR) $(ARFLAGS)
+lib32_libshell32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_libshell32_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdinput.a
 lib32_libdinput_a_SOURCES = $(src_libdinput)
-lib32_libdinput_a_AR = $(DTLIB) -m i386 --as-flags=--32 && $(AR) $(ARFLAGS)
+lib32_libdinput_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_libdinput_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdinput8.a
 lib32_libdinput8_a_SOURCES = $(src_libdinput8)
-lib32_libdinput8_a_AR = $(DTLIB) -m i386 --as-flags=--32 && $(AR) $(ARFLAGS)
+lib32_libdinput8_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_libdinput8_a_CPPFLAGS=-m32
 
 lib32_LIBRARIES += lib32/libdmoguids.a
@@ -291,7 +291,7 @@ lib32_libdxguid_a_CPPFLAGS=-m32
 lib32_LIBRARIES += lib32/libksuser.a
 lib32_libksuser_a_SOURCES = $(src_libksuser)
 lib32_libksuser_a_CPPFLAGS=-m32
-lib32_libksuser_a_AR = $(DTLIB) -m i386 --as-flags=--32 && $(AR) $(ARFLAGS)
+lib32_libksuser_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/liblargeint.a
 lib32_liblargeint_a_SOURCES = $(src_liblargeint)
@@ -334,7 +334,7 @@ lib32_libuuid_a_CPPFLAGS=-m32
 lib32_LIBRARIES += lib32/libws2_32.a
 lib32_libws2_32_a_SOURCES = $(src_libws2_32)
 lib32_libws2_32_a_CPPFLAGS=-m32
-lib32_libws2_32_a_AR = $(DTLIB) -m i386 --as-flags=--32 && $(AR) $(ARFLAGS)
+lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
@@ -431,17 +431,17 @@ lib64_libm_a_CPPFLAGS=-m64
 lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = $(src_libshell32)
 lib64_libshell32_a_CPPFLAGS=-m64
-lib64_libshell32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64 && $(AR) $(ARFLAGS)
+lib64_libshell32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdinput.a
 lib64_libdinput_a_SOURCES = $(src_libdinput)
 lib64_libdinput_a_CPPFLAGS=-m64
-lib64_libdinput_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64 && $(AR) $(ARFLAGS)
+lib64_libdinput_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdinput8.a
 lib64_libdinput8_a_SOURCES = $(src_libdinput8)
 lib64_libdinput8_a_CPPFLAGS=-m64
-lib64_libdinput8_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64 && $(AR) $(ARFLAGS)
+lib64_libdinput8_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdmoguids.a
 lib64_libdmoguids_a_SOURCES = $(src_libdmoguids)
@@ -469,7 +469,7 @@ lib64_libgmon_a_CPPFLAGS=-m64
 lib64_LIBRARIES += lib64/libksuser.a
 lib64_libksuser_a_SOURCES = $(src_libksuser)
 lib64_libksuser_a_CPPFLAGS=-m64
-lib64_libksuser_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64 && $(AR) $(ARFLAGS)
+lib64_libksuser_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/liblargeint.a
 lib64_liblargeint_a_SOURCES = $(src_liblargeint)
@@ -512,7 +512,7 @@ lib64_libuuid_a_CPPFLAGS=-m64
 lib64_LIBRARIES += lib64/libws2_32.a
 lib64_libws2_32_a_SOURCES = $(src_libws2_32)
 lib64_libws2_32_a_CPPFLAGS=-m64
-lib64_libws2_32_a_AR = $(DTLIB) -m i386:x86-64 --as-flags=--64 && $(AR) $(ARFLAGS)
+lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 
 lib64_DATA = \
