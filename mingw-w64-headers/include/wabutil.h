@@ -201,14 +201,14 @@ extern "C" {
   STDAPI_(SCODE) ScInitMapiUtil(ULONG ulFlags);
   STDAPI_(VOID) DeinitMapiUtil(VOID);
 
-#ifdef I_X86_
+#ifdef _X86_
 #define szHrDispatchNotifications "_HrDispatchNotifications@4"
 #endif
 
   typedef HRESULT (WINAPI DISPATCHNOTIFICATIONS)(ULONG ulFlags);
   typedef DISPATCHNOTIFICATIONS *LPDISPATCHNOTIFICATIONS;
 
-#ifdef I_X86_
+#ifdef _X86_
 #define szScCreateConversationIndex "_ScCreateConversationIndex@16"
 #endif
 

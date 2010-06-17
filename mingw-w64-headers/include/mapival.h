@@ -53,7 +53,7 @@ extern "C" {
     MAKE_ENUM(Commit,IStream),MAKE_ENUM(Revert,IStream),MAKE_ENUM(LockRegion,IStream),MAKE_ENUM(UnlockRegion,IStream),MAKE_ENUM(Stat,IStream),
     MAKE_ENUM(Clone,IStream),MAKE_ENUM(OnNotify,IMAPIAdviseSink)
   } METHODS;
-#if defined(I_X86_)
+#if defined(_X86_)
 #ifdef __cplusplus
 #define ValidateParameters(eMethod,First) { HRESULT _hr_; _hr_ = __CPPValidateParameters(eMethod,(LPVOID) &First); if (HR_FAILED(_hr_)) return (_hr_); }
 #define UlValidateParameters(eMethod,First) { HRESULT _hr_; _hr_ = __CPPValidateParameters(eMethod,&First); if (HR_FAILED(_hr_)) return (ULONG) (_hr_); }
@@ -103,7 +103,7 @@ extern "C" {
   HRESULT WINAPI __CPPValidateParameters(METHODS eMethod,const LPVOID ppFirst);
   HRESULT WINAPI __ValidateParameters(METHODS eMethod,LPVOID ppThis);
 
-#if defined(I_X86_)
+#if defined(_X86_)
 #define ArgSize(T) ((sizeof(T)+3)/4)
 #define MakeArg1(idx,a1) memcpy(__rgArgs+idx,&a1,ArgSize(a1)*4)
 #define MakeArg2(idx,a1,a2) MakeArg1(idx,a1); MakeArg1(idx+ArgSize(a1),a2)
@@ -799,7 +799,7 @@ extern "C" {
 #define UlValidate_IMAPIAdviseSink_OnNotify(a1,a2,a3) UlValidateParameters3(IMAPIAdviseSink_OnNotify,a1,a2,a3)
 #define CheckParameters_IMAPIAdviseSink_OnNotify(a1,a2,a3) CheckParameters3(IMAPIAdviseSink_OnNotify,a1,a2,a3)
 
-#if defined(I_X86_)
+#if defined(_X86_)
   STDAPI HrValidateParameters(METHODS eMethod,LPVOID *ppFirstArg);
 #else
   STDAPIV HrValidateParametersV(METHODS eMethod,...);

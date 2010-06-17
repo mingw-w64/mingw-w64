@@ -59,7 +59,7 @@ extern "C" {
 
 #define VDMCONTEXT_FULL (VDMCONTEXT_CONTROL | VDMCONTEXT_INTEGER | VDMCONTEXT_SEGMENTS)
 
-#ifdef I_X86_
+#ifdef _X86_
 
   typedef struct _CONTEXT VDMCONTEXT;
   typedef struct _LDT_ENTRY VDMLDT_ENTRY;

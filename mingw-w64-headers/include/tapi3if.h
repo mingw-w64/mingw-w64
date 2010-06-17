@@ -450,7 +450,7 @@ extern "C" {
   void __RPC_API MIDL_user_free(void *);
 #endif
 
-#ifdef I_X86_
+#ifdef _X86_
   typedef long TAPIHWND;
 #else
   typedef LONGLONG TAPIHWND;
