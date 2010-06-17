@@ -103,17 +103,10 @@ extern "C" {
     PDS_NAME_RESULT_ITEMW rItems;
   } DS_NAME_RESULTW,*PDS_NAME_RESULTW;
 
-#ifdef UNICODE
-#define DS_NAME_RESULT DS_NAME_RESULTW
-#define PDS_NAME_RESULT PDS_NAME_RESULTW
-#define DS_NAME_RESULT_ITEM DS_NAME_RESULT_ITEMW
-#define PDS_NAME_RESULT_ITEM PDS_NAME_RESULT_ITEMW
-#else
-#define DS_NAME_RESULT DS_NAME_RESULTA
-#define PDS_NAME_RESULT PDS_NAME_RESULTA
-#define DS_NAME_RESULT_ITEM DS_NAME_RESULT_ITEMA
-#define PDS_NAME_RESULT_ITEM PDS_NAME_RESULT_ITEMA
-#endif
+#define DS_NAME_RESULT __MINGW_NAME_AW(DS_NAME_RESULT)
+#define PDS_NAME_RESULT __MINGW_NAME_AW(PDS_NAME_RESULT)
+#define DS_NAME_RESULT_ITEM __MINGW_NAME_AW(DS_NAME_RESULT_ITEM)
+#define PDS_NAME_RESULT_ITEM __MINGW_NAME_AW(PDS_NAME_RESULT_ITEM)
 
 #define NTDSAPI_BIND_ALLOW_DELEGATION (0x00000001)
 
@@ -279,51 +272,27 @@ extern "C" {
     DS_MANGLE_UNKNOWN = 0,DS_MANGLE_OBJECT_RDN_FOR_DELETION,DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT
   } DS_MANGLE_FOR;
 
-#ifdef UNICODE
-#define DsBind DsBindW
-#define DsBindWithCred DsBindWithCredW
-#define DsBindWithSpn DsBindWithSpnW
-#define DsBindWithSpnEx DsBindWithSpnExW
-#define DsBindToISTG DsBindToISTGW
-#define DsUnBind DsUnBindW
-#define DsMakePasswordCredentials DsMakePasswordCredentialsW
-#define DsCrackNames DsCrackNamesW
-#define DsFreeNameResult DsFreeNameResultW
-#define DsMakeSpn DsMakeSpnW
-#define DsGetSpn DsGetSpnW
-#define DsFreeSpnArray DsFreeSpnArrayW
-#define DsCrackSpn DsCrackSpnW
-#define DsWriteAccountSpn DsWriteAccountSpnW
-#define DsClientMakeSpnForTargetServer DsClientMakeSpnForTargetServerW
-#define DsServerRegisterSpn DsServerRegisterSpnW
-#define DsReplicaSync DsReplicaSyncW
-#define DsReplicaAdd DsReplicaAddW
-#define DsReplicaDel DsReplicaDelW
-#define DsReplicaModify DsReplicaModifyW
-#define DsReplicaUpdateRefs DsReplicaUpdateRefsW
-#else
-#define DsBind DsBindA
-#define DsBindWithCred DsBindWithCredA
-#define DsBindWithSpn DsBindWithSpnA
-#define DsBindWithSpnEx DsBindWithSpnExA
-#define DsBindToISTG DsBindToISTGA
-#define DsUnBind DsUnBindA
-#define DsMakePasswordCredentials DsMakePasswordCredentialsA
-#define DsCrackNames DsCrackNamesA
-#define DsFreeNameResult DsFreeNameResultA
-#define DsMakeSpn DsMakeSpnA
-#define DsGetSpn DsGetSpnA
-#define DsFreeSpnArray DsFreeSpnArrayA
-#define DsCrackSpn DsCrackSpnA
-#define DsWriteAccountSpn DsWriteAccountSpnA
-#define DsClientMakeSpnForTargetServer DsClientMakeSpnForTargetServerA
-#define DsServerRegisterSpn DsServerRegisterSpnA
-#define DsReplicaSync DsReplicaSyncA
-#define DsReplicaAdd DsReplicaAddA
-#define DsReplicaDel DsReplicaDelA
-#define DsReplicaModify DsReplicaModifyA
-#define DsReplicaUpdateRefs DsReplicaUpdateRefsA
-#endif
+#define DsBind __MINGW_NAME_AW(DsBind)
+#define DsBindWithCred __MINGW_NAME_AW(DsBindWithCred)
+#define DsBindWithSpn __MINGW_NAME_AW(DsBindWithSpn)
+#define DsBindWithSpnEx __MINGW_NAME_AW(DsBindWithSpnEx)
+#define DsBindToISTG __MINGW_NAME_AW(DsBindToISTG)
+#define DsUnBind __MINGW_NAME_AW(DsUnBind)
+#define DsMakePasswordCredentials __MINGW_NAME_AW(DsMakePasswordCredentials)
+#define DsCrackNames __MINGW_NAME_AW(DsCrackNames)
+#define DsFreeNameResult __MINGW_NAME_AW(DsFreeNameResult)
+#define DsMakeSpn __MINGW_NAME_AW(DsMakeSpn)
+#define DsGetSpn __MINGW_NAME_AW(DsGetSpn)
+#define DsFreeSpnArray __MINGW_NAME_AW(DsFreeSpnArray)
+#define DsCrackSpn __MINGW_NAME_AW(DsCrackSpn)
+#define DsWriteAccountSpn __MINGW_NAME_AW(DsWriteAccountSpn)
+#define DsClientMakeSpnForTargetServer __MINGW_NAME_AW(DsClientMakeSpnForTargetServer)
+#define DsServerRegisterSpn __MINGW_NAME_AW(DsServerRegisterSpn)
+#define DsReplicaSync __MINGW_NAME_AW(DsReplicaSync)
+#define DsReplicaAdd __MINGW_NAME_AW(DsReplicaAdd)
+#define DsReplicaDel __MINGW_NAME_AW(DsReplicaDel)
+#define DsReplicaModify __MINGW_NAME_AW(DsReplicaModify)
+#define DsReplicaUpdateRefs __MINGW_NAME_AW(DsReplicaUpdateRefs)
 
 #define DsFreePasswordCredentialsW DsFreePasswordCredentials
 #define DsFreePasswordCredentialsA DsFreePasswordCredentials
@@ -423,21 +392,12 @@ extern "C" {
     DS_REPSYNCALL_SYNCW *pSync;
   } DS_REPSYNCALL_UPDATEW,*PDS_REPSYNCALL_UPDATEW;
 
-#ifdef UNICODE
-#define DS_REPSYNCALL_SYNC DS_REPSYNCALL_SYNCW
-#define DS_REPSYNCALL_ERRINFO DS_REPSYNCALL_ERRINFOW
-#define DS_REPSYNCALL_UPDATE DS_REPSYNCALL_UPDATEW
-#define PDS_REPSYNCALL_SYNC PDS_REPSYNCALL_SYNCW
-#define PDS_REPSYNCALL_ERRINFO PDS_REPSYNCALL_ERRINFOW
-#define PDS_REPSYNCALL_UPDATE PDS_REPSYNCALL_UPDATEW
-#else
-#define DS_REPSYNCALL_SYNC DS_REPSYNCALL_SYNCA
-#define DS_REPSYNCALL_ERRINFO DS_REPSYNCALL_ERRINFOA
-#define DS_REPSYNCALL_UPDATE DS_REPSYNCALL_UPDATEA
-#define PDS_REPSYNCALL_SYNC PDS_REPSYNCALL_SYNCA
-#define PDS_REPSYNCALL_ERRINFO PDS_REPSYNCALL_ERRINFOA
-#define PDS_REPSYNCALL_UPDATE PDS_REPSYNCALL_UPDATEA
-#endif
+#define DS_REPSYNCALL_SYNC __MINGW_NAME_AW(DS_REPSYNCALL_SYNC)
+#define DS_REPSYNCALL_ERRINFO __MINGW_NAME_AW(DS_REPSYNCALL_ERRINFO)
+#define DS_REPSYNCALL_UPDATE __MINGW_NAME_AW(DS_REPSYNCALL_UPDATE)
+#define PDS_REPSYNCALL_SYNC __MINGW_NAME_AW(PDS_REPSYNCALL_SYNC)
+#define PDS_REPSYNCALL_ERRINFO __MINGW_NAME_AW(PDS_REPSYNCALL_ERRINFO)
+#define PDS_REPSYNCALL_UPDATE __MINGW_NAME_AW(PDS_REPSYNCALL_UPDATE)
 
 #define DS_REPSYNCALL_NO_OPTIONS 0x00000000
 #define DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE 0x00000001
@@ -448,27 +408,15 @@ extern "C" {
 #define DS_REPSYNCALL_PUSH_CHANGES_OUTWARD 0x00000020
 #define DS_REPSYNCALL_CROSS_SITE_BOUNDARIES 0x00000040
 
-#ifdef UNICODE
-#define DsReplicaSyncAll DsReplicaSyncAllW
-#define DsRemoveDsServer DsRemoveDsServerW
-#define DsRemoveDsDomain DsRemoveDsDomainW
-#define DsListSites DsListSitesW
-#define DsListServersInSite DsListServersInSiteW
-#define DsListDomainsInSite DsListDomainsInSiteW
-#define DsListServersForDomainInSite DsListServersForDomainInSiteW
-#define DsListInfoForServer DsListInfoForServerW
-#define DsListRoles DsListRolesW
-#else
-#define DsReplicaSyncAll DsReplicaSyncAllA
-#define DsRemoveDsServer DsRemoveDsServerA
-#define DsRemoveDsDomain DsRemoveDsDomainA
-#define DsListSites DsListSitesA
-#define DsListServersInSite DsListServersInSiteA
-#define DsListDomainsInSite DsListDomainsInSiteA
-#define DsListServersForDomainInSite DsListServersForDomainInSiteA
-#define DsListInfoForServer DsListInfoForServerA
-#define DsListRoles DsListRolesA
-#endif
+#define DsReplicaSyncAll __MINGW_NAME_AW(DsReplicaSyncAll)
+#define DsRemoveDsServer __MINGW_NAME_AW(DsRemoveDsServer)
+#define DsRemoveDsDomain __MINGW_NAME_AW(DsRemoveDsDomain)
+#define DsListSites __MINGW_NAME_AW(DsListSites)
+#define DsListServersInSite __MINGW_NAME_AW(DsListServersInSite)
+#define DsListDomainsInSite __MINGW_NAME_AW(DsListDomainsInSite)
+#define DsListServersForDomainInSite __MINGW_NAME_AW(DsListServersForDomainInSite)
+#define DsListInfoForServer __MINGW_NAME_AW(DsListInfoForServer)
+#define DsListRoles __MINGW_NAME_AW(DsListRoles)
 
 #define DS_LIST_DSA_OBJECT_FOR_SERVER 0
 #define DS_LIST_DNS_HOST_NAME_FOR_SERVER 1
@@ -504,11 +452,7 @@ extern "C" {
     DWORD cost;
   } DS_SITE_COST_INFO,*PDS_SITE_COST_INFO;
 
-#ifdef UNICODE
-#define DsQuerySitesByCost DsQuerySitesByCostW
-#else
-#define DsQuerySitesByCost DsQuerySitesByCostA
-#endif
+#define DsQuerySitesByCost __MINGW_NAME_AW(DsQuerySitesByCost)
 
   NTDSAPI_POSTXP DWORD WINAPI DsQuerySitesByCostW(HANDLE hDS,LPWSTR pwszFromSite,LPWSTR *rgwszToSites,DWORD cToSites,DWORD dwFlags,PDS_SITE_COST_INFO *prgSiteInfo);
   NTDSAPI_POSTXP DWORD WINAPI DsQuerySitesByCostA(HANDLE hDS,LPSTR pwszFromSite,LPSTR *rgwszToSites,DWORD cToSites,DWORD dwFlags,PDS_SITE_COST_INFO *prgSiteInfo);
@@ -537,17 +481,10 @@ extern "C" {
   NTDSAPI DWORD WINAPI DsMapSchemaGuidsW(HANDLE hDs,DWORD cGuids,GUID *rGuids,DS_SCHEMA_GUID_MAPW **ppGuidMap);
   NTDSAPI VOID WINAPI DsFreeSchemaGuidMapW(PDS_SCHEMA_GUID_MAPW pGuidMap);
 
-#ifdef UNICODE
-#define DS_SCHEMA_GUID_MAP DS_SCHEMA_GUID_MAPW
-#define PDS_SCHEMA_GUID_MAP PDS_SCHEMA_GUID_MAPW
-#define DsMapSchemaGuids DsMapSchemaGuidsW
-#define DsFreeSchemaGuidMap DsFreeSchemaGuidMapW
-#else
-#define DS_SCHEMA_GUID_MAP DS_SCHEMA_GUID_MAPA
-#define PDS_SCHEMA_GUID_MAP PDS_SCHEMA_GUID_MAPA
-#define DsMapSchemaGuids DsMapSchemaGuidsA
-#define DsFreeSchemaGuidMap DsFreeSchemaGuidMapA
-#endif
+#define DS_SCHEMA_GUID_MAP __MINGW_NAME_AW(DS_SCHEMA_GUID_MAP)
+#define PDS_SCHEMA_GUID_MAP __MINGW_NAME_AW(PDS_SCHEMA_GUID_MAP)
+#define DsMapSchemaGuids __MINGW_NAME_AW(DsMapSchemaGuids)
+#define DsFreeSchemaGuidMap __MINGW_NAME_AW(DsFreeSchemaGuidMap)
 
   typedef struct {
     LPSTR NetbiosName;
@@ -608,21 +545,12 @@ extern "C" {
   NTDSAPI VOID WINAPI DsFreeDomainControllerInfoA(DWORD InfoLevel,DWORD cInfo,VOID *pInfo);
   NTDSAPI VOID WINAPI DsFreeDomainControllerInfoW(DWORD InfoLevel,DWORD cInfo,VOID *pInfo);
 
-#ifdef UNICODE
-#define DS_DOMAIN_CONTROLLER_INFO_1 DS_DOMAIN_CONTROLLER_INFO_1W
-#define DS_DOMAIN_CONTROLLER_INFO_2 DS_DOMAIN_CONTROLLER_INFO_2W
-#define PDS_DOMAIN_CONTROLLER_INFO_1 PDS_DOMAIN_CONTROLLER_INFO_1W
-#define PDS_DOMAIN_CONTROLLER_INFO_2 PDS_DOMAIN_CONTROLLER_INFO_2W
-#define DsGetDomainControllerInfo DsGetDomainControllerInfoW
-#define DsFreeDomainControllerInfo DsFreeDomainControllerInfoW
-#else
-#define DS_DOMAIN_CONTROLLER_INFO_1 DS_DOMAIN_CONTROLLER_INFO_1A
-#define DS_DOMAIN_CONTROLLER_INFO_2 DS_DOMAIN_CONTROLLER_INFO_2A
-#define PDS_DOMAIN_CONTROLLER_INFO_1 PDS_DOMAIN_CONTROLLER_INFO_1A
-#define PDS_DOMAIN_CONTROLLER_INFO_2 PDS_DOMAIN_CONTROLLER_INFO_2A
-#define DsGetDomainControllerInfo DsGetDomainControllerInfoA
-#define DsFreeDomainControllerInfo DsFreeDomainControllerInfoA
-#endif
+#define DS_DOMAIN_CONTROLLER_INFO_1 __MINGW_NAME_AW(DS_DOMAIN_CONTROLLER_INFO_1)
+#define DS_DOMAIN_CONTROLLER_INFO_2 __MINGW_NAME_AW(DS_DOMAIN_CONTROLLER_INFO_2)
+#define PDS_DOMAIN_CONTROLLER_INFO_1 __MINGW_NAME_AW(PDS_DOMAIN_CONTROLLER_INFO_1)
+#define PDS_DOMAIN_CONTROLLER_INFO_2 __MINGW_NAME_AW(PDS_DOMAIN_CONTROLLER_INFO_2)
+#define DsGetDomainControllerInfo __MINGW_NAME_AW(DsGetDomainControllerInfo)
+#define DsFreeDomainControllerInfo __MINGW_NAME_AW(DsFreeDomainControllerInfo)
 
   typedef enum {
     DS_KCC_TASKID_UPDATE_TOPOLOGY = 0
@@ -632,11 +560,7 @@ extern "C" {
 
 #define DS_KCC_FLAG_DAMPED (1 << 1)
 
-#ifdef UNICODE
-#define DsReplicaVerifyObjects DsReplicaVerifyObjectsW
-#else
-#define DsReplicaVerifyObjects DsReplicaVerifyObjectsA
-#endif
+#define DsReplicaVerifyObjects __MINGW_NAME_AW(DsReplicaVerifyObjects)
 
   NTDSAPI DWORD WINAPI DsReplicaConsistencyCheck(HANDLE hDS,DS_KCC_TASKID TaskID,DWORD dwFlags);
   NTDSAPI DWORD WINAPI DsReplicaVerifyObjectsW(HANDLE hDS,LPCWSTR NameContext,const UUID *pUuidDsaSrc,ULONG ulOptions);
@@ -941,32 +865,19 @@ extern "C" {
 #define DS_REPL_PENDING_OPS DS_REPL_PENDING_OPSW
 #endif
 
-#ifdef UNICODE
-#define DsAddSidHistory DsAddSidHistoryW
-#define DsInheritSecurityIdentity DsInheritSecurityIdentityW
-#else
-#define DsAddSidHistory DsAddSidHistoryA
-#define DsInheritSecurityIdentity DsInheritSecurityIdentityA
-#endif
+#define DsAddSidHistory __MINGW_NAME_AW(DsAddSidHistory)
+#define DsInheritSecurityIdentity __MINGW_NAME_AW(DsInheritSecurityIdentity)
 
   NTDSAPI DWORD WINAPI DsAddSidHistoryW(HANDLE hDS,DWORD Flags,LPCWSTR SrcDomain,LPCWSTR SrcPrincipal,LPCWSTR SrcDomainController,RPC_AUTH_IDENTITY_HANDLE SrcDomainCreds,LPCWSTR DstDomain,LPCWSTR DstPrincipal);
   NTDSAPI DWORD WINAPI DsAddSidHistoryA(HANDLE hDS,DWORD Flags,LPCSTR SrcDomain,LPCSTR SrcPrincipal,LPCSTR SrcDomainController,RPC_AUTH_IDENTITY_HANDLE SrcDomainCreds,LPCSTR DstDomain,LPCSTR DstPrincipal);
   NTDSAPI DWORD WINAPI DsInheritSecurityIdentityW(HANDLE hDS,DWORD Flags,LPCWSTR SrcPrincipal,LPCWSTR DstPrincipal);
   NTDSAPI DWORD WINAPI DsInheritSecurityIdentityA(HANDLE hDS,DWORD Flags,LPCSTR SrcPrincipal,LPCSTR DstPrincipal);
 
-#ifdef UNICODE
-#define DsQuoteRdnValue DsQuoteRdnValueW
-#define DsUnquoteRdnValue DsUnquoteRdnValueW
-#define DsCrackUnquotedMangledRdn DsCrackUnquotedMangledRdnW
-#define DsIsMangledRdnValue DsIsMangledRdnValueW
-#define DsIsMangledDn DsIsMangledDnW
-#else
-#define DsQuoteRdnValue DsQuoteRdnValueA
-#define DsUnquoteRdnValue DsUnquoteRdnValueA
-#define DsCrackUnquotedMangledRdn DsCrackUnquotedMangledRdnA
-#define DsIsMangledRdnValue DsIsMangledRdnValueA
-#define DsIsMangledDn DsIsMangledDnA
-#endif
+#define DsQuoteRdnValue __MINGW_NAME_AW(DsQuoteRdnValue)
+#define DsUnquoteRdnValue __MINGW_NAME_AW(DsUnquoteRdnValue)
+#define DsCrackUnquotedMangledRdn __MINGW_NAME_AW(DsCrackUnquotedMangledRdn)
+#define DsIsMangledRdnValue __MINGW_NAME_AW(DsIsMangledRdnValue)
+#define DsIsMangledDn __MINGW_NAME_AW(DsIsMangledDn)
 
   NTDSAPI DWORD WINAPI DsQuoteRdnValueW(DWORD cUnquotedRdnValueLength,LPCWCH psUnquotedRdnValue,DWORD *pcQuotedRdnValueLength,LPWCH psQuotedRdnValue);
   NTDSAPI DWORD WINAPI DsQuoteRdnValueA(DWORD cUnquotedRdnValueLength,LPCCH psUnquotedRdnValue,DWORD *pcQuotedRdnValueLength,LPCH psQuotedRdnValue);

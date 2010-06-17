@@ -104,11 +104,7 @@ DWORD WINAPI NPDirectoryNotify(HWND hwnd,LPWSTR lpDir,DWORD dwOper);
 VOID WNetSetLastErrorA(DWORD err,LPSTR lpError,LPSTR lpProviders);
 VOID WNetSetLastErrorW(DWORD err,LPWSTR lpError,LPWSTR lpProviders);
 
-#ifdef UNICODE
-#define WNetSetLastError WNetSetLastErrorW
-#else
-#define WNetSetLastError WNetSetLastErrorA
-#endif
+#define WNetSetLastError __MINGW_NAME_AW(WNetSetLastError)
 
 #define WN_NETWORK_CLASS 0x00000001
 #define WN_CREDENTIAL_CLASS 0x00000002
