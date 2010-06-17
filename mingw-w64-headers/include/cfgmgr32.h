@@ -50,13 +50,8 @@ extern "C" {
   typedef CHAR *DEVNODEID_A,*DEVINSTID_A;
   typedef WCHAR *DEVNODEID_W,*DEVINSTID_W;
 
-#ifdef UNICODE
-  typedef DEVNODEID_W DEVNODEID;
-  typedef DEVINSTID_W DEVINSTID;
-#else
-  typedef DEVNODEID_A DEVNODEID;
-  typedef DEVINSTID_A DEVINSTID;
-#endif
+  typedef __MINGW_NAME_UAW(DEVNODEID) DEVNODEID;
+  typedef __MINGW_NAME_UAW(DEVINSTID) DEVINSTID;
 
   typedef DWORD_PTR LOG_CONF;
   typedef LOG_CONF *PLOG_CONF;
@@ -93,13 +88,8 @@ extern "C" {
     WCHAR CD_szDescription[MAX_PATH];
   } CONFLICT_DETAILS_W ,*PCONFLICT_DETAILS_W;
 
-#ifdef UNICODE
-  typedef CONFLICT_DETAILS_W CONFLICT_DETAILS;
-  typedef PCONFLICT_DETAILS_W PCONFLICT_DETAILS;
-#else
-  typedef CONFLICT_DETAILS_A CONFLICT_DETAILS;
-  typedef PCONFLICT_DETAILS_A PCONFLICT_DETAILS;
-#endif
+  typedef __MINGW_NAME_UAW(CONFLICT_DETAILS) CONFLICT_DETAILS;
+  typedef __MINGW_NAME_UAW(PCONFLICT_DETAILS) PCONFLICT_DETAILS;
 
 #define CM_CDMASK_DEVINST (0x00000001)
 #define CM_CDMASK_RESDES (0x00000002)
@@ -467,13 +457,8 @@ extern "C" {
     DWORD HWPI_dwFlags;
   } HWPROFILEINFO_W,*PHWPROFILEINFO_W;
 
-#ifdef UNICODE
-  typedef HWPROFILEINFO_W HWPROFILEINFO;
-  typedef PHWPROFILEINFO_W PHWPROFILEINFO;
-#else
-  typedef HWPROFILEINFO_A HWPROFILEINFO;
-  typedef PHWPROFILEINFO_A PHWPROFILEINFO;
-#endif
+  typedef __MINGW_NAME_UAW(HWPROFILEINFO) HWPROFILEINFO;
+  typedef __MINGW_NAME_UAW(PHWPROFILEINFO) PHWPROFILEINFO;
 
 #include "poppack.h"
 
@@ -697,129 +682,66 @@ extern "C" {
 #define CM_CUSTOMDEVPROP_MERGE_MULTISZ (0x00000001)
 #define CM_CUSTOMDEVPROP_BITS (0x00000001)
 
-#ifdef UNICODE 
-#define CM_Add_ID CM_Add_IDW
-#define CM_Add_ID_Ex CM_Add_ID_ExW
-#define CM_Connect_Machine CM_Connect_MachineW
-#define CM_Create_DevNode CM_Create_DevNodeW
-#define CM_Create_DevInst CM_Create_DevNodeW
-#define CM_Create_DevNode_Ex CM_Create_DevNode_ExW
-#define CM_Create_DevInst_Ex CM_Create_DevInst_ExW
-#define CM_Enumerate_Enumerators CM_Enumerate_EnumeratorsW
-#define CM_Enumerate_Enumerators_Ex CM_Enumerate_Enumerators_ExW
-#define CM_Get_Class_Name CM_Get_Class_NameW
-#define CM_Get_Class_Name_Ex CM_Get_Class_Name_ExW
-#define CM_Get_Class_Key_Name CM_Get_Class_Key_NameW
-#define CM_Get_Class_Key_Name_Ex CM_Get_Class_Key_Name_ExW
-#define CM_Get_Device_ID CM_Get_Device_IDW
-#define CM_Get_Device_ID_Ex CM_Get_Device_ID_ExW
-#define CM_Get_Device_ID_List CM_Get_Device_ID_ListW
-#define CM_Get_Device_ID_List_Ex CM_Get_Device_ID_List_ExW
-#define CM_Get_Device_ID_List_Size CM_Get_Device_ID_List_SizeW
-#define CM_Get_Device_ID_List_Size_Ex CM_Get_Device_ID_List_Size_ExW
-#define CM_Get_DevInst_Registry_Property CM_Get_DevNode_Registry_PropertyW
-#define CM_Get_DevInst_Registry_Property_Ex CM_Get_DevNode_Registry_Property_ExW
-#define CM_Get_DevNode_Registry_Property CM_Get_DevNode_Registry_PropertyW
-#define CM_Get_DevNode_Registry_Property_Ex CM_Get_DevNode_Registry_Property_ExW
-#define CM_Get_DevInst_Custom_Property CM_Get_DevNode_Custom_PropertyW
-#define CM_Get_DevInst_Custom_Property_Ex CM_Get_DevNode_Custom_Property_ExW
-#define CM_Get_DevNode_Custom_Property CM_Get_DevNode_Custom_PropertyW
-#define CM_Get_DevNode_Custom_Property_Ex CM_Get_DevNode_Custom_Property_ExW
-#define CM_Get_Hardware_Profile_Info CM_Get_Hardware_Profile_InfoW
-#define CM_Get_Hardware_Profile_Info_Ex CM_Get_Hardware_Profile_Info_ExW
-#define CM_Get_HW_Prof_Flags CM_Get_HW_Prof_FlagsW
-#define CM_Get_HW_Prof_Flags_Ex CM_Get_HW_Prof_Flags_ExW
-#define CM_Get_Device_Interface_Alias CM_Get_Device_Interface_AliasW
-#define CM_Get_Device_Interface_Alias_Ex CM_Get_Device_Interface_Alias_ExW
-#define CM_Get_Device_Interface_List CM_Get_Device_Interface_ListW
-#define CM_Get_Device_Interface_List_Ex CM_Get_Device_Interface_List_ExW
-#define CM_Get_Device_Interface_List_Size CM_Get_Device_Interface_List_SizeW
-#define CM_Get_Device_Interface_List_Size_Ex CM_Get_Device_Interface_List_Size_ExW
-#define CM_Locate_DevNode CM_Locate_DevNodeW
-#define CM_Locate_DevInst CM_Locate_DevNodeW
-#define CM_Locate_DevNode_Ex CM_Locate_DevNode_ExW
-#define CM_Locate_DevInst_Ex CM_Locate_DevNode_ExW
-#define CM_Open_Class_Key CM_Open_Class_KeyW
-#define CM_Open_Class_Key_Ex CM_Open_Class_Key_ExW
-#define CM_Query_And_Remove_SubTree CM_Query_And_Remove_SubTreeW
-#define CM_Query_And_Remove_SubTree_Ex CM_Query_And_Remove_SubTree_ExW
-#define CM_Request_Device_Eject CM_Request_Device_EjectW
-#define CM_Request_Device_Eject_Ex CM_Request_Device_Eject_ExW
-#define CM_Register_Device_Interface CM_Register_Device_InterfaceW
-#define CM_Register_Device_Interface_Ex CM_Register_Device_Interface_ExW
-#define CM_Unregister_Device_Interface CM_Unregister_Device_InterfaceW
-#define CM_Unregister_Device_Interface_Ex CM_Unregister_Device_Interface_ExW
-#define CM_Set_DevInst_Registry_Property CM_Set_DevNode_Registry_PropertyW
-#define CM_Set_DevInst_Registry_Property_Ex CM_Set_DevNode_Registry_Property_ExW
-#define CM_Set_DevNode_Registry_Property CM_Set_DevNode_Registry_PropertyW
-#define CM_Set_DevNode_Registry_Property_Ex CM_Set_DevNode_Registry_Property_ExW
-#define CM_Set_HW_Prof_Flags CM_Set_HW_Prof_FlagsW
-#define CM_Set_HW_Prof_Flags_Ex CM_Set_HW_Prof_Flags_ExW
-#define CM_Get_Resource_Conflict_Details CM_Get_Resource_Conflict_DetailsW
-#define CM_Get_Class_Registry_Property CM_Get_Class_Registry_PropertyW
-#define CM_Set_Class_Registry_Property CM_Set_Class_Registry_PropertyW
-#else
-#define CM_Add_ID CM_Add_IDA
-#define CM_Add_ID_Ex CM_Add_ID_ExA
-#define CM_Connect_Machine CM_Connect_MachineA
-#define CM_Create_DevNode CM_Create_DevNodeA
-#define CM_Create_DevInst CM_Create_DevNodeA
-#define CM_Create_DevNode_Ex CM_Create_DevNode_ExA
-#define CM_Create_DevInst_Ex CM_Create_DevNode_ExA
-#define CM_Enumerate_Enumerators CM_Enumerate_EnumeratorsA
-#define CM_Enumerate_Enumerators_Ex CM_Enumerate_Enumerators_ExA
-#define CM_Get_Class_Name CM_Get_Class_NameA
-#define CM_Get_Class_Name_Ex CM_Get_Class_Name_ExA
-#define CM_Get_Class_Key_Name CM_Get_Class_Key_NameA
-#define CM_Get_Class_Key_Name_Ex CM_Get_Class_Key_Name_ExA
-#define CM_Get_Device_ID CM_Get_Device_IDA
-#define CM_Get_Device_ID_Ex CM_Get_Device_ID_ExA
-#define CM_Get_Device_ID_List CM_Get_Device_ID_ListA
-#define CM_Get_Device_ID_List_Ex CM_Get_Device_ID_List_ExA
-#define CM_Get_Device_ID_List_Size CM_Get_Device_ID_List_SizeA
-#define CM_Get_Device_ID_List_Size_Ex CM_Get_Device_ID_List_Size_ExA
-#define CM_Get_DevInst_Registry_Property CM_Get_DevNode_Registry_PropertyA
-#define CM_Get_DevInst_Registry_Property_Ex CM_Get_DevNode_Registry_Property_ExA
-#define CM_Get_DevNode_Registry_Property CM_Get_DevNode_Registry_PropertyA
-#define CM_Get_DevNode_Registry_Property_Ex CM_Get_DevNode_Registry_Property_ExA
-#define CM_Get_DevInst_Custom_Property CM_Get_DevNode_Custom_PropertyA
-#define CM_Get_DevInst_Custom_Property_Ex CM_Get_DevNode_Custom_Property_ExA
-#define CM_Get_DevNode_Custom_Property CM_Get_DevNode_Custom_PropertyA
-#define CM_Get_DevNode_Custom_Property_Ex CM_Get_DevNode_Custom_Property_ExA
-#define CM_Get_Hardware_Profile_Info CM_Get_Hardware_Profile_InfoA
-#define CM_Get_Hardware_Profile_Info_Ex CM_Get_Hardware_Profile_Info_ExA
-#define CM_Get_HW_Prof_Flags CM_Get_HW_Prof_FlagsA
-#define CM_Get_HW_Prof_Flags_Ex CM_Get_HW_Prof_Flags_ExA
-#define CM_Get_Device_Interface_Alias CM_Get_Device_Interface_AliasA
-#define CM_Get_Device_Interface_Alias_Ex CM_Get_Device_Interface_Alias_ExA
-#define CM_Get_Device_Interface_List CM_Get_Device_Interface_ListA
-#define CM_Get_Device_Interface_List_Ex CM_Get_Device_Interface_List_ExA
-#define CM_Get_Device_Interface_List_Size CM_Get_Device_Interface_List_SizeA
-#define CM_Get_Device_Interface_List_Size_Ex CM_Get_Device_Interface_List_Size_ExA
-#define CM_Locate_DevNode CM_Locate_DevNodeA
-#define CM_Locate_DevInst CM_Locate_DevNodeA
-#define CM_Locate_DevNode_Ex CM_Locate_DevNode_ExA
-#define CM_Locate_DevInst_Ex CM_Locate_DevNode_ExA
-#define CM_Open_Class_Key CM_Open_Class_KeyA
-#define CM_Open_Class_Key_Ex CM_Open_Class_Key_ExA
-#define CM_Query_And_Remove_SubTree CM_Query_And_Remove_SubTreeA
-#define CM_Query_And_Remove_SubTree_Ex CM_Query_And_Remove_SubTree_ExA
-#define CM_Request_Device_Eject CM_Request_Device_EjectA
-#define CM_Request_Device_Eject_Ex CM_Request_Device_Eject_ExA
-#define CM_Register_Device_Interface CM_Register_Device_InterfaceA
-#define CM_Register_Device_Interface_Ex CM_Register_Device_Interface_ExA
-#define CM_Unregister_Device_Interface CM_Unregister_Device_InterfaceA
-#define CM_Unregister_Device_Interface_Ex CM_Unregister_Device_Interface_ExA
-#define CM_Set_DevInst_Registry_Property CM_Set_DevNode_Registry_PropertyA
-#define CM_Set_DevInst_Registry_Property_Ex CM_Set_DevNode_Registry_Property_ExA
-#define CM_Set_DevNode_Registry_Property CM_Set_DevNode_Registry_PropertyA
-#define CM_Set_DevNode_Registry_Property_Ex CM_Set_DevNode_Registry_Property_ExA
-#define CM_Set_HW_Prof_Flags CM_Set_HW_Prof_FlagsA
-#define CM_Set_HW_Prof_Flags_Ex CM_Set_HW_Prof_Flags_ExA
-#define CM_Get_Resource_Conflict_Details CM_Get_Resource_Conflict_DetailsA
-#define CM_Get_Class_Registry_Property CM_Get_Class_Registry_PropertyA
-#define CM_Set_Class_Registry_Property CM_Set_Class_Registry_PropertyA
-#endif
+#define CM_Add_ID __MINGW_NAME_AW(CM_Add_ID)
+#define CM_Add_ID_Ex __MINGW_NAME_AW(CM_Add_ID_Ex)
+#define CM_Connect_Machine __MINGW_NAME_AW(CM_Connect_Machine)
+#define CM_Create_DevNode __MINGW_NAME_AW(CM_Create_DevNode)
+#define CM_Create_DevInst __MINGW_NAME_AW(CM_Create_DevNode)
+#define CM_Create_DevNode_Ex __MINGW_NAME_AW(CM_Create_DevNode_Ex)
+#define CM_Create_DevInst_Ex __MINGW_NAME_AW(CM_Create_DevInst_Ex)
+#define CM_Enumerate_Enumerators __MINGW_NAME_AW(CM_Enumerate_Enumerators)
+#define CM_Enumerate_Enumerators_Ex __MINGW_NAME_AW(CM_Enumerate_Enumerators_Ex)
+#define CM_Get_Class_Name __MINGW_NAME_AW(CM_Get_Class_Name)
+#define CM_Get_Class_Name_Ex __MINGW_NAME_AW(CM_Get_Class_Name_Ex)
+#define CM_Get_Class_Key_Name __MINGW_NAME_AW(CM_Get_Class_Key_Name)
+#define CM_Get_Class_Key_Name_Ex __MINGW_NAME_AW(CM_Get_Class_Key_Name_Ex)
+#define CM_Get_Device_ID __MINGW_NAME_AW(CM_Get_Device_ID)
+#define CM_Get_Device_ID_Ex __MINGW_NAME_AW(CM_Get_Device_ID_Ex)
+#define CM_Get_Device_ID_List __MINGW_NAME_AW(CM_Get_Device_ID_List)
+#define CM_Get_Device_ID_List_Ex __MINGW_NAME_AW(CM_Get_Device_ID_List_Ex)
+#define CM_Get_Device_ID_List_Size __MINGW_NAME_AW(CM_Get_Device_ID_List_Size)
+#define CM_Get_Device_ID_List_Size_Ex __MINGW_NAME_AW(CM_Get_Device_ID_List_Size_Ex)
+#define CM_Get_DevInst_Registry_Property __MINGW_NAME_AW(CM_Get_DevNode_Registry_Property)
+#define CM_Get_DevInst_Registry_Property_Ex __MINGW_NAME_AW(CM_Get_DevNode_Registry_Property_Ex)
+#define CM_Get_DevNode_Registry_Property __MINGW_NAME_AW(CM_Get_DevNode_Registry_Property)
+#define CM_Get_DevNode_Registry_Property_Ex __MINGW_NAME_AW(CM_Get_DevNode_Registry_Property_Ex)
+#define CM_Get_DevInst_Custom_Property __MINGW_NAME_AW(CM_Get_DevNode_Custom_Property)
+#define CM_Get_DevInst_Custom_Property_Ex __MINGW_NAME_AW(CM_Get_DevNode_Custom_Property_Ex)
+#define CM_Get_DevNode_Custom_Property __MINGW_NAME_AW(CM_Get_DevNode_Custom_Property)
+#define CM_Get_DevNode_Custom_Property_Ex __MINGW_NAME_AW(CM_Get_DevNode_Custom_Property_Ex)
+#define CM_Get_Hardware_Profile_Info __MINGW_NAME_AW(CM_Get_Hardware_Profile_Info)
+#define CM_Get_Hardware_Profile_Info_Ex __MINGW_NAME_AW(CM_Get_Hardware_Profile_Info_Ex)
+#define CM_Get_HW_Prof_Flags __MINGW_NAME_AW(CM_Get_HW_Prof_Flags)
+#define CM_Get_HW_Prof_Flags_Ex __MINGW_NAME_AW(CM_Get_HW_Prof_Flags_Ex)
+#define CM_Get_Device_Interface_Alias __MINGW_NAME_AW(CM_Get_Device_Interface_Alias)
+#define CM_Get_Device_Interface_Alias_Ex __MINGW_NAME_AW(CM_Get_Device_Interface_Alias_Ex)
+#define CM_Get_Device_Interface_List __MINGW_NAME_AW(CM_Get_Device_Interface_List)
+#define CM_Get_Device_Interface_List_Ex __MINGW_NAME_AW(CM_Get_Device_Interface_List_Ex)
+#define CM_Get_Device_Interface_List_Size __MINGW_NAME_AW(CM_Get_Device_Interface_List_Size)
+#define CM_Get_Device_Interface_List_Size_Ex __MINGW_NAME_AW(CM_Get_Device_Interface_List_Size_Ex)
+#define CM_Locate_DevNode __MINGW_NAME_AW(CM_Locate_DevNode)
+#define CM_Locate_DevInst __MINGW_NAME_AW(CM_Locate_DevNode)
+#define CM_Locate_DevNode_Ex __MINGW_NAME_AW(CM_Locate_DevNode_Ex)
+#define CM_Locate_DevInst_Ex __MINGW_NAME_AW(CM_Locate_DevNode_Ex)
+#define CM_Open_Class_Key __MINGW_NAME_AW(CM_Open_Class_Key)
+#define CM_Open_Class_Key_Ex __MINGW_NAME_AW(CM_Open_Class_Key_Ex)
+#define CM_Query_And_Remove_SubTree __MINGW_NAME_AW(CM_Query_And_Remove_SubTree)
+#define CM_Query_And_Remove_SubTree_Ex __MINGW_NAME_AW(CM_Query_And_Remove_SubTree_Ex)
+#define CM_Request_Device_Eject __MINGW_NAME_AW(CM_Request_Device_Eject)
+#define CM_Request_Device_Eject_Ex __MINGW_NAME_AW(CM_Request_Device_Eject_Ex)
+#define CM_Register_Device_Interface __MINGW_NAME_AW(CM_Register_Device_Interface)
+#define CM_Register_Device_Interface_Ex __MINGW_NAME_AW(CM_Register_Device_Interface_Ex)
+#define CM_Unregister_Device_Interface __MINGW_NAME_AW(CM_Unregister_Device_Interface)
+#define CM_Unregister_Device_Interface_Ex __MINGW_NAME_AW(CM_Unregister_Device_Interface_Ex)
+#define CM_Set_DevInst_Registry_Property __MINGW_NAME_AW(CM_Set_DevNode_Registry_Property)
+#define CM_Set_DevInst_Registry_Property_Ex __MINGW_NAME_AW(CM_Set_DevNode_Registry_Property_Ex)
+#define CM_Set_DevNode_Registry_Property __MINGW_NAME_AW(CM_Set_DevNode_Registry_Property)
+#define CM_Set_DevNode_Registry_Property_Ex __MINGW_NAME_AW(CM_Set_DevNode_Registry_Property_Ex)
+#define CM_Set_HW_Prof_Flags __MINGW_NAME_AW(CM_Set_HW_Prof_Flags)
+#define CM_Set_HW_Prof_Flags_Ex __MINGW_NAME_AW(CM_Set_HW_Prof_Flags_Ex)
+#define CM_Get_Resource_Conflict_Details __MINGW_NAME_AW(CM_Get_Resource_Conflict_Details)
+#define CM_Get_Class_Registry_Property __MINGW_NAME_AW(CM_Get_Class_Registry_Property)
+#define CM_Set_Class_Registry_Property __MINGW_NAME_AW(CM_Set_Class_Registry_Property)
 
   CMAPI CONFIGRET WINAPI CM_Add_Empty_Log_Conf(PLOG_CONF plcLogConf,DEVINST dnDevInst,PRIORITY Priority,ULONG ulFlags);
   CMAPI CONFIGRET WINAPI CM_Add_Empty_Log_Conf_Ex(PLOG_CONF plcLogConf,DEVINST dnDevInst,PRIORITY Priority,ULONG ulFlags,HMACHINE hMachine);

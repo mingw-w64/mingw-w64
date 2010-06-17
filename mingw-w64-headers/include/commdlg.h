@@ -87,13 +87,9 @@ extern "C" {
     LPOFNHOOKPROC lpfnHook;
     LPCWSTR lpTemplateName;
   } OPENFILENAME_NT4W,*LPOPENFILENAME_NT4W;
-#ifdef UNICODE
-  typedef OPENFILENAME_NT4W OPENFILENAME_NT4;
-  typedef LPOPENFILENAME_NT4W LPOPENFILENAME_NT4;
-#else
-  typedef OPENFILENAME_NT4A OPENFILENAME_NT4;
-  typedef LPOPENFILENAME_NT4A LPOPENFILENAME_NT4;
-#endif
+
+  __MINGW_TYPEDEF_AW(OPENFILENAME_NT4)
+  __MINGW_TYPEDEF_AW(LPOPENFILENAME_NT4)
 
   typedef struct tagOFNA {
     DWORD lStructSize;
@@ -145,44 +141,29 @@ extern "C" {
     DWORD dwReserved;
     DWORD FlagsEx;
   } OPENFILENAMEW,*LPOPENFILENAMEW;
-#ifdef UNICODE
-  typedef OPENFILENAMEW OPENFILENAME;
-  typedef LPOPENFILENAMEW LPOPENFILENAME;
-#else
-  typedef OPENFILENAMEA OPENFILENAME;
-  typedef LPOPENFILENAMEA LPOPENFILENAME;
-#endif
+
+  __MINGW_TYPEDEF_AW(OPENFILENAME)
+  __MINGW_TYPEDEF_AW(LPOPENFILENAME)
 
 #define OPENFILENAME_SIZE_VERSION_400A CDSIZEOF_STRUCT(OPENFILENAMEA,lpTemplateName)
 #define OPENFILENAME_SIZE_VERSION_400W CDSIZEOF_STRUCT(OPENFILENAMEW,lpTemplateName)
-#ifdef UNICODE
-#define OPENFILENAME_SIZE_VERSION_400 OPENFILENAME_SIZE_VERSION_400W
-#else
-#define OPENFILENAME_SIZE_VERSION_400 OPENFILENAME_SIZE_VERSION_400A
-#endif
+
+#define OPENFILENAME_SIZE_VERSION_400 __MINGW_NAME_AW(OPENFILENAME_SIZE_VERSION_400)
 
   WINCOMMDLGAPI WINBOOL WINAPI GetOpenFileNameA(LPOPENFILENAMEA);
   WINCOMMDLGAPI WINBOOL WINAPI GetOpenFileNameW(LPOPENFILENAMEW);
-#ifdef UNICODE
-#define GetOpenFileName GetOpenFileNameW
-#else
-#define GetOpenFileName GetOpenFileNameA
-#endif
+
+#define GetOpenFileName __MINGW_NAME_AW(GetOpenFileName)
+
   WINCOMMDLGAPI WINBOOL WINAPI GetSaveFileNameA(LPOPENFILENAMEA);
   WINCOMMDLGAPI WINBOOL WINAPI GetSaveFileNameW(LPOPENFILENAMEW);
-#ifdef UNICODE
-#define GetSaveFileName GetSaveFileNameW
-#else
-#define GetSaveFileName GetSaveFileNameA
-#endif
+
+#define GetSaveFileName __MINGW_NAME_AW(GetSaveFileName)
 
   WINCOMMDLGAPI short WINAPI GetFileTitleA(LPCSTR,LPSTR,WORD);
   WINCOMMDLGAPI short WINAPI GetFileTitleW(LPCWSTR,LPWSTR,WORD);
-#ifdef UNICODE
-#define GetFileTitle GetFileTitleW
-#else
-#define GetFileTitle GetFileTitleA
-#endif
+
+#define GetFileTitle __MINGW_NAME_AW(GetFileTitle)
 
 #define OFN_READONLY 0x1
 #define OFN_OVERWRITEPROMPT 0x2
@@ -228,13 +209,9 @@ extern "C" {
     LPOPENFILENAMEW lpOFN;
     LPWSTR pszFile;
   } OFNOTIFYW,*LPOFNOTIFYW;
-#ifdef UNICODE
-  typedef OFNOTIFYW OFNOTIFY;
-  typedef LPOFNOTIFYW LPOFNOTIFY;
-#else
-  typedef OFNOTIFYA OFNOTIFY;
-  typedef LPOFNOTIFYA LPOFNOTIFY;
-#endif
+
+  __MINGW_TYPEDEF_AW(OFNOTIFY)
+  __MINGW_TYPEDEF_AW(LPOFNOTIFY)
 
   typedef struct _OFNOTIFYEXA {
     NMHDR hdr;
@@ -249,13 +226,9 @@ extern "C" {
     LPVOID psf;
     LPVOID pidl;
   } OFNOTIFYEXW,*LPOFNOTIFYEXW;
-#ifdef UNICODE
-  typedef OFNOTIFYEXW OFNOTIFYEX;
-  typedef LPOFNOTIFYEXW LPOFNOTIFYEX;
-#else
-  typedef OFNOTIFYEXA OFNOTIFYEX;
-  typedef LPOFNOTIFYEXA LPOFNOTIFYEX;
-#endif
+
+  __MINGW_TYPEDEF_AW(OFNOTIFYEX)
+  __MINGW_TYPEDEF_AW(LPOFNOTIFYEX)
 
 #define CDN_FIRST (0U-601U)
 #define CDN_LAST (0U-699U)
@@ -275,29 +248,20 @@ extern "C" {
 #define CDM_GETSPEC (CDM_FIRST)
 #define CommDlg_OpenSave_GetSpecA(_hdlg,_psz,_cbmax) (int)SNDMSG(_hdlg,CDM_GETSPEC,(WPARAM)_cbmax,(LPARAM)(LPSTR)_psz)
 #define CommDlg_OpenSave_GetSpecW(_hdlg,_psz,_cbmax) (int)SNDMSG(_hdlg,CDM_GETSPEC,(WPARAM)_cbmax,(LPARAM)(LPWSTR)_psz)
-#ifdef UNICODE
-#define CommDlg_OpenSave_GetSpec CommDlg_OpenSave_GetSpecW
-#else
-#define CommDlg_OpenSave_GetSpec CommDlg_OpenSave_GetSpecA
-#endif
+
+#define CommDlg_OpenSave_GetSpec __MINGW_NAME_AW(CommDlg_OpenSave_GetSpec)
 
 #define CDM_GETFILEPATH (CDM_FIRST + 1)
 #define CommDlg_OpenSave_GetFilePathA(_hdlg,_psz,_cbmax) (int)SNDMSG(_hdlg,CDM_GETFILEPATH,(WPARAM)_cbmax,(LPARAM)(LPSTR)_psz)
 #define CommDlg_OpenSave_GetFilePathW(_hdlg,_psz,_cbmax) (int)SNDMSG(_hdlg,CDM_GETFILEPATH,(WPARAM)_cbmax,(LPARAM)(LPWSTR)_psz)
-#ifdef UNICODE
-#define CommDlg_OpenSave_GetFilePath CommDlg_OpenSave_GetFilePathW
-#else
-#define CommDlg_OpenSave_GetFilePath CommDlg_OpenSave_GetFilePathA
-#endif
+
+#define CommDlg_OpenSave_GetFilePath __MINGW_NAME_AW(CommDlg_OpenSave_GetFilePath)
 
 #define CDM_GETFOLDERPATH (CDM_FIRST + 2)
 #define CommDlg_OpenSave_GetFolderPathA(_hdlg,_psz,_cbmax) (int)SNDMSG(_hdlg,CDM_GETFOLDERPATH,(WPARAM)_cbmax,(LPARAM)(LPSTR)_psz)
 #define CommDlg_OpenSave_GetFolderPathW(_hdlg,_psz,_cbmax) (int)SNDMSG(_hdlg,CDM_GETFOLDERPATH,(WPARAM)_cbmax,(LPARAM)(LPWSTR)_psz)
-#ifdef UNICODE
-#define CommDlg_OpenSave_GetFolderPath CommDlg_OpenSave_GetFolderPathW
-#else
-#define CommDlg_OpenSave_GetFolderPath CommDlg_OpenSave_GetFolderPathA
-#endif
+
+#define CommDlg_OpenSave_GetFolderPath __MINGW_NAME_AW(CommDlg_OpenSave_GetFolderPath)
 
 #define CDM_GETFOLDERIDLIST (CDM_FIRST + 3)
 #define CommDlg_OpenSave_GetFolderIDList(_hdlg,_pidl,_cbmax) (int)SNDMSG(_hdlg,CDM_GETFOLDERIDLIST,(WPARAM)_cbmax,(LPARAM)(LPVOID)_pidl)
@@ -330,21 +294,14 @@ extern "C" {
     LPCCHOOKPROC lpfnHook;
     LPCWSTR lpTemplateName;
   } CHOOSECOLORW,*LPCHOOSECOLORW;
-#ifdef UNICODE
-  typedef CHOOSECOLORW CHOOSECOLOR;
-  typedef LPCHOOSECOLORW LPCHOOSECOLOR;
-#else
-  typedef CHOOSECOLORA CHOOSECOLOR;
-  typedef LPCHOOSECOLORA LPCHOOSECOLOR;
-#endif
+
+  __MINGW_TYPEDEF_AW(CHOOSECOLOR)
+  __MINGW_TYPEDEF_AW(LPCHOOSECOLOR)
 
   WINCOMMDLGAPI WINBOOL WINAPI ChooseColorA(LPCHOOSECOLORA);
   WINCOMMDLGAPI WINBOOL WINAPI ChooseColorW(LPCHOOSECOLORW);
-#ifdef UNICODE
-#define ChooseColor ChooseColorW
-#else
-#define ChooseColor ChooseColorA
-#endif
+
+#define ChooseColor __MINGW_NAME_AW(ChooseColor)
 
 #define CC_RGBINIT 0x1
 #define CC_FULLOPEN 0x2
@@ -385,13 +342,9 @@ extern "C" {
     LPFRHOOKPROC lpfnHook;
     LPCWSTR lpTemplateName;
   } FINDREPLACEW,*LPFINDREPLACEW;
-#ifdef UNICODE
-  typedef FINDREPLACEW FINDREPLACE;
-  typedef LPFINDREPLACEW LPFINDREPLACE;
-#else
-  typedef FINDREPLACEA FINDREPLACE;
-  typedef LPFINDREPLACEA LPFINDREPLACE;
-#endif
+
+  __MINGW_TYPEDEF_AW(FINDREPLACE)
+  __MINGW_TYPEDEF_AW(LPFINDREPLACE)
 
 #define FR_DOWN 0x1
 #define FR_WHOLEWORD 0x2
@@ -417,18 +370,13 @@ extern "C" {
 
   WINCOMMDLGAPI HWND WINAPI FindTextA(LPFINDREPLACEA);
   WINCOMMDLGAPI HWND WINAPI FindTextW(LPFINDREPLACEW);
-#ifdef UNICODE
-#define FindText FindTextW
-#else
-#define FindText FindTextA
-#endif
+
+#define FindText __MINGW_NAME_AW(FindText)
+
   WINCOMMDLGAPI HWND WINAPI ReplaceTextA(LPFINDREPLACEA);
   WINCOMMDLGAPI HWND WINAPI ReplaceTextW(LPFINDREPLACEW);
-#ifdef UNICODE
-#define ReplaceText ReplaceTextW
-#else
-#define ReplaceText ReplaceTextA
-#endif
+
+#define ReplaceText __MINGW_NAME_AW(ReplaceText)
 
   typedef UINT_PTR (CALLBACK *LPCFHOOKPROC) (HWND,UINT,WPARAM,LPARAM);
 
@@ -469,21 +417,14 @@ extern "C" {
     INT nSizeMin;
     INT nSizeMax;
   } CHOOSEFONTW,*LPCHOOSEFONTW;
-#ifdef UNICODE
-  typedef CHOOSEFONTW CHOOSEFONT;
-  typedef LPCHOOSEFONTW LPCHOOSEFONT;
-#else
-  typedef CHOOSEFONTA CHOOSEFONT;
-  typedef LPCHOOSEFONTA LPCHOOSEFONT;
-#endif
+
+  __MINGW_TYPEDEF_AW(CHOOSEFONT)
+  __MINGW_TYPEDEF_AW(LPCHOOSEFONT)
 
   WINCOMMDLGAPI WINBOOL WINAPI ChooseFontA(LPCHOOSEFONTA);
   WINCOMMDLGAPI WINBOOL WINAPI ChooseFontW(LPCHOOSEFONTW);
-#ifdef UNICODE
-#define ChooseFont ChooseFontW
-#else
-#define ChooseFont ChooseFontA
-#endif
+
+#define ChooseFont __MINGW_NAME_AW(ChooseFont)
 
 #define CF_SCREENFONTS 0x1
 #define CF_PRINTERFONTS 0x2
@@ -547,23 +488,13 @@ extern "C" {
 #define HELPMSGSTRINGW L"commdlg_help"
 #define FINDMSGSTRINGW L"commdlg_FindReplace"
 
-#ifdef UNICODE
-#define LBSELCHSTRING LBSELCHSTRINGW
-#define SHAREVISTRING SHAREVISTRINGW
-#define FILEOKSTRING FILEOKSTRINGW
-#define COLOROKSTRING COLOROKSTRINGW
-#define SETRGBSTRING SETRGBSTRINGW
-#define HELPMSGSTRING HELPMSGSTRINGW
-#define FINDMSGSTRING FINDMSGSTRINGW
-#else
-#define LBSELCHSTRING LBSELCHSTRINGA
-#define SHAREVISTRING SHAREVISTRINGA
-#define FILEOKSTRING FILEOKSTRINGA
-#define COLOROKSTRING COLOROKSTRINGA
-#define SETRGBSTRING SETRGBSTRINGA
-#define HELPMSGSTRING HELPMSGSTRINGA
-#define FINDMSGSTRING FINDMSGSTRINGA
-#endif
+#define LBSELCHSTRING __MINGW_NAME_AW(LBSELCHSTRING)
+#define SHAREVISTRING __MINGW_NAME_AW(SHAREVISTRING)
+#define FILEOKSTRING __MINGW_NAME_AW(FILEOKSTRING)
+#define COLOROKSTRING __MINGW_NAME_AW(COLOROKSTRING)
+#define SETRGBSTRING __MINGW_NAME_AW(SETRGBSTRING)
+#define HELPMSGSTRING __MINGW_NAME_AW(HELPMSGSTRING)
+#define FINDMSGSTRING __MINGW_NAME_AW(FINDMSGSTRING)
 
 #define CD_LBSELNOITEMS -1
 #define CD_LBSELCHANGE 0
@@ -616,21 +547,14 @@ extern "C" {
     HGLOBAL hPrintTemplate;
     HGLOBAL hSetupTemplate;
   } PRINTDLGW,*LPPRINTDLGW;
-#ifdef UNICODE
-  typedef PRINTDLGW PRINTDLG;
-  typedef LPPRINTDLGW LPPRINTDLG;
-#else
-  typedef PRINTDLGA PRINTDLG;
-  typedef LPPRINTDLGA LPPRINTDLG;
-#endif
+
+  __MINGW_TYPEDEF_AW(PRINTDLG)
+  __MINGW_TYPEDEF_AW(LPPRINTDLG)
 
   WINCOMMDLGAPI WINBOOL WINAPI PrintDlgA(LPPRINTDLGA);
   WINCOMMDLGAPI WINBOOL WINAPI PrintDlgW(LPPRINTDLGW);
-#ifdef UNICODE
-#define PrintDlg PrintDlgW
-#else
-#define PrintDlg PrintDlgA
-#endif
+
+#define PrintDlg __MINGW_NAME_AW(PrintDlg)
 
 #ifdef STDMETHOD
 #undef INTERFACE
@@ -708,21 +632,14 @@ extern "C" {
     DWORD nStartPage;
     DWORD dwResultAction;
   } PRINTDLGEXW,*LPPRINTDLGEXW;
-#ifdef UNICODE
-  typedef PRINTDLGEXW PRINTDLGEX;
-  typedef LPPRINTDLGEXW LPPRINTDLGEX;
-#else
-  typedef PRINTDLGEXA PRINTDLGEX;
-  typedef LPPRINTDLGEXA LPPRINTDLGEX;
-#endif
+
+  __MINGW_TYPEDEF_AW(PRINTDLGEX)
+  __MINGW_TYPEDEF_AW(LPPRINTDLGEX)
 
   WINCOMMDLGAPI HRESULT WINAPI PrintDlgExA(LPPRINTDLGEXA);
   WINCOMMDLGAPI HRESULT WINAPI PrintDlgExW(LPPRINTDLGEXW);
-#ifdef UNICODE
-#define PrintDlgEx PrintDlgExW
-#else
-#define PrintDlgEx PrintDlgExA
-#endif
+
+#define PrintDlgEx __MINGW_NAME_AW(PrintDlgEx)
 #endif
 
 #define PD_ALLPAGES 0x0
@@ -816,21 +733,14 @@ extern "C" {
     LPCWSTR lpPageSetupTemplateName;
     HGLOBAL hPageSetupTemplate;
   } PAGESETUPDLGW,*LPPAGESETUPDLGW;
-#ifdef UNICODE
-  typedef PAGESETUPDLGW PAGESETUPDLG;
-  typedef LPPAGESETUPDLGW LPPAGESETUPDLG;
-#else
-  typedef PAGESETUPDLGA PAGESETUPDLG;
-  typedef LPPAGESETUPDLGA LPPAGESETUPDLG;
-#endif
+
+  __MINGW_TYPEDEF_AW(PAGESETUPDLG)
+  __MINGW_TYPEDEF_AW(LPPAGESETUPDLG)
 
   WINCOMMDLGAPI WINBOOL WINAPI PageSetupDlgA(LPPAGESETUPDLGA);
   WINCOMMDLGAPI WINBOOL WINAPI PageSetupDlgW(LPPAGESETUPDLGW);
-#ifdef UNICODE
-#define PageSetupDlg PageSetupDlgW
-#else
-#define PageSetupDlg PageSetupDlgA
-#endif
+
+#define PageSetupDlg __MINGW_NAME_AW(PageSetupDlg)
 
 #define PSD_DEFAULTMINMARGINS 0x0
 #define PSD_INWININIINTLMEASURE 0x0
