@@ -1,3 +1,8 @@
+2010-06-18  Doug Semler  <dougsemler@gmail.com>
+
+	* _mingw_mac.h: Move Unicode macro definitions to _mingw_unicode.h
+	* _mingw_unicode.h: New file.
+
 2010-06-17  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw_mac (__MINGW_PROCNAMEEXT_AW): New define.

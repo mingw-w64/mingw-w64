@@ -6,6 +6,8 @@
 #ifndef _WINBASE_
 #define _WINBASE_
 
+#include <_mingw_unicode.h>
+
 #define WINADVAPI DECLSPEC_IMPORT
 #define WINBASEAPI DECLSPEC_IMPORT
 #define ZAWPROXYAPI DECLSPEC_IMPORT

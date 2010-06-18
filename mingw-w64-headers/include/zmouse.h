@@ -4,6 +4,8 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#include <_mingw_unicode.h>
+
 #define MSH_MOUSEWHEEL __MINGW_STRING_AW("MSWHEEL_ROLLMSG")
 
 #define WHEEL_DELTA 120

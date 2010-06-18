@@ -6,6 +6,7 @@
 #ifndef _INC_CPL
 #define _INC_CPL
 
+#include <_mingw_unicode.h>
 #include <pshpack1.h>
 
 #ifdef __cplusplus

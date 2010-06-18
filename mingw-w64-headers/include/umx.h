@@ -6,6 +6,8 @@
 #ifndef _UMX_H_
 #define _UMX_H_
 
+#include <_mingw_unicode.h>
+
 #define UME_MENU_TEXT_LEN 50
 #define UME_VERSION 0
 

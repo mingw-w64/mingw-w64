@@ -6,6 +6,8 @@
 #ifndef _INC_VFW
 #define _INC_VFW
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -6,6 +6,8 @@
 #ifndef __XOLEHLP__H__
 #define __XOLEHLP__H__
 
+#include <_mingw_unicode.h>
+
 #define EXPORTAPI __declspec(dllexport) HRESULT
 
 const DWORD OLE_TM_CONFIG_VERSION_1 = 1;

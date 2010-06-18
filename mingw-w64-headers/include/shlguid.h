@@ -6,6 +6,8 @@
 #ifndef _SHLGUID_H_
 #define _SHLGUID_H_
 
+#include <_mingw_unicode.h>
+
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0501
 #else

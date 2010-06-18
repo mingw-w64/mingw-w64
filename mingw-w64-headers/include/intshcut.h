@@ -6,6 +6,7 @@
 #ifndef __INTSHCUT_H__
 #define __INTSHCUT_H__
 
+#include <_mingw_unicode.h>
 #include <isguids.h>
 
 #ifdef __cplusplus

@@ -6,6 +6,8 @@
 #ifndef __WPTYPES_H__
 #define __WPTYPES_H__
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

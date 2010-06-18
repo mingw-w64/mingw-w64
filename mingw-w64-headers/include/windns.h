@@ -6,6 +6,8 @@
 #ifndef _WINDNS_INCLUDED_
 #define _WINDNS_INCLUDED_
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

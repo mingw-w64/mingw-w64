@@ -7,6 +7,8 @@
 #ifndef _WINSOCK2API_
 #define _WINSOCK2API_
 
+#include <_mingw_unicode.h>
+
 #ifndef _WINSOCKAPI_
 #define _WINSOCKAPI_
 #else

@@ -6,6 +6,8 @@
 #ifndef _WINUSER_
 #define _WINUSER_
 
+#include <_mingw_unicode.h>
+
 #define WINUSERAPI DECLSPEC_IMPORT
 
 #ifdef __cplusplus

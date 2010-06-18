@@ -6,6 +6,8 @@
 #ifndef VER_H
 #define VER_H
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

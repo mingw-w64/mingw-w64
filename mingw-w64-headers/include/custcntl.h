@@ -6,6 +6,8 @@
 #ifndef _INC_CUSTCNTL
 #define _INC_CUSTCNTL
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

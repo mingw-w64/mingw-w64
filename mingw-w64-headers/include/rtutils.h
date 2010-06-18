@@ -6,6 +6,8 @@
 #ifndef __ROUTING_RTUTILS_H__
 #define __ROUTING_RTUTILS_H__
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

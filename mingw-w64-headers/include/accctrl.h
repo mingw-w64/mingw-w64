@@ -6,6 +6,7 @@
 #ifndef __ACCESS_CONTROL__
 #define __ACCESS_CONTROL__
 
+#include <_mingw_unicode.h>
 #include <wtypes.h>
 
 #ifdef __cplusplus

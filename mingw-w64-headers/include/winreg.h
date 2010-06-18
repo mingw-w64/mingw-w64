@@ -6,6 +6,8 @@
 #ifndef _WINREG_
 #define _WINREG_
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

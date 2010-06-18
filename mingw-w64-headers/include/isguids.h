@@ -6,6 +6,8 @@
 #ifndef _ISGUIDS_H_
 #define _ISGUIDS_H_
 
+#include <_mingw_unicode.h>
+
 #define IID_IUniformResourceLocator __MINGW_NAME_AW(IID_IUniformResourceLocator)
 
 DEFINE_GUID(CLSID_InternetShortcut,0xFBF23B40L,0xE3F0,0x101B,0x84,0x88,0x00,0xAA,0x00,0x3E,0x56,0xF8);

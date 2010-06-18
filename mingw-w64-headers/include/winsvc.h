@@ -6,6 +6,8 @@
 #ifndef _WINSVC_
 #define _WINSVC_
 
+#include <_mingw_unicode.h>
+
 #ifndef WINADVAPI
 #define WINADVAPI DECLSPEC_IMPORT
 #endif

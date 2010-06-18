@@ -3,6 +3,9 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
+#include <_mingw_unicode.h>
+
 #ifdef _WCHAR_T_DEFINED
 typedef void (__cdecl *POGOAUTOSWEEPPROCW)(const wchar_t *);
 #else

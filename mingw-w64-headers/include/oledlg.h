@@ -6,6 +6,8 @@
 #ifndef _OLEDLG_H_
 #define _OLEDLG_H_
 
+#include <_mingw_unicode.h>
+
 #ifndef RC_INVOKED
 #ifndef __cplusplus
 /* #define NONAMELESSUNION */

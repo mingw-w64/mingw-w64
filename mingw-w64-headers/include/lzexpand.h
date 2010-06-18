@@ -6,6 +6,8 @@
 #ifndef _LZEXPAND_
 #define _LZEXPAND_
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

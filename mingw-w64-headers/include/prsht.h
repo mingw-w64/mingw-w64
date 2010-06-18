@@ -6,6 +6,8 @@
 #ifndef _PRSHT_H_
 #define _PRSHT_H_
 
+#include <_mingw_unicode.h>
+
 #ifndef _WINRESRC_
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0501

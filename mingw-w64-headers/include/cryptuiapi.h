@@ -6,6 +6,7 @@
 #ifndef __CRYPTUIAPI_H__
 #define __CRYPTUIAPI_H__
 
+#include <_mingw_unicode.h>
 #include <wintrust.h>
 #include <wincrypt.h>
 

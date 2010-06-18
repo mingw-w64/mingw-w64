@@ -3,6 +3,9 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
+#include <_mingw_unicode.h>
+
 #define ERROR_PCW_BASE 0xC00E5101
 
 #define ERROR_PCW_PCP_DOESNT_EXIST (ERROR_PCW_BASE + 0x00)

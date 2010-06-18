@@ -6,6 +6,8 @@
 #ifndef _UASTRFNC_H_
 #define _UASTRFNC_H_
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

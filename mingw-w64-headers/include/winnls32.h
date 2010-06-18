@@ -6,6 +6,8 @@
 #ifndef _WINNLS32_
 #define _WINNLS32_
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

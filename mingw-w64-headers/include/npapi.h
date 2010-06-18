@@ -6,6 +6,8 @@
 #ifndef _NPAPI_INCLUDED
 #define _NPAPI_INCLUDED
 
+#include <_mingw_unicode.h>
+
 typedef DWORD (WINAPI *PF_NPAddConnection)(LPNETRESOURCEW lpNetResource,LPWSTR lpPassword,LPWSTR lpUserName);
 typedef DWORD (WINAPI *PF_NPAddConnection3)(HWND hwndOwner,LPNETRESOURCEW lpNetResource,LPWSTR lpPassword,LPWSTR lpUserName,DWORD dwFlags);
 typedef DWORD (WINAPI *PF_NPCancelConnection)(LPWSTR lpName,WINBOOL fForce);

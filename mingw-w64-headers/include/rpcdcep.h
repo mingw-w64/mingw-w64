@@ -6,6 +6,8 @@
 #ifndef __RPCDCEP_H__
 #define __RPCDCEP_H__
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

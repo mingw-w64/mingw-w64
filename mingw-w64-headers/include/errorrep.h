@@ -6,6 +6,8 @@
 #ifndef __ERRORREP_H__
 #define __ERRORREP_H__
 
+#include <_mingw_unicode.h>
+
 typedef enum tagEFaultRepRetVal {
   frrvOk = 0,
   frrvOkManifest,frrvOkQueued,frrvErr,frrvErrNoDW,frrvErrTimeout,frrvLaunchDebugger,frrvOkHeadless

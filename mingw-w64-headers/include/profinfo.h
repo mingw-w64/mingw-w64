@@ -6,6 +6,8 @@
 #ifndef _INC_PROFINFO
 #define _INC_PROFINFO
 
+#include <_mingw_unicode.h>
+
 typedef struct _PROFILEINFOA {
   DWORD dwSize;
   DWORD dwFlags;

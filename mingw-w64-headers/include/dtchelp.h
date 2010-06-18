@@ -6,6 +6,7 @@
 #ifndef __DTCHELP_H__
 #define __DTCHELP_H__
 
+#include <_mingw_unicode.h>
 #include <windows.h>
 
 #ifndef DEFINED_DTC_STATUS

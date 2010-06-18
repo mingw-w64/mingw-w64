@@ -6,6 +6,8 @@
 #ifndef _WINCON_
 #define _WINCON_
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -6,6 +6,8 @@
 #ifndef __RPCNSI_H__
 #define __RPCNSI_H__
 
+#include <_mingw_unicode.h>
+
 typedef void *RPC_NS_HANDLE;
 
 #define RPC_C_NS_SYNTAX_DEFAULT 0

@@ -6,6 +6,8 @@
 #ifndef _INC_SHLWAPI
 #define _INC_SHLWAPI
 
+#include <_mingw_unicode.h>
+
 #ifndef NOSHLWAPI
 
 #include <objbase.h>

@@ -6,6 +6,8 @@
 #ifndef __HTMLHELP_H__
 #define __HTMLHELP_H__
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

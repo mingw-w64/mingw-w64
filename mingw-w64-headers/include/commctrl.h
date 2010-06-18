@@ -6,6 +6,8 @@
 #ifndef _INC_COMMCTRL
 #define _INC_COMMCTRL
 
+#include <_mingw_unicode.h>
+
 #ifndef _WINRESRC_
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0501

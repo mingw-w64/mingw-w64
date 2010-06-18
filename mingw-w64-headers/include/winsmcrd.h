@@ -6,6 +6,8 @@
 #ifndef _NTDDSCRD_H2_
 #define _NTDDSCRD_H2_
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

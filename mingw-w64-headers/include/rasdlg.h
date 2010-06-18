@@ -6,6 +6,7 @@
 #ifndef _RASDLG_H_
 #define _RASDLG_H_
 
+#include <_mingw_unicode.h>
 #include <pshpack4.h>
 
 #ifdef __cplusplus

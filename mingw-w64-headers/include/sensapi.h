@@ -6,6 +6,8 @@
 #ifndef __SENSAPI_H__
 #define __SENSAPI_H__
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

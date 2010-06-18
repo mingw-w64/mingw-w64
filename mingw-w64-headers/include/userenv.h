@@ -6,6 +6,7 @@
 #ifndef _USERENV_H_
 #define _USERENV_H_
 
+#include <_mingw_unicode.h>
 #include <wbemcli.h>
 #include <profinfo.h>
 

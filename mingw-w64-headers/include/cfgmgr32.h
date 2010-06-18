@@ -6,6 +6,7 @@
 #ifndef _CFGMGR32_H_
 #define _CFGMGR32_H_
 
+#include <_mingw_unicode.h>
 #include <cfg.h>
 #include <guiddef.h>
 

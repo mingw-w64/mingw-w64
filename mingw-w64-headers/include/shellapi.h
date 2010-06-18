@@ -6,6 +6,8 @@
 #ifndef _INC_SHELLAPI
 #define _INC_SHELLAPI
 
+#include <_mingw_unicode.h>
+
 #ifndef WINSHELLAPI
 #if !defined(_SHELL32_)
 #define WINSHELLAPI DECLSPEC_IMPORT

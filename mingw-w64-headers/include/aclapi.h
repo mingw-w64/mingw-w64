@@ -6,6 +6,7 @@
 #ifndef __ACCESS_CONTROL_API__
 #define __ACCESS_CONTROL_API__
 
+#include <_mingw_unicode.h>
 #include <windows.h>
 #include <accctrl.h>
 

@@ -6,6 +6,7 @@
 #ifndef _INC_MMSYSTEM
 #define _INC_MMSYSTEM
 
+#include <_mingw_unicode.h>
 #include <pshpack1.h>
 
 #ifdef __cplusplus

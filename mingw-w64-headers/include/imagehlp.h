@@ -6,6 +6,8 @@
 #ifndef _IMAGEHLP_
 #define _IMAGEHLP_
 
+#include <_mingw_unicode.h>
+
 #ifdef _WIN64
 #ifndef _IMAGEHLP64
 #define _IMAGEHLP64

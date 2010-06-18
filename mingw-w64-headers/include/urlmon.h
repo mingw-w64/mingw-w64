@@ -7,6 +7,7 @@
 #define __REQUIRED_RPCNDR_H_VERSION__ 440
 #endif
 
+#include <_mingw_unicode.h>
 #include "rpc.h"
 #include "rpcndr.h"
 

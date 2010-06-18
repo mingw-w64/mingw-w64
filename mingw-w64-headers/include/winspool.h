@@ -6,6 +6,8 @@
 #ifndef _WINSPOOL_
 #define _WINSPOOL_
 
+#include <_mingw_unicode.h>
+
 #ifdef _WINUSER_
 #include <prsht.h>
 #endif

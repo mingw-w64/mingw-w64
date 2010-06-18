@@ -6,6 +6,8 @@
 #ifndef __SDDL_H__
 #define __SDDL_H__
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

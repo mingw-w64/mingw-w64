@@ -6,6 +6,7 @@
 #ifndef _RICHEDIT_
 #define _RICHEDIT_
 
+#include <_mingw_unicode.h>
 #include <pshpack4.h>
 
 #ifdef __cplusplus

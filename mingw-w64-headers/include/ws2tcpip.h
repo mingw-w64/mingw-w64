@@ -6,6 +6,8 @@
 #ifndef _WS2TCPIP_H_
 #define _WS2TCPIP_H_
 
+#include <_mingw_unicode.h>
+
 #if __GNUC__ >=3
 #pragma GCC system_header
 #endif

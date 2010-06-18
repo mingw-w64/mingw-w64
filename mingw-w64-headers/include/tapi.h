@@ -6,6 +6,8 @@
 #ifndef TAPI_H
 #define TAPI_H
 
+#include <_mingw_unicode.h>
+
 #ifndef TAPI_CURRENT_VERSION
 #define TAPI_CURRENT_VERSION 0x00030001
 #endif

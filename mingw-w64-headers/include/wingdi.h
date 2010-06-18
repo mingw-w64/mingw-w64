@@ -6,6 +6,8 @@
 #ifndef _WINGDI_
 #define _WINGDI_
 
+#include <_mingw_unicode.h>
+
 #define WINGDIAPI DECLSPEC_IMPORT
 #define WINSPOOLAPI DECLSPEC_IMPORT
 

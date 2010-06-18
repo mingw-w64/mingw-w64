@@ -6,6 +6,8 @@
 #if !defined(__NTQUERY_H__)
 #define __NTQUERY_H__
 
+#include <_mingw_unicode.h>
+
 #if defined(__cplusplus)
 extern "C" {
 #endif

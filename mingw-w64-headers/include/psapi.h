@@ -6,6 +6,8 @@
 #ifndef _PSAPI_H_
 #define _PSAPI_H_
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

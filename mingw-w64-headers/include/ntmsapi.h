@@ -6,6 +6,8 @@
 #ifndef _INCL_NTMSAPI_H_
 #define _INCL_NTMSAPI_H_
 
+#include <_mingw_unicode.h>
+
 #pragma pack(8)
 
 #ifdef __cplusplus

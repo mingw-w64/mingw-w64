@@ -6,6 +6,7 @@
 #ifndef _WININET_
 #define _WININET_
 
+#include <_mingw_unicode.h>
 #include <specstrings.h>
 
 #ifdef _WIN64

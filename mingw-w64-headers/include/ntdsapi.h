@@ -6,6 +6,7 @@
 #ifndef _NTDSAPI_H_
 #define _NTDSAPI_H_
 
+#include <_mingw_unicode.h>
 #include <schedule.h>
 
 #if !defined(_NTDSAPI_)

@@ -6,6 +6,7 @@
 #ifndef __WP15API_H__
 #define __WP15API_H__
 
+#include <_mingw_unicode.h>
 #include <windows.h>
 #include "wptypes.h"
 

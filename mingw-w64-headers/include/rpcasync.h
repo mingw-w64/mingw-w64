@@ -6,6 +6,7 @@
 #ifndef __RPCASYNC_H__
 #define __RPCASYNC_H__
 
+#include <_mingw_unicode.h>
 #ifdef __RPC_WIN64__
 #include <pshpack8.h>
 #endif

@@ -6,6 +6,7 @@
 #ifndef __SECEXT_H__
 #define __SECEXT_H__
 
+#include <_mingw_unicode.h>
 #include "sspi.h"
 
 #ifdef __cplusplus
