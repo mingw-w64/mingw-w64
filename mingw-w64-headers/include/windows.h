@@ -68,6 +68,7 @@
 #include <winver.h>
 #include <winreg.h>
 #include <winnetwk.h>
+#include <ktmtypes.h>
 
 #ifndef WIN32_LEAN_AND_MEAN
 #include <cderr.h>
