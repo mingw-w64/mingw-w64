@@ -1,3 +1,38 @@
+2010-06-21  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* lib64/msdrm.def: New.
+	* lib64/eapphost.def: New.
+	* lib64/ntdsapi.def: Update from Vista.
+	* lib64/dhcpcsvc6.def: New.
+	* lib64/eappgnui.def: New.
+	* lib64/eappprxy.def: New.
+	* lib64/davclnt.def: Updated from Vista.
+	* lib64/netapi32.def: Updated from Vista.
+	* lib64/dhcpsapi.def: Updated from Vista.
+	* lib64/wecapi.def: New.
+	* lib64/psapi.def: Updated from Vista.
+	* lib64/spoolss.def: Updated from Vista.
+	* lib64/powrprof.def: Updated from Vista.
+	* lib64/dxva2.def: New.
+	* lib64/eappcfg.def: New.
+	* lib32/eapp3hst.def: New.
+	* lib32/ntdsapi.def: New.
+	* lib32/psapi.def: Updated from Vista.
+	* lib32/powrprof.def: Updated from Vista.
+	* lib32/dxva2.def: New.
+	* lib32/dhcpsapi.def: New.
+	* lib32/wecapi.def: New.
+	* lib32/dhcpcsvc6.def: New.
+	* lib32/spoolss.def: New.
+	* lib32/davclnt.def: New.
+	* lib32/msdrm.def: New.
+	* lib32/netapi32.def: Updated from Vista.
+	* lib32/dssec.def: New.
+	* lib32/eappprxy.def: New.
+	* lib32/eapphost.def: New.
+	* lib32/eappcfg.def: New.
+	* lib32/eappgnui.def: New.
+
 2010-06-17  Doug Semler  <dougsemler@gmail.com>
 
 	* Makefile.am (CFLAGS32): New 32-bit specific flags.
