@@ -1,5 +1,12 @@
 2010-06-21  Jonathan Yong  <jon_y@sourceforge.net>
 
+	* lib32/wevtfwd.def: New.
+	* lib32/wevtapi.def: New.
+	* lib64/wevtapi.def: New.
+	* lib64/wevtfwd.def: New.
+
+2010-06-21  Jonathan Yong  <jon_y@sourceforge.net>
+
 	* lib64/msdrm.def: New.
 	* lib64/eapphost.def: New.
 	* lib64/ntdsapi.def: Update from Vista.
