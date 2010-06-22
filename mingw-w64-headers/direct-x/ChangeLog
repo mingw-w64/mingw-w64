@@ -1,3 +1,14 @@
+2010-06-21  Jonathan Yong  <jon_y@sourceforge.net>
+
+	Silence some warnings
+	* d3d9types.h (MAKEFOURCC): Guard with __MAKEFOURCC__DEFINED__
+	ifdefs.
+	* ddraw.h (MAKEFOURCC): Likewise.
+	(INTERFACE, IDirectDrawPalette): Undef INTERFACE before
+	IDirectDrawPalette
+	* d3d9.h (INTERFACE, IDirect3D9): Undef INTERFACE before IDirect3D9.
+	* dvdmedia.h (MPEG2VIDEOINFO): Add new structure.
+
 2010-06-14  Ozkan Sezer <sezeroz@gmail.com>
 
 	* ddraw.h: Define __DDRAW_INCLUDED__ for compatibility.

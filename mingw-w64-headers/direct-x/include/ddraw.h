@@ -771,9 +771,12 @@ typedef struct _DDPIXELFORMAT {
     					/* 20: next structure */
 } DDPIXELFORMAT,*LPDDPIXELFORMAT;
 
+#ifndef __MAKEFOURCC__DEFINED__
+#define __MAKEFOURCC__DEFINED__
 #define MAKEFOURCC(ch0, ch1, ch2, ch3)  \
     ((DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8) |  \
     ((DWORD)(BYTE)(ch2) << 16) | ((DWORD)(BYTE)(ch3) << 24 ))
+#endif
 
 /* DDCAPS.dwFXCaps */
 #define DDFXCAPS_BLTALPHA               0x00000001
@@ -1222,6 +1225,7 @@ typedef struct tagDDDEVICEIDENTIFIER2 {
 /*****************************************************************************
  * IDirectDrawPalette interface
  */
+#undef INTERFACE
 #define INTERFACE IDirectDrawPalette
 DECLARE_INTERFACE_(IDirectDrawPalette,IUnknown)
 {
