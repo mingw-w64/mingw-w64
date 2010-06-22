@@ -560,6 +560,7 @@ PACKAGE_URL=''
 ac_unique_file="crt/_mingw.h"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
+IDLHEAD_LIST
 MINGW_HAS_DDK
 DDKHEAD_LIST
 MINGW_HAS_DX
@@ -1279,7 +1280,7 @@ Optional Features:
 			  (and sometimes confusing) to the casual installer
   --disable-crt           Do not use the default crt headers
   --enable-sdk=ARG        Add the desired SDK, where ARG can be one of ddk,
-                          directx, or all
+                          directx, idl or all
 
 Report bugs to <mingw-w64-public@lists.sourceforge.net>.
 _ACEOF
@@ -2426,6 +2427,10 @@ MINGWHELPERHEAD_LIST=$srcdir/include/mingw_inc/*.h
 
 
 
+enable_directx=no
+enable_ddk=no
+enable_idl=no
+
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for optional sdk headers" >&5
 $as_echo_n "checking for optional sdk headers... " >&6; }
 # Check whether --enable-sdk was given.
@@ -2438,23 +2443,22 @@ fi
 case $enable_sdk in #(
   all|yes) :
 
-    enable_sdk="ddk,directx"
+    enable_sdk="ddk,directx,idl"
     enable_ddk=yes
     enable_directx=yes ;; #(
   ddk) :
 
-    enable_ddk=yes
-    enable_directx=no ;; #(
+    enable_ddk=yes ;; #(
   directx) :
 
-    enable_ddk=no
     enable_directx=yes ;; #(
-  no) :
+  idl) :
 
-    enable_ddk=no
-    enable_directx=no ;; #(
+    enable_idl=yes ;; #(
+  no) :
+     ;; #(
   *) :
-    as_fn_error "Invalid option: $enable_sdk.  Please choose one of ddk, directx, or all." "$LINENO" 5 ;;
+    as_fn_error "Invalid option: $enable_sdk.  Please choose one of ddk, directx, idl or all." "$LINENO" 5 ;;
 esac
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_sdk" >&5
 $as_echo "$enable_sdk" >&6; }
@@ -2483,6 +2487,12 @@ else
 
 fi
 
+
+
+if test "x$enable_idl" = x""yes; then :
+
+    IDLHEAD_LIST=$srcdir/idl/*.idl
+fi
 
 
 # Checks for typedefs, structures, and compiler characteristics.

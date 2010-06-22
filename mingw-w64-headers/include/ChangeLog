@@ -1,3 +1,6 @@
+2010-06-22  Jacek Caban  <jacek@codeweavers.com>
+	* downloadmgr.h: Moved to IDL SDK.
+
 2010-06-22  Jonathan Yong  <jon_y@sourceforge.net>
 	* clusapi.h (PCLUSAPI_OPEN_CLUSTER): Declare.
 	(FS_CASE_SENSITIVE): Define.

@@ -17,9 +17,11 @@ sdkshead_HEADERS = _mingw_directx.h _mingw_ddk.h
 
 ddkheaddir = $(baseheaddir)/ddk
 dxheaddir = $(baseheaddir)
+idlheaddir = $(baseheaddir)
 
 ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
+idlhead_HEADERS = @IDLHEAD_LIST@
 
 EXTRA_DIST = ChangeLog-2009
 DISTCHECK_CONFIGURE_FLAGS = --enable-sdk=all
@@ -40,7 +42,8 @@ EXTRA_HEADERS = \
   crt/sec_api/sys/*.h \
   direct-x/include/*.h \
   direct-x/include/*.idl \
-  ddk/include/ddk/*.h
+  ddk/include/ddk/*.h \
+  idl/*.idl
 
 BUILT_SOURCES = \
   _mingw_directx.h \

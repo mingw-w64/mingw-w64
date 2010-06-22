@@ -48,27 +48,29 @@ AC_SUBST([SYSHEAD_LIST])
 AC_SUBST([SECHEAD_LIST])
 AC_SUBST([SECSYSHEAD_LIST])
 
+enable_directx=no
+enable_ddk=no
+enable_idl=no
+
 AC_MSG_CHECKING([for optional sdk headers])
 AC_ARG_ENABLE([sdk],
   [AS_HELP_STRING([--enable-sdk=ARG],
-    [Add the desired SDK, where ARG can be one of ddk, directx, or all])],
+    [Add the desired SDK, where ARG can be one of ddk, directx, idl or all])],
   [],
   [enable_sdk=no])
 AS_CASE([$enable_sdk],
   [all|yes],[
-    enable_sdk="ddk,directx"
+    enable_sdk="ddk,directx,idl"
     enable_ddk=yes
     enable_directx=yes],
   [ddk],[
-    enable_ddk=yes
-    enable_directx=no],
+    enable_ddk=yes],
   [directx],[
-    enable_ddk=no
     enable_directx=yes],
-  [no],[
-    enable_ddk=no
-    enable_directx=no],
-  [AC_MSG_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx, or all.])])
+  [idl],[
+    enable_idl=yes],
+  [no],[],
+  [AC_MSG_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx, idl or all.])])
 AC_MSG_RESULT([$enable_sdk])
 
 AS_VAR_IF([enable_directx],[yes],[
@@ -88,6 +90,10 @@ AS_VAR_IF([enable_ddk],[yes],[
   ])
 AC_SUBST([DDKHEAD_LIST])
 AC_SUBST([MINGW_HAS_DDK])
+
+AS_VAR_IF([enable_idl],[yes],[
+    IDLHEAD_LIST=$srcdir/idl/*.idl],[])
+AC_SUBST([IDLHEAD_LIST])
 
 # Checks for typedefs, structures, and compiler characteristics.
 
