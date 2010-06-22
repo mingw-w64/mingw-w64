@@ -1,4 +1,8 @@
 2010-06-22  Jacek Caban  <jacek@codeweavers.com>
+	* d3d10.h, d3d10.idl, d3deffect.h, d3d10misc.h, d3d10shader.h: Initial import from Wine.
+	* dxgi.h, dxgi.idl, dxgitype.h, dxgitype.idl, xinput.h: Likewise.
+
+2010-06-22  Jacek Caban  <jacek@codeweavers.com>
 	* downloadmgr.idl, downloadmgr.h: Moved to IDL SDK.
 
 2010-06-21  Jonathan Yong  <jon_y@sourceforge.net>

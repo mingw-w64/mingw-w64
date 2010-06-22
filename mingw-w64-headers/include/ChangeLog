@@ -1,4 +1,8 @@
 2010-06-22  Jacek Caban  <jacek@codeweavers.com>
+	* coerror.h, fusion.h, mscat.h, mscoree.h, optary.h: Initial import from Wine.
+	* wincodec.h, winhttp.h, xmllite.h: Likewise.
+
+2010-06-22  Jacek Caban  <jacek@codeweavers.com>
 	* downloadmgr.h: Moved to IDL SDK.
 
 2010-06-22  Jonathan Yong  <jon_y@sourceforge.net>
