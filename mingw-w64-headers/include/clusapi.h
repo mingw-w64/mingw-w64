@@ -982,6 +982,433 @@ extern "C" {
   LONG WINAPI ClusterRegGetKeySecurity (HKEY hKey,SECURITY_INFORMATION RequestedInformation,PSECURITY_DESCRIPTOR pSecurityDescriptor,LPDWORD lpcbSecurityDescriptor);
   LONG WINAPI ClusterRegSetKeySecurity(HKEY hKey,SECURITY_INFORMATION SecurityInformation,PSECURITY_DESCRIPTOR pSecurityDescriptor);
 
+typedef HCLUSTER (WINAPI *PCLUSAPI_OPEN_CLUSTER)( 
+  LPCWSTR lpszClusterName
+);
+
+#if (_WIN32_WINNT >= 0x0600)
+#define FS_CASE_SENSITIVE 1
+#define FS_CASE_IS_PRESERVED 2
+#define FS_UNICODE_STORED_ON_DISK 3
+#define FS_PERSISTENT_ACLS 4
+
+typedef enum _MAINTENANCE_MODE_TYPE_ENUM {
+  MaintenanceModeTypeDisableIsAliveCheck   = 1,
+  MaintenanceModeTypeOfflineResource       = 2,
+  MaintenanceModeTypeUnclusterResource     = 3 
+} MAINTENANCE_MODE_TYPE_ENUM, *PMAINTENANCE_MODE_TYPE_ENUM;
+
+typedef enum CLUSTER_RESOURCE_STATE {
+  ClusterResourceStateUnknown     = -1,
+  ClusterResourceInherited        = 0,
+  ClusterResourceInitializing     = 1,
+  ClusterResourceOnline           = 2,
+  ClusterResourceOffline          = 3,
+  ClusterResourceFailed           = 4,
+  ClusterResourcePending          = 128,  // 0x80
+  ClusterResourceOnlinePending    = 129,  // 0x81
+  ClusterResourceOfflinePending   = 130   // 0x82
+} CLUSTER_RESOURCE_STATE;
+
+typedef enum CLUSCTL_CLUSTER_CODES {
+  CLUSCTL_CLUSTER_UNKNOWN                       = 0x07000000,
+  CLUSCTL_CLUSTER_GET_FQDN                      = 0x0700003d,
+  CLUSCTL_CLUSTER_ENUM_COMMON_PROPERTIES        = 0x07000051,
+  CLUSCTL_CLUSTER_GET_RO_COMMON_PROPERTIES      = 0x07000055,
+  CLUSCTL_CLUSTER_GET_COMMON_PROPERTIES         = 0x07000059,
+  CLUSCTL_CLUSTER_SET_COMMON_PROPERTIES         = 0x0740005e,
+  CLUSCTL_CLUSTER_VALIDATE_COMMON_PROPERTIES    = 0x07000061,
+  CLUSCTL_CLUSTER_ENUM_PRIVATE_PROPERTIES       = 0x07000079,
+  CLUSCTL_CLUSTER_GET_RO_PRIVATE_PROPERTIES     = 0x0700007d,
+  CLUSCTL_CLUSTER_GET_PRIVATE_PROPERTIES        = 0x07000081,
+  CLUSCTL_CLUSTER_SET_PRIVATE_PROPERTIES        = 0x07400086,
+  CLUSCTL_CLUSTER_VALIDATE_PRIVATE_PROPERTIES   = 0x07000089,
+  CLUSCTL_CLUSTER_GET_COMMON_PROPERTY_FMTS      = 0x07000065,
+  CLUSCTL_CLUSTER_GET_PRIVATE_PROPERTY_FMTS     = 0x0700008d,
+  CLUSCTL_CLUSTER_CHECK_VOTER_EVICT             = 0x07000045,
+  CLUSCTL_CLUSTER_CHECK_VOTER_DOWN              = 0x07000049,
+  CLUSCTL_CLUSTER_SHUTDOWN                      = 0x0700004d,
+  CLUSCTL_CLUSTER_BATCH_BLOCK_KEY               = 0x0700023e,
+  CLUSCTL_CLUSTER_BATCH_UNBLOCK_KEY             = 0x07000241,
+  CLUSCTL_CLUSTER_GET_SHARED_VOLUME_ID          = 0x07000291 
+} CLUSCTL_CLUSTER_CODES;
+
+typedef enum CLUSCTL_GROUP_CODES {
+  CLUSCTL_GROUP_UNKNOWN                       = 0x03000000,
+  CLUSCTL_GROUP_GET_CHARACTERISTICS           = 0x03000005,
+  CLUSCTL_GROUP_GET_FLAGS                     = 0x03000009,
+  CLUSCTL_GROUP_GET_NAME                      = 0x03000029,
+  CLUSCTL_GROUP_GET_ID                        = 0x03000039,
+  CLUSCTL_GROUP_ENUM_COMMON_PROPERTIES        = 0x03000051,
+  CLUSCTL_GROUP_GET_RO_COMMON_PROPERTIES      = 0x03000055,
+  CLUSCTL_GROUP_GET_COMMON_PROPERTIES         = 0x03000059,
+  CLUSCTL_GROUP_SET_COMMON_PROPERTIES         = 0x0340005e,
+  CLUSCTL_GROUP_VALIDATE_COMMON_PROPERTIES    = 0x03000061,
+  CLUSCTL_GROUP_ENUM_PRIVATE_PROPERTIES       = 0x03000079,
+  CLUSCTL_GROUP_GET_RO_PRIVATE_PROPERTIES     = 0x0300007d,
+  CLUSCTL_GROUP_GET_PRIVATE_PROPERTIES        = 0x03000081,
+  CLUSCTL_GROUP_SET_PRIVATE_PROPERTIES        = 0x03400086,
+  CLUSCTL_GROUP_VALIDATE_PRIVATE_PROPERTIES   = 0x03000089,
+  CLUSCTL_GROUP_QUERY_DELETE                  = 0x030001b9,
+  CLUSCTL_GROUP_GET_COMMON_PROPERTY_FMTS      = 0x03000065,
+  CLUSCTL_GROUP_GET_PRIVATE_PROPERTY_FMTS     = 0x0300008d 
+} CLUSCTL_GROUP_CODES;
+
+typedef enum CLUSCTL_NETINTERFACE_CODES {
+  CLUSCTL_NETINTERFACE_UNKNOWN                       = 0x06000000,
+  CLUSCTL_NETINTERFACE_GET_CHARACTERISTICS           = 0x06000005,
+  CLUSCTL_NETINTERFACE_GET_FLAGS                     = 0x06000009,
+  CLUSCTL_NETINTERFACE_GET_NAME                      = 0x06000029,
+  CLUSCTL_NETINTERFACE_GET_ID                        = 0x06000039,
+  CLUSCTL_NETINTERFACE_GET_NODE                      = 0x06000031,
+  CLUSCTL_NETINTERFACE_GET_NETWORK                   = 0x06000035,
+  CLUSCTL_NETINTERFACE_ENUM_COMMON_PROPERTIES        = 0x06000051,
+  CLUSCTL_NETINTERFACE_GET_RO_COMMON_PROPERTIES      = 0x06000055,
+  CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTIES         = 0x06000059,
+  CLUSCTL_NETINTERFACE_SET_COMMON_PROPERTIES         = 0x0640005e,
+  CLUSCTL_NETINTERFACE_VALIDATE_COMMON_PROPERTIES    = 0x06000061,
+  CLUSCTL_NETINTERFACE_ENUM_PRIVATE_PROPERTIES       = 0x06000079,
+  CLUSCTL_NETINTERFACE_GET_RO_PRIVATE_PROPERTIES     = 0x0600007d,
+  CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTIES        = 0x06000081,
+  CLUSCTL_NETINTERFACE_SET_PRIVATE_PROPERTIES        = 0x06400086,
+  CLUSCTL_NETINTERFACE_VALIDATE_PRIVATE_PROPERTIES   = 0x06000089,
+  CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTY_FMTS      = 0x06000065,
+  CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTY_FMTS     = 0x0600008d 
+} CLUSCTL_NETINTERFACE_CODES;
+
+typedef enum CLUSCTL_NETWORK_CODES {
+  CLUSCTL_NETWORK_UNKNOWN                       = 0x05000000,
+  CLUSCTL_NETWORK_GET_CHARACTERISTICS           = 0x05000005,
+  CLUSCTL_NETWORK_GET_FLAGS                     = 0x05000009,
+  CLUSCTL_NETWORK_GET_NAME                      = 0x05000029,
+  CLUSCTL_NETWORK_GET_ID                        = 0x05000039,
+  CLUSCTL_NETWORK_ENUM_COMMON_PROPERTIES        = 0x05000051,
+  CLUSCTL_NETWORK_GET_RO_COMMON_PROPERTIES      = 0x05000055,
+  CLUSCTL_NETWORK_GET_COMMON_PROPERTIES         = 0x05000059,
+  CLUSCTL_NETWORK_SET_COMMON_PROPERTIES         = 0x0540005e,
+  CLUSCTL_NETWORK_VALIDATE_COMMON_PROPERTIES    = 0x05000061,
+  CLUSCTL_NETWORK_ENUM_PRIVATE_PROPERTIES       = 0x05000079,
+  CLUSCTL_NETWORK_GET_RO_PRIVATE_PROPERTIES     = 0x0500007d,
+  CLUSCTL_NETWORK_GET_PRIVATE_PROPERTIES        = 0x05000081,
+  CLUSCTL_NETWORK_SET_PRIVATE_PROPERTIES        = 0x05400086,
+  CLUSCTL_NETWORK_VALIDATE_PRIVATE_PROPERTIES   = 0x05000089,
+  CLUSCTL_NETWORK_GET_COMMON_PROPERTY_FMTS      = 0x05000065,
+  CLUSCTL_NETWORK_GET_PRIVATE_PROPERTY_FMTS     = 0x0500008d 
+} CLUSCTL_NETWORK_CODES;
+
+typedef enum CLUSCTL_NODE_CODES {
+  CLUSCTL_NODE_UNKNOWN                            = 0x04000000,
+  CLUSCTL_NODE_GET_CHARACTERISTICS                = 0x04000005,
+  CLUSCTL_NODE_GET_FLAGS                          = 0x04000009,
+  CLUSCTL_NODE_GET_NAME                           = 0x04000029,
+  CLUSCTL_NODE_GET_ID                             = 0x04000039,
+  CLUSCTL_NODE_ENUM_COMMON_PROPERTIES             = 0x04000051,
+  CLUSCTL_NODE_GET_RO_COMMON_PROPERTIES           = 0x04000055,
+  CLUSCTL_NODE_GET_COMMON_PROPERTIES              = 0x04000059,
+  CLUSCTL_NODE_SET_COMMON_PROPERTIES              = 0x0440005e,
+  CLUSCTL_NODE_VALIDATE_COMMON_PROPERTIES         = 0x04000061,
+  CLUSCTL_NODE_ENUM_PRIVATE_PROPERTIES            = 0x04000079,
+  CLUSCTL_NODE_GET_RO_PRIVATE_PROPERTIES          = 0x0400007d,
+  CLUSCTL_NODE_GET_PRIVATE_PROPERTIES             = 0x04000081,
+  CLUSCTL_NODE_SET_PRIVATE_PROPERTIES             = 0x04400086,
+  CLUSCTL_NODE_VALIDATE_PRIVATE_PROPERTIES        = 0x04000089,
+  CLUSCTL_NODE_GET_COMMON_PROPERTY_FMTS           = 0x04000065,
+  CLUSCTL_NODE_GET_PRIVATE_PROPERTY_FMTS          = 0x0400008d,
+  CLUSCTL_NODE_GET_CLUSTER_SERVICE_ACCOUNT_NAME   = 0x04000041 
+} CLUSCTL_NODE_CODES;
+
+typedef enum _CLUSTER_REG_COMMAND {
+  CLUSREG_COMMAND_NONE       = 0,
+  CLUSREG_SET_VALUE          = 1,
+  CLUSREG_CREATE_KEY         = 2,
+  CLUSREG_DELETE_KEY         = 3,
+  CLUSREG_DELETE_VALUE       = 4,
+  CLUSREG_SET_KEY_SECURITY   = 5,
+  CLUSREG_VALUE_DELETED      = 6,
+  CLUSREG_LAST_COMMAND       = 7 
+} CLUSTER_REG_COMMAND;
+
+typedef enum CLUSTER_GROUP_STATE {
+  ClusterGroupStateUnknown    = -1,
+  ClusterGroupOnline          = 0,
+  ClusterGroupOffline         = 1,
+  ClusterGroupFailed          = 2,
+  ClusterGroupPartialOnline   = 3,
+  ClusterGroupPending         = 4 
+} CLUSTER_GROUP_STATE;
+
+typedef enum CLUSTER_QUORUM_TYPE {
+  OperationalQuorum   = 0,
+  ModifyQuorum        = 1 
+} CLUSTER_QUORUM_TYPE;
+
+typedef enum CLUSTER_RESOURCE_CLASS {
+  CLUS_RESCLASS_UNKNOWN   = 0,
+  CLUS_RESCLASS_STORAGE   = 1,
+  CLUS_RESCLASS_NETWORK   = 2,
+  CLUS_RESCLASS_USER      = 32768 
+} CLUSTER_RESOURCE_CLASS;
+
+typedef enum CLUSTER_RESOURCE_CREATE_FLAGS {
+  CLUSTER_RESOURCE_DEFAULT_MONITOR    = 0,
+  CLUSTER_RESOURCE_SEPARATE_MONITOR   = 1,
+  CLUSTER_RESOURCE_VALID_FLAGS        = 1 
+} CLUSTER_RESOURCE_CREATE_FLAGS;
+
+typedef enum _CLUSTER_SETUP_PHASE {
+  ClusterSetupPhaseInitialize                   = 1,
+  ClusterSetupPhaseValidateNodeState            = 100,
+  ClusterSetupPhaseValidateNetft                = 102,
+  ClusterSetupPhaseValidateClusDisk             = 103,
+  ClusterSetupPhaseConfigureClusSvc             = 104,
+  ClusterSetupPhaseStartingClusSvc              = 105,
+  ClusterSetupPhaseQueryClusterNameAccount      = 106,
+  ClusterSetupPhaseValidateClusterNameAccount   = 107,
+  ClusterSetupPhaseCreateClusterAccount         = 108,
+  ClusterSetupPhaseConfigureClusterAccount      = 109,
+  ClusterSetupPhaseFormingCluster               = 200,
+  ClusterSetupPhaseAddClusterProperties         = 201,
+  ClusterSetupPhaseCreateResourceTypes          = 202,
+  ClusterSetupPhaseCreateGroups                 = 203,
+  ClusterSetupPhaseCreateIPAddressResources     = 204,
+  ClusterSetupPhaseCreateNetworkName            = 205,
+  ClusterSetupPhaseClusterGroupOnline           = 206,
+  ClusterSetupPhaseGettingCurrentMembership     = 300,
+  ClusterSetupPhaseAddNodeToCluster             = 301,
+  ClusterSetupPhaseNodeUp                       = 302,
+  ClusterSetupPhaseMoveGroup                    = 400,
+  ClusterSetupPhaseDeleteGroup                  = 401,
+  ClusterSetupPhaseCleanupCOs                   = 402,
+  ClusterSetupPhaseOfflineGroup                 = 403,
+  ClusterSetupPhaseEvictNode                    = 404,
+  ClusterSetupPhaseCleanupNode                  = 405,
+  ClusterSetupPhaseCoreGroupCleanup             = 406,
+  ClusterSetupPhaseFailureCleanup               = 999 
+} CLUSTER_SETUP_PHASE;
+
+typedef enum _CLUSTER_SETUP_PHASE_TYPE {
+  ClusterSetupPhaseStart      = 1,
+  ClusterSetupPhaseContinue   = 2,
+  ClusterSetupPhaseEnd        = 3 
+} CLUSTER_SETUP_PHASE_TYPE;
+
+typedef enum _CLUSTER_SETUP_PHASE_SEVERITY {
+  ClusterSetupPhaseInformational   = 1,
+  ClusterSetupPhaseWarning         = 2,
+  ClusterSetupPhaseFatal           = 3 
+} CLUSTER_SETUP_PHASE_SEVERITY;
+
+typedef struct _CLUSPROP_FILETIME {
+  CLUSPROP_SYNTAX Syntax;
+  DWORD           cbLength;
+  FILETIME        ft;
+} CLUSPROP_FILETIME, *PCLUSPROP_FILETIME;
+
+typedef struct _CLUS_MAINTENANCE_MODE_INFOEX {
+  WINBOOL                    InMaintenance;
+  MAINTENANCE_MODE_TYPE_ENUM MaintainenceModeType;
+  CLUSTER_RESOURCE_STATE     InternalState;
+  DWORD                      Signature;
+} CLUS_MAINTENANCE_MODE_INFOEX, *PCLUS_MAINTENANCE_MODE_INFOEX;
+
+typedef struct CLUS_NETNAME_PWD_INFO {
+  DWORD Flags;
+  WCHAR Password[MAX_CO_PASSWORD_LENGTH];
+  WCHAR CreatingDC[MAX_CREATINGDC_LENGTH+2];
+  WCHAR ObjectGuid[MAX_OBJECTID];
+} CLUS_NETNAME_PWD_INFO, *PCLUS_NETNAME_PWD_INFO;
+
+typedef struct CLUS_NETNAME_VS_TOKEN_INFO {
+  DWORD   ProcessID;
+  DWORD   DesiredAccess;
+  WINBOOL InheritHandle;
+} CLUS_NETNAME_VS_TOKEN_INFO, *PCLUS_NETNAME_VS_TOKEN_INFO;
+
+typedef struct CLUS_PARTITION_INFO_EX {
+  DWORD          dwFlags;
+  WCHAR          szDeviceName[MAX_PATH];
+  WCHAR          szVolumeLabel[MAX_PATH];
+  DWORD          dwSerialNumber;
+  DWORD          rgdwMaximumComponentLength;
+  DWORD          dwFileSystemFlags;
+  WCHAR          szFileSystem[32];
+  ULARGE_INTEGER TotalSizeInBytes;
+  ULARGE_INTEGER FreeSizeInBytes;
+  DWORD          DeviceNumber;
+  DWORD          PartitionNumber;
+  GUID           VolumeGuid;
+} CLUS_PARTITION_INFO_EX, *PCLUS_PARTITION_INFO_EX;
+
+typedef struct _CLUS_PROVIDER_STATE_CHANGE_INFO {
+  DWORD                  dwSize;
+  CLUSTER_RESOURCE_STATE resourceState;
+  WCHAR                  szProviderId[1];
+} CLUS_PROVIDER_STATE_CHANGE_INFO, *PCLUS_PROVIDER_STATE_CHANGE_INFO;
+
+typedef struct _CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
+  DWORD AvailDrivelettersMask;
+} CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS, *PCLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS;
+
+typedef struct _CLUS_STORAGE_REMAP_DRIVELETTER {
+  DWORD CurrentDriveLetterMask;
+  DWORD TargetDriveLetterMask;
+} CLUS_STORAGE_REMAP_DRIVELETTER, *PCLUS_STORAGE_REMAP_DRIVELETTER;
+
+typedef struct _CLUS_STORAGE_SET_DRIVELETTER {
+  DWORD PartitionNumber;
+  DWORD DriveLetterMask;
+} CLUS_STORAGE_SET_DRIVELETTER, *PCLUS_STORAGE_SET_DRIVELETTER;
+
+typedef struct _CLUSPROP_PARTITION_INFO_EX {
+  CLUSPROP_SYNTAX Syntax;
+  DWORD           cbLength;
+  DWORD           dwFlags;
+  WCHAR           szDeviceName[MAX_PATH];
+  WCHAR           szVolumeLabel[MAX_PATH];
+  DWORD           dwSerialNumber;
+  DWORD           rgdwMaximumComponentLength;
+  DWORD           dwFileSystemFlags;
+  WCHAR           szFileSystem[32];
+  ULARGE_INTEGER  TotalSizeInBytes;
+  ULARGE_INTEGER  FreeSizeInBytes;
+  DWORD           DeviceNumber;
+  DWORD           PartitionNumber;
+  GUID            VolumeGuid;
+} CLUSPROP_PARTITION_INFO_EX, *PCLUSPROP_PARTITION_INFO_EX;
+
+typedef struct _CLUSTER_BATCH_COMMAND {
+  CLUSTER_REG_COMMAND Command;
+  DWORD               dwOptions;
+  LPCWSTR             wzName;
+  BYTE CONST *        lpData;
+  DWORD               cbData;
+} CLUSTER_BATCH_COMMAND;
+
+typedef struct _CLUSTER_IP_ENTRY {
+  PCWSTR lpszIpAddress;
+  DWORD  dwPrefixLength;
+} CLUSTER_IP_ENTRY, *PCLUSTER_IP_ENTRY;
+
+typedef struct _CREATE_CLUSTER_CONFIG {
+  DWORD             dwVersion;
+  PCWSTR            lpszClusterName;
+  DWORD             cNodes;
+  PCWSTR            *ppszNodeNames;
+  DWORD             cIpEntries;
+  PCLUSTER_IP_ENTRY pIpEntries;
+  BOOLEAN           fEmptyCluster;
+} CREATE_CLUSTER_CONFIG, *PCREATE_CLUSTER_CONFIG;
+
+typedef struct _CLUSTER_VALIDATE_DIRECTORY {
+  WCHAR szPath[];
+} CLUSTER_VALIDATE_DIRECTORY, *PCLUSTER_VALIDATE_DIRECTORY;
+
+typedef struct _CLUSTER_VALIDATE_NETNAME {
+  WCHAR szNetworkName[];
+} CLUSTER_VALIDATE_NETNAME, *PCLUSTER_VALIDATE_NETNAME;
+
+typedef struct _CLUSTER_VALIDATE_PATH {
+  WCHAR szPath[];
+} CLUSTER_VALIDATE_PATH, *PCLUSTER_VALIDATE_PATH;
+
+typedef LPVOID HREGBATCH;
+typedef LPVOID HREGBATCHPORT;
+typedef LPVOID HREGBATCHNOTIFICATION;
+
+LONG ClusterRegBatchAddCommand(
+  HREGBATCH hRegBatch,
+  CLUSTER_REG_COMMAND dwCommand,
+  LPCWSTR wzName,
+  DWORD dwOptions,
+  VOID CONST *lpData,
+  DWORD cbData
+);
+
+LONG WINAPI ClusterRegBatchCloseNotification(
+  HREGBATCHNOTIFICATION hBatchNotification
+);
+
+LONG WINAPI ClusterRegBatchReadCommand(
+  HREGBATCHNOTIFICATION hBatchNotification,
+  CLUSTER_BATCH_COMMAND *pBatchCommand
+);
+
+LONG WINAPI ClusterRegCloseBatch(
+  HREGBATCH hRegBatch,
+  WINBOOL bCommit,
+  INT *failedCommandNumber
+);
+
+LONG WINAPI ClusterRegCloseBatchNotifyPort(
+  HREGBATCHPORT hBatchNotifyPort
+);
+
+typedef LONG (WINAPI *PCLUSTER_REG_CREATE_BATCH)(
+  HKEY hKey,
+  HREGBATCH *pHREGBATCH
+);
+
+LONG WINAPI ClusterRegCreateBatch(
+  HKEY hKey,
+  HREGBATCH *pHREGBATCH
+);
+
+typedef LONG (WINAPI *PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT)(
+  HKEY hKey,
+  HREGBATCHPORT *phBatchNotifyPort
+);
+
+LONG WINAPI ClusterRegCreateBatchNotifyPort(
+  HKEY hKey,
+  HREGBATCHPORT *phBatchNotifyPort
+);
+
+typedef LONG (WINAPI *PCLUSTER_REG_GET_BATCH_NOTIFICATION)(
+  HREGBATCHPORT hBatchNotify,
+  HREGBATCHNOTIFICATION *phBatchNotification
+);
+
+LONG WINAPI ClusterRegGetBatchNotification(
+  HREGBATCHPORT hBatchNotify,
+  HREGBATCHNOTIFICATION *phBatchNotification
+);
+
+typedef WINBOOL (WINAPI *PCLUSTER_SETUP_PROGRESS_CALLBACK)( 
+  PVOID pvCallbackArg,
+  CLUSTER_SETUP_PHASE eSetupPhase,
+  CLUSTER_SETUP_PHASE_TYPE ePhaseType,
+  CLUSTER_SETUP_PHASE_SEVERITY ePhaseSeverity,
+  DWORD dwPercentComplete,
+  PCWSTR lpszObjectName,
+  DWORD dwStatus
+);
+
+HNODE WINAPI AddClusterNode(
+  HCLUSTER hCluster,
+  PCWSTR lpszNodeName,
+  PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback,
+  PVOID pvCallbackArg
+);
+
+DWORD WINAPI DestroyCluster(
+  HCLUSTER hCluster,
+  PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback,
+  PVOID pvCallbackArg,
+  WINBOOL fdeleteVirtualComputerObjects
+);
+
+HCLUSTER WINAPI CreateCluster(
+  PCREATE_CLUSTER_CONFIG pConfig,
+  PCLUSTER_SETUP_PROGRESS_CALLBACK pfnProgressCallback,
+  PVOID pvCallbackArg
+);
+
+DWORD DestroyClusterGroup(
+  HGROUP hGroup
+);
+
+#endif /* (_WIN32_WINNT >= 0x0600) */
+
 #ifdef __cplusplus
 }
 #endif

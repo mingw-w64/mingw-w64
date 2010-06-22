@@ -1,3 +1,59 @@
+2010-06-22  Jonathan Yong  <jon_y@sourceforge.net>
+	* clusapi.h (PCLUSAPI_OPEN_CLUSTER): Declare.
+	(FS_CASE_SENSITIVE): Define.
+	(FS_CASE_IS_PRESERVED): Likewise.
+	(FS_UNICODE_STORED_ON_DISK): Likewise.
+	(FS_PERSISTENT_ACLS): Likewise.
+	(MAINTENANCE_MODE_TYPE_ENUM): Declare.
+	(CLUSCTL_CLUSTER_CODES): Likewise.
+	(CLUSCTL_GROUP_CODES): Likewise.
+	(CLUSCTL_NETINTERFACE_CODES): Likewise.
+	(CLUSCTL_NETWORK_CODES): Likewise.
+	(CLUSCTL_NODE_CODES): Likewise.
+	(CLUSTER_REG_COMMAND): Likewise.
+	(CLUSTER_GROUP_STATE): Likewise.
+	(CLUSTER_QUORUM_TYPE): Likewise.
+	(CLUSTER_RESOURCE_CLASS): Likewise.
+	(CLUSTER_RESOURCE_CREATE_FLAGS): Likewise.
+	(CLUSTER_SETUP_PHASE): Likewise.
+	(CLUSTER_SETUP_PHASE_TYPE): Likewise.
+	(CLUSTER_SETUP_PHASE_SEVERITY): Likewise.
+	(CLUSPROP_FILETIME): Likewise.
+	(CLUS_MAINTENANCE_MODE_INFOEX): Likewise.
+	(CLUS_NETNAME_PWD_INFO): Likewise.
+	(CLUS_NETNAME_VS_TOKEN_INFO): Likewise.
+	(CLUS_PARTITION_INFO_EX): Likewise.
+	(CLUS_PROVIDER_STATE_CHANGE_INFO): Likewise.
+	(CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS): Likewise.
+	(CLUS_STORAGE_REMAP_DRIVELETTER): Likewise.
+	(CLUS_STORAGE_SET_DRIVELETTER): Likewise.
+	(CLUSPROP_PARTITION_INFO_EX): Likewise.
+	(CLUSTER_BATCH_COMMAND): Likewise.
+	(CLUSTER_IP_ENTRY): Likewise.
+	(CREATE_CLUSTER_CONFIG): Likewise.
+	(CLUSTER_VALIDATE_DIRECTORY): Likewise.
+	(CLUSTER_VALIDATE_NETNAME): Likewise.
+	(CLUSTER_VALIDATE_PATH): Likewise.
+	(HREGBATCH): Likewise.
+	(HREGBATCHPORT): Likewise.
+	(HREGBATCHNOTIFICATION): Likewise.
+	(ClusterRegBatchAddCommand): Likewise.
+	(ClusterRegBatchCloseNotification): Likewise.
+	(ClusterRegBatchReadCommand): Likewise.
+	(ClusterRegCloseBatch): Likewise.
+	(ClusterRegCloseBatchNotifyPort): Likewise.
+	(PCLUSTER_REG_CREATE_BATCH): Likewise.
+	(ClusterRegCreateBatch): Likewise.
+	(PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT): Likewise.
+	(ClusterRegCreateBatchNotifyPort): Likewise.
+	(PCLUSTER_REG_GET_BATCH_NOTIFICATION): Likewise.
+	(ClusterRegGetBatchNotification): Likewise.
+	(PCLUSTER_SETUP_PROGRESS_CALLBACK): Likewise.
+	(AddClusterNode): Likewise.
+	(DestroyCluster): Likewise.
+	(CreateCluster): Likewise.
+	(DestroyClusterGroup): Likewise.
+
 2010-06-18  Doug Semler  <dougsemler@gmail.com>
 
 	* accctrl.h: Include new _mingw_unicode.h for Unicode macros.
