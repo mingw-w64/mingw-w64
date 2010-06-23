@@ -247,9 +247,11 @@
 #define D3DGETDATA_FLUSH	0x01
 #define D3DRTYPECOUNT	(D3DRTYPE_INDEXBUFFER+1)
 
+#ifndef MAKEFOURCC
 #define MAKEFOURCC(a,b,c,d)  \
 	((DWORD)(BYTE)(a) | ((DWORD)(BYTE)(b) << 8) |  \
 	((DWORD)(BYTE)(c) << 16) | ((DWORD)(BYTE)(d) << 24 ))
+#endif /* MAKEFOURCC */
 
 typedef DWORD D3DCOLOR;
 

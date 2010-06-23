@@ -63,9 +63,11 @@ extern "C" {
 #define TIME_MIDI 0x0010
 #define TIME_TICKS 0x0020
 
+#ifndef MAKEFOURCC
 #define MAKEFOURCC(ch0,ch1,ch2,ch3)				\
   ((DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8) | 		\
    ((DWORD)(BYTE)(ch2) << 16) | ((DWORD)(BYTE)(ch3) << 24))
+#endif /* MAKEFOURCC */
 
 #define MM_JOY1MOVE 0x3A0
 #define MM_JOY2MOVE 0x3A1

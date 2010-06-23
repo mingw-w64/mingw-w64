@@ -1,3 +1,7 @@
+2010-06-23  Ozkan Sezer <sezeroz@gmail.com>
+
+	* mmsystem.h (MAKEFOURCC): Added ifdef guards.
+
 2010-06-22  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Backport from the trunk:

@@ -1,3 +1,10 @@
+2010-06-23  Ozkan Sezer <sezeroz@gmail.com>
+
+	* ddraw.h (MAKEFOURCC): Changed ifdef guard from __MAKEFOURCC__DEFINED__
+	to simply MAKEFOURCC.
+	* d3d9types.h (MAKEFOURCC): Likewise.
+	* d3d8types.h (MAKEFOURCC): Added ifdef guards.
+
 2010-06-21  Jonathan Yong  <jon_y@sourceforge.net>
 
 	Silence some warnings
