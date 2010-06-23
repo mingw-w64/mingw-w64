@@ -12,6 +12,7 @@
 #  define DUMMYUNIONNAME3 u3
 #  define DUMMYUNIONNAME4 u4
 #  define DUMMYUNIONNAME5 u5
+#  define DUMMYUNIONNAMEX(X) u##X
 # else /* NONAMELESSUNION */
 #  define DUMMYUNIONNAME
 #  define DUMMYUNIONNAME1
@@ -19,6 +20,7 @@
 #  define DUMMYUNIONNAME3
 #  define DUMMYUNIONNAME4
 #  define DUMMYUNIONNAME5
+#  define DUMMYUNIONNAMEX(X)
 # endif
 #endif	/* DUMMYUNIONNAME */
 
@@ -30,6 +32,7 @@
 #  define DUMMYSTRUCTNAME3 s3
 #  define DUMMYSTRUCTNAME4 s4
 #  define DUMMYSTRUCTNAME5 s5
+#  define DUMMYSTRUCTNAMEX(X) s##X
 # else
 #  define DUMMYSTRUCTNAME
 #  define DUMMYSTRUCTNAME1
@@ -37,9 +40,9 @@
 #  define DUMMYSTRUCTNAME3
 #  define DUMMYSTRUCTNAME4
 #  define DUMMYSTRUCTNAME5
+#  define DUMMYSTRUCTNAMEX(X)
 # endif
 #endif /* DUMMYSTRUCTNAME */
-
 
 /* These are for compatibility with the Wine source tree */
 

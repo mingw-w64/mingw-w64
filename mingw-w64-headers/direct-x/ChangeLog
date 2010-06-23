@@ -1,5 +1,6 @@
 2010-06-23  Ozkan Sezer <sezeroz@gmail.com>
 
+	* _mingw_dxhelper.h: Updated DUMMYSTRUCTNAME* macros from _mingw.h.
 	* ddraw.h (MAKEFOURCC): Changed ifdef guard from __MAKEFOURCC__DEFINED__
 	to simply MAKEFOURCC.
 	* d3d9types.h (MAKEFOURCC): Likewise.
