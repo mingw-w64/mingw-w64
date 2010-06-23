@@ -1,3 +1,8 @@
+2010-06-23  Ozkan Sezer <sezeroz@gmail.com>
+
+	* mmsystem.h (MAKEFOURCC): Changed ifdef guard from __MAKEFOURCC__DEFINED__
+	to simply MAKEFOURCC.
+
 2010-06-22  Jacek Caban  <jacek@codeweavers.com>
 	* coerror.h, fusion.h, mscat.h, mscoree.h, optary.h: Initial import from Wine.
 	* wincodec.h, winhttp.h, xmllite.h: Likewise.

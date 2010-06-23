@@ -1,3 +1,10 @@
+2010-06-23  Ozkan Sezer <sezeroz@gmail.com>
+
+	* ddraw.h (MAKEFOURCC): Changed ifdef guard from __MAKEFOURCC__DEFINED__
+	to simply MAKEFOURCC.
+	* d3d9types.h (MAKEFOURCC): Likewise.
+	* d3d8types.h (MAKEFOURCC): Added ifdef guards.
+
 2010-06-22  Jacek Caban  <jacek@codeweavers.com>
 	* d3d10.h, d3d10.idl, d3deffect.h, d3d10misc.h, d3d10shader.h: Initial import from Wine.
 	* dxgi.h, dxgi.idl, dxgitype.h, dxgitype.idl, xinput.h: Likewise.
