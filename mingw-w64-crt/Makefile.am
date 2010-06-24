@@ -382,7 +382,8 @@ lib32_DATA = \
   lib32/libevr.a       lib32/libiscsidsc.a lib32/libktmw32.a     lib32/libmf.a        \
   lib32/libmfplat.a    lib32/libmsdrm.a    lib32/libncrypt.a     lib32/libntdsapi.a   \
   lib32/libntmsapi.a   lib32/libspoolss.a  lib32/libsxs.a        lib32/libwecapi.a    \
-  lib32/libwevtapi.a   lib32/libwevtfwd.a
+  lib32/libwevtapi.a   lib32/libwevtfwd.a  lib32/libfwpuclnt.a   lib32/libmstask.a    \
+  lib32/libqutil.a     lib32/libconnect.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -943,7 +944,8 @@ lib64_DATA = \
   lib64/libbcrypt.a     lib64/libbthprops.a   lib64/libdhcpcsvc6.a   lib64/libdxva2.a       lib64/libeappcfg.a       \
   lib64/libeappgnui.a   lib64/libeapphost.a   lib64/libeappprxy.a    lib64/libevr.a         lib64/libiscsidsc.a      \
   lib64/libktmw32.a     lib64/libmf.a         lib64/libmfplat.a      lib64/libmsdrm.a       lib64/libncrypt.a        \
-  lib64/libwecapi.a     lib64/libwevtapi.a    lib64/libwevtfwd.a
+  lib64/libwecapi.a     lib64/libwevtapi.a    lib64/libwevtfwd.a     lib64/libqutil.a       lib64/libconnect.a       \
+  lib64/libfwpuclnt.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll
