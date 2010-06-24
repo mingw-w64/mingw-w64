@@ -1,3 +1,44 @@
+2010-06-24  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merge from the trunk:
+
+	2010-06-24  Mook  <mook.gcc@gmail.com> (rev. 2614)
+	* lib32/crypt32.def: Fix @<n> suffixes
+	(CertCreateContext): 28 to 24.
+	(CertEnumSubjectInSortedCTL): 20 to 16.
+	(CertGetCRLFromStore): 24 to 16.
+	(CertGetIssuerCertificateFromStore): 12 to 16.
+	(CertGetStoreProperty): none to 16.
+	(CertRDNValueToStrW): 8 to 16.
+	(CertRegisterSystemStore): 8 to 16.
+	(CertSaveStore): 16 to 24.
+	(CertUnregisterPhysicalStore): none to 12.
+	(CertVerifyCRLTimeValidity): 36 to 8.
+	(CryptCreateKeyIdentifierFromCSP): 12 to 32.
+	(CryptEnumOIDFunction): 8 to 24.
+	(CryptEnumOIDInfo): 12 to 16.
+	(CryptExportPublicKeyInfoEx): 12 to 32.
+	(CryptFindLocalizedName): 36 to 4.
+	(CryptGetOIDFunctionValue): 12 to 28.
+	(CryptInstallDefaultContext): 20 to 24.
+	(CryptMemFree): none to 4.
+	(CryptMsgCalculateEncodedLength): 20 to 24.
+	(CryptMsgCountersignEncoded): 20 to 28.
+	(CryptMsgEncodeAndSignCTL): none to 24.
+	(CryptMsgGetParam): 16 to 20.
+	(CryptMsgOpenToEncode): 12 to 24.
+	(CryptMsgSignCTL): 36 to 28.
+	(CryptSIPCreateIndirectData): 20 to 12.
+	(CryptSIPPutSignedDataMsg): 4 to 20.
+	(CryptSIPRemoveProvider): 16 to 4.
+	(CryptSIPRemoveSignedDataMsg): 4 to 8.
+	(CryptSIPRetrieveSubjectGuidForCatalogFile): 20 to 12.
+	(CryptSetOIDFunctionValue): 12 to 28.
+	(CryptSignAndEncryptMessage): 28 to 32.
+	(CryptSignMessageWithKey): 28 to 20.
+	(CryptUnregisterDefaultOIDFunction): 16 to 12.
+	(CryptVerifyMessageSignatureWithKey): 20 to 24.
+
 2010-06-17  Doug Semler  <dougsemler@gmail.com>
 
 	* Makefile.am (CFLAGS32): New 32-bit specific flags.
