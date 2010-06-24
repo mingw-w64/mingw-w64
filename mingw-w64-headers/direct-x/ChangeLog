@@ -1,3 +1,7 @@
+2010-06-24  Ozkan Sezer <sezeroz@gmail.com>
+
+	* d3dx9.h: Update from wine svn.
+
 2010-06-23  Ozkan Sezer <sezeroz@gmail.com>
 
 	* _mingw_dxhelper.h: Updated DUMMYSTRUCTNAME* macros from _mingw.h.
