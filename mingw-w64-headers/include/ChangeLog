@@ -1,3 +1,10 @@
+2010-06-24  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk: (VER_SUITE_WH_SERVER and PRODUCT_* parts
+	of rev. 1970)
+	2010-03-03  Roland Schwingel  <roland.schwingel@onevision.com>
+	* include/winnt.h: Add a lot of missing definitions from MSDN.
+
 2010-06-23  Doug Semler  <dougsemler@gmail.com>
 
 	* GL/gl.h: Use APIENTRY instead of WINAPI.
