@@ -6,6 +6,9 @@
 	* d3d9types.h (MAKEFOURCC): Likewise.
 	* d3d8types.h (MAKEFOURCC): Added ifdef guards.
 
+2010-06-22  Jacek Caban  <jacek@codeweavers.com> 
+	* downloadmgr.idl, downloadmgr.h: Moved to IDL SDK.
+
 2010-06-21  Jonathan Yong  <jon_y@sourceforge.net>
 
 	Silence some warnings
