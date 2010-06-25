@@ -1,3 +1,6 @@
+2010-06-25  Jacek Caban <jacek@codeweavers.com>
+	* lib32/gdi32.def: Added some missing entries.
+
 2010-06-24  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* lib64/qutil.def: New.

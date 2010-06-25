@@ -48,6 +48,8 @@ CreateEnhMetaFileA@16
 CreateEnhMetaFileW@16
 CreateFontA@56
 CreateFontIndirectA@4
+CreateFontIndirectExA@4
+CreateFontIndirectExW@4
 CreateFontIndirectW@4
 CreateFontW@56
 CreateHalftonePalette@4
@@ -80,6 +82,7 @@ DeviceCapabilitiesExA@24
 DeviceCapabilitiesExW@24
 DrawEscape@16
 Ellipse@20
+EnableEUDC@4
 EndDoc@4
 EndPage@4
 EndPath@4
@@ -109,14 +112,29 @@ FillRgn@12
 FixBrushOrgEx@16
 FlattenPath@4
 FloodFill@16
+FontIsLinked@4
 FrameRgn@20
+GdiAlphaBlend@44
 GdiComment@12
+GdiConvertToDevmodeW@4
+GdiEntry13@0 ; alias for DdQueryDisplaySettingsUniqueness
 GdiFlush@0
 GdiGetBatchLimit@0
+GdiGetCharDimensions@12
+GdiGetCodePage@4
+GdiGetSpoolMessage@16
+GdiGradientFill@24
+GdiInitSpool@0
+GdiInitializeLanguagePack@4
+GdiIsMetaFileDC@4
+GdiIsMetaPrintDC@4
+GdiIsPlayMetafileDC@4
 GdiPlayDCScript@24
 GdiPlayJournal@20
 GdiPlayScript@28
+GdiRealizationInfo@8
 GdiSetBatchLimit@4
+GdiTransparentBlt@44
 GetArcDirection@4
 GetAspectRatioFilterEx@8
 GetBitmapBits@12
@@ -128,12 +146,14 @@ GetBrushOrgEx@8
 GetCharABCWidthsA@16
 GetCharABCWidthsFloatA@16
 GetCharABCWidthsFloatW@16
+GetCharABCWidthsI@20
 GetCharABCWidthsW@16
 GetCharWidth32A@16
 GetCharWidth32W@16
 GetCharWidthA@16
 GetCharWidthFloatA@16
 GetCharWidthFloatW@16
+GetCharWidthI@20
 GetCharWidthW@16
 GetCharacterPlacementA@24
 GetCharacterPlacementW@24
@@ -175,6 +195,7 @@ GetICMProfileW@12
 GetKerningPairs@12
 GetKerningPairsA@12
 GetKerningPairsW@12
+GetLayout@4
 GetLogColorSpaceA@12
 GetLogColorSpaceW@12
 GetMapMode@4
@@ -216,11 +237,13 @@ GetTextExtentExPointI@28
 GetTextExtentPoint32A@16
 GetTextExtentPoint32W@16
 GetTextExtentPointA@16
+GetTextExtentPointI@16
 GetTextExtentPointW@16
 GetTextFaceA@12
 GetTextFaceW@12
 GetTextMetricsA@8
 GetTextMetricsW@8
+GetTransform@12
 GetViewportExtEx@8
 GetViewportOrgEx@8
 GetWinMetaFileBits@20
@@ -235,6 +258,7 @@ LineTo@12
 MaskBlt@48
 ModifyWorldTransform@12
 MoveToEx@16
+NamedEscape@28
 OffsetClipRgn@12
 OffsetRgn@12
 OffsetViewportOrgEx@16
@@ -305,6 +329,8 @@ SetGraphicsMode@8
 SetICMMode@8
 SetICMProfileA@8
 SetICMProfileW@8
+SetLayout@8
+SetMagicColors@12
 SetMapMode@8
 SetMapperFlags@8
 SetMetaFileBitsEx@8
@@ -326,6 +352,7 @@ SetTextColor@8
 SetTextJustification@12
 SetViewportExtEx@16
 SetViewportOrgEx@16
+SetVirtualResolution@20
 SetWinMetaFileBits@16
 SetWindowExtEx@16
 SetWindowOrgEx@16
@@ -347,4 +374,3 @@ UpdateICMRegKeyA@16
 UpdateICMRegKeyW@16
 WidenPath@4
 gdiPlaySpoolStream@24
-SetLayout@8
