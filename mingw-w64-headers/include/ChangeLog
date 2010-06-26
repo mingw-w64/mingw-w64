@@ -1,3 +1,7 @@
+2010-06-25  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h, ksmedia.h, ksproxy.h, ksuuids.h: Re-format.
+
 2010-06-24  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Backport from the trunk: (VER_SUITE_WH_SERVER and PRODUCT_* parts
