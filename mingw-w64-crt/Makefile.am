@@ -107,17 +107,19 @@ src_libmingwex=\
   intrincs/__stosb.c    intrincs/__stosw.c     intrincs/__stosd.c     \
   intrincs/currentteb.c intrincs/currentfiber.c intrincs/fiberdata.c  \
   \
-  complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosh.c \
-  complex/cacoshf.c  complex/cacoshl.c  complex/cacosl.c  complex/carg.c     complex/cargf.c    complex/cargl.c  \
-  complex/casin.c    complex/casinf.c   complex/casinh.c  complex/casinhf.c  complex/casinhl.c  complex/casinl.c \
-  complex/catan.c    complex/catanf.c   complex/catanh.c  complex/catanhf.c  complex/catanhl.c  complex/catanl.c \
-  complex/ccos.c     complex/ccosf.c    complex/ccosh.c   complex/ccoshf.c   complex/ccoshl.c   complex/ccosl.c  \
-  complex/cexp.c     complex/cexpf.c    complex/cexpl.c   complex/cimag.c    complex/cimagf.c   complex/cimagl.c \
-  complex/clog.c     complex/clogf.c    complex/clogl.c   complex/cpow.c     complex/cpowf.c    complex/cpowl.c  \
-  complex/cproj.c    complex/cprojf.c   complex/cprojl.c  complex/creal.c    complex/crealf.c   complex/creall.c \
-  complex/csin.c     complex/csinf.c    complex/csinh.c   complex/csinhf.c   complex/csinhl.c   complex/csinl.c  \
-  complex/csqrt.c    complex/csqrtf.c   complex/csqrtl.c  complex/ctan.c     complex/ctanf.c    complex/ctanh.c  \
-  complex/ctanhf.c   complex/ctanhl.c   complex/ctanl.c   \
+  new_complex/cabs.c   new_complex/cabsf.c   new_complex/cabsl.c   new_complex/cacos.c  new_complex/cacosf.c  new_complex/cacosl.c \
+  new_complex/carg.c   new_complex/cargf.c   new_complex/cargl.c   new_complex/casin.c  new_complex/casinf.c  new_complex/casinl.c \
+  new_complex/catan.c  new_complex/catanf.c  new_complex/catanl.c  new_complex/ccos.c   new_complex/ccosf.c   new_complex/ccosl.c  \
+  new_complex/cexp.c   new_complex/cexpf.c   new_complex/cexpl.c   new_complex/cimag.c  new_complex/cimagf.c  new_complex/cimagl.c \
+  new_complex/clog.c   new_complex/clogf.c   new_complex/clogl.c   new_complex/conj.c   new_complex/conjf.c   new_complex/conjl.c  \
+  new_complex/cpow.c   new_complex/cpowf.c   new_complex/cpowl.c   new_complex/cproj.c  new_complex/cprojf.c  new_complex/cprojl.c \
+  new_complex/creal.c  new_complex/crealf.c  new_complex/creall.c  new_complex/csin.c   new_complex/csinf.c   new_complex/csinl.c  \
+  new_complex/csqrt.c  new_complex/csqrtf.c  new_complex/csqrtl.c  new_complex/ctan.c   new_complex/ctanf.c   new_complex/ctanl.c  \
+  new_complex/cabs.def.h    new_complex/cacos.def.h  new_complex/cacosh.def.h  new_complex/carg.def.h          new_complex/casin.def.h \
+  new_complex/casinh.def.h  new_complex/catan.def.h  new_complex/catanh.def.h  new_complex/ccos.def.h          new_complex/ccosh.def.h \
+  new_complex/cexp.def.h    new_complex/cimag.def.h  new_complex/clog.def.h    new_complex/complex_internal.h  new_complex/conj.def.h  \
+  new_complex/cpow.def.h    new_complex/cproj.def.h  new_complex/creal.def.h   new_complex/csin.def.h          new_complex/csinh.def.h \
+  new_complex/csqrt.def.h   new_complex/ctan.def.h   new_complex/ctanh.def.h   \
   \
   gdtoa/gd_arith.h  gdtoa/gd_qnan.h  gdtoa/gdtoa.h  gdtoa/gdtoaimp.h \
   gdtoa/arithchk.c  gdtoa/dmisc.c    gdtoa/dtoa.c   gdtoa/g_dfmt.c   gdtoa/gdtoa.c      gdtoa/gethex.c     \

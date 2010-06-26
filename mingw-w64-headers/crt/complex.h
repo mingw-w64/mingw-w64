@@ -137,12 +137,13 @@ __CRT_INLINE double _Complex __MINGW_ATTRIB_CONST conj (double _Complex _Z)
 
 __CRT_INLINE  double __MINGW_ATTRIB_CONST carg (double _Complex _Z)
 {
-  double res;
-  __asm__ __volatile__ ("fpatan;"
-	   : "=t" (res) : "0" (__real__ _Z), "u" (__imag__ _Z) : "st(1)");
-  return res;
+  return atan2 (__imag__ _Z, __real__ _Z);
 }
 
+__CRT_INLINE double __MINGW_ATTRIB_CONST cabs (double _Complex _Z)
+{
+  return hypot (__real__ _Z, __imag__ _Z);
+}
 
 /* float */
 __CRT_INLINE float __MINGW_ATTRIB_CONST crealf (float _Complex _Z)
@@ -162,10 +163,12 @@ __CRT_INLINE float _Complex __MINGW_ATTRIB_CONST conjf (float _Complex _Z)
 
 __CRT_INLINE  float __MINGW_ATTRIB_CONST cargf (float _Complex _Z)
 {
-  float res;
-  __asm__  __volatile__ ("fpatan;"
-	   : "=t" (res) : "0" (__real__ _Z), "u" (__imag__ _Z) : "st(1)");
-  return res;
+  return atan2f (__imag__ _Z, __real__ _Z);
+}
+
+__CRT_INLINE float __MINGW_ATTRIB_CONST cabsf (float _Complex _Z)
+{
+  return hypotf (__real__ _Z, __imag__ _Z);
 }
 
 /* long double */
@@ -186,10 +189,12 @@ __CRT_INLINE long double _Complex __MINGW_ATTRIB_CONST conjl (long double _Compl
 
 __CRT_INLINE  long double __MINGW_ATTRIB_CONST cargl (long double _Complex _Z)
 {
-  long double res;
-  __asm__ __volatile__ ("fpatan;"
-	   : "=t" (res) : "0" (__real__ _Z), "u" (__imag__ _Z) : "st(1)");
-  return res;
+  return atan2l (__imag__ _Z, __real__ _Z);
+}
+
+__CRT_INLINE long double __MINGW_ATTRIB_CONST cabsl (long double _Complex _Z)
+{
+  return hypotl (__real__ _Z, __imag__ _Z);
 }
 #endif /* !__CRT__NO_INLINE */
 #endif /* __GNUC__ */

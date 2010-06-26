@@ -1,3 +1,8 @@
+2010-06-26  Doug Semler  <dougsemler@gmail.com>
+
+	* complex.h (cabs, cabsf, cabsl): New inlines to match new complex.
+	  (carg, cargl, cargf): Make the inlines match the new complex library.
+
 2010-06-18  Doug Semler  <dougsemler@gmail.com>
 
 	* _mingw_mac.h: Move Unicode macro definitions to _mingw_unicode.h
