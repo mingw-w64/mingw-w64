@@ -1,3 +1,7 @@
+2010-06-25  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h, ksmedia.h, ksproxy.h, ksuuids.h: Re-format.
+
 2010-06-23  Doug Semler  <dougsemler@gmail.com>
 
 	* GL/gl.h: Use APIENTRY instead of WINAPI.
