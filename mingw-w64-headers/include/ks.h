@@ -1142,7 +1142,11 @@ typedef struct {
     ULONG OptionsFlags;
     ULONG RequirementsFlags;
   };
+#if defined(_NTDDK_)
+  POOL_TYPE PoolType;
+#else
   ULONG PoolType;
+#endif /* _NTDDK_ */
   ULONG Frames;
   ULONG FrameSize;
   ULONG FileAlignment;
