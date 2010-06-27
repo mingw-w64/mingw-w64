@@ -1,5 +1,11 @@
 2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ks.h (KSALLOCATOR_FRAMING): Use POOL_TYPE as the type for
+	PoolType member if _NTDDK_ is defined, because the POOL_TYPE
+	enum is provided by the ddk.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* ks.h (_KS_ANON_STRUCT): New helper macro for adding names to
 	structs accroding to _KS_NO_ANONYMOUS_STRUCTURES_ being defined.
 	(KSIDENTIFIER): Use _KS_ANON_STRUCT().
