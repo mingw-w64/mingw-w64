@@ -1,3 +1,11 @@
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (_KS_ANON_STRUCT): New helper macro for adding names to
+	structs accroding to _KS_NO_ANONYMOUS_STRUCTURES_ being defined.
+	(KSIDENTIFIER): Use _KS_ANON_STRUCT().
+	(KSPROPERTY_BOUNDS_LONG): Likewise.
+	(KSPROPERTY_BOUNDS_LONGLONG): Likewise.
+
 2010-06-25  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ks.h, ksmedia.h, ksproxy.h, ksuuids.h: Re-format.
