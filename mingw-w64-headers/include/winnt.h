@@ -77,7 +77,11 @@ extern "C" {
 #define PROBE_ALIGNMENT(_s) TYPE_ALIGNMENT(DWORD)
 #endif
 
-#define C_ASSERT(e) typedef char __C_ASSERT__[(e)?1:-1]
+#if defined(_MSC_VER)
+# define C_ASSERT(e) typedef char __C_ASSERT__[(e)?1:-1]
+#else
+# define C_ASSERT(e) extern void __C_ASSERT__(int [(e)?1:-1])
+#endif
 
 #include <basetsd.h>
 
