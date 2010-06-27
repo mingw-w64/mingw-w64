@@ -1,5 +1,10 @@
 2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ks.h (KSPROPERTY_CLOCK_FUNCTIONTABLE): Add to KSPROPERTY_CLOCK for DDK.
+	(see http://msdn.microsoft.com/en-us/library/ff564466(v=VS.85).aspx)
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* ks.h (KSALLOCATOR_FRAMING): Use POOL_TYPE as the type for
 	PoolType member if _NTDDK_ is defined, because the POOL_TYPE
 	enum is provided by the ddk.
