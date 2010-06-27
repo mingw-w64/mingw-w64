@@ -35,7 +35,12 @@ hypotl (long double x, long double y)
   long double xx =fabsl(x);
   long double yy =fabsl(y);
   if (!isfinite(xx) || !isfinite(yy))
-    return  xx + yy; /* Return INF or NAN. */
+    {
+      /* Annex F.9.4.3, hypot returns +infinity if
+         either component is an infinity, even when the
+         other compoent is NaN.  */
+      return (isinf(xx) || isinf(yy)) ? INFINITY : NAN;
+    }
 
   if (xx == 0.0L)
      return yy;
