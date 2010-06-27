@@ -2447,7 +2447,8 @@ src_libmingwex32 = \
 @LIB32_TRUE@  lib32/libmfplat.a    lib32/libmsdrm.a    lib32/libncrypt.a     lib32/libntdsapi.a   \
 @LIB32_TRUE@  lib32/libntmsapi.a   lib32/libspoolss.a  lib32/libsxs.a        lib32/libwecapi.a    \
 @LIB32_TRUE@  lib32/libwevtapi.a   lib32/libwevtfwd.a  lib32/libfwpuclnt.a   lib32/libmstask.a    \
-@LIB32_TRUE@  lib32/libqutil.a     lib32/libconnect.a  lib32/libesent.a      lib32/libhttpapi.a
+@LIB32_TRUE@  lib32/libqutil.a     lib32/libconnect.a  lib32/libesent.a      lib32/libhttpapi.a	\
+@LIB32_TRUE@  lib32/libpdh.a	lib32/libpdhui.a
 
 
 # End 32-bit runtime

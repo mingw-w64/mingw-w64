@@ -385,7 +385,8 @@ lib32_DATA = \
   lib32/libmfplat.a    lib32/libmsdrm.a    lib32/libncrypt.a     lib32/libntdsapi.a   \
   lib32/libntmsapi.a   lib32/libspoolss.a  lib32/libsxs.a        lib32/libwecapi.a    \
   lib32/libwevtapi.a   lib32/libwevtfwd.a  lib32/libfwpuclnt.a   lib32/libmstask.a    \
-  lib32/libqutil.a     lib32/libconnect.a  lib32/libesent.a      lib32/libhttpapi.a
+  lib32/libqutil.a     lib32/libconnect.a  lib32/libesent.a      lib32/libhttpapi.a	\
+  lib32/libpdh.a	lib32/libpdhui.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/

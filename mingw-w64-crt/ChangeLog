@@ -1,3 +1,10 @@
+2010-06-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/pdh.def: New.
+	* lib32/pdhui.def: New.
+	* Makefile.am: Add libpdh.a and libpdhui.a for 32-bit.
+	* Makefile: Regenerated.
+
 2010-06-26  Doug Semler  <dougsemler@gmail.com>
 
 	* new_complex: Copy from experimental.
