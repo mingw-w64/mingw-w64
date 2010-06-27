@@ -10,6 +10,12 @@
 #define _KS_NO_ANONYMOUS_STRUCTURES_ 1
 #endif
 
+#ifdef  _KS_NO_ANONYMOUS_STRUCTURES_
+#define _KS_ANON_STRUCT(X)			struct X
+#else
+#define _KS_ANON_STRUCT(X)	__MINGW_EXTENSION struct
+#endif
+
 #ifndef _NTRTL_
 #ifndef DEFINE_GUIDEX
 #define DEFINE_GUIDEX(name) EXTERN_C const CDECL GUID name
@@ -64,10 +70,7 @@ typedef struct {
 
 typedef struct {
   __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct
-#ifdef _KS_NO_ANONYMOUS_STRUCTURES_
-      _IDENTIFIER
-#endif
+    _KS_ANON_STRUCT(_IDENTIFIER)
     {
       GUID Set;
       ULONG Id;
@@ -157,18 +160,12 @@ typedef struct {
 } KSPROPERTY_MEMBERSHEADER,*PKSPROPERTY_MEMBERSHEADER;
 
 typedef union {
-  __MINGW_EXTENSION struct
-#ifdef _KS_NO_ANONYMOUS_STRUCTURES_
-    _SIGNED
-#endif
+  _KS_ANON_STRUCT(_SIGNED)
   {
     LONG SignedMinimum;
     LONG SignedMaximum;
   };
-  __MINGW_EXTENSION struct
-#ifdef _KS_NO_ANONYMOUS_STRUCTURES_
-    _UNSIGNED
-#endif
+  _KS_ANON_STRUCT(_UNSIGNED)
   {
     ULONG UnsignedMinimum;
     ULONG UnsignedMaximum;
@@ -176,18 +173,12 @@ typedef union {
 } KSPROPERTY_BOUNDS_LONG,*PKSPROPERTY_BOUNDS_LONG;
 
 typedef union {
-  __MINGW_EXTENSION struct
-#ifdef _KS_NO_ANONYMOUS_STRUCTURES_
-    _SIGNED64
-#endif
+  _KS_ANON_STRUCT(_SIGNED64)
   {
     LONGLONG SignedMinimum;
     LONGLONG SignedMaximum;
   };
-  __MINGW_EXTENSION struct
-#ifdef _KS_NO_ANONYMOUS_STRUCTURES_
-    _UNSIGNED64
-#endif
+  _KS_ANON_STRUCT(_UNSIGNED64)
   {
     DWORDLONG UnsignedMinimum;
     DWORDLONG UnsignedMaximum;
