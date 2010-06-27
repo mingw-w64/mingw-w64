@@ -799,6 +799,13 @@ typedef struct {
   GUID Attribute;
 } KSATTRIBUTE,*PKSATTRIBUTE;
 
+#if defined(_NTDDK_)
+typedef struct {
+  ULONG Count;
+  PKSATTRIBUTE *Attributes;
+} KSATTRIBUTE_LIST,*PKSATTRIBUTE_LIST;
+#endif /* _NTDDK_ */
+
 typedef enum {
   KSPIN_COMMUNICATION_NONE,
   KSPIN_COMMUNICATION_SINK,

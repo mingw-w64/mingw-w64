@@ -1,5 +1,9 @@
 2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ks.h (KSATTRIBUTE_LIST): Added for DDK.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* ks.h (KSEVENTDATA): Added EventObject, SemaphoreObject, Dpc, WorkItem
 	and KsWorkItem to the union. Added flag macros KSEVENTF_EVENT_OBJECT,
 	KSEVENTF_SEMAPHORE_OBJECT, KSEVENTF_DPC, KSEVENTF_WORKITEM and
