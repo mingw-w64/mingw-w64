@@ -1,4 +1,8 @@
-2010-06-27  Doug Semler <dougsemler@gmail.com>
+2010-06-27  Doug Semler  <dougsemler@gmail.com>
+
+	* new_complex/cexp.def.h (cexp): Return imaginary zero when NaN + 0i.
+
+2010-06-27  Doug Semler  <dougsemler@gmail.com>
 
 	* math/hypotl (hypotl): Return +infinity when either of the inputs
 	  is an infinity, including when the other is NaN (Annex F.9.4.3)
