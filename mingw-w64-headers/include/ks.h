@@ -232,6 +232,33 @@ typedef struct {
       ULONG Reserved;
       LONG Adjustment;
     } SemaphoreHandle;
+#if defined(_NTDDK_)
+    struct {
+      PVOID Event;
+      KPRIORITY Increment;
+      ULONG_PTR Reserved;
+    } EventObject;
+    struct {
+      PVOID Semaphore;
+      KPRIORITY Increment;
+      LONG Adjustment;
+    } SemaphoreObject;
+    struct {
+      PKDPC Dpc;
+      ULONG ReferenceCount;
+      ULONG_PTR Reserved;
+    } Dpc;
+    struct {
+      PWORK_QUEUE_ITEM WorkQueueItem;
+      WORK_QUEUE_TYPE WorkQueueType;
+      ULONG_PTR Reserved;
+    } WorkItem;
+    struct {
+      PWORK_QUEUE_ITEM WorkQueueItem;
+      PKSWORKER KsWorkerObject;
+      ULONG_PTR Reserved;
+    } KsWorkItem;
+#endif /* _NTDDK_ */
     struct {
       PVOID Unused;
       LONG_PTR Alignment[2];
@@ -241,6 +268,13 @@ typedef struct {
 
 #define KSEVENTF_EVENT_HANDLE		0x00000001
 #define KSEVENTF_SEMAPHORE_HANDLE	0x00000002
+#if defined(_NTDDK_)
+#define KSEVENTF_EVENT_OBJECT		0x00000004
+#define KSEVENTF_SEMAPHORE_OBJECT	0x00000008
+#define KSEVENTF_DPC			0x00000010
+#define KSEVENTF_WORKITEM		0x00000020
+#define KSEVENTF_KSWORKITEM		0x00000080
+#endif /* _NTDDK_ */
 
 #define KSEVENT_TYPE_ENABLE		0x00000001
 #define KSEVENT_TYPE_ONESHOT		0x00000002

@@ -1,4 +1,14 @@
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (KSEVENTDATA): Added EventObject, SemaphoreObject, Dpc, WorkItem
+	and KsWorkItem to the union. Added flag macros KSEVENTF_EVENT_OBJECT,
+	KSEVENTF_SEMAPHORE_OBJECT, KSEVENTF_DPC, KSEVENTF_WORKITEM and
+	KSEVENTF_KSWORKITEM for DDK. See the KSEVENTDATA Structure msdn page at
+	http://msdn.microsoft.com/en-us/library/ff561750(VS.85).aspx, also see
+	the r/os version of ks.h for reference.
+
 2010-06-27  Jacek Caban  <jacek@codeweavers.com>
+
 	* winnt.h: Fixed C_ASSERT macro.
 
 2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
