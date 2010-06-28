@@ -5,10 +5,10 @@
 ;
 LIBRARY "EVR.dll"
 EXPORTS
-DllCanUnloadNow
+DllCanUnloadNow@0
 DllGetClassObject@12
-DllRegisterServer
-DllUnregisterServer
+DllRegisterServer@0
+DllUnregisterServer@0
 MFConvertColorInfoFromDXVA@8
 MFConvertColorInfoToDXVA@8
 MFConvertFromFP16Array@12

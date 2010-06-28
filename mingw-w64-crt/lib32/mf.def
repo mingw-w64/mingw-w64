@@ -9,10 +9,10 @@ AppendPropVariant@8
 ConvertPropVariant@8
 CopyPropertyStore@12
 CreateNamedPropertyStore@4
-DllCanUnloadNow
+DllCanUnloadNow@0
 DllGetClassObject@12
-DllRegisterServer
-DllUnregisterServer
+DllRegisterServer@0
+DllUnregisterServer@0
 ExtractPropVariant@12
 MFCreateASFByteStreamPlugin@8
 MFCreateASFContentInfo@4
