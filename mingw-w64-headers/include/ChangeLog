@@ -1,6 +1,13 @@
 2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
 
-	Backport from the trunk:
+	* ks.h: Add many data types, prototypes, etc. for DDK based on MSDN
+	information. Restricted parts of the header starting from KSOBJECT_BAG
+	typedef down to the IID_IKsDeviceFunctions GUID definition only to the
+	DDK.
+
+2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backports from the trunk:
 
 	2010-06-27  Jacek Caban  <jacek@codeweavers.com> (rev. 2661)
 	* winnt.h: Fixed C_ASSERT macro.
