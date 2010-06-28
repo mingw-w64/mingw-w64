@@ -1,3 +1,7 @@
+2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* strsafe.h: Apply the same C_ASSERT macro fix in winnt.h.
+
 2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ks.h (KSATTRIBUTE_LIST): Added for DDK.
