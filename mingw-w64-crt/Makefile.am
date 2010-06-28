@@ -361,7 +361,9 @@ lib32_DATA = \
   lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a     lib32/libwsnmp32.a   \
   lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a \
   \
-  lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a
+  lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a   \
+  \
+  lib32/libks.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -914,10 +916,11 @@ lib64_DATA = \
   lib64/libwsock32.a    lib64/libwwdmaud.a    lib64/libwwinspool.a    lib64/libzoneoc.a     lib64/libnormaliz.a      \
   \
   lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a      \
-  lib64/libwtsapi32.a \
+  lib64/libwtsapi32.a  \
   \
-  lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a
-
+  lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a     \
+  \
+  lib64/libks.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll
