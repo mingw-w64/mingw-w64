@@ -372,10 +372,10 @@ lib32_DATA = \
   lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a     lib32/libwsnmp32.a   \
   lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a \
   \
-  lib32/libgpapi.a lib32/libgpedit.a lib32/libgpprefcl.a lib32/libgpscript.a \
-  lib32/libgptext.a lib32/libmshtml.a lib32/libmshtmled.a \
+  lib32/libgpapi.a     lib32/libgpedit.a   lib32/libgpprefcl.a   lib32/libgpscript.a \
+  lib32/libgptext.a    lib32/libmshtml.a   lib32/libmshtmled.a  \
   \
-  lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a \
+  lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a   \
   \
   lib32/libbcrypt.a    lib32/libbthprops.a lib32/libclusapi.a    lib32/libcmutil.a    \
   lib32/libcredui.a    lib32/libcryptnet.a lib32/libdavclnt.a    lib32/libdhcpcsvc6.a \
@@ -386,7 +386,9 @@ lib32_DATA = \
   lib32/libntmsapi.a   lib32/libspoolss.a  lib32/libsxs.a        lib32/libwecapi.a    \
   lib32/libwevtapi.a   lib32/libwevtfwd.a  lib32/libfwpuclnt.a   lib32/libmstask.a    \
   lib32/libqutil.a     lib32/libconnect.a  lib32/libesent.a      lib32/libhttpapi.a	\
-  lib32/libpdh.a	lib32/libpdhui.a
+  lib32/libpdh.a	lib32/libpdhui.a   \
+  \
+  lib32/libks.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -938,17 +940,20 @@ lib64_DATA = \
   lib64/libwservdeps.a  lib64/libwserwvdrv.a  lib64/libwsetupapi.a    lib64/libwsfc.a       lib64/libwsfcfiles.a     \
   lib64/libwsfc_os.a    lib64/libwsfmapi.a    lib64/libwshatm.a       lib64/libwshbth.a     lib64/libwshcon.a        \
   lib64/libwsock32.a    lib64/libwwdmaud.a    lib64/libwwinspool.a    lib64/libzoneoc.a     lib64/libnormaliz.a      \
-  lib64/libclfsw32.a \
-  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a      \
-  lib64/libwtsapi32.a \
   \
-  lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a \
+  lib64/libclfsw32.a   \
+  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a      \
+  lib64/libwtsapi32.a  \
+  \
+  lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a     \
   \
   lib64/libbcrypt.a     lib64/libbthprops.a   lib64/libdhcpcsvc6.a   lib64/libdxva2.a       lib64/libeappcfg.a       \
   lib64/libeappgnui.a   lib64/libeapphost.a   lib64/libeappprxy.a    lib64/libevr.a         lib64/libiscsidsc.a      \
   lib64/libktmw32.a     lib64/libmf.a         lib64/libmfplat.a      lib64/libmsdrm.a       lib64/libncrypt.a        \
   lib64/libwecapi.a     lib64/libwevtapi.a    lib64/libwevtfwd.a     lib64/libqutil.a       lib64/libconnect.a       \
-  lib64/libfwpuclnt.a
+  lib64/libfwpuclnt.a  \
+  \
+  lib64/libks.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll
