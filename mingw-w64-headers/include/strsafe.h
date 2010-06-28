@@ -54,8 +54,12 @@ typedef long HRESULT;
 #endif
 
 #ifndef C_ASSERT
-#define C_ASSERT(e) typedef char __C_ASSERT__[(e)?1:-1]
+#ifdef _MSC_VER
+# define C_ASSERT(e) typedef char __C_ASSERT__[(e)?1:-1]
+#else
+# define C_ASSERT(e) extern void __C_ASSERT__(int [(e)?1:-1])
 #endif
+#endif /* C_ASSERT */
 
 #ifdef __cplusplus
 #define _STRSAFE_EXTERN_C extern "C"
