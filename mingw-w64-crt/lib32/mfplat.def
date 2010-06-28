@@ -6,12 +6,12 @@
 LIBRARY "MFPlat.DLL"
 EXPORTS
 FormatTagFromWfx@4
-MFCreateGuid ; Check!!! forwards to CoCreateGuid in ole32.dll (ordinal 15)
-MFGetIoPortHandle
+MFCreateGuid@4
+MFGetIoPortHandle@0
 MFGetRandomNumber@8
 MFIsQueueThread@4
-MFPlatformBigEndian
-MFPlatformLittleEndian
+MFPlatformBigEndian@0
+MFPlatformLittleEndian@0
 MFTraceError@20
 MFllMulDiv@32
 ValidateWaveFormat@4
@@ -28,7 +28,7 @@ MFBeginCreateFile@28
 MFBeginGetHostByName@12
 MFBeginRegisterWorkQueueWithMMCSS@20
 MFBeginUnregisterWorkQueueWithMMCSS@12
-MFBlockThread
+MFBlockThread@0
 MFCalculateBitmapImageSize@16
 MFCalculateImageSize@16
 MFCancelCreateFile@4
@@ -81,10 +81,10 @@ MFGetConfigurationPolicy@16
 MFGetConfigurationStore@16
 MFGetConfigurationString@16
 MFGetNumericNameFromSockaddr@20
-MFGetPlatform
+MFGetPlatform@0
 MFGetPrivateWorkqueues@4
 MFGetSockaddrFromNumericName@12
-MFGetSystemTime
+MFGetSystemTime@0
 MFGetTimerPeriodicity@4
 MFGetWorkQueueMMCSSClass@12
 MFGetWorkQueueMMCSSTaskId@8
@@ -101,7 +101,7 @@ MFInitMediaTypeFromVideoInfoHeader@16
 MFInitMediaTypeFromWaveFormatEx@12
 MFInvokeCallback@4
 MFJoinIoPort@4
-MFLockPlatform
+MFLockPlatform@0
 MFLockWorkQueue@4
 MFPutWorkItem@12
 MFPutWorkItemEx@8
@@ -114,7 +114,7 @@ MFSerializeEvent@12
 MFSerializeMediaTypeToStream@8
 MFSerializePresentationDescriptor@12
 MFSetSockaddrAny@8
-MFShutdown
+MFShutdown@0
 MFStartup@8
 MFStreamDescriptorProtectMediaType@8
 MFTEnum@40
@@ -122,8 +122,8 @@ MFTGetInfo@40
 MFTRegister@60
 MFTUnregister@16
 MFTraceFuncEnter@16
-MFUnblockThread
-MFUnlockPlatform
+MFUnblockThread@0
+MFUnlockPlatform@0
 MFUnlockWorkQueue@4
 MFUnwrapMediaType@8
 MFValidateMediaTypeSize@24
