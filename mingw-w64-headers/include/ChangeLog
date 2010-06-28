@@ -1,5 +1,12 @@
 2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ks.h: Add many data types, prototypes, etc. for DDK based on MSDN
+	information. Restricted parts of the header starting from KSOBJECT_BAG
+	typedef down to the IID_IKsDeviceFunctions GUID definition only to the
+	DDK.
+
+2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* strsafe.h: Apply the same C_ASSERT macro fix in winnt.h.
 
 2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>

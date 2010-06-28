@@ -830,6 +830,19 @@ typedef struct {
   WCHAR SymbolicLinkName[1];
 } KSPIN_PHYSICALCONNECTION,*PKSPIN_PHYSICALCONNECTION;
 
+#if defined(_NTDDK_)
+typedef NTSTATUS (*PFNKSINTERSECTHANDLER) ( PIRP Irp, PKSP_PIN Pin,
+					    PKSDATARANGE DataRange,
+					    PVOID Data);
+typedef NTSTATUS (*PFNKSINTERSECTHANDLEREX)(PVOID Context, PIRP Irp,
+					    PKSP_PIN Pin,
+					    PKSDATARANGE DataRange,
+					    PKSDATARANGE MatchingDataRange,
+					    ULONG DataBufferSize,
+					    PVOID Data,
+					    PULONG DataSize);
+#endif /* _NTDDK_ */
+
 #define DEFINE_KSPIN_INTERFACE_TABLE(tablename)				\
 	const KSPIN_INTERFACE tablename[] =
 
@@ -1032,6 +1045,46 @@ DEFINE_GUIDSTRUCT("0621061A-EE75-11D0-B915-00A0C9223196",KSNAME_TopologyNode);
 
 #define KSSTRING_TopologyNode	L"{0621061A-EE75-11D0-B915-00A0C9223196}"
 
+#if defined(_NTDDK_)
+typedef struct {
+  ULONG InterfacesCount;
+  const KSPIN_INTERFACE *Interfaces;
+  ULONG MediumsCount;
+  const KSPIN_MEDIUM *Mediums;
+  ULONG DataRangesCount;
+  const PKSDATARANGE *DataRanges;
+  KSPIN_DATAFLOW DataFlow;
+  KSPIN_COMMUNICATION Communication;
+  const GUID *Category;
+  const GUID *Name;
+  __MINGW_EXTENSION union {
+    LONGLONG Reserved;
+    __MINGW_EXTENSION struct {
+      ULONG ConstrainedDataRangesCount;
+      PKSDATARANGE *ConstrainedDataRanges;
+    };
+  };
+} KSPIN_DESCRIPTOR, *PKSPIN_DESCRIPTOR;
+typedef const KSPIN_DESCRIPTOR *PCKSPIN_DESCRIPTOR;
+
+#define DEFINE_KSPIN_DESCRIPTOR_TABLE(tablename)			\
+	const KSPIN_DESCRIPTOR tablename[] =
+
+#define DEFINE_KSPIN_DESCRIPTOR_ITEM(InterfacesCount,Interfaces,MediumsCount, Mediums,DataRangesCount,DataRanges,DataFlow,Communication)\
+{									\
+		InterfacesCount, Interfaces, MediumsCount, Mediums,	\
+		DataRangesCount, DataRanges, DataFlow, Communication,	\
+		NULL, NULL, 0						\
+}
+
+#define DEFINE_KSPIN_DESCRIPTOR_ITEMEX(InterfacesCount,Interfaces,MediumsCount,Mediums,DataRangesCount,DataRanges,DataFlow,Communication,Category,Name)\
+{									\
+		InterfacesCount, Interfaces, MediumsCount, Mediums,	\
+		DataRangesCount, DataRanges, DataFlow, Communication,	\
+		Category, Name, 0					\
+}
+#endif /* _NTDDK_ */
+
 #define STATIC_KSDATAFORMAT_TYPE_WILDCARD	STATIC_GUID_NULL
 #define KSDATAFORMAT_TYPE_WILDCARD		GUID_NULL
 
@@ -1215,6 +1268,15 @@ typedef struct {
   ULONG FileAlignment;
   ULONG Reserved;
 } KSALLOCATOR_FRAMING,*PKSALLOCATOR_FRAMING;
+
+#if defined(_NTDDK_)
+typedef PVOID (*PFNKSDEFAULTALLOCATE)(PVOID Context);
+typedef VOID (*PFNKSDEFAULTFREE)(PVOID Context, PVOID Buffer);
+typedef NTSTATUS (*PFNKSINITIALIZEALLOCATOR)(PVOID InitialContext,
+					PKSALLOCATOR_FRAMING AllocatorFraming,
+					PVOID* Context);
+typedef VOID (*PFNKSDELETEALLOCATOR) (PVOID Context);
+#endif /* _NTDDK_ */
 
 typedef struct {
   ULONG MinFrameSize;
@@ -1431,6 +1493,44 @@ DEFINE_KSMETHOD_TABLE(AllocatorSet) {					\
 	0xcf6e4342L,0xec87,0x11cf,0xa1,0x30,0x00,0x20,0xaf,0xd1,0x56,0xe4
 DEFINE_GUIDSTRUCT("cf6e4342-ec87-11cf-a130-0020afd156e4",KSPROPSETID_StreamAllocator);
 #define KSPROPSETID_StreamAllocator DEFINE_GUIDNAMED(KSPROPSETID_StreamAllocator)
+
+#if defined(_NTDDK_)
+typedef enum {
+  KSPROPERTY_STREAMALLOCATOR_FUNCTIONTABLE,
+  KSPROPERTY_STREAMALLOCATOR_STATUS
+} KSPROPERTY_STREAMALLOCATOR;
+
+#define DEFINE_KSPROPERTY_ITEM_STREAMALLOCATOR_FUNCTIONTABLE(Handler)	\
+	DEFINE_KSPROPERTY_ITEM(						\
+				KSPROPERTY_STREAMALLOCATOR_FUNCTIONTABLE,\
+				(Handler),				\
+				sizeof(KSPROPERTY),			\
+				sizeof(KSSTREAMALLOCATOR_FUNCTIONTABLE),\
+				NULL, NULL, 0, NULL, NULL, 0)
+
+#define DEFINE_KSPROPERTY_ITEM_STREAMALLOCATOR_STATUS(Handler)		\
+	DEFINE_KSPROPERTY_ITEM(						\
+				KSPROPERTY_STREAMALLOCATOR_STATUS,	\
+				(Handler),				\
+				sizeof(KSPROPERTY),			\
+				sizeof(KSSTREAMALLOCATOR_STATUS),	\
+				NULL, NULL, 0, NULL, NULL, 0)
+
+#define DEFINE_KSPROPERTY_ALLOCATORSET(AllocatorSet,PropFunctionTable,PropStatus)\
+DEFINE_KSPROPERTY_TABLE(AllocatorSet) {					\
+	DEFINE_KSPROPERTY_ITEM_STREAMALLOCATOR_STATUS(PropStatus),	\
+	DEFINE_KSPROPERTY_ITEM_STREAMALLOCATOR_FUNCTIONTABLE(PropFunctionTable)\
+}
+
+typedef NTSTATUS (*PFNALLOCATOR_ALLOCATEFRAME) (PFILE_OBJECT FileObject,
+						PVOID *Frame);
+typedef VOID (*PFNALLOCATOR_FREEFRAME) (PFILE_OBJECT FileObject, PVOID Frame);
+
+typedef struct {
+  PFNALLOCATOR_ALLOCATEFRAME AllocateFrame;
+  PFNALLOCATOR_FREEFRAME FreeFrame;
+} KSSTREAMALLOCATOR_FUNCTIONTABLE, *PKSSTREAMALLOCATOR_FUNCTIONTABLE;
+#endif /* _NTDDK_ */
 
 typedef struct {
   KSALLOCATOR_FRAMING Framing;
@@ -1676,6 +1776,90 @@ typedef enum {
 #endif /* _NTDDK_ */
 } KSPROPERTY_CLOCK;
 
+#if defined(_NTDDK_)
+typedef LONGLONG (FASTCALL *PFNKSCLOCK_GETTIME)(PFILE_OBJECT FileObject);
+typedef LONGLONG (FASTCALL *PFNKSCLOCK_CORRELATEDTIME)(PFILE_OBJECT FileObject,
+							PLONGLONG SystemTime);
+
+typedef struct {
+   PFNKSCLOCK_GETTIME GetTime;
+   PFNKSCLOCK_GETTIME GetPhysicalTime;
+   PFNKSCLOCK_CORRELATEDTIME GetCorrelatedTime;
+   PFNKSCLOCK_CORRELATEDTIME GetCorrelatedPhysicalTime;
+} KSCLOCK_FUNCTIONTABLE, *PKSCLOCK_FUNCTIONTABLE;
+
+typedef BOOLEAN (*PFNKSSETTIMER)(PVOID Context, PKTIMER Timer,
+				 LARGE_INTEGER DueTime, PKDPC Dpc);
+typedef BOOLEAN (*PFNKSCANCELTIMER) (PVOID Context, PKTIMER Timer);
+typedef LONGLONG (FASTCALL *PFNKSCORRELATEDTIME)(PVOID Context,
+						 PLONGLONG SystemTime);
+
+typedef PVOID			PKSDEFAULTCLOCK;
+
+#define DEFINE_KSPROPERTY_ITEM_CLOCK_TIME(Handler)			\
+	DEFINE_KSPROPERTY_ITEM(						\
+				KSPROPERTY_CLOCK_TIME,			\
+				(Handler),				\
+				sizeof(KSPROPERTY), sizeof(LONGLONG),	\
+				NULL, NULL, 0, NULL, NULL, 0)
+
+#define DEFINE_KSPROPERTY_ITEM_CLOCK_PHYSICALTIME(Handler)		\
+	DEFINE_KSPROPERTY_ITEM(						\
+				KSPROPERTY_CLOCK_PHYSICALTIME,		\
+				(Handler),				\
+				sizeof(KSPROPERTY), sizeof(LONGLONG),	\
+				NULL, NULL, 0, NULL, NULL, 0)
+
+#define DEFINE_KSPROPERTY_ITEM_CLOCK_CORRELATEDTIME(Handler)		\
+	DEFINE_KSPROPERTY_ITEM(						\
+				KSPROPERTY_CLOCK_CORRELATEDTIME,	\
+				(Handler),				\
+				sizeof(KSPROPERTY),			\
+				sizeof(KSCORRELATED_TIME),		\
+				NULL, NULL, 0, NULL, NULL, 0)
+
+#define DEFINE_KSPROPERTY_ITEM_CLOCK_CORRELATEDPHYSICALTIME(Handler)	\
+	DEFINE_KSPROPERTY_ITEM(						\
+				KSPROPERTY_CLOCK_CORRELATEDPHYSICALTIME,\
+				(Handler),				\
+				sizeof(KSPROPERTY),			\
+				sizeof(KSCORRELATED_TIME),		\
+				NULL, NULL, 0, NULL, NULL, 0)
+
+#define DEFINE_KSPROPERTY_ITEM_CLOCK_RESOLUTION(Handler)		\
+	DEFINE_KSPROPERTY_ITEM(						\
+				KSPROPERTY_CLOCK_RESOLUTION,		\
+				(Handler),				\
+				sizeof(KSPROPERTY),sizeof(KSRESOLUTION),\
+				NULL, NULL, 0, NULL, NULL, 0)
+
+#define DEFINE_KSPROPERTY_ITEM_CLOCK_STATE(Handler)			\
+	DEFINE_KSPROPERTY_ITEM(						\
+				KSPROPERTY_CLOCK_STATE,			\
+				(Handler),				\
+				sizeof(KSPROPERTY), sizeof(KSSTATE),	\
+				NULL, NULL, 0, NULL, NULL, 0)
+
+#define DEFINE_KSPROPERTY_ITEM_CLOCK_FUNCTIONTABLE(Handler)		\
+	DEFINE_KSPROPERTY_ITEM(						\
+				KSPROPERTY_CLOCK_FUNCTIONTABLE,		\
+				(Handler),				\
+				sizeof(KSPROPERTY),			\
+				sizeof(KSCLOCK_FUNCTIONTABLE),		\
+				NULL, NULL, 0, NULL, NULL, 0)
+
+#define DEFINE_KSPROPERTY_CLOCKSET(ClockSet,PropTime,PropPhysicalTime,PropCorrelatedTime,PropCorrelatedPhysicalTime,PropResolution,PropState,PropFunctionTable)\
+DEFINE_KSPROPERTY_TABLE(ClockSet) {					\
+	DEFINE_KSPROPERTY_ITEM_CLOCK_TIME(PropTime),			\
+	DEFINE_KSPROPERTY_ITEM_CLOCK_PHYSICALTIME(PropPhysicalTime),	\
+	DEFINE_KSPROPERTY_ITEM_CLOCK_CORRELATEDTIME(PropCorrelatedTime),\
+	DEFINE_KSPROPERTY_ITEM_CLOCK_CORRELATEDPHYSICALTIME(PropCorrelatedPhysicalTime),\
+	DEFINE_KSPROPERTY_ITEM_CLOCK_RESOLUTION(PropResolution),	\
+	DEFINE_KSPROPERTY_ITEM_CLOCK_STATE(PropState),			\
+	DEFINE_KSPROPERTY_ITEM_CLOCK_FUNCTIONTABLE(PropFunctionTable),	\
+}
+#endif /* _NTDDK_ */
+
 #define STATIC_KSEVENTSETID_Clock					\
 	0x364D8E20L,0x62C7,0x11CF,0xA5,0xD6,0x28,0xDB,0x04,0xC1,0x00,0x00
 DEFINE_GUIDSTRUCT("364D8E20-62C7-11CF-A5D6-28DB04C10000",KSEVENTSETID_Clock);
@@ -1724,6 +1908,407 @@ typedef enum {
   KSDEGRADE_STANDARD_SKIP
 } KSDEGRADE_STANDARD;
 
+#if defined(_NTDDK_)
+
+#define KSPROBE_STREAMREAD		0x00000000
+#define KSPROBE_STREAMWRITE		0x00000001
+#define KSPROBE_ALLOCATEMDL		0x00000010
+#define KSPROBE_PROBEANDLOCK		0x00000020
+#define KSPROBE_SYSTEMADDRESS		0x00000040
+#define KSPROBE_MODIFY			0x00000200
+#define KSPROBE_STREAMWRITEMODIFY	(KSPROBE_MODIFY | KSPROBE_STREAMWRITE)
+#define KSPROBE_ALLOWFORMATCHANGE	0x00000080
+#define KSSTREAM_READ			KSPROBE_STREAMREAD
+#define KSSTREAM_WRITE			KSPROBE_STREAMWRITE
+#define KSSTREAM_PAGED_DATA		0x00000000
+#define KSSTREAM_NONPAGED_DATA		0x00000100
+#define KSSTREAM_SYNCHRONOUS		0x00001000
+#define KSSTREAM_FAILUREEXCEPTION	0x00002000
+
+typedef NTSTATUS (*PFNKSCONTEXT_DISPATCH)(PVOID Context, PIRP Irp);
+typedef NTSTATUS (*PFNKSHANDLER)(PIRP Irp, PKSIDENTIFIER Request, PVOID Data);
+typedef BOOLEAN (*PFNKSFASTHANDLER)(PFILE_OBJECT FileObject,
+				    PKSIDENTIFIER Request,
+				    ULONG RequestLength, PVOID Data,
+				    ULONG DataLength,
+				    PIO_STATUS_BLOCK IoStatus);
+typedef NTSTATUS (*PFNKSALLOCATOR) (PIRP Irp, ULONG BufferSize,
+				    BOOLEAN InputOperation);
+
+typedef struct {
+  KSPROPERTY_MEMBERSHEADER MembersHeader;
+  const VOID *Members;
+} KSPROPERTY_MEMBERSLIST, *PKSPROPERTY_MEMBERSLIST;
+
+typedef struct {
+  KSIDENTIFIER PropTypeSet;
+  ULONG MembersListCount;
+  const KSPROPERTY_MEMBERSLIST *MembersList;
+} KSPROPERTY_VALUES, *PKSPROPERTY_VALUES;
+
+#define DEFINE_KSPROPERTY_TABLE(tablename)				\
+	const KSPROPERTY_ITEM tablename[] =
+
+#define DEFINE_KSPROPERTY_ITEM(PropertyId,GetHandler,MinProperty,MinData,SetHandler,Values,RelationsCount,Relations,SupportHandler,SerializedSize)\
+{									\
+			PropertyId, (PFNKSHANDLER)GetHandler,		\
+			MinProperty, MinData,				\
+			(PFNKSHANDLER)SetHandler,			\
+			(PKSPROPERTY_VALUES)Values, RelationsCount,	\
+			(PKSPROPERTY)Relations,				\
+			(PFNKSHANDLER)SupportHandler,			\
+			(ULONG)SerializedSize				\
+}
+
+typedef struct {
+  ULONG PropertyId;
+  __MINGW_EXTENSION union {
+    PFNKSHANDLER GetPropertyHandler;
+    BOOLEAN GetSupported;
+  };
+  ULONG MinProperty;
+  ULONG MinData;
+  __MINGW_EXTENSION union {
+    PFNKSHANDLER SetPropertyHandler;
+    BOOLEAN SetSupported;
+  };
+  const KSPROPERTY_VALUES *Values;
+  ULONG RelationsCount;
+  const KSPROPERTY *Relations;
+  PFNKSHANDLER SupportHandler;
+  ULONG SerializedSize;
+} KSPROPERTY_ITEM, *PKSPROPERTY_ITEM;
+
+#define DEFINE_KSFASTPROPERTY_ITEM(PropertyId, GetHandler, SetHandler)	\
+{									\
+			PropertyId, (PFNKSFASTHANDLER)GetHandler,	\
+			(PFNKSFASTHANDLER)SetHandler, 0			\
+}
+
+typedef struct {
+  ULONG PropertyId;
+  __MINGW_EXTENSION union {
+    PFNKSFASTHANDLER GetPropertyHandler;
+    BOOLEAN GetSupported;
+  };
+  __MINGW_EXTENSION union {
+    PFNKSFASTHANDLER SetPropertyHandler;
+    BOOLEAN SetSupported;
+  };
+  ULONG Reserved;
+} KSFASTPROPERTY_ITEM, *PKSFASTPROPERTY_ITEM;
+
+#define DEFINE_KSPROPERTY_SET(Set,PropertiesCount,PropertyItem,FastIoCount,FastIoTable)\
+{									\
+			Set,						\
+			PropertiesCount, PropertyItem,			\
+			FastIoCount, FastIoTable			\
+}
+
+#define DEFINE_KSPROPERTY_SET_TABLE(tablename)				\
+	const KSPROPERTY_SET tablename[] =
+
+typedef struct {
+  const GUID *Set;
+  ULONG PropertiesCount;
+  const KSPROPERTY_ITEM *PropertyItem;
+  ULONG FastIoCount;
+  const KSFASTPROPERTY_ITEM *FastIoTable;
+} KSPROPERTY_SET, *PKSPROPERTY_SET;
+
+#define DEFINE_KSMETHOD_TABLE(tablename)				\
+	const KSMETHOD_ITEM tablename[] =
+
+#define DEFINE_KSMETHOD_ITEM(MethodId,Flags,MethodHandler,MinMethod,MinData,SupportHandler)\
+{									\
+			MethodId, (PFNKSHANDLER)MethodHandler,		\
+			MinMethod, MinData,				\
+			SupportHandler, Flags				\
+}
+
+typedef struct {
+  ULONG MethodId;
+  __MINGW_EXTENSION union {
+    PFNKSHANDLER MethodHandler;
+    BOOLEAN MethodSupported;
+  };
+  ULONG MinMethod;
+  ULONG MinData;
+  PFNKSHANDLER SupportHandler;
+  ULONG Flags;
+} KSMETHOD_ITEM, *PKSMETHOD_ITEM;
+
+#define DEFINE_KSFASTMETHOD_ITEM(MethodId,MethodHandler)		\
+{									\
+			MethodId, (PFNKSFASTHANDLER)MethodHandler	\
+}
+
+typedef struct {
+  ULONG MethodId;
+  __MINGW_EXTENSION union {
+    PFNKSFASTHANDLER MethodHandler;
+    BOOLEAN MethodSupported;
+  };
+} KSFASTMETHOD_ITEM, *PKSFASTMETHOD_ITEM;
+
+#define DEFINE_KSMETHOD_SET(Set,MethodsCount,MethodItem,FastIoCount,FastIoTable)\
+{									\
+			Set,						\
+			MethodsCount, MethodItem,			\
+			FastIoCount, FastIoTable			\
+}
+
+#define DEFINE_KSMETHOD_SET_TABLE(tablename)				\
+	const KSMETHOD_SET tablename[] =
+
+typedef struct {
+  const GUID *Set;
+  ULONG MethodsCount;
+  const KSMETHOD_ITEM *MethodItem;
+  ULONG FastIoCount;
+  const KSFASTMETHOD_ITEM *FastIoTable;
+} KSMETHOD_SET, *PKSMETHOD_SET;
+
+typedef struct _KSEVENT_ENTRY	KSEVENT_ENTRY, *PKSEVENT_ENTRY;
+typedef NTSTATUS (*PFNKSADDEVENT)(PIRP Irp, PKSEVENTDATA EventData,
+				  struct _KSEVENT_ENTRY* EventEntry);
+typedef VOID (*PFNKSREMOVEEVENT)(PFILE_OBJECT FileObject,
+				 struct _KSEVENT_ENTRY* EventEntry);
+
+#define DEFINE_KSEVENT_TABLE(tablename)					\
+	const KSEVENT_ITEM tablename[] =
+
+#define DEFINE_KSEVENT_ITEM(EventId,DataInput,ExtraEntryData,AddHandler,RemoveHandler,SupportHandler)\
+{									\
+			EventId, DataInput, ExtraEntryData,		\
+			AddHandler, RemoveHandler, SupportHandler	\
+}
+
+typedef struct {
+  ULONG EventId;
+  ULONG DataInput;
+  ULONG ExtraEntryData;
+  PFNKSADDEVENT AddHandler;
+  PFNKSREMOVEEVENT RemoveHandler;
+  PFNKSHANDLER SupportHandler;
+} KSEVENT_ITEM, *PKSEVENT_ITEM;
+
+#define DEFINE_KSEVENT_SET(Set,EventsCount,EventItem)			\
+{									\
+			Set, EventsCount, EventItem			\
+}
+
+#define DEFINE_KSEVENT_SET_TABLE(tablename)				\
+	const KSEVENT_SET tablename[] =
+
+typedef struct {
+  const GUID *Set;
+  ULONG EventsCount;
+  const KSEVENT_ITEM *EventItem;
+} KSEVENT_SET, *PKSEVENT_SET;
+
+typedef struct {
+  KDPC Dpc;
+  ULONG ReferenceCount;
+  KSPIN_LOCK AccessLock;
+} KSDPC_ITEM, *PKSDPC_ITEM;
+
+typedef struct {
+  KSDPC_ITEM DpcItem;
+  LIST_ENTRY BufferList;
+} KSBUFFER_ITEM, *PKSBUFFER_ITEM;
+
+
+#define KSEVENT_ENTRY_DELETED		1
+#define KSEVENT_ENTRY_ONESHOT		2
+#define KSEVENT_ENTRY_BUFFERED		4
+
+struct _KSEVENT_ENTRY {
+  LIST_ENTRY ListEntry;
+  PVOID Object;
+  __MINGW_EXTENSION union {
+    PKSDPC_ITEM DpcItem;
+    PKSBUFFER_ITEM BufferItem;
+  };
+  PKSEVENTDATA EventData;
+  ULONG NotificationType;
+  const KSEVENT_SET *EventSet;
+  const KSEVENT_ITEM *EventItem;
+  PFILE_OBJECT FileObject;
+  ULONG SemaphoreAdjustment;
+  ULONG Reserved;
+  ULONG Flags;
+};
+
+typedef enum {
+  KSEVENTS_NONE,
+  KSEVENTS_SPINLOCK,
+  KSEVENTS_MUTEX,
+  KSEVENTS_FMUTEX,
+  KSEVENTS_FMUTEXUNSAFE,
+  KSEVENTS_INTERRUPT,
+  KSEVENTS_ERESOURCE
+} KSEVENTS_LOCKTYPE;
+
+#define KSDISPATCH_FASTIO			0x80000000
+
+typedef struct {
+  PDRIVER_DISPATCH Create;
+  PVOID Context;
+  UNICODE_STRING ObjectClass;
+  PSECURITY_DESCRIPTOR SecurityDescriptor;
+  ULONG Flags;
+} KSOBJECT_CREATE_ITEM, *PKSOBJECT_CREATE_ITEM;
+
+typedef VOID (*PFNKSITEMFREECALLBACK)(PKSOBJECT_CREATE_ITEM CreateItem);
+
+#define KSCREATE_ITEM_SECURITYCHANGED		0x00000001
+#define KSCREATE_ITEM_WILDCARD			0x00000002
+#define KSCREATE_ITEM_NOPARAMETERS		0x00000004
+#define KSCREATE_ITEM_FREEONSTOP		0x00000008
+
+#define DEFINE_KSCREATE_DISPATCH_TABLE( tablename )			\
+	KSOBJECT_CREATE_ITEM tablename[] =
+
+#define DEFINE_KSCREATE_ITEM(DispatchCreate,TypeName,Context)		\
+{									\
+			(DispatchCreate), (PVOID)(Context),		\
+			{						\
+				sizeof(TypeName) - sizeof(UNICODE_NULL),\
+				sizeof(TypeName),			\
+				(PWCHAR)(TypeName)			\
+			},						\
+			NULL, 0						\
+}
+
+#define DEFINE_KSCREATE_ITEMEX(DispatchCreate,TypeName,Context,Flags)	\
+{									\
+			(DispatchCreate),				\
+			(PVOID)(Context),				\
+			{						\
+				sizeof(TypeName) - sizeof(UNICODE_NULL),\
+				sizeof(TypeName),			\
+				(PWCHAR)(TypeName)			\
+			},						\
+			NULL, (Flags)					\
+}
+
+#define DEFINE_KSCREATE_ITEMNULL(DispatchCreate,Context)		\
+{									\
+			DispatchCreate, Context,			\
+			{						\
+				0, 0, NULL,				\
+			},						\
+			NULL, 0						\
+}
+
+typedef struct {
+  ULONG CreateItemsCount;
+  PKSOBJECT_CREATE_ITEM CreateItemsList;
+} KSOBJECT_CREATE, *PKSOBJECT_CREATE;
+
+typedef struct {
+  PDRIVER_DISPATCH DeviceIoControl;
+  PDRIVER_DISPATCH Read;
+  PDRIVER_DISPATCH Write;
+  PDRIVER_DISPATCH Flush;
+  PDRIVER_DISPATCH Close;
+  PDRIVER_DISPATCH QuerySecurity;
+  PDRIVER_DISPATCH SetSecurity;
+  PFAST_IO_DEVICE_CONTROL FastDeviceIoControl;
+  PFAST_IO_READ FastRead;
+  PFAST_IO_WRITE FastWrite;
+} KSDISPATCH_TABLE, *PKSDISPATCH_TABLE;
+
+#define DEFINE_KSDISPATCH_TABLE(tablename,DeviceIoControl,Read,Write,Flush,Close,QuerySecurity,SetSecurity,FastDeviceIoControl,FastRead,FastWrite)\
+	const KSDISPATCH_TABLE tablename =				\
+	{								\
+		DeviceIoControl,					\
+		Read,							\
+		Write,							\
+		Flush,							\
+		Close,							\
+		QuerySecurity,						\
+		SetSecurity,						\
+		FastDeviceIoControl,					\
+		FastRead,						\
+		FastWrite,						\
+	}
+
+#define KSCREATE_ITEM_IRP_STORAGE(Irp)					\
+	(*(PKSOBJECT_CREATE_ITEM *)&(Irp)->Tail.Overlay.DriverContext[0])
+#define KSEVENT_SET_IRP_STORAGE(Irp)					\
+	(*(const KSEVENT_SET **)&(Irp)->Tail.Overlay.DriverContext[0])
+#define KSEVENT_ITEM_IRP_STORAGE(Irp)					\
+	(*(const KSEVENT_ITEM **)&(Irp)->Tail.Overlay.DriverContext[3])
+#define KSEVENT_ENTRY_IRP_STORAGE(Irp)					\
+	(*(PKSEVENT_ENTRY *)&(Irp)->Tail.Overlay.DriverContext[0])
+#define KSMETHOD_SET_IRP_STORAGE(Irp)					\
+	(*(const KSMETHOD_SET **)&(Irp)->Tail.Overlay.DriverContext[0])
+#define KSMETHOD_ITEM_IRP_STORAGE(Irp)					\
+	(*(const KSMETHOD_ITEM **)&(Irp)->Tail.Overlay.DriverContext[3])
+#define KSMETHOD_TYPE_IRP_STORAGE(Irp)					\
+	(*(ULONG_PTR *)(&(Irp)->Tail.Overlay.DriverContext[2]))
+#define KSQUEUE_SPINLOCK_IRP_STORAGE(Irp)				\
+	(*(PKSPIN_LOCK *)&(Irp)->Tail.Overlay.DriverContext[1])
+#define KSPROPERTY_SET_IRP_STORAGE(Irp)					\
+	(*(const KSPROPERTY_SET **)&(Irp)->Tail.Overlay.DriverContext[0])
+#define KSPROPERTY_ITEM_IRP_STORAGE(Irp)				\
+	(*(const KSPROPERTY_ITEM **)&(Irp)->Tail.Overlay.DriverContext[3])
+#define KSPROPERTY_ATTRIBUTES_IRP_STORAGE(Irp)				\
+	(*(PKSATTRIBUTE_LIST *)&(Irp)->Tail.Overlay.DriverContext[2])
+
+typedef PVOID		KSDEVICE_HEADER, KSOBJECT_HEADER;
+
+typedef enum {
+  KsInvokeOnSuccess = 1,
+  KsInvokeOnError = 2,
+  KsInvokeOnCancel = 4
+} KSCOMPLETION_INVOCATION;
+
+typedef enum {
+  KsListEntryTail,
+  KsListEntryHead
+} KSLIST_ENTRY_LOCATION;
+
+typedef enum {
+  KsAcquireOnly,
+  KsAcquireAndRemove,
+  KsAcquireOnlySingleItem,
+  KsAcquireAndRemoveOnlySingleItem
+} KSIRP_REMOVAL_OPERATION;
+
+typedef enum {
+  KsStackCopyToNewLocation,
+  KsStackReuseCurrentLocation,
+  KsStackUseNewLocation
+} KSSTACK_USE;
+
+typedef enum {
+  KSTARGET_STATE_DISABLED,
+  KSTARGET_STATE_ENABLED
+} KSTARGET_STATE;
+
+typedef NTSTATUS (*PFNKSIRPLISTCALLBACK)(PIRP Irp, PVOID Context);
+typedef VOID (*PFNREFERENCEDEVICEOBJECT)(PVOID Context);
+typedef VOID (*PFNDEREFERENCEDEVICEOBJECT)(PVOID Context);
+typedef NTSTATUS (*PFNQUERYREFERENCESTRING)(PVOID Context, PWCHAR *String);
+
+#define BUS_INTERFACE_REFERENCE_VERSION			0x100
+
+typedef struct {
+  INTERFACE Interface;
+
+  PFNREFERENCEDEVICEOBJECT ReferenceDeviceObject;
+  PFNDEREFERENCEDEVICEOBJECT DereferenceDeviceObject;
+  PFNQUERYREFERENCESTRING QueryReferenceString;
+} BUS_INTERFACE_REFERENCE, *PBUS_INTERFACE_REFERENCE;
+
+#define STATIC_REFERENCE_BUS_INTERFACE		STATIC_KSMEDIUMSETID_Standard
+#define REFERENCE_BUS_INTERFACE			KSMEDIUMSETID_Standard
+
+#endif /* _NTDDK_ */
+
 #ifndef PACK_PRAGMAS_NOT_SUPPORTED
 #include <pshpack1.h>
 #endif
@@ -1742,6 +2327,25 @@ typedef struct {
   ULONG Id;
   ULONG PropertyLength;
 } KSPROPERTY_SERIAL,*PKSPROPERTY_SERIAL;
+
+
+#if defined(_NTDDK_)
+
+#define IOCTL_KS_HANDSHAKE						\
+	CTL_CODE(FILE_DEVICE_KS, 0x007, METHOD_NEITHER, FILE_ANY_ACCESS)
+
+typedef struct {
+  GUID ProtocolId;
+  PVOID Argument1;
+  PVOID Argument2;
+} KSHANDSHAKE, *PKSHANDSHAKE;
+
+typedef struct _KSGATE		KSGATE, *PKSGATE;
+
+struct _KSGATE {
+  LONG Count;
+  PKSGATE NextGate;
+};
 
 typedef PVOID KSOBJECT_BAG;
 
@@ -1935,7 +2539,6 @@ struct _KSDEVICE_DESCRIPTOR {
   ULONG FilterDescriptorsCount;
   const KSFILTER_DESCRIPTOR*const *FilterDescriptors;
   ULONG Version;
-
 };
 
 struct _KSFILTER_DESCRIPTOR {
@@ -2112,7 +2715,14 @@ struct _KSMAPPING {
 
 struct _KSSTREAM_POINTER_OFFSET
 {
+#if defined(_NTDDK_)
+  __MINGW_EXTENSION union {
+    PUCHAR Data;
+    PKSMAPPING Mappings;
+  };
+#else
   PUCHAR Data;
+#endif /* _NTDDK_ */
 #ifndef _WIN64
   PVOID Alignment;
 #endif
@@ -2260,6 +2870,9 @@ DEFINE_GUID(IID_IKsDeviceFunctions,
 #endif /* _IKsControl_ */
 #endif /* defined(_UNKNOWN_H_) || defined(__IUnknown_INTERFACE_DEFINED__) */
 
+#endif /* _NTDDK_ */
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -2270,12 +2883,759 @@ extern "C" {
 #define KSDDKAPI DECLSPEC_IMPORT
 #endif
 
+#if defined(_NTDDK_)
+
+KSDDKAPI NTSTATUS NTAPI KsEnableEvent
+			(PIRP Irp, ULONG EventSetsCount, const KSEVENT_SET *EventSet,
+			 PLIST_ENTRY EventsList, KSEVENTS_LOCKTYPE EventsFlags,
+			 PVOID EventsLock);
+
+KSDDKAPI NTSTATUS NTAPI KsEnableEventWithAllocator
+			(PIRP Irp, ULONG EventSetsCount, const KSEVENT_SET *EventSet,
+			 PLIST_ENTRY EventsList, KSEVENTS_LOCKTYPE EventsFlags,
+			 PVOID EventsLock, PFNKSALLOCATOR Allocator, ULONG EventItemSize);
+
+KSDDKAPI NTSTATUS NTAPI KsDisableEvent
+			(PIRP Irp, PLIST_ENTRY EventsList, KSEVENTS_LOCKTYPE EventsFlags,
+			 PVOID EventsLock);
+
+KSDDKAPI VOID NTAPI KsDiscardEvent (PKSEVENT_ENTRY EventEntry);
+
+KSDDKAPI VOID NTAPI KsFreeEventList
+			(PFILE_OBJECT FileObject, PLIST_ENTRY EventsList,
+			 KSEVENTS_LOCKTYPE EventsFlags, PVOID EventsLock);
+
+KSDDKAPI NTSTATUS NTAPI KsGenerateEvent (PKSEVENT_ENTRY EventEntry);
+
+KSDDKAPI NTSTATUS NTAPI KsGenerateDataEvent
+			(PKSEVENT_ENTRY EventEntry, ULONG DataSize, PVOID Data);
+
+KSDDKAPI VOID NTAPI KsGenerateEventList
+			(GUID *Set, ULONG EventId, PLIST_ENTRY EventsList,
+			 KSEVENTS_LOCKTYPE EventsFlags, PVOID EventsLock);
+
+KSDDKAPI NTSTATUS NTAPI KsPropertyHandler
+			(PIRP Irp, ULONG PropertySetsCount,
+			 const KSPROPERTY_SET *PropertySet);
+
+KSDDKAPI NTSTATUS NTAPI KsPropertyHandlerWithAllocator
+			(PIRP Irp, ULONG PropertySetsCount,
+			 const KSPROPERTY_SET *PropertySet, PFNKSALLOCATOR Allocator,
+			 ULONG PropertyItemSize);
+
+KSDDKAPI BOOLEAN NTAPI KsFastPropertyHandler
+			(PFILE_OBJECT FileObject, PKSPROPERTY Property,
+			 ULONG PropertyLength, PVOID Data, ULONG DataLength,
+			 PIO_STATUS_BLOCK IoStatus, ULONG PropertySetsCount,
+			 const KSPROPERTY_SET *PropertySet);
+
+KSDDKAPI NTSTATUS NTAPI KsMethodHandler
+			(PIRP Irp, ULONG MethodSetsCount,
+			 const KSMETHOD_SET *MethodSet);
+
+KSDDKAPI NTSTATUS NTAPI KsMethodHandlerWithAllocator
+			(PIRP Irp, ULONG MethodSetsCount,
+			 const KSMETHOD_SET *MethodSet, PFNKSALLOCATOR Allocator,
+			 ULONG MethodItemSize);
+
+KSDDKAPI BOOLEAN NTAPI KsFastMethodHandler
+			(PFILE_OBJECT FileObject, PKSMETHOD Method, ULONG MethodLength,
+			 PVOID Data, ULONG DataLength, PIO_STATUS_BLOCK IoStatus,
+			 ULONG MethodSetsCount, const KSMETHOD_SET *MethodSet);
+
+KSDDKAPI NTSTATUS NTAPI KsCreateDefaultAllocator (PIRP Irp);
+
+KSDDKAPI NTSTATUS NTAPI KsCreateDefaultAllocatorEx
+			(PIRP Irp, PVOID InitializeContext,
+			 PFNKSDEFAULTALLOCATE DefaultAllocate,
+			 PFNKSDEFAULTFREE DefaultFree,
+			 PFNKSINITIALIZEALLOCATOR InitializeAllocator,
+			 PFNKSDELETEALLOCATOR DeleteAllocator);
+
+KSDDKAPI NTSTATUS NTAPI KsCreateAllocator
+			(HANDLE ConnectionHandle, PKSALLOCATOR_FRAMING AllocatorFraming,
+			 PHANDLE AllocatorHandle);
+
+KSDDKAPI NTSTATUS NTAPI KsValidateAllocatorCreateRequest
+			(PIRP Irp, PKSALLOCATOR_FRAMING *AllocatorFraming);
+
+KSDDKAPI NTSTATUS NTAPI KsValidateAllocatorFramingEx
+			(PKSALLOCATOR_FRAMING_EX Framing, ULONG BufferSize,
+			 const KSALLOCATOR_FRAMING_EX *PinFraming);
+
+KSDDKAPI NTSTATUS NTAPI KsAllocateDefaultClock (PKSDEFAULTCLOCK *DefaultClock);
+
+KSDDKAPI NTSTATUS NTAPI KsAllocateDefaultClockEx
+			(PKSDEFAULTCLOCK *DefaultClock, PVOID Context,
+			 PFNKSSETTIMER SetTimer, PFNKSCANCELTIMER CancelTimer,
+			 PFNKSCORRELATEDTIME CorrelatedTime,
+			 const KSRESOLUTION *Resolution, ULONG Flags);
+
+KSDDKAPI VOID NTAPI KsFreeDefaultClock (PKSDEFAULTCLOCK DefaultClock);
+KSDDKAPI NTSTATUS NTAPI KsCreateDefaultClock (PIRP Irp, PKSDEFAULTCLOCK DefaultClock);
+
+KSDDKAPI NTSTATUS NTAPI KsCreateClock
+			(HANDLE ConnectionHandle, PKSCLOCK_CREATE ClockCreate,
+			 PHANDLE ClockHandle);
+
+KSDDKAPI NTSTATUS NTAPI KsValidateClockCreateRequest
+			(PIRP Irp, PKSCLOCK_CREATE *ClockCreate);
+
+KSDDKAPI KSSTATE NTAPI KsGetDefaultClockState (PKSDEFAULTCLOCK DefaultClock);
+KSDDKAPI VOID NTAPI KsSetDefaultClockState(PKSDEFAULTCLOCK DefaultClock, KSSTATE State);
+KSDDKAPI LONGLONG NTAPI KsGetDefaultClockTime (PKSDEFAULTCLOCK DefaultClock);
+KSDDKAPI VOID NTAPI KsSetDefaultClockTime(PKSDEFAULTCLOCK DefaultClock, LONGLONG Time);
+
+KSDDKAPI NTSTATUS NTAPI KsCreatePin
+			(HANDLE FilterHandle, PKSPIN_CONNECT Connect,
+			 ACCESS_MASK DesiredAccess, PHANDLE ConnectionHandle);
+
+KSDDKAPI NTSTATUS NTAPI KsValidateConnectRequest
+			(PIRP Irp, ULONG DescriptorsCount,
+			 const KSPIN_DESCRIPTOR *Descriptor, PKSPIN_CONNECT *Connect);
+
+KSDDKAPI NTSTATUS NTAPI KsPinPropertyHandler
+			(PIRP Irp, PKSPROPERTY Property, PVOID Data,
+			 ULONG DescriptorsCount, const KSPIN_DESCRIPTOR *Descriptor);
+
+KSDDKAPI NTSTATUS NTAPI KsPinDataIntersection
+			(PIRP Irp, PKSP_PIN Pin, PVOID Data, ULONG DescriptorsCount,
+			 const KSPIN_DESCRIPTOR *Descriptor,
+			 PFNKSINTERSECTHANDLER IntersectHandler);
+
+KSDDKAPI NTSTATUS NTAPI KsPinDataIntersectionEx
+			(PIRP Irp, PKSP_PIN Pin, PVOID Data, ULONG DescriptorsCount,
+			 const KSPIN_DESCRIPTOR *Descriptor, ULONG DescriptorSize,
+			 PFNKSINTERSECTHANDLEREX IntersectHandler, PVOID HandlerContext);
+
+KSDDKAPI NTSTATUS NTAPI KsHandleSizedListQuery
+			(PIRP Irp, ULONG DataItemsCount, ULONG DataItemSize,
+			 const VOID *DataItems);
+
+#ifndef MAKEINTRESOURCE
+#define MAKEINTRESOURCE(r)		((ULONG_PTR) (USHORT) r)
+#endif
+#ifndef RT_STRING
+#define RT_STRING			MAKEINTRESOURCE(6)
+#define RT_RCDATA			MAKEINTRESOURCE(10)
+#endif
+
+KSDDKAPI NTSTATUS NTAPI KsLoadResource
+			(PVOID ImageBase, POOL_TYPE PoolType, ULONG_PTR ResourceName,
+			 ULONG ResourceType, PVOID *Resource, PULONG ResourceSize);
+
+KSDDKAPI NTSTATUS NTAPI KsGetImageNameAndResourceId
+			(HANDLE RegKey, PUNICODE_STRING ImageName, PULONG_PTR ResourceId,
+			 PULONG ValueType);
+
+KSDDKAPI NTSTATUS NTAPI KsMapModuleName
+			(PDEVICE_OBJECT PhysicalDeviceObject, PUNICODE_STRING ModuleName,
+			 PUNICODE_STRING ImageName, PULONG_PTR ResourceId,
+			 PULONG ValueType);
+
+KSDDKAPI NTSTATUS NTAPI KsReferenceBusObject (KSDEVICE_HEADER Header);
+KSDDKAPI VOID NTAPI KsDereferenceBusObject (KSDEVICE_HEADER Header);
+KSDDKAPI NTSTATUS NTAPI KsDispatchQuerySecurity (PDEVICE_OBJECT DeviceObject, PIRP Irp);
+KSDDKAPI NTSTATUS NTAPI KsDispatchSetSecurity (PDEVICE_OBJECT DeviceObject, PIRP Irp);
+KSDDKAPI NTSTATUS NTAPI KsDispatchSpecificProperty (PIRP Irp, PFNKSHANDLER Handler);
+KSDDKAPI NTSTATUS NTAPI KsDispatchSpecificMethod (PIRP Irp, PFNKSHANDLER Handler);
+
+KSDDKAPI NTSTATUS NTAPI KsReadFile
+			(PFILE_OBJECT FileObject, PKEVENT Event, PVOID PortContext,
+			 PIO_STATUS_BLOCK IoStatusBlock, PVOID Buffer, ULONG Length,
+			 ULONG Key, KPROCESSOR_MODE RequestorMode);
+
+KSDDKAPI NTSTATUS NTAPI KsWriteFile
+			(PFILE_OBJECT FileObject, PKEVENT Event, PVOID PortContext,
+			 PIO_STATUS_BLOCK IoStatusBlock, PVOID Buffer, ULONG Length,
+			 ULONG Key, KPROCESSOR_MODE RequestorMode);
+
+KSDDKAPI NTSTATUS NTAPI KsQueryInformationFile
+			(PFILE_OBJECT FileObject, PVOID FileInformation, ULONG Length,
+			 FILE_INFORMATION_CLASS FileInformationClass);
+
+KSDDKAPI NTSTATUS NTAPI KsSetInformationFile
+			(PFILE_OBJECT FileObject, PVOID FileInformation, ULONG Length,
+			 FILE_INFORMATION_CLASS FileInformationClass);
+
+KSDDKAPI NTSTATUS NTAPI KsStreamIo
+			(PFILE_OBJECT FileObject, PKEVENT Event, PVOID PortContext,
+			 PIO_COMPLETION_ROUTINE CompletionRoutine, PVOID CompletionContext,
+			 KSCOMPLETION_INVOCATION CompletionInvocationFlags,
+			 PIO_STATUS_BLOCK IoStatusBlock, PVOID StreamHeaders, ULONG Length,
+			 ULONG Flags, KPROCESSOR_MODE RequestorMode);
+
+KSDDKAPI NTSTATUS NTAPI KsProbeStreamIrp(PIRP Irp, ULONG ProbeFlags, ULONG HeaderSize);
+KSDDKAPI NTSTATUS NTAPI KsAllocateExtraData(PIRP Irp, ULONG ExtraSize, PVOID *ExtraBuffer);
+KSDDKAPI VOID NTAPI KsNullDriverUnload (PDRIVER_OBJECT DriverObject);
+
+KSDDKAPI NTSTATUS NTAPI KsSetMajorFunctionHandler
+			(PDRIVER_OBJECT DriverObject, ULONG MajorFunction);
+
+KSDDKAPI NTSTATUS NTAPI KsDispatchInvalidDeviceRequest
+			(PDEVICE_OBJECT DeviceObject, PIRP Irp);
+
+KSDDKAPI NTSTATUS NTAPI KsDefaultDeviceIoCompletion
+			(PDEVICE_OBJECT DeviceObject, PIRP Irp);
+
+KSDDKAPI NTSTATUS NTAPI KsDispatchIrp(PDEVICE_OBJECT DeviceObject, PIRP Irp);
+
+KSDDKAPI BOOLEAN NTAPI KsDispatchFastIoDeviceControlFailure
+			(PFILE_OBJECT FileObject, BOOLEAN Wait, PVOID InputBuffer,
+			 ULONG InputBufferLength, PVOID OutputBuffer,
+			 ULONG OutputBufferLength, ULONG IoControlCode,
+			 PIO_STATUS_BLOCK IoStatus, PDEVICE_OBJECT DeviceObject);
+
+KSDDKAPI BOOLEAN NTAPI KsDispatchFastReadFailure
+			(PFILE_OBJECT FileObject, PLARGE_INTEGER FileOffset,
+			 ULONG Length, BOOLEAN Wait, ULONG LockKey, PVOID Buffer,
+			 PIO_STATUS_BLOCK IoStatus, PDEVICE_OBJECT DeviceObject);
+
+#define KsDispatchFastWriteFailure		KsDispatchFastReadFailure
+
+KSDDKAPI VOID NTAPI KsCancelRoutine(PDEVICE_OBJECT DeviceObject, PIRP Irp);
+KSDDKAPI VOID NTAPI KsCancelIo(PLIST_ENTRY QueueHead, PKSPIN_LOCK SpinLock);
+KSDDKAPI VOID NTAPI KsReleaseIrpOnCancelableQueue(PIRP Irp, PDRIVER_CANCEL DriverCancel);
+
+KSDDKAPI PIRP NTAPI KsRemoveIrpFromCancelableQueue
+			(PLIST_ENTRY QueueHead, PKSPIN_LOCK SpinLock,
+			 KSLIST_ENTRY_LOCATION ListLocation,
+			 KSIRP_REMOVAL_OPERATION RemovalOperation);
+
+KSDDKAPI NTSTATUS NTAPI KsMoveIrpsOnCancelableQueue
+			(PLIST_ENTRY SourceList, PKSPIN_LOCK SourceLock,
+			 PLIST_ENTRY DestinationList, PKSPIN_LOCK DestinationLock,
+			 KSLIST_ENTRY_LOCATION ListLocation,
+			 PFNKSIRPLISTCALLBACK ListCallback, PVOID Context);
+
+KSDDKAPI VOID NTAPI KsRemoveSpecificIrpFromCancelableQueue (PIRP Irp);
+
+KSDDKAPI VOID NTAPI KsAddIrpToCancelableQueue
+			(PLIST_ENTRY QueueHead, PKSPIN_LOCK SpinLock, PIRP Irp,
+			 KSLIST_ENTRY_LOCATION ListLocation, PDRIVER_CANCEL DriverCancel);
+
+KSDDKAPI NTSTATUS NTAPI KsAcquireResetValue(PIRP Irp, KSRESET *ResetValue);
+
+KSDDKAPI NTSTATUS NTAPI KsTopologyPropertyHandler
+			(PIRP Irp, PKSPROPERTY Property, PVOID Data,
+			 const KSTOPOLOGY *Topology);
+
+KSDDKAPI VOID NTAPI KsAcquireDeviceSecurityLock(KSDEVICE_HEADER Header, BOOLEAN Exclusive);
+KSDDKAPI VOID NTAPI KsReleaseDeviceSecurityLock (KSDEVICE_HEADER Header);
+KSDDKAPI NTSTATUS NTAPI KsDefaultDispatchPnp(PDEVICE_OBJECT DeviceObject, PIRP Irp);
+KSDDKAPI NTSTATUS NTAPI KsDefaultDispatchPower(PDEVICE_OBJECT DeviceObject, PIRP Irp);
+KSDDKAPI NTSTATUS NTAPI KsDefaultForwardIrp(PDEVICE_OBJECT DeviceObject, PIRP Irp);
+
+KSDDKAPI VOID NTAPI KsSetDevicePnpAndBaseObject
+			(KSDEVICE_HEADER Header, PDEVICE_OBJECT PnpDeviceObject,
+			 PDEVICE_OBJECT BaseObject);
+
+KSDDKAPI PDEVICE_OBJECT NTAPI KsQueryDevicePnpObject (KSDEVICE_HEADER Header);
+KSDDKAPI ACCESS_MASK NTAPI KsQueryObjectAccessMask (KSOBJECT_HEADER Header);
+
+KSDDKAPI VOID NTAPI KsRecalculateStackDepth
+			(KSDEVICE_HEADER Header, BOOLEAN ReuseStackLocation);
+
+KSDDKAPI VOID NTAPI KsSetTargetState
+			(KSOBJECT_HEADER Header, KSTARGET_STATE TargetState);
+
+KSDDKAPI VOID NTAPI KsSetTargetDeviceObject
+			(KSOBJECT_HEADER Header, PDEVICE_OBJECT TargetDevice);
+
+KSDDKAPI VOID NTAPI KsSetPowerDispatch
+			(KSOBJECT_HEADER Header, PFNKSCONTEXT_DISPATCH PowerDispatch,
+			 PVOID PowerContext);
+
+KSDDKAPI PKSOBJECT_CREATE_ITEM NTAPI KsQueryObjectCreateItem (KSOBJECT_HEADER Header);
+
+KSDDKAPI NTSTATUS NTAPI KsAllocateDeviceHeader
+			(KSDEVICE_HEADER *Header, ULONG ItemsCount,
+			 PKSOBJECT_CREATE_ITEM ItemsList);
+
+KSDDKAPI VOID NTAPI KsFreeDeviceHeader (KSDEVICE_HEADER Header);
+
+KSDDKAPI NTSTATUS NTAPI KsAllocateObjectHeader
+			(KSOBJECT_HEADER *Header, ULONG ItemsCount,
+			 PKSOBJECT_CREATE_ITEM ItemsList, PIRP Irp,
+			 const KSDISPATCH_TABLE *Table);
+
+KSDDKAPI VOID NTAPI KsFreeObjectHeader (KSOBJECT_HEADER Header);
+
+KSDDKAPI NTSTATUS NTAPI KsAddObjectCreateItemToDeviceHeader
+			(KSDEVICE_HEADER Header, PDRIVER_DISPATCH Create, PVOID Context,
+			 PWSTR ObjectClass, PSECURITY_DESCRIPTOR SecurityDescriptor);
+
+KSDDKAPI NTSTATUS NTAPI KsAddObjectCreateItemToObjectHeader
+			(KSOBJECT_HEADER Header, PDRIVER_DISPATCH Create, PVOID Context,
+			 PWSTR ObjectClass, PSECURITY_DESCRIPTOR SecurityDescriptor);
+
+KSDDKAPI NTSTATUS NTAPI KsAllocateObjectCreateItem
+			(KSDEVICE_HEADER Header, PKSOBJECT_CREATE_ITEM CreateItem,
+			 BOOLEAN AllocateEntry, PFNKSITEMFREECALLBACK ItemFreeCallback);
+
+KSDDKAPI NTSTATUS NTAPI KsFreeObjectCreateItem
+			(KSDEVICE_HEADER Header, PUNICODE_STRING CreateItem);
+
+KSDDKAPI NTSTATUS NTAPI KsFreeObjectCreateItemsByContext
+			(KSDEVICE_HEADER Header, PVOID Context);
+
+KSDDKAPI NTSTATUS NTAPI KsCreateDefaultSecurity
+			(PSECURITY_DESCRIPTOR ParentSecurity,
+			 PSECURITY_DESCRIPTOR *DefaultSecurity);
+
+KSDDKAPI NTSTATUS NTAPI KsForwardIrp
+			(PIRP Irp, PFILE_OBJECT FileObject, BOOLEAN ReuseStackLocation);
+
+KSDDKAPI NTSTATUS NTAPI KsForwardAndCatchIrp
+			(PDEVICE_OBJECT DeviceObject, PIRP Irp, PFILE_OBJECT FileObject,
+			 KSSTACK_USE StackUse);
+
+KSDDKAPI NTSTATUS NTAPI KsSynchronousIoControlDevice
+			(PFILE_OBJECT FileObject, KPROCESSOR_MODE RequestorMode,
+			 ULONG IoControl, PVOID InBuffer, ULONG InSize, PVOID OutBuffer,
+			 ULONG OutSize, PULONG BytesReturned);
+
+KSDDKAPI NTSTATUS NTAPI KsUnserializeObjectPropertiesFromRegistry
+			(PFILE_OBJECT FileObject, HANDLE ParentKey,
+			 PUNICODE_STRING RegistryPath);
+
+KSDDKAPI NTSTATUS NTAPI KsCacheMedium
+			(PUNICODE_STRING SymbolicLink, PKSPIN_MEDIUM Medium,
+			 ULONG PinDirection);
+
+KSDDKAPI NTSTATUS NTAPI KsRegisterWorker
+			(WORK_QUEUE_TYPE WorkQueueType, PKSWORKER *Worker);
+
+KSDDKAPI NTSTATUS NTAPI KsRegisterCountedWorker
+			(WORK_QUEUE_TYPE WorkQueueType, PWORK_QUEUE_ITEM CountedWorkItem,
+			 PKSWORKER *Worker);
+
+KSDDKAPI VOID NTAPI KsUnregisterWorker (PKSWORKER Worker);
+KSDDKAPI NTSTATUS NTAPI KsQueueWorkItem(PKSWORKER Worker, PWORK_QUEUE_ITEM WorkItem);
+KSDDKAPI ULONG NTAPI KsIncrementCountedWorker (PKSWORKER Worker);
+KSDDKAPI ULONG NTAPI KsDecrementCountedWorker (PKSWORKER Worker);
+
+KSDDKAPI NTSTATUS NTAPI KsCreateTopologyNode
+			(HANDLE ParentHandle, PKSNODE_CREATE NodeCreate,
+			 ACCESS_MASK DesiredAccess, PHANDLE NodeHandle);
+
+KSDDKAPI NTSTATUS NTAPI KsValidateTopologyNodeCreateRequest
+			(PIRP Irp, PKSTOPOLOGY Topology, PKSNODE_CREATE *NodeCreate);
+
+KSDDKAPI NTSTATUS NTAPI KsMergeAutomationTables
+			(PKSAUTOMATION_TABLE *AutomationTableAB,
+			 PKSAUTOMATION_TABLE AutomationTableA,
+			 PKSAUTOMATION_TABLE AutomationTableB,
+			 KSOBJECT_BAG Bag);
+
+KSDDKAPI NTSTATUS NTAPI KsInitializeDriver
+			(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPathName,
+			 const KSDEVICE_DESCRIPTOR *Descriptor);
+
+KSDDKAPI NTSTATUS NTAPI KsAddDevice
+			(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT PhysicalDeviceObject);
+
+KSDDKAPI NTSTATUS NTAPI KsCreateDevice
+			(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT PhysicalDeviceObject,
+			 const KSDEVICE_DESCRIPTOR *Descriptor, ULONG ExtensionSize,
+			 PKSDEVICE *Device);
+
+KSDDKAPI NTSTATUS NTAPI KsInitializeDevice
+			(PDEVICE_OBJECT FunctionalDeviceObject,
+			 PDEVICE_OBJECT PhysicalDeviceObject,
+			 PDEVICE_OBJECT NextDeviceObject,
+			 const KSDEVICE_DESCRIPTOR *Descriptor);
+
+KSDDKAPI void NTAPI KsTerminateDevice (PDEVICE_OBJECT DeviceObject);
+KSDDKAPI PKSDEVICE NTAPI KsGetDeviceForDeviceObject (PDEVICE_OBJECT FunctionalDeviceObject);
+KSDDKAPI void NTAPI KsAcquireDevice (PKSDEVICE Device);
+KSDDKAPI void NTAPI KsReleaseDevice (PKSDEVICE Device);
+
+KSDDKAPI void NTAPI KsDeviceRegisterAdapterObject
+			(PKSDEVICE Device, PADAPTER_OBJECT AdapterObject,
+			 ULONG MaxMappingsByteCount, ULONG MappingTableStride);
+
+KSDDKAPI ULONG NTAPI KsDeviceGetBusData
+			(PKSDEVICE Device, ULONG DataType, PVOID Buffer, ULONG Offset,
+			 ULONG Length);
+
+KSDDKAPI ULONG NTAPI KsDeviceSetBusData
+			(PKSDEVICE Device, ULONG DataType, PVOID Buffer, ULONG Offset,
+			 ULONG Length);
+
+KSDDKAPI NTSTATUS NTAPI KsCreateFilterFactory
+			(PDEVICE_OBJECT DeviceObject, const KSFILTER_DESCRIPTOR *Descriptor,
+			 PWSTR RefString, PSECURITY_DESCRIPTOR SecurityDescriptor,
+			 ULONG CreateItemFlags, PFNKSFILTERFACTORYPOWER SleepCallback,
+			 PFNKSFILTERFACTORYPOWER WakeCallback,
+			 PKSFILTERFACTORY *FilterFactory);
+
+#define KsDeleteFilterFactory(FilterFactory)												\
+	KsFreeObjectCreateItemsByContext( *(KSDEVICE_HEADER *)(										\
+						KsFilterFactoryGetParentDevice(FilterFactory)->FunctionalDeviceObject->DeviceExtension),\
+					   FilterFactory)
+
+KSDDKAPI NTSTATUS NTAPI KsFilterFactoryUpdateCacheData
+			(PKSFILTERFACTORY FilterFactory,
+			 const KSFILTER_DESCRIPTOR *FilterDescriptor);
+
+KSDDKAPI NTSTATUS NTAPI KsFilterFactoryAddCreateItem
+			(PKSFILTERFACTORY FilterFactory, PWSTR RefString,
+			 PSECURITY_DESCRIPTOR SecurityDescriptor, ULONG CreateItemFlags);
+
+KSDDKAPI NTSTATUS NTAPI KsFilterFactorySetDeviceClassesState
+			(PKSFILTERFACTORY FilterFactory, BOOLEAN NewState);
+
+KSDDKAPI PUNICODE_STRING NTAPI KsFilterFactoryGetSymbolicLink
+			(PKSFILTERFACTORY FilterFactory);
+
+KSDDKAPI void NTAPI KsAddEvent(PVOID Object, PKSEVENT_ENTRY EventEntry);
+
+void __forceinline KsFilterAddEvent (PKSFILTER Filter, PKSEVENT_ENTRY EventEntry)
+{
+	KsAddEvent(Filter, EventEntry);
+}
+
+void __forceinline KsPinAddEvent (PKSPIN Pin, PKSEVENT_ENTRY EventEntry)
+{
+	KsAddEvent(Pin, EventEntry);
+}
+
+KSDDKAPI NTSTATUS NTAPI KsDefaultAddEventHandler
+			(PIRP Irp, PKSEVENTDATA EventData, PKSEVENT_ENTRY EventEntry);
+
+KSDDKAPI void NTAPI KsGenerateEvents
+			(PVOID Object, const GUID *EventSet, ULONG EventId,
+			 ULONG DataSize, PVOID Data, PFNKSGENERATEEVENTCALLBACK CallBack,
+			 PVOID CallBackContext);
+
+void __forceinline KsFilterGenerateEvents
+			(PKSFILTER Filter, const GUID *EventSet, ULONG EventId,
+			 ULONG DataSize, PVOID Data, PFNKSGENERATEEVENTCALLBACK CallBack,
+			 PVOID CallBackContext)
+{
+	KsGenerateEvents(Filter, EventSet, EventId, DataSize, Data, CallBack,
+			 CallBackContext);
+}
+
+void __forceinline KsPinGenerateEvents
+			(PKSPIN Pin, const GUID *EventSet, ULONG EventId,
+			 ULONG DataSize, PVOID Data, PFNKSGENERATEEVENTCALLBACK CallBack,
+			 PVOID CallBackContext)
+{
+	KsGenerateEvents(Pin, EventSet, EventId, DataSize, Data, CallBack,
+			 CallBackContext);
+}
+
+typedef enum {
+  KSSTREAM_POINTER_STATE_UNLOCKED = 0,
+  KSSTREAM_POINTER_STATE_LOCKED
+} KSSTREAM_POINTER_STATE;
+
+KSDDKAPI NTSTATUS NTAPI KsPinGetAvailableByteCount
+			(PKSPIN Pin, PLONG InputDataBytes, PLONG OutputBufferBytes);
+
+KSDDKAPI PKSSTREAM_POINTER NTAPI KsPinGetLeadingEdgeStreamPointer
+			(PKSPIN Pin, KSSTREAM_POINTER_STATE State);
+
+KSDDKAPI PKSSTREAM_POINTER NTAPI KsPinGetTrailingEdgeStreamPointer
+			(PKSPIN Pin, KSSTREAM_POINTER_STATE State);
+
+KSDDKAPI NTSTATUS NTAPI KsStreamPointerSetStatusCode
+			(PKSSTREAM_POINTER StreamPointer, NTSTATUS Status);
+
+KSDDKAPI NTSTATUS NTAPI KsStreamPointerLock (PKSSTREAM_POINTER StreamPointer);
+KSDDKAPI void NTAPI KsStreamPointerUnlock(PKSSTREAM_POINTER StreamPointer, BOOLEAN Eject);
+
+KSDDKAPI void NTAPI KsStreamPointerAdvanceOffsetsAndUnlock
+			(PKSSTREAM_POINTER StreamPointer, ULONG InUsed, ULONG OutUsed,
+			 BOOLEAN Eject);
+
+KSDDKAPI void NTAPI KsStreamPointerDelete (PKSSTREAM_POINTER StreamPointer);
+
+KSDDKAPI NTSTATUS NTAPI KsStreamPointerClone
+			(PKSSTREAM_POINTER StreamPointer, PFNKSSTREAMPOINTER CancelCallback,
+			 ULONG ContextSize, PKSSTREAM_POINTER *CloneStreamPointer);
+
+KSDDKAPI NTSTATUS NTAPI KsStreamPointerAdvanceOffsets
+			(PKSSTREAM_POINTER StreamPointer, ULONG InUsed, ULONG OutUsed,
+			 BOOLEAN Eject);
+
+KSDDKAPI NTSTATUS NTAPI KsStreamPointerAdvance (PKSSTREAM_POINTER StreamPointer);
+KSDDKAPI PMDL NTAPI KsStreamPointerGetMdl (PKSSTREAM_POINTER StreamPointer);
+
+KSDDKAPI PIRP NTAPI KsStreamPointerGetIrp
+			(PKSSTREAM_POINTER StreamPointer, PBOOLEAN FirstFrameInIrp,
+			 PBOOLEAN LastFrameInIrp);
+
+KSDDKAPI void NTAPI KsStreamPointerScheduleTimeout
+			(PKSSTREAM_POINTER StreamPointer, PFNKSSTREAMPOINTER Callback,
+			 ULONGLONG Interval);
+
+KSDDKAPI void NTAPI KsStreamPointerCancelTimeout (PKSSTREAM_POINTER StreamPointer);
+KSDDKAPI PKSSTREAM_POINTER NTAPI KsPinGetFirstCloneStreamPointer (PKSPIN Pin);
+
+KSDDKAPI PKSSTREAM_POINTER NTAPI KsStreamPointerGetNextClone
+			(PKSSTREAM_POINTER StreamPointer);
+
+KSDDKAPI NTSTATUS NTAPI KsPinHandshake(PKSPIN Pin, PKSHANDSHAKE In, PKSHANDSHAKE Out);
+KSDDKAPI void NTAPI KsCompletePendingRequest (PIRP Irp);
+KSDDKAPI KSOBJECTTYPE NTAPI KsGetObjectTypeFromIrp (PIRP Irp);
+KSDDKAPI PVOID NTAPI KsGetObjectFromFileObject (PFILE_OBJECT FileObject);
+KSDDKAPI KSOBJECTTYPE NTAPI KsGetObjectTypeFromFileObject (PFILE_OBJECT FileObject);
+
+PKSFILTER __forceinline KsGetFilterFromFileObject (PFILE_OBJECT FileObject)
+{
+	return (PKSFILTER) KsGetObjectFromFileObject(FileObject);
+}
+
+PKSPIN __forceinline KsGetPinFromFileObject (PFILE_OBJECT FileObject)
+{
+	return (PKSPIN) KsGetObjectFromFileObject(FileObject);
+}
+
+KSDDKAPI PKSGATE NTAPI KsFilterGetAndGate (PKSFILTER Filter);
+KSDDKAPI void NTAPI KsFilterAcquireProcessingMutex (PKSFILTER Filter);
+KSDDKAPI void NTAPI KsFilterReleaseProcessingMutex (PKSFILTER Filter);
+KSDDKAPI void NTAPI KsFilterAttemptProcessing(PKSFILTER Filter, BOOLEAN Asynchronous);
+KSDDKAPI PKSGATE NTAPI KsPinGetAndGate(PKSPIN Pin);
+KSDDKAPI void NTAPI KsPinAttachAndGate(PKSPIN Pin, PKSGATE AndGate);
+KSDDKAPI void NTAPI KsPinAttachOrGate (PKSPIN Pin, PKSGATE OrGate);
+KSDDKAPI void NTAPI KsPinAcquireProcessingMutex (PKSPIN Pin);
+KSDDKAPI void NTAPI KsPinReleaseProcessingMutex (PKSPIN Pin);
+KSDDKAPI BOOLEAN NTAPI KsProcessPinUpdate (PKSPROCESSPIN ProcessPin);
+
+KSDDKAPI void NTAPI KsPinGetCopyRelationships
+			(PKSPIN Pin, PKSPIN *CopySource, PKSPIN *DelegateBranch);
+
+KSDDKAPI void NTAPI KsPinAttemptProcessing(PKSPIN Pin, BOOLEAN Asynchronous);
+KSDDKAPI PVOID NTAPI KsGetParent (PVOID Object);
+
+PKSDEVICE __forceinline KsFilterFactoryGetParentDevice (PKSFILTERFACTORY FilterFactory)
+{
+	return (PKSDEVICE) KsGetParent((PVOID) FilterFactory);
+}
+
+PKSFILTERFACTORY __forceinline KsFilterGetParentFilterFactory (PKSFILTER Filter)
+{
+	return (PKSFILTERFACTORY) KsGetParent((PVOID) Filter);
+}
+
+KSDDKAPI PKSFILTER NTAPI KsPinGetParentFilter (PKSPIN Pin);
+KSDDKAPI PVOID NTAPI KsGetFirstChild (PVOID Object);
+
+PKSFILTERFACTORY __forceinline KsDeviceGetFirstChildFilterFactory (PKSDEVICE Device)
+{
+	return (PKSFILTERFACTORY) KsGetFirstChild((PVOID) Device);
+}
+
+PKSFILTER __forceinline KsFilterFactoryGetFirstChildFilter (PKSFILTERFACTORY FilterFactory)
+{
+	return (PKSFILTER) KsGetFirstChild((PVOID) FilterFactory);
+}
+
+KSDDKAPI ULONG NTAPI KsFilterGetChildPinCount(PKSFILTER Filter, ULONG PinId);
+KSDDKAPI PKSPIN NTAPI KsFilterGetFirstChildPin(PKSFILTER Filter, ULONG PinId);
+KSDDKAPI PVOID NTAPI KsGetNextSibling (PVOID Object);
+KSDDKAPI PKSPIN NTAPI KsPinGetNextSiblingPin (PKSPIN Pin);
+
+PKSFILTERFACTORY __forceinline KsFilterFactoryGetNextSiblingFilterFactory
+			(PKSFILTERFACTORY FilterFactory)
+{
+	return (PKSFILTERFACTORY) KsGetNextSibling((PVOID) FilterFactory);
+}
+
+PKSFILTER __forceinline KsFilterGetNextSiblingFilter (PKSFILTER Filter)
+{
+	return (PKSFILTER) KsGetNextSibling((PVOID) Filter);
+}
+
+KSDDKAPI PKSDEVICE NTAPI KsGetDevice (PVOID Object);
+
+PKSDEVICE __forceinline KsFilterFactoryGetDevice (PKSFILTERFACTORY FilterFactory)
+{
+	return KsGetDevice((PVOID) FilterFactory);
+}
+
+PKSDEVICE __forceinline KsFilterGetDevice (PKSFILTER Filter)
+{
+	return KsGetDevice((PVOID) Filter);
+}
+
+PKSDEVICE __forceinline KsPinGetDevice (PKSPIN Pin)
+{
+	return KsGetDevice((PVOID) Pin);
+}
+
+KSDDKAPI PKSFILTER NTAPI KsGetFilterFromIrp (PIRP Irp);
+KSDDKAPI PKSPIN NTAPI KsGetPinFromIrp (PIRP Irp);
+KSDDKAPI ULONG NTAPI KsGetNodeIdFromIrp (PIRP Irp);
+KSDDKAPI void NTAPI KsAcquireControl (PVOID Object);
+KSDDKAPI void NTAPI KsReleaseControl (PVOID Object);
+
+void __forceinline KsFilterAcquireControl (PKSFILTER Filter)
+{
+	KsAcquireControl((PVOID) Filter);
+}
+
+void __forceinline KsFilterReleaseControl (PKSFILTER Filter)
+{
+	KsReleaseControl((PVOID) Filter);
+}
+
+void __forceinline KsPinAcquireControl (PKSPIN Pin)
+{
+	KsAcquireControl((PVOID) Pin);
+}
+
+void __forceinline KsPinReleaseControl (PKSPIN Pin)
+{
+	KsReleaseControl((PVOID) Pin);
+}
+
+KSDDKAPI NTSTATUS NTAPI KsAddItemToObjectBag
+			(KSOBJECT_BAG ObjectBag, PVOID Item, PFNKSFREE Free);
+
+KSDDKAPI ULONG NTAPI KsRemoveItemFromObjectBag
+			(KSOBJECT_BAG ObjectBag, PVOID Item, BOOLEAN Free);
+
+#define KsDiscard(Object,Pointer)					\
+	KsRemoveItemFromObjectBag((Object)->Bag, (PVOID)(Pointer), TRUE)
+
+KSDDKAPI NTSTATUS NTAPI KsAllocateObjectBag(PKSDEVICE Device, KSOBJECT_BAG *ObjectBag);
+KSDDKAPI void NTAPI KsFreeObjectBag (KSOBJECT_BAG ObjectBag);
+
+KSDDKAPI NTSTATUS NTAPI KsCopyObjectBagItems
+			(KSOBJECT_BAG ObjectBagDestination, KSOBJECT_BAG ObjectBagSource);
+
+KSDDKAPI NTSTATUS NTAPI _KsEdit
+			(KSOBJECT_BAG ObjectBag, PVOID *PointerToPointerToItem,
+			 ULONG NewSize, ULONG OldSize, ULONG Tag);
+
+#define KsEdit(Object, PointerToPointer, Tag)						\
+	_KsEdit((Object)->Bag, (PVOID*)(PointerToPointer),				\
+		sizeof(**(PointerToPointer)), sizeof(**(PointerToPointer)), (Tag))
+
+#define KsEditSized(Object, PointerToPointer, NewSize, OldSize, Tag)			\
+	_KsEdit((Object)->Bag, (PVOID*)(PointerToPointer), (NewSize), (OldSize), (Tag))
+
+KSDDKAPI NTSTATUS NTAPI KsRegisterFilterWithNoKSPins
+			(PDEVICE_OBJECT DeviceObject, const GUID *InterfaceClassGUID,
+			 ULONG PinCount, WINBOOL *PinDirection, KSPIN_MEDIUM *MediumList,
+			 GUID *CategoryList);
+
+KSDDKAPI NTSTATUS NTAPI KsFilterCreatePinFactory
+			(PKSFILTER Filter, const KSPIN_DESCRIPTOR_EX *const PinDescriptor,
+			 PULONG PinID);
+
+KSDDKAPI NTSTATUS NTAPI KsFilterCreateNode
+			(PKSFILTER Filter, const KSNODE_DESCRIPTOR *const NodeDescriptor,
+			 PULONG NodeID);
+
+KSDDKAPI NTSTATUS NTAPI KsFilterAddTopologyConnections
+			(PKSFILTER Filter, ULONG NewConnectionsCount,
+			 const KSTOPOLOGY_CONNECTION *const NewTopologyConnections);
+
+KSDDKAPI NTSTATUS NTAPI KsPinGetConnectedPinInterface
+			(PKSPIN Pin, const GUID *InterfaceId, PVOID *Interface);
+
+KSDDKAPI PFILE_OBJECT NTAPI KsPinGetConnectedPinFileObject (PKSPIN Pin);
+KSDDKAPI PDEVICE_OBJECT NTAPI KsPinGetConnectedPinDeviceObject (PKSPIN Pin);
+
+KSDDKAPI NTSTATUS NTAPI KsPinGetConnectedFilterInterface
+			(PKSPIN Pin, const GUID *InterfaceId, PVOID *Interface);
+
+#if defined(_UNKNOWN_H_) || defined(__IUnknown_INTERFACE_DEFINED__)
+KSDDKAPI NTSTATUS NTAPI KsPinGetReferenceClockInterface
+			(PKSPIN Pin, PIKSREFERENCECLOCK *Interface);
+#endif /* defined(_UNKNOWN_H_) || defined(__IUnknown_INTERFACE_DEFINED__) */
+
+KSDDKAPI VOID NTAPI KsPinSetPinClockTime(PKSPIN Pin, LONGLONG Time);
+
+KSDDKAPI NTSTATUS NTAPI KsPinSubmitFrame
+			(PKSPIN Pin, PVOID Data, ULONG Size,
+			 PKSSTREAM_HEADER StreamHeader, PVOID Context);
+
+KSDDKAPI NTSTATUS NTAPI KsPinSubmitFrameMdl
+			(PKSPIN Pin, PMDL Mdl, PKSSTREAM_HEADER StreamHeader,
+			 PVOID Context);
+
+KSDDKAPI void NTAPI KsPinRegisterFrameReturnCallback
+			(PKSPIN Pin, PFNKSPINFRAMERETURN FrameReturn);
+
+KSDDKAPI void NTAPI KsPinRegisterIrpCompletionCallback
+			(PKSPIN Pin, PFNKSPINIRPCOMPLETION IrpCompletion);
+
+KSDDKAPI void NTAPI KsPinRegisterHandshakeCallback
+			(PKSPIN Pin, PFNKSPINHANDSHAKE Handshake);
+
+KSDDKAPI void NTAPI KsFilterRegisterPowerCallbacks
+			(PKSFILTER Filter, PFNKSFILTERPOWER Sleep, PFNKSFILTERPOWER Wake);
+
+KSDDKAPI void NTAPI KsPinRegisterPowerCallbacks
+			(PKSPIN Pin, PFNKSPINPOWER Sleep, PFNKSPINPOWER Wake);
+
+#if defined(_UNKNOWN_H_) || defined(__IUnknown_INTERFACE_DEFINED__)
+KSDDKAPI PUNKNOWN NTAPI KsRegisterAggregatedClientUnknown
+			(PVOID Object, PUNKNOWN ClientUnknown);
+
+KSDDKAPI PUNKNOWN NTAPI KsGetOuterUnknown (PVOID Object);
+
+PUNKNOWN __forceinline KsDeviceRegisterAggregatedClientUnknown
+			(PKSDEVICE Device, PUNKNOWN ClientUnknown)
+{
+	return KsRegisterAggregatedClientUnknown((PVOID)Device, ClientUnknown);
+}
+
+PUNKNOWN __forceinline KsDeviceGetOuterUnknown (PKSDEVICE Device)
+{
+	return KsGetOuterUnknown((PVOID) Device);
+}
+
+PUNKNOWN __forceinline KsFilterFactoryRegisterAggregatedClientUnknown
+			(PKSFILTERFACTORY FilterFactory, PUNKNOWN ClientUnknown)
+{
+	return KsRegisterAggregatedClientUnknown((PVOID)FilterFactory, ClientUnknown);
+}
+
+PUNKNOWN __forceinline KsFilterFactoryGetOuterUnknown (PKSFILTERFACTORY FilterFactory)
+{
+	return KsGetOuterUnknown((PVOID)FilterFactory);
+}
+
+PUNKNOWN __forceinline KsFilterRegisterAggregatedClientUnknown
+			(PKSFILTER Filter, PUNKNOWN ClientUnknown)
+{
+	return KsRegisterAggregatedClientUnknown((PVOID)Filter, ClientUnknown);
+}
+
+PUNKNOWN __forceinline KsFilterGetOuterUnknown (PKSFILTER Filter)
+{
+	return KsGetOuterUnknown((PVOID)Filter);
+}
+
+PUNKNOWN __forceinline KsPinRegisterAggregatedClientUnknown
+			(PKSPIN Pin, PUNKNOWN ClientUnknown)
+{
+	return KsRegisterAggregatedClientUnknown((PVOID)Pin, ClientUnknown);
+}
+
+PUNKNOWN __forceinline KsPinGetOuterUnknown (PKSPIN Pin)
+{
+	return KsGetOuterUnknown((PVOID)Pin);
+}
+#endif /* defined(_UNKNOWN_H_) || defined(__IUnknown_INTERFACE_DEFINED__) */
+
+#else /* _NTDDK_ */
+
 #ifndef KS_NO_CREATE_FUNCTIONS
 KSDDKAPI DWORD WINAPI KsCreateAllocator(HANDLE ConnectionHandle,PKSALLOCATOR_FRAMING AllocatorFraming,PHANDLE AllocatorHandle);
 KSDDKAPI DWORD NTAPI KsCreateClock(HANDLE ConnectionHandle,PKSCLOCK_CREATE ClockCreate,PHANDLE ClockHandle);
 KSDDKAPI DWORD WINAPI KsCreatePin(HANDLE FilterHandle,PKSPIN_CONNECT Connect,ACCESS_MASK DesiredAccess,PHANDLE ConnectionHandle);
 KSDDKAPI DWORD WINAPI KsCreateTopologyNode(HANDLE ParentHandle,PKSNODE_CREATE NodeCreate,ACCESS_MASK DesiredAccess,PHANDLE NodeHandle);
 #endif
+
+#endif /* _NTDDK_ */
 
 #ifdef __cplusplus
 }
