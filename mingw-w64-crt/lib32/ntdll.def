@@ -1201,8 +1201,6 @@ RtlTraceDatabaseUnlock@4
 RtlTraceDatabaseValidate@4
 RtlTryAcquirePebLock@0
 RtlTryEnterCriticalSection@4
-RtlUlongByteSwap@4
-RtlUlonglongByteSwap@4
 RtlUnhandledExceptionFilter2@8
 RtlUnhandledExceptionFilter@4
 RtlUnicodeStringToAnsiSize@4
@@ -1240,7 +1238,6 @@ RtlUpperString@8
 RtlUsageHeap@12
 ; Not shure.
 RtlUserThreadStart
-RtlUshortByteSwap@4
 RtlValidAcl@4
 RtlValidRelativeSecurityDescriptor@12
 RtlValidSecurityDescriptor@4
