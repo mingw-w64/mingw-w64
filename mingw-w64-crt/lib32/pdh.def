@@ -132,3 +132,4 @@ PdhVbUpdateLog@8
 PdhVerifySQLDBA@4
 PdhVerifySQLDBW@4
 PdhWriteRelogSample@12
+PdhpGetLoggerName@16

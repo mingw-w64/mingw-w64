@@ -1,3 +1,26 @@
+2010-06-29  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* lib64/mprapi.def: Updated from Vista.
+	* lib64/pdh.def: Likewise.
+	* lib64/msctf.def: Likewise.
+	* lib32/mprapi.def: Likewise.
+	* lib32/pdh.def: Likewise.
+	* lib64/wdstptc.def: New.
+	* lib64/p2pgraph.def: New.
+	* lib64/p2pcollab.def: New.
+	* lib64/ndfapi.def: New.
+	* lib64/p2p.def: New.
+	* lib64/cscapi.def: New.
+	* lib32/wdstptc.def: New.
+	* lib32/p2pgraph.def: New.
+	* lib32/p2p.def: New.
+	* lib32/msctf.def: New.
+	* lib32/ndfapi.def: New.
+	* lib32/cscapi.def: New.
+	* lib32/p2pcollab.def: New.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
 2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/ks.def: New.

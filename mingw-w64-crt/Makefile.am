@@ -370,7 +370,7 @@ lib32_DATA = \
   lib32/libusp10.a     lib32/libuxtheme.a   lib32/libvdmdbg.a    lib32/libversion.a   lib32/libvideoprt.a \
   lib32/libwin32k.a    lib32/libwin32spl.a  lib32/libwininet.a   lib32/libwinmm.a     lib32/libwinspool.a \
   lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a     lib32/libwsnmp32.a   \
-  lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a \
+  lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a  \
   \
   lib32/libgpapi.a     lib32/libgpedit.a   lib32/libgpprefcl.a   lib32/libgpscript.a \
   lib32/libgptext.a    lib32/libmshtml.a   lib32/libmshtmled.a  \
@@ -385,10 +385,10 @@ lib32_DATA = \
   lib32/libmfplat.a    lib32/libmsdrm.a    lib32/libncrypt.a     lib32/libntdsapi.a   \
   lib32/libntmsapi.a   lib32/libspoolss.a  lib32/libsxs.a        lib32/libwecapi.a    \
   lib32/libwevtapi.a   lib32/libwevtfwd.a  lib32/libfwpuclnt.a   lib32/libmstask.a    \
-  lib32/libqutil.a     lib32/libconnect.a  lib32/libesent.a      lib32/libhttpapi.a	\
-  lib32/libpdh.a	lib32/libpdhui.a   \
-  \
-  lib32/libks.a
+  lib32/libqutil.a     lib32/libconnect.a  lib32/libesent.a      lib32/libhttpapi.a   \
+  lib32/libpdh.a       lib32/libpdhui.a    lib32/libcscapi.a     lib32/libmsctf.a     \
+  lib32/libndfapi.a    lib32/libp2pcollab.a lib32/libp2pgraph.a  lib32/libwdstptc.a   \
+  lib32/libks.a        lib64/libcscapi.a   lib32/libp2p.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -951,8 +951,8 @@ lib64_DATA = \
   lib64/libeappgnui.a   lib64/libeapphost.a   lib64/libeappprxy.a    lib64/libevr.a         lib64/libiscsidsc.a      \
   lib64/libktmw32.a     lib64/libmf.a         lib64/libmfplat.a      lib64/libmsdrm.a       lib64/libncrypt.a        \
   lib64/libwecapi.a     lib64/libwevtapi.a    lib64/libwevtfwd.a     lib64/libqutil.a       lib64/libconnect.a       \
-  lib64/libfwpuclnt.a  \
-  \
+  lib64/libfwpuclnt.a   lib64/libndfapi.a     lib64/libp2p.a         lib64/libp2pcollab.a   lib64/libp2pgraph.a      \
+  lib64/libwdstptc.a    \
   lib64/libks.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
