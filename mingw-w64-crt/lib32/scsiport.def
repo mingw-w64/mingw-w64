@@ -13,7 +13,7 @@ ScsiPortGetLogicalUnit@16
 ScsiPortGetPhysicalAddress@16
 ScsiPortGetSrb@20
 ScsiPortGetUncachedExtension@12
-ScsiPortGetVirtualAddress@8
+ScsiPortGetVirtualAddress@12
 ScsiPortInitialize@16
 ScsiPortIoMapTransfer@16
 ScsiPortLogError@28
@@ -34,7 +34,7 @@ ScsiPortReadRegisterUlong@4
 ScsiPortReadRegisterUshort@4
 ScsiPortSetBusDataByOffset@28
 ScsiPortStallExecution@4
-ScsiPortValidateRange@24
+ScsiPortValidateRange@28
 ScsiPortWritePortBufferUchar@12
 ScsiPortWritePortBufferUlong@12
 ScsiPortWritePortBufferUshort@12
