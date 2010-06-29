@@ -1,5 +1,6 @@
 2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* lib32/mcd.def: Fix ChangerClassDebugPrint export (not __stdcall).
 	* lib32/ntoskrnl.def: Fix several @<n> suffixes.
 	* lib32/ntdll.def: Fix RtlUshortByteSwap, RtlUlongByteSwap and
 	RtlUlonglongByteSwap exports (__fastcall and @<n> suffixes).
