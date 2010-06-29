@@ -627,8 +627,8 @@ RtlTraceDatabaseLock@4
 RtlTraceDatabaseUnlock@4
 RtlTraceDatabaseValidate@4
 RtlTryEnterCriticalSection@4
-RtlUlongByteSwap@4
-RtlUlonglongByteSwap@4
+@RtlUlongByteSwap@4
+@RtlUlonglongByteSwap@8
 RtlUnicodeStringToAnsiSize@4
 RtlUnicodeStringToAnsiString@12
 RtlUnicodeStringToCountedOemString@12
@@ -653,7 +653,7 @@ RtlUpdateTimer@16
 RtlUpperChar@4
 RtlUpperString@8
 RtlUsageHeap@12
-RtlUshortByteSwap@4
+@RtlUshortByteSwap@4
 RtlValidAcl@4
 RtlValidRelativeSecurityDescriptor@12
 RtlValidSecurityDescriptor@4
