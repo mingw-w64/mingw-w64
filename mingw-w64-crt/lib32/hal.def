@@ -18,7 +18,7 @@ HalAssignSlotResources@32
 ;HalEnableSystemInterrupt
 ;HalEndSystemInterrupt
 ;HalFlushCommonBuffer
-HalFreeCommonBuffer@20
+HalFreeCommonBuffer@24
 HalGetAdapter@8
 HalGetBusData@20
 HalGetBusDataByOffset@24

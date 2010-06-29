@@ -1,5 +1,6 @@
 2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* lib32/hal.def: Fix @<n> suffix for HalFreeCommonBuffer as 24.
 	* lib32/dxapi.def: Enabled DxApi and DxApiGetVersion exports.
 	* lib32/videoprt.def: Fix several @<n> suffixes.
 	* lib32/usbcamd.def, lib32/usbcamd2.def: Fix several @<n> suffixes.
