@@ -1,5 +1,9 @@
 2010-06-29  Doug Semler  <dougsemler@gmail.com>
 
+	* complex/cexp.def.h (cexp): Reapply return imaginary zero when NaN + 0i.
+
+2010-06-29  Doug Semler  <dougsemler@gmail.com>
+
 	* complex: Redo copy from experimental branch for svn history
 	  tracking.
 	* new_complex: Remove incorrectly merged directory.
