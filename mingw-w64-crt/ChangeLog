@@ -1,5 +1,9 @@
 2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* lib32/cfgmgr32.def: Fix @<n> suffix for CM_Add_ID[A|W] as 12,
+	CM_Query_And_Remove_SubTree_Ex[A|W] as 24.
+	* lib32/setupapi.def: Fix @<n> suffix for CM_Add_ID[A|W] as 12,
+	CM_Get_Device_ID_List_Size_Ex[A|W] as 16.
 	* lib32/hal.def: Fix @<n> suffix for HalFreeCommonBuffer as 24.
 	* lib32/dxapi.def: Enabled DxApi and DxApiGetVersion exports.
 	* lib32/videoprt.def: Fix several @<n> suffixes.

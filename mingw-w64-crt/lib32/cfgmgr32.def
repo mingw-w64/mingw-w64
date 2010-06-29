@@ -8,8 +8,8 @@ CMP_WaitNoPendingInstallEvents@4
 ;CMP_WaitServicesAvailable
 CM_Add_Empty_Log_Conf@16
 CM_Add_Empty_Log_Conf_Ex@20
-CM_Add_IDA@16
-CM_Add_IDW@16
+CM_Add_IDA@12
+CM_Add_IDW@12
 CM_Add_ID_ExA@16
 CM_Add_ID_ExW@16
 ;CM_Add_Range
@@ -150,8 +150,8 @@ CM_Modify_Res_Des_Ex@28
 ;CM_Open_DevNode_Key_Ex
 CM_Query_And_Remove_SubTreeA@20
 CM_Query_And_Remove_SubTreeW@20
-CM_Query_And_Remove_SubTree_ExA@0
-CM_Query_And_Remove_SubTree_ExW@0
+CM_Query_And_Remove_SubTree_ExA@24
+CM_Query_And_Remove_SubTree_ExW@24
 ;CM_Query_Arbitrator_Free_Data
 ;CM_Query_Arbitrator_Free_Data_Ex
 ;CM_Query_Arbitrator_Free_Size
