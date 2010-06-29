@@ -1,5 +1,7 @@
 2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* lib32/ndis.def: Fix @<n> suffix for NdisMWanIndicateReceiveComplete
+	as 8.
 	* lib32/win32k.def: Fix several @<n> suffixes.
 
 2010-06-29  Jonathan Yong  <jon_y@sourceforge.net>
