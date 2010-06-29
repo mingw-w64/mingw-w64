@@ -5,7 +5,7 @@ VideoPortAcquireSpinLock@12
 VideoPortAcquireSpinLockAtDpcLevel@8
 VideoPortAllocateBuffer@12
 VideoPortAllocateCommonBuffer@24
-VideoPortAllocateContiguousMemory@12
+VideoPortAllocateContiguousMemory@16
 VideoPortAllocatePool@16
 VideoPortAssociateEventsWithDmaHandle@16
 ;VideoPortCheckForDeviceExistance
@@ -25,7 +25,7 @@ VideoPortDoDma@12
 VideoPortEnableInterrupt@4
 VideoPortEnumerateChildren@8
 ;VideoPortFlushRegistry
-VideoPortFreeCommonBuffer@20
+VideoPortFreeCommonBuffer@24
 VideoPortFreeDeviceBase@8
 VideoPortFreePool@8
 VideoPortGetAccessRanges@32
@@ -36,7 +36,7 @@ VideoPortGetBusData@24
 VideoPortGetBytesUsed@8
 VideoPortGetCommonBuffer@24
 VideoPortGetCurrentIrql@0
-VideoPortGetDeviceBase@16
+VideoPortGetDeviceBase@20
 VideoPortGetDeviceData@16
 VideoPortGetDmaAdapter@8
 VideoPortGetDmaContext@8
@@ -75,8 +75,9 @@ VideoPortReadRegisterUchar@4
 VideoPortReadRegisterUlong@4
 VideoPortReadRegisterUshort@4
 VideoPortReadStateEvent@8
+VideoPortRegisterBugcheckCallback@16
 VideoPortReleaseBuffer@8
-VideoPortReleaseCommonBuffer@24
+VideoPortReleaseCommonBuffer@28
 VideoPortReleaseDeviceLock@4
 VideoPortReleaseSpinLock@12
 VideoPortReleaseSpinLockFromDpcLevel@8
