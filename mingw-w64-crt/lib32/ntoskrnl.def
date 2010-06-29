@@ -44,7 +44,7 @@ EXPORTS
 ;CcWaitForCurrentLazyWriterActivity
 ;CcZeroData
 CmRegisterCallback@12
-CmUnRegisterCallback@4
+CmUnRegisterCallback@8
 DbgBreakPoint@0
 DbgBreakPointWithStatus@4
 ;DbgLoadImageSymbols
@@ -641,7 +641,7 @@ LpcPortObjectType DATA
 ;MmAdjustWorkingSetSize
 MmAdvanceMdl@8
 MmAllocateContiguousMemory@12
-MmAllocateContiguousMemorySpecifyCache@20
+MmAllocateContiguousMemorySpecifyCache@32
 MmAllocateMappingAddress@8
 MmAllocateNonCachedMemory@4
 MmAllocatePagesForMdl@28
@@ -660,7 +660,7 @@ MmFreePagesFromMdl@4
 MmGetPhysicalAddress@4
 MmGetPhysicalMemoryRanges@0
 MmGetSystemRoutineAddress@4
-MmGetVirtualForPhysical@4
+MmGetVirtualForPhysical@8
 ;MmGrowKernelStack
 ;MmHighestUserAddress DATA
 MmIsAddressValid@4
@@ -678,7 +678,7 @@ MmMapLockedPagesSpecifyCache@24
 MmMapLockedPagesWithReservedMapping@16
 ;MmMapMemoryDumpMdl
 MmMapUserAddressesToPage@12
-MmMapVideoDisplay@12
+MmMapVideoDisplay@16
 MmMapViewInSessionSpace@12
 MmMapViewInSystemSpace@12
 ;MmMapViewOfSection
@@ -915,7 +915,7 @@ READ_REGISTER_USHORT@4
 ;RtlAddAccessAllowedAce
 ;RtlAddAce
 ;RtlAddAtomToAtomTable
-RtlAddRange@28
+RtlAddRange@36
 ;RtlAllocateHeap
 ;RtlAnsiCharToUnicodeChar
 RtlAnsiStringToUnicodeSize@4
@@ -968,7 +968,7 @@ RtlCreateSecurityDescriptor@8
 ;RtlDeleteElementGenericTableAvl
 ;RtlDeleteNoSplay
 RtlDeleteOwnersRanges@8
-RtlDeleteRange@16
+RtlDeleteRange@24
 RtlDeleteRegistryValue@12
 ;RtlDescribeChunk
 ;RtlDestroyAtomTable
@@ -976,7 +976,7 @@ RtlDeleteRegistryValue@12
 ;RtlDowncaseUnicodeString
 ;RtlEmptyAtomTable
 RtlEnlargedIntegerMultiply@8
-RtlEnlargedUnsignedDivide@12
+RtlEnlargedUnsignedDivide@16
 RtlEnlargedUnsignedMultiply@8
 ;RtlEnumerateGenericTable
 ;RtlEnumerateGenericTableAvl
@@ -987,9 +987,9 @@ RtlEnlargedUnsignedMultiply@8
 ;RtlEqualSid
 RtlEqualString@12
 RtlEqualUnicodeString@12
-RtlExtendedIntegerMultiply@8
-RtlExtendedLargeIntegerDivide@12
-RtlExtendedMagicDivide@12
+RtlExtendedIntegerMultiply@12
+RtlExtendedLargeIntegerDivide@16
+RtlExtendedMagicDivide@20
 ;RtlFillMemory
 ;RtlFillMemoryUlong
 RtlFindClearBits@12
@@ -997,12 +997,12 @@ RtlFindClearBitsAndSet@12
 RtlFindClearRuns@16
 RtlFindFirstRunClear@8
 RtlFindLastBackwardRunClear@12
-RtlFindLeastSignificantBit@4
+RtlFindLeastSignificantBit@8
 RtlFindLongestRunClear@8
 ;RtlFindMessage
-RtlFindMostSignificantBit@4
+RtlFindMostSignificantBit@8
 RtlFindNextForwardRunClear@12
-RtlFindRange@40
+RtlFindRange@48
 RtlFindSetBits@12
 RtlFindSetBitsAndClear@12
 ;RtlFindUnicodePrefix
@@ -1047,7 +1047,7 @@ RtlInitializeRangeList@4
 ;RtlInsertElementGenericTableFull
 ;RtlInsertElementGenericTableFullAvl
 ;RtlInsertUnicodePrefix
-RtlInt64ToUnicodeString@12
+RtlInt64ToUnicodeString@16
 ;RtlIntegerToChar
 ;RtlIntegerToUnicode
 RtlIntegerToUnicodeString@12
@@ -1063,15 +1063,15 @@ RtlInvertRangeList@8
 ;RtlIsGenericTableEmpty
 ;RtlIsGenericTableEmptyAvl
 ;RtlIsNameLegalDOS8Dot3
-RtlIsRangeAvailable@32
+RtlIsRangeAvailable@40
 ;RtlIsValidOemCharacter
-RtlLargeIntegerAdd@8
-RtlLargeIntegerArithmeticShift@8
-RtlLargeIntegerDivide@12
-RtlLargeIntegerNegate@4
-RtlLargeIntegerShiftLeft@8
-RtlLargeIntegerShiftRight@8
-RtlLargeIntegerSubtract@8
+RtlLargeIntegerAdd@16
+RtlLargeIntegerArithmeticShift@12
+RtlLargeIntegerDivide@20
+RtlLargeIntegerNegate@8
+RtlLargeIntegerShiftLeft@12
+RtlLargeIntegerShiftRight@12
+RtlLargeIntegerSubtract@16
 ;RtlLengthRequiredSid
 RtlLengthSecurityDescriptor@4
 ;RtlLengthSid
@@ -1146,7 +1146,7 @@ RtlTimeToTimeFields@8
 ;RtlTraceDatabaseUnlock
 ;RtlTraceDatabaseValidate
 @RtlUlongByteSwap@4
-@RtlUlonglongByteSwap@4
+@RtlUlonglongByteSwap@8
 RtlUnicodeStringToAnsiSize@4
 RtlUnicodeStringToAnsiString@12
 ;RtlUnicodeStringToCountedOemString
@@ -1169,11 +1169,11 @@ RtlUpcaseUnicodeString@12
 ;RtlUpcaseUnicodeToOemN
 RtlUpperChar@4
 RtlUpperString@8
-RtlUshortByteSwap@4
+@RtlUshortByteSwap@4
 RtlValidRelativeSecurityDescriptor@12
 RtlValidSecurityDescriptor@4
 ;RtlValidSid
-RtlVerifyVersionInfo@12
+RtlVerifyVersionInfo@16
 RtlVolumeDeviceToDosName@8
 RtlWalkFrameChain@12
 RtlWriteRegistryValue@24
@@ -1222,7 +1222,7 @@ SeDeassignSecurity@4
 ;SeSetAccessStateGenericMapping
 ;SeSetSecurityDescriptorInfo
 ;SeSetSecurityDescriptorInfoEx
-SeSinglePrivilegeCheck@8
+SeSinglePrivilegeCheck@12
 ;SeSystemDefaultDacl DATA
 ;SeTokenImpersonationLevel
 ;SeTokenIsAdmin

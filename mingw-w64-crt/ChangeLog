@@ -1,3 +1,9 @@
+2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/ntoskrnl.def: Fix several @<n> suffixes.
+	* lib32/ntdll.def: Fix RtlUshortByteSwap, RtlUlongByteSwap and
+	RtlUlonglongByteSwap exports (__fastcall and @<n> suffixes).
+
 2010-06-29  Doug Semler  <dougsemler@gmail.com>
 
 	* complex/cexp.def.h (cexp): Reapply return imaginary zero when NaN + 0i.

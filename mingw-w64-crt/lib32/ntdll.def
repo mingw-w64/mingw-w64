@@ -8,9 +8,9 @@ EXPORTS
 RtlActivateActivationContextUnsafeFast@0
 RtlDeactivateActivationContextUnsafeFast@0
 RtlInterlockedPushListSList@8
-RtlUlongByteSwap@0
-RtlUlonglongByteSwap@0
-RtlUshortByteSwap@0
+@RtlUlongByteSwap@4
+@RtlUlonglongByteSwap@8
+@RtlUshortByteSwap@4
 ExpInterlockedPopEntrySListEnd@0
 ExpInterlockedPopEntrySListFault@0
 ExpInterlockedPopEntrySListResume@0
