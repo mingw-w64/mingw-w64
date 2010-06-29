@@ -1,5 +1,14 @@
 2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* lib32/ntdll.def: Export NlsAnsiCodePage, NlsMbCodePageTag and
+	NlsMbOemCodePageTag as DATA (from trunk). Move the Rtl*ByteSwap
+	exports at the top, move NtLoadKey2, NtPrivilegeObjectAuditAlarm,
+	RtlEnumProcessHeaps, ZwLoadKey2 and ZwPrivilegeObjectAuditAlarm
+	a few lines above and below for less diff output against the trunk
+	version of the def file.
+
+2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* lib32/cfgmgr32.def: Fix @<n> suffix for CM_Add_ID[A|W] as 12,
 	CM_Query_And_Remove_SubTree_Ex[A|W] as 24.
 	* lib32/setupapi.def: Fix @<n> suffix for CM_Add_ID[A|W] as 12,

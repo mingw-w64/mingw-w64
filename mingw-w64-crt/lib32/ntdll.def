@@ -5,6 +5,9 @@
 
 LIBRARY ntdll.dll
 EXPORTS
+@RtlUlongByteSwap@4
+@RtlUlonglongByteSwap@8
+@RtlUshortByteSwap@4
 CsrAllocateCaptureBuffer@8
 CsrAllocateMessagePointer@12
 CsrCaptureMessageBuffer@16
@@ -53,9 +56,9 @@ LdrShutdownThread@0
 LdrUnloadAlternateResourceModule@4
 LdrUnloadDll@4
 LdrVerifyImageMatchesChecksum@16
-NlsAnsiCodePage
-NlsMbCodePageTag
-NlsMbOemCodePageTag
+NlsAnsiCodePage DATA
+NlsMbCodePageTag DATA
+NlsMbOemCodePageTag DATA
 NtAcceptConnectPort@24
 NtAccessCheck@32
 NtAccessCheckAndAuditAlarm@44
@@ -142,8 +145,8 @@ NtInitiatePowerAction@16
 NtIsSystemResumeAutomatic@0
 NtListenPort@8
 NtLoadDriver@4
-NtLoadKey@8
 NtLoadKey2@12
+NtLoadKey@8
 NtLockFile@40
 NtLockVirtualMemory@16
 NtMakeTemporaryObject@4
@@ -172,8 +175,8 @@ NtOpenThreadToken@16
 NtOpenTimer@12
 NtPowerInformation@20
 NtPrivilegeCheck@12
-NtPrivilegedServiceAuditAlarm@20
 NtPrivilegeObjectAuditAlarm@24
+NtPrivilegedServiceAuditAlarm@20
 NtProtectVirtualMemory@20
 NtPulseEvent@8
 NtQueryAttributesFile@8
@@ -420,9 +423,9 @@ RtlEnlargedIntegerMultiply@8
 RtlEnlargedUnsignedDivide@16
 RtlEnlargedUnsignedMultiply@8
 RtlEnterCriticalSection@4
+RtlEnumProcessHeaps@8
 RtlEnumerateGenericTable@8
 RtlEnumerateGenericTableWithoutSplaying@8
-RtlEnumProcessHeaps@8
 RtlEqualComputerName@8
 RtlEqualDomainName@8
 RtlEqualLuid@8
@@ -627,8 +630,6 @@ RtlTraceDatabaseLock@4
 RtlTraceDatabaseUnlock@4
 RtlTraceDatabaseValidate@4
 RtlTryEnterCriticalSection@4
-@RtlUlongByteSwap@4
-@RtlUlonglongByteSwap@8
 RtlUnicodeStringToAnsiSize@4
 RtlUnicodeStringToAnsiString@12
 RtlUnicodeStringToCountedOemString@12
@@ -653,7 +654,6 @@ RtlUpdateTimer@16
 RtlUpperChar@4
 RtlUpperString@8
 RtlUsageHeap@12
-@RtlUshortByteSwap@4
 RtlValidAcl@4
 RtlValidRelativeSecurityDescriptor@12
 RtlValidSecurityDescriptor@4
@@ -764,8 +764,8 @@ ZwInitiatePowerAction@16
 ZwIsSystemResumeAutomatic@0
 ZwListenPort@8
 ZwLoadDriver@4
-ZwLoadKey@8
 ZwLoadKey2@12
+ZwLoadKey@8
 ZwLockFile@40
 ZwLockVirtualMemory@16
 ZwMakeTemporaryObject@4
@@ -794,8 +794,8 @@ ZwOpenThreadToken@16
 ZwOpenTimer@12
 ZwPowerInformation@20
 ZwPrivilegeCheck@12
-ZwPrivilegedServiceAuditAlarm@20
 ZwPrivilegeObjectAuditAlarm@24
+ZwPrivilegedServiceAuditAlarm@20
 ZwProtectVirtualMemory@20
 ZwPulseEvent@8
 ZwQueryAttributesFile@8
