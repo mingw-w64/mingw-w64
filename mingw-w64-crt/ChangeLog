@@ -1,10 +1,14 @@
+2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/win32k.def: Fix several @<n> suffixes.
+
 2010-06-29  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* Makefile.am: Add libsrc/powrprof-uuid.c.
 	* libsrc/powrprof-uuid.c: New.
 	* Makefile.in: Regenerated.
 
-  2010-06-29  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-29  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* lib64/mprapi.def: Updated from Vista.
 	* lib64/pdh.def: Likewise.
@@ -69,6 +73,7 @@
 	* Makefile.in: Regenerated.
 
 2010-06-25  Jacek Caban <jacek@codeweavers.com>
+
 	* lib32/gdi32.def: Added some missing entries.
 
 2010-06-24  Jonathan Yong  <jon_y@sourceforge.net>
