@@ -86,10 +86,7 @@ __FLT_ABI(cexp) (__FLT_TYPE __complex__ z)
   if (r_class == FP_NAN || i_class == FP_NAN || i_class == FP_INFINITE)
   {
     __real__ ret = __FLT_NAN;
-    if (i_class == FP_ZERO)
-      __imag__ ret = __FLT_ABI(copysign) (__FLT_CST(0.0), __imag__ z);
-    else
-      __imag__ ret = __FLT_NAN;
+    __imag__ ret = __FLT_NAN;
     return ret;
   }
 
