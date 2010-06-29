@@ -210,7 +210,7 @@ NdisMSynchronizeWithInterrupt@12
 ;NdisMTransferDataComplete
 NdisMUnmapIoSpace@12
 NdisMWanIndicateReceive@20
-NdisMWanIndicateReceiveComplete@4
+NdisMWanIndicateReceiveComplete@8
 NdisMWanSendComplete@12
 NdisMWriteLogData@12
 ;NdisMapFile
