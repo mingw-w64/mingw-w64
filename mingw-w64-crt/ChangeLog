@@ -1,3 +1,24 @@
+2010-06-30  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* lib64/rpcrt4.def: Updated from Vista.
+	* lib32/rpcrt4.def: Likewise.
+	* lib32/rpcns4.def: Likewise.
+	* lib64/qwave.def: New.
+	* lib64/rstrmgr.def: New.
+	* lib64/wsdapi.def: New.
+	* lib64/rpcdiag.def: New.
+	* lib64/rpchttp.def: New.
+	* lib64/resutil.def: New.
+	* lib32/rstrmgr.def: New.
+	* lib32/rpchttp.def: New.
+	* lib32/resutil.def: New.
+	* lib32/wsdapi.def: New.
+	* lib32/qwave.def: New.
+	* lib32/rpcdiag.def: New.
+	* lib32/rpcdiag.def: New.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
 2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/ntdll.def: Remove the duplicated Rtl*ByteSwap exports and
