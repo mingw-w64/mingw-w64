@@ -1,5 +1,11 @@
 2010-06-30  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* lib32/dbghelp.def: Fix @<n> suffix for ImageDirectoryEntryToDataEx
+	as 20, MiniDumpWriteDump as 28, SymEnumSymbolsForAddr as 20, and
+	SymFindFileInPath as 40.
+
+2010-06-30  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* lib32/qwave.def: Fix QOSCancel and QOSCloseHandle exports.
 
 2010-06-30  Jonathan Yong  <jon_y@sourceforge.net>
