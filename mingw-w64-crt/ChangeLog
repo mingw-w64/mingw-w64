@@ -1,3 +1,9 @@
+2010-06-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/dbghelp.def: Fix @<n> suffix for ImageDirectoryEntryToDataEx
+	as 20, MiniDumpWriteDump as 28, SymEnumSymbolsForAddr as 20, and
+	SymFindFileInPath as 40.
+
 2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/ntdll.def: Export NlsAnsiCodePage, NlsMbCodePageTag and
