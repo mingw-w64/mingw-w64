@@ -2447,7 +2447,8 @@ src_libmingwex32 = \
 @LIB32_TRUE@  lib32/libqutil.a     lib32/libconnect.a  lib32/libesent.a      lib32/libhttpapi.a   \
 @LIB32_TRUE@  lib32/libpdh.a       lib32/libpdhui.a    lib32/libcscapi.a     lib32/libmsctf.a     \
 @LIB32_TRUE@  lib32/libndfapi.a    lib32/libp2pcollab.a lib32/libp2pgraph.a  lib32/libwdstptc.a   \
-@LIB32_TRUE@  lib32/libks.a        lib64/libcscapi.a   lib32/libp2p.a
+@LIB32_TRUE@  lib32/libks.a        lib32/libwsdapi.a   lib32/libp2p.a        lib32/librstrmgr.a   \
+@LIB32_TRUE@  lib32/librpchttp.a   lib32/libresutil.a  lib32/libqwave.a      lib32/librpcdiag.a
 
 
 # End 32-bit runtime
@@ -2945,8 +2946,8 @@ src_libmingwex32 = \
 @LIB64_TRUE@  lib64/libktmw32.a     lib64/libmf.a         lib64/libmfplat.a      lib64/libmsdrm.a       lib64/libncrypt.a        \
 @LIB64_TRUE@  lib64/libwecapi.a     lib64/libwevtapi.a    lib64/libwevtfwd.a     lib64/libqutil.a       lib64/libconnect.a       \
 @LIB64_TRUE@  lib64/libfwpuclnt.a   lib64/libndfapi.a     lib64/libp2p.a         lib64/libp2pcollab.a   lib64/libp2pgraph.a      \
-@LIB64_TRUE@  lib64/libwdstptc.a    \
-@LIB64_TRUE@  lib64/libks.a
+@LIB64_TRUE@  lib64/libwdstptc.a    lib64/libcscapi.a     lib64/librstrmgr.a     lib64/libqwave.a       lib64/libwsdapi.a        \
+@LIB64_TRUE@  lib64/libks.a         lib64/librpcdiag.a    lib64/librpchttp.a     lib64/libresutil.a
 
 
 # End 64-bit runtime

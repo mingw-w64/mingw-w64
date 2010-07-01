@@ -955,8 +955,8 @@ lib64_DATA = \
   lib64/libktmw32.a     lib64/libmf.a         lib64/libmfplat.a      lib64/libmsdrm.a       lib64/libncrypt.a        \
   lib64/libwecapi.a     lib64/libwevtapi.a    lib64/libwevtfwd.a     lib64/libqutil.a       lib64/libconnect.a       \
   lib64/libfwpuclnt.a   lib64/libndfapi.a     lib64/libp2p.a         lib64/libp2pcollab.a   lib64/libp2pgraph.a      \
-  lib64/libwdstptc.a    lib64/libcscapi.a     lib64/libo.a           lib64/libqwave.a       lib64/libwsdapi.a        \
-  lib64/libks.a         lib64/librpcdiag.a    lib64/librpchttp.a     lib64/libresutil.ao
+  lib64/libwdstptc.a    lib64/libcscapi.a     lib64/librstrmgr.a     lib64/libqwave.a       lib64/libwsdapi.a        \
+  lib64/libks.a         lib64/librpcdiag.a    lib64/librpchttp.a     lib64/libresutil.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll
