@@ -363,6 +363,7 @@ wglSetPixelFormat@12
 wglShareLists@8
 wglSwapBuffers@4
 wglSwapLayerBuffers@8
+wglSwapMultipleBuffers@8
 wglUseFontBitmapsA@16
 wglUseFontBitmapsW@16
 wglUseFontOutlinesA@32
