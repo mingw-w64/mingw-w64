@@ -1,3 +1,10 @@
+2010-07-02  Doug Semler  <dougsemler@gmail.com>
+
+	* testcases/complex: Move from experimental/doug/new_comples branch.
+	* Makefile.am: Add include to new testcases/complex/Makefile.am.
+	Separate TESTS variable from check_PROGRAMS variable.
+	* Makefile.in: Regenerate.
+
 2010-07-01  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/opengl32.def: Add missing export for wglSwapMultipleBuffers.

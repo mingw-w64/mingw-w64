@@ -40,6 +40,8 @@ DTDEF32=$(DLLTOOL) $(DLLTOOLFLAGS32) $(AM_DLLTOOLFLAGS) --input-def
 DTDEF64=$(DLLTOOL) $(DLLTOOLFLAGS64) $(AM_DLLTOOLFLAGS) --input-def
 DTLIB32=$(DTDEF32) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 DTLIB64=$(DTDEF64) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
+LDFLAGS32=-m32
+LDFLAGS64=-m64
 extra_include=-I$(top_srcdir)/include
 
 # can move this into libsrc/dummy_libm.c or similar
@@ -1017,7 +1019,7 @@ dist-hook:
 #  testcases/tstwassert \
 #  testcases_tstwinmain_LDADD = -lgdi32
 
-check_PROGRAMS = \
+testcase_progs = \
   testcases/tstmainc \
   testcases/tstmaincpp \
   testcases/tstmain_sys_xxx \
@@ -1044,9 +1046,17 @@ testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
 testcases_t_intrinc_CFLAGS = -std=c99
 
 if ENABLE_TESTS_UNICODE
-  check_PROGRAMS += testcases/t_municode testcases/t_tmain
+  testcase_progs += testcases/t_municode testcases/t_tmain
   testcases_t_municode_CFLAGS = -municode
   testcases_t_tmain_CFLAGS = -municode -D_UNICODE
 endif
 
-TESTS = $(check_PROGRAMS)
+# Do not specify TESTS = check_PROGRAMS, because some TESTS
+# may not be check_PROGRAMS.
+check_LIBRARIES =
+check_PROGRAMS = $(testcase_progs)
+TESTS = $(testcase_progs)
+XFAIL_TESTS =
+
+# Include the complex math testcase fragment.
+include testcases/complex/Makefile.am
