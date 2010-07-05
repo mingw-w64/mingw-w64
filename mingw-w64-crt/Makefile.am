@@ -395,7 +395,7 @@ lib32_DATA = \
   lib32/libks.a        lib32/libwsdapi.a   lib32/libp2p.a        lib32/librstrmgr.a   \
   lib32/librpchttp.a   lib32/libresutil.a  lib32/libqwave.a      lib32/librpcdiag.a   \
   lib32/libvssapi.a    lib32/libslcext.a   lib32/libslc.a        lib32/libwinscard.a  \
-  lib32/libvsstrace.a  lib32/libslwga.a    lib32/libvss_ps.a     lib32/libtbs.def     \
+  lib32/libvsstrace.a  lib32/libslwga.a    lib32/libvss_ps.a     lib32/libtbs.a       \
   lib32/libtxfw32.a    lib32/libmsctfmonitor.a lib32/libtdh.a
 
 # combine these two rules with the ones for lib64
