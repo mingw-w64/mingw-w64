@@ -393,7 +393,9 @@ lib32_DATA = \
   lib32/libpdh.a       lib32/libpdhui.a    lib32/libcscapi.a     lib32/libmsctf.a     \
   lib32/libndfapi.a    lib32/libp2pcollab.a lib32/libp2pgraph.a  lib32/libwdstptc.a   \
   lib32/libks.a        lib32/libwsdapi.a   lib32/libp2p.a        lib32/librstrmgr.a   \
-  lib32/librpchttp.a   lib32/libresutil.a  lib32/libqwave.a      lib32/librpcdiag.a
+  lib32/librpchttp.a   lib32/libresutil.a  lib32/libqwave.a      lib32/librpcdiag.a   \
+  lib32/libvssapi.a    lib32/libslcext.a   lib32/libslc.a        lib32/libwinscard.a  \
+  lib32/libvsstrace.a  lib32/libslwga.a    lib32/libvss_ps.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -958,7 +960,8 @@ lib64_DATA = \
   lib64/libwecapi.a     lib64/libwevtapi.a    lib64/libwevtfwd.a     lib64/libqutil.a       lib64/libconnect.a       \
   lib64/libfwpuclnt.a   lib64/libndfapi.a     lib64/libp2p.a         lib64/libp2pcollab.a   lib64/libp2pgraph.a      \
   lib64/libwdstptc.a    lib64/libcscapi.a     lib64/librstrmgr.a     lib64/libqwave.a       lib64/libwsdapi.a        \
-  lib64/libks.a         lib64/librpcdiag.a    lib64/librpchttp.a     lib64/libresutil.a
+  lib64/libks.a         lib64/librpcdiag.a    lib64/librpchttp.a     lib64/libresutil.a     lib64/libslwga.a         \
+  lib64/libslc.a        lib64/libslcext.a     lib64/libvsstrace.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll

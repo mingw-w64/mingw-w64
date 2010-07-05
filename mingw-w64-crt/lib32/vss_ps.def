@@ -5,8 +5,8 @@
 ;
 LIBRARY "vss_ps.dll"
 EXPORTS
-DllCanUnloadNow
-DllGetClassObject
-DllRegisterServer
-DllUnregisterServer
-GetProxyDllInfo
+DllCanUnloadNow@0
+DllGetClassObject@12
+DllRegisterServer@0
+DllUnregisterServer@0
+GetProxyDllInfo@8
