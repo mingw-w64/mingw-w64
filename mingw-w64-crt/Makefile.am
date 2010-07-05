@@ -390,12 +390,13 @@ lib32_DATA = \
   lib32/libntmsapi.a   lib32/libspoolss.a  lib32/libsxs.a        lib32/libwecapi.a    \
   lib32/libwevtapi.a   lib32/libwevtfwd.a  lib32/libfwpuclnt.a   lib32/libmstask.a    \
   lib32/libqutil.a     lib32/libconnect.a  lib32/libesent.a      lib32/libhttpapi.a   \
-  lib32/libpdh.a       lib32/libpdhui.a    lib32/libcscapi.a     lib32/libmsctf.a     \
+  lib32/libpdh.a       lib32/libpdhui.a    lib32/libcscapi.a                          \
   lib32/libndfapi.a    lib32/libp2pcollab.a lib32/libp2pgraph.a  lib32/libwdstptc.a   \
   lib32/libks.a        lib32/libwsdapi.a   lib32/libp2p.a        lib32/librstrmgr.a   \
   lib32/librpchttp.a   lib32/libresutil.a  lib32/libqwave.a      lib32/librpcdiag.a   \
   lib32/libvssapi.a    lib32/libslcext.a   lib32/libslc.a        lib32/libwinscard.a  \
-  lib32/libvsstrace.a  lib32/libslwga.a    lib32/libvss_ps.a
+  lib32/libvsstrace.a  lib32/libslwga.a    lib32/libvss_ps.a     lib32/libtbs.def     \
+  lib32/libtxfw32.a    lib32/libmsctfmonitor.a lib32/libtdh.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -664,7 +665,7 @@ lib64_DATA = \
   lib64/libmqutil.a     lib64/libmsaatext.a   lib64/libmsacm32.a      lib64/libmsadce.a     lib64/libmsadcf.a        \
   lib64/libmsadco.a     lib64/libmsadcs.a     lib64/libmsadds.a       lib64/libmsado15.a    lib64/libmsadomd.a       \
   lib64/libmsador15.a   lib64/libmsadox.a     lib64/libmsadrh15.a     lib64/libmsafd.a      lib64/libmsasn1.a        \
-  lib64/libmscandui.a   lib64/libmscat32.a    lib64/libmscms.a        lib64/libmsctf.a      lib64/libmsctfp.a        \
+  lib64/libmscandui.a   lib64/libmscat32.a    lib64/libmscms.a                              lib64/libmsctfp.a        \
   lib64/libmsdadiag.a   lib64/libmsdaosp.a    lib64/libmsdaprst.a     lib64/libmsdaps.a     lib64/libmsdarem.a       \
   lib64/libmsdart.a     lib64/libmsdatl3.a    lib64/libmsdfmap.a      lib64/libmsdmo.a      lib64/libmsdtclog.a      \
   lib64/libmsdtcprx.a   lib64/libmsdtcstp.a   lib64/libmsdtctm.a      lib64/libmsdtcuiu.a   lib64/libmsftedit.a      \
@@ -961,7 +962,8 @@ lib64_DATA = \
   lib64/libfwpuclnt.a   lib64/libndfapi.a     lib64/libp2p.a         lib64/libp2pcollab.a   lib64/libp2pgraph.a      \
   lib64/libwdstptc.a    lib64/libcscapi.a     lib64/librstrmgr.a     lib64/libqwave.a       lib64/libwsdapi.a        \
   lib64/libks.a         lib64/librpcdiag.a    lib64/librpchttp.a     lib64/libresutil.a     lib64/libslwga.a         \
-  lib64/libslc.a        lib64/libslcext.a     lib64/libvsstrace.a
+  lib64/libslc.a        lib64/libslcext.a     lib64/libvsstrace.a    lib64/libmsctfmonitor.a lib64/libtbs.a          \
+  lib64/libtdh.a        lib64/libtxfw32.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll

@@ -1,5 +1,20 @@
 2010-07-05  Jonathan Yong  <jon_y@sourceforge.net>
 
+	* lib64/msctfmonitor.def: New.
+	* lib64/tbs.def: New.
+	* lib64/tdh.def: New.
+	* lib64/txfw32.def: New.
+	* lib32/tbs.def: New.
+	* lib32/txfw32.def: New.
+	* lib32/msctfmonitor.def: New.
+	* lib32/tdh.def: New.
+	* lib32/msctcf.def: Removed.
+	* lib64/msctcf.def: likewise.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+  
+2010-07-05  Jonathan Yong  <jon_y@sourceforge.net>
+
 	* lib64/winscard.def: Updated from Vista.
 	* lib64/vssapi.def: Likewise.
 	* lib64/usp10.def: Likewise.
