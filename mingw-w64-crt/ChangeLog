@@ -1,5 +1,10 @@
 2010-07-05  Doug Semler  <dougsemler@gmail.com>
 
+	* complex/cproj.def.h (cproj): Project z back to z, rather than
+	  stereographically.
+
+2010-07-05  Doug Semler  <dougsemler@gmail.com>
+
 	* complex/complex_internal.h: Add defines for ABI epsilon values.
 	* complex/ctanh.def.h (ctanh): Return signed zero matching the
 	  sign of sin(2 * __imag__ z).
