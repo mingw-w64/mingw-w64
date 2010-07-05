@@ -53,7 +53,18 @@ __FLT_ABI(ctanh) (__FLT_TYPE __complex__ z)
     if (isinf (__real__ z))
     {
       __real__ ret = __FLT_ABI(copysign) (__FLT_CST(1.0), __real__ z);
-      __imag__ ret = __FLT_ABI(copysign) (__FLT_CST(0.0), __imag__ z);
+
+      /* fmod will return NaN if __imag__ z is infinity. This is actually
+	 OK, because imaginary infinity returns a + or - zero (unspecified).
+	 For +x, sin (x) is negative if fmod (x, 2pi) > pi.
+	 For -x, sin (x) is positive if fmod (x, 2pi) < pi.
+	 We use epsilon to ensure that the zeros are detected properly with
+	 float and long double comparisons.  */
+      s = __FLT_ABI(fmod) (__imag__ z, __FLT_PI);
+      if (signbit (__imag__ z))
+	__imag__ ret = s + __FLT_PI_2 < -__FLT_EPSILON ? 0.0 : -0.0;
+      else
+	__imag__ ret = s - __FLT_PI_2 > __FLT_EPSILON ? -0.0 : 0.0;
       return ret;
     }
 

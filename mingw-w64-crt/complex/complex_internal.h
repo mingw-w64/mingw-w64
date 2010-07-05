@@ -68,6 +68,7 @@
 # define __FLT_TYPE	float
 # define __FLT_ABI(N)	N##f
 # define __FLT_CST(N)	N##F
+# define __FLT_EPSILON  __FLT_EPSILON__
 # define __FLT_NAN	NANF
 # define __FLT_HUGE_VAL	HUGE_VALF
 # define __FLT_PI	M_PI
@@ -77,6 +78,7 @@
 #elif defined(_NEW_COMPLEX_DOUBLE)
 # define __FLT_TYPE	double
 # define __FLT_ABI(N)	N
+# define __FLT_EPSILON  __DBL_EPSILON__
 # define __FLT_CST(N)	N
 # define __FLT_NAN	NAN
 # define __FLT_HUGE_VAL	HUGE_VAL
@@ -88,6 +90,7 @@
 # define __FLT_TYPE	long double
 # define __FLT_ABI(N)	N##l
 # define __FLT_CST(N)	N##L
+# define __FLT_EPSILON  __LDBL_EPSILON__
 # define __FLT_NAN	NANL
 # define __FLT_HUGE_VAL	HUGE_VALL
 # define __FLT_PI	M_PIl
