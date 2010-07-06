@@ -101,7 +101,8 @@ host_triplet = @host@
 @ENABLE_TESTS_UNICODE_TRUE@am__append_1 = testcases/t_municode testcases/t_tmain
 check_PROGRAMS = $(am__EXEEXT_2) $(am__EXEEXT_4) $(am__EXEEXT_6)
 TESTS = $(am__EXEEXT_2) $(am__EXEEXT_4) $(am__EXEEXT_6)
-XFAIL_TESTS = $(am__EXEEXT_7) $(am__EXEEXT_7)
+XFAIL_TESTS = testcases/t_nullptrexception$(EXEEXT) $(am__EXEEXT_7) \
+	$(am__EXEEXT_7)
 DIST_COMMON = $(am__configure_deps) $(noinst_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/config.h.in $(srcdir)/testcases/complex/Makefile.am \

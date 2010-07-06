@@ -1061,7 +1061,8 @@ endif
 check_LIBRARIES =
 check_PROGRAMS = $(testcase_progs)
 TESTS = $(testcase_progs)
-XFAIL_TESTS =
+XFAIL_TESTS = \
+  testcases/t_nullptrexception
 
 # Include the complex math testcase fragment.
 include testcases/complex/Makefile.am

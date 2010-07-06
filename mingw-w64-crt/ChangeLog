@@ -1,5 +1,11 @@
 2010-07-05  Doug Semler  <dougsemler@gmail.com>
 
+	* Makefile.am (XFAIL_TESTS): Add t_nullptrexception as an expected
+	failure.
+	* Makefile.in: Regenerate.
+
+2010-07-05  Doug Semler  <dougsemler@gmail.com>
+
 	* testcases/t_setjmp.c (main): Fix return values on success and
 	failure.
 
