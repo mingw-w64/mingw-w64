@@ -2,6 +2,8 @@
 
 	* ntddndis.h: Added a few endif comments.
 	(NDIS_OBJECT_HEADER): Added from experimental vista_7_headers.
+	(NDIS_802_11_NETWORK_TYPE): Add Ndis802_11Automode among the enumerated
+	values, from ddk_test version.
 	* ntddscsi.h: Added a few endif comments.
 	(DD_SCSI_DEVICE_NAME_U): Added from ddk_test version.
 
