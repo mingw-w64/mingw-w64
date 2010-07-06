@@ -1,3 +1,11 @@
+2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/dbghelp.def: Fix @<n> suffix for SymGetFileLineOffsets64
+	as 20, SymGetHomeDirectory as 12, SymGetLineNext64 as 8,
+	SymGetModuleInfo as 12, SymRegisterCallback64 as 16,
+	SymRegisterCallback as 12, SymSetHomeDirectory as 8, stackdbg as 24.
+	(from trunk rev. 2786.)
+
 2010-07-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/psapi.def:  Add missing export for GetPerformanceInfo.
