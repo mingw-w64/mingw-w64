@@ -1,5 +1,8 @@
 2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* lib32/rpcrt4.def: Activate and add a stdcall suffix of 16 to
+	NdrRangeUnmarshall based on its prototype in rpcndr.h. BTW, unlike
+	what gendef says, the function does return.
 	* lib32/ws2_32.def: Fix @<n> suffix for WSAResetEvent as 4,
 	WSASetEvent as 4, WSAGetLastError as 0, WSASetLastError as 4 and
 	WSAWaitForMultipleEvents as 20.

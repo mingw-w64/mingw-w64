@@ -300,7 +300,7 @@ NdrProxyFreeBuffer@8
 NdrProxyGetBuffer@8
 NdrProxyInitialize@20
 NdrProxySendReceive@8
-;NdrRangeUnmarshall ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+NdrRangeUnmarshall@16
 NdrRpcSmClientAllocate@4
 NdrRpcSmClientFree@4
 NdrRpcSmSetClientToOsf@4
