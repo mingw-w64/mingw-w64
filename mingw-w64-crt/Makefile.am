@@ -1014,3 +1014,5 @@ if ENABLE_TESTS_UNICODE
 endif
 
 TESTS = $(check_PROGRAMS)
+XFAIL_TESTS = \
+  testcases/t_nullptrexception

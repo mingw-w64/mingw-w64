@@ -64,6 +64,7 @@ check_PROGRAMS = testcases/tstmainc$(EXEEXT) \
 	testcases/t_trycatch$(EXEEXT) testcases/t_wreaddir$(EXEEXT) \
 	$(am__EXEEXT_1)
 @ENABLE_TESTS_UNICODE_TRUE@am__append_1 = testcases/t_municode testcases/t_tmain
+XFAIL_TESTS = testcases/t_nullptrexception$(EXEEXT)
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(noinst_HEADERS) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
