@@ -1,9 +1,14 @@
 2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ntddndis.h: Added a few endif comments.
-	(NDIS_OBJECT_HEADER): Added from experimental vista_7_headers.
+	(NDIS_PHYSICAL_MEDIUM): Add NdisPhysicalMediumInfiniband,
+	NdisPhysicalMediumWiMax,NdisPhysicalMediumUWB, NdisPhysicalMedium802_3,
+	NdisPhysicalMedium802_5,NdisPhysicalMediumIrda,NdisPhysicalMediumWiredWAN,
+	NdisPhysicalMediumWiredCoWan and NdisPhysicalMediumOther among the
+	enumerated values, from ddk_test version.
 	(NDIS_802_11_NETWORK_TYPE): Add Ndis802_11Automode among the enumerated
 	values, from ddk_test version.
+	(NDIS_OBJECT_HEADER): Added from experimental vista_7_headers.
 	* ntddscsi.h: Added a few endif comments.
 	(DD_SCSI_DEVICE_NAME_U): Added from ddk_test version.
 
