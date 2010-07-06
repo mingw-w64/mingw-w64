@@ -95,12 +95,12 @@ WSARecv@28
 WSARecvDisconnect@8
 WSARecvFrom@36
 WSARemoveServiceClass@4
-WSAResetEvent ; Check!!! forwards to ResetEvent in KERNEL32.dll (ordinal 914)
+WSAResetEvent@4
 WSASend@28
 WSASendDisconnect@8
 WSASendMsg@24
 WSASendTo@36
-WSASetEvent ; Check!!! forwards to SetEvent in KERNEL32.dll (ordinal 987)
+WSASetEvent@4
 WSASetServiceA@12
 WSASetServiceW@12
 WSASocketA@24
@@ -115,8 +115,8 @@ WSAAsyncGetServByName@24
 WSACancelAsyncRequest@4
 WSASetBlockingHook@4
 WSAUnhookBlockingHook@0
-WSAGetLastError ; Check!!! forwards to GetLastError in KERNEL32.dll (ordinal 487)
-WSASetLastError ; Check!!! forwards to SetLastError in KERNEL32.dll (ordinal 1012)
+WSAGetLastError@0
+WSASetLastError@4
 WSACancelBlockingCall@0
 WSAIsBlocking@0
 WSAStartup@8
@@ -124,7 +124,7 @@ WSACleanup@0
 WSAStringToAddressA@20
 WSAStringToAddressW@20
 WSAUnadvertiseProvider@4
-WSAWaitForMultipleEvents ; Check!!! forwards to WaitForMultipleObjectsEx in KERNEL32.dll (ordinal 1133)
+WSAWaitForMultipleEvents@20
 WSCDeinstallProvider@8
 WSCEnableNSProvider@8
 WSCEnumProtocols@16
