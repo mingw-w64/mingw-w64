@@ -40,6 +40,12 @@ extern "C" {
 
 #include <guiddef.h>
 
+  typedef struct _NDIS_OBJECT_HEADER {
+    UCHAR  Type;
+    UCHAR  Revision;
+    USHORT Size;
+  } NDIS_OBJECT_HEADER, *PNDIS_OBJECT_HEADER;
+
 #define OID_GEN_SUPPORTED_LIST 0x00010101
 #define OID_GEN_HARDWARE_STATUS 0x00010102
 #define OID_GEN_MEDIA_SUPPORTED 0x00010103
@@ -1628,7 +1634,7 @@ extern "C" {
     ULONG Length;
     WW_MBX_CHANNEL_PAIR ChannelPair[1];
   } WW_MBX_TEMPDEFAULTLIST,*WW_PMBX_TEMPDEFAULTLIST;
-#endif
+#endif /* WIRELESS_WAN */
 
   typedef struct _BPC_FILETIME {
     ULONG dwLowDateTime;
@@ -1868,4 +1874,6 @@ extern "C" {
 #define NDIS_MINIPORT_SENDS_PACKET_ARRAY 0x08000000
 #define NDIS_MINIPORT_FILTER_IM 0x10000000
 #define NDIS_MINIPORT_SHORT_PACKETS_ARE_PADDED 0x20000000
-#endif
+
+#endif /* _NTDDNDIS_ */
+
