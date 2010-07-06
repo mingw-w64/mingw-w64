@@ -18,7 +18,8 @@ int main ()
   else
     {
       foo ();
-      printf ("Never reached.\n");
+      printf ("Should not be reached.\n");
+      return 1;
     }
-  return 1;
+  return 0;
 }

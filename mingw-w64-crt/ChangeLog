@@ -1,5 +1,10 @@
 2010-07-05  Doug Semler  <dougsemler@gmail.com>
 
+	* testcases/t_setjmp.c (main): Fix return values on success and
+	failure.
+
+2010-07-05  Doug Semler  <dougsemler@gmail.com>
+
 	* Makefile.am (LDFLAGS32): Add build lib32 directory to linker search
 	  path.
 	  (LDFLAGS64): Likewise for lib64 directory.
