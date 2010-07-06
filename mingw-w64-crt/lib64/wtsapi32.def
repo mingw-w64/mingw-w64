@@ -6,6 +6,8 @@
 LIBRARY "WTSAPI32.dll"
 EXPORTS
 WTSCloseServer
+WTSConnectSessionA
+WTSConnectSessionW
 WTSDisconnectSession
 WTSEnumerateProcessesA
 WTSEnumerateProcessesW
@@ -23,6 +25,7 @@ WTSQueryUserConfigA
 WTSQueryUserConfigW
 WTSQueryUserToken
 WTSRegisterSessionNotification
+WTSRegisterSessionNotificationEx
 WTSSendMessageA
 WTSSendMessageW
 WTSSetSessionInformationA
@@ -30,10 +33,15 @@ WTSSetSessionInformationW
 WTSSetUserConfigA
 WTSSetUserConfigW
 WTSShutdownSystem
+WTSStartRemoteControlSessionA
+WTSStartRemoteControlSessionW
+WTSStopRemoteControlSession
 WTSTerminateProcess
 WTSUnRegisterSessionNotification
+WTSUnRegisterSessionNotificationEx
 WTSVirtualChannelClose
 WTSVirtualChannelOpen
+WTSVirtualChannelOpenEx
 WTSVirtualChannelPurgeInput
 WTSVirtualChannelPurgeOutput
 WTSVirtualChannelQuery

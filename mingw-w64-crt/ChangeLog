@@ -1,3 +1,23 @@
+2010-07-06  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* lib64/wlanui.def: New.
+	* lib64/wlanapi.def: New.
+	* lib64/wlanutil.def: New.
+	* lib64/wer.def: New.
+	* lib32/wlanutil.def: New.
+	* lib32/wlanui.def: New.
+	* lib32/wlanapi.def: New.
+	* llib32/wer.def: New.
+	* lib64/dbghelp.def: Updated from Vista.
+	* lib64/ws2_32.def: Likewise.
+	* lib64/wtsapi32.def: Likewise.
+	* lib64/mscms.def: Likewise.
+	* lib32/wtsapi32.def: Likewise.
+	* lib32/ws2_32.def: Likewise.
+	* lib32/mscms.def: Likewise.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
 2010-07-05  Doug Semler  <dougsemler@gmail.com>
 
 	* Makefile.am (XFAIL_TESTS): Add t_nullptrexception as an expected
