@@ -1081,7 +1081,9 @@ extern "C" {
   typedef enum _NDIS_PHYSICAL_MEDIUM {
     NdisPhysicalMediumUnspecified,NdisPhysicalMediumWirelessLan,NdisPhysicalMediumCableModem,NdisPhysicalMediumPhoneLine,
     NdisPhysicalMediumPowerLine,NdisPhysicalMediumDSL,NdisPhysicalMediumFibreChannel,NdisPhysicalMedium1394,NdisPhysicalMediumWirelessWan,
-    NdisPhysicalMediumNative802_11,NdisPhysicalMediumBluetooth,NdisPhysicalMediumMax
+    NdisPhysicalMediumNative802_11,NdisPhysicalMediumBluetooth,NdisPhysicalMediumInfiniband,NdisPhysicalMediumWiMax,NdisPhysicalMediumUWB,
+    NdisPhysicalMedium802_3,NdisPhysicalMedium802_5,NdisPhysicalMediumIrda,NdisPhysicalMediumWiredWAN,NdisPhysicalMediumWiredCoWan,
+    NdisPhysicalMediumOther,NdisPhysicalMediumMax
   } NDIS_PHYSICAL_MEDIUM,*PNDIS_PHYSICAL_MEDIUM;
 
 #define NDIS_PROTOCOL_ID_DEFAULT 0x00
