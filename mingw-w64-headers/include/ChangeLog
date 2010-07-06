@@ -1,3 +1,10 @@
+2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntddndis.h: Added a few endif comments.
+	(NDIS_OBJECT_HEADER): Added from experimental vista_7_headers.
+	* ntddscsi.h: Added a few endif comments.
+	(DD_SCSI_DEVICE_NAME_U): Added from ddk_test version.
+
 2010-07-05  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* winnt.h: remove duplicated ULONG type definition. not supposed to be

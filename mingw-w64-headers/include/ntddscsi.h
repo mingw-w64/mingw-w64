@@ -11,7 +11,7 @@
 
 DEFINE_GUID(ScsiRawInterfaceGuid,0x53f56309L,0xb6bf,0x11d0,0x94,0xf2,0x00,0xa0,0xc9,0x1e,0xfb,0x8b);
 DEFINE_GUID(WmiScsiAddressGuid,0x53f5630fL,0xb6bf,0x11d0,0x94,0xf2,0x00,0xa0,0xc9,0x1e,0xfb,0x8b);
-#endif
+#endif /* DEFINE_GUID */
 
 #ifndef _NTDDSCSIH_
 #define _NTDDSCSIH_
@@ -20,9 +20,10 @@ DEFINE_GUID(WmiScsiAddressGuid,0x53f5630fL,0xb6bf,0x11d0,0x94,0xf2,0x00,0xa0,0xc
 extern "C" {
 #endif
 
-#define IOCTL_SCSI_BASE FILE_DEVICE_CONTROLLER
+#define IOCTL_SCSI_BASE		FILE_DEVICE_CONTROLLER
 
-#define DD_SCSI_DEVICE_NAME "\\Device\\ScsiPort"
+#define DD_SCSI_DEVICE_NAME	"\\Device\\ScsiPort"
+#define DD_SCSI_DEVICE_NAME_U  L"\\Device\\ScsiPort"
 
 #define IOCTL_SCSI_PASS_THROUGH CTL_CODE(IOCTL_SCSI_BASE,0x0401,METHOD_BUFFERED,FILE_READ_ACCESS | FILE_WRITE_ACCESS)
 #define IOCTL_SCSI_MINIPORT CTL_CODE(IOCTL_SCSI_BASE,0x0402,METHOD_BUFFERED,FILE_READ_ACCESS | FILE_WRITE_ACCESS)
@@ -101,7 +102,7 @@ extern "C" {
     ULONG SenseInfoOffset;
     UCHAR Cdb[16];
   } SCSI_PASS_THROUGH_DIRECT32,*PSCSI_PASS_THROUGH_DIRECT32;
-#endif
+#endif /* _WIN64 */
 
   typedef struct _ATA_PASS_THROUGH_EX {
     USHORT Length;
@@ -164,7 +165,7 @@ extern "C" {
     UCHAR PreviousTaskFile[8];
     UCHAR CurrentTaskFile[8];
   } ATA_PASS_THROUGH_DIRECT32,*PATA_PASS_THROUGH_DIRECT32;
-#endif
+#endif /* _WIN64 */
 
 #define ATA_FLAGS_DRDY_REQUIRED (1 << 0)
 #define ATA_FLAGS_DATA_IN (1 << 1)
@@ -243,4 +244,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* _NTDDSCSIH_ */
+
