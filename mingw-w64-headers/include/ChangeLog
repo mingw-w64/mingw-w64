@@ -1,5 +1,13 @@
 2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* evntcons.h: New. Merge from experimental/vista_7_headers.
+	* evntprov.h: New. Merge from experimental/vista_7_headers.
+	* evntrace.h: Merge from experimental/vista_7_headers.
+	* ktmtypes.h: New. Merge from experimental/vista_7_headers.
+	* windows.h: Include ktmtypes.h (from experimental/vista_7_headers.)
+
+2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* ntddndis.h: Added a few endif comments.
 	(NDIS_PHYSICAL_MEDIUM): Add NdisPhysicalMediumInfiniband,
 	NdisPhysicalMediumWiMax,NdisPhysicalMediumUWB, NdisPhysicalMedium802_3,
