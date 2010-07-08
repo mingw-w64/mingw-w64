@@ -1,3 +1,14 @@
+2010-07-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge some obvious parts from experimental/vista_7_headers:
+	* winbase.h: Remove commented out AdjustCalendarDate, CALDATETIME & co.
+	(GetProcessDEPPolicy): Remove incorrect version guard.
+	(SetProcessDEPPolicy): Likewise.
+	(GetSystemDEPPolicy): Likewise.
+	(DEP_SYSTEM_POLICY_TYPE): Likewise.
+	(LOGON_WITH_PROFILE): Use the same style as LOGON_ZERO_PASSWORD_BUFFER.
+	(LOGON_NETCREDENTIALS_ONLY): Likewise.
+
 2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ntddndis.h: Added a few endif comments.

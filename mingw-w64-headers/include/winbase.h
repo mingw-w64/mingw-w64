@@ -1231,11 +1231,11 @@ extern "C" {
   WINBASEAPI DWORD WINAPI GetLongPathNameW(LPCWSTR lpszShortPath,LPWSTR lpszLongPath,DWORD cchBuffer);
   WINBASEAPI WINBOOL WINAPI GetProcessAffinityMask(HANDLE hProcess,PDWORD_PTR lpProcessAffinityMask,PDWORD_PTR lpSystemAffinityMask);
   WINBASEAPI WINBOOL WINAPI SetProcessAffinityMask(HANDLE hProcess,DWORD_PTR dwProcessAffinityMask);
-#if (_WIN32_WINNT >= 0x0600)
-  /* available in Vista SP1 and higher */ 
+
+  /* available in XP SP3, Vista SP1 and higher */ 
   WINBASEAPI WINBOOL WINAPI GetProcessDEPPolicy (HANDLE hProcess,LPDWORD lpFlags,PBOOL lpPermanent);
   WINBASEAPI WINBOOL WINAPI SetProcessDEPPolicy (DWORD dwFlags);
-#endif
+
   WINBASEAPI WINBOOL WINAPI GetProcessHandleCount(HANDLE hProcess,PDWORD pdwHandleCount);
   WINBASEAPI WINBOOL WINAPI GetProcessTimes(HANDLE hProcess,LPFILETIME lpCreationTime,LPFILETIME lpExitTime,LPFILETIME lpKernelTime,LPFILETIME lpUserTime);
   WINBASEAPI WINBOOL WINAPI GetProcessIoCounters(HANDLE hProcess,PIO_COUNTERS lpIoCounters);
@@ -1884,8 +1884,7 @@ extern "C" {
   WINBASEAPI HRSRC WINAPI FindResourceExA(HMODULE hModule,LPCSTR lpType,LPCSTR lpName,WORD wLanguage);
   WINBASEAPI HRSRC WINAPI FindResourceExW(HMODULE hModule,LPCWSTR lpType,LPCWSTR lpName,WORD wLanguage);
 
-#if (_WIN32_WINNT >= 0x0600)
-  /* available in Vista SP1 and higher */ 
+  /* available in XP SP3, Vista SP1 and higher */ 
   typedef enum _DEP_SYSTEM_POLICY_TYPE {
     AlwaysOff = 0,
     AlwaysOn = 1,
@@ -1893,7 +1892,6 @@ extern "C" {
     OptOut = 3
   } DEP_SYSTEM_POLICY_TYPE;
   WINBASEAPI DEP_SYSTEM_POLICY_TYPE WINAPI GetSystemDEPPolicy (void);
-#endif
 
 #define ENUMRESTYPEPROC __MINGW_NAME_AW(ENUMRESTYPEPROC)
 #define ENUMRESNAMEPROC __MINGW_NAME_AW(ENUMRESNAMEPROC)
@@ -2439,8 +2437,8 @@ extern "C" {
   WINADVAPI WINBOOL WINAPI CreateProcessAsUserA(HANDLE hToken,LPCSTR lpApplicationName,LPSTR lpCommandLine,LPSECURITY_ATTRIBUTES lpProcessAttributes,LPSECURITY_ATTRIBUTES lpThreadAttributes,WINBOOL bInheritHandles,DWORD dwCreationFlags,LPVOID lpEnvironment,LPCSTR lpCurrentDirectory,LPSTARTUPINFOA lpStartupInfo,LPPROCESS_INFORMATION lpProcessInformation);
   WINADVAPI WINBOOL WINAPI CreateProcessAsUserW(HANDLE hToken,LPCWSTR lpApplicationName,LPWSTR lpCommandLine,LPSECURITY_ATTRIBUTES lpProcessAttributes,LPSECURITY_ATTRIBUTES lpThreadAttributes,WINBOOL bInheritHandles,DWORD dwCreationFlags,LPVOID lpEnvironment,LPCWSTR lpCurrentDirectory,LPSTARTUPINFOW lpStartupInfo,LPPROCESS_INFORMATION lpProcessInformation);
 
-#define LOGON_WITH_PROFILE 0x1
-#define LOGON_NETCREDENTIALS_ONLY 0x2
+#define LOGON_WITH_PROFILE 0x00000001
+#define LOGON_NETCREDENTIALS_ONLY 0x00000002
 #define LOGON_ZERO_PASSWORD_BUFFER 0x80000000
 
   WINADVAPI WINBOOL WINAPI CreateProcessWithLogonW(LPCWSTR lpUsername,LPCWSTR lpDomain,LPCWSTR lpPassword,DWORD dwLogonFlags,LPCWSTR lpApplicationName,LPWSTR lpCommandLine,DWORD dwCreationFlags,LPVOID lpEnvironment,LPCWSTR lpCurrentDirectory,LPSTARTUPINFOW lpStartupInfo,LPPROCESS_INFORMATION lpProcessInformation);
@@ -2799,38 +2797,11 @@ WINBASEAPI HRESULT WINAPI RegisterApplicationRecoveryCallback(APPLICATION_RECOVE
 WINBASEAPI VOID WINAPI ApplicationRecoveryFinished(WINBOOL bSuccess);
 WINBASEAPI HRESULT WINAPI ApplicationRecoveryInProgress(PBOOL pbCanceled);
 
-
-/* no associated headers
-  enum CALDATETIME_DATEUNIT {
-    EraUnit,
-    YearUnit,
-    MonthUnit,
-    WeekUnit,
-    DayUnit,
-    HourUnit,
-    MinuteUnit,
-    SecondUnit,
-    TickUnit
-  };
-  typedef struct _caldatetime {
-    CALID CalId;
-    UINT  Era;
-    UINT  Year;
-    UINT  Month;
-    UINT  Day;
-    UINT  DayOfWeek;
-    UINT  Hour;
-    UINT  Minute;
-    UINT  Second;
-    ULONG Tick;
-  } CALDATETIME, *LPCALDATETIME;
-WINBOOL AdjustCalendarDate(LPCALDATETIME lpCalDateTime,CALDATETIME_DATEUNIT calUnit,INT amount);
-*/
-
-
-#endif
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* _WINBASE_ */
+
