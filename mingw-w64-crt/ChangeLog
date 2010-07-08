@@ -1,3 +1,8 @@
+2010-07-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crtexe.c (__tmainCRTStartup): Reverted the revision 848 change in
+	unused code path. Added a FIXME note for future reference.
+
 2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/rpcrt4.def: Activate and add a stdcall suffix of 16 to

@@ -246,7 +246,7 @@ __tmainCRTStartup (void)
 #ifdef _MBCS
 	if (_ismbblead (*lpszCommandLine))
 	  {
-	    if (*lpszCommandLine)
+	    if (lpszCommandLine) /* FIXME: Why this check? Should I check for *lpszCommandLine != 0 too? */
 	      lpszCommandLine++;
 	  }
 #endif
