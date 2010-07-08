@@ -1,4 +1,4 @@
-2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
+2010-07-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* evntcons.h: New. Merge from experimental/vista_7_headers.
 	* evntprov.h: New. Merge from experimental/vista_7_headers.
