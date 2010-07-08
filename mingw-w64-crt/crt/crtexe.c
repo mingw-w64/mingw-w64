@@ -62,6 +62,7 @@ extern _CRTALLOC(".CRT$XIZ") _PIFV __xi_z[];
 extern _CRTALLOC(".CRT$XCA") _PVFV __xc_a[];
 extern _CRTALLOC(".CRT$XCZ") _PVFV __xc_z[];
 
+/* TLS initialization hook.  */
 extern const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback;
 
 extern _PVFV *__onexitbegin;
@@ -245,7 +246,7 @@ __tmainCRTStartup (void)
 #ifdef _MBCS
 	if (_ismbblead (*lpszCommandLine))
 	  {
-	    if (*lpszCommandLine)
+	    if (lpszCommandLine) /* FIXME: Why this check? Should I check for *lpszCommandLine != 0 too? */
 	      lpszCommandLine++;
 	  }
 #endif
