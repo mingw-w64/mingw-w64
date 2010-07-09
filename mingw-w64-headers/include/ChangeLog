@@ -1,3 +1,11 @@
+2010-07-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Incorrect version guards around the TCP_TABLE_CLASS enumeration:
+	http://msdn.microsoft.com/en-us/library/aa366386(VS.85).aspx
+	* iprtrmib.h (TCP_TABLE_CLASS): Remove version guards.
+	* iphlpapi.h (TCP_TABLE_CLASS): Remove. iphlpapi.h already relies on
+	and includes iprtrmib.h.
+
 2010-07-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* evntcons.h: New. Merge from experimental/vista_7_headers.
