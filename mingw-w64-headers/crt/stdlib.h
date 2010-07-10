@@ -378,6 +378,10 @@ extern "C" {
 #ifdef _CRT_RAND_S
   _CRTIMP errno_t __cdecl rand_s(unsigned int *randomValue);
 #endif
+#if !defined __NO_ISOCEXT && (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L)
+  /* libmingwex.a provides a c99-compliant strtod() exported as __strtod() */
+#define strtod __strtod
+#endif /* __STDC_VERSION__ >= 199901L */
   double __cdecl strtod(const char *_Str,char **_EndPtr);
   float __cdecl strtof(const char *nptr, char **endptr);
   long double __cdecl strtold(const char *, char **);
