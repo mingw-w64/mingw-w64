@@ -63,3 +63,53 @@ _mcount:
 	leave
 	ret
 #endif
+
+/* gcc always assumes the mcount public symbol has a single leading underscore
+   for our target.  See gcc/config/i386.h; it isn't overridden in
+   config/i386/cygming.h or any other places for mingw.  This is the entry
+   for new prologue mechanism required for x64 seh calling convention.  */
+.globl _mcount_top
+        .def    _mcount_top;  .scl    2;      .type   32;     .endef
+_mcount_top:
+#ifndef _WIN64
+	push %ebp
+	mov %esp, %ebp
+	push %eax
+	push %ecx
+	push %edx
+	movl 4(%ebp),%edx
+	movl 8(%ebp),%eax
+	push %edx
+	push %eax
+	call __MINGW_USYMBOL(_mcount_private)
+	add $8, %esp
+	pop %edx
+	pop %ecx
+	pop %eax
+	leave
+	ret
+#else
+	push %rbp
+	mov %rsp, %rbp
+	push %rax
+	push %rcx
+	push %rdx
+	push %r8
+	push %r9
+	push %r10
+	push %r11
+	movq 8(%rbp),%rdx
+	movq 16(%rbp),%rcx
+	sub $40, %rsp
+	call __MINGW_USYMBOL(_mcount_private)
+	add $40, %rsp
+	pop %r11
+	pop %r10
+	pop %r9
+	pop %r8
+	pop %rdx
+	pop %rcx
+	pop %rax
+	leave
+	ret
+#endif
