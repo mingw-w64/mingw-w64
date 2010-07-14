@@ -1,6 +1,11 @@
 2010-07-13  Ozkan Sezer  <sezeroz@gmail.com>
 
-	Backport from the trunk:
+	Backports from the trunk:
+
+	2010-07-13  Kai Tietz  <kai.tietz@onevision.com> (rev. 2834)
+	* winbase.h: Change return type of CreateSymbolicLink to BOOLEAN as
+	described in
+	http://msdn.microsoft.com/en-us/library/aa363866%28VS.85%29.aspx
 
 	2010-07-13  Kai Tietz  <kai.tietz@onevision.com> (rev. 2831)
 	PR/3028674
