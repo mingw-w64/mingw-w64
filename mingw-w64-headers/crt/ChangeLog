@@ -1,3 +1,9 @@
+2010-07-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* process.h (_Exit): Fix missing declaration.
+	* stdlib.h (_Exit): Unify code block.
+	* assert.h (_Exit): Likewise.
+
 2010-07-13  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/3028674
