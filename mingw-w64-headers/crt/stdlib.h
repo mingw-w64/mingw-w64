@@ -314,14 +314,14 @@ extern "C" {
   __CRT_INLINE __MINGW_ATTRIB_NORETURN void  __cdecl _Exit(int status)
   {  _exit(status); }
 #endif /* !__CRT__NO_INLINE */
-#endif
+#endif /* Not  __NO_ISOCEXT */
 
 #pragma push_macro("abort")
 #undef abort
   void __cdecl __declspec(noreturn) abort(void);
 #pragma pop_macro("abort")
 
-#endif
+#endif /* _CRT_TERMINATE_DEFINED */
 
   _CRTIMP unsigned int __cdecl _set_abort_behavior(unsigned int _Flags,unsigned int _Mask);
 
