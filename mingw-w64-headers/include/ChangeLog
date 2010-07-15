@@ -1,3 +1,12 @@
+2010-07-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk:
+
+	2010-07-15  Kai Tietz  <kai.tietz@onevision.com> (rev. 2837-2838)
+	* process.h (_Exit): Fix missing declaration.
+	* stdlib.h (_Exit): Unify code block.
+	* assert.h (_Exit): Likewise.
+
 2010-07-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Backports from the trunk:
