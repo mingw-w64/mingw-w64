@@ -394,4 +394,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* _WINSVC_ */

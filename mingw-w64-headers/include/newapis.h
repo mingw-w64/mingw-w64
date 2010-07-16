@@ -87,7 +87,7 @@ extern "C" {
       hr = SHGetDesktopFolder(&psfDesk);
       if(SUCCEEDED(hr)) {
 	ULONG cwchEaten;
-#ifdef UNICODE
+#if defined(UNICODE)
 #ifdef __cplusplus
 	hr = psfDesk->ParseDisplayName(NULL,NULL,tsz,&cwchEaten,&pidl,NULL);
 #else
@@ -139,7 +139,7 @@ extern "C" {
 #endif
 	    }
 	  }
-#ifndef UNICODE
+#if !defined(UNICODE)
 	}
 #endif
 #ifdef __cplusplus

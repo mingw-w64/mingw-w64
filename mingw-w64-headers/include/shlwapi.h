@@ -267,7 +267,7 @@ extern "C" {
 #define StrNCpy StrCpyN
 #define StrCatN StrNCat
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define StrCat StrCatW
 #define StrCmp StrCmpW
 #define StrCmpI StrCmpIW

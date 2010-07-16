@@ -39,7 +39,7 @@ extern "C" {
 
   typedef WORD WCHAR;
 
-#ifdef UNICODE
+#if defined(UNICODE)
   typedef WCHAR TCHAR;
 #else
   typedef char TCHAR;
@@ -79,7 +79,7 @@ extern "C" {
 #define MAPI_ACCESS_CREATE_ASSOCIATED ((ULONG) 0x00000020)
 #define MAPI_UNICODE ((ULONG) 0x80000000)
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define fMapiUnicode MAPI_UNICODE
 #else
 #define fMapiUnicode 0
@@ -163,7 +163,7 @@ extern "C" {
 #define PT_R8 PT_DOUBLE
 #define PT_LONGLONG PT_I8
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define PT_TSTRING PT_UNICODE
 #define PT_MV_TSTRING (MV_FLAG|PT_UNICODE)
 #define LPSZ lpszW

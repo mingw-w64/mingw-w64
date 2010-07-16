@@ -29,7 +29,7 @@ extern "C" {
 #define idsHelpFile 1009
 #define idsDefKeyword 1010
 
-#ifdef UNICODE
+#if defined(UNICODE)
   LRESULT WINAPI ScreenSaverProcW(HWND hWnd,UINT message,WPARAM wParam,LPARAM lParam);
 #define ScreenSaverProc ScreenSaverProcW
 #else

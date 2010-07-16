@@ -95,7 +95,7 @@ extern "C" {
   WINBOOL WINAPI Process32First(HANDLE hSnapshot,LPPROCESSENTRY32 lppe);
   WINBOOL WINAPI Process32Next(HANDLE hSnapshot,LPPROCESSENTRY32 lppe);
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define Process32First Process32FirstW
 #define Process32Next Process32NextW
 #define PROCESSENTRY32 PROCESSENTRY32W
@@ -154,7 +154,7 @@ extern "C" {
   WINBOOL WINAPI Module32First(HANDLE hSnapshot,LPMODULEENTRY32 lpme);
   WINBOOL WINAPI Module32Next(HANDLE hSnapshot,LPMODULEENTRY32 lpme);
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define Module32First Module32FirstW
 #define Module32Next Module32NextW
 #define MODULEENTRY32 MODULEENTRY32W

@@ -327,7 +327,7 @@ extern "C" {
   typedef LPINTERNET_BUFFERSA LPINTERNET_BUFFERS;
 #endif
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetTimeFromSystemTime InternetTimeFromSystemTimeW
 #else
   BOOLAPI InternetTimeFromSystemTime(CONST SYSTEMTIME *pst,DWORD dwRFC,LPSTR lpszTime,DWORD cbTime);
@@ -339,7 +339,7 @@ extern "C" {
 #define INTERNET_RFC1123_FORMAT 0
 #define INTERNET_RFC1123_BUFSIZE 30
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetTimeToSystemTime InternetTimeToSystemTimeW
 #define InternetCrackUrl InternetCrackUrlW
 #define InternetCreateUrl InternetCreateUrlW
@@ -618,7 +618,7 @@ extern "C" {
   typedef VOID (CALLBACK *INTERNET_STATUS_CALLBACK)(HINTERNET hInternet,DWORD_PTR dwContext,DWORD dwInternetStatus,LPVOID lpvStatusInformation,DWORD dwStatusInformationLength);
   typedef INTERNET_STATUS_CALLBACK *LPINTERNET_STATUS_CALLBACK;
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetSetStatusCallback InternetSetStatusCallbackW
 #else
   INTERNETAPI_(INTERNET_STATUS_CALLBACK) InternetSetStatusCallback(HINTERNET hInternet,INTERNET_STATUS_CALLBACK lpfnInternetCallback);
@@ -1281,7 +1281,7 @@ extern "C" {
     DWORD_PTR dwContext;
   } INTERNET_AUTH_NOTIFY_DATA;
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetConfirmZoneCrossing InternetConfirmZoneCrossingW
 #else
   INTERNETAPI_(DWORD) InternetConfirmZoneCrossing(HWND hWnd,LPSTR szUrlPrev,LPSTR szUrlNew,WINBOOL bPost);
@@ -1570,7 +1570,7 @@ extern "C" {
 #define CACHE_ENTRY_HEADERINFO_FC 0x00000400
 #define CACHE_ENTRY_EXEMPT_DELTA_FC 0x00000800
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define SetUrlCacheEntryInfo SetUrlCacheEntryInfoW
 #define SetUrlCacheEntryGroup SetUrlCacheEntryGroupW
 #define FindFirstUrlCacheEntryEx FindFirstUrlCacheEntryExW
@@ -1668,7 +1668,7 @@ extern "C" {
   typedef WINBOOL (CALLBACK *pfnInternetDeInitializeAutoProxyDll)(LPSTR lpszMime,DWORD dwReserved);
   typedef WINBOOL (CALLBACK *pfnInternetGetProxyInfo)(LPCSTR lpszUrl,DWORD dwUrlLength,LPSTR lpszUrlHostName,DWORD dwUrlHostNameLength,LPSTR *lplpszProxyHostName,LPDWORD lpdwProxyHostNameLength);
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetGetConnectedStateEx InternetGetConnectedStateExW
 #else
   INTERNETAPI_(WINBOOL) InternetGetConnectedStateEx(LPDWORD lpdwFlags,LPSTR lpszConnectionName,DWORD dwNameLen,DWORD dwReserved);
@@ -1699,7 +1699,7 @@ extern "C" {
 #define INTERNET_CUSTOMDIAL_WILL_SUPPLY_STATE 2
 #define INTERNET_CUSTOMDIAL_CAN_HANGUP 4
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define InternetSetDialState InternetSetDialStateW
 #define InternetSetPerSiteCookieDecision InternetSetPerSiteCookieDecisionW
 #define InternetGetPerSiteCookieDecision InternetGetPerSiteCookieDecisionW

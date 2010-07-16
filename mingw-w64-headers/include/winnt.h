@@ -6142,7 +6142,7 @@ typedef DWORD LCID;
 #define ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS (10)
 
 #ifdef __cplusplus
-  }
+}
 #endif
 
 #endif /* _WINNT_ */

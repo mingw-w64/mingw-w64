@@ -23,7 +23,7 @@ extern "C" {
 #endif
 
 #ifndef LDAP_UNICODE
-#ifdef UNICODE
+#if defined(UNICODE)
 #define LDAP_UNICODE 1
 #else
 #define LDAP_UNICODE 0

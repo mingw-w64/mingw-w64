@@ -217,7 +217,7 @@ extern "C" {
   typedef unsigned short SQLWCHAR;
 #endif
 
-#ifdef UNICODE
+#if defined(UNICODE)
   typedef SQLWCHAR SQLTCHAR;
 #else
   typedef SQLCHAR SQLTCHAR;

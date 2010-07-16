@@ -203,7 +203,10 @@ extern "C" {
   } HTTP_RESPONSE,*PHTTP_RESPONSE;
 
   typedef enum _HTTP_CACHE_POLICY_TYPE {
-    HttpCachePolicyNocache,HttpCachePolicyUserInvalidates,HttpCachePolicyTimeToLive,HttpCachePolicyMaximum
+    HttpCachePolicyNocache,
+    HttpCachePolicyUserInvalidates,
+    HttpCachePolicyTimeToLive,
+    HttpCachePolicyMaximum
   } HTTP_CACHE_POLICY_TYPE,*PHTTP_CACHE_POLICY_TYPE;
 
   typedef struct _HTTP_CACHE_POLICY {
@@ -212,11 +215,16 @@ extern "C" {
   } HTTP_CACHE_POLICY,*PHTTP_CACHE_POLICY;
 
   typedef enum _HTTP_SERVICE_CONFIG_ID {
-    HttpServiceConfigIPListenList,HttpServiceConfigSSLCertInfo,HttpServiceConfigUrlAclInfo,HttpServiceConfigMax
+    HttpServiceConfigIPListenList,
+    HttpServiceConfigSSLCertInfo,
+    HttpServiceConfigUrlAclInfo,
+    HttpServiceConfigMax
   } HTTP_SERVICE_CONFIG_ID,*PHTTP_SERVICE_CONFIG_ID;
 
   typedef enum _HTTP_SERVICE_CONFIG_QUERY_TYPE {
-    HttpServiceConfigQueryExact,HttpServiceConfigQueryNext,HttpServiceConfigQueryMax
+    HttpServiceConfigQueryExact,
+    HttpServiceConfigQueryNext,
+    HttpServiceConfigQueryMax
   } HTTP_SERVICE_CONFIG_QUERY_TYPE,*PHTTP_SERVICE_CONFIG_QUERY_TYPE;
 
   typedef struct _HTTP_SERVICE_CONFIG_SSL_KEY {
@@ -312,4 +320,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* __HTTP_H__ */

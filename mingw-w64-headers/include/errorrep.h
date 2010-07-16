@@ -7,7 +7,8 @@
 #define __ERRORREP_H__
 
 typedef enum tagEFaultRepRetVal {
-  frrvOk = 0,frrvOkManifest,frrvOkQueued,frrvErr,frrvErrNoDW,frrvErrTimeout,frrvLaunchDebugger,frrvOkHeadless
+  frrvOk = 0,
+  frrvOkManifest,frrvOkQueued,frrvErr,frrvErrNoDW,frrvErrTimeout,frrvLaunchDebugger,frrvOkHeadless
 } EFaultRepRetVal;
 
 EFaultRepRetVal WINAPI ReportFault(LPEXCEPTION_POINTERS pep,DWORD dwOpt);

@@ -1,3 +1,8 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the w64 mingw-runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
 #ifndef __DBDAO_H_
 #define __DBDAO_H_
 
@@ -141,7 +146,7 @@ inline VOID CdbVariant::operator =(LPCTSTR pstr) {
     vt = VT_ERROR;
     scode = DISP_E_PARAMNOTFOUND;
   } else {
-#ifdef UNICODE
+#if defined(UNICODE)
     bstrVal = SysAllocString(pstr);
 #else
     bstrVal = SysAllocStringByteLen(pstr,strlen(pstr));

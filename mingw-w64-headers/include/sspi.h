@@ -61,7 +61,7 @@ extern "C" {
 #define __SEC_FAR
 #define SEC_ENTRY WINAPI
 
-#ifdef UNICODE
+#if defined(UNICODE)
   typedef SEC_WCHAR *SECURITY_PSTR;
   typedef CONST SEC_WCHAR *SECURITY_PCSTR;
 #else

@@ -7,7 +7,6 @@
 #define __ROUTING_IPRTRMIB_H__
 
 #include <mprapi.h>
-
 #include <ipifcons.h>
 
 #define IPRTRMGR_PID 10000
@@ -739,4 +738,5 @@ typedef struct _MIB_OPAQUE_INFO {
 #define DEFINE_MIB_BUFFER(X,Y,Z) DWORD __rgdwBuff[MIB_INFO_SIZE_IN_DWORDS(Y)]; PMIB_OPAQUE_INFO X = (PMIB_OPAQUE_INFO)__rgdwBuff; Y *Z = (Y *)(X->rgbyData)
 
 #define CAST_MIB_INFO(X,Y,Z) Z = (Y)(X->rgbyData)
-#endif
+
+#endif /* __ROUTING_IPRTRMIB_H__ */

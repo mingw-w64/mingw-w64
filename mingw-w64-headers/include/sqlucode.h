@@ -17,7 +17,7 @@ extern "C" {
 #define SQL_WLONGVARCHAR (-10)
 #define SQL_C_WCHAR SQL_WCHAR
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define SQL_C_TCHAR SQL_C_WCHAR
 #else
 #define SQL_C_TCHAR SQL_C_CHAR
@@ -115,7 +115,7 @@ extern "C" {
   SQLRETURN SQL_API SQLDriversA(SQLHENV henv,SQLUSMALLINT fDirection,SQLCHAR *szDriverDesc,SQLSMALLINT cbDriverDescMax,SQLSMALLINT *pcbDriverDesc,SQLCHAR *szDriverAttributes,SQLSMALLINT cbDrvrAttrMax,SQLSMALLINT *pcbDrvrAttr);
 
 #ifndef SQL_NOUNICODEMAP
-#ifdef UNICODE
+#if defined(UNICODE)
 #define SQLColAttribute SQLColAttributeW
 #define SQLColAttributes SQLColAttributesW
 #define SQLConnect SQLConnectW

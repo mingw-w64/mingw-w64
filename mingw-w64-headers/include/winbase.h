@@ -1199,7 +1199,7 @@ extern "C" {
 #define SCS_OS216_BINARY 5
 #define SCS_64BIT_BINARY 6
 
-#ifdef UNICODE
+#if defined(UNICODE)
 #define GetBinaryType GetBinaryTypeW
 #define GetShortPathName GetShortPathNameW
 #define GetLongPathName GetLongPathNameW
@@ -2632,8 +2632,8 @@ extern "C" {
   WINADVAPI WINBOOL WINAPI CreateProcessAsUserA(HANDLE hToken,LPCSTR lpApplicationName,LPSTR lpCommandLine,LPSECURITY_ATTRIBUTES lpProcessAttributes,LPSECURITY_ATTRIBUTES lpThreadAttributes,WINBOOL bInheritHandles,DWORD dwCreationFlags,LPVOID lpEnvironment,LPCSTR lpCurrentDirectory,LPSTARTUPINFOA lpStartupInfo,LPPROCESS_INFORMATION lpProcessInformation);
   WINADVAPI WINBOOL WINAPI CreateProcessAsUserW(HANDLE hToken,LPCWSTR lpApplicationName,LPWSTR lpCommandLine,LPSECURITY_ATTRIBUTES lpProcessAttributes,LPSECURITY_ATTRIBUTES lpThreadAttributes,WINBOOL bInheritHandles,DWORD dwCreationFlags,LPVOID lpEnvironment,LPCWSTR lpCurrentDirectory,LPSTARTUPINFOW lpStartupInfo,LPPROCESS_INFORMATION lpProcessInformation);
 
-#define LOGON_WITH_PROFILE 0x1
-#define LOGON_NETCREDENTIALS_ONLY 0x2
+#define LOGON_WITH_PROFILE 0x00000001
+#define LOGON_NETCREDENTIALS_ONLY 0x00000002
 #define LOGON_ZERO_PASSWORD_BUFFER 0x80000000
 
   WINADVAPI WINBOOL WINAPI CreateProcessWithLogonW(LPCWSTR lpUsername,LPCWSTR lpDomain,LPCWSTR lpPassword,DWORD dwLogonFlags,LPCWSTR lpApplicationName,LPWSTR lpCommandLine,DWORD dwCreationFlags,LPVOID lpEnvironment,LPCWSTR lpCurrentDirectory,LPSTARTUPINFOW lpStartupInfo,LPPROCESS_INFORMATION lpProcessInformation);
@@ -2967,15 +2967,18 @@ extern "C" {
 #define SYMBOLIC_LINK_FLAG_FILE		0x0
 #define SYMBOLIC_LINK_FLAG_DIRECTORY	0x1
 
-  WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkA (LPSTR lpSymLinkFileName, LPSTR lpTargetFileName, DWORD dwFlags);
-  WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkW (LPWSTR lpSymLinkFileName, LPWSTR lpTargetFileName, DWORD dwFlags);
 #ifdef UNICODE
 #define CreateSymbolicLink CreateSymbolicLinkW
 #else
 #define CreateSymbolicLink CreateSymbolicLinkA
 #endif
 
+WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkA (LPSTR lpSymLinkFileName, LPSTR lpTargetFileName, DWORD dwFlags);
+WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkW (LPWSTR lpSymLinkFileName, LPWSTR lpTargetFileName, DWORD dwFlags);
+
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* _WINBASE_ */
+

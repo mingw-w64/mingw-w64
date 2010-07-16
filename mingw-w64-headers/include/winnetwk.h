@@ -110,7 +110,7 @@ extern "C" {
     LPSTR lpRemoteName;
     LPSTR lpComment;
     LPSTR lpProvider;
-  }NETRESOURCEA,*LPNETRESOURCEA;
+  } NETRESOURCEA,*LPNETRESOURCEA;
   typedef struct _NETRESOURCEW {
     DWORD dwScope;
     DWORD dwType;
@@ -120,7 +120,7 @@ extern "C" {
     LPWSTR lpRemoteName;
     LPWSTR lpComment;
     LPWSTR lpProvider;
-  }NETRESOURCEW,*LPNETRESOURCEW;
+  } NETRESOURCEW,*LPNETRESOURCEW;
 #ifdef UNICODE
   typedef NETRESOURCEW NETRESOURCE;
   typedef LPNETRESOURCEW LPNETRESOURCE;
