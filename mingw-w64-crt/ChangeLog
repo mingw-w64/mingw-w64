@@ -1,3 +1,15 @@
+2010-07-16  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* lib64/ndis.def: New.
+	* lib64/authz.def: Updated from Vista.
+	* lib64/d2d1.def: New.
+	* lib64/virtdisk.def: New.
+	* lib32/virtdisk.def: New.
+	* lib32/d2d1.def: New.
+	* lib32/authz.def: New.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
 2010-07-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* crtexe.c (__tmainCRTStartup): Reverted the revision 848 change in
