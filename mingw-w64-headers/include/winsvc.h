@@ -6,6 +6,7 @@
 #ifndef _WINSVC_
 #define _WINSVC_
 
+#include <_mingw.h>
 #include <_mingw_unicode.h>
 
 #ifndef WINADVAPI
@@ -330,4 +331,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* _WINSVC_ */

@@ -18,6 +18,7 @@ extern "C" {
 #define WINVER 0x0502
 #endif
 
+#include <_mingw.h>
 #include <stdarg.h>
 #include <guiddef.h>
 

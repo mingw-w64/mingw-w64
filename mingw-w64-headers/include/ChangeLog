@@ -1,3 +1,13 @@
+2010-07-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _dbdao.h, afxres.h, azroles.h, dbghelp.h, http.h, iprtrmib.h,
+	mprapi.h, mscat.h, mspab.h, mspcall.h, mspcoll.h, mspenum.h, msplog.h,
+	mspst.h, mspstrm.h, mspterm.h, mspthrd.h, msptrmac.h, msptrmar.h,
+	msptrmvc.h, msputils.h, w32api.h, winbase.h, wincred.h, wincrypt.h,
+	winhttp.h, winioctl.h, winnt.h, winsvc.h, winuser.h, wmiatlprov.h:
+	Merged trivial whitespace changes and add missing public domain
+	headers from experimental/vista_7_headers.
+
 2010-07-09  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Incorrect version guards around the TCP_TABLE_CLASS enumeration:

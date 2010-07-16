@@ -6,6 +6,7 @@
 #ifndef _WINCRED_H_
 #define _WINCRED_H_
 
+#include <_mingw.h>
 #include <_mingw_unicode.h>
 
 #define WINADVAPI DECLSPEC_IMPORT
@@ -316,4 +317,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* _WINCRED_H_ */
+

@@ -1188,8 +1188,12 @@ extern "C" {
   } MINIDUMP_INCLUDE_THREAD_CALLBACK,*PMINIDUMP_INCLUDE_THREAD_CALLBACK;
 
   typedef enum _THREAD_WRITE_FLAGS {
-    ThreadWriteThread = 0x0001,ThreadWriteStack = 0x0002,ThreadWriteContext = 0x0004,ThreadWriteBackingStore = 0x0008,
-    ThreadWriteInstructionWindow = 0x0010,ThreadWriteThreadData = 0x0020
+    ThreadWriteThread              = 0x0001,
+    ThreadWriteStack               = 0x0002,
+    ThreadWriteContext             = 0x0004,
+    ThreadWriteBackingStore        = 0x0008,
+    ThreadWriteInstructionWindow   = 0x0010,
+    ThreadWriteThreadData          = 0x0020
   } THREAD_WRITE_FLAGS;
 
   typedef struct _MINIDUMP_MODULE_CALLBACK {
@@ -1210,8 +1214,11 @@ extern "C" {
   } MINIDUMP_INCLUDE_MODULE_CALLBACK,*PMINIDUMP_INCLUDE_MODULE_CALLBACK;
 
   typedef enum _MODULE_WRITE_FLAGS {
-    ModuleWriteModule = 0x0001,ModuleWriteDataSeg = 0x0002,ModuleWriteMiscRecord = 0x0004,ModuleWriteCvRecord = 0x0008,
-    ModuleReferencedByMemory = 0x0010
+    ModuleWriteModule          = 0x0001,
+    ModuleWriteDataSeg         = 0x0002,
+    ModuleWriteMiscRecord      = 0x0004,
+    ModuleWriteCvRecord        = 0x0008,
+    ModuleReferencedByMemory   = 0x0010
   } MODULE_WRITE_FLAGS;
 
   typedef struct _MINIDUMP_CALLBACK_INPUT {
@@ -1236,13 +1243,21 @@ extern "C" {
 	ULONG MemorySize;
       };
     };
-  } MINIDUMP_CALLBACK_OUTPUT,*PMINIDUMP_CALLBACK_OUTPUT;
+  } MINIDUMP_CALLBACK_OUTPUT, *PMINIDUMP_CALLBACK_OUTPUT;
 
   typedef enum _MINIDUMP_TYPE {
-    MiniDumpNormal = 0x0000,MiniDumpWithDataSegs = 0x0001,MiniDumpWithFullMemory = 0x0002,MiniDumpWithHandleData = 0x0004,
-    MiniDumpFilterMemory = 0x0008,MiniDumpScanMemory = 0x0010,MiniDumpWithUnloadedModules = 0x0020,MiniDumpWithIndirectlyReferencedMemory = 0x0040,
-    MiniDumpFilterModulePaths = 0x0080,MiniDumpWithProcessThreadData = 0x0100,MiniDumpWithPrivateReadWriteMemory = 0x0200,
-    MiniDumpWithoutOptionalData = 0x0400
+    MiniDumpNormal                           = 0x00000000,
+    MiniDumpWithDataSegs                     = 0x00000001,
+    MiniDumpWithFullMemory                   = 0x00000002,
+    MiniDumpWithHandleData                   = 0x00000004,
+    MiniDumpFilterMemory                     = 0x00000008,
+    MiniDumpScanMemory                       = 0x00000010,
+    MiniDumpWithUnloadedModules              = 0x00000020,
+    MiniDumpWithIndirectlyReferencedMemory   = 0x00000040,
+    MiniDumpFilterModulePaths                = 0x00000080,
+    MiniDumpWithProcessThreadData            = 0x00000100,
+    MiniDumpWithPrivateReadWriteMemory       = 0x00000200,
+    MiniDumpWithoutOptionalData              = 0x00000400
   } MINIDUMP_TYPE;
 
   typedef WINBOOL (WINAPI *MINIDUMP_CALLBACK_ROUTINE)(PVOID CallbackParam,CONST PMINIDUMP_CALLBACK_INPUT CallbackInput,PMINIDUMP_CALLBACK_OUTPUT CallbackOutput);

@@ -6335,7 +6335,7 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
     ACTCTX_REQUESTED_RUN_LEVEL_INFORMATION RunLevel;
     ULONG UiAccess;
   } ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION, *PACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION;
-  
+
   typedef VOID (CALLBACK *CleanupGroupCancelCallback)(
     PVOID ObjectContext,
     PVOID CleanupContext
@@ -6344,7 +6344,7 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
-  }
+}
 #endif
 
 #endif /* _WINNT_ */

@@ -618,4 +618,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* __ROUTING_MPRADMIN_H__ */

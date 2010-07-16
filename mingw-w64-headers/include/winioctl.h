@@ -223,12 +223,69 @@ extern "C" {
 #define TAPE_RESET_STATISTICS 2L
 
   typedef enum _STORAGE_MEDIA_TYPE {
-    DDS_4mm = 0x20,MiniQic,Travan,QIC,MP_8mm,AME_8mm,AIT1_8mm,DLT,NCTP,IBM_3480,IBM_3490E,IBM_Magstar_3590,IBM_Magstar_MP,STK_DATA_D3,SONY_DTF,
-    DV_6mm,DMI,SONY_D2,CLEANER_CARTRIDGE,CD_ROM,CD_R,CD_RW,DVD_ROM,DVD_R,DVD_RW,MO_3_RW,MO_5_WO,MO_5_RW,MO_5_LIMDOW,PC_5_WO,PC_5_RW,PD_5_RW,
-    ABL_5_WO,PINNACLE_APEX_5_RW,SONY_12_WO,PHILIPS_12_WO,HITACHI_12_WO,CYGNET_12_WO,KODAK_14_WO,MO_NFR_525,NIKON_12_RW,IOMEGA_ZIP,IOMEGA_JAZ,
-    SYQUEST_EZ135,SYQUEST_EZFLYER,SYQUEST_SYJET,AVATAR_F2,MP2_8mm,DST_S,DST_M,DST_L,VXATape_1,VXATape_2,STK_9840,LTO_Ultrium,LTO_Accelis,DVD_RAM,
-    AIT_8mm,ADR_1,ADR_2,STK_9940,SAIT
-  } STORAGE_MEDIA_TYPE,*PSTORAGE_MEDIA_TYPE;
+    DDS_4mm	= 0x20,
+    MiniQic,
+    Travan,
+    QIC,
+    MP_8mm,
+    AME_8mm,
+    AIT1_8mm,
+    DLT,
+    NCTP,
+    IBM_3480,
+    IBM_3490E,
+    IBM_Magstar_3590,
+    IBM_Magstar_MP,
+    STK_DATA_D3,
+    SONY_DTF,
+    DV_6mm,
+    DMI,
+    SONY_D2,
+    CLEANER_CARTRIDGE,
+    CD_ROM,
+    CD_R,
+    CD_RW,
+    DVD_ROM,
+    DVD_R,
+    DVD_RW,
+    MO_3_RW,
+    MO_5_WO,
+    MO_5_RW,
+    MO_5_LIMDOW,
+    PC_5_WO,
+    PC_5_RW,
+    PD_5_RW,
+    ABL_5_WO,
+    PINNACLE_APEX_5_RW,
+    SONY_12_WO,
+    PHILIPS_12_WO,
+    HITACHI_12_WO,
+    CYGNET_12_WO,
+    KODAK_14_WO,
+    MO_NFR_525,
+    NIKON_12_RW,
+    IOMEGA_ZIP,
+    IOMEGA_JAZ,
+    SYQUEST_EZ135,
+    SYQUEST_EZFLYER,
+    SYQUEST_SYJET,
+    AVATAR_F2,
+    MP2_8mm,
+    DST_S,
+    DST_M,
+    DST_L,
+    VXATape_1,
+    VXATape_2,
+    STK_9840,
+    LTO_Ultrium,
+    LTO_Accelis,
+    DVD_RAM,
+    AIT_8mm,
+    ADR_1,
+    ADR_2,
+    STK_9940,
+    SAIT
+  } STORAGE_MEDIA_TYPE, *PSTORAGE_MEDIA_TYPE;
 
 #define MEDIA_ERASEABLE 0x00000001
 #define MEDIA_WRITE_ONCE 0x00000002
@@ -239,8 +296,19 @@ extern "C" {
 #define MEDIA_CURRENTLY_MOUNTED 0x80000000
 
   typedef enum _STORAGE_BUS_TYPE {
-    BusTypeUnknown = 0x00,BusTypeScsi,BusTypeAtapi,BusTypeAta,BusType1394,BusTypeSsa,BusTypeFibre,BusTypeUsb,BusTypeRAID,BusTypeiScsi,
-    BusTypeSas,BusTypeSata,BusTypeMaxReserved = 0x7F
+    BusTypeUnknown	= 0x00,
+    BusTypeScsi,
+    BusTypeAtapi,
+    BusTypeAta,
+    BusType1394,
+    BusTypeSsa,
+    BusTypeFibre,
+    BusTypeUsb,
+    BusTypeRAID,
+    BusTypeiScsi,
+    BusTypeSas,
+    BusTypeSata,
+    BusTypeMaxReserved	= 0x7F
   } STORAGE_BUS_TYPE,*PSTORAGE_BUS_TYPE;
 
   typedef struct _DEVICE_MEDIA_INFO {

@@ -6,6 +6,7 @@
 #ifndef __WINCRYPT_H__
 #define __WINCRYPT_H__
 
+#include <_mingw.h>
 #include <_mingw_unicode.h>
 #include <guiddef.h>
 
