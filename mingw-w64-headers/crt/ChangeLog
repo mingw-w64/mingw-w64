@@ -1,3 +1,7 @@
+2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_unicode.h (__MINGW_TYPEDEF_UAW): New helper macro.
+
 2010-07-15  Kai Tietz  <kai.tietz@onevision.com>
 
 	* process.h (_Exit): Fix missing declaration.

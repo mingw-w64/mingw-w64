@@ -1,5 +1,14 @@
 2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* accctrl.h: Replace several typedef __MINGW_NAME_UAW(XXX) XXX;
+	by either __MINGW_TYPEDEF_UAW(XXX) or by __MINGW_TYPEDEF_AW(XXX_)
+	* cfgmgr32.h: Replace several typedef __MINGW_NAME_UAW(XXX) XXX;
+	by __MINGW_TYPEDEF_UAW(XXX)
+	* dbt.h: Likewise.
+	* setupapi.h: Likewise.
+
+2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* ksuuids.h: Merges from the experimental/ddk_test:
 	Added version guards around several existing ids.
 	(AM_KSPROPSETID_MPEG4_MediaType_Attributes): New.

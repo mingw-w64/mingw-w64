@@ -25,7 +25,9 @@
 # define __MINGW_PROCNAMEEXT_AW "A"
 #endif
 
-#define __MINGW_TYPEDEF_AW(type) \
+#define __MINGW_TYPEDEF_AW(type)	\
     typedef __MINGW_NAME_AW(type) type;
+#define __MINGW_TYPEDEF_UAW(type)	\
+    typedef __MINGW_NAME_UAW(type) type;
 
 #endif /* !defined(_INC_CRT_UNICODE_MACROS) */
