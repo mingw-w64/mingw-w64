@@ -424,7 +424,7 @@ typedef struct _TRACE_LOGFILE_HEADER32 {
       UCHAR SubVersion;
       UCHAR SubMinorVersion;
     } VersionDetail;
-  } DUMMYUNIONNAME;
+  };
   ULONG ProviderVersion;
   ULONG NumberOfProcessors;
   LARGE_INTEGER EndTime;
@@ -439,8 +439,8 @@ typedef struct _TRACE_LOGFILE_HEADER32 {
       ULONG PointerSize;
       ULONG EventsLost;
       ULONG CpuSpeedInMHz;
-    } DUMMYSTRUCTNAME;
-  } DUMMYUNIONNAME2;
+    };
+  };
 #if defined(_WMIKM_)
   ULONG32 LoggerName;
   ULONG32 LogFileName;
@@ -467,7 +467,7 @@ typedef struct _TRACE_LOGFILE_HEADER64 {
       UCHAR SubVersion;
       UCHAR SubMinorVersion;
     } VersionDetail;
-  } DUMMYUNIONNAME;
+  };
   ULONG ProviderVersion;
   ULONG NumberOfProcessors;
   LARGE_INTEGER EndTime;
@@ -482,8 +482,8 @@ typedef struct _TRACE_LOGFILE_HEADER64 {
       ULONG PointerSize;
       ULONG EventsLost;
       ULONG CpuSpeedInMHz;
-    } DUMMYSTRUCTNAME;
-  } DUMMYUNIONNAME2;
+    };
+  };
 #if defined(_WMIKM_)
   ULONG64 LoggerName;
   ULONG64 LogFileName;
