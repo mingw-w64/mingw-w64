@@ -1,3 +1,15 @@
+2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/strmiids.c: Added new ids added to ksuuids.h:
+	(AM_KSPROPSETID_MPEG4_MediaType_Attributes): New.
+	(MEDIASUBTYPE_MPEG2_WMDRM_TRANSPORT): New.
+	(MEDIASUBTYPE_MPEG2_VERSIONED_TABLES): New.
+	(MEDIASUBTYPE_ISDB_SI): New.
+	(MEDIASUBTYPE_TIF_SI): New.
+	(MEDIASUBTYPE_MPEG2_UDCR_TRANSPORT): New.
+	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_RAW): New.
+	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_PROCESSED): New.
+
 2010-07-16  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* lib64/ndis.def: New.
