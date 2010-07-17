@@ -1,3 +1,16 @@
+2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ksuuids.h: Merges from the experimental/ddk_test:
+	Added version guards around several existing ids.
+	(AM_KSPROPSETID_MPEG4_MediaType_Attributes): New.
+	(MEDIASUBTYPE_MPEG2_WMDRM_TRANSPORT): New.
+	(MEDIASUBTYPE_MPEG2_VERSIONED_TABLES): New.
+	(MEDIASUBTYPE_ISDB_SI): New.
+	(MEDIASUBTYPE_TIF_SI): New.
+	(MEDIASUBTYPE_MPEG2_UDCR_TRANSPORT): New.
+	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_RAW): New.
+	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_PROCESSED): New.
+
 2010-07-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _dbdao.h, afxres.h, azroles.h, dbghelp.h, http.h, iprtrmib.h,
