@@ -1,3 +1,16 @@
+2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/msctf-uuid.c: Added From the trunk.
+	* libsrc/netcon-uuid.c: Likewise.
+	* libsrc/powrprof-uuid.c: Likewise.
+	* libsrc/textstor-uuid.c: Likewise.
+	* libsrc/vds-uuid.c: Likewise.
+	* libsrc/virtdisk-uuid.c: Likewise.
+	* Makefile.am (src_libuuid): libsrc/msctf-uuid.c, libsrc/netcon-uuid.c,
+	libsrc/powrprof-uuid.c, libsrc/textstor-uuid.c, libsrc/vds-uuid.c and
+	libsrc/virtdisk-uuid.c added to build.
+	* Makefile.in: Regenerated.
+
 2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* libsrc/strmiids.c: Added new ids added to ksuuids.h:
