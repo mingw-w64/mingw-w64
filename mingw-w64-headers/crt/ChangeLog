@@ -1,3 +1,7 @@
+2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_mac.h (__GNU_EXTENSION): Define as __MINGW_EXTENSION
+
 2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_unicode.h (__MINGW_TYPEDEF_UAW): New helper macro.

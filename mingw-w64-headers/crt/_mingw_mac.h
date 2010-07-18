@@ -122,5 +122,9 @@
 #define __MINGW_EXTENSION
 #endif
 
+#ifndef __GNU_EXTENSION
+#define __GNU_EXTENSION		__MINGW_EXTENSION
+#endif
+
 #endif	/* _INC_CRTDEFS_MACRO */
 
