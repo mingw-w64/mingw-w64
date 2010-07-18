@@ -1,5 +1,12 @@
 2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* assert.h: Backport changes from trunk revs. 2129, 2131 and
+	2893-2895: Add default ASCII version of _assert(), allow for
+	ISO-C99 that assert gets redefined according state of NDEBUG
+	and check against both _UNICODE and UNICODE.
+
+2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* _mingw_mac.h (__GNU_EXTENSION): Define as __MINGW_EXTENSION
 
 2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
