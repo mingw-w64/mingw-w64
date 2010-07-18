@@ -1,3 +1,8 @@
+2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* assert.h (assert): Check against both _UNICODE and UNICODE.
+	Reword and reformat a few places.
+
 2010-07-18  Kai Tietz  <kai.tietz@onevision.com>
 
 	PR/3031224
