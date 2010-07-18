@@ -3,6 +3,13 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
+/* According to C99 standard (section 7.2) the assert macro shall be refined for each time
+   assert.h gets included dependent to NDEBUG define.  */
+#if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+#undef assert
+#endif
+
 #ifndef __ASSERT_H_
 #define __ASSERT_H_
 
@@ -10,12 +17,6 @@
 #ifdef __cplusplus
 #include <stdlib.h>
 #endif
-
-#ifdef NDEBUG
-#ifndef assert
-#define assert(_Expression) ((void)0)
-#endif
-#else
 
 #ifndef _CRT_TERMINATE_DEFINED
 #define _CRT_TERMINATE_DEFINED
@@ -51,7 +52,14 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
 }
 #endif
 
+#endif
+
+#endif /* !defined (__ASSERT_H_) */
+
 #ifndef assert
+#ifdef NDEBUG
+#define assert(_Expression) ((void)0)
+#else /* !defined (NDEBUG) */
 #ifdef _UNICODE
 #define assert(_Expression) \
  (void) \
@@ -63,8 +71,6 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
  ((!!(_Expression)) || \
   (_assert(#_Expression,__FILE__,__LINE__),0))
 #endif
-#endif
 
-#endif
-
-#endif
+#endif /* !defined (NDEBUG) */
+#endif /* !defined assert */

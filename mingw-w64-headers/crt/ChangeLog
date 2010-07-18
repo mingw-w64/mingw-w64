@@ -1,3 +1,9 @@
+2010-07-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/3031224
+	* assert.h (assert): Allow for ISO-C99 that assert gets
+	redefined according state of NDEBUG.
+
 2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_mac.h (__GNU_EXTENSION): Define as __MINGW_EXTENSION
