@@ -122,6 +122,10 @@
 #define __MINGW_EXTENSION
 #endif
 
+#ifndef __GNU_EXTENSION
+#define __GNU_EXTENSION		__MINGW_EXTENSION
+#endif
+
 #ifdef UNICODE
 # define __MINGW_NAME_AW(func) func##W
 # define __MINGW_STRING_AW(str) L##str
