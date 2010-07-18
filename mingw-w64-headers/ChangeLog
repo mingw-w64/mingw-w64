@@ -1,4 +1,9 @@
+2010-07-18  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* crt/complex.h: Make inlines available only if math.h included.
+
 2010-06-22  Jacek Caban  <jacek@codeweavers.com>
+
 	* Makefile.am, configure.am: Added support for IDL SDK.
 	* Makefile.in, configure: Regenerated.
 

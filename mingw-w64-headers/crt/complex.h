@@ -118,7 +118,7 @@ long double _Complex  csqrtl (long double _Complex);
 long double _Complex __MINGW_ATTRIB_CONST cprojl (long double _Complex);
 
 #ifdef __GNUC__
-#ifndef __CRT__NO_INLINE
+#if !defined (__CRT__NO_INLINE) && defined (_MATH_H_)
 /* double */
 __CRT_INLINE double __MINGW_ATTRIB_CONST creal (double _Complex _Z)
 {
