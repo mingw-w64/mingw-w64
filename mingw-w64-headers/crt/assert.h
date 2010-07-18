@@ -52,8 +52,6 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
 }
 #endif
 
-#endif
-
 #endif /* !defined (__ASSERT_H_) */
 
 #ifndef assert
