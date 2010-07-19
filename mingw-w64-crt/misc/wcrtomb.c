@@ -45,7 +45,7 @@ static int /*__MINGW_ATTRIB_NONNULL(1)*/
 }
 
 size_t
-wcrtomb (char *dst, wchar_t wc, mbstate_t * ps __attribute__ ((__unused__)))
+wcrtomb (char *dst, wchar_t wc, mbstate_t * __UNUSED_PARAM (ps))
 {
   char byte_bucket [MB_LEN_MAX];
   char* tmp_dst = dst ? dst : byte_bucket;      
@@ -54,7 +54,7 @@ wcrtomb (char *dst, wchar_t wc, mbstate_t * ps __attribute__ ((__unused__)))
 }
 
 size_t wcsrtombs (char *dst, const wchar_t **src, size_t len,
-		  mbstate_t * ps __attribute__ ((__unused__)))
+		  mbstate_t * __UNUSED_PARAM (ps))
 {
   int ret = 0;
   size_t n = 0;

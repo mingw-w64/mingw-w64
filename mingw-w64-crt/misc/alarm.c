@@ -4,9 +4,11 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#include <_mingw.h>
+
 unsigned int alarm(unsigned int);
 
-unsigned int alarm(unsigned int seconds __attribute__ ((__unused__)))
+unsigned int alarm(unsigned int __UNUSED_PARAM(seconds))
 {
   return 0;
 }
