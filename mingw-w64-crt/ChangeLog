@@ -1,3 +1,13 @@
+2010-07-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/crt0_c.c (main): Use __UNUSED_PARAM instead of
+	__attribute__ ((__unused__))
+	* crt/crt0_w.c (wmain): Likewise.
+	* crt/crtexe.c (__mingw_invalidParameterHandler): Likewise.
+	* crt/dllentry.c (DllEntryPoint): Likewise.
+	* crt/dllmain.c (DllMain): Likewise.
+	* misc/alarm.c (alarm): Likewise.
+
 2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* libsrc/strmiids.c: Added new ids added to ksuuids.h:
