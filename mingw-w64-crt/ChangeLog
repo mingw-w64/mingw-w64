@@ -1,3 +1,9 @@
+2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/tlssup.c: Include stdlib.h in win32 builds to for _winmajor.
+	Before we started defining WIN32_LEAN_AND_MEAN, it was getting it by
+	sheer dumb luck.
+
 2010-07-20  Amine Khaldi  <amine.khaldi@reactos.org>
 	    Timo Kreuzer  <timo.kreuzer@reactos.org>
 
