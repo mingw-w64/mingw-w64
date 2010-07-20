@@ -1,3 +1,10 @@
+2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/gs_support.c (_ReturnAddress, _AddressOfReturnAddress): wrap
+	m$vc intrinsics onto gcc builtins.
+	(__report_gsfailure): Use _ReturnAddress and _AddressOfReturnAddress.
+	Tidy up the win64 ifdefs at the function start.
+
 2010-07-20  Amine Khaldi  <amine.khaldi@reactos.org>
 
 	* crt/CRT_fp10.c: __attribute__((alias("xxx"))) is for gcc only.
