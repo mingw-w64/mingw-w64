@@ -1,5 +1,12 @@
 2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* include/sect_attribs.h: Moved the _MSC_VER ifdef up to cover the
+	_ATTRIBUTES macro which is only for the M$ section pragmas. Changed
+	the __x86_64__ and __ia64__ ifdefs to _M_IA64 and _M_AMD64, because
+	it serves only the M$ compiler.
+
+2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* crt/tlssup.c: Include stdlib.h in win32 builds to for _winmajor.
 	Before we started defining WIN32_LEAN_AND_MEAN, it was getting it by
 	sheer dumb luck.
