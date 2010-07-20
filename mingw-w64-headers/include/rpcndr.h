@@ -177,11 +177,11 @@ typedef unsigned long error_status_t;
 #define _midl_unmarsh_up(p) (*(*(unsigned long **)&p)++)
 
 #define NdrMarshConfStringHdr(p,s,l) (_midl_ma4(p,unsigned long) = s,_midl_ma4(p,unsigned long) = 0,_midl_ma4(p,unsigned long) = l)
-#define NdrUnMarshConfStringHdr(p,s,l) ((s=_midl_unma4(p,unsigned long),(_midl_addp(p,4)),(l=_midl_unma4(p,unsigned long))
+#define NdrUnMarshConfStringHdr(p,s,l) (s=_midl_unma4(p,unsigned long),(_midl_addp(p,4)),(l=_midl_unma4(p,unsigned long)))
 #define NdrMarshCCtxtHdl(pc,p) (NDRCContextMarshall((NDR_CCONTEXT)pc,p),p+20)
-#define NdrUnMarshCCtxtHdl(pc,p,h,drep) (NDRCContextUnmarshall((NDR_CONTEXT)pc,h,p,drep),p+20)
+#define NdrUnMarshCCtxtHdl(pc,p,h,drep) (NDRCContextUnmarshall((NDR_CCONTEXT)pc,h,p,drep),p+20)
 #define NdrUnMarshSCtxtHdl(pc,p,drep) (pc = NdrSContextUnMarshall(p,drep))
-#define NdrMarshSCtxtHdl(pc,p,rd) (NdrSContextMarshall((NDR_SCONTEXT)pc,p,(NDR_RUNDOWN)rd)
+#define NdrMarshSCtxtHdl(pc,p,rd) (NdrSContextMarshall((NDR_SCONTEXT)pc,p,(NDR_RUNDOWN)rd))
 
 #define NdrFieldOffset(s,f) (LONG_PTR)(& (((s *)0)->f))
 #define NdrFieldPad(s,f,p,t) ((unsigned long)(NdrFieldOffset(s,f) - NdrFieldOffset(s,p)) - sizeof(t))

@@ -1,3 +1,9 @@
+2010-17-20  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* rpcndr.h (NdrUnMarshConfStringHdr): Fix macro brackets.
+	(NdrMarshSCtxtHdl): Likewise.
+	(NdrUnMarshCCtxtHdl): Fix macro typo.
+
 2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* accctrl.h: Replace several typedef __MINGW_NAME_UAW(XXX) XXX;
