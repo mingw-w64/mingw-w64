@@ -2,6 +2,8 @@
  * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ *
+ * Written by Kai Tietz  <kai.tietz@onevision.com>
  */
 
 #ifdef CRTDLL
@@ -10,7 +12,12 @@
 
 #include <internal.h>
 #include <sect_attribs.h>
+
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
 #include <windows.h>
+
 #include <malloc.h>
 #include <crtdbg.h>
 
