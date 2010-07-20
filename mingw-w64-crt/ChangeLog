@@ -1,7 +1,7 @@
 2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* crt/gs_support.c (_ReturnAddress, _AddressOfReturnAddress): wrap
-	m$vc intrinsics onto gcc builtins.
+	msvc intrinsics onto gcc builtins.
 	(__report_gsfailure): Use _ReturnAddress and _AddressOfReturnAddress.
 	Tidy up the win64 ifdefs at the function start.
 
@@ -16,9 +16,9 @@
 2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* include/sect_attribs.h: Moved the _MSC_VER ifdef up to cover the
-	_ATTRIBUTES macro which is only for the M$ section pragmas. Changed
+	_ATTRIBUTES macro which is only for the MS section pragmas. Changed
 	the __x86_64__ and __ia64__ ifdefs to _M_IA64 and _M_AMD64, because
-	it serves only the M$ compiler.
+	it serves only the MS compiler.
 
 2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
 

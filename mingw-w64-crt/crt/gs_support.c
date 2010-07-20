@@ -88,7 +88,7 @@ __security_init_cookie (void)
 }
 
 
-#if defined(__GNUC__) /* wrap m$vc intrinsics onto gcc builtins */
+#if defined(__GNUC__) /* wrap msvc intrinsics onto gcc builtins */
 #undef  _ReturnAddress
 #undef  _AddressOfReturnAddress
 #define _ReturnAddress()		__builtin_return_address(0)
