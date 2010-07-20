@@ -1,7 +1,10 @@
-2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
+2010-07-20  Amine Khaldi  <amine.khaldi@reactos.org>
 
+	* crt/CRT_fp10.c: __attribute__((alias("xxx"))) is for gcc only.
+	* crt/CRT_fp8.c: __attribute__((alias ("xxx"))) is for gcc only.
+	(_fpreset): Add MSVC-compatible version.
 	* crt/crtexe.c (_MINGW_INSTALL_DEBUG_MATHERR): __attribute__((weak))
-	is for gcc only. From Amine Khaldi.
+	is for gcc only.
 
 2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
 
