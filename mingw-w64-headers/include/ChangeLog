@@ -1,3 +1,11 @@
+2010-17-20  Jonathan Yong  <jon_y@sourceforge.net>
+
+	Backport from the trunk:
+
+        * rpcndr.h (NdrUnMarshConfStringHdr): Fix macro brackets.
+       	(NdrMarshSCtxtHdl): Likewise.
+        (NdrUnMarshCCtxtHdl): Fix macro typo.
+
 2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* assert.h: Backport changes from trunk revs. 2129, 2131 and
