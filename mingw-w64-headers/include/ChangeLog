@@ -2,9 +2,9 @@
 
 	Backport from the trunk:
 
-        * rpcndr.h (NdrUnMarshConfStringHdr): Fix macro brackets.
-       	(NdrMarshSCtxtHdl): Likewise.
-        (NdrUnMarshCCtxtHdl): Fix macro typo.
+	* rpcndr.h (NdrUnMarshConfStringHdr): Fix macro brackets.
+	(NdrMarshSCtxtHdl): Likewise.
+	(NdrUnMarshCCtxtHdl): Fix macro typo.
 
 2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
 
