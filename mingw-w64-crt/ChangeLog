@@ -1,3 +1,11 @@
+2010-07-20  Amine Khaldi  <amine.khaldi@reactos.org>
+	    Timo Kreuzer  <timo.kreuzer@reactos.org>
+
+	* include/internal.h: Add MSVC ifdefs.
+	* include/oscalls.h: Likewise.
+	* include/sect_attribs.h: Likewise.
+	* crt/tlssup.c: Include sect_attribs.h.
+
 2010-07-19  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* crt/crt0_c.c (main): Use __UNUSED_PARAM instead of
@@ -6,6 +14,7 @@
 	* crt/crtexe.c (__mingw_invalidParameterHandler): Likewise.
 	* crt/dllentry.c (DllEntryPoint): Likewise.
 	* crt/dllmain.c (DllMain): Likewise.
+	* crt/tlsthrd.c (__mingw_TLScallback): Likewise.
 	* misc/alarm.c (alarm): Likewise.
 
 2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>

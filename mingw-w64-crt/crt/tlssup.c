@@ -10,14 +10,16 @@
 #undef CRTDLL
 #endif
 
+#include <sect_attribs.h>
+
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
 #include <windows.h>
+
 #include <stdio.h>
 #include <memory.h>
 #include <malloc.h>
-
-#ifndef _CRTALLOC
-#define _CRTALLOC(x) __attribute__ ((section (x) ))
-#endif
 
 #ifndef __INTERNAL_FUNC_DEFINED
 #define __INTERNAL_FUNC_DEFINED
