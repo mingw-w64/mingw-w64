@@ -1,5 +1,10 @@
 2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* crt/crtexe.c (_MINGW_INSTALL_DEBUG_MATHERR): __attribute__((weak))
+	is for gcc only. From Amine Khaldi.
+
+2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* include/sect_attribs.h: Moved the _MSC_VER ifdef up to cover the
 	_ATTRIBUTES macro which is only for the M$ section pragmas. Changed
 	the __x86_64__ and __ia64__ ifdefs to _M_IA64 and _M_AMD64, because
