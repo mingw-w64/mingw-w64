@@ -1,3 +1,10 @@
+2010-07-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/gs_support.c:  Change the included headers to get the
+	STATUS_STACK_BUFFER_OVERRUN macro from ntstatus.h.
+	(__report_gsfailure): Replace __attribute__((unused)) by
+	__MINGW_ATTRIB_UNUSED.
+
 2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* crt/gs_support.c (_ReturnAddress, _AddressOfReturnAddress): wrap
