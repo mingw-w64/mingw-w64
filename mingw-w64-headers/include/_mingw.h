@@ -114,9 +114,17 @@ limitations in handling dllimport attribute.  */
 #define __MINGW_ATTRIB_NONNULL(arg)
 #endif /* GNUC >= 3.3 */
 
+#ifdef __GNUC__
+#define __MINGW_ATTRIB_UNUSED __attribute__ ((__unused__))
+#else
+#define __MINGW_ATTRIB_UNUSED
+#endif /* ATTRIBUTE_UNUSED */
+
 #if  __MINGW_GNUC_PREREQ (3, 1)
+#define __MINGW_ATTRIB_USED __attribute__ ((__used__))
 #define __MINGW_ATTRIB_DEPRECATED __attribute__ ((__deprecated__))
 #else
+#define __MINGW_ATTRIB_USED __MINGW_ATTRIB_UNUSED
 #define __MINGW_ATTRIB_DEPRECATED
 #endif /* GNUC >= 3.1 */
 
