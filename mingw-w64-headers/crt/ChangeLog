@@ -1,3 +1,10 @@
+2010-07-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__MINGW_ATTRIB_UNUSED): Define as __attribute__((unused))
+	for gcc.
+	(__MINGW_ATTRIB_USED): Define as __attribute__((used)) for gcc, or as
+	__MINGW_ATTRIB_UNUSED where it is not supported ie. gcc < 3.1 or !gcc.
+
 2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* assert.h (assert): Check against both _UNICODE and UNICODE.
