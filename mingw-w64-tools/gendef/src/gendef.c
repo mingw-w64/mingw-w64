@@ -694,7 +694,7 @@ dump_def (void)
 	    }
 	}
 
-      if (exp->retpop != (uint32_t) -1)
+      if (exp->retpop != (uint32_t) -1 && !exp->be64)
         {
           if (exp->name[0]=='?')
             fprintf(fp," ; has WINAPI (@%u)", (unsigned int) exp->retpop);
@@ -708,7 +708,7 @@ dump_def (void)
       if (exp->beData)
         fprintf(fp," DATA");
 
-      if (exp->retpop != (uint32_t) -1)
+      if (exp->retpop != (uint32_t) -1 || (exp->be64 && exp->retpop == 0))
 	{
 	}
       else if (pimpname)

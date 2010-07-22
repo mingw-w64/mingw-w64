@@ -1,6 +1,10 @@
+2010-07-22  Kai Tietz  <kai.tietz@onevision.com>
+
+	* src/gendef.c (dump_def): Fix output of @0 for 64-bit.
+
 2010-07-22  Jonathan Yong  <jon_y@users.sourceforge.net>
 
-	*src/gendef.c (decode_mangle): Rename sGcCtx to libmangle_gc_context.
+	* src/gendef.c (decode_mangle): Rename sGcCtx to libmangle_gc_context.
 	Rename pMToken to libmangle_tokens.
 	Rename decode_ms_name to libmangle_decode_ms_name.
 
