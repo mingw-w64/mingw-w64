@@ -62,10 +62,19 @@ limitations in handling dllimport attribute.  */
 #define __MINGW_GNUC_PREREQ(major, minor)  0
 #endif
 
+#if defined (_MSC_VER)
+#define __MINGW_MSC_PREREQ(major, minor) \
+  ((major * 100 + minor * 10) >= _MSC_VER)
+#else
+#define __MINGW_MSC_PREREQ(major, minor)   0
+#endif
+
 #define USE___UUIDOF	0
 
 #ifdef __cplusplus
 # define __CRT_INLINE inline
+#elif defined(_MSC_VER)
+# define __CRT_INLINE __inline
 #else
 # if ( __MINGW_GNUC_PREREQ(4, 3)  &&  __STDC_VERSION__ >= 199901L)
 #  define __CRT_INLINE extern inline __attribute__((__gnu_inline__))
@@ -89,9 +98,20 @@ limitations in handling dllimport attribute.  */
 # endif
 #endif
 
+#ifndef __GNUC__
+# ifdef _MSC_VER
+#  define __restrict__  __restrict
+# else
+#  define __restrict__	/* nothing */
+# endif
+#endif /* !__GNUC__ */
+
 #ifdef __GNUC__
 #define __MINGW_ATTRIB_NORETURN __attribute__ ((__noreturn__))
 #define __MINGW_ATTRIB_CONST __attribute__ ((__const__))
+#elif __MINGW_MSC_PREREQ(12, 0)
+#define __MINGW_ATTRIB_NORETURN __declspec(noreturn)
+#define __MINGW_ATTRIB_CONST
 #else
 #define __MINGW_ATTRIB_NORETURN
 #define __MINGW_ATTRIB_CONST
@@ -100,6 +120,9 @@ limitations in handling dllimport attribute.  */
 #if __MINGW_GNUC_PREREQ (3, 0)
 #define __MINGW_ATTRIB_MALLOC __attribute__ ((__malloc__))
 #define __MINGW_ATTRIB_PURE __attribute__ ((__pure__))
+#elif __MINGW_MSC_PREREQ(14, 0)
+#define __MINGW_ATTRIB_MALLOC __declspec(noalias) __declspec(restrict)
+#define __MINGW_ATTRIB_PURE
 #else
 #define __MINGW_ATTRIB_MALLOC
 #define __MINGW_ATTRIB_PURE
@@ -123,6 +146,9 @@ limitations in handling dllimport attribute.  */
 #if  __MINGW_GNUC_PREREQ (3, 1)
 #define __MINGW_ATTRIB_USED __attribute__ ((__used__))
 #define __MINGW_ATTRIB_DEPRECATED __attribute__ ((__deprecated__))
+#elif __MINGW_MSC_PREREQ(12, 0)
+#define __MINGW_ATTRIB_USED
+#define __MINGW_ATTRIB_DEPRECATED __declspec(deprecated)
 #else
 #define __MINGW_ATTRIB_USED __MINGW_ATTRIB_UNUSED
 #define __MINGW_ATTRIB_DEPRECATED
@@ -130,6 +156,8 @@ limitations in handling dllimport attribute.  */
 
 #if  __MINGW_GNUC_PREREQ (3, 3)
 #define __MINGW_NOTHROW __attribute__ ((__nothrow__))
+#elif __MINGW_MSC_PREREQ(12, 0) && defined (__cplusplus)
+#define __MINGW_NOTHROW __declspec(nothrow)
 #else
 #define __MINGW_NOTHROW
 #endif
