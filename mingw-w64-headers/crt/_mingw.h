@@ -247,10 +247,10 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 
 #undef _CRT_PACKING
 #define _CRT_PACKING 8
-/* this is duplicated in vadefs.h */
-#pragma pack(push,_CRT_PACKING)
 
-#include <vadefs.h>
+#include <vadefs.h>	/* other headers depend on this include */
+
+#pragma pack(push,_CRT_PACKING)
 
 #ifndef _CRT_STRINGIZE
 #define __CRT_STRINGIZE(_Value) #_Value
@@ -411,16 +411,6 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
   typedef unsigned short wctype_t;
 #endif /* _WINT_T */
 #endif /* _WCTYPE_T_DEFINED */
-
-#ifndef __GNUC_VA_LIST
-#define __GNUC_VA_LIST
-  typedef __builtin_va_list __gnuc_va_list;
-#endif
-
-#ifndef _VA_LIST_DEFINED
-#define _VA_LIST_DEFINED
-  typedef __gnuc_va_list va_list;
-#endif /* _VA_LIST_DEFINED */
 
 #if defined (_WIN32) && !defined (_WIN64) && !defined (__MINGW_USE_VC2005_COMPAT)
 #ifndef _USE_32BIT_TIME_T

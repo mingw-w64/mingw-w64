@@ -28,6 +28,8 @@ Boston, MA 02110-1301, USA.  */
  * ISO C Standard:  7.15  Variable arguments  <stdarg.h>
  */
 
+#if defined(__GNUC__)
+
 #ifndef _STDARG_H
 #ifndef _ANSI_STDARG_H_
 #ifndef __need___va_list
@@ -131,6 +133,8 @@ typedef __gnuc_va_list va_list;
 
 #endif /* not _ANSI_STDARG_H_ */
 #endif /* not _STDARG_H */
+
+#endif /*__GNUC__ */
 
 /* include mingw stuff */
 #include <_mingw_stdarg.h>

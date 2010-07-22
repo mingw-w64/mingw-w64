@@ -1,3 +1,31 @@
+2010-07-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Varargs & related cleanups and updates:
+
+	* stdio.h: Remove the vadefs.h include, it is already included
+	through _mingw.h.
+	* wchar.h: Remove the vadefs.h include, it is already included
+	through _mingw.h. Remove the __gnuc_va_list and va_list type
+	definitions, already done in vadefs.h (included via _mingw.h.)
+	* stdarg.h: Guard the whole header with __GNUC__ ifdefs.
+	* _mingw_stdarg.h: Use _crt_va_copy invented in vadefs.h (see
+	below) for the __va_copy definition. Move va_copy definition with
+	ifdefs from vadefs.h to here.
+	* _mingw.h: Move the #pragma pack(push,_CRT_PACKING) below vadefs.h
+	inclusion and remove the comment about duplication. Remove the
+	__gnuc_va_list and va_list type definitions, already done in the
+	included vadefs.h.
+	* vadefs.h: Remove _CRT_PACKING definition, already defined in
+	_mingw.h. Remove _UINTPTR_T_DEFINED & co, already defined in _mingw.h.
+	Guard __gnuc_va_list type definition with __GNUC__ ifdefs.  Add
+	MSVC version of va_list type definition and guard the gcc version
+	properly.  Restrict some of the macros to MSVC only, apparently
+	used only by that compiler.  Guard the gcc versions of _crt_va_*
+	macros properly, add MSVC-x86 versions of them from r/os, add
+	MSVC-AMD64 defs from r/os svn repo ros-amd64-bringup branch and
+	#error for other cpus and compilers.  Invent _crt_va_copy by analogy
+	to other _crt_va_* macros for use in stdarg.h.
+
 2010-07-22  Amine Khaldi  <amine.khaldi@reactos.org>
 
 	Several patches for MSC/non-GCC:
