@@ -32,7 +32,7 @@ AS_VAR_IF([with_mangle_result],[yes],[
     CPPFLAGS="-I$with_mangle_path/include $CPPFLAGS"
     LDFLAGS="-L$with_mangle_path/lib $LDFLAGS"])
   AC_CHECK_HEADER([libmangle.h],[],[AC_MSG_ERROR([libmangle enabled, but the header is not usable.])])
-  AC_CHECK_LIB([mangle],[print_decl],[],[AC_MSG_ERROR([libmangle enabled, but the library is not usable.])])])
+  AC_CHECK_LIB([mangle],[libmangle_print_decl],[],[AC_MSG_ERROR([libmangle enabled, but the library is not usable.])])])
 
 # Checks for header files.
 AC_CHECK_HEADERS([inttypes.h memory.h stdint.h stdlib.h string.h])

@@ -1165,22 +1165,22 @@ static void
 decode_mangle (FILE *fp, const char *n)
 {
 #ifdef HAVE_LIBMANGLE
-  sGcCtx *gc = generate_gc ();
-  pMToken ptok;
+  libmangle_gc_context *gc = libmangle_generate_gc ();
+  libmangle_tokens ptok;
 #endif
   if (!fp || !n || *n == 0)
     return;
 #ifdef HAVE_LIBMANGLE
-  ptok = decode_ms_name (gc, n);
+  ptok = libmangle_decode_ms_name (gc, n);
   if (ptok)
     {
-      char *h = sprint_decl (ptok);
+      char *h = libmangle_sprint_decl (ptok);
       if (h)
 	{
 	  fprintf (fp, "; %s\n", h);
 	  free (h);
 	}
     }
-  release_gc (gc);
+  libmangle_release_gc (gc);
 #endif
 }

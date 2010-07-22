@@ -1734,11 +1734,11 @@ else
        cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 $ac_includes_default
+	     enum { N = $2 / 2 - 1 };
 int
 main ()
 {
-static int test_array [1 - 2 * !(enum { N = $2 / 2 - 1 };
-	     0 < ($ac_type) ((((($ac_type) 1 << N) << N) - 1) * 2 + 1))];
+static int test_array [1 - 2 * !(0 < ($ac_type) ((((($ac_type) 1 << N) << N) - 1) * 2 + 1))];
 test_array [0] = 0
 
   ;
@@ -1749,11 +1749,11 @@ if ac_fn_c_try_compile "$LINENO"; then :
   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 $ac_includes_default
+	        enum { N = $2 / 2 - 1 };
 int
 main ()
 {
-static int test_array [1 - 2 * !(enum { N = $2 / 2 - 1 };
-		($ac_type) ((((($ac_type) 1 << N) << N) - 1) * 2 + 1)
+static int test_array [1 - 2 * !(($ac_type) ((((($ac_type) 1 << N) << N) - 1) * 2 + 1)
 		 < ($ac_type) ((((($ac_type) 1 << N) << N) - 1) * 2 + 2))];
 test_array [0] = 0
 
@@ -4332,9 +4332,9 @@ else
 fi
 
 
-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for print_decl in -lmangle" >&5
-$as_echo_n "checking for print_decl in -lmangle... " >&6; }
-if test "${ac_cv_lib_mangle_print_decl+set}" = set; then :
+  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for libmangle_print_decl in -lmangle" >&5
+$as_echo_n "checking for libmangle_print_decl in -lmangle... " >&6; }
+if test "${ac_cv_lib_mangle_libmangle_print_decl+set}" = set; then :
   $as_echo_n "(cached) " >&6
 else
   ac_check_lib_save_LIBS=$LIBS
@@ -4348,27 +4348,27 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 #ifdef __cplusplus
 extern "C"
 #endif
-char print_decl ();
+char libmangle_print_decl ();
 int
 main ()
 {
-return print_decl ();
+return libmangle_print_decl ();
   ;
   return 0;
 }
 _ACEOF
 if ac_fn_c_try_link "$LINENO"; then :
-  ac_cv_lib_mangle_print_decl=yes
+  ac_cv_lib_mangle_libmangle_print_decl=yes
 else
-  ac_cv_lib_mangle_print_decl=no
+  ac_cv_lib_mangle_libmangle_print_decl=no
 fi
 rm -f core conftest.err conftest.$ac_objext \
     conftest$ac_exeext conftest.$ac_ext
 LIBS=$ac_check_lib_save_LIBS
 fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_mangle_print_decl" >&5
-$as_echo "$ac_cv_lib_mangle_print_decl" >&6; }
-if test "x$ac_cv_lib_mangle_print_decl" = x""yes; then :
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_mangle_libmangle_print_decl" >&5
+$as_echo "$ac_cv_lib_mangle_libmangle_print_decl" >&6; }
+if test "x$ac_cv_lib_mangle_libmangle_print_decl" = x""yes; then :
   cat >>confdefs.h <<_ACEOF
 #define HAVE_LIBMANGLE 1
 _ACEOF
