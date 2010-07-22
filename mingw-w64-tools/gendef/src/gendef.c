@@ -694,6 +694,9 @@ dump_def (void)
 	    }
 	}
 
+      if (exp->be64)
+        exp->retpop = 0;
+
       if (exp->retpop != (uint32_t) -1 && !exp->be64)
         {
           if (exp->name[0]=='?')
