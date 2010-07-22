@@ -101,7 +101,7 @@ gendef_getsymbol_info (const char *dllname, const char *symbolname, int *isData,
 	  t = strchr (t, '\n');
 	  if (t)
 	    t++;
-	  if (strncmp (t, symbolname, symlen) == 0)
+	  if (t && strncmp (t, symbolname, symlen) == 0)
 	    {
 	      if ((t[symlen] > 0 && t[symlen] <= 0x20) || t[symlen] == '@')
 		{
@@ -125,7 +125,7 @@ gendef_getsymbol_info (const char *dllname, const char *symbolname, int *isData,
     }
   if (def)
     free (def);
-  if (r2 != NULL)
+  if (r2 != NULL && r1 != r2)
     free (r2);
   if (r1 != NULL)
     free (r1);
