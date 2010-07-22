@@ -40,17 +40,17 @@
 static char *mt_strcat (char *h, const char *add);
 
 
-sGcCtx *
-generate_gc (void)
+libmangle_gc_context *
+libmangle_generate_gc (void)
 {
-  sGcCtx *h = (sGcCtx *) malloc (sizeof (sGcCtx));
+  libmangle_gc_context *h = (libmangle_gc_context *) malloc (sizeof (libmangle_gc_context));
   if (h)
-    memset (h, 0, sizeof (sGcCtx));
+    memset (h, 0, sizeof (libmangle_gc_context));
   return h;
 }
 
 static void *
-alloc_gc (sGcCtx *gc, size_t size)
+alloc_gc (libmangle_gc_context *gc, size_t size)
 {
   sGcElem *n = (sGcElem *) malloc (size + sizeof (sGcElem));
   if (!n)
@@ -70,7 +70,7 @@ alloc_gc (sGcCtx *gc, size_t size)
 }
 
 void
-release_gc (sGcCtx *gc)
+libmangle_release_gc (libmangle_gc_context *gc)
 {
   sGcElem *n;
   if (!gc)
@@ -85,7 +85,7 @@ release_gc (sGcCtx *gc)
 }
 
 static void
-free_gc (sGcCtx *gc, const void *p)
+free_gc (libmangle_gc_context *gc, const void *p)
 {
   sGcElem *n, *l = NULL;
 
@@ -112,7 +112,7 @@ free_gc (sGcCtx *gc, const void *p)
 }
 
 uMToken *
-gen_tok (sGcCtx *gc, enum eMToken kind, enum eMSToken subkind, size_t addend)
+gen_tok (libmangle_gc_context *gc, enum eMToken kind, enum eMSToken subkind, size_t addend)
 {
   uMToken *ret;
   switch (kind)
@@ -170,24 +170,24 @@ dump_tok1 (FILE *fp, uMToken *p)
         break;
       case eMToken_dim:
         fprintf (fp,"'dim:%d %s", MTOKEN_SUBKIND (p), MTOKEN_DIM_NEGATE (p) ? "-" : "");
-        dump_tok (fp, MTOKEN_DIM_VALUE (p));
+        libmangle_dump_tok (fp, MTOKEN_DIM_VALUE (p));
         if (MTOKEN_DIM_NTTP (p))
           {
             fprintf (fp," ");
-            dump_tok (fp, MTOKEN_DIM_NTTP (p));
+            libmangle_dump_tok (fp, MTOKEN_DIM_NTTP (p));
           }
         fprintf (fp,"'");
         break;
       case eMToken_unary:
         fprintf (fp,"'unary:%d ", MTOKEN_SUBKIND (p));
-        dump_tok (fp, MTOKEN_UNARY (p));
+        libmangle_dump_tok (fp, MTOKEN_UNARY (p));
         fprintf (fp, "'");
         break;
       case eMToken_binary:
         fprintf (fp,"'binary:%d ", MTOKEN_SUBKIND (p));
-        dump_tok (fp, MTOKEN_BINARY_LEFT (p));
+        libmangle_dump_tok (fp, MTOKEN_BINARY_LEFT (p));
         fprintf (fp," ");
-        dump_tok (fp, MTOKEN_BINARY_RIGHT (p));
+        libmangle_dump_tok (fp, MTOKEN_BINARY_RIGHT (p));
         fprintf (fp, "'");
         break;
       default:
@@ -197,7 +197,7 @@ dump_tok1 (FILE *fp, uMToken *p)
 }
 
 void
-dump_tok (FILE *fp, uMToken *p)
+libmangle_dump_tok (FILE *fp, uMToken *p)
 {
   if (!p)
     return;
@@ -228,7 +228,7 @@ chain_tok (uMToken *l, uMToken *add)
 }
 
 uMToken *
-gen_value (sGcCtx *gc, enum eMSToken skind, uint64_t val, int is_signed, int size)
+gen_value (libmangle_gc_context *gc, enum eMSToken skind, uint64_t val, int is_signed, int size)
 {
   uMToken *ret = gen_tok (gc, eMToken_value, skind, 0);
   MTOKEN_VALUE (ret) = val;
@@ -239,7 +239,7 @@ gen_value (sGcCtx *gc, enum eMSToken skind, uint64_t val, int is_signed, int siz
 }
 
 uMToken *
-gen_name (sGcCtx *gc, enum eMSToken skind, const char *name)
+gen_name (libmangle_gc_context *gc, enum eMSToken skind, const char *name)
 {
   uMToken *ret;
   
@@ -252,7 +252,7 @@ gen_name (sGcCtx *gc, enum eMSToken skind, const char *name)
 }
 
 uMToken *
-gen_dim (sGcCtx *gc, enum eMSToken skind, uint64_t val, const char *non_tt_param, int fSigned, int fNegate)
+gen_dim (libmangle_gc_context *gc, enum eMSToken skind, uint64_t val, const char *non_tt_param, int fSigned, int fNegate)
 {
   uMToken *ret = gen_tok (gc, eMToken_dim, skind, 0);
   
@@ -264,7 +264,7 @@ gen_dim (sGcCtx *gc, enum eMSToken skind, uint64_t val, const char *non_tt_param
 }
 
 uMToken *
-gen_unary (sGcCtx *gc, enum eMSToken skind, uMToken *un)
+gen_unary (libmangle_gc_context *gc, enum eMSToken skind, uMToken *un)
 {
   uMToken *ret = gen_tok (gc, eMToken_unary, skind, 0);
   MTOKEN_UNARY (ret) = un;
@@ -272,7 +272,7 @@ gen_unary (sGcCtx *gc, enum eMSToken skind, uMToken *un)
 }
 
 uMToken *
-gen_binary (sGcCtx *gc, enum eMSToken skind, uMToken *l, uMToken *r)
+gen_binary (libmangle_gc_context *gc, enum eMSToken skind, uMToken *l, uMToken *r)
 {
   uMToken *ret = gen_tok (gc, eMToken_binary, skind, 0);
   MTOKEN_BINARY_LEFT (ret) = l;
@@ -492,7 +492,7 @@ trim_str (char *str)
 }
 
 char *
-sprint_decl (uMToken *r)
+libmangle_sprint_decl (uMToken *r)
 {
   char *ret = NULL;
   if (r)
@@ -502,9 +502,9 @@ sprint_decl (uMToken *r)
 }
 
 void
-print_decl (FILE *fp, uMToken *r)
+libmangle_print_decl (FILE *fp, uMToken *r)
 {
-  char *ret = sprint_decl (r);
+  char *ret = libmangle_sprint_decl (r);
   if (ret)
     {
       fprintf (fp, "%s\n", ret);
@@ -577,12 +577,12 @@ int main()
   char *txt;
   for (i = 0; szTest[i]!=NULL; i++)
   {
-    sGcCtx *gc = generate_gc ();
-    h = decode_ms_name (gc, szTest[i]);
-    txt = sprint_decl (h);
+    libmangle_gc_context *gc = libmangle_generate_gc ();
+    h = libmangle_decode_ms_name (gc, szTest[i]);
+    txt = libmangle_sprint_decl (h);
     fprintf (stderr, "%s\n", txt);
     free (txt);
-    release_gc (gc);
+    libmangle_release_gc (gc);
   }
   return 0;
 }

@@ -32,9 +32,9 @@ extern "C" {
 /**
  * Garbage collector elements.
  * Tracks allocated memory and points to the next element from the same context.
- * @see sGcCtx
+ * @see libmangle_gc_context
  */
-typedef void *pGcElem;
+typedef void *libmangle_gc;
 
 /**
  * Garbage collector context.
@@ -42,10 +42,10 @@ typedef void *pGcElem;
  * @see generate_gc()
  * @see release_gc()
  */
-typedef struct sGcCtx {
-  pGcElem head;                /**< Pointer to first gc element in context.*/
-  pGcElem tail;                /**< Pointer to last gc element in context. */
-} sGcCtx;
+typedef struct libmangle_gc_context {
+  libmangle_gc head;                /**< Pointer to first gc element in context.*/
+  libmangle_gc tail;                /**< Pointer to last gc element in context. */
+} libmangle_gc_context;
 
 /**
  * Generic token instances.
@@ -53,58 +53,58 @@ typedef struct sGcCtx {
  * Base descriptor header available in all members through type punning.
  * @see gen_tok()
  */
-typedef void *pMToken;
+typedef void *libmangle_tokens;
 
 /**
  * Releases memory tracked by context.
  * @param[in] gc Garbage collection context to work on.
- * @see generate_gc()
+ * @see libmangle_generate_gc()
  */
-void release_gc (sGcCtx *gc);
+void libmangle_release_gc (libmangle_gc_context *gc);
 
 /**
  * Constructs a garbage collection context token.
  * @return Pointer to context.
- * @see release_gc()
+ * @see libmangle_release_gc()
  */
-sGcCtx *generate_gc (void);
+libmangle_gc_context *libmangle_generate_gc (void);
 
 /**
  * Dumps pMToken to a file descriptor for debugging.
  * @param[in] fp File descriptor to print the token to.
- * @param[in] p pMToken chain to print.
+ * @param[in] p libmangle_tokens chain to print.
  */
-void dump_tok (FILE *fp, pMToken p);
+void libmangle_dump_tok (FILE *fp, libmangle_tokens p);
 
 /** 
  * Prints C++ name to file descriptor.
  * @param[in] fp Output file descriptor.
  * @param[in] p Token containing information about the C++ name.
- * @see decode_ms_name()
+ * @see libmangle_decode_ms_name()
  */
-void print_decl (FILE *fp, pMToken p);
+void libmangle_print_decl (FILE *fp, libmangle_tokens p);
 
 /** 
  * Get pointer to decoded C++ name string.
  * Use free() to release returned string.
  * @param[in] r C++ name token.
  * @return pointer to decoded C++ name string.
- * @see decode_ms_name()
+ * @see libmangle_decode_ms_name()
  */
-char *sprint_decl (pMToken r);
+char *libmangle_sprint_decl (libmangle_tokens r);
 
 /**
  * Decodes an MSVC export name.
- * @param[in] gc sGcCtx pointer for collecting memory allocations.
+ * @param[in] gc libmangle_gc_context pointer for collecting memory allocations.
  * @param[in] name MSVC C++ mangled export string.
- * @see sprint_decl()
- * @see release_gc()
- * @see pMToken
+ * @see libmangle_sprint_decl()
+ * @see libmangle_release_gc()
+ * @see libmangle_tokens
  * @return Token containing information about the mangled string,
- * use release_gc() to free after use.
+ * use libmangle_release_gc() to free after use.
  */
-pMToken decode_ms_name (sGcCtx *gc, const char *name);
-char *encode_ms_name (sGcCtx *gc, pMToken tok);
+libmangle_tokens libmangle_decode_ms_name (libmangle_gc_context *gc, const char *name);
+char *libmangle_encode_ms_name (libmangle_gc_context *gc, libmangle_tokens tok);
 
 #ifdef __cplusplus
 }

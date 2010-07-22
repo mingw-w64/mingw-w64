@@ -27,7 +27,7 @@
 /**
  * Garbage collector elements.
  * Tracks allocated memory and points to the next element from the same context.
- * @see sGcCtx
+ * @see libmangle_gc_context
  */
 typedef struct sGcElem {
   struct sGcElem *chain;        /**< Next element in chain. */
@@ -38,13 +38,13 @@ typedef struct sGcElem {
 /**
  * Garbage collector context.
  * Tracks first and last of elements in gc context.
- * @see generate_gc()
- * @see release_gc()
+ * @see libmangle_generate_gc()
+ * @see libmangle_release_gc()
  */
-typedef struct sGcCtx {
+typedef struct libmangle_gc_context {
   sGcElem *head;                /**< Pointer to first gc element in context.*/
   sGcElem *tail;                /**< Pointer to last gc element in context. */
-} sGcCtx;
+} libmangle_gc_context;
 
 /**
  * Token "Kind" enumeration list.
@@ -237,28 +237,28 @@ typedef union uMToken {
 
 /**
  * gen_tok constructs uMToken instances
- * Instances are destroyed with release_gc().
+ * Instances are destroyed with libmangle_release_gc().
  * @param[in] gc Pointer to garbage collection context.
  * @param[in] kind Kind of token to construct
  * @param[in] subkind Subkind of token to construct
  * @param[in] addend Additional byte padding at the end.
- * @see release_gc()
+ * @see libmangle_release_gc()
  */
-uMToken *gen_tok (sGcCtx *gc, enum eMToken kind, enum eMSToken subkind, size_t addend);
+uMToken *libmangle_gen_tok (libmangle_gc_context *gc, enum eMToken kind, enum eMSToken subkind, size_t addend);
 
 /**
  * Releases memory tracked by context.
  * @param[in] gc Garbage collection context to work on.
- * @see generate_gc()
+ * @see libmangle_generate_gc()
  */
-void release_gc (sGcCtx *gc);
+void libmangle_release_gc (libmangle_gc_context *gc);
 
 /**
  * Constructs a garbage collection context token.
  * @return Pointer to context.
- * @see release_gc()
+ * @see libmangle_release_gc()
  */
-sGcCtx *generate_gc (void);
+libmangle_gc_context *libmangle_generate_gc (void);
 
 /**
  * Chains uMTokens together.
@@ -273,24 +273,24 @@ uMToken *chain_tok (uMToken *l, uMToken *add);
  * @param[in] fp File descriptor to print the token to.
  * @param[in] p uMToken chain to print.
  */
-void dump_tok (FILE *fp, uMToken *p);
+void libmangle_dump_tok (FILE *fp, uMToken *p);
 
 /** 
  * Prints C++ name to file descriptor.
  * @param[in] fp Output file descriptor.
  * @param[in] p Token containing information about the C++ name.
- * @see decode_ms_name()
+ * @see libmangle_decode_ms_name()
  */
-void print_decl (FILE *fp, uMToken *p);
+void libmangle_print_decl (FILE *fp, uMToken *p);
 
 /** 
  * Get pointer to decoded C++ name string.
  * Use free() to release returned string.
  * @param[in] r C++ name token.
  * @return pointer to decoded C++ name string.
- * @see decode_ms_name()
+ * @see libmangle_decode_ms_name()
  */
-char *sprint_decl (uMToken *r);
+char *libmangle_sprint_decl (uMToken *r);
 
 /**
  * Constructs a "value" kind token.
@@ -302,7 +302,7 @@ char *sprint_decl (uMToken *r);
  * @return Pointer to value token.
  * @see sMToken_value
  */
-uMToken *gen_value (sGcCtx *gc, enum eMSToken skind, uint64_t val, int is_signed, int size);
+uMToken *gen_value (libmangle_gc_context *gc, enum eMSToken skind, uint64_t val, int is_signed, int size);
 
 /**
  * Constructs a "name" kind token.
@@ -312,7 +312,7 @@ uMToken *gen_value (sGcCtx *gc, enum eMSToken skind, uint64_t val, int is_signed
  * @return Pointer to name token.
  * @see sMToken_name
  */
-uMToken *gen_name (sGcCtx *gc, enum eMSToken skind, const char *name);
+uMToken *gen_name (libmangle_gc_context *gc, enum eMSToken skind, const char *name);
 
 /**
  * Constructs a "dim" kind token.
@@ -325,7 +325,7 @@ uMToken *gen_name (sGcCtx *gc, enum eMSToken skind, const char *name);
  * @return Pointer to dim token.
  * @see sMToken_dim
  */
-uMToken *gen_dim (sGcCtx *gc, enum eMSToken skind, uint64_t val, const char *non_tt_param, int fSigned, int fNegate);
+uMToken *gen_dim (libmangle_gc_context *gc, enum eMSToken skind, uint64_t val, const char *non_tt_param, int fSigned, int fNegate);
 
 /**
  * Constructs a "unary" kind token.
@@ -335,7 +335,7 @@ uMToken *gen_dim (sGcCtx *gc, enum eMSToken skind, uint64_t val, const char *non
  * @return Pointer to a unary token.
  * @see sMToken_unary
  */
-uMToken *gen_unary (sGcCtx *gc, enum eMSToken skind, uMToken *un);
+uMToken *gen_unary (libmangle_gc_context *gc, enum eMSToken skind, uMToken *un);
 
 /**
  * Generates a binary node token.
@@ -346,6 +346,6 @@ uMToken *gen_unary (sGcCtx *gc, enum eMSToken skind, uMToken *un);
  * @return Pointer to binary token.
  * @see sMToken_binary
  */
-uMToken *gen_binary (sGcCtx *gc, enum eMSToken skind, uMToken *l, uMToken *r);
+uMToken *gen_binary (libmangle_gc_context *gc, enum eMSToken skind, uMToken *l, uMToken *r);
 
 #endif

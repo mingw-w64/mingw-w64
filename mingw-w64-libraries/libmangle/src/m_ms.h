@@ -62,7 +62,7 @@ typedef struct sCached {
 } sCached;
 
 typedef struct sMSCtx {
-  sGcCtx *gc;
+  libmangle_gc_context *gc;
   const char *name;                /**< MSVC export name. */
   const char *end;                 /**< Last character in the export name. */
   const char *pos;                 /**< Export name processing position marker. */
@@ -83,13 +83,13 @@ typedef struct sMSCtx {
  * Decodes an MSVC export name.
  * @param[in] gc sGcCtx pointer for collecting memory allocations.
  * @param[in] name MSVC C++ mangled export string.
- * @see sprint_decl()
- * @see release_gc()
+ * @see libmangle_sprint_decl()
+ * @see libmangle_release_gc()
  * @see uMToken
  * @return Token containing information about the mangled string, 
- * use release_gc() to free after use.
+ * use libmangle_release_gc() to free after use.
  */
-uMToken *decode_ms_name (sGcCtx *gc, const char *name);
-char *encode_ms_name (sGcCtx *gc, uMToken *tok);
+uMToken *libmangle_decode_ms_name (libmangle_gc_context *gc, const char *name);
+char *libmangle_encode_ms_name (libmangle_gc_context *gc, uMToken *tok);
 
 #endif
