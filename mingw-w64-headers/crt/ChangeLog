@@ -1,3 +1,22 @@
+2010-07-22  Amine Khaldi  <amine.khaldi@reactos.org>
+
+	Several patches for MSC/non-GCC:
+	* _mingw.h (__MINGW_MSC_PREREQ): Define for MSC by analogy to the
+	existing __MINGW_GNUC_PREREQ.
+	(__CRT_INLINE): Define as __inline for MSC.
+	(__restrict__): Define as __restrict for MSC, or as empty for anything
+	other than GCC.
+	(__MINGW_ATTRIB_NORETURN): Define as __declspec(noreturn) for MSC.
+	(__MINGW_ATTRIB_MALLOC): Define as __declspec(noalias) __declspec(restrict)
+	for MSC.
+	(__MINGW_ATTRIB_PURE): Define as empty for MSC.
+	(__MINGW_ATTRIB_USED): Ditto.
+	(__MINGW_ATTRIB_CONST): Ditto.
+	(__MINGW_ATTRIB_DEPRECATE): Define as __declspec(deprecated) for MSC.
+	(__MINGW_NOTHROW): Define as __declspec(nothrow) for MSC && __cplusplus.
+	* setjmp.h: Include crtdefs.h instead of _mingw.h which will be included
+	as a result.
+
 2010-07-21  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw.h (__MINGW_ATTRIB_UNUSED): Define as __attribute__((unused))
