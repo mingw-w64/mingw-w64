@@ -365,9 +365,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _swprintf(wchar_t *_Dest,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _vswprintf(wchar_t *_Dest,const wchar_t *_Format,va_list _Args);
 
-#ifndef RC_INVOKED
-#include <vadefs.h>
-#endif
 
 #ifdef _CRT_NON_CONFORMING_SWPRINTFS
 #ifndef __cplusplus

@@ -19,16 +19,6 @@ extern "C" {
 #define WCHAR_MAX 0xffffU
 #endif
 
-#ifndef __GNUC_VA_LIST
-#define __GNUC_VA_LIST
-  typedef __builtin_va_list __gnuc_va_list;
-#endif
-
-#ifndef _VA_LIST_DEFINED
-#define _VA_LIST_DEFINED
-  typedef __gnuc_va_list va_list;
-#endif
-
 #ifndef WEOF
 #define WEOF (wint_t)(0xFFFF)
 #endif
@@ -613,9 +603,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _vswprintf(wchar_t *_Dest,const wchar_t *_Format,va_list _Args);
   _CRTIMP int __cdecl __swprintf_l(wchar_t *_Dest,const wchar_t *_Format,_locale_t _Plocinfo,...);
   _CRTIMP int __cdecl __vswprintf_l(wchar_t *_Dest,const wchar_t *_Format,_locale_t _Plocinfo,va_list _Args);
-#ifndef RC_INVOKED
-#include <vadefs.h>
-#endif
 
 #ifdef _CRT_NON_CONFORMING_SWPRINTFS
 #ifndef __cplusplus
@@ -883,4 +870,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #pragma pack(pop)
 
 #include <sec_api/wchar_s.h>
-#endif
+
+#endif /* _INC_WCHAR */
+

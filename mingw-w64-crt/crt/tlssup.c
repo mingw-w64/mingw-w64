@@ -170,5 +170,5 @@ _CRTALLOC(".CRT$XLD") PIMAGE_TLS_CALLBACK __xl_d = (PIMAGE_TLS_CALLBACK) __dyn_t
 
 
 int mingw_initltsdrot_force = 0;
-int mingw_initltsdyn_force=0;
+int mingw_initltsdyn_force = 0;
 int mingw_initltssuo_force = 0;
