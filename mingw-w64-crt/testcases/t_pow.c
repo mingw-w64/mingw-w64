@@ -12,6 +12,12 @@ static void set_pow_msvcrt(void)
   fpow = (my_pow) GetProcAddress (hMod, "pow");
 }
 
+static double pow_by_log_exp (double x, double y)
+{
+  /* pow(x, n) = exp(n * log(x)) */
+  return exp(y * log(x));
+}
+
 static void test(int cnt)
 {
   double x, y, z;
@@ -32,8 +38,13 @@ static void test(int cnt)
 int main (int argc, char **argv)
 {
   int e = (argc > 1 ? atoi(argv[1]) : 20000000);
+  printf ("Current implementation in libmingwex: ");
   test (e);
   set_pow_msvcrt ();
+  printf ("Implementation in msvcrt.dll: ");
+  test (e);
+  fpow = pow_by_log_exp;
+  printf ("Implementation by exp and log: ");
   test (e);
   return 0;
 }
