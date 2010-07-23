@@ -135,7 +135,7 @@ ExReinitializeResourceLite@4
 @ExReleaseFastMutexUnsafe@4
 ExReleaseResourceForThreadLite@8
 @ExReleaseResourceLite@4
-;ExReleaseRundownProtection
+@ExReleaseRundownProtection@4
 ;ExRundownCompleted
 ExSemaphoreObjectType DATA
 ExSetResourceOwnerPointer@8
@@ -1250,7 +1250,7 @@ WmiQueryTraceInformation@20
 ;WmiStartTrace
 ;WmiStopTrace
 WmiTraceMessage
-;WmiTraceMessageVa
+WmiTraceMessageVa
 ;WmiUpdateTrace
 ;XIPDispatch
 ZwAccessCheckAndAuditAlarm@44
