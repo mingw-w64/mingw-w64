@@ -18,7 +18,7 @@ static __attribute__((noinline)) double pow_by_log_exp (double x, double y)
   return exp(y * log(x));
 }
 
-static void test(int cnt)
+static __attribute__((noinline)) void test(int cnt)
 {
   double x, y, z;
   unsigned int tiS = GetTickCount();
