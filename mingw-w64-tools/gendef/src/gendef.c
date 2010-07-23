@@ -1168,8 +1168,8 @@ static void
 decode_mangle (FILE *fp, const char *n)
 {
 #ifdef HAVE_LIBMANGLE
-  libmangle_gc_context *gc = libmangle_generate_gc ();
-  libmangle_tokens ptok;
+  libmangle_gc_context_t *gc = libmangle_generate_gc ();
+  libmangle_tokens_t ptok;
 #endif
   if (!fp || !n || *n == 0)
     return;

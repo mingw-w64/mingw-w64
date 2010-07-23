@@ -1,3 +1,9 @@
+2010-07-23  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* src/gendef.c (decode_mangle): Adjust libmangle_gc_context to
+	libmangle_gc_context_t and libmangle_tokens to libmangle_tokens_t
+	to reflect API change in libmangle.
+
 2010-07-22  Kai Tietz  <kai.tietz@onevision.com>
 
 	* src/gendef.c (dump_def): Fix output of @0 for 64-bit.
