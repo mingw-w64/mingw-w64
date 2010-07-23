@@ -1,5 +1,6 @@
 2010-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* _mingw_stdarg.h (va_copy): Add missing parens.
 	* _mingw.h: Add extern to __forceinline definition.
 
 2010-07-22  Ozkan Sezer  <sezeroz@gmail.com>
