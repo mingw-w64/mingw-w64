@@ -2935,7 +2935,7 @@ src_libmingwex32 = \
 @LIB64_TRUE@  \
 @LIB64_TRUE@  lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a     \
 @LIB64_TRUE@  \
-@LIB64_TRUE@  lib64/libks.a
+@LIB64_TRUE@  lib64/libks.a         lib64/libndis.a
 
 
 # End 64-bit runtime
