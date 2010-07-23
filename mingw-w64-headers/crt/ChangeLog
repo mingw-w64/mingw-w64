@@ -1,3 +1,8 @@
+2010-07-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_float.h: Removed.
+	* float.h: Old copy of _mingw_float.h.
+
 2010-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_stdarg.h (va_copy): Add missing parens.
