@@ -90,7 +90,7 @@ static uMToken *get_vdisp_map_type (sMSCtx *c, uMToken *superType);
 static uMToken *get_ext_data_type (sMSCtx *c, uMToken *superType);
 
 uMToken *
-libmangle_decode_ms_name (libmangle_gc_context *gc, const char *name)
+libmangle_decode_ms_name (libmangle_gc_context_t *gc, const char *name)
 {
   sMSCtx ctx;
   sCached ZNameList, ArgList, TempArgList;
@@ -141,7 +141,7 @@ libmangle_decode_ms_name (libmangle_gc_context *gc, const char *name)
 }
 
 char *
-libmangle_encode_ms_name (libmangle_gc_context *gc, uMToken *tok)
+libmangle_encode_ms_name (libmangle_gc_context_t *gc, uMToken *tok)
 {
   return NULL;
 }

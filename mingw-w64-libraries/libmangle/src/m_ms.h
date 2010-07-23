@@ -62,7 +62,7 @@ typedef struct sCached {
 } sCached;
 
 typedef struct sMSCtx {
-  libmangle_gc_context *gc;
+  libmangle_gc_context_t *gc;
   const char *name;                /**< MSVC export name. */
   const char *end;                 /**< Last character in the export name. */
   const char *pos;                 /**< Export name processing position marker. */
@@ -89,7 +89,7 @@ typedef struct sMSCtx {
  * @return Token containing information about the mangled string, 
  * use libmangle_release_gc() to free after use.
  */
-uMToken *libmangle_decode_ms_name (libmangle_gc_context *gc, const char *name);
-char *libmangle_encode_ms_name (libmangle_gc_context *gc, uMToken *tok);
+uMToken *libmangle_decode_ms_name (libmangle_gc_context_t *gc, const char *name);
+char *libmangle_encode_ms_name (libmangle_gc_context_t *gc, uMToken *tok);
 
 #endif
