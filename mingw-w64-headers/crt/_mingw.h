@@ -230,7 +230,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
  * this is an empty define. */
 #define __unaligned /* __attribute ((packed)) */
 #endif
-#define __forceinline __inline__ __attribute__((always_inline))
+#define __forceinline extern __inline__ __attribute__((always_inline))
 #endif /* __GNUC__ */
 
 #ifndef _WIN32

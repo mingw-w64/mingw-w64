@@ -1,3 +1,7 @@
+2010-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h: Add extern to FORCEINLINE definition.
+
 2010-17-20  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* rpcndr.h (NdrUnMarshConfStringHdr): Fix macro brackets.
