@@ -23,7 +23,7 @@
     </ul>
   </div>
 <h1>include/libmangle.h</h1><a href="libmangle_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment">   Copyright (c) 2009 mingw-w64 project</span>
+<a name="l00002"></a>00002 <span class="comment">   Copyright (c) 2009, 2010 mingw-w64 project</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">   Contributing authors: Kai Tietz, Jonathan Yong</span>
 <a name="l00005"></a>00005 <span class="comment"></span>
@@ -53,35 +53,35 @@
 <a name="l00029"></a>00029 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
 <a name="l00030"></a>00030 <span class="preprocessor">#endif</span>
 <a name="l00031"></a>00031 <span class="preprocessor"></span>
-<a name="l00037"></a><a class="code" href="libmangle_8h.html#a829cf916a22a3baf7cb7862c5bb5ee4f">00037</a> <span class="keyword">typedef</span> <span class="keywordtype">void</span> *<a class="code" href="libmangle_8h.html#a829cf916a22a3baf7cb7862c5bb5ee4f">pGcElem</a>;
-<a name="l00038"></a>00038 
-<a name="l00045"></a><a class="code" href="structs_gc_ctx.html">00045</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structs_gc_ctx.html">sGcCtx</a> {
-<a name="l00046"></a><a class="code" href="structs_gc_ctx.html#a27af5bbc070bf61ab0c5b7f773e9ac12">00046</a>   pGcElem <a class="code" href="structs_gc_ctx.html#a27af5bbc070bf61ab0c5b7f773e9ac12">head</a>;                
-<a name="l00047"></a><a class="code" href="structs_gc_ctx.html#a8645b0e7f4a397e8a002a9e33d1d9a6e">00047</a>   pGcElem <a class="code" href="structs_gc_ctx.html#a8645b0e7f4a397e8a002a9e33d1d9a6e">tail</a>;                
-<a name="l00048"></a>00048 } <a class="code" href="structs_gc_ctx.html">sGcCtx</a>;
-<a name="l00049"></a>00049 
-<a name="l00056"></a><a class="code" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">00056</a> <span class="keyword">typedef</span> <span class="keywordtype">void</span> *<a class="code" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a>;
-<a name="l00057"></a>00057 
-<a name="l00063"></a>00063 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#a5d89434e78fb873998f2844e30e0dcb1">release_gc</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc);
-<a name="l00064"></a>00064 
-<a name="l00070"></a>00070 <a class="code" href="structs_gc_ctx.html">sGcCtx</a> *<a class="code" href="libmangle_8h.html#aebd5b8b36fc38cc0e8457ff47e796113">generate_gc</a> (<span class="keywordtype">void</span>);
-<a name="l00071"></a>00071 
-<a name="l00077"></a>00077 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#a33efe0e74d5b28f5e460dcf58e642503">dump_tok</a> (FILE *fp, pMToken p);
-<a name="l00078"></a>00078 
-<a name="l00085"></a>00085 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#a3849f62a8f21021d472a719474d93824">print_decl</a> (FILE *fp, pMToken p);
-<a name="l00086"></a>00086 
-<a name="l00094"></a>00094 <span class="keywordtype">char</span> *<a class="code" href="libmangle_8h.html#a44e241bedf1378900bab5367c4921c24">sprint_decl</a> (pMToken r);
-<a name="l00095"></a>00095 
-<a name="l00106"></a>00106 pMToken <a class="code" href="libmangle_8h.html#abd5e852feefdca185545a37ec3c1467e">decode_ms_name</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);
-<a name="l00107"></a>00107 <span class="keywordtype">char</span> *<a class="code" href="libmangle_8h.html#a52dd93638af60175329f20cbab72d77b">encode_ms_name</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc, pMToken tok);
-<a name="l00108"></a>00108 
-<a name="l00109"></a>00109 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00110"></a>00110 <span class="preprocessor"></span>}
-<a name="l00111"></a>00111 <span class="preprocessor">#endif</span>
-<a name="l00112"></a>00112 <span class="preprocessor"></span>
-<a name="l00113"></a>00113 <span class="preprocessor">#endif</span>
+<a name="l00038"></a><a class="code" href="libmangle_8h.html#af17e2fe323e27ccf4827813ee0c8612e">00038</a> <span class="keyword">typedef</span> <span class="keywordtype">void</span> *<a class="code" href="libmangle_8h.html#af17e2fe323e27ccf4827813ee0c8612e">libmangle_gc_t</a>;
+<a name="l00039"></a>00039 
+<a name="l00046"></a><a class="code" href="structlibmangle__gc__context__t.html">00046</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> {
+<a name="l00047"></a><a class="code" href="structlibmangle__gc__context__t.html#a87a971b39a14440678c40974f56bbf08">00047</a>   libmangle_gc_t <a class="code" href="structlibmangle__gc__context__t.html#a87a971b39a14440678c40974f56bbf08">head</a>;                
+<a name="l00048"></a><a class="code" href="structlibmangle__gc__context__t.html#a26e6a7692028d660e4a8224e14f0c3f6">00048</a>   libmangle_gc_t <a class="code" href="structlibmangle__gc__context__t.html#a26e6a7692028d660e4a8224e14f0c3f6">tail</a>;                
+<a name="l00049"></a>00049 } <a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a>;
+<a name="l00050"></a>00050 
+<a name="l00057"></a><a class="code" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">00057</a> <span class="keyword">typedef</span> <span class="keywordtype">void</span> *<a class="code" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a>;
+<a name="l00058"></a>00058 
+<a name="l00064"></a>00064 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#ac6f10b5d722b67adc42b2efaf4683dc1">libmangle_release_gc</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc);
+<a name="l00065"></a>00065 
+<a name="l00071"></a>00071 <a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *<a class="code" href="libmangle_8h.html#a54257a43469abe9c5f9556a1913bbf2f">libmangle_generate_gc</a> (<span class="keywordtype">void</span>);
+<a name="l00072"></a>00072 
+<a name="l00078"></a>00078 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#ab22601869037438e47eca7186a4cef65">libmangle_dump_tok</a> (FILE *fp, libmangle_tokens_t p);
+<a name="l00079"></a>00079 
+<a name="l00086"></a>00086 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#a2c4d83f71d35e434250eb2779e29ef29">libmangle_print_decl</a> (FILE *fp, libmangle_tokens_t p);
+<a name="l00087"></a>00087 
+<a name="l00095"></a>00095 <span class="keywordtype">char</span> *<a class="code" href="libmangle_8h.html#abf4af1b2e483a32beb147474853e696b">libmangle_sprint_decl</a> (libmangle_tokens_t r);
+<a name="l00096"></a>00096 
+<a name="l00107"></a>00107 libmangle_tokens_t <a class="code" href="libmangle_8h.html#a14ff3e5c3309017dc99459ef1ffef582">libmangle_decode_ms_name</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);
+<a name="l00108"></a>00108 <span class="keywordtype">char</span> *<a class="code" href="libmangle_8h.html#ad6e58fecfca8cc312a2b09a44e3748fb">libmangle_encode_ms_name</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, libmangle_tokens_t tok);
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00111"></a>00111 <span class="preprocessor"></span>}
+<a name="l00112"></a>00112 <span class="preprocessor">#endif</span>
+<a name="l00113"></a>00113 <span class="preprocessor"></span>
+<a name="l00114"></a>00114 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Oct 2009 for libmangle by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Jul 2010 for libmangle by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -29,7 +29,7 @@
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Data Structures</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_gc_elem.html">sGcElem</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_gc_ctx.html">sGcCtx</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_m_token__base.html">sMToken_base</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_m_token__value.html">sMToken_value</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_m_token__name.html">sMToken_name</a></td></tr>
@@ -118,18 +118,18 @@
 <br/>
  }</td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#ace5f8b4a48ceee9d5b2610ba9ad75a4c">gen_tok</a> (<a class="el" href="structs_gc_ctx.html">sGcCtx</a> *gc, enum <a class="el" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebd">eMToken</a> kind, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> subkind, size_t addend)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a5d89434e78fb873998f2844e30e0dcb1">release_gc</a> (<a class="el" href="structs_gc_ctx.html">sGcCtx</a> *gc)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#aebd5b8b36fc38cc0e8457ff47e796113">generate_gc</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#abeb019f98a7616488287af32a6f9e51b">libmangle_gen_tok</a> (<a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, enum <a class="el" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebd">eMToken</a> kind, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> subkind, size_t addend)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#ac6f10b5d722b67adc42b2efaf4683dc1">libmangle_release_gc</a> (<a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a54257a43469abe9c5f9556a1913bbf2f">libmangle_generate_gc</a> (void)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a50ef074a3d1cf22f842abd4df7081743">chain_tok</a> (<a class="el" href="unionu_m_token.html">uMToken</a> *l, <a class="el" href="unionu_m_token.html">uMToken</a> *add)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#ace0fb94536f164fb470e66b81a005a44">dump_tok</a> (FILE *fp, <a class="el" href="unionu_m_token.html">uMToken</a> *p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#ae0c4bf9d91c720f09e2c162f3738c8bd">print_decl</a> (FILE *fp, <a class="el" href="unionu_m_token.html">uMToken</a> *p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a938de7206a46fd57b9240cc2744a43a2">sprint_decl</a> (<a class="el" href="unionu_m_token.html">uMToken</a> *r)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a3b64dc961fdbac6f6908ec924e3ee6e1">gen_value</a> (<a class="el" href="structs_gc_ctx.html">sGcCtx</a> *gc, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, uint64_t val, int is_signed, int size)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a9a309ae8be7bf65c087195c156fbf9f8">gen_name</a> (<a class="el" href="structs_gc_ctx.html">sGcCtx</a> *gc, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, const char *name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a0a622c481e414c967b27eaa3edbc6e25">gen_dim</a> (<a class="el" href="structs_gc_ctx.html">sGcCtx</a> *gc, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, uint64_t val, const char *non_tt_param, int fSigned, int fNegate)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a179397b41a7f31d461ddf8bb40a4f33a">gen_unary</a> (<a class="el" href="structs_gc_ctx.html">sGcCtx</a> *gc, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, <a class="el" href="unionu_m_token.html">uMToken</a> *un)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a6615855ec116031800e49e543031d34e">gen_binary</a> (<a class="el" href="structs_gc_ctx.html">sGcCtx</a> *gc, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, <a class="el" href="unionu_m_token.html">uMToken</a> *l, <a class="el" href="unionu_m_token.html">uMToken</a> *r)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#abf3eb472b66b477d0165a31437d35c09">libmangle_dump_tok</a> (FILE *fp, <a class="el" href="unionu_m_token.html">uMToken</a> *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a278a5859cf0ffb4e32fd2ad4cb2584de">libmangle_print_decl</a> (FILE *fp, <a class="el" href="unionu_m_token.html">uMToken</a> *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#ac0f7cf41cc7c3e9c57dd94ed318dd5a4">libmangle_sprint_decl</a> (<a class="el" href="unionu_m_token.html">uMToken</a> *r)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a5e98df3f83afcc6e9e1f079091c0e567">gen_value</a> (<a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, uint64_t val, int is_signed, int size)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#ac1a6fe5d506c4fd78650742da8d9e669">gen_name</a> (<a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, const char *name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#aced2d2323162ca5846cdb13d631169d6">gen_dim</a> (<a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, uint64_t val, const char *non_tt_param, int fSigned, int fNegate)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a8c630a1c57e3d4f5009448af0d43fbb8">gen_unary</a> (<a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, <a class="el" href="unionu_m_token.html">uMToken</a> *un)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__token_8h.html#a0deb555c3210a60f0b5189ae462ed620">gen_binary</a> (<a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, <a class="el" href="unionu_m_token.html">uMToken</a> *l, <a class="el" href="unionu_m_token.html">uMToken</a> *r)</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
 <a class="anchor" id="ae7a7881952af6eea195152209a4166d8"></a><!-- doxytag: member="m_token.h::MTOKEN_BINARY_LEFT" ref="ae7a7881952af6eea195152209a4166d8" args="(PT)" -->
@@ -466,7 +466,7 @@
 </div>
 <div class="memdoc">
 <p>Token "Subkind" enumeration list. Also used by internal function sprint_decl1() for printing. </p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="m__token_8c.html#ace5f8b4a48ceee9d5b2610ba9ad75a4c">gen_tok()</a> </dd>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="m__token_8c.html#a3d90ad7945dc89f63c39837ee512fd85">gen_tok()</a> </dd>
 <dd>
 <a class="el" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebd">eMToken</a> </dd>
 <dd>
@@ -600,7 +600,7 @@
 </div>
 <div class="memdoc">
 <p>Token "Kind" enumeration list. </p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="m__token_8c.html#ace5f8b4a48ceee9d5b2610ba9ad75a4c">gen_tok()</a> </dd>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="m__token_8c.html#a3d90ad7945dc89f63c39837ee512fd85">gen_tok()</a> </dd>
 <dd>
 <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> </dd>
 <dd>
@@ -670,49 +670,14 @@
 
 </div>
 </div>
-<a class="anchor" id="ace0fb94536f164fb470e66b81a005a44"></a><!-- doxytag: member="m_token.h::dump_tok" ref="ace0fb94536f164fb470e66b81a005a44" args="(FILE *fp, uMToken *p)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dump_tok </td>
-          <td>(</td>
-          <td class="paramtype">FILE *&nbsp;</td>
-          <td class="paramname"> <em>fp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td>
-          <td class="paramname"> <em>p</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Dumps <a class="el" href="unionu_m_token.html">uMToken</a> to a file descriptor for debugging. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>fp</em>&nbsp;</td><td>File descriptor to print the token to. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>p</em>&nbsp;</td><td><a class="el" href="unionu_m_token.html">uMToken</a> chain to print. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a6615855ec116031800e49e543031d34e"></a><!-- doxytag: member="m_token.h::gen_binary" ref="a6615855ec116031800e49e543031d34e" args="(sGcCtx *gc, enum eMSToken skind, uMToken *l, uMToken *r)" -->
+<a class="anchor" id="a0deb555c3210a60f0b5189ae462ed620"></a><!-- doxytag: member="m_token.h::gen_binary" ref="a0deb555c3210a60f0b5189ae462ed620" args="(libmangle_gc_context_t *gc, enum eMSToken skind, uMToken *l, uMToken *r)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="unionu_m_token.html">uMToken</a>* gen_binary </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td>
           <td class="paramname"> <em>gc</em>, </td>
         </tr>
         <tr>
@@ -756,14 +721,14 @@
 
 </div>
 </div>
-<a class="anchor" id="a0a622c481e414c967b27eaa3edbc6e25"></a><!-- doxytag: member="m_token.h::gen_dim" ref="a0a622c481e414c967b27eaa3edbc6e25" args="(sGcCtx *gc, enum eMSToken skind, uint64_t val, const char *non_tt_param, int fSigned, int fNegate)" -->
+<a class="anchor" id="aced2d2323162ca5846cdb13d631169d6"></a><!-- doxytag: member="m_token.h::gen_dim" ref="aced2d2323162ca5846cdb13d631169d6" args="(libmangle_gc_context_t *gc, enum eMSToken skind, uint64_t val, const char *non_tt_param, int fSigned, int fNegate)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="unionu_m_token.html">uMToken</a>* gen_dim </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td>
           <td class="paramname"> <em>gc</em>, </td>
         </tr>
         <tr>
@@ -821,14 +786,14 @@
 
 </div>
 </div>
-<a class="anchor" id="a9a309ae8be7bf65c087195c156fbf9f8"></a><!-- doxytag: member="m_token.h::gen_name" ref="a9a309ae8be7bf65c087195c156fbf9f8" args="(sGcCtx *gc, enum eMSToken skind, const char *name)" -->
+<a class="anchor" id="ac1a6fe5d506c4fd78650742da8d9e669"></a><!-- doxytag: member="m_token.h::gen_name" ref="ac1a6fe5d506c4fd78650742da8d9e669" args="(libmangle_gc_context_t *gc, enum eMSToken skind, const char *name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="unionu_m_token.html">uMToken</a>* gen_name </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td>
           <td class="paramname"> <em>gc</em>, </td>
         </tr>
         <tr>
@@ -865,64 +830,14 @@
 
 </div>
 </div>
-<a class="anchor" id="ace5f8b4a48ceee9d5b2610ba9ad75a4c"></a><!-- doxytag: member="m_token.h::gen_tok" ref="ace5f8b4a48ceee9d5b2610ba9ad75a4c" args="(sGcCtx *gc, enum eMToken kind, enum eMSToken subkind, size_t addend)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="unionu_m_token.html">uMToken</a>* gen_tok </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td>
-          <td class="paramname"> <em>gc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">enum <a class="el" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebd">eMToken</a>&nbsp;</td>
-          <td class="paramname"> <em>kind</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a>&nbsp;</td>
-          <td class="paramname"> <em>subkind</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&nbsp;</td>
-          <td class="paramname"> <em>addend</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>gen_tok constructs <a class="el" href="unionu_m_token.html">uMToken</a> instances Instances are destroyed with <a class="el" href="libmangle_8h.html#a5d89434e78fb873998f2844e30e0dcb1">release_gc()</a>. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>gc</em>&nbsp;</td><td>Pointer to garbage collection context. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>kind</em>&nbsp;</td><td>Kind of token to construct </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>subkind</em>&nbsp;</td><td>Subkind of token to construct </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>addend</em>&nbsp;</td><td>Additional byte padding at the end. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#a5d89434e78fb873998f2844e30e0dcb1">release_gc()</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a179397b41a7f31d461ddf8bb40a4f33a"></a><!-- doxytag: member="m_token.h::gen_unary" ref="a179397b41a7f31d461ddf8bb40a4f33a" args="(sGcCtx *gc, enum eMSToken skind, uMToken *un)" -->
+<a class="anchor" id="a8c630a1c57e3d4f5009448af0d43fbb8"></a><!-- doxytag: member="m_token.h::gen_unary" ref="a8c630a1c57e3d4f5009448af0d43fbb8" args="(libmangle_gc_context_t *gc, enum eMSToken skind, uMToken *un)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="unionu_m_token.html">uMToken</a>* gen_unary </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td>
           <td class="paramname"> <em>gc</em>, </td>
         </tr>
         <tr>
@@ -959,14 +874,14 @@
 
 </div>
 </div>
-<a class="anchor" id="a3b64dc961fdbac6f6908ec924e3ee6e1"></a><!-- doxytag: member="m_token.h::gen_value" ref="a3b64dc961fdbac6f6908ec924e3ee6e1" args="(sGcCtx *gc, enum eMSToken skind, uint64_t val, int is_signed, int size)" -->
+<a class="anchor" id="a5e98df3f83afcc6e9e1f079091c0e567"></a><!-- doxytag: member="m_token.h::gen_value" ref="a5e98df3f83afcc6e9e1f079091c0e567" args="(libmangle_gc_context_t *gc, enum eMSToken skind, uint64_t val, int is_signed, int size)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="unionu_m_token.html">uMToken</a>* gen_value </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td>
           <td class="paramname"> <em>gc</em>, </td>
         </tr>
         <tr>
@@ -1017,12 +932,97 @@
 
 </div>
 </div>
-<a class="anchor" id="aebd5b8b36fc38cc0e8457ff47e796113"></a><!-- doxytag: member="m_token.h::generate_gc" ref="aebd5b8b36fc38cc0e8457ff47e796113" args="(void)" -->
+<a class="anchor" id="abf3eb472b66b477d0165a31437d35c09"></a><!-- doxytag: member="m_token.h::libmangle_dump_tok" ref="abf3eb472b66b477d0165a31437d35c09" args="(FILE *fp, uMToken *p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structs_gc_ctx.html">sGcCtx</a>* generate_gc </td>
+          <td class="memname">void libmangle_dump_tok </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&nbsp;</td>
+          <td class="paramname"> <em>fp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td>
+          <td class="paramname"> <em>p</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Dumps <a class="el" href="unionu_m_token.html">uMToken</a> to a file descriptor for debugging. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>fp</em>&nbsp;</td><td>File descriptor to print the token to. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>p</em>&nbsp;</td><td><a class="el" href="unionu_m_token.html">uMToken</a> chain to print. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="abeb019f98a7616488287af32a6f9e51b"></a><!-- doxytag: member="m_token.h::libmangle_gen_tok" ref="abeb019f98a7616488287af32a6f9e51b" args="(libmangle_gc_context_t *gc, enum eMToken kind, enum eMSToken subkind, size_t addend)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="unionu_m_token.html">uMToken</a>* libmangle_gen_tok </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>gc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebd">eMToken</a>&nbsp;</td>
+          <td class="paramname"> <em>kind</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a>&nbsp;</td>
+          <td class="paramname"> <em>subkind</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"> <em>addend</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>gen_tok constructs <a class="el" href="unionu_m_token.html">uMToken</a> instances Instances are destroyed with <a class="el" href="libmangle_8h.html#ac6f10b5d722b67adc42b2efaf4683dc1">libmangle_release_gc()</a>. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>gc</em>&nbsp;</td><td>Pointer to garbage collection context. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>kind</em>&nbsp;</td><td>Kind of token to construct </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>subkind</em>&nbsp;</td><td>Subkind of token to construct </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>addend</em>&nbsp;</td><td>Additional byte padding at the end. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#ac6f10b5d722b67adc42b2efaf4683dc1">libmangle_release_gc()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a54257a43469abe9c5f9556a1913bbf2f"></a><!-- doxytag: member="m_token.h::libmangle_generate_gc" ref="a54257a43469abe9c5f9556a1913bbf2f" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a>* libmangle_generate_gc </td>
           <td>(</td>
           <td class="paramtype">void&nbsp;</td>
           <td class="paramname"></td>
@@ -1034,16 +1034,16 @@
 <div class="memdoc">
 <p>Constructs a garbage collection context token. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to context. </dd></dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#a5d89434e78fb873998f2844e30e0dcb1">release_gc()</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#ac6f10b5d722b67adc42b2efaf4683dc1">libmangle_release_gc()</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ae0c4bf9d91c720f09e2c162f3738c8bd"></a><!-- doxytag: member="m_token.h::print_decl" ref="ae0c4bf9d91c720f09e2c162f3738c8bd" args="(FILE *fp, uMToken *p)" -->
+<a class="anchor" id="a278a5859cf0ffb4e32fd2ad4cb2584de"></a><!-- doxytag: member="m_token.h::libmangle_print_decl" ref="a278a5859cf0ffb4e32fd2ad4cb2584de" args="(FILE *fp, uMToken *p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_decl </td>
+          <td class="memname">void libmangle_print_decl </td>
           <td>(</td>
           <td class="paramtype">FILE *&nbsp;</td>
           <td class="paramname"> <em>fp</em>, </td>
@@ -1070,18 +1070,18 @@
   </table>
   </dd>
 </dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#abd5e852feefdca185545a37ec3c1467e">decode_ms_name()</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#a14ff3e5c3309017dc99459ef1ffef582">libmangle_decode_ms_name()</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a5d89434e78fb873998f2844e30e0dcb1"></a><!-- doxytag: member="m_token.h::release_gc" ref="a5d89434e78fb873998f2844e30e0dcb1" args="(sGcCtx *gc)" -->
+<a class="anchor" id="ac6f10b5d722b67adc42b2efaf4683dc1"></a><!-- doxytag: member="m_token.h::libmangle_release_gc" ref="ac6f10b5d722b67adc42b2efaf4683dc1" args="(libmangle_gc_context_t *gc)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void release_gc </td>
+          <td class="memname">void libmangle_release_gc </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td>
           <td class="paramname"> <em>gc</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -1096,16 +1096,16 @@
   </table>
   </dd>
 </dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#aebd5b8b36fc38cc0e8457ff47e796113">generate_gc()</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#a54257a43469abe9c5f9556a1913bbf2f">libmangle_generate_gc()</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a938de7206a46fd57b9240cc2744a43a2"></a><!-- doxytag: member="m_token.h::sprint_decl" ref="a938de7206a46fd57b9240cc2744a43a2" args="(uMToken *r)" -->
+<a class="anchor" id="ac0f7cf41cc7c3e9c57dd94ed318dd5a4"></a><!-- doxytag: member="m_token.h::libmangle_sprint_decl" ref="ac0f7cf41cc7c3e9c57dd94ed318dd5a4" args="(uMToken *r)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* sprint_decl </td>
+          <td class="memname">char* libmangle_sprint_decl </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="unionu_m_token.html">uMToken</a> *&nbsp;</td>
           <td class="paramname"> <em>r</em></td>
@@ -1123,12 +1123,12 @@
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>pointer to decoded C++ name string. </dd></dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#abd5e852feefdca185545a37ec3c1467e">decode_ms_name()</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#a14ff3e5c3309017dc99459ef1ffef582">libmangle_decode_ms_name()</a> </dd></dl>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Oct 2009 for libmangle by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Jul 2010 for libmangle by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

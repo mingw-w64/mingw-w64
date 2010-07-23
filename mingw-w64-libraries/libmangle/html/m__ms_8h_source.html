@@ -23,7 +23,7 @@
     </ul>
   </div>
 <h1>src/m_ms.h</h1><a href="m__ms_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment">   Copyright (c) 2009 mingw-w64 project</span>
+<a name="l00002"></a>00002 <span class="comment">   Copyright (c) 2009, 2010 mingw-w64 project</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">   Contributing authors: Kai Tietz, Jonathan Yong</span>
 <a name="l00005"></a>00005 <span class="comment"></span>
@@ -58,7 +58,7 @@
 <a name="l00062"></a>00062 } <a class="code" href="structs_cached.html">sCached</a>;
 <a name="l00063"></a>00063 
 <a name="l00064"></a><a class="code" href="structs_m_s_ctx.html">00064</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structs_m_s_ctx.html">sMSCtx</a> {
-<a name="l00065"></a><a class="code" href="structs_m_s_ctx.html#ac637c4e86e0073dbe481aaf72fd02f0b">00065</a>   <a class="code" href="structs_gc_ctx.html">sGcCtx</a> *<a class="code" href="structs_m_s_ctx.html#ac637c4e86e0073dbe481aaf72fd02f0b">gc</a>;
+<a name="l00065"></a><a class="code" href="structs_m_s_ctx.html#a2f5063c35143e68593acf2f1d718cfeb">00065</a>   <a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *<a class="code" href="structs_m_s_ctx.html#a2f5063c35143e68593acf2f1d718cfeb">gc</a>;
 <a name="l00066"></a><a class="code" href="structs_m_s_ctx.html#ac0a073d6988c2278ef48f9d159383d84">00066</a>   <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structs_m_s_ctx.html#ac0a073d6988c2278ef48f9d159383d84">name</a>;                
 <a name="l00067"></a><a class="code" href="structs_m_s_ctx.html#a6e5fc61ecefe939aea462a75a2ba1332">00067</a>   <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structs_m_s_ctx.html#a6e5fc61ecefe939aea462a75a2ba1332">end</a>;                 
 <a name="l00068"></a><a class="code" href="structs_m_s_ctx.html#a26e2b2ad1f83c22f21581f0fd474fc21">00068</a>   <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structs_m_s_ctx.html#a26e2b2ad1f83c22f21581f0fd474fc21">pos</a>;                 
@@ -75,12 +75,12 @@
 <a name="l00079"></a><a class="code" href="m__ms_8h.html#aac4ed973666f5f09c3e866666326fb05">00079</a> <span class="preprocessor"></span><span class="preprocessor">#define DEC_CHAR(CTX)   do { if ((CTX)-&gt;pos != (CTX)-&gt;name) (CTX)-&gt;pos--; } while (0)</span>
 <a name="l00080"></a><a class="code" href="m__ms_8h.html#a1a18b928484e6e93526a252d4b7e3532">00080</a> <span class="preprocessor"></span><span class="preprocessor">#define SKIP_CHAR(CTX,LEN) do { (CTX)-&gt;pos += (LEN); if ((CTX)-&gt;pos &gt; (CTX)-&gt;end) (CTX)-&gt;pos=(CTX)-&gt;end; } while (0)</span>
 <a name="l00081"></a>00081 <span class="preprocessor"></span>
-<a name="l00092"></a>00092 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="libmangle_8h.html#abd5e852feefdca185545a37ec3c1467e">decode_ms_name</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);
-<a name="l00093"></a>00093 <span class="keywordtype">char</span> *<a class="code" href="libmangle_8h.html#a52dd93638af60175329f20cbab72d77b">encode_ms_name</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc, <a class="code" href="unionu_m_token.html">uMToken</a> *tok);
+<a name="l00092"></a>00092 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="libmangle_8h.html#a14ff3e5c3309017dc99459ef1ffef582">libmangle_decode_ms_name</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);
+<a name="l00093"></a>00093 <span class="keywordtype">char</span> *<a class="code" href="libmangle_8h.html#ad6e58fecfca8cc312a2b09a44e3748fb">libmangle_encode_ms_name</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, <a class="code" href="unionu_m_token.html">uMToken</a> *tok);
 <a name="l00094"></a>00094 
 <a name="l00095"></a>00095 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Oct 2009 for libmangle by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Jul 2010 for libmangle by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

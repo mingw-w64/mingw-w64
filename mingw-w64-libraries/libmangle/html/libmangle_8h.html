@@ -28,59 +28,59 @@
 <p><a href="libmangle_8h_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Data Structures</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_gc_ctx.html">sGcCtx</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a></td></tr>
 <tr><td colspan="2"><h2>Typedefs</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a829cf916a22a3baf7cb7862c5bb5ee4f">pGcElem</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#af17e2fe323e27ccf4827813ee0c8612e">libmangle_gc_t</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a></td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a5d89434e78fb873998f2844e30e0dcb1">release_gc</a> (<a class="el" href="structs_gc_ctx.html">sGcCtx</a> *gc)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#aebd5b8b36fc38cc0e8457ff47e796113">generate_gc</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a33efe0e74d5b28f5e460dcf58e642503">dump_tok</a> (FILE *fp, <a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a> p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a3849f62a8f21021d472a719474d93824">print_decl</a> (FILE *fp, <a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a> p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a44e241bedf1378900bab5367c4921c24">sprint_decl</a> (<a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a> r)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#abd5e852feefdca185545a37ec3c1467e">decode_ms_name</a> (<a class="el" href="structs_gc_ctx.html">sGcCtx</a> *gc, const char *name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a52dd93638af60175329f20cbab72d77b">encode_ms_name</a> (<a class="el" href="structs_gc_ctx.html">sGcCtx</a> *gc, <a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a> tok)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#ac6f10b5d722b67adc42b2efaf4683dc1">libmangle_release_gc</a> (<a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a54257a43469abe9c5f9556a1913bbf2f">libmangle_generate_gc</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#ab22601869037438e47eca7186a4cef65">libmangle_dump_tok</a> (FILE *fp, <a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a> p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a2c4d83f71d35e434250eb2779e29ef29">libmangle_print_decl</a> (FILE *fp, <a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a> p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#abf4af1b2e483a32beb147474853e696b">libmangle_sprint_decl</a> (<a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a> r)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#a14ff3e5c3309017dc99459ef1ffef582">libmangle_decode_ms_name</a> (<a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, const char *name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="libmangle_8h.html#ad6e58fecfca8cc312a2b09a44e3748fb">libmangle_encode_ms_name</a> (<a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, <a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a> tok)</td></tr>
 </table>
 <hr/><h2>Typedef Documentation</h2>
-<a class="anchor" id="a829cf916a22a3baf7cb7862c5bb5ee4f"></a><!-- doxytag: member="libmangle.h::pGcElem" ref="a829cf916a22a3baf7cb7862c5bb5ee4f" args="" -->
+<a class="anchor" id="af17e2fe323e27ccf4827813ee0c8612e"></a><!-- doxytag: member="libmangle.h::libmangle_gc_t" ref="af17e2fe323e27ccf4827813ee0c8612e" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef void* <a class="el" href="libmangle_8h.html#a829cf916a22a3baf7cb7862c5bb5ee4f">pGcElem</a></td>
+          <td class="memname">typedef void* <a class="el" href="libmangle_8h.html#af17e2fe323e27ccf4827813ee0c8612e">libmangle_gc_t</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Garbage collector elements. Tracks allocated memory and points to the next element from the same context. </p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="structs_gc_ctx.html">sGcCtx</a> </dd></dl>
+<p>Garbage collector elements. Tracks allocated memory and points to the next element from the same context. Opaque structure. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a1beb3f335c1aae2c979e02d4e36332ae"></a><!-- doxytag: member="libmangle.h::pMToken" ref="a1beb3f335c1aae2c979e02d4e36332ae" args="" -->
+<a class="anchor" id="a7c9c7d368eb1f52cac14457766a01cc7"></a><!-- doxytag: member="libmangle.h::libmangle_tokens_t" ref="a7c9c7d368eb1f52cac14457766a01cc7" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef void* <a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a></td>
+          <td class="memname">typedef void* <a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Generic token instances. Type of token determined by base descriptor in members. Base descriptor header available in all members through type punning. </p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="m__token_8c.html#ace5f8b4a48ceee9d5b2610ba9ad75a4c">gen_tok()</a> </dd></dl>
+<p>Generic token instances. Type of token determined by base descriptor in members. Opaque structure. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="m__token_8c.html#a3d90ad7945dc89f63c39837ee512fd85">gen_tok()</a> </dd></dl>
 
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="abd5e852feefdca185545a37ec3c1467e"></a><!-- doxytag: member="libmangle.h::decode_ms_name" ref="abd5e852feefdca185545a37ec3c1467e" args="(sGcCtx *gc, const char *name)" -->
+<a class="anchor" id="a14ff3e5c3309017dc99459ef1ffef582"></a><!-- doxytag: member="libmangle.h::libmangle_decode_ms_name" ref="a14ff3e5c3309017dc99459ef1ffef582" args="(libmangle_gc_context_t *gc, const char *name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a> decode_ms_name </td>
+          <td class="memname"><a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a> libmangle_decode_ms_name </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td>
           <td class="paramname"> <em>gc</em>, </td>
         </tr>
         <tr>
@@ -100,26 +100,26 @@
 <p>Decodes an MSVC export name. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>gc</em>&nbsp;</td><td><a class="el" href="structs_gc_ctx.html">sGcCtx</a> pointer for collecting memory allocations. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>gc</em>&nbsp;</td><td><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> pointer for collecting memory allocations. </td></tr>
     <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>name</em>&nbsp;</td><td>MSVC C++ mangled export string. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#a44e241bedf1378900bab5367c4921c24">sprint_decl()</a> </dd>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#abf4af1b2e483a32beb147474853e696b">libmangle_sprint_decl()</a> </dd>
 <dd>
-<a class="el" href="libmangle_8h.html#a5d89434e78fb873998f2844e30e0dcb1">release_gc()</a> </dd>
+<a class="el" href="libmangle_8h.html#ac6f10b5d722b67adc42b2efaf4683dc1">libmangle_release_gc()</a> </dd>
 <dd>
-<a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a> </dd></dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Token containing information about the mangled string, use <a class="el" href="libmangle_8h.html#a5d89434e78fb873998f2844e30e0dcb1">release_gc()</a> to free after use. </dd></dl>
+<a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a> </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Token containing information about the mangled string, use <a class="el" href="libmangle_8h.html#ac6f10b5d722b67adc42b2efaf4683dc1">libmangle_release_gc()</a> to free after use. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a33efe0e74d5b28f5e460dcf58e642503"></a><!-- doxytag: member="libmangle.h::dump_tok" ref="a33efe0e74d5b28f5e460dcf58e642503" args="(FILE *fp, pMToken p)" -->
+<a class="anchor" id="ab22601869037438e47eca7186a4cef65"></a><!-- doxytag: member="libmangle.h::libmangle_dump_tok" ref="ab22601869037438e47eca7186a4cef65" args="(FILE *fp, libmangle_tokens_t p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void dump_tok </td>
+          <td class="memname">void libmangle_dump_tok </td>
           <td>(</td>
           <td class="paramtype">FILE *&nbsp;</td>
           <td class="paramname"> <em>fp</em>, </td>
@@ -127,7 +127,7 @@
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a>&nbsp;</td>
+          <td class="paramtype"><a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a>&nbsp;</td>
           <td class="paramname"> <em>p</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -142,27 +142,27 @@
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>fp</em>&nbsp;</td><td>File descriptor to print the token to. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>p</em>&nbsp;</td><td>pMToken chain to print. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>p</em>&nbsp;</td><td>libmangle_tokens_t chain to print. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a52dd93638af60175329f20cbab72d77b"></a><!-- doxytag: member="libmangle.h::encode_ms_name" ref="a52dd93638af60175329f20cbab72d77b" args="(sGcCtx *gc, pMToken tok)" -->
+<a class="anchor" id="ad6e58fecfca8cc312a2b09a44e3748fb"></a><!-- doxytag: member="libmangle.h::libmangle_encode_ms_name" ref="ad6e58fecfca8cc312a2b09a44e3748fb" args="(libmangle_gc_context_t *gc, libmangle_tokens_t tok)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* encode_ms_name </td>
+          <td class="memname">char* libmangle_encode_ms_name </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td>
           <td class="paramname"> <em>gc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a>&nbsp;</td>
+          <td class="paramtype"><a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a>&nbsp;</td>
           <td class="paramname"> <em>tok</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -176,12 +176,12 @@
 
 </div>
 </div>
-<a class="anchor" id="aebd5b8b36fc38cc0e8457ff47e796113"></a><!-- doxytag: member="libmangle.h::generate_gc" ref="aebd5b8b36fc38cc0e8457ff47e796113" args="(void)" -->
+<a class="anchor" id="a54257a43469abe9c5f9556a1913bbf2f"></a><!-- doxytag: member="libmangle.h::libmangle_generate_gc" ref="a54257a43469abe9c5f9556a1913bbf2f" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structs_gc_ctx.html">sGcCtx</a>* generate_gc </td>
+          <td class="memname"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a>* libmangle_generate_gc </td>
           <td>(</td>
           <td class="paramtype">void&nbsp;</td>
           <td class="paramname"></td>
@@ -193,16 +193,16 @@
 <div class="memdoc">
 <p>Constructs a garbage collection context token. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to context. </dd></dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#a5d89434e78fb873998f2844e30e0dcb1">release_gc()</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#ac6f10b5d722b67adc42b2efaf4683dc1">libmangle_release_gc()</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a3849f62a8f21021d472a719474d93824"></a><!-- doxytag: member="libmangle.h::print_decl" ref="a3849f62a8f21021d472a719474d93824" args="(FILE *fp, pMToken p)" -->
+<a class="anchor" id="a2c4d83f71d35e434250eb2779e29ef29"></a><!-- doxytag: member="libmangle.h::libmangle_print_decl" ref="a2c4d83f71d35e434250eb2779e29ef29" args="(FILE *fp, libmangle_tokens_t p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_decl </td>
+          <td class="memname">void libmangle_print_decl </td>
           <td>(</td>
           <td class="paramtype">FILE *&nbsp;</td>
           <td class="paramname"> <em>fp</em>, </td>
@@ -210,7 +210,7 @@
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a>&nbsp;</td>
+          <td class="paramtype"><a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a>&nbsp;</td>
           <td class="paramname"> <em>p</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -229,18 +229,18 @@
   </table>
   </dd>
 </dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#abd5e852feefdca185545a37ec3c1467e">decode_ms_name()</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#a14ff3e5c3309017dc99459ef1ffef582">libmangle_decode_ms_name()</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a5d89434e78fb873998f2844e30e0dcb1"></a><!-- doxytag: member="libmangle.h::release_gc" ref="a5d89434e78fb873998f2844e30e0dcb1" args="(sGcCtx *gc)" -->
+<a class="anchor" id="ac6f10b5d722b67adc42b2efaf4683dc1"></a><!-- doxytag: member="libmangle.h::libmangle_release_gc" ref="ac6f10b5d722b67adc42b2efaf4683dc1" args="(libmangle_gc_context_t *gc)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void release_gc </td>
+          <td class="memname">void libmangle_release_gc </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_gc_ctx.html">sGcCtx</a> *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *&nbsp;</td>
           <td class="paramname"> <em>gc</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -255,18 +255,18 @@
   </table>
   </dd>
 </dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#aebd5b8b36fc38cc0e8457ff47e796113">generate_gc()</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#a54257a43469abe9c5f9556a1913bbf2f">libmangle_generate_gc()</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a44e241bedf1378900bab5367c4921c24"></a><!-- doxytag: member="libmangle.h::sprint_decl" ref="a44e241bedf1378900bab5367c4921c24" args="(pMToken r)" -->
+<a class="anchor" id="abf4af1b2e483a32beb147474853e696b"></a><!-- doxytag: member="libmangle.h::libmangle_sprint_decl" ref="abf4af1b2e483a32beb147474853e696b" args="(libmangle_tokens_t r)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* sprint_decl </td>
+          <td class="memname">char* libmangle_sprint_decl </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="libmangle_8h.html#a1beb3f335c1aae2c979e02d4e36332ae">pMToken</a>&nbsp;</td>
+          <td class="paramtype"><a class="el" href="libmangle_8h.html#a7c9c7d368eb1f52cac14457766a01cc7">libmangle_tokens_t</a>&nbsp;</td>
           <td class="paramname"> <em>r</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -282,12 +282,12 @@
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>pointer to decoded C++ name string. </dd></dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#abd5e852feefdca185545a37ec3c1467e">decode_ms_name()</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="libmangle_8h.html#a14ff3e5c3309017dc99459ef1ffef582">libmangle_decode_ms_name()</a> </dd></dl>
 
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Oct 2009 for libmangle by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Jul 2010 for libmangle by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

@@ -23,7 +23,7 @@
     </ul>
   </div>
 <h1>src/m_token.h</h1><a href="m__token_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment">   Copyright (c) 2009 mingw-w64 project</span>
+<a name="l00002"></a>00002 <span class="comment">   Copyright (c) 2009, 2010 mingw-w64 project</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">   Contributing authors: Kai Tietz, Jonathan Yong</span>
 <a name="l00005"></a>00005 <span class="comment"></span>
@@ -54,10 +54,10 @@
 <a name="l00035"></a><a class="code" href="structs_gc_elem.html#a9b0deb41a0551f5867e262c05cf9511b">00035</a>   <span class="keywordtype">char</span> <a class="code" href="structs_gc_elem.html#a9b0deb41a0551f5867e262c05cf9511b">dta</a>[1];                  
 <a name="l00036"></a>00036 } <a class="code" href="structs_gc_elem.html">sGcElem</a>;
 <a name="l00037"></a>00037 
-<a name="l00044"></a>00044 <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structs_gc_ctx.html">sGcCtx</a> {
-<a name="l00045"></a><a class="code" href="structs_gc_ctx.html#a58c4538a1280f5ea13b766d3aac7ffc9">00045</a>   <a class="code" href="structs_gc_elem.html">sGcElem</a> *<a class="code" href="structs_gc_ctx.html#a27af5bbc070bf61ab0c5b7f773e9ac12">head</a>;                
-<a name="l00046"></a><a class="code" href="structs_gc_ctx.html#a1c9b8ab596f0b71e21200a07e355f3ec">00046</a>   <a class="code" href="structs_gc_elem.html">sGcElem</a> *<a class="code" href="structs_gc_ctx.html#a8645b0e7f4a397e8a002a9e33d1d9a6e">tail</a>;                
-<a name="l00047"></a>00047 } <a class="code" href="structs_gc_ctx.html">sGcCtx</a>;
+<a name="l00044"></a>00044 <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> {
+<a name="l00045"></a><a class="code" href="structlibmangle__gc__context__t.html#a8ab8fca04c3ee04275e085898817a4e8">00045</a>   <a class="code" href="structs_gc_elem.html">sGcElem</a> *<a class="code" href="structlibmangle__gc__context__t.html#a87a971b39a14440678c40974f56bbf08">head</a>;                
+<a name="l00046"></a><a class="code" href="structlibmangle__gc__context__t.html#a194fd1438df6900a61b545e0e2dad866">00046</a>   <a class="code" href="structs_gc_elem.html">sGcElem</a> *<a class="code" href="structlibmangle__gc__context__t.html#a26e6a7692028d660e4a8224e14f0c3f6">tail</a>;                
+<a name="l00047"></a>00047 } <a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a>;
 <a name="l00048"></a>00048 
 <a name="l00055"></a><a class="code" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebd">00055</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebd">eMToken</a> {
 <a name="l00056"></a><a class="code" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebdaab5d1cb176ec018a7dd2e1debed34b98">00056</a>   <a class="code" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebdaab5d1cb176ec018a7dd2e1debed34b98">eMToken_none</a> = 0,                
@@ -188,33 +188,33 @@
 <a name="l00235"></a><a class="code" href="unionu_m_token.html#a7a0e65155e6a9f49c3cd18c682071bb6">00235</a>   <a class="code" href="structs_m_token__binary.html">sMToken_binary</a> <a class="code" href="unionu_m_token.html#a7a0e65155e6a9f49c3cd18c682071bb6">binary</a>;    
 <a name="l00236"></a>00236 } <a class="code" href="unionu_m_token.html">uMToken</a>;
 <a name="l00237"></a>00237 
-<a name="l00247"></a>00247 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#ace5f8b4a48ceee9d5b2610ba9ad75a4c">gen_tok</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebd">eMToken</a> kind, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> subkind, <span class="keywordtype">size_t</span> addend);
+<a name="l00247"></a>00247 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8h.html#abeb019f98a7616488287af32a6f9e51b">libmangle_gen_tok</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#a50bee8455836804dd921dd275b0bcebd">eMToken</a> kind, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> subkind, <span class="keywordtype">size_t</span> addend);
 <a name="l00248"></a>00248 
-<a name="l00254"></a>00254 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#a5d89434e78fb873998f2844e30e0dcb1">release_gc</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc);
+<a name="l00254"></a>00254 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#ac6f10b5d722b67adc42b2efaf4683dc1">libmangle_release_gc</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc);
 <a name="l00255"></a>00255 
-<a name="l00261"></a>00261 <a class="code" href="structs_gc_ctx.html">sGcCtx</a> *<a class="code" href="libmangle_8h.html#aebd5b8b36fc38cc0e8457ff47e796113">generate_gc</a> (<span class="keywordtype">void</span>);
+<a name="l00261"></a>00261 <a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *<a class="code" href="libmangle_8h.html#a54257a43469abe9c5f9556a1913bbf2f">libmangle_generate_gc</a> (<span class="keywordtype">void</span>);
 <a name="l00262"></a>00262 
 <a name="l00269"></a>00269 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#a50ef074a3d1cf22f842abd4df7081743">chain_tok</a> (<a class="code" href="unionu_m_token.html">uMToken</a> *l, <a class="code" href="unionu_m_token.html">uMToken</a> *add);
 <a name="l00270"></a>00270 
-<a name="l00276"></a>00276 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#a33efe0e74d5b28f5e460dcf58e642503">dump_tok</a> (FILE *fp, <a class="code" href="unionu_m_token.html">uMToken</a> *p);
+<a name="l00276"></a>00276 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#ab22601869037438e47eca7186a4cef65">libmangle_dump_tok</a> (FILE *fp, <a class="code" href="unionu_m_token.html">uMToken</a> *p);
 <a name="l00277"></a>00277 
-<a name="l00284"></a>00284 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#a3849f62a8f21021d472a719474d93824">print_decl</a> (FILE *fp, <a class="code" href="unionu_m_token.html">uMToken</a> *p);
+<a name="l00284"></a>00284 <span class="keywordtype">void</span> <a class="code" href="libmangle_8h.html#a2c4d83f71d35e434250eb2779e29ef29">libmangle_print_decl</a> (FILE *fp, <a class="code" href="unionu_m_token.html">uMToken</a> *p);
 <a name="l00285"></a>00285 
-<a name="l00293"></a>00293 <span class="keywordtype">char</span> *<a class="code" href="libmangle_8h.html#a44e241bedf1378900bab5367c4921c24">sprint_decl</a> (<a class="code" href="unionu_m_token.html">uMToken</a> *r);
+<a name="l00293"></a>00293 <span class="keywordtype">char</span> *<a class="code" href="libmangle_8h.html#abf4af1b2e483a32beb147474853e696b">libmangle_sprint_decl</a> (<a class="code" href="unionu_m_token.html">uMToken</a> *r);
 <a name="l00294"></a>00294 
-<a name="l00305"></a>00305 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#a3b64dc961fdbac6f6908ec924e3ee6e1">gen_value</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, uint64_t val, <span class="keywordtype">int</span> is_signed, <span class="keywordtype">int</span> size);
+<a name="l00305"></a>00305 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#a5e98df3f83afcc6e9e1f079091c0e567">gen_value</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, uint64_t val, <span class="keywordtype">int</span> is_signed, <span class="keywordtype">int</span> size);
 <a name="l00306"></a>00306 
-<a name="l00315"></a>00315 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#a9a309ae8be7bf65c087195c156fbf9f8">gen_name</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);
+<a name="l00315"></a>00315 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#ac1a6fe5d506c4fd78650742da8d9e669">gen_name</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);
 <a name="l00316"></a>00316 
-<a name="l00328"></a>00328 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#a0a622c481e414c967b27eaa3edbc6e25">gen_dim</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, uint64_t val, <span class="keyword">const</span> <span class="keywordtype">char</span> *non_tt_param, <span class="keywordtype">int</span> fSigned, <span class="keywordtype">int</span> fNegate);
+<a name="l00328"></a>00328 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#aced2d2323162ca5846cdb13d631169d6">gen_dim</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, uint64_t val, <span class="keyword">const</span> <span class="keywordtype">char</span> *non_tt_param, <span class="keywordtype">int</span> fSigned, <span class="keywordtype">int</span> fNegate);
 <a name="l00329"></a>00329 
-<a name="l00338"></a>00338 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#a179397b41a7f31d461ddf8bb40a4f33a">gen_unary</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, <a class="code" href="unionu_m_token.html">uMToken</a> *un);
+<a name="l00338"></a>00338 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#a8c630a1c57e3d4f5009448af0d43fbb8">gen_unary</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, <a class="code" href="unionu_m_token.html">uMToken</a> *un);
 <a name="l00339"></a>00339 
-<a name="l00349"></a>00349 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#a6615855ec116031800e49e543031d34e">gen_binary</a> (<a class="code" href="structs_gc_ctx.html">sGcCtx</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, <a class="code" href="unionu_m_token.html">uMToken</a> *l, <a class="code" href="unionu_m_token.html">uMToken</a> *r);
+<a name="l00349"></a>00349 <a class="code" href="unionu_m_token.html">uMToken</a> *<a class="code" href="m__token_8c.html#a0deb555c3210a60f0b5189ae462ed620">gen_binary</a> (<a class="code" href="structlibmangle__gc__context__t.html">libmangle_gc_context_t</a> *gc, <span class="keyword">enum</span> <a class="code" href="m__token_8h.html#ad211982ef565f0550b5f86e4d15c6321">eMSToken</a> skind, <a class="code" href="unionu_m_token.html">uMToken</a> *l, <a class="code" href="unionu_m_token.html">uMToken</a> *r);
 <a name="l00350"></a>00350 
 <a name="l00351"></a>00351 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 10 Oct 2009 for libmangle by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Jul 2010 for libmangle by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
