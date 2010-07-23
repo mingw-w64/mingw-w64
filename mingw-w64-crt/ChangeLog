@@ -1,3 +1,9 @@
+2010-07-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+        * lib32/advapi32.def (DuplicateEncryptionInfoFile): Fix __stdcall
+        suffix (@8 to @20).
+        (UninstallApplication): Likewise (@4 to @8).
+
 2010-07-21  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* crt/gs_support.c:  Change the included headers to get the

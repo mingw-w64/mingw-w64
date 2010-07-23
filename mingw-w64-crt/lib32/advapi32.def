@@ -139,7 +139,7 @@ DeleteAce@8
 DeleteService@4
 DeregisterEventSource@4
 DestroyPrivateObjectSecurity@4
-DuplicateEncryptionInfoFile@8
+DuplicateEncryptionInfoFile@20
 DuplicateToken@12
 DuplicateTokenEx@24
 ElfBackupEventLogFileA@8
@@ -532,7 +532,7 @@ TraceEvent@12
 TraceEventInstance@20
 TrusteeAccessToObjectA@24
 TrusteeAccessToObjectW@24
-UninstallApplication@4
+UninstallApplication@8
 UnlockServiceDatabase@4
 UnregisterTraceGuids@8
 WriteEncryptedFileRaw@12
