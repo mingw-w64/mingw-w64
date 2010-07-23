@@ -12,7 +12,7 @@ static void set_pow_msvcrt(void)
   fpow = (my_pow) GetProcAddress (hMod, "pow");
 }
 
-static double pow_by_log_exp (double x, double y)
+static __attribute__((noinline)) double pow_by_log_exp (double x, double y)
 {
   /* pow(x, n) = exp(n * log(x)) */
   return exp(y * log(x));
