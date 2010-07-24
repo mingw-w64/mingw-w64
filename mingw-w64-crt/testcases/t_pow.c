@@ -15,6 +15,16 @@ static void set_pow_msvcrt(void)
 static __attribute__((noinline)) double pow_by_log_exp (double x, double y)
 {
   /* pow(x, n) = exp(n * log(x)) */
+  if (x < 0.0)
+  {
+    long v = (long) y;
+    x = exp(y * log (-x));
+    if ((double) v == y && (v&1) != 0)
+	{
+	  x = -x;
+	}
+    return x;
+  }
   return exp(y * log(x));
 }
 
@@ -40,12 +50,21 @@ int main (int argc, char **argv)
   int e = (argc > 1 ? atoi(argv[1]) : 20000000);
   printf ("Current implementation in libmingwex: ");
   test (e);
+  printf ("pow(-1.0, 2) = %g\n", (*fpow)(-1.0, 2.0));
+  printf ("pow(-1.0, 2.2) = %g\n", (*fpow)(-1.0, 2.2));
+  printf ("pow(2.0, -1) = %g\n", (*fpow)(2.0,-1.0));
   set_pow_msvcrt ();
   printf ("Implementation in msvcrt.dll: ");
   test (e);
+  printf ("pow(-1.0, 2) = %g\n", (*fpow)(-1.0, 2.0));
+  printf ("pow(-1.0, 2.2) = %g\n", (*fpow)(-1.0, 2.2));
+  printf ("pow(2.0, -1) = %g\n", (*fpow)(2.0,-1.0));
   fpow = pow_by_log_exp;
   printf ("Implementation by exp and log: ");
   test (e);
+  printf ("pow(-1.0, 2) = %g\n", (*fpow)(-1.0, 2.0));
+  printf ("pow(-1.0, 2.2) = %g\n", (*fpow)(-1.0, 2.2));
+  printf ("pow(2.0, -1) = %g\n", (*fpow)(2.0,-1.0));
   return 0;
 }
 
