@@ -31,12 +31,6 @@
 #endif /* MIDL_PASS */
 #endif /* EVNTAPI */
 
-#ifndef FORCEINLINE
-#ifdef __GNUC__
-#define FORCEINLINE __attribute((always_inline))
-#endif /*__GNUC__*/
-#endif /*FORCEINLINE*/
-
 #ifdef __cplusplus
 extern "C" {
 #endif
