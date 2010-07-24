@@ -3291,12 +3291,12 @@ KSDDKAPI PUNICODE_STRING NTAPI KsFilterFactoryGetSymbolicLink
 
 KSDDKAPI void NTAPI KsAddEvent(PVOID Object, PKSEVENT_ENTRY EventEntry);
 
-void __forceinline KsFilterAddEvent (PKSFILTER Filter, PKSEVENT_ENTRY EventEntry)
+__forceinline void KsFilterAddEvent (PKSFILTER Filter, PKSEVENT_ENTRY EventEntry)
 {
 	KsAddEvent(Filter, EventEntry);
 }
 
-void __forceinline KsPinAddEvent (PKSPIN Pin, PKSEVENT_ENTRY EventEntry)
+__forceinline void KsPinAddEvent (PKSPIN Pin, PKSEVENT_ENTRY EventEntry)
 {
 	KsAddEvent(Pin, EventEntry);
 }
@@ -3309,7 +3309,7 @@ KSDDKAPI void NTAPI KsGenerateEvents
 			 ULONG DataSize, PVOID Data, PFNKSGENERATEEVENTCALLBACK CallBack,
 			 PVOID CallBackContext);
 
-void __forceinline KsFilterGenerateEvents
+__forceinline void KsFilterGenerateEvents
 			(PKSFILTER Filter, const GUID *EventSet, ULONG EventId,
 			 ULONG DataSize, PVOID Data, PFNKSGENERATEEVENTCALLBACK CallBack,
 			 PVOID CallBackContext)
@@ -3318,7 +3318,7 @@ void __forceinline KsFilterGenerateEvents
 			 CallBackContext);
 }
 
-void __forceinline KsPinGenerateEvents
+__forceinline void KsPinGenerateEvents
 			(PKSPIN Pin, const GUID *EventSet, ULONG EventId,
 			 ULONG DataSize, PVOID Data, PFNKSGENERATEEVENTCALLBACK CallBack,
 			 PVOID CallBackContext)
@@ -3384,12 +3384,12 @@ KSDDKAPI KSOBJECTTYPE NTAPI KsGetObjectTypeFromIrp (PIRP Irp);
 KSDDKAPI PVOID NTAPI KsGetObjectFromFileObject (PFILE_OBJECT FileObject);
 KSDDKAPI KSOBJECTTYPE NTAPI KsGetObjectTypeFromFileObject (PFILE_OBJECT FileObject);
 
-PKSFILTER __forceinline KsGetFilterFromFileObject (PFILE_OBJECT FileObject)
+__forceinline PKSFILTER KsGetFilterFromFileObject (PFILE_OBJECT FileObject)
 {
 	return (PKSFILTER) KsGetObjectFromFileObject(FileObject);
 }
 
-PKSPIN __forceinline KsGetPinFromFileObject (PFILE_OBJECT FileObject)
+__forceinline PKSPIN KsGetPinFromFileObject (PFILE_OBJECT FileObject)
 {
 	return (PKSPIN) KsGetObjectFromFileObject(FileObject);
 }
@@ -3411,12 +3411,12 @@ KSDDKAPI void NTAPI KsPinGetCopyRelationships
 KSDDKAPI void NTAPI KsPinAttemptProcessing(PKSPIN Pin, BOOLEAN Asynchronous);
 KSDDKAPI PVOID NTAPI KsGetParent (PVOID Object);
 
-PKSDEVICE __forceinline KsFilterFactoryGetParentDevice (PKSFILTERFACTORY FilterFactory)
+__forceinline PKSDEVICE KsFilterFactoryGetParentDevice (PKSFILTERFACTORY FilterFactory)
 {
 	return (PKSDEVICE) KsGetParent((PVOID) FilterFactory);
 }
 
-PKSFILTERFACTORY __forceinline KsFilterGetParentFilterFactory (PKSFILTER Filter)
+__forceinline PKSFILTERFACTORY KsFilterGetParentFilterFactory (PKSFILTER Filter)
 {
 	return (PKSFILTERFACTORY) KsGetParent((PVOID) Filter);
 }
@@ -3424,12 +3424,12 @@ PKSFILTERFACTORY __forceinline KsFilterGetParentFilterFactory (PKSFILTER Filter)
 KSDDKAPI PKSFILTER NTAPI KsPinGetParentFilter (PKSPIN Pin);
 KSDDKAPI PVOID NTAPI KsGetFirstChild (PVOID Object);
 
-PKSFILTERFACTORY __forceinline KsDeviceGetFirstChildFilterFactory (PKSDEVICE Device)
+__forceinline PKSFILTERFACTORY KsDeviceGetFirstChildFilterFactory (PKSDEVICE Device)
 {
 	return (PKSFILTERFACTORY) KsGetFirstChild((PVOID) Device);
 }
 
-PKSFILTER __forceinline KsFilterFactoryGetFirstChildFilter (PKSFILTERFACTORY FilterFactory)
+__forceinline PKSFILTER KsFilterFactoryGetFirstChildFilter (PKSFILTERFACTORY FilterFactory)
 {
 	return (PKSFILTER) KsGetFirstChild((PVOID) FilterFactory);
 }
@@ -3439,30 +3439,30 @@ KSDDKAPI PKSPIN NTAPI KsFilterGetFirstChildPin(PKSFILTER Filter, ULONG PinId);
 KSDDKAPI PVOID NTAPI KsGetNextSibling (PVOID Object);
 KSDDKAPI PKSPIN NTAPI KsPinGetNextSiblingPin (PKSPIN Pin);
 
-PKSFILTERFACTORY __forceinline KsFilterFactoryGetNextSiblingFilterFactory
+__forceinline PKSFILTERFACTORY KsFilterFactoryGetNextSiblingFilterFactory
 			(PKSFILTERFACTORY FilterFactory)
 {
 	return (PKSFILTERFACTORY) KsGetNextSibling((PVOID) FilterFactory);
 }
 
-PKSFILTER __forceinline KsFilterGetNextSiblingFilter (PKSFILTER Filter)
+__forceinline PKSFILTER KsFilterGetNextSiblingFilter (PKSFILTER Filter)
 {
 	return (PKSFILTER) KsGetNextSibling((PVOID) Filter);
 }
 
 KSDDKAPI PKSDEVICE NTAPI KsGetDevice (PVOID Object);
 
-PKSDEVICE __forceinline KsFilterFactoryGetDevice (PKSFILTERFACTORY FilterFactory)
+__forceinline PKSDEVICE KsFilterFactoryGetDevice (PKSFILTERFACTORY FilterFactory)
 {
 	return KsGetDevice((PVOID) FilterFactory);
 }
 
-PKSDEVICE __forceinline KsFilterGetDevice (PKSFILTER Filter)
+__forceinline PKSDEVICE KsFilterGetDevice (PKSFILTER Filter)
 {
 	return KsGetDevice((PVOID) Filter);
 }
 
-PKSDEVICE __forceinline KsPinGetDevice (PKSPIN Pin)
+__forceinline PKSDEVICE KsPinGetDevice (PKSPIN Pin)
 {
 	return KsGetDevice((PVOID) Pin);
 }
@@ -3473,22 +3473,22 @@ KSDDKAPI ULONG NTAPI KsGetNodeIdFromIrp (PIRP Irp);
 KSDDKAPI void NTAPI KsAcquireControl (PVOID Object);
 KSDDKAPI void NTAPI KsReleaseControl (PVOID Object);
 
-void __forceinline KsFilterAcquireControl (PKSFILTER Filter)
+__forceinline void KsFilterAcquireControl (PKSFILTER Filter)
 {
 	KsAcquireControl((PVOID) Filter);
 }
 
-void __forceinline KsFilterReleaseControl (PKSFILTER Filter)
+__forceinline void KsFilterReleaseControl (PKSFILTER Filter)
 {
 	KsReleaseControl((PVOID) Filter);
 }
 
-void __forceinline KsPinAcquireControl (PKSPIN Pin)
+__forceinline void KsPinAcquireControl (PKSPIN Pin)
 {
 	KsAcquireControl((PVOID) Pin);
 }
 
-void __forceinline KsPinReleaseControl (PKSPIN Pin)
+__forceinline void KsPinReleaseControl (PKSPIN Pin)
 {
 	KsReleaseControl((PVOID) Pin);
 }
@@ -3581,46 +3581,46 @@ KSDDKAPI PUNKNOWN NTAPI KsRegisterAggregatedClientUnknown
 
 KSDDKAPI PUNKNOWN NTAPI KsGetOuterUnknown (PVOID Object);
 
-PUNKNOWN __forceinline KsDeviceRegisterAggregatedClientUnknown
+__forceinline PUNKNOWN KsDeviceRegisterAggregatedClientUnknown
 			(PKSDEVICE Device, PUNKNOWN ClientUnknown)
 {
 	return KsRegisterAggregatedClientUnknown((PVOID)Device, ClientUnknown);
 }
 
-PUNKNOWN __forceinline KsDeviceGetOuterUnknown (PKSDEVICE Device)
+__forceinline PUNKNOWN KsDeviceGetOuterUnknown (PKSDEVICE Device)
 {
 	return KsGetOuterUnknown((PVOID) Device);
 }
 
-PUNKNOWN __forceinline KsFilterFactoryRegisterAggregatedClientUnknown
+__forceinline PUNKNOWN KsFilterFactoryRegisterAggregatedClientUnknown
 			(PKSFILTERFACTORY FilterFactory, PUNKNOWN ClientUnknown)
 {
 	return KsRegisterAggregatedClientUnknown((PVOID)FilterFactory, ClientUnknown);
 }
 
-PUNKNOWN __forceinline KsFilterFactoryGetOuterUnknown (PKSFILTERFACTORY FilterFactory)
+__forceinline PUNKNOWN KsFilterFactoryGetOuterUnknown (PKSFILTERFACTORY FilterFactory)
 {
 	return KsGetOuterUnknown((PVOID)FilterFactory);
 }
 
-PUNKNOWN __forceinline KsFilterRegisterAggregatedClientUnknown
+__forceinline PUNKNOWN KsFilterRegisterAggregatedClientUnknown
 			(PKSFILTER Filter, PUNKNOWN ClientUnknown)
 {
 	return KsRegisterAggregatedClientUnknown((PVOID)Filter, ClientUnknown);
 }
 
-PUNKNOWN __forceinline KsFilterGetOuterUnknown (PKSFILTER Filter)
+__forceinline PUNKNOWN KsFilterGetOuterUnknown (PKSFILTER Filter)
 {
 	return KsGetOuterUnknown((PVOID)Filter);
 }
 
-PUNKNOWN __forceinline KsPinRegisterAggregatedClientUnknown
+__forceinline PUNKNOWN KsPinRegisterAggregatedClientUnknown
 			(PKSPIN Pin, PUNKNOWN ClientUnknown)
 {
 	return KsRegisterAggregatedClientUnknown((PVOID)Pin, ClientUnknown);
 }
 
-PUNKNOWN __forceinline KsPinGetOuterUnknown (PKSPIN Pin)
+__forceinline PUNKNOWN KsPinGetOuterUnknown (PKSPIN Pin)
 {
 	return KsGetOuterUnknown((PVOID)Pin);
 }
