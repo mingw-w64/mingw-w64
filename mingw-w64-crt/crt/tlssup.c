@@ -44,8 +44,8 @@ typedef struct TlsDtorNode {
 ULONG _tls_index = 0;
 
 /* TLS raw template data start and end. */
-_CRTALLOC(".tls$AAA") char _tls_start = 0;
-_CRTALLOC(".tls$ZZZ") char _tls_end = 0;
+_CRTALLOC(".tls$AAA") char _tls_start = 0xfe;
+_CRTALLOC(".tls$ZZZ") char _tls_end = 0xff;
 
 _CRTALLOC(".CRT$XLA") PIMAGE_TLS_CALLBACK __xl_a = 0;
 _CRTALLOC(".CRT$XLZ") PIMAGE_TLS_CALLBACK __xl_z = 0;
@@ -73,8 +73,8 @@ _CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY _tls_used = {
 
 #define DISABLE_MS_TLS 1
 
-static _CRTALLOC(".CRT$XDA") _PVFV __xd_a = 0;
-static _CRTALLOC(".CRT$XDZ") _PVFV __xd_z = 0;
+_CRTALLOC(".CRT$XDA") _PVFV __xd_a = (_PVFV) 1;
+_CRTALLOC(".CRT$XDZ") _PVFV __xd_z =  (_PVFV) 2;
 
 #if !defined (DISABLE_MS_TLS)
 static __CRT_THREAD TlsDtorNode *dtor_list;
@@ -134,12 +134,16 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
         __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
       return TRUE;
     }
-
-  for (pfunc = &__xd_a + 1; pfunc != &__xd_z; ++pfunc)
-    {
-      if (*pfunc != NULL)
-	(*pfunc)();
-    }
+  if ((&__xd_a + 1) < &__xd_z)
+  {
+    for (pfunc = &__xd_a + 1; pfunc != &__xd_z; ++pfunc)
+      {
+	if (*pfunc == (_PVFV) 2)
+	  break;
+	if (*pfunc != NULL)
+	  (*pfunc)();
+      }
+  }
   return TRUE;
 }
 
