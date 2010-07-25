@@ -1,3 +1,9 @@
+2010-07-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/pow.c: Replaced by new implementation.
+	* math/powl.c: Likewise.
+	* math/pow.def.h: New pow implementation as template.
+
 2010-07-22  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/ntoskrnl.def (WmiTraceMessageVa): Activated the export.
