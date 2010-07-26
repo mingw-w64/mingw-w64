@@ -101,8 +101,8 @@ EtwReplyNotification@4
 EtwSendNotification@20
 EtwSetMark@16
 EtwTraceEventInstance@20
-EtwTraceMessage@0
-EtwTraceMessageVa@24
+EtwTraceMessage
+EtwTraceMessageVa
 EtwUnregisterTraceGuids@8
 EtwWriteUMSecurityEvent@16
 EtwpCreateEtwThread@8

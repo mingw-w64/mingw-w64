@@ -1846,7 +1846,7 @@ WheaInitializeRecordHeader@4
 WheaReportHwError@4
 WmiQueryTraceInformation@20
 WmiTraceMessage
-;WmiTraceMessageVa
+WmiTraceMessageVa
 XIPDispatch@12
 ZwAccessCheckAndAuditAlarm@44
 ZwAddBootEntry@8

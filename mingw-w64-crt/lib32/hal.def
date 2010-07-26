@@ -12,12 +12,12 @@ HalClearSoftwareInterrupt@0
 HalRequestClockInterrupt@0
 HalRequestSoftwareInterrupt@0
 HalSystemVectorDispatchEntry@4
-KeAcquireInStackQueuedSpinLock@0
+@KeAcquireInStackQueuedSpinLock@8
 KeAcquireInStackQueuedSpinLockRaiseToSynch@0
 KeAcquireQueuedSpinLock@0
 KeAcquireQueuedSpinLockRaiseToSynch@0
 KeAcquireSpinLockRaiseToSynch@0
-KeReleaseInStackQueuedSpinLock@0
+@KeReleaseInStackQueuedSpinLock@4
 KeReleaseQueuedSpinLock@0
 KeTryToAcquireQueuedSpinLock@0
 KeTryToAcquireQueuedSpinLockRaiseToSynch@0
