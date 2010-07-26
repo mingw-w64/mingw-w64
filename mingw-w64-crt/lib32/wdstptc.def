@@ -5,9 +5,11 @@
 ;
 LIBRARY "WDSTPTC.dll"
 EXPORTS
-WdsTptcDownload@32
+;WdsTptcDownload@36
+WdsTransportClientRegisterTrace@4
 WdsTransportClientAddRefBuffer@4
 WdsTransportClientCancelSession@4
+WdsTransportClientCancelSessionEx@8
 WdsTransportClientCloseSession@4
 WdsTransportClientCompleteReceive@12
 WdsTransportClientInitialize@0
