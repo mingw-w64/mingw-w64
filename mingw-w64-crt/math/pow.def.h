@@ -45,22 +45,22 @@
 /* IEEE 754 - Elementary Functions - Special Cases
  * pow(+/-0, oo) is +0
  * pow(+/-0, -oo) is +oo
- * pow (x, ±0) is 1 for any x (even a zero, quiet NaN, or infinity)
+ * pow (x, +/-0) is 1 for any x (even a zero, quiet NaN, or infinity)
  * pow (+1, y) is 1 for any y (even a quiet NaN)
- * pow (±0, y) is ±oo and signals the divideByZero exception for y an odd integer < 0
- * pow (±0, y) is +oo and signals the divideByZero exception for finite y < 0 and not an odd integer
- * pow (±0, y) is ±0 for finite y > 0 an odd integer
- * pow (±0, y) is +0 for finite y > 0 and not an odd integer
- * pow (-1, ±oo) is 1 with no exception
+ * pow (+/-0, y) is +/-oo and signals the divideByZero exception for y an odd integer < 0
+ * pow (+/-0, y) is +oo and signals the divideByZero exception for finite y < 0 and not an odd integer
+ * pow (+/-0, y) is +/-0 for finite y > 0 an odd integer
+ * pow (+/-0, y) is +0 for finite y > 0 and not an odd integer
+ * pow (-1, +/-oo) is 1 with no exception
  pow( -inf, y) = +0 for y<0 and not an odd integer
  pow( -inf, y) = -inf for y an odd integer > 0
  pow( -inf, y) = +inf for y>0 and not an odd integer
- pow (±inf, y) is ±0 with no exception for y an odd integer < 0
- pow (±inf, -inf) is +0 with no exception
- pow (±inf, +inf) is +inf with no exception
- pow (±inf, y) is +0 with no exception for finite y < 0 and not an odd integer
- pow (±inf, y) is ±inf with no exception for finite y > 0 an odd integer
- pow (±inf, y) is +inf with no exception for finite y > 0 and not an odd integer
+ pow (+/-inf, y) is +/-0 with no exception for y an odd integer < 0
+ pow (+/-inf, -inf) is +0 with no exception
+ pow (+/-inf, +inf) is +inf with no exception
+ pow (+/-inf, y) is +0 with no exception for finite y < 0 and not an odd integer
+ pow (+/-inf, y) is +/-inf with no exception for finite y > 0 an odd integer
+ pow (+/-inf, y) is +inf with no exception for finite y > 0 and not an odd integer
  pow (x, y) signals the invalid operation exception for finite x < 0 and finite non-integer y.
  
  For x /= 0: lim y->oo (1/x)^y results as: for |x| < 1 that sgn(x)*0 and for |x| > 0 that sgn(x)*Infinity
@@ -137,14 +137,14 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
       /* pow( -inf, y) = +inf for y>0 and not an odd integer.  */
       if (signbit(x) && !signbit(y) && !odd_y)
 	return __FLT_HUGE_VAL;
-      /* pow (±inf, y) is ±0 with no exception for y an odd integer < 0. */
+      /* pow (+/-inf, y) is +/-0 with no exception for y an odd integer < 0. */
       if (signbit(y))
       {
-        /* pow (±inf, y) is +0 with no exception for finite y < 0 and not an odd integer.  */
+        /* pow (+/-inf, y) is +0 with no exception for finite y < 0 and not an odd integer.  */
 	return (odd_y && signbit(x) ? -__FLT_CST(0.0) : __FLT_CST(0.0));
       }
-      /* pow (±inf, y) is ±inf with no exception for finite y > 0 an odd integer.  */
-      /* pow (±inf, y) is +inf with no exception for finite y > 0 and not an odd integer.  */
+      /* pow (+/-inf, y) is +/-inf with no exception for finite y > 0 an odd integer.  */
+      /* pow (+/-inf, y) is +inf with no exception for finite y > 0 and not an odd integer.  */
       return (odd_y && signbit(x) ? -__FLT_HUGE_VAL : __FLT_HUGE_VAL);
     }
 
