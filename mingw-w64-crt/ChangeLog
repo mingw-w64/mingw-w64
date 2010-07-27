@@ -1,5 +1,10 @@
 2010-07-26  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* Makefile.am (lib64_DATA): Fix entries for libwdscsl.a and libpcwum.a.
+	* Makefile.in: Regenerate.
+
+2010-07-26  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* lib32/ndis.def (NdisWriteErrorLogEntry): Remove __stdcall suffix,
 	function is __cdecl.
 	* lib32/advapi32.def (TraceMessageVa): Likewise.
