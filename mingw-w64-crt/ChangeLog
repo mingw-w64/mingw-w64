@@ -1,4 +1,10 @@
-2010-07-26  Ozkan Sezer  <sezeroz@gmail.com>
+2010-07-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	Fix for gcc-4.6 (trunk), PR/45075:
+	* crt/tlssup.c: Access section variable pointers via uintptr_t. Revert
+	revision 2961.
+
+2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Makefile.am (lib64_DATA): Fix entries for libwdscsl.a and libpcwum.a.
 	* Makefile.in: Regenerate.

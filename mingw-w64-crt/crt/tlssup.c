@@ -44,8 +44,8 @@ typedef struct TlsDtorNode {
 ULONG _tls_index = 0;
 
 /* TLS raw template data start and end. */
-_CRTALLOC(".tls$AAA") char _tls_start = 0xfe;
-_CRTALLOC(".tls$ZZZ") char _tls_end = 0xff;
+_CRTALLOC(".tls$AAA") char _tls_start = 0;
+_CRTALLOC(".tls$ZZZ") char _tls_end = 0;
 
 _CRTALLOC(".CRT$XLA") PIMAGE_TLS_CALLBACK __xl_a = 0;
 _CRTALLOC(".CRT$XLZ") PIMAGE_TLS_CALLBACK __xl_z = 0;
@@ -73,8 +73,8 @@ _CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY _tls_used = {
 
 #define DISABLE_MS_TLS 1
 
-_CRTALLOC(".CRT$XDA") _PVFV __xd_a = (_PVFV) 1;
-_CRTALLOC(".CRT$XDZ") _PVFV __xd_z =  (_PVFV) 2;
+static _CRTALLOC(".CRT$XDA") _PVFV __xd_a = 0;
+static _CRTALLOC(".CRT$XDZ") _PVFV __xd_z = 0;
 
 #if !defined (DISABLE_MS_TLS)
 static __CRT_THREAD TlsDtorNode *dtor_list;
@@ -99,6 +99,7 @@ BOOL WINAPI
 __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
   _PVFV *pfunc;
+  uintptr_t ps;
 
 #ifndef _WIN64
   if (_winmajor < 4)
@@ -134,16 +135,15 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
         __mingw_TLScallback (hDllHandle, dwReason, lpreserved);
       return TRUE;
     }
-  if ((&__xd_a + 1) < &__xd_z)
-  {
-    for (pfunc = &__xd_a + 1; pfunc != &__xd_z; ++pfunc)
-      {
-	if (*pfunc == (_PVFV) 2)
-	  break;
-	if (*pfunc != NULL)
-	  (*pfunc)();
-      }
-  }
+
+  ps = (uintptr_t) &__xd_a;
+  ps += sizeof (uintptr_t);
+  for ( ; ps != (uintptr_t) &__xd_z; ps += sizeof (uintptr_t))
+    {
+      pfunc = (_PVFV *) ps;
+      if (*pfunc != NULL)
+	(*pfunc)();
+    }
   return TRUE;
 }
 
