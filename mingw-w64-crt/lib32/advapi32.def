@@ -775,7 +775,7 @@ SystemFunction041@12
 TraceEvent@12
 TraceEventInstance@20
 TraceMessage
-TraceMessageVa
+TraceMessageVa@24
 TraceSetInformation@20
 TreeResetNamedSecurityInfoA@44
 TreeResetNamedSecurityInfoW@44

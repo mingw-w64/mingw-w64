@@ -1,3 +1,12 @@
+2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/advapi32.def (TraceMessageVa): Added back @24 suffix.
+	Function is actually __stdcall as reported by Amine Khaldi.
+	* lib32/ntoskrnl.def (WmiTraceMessageVa): Added back @24 suffix.
+	Function is actually __stdcall as reported by Amine Khaldi.
+	* lib32/ntdll.def (EtwTraceMessageVa): Added back @24 suffix,
+	by analogy to TraceMessageVa().
+
 2010-07-27  Kai Tietz  <kai.tietz@onevision.com>
 
 	Fix for gcc-4.6 (trunk), PR/45075:

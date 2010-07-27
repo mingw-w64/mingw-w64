@@ -818,7 +818,7 @@ EXTERN_C ULONG WMIAPI CloseTrace(TRACEHANDLE TraceHandle);
 EXTERN_C ULONG WMIAPI SetTraceCallback(LPCGUID pGuid,PEVENT_CALLBACK EventCallback);
 EXTERN_C ULONG WMIAPI RemoveTraceCallback (LPCGUID pGuid);
 EXTERN_C ULONG __cdecl TraceMessage(TRACEHANDLE LoggerHandle,ULONG MessageFlags,LPCGUID MessageGuid,USHORT MessageNumber,...);
-EXTERN_C ULONG TraceMessageVa(TRACEHANDLE LoggerHandle,ULONG MessageFlags,LPCGUID MessageGuid,USHORT MessageNumber,va_list MessageArgList);
+EXTERN_C ULONG WMIAPI TraceMessageVa(TRACEHANDLE LoggerHandle,ULONG MessageFlags,LPCGUID MessageGuid,USHORT MessageNumber,va_list MessageArgList);
 
 #ifdef __cplusplus
 }

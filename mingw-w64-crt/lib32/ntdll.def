@@ -102,7 +102,7 @@ EtwSendNotification@20
 EtwSetMark@16
 EtwTraceEventInstance@20
 EtwTraceMessage
-EtwTraceMessageVa
+EtwTraceMessageVa@24
 EtwUnregisterTraceGuids@8
 EtwWriteUMSecurityEvent@16
 EtwpCreateEtwThread@8

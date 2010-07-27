@@ -1,5 +1,10 @@
 2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* evntrace.h (TraceMessageVa): The function is actually WMIAPI,
+	ie. __stdcall. Thanks to Amine Khaldi.
+
+2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* winnt.h: Include _mingw.h to ensure _M_* macros are defined.
 	(UNALIGNED): Define properly against __unaligned for better
 	compatibility with r/os.
