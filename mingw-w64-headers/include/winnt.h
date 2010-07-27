@@ -12,28 +12,11 @@
 extern "C" {
 #endif
 
+#include <_mingw.h>
 #include <ctype.h>
 #define ANYSIZE_ARRAY 1
 
 #include <specstrings.h>
-
-#define RESTRICTED_POINTER
-
-#ifndef __CRT_UNALIGNED
-#define __CRT_UNALIGNED
-#endif
-
-#if defined(__ia64__) || defined(__x86_64)
-#define UNALIGNED __CRT_UNALIGNED
-#ifdef _WIN64
-#define UNALIGNED64 __CRT_UNALIGNED
-#else
-#define UNALIGNED64
-#endif
-#else
-#define UNALIGNED
-#define UNALIGNED64
-#endif
 
 #if defined(__x86_64) && \
   !(defined(_X86_) || defined(__i386__) || defined(_IA64_))
@@ -49,6 +32,23 @@ extern "C" {
 #endif
 #endif /* _IA64_ */
 
+#define RESTRICTED_POINTER
+
+#undef  UNALIGNED	/* avoid redefinition warnings vs _mingw.h */
+#undef  UNALIGNED64
+#if defined(_M_MRX000) || defined(_M_ALPHA) || defined(_M_PPC) || defined(_M_IA64) || defined(_M_AMD64)
+#define ALIGNMENT_MACHINE
+#define UNALIGNED __unaligned
+#if defined(_WIN64)
+#define UNALIGNED64 __unaligned
+#else
+#define UNALIGNED64
+#endif
+#else
+#undef ALIGNMENT_MACHINE
+#define UNALIGNED
+#define UNALIGNED64
+#endif
 
 #ifdef _WIN64
 #define MAX_NATURAL_ALIGNMENT sizeof(ULONGLONG)
