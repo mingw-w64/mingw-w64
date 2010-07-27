@@ -466,8 +466,12 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #endif /* UNALIGNED */
 
 #ifndef _CRT_ALIGN
+#ifdef  _MSC_VER
+#define _CRT_ALIGN(x) __declspec(align(x))
+#else /* __GNUC__ */
 #define _CRT_ALIGN(x) __attribute__ ((__aligned__ (x)))
 #endif
+#endif /* _CRT_ALIGN */
 
 #ifndef __CRTDECL
 #define __CRTDECL __cdecl
