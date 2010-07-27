@@ -1,6 +1,8 @@
 2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw.h (_CRT_ALIGN): Add an MSVC version.
+	(__unaligned): Remove irrelevant comments. See the documentation
+	at http://msdn.microsoft.com/en-us/library/ms253978(VS.80).aspx
 
 2010-07-23  Kai Tietz  <kai.tietz@onevision.com>
 
