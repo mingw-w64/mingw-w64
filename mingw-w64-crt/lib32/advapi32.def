@@ -529,6 +529,8 @@ SystemFunction033@8
 SystemFunction034@12
 TraceEvent@12
 TraceEventInstance@20
+TraceMessage
+TraceMessageVa@24
 TrusteeAccessToObjectA@24
 TrusteeAccessToObjectW@24
 UninstallApplication@8

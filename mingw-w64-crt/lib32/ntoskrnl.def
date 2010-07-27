@@ -1250,7 +1250,7 @@ WmiQueryTraceInformation@20
 ;WmiStartTrace
 ;WmiStopTrace
 WmiTraceMessage
-WmiTraceMessageVa
+WmiTraceMessageVa@24
 ;WmiUpdateTrace
 ;XIPDispatch
 ZwAccessCheckAndAuditAlarm@44
