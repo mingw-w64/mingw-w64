@@ -79,6 +79,7 @@ BOOL WINAPI
 __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
   _PVFV *pfunc;
+  uintptr_t ps;
 
   /* We don't let us trick here.  */
   if (_CRT_MT != 2)
@@ -91,8 +92,11 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
       return TRUE;
     }
 
-  for (pfunc = &__xd_a + 1; pfunc != &__xd_z; ++pfunc)
+  ps = (uintptr_t) &__xd_a;
+  ps += sizeof (uintptr_t);
+  for ( ; ps != (uintptr_t) &__xd_z; ps += sizeof (uintptr_t))
     {
+      pfunc = (_PVFV *) ps;
       if (*pfunc != NULL)
 	(*pfunc)();
     }

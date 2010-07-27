@@ -1,3 +1,8 @@
+2010-07-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	Fix for gcc-4.6 (trunk), PR/45075:
+	* crt/tlssup.c: Access section variable pointers via uintptr_t.
+
 2010-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib64/ndis.def: New, added from trunk.
