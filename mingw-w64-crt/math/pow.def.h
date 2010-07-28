@@ -156,7 +156,12 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
 	  errno = ERANGE;
 	  return (signbit (x) ? __FLT_CST(0.0) : x);
 	}
-      return __FLT_ABI(exp)(x);
+      x = __FLT_ABI(exp)(x);
+      /* If we get here +/-inf or +/-0, then we have overflow/underflow.  */
+      x_class = fpclassify (x);
+      if (x_class == FP_INFINITE || x_class == FP_ZERO)
+	errno = ERANGE;
+      return x;
     }
   if ((__FLT_TYPE) __FLT_ABI(modf) (y, &d) != 0.0)
     {
@@ -171,13 +176,24 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
 	  errno = ERANGE;
           return (signbit (x) ? __FLT_CST(0.0) : x);
 	}
-      return __FLT_ABI(exp)(x);
+      x = __FLT_ABI(exp)(x);
+      /* If we get here +/-inf or +/-0, then we have overflow/underflow.  */
+      x_class = fpclassify (x);
+      if (x_class == FP_INFINITE || x_class == FP_ZERO)
+	errno = ERANGE;
+      return x;
     }
+
   x = y * __FLT_ABI(log)(-x);
   if (isinf (x))
     {
       errno = ERANGE;
       return (signbit (x) ? -__FLT_CST(0.0) : -x);
     }
-  return -__FLT_ABI(exp)(x);
+  x = -__FLT_ABI(exp)(x);
+  /* If we get here +/-inf or +/-0, then we have overflow/underflow.  */
+  x_class = fpclassify (x);
+  if (x_class == FP_INFINITE || x_class == FP_ZERO)
+    errno = ERANGE;
+  return x;
 }
