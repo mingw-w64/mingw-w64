@@ -149,21 +149,35 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
     }
 
   if (!signbit (x))
-    x = __FLT_ABI(exp)(y * __FLT_ABI(log)(x));
-  else
     {
-      if ((__FLT_TYPE) __FLT_ABI(modf) (y, &d) != 0.0)
+      x = y * __FLT_ABI(log)(x);
+      if (isinf (x))
 	{
-	  errno = EDOM;
-	  return -__FLT_NAN;
+	  errno = ERANGE;
+	  return (signbit (x) ? __FLT_CST(0.0) : x);
 	}
-
-      x = __FLT_ABI(exp)(y * __FLT_ABI(log)(-x));
-      if (__FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) != 0.0)
-	x = -x;
+      return __FLT_ABI(exp)(x);
     }
-  x_class = fpclassify (x);
-  if (x_class == FP_INFINITE || x_class == FP_ZERO)
-    errno = ERANGE;
-  return x;
+  if ((__FLT_TYPE) __FLT_ABI(modf) (y, &d) != 0.0)
+    {
+      errno = EDOM;
+      return -__FLT_NAN;
+    }
+  if (__FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) == 0.0)
+    {
+      x = y * __FLT_ABI(log)(-x);
+      if (isinf (x))
+	{
+	  errno = ERANGE;
+          return (signbit (x) ? __FLT_CST(0.0) : x);
+	}
+      return __FLT_ABI(exp)(x);
+    }
+  x = y * __FLT_ABI(log)(-x);
+  if (isinf (x))
+    {
+      errno = ERANGE;
+      return (signbit (x) ? -__FLT_CST(0.0) : -x);
+    }
+  return -__FLT_ABI(exp)(x);
 }
