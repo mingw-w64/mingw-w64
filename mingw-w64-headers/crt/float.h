@@ -11,6 +11,10 @@
  *
  */
 
+#ifndef _FLOAT_H___
+#include_next <float.h>
+#endif
+
 #ifndef _MINGW_FLOAT_H_
 #define _MINGW_FLOAT_H_
 
