@@ -1,5 +1,10 @@
 2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* atsmedia.h, bdatypes.h, bdamedia.h: Sync with experimental/ddk_test
+	as of rev. 2992.
+
+2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* atsmedia.h, bdamedia.h, bdatypes.h, bugcodes.h, compstui.h,
 	devioctl.h, devpropdef.h, dpfilter.h, kcom.h, ksdebug.h, lmon.h,
 	netevent.h, nettypes.h, newdev.h, ntddchgr.h, ntddkbd.h, ntddmou.h,
