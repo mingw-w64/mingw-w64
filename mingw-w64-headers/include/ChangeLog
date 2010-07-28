@@ -1,3 +1,8 @@
+2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ksmedia.h: Remove the #warning. Include ks.h with <> and not
+	with "".
+
 2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* evntrace.h (TraceMessageVa): The function is actually WMIAPI,
