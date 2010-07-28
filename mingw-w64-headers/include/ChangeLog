@@ -1,5 +1,11 @@
 2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Sync with experimental/ddk_test rev. 3000:
+	* ntddmou.h, ntddstor.h: Replace _ANONYMOUS_UNION and _ANONYMOUS_STRUCT
+	by __MINGW_EXTENSION.
+
+2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* ksmedia.h: Remove the #warning and include ks.h with <> not "".
 
 	Sync with experimental/ddk_test rev. 2997:
