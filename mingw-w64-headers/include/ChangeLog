@@ -1,3 +1,13 @@
+2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* atsmedia.h, bdamedia.h, bdatypes.h, bugcodes.h, compstui.h,
+	devioctl.h, devpropdef.h, dpfilter.h, kcom.h, ksdebug.h, lmon.h,
+	netevent.h, nettypes.h, newdev.h, ntddchgr.h, ntddkbd.h, ntddmou.h,
+	ntddstor.h, ntdef.h, ntiologc.h, usb100.h, usb200.h, usbcamdi.h,
+	usbdi.h, usb.h, usbioctl.h, usbiodef.h, usbrpmif.h, usbuser.h,
+	winddi.h, winddiui.h, winsplp.h:  Copy over the DDK dependency
+	headers from experimental/ddk_test as of rev. 2989.
+
 2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* evntrace.h (TraceMessageVa): The function is actually WMIAPI,
