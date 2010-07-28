@@ -68,9 +68,9 @@ _mcount:
    for our target.  See gcc/config/i386.h; it isn't overridden in
    config/i386/cygming.h or any other places for mingw.  This is the entry
    for new prologue mechanism required for x64 seh calling convention.  */
-.globl _mcount_top
+.globl __fentry__
         .def    _mcount_top;  .scl    2;      .type   32;     .endef
-_mcount_top:
+__fentry__:
 #ifndef _WIN64
 	push %ebp
 	mov %esp, %ebp
