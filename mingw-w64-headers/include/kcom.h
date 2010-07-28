@@ -18,12 +18,10 @@
  *
  */
 
-#if !defined(_KS_)
-#error KS.H must be included before KCOM.H
-#endif
-
 #if !defined(_KCOM_)
 #define _KCOM_
+
+#include <ks.h>
 
 #if defined(__cplusplus)
 extern "C" {

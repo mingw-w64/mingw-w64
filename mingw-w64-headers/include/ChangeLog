@@ -1,5 +1,14 @@
 2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ksmedia.h: Remove the #warning and include ks.h with <> not "".
+
+	Sync with experimental/ddk_test rev. 2997:
+	* kcom.h: Remove the #error and do include ks.h.
+	* bdamedia.h (BdaChangeSync): Remove braces so that it does not
+	confuse DEFINE_GUID.
+
+2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* atsmedia.h, bdatypes.h, bdamedia.h: Sync with experimental/ddk_test
 	as of rev. 2992.
 

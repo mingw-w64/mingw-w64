@@ -3,13 +3,11 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#if !defined(_KS_)
-#warning ks.h must be included before ksmedia.h
-#include "ks.h"
-#endif
 
 #if !defined(_KSMEDIA_)
 #define _KSMEDIA_
+
+#include <ks.h>
 
 typedef struct {
   KSPROPERTY Property;
