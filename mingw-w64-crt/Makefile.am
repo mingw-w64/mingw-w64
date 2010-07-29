@@ -365,6 +365,7 @@ lib32_DATA = \
   \
   lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a   \
   \
+  lib32/libpdh.a       lib32/libpdhui.a    \
   lib32/libks.a
 
 # combine these two rules with the ones for lib64
