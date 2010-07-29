@@ -78,7 +78,9 @@ src_libuuid=libsrc/uuid.c libsrc/devguid.c \
   libsrc/msctf-uuid.c   libsrc/mshtml-uuid.c   libsrc/msxml-uuid.c  libsrc/netcon-uuid.c   libsrc/oaidl-uuid.c    libsrc/objidl-uuid.c \
   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c    libsrc/oleacc-uuid.c libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c   libsrc/power-uuid.c \
   libsrc/servprov-uuid.c libsrc/textstor-uuid.c libsrc/unknwn-uuid.c libsrc/urlmon-uuid.c  libsrc/vds-uuid.c      libsrc/wia-uuid.c   \
-  libsrc/powrprof-uuid.c libsrc/virtdisk-uuid.c
+  libsrc/powrprof-uuid.c libsrc/virtdisk-uuid.c \
+  libsrc/atsmedia-uuid.c libsrc/bdamedia-uuid.c libsrc/kcom-uuid.c   libsrc/ntddkbd-uuid.c libsrc/ntddmou-uuid.c  libsrc/ntddstor-uuid.c \
+  libsrc/usbcamdi-uuid.c libsrc/usbiodef-uuid.c
 
 src_libws2_32=libsrc/ws2_32.c \
   \

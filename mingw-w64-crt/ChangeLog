@@ -1,3 +1,19 @@
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Add new GUIDs found in the newly merged DDK dependency headers:
+	* libsrc/atsmedia-uuid.c: New.
+	* libsrc/bdamedia-uuid.c: New.
+	* libsrc/kcom-uuid.c: New.
+	* libsrc/ntddkbd-uuid.c: New.
+	* libsrc/ntddmou-uuid.c: New.
+	* libsrc/ntddstor-uuid.c: New.
+	* libsrc/usbcamdi-uuid.c: New.
+	* libsrc/usbiodef-uuid.c: New.
+	* Makefile.am (src_libuuid): Add atsmedia-uuid.c, bdamedia-uuid.c,
+	kcom-uuid.c, ntddkbd-uuid.c, ntddmou-uuid.c, ntddstor-uuid.c, 
+	usbcamdi-uuid.c and usbiodef-uuid.c to build.
+	* Makefile.in: Regenerate.
+
 2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/advapi32.def (TraceMessageVa): Added back @24 suffix.
