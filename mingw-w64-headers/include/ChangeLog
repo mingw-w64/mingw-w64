@@ -1,5 +1,10 @@
 2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ntdef.h (FORCEINLINE): Arguably better _MSC_VER ifdefs.
+	* winnt.h (FORCEINLINE): Likewise.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* atsmedia.h, bdamedia.h, bdatypes.h, bugcodes.h, compstui.h,
 	devioctl.h, devpropdef.h, dpfilter.h, kcom.h, ksdebug.h, lmon.h,
 	netevent.h, nettypes.h, newdev.h, ntddchgr.h, ntddkbd.h, ntddmou.h,
