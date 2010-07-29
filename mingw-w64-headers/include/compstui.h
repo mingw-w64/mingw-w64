@@ -734,12 +734,12 @@ typedef struct _EXTPUSH {
   WORD cbSize;
   WORD Flags;
   LPTSTR pTitle;
-  union {
+  __MINGW_EXTENSION union {
     DLGPROC DlgProc;
     FARPROC pfnCallBack;
   } DUMMYUNIONNAME;
   ULONG_PTR IconID;
-  union {
+  __MINGW_EXTENSION union {
     WORD DlgTemplateID;
     HANDLE hDlgTemplate;
   } DUMMYUNIONNAME2;
@@ -772,11 +772,11 @@ typedef struct _OPTITEM {
   DWORD Flags;
   ULONG_PTR UserData;
   LPTSTR pName;
-  union {
+  __MINGW_EXTENSION union {
     LONG Sel;
     LPTSTR pSel;
   } DUMMYUNIONNAME;
-  union {
+  __MINGW_EXTENSION union {
     PEXTCHKBOX pExtChkBox;
     PEXTPUSH pExtPush;
   } DUMMYUNIONNAME2;
@@ -797,7 +797,7 @@ typedef struct _CPSUICBPARAM {
   WORD cOptItem;
   WORD Flags;
   POPTITEM pCurItem;
-  union {
+  __MINGW_EXTENSION union {
     LONG OldSel;
     LPTSTR pOldSel;
   } DUMMYUNIONNAME;
@@ -817,7 +817,7 @@ typedef struct _DLGPAGE {
   DLGPROC DlgProc;
   LPTSTR pTabName;
   ULONG_PTR IconID;
-  union {
+  __MINGW_EXTENSION union {
     WORD DlgTemplateID;
     HANDLE hDlgTemplate;
   } DUMMYUNIONNAME;
@@ -912,7 +912,7 @@ typedef struct _PROPSHEETUI_INFO_HEADER {
   LPTSTR pTitle;
   HWND hWndParent;
   HINSTANCE hInst;
-  union {
+  __MINGW_EXTENSION union {
     HICON hIcon;
     ULONG_PTR IconID;
   } DUMMYUNIONNAME;
@@ -963,3 +963,4 @@ WINBOOL WINAPI SetPSTUIUserData(HWND, ULONG_PTR);
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
+

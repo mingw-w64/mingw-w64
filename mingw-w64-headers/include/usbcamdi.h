@@ -27,9 +27,9 @@ extern "C" {
 #endif
 
 #if defined(_BATTERYCLASS_)
-  #define USBCAMAPI
+# define USBCAMAPI
 #else
-  #define USBCAMAPI DECLSPEC_IMPORT
+# define USBCAMAPI DECLSPEC_IMPORT
 #endif
 
 typedef struct _pipe_config_descriptor {

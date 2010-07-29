@@ -1,3 +1,35 @@
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* specstrings.h (DECLSPEC_ADDRSAFE): Update the macro from ntdef.h.
+	* winnt.h: Some whitespace reformatting in macro definitions.
+	(DECLSPEC_ALIGN): Update the macro from ntdef.h.
+	(DECLSPEC_NOINLINE): Likewise.
+	(FORCEINLINE): Likewise.
+	(FASTCALL): New, from ntdef.h.
+
+	Sync with experimental/ddk_test @ 3012:
+	* compstui.h: Add missing __MINGW_EXTENSION to anonymous unions.
+	* usb.h: Remove __GNU_EXTENSION definition, already gets it from
+	usb200.h.  Add missing __MINGW_EXTENSION to anonymous unions.
+	Replace a few __GNU_EXTENSION by __MINGW_EXTENSION.
+	* usb200.h: Replace a few __GNU_EXTENSION by __MINGW_EXTENSION.
+	* usbcamdi.h: Minor formatting.
+	* usbdi.h: Remove __GNU_EXTENSION definition, already gets it from
+	usb.h.
+	* usbioctl.h: Add #endif comments for easier reading. Add missing
+	__MINGW_EXTENSION to anonymous unions and structs.
+	* usbiodef.h: Add #endif comments for easier reading.
+	* usbuser.h: Add missing #endif for _WIN32_WINNT >= 0x0501 guard.
+	* ntdef.h: Remove __GNU_EXTENSION definition, already gets it from
+	_mingw.h.  Minor reformatting.  Add #endif comments for easier
+	reading.  Replace a few __GNU_EXTENSION by __MINGW_EXTENSION.
+	Update DBG_UNREFERENCED_PARAMETER & DBG_UNREFERENCED_LOCAL_VARIABLE
+	macros from winnt.h.  Update VER_SUITE_* macros as hex values from
+	winnt.h.  Remove __ANONYMOUS_DEFINED, _UNION_NAME, _STRUCT_NAME,
+	_ANONYMOUS_UNION, _ANONYMOUS_STRUCT, DUMMYUNIONNAME* and
+	DUMMYSTRUCTNAME* macros. They are now provided by _mingw.h since
+	rev. 3010 (trunk) or 3011 (v1.0 branch).
+
 2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Sync with experimental/ddk_test rev. 3000:

@@ -68,14 +68,14 @@ typedef struct _USB_DEFAULT_PIPE_SETUP_PACKET {
   BM_REQUEST_TYPE bmRequestType;
   UCHAR bRequest;
   union _wValue {
-    __GNU_EXTENSION struct {
+    __MINGW_EXTENSION struct {
       UCHAR LowByte;
       UCHAR HiByte;
     };
     USHORT W;
   } wValue;
   union _wIndex {
-    __GNU_EXTENSION struct {
+    __MINGW_EXTENSION struct {
       UCHAR LowByte;
       UCHAR HiByte;
     };
@@ -124,3 +124,4 @@ typedef struct _USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
 } USB_INTERFACE_ASSOCIATION_DESCRIPTOR, *PUSB_INTERFACE_ASSOCIATION_DESCRIPTOR;
 
 #include <poppack.h>
+

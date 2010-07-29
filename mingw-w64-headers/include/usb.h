@@ -20,15 +20,6 @@
 
 #pragma once
 
-/* Helper macro to enable gcc's extension. */
-#ifndef __GNU_EXTENSION
-#ifdef __GNUC__
-#define __GNU_EXTENSION __extension__
-#else
-#define __GNU_EXTENSION
-#endif
-#endif
-
 #ifdef OSR21_COMPAT
 #pragma message("WARNING: OSR21_COMPAT SWITCH NOT SUPPORTED")
 #endif
@@ -437,7 +428,7 @@ typedef struct _OS_STRING {
   UCHAR bDescriptorType;
   WCHAR MicrosoftString[7];
   UCHAR bVendorCode;
-  union {
+  __MINGW_EXTENSION union {
     UCHAR bPad;
     UCHAR bFlags;
   };
@@ -527,7 +518,7 @@ struct _URB_ISOCH_TRANSFER {
 };
 
 typedef struct _URB {
-  __GNU_EXTENSION union {
+  __MINGW_EXTENSION union {
     struct _URB_HEADER UrbHeader;
     struct _URB_SELECT_INTERFACE UrbSelectInterface;
     struct _URB_SELECT_CONFIGURATION UrbSelectConfiguration;
@@ -553,3 +544,4 @@ typedef struct _URB {
 #endif
   };
 } URB, *PURB;
+

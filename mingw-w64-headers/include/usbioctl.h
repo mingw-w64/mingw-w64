@@ -124,7 +124,7 @@ typedef struct _USB_TOPOLOGY_ADDRESS {
 #define IOCTL_INTERNAL_USB_GET_DEVICE_CONFIG_INFO \
   CTL_CODE(FILE_DEVICE_USB, USB_GET_HUB_CONFIG_INFO, METHOD_NEITHER, FILE_ANY_ACCESS)
 
-#endif
+#endif /* _WIN32_WINNT >= 0x0600 */
 
 #ifndef USB_KERNEL_IOCTL
 
@@ -201,7 +201,7 @@ typedef struct _USB_TOPOLOGY_ADDRESS {
 #define IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX \
   CTL_CODE(FILE_DEVICE_USB, USB_GET_NODE_CONNECTION_INFORMATION_EX, METHOD_BUFFERED, FILE_ANY_ACCESS)
 
-#endif
+#endif /* _WIN32_WINNT >= 0x0501 */
 
 #if (_WIN32_WINNT >= 0x0600)
 
@@ -211,7 +211,7 @@ typedef struct _USB_TOPOLOGY_ADDRESS {
 #define IOCTL_USB_GET_HUB_CAPABILITIES_EX \
   CTL_CODE(FILE_DEVICE_USB, USB_GET_HUB_CAPABILITIES_EX, METHOD_BUFFERED, FILE_ANY_ACCESS)
 
-#endif
+#endif /* _WIN32_WINNT >= 0x0600 */
 
 #include <pshpack1.h>
 
@@ -272,7 +272,7 @@ typedef enum _USB_CONNECTION_STATUS {
   DeviceInLegacyHub
 } USB_CONNECTION_STATUS, *PUSB_CONNECTION_STATUS;
 
-#else
+#else /* _WIN32_WINNT >= 0x0501 */
 
 typedef enum _USB_CONNECTION_STATUS {
   NoDeviceConnected,
@@ -284,7 +284,7 @@ typedef enum _USB_CONNECTION_STATUS {
   DeviceNotEnoughBandwidth
 } USB_CONNECTION_STATUS, *PUSB_CONNECTION_STATUS;
 
-#endif
+#endif /* _WIN32_WINNT >= 0x0501 */
 
 typedef struct _USB_NODE_CONNECTION_INFORMATION {
   ULONG ConnectionIndex;
@@ -363,13 +363,13 @@ typedef struct _USB_NODE_CONNECTION_INFORMATION_EX {
 
 C_ASSERT(sizeof(USB_NODE_CONNECTION_INFORMATION_EX) == sizeof(USB_NODE_CONNECTION_INFORMATION));
 
-#endif
+#endif /* _WIN32_WINNT >= 0x0501 */
 
 #if (_WIN32_WINNT >= 0x0600)
 
 typedef union _USB_HUB_CAP_FLAGS {
   ULONG ul;
-  struct {
+  __MINGW_EXTENSION struct {
     ULONG HubIsHighSpeedCapable:1;
     ULONG HubIsHighSpeed:1;
     ULONG HubIsMultiTtCapable:1;
@@ -420,7 +420,7 @@ typedef struct _HUB_DEVICE_CONFIG_INFO_V1 {
   USB_HUB_DEVICE_UXD_SETTINGS UxdSettings;
 } HUB_DEVICE_CONFIG_INFO, *PHUB_DEVICE_CONFIG_INFO;
 
-#endif
+#endif /* _WIN32_WINNT >= 0x0600 */
 
 typedef struct _HCD_ISO_STAT_COUNTERS {
   USHORT LateUrbs;
@@ -499,10 +499,10 @@ typedef enum _USB_NOTIFICATION_TYPE {
   HubOvercurrent,
   HubPowerChange,
   HubNestedTooDeeply,
- ModernDeviceInLegacyHub
+  ModernDeviceInLegacyHub
 } USB_NOTIFICATION_TYPE;
 
-#else
+#else /* _WIN32_WINNT >= 0x0501 */
 
 typedef enum _USB_NOTIFICATION_TYPE {
   EnumerationFailure = 0,
@@ -517,7 +517,7 @@ typedef enum _USB_NOTIFICATION_TYPE {
   HubPowerChange
 } USB_NOTIFICATION_TYPE;
 
-#endif
+#endif /* _WIN32_WINNT >= 0x0501 */
 
 typedef struct _USB_NOTIFICATION {
   USB_NOTIFICATION_TYPE NotificationType;
@@ -626,7 +626,7 @@ typedef struct _USB_DEVICE_NODE_INFO {
   WCHAR DeviceDescription[40];
   USB_WMI_DEVICE_NODE_TYPE NodeType;
   USB_TOPOLOGY_ADDRESS BusAddress;
-  union{
+  __MINGW_EXTENSION union {
     USB_DEVICE_INFO UsbDeviceInfo;
     USB_HUB_DEVICE_INFO HubDeviceInfo;
     USB_COMPOSITE_DEVICE_INFO CompositeDeviceInfo;
@@ -661,7 +661,7 @@ typedef struct _USB_DEVICE_PERFORMANCE_INFO {
   ULONG HcPeriodicCacheFlushCount;
 } USB_DEVICE_PERFORMANCE_INFO, *PUSB_DEVICE_PERFORMANCE_INFO;
 
-#endif
+#endif /* _WIN32_WINNT >= 0x0600 */
 
 #include <poppack.h>
 
@@ -670,3 +670,4 @@ typedef struct _USB_DEVICE_PERFORMANCE_INFO {
 #ifdef __cplusplus
 }
 #endif
+
