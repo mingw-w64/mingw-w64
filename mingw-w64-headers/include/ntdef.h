@@ -193,9 +193,9 @@
 
 /* Inlines */
 #ifndef FORCEINLINE
-#if (_MSC_VER >= 1200)
+#if defined(_MSC_VER) && (_MSC_VER >= 1200)
 #define FORCEINLINE __forceinline
-#elif (_MSC_VER)
+#elif defined(_MSC_VER)
 #define FORCEINLINE __inline
 #else /* __GNUC__ */
 #define FORCEINLINE extern __inline__ __attribute__((always_inline))

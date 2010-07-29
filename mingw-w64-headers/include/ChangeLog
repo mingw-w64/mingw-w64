@@ -1,5 +1,10 @@
 2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ntdef.h (FORCEINLINE): Arguably better _MSC_VER ifdefs.
+	* winnt.h (FORCEINLINE): Likewise.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* specstrings.h (DECLSPEC_ADDRSAFE): Update the macro from ntdef.h.
 	* winnt.h: Some whitespace reformatting in macro definitions.
 	(DECLSPEC_ALIGN): Update the macro from ntdef.h.
