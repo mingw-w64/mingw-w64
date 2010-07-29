@@ -9,6 +9,8 @@
 
 2010-07-29  Kai Tietz  <kai.tietz@onevision.com>
 
+	* sys/types.h (_sigset_t): New.
+
 	* math.h (fabs): Provide inline version.
 	(__fpclassify): Likewise.
 	(__fpclassifyf): Likewise.
