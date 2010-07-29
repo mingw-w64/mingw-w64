@@ -75,7 +75,7 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
   int x_class = fpclassify (x);
   int y_class = fpclassify (y);
   long odd_y = 0;
-  __FLT_TYPE d;
+  __FLT_TYPE d, rslt;
 
   if (y_class == FP_ZERO || x == __FLT_CST(1.0))
     return __FLT_CST(1.0);
@@ -148,52 +148,17 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
       return (odd_y && signbit(x) ? -__FLT_HUGE_VAL : __FLT_HUGE_VAL);
     }
 
-  if (!signbit (x))
-    {
-      x = y * __FLT_ABI(log)(x);
-      if (isinf (x))
-	{
-	  errno = ERANGE;
-	  return (signbit (x) ? __FLT_CST(0.0) : x);
-	}
-      x = __FLT_ABI(exp)(x);
-      /* If we get here +/-inf or +/-0, then we have overflow/underflow.  */
-      x_class = fpclassify (x);
-      if (x_class == FP_INFINITE || x_class == FP_ZERO)
-	errno = ERANGE;
-      return x;
-    }
-  if ((__FLT_TYPE) __FLT_ABI(modf) (y, &d) != 0.0)
+  if (signbit (x) && (__FLT_TYPE) __FLT_ABI(modf) (y, &d) != 0.0)
     {
       errno = EDOM;
       return -__FLT_NAN;
     }
-  if (__FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) == 0.0)
-    {
-      x = y * __FLT_ABI(log)(-x);
-      if (isinf (x))
-	{
-	  errno = ERANGE;
-          return (signbit (x) ? __FLT_CST(0.0) : x);
-	}
-      x = __FLT_ABI(exp)(x);
-      /* If we get here +/-inf or +/-0, then we have overflow/underflow.  */
-      x_class = fpclassify (x);
-      if (x_class == FP_INFINITE || x_class == FP_ZERO)
-	errno = ERANGE;
-      return x;
-    }
-
-  x = y * __FLT_ABI(log)(-x);
-  if (isinf (x))
-    {
-      errno = ERANGE;
-      return (signbit (x) ? -__FLT_CST(0.0) : -x);
-    }
-  x = -__FLT_ABI(exp)(x);
-  /* If we get here +/-inf or +/-0, then we have overflow/underflow.  */
-  x_class = fpclassify (x);
+  /* As exp already checks for minlog and maxlog no further checks are necessary.  */
+  rslt = __FLT_ABI(exp)(y * __FLT_ABI(log)(__FLT_ABI(fabs) (x)));
+  if (signbit (x) && __FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) != 0.0)
+    rslt = -rslt;
+  x_class = fpclassify (rslt);
   if (x_class == FP_INFINITE || x_class == FP_ZERO)
     errno = ERANGE;
-  return x;
+  return rslt;
 }
