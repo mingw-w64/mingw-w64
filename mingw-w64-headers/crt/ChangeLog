@@ -1,3 +1,9 @@
+2010-07-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h (fabs): Provide inline version.
+	(__fpclassify): Likewise.
+	(__fpclassifyf): Likewise.
+
 2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw.h (__CRT_UNALIGNED): Remove.

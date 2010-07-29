@@ -116,6 +116,17 @@ extern "C" {
   double __cdecl ceil(double _X);
   double __cdecl floor(double _X);
   double __cdecl fabs(double _X);
+#ifndef __CRT__NO_INLINE
+#if !defined (__ia64__)
+  __CRT_INLINE double __cdecl fabs (double x)
+  {
+    double res = 0.0;
+    __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
+    return res;
+  }
+#endif
+#endif
+
   double __cdecl ldexp(double _X,int _Y);
   double __cdecl frexp(double _X,int *_Y);
   double __cdecl modf(double _X,double *_Y);
@@ -286,6 +297,16 @@ typedef long double double_t;
 
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __fpclassifyl (long double x) {
+    unsigned short sw;
+    __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
+    return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
+  }
+  __CRT_INLINE int __cdecl __fpclassify (double x) {
+    unsigned short sw;
+    __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
+    return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
+  }
+  __CRT_INLINE int __cdecl __fpclassifyf (float x) {
     unsigned short sw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
     return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
