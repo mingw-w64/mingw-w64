@@ -1,5 +1,14 @@
 2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* specstrings.h (DECLSPEC_ADDRSAFE): Update the macro from ntdef.h.
+	* winnt.h: Some whitespace reformatting in macro definitions.
+	(DECLSPEC_ALIGN): Update the macro from ntdef.h.
+	(DECLSPEC_NOINLINE): Likewise.
+	(FORCEINLINE): Likewise.
+	(FASTCALL): New, from ntdef.h.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
 	Add mingw.org compatibility macros for anonymous unions:
 	* _mingw.h (_ANONYMOUS_UNION): New.
 	(_ANONYMOUS_STRUCT): New.
