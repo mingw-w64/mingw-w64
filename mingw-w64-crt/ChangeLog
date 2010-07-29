@@ -1,3 +1,9 @@
+2010-07-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile.am (modf/fmod): Added new files to libmingwex.
+	* math/modf.c: New.
+	* math/fmod.c: New.
+
 2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Add new GUIDs found in the newly merged DDK dependency headers:
