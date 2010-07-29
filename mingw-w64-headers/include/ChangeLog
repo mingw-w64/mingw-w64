@@ -1,5 +1,10 @@
 2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* sys/types.h: Sync with trunk rev. 3022: Minor reformatting,
+	(_sigset_t): New type definition from mingw32.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* specstrings.h (DECLSPEC_ADDRSAFE): Update the macro from ntdef.h.
 	* winnt.h: Some whitespace reformatting in macro definitions.
 	(DECLSPEC_ALIGN): Update the macro from ntdef.h.
