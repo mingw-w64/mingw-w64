@@ -20,12 +20,13 @@
 
 #ifndef _TIME32_T_DEFINED
 #define _TIME32_T_DEFINED
-typedef long __time32_t;
+typedef long	__time32_t;
 #endif
 
 #ifndef _TIME64_T_DEFINED
 #define _TIME64_T_DEFINED
-__MINGW_EXTENSION typedef __int64 __time64_t;
+__MINGW_EXTENSION
+typedef __int64	__time64_t;
 #endif
 
 #ifndef _TIME_T_DEFINED
@@ -58,7 +59,8 @@ typedef unsigned int dev_t;
 #ifndef _WIN64
 typedef int	_pid_t;
 #else
-__MINGW_EXTENSION typedef __int64	_pid_t;
+__MINGW_EXTENSION
+typedef __int64	_pid_t;
 #endif
 
 #ifndef	NO_OLDNAMES
@@ -79,18 +81,20 @@ typedef _mode_t	mode_t;
 #define _OFF_T_DEFINED
 #ifndef _OFF_T_
 #define _OFF_T_
-  typedef long _off_t;
+typedef long	_off_t;
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
-  typedef long off_t;
+typedef long	off_t;
 #endif
-#endif
-#endif
+#endif	/* Not _OFF_T_ */
+#endif	/* _OFF_T_DEFINED */
 
 #ifndef _OFF64_T_DEFINED
 #define _OFF64_T_DEFINED
-  __MINGW_EXTENSION typedef long long _off64_t;
+__MINGW_EXTENSION
+typedef long long _off64_t;
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
-  __MINGW_EXTENSION typedef long long off64_t;
+__MINGW_EXTENSION
+typedef long long off64_t;
 #endif
 #endif
 
@@ -101,23 +105,24 @@ typedef unsigned int useconds_t;
 #ifndef _TIMESPEC_DEFINED
 #define _TIMESPEC_DEFINED
 struct timespec {
-  time_t  tv_sec;   /* Seconds */
-  long    tv_nsec;  /* Nanoseconds */
+  time_t  tv_sec;	/* Seconds */
+  long    tv_nsec;	/* Nanoseconds */
 };
 
 struct itimerspec {
-  struct timespec  it_interval;  /* Timer period */
-  struct timespec  it_value;     /* Timer expiration */
+  struct timespec  it_interval;	/* Timer period */
+  struct timespec  it_value;	/* Timer expiration */
 };
-#endif
+#endif	/* _TIMESPEC_DEFINED */
 
 #ifndef _SIGSET_T_
 #define _SIGSET_T_
-typedef int _sigset_t;
+typedef int	_sigset_t;
 
 #ifndef _NO_OLDNAMES
-typedef _sigset_t       sigset_t;
+typedef _sigset_t	sigset_t;
 #endif
-#endif  /* Not _SIGSET_T_ */
+#endif	/* Not _SIGSET_T_ */
 
-#endif
+#endif	/* _INC_TYPES */
+
