@@ -1,5 +1,8 @@
 2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ntddstor.h (STORAGE_MEDIA_SERIAL_NUMBER_DATA): Enable for GCC
+	alongside _MSC_EXTENSIONS.
+
 	* ntdef.h (FORCEINLINE): Arguably better _MSC_VER ifdefs.
 	* winnt.h (FORCEINLINE): Likewise.
 
