@@ -18,9 +18,9 @@ one:	.double 1.0
 	   fyl2xp1 instruction.  */
 limit:	.double 0.29
 
-.globl __MINGW_USYMBOL(logl)
-	.def	__MINGW_USYMBOL(logl);	.scl	2;	.type	32;	.endef
-__MINGW_USYMBOL(logl):
+.globl __MINGW_USYMBOL(__logl_internal)
+	.def	__MINGW_USYMBOL(__logl_internal);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(__logl_internal):
 #ifdef _WIN64
 	fldln2			// log(2)
 	fldt	(%rdx)		// x : log(2)
