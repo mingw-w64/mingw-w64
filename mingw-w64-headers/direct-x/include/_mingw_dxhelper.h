@@ -4,6 +4,28 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
+#if defined(NONAMELESSSTRUCT) && \
+   !defined(NONAMELESSUNION)
+#define NONAMELESSUNION		1
+#endif
+#if defined(NONAMELESSUNION)  && \
+   !defined(NONAMELESSSTRUCT)
+#define NONAMELESSSTRUCT	1
+#endif
+
+#ifndef __ANONYMOUS_DEFINED
+#define __ANONYMOUS_DEFINED
+#define _ANONYMOUS_UNION  __MINGW_EXTENSION
+#define _ANONYMOUS_STRUCT __MINGW_EXTENSION
+#ifndef NONAMELESSUNION
+#define _UNION_NAME(x)
+#define _STRUCT_NAME(x)
+#else /* NONAMELESSUNION */
+#define _UNION_NAME(x)  x
+#define _STRUCT_NAME(x) x
+#endif
+#endif	/* __ANONYMOUS_DEFINED */
+
 #ifndef DUMMYUNIONNAME
 # ifdef NONAMELESSUNION
 #  define DUMMYUNIONNAME  u
@@ -25,7 +47,7 @@
 #endif	/* DUMMYUNIONNAME */
 
 #ifndef DUMMYSTRUCTNAME
-# ifdef NONAMELESSSTRUCT
+# ifdef NONAMELESSUNION
 #  define DUMMYSTRUCTNAME s
 #  define DUMMYSTRUCTNAME1 s1
 #  define DUMMYSTRUCTNAME2 s2

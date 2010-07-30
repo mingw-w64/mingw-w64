@@ -1,3 +1,10 @@
+2010-07-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (NONAMELESSSTRUCT, NONAMELESSUNION): If one is defined
+	make sure the other is defined, too. Fixes the mess caused by
+	NONAMELESSSTRUCT which isn't used by any others, so just rely on
+	NONAMELESSUNION.
+
 2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Add mingw.org compatibility macros for anonymous unions:

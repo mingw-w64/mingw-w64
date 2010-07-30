@@ -503,6 +503,15 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #undef  _CRT_glob
 #define _CRT_glob _dowildcard
 
+#if defined(NONAMELESSSTRUCT) && \
+   !defined(NONAMELESSUNION)
+#define NONAMELESSUNION		1
+#endif
+#if defined(NONAMELESSUNION)  && \
+   !defined(NONAMELESSSTRUCT)
+#define NONAMELESSSTRUCT	1
+#endif
+
 #ifndef __ANONYMOUS_DEFINED
 #define __ANONYMOUS_DEFINED
 #define _ANONYMOUS_UNION  __MINGW_EXTENSION
@@ -537,7 +546,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #endif	/* DUMMYUNIONNAME */
 
 #ifndef DUMMYSTRUCTNAME
-# ifdef NONAMELESSSTRUCT
+# ifdef NONAMELESSUNION
 #  define DUMMYSTRUCTNAME s
 #  define DUMMYSTRUCTNAME1 s1
 #  define DUMMYSTRUCTNAME2 s2
