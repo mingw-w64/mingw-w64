@@ -45,6 +45,8 @@
 #include "../complex/complex_internal.h"
 #include <errno.h>
 
+extern long double __cdecl __logl_internal (long double);
+
 __FLT_TYPE __cdecl
 __FLT_ABI(log) (__FLT_TYPE x)
 {
