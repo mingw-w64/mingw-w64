@@ -1,3 +1,8 @@
+2010-07-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* complex/complex_internal.h (__FLT_MAXLOG...,
+	__FLT_MINLOG...): New constants.
+
 2010-07-29  Kai Tietz  <kai.tietz@onevision.com>
 
 	* Makefile.am (modf/fmod): Added new files to libmingwex.

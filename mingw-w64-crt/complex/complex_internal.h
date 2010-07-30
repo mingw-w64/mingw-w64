@@ -75,6 +75,8 @@
 # define __FLT_PI_2	M_PI_2
 # define __FLT_PI_4	M_PI_4
 # define __FLT_PI_3_4	M_PI_3_4
+# define __FLT_MAXLOG	88.72283905206835F
+# define __FLT_MINLOG	-103.278929903431851103F
 #elif defined(_NEW_COMPLEX_DOUBLE)
 # define __FLT_TYPE	double
 # define __FLT_ABI(N)	N
@@ -86,6 +88,8 @@
 # define __FLT_PI_2	M_PI_2
 # define __FLT_PI_4	M_PI_4
 # define __FLT_PI_3_4	M_PI_3_4
+# define __FLT_MAXLOG	7.09782712893383996843E2
+# define __FLT_MINLOG	-7.08396418532264106224E2
 #elif defined(_NEW_COMPLEX_LDOUBLE)
 # define __FLT_TYPE	long double
 # define __FLT_ABI(N)	N##l
@@ -97,6 +101,8 @@
 # define __FLT_PI_2	M_PI_2l
 # define __FLT_PI_4	M_PI_4l
 # define __FLT_PI_3_4	M_PI_3_4l
+# define __FLT_MAXLOG	1.1356523406294143949492E4L
+# define __FLT_MINLOG	-1.13994985314888605586758E4L
 #else
 # error "Unknown complex number type"
 #endif
