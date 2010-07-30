@@ -4,6 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #include <math.h>
+
 float expf (float x)
 {
   return (float) exp (x);
