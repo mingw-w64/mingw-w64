@@ -5,7 +5,7 @@
  */
 #include <_mingw_mac.h>
 
-	.file	"logl.S"
+	.file	"internal_logl.S"
 	.text
 #ifdef _WIN64
 	.align 8
