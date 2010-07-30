@@ -136,7 +136,7 @@ src_libmingwex=\
   math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h math/ceill.S \
   math/_chgsignl.S   math/copysignl.S    math/cosl.S       math/exp2f.S       math/exp2l.S       math/exp2.S       math/floorl.S  \
   math/fmaf.S        math/fma.S          math/frexpl.S     math/ilogbf.S      math/ilogbl.S      math/ilogb.S      math/log10l.S  \
-  math/log1pf.S      math/log1pl.S       math/log1p.S      math/log2f.S       math/log2l.S       math/log2.S       math/logl.S    \
+  math/log1pf.S      math/log1pl.S       math/log1p.S      math/log2f.S       math/log2l.S       math/log2.S       math/internal_logl.S    \
   math/nearbyintf.S  math/nearbyintl.S   math/nearbyint.S  math/remainderf.S  math/remainderl.S  math/remainder.S  math/remquof.S \
   math/remquol.S     math/remquo.S       math/scalbnf.S    math/scalbnl.S     math/scalbn.S      math/sinl.S       math/tanl.S    \
   math/acosf.c        math/acosh.c        math/acoshf.c       math/acoshl.c        math/acosl.c       math/asinf.c       \
@@ -154,6 +154,7 @@ src_libmingwex=\
   math/isnanf.c       math/isnanl.c       math/ldexpf.c       math/ldexpl.c        math/lgamma.c      math/lgammaf.c     \
   math/lgammal.c      math/llrint.c       math/llrintf.c      math/llrintl.c       math/llround.c     math/llroundf.c    \
   math/llroundl.c     math/log10f.c       math/logb.c         math/logbf.c         math/logbl.c       math/logf.c        \
+  math/log.c          math/logl.c        \
   math/lrint.c        math/lrintf.c       math/lrintl.c       math/lround.c        math/lroundf.c     math/lroundl.c     \
   math/modff.c        math/modfl.c        math/nextafterf.c   math/nextafterl.c    math/nexttoward.c  math/nexttowardf.c \
   math/pow.c          math/powf.c         math/powi.c         math/powif.c         math/powil.c       math/powl.c        \

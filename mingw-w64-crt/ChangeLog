@@ -1,5 +1,11 @@
 2010-07-30  Kai Tietz  <kai.tietz@onevision.com>
 
+	* math/logl.S: Renamed to internal_logl.S.
+	* math/logl.c: New.
+	* math/log.c: New.
+	* math/log.def.h: New.
+	* Makefile.am: Adjust make dependencies.
+
 	* math/expl.c: Change implemenation.
 	* math/exp.c: Likewise.
 	* math/expf.c: Add newline.
