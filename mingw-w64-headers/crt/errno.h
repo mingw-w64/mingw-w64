@@ -14,15 +14,16 @@ extern "C" {
 
 #ifndef _CRT_ERRNO_DEFINED
 #define _CRT_ERRNO_DEFINED
-  _CRTIMP extern int *__cdecl _errno(void);
+_CRTIMP extern int *__cdecl _errno(void);
 #define errno (*_errno())
 
-  errno_t __cdecl _set_errno(int _Value);
-  errno_t __cdecl _get_errno(int *_Value);
-#endif
+errno_t __cdecl _set_errno(int _Value);
+errno_t __cdecl _get_errno(int *_Value);
+#endif /* _CRT_ERRNO_DEFINED */
 
 #define EPERM 1
 #define ENOENT 2
+#define ENOFILE ENOENT
 #define ESRCH 3
 #define EINTR 4
 #define EIO 5

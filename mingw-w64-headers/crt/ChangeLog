@@ -1,5 +1,7 @@
 2010-07-30  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* errno.h (ENOFILE): New, define as ENOENT.
+
 	* _mingw.h (NONAMELESSSTRUCT, NONAMELESSUNION): If one is defined
 	make sure the other is defined, too. Fixes the mess caused by
 	NONAMELESSSTRUCT which isn't used by any others, so just rely on
