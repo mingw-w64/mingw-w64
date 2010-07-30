@@ -1,3 +1,17 @@
+2010-07-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_dxhelper.h (NONAMELESSSTRUCT, NONAMELESSUNION): If one is
+	defined make sure the other is defined, too. Fixes the mess caused
+	by NONAMELESSSTRUCT which isn't used by any others, so just rely on
+	NONAMELESSUNION.
+
+	mingw.org compatibility macros for anonymous unions from _mingw.h:
+	(_ANONYMOUS_UNION): New.
+	(_ANONYMOUS_STRUCT): New.
+	(_UNION_NAME): New.
+	(_STRUCT_NAME): New.
+	(__ANONYMOUS_DEFINED): New, guarding the above.
+
 2010-07-04  Ozkan Sezer <sezeroz@gmail.com>
 
 	* dmdls.h (_DMUS_REGION): WLOOP is typedef'ed as struct _rloop in
