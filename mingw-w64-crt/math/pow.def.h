@@ -157,8 +157,5 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
   rslt = __FLT_ABI(exp)(y * __FLT_ABI(log)(__FLT_ABI(fabs) (x)));
   if (signbit (x) && __FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) != 0.0)
     rslt = -rslt;
-  x_class = fpclassify (rslt);
-  if (x_class == FP_INFINITE || x_class == FP_ZERO)
-    errno = ERANGE;
   return rslt;
 }
