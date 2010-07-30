@@ -1,5 +1,11 @@
 2010-07-30  Kai Tietz  <kai.tietz@onevision.com>
 
+	* math/expl.c: Change implemenation.
+	* math/exp.c: Likewise.
+	* math/expf.c: Add newline.
+	* math/exp.def.h: New.
+	* Makefile.am: Add math/exp.c file.
+
 	* complex/complex_internal.h (__FLT_MAXLOG...,
 	__FLT_MINLOG...): New constants.
 
