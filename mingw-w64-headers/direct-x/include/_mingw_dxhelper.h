@@ -15,8 +15,13 @@
 
 #ifndef __ANONYMOUS_DEFINED
 #define __ANONYMOUS_DEFINED
-#define _ANONYMOUS_UNION  __MINGW_EXTENSION
-#define _ANONYMOUS_STRUCT __MINGW_EXTENSION
+#if defined(__GNUC__) || defined(__GNUG__)
+#define _ANONYMOUS_UNION	__extension__
+#define _ANONYMOUS_STRUCT	__extension__
+#else
+#define _ANONYMOUS_UNION
+#define _ANONYMOUS_STRUCT
+#endif
 #ifndef NONAMELESSUNION
 #define _UNION_NAME(x)
 #define _STRUCT_NAME(x)
