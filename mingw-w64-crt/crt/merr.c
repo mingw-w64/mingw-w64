@@ -17,7 +17,7 @@ void __mingw_raise_matherr (int typ, const char *name, double a1, double a2,
   if (!__defaultmatherr)
     return;
   ex.type = typ;
-  ex.name = nam;
+  ex.name = name;
   ex.arg1 = a1;
   ex.arg2 = a2;
   ex.retval = rslt;
