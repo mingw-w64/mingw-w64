@@ -40,8 +40,6 @@ extern void _fpreset (void);
 #define SPACECHAR _T(' ')
 #define DQUOTECHAR _T('\"')
 
-__declspec(dllimport) void __setusermatherr(int (__cdecl *)(struct _exception *));
-
 extern int * __MINGW_IMP_SYMBOL(_fmode);
 extern int * __MINGW_IMP_SYMBOL(_commode);
 
