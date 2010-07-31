@@ -96,6 +96,9 @@ extern "C" {
     double arg2;
     double retval;
   };
+
+  void __mingw_raise_matherr (int typ, const char *name, double a1, double a2,
+			      double rslt);
 #endif
 
   double __cdecl sin(double _X);

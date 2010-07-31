@@ -1,3 +1,7 @@
+2010-07-31  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h (__mingw_raise_matherr): New prototype.
+
 2010-07-30  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* errno.h (ENOFILE): New, define as ENOENT.
