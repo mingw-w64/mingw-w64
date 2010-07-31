@@ -10,6 +10,20 @@
 
 int __defaultmatherr = 0;
 
+void __mingw_raise_matherr (int typ, const char *name, double a1, double a2,
+			    double rslt)
+{
+  struct _exception ex;
+  if (!__defaultmatherr)
+    return;
+  ex.type = typ;
+  ex.name = nam;
+  ex.arg1 = a1;
+  ex.arg2 = a2;
+  ex.retval = rslt;
+  _matherr (&ex);
+}
+
 int __CRTDECL
 _matherr (struct _exception *pexcept)
 {

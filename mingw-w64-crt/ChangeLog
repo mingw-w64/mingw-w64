@@ -1,3 +1,11 @@
+2010-07-31  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/merr.c (__mingw_raise_matherr): New.
+	* crt/crtexe.c (_MINGW_INSTALL_DEBUG_MATHERR): Make extern.
+	* misc/mingw_matherr.c: New.
+	* Makefile.am (libmingwex): Add mingw_matherr.c.
+	* Makefile.in: Regenerated.
+
 2010-07-30  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/logl.S: Renamed to internal_logl.S.

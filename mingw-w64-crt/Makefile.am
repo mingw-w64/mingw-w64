@@ -167,6 +167,7 @@ src_libmingwex=\
   \
   misc/mb_wc_common.h \
   misc/mingw_getsp.S  \
+  misc/mingw_matherr.c \
   misc/alarm.c                misc/basename.c      misc/btowc.c          misc/_ctime32.c              misc/ctime.c           \
   misc/delay-f.c              misc/delayimp.c      misc/delay-n.c        misc/difftime32.c            misc/difftime64.c      \
   misc/difftime.c             misc/dirent.c        misc/dirname.c        misc/execv.c                 misc/execve.c          \

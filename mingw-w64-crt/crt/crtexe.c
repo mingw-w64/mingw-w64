@@ -51,11 +51,6 @@ extern int * __MINGW_IMP_SYMBOL(_commode);
 #define _commode (* __MINGW_IMP_SYMBOL(_commode))
 extern int _dowildcard;
 
-#if defined(__GNUC__)
-int _MINGW_INSTALL_DEBUG_MATHERR __attribute__((weak)) = 0;
-#else
-int _MINGW_INSTALL_DEBUG_MATHERR = 0;
-#endif
 extern int __defaultmatherr;
 extern _CRTIMP void __cdecl _initterm(_PVFV *, _PVFV *);
 
@@ -108,6 +103,8 @@ static void __cdecl pre_cpp_init (void);
 static void __cdecl __mingw_prepare_except_for_msvcr80_and_higher (void);
 _CRTALLOC(".CRT$XIAA") _PIFV mingw_pcinit = pre_c_init;
 _CRTALLOC(".CRT$XCAA") _PVFV mingw_pcppinit = pre_cpp_init;
+
+extern int _MINGW_INSTALL_DEBUG_MATHERR;
 
 static int __cdecl
 pre_c_init (void)
