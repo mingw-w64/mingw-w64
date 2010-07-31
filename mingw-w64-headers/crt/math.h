@@ -91,7 +91,7 @@ extern "C" {
 #define _EXCEPTION_DEFINED
   struct _exception {
     int type;
-    char *name;
+    const char *name;
     double arg1;
     double arg2;
     double retval;
@@ -99,6 +99,9 @@ extern "C" {
 
   void __mingw_raise_matherr (int typ, const char *name, double a1, double a2,
 			      double rslt);
+  void __mingw_setusermatherr (int (__cdecl *)(struct _exception *));
+  _CRTIMP void __setusermatherr(int (__cdecl *)(struct _exception *));
+  #define __setusermatherr __mingw_setusermatherr
 #endif
 
   double __cdecl sin(double _X);
