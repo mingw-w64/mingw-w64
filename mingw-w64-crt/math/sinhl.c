@@ -4,10 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #include "cephes_mconf.h"
-
-#ifndef _SET_ERRNO
-#define _SET_ERRNO(x)
-#endif
+#include <errno.h>
 
 #ifdef UNK
 static uLD P[] = {
@@ -60,22 +57,19 @@ static uLD Q[] = {
 long double sinhl(long double x)
 {
   long double a;
+  int x_class = fpclassify (x);
 
-#ifdef MINUSZERO
-  if (x == 0.0)
-    return (x);
-#endif
-#ifdef NANS
-  if (isnanl(x))
+  if (x_class == FP_NAN)
+    {
+      errno = EDOM;
+      return x;
+    }
+  if (x_class == FP_ZERO)
+    return x;
+  if (x_class == FP_INFINITE ||
+      (x > (MAXLOGL + LOGE2L)) || (x > -(MINLOGL-LOGE2L)))
   {
-    _SET_ERRNO(EDOM);
-  }
-#endif
-  a = fabsl(x);
-  if ((x > (MAXLOGL + LOGE2L)) || (x > -(MINLOGL-LOGE2L)))
-  {
-    mtherr("sinhl", DOMAIN);
-    _SET_ERRNO(ERANGE);
+    errno = ERANGE;
 #ifdef INFINITIES
     if (x > 0.0L)
       return (INFINITYL);
@@ -88,6 +82,7 @@ long double sinhl(long double x)
       return (-MAXNUML);
 #endif
   }
+  a = fabsl (x);
   if (a > 1.0L)
   {
     if (a >= (MAXLOGL - LOGE2L))
