@@ -53,12 +53,12 @@ __FLT_ABI(log) (__FLT_TYPE x)
   int x_class = fpclassify (x);
   if (signbit (x))
     {
-      errno = EDOM;
+      __FLT_RPT_DOMAIN ("log", x, 0.0, __FLT_NAN);
       return __FLT_NAN;
     }
   else if (x_class == FP_ZERO)
     {
-      errno = ERANGE;
+      __FLT_RPT_ERANGE ("log", x, 0.0, -__FLT_HUGE_VAL, 1);
       return -__FLT_HUGE_VAL;
     }
   else if (x_class == FP_INFINITE)

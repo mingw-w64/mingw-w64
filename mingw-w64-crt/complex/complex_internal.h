@@ -78,6 +78,7 @@
 # define __FLT_MAXLOG	88.72283905206835F
 # define __FLT_MINLOG	-103.278929903431851103F
 # define __FLT_LOGE2	0.693147180559945309F
+# define __FLT_REPORT(NAME) NAME "f"
 #elif defined(_NEW_COMPLEX_DOUBLE)
 # define __FLT_TYPE	double
 # define __FLT_ABI(N)	N
@@ -92,6 +93,7 @@
 # define __FLT_MAXLOG	7.09782712893383996843E2
 # define __FLT_MINLOG	-7.08396418532264106224E2
 # define __FLT_LOGE2	6.93147180559945309417E-1
+# define __FLT_REPORT(NAME)	NAME
 #elif defined(_NEW_COMPLEX_LDOUBLE)
 # define __FLT_TYPE	long double
 # define __FLT_ABI(N)	N##l
@@ -106,6 +108,18 @@
 # define __FLT_MAXLOG	1.1356523406294143949492E4L
 # define __FLT_MINLOG	-1.13994985314888605586758E4L
 # define __FLT_LOGE2	6.9314718055994530941723E-1L
+# define __FLT_REPORT(NAME) NAME "l"
 #else
 # error "Unknown complex number type"
 #endif
+
+#define __FLT_RPT_DOMAIN(NAME, ARG1, ARG2, RSLT) \
+	errno = EDOM, \
+	__mingw_raise_matherr (_DOMAIN, __FLT_REPORT(NAME), (double) (ARG1), \
+			       (double) (ARG2), (double) (RSLT))
+#define __FLT_RPT_ERANGE(NAME, ARG1, ARG2, RSLT, OVL) \
+	errno = ERANGE, \
+        __mingw_raise_matherr (((OVL) ? _OVERFLOW : _UNDERFLOW), \
+			       __FLT_REPORT(NAME), (double) (ARG1), \
+                               (double) (ARG2), (double) (RSLT))
+

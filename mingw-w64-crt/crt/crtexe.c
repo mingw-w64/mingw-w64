@@ -49,7 +49,6 @@ extern int * __MINGW_IMP_SYMBOL(_commode);
 #define _commode (* __MINGW_IMP_SYMBOL(_commode))
 extern int _dowildcard;
 
-extern int __defaultmatherr;
 extern _CRTIMP void __cdecl _initterm(_PVFV *, _PVFV *);
 
 static int __cdecl check_managed_app (void);
@@ -124,11 +123,7 @@ pre_c_init (void)
 #endif
   if (_MINGW_INSTALL_DEBUG_MATHERR)
     {
-      if (! __defaultmatherr)
-	{
-	  __setusermatherr (_matherr);
-	  __defaultmatherr = 1;
-	}
+      __setusermatherr (_matherr);
     }
 
   if (__globallocalestatus == -1)

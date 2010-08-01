@@ -81,8 +81,9 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
     return __FLT_CST(1.0);
   else if (x_class == FP_NAN || y_class == FP_NAN)
     {
-      errno = EDOM;
-      return (signbit(x) ? -__FLT_NAN : __FLT_NAN);
+      rslt = (signbit(x) ? -__FLT_NAN : __FLT_NAN);
+      __FLT_RPT_DOMAIN ("pow", x, y, rslt);
+      return rslt;
     }
   else if (x_class == FP_ZERO)
     {
@@ -91,7 +92,7 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
 
       if (signbit(x) && __FLT_ABI(modf) (y, &d) != 0.0)
 	{
-	  errno = EDOM;
+	  __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
 	  return -__FLT_NAN;
 	}
       odd_y = (__FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) != 0.0) ? 1 : 0;
@@ -124,7 +125,7 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
       /* pow (x, y) signals the invalid operation exception for finite x < 0 and finite non-integer y.  */
       if (signbit(x) && __FLT_ABI(modf) (y, &d) != 0.0)
 	{
-	  errno = EDOM;
+	  __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
 	  return -__FLT_NAN;
 	}
       odd_y = (__FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) != 0.0) ? 1 : 0;
@@ -150,7 +151,7 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
 
   if (signbit (x) && (__FLT_TYPE) __FLT_ABI(modf) (y, &d) != 0.0)
     {
-      errno = EDOM;
+      __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
       return -__FLT_NAN;
     }
   /* As exp already checks for minlog and maxlog no further checks are necessary.  */
