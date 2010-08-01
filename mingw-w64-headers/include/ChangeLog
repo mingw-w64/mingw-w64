@@ -1,3 +1,30 @@
+2010-08-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mingw_inc/_varenum.h: New helper header for enum VARENUM.
+	* wtypes.h (VARENUM): Moved from here to mingw_inc/_varenum.h.
+	Include <mingw_inc/_varenum.h>
+	* ks.h: Include <mingw_inc/_varenum.h> for DDK.
+	(PFNQUERYMEDIUMSLIST): New.
+	(BUS_INTERFACE_MEDIUMS, PBUS_INTERFACE_MEDIUMS): New.
+	(GUID_BUS_INTERFACE_MEDIUMS): New.
+	(KsGateTurnInputOn): New.
+	(KsGateTurnInputOff): New.
+	(KsGateGetStateUnsafe): New.
+	(KsGateCaptureThreshold): New.
+	(KsGateInitialize): New.
+	(KsGateInitializeAnd): New.
+	(KsGateInitializeOr): New.
+	(KsGateAddOnInputToAnd): New.
+	(KsGateAddOffInputToAnd): New.
+	(KsGateRemoveOnInputFromAnd): New.
+	(KsGateRemoveOffInputFromAnd): New.
+	(KsGateAddOnInputToOr): New.
+	(KsGateAddOffInputToOr): New.
+	(KsGateRemoveOnInputFromOr): New.
+	(KsGateRemoveOffInputFromOr): New.
+	(KsGateTerminateAnd): New.
+	(KsGateTerminateOr): New.
+
 2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ntddstor.h (STORAGE_MEDIA_SERIAL_NUMBER_DATA): Enable for GCC

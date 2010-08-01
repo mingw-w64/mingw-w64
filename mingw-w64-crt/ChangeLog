@@ -1,3 +1,10 @@
+2010-08-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/ksddk-uuid.c: New, adding GUID_BUS_INTERFACE_MEDIUMS
+	from ks.h.
+	* Makefile.am (src_libuuid): Add ksddk-uuid.c to build.
+	* Makefile.in: Regenerate.
+
 2010-08-01  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math/expm1.def.h: New.

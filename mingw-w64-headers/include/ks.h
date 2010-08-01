@@ -131,6 +131,10 @@ typedef struct {
 DEFINE_GUIDSTRUCT("97E99BA0-BDEA-11CF-A5D6-28DB04C10000",KSPROPTYPESETID_General);
 #define KSPROPTYPESETID_General DEFINE_GUIDNAMED(KSPROPTYPESETID_General)
 
+#if defined(_NTDDK_)
+#include <mingw_inc/_varenum.h>
+#endif
+
 typedef struct {
   ULONG Size;
   ULONG Count;
@@ -2307,6 +2311,20 @@ typedef struct {
 #define STATIC_REFERENCE_BUS_INTERFACE		STATIC_KSMEDIUMSETID_Standard
 #define REFERENCE_BUS_INTERFACE			KSMEDIUMSETID_Standard
 
+typedef NTSTATUS (*PFNQUERYMEDIUMSLIST) (PVOID Context, ULONG *MediumsCount,
+					 PKSPIN_MEDIUM *MediumList);
+
+typedef struct
+{
+  INTERFACE Interface;
+  PFNQUERYMEDIUMSLIST QueryMediumsList;
+} BUS_INTERFACE_MEDIUMS,*PBUS_INTERFACE_MEDIUMS;
+
+#define STATIC_GUID_BUS_INTERFACE_MEDIUMS				\
+	0x4EC35C3EL,0x201B,0x11D2,0x87,0x45,0x00,0xA0,0xC9,0x22,0x31,0x96
+DEFINE_GUIDSTRUCT("4EC35C3E-201B-11D2-8745-00A0C9223196", GUID_BUS_INTERFACE_MEDIUMS);
+#define GUID_BUS_INTERFACE_MEDIUMS DEFINE_GUIDNAMED(GUID_BUS_INTERFACE_MEDIUMS)
+
 #endif /* _NTDDK_ */
 
 #ifndef PACK_PRAGMAS_NOT_SUPPORTED
@@ -2346,6 +2364,122 @@ struct _KSGATE {
   LONG Count;
   PKSGATE NextGate;
 };
+
+#ifndef _NTOS_
+__forceinline void KsGateTurnInputOn (PKSGATE Gate)
+{
+	while (Gate && (InterlockedIncrement(&Gate->Count) == 1)) {
+		Gate = Gate->NextGate;
+	}
+}
+
+__forceinline void KsGateTurnInputOff (PKSGATE Gate)
+{
+	while (Gate && (InterlockedDecrement(&Gate->Count) == 0)) {
+		Gate = Gate->NextGate;
+	}
+}
+
+__forceinline BOOLEAN KsGateGetStateUnsafe (PKSGATE Gate)
+{
+	return (BOOLEAN) (Gate->Count > 0);
+}
+
+__forceinline BOOLEAN KsGateCaptureThreshold (PKSGATE Gate)
+{
+	BOOLEAN captured;
+
+	captured = (BOOLEAN) (InterlockedCompareExchange(&Gate->Count, 0, 1) == 1);
+	if (captured) {
+		KsGateTurnInputOff(Gate->NextGate);
+	}
+	return captured;
+}
+
+__forceinline void KsGateInitialize (PKSGATE Gate, LONG InitialCount,
+				     PKSGATE NextGate, BOOLEAN StateToPropagate)
+{
+	Gate->Count = InitialCount;
+	Gate->NextGate = NextGate;
+
+	if (NextGate) {
+		if (InitialCount > 0) {
+			if (StateToPropagate)	KsGateTurnInputOn(NextGate);
+		} else {
+			if (! StateToPropagate)	KsGateTurnInputOff(NextGate);
+		}
+	}
+}
+
+__forceinline void KsGateInitializeAnd (PKSGATE AndGate, PKSGATE NextOrGate)
+{
+	KsGateInitialize(AndGate, 1, NextOrGate, TRUE);
+}
+
+__forceinline void KsGateInitializeOr (PKSGATE OrGate, PKSGATE NextAndGate)
+{
+	KsGateInitialize(OrGate, 0, NextAndGate, FALSE);
+}
+
+__forceinline void KsGateAddOnInputToAnd (PKSGATE AndGate)
+{
+	(VOID)AndGate;
+}
+
+__forceinline void KsGateAddOffInputToAnd (PKSGATE AndGate)
+{
+	KsGateTurnInputOff(AndGate);
+}
+
+__forceinline void KsGateRemoveOnInputFromAnd (PKSGATE AndGate)
+{
+	(VOID)AndGate;
+}
+
+__forceinline void KsGateRemoveOffInputFromAnd (PKSGATE AndGate)
+{
+	KsGateTurnInputOn(AndGate);
+}
+
+__forceinline void KsGateAddOnInputToOr (PKSGATE OrGate)
+{
+	KsGateTurnInputOn(OrGate);
+}
+
+__forceinline void KsGateAddOffInputToOr (PKSGATE OrGate)
+{
+	(VOID)OrGate;
+}
+
+__forceinline void KsGateRemoveOnInputFromOr (PKSGATE OrGate)
+{
+	KsGateTurnInputOff(OrGate);
+}
+
+__forceinline void KsGateRemoveOffInputFromOr (PKSGATE OrGate)
+{
+	(VOID)OrGate;
+}
+
+__forceinline void KsGateTerminateAnd (PKSGATE AndGate)
+{
+	if (KsGateGetStateUnsafe(AndGate)) {
+		KsGateRemoveOnInputFromOr(AndGate->NextGate);
+	} else {
+		KsGateRemoveOffInputFromOr(AndGate->NextGate);
+	}
+}
+
+__forceinline void KsGateTerminateOr (PKSGATE OrGate)
+{
+	if (KsGateGetStateUnsafe(OrGate)) {
+		KsGateRemoveOnInputFromAnd(OrGate->NextGate);
+	} else {
+		KsGateRemoveOffInputFromAnd(OrGate->NextGate);
+	}
+}
+#endif /* _NTOS_ */
+
 
 typedef PVOID KSOBJECT_BAG;
 
