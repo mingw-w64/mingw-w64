@@ -42,5 +42,31 @@
  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#define _NEW_COMPLEX_LDOUBLE 1
-#include "expm1.def.h"
+#include "../complex/complex_internal.h"
+#include <errno.h>
+
+__FLT_TYPE
+__FLT_ABI(expm1) (__FLT_TYPE x)
+{
+  int x_class = fpclassify (x);
+  if (x_class == FP_NAN)
+  {
+    errno = EDOM;
+    return x;
+  }
+  else if (x_class == FP_INFINITE)
+  {
+    return (signbit (x) ? -__FLT_CST(1.0) : __FLT_HUGE_VAL);
+  }
+  else if (x_class == FP_ZERO)
+  {
+    return __FLT_CST(0.0);
+  }
+  if (__FLT_ABI (fabs) (x) < __FLT_LOGE2)
+    {
+      x *= __FLT_LOGE2;
+      __asm__ __volatile__ ("f2xm1" : "=t" (x) : "0" (x));
+      return x;
+    }
+  return __FLT_ABI (exp) (x) - __FLT_CST (1.0);
+}

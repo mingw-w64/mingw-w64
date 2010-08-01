@@ -1,5 +1,10 @@
 2010-08-01  Kai Tietz  <kai.tietz@onevision.com>
 
+	* math/expm1.def.h: New.
+	* math/expm1.c: Use c99 variant.
+	* math/expm1f.c: Likewise.
+	* math/expm1l.c: Likewise.
+
 	* complex/complex_internal.h (__FLT_LOGE2): New.
 
 2010-07-31  Kai Tietz  <kai.tietz@onevision.com>
