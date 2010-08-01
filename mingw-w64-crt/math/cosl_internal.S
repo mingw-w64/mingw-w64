@@ -5,16 +5,16 @@
  */
 #include <_mingw_mac.h>
 
-	.file	"cosl.S"
+	.file	"cosl_internal.S"
 	.text
 #ifdef _WIN64
 	.align 8
 #else
 	.align 4
 #endif
-.globl __MINGW_USYMBOL(cosl)
-	.def	__MINGW_USYMBOL(cosl);	.scl	2;	.type	32;	.endef
-__MINGW_USYMBOL(cosl):
+.globl __MINGW_USYMBOL(__cosl_internal)
+	.def	__MINGW_USYMBOL(__cosl_internal);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(__cosl_internal):
 #ifdef _WIN64
 	fldt	(%rdx)
 	fcos

@@ -134,17 +134,21 @@ src_libmingwex=\
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
   math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h math/ceill.S \
-  math/_chgsignl.S   math/copysignl.S    math/cosl.S       math/exp2f.S       math/exp2l.S       math/exp2.S       math/floorl.S  \
+  math/_chgsignl.S   math/copysignl.S    \
+  math/cosl_internal.S math/cos.c math/cosf.c math/cosl.c \
+  math/exp2f.S       math/exp2l.S       math/exp2.S       math/floorl.S  \
   math/fmaf.S        math/fma.S          math/frexpl.S     math/ilogbf.S      math/ilogbl.S      math/ilogb.S      math/log10l.S  \
   math/log1pf.S      math/log1pl.S       math/log1p.S      math/log2f.S       math/log2l.S       math/log2.S       \
   math/internal_logl.S    \
   math/nearbyintf.S  math/nearbyintl.S   math/nearbyint.S  math/remainderf.S  math/remainderl.S  math/remainder.S  math/remquof.S \
-  math/remquol.S     math/remquo.S       math/scalbnf.S    math/scalbnl.S     math/scalbn.S      math/sinl.S       math/tanl.S    \
+  math/remquol.S     math/remquo.S       math/scalbnf.S    math/scalbnl.S     math/scalbn.S      \
+  math/sinl_internal.S math/sinl.c math/sin.c math/sinf.c \
+  math/tanl.S    \
   math/acosf.c        math/acosh.c        math/acoshf.c       math/acoshl.c        math/acosl.c       math/asinf.c       \
   math/asinh.c        math/asinhf.c       math/asinhl.c       math/asinl.c         math/atan2f.c      math/atan2l.c      \
   math/atanf.c        math/atanh.c        math/atanhf.c       math/atanhl.c        math/atanl.c       math/cbrt.c        \
   math/cbrtf.c        math/cbrtl.c        math/ceilf.c        math/cephes_emath.c  math/copysign.c    math/copysignf.c   \
-  math/cosf.c         math/coshf.c        math/coshl.c        math/erfl.c          math/expf.c        math/exp.c	 \
+  math/coshf.c        math/coshl.c        math/erfl.c          math/expf.c        math/exp.c	 \
   math/expl.c        \
   math/expm1.c        math/expm1f.c       math/expm1l.c       math/fabs.c          math/fabsf.c       math/fabsl.c       \
   math/fdim.c         math/fdimf.c        math/fdiml.c        math/floorf.c        math/fmal.c        math/fmax.c        \
@@ -160,7 +164,7 @@ src_libmingwex=\
   math/modff.c        math/modfl.c        math/nextafterf.c   math/nextafterl.c    math/nexttoward.c  math/nexttowardf.c \
   math/pow.c          math/powf.c         math/powi.c         math/powif.c         math/powil.c       math/powl.c        \
   math/rint.c         math/rintf.c        math/rintl.c        math/round.c         math/roundf.c      math/roundl.c      \
-  math/s_erf.c        math/sf_erf.c       math/signbit.c      math/signbitf.c      math/signbitl.c    math/sinf.c        \
+  math/s_erf.c        math/sf_erf.c       math/signbit.c      math/signbitf.c      math/signbitl.c    \
   math/sinhf.c        math/sinhl.c        math/sqrtf.c        math/sqrtl.c         math/tanf.c        math/tanhf.c       \
   math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c       math/trunc.c       math/truncf.c      \
   math/truncl.c       math/cossin.c       \

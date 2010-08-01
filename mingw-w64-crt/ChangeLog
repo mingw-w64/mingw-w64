@@ -1,3 +1,12 @@
+2010-08-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile.am (sin, cos): Add new c99 compatible API.
+	* math/cos.def.h: New.
+	* math/sin.def.h: New.
+	* math/cos_internal.S: Rename of cos.S.
+	* math/sin_internal.S: Rename of sin.S.
+	* math/sin.c, math/sinl.c, math/cos.c, math/cosl.c: New.
+
 2010-08-01  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* libsrc/ksddk-uuid.c: New, adding GUID_BUS_INTERFACE_MEDIUMS

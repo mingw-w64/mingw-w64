@@ -5,16 +5,16 @@
  */
 #include <_mingw_mac.h>
 
-	.file	"sinl.S"
+	.file	"sinl_internal.S"
 	.text
 #ifdef _WIN64
 	.align 8
 #else
 	.align 4
 #endif
-.globl __MINGW_USYMBOL(sinl)
-	.def	__MINGW_USYMBOL(sinl);	.scl	2;	.type	32;	.endef
-__MINGW_USYMBOL(sinl):
+.globl __MINGW_USYMBOL(__sinl_internal)
+	.def	__MINGW_USYMBOL(__sinl_internal);	.scl	2;	.type	32;	.endef
+__MINGW_USYMBOL(__sinl_internal):
 #ifdef _WIN64
 	fldt	(%rdx)
 	fsin
