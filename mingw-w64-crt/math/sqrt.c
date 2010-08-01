@@ -42,5 +42,5 @@
  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#define _NEW_COMPLEX_FLOAT 1
+#define _NEW_COMPLEX_DOUBLE 1
 #include "sqrt.def.h"

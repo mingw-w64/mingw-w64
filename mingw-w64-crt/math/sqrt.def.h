@@ -42,5 +42,25 @@
  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#define _NEW_COMPLEX_FLOAT 1
-#include "sqrt.def.h"
+#include "../complex/complex_internal.h"
+#include <errno.h>
+
+__FLT_TYPE
+__FLT_ABI (sqrt) (__FLT_TYPE x)
+{
+  __FLT_TYPE res = __FLT_CST (0.0);
+  int x_class = fpclassify (x);
+  if (x_class == FP_NAN || signbit (x))
+    {
+      errno = EDOM;
+      return (signbit (x) ? -__FLT_NAN : __FLT_NAN);
+    }
+  else if (x_class == FP_ZERO)
+    return __FLT_CST (0.0);
+  else if (x_class == FP_INFINITE)
+    return __FLT_HUGE_VAL;
+  else if (x == __FLT_CST (1.0))
+   return __FLT_CST (1.0);
+  asm ("fsqrt" : "=t" (res) : "0" (x));
+  return res;
+}

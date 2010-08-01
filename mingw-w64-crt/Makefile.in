@@ -384,7 +384,7 @@ am__lib32_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	math/rintl.c math/round.c math/roundf.c math/roundl.c \
 	math/s_erf.c math/sf_erf.c math/signbit.c math/signbitf.c \
 	math/signbitl.c math/sinhf.c math/sinhl.c math/sqrtf.c \
-	math/sqrtl.c math/tanf.c math/tanhf.c math/tanhl.c \
+	math/sqrt.c math/sqrtl.c math/tanf.c math/tanhf.c math/tanhl.c \
 	math/tgamma.c math/tgammaf.c math/tgammal.c math/trunc.c \
 	math/truncf.c math/truncl.c math/cossin.c misc/mb_wc_common.h \
 	misc/mingw_getsp.S misc/mingw_matherr.c misc/alarm.c \
@@ -710,6 +710,7 @@ am__objects_11 = intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT) \
 	math/lib32_libmingwex_a-sinhf.$(OBJEXT) \
 	math/lib32_libmingwex_a-sinhl.$(OBJEXT) \
 	math/lib32_libmingwex_a-sqrtf.$(OBJEXT) \
+	math/lib32_libmingwex_a-sqrt.$(OBJEXT) \
 	math/lib32_libmingwex_a-sqrtl.$(OBJEXT) \
 	math/lib32_libmingwex_a-tanf.$(OBJEXT) \
 	math/lib32_libmingwex_a-tanhf.$(OBJEXT) \
@@ -1254,7 +1255,7 @@ am__lib64_libmingwex_a_SOURCES_DIST = intrincs/inbyte.c \
 	math/rintl.c math/round.c math/roundf.c math/roundl.c \
 	math/s_erf.c math/sf_erf.c math/signbit.c math/signbitf.c \
 	math/signbitl.c math/sinhf.c math/sinhl.c math/sqrtf.c \
-	math/sqrtl.c math/tanf.c math/tanhf.c math/tanhl.c \
+	math/sqrt.c math/sqrtl.c math/tanf.c math/tanhf.c math/tanhl.c \
 	math/tgamma.c math/tgammaf.c math/tgammal.c math/trunc.c \
 	math/truncf.c math/truncl.c math/cossin.c misc/mb_wc_common.h \
 	misc/mingw_getsp.S misc/mingw_matherr.c misc/alarm.c \
@@ -1592,6 +1593,7 @@ am__objects_31 = intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT) \
 	math/lib64_libmingwex_a-sinhf.$(OBJEXT) \
 	math/lib64_libmingwex_a-sinhl.$(OBJEXT) \
 	math/lib64_libmingwex_a-sqrtf.$(OBJEXT) \
+	math/lib64_libmingwex_a-sqrt.$(OBJEXT) \
 	math/lib64_libmingwex_a-sqrtl.$(OBJEXT) \
 	math/lib64_libmingwex_a-tanf.$(OBJEXT) \
 	math/lib64_libmingwex_a-tanhf.$(OBJEXT) \
@@ -3063,8 +3065,11 @@ src_libmingwex = \
   math/modff.c        math/modfl.c        math/nextafterf.c   math/nextafterl.c    math/nexttoward.c  math/nexttowardf.c \
   math/pow.c          math/powf.c         math/powi.c         math/powif.c         math/powil.c       math/powl.c        \
   math/rint.c         math/rintf.c        math/rintl.c        math/round.c         math/roundf.c      math/roundl.c      \
-  math/s_erf.c        math/sf_erf.c       math/signbit.c      math/signbitf.c      math/signbitl.c    \
-  math/sinhf.c        math/sinhl.c        math/sqrtf.c        math/sqrtl.c         math/tanf.c        math/tanhf.c       \
+  math/s_erf.c        math/sf_erf.c \
+  math/signbit.c math/signbitf.c  math/signbitl.c    \
+  math/sinhf.c        math/sinhl.c       \
+  math/sqrtf.c math/sqrt.c math/sqrtl.c \
+  math/tanf.c        math/tanhf.c       \
   math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c       math/trunc.c       math/truncf.c      \
   math/truncl.c       math/cossin.c       \
   \
@@ -4979,6 +4984,8 @@ math/lib32_libmingwex_a-sinhl.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-sqrtf.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
+math/lib32_libmingwex_a-sqrt.$(OBJEXT): math/$(am__dirstamp) \
+	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-sqrtl.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-tanf.$(OBJEXT): math/$(am__dirstamp) \
@@ -6255,6 +6262,8 @@ math/lib64_libmingwex_a-sinhf.$(OBJEXT): math/$(am__dirstamp) \
 math/lib64_libmingwex_a-sinhl.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib64_libmingwex_a-sqrtf.$(OBJEXT): math/$(am__dirstamp) \
+	math/$(DEPDIR)/$(am__dirstamp)
+math/lib64_libmingwex_a-sqrt.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib64_libmingwex_a-sqrtl.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
@@ -8379,6 +8388,7 @@ mostlyclean-compile:
 	-rm -f math/lib32_libmingwex_a-sinhl.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-sinl.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-sinl_internal.$(OBJEXT)
+	-rm -f math/lib32_libmingwex_a-sqrt.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-sqrtf.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-sqrtl.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-tanf.$(OBJEXT)
@@ -8546,6 +8556,7 @@ mostlyclean-compile:
 	-rm -f math/lib64_libmingwex_a-sinhl.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-sinl.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-sinl_internal.$(OBJEXT)
+	-rm -f math/lib64_libmingwex_a-sqrt.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-sqrtf.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-sqrtl.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-tanf.$(OBJEXT)
@@ -9743,6 +9754,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-sinhl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-sinl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-sinl_internal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-sqrt.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-sqrtf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-sqrtl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-tanf.Po@am__quote@
@@ -9910,6 +9922,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-sinhl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-sinl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-sinl_internal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-sqrt.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-sqrtf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-sqrtl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-tanf.Po@am__quote@
@@ -15602,6 +15615,20 @@ math/lib32_libmingwex_a-sqrtf.obj: math/sqrtf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/sqrtf.c' object='math/lib32_libmingwex_a-sqrtf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-sqrtf.obj `if test -f 'math/sqrtf.c'; then $(CYGPATH_W) 'math/sqrtf.c'; else $(CYGPATH_W) '$(srcdir)/math/sqrtf.c'; fi`
+
+math/lib32_libmingwex_a-sqrt.o: math/sqrt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-sqrt.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-sqrt.Tpo -c -o math/lib32_libmingwex_a-sqrt.o `test -f 'math/sqrt.c' || echo '$(srcdir)/'`math/sqrt.c
+@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-sqrt.Tpo math/$(DEPDIR)/lib32_libmingwex_a-sqrt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/sqrt.c' object='math/lib32_libmingwex_a-sqrt.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-sqrt.o `test -f 'math/sqrt.c' || echo '$(srcdir)/'`math/sqrt.c
+
+math/lib32_libmingwex_a-sqrt.obj: math/sqrt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-sqrt.obj -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-sqrt.Tpo -c -o math/lib32_libmingwex_a-sqrt.obj `if test -f 'math/sqrt.c'; then $(CYGPATH_W) 'math/sqrt.c'; else $(CYGPATH_W) '$(srcdir)/math/sqrt.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-sqrt.Tpo math/$(DEPDIR)/lib32_libmingwex_a-sqrt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/sqrt.c' object='math/lib32_libmingwex_a-sqrt.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-sqrt.obj `if test -f 'math/sqrt.c'; then $(CYGPATH_W) 'math/sqrt.c'; else $(CYGPATH_W) '$(srcdir)/math/sqrt.c'; fi`
 
 math/lib32_libmingwex_a-sqrtl.o: math/sqrtl.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-sqrtl.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-sqrtl.Tpo -c -o math/lib32_libmingwex_a-sqrtl.o `test -f 'math/sqrtl.c' || echo '$(srcdir)/'`math/sqrtl.c
@@ -23036,6 +23063,20 @@ math/lib64_libmingwex_a-sqrtf.obj: math/sqrtf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/sqrtf.c' object='math/lib64_libmingwex_a-sqrtf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-sqrtf.obj `if test -f 'math/sqrtf.c'; then $(CYGPATH_W) 'math/sqrtf.c'; else $(CYGPATH_W) '$(srcdir)/math/sqrtf.c'; fi`
+
+math/lib64_libmingwex_a-sqrt.o: math/sqrt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-sqrt.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-sqrt.Tpo -c -o math/lib64_libmingwex_a-sqrt.o `test -f 'math/sqrt.c' || echo '$(srcdir)/'`math/sqrt.c
+@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-sqrt.Tpo math/$(DEPDIR)/lib64_libmingwex_a-sqrt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/sqrt.c' object='math/lib64_libmingwex_a-sqrt.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-sqrt.o `test -f 'math/sqrt.c' || echo '$(srcdir)/'`math/sqrt.c
+
+math/lib64_libmingwex_a-sqrt.obj: math/sqrt.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-sqrt.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-sqrt.Tpo -c -o math/lib64_libmingwex_a-sqrt.obj `if test -f 'math/sqrt.c'; then $(CYGPATH_W) 'math/sqrt.c'; else $(CYGPATH_W) '$(srcdir)/math/sqrt.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-sqrt.Tpo math/$(DEPDIR)/lib64_libmingwex_a-sqrt.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/sqrt.c' object='math/lib64_libmingwex_a-sqrt.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-sqrt.obj `if test -f 'math/sqrt.c'; then $(CYGPATH_W) 'math/sqrt.c'; else $(CYGPATH_W) '$(srcdir)/math/sqrt.c'; fi`
 
 math/lib64_libmingwex_a-sqrtl.o: math/sqrtl.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-sqrtl.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-sqrtl.Tpo -c -o math/lib64_libmingwex_a-sqrtl.o `test -f 'math/sqrtl.c' || echo '$(srcdir)/'`math/sqrtl.c

@@ -164,8 +164,11 @@ src_libmingwex=\
   math/modff.c        math/modfl.c        math/nextafterf.c   math/nextafterl.c    math/nexttoward.c  math/nexttowardf.c \
   math/pow.c          math/powf.c         math/powi.c         math/powif.c         math/powil.c       math/powl.c        \
   math/rint.c         math/rintf.c        math/rintl.c        math/round.c         math/roundf.c      math/roundl.c      \
-  math/s_erf.c        math/sf_erf.c       math/signbit.c      math/signbitf.c      math/signbitl.c    \
-  math/sinhf.c        math/sinhl.c        math/sqrtf.c        math/sqrtl.c         math/tanf.c        math/tanhf.c       \
+  math/s_erf.c        math/sf_erf.c \
+  math/signbit.c math/signbitf.c  math/signbitl.c    \
+  math/sinhf.c        math/sinhl.c       \
+  math/sqrtf.c math/sqrt.c math/sqrtl.c \
+  math/tanf.c        math/tanhf.c       \
   math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c       math/trunc.c       math/truncf.c      \
   math/truncl.c       math/cossin.c       \
   \

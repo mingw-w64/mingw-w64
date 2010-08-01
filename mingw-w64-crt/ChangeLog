@@ -1,5 +1,10 @@
 2010-08-01  Kai Tietz  <kai.tietz@onevision.com>
 
+	* Makefile.am (sqrt): Add new c99 compatible API.
+	* math/sqrt.def.h, math/sqrt.c: New.
+	* math/sqrtf.c, math/sqrtl.c: Adjusted.
+	* Makefile.in: Regenerated.
+
 	* Makefile.am (sin, cos): Add new c99 compatible API.
 	* math/cos.def.h: New.
 	* math/sin.def.h: New.
