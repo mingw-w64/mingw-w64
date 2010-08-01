@@ -71,15 +71,9 @@ long double sinhl(long double x)
   {
     errno = ERANGE;
 #ifdef INFINITIES
-    if (x > 0.0L)
-      return (INFINITYL);
-    else
-      return (-INFINITYL);
+    return (signbit (x) ? -INFINITYL : INFINITYL);
 #else
-    if (x > 0.0L)
-      return (MAXNUML);
-    else
-      return (-MAXNUML);
+    return (signbit (x) ? -MAXNUML : MAXNUML);
 #endif
   }
   a = fabsl (x);
