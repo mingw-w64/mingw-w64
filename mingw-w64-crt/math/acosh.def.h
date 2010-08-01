@@ -42,5 +42,29 @@
  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#define _NEW_COMPLEX_LDOUBLE 1
-#include "acosh.def.h"
+#include "../complex/complex_internal.h"
+#include <errno.h>
+#include "fastmath.h"
+
+__FLT_TYPE
+__FLT_ABI(acosh) (__FLT_TYPE x)
+{
+  int x_class = fpclassify (x);
+  if (x_class == FP_NAN || x < __FLT_CST(1.0))
+    {
+      __FLT_RPT_DOMAIN ("acosh", x, 0.0, __FLT_NAN);
+      return __FLT_NAN;
+    }
+  else if (x_class == FP_INFINITE)
+    {
+      __FLT_RPT_DOMAIN ("acosh", x, 0.0, __FLT_NAN);
+      return __FLT_NAN;
+    }
+
+  if (x > __FLT_CST(0x1p32))
+    return __FLT_ABI (__fast_log) (x) + 6.9314718055994530941723E-1L;
+
+  return __FLT_ABI (__fast_log) (x +
+   __FLT_ABI (__fast_sqrt) ((x + __FLT_CST(1.0)) * (x - __FLT_CST(1.0))));
+}
+

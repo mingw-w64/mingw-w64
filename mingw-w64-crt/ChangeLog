@@ -1,5 +1,8 @@
 2010-08-01  Kai Tietz  <kai.tietz@onevision.com>
 
+	* math/acosh.def.h: Add new c99 compatible API.
+	* math/acoshf.c, math/acosh.c, math/acoshl.c: Adjusted.
+
 	* Makefile.am (sqrt): Add new c99 compatible API.
 	* math/sqrt.def.h, math/sqrt.c: New.
 	* math/sqrtf.c, math/sqrtl.c: Adjusted.
