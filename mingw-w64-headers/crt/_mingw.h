@@ -339,9 +339,9 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define _SIZE_T_DEFINED
 #undef size_t
 #ifdef _WIN64
-  __MINGW_EXTENSION typedef unsigned __int64 size_t;
+__MINGW_EXTENSION typedef unsigned __int64 size_t;
 #else
-  typedef unsigned int size_t;
+typedef unsigned int size_t;
 #endif /* _WIN64 */
 #endif /* _SIZE_T_DEFINED */
 
@@ -349,9 +349,9 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define _SSIZE_T_DEFINED
 #undef ssize_t
 #ifdef _WIN64
-  __MINGW_EXTENSION typedef __int64 ssize_t;
+__MINGW_EXTENSION typedef __int64 ssize_t;
 #else
-  typedef int ssize_t;
+typedef int ssize_t;
 #endif /* _WIN64 */
 #endif /* _SSIZE_T_DEFINED */
 
@@ -361,9 +361,9 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define __intptr_t_defined
 #undef intptr_t
 #ifdef _WIN64
-  __MINGW_EXTENSION typedef __int64 intptr_t;
+__MINGW_EXTENSION typedef __int64 intptr_t;
 #else
-  typedef int intptr_t;
+typedef int intptr_t;
 #endif /* _WIN64 */
 #endif /* __intptr_t_defined */
 #endif /* _INTPTR_T_DEFINED */
@@ -374,9 +374,9 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define __uintptr_t_defined
 #undef uintptr_t
 #ifdef _WIN64
-  __MINGW_EXTENSION typedef unsigned __int64 uintptr_t;
+__MINGW_EXTENSION typedef unsigned __int64 uintptr_t;
 #else
-  typedef unsigned int uintptr_t;
+typedef unsigned int uintptr_t;
 #endif /* _WIN64 */
 #endif /* __uintptr_t_defined */
 #endif /* _UINTPTR_T_DEFINED */
@@ -387,9 +387,9 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define _PTRDIFF_T_
 #undef ptrdiff_t
 #ifdef _WIN64
-  __MINGW_EXTENSION typedef __int64 ptrdiff_t;
+__MINGW_EXTENSION typedef __int64 ptrdiff_t;
 #else
-  typedef int ptrdiff_t;
+typedef int ptrdiff_t;
 #endif /* _WIN64 */
 #endif /* _PTRDIFF_T_ */
 #endif /* _PTRDIFF_T_DEFINED */
@@ -397,7 +397,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #ifndef _WCHAR_T_DEFINED
 #define _WCHAR_T_DEFINED
 #ifndef __cplusplus
-  typedef unsigned short wchar_t;
+typedef unsigned short wchar_t;
 #endif /* C++ */
 #endif /* _WCHAR_T_DEFINED */
 
@@ -405,8 +405,8 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define _WCTYPE_T_DEFINED
 #ifndef _WINT_T
 #define _WINT_T
-  typedef unsigned short wint_t;
-  typedef unsigned short wctype_t;
+typedef unsigned short wint_t;
+typedef unsigned short wctype_t;
 #endif /* _WINT_T */
 #endif /* _WCTYPE_T_DEFINED */
 
@@ -425,25 +425,25 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 
 #ifndef _ERRCODE_DEFINED
 #define _ERRCODE_DEFINED
-  typedef int errno_t;
+typedef int errno_t;
 #endif
 
 #ifndef _TIME32_T_DEFINED
 #define _TIME32_T_DEFINED
-  typedef long __time32_t;
+typedef long __time32_t;
 #endif
 
 #ifndef _TIME64_T_DEFINED
 #define _TIME64_T_DEFINED
-  __MINGW_EXTENSION typedef __int64 __time64_t;
+__MINGW_EXTENSION typedef __int64 __time64_t;
 #endif /* _TIME64_T_DEFINED */
 
 #ifndef _TIME_T_DEFINED
 #define _TIME_T_DEFINED
 #ifdef _USE_32BIT_TIME_T
-  typedef __time32_t time_t;
+typedef __time32_t time_t;
 #else
-  typedef __time64_t time_t;
+typedef __time64_t time_t;
 #endif
 #endif /* _TIME_T_DEFINED */
 
@@ -503,6 +503,10 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #undef  _CRT_glob
 #define _CRT_glob _dowildcard
 
+
+#if defined(_MSC_VER) && !defined(_MSC_EXTENSIONS)
+#define NONAMELESSUNION		1
+#endif
 #if defined(NONAMELESSSTRUCT) && \
    !defined(NONAMELESSUNION)
 #define NONAMELESSUNION		1
@@ -528,93 +532,97 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #ifndef DUMMYUNIONNAME
 # ifdef NONAMELESSUNION
 #  define DUMMYUNIONNAME  u
-#  define DUMMYUNIONNAME1 u1
+#  define DUMMYUNIONNAME1 u1	/* Wine uses this variant */
 #  define DUMMYUNIONNAME2 u2
 #  define DUMMYUNIONNAME3 u3
 #  define DUMMYUNIONNAME4 u4
 #  define DUMMYUNIONNAME5 u5
-#  define DUMMYUNIONNAMEX(X) u##X
+#  define DUMMYUNIONNAME6 u6
+#  define DUMMYUNIONNAME7 u7
+#  define DUMMYUNIONNAME8 u8
+#  define DUMMYUNIONNAME9 u9
 # else /* NONAMELESSUNION */
 #  define DUMMYUNIONNAME
-#  define DUMMYUNIONNAME1
+#  define DUMMYUNIONNAME1	/* Wine uses this variant */
 #  define DUMMYUNIONNAME2
 #  define DUMMYUNIONNAME3
 #  define DUMMYUNIONNAME4
 #  define DUMMYUNIONNAME5
-#  define DUMMYUNIONNAMEX(X)
+#  define DUMMYUNIONNAME6
+#  define DUMMYUNIONNAME7
+#  define DUMMYUNIONNAME8
+#  define DUMMYUNIONNAME9
 # endif
 #endif	/* DUMMYUNIONNAME */
 
 #ifndef DUMMYSTRUCTNAME
 # ifdef NONAMELESSUNION
-#  define DUMMYSTRUCTNAME s
-#  define DUMMYSTRUCTNAME1 s1
+#  define DUMMYSTRUCTNAME  s
+#  define DUMMYSTRUCTNAME1 s1	/* Wine uses this variant */
 #  define DUMMYSTRUCTNAME2 s2
 #  define DUMMYSTRUCTNAME3 s3
 #  define DUMMYSTRUCTNAME4 s4
 #  define DUMMYSTRUCTNAME5 s5
-#  define DUMMYSTRUCTNAMEX(X) s##X
 # else
 #  define DUMMYSTRUCTNAME
-#  define DUMMYSTRUCTNAME1
+#  define DUMMYSTRUCTNAME1	/* Wine uses this variant */
 #  define DUMMYSTRUCTNAME2
 #  define DUMMYSTRUCTNAME3
 #  define DUMMYSTRUCTNAME4
 #  define DUMMYSTRUCTNAME5
-#  define DUMMYSTRUCTNAMEX(X)
 # endif
 #endif /* DUMMYSTRUCTNAME */
 
 
 /* MSVC-isms: */
 
-  struct threadlocaleinfostruct;
-  struct threadmbcinfostruct;
-  typedef struct threadlocaleinfostruct *pthreadlocinfo;
-  typedef struct threadmbcinfostruct *pthreadmbcinfo;
-  struct __lc_time_data;
+struct threadlocaleinfostruct;
+struct threadmbcinfostruct;
+typedef struct threadlocaleinfostruct *pthreadlocinfo;
+typedef struct threadmbcinfostruct *pthreadmbcinfo;
+struct __lc_time_data;
 
-  typedef struct localeinfo_struct {
-    pthreadlocinfo locinfo;
-    pthreadmbcinfo mbcinfo;
-  } _locale_tstruct,*_locale_t;
+typedef struct localeinfo_struct {
+  pthreadlocinfo locinfo;
+  pthreadmbcinfo mbcinfo;
+} _locale_tstruct,*_locale_t;
 
 #ifndef _TAGLC_ID_DEFINED
 #define _TAGLC_ID_DEFINED
-  typedef struct tagLC_ID {
-    unsigned short wLanguage;
-    unsigned short wCountry;
-    unsigned short wCodePage;
-  } LC_ID,*LPLC_ID;
+typedef struct tagLC_ID {
+  unsigned short wLanguage;
+  unsigned short wCountry;
+  unsigned short wCodePage;
+} LC_ID,*LPLC_ID;
 #endif /* _TAGLC_ID_DEFINED */
 
 #ifndef _THREADLOCALEINFO
 #define _THREADLOCALEINFO
-  typedef struct threadlocaleinfostruct {
-    int refcount;
-    unsigned int lc_codepage;
-    unsigned int lc_collate_cp;
-    unsigned long lc_handle[6];
-    LC_ID lc_id[6];
-    struct {
-      char *locale;
-      wchar_t *wlocale;
-      int *refcount;
-      int *wrefcount;
-    } lc_category[6];
-    int lc_clike;
-    int mb_cur_max;
-    int *lconv_intl_refcount;
-    int *lconv_num_refcount;
-    int *lconv_mon_refcount;
-    struct lconv *lconv;
-    int *ctype1_refcount;
-    unsigned short *ctype1;
-    const unsigned short *pctype;
-    const unsigned char *pclmap;
-    const unsigned char *pcumap;
-    struct __lc_time_data *lc_time_curr;
-  } threadlocinfo;
+typedef struct threadlocaleinfostruct {
+  int refcount;
+  unsigned int lc_codepage;
+  unsigned int lc_collate_cp;
+  unsigned long lc_handle[6];
+  LC_ID lc_id[6];
+  struct {
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
+  } lc_category[6];
+  int lc_clike;
+  int mb_cur_max;
+  int *lconv_intl_refcount;
+  int *lconv_num_refcount;
+  int *lconv_mon_refcount;
+  struct lconv *lconv;
+  int *ctype1_refcount;
+  unsigned short *ctype1;
+  const unsigned short *pctype;
+  const unsigned char *pclmap;
+  const unsigned char *pcumap;
+  struct __lc_time_data *lc_time_curr;
+} threadlocinfo;
 #endif /* _THREADLOCALEINFO */
 
 #ifdef __cplusplus
@@ -622,7 +630,7 @@ extern "C" {
 #endif
 
 /* mingw-w64 specific functions: */
-  const char *__mingw_get_crt_info (void);
+const char *__mingw_get_crt_info (void);
 
 #ifdef __cplusplus
 }
@@ -639,3 +647,4 @@ extern "C" {
 #include "sdks/_mingw_ddk.h"
 
 #endif /* MINGW_SDK_INIT */
+

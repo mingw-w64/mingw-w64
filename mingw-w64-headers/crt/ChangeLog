@@ -1,3 +1,16 @@
+2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (NONAMELESSUNION): If the compiler is MSVC and the MS
+	extensions are disabled, define it.
+	(DUMMYUNIONNAMEX): Remove, not used or needed.
+	(DUMMYSTRUCTNAMEX): Likewise.
+	(DUMMYUNIONNAME1): Add a note that only Wine uses this variant.
+	(DUMMYSTRUCTNAME1): Likewise.
+	(DUMMYUNIONNAME6): Define.
+	(DUMMYUNIONNAME7): Define.
+	(DUMMYUNIONNAME8): Define.
+	(DUMMYUNIONNAME9): Define.
+
 2010-07-31  Kai Tietz  <kai.tietz@onevision.com>
 
 	* math.h (__mingw_raise_matherr): New prototype.
