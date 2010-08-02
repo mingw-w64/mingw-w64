@@ -1,5 +1,8 @@
 2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* winnt.h (LARGE_INTEGER): Add DUMMYSTRUCTNAME to anonymous struct.
+	(ULARGE_INTEGER): Likewise.
+
 	* _mingw.h (NONAMELESSUNION): If the compiler is MSVC and the MS
 	extensions are disabled, define it.
 	(DUMMYUNIONNAMEX): Remove, not used or needed.
