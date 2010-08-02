@@ -1131,11 +1131,11 @@ extern "C" {
       __MINGW_EXTENSION struct {
 	LONG lMinimum;
 	LONG lMaximum;
-      };
+      } DUMMYSTRUCTNAME;
       __MINGW_EXTENSION struct {
 	DWORD dwMinimum;
 	DWORD dwMaximum;
-      };
+      } DUMMYSTRUCTNAME2;
       DWORD dwReserved[6];
     } Bounds;
     union {
@@ -1157,11 +1157,11 @@ extern "C" {
       __MINGW_EXTENSION struct {
 	LONG lMinimum;
 	LONG lMaximum;
-      };
+      } DUMMYSTRUCTNAME;
       __MINGW_EXTENSION struct {
 	DWORD dwMinimum;
 	DWORD dwMaximum;
-      };
+      } DUMMYSTRUCTNAME2;
       DWORD dwReserved[6];
     } Bounds;
     union {
@@ -1248,7 +1248,7 @@ extern "C" {
     __MINGW_EXTENSION union {
       DWORD dwControlID;
       DWORD dwControlType;
-    };
+    } DUMMYUNIONNAME;
     DWORD cControls;
     DWORD cbmxctrl;
     LPMIXERCONTROLA pamxctrl;
@@ -1260,7 +1260,7 @@ extern "C" {
     __MINGW_EXTENSION union {
       DWORD dwControlID;
       DWORD dwControlType;
-    };
+    } DUMMYUNIONNAME;
     DWORD cControls;
     DWORD cbmxctrl;
     LPMIXERCONTROLW pamxctrl;
@@ -1288,7 +1288,7 @@ extern "C" {
     __MINGW_EXTENSION union {
       HWND hwndOwner;
       DWORD cMultipleItems;
-    };
+    } DUMMYUNIONNAME;
     DWORD cbDetails;
     LPVOID paDetails;
   } MIXERCONTROLDETAILS,*PMIXERCONTROLDETAILS,*LPMIXERCONTROLDETAILS;

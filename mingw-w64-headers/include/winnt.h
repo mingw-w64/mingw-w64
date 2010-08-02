@@ -3224,7 +3224,7 @@ typedef DWORD LCID;
       __MINGW_EXTENSION union {
 	PVOID FiberData;
 	DWORD Version;
-      };
+      } DUMMYUNIONNAME;
       PVOID ArbitraryUserPointer;
       struct _NT_TIB *Self;
     } NT_TIB;
@@ -3239,7 +3239,7 @@ typedef DWORD LCID;
       __MINGW_EXTENSION union {
 	DWORD FiberData;
 	DWORD Version;
-      };
+      } DUMMYUNIONNAME;
       DWORD ArbitraryUserPointer;
       DWORD Self;
     } NT_TIB32,*PNT_TIB32;
@@ -3252,7 +3252,7 @@ typedef DWORD LCID;
       __MINGW_EXTENSION union {
 	DWORD64 FiberData;
 	DWORD Version;
-      };
+      } DUMMYUNIONNAME;
       DWORD64 ArbitraryUserPointer;
       DWORD64 Self;
     } NT_TIB64,*PNT_TIB64;
@@ -4624,7 +4624,7 @@ typedef DWORD LCID;
       __MINGW_EXTENSION union {
 	DWORD VirtualAddress;
 	DWORD RelocCount;
-      };
+      } DUMMYUNIONNAME;
       DWORD SymbolTableIndex;
       WORD Type;
     } IMAGE_RELOCATION;
@@ -5094,7 +5094,7 @@ typedef DWORD LCID;
       __MINGW_EXTENSION union {
 	DWORD Characteristics;
 	DWORD OriginalFirstThunk;
-      };
+      } DUMMYUNIONNAME;
       DWORD TimeDateStamp;
 
       DWORD ForwarderChain;
@@ -5132,17 +5132,17 @@ typedef DWORD LCID;
 	__MINGW_EXTENSION struct {
 	  DWORD NameOffset:31;
 	  DWORD NameIsString:1;
-	};
+	} DUMMYSTRUCTNAME;
 	DWORD Name;
 	WORD Id;
-      };
+      } DUMMYUNIONNAME;
       __MINGW_EXTENSION union {
 	DWORD OffsetToData;
 	__MINGW_EXTENSION struct {
 	  DWORD OffsetToDirectory:31;
 	  DWORD DataIsDirectory:1;
-	};
-      };
+	} DUMMYSTRUCTNAME2;
+      } DUMMYUNIONNAME2;
     } IMAGE_RESOURCE_DIRECTORY_ENTRY,*PIMAGE_RESOURCE_DIRECTORY_ENTRY;
 
     typedef struct _IMAGE_RESOURCE_DIRECTORY_STRING {
@@ -5328,7 +5328,7 @@ typedef DWORD LCID;
       __MINGW_EXTENSION union {
 	ULONGLONG EndOfPrologue;
 	ULONGLONG UnwindInfoAddress;
-      };
+      } DUMMYUNIONNAME;
     } IMAGE_FUNCTION_ENTRY64,*PIMAGE_FUNCTION_ENTRY64;
 
     typedef struct _IMAGE_SEPARATE_DEBUG_HEADER {

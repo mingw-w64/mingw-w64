@@ -350,7 +350,7 @@ extern "C"{
     __MINGW_EXTENSION union {
       PROPID propid;
       LPOLESTR lpwstr;
-    };
+    } DUMMYUNIONNAME;
   } PROPSPEC;
 
   typedef struct tagSTATPROPSTG {

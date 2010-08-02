@@ -548,7 +548,7 @@ extern "C" {
     __MINGW_EXTENSION struct {
       unsigned long Lo;
       long Hi;
-    };
+    } DUMMYSTRUCTNAME;
     LONGLONG int64;
   } CY;
 #endif
@@ -561,17 +561,17 @@ extern "C" {
       __MINGW_EXTENSION struct {
 	BYTE scale;
 	BYTE sign;
-      };
+      } DUMMYSTRUCTNAME;
       USHORT signscale;
-    };
+    } DUMMYUNIONNAME;
     ULONG Hi32;
     __MINGW_EXTENSION union {
       __MINGW_EXTENSION struct {
 	ULONG Lo32;
 	ULONG Mid32;
-      };
+      } DUMMYSTRUCTNAME2;
       ULONGLONG Lo64;
-    };
+    } DUMMYUNIONNAME2;
   } DECIMAL;
 #define DECIMAL_NEG ((BYTE)0x80)
 #define DECIMAL_SETZERO(dec) {(dec).Lo64 = 0; (dec).Hi32 = 0; (dec).signscale = 0;}

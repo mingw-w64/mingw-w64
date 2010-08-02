@@ -351,7 +351,7 @@ extern "C" {
       __MINGW_EXTENSION union {
 	PVOID Provider;
 	ULONG Reserved1;
-      };
+      } DUMMYUNIONNAME;
       ULONG Reserved2;
       HANDLE hEvent;
     } ACTRL_OVERLAPPED,*PACTRL_OVERLAPPED;
