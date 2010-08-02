@@ -1,4 +1,9 @@
-2010-07-26  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-02  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* lib32/msvcrt.def: New _vcprintf and _vcwprintf.
+	* lib64/msvcrt.def: Likewise.
+
+2010-08-01  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* lib32/msvcrt.def: Added secure and locale type symbols from Win7.
 	* lib64/msvcrt.def: Likewise.
