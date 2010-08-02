@@ -383,7 +383,7 @@ extern "C" {
       ULONGLONG *pullVal;
       INT *pintVal;
       UINT *puintVal;
-    };
+    } DUMMYUNIONNAME;
   };
 #ifndef DEFINED_DISPID_MEMBERID
 #define DEFINED_DISPID_MEMBERID
@@ -403,7 +403,7 @@ extern "C" {
       struct tagTYPEDESC *lptdesc;
       struct tagARRAYDESC *lpadesc;
       HREFTYPE hreftype;
-    };
+    } DUMMYUNIONNAME;
     VARTYPE vt;
   } TYPEDESC;
 
@@ -454,7 +454,7 @@ extern "C" {
     __MINGW_EXTENSION union {
       IDLDESC idldesc;
       PARAMDESC paramdesc;
-    };
+    } DUMMYUNIONNAME;
   } ELEMDESC,*LPELEMDESC;
 
   typedef struct tagTYPEATTR {
@@ -559,7 +559,7 @@ extern "C" {
     __MINGW_EXTENSION union {
       ULONG oInst;
       VARIANT *lpvarValue;
-    };
+    } DUMMYUNIONNAME;
     ELEMDESC elemdescVar;
     WORD wVarFlags;
     VARKIND varkind;
