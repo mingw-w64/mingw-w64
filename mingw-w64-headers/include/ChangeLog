@@ -1,3 +1,13 @@
+2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* oaidl.h (struct _wireVARIANT): Add DUMMYUNIONNAME to the anonymous
+	union.
+	(TYPEDESC): Likewise.
+	(ELEMDESC): Likewise.
+	(VARDESC): Likewise.
+	* winnt.h (SLIST_HEADER) [!_WIN64]: Mark the anonymous struct as
+	__MINGW_EXTENSION and add DUMMYSTRUCTNAME.
+
 2010-08-01  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mingw_inc/_varenum.h: New helper header for enum VARENUM.
