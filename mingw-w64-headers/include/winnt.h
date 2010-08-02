@@ -303,7 +303,7 @@ typedef DWORD LCID;
     __MINGW_EXTENSION struct {
       DWORD LowPart;
       LONG HighPart;
-    };
+    } DUMMYSTRUCTNAME;
     struct {
       DWORD LowPart;
       LONG HighPart;
@@ -317,7 +317,7 @@ typedef DWORD LCID;
     __MINGW_EXTENSION struct {
       DWORD LowPart;
       DWORD HighPart;
-    };
+    } DUMMYSTRUCTNAME;
     struct {
       DWORD LowPart;
       DWORD HighPart;

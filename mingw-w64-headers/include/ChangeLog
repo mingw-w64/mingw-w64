@@ -1,5 +1,8 @@
 2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* winnt.h (LARGE_INTEGER): Add DUMMYSTRUCTNAME to anonymous struct.
+	(ULARGE_INTEGER): Likewise.
+
 	* oaidl.h (struct _wireVARIANT): Add DUMMYUNIONNAME to the anonymous
 	union.
 	(TYPEDESC): Likewise.
