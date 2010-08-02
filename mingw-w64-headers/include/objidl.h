@@ -2185,21 +2185,6 @@ extern "C" {
     byte data[1 ];
   } RemSTGMEDIUM;
 
-#ifdef NONAMELESSUNION
-  typedef struct tagSTGMEDIUM {
-    DWORD tymed;
-    union {
-      HBITMAP hBitmap;
-      HMETAFILEPICT hMetaFilePict;
-      HENHMETAFILE hEnhMetaFile;
-      HGLOBAL hGlobal;
-      LPOLESTR lpszFileName;
-      IStream *pstm;
-      IStorage *pstg;
-    } u;
-    IUnknown *pUnkForRelease;
-  } uSTGMEDIUM;
-#else
   typedef struct tagSTGMEDIUM {
     DWORD tymed;
     __MINGW_EXTENSION union {
@@ -2210,10 +2195,10 @@ extern "C" {
       LPOLESTR lpszFileName;
       IStream *pstm;
       IStorage *pstg;
-    };
+    } DUMMYUNIONNAME;
     IUnknown *pUnkForRelease;
   } uSTGMEDIUM;
-#endif
+
   typedef struct _GDI_OBJECT {
     DWORD ObjectType;
     union __MIDL_IAdviseSink_0002 {

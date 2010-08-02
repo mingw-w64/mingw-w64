@@ -1,5 +1,39 @@
 2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* objidl.h (uSTGMEDIUM): Unify using DUMMYUNIONNAME.
+	* accctrl.h (ACTRL_OVERLAPPED): Add DUMMY* names to anonymous structs
+	and/or unions.
+	* mmsystem.h (MIXERCONTROLA): Likewise.
+	(MIXERCONTROLW): Likewise.
+	(MIXERLINECONTROLSA): Likewise.
+	(MIXERLINECONTROLSW): Likewise.
+	(MIXERCONTROLDETAILS): Likewise.
+	* olectl.h (PICTDESC): Likewise.
+	* propidl.h (PROPSPEC): Likewise.
+	* winnt.h (NT_TIB): Likewise.
+	(NT_TIB32): Likewise.
+	(NT_TIB64): Likewise.
+	(IMAGE_RELOCATION): Likewise.
+	(IMAGE_IMPORT_DESCRIPTOR): Likewise.
+	(IMAGE_RESOURCE_DIRECTORY_ENTRY): Likewise.
+	(IMAGE_FUNCTION_ENTRY64): Likewise.
+	* winbase.h (SYSTEM_INFO): Likewise.
+	(PROCESS_HEAP_ENTRY): Likewise.
+	* winioctl.h (SET_PARTITION_INFORMATION_EX): Likewise.
+	(CREATE_DISK): Likewise.
+	(PARTITION_INFORMATION_EX): Likewise.
+	(DRIVE_LAYOUT_INFORMATION_EX): Likewise.
+	(DISK_DETECTION_INFO): Likewise.
+	(DISK_PARTITION_INFO): Likewise.
+	(DISK_CACHE_INFORMATION): Likewise.
+	(FILE_OBJECTID_BUFFER): Likewise.
+	* wtypes.h (CY): Likewise.
+	(DECIMAL): Likewise.
+	* winuser.h (INPUT): Likewise.
+	(RID_DEVICE_INFO): Likewise.
+
+2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* winnt.h (LARGE_INTEGER): Add DUMMYSTRUCTNAME to anonymous struct.
 	(ULARGE_INTEGER): Likewise.
 

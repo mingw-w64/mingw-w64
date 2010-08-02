@@ -110,7 +110,7 @@ typedef struct tagPICTDESC {
     struct {
       HENHMETAFILE hemf;
     } emf;
-  };
+  } DUMMYUNIONNAME;
 } PICTDESC,*LPPICTDESC;
 
 typedef long OLE_XPOS_PIXELS;

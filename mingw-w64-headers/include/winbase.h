@@ -375,8 +375,8 @@ extern "C" {
       __MINGW_EXTENSION struct {
 	WORD wProcessorArchitecture;
 	WORD wReserved;
-      };
-    };
+      } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
     DWORD dwPageSize;
     LPVOID lpMinimumApplicationAddress;
     LPVOID lpMaximumApplicationAddress;
@@ -1176,7 +1176,7 @@ extern "C" {
 	LPVOID lpFirstBlock;
 	LPVOID lpLastBlock;
       } Region;
-    };
+    } DUMMYUNIONNAME;
   } PROCESS_HEAP_ENTRY,*LPPROCESS_HEAP_ENTRY,*PPROCESS_HEAP_ENTRY;
 
 #define PROCESS_HEAP_REGION 0x1

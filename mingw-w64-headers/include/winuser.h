@@ -2477,7 +2477,7 @@ extern "C" {
       MOUSEINPUT mi;
       KEYBDINPUT ki;
       HARDWAREINPUT hi;
-    };
+    } DUMMYUNIONNAME;
   } INPUT,*PINPUT,*LPINPUT;
 
   WINUSERAPI UINT WINAPI SendInput(UINT cInputs,LPINPUT pInputs,int cbSize);
@@ -5639,7 +5639,7 @@ extern "C" {
       RID_DEVICE_INFO_MOUSE mouse;
       RID_DEVICE_INFO_KEYBOARD keyboard;
       RID_DEVICE_INFO_HID hid;
-    };
+    } DUMMYUNIONNAME;
   } RID_DEVICE_INFO,*PRID_DEVICE_INFO,*LPRID_DEVICE_INFO;
 
 #ifdef UNICODE
