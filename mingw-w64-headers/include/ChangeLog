@@ -1,3 +1,10 @@
+2010-08-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntdef.h:  Add the BOOL variants and WINBOOL from windef.h, guarded
+	by _DEF_WINBOOL_.
+	* windef.h: Reformat whitespace. Guard the BOOL variants and WINBOOL
+	by _DEF_WINBOOL_.
+
 2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* objidl.h (uSTGMEDIUM): Unify using DUMMYUNIONNAME.

@@ -299,6 +299,19 @@ typedef NTSTATUS *PNTSTATUS;
 typedef signed char SCHAR;
 typedef SCHAR *PSCHAR;
 
+#ifndef _DEF_WINBOOL_
+#define _DEF_WINBOOL_
+typedef int WINBOOL;
+#pragma push_macro("BOOL")
+#undef BOOL
+#if !defined(__OBJC__) && !defined(__OBJC_BOOL) && !defined(__objc_INCLUDE_GNU)
+typedef WINBOOL BOOL;
+#endif
+#pragma pop_macro("BOOL")
+typedef WINBOOL *PBOOL;
+typedef WINBOOL *LPBOOL;
+#endif /* _DEF_WINBOOL_ */
+
 #ifndef _HRESULT_DEFINED
 #define _HRESULT_DEFINED
 typedef LONG HRESULT;
