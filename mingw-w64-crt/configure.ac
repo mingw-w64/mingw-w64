@@ -2,14 +2,16 @@
 # Process this file with autoconf to produce a configure script.
 # Use AM_MAINTANER_MODE somewhere in this file once reconfigurations settle down.
 
-AC_PREREQ([2.63])
+AC_PREREQ([2.65])
 AC_INIT([mingw-w64-runtime],[1.0b],[mingw-w64-public@lists.sourceforge.net])
-
-AC_CANONICAL_HOST
-AM_INIT_AUTOMAKE([foreign subdir-objects])
-AM_MAINTAINER_MODE
+AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([ChangeLog])
 AC_CONFIG_HEADER([config.h])
+
+AM_INIT_AUTOMAKE([foreign subdir-objects])
+AM_MAINTAINER_MODE
+
+AC_CANONICAL_HOST
 
 AC_MSG_CHECKING([for sysroot])
 AC_ARG_WITH([sysroot],
@@ -37,8 +39,8 @@ AC_ARG_WITH([sysroot],
     TARGET_SYSTEM_ROOT=
     with_sysroot=no
   ])
-AM_CONDITIONAL(WITHSYSROOT, test $with_sysroot != no)
-AC_SUBST(TARGET_SYSTEM_ROOT)
+AM_CONDITIONAL([WITHSYSROOT],[test $with_sysroot != no])
+AC_SUBST([TARGET_SYSTEM_ROOT])
 
 # Checks for programs.
 # Checks for headers, libs, etc need to utilize the sysroot... no idea how
@@ -58,7 +60,7 @@ AM_PROG_CC_C_O
 
 AC_ARG_ENABLE([lib32],
   [AS_HELP_STRING([--enable-lib32],
-    [enable compiling the Win32 runtime])],
+    [Build the Win32 runtime])],
   [],
   [AC_MSG_CHECKING([whether to build the Win32 runtime])
    _save_CFLAGS="$CFLAGS"
@@ -77,7 +79,7 @@ AM_CONDITIONAL([LIB32], [test $enable_lib32 = yes])
 
 AC_ARG_ENABLE([lib64],
   [AS_HELP_STRING([--enable-lib64],
-    [enable compiling the Win64 runtime])],
+    [Build the Win64 runtime])],
   [],
   [AC_MSG_CHECKING([whether to build the Win64 runtime])
    _save_CFLAGS="$CFLAGS"
@@ -96,13 +98,11 @@ AM_CONDITIONAL([LIB64], [test $enable_lib64 = yes])
 
 AC_ARG_ENABLE([libce],
   [AS_HELP_STRING([--enable-libce],
-    [enable compiling the WinCE runtime])],
+    [Build the WinCE runtime])],
   [],
   [AS_CASE([$host_cpu],
-    [arm*],
-      [enable_libce=yes],
-    [*],
-      [enable_libce=no])
+    [arm*],[enable_libce=yes],
+    [*],[enable_libce=no])
   ])
 AM_CONDITIONAL([LIBCE], [test $enable_libce = yes])
 

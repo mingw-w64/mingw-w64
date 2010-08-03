@@ -39,7 +39,8 @@ subdir = .
 DIST_COMMON = $(am__configure_deps) $(framebased_HEADERS) \
 	$(pseh_HEADERS) $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/config.h.in $(top_srcdir)/configure COPYING INSTALL \
-	config.guess config.sub depcomp install-sh missing
+	build-aux/config.guess build-aux/config.sub build-aux/depcomp \
+	build-aux/install-sh build-aux/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -85,7 +86,7 @@ am_libpseh_a_OBJECTS = src/framebased.$(OBJEXT) \
 	src/i386/framebased.$(OBJEXT)
 libpseh_a_OBJECTS = $(am_libpseh_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
-depcomp = $(SHELL) $(top_srcdir)/depcomp
+depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__depfiles_maybe = depfiles
 am__mv = mv -f
 CPPASCOMPILE = $(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \

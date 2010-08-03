@@ -1,13 +1,16 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.63])
-AC_INIT([mingw-w64-headers], [1.0b], [mingw-w64-public@lists.sourceforge.net])
+AC_PREREQ([2.65])
+AC_INIT([mingw-w64-headers],[1.0b],[mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_SRCDIR([include/_mingw.h])
+AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_HEADERS([config.h])
 
-AC_CANONICAL_HOST
 AM_INIT_AUTOMAKE([foreign])
+AM_MAINTAINER_MODE
+
+AC_CANONICAL_HOST
 
 # Checks for programs.
 
@@ -15,22 +18,23 @@ AM_INIT_AUTOMAKE([foreign])
 
 # Checks for header files.
 
-SYSHEAD_LIST=$srcdir/include/sys/*.h
-SECHEAD_LIST=$srcdir/include/sec_api/*.h
-SECSYSHEAD_LIST=$srcdir/include/sec_api/sys/*.h
-GLHEAD_LIST=$srcdir/include/GL/*.h
-MINGWHELPERHEAD_LIST=$srcdir/include/mingw_inc/*.h
 BASEHEAD_LIST=$srcdir/include/*.h
 for i in c dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
 #FIXME: Add in base directx
+
+SYSHEAD_LIST=$srcdir/include/sys/*.h
+SECHEAD_LIST=$srcdir/include/sec_api/*.h
+SECSYSHEAD_LIST=$srcdir/include/sec_api/sys/*.h
+GLHEAD_LIST=$srcdir/include/GL/*.h
+MINGWHELPERHEAD_LIST=$srcdir/include/mingw_inc/*.h
 AC_SUBST([BASEHEAD_LIST])
+AC_SUBST([GLHEAD_LIST])
+AC_SUBST([MINGWHELPERHEAD_LIST])
 AC_SUBST([SYSHEAD_LIST])
 AC_SUBST([SECHEAD_LIST])
 AC_SUBST([SECSYSHEAD_LIST])
-AC_SUBST([GLHEAD_LIST])
-AC_SUBST([MINGWHELPERHEAD_LIST])
 AC_SUBST([SDKSHEAD_LIST])
 
 AC_MSG_CHECKING([for optional sdk headers])
@@ -75,3 +79,4 @@ AC_SUBST([DDKHEAD_LIST])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
+

@@ -1,13 +1,16 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.63])
-AC_INIT([mingw-w64-gendef], [1.0], [mingw-w64-public@lists.sourceforge.net])
+AC_PREREQ([2.65])
+AC_INIT([mingw-w64-gendef],[1.0],[mingw-w64-public@lists.sourceforge.net])
+AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([src/gendef.c])
 AC_CONFIG_HEADERS([config.h])
 
-AC_CANONICAL_HOST
 AM_INIT_AUTOMAKE([foreign subdir-objects])
+AM_MAINTAINER_MODE
+
+AC_CANONICAL_HOST
 
 # Checks for programs.
 AC_PROG_CC
@@ -27,7 +30,7 @@ AC_TYPE_UINT8_T
 
 # Checks for library functions.
 AC_FUNC_MALLOC
-AC_CHECK_FUNCS([memset strdup strrchr])
+AC_CHECK_FUNCS([memset strdup strrchr strlwr])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

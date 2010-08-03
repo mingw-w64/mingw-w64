@@ -1,3 +1,9 @@
+2010-08-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Move aux scripts to subdir to tidy up top levels.  Upgrade
+	to autoconf-2.65.  Merge a few pieces from the trunk version
+	of configure.ac.
+
 2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Back-merges from the trunk:
