@@ -1,5 +1,8 @@
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* dsound.h (DSBNOTIFICATIONS_MAX): Define as 100000UL.
+	(INTERFACE, IDirectSound): Undef INTERFACE before IDirectSound.
+
 	* ddraw.h (DDARGB, DDRGBA): Added from MSDN,
 	http://msdn.microsoft.com/en-us/library/aa921041.aspx
 

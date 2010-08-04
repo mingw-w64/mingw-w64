@@ -421,6 +421,7 @@ extern HRESULT WINAPI GetDeviceID(LPCGUID lpGuidSrc, LPGUID lpGuidDest);
 /*****************************************************************************
  * IDirectSound interface
  */
+#undef INTERFACE
 #define INTERFACE IDirectSound
 DECLARE_INTERFACE_(IDirectSound,IUnknown)
 {
@@ -868,6 +869,8 @@ DECLARE_INTERFACE_(IDirectSoundCaptureBuffer8,IDirectSoundCaptureBuffer)
 #define WINE_NOBUFFER                   0x80000000
 
 #define DSBPN_OFFSETSTOP		-1
+
+#define DSBNOTIFICATIONS_MAX		100000UL
 
 #define INTERFACE IDirectSoundNotify
 DECLARE_INTERFACE_(IDirectSoundNotify,IUnknown)
