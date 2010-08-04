@@ -26,9 +26,15 @@
 /*****************************************************************************
  * Direct 3D v9 #defines
  */
+#ifndef D3DCLEAR_TARGET
 #define D3DCLEAR_TARGET   0x00000001L
+#endif
+#ifndef D3DCLEAR_ZBUFFER
 #define D3DCLEAR_ZBUFFER  0x00000002L
+#endif
+#ifndef D3DCLEAR_STENCIL
 #define D3DCLEAR_STENCIL  0x00000004L
+#endif
 
 #define D3DCLIPPLANE0 (1 << 0)
 #define D3DCLIPPLANE1 (1 << 1)
