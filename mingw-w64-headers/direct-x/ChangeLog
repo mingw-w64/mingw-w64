@@ -1,5 +1,8 @@
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* dinput.h: Add DIPROPCPOINTS, see MSDN:
+	http://msdn.microsoft.com/en-us/library/microsoft.directx_sdk.reference.dipropcpoints(VS.85).aspx
+
 	* dinput.h: Add missing constants required for dxdiag from r/os
 	svn@33119:
 	(DIPROP_CALIBRATION): Restrict to DIRECTINPUT_VERSION >= 0x050a.
