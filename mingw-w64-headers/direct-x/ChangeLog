@@ -1,5 +1,11 @@
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* d3d8types.h (D3DMULTISAMPLE_FORCE_DWORD): Fix as 0x7fffffff.
+
+	* d3d9types.h (D3DMULTISAMPLE_FORCE_DWORD): Fix as 0x7fffffff.
+
+	* d3d.h (INTERFACE, IDirect3D): Undef INTERFACE before IDirect3D.
+
 	* d3dhal.h (D3DDEVICEDESC_V1): Change BOOL to WINBOOL.
 	(LPD3DHAL_GLOBALDRIVERDATA): Guard.
 	(LPD3DHAL_CALLBACKS): Guard.
