@@ -1,5 +1,12 @@
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ddrawi.h (DDSCAPSEX): Moved from here ...
+	* ddraw.h (DDSCAPSEX):  ...  to here.
+	(DDSCAPS2): Updated the reserved dwCaps4 field acc. to MSDN :
+	http://msdn.microsoft.com/en-us/library/ff550292(VS.85).aspx
+
+2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* ddrawi.h: VIDMEM_ISDISABLED is the wrong macro name, it should be
 	VIDMEM_HEAPDISABLED according to MSDN:
 	http://msdn.microsoft.com/en-us/library/ff570171(VS.85).aspx
