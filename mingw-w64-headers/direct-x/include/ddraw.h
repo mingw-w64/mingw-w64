@@ -1041,6 +1041,22 @@ typedef struct _DDSURFACEDESC2
 	DWORD		dwTextureStage; /* 78: stage in multitexture cascade */
 } DDSURFACEDESC2,*LPDDSURFACEDESC2;
 
+
+typedef struct _DDARGB {
+	BYTE	blue;
+	BYTE	green;
+	BYTE	red;
+	BYTE	alpha;
+} DDARGB, *LPDDARGB;
+
+typedef struct _DDRGBA {
+	BYTE	red;
+	BYTE	green;
+	BYTE	blue;
+	BYTE	alpha;
+} DDRGBA, *LPDDRGBA;
+
+
 /* DDCOLORCONTROL.dwFlags */
 #define DDCOLOR_BRIGHTNESS	0x00000001
 #define DDCOLOR_CONTRAST	0x00000002

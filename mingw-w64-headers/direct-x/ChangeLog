@@ -1,5 +1,10 @@
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ddraw.h (DDARGB, DDRGBA): Added from MSDN,
+	http://msdn.microsoft.com/en-us/library/aa921041.aspx
+
+2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* ddrawi.h (DDSCAPSEX): Moved from here ...
 	* ddraw.h (DDSCAPSEX):  ...  to here.
 	(DDSCAPS2): Updated the reserved dwCaps4 field acc. to MSDN :
