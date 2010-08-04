@@ -1,5 +1,11 @@
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* d3dhal.h (D3DDEVICEDESC_V1): Change BOOL to WINBOOL.
+	(LPD3DHAL_GLOBALDRIVERDATA): Guard.
+	(LPD3DHAL_CALLBACKS): Guard.
+	(D3DHAL_DP2OPERATION): Remove the D3DDP2OP_RESERVED0 and D3DDP2OP_EXT
+	enumerated values which are not documented anymore.
+
 	* dinput.h: Add proper DIRECTINPUT_VERSION guards.
 
 	* dinput.h: Add DIPROPCALPOV, from an old patch submitted to Wine:
