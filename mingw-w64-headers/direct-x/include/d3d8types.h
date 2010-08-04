@@ -25,9 +25,15 @@
  * Direct 3D v8 #defines
  */
 
+#ifndef D3DCLEAR_TARGET
 #define D3DCLEAR_TARGET   1
+#endif
+#ifndef D3DCLEAR_ZBUFFER
 #define D3DCLEAR_ZBUFFER  2
+#endif
+#ifndef D3DCLEAR_STENCIL
 #define D3DCLEAR_STENCIL  4
+#endif
 
 #define D3DCLIPPLANE0 (1 << 0)
 #define D3DCLIPPLANE1 (1 << 1)
