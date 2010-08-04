@@ -1,3 +1,10 @@
+2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ddrawi.h: VIDMEM_ISDISABLED is the wrong macro name, it should be
+	VIDMEM_HEAPDISABLED according to MSDN:
+	http://msdn.microsoft.com/en-us/library/ff570171(VS.85).aspx
+	Changed thusly.
+
 2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_dxhelper.h: Sync with latest _mingw.h changes:
