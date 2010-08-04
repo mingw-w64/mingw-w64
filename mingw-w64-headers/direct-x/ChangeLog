@@ -1,5 +1,13 @@
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* dinput.h: Add DIPROPCALPOV, from an old patch submitted to Wine:
+	http://www.winehq.org/pipermail/wine-patches/2004-September/012790.html
+
+	* dinput.h: Add DIPROPPOINTER, from an old patch submitted to Wine:
+	http://www.winehq.org/pipermail/wine-patches/2004-September/012790.html
+	also see MSDN:
+	http://msdn.microsoft.com/en-us/library/microsoft.directx_sdk.reference.diproppointer(VS.85).aspx
+
 	* dinput.h: Add DIPROPCPOINTS, see MSDN:
 	http://msdn.microsoft.com/en-us/library/microsoft.directx_sdk.reference.dipropcpoints(VS.85).aspx
 
