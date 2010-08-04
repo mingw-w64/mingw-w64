@@ -1,5 +1,8 @@
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* ddrawgdi.h (LPD3DHAL_CALLBACKS): Guard.
+	(LPD3DHAL_GLOBALDRIVERDATA): Guard.
+
 	* diskguid.h (PARTITION_MSFT_RECOVERY_GUID): Added from vds.h (from
 	the vista_7_headers branch.)
 
