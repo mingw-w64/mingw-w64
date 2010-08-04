@@ -1,5 +1,7 @@
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* dinput.h: Add proper DIRECTINPUT_VERSION guards.
+
 	* dinput.h: Add DIPROPCALPOV, from an old patch submitted to Wine:
 	http://www.winehq.org/pipermail/wine-patches/2004-September/012790.html
 
