@@ -1,5 +1,23 @@
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* dinput.h: Add missing constants required for dxdiag from r/os
+	svn@33119:
+	(DIPROP_CALIBRATION): Restrict to DIRECTINPUT_VERSION >= 0x050a.
+	(DIPROP_GUIDANDPATH): Likewise.
+	(DIPROP_INSTANCENAME): New for DIRECTINPUT_VERSION >= 0x050a.
+	(DIPROP_PRODUCTNAME): Likewise.
+	(DIPROP_JOYSTICKID): New for DIRECTINPUT_VERSION >= 0x05B2.
+	(DIPROP_GETPORTDISPLAYNAME): Likewise.
+	(DIPROP_PHYSICALRANGE): New for DIRECTINPUT_VERSION >= 0x0700.
+	(DIPROP_LOGICALRANGE): Likewise.
+	(DIPROP_KEYNAME): Restrict to DIRECTINPUT_VERSION >= 0x0800.
+	(DIPROP_CPOINTS): New for DIRECTINPUT_VERSION >= 0x0800.
+	(DIPROP_APPDATA): Likewise.
+	(DIPROP_SCANCODE): Likewise.
+	(IPROP_VIDPID): Likewise.
+	(DIPROP_USERNAME): Likewise.
+	(DIPROP_TYPENAME): Likewise.
+
 	* dsound.h (DSBNOTIFICATIONS_MAX): Define as 100000UL.
 	(INTERFACE, IDirectSound): Undef INTERFACE before IDirectSound.
 
