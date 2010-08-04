@@ -756,6 +756,13 @@ typedef struct DIPROPCAL {
 } DIPROPCAL, *LPDIPROPCAL;
 typedef const DIPROPCAL *LPCDIPROPCAL;
 
+typedef struct DIPROPCALPOV {
+	DIPROPHEADER	diph;
+	LONG		lMin[5];
+	LONG		lMax[5];
+} DIPROPCALPOV, *LPDIPROPCALPOV;
+typedef const DIPROPCALPOV *LPCDIPROPCALPOV;
+
 typedef struct DIPROPGUIDANDPATH {
 	DIPROPHEADER diph;
 	GUID    guidClass;
@@ -768,6 +775,14 @@ typedef struct DIPROPSTRING {
         WCHAR        wsz[MAX_PATH];
 } DIPROPSTRING, *LPDIPROPSTRING;
 typedef const DIPROPSTRING *LPCDIPROPSTRING;
+
+#if DIRECTINPUT_VERSION >= 0x0800
+typedef struct DIPROPPOINTER {
+	DIPROPHEADER diph;
+	UINT_PTR     uData;
+} DIPROPPOINTER, *LPDIPROPPOINTER;
+typedef const DIPROPPOINTER *LPCDIPROPPOINTER;
+#endif /* DI8 */
 
 /* special property GUIDs */
 #ifdef __cplusplus
