@@ -1504,6 +1504,18 @@ typedef struct _FAT_STATISTICS {
   DWORD NonCachedDiskWrites;
 } FAT_STATISTICS,*PFAT_STATISTICS;
 
+typedef struct _EXFAT_STATISTICS {
+  DWORD CreateHits;
+  DWORD SuccessfulCreates;
+  DWORD FailedCreates;
+  DWORD NonCachedReads;
+  DWORD NonCachedReadBytes;
+  DWORD NonCachedWrites;
+  DWORD NonCachedWriteBytes;
+  DWORD NonCachedDiskReads;
+  DWORD NonCachedDiskWrites;
+} EXFAT_STATISTICS, *PEXFAT_STATISTICS;
+
 typedef struct _NTFS_STATISTICS {
   DWORD LogFileFullExceptions;
   DWORD OtherExceptions;
