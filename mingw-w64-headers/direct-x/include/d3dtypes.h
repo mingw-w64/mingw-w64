@@ -140,8 +140,13 @@ public:
   friend D3DVALUE DotProduct(const _D3DVECTOR& v1, const _D3DVECTOR& v2);
   friend _D3DVECTOR CrossProduct(const _D3DVECTOR& v1, const _D3DVECTOR& v2);
 #endif
-} D3DVECTOR,*LPD3DVECTOR;
+} D3DVECTOR;
 #define D3DVECTOR_DEFINED
+#endif
+
+#ifndef LPD3DVECTOR_DEFINED
+typedef D3DVECTOR *LPD3DVECTOR;
+#define LPD3DVECTOR_DEFINED
 #endif
 
 #define DX_SHARED_DEFINES
