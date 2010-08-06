@@ -1,3 +1,13 @@
+2010-08-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dpfilter.h: Add #pragma once.
+	* ksdebug.h: Fix formatting.
+	* lmon.h: Add #pragma once.
+	* ntddndis.h: Break long enum lines into one value per line.
+	* usb200.h: Remove __GNU_EXTENSION definition.
+	* winioctl.h: Add endif comments. Add missing _NTDDDISK_H_ guard around
+	stuff shared with ntdddisk.h.
+
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ddrawgdi.h (LPD3DHAL_CALLBACKS): Guard.
