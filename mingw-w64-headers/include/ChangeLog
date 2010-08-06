@@ -8,6 +8,7 @@
 	* winioctl.h: Add endif comments. Add missing _NTDDDISK_H_ guard around
 	stuff shared with ntdddisk.h.
 	(STORAGE_MEDIA_TYPE): Add VXATape from ntddstor.h.
+	(EXFAT_STATISTICS): Add from vista_7_headers branch.
 
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
