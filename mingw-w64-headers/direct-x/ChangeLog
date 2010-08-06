@@ -1,3 +1,8 @@
+2010-08-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* d3dtypes.h (LPD3DVECTOR): Guard.
+	* d3d8types.h (D3DVECTOR): Guard.
+
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* d3d8types.h (D3DCLEAR_TARGET): Guard.
