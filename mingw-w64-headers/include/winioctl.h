@@ -286,7 +286,8 @@ extern "C" {
     ADR_1,
     ADR_2,
     STK_9940,
-    SAIT
+    SAIT,
+    VXATape
   } STORAGE_MEDIA_TYPE, *PSTORAGE_MEDIA_TYPE;
 
 #define MEDIA_ERASEABLE 0x00000001

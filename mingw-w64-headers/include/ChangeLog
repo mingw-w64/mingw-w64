@@ -7,6 +7,7 @@
 	* usb200.h: Remove __GNU_EXTENSION definition.
 	* winioctl.h: Add endif comments. Add missing _NTDDDISK_H_ guard around
 	stuff shared with ntdddisk.h.
+	(STORAGE_MEDIA_TYPE): Add VXATape from ntddstor.h.
 
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
