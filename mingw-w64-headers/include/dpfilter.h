@@ -18,6 +18,8 @@
  *
  */
 
+#pragma once
+
 #define DPFLTR_ERROR_LEVEL                  0
 #define DPFLTR_WARNING_LEVEL                1
 #define DPFLTR_TRACE_LEVEL                  2
@@ -173,3 +175,4 @@ typedef enum _DPFLTR_TYPE {
   DPFLTR_DRIVEEXTENDER_ID = 145,
   DPFLTR_ENDOFTABLE_ID
 } DPFLTR_TYPE;
+

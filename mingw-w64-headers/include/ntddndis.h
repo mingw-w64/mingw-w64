@@ -607,7 +607,9 @@ extern "C" {
 #define NDIS_802_11_LENGTH_RATES_EX 16
 
   typedef enum _NDIS_802_11_STATUS_TYPE {
-    Ndis802_11StatusType_Authentication,Ndis802_11StatusType_MediaStreamMode,Ndis802_11StatusTypeMax
+    Ndis802_11StatusType_Authentication,
+    Ndis802_11StatusType_MediaStreamMode,
+    Ndis802_11StatusTypeMax
   } NDIS_802_11_STATUS_TYPE,*PNDIS_802_11_STATUS_TYPE;
 
   typedef UCHAR NDIS_802_11_MAC_ADDRESS[6];
@@ -629,7 +631,12 @@ extern "C" {
   } NDIS_802_11_AUTHENTICATION_REQUEST,*PNDIS_802_11_AUTHENTICATION_REQUEST;
 
   typedef enum _NDIS_802_11_NETWORK_TYPE {
-    Ndis802_11FH,Ndis802_11DS,Ndis802_11OFDM5,Ndis802_11OFDM24,Ndis802_11Automode,Ndis802_11NetworkTypeMax
+    Ndis802_11FH,
+    Ndis802_11DS,
+    Ndis802_11OFDM5,
+    Ndis802_11OFDM24,
+    Ndis802_11Automode,
+    Ndis802_11NetworkTypeMax
   } NDIS_802_11_NETWORK_TYPE,*PNDIS_802_11_NETWORK_TYPE;
 
   typedef struct _NDIS_802_11_NETWORK_TYPE_LIST {
@@ -638,7 +645,10 @@ extern "C" {
   } NDIS_802_11_NETWORK_TYPE_LIST,*PNDIS_802_11_NETWORK_TYPE_LIST;
 
   typedef enum _NDIS_802_11_POWER_MODE {
-    Ndis802_11PowerModeCAM,Ndis802_11PowerModeMAX_PSP,Ndis802_11PowerModeFast_PSP,Ndis802_11PowerModeMax
+    Ndis802_11PowerModeCAM,
+    Ndis802_11PowerModeMAX_PSP,
+    Ndis802_11PowerModeFast_PSP,
+    Ndis802_11PowerModeMax
   } NDIS_802_11_POWER_MODE,*PNDIS_802_11_POWER_MODE;
 
   typedef ULONG NDIS_802_11_TX_POWER_LEVEL;
@@ -701,12 +711,20 @@ extern "C" {
   } NDIS_802_11_WEP,*PNDIS_802_11_WEP;
 
   typedef enum _NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    Ndis802_11IBSS,Ndis802_11Infrastructure,Ndis802_11AutoUnknown,Ndis802_11InfrastructureMax
+    Ndis802_11IBSS,
+    Ndis802_11Infrastructure,
+    Ndis802_11AutoUnknown,
+    Ndis802_11InfrastructureMax
   } NDIS_802_11_NETWORK_INFRASTRUCTURE,*PNDIS_802_11_NETWORK_INFRASTRUCTURE;
 
   typedef enum _NDIS_802_11_AUTHENTICATION_MODE {
-    Ndis802_11AuthModeOpen,Ndis802_11AuthModeShared,Ndis802_11AuthModeAutoSwitch,Ndis802_11AuthModeWPA,Ndis802_11AuthModeWPAPSK,
-    Ndis802_11AuthModeWPANone,Ndis802_11AuthModeMax
+    Ndis802_11AuthModeOpen,
+    Ndis802_11AuthModeShared,
+    Ndis802_11AuthModeAutoSwitch,
+    Ndis802_11AuthModeWPA,
+    Ndis802_11AuthModeWPAPSK,
+    Ndis802_11AuthModeWPANone,
+    Ndis802_11AuthModeMax
   } NDIS_802_11_AUTHENTICATION_MODE,*PNDIS_802_11_AUTHENTICATION_MODE;
 
   typedef UCHAR NDIS_802_11_RATES[NDIS_802_11_LENGTH_RATES];
@@ -772,14 +790,23 @@ extern "C" {
   typedef ULONG NDIS_802_11_ANTENNA;
 
   typedef enum _NDIS_802_11_PRIVACY_FILTER {
-    Ndis802_11PrivFilterAcceptAll,Ndis802_11PrivFilter8021xWEP
+    Ndis802_11PrivFilterAcceptAll,
+    Ndis802_11PrivFilter8021xWEP
   } NDIS_802_11_PRIVACY_FILTER,*PNDIS_802_11_PRIVACY_FILTER;
 
   typedef enum _NDIS_802_11_WEP_STATUS {
-    Ndis802_11WEPEnabled,Ndis802_11Encryption1Enabled = Ndis802_11WEPEnabled,Ndis802_11WEPDisabled,Ndis802_11EncryptionDisabled = Ndis802_11WEPDisabled,
-    Ndis802_11WEPKeyAbsent,Ndis802_11Encryption1KeyAbsent = Ndis802_11WEPKeyAbsent,Ndis802_11WEPNotSupported,
-    Ndis802_11EncryptionNotSupported = Ndis802_11WEPNotSupported,Ndis802_11Encryption2Enabled,Ndis802_11Encryption2KeyAbsent,
-    Ndis802_11Encryption3Enabled,Ndis802_11Encryption3KeyAbsent
+    Ndis802_11WEPEnabled,
+    Ndis802_11Encryption1Enabled	= Ndis802_11WEPEnabled,
+    Ndis802_11WEPDisabled,
+    Ndis802_11EncryptionDisabled	= Ndis802_11WEPDisabled,
+    Ndis802_11WEPKeyAbsent,
+    Ndis802_11Encryption1KeyAbsent	= Ndis802_11WEPKeyAbsent,
+    Ndis802_11WEPNotSupported,
+    Ndis802_11EncryptionNotSupported	= Ndis802_11WEPNotSupported,
+    Ndis802_11Encryption2Enabled,
+    Ndis802_11Encryption2KeyAbsent,
+    Ndis802_11Encryption3Enabled,
+    Ndis802_11Encryption3KeyAbsent
   } NDIS_802_11_WEP_STATUS,*PNDIS_802_11_WEP_STATUS,NDIS_802_11_ENCRYPTION_STATUS,*PNDIS_802_11_ENCRYPTION_STATUS;
 
   typedef enum _NDIS_802_11_RELOAD_DEFAULTS {
@@ -833,7 +860,8 @@ extern "C" {
   } NDIS_802_11_TEST,*PNDIS_802_11_TEST;
 
   typedef enum _NDIS_802_11_MEDIA_STREAM_MODE {
-    Ndis802_11MediaStreamOff,Ndis802_11MediaStreamOn
+    Ndis802_11MediaStreamOff,
+    Ndis802_11MediaStreamOn
   } NDIS_802_11_MEDIA_STREAM_MODE,*PNDIS_802_11_MEDIA_STREAM_MODE;
 
 #define OID_IRDA_RECEIVING 0x0A010100
@@ -985,7 +1013,8 @@ extern "C" {
   typedef ULONG SPI_TYPE;
 
   typedef enum _OFFLOAD_OPERATION_E {
-    AUTHENTICATE = 1,ENCRYPT
+    AUTHENTICATE = 1,
+    ENCRYPT
   } OFFLOAD_OPERATION_E;
 
   typedef struct _OFFLOAD_ALGO_INFO {
@@ -995,11 +1024,18 @@ extern "C" {
   } OFFLOAD_ALGO_INFO,*POFFLOAD_ALGO_INFO;
 
   typedef enum _OFFLOAD_CONF_ALGO {
-    OFFLOAD_IPSEC_CONF_NONE,OFFLOAD_IPSEC_CONF_DES,OFFLOAD_IPSEC_CONF_RESERVED,OFFLOAD_IPSEC_CONF_3_DES,OFFLOAD_IPSEC_CONF_MAX
+    OFFLOAD_IPSEC_CONF_NONE,
+    OFFLOAD_IPSEC_CONF_DES,
+    OFFLOAD_IPSEC_CONF_RESERVED,
+    OFFLOAD_IPSEC_CONF_3_DES,
+    OFFLOAD_IPSEC_CONF_MAX
   } OFFLOAD_CONF_ALGO;
 
   typedef enum _OFFLOAD_INTEGRITY_ALGO {
-    OFFLOAD_IPSEC_INTEGRITY_NONE,OFFLOAD_IPSEC_INTEGRITY_MD5,OFFLOAD_IPSEC_INTEGRITY_SHA,OFFLOAD_IPSEC_INTEGRITY_MAX
+    OFFLOAD_IPSEC_INTEGRITY_NONE,
+    OFFLOAD_IPSEC_INTEGRITY_MD5,
+    OFFLOAD_IPSEC_INTEGRITY_SHA,
+    OFFLOAD_IPSEC_INTEGRITY_MAX
   } OFFLOAD_INTEGRITY_ALGO;
 
   typedef struct _OFFLOAD_SECURITY_ASSOCIATION {
@@ -1038,7 +1074,8 @@ extern "C" {
   } OFFLOAD_IPSEC_DELETE_SA,*POFFLOAD_IPSEC_DELETE_SA;
 
   typedef enum _UDP_ENCAP_TYPE {
-    OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE,OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_OTHER
+    OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE,
+    OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_OTHER
   } UDP_ENCAP_TYPE,*PUDP_ENCAP_TYPE;
 
   typedef struct _OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
@@ -1074,16 +1111,46 @@ extern "C" {
   typedef ULONG NDIS_VLAN_ID;
 
   typedef enum _NDIS_MEDIUM {
-    NdisMedium802_3,NdisMedium802_5,NdisMediumFddi,NdisMediumWan,NdisMediumLocalTalk,NdisMediumDix,NdisMediumArcnetRaw,NdisMediumArcnet878_2,
-    NdisMediumAtm,NdisMediumWirelessWan,NdisMediumIrda,NdisMediumBpc,NdisMediumCoWan,NdisMedium1394,NdisMediumInfiniBand,NdisMediumMax
+    NdisMedium802_3,
+    NdisMedium802_5,
+    NdisMediumFddi,
+    NdisMediumWan,
+    NdisMediumLocalTalk,
+    NdisMediumDix,
+    NdisMediumArcnetRaw,
+    NdisMediumArcnet878_2,
+    NdisMediumAtm,
+    NdisMediumWirelessWan,
+    NdisMediumIrda,
+    NdisMediumBpc,
+    NdisMediumCoWan,
+    NdisMedium1394,
+    NdisMediumInfiniBand,
+    NdisMediumMax
   } NDIS_MEDIUM,*PNDIS_MEDIUM;
 
   typedef enum _NDIS_PHYSICAL_MEDIUM {
-    NdisPhysicalMediumUnspecified,NdisPhysicalMediumWirelessLan,NdisPhysicalMediumCableModem,NdisPhysicalMediumPhoneLine,
-    NdisPhysicalMediumPowerLine,NdisPhysicalMediumDSL,NdisPhysicalMediumFibreChannel,NdisPhysicalMedium1394,NdisPhysicalMediumWirelessWan,
-    NdisPhysicalMediumNative802_11,NdisPhysicalMediumBluetooth,NdisPhysicalMediumInfiniband,NdisPhysicalMediumWiMax,NdisPhysicalMediumUWB,
-    NdisPhysicalMedium802_3,NdisPhysicalMedium802_5,NdisPhysicalMediumIrda,NdisPhysicalMediumWiredWAN,NdisPhysicalMediumWiredCoWan,
-    NdisPhysicalMediumOther,NdisPhysicalMediumMax
+    NdisPhysicalMediumUnspecified,
+    NdisPhysicalMediumWirelessLan,
+    NdisPhysicalMediumCableModem,
+    NdisPhysicalMediumPhoneLine,
+    NdisPhysicalMediumPowerLine,
+    NdisPhysicalMediumDSL,
+    NdisPhysicalMediumFibreChannel,
+    NdisPhysicalMedium1394,
+    NdisPhysicalMediumWirelessWan,
+    NdisPhysicalMediumNative802_11,
+    NdisPhysicalMediumBluetooth,
+    NdisPhysicalMediumInfiniband,
+    NdisPhysicalMediumWiMax,
+    NdisPhysicalMediumUWB,
+    NdisPhysicalMedium802_3,
+    NdisPhysicalMedium802_5,
+    NdisPhysicalMediumIrda,
+    NdisPhysicalMediumWiredWAN,
+    NdisPhysicalMediumWiredCoWan,
+    NdisPhysicalMediumOther,
+    NdisPhysicalMediumMax
   } NDIS_PHYSICAL_MEDIUM,*PNDIS_PHYSICAL_MEDIUM;
 
 #define NDIS_PROTOCOL_ID_DEFAULT 0x00
@@ -1127,7 +1194,11 @@ extern "C" {
 #define NETWORK_ADDRESS_LENGTH_IPX sizeof (NETWORK_ADDRESS_IPX)
 
   typedef enum _NDIS_HARDWARE_STATUS {
-    NdisHardwareStatusReady,NdisHardwareStatusInitializing,NdisHardwareStatusReset,NdisHardwareStatusClosing,NdisHardwareStatusNotReady
+    NdisHardwareStatusReady,
+    NdisHardwareStatusInitializing,
+    NdisHardwareStatusReset,
+    NdisHardwareStatusClosing,
+    NdisHardwareStatusNotReady
   } NDIS_HARDWARE_STATUS,*PNDIS_HARDWARE_STATUS;
 
   typedef struct _GEN_GET_TIME_CAPS {
@@ -1156,7 +1227,12 @@ extern "C" {
   } NDIS_PM_PACKET_PATTERN,*PNDIS_PM_PACKET_PATTERN;
 
   typedef enum _NDIS_DEVICE_POWER_STATE {
-    NdisDeviceStateUnspecified = 0,NdisDeviceStateD0,NdisDeviceStateD1,NdisDeviceStateD2,NdisDeviceStateD3,NdisDeviceStateMaximum
+    NdisDeviceStateUnspecified = 0,
+    NdisDeviceStateD0,
+    NdisDeviceStateD1,
+    NdisDeviceStateD2,
+    NdisDeviceStateD3,
+    NdisDeviceStateMaximum
   } NDIS_DEVICE_POWER_STATE,*PNDIS_DEVICE_POWER_STATE;
 
   typedef struct _NDIS_PM_WAKE_UP_CAPABILITIES {
@@ -1175,31 +1251,70 @@ extern "C" {
   } NDIS_PNP_CAPABILITIES,*PNDIS_PNP_CAPABILITIES;
 
   typedef enum _NDIS_FDDI_ATTACHMENT_TYPE {
-    NdisFddiTypeIsolated = 1,NdisFddiTypeLocalA,NdisFddiTypeLocalB,NdisFddiTypeLocalAB,NdisFddiTypeLocalS,NdisFddiTypeWrapA,
-    NdisFddiTypeWrapB,NdisFddiTypeWrapAB,NdisFddiTypeWrapS,NdisFddiTypeCWrapA,NdisFddiTypeCWrapB,NdisFddiTypeCWrapS,NdisFddiTypeThrough
+    NdisFddiTypeIsolated = 1,
+    NdisFddiTypeLocalA,
+    NdisFddiTypeLocalB,
+    NdisFddiTypeLocalAB,
+    NdisFddiTypeLocalS,
+    NdisFddiTypeWrapA,
+    NdisFddiTypeWrapB,
+    NdisFddiTypeWrapAB,
+    NdisFddiTypeWrapS,
+    NdisFddiTypeCWrapA,
+    NdisFddiTypeCWrapB,
+    NdisFddiTypeCWrapS,
+    NdisFddiTypeThrough
   } NDIS_FDDI_ATTACHMENT_TYPE,*PNDIS_FDDI_ATTACHMENT_TYPE;
 
   typedef enum _NDIS_FDDI_RING_MGT_STATE {
-    NdisFddiRingIsolated = 1,NdisFddiRingNonOperational,NdisFddiRingOperational,NdisFddiRingDetect,NdisFddiRingNonOperationalDup,
-    NdisFddiRingOperationalDup,NdisFddiRingDirected,NdisFddiRingTrace
+    NdisFddiRingIsolated = 1,
+    NdisFddiRingNonOperational,
+    NdisFddiRingOperational,
+    NdisFddiRingDetect,
+    NdisFddiRingNonOperationalDup,
+    NdisFddiRingOperationalDup,
+    NdisFddiRingDirected,
+    NdisFddiRingTrace
   } NDIS_FDDI_RING_MGT_STATE,*PNDIS_FDDI_RING_MGT_STATE;
 
   typedef enum _NDIS_FDDI_LCONNECTION_STATE {
-    NdisFddiStateOff = 1,NdisFddiStateBreak,NdisFddiStateTrace,NdisFddiStateConnect,NdisFddiStateNext,NdisFddiStateSignal,
-    NdisFddiStateJoin,NdisFddiStateVerify,NdisFddiStateActive,NdisFddiStateMaintenance
+    NdisFddiStateOff = 1,
+    NdisFddiStateBreak,
+    NdisFddiStateTrace,
+    NdisFddiStateConnect,
+    NdisFddiStateNext,
+    NdisFddiStateSignal,
+    NdisFddiStateJoin,
+    NdisFddiStateVerify,
+    NdisFddiStateActive,
+    NdisFddiStateMaintenance
   } NDIS_FDDI_LCONNECTION_STATE,*PNDIS_FDDI_LCONNECTION_STATE;
 
   typedef enum _NDIS_WAN_MEDIUM_SUBTYPE {
-    NdisWanMediumHub,NdisWanMediumX_25,NdisWanMediumIsdn,NdisWanMediumSerial,NdisWanMediumFrameRelay,NdisWanMediumAtm,
-    NdisWanMediumSonet,NdisWanMediumSW56K,NdisWanMediumPPTP,NdisWanMediumL2TP,NdisWanMediumIrda,NdisWanMediumParallel,NdisWanMediumPppoe
+    NdisWanMediumHub,
+    NdisWanMediumX_25,
+    NdisWanMediumIsdn,
+    NdisWanMediumSerial,
+    NdisWanMediumFrameRelay,
+    NdisWanMediumAtm,
+    NdisWanMediumSonet,
+    NdisWanMediumSW56K,
+    NdisWanMediumPPTP,
+    NdisWanMediumL2TP,
+    NdisWanMediumIrda,
+    NdisWanMediumParallel,
+    NdisWanMediumPppoe
   } NDIS_WAN_MEDIUM_SUBTYPE,*PNDIS_WAN_MEDIUM_SUBTYPE;
 
   typedef enum _NDIS_WAN_HEADER_FORMAT {
-    NdisWanHeaderNative,NdisWanHeaderEthernet
+    NdisWanHeaderNative,
+    NdisWanHeaderEthernet
   } NDIS_WAN_HEADER_FORMAT,*PNDIS_WAN_HEADER_FORMAT;
 
   typedef enum _NDIS_WAN_QUALITY {
-    NdisWanRaw,NdisWanErrorControl,NdisWanReliable
+    NdisWanRaw,
+    NdisWanErrorControl,
+    NdisWanReliable
   } NDIS_WAN_QUALITY,*PNDIS_WAN_QUALITY;
 
   typedef struct _NDIS_WAN_PROTOCOL_CAPS {
@@ -1210,11 +1325,17 @@ extern "C" {
 #define WAN_PROTOCOL_KEEPS_STATS 0x00000001
 
   typedef enum _NDIS_802_5_RING_STATE {
-    NdisRingStateOpened = 1,NdisRingStateClosed,NdisRingStateOpening,NdisRingStateClosing,NdisRingStateOpenFailure,NdisRingStateRingFailure
+    NdisRingStateOpened = 1,
+    NdisRingStateClosed,
+    NdisRingStateOpening,
+    NdisRingStateClosing,
+    NdisRingStateOpenFailure,
+    NdisRingStateRingFailure
   } NDIS_802_5_RING_STATE,*PNDIS_802_5_RING_STATE;
 
   typedef enum _NDIS_MEDIA_STATE {
-    NdisMediaStateConnected,NdisMediaStateDisconnected
+    NdisMediaStateConnected,
+    NdisMediaStateDisconnected
   } NDIS_MEDIA_STATE,*PNDIS_MEDIA_STATE;
 
   typedef ULONG Priority_802_3;
@@ -1300,26 +1421,63 @@ extern "C" {
 #ifdef WIRELESS_WAN
 
   typedef enum _NDIS_WW_NETWORK_TYPE {
-    NdisWWGeneric,NdisWWMobitex,NdisWWPinpoint,NdisWWCDPD,NdisWWArdis,NdisWWDataTAC,NdisWWMetricom,NdisWWGSM,NdisWWCDMA,NdisWWTDMA,
-    NdisWWAMPS,NdisWWInmarsat,NdisWWpACT,NdisWWFlex,NdisWWIDEN
+    NdisWWGeneric,
+    NdisWWMobitex,
+    NdisWWPinpoint,
+    NdisWWCDPD,
+    NdisWWArdis,
+    NdisWWDataTAC,
+    NdisWWMetricom,
+    NdisWWGSM,
+    NdisWWCDMA,
+    NdisWWTDMA,
+    NdisWWAMPS,
+    NdisWWInmarsat,
+    NdisWWpACT,
+    NdisWWFlex,
+    NdisWWIDEN
   } NDIS_WW_NETWORK_TYPE;
 
   typedef enum _NDIS_WW_HEADER_FORMAT {
-    NdisWWDIXEthernetFrames,NdisWWMPAKFrames,NdisWWRDLAPFrames,NdisWWMDC4800Frames,NdisWWNCLFrames
+    NdisWWDIXEthernetFrames,
+    NdisWWMPAKFrames,
+    NdisWWRDLAPFrames,
+    NdisWWMDC4800Frames,
+    NdisWWNCLFrames
   } NDIS_WW_HEADER_FORMAT;
 
   typedef enum _NDIS_WW_ENCRYPTION_TYPE {
-    NdisWWUnknownEncryption = -1,NdisWWNoEncryption,NdisWWDefaultEncryption,NdisWWDESEncryption,NdisWWRC2Encryption,NdisWWRC4Encryption,NdisWWRC5Encryption
+    NdisWWUnknownEncryption = -1,
+    NdisWWNoEncryption,
+    NdisWWDefaultEncryption,
+    NdisWWDESEncryption,
+    NdisWWRC2Encryption,
+    NdisWWRC4Encryption,
+    NdisWWRC5Encryption
   } NDIS_WW_ENCRYPTION_TYPE,*PNDIS_WW_ENCRYPTION_TYPE;
 
   typedef enum _WW_ADDRESS_FORMAT {
-    WW_IEEE_ADDRESS = 0,WW_MOBITEX_MAN_ADDRESS,WW_DATATAC_RDLAP_ADDRESS,WW_DATATAC_MDC4800_ADDRESS,WW_DATATAC_RESERVED,WW_IPv4_ADDRESS,
-    WW_IPv6_ADDRESS,WW_PROPRIETARY_ADDRESS
+    WW_IEEE_ADDRESS = 0,
+    WW_MOBITEX_MAN_ADDRESS,
+    WW_DATATAC_RDLAP_ADDRESS,
+    WW_DATATAC_MDC4800_ADDRESS,
+    WW_DATATAC_RESERVED,
+    WW_IPv4_ADDRESS,
+    WW_IPv6_ADDRESS,
+    WW_PROPRIETARY_ADDRESS
   } WW_ADDRESS_FORMAT;
 
   typedef enum _WW_GEN_SUM_EXCEPTION {
-    SIM_STATUS_OK = 0,SIM_STATUS_ERROR,SIM_STATUS_MISSING,SIM_STATUS_NO_RESPONSE,SIM_STATUS_REMOVED,SIM_STATUS_CRYPT_ERROR,
-    SIM_STATUS_AUTH_ERROR,SIM_STATUS_NEED_PIN,SIM_STATUS_NEED_PUK,SIM_STATUS_WRONG
+    SIM_STATUS_OK = 0,
+    SIM_STATUS_ERROR,
+    SIM_STATUS_MISSING,
+    SIM_STATUS_NO_RESPONSE,
+    SIM_STATUS_REMOVED,
+    SIM_STATUS_CRYPT_ERROR,
+    SIM_STATUS_AUTH_ERROR,
+    SIM_STATUS_NEED_PIN,
+    SIM_STATUS_NEED_PUK,
+    SIM_STATUS_WRONG
   } WW_GEN_SIM_EXCEPTION;
 
   typedef struct _NDIS_WW_INDICATION_REQUEST {
@@ -1479,16 +1637,29 @@ extern "C" {
   } WW_CDPD_CHANNEL_SELECT,*PWW_CDPD_CHANNEL_SELECT;
 
   typedef enum _WW_CDPD_CHANNEL_STATE {
-    CDPDChannelNotAvail,CDPDChannelScanning,CDPDChannelInitAcquired,CDPDChannelAcquired,CDPDChannelSleeping,CDPDChannelWaking,
-    CDPDChannelCSDialing,CDPDChannelCSRedial,CDPDChannelCSAnswering,CDPDChannelCSConnected,CDPDChannelCSSuspended
+    CDPDChannelNotAvail,
+    CDPDChannelScanning,
+    CDPDChannelInitAcquired,
+    CDPDChannelAcquired,
+    CDPDChannelSleeping,
+    CDPDChannelWaking,
+    CDPDChannelCSDialing,
+    CDPDChannelCSRedial,
+    CDPDChannelCSAnswering,
+    CDPDChannelCSConnected,
+    CDPDChannelCSSuspended
   } WW_CDPD_CHANNEL_STATE,*PWW_CDPD_CHANNEL_STATE;
 
   typedef enum _WW_CDPD_NEI_FORMAT {
-    CDPDNeiIPv4,CDPDNeiCLNP,CDPDNeiIPv6
+    CDPDNeiIPv4,
+    CDPDNeiCLNP,
+    CDPDNeiIPv6
   } WW_CDPD_NEI_FORMAT,*PWW_CDPD_NEI_FORMAT;
 
   typedef enum _WW_CDPD_NEI_TYPE {
-    CDPDNeiIndividual,CDPDNeiMulticast,CDPDNeiBroadcast
+    CDPDNeiIndividual,
+    CDPDNeiMulticast,
+    CDPDNeiBroadcast
   } WW_CDPD_NEI_TYPE;
 
   typedef struct _WW_CDPD_NEI {
@@ -1500,11 +1671,19 @@ extern "C" {
   } WW_CDPD_NEI;
 
   typedef enum _WW_CDPD_NEI_STATE {
-    CDPDUnknown,CDPDRegistered,CDPDDeregistered
+    CDPDUnknown,
+    CDPDRegistered,
+    CDPDDeregistered
   } WW_CDPD_NEI_STATE,*PWW_CDPD_NEI_STATE;
 
   typedef enum _WW_CDPD_NEI_SUB_STATE {
-    CDPDPending,CDPDNoReason,CDPDMDISNotCapable,CDPDNEINotAuthorized,CDPDInsufficientAuth,CDPDUnsupportedAuth,CDPDUsageExceeded,
+    CDPDPending,
+    CDPDNoReason,
+    CDPDMDISNotCapable,
+    CDPDNEINotAuthorized,
+    CDPDInsufficientAuth,
+    CDPDUnsupportedAuth,
+    CDPDUsageExceeded,
     CDPDDeniedThisNetwork
   } WW_CDPD_NEI_SUB_STATE;
 
@@ -1622,7 +1801,10 @@ extern "C" {
   } WW_MBX_GROUPLIST;
 
   typedef enum _WW_MBX_TRAFFIC_AREA {
-    unknown_traffic_area,in_traffic_area,in_auth_traffic_area,unauth_traffic_area
+    unknown_traffic_area,
+    in_traffic_area,
+    in_auth_traffic_area,
+    unauth_traffic_area
   } WW_MBX_TRAFFIC_AREA;
 
   typedef INT WW_MBX_LIVE_DIE;
@@ -1651,7 +1833,12 @@ extern "C" {
 #define BPC_DEVICE_ANY ((BPC_HANDLE) 0xFFFFFFFF)
 
   typedef enum _NDIS_BPC_INDICATE_REASON {
-    bpcBufferFull = 0,bpcBufferForced,bpcBufferTimeOut,bpcBufferDiscontinuity,bpcBufferOverflow,bpcBufferStatusEvent
+    bpcBufferFull = 0,
+    bpcBufferForced,
+    bpcBufferTimeOut,
+    bpcBufferDiscontinuity,
+    bpcBufferOverflow,
+    bpcBufferStatusEvent
   } NDIS_BPC_INDICATE_REASON,*PNDIS_BPC_INDICATE_REASON;
 
 #define BPC_STREAM_TYPE_GENERIC_MIN 0x01000000
@@ -1753,10 +1940,24 @@ extern "C" {
   } NDIS_BPC_PROGRAM_GUIDE,*PNDIS_BPC_PROGRAM_GUIDE;
 
   typedef enum _NDIS_BPC_ERROR {
-    bpcErrorUnknownFailure = 0xc0ff0000,bpcErrorHardwareFailure,bpcErrorProviderFailure,bpcErrorNoDataDevice,bpcErrorNoTuningDevice,
-    bpcErrorDeviceNotCapable,bpcErrorConflictingDevice,bpcErrorConflictingCapability,bpcErrorNoBufferMemory,bpcErrorNoResources,
-    bpcErrorAdapterClosing,bpcErrorConnectionClosing,bpcErrorTooComplex,bpcErrorProviderNotSupported,
-    bpcErrorUnknownProviderStructure,bpcErrorAddressNotSupported,bpcErrorInvalidAddress,bpcErrorUnknownAdapterStructure
+    bpcErrorUnknownFailure = 0xc0ff0000,
+    bpcErrorHardwareFailure,
+    bpcErrorProviderFailure,
+    bpcErrorNoDataDevice,
+    bpcErrorNoTuningDevice,
+    bpcErrorDeviceNotCapable,
+    bpcErrorConflictingDevice,
+    bpcErrorConflictingCapability,
+    bpcErrorNoBufferMemory,
+    bpcErrorNoResources,
+    bpcErrorAdapterClosing,
+    bpcErrorConnectionClosing,
+    bpcErrorTooComplex,
+    bpcErrorProviderNotSupported,
+    bpcErrorUnknownProviderStructure,
+    bpcErrorAddressNotSupported,
+    bpcErrorInvalidAddress,
+    bpcErrorUnknownAdapterStructure
   } NDIS_BPC_ERROR,*PNDIS_BPC_ERROR;
 
   typedef struct NDIS_BPC_LAST_ERROR {

@@ -18,6 +18,8 @@
  *
  */
 
+#pragma once
+
 #ifdef UNICODE
 #define PORT_INFO_FF PORT_INFO_FFW
 #define PPORT_INFO_FF PPORT_INFO_FFW
@@ -39,3 +41,4 @@ typedef struct _PORT_INFO_FFA {
   DWORD cbMonitorData;
   LPBYTE pMonitorData;
 } PORT_INFO_FFA, *PPORT_INFO_FFA, *LPPORT_INFO_FFA;
+

@@ -77,53 +77,53 @@ static const PCHAR IrpMjFuncDesc[] = {
 #define DEBUGLVL_INFO TRACE_LEVEL_INFORMATION
 
 #if (DBG)
-  #if !defined( DEBUG_LEVEL )
-    #if defined( DEBUG_VARIABLE )
-      #if defined( KSDEBUG_INIT )
-        ULONG DEBUG_VARIABLE = DEBUGLVL_TERSE;
-      #else
-        extern ULONG DEBUG_VARIABLE;
-      #endif
-    #else
-      #define DEBUG_VARIABLE DEBUGLVL_TERSE
-    #endif
-  #else
-    #if defined( DEBUG_VARIABLE )
-      #if defined( KSDEBUG_INIT )
-        ULONG DEBUG_VARIABLE = DEBUG_LEVEL;
-      #else
-        extern ULONG DEBUG_VARIABLE;
-      #endif
-    #else
-      #define DEBUG_VARIABLE DEBUG_LEVEL
-    #endif
-  #endif
+# if !defined( DEBUG_LEVEL )
+#   if defined( DEBUG_VARIABLE )
+#     if defined( KSDEBUG_INIT )
+	ULONG DEBUG_VARIABLE = DEBUGLVL_TERSE;
+#     else
+	extern ULONG DEBUG_VARIABLE;
+#     endif
+#   else
+#	define DEBUG_VARIABLE DEBUGLVL_TERSE
+#   endif
+# else
+#   if defined( DEBUG_VARIABLE )
+#     if defined( KSDEBUG_INIT )
+	ULONG DEBUG_VARIABLE = DEBUG_LEVEL;
+#     else
+	extern ULONG DEBUG_VARIABLE;
+#     endif
+#   else
+#	define DEBUG_VARIABLE DEBUG_LEVEL
+#   endif
+# endif
 
 #if (NTDDI_VERSION >= NTDDI_WINXP)
-  #define _DbgPrintFEx(component, lvl, strings) { \
-    if ((lvl) <= DEBUG_VARIABLE) { \
-      DbgPrintEx(component, lvl, STR_MODULENAME); \
-      DbgPrintEx(component, lvl, strings); \
-      DbgPrintEx(component, lvl, "\n"); \
-      if ((lvl) == DEBUGLVL_ERROR) { \
-        DbgBreakPoint(); \
-      } \
-    } \
+#  define _DbgPrintFEx(component, lvl, strings) {		\
+    if ((lvl) <= DEBUG_VARIABLE) {				\
+      DbgPrintEx(component, lvl, STR_MODULENAME);		\
+      DbgPrintEx(component, lvl, strings);			\
+      DbgPrintEx(component, lvl, "\n");				\
+      if ((lvl) == DEBUGLVL_ERROR) {				\
+	DbgBreakPoint();					\
+      }								\
+    }								\
   }
 #endif /* (NTDDI_VERSION >= NTDDI_WINXP) */
 
-  #define _DbgPrintF(lvl, strings) { \
-    if (((lvl)==DEBUG_VARIABLE) || (lvl < DEBUG_VARIABLE)) { \
-      DbgPrint(STR_MODULENAME); \
-      DbgPrint##strings; \
-      DbgPrint("\n"); \
-      if ((lvl) == DEBUGLVL_ERROR) { \
-        DbgBreakPoint(); \
-      } \
-    } \
+#  define _DbgPrintF(lvl, strings) {				\
+    if (((lvl)==DEBUG_VARIABLE) || (lvl < DEBUG_VARIABLE)) {	\
+      DbgPrint(STR_MODULENAME);					\
+      DbgPrint##strings;					\
+      DbgPrint("\n");						\
+      if ((lvl) == DEBUGLVL_ERROR) {				\
+	DbgBreakPoint();					\
+      }								\
+    }								\
   }
 
-#else
+#else /* ! DBG */
 
 #define _DbgPrintF(lvl, strings)
 
