@@ -1,3 +1,10 @@
+2010-08-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Sync with Wine release 1.2.0.
+	* d3d10shader.h: Fix some defines (parts from wine git commit
+	a9e792d6d342c8a68f8802b549fd50de11f77153)
+	* xinput.h: Fix typo in comment.
+
 2010-08-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* d3dtypes.h (LPD3DVECTOR): Guard.
@@ -5,21 +12,11 @@
 
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* d3d8types.h (D3DCLEAR_TARGET): Guard.
-	(D3DCLEAR_ZBUFFER): Guard.
-	(D3DCLEAR_STENCIL): Guard.
+	* d3dtypes.h, d3d8types.h, d3d9types.h (D3DCLEAR_TARGET): Guard.
+	(D3DCLEAR_ZBUFFER, D3DCLEAR_STENCIL): Likewise.
 
-	* d3d9types.h (D3DCLEAR_TARGET): Guard.
-	(D3DCLEAR_ZBUFFER): Guard.
-	(D3DCLEAR_STENCIL): Guard.
-
-	* d3dtypes.h (D3DCLEAR_TARGET): Guard.
-	(D3DCLEAR_ZBUFFER): Guard.
-	(D3DCLEAR_STENCIL): Guard.
-
-	* d3d8types.h (D3DMULTISAMPLE_FORCE_DWORD): Fix as 0x7fffffff.
-
-	* d3d9types.h (D3DMULTISAMPLE_FORCE_DWORD): Fix as 0x7fffffff.
+	* d3d8types.h, d3d9types.h (D3DMULTISAMPLE_FORCE_DWORD): Fix as
+	0x7fffffff.
 
 	* d3d.h (INTERFACE, IDirect3D): Undef INTERFACE before IDirect3D.
 
@@ -37,10 +34,10 @@
 	* dinput.h: Add DIPROPPOINTER, from an old patch submitted to Wine:
 	http://www.winehq.org/pipermail/wine-patches/2004-September/012790.html
 	also see MSDN:
-	http://msdn.microsoft.com/en-us/library/microsoft.directx_sdk.reference.diproppointer(VS.85).aspx
+	http://msdn.microsoft.com/en-us/library/ee416867(VS.85).aspx
 
 	* dinput.h: Add DIPROPCPOINTS, see MSDN:
-	http://msdn.microsoft.com/en-us/library/microsoft.directx_sdk.reference.dipropcpoints(VS.85).aspx
+	http://msdn.microsoft.com/en-us/library/ee416867(VS.85).aspx
 
 	* dinput.h: Add missing constants required for dxdiag from r/os
 	svn@33119:
@@ -63,14 +60,14 @@
 	* dsound.h (DSBNOTIFICATIONS_MAX): Define as 100000UL.
 	(INTERFACE, IDirectSound): Undef INTERFACE before IDirectSound.
 
-	* ddraw.h (DDARGB, DDRGBA): Added from MSDN,
+	* ddraw.h (DDARGB, DDRGBA): Add from MSDN,
 	http://msdn.microsoft.com/en-us/library/aa921041.aspx
 
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* ddrawi.h (DDSCAPSEX): Moved from here ...
+	* ddrawi.h (DDSCAPSEX): Move from here ...
 	* ddraw.h (DDSCAPSEX):  ...  to here.
-	(DDSCAPS2): Updated the reserved dwCaps4 field acc. to MSDN :
+	(DDSCAPS2): Update the reserved dwCaps4 field acc. to MSDN :
 	http://msdn.microsoft.com/en-us/library/ff550292(VS.85).aspx
 
 2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
@@ -78,7 +75,6 @@
 	* ddrawi.h: VIDMEM_ISDISABLED is the wrong macro name, it should be
 	VIDMEM_HEAPDISABLED according to MSDN:
 	http://msdn.microsoft.com/en-us/library/ff570171(VS.85).aspx
-	Changed thusly.
 
 2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
 
@@ -120,18 +116,20 @@
 
 2010-06-23  Ozkan Sezer <sezeroz@gmail.com>
 
-	* _mingw_dxhelper.h: Updated DUMMYSTRUCTNAME* macros from _mingw.h.
-	* ddraw.h (MAKEFOURCC): Changed ifdef guard from __MAKEFOURCC__DEFINED__
+	* _mingw_dxhelper.h: Update DUMMYSTRUCTNAME* macros from _mingw.h.
+	* ddraw.h (MAKEFOURCC): Change ifdef guard from __MAKEFOURCC__DEFINED__
 	to simply MAKEFOURCC.
 	* d3d9types.h (MAKEFOURCC): Likewise.
-	* d3d8types.h (MAKEFOURCC): Added ifdef guards.
+	* d3d8types.h (MAKEFOURCC): Add ifdef guards.
 
 2010-06-22  Jacek Caban  <jacek@codeweavers.com>
-	* d3d10.h, d3d10.idl, d3deffect.h, d3d10misc.h, d3d10shader.h: Initial import from Wine.
+	* d3d10.h, d3d10.idl, d3deffect.h, d3d10misc.h, d3d10shader.h: Initial
+	import from Wine.
 	* dxgi.h, dxgi.idl, dxgitype.h, dxgitype.idl, xinput.h: Likewise.
 
 2010-06-22  Jacek Caban  <jacek@codeweavers.com>
-	* downloadmgr.idl, downloadmgr.h: Moved to IDL SDK.
+
+	* downloadmgr.idl, downloadmgr.h: Move to IDL SDK.
 
 2010-06-21  Jonathan Yong  <jon_y@sourceforge.net>
 
@@ -153,29 +151,29 @@
 
 2010-06-12  Ozkan Sezer <sezeroz@gmail.com>
 
-	* _mingw_dxhelper.h: Updated DUMMYSTRUCTNAME* macros from _mingw.h.
-	* amvideo.h, d3dx9core.h, d3dx9tex.h, dvdmedia.h, errors.h: Included
+	* _mingw_dxhelper.h: Update DUMMYSTRUCTNAME* macros from _mingw.h.
+	* amvideo.h, d3dx9core.h, d3dx9tex.h, dvdmedia.h, errors.h: Include
 	_mingw_dxhelper.h for wine macros.
 
 2010-05-17  Ozkan Sezer <sezeroz@gmail.com>
 
-	* qedit.idl: Added from wine sources for PR/3001189.
-	* qedit.h: Generated.
-	* docobj.h: Deleted, already present in the main headers.
-	* docobj.idl: Deleted.
+	* qedit.idl: Add from wine sources for PR/3001189.
+	* qedit.h: Generate.
+	* docobj.h: Delete, already present in the main headers.
+	* docobj.idl: Delete.
 
 2010-05-13  Ozkan Sezer <sezeroz@gmail.com>
 
-	* Sync'ed with wine-1.1.44 release version.
+	* Sync with wine-1.1.44 release version.
 
 2010-04-17  Ozkan Sezer <sezeroz@gmail.com>
 
 	* d3dx9shape.h: added from the wine-1.1.43 sources.
-	* Sync'ed with wine-1.1.43 release version.
+	* Sync with wine-1.1.43 release version.
 
 2010-04-03  Ozkan Sezer <sezeroz@gmail.com>
 
-	* Sync'ed with wine-1.1.42 release version.
+	* Sync with wine-1.1.42 release version.
 
 2010-03-26  Ozkan Sezer <sezeroz@gmail.com>
 
@@ -183,7 +181,7 @@
 
 2010-03-25  Ozkan Sezer <sezeroz@gmail.com>
 
-	* Sync'ed with wine-1.1.41 release version.
+	* Sync with wine-1.1.41 release version.
 	* d3dx9effect.h: added from the wine sources.
 
 2010-03-15  Ozkan Sezer <sezeroz@gmail.com>
@@ -201,14 +199,14 @@
 
 2010-02-23  Ozkan Sezer <sezeroz@gmail.com>
 
-	* d3dx9shader.h: Merged d3dx9_36 fix of Christian Costa from wine
+	* d3dx9shader.h: Merge d3dx9_36 fix of Christian Costa from wine
 	git-3138ba0d5cfcd37d3b457916240a7e20a08f047c / 2010-02-21: Fix
 	AddRef and Release macros and add IID for ID3DXConstantTable.
 
 2010-02-20  Ozkan Sezer <sezeroz@gmail.com>
 
-	* dvdmedia.h: added from the wine sources.
-	* Sync'ed with wine-1.1.39 release version.
+	* dvdmedia.h: add from the wine sources.
+	* Sync with wine-1.1.39 release version.
 
 2010-02-14  Ozkan Sezer <sezeroz@gmail.com>
 
@@ -220,32 +218,32 @@
 
 2010-02-12  Ozkan Sezer <sezeroz@gmail.com>
 
-	* dmoreg.h: Made it C++ compatible by adding extern "C" { ... }
+	* dmoreg.h: Make it C++ compatible by adding extern "C" { ... }
 	when __cplusplus ies defined.
 
 2010-02-12  Ozkan Sezer <sezeroz@gmail.com>
 
-	* added dmodshow, medparam and qnetwork *.idl and *.h files from the
+	* add dmodshow, medparam and qnetwork *.idl and *.h files from the
 	KDE project.
-	* added amstream and vmr9 *.idl and *.h files from wine sources.
+	* add amstream and vmr9 *.idl and *.h files from wine sources.
 
 2010-02-12  Ozkan Sezer <sezeroz@gmail.com>
 
-	Merged with the dx headers from wine-1.1.38 including the missing
+	Merge with the dx headers from wine-1.1.38 including the missing
 	d3drmobj.h, mediaerr.h and mediaobj.h, as well as the new d3dx9
 	additions.
 
 2010-02-11  Ozkan Sezer <sezeroz@gmail.com>
 
-	* dshow.h: Updated from wine-1.1.38.
+	* dshow.h: Update from wine-1.1.38.
 	* amaudio.h, amvideo.idl, amvideo.h, audevcod.h, errors.h, evcode.h,
-	vfwmsgs.h: Added missing dshow dependency headers from wine-1.1.38.
+	vfwmsgs.h: Add missing dshow dependency headers from wine-1.1.38.
 
 2010-02-11  Ozkan Sezer <sezeroz@gmail.com>
 
-	* ddstream.h, docobj.h, downloadmgr.h: Regenerated using widl-1.1.38
+	* ddstream.h, docobj.h, downloadmgr.h: Regenerate using widl-1.1.38
 	from the latest wine-1.1.38 *.idl files.
-	* ddstream.idl, docobj.idl, downloadmgr.idl: Added as idl versions.
+	* ddstream.idl, docobj.idl, downloadmgr.idl: Add as idl versions.
 
 2010-02-03  Ozkan Sezer <sezeroz@gmail.com>
 
@@ -310,9 +308,9 @@
 2009-04-04  Ozkan Sezer <sezeroz@gmail.com>
 
 	* d3d.h, d3d8.h, d3d9.h, dmplugin.h, dmusicc.h, dmusicf.h, dmusici.h:
-	  Added the missing COM_NO_WINDOWS_H definition (wine git
+	  Add the missing COM_NO_WINDOWS_H definition (wine git
 	  6688acce7dbb00ceea4e755fe0f4a771a5520c24).
-	* d3d8.h, d3d9.h: Added missing include directives (wine git
+	* d3d8.h, d3d9.h: Add missing include directives (wine git
 	  56f7209a949a1805d80ae0a59e093bbe2857677e).
 	* d3d9types.h: Fix the value of D3DFVF_POSITION_MASK (wine git
 	  d359a7813fe3d7acd8d3791fe63a4e44bb22ebb2).
@@ -331,7 +329,7 @@
 	  D3DXAssembleShaderFromFileA/W prototypes (wine git
 	  3d962e27ed69829645f3c8f99c17087f92d89e01).
 	* d3d8types.h, d3d9types.h, d3dhal.h, d3dtypes.h, ddrawi.h, dinput.h:
-	  Added the missing DUMMYUNIONNAME1 macro.
+	  Add the missing DUMMYUNIONNAME1 macro.
 	* dplay.h, dplobby.h: Likewise.
 
 2009-02-20  Kai Tietz  <kai.tietz@onevision.com>
@@ -341,7 +339,7 @@
 
 	PA/2619828
 	a bunch of directx header fixes from the wine git repository:
-	* ddraw.h, dinput.h: Added the missing COM_NO_WINDOWS_H definition
+	* ddraw.h, dinput.h: Add the missing COM_NO_WINDOWS_H definition
 	  (wine git 6688acce7dbb00ceea4e755fe0f4a771a5520c24)
 	* ddraw.h: Fix the name of DDSPD_IUNKNOWNPOINTER
 	  (wine git 47b6392b44dca86b8c61daa902bd35e73cca5e2f)
@@ -357,6 +355,7 @@
 	  (wine git 2a0e659335ecf1d8967c75c9efe164c2d9d0214c)
 	* dsound.h: Update prototypes for IDirectSoundBuffer::Lock/Unlock.
 	  (wine git 9b4f99782ef27239927a0c5d0ae8e788df17cb76)
-	* dinput.h:  reverted the wine ifdef removal change
-	  (wine git bf08b35c0730636ab3dbc4dee0a9f6fa28113b7a). also added
+	* dinput.h: Revert Wine's version ifdef removal
+	  (wine git bf08b35c0730636ab3dbc4dee0a9f6fa28113b7a). also add
 	  a dinput8 ifdef to DIDEVICEOBJECTDATA for the uAppData member.
+
