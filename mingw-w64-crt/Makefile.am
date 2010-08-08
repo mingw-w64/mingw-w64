@@ -368,7 +368,33 @@ lib32_DATA = \
   lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a   \
   \
   lib32/libpdh.a       lib32/libpdhui.a    \
-  lib32/libks.a
+  lib32/libks.a        \
+  \
+  lib32/libd3dcompiler_33.a lib32/libd3dcompiler_34.a lib32/libd3dcompiler_35.a \
+  lib32/libd3dcompiler_36.a lib32/libd3dcompiler_37.a lib32/libd3dcompiler_38.a \
+  lib32/libd3dcompiler_39.a lib32/libd3dcompiler_40.a lib32/libd3dcompiler_41.a \
+  lib32/libd3dcompiler_42.a lib32/libd3dcompiler_43.a lib32/libd3dcsxd_43.a \
+  lib32/libd3dx10_33.a      lib32/libd3dx10_34.a      lib32/libd3dx10_35.a \
+  lib32/libd3dx10_36.a      lib32/libd3dx10_37.a      lib32/libd3dx10_38.a \
+  lib32/libd3dx10_39.a      lib32/libd3dx10_40.a      lib32/libd3dx10_41.a \
+  lib32/libd3dx10_42.a      lib32/libd3dx10_43.a      lib32/libd3dx11_42.a \
+  lib32/libd3dx11_43.a      lib32/libd3dx9_24.a       lib32/libd3dx9_25.a \
+  lib32/libd3dx9_26.a       lib32/libd3dx9_27.a       lib32/libd3dx9_28.a \
+  lib32/libd3dx9_29.a       lib32/libd3dx9_30.a       lib32/libd3dx9_31.a \
+  lib32/libd3dx9_32.a       lib32/libd3dx9_33.a       lib32/libd3dx9_34.a \
+  lib32/libd3dx9_35.a       lib32/libd3dx9_36.a       lib32/libd3dx9_37.a \
+  lib32/libd3dx9_38.a       lib32/libd3dx9_39.a       lib32/libd3dx9_40.a \
+  lib32/libd3dx9_41.a       lib32/libd3dx9_42.a       lib32/libd3dx9_43.a \
+  lib32/libdwrite.a         lib32/libdxgi.a           lib32/libx3daudio1_2.a \
+  lib32/libx3daudio1_3.a    lib32/libx3daudio1_4.a    lib32/libx3daudio1_5.a \
+  lib32/libx3daudio1_6.a    lib32/libx3daudio1_7.a    lib32/libx3daudiod1_7.a \
+  lib32/libxapofx1_0.a      lib32/libxapofx1_1.a      lib32/libxapofx1_2.a \
+  lib32/libxapofx1_3.a      lib32/libxapofx1_4.a      lib32/libxapofx1_5.a \
+  lib32/libxapofxd1_5.a     lib32/libxaudio2_0.a      lib32/libxaudio2_1.a \
+  lib32/libxaudio2_2.a      lib32/libxaudio2_3.a      lib32/libxaudio2_4.a \
+  lib32/libxaudio2_5.a      lib32/libxaudio2_6.a      lib32/libxaudio2_7.a \
+  lib32/libxaudiod2_7.a     lib32/libxinput1_1.a      lib32/libxinput1_2.a \
+  lib32/libxinput1_3.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -925,7 +951,33 @@ lib64_DATA = \
   \
   lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a     \
   \
-  lib64/libks.a         lib64/libndis.a
+  lib64/libks.a         lib64/libndis.a       \
+  \
+  lib64/libd3dcompiler_33.a lib64/libd3dcompiler_34.a lib64/libd3dcompiler_35.a \
+  lib64/libd3dcompiler_36.a lib64/libd3dcompiler_37.a lib64/libd3dcompiler_38.a \
+  lib64/libd3dcompiler_39.a lib64/libd3dcompiler_40.a lib64/libd3dcompiler_41.a \
+  lib64/libd3dcompiler_42.a lib64/libd3dcompiler_43.a lib64/libd3dcsxd_43.a \
+  lib64/libd3dx10_33.a      lib64/libd3dx10_34.a      lib64/libd3dx10_35.a \
+  lib64/libd3dx10_36.a      lib64/libd3dx10_37.a      lib64/libd3dx10_38.a \
+  lib64/libd3dx10_39.a      lib64/libd3dx10_40.a      lib64/libd3dx10_41.a \
+  lib64/libd3dx10_42.a      lib64/libd3dx10_43.a      lib64/libd3dx11_42.a \
+  lib64/libd3dx11_43.a      lib64/libd3dx9_24.a       lib64/libd3dx9_25.a \
+  lib64/libd3dx9_26.a       lib64/libd3dx9_27.a       lib64/libd3dx9_28.a \
+  lib64/libd3dx9_29.a       lib64/libd3dx9_30.a       lib64/libd3dx9_31.a \
+  lib64/libd3dx9_32.a       lib64/libd3dx9_33.a       lib64/libd3dx9_34.a \
+  lib64/libd3dx9_35.a       lib64/libd3dx9_36.a       lib64/libd3dx9_37.a \
+  lib64/libd3dx9_38.a       lib64/libd3dx9_39.a       lib64/libd3dx9_40.a \
+  lib64/libd3dx9_41.a       lib64/libd3dx9_42.a       lib64/libd3dx9_43.a \
+  lib64/libdwrite.a         lib64/libdxgi.a           lib64/libx3daudio1_2.a \
+  lib64/libx3daudio1_3.a    lib64/libx3daudio1_4.a    lib64/libx3daudio1_5.a \
+  lib64/libx3daudio1_6.a    lib64/libx3daudio1_7.a    lib64/libx3daudiod1_7.a \
+  lib64/libxapofx1_0.a      lib64/libxapofx1_1.a      lib64/libxapofx1_2.a \
+  lib64/libxapofx1_3.a      lib64/libxapofx1_4.a      lib64/libxapofx1_5.a \
+  lib64/libxapofxd1_5.a     lib64/libxaudio2_0.a      lib64/libxaudio2_1.a \
+  lib64/libxaudio2_2.a      lib64/libxaudio2_3.a      lib64/libxaudio2_4.a \
+  lib64/libxaudio2_5.a      lib64/libxaudio2_6.a      lib64/libxaudio2_7.a \
+  lib64/libxaudiod2_7.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
+  lib64/libxinput1_3.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll
