@@ -105,8 +105,10 @@ typedef int WINBOOL;
 typedef WINBOOL BOOL;
 #endif
 #pragma pop_macro("BOOL")
-typedef WINBOOL *PBOOL;
-typedef WINBOOL *LPBOOL;
+#include <mingw_inc/_pushBOOL.h>
+typedef BOOL *PBOOL;
+typedef BOOL *LPBOOL;
+#include <minw_inc/popBOOL.h>
 #endif /* _DEF_WINBOOL_ */
 
 typedef unsigned char BYTE;
