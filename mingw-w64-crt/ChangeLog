@@ -1,3 +1,10 @@
+2010-08-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* math/fabs.c: #define __CRT__NO_INLINE, just in case.
+	* math/fpclassify.c: Likewise.
+	* math/fpclassifyf.c: Likewise.
+	* math/fpclassifyl.c: Likewise.
+
 2010-08-02  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* lib32/msvcrt.def: New _vcprintf and _vcwprintf.
