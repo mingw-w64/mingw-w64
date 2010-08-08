@@ -1,3 +1,15 @@
+2010-08-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merge from the trunk:
+
+	2010-08-02  Jonathan Yong  <jon_y@sourceforge.net> (rev. 3091)
+	* lib32/msvcrt.def: New _vcprintf and _vcwprintf.
+	* lib64/msvcrt.def: Likewise.
+
+	2010-08-01  Jonathan Yong  <jon_y@sourceforge.net> (rev. 3079)
+	* lib32/msvcrt.def: Added secure and locale type symbols from Win7.
+	* lib64/msvcrt.def: Likewise.
+
 2010-08-03  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Move aux scripts to subdir to tidy up top levels.  Upgrade
