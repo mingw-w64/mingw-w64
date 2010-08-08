@@ -5,6 +5,7 @@
  */
 
 #include <_mingw_unicode.h>
+#include <mingw_inc/_pushBOOL.h>
 
 #define MSH_MOUSEWHEEL __MINGW_STRING_AW("MSWHEEL_ROLLMSG")
 
@@ -45,4 +46,5 @@ __CRT_INLINE HWND HwndMSWheel(PUINT puiMsh_MsgMouseWheel,PUINT puiMsh_Msg3DSuppo
   return(hdlMsWheel);
 }
 #endif /* !__CRT__NO_INLINE */
+#include <mingw_inc/_popBOOL.h>
 
