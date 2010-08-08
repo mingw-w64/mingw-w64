@@ -254,33 +254,34 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl ungetc(int _Ch,FILE *_File);
   int __cdecl vfprintf(FILE *_File,const char *_Format,va_list _ArgList);
   int __cdecl vprintf(const char *_Format,va_list _ArgList);
+
   /* Make sure macros are not defined.  */
   extern
-    __attribute__((__format__ (gnu_printf, 3, 0)))
-    __attribute__((__nonnull__ (3)))
+    __attribute__((__format__ (gnu_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
     int __cdecl __mingw_vsnprintf(char *_DstBuf,size_t _MaxCount,const char *_Format,
 				  va_list _ArgList);
   extern
-    __attribute__((__format__ (gnu_printf, 3, 4))) __attribute__((__nonnull__ (3)))
+    __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
     int __cdecl __mingw_snprintf(char* s, size_t n, const char*  format, ...);
   extern
-    __attribute__((__format__ (gnu_printf, 1, 2))) __attribute__((__nonnull__ (1)))
+    __attribute__((__format__ (gnu_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
     int __cdecl __mingw_printf( const char *, ... ) __MINGW_NOTHROW;
   extern
-    __attribute__((__format__ (gnu_printf, 1, 0))) __attribute__((__nonnull__ (1)))
+    __attribute__((__format__ (gnu_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
     int __cdecl __mingw_vprintf (const char *, va_list) __MINGW_NOTHROW;
   extern
-    __attribute__((__format__ (gnu_printf, 2, 3))) __attribute__((__nonnull__ (2)))
+    __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
     int __cdecl __mingw_fprintf (FILE *, const char *, ...) __MINGW_NOTHROW;
   extern
-    __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__((__nonnull__ (2)))
+    __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
     int __cdecl __mingw_vfprintf (FILE *, const char *, va_list) __MINGW_NOTHROW;
   extern
-    __attribute__((__format__ (gnu_printf, 2, 3))) __attribute__((__nonnull__ (2)))
+    __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
     int __cdecl __mingw_sprintf (char *, const char *, ...) __MINGW_NOTHROW;
   extern
-    __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__((__nonnull__ (2)))
+    __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
     int __cdecl __mingw_vsprintf (char *, const char *, va_list) __MINGW_NOTHROW;
+
   _CRTIMP int __cdecl _snprintf(char *_Dest,size_t _Count,const char *_Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _snprintf_l(char *buffer,size_t count,const char *format,_locale_t locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _vsnprintf(char *_Dest,size_t _Count,const char *_Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
@@ -434,6 +435,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #if !defined(NO_OLDNAMES) && !defined(wpopen)
 #define wpopen	_wpopen
 #endif
+
   _CRTIMP int __cdecl _wremove(const wchar_t *_Filename);
   _CRTIMP wchar_t *__cdecl _wtmpnam(wchar_t *_Buffer);
   _CRTIMP wint_t __cdecl _fgetwc_nolock(FILE *_File);
