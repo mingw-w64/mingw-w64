@@ -1,5 +1,22 @@
 2010-08-09  Jonathan Yong  <jon_y@sourceforge.net>
 
+	* aclapi.h (TreeSetNamedSecurityInfoA): New.
+	(TreeSetNamedSecurityInfoW): New.
+	* authz.h (AUTHZ_SECURITY_ATTRIBUTE_OPERATION): New typedef.
+	(PAUTHZ_SECURITY_ATTRIBUTE_OPERATION): Likewise.
+	(AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE): Likewise.
+	(PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE): Likewise.
+	(AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE): Likewise.
+	(PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE): Likewise.
+	(AUTHZ_SECURITY_ATTRIBUTE_V1): Likewise.
+	(PAUTHZ_SECURITY_ATTRIBUTE_V1): Likewise.
+	(AUTHZ_SECURITY_ATTRIBUTES_INFORMATION): Likewise.
+	(PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION): Likewise.
+	(AuthzModifySecurityAttributes): New.
+	* azroles.h (AZ_PROP_CONSTANTS): Add new enum entries.
+
+2010-08-09  Jonathan Yong  <jon_y@sourceforge.net>
+
 	* virtdisk.h: New.
 	* windows.h: Add virtdisk.h include.
 

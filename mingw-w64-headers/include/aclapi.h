@@ -90,6 +90,38 @@ extern "C" {
 
 #define AccProvInit(err)
 
+#if (_WIN32_WINNT >= 0x0600)
+#define TreeSetNamedSecurityInfo __MINGW_NAME_AW(TreeSetNamedSecurityInfo)
+WINADVAPI DWORD WINAPI TreeSetNamedSecurityInfoA(
+  LPSTR pObjectName,
+  SE_OBJECT_TYPE ObjectType,
+  SECURITY_INFORMATION SecurityInfo,
+  PSID pOwner,
+  PSID pGroup,
+  PACL pDacl,
+  PACL pSacl,
+  DWORD dwAction,
+  FN_PROGRESS fnProgress,
+  PROG_INVOKE_SETTING ProgressInvokeSetting,
+  PVOID Args
+);
+
+WINADVAPI DWORD WINAPI TreeSetNamedSecurityInfoW(
+  LPWSTR pObjectName,
+  SE_OBJECT_TYPE ObjectType,
+  SECURITY_INFORMATION SecurityInfo,
+  PSID pOwner,
+  PSID pGroup,
+  PACL pDacl,
+  PACL pSacl,
+  DWORD dwAction,
+  FN_PROGRESS fnProgress,
+  PROG_INVOKE_SETTING ProgressInvokeSetting,
+  PVOID Args
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifdef __cplusplus
 }
 #endif
