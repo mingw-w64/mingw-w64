@@ -39,7 +39,7 @@ __CRT_INLINE HWND HwndMSWheel(PUINT puiMsh_MsgMouseWheel,PUINT puiMsh_Msg3DSuppo
   *puiMsh_MsgMouseWheel = RegisterWindowMessage(MSH_MOUSEWHEEL);
   *puiMsh_Msg3DSupport = RegisterWindowMessage(MSH_WHEELSUPPORT);
   *puiMsh_MsgScrollLines = RegisterWindowMessage(MSH_SCROLL_LINES);
-  if(*puiMsh_Msg3DSupport) *pf3DSupport = (WINBOOL)SendMessage(hdlMsWheel,*puiMsh_Msg3DSupport,0,0);
+  if(*puiMsh_Msg3DSupport) *pf3DSupport = (BOOL)SendMessage(hdlMsWheel,*puiMsh_Msg3DSupport,0,0);
   else *pf3DSupport = FALSE;
   if(*puiMsh_MsgScrollLines) *piScrollLines = (int)SendMessage(hdlMsWheel,*puiMsh_MsgScrollLines,0,0);
   else *piScrollLines = 3;

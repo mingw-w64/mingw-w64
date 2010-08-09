@@ -102,13 +102,12 @@ typedef int WINBOOL;
 #pragma push_macro("BOOL")
 #undef BOOL
 #if !defined(__OBJC__) && !defined(__OBJC_BOOL) && !defined(__objc_INCLUDE_GNU)
-typedef WINBOOL BOOL;
+typedef int BOOL;
 #endif
-#pragma pop_macro("BOOL")
-#include <mingw_inc/_pushBOOL.h>
+#define BOOL WINBOOL
 typedef BOOL *PBOOL;
 typedef BOOL *LPBOOL;
-#include <minw_inc/popBOOL.h>
+#pragma pop_macro("BOOL")
 #endif /* _DEF_WINBOOL_ */
 
 typedef unsigned char BYTE;
