@@ -1,5 +1,10 @@
 2010-08-09  Jonathan Yong  <jon_y@sourceforge.net>
 
+	* virtdisk.h: New.
+	* windows.h: Add virtdisk.h include.
+
+2010-08-09  Jonathan Yong  <jon_y@sourceforge.net>
+
 	* winnt.h (TRANSACTION_OUTCOME): New typedef.
 	(POWER_PLATFORM_ROLE): Likewise.
 	(TOKEN_ELEVATION_TYPE): Likewise.
