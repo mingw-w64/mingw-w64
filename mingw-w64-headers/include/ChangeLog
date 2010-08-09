@@ -1,3 +1,33 @@
+2010-08-09  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* winnt.h (TRANSACTION_OUTCOME): New typedef.
+	(POWER_PLATFORM_ROLE): Likewise.
+	(TOKEN_ELEVATION_TYPE): Likewise.
+	(PTOKEN_ELEVATION_TYPE): Likewise.
+	(ACTCTX_COMPATIBILITY_ELEMENT_TYPE): Likewise.
+	(COMPATIBILITY_CONTEXT_ELEMENT): Likewise.
+	(PCOMPATIBILITY_CONTEXT_ELEMENT): Likewise.
+	(ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION): Likewise.
+	(PACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION): Likewise.
+	(PROCESSOR_NUMBER): Likewise.
+	(PPROCESSOR_NUMBER): Likewise.
+	(PROCESSOR_GROUP_INFO): Likewise.
+	(GROUP_RELATIONSHIP): Likewise.
+	(PGROUP_RELATIONSHIP): Likewise.
+	(GROUP_AFFINITY): Likewise.
+	(PGROUP_AFFINITY): Likewise.
+	(CACHE_RELATIONSHIP): Likewise.
+	(PCACHE_RELATIONSHIP): Likewise.
+	(NUMA_NODE_RELATIONSHIP): Likewise.
+	(PNUMA_NODE_RELATIONSHIP): Likewise.
+	(PNUMA_NODE_RELATIONSHIP): Likewise.
+	(PROCESSOR_RELATIONSHIP): Likewise.
+	(PPROCESSOR_RELATIONSHIP): Likewise.
+	(SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX): Likewise.
+	(PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX): Likewise.
+	(UMS_CREATE_THREAD_ATTRIBUTES): Likewise.
+	(PUMS_CREATE_THREAD_ATTRIBUTES): Likewise.
+
 2010-08-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* dpfilter.h: Add #pragma once.
@@ -191,7 +221,7 @@
 
 	* winnt.h: Add extern to FORCEINLINE definition.
 
-2010-17-20  Jonathan Yong  <jon_y@sourceforge.net>
+2010-07-20  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* rpcndr.h (NdrUnMarshConfStringHdr): Fix macro brackets.
 	(NdrMarshSCtxtHdl): Likewise.
