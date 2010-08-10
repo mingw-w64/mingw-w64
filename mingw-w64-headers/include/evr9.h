@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-__MINGW_EXTENSION typedef enum  {
+typedef enum _evr9_tag_MFVideoAlphaBitmapFlags {
   MFVideoAlphaBitmap_EntireDDS     = 0x00000001,
   MFVideoAlphaBitmap_SrcColorKey   = 0x00000002,
   MFVideoAlphaBitmap_SrcRect       = 0x00000004,
