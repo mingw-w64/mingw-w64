@@ -515,7 +515,7 @@ NETIOAPI_API GetTeredoPort(
 );
 
 /*Unknown*/
-typedef LPVOID PTEREDO_PORT_CHANGE_CALLBACK;
+typedef void (WINAPI *PTEREDO_PORT_CHANGE_CALLBACK)(void* callerContext, USHORT Port, MIB_NOTIFICATION_TYPE type);
 
 NETIOAPI_API NotifyTeredoPortChange(
   PTEREDO_PORT_CHANGE_CALLBACK Callback,
@@ -525,7 +525,7 @@ NETIOAPI_API NotifyTeredoPortChange(
 );
 
 /*Unknown*/
-typedef LPVOID PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK;
+typedef void (WINAPI *PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK)(void* callerContext, MIB_UNICASTIPADDRESS_TABLE *AddressTable);
 
 NETIOAPI_API NotifyStableUnicastIpAddressTable(
   ADDRESS_FAMILY  Family,
