@@ -19,7 +19,7 @@ extern "C" {
 #define DAV_AUTHN_SCHEME_CERT       0x00010000
 #define DAV_AUTHN_SCHEME_FBA        0x00100000
 
-typedef DWORD OPAQUE_HANDLE;
+#define OPAQUE_HANDLE DWORD
 
 typedef enum AUTHNEXTSTEP {
   DefaultBehavior   = 0,
