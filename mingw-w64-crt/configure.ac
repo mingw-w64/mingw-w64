@@ -151,6 +151,19 @@ AS_CASE([$enable_leading_underscores],
 AM_CONDITIONAL([UNDERSCORES],[test $enable_leading_underscores = yes])
 AC_MSG_RESULT([$enable_leading_underscores])
 
+AC_MSG_CHECKING([whether to enable private exports])
+AC_ARG_ENABLE([private-exports],
+  [AS_HELP_STRING([--enable-private-exports],
+    [Enable exporting private internal functions])],
+  [],
+  [enable_private_exports=no])
+AS_CASE([$enable_private_exports],
+  [yes],[],
+  [no],[],
+  [AC_MSG_ERROR([Please only use --enable-private-exports  or --disable-private-exports, without any additional arguments.])])
+AM_CONDITIONAL([PRIVATE_EXPORTS],[test $enable_private_exports = yes])
+AC_MSG_RESULT([$enable_private_exports])
+
 AC_MSG_CHECKING([whether the compiler supports -municode])
 AC_ARG_ENABLE([tests-unicode],
   [AS_HELP_STRING([--enable-tests-unicode],

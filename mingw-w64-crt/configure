@@ -607,6 +607,8 @@ GREP
 CPP
 ENABLE_TESTS_UNICODE_FALSE
 ENABLE_TESTS_UNICODE_TRUE
+PRIVATE_EXPORTS_FALSE
+PRIVATE_EXPORTS_TRUE
 UNDERSCORES_FALSE
 UNDERSCORES_TRUE
 LIB32SUFFIXDIR
@@ -735,6 +737,7 @@ enable_lib64
 enable_libce
 enable_wildcard
 enable_leading_underscores
+enable_private_exports
 enable_tests_unicode
 enable_warnings
 '
@@ -1383,6 +1386,8 @@ Optional Features:
   --disable-leading-underscores
                           Disable leading underscores to match the MSVC
                           calling convention
+  --enable-private-exports
+                          Enable exporting private internal functions
   --enable-tests-unicode  Enable the unicode testsuite without testing the
                           compiler for support.
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
@@ -5103,6 +5108,34 @@ fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_leading_underscores" >&5
 $as_echo "$enable_leading_underscores" >&6; }
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable private exports" >&5
+$as_echo_n "checking whether to enable private exports... " >&6; }
+# Check whether --enable-private-exports was given.
+if test "${enable_private_exports+set}" = set; then :
+  enableval=$enable_private_exports;
+else
+  enable_private_exports=no
+fi
+
+case $enable_private_exports in #(
+  yes) :
+     ;; #(
+  no) :
+     ;; #(
+  *) :
+    as_fn_error "Please only use --enable-private-exports  or --disable-private-exports, without any additional arguments." "$LINENO" 5 ;;
+esac
+ if test $enable_private_exports = yes; then
+  PRIVATE_EXPORTS_TRUE=
+  PRIVATE_EXPORTS_FALSE='#'
+else
+  PRIVATE_EXPORTS_TRUE='#'
+  PRIVATE_EXPORTS_FALSE=
+fi
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_private_exports" >&5
+$as_echo "$enable_private_exports" >&6; }
+
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the compiler supports -municode" >&5
 $as_echo_n "checking whether the compiler supports -municode... " >&6; }
 # Check whether --enable-tests-unicode was given.
@@ -5767,6 +5800,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${UNDERSCORES_TRUE}" && test -z "${UNDERSCORES_FALSE}"; then
   as_fn_error "conditional \"UNDERSCORES\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${PRIVATE_EXPORTS_TRUE}" && test -z "${PRIVATE_EXPORTS_FALSE}"; then
+  as_fn_error "conditional \"PRIVATE_EXPORTS\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_TESTS_UNICODE_TRUE}" && test -z "${ENABLE_TESTS_UNICODE_FALSE}"; then
