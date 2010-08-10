@@ -1414,7 +1414,7 @@ typedef enum _FILESHARE_CHANGE_ENUM {
   FILESHARE_CHANGE_MODIFY   = 3 
 } FILESHARE_CHANGE_ENUM;
 
-#define NNLEN       80                  // Net name length (share name)
+#define NNLEN       80                  /* Net name length (share name) */
 
 typedef struct _FILESHARE_CHANGE {
   FILESHARE_CHANGE_ENUM Change;
