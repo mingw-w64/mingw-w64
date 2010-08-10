@@ -1,0 +1,114 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the w64 mingw-runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+#ifndef _INC_IFDEF
+#define _INC_IFDEF
+
+#if (_WIN32_WINNT >= 0x0600)
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define IF_TYPE_OTHER 1
+#define IF_TYPE_ETHERNET_CSMACD 6
+#define IF_TYPE_ISO88025_TOKENRING 9
+#define IF_TYPE_PPP 23
+#define IF_TYPE_SOFTWARE_LOOPBACK 24
+#define IF_TYPE_ATM 37
+#define IF_TYPE_IEEE80211 71
+#define IF_TYPE_TUNNEL 131
+#define IF_TYPE_IEEE1394 144
+#define IF_MAX_STRING_SIZE 256
+#define IF_MAX_PHYS_ADDRESS_LENGTH 32
+
+typedef GUID NET_IF_NETWORK_GUID;
+
+typedef enum _IF_OPER_STATUS {
+  IfOperStatusUp               = 1,
+  IfOperStatusDown,
+  IfOperStatusTesting,
+  IfOperStatusUnknown,
+  IfOperStatusDormant,
+  IfOperStatusNotPresent,
+  IfOperStatusLowerLayerDown 
+} IF_OPER_STATUS;
+
+typedef enum _NET_IF_ADMIN_STATUS {
+  NET_IF_ADMIN_STATUS_UP        = 1,
+  NET_IF_ADMIN_STATUS_DOWN,
+  NET_IF_ADMIN_STATUS_TESTING 
+} NET_IF_ADMIN_STATUS, *PNET_IF_ADMIN_STATUS;
+
+typedef enum _NET_IF_MEDIA_CONNECT_STATE {
+  MediaConnectStateUnknown,
+  MediaConnectStateConnected,
+  MediaConnectStateDisconnected 
+} NET_IF_MEDIA_CONNECT_STATE, *PNET_IF_MEDIA_CONNECT_STATE;
+
+typedef enum _NET_IF_ACCESS_TYPE {
+  NET_IF_ACCESS_LOOPBACK               = 1,
+  NET_IF_ACCESS_BROADCAST,
+  NET_IF_ACCESS_POINT_TO_POINT,
+  NET_IF_ACCESS_POINT_TO_MULTI_POINT,
+  NET_IF_ACCESS_MAXIMUM 
+} NET_IF_ACCESS_TYPE, *PNET_IF_ACCESS_TYPE;
+
+typedef enum _NET_IF_ADMIN_STATUS {
+  NET_IF_ADMIN_STATUS_UP        = 1,
+  NET_IF_ADMIN_STATUS_DOWN,
+  NET_IF_ADMIN_STATUS_TESTING 
+} NET_IF_ADMIN_STATUS, *PNET_IF_ADMIN_STATUS;
+
+typedef enum _NET_IF_CONNECTION_TYPE {
+  NET_IF_CONNECTION_DEDICATED   = 1,
+  NET_IF_CONNECTION_PASSIVE,
+  NET_IF_CONNECTION_DEMAND,
+  NET_IF_CONNECTION_MAXIMUM 
+} NET_IF_CONNECTION_TYPE, *PNET_IF_CONNECTION_TYPE;
+
+typedef enum _NET_IF_DIRECTION_TYPE {
+  NET_IF_DIRECTION_SENDRECEIVE,
+  NET_IF_DIRECTION_SENDONLY,
+  NET_IF_DIRECTION_RECEIVEONLY,
+  NET_IF_DIRECTION_MAXIMUM 
+} NET_IF_DIRECTION_TYPE, *PNET_IF_DIRECTION_TYPE;
+
+typedef enum _NET_IF_MEDIA_CONNECT_STATE {
+  MediaConnectStateUnknown,
+  MediaConnectStateConnected,
+  MediaConnectStateDisconnected 
+} NET_IF_MEDIA_CONNECT_STATE, *PNET_IF_MEDIA_CONNECT_STATE;
+
+typedef enum _NET_IF_MEDIA_DUPLEX_STATE {
+  MediaDuplexStateUnknown,
+  MediaDuplexStateHalf,
+  MediaDuplexStateFull 
+} NET_IF_MEDIA_DUPLEX_STATE, *PNET_IF_MEDIA_DUPLEX_STATE;
+
+typedef enum _TUNNEL_TYPE {
+  TUNNEL_TYPE_NONE      = 0,
+  TUNNEL_TYPE_OTHER,
+  TUNNEL_TYPE_DIRECT,
+  TUNNEL_TYPE_6TO4,
+  TUNNEL_TYPE_ISATAP,
+  TUNNEL_TYPE_TEREDO,
+  TUNNEL_TYPE_IPHTTPS 
+} TUNNEL_TYPE, *PTUNNEL_TYPE;
+
+typedef union _NET_LUID {
+  ULONG64 Value;
+  __MINGW_EXTENSION struct {
+    ULONG64 Reserved  :24;
+    ULONG64 NetLuidIndex  :24;
+    ULONG64 IfType  :16;
+  } Info;
+} NET_LUID, *PNET_LUID;
+
+#ifdef __cplusplus
+}
+#endif
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*_INC_IFDEF*/

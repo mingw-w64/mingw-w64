@@ -2598,6 +2598,24 @@ extern "C" {
 #define MIXERCONTROL_CONTROLTYPE_SRS_SYNTHSELECT (MIXERCONTROL_CONTROLTYPE_BOOLEAN + 8)
 #endif
 
+#if (_WIN32_WINNT >= 0x0600)
+#define WAVE_FORMAT_MPEG_HEAAC 0x1610
+
+typedef struct heaacwaveinfo_tag {
+  WAVEFORMATEX wfx;
+  WORD         wPayloadType;
+  WORD         wAudioProfileLevelIndication;
+  WORD         wStructType;
+  WORD         wReserved1;
+  DWORD        dwReserved2;
+} HEAACWAVEINFO, *PHEAACWAVEINFO;
+
+typedef struct heaacwaveformat_tag {
+  HEAACWAVEINFO wfInfo;
+  BYTE          pbAudioSpecificConfig[1];
+} HEAACWAVEFORMAT, *PHEAACWAVEFORMAT;
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifndef RC_INVOKED
 #include "poppack.h"
 #endif

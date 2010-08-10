@@ -195,6 +195,145 @@ extern "C" {
   WINBOOL WINAPI WTSUnRegisterSessionNotification(HWND hWnd);
   WINBOOL WINAPI WTSQueryUserToken(ULONG SessionId,PHANDLE phToken);
 
+#if (_WIN32_WINNT >= 0x0600)
+typedef struct _WTSCLIENTW {
+  WCHAR   ClientName[CLIENTNAME_LENGTH + 1];
+  WCHAR   Domain[DOMAIN_LENGTH + 1 ];
+  WCHAR   UserName[USERNAME_LENGTH + 1];
+  WCHAR   WorkDirectory[MAX_PATH + 1];
+  WCHAR   InitialProgram[MAX_PATH + 1];
+  BYTE    EncryptionLevel;
+  ULONG   ClientAddressFamily;
+  USHORT  ClientAddress[CLIENTADDRESS_LENGTH + 1];
+  USHORT  HRes;
+  USHORT  VRes;
+  USHORT  ColorDepth;
+  WCHAR   ClientDirectory[MAX_PATH + 1];
+  ULONG   ClientBuildNumber;
+  ULONG   ClientHardwareId;
+  USHORT  ClientProductId;
+  USHORT  OutBufCountHost;
+  USHORT  OutBufCountClient;
+  USHORT  OutBufLength;
+  WCHAR     DeviceId[MAX_PATH + 1];
+} WTSCLIENTW, *PWTSCLIENTW;
+
+typedef struct _WTSCLIENTA {
+  CHAR   ClientName[CLIENTNAME_LENGTH + 1];
+  CHAR   Domain[DOMAIN_LENGTH + 1 ];
+  CHAR   UserName[USERNAME_LENGTH + 1];
+  CHAR   WorkDirectory[MAX_PATH + 1];
+  CHAR   InitialProgram[MAX_PATH + 1];
+  BYTE    EncryptionLevel;
+  ULONG   ClientAddressFamily;
+  USHORT  ClientAddress[CLIENTADDRESS_LENGTH + 1];
+  USHORT  HRes;
+  USHORT  VRes;
+  USHORT  ColorDepth;
+  CHAR   ClientDirectory[MAX_PATH + 1];
+  ULONG   ClientBuildNumber;
+  ULONG   ClientHardwareId;
+  USHORT  ClientProductId;
+  USHORT  OutBufCountHost;
+  USHORT  OutBufCountClient;
+  USHORT  OutBufLength;
+  CHAR     DeviceId[MAX_PATH + 1];
+} WTSCLIENTA, *PWTSCLIENTA;
+
+__MINGW_TYPEDEF_AW(WTSCLIENT)
+__MINGW_TYPEDEF_AW(PWTSCLIENT)
+
+typedef struct _WTSINFOW {
+  WTS_CONNECTSTATE_CLASS State;
+  DWORD                  SessionId;
+  DWORD                  IncomingBytes;
+  DWORD                  OutgoingBytes;
+  DWORD                  IncomingCompressedBytes;
+  DWORD                  OutgoingCompressedBytes;
+  WCHAR                  WinStationName;
+  WCHAR                  Domain;
+  WCHAR                  UserName;
+  LARGE_INTEGER          ConnectTime;
+  LARGE_INTEGER          DisconnectTime;
+  LARGE_INTEGER          LastInputTime;
+  LARGE_INTEGER          LogonTime;
+  LARGE_INTEGER          CurrentTime;
+} WTSINFOW, *PWTSINFOW;
+
+typedef struct _WTSINFOA {
+  WTS_CONNECTSTATE_CLASS State;
+  DWORD                  SessionId;
+  DWORD                  IncomingBytes;
+  DWORD                  OutgoingBytes;
+  DWORD                  IncomingCompressedBytes;
+  DWORD                  OutgoingCompressedBytes;
+  CHAR                  WinStationName;
+  CHAR                  Domain;
+  CHAR                  UserName;
+  LARGE_INTEGER          ConnectTime;
+  LARGE_INTEGER          DisconnectTime;
+  LARGE_INTEGER          LastInputTime;
+  LARGE_INTEGER          LogonTime;
+  LARGE_INTEGER          CurrentTime;
+} WTSINFOA, *PWTSINFOA;
+
+__MINGW_TYPEDEF_AW(WTSINFO)
+__MINGW_TYPEDEF_AW(PWTSINFO)
+
+WINBOOL WINAPI WTSConnectSessionA(
+  ULONG LogonId,
+  ULONG TargetLogonId,
+  PSTR   pPassword,
+  WINBOOL bWait
+);
+
+WINBOOL WINAPI WTSConnectSessionW(
+  ULONG LogonId,
+  ULONG TargetLogonId,
+  PWSTR  pPassword,
+  WINBOOL bWait
+);
+
+WINBOOL WTSRegisterSessionNotificationEx(
+  HANDLE hServer,
+  HWND hWnd,
+  DWORD dwFlags
+);
+
+WINBOOL WINAPI WTSStartRemoteControlSessionA(
+  LPSTR pTargetServerName,
+  ULONG TargetLogonId,
+  BYTE HotkeyVk,
+  USHORT HotkeyModifiers
+);
+
+WINBOOL WINAPI WTSStartRemoteControlSessionW(
+  LPWSTR pTargetServerName,
+  ULONG TargetLogonId,
+  BYTE HotkeyVk,
+  USHORT HotkeyModifiers
+);
+
+#define WTSStartRemoteControlSession __MINGW_NAME_AW(WTSStartRemoteControlSession)
+#define WTSConnectSession __MINGW_NAME_AW(WTSConnectSession)
+
+WINBOOL WINAPI WTSStopRemoteControlSession(
+  ULONG LogonId
+);
+
+WINBOOL WINAPI WTSUnRegisterSessionNotificationEx(
+  HANDLE hServer,
+  HWND hWnd
+);
+
+HANDLE WINAPI WTSVirtualChannelOpenEx(
+  DWORD SessionId,
+  LPSTR pVirtualName,
+  DWORD flags
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifdef __cplusplus
 }
 #endif

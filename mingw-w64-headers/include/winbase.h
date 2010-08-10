@@ -2732,11 +2732,24 @@ extern "C" {
 #if (_WIN32_WINNT >= 0x0600)
 #define SYMBOLIC_LINK_FLAG_FILE		0x0
 #define SYMBOLIC_LINK_FLAG_DIRECTORY	0x1
+#define EXTENDED_STARTUPINFO_PRESENT	0x00080000
 
 #define CreateSymbolicLink __MINGW_NAME_AW(CreateSymbolicLink)
 #define CreateBoundaryDescriptor __MINGW_NAME_AW(CreateBoundaryDescriptor)
 #define OpenPrivateNamespace __MINGW_NAME_AW(OpenPrivateNamespace)
 #define CreatePrivateNamespace __MINGW_NAME_AW(CreatePrivateNamespace)
+#define CopyFileTransacted __MINGW_NAME_AW(CopyFileTransacted)
+#define CreateDirectoryTransacted __MINGW_NAME_AW(CreateDirectoryTransacted)
+#define CreateEventEx __MINGW_NAME_AW(CreateEventEx)
+#define CreateFileMappingNuma __MINGW_NAME_AW(CreateFileMappingNuma)
+#define CreateFileTransacted __MINGW_NAME_AW(CreateFileTransacted)
+#define CreateHardLinkTransacted __MINGW_NAME_AW(CreateHardLinkTransacted)
+#define DeleteFileTransacted __MINGW_NAME_AW(DeleteFileTransacted)
+#define CreateMutexEx __MINGW_NAME_AW(CreateMutexEx)
+#define CreateSemaphoreEx __MINGW_NAME_AW(CreateSemaphoreEx)
+#define CreateSymbolicLinkTransacted __MINGW_NAME_AW(CreateSymbolicLinkTransacted)
+#define CreateWaitableTimerEx __MINGW_NAME_AW(CreateWaitableTimerEx)
+#define FindFirstFileTransacted __MINGW_NAME_AW(FindFirstFileTransacted)
 
 WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkA (LPSTR lpSymLinkFileName, LPSTR lpTargetFileName, DWORD dwFlags);
 WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkW (LPWSTR lpSymLinkFileName, LPWSTR lpTargetFileName, DWORD dwFlags);
@@ -2797,6 +2810,1204 @@ WINBASEAPI HRESULT WINAPI RegisterApplicationRecoveryCallback(APPLICATION_RECOVE
 WINBASEAPI VOID WINAPI ApplicationRecoveryFinished(WINBOOL bSuccess);
 WINBASEAPI HRESULT WINAPI ApplicationRecoveryInProgress(PBOOL pbCanceled);
 
+WINBASEAPI WINBOOL WINAPI QueryIdleProcessorCycleTime(PULONG BufferLength,PULONG64 ProcessorIdleCycleTime);
+WINBASEAPI WINBOOL WINAPI QueryProcessCycleTime(HANDLE ProcessHandle,PULONG64 CycleTime);
+WINBASEAPI WINBOOL WINAPI QueryThreadCycleTime(HANDLE ThreadHandle,PULONG64 CycleTime);
+
+#if (_WIN32_WINNT >= 0x0601)
+WINBASEAPI WINBOOL WINAPI QueryIdleProcessorCycleTimeEx(USHORT Group,PULONG BufferLength,PULONG64 ProcessorIdleCycleTime);
+#endif
+
+typedef struct _TP_IO *PTP_IO;
+typedef struct _TP_CALLBACK_INSTANCE *PTP_CALLBACK_INSTANCE;
+typedef struct _TP_WIN32_IO_CALLBACK *PTP_WIN32_IO_CALLBACK;
+typedef struct _TP_CALLBACK_ENVIRON *PTP_CALLBACK_ENVIRON;
+typedef struct _TP_CLEANUP_GROUP *PTP_CLEANUP_GROUP;
+typedef struct _TP_CLEANUP_GROUP_CANCEL_CALLBACK *PTP_CLEANUP_GROUP_CANCEL_CALLBACK;
+typedef struct _TP_TIMER *PTP_TIMER;
+typedef struct _TP_WAIT *PTP_WAIT;
+typedef struct _TP_WORK *PTP_WORK;
+typedef struct _TP_POOL *PTP_POOL;
+
+typedef DWORD TP_WAIT_RESULT;
+typedef VOID (CALLBACK *PTP_WAIT_CALLBACK)(
+  PTP_CALLBACK_INSTANCE Instance,
+  PVOID Context,
+  PTP_WAIT Wait,
+  TP_WAIT_RESULT WaitResult
+);
+
+typedef VOID (CALLBACK *PTP_WORK_CALLBACK)(
+  PTP_CALLBACK_INSTANCE Instance,
+  PVOID Context,
+  PTP_WORK Work
+);
+
+typedef VOID (CALLBACK *PTP_TIMER_CALLBACK)(
+  PTP_CALLBACK_INSTANCE Instance,
+  PVOID Context,
+  PTP_TIMER Timer
+);
+
+#define PRIVATE_NAMESPACE_FLAG_DESTROY 0x00000001
+
+WINBASEAPI WINBOOL WINAPI CallbackMayRunLong(PTP_CALLBACK_INSTANCE pci);
+WINBASEAPI WINBOOL WINAPI CancelIoEx(HANDLE hFile,LPOVERLAPPED lpOverlapped);
+WINBASEAPI WINBOOL WINAPI CancelSynchronousIo(HANDLE hThread);
+WINBASEAPI VOID WINAPI CancelThreadpoolIo(PTP_IO pio);
+WINBASEAPI PTP_IO WINAPI CreateThreadpoolIo(HANDLE fl,PTP_WIN32_IO_CALLBACK pfnio,PVOID pv,PTP_CALLBACK_ENVIRON pcbe);
+WINBASEAPI VOID WINAPI CloseThreadpool(PTP_POOL ptpp);
+WINBASEAPI PTP_POOL WINAPI CreateThreadpool(PVOID reserved);
+WINBASEAPI VOID WINAPI CloseThreadpoolCleanupGroup(PTP_CLEANUP_GROUP ptpcg);
+WINBASEAPI VOID WINAPI CloseThreadpoolCleanupGroupMembers(PTP_CLEANUP_GROUP ptpcg,WINBOOL fCancelPendingCallbacks,PVOID pvCleanupContext);
+WINBASEAPI VOID WINAPI CloseThreadpoolIo(PTP_IO pio);
+WINBASEAPI VOID WINAPI CloseThreadpoolTimer(PTP_TIMER pti);
+WINBASEAPI VOID WINAPI CloseThreadpoolWait(PTP_WAIT pwa);
+WINBASEAPI VOID WINAPI CloseThreadpoolWork(PTP_WORK pwk);
+
+
+WINBASEAPI PTP_CLEANUP_GROUP WINAPI CreateThreadpoolCleanupGroup(void);
+WINBASEAPI PTP_WAIT WINAPI CreateThreadpoolWait(PTP_WAIT_CALLBACK pfnwa,PVOID pv,PTP_CALLBACK_ENVIRON pcbe);
+WINBASEAPI PTP_WORK WINAPI CreateThreadpoolWork(PTP_WORK_CALLBACK pfnwk,PVOID pv,PTP_CALLBACK_ENVIRON pcbe);
+WINBASEAPI PTP_TIMER WINAPI CreateThreadpoolTimer(PTP_TIMER_CALLBACK pfnti,PVOID pv,PTP_CALLBACK_ENVIRON pcbe);
+
+WINBASEAPI LPVOID WINAPI ConvertThreadToFiberEx(
+  LPVOID lpParameter,
+  DWORD dwFlags
+);
+
+WINBASEAPI VOID WINAPI SubmitThreadpoolWork(PTP_WORK pwk);
+
+WINBASEAPI WINBOOL WINAPI CopyFileTransactedA(
+  LPCSTR lpExistingFileName,
+  LPCSTR lpNewFileName,
+  LPPROGRESS_ROUTINE lpProgressRoutine,
+  LPVOID lpData,
+  LPBOOL pbCancel,
+  DWORD dwCopyFlags,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI CopyFileTransactedW(
+  LPCWSTR lpExistingFileName,
+  LPCWSTR lpNewFileName,
+  LPPROGRESS_ROUTINE lpProgressRoutine,
+  LPVOID lpData,
+  LPBOOL pbCancel,
+  DWORD dwCopyFlags,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI CreateDirectoryTransactedA(
+  LPCSTR lpTemplateDirectory,
+  LPCSTR lpNewDirectory,
+  LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI CreateDirectoryTransactedW(
+  LPCWSTR lpTemplateDirectory,
+  LPCWSTR lpNewDirectory,
+  LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+  HANDLE hTransaction
+);
+
+#define CREATE_EVENT_INITIAL_SET 0x00000002
+#define CREATE_EVENT_MANUAL_RESET 0x00000001
+
+WINBASEAPI HANDLE WINAPI CreateEventExA(
+  LPSECURITY_ATTRIBUTES lpEventAttributes,
+  LPCSTR lpName,
+  DWORD dwFlags,
+  DWORD dwDesiredAccess
+);
+
+WINBASEAPI HANDLE WINAPI CreateEventExW(
+  LPSECURITY_ATTRIBUTES lpEventAttributes,
+  LPCWSTR lpName,
+  DWORD dwFlags,
+  DWORD dwDesiredAccess
+);
+
+WINBASEAPI HANDLE WINAPI CreateFileMappingNumaA(
+  HANDLE hFile,
+  LPSECURITY_ATTRIBUTES lpFileMappingAttributes,
+  DWORD flProtect,
+  DWORD dwMaximumSizeHigh,
+  DWORD dwMaximumSizeLow,
+  LPCSTR lpName,
+  DWORD nndPreferred
+);
+
+WINBASEAPI HANDLE WINAPI CreateFileMappingNumaW(
+  HANDLE hFile,
+  LPSECURITY_ATTRIBUTES lpFileMappingAttributes,
+  DWORD flProtect,
+  DWORD dwMaximumSizeHigh,
+  DWORD dwMaximumSizeLow,
+  LPCWSTR lpName,
+  DWORD nndPreferred
+);
+
+
+#define TXFS_MINIVERSION_COMMITTED_VIEW 0x0000
+#define TXFS_MINIVERSION_DIRTY_VIEW 0xFFFE
+#define TXFS_MINIVERSION_DEFAULT_VIEW 0xFFFF
+
+WINBASEAPI HANDLE WINAPI CreateFileTransactedA(
+  LPCSTR lpFileName,
+  DWORD dwDesiredAccess,
+  DWORD dwShareMode,
+  LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+  DWORD dwCreationDisposition,
+  DWORD dwFlagsAndAttributes,
+  HANDLE hTemplateFile,
+  HANDLE hTransaction,
+  PUSHORT pusMiniVersion,
+  PVOID pExtendedParameter
+);
+
+WINBASEAPI HANDLE WINAPI CreateFileTransactedW(
+  LPCWSTR lpFileName,
+  DWORD dwDesiredAccess,
+  DWORD dwShareMode,
+  LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+  DWORD dwCreationDisposition,
+  DWORD dwFlagsAndAttributes,
+  HANDLE hTemplateFile,
+  HANDLE hTransaction,
+  PUSHORT pusMiniVersion,
+  PVOID pExtendedParameter
+);
+
+WINBASEAPI WINBOOL WINAPI CreateHardLinkTransactedA(
+  LPCSTR lpFileName,
+  LPCSTR lpExistingFileName,
+  LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI CreateHardLinkTransactedW(
+  LPCWSTR lpFileName,
+  LPCWSTR lpExistingFileName,
+  LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+  HANDLE hTransaction
+);
+
+WINBASEAPI HANDLE WINAPI CreateTransaction(
+  LPSECURITY_ATTRIBUTES lpTransactionAttributes,
+  LPGUID UOW,
+  DWORD CreateOptions,
+  DWORD IsolationLevel,
+  DWORD IsolationFlags,
+  DWORD Timeout,
+  LPWSTR Description
+);
+
+WINBASEAPI WINBOOL WINAPI DeleteFileTransactedA(
+  LPCSTR lpFileName,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI DeleteFileTransactedW(
+  LPCWSTR lpFileName,
+  HANDLE hTransaction
+);
+
+WINBASEAPI HANDLE WINAPI CreateMutexExA(
+  LPSECURITY_ATTRIBUTES lpMutexAttributes,
+  LPCTSTR lpName,
+  DWORD dwFlags,
+  DWORD dwDesiredAccess
+);
+
+WINBASEAPI HANDLE WINAPI CreateMutexExW(
+  LPSECURITY_ATTRIBUTES lpMutexAttributes,
+  LPCWSTR lpName,
+  DWORD dwFlags,
+  DWORD dwDesiredAccess
+);
+
+WINBASEAPI HANDLE WINAPI CreateSemaphoreExA(
+  LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,
+  LONG lInitialCount,
+  LONG lMaximumCount,
+  LPCSTR lpName,
+  DWORD dwFlags,
+  DWORD dwDesiredAccess
+);
+
+WINBASEAPI HANDLE WINAPI CreateSemaphoreExW(
+  LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,
+  LONG lInitialCount,
+  LONG lMaximumCount,
+  LPCWSTR lpName,
+  DWORD dwFlags,
+  DWORD dwDesiredAccess
+);
+
+WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkTransactedW(
+  LPWSTR lpSymlinkFileName,
+  LPWSTR lpTargetFileName,
+  DWORD dwFlags,
+  HANDLE hTransaction
+);
+
+WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkTransactedA(
+  LPSTR lpSymlinkFileName,
+  LPSTR lpTargetFileName,
+  DWORD dwFlags,
+  HANDLE hTransaction
+);
+
+WINBASEAPI HANDLE WINAPI CreateWaitableTimerExA(
+  LPSECURITY_ATTRIBUTES lpTimerAttributes,
+  LPCSTR lpTimerName,
+  DWORD dwFlags,
+  DWORD dwDesiredAccess
+);
+
+WINBASEAPI HANDLE WINAPI CreateWaitableTimerExW(
+  LPSECURITY_ATTRIBUTES lpTimerAttributes,
+  LPCWSTR lpTimerName,
+  DWORD dwFlags,
+  DWORD dwDesiredAccess
+);
+
+#define DeleteFileTransacted __MINGW_NAME_AW(DeleteFileTransacted)
+
+WINBASEAPI WINBOOL WINAPI DeleteFileTransactedW(
+  LPCWSTR lpFileName,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI DeleteFileTransactedA(
+  LPCSTR lpFileName,
+  HANDLE hTransaction
+);
+
+WINBASEAPI VOID WINAPI DestroyThreadpoolEnvironment(
+  PTP_CALLBACK_ENVIRON pcbe
+);
+
+WINBASEAPI VOID WINAPI DisassociateCurrentThreadFromCallback(
+  PTP_CALLBACK_INSTANCE pci
+);
+
+typedef enum _FILE_ID_TYPE {
+  FileIdType,
+  ObjectIdType,
+  MaximumFileIdType 
+} FILE_ID_TYPE, *PFILE_ID_TYPE;
+
+typedef struct _TIME_DYNAMIC_ZONE_INFORMATION {
+  LONG       Bias;
+  WCHAR      StandardName[32];
+  SYSTEMTIME StandardDate;
+  LONG       StandardBias;
+  WCHAR      DaylightName[32];
+  SYSTEMTIME DaylightDate;
+  LONG       DaylightBias;
+  WCHAR      TimeZoneKeyName[128];
+  BOOLEAN    DynamicDaylightTimeDisabled;
+} DYNAMIC_TIME_ZONE_INFORMATION, *PDYNAMIC_TIME_ZONE_INFORMATION;
+
+typedef struct _FILE_ALLOCATION_INFO {
+  LARGE_INTEGER AllocationSize;
+} FILE_ALLOCATION_INFO, *PFILE_ALLOCATION_INFO;
+
+typedef struct _FILE_ATTRIBUTE_TAG_INFO {
+  DWORD FileAttributes;
+  DWORD ReparseTag;
+} FILE_ATTRIBUTE_TAG_INFO, *PFILE_ATTRIBUTE_TAG_INFO;
+
+typedef struct _FILE_BASIC_INFO {
+  LARGE_INTEGER CreationTime;
+  LARGE_INTEGER LastAccessTime;
+  LARGE_INTEGER LastWriteTime;
+  LARGE_INTEGER ChangeTime;
+  DWORD         FileAttributes;
+} FILE_BASIC_INFO, *PFILE_BASIC_INFO;
+
+typedef struct _FILE_COMPRESSION_INFO {
+  LARGE_INTEGER CompressedFileSize;
+  WORD          CompressionFormat;
+  UCHAR         CompressionUnitShift;
+  UCHAR         ChunkShift;
+  UCHAR         ClusterShift;
+  UCHAR         Reserved[3];
+} FILE_COMPRESSION_INFO, *PFILE_COMPRESSION_INFO;
+
+typedef struct _FILE_DISPOSITION_INFO {
+  WINBOOL DeleteFile;
+} FILE_DISPOSITION_INFO, *PFILE_DISPOSITION_INFO;
+
+typedef struct _FILE_END_OF_FILE_INFO {
+  LARGE_INTEGER EndOfFile;
+} FILE_END_OF_FILE_INFO, *PFILE_END_OF_FILE_INFO;
+
+typedef struct _FILE_ID_BOTH_DIR_INFO {
+  DWORD         NextEntryOffset;
+  DWORD         FileIndex;
+  LARGE_INTEGER CreationTime;
+  LARGE_INTEGER LastAccessTime;
+  LARGE_INTEGER LastWriteTime;
+  LARGE_INTEGER ChangeTime;
+  LARGE_INTEGER EndOfFile;
+  LARGE_INTEGER AllocationSize;
+  DWORD         FileAttributes;
+  DWORD         FileNameLength;
+  DWORD         EaSize;
+  CCHAR         ShortNameLength;
+  WCHAR         ShortName[12];
+  LARGE_INTEGER FileId;
+  WCHAR         FileName[1];
+} FILE_ID_BOTH_DIR_INFO, *PFILE_ID_BOTH_DIR_INFO;
+
+typedef struct _FILE_ID_DESCRIPTOR{
+  DWORD        dwSize;
+  FILE_ID_TYPE Type;
+  __MINGW_EXTENSION union {
+    LARGE_INTEGER FileId;
+    GUID          ObjectId;
+  };
+} FILE_ID_DESCRIPTOR, *LPFILE_ID_DESCRIPTOR;
+
+typedef enum _FILE_INFO_BY_HANDLE_CLASS {
+  FileBasicInfo                    = 0,
+  FileStandardInfo                 = 1,
+  FileNameInfo                     = 2,
+  FileRenameInfo                   = 3,
+  FileDispositionInfo              = 4,
+  FileAllocationInfo               = 5,
+  FileEndOfFileInfo                = 6,
+  FileStreamInfo                   = 7,
+  FileCompressionInfo              = 8,
+  FileAttributeTagInfo             = 9,
+  FileIdBothDirectoryInfo          = 10,  // 0xA
+  FileIdBothDirectoryRestartInfo   = 11,  // 0xB
+  FileIoPriorityHintInfo           = 12,  // 0xC
+  FileRemoteProtocolInfo           = 13,  // 0xD
+  MaximumFileInfoByHandlesClass    = 14   // 0xE
+} FILE_INFO_BY_HANDLE_CLASS, *PFILE_INFO_BY_HANDLE_CLASS;
+
+typedef enum _PRIORITY_HINT {
+  IoPriorityHintVeryLow       = 0,
+  IoPriorityHintLow,
+  IoPriorityHintNormal,
+  MaximumIoPriorityHintType 
+} PRIORITY_HINT;
+
+typedef struct _FILE_IO_PRIORITY_HINT_INFO {
+  PRIORITY_HINT PriorityHint;
+} FILE_IO_PRIORITY_HINT_INFO, *PFILE_IO_PRIORITY_HINT_INFO;
+
+typedef struct _FILE_NAME_INFO {
+  DWORD FileNameLength;
+  WCHAR FileName[1];
+} FILE_NAME_INFO, *PFILE_NAME_INFO;
+
+typedef struct _FILE_RENAME_INFO {
+  BOOL   ReplaceIfExists;
+  HANDLE RootDirectory;
+  DWORD  FileNameLength;
+  WCHAR  FileName[1];
+} FILE_RENAME_INFO, *PFILE_RENAME_INFO;
+
+typedef struct _FILE_STANDARD_INFO {
+  LARGE_INTEGER AllocationSize;
+  LARGE_INTEGER EndOfFile;
+  DWORD          NumberOfLinks;
+  WINBOOL        DeletePending;
+  WINBOOL        Directory;
+} FILE_STANDARD_INFO, *PFILE_STANDARD_INFO;
+
+typedef struct _FILE_STREAM_INFO {
+  DWORD         NextEntryOffset;
+  DWORD         StreamNameLength;
+  LARGE_INTEGER StreamSize;
+  LARGE_INTEGER StreamAllocationSize;
+  WCHAR         StreamName[1];
+} FILE_STREAM_INFO, *PFILE_STREAM_INFO;
+
+typedef struct _OVERLAPPED_ENTRY {
+  ULONG_PTR    lpCompletionKey;
+  LPOVERLAPPED lpOverlapped;
+  ULONG_PTR    Internal;
+  DWORD        dwNumberOfBytesTransferred;
+} OVERLAPPED_ENTRY, *LPOVERLAPPED_ENTRY;
+
+WINBASEAPI HANDLE WINAPI FindFirstFileNameTransactedW(
+  LPCWSTR lpFileName,
+  DWORD dwFlags,
+  LPDWORD StringLength,
+  PWCHAR LinkName,
+  HANDLE hTransaction
+);
+
+WINBASEAPI HANDLE WINAPI FindFirstFileNameW(
+  LPCWSTR lpFileName,
+  DWORD dwFlags,
+  LPDWORD StringLength,
+  PWCHAR LinkName
+);
+
+WINBASEAPI HANDLE WINAPI FindFirstFileTransactedA(
+  LPCSTR lpFileName,
+  FINDEX_INFO_LEVELS fInfoLevelId,
+  LPVOID lpFindFileData,
+  FINDEX_SEARCH_OPS fSearchOp,
+  LPVOID lpSearchFilter,
+  DWORD dwAdditionalFlags,
+  HANDLE hTransaction
+);
+
+WINBASEAPI HANDLE WINAPI FindFirstFileTransactedW(
+  LPCWSTR lpFileName,
+  FINDEX_INFO_LEVELS fInfoLevelId,
+  LPVOID lpFindFileData,
+  FINDEX_SEARCH_OPS fSearchOp,
+  LPVOID lpSearchFilter,
+  DWORD dwAdditionalFlags,
+  HANDLE hTransaction
+);
+
+WINBASEAPI HANDLE WINAPI FindFirstStreamTransactedW(
+  LPCWSTR lpFileName,
+  STREAM_INFO_LEVELS InfoLevel,
+  LPVOID lpFindStreamData,
+  DWORD dwFlags,
+  HANDLE hTransaction
+);
+
+WINBASEAPI HANDLE WINAPI FindFirstStreamW(
+  LPCWSTR lpFileName,
+  STREAM_INFO_LEVELS InfoLevel,
+  LPVOID lpFindStreamData,
+  DWORD dwFlags
+);
+
+WINBASEAPI WINBOOL WINAPI FindNextFileNameW(
+  HANDLE hFindStream,
+  LPDWORD StringLength,
+  PWCHAR LinkName
+);
+
+WINBASEAPI WINBOOL WINAPI FindNextStreamW(
+  HANDLE hFindStream,
+  LPVOID lpFindStreamData
+);
+
+WINBASEAPI DWORD WINAPI FlsAlloc(
+  PFLS_CALLBACK_FUNCTION lpCallback
+);
+
+WINBASEAPI WINBOOL WINAPI FlsFree(
+  DWORD dwFlsIndex
+);
+
+WINBASEAPI PVOID WINAPI FlsGetValue(
+  DWORD dwFlsIndex
+);
+
+WINBASEAPI WINBOOL WINAPI FlsSetValue(
+  DWORD dwFlsIndex,
+  PVOID lpFlsData
+);
+
+WINBASEAPI VOID WINAPI FlushProcessWriteBuffers(void);
+
+WINBASEAPI VOID WINAPI FreeLibraryWhenCallbackReturns(
+  PTP_CALLBACK_INSTANCE pci,
+  HMODULE mod
+);
+
+WINBASEAPI HRESULT WINAPI GetApplicationRecoveryCallback(
+  HANDLE hProcess,
+  APPLICATION_RECOVERY_CALLBACK *pRecoveryCallback,
+  PVOID *ppvParameter,
+  DWORD dwPingInterval,
+  DWORD dwFlags
+);
+
+WINBASEAPI HRESULT WINAPI GetApplicationRestartSettings(
+  HANDLE hProcess,
+  PWSTR pwzCommandline,
+  PDWORD pcchSize,
+  PDWORD pdwFlags
+);
+
+#define RESTART_NO_CRASH 1
+#define RESTART_NO_HANG 2
+#define RESTART_NO_PATCH 4
+#define RESTART_NO_REBOOT 8
+
+WINBASEAPI HRESULT WINAPI RegisterApplicationRestart(
+  PCWSTR pwzCommandline,
+  DWORD dwFlags
+);
+
+#define GetCompressedFileSizeTransacted __MINGW_NAME_AW(GetCompressedFileSizeTransacted)
+
+WINBASEAPI DWORD WINAPI GetCompressedFileSizeTransactedA(
+  LPCTSTR lpFileName,
+  LPDWORD lpFileSizeHigh,
+  HANDLE hTransaction
+);
+
+WINBASEAPI DWORD WINAPI GetCompressedFileSizeTransactedW(
+  LPCWSTR lpFileName,
+  LPDWORD lpFileSizeHigh,
+  HANDLE hTransaction
+);
+
+WINBASEAPI DWORD WINAPI GetDynamicTimeZoneInformation(
+  PDYNAMIC_TIME_ZONE_INFORMATION pTimeZoneInformation
+);
+
+WINBASEAPI UINT WINAPI GetErrorMode(void);
+
+#define GetFileAttributesTransacted __MINGW_NAME_AW(GetFileAttributesTransacted)
+
+WINBASEAPI WINBOOL WINAPI GetFileAttributesTransactedA(
+  LPCSTR lpFileName,
+  GET_FILEEX_INFO_LEVELS fInfoLevelId,
+  LPVOID lpFileInformation,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI GetFileAttributesTransactedW(
+  LPCWSTR lpFileName,
+  GET_FILEEX_INFO_LEVELS fInfoLevelId,
+  LPVOID lpFileInformation,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI GetFileBandwidthReservation(
+  HANDLE hFile,
+  LPDWORD lpPeriodMilliseconds,
+  LPDWORD lpBytesPerPeriod,
+  LPBOOL pDiscardable,
+  LPDWORD lpTransferSize,
+  LPDWORD lpNumOutstandingRequests
+);
+
+WINBASEAPI WINBOOL WINAPI GetFileInformationByHandleEx(
+  HANDLE hFile,
+  FILE_INFO_BY_HANDLE_CLASS FileInformationClass,
+  LPVOID lpFileInformation,
+  DWORD dwBufferSize
+);
+
+#define GetFinalPathNameByHandle __MINGW_NAME_AW(GetFinalPathNameByHandle)
+#define VOLUME_NAME_DOS 0x0
+#define VOLUME_NAME_GUID 0x1
+#define VOLUME_NAME_NONE 0x2
+#define VOLUME_NAME_NT 0x3
+
+#define FILE_NAME_NORMALIZED 0x0
+#define FILE_NAME_OPENED 0x8
+
+WINBASEAPI DWORD WINAPI GetFinalPathNameByHandleA(
+  HANDLE hFile,
+  LPSTR lpszFilePath,
+  DWORD cchFilePath,
+  DWORD dwFlags
+);
+
+WINBASEAPI DWORD WINAPI GetFinalPathNameByHandleW(
+  HANDLE hFile,
+  LPWSTR lpszFilePath,
+  DWORD cchFilePath,
+  DWORD dwFlags
+);
+
+#define GetFullPathNameTransacted __MINGW_NAME_AW(GetFullPathNameTransacted)
+
+WINBASEAPI DWORD WINAPI GetFullPathNameTransactedA(
+  LPCSTR lpFileName,
+  DWORD nBufferLength,
+  LPSTR lpBuffer,
+  LPSTR *lpFilePart,
+  HANDLE hTransaction
+);
+
+WINBASEAPI DWORD WINAPI GetFullPathNameTransactedW(
+  LPCWSTR lpFileName,
+  DWORD nBufferLength,
+  LPWSTR lpBuffer,
+  LPWSTR *lpFilePart,
+  HANDLE hTransaction
+);
+
+#define GetLongPathNameTransacted __MINGW_NAME_AW(GetLongPathNameTransacted)
+
+WINBASEAPI DWORD WINAPI GetLongPathNameTransactedA(
+  LPCSTR lpszShortPath,
+  LPSTR  lpszLongPath,
+  DWORD  cchBuffer,
+  HANDLE hTransaction
+);
+
+WINBASEAPI DWORD WINAPI GetLongPathNameTransactedW(
+  LPCWSTR lpszShortPath,
+  LPWSTR   lpszLongPath,
+  DWORD    cchBuffer,
+  HANDLE   hTransaction
+);
+
+#define GetNamedPipeClientComputerName __MINGW_NAME_AW(GetNamedPipeClientComputerName)
+
+WINBASEAPI WINBOOL WINAPI GetNamedPipeClientComputerNameA(
+  HANDLE Pipe,
+  LPSTR ClientComputerName,
+  ULONG ClientComputerNameLength
+);
+
+WINBASEAPI WINBOOL WINAPI GetNamedPipeClientComputerNameW(
+  HANDLE Pipe,
+  LPWSTR ClientComputerName,
+  ULONG ClientComputerNameLength
+);
+
+WINBASEAPI WINBOOL WINAPI GetNamedPipeClientProcessId(
+  HANDLE Pipe,
+  PULONG ClientProcessId
+);
+
+WINBASEAPI WINBOOL WINAPI GetNamedPipeClientSessionId(
+  HANDLE Pipe,
+  PULONG ClientSessionId
+);
+
+WINBASEAPI WINBOOL WINAPI GetNamedPipeServerProcessId(
+  HANDLE Pipe,
+  PULONG ServerProcessId
+);
+
+WINBASEAPI WINBOOL WINAPI GetNamedPipeServerSessionId(
+  HANDLE Pipe,
+  PULONG ServerSessionId
+);
+
+WINBASEAPI WINBOOL WINAPI GetNumaProximityNode(
+  ULONG ProximityId,
+  PUCHAR NodeNumber
+);
+
+WINBOOL WINAPI GetPhysicallyInstalledSystemMemory(
+  PULONGLONG TotalMemoryInKilobytes
+);
+
+typedef LPVOID PPROC_THREAD_ATTRIBUTE_LIST, LPPROC_THREAD_ATTRIBUTE_LIST;
+
+WINBASEAPI WINBOOL WINAPI UpdateProcThreadAttribute(
+  LPPROC_THREAD_ATTRIBUTE_LIST lpAttributeList,
+  DWORD dwFlags,
+  DWORD_PTR Attribute,
+  PVOID lpValue,
+  SIZE_T cbSize,
+  PVOID lpPreviousValue,
+  PSIZE_T lpReturnSize
+);
+
+WINBASEAPI WINBOOL WINAPI GetProductInfo(
+  DWORD dwOSMajorVersion,
+  DWORD dwOSMinorVersion,
+  DWORD dwSpMajorVersion,
+  DWORD dwSpMinorVersion,
+  PDWORD pdwReturnedProductType
+);
+
+WINBASEAPI WINBOOL WINAPI GetQueuedCompletionStatusEx(
+  HANDLE CompletionPort,
+  LPOVERLAPPED_ENTRY lpCompletionPortEntries,
+  ULONG ulCount,
+  PULONG ulNumEntriesRemoved,
+  DWORD dwMilliseconds,
+  WINBOOL fAlertable
+);
+
+WINBASEAPI WINBOOL WINAPI GetSystemRegistryQuota(
+  PDWORD pdwQuotaAllowed,
+  PDWORD pdwQuotaUsed
+);
+
+WINBASEAPI WINBOOL WINAPI GetSystemTimes(
+  LPFILETIME lpIdleTime,
+  LPFILETIME lpKernelTime,
+  LPFILETIME lpUserTime
+);
+
+WINBASEAPI ULONGLONG WINAPI GetTickCount64(void);
+
+WINBASEAPI WINBOOL WINAPI GetTimeZoneInformationForYear(
+  USHORT wYear,
+  PDYNAMIC_TIME_ZONE_INFORMATION pdtzi,
+  LPTIME_ZONE_INFORMATION ptzi
+);
+
+WINBASEAPI WINBOOL WINAPI GetVolumeInformationByHandleW(
+  HANDLE hFile,
+  LPWSTR lpVolumeNameBuffer,
+  DWORD nVolumeNameSize,
+  LPDWORD lpVolumeSerialNumber,
+  LPDWORD lpMaximumComponentLength,
+  LPDWORD lpFileSystemFlags,
+  LPWSTR lpFileSystemNameBuffer,
+  DWORD nFileSystemNameSize
+);
+
+WINBASEAPI VOID WINAPI LeaveCriticalSectionWhenCallbackReturns(
+  PTP_CALLBACK_INSTANCE pci,
+  PCRITICAL_SECTION pcs
+);
+
+WINBASEAPI LPVOID WINAPI MapViewOfFileExNuma(
+  HANDLE hFileMappingObject,
+  DWORD dwDesiredAccess,
+  DWORD dwFileOffsetHigh,
+  DWORD dwFileOffsetLow,
+  SIZE_T dwNumberOfBytesToMap,
+  LPVOID lpBaseAddress,
+  DWORD nndPreferred
+);
+
+#define MoveFileTransacted __MINGW_NAME_AW(MoveFileTransacted)
+
+WINBASEAPI WINBOOL WINAPI MoveFileTransactedA(
+  LPCSTR lpExistingFileName,
+  LPCSTR lpNewFileName,
+  LPPROGRESS_ROUTINE lpProgressRoutine,
+  LPVOID lpData,
+  DWORD dwFlags,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI MoveFileTransactedW(
+  LPCWSTR lpExistingFileName,
+  LPCWSTR lpNewFileName,
+  LPPROGRESS_ROUTINE lpProgressRoutine,
+  LPVOID lpData,
+  DWORD dwFlags,
+  HANDLE hTransaction
+);
+
+WINBASEAPI HANDLE WINAPI OpenFileById(
+  HANDLE hFile,
+  LPFILE_ID_DESCRIPTOR lpFileID,
+  DWORD dwDesiredAccess,
+  DWORD dwShareMode,
+  LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+  DWORD dwFlags
+);
+
+WINBASEAPI WINBOOL WINAPI QueryActCtxSettingsW(
+  DWORD dwFlags,
+  HANDLE hActCtx,
+  PCWSTR settingsNameSpace,
+  PCWSTR settingName,
+  PWSTR pvBuffer,
+  SIZE_T dwBuffer,
+  SIZE_T *pdwWrittenOrRequired
+);
+
+WINBASEAPI WINBOOL WINAPI QueryFullProcessImageNameA(
+  HANDLE hProcess,
+  DWORD dwFlags,
+  LPSTR lpExeName,
+  PDWORD lpdwSize
+);
+
+WINBASEAPI WINBOOL WINAPI QueryFullProcessImageNameW(
+  HANDLE hProcess,
+  DWORD dwFlags,
+  LPWSTR lpExeName,
+  PDWORD lpdwSize
+);
+#define QueryFullProcessImageName __MINGW_NAME_AW(QueryFullProcessImageName)
+
+WINBASEAPI WINBOOL WINAPI QueryProcessAffinityUpdateMode(
+  HANDLE ProcessHandle,
+  DWORD lpdwFlags
+);
+
+WINADVAPI VOID WINAPI QuerySecurityAccessMask(
+  SECURITY_INFORMATION SecurityInformation,
+  LPDWORD DesiredAccess
+);
+
+WINADVAPI VOID WINAPI ReleaseMutexWhenCallbackReturns(
+  PTP_CALLBACK_INSTANCE pci,
+  HANDLE mut
+);
+
+#define RemoveDirectoryTransacted __MINGW_NAME_AW(RemoveDirectoryTransacted)
+
+WINBASEAPI WINBOOL WINAPI RemoveDirectoryTransactedA(
+  LPCSTR lpPathName,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI RemoveDirectoryTransactedW(
+  LPCWSTR lpPathName,
+  HANDLE hTransaction
+);
+
+WINBASEAPI HANDLE WINAPI ReOpenFile(
+  HANDLE hOriginalFile,
+  DWORD dwDesiredAccess,
+  DWORD dwShareMode,
+  DWORD dwFlags
+);
+
+WINBASEAPI WINBOOL WINAPI SetDynamicTimeZoneInformation(
+  const DYNAMIC_TIME_ZONE_INFORMATION *lpTimeZoneInformation
+);
+
+WINBASEAPI VOID WINAPI SetEventWhenCallbackReturns(
+  PTP_CALLBACK_INSTANCE pci,
+  HANDLE evt
+);
+
+WINBASEAPI WINBOOL WINAPI SetFileAttributesTransactedA(
+  LPCSTR lpFileName,
+  DWORD dwFileAttributes,
+  HANDLE hTransaction
+);
+
+WINBASEAPI WINBOOL WINAPI SetFileAttributesTransactedW(
+  LPCWSTR lpFileName,
+  DWORD dwFileAttributes,
+  HANDLE hTransaction
+);
+
+#define SetFileAttributesTransacted __MINGW_NAME_AW(SetFileAttributesTransacted)
+
+WINBASEAPI WINBOOL WINAPI SetFileBandwidthReservation(
+  HANDLE hFile,
+  DWORD nPeriodMilliseconds,
+  DWORD nBytesPerPeriod,
+  WINBOOL bDiscardable,
+  LPDWORD lpTransferSize,
+  LPDWORD lpNumOutstandingRequests
+);
+
+WINBASEAPI WINBOOL WINAPI SetFileCompletionNotificationModes(
+  HANDLE FileHandle,
+  UCHAR Flags
+);
+
+WINBASEAPI WINBOOL WINAPI SetFileInformationByHandle(
+  HANDLE hFile,
+  FILE_INFO_BY_HANDLE_CLASS FileInformationClass,
+  LPVOID lpFileInformation,
+  DWORD dwBufferSize
+);
+
+WINBASEAPI WINBOOL WINAPI SetFileIoOverlappedRange(
+  HANDLE FileHandle,
+  PUCHAR OverlappedRangeStart,
+  ULONG Length
+);
+
+#define PROCESS_AFFINITY_ENABLE_AUTO_UPDATE 0x00000001UL
+
+WINBASEAPI WINBOOL WINAPI SetProcessAffinityUpdateMode(
+  HANDLE ProcessHandle,
+  DWORD dwFlags
+);
+
+WINBASEAPI WINBOOL WINAPI SetProcessWorkingSetSizeEx(
+  HANDLE hProcess,
+  SIZE_T dwMinimumWorkingSetSize,
+  SIZE_T dwMaximumWorkingSetSize,
+  DWORD Flags
+);
+
+WINADVAPI VOID WINAPI SetSecurityAccessMask(
+  SECURITY_INFORMATION SecurityInformation,
+  LPDWORD DesiredAccess
+);
+
+/* INLINE - http://msdn.microsoft.com/en-us/library/ms686255%28v=VS.85%29.aspx */
+VOID SetThreadpoolCallbackCleanupGroup(
+  PTP_CALLBACK_ENVIRON pcbe,
+  PTP_CLEANUP_GROUP ptpcg,
+  PTP_CLEANUP_GROUP_CANCEL_CALLBACK pfng
+);
+
+/* INLINE - http://msdn.microsoft.com/en-us/library/ms686258%28v=VS.85%29.aspx */
+VOID SetThreadpoolCallbackLibrary(
+  PTP_CALLBACK_ENVIRON pcbe,
+  PVOID mod
+);
+
+/* INLINE -  http://msdn.microsoft.com/en-us/library/ms686261%28v=VS.85%29.aspx */
+VOID SetThreadpoolCallbackPool(
+  PTP_CALLBACK_ENVIRON pcbe,
+  PTP_POOL ptpp
+);
+
+/* INLINE - http://msdn.microsoft.com/en-us/library/ms686263%28v=VS.85%29.aspx */
+VOID SetThreadpoolCallbackRunsLong(
+  PTP_CALLBACK_ENVIRON pcbe
+);
+
+WINBASEAPI VOID WINAPI SetThreadpoolThreadMaximum(
+  PTP_POOL ptpp,
+  DWORD cthrdMost
+);
+
+WINBASEAPI WINBOOL WINAPI SetThreadpoolThreadMinimum(
+  PTP_POOL ptpp,
+  DWORD cthrdMic
+);
+
+WINBASEAPI VOID WINAPI SetThreadpoolTimer(
+  PTP_TIMER pti,
+  PFILETIME pftDueTime,
+  DWORD msPeriod,
+  DWORD msWindowLength
+);
+
+WINBASEAPI VOID WINAPI SetThreadpoolWait(
+  PTP_WAIT pwa,
+  HANDLE h,
+  PFILETIME pftTimeout
+);
+
+typedef VOID (CALLBACK *PTP_SIMPLE_CALLBACK)(
+  PTP_CALLBACK_INSTANCE Instance,
+  PVOID Context
+);
+
+WINBASEAPI VOID WINAPI StartThreadpoolIo(
+  PTP_IO pio
+);
+
+typedef struct _STARTUPINFOEXA {
+  STARTUPINFOA                 StartupInfo;
+  PPROC_THREAD_ATTRIBUTE_LIST lpAttributeList;
+} STARTUPINFOEXA, *LPSTARTUPINFOEXA;
+
+typedef struct _STARTUPINFOEXAW {
+  STARTUPINFOW                 StartupInfo;
+  PPROC_THREAD_ATTRIBUTE_LIST lpAttributeList;
+} STARTUPINFOEXW, *LPSTARTUPINFOEXW;
+
+__MINGW_TYPEDEF_AW(STARTUPINFOEX)
+__MINGW_TYPEDEF_AW(LPSTARTUPINFOEX)
+
+WINBASEAPI WINBOOL WINAPI TrySubmitThreadpoolCallback(
+  PTP_SIMPLE_CALLBACK pfns,
+  PVOID pv,
+  PTP_CALLBACK_ENVIRON pcbe
+);
+
+WINBASEAPI HRESULT WINAPI UnregisterApplicationRestart(void);
+
+WINBASEAPI HRESULT WINAPI UnregisterApplicationRecoveryCallback(void);
+
+WINBASEAPI LPVOID WINAPI VirtualAllocExNuma(
+  HANDLE hProcess,
+  LPVOID lpAddress,
+  SIZE_T dwSize,
+  DWORD flAllocationType,
+  DWORD flProtect,
+  DWORD nndPreferred
+);
+
+WINBASEAPI VOID WINAPI WaitForThreadpoolIoCallbacks(
+  PTP_IO pio,
+  WINBOOL fCancelPendingCallbacks
+);
+
+WINBASEAPI VOID WINAPI WaitForThreadpoolTimerCallbacks(
+  PTP_TIMER pti,
+  WINBOOL fCancelPendingCallbacks
+);
+
+WINBASEAPI VOID WINAPI WaitForThreadpoolWaitCallbacks(
+  PTP_WAIT pwa,
+  WINBOOL fCancelPendingCallbacks
+);
+
+WINBASEAPI VOID WINAPI WaitForThreadpoolWorkCallbacks(
+  PTP_WORK pwk,
+  WINBOOL fCancelPendingCallbacks
+);
+
+WINBASEAPI WINBOOL WINAPI Wow64GetThreadContext(
+  HANDLE hThread,
+  PWOW64_CONTEXT lpContext
+);
+
+WINBASEAPI WINBOOL WINAPI Wow64RevertWow64FsRedirection(
+  PVOID OldValue
+);
+
+WINBASEAPI WINBOOL WINAPI Wow64SetThreadContext(
+  HANDLE hThread,
+  const WOW64_CONTEXT *lpContext
+);
+
+WINBASEAPI DWORD WINAPI Wow64SuspendThread(
+  HANDLE hThread
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
+#if (_WIN32_WINNT >= 0x0601)
+WINBASEAPI VOID WINAPI GetCurrentProcessorNumberEx(
+  PPROCESSOR_NUMBER ProcNumber
+);
+
+WINBASEAPI WINBOOL WINAPI GetLogicalProcessorInformationEx(
+  LOGICAL_PROCESSOR_RELATIONSHIP RelationshipType,
+  PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX Buffer,
+  PDWORD ReturnedLength
+);
+
+WINBASEAPI WINBOOL WINAPI GetNumaAvailableMemoryNodeEx(
+  USHORT Node,
+  PULONGLONG AvailableBytes
+);
+
+WINBASEAPI WINBOOL WINAPI GetNumaNodeProcessorMaskEx(
+  USHORT Node,
+  PGROUP_AFFINITY ProcessorMask
+);
+
+WINBASEAPI WINBOOL WINAPI GetNumaProcessorNodeEx(
+  PPROCESSOR_NUMBER Processor,
+  PUSHORT NodeNumber
+);
+
+WINBASEAPI WINBOOL WINAPI GetNumaProximityNodeEx(
+  ULONG ProximityId,
+  PUSHORT NodeNumber
+);
+
+WINBASEAPI HANDLE WINAPI CreateRemoteThreadEx(
+  HANDLE hProcess,
+  LPSECURITY_ATTRIBUTES lpThreadAttributes,
+  SIZE_T dwStackSize,
+  LPTHREAD_START_ROUTINE lpStartAddress,
+  LPVOID lpParameter,
+  DWORD dwCreationFlags,
+  LPPROC_THREAD_ATTRIBUTE_LIST lpAttributeList,
+  LPDWORD lpThreadId
+);
+
+WINBASEAPI WINBOOL WINAPI QueryUnbiasedInterruptTime(
+  PULONGLONG UnbiasedTime
+);
+
+WINBASEAPI WINBOOL WINAPI AddConditionalAce(
+  PACL pAcl,
+  DWORD dwAceRevision,
+  DWORD AceFlags,
+  UCHAR AceType,
+  DWORD AccessMask,
+  PSID pSid,
+  PWCHAR ConditionStr,
+  DWORD *ReturnLength
+);
+
+#ifdef _WIN64
+typedef struct _UMS_COMPLETION_LIST *PUMS_COMPLETION_LIST;
+typedef struct _UMS_CONTEXT *PUMS_CONTEXT;
+
+typedef enum _UMS_SCHEDULER_REASON {
+  UmsSchedulerStartup = 0,
+  UmsSchedulerThreadBlocked = 1,
+  UmsSchedulerThreadYield = 2
+} UMS_SCHEDULER_REASON;
+
+typedef VOID (*PUMS_SCHEDULER_ENTRY_POINT)(
+  UMS_SCHEDULER_REASON Reason,
+  ULONG_PTR ActivationPayload,
+  PVOID SchedulerParam
+);
+
+typedef enum _UMS_THREAD_INFO_CLASS {
+  UmsThreadInvalidInfoClass   = 0,
+  UmsThreadUserContext        = 1,
+  UmsThreadPriority           = 2,
+  UmsThreadAffinity           = 3,
+  UmsThreadTeb                = 4,
+  UmsThreadIsSuspended        = 5,
+  UmsThreadIsTerminated       = 6,
+  UmsThreadMaxInfoClass       = 7 
+} UMS_THREAD_INFO_CLASS, *PUMS_THREAD_INFO_CLASS;
+
+typedef struct _UMS_SCHEDULER_STARTUP_INFO {
+  ULONG                      UmsVersion;
+  PUMS_COMPLETION_LIST       CompletionList;
+  PUMS_SCHEDULER_ENTRY_POINT SchedulerProc;
+  PVOID                      SchedulerParam;
+} UMS_SCHEDULER_STARTUP_INFO, *PUMS_SCHEDULER_STARTUP_INFO;
+
+WINBASEAPI WINBOOL CreateUmsCompletionList(
+  PUMS_COMPLETION_LIST *UmsCompletionList
+);
+
+WINBASEAPI WINBOOL CreateUmsThreadContext(
+  PUMS_CONTEXT *lpUmsThread
+);
+
+WINBASEAPI WINBOOL EnterUmsSchedulingMode(
+  PUMS_SCHEDULER_STARTUP_INFO SchedulerStartupInfo
+);
+
+WINBASEAPI WINBOOL DequeueUmsCompletionListItems(
+  PUMS_COMPLETION_LIST UmsCompletionList,
+  DWORD WaitTimeOut,
+  PUMS_CONTEXT *UmsThreadList
+);
+
+WINBASEAPI WINBOOL GetUmsCompletionListEvent(
+  PUMS_COMPLETION_LIST UmsCompletionList,
+  PHANDLE UmsCompletionEvent
+);
+
+WINBASEAPI WINBOOL DeleteUmsCompletionList(
+  PUMS_COMPLETION_LIST UmsCompletionList
+);
+
+WINBASEAPI WINBOOL DeleteUmsThreadContext(
+  PUMS_CONTEXT UmsThread
+);
+
+WINBASEAPI WINBOOL QueryUmsThreadInformation(
+  PUMS_CONTEXT UmsThread,
+  UMS_THREAD_INFO_CLASS UmsThreadInfoClass,
+  PVOID UmsThreadInformation,
+  ULONG UmsThreadInformationLength,
+  PULONG ReturnLength
+);
+
+WINBASEAPI WINBOOL SetUmsThreadInformation(
+  PUMS_CONTEXT UmsThread,
+  UMS_THREAD_INFO_CLASS UmsThreadInfoClass,
+  PVOID UmsThreadInformation,
+  ULONG UmsThreadInformationLength
+);
+
+WINBASEAPI WINBOOL ExecuteUmsThread(
+  PUMS_CONTEXT UmsThread
+);
+
+WINBASEAPI WINBOOL UmsThreadYield(
+  PVOID SchedulerParam
+);
+
+WINBASEAPI PUMS_CONTEXT GetNextUmsListItem(
+  PUMS_CONTEXT UmsContext
+);
+
+#endif /* _WIN64 */
 #endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #ifdef __cplusplus

@@ -1407,6 +1407,36 @@ DWORD DestroyClusterGroup(
   HGROUP hGroup
 );
 
+typedef enum _FILESHARE_CHANGE_ENUM {
+  FILESHARE_CHANGE_NONE     = 0,
+  FILESHARE_CHANGE_ADD      = 1,
+  FILESHARE_CHANGE_DEL      = 2,
+  FILESHARE_CHANGE_MODIFY   = 3 
+} FILESHARE_CHANGE_ENUM;
+
+#define NNLEN       80                  // Net name length (share name)
+
+typedef struct _FILESHARE_CHANGE {
+  FILESHARE_CHANGE_ENUM Change;
+  WCHAR                 ShareName[NNLEN+4];
+} FILESHARE_CHANGE, *PFILESHARE_CHANGE;
+
+typedef struct _FILESHARE_CHANGE_LIST {
+  DWORD            NumEntries;
+  FILESHARE_CHANGE ChangeEntry[];
+} FILESHARE_CHANGE_LIST, *PFILESHARE_CHANGE_LIST;
+
+DWORD WINAPI GetClusterResourceDependencyExpression(
+  HRESOURCE hResource,
+  LPWSTR lpszDependencyExpression,
+  LPDWORD lpcchDependencyExpression
+);
+
+DWORD WINAPI SetClusterResourceDependencyExpression(
+  HRESOURCE hResource,
+  LPCWSTR lpszDependencyExpression
+);
+
 #endif /* (_WIN32_WINNT >= 0x0600) */
 
 #ifdef __cplusplus

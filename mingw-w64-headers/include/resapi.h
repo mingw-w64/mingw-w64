@@ -237,6 +237,120 @@ extern "C" {
   DWORD WINAPI ResUtilGetCoreClusterResources(HCLUSTER hCluster,HRESOURCE *phClusterNameResource,HRESOURCE *phClusterIPAddressResource,HRESOURCE *phClusterQuorumResource);
   DWORD WINAPI ResUtilGetResourceName(HRESOURCE hResource,PWSTR pszResourceName,DWORD *pcchResourceNameInOut);
 
+#if (_WIN32_WINNT >= 0x0600)
+typedef enum _CLUSTER_ROLE {
+  ClusterRoleDHCP                          = 0,
+  ClusterRoleDTC                           = 1,
+  ClusterRoleFileServer                    = 2,
+  ClusterRoleGenericApplication            = 3,
+  ClusterRoleGenericScript                 = 4,
+  ClusterRoleGenericService                = 5,
+  ClusterRoleISCSINameServer               = 6,
+  ClusterRoleMSMQ                          = 7,
+  ClusterRoleNFS                           = 8,
+  ClusterRolePrintServer                   = 9,
+  ClusterRoleStandAloneNamespaceServer     = 10,
+  ClusterRoleVolumeShadowCopyServiceTask   = 11,
+  ClusterRoleWINS                          = 12 
+} CLUSTER_ROLE;
+
+typedef enum _CLUSTER_ROLE_STATE {
+  ClusterRoleUnknown       = -1,
+  ClusterRoleClustered     = 0,
+  ClusterRoleUnclustered   = 1 
+} CLUSTER_ROLE_STATE;
+
+typedef enum RESOURCE_MONITOR_STATE {
+  RmonInitializing,
+  RmonIdle,
+  RmonStartingResource,
+  RmonInitializingResource,
+  RmonOnlineResource,
+  RmonOfflineResource,
+  RmonShutdownResource,
+  RmonDeletingResource,
+  RmonIsAlivePoll,
+  RmonLooksAlivePoll,
+  RmonArbitrateResource,
+  RmonReleaseResource,
+  RmonResourceControl,
+  RmonResourceTypeControl,
+  RmonTerminateResource,
+  RmonDeadlocked 
+} RESOURCE_MONITOR_STATE;
+
+typedef DWORD (CALLBACK *LPRESOURCE_CALLBACK)( 
+  HRESOURCE hSelf,
+  HRESOURCE hResource,
+  PVOID pParameter
+);
+
+typedef DWORD (CALLBACK *LPRESOURCE_CALLBACK_EX)( 
+  HCLUSTER hCluster,
+  HRESOURCE hSelf,
+  HRESOURCE hResource,
+  PVOID pParameter
+);
+
+typedef struct RESUTIL_FILETIME_DATA {
+  FILETIME Default;
+  FILETIME Minimum;
+  FILETIME Maximum;
+} RESUTIL_FILETIME_DATA, *PRESUTIL_FILETIME_DATA;
+
+DWORD ResUtilFindFileTimeProperty(
+  const PVOID pPropertyList,
+  DWORD cbPropertyListSize,
+  LPCWSTR pszPropertyName,
+  LPFILETIME pftPropertyValue
+);
+
+CLUSTER_ROLE_STATE WINAPI ResUtilGetClusterRoleState(
+  HCLUSTER hCluster,
+  CLUSTER_ROLE eClusterRole
+);
+
+DWORD WINAPI ResUtilGetFileTimeProperty(
+  LPFILETIME pftOutValue,
+  const PCLUSPROP_FILETIME pValueStruct,
+  FILETIME ftOldValue,
+  FILETIME ftMinimum,
+  FILETIME ftMaximum,
+  LPBYTE *ppPropertyList,
+  LPDWORD pcbPropertyListSize
+);
+
+DWORD WINAPI ResUtilGetLongProperty(
+  LPLONG plOutValue,
+  const PCLUSPROP_LONG pValueStruct,
+  LONG lOldValue,
+  LONG lMinimum,
+  LONG lMaximum,
+  LPBYTE *ppPropertyList,
+  LPDWORD pcbPropertyListSize
+);
+
+DWORD WINAPI ResUtilGetQwordValue(
+  HKEY hkeyClusterKey,
+  LPCWSTR pszValueName,
+  PULONGLONG pqwOutValue,
+  ULONGLONG qwDefaultValue
+);
+
+DWORD WINAPI ResUtilSetQwordValue(
+  HKEY hkeyClusterKey,
+  LPCWSTR pszValueName,
+  ULONGLONG qwNewValue,
+  PULONGLONG pqwOutValue
+);
+
+typedef DWORD (WINAPI *PWORKER_START_ROUTINE)( 
+  PCLUS_WORKER pWorker,
+  LPVOID lpThreadParameter
+);
+
+#endif /* (_WIN32_WINNT >= 0x0600) */
+
 #ifdef __cplusplus
 }
 #endif

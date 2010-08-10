@@ -7,7 +7,9 @@
 #define _NTDSAPI_H_
 
 #include <_mingw_unicode.h>
+
 #include <schedule.h>
+#include <rpc.h>
 
 #if !defined(_NTDSAPI_)
 #define NTDSAPI DECLSPEC_IMPORT
@@ -891,6 +893,79 @@ extern "C" {
   NTDSAPI WINBOOL WINAPI DsIsMangledRdnValueA(LPCSTR pszRdn,DWORD cRdn,DS_MANGLE_FOR eDsMangleForDesired);
   NTDSAPI WINBOOL WINAPI DsIsMangledDnA(LPCSTR pszDn,DS_MANGLE_FOR eDsMangleFor);
   NTDSAPI WINBOOL WINAPI DsIsMangledDnW(LPCWSTR pszDn,DS_MANGLE_FOR eDsMangleFor);
+
+#if (_WIN32_WINNT >= 0x0600)
+#define NTDSAPI_BIND_FIND_BINDING (0x00000002)
+#define NTDSAPI_BIND_FORCE_KERBEROS (0x00000004)
+
+#define DSSI_READ_ONLY 0x00000001
+#define DSSI_NO_ACCESS_CHECK  0x00000002
+#define DSSI_NO_EDIT_SACL  0x00000004
+#define DSSI_NO_EDIT_OWNER  0x00000008
+#define DSSI_IS_ROOT  0x00000010
+#define DSSI_NO_FILTER  0x00000020
+#define DSSI_NO_READONLY_MESSAGE  0x00000040
+
+NTDSAPI DWORD WINAPI DsBindingSetTimeout(
+  HANDLE hDS,
+  ULONG cTimeoutSecs
+);
+
+#define DsAddSidHistory __MINGW_NAME_AW(DsBindToISTG)
+
+NTDSAPI DWORD WINAPI DsBindToISTGW(
+  LPCWSTR SiteName,
+  HANDLE *phDS
+);
+
+NTDSAPI DWORD WINAPI DsBindToISTGA(
+  LPCWSTR SiteName,
+  HANDLE *phDS
+);
+
+#define DsBindWithSpnEx __MINGW_NAME_AW(DsBindWithSpnEx)
+
+NTDSAPI DWORD WINAPI DsBindWithSpnExA(
+  LPCSTR DomainControllerName,
+  LPCSTR DnsDomainName,
+  RPC_AUTH_IDENTITY_HANDLE AuthIdentity,
+  LPCSTR ServicePrincipalName,
+  DWORD BindFlags,
+  HANDLE *phDS
+);
+
+NTDSAPI DWORD WINAPI DsBindWithSpnExW(
+  LPCWSTR DomainControllerName,
+  LPCWSTR DnsDomainName,
+  RPC_AUTH_IDENTITY_HANDLE AuthIdentity,
+  LPCWSTR ServicePrincipalName,
+  DWORD BindFlags,
+  HANDLE *phDS
+);
+
+NTDSAPI DWORD WINAPI DsQuerySitesByCostA(
+  HANDLE hDS,
+  LPSTR pwszFromSite,
+  LPSTR *rgwszToSites,
+  DWORD cToSites,
+  DWORD dwFlags,
+  PDS_SITE_COST_INFO *prgSiteInfo
+);
+
+NTDSAPI DWORD WINAPI DsQuerySitesByCostW(
+  HANDLE hDS,
+  LPWSTR pwszFromSite,
+  LPWSTR *rgwszToSites,
+  DWORD cToSites,
+  DWORD dwFlags,
+  PDS_SITE_COST_INFO *prgSiteInfo
+);
+
+NTDSAPI void WINAPI DsQuerySitesFree(
+  PDS_SITE_COST_INFO rgSiteInfo
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
 }

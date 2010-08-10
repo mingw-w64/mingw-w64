@@ -314,6 +314,145 @@ extern "C" {
   CREDUIAPI DWORD WINAPI CredUIStoreSSOCredW (PCWSTR pszRealm,PCWSTR pszUsername,PCWSTR pszPassword,WINBOOL bPersist);
   CREDUIAPI DWORD WINAPI CredUIReadSSOCredW (PCWSTR pszRealm,PWSTR *ppszUsername);
 
+#if (_WIN32_WINNT >= 0x0600)
+#define CredFindBestCredential __MINGW_NAME_AW(CredFindBestCredential)
+#define CredIsProtected __MINGW_NAME_AW(CredIsProtected)
+#define CredPackAuthenticationBuffer __MINGW_NAME_AW(CredPackAuthenticationBuffer)
+#define CredProtect __MINGW_NAME_AW(CredProtect)
+#define CredUIPromptForWindowsCredentials __MINGW_NAME_AW(CredUIPromptForWindowsCredentials)
+#define CredUnPackAuthenticationBuffer __MINGW_NAME_AW(CredUnPackAuthenticationBuffer)
+#define CredUnprotect __MINGW_NAME_AW(CredUnprotect)
+
+typedef enum _CRED_PROTECTION_TYPE {
+  CredUnprotected         = 0,
+  CredUserProtection      = 1,
+  CredTrustedProtection   = 2 
+} CRED_PROTECTION_TYPE, *PCRED_PROTECTION_TYPE;
+
+WINADVAPI WINBOOL WINAPI CredFindBestCredentialA(
+  LPCSTR TargetName,
+  DWORD Type,
+  DWORD Flags,
+  PCREDENTIALA *Credential
+);
+
+WINADVAPI WINBOOL WINAPI CredFindBestCredentialW(
+  LPCWSTR TargetName,
+  DWORD Type,
+  DWORD Flags,
+  PCREDENTIALW *Credential
+);
+
+WINADVAPI WINBOOL WINAPI CredIsProtectedA(
+  LPSTR pszProtectedCredentials,
+  CRED_PROTECTION_TYPE *pProtectionType
+);
+
+WINADVAPI WINBOOL WINAPI CredIsProtectedW(
+  LPWSTR pszProtectedCredentials,
+  CRED_PROTECTION_TYPE *pProtectionType
+);
+
+CREDUIAPI WINBOOL WINAPI CredPackAuthenticationBufferA(
+  DWORD dwFlags,
+  LPSTR pszUserName,
+  LPSTR pszPassword,
+  PBYTE pPackedCredentials,
+  DWORD *pcbPackedCredentials
+);
+
+CREDUIAPI WINBOOL WINAPI CredPackAuthenticationBufferW(
+  DWORD dwFlags,
+  LPWSTR pszUserName,
+  LPWSTR pszPassword,
+  PBYTE pPackedCredentials,
+  DWORD *pcbPackedCredentials
+);
+
+WINADVAPI WINBOOL WINAPI CredProtectW(
+  WINBOOL fAsSelf,
+  LPWSTR pszCredentials,
+  DWORD cchCredentials,
+  LPWSTR pszProtectedCredentials,
+  DWORD *pcchMaxChars,
+  CRED_PROTECTION_TYPE *ProtectionType
+);
+
+WINADVAPI WINBOOL WINAPI CredProtectA(
+  WINBOOL fAsSelf,
+  LPSTR pszCredentials,
+  DWORD cchCredentials,
+  LPSTR pszProtectedCredentials,
+  DWORD *pcchMaxChars,
+  CRED_PROTECTION_TYPE *ProtectionType
+);
+
+CREDUIAPI DWORD WINAPI CredUIPromptForWindowsCredentialsA(
+  PCREDUI_INFOA pUiInfo,
+  DWORD dwAuthError,
+  ULONG *pulAuthPackage,
+  LPCVOID pvInAuthBuffer,
+  ULONG ulInAuthBufferSize,
+  LPVOID *ppvOutAuthBuffer,
+  ULONG *pulOutAuthBufferSize,
+  WINBOOL *pfSave,
+  DWORD dwFlags
+);
+
+CREDUIAPI DWORD WINAPI CredUIPromptForWindowsCredentialsW(
+  PCREDUI_INFOW pUiInfo,
+  DWORD dwAuthError,
+  ULONG *pulAuthPackage,
+  LPCVOID pvInAuthBuffer,
+  ULONG ulInAuthBufferSize,
+  LPVOID *ppvOutAuthBuffer,
+  ULONG *pulOutAuthBufferSize,
+  WINBOOL *pfSave,
+  DWORD dwFlags
+);
+
+CREDUIAPI WINBOOL WINAPI CredUnPackAuthenticationBufferA(
+  DWORD dwFlags,
+  PVOID pAuthBuffer,
+  DWORD cbAuthBuffer,
+  LPSTR pszUserName,
+  DWORD *pcchMaxUserName,
+  LPSTR pszDomainName,
+  DWORD *pcchMaxDomainame,
+  LPSTR pszPassword,
+  DWORD *pcchMaxPassword
+);
+
+CREDUIAPI WINBOOL WINAPI CredUnPackAuthenticationBufferW(
+  DWORD dwFlags,
+  PVOID pAuthBuffer,
+  DWORD cbAuthBuffer,
+  LPWSTR pszUserName,
+  DWORD *pcchMaxUserName,
+  LPWSTR pszDomainName,
+  DWORD *pcchMaxDomainame,
+  LPWSTR pszPassword,
+  DWORD *pcchMaxPassword
+);
+
+WINADVAPI WINBOOL WINAPI CredUnprotectA(
+  WINBOOL fAsSelf,
+  LPSTR pszProtectedCredentials,
+  DWORD cchCredentials,
+  LPSTR pszCredentials,
+  DWORD *pcchMaxChars
+);
+
+WINADVAPI WINBOOL WINAPI CredUnprotectW(
+  WINBOOL fAsSelf,
+  LPWSTR pszProtectedCredentials,
+  DWORD cchCredentials,
+  LPWSTR pszCredentials,
+  DWORD *pcchMaxChars
+);
+
+#endif /* (_WIN32_WINNT >= 0x0600) */
+
 #ifdef __cplusplus
 }
 #endif

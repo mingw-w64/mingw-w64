@@ -327,6 +327,10 @@ WINOLEAPI GetRunningObjectTable(DWORD reserved,LPRUNNINGOBJECTTABLE *pprot);
 
 WINOLEAPI CreateStdProgressIndicator(HWND hwndParent,LPCOLESTR pszTitle,IBindStatusCallback *pIbscCaller,IBindStatusCallback **ppIbsc);
 
+#if (_WIN32_WINNT >= 0x0600)
+HRESULT WINAPI CoDisconnectContext(DWORD dwTimeout);
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifndef RC_INVOKED
 #include <poppack.h>
 #endif

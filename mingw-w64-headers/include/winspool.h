@@ -1350,9 +1350,48 @@ extern "C" {
 
 #if (_WIN32_WINNT >= 0x0600)
 #define AddPrinterConnection2 __MINGW_NAME_AW(AddPrinterConnection2)
+#define DeletePrinterDriverPackage __MINGW_NAME_AW(DeletePrinterDriverPackage)
+#define DocumentEvent __MINGW_NAME_AW(DocumentEvent)
 
 #define PRINTER_CONNECTION_MISMATCH 0x00000020
 #define PRINTER_CONNECTION_NO_UI    0x00000040
+
+typedef enum tagPRINTER_OPTION_FLAGS {
+  PRINTER_OPTION_NO_CACHE,
+  PRINTER_OPTION_CACHE,
+  PRINTER_OPTION_CLIENT_CHANGE 
+} PRINTER_OPTION_FLAGS;
+
+typedef enum tagEPrintXPSJobOperation {
+  kJobProduction,
+  kJobConsumption 
+} EPrintXPSJobOperation;
+
+typedef enum tagEPrintXPSJobProgress {
+  kAddingDocumentSequence,
+  kDocumentSequenceAdded,
+  kAddingFixedDocument,
+  kFixedDocumentAdded,
+  kAddingFixedPage,
+  kFixedPageAdded,
+  kResourceAdded,
+  kFontAdded,
+  kImageAdded,
+  kXpsDocumentCommitted 
+} EPrintXPSJobProgress;
+
+typedef enum tagMxdcS0PageEnums {
+  MXDC_RESOURCE_TTF,
+  MXDC_RESOURCE_JPEG,
+  MXDC_RESOURCE_PNG,
+  MXDC_RESOURCE_TIFF,
+  MXDC_RESOURCE_WDP,
+  MXDC_RESOURCE_DICTIONARY,
+  MXDC_RESOURCE_ICC_PROFILE,
+  MXDC_RESOURCE_JPEG_THUMBNAIL,
+  MXDC_RESOURCE_PNG_THUMBNAIL,
+  MXDC_RESOURCE_MAX 
+} MXDC_S0_PAGE_ENUMS;
 
 typedef struct _PRINTER_CONNECTION_INFO_1 {
   DWORD  dwFlags;
@@ -1361,6 +1400,285 @@ typedef struct _PRINTER_CONNECTION_INFO_1 {
 
   WINBOOL AddPrinterConnection2W(HWND hWnd,LPCWSTR pszName,DWORD dwLevel,PVOID pConnectionInfo);
   WINBOOL AddPrinterConnection2A(HWND hWnd,LPCSTR pszName,DWORD dwLevel,PVOID pConnectionInfo); /*Not supported and returns ERROR_NOT_SUPPORTED.*/
+
+HRESULT WINAPI DeletePrinterDriverPackageA(
+  LPCSTR pszServer,
+  LPCSTR pszInfPath,
+  LPCSTR pszEnvironment
+);
+
+HRESULT WINAPI DeletePrinterDriverPackageW(
+  LPCWSTR pszServer,
+  LPCWSTR pszInfPath,
+  LPCWSTR pszEnvironment
+);
+
+HRESULT DocumentEventA(
+  HANDLE hPrinter,
+  HDC hdc,
+  INT iEsc,
+  ULONG cbIn,
+  PVOID pvIn,
+  ULONG cbOut,
+  PVOID pvOut
+);
+
+HRESULT DocumentEventW(
+  HANDLE hPrinter,
+  HDC hdc,
+  INT iEsc,
+  ULONG cbIn,
+  PVOID pvIn,
+  ULONG cbOut,
+  PVOID pvOut
+);
+
+typedef struct _DRIVER_INFO_8W {
+  DWORD     cVersion;
+  LPWSTR    pName;
+  LPWSTR    pEnvironment;
+  LPWSTR    pDriverPath;
+  LPWSTR    pDataFile;
+  LPWSTR    pConfigFile;
+  LPWSTR    pHelpFile;
+  LPWSTR    pDependentFiles;
+  LPWSTR    pMonitorName;
+  LPWSTR    pDefaultDataType;
+  LPWSTR    pszzPreviousNames;
+  FILETIME  ftDriverDate;
+  DWORDLONG dwlDriverVersion;
+  LPWSTR    pszMfgName;
+  LPWSTR    pszOEMUrl;
+  LPWSTR    pszHardwareID;
+  LPWSTR    pszProvider;
+  LPWSTR    pszPrintProcessor;
+  LPWSTR    pszVendorSetup;
+  LPWSTR    pszzColorProfiles;
+  LPWSTR    pszInfPath;
+  DWORD     dwPrinterDriverAttributes;
+  LPWSTR    pszzCoreDriverDependencies;
+  FILETIME  ftMinInboxDriverVerDate;
+  DWORDLONG dwlMinInboxDriverVerVersion;
+} DRIVER_INFO_8W, *PDRIVER_INFO_8W, *LPDRIVER_INFO_8W;
+
+typedef struct _DRIVER_INFO_8A {
+  DWORD     cVersion;
+  LPSTR    pName;
+  LPSTR    pEnvironment;
+  LPSTR    pDriverPath;
+  LPSTR    pDataFile;
+  LPSTR    pConfigFile;
+  LPSTR    pHelpFile;
+  LPSTR    pDependentFiles;
+  LPSTR    pMonitorName;
+  LPSTR    pDefaultDataType;
+  LPSTR    pszzPreviousNames;
+  FILETIME  ftDriverDate;
+  DWORDLONG dwlDriverVersion;
+  LPSTR    pszMfgName;
+  LPSTR    pszOEMUrl;
+  LPSTR    pszHardwareID;
+  LPSTR    pszProvider;
+  LPSTR    pszPrintProcessor;
+  LPSTR    pszVendorSetup;
+  LPSTR    pszzColorProfiles;
+  LPSTR    pszInfPath;
+  DWORD     dwPrinterDriverAttributes;
+  LPSTR    pszzCoreDriverDependencies;
+  FILETIME  ftMinInboxDriverVerDate;
+  DWORDLONG dwlMinInboxDriverVerVersion;
+} DRIVER_INFO_8A, *PDRIVER_INFO_8A, *LPDRIVER_INFO_8A;
+
+typedef struct _FORM_INFO_2A {
+  DWORD   Flags;
+  LPSTR   pName;
+  SIZEL   Size;
+  RECTL   ImageableArea;
+  LPCSTR  pKeyword;
+  DWORD   StringType;
+  LPCSTR  pMuiDll;
+  DWORD   dwResourceId;
+  LPCSTR  pDisplayName;
+  LANGID  wLangId;
+} FORM_INFO_2A, *PFORM_INFO_2A;
+
+typedef struct _FORM_INFO_2W {
+  DWORD   Flags;
+  LPWSTR  pName;
+  SIZEL   Size;
+  RECTL   ImageableArea;
+  LPCSTR  pKeyword;
+  DWORD   StringType;
+  LPCWSTR pMuiDll;
+  DWORD   dwResourceId;
+  LPCWSTR pDisplayName;
+  LANGID  wLangId;
+} FORM_INFO_2W, *PFORM_INFO_2W;
+
+__MINGW_TYPEDEF_AW(DRIVER_INFO_8)
+__MINGW_TYPEDEF_AW(PDRIVER_INFO_8)
+__MINGW_TYPEDEF_AW(LPDRIVER_INFO_8)
+__MINGW_TYPEDEF_AW(FORM_INFO_2)
+__MINGW_TYPEDEF_AW(PFORM_INFO_2)
+
+typedef struct _PRINTPROCESSOR_CAPS_2 {
+  DWORD dwLevel;
+  DWORD dwNupOptions;
+  DWORD dwPageOrderFlags;
+  DWORD dwNumberOfCopies;
+  DWORD dwNupDirectionCaps;
+  DWORD dwNupBorderCaps;
+  DWORD dwBookletHandlingCaps;
+  DWORD dwDuplexHandlingCaps;
+  DWORD dwScalingCaps;
+} PRINTPROCESSOR_CAPS_2, *PPRINTPROCESSOR_CAPS_2;
+
+HRESULT ReportJobProcessingProgress(
+  HANDLE printerHandle,
+  ULONG jobId,
+  EPrintXPSJobOperation jobOperation,
+  EPrintXPSJobProgress jobProgress
+);
+
+typedef struct _CORE_PRINTER_DRIVERA {
+  GUID      CoreDriverGUID;
+  FILETIME  ftDriverDate;
+  DWORDLONG dwlDriverVersion;
+  CHAR      szPackageID[MAX_PATH];
+} CORE_PRINTER_DRIVERA, *PCORE_PRINTER_DRIVERA;
+
+typedef struct _CORE_PRINTER_DRIVERW {
+  GUID      CoreDriverGUID;
+  FILETIME  ftDriverDate;
+  DWORDLONG dwlDriverVersion;
+  WCHAR     szPackageID[MAX_PATH];
+} CORE_PRINTER_DRIVERW, *PCORE_PRINTER_DRIVERW;
+
+typedef struct _PRINTER_OPTIONS {
+  UINT  cbSize;
+  DWORD dwFlags;
+} PRINTER_OPTIONS, *PPRINTER_OPTIONS;
+
+__MINGW_TYPEDEF_AW(CORE_PRINTER_DRIVER)
+__MINGW_TYPEDEF_AW(PCORE_PRINTER_DRIVER)
+#define GetCorePrinterDrivers __MINGW_NAME_AW(GetCorePrinterDrivers)
+#define GetPrinterDriver2 __MINGW_NAME_AW(GetPrinterDriver2)
+#define GetPrinterDriverPackagePath __MINGW_NAME_AW(GetPrinterDriverPackagePath)
+#define GetSpoolFileHandle __MINGW_NAME_AW(GetSpoolFileHandle)
+
+HRESULT WINAPI GetCorePrinterDriversA(
+  LPCSTR pszServer,
+  LPCSTR pszEnvironment,
+  LPCSTR pszzCoreDriverDependencies,
+  DWORD cCorePrinterDrivers,
+  PCORE_PRINTER_DRIVERA pCorePrinterDrivers
+);
+
+HRESULT WINAPI GetCorePrinterDriversW(
+  LPCWSTR pszServer,
+  LPCWSTR pszEnvironment,
+  LPCWSTR pszzCoreDriverDependencies,
+  DWORD cCorePrinterDrivers,
+  PCORE_PRINTER_DRIVERW pCorePrinterDrivers
+);
+
+/*Unsupported*/
+WINBOOL WINAPI GetPrinterDriver2A(
+  HWND hWnd,
+  HANDLE hPrinter,
+  LPSTR pEnvironment,
+  DWORD Level,
+  LPBYTE pDriverInfo,
+  DWORD cbBuf,
+  LPDWORD pcbNeeded
+);
+
+WINBOOL WINAPI GetPrinterDriver2W(
+  HWND hWnd,
+  HANDLE hPrinter,
+  LPWSTR pEnvironment,
+  DWORD Level,
+  LPBYTE pDriverInfo,
+  DWORD cbBuf,
+  LPDWORD pcbNeeded
+);
+
+HRESULT WINAPI GetPrinterDriverPackagePathA(
+  LPCSTR pszServer,
+  LPCSTR pszEnvironment,
+  LPCSTR pszLanguage,
+  LPCSTR pszPackageID,
+  LPSTR  pszDriverPackageCab,
+  DWORD  cchDriverPackageCab,
+  LPDWORD pcchRequiredSize
+);
+
+HRESULT WINAPI GetPrinterDriverPackagePathW(
+  LPCWSTR pszServer,
+  LPCWSTR pszEnvironment,
+  LPCWSTR pszLanguage,
+  LPCWSTR pszPackageID,
+  LPWSTR  pszDriverPackageCab,
+  DWORD   cchDriverPackageCab,
+  LPDWORD pcchRequiredSize
+);
+
+HANDLE WINAPI GetSpoolFileHandleA(
+  HANDLE hPrinter
+);
+
+HANDLE WINAPI GetSpoolFileHandleW(
+  HANDLE hPrinter
+);
+
+HANDLE WINAPI CommitSpoolData(
+  HANDLE hPrinter,
+  HANDLE hSpoolFile,
+  DWORD cbCommit
+);
+
+WINBOOL WINAPI CloseSpoolFileHandle(
+  HANDLE hPrinter,
+  HANDLE hSpoolFile
+);
+
+WINBOOL WINAPI OpenPrinter2A(
+  LPCSTR pPrinterName,
+  LPHANDLE phPrinter,
+  LPPRINTER_DEFAULTS pDefault,
+  PPRINTER_OPTIONS pOptions
+);
+
+WINBOOL WINAPI OpenPrinter2W(
+  LPCWSTR pPrinterName,
+  LPHANDLE phPrinter,
+  LPPRINTER_DEFAULTS pDefault,
+  PPRINTER_OPTIONS pOptions
+);
+
+#define OpenPrinter2 __MINGW_NAME_AW(OpenPrinter2)
+
+HRESULT WINAPI UploadPrinterDriverPackageA(
+  LPCSTR pszServer,
+  LPCSTR pszInfPath,
+  LPCSTR pszEnvironment,
+  DWORD dwFlags,
+  HWND hwnd,
+  LPSTR pszDestInfPath,
+  PULONG pcchDestInfPath
+);
+
+HRESULT WINAPI UploadPrinterDriverPackageW(
+  LPCWSTR pszServer,
+  LPCWSTR pszInfPath,
+  LPCWSTR pszEnvironment,
+  DWORD dwFlags,
+  HWND hwnd,
+  LPWSTR pszDestInfPath,
+  PULONG pcchDestInfPath
+);
+
+#define UploadPrinterDriverPackage __MINGW_NAME_AW(UploadPrinterDriverPackage)
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 

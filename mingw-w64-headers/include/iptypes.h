@@ -226,6 +226,15 @@ extern "C" {
   } IP_INTERFACE_NAME_INFO,*PIP_INTERFACE_NAME_INFO;
 #endif
 
+#if (_WIN32_WINNT >= 0x0600)
+#define MAX_DNS_SUFFIX_STRING_LENGTH 256
+
+typedef struct _IP_ADAPTER_DNS_SUFFIX {
+  struct _IP_ADAPTER_DNS_SUFFIX *Next;
+  WCHAR                         String[MAX_DNS_SUFFIX_STRING_LENGTH];
+} IP_ADAPTER_DNS_SUFFIX, *PIP_ADAPTER_DNS_SUFFIX;
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifdef __cplusplus
 }
 #endif

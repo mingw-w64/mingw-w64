@@ -35,6 +35,14 @@ extern "C" {
   WINBOOL WINAPI SfcIsFileProtected(HANDLE RpcHandle,LPCWSTR ProtFileName);
   WINBOOL WINAPI SfpVerifyFile(LPCSTR pszFileName,LPSTR pszError,DWORD dwErrSize);
 
+#if (_WIN32_WINNT >= 0x0600)
+WINBOOL WINAPI SfcIsKeyProtected(
+  HKEY hKey,
+  LPCWSTR lpSubKey,
+  REGSAM samDesired
+);
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifdef __cplusplus
 }
 #endif

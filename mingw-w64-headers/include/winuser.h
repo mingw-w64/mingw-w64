@@ -5303,6 +5303,54 @@ extern "C" {
   WINUSERAPI UINT WINAPI GetRawInputDeviceList(PRAWINPUTDEVICELIST pRawInputDeviceList,PUINT puiNumDevices,UINT cbSize);
   WINUSERAPI LRESULT WINAPI DefRawInputProc(PRAWINPUT *paRawInput,INT nInput,UINT cbSizeHeader);
 
+#if (_WIN32_WINNT >= 0x0600)
+typedef struct _AUDIODESCRIPTION {
+  UINT cbSize;
+  BOOL Enabled;
+  LCID Locale;
+} AUDIODESCRIPTION, *PAUDIODESCRIPTION;
+
+#define CreateDesktopEx __MINGW_NAME_AW(CreateDesktopEx)
+
+HDESK WINAPI CreateDesktopExA(
+  LPCSTR lpszDesktop,
+  LPCSTR lpszDevice,
+  DEVMODE *pDevmode,
+  DWORD dwFlags,
+  ACCESS_MASK dwDesiredAccess,
+  LPSECURITY_ATTRIBUTES lpsa,
+  ULONG ulHeapSize,
+  PVOID pvoid
+);
+
+HDESK WINAPI CreateDesktopExW(
+  LPCWSTR lpszDesktop,
+  LPCWSTR lpszDevice,
+  DEVMODE *pDevmode,
+  DWORD dwFlags,
+  ACCESS_MASK dwDesiredAccess,
+  LPSECURITY_ATTRIBUTES lpsa,
+  ULONG ulHeapSize,
+  PVOID pvoid
+);
+
+WINBOOL WINAPI ShutdownBlockReasonCreate(
+  HWND hWnd,
+  LPCWSTR pwszReason
+);
+
+WINBOOL WINAPI ShutdownBlockReasonDestroy(
+  HWND hWnd
+);
+
+WINBOOL WINAPI ShutdownBlockReasonQuery(
+  HWND hWnd,
+  LPWSTR pwszBuff,
+  DWORD *pcchBuff
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #endif /* NOUSER */
 
 #ifdef __cplusplus

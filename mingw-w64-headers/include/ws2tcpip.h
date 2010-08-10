@@ -8,10 +8,6 @@
 
 #include <_mingw_unicode.h>
 
-#if __GNUC__ >=3
-#pragma GCC system_header
-#endif
-
 #include <winsock2.h>
 #include <mingw_inc/_ip_mreq1.h>
 
@@ -30,9 +26,6 @@ struct ip_msfilter {
 };
 
 #define IP_MSFILTER_SIZE(numsrc) (sizeof(struct ip_msfilter)-sizeof(struct in_addr) + (numsrc)*sizeof(struct in_addr))
-
-#define MCAST_INCLUDE 0
-#define MCAST_EXCLUDE 1
 
 #define SIO_GET_INTERFACE_LIST _IOR('t',127,u_long)
 
@@ -104,6 +97,8 @@ struct sockaddr_in6 {
 typedef struct sockaddr_in6 SOCKADDR_IN6;
 typedef struct sockaddr_in6 *PSOCKADDR_IN6;
 typedef struct sockaddr_in6 *LPSOCKADDR_IN6;
+
+#include <ws2ipdef.h>
 
 #define SS_PORT(ssp) (((struct sockaddr_in*)(ssp))->sin_port)
 
@@ -341,6 +336,8 @@ WCHAR *gai_strerrorW(int);
 #define NI_NUMERICSERV 0x08
 #define NI_DGRAM 0x10
 
+#include <mstcpip.h>
+
 #if (_WIN32_WINNT >= 0x0600)
 #define addrinfoEx __MINGW_NAME_AW(addrinfoEx)
 #define PADDRINFOEX __MINGW_NAME_AW(PADDRINFOEX)
@@ -378,10 +375,76 @@ WCHAR *gai_strerrorW(int);
 typedef PVOID LOOKUPSERVICE_COMPLETION_ROUTINE; /*reserved*/
 typedef LOOKUPSERVICE_COMPLETION_ROUTINE *LPLOOKUPSERVICE_COMPLETION_ROUTINE;
 
-int WSAAPI GetAddrInfoExA(LPCSTR pName,LPCSTR pServiceName,DWORD dwNameSpace,LPGUID lpNspId,const ADDRINFOEXA *pHints,PADDRINFOEXA *ppResult,struct timeval *timeout,LPOVERLAPPED lpOverlapped,LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,LPHANDLE lpNameHandle);
-int WSAAPI GetAddrInfoExW(LPCWSTR pName,LPCWSTR pServiceName,DWORD dwNameSpace,LPGUID lpNspId,const ADDRINFOEXW *pHints,PADDRINFOEXW *ppResult,struct timeval *timeout,LPOVERLAPPED lpOverlapped,LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,LPHANDLE lpNameHandle);
-void WSAAPI FreeAddrInfoExA(PADDRINFOEXA pAddrInfo);
-void WSAAPI FreeAddrInfoExW(PADDRINFOEXW pAddrInfo);
+WINSOCK_API_LINKAGE int WSAAPI GetAddrInfoExA(LPCSTR pName,LPCSTR pServiceName,DWORD dwNameSpace,LPGUID lpNspId,const ADDRINFOEXA *pHints,PADDRINFOEXA *ppResult,struct timeval *timeout,LPOVERLAPPED lpOverlapped,LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,LPHANDLE lpNameHandle);
+WINSOCK_API_LINKAGE int WSAAPI GetAddrInfoExW(LPCWSTR pName,LPCWSTR pServiceName,DWORD dwNameSpace,LPGUID lpNspId,const ADDRINFOEXW *pHints,PADDRINFOEXW *ppResult,struct timeval *timeout,LPOVERLAPPED lpOverlapped,LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,LPHANDLE lpNameHandle);
+WINSOCK_API_LINKAGE void WSAAPI FreeAddrInfoExA(PADDRINFOEXA pAddrInfo);
+WINSOCK_API_LINKAGE void WSAAPI FreeAddrInfoExW(PADDRINFOEXW pAddrInfo);
+
+WINSOCK_API_LINKAGE int WSAAPI SetAddrInfoExA(
+  PCSTR pName,
+  PCSTR pServiceName,
+  SOCKET_ADDRESS *pAddresses,
+  DWORD dwAddressCount,
+  LPBLOB lpBlob,
+  DWORD dwFlags,
+  DWORD dwNameSpace,
+  LPGUID lpNspId,
+  struct timeval *timeout,
+  LPOVERLAPPED lpOverlapped,
+  LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
+  LPHANDLE lpNameHandle
+);
+
+WINSOCK_API_LINKAGE int WSAAPI SetAddrInfoExW(
+  PCWSTR pName,
+  PCWSTR pServiceName,
+  SOCKET_ADDRESS *pAddresses,
+  DWORD dwAddressCount,
+  LPBLOB lpBlob,
+  DWORD dwFlags,
+  DWORD dwNameSpace,
+  LPGUID lpNspId,
+  struct timeval *timeout,
+  LPOVERLAPPED lpOverlapped,
+  LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
+  LPHANDLE lpNameHandle
+);
+
+#define SetAddrInfoEx __MINGW_NAME_AW(SetAddrInfoEx)
+
+WINSOCK_API_LINKAGE int WSAAPI WSAImpersonateSocketPeer(
+  SOCKET Socket,
+  const struct sockaddr PeerAddress,
+  ULONG peerAddressLen
+);
+
+WINSOCK_API_LINKAGE int WSAAPI WSAQuerySocketSecurity(
+  SOCKET Socket,
+  const SOCKET_SECURITY_QUERY_TEMPLATE *SecurityQueryTemplate,
+  ULONG SecurityQueryTemplateLen,
+  SOCKET_SECURITY_QUERY_INFO *SecurityQueryInfo,
+  ULONG *SecurityQueryInfoLen,
+  LPWSAOVERLAPPED Overlapped,
+  LPWSAOVERLAPPED_COMPLETION_ROUTINE CompletionRoutine
+);
+
+WINSOCK_API_LINKAGE int WSAAPI WSARevertImpersonation(void);
+
+WINSOCK_API_LINKAGE int WSAAPI WSASetSocketPeerTargetName(
+  SOCKET Socket,
+  const SOCKET_PEER_TARGET_NAME *PeerTargetName,
+  ULONG PeerTargetNameLen,
+  LPWSAOVERLAPPED Overlapped,
+  LPWSAOVERLAPPED_COMPLETION_ROUTINE CompletionRoutine
+);
+
+WINSOCK_API_LINKAGE int WSAAPI WSASetSocketSecurity(
+  SOCKET Socket,
+  const SOCKET_SECURITY_SETTINGS *SecuritySettings,
+  ULONG SecuritySettingsLen,
+  LPWSAOVERLAPPED Overlapped,
+  LPWSAOVERLAPPED_COMPLETION_ROUTINE CompletionRoutine
+);
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 

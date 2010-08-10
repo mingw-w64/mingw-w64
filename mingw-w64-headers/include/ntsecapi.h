@@ -957,6 +957,11 @@ extern "C" {
   typedef enum _KERB_LOGON_SUBMIT_TYPE {
     KerbInteractiveLogon = 2,KerbSmartCardLogon = 6,KerbWorkstationUnlockLogon = 7,KerbSmartCardUnlockLogon = 8,KerbProxyLogon = 9,
     KerbTicketLogon = 10,KerbTicketUnlockLogon = 11,KerbS4ULogon = 12
+#ifdef (_WIN32_WINNT >= 0x0600)
+   ,KerbCertificateLogon         = 13,
+    KerbCertificateS4ULogon      = 14,
+    KerbCertificateUnlockLogon   = 15 
+#endif
   } KERB_LOGON_SUBMIT_TYPE,*PKERB_LOGON_SUBMIT_TYPE;
 
   typedef struct _KERB_INTERACTIVE_LOGON {
@@ -1298,6 +1303,176 @@ extern "C" {
     LUID DestinationLogonId;
     ULONG Flags;
   } KERB_TRANSFER_CRED_REQUEST,*PKERB_TRANSFER_CRED_REQUEST;
+
+#if (_WIN32_WINNT >= 0x0600)
+
+  typedef enum _POLICY_AUDIT_EVENT_TYPE {
+    AuditCategorySystem,
+    AuditCategoryLogon,
+    AuditCategoryObjectAccess,
+    AuditCategoryPrivilegeUse,
+    AuditCategoryDetailedTracking,
+    AuditCategoryPolicyChange,
+    AuditCategoryAccountManagement,
+    AuditCategoryDirectoryServiceAccess,
+    AuditCategoryAccountLogon 
+  } POLICY_AUDIT_EVENT_TYPE, *PPOLICY_AUDIT_EVENT_TYPE;
+
+#define POLICY_AUDIT_EVENT_UNCHANGED 0x00000000
+#define POLICY_AUDIT_EVENT_SUCCESS 0x00000001
+#define POLICY_AUDIT_EVENT_FAILURE 0x00000002
+#define POLICY_AUDIT_EVENT_NONE 0x00000004
+#define PER_USER_POLICY_UNCHANGED 0x00
+#define PER_USER_AUDIT_SUCCESS_INCLUDE 0x01
+#define PER_USER_AUDIT_SUCCESS_EXCLUDE 0x02
+#define PER_USER_AUDIT_FAILURE_INCLUDE 0x04
+#define PER_USER_AUDIT_FAILURE_EXCLUDE 0x08
+#define PER_USER_AUDIT_NONE 0x10
+
+  typedef struct _AUDIT_POLICY_INFORMATION {
+    GUID  AuditSubCategoryGuid;
+    ULONG AuditingInformation;
+    GUID  AuditCategoryGuid;
+  } AUDIT_POLICY_INFORMATION, *PAUDIT_POLICY_INFORMATION, *PCAUDIT_POLICY_INFORMATION;
+
+  typedef struct _POLICY_AUDIT_SID_ARRAY {
+    ULONG UsersCount;
+    PSID  *UserSidArray;
+  } POLICY_AUDIT_SID_ARRAY, *PPOLICY_AUDIT_SID_ARRAY;
+
+  typedef struct _KERB_CERTIFICATE_LOGON {
+    KERB_LOGON_SUBMIT_TYPE MessageType;
+    UNICODE_STRING         DomainName;
+    UNICODE_STRING         UserName;
+    UNICODE_STRING         Pin;
+    ULONG                  Flags;
+    ULONG                  CspDataLength;
+    PUCHAR                 CspData;
+  } KERB_CERTIFICATE_LOGON, *PKERB_CERTIFICATE_LOGON;
+
+  typedef struct _KERB_CERTIFICATE_UNLOCK_LOGON {
+    KERB_CERTIFICATE_LOGON Logon;
+    LUID                   LogonId;
+  } KERB_CERTIFICATE_UNLOCK_LOGON, *PKERB_CERTIFICATE_UNLOCK_LOGON;
+
+  typedef struct _KERB_SMARTCARD_CSP_INFO {
+    DWORD dwCspInfoLen;
+    DWORD MessageType;
+    __MINGW_EXTENSION union {
+      PVOID   ContextInformation;
+      ULONG64 SpaceHolderForWow64;
+    };
+    DWORD flags;
+    DWORD KeySpec;
+    ULONG nCardNameOffset;
+    ULONG nReaderNameOffset;
+    ULONG nContainerNameOffset;
+    ULONG nCSPNameOffset;
+    TCHAR bBuffer;
+  } KERB_SMARTCARD_CSP_INFO, *PKERB_SMARTCARD_CSP_INFO;
+
+  BOOLEAN WINAPI AuditComputeEffectivePolicyBySid(
+    const PSID pSid,
+    const GUID *pSubCategoryGuids,
+    ULONG PolicyCount,
+    PAUDIT_POLICY_INFORMATION *ppAuditPolicy
+  );
+
+  VOID WINAPI AuditFree(
+    PVOID Buffer
+  );
+
+  BOOLEAN WINAPI AuditSetSystemPolicy(
+    PCAUDIT_POLICY_INFORMATION pAuditPolicy,
+    ULONG PolicyCount
+  );
+
+  BOOLEAN WINAPI AuditQuerySystemPolicy(
+    const GUID *pSubCategoryGuids,
+    ULONG PolicyCount,
+    PAUDIT_POLICY_INFORMATION *ppAuditPolicy
+  );
+
+  BOOLEAN WINAPI AuditSetPerUserPolicy(
+    const PSID pSid,
+    PCAUDIT_POLICY_INFORMATION pAuditPolicy,
+    ULONG PolicyCount
+  );
+
+  BOOLEAN WINAPI AuditQueryPerUserPolicy(
+    const PSID pSid,
+    const GUID *pSubCategoryGuids,
+    ULONG PolicyCount,
+    PAUDIT_POLICY_INFORMATION *ppAuditPolicy
+  );
+
+  BOOLEAN WINAPI AuditComputeEffectivePolicyByToken(
+    HANDLE hTokenHandle,
+    const GUID *pSubCategoryGuids,
+    ULONG PolicyCount,
+    PAUDIT_POLICY_INFORMATION *ppAuditPolicy
+  );
+
+  BOOLEAN WINAPI AuditEnumerateCategories(
+    GUID **ppAuditCategoriesArray,
+    PULONG pCountReturned
+  );
+
+  BOOLEAN WINAPI AuditEnumeratePerUserPolicy(
+    PPOLICY_AUDIT_SID_ARRAY *ppAuditSidArray
+  );
+
+  BOOLEAN WINAPI AuditEnumerateSubCategories(
+    const GUID *pAuditCategoryGuid,
+    BOOLEAN bRetrieveAllSubCategories,
+    GUID **ppAuditSubCategoriesArray,
+    PULONG pCountReturned
+  );
+
+  BOOLEAN WINAPI AuditLookupCategoryGuidFromCategoryId(
+    POLICY_AUDIT_EVENT_TYPE AuditCategoryId,
+    GUID *pAuditCategoryGuid
+  );
+
+  BOOLEAN WINAPI AuditQuerySecurity(
+    SECURITY_INFORMATION SecurityInformation,
+    PSECURITY_DESCRIPTOR *ppSecurityDescriptor
+  );
+
+#define AuditLookupSubCategoryName __MINGW_NAME_AW(AuditLookupSubCategoryName)
+#define AuditLookupCategoryName __MINGW_NAME_AW(AuditLookupCategoryName)
+
+  BOOLEAN WINAPI AuditLookupSubCategoryNameA(
+    const GUID *pAuditSubCategoryGuid,
+    LPSTR *ppszSubCategoryName
+  );
+
+  BOOLEAN WINAPI AuditLookupSubCategoryNameW(
+    const GUID *pAuditSubCategoryGuid,
+    LPWSTR *ppszSubCategoryName
+  );
+
+  BOOLEAN WINAPI AuditLookupCategoryNameA(
+    const GUID *pAuditCategoryGuid,
+    LPSTR *ppszCategoryName
+  );
+
+  BOOLEAN WINAPI AuditLookupCategoryNameW(
+    const GUID *pAuditCategoryGuid,
+    LPWSTR *ppszCategoryName
+  );
+
+  BOOLEAN WINAPI AuditLookupCategoryIdFromCategoryGuid(
+    const GUID *pAuditCategoryGuid,
+    PPOLICY_AUDIT_EVENT_TYPE pAuditCategoryId
+  );
+
+  BOOLEAN WINAPI AuditSetSecurity(
+    __in  SECURITY_INFORMATION SecurityInformation,
+    __in  PSECURITY_DESCRIPTOR pSecurityDescriptor
+  );
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
 }

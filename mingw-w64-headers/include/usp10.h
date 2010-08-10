@@ -18,6 +18,8 @@ extern "C" {
 
   typedef void *SCRIPT_CACHE;
 
+  typedef ULONG OPENTYPE_TAG;
+
   HRESULT WINAPI ScriptFreeCache(SCRIPT_CACHE *psc);
 
   typedef struct tag_SCRIPT_CONTROL {
@@ -213,6 +215,150 @@ extern "C" {
 #define SCRIPT_DIGITSUBSTITUTE_TRADITIONAL 3
 
   HRESULT WINAPI ScriptApplyDigitSubstitution(const SCRIPT_DIGITSUBSTITUTE *psds,SCRIPT_CONTROL *psc,SCRIPT_STATE *pss);
+
+#if (_WIN32_WINNT >= 0x0600)
+typedef struct opentype_feature_record {
+  OPENTYPE_TAG tagFeature;
+  LONG         lParameter;
+} OPENTYPE_FEATURE_RECORD;
+
+typedef struct script_charprop {
+  WORD fCanGlyphAlone  :1;
+  WORD reserved  :15;
+} SCRIPT_CHARPROP;
+
+typedef struct textrange_properties {
+  OPENTYPE_FEATURE_RECORD *potfRecords;
+  int                     cotfRecords;
+} TEXTRANGE_PROPERTIES;
+
+typedef struct script_glyphprop {
+  SCRIPT_VISATTR sva;
+  WORD           reserved;
+} SCRIPT_GLYPHPROP;
+
+HRESULT WINAPI ScriptGetFontAlternateGlyphs(
+  HDC hdc,
+  SCRIPT_CACHE *psc,
+  SCRIPT_ANALYSIS *psa,
+  OPENTYPE_TAG tagScript,
+  OPENTYPE_TAG tagLangSys,
+  OPENTYPE_TAG tagFeature,
+  WORD wGlyphId,
+  int cMaxAlternates,
+  WORD *pAlternateGlyphs,
+  int *pcAlternates
+);
+
+HRESULT WINAPI ScriptGetFontFeatureTags(
+  HDC hdc,
+  SCRIPT_CACHE *psc,
+  SCRIPT_ANALYSIS *psa,
+  OPENTYPE_TAG tagScript,
+  OPENTYPE_TAG tagLangSys,
+  int cMaxTags,
+  OPENTYPE_TAG *pFeatureTags,
+  int *pcTags
+);
+
+HRESULT WINAPI ScriptGetFontLanguageTags(
+  HDC hdc,
+  SCRIPT_CACHE *psc,
+  SCRIPT_ANALYSIS *psa,
+  OPENTYPE_TAG tagScript,
+  int cMaxTags,
+  OPENTYPE_TAG *pLangSysTags,
+  int *pcTags
+);
+
+HRESULT WINAPI ScriptGetFontScriptTags(
+  HDC hdc,
+  SCRIPT_CACHE *psc,
+  SCRIPT_ANALYSIS *psa,
+  int cMaxTags,
+  OPENTYPE_TAG *pScriptTags,
+  int *pcTags
+);
+
+HRESULT WINAPI ScriptItemizeOpenType(
+  const WCHAR *pwcInChars,
+  int cInChars,
+  int cMaxItems,
+  const SCRIPT_CONTROL *psControl,
+  const SCRIPT_STATE *psState,
+  SCRIPT_ITEM *pItems,
+  OPENTYPE_TAG *pScriptTags,
+  int *pcItems
+);
+
+HRESULT WINAPI ScriptPlaceOpenType(
+  HDC hdc,
+  SCRIPT_CACHE *psc,
+  SCRIPT_ANALYSIS *psa,
+  OPENTYPE_TAG tagScript,
+  OPENTYPE_TAG tagLangSys,
+  int *rcRangeChars,
+  TEXTRANGE_PROPERTIES **rpRangeProperties,
+  int cRanges,
+  const WCHAR *pwcChars,
+  WORD *pwLogClust,
+  SCRIPT_CHARPROP *pCharProps,
+  int cChars,
+  const WORD *pwGlyphs,
+  const SCRIPT_GLYPHPROP *pGlyphProps,
+  int cGlyphs,
+  int *piAdvance,
+  GOFFSET *pGoffset,
+  ABC *pABC
+);
+
+HRESULT WINAPI ScriptPositionSingleGlyph(
+  HDC hdc,
+  SCRIPT_CACHE *psc,
+  SCRIPT_ANALYSIS *psa,
+  OPENTYPE_TAG tagScript,
+  OPENTYPE_TAG tagLangSys,
+  OPENTYPE_TAG tagFeature,
+  LONG lParameter,
+  WORD wGlyphId,
+  int iAdvance,
+  GOFFSET Goffset,
+  int *piOutAdvance,
+  GOFFSET *pOutGoffset
+);
+
+HRESULT WINAPI ScriptShapeOpenType(
+  HDC hdc,
+  SCRIPT_CACHE *psc,
+  SCRIPT_ANALYSIS *psa,
+  OPENTYPE_TAG tagScript,
+  OPENTYPE_TAG tagLangSys,
+  int *rcRangeChars,
+  TEXTRANGE_PROPERTIES **rpRangeProperties,
+  int cRanges,
+  const WCHAR *pwcChars,
+  int cChars,
+  int cMaxGlyphs,
+  WORD *pwLogClust,
+  SCRIPT_CHARPROP *pCharProps,
+  WORD *pwOutGlyphs,
+  SCRIPT_GLYPHPROP *pOutGlyphProps,
+  int *pcGlyphs
+);
+
+HRESULT ScriptSubstituteSingleGlyph(
+  HDC hdc,
+  SCRIPT_CACHE *psc,
+  SCRIPT_ANALYSIS *psa,
+  OPENTYPE_TAG tagScript,
+  OPENTYPE_TAG tagLangSys,
+  OPENTYPE_TAG tagFeature,
+  LONG lParameter,
+  WORD wGlyphId,
+  WORD *pwOutGlyphId
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
 }

@@ -1133,6 +1133,7 @@ extern "C" {
 
 #define MINIDUMP_MISC1_PROCESS_ID 0x00000001
 #define MINIDUMP_MISC1_PROCESS_TIMES 0x00000002
+#define MINIDUMP_MISC1_PROCESSOR_POWER_INFO 0x00000004
 
   typedef struct _MINIDUMP_MISC_INFO {
     ULONG32 SizeOfInfo;
@@ -1193,7 +1194,8 @@ extern "C" {
     ThreadWriteContext             = 0x0004,
     ThreadWriteBackingStore        = 0x0008,
     ThreadWriteInstructionWindow   = 0x0010,
-    ThreadWriteThreadData          = 0x0020
+    ThreadWriteThreadData          = 0x0020,
+    ThreadWriteThreadInfo          = 0x0040
   } THREAD_WRITE_FLAGS;
 
   typedef struct _MINIDUMP_MODULE_CALLBACK {
@@ -1218,8 +1220,14 @@ extern "C" {
     ModuleWriteDataSeg         = 0x0002,
     ModuleWriteMiscRecord      = 0x0004,
     ModuleWriteCvRecord        = 0x0008,
-    ModuleReferencedByMemory   = 0x0010
+    ModuleReferencedByMemory   = 0x0010,
+    ModuleWriteTlsData         = 0x0020,
+    ModuleWriteCodeSegs        = 0x0040
   } MODULE_WRITE_FLAGS;
+
+  typedef enum _MINIDUMP_SECONDARY_FLAGS {
+    MiniSecondaryWithoutPowerInfo   = 0x00000001
+  } MINIDUMP_SECONDARY_FLAGS;
 
   typedef struct _MINIDUMP_CALLBACK_INPUT {
     ULONG ProcessId;
@@ -1238,11 +1246,22 @@ extern "C" {
     __MINGW_EXTENSION union {
       ULONG ModuleWriteFlags;
       ULONG ThreadWriteFlags;
+      ULONG SecondaryFlags;
       __MINGW_EXTENSION struct {
 	ULONG64 MemoryBase;
 	ULONG MemorySize;
       };
+      __MINGW_EXTENSION struct {
+	WINBOOL CheckCancel;
+	WINBOOL Cancel;
+      };
+      HANDLE Handle;
     };
+    __MINGW_EXTENSION struct {
+      MINIDUMP_MEMORY_INFO VmRegion;
+      WINBOOL Continue;
+    };
+    HRESULT Status;
   } MINIDUMP_CALLBACK_OUTPUT, *PMINIDUMP_CALLBACK_OUTPUT;
 
   typedef enum _MINIDUMP_TYPE {
@@ -1257,8 +1276,67 @@ extern "C" {
     MiniDumpFilterModulePaths                = 0x00000080,
     MiniDumpWithProcessThreadData            = 0x00000100,
     MiniDumpWithPrivateReadWriteMemory       = 0x00000200,
-    MiniDumpWithoutOptionalData              = 0x00000400
+    MiniDumpWithoutOptionalData              = 0x00000400,
+    MiniDumpWithFullMemoryInfo               = 0x00000800,
+    MiniDumpWithThreadInfo                   = 0x00001000,
+    MiniDumpWithCodeSegs                     = 0x00002000,
+    MiniDumpWithoutAuxiliaryState            = 0x00004000,
+    MiniDumpWithFullAuxiliaryState           = 0x00008000,
+    MiniDumpWithPrivateWriteCopyMemory       = 0x00010000,
+    MiniDumpIgnoreInaccessibleMemory         = 0x00020000,
+    MiniDumpWithTokenInformation             = 0x00040000
   } MINIDUMP_TYPE;
+
+typedef struct _MINIDUMP_MEMORY_INFO {
+  ULONG64 BaseAddress;
+  ULONG64 AllocationBase;
+  ULONG32 AllocationProtect;
+  ULONG32 __alignment1;
+  ULONG64 RegionSize;
+  ULONG32 State;
+  ULONG32 Protect;
+  ULONG32 Type;
+  ULONG32 __alignment2;
+} MINIDUMP_MEMORY_INFO, *PMINIDUMP_MEMORY_INFO;
+
+typedef struct _MINIDUMP_MISC_INFO_2 {
+  ULONG32 SizeOfInfo;
+  ULONG32 Flags1;
+  ULONG32 ProcessId;
+  ULONG32 ProcessCreateTime;
+  ULONG32 ProcessUserTime;
+  ULONG32 ProcessKernelTime;
+  ULONG32 ProcessorMaxMhz;
+  ULONG32 ProcessorCurrentMhz;
+  ULONG32 ProcessorMhzLimit;
+  ULONG32 ProcessorMaxIdleState;
+  ULONG32 ProcessorCurrentIdleState;
+} MINIDUMP_MISC_INFO_2, *PMINIDUMP_MISC_INFO_2;
+
+typedef struct _MINIDUMP_MEMORY_INFO_LIST {
+  ULONG   SizeOfHeader;
+  ULONG   SizeOfEntry;
+  ULONG64 NumberOfEntries;
+} MINIDUMP_MEMORY_INFO_LIST, *PMINIDUMP_MEMORY_INFO_LIST;
+
+typedef struct _MINIDUMP_THREAD_INFO {
+  ULONG32 ThreadId;
+  ULONG32 DumpFlags;
+  ULONG32 DumpError;
+  ULONG32 ExitStatus;
+  ULONG64 CreateTime;
+  ULONG64 ExitTime;
+  ULONG64 KernelTime;
+  ULONG64 UserTime;
+  ULONG64 StartAddress;
+  ULONG64 Affinity;
+} MINIDUMP_THREAD_INFO, *PMINIDUMP_THREAD_INFO;
+
+typedef struct _MINIDUMP_THREAD_INFO_LIST {
+  ULONG   SizeOfHeader;
+  ULONG   SizeOfEntry;
+  ULONG64 NumberOfEntries;
+} MINIDUMP_THREAD_INFO_LIST, *PMINIDUMP_THREAD_INFO_LIST;
 
   typedef WINBOOL (WINAPI *MINIDUMP_CALLBACK_ROUTINE)(PVOID CallbackParam,CONST PMINIDUMP_CALLBACK_INPUT CallbackInput,PMINIDUMP_CALLBACK_OUTPUT CallbackOutput);
 

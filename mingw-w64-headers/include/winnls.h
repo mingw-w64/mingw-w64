@@ -447,6 +447,9 @@ extern "C" {
 #define CAL_GREGORIAN_ARABIC 10
 #define CAL_GREGORIAN_XLIT_ENGLISH 11
 #define CAL_GREGORIAN_XLIT_FRENCH 12
+#if (_WIN32_WINNT >= 0x0600)
+#define CAL_UMALQURA 23
+#endif /* (_WIN32_WINNT >= 0x0600) */
 
 #define LGRPID_WESTERN_EUROPE 0x0001
 #define LGRPID_CENTRAL_EUROPE 0x0002
@@ -720,6 +723,321 @@ extern "C" {
   WINBASEAPI int WINAPI IdnToNameprepUnicode(DWORD dwFlags,LPCWSTR lpUnicodeCharStr,int cchUnicodeChar,LPWSTR lpNameprepCharStr,int cchNameprepChar);
   WINBASEAPI int WINAPI IdnToUnicode(DWORD dwFlags,LPCWSTR lpASCIICharStr,int cchASCIIChar,LPWSTR lpUnicodeCharStr,int cchUnicodeChar);
 
+WINBASEAPI LANGID WINAPI SetThreadUILanguage(
+  LANGID LangId
+);
+
+#if (_WIN32_WINNT >= 0x0600)
+
+typedef struct _FILEMUIINFO {
+  DWORD dwSize;
+  DWORD dwVersion;
+  DWORD dwFileType;
+  BYTE  pChecksum[16];
+  BYTE  pServiceChecksum[16];
+  DWORD dwLanguageNameOffset;
+  DWORD dwTypeIDMainSize;
+  DWORD dwTypeIDMainOffset;
+  DWORD dwTypeNameMainOffset;
+  DWORD dwTypeIDMUISize;
+  DWORD dwTypeIDMUIOffset;
+  DWORD dwTypeNameMUIOffset;
+  BYTE  abBuffer[8];
+} FILEMUIINFO, *PFILEMUIINFO;
+
+typedef struct _nlsversioninfoex {
+  DWORD dwNLSVersionInfoSize;
+  DWORD dwNLSVersion;
+  DWORD dwDefinedVersion;
+  DWORD dwEffectiveId;
+  GUID  guidCustomVersion;
+} NLSVERSIONINFOEX, *LPNLSVERSIONINFOEX;
+
+WINBASEAPI int WINAPI CompareStringEx(
+  LPCWSTR lpLocaleName,
+  DWORD dwCmpFlags,
+  LPCWSTR lpString1,
+  int cchCount1,
+  LPCWSTR lpString2,
+  int cchCount2,
+  LPNLSVERSIONINFO lpVersionInformation,
+  LPVOID lpReserved,
+  LPARAM lParam
+);
+
+WINBASEAPI int WINAPI CompareStringOrdinal(
+  LPCWSTR lpString1,
+  int cchCount1,
+  LPCWSTR lpString2,
+  int cchCount2,
+  WINBOOL bIgnoreCase
+);
+
+typedef WINBOOL (CALLBACK *CALINFO_ENUMPROCEXEX)(
+  LPWSTR lpCalendarInfoString,
+  CALID Calendar,
+  LPWSTR lpReserved,
+  LPARAM lParam
+);
+
+typedef WINBOOL (CALLBACK *DATEFMT_ENUMPROCEXEX)(
+  LPWSTR lpDateFormatString,
+  CALID CalendarID,
+  LPARAM lParam
+);
+
+WINBASEAPI WINBOOL WINAPI EnumCalendarInfoExEx(
+  CALINFO_ENUMPROCEXEX pCalInfoEnumProcExEx,
+  LPCWSTR lpLocaleName,
+  CALID Calendar,
+  LPCWSTR lpReserved,
+  CALTYPE CalType,
+  LPARAM lParam
+);
+
+WINBASEAPI WINBOOL WINAPI EnumDateFormatsExEx(
+  DATEFMT_ENUMPROCEXEX lpDateFmtEnumProcExEx,
+  LPCWSTR lpLocaleName,
+  DWORD dwFlags,
+  LPARAM lParam
+);
+
+typedef WINBOOL (CALLBACK *LOCALE_ENUMPROCEX)(
+  LPWSTR lpLocaleString,
+  DWORD dwFlags,
+  LPARAM lParam
+);
+
+WINBASEAPI WINBOOL WINAPI EnumSystemLocalesEx(
+  LOCALE_ENUMPROCEX lpLocaleEnumProcEx,
+  DWORD dwFlags,
+  LPARAM lParam,
+  LPVOID lpReserved
+);
+
+typedef WINBOOL (CALLBACK *TIMEFMT_ENUMPROCEX)(
+  LPWSTR lpTimeFormatString,
+  LPARAM lParam
+);
+
+WINBASEAPI WINBOOL WINAPI EnumTimeFormatsEx(
+  TIMEFMT_ENUMPROCEX lpTimeFmtEnumProcEx,
+  LPCWSTR lpLocaleName,
+  DWORD dwFlags,
+  LPARAM lParam
+);
+
+WINBASEAPI int WINAPI FindNLSString(
+  LCID Locale,
+  DWORD dwFindNLSStringFlags,
+  LPCWSTR lpStringSource,
+  int cchSource,
+  LPCWSTR lpStringValue,
+  int cchValue,
+  LPINT pcchFound
+);
+
+WINBASEAPI int WINAPI FindNLSStringEx(
+  LPCWSTR lpLocaleName,
+  DWORD dwFindNLSStringFlags,
+  LPCWSTR lpStringSource,
+  int cchSource,
+  LPCWSTR lpStringValue,
+  int cchValue,
+  LPINT pcchFound,
+  LPNLSVERSIONINFO lpVersionInformation,
+  LPVOID lpReserved,
+  LPARAM lParam
+);
+
+WINBASEAPI int WINAPI GetDateFormatEx(
+  LPCWSTR lpLocaleName,
+  DWORD dwFlags,
+  const SYSTEMTIME *lpDate,
+  LPCWSTR lpFormat,
+  LPWSTR lpDateStr,
+  int cchDate,
+  LPCWSTR lpCalendar
+);
+
+WINBASEAPI int WINAPI GetDurationFormat(
+  LCID Locale,
+  DWORD dwFlags,
+  const SYSTEMTIME *lpDuration,
+  ULONGLONG ullDuration,
+  LPCWSTR lpFormat,
+  LPWSTR lpDurationStr,
+  int cchDuration
+);
+
+WINBASEAPI int WINAPI GetDurationFormatEx(
+  LPCWSTR lpLocaleName,
+  DWORD dwFlags,
+  const SYSTEMTIME *lpDuration,
+  ULONGLONG ullDuration,
+  LPCWSTR lpFormat,
+  LPWSTR lpDurationStr,
+  int cchDuration
+);
+
+WINBASEAPI WINBOOL WINAPI GetFileMUIInfo(
+  DWORD dwFlags,
+  PCWSTR pcwszFilePath,
+  PFILEMUIINFO pFileMUIInfo,
+  DWORD *pcbFileMUIInfo
+);
+
+WINBASEAPI WINBOOL WINAPI GetFileMUIPath(
+  DWORD dwFlags,
+  PCWSTR pcwszFilePath,
+  PWSTR pwszLanguage,
+  PULONG pcchLanguage,
+  PWSTR pwszFileMUIPath,
+  PULONG pcchFileMUIPath,
+  PULONGLONG pululEnumerator
+);
+
+WINBASEAPI int WINAPI GetLocaleInfoEx(
+  LPCWSTR lpLocaleName,
+  LCTYPE LCType,
+  LPWSTR lpLCData,
+  int cchData
+);
+
+WINBASEAPI WINBOOL WINAPI GetNLSVersion(
+  NLS_FUNCTION Function,
+  LCID Locale,
+  LPNLSVERSIONINFO lpVersionInformation
+);
+
+WINBASEAPI WINBOOL WINAPI GetNLSVersionEx(
+  NLS_FUNCTION function,
+  LPCWSTR lpLocaleName,
+  LPNLSVERSIONINFOEX lpVersionInformation
+);
+
+WINBASEAPI int WINAPI GetNumberFormatEx(
+  LPCWSTR lpLocaleName,
+  DWORD dwFlags,
+  LPCWSTR lpValue,
+  const NUMBERFMT *lpFormat,
+  LPWSTR lpNumberStr,
+  int cchNumber
+);
+
+WINBASEAPI int WINAPI GetStringScripts(
+  DWORD dwFlags,
+  LPCWSTR lpString,
+  int cchString,
+  LPWSTR lpScripts,
+  int cchScripts
+);
+
+WINBASEAPI int WINAPI GetSystemDefaultLocaleName(
+  LPWSTR lpLocaleName,
+  int cchLocaleName
+);
+
+typedef WCHAR *PZZWSTR; /*__nullnullterminated*/
+typedef CONST WCHAR *PCZZWSTR; /*__nullnullterminated*/
+
+WINBASEAPI WINBOOL WINAPI GetSystemPreferredUILanguages(
+  DWORD dwFlags,
+  PULONG pulNumLanguages,
+  PZZWSTR pwszLanguagesBuffer,
+  PULONG pcchLanguagesBuffer
+);
+
+WINBASEAPI WINBOOL WINAPI GetThreadPreferredUILanguages(
+  DWORD dwFlags,
+  PULONG pulNumLanguages,
+  PZZWSTR pwszLanguagesBuffer,
+  PULONG pcchLanguagesBuffer
+);
+
+WINBASEAPI LANGID WINAPI GetThreadUILanguage(void);
+
+WINBASEAPI WINBOOL WINAPI SetThreadPreferredUILanguages(
+  DWORD dwFlags,
+  PCZZWSTR pwszLanguagesBuffer,
+  PULONG pulNumLanguages
+);
+
+WINBASEAPI int WINAPI GetTimeFormatEx(
+  LPCWSTR lpLocaleName,
+  DWORD dwFlags,
+  const SYSTEMTIME *lpTime,
+  LPCWSTR lpFormat,
+  LPWSTR lpTimeStr,
+  int cchTime
+);
+
+WINBASEAPI WINBOOL WINAPI GetUILanguageInfo(
+  DWORD dwFlags,
+  PCZZWSTR pwmszLanguage,
+  PZZWSTR pwszFallbackLanguages,
+  PDWORD pcchFallbackLanguages,
+  PDWORD pdwAttributes
+);
+
+WINBASEAPI int WINAPI GetUserDefaultLocaleName(
+  LPWSTR lpLocaleName,
+  int cchLocaleName
+);
+
+WINBASEAPI WINBOOL WINAPI GetUserPreferredUILanguages(
+  DWORD dwFlags,
+  PULONG pulNumLanguages,
+  PZZWSTR pwszLanguagesBuffer,
+  PULONG pcchLanguagesBuffer
+);
+
+WINBASEAPI int WINAPI LCIDToLocaleName(
+  LCID Locale,
+  LPWSTR lpName,
+  int cchName,
+  DWORD dwFlags
+);
+
+WINBASEAPI int WINAPI LCMapStringEx(
+  LPCWSTR lpLocaleName,
+  DWORD dwMapFlags,
+  LPCWSTR lpSrcStr,
+  int cchSrc,
+  LPWSTR lpDestStr,
+  int cchDest,
+  LPNLSVERSIONINFO lpVersionInformation,
+  LPVOID lpReserved,
+  LPARAM lParam
+);
+
+WINBASEAPI LCID WINAPI LocaleNameToLCID(
+  LPCWSTR lpName,
+  DWORD dwFlags
+);
+
+WINBASEAPI int WINAPI NormalizeString(
+  NORM_FORM NormForm,
+  LPCWSTR lpSrcString,
+  int cwSrcLength,
+  LPWSTR lpDstString,
+  int cwDstLength
+);
+
+WINBASEAPI WINBOOL WINAPI RtlIsValidLocaleName(
+  LPCWSTR LocaleName,
+  ULONG Flags
+);
+
+WINBASEAPI WINBOOL VerifyScripts(
+  DWORD dwFlags,
+  LPCWSTR lpLocaleScripts,
+  int cchLocaleScripts,
+  LPCWSTR lpTestScripts,
+  int cchTestScripts
+);
+
+#endif /* (_WIN32_WINNT >= 0x0600) */
 #endif
 
 #ifdef __cplusplus

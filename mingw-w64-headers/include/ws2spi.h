@@ -227,6 +227,220 @@ extern "C" {
 
   INT WSAAPI NSPStartup(LPGUID lpProviderId,LPNSP_ROUTINE lpnspRoutines);
 
+#if (_WIN32_WINNT >= 0x0600)
+
+typedef int (WSAAPI *LPNSPV2CLEANUP)(
+  LPGUID lpProviderId,
+  LPVOID pvClientSessionArg
+);
+
+typedef int (WSAAPI *LPNSPV2CLIENTSESSIONRUNDOWN)(
+  LPGUID lpProviderId,
+  LPVOID pvClientSessionArg
+);
+
+typedef int (WSAAPI *LPNSPV2LOOKUPSERVICEBEGIN)(
+  LPGUID lpProviderId,
+  LPWSAQUERYSET2W lpqsRestrictions,
+  DWORD dwControlFlags,
+  LPVOID lpvClientSessionArg,
+  LPHANDLE lphLookup
+);
+
+typedef int (WSAAPI *LPNSPV2LOOKUPSERVICEEND)(
+  HANDLE hLookup
+);
+
+typedef int (WSAAPI *LPNSPV2LOOKUPSERVICENEXTEX)(
+  HANDLE hAsyncCall,
+  HANDLE hLookup,
+  DWORD dwControlFlags,
+  LPDWORD lpdwBufferLength,
+  LPWSAQUERYSET2W lpqsResults
+);
+
+typedef int (WSAAPI *LPNSPV2SETSERVICEEX)(
+  HANDLE hAsyncCall,
+  LPGUID lpProviderId,
+  LPWSAQUERYSET2W lpqsRegInfo,
+  WSAESETSERVICEOP essOperation,
+  DWORD dwControlFlags,
+  LPVOID lpvClientSessionArg
+);
+
+typedef int (WSAAPI *LPNSPV2STARTUP)(
+  LPGUID lpProviderId,
+  LPVOID *ppvClientSessionArg
+);
+
+typedef struct _NSPV2_ROUTINE {
+  DWORD                       cbSize;
+  DWORD                       dwMajorVersion;
+  DWORD                       dwMinorVersion;
+  LPNSPV2STARTUP              NSPv2Startup;
+  LPNSPV2CLEANUP              NSPv2Cleanup;
+  LPNSPV2LOOKUPSERVICEBEGIN   NSPv2LookupServiceBegin;
+  LPNSPV2LOOKUPSERVICENEXTEX  NSPv2LookupServiceNextEx;
+  LPNSPV2LOOKUPSERVICEEND     NSPv2LookupServiceEnd;
+  LPNSPV2SETSERVICEEX         NSPv2SetServiceEx;
+  LPNSPV2CLIENTSESSIONRUNDOWN NSPv2ClientSessionRundown;
+} NSPV2_ROUTINE, *PNSPV2_ROUTINE, *LPCNSPV2_ROUTINE;
+
+typedef enum _WSC_PROVIDER_INFO_TYPE {
+  ProviderInfoLspCategories,
+  ProviderInfoAudit 
+} WSC_PROVIDER_INFO_TYPE;
+
+typedef struct _WSC_PROVIDER_AUDIT_INFO {
+  DWORD RecordSize;
+  PVOID Reserved;
+} WSC_PROVIDER_AUDIT_INFO, *PWSC_PROVIDER_AUDIT_INFO;
+
+INT WSAAPI WSAAdvertiseProvider(
+  const GUID *puuidProviderId,
+  const LPCNSPV2_ROUTINE *pNSPv2Routine
+);
+
+INT WSPAPI WSAProviderCompleteAsyncCall(
+  HANDLE hAsyncCall,
+  INT iRetCode
+);
+
+INT WSPAPI WSAUnadvertiseProvider(
+  const GUID *puuidProviderId
+);
+
+int WSPAPI WSCGetApplicationCategory(
+  LPCWSTR Path,
+  DWORD PathLength,
+  LPCWSTR Extra,
+  DWORD ExtraLength,
+  DWORD *pPermittedLspCategories,
+  LPINT lpErrno
+);
+
+int WSPAPI WSCGetProviderInfo(
+  LPGUID lpProviderId,
+  WSC_PROVIDER_INFO_TYPE InfoType,
+  PBYTE Info,
+  size_t *InfoSize,
+  DWORD Flags,
+  LPINT lpErrno
+);
+
+int WSPAPI WSCInstallProviderAndChains(
+  const LPGUID lpProviderId,
+  const LPWSTR lpszProviderDllPath,
+  const LPWSTR lpszLspName,
+  DWORD dwServiceFlags,
+  const LPWSAPROTOCOL_INFO lpProtocolInfoList,
+  DWORD dwNumberOfEntries,
+  LPDWORD lpdwCatalogEntryId,
+  LPINT lpErrno
+);
+
+int WSPAPI WSCSetApplicationCategory(
+  LPCWSTR Path,
+  DWORD PathLength,
+  LPCWSTR Extra,
+  DWORD ExtraLength,
+  DWORD PermittedLspCategories,
+  DWORD *pPrevPermLspCat,
+  LPINT lpErrno
+);
+
+int WSPAPI WSCSetProviderInfo(
+  LPGUID lpProviderId,
+  WSC_PROVIDER_INFO_TYPE InfoType,
+  PBYTE Info,
+  size_t InfoSize,
+  DWORD Flags,
+  LPINT lpErrno
+);
+
+int WSAAPI WSCInstallNameSpaceEx(
+  LPWSTR lpszIdentifier,
+  LPWSTR lpszPathName,
+  DWORD dwNameSpace,
+  DWORD dwVersion,
+  LPGUID lpProviderId,
+  LPBLOB lpProviderInfo
+);
+
+#ifdef _WIN64
+int WSPAPI WSCDeinstallProvider32(
+  LPGUID lpProviderId,
+  LPINT lpErrno
+);
+
+int WSPAPI WSCEnableNSProvider32(
+  LPGUID lpProviderId,
+  WINBOOL fEnable
+);
+
+INT WSPAPI WSCEnumNameSpaceProviders32(
+  LPDWORD lpdwBufferLength,
+  LPWSANAMESPACE_INFOW lpnspBuffer
+);
+
+INT WSPAPI WSCEnumNameSpaceProvidersEx32(
+  LPDWORD lpdwBufferLength,
+  LPWSANAMESPACE_INFOEXW lpnspBuffer
+);
+
+int WSPAPI WSCGetProviderInfo32(
+  LPGUID lpProviderId,
+  WSC_PROVIDER_INFO_TYPE InfoType,
+  PBYTE Info,
+  size_t *InfoSize,
+  DWORD Flags,
+  LPINT lpErrno
+);
+
+int WSAAPI WSCInstallNameSpaceEx32(
+  LPWSTR lpszIdentifier,
+  LPWSTR lpszPathName,
+  DWORD dwNameSpace,
+  DWORD dwVersion,
+  LPGUID lpProviderId,
+  LPBLOB lpProviderInfo
+);
+
+int WSPAPI WSCInstallProviderAndChains64_32(
+  const LPGUID lpProviderId,
+  const LPWSTR lpszProviderDllPath,
+  const LPWSTR lpszProviderDllPath32,
+  const LPWSTR lpszLspName,
+  DWORD dwServiceFlags,
+  const LPWSAPROTOCOL_INFO lpProtocolInfoList,
+  DWORD dwNumberOfEntries,
+  LPDWORD lpdwCatalogEntryId,
+  LPINT lpErrno
+);
+
+int WSPAPI WSCSetProviderInfo32(
+  LPGUID lpProviderId,
+  WSC_PROVIDER_INFO_TYPE InfoType,
+  PBYTE Info,
+  size_t InfoSize,
+  DWORD Flags,
+  LPINT lpErrno
+);
+
+int WSPAPI WSCWriteNameSpaceOrder32(
+  LPGUID lpProviderId,
+  DWORD dwNumberOfEntries
+);
+
+int WSPAPI WSCWriteProviderOrder32(
+  LPDWORD lpwdCatalogEntryId,
+  DWORD dwNumberOfEntries
+);
+
+#endif /* _WIN64*/
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifdef __cplusplus
 }
 #endif

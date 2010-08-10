@@ -361,4 +361,10 @@ WINBOOL SslGetDefaultIssuers(PBYTE pbIssuers,DWORD *pcbIssuers);
 typedef WINBOOL (WINAPI *SSL_CRACK_CERTIFICATE_FN)(PUCHAR pbCertificate,DWORD cbCertificate,WINBOOL VerifySignature,PX509Certificate *ppCertificate);
 typedef VOID (WINAPI *SSL_FREE_CERTIFICATE_FN)(PX509Certificate pCertificate);
 
+#if (_WIN32_WINNT >= 0x0600)
+typedef struct _SecPkgContext_EapPrfInfo {
+  DWORD dwVersion;
+  DWORD cbPrfData;
+} SecPkgContext_EapPrfInfo, *PSecPkgContext_EapPrfInfo;
+#endif /*(_WIN32_WINNT >= 0x0600)*/
 #endif

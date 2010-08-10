@@ -95,6 +95,13 @@ typedef struct _IP_MCAST_COUNTER_INFO {
   ULONG64 OutMcastPkts;
 } IP_MCAST_COUNTER_INFO,*PIP_MCAST_COUNTER_INFO;
 
+typedef struct _IPV6_ADDRESS_EX_LH {
+  USHORT sin6_port;
+  ULONG  sin6_flowinfo;
+  USHORT sin6_addr[8];
+  ULONG  sin6_scope_id;
+} IPV6_ADDRESS_EX, *PIPV6_ADDRESS_EX;
+
 #define IP_STATUS_BASE 11000
 
 #define IP_SUCCESS 0

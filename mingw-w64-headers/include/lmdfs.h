@@ -10,6 +10,10 @@
 extern "C" {
 #endif
 
+#ifndef NET_API_FUNCTION
+#define NET_API_FUNCTION WINAPI
+#endif
+
 #define DFS_VOLUME_STATES 0xF
 
 #define DFS_VOLUME_STATE_OK 1
@@ -147,6 +151,7 @@ extern "C" {
 #define DFS_PROPERTY_FLAG_SITE_COSTING 0x00000004
 #define DFS_PROPERTY_FLAG_TARGET_FAILBACK 0x00000008
 #define DFS_PROPERTY_FLAG_CLUSTER_ENABLED 0x00000010
+#define DFS_PROPERTY_FLAG_ABDE 0x00000020
 
   typedef struct _DFS_INFO_100 {
     LPWSTR Comment;
@@ -181,6 +186,145 @@ extern "C" {
     DWORD State;
     DFS_TARGET_PRIORITY TargetPriority;
   } DFS_INFO_106,*PDFS_INFO_106,*LPDFS_INFO_106;
+
+#if (_WIN32_WINNT >= 0x0600)
+#define DFS_NAMESPACE_CAPABILITY_ABDE 0x0000000000000001
+
+  typedef enum _DFS_NAMESPACE_VERSION_ORIGIN {
+    DFS_NAMESPACE_VERSION_ORIGIN_COMBINED   = 0,
+    DFS_NAMESPACE_VERSION_ORIGIN_SERVER     = 1,
+    DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN     = 2 
+  } DFS_NAMESPACE_VERSION_ORIGIN;
+
+typedef struct _DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
+  ULONG     DomainDfsMajorVersion;
+  ULONG     NamespaceMinorVersion;
+  ULONGLONG DomainDfsCapabilities;
+  ULONG     StandaloneDfsMajorVersion;
+  ULONG     StandaloneDfsMinorVersion;
+  ULONGLONG StandaloneDfsCapabilities;
+} DFS_SUPPORTED_NAMESPACE_VERSION_INFO, *PDFS_SUPPORTED_NAMESPACE_VERSION_INFO;
+
+  typedef struct _DFS_INFO_8 {
+    LPWSTR               EntryPath;
+    LPWSTR               Comment;
+    DWORD                State;
+    ULONG                Timeout;
+    GUID                 Guid;
+    ULONG                PropertyFlags;
+    ULONG                MetadataSize;
+    ULONG                SdLengthReserved;
+    PSECURITY_DESCRIPTOR pSecurityDescriptor;
+    DWORD                NumberOfStorages;
+  } DFS_INFO_8, *PDFS_INFO_8;
+
+  typedef struct _DFS_INFO_9 {
+    LPWSTR               EntryPath;
+    LPWSTR               Comment;
+    DWORD                State;
+    ULONG                Timeout;
+    GUID                 Guid;
+    ULONG                PropertyFlags;
+    ULONG                MetadataSize;
+    ULONG                SdLengthReserved;
+    PSECURITY_DESCRIPTOR pSecurityDescriptor;
+    DWORD                NumberOfStorages;
+    LPDFS_STORAGE_INFO_1 Storage;
+  } DFS_INFO_9, *PDFS_INFO_9;
+
+  typedef struct _DFS_INFO_50 {
+    ULONG     NamespaceMajorVersion;
+    ULONG     NamespaceMinorVersion;
+    ULONGLONG NamespaceCapabilities;
+  } DFS_INFO_50, *PDFS_INFO_50;
+
+  typedef struct _DFS_INFO_107 {
+    LPWSTR               Comment;
+    DWORD                State;
+    ULONG                Timeout;
+    ULONG                PropertyFlagMask;
+    ULONG                PropertyFlags;
+    ULONG                SdLengthReserved;
+    PSECURITY_DESCRIPTOR pSecurityDescriptor;
+  } DFS_INFO_107, *PDFS_INFO_107;
+
+  typedef struct _DFS_INFO_150 {
+    ULONG                SdLengthReserved;
+    PSECURITY_DESCRIPTOR pSecurityDescriptor;
+  } DFS_INFO_150, *PDFS_INFO_150;
+
+NET_API_STATUS NET_API_FUNCTION NetDfsAddRootTarget(
+  LPWSTR pDfsPath,
+  LPWSTR pTargetPath,
+  ULONG MajorVersion,
+  LPWSTR pComment,
+  ULONG Flags
+);
+
+NET_API_STATUS WINAPI NetDfsGetFtContainerSecurity(
+  LPWSTR DomainName,
+  SECURITY_INFORMATION SecurityInformation,
+  PSECURITY_DESCRIPTOR *ppSecurityDescriptor,
+  LPDWORD lpcbSecurityDescriptor
+);
+
+NET_API_STATUS WINAPI NetDfsGetSecurity(
+  LPWSTR DfsEntryPath,
+  SECURITY_INFORMATION SecurityInformation,
+  PSECURITY_DESCRIPTOR *ppSecurityDescriptor,
+  LPDWORD lpcbSecurityDescriptor
+);
+
+NET_API_STATUS WINAPI NetDfsGetStdContainerSecurity(
+  LPWSTR MachineName,
+  SECURITY_INFORMATION SecurityInformation,
+  PSECURITY_DESCRIPTOR *ppSecurityDescriptor,
+  LPDWORD lpcbSecurityDescriptor
+);
+
+NET_API_STATUS NET_API_FUNCTION NetDfsGetSupportedNamespaceVersion(
+  DFS_NAMESPACE_VERSION_ORIGIN Origin,
+  PWSTR pName,
+  PDFS_SUPPORTED_NAMESPACE_VERSION_INFO *ppVersionInfo
+);
+
+NET_API_STATUS NetDfsMove(
+  LPWSTR Path,
+  LPWSTR NewPath,
+  ULONG Flags
+);
+
+NET_API_STATUS NET_API_FUNCTION NetDfsRemoveRootTarget(
+  LPWSTR pDfsPath,
+  LPWSTR pTargetPath,
+  ULONG Flags
+);
+
+NET_API_STATUS WINAPI NetDfsSetFtContainerSecurity(
+  LPWSTR DomainName,
+  SECURITY_INFORMATION SecurityInformation,
+  PSECURITY_DESCRIPTOR pSecurityDescriptor
+);
+
+NET_API_STATUS WINAPI NetDfsSetSecurity(
+  LPWSTR DfsEntryPath,
+  SECURITY_INFORMATION SecurityInformation,
+  PSECURITY_DESCRIPTOR pSecurityDescriptor
+);
+
+NET_API_STATUS WINAPI NetDfsSetStdContainerSecurity(
+  LPWSTR MachineName,
+  SECURITY_INFORMATION SecurityInformation,
+  PSECURITY_DESCRIPTOR pSecurityDescriptor
+);
+
+NET_API_STATUS WINAPI NetShareDelEx(
+  LMSTR servername,
+  DWORD level,
+  LPBYTE buf
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
 
   typedef struct _DFS_INFO_200 {
     LPWSTR FtDfsName;

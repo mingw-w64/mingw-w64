@@ -39,6 +39,7 @@
 #endif
 #endif /* WINSOCK_API_LINKAGE */
 #define WSAAPI			WINAPI
+#define WSPAPI			WINAPI
 
 /* undefine macros from winsock.h */
 #include <mingw_inc/_ws1_undef.h>
@@ -610,6 +611,7 @@ typedef unsigned int GROUP;
   typedef struct sockaddr_storage SOCKADDR_STORAGE;
   typedef struct sockaddr_storage *PSOCKADDR_STORAGE;
   typedef struct sockaddr_storage *LPSOCKADDR_STORAGE;
+  typedef u_short ADDRESS_FAMILY;
 
 #ifndef _tagBLOB_DEFINED
 #define _tagBLOB_DEFINED
@@ -696,7 +698,7 @@ typedef unsigned int GROUP;
   typedef struct _SOCKET_ADDRESS_LIST {
     INT iAddressCount;
     SOCKET_ADDRESS Address[1];
-  } SOCKET_ADDRESS_LIST,*LPSOCKET_ADDRESS_LIST;
+  } SOCKET_ADDRESS_LIST,*PSOCKET_ADDRESS_LIST,*LPSOCKET_ADDRESS_LIST;
 
   typedef struct _AFPROTOCOLS {
     INT iAddressFamily;
@@ -770,6 +772,15 @@ typedef unsigned int GROUP;
 
 #define LUP_FLUSHCACHE 0x1000
 #define LUP_FLUSHPREVIOUS 0x2000
+
+#define LUP_RETURN_PREFERRED_NAMES 0x10000
+#define LUP_ADDRCONFIG 0x100000
+#define LUP_DUAL_ADDR 0x200000
+
+#define LUP_SECURE 0x8000
+
+#define LUP_NON_AUTHORITATIVE 0x4000
+#define LUP_RES_RESERVICE 0x8000
 
 #define RESULT_IS_ALIAS 0x0001
 #define RESULT_IS_ADDED 0x0010
@@ -1074,6 +1085,117 @@ typedef unsigned int GROUP;
 #define WSAGETSELECTEVENT(lParam) LOWORD(lParam)
 #define WSAGETSELECTERROR(lParam) HIWORD(lParam)
 
+#if (_WIN32_WINNT >= 0x0600)
+typedef struct _WSANAMESPACE_INFOEXA {
+  GUID   NSProviderId;
+  DWORD  dwNameSpace;
+  WINBOOL   fActive;
+  DWORD  dwVersion;
+  LPSTR lpszIdentifier;
+  BLOB   ProviderSpecific;
+} WSANAMESPACE_INFOEXA, *PWSANAMESPACE_INFOEXA, *LPWSANAMESPACE_INFOEXA;
+
+typedef struct _WSANAMESPACE_INFOEXW {
+  GUID   NSProviderId;
+  DWORD  dwNameSpace;
+  WINBOOL   fActive;
+  DWORD  dwVersion;
+  LPWSTR lpszIdentifier;
+  BLOB   ProviderSpecific;
+} WSANAMESPACE_INFOEXW, *PWSANAMESPACE_INFOEXW, *LPWSANAMESPACE_INFOEXW;
+
+__MINGW_TYPEDEF_AW(WSANAMESPACE_INFOEX)
+__MINGW_TYPEDEF_AW(PWSANAMESPACE_INFOEX)
+__MINGW_TYPEDEF_AW(LPWSANAMESPACE_INFOEX)
+
+typedef struct _WSAQUERYSET2A {
+  DWORD         dwSize;
+  LPSTR         lpszServiceInstanceName;
+  LPWSAVERSION  lpVersion;
+  LPSTR         lpszComment;
+  DWORD         dwNameSpace;
+  LPGUID        lpNSProviderId;
+  LPSTR         lpszContext;
+  DWORD         dwNumberOfProtocols;
+  LPAFPROTOCOLS lpafpProtocols;
+  LPSTR         lpszQueryString;
+  DWORD         dwNumberOfCsAddrs;
+  LPCSADDR_INFO lpcsaBuffer;
+  DWORD         dwOutputFlags;
+  LPBLOB        lpBlob;
+} WSAQUERYSET2A, *PWSAQUERYSET2A, *LPWSAQUERYSET2A;
+
+typedef struct _WSAQUERYSET2W {
+  DWORD         dwSize;
+  LPWSTR        lpszServiceInstanceName;
+  LPWSAVERSION  lpVersion;
+  LPWSTR        lpszComment;
+  DWORD         dwNameSpace;
+  LPGUID        lpNSProviderId;
+  LPTSTR        lpszContext;
+  DWORD         dwNumberOfProtocols;
+  LPAFPROTOCOLS lpafpProtocols;
+  LPWSTR        lpszQueryString;
+  DWORD         dwNumberOfCsAddrs;
+  LPCSADDR_INFO lpcsaBuffer;
+  DWORD         dwOutputFlags;
+  LPBLOB        lpBlob;
+} WSAQUERYSET2W, *PWSAQUERYSET2W, *LPWSAQUERYSET2W;
+
+typedef struct pollfd {
+  SOCKET fd;
+  short  events;
+  short  revents;
+} WSAPOLLFD, *PWSAPOLLFD, *LPWSAPOLLFD;
+
+WINSOCK_API_LINKAGE WINBOOL PASCAL WSAConnectByList(
+  SOCKET s,
+  PSOCKET_ADDRESS_LIST SocketAddressList,
+  LPDWORD LocalAddressLength,
+  LPSOCKADDR LocalAddress,
+  LPDWORD RemoteAddressLength,
+  LPSOCKADDR RemoteAddress,
+  const struct timeval *timeout,
+  LPWSAOVERLAPPED Reserved
+);
+
+WINSOCK_API_LINKAGE WINBOOL PASCAL WSAConnectByNameA(
+  SOCKET s,
+  LPSTR nodename,
+  LPSTR servicename,
+  LPDWORD LocalAddressLength,
+  LPSOCKADDR LocalAddress,
+  LPDWORD RemoteAddressLength,
+  LPSOCKADDR RemoteAddress,
+  const struct timeval *timeout,
+  LPWSAOVERLAPPED Reserved
+);
+
+WINSOCK_API_LINKAGE WINBOOL PASCAL WSAConnectByNameW(
+  SOCKET s,
+  LPWSTR nodename,
+  LPWSTR servicename,
+  LPDWORD LocalAddressLength,
+  LPSOCKADDR LocalAddress,
+  LPDWORD RemoteAddressLength,
+  LPSOCKADDR RemoteAddress,
+  const struct timeval *timeout,
+  LPWSAOVERLAPPED Reserved
+);
+#define WSAConnectByName __MINGW_NAME_AW(WSAConnectByName)
+
+INT WSPAPI WSAEnumNameSpaceProvidersExA(
+  LPDWORD lpdwBufferLength,
+  LPWSANAMESPACE_INFOEXA lpnspBuffer
+);
+
+INT WSPAPI WSAEnumNameSpaceProvidersExW(
+  LPDWORD lpdwBufferLength,
+  LPWSANAMESPACE_INFOEXW lpnspBuffer
+);
+#define WSAEnumNameSpaceProvidersEx __MINGW_NAME_AW(WSAEnumNameSpaceProvidersEx)
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifdef __cplusplus
 }
 #endif
@@ -1085,5 +1207,7 @@ typedef unsigned int GROUP;
 #ifdef IPV6STRICT
 #include <wsipv6ok.h>
 #endif
+
+#include <mswsock.h>
 
 #endif /* _WINSOCK2API_ */

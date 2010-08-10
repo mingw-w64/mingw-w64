@@ -603,6 +603,17 @@ extern "C"
 
 #endif
 
+HRESULT WINAPI WTHelperCertCheckValidSignature(
+    CRYPT_PROVIDER_DATA *pProvData
+);
+
+#if (_WIN32_WINNT >= 0x0600)
+void WINAPI WintrustSetDefaultIncludePEPageHashes(
+  WINBOOL fIncludePEPageHashes
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifdef __cplusplus
 }
 #endif

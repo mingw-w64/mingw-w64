@@ -565,6 +565,61 @@ extern "C" {
 #define RPC_IF_ALLOW_LOCAL_ONLY 0x0020
 #define RPC_IF_SEC_NO_CACHE 0x0040
 
+#if (_WIN32_WINNT >= 0x0600)
+
+typedef struct _RPC_BINDING_HANDLE_OPTIONS_V1 {
+  unsigned long Version;
+  unsigned long Flags;
+  unsigned long ComTimeout;
+  unsigned long CallTimeout;
+} RPC_BINDING_HANDLE_OPTIONS_V1, RPC_BINDING_HANDLE_OPTIONS;
+
+typedef struct {
+  unsigned long           Version;
+  unsigned short          *ServerPrincName;
+  unsigned long           AuthnLevel;
+  unsigned long           AuthnSvc;
+  SEC_WINNT_AUTH_IDENTITY *AuthIdentity;
+  RPC_SECURITY_QOS        *SecurityQos;
+} RPC_BINDING_HANDLE_SECURITY_V1, RPC_BINDING_HANDLE_SECURITY;
+
+typedef struct _RPC_BINDING_HANDLE_TEMPLATE {
+  unsigned long  Version;
+  unsigned long  Flags;
+  unsigned long  ProtocolSequence;
+  unsigned short *NetworkAddress;
+  unsigned short *StringEndpoint;
+  __MINGW_EXTENSION union {
+    unsigned short *Reserved;
+  } u1;
+  UUID           ObjectUuid;
+} RPC_BINDING_HANDLE_TEMPLATE_V1, RPC_BINDING_HANDLE_TEMPLATE;
+
+#define RPC_CALL_STATUS_IN_PROGRESS 0x01
+#define RPC_CALL_STATUS_CANCELLED 0x02
+#define RPC_CALL_STATUS_DISCONNECTED 0x03
+
+RPC_STATUS RPC_ENTRY RpcBindingCreateA(
+  RPC_BINDING_HANDLE_TEMPLATE *Template,
+  RPC_BINDING_HANDLE_SECURITY *Security,
+  RPC_BINDING_HANDLE_OPTIONS *Options,
+  RPC_BINDING_HANDLE *Binding
+);
+
+RPC_STATUS RPC_ENTRY RpcBindingCreateW(
+  RPC_BINDING_HANDLE_TEMPLATE *Template,
+  RPC_BINDING_HANDLE_SECURITY *Security,
+  RPC_BINDING_HANDLE_OPTIONS *Options,
+  RPC_BINDING_HANDLE *Binding
+);
+#define RpcBindingCreate __MINGW_NAME_AW(RpcBindingCreate)
+
+RPC_STATUS RpcServerInqBindingHandle(
+    RPC_BINDING_HANDLE *Binding
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #include <rpcdcep.h>
 
 #ifdef __cplusplus

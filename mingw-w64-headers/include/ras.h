@@ -12,6 +12,10 @@
 extern "C" {
 #endif
 
+typedef struct in_addr RASIPV4ADDR;
+typedef struct in6_addr RASIPV6ADDR;
+
+
 #ifndef UNLEN
 #include <lmcons.h>
 #endif
@@ -972,6 +976,57 @@ extern "C" {
 #define RasGetEapUserIdentity __MINGW_NAME_AW(RasGetEapUserIdentity)
 #define RasFreeEapUserIdentity __MINGW_NAME_AW(RasFreeEapUserIdentity)
 #define RasDeleteSubEntry __MINGW_NAME_AW(RasDeleteSubEntry)
+
+#if (_WIN32_WINNT >= 0x0600)
+
+typedef struct _tagRasNapState {
+  DWORD          dwSize;
+  DWORD          dwFlags;
+  IsolationState isolationState;
+  ProbationTime  probationTime;
+} RASNAPSTATE, *LPRASNAPSTATE;
+
+typedef struct _RASPPPIPV6 {
+  DWORD dwSize;
+  DWORD dwError;
+  BYTE  bLocalInterfaceIdentifier[8];
+  BYTE  bPeerInterfaceIdentifier[8];
+  BYTE  bLocalCompressionProtocol[2];
+  BYTE  bPeerCompressionProtocol[2];
+} RASPPPIPV6, *LPRASPPPIPV6;
+
+DWORD rasgetnapstatus(
+  HRASCONN hRasConn,
+  LPRASNAPSTATE pNapState
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
+#if (_WIN32_WINNT >= 0x0601)
+typedef enum  {
+  RASAPIVERSION_500   = 1,
+  RASAPIVERSION_501   = 2,
+  RASAPIVERSION_600   = 3,
+  RASAPIVERSION_601   = 4 
+} RASAPIVERSION;
+
+typedef struct _RASTUNNELENDPOINT {
+  DWORD dwType;
+  __MINGW_EXTENSION union {
+    RASIPV4ADDR ipv4;
+    RASIPV6ADDR ipv6;
+  } DUMMYUNIONNAME;
+} RASTUNNELENDPOINT, *PRASTUNNELENDPOINT;
+
+typedef struct _RASUPDATECONN {
+  RASAPIVERSION     version;
+  DWORD             dwSize;
+  DWORD             dwFlags;
+  DWORD             dwIfIndex;
+  RASTUNNELENDPOINT  localEndPoint;
+  RASTUNNELENDPOINT  remoteEndPoint;
+} RASUPDATECONN, *LPRASUPDATECONN;
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #ifdef __cplusplus
 }

@@ -554,6 +554,42 @@ extern "C" {
 #define PdhCreateSQLTables __MINGW_NAME_AW(PdhCreateSQLTables)
 #define PdhVerifySQLDB __MINGW_NAME_AW(PdhVerifySQLDB)
 
+#if (_WIN32_WINNT >= 0x0600)
+PDH_STATUS PdhAddEnglishCounterA(
+  PDH_HQUERY hQuery,
+  LPCSTR szFullCounterPath,
+  DWORD_PTR dwUserData,
+  PDH_HCOUNTER *phCounter
+);
+
+PDH_STATUS PdhAddEnglishCounterW(
+  PDH_HQUERY hQuery,
+  LPCWSTR szFullCounterPath,
+  DWORD_PTR dwUserData,
+  PDH_HCOUNTER *phCounter
+);
+
+#define PdhAddEnglishCounter __MINGW_NAME_AW(PdhAddEnglishCounter)
+
+PDH_STATUS PdhCollectQueryDataWithTime(
+  PDH_HQUERY hQuery,
+  LONGLONG *pllTimeStamp
+);
+
+PDH_STATUS PdhValidatePathExA(
+  PDH_HLOG hDataSource,
+  LPCSTR szFullPathBuffer
+);
+
+PDH_STATUS PdhValidatePathExA(
+  PDH_HLOG hDataSource,
+  LPCWSTR szFullPathBuffer
+);
+
+#define PdhValidatePathEx __MINGW_NAME_AW(PdhValidatePathEx)
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifdef __cplusplus
 }
 #endif
