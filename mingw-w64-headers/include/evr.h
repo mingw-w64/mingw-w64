@@ -47,7 +47,7 @@ typedef enum MFVideoRenderPrefs {
   MFVideoRenderPrefs_ForceScaling            = 0x00000040,
   MFVideoRenderPrefs_AllowScaling            = 0x00000080,
   MFVideoRenderPrefs_DoNotRepaintOnStop      = 0x00000100,
-  MFVideoRenderPrefs_Mask                    = 0x000000ff
+  MFVideoRenderPrefs_Mask                    = 0x000001ff
 } MFVideoRenderPrefs;
 
 typedef enum _MFVP_MESSAGE_TYPE {
