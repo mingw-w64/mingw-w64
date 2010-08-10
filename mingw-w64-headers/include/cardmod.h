@@ -31,14 +31,14 @@
 extern "C" {
 #endif
 
+#define InvalidAc 0
+
 typedef enum _CARD_DIRECTORY_ACCESS_CONDITION {
-  DInvalidAc                = 0, /*Fixme: Should be InvalidAc, conflict with CARD_FILE_ACCESS_CONDITION*/
   UserCreateDeleteDirAc    = 1,
   AdminCreateDeleteDirAc   = 2 
 } CARD_DIRECTORY_ACCESS_CONDITION;
 
 typedef enum _CARD_FILE_ACCESS_CONDITION {
-  FInvalidAc                  = 0, /*Fixme: Should be InvalidAc, conflict with CARD_DIRECTORY_ACCESS_CONDITION*/
   EveryoneReadUserWriteAc    = 1,
   UserWriteExecuteAc         = 2,
   EveryoneReadAdminWriteAc   = 3,
