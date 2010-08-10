@@ -95,7 +95,7 @@ typedef struct _IP_MCAST_COUNTER_INFO {
   ULONG64 OutMcastPkts;
 } IP_MCAST_COUNTER_INFO,*PIP_MCAST_COUNTER_INFO;
 
-typedef struct _IPV6_ADDRESS_EX_LH {
+typedef struct _IPV6_ADDRESS_EX {
   USHORT sin6_port;
   ULONG  sin6_flowinfo;
   USHORT sin6_addr[8];
