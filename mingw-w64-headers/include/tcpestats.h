@@ -21,6 +21,12 @@ typedef struct _TCP_ESTATS_BANDWIDTH_ROD_v0 {
   BOOLEAN InboundBandwidthPeaked;
 } TCP_ESTATS_BANDWIDTH_ROD_v0, *PTCP_ESTATS_BANDWIDTH_ROD_v0;
 
+typedef enum _TCP_BOOLEAN_OPTIONAL {
+  TcpBoolOptDisabled    = 0,
+  TcpBoolOptEnabled     = 1,
+  TcpBoolOptUnchanged   = -1 
+} TCP_BOOLEAN_OPTIONAL;
+
 typedef struct _TCP_ESTATS_BANDWIDTH_RW_v0 {
   TCP_BOOLEAN_OPTIONAL EnableCollectionOutbound;
   TCP_BOOLEAN_OPTIONAL EnableCollectionInbound;
@@ -32,7 +38,7 @@ typedef struct _TCP_ESTATS_DATA_ROD_v0 {
   ULONG64 DataBytesIn;
   ULONG64 DataSegsIn;
   ULONG64 SegsOut;
-          SegsIn;
+  ULONG64 SegsIn;
   ULONG   SoftErrors;
   ULONG   SoftErrorReason;
   ULONG   SndUna;
@@ -62,7 +68,7 @@ typedef struct _TCP_ESTATS_OBS_REC_ROD_v0 {
   ULONG CurRwinRcvd;
   ULONG MaxRwinRcvd;
   ULONG MinRwinRcvd;
-  ULONG WinScaleRcvd;
+  UCHAR WinScaleRcvd;
 } TCP_ESTATS_OBS_REC_ROD_v0, *PTCP_ESTATS_OBS_REC_ROD_v0;
 
 typedef struct _TCP_ESTATS_OBS_REC_RW_v0 {
@@ -183,11 +189,6 @@ typedef struct _TCP_ESTATS_SYN_OPTS_ROS_v0 {
   ULONG   MssSent;
 } TCP_ESTATS_SYN_OPTS_ROS_v0, *PTCP_ESTATS_SYN_OPTS_ROS_v0;
 
-typedef struct _TCPIP_OWNER_MODULE_BASIC_INFO {
-  PWCHAR pModuleName;
-  PWCHAR pModulePath;
-} TCPIP_OWNER_MODULE_BASIC_INFO, *PTCPIP_OWNER_MODULE_BASIC_INFO;
-
 typedef enum _TCP_ESTATS_TYPE {
   TcpConnectionEstatsSynOpts,
   TcpConnectionEstatsData,
@@ -200,12 +201,6 @@ typedef enum _TCP_ESTATS_TYPE {
   TcpConnectionEstatsFineRtt,
   TcpConnectionEstatsMaximum 
 } TCP_ESTATS_TYPE;
-
-typedef enum _TCP_BOOLEAN_OPTIONAL {
-  TcpBoolOptDisabled    = 0,
-  TcpBoolOptEnabled     = 1,
-  TcpBoolOptUnchanged   = -1 
-} TCP_BOOLEAN_OPTIONAL;
 
 #ifdef __cplusplus
 }
