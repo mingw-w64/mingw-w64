@@ -601,17 +601,10 @@ extern "C"
     LPWIN_CERTIFICATE lpCertificate;
   } WIN_SPUB_TRUSTED_PUBLISHER_DATA,*LPWIN_SPUB_TRUSTED_PUBLISHER_DATA;
 
-#endif
-
-HRESULT WINAPI WTHelperCertCheckValidSignature(
-    CRYPT_PROVIDER_DATA *pProvData
-);
+#endif /* WT_DEFINE_ALL_APIS */
 
 #if (_WIN32_WINNT >= 0x0600)
-void WINAPI WintrustSetDefaultIncludePEPageHashes(
-  WINBOOL fIncludePEPageHashes
-);
-
+void WINAPI WintrustSetDefaultIncludePEPageHashes(WINBOOL fIncludePEPageHashes);
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
