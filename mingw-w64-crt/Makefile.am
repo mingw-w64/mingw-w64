@@ -32,6 +32,9 @@ AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
 AM_CFLAGS=$(cflags_underscores) -pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
 AM_DLLTOOLFLAGS=$(dlltool_underscores) -k --as=$(AS) --output-lib $@
+if DELAY_IMPORT_LIBS
+  AM_DLLTOOLFLAGS += --output-delaylib $@.delayimp.a
+endif
 CPPFLAGS32=-m32
 CPPFLAGS64=-m64
 DLLTOOLFLAGS32=--as-flags=--32 -m i386

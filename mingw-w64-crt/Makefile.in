@@ -98,7 +98,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@ENABLE_TESTS_UNICODE_TRUE@am__append_1 = testcases/t_municode testcases/t_tmain
+@DELAY_IMPORT_LIBS_TRUE@am__append_1 = --output-delaylib $@.delayimp.a
+@ENABLE_TESTS_UNICODE_TRUE@am__append_2 = testcases/t_municode testcases/t_tmain
 check_PROGRAMS = $(am__EXEEXT_2) $(am__EXEEXT_4) $(am__EXEEXT_6)
 TESTS = $(am__EXEEXT_2) $(am__EXEEXT_4) $(am__EXEEXT_6)
 XFAIL_TESTS = testcases/t_nullptrexception$(EXEEXT) $(am__EXEEXT_7) \
@@ -111,25 +112,25 @@ DIST_COMMON = $(am__configure_deps) $(noinst_HEADERS) \
 	build-aux/install-sh build-aux/missing
 
 # Build the libraries
-@LIB32_TRUE@am__append_2 = $(newcomplex_test_lib32)
+@LIB32_TRUE@am__append_3 = $(newcomplex_test_lib32)
 
 # Build the programs during make check.
-@LIB32_TRUE@am__append_3 = $(newcomplex_tests32)
+@LIB32_TRUE@am__append_4 = $(newcomplex_tests32)
 
 # Declare the tests.
-@LIB32_TRUE@am__append_4 = $(newcomplex_tests32)
+@LIB32_TRUE@am__append_5 = $(newcomplex_tests32)
 # Remove these when completed.
-@LIB32_TRUE@am__append_5 = 
+@LIB32_TRUE@am__append_6 = 
 
 # Build the libraries
-@LIB64_TRUE@am__append_6 = $(newcomplex_test_lib64)
+@LIB64_TRUE@am__append_7 = $(newcomplex_test_lib64)
 
 # Build the programs during make check.
-@LIB64_TRUE@am__append_7 = $(newcomplex_tests64)
+@LIB64_TRUE@am__append_8 = $(newcomplex_tests64)
 
 # Declare the tests.
-@LIB64_TRUE@am__append_8 = $(newcomplex_tests64)
-@LIB64_TRUE@am__append_9 = 
+@LIB64_TRUE@am__append_9 = $(newcomplex_tests64)
+@LIB64_TRUE@am__append_10 = 
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -2934,7 +2935,8 @@ top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -D_CRTBLD $(sysincludes)
 AM_CFLAGS = $(cflags_underscores) -pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
-AM_DLLTOOLFLAGS = $(dlltool_underscores) -k --as=$(AS) --output-lib $@
+AM_DLLTOOLFLAGS = $(dlltool_underscores) -k --as=$(AS) --output-lib $@ \
+	$(am__append_1)
 CPPFLAGS32 = -m32
 CPPFLAGS64 = -m64
 DLLTOOLFLAGS32 = --as-flags=--32 -m i386
@@ -3860,7 +3862,7 @@ testcase_progs = testcases/tstmainc testcases/tstmaincpp \
 	testcases/t_setjmp testcases/t_sigv testcases/t_speed_powl \
 	testcases/t_stat testcases/t_stdint testcases/t_time \
 	testcases/t_tls1 testcases/t_trycatch testcases/t_wreaddir \
-	$(am__append_1)
+	$(am__append_2)
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
 testcases_t_intrinc_CFLAGS = -std=c99
@@ -3869,7 +3871,7 @@ testcases_t_intrinc_CFLAGS = -std=c99
 
 # Do not specify TESTS = check_PROGRAMS, because some TESTS
 # may not be check_PROGRAMS.
-check_LIBRARIES = $(am__append_2) $(am__append_6)
+check_LIBRARIES = $(am__append_3) $(am__append_7)
 
 # Complex library check sources.
 check_complex_lib_sources = \

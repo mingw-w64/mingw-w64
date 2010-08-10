@@ -607,6 +607,8 @@ GREP
 CPP
 ENABLE_TESTS_UNICODE_FALSE
 ENABLE_TESTS_UNICODE_TRUE
+DELAY_IMPORT_LIBS_FALSE
+DELAY_IMPORT_LIBS_TRUE
 PRIVATE_EXPORTS_FALSE
 PRIVATE_EXPORTS_TRUE
 UNDERSCORES_FALSE
@@ -738,6 +740,7 @@ enable_libce
 enable_wildcard
 enable_leading_underscores
 enable_private_exports
+enable_delay_import_libs
 enable_tests_unicode
 enable_warnings
 '
@@ -1388,6 +1391,8 @@ Optional Features:
                           calling convention
   --enable-private-exports
                           Enable exporting private internal functions
+  --enable-delay-import-libs
+                          Enable creation of delay-import libraries
   --enable-tests-unicode  Enable the unicode testsuite without testing the
                           compiler for support.
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
@@ -5136,6 +5141,34 @@ fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_private_exports" >&5
 $as_echo "$enable_private_exports" >&6; }
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable delay import libs" >&5
+$as_echo_n "checking whether to enable delay import libs... " >&6; }
+# Check whether --enable-delay-import-libs was given.
+if test "${enable_delay_import_libs+set}" = set; then :
+  enableval=$enable_delay_import_libs;
+else
+  enable_delay_import_libs=no
+fi
+
+case $enable_delay_import_libs in #(
+  yes) :
+     ;; #(
+  no) :
+     ;; #(
+  *) :
+    as_fn_error "Please only use --enable-delay-import-libs  or --disable-delay-import-libs, without any additional arguments." "$LINENO" 5 ;;
+esac
+ if test $enable_delay_import_libs = yes; then
+  DELAY_IMPORT_LIBS_TRUE=
+  DELAY_IMPORT_LIBS_FALSE='#'
+else
+  DELAY_IMPORT_LIBS_TRUE='#'
+  DELAY_IMPORT_LIBS_FALSE=
+fi
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_delay_import_libs" >&5
+$as_echo "$enable_delay_import_libs" >&6; }
+
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the compiler supports -municode" >&5
 $as_echo_n "checking whether the compiler supports -municode... " >&6; }
 # Check whether --enable-tests-unicode was given.
@@ -5804,6 +5837,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${PRIVATE_EXPORTS_TRUE}" && test -z "${PRIVATE_EXPORTS_FALSE}"; then
   as_fn_error "conditional \"PRIVATE_EXPORTS\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${DELAY_IMPORT_LIBS_TRUE}" && test -z "${DELAY_IMPORT_LIBS_FALSE}"; then
+  as_fn_error "conditional \"DELAY_IMPORT_LIBS\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_TESTS_UNICODE_TRUE}" && test -z "${ENABLE_TESTS_UNICODE_FALSE}"; then
