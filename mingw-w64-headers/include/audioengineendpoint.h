@@ -30,7 +30,7 @@ typedef struct AE_CURRENT_POSITION {
 typedef struct _AUDIO_ENDPOINT_EXCLUSIVE_CREATE_PARAMS {
   UINT32       u32Size;
   LONGLONG     hConnection;
-  BOOL         bIsRtCapable;
+  WINBOOL      bIsRtCapable;
   HNSTIME      hnsBufferDuration;
   HNSTIME      hnsPeriod;
   UINT32       u32LatencyCoefficient;
