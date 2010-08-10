@@ -20,7 +20,8 @@ typedef enum _CLFS_MGMT_POLICY_TYPE {
   ClfsMgmtPolicyAutoGrow                = 0x6,
   ClfsMgmtPolicyNewContainerPrefix      = 0x7,
   ClfsMgmtPolicyNewContainerSuffix      = 0x8,
-  ClfsMgmtPolicyNewContainerExtension 
+  ClfsMgmtPolicyNewContainerExtension   = 9,
+  ClfsMgmtPolicyInvalid                 = 10
 } CLFS_MGMT_POLICY_TYPE, *PCLFS_MGMT_POLICY_TYPE;
 
 typedef enum _CLFS_MGMT_NOTIFICATION_TYPE {
