@@ -214,16 +214,6 @@ WINBOOL WINAPI EcSetSubscriptionProperty(
   PEC_VARIANT PropertyValue
 );
 
-DWORD EjectDiskFromSADrive(
-  LPCWSTR lpComputerName,
-  LPCWSTR  lpAppName,
-  LPCWSTR  lpDeviceName,
-  HWND  hWnd,
-  LPCWSTR  lpTitle,
-  LPCWSTR   lpMessage,
-  DWORD    dwOptions
-);
-
 #ifdef __cplusplus
 }
 #endif
