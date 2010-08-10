@@ -56,7 +56,7 @@ typedef struct _BLUETOOTH_FIND_RADIO_PARAMS {
   DWORD dwSize;
 } BLUETOOTH_FIND_RADIO_PARAMS;
 
-typedef struct {
+typedef struct _BLUETOOTH_RADIO_INFO {
   DWORD             dwSize;
   BLUETOOTH_ADDRESS address;
   WCHAR             szName[BLUETOOTH_MAX_NAME_SIZE];
