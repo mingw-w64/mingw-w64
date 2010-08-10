@@ -7,10 +7,12 @@
 #define _INC_AVRT
 
 #if (_WIN32_WINNT >= 0x0600)
-#define AVRT_PRIORITY_CRITICAL 2
-#define AVRT_PRIORITY_HIGH     1
-#define AVRT_PRIORITY_LOW      -1
-#define AVRT_PRIORITY_NORMAL   0
+typedef enum _AVRT_PRIORITY {
+  AVRT_PRIORITY_LOW = -1,
+  AVRT_PRIORITY_NORMAL,		/* 0 */
+  AVRT_PRIORITY_HIGH,		/* 1 */
+  AVRT_PRIORITY_CRITICAL	/* 2 */
+} AVRT_PRIORITY, *PAVRT_PRIORITY;
 
 #define AvSetMmThreadCharacteristics __MINGW_NAME_AW(AvSetMmThreadCharacteristics)
 #define AvSetMmMaxThreadCharacteristics __MINGW_NAME_AW(AvSetMmMaxThreadCharacteristics)
