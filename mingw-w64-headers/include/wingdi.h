@@ -941,7 +941,9 @@ extern "C" {
   } LOGPALETTE,*PLOGPALETTE,*NPLOGPALETTE,*LPLOGPALETTE;
 #endif
 
+#ifndef LF_FACESIZE
 #define LF_FACESIZE 32
+#endif
 
   typedef struct tagLOGFONTA {
     LONG lfHeight;
