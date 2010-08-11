@@ -276,8 +276,6 @@ extern "C" {
   WINBASEAPI DWORD WINAPI GetConsoleAliasExesW(LPWSTR ExeNameBuffer,DWORD ExeNameBufferLength);
 
 #if (_WIN32_WINNT >= 0x0600)
-#define LF_FACESIZE 32
-
 typedef struct _CONSOLE_FONT_INFOEX {
   ULONG cbSize;
   DWORD nFont;
