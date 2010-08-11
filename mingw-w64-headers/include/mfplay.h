@@ -67,6 +67,12 @@ typedef enum MFP_MEDIAPLAYER_STATE {
   MFP_MEDIAPLAYER_STATE_SHUTDOWN   = 0x00000004 
 } MFP_MEDIAPLAYER_STATE;
 
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFPMediaItem is unverified.
+#endif
+
 #undef  INTERFACE
 #define INTERFACE IMFPMediaItem
 DECLARE_INTERFACE_(IMFPMediaItem,IUnknown)
@@ -125,6 +131,12 @@ DECLARE_INTERFACE_(IMFPMediaItem,IUnknown)
 #define IMFPMediaItem_SetStreamSink(This,dwStreamIndex,pMediaSink) (This)->lpVtbl->SetStreamSink(This,dwStreamIndex,pMediaSink)
 #define IMFPMediaItem_SetUserData(This,dwUserData) (This)->lpVtbl->SetUserData(This,dwUserData)
 #endif /*COBJMACROS*/
+
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFPMediaPlayer is unverified.
+#endif
 
 #undef  INTERFACE
 #define INTERFACE IMFPMediaPlayer
@@ -218,6 +230,12 @@ DECLARE_INTERFACE_(IMFPMediaPlayer,IUnknown)
 #define IMFPMediaPlayer_Stop() (This)->lpVtbl->Stop(This)
 #define IMFPMediaPlayer_UpdateVideo() (This)->lpVtbl->UpdateVideo(This)
 #endif /*COBJMACROS*/
+
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFPMediaPlayerCallback is unverified.
+#endif
 
 #undef  INTERFACE
 #define INTERFACE IMFPMediaPlayerCallback
