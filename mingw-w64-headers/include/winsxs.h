@@ -18,7 +18,7 @@ typedef enum ASM_CMP_FLAGS {
   ASM_CMPF_CUSTOM             = 0x80,
   ASM_CMPF_ALL,
   ASM_CMPF_DEFAULT            = 0x100 
-} ASM_CMP_FLAGS ;
+} ASM_CMP_FLAGS;
 
 typedef enum ASM_NAME {
   ASM_NAME_PUBLIC_KEY,
@@ -42,12 +42,12 @@ typedef enum ASM_NAME {
   ASM_NAME_NULL_CUSTOM,
   ASM_NAME_MVID,
   ASM_NAME_MAX_PARAMS 
-} ASM_NAME ;
+} ASM_NAME;
 
 typedef enum _CREATE_ASM_NAME_OBJ_FLAGS {
   CANOF_PARSE_DISPLAY_NAME   = 0x1,
   CANOF_SET_DEFAULT_VALUES   = 0x2 
-} CREATE_ASM_NAME_OBJ_FLAGS ;
+} CREATE_ASM_NAME_OBJ_FLAGS;
 
 typedef struct _ASSEMBLY_INFO  {
   ULONG          cbAssemblyInfo;
