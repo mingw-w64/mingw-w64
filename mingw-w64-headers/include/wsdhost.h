@@ -5,7 +5,19 @@
  */
 #ifndef _INC_WSDHOST
 #define _INC_WSDHOST
+
+#ifndef _INC_WSDAPI
+#error Please include wsdapi.h instead of this header. This header cannot be used directly.
+#endif
+
 #if (_WIN32_WINNT >= 0x0600)
+
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IWSDServiceMessaging is unverified.
+#endif
+
 #undef  INTERFACE
 #define INTERFACE IWSDServiceMessaging
 DECLARE_INTERFACE_(IWSDServiceMessaging,IUnknown)
@@ -31,6 +43,12 @@ DECLARE_INTERFACE_(IWSDServiceMessaging,IUnknown)
 #define IWSDServiceMessaging_SendResponse(This,pBody,pOperation,pMessageParameters) (This)->lpVtbl->SendResponse(This,pBody,pOperation,pMessageParameters)
 #endif /*COBJMACROS*/
 
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IWSDDeviceHostNotify is unverified.
+#endif
+
 #undef  INTERFACE
 #define INTERFACE IWSDDeviceHostNotify
 DECLARE_INTERFACE_(IWSDDeviceHostNotify,IUnknown)
@@ -53,6 +71,12 @@ DECLARE_INTERFACE_(IWSDDeviceHostNotify,IUnknown)
 #define IWSDDeviceHostNotify_Release(This) (This)->pVtbl->Release(This)
 #define IWSDDeviceHostNotify_GetService(This,pszServiceId,ppService) (This)->lpVtbl->GetService(This,pszServiceId,ppService)
 #endif /*COBJMACROS*/
+
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IWSDDeviceHost is unverified.
+#endif
 
 #undef  INTERFACE
 #define INTERFACE IWSDDeviceHost
