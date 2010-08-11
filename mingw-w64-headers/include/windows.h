@@ -68,7 +68,6 @@
 #include <winver.h>
 #include <winreg.h>
 #include <winnetwk.h>
-#include <ktmtypes.h>
 #include <virtdisk.h>
 
 #ifndef WIN32_LEAN_AND_MEAN
