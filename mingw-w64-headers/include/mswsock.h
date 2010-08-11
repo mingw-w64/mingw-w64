@@ -3,6 +3,9 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
+#include <winsock2.h>
+
 #ifndef _MSWSOCK_
 #define _MSWSOCK_
 
@@ -187,4 +190,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* _MSWSOCK_ */

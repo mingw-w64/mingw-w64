@@ -1,3 +1,7 @@
+2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mswsock.h: Include winsock2.h.
+
 2010-08-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* avrt.h: Changed AVRT_PRIORITY_* macros into AVRT_PRIORITY
