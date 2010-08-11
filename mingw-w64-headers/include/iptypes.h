@@ -155,12 +155,13 @@ extern "C" {
 #define IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG 0x200
 
   typedef enum {
-    IfOperStatusUp = 1,IfOperStatusDown,IfOperStatusTesting,IfOperStatusUnknown,IfOperStatusDormant,IfOperStatusNotPresent,IfOperStatusLowerLayerDown
-  } IF_OPER_STATUS;
-
-  typedef enum {
-    ScopeLevelInterface = 1,ScopeLevelLink = 2,ScopeLevelSubnet = 3,ScopeLevelAdmin = 4,ScopeLevelSite = 5,ScopeLevelOrganization = 8,
-    ScopeLevelGlobal = 14
+    ScopeLevelInterface = 1,
+    ScopeLevelLink      = 2,
+    ScopeLevelSubnet    = 3,
+    ScopeLevelAdmin     = 4,
+    ScopeLevelSite      = 5,
+    ScopeLevelOrganization = 8,
+    ScopeLevelGlobal   = 14
   } SCOPE_LEVEL;
 
   typedef struct _IP_ADAPTER_ADDRESSES {
