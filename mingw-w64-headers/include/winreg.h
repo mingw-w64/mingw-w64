@@ -268,21 +268,6 @@ WINADVAPI LONG WINAPI RegCreateKeyTransactedW(
   PVOID pExtendedParemeter
 );
 
-#define RegDeleteKeyEx __MINGW_NAME_AW(RegDeleteKeyEx)
-WINADVAPI LONG WINAPI RegDeleteKeyExA(
-  HKEY hKey,
-  LPCSTR lpSubKey,
-  REGSAM samDesired,
-  DWORD Reserved
-);
-
-WINADVAPI LONG WINAPI RegDeleteKeyExW(
-  HKEY hKey,
-  LPCWSTR lpSubKey,
-  REGSAM samDesired,
-  DWORD Reserved
-);
-
 #define RegDeleteKeyTransacted __MINGW_NAME_AW(RegDeleteKeyTransacted)
 WINADVAPI LONG WINAPI RegDeleteKeyTransactedA(
   HKEY hKey,
@@ -327,36 +312,6 @@ WINADVAPI LONG WINAPI RegDeleteTreeW(
 );
 
 WINADVAPI LONG WINAPI RegDisablePredefinedCacheEx(void);
-
-WINADVAPI LONG WINAPI RegDisableReflectionKey(
-  HKEY hBase
-);
-
-WINADVAPI LONG WINAPI RegEnableReflectionKey(
-  HKEY hBase
-);
-
-WINADVAPI LONG WINAPI RegGetValueA(
-  HKEY hkey,
-  LPCSTR lpSubKey,
-  LPCSTR lpValue,
-  DWORD dwFlags,
-  LPDWORD pdwType,
-  PVOID pvData,
-  LPDWORD pcbData
-);
-
-WINADVAPI LONG WINAPI RegGetValueWA(
-  HKEY hkey,
-  LPCWSTR lpSubKey,
-  LPCWSTR lpValue,
-  DWORD dwFlags,
-  LPDWORD pdwType,
-  PVOID pvData,
-  LPDWORD pcbData
-);
-
-#define RegGetValue __MINGW_NAME_AW(RegGetValue)
 
 WINADVAPI LONG WINAPI RegLoadAppKeyA(
   LPCSTR lpFile,
@@ -419,11 +374,6 @@ WINADVAPI LONG WINAPI RegOpenKeyTransactedW(
 );
 
 #define RegOpenKeyTransacted __MINGW_NAME_AW(RegOpenKeyTransacted)
-
-WINADVAPI LONG WINAPI RegQueryReflectionKey(
-  HKEY    hBase,
-  WINBOOL *bIsReflectionDisabled
-);
 
 WINADVAPI LONG WINAPI RegSetKeyValueA(
   HKEY hKey,
