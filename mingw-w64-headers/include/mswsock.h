@@ -184,23 +184,6 @@ extern "C" {
 
 #define WSAID_WSARECVMSG {0xf689d7c8,0x6f1f,0x436b,{0x8a,0x53,0xe5,0x4f,0xe3,0x51,0xc3,0x22}}
 
-#if (_WIN32_WINNT >= 0x0600)
-int WSAAPI WSAPoll(
-  WSAPOLLFD fdarray[],
-  ULONG nfds,
-  INT timeout
-);
-
-int WSAAPI WSASendMsg(
-  SOCKET s,
-  LPWSAMSG lpMsg,
-  DWORD dwFlags,
-  LPDWORD lpNumberOfBytesSent,
-  LPWSAOVERLAPPED lpOverlapped,
-  LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine
-);
-#endif /*(_WIN32_WINNT >= 0x0600)*/
-
 #ifdef __cplusplus
 }
 #endif

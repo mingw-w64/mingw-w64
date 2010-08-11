@@ -1194,6 +1194,21 @@ INT WSPAPI WSAEnumNameSpaceProvidersExW(
   LPWSANAMESPACE_INFOEXW lpnspBuffer
 );
 #define WSAEnumNameSpaceProvidersEx __MINGW_NAME_AW(WSAEnumNameSpaceProvidersEx)
+
+int WSAAPI WSAPoll(
+  WSAPOLLFD fdarray[],
+  ULONG nfds,
+  INT timeout
+);
+
+int WSAAPI WSASendMsg(
+  SOCKET s,
+  LPWSAMSG lpMsg,
+  DWORD dwFlags,
+  LPDWORD lpNumberOfBytesSent,
+  LPWSAOVERLAPPED lpOverlapped,
+  LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine
+);
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
@@ -1207,7 +1222,5 @@ INT WSPAPI WSAEnumNameSpaceProvidersExW(
 #ifdef IPV6STRICT
 #include <wsipv6ok.h>
 #endif
-
-#include <mswsock.h>
 
 #endif /* _WINSOCK2API_ */
