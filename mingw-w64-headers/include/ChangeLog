@@ -1,5 +1,11 @@
 2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Backport from trunk rev. 3261 with adjustments:
+	* sys/types.h (_sigset_t): Make it to have scalar pointer width.
+	(sigset_t): Make sure it just gets defined when _POSIX is defined.
+
+2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* mswsock.h: Include winsock2.h.
 
 2010-08-08  Ozkan Sezer  <sezeroz@gmail.com>
