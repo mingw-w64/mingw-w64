@@ -186,7 +186,7 @@ typedef enum tagFailureCategory {
     ResultCodes          shaResultCodes;
     FailureCategory      failureCategory;
     FixupInfo            fixupInfo;
-  }SystemHealthAgentState;
+  } SystemHealthAgentState;
   
 typedef struct _NAPI_DOMAIN_DESCRIPTION_BLOB {
   DWORD AuthLevel;
