@@ -6,7 +6,7 @@
 #ifndef _INC_IFDEF
 #define _INC_IFDEF
 
-#if (_WIN32_WINNT >= 0x0600)
+#include <ipifcons.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -23,6 +23,10 @@ extern "C" {
 #define IF_TYPE_IEEE1394 144
 #define IF_MAX_STRING_SIZE 256
 #define IF_MAX_PHYS_ADDRESS_LENGTH 32
+
+typedef ULONG NET_IFINDEX, *PNET_IFINDEX;
+typedef UINT16 NET_IFTYPE, *PNET_IFTYPE;
+typedef NET_IFINDEX IF_INDEX, *PIF_INDEX;
 
 typedef GUID NET_IF_NETWORK_GUID;
 
@@ -110,5 +114,6 @@ typedef union _NET_LUID {
 #ifdef __cplusplus
 }
 #endif
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #endif /*_INC_IFDEF*/
+

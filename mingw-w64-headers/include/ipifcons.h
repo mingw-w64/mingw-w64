@@ -10,6 +10,8 @@
 extern "C" {
 #endif
 
+typedef ULONG IFTYPE;
+
 #define MIN_IF_TYPE 1
 
 #define IF_TYPE_OTHER 1

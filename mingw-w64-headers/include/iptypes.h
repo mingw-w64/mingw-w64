@@ -11,6 +11,8 @@ extern "C" {
 #endif
 
 #include <time.h>
+#include <ifdef.h>
+#include <nldef.h>
 
 #define MAX_ADAPTER_DESCRIPTION_LENGTH 128
 #define MAX_ADAPTER_NAME_LENGTH 256
@@ -19,6 +21,8 @@ extern "C" {
 #define MAX_HOSTNAME_LEN 128
 #define MAX_DOMAIN_NAME_LEN 128
 #define MAX_SCOPE_ID_LEN 256
+#define MAX_DHCPV6_DUID_LENGTH 130
+#define MAX_DNS_SUFFIX_STRING_LENGTH 256
 
 #define BROADCAST_NODETYPE 1
 #define PEER_TO_PEER_NODETYPE 2
@@ -59,17 +63,9 @@ extern "C" {
 
 #ifdef _WINSOCK2API_
 
-  typedef enum {
-    IpPrefixOriginOther = 0,IpPrefixOriginManual,IpPrefixOriginWellKnown,IpPrefixOriginDhcp,IpPrefixOriginRouterAdvertisement
-  } IP_PREFIX_ORIGIN;
-
-  typedef enum {
-    IpSuffixOriginOther = 0,IpSuffixOriginManual,IpSuffixOriginWellKnown,IpSuffixOriginDhcp,IpSuffixOriginLinkLayerAddress,IpSuffixOriginRandom
-  } IP_SUFFIX_ORIGIN;
-
-  typedef enum {
-    IpDadStateInvalid = 0,IpDadStateTentative,IpDadStateDuplicate,IpDadStateDeprecated,IpDadStatePreferred
-  } IP_DAD_STATE;
+  typedef NL_PREFIX_ORIGIN IP_PREFIX_ORIGIN;
+  typedef NL_SUFFIX_ORIGIN IP_SUFFIX_ORIGIN;
+  typedef NL_DAD_STATE IP_DAD_STATE;
 
   typedef struct _IP_ADAPTER_UNICAST_ADDRESS {
     __MINGW_EXTENSION union {
@@ -141,6 +137,11 @@ extern "C" {
     SOCKET_ADDRESS Address;
     ULONG PrefixLength;
   } IP_ADAPTER_PREFIX,*PIP_ADAPTER_PREFIX;
+
+  typedef struct _IP_ADAPTER_DNS_SUFFIX {
+    struct _IP_ADAPTER_DNS_SUFFIX *Next;
+    WCHAR String[MAX_DNS_SUFFIX_STRING_LENGTH];
+  } IP_ADAPTER_DNS_SUFFIX, *PIP_ADAPTER_DNS_SUFFIX;
 
 #define IP_ADAPTER_DDNS_ENABLED 0x01
 #define IP_ADAPTER_REGISTER_ADAPTER_SUFFIX 0x02
@@ -226,16 +227,9 @@ extern "C" {
   } IP_INTERFACE_NAME_INFO,*PIP_INTERFACE_NAME_INFO;
 #endif
 
-#if (_WIN32_WINNT >= 0x0600)
-#define MAX_DNS_SUFFIX_STRING_LENGTH 256
-
-typedef struct _IP_ADAPTER_DNS_SUFFIX {
-  struct _IP_ADAPTER_DNS_SUFFIX *Next;
-  WCHAR                         String[MAX_DNS_SUFFIX_STRING_LENGTH];
-} IP_ADAPTER_DNS_SUFFIX, *PIP_ADAPTER_DNS_SUFFIX;
-#endif /*(_WIN32_WINNT >= 0x0600)*/
-
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* IP_TYPES_INCLUDED */
+

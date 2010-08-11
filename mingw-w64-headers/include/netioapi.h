@@ -27,8 +27,6 @@ extern "C" {
 #define ConvertInterfaceLuidToName __MINGW_NAME_AW(ConvertInterfaceLuidToName)
 #define ConvertInterfaceNameToLuid __MINGW_NAME_AW(ConvertInterfaceNameToLuid)
 
-typedef LPVOID NET_IFINDEX;
-
 typedef enum _MIB_NOTIFICATION_TYPE {
   MibParameterNotification   = 0,
   MibAddInstance             = 1,

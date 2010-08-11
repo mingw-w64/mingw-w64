@@ -6,12 +6,6 @@
 #ifndef _INC_NLDEF
 #define _INC_NLDEF
 
-#if (_WIN32_WINNT >= 0x0600)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 typedef enum _NL_ADDRESS_TYPE {
   NlatUnspecified,
   NlatUnicast,
@@ -22,11 +16,12 @@ typedef enum _NL_ADDRESS_TYPE {
 } NL_ADDRESS_TYPE, *PNL_ADDRESS_TYPE;
 
 typedef enum _NL_DAD_STATE {
-  NldsInvalid,
+  NldsInvalid = 0,
   NldsTentative,
   NldsDuplicate,
   NldsDeprecated,
   NldsPreferred,
+
   IpDadStateInvalid   = 0,
   IpDadStateTentative,
   IpDadStateDuplicate,
@@ -52,7 +47,7 @@ typedef enum _NL_NEIGHBOR_STATE {
   NlnsMaximum
 } NL_NEIGHBOR_STATE, *PNL_NEIGHBOR_STATE;
 
-typedef enum  {
+typedef enum _tag_NL_PREFIX_ORIGIN {
   IpPrefixOriginOther           = 0,
   IpPrefixOriginManual,
   IpPrefixOriginWellKnown,
@@ -84,6 +79,7 @@ typedef enum _NL_ROUTE_PROTOCOL {
   RouteProtocolBbn,
   RouteProtocolOspf,
   RouteProtocolBgp,
+
   MIB_IPPROTO_OTHER               = 1,
      PROTO_IP_OTHER               = 1,
   MIB_IPPROTO_LOCAL               = 2,
@@ -127,13 +123,14 @@ typedef enum _NL_ROUTER_DISCOVERY_BEHAVIOR {
   RouterDiscoveryUnchanged   = -1
 } NL_ROUTER_DISCOVERY_BEHAVIOR;
 
-typedef enum  {
-  NlsoOther,
+typedef enum _tag_NL_SUFFIX_ORIGIN {
+  NlsoOther = 0,
   NlsoManual,
   NlsoWellKnown,
   NlsoDhcp,
   NlsoLinkLayerAddress,
   NlsoRandom,
+
   IpSuffixOriginOther        = 0,
   IpSuffixOriginManual,
   IpSuffixOriginWellKnown,
@@ -155,10 +152,5 @@ typedef struct _NL_INTERFACE_OFFLOAD_ROD {
   BOOLEAN TlGiantSendOffloadSupported  :1;
 } NL_INTERFACE_OFFLOAD_ROD, *PNL_INTERFACE_OFFLOAD_ROD;
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /*(_WIN32_WINNT >= 0x0600)*/
-
 #endif /*_INC_NLDEF*/
+
