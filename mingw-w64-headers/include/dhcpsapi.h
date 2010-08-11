@@ -25,7 +25,7 @@ typedef DWORD DHCP_RESUME_HANDLE;
 typedef DWORD DHCP_OPTION_ID;
 
 typedef enum _DHCP_OPTION_TYPE {
-  DhcpUnaryElementTypeOption,
+  DhcpUnaryElementTypeOption = 0,
   DhcpArrayTypeOption 
 } DHCP_OPTION_TYPE, *LPDHCP_OPTION_TYPE;
 
