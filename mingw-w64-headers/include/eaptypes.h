@@ -169,7 +169,7 @@ typedef struct _EAP_ERROR {
 } EAP_ERROR;
 
 typedef enum _EAP_CONFIG_INPUT_FIELD_TYPE {
-  EapConfigInputUsername,
+  EapConfigInputUsername = 0,
   EapConfigInputPassword,
   EapConfigInputNetworkUsername,
   EapConfigInputNetworkPassword,
