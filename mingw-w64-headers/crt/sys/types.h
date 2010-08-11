@@ -123,7 +123,7 @@ __MINGW_EXTENSION typedef unsigned long long _sigset_t;
 typedef unsigned long	_sigset_t;
 #endif
 
-#ifndef _POSIX
+#ifdef _POSIX
 typedef _sigset_t	sigset_t;
 #endif
 #endif	/* Not _SIGSET_T_ */
