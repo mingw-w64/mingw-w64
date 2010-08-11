@@ -7,8 +7,6 @@
 #define _INC_NAPUTIL
 
 #include <naptypes.h>
-/* Duplicated in naputil.w */
-
 #if (_WIN32_WINNT >= 0x0600)
 
 #ifdef __cplusplus
