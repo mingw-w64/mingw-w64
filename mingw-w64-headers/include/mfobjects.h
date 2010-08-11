@@ -320,6 +320,10 @@ DECLARE_INTERFACE_(IMFRemoteAsyncCallback,IUnknown)
 #define IMFRemoteAsyncCallback_Release(This) (This)->pVtbl->Release(This)
 #endif /*COBJMACROS*/
 
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFAsyncResult is unverified.
+
 #undef  INTERFACE
 #define INTERFACE IMFAsyncResult
 DECLARE_INTERFACE_(IMFAsyncResult,IUnknown)
@@ -350,6 +354,10 @@ DECLARE_INTERFACE_(IMFAsyncResult,IUnknown)
 #define IMFAsyncResult_GetStatus() (This)->lpVtbl->GetStatus(This)
 #define IMFAsyncResult_SetStatus(This,hrStatus) (This)->lpVtbl->SetStatus(This,hrStatus)
 #endif /*COBJMACROS*/
+
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFMediaEventGenerator is unverified.
 
 #undef  INTERFACE
 #define INTERFACE IMFMediaEventGenerator
@@ -383,6 +391,10 @@ DECLARE_INTERFACE_(IMFMediaEventGenerator,IUnknown)
 #define IMFMediaEventGenerator_RemoteEndGetEvent(This,pResult,pcbEvent,ppbEvent) (This)->lpVtbl->RemoteEndGetEvent(This,pResult,pcbEvent,ppbEvent)
 #endif /*COBJMACROS*/
 
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFMediaBuffer is unverified.
+
 #undef  INTERFACE
 #define INTERFACE IMFMediaBuffer
 DECLARE_INTERFACE_(IMFMediaBuffer,IUnknown)
@@ -413,6 +425,10 @@ DECLARE_INTERFACE_(IMFMediaBuffer,IUnknown)
 #define IMFMediaBuffer_SetCurrentLength(This,cbCurrentLength) (This)->lpVtbl->SetCurrentLength(This,cbCurrentLength)
 #define IMFMediaBuffer_Unlock() (This)->lpVtbl->Unlock(This)
 #endif /*COBJMACROS*/
+
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFAttributes is unverified.
 
 #undef  INTERFACE
 #define INTERFACE IMFAttributes
@@ -494,6 +510,10 @@ DECLARE_INTERFACE_(IMFAttributes,IUnknown)
 #define IMFAttributes_SetUnknown(This,guidKey,pUnknown) (This)->lpVtbl->SetUnknown(This,guidKey,pUnknown)
 #define IMFAttributes_UnlockStore() (This)->lpVtbl->UnlockStore(This)
 #endif /*COBJMACROS*/
+
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFMediaType is unverified.
 
 #undef  INTERFACE
 #define INTERFACE IMFMediaType
@@ -587,6 +607,10 @@ DECLARE_INTERFACE_(IMFMediaType,IMFAttributes)
 #define IMFMediaType_IsCompressedFormat(This,pfCompressed) (This)->lpVtbl->IsCompressedFormat(This,pfCompressed)
 #define IMFMediaType_IsEqual(This,pIMediaType,pdwFlags) (This)->lpVtbl->IsEqual(This,pIMediaType,pdwFlags)
 #endif /*COBJMACROS*/
+
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFAudioMediaType is unverified.
 
 #undef  INTERFACE
 #define INTERFACE IMFAudioMediaType
@@ -684,6 +708,10 @@ DECLARE_INTERFACE_(IMFAudioMediaType,IMFAudioMediaType)
 #define IMFAudioMediaType_IsEqual(This,pIMediaType,pdwFlags) (This)->lpVtbl->IsEqual(This,pIMediaType,pdwFlags)
 #define IMFAudioMediaType_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
 #endif /*COBJMACROS*/
+
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFSample is unverified.
 
 #undef  INTERFACE
 #define INTERFACE IMFSample
@@ -808,6 +836,10 @@ DECLARE_INTERFACE_(IMFSample,IMFAttributes)
 #define IMFSample_SetSampleTime(This,hnsSampleTime) (This)->lpVtbl->SetSampleTime(This,hnsSampleTime)
 #endif /*COBJMACROS*/
 
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMF2DBuffer is unverified.
+
 #undef  INTERFACE
 #define INTERFACE IMF2DBuffer
 DECLARE_INTERFACE_(IMF2DBuffer,IUnknown)
@@ -843,6 +875,10 @@ DECLARE_INTERFACE_(IMF2DBuffer,IUnknown)
 #define IMF2DBuffer_Unlock2D() (This)->lpVtbl->Unlock2D(This)
 #endif /*COBJMACROS*/
 
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFAsyncCallback is unverified.
+
 #undef  INTERFACE
 #define INTERFACE IMFAsyncCallback
 DECLARE_INTERFACE_(IMFAsyncCallback,IUnknown)
@@ -867,6 +903,10 @@ DECLARE_INTERFACE_(IMFAsyncCallback,IUnknown)
 #define IMFAsyncCallback_GetParameters(This,pdwFlags,pdwQueue) (This)->lpVtbl->GetParameters(This,pdwFlags,pdwQueue)
 #define IMFAsyncCallback_Invoke(This,pAsyncResult) (This)->lpVtbl->Invoke(This,pAsyncResult)
 #endif /*COBJMACROS*/
+
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFByteStream is unverified.
 
 #undef  INTERFACE
 #define INTERFACE IMFByteStream
@@ -922,6 +962,10 @@ DECLARE_INTERFACE_(IMFByteStream,IUnknown)
 #define IMFByteStream_SetLength(This,qwLength) (This)->lpVtbl->SetLength(This,qwLength)
 #define IMFByteStream_Write(This,pb,cb,pcbWritten) (This)->lpVtbl->Write(This,pb,cb,pcbWritten)
 #endif /*COBJMACROS*/
+
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFMediaEvent is unverified.
 
 #undef  INTERFACE
 #define INTERFACE IMFMediaEvent
@@ -1013,6 +1057,10 @@ DECLARE_INTERFACE_(IMFMediaEvent,IMFAttributes)
 #define IMFMediaEvent_GetType(This,pmet) (This)->lpVtbl->GetType(This,pmet)
 #define IMFMediaEvent_GetValue(This,pvValue) (This)->lpVtbl->GetValue(This,pvValue)
 #endif /*COBJMACROS*/
+
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFVideoMediaType is unverified.
 
 #undef  INTERFACE
 #define INTERFACE IMFVideoMediaType
@@ -1113,6 +1161,10 @@ DECLARE_INTERFACE_(IMFVideoMediaType,IMFMediaType)
 #define IMFVideoMediaType_GetVideoRepresentation(This,guidRepresentation,ppvRepresentation,lStride) (This)->lpVtbl->GetVideoRepresentation(This,guidRepresentation,ppvRepresentation,lStride)
 #endif /*COBJMACROS*/
 
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFCollection is unverified.
+
 #undef  INTERFACE
 #define INTERFACE IMFCollection
 DECLARE_INTERFACE_(IMFCollection,IUnknown)
@@ -1147,6 +1199,12 @@ DECLARE_INTERFACE_(IMFCollection,IUnknown)
 #endif /*COBJMACROS*/
 
 #if (_WIN32_WINNT >= 0x0601)
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFPluginControl is unverified.
+#endif
+
 #undef  INTERFACE
 #define INTERFACE IMFPluginControl
 DECLARE_INTERFACE_(IMFPluginControl,IUnknown)

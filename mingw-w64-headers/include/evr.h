@@ -72,6 +72,12 @@ typedef struct MFVideoNormalizedRect {
 }
 #endif
 
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFVideoPresenter is unverified.
+#endif
+
 #undef  INTERFACE
 #define INTERFACE IMFVideoPresenter
 DECLARE_INTERFACE_(IMFVideoPresenter,IMFClockStateSink)
@@ -110,6 +116,12 @@ DECLARE_INTERFACE_(IMFVideoPresenter,IMFClockStateSink)
 #define IMFVideoPresenter_ProcessMessage(This,eMessage,ulParam) (This)->lpVtbl->ProcessMessage(This,eMessage,ulParam)
 #endif /*COBJMACROS*/
 
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFDesiredSample is unverified.
+#endif
+
 #undef  INTERFACE
 #define INTERFACE IMFDesiredSample
 DECLARE_INTERFACE_(IMFDesiredSample,IUnknown)
@@ -136,6 +148,12 @@ DECLARE_INTERFACE_(IMFDesiredSample,IUnknown)
 #define IMFDesiredSample_GetDesiredSampleTimeAndDuration(This,phnsSampleTime,phnsSampleDuration) (This)->lpVtbl->GetDesiredSampleTimeAndDuration(This,phnsSampleTime,phnsSampleDuration)
 #define IMFDesiredSample_SetDesiredSampleTimeAndDuration(This,hnsSampleTime,hnsSampleDuration) (This)->lpVtbl->SetDesiredSampleTimeAndDuration(This,hnsSampleTime,hnsSampleDuration)
 #endif /*COBJMACROS*/
+
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+#warning IMFTrackedSample is unverified.
+#endif
 
 #undef  INTERFACE
 #define INTERFACE IMFTrackedSample
