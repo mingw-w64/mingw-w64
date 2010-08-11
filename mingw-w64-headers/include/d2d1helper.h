@@ -8,6 +8,11 @@
 
 #if (_WIN32_WINNT >= 0x0600)
 #ifdef __cplusplus
+
+/* TODO: import-library needs to alias VC++ to g++ name-mangline
+
+   GCC cannot understand MSVC C++ mangling, so
+   function is not usable with GCC.
 D2D1_ARC_SEGMENT ArcSegment(
   const D2D1_POINT_2F &point,
   const D2D1_SIZE_F &size,
@@ -15,6 +20,7 @@ D2D1_ARC_SEGMENT ArcSegment(
   D2D1_SWEEP_DIRECTION sweepDirection,
   D2D1_ARC_SIZE arcSize
 );
+*/
 #endif
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
