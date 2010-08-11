@@ -5096,7 +5096,7 @@ typedef struct tagBIND_OPTS3 {
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #if (_WIN32_WINNT >= 0x0601)
-typedef enum  {
+typedef enum _APTTYPEQUALIFIER {
   APTTYPEQUALIFIER_NONE                 = 0,
   APTTYPEQUALIFIER_IMPLICIT_MTA         = 1,
   APTTYPEQUALIFIER_NA_ON_MTA            = 2,
