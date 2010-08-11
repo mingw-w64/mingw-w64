@@ -67,7 +67,7 @@ extern "C" {
   typedef NL_SUFFIX_ORIGIN IP_SUFFIX_ORIGIN;
   typedef NL_DAD_STATE IP_DAD_STATE;
 
-  typedef struct _IP_ADAPTER_UNICAST_ADDRESS {
+  typedef struct _IP_ADAPTER_UNICAST_ADDRESS_XP {
     __MINGW_EXTENSION union {
       ULONGLONG Alignment;
       __MINGW_EXTENSION struct {
@@ -75,7 +75,7 @@ extern "C" {
 	DWORD Flags;
       };
     };
-    struct _IP_ADAPTER_UNICAST_ADDRESS *Next;
+    struct _IP_ADAPTER_UNICAST_ADDRESS_XP *Next;
     SOCKET_ADDRESS Address;
     IP_PREFIX_ORIGIN PrefixOrigin;
     IP_SUFFIX_ORIGIN SuffixOrigin;
@@ -83,9 +83,9 @@ extern "C" {
     ULONG ValidLifetime;
     ULONG PreferredLifetime;
     ULONG LeaseLifetime;
-  } IP_ADAPTER_UNICAST_ADDRESS,*PIP_ADAPTER_UNICAST_ADDRESS;
+  } IP_ADAPTER_UNICAST_ADDRESS_XP,*PIP_ADAPTER_UNICAST_ADDRESS_XP;
 
-  typedef struct _IP_ADAPTER_ANYCAST_ADDRESS {
+  typedef struct _IP_ADAPTER_UNICAST_ADDRESS_LH {
     __MINGW_EXTENSION union {
       ULONGLONG Alignment;
       __MINGW_EXTENSION struct {
@@ -93,11 +93,26 @@ extern "C" {
 	DWORD Flags;
       };
     };
-    struct _IP_ADAPTER_ANYCAST_ADDRESS *Next;
+    struct _IP_ADAPTER_UNICAST_ADDRESS_LH *Next;
     SOCKET_ADDRESS Address;
-  } IP_ADAPTER_ANYCAST_ADDRESS,*PIP_ADAPTER_ANYCAST_ADDRESS;
+    IP_PREFIX_ORIGIN PrefixOrigin;
+    IP_SUFFIX_ORIGIN SuffixOrigin;
+    IP_DAD_STATE DadState;
+    ULONG ValidLifetime;
+    ULONG PreferredLifetime;
+    ULONG LeaseLifetime;
+    UINT8 OnLinkPrefixLength;
+  } IP_ADAPTER_UNICAST_ADDRESS_LH,*PIP_ADAPTER_UNICAST_ADDRESS_LH;
 
-  typedef struct _IP_ADAPTER_MULTICAST_ADDRESS {
+#if (_WIN32_WINNT >= 0x0600)
+  typedef IP_ADAPTER_UNICAST_ADDRESS_LH   IP_ADAPTER_UNICAST_ADDRESS;
+  typedef IP_ADAPTER_UNICAST_ADDRESS_LH *PIP_ADAPTER_UNICAST_ADDRESS;
+#else /* _WIN32_WINNT >= 0x0501 */
+  typedef IP_ADAPTER_UNICAST_ADDRESS_XP   IP_ADAPTER_UNICAST_ADDRESS;
+  typedef IP_ADAPTER_UNICAST_ADDRESS_XP *PIP_ADAPTER_UNICAST_ADDRESS;
+#endif
+
+  typedef struct _IP_ADAPTER_ANYCAST_ADDRESS_XP {
     __MINGW_EXTENSION union {
       ULONGLONG Alignment;
       __MINGW_EXTENSION struct {
@@ -105,15 +120,31 @@ extern "C" {
 	DWORD Flags;
       };
     };
-    struct _IP_ADAPTER_MULTICAST_ADDRESS *Next;
+    struct _IP_ADAPTER_ANYCAST_ADDRESS_XP *Next;
     SOCKET_ADDRESS Address;
-  } IP_ADAPTER_MULTICAST_ADDRESS,*PIP_ADAPTER_MULTICAST_ADDRESS;
+  } IP_ADAPTER_ANYCAST_ADDRESS_XP,*PIP_ADAPTER_ANYCAST_ADDRESS_XP;
+  typedef IP_ADAPTER_ANYCAST_ADDRESS_XP   IP_ADAPTER_ANYCAST_ADDRESS;
+  typedef IP_ADAPTER_ANYCAST_ADDRESS_XP *PIP_ADAPTER_ANYCAST_ADDRESS;
+
+  typedef struct _IP_ADAPTER_MULTICAST_ADDRESS_XP {
+    __MINGW_EXTENSION union {
+      ULONGLONG Alignment;
+      __MINGW_EXTENSION struct {
+	ULONG Length;
+	DWORD Flags;
+      };
+    };
+    struct _IP_ADAPTER_MULTICAST_ADDRESS_XP *Next;
+    SOCKET_ADDRESS Address;
+  } IP_ADAPTER_MULTICAST_ADDRESS_XP,*PIP_ADAPTER_MULTICAST_ADDRESS_XP;
+  typedef IP_ADAPTER_MULTICAST_ADDRESS_XP   IP_ADAPTER_MULTICAST_ADDRESS;
+  typedef IP_ADAPTER_MULTICAST_ADDRESS_XP *PIP_ADAPTER_MULTICAST_ADDRESS;
 
 #define IP_ADAPTER_ADDRESS_DNS_ELIGIBLE 0x01
 #define IP_ADAPTER_ADDRESS_TRANSIENT 0x02
 #define IP_ADAPTER_ADDRESS_PRIMARY 0x04
 
-  typedef struct _IP_ADAPTER_DNS_SERVER_ADDRESS {
+  typedef struct _IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     __MINGW_EXTENSION union {
       ULONGLONG Alignment;
       __MINGW_EXTENSION struct {
@@ -121,11 +152,13 @@ extern "C" {
 	DWORD Reserved;
       };
     };
-    struct _IP_ADAPTER_DNS_SERVER_ADDRESS *Next;
+    struct _IP_ADAPTER_DNS_SERVER_ADDRESS_XP *Next;
     SOCKET_ADDRESS Address;
-  } IP_ADAPTER_DNS_SERVER_ADDRESS,*PIP_ADAPTER_DNS_SERVER_ADDRESS;
+  } IP_ADAPTER_DNS_SERVER_ADDRESS_XP,*PIP_ADAPTER_DNS_SERVER_ADDRESS_XP;
+  typedef IP_ADAPTER_DNS_SERVER_ADDRESS_XP   IP_ADAPTER_DNS_SERVER_ADDRESS;
+  typedef IP_ADAPTER_DNS_SERVER_ADDRESS_XP *PIP_ADAPTER_DNS_SERVER_ADDRESS;
 
-  typedef struct _IP_ADAPTER_PREFIX {
+  typedef struct _IP_ADAPTER_PREFIX_XP {
     __MINGW_EXTENSION union {
       ULONGLONG Alignment;
       __MINGW_EXTENSION struct {
@@ -133,10 +166,44 @@ extern "C" {
 	DWORD Flags;
       };
     };
-    struct _IP_ADAPTER_PREFIX *Next;
+    struct _IP_ADAPTER_PREFIX_XP *Next;
     SOCKET_ADDRESS Address;
     ULONG PrefixLength;
-  } IP_ADAPTER_PREFIX,*PIP_ADAPTER_PREFIX;
+  } IP_ADAPTER_PREFIX_XP,*PIP_ADAPTER_PREFIX_XP;
+  typedef IP_ADAPTER_PREFIX_XP   IP_ADAPTER_PREFIX;
+  typedef IP_ADAPTER_PREFIX_XP *PIP_ADAPTER_PREFIX;
+
+  typedef struct _IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
+    __MINGW_EXTENSION union {
+      ULONGLONG Alignment;
+      __MINGW_EXTENSION struct {
+	ULONG Length;
+	DWORD Reserved;
+      };
+    };
+    struct _IP_ADAPTER_WINS_SERVER_ADDRESS_LH *Next;
+    SOCKET_ADDRESS Address;
+  } IP_ADAPTER_WINS_SERVER_ADDRESS_LH,*PIP_ADAPTER_WINS_SERVER_ADDRESS_LH;
+#if (_WIN32_WINNT >= 0x0600)
+  typedef IP_ADAPTER_WINS_SERVER_ADDRESS_LH   IP_ADAPTER_WINS_SERVER_ADDRESS;
+  typedef IP_ADAPTER_WINS_SERVER_ADDRESS_LH *PIP_ADAPTER_WINS_SERVER_ADDRESS;
+#endif
+
+  typedef struct _IP_ADAPTER_GATEWAY_ADDRESS_LH {
+    __MINGW_EXTENSION union {
+      ULONGLONG Alignment;
+      __MINGW_EXTENSION struct {
+	ULONG Length;
+	DWORD Reserved;
+      };
+    };
+    struct _IP_ADAPTER_GATEWAY_ADDRESS_LH *Next;
+    SOCKET_ADDRESS Address;
+  } IP_ADAPTER_GATEWAY_ADDRESS_LH,*PIP_ADAPTER_GATEWAY_ADDRESS_LH;
+#if (_WIN32_WINNT >= 0x0600)
+  typedef IP_ADAPTER_GATEWAY_ADDRESS_LH   IP_ADAPTER_GATEWAY_ADDRESS;
+  typedef IP_ADAPTER_GATEWAY_ADDRESS_LH *PIP_ADAPTER_GATEWAY_ADDRESS;
+#endif
 
   typedef struct _IP_ADAPTER_DNS_SUFFIX {
     struct _IP_ADAPTER_DNS_SUFFIX *Next;
@@ -164,7 +231,70 @@ extern "C" {
     ScopeLevelGlobal   = 14
   } SCOPE_LEVEL;
 
-  typedef struct _IP_ADAPTER_ADDRESSES {
+  typedef struct _IP_ADAPTER_ADDRESSES_LH {
+    __MINGW_EXTENSION union {
+      ULONGLONG   Alignment;
+      __MINGW_EXTENSION struct {
+	ULONG Length;
+	IF_INDEX IfIndex;
+      };
+    };
+    struct _IP_ADAPTER_ADDRESSES_LH *Next;
+    PCHAR AdapterName;
+    PIP_ADAPTER_UNICAST_ADDRESS_LH    FirstUnicastAddress;
+    PIP_ADAPTER_ANYCAST_ADDRESS_XP    FirstAnycastAddress;
+    PIP_ADAPTER_MULTICAST_ADDRESS_XP  FirstMulticastAddress;
+    PIP_ADAPTER_DNS_SERVER_ADDRESS_XP FirstDnsServerAddress;
+    PWCHAR DnsSuffix;
+    PWCHAR Description;
+    PWCHAR FriendlyName;
+    BYTE PhysicalAddress[MAX_ADAPTER_ADDRESS_LENGTH];
+    ULONG PhysicalAddressLength;
+    __MINGW_EXTENSION union {
+      ULONG Flags;
+      __MINGW_EXTENSION struct {
+	ULONG DdnsEnabled : 1;
+	ULONG RegisterAdapterSuffix : 1;
+	ULONG Dhcpv4Enabled : 1;
+	ULONG ReceiveOnly : 1;
+	ULONG NoMulticast : 1;
+	ULONG Ipv6OtherStatefulConfig : 1;
+	ULONG NetbiosOverTcpipEnabled : 1;
+	ULONG Ipv4Enabled : 1;
+	ULONG Ipv6Enabled : 1;
+	ULONG Ipv6ManagedAddressConfigurationSupported : 1;
+      };
+    };
+    ULONG Mtu;
+    IFTYPE IfType;
+    IF_OPER_STATUS OperStatus;
+    IF_INDEX Ipv6IfIndex;
+    ULONG ZoneIndices[16];
+    PIP_ADAPTER_PREFIX_XP FirstPrefix;
+
+    ULONG64 TransmitLinkSpeed;
+    ULONG64 ReceiveLinkSpeed;
+    PIP_ADAPTER_WINS_SERVER_ADDRESS_LH FirstWinsServerAddress;
+    PIP_ADAPTER_GATEWAY_ADDRESS_LH     FirstGatewayAddress;
+    ULONG Ipv4Metric;
+    ULONG Ipv6Metric;
+    IF_LUID Luid;
+    SOCKET_ADDRESS Dhcpv4Server;
+    NET_IF_COMPARTMENT_ID CompartmentId;
+    NET_IF_NETWORK_GUID NetworkGuid;
+    NET_IF_CONNECTION_TYPE ConnectionType;
+    TUNNEL_TYPE TunnelType;
+
+    SOCKET_ADDRESS Dhcpv6Server;
+    BYTE Dhcpv6ClientDuid[MAX_DHCPV6_DUID_LENGTH];
+    ULONG Dhcpv6ClientDuidLength;
+    ULONG Dhcpv6Iaid;
+#if (NTDDI_VERSION >= 0x06000100) /* NTDDI_VISTASP1 */
+    PIP_ADAPTER_DNS_SUFFIX FirstDnsSuffix;
+#endif
+  } IP_ADAPTER_ADDRESSES_LH;
+
+  typedef struct _IP_ADAPTER_ADDRESSES_XP {
     __MINGW_EXTENSION union {
       ULONGLONG Alignment;
       __MINGW_EXTENSION struct {
@@ -172,12 +302,12 @@ extern "C" {
 	DWORD IfIndex;
       };
     };
-    struct _IP_ADAPTER_ADDRESSES *Next;
+    struct _IP_ADAPTER_ADDRESSES_XP *Next;
     PCHAR AdapterName;
-    PIP_ADAPTER_UNICAST_ADDRESS FirstUnicastAddress;
-    PIP_ADAPTER_ANYCAST_ADDRESS FirstAnycastAddress;
-    PIP_ADAPTER_MULTICAST_ADDRESS FirstMulticastAddress;
-    PIP_ADAPTER_DNS_SERVER_ADDRESS FirstDnsServerAddress;
+    PIP_ADAPTER_UNICAST_ADDRESS_XP    FirstUnicastAddress;
+    PIP_ADAPTER_ANYCAST_ADDRESS_XP    FirstAnycastAddress;
+    PIP_ADAPTER_MULTICAST_ADDRESS_XP  FirstMulticastAddress;
+    PIP_ADAPTER_DNS_SERVER_ADDRESS_XP FirstDnsServerAddress;
     PWCHAR DnsSuffix;
     PWCHAR Description;
     PWCHAR FriendlyName;
@@ -189,8 +319,16 @@ extern "C" {
     IF_OPER_STATUS OperStatus;
     DWORD Ipv6IfIndex;
     DWORD ZoneIndices[16];
-    PIP_ADAPTER_PREFIX FirstPrefix;
+    PIP_ADAPTER_PREFIX_XP FirstPrefix;
   } IP_ADAPTER_ADDRESSES,*PIP_ADAPTER_ADDRESSES;
+
+#if (_WIN32_WINNT >= 0x0600)
+  typedef IP_ADAPTER_ADDRESSES_LH   IP_ADAPTER_ADDRESSES;
+  typedef IP_ADAPTER_ADDRESSES_LH *PIP_ADAPTER_ADDRESSES;
+#else /* _WIN32_WINNT >= 0x0501 */
+  typedef IP_ADAPTER_ADDRESSES_XP   IP_ADAPTER_ADDRESSES;
+  typedef IP_ADAPTER_ADDRESSES_XP *PIP_ADAPTER_ADDRESSES;
+#endif
 
 #define GAA_FLAG_SKIP_UNICAST 0x0001
 #define GAA_FLAG_SKIP_ANYCAST 0x0002
@@ -198,7 +336,12 @@ extern "C" {
 #define GAA_FLAG_SKIP_DNS_SERVER 0x0008
 #define GAA_FLAG_INCLUDE_PREFIX 0x0010
 #define GAA_FLAG_SKIP_FRIENDLY_NAME 0x0020
-#endif
+#define GAA_FLAG_INCLUDE_WINS_INFO 0x0040
+#define GAA_FLAG_INCLUDE_GATEWAYS 0x0080
+#define GAA_FLAG_INCLUDE_ALL_INTERFACES 0x0100
+#define GAA_FLAG_INCLUDE_ALL_COMPARTMENTS 0x0200
+#define GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER 0x0400
+#endif /* _WINSOCK2API_ */
 
   typedef struct _IP_PER_ADAPTER_INFO {
     UINT AutoconfigEnabled;

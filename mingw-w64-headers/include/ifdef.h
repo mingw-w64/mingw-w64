@@ -90,9 +90,11 @@ typedef union _NET_LUID {
   } Info;
 } NET_LUID, *PNET_LUID;
 
+typedef NET_LUID IF_LUID, *PIF_LUID;
+
 #ifdef __cplusplus
 }
 #endif
 
-#endif /*_INC_IFDEF*/
+#endif /* _INC_IFDEF */
 
