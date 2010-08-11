@@ -117,9 +117,13 @@ struct itimerspec {
 
 #ifndef _SIGSET_T_
 #define _SIGSET_T_
-typedef int	_sigset_t;
+#ifdef _WIN64
+__MINGW_EXTENSION typedef unsigned long long _sigset_t;
+#else
+typedef unsigned long	_sigset_t;
+#endif
 
-#ifndef _NO_OLDNAMES
+#ifndef _POSIX
 typedef _sigset_t	sigset_t;
 #endif
 #endif	/* Not _SIGSET_T_ */
