@@ -78,7 +78,7 @@ extern "C" {
 #endif
 
   typedef enum _POLICY_AUDIT_EVENT_TYPE {
-    AuditCategorySystem,AuditCategoryLogon,AuditCategoryObjectAccess,AuditCategoryPrivilegeUse,AuditCategoryDetailedTracking,
+    AuditCategorySystem = 0,AuditCategoryLogon,AuditCategoryObjectAccess,AuditCategoryPrivilegeUse,AuditCategoryDetailedTracking,
     AuditCategoryPolicyChange,AuditCategoryAccountManagement,AuditCategoryDirectoryServiceAccess,AuditCategoryAccountLogon
   } POLICY_AUDIT_EVENT_TYPE,*PPOLICY_AUDIT_EVENT_TYPE;
 
@@ -1306,18 +1306,6 @@ extern "C" {
 
 #if (_WIN32_WINNT >= 0x0600)
 
-  typedef enum _POLICY_AUDIT_EVENT_TYPE {
-    AuditCategorySystem,
-    AuditCategoryLogon,
-    AuditCategoryObjectAccess,
-    AuditCategoryPrivilegeUse,
-    AuditCategoryDetailedTracking,
-    AuditCategoryPolicyChange,
-    AuditCategoryAccountManagement,
-    AuditCategoryDirectoryServiceAccess,
-    AuditCategoryAccountLogon 
-  } POLICY_AUDIT_EVENT_TYPE, *PPOLICY_AUDIT_EVENT_TYPE;
-
 #define POLICY_AUDIT_EVENT_UNCHANGED 0x00000000
 #define POLICY_AUDIT_EVENT_SUCCESS 0x00000001
 #define POLICY_AUDIT_EVENT_FAILURE 0x00000002
@@ -1468,8 +1456,8 @@ extern "C" {
   );
 
   BOOLEAN WINAPI AuditSetSecurity(
-    __in  SECURITY_INFORMATION SecurityInformation,
-    __in  PSECURITY_DESCRIPTOR pSecurityDescriptor
+    SECURITY_INFORMATION SecurityInformation,
+    PSECURITY_DESCRIPTOR pSecurityDescriptor
   );
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
