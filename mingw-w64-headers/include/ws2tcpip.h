@@ -345,6 +345,7 @@ WCHAR *gai_strerrorW(int);
 #define addrinfoEx __MINGW_NAME_AW(addrinfoEx)
 #define PADDRINFOEX __MINGW_NAME_AW(PADDRINFOEX)
 #define GetAddrInfoEx __MINGW_NAME_AW(GetAddrInfoEx)
+#define SetAddrInfoEx __MINGW_NAME_AW(SetAddrInfoEx)
 #define FreeAddrInfoEx __MINGW_NAME_AW(FreeAddrInfoEx)
 
   typedef struct addrinfoExA {
@@ -375,49 +376,67 @@ WCHAR *gai_strerrorW(int);
     struct addrinfoexW *ai_next;
   } ADDRINFOEXW, *PADDRINFOEXW;
 
-typedef PVOID LOOKUPSERVICE_COMPLETION_ROUTINE; /*reserved*/
-typedef LOOKUPSERVICE_COMPLETION_ROUTINE *LPLOOKUPSERVICE_COMPLETION_ROUTINE;
+typedef PVOID LPLOOKUPSERVICE_COMPLETION_ROUTINE; /*reserved*/
 
-WINSOCK_API_LINKAGE int WSAAPI GetAddrInfoExA(LPCSTR pName,LPCSTR pServiceName,DWORD dwNameSpace,LPGUID lpNspId,const ADDRINFOEXA *pHints,PADDRINFOEXA *ppResult,struct timeval *timeout,LPOVERLAPPED lpOverlapped,LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,LPHANDLE lpNameHandle);
-WINSOCK_API_LINKAGE int WSAAPI GetAddrInfoExW(LPCWSTR pName,LPCWSTR pServiceName,DWORD dwNameSpace,LPGUID lpNspId,const ADDRINFOEXW *pHints,PADDRINFOEXW *ppResult,struct timeval *timeout,LPOVERLAPPED lpOverlapped,LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,LPHANDLE lpNameHandle);
+WINSOCK_API_LINKAGE int WSAAPI GetAddrInfoExA(PCSTR pName, PCSTR pServiceName, DWORD dwNameSpace,
+					      LPGUID lpNspId,const ADDRINFOEXA *pHints,PADDRINFOEXA *ppResult,
+					      struct timeval *timeout,LPOVERLAPPED lpOverlapped,
+					      LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
+					      LPHANDLE lpNameHandle);
+WINSOCK_API_LINKAGE int WSAAPI GetAddrInfoExW(PCWSTR pName,PCWSTR pServiceName,DWORD dwNameSpace,
+					      LPGUID lpNspId,const ADDRINFOEXW *pHints,PADDRINFOEXW *ppResult,
+					      struct timeval *timeout,LPOVERLAPPED lpOverlapped,
+					      LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
+					      LPHANDLE lpNameHandle);
+
+WINSOCK_API_LINKAGE int WSAAPI SetAddrInfoExA(PCSTR pName, PCSTR pServiceName, SOCKET_ADDRESS *pAddresses,
+					      DWORD dwAddressCount,LPBLOB lpBlob,DWORD dwFlags,DWORD dwNameSpace,
+					      LPGUID lpNspId,struct timeval *timeout,LPOVERLAPPED lpOverlapped,
+					      LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
+					      LPHANDLE lpNameHandle);
+WINSOCK_API_LINKAGE int WSAAPI SetAddrInfoExW(PCWSTR pName,PCWSTR pServiceName,SOCKET_ADDRESS *pAddresses,
+					      DWORD dwAddressCount,LPBLOB lpBlob,DWORD dwFlags,DWORD dwNameSpace,
+					      LPGUID lpNspId,struct timeval *timeout,LPOVERLAPPED lpOverlapped,
+					      LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
+					      LPHANDLE lpNameHandle);
+
 WINSOCK_API_LINKAGE void WSAAPI FreeAddrInfoExA(PADDRINFOEXA pAddrInfo);
 WINSOCK_API_LINKAGE void WSAAPI FreeAddrInfoExW(PADDRINFOEXW pAddrInfo);
 
-WINSOCK_API_LINKAGE int WSAAPI SetAddrInfoExA(
-  PCSTR pName,
-  PCSTR pServiceName,
-  SOCKET_ADDRESS *pAddresses,
-  DWORD dwAddressCount,
-  LPBLOB lpBlob,
-  DWORD dwFlags,
-  DWORD dwNameSpace,
-  LPGUID lpNspId,
-  struct timeval *timeout,
-  LPOVERLAPPED lpOverlapped,
-  LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
-  LPHANDLE lpNameHandle
-);
+#if INCL_WINSOCK_API_TYPEDEFS
+#define LPFN_GETADDRINFOEX __MINGW_NAME_AW(LPFN_GETADDRINFOEX)
+  typedef int (WSAAPI *LPFN_GETADDRINFOEXA)(PCSTR pName, PCSTR pServiceName, DWORD dwNameSpace,
+					    LPGUID lpNspId,const ADDRINFOEXA *pHints,PADDRINFOEXA *ppResult,
+					    struct timeval *timeout,LPOVERLAPPED lpOverlapped,
+					    LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
+					    LPHANDLE lpNameHandle);
+  typedef int (WSAAPI *LPFN_GETADDRINFOEXW)(PCWSTR pName,PCWSTR pServiceName,DWORD dwNameSpace,
+					    LPGUID lpNspId,const ADDRINFOEXW *pHints,PADDRINFOEXW *ppResult,
+					    struct timeval *timeout,LPOVERLAPPED lpOverlapped,
+					    LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
+					    LPHANDLE lpNameHandle);
 
-WINSOCK_API_LINKAGE int WSAAPI SetAddrInfoExW(
-  PCWSTR pName,
-  PCWSTR pServiceName,
-  SOCKET_ADDRESS *pAddresses,
-  DWORD dwAddressCount,
-  LPBLOB lpBlob,
-  DWORD dwFlags,
-  DWORD dwNameSpace,
-  LPGUID lpNspId,
-  struct timeval *timeout,
-  LPOVERLAPPED lpOverlapped,
-  LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
-  LPHANDLE lpNameHandle
-);
+#define LPFN_SETADDRINFOEX __MINGW_NAME_AW(LPFN_SETADDRINFOEX)
+  typedef int (WSAAPI *LPFN_SETADDRINFOEXA)(PCSTR pName, PCSTR pServiceName, SOCKET_ADDRESS *pAddresses,
+					    DWORD dwAddressCount,LPBLOB lpBlob,DWORD dwFlags,DWORD dwNameSpace,
+					    LPGUID lpNspId,struct timeval *timeout,LPOVERLAPPED lpOverlapped,
+					    LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
+					    LPHANDLE lpNameHandle);
+  typedef int (WSAAPI *LPFN_SETADDRINFOEXW)(PCWSTR pName,PCWSTR pServiceName,SOCKET_ADDRESS *pAddresses,
+					    DWORD dwAddressCount,LPBLOB lpBlob,DWORD dwFlags,DWORD dwNameSpace,
+					    LPGUID lpNspId,struct timeval *timeout,LPOVERLAPPED lpOverlapped,
+					    LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
+					    LPHANDLE lpNameHandle);
 
-#define SetAddrInfoEx __MINGW_NAME_AW(SetAddrInfoEx)
+#define LPFN_FREEADDRINFOEX __MINGW_NAME_AW(LPFN_FREEADDRINFOEX)
+  typedef void (WSAAPI *LPFN_FREEADDRINFOEXA)(PADDRINFOEXA pAddrInfo);
+  typedef void (WSAAPI *LPFN_FREEADDRINFOEXW)(PADDRINFOEXW pAddrInfo);
+#endif /* INCL_WINSOCK_API_TYPEDEFS */
+
 
 WINSOCK_API_LINKAGE int WSAAPI WSAImpersonateSocketPeer(
   SOCKET Socket,
-  const struct sockaddr PeerAddress,
+  const struct sockaddr *PeerAddress,
   ULONG peerAddressLen
 );
 
