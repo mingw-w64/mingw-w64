@@ -20,6 +20,7 @@ extern "C" {
 #define PXEAPI WINAPI
 #endif
 
+/* According to http://msdn.microsoft.com/en-us/library/aa967410%28VS.85%29.aspx it is more like a LPDWORD, but well ... */
 typedef LPVOID PXE_BOOT_ACTION;
 typedef ULONG PXE_REG_INDEX;
 typedef ULONG PXE_PROVIDER_ATTRIBUTE;
@@ -74,154 +75,43 @@ typedef struct tagPXE_PROVIDER {
   ULONG  uIndex;
 } PXE_PROVIDER, *PPXE_PROVIDER;
 
-DWORD PXEAPI PxeDhcpAppendOption(
-  PVOID pReplyPacket,
-  ULONG uMaxReplyPacketLen,
-  PULONG puReplyPacketLen,
-  BYTE bOption,
-  BYTE bOptionLen,
-  PVOID pValue
-);
-
-DWORD PXEAPI PxeDhcpGetOptionValue(
-  PVOID pPacket,
-  ULONG uPacketLen,
-  ULONG uInstance,
-  BYTE bOption,
-  PBYTE pbOptionLen,
-  PVOID *ppOptionValue
-);
-
-DWORD PXEAPI PxeDhcpGetVendorOptionValue(
-  PVOID pPacket,
-  ULONG uPacketLen,
-  BYTE bOption,
-  ULONG uInstance,
-  PBYTE pbOptionLen,
-  PVOID *ppOptionValue
-);
-
-DWORD PXEAPI PxeDhcpInitialize(
-  PVOID pRecvPacket,
-  ULONG uRecvPacketLen,
-  PVOID pReplyPacket,
-  ULONG uMaxReplyPacketLen,
-  PULONG puReplyPacketLen
-);
-
-DWORD PXEAPI PxeDhcpIsValid(
-  PVOID pPacket,
-  ULONG uPacketLen,
-  WINBOOL bRequestPacket,
-  PBOOL pbPxeOptionPresent
-);
+DWORD PXEAPI PxeDhcpAppendOption(PVOID pReplyPacket,ULONG uMaxReplyPacketLen,PULONG puReplyPacketLen,BYTE bOption,BYTE bOptionLen,PVOID pValue);
+DWORD PXEAPI PxeDhcpGetOptionValue(PVOID pPacket,ULONG uPacketLen,ULONG uInstance,BYTE bOption,PBYTE pbOptionLen,PVOID *ppOptionValue);
+DWORD PXEAPI PxeDhcpGetVendorOptionValue(PVOID pPacket,ULONG uPacketLen,BYTE bOption,ULONG uInstance,PBYTE pbOptionLen,PVOID *ppOptionValue);
+DWORD PXEAPI PxeDhcpInitialize(PVOID pRecvPacket,ULONG uRecvPacketLen,PVOID pReplyPacket,ULONG uMaxReplyPacketLen,PULONG puReplyPacketLen);
+DWORD PXEAPI PxeDhcpIsValid(PVOID pPacket,ULONG uPacketLen,WINBOOL bRequestPacket,PBOOL pbPxeOptionPresent);
 
 typedef enum _PXE_GSI_TYPE {
   PXE_GSI_TRACE_ENABLED = 1
 } PXE_GSI_TYPE;
 
-DWORD PXEAPI PxeGetServerInfo(
-  PXE_GSI_TYPE uInfoType,
-  PVOID pBuffer,
-  ULONG uBufferLen
-);
+DWORD PXEAPI PxeGetServerInfo(PXE_GSI_TYPE uInfoType,PVOID pBuffer,ULONG uBufferLen);
+PVOID PXEAPI PxePacketAllocate(HANDLE hProvider,HANDLE hClientRequest,ULONG uSize);
+DWORD PXEAPI PxePacketFree(HANDLE hProvider,HANDLE hClientRequest,PVOID pPacket);
+DWORD PXEAPI PxeProviderEnumClose(HANDLE hEnum);
+DWORD PXEAPI PxeProviderEnumFirst(HANDLE *phEnum);
+DWORD PXEAPI PxeProviderEnumNext(HANDLE hEnum,PPXE_PROVIDER *ppProvider);
+DWORD PXEAPI PxeProviderFreeInfo(PPXE_PROVIDER pProvider);
+DWORD PXEAPI PxeProviderInitialize(HANDLE hProvider,HKEY hProviderKey);
+DWORD PXEAPI PxeProviderQueryIndex(LPCWSTR pszProviderName,PULONG puIndex);
+DWORD PXEAPI PxeProviderRecvRequest(HANDLE hClientRequest,PVOID pPacket,ULONG uPacketLen,PXE_ADDRESS *pLocalAddress,PXE_ADDRESS *pRemoteAddress,PXE_BOOT_ACTION pAction,PVOID pContext);
 
-PVOID PXEAPI PxePacketAllocate(
-  HANDLE hProvider,
-  HANDLE hClientRequest,
-  ULONG uSize
-);
+#define PXE_REG_INDEX_TOP	0UL
+#define PXE_REG_INDEX_BOTTOM	0xFFFFFFFFUL
 
-DWORD PXEAPI PxePacketFree(
-  HANDLE hProvider,
-  HANDLE hClientRequest,
-  PVOID pPacket
-);
-
-DWORD PXEAPI PxeProviderEnumClose(
-  HANDLE hEnum
-);
-
-DWORD PXEAPI PxeProviderEnumFirst(
-  HANDLE *phEnum
-);
-
-DWORD PXEAPI PxeProviderEnumNext(
-  HANDLE hEnum,
-  PPXE_PROVIDER *ppProvider
-);
-
-DWORD PXEAPI PxeProviderFreeInfo(
-  PPXE_PROVIDER pProvider
-);
-
-DWORD PXEAPI PxeProviderInitialize(
-  HANDLE hProvider,
-  HKEY hProviderKey
-); /*CALLBACK*/
-
-DWORD PXEAPI PxeProviderQueryIndex(
-  LPCWSTR pszProviderName,
-  PULONG puIndex
-);
-
-#define PXE_BA_NBP 1
-#define PXE_BA_CUSTOM 2
-#define PXE_BA_IGNORE 3
-#define PXE_BA_REJECTED 4
-
-DWORD PXEAPI PxeProviderRecvRequest(
-  HANDLE hClientRequest,
-  PVOID pPacket,
-  ULONG uPacketLen,
-  PXE_ADDRESS *pLocalAddress,
-  PXE_ADDRESS *pRemoteAddress,
-  PXE_BOOT_ACTION pAction,
-  PVOID pContext
-); /*CALLBACK*/
-
-#define PXE_REG_INDEX_TOP 0
-#define PXE_REG_INDEX_BOTTOM 0xFFFFFFFF
-
-DWORD PXEAPI PxeProviderRegister(
-  LPCWSTR pszProviderName,
-  LPCWSTR pszModulePath,
-  PXE_REG_INDEX Index,
-  WINBOOL bIsCritical,
-  PHKEY phProviderKey
-);
-
-DWORD PXEAPI PxeProviderServiceControl(
-  PVOID pContext,
-  DWORD dwControl
-); /*CALLBACK*/
-
-DWORD PXEAPI PxeProviderSetAttribute(
-  HANDLE hProvider,
-  PXE_PROVIDER_ATTRIBUTE Attribute,
-  PVOID pParameterBuffer,
-  ULONG uParamLen
-);
+DWORD PXEAPI PxeProviderRegister(LPCWSTR pszProviderName,LPCWSTR pszModulePath,PXE_REG_INDEX Index,WINBOOL bIsCritical,PHKEY phProviderKey);
+DWORD PXEAPI PxeProviderServiceControl(PVOID pContext,DWORD dwControl);
+DWORD PXEAPI PxeProviderSetAttribute(HANDLE hProvider,PXE_PROVIDER_ATTRIBUTE Attribute,PVOID pParameterBuffer,ULONG uParamLen);
 
 #define PXE_PROV_ATTR_FILTER 0
+
 #define PXE_PROV_FILTER_ALL 0x0000
 #define PXE_PROV_FILTER_DHCP_ONLY 0x0001
 #define PXE_PROV_FILTER_PXE_ONLY 0x0002
 
-DWORD PXEAPI PxeProviderSetAttribute(
-  HANDLE hProvider,
-  PXE_PROVIDER_ATTRIBUTE Attribute,
-  PVOID pParameterBuffer,
-  ULONG uParamLen
-); /*CALLBACK*/
-
-DWORD PXEAPI PxeProviderShutdown(
-  PVOID pContext
-); /*CALLBACK*/
-
-DWORD PXEAPI PxeProviderUnRegister(
-  LPCWSTR pszProviderName
-);
+DWORD PXEAPI PxeProviderSetAttribute(HANDLE hProvider,PXE_PROVIDER_ATTRIBUTE Attribute,PVOID pParameterBuffer,ULONG uParamLen);
+DWORD PXEAPI PxeProviderShutdown(PVOID pContext);
+DWORD PXEAPI PxeProviderUnRegister(LPCWSTR pszProviderName);
 
 typedef enum _PXE_CALLBACK_TYPE {
   PXE_CALLBACK_RECV_REQUEST = 0,
@@ -230,21 +120,11 @@ typedef enum _PXE_CALLBACK_TYPE {
   PXE_CALLBACK_MAX
 } PXE_CALLBACK_TYPE;
 
-DWORD PXEAPI PxeSendReply(
-  HANDLE hClientRequest,
-  PVOID pPacket,
-  ULONG uPacketLen,
-  PXE_ADDRESS *pAddress
-);
-
-DWORD PXEAPI PxeRegisterCallback(
-  HANDLE hProvider,
-  PXE_CALLBACK_TYPE CallbackType,
-  PVOID pCallbackFunction,
-  PVOID pContext
-);
+DWORD PXEAPI PxeSendReply(HANDLE hClientRequest,PVOID pPacket,ULONG uPacketLen,PXE_ADDRESS *pAddress);
+DWORD PXEAPI PxeRegisterCallback(HANDLE hProvider,PXE_CALLBACK_TYPE CallbackType,PVOID pCallbackFunction,PVOID pContext);
 
 typedef DWORD PXE_SEVERITY;
+
 #define PXE_TRACE_VERBOSE 0x00010000
 #define PXE_TRACE_INFO 0x00020000
 #define PXE_TRACE_WARNING 0x00040000
@@ -252,12 +132,7 @@ typedef DWORD PXE_SEVERITY;
 #define PXE_TRACE_FATAL 0x00100000
 
 /* Fixme: PXEAPI/WINAPI varargs?? */
-DWORD PXEAPI PxeTrace(
-  HANDLE hProvider,
-  PXE_SEVERITY Severity,
-  LPCWSTR pszFormat,
-  ...
-);
+DWORD PXEAPI PxeTrace(HANDLE hProvider,PXE_SEVERITY Severity,LPCWSTR pszFormat,...);
 
 #ifdef __cplusplus
 }
