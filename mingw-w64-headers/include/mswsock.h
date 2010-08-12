@@ -155,15 +155,6 @@ extern "C" {
     } data;
   } NLA_BLOB,*PNLA_BLOB,*LPNLA_BLOB;
 
-  typedef struct _WSAMSG {
-    LPSOCKADDR name;
-    INT namelen;
-    LPWSABUF lpBuffers;
-    DWORD dwBufferCount;
-    WSABUF Control;
-    DWORD dwFlags;
-  } WSAMSG,*PWSAMSG,*LPWSAMSG;
-
   typedef struct _WSACMSGHDR {
     SIZE_T cmsg_len;
     INT cmsg_level;

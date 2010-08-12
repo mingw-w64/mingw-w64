@@ -851,6 +851,18 @@ typedef unsigned int GROUP;
   __MINGW_TYPEDEF_AW(PWSANAMESPACE_INFO)
   __MINGW_TYPEDEF_AW(LPWSANAMESPACE_INFO)
 
+/* FIXME: WSAMSG originally lived in mswsock.h,
+ * newer SDKs moved it into a new ws2def.h. for
+ * now we keep it here. */
+  typedef struct _WSAMSG {
+    LPSOCKADDR name;
+    INT namelen;
+    LPWSABUF lpBuffers;
+    DWORD dwBufferCount;
+    WSABUF Control;
+    DWORD dwFlags;
+  } WSAMSG,*PWSAMSG,*LPWSAMSG;
+
 #if INCL_WINSOCK_API_TYPEDEFS
 #define LPFN_WSADUPLICATESOCKET __MINGW_NAME_AW(LPFN_WSADUPLICATESOCKET)
 #define LPFN_WSAENUMPROTOCOLS __MINGW_NAME_AW(LPFN_WSAENUMPROTOCOLS)
