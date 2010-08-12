@@ -88,7 +88,6 @@ extern "C" {
 #define SSRVACTION_EVENT 3
 
 #ifndef _WIN64
-
   typedef struct _IMAGE_DEBUG_INFORMATION {
     LIST_ENTRY List;
     DWORD ReservedSize;
@@ -120,7 +119,7 @@ extern "C" {
     PIMAGE_DEBUG_DIRECTORY ReservedDebugDirectory;
     DWORD ReservedNumberOfDebugDirectories;
     DWORD ReservedOriginalFunctionTableBaseAddress;
-    DWORD Reserved[2 ];
+    DWORD Reserved[2];
   } IMAGE_DEBUG_INFORMATION,*PIMAGE_DEBUG_INFORMATION;
 
   PIMAGE_DEBUG_INFORMATION IMAGEAPI MapDebugInformation(HANDLE FileHandle,PSTR FileName,PSTR SymbolPath,DWORD ImageBase);
@@ -148,6 +147,7 @@ extern "C" {
 #define UNDNAME_NO_RETURN_UDT_MODEL (0x0400)
 #define UNDNAME_32_BIT_DECODE (0x0800)
 #define UNDNAME_NAME_ONLY (0x1000)
+
 #define UNDNAME_NO_ARGUMENTS (0x2000)
 #define UNDNAME_NO_SPECIAL_SYMS (0x4000)
 
@@ -164,7 +164,10 @@ extern "C" {
   } MODLOAD_DATA,*PMODLOAD_DATA;
 
   typedef enum {
-    AddrMode1616,AddrMode1632,AddrModeReal,AddrModeFlat
+    AddrMode1616,
+    AddrMode1632,
+    AddrModeReal,
+    AddrModeFlat
   } ADDRESS_MODE;
 
   typedef struct _tagADDRESS64 {
@@ -341,7 +344,16 @@ extern "C" {
 #define SYMFLAG_TLSREL 0x00004000
 
   typedef enum {
-    SymNone = 0,SymCoff,SymCv,SymPdb,SymExport,SymDeferred,SymSym,SymDia,SymVirtual,NumSymTypes
+    SymNone = 0,
+    SymCoff,
+    SymCv,
+    SymPdb,
+    SymExport,
+    SymDeferred,
+    SymSym,
+    SymDia,
+    SymVirtual,
+    NumSymTypes
   } SYM_TYPE;
 
   typedef struct _IMAGEHLP_SYMBOL64 {
@@ -508,7 +520,11 @@ extern "C" {
   } IMAGEHLP_CBA_READ_MEMORY,*PIMAGEHLP_CBA_READ_MEMORY;
 
   enum {
-    sevInfo = 0,sevProblem,sevAttn,sevFatal,sevMax
+    sevInfo = 0,
+    sevProblem,
+    sevAttn,
+    sevFatal,
+    sevMax
   };
 
   typedef struct _IMAGEHLP_CBA_EVENT {
@@ -571,7 +587,10 @@ extern "C" {
   PCHAR IMAGEAPI SymGetHomeDirectory(DWORD type,PSTR dir,size_t size);
 
   typedef enum {
-    hdBase = 0,hdSym,hdSrc,hdMax
+    hdBase = 0,
+    hdSym,
+    hdSrc,
+    hdMax
   };
 
 #define SYMOPT_CASE_INSENSITIVE 0x00000001
@@ -625,6 +644,7 @@ extern "C" {
 #endif
 
   WINBOOL IMAGEAPI EnumerateLoadedModules64(HANDLE hProcess,PENUMLOADED_MODULES_CALLBACK64 EnumLoadedModulesCallback,PVOID UserContext);
+
 #ifdef _IMAGEHLP64
 #define EnumerateLoadedModules EnumerateLoadedModules64
 #else
@@ -798,8 +818,7 @@ extern "C" {
     CHAR name[MAX_SYM_NAME + 1];
   } SYMBOL_INFO_PACKAGE,*PSYMBOL_INFO_PACKAGE;
 
-  typedef struct _IMAGEHLP_STACK_FRAME
-  {
+  typedef struct _IMAGEHLP_STACK_FRAME {
     ULONG64 InstructionOffset;
     ULONG64 ReturnOffset;
     ULONG64 FrameOffset;
@@ -828,10 +847,33 @@ extern "C" {
 #define SYMENUMFLAG_SPEEDSRCH 2
 
   typedef enum _IMAGEHLP_SYMBOL_TYPE_INFO {
-    TI_GET_SYMTAG,TI_GET_SYMNAME,TI_GET_LENGTH,TI_GET_TYPE,TI_GET_TYPEID,TI_GET_BASETYPE,TI_GET_ARRAYINDEXTYPEID,TI_FINDCHILDREN,
-    TI_GET_DATAKIND,TI_GET_ADDRESSOFFSET,TI_GET_OFFSET,TI_GET_VALUE,TI_GET_COUNT,TI_GET_CHILDRENCOUNT,TI_GET_BITPOSITION,TI_GET_VIRTUALBASECLASS,
-    TI_GET_VIRTUALTABLESHAPEID,TI_GET_VIRTUALBASEPOINTEROFFSET,TI_GET_CLASSPARENTID,TI_GET_NESTED,TI_GET_SYMINDEX,TI_GET_LEXICALPARENT,
-    TI_GET_ADDRESS,TI_GET_THISADJUST,TI_GET_UDTKIND,TI_IS_EQUIV_TO,TI_GET_CALLING_CONVENTION
+    TI_GET_SYMTAG,
+    TI_GET_SYMNAME,
+    TI_GET_LENGTH,
+    TI_GET_TYPE,
+    TI_GET_TYPEID,
+    TI_GET_BASETYPE,
+    TI_GET_ARRAYINDEXTYPEID,
+    TI_FINDCHILDREN,
+    TI_GET_DATAKIND,
+    TI_GET_ADDRESSOFFSET,
+    TI_GET_OFFSET,
+    TI_GET_VALUE,
+    TI_GET_COUNT,
+    TI_GET_CHILDRENCOUNT,
+    TI_GET_BITPOSITION,
+    TI_GET_VIRTUALBASECLASS,
+    TI_GET_VIRTUALTABLESHAPEID,
+    TI_GET_VIRTUALBASEPOINTEROFFSET,
+    TI_GET_CLASSPARENTID,
+    TI_GET_NESTED,
+    TI_GET_SYMINDEX,
+    TI_GET_LEXICALPARENT,
+    TI_GET_ADDRESS,
+    TI_GET_THISADJUST,
+    TI_GET_UDTKIND,
+    TI_IS_EQUIV_TO,
+    TI_GET_CALLING_CONVENTION
   } IMAGEHLP_SYMBOL_TYPE_INFO;
 
   typedef struct _TI_FINDCHILDREN_PARAMS {
@@ -944,24 +986,38 @@ extern "C" {
 
   typedef struct _MINIDUMP_STRING {
     ULONG32 Length;
-    WCHAR Buffer [0];
+    WCHAR Buffer[0];
   } MINIDUMP_STRING,*PMINIDUMP_STRING;
 
   typedef enum _MINIDUMP_STREAM_TYPE {
-    UnusedStream = 0,ReservedStream0 = 1,ReservedStream1 = 2,ThreadListStream = 3,ModuleListStream = 4,MemoryListStream = 5,
-    ExceptionStream = 6,SystemInfoStream = 7,ThreadExListStream = 8,Memory64ListStream = 9,CommentStreamA = 10,CommentStreamW = 11,
-    HandleDataStream = 12,FunctionTableStream = 13,UnloadedModuleListStream = 14,MiscInfoStream = 15,LastReservedStream = 0xffff
+    UnusedStream = 0,
+    ReservedStream0 = 1,
+    ReservedStream1 = 2,
+    ThreadListStream = 3,
+    ModuleListStream = 4,
+    MemoryListStream = 5,
+    ExceptionStream = 6,
+    SystemInfoStream = 7,
+    ThreadExListStream = 8,
+    Memory64ListStream = 9,
+    CommentStreamA = 10,
+    CommentStreamW = 11,
+    HandleDataStream = 12,
+    FunctionTableStream = 13,
+    UnloadedModuleListStream = 14,
+    MiscInfoStream = 15,
+    LastReservedStream = 0xffff
   } MINIDUMP_STREAM_TYPE;
 
   typedef union _CPU_INFORMATION {
     struct {
-      ULONG32 VendorId [3 ];
+      ULONG32 VendorId[3];
       ULONG32 VersionInformation;
       ULONG32 FeatureInformation;
       ULONG32 AMDExtendedCpuFeatures;
     } X86CpuInfo;
     struct {
-      ULONG64 ProcessorFeatures [2 ];
+      ULONG64 ProcessorFeatures[2];
     } OtherCpuInfo;
   } CPU_INFORMATION,*PCPU_INFORMATION;
 
@@ -991,7 +1047,7 @@ extern "C" {
     CPU_INFORMATION Cpu;
   } MINIDUMP_SYSTEM_INFO,*PMINIDUMP_SYSTEM_INFO;
 
-  C_ASSERT (sizeof (((PPROCESS_INFORMATION)0)->dwThreadId)==4);
+  C_ASSERT(sizeof(((PPROCESS_INFORMATION)0)->dwThreadId)==4);
 
   typedef struct _MINIDUMP_THREAD {
     ULONG32 ThreadId;
@@ -1005,7 +1061,7 @@ extern "C" {
 
   typedef struct _MINIDUMP_THREAD_LIST {
     ULONG32 NumberOfThreads;
-    MINIDUMP_THREAD Threads [0];
+    MINIDUMP_THREAD Threads[0];
   } MINIDUMP_THREAD_LIST,*PMINIDUMP_THREAD_LIST;
 
   typedef struct _MINIDUMP_THREAD_EX {
@@ -1021,7 +1077,7 @@ extern "C" {
 
   typedef struct _MINIDUMP_THREAD_EX_LIST {
     ULONG32 NumberOfThreads;
-    MINIDUMP_THREAD_EX Threads [0];
+    MINIDUMP_THREAD_EX Threads[0];
   } MINIDUMP_THREAD_EX_LIST,*PMINIDUMP_THREAD_EX_LIST;
 
   typedef struct _MINIDUMP_EXCEPTION {
@@ -1031,7 +1087,7 @@ extern "C" {
     ULONG64 ExceptionAddress;
     ULONG32 NumberParameters;
     ULONG32 __unusedAlignment;
-    ULONG64 ExceptionInformation [EXCEPTION_MAXIMUM_PARAMETERS ];
+    ULONG64 ExceptionInformation[EXCEPTION_MAXIMUM_PARAMETERS];
   } MINIDUMP_EXCEPTION,*PMINIDUMP_EXCEPTION;
 
   typedef struct MINIDUMP_EXCEPTION_STREAM {
@@ -1056,18 +1112,18 @@ extern "C" {
 
   typedef struct _MINIDUMP_MODULE_LIST {
     ULONG32 NumberOfModules;
-    MINIDUMP_MODULE Modules [0 ];
+    MINIDUMP_MODULE Modules[0];
   } MINIDUMP_MODULE_LIST,*PMINIDUMP_MODULE_LIST;
 
   typedef struct _MINIDUMP_MEMORY_LIST {
     ULONG32 NumberOfMemoryRanges;
-    MINIDUMP_MEMORY_DESCRIPTOR MemoryRanges [0];
+    MINIDUMP_MEMORY_DESCRIPTOR MemoryRanges[0];
   } MINIDUMP_MEMORY_LIST,*PMINIDUMP_MEMORY_LIST;
 
   typedef struct _MINIDUMP_MEMORY64_LIST {
     ULONG64 NumberOfMemoryRanges;
     RVA64 BaseRva;
-    MINIDUMP_MEMORY_DESCRIPTOR64 MemoryRanges [0];
+    MINIDUMP_MEMORY_DESCRIPTOR64 MemoryRanges[0];
   } MINIDUMP_MEMORY64_LIST,*PMINIDUMP_MEMORY64_LIST;
 
   typedef struct _MINIDUMP_EXCEPTION_INFORMATION {
@@ -1161,7 +1217,12 @@ extern "C" {
   } MINIDUMP_USER_STREAM_INFORMATION,*PMINIDUMP_USER_STREAM_INFORMATION;
 
   typedef enum _MINIDUMP_CALLBACK_TYPE {
-    ModuleCallback,ThreadCallback,ThreadExCallback,IncludeThreadCallback,IncludeModuleCallback,MemoryCallback
+    ModuleCallback,
+    ThreadCallback,
+    ThreadExCallback,
+    IncludeThreadCallback,
+    IncludeModuleCallback,
+    MemoryCallback
   } MINIDUMP_CALLBACK_TYPE;
 
   typedef struct _MINIDUMP_THREAD_CALLBACK {
@@ -1319,6 +1380,13 @@ typedef struct _MINIDUMP_MEMORY_INFO_LIST {
   ULONG64 NumberOfEntries;
 } MINIDUMP_MEMORY_INFO_LIST, *PMINIDUMP_MEMORY_INFO_LIST;
 
+#define MINIDUMP_THREAD_INFO_ERROR_THREAD    0x00000001
+#define MINIDUMP_THREAD_INFO_WRITING_THREAD  0x00000002
+#define MINIDUMP_THREAD_INFO_EXITED_THREAD   0x00000004
+#define MINIDUMP_THREAD_INFO_INVALID_INFO    0x00000008
+#define MINIDUMP_THREAD_INFO_INVALID_CONTEXT 0x00000010
+#define MINIDUMP_THREAD_INFO_INVALID_TEB     0x00000020
+
 typedef struct _MINIDUMP_THREAD_INFO {
   ULONG32 ThreadId;
   ULONG32 DumpFlags;
@@ -1335,7 +1403,7 @@ typedef struct _MINIDUMP_THREAD_INFO {
 typedef struct _MINIDUMP_THREAD_INFO_LIST {
   ULONG   SizeOfHeader;
   ULONG   SizeOfEntry;
-  ULONG64 NumberOfEntries;
+  ULONG   NumberOfEntries; /* FIXME: msdn says ULONG64 */
 } MINIDUMP_THREAD_INFO_LIST, *PMINIDUMP_THREAD_INFO_LIST;
 
   typedef WINBOOL (WINAPI *MINIDUMP_CALLBACK_ROUTINE)(PVOID CallbackParam,CONST PMINIDUMP_CALLBACK_INPUT CallbackInput,PMINIDUMP_CALLBACK_OUTPUT CallbackOutput);

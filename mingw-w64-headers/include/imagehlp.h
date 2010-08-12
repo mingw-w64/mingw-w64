@@ -53,9 +53,26 @@ extern "C" {
 #define MAX_SYM_NAME 2000
 
   typedef enum _IMAGEHLP_STATUS_REASON {
-    BindOutOfMemory,BindRvaToVaFailed,BindNoRoomInImage,BindImportModuleFailed,BindImportProcedureFailed,BindImportModule,
-    BindImportProcedure,BindForwarder,BindForwarderNOT,BindImageModified,BindExpandFileHeaders,BindImageComplete,BindMismatchedSymbols,
-    BindSymbolsNotUpdated,BindImportProcedure32,BindImportProcedure64,BindForwarder32,BindForwarder64,BindForwarderNOT32,BindForwarderNOT64
+    BindOutOfMemory,
+    BindRvaToVaFailed,
+    BindNoRoomInImage,
+    BindImportModuleFailed,
+    BindImportProcedureFailed,
+    BindImportModule,
+    BindImportProcedure,
+    BindForwarder,
+    BindForwarderNOT,
+    BindImageModified,
+    BindExpandFileHeaders,
+    BindImageComplete,
+    BindMismatchedSymbols,
+    BindSymbolsNotUpdated,
+    BindImportProcedure32,
+    BindImportProcedure64,
+    BindForwarder32,
+    BindForwarder64,
+    BindForwarderNOT32,
+    BindForwarderNOT64
   } IMAGEHLP_STATUS_REASON;
 
   typedef WINBOOL (WINAPI *PIMAGEHLP_STATUS_ROUTINE)(IMAGEHLP_STATUS_REASON Reason,PSTR ImageName,PSTR DllName,ULONG_PTR Va,ULONG_PTR Parameter);
@@ -202,10 +219,9 @@ extern "C" {
   WINBOOL IMAGEAPI UnmapDebugInformation(PIMAGE_DEBUG_INFORMATION DebugInfo);
 #endif
 
-  WINBOOL IMAGEAPI SearchTreeForFile(PSTR RootPath,PSTR InputPathName,PSTR OutputPathBuffer);
-
   typedef WINBOOL (CALLBACK *PENUMDIRTREE_CALLBACK)(LPCSTR FilePath,PVOID CallerData);
 
+  WINBOOL IMAGEAPI SearchTreeForFile(PSTR RootPath,PSTR InputPathName,PSTR OutputPathBuffer);
   WINBOOL IMAGEAPI EnumDirTree(HANDLE hProcess,PSTR RootPath,PSTR InputPathName,PSTR OutputPathBuffer,PENUMDIRTREE_CALLBACK Callback,PVOID CallbackData);
   WINBOOL IMAGEAPI MakeSureDirectoryPathExists(PCSTR DirPath);
 
@@ -241,7 +257,10 @@ extern "C" {
   } MODLOAD_DATA,*PMODLOAD_DATA;
 
   typedef enum {
-    AddrMode1616,AddrMode1632,AddrModeReal,AddrModeFlat
+    AddrMode1616,
+    AddrMode1632,
+    AddrModeReal,
+    AddrModeFlat
   } ADDRESS_MODE;
 
   typedef struct _tagADDRESS64 {
@@ -380,10 +399,10 @@ extern "C" {
   LPAPI_VERSION IMAGEAPI ImagehlpApiVersionEx(LPAPI_VERSION AppVersion);
   DWORD IMAGEAPI GetTimestampForLoadedLibrary(HMODULE Module);
 
-  typedef WINBOOL (CALLBACK *PSYM_ENUMMODULES_CALLBACK64)(PSTR ModuleName,DWORD64 BaseOfDll,PVOID UserContext);
-  typedef WINBOOL (CALLBACK *PSYM_ENUMSYMBOLS_CALLBACK64)(PSTR SymbolName,DWORD64 SymbolAddress,ULONG SymbolSize,PVOID UserContext);
-  typedef WINBOOL (CALLBACK *PSYM_ENUMSYMBOLS_CALLBACK64W)(PWSTR SymbolName,DWORD64 SymbolAddress,ULONG SymbolSize,PVOID UserContext);
-  typedef WINBOOL (CALLBACK *PENUMLOADED_MODULES_CALLBACK64)(PSTR ModuleName,DWORD64 ModuleBase,ULONG ModuleSize,PVOID UserContext);
+  typedef WINBOOL (CALLBACK *PSYM_ENUMMODULES_CALLBACK64)(PCSTR ModuleName,DWORD64 BaseOfDll,PVOID UserContext);
+  typedef WINBOOL (CALLBACK *PSYM_ENUMSYMBOLS_CALLBACK64)(PCSTR SymbolName,DWORD64 SymbolAddress,ULONG SymbolSize,PVOID UserContext);
+  typedef WINBOOL (CALLBACK *PSYM_ENUMSYMBOLS_CALLBACK64W)(PCWSTR SymbolName,DWORD64 SymbolAddress,ULONG SymbolSize,PVOID UserContext);
+  typedef WINBOOL (CALLBACK *PENUMLOADED_MODULES_CALLBACK64)(PCSTR ModuleName,DWORD64 ModuleBase,ULONG ModuleSize,PVOID UserContext);
   typedef WINBOOL (CALLBACK *PSYMBOL_REGISTERED_CALLBACK64)(HANDLE hProcess,ULONG ActionCode,ULONG64 CallbackData,ULONG64 UserContext);
   typedef PVOID (CALLBACK *PSYMBOL_FUNCENTRY_CALLBACK)(HANDLE hProcess,DWORD AddrBase,PVOID UserContext);
   typedef PVOID (CALLBACK *PSYMBOL_FUNCENTRY_CALLBACK64)(HANDLE hProcess,ULONG64 AddrBase,ULONG64 UserContext);
@@ -396,10 +415,10 @@ extern "C" {
 #define PSYMBOL_REGISTERED_CALLBACK PSYMBOL_REGISTERED_CALLBACK64
 #define PSYMBOL_FUNCENTRY_CALLBACK PSYMBOL_FUNCENTRY_CALLBACK64
 #else
-  typedef WINBOOL (CALLBACK *PSYM_ENUMMODULES_CALLBACK)(PSTR ModuleName,ULONG BaseOfDll,PVOID UserContext);
-  typedef WINBOOL (CALLBACK *PSYM_ENUMSYMBOLS_CALLBACK)(PSTR SymbolName,ULONG SymbolAddress,ULONG SymbolSize,PVOID UserContext);
-  typedef WINBOOL (CALLBACK *PSYM_ENUMSYMBOLS_CALLBACKW)(PWSTR SymbolName,ULONG SymbolAddress,ULONG SymbolSize,PVOID UserContext);
-  typedef WINBOOL (CALLBACK *PENUMLOADED_MODULES_CALLBACK)(PSTR ModuleName,ULONG ModuleBase,ULONG ModuleSize,PVOID UserContext);
+  typedef WINBOOL (CALLBACK *PSYM_ENUMMODULES_CALLBACK)(PCSTR ModuleName,ULONG BaseOfDll,PVOID UserContext);
+  typedef WINBOOL (CALLBACK *PSYM_ENUMSYMBOLS_CALLBACK)(PCSTR SymbolName,ULONG SymbolAddress,ULONG SymbolSize,PVOID UserContext);
+  typedef WINBOOL (CALLBACK *PSYM_ENUMSYMBOLS_CALLBACKW)(PCWSTR SymbolName,ULONG SymbolAddress,ULONG SymbolSize,PVOID UserContext);
+  typedef WINBOOL (CALLBACK *PENUMLOADED_MODULES_CALLBACK)(PCSTR ModuleName,ULONG ModuleBase,ULONG ModuleSize,PVOID UserContext);
   typedef WINBOOL (CALLBACK *PSYMBOL_REGISTERED_CALLBACK)(HANDLE hProcess,ULONG ActionCode,PVOID CallbackData,PVOID UserContext);
 #endif
 
@@ -418,7 +437,16 @@ extern "C" {
 #define SYMFLAG_TLSREL 0x00004000
 
   typedef enum {
-    SymNone = 0,SymCoff,SymCv,SymPdb,SymExport,SymDeferred,SymSym,SymDia,SymVirtual,NumSymTypes
+    SymNone = 0,
+    SymCoff,
+    SymCv,
+    SymPdb,
+    SymExport,
+    SymDeferred,
+    SymSym,
+    SymDia,
+    SymVirtual,
+    NumSymTypes
   } SYM_TYPE;
 
   typedef struct _IMAGEHLP_SYMBOL64 {
@@ -585,7 +613,11 @@ extern "C" {
   } IMAGEHLP_CBA_READ_MEMORY,*PIMAGEHLP_CBA_READ_MEMORY;
 
   enum {
-    sevInfo = 0,sevProblem,sevAttn,sevFatal,sevMax
+    sevInfo = 0,
+    sevProblem,
+    sevAttn,
+    sevFatal,
+    sevMax
   };
 
   typedef struct _IMAGEHLP_CBA_EVENT {
@@ -648,7 +680,10 @@ extern "C" {
   PCHAR IMAGEAPI SymGetHomeDirectory(DWORD type,PSTR dir,size_t size);
 
   typedef enum {
-    hdBase = 0,hdSym,hdSrc,hdMax
+    hdBase = 0,
+    hdSym,
+    hdSrc,
+    hdMax
   };
 
 #define SYMOPT_CASE_INSENSITIVE 0x00000001
@@ -830,6 +865,7 @@ extern "C" {
 #endif
 
   WINBOOL IMAGEAPI SymRegisterCallback64(HANDLE hProcess,PSYMBOL_REGISTERED_CALLBACK64 CallbackFunction,ULONG64 UserContext);
+
   WINBOOL IMAGEAPI SymRegisterFunctionEntryCallback64(HANDLE hProcess,PSYMBOL_FUNCENTRY_CALLBACK64 CallbackFunction,ULONG64 UserContext);
 
 #ifdef _IMAGEHLP64
@@ -904,10 +940,32 @@ extern "C" {
 #define SYMENUMFLAG_SPEEDSRCH 2
 
   typedef enum _IMAGEHLP_SYMBOL_TYPE_INFO {
-    TI_GET_SYMTAG,TI_GET_SYMNAME,TI_GET_LENGTH,TI_GET_TYPE,TI_GET_TYPEID,TI_GET_BASETYPE,TI_GET_ARRAYINDEXTYPEID,
-    TI_FINDCHILDREN,TI_GET_DATAKIND,TI_GET_ADDRESSOFFSET,TI_GET_OFFSET,TI_GET_VALUE,TI_GET_COUNT,TI_GET_CHILDRENCOUNT,
-    TI_GET_BITPOSITION,TI_GET_VIRTUALBASECLASS,TI_GET_VIRTUALTABLESHAPEID,TI_GET_VIRTUALBASEPOINTEROFFSET,TI_GET_CLASSPARENTID,
-    TI_GET_NESTED,TI_GET_SYMINDEX,TI_GET_LEXICALPARENT,TI_GET_ADDRESS,TI_GET_THISADJUST,TI_GET_UDTKIND,TI_IS_EQUIV_TO,
+    TI_GET_SYMTAG,
+    TI_GET_SYMNAME,
+    TI_GET_LENGTH,
+    TI_GET_TYPE,
+    TI_GET_TYPEID,
+    TI_GET_BASETYPE,
+    TI_GET_ARRAYINDEXTYPEID,
+    TI_FINDCHILDREN,
+    TI_GET_DATAKIND,
+    TI_GET_ADDRESSOFFSET,
+    TI_GET_OFFSET,
+    TI_GET_VALUE,
+    TI_GET_COUNT,
+    TI_GET_CHILDRENCOUNT,
+    TI_GET_BITPOSITION,
+    TI_GET_VIRTUALBASECLASS,
+    TI_GET_VIRTUALTABLESHAPEID,
+    TI_GET_VIRTUALBASEPOINTEROFFSET,
+    TI_GET_CLASSPARENTID,
+    TI_GET_NESTED,
+    TI_GET_SYMINDEX,
+    TI_GET_LEXICALPARENT,
+    TI_GET_ADDRESS,
+    TI_GET_THISADJUST,
+    TI_GET_UDTKIND,
+    TI_IS_EQUIV_TO,
     TI_GET_CALLING_CONVENTION
   } IMAGEHLP_SYMBOL_TYPE_INFO;
 
@@ -1025,9 +1083,23 @@ extern "C" {
   } MINIDUMP_STRING,*PMINIDUMP_STRING;
 
   typedef enum _MINIDUMP_STREAM_TYPE {
-    UnusedStream = 0,ReservedStream0 = 1,ReservedStream1 = 2,ThreadListStream = 3,ModuleListStream = 4,MemoryListStream = 5,
-    ExceptionStream = 6,SystemInfoStream = 7,ThreadExListStream = 8,Memory64ListStream = 9,CommentStreamA = 10,CommentStreamW = 11,
-    HandleDataStream = 12,FunctionTableStream = 13,UnloadedModuleListStream = 14,MiscInfoStream = 15,LastReservedStream = 0xffff
+    UnusedStream = 0,
+    ReservedStream0 = 1,
+    ReservedStream1 = 2,
+    ThreadListStream = 3,
+    ModuleListStream = 4,
+    MemoryListStream = 5,
+    ExceptionStream = 6,
+    SystemInfoStream = 7,
+    ThreadExListStream = 8,
+    Memory64ListStream = 9,
+    CommentStreamA = 10,
+    CommentStreamW = 11,
+    HandleDataStream = 12,
+    FunctionTableStream = 13,
+    UnloadedModuleListStream = 14,
+    MiscInfoStream = 15,
+    LastReservedStream = 0xffff
   } MINIDUMP_STREAM_TYPE;
 
   typedef union _CPU_INFORMATION {
@@ -1210,6 +1282,7 @@ extern "C" {
 
 #define MINIDUMP_MISC1_PROCESS_ID 0x00000001
 #define MINIDUMP_MISC1_PROCESS_TIMES 0x00000002
+#define MINIDUMP_MISC1_PROCESSOR_POWER_INFO 0x00000004
 
   typedef struct _MINIDUMP_MISC_INFO {
     ULONG32 SizeOfInfo;
@@ -1237,7 +1310,12 @@ extern "C" {
   } MINIDUMP_USER_STREAM_INFORMATION,*PMINIDUMP_USER_STREAM_INFORMATION;
 
   typedef enum _MINIDUMP_CALLBACK_TYPE {
-    ModuleCallback,ThreadCallback,ThreadExCallback,IncludeThreadCallback,IncludeModuleCallback,MemoryCallback
+    ModuleCallback,
+    ThreadCallback,
+    ThreadExCallback,
+    IncludeThreadCallback,
+    IncludeModuleCallback,
+    MemoryCallback
   } MINIDUMP_CALLBACK_TYPE;
 
   typedef struct _MINIDUMP_THREAD_CALLBACK {
@@ -1265,8 +1343,13 @@ extern "C" {
   } MINIDUMP_INCLUDE_THREAD_CALLBACK,*PMINIDUMP_INCLUDE_THREAD_CALLBACK;
 
   typedef enum _THREAD_WRITE_FLAGS {
-    ThreadWriteThread = 0x0001,ThreadWriteStack = 0x0002,ThreadWriteContext = 0x0004,ThreadWriteBackingStore = 0x0008,
-    ThreadWriteInstructionWindow = 0x0010,ThreadWriteThreadData = 0x0020
+    ThreadWriteThread              = 0x0001,
+    ThreadWriteStack               = 0x0002,
+    ThreadWriteContext             = 0x0004,
+    ThreadWriteBackingStore        = 0x0008,
+    ThreadWriteInstructionWindow   = 0x0010,
+    ThreadWriteThreadData          = 0x0020,
+    ThreadWriteThreadInfo          = 0x0040
   } THREAD_WRITE_FLAGS;
 
   typedef struct _MINIDUMP_MODULE_CALLBACK {
@@ -1287,9 +1370,18 @@ extern "C" {
   } MINIDUMP_INCLUDE_MODULE_CALLBACK,*PMINIDUMP_INCLUDE_MODULE_CALLBACK;
 
   typedef enum _MODULE_WRITE_FLAGS {
-    ModuleWriteModule = 0x0001,ModuleWriteDataSeg = 0x0002,ModuleWriteMiscRecord = 0x0004,ModuleWriteCvRecord = 0x0008,
-    ModuleReferencedByMemory = 0x0010
+    ModuleWriteModule          = 0x0001,
+    ModuleWriteDataSeg         = 0x0002,
+    ModuleWriteMiscRecord      = 0x0004,
+    ModuleWriteCvRecord        = 0x0008,
+    ModuleReferencedByMemory   = 0x0010,
+    ModuleWriteTlsData         = 0x0020,
+    ModuleWriteCodeSegs        = 0x0040
   } MODULE_WRITE_FLAGS;
+
+  typedef enum _MINIDUMP_SECONDARY_FLAGS {
+    MiniSecondaryWithoutPowerInfo   = 0x00000001
+  } MINIDUMP_SECONDARY_FLAGS;
 
   typedef struct _MINIDUMP_CALLBACK_INPUT {
     ULONG ProcessId;
@@ -1308,19 +1400,104 @@ extern "C" {
     __MINGW_EXTENSION union {
       ULONG ModuleWriteFlags;
       ULONG ThreadWriteFlags;
+      ULONG SecondaryFlags;
       __MINGW_EXTENSION struct {
 	ULONG64 MemoryBase;
 	ULONG MemorySize;
       };
+      __MINGW_EXTENSION struct {
+	WINBOOL CheckCancel;
+	WINBOOL Cancel;
+      };
+      HANDLE Handle;
     };
-  } MINIDUMP_CALLBACK_OUTPUT,*PMINIDUMP_CALLBACK_OUTPUT;
+    __MINGW_EXTENSION struct {
+      MINIDUMP_MEMORY_INFO VmRegion;
+      WINBOOL Continue;
+    };
+    HRESULT Status;
+  } MINIDUMP_CALLBACK_OUTPUT, *PMINIDUMP_CALLBACK_OUTPUT;
 
   typedef enum _MINIDUMP_TYPE {
-    MiniDumpNormal = 0x0000,MiniDumpWithDataSegs = 0x0001,MiniDumpWithFullMemory = 0x0002,MiniDumpWithHandleData = 0x0004,
-    MiniDumpFilterMemory = 0x0008,MiniDumpScanMemory = 0x0010,MiniDumpWithUnloadedModules = 0x0020,MiniDumpWithIndirectlyReferencedMemory = 0x0040,
-    MiniDumpFilterModulePaths = 0x0080,MiniDumpWithProcessThreadData = 0x0100,MiniDumpWithPrivateReadWriteMemory = 0x0200,
-    MiniDumpWithoutOptionalData = 0x0400
+    MiniDumpNormal                           = 0x00000000,
+    MiniDumpWithDataSegs                     = 0x00000001,
+    MiniDumpWithFullMemory                   = 0x00000002,
+    MiniDumpWithHandleData                   = 0x00000004,
+    MiniDumpFilterMemory                     = 0x00000008,
+    MiniDumpScanMemory                       = 0x00000010,
+    MiniDumpWithUnloadedModules              = 0x00000020,
+    MiniDumpWithIndirectlyReferencedMemory   = 0x00000040,
+    MiniDumpFilterModulePaths                = 0x00000080,
+    MiniDumpWithProcessThreadData            = 0x00000100,
+    MiniDumpWithPrivateReadWriteMemory       = 0x00000200,
+    MiniDumpWithoutOptionalData              = 0x00000400,
+    MiniDumpWithFullMemoryInfo               = 0x00000800,
+    MiniDumpWithThreadInfo                   = 0x00001000,
+    MiniDumpWithCodeSegs                     = 0x00002000,
+    MiniDumpWithoutAuxiliaryState            = 0x00004000,
+    MiniDumpWithFullAuxiliaryState           = 0x00008000,
+    MiniDumpWithPrivateWriteCopyMemory       = 0x00010000,
+    MiniDumpIgnoreInaccessibleMemory         = 0x00020000,
+    MiniDumpWithTokenInformation             = 0x00040000
   } MINIDUMP_TYPE;
+
+typedef struct _MINIDUMP_MEMORY_INFO {
+  ULONG64 BaseAddress;
+  ULONG64 AllocationBase;
+  ULONG32 AllocationProtect;
+  ULONG32 __alignment1;
+  ULONG64 RegionSize;
+  ULONG32 State;
+  ULONG32 Protect;
+  ULONG32 Type;
+  ULONG32 __alignment2;
+} MINIDUMP_MEMORY_INFO, *PMINIDUMP_MEMORY_INFO;
+
+typedef struct _MINIDUMP_MISC_INFO_2 {
+  ULONG32 SizeOfInfo;
+  ULONG32 Flags1;
+  ULONG32 ProcessId;
+  ULONG32 ProcessCreateTime;
+  ULONG32 ProcessUserTime;
+  ULONG32 ProcessKernelTime;
+  ULONG32 ProcessorMaxMhz;
+  ULONG32 ProcessorCurrentMhz;
+  ULONG32 ProcessorMhzLimit;
+  ULONG32 ProcessorMaxIdleState;
+  ULONG32 ProcessorCurrentIdleState;
+} MINIDUMP_MISC_INFO_2, *PMINIDUMP_MISC_INFO_2;
+
+typedef struct _MINIDUMP_MEMORY_INFO_LIST {
+  ULONG   SizeOfHeader;
+  ULONG   SizeOfEntry;
+  ULONG64 NumberOfEntries;
+} MINIDUMP_MEMORY_INFO_LIST, *PMINIDUMP_MEMORY_INFO_LIST;
+
+#define MINIDUMP_THREAD_INFO_ERROR_THREAD    0x00000001
+#define MINIDUMP_THREAD_INFO_WRITING_THREAD  0x00000002
+#define MINIDUMP_THREAD_INFO_EXITED_THREAD   0x00000004
+#define MINIDUMP_THREAD_INFO_INVALID_INFO    0x00000008
+#define MINIDUMP_THREAD_INFO_INVALID_CONTEXT 0x00000010
+#define MINIDUMP_THREAD_INFO_INVALID_TEB     0x00000020
+
+typedef struct _MINIDUMP_THREAD_INFO {
+  ULONG32 ThreadId;
+  ULONG32 DumpFlags;
+  ULONG32 DumpError;
+  ULONG32 ExitStatus;
+  ULONG64 CreateTime;
+  ULONG64 ExitTime;
+  ULONG64 KernelTime;
+  ULONG64 UserTime;
+  ULONG64 StartAddress;
+  ULONG64 Affinity;
+} MINIDUMP_THREAD_INFO, *PMINIDUMP_THREAD_INFO;
+
+typedef struct _MINIDUMP_THREAD_INFO_LIST {
+  ULONG   SizeOfHeader;
+  ULONG   SizeOfEntry;
+  ULONG   NumberOfEntries; /* FIXME: msdn says ULONG64 */
+} MINIDUMP_THREAD_INFO_LIST, *PMINIDUMP_THREAD_INFO_LIST;
 
   typedef WINBOOL (WINAPI *MINIDUMP_CALLBACK_ROUTINE)(PVOID CallbackParam,CONST PMINIDUMP_CALLBACK_INPUT CallbackInput,PMINIDUMP_CALLBACK_OUTPUT CallbackOutput);
 
