@@ -9,12 +9,11 @@
 #include <dvdmedia.h>
 #include <opmapi.h>
 #include <propsys.h>
+#include <ksmedia.h>
 
 #if (_WIN32_WINNT >= 0x0600)
 /*ksmedia.h needs fixing about "multi-character character constant"*/
 typedef struct _MFT_REGISTRATION_INFO MFT_REGISTRATION_INFO;
-typedef struct tagKS_VIDEOINFOHEADER KS_VIDEOINFOHEADER, *PKS_VIDEOINFOHEADER;
-typedef struct tagKS_VIDEOINFOHEADER2 KS_VIDEOINFOHEADER2, *PKS_VIDEOINFOHEADER2;
 typedef struct IMFActivate IMFActivate;
 typedef enum _EAllocationType { eAllocationTypeIgnore } EAllocationType; /*Unknown type*/
 
