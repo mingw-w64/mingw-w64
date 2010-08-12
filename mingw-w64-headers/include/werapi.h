@@ -11,25 +11,25 @@
 extern "C" {
 #endif
 
-/* Guessed from http://msdn.microsoft.com/en-us/library/bb513623%28v=VS.85%29.aspx */
+/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb513623%28v=VS.85%29.aspx */
 typedef enum _WER_REGISTER_FILE_TYPE {
-  WerFileTypeHeapdump,
+  WerFileTypeHeapdump = 0,
   WerFileTypeMicrodump,
   WerFileTypeMinidump,
   WerRegFileTypeOther,
   WerRegFileTypeUserDocument
 } WER_REGISTER_FILE_TYPE;
 
-/* Guessed from http://msdn.microsoft.com/en-us/library/bb513622%28VS.85%29.aspx */
+/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb513622%28VS.85%29.aspx */
 typedef enum _WER_DUMP_TYPE {
-  WerDumpTypeHeapDump,
+  WerDumpTypeHeapDump = 0,
   WerDumpTypeMicroDump,
   WerDumpTypeMiniDump,
 } WER_DUMP_TYPE;
 
-/* Guessed from http://msdn.microsoft.com/en-us/library/bb513627%28v=VS.85%29.aspx */
+/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb513627%28v=VS.85%29.aspx */
 typedef enum _WER_REPORT_UI {
-  WerUIAdditionalDataDlgHeader,
+  WerUIAdditionalDataDlgHeader = 0,
   WerUICloseDlgBody,
   WerUICloseDlgButtonText,
   WerUICloseDlgHeader,
@@ -41,16 +41,16 @@ typedef enum _WER_REPORT_UI {
   WerUIOnlineSolutionCheckText
 } WER_REPORT_UI;
 
-/* Guessed from http://msdn.microsoft.com/en-us/library/bb513628%28v=VS.85%29.aspx */
+/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb513628%28v=VS.85%29.aspx */
 typedef enum _WER_CONSENT {
-  WerConsentApproved,
+  WerConsentApproved = 0,
   WerConsentDenied,
   WerConsentNotAsked
 } WER_CONSENT;
 
-/* Guessed from http://msdn.microsoft.com/en-us/library/bb513628%28v=VS.85%29.aspx */
+/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb513628%28v=VS.85%29.aspx */
 typedef enum _WER_SUBMIT_RESULT {
-  WerDisabled,
+  WerDisabled = 0,
   WerDisabledQueue,
   WerReportAsync,
   WerReportCancelled,
@@ -59,6 +59,12 @@ typedef enum _WER_SUBMIT_RESULT {
   WerReportQueued,
   WerReportUploaded
 } WER_SUBMIT_RESULT;
+
+/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb756974.aspx */
+typedef enum _WER_REPORT_TYPE {
+  WerReportNonCritical = 0,
+  WerReportCritical
+} WER_REPORT_TYPE;
 
 typedef struct _WER_DUMP_CUSTOM_OPTIONS {
   DWORD dwSize;
@@ -90,96 +96,22 @@ typedef struct _WER_REPORT_INFORMATION {
   HWND   hwndParent;
 } WER_REPORT_INFORMATION, *PWER_REPORT_INFORMATION;
 
-HRESULT WINAPI WerAddExcludedApplication(
-  PCWSTR pwzExeName,
-  WINBOOL bAllUsers
-);
-
-HRESULT WINAPI WerGetFlags(
-  HANDLE hProcess,
-  PDWORD pdwFlags
-);
-
-HRESULT WINAPI WerRegisterFile(
-  PCWSTR pwzFile,
-  WER_REGISTER_FILE_TYPE regFileType,
-  DWORD dwFlags
-);
-
-HRESULT WINAPI WerRegisterMemoryBlock(
-  PVOID pvAddress,
-  DWORD dwSize
-);
-
-HRESULT WINAPI WerRemoveExcludedApplication(
-  PCWSTR pwzExeName,
-  WINBOOL bAllUsers
-);
-
-HRESULT WINAPI WerReportAddDump(
-  HREPORT hReportHandle,
-  HANDLE hProcess,
-  HANDLE hThread,
-  WER_DUMP_TYPE dumpType,
-  PWER_EXCEPTION_INFORMATION pExceptionParam,
-  PWER_DUMP_CUSTOM_OPTIONS pDumpCustomOptions,
-  DWORD dwFlags
-);
-
-HRESULT WINAPI WerReportAddFile(
-  HREPORT hReportHandle,
-  PCWSTR pwzPath,
-  WER_FILE_TYPE repFileType,
-  DWORD dwFileFlags
-);
-
-HRESULT WINAPI WerReportCloseHandle(
-  HREPORT hReportHandle
-);
-
-HRESULT WINAPI WerReportCreate(
-  PCWSTR pwzEventType,
-  WER_REPORT_TYPE repType,
-  PWER_REPORT_INFORMATION pReportInformation,
-  HREPORT *phReportHandle
-);
-
-HRESULT WINAPI WerReportHang(
-  HWND hwndHungWindow,
-  PCWSTR wszHungApplicationName
-);
-
-HRESULT WINAPI WerReportSetParameter(
-  HREPORT hReportHandle,
-  DWORD dwparamID,
-  PCWSTR pwzName,
-  PCWSTR pwzValue
-);
-
-HRESULT WINAPI WerReportSetUIOption(
-  HREPORT hReportHandle,
-  WER_REPORT_UI repUITypeID,
-  PCWSTR pwzValue
-);
-
-HRESULT WINAPI WerReportSubmit(
-  HREPORT hReportHandle,
-  WER_CONSENT consent,
-  DWORD dwFlags,
-  PWER_SUBMIT_RESULT pSubmitResult
-);
-
-HRESULT WINAPI WerSetFlags(
-  DWORD dwFlags
-);
-
-HRESULT WINAPI WerUnregisterFile(
-  PCWSTR pwzFilePath
-);
-
-HRESULT WINAPI WerUnregisterMemoryBlock(
-  PVOID pvAddress
-);
+HRESULT WINAPI WerAddExcludedApplication(PCWSTR pwzExeName,WINBOOL bAllUsers);
+HRESULT WINAPI WerGetFlags(HANDLE hProcess,PDWORD pdwFlags);
+HRESULT WINAPI WerRegisterFile(PCWSTR pwzFile,WER_REGISTER_FILE_TYPE regFileType,DWORD dwFlags);
+HRESULT WINAPI WerRegisterMemoryBlock(PVOID pvAddress,DWORD dwSize);
+HRESULT WINAPI WerRemoveExcludedApplication(PCWSTR pwzExeName,WINBOOL bAllUsers);
+HRESULT WINAPI WerReportAddDump(HREPORT hReportHandle,HANDLE hProcess,HANDLE hThread,WER_DUMP_TYPE dumpType,PWER_EXCEPTION_INFORMATION pExceptionParam,PWER_DUMP_CUSTOM_OPTIONS pDumpCustomOptions,DWORD dwFlags);
+HRESULT WINAPI WerReportAddFile(HREPORT hReportHandle,PCWSTR pwzPath,WER_FILE_TYPE repFileType,DWORD dwFileFlags);
+HRESULT WINAPI WerReportCloseHandle(HREPORT hReportHandle);
+HRESULT WINAPI WerReportCreate(PCWSTR pwzEventType,WER_REPORT_TYPE repType,PWER_REPORT_INFORMATION pReportInformation,HREPORT *phReportHandle);
+HRESULT WINAPI WerReportHang(HWND hwndHungWindow,PCWSTR wszHungApplicationName);
+HRESULT WINAPI WerReportSetParameter(HREPORT hReportHandle,DWORD dwparamID,PCWSTR pwzName,PCWSTR pwzValue);
+HRESULT WINAPI WerReportSetUIOption(HREPORT hReportHandle,WER_REPORT_UI repUITypeID,PCWSTR pwzValue);
+HRESULT WINAPI WerReportSubmit(HREPORT hReportHandle,WER_CONSENT consent,DWORD dwFlags,PWER_SUBMIT_RESULT pSubmitResult);
+HRESULT WINAPI WerSetFlags(DWORD dwFlags);
+HRESULT WINAPI WerUnregisterFile(PCWSTR pwzFilePath);
+HRESULT WINAPI WerUnregisterMemoryBlock(PVOID pvAddress);
 
 #ifdef __cplusplus
 }
