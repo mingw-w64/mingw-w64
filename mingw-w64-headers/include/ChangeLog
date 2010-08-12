@@ -1,5 +1,8 @@
 2010-08-12  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* windows.h: Remove the ktmtypes.h include. (Transaction stuff
+	is not in winnt.h in the stable branch, yet.)
+
 	* dbghelp.h: Reformat enums for one line per value. Whitespace
 	tidy-up.
 	* imagehlp.h: Apply trunk rev.2254 change to dbghelp.h: Make
