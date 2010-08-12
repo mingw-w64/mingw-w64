@@ -5,10 +5,20 @@
  */
 #ifndef _INC_WSDDISCO
 #define _INC_WSDDISCO
+
+#ifndef _INC_WSDAPI
+#error Please include wsdapi.h instead of this header. This header cannot be used directly.
+#endif
+
 #if (_WIN32_WINNT >= 0x0600)
 
 #undef  INTERFACE
 #define INTERFACE IWSDScopeMatchingRule
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDScopeMatchingRule,IUnknown)
 {
     BEGIN_INTERFACE
@@ -34,6 +44,11 @@ DECLARE_INTERFACE_(IWSDScopeMatchingRule,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryPublisherNotify
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDiscoveryPublisherNotify,IUnknown)
 {
     BEGIN_INTERFACE
@@ -59,6 +74,11 @@ DECLARE_INTERFACE_(IWSDiscoveryPublisherNotify,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveredService
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDiscoveredService,IUnknown)
 {
     BEGIN_INTERFACE
@@ -102,6 +122,11 @@ DECLARE_INTERFACE_(IWSDiscoveredService,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryProviderNotify
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDiscoveryProviderNotify,IUnknown)
 {
     BEGIN_INTERFACE
@@ -131,6 +156,11 @@ DECLARE_INTERFACE_(IWSDiscoveryProviderNotify,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryProvider
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDiscoveryProvider,IUnknown)
 {
     BEGIN_INTERFACE
@@ -166,6 +196,11 @@ DECLARE_INTERFACE_(IWSDiscoveryProvider,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryPublisher
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDiscoveryPublisher,IUnknown)
 {
     BEGIN_INTERFACE

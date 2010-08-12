@@ -5,10 +5,20 @@
  */
 #ifndef _INC_WSDXML
 #define _INC_WSDXML
+
+#ifndef _INC_WSDAPI
+#error Please include wsdapi.h instead of this header. This header cannot be used directly.
+#endif
+
 #if (_WIN32_WINNT >= 0x0600)
 
 #undef  INTERFACE
 #define INTERFACE IWSDXMLContext
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDXMLContext,IUnknown)
 {
     BEGIN_INTERFACE

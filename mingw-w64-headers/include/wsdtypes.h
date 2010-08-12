@@ -5,6 +5,11 @@
  */
 #ifndef _INC_WSDTYPES
 #define _INC_WSDTYPES
+
+#ifndef _INC_WSDAPI
+#error Please include wsdapi.h instead of this header. This header cannot be used directly.
+#endif
+
 #if (_WIN32_WINNT >= 0x0600)
 
 #ifdef __cplusplus
