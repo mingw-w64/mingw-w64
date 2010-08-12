@@ -91,7 +91,10 @@ struct sockaddr_in6 {
   u_short sin6_port;
   u_long sin6_flowinfo;
   struct in6_addr sin6_addr;
-  u_long sin6_scope_id;
+  __MINGW_EXTENSION union {
+    u_long sin6_scope_id;
+    SCOPE_ID sin6_scope_struct;
+  };
 };
 
 typedef struct sockaddr_in6 SOCKADDR_IN6;
