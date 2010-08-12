@@ -39,7 +39,6 @@
 #endif
 #endif /* WINSOCK_API_LINKAGE */
 #define WSAAPI			WINAPI
-#define WSPAPI			WINAPI
 
 /* undefine macros from winsock.h */
 #include <mingw_inc/_ws1_undef.h>
@@ -773,14 +772,15 @@ typedef unsigned int GROUP;
 #define LUP_FLUSHCACHE 0x1000
 #define LUP_FLUSHPREVIOUS 0x2000
 
+#define LUP_NON_AUTHORITATIVE 0x4000
+#define LUP_SECURE 0x8000
 #define LUP_RETURN_PREFERRED_NAMES 0x10000
+
 #define LUP_ADDRCONFIG 0x100000
 #define LUP_DUAL_ADDR 0x200000
+#define LUP_FILESERVER 0x400000
 
-#define LUP_SECURE 0x8000
-
-#define LUP_NON_AUTHORITATIVE 0x4000
-#define LUP_RES_RESERVICE 0x8000
+#define LUP_RES_RESERVICE 0x8000 /* FIXME: not in PSDK anymore?? */
 
 #define RESULT_IS_ALIAS 0x0001
 #define RESULT_IS_ADDED 0x0010
@@ -1099,21 +1099,21 @@ typedef unsigned int GROUP;
 
 #if (_WIN32_WINNT >= 0x0600)
 typedef struct _WSANAMESPACE_INFOEXA {
-  GUID   NSProviderId;
-  DWORD  dwNameSpace;
-  WINBOOL   fActive;
-  DWORD  dwVersion;
+  GUID NSProviderId;
+  DWORD dwNameSpace;
+  WINBOOL fActive;
+  DWORD dwVersion;
   LPSTR lpszIdentifier;
-  BLOB   ProviderSpecific;
+  BLOB ProviderSpecific;
 } WSANAMESPACE_INFOEXA, *PWSANAMESPACE_INFOEXA, *LPWSANAMESPACE_INFOEXA;
 
 typedef struct _WSANAMESPACE_INFOEXW {
-  GUID   NSProviderId;
-  DWORD  dwNameSpace;
-  WINBOOL   fActive;
-  DWORD  dwVersion;
+  GUID NSProviderId;
+  DWORD dwNameSpace;
+  WINBOOL fActive;
+  DWORD dwVersion;
   LPWSTR lpszIdentifier;
-  BLOB   ProviderSpecific;
+  BLOB ProviderSpecific;
 } WSANAMESPACE_INFOEXW, *PWSANAMESPACE_INFOEXW, *LPWSANAMESPACE_INFOEXW;
 
 __MINGW_TYPEDEF_AW(WSANAMESPACE_INFOEX)
@@ -1196,12 +1196,12 @@ WINSOCK_API_LINKAGE WINBOOL PASCAL WSAConnectByNameW(
 );
 #define WSAConnectByName __MINGW_NAME_AW(WSAConnectByName)
 
-INT WSPAPI WSAEnumNameSpaceProvidersExA(
+INT WSAAPI WSAEnumNameSpaceProvidersExA(
   LPDWORD lpdwBufferLength,
   LPWSANAMESPACE_INFOEXA lpnspBuffer
 );
 
-INT WSPAPI WSAEnumNameSpaceProvidersExW(
+INT WSAAPI WSAEnumNameSpaceProvidersExW(
   LPDWORD lpdwBufferLength,
   LPWSANAMESPACE_INFOEXW lpnspBuffer
 );
