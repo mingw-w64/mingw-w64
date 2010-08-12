@@ -1,3 +1,14 @@
+2010-08-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dbghelp.h: Reformat enums for one line per value. Whitespace
+	tidy-up.
+	* imagehlp.h: Apply trunk rev.2254 change to dbghelp.h: Make
+	string arguments const for PSYM_ENUMMODULES_CALLBACK64,
+	PSYM_ENUMSYMBOLS_CALLBACK64, PSYM_ENUMSYMBOLS_CALLBACK64W,
+	PENUMLOADED_MODULES_CALLBACK64 and PSYM_ENUMMODULES_CALLBACK64.
+	Reformat similar to dbghelp.h so that the two files give less
+	output.
+
 2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Backport from trunk rev. 3261 with adjustments:
