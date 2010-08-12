@@ -380,6 +380,11 @@ typedef struct _MFNetCredentialManagerGetParam {
 
 #undef  INTERFACE
 #define INTERFACE IMFByteStreamBuffering
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFByteStreamBuffering,IUnknown)
 {
     BEGIN_INTERFACE
@@ -407,6 +412,11 @@ DECLARE_INTERFACE_(IMFByteStreamBuffering,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFPresentationDescriptor
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFPresentationDescriptor,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -550,6 +560,11 @@ DECLARE_INTERFACE_(IMFByteStreamCacheControl,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFClockStateSink
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFClockStateSink,IUnknown)
 {
     BEGIN_INTERFACE
@@ -581,6 +596,11 @@ DECLARE_INTERFACE_(IMFClockStateSink,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFClock
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFClock,IUnknown)
 {
     BEGIN_INTERFACE
@@ -612,6 +632,11 @@ DECLARE_INTERFACE_(IMFClock,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFPresentationTimeSource
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFPresentationTimeSource,IMFClock)
 {
     BEGIN_INTERFACE
@@ -647,6 +672,11 @@ DECLARE_INTERFACE_(IMFPresentationTimeSource,IMFClock)
 
 #undef  INTERFACE
 #define INTERFACE IMFPresentationClock
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFPresentationClock,IMFClock)
 {
     BEGIN_INTERFACE
@@ -696,6 +726,11 @@ DECLARE_INTERFACE_(IMFPresentationClock,IMFClock)
 
 #undef  INTERFACE
 #define INTERFACE IMFStreamSink
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFStreamSink,IMFMediaEventGenerator)
 {
     BEGIN_INTERFACE
@@ -742,6 +777,11 @@ DECLARE_INTERFACE_(IMFStreamSink,IMFMediaEventGenerator)
 
 #undef  INTERFACE
 #define INTERFACE IMFMediaSink
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFMediaSink,IUnknown)
 {
     BEGIN_INTERFACE
@@ -781,6 +821,11 @@ DECLARE_INTERFACE_(IMFMediaSink,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFSchemeHandler
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFSchemeHandler,IUnknown)
 {
     BEGIN_INTERFACE
@@ -808,6 +853,11 @@ DECLARE_INTERFACE_(IMFSchemeHandler,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFMediaSource
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFMediaSource,IMFMediaEventGenerator)
 {
     BEGIN_INTERFACE
@@ -844,6 +894,11 @@ DECLARE_INTERFACE_(IMFMediaSource,IMFMediaEventGenerator)
 
 #undef  INTERFACE
 #define INTERFACE IMFPMPServer
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFPMPServer,IUnknown)
 {
     BEGIN_INTERFACE
@@ -871,6 +926,11 @@ DECLARE_INTERFACE_(IMFPMPServer,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFTopologyNode
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFTopologyNode,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -992,6 +1052,11 @@ DECLARE_INTERFACE_(IMFTopologyNode,IMFAttributes)
 
 #undef  INTERFACE
 #define INTERFACE IMFTopology
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFTopology,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -1101,6 +1166,11 @@ DECLARE_INTERFACE_(IMFTopology,IMFAttributes)
 
 #undef  INTERFACE
 #define INTERFACE IMFTopoLoader
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFTopoLoader,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1124,6 +1194,11 @@ DECLARE_INTERFACE_(IMFTopoLoader,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFMediaSession
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFMediaSession,IMFMediaEventGenerator)
 {
     BEGIN_INTERFACE
@@ -1178,6 +1253,11 @@ DECLARE_INTERFACE_(IMFMediaSession,IMFMediaEventGenerator)
 
 #undef  INTERFACE
 #define INTERFACE IMFActivate
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFActivate,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -1267,6 +1347,11 @@ DECLARE_INTERFACE_(IMFActivate,IMFAttributes)
 
 #undef  INTERFACE
 #define INTERFACE IMFStreamDescriptor
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFStreamDescriptor,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -1377,6 +1462,11 @@ DECLARE_INTERFACE_(IMFRemoteDesktopPlugin,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFNetProxyLocator
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFNetProxyLocator,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1408,6 +1498,11 @@ DECLARE_INTERFACE_(IMFNetProxyLocator,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFMediaTypeHandler
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFMediaTypeHandler,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1444,6 +1539,11 @@ DECLARE_INTERFACE_(IMFMediaTypeHandler,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFSampleGrabberSinkCallback
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFSampleGrabberSinkCallback,IMFClockStateSink)
 {
     BEGIN_INTERFACE
@@ -1483,6 +1583,11 @@ DECLARE_INTERFACE_(IMFSampleGrabberSinkCallback,IMFClockStateSink)
 
 #undef  INTERFACE
 #define INTERFACE IMFSequencerSource
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFSequencerSource,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1514,6 +1619,11 @@ DECLARE_INTERFACE_(IMFSequencerSource,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFSourceResolver
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFSourceResolver,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1549,6 +1659,11 @@ DECLARE_INTERFACE_(IMFSourceResolver,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFQualityManager
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFQualityManager,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1583,6 +1698,11 @@ DECLARE_INTERFACE_(IMFQualityManager,IUnknown)
 #if (_WIN32_WINNT >= 0x0601)
 #undef  INTERFACE
 #define INTERFACE IMFTranscodeProfile
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFTranscodeProfile,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1623,6 +1743,11 @@ typedef struct _MF_TRANSCODE_SINK_INFO {
 
 #undef  INTERFACE
 #define INTERFACE IMFTranscodeSinkInfoProvider
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFTranscodeSinkInfoProvider,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1654,6 +1779,11 @@ DECLARE_INTERFACE_(IMFTranscodeSinkInfoProvider,IUnknown)
 typedef enum _MFVP_MESSAGE_TYPE MFVP_MESSAGE_TYPE;
 #undef  INTERFACE
 #define INTERFACE IMFVideoSampleAllocator
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFVideoSampleAllocator,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1687,6 +1817,11 @@ DECLARE_INTERFACE_(IMFVideoSampleAllocator,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFObjectReferenceStream
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFObjectReferenceStream,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1712,6 +1847,11 @@ DECLARE_INTERFACE_(IMFObjectReferenceStream,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFWorkQueueServices
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFWorkQueueServices,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1782,6 +1922,11 @@ DECLARE_INTERFACE_(IMFVideoSampleAllocatorNotify,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFVideoSampleAllocatorCallback
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFVideoSampleAllocatorCallback,IUnknown)
 {
     BEGIN_INTERFACE
