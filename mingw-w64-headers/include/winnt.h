@@ -6314,7 +6314,8 @@ typedef DWORD LCID;
 #endif /* __x86_64 */
 
 #if (_WIN32_WINNT >= 0x0600)
-/* Fixme: Opaque structs */
+/* FIXME: Opaque structs !!! */
+/* FIXME: Also see winbase.h */
 typedef PVOID RTL_CONDITION_VARIABLE;
 typedef PVOID RTL_SRWLOCK;
 

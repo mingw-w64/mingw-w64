@@ -2755,6 +2755,7 @@ WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkA (LPSTR lpSymLinkFileName, LPSTR lp
 WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkW (LPWSTR lpSymLinkFileName, LPWSTR lpTargetFileName, DWORD dwFlags);
 
 /* Condition Variables http://msdn.microsoft.com/en-us/library/ms682052%28VS.85%29.aspx  */
+/* FIXME: These need their data types actually fixed in winnt.h !!! */
 typedef RTL_CONDITION_VARIABLE CONDITION_VARIABLE, *PCONDITION_VARIABLE;
 typedef RTL_SRWLOCK SRWLOCK, *PSRWLOCK;
 
@@ -2765,6 +2766,7 @@ WINBASEAPI VOID WINAPI WakeAllConditionVariable(PCONDITION_VARIABLE ConditionVar
 WINBASEAPI VOID WINAPI WakeConditionVariable(PCONDITION_VARIABLE ConditionVariable);
 
 /*Slim Reader/Writer (SRW) Locks http://msdn.microsoft.com/en-us/library/aa904937%28VS.85%29.aspx*/
+/* FIXME: See above !!! */
 WINBASEAPI VOID WINAPI AcquireSRWLockExclusive(PSRWLOCK SRWLock);
 WINBASEAPI VOID WINAPI AcquireSRWLockShared(PSRWLOCK SRWLock);
 WINBASEAPI VOID WINAPI InitializeSRWLock(PSRWLOCK SRWLock);
@@ -2775,6 +2777,7 @@ WINBASEAPI BOOLEAN TryAcquireSRWLockExclusive(PSRWLOCK SRWLock);
 WINBASEAPI BOOLEAN TryAcquireSRWLockShared(PSRWLOCK SRWLock);
 
 /*One-Time Initialization http://msdn.microsoft.com/en-us/library/aa363808(VS.85).aspx*/
+/* FIXME: See above !!! */
 #define INIT_ONCE_ASYNC 0x00000002UL
 #define INIT_ONCE_INIT_FAILED 0x00000004UL
 
@@ -2813,11 +2816,14 @@ WINBASEAPI HRESULT WINAPI ApplicationRecoveryInProgress(PBOOL pbCanceled);
 WINBASEAPI WINBOOL WINAPI QueryIdleProcessorCycleTime(PULONG BufferLength,PULONG64 ProcessorIdleCycleTime);
 WINBASEAPI WINBOOL WINAPI QueryProcessCycleTime(HANDLE ProcessHandle,PULONG64 CycleTime);
 WINBASEAPI WINBOOL WINAPI QueryThreadCycleTime(HANDLE ThreadHandle,PULONG64 CycleTime);
-
 #if (_WIN32_WINNT >= 0x0601)
 WINBASEAPI WINBOOL WINAPI QueryIdleProcessorCycleTimeEx(USHORT Group,PULONG BufferLength,PULONG64 ProcessorIdleCycleTime);
 #endif
 
+/* THREAD POOL stuff : */
+/* FIXME: These thread pool callback data types and
+ * func. pointer types actually belong in winnt.h !!!!
+ * Not all data types need to be opaque, either !!! */
 typedef struct _TP_IO *PTP_IO;
 typedef struct _TP_CALLBACK_INSTANCE *PTP_CALLBACK_INSTANCE;
 typedef struct _TP_WIN32_IO_CALLBACK *PTP_WIN32_IO_CALLBACK;
@@ -2830,24 +2836,11 @@ typedef struct _TP_WORK *PTP_WORK;
 typedef struct _TP_POOL *PTP_POOL;
 
 typedef DWORD TP_WAIT_RESULT;
-typedef VOID (CALLBACK *PTP_WAIT_CALLBACK)(
-  PTP_CALLBACK_INSTANCE Instance,
-  PVOID Context,
-  PTP_WAIT Wait,
-  TP_WAIT_RESULT WaitResult
-);
 
-typedef VOID (CALLBACK *PTP_WORK_CALLBACK)(
-  PTP_CALLBACK_INSTANCE Instance,
-  PVOID Context,
-  PTP_WORK Work
-);
-
-typedef VOID (CALLBACK *PTP_TIMER_CALLBACK)(
-  PTP_CALLBACK_INSTANCE Instance,
-  PVOID Context,
-  PTP_TIMER Timer
-);
+typedef VOID (CALLBACK *PTP_WAIT_CALLBACK)(PTP_CALLBACK_INSTANCE Instance, PVOID Context, PTP_WAIT Wait, TP_WAIT_RESULT WaitResult);
+typedef VOID (CALLBACK *PTP_WORK_CALLBACK)(PTP_CALLBACK_INSTANCE Instance, PVOID Context, PTP_WORK Work);
+typedef VOID (CALLBACK *PTP_TIMER_CALLBACK)(PTP_CALLBACK_INSTANCE Instance, PVOID Context, PTP_TIMER Timer);
+typedef VOID (CALLBACK *PTP_SIMPLE_CALLBACK)(PTP_CALLBACK_INSTANCE Instance, PVOID Context);
 
 #define PRIVATE_NAMESPACE_FLAG_DESTROY 0x00000001
 
@@ -2865,18 +2858,34 @@ WINBASEAPI VOID WINAPI CloseThreadpoolTimer(PTP_TIMER pti);
 WINBASEAPI VOID WINAPI CloseThreadpoolWait(PTP_WAIT pwa);
 WINBASEAPI VOID WINAPI CloseThreadpoolWork(PTP_WORK pwk);
 
-
 WINBASEAPI PTP_CLEANUP_GROUP WINAPI CreateThreadpoolCleanupGroup(void);
 WINBASEAPI PTP_WAIT WINAPI CreateThreadpoolWait(PTP_WAIT_CALLBACK pfnwa,PVOID pv,PTP_CALLBACK_ENVIRON pcbe);
 WINBASEAPI PTP_WORK WINAPI CreateThreadpoolWork(PTP_WORK_CALLBACK pfnwk,PVOID pv,PTP_CALLBACK_ENVIRON pcbe);
 WINBASEAPI PTP_TIMER WINAPI CreateThreadpoolTimer(PTP_TIMER_CALLBACK pfnti,PVOID pv,PTP_CALLBACK_ENVIRON pcbe);
-
-WINBASEAPI LPVOID WINAPI ConvertThreadToFiberEx(
-  LPVOID lpParameter,
-  DWORD dwFlags
-);
-
+WINBASEAPI LPVOID WINAPI ConvertThreadToFiberEx(LPVOID lpParameter, DWORD dwFlags);
 WINBASEAPI VOID WINAPI SubmitThreadpoolWork(PTP_WORK pwk);
+
+/* FIXME: These must be inlines and must call something
+ *	  proper from winnt.h !!!!   See above for more
+ *	  thread pool fixme notes.  */
+
+/* INLINE - http://msdn.microsoft.com/en-us/library/ms686255%28v=VS.85%29.aspx */
+VOID SetThreadpoolCallbackCleanupGroup(PTP_CALLBACK_ENVIRON pcbe, PTP_CLEANUP_GROUP ptpcg, PTP_CLEANUP_GROUP_CANCEL_CALLBACK pfng);
+/* INLINE - http://msdn.microsoft.com/en-us/library/ms686258%28v=VS.85%29.aspx */
+VOID SetThreadpoolCallbackLibrary(PTP_CALLBACK_ENVIRON pcbe, PVOID mod);
+/* INLINE -  http://msdn.microsoft.com/en-us/library/ms686261%28v=VS.85%29.aspx */
+VOID SetThreadpoolCallbackPool(PTP_CALLBACK_ENVIRON pcbe, PTP_POOL ptpp);
+/* INLINE - http://msdn.microsoft.com/en-us/library/ms686263%28v=VS.85%29.aspx */
+VOID SetThreadpoolCallbackRunsLong(PTP_CALLBACK_ENVIRON pcbe);
+
+WINBASEAPI VOID WINAPI SetThreadpoolThreadMaximum(PTP_POOL ptpp, DWORD cthrdMost);
+WINBASEAPI WINBOOL WINAPI SetThreadpoolThreadMinimum(PTP_POOL ptpp, DWORD cthrdMic);
+WINBASEAPI VOID WINAPI SetThreadpoolTimer(PTP_TIMER pti, PFILETIME pftDueTime, DWORD msPeriod, DWORD msWindowLength);
+WINBASEAPI VOID WINAPI SetThreadpoolWait(PTP_WAIT pwa, HANDLE h, PFILETIME pftTimeout);
+WINBASEAPI VOID WINAPI StartThreadpoolIo(PTP_IO pio);
+
+/* End of THREAD POOL stuff */
+
 
 WINBASEAPI WINBOOL WINAPI CopyFileTransactedA(
   LPCSTR lpExistingFileName,
@@ -3342,6 +3351,8 @@ WINBASEAPI HRESULT WINAPI GetApplicationRestartSettings(
 #define RESTART_NO_PATCH 4
 #define RESTART_NO_REBOOT 8
 
+#define RESTART_MAX_CMD_LINE 1024
+
 WINBASEAPI HRESULT WINAPI RegisterApplicationRestart(
   PCWSTR pwzCommandline,
   DWORD dwFlags
@@ -3728,62 +3739,6 @@ WINBASEAPI WINBOOL WINAPI SetProcessWorkingSetSizeEx(
 WINADVAPI VOID WINAPI SetSecurityAccessMask(
   SECURITY_INFORMATION SecurityInformation,
   LPDWORD DesiredAccess
-);
-
-/* INLINE - http://msdn.microsoft.com/en-us/library/ms686255%28v=VS.85%29.aspx */
-VOID SetThreadpoolCallbackCleanupGroup(
-  PTP_CALLBACK_ENVIRON pcbe,
-  PTP_CLEANUP_GROUP ptpcg,
-  PTP_CLEANUP_GROUP_CANCEL_CALLBACK pfng
-);
-
-/* INLINE - http://msdn.microsoft.com/en-us/library/ms686258%28v=VS.85%29.aspx */
-VOID SetThreadpoolCallbackLibrary(
-  PTP_CALLBACK_ENVIRON pcbe,
-  PVOID mod
-);
-
-/* INLINE -  http://msdn.microsoft.com/en-us/library/ms686261%28v=VS.85%29.aspx */
-VOID SetThreadpoolCallbackPool(
-  PTP_CALLBACK_ENVIRON pcbe,
-  PTP_POOL ptpp
-);
-
-/* INLINE - http://msdn.microsoft.com/en-us/library/ms686263%28v=VS.85%29.aspx */
-VOID SetThreadpoolCallbackRunsLong(
-  PTP_CALLBACK_ENVIRON pcbe
-);
-
-WINBASEAPI VOID WINAPI SetThreadpoolThreadMaximum(
-  PTP_POOL ptpp,
-  DWORD cthrdMost
-);
-
-WINBASEAPI WINBOOL WINAPI SetThreadpoolThreadMinimum(
-  PTP_POOL ptpp,
-  DWORD cthrdMic
-);
-
-WINBASEAPI VOID WINAPI SetThreadpoolTimer(
-  PTP_TIMER pti,
-  PFILETIME pftDueTime,
-  DWORD msPeriod,
-  DWORD msWindowLength
-);
-
-WINBASEAPI VOID WINAPI SetThreadpoolWait(
-  PTP_WAIT pwa,
-  HANDLE h,
-  PFILETIME pftTimeout
-);
-
-typedef VOID (CALLBACK *PTP_SIMPLE_CALLBACK)(
-  PTP_CALLBACK_INSTANCE Instance,
-  PVOID Context
-);
-
-WINBASEAPI VOID WINAPI StartThreadpoolIo(
-  PTP_IO pio
 );
 
 typedef struct _STARTUPINFOEXA {
