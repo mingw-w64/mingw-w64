@@ -12,14 +12,13 @@
 
 #if (_WIN32_WINNT >= 0x0600)
 
+#undef  INTERFACE
+#define INTERFACE IWSDServiceMessaging
 #ifdef __GNUC__
 #warning COM interfaces layout in this header has not been unverified.
 #warning COM interfaces with incorrect layout may not work at all.
-#warning IWSDServiceMessaging is unverified.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
-
-#undef  INTERFACE
-#define INTERFACE IWSDServiceMessaging
 DECLARE_INTERFACE_(IWSDServiceMessaging,IUnknown)
 {
     BEGIN_INTERFACE
@@ -43,14 +42,13 @@ DECLARE_INTERFACE_(IWSDServiceMessaging,IUnknown)
 #define IWSDServiceMessaging_SendResponse(This,pBody,pOperation,pMessageParameters) (This)->lpVtbl->SendResponse(This,pBody,pOperation,pMessageParameters)
 #endif /*COBJMACROS*/
 
+#undef  INTERFACE
+#define INTERFACE IWSDDeviceHostNotify
 #ifdef __GNUC__
 #warning COM interfaces layout in this header has not been unverified.
 #warning COM interfaces with incorrect layout may not work at all.
-#warning IWSDDeviceHostNotify is unverified.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
-
-#undef  INTERFACE
-#define INTERFACE IWSDDeviceHostNotify
 DECLARE_INTERFACE_(IWSDDeviceHostNotify,IUnknown)
 {
     BEGIN_INTERFACE
@@ -80,6 +78,11 @@ DECLARE_INTERFACE_(IWSDDeviceHostNotify,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDDeviceHost
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDDeviceHost,IUnknown)
 {
     BEGIN_INTERFACE
