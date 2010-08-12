@@ -15,7 +15,15 @@ typedef enum _MULTICAST_MODE_TYPE {
   MCAST_EXCLUDE
 } MULTICAST_MODE_TYPE;
 
-#if (_WIN32_WINNT >= 0x0600)
+typedef struct {
+  __MINGW_EXTENSION union {
+    __MINGW_EXTENSION struct {
+	ULONG	Zone : 28;
+	ULONG	Level : 4;
+    };
+    ULONG Value;
+  };
+} SCOPE_ID, *PSCOPE_ID;
 
 typedef struct _sockaddr_in6_pair {
   PSOCKADDR_IN6 SourceAddress;
@@ -46,8 +54,6 @@ typedef struct group_source_req {
   SOCKADDR_STORAGE gsr_group;
   SOCKADDR_STORAGE gsr_source;
 } GROUP_SOURCE_REQ, *PGROUP_SOURCE_REQ;
-
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
 }
