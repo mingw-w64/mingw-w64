@@ -95,7 +95,7 @@ typedef struct _WTSSBX_SESSION_INFO {
   WTSSBX_SESSION_STATE  SessionState;
 } WTSSBX_SESSION_INFO;
 
-/*IID_IWTSSBPlugin is defined as DC44BE78-B18D-4399-B210-641BF67A002C*/
+/* IID_IWTSSBPlugin is defined as DC44BE78-B18D-4399-B210-641BF67A002C */
 
 #ifdef __cplusplus
 }
