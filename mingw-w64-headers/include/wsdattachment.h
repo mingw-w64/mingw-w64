@@ -5,10 +5,20 @@
  */
 #ifndef _INC_WSDATTACHMENT
 #define _INC_WSDATTACHMENT
+
+#ifndef _INC_WSDAPI
+#error Please include wsdapi.h instead of this header. This header cannot be used directly.
+#endif
+
 #if (_WIN32_WINNT >= 0x0600)
 
 #undef  INTERFACE
 #define INTERFACE IWSDAttachment
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDAttachment,IUnknown)
 {
     BEGIN_INTERFACE
@@ -30,6 +40,11 @@ DECLARE_INTERFACE_(IWSDAttachment,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDInboundAttachment
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDInboundAttachment,IWSDAttachment)
 {
     BEGIN_INTERFACE
@@ -57,6 +72,11 @@ DECLARE_INTERFACE_(IWSDInboundAttachment,IWSDAttachment)
 
 #undef  INTERFACE
 #define INTERFACE IWSDOutboundAttachment
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IWSDOutboundAttachment,IWSDAttachment)
 {
     BEGIN_INTERFACE
