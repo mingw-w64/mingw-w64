@@ -168,6 +168,14 @@ limitations in handling dllimport attribute.  */
 #define __MINGW_ATTRIB_NO_OPTIMIZE
 #endif
 
+#if __MINGW_GNUC_PREREQ (4, 4)
+#define __PRAGMA_PARAM(x) _Pragma (#x)
+#else
+#define __PRAGMA_PARAM(x)
+#endif
+
+#define __BROKEN_INTERFACE(x) __PRAGMA_PARAM(message ("Interface " _CRT_STRINGIZE(x) " has unverified layout."))
+
 #ifdef __MINGW_MSVC_COMPAT_WARNINGS
 # if __MINGW_GNUC_PREREQ (4, 5)
 #  define __MINGW_ATTRIB_DEPRECATED_STR(X) __attribute__ ((__deprecated__ (X)))
