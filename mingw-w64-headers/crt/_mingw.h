@@ -169,12 +169,14 @@ limitations in handling dllimport attribute.  */
 #endif
 
 #if __MINGW_GNUC_PREREQ (4, 4)
-#define __PRAGMA_PARAM(x) _Pragma (#x)
+#define __MINGW_PRAGMA_PARAM(x) _Pragma (#x)
 #else
-#define __PRAGMA_PARAM(x)
+#define __MINGW_PRAGMA_PARAM(x)
 #endif
 
-#define __BROKEN_INTERFACE(x) __PRAGMA_PARAM(message ("Interface " _CRT_STRINGIZE(x) " has unverified layout."))
+#define __MINGW_BROKEN_INTERFACE(x) \
+  __MINGW_PRAGMA_PARAM(message ("Interface " _CRT_STRINGIZE(x) \
+  " has unverified layout."))
 
 #ifdef __MINGW_MSVC_COMPAT_WARNINGS
 # if __MINGW_GNUC_PREREQ (4, 5)
