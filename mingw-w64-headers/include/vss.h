@@ -5,6 +5,12 @@
  */
 #ifndef _INC_VSS
 #define _INC_VSS
+
+/* http://msdn.microsoft.com/en-us/library/aa384641%28VS.85%29.aspx */
+typedef WCHAR *VSS_PWSZ;
+typedef LONGLONG VSS_TIMESTAMP;
+typedef GUID VSS_ID;
+
 #if (_WIN32_WINNT >= 0x0600)
 
 typedef enum VSS_BACKUP_SCHEMA {

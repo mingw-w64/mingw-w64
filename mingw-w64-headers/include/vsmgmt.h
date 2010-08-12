@@ -6,14 +6,11 @@
 #ifndef _INC_VSMGT
 #define _INC_VSMGT
 
+#include <vss.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-/* http://msdn.microsoft.com/en-us/library/aa384641%28VS.85%29.aspx */
-typedef WCHAR *VSS_PWSZ;
-typedef LONGLONG VSS_TIMESTAMP;
-typedef GUID VSS_ID;
 
 typedef enum _VSS_PROTECTION_FAULT {
   VSS_PROTECTION_FAULT_NONE                           = 0,
