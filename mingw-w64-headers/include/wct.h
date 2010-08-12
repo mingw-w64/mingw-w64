@@ -14,7 +14,7 @@ extern "C" {
   typedef LPVOID HWCT;
 
   typedef enum _WCT_OBJECT_TYPE {
-    WctCriticalSectionType = 0,
+    WctCriticalSectionType = 1,
     WctSendMessageType,
     WctMutexType,
     WctAlpcType,
@@ -27,7 +27,7 @@ extern "C" {
   } WCT_OBJECT_TYPE;
 
   typedef enum _WCT_OBJECT_STATUS {
-    WctStatusNoAccess = 0,
+    WctStatusNoAccess = 1,
     WctStatusRunning,
     WctStatusBlocked,
     WctStatusPidOnly,
