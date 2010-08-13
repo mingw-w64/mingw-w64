@@ -2,6 +2,9 @@
 
 	* evntrace.h (EVENT_TRACE): Updated MSDN note for BufferContext
 	member.
+	(EVENT_TRACE_LOGFILE): Removed unnecessary fixme note, because
+	the structure has ansi and unicode versions as mentioned on the
+	msdn page.
 
 2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
 

@@ -607,32 +607,6 @@ typedef VOID (WINAPI *PEVENT_CALLBACK)(PEVENT_TRACE pEvent);
 typedef VOID (WINAPI *PEVENT_RECORD_CALLBACK)(PEVENT_RECORD EventRecord);
 typedef ULONG (WINAPI *WMIDPREQUEST)(WMIDPREQUESTCODE RequestCode,PVOID RequestContext,ULONG *BufferSize,PVOID Buffer);
 
-/* MSDN says http://msdn.microsoft.com/en-us/library/aa363780%28VS.85%29.aspx
-
-typedef struct _EVENT_TRACE_LOGFILE {
-  LPTSTR                       LogFileName;
-  LPTSTR                       LoggerName;
-  LONGLONG                     CurrentTime;
-  ULONG                        BuffersRead;
-  union {
-    ULONG LogFileMode;
-    ULONG ProcessTraceMode;
-  } ;
-  EVENT_TRACE                  CurrentEvent;
-  TRACE_LOGFILE_HEADER         LogfileHeader;
-  PEVENT_TRACE_BUFFER_CALLBACK BufferCallback;
-  ULONG                        BufferSize;
-  ULONG                        Filled;
-  ULONG                        EventsLost;
-  union {
-    PEVENT_CALLBACK        EventCallback;
-    PEVENT_RECORD_CALLBACK EventRecordCallback;
-  } ;
-  ULONG                        IsKernelTrace;
-  PVOID                        Context;
-} EVENT_TRACE_LOGFILE, *PEVENT_TRACE_LOGFILE;
-*/
-
 struct _EVENT_TRACE_LOGFILEW {
   LPWSTR LogFileName;
   LPWSTR LoggerName;
