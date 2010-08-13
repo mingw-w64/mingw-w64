@@ -977,20 +977,6 @@ extern "C" {
   DWORD WINAPI GetVolumesFromDriveW(LPWSTR pszDriveName,LPWSTR *VolumeNameBufferPtr,LPWSTR *DriveLetterBufferPtr);
   DWORD WINAPI GetVolumesFromDriveA(LPSTR pszDriveName,LPSTR *VolumeNameBufferPtr,LPSTR *DriveLetterBufferPtr);
 
-#if (_WIN32_WINNT >= 0x0600)
-DWORD WINAPI GetVolumesFromDriveA(
-  LPSTR  pszDriveName,
-  LPSTR * VolumeNameBufferPtr,
-  LPSTR * DriveLetterBufferPtr
-);
-
-DWORD WINAPI GetVolumesFromDriveW(
-  LPWSTR  pszDriveName,
-  LPWSTR * VolumeNameBufferPtr,
-  LPWSTR * DriveLetterBufferPtr
-);
-#endif /* (_WIN32_WINNT >= 0x0600) */
-
 #ifdef __cplusplus
 }
 #endif
