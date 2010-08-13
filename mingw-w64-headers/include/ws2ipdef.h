@@ -6,6 +6,9 @@
 #ifndef _INC_WS2IPDEF
 #define _INC_WS2IPDEF
 
+/* Make sure we included it for PSOCKADDR_IN6, ... */
+#include <ws2tcpip.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
