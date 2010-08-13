@@ -6,8 +6,16 @@
 #ifndef _INC_NETIOAPI
 #define _INC_NETIOAPI
 
+#include <winsock2.h>
 #include <iprtrmib.h>
 #include <ifdef.h>
+#include <ws2tcpip.h>
+#include <ws2ipdef.h>
+#include <ntddndis.h>
+
+#ifndef ANY_SIZE
+#define ANY_SIZE 1
+#endif
 
 #if (_WIN32_WINNT >= 0x0600)
 
@@ -45,6 +53,11 @@ typedef struct _MIB_ANYCASTIPADDRESS_TABLE {
   ULONG                    NumEntries;
   MIB_ANYCASTIPADDRESS_ROW Table[ANY_SIZE];
 } MIB_ANYCASTIPADDRESS_TABLE, *PMIB_ANYCASTIPADDRESS_TABLE;
+
+typedef struct _IP_ADDRESS_PREFIX {
+  SOCKADDR_INET Prefix;
+  UINT8         PrefixLength;
+} IP_ADDRESS_PREFIX, *PIP_ADDRESS_PREFIX;
 
 typedef struct _MIB_IPFORWARD_ROW2 {
   NET_LUID          InterfaceLuid;
@@ -94,10 +107,9 @@ typedef struct _MIB_IPFORWARD_TABLE2 {
   MIB_IPFORWARD_ROW2 Table[ANY_SIZE];
 } MIB_IPFORWARD_TABLE2, *PMIB_IPFORWARD_TABLE2;
 
-typedef struct _IP_ADDRESS_PREFIX {
-  SOCKADDR_INET Prefix;
-  UINT8         PrefixLength;
-} IP_ADDRESS_PREFIX, *PIP_ADDRESS_PREFIX;
+#ifndef ScopeLevelCount
+#define ScopeLevelCount 16
+#endif
 
 typedef struct _MIB_IPINTERFACE_ROW {
   ADDRESS_FAMILY                 Family;
@@ -464,10 +476,10 @@ NETIOAPI_API  GetIfStackTable(
   PMIB_IFSTACK_TABLE *Table
 );
 
-NETIOAPI_API GetIfTable2Ex(
-  MIB_IF_TABLE_LEVEL Level,
-  PMIB_IF_TABLE2 *Table
-);
+/* TODO: Fixme.
+  MIB_IF_TABLE_LEVEL is unknown type
+  NETIOAPI_API GetIfTable2Ex(MIB_IF_TABLE_LEVEL Level,PMIB_IF_TABLE2 *Table);
+*/
 
 NETIOAPI_API  GetInvertedIfStackTable(
   PMIB_INVERTEDIFSTACK_TABLE *Table

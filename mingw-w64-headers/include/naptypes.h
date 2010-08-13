@@ -22,17 +22,20 @@ extern "C" {
 #define maxStringLength               0x400
 #define maxStringLengthInBytes        ((maxStringLength + 1) * sizeof(WCHAR))
 #define maxSystemHealthEntityCount    0x14
-#define SystemHealthEntityCount       0x14 /*[range(0, maxSystemHealthEntityCount)]*/
 #define maxEnforcerCount              0x14
-#define EnforcementEntityCount        0x14 /*[range(0, maxEnforcerCount)]*/
 #define maxPrivateDataSize            0xC8
 #define maxConnectionCountPerEnforcer 0x14
 #define maxCachedSoHCount             (maxSystemHealthEntityCount * maxEnforcerCount * maxConnectionCountPerEnforcer)
 #define freshSoHRequest               0x1
 #define shaFixup                      0x1
-#define failureCategoryCount          0x5
+#define failureCategoryCount 5
 #define ComponentTypeEnforcementClientSoH 0x1
 #define ComponentTypeEnforcementClientRp  0x2
+
+  typedef struct tagCountedString {
+    UINT16 length;
+    WCHAR *string;
+  } CountedString;
 
 #ifndef NAPTypes
 #define NAPTypes
@@ -104,11 +107,6 @@ typedef enum tagFailureCategory {
     BYTE * value;
   } SoHAttribute;
 
-  typedef struct tagCountedString {
-    UINT16 length;
-    WCHAR *string;
-  } CountedString;
-
   typedef struct tagIpv4Address {
     BYTE addr[4];
   } Ipv4Address;
@@ -128,8 +126,6 @@ typedef enum tagFailureCategory {
     ResultCodes resultCodes;
     MessageId   fixupMsgId;
   } FixupInfo;
-
-#define failureCategoryCount 5
 
   typedef struct tagFailureCategoryMapping {
     WINBOOL mappingCompliance[failureCategoryCount];

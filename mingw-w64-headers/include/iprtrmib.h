@@ -690,7 +690,22 @@ typedef struct _MIB_IPDESTROW {
 #ifdef __cplusplus
   MIB_IPFORWARDROW ForwardRow;
 #else
-  MIB_IPFORWARDROW;
+  __MINGW_EXTENSION union {
+    DWORD dwForwardDest;
+    DWORD dwForwardMask;
+    DWORD dwForwardPolicy;
+    DWORD dwForwardNextHop;
+    DWORD dwForwardIfIndex;
+    DWORD dwForwardType;
+    DWORD dwForwardProto;
+    DWORD dwForwardAge;
+    DWORD dwForwardNextHopAS;
+    DWORD dwForwardMetric1;
+    DWORD dwForwardMetric2;
+    DWORD dwForwardMetric3;
+    DWORD dwForwardMetric4;
+    DWORD dwForwardMetric5;
+  }; /* see MIB_IPFORWARDROW */
 #endif
   DWORD dwForwardPreference;
   DWORD dwForwardViewSet;

@@ -8,6 +8,7 @@
 
 #include <lmcons.h>
 #include <ras.h>
+#include <wincrypt.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -699,14 +700,14 @@ DWORD MprAdminConnectionRemoveQuarantine(
 DWORD CALLBACK MprAdminGetIpv6AddressForUser(
   WCHAR *lpwszUserName,
   WCHAR *lpwszPortName,
-  in6_addr *lpdwIpv6Address,
+  struct in6_addr *lpdwIpv6Address,
   WINBOOL *bNotifyRelease
 );
 
 DWORD CALLBACK MprAdminReleaseIpv6AddressForUser(
   WCHAR *lpwszUserName,
   WCHAR *lpwszPortName,
-  in6_addr *lpdwIpv6Address
+  struct in6_addr *lpdwIpv6Address
 );
 
 DWORD WINAPI MprConfigFilterGetInfo(
@@ -789,7 +790,7 @@ typedef struct _PPP_PROJECTION_INFO {
   DWORD   dwCcpOptions;
   DWORD   dwRemoteCompressionAlgorithm;
   DWORD   dwCcpRemoteOptions;
-} PPP_PROJECTION_INFO, *PPP_PROJECTION_INFO;
+} PPP_PROJECTION_INFO, *PPPP_PROJECTION_INFO;
 
 typedef struct _IKEV2_PROJECTION_INFO {
   DWORD   dwIPv4NegotiationError;
@@ -816,6 +817,9 @@ typedef struct _PROJECTION_INFO {
     PPP_PROJECTION_INFO   PppProjectionInfo;
   } DUMMYUNIONNAME;
 } PROJECTION_INFO, *PPROJECTION_INFO;
+
+/* TODO: Fixme: This constant needs verification */
+#define MAXIPADRESSLEN (4*4) /* Format a.b.c.d */
 
 typedef struct _RAS_CONNECTION_EX {
   MPRAPI_OBJECT_HEADER  Header;
@@ -883,12 +887,12 @@ typedef struct _PPTP_CONFIG_PARAMS {
 typedef struct _L2TP_CONFIG_PARAMS {
   DWORD dwNumPorts;
   DWORD dwPortFlags;
-} L2TP_CONFIG_PARAMS, *L2TP_CONFIG_PARAMS;
+} L2TP_CONFIG_PARAMS, *PL2TP_CONFIG_PARAMS;
 
 typedef struct _SSTP_CERT_INFO {
   BOOL            isDefault;
   CRYPT_HASH_BLOB certBlob;
-} SSTP_CERT_INFO, *SSTP_CERT_INFO;
+} SSTP_CERT_INFO, *PSSTP_CERT_INFO;
 
 typedef struct _SSTP_CONFIG_PARAMS {
   DWORD          dwNumPorts;
@@ -896,7 +900,7 @@ typedef struct _SSTP_CONFIG_PARAMS {
   BOOL           isUseHttps;
   DWORD          certAlgorithm;
   SSTP_CERT_INFO sstpCertDetails;
-} SSTP_CONFIG_PARAMS, *SSTP_CONFIG_PARAMS;
+} SSTP_CONFIG_PARAMS, *PSSTP_CONFIG_PARAMS;
 
 typedef struct _MPRAPI_TUNNEL_CONFIG_PARAMS {
   IKEV2_CONFIG_PARAMS IkeConfigParams;
@@ -911,15 +915,8 @@ typedef struct _MPR_SERVER_SET_CONFIG_EX {
   MPRAPI_TUNNEL_CONFIG_PARAMS ConfigParams;
 } MPR_SERVER_SET_CONFIG_EX, *PMPR_SERVER_SET_CONFIG_EX;
 
-DWORD APIENTRY MprConfigServerConnect(
-  LPWSTR lpwsServerName,
-  HANDLE *phMprConfig
-);
-
-DWORD APIENTRY MprConfigServerSetInfo(
-  HANDLE hMprConfig,
-  MPR_SERVER_SET_CONFIG_EX *pSetServerConfig
-);
+DWORD APIENTRY MprConfigServerConnectEx(LPWSTR lpwsServerName,HANDLE *phMprConfig);
+DWORD APIENTRY MprConfigServerSetInfoEx(HANDLE hMprConfig,MPR_SERVER_SET_CONFIG_EX *pSetServerConfig);
 
 #endif /*(_WIN32_WINNT >= 0x0601)*/
 

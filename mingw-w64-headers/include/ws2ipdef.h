@@ -15,7 +15,7 @@ typedef enum _MULTICAST_MODE_TYPE {
   MCAST_EXCLUDE
 } MULTICAST_MODE_TYPE;
 
-typedef struct {
+typedef struct _SCOPE_ID {
   __MINGW_EXTENSION union {
     __MINGW_EXTENSION struct {
 	ULONG	Zone : 28;
