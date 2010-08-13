@@ -9,7 +9,7 @@
 
 #include <_mingw.h>
 
-/* FIXME FIXME FIXME FIXME FIXME: Much more date need moving here.
+/* FIXME FIXME FIXME FIXME FIXME: Much more data need moving here.
  * This holds only SCOPE_LEVEL and SCOPE_ID so that compilations
  * do not fail.
  */
