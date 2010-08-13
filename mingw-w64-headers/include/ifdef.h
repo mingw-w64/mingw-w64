@@ -73,14 +73,15 @@ typedef enum _NET_IF_MEDIA_DUPLEX_STATE {
 
 typedef enum _TUNNEL_TYPE {
   TUNNEL_TYPE_NONE      = 0,
-  TUNNEL_TYPE_OTHER,
-  TUNNEL_TYPE_DIRECT,
-  TUNNEL_TYPE_6TO4,
-  TUNNEL_TYPE_ISATAP,
-  TUNNEL_TYPE_TEREDO,
-  TUNNEL_TYPE_IPHTTPS 
+  TUNNEL_TYPE_OTHER     = 1,
+  TUNNEL_TYPE_DIRECT    = 2,
+  TUNNEL_TYPE_6TO4      = 11,
+  TUNNEL_TYPE_ISATAP    = 13,
+  TUNNEL_TYPE_TEREDO    = 14,
+  TUNNEL_TYPE_IPHTTPS   = 15
 } TUNNEL_TYPE, *PTUNNEL_TYPE;
 
+#include <pshpack1.h>
 typedef union _NET_LUID {
   ULONG64 Value;
   __MINGW_EXTENSION struct {
@@ -89,6 +90,7 @@ typedef union _NET_LUID {
     ULONG64 IfType  :16;
   } Info;
 } NET_LUID, *PNET_LUID;
+#include <poppack.h>
 
 typedef NET_LUID IF_LUID, *PIF_LUID;
 
