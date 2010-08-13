@@ -70,7 +70,7 @@ typedef enum _ValueMapType {
   plaValidation   = 4 
 } ValueMapType;
 
-typedef enum  {
+typedef enum _WeekDays {
   plaRunOnce     = 0x00,
   plaSunday      = 0x01,
   plaMonday      = 0x02,
