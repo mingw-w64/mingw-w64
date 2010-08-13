@@ -1009,6 +1009,14 @@ extern "C" {
 #define SEC_WINNT_AUTH_IDENTITY_MARSHALLED 0x4
 #define SEC_WINNT_AUTH_IDENTITY_ONLY 0x8
 
+typedef struct _SECURITY_PACKAGE_OPTIONS {
+  unsigned long Size;
+  unsigned long Type;
+  unsigned long Flags;
+  unsigned long SignatureSize;
+  void *Signature;
+} SECURITY_PACKAGE_OPTIONS,*PSECURITY_PACKAGE_OPTIONS;
+
 #define SECPKG_OPTIONS_TYPE_UNKNOWN 0
 #define SECPKG_OPTIONS_TYPE_LSA 1
 #define SECPKG_OPTIONS_TYPE_SSPI 2
@@ -1017,6 +1025,9 @@ extern "C" {
 
 #define AddSecurityPackage __MINGW_NAME_AW(AddSecurityPackage)
 #define DeleteSecurityPackage __MINGW_NAME_AW(DeleteSecurityPackage)
+
+SECURITY_STATUS WINAPI AddSecurityPackageA(LPSTR pszPackageName,PSECURITY_PACKAGE_OPTIONS pOptions);
+SECURITY_STATUS WINAPI AddSecurityPackageW(LPWSTR pszPackageName,PSECURITY_PACKAGE_OPTIONS pOptions);
 
   SECURITY_STATUS WINAPI DeleteSecurityPackageA(SEC_CHAR *pszPackageName);
   SECURITY_STATUS WINAPI DeleteSecurityPackageW(SEC_WCHAR *pszPackageName);
@@ -1033,29 +1044,6 @@ extern "C" {
     PSecBufferDesc pOutput
   );
 #endif /*(_WIN32_WINNT >= 0x0600)*/
-
-#if (_WIN32_WINNT >= 0x0601)
-
-typedef struct _SECURITY_PACKAGE_OPTIONS {
-  unsigned long Size;
-  unsigned long Type;
-  unsigned long Flags;
-  unsigned long SignatureSize;
-  void *Signature;
-} SECURITY_PACKAGE_OPTIONS,*PSECURITY_PACKAGE_OPTIONS;
-
-SECURITY_STATUS WINAPI AddSecurityPackageA(
-  LPSTR pszPackageName,
-  PSECURITY_PACKAGE_OPTIONS pOptions
-);
-
-SECURITY_STATUS WINAPI AddSecurityPackageW(
-  LPWSTR pszPackageName,
-  PSECURITY_PACKAGE_OPTIONS pOptions
-);
-
-#define AddSecurityPackage __MINGW_NAME_AW(AddSecurityPackage)
-#endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #ifdef __cplusplus
 }
