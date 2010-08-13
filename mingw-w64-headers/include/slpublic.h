@@ -11,7 +11,7 @@
 extern "C" {
 #endif
 
-typedef LPVOID SLID;
+typedef GUID SLID;
 
 typedef enum _SL_GENUINE_STATE {
   SL_GEN_STATE_IS_GENUINE        = 0,
