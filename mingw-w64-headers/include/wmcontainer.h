@@ -68,6 +68,11 @@ typedef struct _ASF_INDEX_DESCRIPTOR {
 
 #undef  INTERFACE
 #define INTERFACE IMFASFMutualExclusion
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFASFMutualExclusion,IUnknown)
 {
     BEGIN_INTERFACE
@@ -107,6 +112,11 @@ DECLARE_INTERFACE_(IMFASFMutualExclusion,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFASFStreamPrioritization
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFASFStreamPrioritization,IUnknown)
 {
     BEGIN_INTERFACE
@@ -139,6 +149,11 @@ DECLARE_INTERFACE_(IMFASFStreamPrioritization,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFASFSplitter
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFASFSplitter,IUnknown)
 {
     BEGIN_INTERFACE
@@ -178,6 +193,11 @@ DECLARE_INTERFACE_(IMFASFSplitter,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFASFContentInfo
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFASFContentInfo,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -275,6 +295,11 @@ DECLARE_INTERFACE_(IMFASFContentInfo,IMFAttributes)
 
 #undef  INTERFACE
 #define INTERFACE IMFASFStreamConfig
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFASFStreamConfig,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -378,6 +403,11 @@ DECLARE_INTERFACE_(IMFASFStreamConfig,IMFAttributes)
 
 #undef  INTERFACE
 #define INTERFACE IMFASFProfile
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFASFProfile,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -493,6 +523,11 @@ DECLARE_INTERFACE_(IMFASFProfile,IMFAttributes)
 
 #undef  INTERFACE
 #define INTERFACE IMFASFIndexer
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFASFIndexer,IUnknown)
 {
     BEGIN_INTERFACE
@@ -540,6 +575,11 @@ DECLARE_INTERFACE_(IMFASFIndexer,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFASFMultiplexer
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFASFMultiplexer,IUnknown)
 {
     BEGIN_INTERFACE
