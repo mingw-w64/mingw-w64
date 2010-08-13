@@ -11,12 +11,11 @@
 #define defaultProtocolMaxSize    0x0FA0
 #define maxProtocolMaxSize        0xFFFF
 #define minProtocolMaxSize        0x012C
-#define ProtocolMaxSize           range(minProtocolMaxSize, maxProtocolMaxSize)
 
   typedef struct tagConnections {
     UINT16                          count;
     INapEnforcementClientConnection **connections;
-  }Connections;
+  } Connections;
 
 #ifndef NAPTypes
 #define NAPTypes
