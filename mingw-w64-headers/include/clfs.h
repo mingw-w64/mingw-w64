@@ -49,13 +49,14 @@ typedef enum _CLFS_SCAN_MODE {
 
 /* enum guessed from http://msdn.microsoft.com/en-us/library/bb540336%28VS.85%29.aspx */
 typedef enum _CLFS_CONTAINER_STATE {
-  ClfsContainerInitializing,
-  ClfsContainerInactive,
-  ClfsContainerActive,
-  ClfsContainerActivePendingDelete,
-  ClfsContainerPendingArchive,
-  ClfsContainerPendingArchiveAndDelete
+  ClfsContainerInitializing = 0x01,
+  ClfsContainerInactive = 0x02,
+  ClfsContainerActive = 0x04,
+  ClfsContainerActivePendingDelete = 0x08,
+  ClfsContainerPendingArchive = 0x10,
+  ClfsContainerPendingArchiveAndDelete = 0x20
 } CLFS_CONTAINER_STATE;
+
 typedef DWORD CLFS_CONTAINER_ID;
 
 /* Goes in wdm.h */
