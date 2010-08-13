@@ -1,3 +1,9 @@
+2010-08-13  Jonathan Yong  <jon_y@sourceforge.net>
+
+	* libsrc/bth-uuid.c: New.
+	* Makefile.am: Add new entry.
+	* Makefile.in: Regenerated.
+
 2010-08-08  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* lib32/d3dcompiler_33.def: New.
