@@ -706,7 +706,7 @@ typedef unsigned int GROUP;
   typedef struct _SOCKET_ADDRESS_LIST {
     INT iAddressCount;
     SOCKET_ADDRESS Address[1];
-  } SOCKET_ADDRESS_LIST,*LPSOCKET_ADDRESS_LIST;
+  } SOCKET_ADDRESS_LIST,*PSOCKET_ADDRESS_LIST,*LPSOCKET_ADDRESS_LIST;
 
   typedef struct _AFPROTOCOLS {
     INT iAddressFamily;

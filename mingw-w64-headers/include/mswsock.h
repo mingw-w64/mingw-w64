@@ -36,8 +36,9 @@ extern "C" {
 #define TCP_BSDURGENT 0x7000
 
 #define SIO_UDP_CONNRESET _WSAIOW(IOC_VENDOR,12)
-
+#if (_WIN32_WINNT < 0x0600) && (_WIN32_WINNT >= 0x0501)
 #define SIO_SOCKET_CLOSE_NOTIFY _WSAIOW(IOC_VENDOR,13)
+#endif /* >= XP && < VISTA */
 
 #ifndef __MSWSOCK_WS1_SHARED
   int WINAPI WSARecvEx(SOCKET s,char *buf,int len,int *flags);
@@ -183,7 +184,10 @@ extern "C" {
 #define MSG_BCAST 0x0400
 #define MSG_MCAST 0x0800
 
-  typedef INT (WINAPI *LPFN_WSARECVMSG)(SOCKET s,LPWSAMSG lpMsg,LPDWORD lpdwNumberOfBytesRecvd,LPWSAOVERLAPPED lpOverlapped,LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine);
+  typedef INT (WINAPI *LPFN_WSARECVMSG)(SOCKET s, LPWSAMSG lpMsg,
+					LPDWORD lpdwNumberOfBytesRecvd,
+					LPWSAOVERLAPPED lpOverlapped,
+					LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine);
 
 #define WSAID_WSARECVMSG {0xf689d7c8,0x6f1f,0x436b,{0x8a,0x53,0xe5,0x4f,0xe3,0x51,0xc3,0x22}}
 
