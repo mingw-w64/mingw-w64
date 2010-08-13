@@ -912,7 +912,6 @@ typedef struct _MPR_SERVER_SET_CONFIG_EX {
   MPRAPI_TUNNEL_CONFIG_PARAMS ConfigParams;
 } MPR_SERVER_SET_CONFIG_EX, *PMPR_SERVER_SET_CONFIG_EX;
 
-DWORD APIENTRY MprConfigServerConnectEx(LPWSTR lpwsServerName,HANDLE *phMprConfig);
 DWORD APIENTRY MprConfigServerSetInfoEx(HANDLE hMprConfig,MPR_SERVER_SET_CONFIG_EX *pSetServerConfig);
 
 #endif /*(_WIN32_WINNT >= 0x0601)*/
