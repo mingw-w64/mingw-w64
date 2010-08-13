@@ -6,12 +6,9 @@
 #ifndef _INC_NETIOAPI
 #define _INC_NETIOAPI
 
-#include <winsock2.h>
+#include <ws2def.h>
 #include <iprtrmib.h>
 #include <ifdef.h>
-#include <ws2tcpip.h>
-#include <ws2ipdef.h>
-#include <ntddndis.h>
 
 #ifndef ANY_SIZE
 #define ANY_SIZE 1
@@ -106,10 +103,6 @@ typedef struct _MIB_IPFORWARD_TABLE2 {
   ULONG              NumEntries;
   MIB_IPFORWARD_ROW2 Table[ANY_SIZE];
 } MIB_IPFORWARD_TABLE2, *PMIB_IPFORWARD_TABLE2;
-
-#ifndef ScopeLevelCount
-#define ScopeLevelCount 16
-#endif
 
 typedef struct _MIB_IPINTERFACE_ROW {
   ADDRESS_FAMILY                 Family;
@@ -476,10 +469,15 @@ NETIOAPI_API  GetIfStackTable(
   PMIB_IFSTACK_TABLE *Table
 );
 
-/* TODO: Fixme.
-  MIB_IF_TABLE_LEVEL is unknown type
-  NETIOAPI_API GetIfTable2Ex(MIB_IF_TABLE_LEVEL Level,PMIB_IF_TABLE2 *Table);
-*/
+typedef enum _MIB_IF_TABLE_LEVEL {
+  MibIfTableNormal = 0,
+  MibIfTableRaw    = 1
+} MIB_IF_TABLE_LEVEL, *PMIB_IF_TABLE_LEVEL;
+
+NETIOAPI_API GetIfTable2Ex(
+  MIB_IF_TABLE_LEVEL Level,
+  PMIB_IF_TABLE2 *Table
+);
 
 NETIOAPI_API  GetInvertedIfStackTable(
   PMIB_INVERTEDIFSTACK_TABLE *Table

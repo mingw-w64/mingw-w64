@@ -15,16 +15,6 @@ typedef enum _MULTICAST_MODE_TYPE {
   MCAST_EXCLUDE
 } MULTICAST_MODE_TYPE;
 
-typedef struct _SCOPE_ID {
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
-	ULONG	Zone : 28;
-	ULONG	Level : 4;
-    };
-    ULONG Value;
-  };
-} SCOPE_ID, *PSCOPE_ID;
-
 typedef struct _sockaddr_in6_pair {
   PSOCKADDR_IN6 SourceAddress;
   PSOCKADDR_IN6 DestinationAddress;

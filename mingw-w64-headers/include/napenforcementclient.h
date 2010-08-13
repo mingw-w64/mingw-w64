@@ -20,6 +20,10 @@
 
 #ifndef NAPTypes
 #define NAPTypes
+  typedef struct tagCountedString {
+    UINT16 length;
+    WCHAR *string;
+  } CountedString;
   typedef FILETIME ProbationTime;
   typedef UINT32 ProtocolMaxSize;
   typedef UINT32 NapComponentId;

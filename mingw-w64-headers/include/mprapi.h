@@ -8,7 +8,6 @@
 
 #include <lmcons.h>
 #include <ras.h>
-#include <wincrypt.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -338,6 +337,7 @@ extern "C" {
 #define IPADDRESSLEN 15
 #define IPXADDRESSLEN 22
 #define ATADDRESSLEN 32
+#define MAXIPADRESSLEN 64
 
   typedef struct _PPP_NBFCP_INFO {
     DWORD dwError;
@@ -700,14 +700,14 @@ DWORD MprAdminConnectionRemoveQuarantine(
 DWORD CALLBACK MprAdminGetIpv6AddressForUser(
   WCHAR *lpwszUserName,
   WCHAR *lpwszPortName,
-  struct in6_addr *lpdwIpv6Address,
+  IN6_ADDR *lpdwIpv6Address,
   WINBOOL *bNotifyRelease
 );
 
 DWORD CALLBACK MprAdminReleaseIpv6AddressForUser(
   WCHAR *lpwszUserName,
   WCHAR *lpwszPortName,
-  struct in6_addr *lpdwIpv6Address
+  IN6_ADDR *lpdwIpv6Address
 );
 
 DWORD WINAPI MprConfigFilterGetInfo(
@@ -817,9 +817,6 @@ typedef struct _PROJECTION_INFO {
     PPP_PROJECTION_INFO   PppProjectionInfo;
   } DUMMYUNIONNAME;
 } PROJECTION_INFO, *PPROJECTION_INFO;
-
-/* TODO: Fixme: This constant needs verification */
-#define MAXIPADRESSLEN (4*4) /* Format a.b.c.d */
 
 typedef struct _RAS_CONNECTION_EX {
   MPRAPI_OBJECT_HEADER  Header;

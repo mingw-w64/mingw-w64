@@ -7,6 +7,7 @@
 #define _RAS_H_
 
 #include <_mingw_unicode.h>
+
 #include <inaddr.h>
 #include <in6addr.h>
 

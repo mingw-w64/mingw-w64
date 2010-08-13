@@ -5,7 +5,13 @@
  */
 #ifndef _INC_TCPMIB
 #define _INC_TCPMIB
+
+#ifndef ANY_SIZE
+#define ANY_SIZE 1
+#endif
+
 #if (_WIN32_WINNT >= 0x0600)
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -67,5 +73,7 @@ typedef struct _MIB_TCPTABLE2 {
 #ifdef __cplusplus
 }
 #endif
+
 #endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #endif /*_INC_TCPMIB*/

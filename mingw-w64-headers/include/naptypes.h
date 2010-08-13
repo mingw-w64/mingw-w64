@@ -28,17 +28,16 @@ extern "C" {
 #define maxCachedSoHCount             (maxSystemHealthEntityCount * maxEnforcerCount * maxConnectionCountPerEnforcer)
 #define freshSoHRequest               0x1
 #define shaFixup                      0x1
-#define failureCategoryCount 5
+#define failureCategoryCount          0x5
 #define ComponentTypeEnforcementClientSoH 0x1
 #define ComponentTypeEnforcementClientRp  0x2
 
+#ifndef NAPTypes
+#define NAPTypes
   typedef struct tagCountedString {
     UINT16 length;
     WCHAR *string;
   } CountedString;
-
-#ifndef NAPTypes
-#define NAPTypes
   typedef FILETIME ProbationTime;
   typedef UINT32 ProtocolMaxSize;
   typedef UINT32 NapComponentId;

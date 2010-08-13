@@ -50,6 +50,7 @@
 #include <mingw_inc/_fd_types.h>
 #include <mingw_inc/_ip_types.h>
 #include <mingw_inc/_wsadata.h>
+#include <ws2def.h> /* FIXME: include order */
 
 #ifdef __cplusplus
 extern "C" {
