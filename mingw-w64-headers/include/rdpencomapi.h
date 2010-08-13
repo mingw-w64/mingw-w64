@@ -72,6 +72,11 @@ typedef enum _RDPSRAPI_WND_FLAGS {
 
 #undef  INTERFACE
 #define INTERFACE IRDPSRAPITcpConnectionInfo
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IRDPSRAPITcpConnectionInfo,IDispatch)
 {
     BEGIN_INTERFACE
@@ -113,6 +118,11 @@ DECLARE_INTERFACE_(IRDPSRAPITcpConnectionInfo,IDispatch)
 
 #undef  INTERFACE
 #define INTERFACE IRDPSRAPIAttendee
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IRDPSRAPIAttendee,IDispatch)
 {
     BEGIN_INTERFACE
