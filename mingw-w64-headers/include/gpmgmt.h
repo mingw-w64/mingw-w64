@@ -471,7 +471,9 @@ extern "C"{
   typedef enum __MIDL___MIDL_itf_gpmgmt_0000_0002 {
     permGPOApply = 0x10000,permGPORead = 0x10100,permGPOEdit = 0x10101,permGPOEditSecurityAndDelete = 0x10102,permGPOCustom = 0x10103,
     permWMIFilterEdit = 0x20000,permWMIFilterFullControl = 0x20001,permWMIFilterCustom = 0x20002,permSOMLink = 0x1c0000,permSOMLogging = 0x180100,
-    permSOMPlanning = 0x180200,permSOMWMICreate = 0x100300,permSOMWMIFullControl = 0x100301,permSOMGPOCreate = 0x100400
+    permSOMPlanning = 0x180200,permSOMWMICreate = 0x100300,permSOMWMIFullControl = 0x100301,permSOMGPOCreate = 0x100400,
+    permStarterGPORead = 0x30500,permStarterGPOEdit = 0x30501,permStarterGPOFullControl = 0x30502,permStarterGPOCustom = 0x30503,
+    permSOMStarterGPOCreate = 0x100500
   } GPMPermissionType;
 
   typedef enum __MIDL___MIDL_itf_gpmgmt_0000_0003 {
@@ -2976,30 +2978,6 @@ extern "C"{
   unsigned char *__RPC_API VARIANT_UserMarshal(unsigned long *,unsigned char *,VARIANT *);
   unsigned char *__RPC_API VARIANT_UserUnmarshal(unsigned long *,unsigned char *,VARIANT *);
   void __RPC_API VARIANT_UserFree(unsigned long *,VARIANT *);
-
-#if (_WIN32_WINNT >= 0x0600)
-typedef enum _GPMPermissionType {
-  permGPOApply                   = 0x00010000,
-  permGPORead                    = 0x00010100,
-  permGPOEdit                    = 0x00010101,
-  permGPOEditSecurityAndDelete   = 0x00010102,
-  permGPOCustom                  = 0x00010103,
-  permWMIFilterEdit              = 0x00020000,
-  permWMIFilterFullControl       = 0x00020001,
-  permWMIFilterCustom            = 0x00020002,
-  permSOMLink                    = 0x001C0000,
-  permSOMLogging                 = 0x00180100,
-  permSOMPlanning                = 0x00180200,
-  permSOMWMICreate               = 0x00100300,
-  permSOMWMIFullControl          = 0x00100301,
-  permSOMGPOCreate               = 0x00100400,
-  permStarterGPORead             = 0x00030500,
-  permStarterGPOEdit             = 0x00030501,
-  permStarterGPOFullControl      = 0x00030502,
-  permStarterGPOCustom           = 0x00030503,
-  permSOMStarterGPOCreate        = 0x00100500
-} GPMPermissionType;
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
 }
