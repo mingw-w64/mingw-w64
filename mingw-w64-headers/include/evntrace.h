@@ -585,24 +585,9 @@ typedef struct _EVENT_TRACE {
   ULONG MofLength;
   __MINGW_EXTENSION union {
     ULONG ClientContext;
-    ETW_BUFFER_CONTEXT BufferContext;
+    ETW_BUFFER_CONTEXT BufferContext; /* MSDN says ULONG, for XP and older? */
   } DUMMYUNIONNAME;
 } EVENT_TRACE,*PEVENT_TRACE;
-
-/* MSDN Says: http://msdn.microsoft.com/en-us/library/aa363773%28VS.85%29.aspx
-typedef struct _EVENT_TRACE {
-  EVENT_TRACE_HEADER Header;
-  ULONG              InstanceId;
-  ULONG              ParentInstanceId;
-  GUID               ParentGuid;
-  PVOID              MofData;
-  ULONG              MofLength;
-  union {
-    ULONG ClientContext;
-    ULONG BufferContext;
-  } ;
-} EVENT_TRACE, *PEVENT_TRACE;
-*/
 
 #if !defined(_WMIKM_) && !defined(_NTDDK_) && !defined(_NTIFS_)
 
