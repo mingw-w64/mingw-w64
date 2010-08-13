@@ -150,7 +150,7 @@ typedef struct _AUTHZ_SECURITY_ATTRIBUTE_V1 {
   USHORT ValueType;
   ULONG  Flags;
   ULONG  ValueCount;
-  __MINGW_EXTENSION union {
+  union {
     PLONG64                                      pInt64;
     PULONG64                                     pUint64;
     PWSTR                                        ppString;
@@ -163,7 +163,7 @@ typedef struct _AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
   USHORT Version;
   USHORT Reserved;
   ULONG  AttributeCount;
-  __MINGW_EXTENSION union {
+  union {
     PAUTHZ_SECURITY_ATTRIBUTE_V1 pAttributeV1;
   } Attribute;
 } AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION;

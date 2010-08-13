@@ -660,10 +660,10 @@ extern "C" {
   typedef struct _CHANGE_ATTRIBUTES_PARAMETERS {
     VDS_PARTITION_STYLE style;
     __MINGW_EXTENSION union {
-      __MINGW_EXTENSION struct {
+      struct {
 	BOOLEAN bootIndicator;
       } MbrPartInfo;
-      __MINGW_EXTENSION struct {
+      struct {
 	ULONGLONG attributes;
       } GptPartInfo;
     };
@@ -672,11 +672,11 @@ extern "C" {
   typedef struct _CREATE_PARTITION_PARAMETERS {
     VDS_PARTITION_STYLE style;
     __MINGW_EXTENSION union {
-      __MINGW_EXTENSION struct {
+      struct {
 	BYTE    partitionType;
 	BOOLEAN bootIndicator;
       } MbrPartInfo;
-      __MINGW_EXTENSION struct {
+      struct {
 	GUID      partitionType;
 	GUID      partitionId;
 	ULONGLONG attributes;
@@ -689,35 +689,35 @@ extern "C" {
     VDS_ASYNC_OUTPUT_TYPE type;
     /*[switch(type)] */__MINGW_EXTENSION union {
       /*[case(VDS_ASYNCOUT_CREATEPARTITION)]*/
-      __MINGW_EXTENSION struct {
+      struct {
 	ULONGLONG     ullOffset;
 	VDS_OBJECT_ID volumeId;
       } cp;
       /*[case(VDS_ASYNCOUT_CREATEVOLUME)]*/
-      __MINGW_EXTENSION struct {
+      struct {
 	IUnknown *pVolumeUnk;
       } cv;
       /*[case(VDS_ASYNCOUT_BREAKVOLUMEPLEX)]*/
-      __MINGW_EXTENSION struct {
+      struct {
 	IUnknown *pVolumeUnk;
       } bvp;
       /*[case(VDS_ASYNCOUT_CREATELUN)]*/
-      __MINGW_EXTENSION struct {
+      struct {
 	IUnknown *pLunUnk;
       } cl;
       /*[case(VDS_ASYNCOUT_CREATETARGET)]*/
-      __MINGW_EXTENSION struct {
+      struct {
 	IUnknown *pTargetUnk;
       } ct;
       /*[case(VDS_ASYNCOUT_CREATEPORTALGROUP)]*/
-      __MINGW_EXTENSION struct {
+      struct {
 	IUnknown *pPortalGroupUnk;
       } cpg;
       /*[case(VDS_ASYNCOUT_CREATE_VDISK)]*/
-      __MINGW_EXTENSION struct {
+      struct {
 	IUnknown *pVDiskUnk;
       } cvd;
-    } DUMMYUNIONNAME;
+    };
   }  VDS_ASYNC_OUTPUT;
 
 #define VDS_NF_CONTROLLER_ARRIVE 103
@@ -842,7 +842,7 @@ extern "C" {
       VDS_PORTAL_NOTIFICATION       Portal;
       VDS_TARGET_NOTIFICATION       Target;
       VDS_PORTAL_GROUP_NOTIFICATION PortalGroup;
-    } DUMMYUNIONNAME;
+    };
   } VDS_NOTIFICATION;
 
   typedef enum _VDS_LUN_RESERVE_MODE {
@@ -870,7 +870,7 @@ extern "C" {
     __MINGW_EXTENSION union {
       DWORD dwSignature;
       GUID  DiskGuid;
-    } DUMMYUNIONNAME;
+    };
     LPWSTR               pwszDiskAddress;
     LPWSTR               pwszName;
     LPWSTR               pwszFriendlyName;
@@ -1141,7 +1141,7 @@ extern "C" {
     __MINGW_EXTENSION union {
       VDS_PARTITION_INFO_MBR Mbr;
       VDS_PARTITION_INFO_GPT Gpt;
-    } DUMMYUNIONNAME;
+    };
   } VDS_PARTITION_PROP;
 
   typedef struct _VDS_PATH_INFO {

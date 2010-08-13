@@ -544,7 +544,7 @@ typedef struct _WLAN_RAW_DATA {
 typedef struct _WLAN_RAW_DATA_LIST {
   DWORD dwTotalSize;
   DWORD dwNumberOfItems;
-  __MINGW_EXTENSION struct {
+  struct {
     DWORD dwDataOffset;
     DWORD dwDataSize;
   } DataList[1];

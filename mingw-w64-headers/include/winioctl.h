@@ -1890,7 +1890,7 @@ typedef struct _TXFS_START_RM_INFORMATION {
 } TXFS_START_RM_INFORMATION, *PTXFS_START_RM_INFORMATION;
 
 typedef struct _TXFS_GET_METADATA_INFO_OUT {
-  __MINGW_EXTENSION struct {
+  struct {
     LONGLONG LowPart;
     LONGLONG HighPart;
   } TxfFileId;

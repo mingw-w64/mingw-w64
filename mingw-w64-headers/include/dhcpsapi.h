@@ -280,7 +280,7 @@ typedef struct _DHCP_ALL_OPTIONS {
   DWORD               Flags;
   LPDHCP_OPTION_ARRAY NonVendorOptions;
   DWORD               NumVendorOptions;
-  __MINGW_EXTENSION struct {
+  struct {
     DHCP_OPTION Option;
     LPWSTR      VendorName;
     LPWSTR      ClassName;
@@ -295,7 +295,7 @@ typedef struct _DHCP_IPV6_ADDRESS {
 typedef struct _DHCP_ALL_OPTION_VALUES {
   DWORD Flags;
   DWORD NumElements;
-  __MINGW_EXTENSION struct {
+  struct {
     LPWSTR                    ClassName;
     LPWSTR                    VendorName;
     WINBOOL                   IsVendor;
@@ -305,7 +305,7 @@ typedef struct _DHCP_ALL_OPTION_VALUES {
 
 typedef struct _DHCP_OPTION_SCOPE_INFO6 {
   DHCP_OPTION_SCOPE_TYPE6 ScopeType;
-  __MINGW_EXTENSION union {
+  union {
     PVOID                DefaultScopeInfo;
     DHCP_IPV6_ADDRESS    SubnetScopeInfo;
     DHCP_RESERVED_SCOPE6 ReservedScopeInfo;

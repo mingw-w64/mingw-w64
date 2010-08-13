@@ -43,18 +43,18 @@ extern "C" {
     RealObjectName has 0x8 offset and TimeOutLowPart has 0x108
     WCT_OBJNAME_LENGTH assumed to be 128 ((0x108-0x8)/sizeof (ushort) = 128)
   */
-  #define WCT_OBJNAME_LENGTH 128
+#define WCT_OBJNAME_LENGTH 128
 
   typedef struct _WAITCHAIN_NODE_INFO {
     WCT_OBJECT_TYPE   ObjectType;
     WCT_OBJECT_STATUS ObjectStatus;
     __MINGW_EXTENSION union {
-      __MINGW_EXTENSION struct {
+      struct {
 	WCHAR ObjectName[WCT_OBJNAME_LENGTH];
 	LARGE_INTEGER Timeout;
 	WINBOOL Alertable;
       } LockObject;
-      __MINGW_EXTENSION struct {
+      struct {
 	DWORD ProcessId;
 	DWORD ThreadId;
 	DWORD WaitTime;

@@ -84,7 +84,7 @@ typedef enum _TUNNEL_TYPE {
 #include <pshpack1.h>
 typedef union _NET_LUID {
   ULONG64 Value;
-  __MINGW_EXTENSION struct {
+  __MINGW_EXTENSION struct { /* bitfield with 64 bit types. */
     ULONG64 Reserved  :24;
     ULONG64 NetLuidIndex  :24;
     ULONG64 IfType  :16;

@@ -183,17 +183,17 @@ extern "C" {
   int RPC_ENTRY I_RpcExceptionFilter(unsigned long ExceptionCode);
 
 typedef union _RPC_ASYNC_NOTIFICATION_INFO {
-  __MINGW_EXTENSION struct {
+  struct {
     PFN_RPCNOTIFICATION_ROUTINE NotificationRoutine;
     HANDLE                      hThread;
   } APC;
-  __MINGW_EXTENSION struct {
+  struct {
     HANDLE       hIOPort;
     DWORD        dwNumberOfBytesTransferred;
     DWORD_PTR    dwCompletionKey;
     LPOVERLAPPED lpOverlapped;
   } IOC;
-  __MINGW_EXTENSION struct {
+  struct {
     HWND hWnd;
     UINT Msg;
   } HWND;

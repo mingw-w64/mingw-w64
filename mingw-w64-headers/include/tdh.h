@@ -69,12 +69,12 @@ typedef struct _EVENT_PROPERTY_INFO {
   PROPERTY_FLAGS Flags;
   ULONG          NameOffset;
   __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+    struct {
       USHORT InType;
       USHORT OutType;
       ULONG  MapNameOffset;
     } nonStructType;
-    __MINGW_EXTENSION struct {
+    struct {
       USHORT StructStartIndex;
       USHORT NumOfStructMembers;
       ULONG  padding;

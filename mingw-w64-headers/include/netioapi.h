@@ -78,7 +78,7 @@ typedef struct _MIB_IPNET_ROW2 {
     };
     UCHAR  Flags;
   };
-  __MINGW_EXTENSION union {
+  union {
     ULONG LastReachable;
     ULONG LastUnreachable;
   } ReachabilityTime;
@@ -178,7 +178,7 @@ typedef struct _MIB_IF_ROW2 {
   NDIS_PHYSICAL_MEDIUM       PhysicalMediumType;
   NET_IF_ACCESS_TYPE         AccessType;
   NET_IF_DIRECTION_TYPE      DirectionType;
-  __MINGW_EXTENSION struct {
+  struct {
     BOOLEAN HardwareInterface  :1;
     BOOLEAN FilterInterface  :1;
     BOOLEAN ConnectorPresent   :1;

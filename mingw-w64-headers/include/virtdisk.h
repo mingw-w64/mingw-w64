@@ -141,7 +141,7 @@ typedef struct _VIRTUAL_STORAGE_TYPE {
 typedef struct _ATTACH_VIRTUAL_DISK_PARAMETERS {
   ATTACH_VIRTUAL_DISK_VERSION Version;
   __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+    struct {
       ULONG Reserved;
     } Version1;
   } DUMMYUNIONNAME;
@@ -150,7 +150,7 @@ typedef struct _ATTACH_VIRTUAL_DISK_PARAMETERS {
 typedef struct _COMPACT_VIRTUAL_DISK_PARAMETERS {
   COMPACT_VIRTUAL_DISK_VERSION Version;
   __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+    struct {
       ULONG Reserved;
     } Version1;
   } DUMMYUNIONNAME;
@@ -159,7 +159,7 @@ typedef struct _COMPACT_VIRTUAL_DISK_PARAMETERS {
 typedef struct _CREATE_VIRTUAL_DISK_PARAMETERS {
   CREATE_VIRTUAL_DISK_VERSION Version;
   __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+    struct {
       GUID      UniqueId;
       ULONGLONG MaximumSize;
       ULONG     BlockSizeInBytes;
@@ -173,7 +173,7 @@ typedef struct _CREATE_VIRTUAL_DISK_PARAMETERS {
 typedef struct _EXPAND_VIRTUAL_DISK_PARAMETERS {
   EXPAND_VIRTUAL_DISK_VERSION Version;
   __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+    struct {
       ULONGLONG NewSize;
     } Version1;
   } DUMMYUNIONNAME;
@@ -182,14 +182,14 @@ typedef struct _EXPAND_VIRTUAL_DISK_PARAMETERS {
 typedef struct _GET_VIRTUAL_DISK_INFO {
   GET_VIRTUAL_DISK_INFO_VERSION Version;
   __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+    struct {
       ULONGLONG VirtualSize;
       ULONGLONG PhysicalSize;
       ULONG     BlockSize;
       ULONG     SectorSize;
     } Size;
     GUID                 Identifier;
-    __MINGW_EXTENSION struct {
+    struct {
       BOOL  ParentResolved;
       WCHAR ParentLocationBuffer[1];
     } ParentLocation;
@@ -203,7 +203,7 @@ typedef struct _GET_VIRTUAL_DISK_INFO {
 typedef struct _MERGE_VIRTUAL_DISK_PARAMETERS {
   MERGE_VIRTUAL_DISK_VERSION Version;
   __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+    struct {
       ULONG MergeDepth;
     } Version1;
   } DUMMYUNIONNAME;
@@ -212,7 +212,7 @@ typedef struct _MERGE_VIRTUAL_DISK_PARAMETERS {
 typedef struct _OPEN_VIRTUAL_DISK_PARAMETERS {
   OPEN_VIRTUAL_DISK_VERSION Version;
   __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+    struct {
       ULONG RWDepth;
     } Version1;
   } DUMMYUNIONNAME;

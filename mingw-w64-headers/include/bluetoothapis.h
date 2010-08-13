@@ -130,7 +130,7 @@ typedef struct _BLUETOOTH_AUTHENTICATE_RESPONSE {
 typedef struct _SPD_ELEMENT_DATA {
   SDP_TYPE         type;
   SDP_SPECIFICTYPE specificType;
-  __MINGW_EXTENSION union {
+  union {
     SDP_LARGE_INTEGER_16  int128;
     LONGLONG              int64;
     LONG                  int32;
@@ -145,19 +145,19 @@ typedef struct _SPD_ELEMENT_DATA {
     GUID                  uuid128;
     ULONG                 uuid32;
     USHORT                uuid16;
-    __MINGW_EXTENSION struct {
+    struct {
       LPBYTE value;
       ULONG  length;
     } string;
-    __MINGW_EXTENSION struct {
+    struct {
       LPBYTE value;
       ULONG  length;
     } url;
-    __MINGW_EXTENSION struct {
+    struct {
       LPBYTE value;
       ULONG  length;
     } sequence;
-    __MINGW_EXTENSION struct {
+    struct {
       LPBYTE value;
       ULONG  length;
     } alternative;
