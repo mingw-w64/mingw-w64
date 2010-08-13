@@ -31,7 +31,7 @@ typedef struct _WSDUpdRetransmitParams {
 #undef  INTERFACE
 #define INTERFACE IWSDTransportAddress
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -67,7 +67,7 @@ DECLARE_INTERFACE_(IWSDTransportAddress,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDHttpAddress
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -113,7 +113,7 @@ DECLARE_INTERFACE_(IWSDHttpAddress,IWSDTransportAddress)
 #undef  INTERFACE
 #define INTERFACE IWSDUdpAddress
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -171,7 +171,7 @@ DECLARE_INTERFACE_(IWSDUdpAddress,IWSDTransportAddress)
 #undef  INTERFACE
 #define INTERFACE IWSDAddress
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -201,7 +201,7 @@ DECLARE_INTERFACE_(IWSDAddress,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDMessageParameters
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -237,7 +237,7 @@ DECLARE_INTERFACE_(IWSDMessageParameters,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDHttpMessageParameters
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -293,7 +293,7 @@ DECLARE_INTERFACE_(IWSDHttpMessageParameters,IWSDMessageParameters)
 #undef  INTERFACE
 #define INTERFACE IWSDUdpMessageParameters
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif

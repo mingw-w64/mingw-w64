@@ -15,7 +15,7 @@
 #undef  INTERFACE
 #define INTERFACE IWSDEventingStatus
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -47,7 +47,7 @@ DECLARE_INTERFACE_(IWSDEventingStatus,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDAsyncCallback
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -75,7 +75,7 @@ DECLARE_INTERFACE_(IWSDAsyncCallback,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDAsyncResult
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -115,7 +115,7 @@ DECLARE_INTERFACE_(IWSDAsyncResult,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDDeviceProxy
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -161,7 +161,7 @@ DECLARE_INTERFACE_(IWSDDeviceProxy,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDMetadataExchange
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -189,7 +189,7 @@ DECLARE_INTERFACE_(IWSDMetadataExchange,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDServiceProxy
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -232,7 +232,7 @@ DECLARE_INTERFACE_(IWSDServiceProxy,IWSDMetadataExchange)
 #undef  INTERFACE
 #define INTERFACE IWSDEndpointProxy
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif

@@ -15,7 +15,7 @@
 #undef  INTERFACE
 #define INTERFACE IWSDServiceMessaging
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -45,7 +45,7 @@ DECLARE_INTERFACE_(IWSDServiceMessaging,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDDeviceHostNotify
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -71,7 +71,7 @@ DECLARE_INTERFACE_(IWSDDeviceHostNotify,IUnknown)
 #endif /*COBJMACROS*/
 
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 #warning IWSDDeviceHost is unverified.
 #endif
@@ -79,7 +79,7 @@ DECLARE_INTERFACE_(IWSDDeviceHostNotify,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDDeviceHost
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif

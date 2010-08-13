@@ -75,7 +75,7 @@ typedef struct MFVideoNormalizedRect {
 #undef  INTERFACE
 #define INTERFACE IMFVideoPresenter
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -118,7 +118,7 @@ DECLARE_INTERFACE_(IMFVideoPresenter,IMFClockStateSink)
 #undef  INTERFACE
 #define INTERFACE IMFDesiredSample
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -150,7 +150,7 @@ DECLARE_INTERFACE_(IMFDesiredSample,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IMFTrackedSample
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif

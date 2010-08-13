@@ -15,7 +15,7 @@
 #undef  INTERFACE
 #define INTERFACE IWSDScopeMatchingRule
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -45,7 +45,7 @@ DECLARE_INTERFACE_(IWSDScopeMatchingRule,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryPublisherNotify
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -75,7 +75,7 @@ DECLARE_INTERFACE_(IWSDiscoveryPublisherNotify,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveredService
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -123,7 +123,7 @@ DECLARE_INTERFACE_(IWSDiscoveredService,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryProviderNotify
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -157,7 +157,7 @@ DECLARE_INTERFACE_(IWSDiscoveryProviderNotify,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryProvider
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
@@ -197,7 +197,7 @@ DECLARE_INTERFACE_(IWSDiscoveryProvider,IUnknown)
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryPublisher
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif

@@ -320,12 +320,13 @@ DECLARE_INTERFACE_(IMFRemoteAsyncCallback,IUnknown)
 #define IMFRemoteAsyncCallback_Release(This) (This)->pVtbl->Release(This)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFAsyncResult is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFAsyncResult
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFAsyncResult,IUnknown)
 {
     BEGIN_INTERFACE
@@ -355,12 +356,13 @@ DECLARE_INTERFACE_(IMFAsyncResult,IUnknown)
 #define IMFAsyncResult_SetStatus(This,hrStatus) (This)->lpVtbl->SetStatus(This,hrStatus)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFMediaEventGenerator is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFMediaEventGenerator
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFMediaEventGenerator,IUnknown)
 {
     BEGIN_INTERFACE
@@ -391,12 +393,13 @@ DECLARE_INTERFACE_(IMFMediaEventGenerator,IUnknown)
 #define IMFMediaEventGenerator_RemoteEndGetEvent(This,pResult,pcbEvent,ppbEvent) (This)->lpVtbl->RemoteEndGetEvent(This,pResult,pcbEvent,ppbEvent)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFMediaBuffer is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFMediaBuffer
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFMediaBuffer,IUnknown)
 {
     BEGIN_INTERFACE
@@ -426,12 +429,13 @@ DECLARE_INTERFACE_(IMFMediaBuffer,IUnknown)
 #define IMFMediaBuffer_Unlock() (This)->lpVtbl->Unlock(This)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFAttributes is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFAttributes
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFAttributes,IUnknown)
 {
     BEGIN_INTERFACE
@@ -511,12 +515,13 @@ DECLARE_INTERFACE_(IMFAttributes,IUnknown)
 #define IMFAttributes_UnlockStore() (This)->lpVtbl->UnlockStore(This)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFMediaType is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFMediaType
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFMediaType,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -608,12 +613,13 @@ DECLARE_INTERFACE_(IMFMediaType,IMFAttributes)
 #define IMFMediaType_IsEqual(This,pIMediaType,pdwFlags) (This)->lpVtbl->IsEqual(This,pIMediaType,pdwFlags)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFAudioMediaType is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFAudioMediaType
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFAudioMediaType,IMFAudioMediaType)
 {
     BEGIN_INTERFACE
@@ -709,12 +715,13 @@ DECLARE_INTERFACE_(IMFAudioMediaType,IMFAudioMediaType)
 #define IMFAudioMediaType_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFSample is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFSample
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFSample,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -836,12 +843,13 @@ DECLARE_INTERFACE_(IMFSample,IMFAttributes)
 #define IMFSample_SetSampleTime(This,hnsSampleTime) (This)->lpVtbl->SetSampleTime(This,hnsSampleTime)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMF2DBuffer is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMF2DBuffer
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMF2DBuffer,IUnknown)
 {
     BEGIN_INTERFACE
@@ -875,12 +883,13 @@ DECLARE_INTERFACE_(IMF2DBuffer,IUnknown)
 #define IMF2DBuffer_Unlock2D() (This)->lpVtbl->Unlock2D(This)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFAsyncCallback is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFAsyncCallback
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFAsyncCallback,IUnknown)
 {
     BEGIN_INTERFACE
@@ -904,12 +913,13 @@ DECLARE_INTERFACE_(IMFAsyncCallback,IUnknown)
 #define IMFAsyncCallback_Invoke(This,pAsyncResult) (This)->lpVtbl->Invoke(This,pAsyncResult)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFByteStream is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFByteStream
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFByteStream,IUnknown)
 {
     BEGIN_INTERFACE
@@ -963,12 +973,13 @@ DECLARE_INTERFACE_(IMFByteStream,IUnknown)
 #define IMFByteStream_Write(This,pb,cb,pcbWritten) (This)->lpVtbl->Write(This,pb,cb,pcbWritten)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFMediaEvent is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFMediaEvent
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFMediaEvent,IMFAttributes)
 {
     BEGIN_INTERFACE
@@ -1058,12 +1069,13 @@ DECLARE_INTERFACE_(IMFMediaEvent,IMFAttributes)
 #define IMFMediaEvent_GetValue(This,pvValue) (This)->lpVtbl->GetValue(This,pvValue)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFVideoMediaType is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFVideoMediaType
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFVideoMediaType,IMFMediaType)
 {
     BEGIN_INTERFACE
@@ -1161,12 +1173,13 @@ DECLARE_INTERFACE_(IMFVideoMediaType,IMFMediaType)
 #define IMFVideoMediaType_GetVideoRepresentation(This,guidRepresentation,ppvRepresentation,lStride) (This)->lpVtbl->GetVideoRepresentation(This,guidRepresentation,ppvRepresentation,lStride)
 #endif /*COBJMACROS*/
 
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFCollection is unverified.
-
 #undef  INTERFACE
 #define INTERFACE IMFCollection
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFCollection,IUnknown)
 {
     BEGIN_INTERFACE
@@ -1199,14 +1212,14 @@ DECLARE_INTERFACE_(IMFCollection,IUnknown)
 #endif /*COBJMACROS*/
 
 #if (_WIN32_WINNT >= 0x0601)
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IMFPluginControl is unverified.
-#endif
 
 #undef  INTERFACE
 #define INTERFACE IMFPluginControl
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFPluginControl,IUnknown)
 {
     BEGIN_INTERFACE

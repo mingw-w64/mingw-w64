@@ -68,7 +68,7 @@ typedef enum MFP_MEDIAPLAYER_STATE {
 } MFP_MEDIAPLAYER_STATE;
 
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 #warning IMFPMediaItem is unverified.
 #endif
@@ -133,7 +133,7 @@ DECLARE_INTERFACE_(IMFPMediaItem,IUnknown)
 #endif /*COBJMACROS*/
 
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 #warning IMFPMediaPlayer is unverified.
 #endif
@@ -232,7 +232,7 @@ DECLARE_INTERFACE_(IMFPMediaPlayer,IUnknown)
 #endif /*COBJMACROS*/
 
 #ifdef __GNUC__
-#warning COM interfaces layout in this header has not been unverified.
+#warning COM interfaces layout in this header has not been verified.
 #warning COM interfaces with incorrect layout may not work at all.
 #warning IMFPMediaPlayerCallback is unverified.
 #endif
