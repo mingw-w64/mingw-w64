@@ -3410,10 +3410,11 @@ WINBASEAPI WINBOOL WINAPI GetFileInformationByHandleEx(
 );
 
 #define GetFinalPathNameByHandle __MINGW_NAME_AW(GetFinalPathNameByHandle)
+
 #define VOLUME_NAME_DOS 0x0
 #define VOLUME_NAME_GUID 0x1
-#define VOLUME_NAME_NONE 0x2
-#define VOLUME_NAME_NT 0x3
+#define VOLUME_NAME_NT 0x2
+#define VOLUME_NAME_NONE 0x4
 
 #define FILE_NAME_NORMALIZED 0x0
 #define FILE_NAME_OPENED 0x8
