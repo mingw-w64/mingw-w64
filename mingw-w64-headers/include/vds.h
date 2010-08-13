@@ -1030,9 +1030,7 @@ extern "C" {
     VDS_ISCSI_PORTAL_STATUS status;
   } VDS_ISCSI_PORTAL_PROP;
 
-  typedef LPVOID VDS_ISCSI_PORTALGROUP_TAG;
-/* http://msdn.microsoft.com/en-us/library/aa383380%28VS.85%29.aspx
-   says to see http://www.ietf.org/rfc/rfc3720.txt  */
+  typedef USHORT VDS_ISCSI_PORTALGROUP_TAG;
 
   typedef struct _VDS_ISCSI_PORTALGROUP_PROP {
     VDS_OBJECT_ID             id;
