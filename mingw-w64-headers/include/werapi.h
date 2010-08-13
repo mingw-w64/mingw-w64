@@ -11,59 +11,70 @@
 extern "C" {
 #endif
 
-/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb513623%28v=VS.85%29.aspx */
-typedef enum _WER_REGISTER_FILE_TYPE {
-  WerFileTypeHeapdump = 0,
-  WerFileTypeMicrodump,
+typedef enum _WER_FILE_TYPE {
+  WerFileTypeMicrodump = 1,
   WerFileTypeMinidump,
+  WerFileTypeHeapdump,
+  WerFileTypeUserDocument,
+  WerFileTypeOther,
+  WerFileTypeMax
+} WER_FILE_TYPE;
+
+typedef enum _WER_REGISTER_FILE_TYPE {
+  WerRegFileTypeUserDocument = 1,
   WerRegFileTypeOther,
-  WerRegFileTypeUserDocument
+  WerRegFileTypeMax
 } WER_REGISTER_FILE_TYPE;
 
-/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb513622%28VS.85%29.aspx */
 typedef enum _WER_DUMP_TYPE {
-  WerDumpTypeHeapDump = 0,
-  WerDumpTypeMicroDump,
+  WerDumpTypeMicroDump = 1,
   WerDumpTypeMiniDump,
+  WerDumpTypeHeapDump,
+  WerDumpTypeMax
 } WER_DUMP_TYPE;
 
-/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb513627%28v=VS.85%29.aspx */
 typedef enum _WER_REPORT_UI {
-  WerUIAdditionalDataDlgHeader = 0,
+  WerUIAdditionalDataDlgHeader = 1,
+  WerUIIconFilePath,
+  WerUIConsentDlgHeader,
+  WerUIConsentDlgBody,
+  WerUIOnlineSolutionCheckText,
+  WerUIOfflineSolutionCheckText,
+  WerUICloseText,
+  WerUICloseDlgHeader,
   WerUICloseDlgBody,
   WerUICloseDlgButtonText,
-  WerUICloseDlgHeader,
-  WerUICloseText,
-  WerUIConsentDlgBody,
-  WerUIConsentDlgHeader,
-  WerUIIconFilePath,
-  WerUIOfflineSolutionCheckText,
-  WerUIOnlineSolutionCheckText
+  WerUICustomActionButtonText,
+  WerUIMax
 } WER_REPORT_UI;
 
-/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb513628%28v=VS.85%29.aspx */
 typedef enum _WER_CONSENT {
-  WerConsentApproved = 0,
+  WerConsentNotAsked = 1,
+  WerConsentApproved,
   WerConsentDenied,
-  WerConsentNotAsked
+  WerConsentAlwaysPrompt,
+  WerConsentMax
 } WER_CONSENT;
 
-/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb513628%28v=VS.85%29.aspx */
 typedef enum _WER_SUBMIT_RESULT {
-  WerDisabled = 0,
-  WerDisabledQueue,
-  WerReportAsync,
-  WerReportCancelled,
+  WerReportQueued = 1,
+  WerReportUploaded,
   WerReportDebug,
   WerReportFailed,
-  WerReportQueued,
-  WerReportUploaded
+  WerDisabled,
+  WerReportCancelled,
+  WerDisabledQueue,
+  WerReportAsync,
+  WerCustomAction
 } WER_SUBMIT_RESULT;
 
-/* TODO: Guessed from http://msdn.microsoft.com/en-us/library/bb756974.aspx */
 typedef enum _WER_REPORT_TYPE {
   WerReportNonCritical = 0,
-  WerReportCritical
+  WerReportCritical,
+  WerReportApplicationCrash,
+  WerReportApplicationHang,
+  WerReportKernel,
+  WerReportInvalid
 } WER_REPORT_TYPE;
 
 typedef struct _WER_DUMP_CUSTOM_OPTIONS {
