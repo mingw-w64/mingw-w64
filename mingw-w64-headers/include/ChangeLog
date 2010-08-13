@@ -1,3 +1,8 @@
+2010-08-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntrace.h (EVENT_TRACE): Updated MSDN note for BufferContext
+	member.
+
 2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mswsock.h: Include winsock2.h.
