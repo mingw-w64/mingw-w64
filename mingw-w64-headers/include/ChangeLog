@@ -1,3 +1,25 @@
+2010-08-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Baby steps in moving shared data from ws2tcpip.h to ws2ipdef.h:
+	* ws2tcpip.h: Remove in6addr.h include.
+	(struct ipv6_mreq): Move to ws2ipdef.h.
+	(struct sockaddr_in6_old): Likewise.
+	(struct sockaddr_in6): Likewise.
+	(SOCKADDR_IN6): Likewise.
+	(PSOCKADDR_IN6): Likewise.
+	(LPSOCKADDR_IN6): Likewise.
+	(sockaddr_gen): Likewise.
+	(INTERFACE_INFO): Likewise.
+	* ws2tcpip.h: Remove ws2tcpip.h include. Include in6addr.h.
+	(struct ipv6_mreq): Moved from ws2tcpip.h.
+	(struct sockaddr_in6_old): Likewise.
+	(struct sockaddr_in6): Likewise.
+	(SOCKADDR_IN6): Likewise.
+	(PSOCKADDR_IN6): Likewise.
+	(LPSOCKADDR_IN6): Likewise.
+	(sockaddr_gen): Likewise.
+	(INTERFACE_INFO): Likewise.
+
 2010-08-12  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* evntrace.h (EVENT_TRACE): Updated MSDN note for BufferContext

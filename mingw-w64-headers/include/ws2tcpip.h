@@ -72,36 +72,9 @@ struct ip_msfilter {
 
 #define TCP_EXPEDITED_1122 0x0002
 
-#include <in6addr.h>
-
-typedef struct ipv6_mreq {
-  struct in6_addr ipv6mr_multiaddr;
-  unsigned int ipv6mr_interface;
-} IPV6_MREQ;
-
-struct sockaddr_in6_old {
-  short sin6_family;
-  u_short sin6_port;
-  u_long sin6_flowinfo;
-  struct in6_addr sin6_addr;
-};
-
-struct sockaddr_in6 {
-  short sin6_family;
-  u_short sin6_port;
-  u_long sin6_flowinfo;
-  struct in6_addr sin6_addr;
-  __MINGW_EXTENSION union {
-    u_long sin6_scope_id;
-    SCOPE_ID sin6_scope_struct;
-  };
-};
-
-typedef struct sockaddr_in6 SOCKADDR_IN6;
-typedef struct sockaddr_in6 *PSOCKADDR_IN6;
-typedef struct sockaddr_in6 *LPSOCKADDR_IN6;
 
 #include <ws2ipdef.h>
+
 
 #define SS_PORT(ssp) (((struct sockaddr_in*)(ssp))->sin_port)
 
@@ -177,19 +150,6 @@ WS2TCPIP_INLINE void IN6ADDR_SETLOOPBACK(struct sockaddr_in6 *a) {
   a->sin6_scope_id = 0;
 }
 #endif /* !__CRT__NO_INLINE */
-
-typedef union sockaddr_gen {
-  struct sockaddr Address;
-  struct sockaddr_in AddressIn;
-  struct sockaddr_in6_old AddressIn6;
-} sockaddr_gen;
-
-typedef struct _INTERFACE_INFO {
-  u_long iiFlags;
-  sockaddr_gen iiAddress;
-  sockaddr_gen iiBroadcastAddress;
-  sockaddr_gen iiNetmask;
-} INTERFACE_INFO,*LPINTERFACE_INFO;
 
 typedef struct _INTERFACE_INFO_EX {
   u_long iiFlags;
