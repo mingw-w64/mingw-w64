@@ -123,8 +123,7 @@ typedef unsigned long long _sigset_t;
 #else
 typedef unsigned long	_sigset_t;
 #endif
-
-#ifdef _POSIX
+#ifndef _NO_OLDNAMES
 typedef _sigset_t	sigset_t;
 #endif
 #endif	/* Not _SIGSET_T_ */

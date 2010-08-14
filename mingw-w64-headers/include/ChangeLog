@@ -1,10 +1,15 @@
+2010-08-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sys/types.h (sigset_t): Go back to the old mingw32 way and make
+	it available unless _NO_OLDNAMES is defined.
+
 2010-08-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mswsock.h (SIO_SOCKET_CLOSE_NOTIFY): Apply version restriction
 	from the trunk (>= XP && < VISTA).
 	(LPFN_WSARECVMSG): Reformat.
 	* winsock2.h (SOCKET_ADDRESS_LIST): Add the *P variant along with
-	the existing *LP variant, from the trunk.
+	the existing *LP variant from the trunk.
 
 2010-08-12  Ozkan Sezer  <sezeroz@gmail.com>
 
@@ -30,8 +35,8 @@
 
 	Backport from trunk rev. 3261 with adjustments:
 	* sys/types.h (_sigset_t): Make it to have scalar pointer width.
-	(sigset_t): Make sure it just gets defined only when _POSIX is
-	defined, drop the !_NO_ONLDNAMES condition.
+	(sigset_t): Make sure it is defined only when _POSIX is defined,
+	drop the !_NO_ONLDNAMES condition.
 
 2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
 
