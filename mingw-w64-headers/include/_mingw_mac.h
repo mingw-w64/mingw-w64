@@ -126,15 +126,5 @@
 #define __GNU_EXTENSION		__MINGW_EXTENSION
 #endif
 
-#ifdef UNICODE
-# define __MINGW_NAME_AW(func) func##W
-# define __MINGW_STRING_AW(str) L##str
-#else
-# define __MINGW_NAME_AW(func) func##A
-# define __MINGW_STRING_AW(str) str
-#endif
-#define __MINGW_TYPEDEF_AW(type) \
-    typedef __MINGW_NAME_AW(type) type;
-
 #endif	/* _INC_CRTDEFS_MACRO */
 
