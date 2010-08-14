@@ -10,6 +10,11 @@ typedef struct PROPERTYKEY *REFPROPERTYKEY;
 
 #undef  INTERFACE
 #define INTERFACE IPropertyStore
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IPropertyStore,IUnknown)
 {
     BEGIN_INTERFACE
@@ -41,6 +46,11 @@ DECLARE_INTERFACE_(IPropertyStore,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE INamedPropertyStore
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(INamedPropertyStore,IUnknown)
 {
     BEGIN_INTERFACE
