@@ -1,3 +1,8 @@
+2010-08-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/bth-uuid.c: Remove duplicated entry for
+	PnPInformationServiceClass_UUID
+
 2010-08-13  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* libsrc/bth-uuid.c: New.
