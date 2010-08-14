@@ -31,7 +31,7 @@
 	Backport from trunk rev. 3261 with adjustments:
 	* sys/types.h (_sigset_t): Make it to have scalar pointer width.
 	(sigset_t): Make sure it is defined only when _POSIX is defined,
-	drop the !_NO_ONLDNAMES condition.
+	drop the (!_NO_OLDNAMES) condition.
 
 2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
 
