@@ -1,3 +1,15 @@
+2010-08-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from the trunk revs. 2573, 2857 & 2859 for inter-compatibility
+	purposes:
+	2010-06-18  Doug Semler  <dougsemler@gmail.com>
+	* _mingw_mac.h: Move Unicode macro definitions to _mingw_unicode.h
+	* _mingw_unicode.h: New file.
+	2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+	* _mingw_unicode.h (__MINGW_TYPEDEF_UAW): New helper macro.
+	(__MINGW_STRING_AW): Added comment that it is the same as TEXT() from
+	winnt.h.
+
 2010-08-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mswsock.h (SIO_SOCKET_CLOSE_NOTIFY): Apply version restriction
