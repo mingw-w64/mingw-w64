@@ -1,8 +1,3 @@
-2010-08-14  Ozkan Sezer  <sezeroz@gmail.com>
-
-	* sys/types.h (sigset_t): Go back to the old mingw32 way and make
-	it available unless _NO_OLDNAMES is defined.
-
 2010-08-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mswsock.h (SIO_SOCKET_CLOSE_NOTIFY): Apply version restriction
