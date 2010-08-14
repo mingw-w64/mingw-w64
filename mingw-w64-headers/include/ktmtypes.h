@@ -108,7 +108,7 @@ typedef struct _TRANSACTION_NOTIFICATION {
 
 typedef struct _TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
   GUID EnlistmentId;
-#if defined(__cplusplus)
+#if defined(__cplusplus) && !defined (_WDMDDK_)
   ::UOW UOW;
 #else
   UOW UOW;
@@ -145,7 +145,7 @@ typedef struct _KCRM_MARSHAL_HEADER {
 } KCRM_MARSHAL_HEADER, *PKCRM_MARSHAL_HEADER, *RESTRICTED_POINTER PRKCRM_MARSHAL_HEADER;
 
 typedef struct _KCRM_TRANSACTION_BLOB {
-#if defined(__cplusplus)
+#if defined(__cplusplus) && !defined (_WDMDDK_)
   ::UOW UOW;
 #else
   UOW UOW;
