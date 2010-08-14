@@ -1,3 +1,14 @@
+2010-08-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* time.h: Adjust prototypes for c99.
+	* intrin.h: Likewise.
+	* conio.h: Likewise.
+	* memory.h: Likewise.
+	* string.h: Likewise.
+	* stdlib.h: Likewise.
+	* stdio.h: Likewise.
+	* wchar.h: Likewise.
+
 2010-08-12  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw.h (__PRAGMA_PARAM): Renamed to __MINGW_PRAGMA_PARAM.
