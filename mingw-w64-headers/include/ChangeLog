@@ -1,5 +1,12 @@
 2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Backport from the trunk:
+	2010-08-15  Kai Tietz  <kai.tietz@onevision.com> (rev. 3353)
+	* mapidefs.h, mapinls.h, ntdef.h, ntdsbcli.h, wabdefs.h, winnt.h:
+	Protect WCHAR being multiple typedef'ed.
+
+2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
+
 	Copy over more DDK dependency headers from experimental/ddk_test:
 	* dmksctrl.h: New.
 	* driverspecs.h: New.
