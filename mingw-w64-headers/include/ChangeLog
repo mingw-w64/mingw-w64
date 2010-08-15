@@ -1,6 +1,13 @@
 2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Backport from the trunk:
+	2010-08-14  Kai Tietz  <kai.tietz@onevision.com> (rev. 3340)
+	* conio.h, intrin.h, memory.h, stdio.h, stdlib.h, string.h, time.h,
+	wchar.h: restrictify many functions for c99.
+
+2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk:
 	2010-08-15  Kai Tietz  <kai.tietz@onevision.com> (rev. 3353)
 	* mapidefs.h, mapinls.h, ntdef.h, ntdsbcli.h, wabdefs.h, winnt.h:
 	Protect WCHAR being multiple typedef'ed.
