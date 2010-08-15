@@ -29,24 +29,24 @@ typedef ULONG SERVICETYPE;
 
 #define SERVICE_NO_QOS_SIGNALING 0x40000000
 
-typedef struct _flowspec {
-  ULONG TokenRate;
-  ULONG TokenBucketSize;
-  ULONG PeakBandwidth;
-  ULONG Latency;
-  ULONG DelayVariation;
-  SERVICETYPE ServiceType;
-  ULONG MaxSduSize;
-  ULONG MinimumPolicedSize;
-} FLOWSPEC,*PFLOWSPEC,*LPFLOWSPEC;
+  typedef struct _flowspec {
+    ULONG TokenRate;
+    ULONG TokenBucketSize;
+    ULONG PeakBandwidth;
+    ULONG Latency;
+    ULONG DelayVariation;
+    SERVICETYPE ServiceType;
+    ULONG MaxSduSize;
+    ULONG MinimumPolicedSize;
+  } FLOWSPEC,*PFLOWSPEC,*LPFLOWSPEC;
 
 #define QOS_NOT_SPECIFIED 0xFFFFFFFF
 #define POSITIVE_INFINITY_RATE 0xFFFFFFFE
 
-typedef struct {
-  ULONG ObjectType;
-  ULONG ObjectLength;
-} QOS_OBJECT_HDR,*LPQOS_OBJECT_HDR;
+  typedef struct _QOS_OBJECT_HDR {
+    ULONG ObjectType;
+    ULONG ObjectLength;
+  } QOS_OBJECT_HDR, *LPQOS_OBJECT_HDR;
 
 #define QOS_GENERAL_ID_BASE 2000
 #define QOS_OBJECT_END_OF_LIST (0x00000001 + QOS_GENERAL_ID_BASE)
@@ -54,19 +54,19 @@ typedef struct {
 #define QOS_OBJECT_SHAPING_RATE (0x00000003 + QOS_GENERAL_ID_BASE)
 #define QOS_OBJECT_DESTADDR (0x00000004 + QOS_GENERAL_ID_BASE)
 
-typedef struct _QOS_SD_MODE {
-  QOS_OBJECT_HDR ObjectHdr;
-  ULONG ShapeDiscardMode;
-} QOS_SD_MODE,*LPQOS_SD_MODE;
+  typedef struct _QOS_SD_MODE {
+    QOS_OBJECT_HDR ObjectHdr;
+    ULONG ShapeDiscardMode;
+  } QOS_SD_MODE, *LPQOS_SD_MODE;
 
 #define TC_NONCONF_BORROW 0
 #define TC_NONCONF_SHAPE 1
 #define TC_NONCONF_DISCARD 2
 #define TC_NONCONF_BORROW_PLUS 3
 
-typedef struct _QOS_SHAPING_RATE {
-  QOS_OBJECT_HDR ObjectHdr;
-  ULONG ShapingRate;
-} QOS_SHAPING_RATE,*LPQOS_SHAPING_RATE;
+  typedef struct _QOS_SHAPING_RATE {
+    QOS_OBJECT_HDR ObjectHdr;
+    ULONG ShapingRate;
+  } QOS_SHAPING_RATE, *LPQOS_SHAPING_RATE;
 
 #endif
