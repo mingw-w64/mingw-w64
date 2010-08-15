@@ -1,3 +1,28 @@
+2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Copy over more DDK dependency headers from experimental/ddk_test:
+	* dmksctrl.h: New.
+	* driverspecs.h: New.
+	* hidpi.h: New.
+	* hidusage.h: New.
+	* ntdd1394.h: New.
+	* ntdd8042.h: New.
+	* ntddbeep.h: New.
+	* ntddcdrm.h: New.
+	* ntddcdvd.h: New.
+	* ntdddisk.h: New.
+	* ntddft.h: New.
+	* ntddpar.h: New.
+	* ntddser.h: New.
+	* ntddtape.h: New.
+	* ntddtdi.h: New.
+	* ntddvdeo.h: New.
+	* ntddvol.h: New.
+	* prntfont.h: New.
+	* tdi.h: New.
+	* tdiinfo.h: New.
+	* unknown.h: New.
+
 2010-08-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Baby steps in moving shared data from ws2tcpip.h to ws2ipdef.h:
