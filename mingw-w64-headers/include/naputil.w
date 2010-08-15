@@ -5,6 +5,5 @@
  */
 
 #ifndef _INC_NAPUTIL
-#include <naptypes.h>
 #include <naputil.h>
 #endif /* _INC_NAPUTIL */
