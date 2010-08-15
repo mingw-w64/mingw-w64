@@ -22,9 +22,8 @@ typedef __w64 unsigned long JET_API_PTR;
 typedef unsigned long JET_API_PTR;
 #endif
 
-#if !defined(_NATIVE_WCHAR_T_DEFINED)
-typedef unsigned short WCHAR;
-#else
+#ifndef __WCHAR_DEFINED
+#define __WCHAR_DEFINED
 typedef wchar_t WCHAR;
 #endif
 

@@ -35,7 +35,10 @@
 extern "C" {
 #endif
 
+#ifndef __WCHAR_DEFINED
+#define __WCHAR_DEFINED
   typedef wchar_t WCHAR;
+#endif
 
 #if defined(UNICODE)
   typedef WCHAR TCHAR;

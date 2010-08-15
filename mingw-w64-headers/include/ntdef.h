@@ -342,7 +342,10 @@ typedef CHAR *PSZ;
 typedef CONST char *PCSZ;
 
 /* UNICODE (Wide Character) types */
+#ifndef __WCHAR_DEFINED
+#define __WCHAR_DEFINED
 typedef wchar_t WCHAR;
+#endif
 typedef WCHAR *PWCHAR, *LPWCH, *PWCH;
 typedef CONST WCHAR *LPCWCH, *PCWCH;
 typedef WCHAR *NWPSTR, *LPWSTR, *PWSTR;
