@@ -32,7 +32,7 @@ typedef struct tagMxdcPrintTicketEscape {
 } MXDC_PRINTTICKET_ESCAPE_T, *P_MXDC_PRINTTICKET_ESCAPE_T;
 
 typedef struct tagMxdcS0PageData {
-  ULONG dwSize;
+  DWORD dwSize;
   BYTE  bData[1];
 } MXDC_S0PAGE_DATA_T, *P_MXDC_S0PAGE_DATA_T;
 
@@ -54,8 +54,22 @@ typedef struct tagMxdcS0PageResourceEscape {
   MXDC_XPS_S0PAGE_RESOURCE_T xpsS0PageResourcePassthrough;
 } MXDC_S0PAGE_RESOURCE_ESCAPE_T, *P_MXDC_S0PAGE_RESOURCE_ESCAPE_T;
 
+typedef enum tagMxdcS0PageEnums {
+  MXDC_RESOURCE_TTF,
+  MXDC_RESOURCE_JPEG,
+  MXDC_RESOURCE_PNG,
+  MXDC_RESOURCE_TIFF,
+  MXDC_RESOURCE_WDP,
+  MXDC_RESOURCE_DICTIONARY,
+  MXDC_RESOURCE_ICC_PROFILE,
+  MXDC_RESOURCE_JPEG_THUMBNAIL,
+  MXDC_RESOURCE_PNG_THUMBNAIL,
+  MXDC_RESOURCE_MAX
+} MXDC_S0_PAGE_ENUMS;
+
 #ifdef __cplusplus
 }
 #endif
 #endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #endif /*_INC_MXDC*/
