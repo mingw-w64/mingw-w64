@@ -8,7 +8,7 @@
 
 #if (_WIN32_WINNT >= 0x0600)
 
-typedef LPVOID SimilarityFileIndexT;
+typedef UINT SimilarityFileIndexT;
 
 typedef enum _GeneratorParametersType {
   RDCGENTYPE_Unused      = 0,
@@ -102,6 +102,11 @@ struct SimilarityMappedViewInfo {
 
 #undef  INTERFACE
 #define INTERFACE IRdcFileWriter
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IRdcFileWriter,IUnknown)
 {
     BEGIN_INTERFACE
@@ -129,6 +134,11 @@ DECLARE_INTERFACE_(IRdcFileWriter,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE ISimilarityFileIdTable
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(ISimilarityFileIdTable,IUnknown)
 {
     BEGIN_INTERFACE
@@ -164,6 +174,11 @@ DECLARE_INTERFACE_(ISimilarityFileIdTable,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE ISimilarityTraitsMappedView
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(ISimilarityTraitsMappedView,IUnknown)
 {
     BEGIN_INTERFACE
@@ -193,6 +208,11 @@ DECLARE_INTERFACE_(ISimilarityTraitsMappedView,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IFindSimilarResults
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IFindSimilarResults,IUnknown)
 {
     BEGIN_INTERFACE
@@ -218,6 +238,11 @@ DECLARE_INTERFACE_(IFindSimilarResults,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE ISimilarityTraitsMapping
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(ISimilarityTraitsMapping,IUnknown)
 {
     BEGIN_INTERFACE
@@ -253,6 +278,11 @@ DECLARE_INTERFACE_(ISimilarityTraitsMapping,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE ISimilarityReportProgress
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(ISimilarityReportProgress,IUnknown)
 {
     BEGIN_INTERFACE
@@ -276,6 +306,11 @@ DECLARE_INTERFACE_(ISimilarityReportProgress,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE ISimilarity
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(ISimilarity,IUnknown)
 {
     BEGIN_INTERFACE
