@@ -1,11 +1,13 @@
 2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Backport from the trunk:
+	2010-04-16  NightStrike  <nightstrike@gmail.com> (rev. 2241)
+	* fenv.h: Add __MXCSR_EXCEPT_MASK_SHIFT from mingwrt 3.11
+
+	Backport from the trunk:
 	2010-08-14  Kai Tietz  <kai.tietz@onevision.com> (rev. 3340)
 	* conio.h, intrin.h, memory.h, stdio.h, stdlib.h, string.h, time.h,
 	wchar.h: restrictify many functions for c99.
-
-2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Backport from the trunk:
 	2010-08-15  Kai Tietz  <kai.tietz@onevision.com> (rev. 3353)
