@@ -1,3 +1,9 @@
+2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio.h (_vsnwprintf_l): Fix multiple declaration from rev. 1596.
+	* wchar.h (_vsnwprintf_l): Likewise.
+	(_swscanf_l): Likewise.
+
 2010-08-14  Kai Tietz  <kai.tietz@onevision.com>
 
 	* time.h: Adjust prototypes for c99.
