@@ -106,6 +106,31 @@ limitations in handling dllimport attribute.  */
 # endif
 #endif /* !__GNUC__ */
 
+#if __MINGW_GNUC_PREREQ (3,1) && !defined __GNUG__
+# define __restrict_arr __restrict
+#else
+# ifdef __GNUC__
+#  define __restrict_arr        /* Not supported in old GCC.  */
+# else
+#  if defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
+#   define __restrict_arr       restrict
+#  else
+#   define __restrict_arr       /* Not supported.  */
+#  endif
+# endif
+#endif
+
+#if defined __GNUG__
+/* This is a fix for gcc wrong use of restrict in cstdio/cstdlib.
+   It can be made conditional to gcc versions, when gcc's bug
+   45300 is fixed on 4.6 and possibly backmerged to older branches.  */
+# ifndef restrict
+#  if !defined __STDC_VERSION__ || __STDC_VERSION__ < 199901L
+#   define restrict __restrict
+#  endif
+# endif
+#endif
+
 #ifdef __GNUC__
 #define __MINGW_ATTRIB_NORETURN __attribute__ ((__noreturn__))
 #define __MINGW_ATTRIB_CONST __attribute__ ((__const__))
