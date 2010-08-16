@@ -256,7 +256,7 @@ typedef struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0_ {
   UINT64                            mmFilterId;
 } FWPM_NET_EVENT_IKEEXT_MM_FAILURE0;
 
-typedef struct FWPM_BET_EVENT_IKEEXT_QM_FAILURE0 {
+typedef struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
   UINT32                 failureErrorCode;
   IPSEC_FAILURE_POINT    failurePoint;
   IKEEXT_KEY_MODULE_TYPE keyingModuleType;
@@ -265,11 +265,9 @@ typedef struct FWPM_BET_EVENT_IKEEXT_QM_FAILURE0 {
   IPSEC_TRAFFIC_TYPE     saTrafficType;
   __MINGW_EXTENSION union {
     FWP_CONDITION_VALUE0 localSubNet;
-    ;      // case(IPSEC_TRAFFIC_TYPE_TRANSPORT)
   };
   __MINGW_EXTENSION union {
     FWP_CONDITION_VALUE0 remoteSubNet;
-    ;      // case(IPSEC_TRAFFIC_TYPE_TRANSPORT)
   };
   UINT64                 qmFilterId;
 } FWPM_NET_EVENT_IKEEXT_QM_FAILURE0;
