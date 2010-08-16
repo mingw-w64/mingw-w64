@@ -63,18 +63,18 @@ interface __declspec(uuid("21B36996-8DE3-11D1-8AE0-00A0C9223196")) IKoInitialize
 typedef
 NTSTATUS
 (*KoCreateObjectHandler)(
-  IN REFCLSID ClassId,
-  IN IUnknown* UnkOuter OPTIONAL,
-  IN REFIID InterfaceId,
-  OUT PVOID* Interface);
+  REFCLSID ClassId,
+  IUnknown* UnkOuter,
+  REFIID InterfaceId,
+  PVOID* Interface);
 
 #undef INTERFACE
 #define INTERFACE INonDelegatedUnknown
 DECLARE_INTERFACE(INonDelegatedUnknown) {
   STDMETHOD(NonDelegatedQueryInterface)(
     THIS_
-    IN REFIID InterfaceId,
-    OUT PVOID* Interface
+	REFIID InterfaceId,
+	PVOID* Interface
   ) PURE;
 
   STDMETHOD_(ULONG,NonDelegatedAddRef)(
@@ -91,8 +91,8 @@ DECLARE_INTERFACE(INonDelegatedUnknown) {
 DECLARE_INTERFACE(IIndirectedUnknown) {
   STDMETHOD(IndirectedQueryInterface)(
     THIS_
-    IN REFIID InterfaceId,
-    OUT PVOID* Interface
+	REFIID InterfaceId,
+	PVOID* Interface
   ) PURE;
 
   STDMETHOD_(ULONG,IndirectedAddRef)(
@@ -109,7 +109,7 @@ DECLARE_INTERFACE(IIndirectedUnknown) {
 DECLARE_INTERFACE_(IKoInitializeParentDeviceObject, IUnknown) {
   STDMETHOD(SetParentDeviceObject)(
     THIS_
-    IN PDEVICE_OBJECT ParentDeviceObject
+	PDEVICE_OBJECT ParentDeviceObject
   ) PURE;
 };
 
@@ -124,15 +124,15 @@ class CBaseUnknown : public INonDelegatedUnknown, public IIndirectedUnknown {
   protected:
     IUnknown* m_UnknownOuter;
   public:
-    COMDDKMETHOD CBaseUnknown (IN REFCLSID ClassId, IN IUnknown* UnknownOuter OPTIONAL = NULL);
-    COMDDKMETHOD CBaseUnknown(IN IUnknown* UnknownOuter OPTIONAL = NULL);
+    COMDDKMETHOD CBaseUnknown (REFCLSID ClassId, IUnknown* UnknownOuter = NULL);
+    COMDDKMETHOD CBaseUnknown(IUnknown* UnknownOuter = NULL);
     COMDDKMETHOD virtual ~CBaseUnknown();
     COMDDKMETHOD STDMETHODIMP_(ULONG) NonDelegatedAddRef();
     COMDDKMETHOD STDMETHODIMP_(ULONG) NonDelegatedRelease();
-    COMDDKMETHOD STDMETHODIMP NonDelegatedQueryInterface(IN REFIID InterfaceId,OUT PVOID* Interface);
+    COMDDKMETHOD STDMETHODIMP NonDelegatedQueryInterface(REFIID InterfaceId, PVOID* Interface);
     COMDDKMETHOD STDMETHODIMP_(ULONG) IndirectedAddRef();
     COMDDKMETHOD STDMETHODIMP_(ULONG) IndirectedRelease();
-    COMDDKMETHOD STDMETHODIMP IndirectedQueryInterface(IN REFIID InterfaceId, OUT PVOID* Interface);
+    COMDDKMETHOD STDMETHODIMP IndirectedQueryInterface(REFIID InterfaceId, PVOID* Interface);
 };
 
 #if !defined(DEFINE_ABSTRACT_UNKNOWN)
@@ -165,7 +165,7 @@ COMDDKAPI
 void
 NTAPI
 KoRelease(
-  IN REFCLSID ClassId);
+  REFCLSID ClassId);
 
 #endif /* !__cplusplus */
 
@@ -173,25 +173,25 @@ COMDDKAPI
 NTSTATUS
 NTAPI
 KoCreateInstance(
-  IN REFCLSID ClassId,
-  IN IUnknown* UnkOuter OPTIONAL,
-  IN ULONG ClsContext,
-  IN REFIID InterfaceId,
-  OUT PVOID* Interface);
+  REFCLSID ClassId,
+  IUnknown* UnkOuter,
+  ULONG ClsContext,
+  REFIID InterfaceId,
+  PVOID* Interface);
 
 COMDDKAPI
 NTSTATUS
 NTAPI
 KoDeviceInitialize(
-  IN PDEVICE_OBJECT DeviceObject);
+  PDEVICE_OBJECT DeviceObject);
 
 COMDDKAPI
 NTSTATUS
 NTAPI
 KoDriverInitialize(
-  IN PDRIVER_OBJECT DriverObject,
-  IN PUNICODE_STRING RegistryPathName,
-  IN KoCreateObjectHandler CreateObjectHandler);
+  PDRIVER_OBJECT DriverObject,
+  PUNICODE_STRING RegistryPathName,
+  KoCreateObjectHandler CreateObjectHandler);
 
 
 #if defined(__cplusplus)

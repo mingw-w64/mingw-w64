@@ -95,7 +95,7 @@ DEFINE_GUID(GUID_USB_PERFORMANCE_TRACING, 0xd5de77a6, 0x6ae9, 0x425c, 0xb1, 0xe2
 #if (_WIN32_WINNT >= 0x0501)
 typedef VOID
 (NTAPI *USB_IDLE_CALLBACK)(
-  IN PVOID Context);
+  PVOID Context);
 
 typedef struct _USB_IDLE_CALLBACK_INFO {
   USB_IDLE_CALLBACK IdleCallback;

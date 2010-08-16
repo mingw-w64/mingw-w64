@@ -49,36 +49,36 @@ USBRPMAPI
 NTSTATUS
 NTAPI
 RPMRegisterAlternateDriver(
-  IN PDRIVER_OBJECT  DriverObject,
-  IN LPCWSTR CompatibleId, 
-  OUT PHANDLE RegisteredDriver);
+  PDRIVER_OBJECT  DriverObject,
+  LPCWSTR CompatibleId, 
+  PHANDLE RegisteredDriver);
 
 USBRPMAPI
 NTSTATUS
 NTAPI
 RPMUnregisterAlternateDriver(
-  IN HANDLE RegisteredDriver);
+  HANDLE RegisteredDriver);
 
 USBRPMAPI
 NTSTATUS
 RPMGetAvailableDevices(
-  IN HANDLE RegisteredDriver,
-  IN USHORT Locale,
-  OUT PUSBRPM_DEVICE_LIST *DeviceList);
+  HANDLE RegisteredDriver,
+  USHORT Locale,
+  PUSBRPM_DEVICE_LIST *DeviceList);
 
 USBRPMAPI
 NTSTATUS
 NTAPI
 RPMLoadAlternateDriverForDevice(
-  IN HANDLE RegisteredDriver,
-  IN ULONG64 HubID,
-  IN ULONG ConnectionIndex,
-  IN OPTIONAL REFGUID OwnerGuid);
+  HANDLE RegisteredDriver,
+  ULONG64 HubID,
+  ULONG ConnectionIndex,
+  REFGUID OwnerGuid);
 
 USBRPMAPI
 NTSTATUS
 NTAPI
 RPMUnloadAlternateDriverForDevice(
-  IN HANDLE RegisteredDriver,
-  IN ULONG64 HubID,
-  IN ULONG ConnectionIndex);
+  HANDLE RegisteredDriver,
+  ULONG64 HubID,
+  ULONG ConnectionIndex);
