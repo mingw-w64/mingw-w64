@@ -38,6 +38,11 @@ typedef struct _MF_SINK_WRITER_STATISTICS {
 
 #undef  INTERFACE
 #define INTERFACE IMFSinkWriter
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFSinkWriter,IUnknown)
 {
     BEGIN_INTERFACE
@@ -81,6 +86,11 @@ DECLARE_INTERFACE_(IMFSinkWriter,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFSourceReader
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFSourceReader,IUnknown)
 {
     BEGIN_INTERFACE
