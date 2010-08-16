@@ -7,21 +7,18 @@
 #ifndef _INC_MUILOAD
 #define _INC_MUILOAD
 
-/*Fixme: These are static functions as opposed to dllimported*/
+/* TODO: These are functions provided in muiload library and aren't part
+  of DLL. Here implementation of those functions in crt is necessary. */
 
-WINBOOL WINAPI FreeMUILibrary(
-  HMODULE hResModule
-);
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-HINSTANCE WINAPI LoadMUILibrary(
-  LPCTSTR pszFullModuleName,
-  DWORD dwLangConvention,
-  LANGID LangID
-);
+  WINBOOL WINAPI FreeMUILibrary(HMODULE hResModule);
+  HINSTANCE WINAPI LoadMUILibrary(LPCTSTR pszFullModuleName,DWORD dwLangConvention,LANGID LangID);
+  WINBOOL WINAPI GetUILanguageFallbackList(PWSTR pFallbackList,ULONG cchFallbackList,PULONG pcchFallbackListOut);
 
-WINBOOL WINAPI GetUILanguageFallbackList(
-  PWSTR pFallbackList,
-  ULONG cchFallbackList,
-  PULONG pcchFallbackListOut
-);
+#ifdef __cplusplus
+}
+#endif
 #endif /*_INC_MUILOAD*/
