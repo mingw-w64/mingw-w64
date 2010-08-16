@@ -1,6 +1,12 @@
 2010-08-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Backport from the trunk:
+	2010-08-16  Kai Tietz  <kai.tietz@onevision.com> (revs. 3371,
+	3374, 3375)
+	* _mingw.h: Work around for gcc bug 45300 and the use of keyword
+	restrict.
+
+	Backport from the trunk:
 	2010-08-16  Kai Tietz  <kai.tietz@onevision.com> (rev. 3369)
 	* yvals.h (_Restrict): Make sure we use __restrict__ instead of
 	restrict.
