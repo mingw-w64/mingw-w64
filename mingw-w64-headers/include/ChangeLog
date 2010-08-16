@@ -1,5 +1,12 @@
 2010-08-16  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Backport from the trunk:
+	2010-08-16  Kai Tietz  <kai.tietz@onevision.com> (rev. 3369)
+	* yvals.h (_Restrict): Make sure we use __restrict__ instead of
+	restrict.
+
+2010-08-16  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* dmksctrl.h, hidpi.h, kcom.h, ntdd8042.h, ntdef.h, unknown.h,
 	usbcamdi.h, usbiodef.h, usbrpmif.h, winddi.h, winsplp.h: Remove
 	unnecessary MSVC modifiers IN/OUT?OPTIONAL. Fix the include guard

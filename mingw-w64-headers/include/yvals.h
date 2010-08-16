@@ -160,7 +160,7 @@
 #define _END_EXTERN_C
 #endif
 
-#define _Restrict restrict
+#define _Restrict __restrict__
 
 #ifdef __cplusplus
 _STD_BEGIN
