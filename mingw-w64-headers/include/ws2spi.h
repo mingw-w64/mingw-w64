@@ -286,9 +286,19 @@ typedef struct _NSPV2_ROUTINE {
   LPNSPV2CLIENTSESSIONRUNDOWN NSPv2ClientSessionRundown;
 } NSPV2_ROUTINE, *PNSPV2_ROUTINE, *LPCNSPV2_ROUTINE;
 
+#define LSP_SYSTEM          0x80000000
+#define LSP_INSPECTOR       0x00000001
+#define LSP_REDIRECTOR      0x00000002
+#define LSP_PROXY           0x00000004
+#define LSP_FIREWALL        0x00000008
+#define LSP_INBOUND_MODIFY  0x00000010
+#define LSP_OUTBOUND_MODIFY 0x00000020
+#define LSP_CRYPTO_COMPRESS 0x00000040
+#define LSP_LOCAL_CACHE     0x00000080
+
 typedef enum _WSC_PROVIDER_INFO_TYPE {
   ProviderInfoLspCategories,
-  ProviderInfoAudit 
+  ProviderInfoAudit
 } WSC_PROVIDER_INFO_TYPE;
 
 typedef struct _WSC_PROVIDER_AUDIT_INFO {
@@ -328,6 +338,7 @@ int WSPAPI WSCGetProviderInfo(
   LPINT lpErrno
 );
 
+#ifndef _WIN64
 int WSPAPI WSCInstallProviderAndChains(
   const LPGUID lpProviderId,
   const LPWSTR lpszProviderDllPath,
@@ -338,6 +349,7 @@ int WSPAPI WSCInstallProviderAndChains(
   LPDWORD lpdwCatalogEntryId,
   LPINT lpErrno
 );
+#endif /* !_WIN64 */
 
 int WSPAPI WSCSetApplicationCategory(
   LPCWSTR Path,
@@ -367,22 +379,10 @@ int WSAAPI WSCInstallNameSpaceEx(
   LPBLOB lpProviderInfo
 );
 
+#define WSCEnumNameSpaceProvidersEx WSAEnumNameSpaceProvidersExW
+#define LPFN_WSCENUMNAMESPACEPROVIDERSEX LPFN_WSAENUMNAMESPACEPROVIDERSEXW
+
 #ifdef _WIN64
-int WSPAPI WSCDeinstallProvider32(
-  LPGUID lpProviderId,
-  LPINT lpErrno
-);
-
-int WSPAPI WSCEnableNSProvider32(
-  LPGUID lpProviderId,
-  WINBOOL fEnable
-);
-
-INT WSPAPI WSCEnumNameSpaceProviders32(
-  LPDWORD lpdwBufferLength,
-  LPWSANAMESPACE_INFOW lpnspBuffer
-);
-
 INT WSPAPI WSCEnumNameSpaceProvidersEx32(
   LPDWORD lpdwBufferLength,
   LPWSANAMESPACE_INFOEXW lpnspBuffer
@@ -425,16 +425,6 @@ int WSPAPI WSCSetProviderInfo32(
   size_t InfoSize,
   DWORD Flags,
   LPINT lpErrno
-);
-
-int WSPAPI WSCWriteNameSpaceOrder32(
-  LPGUID lpProviderId,
-  DWORD dwNumberOfEntries
-);
-
-int WSPAPI WSCWriteProviderOrder32(
-  LPDWORD lpwdCatalogEntryId,
-  DWORD dwNumberOfEntries
 );
 
 #endif /* _WIN64*/
