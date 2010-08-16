@@ -121,14 +121,14 @@ limitations in handling dllimport attribute.  */
 #endif
 
 #if defined __GNUG__
-/* This is a fix for gcc wrong use of restrict in cstdio/cstdlib.
-   It can be made conditional to gcc versions, when gcc's bug
-   45300 is fixed on 4.6 and possibly backmerged to older branches.  */
+/* This is a fix for gcc < 4.6 wrong use of restrict in cstdio/cstdlib.  */
+#if !__MINGW_GNUC_PREREQ (4,6)
 # ifndef restrict
 #  if !defined __STDC_VERSION__ || __STDC_VERSION__ < 199901L
 #   define restrict __restrict
 #  endif
 # endif
+#endif /* !__MINGW_GNUC_PREREQ (4,6) */
 #endif
 
 #ifdef __GNUC__
