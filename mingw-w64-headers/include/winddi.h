@@ -322,7 +322,7 @@ struct _DRIVEROBJ;
 
 typedef WINBOOL
 (APIENTRY CALLBACK *FREEOBJPROC)(
-  IN struct _DRIVEROBJ  *pDriverObj);
+  struct _DRIVEROBJ  *pDriverObj);
 
 typedef struct _DRIVEROBJ {
   PVOID  pvObj;
@@ -1127,42 +1127,42 @@ typedef struct _XLATEOBJ {
 #define WOC_SPRITE_NO_OVERLAP             0x00000100
 
 typedef VOID (APIENTRY CALLBACK *WNDOBJCHANGEPROC)(
-  IN WNDOBJ  *pwo,
-  IN FLONG  fl);
+  WNDOBJ  *pwo,
+  FLONG  fl);
 
 
 WIN32KAPI
 HANDLE
 APIENTRY
 BRUSHOBJ_hGetColorTransform(
-  IN BRUSHOBJ  *pbo);
+  BRUSHOBJ  *pbo);
 
 WIN32KAPI
 PVOID
 APIENTRY
 BRUSHOBJ_pvAllocRbrush(
-  IN BRUSHOBJ  *pbo,
-  IN ULONG  cj);
+  BRUSHOBJ  *pbo,
+  ULONG  cj);
 
 WIN32KAPI
 PVOID
 APIENTRY
 BRUSHOBJ_pvGetRbrush(
-  IN BRUSHOBJ  *pbo);
+  BRUSHOBJ  *pbo);
 
 WIN32KAPI
 ULONG
 APIENTRY
 BRUSHOBJ_ulGetBrushColor(
-  IN BRUSHOBJ  *pbo);
+  BRUSHOBJ  *pbo);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 CLIPOBJ_bEnum(
-  IN CLIPOBJ  *pco,
-  IN ULONG  cj,
-  OUT ULONG  *pv);
+  CLIPOBJ  *pco,
+  ULONG  cj,
+  ULONG  *pv);
 
 /* CLIPOBJ_cEnumStart.iType constants */
 #define CT_RECTANGLES                     0L
@@ -1180,23 +1180,23 @@ WIN32KAPI
 ULONG
 APIENTRY
 CLIPOBJ_cEnumStart(
-  IN CLIPOBJ  *pco,
-  IN WINBOOL  bAll,
-  IN ULONG  iType,
-  IN ULONG  iDirection,
-  IN ULONG  cLimit);
+  CLIPOBJ  *pco,
+  WINBOOL  bAll,
+  ULONG  iType,
+  ULONG  iDirection,
+  ULONG  cLimit);
 
 WIN32KAPI
 PATHOBJ*
 APIENTRY
 CLIPOBJ_ppoGetPath(
-  IN CLIPOBJ  *pco);
+  CLIPOBJ  *pco);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngAcquireSemaphore(
-  IN HSEMAPHORE  hsem);
+  HSEMAPHORE  hsem);
 
 #define FL_ZERO_MEMORY                    0x00000001
 #define FL_NONPAGED_MEMORY                0x00000002
@@ -1205,36 +1205,36 @@ WIN32KAPI
 PVOID
 APIENTRY
 EngAllocMem(
-  IN ULONG  Flags,
-  IN ULONG  MemSize,
-  IN ULONG  Tag);
+  ULONG  Flags,
+  ULONG  MemSize,
+  ULONG  Tag);
 
 WIN32KAPI
 PVOID
 APIENTRY
 EngAllocPrivateUserMem(
-  IN PDD_SURFACE_LOCAL  psl,
-  IN SIZE_T  cj,
-  IN ULONG  tag);
+  PDD_SURFACE_LOCAL  psl,
+  SIZE_T  cj,
+  ULONG  tag);
 
 WIN32KAPI
 PVOID
 APIENTRY
 EngAllocUserMem(
-  IN SIZE_T  cj,
-  IN ULONG  tag);
+  SIZE_T  cj,
+  ULONG  tag);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngAlphaBlend(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclDest,
-  IN RECTL  *prclSrc,
-  IN BLENDOBJ  *pBlendObj);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclDest,
+  RECTL  *prclSrc,
+  BLENDOBJ  *pBlendObj);
 
 /* EngAssociateSurface.flHooks constants */
 #define HOOK_BITBLT                       0x00000001
@@ -1260,45 +1260,45 @@ WIN32KAPI
 WINBOOL
 APIENTRY
 EngAssociateSurface(
-  IN HSURF  hsurf,
-  IN HDEV  hdev,
-  IN FLONG  flHooks);
+  HSURF  hsurf,
+  HDEV  hdev,
+  FLONG  flHooks);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngBitBlt(
-  IN SURFOBJ  *psoTrg,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMask,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclTrg,
-  IN POINTL  *pptlSrc,
-  IN POINTL  *pptlMask,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrush,
-  IN ROP4  rop4);
+  SURFOBJ  *psoTrg,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMask,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclTrg,
+  POINTL  *pptlSrc,
+  POINTL  *pptlMask,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrush,
+  ROP4  rop4);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngCheckAbort(
-  IN SURFOBJ  *pso);
+  SURFOBJ  *pso);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngClearEvent(
-  IN PEVENT  pEvent);
+  PEVENT  pEvent);
 
 WIN32KAPI
 FD_GLYPHSET*
 APIENTRY
 EngComputeGlyphSet(
-  IN INT  nCodePage,
-  IN INT  nFirstChar,
-  IN INT  cChars);
+  INT  nCodePage,
+  INT  nFirstChar,
+  INT  cChars);
 
 /* EngControlSprites.fl constants */
 #define ECS_TEARDOWN                      0x00000001
@@ -1308,29 +1308,29 @@ WIN32KAPI
 WINBOOL
 APIENTRY
 EngControlSprites(
-  IN WNDOBJ  *pwo,
-  IN FLONG  fl);
+  WNDOBJ  *pwo,
+  FLONG  fl);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngCopyBits(
-  OUT SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclDest,
-  IN POINTL  *pptlSrc);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclDest,
+  POINTL  *pptlSrc);
 
 WIN32KAPI
 HBITMAP
 APIENTRY
 EngCreateBitmap(
-  IN SIZEL  sizl,
-  IN LONG  lWidth,
-  IN ULONG  iFormat,
-  IN FLONG  fl,
-  IN PVOID  pvBits);
+  SIZEL  sizl,
+  LONG  lWidth,
+  ULONG  iFormat,
+  FLONG  fl,
+  PVOID  pvBits);
 
 WIN32KAPI
 CLIPOBJ*
@@ -1342,9 +1342,9 @@ WIN32KAPI
 HBITMAP
 APIENTRY
 EngCreateDeviceBitmap(
-  IN DHSURF  dhsurf,
-  IN SIZEL  sizl,
-  IN ULONG  iFormatCompat);
+  DHSURF  dhsurf,
+  SIZEL  sizl,
+  ULONG  iFormatCompat);
 
 WIN32KAPI
 HSURF
@@ -1368,7 +1368,7 @@ WIN32KAPI
 WINBOOL
 APIENTRY
 EngCreateEvent(
-  OUT PEVENT  *ppEvent);
+  PEVENT  *ppEvent);
 
 /* EngCreatePalette.iMode constants */
 #define PAL_INDEXED                       0x00000001
@@ -1381,12 +1381,12 @@ WIN32KAPI
 HPALETTE
 APIENTRY
 EngCreatePalette(
-  IN ULONG  iMode,
-  IN ULONG  cColors,
-  IN ULONG  *pulColors,
-  IN FLONG  flRed,
-  IN FLONG  flGreen,
-  IN FLONG  flBlue);
+  ULONG  iMode,
+  ULONG  cColors,
+  ULONG  *pulColors,
+  FLONG  flRed,
+  FLONG  flGreen,
+  FLONG  flBlue);
 
 WIN32KAPI
 PATHOBJ*
@@ -1431,146 +1431,146 @@ WIN32KAPI
 VOID
 APIENTRY
 EngDebugPrint(
-  IN PCHAR StandardPrefix,
-  IN PCHAR DebugMessage,
-  IN va_list ap);
+  PCHAR StandardPrefix,
+  PCHAR DebugMessage,
+  va_list ap);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngDeleteClip(
-  IN CLIPOBJ  *pco);
+  CLIPOBJ  *pco);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngDeleteDriverObj(
-  IN HDRVOBJ  hdo,
-  IN WINBOOL  bCallBack,
-  IN WINBOOL  bLocked);
+  HDRVOBJ  hdo,
+  WINBOOL  bCallBack,
+  WINBOOL  bLocked);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngDeleteEvent(
-  IN PEVENT  pEvent);
+  PEVENT  pEvent);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngDeleteFile(
-  IN LPWSTR  pwszFileName);
+  LPWSTR  pwszFileName);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngDeletePalette(
-  IN HPALETTE  hpal);
+  HPALETTE  hpal);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngDeletePath(
-  IN PATHOBJ  *ppo);
+  PATHOBJ  *ppo);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngDeleteSafeSemaphore(
-  IN OUT ENGSAFESEMAPHORE  *pssem);
+  ENGSAFESEMAPHORE  *pssem);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngDeleteSemaphore(
-  IN OUT HSEMAPHORE  hsem);
+  HSEMAPHORE  hsem);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngDeleteSurface(
-  IN HSURF  hsurf);
+  HSURF  hsurf);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngDeleteWnd(
-  IN WNDOBJ  *pwo);
+  WNDOBJ  *pwo);
 
 WIN32KAPI
 DWORD
 APIENTRY
 EngDeviceIoControl(
-  IN HANDLE  hDevice,
-  IN DWORD  dwIoControlCode,
-  IN LPVOID  lpInBuffer,
-  IN DWORD  nInBufferSize,
-  IN OUT LPVOID  lpOutBuffer,
-  IN DWORD  nOutBufferSize,
-  OUT LPDWORD  lpBytesReturned);
+  HANDLE  hDevice,
+  DWORD  dwIoControlCode,
+  LPVOID  lpInBuffer,
+  DWORD  nInBufferSize,
+  LPVOID  lpOutBuffer,
+  DWORD  nOutBufferSize,
+  LPDWORD  lpBytesReturned);
 
 WIN32KAPI
 ULONG
 APIENTRY
 EngDitherColor(
-  IN HDEV  hdev,
-  IN ULONG  iMode,
-  IN ULONG  rgb,
-  OUT ULONG  *pul);
+  HDEV  hdev,
+  ULONG  iMode,
+  ULONG  rgb,
+  ULONG  *pul);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngEnumForms(
-  IN HANDLE  hPrinter,
-  IN DWORD  Level,
-  OUT LPBYTE  pForm,
-  IN DWORD  cbBuf,
-  OUT LPDWORD  pcbNeeded,
-  OUT LPDWORD  pcReturned);
+  HANDLE  hPrinter,
+  DWORD  Level,
+  LPBYTE  pForm,
+  DWORD  cbBuf,
+  LPDWORD  pcbNeeded,
+  LPDWORD  pcReturned);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngEraseSurface(
-  IN SURFOBJ  *pso,
-  IN RECTL  *prcl,
-  IN ULONG  iColor);
+  SURFOBJ  *pso,
+  RECTL  *prcl,
+  ULONG  iColor);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngFillPath(
-  IN SURFOBJ  *pso,
-  IN PATHOBJ  *ppo,
-  IN CLIPOBJ  *pco,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrushOrg,
-  IN MIX  mix,
-  IN FLONG  flOptions);
+  SURFOBJ  *pso,
+  PATHOBJ  *ppo,
+  CLIPOBJ  *pco,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrushOrg,
+  MIX  mix,
+  FLONG  flOptions);
 
 WIN32KAPI
 PVOID
 APIENTRY
 EngFindImageProcAddress(
-  IN HANDLE  hModule,
-  IN LPSTR  lpProcName);
+  HANDLE  hModule,
+  LPSTR  lpProcName);
 
 WIN32KAPI
 PVOID
 APIENTRY
 EngFindResource(
-  IN HANDLE  h,
-  IN int  iName,
-  IN int  iType,
-  OUT PULONG  pulSize);
+  HANDLE  h,
+  int  iName,
+  int  iType,
+  PULONG  pulSize);
 
 WIN32KAPI
 PVOID
 APIENTRY
 EngFntCacheAlloc(
-  IN ULONG  FastCheckSum,
-  IN ULONG  ulSize);
+  ULONG  FastCheckSum,
+  ULONG  ulSize);
 
 /* EngFntCacheFault.iFaultMode constants */
 #define ENG_FNT_CACHE_READ_FAULT          0x00000001
@@ -1580,47 +1580,47 @@ WIN32KAPI
 VOID
 APIENTRY
 EngFntCacheFault(
-  IN ULONG  ulFastCheckSum,
-  IN ULONG  iFaultMode);
+  ULONG  ulFastCheckSum,
+  ULONG  iFaultMode);
 
 WIN32KAPI
 PVOID
 APIENTRY
 EngFntCacheLookUp(
-  IN ULONG  FastCheckSum,
-  OUT ULONG  *pulSize);
+  ULONG  FastCheckSum,
+  ULONG  *pulSize);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngFreeMem(
-  IN PVOID  Mem);
+  PVOID  Mem);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngFreeModule(
-  IN HANDLE  h);
+  HANDLE  h);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngFreePrivateUserMem(
-  IN PDD_SURFACE_LOCAL  psl,
-  IN PVOID  pv);
+  PDD_SURFACE_LOCAL  psl,
+  PVOID  pv);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngFreeUserMem(
-  IN PVOID  pv);
+  PVOID  pv);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngGetCurrentCodePage(
-  OUT PUSHORT  OemCodePage,
-  OUT PUSHORT  AnsiCodePage);
+  PUSHORT  OemCodePage,
+  PUSHORT  AnsiCodePage);
 
 WIN32KAPI
 HANDLE
@@ -1638,32 +1638,32 @@ WIN32KAPI
 LPWSTR
 APIENTRY
 EngGetDriverName(
-  IN HDEV  hdev);
+  HDEV  hdev);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngGetFileChangeTime(
-  IN HANDLE  h,
-  OUT LARGE_INTEGER  *pChangeTime);
+  HANDLE  h,
+  LARGE_INTEGER  *pChangeTime);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngGetFilePath(
-  IN HANDLE  h,
-  OUT WCHAR  (*pDest)[MAX_PATH+1]);
+  HANDLE  h,
+  WCHAR  (*pDest)[MAX_PATH+1]);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngGetForm(
-  IN HANDLE  hPrinter,
-  IN LPWSTR  pFormName,
-  IN DWORD  Level,
-  OUT LPBYTE  pForm,
-  IN DWORD  cbBuf,
-  OUT LPDWORD  pcbNeeded);
+  HANDLE  hPrinter,
+  LPWSTR  pFormName,
+  DWORD  Level,
+  LPBYTE  pForm,
+  DWORD  cbBuf,
+  LPDWORD  pcbNeeded);
 
 WIN32KAPI
 ULONG
@@ -1675,39 +1675,39 @@ WIN32KAPI
 WINBOOL
 APIENTRY
 EngGetPrinter(
-  IN HANDLE  hPrinter,
-  IN DWORD  dwLevel,
-  OUT LPBYTE  pPrinter,
-  IN DWORD  cbBuf,
-  OUT LPDWORD  pcbNeeded);
+  HANDLE  hPrinter,
+  DWORD  dwLevel,
+  LPBYTE  pPrinter,
+  DWORD  cbBuf,
+  LPDWORD  pcbNeeded);
 
 WIN32KAPI
 DWORD
 APIENTRY
 EngGetPrinterData(
-  IN HANDLE  hPrinter,
-  IN LPWSTR  pValueName,
-  OUT LPDWORD  pType,
-  OUT LPBYTE  pData,
-  IN DWORD  nSize,
-  OUT LPDWORD  pcbNeeded);
+  HANDLE  hPrinter,
+  LPWSTR  pValueName,
+  LPDWORD  pType,
+  LPBYTE  pData,
+  DWORD  nSize,
+  LPDWORD  pcbNeeded);
 
 WIN32KAPI
 LPWSTR
 APIENTRY
 EngGetPrinterDataFileName(
-  IN HDEV  hdev);
+  HDEV  hdev);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngGetPrinterDriver(
-  IN HANDLE  hPrinter,
-  IN LPWSTR  pEnvironment,
-  IN DWORD  dwLevel,
-  OUT BYTE  *lpbDrvInfo,
-  IN DWORD  cbBuf,
-  OUT DWORD  *pcbNeeded);
+  HANDLE  hPrinter,
+  LPWSTR  pEnvironment,
+  DWORD  dwLevel,
+  BYTE  *lpbDrvInfo,
+  DWORD  cbBuf,
+  DWORD  *pcbNeeded);
 
 WIN32KAPI
 HANDLE
@@ -1719,27 +1719,27 @@ WIN32KAPI
 WINBOOL
 APIENTRY
 EngGetType1FontList(
-  IN HDEV  hdev,
-  OUT TYPE1_FONT  *pType1Buffer,
-  IN ULONG  cjType1Buffer,
-  OUT PULONG  pulLocalFonts,
-  OUT PULONG  pulRemoteFonts,
-  OUT LARGE_INTEGER  *pLastModified);
+  HDEV  hdev,
+  TYPE1_FONT  *pType1Buffer,
+  ULONG  cjType1Buffer,
+  PULONG  pulLocalFonts,
+  PULONG  pulRemoteFonts,
+  LARGE_INTEGER  *pLastModified);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngGradientFill(
-  IN SURFOBJ  *psoDest,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN TRIVERTEX  *pVertex,
-  IN ULONG  nVertex,
-  IN PVOID  pMesh,
-  IN ULONG  nMesh,
-  IN RECTL  *prclExtents,
-  IN POINTL  *pptlDitherOrg,
-  IN ULONG  ulMode);
+  SURFOBJ  *psoDest,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  TRIVERTEX  *pVertex,
+  ULONG  nVertex,
+  PVOID  pMesh,
+  ULONG  nMesh,
+  RECTL  *prclExtents,
+  POINTL  *pptlDitherOrg,
+  ULONG  ulMode);
 
 /* EngHangNotification return values */
 #define EHN_RESTORED                      0x00000000
@@ -1749,26 +1749,26 @@ WIN32KAPI
 ULONG
 APIENTRY
 EngHangNotification(
-  IN HDEV  hDev,
-  IN PVOID  Reserved);
+  HDEV  hDev,
+  PVOID  Reserved);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngInitializeSafeSemaphore(
-  OUT ENGSAFESEMAPHORE  *pssem);
+  ENGSAFESEMAPHORE  *pssem);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngIsSemaphoreOwned(
-  IN HSEMAPHORE  hsem);
+  HSEMAPHORE  hsem);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngIsSemaphoreOwnedByCurrentThread(
-  IN HSEMAPHORE  hsem);
+  HSEMAPHORE  hsem);
 
 WIN32KAPI
 WINBOOL
@@ -1788,38 +1788,38 @@ WIN32KAPI
 HANDLE
 APIENTRY
 EngLoadImage(
-  IN LPWSTR  pwszDriver);
+  LPWSTR  pwszDriver);
 
 WIN32KAPI
 HANDLE
 APIENTRY
 EngLoadModule(
-  IN LPWSTR  pwsz);
+  LPWSTR  pwsz);
 
 WIN32KAPI
 HANDLE
 APIENTRY
 EngLoadModuleForWrite(
-  IN LPWSTR  pwsz,
-  IN ULONG  cjSizeOfModule);
+  LPWSTR  pwsz,
+  ULONG  cjSizeOfModule);
 
 WIN32KAPI
 PDD_SURFACE_LOCAL
 APIENTRY
 EngLockDirectDrawSurface(
-  IN HANDLE  hSurface);
+  HANDLE  hSurface);
 
 WIN32KAPI
 DRIVEROBJ*
 APIENTRY
 EngLockDriverObj(
-  IN HDRVOBJ  hdo);
+  HDRVOBJ  hdo);
 
 WIN32KAPI
 SURFOBJ*
 APIENTRY
 EngLockSurface(
-  IN HSURF  hsurf);
+  HSURF  hsurf);
 
 WIN32KAPI
 WINBOOL
@@ -1831,19 +1831,19 @@ WIN32KAPI
 PEVENT
 APIENTRY
 EngMapEvent(
-  IN HDEV  hDev,
-  IN HANDLE  hUserObject,
-  IN PVOID  Reserved1,
-  IN PVOID  Reserved2,
-  IN PVOID  Reserved3);
+  HDEV  hDev,
+  HANDLE  hUserObject,
+  PVOID  Reserved1,
+  PVOID  Reserved2,
+  PVOID  Reserved3);
 
 WIN32KAPI
 PVOID
 APIENTRY
 EngMapFile(
-  IN LPWSTR  pwsz,
-  IN ULONG  cjSize,
-  OUT ULONG_PTR  *piFile);
+  LPWSTR  pwsz,
+  ULONG  cjSize,
+  ULONG_PTR  *piFile);
 
 WIN32KAPI
 WINBOOL
@@ -1857,22 +1857,22 @@ WIN32KAPI
 WINBOOL
 APIENTRY
 EngMapFontFileFD(
-  IN ULONG_PTR  iFile,
-  OUT PULONG  *ppjBuf,
-  OUT ULONG  *pcjBuf);
+  ULONG_PTR  iFile,
+  PULONG  *ppjBuf,
+  ULONG  *pcjBuf);
 
 WIN32KAPI
 PVOID
 APIENTRY
 EngMapModule(
-  IN HANDLE  h,
-  OUT PULONG  pSize);
+  HANDLE  h,
+  PULONG  pSize);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngMarkBandingSurface(
-  IN HSURF  hsurf);
+  HSURF  hsurf);
 
 /* EngModifySurface.flSurface constants */
 #define MS_NOTSYSTEMMEMORY                0x00000001
@@ -1882,93 +1882,93 @@ WIN32KAPI
 WINBOOL
 APIENTRY
 EngModifySurface(
-  IN HSURF  hsurf,
-  IN HDEV  hdev,
-  IN FLONG  flHooks,
-  IN FLONG  flSurface,
-  IN DHSURF  dhsurf,
-  IN VOID  *pvScan0,
-  IN LONG  lDelta,
-  IN VOID  *pvReserved);
+  HSURF  hsurf,
+  HDEV  hdev,
+  FLONG  flHooks,
+  FLONG  flSurface,
+  DHSURF  dhsurf,
+  VOID  *pvScan0,
+  LONG  lDelta,
+  VOID  *pvReserved);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngMovePointer(
-  IN SURFOBJ  *pso,
-  IN LONG  x,
-  IN LONG  y,
-  IN RECTL  *prcl);
+  SURFOBJ  *pso,
+  LONG  x,
+  LONG  y,
+  RECTL  *prcl);
 
 WIN32KAPI
 int
 APIENTRY
 EngMulDiv(
-  IN int  a,
-  IN int  b,
-  IN int  c);
+  int  a,
+  int  b,
+  int  c);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngMultiByteToUnicodeN(
-  OUT LPWSTR  UnicodeString,
-  IN ULONG  MaxBytesInUnicodeString,
-  OUT PULONG  BytesInUnicodeString,
-  IN PCHAR  MultiByteString,
-  IN ULONG  BytesInMultiByteString);
+  LPWSTR  UnicodeString,
+  ULONG  MaxBytesInUnicodeString,
+  PULONG  BytesInUnicodeString,
+  PCHAR  MultiByteString,
+  ULONG  BytesInMultiByteString);
 
 WIN32KAPI
 INT
 APIENTRY
 EngMultiByteToWideChar(
-  IN UINT  CodePage,
-  OUT LPWSTR  WideCharString,
-  IN INT  BytesInWideCharString,
-  IN LPSTR  MultiByteString,
-  IN INT  BytesInMultiByteString);
+  UINT  CodePage,
+  LPWSTR  WideCharString,
+  INT  BytesInWideCharString,
+  LPSTR  MultiByteString,
+  INT  BytesInMultiByteString);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngPaint(
-  IN SURFOBJ  *pso,
-  IN CLIPOBJ  *pco,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrushOrg,
-  IN MIX  mix);
+  SURFOBJ  *pso,
+  CLIPOBJ  *pco,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrushOrg,
+  MIX  mix);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngPlgBlt(
-  IN SURFOBJ  *psoTrg,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMsk,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN COLORADJUSTMENT  *pca,
-  IN POINTL  *pptlBrushOrg,
-  IN POINTFIX  *pptfx,
-  IN RECTL  *prcl,
-  IN POINTL  *pptl,
-  IN ULONG  iMode);
+  SURFOBJ  *psoTrg,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMsk,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  COLORADJUSTMENT  *pca,
+  POINTL  *pptlBrushOrg,
+  POINTFIX  *pptfx,
+  RECTL  *prcl,
+  POINTL  *pptl,
+  ULONG  iMode);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngProbeForRead(
-  IN PVOID  Address,
-  IN ULONG  Length,
-  IN ULONG  Alignment);
+  PVOID  Address,
+  ULONG  Length,
+  ULONG  Alignment);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngProbeForReadAndWrite(
-  IN PVOID  Address,
-  IN ULONG  Length,
-  IN ULONG  Alignment);
+  PVOID  Address,
+  ULONG  Length,
+  ULONG  Alignment);
 
 typedef enum _ENG_DEVICE_ATTRIBUTE {
   QDA_RESERVED = 0,
@@ -1979,45 +1979,45 @@ WIN32KAPI
 WINBOOL
 APIENTRY
 EngQueryDeviceAttribute(
-  IN HDEV  hdev,
-  IN ENG_DEVICE_ATTRIBUTE  devAttr,
-  IN VOID  *pvIn,
-  IN ULONG  ulInSize,
-  OUT VOID  *pvOut,
-  OUT ULONG  ulOutSize);
+  HDEV  hdev,
+  ENG_DEVICE_ATTRIBUTE  devAttr,
+  VOID  *pvIn,
+  ULONG  ulInSize,
+  VOID  *pvOut,
+  ULONG  ulOutSize);
 
 WIN32KAPI
 LARGE_INTEGER
 APIENTRY
 EngQueryFileTimeStamp(
-  IN LPWSTR  pwsz);
+  LPWSTR  pwsz);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngQueryLocalTime(
-  OUT PENG_TIME_FIELDS  ptf);
+  PENG_TIME_FIELDS  ptf);
 
 WIN32KAPI
 ULONG
 APIENTRY
 EngQueryPalette(
-  IN HPALETTE  hPal,
-  OUT ULONG  *piMode,
-  IN ULONG  cColors,
-  OUT ULONG  *pulColors);
+  HPALETTE  hPal,
+  ULONG  *piMode,
+  ULONG  cColors,
+  ULONG  *pulColors);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngQueryPerformanceCounter(
-  OUT LONGLONG  *pPerformanceCount);
+  LONGLONG  *pPerformanceCount);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngQueryPerformanceFrequency(
-  OUT LONGLONG  *pFrequency);
+  LONGLONG  *pFrequency);
 
 typedef enum _ENG_SYSTEM_ATTRIBUTE {
   EngProcessorFeature = 1,
@@ -2034,87 +2034,87 @@ WIN32KAPI
 WINBOOL
 APIENTRY
 EngQuerySystemAttribute(
-  IN ENG_SYSTEM_ATTRIBUTE  CapNum,
-  OUT PDWORD  pCapability);
+  ENG_SYSTEM_ATTRIBUTE  CapNum,
+  PDWORD  pCapability);
 
 WIN32KAPI
 LONG
 APIENTRY
 EngReadStateEvent(
-  IN PEVENT  pEvent);
+  PEVENT  pEvent);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngReleaseSemaphore(
-  IN HSEMAPHORE  hsem);
+  HSEMAPHORE  hsem);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngRestoreFloatingPointState(
-  IN VOID  *pBuffer);
+  VOID  *pBuffer);
 
 WIN32KAPI
 ULONG
 APIENTRY
 EngSaveFloatingPointState(
-  OUT VOID  *pBuffer,
-  IN ULONG  cjBufferSize);
+  VOID  *pBuffer,
+  ULONG  cjBufferSize);
 
 WIN32KAPI
 HANDLE
 APIENTRY
 EngSecureMem(
-  IN PVOID  Address,
-  IN ULONG  Length);
+  PVOID  Address,
+  ULONG  Length);
 
 WIN32KAPI
 LONG
 APIENTRY
 EngSetEvent(
-  IN PEVENT  pEvent);
+  PEVENT  pEvent);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngSetLastError(
-  IN ULONG  iError);
+  ULONG  iError);
 
 WIN32KAPI
 ULONG
 APIENTRY
 EngSetPointerShape(
-  IN SURFOBJ  *pso,
-  IN SURFOBJ  *psoMask,
-  IN SURFOBJ  *psoColor,
-  IN XLATEOBJ  *pxlo,
-  IN LONG  xHot,
-  IN LONG  yHot,
-  IN LONG  x,
-  IN LONG  y,
-  IN RECTL  *prcl,
-  IN FLONG  fl);
+  SURFOBJ  *pso,
+  SURFOBJ  *psoMask,
+  SURFOBJ  *psoColor,
+  XLATEOBJ  *pxlo,
+  LONG  xHot,
+  LONG  yHot,
+  LONG  x,
+  LONG  y,
+  RECTL  *prcl,
+  FLONG  fl);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngSetPointerTag(
-  IN HDEV  hdev,
-  IN SURFOBJ  *psoMask,
-  IN SURFOBJ  *psoColor,
-  IN XLATEOBJ  *pxlo,
-  IN FLONG  fl);
+  HDEV  hdev,
+  SURFOBJ  *psoMask,
+  SURFOBJ  *psoColor,
+  XLATEOBJ  *pxlo,
+  FLONG  fl);
 
 WIN32KAPI
 DWORD
 APIENTRY
 EngSetPrinterData(
-  IN HANDLE  hPrinter,
-  IN LPWSTR  pType,
-  IN DWORD  dwType,
-  IN LPBYTE  lpbPrinterData,
-  IN DWORD  cjPrinterData);
+  HANDLE  hPrinter,
+  LPWSTR  pType,
+  DWORD  dwType,
+  LPBYTE  lpbPrinterData,
+  DWORD  cjPrinterData);
 
 typedef int (CDECL *SORTCOMP)(const void *pv1, const void *pv2);
 
@@ -2122,146 +2122,146 @@ WIN32KAPI
 VOID
 APIENTRY
 EngSort(
-  IN OUT PBYTE  pjBuf,
-  IN ULONG  c,
-  IN ULONG  cjElem,
-  IN SORTCOMP  pfnComp);
+  PBYTE  pjBuf,
+  ULONG  c,
+  ULONG  cjElem,
+  SORTCOMP  pfnComp);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngStretchBlt(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMask,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN COLORADJUSTMENT  *pca,
-  IN POINTL  *pptlHTOrg,
-  IN RECTL  *prclDest,
-  IN RECTL  *prclSrc,
-  IN POINTL  *pptlMask,
-  IN ULONG  iMode);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMask,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  COLORADJUSTMENT  *pca,
+  POINTL  *pptlHTOrg,
+  RECTL  *prclDest,
+  RECTL  *prclSrc,
+  POINTL  *pptlMask,
+  ULONG  iMode);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngStretchBltROP(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMask,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN COLORADJUSTMENT  *pca,
-  IN POINTL  *pptlHTOrg,
-  IN RECTL  *prclDest,
-  IN RECTL  *prclSrc,
-  IN POINTL  *pptlMask,
-  IN ULONG  iMode,
-  IN BRUSHOBJ  *pbo,
-  IN DWORD  rop4);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMask,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  COLORADJUSTMENT  *pca,
+  POINTL  *pptlHTOrg,
+  RECTL  *prclDest,
+  RECTL  *prclSrc,
+  POINTL  *pptlMask,
+  ULONG  iMode,
+  BRUSHOBJ  *pbo,
+  DWORD  rop4);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngStrokeAndFillPath(
-  IN SURFOBJ  *pso,
-  IN PATHOBJ  *ppo,
-  IN CLIPOBJ  *pco,
-  IN XFORMOBJ  *pxo,
-  IN BRUSHOBJ  *pboStroke,
-  IN LINEATTRS  *plineattrs,
-  IN BRUSHOBJ  *pboFill,
-  IN POINTL  *pptlBrushOrg,
-  IN MIX  mixFill,
-  IN FLONG  flOptions);
+  SURFOBJ  *pso,
+  PATHOBJ  *ppo,
+  CLIPOBJ  *pco,
+  XFORMOBJ  *pxo,
+  BRUSHOBJ  *pboStroke,
+  LINEATTRS  *plineattrs,
+  BRUSHOBJ  *pboFill,
+  POINTL  *pptlBrushOrg,
+  MIX  mixFill,
+  FLONG  flOptions);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngStrokePath(
-  IN SURFOBJ  *pso,
-  IN PATHOBJ  *ppo,
-  IN CLIPOBJ  *pco,
-  IN XFORMOBJ  *pxo,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrushOrg,
-  IN LINEATTRS  *plineattrs,
-  IN MIX  mix);
+  SURFOBJ  *pso,
+  PATHOBJ  *ppo,
+  CLIPOBJ  *pco,
+  XFORMOBJ  *pxo,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrushOrg,
+  LINEATTRS  *plineattrs,
+  MIX  mix);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngTextOut(
-  IN SURFOBJ  *pso,
-  IN STROBJ  *pstro,
-  IN FONTOBJ  *pfo,
-  IN CLIPOBJ  *pco,
-  IN RECTL  *prclExtra,
-  IN RECTL  *prclOpaque,
-  IN BRUSHOBJ  *pboFore,
-  IN BRUSHOBJ  *pboOpaque,
-  IN POINTL  *pptlOrg,
-  IN MIX  mix);
+  SURFOBJ  *pso,
+  STROBJ  *pstro,
+  FONTOBJ  *pfo,
+  CLIPOBJ  *pco,
+  RECTL  *prclExtra,
+  RECTL  *prclOpaque,
+  BRUSHOBJ  *pboFore,
+  BRUSHOBJ  *pboOpaque,
+  POINTL  *pptlOrg,
+  MIX  mix);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngTransparentBlt(
-  IN SURFOBJ  *psoDst,
-  IN SURFOBJ  *psoSrc,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclDst,
-  IN RECTL  *prclSrc,
-  IN ULONG  iTransColor,
-  IN ULONG  ulReserved);
+  SURFOBJ  *psoDst,
+  SURFOBJ  *psoSrc,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclDst,
+  RECTL  *prclSrc,
+  ULONG  iTransColor,
+  ULONG  ulReserved);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngUnicodeToMultiByteN(
-  OUT PCHAR  MultiByteString,
-  IN ULONG  MaxBytesInMultiByteString,
-  OUT PULONG  BytesInMultiByteString,
-  IN PWSTR  UnicodeString,
-  IN ULONG  BytesInUnicodeString);
+  PCHAR  MultiByteString,
+  ULONG  MaxBytesInMultiByteString,
+  PULONG  BytesInMultiByteString,
+  PWSTR  UnicodeString,
+  ULONG  BytesInUnicodeString);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngUnloadImage(
-  IN HANDLE  hModule);
+  HANDLE  hModule);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngUnlockDirectDrawSurface(
-  IN PDD_SURFACE_LOCAL  pSurface);
+  PDD_SURFACE_LOCAL  pSurface);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngUnlockDriverObj(
-  IN HDRVOBJ  hdo);
+  HDRVOBJ  hdo);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngUnlockSurface(
-  IN SURFOBJ  *pso);
+  SURFOBJ  *pso);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngUnmapEvent(
-  IN PEVENT  pEvent);
+  PEVENT  pEvent);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngUnmapFile(
-  IN ULONG_PTR  iFile);
+  ULONG_PTR  iFile);
 
 WIN32KAPI
 VOID
@@ -2273,198 +2273,198 @@ WIN32KAPI
 VOID
 APIENTRY
 EngUnmapFontFileFD(
-  IN ULONG_PTR  iFile);
+  ULONG_PTR  iFile);
 
 WIN32KAPI
 VOID
 APIENTRY
 EngUnsecureMem(
-  IN HANDLE  hSecure);
+  HANDLE  hSecure);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngWaitForSingleObject(
-  IN PEVENT  pEvent,
-  IN PLARGE_INTEGER  pTimeOut);
+  PEVENT  pEvent,
+  PLARGE_INTEGER  pTimeOut);
 
 WIN32KAPI
 INT
 APIENTRY
 EngWideCharToMultiByte(
-  IN UINT  CodePage,
-  IN LPWSTR  WideCharString,
-  IN INT  BytesInWideCharString,
-  OUT LPSTR  MultiByteString,
-  IN INT  BytesInMultiByteString);
+  UINT  CodePage,
+  LPWSTR  WideCharString,
+  INT  BytesInWideCharString,
+  LPSTR  MultiByteString,
+  INT  BytesInMultiByteString);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 EngWritePrinter(
-  IN HANDLE  hPrinter,
-  IN LPVOID  pBuf,
-  IN DWORD  cbBuf,
-  OUT LPDWORD  pcWritten);
+  HANDLE  hPrinter,
+  LPVOID  pBuf,
+  DWORD  cbBuf,
+  LPDWORD  pcWritten);
 
 #if defined(_X86_) && !defined(USERMODE_DRIVER)
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_Add(
-  IN OUT PFLOATOBJ  pf,
-  IN PFLOATOBJ  pf1);
+  PFLOATOBJ  pf,
+  PFLOATOBJ  pf1);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_AddFloat(
-  IN OUT PFLOATOBJ  pf,
-  IN FLOATL  f);
+  PFLOATOBJ  pf,
+  FLOATL  f);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_AddLong(
-  IN OUT PFLOATOBJ  pf,
-  IN LONG  l);
+  PFLOATOBJ  pf,
+  LONG  l);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_Div(
-  IN OUT PFLOATOBJ  pf,
-  IN PFLOATOBJ  pf1);
+  PFLOATOBJ  pf,
+  PFLOATOBJ  pf1);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_DivFloat(
-  IN OUT PFLOATOBJ  pf,
-  IN FLOATL  f);
+  PFLOATOBJ  pf,
+  FLOATL  f);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_DivLong(
-  IN OUT PFLOATOBJ  pf,
-  IN LONG  l);
+  PFLOATOBJ  pf,
+  LONG  l);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 FLOATOBJ_Equal(
-  IN PFLOATOBJ  pf,
-  IN PFLOATOBJ  pf1);
+  PFLOATOBJ  pf,
+  PFLOATOBJ  pf1);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 FLOATOBJ_EqualLong(
-  IN PFLOATOBJ  pf,
-  IN LONG  l);
+  PFLOATOBJ  pf,
+  LONG  l);
 
 WIN32KAPI
 LONG
 APIENTRY
 FLOATOBJ_GetFloat(
-  IN PFLOATOBJ  pf);
+  PFLOATOBJ  pf);
 
 WIN32KAPI
 LONG
 APIENTRY
 FLOATOBJ_GetLong(
-  IN PFLOATOBJ  pf);
+  PFLOATOBJ  pf);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 FLOATOBJ_GreaterThan(
-  IN PFLOATOBJ  pf,
-  IN PFLOATOBJ  pf1);
+  PFLOATOBJ  pf,
+  PFLOATOBJ  pf1);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 FLOATOBJ_GreaterThanLong(
-  IN PFLOATOBJ  pf,
-  IN LONG  l);
+  PFLOATOBJ  pf,
+  LONG  l);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 FLOATOBJ_LessThan(
-  IN PFLOATOBJ  pf,
-  IN PFLOATOBJ  pf1);
+  PFLOATOBJ  pf,
+  PFLOATOBJ  pf1);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 FLOATOBJ_LessThanLong(
-  IN PFLOATOBJ  pf,
-  IN LONG  l);
+  PFLOATOBJ  pf,
+  LONG  l);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_Mul(
-  IN OUT PFLOATOBJ  pf,
-  IN PFLOATOBJ  pf1);
+  PFLOATOBJ  pf,
+  PFLOATOBJ  pf1);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_MulFloat(
-  IN OUT PFLOATOBJ  pf,
-  IN FLOATL  f);
+  PFLOATOBJ  pf,
+  FLOATL  f);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_MulLong(
-  IN OUT PFLOATOBJ  pf,
-  IN LONG  l);
+  PFLOATOBJ  pf,
+  LONG  l);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_Neg(
-  IN OUT PFLOATOBJ  pf);
+  PFLOATOBJ  pf);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_SetFloat(
-  OUT PFLOATOBJ  pf,
-  IN FLOATL  f);
+  PFLOATOBJ  pf,
+  FLOATL  f);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_SetLong(
-  OUT PFLOATOBJ  pf,
-  IN LONG  l);
+  PFLOATOBJ  pf,
+  LONG  l);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_Sub(
-  IN OUT PFLOATOBJ  pf,
-  IN PFLOATOBJ  pf1);
+  PFLOATOBJ  pf,
+  PFLOATOBJ  pf1);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_SubFloat(
-  IN OUT PFLOATOBJ  pf,
-  IN FLOATL  f);
+  PFLOATOBJ  pf,
+  FLOATL  f);
 
 WIN32KAPI
 VOID
 APIENTRY
 FLOATOBJ_SubLong(
-  IN OUT PFLOATOBJ  pf,
-  IN LONG  l);
+  PFLOATOBJ  pf,
+  LONG  l);
 
 #else
 
@@ -2498,73 +2498,73 @@ WIN32KAPI
 ULONG
 APIENTRY
 FONTOBJ_cGetAllGlyphHandles(
-  IN FONTOBJ  *pfo,
-  OUT HGLYPH  *phg);
+  FONTOBJ  *pfo,
+  HGLYPH  *phg);
 
 WIN32KAPI
 ULONG
 APIENTRY
 FONTOBJ_cGetGlyphs(
-  IN FONTOBJ  *pfo,
-  IN ULONG  iMode,
-  IN ULONG  cGlyph,
-  IN HGLYPH  *phg,
-  OUT PVOID  *ppvGlyph);
+  FONTOBJ  *pfo,
+  ULONG  iMode,
+  ULONG  cGlyph,
+  HGLYPH  *phg,
+  PVOID  *ppvGlyph);
 
 WIN32KAPI
 FD_GLYPHSET*
 APIENTRY
 FONTOBJ_pfdg(
-  IN FONTOBJ  *pfo);
+  FONTOBJ  *pfo);
 
 WIN32KAPI
 IFIMETRICS*
 APIENTRY
 FONTOBJ_pifi(
-  IN FONTOBJ  *pfo);
+  FONTOBJ  *pfo);
 
 WIN32KAPI
 PBYTE
 APIENTRY
 FONTOBJ_pjOpenTypeTablePointer(
-  IN FONTOBJ  *pfo,
-  IN ULONG  ulTag,
-  OUT ULONG  *pcjTable);
+  FONTOBJ  *pfo,
+  ULONG  ulTag,
+  ULONG  *pcjTable);
 
 WIN32KAPI
 PFD_GLYPHATTR
 APIENTRY
 FONTOBJ_pQueryGlyphAttrs(
-  IN FONTOBJ  *pfo,
-  IN ULONG  iMode);
+  FONTOBJ  *pfo,
+  ULONG  iMode);
 
 WIN32KAPI
 PVOID
 APIENTRY
 FONTOBJ_pvTrueTypeFontFile(
-  IN FONTOBJ  *pfo,
-  OUT ULONG  *pcjFile);
+  FONTOBJ  *pfo,
+  ULONG  *pcjFile);
 
 WIN32KAPI
 LPWSTR
 APIENTRY
 FONTOBJ_pwszFontFilePaths(
-  IN FONTOBJ  *pfo,
-  OUT ULONG  *pcwc);
+  FONTOBJ  *pfo,
+  ULONG  *pcwc);
 
 WIN32KAPI
 XFORMOBJ*
 APIENTRY
 FONTOBJ_pxoGetXform(
-  IN FONTOBJ  *pfo);
+  FONTOBJ  *pfo);
 
 WIN32KAPI
 VOID
 APIENTRY
 FONTOBJ_vGetInfo(
-  IN FONTOBJ  *pfo,
-  IN ULONG  cjSize,
-  OUT FONTINFO  *pfi);
+  FONTOBJ  *pfo,
+  ULONG  cjSize,
+  FONTINFO  *pfi);
 
 
 
@@ -2572,187 +2572,187 @@ WIN32KAPI
 LONG
 APIENTRY
 HT_ComputeRGBGammaTable(
-  IN USHORT  GammaTableEntries,
-  IN USHORT  GammaTableType,
-  IN USHORT  RedGamma,
-  IN USHORT  GreenGamma,
-  IN USHORT  BlueGamma,
-  OUT LPBYTE  pGammaTable);
+  USHORT  GammaTableEntries,
+  USHORT  GammaTableType,
+  USHORT  RedGamma,
+  USHORT  GreenGamma,
+  USHORT  BlueGamma,
+  LPBYTE  pGammaTable);
 
 WIN32KAPI
 LONG
 APIENTRY
 HT_Get8BPPFormatPalette(
-  OUT LPPALETTEENTRY  pPaletteEntry,
-  IN USHORT  RedGamma,
-  IN USHORT  GreenGamma,
-  IN USHORT  BlueGamma);
+  LPPALETTEENTRY  pPaletteEntry,
+  USHORT  RedGamma,
+  USHORT  GreenGamma,
+  USHORT  BlueGamma);
 
 WIN32KAPI
 LONG
 APIENTRY
 HT_Get8BPPMaskPalette(
-  IN OUT LPPALETTEENTRY  pPaletteEntry,
-  IN WINBOOL  Use8BPPMaskPal,
-  IN BYTE  CMYMask,
-  IN USHORT  RedGamma,
-  IN USHORT  GreenGamma,
-  IN USHORT  BlueGamma);
+  LPPALETTEENTRY  pPaletteEntry,
+  WINBOOL  Use8BPPMaskPal,
+  BYTE  CMYMask,
+  USHORT  RedGamma,
+  USHORT  GreenGamma,
+  USHORT  BlueGamma);
 
 WIN32KAPI
 LONG
 APIENTRY
 HTUI_DeviceColorAdjustment(
-  IN LPSTR  pDeviceName,
-  OUT PDEVHTADJDATA  pDevHTAdjData);
+  LPSTR  pDeviceName,
+  PDEVHTADJDATA  pDevHTAdjData);
 
 WIN32KAPI
 ULONG
 APIENTRY
 PALOBJ_cGetColors(
-  IN PALOBJ  *ppalo,
-  IN ULONG  iStart,
-  IN ULONG  cColors,
-  OUT ULONG  *pulColors);
+  PALOBJ  *ppalo,
+  ULONG  iStart,
+  ULONG  cColors,
+  ULONG  *pulColors);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 PATHOBJ_bCloseFigure(
-  IN PATHOBJ  *ppo);
+  PATHOBJ  *ppo);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 PATHOBJ_bEnum(
-  IN PATHOBJ  *ppo,
-  OUT PATHDATA  *ppd);
+  PATHOBJ  *ppo,
+  PATHDATA  *ppd);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 PATHOBJ_bEnumClipLines(
-  IN PATHOBJ  *ppo,
-  IN ULONG  cb,
-  OUT CLIPLINE  *pcl);
+  PATHOBJ  *ppo,
+  ULONG  cb,
+  CLIPLINE  *pcl);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 PATHOBJ_bMoveTo(
-  IN PATHOBJ  *ppo,
-  IN POINTFIX  ptfx);
+  PATHOBJ  *ppo,
+  POINTFIX  ptfx);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 PATHOBJ_bPolyBezierTo(
-  IN PATHOBJ  *ppo,
-  IN POINTFIX  *pptfx,
-  IN ULONG  cptfx);
+  PATHOBJ  *ppo,
+  POINTFIX  *pptfx,
+  ULONG  cptfx);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 PATHOBJ_bPolyLineTo(
-  IN PATHOBJ  *ppo,
-  IN POINTFIX  *pptfx,
-  IN ULONG  cptfx);
+  PATHOBJ  *ppo,
+  POINTFIX  *pptfx,
+  ULONG  cptfx);
 
 WIN32KAPI
 VOID
 APIENTRY
 PATHOBJ_vEnumStart(
-  IN PATHOBJ  *ppo);
+  PATHOBJ  *ppo);
 
 WIN32KAPI
 VOID
 APIENTRY
 PATHOBJ_vEnumStartClipLines(
-  IN PATHOBJ  *ppo,
-  IN CLIPOBJ  *pco,
-  IN SURFOBJ  *pso,
-  IN LINEATTRS  *pla);
+  PATHOBJ  *ppo,
+  CLIPOBJ  *pco,
+  SURFOBJ  *pso,
+  LINEATTRS  *pla);
 
 WIN32KAPI
 VOID
 APIENTRY
 PATHOBJ_vGetBounds(
-  IN PATHOBJ  *ppo,
-  OUT PRECTFX  prectfx);
+  PATHOBJ  *ppo,
+  PRECTFX  prectfx);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 STROBJ_bEnum(
-  IN STROBJ  *pstro,
-  OUT ULONG  *pc,
-  OUT PGLYPHPOS  *ppgpos);
+  STROBJ  *pstro,
+  ULONG  *pc,
+  PGLYPHPOS  *ppgpos);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 STROBJ_bEnumPositionsOnly(
-  IN STROBJ  *pstro,
-  OUT ULONG  *pc,
-  OUT PGLYPHPOS  *ppgpos);
+  STROBJ  *pstro,
+  ULONG  *pc,
+  PGLYPHPOS  *ppgpos);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 STROBJ_bGetAdvanceWidths(
-  IN STROBJ  *pso,
-  IN ULONG  iFirst,
-  IN ULONG  c,
-  OUT POINTQF  *pptqD);
+  STROBJ  *pso,
+  ULONG  iFirst,
+  ULONG  c,
+  POINTQF  *pptqD);
 
 WIN32KAPI
 DWORD
 APIENTRY
 STROBJ_dwGetCodePage(
-  IN STROBJ  *pstro);
+  STROBJ  *pstro);
 
 WIN32KAPI
 FIX
 APIENTRY
 STROBJ_fxBreakExtra(
-  IN STROBJ  *pstro);
+  STROBJ  *pstro);
 
 WIN32KAPI
 FIX
 APIENTRY
 STROBJ_fxCharacterExtra(
-  IN STROBJ  *pstro);
+  STROBJ  *pstro);
 
 WIN32KAPI
 VOID
 APIENTRY
 STROBJ_vEnumStart(
-  IN STROBJ  *pstro);
+  STROBJ  *pstro);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 WNDOBJ_bEnum(
-  IN WNDOBJ  *pwo,
-  IN ULONG  cj,
-  OUT ULONG  *pul);
+  WNDOBJ  *pwo,
+  ULONG  cj,
+  ULONG  *pul);
 
 WIN32KAPI
 ULONG
 APIENTRY
 WNDOBJ_cEnumStart(
-  IN WNDOBJ  *pwo,
-  IN ULONG  iType,
-  IN ULONG  iDirection,
-  IN ULONG  cLimit);
+  WNDOBJ  *pwo,
+  ULONG  iType,
+  ULONG  iDirection,
+  ULONG  cLimit);
 
 WIN32KAPI
 VOID
 APIENTRY
 WNDOBJ_vSetConsumer(
-  IN WNDOBJ  *pwo,
-  IN PVOID  pvConsumer);
+  WNDOBJ  *pwo,
+  PVOID  pvConsumer);
 
 /* XFORMOBJ_bApplyXform.iMode constants */
 #define XF_LTOL                           0L
@@ -2764,25 +2764,25 @@ WIN32KAPI
 WINBOOL
 APIENTRY
 XFORMOBJ_bApplyXform(
-  IN XFORMOBJ  *pxo,
-  IN ULONG  iMode,
-  IN ULONG  cPoints,
-  IN PVOID  pvIn,
-  OUT PVOID  pvOut);
+  XFORMOBJ  *pxo,
+  ULONG  iMode,
+  ULONG  cPoints,
+  PVOID  pvIn,
+  PVOID  pvOut);
 
 WIN32KAPI
 ULONG
 APIENTRY
 XFORMOBJ_iGetFloatObjXform(
-  IN XFORMOBJ  *pxo,
-  OUT FLOATOBJ_XFORM  *pxfo);
+  XFORMOBJ  *pxo,
+  FLOATOBJ_XFORM  *pxfo);
 
 WIN32KAPI
 ULONG
 APIENTRY
 XFORMOBJ_iGetXform(
-  IN XFORMOBJ  *pxo,
-  OUT XFORML  *pxform);
+  XFORMOBJ  *pxo,
+  XFORML  *pxform);
 
 /* XLATEOBJ_cGetPalette.iPal constants */
 #define XO_SRCPALETTE                     1
@@ -2795,29 +2795,29 @@ WIN32KAPI
 ULONG
 APIENTRY
 XLATEOBJ_cGetPalette(
-  IN XLATEOBJ  *pxlo,
-  IN ULONG  iPal,
-  IN ULONG  cPal,
-  OUT ULONG  *pPal);
+  XLATEOBJ  *pxlo,
+  ULONG  iPal,
+  ULONG  cPal,
+  ULONG  *pPal);
 
 WIN32KAPI
 HANDLE
 APIENTRY
 XLATEOBJ_hGetColorTransform(
-  IN XLATEOBJ  *pxlo);
+  XLATEOBJ  *pxlo);
 
 WIN32KAPI
 ULONG
 APIENTRY
 XLATEOBJ_iXlate(
-  IN XLATEOBJ  *pxlo,
-  IN ULONG  iColor);
+  XLATEOBJ  *pxlo,
+  ULONG  iColor);
 
 WIN32KAPI
 ULONG*
 APIENTRY
 XLATEOBJ_piVector(
-  IN XLATEOBJ  *pxlo);
+  XLATEOBJ  *pxlo);
 
 
 
@@ -2826,62 +2826,62 @@ XLATEOBJ_piVector(
 WINBOOL
 APIENTRY
 DrvAlphaBlend(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclDest,
-  IN RECTL  *prclSrc,
-  IN BLENDOBJ  *pBlendObj);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclDest,
+  RECTL  *prclSrc,
+  BLENDOBJ  *pBlendObj);
 
 WINBOOL
 APIENTRY
 DrvAssertMode(
-  IN DHPDEV  dhpdev,
-  IN WINBOOL  bEnable);
+  DHPDEV  dhpdev,
+  WINBOOL  bEnable);
 
 WINBOOL
 APIENTRY
 DrvBitBlt(
-  IN SURFOBJ  *psoTrg,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMask,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclTrg,
-  IN POINTL  *pptlSrc,
-  IN POINTL  *pptlMask,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrush,
-  IN ROP4  rop4);
+  SURFOBJ  *psoTrg,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMask,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclTrg,
+  POINTL  *pptlSrc,
+  POINTL  *pptlMask,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrush,
+  ROP4  rop4);
 
 VOID
 APIENTRY
 DrvCompletePDEV(
-  IN DHPDEV  dhpdev,
-  IN HDEV  hdev);
+  DHPDEV  dhpdev,
+  HDEV  hdev);
 
 WINBOOL
 APIENTRY
 DrvCopyBits(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclDest,
-  IN POINTL  *pptlSrc);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclDest,
+  POINTL  *pptlSrc);
 
 HBITMAP
 APIENTRY
 DrvCreateDeviceBitmap(
-  IN DHPDEV  dhpdev,
-  IN SIZEL  sizl,
-  IN ULONG  iFormat);
+  DHPDEV  dhpdev,
+  SIZEL  sizl,
+  ULONG  iFormat);
 
 VOID
 APIENTRY
 DrvDeleteDeviceBitmap(
-  IN DHSURF  dhsurf);
+  DHSURF  dhsurf);
 
 HBITMAP
 APIENTRY
@@ -2892,15 +2892,15 @@ DrvDeriveSurface(
 LONG
 APIENTRY
 DrvDescribePixelFormat(
-  IN DHPDEV  dhpdev,
-  IN LONG  iPixelFormat,
-  IN ULONG  cjpfd,
-  OUT PIXELFORMATDESCRIPTOR  *ppfd);
+  DHPDEV  dhpdev,
+  LONG  iPixelFormat,
+  ULONG  cjpfd,
+  PIXELFORMATDESCRIPTOR  *ppfd);
 
 VOID
 APIENTRY
 DrvDestroyFont(
-  IN FONTOBJ  *pfo);
+  FONTOBJ  *pfo);
 
 VOID
 APIENTRY
@@ -2910,12 +2910,12 @@ DrvDisableDriver(
 VOID
 APIENTRY
 DrvDisablePDEV(
-  IN DHPDEV  dhpdev);
+  DHPDEV  dhpdev);
 
 VOID
 APIENTRY
 DrvDisableSurface(
-  IN DHPDEV  dhpdev);
+  DHPDEV  dhpdev);
 
 #define DM_DEFAULT                        0x00000001
 #define DM_MONOCHROME                     0x00000002
@@ -2923,47 +2923,47 @@ DrvDisableSurface(
 ULONG
 APIENTRY
 DrvDitherColor(
-  IN DHPDEV  dhpdev,
-  IN ULONG  iMode,
-  IN ULONG  rgb,
-  OUT ULONG  *pul);
+  DHPDEV  dhpdev,
+  ULONG  iMode,
+  ULONG  rgb,
+  ULONG  *pul);
 
 ULONG
 APIENTRY
 DrvDrawEscape(
-  IN SURFOBJ  *pso,
-  IN ULONG  iEsc,
-  IN CLIPOBJ  *pco,
-  IN RECTL  *prcl,
-  IN ULONG  cjIn,
-  IN PVOID  pvIn);
+  SURFOBJ  *pso,
+  ULONG  iEsc,
+  CLIPOBJ  *pco,
+  RECTL  *prcl,
+  ULONG  cjIn,
+  PVOID  pvIn);
 
 WINBOOL
 APIENTRY
 DrvEnableDriver(
-  IN ULONG  iEngineVersion,
-  IN ULONG  cj,
-  OUT DRVENABLEDATA  *pded);
+  ULONG  iEngineVersion,
+  ULONG  cj,
+  DRVENABLEDATA  *pded);
 
 DHPDEV
 APIENTRY
 DrvEnablePDEV(
-  IN DEVMODEW  *pdm,
-  IN LPWSTR  pwszLogAddress,
-  IN ULONG  cPat,
-  OUT HSURF  *phsurfPatterns,
-  IN ULONG  cjCaps,
-  OUT ULONG  *pdevcaps,
-  IN ULONG  cjDevInfo,
-  OUT DEVINFO  *pdi,
-  IN HDEV  hdev,
-  IN LPWSTR  pwszDeviceName,
-  IN HANDLE  hDriver);
+  DEVMODEW  *pdm,
+  LPWSTR  pwszLogAddress,
+  ULONG  cPat,
+  HSURF  *phsurfPatterns,
+  ULONG  cjCaps,
+  ULONG  *pdevcaps,
+  ULONG  cjDevInfo,
+  DEVINFO  *pdi,
+  HDEV  hdev,
+  LPWSTR  pwszDeviceName,
+  HANDLE  hDriver);
 
 HSURF
 APIENTRY
 DrvEnableSurface(
-  IN DHPDEV  dhpdev);
+  DHPDEV  dhpdev);
 
 /* DrvEndDoc.fl constants */
 #define ED_ABORTDOC                       0x00000001
@@ -2971,46 +2971,46 @@ DrvEnableSurface(
 WINBOOL
 APIENTRY
 DrvEndDoc(
-  IN SURFOBJ  *pso,
-  IN FLONG  fl);
+  SURFOBJ  *pso,
+  FLONG  fl);
 
 ULONG
 APIENTRY
 DrvEscape(
-  IN SURFOBJ  *pso,
-  IN ULONG  iEsc,
-  IN ULONG  cjIn,
-  IN PVOID  pvIn,
-  IN ULONG  cjOut,
-  OUT PVOID  pvOut);
+  SURFOBJ  *pso,
+  ULONG  iEsc,
+  ULONG  cjIn,
+  PVOID  pvIn,
+  ULONG  cjOut,
+  PVOID  pvOut);
 
 WINBOOL
 APIENTRY
 DrvFillPath(
-  IN SURFOBJ  *pso,
-  IN PATHOBJ  *ppo,
-  IN CLIPOBJ  *pco,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrushOrg,
-  IN MIX  mix,
-  IN FLONG  flOptions);
+  SURFOBJ  *pso,
+  PATHOBJ  *ppo,
+  CLIPOBJ  *pco,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrushOrg,
+  MIX  mix,
+  FLONG  flOptions);
 
 ULONG
 APIENTRY
 DrvFontManagement(
-  IN SURFOBJ  *pso,
-  IN FONTOBJ  *pfo,
-  IN ULONG  iMode,
-  IN ULONG  cjIn,
-  IN PVOID  pvIn,
-  IN ULONG  cjOut,
-  OUT PVOID  pvOut);
+  SURFOBJ  *pso,
+  FONTOBJ  *pfo,
+  ULONG  iMode,
+  ULONG  cjIn,
+  PVOID  pvIn,
+  ULONG  cjOut,
+  PVOID  pvOut);
 
 VOID
 APIENTRY
 DrvFree(
-  IN PVOID  pv,
-  IN ULONG_PTR  id);
+  PVOID  pv,
+  ULONG_PTR  id);
 
 /* DrvGetGlyphMode return values */
 #define FO_HGLYPHS                        0L
@@ -3020,62 +3020,62 @@ DrvFree(
 ULONG
 APIENTRY
 DrvGetGlyphMode(
-  IN DHPDEV  dhpdev,
-  IN FONTOBJ  *pfo);
+  DHPDEV  dhpdev,
+  FONTOBJ  *pfo);
 
 ULONG
 APIENTRY
 DrvGetModes(
-  IN HANDLE  hDriver,
-  IN ULONG  cjSize,
-  OUT DEVMODEW  *pdm);
+  HANDLE  hDriver,
+  ULONG  cjSize,
+  DEVMODEW  *pdm);
 
 PVOID
 APIENTRY
 DrvGetTrueTypeFile(
-  IN ULONG_PTR  iFile,
-  IN ULONG  *pcj);
+  ULONG_PTR  iFile,
+  ULONG  *pcj);
 
 WINBOOL
 APIENTRY
 DrvGradientFill(
-  IN SURFOBJ  *psoDest,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN TRIVERTEX  *pVertex,
-  IN ULONG  nVertex,
-  IN PVOID  pMesh,
-  IN ULONG  nMesh,
-  IN RECTL  *prclExtents,
-  IN POINTL  *pptlDitherOrg,
-  IN ULONG  ulMode);
+  SURFOBJ  *psoDest,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  TRIVERTEX  *pVertex,
+  ULONG  nVertex,
+  PVOID  pMesh,
+  ULONG  nMesh,
+  RECTL  *prclExtents,
+  POINTL  *pptlDitherOrg,
+  ULONG  ulMode);
 
 WINBOOL
 APIENTRY
 DrvIcmCheckBitmapBits(
-  IN DHPDEV  dhpdev,
-  IN HANDLE  hColorTransform,
-  IN SURFOBJ  *pso,
-  OUT PBYTE  paResults);
+  DHPDEV  dhpdev,
+  HANDLE  hColorTransform,
+  SURFOBJ  *pso,
+  PBYTE  paResults);
 
 HANDLE
 APIENTRY
 DrvIcmCreateColorTransform(
-  IN DHPDEV  dhpdev,
-  IN LPLOGCOLORSPACEW  pLogColorSpace,
-  IN PVOID  pvSourceProfile,
-  IN ULONG  cjSourceProfile,
-  IN PVOID  pvDestProfile,
-  IN ULONG  cjDestProfile,
-  IN PVOID  pvTargetProfile,
-  IN ULONG  cjTargetProfile,
-  IN DWORD  dwReserved);
+  DHPDEV  dhpdev,
+  LPLOGCOLORSPACEW  pLogColorSpace,
+  PVOID  pvSourceProfile,
+  ULONG  cjSourceProfile,
+  PVOID  pvDestProfile,
+  ULONG  cjDestProfile,
+  PVOID  pvTargetProfile,
+  ULONG  cjTargetProfile,
+  DWORD  dwReserved);
 
 WINBOOL
 APIENTRY
 DrvIcmDeleteColorTransform(
-  IN DHPDEV  dhpdev,
-  IN HANDLE  hcmXform);
+  DHPDEV  dhpdev,
+  HANDLE  hcmXform);
 
 /* DrvIcmSetDeviceGammaRamp.iFormat constants */
 #define IGRF_RGB_256BYTES                 0x00000000
@@ -3084,9 +3084,9 @@ DrvIcmDeleteColorTransform(
 WINBOOL
 APIENTRY
 DrvIcmSetDeviceGammaRamp(
-  IN DHPDEV  dhpdev,
-  IN ULONG  iFormat,
-  IN LPVOID  lpRamp);
+  DHPDEV  dhpdev,
+  ULONG  iFormat,
+  LPVOID  lpRamp);
 
 WINBOOL
 APIENTRY
@@ -3115,55 +3115,55 @@ DrvLoadFontFile(
 VOID
 APIENTRY
 DrvMovePointer(
-  IN SURFOBJ  *pso,
-  IN LONG  x,
-  IN LONG  y,
-  IN RECTL  *prcl);
+  SURFOBJ  *pso,
+  LONG  x,
+  LONG  y,
+  RECTL  *prcl);
 
 WINBOOL
 APIENTRY
 DrvNextBand(
-  IN SURFOBJ  *pso,
-  IN POINTL  *pptl);
+  SURFOBJ  *pso,
+  POINTL  *pptl);
 
 VOID
 APIENTRY
 DrvNotify(
-  IN SURFOBJ  *pso,
-  IN ULONG  iType,
-  IN PVOID  pvData);
+  SURFOBJ  *pso,
+  ULONG  iType,
+  PVOID  pvData);
 
 WINBOOL
 APIENTRY
 DrvOffset(
-  IN SURFOBJ  *pso,
-  IN LONG  x,
-  IN LONG  y,
-  IN FLONG  flReserved);
+  SURFOBJ  *pso,
+  LONG  x,
+  LONG  y,
+  FLONG  flReserved);
 
 WINBOOL
 APIENTRY
 DrvPaint(
-  IN SURFOBJ  *pso,
-  IN CLIPOBJ  *pco,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrushOrg,
-  IN MIX  mix);
+  SURFOBJ  *pso,
+  CLIPOBJ  *pco,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrushOrg,
+  MIX  mix);
 
 WINBOOL
 APIENTRY
 DrvPlgBlt(
-  IN SURFOBJ  *psoTrg,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMsk,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN COLORADJUSTMENT  *pca,
-  IN POINTL  *pptlBrushOrg,
-  IN POINTFIX  *pptfx,
-  IN RECTL  *prcl,
-  IN POINTL  *pptl,
-  IN ULONG  iMode);
+  SURFOBJ  *psoTrg,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMsk,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  COLORADJUSTMENT  *pca,
+  POINTL  *pptlBrushOrg,
+  POINTFIX  *pptfx,
+  RECTL  *prcl,
+  POINTL  *pptl,
+  ULONG  iMode);
 
 /* DrvQueryAdvanceWidths.iMode constants */
 #define QAW_GETWIDTHS                     0
@@ -3172,12 +3172,12 @@ DrvPlgBlt(
 WINBOOL
 APIENTRY
 DrvQueryAdvanceWidths(
-  IN DHPDEV  dhpdev,
-  IN FONTOBJ  *pfo,
-  IN ULONG  iMode,
-  IN HGLYPH  *phg,
-  OUT PVOID  pvWidths,
-  IN ULONG  cGlyphs);
+  DHPDEV  dhpdev,
+  FONTOBJ  *pfo,
+  ULONG  iMode,
+  HGLYPH  *phg,
+  PVOID  pvWidths,
+  ULONG  cGlyphs);
 
 /* DrvQueryDeviceSupport.iType constants */
 #define QDS_CHECKJPEGFORMAT               0x00000000
@@ -3209,10 +3209,10 @@ DrvQueryDriverInfo(
 PIFIMETRICS
 APIENTRY
 DrvQueryFont(
-  IN DHPDEV  dhpdev,
-  IN ULONG_PTR  iFile,
-  IN ULONG  iFace,
-  IN ULONG_PTR  *pid);
+  DHPDEV  dhpdev,
+  ULONG_PTR  iFile,
+  ULONG  iFace,
+  ULONG_PTR  *pid);
 
 /* DrvQueryFontCaps.pulCaps constants */
 #define QC_OUTLINES                       0x00000001
@@ -3224,8 +3224,8 @@ DrvQueryFont(
 LONG
 APIENTRY
 DrvQueryFontCaps(
-  IN ULONG  culCaps,
-  OUT ULONG  *pulCaps);
+  ULONG  culCaps,
+  ULONG  *pulCaps);
 
 /* DrvQueryFontData.iMode constants */
 #define QFD_GLYPHANDBITMAP                1L
@@ -3242,13 +3242,13 @@ DrvQueryFontCaps(
 LONG
 APIENTRY
 DrvQueryFontData(
-  IN DHPDEV  dhpdev,
-  IN FONTOBJ  *pfo,
-  IN ULONG  iMode,
-  IN HGLYPH  hg,
-  IN OUT GLYPHDATA  *pgd,
-  IN OUT PVOID  pv,
-  IN ULONG  cjSize);
+  DHPDEV  dhpdev,
+  FONTOBJ  *pfo,
+  ULONG  iMode,
+  HGLYPH  hg,
+  GLYPHDATA  *pgd,
+  PVOID  pv,
+  ULONG  cjSize);
 
 /* DrvQueryFontFile.ulMode constants */
 #define QFF_DESCRIPTION                   0x00000001
@@ -3257,10 +3257,10 @@ DrvQueryFontData(
 LONG
 APIENTRY
 DrvQueryFontFile(
-  IN ULONG_PTR  iFile,
-  IN ULONG  ulMode,
-  IN ULONG  cjBuf,
-  IN ULONG  *pulBuf);
+  ULONG_PTR  iFile,
+  ULONG  ulMode,
+  ULONG  cjBuf,
+  ULONG  *pulBuf);
 
 /* DrvQueryFontTree.iMode constants */
 #define QFT_UNICODE                       0L
@@ -3271,23 +3271,23 @@ DrvQueryFontFile(
 PVOID
 APIENTRY
 DrvQueryFontTree(
-  IN DHPDEV  dhpdev,
-  IN ULONG_PTR  iFile,
-  IN ULONG  iFace,
-  IN ULONG  iMode,
-  IN ULONG_PTR  *pid);
+  DHPDEV  dhpdev,
+  ULONG_PTR  iFile,
+  ULONG  iFace,
+  ULONG  iMode,
+  ULONG_PTR  *pid);
 
 PFD_GLYPHATTR
 APIENTRY
 DrvQueryGlyphAttrs(
-  IN FONTOBJ  *pfo,
-  IN ULONG  iMode);
+  FONTOBJ  *pfo,
+  ULONG  iMode);
 
 ULONG
 APIENTRY
 DrvQueryPerBandInfo(
-  IN SURFOBJ  *pso,
-  IN OUT PERBANDINFO  *pbi);
+  SURFOBJ  *pso,
+  PERBANDINFO  *pbi);
 
 /* DrvQueryTrueTypeOutline.bMetricsOnly constants */
 #define TTO_METRICS_ONLY                  0x00000001
@@ -3297,25 +3297,25 @@ DrvQueryPerBandInfo(
 LONG
 APIENTRY
 DrvQueryTrueTypeOutline(
-  IN DHPDEV  dhpdev,
-  IN FONTOBJ  *pfo,
-  IN HGLYPH  hglyph,
-  IN WINBOOL  bMetricsOnly,
-  IN GLYPHDATA  *pgldt,
-  IN ULONG  cjBuf,
-  OUT TTPOLYGONHEADER  *ppoly);
+  DHPDEV  dhpdev,
+  FONTOBJ  *pfo,
+  HGLYPH  hglyph,
+  WINBOOL  bMetricsOnly,
+  GLYPHDATA  *pgldt,
+  ULONG  cjBuf,
+  TTPOLYGONHEADER  *ppoly);
 
 LONG
 APIENTRY
 DrvQueryTrueTypeTable(
-  IN ULONG_PTR  iFile,
-  IN ULONG  ulFont,
-  IN ULONG  ulTag,
-  IN PTRDIFF  dpStart,
-  IN ULONG  cjBuf,
-  OUT BYTE  *pjBuf,
-  OUT PBYTE  *ppjTable,
-  OUT ULONG *pcjTable);
+  ULONG_PTR  iFile,
+  ULONG  ulFont,
+  ULONG  ulTag,
+  PTRDIFF  dpStart,
+  ULONG  cjBuf,
+  BYTE  *pjBuf,
+  PBYTE  *ppjTable,
+  ULONG *pcjTable);
 
 /* DrvRealizeBrush.iHatch constants */
 #define RB_DITHERCOLOR                    0x80000000L
@@ -3325,12 +3325,12 @@ DrvQueryTrueTypeTable(
 WINBOOL
 APIENTRY
 DrvRealizeBrush(
-  IN BRUSHOBJ  *pbo,
-  IN SURFOBJ  *psoTarget,
-  IN SURFOBJ  *psoPattern,
-  IN SURFOBJ  *psoMask,
-  IN XLATEOBJ  *pxlo,
-  IN ULONG  iHatch);
+  BRUSHOBJ  *pbo,
+  SURFOBJ  *psoTarget,
+  SURFOBJ  *psoPattern,
+  SURFOBJ  *psoMask,
+  XLATEOBJ  *pxlo,
+  ULONG  iHatch);
 
 /* DrvResetDevice return values */
 #define DRD_SUCCESS                       0
@@ -3339,8 +3339,8 @@ DrvRealizeBrush(
 ULONG
 APIENTRY
 DrvResetDevice(
-  IN DHPDEV dhpdev,
-  IN PVOID Reserved);
+  DHPDEV dhpdev,
+  PVOID Reserved);
 
 WINBOOL
 APIENTRY
@@ -3356,31 +3356,31 @@ DrvResetPDEV(
 ULONG_PTR
 APIENTRY
 DrvSaveScreenBits(
-  IN SURFOBJ  *pso,
-  IN ULONG  iMode,
-  IN ULONG_PTR  ident,
-  IN RECTL  *prcl);
+  SURFOBJ  *pso,
+  ULONG  iMode,
+  ULONG_PTR  ident,
+  RECTL  *prcl);
 
 WINBOOL
 APIENTRY
 DrvSendPage(
-  IN SURFOBJ  *pso);
+  SURFOBJ  *pso);
 
 WINBOOL
 APIENTRY
 DrvSetPalette(
-  IN DHPDEV  dhpdev,
-  IN PALOBJ  *ppalo,
-  IN FLONG  fl,
-  IN ULONG  iStart,
-  IN ULONG  cColors);
+  DHPDEV  dhpdev,
+  PALOBJ  *ppalo,
+  FLONG  fl,
+  ULONG  iStart,
+  ULONG  cColors);
 
 WINBOOL
 APIENTRY
 DrvSetPixelFormat(
-  IN SURFOBJ  *pso,
-  IN LONG  iPixelFormat,
-  IN HWND  hwnd);
+  SURFOBJ  *pso,
+  LONG  iPixelFormat,
+  HWND  hwnd);
 
 /* DrvSetPointerShape return values */
 #define SPS_ERROR                         0x00000000
@@ -3401,104 +3401,104 @@ DrvSetPixelFormat(
 ULONG
 APIENTRY
 DrvSetPointerShape(
-  IN SURFOBJ  *pso,
-  IN SURFOBJ  *psoMask,
-  IN SURFOBJ  *psoColor,
-  IN XLATEOBJ  *pxlo,
-  IN LONG  xHot,
-  IN LONG  yHot,
-  IN LONG  x,
-  IN LONG  y,
-  IN RECTL  *prcl,
-  IN FLONG  fl);
+  SURFOBJ  *pso,
+  SURFOBJ  *psoMask,
+  SURFOBJ  *psoColor,
+  XLATEOBJ  *pxlo,
+  LONG  xHot,
+  LONG  yHot,
+  LONG  x,
+  LONG  y,
+  RECTL  *prcl,
+  FLONG  fl);
 
 WINBOOL
 APIENTRY
 DrvStartBanding(
-  IN SURFOBJ  *pso,
-  IN POINTL  *pptl);
+  SURFOBJ  *pso,
+  POINTL  *pptl);
 
 WINBOOL
 APIENTRY
 DrvStartDoc(
-  IN SURFOBJ  *pso,
-  IN LPWSTR  pwszDocName,
-  IN DWORD  dwJobId);
+  SURFOBJ  *pso,
+  LPWSTR  pwszDocName,
+  DWORD  dwJobId);
 
 WINBOOL
 APIENTRY
 DrvStartPage(
-  IN SURFOBJ  *pso);
+  SURFOBJ  *pso);
 
 WINBOOL
 APIENTRY
 DrvStretchBlt(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMask,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN COLORADJUSTMENT  *pca,
-  IN POINTL  *pptlHTOrg,
-  IN RECTL  *prclDest,
-  IN RECTL  *prclSrc,
-  IN POINTL  *pptlMask,
-  IN ULONG  iMode);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMask,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  COLORADJUSTMENT  *pca,
+  POINTL  *pptlHTOrg,
+  RECTL  *prclDest,
+  RECTL  *prclSrc,
+  POINTL  *pptlMask,
+  ULONG  iMode);
 
 WINBOOL
 APIENTRY
 DrvStretchBltROP(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMask,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN COLORADJUSTMENT  *pca,
-  IN POINTL  *pptlHTOrg,
-  IN RECTL  *prclDest,
-  IN RECTL  *prclSrc,
-  IN POINTL  *pptlMask,
-  IN ULONG  iMode,
-  IN BRUSHOBJ  *pbo,
-  IN DWORD  rop4);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMask,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  COLORADJUSTMENT  *pca,
+  POINTL  *pptlHTOrg,
+  RECTL  *prclDest,
+  RECTL  *prclSrc,
+  POINTL  *pptlMask,
+  ULONG  iMode,
+  BRUSHOBJ  *pbo,
+  DWORD  rop4);
 
 WINBOOL
 APIENTRY
 DrvStrokeAndFillPath(
-  IN SURFOBJ  *pso,
-  IN PATHOBJ  *ppo,
-  IN CLIPOBJ  *pco,
-  IN XFORMOBJ  *pxo,
-  IN BRUSHOBJ  *pboStroke,
-  IN LINEATTRS  *plineattrs,
-  IN BRUSHOBJ  *pboFill,
-  IN POINTL  *pptlBrushOrg,
-  IN MIX  mixFill,
-  IN FLONG  flOptions);
+  SURFOBJ  *pso,
+  PATHOBJ  *ppo,
+  CLIPOBJ  *pco,
+  XFORMOBJ  *pxo,
+  BRUSHOBJ  *pboStroke,
+  LINEATTRS  *plineattrs,
+  BRUSHOBJ  *pboFill,
+  POINTL  *pptlBrushOrg,
+  MIX  mixFill,
+  FLONG  flOptions);
 
 WINBOOL
 APIENTRY
 DrvStrokePath(
-  IN SURFOBJ  *pso,
-  IN PATHOBJ  *ppo,
-  IN CLIPOBJ  *pco,
-  IN XFORMOBJ  *pxo,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrushOrg,
-  IN LINEATTRS  *plineattrs,
-  IN MIX  mix);
+  SURFOBJ  *pso,
+  PATHOBJ  *ppo,
+  CLIPOBJ  *pco,
+  XFORMOBJ  *pxo,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrushOrg,
+  LINEATTRS  *plineattrs,
+  MIX  mix);
 
 WINBOOL
 APIENTRY
 DrvSwapBuffers(
-  IN SURFOBJ  *pso,
-  IN WNDOBJ  *pwo);
+  SURFOBJ  *pso,
+  WNDOBJ  *pwo);
 
 VOID
 APIENTRY
 DrvSynchronize(
-  IN DHPDEV  dhpdev,
-  IN RECTL  *prcl);
+  DHPDEV  dhpdev,
+  RECTL  *prcl);
 
 /* DrvSynchronizeSurface.fl constants */
 #define DSS_TIMER_EVENT                   0x00000001
@@ -3507,93 +3507,93 @@ DrvSynchronize(
 VOID
 APIENTRY
 DrvSynchronizeSurface(
-  IN SURFOBJ  *pso,
-  IN RECTL  *prcl,
-  IN FLONG  fl);
+  SURFOBJ  *pso,
+  RECTL  *prcl,
+  FLONG  fl);
 
 WINBOOL
 APIENTRY
 DrvTextOut(
-  IN SURFOBJ  *pso,
-  IN STROBJ  *pstro,
-  IN FONTOBJ  *pfo,
-  IN CLIPOBJ  *pco,
-  IN RECTL  *prclExtra,
-  IN RECTL  *prclOpaque,
-  IN BRUSHOBJ  *pboFore,
-  IN BRUSHOBJ  *pboOpaque,
-  IN POINTL  *pptlOrg,
-  IN MIX  mix);
+  SURFOBJ  *pso,
+  STROBJ  *pstro,
+  FONTOBJ  *pfo,
+  CLIPOBJ  *pco,
+  RECTL  *prclExtra,
+  RECTL  *prclOpaque,
+  BRUSHOBJ  *pboFore,
+  BRUSHOBJ  *pboOpaque,
+  POINTL  *pptlOrg,
+  MIX  mix);
 
 WINBOOL
 APIENTRY
 DrvTransparentBlt(
-  IN SURFOBJ  *psoDst,
-  IN SURFOBJ  *psoSrc,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclDst,
-  IN RECTL  *prclSrc,
-  IN ULONG  iTransColor,
-  IN ULONG  ulReserved);
+  SURFOBJ  *psoDst,
+  SURFOBJ  *psoSrc,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclDst,
+  RECTL  *prclSrc,
+  ULONG  iTransColor,
+  ULONG  ulReserved);
 
 WINBOOL
 APIENTRY
 DrvUnloadFontFile(
-  IN ULONG_PTR  iFile);
+  ULONG_PTR  iFile);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvAlphaBlend)(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclDest,
-  IN RECTL  *prclSrc,
-  IN BLENDOBJ  *pBlendObj);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclDest,
+  RECTL  *prclSrc,
+  BLENDOBJ  *pBlendObj);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvAssertMode)(
-  IN DHPDEV  dhpdev,
-  IN WINBOOL  bEnable);
+  DHPDEV  dhpdev,
+  WINBOOL  bEnable);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvBitBlt)(
-  IN SURFOBJ  *psoTrg,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMask,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclTrg,
-  IN POINTL  *pptlSrc,
-  IN POINTL  *pptlMask,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrush,
-  IN ROP4  rop4);
+  SURFOBJ  *psoTrg,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMask,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclTrg,
+  POINTL  *pptlSrc,
+  POINTL  *pptlMask,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrush,
+  ROP4  rop4);
 
 typedef VOID
 (APIENTRY *PFN_DrvCompletePDEV)(
-  IN DHPDEV  dhpdev,
-  IN HDEV  hdev);
+  DHPDEV  dhpdev,
+  HDEV  hdev);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvCopyBits)(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclDest,
-  IN POINTL  *pptlSrc);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclDest,
+  POINTL  *pptlSrc);
 
 typedef HBITMAP
 (APIENTRY *PFN_DrvCreateDeviceBitmap)(
-  IN DHPDEV  dhpdev,
-  IN SIZEL  sizl,
-  IN ULONG  iFormat);
+  DHPDEV  dhpdev,
+  SIZEL  sizl,
+  ULONG  iFormat);
 
 typedef VOID
 (APIENTRY *PFN_DrvDeleteDeviceBitmap)(
-  IN DHSURF  dhsurf);
+  DHSURF  dhsurf);
 
 typedef HBITMAP
 (APIENTRY *PFN_DrvDeriveSurface)(
@@ -3602,14 +3602,14 @@ typedef HBITMAP
 
 typedef LONG
 (APIENTRY *PFN_DrvDescribePixelFormat)(
-  IN DHPDEV  dhpdev,
-  IN LONG  iPixelFormat,
-  IN ULONG  cjpfd,
-  OUT PIXELFORMATDESCRIPTOR  *ppfd);
+  DHPDEV  dhpdev,
+  LONG  iPixelFormat,
+  ULONG  cjpfd,
+  PIXELFORMATDESCRIPTOR  *ppfd);
 
 typedef VOID
 (APIENTRY *PFN_DrvDestroyFont)(
-  IN FONTOBJ  *pfo);
+  FONTOBJ  *pfo);
 
 typedef VOID
 (APIENTRY *PFN_DrvDisableDriver)(
@@ -3617,149 +3617,149 @@ typedef VOID
 
 typedef VOID
 (APIENTRY *PFN_DrvDisablePDEV)(
-  IN DHPDEV  dhpdev);
+  DHPDEV  dhpdev);
 
 typedef VOID
 (APIENTRY *PFN_DrvDisableSurface)(
-  IN DHPDEV  dhpdev);
+  DHPDEV  dhpdev);
 
 typedef ULONG
 (APIENTRY *PFN_DrvDitherColor)(
-  IN DHPDEV  dhpdev,
-  IN ULONG  iMode,
-  IN ULONG  rgb,
-  OUT ULONG  *pul);
+  DHPDEV  dhpdev,
+  ULONG  iMode,
+  ULONG  rgb,
+  ULONG  *pul);
 
 typedef ULONG
 (APIENTRY *PFN_DrvDrawEscape)(
-  IN SURFOBJ  *pso,
-  IN ULONG  iEsc,
-  IN CLIPOBJ  *pco,
-  IN RECTL  *prcl,
-  IN ULONG  cjIn,
-  IN PVOID  pvIn);
+  SURFOBJ  *pso,
+  ULONG  iEsc,
+  CLIPOBJ  *pco,
+  RECTL  *prcl,
+  ULONG  cjIn,
+  PVOID  pvIn);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvEnableDriver)(
-  IN ULONG  iEngineVersion,
-  IN ULONG  cj,
-  OUT DRVENABLEDATA  *pded);
+  ULONG  iEngineVersion,
+  ULONG  cj,
+  DRVENABLEDATA  *pded);
 
 typedef DHPDEV 
 (APIENTRY *PFN_DrvEnablePDEV)(
-  IN DEVMODEW  *pdm,
-  IN LPWSTR  pwszLogAddress,
-  IN ULONG  cPat,
-  OUT HSURF  *phsurfPatterns,
-  IN ULONG  cjCaps,
+  DEVMODEW  *pdm,
+  LPWSTR  pwszLogAddress,
+  ULONG  cPat,
+  HSURF  *phsurfPatterns,
+  ULONG  cjCaps,
   GDIINFO  *pdevcaps,
-  IN ULONG  cjDevInfo,
-  OUT DEVINFO  *pdi,
-  IN HDEV  hdev,
-  IN LPWSTR  pwszDeviceName,
-  IN HANDLE  hDriver);
+  ULONG  cjDevInfo,
+  DEVINFO  *pdi,
+  HDEV  hdev,
+  LPWSTR  pwszDeviceName,
+  HANDLE  hDriver);
 
 typedef HSURF
 (APIENTRY *PFN_DrvEnableSurface)(
-  IN DHPDEV  dhpdev);
+  DHPDEV  dhpdev);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvEndDoc)(
-  IN SURFOBJ  *pso,
-  IN FLONG  fl);
+  SURFOBJ  *pso,
+  FLONG  fl);
 
 typedef ULONG
 (APIENTRY *PFN_DrvEscape)(
-  IN SURFOBJ  *pso,
-  IN ULONG  iEsc,
-  IN ULONG  cjIn,
-  IN PVOID  pvIn,
-  IN ULONG  cjOut,
-  OUT PVOID  pvOut);
+  SURFOBJ  *pso,
+  ULONG  iEsc,
+  ULONG  cjIn,
+  PVOID  pvIn,
+  ULONG  cjOut,
+  PVOID  pvOut);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvFillPath)(
-  IN SURFOBJ  *pso,
-  IN PATHOBJ  *ppo,
-  IN CLIPOBJ  *pco,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrushOrg,
-  IN MIX  mix,
-  IN FLONG  flOptions);
+  SURFOBJ  *pso,
+  PATHOBJ  *ppo,
+  CLIPOBJ  *pco,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrushOrg,
+  MIX  mix,
+  FLONG  flOptions);
 
 typedef ULONG
 (APIENTRY *PFN_DrvFontManagement)(
-  IN SURFOBJ  *pso,
-  IN FONTOBJ  *pfo,
-  IN ULONG  iMode,
-  IN ULONG  cjIn,
-  IN PVOID  pvIn,
-  IN ULONG  cjOut,
-  OUT PVOID  pvOut);
+  SURFOBJ  *pso,
+  FONTOBJ  *pfo,
+  ULONG  iMode,
+  ULONG  cjIn,
+  PVOID  pvIn,
+  ULONG  cjOut,
+  PVOID  pvOut);
 
 typedef VOID
 (APIENTRY *PFN_DrvFree)(
-  IN PVOID  pv,
-  IN ULONG_PTR  id);
+  PVOID  pv,
+  ULONG_PTR  id);
 
 typedef ULONG
 (APIENTRY *PFN_DrvGetGlyphMode)(
-  IN DHPDEV  dhpdev,
-  IN FONTOBJ  *pfo);
+  DHPDEV  dhpdev,
+  FONTOBJ  *pfo);
 
 typedef ULONG
 (APIENTRY *PFN_DrvGetModes)(
-  IN HANDLE  hDriver,
-  IN ULONG  cjSize,
-  OUT DEVMODEW  *pdm);
+  HANDLE  hDriver,
+  ULONG  cjSize,
+  DEVMODEW  *pdm);
 
 typedef PVOID
 (APIENTRY *PFN_DrvGetTrueTypeFile)(
-  IN ULONG_PTR  iFile,
-  IN ULONG  *pcj);
+  ULONG_PTR  iFile,
+  ULONG  *pcj);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvGradientFill)(
-  IN SURFOBJ  *psoDest,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN TRIVERTEX  *pVertex,
-  IN ULONG  nVertex,
-  IN PVOID  pMesh,
-  IN ULONG  nMesh,
-  IN RECTL  *prclExtents,
-  IN POINTL  *pptlDitherOrg,
-  IN ULONG  ulMode);
+  SURFOBJ  *psoDest,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  TRIVERTEX  *pVertex,
+  ULONG  nVertex,
+  PVOID  pMesh,
+  ULONG  nMesh,
+  RECTL  *prclExtents,
+  POINTL  *pptlDitherOrg,
+  ULONG  ulMode);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvIcmCheckBitmapBits)(
-  IN DHPDEV  dhpdev,
-  IN HANDLE  hColorTransform,
-  IN SURFOBJ  *pso,
-  OUT PBYTE  paResults);
+  DHPDEV  dhpdev,
+  HANDLE  hColorTransform,
+  SURFOBJ  *pso,
+  PBYTE  paResults);
 
 typedef HANDLE
 (APIENTRY *PFN_DrvIcmCreateColorTransform)(
-  IN DHPDEV  dhpdev,
-  IN LPLOGCOLORSPACEW  pLogColorSpace,
-  IN PVOID  pvSourceProfile,
-  IN ULONG  cjSourceProfile,
-  IN PVOID  pvDestProfile,
-  IN ULONG  cjDestProfile,
-  IN PVOID  pvTargetProfile,
-  IN ULONG  cjTargetProfile,
-  IN DWORD  dwReserved);
+  DHPDEV  dhpdev,
+  LPLOGCOLORSPACEW  pLogColorSpace,
+  PVOID  pvSourceProfile,
+  ULONG  cjSourceProfile,
+  PVOID  pvDestProfile,
+  ULONG  cjDestProfile,
+  PVOID  pvTargetProfile,
+  ULONG  cjTargetProfile,
+  DWORD  dwReserved);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvIcmDeleteColorTransform)(
-  IN DHPDEV  dhpdev,
-  IN HANDLE  hcmXform);
+  DHPDEV  dhpdev,
+  HANDLE  hcmXform);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvIcmSetDeviceGammaRamp)(
-  IN DHPDEV  dhpdev,
-  IN ULONG  iFormat,
-  IN LPVOID  lpRamp);
+  DHPDEV  dhpdev,
+  ULONG  iFormat,
+  LPVOID  lpRamp);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvLineTo)(
@@ -3785,59 +3785,59 @@ typedef ULONG_PTR
 
 typedef VOID
 (APIENTRY *PFN_DrvMovePointer)(
-  IN SURFOBJ  *pso,
-  IN LONG  x,
-  IN LONG  y,
-  IN RECTL  *prcl);
+  SURFOBJ  *pso,
+  LONG  x,
+  LONG  y,
+  RECTL  *prcl);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvNextBand)(
-  IN SURFOBJ  *pso,
-  IN POINTL  *pptl);
+  SURFOBJ  *pso,
+  POINTL  *pptl);
 
 typedef VOID
 (APIENTRY *PFN_DrvNotify)(
-  IN SURFOBJ  *pso,
-  IN ULONG  iType,
-  IN PVOID  pvData);
+  SURFOBJ  *pso,
+  ULONG  iType,
+  PVOID  pvData);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvOffset)(
-  IN SURFOBJ  *pso,
-  IN LONG  x,
-  IN LONG  y,
-  IN FLONG  flReserved);
+  SURFOBJ  *pso,
+  LONG  x,
+  LONG  y,
+  FLONG  flReserved);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvPaint)(
-  IN SURFOBJ  *pso,
-  IN CLIPOBJ  *pco,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrushOrg,
-  IN MIX  mix);
+  SURFOBJ  *pso,
+  CLIPOBJ  *pco,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrushOrg,
+  MIX  mix);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvPlgBlt)(
-  IN SURFOBJ  *psoTrg,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMsk,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN COLORADJUSTMENT  *pca,
-  IN POINTL  *pptlBrushOrg,
-  IN POINTFIX  *pptfx,
-  IN RECTL  *prcl,
-  IN POINTL  *pptl,
-  IN ULONG  iMode);
+  SURFOBJ  *psoTrg,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMsk,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  COLORADJUSTMENT  *pca,
+  POINTL  *pptlBrushOrg,
+  POINTFIX  *pptfx,
+  RECTL  *prcl,
+  POINTL  *pptl,
+  ULONG  iMode);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvQueryAdvanceWidths)(
-  IN DHPDEV  dhpdev,
-  IN FONTOBJ  *pfo,
-  IN ULONG  iMode,
-  IN HGLYPH  *phg,
-  OUT PVOID  pvWidths,
-  IN ULONG  cGlyphs);
+  DHPDEV  dhpdev,
+  FONTOBJ  *pfo,
+  ULONG  iMode,
+  HGLYPH  *phg,
+  PVOID  pvWidths,
+  ULONG  cGlyphs);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvQueryDeviceSupport)(
@@ -3859,85 +3859,85 @@ typedef WINBOOL
 
 typedef PIFIMETRICS
 (APIENTRY *PFN_DrvQueryFont)(
-  IN DHPDEV  dhpdev,
-  IN ULONG_PTR  iFile,
-  IN ULONG  iFace,
-  IN ULONG_PTR  *pid);
+  DHPDEV  dhpdev,
+  ULONG_PTR  iFile,
+  ULONG  iFace,
+  ULONG_PTR  *pid);
 
 typedef LONG
 (APIENTRY *PFN_DrvQueryFontCaps)(
-  IN ULONG  culCaps,
-  OUT ULONG  *pulCaps);
+  ULONG  culCaps,
+  ULONG  *pulCaps);
 
 typedef LONG
 (APIENTRY *PFN_DrvQueryFontData)(
-  IN DHPDEV  dhpdev,
-  IN FONTOBJ  *pfo,
-  IN ULONG  iMode,
-  IN HGLYPH  hg,
-  IN OUT GLYPHDATA  *pgd,
-  IN OUT PVOID  pv,
-  IN ULONG  cjSize);
+  DHPDEV  dhpdev,
+  FONTOBJ  *pfo,
+  ULONG  iMode,
+  HGLYPH  hg,
+  GLYPHDATA  *pgd,
+  PVOID  pv,
+  ULONG  cjSize);
 
 typedef LONG
 (APIENTRY *PFN_DrvQueryFontFile)(
-  IN ULONG_PTR  iFile,
-  IN ULONG  ulMode,
-  IN ULONG  cjBuf,
-  IN ULONG  *pulBuf);
+  ULONG_PTR  iFile,
+  ULONG  ulMode,
+  ULONG  cjBuf,
+  ULONG  *pulBuf);
 
 typedef PVOID
 (APIENTRY *PFN_DrvQueryFontTree)(
-  IN DHPDEV  dhpdev,
-  IN ULONG_PTR  iFile,
-  IN ULONG  iFace,
-  IN ULONG  iMode,
-  IN ULONG_PTR  *pid);
+  DHPDEV  dhpdev,
+  ULONG_PTR  iFile,
+  ULONG  iFace,
+  ULONG  iMode,
+  ULONG_PTR  *pid);
 
 typedef PFD_GLYPHATTR
 (APIENTRY *PFN_DrvQueryGlyphAttrs)(
-  IN FONTOBJ  *pfo,
-  IN ULONG  iMode);
+  FONTOBJ  *pfo,
+  ULONG  iMode);
 
 typedef ULONG
 (APIENTRY *PFN_DrvQueryPerBandInfo)(
-  IN SURFOBJ  *pso,
-  IN OUT PERBANDINFO  *pbi);
+  SURFOBJ  *pso,
+  PERBANDINFO  *pbi);
 
 typedef LONG
 (APIENTRY *PFN_DrvQueryTrueTypeOutline)(
-  IN DHPDEV  dhpdev,
-  IN FONTOBJ  *pfo,
-  IN HGLYPH  hglyph,
-  IN WINBOOL  bMetricsOnly,
-  IN GLYPHDATA  *pgldt,
-  IN ULONG  cjBuf,
-  OUT TTPOLYGONHEADER  *ppoly);
+  DHPDEV  dhpdev,
+  FONTOBJ  *pfo,
+  HGLYPH  hglyph,
+  WINBOOL  bMetricsOnly,
+  GLYPHDATA  *pgldt,
+  ULONG  cjBuf,
+  TTPOLYGONHEADER  *ppoly);
 
 typedef LONG
 (APIENTRY *PFN_DrvQueryTrueTypeTable)(
-  IN ULONG_PTR  iFile,
-  IN ULONG  ulFont,
-  IN ULONG  ulTag,
-  IN PTRDIFF  dpStart,
-  IN ULONG  cjBuf,
-  OUT BYTE  *pjBuf,
-  OUT PBYTE  *ppjTable,
-  OUT ULONG *pcjTable);
+  ULONG_PTR  iFile,
+  ULONG  ulFont,
+  ULONG  ulTag,
+  PTRDIFF  dpStart,
+  ULONG  cjBuf,
+  BYTE  *pjBuf,
+  PBYTE  *ppjTable,
+  ULONG *pcjTable);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvRealizeBrush)(
-  IN BRUSHOBJ  *pbo,
-  IN SURFOBJ  *psoTarget,
-  IN SURFOBJ  *psoPattern,
-  IN SURFOBJ  *psoMask,
-  IN XLATEOBJ  *pxlo,
-  IN ULONG  iHatch);
+  BRUSHOBJ  *pbo,
+  SURFOBJ  *psoTarget,
+  SURFOBJ  *psoPattern,
+  SURFOBJ  *psoMask,
+  XLATEOBJ  *pxlo,
+  ULONG  iHatch);
 
 typedef ULONG
 (APIENTRY *PFN_DrvResetDevice)(
-  IN DHPDEV dhpdev,
-  IN PVOID Reserved);
+  DHPDEV dhpdev,
+  PVOID Reserved);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvResetPDEV)(
@@ -3946,213 +3946,213 @@ typedef WINBOOL
 
 typedef ULONG_PTR
 (APIENTRY *PFN_DrvSaveScreenBits)(
-  IN SURFOBJ  *pso,
-  IN ULONG  iMode,
-  IN ULONG_PTR  ident,
-  IN RECTL  *prcl);
+  SURFOBJ  *pso,
+  ULONG  iMode,
+  ULONG_PTR  ident,
+  RECTL  *prcl);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvSendPage)(
-  IN SURFOBJ  *pso);
+  SURFOBJ  *pso);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvSetPalette)(
-  IN DHPDEV  dhpdev,
-  IN PALOBJ  *ppalo,
-  IN FLONG  fl,
-  IN ULONG  iStart,
-  IN ULONG  cColors);
+  DHPDEV  dhpdev,
+  PALOBJ  *ppalo,
+  FLONG  fl,
+  ULONG  iStart,
+  ULONG  cColors);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvSetPixelFormat)(
-  IN SURFOBJ  *pso,
-  IN LONG  iPixelFormat,
-  IN HWND  hwnd);
+  SURFOBJ  *pso,
+  LONG  iPixelFormat,
+  HWND  hwnd);
 
 typedef ULONG
 (APIENTRY *PFN_DrvSetPointerShape)(
-  IN SURFOBJ  *pso,
-  IN SURFOBJ  *psoMask,
-  IN SURFOBJ  *psoColor,
-  IN XLATEOBJ  *pxlo,
-  IN LONG  xHot,
-  IN LONG  yHot,
-  IN LONG  x,
-  IN LONG  y,
-  IN RECTL  *prcl,
-  IN FLONG  fl);
+  SURFOBJ  *pso,
+  SURFOBJ  *psoMask,
+  SURFOBJ  *psoColor,
+  XLATEOBJ  *pxlo,
+  LONG  xHot,
+  LONG  yHot,
+  LONG  x,
+  LONG  y,
+  RECTL  *prcl,
+  FLONG  fl);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvStartBanding)(
-  IN SURFOBJ  *pso,
-  IN POINTL  *pptl);
+  SURFOBJ  *pso,
+  POINTL  *pptl);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvStartDoc)(
-  IN SURFOBJ  *pso,
-  IN LPWSTR  pwszDocName,
-  IN DWORD  dwJobId);
+  SURFOBJ  *pso,
+  LPWSTR  pwszDocName,
+  DWORD  dwJobId);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvStartPage)(
-  IN SURFOBJ  *pso);
+  SURFOBJ  *pso);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvStretchBlt)(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMask,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN COLORADJUSTMENT  *pca,
-  IN POINTL  *pptlHTOrg,
-  IN RECTL  *prclDest,
-  IN RECTL  *prclSrc,
-  IN POINTL  *pptlMask,
-  IN ULONG  iMode);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMask,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  COLORADJUSTMENT  *pca,
+  POINTL  *pptlHTOrg,
+  RECTL  *prclDest,
+  RECTL  *prclSrc,
+  POINTL  *pptlMask,
+  ULONG  iMode);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvStretchBltROP)(
-  IN SURFOBJ  *psoDest,
-  IN SURFOBJ  *psoSrc,
-  IN SURFOBJ  *psoMask,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN COLORADJUSTMENT  *pca,
-  IN POINTL  *pptlHTOrg,
-  IN RECTL  *prclDest,
-  IN RECTL  *prclSrc,
-  IN POINTL  *pptlMask,
-  IN ULONG  iMode,
-  IN BRUSHOBJ  *pbo,
-  IN DWORD  rop4);
+  SURFOBJ  *psoDest,
+  SURFOBJ  *psoSrc,
+  SURFOBJ  *psoMask,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  COLORADJUSTMENT  *pca,
+  POINTL  *pptlHTOrg,
+  RECTL  *prclDest,
+  RECTL  *prclSrc,
+  POINTL  *pptlMask,
+  ULONG  iMode,
+  BRUSHOBJ  *pbo,
+  DWORD  rop4);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvStrokeAndFillPath)(
-  IN SURFOBJ  *pso,
-  IN PATHOBJ  *ppo,
-  IN CLIPOBJ  *pco,
-  IN XFORMOBJ  *pxo,
-  IN BRUSHOBJ  *pboStroke,
-  IN LINEATTRS  *plineattrs,
-  IN BRUSHOBJ  *pboFill,
-  IN POINTL  *pptlBrushOrg,
-  IN MIX  mixFill,
-  IN FLONG  flOptions);
+  SURFOBJ  *pso,
+  PATHOBJ  *ppo,
+  CLIPOBJ  *pco,
+  XFORMOBJ  *pxo,
+  BRUSHOBJ  *pboStroke,
+  LINEATTRS  *plineattrs,
+  BRUSHOBJ  *pboFill,
+  POINTL  *pptlBrushOrg,
+  MIX  mixFill,
+  FLONG  flOptions);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvStrokePath)(
-  IN SURFOBJ  *pso,
-  IN PATHOBJ  *ppo,
-  IN CLIPOBJ  *pco,
-  IN XFORMOBJ  *pxo,
-  IN BRUSHOBJ  *pbo,
-  IN POINTL  *pptlBrushOrg,
-  IN LINEATTRS  *plineattrs,
-  IN MIX  mix);
+  SURFOBJ  *pso,
+  PATHOBJ  *ppo,
+  CLIPOBJ  *pco,
+  XFORMOBJ  *pxo,
+  BRUSHOBJ  *pbo,
+  POINTL  *pptlBrushOrg,
+  LINEATTRS  *plineattrs,
+  MIX  mix);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvSwapBuffers)(
-  IN SURFOBJ  *pso,
-  IN WNDOBJ  *pwo);
+  SURFOBJ  *pso,
+  WNDOBJ  *pwo);
 
 typedef VOID
 (APIENTRY *PFN_DrvSynchronize)(
-  IN DHPDEV  dhpdev,
-  IN RECTL  *prcl);
+  DHPDEV  dhpdev,
+  RECTL  *prcl);
 
 typedef VOID
 (APIENTRY *PFN_DrvSynchronizeSurface)(
-  IN SURFOBJ  *pso,
-  IN RECTL  *prcl,
-  IN FLONG  fl);
+  SURFOBJ  *pso,
+  RECTL  *prcl,
+  FLONG  fl);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvTextOut)(
-  IN SURFOBJ  *pso,
-  IN STROBJ  *pstro,
-  IN FONTOBJ  *pfo,
-  IN CLIPOBJ  *pco,
-  IN RECTL  *prclExtra,
-  IN RECTL  *prclOpaque,
-  IN BRUSHOBJ  *pboFore,
-  IN BRUSHOBJ  *pboOpaque,
-  IN POINTL  *pptlOrg,
-  IN MIX  mix);
+  SURFOBJ  *pso,
+  STROBJ  *pstro,
+  FONTOBJ  *pfo,
+  CLIPOBJ  *pco,
+  RECTL  *prclExtra,
+  RECTL  *prclOpaque,
+  BRUSHOBJ  *pboFore,
+  BRUSHOBJ  *pboOpaque,
+  POINTL  *pptlOrg,
+  MIX  mix);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvTransparentBlt)(
-  IN SURFOBJ  *psoDst,
-  IN SURFOBJ  *psoSrc,
-  IN CLIPOBJ  *pco,
-  IN XLATEOBJ  *pxlo,
-  IN RECTL  *prclDst,
-  IN RECTL  *prclSrc,
-  IN ULONG  iTransColor,
-  IN ULONG  ulReserved);
+  SURFOBJ  *psoDst,
+  SURFOBJ  *psoSrc,
+  CLIPOBJ  *pco,
+  XLATEOBJ  *pxlo,
+  RECTL  *prclDst,
+  RECTL  *prclSrc,
+  ULONG  iTransColor,
+  ULONG  ulReserved);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvUnloadFontFile)(
-  IN ULONG_PTR  iFile);
+  ULONG_PTR  iFile);
 
 
 WIN32KAPI
 VOID
 APIENTRY
 DrvDisableDirectDraw(
-  IN DHPDEV  dhpdev);
+  DHPDEV  dhpdev);
 
 typedef VOID
 (APIENTRY *PFN_DrvDisableDirectDraw)(
-  IN DHPDEV  dhpdev);
+  DHPDEV  dhpdev);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 DrvEnableDirectDraw(
-  IN DHPDEV  dhpdev,
-  OUT DD_CALLBACKS  *pCallBacks,
-  OUT DD_SURFACECALLBACKS  *pSurfaceCallBacks,
-  OUT DD_PALETTECALLBACKS  *pPaletteCallBacks);
+  DHPDEV  dhpdev,
+  DD_CALLBACKS  *pCallBacks,
+  DD_SURFACECALLBACKS  *pSurfaceCallBacks,
+  DD_PALETTECALLBACKS  *pPaletteCallBacks);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvEnableDirectDraw)(
-  IN DHPDEV  dhpdev,
-  OUT DD_CALLBACKS  *pCallBacks,
-  OUT DD_SURFACECALLBACKS  *pSurfaceCallBacks,
-  OUT DD_PALETTECALLBACKS  *pPaletteCallBacks);
+  DHPDEV  dhpdev,
+  DD_CALLBACKS  *pCallBacks,
+  DD_SURFACECALLBACKS  *pSurfaceCallBacks,
+  DD_PALETTECALLBACKS  *pPaletteCallBacks);
 
 WIN32KAPI
 WINBOOL
 APIENTRY
 DrvGetDirectDrawInfo(
-  IN DHPDEV  dhpdev,
-  OUT DD_HALINFO  *pHalInfo,
-  OUT DWORD  *pdwNumHeaps,
-  OUT VIDEOMEMORY  *pvmList,
-  OUT DWORD  *pdwNumFourCCCodes,
-  OUT DWORD  *pdwFourCC);
+  DHPDEV  dhpdev,
+  DD_HALINFO  *pHalInfo,
+  DWORD  *pdwNumHeaps,
+  VIDEOMEMORY  *pvmList,
+  DWORD  *pdwNumFourCCCodes,
+  DWORD  *pdwFourCC);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvGetDirectDrawInfo)(
-  IN DHPDEV  dhpdev,
-  OUT DD_HALINFO  *pHalInfo,
-  OUT DWORD  *pdwNumHeaps,
-  OUT VIDEOMEMORY  *pvmList,
-  OUT DWORD  *pdwNumFourCCCodes,
-  OUT DWORD  *pdwFourCC);
+  DHPDEV  dhpdev,
+  DD_HALINFO  *pHalInfo,
+  DWORD  *pdwNumHeaps,
+  VIDEOMEMORY  *pvmList,
+  DWORD  *pdwNumFourCCCodes,
+  DWORD  *pdwFourCC);
 
 //DECLSPEC_DEPRECATED_DDK
 WINBOOL
 APIENTRY
 DrvQuerySpoolType(
-  IN DHPDEV dhpdev,
-  IN LPWSTR pwchType);
+  DHPDEV dhpdev,
+  LPWSTR pwchType);
 
 typedef WINBOOL
 (APIENTRY *PFN_DrvQuerySpoolType)(
-  IN DHPDEV dhpdev,
-  IN LPWSTR pwchType);
+  DHPDEV dhpdev,
+  LPWSTR pwchType);
 
 
 #ifdef __cplusplus

@@ -1,3 +1,10 @@
+2010-08-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* commctrl.h, dmksctrl.h, hidpi.h, kcom.h, ntdd8042.h, ntdef.h,
+	unknown.h, usbcamdi.h, usbiodef.h, usbrpmif.h, winddi.h, winsplp.h:
+	Remove unnecessary IN/OUT?OPTIONAL MSVC modifiers. Fix include
+	guard of unknown.h.
+
 2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Copy over more DDK dependency headers from experimental/ddk_test:

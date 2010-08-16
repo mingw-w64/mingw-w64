@@ -455,12 +455,12 @@ typedef struct _ATTRIBUTE_INFO_3 {
 
 typedef WINBOOL
 (CALLBACK *ROUTER_NOTIFY_CALLBACK)(
-  IN DWORD dwCommand,
-  IN PVOID pContext,
-  IN DWORD dwColor,
-  IN PPRINTER_NOTIFY_INFO pNofityInfo,
-  IN DWORD fdwFlags,
-  OUT PDWORD pdwResult);
+  DWORD dwCommand,
+  PVOID pContext,
+  DWORD dwColor,
+  PPRINTER_NOTIFY_INFO pNofityInfo,
+  DWORD fdwFlags,
+  PDWORD pdwResult);
 
 typedef enum _NOTIFICATION_CALLBACK_COMMANDS {
   NOTIFICATION_COMMAND_NOTIFY,
@@ -542,52 +542,52 @@ typedef SPLCLIENT_INFO_2_LONGHORN SPLCLIENT_INFO_2, *PSPLCLIENT_INFO_2, *LPSPLCL
 WINBOOL
 WINAPI
 InitializePrintProvidor(
-  OUT LPPRINTPROVIDOR pPrintProvidor,
-  IN DWORD cbPrintProvidor,
-  IN LPWSTR pFullRegistryPath OPTIONAL);
+  LPPRINTPROVIDOR pPrintProvidor,
+  DWORD cbPrintProvidor,
+  LPWSTR pFullRegistryPath);
 
 HANDLE
 WINAPI
 OpenPrintProcessor(
-  IN LPWSTR pPrinterName,
-  IN PPRINTPROCESSOROPENDATA pPrintProcessorOpenData);
+  LPWSTR pPrinterName,
+  PPRINTPROCESSOROPENDATA pPrintProcessorOpenData);
 
 WINBOOL
 WINAPI
 PrintDocumentOnPrintProcessor(
-  IN HANDLE hPrintProcessor,
-  IN LPWSTR pDocumentName);
+  HANDLE hPrintProcessor,
+  LPWSTR pDocumentName);
 
 WINBOOL
 WINAPI
 ClosePrintProcessor(
-  IN OUT HANDLE hPrintProcessor);
+  HANDLE hPrintProcessor);
 
 WINBOOL
 WINAPI
 ControlPrintProcessor(
-  IN HANDLE hPrintProcessor,
-  IN DWORD Command);
+  HANDLE hPrintProcessor,
+  DWORD Command);
 
 DWORD
 WINAPI
 GetPrintProcessorCapabilities(
-  IN LPTSTR pValueName,
-  IN DWORD dwAttributes,
-  OUT LPBYTE pData,
-  IN DWORD nSize,
-  OUT LPDWORD pcbNeeded);
+  LPTSTR pValueName,
+  DWORD dwAttributes,
+  LPBYTE pData,
+  DWORD nSize,
+  LPDWORD pcbNeeded);
 
 WINBOOL
 WINAPI
 InitializeMonitor(
-  IN LPWSTR pRegistryRoot);
+  LPWSTR pRegistryRoot);
 
 WINBOOL
 WINAPI
 OpenPort(
-  IN LPWSTR pName,
-  OUT PHANDLE pHandle);
+  LPWSTR pName,
+  PHANDLE pHandle);
 
 WINBOOL
 WINAPI
@@ -608,7 +608,7 @@ ReadPort(
 WINBOOL
 WINAPI
 ClosePort(
-  IN HANDLE hPort);
+  HANDLE hPort);
 
 WINBOOL
 WINAPI
@@ -631,60 +631,60 @@ XcvDataPort(
 WINBOOL
 WINAPI
 XcvClosePort(
-  IN HANDLE hXcv);
+  HANDLE hXcv);
 
 WINBOOL
 WINAPI
 AddPortUI(
-  IN PCWSTR pszServer OPTIONAL,
-  IN HWND hWnd,
-  IN PCWSTR pszMonitorNameIn,
-  OUT PWSTR *ppszPortNameOut OPTIONAL);
+  PCWSTR pszServer,
+  HWND hWnd,
+  PCWSTR pszMonitorNameIn,
+  PWSTR *ppszPortNameOut);
 
 WINBOOL
 WINAPI
 ConfigurePortUI(
-  IN PCWSTR pszServer,
-  IN HWND hWnd,
-  IN PCWSTR pszPortName);
+  PCWSTR pszServer,
+  HWND hWnd,
+  PCWSTR pszPortName);
 
 WINBOOL
 WINAPI
 DeletePortUI(
-  IN PCWSTR pszServer,
-  IN HWND hWnd,
-  IN PCWSTR pszPortName);
+  PCWSTR pszServer,
+  HWND hWnd,
+  PCWSTR pszPortName);
 
 WINBOOL
 WINAPI
 SplDeleteSpoolerPortStart(
-  IN PCWSTR pPortName);
+  PCWSTR pPortName);
 
 WINBOOL
 WINAPI
 SplDeleteSpoolerPortEnd(
-  IN PCWSTR pName,
-  IN WINBOOL bDeletePort);
+  PCWSTR pName,
+  WINBOOL bDeletePort);
 
 WINBOOL
 WINAPI
 SpoolerCopyFileEvent(
-  IN LPWSTR pszPrinterName,
-  IN LPWSTR pszKey,
-  IN DWORD dwCopyFileEvent);
+  LPWSTR pszPrinterName,
+  LPWSTR pszKey,
+  DWORD dwCopyFileEvent);
 
 DWORD
 WINAPI
 GenerateCopyFilePaths(
-  IN LPCWSTR pszPrinterName,
-  IN LPCWSTR pszDirectory,
-  IN LPBYTE pSplClientInfo,
-  IN DWORD dwLevel,
-  IN OUT LPWSTR pszSourceDir,
-  IN OUT LPDWORD pcchSourceDirSize,
-  IN OUT LPWSTR pszTargetDir,
-  IN OUT LPDWORD pcchTargetDirSize,
-  IN DWORD dwFlags);
+  LPCWSTR pszPrinterName,
+  LPCWSTR pszDirectory,
+  LPBYTE pSplClientInfo,
+  DWORD dwLevel,
+  LPWSTR pszSourceDir,
+  LPDWORD pcchSourceDirSize,
+  LPWSTR pszTargetDir,
+  LPDWORD pcchTargetDirSize,
+  DWORD dwFlags);
 
 HANDLE WINAPI CreatePrinterIC(HANDLE hPrinter, LPDEVMODEW pDevMode);
 WINBOOL WINAPI PlayGdiScriptOnPrinterIC(HANDLE hPrinterIC, LPBYTE pIn,
@@ -750,17 +750,17 @@ VOID WINAPI RouterFreeBidiMem(PVOID pMemPointer);
 WINBOOL
 WINAPI
 SplPromptUIInUsersSession(
-  IN HANDLE hPrinter,
-  IN DWORD JobId,
-  IN PSHOWUIPARAMS pUIParams,
-  OUT DWORD *pResponse);
+  HANDLE hPrinter,
+  DWORD JobId,
+  PSHOWUIPARAMS pUIParams,
+  DWORD *pResponse);
 
 DWORD
 WINAPI
 SplIsSessionZero(
-  IN HANDLE hPrinter,
-  IN DWORD JobId,
-  OUT WINBOOL *pIsSessionZero);
+  HANDLE hPrinter,
+  DWORD JobId,
+  WINBOOL *pIsSessionZero);
 
 #endif /* (NTDDI_VERSION >= NTDDI_WINXP) */
 
@@ -768,9 +768,9 @@ SplIsSessionZero(
 WINBOOL
 WINAPI
 GetJobAttributes(
-  IN LPWSTR pPrinterName,
-  IN LPDEVMODEW pDevmode,
-  OUT PATTRIBUTE_INFO_3 pAttributeInfo);
+  LPWSTR pPrinterName,
+  LPDEVMODEW pDevmode,
+  PATTRIBUTE_INFO_3 pAttributeInfo);
 #endif
 
 #if (NTDDI_VERSION >= NTDDI_VISTA)
@@ -780,12 +780,12 @@ GetJobAttributes(
 WINBOOL
 WINAPI
 GetJobAttributesEx(
-  IN LPWSTR pPrinterName,
-  IN LPDEVMODEW pDevmode,
-  IN DWORD dwLevel,
-  OUT LPBYTE pAttributeInfo,
-  IN DWORD nSize,
-  IN DWORD dwFlags);
+  LPWSTR pPrinterName,
+  LPDEVMODEW pDevmode,
+  DWORD dwLevel,
+  LPBYTE pAttributeInfo,
+  DWORD nSize,
+  DWORD dwFlags);
 
 WINBOOL WINAPI SpoolerRefreshPrinterChangeNotification(HANDLE hPrinter,
                                                     DWORD dwColor,

@@ -135,33 +135,33 @@ typedef struct _INTERNAL_I8042_START_INFORMATION {
 
 typedef VOID
 (NTAPI *PI8042_ISR_WRITE_PORT)(
-  IN PVOID  Context,
-  IN UCHAR  Value);
+  PVOID  Context,
+  UCHAR  Value);
 
 typedef VOID
 (NTAPI *PI8042_QUEUE_PACKET)(
-  IN PVOID  Context);
+  PVOID  Context);
 
 typedef NTSTATUS
 (NTAPI *PI8042_SYNCH_READ_PORT) (
-  IN PVOID  Context,
-  OUT PUCHAR  Value,
-  IN BOOLEAN  WaitForACK);
+  PVOID  Context,
+  PUCHAR  Value,
+  BOOLEAN  WaitForACK);
 
 typedef NTSTATUS
 (NTAPI *PI8042_SYNCH_WRITE_PORT)(
-  IN PVOID  Context,
-  IN UCHAR  Value,
-  IN BOOLEAN  WaitForACK);
+  PVOID  Context,
+  UCHAR  Value,
+  BOOLEAN  WaitForACK);
 
 
 typedef NTSTATUS
 (NTAPI *PI8042_KEYBOARD_INITIALIZATION_ROUTINE)(
-  IN PVOID  InitializationContext,
-  IN PVOID  SynchFuncContext,
-  IN PI8042_SYNCH_READ_PORT  ReadPort,
-  IN PI8042_SYNCH_WRITE_PORT  WritePort,
-  OUT PBOOLEAN  TurnTranslationOn);
+  PVOID  InitializationContext,
+  PVOID  SynchFuncContext,
+  PI8042_SYNCH_READ_PORT  ReadPort,
+  PI8042_SYNCH_WRITE_PORT  WritePort,
+  PBOOLEAN  TurnTranslationOn);
 
 typedef BOOLEAN
 (NTAPI *PI8042_KEYBOARD_ISR)(
@@ -174,12 +174,12 @@ typedef BOOLEAN
   PKEYBOARD_SCAN_STATE  ScanState);
 
 typedef struct _INTERNAL_I8042_HOOK_KEYBOARD {
-	OUT PVOID  Context;
-	OUT PI8042_KEYBOARD_INITIALIZATION_ROUTINE  InitializationRoutine;
-	OUT PI8042_KEYBOARD_ISR  IsrRoutine;
-	IN PI8042_ISR_WRITE_PORT  IsrWritePort;
-	IN PI8042_QUEUE_PACKET  QueueKeyboardPacket;
-	IN PVOID  CallContext;
+	PVOID  Context;
+	PI8042_KEYBOARD_INITIALIZATION_ROUTINE  InitializationRoutine;
+	PI8042_KEYBOARD_ISR  IsrRoutine;
+	PI8042_ISR_WRITE_PORT  IsrWritePort;
+	PI8042_QUEUE_PACKET  QueueKeyboardPacket;
+	PVOID  CallContext;
 } INTERNAL_I8042_HOOK_KEYBOARD, *PINTERNAL_I8042_HOOK_KEYBOARD;
 
 typedef BOOLEAN
@@ -194,11 +194,11 @@ typedef BOOLEAN
   PMOUSE_RESET_SUBSTATE  ResetSubState);
 
 typedef struct _INTERNAL_I8042_HOOK_MOUSE {
-  OUT PVOID  Context;
-  OUT PI8042_MOUSE_ISR  IsrRoutine;
-  IN PI8042_ISR_WRITE_PORT  IsrWritePort;
-  IN PI8042_QUEUE_PACKET  QueueMousePacket;
-  IN PVOID  CallContext;
+  PVOID  Context;
+  PI8042_MOUSE_ISR  IsrRoutine;
+  PI8042_ISR_WRITE_PORT  IsrWritePort;
+  PI8042_QUEUE_PACKET  QueueMousePacket;
+  PVOID  CallContext;
 } INTERNAL_I8042_HOOK_MOUSE, *PINTERNAL_I8042_HOOK_MOUSE;
 
 #ifdef __cplusplus

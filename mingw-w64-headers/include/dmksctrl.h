@@ -31,27 +31,27 @@ DECLARE_INTERFACE_(IKsControl, IUnknown)
     /*IKsControl*/
     STDMETHOD(KsProperty)(
         THIS_
-        IN PKSPROPERTY Property,
-        IN ULONG PropertyLength,
-        IN OUT LPVOID PropertyData,
-        IN ULONG DataLength,
-        OUT ULONG* BytesReturned
+        PKSPROPERTY Property,
+        ULONG PropertyLength,
+        LPVOID PropertyData,
+        ULONG DataLength,
+        ULONG* BytesReturned
     ) PURE;
     STDMETHOD(KsMethod)(
         THIS_
-        IN PKSMETHOD Method,
-        IN ULONG MethodLength,
-        IN OUT LPVOID MethodData,
-        IN ULONG DataLength,
-        OUT ULONG* BytesReturned
+        PKSMETHOD Method,
+        ULONG MethodLength,
+        LPVOID MethodData,
+        ULONG DataLength,
+        ULONG* BytesReturned
     ) PURE;
     STDMETHOD(KsEvent)(
         THIS_
-        IN PKSEVENT Event OPTIONAL,
-        IN ULONG EventLength,
-        IN OUT LPVOID EventData,
-        IN ULONG DataLength,
-        OUT ULONG* BytesReturned
+        PKSEVENT Event,
+        ULONG EventLength,
+        LPVOID EventData,
+        ULONG DataLength,
+        ULONG* BytesReturned
     ) PURE;
 };
 

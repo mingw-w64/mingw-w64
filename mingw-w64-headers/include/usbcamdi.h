@@ -62,15 +62,15 @@ typedef enum {
 
 typedef NTSTATUS
 (NTAPI *PCOMMAND_COMPLETE_FUNCTION)(
-  IN PVOID DeviceContext,
-  IN OUT PVOID CommandContext,
-  IN NTSTATUS NtStatus);
+  PVOID DeviceContext,
+  PVOID CommandContext,
+  NTSTATUS NtStatus);
 
 typedef VOID
 (NTAPI *PSTREAM_RECEIVE_PACKET)(
-  IN PVOID Srb,
-  IN PVOID DeviceContext,
-  IN PBOOLEAN Completed);
+  PVOID Srb,
+  PVOID DeviceContext,
+  PBOOLEAN Completed);
 
 typedef NTSTATUS
 (NTAPI *PCAM_INITIALIZE_ROUTINE)(
@@ -79,142 +79,142 @@ typedef NTSTATUS
 
 typedef NTSTATUS
 (NTAPI *PCAM_CONFIGURE_ROUTINE)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN PUSBD_INTERFACE_INFORMATION Interface,
-  IN PUSB_CONFIGURATION_DESCRIPTOR ConfigurationDescriptor,
-  IN PLONG DataPipeIndex,
-  IN PLONG SyncPipeIndex);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  PUSBD_INTERFACE_INFORMATION Interface,
+  PUSB_CONFIGURATION_DESCRIPTOR ConfigurationDescriptor,
+  PLONG DataPipeIndex,
+  PLONG SyncPipeIndex);
 
 typedef NTSTATUS
 (NTAPI *PCAM_CONFIGURE_ROUTINE_EX)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN PUSBD_INTERFACE_INFORMATION Interface,
-  IN PUSB_CONFIGURATION_DESCRIPTOR ConfigurationDescriptor,
-  IN ULONG PipeConfigListSize,
-  IN PUSBCAMD_Pipe_Config_Descriptor PipeConfig,
-  IN PUSB_DEVICE_DESCRIPTOR DeviceDescriptor);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  PUSBD_INTERFACE_INFORMATION Interface,
+  PUSB_CONFIGURATION_DESCRIPTOR ConfigurationDescriptor,
+  ULONG PipeConfigListSize,
+  PUSBCAMD_Pipe_Config_Descriptor PipeConfig,
+  PUSB_DEVICE_DESCRIPTOR DeviceDescriptor);
 
 typedef NTSTATUS
 (NTAPI *PCAM_START_CAPTURE_ROUTINE)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext);
 
 typedef NTSTATUS
 (NTAPI *PCAM_START_CAPTURE_ROUTINE_EX)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN ULONG StreamNumber);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  ULONG StreamNumber);
 
 typedef NTSTATUS
 (NTAPI *PCAM_ALLOCATE_BW_ROUTINE)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN PULONG RawFrameLength,
-  IN PVOID Format);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  PULONG RawFrameLength,
+  PVOID Format);
 
 typedef NTSTATUS
 (NTAPI *PCAM_ALLOCATE_BW_ROUTINE_EX)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN PULONG RawFrameLength,
-  IN PVOID Format,
-  IN ULONG StreamNumber);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  PULONG RawFrameLength,
+  PVOID Format,
+  ULONG StreamNumber);
 
 typedef NTSTATUS
 (NTAPI *PCAM_FREE_BW_ROUTINE)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext);
 
 typedef NTSTATUS
 (NTAPI *PCAM_FREE_BW_ROUTINE_EX)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN ULONG StreamNumber);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  ULONG StreamNumber);
 
 typedef VOID
 (NTAPI *PADAPTER_RECEIVE_PACKET_ROUTINE)(
-  IN OUT PHW_STREAM_REQUEST_BLOCK Srb);
+  PHW_STREAM_REQUEST_BLOCK Srb);
 
 typedef NTSTATUS
 (NTAPI *PCAM_STOP_CAPTURE_ROUTINE)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext);
 
 typedef NTSTATUS
 (NTAPI *PCAM_STOP_CAPTURE_ROUTINE_EX)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN ULONG StreamNumber);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  ULONG StreamNumber);
 
 typedef ULONG
 (NTAPI *PCAM_PROCESS_PACKET_ROUTINE)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN PVOID CurrentFrameContext,
-  IN PUSBD_ISO_PACKET_DESCRIPTOR SyncPacket OPTIONAL,
-  IN PVOID SyncBuffer OPTIONAL,
-  IN PUSBD_ISO_PACKET_DESCRIPTOR DataPacket OPTIONAL,
-  IN OUT PVOID DataBuffer,
-  OUT PBOOLEAN FrameComplete,
-  OUT PBOOLEAN NextFrameIsStill);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  PVOID CurrentFrameContext,
+  PUSBD_ISO_PACKET_DESCRIPTOR SyncPacket,
+  PVOID SyncBuffer,
+  PUSBD_ISO_PACKET_DESCRIPTOR DataPacket,
+  PVOID DataBuffer,
+  PBOOLEAN FrameComplete,
+  PBOOLEAN NextFrameIsStill);
 
 typedef ULONG
 (NTAPI *PCAM_PROCESS_PACKET_ROUTINE_EX)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN PVOID CurrentFrameContext,
-  IN PUSBD_ISO_PACKET_DESCRIPTOR SyncPacket OPTIONAL,
-  IN PVOID SyncBuffer OPTIONAL,
-  IN PUSBD_ISO_PACKET_DESCRIPTOR DataPacket OPTIONAL,
-  IN OUT PVOID DataBuffer,
-  OUT PBOOLEAN FrameComplete,
-  OUT PULONG PacketFlag,
-  OUT PULONG ValidDataOffset);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  PVOID CurrentFrameContext,
+  PUSBD_ISO_PACKET_DESCRIPTOR SyncPacket,
+  PVOID SyncBuffer,
+  PUSBD_ISO_PACKET_DESCRIPTOR DataPacket,
+  PVOID DataBuffer,
+  PBOOLEAN FrameComplete,
+  PULONG PacketFlag,
+  PULONG ValidDataOffset);
 
 typedef VOID
 (NTAPI *PCAM_NEW_FRAME_ROUTINE)(
-  IN PVOID DeviceContext,
-  IN PVOID FrameContext);
+  PVOID DeviceContext,
+  PVOID FrameContext);
 
 typedef VOID
 (NTAPI *PCAM_NEW_FRAME_ROUTINE_EX)(
-  IN PVOID DeviceContext,
-  IN PVOID FrameContext,
-  IN ULONG StreamNumber,
-  OUT PULONG FrameLength);
+  PVOID DeviceContext,
+  PVOID FrameContext,
+  ULONG StreamNumber,
+  PULONG FrameLength);
 
 typedef NTSTATUS
 (NTAPI *PCAM_PROCESS_RAW_FRAME_ROUTINE)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN PVOID FrameContext,
-  IN PVOID FrameBuffer,
-  IN ULONG FrameLength,
-  OUT PVOID RawFrameBuffer,
-  IN ULONG RawFrameLength,
-  IN ULONG NumberOfPackets,
-  OUT PULONG BytesReturned);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  PVOID FrameContext,
+  PVOID FrameBuffer,
+  ULONG FrameLength,
+  PVOID RawFrameBuffer,
+  ULONG RawFrameLength,
+  ULONG NumberOfPackets,
+  PULONG BytesReturned);
 
 typedef NTSTATUS
 (NTAPI *PCAM_PROCESS_RAW_FRAME_ROUTINE_EX)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext,
-  IN PVOID FrameContext,
-  IN PVOID FrameBuffer,
-  IN ULONG FrameLength,
-  OUT PVOID RawFrameBuffer,
-  IN ULONG RawFrameLength,
-  IN ULONG NumberOfPackets,
-  OUT PULONG BytesReturned,
-  IN ULONG ActualRawFrameLength,
-  IN ULONG StreamNumber);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext,
+  PVOID FrameContext,
+  PVOID FrameBuffer,
+  ULONG FrameLength,
+  PVOID RawFrameBuffer,
+  ULONG RawFrameLength,
+  ULONG NumberOfPackets,
+  PULONG BytesReturned,
+  ULONG ActualRawFrameLength,
+  ULONG StreamNumber);
 
 typedef NTSTATUS
 (NTAPI *PCAM_STATE_ROUTINE)(
-  IN PDEVICE_OBJECT BusDeviceObject,
-  IN PVOID DeviceContext);
+  PDEVICE_OBJECT BusDeviceObject,
+  PVOID DeviceContext);
 
 #if defined(DEBUG_LOG)
 
@@ -222,10 +222,10 @@ USBCAMAPI
 VOID
 NTAPI
 USBCAMD_Debug_LogEntry(
-  IN CHAR *Name,
-  IN ULONG Info1,
-  IN ULONG Info2,
-  IN ULONG Info3);
+  CHAR *Name,
+  ULONG Info1,
+  ULONG Info2,
+  ULONG Info3);
 
 #define ILOGENTRY(sig, info1, info2, info3) \
   USBCAMD_Debug_LogEntry(sig, (ULONG)info1, (ULONG)info2, (ULONG)info3)
@@ -273,37 +273,37 @@ DEFINE_GUID(GUID_USBCAMD_INTERFACE,
 
 typedef NTSTATUS
 (NTAPI *PFNUSBCAMD_SetVideoFormat)(
-  IN PVOID DeviceContext,
-  IN PHW_STREAM_REQUEST_BLOCK pSrb);
+  PVOID DeviceContext,
+  PHW_STREAM_REQUEST_BLOCK pSrb);
 
 typedef NTSTATUS
 (NTAPI *PFNUSBCAMD_WaitOnDeviceEvent)(
-  IN PVOID DeviceContext,
-  IN ULONG PipeIndex,
-  IN PVOID Buffer,
-  IN ULONG BufferLength,
-  IN PCOMMAND_COMPLETE_FUNCTION EventComplete,
-  IN PVOID EventContext,
-  IN BOOLEAN LoopBack);
+  PVOID DeviceContext,
+  ULONG PipeIndex,
+  PVOID Buffer,
+  ULONG BufferLength,
+  PCOMMAND_COMPLETE_FUNCTION EventComplete,
+  PVOID EventContext,
+  BOOLEAN LoopBack);
 
 typedef NTSTATUS
 (NTAPI *PFNUSBCAMD_CancelBulkReadWrite)(
-  IN PVOID DeviceContext,
-  IN ULONG PipeIndex);
+  PVOID DeviceContext,
+  ULONG PipeIndex);
 
 typedef NTSTATUS
 (NTAPI *PFNUSBCAMD_SetIsoPipeState)(
-  IN PVOID DeviceContext,
-  IN ULONG PipeStateFlags);
+  PVOID DeviceContext,
+  ULONG PipeStateFlags);
 
 typedef NTSTATUS
 (NTAPI *PFNUSBCAMD_BulkReadWrite)(
-  IN PVOID DeviceContext,
-  IN USHORT PipeIndex,
-  IN PVOID Buffer,
-  IN ULONG BufferLength,
-  IN PCOMMAND_COMPLETE_FUNCTION CommandComplete,
-  IN PVOID CommandContext);
+  PVOID DeviceContext,
+  USHORT PipeIndex,
+  PVOID Buffer,
+  ULONG BufferLength,
+  PCOMMAND_COMPLETE_FUNCTION CommandComplete,
+  PVOID CommandContext);
 
 #define USBCAMD_VERSION_200               0x200
 
@@ -322,60 +322,60 @@ USBCAMAPI
 ULONG
 NTAPI
 USBCAMD_DriverEntry(
-  IN PVOID Context1,
-  IN PVOID Context2,
-  IN ULONG DeviceContextSize,
-  IN ULONG FrameContextSize,
-  IN PADAPTER_RECEIVE_PACKET_ROUTINE ReceivePacket);
+  PVOID Context1,
+  PVOID Context2,
+  ULONG DeviceContextSize,
+  ULONG FrameContextSize,
+  PADAPTER_RECEIVE_PACKET_ROUTINE ReceivePacket);
 
 USBCAMAPI
 PVOID
 NTAPI
 USBCAMD_AdapterReceivePacket(
-  IN PHW_STREAM_REQUEST_BLOCK Srb,
-  IN PUSBCAMD_DEVICE_DATA DeviceData,
-  IN PDEVICE_OBJECT *DeviceObject,
-  IN BOOLEAN NeedsCompletion);
+  PHW_STREAM_REQUEST_BLOCK Srb,
+  PUSBCAMD_DEVICE_DATA DeviceData,
+  PDEVICE_OBJECT *DeviceObject,
+  BOOLEAN NeedsCompletion);
 
 USBCAMAPI
 NTSTATUS
 NTAPI
 USBCAMD_ControlVendorCommand(
-  IN PVOID DeviceContext,
-  IN UCHAR Request,
-  IN USHORT Value,
-  IN USHORT Index,
-  IN OUT PVOID Buffer,
-  IN OUT PULONG BufferLength,
-  IN BOOLEAN GetData,
-  IN PCOMMAND_COMPLETE_FUNCTION CommandComplete OPTIONAL,
-  IN PVOID CommandContext OPTIONAL);
+  PVOID DeviceContext,
+  UCHAR Request,
+  USHORT Value,
+  USHORT Index,
+  PVOID Buffer,
+  PULONG BufferLength,
+  BOOLEAN GetData,
+  PCOMMAND_COMPLETE_FUNCTION CommandComplete,
+  PVOID CommandContext);
 
 USBCAMAPI
 NTSTATUS
 NTAPI
 USBCAMD_SelectAlternateInterface(
-  IN PVOID DeviceContext,
-  IN OUT PUSBD_INTERFACE_INFORMATION RequestInterface);
+  PVOID DeviceContext,
+  PUSBD_INTERFACE_INFORMATION RequestInterface);
 
 USBCAMAPI
 NTSTATUS
 NTAPI
 USBCAMD_GetRegistryKeyValue(
-  IN HANDLE Handle,
-  IN PWCHAR KeyNameString,
-  IN ULONG KeyNameStringLength,
-  IN PVOID Data,
-  IN ULONG DataLength);
+  HANDLE Handle,
+  PWCHAR KeyNameString,
+  ULONG KeyNameStringLength,
+  PVOID Data,
+  ULONG DataLength);
 
 USBCAMAPI
 ULONG
 NTAPI
 USBCAMD_InitializeNewInterface(
-  IN PVOID DeviceContext,
-  IN PVOID DeviceData,
-  IN ULONG Version,
-  IN ULONG CamControlFlag);
+  PVOID DeviceContext,
+  PVOID DeviceData,
+  ULONG Version,
+  ULONG CamControlFlag);
 
 #ifdef __cplusplus
 }

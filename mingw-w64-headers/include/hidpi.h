@@ -70,9 +70,9 @@ typedef struct _HIDP_KEYBOARD_MODIFIER_STATE {
 } HIDP_KEYBOARD_MODIFIER_STATE, *PHIDP_KEYBOARD_MODIFIER_STATE;
 
 typedef BOOLEAN (NTAPI *PHIDP_INSERT_SCANCODES)(
-  IN PVOID  Context,
-  IN PCHAR  NewScanCodes,
-  IN ULONG  Length);
+  PVOID  Context,
+  PCHAR  NewScanCodes,
+  ULONG  Length);
 
 typedef struct _USAGE_AND_PAGE {
   USAGE  Usage;
@@ -96,23 +96,23 @@ HIDAPI
 NTSTATUS
 NTAPI
 HidP_TranslateUsageAndPagesToI8042ScanCodes(
-  IN PUSAGE_AND_PAGE  ChangedUsageList,
-  IN ULONG  UsageListLength,
-  IN HIDP_KEYBOARD_DIRECTION  KeyAction,
-  IN OUT PHIDP_KEYBOARD_MODIFIER_STATE  ModifierState,
-  IN PHIDP_INSERT_SCANCODES  InsertCodesProcedure,
-  IN PVOID  InsertCodesContext);
+  PUSAGE_AND_PAGE  ChangedUsageList,
+  ULONG  UsageListLength,
+  HIDP_KEYBOARD_DIRECTION  KeyAction,
+  PHIDP_KEYBOARD_MODIFIER_STATE  ModifierState,
+  PHIDP_INSERT_SCANCODES  InsertCodesProcedure,
+  PVOID  InsertCodesContext);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_TranslateUsagesToI8042ScanCodes(
-  IN PUSAGE  ChangedUsageList,
-  IN ULONG  UsageListLength,
-  IN HIDP_KEYBOARD_DIRECTION  KeyAction,
-  IN OUT PHIDP_KEYBOARD_MODIFIER_STATE  ModifierState,
-  IN PHIDP_INSERT_SCANCODES  InsertCodesProcedure,
-  IN PVOID  InsertCodesContext);
+  PUSAGE  ChangedUsageList,
+  ULONG  UsageListLength,
+  HIDP_KEYBOARD_DIRECTION  KeyAction,
+  PHIDP_KEYBOARD_MODIFIER_STATE  ModifierState,
+  PHIDP_INSERT_SCANCODES  InsertCodesProcedure,
+  PVOID  InsertCodesContext);
 
 typedef struct _HIDP_BUTTON_CAPS {
   USAGE  UsagePage;
@@ -315,126 +315,126 @@ HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetCaps(
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  OUT PHIDP_CAPS  Capabilities);
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PHIDP_CAPS  Capabilities);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetData(
-  IN HIDP_REPORT_TYPE  ReportType,
-  OUT PHIDP_DATA  DataList,
-  IN OUT PULONG  DataLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  PHIDP_DATA  DataList,
+  PULONG  DataLength,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetExtendedAttributes(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USHORT  DataIndex,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  OUT PHIDP_EXTENDED_ATTRIBUTES  Attributes,
-  IN OUT PULONG  LengthAttributes);
+  HIDP_REPORT_TYPE  ReportType,
+  USHORT  DataIndex,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PHIDP_EXTENDED_ATTRIBUTES  Attributes,
+  PULONG  LengthAttributes);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetLinkCollectionNodes(
-  OUT PHIDP_LINK_COLLECTION_NODE  LinkCollectionNodes,
-  IN OUT PULONG  LinkCollectionNodesLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData);
+  PHIDP_LINK_COLLECTION_NODE  LinkCollectionNodes,
+  PULONG  LinkCollectionNodesLength,
+  PHIDP_PREPARSED_DATA  PreparsedData);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetScaledUsageValue(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection  OPTIONAL,
-  IN USAGE  Usage,
-  OUT PLONG  UsageValue,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection,
+  USAGE  Usage,
+  PLONG  UsageValue,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetSpecificButtonCaps(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection,
-  IN USAGE  Usage,
-  OUT PHIDP_BUTTON_CAPS  ButtonCaps,
-  IN OUT PULONG  ButtonCapsLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection,
+  USAGE  Usage,
+  PHIDP_BUTTON_CAPS  ButtonCaps,
+  PULONG  ButtonCapsLength,
+  PHIDP_PREPARSED_DATA  PreparsedData);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetSpecificValueCaps(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection,
-  IN USAGE  Usage,
-  OUT PHIDP_VALUE_CAPS  ValueCaps,
-  IN OUT PULONG  ValueCapsLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection,
+  USAGE  Usage,
+  PHIDP_VALUE_CAPS  ValueCaps,
+  PULONG  ValueCapsLength,
+  PHIDP_PREPARSED_DATA  PreparsedData);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetUsages(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection  OPTIONAL,
-  OUT USAGE  *UsageList,
-  IN OUT ULONG  *UsageLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection,
+  USAGE  *UsageList,
+  ULONG  *UsageLength,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetUsagesEx(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USHORT  LinkCollection,
-  OUT PUSAGE_AND_PAGE  ButtonList,
-  IN OUT ULONG  *UsageLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  USHORT  LinkCollection,
+  PUSAGE_AND_PAGE  ButtonList,
+  ULONG  *UsageLength,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetUsageValue(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection,
-  IN USAGE  Usage,
-  OUT PULONG  UsageValue,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection,
+  USAGE  Usage,
+  PULONG  UsageValue,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_GetUsageValueArray(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection  OPTIONAL,
-  IN USAGE  Usage,
-  OUT PCHAR  UsageValue,
-  IN USHORT  UsageValueByteLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection,
+  USAGE  Usage,
+  PCHAR  UsageValue,
+  USHORT  UsageValueByteLength,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 #if !defined(_HIDPI_NO_FUNCTION_MACROS_)
 
@@ -455,11 +455,11 @@ HIDAPI
 NTSTATUS
 NTAPI
 HidP_InitializeReportForID(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN UCHAR  ReportID,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN OUT PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  UCHAR  ReportID,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 #if !defined(_HIDPI_NO_FUNCTION_MACROS_)
 
@@ -477,16 +477,16 @@ HIDAPI
 ULONG
 NTAPI
 HidP_MaxDataListLength(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN PHIDP_PREPARSED_DATA  PreparsedData);
+  HIDP_REPORT_TYPE  ReportType,
+  PHIDP_PREPARSED_DATA  PreparsedData);
 
 HIDAPI
 ULONG
 NTAPI
 HidP_MaxUsageListLength(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage  OPTIONAL,
-  IN PHIDP_PREPARSED_DATA  PreparsedData);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  PHIDP_PREPARSED_DATA  PreparsedData);
 
 #if !defined(_HIDPI_NO_FUNCTION_MACROS_)
 
@@ -511,65 +511,65 @@ HIDAPI
 NTSTATUS
 NTAPI
 HidP_SetData(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN PHIDP_DATA  DataList,
-  IN OUT PULONG  DataLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN OUT PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  PHIDP_DATA  DataList,
+  PULONG  DataLength,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_SetScaledUsageValue(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection  OPTIONAL,
-  IN USAGE  Usage,
-  IN LONG  UsageValue,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN OUT PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection,
+  USAGE  Usage,
+  LONG  UsageValue,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_SetUsages(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection, /* Optional */
-  IN PUSAGE  UsageList,
-  IN OUT PULONG  UsageLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN OUT PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection, /* Optional */
+  PUSAGE  UsageList,
+  PULONG  UsageLength,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_SetUsageValue(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection,
-  IN USAGE  Usage,
-  IN ULONG  UsageValue,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN OUT PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection,
+  USAGE  Usage,
+  ULONG  UsageValue,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_SetUsageValueArray(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection  OPTIONAL,
-  IN USAGE  Usage,
-  IN PCHAR  UsageValue,
-  IN USHORT  UsageValueByteLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  OUT PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection,
+  USAGE  Usage,
+  PCHAR  UsageValue,
+  USHORT  UsageValueByteLength,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 #if !defined(_HIDPI_NO_FUNCTION_MACROS_)
 
@@ -594,34 +594,34 @@ HIDAPI
 NTSTATUS
 NTAPI
 HidP_UnsetUsages(
-  IN HIDP_REPORT_TYPE  ReportType,
-  IN USAGE  UsagePage,
-  IN USHORT  LinkCollection,
-  IN PUSAGE  UsageList,
-  IN OUT PULONG  UsageLength,
-  IN PHIDP_PREPARSED_DATA  PreparsedData,
-  IN OUT PCHAR  Report,
-  IN ULONG  ReportLength);
+  HIDP_REPORT_TYPE  ReportType,
+  USAGE  UsagePage,
+  USHORT  LinkCollection,
+  PUSAGE  UsageList,
+  PULONG  UsageLength,
+  PHIDP_PREPARSED_DATA  PreparsedData,
+  PCHAR  Report,
+  ULONG  ReportLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_UsageAndPageListDifference(
-  IN PUSAGE_AND_PAGE  PreviousUsageList,
-  IN PUSAGE_AND_PAGE  CurrentUsageList,
-  OUT PUSAGE_AND_PAGE  BreakUsageList,
-  OUT PUSAGE_AND_PAGE  MakeUsageList,
-  IN ULONG  UsageListLength);
+  PUSAGE_AND_PAGE  PreviousUsageList,
+  PUSAGE_AND_PAGE  CurrentUsageList,
+  PUSAGE_AND_PAGE  BreakUsageList,
+  PUSAGE_AND_PAGE  MakeUsageList,
+  ULONG  UsageListLength);
 
 HIDAPI
 NTSTATUS
 NTAPI
 HidP_UsageListDifference(
-  IN PUSAGE  PreviousUsageList,
-  IN PUSAGE  CurrentUsageList,
-  OUT PUSAGE  BreakUsageList,
-  OUT PUSAGE  MakeUsageList,
-  IN ULONG  UsageListLength);
+  PUSAGE  PreviousUsageList,
+  PUSAGE  CurrentUsageList,
+  PUSAGE  BreakUsageList,
+  PUSAGE  MakeUsageList,
+  ULONG  UsageListLength);
 
 #ifdef __cplusplus
 }

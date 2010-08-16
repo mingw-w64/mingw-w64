@@ -571,10 +571,10 @@ struct _EXCEPTION_RECORD;
 
 typedef EXCEPTION_DISPOSITION
 (NTAPI *PEXCEPTION_ROUTINE)(
-  IN struct _EXCEPTION_RECORD *ExceptionRecord,
-  IN PVOID EstablisherFrame,
-  IN OUT struct _CONTEXT *ContextRecord,
-  IN OUT PVOID DispatcherContext);
+  struct _EXCEPTION_RECORD *ExceptionRecord,
+  PVOID EstablisherFrame,
+  struct _CONTEXT *ContextRecord,
+  PVOID DispatcherContext);
 
 typedef struct _GROUP_AFFINITY {
   KAFFINITY Mask;
