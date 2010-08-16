@@ -108,6 +108,8 @@ limitations in handling dllimport attribute.  */
 
 #if __MINGW_GNUC_PREREQ (3,1) && !defined __GNUG__
 # define __restrict_arr __restrict
+#elif defined(_MSC_VER)
+# define __restrict_arr __restrict
 #else
 # ifdef __GNUC__
 #  define __restrict_arr        /* Not supported in old GCC.  */
@@ -121,7 +123,9 @@ limitations in handling dllimport attribute.  */
 #endif
 
 #if defined __GNUG__
-/* This is a fix for gcc < 4.6 wrong use of restrict in cstdio/cstdlib.  */
+/* This is a fix for gcc < 4.6 wrong use of restrict in cstdio/cstdlib.
+ * See http://gcc.gnu.org/bugzilla/show_bug.cgi?id=45300, fixed in 4.6
+ * as of svn rev. 163283  */
 #if !__MINGW_GNUC_PREREQ (4,6)
 # ifndef restrict
 #  if !defined __STDC_VERSION__ || __STDC_VERSION__ < 199901L
@@ -129,7 +133,7 @@ limitations in handling dllimport attribute.  */
 #  endif
 # endif
 #endif /* !__MINGW_GNUC_PREREQ (4,6) */
-#endif
+#endif /* __GNUG__ */
 
 #ifdef __GNUC__
 #define __MINGW_ATTRIB_NORETURN __attribute__ ((__noreturn__))
