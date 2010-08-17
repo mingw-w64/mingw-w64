@@ -11,5 +11,12 @@ long _InterlockedExchangeAdd(long volatile *Addend, long Value)
   return ret;
 }
 
+#ifdef _WIN64
 long InterlockedExchangeAdd(long volatile *, long) __attribute__((alias("_InterlockedExchangeAdd")));
+#else
+long __stdcall InterlockedExchangeAdd(long volatile *Addend, long Value)
+{
+  return _InterlockedExchangeAdd(Addend, Value);
+}
+#endif
 
