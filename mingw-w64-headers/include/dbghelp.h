@@ -1303,6 +1303,38 @@ extern "C" {
     };
   } MINIDUMP_CALLBACK_INPUT,*PMINIDUMP_CALLBACK_INPUT;
 
+typedef struct _MINIDUMP_MEMORY_INFO {
+  ULONG64 BaseAddress;
+  ULONG64 AllocationBase;
+  ULONG32 AllocationProtect;
+  ULONG32 __alignment1;
+  ULONG64 RegionSize;
+  ULONG32 State;
+  ULONG32 Protect;
+  ULONG32 Type;
+  ULONG32 __alignment2;
+} MINIDUMP_MEMORY_INFO, *PMINIDUMP_MEMORY_INFO;
+
+typedef struct _MINIDUMP_MISC_INFO_2 {
+  ULONG32 SizeOfInfo;
+  ULONG32 Flags1;
+  ULONG32 ProcessId;
+  ULONG32 ProcessCreateTime;
+  ULONG32 ProcessUserTime;
+  ULONG32 ProcessKernelTime;
+  ULONG32 ProcessorMaxMhz;
+  ULONG32 ProcessorCurrentMhz;
+  ULONG32 ProcessorMhzLimit;
+  ULONG32 ProcessorMaxIdleState;
+  ULONG32 ProcessorCurrentIdleState;
+} MINIDUMP_MISC_INFO_2, *PMINIDUMP_MISC_INFO_2;
+
+typedef struct _MINIDUMP_MEMORY_INFO_LIST {
+  ULONG   SizeOfHeader;
+  ULONG   SizeOfEntry;
+  ULONG64 NumberOfEntries;
+} MINIDUMP_MEMORY_INFO_LIST, *PMINIDUMP_MEMORY_INFO_LIST;
+
   typedef struct _MINIDUMP_CALLBACK_OUTPUT {
     __MINGW_EXTENSION union {
       ULONG ModuleWriteFlags;
@@ -1347,38 +1379,6 @@ extern "C" {
     MiniDumpIgnoreInaccessibleMemory         = 0x00020000,
     MiniDumpWithTokenInformation             = 0x00040000
   } MINIDUMP_TYPE;
-
-typedef struct _MINIDUMP_MEMORY_INFO {
-  ULONG64 BaseAddress;
-  ULONG64 AllocationBase;
-  ULONG32 AllocationProtect;
-  ULONG32 __alignment1;
-  ULONG64 RegionSize;
-  ULONG32 State;
-  ULONG32 Protect;
-  ULONG32 Type;
-  ULONG32 __alignment2;
-} MINIDUMP_MEMORY_INFO, *PMINIDUMP_MEMORY_INFO;
-
-typedef struct _MINIDUMP_MISC_INFO_2 {
-  ULONG32 SizeOfInfo;
-  ULONG32 Flags1;
-  ULONG32 ProcessId;
-  ULONG32 ProcessCreateTime;
-  ULONG32 ProcessUserTime;
-  ULONG32 ProcessKernelTime;
-  ULONG32 ProcessorMaxMhz;
-  ULONG32 ProcessorCurrentMhz;
-  ULONG32 ProcessorMhzLimit;
-  ULONG32 ProcessorMaxIdleState;
-  ULONG32 ProcessorCurrentIdleState;
-} MINIDUMP_MISC_INFO_2, *PMINIDUMP_MISC_INFO_2;
-
-typedef struct _MINIDUMP_MEMORY_INFO_LIST {
-  ULONG   SizeOfHeader;
-  ULONG   SizeOfEntry;
-  ULONG64 NumberOfEntries;
-} MINIDUMP_MEMORY_INFO_LIST, *PMINIDUMP_MEMORY_INFO_LIST;
 
 #define MINIDUMP_THREAD_INFO_ERROR_THREAD    0x00000001
 #define MINIDUMP_THREAD_INFO_WRITING_THREAD  0x00000002
