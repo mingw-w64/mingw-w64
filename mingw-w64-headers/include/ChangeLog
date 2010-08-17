@@ -1,5 +1,6 @@
 2010-08-17  Kai Tietz  <kai.tietz@onevision.com>
 
+	* winnt.h: Cleanup wrong defines for x86 and stdcall.
 	* winbase.h: Changed for x86 the Interlock... API to use
 	stdcall convention.
 

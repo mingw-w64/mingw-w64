@@ -1773,16 +1773,8 @@ typedef DWORD LCID;
 #define InterlockedDecrement16 _InterlockedDecrement16
 #define InterlockedCompareExchange16 _InterlockedCompareExchange16
 
-#define InterlockedAnd _InterlockedAnd
-#define InterlockedOr _InterlockedOr
-#define InterlockedXor _InterlockedXor
-#define InterlockedIncrement _InterlockedIncrement
 #define InterlockedIncrementAcquire InterlockedIncrement
 #define InterlockedIncrementRelease InterlockedIncrement
-#define InterlockedDecrement _InterlockedDecrement
-#define InterlockedExchange _InterlockedExchange
-#define InterlockedExchangeAdd _InterlockedExchangeAdd
-#define InterlockedCompareExchange _InterlockedCompareExchange
 
     BOOLEAN InterlockedBitTestAndSet(LONG *Base,LONG Bit);
     BOOLEAN InterlockedBitTestAndReset(LONG *Base,LONG Bit);
