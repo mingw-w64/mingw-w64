@@ -127,6 +127,11 @@ typedef struct _MFT_OUTPUT_DATA_BUFFER {
 
 #undef  INTERFACE
 #define INTERFACE IMFTransform
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IMFTransform,IUnknown)
 {
     BEGIN_INTERFACE
