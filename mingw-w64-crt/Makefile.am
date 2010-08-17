@@ -205,17 +205,21 @@ src_libmingwex=\
   stdio/_stat.c            stdio/strtof.c          stdio/ulltoa.c           stdio/ulltow.c            stdio/vfscanf.c         \
   stdio/vfwscanf.c         stdio/vscanf.c          stdio/vsnprintf.c        stdio/vsnwprintf.c        stdio/vsscanf.c         \
   stdio/vswscanf.c         stdio/vwscanf.c         stdio/wcstof.c           stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
-  stdio/_wstat64i32.c      stdio/_wstat.c          stdio/wtoll.c
+  stdio/_wstat64i32.c      stdio/_wstat.c          stdio/wtoll.c \
+  intrincs/ilockexchadd64.c intrincs/ilockand64.c  \
+  intrincs/ilockor64.c   intrincs/ilockxor64.c   intrincs/ilockinc64.c   \
+  intrincs/ilockdec64.c     intrincs/ilockexch64.c \
+  intrincs/ilockexchptr.c intrincs/ilockcxch64.c \
+  intrincs/ilockadd.c 
 
 # these only go into the 64 bit version:
 src_libmingwex64=\
   \
   intrincs/bittest64.c   intrincs/bittestc64.c   intrincs/bittestr64.c   intrincs/bittestri64.c    intrincs/bittests64.c  \
-  intrincs/bittestsi64.c intrincs/bitscanfwd64.c intrincs/bitscanrev64.c intrincs/ilockexchadd64.c intrincs/ilockand64.c  \
-  intrincs/ilockor64.c   intrincs/ilockxor64.c   intrincs/ilockinc64.c   intrincs/ilockdec64.c     intrincs/ilockexch64.c \
-  intrincs/ilockcxch64.c intrincs/ilockexchptr.c intrincs/ilockcxchptr.c intrincs/ilockadd.c       intrincs/ilockadd64.c  \
-  intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  intrincs/readgsqword.c    intrincs/writegsword.c \
-  intrincs/writegsbyte.c \
+  intrincs/bittestsi64.c intrincs/bitscanfwd64.c intrincs/bitscanrev64.c \
+  intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  \
+  intrincs/readgsqword.c    intrincs/writegsword.c \
+  intrincs/writegsbyte.c  intrincs/ilockadd64.c intrincs/ilockcxchptr.c \
   intrincs/writegsdword.c intrincs/writegsqword.c intrincs/mul128ex.c    intrincs/umul128ex.c \
   intrincs/__stosq.c     intrincs/_rotl64.c      intrincs/_rotr64.c
 

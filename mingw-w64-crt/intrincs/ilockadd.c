@@ -13,5 +13,12 @@ long _InterlockedAdd(long volatile *Addend, long Value)
   return ret + Value;
 }
 
+#ifdef _WIN64
 long InterlockedAdd(long volatile *, long) __attribute__((alias("_InterlockedAdd")));
+#else
+long __stdcall InterlockedAdd(long volatile *Addend, long Value)
+{
+  return _InterlockedAdd(Addend, Value);
+}
+#endif
 
