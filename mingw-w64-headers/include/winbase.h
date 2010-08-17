@@ -977,7 +977,8 @@ extern "C" {
   LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value);
   LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
   LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand);
-#else
+
+#else /* Not ia64, nor x64.  */
   LONG InterlockedIncrement(LONG volatile *lpAddend);
   LONG InterlockedDecrement(LONG volatile *lpAddend);
   LONG InterlockedExchange(LONG volatile *Target,LONG Value);
@@ -1074,7 +1075,7 @@ extern "C" {
 #define InterlockedCompareExchangeRelease64 InterlockedCompareExchange64
 #define InterlockedCompareExchangePointerAcquire InterlockedCompareExchangePointer
 #define InterlockedCompareExchangePointerRelease InterlockedCompareExchangePointer
-#endif
+#endif /* not ia64, nor x64.  */
 
 #if defined(_SLIST_HEADER_) && !defined(_NTOSP_)
   WINBASEAPI VOID WINAPI InitializeSListHead(PSLIST_HEADER ListHead);
