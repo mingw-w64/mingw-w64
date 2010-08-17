@@ -969,7 +969,9 @@ extern "C" {
   LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value);
   LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
   LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand);
-#else
+
+#else /* _X86_ interlocked api:  */
+
   LONG InterlockedIncrement(LONG volatile *lpAddend);
   LONG InterlockedDecrement(LONG volatile *lpAddend);
   LONG InterlockedExchange(LONG volatile *Target,LONG Value);
@@ -1046,13 +1048,17 @@ extern "C" {
 #endif /* !__CRT__NO_INLINE */
 
 #if defined(__cplusplus) && !defined(__CRT__NO_INLINE)
-  __CRT_INLINE PVOID __cdecl __InlineInterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand) {
-    return((PVOID)(LONG_PTR)InterlockedCompareExchange((LONG volatile *)Destination,(LONG)(LONG_PTR)ExChange,(LONG)(LONG_PTR)Comperand));
+  __CRT_INLINE PVOID __cdecl
+  __InlineInterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand) {
+    return ((PVOID)(LONG_PTR)
+	    InterlockedCompareExchange((LONG volatile *)Destination,(LONG)(LONG_PTR)ExChange,(LONG)(LONG_PTR)Comperand));
   }
 #define InterlockedCompareExchangePointer __InlineInterlockedCompareExchangePointer
 #else
-#define InterlockedCompareExchangePointer(Destination,ExChange,Comperand)(PVOID)(LONG_PTR)InterlockedCompareExchange((LONG volatile *)(Destination),(LONG)(LONG_PTR)(ExChange),(LONG)(LONG_PTR)(Comperand))
-#endif
+#define InterlockedCompareExchangePointer(Destination,ExChange,Comperand)	\
+	   (PVOID)(LONG_PTR)							\
+	    InterlockedCompareExchange((LONG volatile *)(Destination),(LONG)(LONG_PTR)(ExChange),(LONG)(LONG_PTR)(Comperand))
+#endif /* __cplusplus */
 
 #define InterlockedIncrementAcquire InterlockedIncrement
 #define InterlockedIncrementRelease InterlockedIncrement
@@ -1066,7 +1072,7 @@ extern "C" {
 #define InterlockedCompareExchangeRelease64 InterlockedCompareExchange64
 #define InterlockedCompareExchangePointerAcquire InterlockedCompareExchangePointer
 #define InterlockedCompareExchangePointerRelease InterlockedCompareExchangePointer
-#endif
+#endif /* end of _X86_ interlocked api */
 
 #if defined(_SLIST_HEADER_) && !defined(_NTOSP_)
   WINBASEAPI VOID WINAPI InitializeSListHead(PSLIST_HEADER ListHead);
@@ -1074,9 +1080,10 @@ extern "C" {
   WINBASEAPI PSLIST_ENTRY WINAPI InterlockedPushEntrySList(PSLIST_HEADER ListHead,PSLIST_ENTRY ListEntry);
   WINBASEAPI PSLIST_ENTRY WINAPI InterlockedFlushSList(PSLIST_HEADER ListHead);
   WINBASEAPI USHORT WINAPI QueryDepthSList(PSLIST_HEADER ListHead);
-#endif
-#endif
-#endif
+#endif /* _SLIST_HEADER_ && !_NTOSP_ */
+
+#endif /* ! _NTOS_ */
+#endif /* ! NOWINBASEINTERLOCK */
 
   WINBASEAPI WINBOOL WINAPI FreeResource(HGLOBAL hResData);
   WINBASEAPI LPVOID WINAPI LockResource(HGLOBAL hResData);
