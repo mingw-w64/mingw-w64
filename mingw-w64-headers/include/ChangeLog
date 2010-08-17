@@ -1,3 +1,8 @@
+2010-08-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winbase.h: Changed for x86 the Interlock... API to use
+	stdcall convention.
+
 2010-08-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* * ktmtypes.h (TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT):
