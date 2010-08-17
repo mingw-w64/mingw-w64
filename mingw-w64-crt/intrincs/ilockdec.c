@@ -10,5 +10,12 @@ long _InterlockedDecrement(long volatile *Addend)
   return ret - 1;
 }
 
+#ifdef _WIN64
 long InterlockedDecrement(long volatile *) __attribute__((alias("_InterlockedDecrement")));
+#else
+long __stdcall InterlockedDecrement(long volatile *Addend)
+{
+  return _InterlockedDecrement(Addend);
+}
+#endif
 

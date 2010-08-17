@@ -1,3 +1,13 @@
+2010-08-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk
+        * Makefile.am: Move some Interlock...64 implementation to
+        general libmingwex build.
+        * Makefile.in: Regenerated.
+        * intrincs/: Changed implementation of x86 _Interlock...
+        and Interlock functions. For x86 we need to use for Interlock...
+        stdcall convention.
+
 2010-08-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from the trunk rev. 3317 & 3337:
