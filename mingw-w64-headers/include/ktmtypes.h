@@ -108,11 +108,11 @@ typedef struct _TRANSACTION_NOTIFICATION {
 
 typedef struct _TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
   GUID EnlistmentId;
-#if defined(__cplusplus)
-  ::UOW UOW;
-#else
-  UOW UOW;
-#endif
+/* UOW is typedef'ed as GUID just above.  Changed type of UOW
+ * to GUID from UOW for C++ compat. using ::UOW for C++ works
+ * too but we were reported some problems in corner cases and
+ * MSDN documents this structure with "GUID UOW;" anyway. */
+  GUID UOW;
 } TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT, *PTRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT;
 
 typedef struct _TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
