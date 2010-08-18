@@ -1,3 +1,9 @@
+2010-08-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	From cygwin CVS 2010-08-17 by Keith Marshall:
+	* limits.h (PATH_MAX): Make it agree with Microsoft's semantically
+	identical MAX_PATH; correct value is 260.
+
 2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* stdio.h (_vsnwprintf_l): Fix multiple declaration from rev. 1596.
