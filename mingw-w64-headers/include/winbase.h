@@ -926,6 +926,7 @@ extern "C" {
   }
 #endif
 #endif /* !__CRT__NO_INLINE */
+
 #elif defined(__x86_64) && !defined(RC_INVOKED)
 
 #define InterlockedIncrement _InterlockedIncrement
@@ -971,6 +972,7 @@ extern "C" {
   LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand);
 
 #else /* not ia64, nor x64.  */
+
   LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend);
   LONG WINAPI InterlockedDecrement(LONG volatile *lpAddend);
   LONG WINAPI InterlockedExchange(LONG volatile *Target,LONG Value);
