@@ -1,5 +1,8 @@
 2010-08-18  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* Makefile.am: Reformat.
+	* Makefile.in: Regenerate.
+
 	Merged from trunk revs. 3400-3402:
 	2010-08-18  Kai Tietz  <kai.tietz@onevision.com>
 	* intrincs/ilockexchadd64.c: Fix missing prototype warnings.
