@@ -1,9 +1,15 @@
+2010-08-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	From cygwin CVS 2010-08-17 by Keith Marshall:
+	* limits.h (PATH_MAX): Make it agree with Microsoft's semantically
+	identical MAX_PATH; correct value is 260.
+
 2010-08-17  Kai Tietz  <kai.tietz@onevision.com>
 
 	Merged from trunk.
-        * winnt.h: Cleanup wrong defines for x86 and stdcall.
-        * winbase.h: Changed for x86 the Interlock... API to use
-        stdcall convention.
+	* winnt.h: Cleanup wrong defines for x86 and stdcall.
+	* winbase.h: Changed for x86 the Interlock... API to use
+	stdcall convention.
 
 2010-08-17  Ozkan Sezer  <sezeroz@gmail.com>
 
