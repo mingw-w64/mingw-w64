@@ -1,3 +1,14 @@
+2010-08-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/ilockexchadd64.c (_InterlockedExchangeAdd64): Change
+	to __cdecl like all its friends with leading underscores.
+	* intrincs/ilockcxch64.c: Added a fixme note that the dependency
+	function InterlockedCompareExchange64 is only exported from
+	kernel32.dll in Vista+.
+	* lib32/kernel32.def (InterlockedCompareExchange64): Add a fixme
+	note that it is for Vista+ and forwards to
+	NTDLL.RtlInterlockedCompareExchange64@20.
+
 2010-08-17  Kai Tietz  <kai.tietz@onevision.com>
 
 	* Makefile.am: Move some Interlock...64 implementation to

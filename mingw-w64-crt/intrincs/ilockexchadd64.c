@@ -14,7 +14,7 @@ __int64 _InterlockedExchangeAdd64(__int64 volatile *Addend, __int64 Value)
 #else
 __int64 __stdcall InterlockedCompareExchange64(__int64 volatile *Destination,
   __int64 Exchange, __int64 Comperand);
-__int64 __stdcall _InterlockedExchangeAdd64(__int64 volatile *Addend,__int64 Value)
+__int64 __cdecl _InterlockedExchangeAdd64(__int64 volatile *Addend,__int64 Value)
 {
   __int64 Old;
   do {

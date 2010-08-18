@@ -6,7 +6,7 @@
 
 2010-08-17  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* * ktmtypes.h (TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT):
+	* ktmtypes.h (TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT):
 	short-circuit the type of UOW member and use GUID.
 
 2010-08-16  Ozkan Sezer  <sezeroz@gmail.com>

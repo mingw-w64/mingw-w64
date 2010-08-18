@@ -1,7 +1,7 @@
 #include <intrin.h>
 
 #ifndef _WIN64
-__declspec(dllimport)
+__declspec(dllimport) /* FIXME: not exported on XP-x86 */
 __int64 __stdcall InterlockedCompareExchange64(__int64 volatile *Destination,
    __int64 ExChange, __int64 Comperand);
 #endif
