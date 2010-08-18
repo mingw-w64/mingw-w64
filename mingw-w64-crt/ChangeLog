@@ -1,5 +1,17 @@
 2010-08-18  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Merged from trunk revs. 3400-3402:
+	2010-08-18  Kai Tietz  <kai.tietz@onevision.com>
+	* intrincs/ilockexchadd64.c: Fix missing prototype warnings.
+	* intrincs/ilockcxch64.c: Add InterlockedCompareExchange64 for x86.
+	* lib32/kernel32.def: Avoid collisions for imported Interlocked
+	symbols by VC generated code (mark InterlockedCompareExchange,
+	InterlockedDecrement, InterlockedExchange, InterlockedExchangeAdd
+	and InterlockedIncrement as DATA.)
+	* lib64/wkernel32.def: Likewise as in lib32/kernel32.def.
+
+2010-08-18  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* intrincs/ilockexchadd64.c (_InterlockedExchangeAdd64): Change
 	to __cdecl like all its friends with leading underscores.
 	* intrincs/ilockcxch64.c: Added a fixme note that the dependency

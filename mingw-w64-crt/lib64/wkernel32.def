@@ -560,14 +560,14 @@ InitAtomTable
 InitializeCriticalSection
 InitializeCriticalSectionAndSpinCount
 InitializeSListHead
-InterlockedCompareExchange64
-InterlockedCompareExchange
-InterlockedDecrement
-InterlockedExchange
-InterlockedExchangeAdd
-_InterlockedExchangeAdd = InterlockedExchangeAdd
+InterlockedCompareExchange64 DATA
+InterlockedCompareExchange DATA
+InterlockedDecrement DATA
+InterlockedExchange DATA
+InterlockedExchangeAdd DATA
+;_InterlockedExchangeAdd = InterlockedExchangeAdd
 InterlockedFlushSList
-InterlockedIncrement
+InterlockedIncrement DATA
 InterlockedPopEntrySList
 InterlockedPushEntrySList
 InvalidateConsoleDIBits
