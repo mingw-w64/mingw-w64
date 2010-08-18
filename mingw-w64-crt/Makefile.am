@@ -62,6 +62,7 @@ src_libdxerr9=libsrc/dxerr9.c libsrc/dxerr9w.c
 src_libdxguid=libsrc/dxguid.c
 src_libksuser=libsrc/ksuser.c
 src_liblargeint=libsrc/largeint.c
+
 src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/atonexit.c  crt/crt0_c.c    crt/dll_argv.c  crt/gccmain.c       crt/natstart.c       crt/pseudo-reloc-list.c  crt/wildcard.c  \
   crt/charmax.c   crt/crt0_w.c    crt/dllargv.c   crt/gs_support.c    crt/_newmode.c       crt/tlssup.c             crt/xncommod.c  \
@@ -75,15 +76,16 @@ src_libscrnsave=libsrc/scrnsave.c
 src_libscrnsavw=libsrc/scrnsave.c
 src_libstrmiids=libsrc/strmiids.c
 src_libmingwthrd=libsrc/mingwthrd_mt.c
+
 src_libuuid=libsrc/uuid.c libsrc/devguid.c \
-  libsrc/ativscp-uuid.c libsrc/cguid-uuid.c    libsrc/comcat-uuid.c \
+  libsrc/ativscp-uuid.c libsrc/bth-uuid.c      libsrc/cguid-uuid.c  libsrc/comcat-uuid.c   \
   libsrc/docobj-uuid.c  libsrc/exdisp-uuid.c   libsrc/extras-uuid.c libsrc/hlguids-uuid.c  libsrc/hlink-uuid.c    libsrc/mlang-uuid.c \
-  libsrc/msctf-uuid.c   libsrc/mshtml-uuid.c   libsrc/msxml-uuid.c  libsrc/netcon-uuid.c   libsrc/oaidl-uuid.c    libsrc/objidl-uuid.c \
+  libsrc/msctf-uuid.c   libsrc/mshtml-uuid.c   libsrc/msxml-uuid.c  libsrc/netcon-uuid.c   libsrc/objidl-uuid.c   libsrc/oaidl-uuid.c \
   libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c    libsrc/oleacc-uuid.c libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c   libsrc/power-uuid.c \
   libsrc/servprov-uuid.c libsrc/textstor-uuid.c libsrc/unknwn-uuid.c libsrc/urlmon-uuid.c  libsrc/vds-uuid.c      libsrc/wia-uuid.c   \
   libsrc/powrprof-uuid.c libsrc/virtdisk-uuid.c \
   libsrc/atsmedia-uuid.c libsrc/bdamedia-uuid.c libsrc/kcom-uuid.c   libsrc/ntddkbd-uuid.c libsrc/ntddmou-uuid.c  libsrc/ntddstor-uuid.c \
-  libsrc/usbcamdi-uuid.c libsrc/usbiodef-uuid.c libsrc/ksddk-uuid.c  libsrc/bth-uuid.c
+  libsrc/usbcamdi-uuid.c libsrc/usbiodef-uuid.c libsrc/ksddk-uuid.c
 
 src_libws2_32=libsrc/ws2_32.c \
   \
@@ -100,6 +102,7 @@ src_libws2_32=libsrc/ws2_32.c \
   libsrc/wspiapi/WspiapiLegacyFreeAddrInfo.c libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c libsrc/wspiapi/WspiapiLegacyGetNameInfo.c  \
   libsrc/wspiapi/WspiapiLoad.c               libsrc/wspiapi/WspiapiGetAddrInfo.c       libsrc/wspiapi/WspiapiGetNameInfo.c        \
   libsrc/wspiapi/WspiapiFreeAddrInfo.c
+
 src_libmingwex=\
   \
   intrincs/inbyte.c     intrincs/inbytestring.c   intrincs/indword.c   intrincs/indwordstring.c                \
@@ -136,48 +139,48 @@ src_libmingwex=\
   gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
-  math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h math/ceill.S \
-  math/_chgsignl.S   math/copysignl.S    \
-  math/cosl_internal.S math/cos.c math/cosf.c math/cosl.c \
-  math/exp2f.S       math/exp2l.S       math/exp2.S       math/floorl.S  \
+  math/_chgsignl.S   math/copysignl.S    math/fastmath.h   math/fp_consts.h   math/ceill.S       \
+  math/cephes_emath.h  \
+  math/cephes_mconf.h  \
+  math/cosl_internal.S math/cos.c        math/cosf.c       math/cosl.c        \
+  math/exp2f.S       math/exp2l.S        math/exp2.S       math/floorl.S      \
   math/fmaf.S        math/fma.S          math/frexpl.S     math/ilogbf.S      math/ilogbl.S      math/ilogb.S      math/log10l.S  \
   math/log1pf.S      math/log1pl.S       math/log1p.S      math/log2f.S       math/log2l.S       math/log2.S       \
   math/internal_logl.S    \
-  math/nearbyintf.S  math/nearbyintl.S   math/nearbyint.S  math/remainderf.S  math/remainderl.S  math/remainder.S  math/remquof.S \
-  math/remquol.S     math/remquo.S       math/scalbnf.S    math/scalbnl.S     math/scalbn.S      \
-  math/sinl_internal.S math/sinl.c math/sin.c math/sinf.c \
-  math/tanl.S    \
+  math/nearbyintf.S  math/nearbyintl.S   math/nearbyint.S  math/remainderf.S  math/remainderl.S  math/remainder.S  \
+  math/remquof.S     math/remquol.S      math/remquo.S     math/scalbnf.S     math/scalbnl.S     math/scalbn.S     \
+  math/sinl_internal.S math/sinl.c       math/sin.c        math/sinf.c \
+  math/tanl.S        \
   math/acosf.c        math/acosh.c        math/acoshf.c       math/acoshl.c        math/acosl.c       math/asinf.c       \
   math/asinh.c        math/asinhf.c       math/asinhl.c       math/asinl.c         math/atan2f.c      math/atan2l.c      \
   math/atanf.c        math/atanh.c        math/atanhf.c       math/atanhl.c        math/atanl.c       math/cbrt.c        \
   math/cbrtf.c        math/cbrtl.c        math/ceilf.c        math/cephes_emath.c  math/copysign.c    math/copysignf.c   \
-  math/coshf.c        math/coshl.c        math/erfl.c          math/expf.c        math/exp.c	 \
-  math/expl.c        \
+  math/coshf.c        math/coshl.c        math/erfl.c         math/expf.c          math/exp.c         math/expl.c        \
   math/expm1.c        math/expm1f.c       math/expm1l.c       math/fabs.c          math/fabsf.c       math/fabsl.c       \
   math/fdim.c         math/fdimf.c        math/fdiml.c        math/floorf.c        math/fmal.c        math/fmax.c        \
   math/fmaxf.c        math/fmaxl.c        math/fmin.c         math/fminf.c         math/fminl.c       math/fmodf.c       \
-  math/fmod.c         math/modf.c \
+  math/fmod.c         math/modf.c         \
   math/fmodl.c        math/fpclassify.c   math/fpclassifyf.c  math/fpclassifyl.c   math/fp_consts.c   math/fp_constsf.c  \
   math/fp_constsl.c   math/frexpf.c       math/fucom.c        math/hypotf.c        math/hypotl.c      math/isnan.c       \
   math/isnanf.c       math/isnanl.c       math/ldexpf.c       math/ldexpl.c        math/lgamma.c      math/lgammaf.c     \
   math/lgammal.c      math/llrint.c       math/llrintf.c      math/llrintl.c       math/llround.c     math/llroundf.c    \
   math/llroundl.c     math/log10f.c       math/logb.c         math/logbf.c         math/logbl.c       math/logf.c        \
-  math/log.c          math/logl.c        \
+  math/log.c          math/logl.c         \
   math/lrint.c        math/lrintf.c       math/lrintl.c       math/lround.c        math/lroundf.c     math/lroundl.c     \
   math/modff.c        math/modfl.c        math/nextafterf.c   math/nextafterl.c    math/nexttoward.c  math/nexttowardf.c \
   math/pow.c          math/powf.c         math/powi.c         math/powif.c         math/powil.c       math/powl.c        \
   math/rint.c         math/rintf.c        math/rintl.c        math/round.c         math/roundf.c      math/roundl.c      \
-  math/s_erf.c        math/sf_erf.c \
-  math/signbit.c math/signbitf.c  math/signbitl.c    \
-  math/sinhf.c        math/sinhl.c       \
-  math/sqrtf.c math/sqrt.c math/sqrtl.c \
-  math/tanf.c        math/tanhf.c       \
+  math/s_erf.c        math/sf_erf.c       \
+  math/signbit.c      math/signbitf.c     math/signbitl.c     \
+  math/sinhf.c        math/sinhl.c        \
+  math/sqrtf.c        math/sqrtl.c        math/sqrt.c         \
+  math/tanf.c         math/tanhf.c        \
   math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c       math/trunc.c       math/truncf.c      \
   math/truncl.c       math/cossin.c       \
   \
+  misc/mingw_matherr.c \
   misc/mb_wc_common.h \
   misc/mingw_getsp.S  \
-  misc/mingw_matherr.c \
   misc/alarm.c                misc/basename.c      misc/btowc.c          misc/_ctime32.c              misc/ctime.c           \
   misc/delay-f.c              misc/delayimp.c      misc/delay-n.c        misc/difftime32.c            misc/difftime64.c      \
   misc/difftime.c             misc/dirent.c        misc/dirname.c        misc/execv.c                 misc/execve.c          \
@@ -206,28 +209,26 @@ src_libmingwex=\
   stdio/vfwscanf.c         stdio/vscanf.c          stdio/vsnprintf.c        stdio/vsnwprintf.c        stdio/vsscanf.c         \
   stdio/vswscanf.c         stdio/vwscanf.c         stdio/wcstof.c           stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
   stdio/_wstat64i32.c      stdio/_wstat.c          stdio/wtoll.c \
-  intrincs/ilockexchadd64.c intrincs/ilockand64.c  \
-  intrincs/ilockor64.c   intrincs/ilockxor64.c   intrincs/ilockinc64.c   \
-  intrincs/ilockdec64.c     intrincs/ilockexch64.c \
-  intrincs/ilockexchptr.c intrincs/ilockcxch64.c \
-  intrincs/ilockadd.c  intrincs/ilockcxchptr.c
+  \
+  intrincs/ilockadd.c      intrincs/ilockand64.c   intrincs/ilockcxch64.c   intrincs/ilockcxchptr.c   intrincs/ilockdec64.c   \
+  intrincs/ilockexch64.c   intrincs/ilockexchptr.c intrincs/ilockinc64.c    intrincs/ilockor64.c      intrincs/ilockxor64.c   \
+  intrincs/ilockexchadd64.c
 
 # these only go into the 64 bit version:
 src_libmingwex64=\
-  \
-  intrincs/bittest64.c   intrincs/bittestc64.c   intrincs/bittestr64.c   intrincs/bittestri64.c    intrincs/bittests64.c  \
-  intrincs/bittestsi64.c intrincs/bitscanfwd64.c intrincs/bitscanrev64.c \
-  intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  \
-  intrincs/readgsqword.c    intrincs/writegsword.c \
-  intrincs/writegsbyte.c  intrincs/ilockadd64.c \
-  intrincs/writegsdword.c intrincs/writegsqword.c intrincs/mul128ex.c    intrincs/umul128ex.c \
+  intrincs/bittest64.c   intrincs/bittestc64.c   intrincs/bittestr64.c   intrincs/bittestri64.c    \
+  intrincs/bittests64.c  intrincs/bittestsi64.c  intrincs/bitscanfwd64.c intrincs/bitscanrev64.c   \
+  intrincs/ilockadd64.c  \
+  intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  intrincs/readgsqword.c    \
+  intrincs/writegsbyte.c intrincs/writegsword.c  intrincs/writegsdword.c intrincs/writegsqword.c   \
+  intrincs/mul128ex.c    intrincs/umul128ex.c    \
   intrincs/__stosq.c     intrincs/_rotl64.c      intrincs/_rotr64.c
 
 # these only go into the 32 bit version:
 src_libmingwex32=\
-  intrincs/readfsbyte.c intrincs/readfsword.c intrincs/readfsdword.c \
-  intrincs/writefsbyte.c intrincs/writefsword.c intrincs/writefsdword.c \
-  intrincs/_rotl64.c    intrincs/_rotr64.c    intrincs/membarrier.c
+  intrincs/readfsbyte.c  intrincs/readfsword.c   intrincs/readfsdword.c  \
+  intrincs/writefsbyte.c intrincs/writefsword.c  intrincs/writefsdword.c \
+  intrincs/_rotl64.c     intrincs/_rotr64.c      intrincs/membarrier.c
 
 
 if LIB32

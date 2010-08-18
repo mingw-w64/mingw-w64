@@ -1,5 +1,8 @@
 2010-08-18  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* Makefile.am: Reformat.
+	* Makefile.in: Regenerate.
+
 	* intrincs/ilockexchadd64.c (_InterlockedExchangeAdd64): Change
 	to __cdecl like all its friends with leading underscores.
 	* intrincs/ilockcxch64.c: Added a fixme note that the dependency
