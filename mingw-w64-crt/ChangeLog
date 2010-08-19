@@ -1,5 +1,17 @@
 2010-08-19  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* libsrc/cguid-uuid.c (GUID_NULL): Moved from here ...
+	* libsrc/guid_nul.c: ... to here. New file.
+	* libsrc/ksuser.c (GUID_NULL): Deleted, already in guid_nul.c
+	* libsrc/uuid.c (GUID_NULL): Deleted, already in guid_nul.c.
+	(IID_IActiveScript): Deleted, already in ativscp-uuid.c.
+	(IID_IActiveScriptError): Likewise.
+	(IID_IActiveScriptParse): Likewise.
+	(IID_IActiveScriptSite): Likewise.
+	(IID_IActiveScriptSiteWindow): Likewise.
+	* Makefile.am (src_libuuid): Add libsrc/guid_nul.c.
+	* Makefile.in: Regenerate.
+
 	* libsrc/ksuser.c (IID_IUnknown): Delete, already in unknwn-uuid.c.
 	* libsrc/uuid.c (IID_IUnknown): Likewise.
 	(IID_IClassFactory): Likewise.
