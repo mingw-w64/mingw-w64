@@ -6,7 +6,10 @@
 #ifndef _INC_PROPSYS
 #define _INC_PROPSYS
 #if (_WIN32_WINNT >= 0x0600)
-typedef struct PROPERTYKEY *REFPROPERTYKEY;
+#include <wtypes.h>
+#include <propidl.h>
+typedef PROPVARIANT *REFPROPVARIANT;
+typedef PROPERTYKEY *REFPROPERTYKEY;
 
 #undef  INTERFACE
 #define INTERFACE IPropertyStore
