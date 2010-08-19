@@ -6,5 +6,6 @@
 
 #define INITGUID
 #include <basetyps.h>
-DEFINE_OLEGUID(IID_IUnknown,0,0,0);
-DEFINE_OLEGUID(IID_IClassFactory,0x1,0,0);
+DEFINE_OLEGUID(IID_IUnknown,0,0,0);		/* 0,0,0,0xc0,0,0,0,0,0,0,0x46 */
+DEFINE_OLEGUID(IID_IClassFactory,0x1,0,0);	/* 1,0,0,0xc0,0,0,0,0,0,0,0x46 */
+

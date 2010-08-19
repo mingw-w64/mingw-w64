@@ -1,5 +1,11 @@
 2010-08-19  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* libsrc/ksuser.c (IID_IUnknown): Delete, already in unknwn-uuid.c.
+	* libsrc/uuid.c (IID_IUnknown): Likewise.
+	(IID_IClassFactory): Likewise.
+	* libsrc/unknwn-uuid.c (IID_IUnknown): Add full constant as comment.
+	(IID_IClassFactory): Likewise.
+
 	* libsrc/kcom-uuid.c: Delete.
 	* libsrc/ksddk-uuid.c: Delete.
 	* libsrc/ntddpar-uuid.c: New.
