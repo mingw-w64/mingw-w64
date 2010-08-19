@@ -9,7 +9,6 @@
 
 #define INITGUID
 #include <basetyps.h>
-DEFINE_GUID(GUID_NULL,0,0,0,0,0,0,0,0,0,0,0);
 DEFINE_OLEGUID(IID_IRpcChannel,0x4,0,0);
 DEFINE_OLEGUID(IID_IRpcStub,0x5,0,0);
 DEFINE_OLEGUID(IID_IRpcProxy,0x7,0,0);
