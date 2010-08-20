@@ -380,6 +380,11 @@ HRESULT DXVAHD_CreateDevice(IDirect3DDevice9Ex *pD3DDevice,const DXVAHD_CONTENT_
 
 #undef  INTERFACE
 #define INTERFACE IDXVAHD_Device
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IDXVAHD_Device,IUnknown)
 {
     BEGIN_INTERFACE
@@ -417,6 +422,11 @@ DECLARE_INTERFACE_(IDXVAHD_Device,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IDXVAHD_VideoProcessor
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IDXVAHD_VideoProcessor,IUnknown)
 {
     BEGIN_INTERFACE
