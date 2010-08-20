@@ -11,10 +11,6 @@
 #include <setjmp.h>
 #include <stddef.h>
 
-#if defined(__cplusplus)
-extern "C" {
-#endif
-
 #if defined(__GNUC__) && \
    (defined(__i386__) || defined(__x86_64__))
   extern unsigned int __builtin_ia32_crc32qi (unsigned int, unsigned char);
@@ -27,7 +23,16 @@ extern "C" {
 /* Make sure _mm_malloc and _mm_free are defined.  */
 #include <malloc.h>
 #endif
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #include <x86intrin.h>
+
+#if defined(__cplusplus)
+}
+#endif
+
 #endif
 
 #ifndef __MMX__
@@ -46,28 +51,22 @@ typedef union __m128i { char v[16]; } __m128i;
 #endif
 
 #if (defined(_X86_) && !defined(__x86_64))
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #include <mm3dnow.h>
+
+#if defined(__cplusplus)
+}
+#endif
+
 #if defined(__cplusplus)
 #include <dvec.h>
 #include <fvec.h>
 #include <ivec.h>
 #endif
 #endif
-
-/* Undefine possible defined macros in gcc's intrinsic.  */
-#pragma push_macro ("_m_pextrw")
-#pragma push_macro ("_lrotl")
-#pragma push_macro ("_lrotr")
-#pragma push_macro ("_rotl")
-#pragma push_macro ("_rotr")
-#pragma push_macro ("_mm_shuffle_ps")
-
-#undef _m_pextrw
-#undef _lrotl
-#undef _lrotr
-#undef _rotl
-#undef _rotr
-#undef _mm_shuffle_ps
 
 #define __MACHINEX64 __MACHINE
 #define __MACHINEARMX __MACHINE
@@ -144,6 +143,10 @@ typedef union __m128i { char v[16]; } __m128i;
 #if !defined(_WIN32_WCE)
 #undef __MACHINECE
 #define __MACHINECE __MACHINEZ
+#endif
+
+#if defined(__cplusplus)
+extern "C" {
 #endif
 
   __MACHINEIA64(__MINGW_EXTENSION void _AcquireSpinLock(unsigned __int64 *))
@@ -308,6 +311,11 @@ typedef union __m128i { char v[16]; } __m128i;
     __MACHINEIA64(__MINGW_EXTENSION __int64 __load128(void *,__int64 *))
     __MACHINEIA64(__MINGW_EXTENSION __int64 __load128_acq(void *,__int64 *))
     __MACHINEZ(void __cdecl longjmp(jmp_buf,int))
+
+#pragma push_macro ("_lrotl")
+#undef _lrotl
+#pragma push_macro ("_lrotr")
+#undef _lrotr
 #ifdef __x86_64__
     __MACHINE(__MINGW_EXTENSION unsigned long long __cdecl _lrotl(unsigned long long,int))
     __MACHINE(__MINGW_EXTENSION unsigned long long __cdecl _lrotr(unsigned long long,int))
@@ -315,6 +323,9 @@ typedef union __m128i { char v[16]; } __m128i;
     __MACHINE(unsigned long __cdecl _lrotl(unsigned long,int))
     __MACHINE(unsigned long __cdecl _lrotr(unsigned long,int))
 #endif
+#pragma pop_macro ("_lrotl")
+#pragma pop_macro ("_lrotr")
+
     __MACHINEI(__MINGW_EXTENSION unsigned __int64 __ll_lshift(unsigned __int64,int))
     __MACHINEI(__MINGW_EXTENSION __int64 __ll_rshift(__int64,int))
     __MACHINEIA64(__m64 __m64_czx1l(__m64))
@@ -383,8 +394,14 @@ typedef union __m128i { char v[16]; } __m128i;
     __MACHINEIA64(void *_ReturnAddress(void))
     __MACHINESA(void *_ReturnAddress(void))
     __MACHINECE(void *_ReturnAddress(void))
+#pragma push_macro ("_rotl")
+#undef _rotl
     __MACHINE(unsigned int __cdecl _rotl(unsigned int,int))
+#pragma pop_macro ("_rotl")
+#pragma push_macro ("_rotr")
+#undef _rotr
     __MACHINE(unsigned int __cdecl _rotr(unsigned int,int))
+#pragma pop_macro ("_rotr")
 #undef _rotl64
 #undef _rotr64
     __MACHINECE(__MINGW_EXTENSION unsigned __int64 __cdecl _rotl64(unsigned __int64,int))
@@ -506,7 +523,11 @@ typedef union __m128i { char v[16]; } __m128i;
     __MACHINEX86X_NOX64(__m64 _mm_setr_pi32(int,int))
     __MACHINEX86X_NOX64(__m64 _mm_setr_pi16(short,short,short,short))
     __MACHINEX86X_NOX64(__m64 _mm_setr_pi8(char,char,char,char,char,char,char,char))
+#pragma push_macro ("_m_pextrw")
+#undef _m_pextrw
     __MACHINEX86X_NOX64(int _m_pextrw(__m64,int))
+    __MACHINECC(__MINGW_EXTENSION int _m_pextrw(unsigned __int64 m1,const int c))
+#pragma pop_macro ("_m_pextrw")
     __MACHINEX86X_NOX64(__m64 _m_pinsrw(__m64,int,int))
     __MACHINEX86X_NOX64(__m64 _m_pmaxsw(__m64,__m64))
     __MACHINEX86X_NOX64(__m64 _m_pmaxub(__m64,__m64))
@@ -585,7 +606,10 @@ typedef union __m128i { char v[16]; } __m128i;
     __MACHINEX86X_NOWIN64(__m64 _mm_cvtt_ps2pi(__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_cvt_si2ss(__m128,int))
     __MACHINEX86X_NOWIN64(__m128 _mm_cvt_pi2ps(__m128,__m64))
+#pragma push_macro ("_mm_shuffle_ps")
+#undef _mm_shuffle_ps
     __MACHINEX86X_NOIA64(__m128 _mm_shuffle_ps(__m128,__m128,int const))
+#pragma pop_macro ("_mm_shuffle_ps")
     __MACHINEX86X_NOIA64(__m128 _mm_unpackhi_ps(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_unpacklo_ps(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_loadh_pi(__m128,__m64 const*))
@@ -1099,7 +1123,6 @@ typedef union __m128i { char v[16]; } __m128i;
     __MACHINECC(void _mm_setwcx(int i1,int i0))
     __MACHINECC(int _mm_getwcx(int i))
     __MACHINECC(__MINGW_EXTENSION int _m_pextrb(unsigned __int64 m1,const int c))
-    __MACHINECC(__MINGW_EXTENSION int _m_pextrw(unsigned __int64 m1,const int c))
     __MACHINECC(__MINGW_EXTENSION int _m_pextrd(unsigned __int64 m1,const int c))
     __MACHINECC(__MINGW_EXTENSION unsigned int _m_pextrub(unsigned __int64 m1,const int c))
     __MACHINECC(__MINGW_EXTENSION unsigned int _m_pextruw(unsigned __int64 m1,const int c))
@@ -1533,14 +1556,6 @@ typedef union __m128i { char v[16]; } __m128i;
 #define _InterlockedXor64 _InterlockedXor64_np
 #endif
 #endif
-
-/* Restore possibly defined macros by gcc's intrinsic.  */
-#pragma pop_macro ("_lrotl")
-#pragma pop_macro ("_lrotr")
-#pragma pop_macro ("_rotr")
-#pragma pop_macro ("_rotl")
-#pragma pop_macro ("_mm_shuffle_ps")
-#pragma pop_macro ("_m_pextrw")
 
 #if defined(__cplusplus)
 }
