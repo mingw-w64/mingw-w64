@@ -1,3 +1,7 @@
+2010-08-19  Mook  <mook.gcc@gmail.com>
+
+	* _mingw.h (__MINGW_PRAGMA_PARAM): Define for MSVC.
+
 2010-08-18  Ozkan Sezer  <sezeroz@gmail.com>
 
 	From cygwin CVS 2010-08-17 by Keith Marshall:

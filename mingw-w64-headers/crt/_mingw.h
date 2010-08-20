@@ -199,6 +199,8 @@ limitations in handling dllimport attribute.  */
 
 #if __MINGW_GNUC_PREREQ (4, 4)
 #define __MINGW_PRAGMA_PARAM(x) _Pragma (#x)
+#elif __MINGW_MSC_PREREQ (13, 1)
+#define __MINGW_PRAGMA_PARAM(x) __pragma (x)
 #else
 #define __MINGW_PRAGMA_PARAM(x)
 #endif
