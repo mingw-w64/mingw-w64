@@ -71,6 +71,11 @@ DECLARE_INTERFACE_(IDot11AdHocInterfaceNotificationSink,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IDot11AdHocInterface
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IDot11AdHocInterface,IUnknown)
 {
     BEGIN_INTERFACE
@@ -110,6 +115,11 @@ DECLARE_INTERFACE_(IDot11AdHocInterface,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IDot11AdHocManager
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IDot11AdHocManager,IUnknown)
 {
     BEGIN_INTERFACE
@@ -141,6 +151,11 @@ DECLARE_INTERFACE_(IDot11AdHocManager,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IDot11AdHocManagerNotificationSink
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IDot11AdHocManagerNotificationSink,IUnknown)
 {
     BEGIN_INTERFACE
@@ -170,6 +185,11 @@ DECLARE_INTERFACE_(IDot11AdHocManagerNotificationSink,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IDot11AdHocNetwork
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IDot11AdHocNetwork,IUnknown)
 {
     BEGIN_INTERFACE
@@ -215,6 +235,11 @@ DECLARE_INTERFACE_(IDot11AdHocNetwork,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IDot11AdHocNetworkNotificationSink
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IDot11AdHocNetworkNotificationSink,IUnknown)
 {
     BEGIN_INTERFACE
@@ -240,6 +265,11 @@ DECLARE_INTERFACE_(IDot11AdHocNetworkNotificationSink,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IDot11AdHocSecuritySettings
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IDot11AdHocSecuritySettings,IUnknown)
 {
     BEGIN_INTERFACE
@@ -265,6 +295,11 @@ DECLARE_INTERFACE_(IDot11AdHocSecuritySettings,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IEnumDot11AdHocInterfaces
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IEnumDot11AdHocInterfaces,IUnknown)
 {
     BEGIN_INTERFACE
@@ -294,6 +329,11 @@ DECLARE_INTERFACE_(IEnumDot11AdHocInterfaces,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IEnumDot11AdHocNetworks
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IEnumDot11AdHocNetworks,IUnknown)
 {
     BEGIN_INTERFACE
@@ -323,6 +363,11 @@ DECLARE_INTERFACE_(IEnumDot11AdHocNetworks,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IEnumDot11AdHocSecuritySettings
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
 DECLARE_INTERFACE_(IEnumDot11AdHocSecuritySettings,IUnknown)
 {
     BEGIN_INTERFACE
