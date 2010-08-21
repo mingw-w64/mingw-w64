@@ -1,3 +1,11 @@
+2010-08-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntddvdeo.h: Sync with r/os svn@48575:
+	(DISPLAY_BRIGHTNESS): New structure.
+	(DISPLAYPOLICY_AC): New macro.
+	(DISPLAYPOLICY_DC): New macro.
+	(DISPLAYPOLICY_BOTH): New macro.
+
 2010-08-17  Kai Tietz  <kai.tietz@onevision.com>
 
 	* winnt.h: Cleanup wrong defines for x86 and stdcall.
