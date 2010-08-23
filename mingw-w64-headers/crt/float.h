@@ -39,6 +39,34 @@
 #define	_MCW_RC		0x00000300	/* Rounding */
 #define	_MCW_PC		0x00030000	/* Precision */
 
+/* Number of base-FLT_RADIX digits in the significand, p.  */
+#undef FLT_MANT_DIG
+#undef DBL_MANT_DIG
+#undef LDBL_MANT_DIG
+#define FLT_MANT_DIG   __FLT_MANT_DIG__
+#define DBL_MANT_DIG   __DBL_MANT_DIG__
+#define LDBL_MANT_DIG  __LDBL_MANT_DIG__
+
+#if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+/* The floating-point expression evaluation method.
+      -1  indeterminate
+       0  evaluate all operations and constants just to the range and
+	  precision of the type
+       1  evaluate operations and constants of type float and double
+	  to the range and precision of the double type, evaluate
+	  long double operations and constants to the range and
+	  precision of the long double type
+       2  evaluate all operations and constants to the range and
+	  precision of the long double type
+
+   ??? This ought to change with the setting of the fp control word;
+   the value provided by the compiler assumes the widest setting.  */
+#undef FLT_EVAL_METHOD
+#define FLT_EVAL_METHOD	__FLT_EVAL_METHOD__
+
+#endif /* C99 */
+
+
 /* Control word values for unNew (use with related unMask above) */
 #define	_DN_SAVE	0x00000000
 #define	_DN_FLUSH	0x01000000
