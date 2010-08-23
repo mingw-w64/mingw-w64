@@ -31,6 +31,13 @@ Boston, MA 02110-1301, USA.  */
 #ifndef _FLOAT_H___
 #define _FLOAT_H___
 
+#if defined (__GNUC__) && defined (__GNUC_MINOR__)
+#if (__GNUC__ < 4  || (__GNUC__ == 4 && __GNUC_MINOR__ > 5))
+#error The installed header-set does not support your version of GCC.
+#error Please update your header-set or use GCC 4.5.X.
+#endif
+
+
 /* Radix of exponent representation, b. */
 #undef FLT_RADIX
 #define FLT_RADIX	__FLT_RADIX__
