@@ -1,3 +1,17 @@
+2010-08-25  Jonathan Yong <jon_y@sourceforge.net>
+
+	* mmreg.h: Sync with mingw.org:
+	(WAVE_FORMAT_WMAVOICE9): Define.
+	(WAVE_FORMAT_RAW_AAC1): Define.
+	(WAVE_FORMAT_WMAUDIO2): Define.
+	(WAVE_FORMAT_WMAUDIO3): Define.
+	(WAVE_FORMAT_WMAUDIO_LOSSLESS): Define.
+	(WAVE_FORMAT_WMASPDIF): Define.
+	(WAVE_FORMAT_MPEG_ADTS_AAC): Define.
+	(WAVE_FORMAT_MPEG_LOAS): Define.
+	(WAVE_FORMAT_DTS2): Define.
+	(WAVE_FORMAT_MPEG_HEAAC): Move out of version guard.
+
 2010-08-21  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ntddvdeo.h: Sync with r/os svn@48575:
