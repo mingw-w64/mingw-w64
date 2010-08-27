@@ -36,7 +36,7 @@ Boston, MA 02110-1301, USA.  */
 #error The installed header-set does not support your version of GCC.
 #error Please update your header-set or use GCC 4.5.X.
 #endif
-
+#endif /* defined (__GNUC__) && defined (__GNUC_MINOR__) */
 
 /* Radix of exponent representation, b. */
 #undef FLT_RADIX

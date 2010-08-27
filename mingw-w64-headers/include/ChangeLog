@@ -1,3 +1,7 @@
+2010-08-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* float.h: Add missing #endif.
+
 2010-08-23  Jonathan Yong <jon_y@sourceforge.net>
 
 	* float.h: Do not allow gcc 4.6.X, include_next hack not needed.
