@@ -1,3 +1,7 @@
+2010-08-27  Jonathan Yong <jon_y@sourceforge.net>
+
+	* ntsecapi.h (KERB_LOGON_SUBMIT_TYPE): Fix "#if" usage.
+
 2010-08-25  Jonathan Yong <jon_y@sourceforge.net>
 
 	* mmreg.h: Sync with mingw.org:

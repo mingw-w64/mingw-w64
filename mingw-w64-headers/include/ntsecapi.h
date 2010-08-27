@@ -957,7 +957,7 @@ extern "C" {
   typedef enum _KERB_LOGON_SUBMIT_TYPE {
     KerbInteractiveLogon = 2,KerbSmartCardLogon = 6,KerbWorkstationUnlockLogon = 7,KerbSmartCardUnlockLogon = 8,KerbProxyLogon = 9,
     KerbTicketLogon = 10,KerbTicketUnlockLogon = 11,KerbS4ULogon = 12
-#ifdef (_WIN32_WINNT >= 0x0600)
+#if (_WIN32_WINNT >= 0x0600)
    ,KerbCertificateLogon         = 13,
     KerbCertificateS4ULogon      = 14,
     KerbCertificateUnlockLogon   = 15 
