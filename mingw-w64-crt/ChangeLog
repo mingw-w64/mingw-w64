@@ -1,3 +1,9 @@
+2010-08-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crtexe.c: Prepare x64 SEH support.
+	* crt/crt_handler.c: Correct some stuff and moved
+	default handler from crtexe.c here.
+
 2010-08-13  Jonathan Yong  <jon_y@sourceforge.net>
 
 	* lib32/secur32.def: Update from Win7.

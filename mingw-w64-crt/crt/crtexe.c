@@ -85,10 +85,10 @@ static int mainret=0;
 static int managedapp;
 static int has_cctor = 0;
 static _startupinfo startinfo;
-static LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler = NULL;
+extern LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler;
 
 extern void _pei386_runtime_relocator (void);
-static long CALLBACK _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
+long CALLBACK _gnu_exception_handler (EXCEPTION_POINTERS * exception_data);
 #ifdef WPRFLAG
 static void duplicate_ppstrings (int ac, wchar_t ***av);
 #else
@@ -150,9 +150,20 @@ int WinMainCRTStartup (void);
 
 int WinMainCRTStartup (void)
 {
+  int ret = 255;
+#ifdef __SEH__
+  asm ("\t.l_startw:\n"
+    "\t.seh_handler __C_specific_handler, @except\n"
+    "\t.seh_scope .l_startw, .l_endw, _gnu_exception_handler ,.l_endw\n"
+    );
+#endif
   mingw_app_type = 1;
   __security_init_cookie ();
-  return __tmainCRTStartup ();
+  ret = __tmainCRTStartup ();
+#ifdef __SEH__
+  asm ("\t.l_endw: nop\n");
+#endif
+  return ret;
 }
 
 int mainCRTStartup (void);
@@ -163,9 +174,20 @@ int __mingw_init_ehandler (void);
 
 int mainCRTStartup (void)
 {
+  int ret = 255;
+#ifdef __SEH__
+  asm ("\t.l_start:\n"
+    "\t.seh_handler __C_specific_handler, @except\n"
+    "\t.seh_scope .l_start, .l_end, _gnu_exception_handler, .l_end\n"
+    );
+#endif
   mingw_app_type = 0;
   __security_init_cookie ();
-  return __tmainCRTStartup ();
+  ret = __tmainCRTStartup ();
+#ifdef __SEH__
+  asm ("\t.l_end: nop\n");
+#endif
+  return ret;
 }
 
 static
@@ -315,97 +337,6 @@ check_managed_app (void)
       return !! pNTHeader64->DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR].VirtualAddress;
     }
   return 0;
-}
-
-static long CALLBACK
-_gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
-{
-  void (*old_handler) (int);
-  long action = EXCEPTION_CONTINUE_SEARCH;
-  int reset_fpu = 0;
-
-  switch (exception_data->ExceptionRecord->ExceptionCode)
-    {
-    case EXCEPTION_ACCESS_VIOLATION:
-      /* test if the user has set SIGSEGV */
-      old_handler = signal (SIGSEGV, SIG_DFL);
-      if (old_handler == SIG_IGN)
-	{
-	  /* this is undefined if the signal was raised by anything other
-	     than raise ().  */
-	  signal (SIGSEGV, SIG_IGN);
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      else if (old_handler != SIG_DFL)
-	{
-	  /* This means 'old' is a user defined function. Call it */
-	  (*old_handler) (SIGSEGV);
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      break;
-
-    case EXCEPTION_ILLEGAL_INSTRUCTION:
-    case EXCEPTION_PRIV_INSTRUCTION:
-      /* test if the user has set SIGILL */
-      old_handler = signal (SIGILL, SIG_DFL);
-      if (old_handler == SIG_IGN)
-	{
-	  /* this is undefined if the signal was raised by anything other
-	     than raise ().  */
-	  signal (SIGILL, SIG_IGN);
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      else if (old_handler != SIG_DFL)
-	{
-	  /* This means 'old' is a user defined function. Call it */
-	  (*old_handler) (SIGILL);
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      break;
-
-    case EXCEPTION_FLT_INVALID_OPERATION:
-    case EXCEPTION_FLT_DIVIDE_BY_ZERO:
-    case EXCEPTION_FLT_DENORMAL_OPERAND:
-    case EXCEPTION_FLT_OVERFLOW:
-    case EXCEPTION_FLT_UNDERFLOW:
-    case EXCEPTION_FLT_INEXACT_RESULT:
-      reset_fpu = 1;
-      /* fall through. */
-
-    case EXCEPTION_INT_DIVIDE_BY_ZERO:
-      /* test if the user has set SIGFPE */
-      old_handler = signal (SIGFPE, SIG_DFL);
-      if (old_handler == SIG_IGN)
-	{
-	  signal (SIGFPE, SIG_IGN);
-	  if (reset_fpu)
-	    _fpreset ();
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      else if (old_handler != SIG_DFL)
-	{
-	  /* This means 'old' is a user defined function. Call it */
-	  (*old_handler) (SIGFPE);
-	  action = EXCEPTION_CONTINUE_EXECUTION;
-	}
-      break;
-#ifdef _WIN64
-    case EXCEPTION_DATATYPE_MISALIGNMENT:
-    case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
-    case EXCEPTION_FLT_STACK_CHECK:
-    case EXCEPTION_INT_OVERFLOW:
-    case EXCEPTION_INVALID_HANDLE:
-    /*case EXCEPTION_POSSIBLE_DEADLOCK: */
-      action = EXCEPTION_CONTINUE_EXECUTION;
-      break;
-#endif
-    default:
-      break;
-    }
-
-  if (action == EXCEPTION_CONTINUE_SEARCH && __mingw_oldexcpt_handler)
-    action = (*__mingw_oldexcpt_handler)(exception_data);
-  return action;
 }
 
 #ifdef WPRFLAG

@@ -93,11 +93,106 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 			   struct _CONTEXT* ContextRecord __attribute__ ((unused)),
 			   void *DispatcherContext __attribute__ ((unused)))
 {
-  EXCEPTION_DISPOSITION action = EXCEPTION_CONTINUE_SEARCH;
+  EXCEPTION_DISPOSITION action = ExceptionContinueSearch; /* EXCEPTION_CONTINUE_SEARCH; */
   void (*old_handler) (int);
   int reset_fpu = 0;
 
   switch (ExceptionRecord->ExceptionCode)
+    {
+    case EXCEPTION_ACCESS_VIOLATION:
+      /* test if the user has set SIGSEGV */
+      old_handler = signal (SIGSEGV, SIG_DFL);
+      if (old_handler == SIG_IGN)
+	{
+	  /* this is undefined if the signal was raised by anything other
+	     than raise ().  */
+	  signal (SIGSEGV, SIG_IGN);
+	  action = 0; //EXCEPTION_CONTINUE_EXECUTION;
+	}
+      else if (old_handler != SIG_DFL)
+	{
+	  /* This means 'old' is a user defined function. Call it */
+	  (*old_handler) (SIGSEGV);
+	  action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+	}
+      else
+        action = 4; /* EXCEPTION_EXECUTE_HANDLER; */
+      break;
+    case EXCEPTION_ILLEGAL_INSTRUCTION:
+    case EXCEPTION_PRIV_INSTRUCTION:
+      /* test if the user has set SIGILL */
+      old_handler = signal (SIGILL, SIG_DFL);
+      if (old_handler == SIG_IGN)
+	{
+	  /* this is undefined if the signal was raised by anything other
+	     than raise ().  */
+	  signal (SIGILL, SIG_IGN);
+	  action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+	}
+      else if (old_handler != SIG_DFL)
+	{
+	  /* This means 'old' is a user defined function. Call it */
+	  (*old_handler) (SIGILL);
+	  action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+	}
+      else
+        action = 4; /* EXCEPTION_EXECUTE_HANDLER;*/
+      break;
+    case EXCEPTION_FLT_INVALID_OPERATION:
+    case EXCEPTION_FLT_DIVIDE_BY_ZERO:
+    case EXCEPTION_FLT_DENORMAL_OPERAND:
+    case EXCEPTION_FLT_OVERFLOW:
+    case EXCEPTION_FLT_UNDERFLOW:
+    case EXCEPTION_FLT_INEXACT_RESULT:
+      reset_fpu = 1;
+      /* fall through. */
+
+    case EXCEPTION_INT_DIVIDE_BY_ZERO:
+      /* test if the user has set SIGFPE */
+      old_handler = signal (SIGFPE, SIG_DFL);
+      if (old_handler == SIG_IGN)
+	{
+	  signal (SIGFPE, SIG_IGN);
+	  if (reset_fpu)
+	    _fpreset ();
+	  action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+	}
+      else if (old_handler != SIG_DFL)
+	{
+	  /* This means 'old' is a user defined function. Call it */
+	  (*old_handler) (SIGFPE);
+	  action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+	}
+      break;
+    case EXCEPTION_DATATYPE_MISALIGNMENT:
+    case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
+    case EXCEPTION_FLT_STACK_CHECK:
+    case EXCEPTION_INT_OVERFLOW:
+    case EXCEPTION_INVALID_HANDLE:
+    /*case EXCEPTION_POSSIBLE_DEADLOCK: */
+      action = 0; // EXCEPTION_CONTINUE_EXECUTION;
+      break;
+    default:
+      break;
+    }
+  return action;
+}
+
+#endif
+
+LPTOP_LEVEL_EXCEPTION_FILTER __mingw_oldexcpt_handler = NULL;
+
+long CALLBACK
+_gnu_exception_handler (EXCEPTION_POINTERS *exception_data);
+
+long CALLBACK
+_gnu_exception_handler (EXCEPTION_POINTERS *exception_data)
+{
+  void (*old_handler) (int);
+  long action = EXCEPTION_CONTINUE_SEARCH;
+  int reset_fpu = 0;
+
+  switch (exception_data->ExceptionRecord->ExceptionCode)
     {
     case EXCEPTION_ACCESS_VIOLATION:
       /* test if the user has set SIGSEGV */
@@ -115,9 +210,8 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 	  (*old_handler) (SIGSEGV);
 	  action = EXCEPTION_CONTINUE_EXECUTION;
 	}
-      else
-        action = EXCEPTION_EXECUTE_HANDLER;
       break;
+
     case EXCEPTION_ILLEGAL_INSTRUCTION:
     case EXCEPTION_PRIV_INSTRUCTION:
       /* test if the user has set SIGILL */
@@ -135,9 +229,8 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 	  (*old_handler) (SIGILL);
 	  action = EXCEPTION_CONTINUE_EXECUTION;
 	}
-      else
-        action = EXCEPTION_EXECUTE_HANDLER;
       break;
+
     case EXCEPTION_FLT_INVALID_OPERATION:
     case EXCEPTION_FLT_DIVIDE_BY_ZERO:
     case EXCEPTION_FLT_DENORMAL_OPERAND:
@@ -164,6 +257,7 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
 	  action = EXCEPTION_CONTINUE_EXECUTION;
 	}
       break;
+#ifdef _WIN64
     case EXCEPTION_DATATYPE_MISALIGNMENT:
     case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
     case EXCEPTION_FLT_STACK_CHECK:
@@ -172,10 +266,12 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
     /*case EXCEPTION_POSSIBLE_DEADLOCK: */
       action = EXCEPTION_CONTINUE_EXECUTION;
       break;
+#endif
     default:
       break;
     }
+
+  if (action == EXCEPTION_CONTINUE_SEARCH && __mingw_oldexcpt_handler)
+    action = (*__mingw_oldexcpt_handler)(exception_data);
   return action;
 }
-
-#endif
