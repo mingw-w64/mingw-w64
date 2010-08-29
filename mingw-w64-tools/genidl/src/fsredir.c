@@ -38,12 +38,11 @@ static revertor revertorfunction;     /*Wow64RevertWow64FsRedirection*/
 
 static void undoredirect(void) {
     revertorfunction(revert);
-    FreeLibrary(kernel32handle);
 }
 
 void doredirect(const int redir) {
   if (redir) {
-    kernel32handle = LoadLibraryA("kernel32.dll");
+    kernel32handle = GetModuleHandleW(L"kernel32.dll");
     if (!kernel32handle) {
       fprintf(stderr, "kernel32.dll failed to load, failed to disable FS redirection.\n");
       return;
@@ -56,7 +55,6 @@ void doredirect(const int redir) {
       return;
     }
     if (!redirectorfunction(&revert)) {
-      FreeLibrary(kernel32handle);
       fprintf(stderr, "Wow64DisableWow64FsRedirection failed.\n");
       return;
     } else {
