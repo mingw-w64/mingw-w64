@@ -1,10 +1,10 @@
-/* This file is generated with wmc version 1.2-rc5. Do not edit! */
+/* This file is generated with wmc version 1.3.1. Do not edit! */
 /* Source : bugcodes.mc */
 /* Cmdline: wmc bugcodes.mc */
-/* Date   : Mon Jun 28 20:45:51 2010 */
+/* Date   : Sun Aug 29 20:33:05 2010 */
 
-#ifndef __WMCGENERATED_4c28fbfe_H
-#define __WMCGENERATED_4c28fbfe_H
+#ifndef __WMCGENERATED_4c7ac303_H
+#define __WMCGENERATED_4c7ac303_H
 
 /* Severity codes */
 #define STATUS_SEVERITY_ERROR	0x3
@@ -633,6 +633,10 @@
 /* MessageId  : 0x000000c5 */
 /* Approximate msg: A device driver has pool. */
 #define DRIVER_CORRUPTED_EXPOOL	((ULONG)0x000000c5L)
+
+/* MessageId  : 0x000000c6 */
+/* Approximate msg: A device driver attempting to corrupt the system has been caught. */
+#define DRIVER_CAUGHT_MODIFYING_FREED_POOL	((ULONG)0x000000c6L)
 
 /* MessageId  : 0x000000c8 */
 /* Approximate msg: The processor's IRQL is not valid for the currently executing context. */
