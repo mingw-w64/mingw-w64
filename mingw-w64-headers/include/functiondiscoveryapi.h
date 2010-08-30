@@ -59,6 +59,7 @@ DECLARE_INTERFACE_(IFunctionInstance,IUnknown)
     STDMETHOD_(HRESULT,OpenPropertyStore)(THIS_ DWORD dwStgAccess,IPropertyStore **ppIPropertyStore) PURE;
     STDMETHOD_(HRESULT,GetCategory)(THIS_ WCHAR **ppszCoMemCategory,WCHAR **ppszCoMemSubCategory) PURE;
     STDMETHOD_(HRESULT,QueryService)(THIS_ REFGUID guidService,REFGUID riid,void **ppv) PURE;
+    /* FIXME: genidl doesn't show QueryService */
 
     END_INTERFACE
 };
