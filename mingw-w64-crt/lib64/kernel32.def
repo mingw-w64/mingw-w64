@@ -923,7 +923,8 @@ OpenMutexW
 OpenPrivateNamespaceA
 OpenPrivateNamespaceW
 OpenProcess
-OpenProcessToken
+; advapi32 copy should be used for compatibility.
+; OpenProcessToken
 OpenProfileUserMapping
 OpenSemaphoreA
 OpenSemaphoreW
