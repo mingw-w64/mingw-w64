@@ -1,3 +1,13 @@
+2010-08-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/dirent.c: Add missing comments, reformat for smaller diff
+	output against mingw version.  Remove the stdio.h include.
+	(_tGetFileAttributes): Change return type from unsigned to DWORD.
+	(opendir): Check error return from _tGetFileAttributes() using the
+	INVALID_FILE_ATTRIBUTES macro.  Use 260 instead of FILENAME_MAX in
+	the memset.  Simplify the if condition for adding a trailing slash
+	to the path.
+
 2010-08-28  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/crtexe.c: Prepare x64 SEH support.
