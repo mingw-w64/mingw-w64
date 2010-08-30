@@ -154,7 +154,9 @@ int WinMainCRTStartup (void)
 #ifdef __SEH__
   asm ("\t.l_startw:\n"
     "\t.seh_handler __C_specific_handler, @except\n"
-    "\t.seh_scope .l_startw, .l_endw, _gnu_exception_handler ,.l_endw\n"
+    "\t.seh_handlerdata\n"
+    "\t.rva .l_startw, .l_endw, _gnu_exception_handler ,.l_endw\n"
+    "\t.text"
     );
 #endif
   mingw_app_type = 1;
@@ -178,7 +180,9 @@ int mainCRTStartup (void)
 #ifdef __SEH__
   asm ("\t.l_start:\n"
     "\t.seh_handler __C_specific_handler, @except\n"
-    "\t.seh_scope .l_start, .l_end, _gnu_exception_handler, .l_end\n"
+    "\t.seh_handlerdata\n"
+    "\t.rva .l_start, .l_end, _gnu_exception_handler ,.l_end\n"
+    "\t.text"
     );
 #endif
   mingw_app_type = 0;
