@@ -64,7 +64,7 @@ limitations in handling dllimport attribute.  */
 
 #if defined (_MSC_VER)
 #define __MINGW_MSC_PREREQ(major, minor) \
-  ((major * 100 + minor * 10) >= _MSC_VER)
+  (_MSC_VER >= (major * 100 + minor * 10))
 #else
 #define __MINGW_MSC_PREREQ(major, minor)   0
 #endif

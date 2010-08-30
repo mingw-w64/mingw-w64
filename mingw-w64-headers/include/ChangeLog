@@ -1,5 +1,7 @@
 2010-08-30  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* _mingw.h (__MINGW_MSC_PREREQ): Fix inverted logic.
+
 	* dirent.h: Move the _mingw.h include after the header's include
 	guard, move the packing pragmas after the RC_INVOKED guard.  Reformat
 	for smaller diff output against mingw version.
