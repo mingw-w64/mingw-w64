@@ -1,5 +1,12 @@
 2010-08-30  Jonathan Yong  <jon_y@sourceforge.net>
 
+	* lib64/kernel32.def (OpenProcessToken): Revert change, users can easily
+	work around this by manually specifying the link libraries to use, at
+	which the first library to meet the required symbol name will be used at
+	runtime.
+
+2010-08-30  Jonathan Yong  <jon_y@sourceforge.net>
+
 	* lib64/kernel32.def (OpenProcessToken): Comment out for compatibility
 	with older systems.
 
