@@ -155,6 +155,7 @@ int WinMainCRTStartup (void)
   asm ("\t.l_startw:\n"
     "\t.seh_handler __C_specific_handler, @except\n"
     "\t.seh_handlerdata\n"
+    "\t.long 1\n"
     "\t.rva .l_startw, .l_endw, _gnu_exception_handler ,.l_endw\n"
     "\t.text"
     );
@@ -181,6 +182,7 @@ int mainCRTStartup (void)
   asm ("\t.l_start:\n"
     "\t.seh_handler __C_specific_handler, @except\n"
     "\t.seh_handlerdata\n"
+    "\t.long 1\n"
     "\t.rva .l_start, .l_end, _gnu_exception_handler ,.l_end\n"
     "\t.text"
     );
