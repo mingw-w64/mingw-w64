@@ -22,10 +22,7 @@ For a basic guide on building the mingw-w64 toolchain, please refer to
 
 == Notes about LTO ==
 
-LTO is curently disabled for non-ELF targets, that includes MinGW and
-Cygwin. libelf can't read PE/COFF objects correctly, so it doesn't do
-anything. You may skip building libelf and LTO. Using --enable-lto with
-GCC configure may result in an error.
+LTO for COFF targets can be enabled without installing libelf, as of gcc-4.6.0.
 
 == Version changes ==
 
@@ -33,6 +30,7 @@ Date /        Version /    Author
 2009-10-09    1.0          Jonathan Yong <jon_y[a]users.sourceforge.com>
 2010-01-03    1.1          Jonathan Yong <jon_y[a]users.sourceforge.com>
 2010-05-18    1.11         Jonathan Yong <jon_y[a]users.sourceforge.com>
+2010-08-31    1.12         Jonathan Yong <jon_y[a]users.sourceforge.com>
 
 == Table of Contents ==
 
@@ -43,7 +41,6 @@ Date /        Version /    Author
 	    * Multiprecision                                      [BMPCLIB]
 	    * The Parma Polyhedra Library                         [BPPLLIB]
 	    * The Clunky Loop Generator (PPL port)                [BCLGLIB]
-	    * Libelf                                              [BELFLIB]
 	* Target Support Libraries                                [TGTSPLB]
 	    * pthreads-win32                                      [PTHRW32]
 	* Building the Multilib Cross MinGW-w64 GCC the
@@ -148,18 +145,6 @@ CLooG needs to be told to use the PPL backend, so use:
 	./configure --with-ppl=<PPL install prefix>
 	make
 	make install
-
-=== Libelf === [BELFLIB]
-
-Homepage: <http://www.mr511.de/software/english.html>
-Depends on:             None
-Depended by:            None
-GCC dependency type:    Soft (Required for GCC lto support)
-Libelf isn't particularly fussy about configure options, so the usual:
-	./configure
-	make
-	make install
-is fine.
 
 == Target Support Libraries == [TGTSPLB]
 
@@ -344,7 +329,7 @@ Example:
 	--enable-shared --with-dwarf --enable-fully-dynamic-string \
 	--enable-languages=c,ada,c++,fortran,objc,obj-c++ --enable-libgomp \
 	--enable-libssp --with-host-libstdcxx="-lstdc++ -lsupc++" \
-	--with-{gmp,mpfr,mpc,cloog,ppl,libelf}=<host dir>
+	--with-{gmp,mpfr,mpc,cloog,ppl}=<host dir> --enable-lto
 
 Explanation:
 	--enable-version-specific-runtime-libs
@@ -371,9 +356,12 @@ Explanation:
 	Lists down the C++ support libraries to link with. This is useful
 	when using static PPL and CLooG.
 
-	--with-{gmp,mpfr,mpc,cloog,ppl,libelf}=<host dir>
+	--with-{gmp,mpfr,mpc,cloog,ppl}=<host dir>
 	Tells GCC where the host support libraries are installed to.
 	(i.e. search <host dir>/include & <host dir>/lib)
+
+	--enable-lto
+	Enables Link Time Optimization support.
 
 Use "make all-gcc" to build the standalone GCC compiler without target
 support libs. Install it with "make install-gcc".
