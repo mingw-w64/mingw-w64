@@ -585,6 +585,7 @@ _mbsnicoll
 _mbsnicoll_l
 _mbsninc
 _mbsninc_l
+_mbsnlen
 _mbsnlen_l
 _mbsnset
 _mbsnset_l
@@ -614,6 +615,7 @@ _mbstowcs_l
 _mbstowcs_s_l
 _mbstrlen
 _mbstrlen_l
+_mbstrnlen
 _mbstrnlen_l
 _mbsupr
 _mbsupr_l
@@ -1191,6 +1193,7 @@ strncat_s
 strncmp
 strncpy
 strncpy_s
+strnlen
 strpbrk
 strrchr
 strspn
@@ -1249,6 +1252,7 @@ wcsncat_s
 wcsncmp
 wcsncpy
 wcsncpy_s
+wcsnlen
 wcspbrk
 wcsrchr
 wcsrtombs_s

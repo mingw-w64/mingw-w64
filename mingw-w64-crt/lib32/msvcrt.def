@@ -961,6 +961,7 @@ _mbsnextc_l
 _mbsnicmp_l
 _mbsnicoll_l
 _mbsninc_l
+_mbsnlen
 _mbsnlen_l
 _mbsnset_l
 _mbsnset_s
@@ -980,6 +981,7 @@ _mbstok_s_l
 _mbstowcs_l
 _mbstowcs_s_l
 _mbstrlen_l
+_mbstrnlen
 _mbstrnlen_l
 _mbsupr_l
 _mbsupr_s
@@ -1183,6 +1185,7 @@ strcpy_s
 strerror_s
 strncat_s
 strncpy_s
+strnlen
 strtok_s
 swprintf_s
 swscanf_s
@@ -1199,6 +1202,7 @@ wcscat_s
 wcscpy_s
 wcsncat_s
 wcsncpy_s
+wcsnlen
 wcsrtombs_s
 wcstok_s
 wcstombs_s
