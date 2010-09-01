@@ -173,6 +173,8 @@ extern "C" {
   } FILETIME,*PFILETIME,*LPFILETIME;
 #endif
 
+#ifndef _SYSTEMTIME_
+#define _SYSTEMTIME_
   typedef struct _SYSTEMTIME {
     WORD wYear;
     WORD wMonth;
@@ -183,6 +185,7 @@ extern "C" {
     WORD wSecond;
     WORD wMilliseconds;
   } SYSTEMTIME,*PSYSTEMTIME,*LPSYSTEMTIME;
+#endif /* _SYSTEMTIME_ */
 
   typedef DWORD (WINAPI *PTHREAD_START_ROUTINE)(LPVOID lpThreadParameter);
   typedef PTHREAD_START_ROUTINE LPTHREAD_START_ROUTINE;
