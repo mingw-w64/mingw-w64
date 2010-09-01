@@ -1,3 +1,10 @@
+2010-09-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* configure.ac: Rework to avoid using user variables.
+	* Makefile.am: Likewise.
+	* configure: Regenerate.
+	* Makefile.in: Likewise.
+
 2010-08-29  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* src/fsredir.c (doredirect): Use GetModuleHandleW instead of LoadLibraryA.

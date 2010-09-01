@@ -1,4 +1,6 @@
 bin_PROGRAMS = gendef
+AM_LDFLAGS = @GENDEF_LDFLAGS@
+AM_CPPFLAGS = @GENDEF_CPPFLAGS@
 
 gendef_SOURCES = src/gendef.h src/compat_string.h src/gendef.c src/gendef_def.c src/compat_string.c \
                  src/fsredir.c src/fsredir.h

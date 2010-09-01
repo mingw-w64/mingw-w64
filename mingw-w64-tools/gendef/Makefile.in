@@ -104,6 +104,8 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
+GENDEF_CPPFLAGS = @GENDEF_CPPFLAGS@
+GENDEF_LDFLAGS = @GENDEF_LDFLAGS@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
@@ -181,6 +183,8 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 with_mangle = @with_mangle@
+AM_LDFLAGS = @GENDEF_LDFLAGS@
+AM_CPPFLAGS = @GENDEF_CPPFLAGS@
 gendef_SOURCES = src/gendef.h src/compat_string.h src/gendef.c src/gendef_def.c src/compat_string.c \
                  src/fsredir.c src/fsredir.h
 
