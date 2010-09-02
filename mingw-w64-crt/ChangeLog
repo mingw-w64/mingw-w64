@@ -1,11 +1,11 @@
-2010-08-30  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-30  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/kernel32.def (OpenProcessToken): Revert change, users can easily
 	work around this by manually specifying the link libraries to use, at
 	which the first library to meet the required symbol name will be used at
 	runtime.
 
-2010-08-30  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-30  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/kernel32.def (OpenProcessToken): Comment out for compatibility
 	with older systems.
@@ -26,7 +26,7 @@
 	* crt/crt_handler.c: Correct some stuff and moved
 	default handler from crtexe.c here.
 
-2010-08-13  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-13  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/secur32.def: Update from Win7.
 	* lib64/secur32.def: Likewise.
@@ -85,13 +85,13 @@
 	* libsrc/bth-uuid.c: Remove duplicated entry for
 	PnPInformationServiceClass_UUID
 
-2010-08-13  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-13  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* libsrc/bth-uuid.c: New.
 	* Makefile.am: Add new entry.
 	* Makefile.in: Regenerated.
 
-2010-08-08  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-08  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/d3dcompiler_33.def: New.
 	* lib32/d3dcompiler_34.def: New.
@@ -249,12 +249,12 @@
 	* math/fpclassifyf.c: Likewise.
 	* math/fpclassifyl.c: Likewise.
 
-2010-08-02  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-02  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/msvcrt.def: New _vcprintf and _vcwprintf.
 	* lib64/msvcrt.def: Likewise.
 
-2010-08-01  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-01  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/msvcrt.def: Added secure and locale type symbols from Win7.
 	* lib64/msvcrt.def: Likewise.
@@ -372,7 +372,7 @@
 	(KeReleaseInStackQueuedSpinLock): Likewise, go back to __fastcall
 	@KeReleaseInStackQueuedSpinLock@4.
 
-2010-07-26  Jonathan Yong  <jon_y@sourceforge.net>
+2010-07-26  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/wdscsl.def: New.
 	* lib64/pcwum.def: New.
@@ -496,7 +496,7 @@
 	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_RAW): New.
 	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_PROCESSED): New.
 
-2010-07-16  Jonathan Yong  <jon_y@sourceforge.net>
+2010-07-16  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/ndis.def: New.
 	* lib64/authz.def: Updated from Vista.
@@ -522,7 +522,7 @@
 	WSASetEvent as 4, WSAGetLastError as 0, WSASetLastError as 4 and
 	WSAWaitForMultipleEvents as 20.
 
-2010-07-06  Jonathan Yong  <jon_y@sourceforge.net>
+2010-07-06  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/wlanui.def: New.
 	* lib64/wlanapi.def: New.
@@ -571,7 +571,7 @@
 	* complex/ctanh.def.h (ctanh): Return signed zero matching the
 	  sign of sin(2 * __imag__ z).
 
-2010-07-05  Jonathan Yong  <jon_y@sourceforge.net>
+2010-07-05  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/msctfmonitor.def: New.
 	* lib64/tbs.def: New.
@@ -586,7 +586,7 @@
 	* Makefile.am: Add new entries.
 	* Makefile.in: Regenerated.
   
-2010-07-05  Jonathan Yong  <jon_y@sourceforge.net>
+2010-07-05  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/winscard.def: Updated from Vista.
 	* lib64/vssapi.def: Likewise.
@@ -628,7 +628,7 @@
 
 	* lib32/qwave.def: Fix QOSCancel and QOSCloseHandle exports.
 
-2010-06-30  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-30  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/rpcrt4.def: Updated from Vista.
 	* lib32/rpcrt4.def: Likewise.
@@ -689,13 +689,13 @@
 	as 8.
 	* lib32/win32k.def: Fix several @<n> suffixes.
 
-2010-06-29  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-29  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* Makefile.am: Add libsrc/powrprof-uuid.c.
 	* libsrc/powrprof-uuid.c: New.
 	* Makefile.in: Regenerated.
 
-2010-06-29  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-29  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/mprapi.def: Updated from Vista.
 	* lib64/pdh.def: Likewise.
@@ -750,7 +750,7 @@
 	  Add new_complex library sources.
 	* Makefile.in: Regenerate.
 
-2010-06-26  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-26  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/esent.def: New.
 	* lib32/httpapi.def: New.
@@ -763,7 +763,7 @@
 
 	* lib32/gdi32.def: Added some missing entries.
 
-2010-06-24  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-24  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/qutil.def: New.
 	* lib64/connect.def: New.
@@ -778,14 +778,14 @@
 
 	* lib32/crypt32.def: Fix @<n> suffix.
 
-2010-06-21  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-21  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/wevtfwd.def: New.
 	* lib32/wevtapi.def: New.
 	* lib64/wevtapi.def: New.
 	* lib64/wevtfwd.def: New.
 
-2010-06-21  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-21  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/msdrm.def: New.
 	* lib64/eapphost.def: New.
@@ -866,12 +866,12 @@
 	(_mcleanup): Constified proffile. Added a static char gmon_out[] as
 	"gmon.out" and assigned gmon_out to proffile.
 
-2010-06-15  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* Makefile.am: Add libsrc/vds-uuid.c.
 	* vds-uuid.c: New.
 
-2010-06-15  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/mf.def: New.
 	* lib64/ktmw32.def: Likewise.
@@ -893,7 +893,7 @@
 	* lib32/sxs.def: Likewise.
 	* lib32/ktmw32.def: Likewise.
 
-2010-06-15  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/bthprops.def: Sync with Vista exports.
 	* lib32/iphlpapi.def: Likewise.
@@ -921,7 +921,7 @@
 	* lib32/shell32.def (ILCreateFromPath, ILCreateFromPathA,
 	ILCreateFromPathW, SHSimpleIDListFromPath): Added.
 
-2010-06-05  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-05  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/clfsw32.def: New.
 	* lib32/clfsw32.def: Likewise.
@@ -1047,7 +1047,7 @@
 	PR/2995926
 	* misc/getopt.c: Replace by PD mingw.org version.
 
-2010-05-02  Jonathan Yong  <jon_y@sourceforge.net>
+2010-05-02  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* misc/mb_wc_common.h (get_codepage): use ___lc_codepage_func
 	instead of __lc_codepage to get codepage.
@@ -1067,7 +1067,7 @@
 	instead of ULARGE_INTEGER, as in the mingw.org version, to fix the
 	strict aliasing violations reported by -Wstrict-aliasing=2.
 
-2010-04-17  Jonathan Yong  <jon_y@sourceforge.net>
+2010-04-17  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* misc/mbrtowc.c (__mbrtowc_cp): Add nonnull attribute.
 	* misc/wcrtomb.c (wcrtomb): Use __UNUSED_PARAM instead of
@@ -1078,7 +1078,7 @@
 	* Makefile.am: Add misc/wcstof.c.
 	* Makefile.in: Regenerated.
 
-2010-04-14  Jonathan Yong  <jon_y@sourceforge.net>
+2010-04-14  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/kernel32.def (AcquireSRWLockExclusive): New.
 	(AcquireSRWLockShared): Likewise.
@@ -1162,12 +1162,12 @@
 	* configure: Likewise.
 	* ltmain.sh (func_win32_libid): Update from the libtool git repo.
 
-2010-02-19  Jonathan Yong  <jon_y@sourceforge.net>
+2010-02-19  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* libsrc/shell32.c (CLSID_ShellFSFolder): Define.
 	(IID_IShellLinkDataList): Define.
 
-2010-02-19  Jonathan Yong  <jon_y@sourceforge.net>
+2010-02-19  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* libsrc/shell32.c (IID_IFolderView): Define.
 
