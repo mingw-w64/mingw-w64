@@ -3,7 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-double fmodl (double x, double y);
+double fmod (double x, double y);
 
 double
 fmod (double x, double y)
