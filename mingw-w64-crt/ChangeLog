@@ -1,3 +1,8 @@
+2010-09-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib64: Remove old experimental w* variants of def files, move them
+	under experimental/lib64_old_experimental
+
 2010-08-30  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib64/kernel32.def (OpenProcessToken): Revert change, users can easily
