@@ -7,6 +7,8 @@
 #define _INC_VDS
 
 #if (_WIN32_WINNT >= 0x0600)
+#include <diskguid.h>
+#include <winioctl.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -669,6 +671,19 @@ extern "C" {
     };
   } CHANGE_ATTRIBUTES_PARAMETERS;
 
+  typedef struct _CHANGE_PARTITION_TYPE_PARAMETERS {
+    VDS_PARTITION_STYLE style;
+    __MINGW_EXTENSION union {
+      struct {
+        BYTE partitionType;
+      } MbrPartInfo;
+      struct {
+        GUID partitionType;
+      } GptPartInfo;
+    } ;
+  } CHANGE_PARTITION_TYPE_PARAMETERS, *PCHANGE_PARTITION_TYPE_PARAMETERS;
+
+
   typedef struct _CREATE_PARTITION_PARAMETERS {
     VDS_PARTITION_STYLE style;
     __MINGW_EXTENSION union {
@@ -958,15 +973,22 @@ extern "C" {
     ULONG              ulSupportedPortSpeed;
   } VDS_HBAPORT_PROP;
 
-#define VDS_HINT_FASTCRASHRECOVERYREQUIRED	0x0000000000000001ULL
-#define VDS_HINT_MOSTLYREADS			0x0000000000000002ULL
-#define VDS_HINT_OPTIMIZEFORSEQUENTIALREADS	0x0000000000000004ULL
-#define VDS_HINT_OPTIMIZEFORSEQUENTIALWRITES	0x0000000000000008ULL
-#define VDS_HINT_READBACKVERIFYENABLED		0x0000000000000010ULL
-#define VDS_HINT_REMAPENABLED			0x0000000000000020ULL
-#define VDS_HINT_WRITETHROUGHCACHINGENABLED	0x0000000000000040ULL
-#define VDS_HINT_HARDWARECHECKSUMENABLED	0x0000000000000080ULL
-#define VDS_HINT_ISYANKABLE			0x0000000000000100ULL
+#define VDS_HINT_FASTCRASHRECOVERYREQUIRED   0x0000000000000001ULL
+#define VDS_HINT_MOSTLYREADS                 0x0000000000000002ULL
+#define VDS_HINT_OPTIMIZEFORSEQUENTIALREADS  0x0000000000000004ULL
+#define VDS_HINT_OPTIMIZEFORSEQUENTIALWRITES 0x0000000000000008ULL
+#define VDS_HINT_READBACKVERIFYENABLED       0x0000000000000010ULL
+#define VDS_HINT_REMAPENABLED                0x0000000000000020ULL
+#define VDS_HINT_WRITETHROUGHCACHINGENABLED  0x0000000000000040ULL
+#define VDS_HINT_HARDWARECHECKSUMENABLED     0x0000000000000080ULL
+#define VDS_HINT_ISYANKABLE                  0x0000000000000100ULL
+#define VDS_HINT_ALLOCATEHOTSPARE            0x0000000000000200ULL
+#define VDS_HINT_BUSTYPE                     0x0000000000000400ULL
+#define VDS_HINT_USEMIRROREDCACHE            0x0000000000000800ULL
+#define VDS_HINT_READCACHINGENABLED          0x0000000000001000ULL
+#define VDS_HINT_WRITECACHINGENABLED         0x0000000000002000ULL
+#define VDS_HINT_MEDIASCANENABLED            0x0000000000004000ULL
+#define VDS_HINT_CONSISTENCYCHECKENABLED     0x0000000000008000ULL
 
   typedef struct _VDS_HINTS {
     ULONGLONG ullHintMask;
@@ -995,13 +1017,6 @@ extern "C" {
     VDS_OBJECT_ID plexId;
     ULONG         memberIdx;
   } VDS_INPUT_DISK;
-
-  typedef struct _VDS_INTERCONNECT {
-    VDS_INTERCONNECT_ADDRESS_TYPE m_addressType;
-    ULONG m_cbPort;  BYTE* m_pbPort;
-    ULONG m_cbAddress;
-    BYTE *m_pbAddress;
-  } VDS_INTERCONNECT;
 
   typedef struct _VDS_IPADDRESS {
     VDS_IPADDRESS_TYPE type;
@@ -1061,22 +1076,6 @@ extern "C" {
     ULONG m_cIdentifiers;
     VDS_STORAGE_IDENTIFIER* m_rgIdentifiers;
   } VDS_STORAGE_DEVICE_ID_DESCRIPTOR;
-
-  typedef struct _VDS_LUN_INFORMATION {
-    ULONG m_version;
-    BYTE m_DeviceType;
-    BYTE m_DeviceTypeModifier;
-    WINBOOL m_bCommandQueueing;
-    VDS_STORAGE_BUS_TYPE m_BusType;
-    char* m_szVendorId;
-    char* m_szProductId;
-    char* m_szProductRevision;
-    char* m_szSerialNumber;
-    GUID m_diskSignature;
-    VDS_STORAGE_DEVICE_ID_DESCRIPTOR m_deviceIdDescriptor;
-    ULONG m_cInterconnects;
-    VDS_INTERCONNECT *m_rgInterconnects;
-  } VDS_LUN_INFORMATION;
 
 #define VDS_NF_LUN_ARRIVE 108
 #define VDS_NF_LUN_DEPART 109
@@ -1262,5 +1261,306 @@ extern "C" {
 #endif
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
+
+#include <vdslun.h>
+
+#if (_WIN32_WINNT >= 0x0601)
+#ifdef __cplusplus
+extern "C" {
+#endif
+typedef enum _VDS_DISK_OFFLINE_REASON {
+  VDSDiskOfflineReasonNone            = 0,
+  VDSDiskOfflineReasonPolicy          = 1,
+  VDSDiskOfflineReasonRedundantPath   = 2,
+  VDSDiskOfflineReasonSnapshot        = 3,
+  VDSDiskOfflineReasonCollision       = 4 
+} VDS_DISK_OFFLINE_REASON;
+
+typedef enum _VDS_STORAGE_POOL_STATUS {
+  VDS_SPS_UNKNOWN     = 0,
+  VDS_SPS_ONLINE      = 1,
+  VDS_SPS_NOT_READY   = 2,
+  VDS_SPS_OFFLINE     = 4 
+} VDS_STORAGE_POOL_STATUS;
+
+typedef enum _VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
+  VDS_SF_SUPPORTS_RAID2_LUNS    = 0x1,
+  VDS_SF_SUPPORTS_RAID3_LUNS    = 0x2,
+  VDS_SF_SUPPORTS_RAID4_LUNS    = 0x4,
+  VDS_SF_SUPPORTS_RAID5_LUNS    = 0x8,
+  VDS_SF_SUPPORTS_RAID6_LUNS    = 0x10,
+  VDS_SF_SUPPORTS_RAID01_LUNS   = 0x20,
+  VDS_SF_SUPPORTS_RAID03_LUNS   = 0x40,
+  VDS_SF_SUPPORTS_RAID05_LUNS   = 0x80,
+  VDS_SF_SUPPORTS_RAID10_LUNS   = 0x100,
+  VDS_SF_SUPPORTS_RAID15_LUNS   = 0x200,
+  VDS_SF_SUPPORTS_RAID30_LUNS   = 0x400,
+  VDS_SF_SUPPORTS_RAID50_LUNS   = 0x800,
+  VDS_SF_SUPPORTS_RAID51_LUNS   = 0x1000,
+  VDS_SF_SUPPORTS_RAID53_LUNS   = 0x2000,
+  VDS_SF_SUPPORTS_RAID60_LUNS   = 0x4000,
+  VDS_SF_SUPPORTS_RAID61_LUNS   = 0x8000 
+} VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG;
+
+typedef enum VDS_FORMAT_OPTION_FLAGS {
+  VDS_FSOF_NONE                 = 0x00000000,
+  VDS_FSOF_FORCE                = 0x00000001,
+  VDS_FSOF_QUICK                = 0x00000002,
+  VDS_FSOF_COMPRESSION          = 0x00000004,
+  VDS_FSOF_DUPLICATE_METADATA   = 0x00000008 
+} VDS_FORMAT_OPTION_FLAGS;
+
+typedef enum _VDS_INTERCONNECT_FLAG {
+  VDS_ITF_PCI_RAID        = 0x1,
+  VDS_ITF_FIBRE_CHANNEL   = 0x2,
+  VDS_ITF_ISCSI           = 0x4,
+  VDS_ITF_SAS             = 0x8 
+} VDS_INTERCONNECT_FLAG;
+
+typedef enum _VDS_RAID_TYPE {
+  VDS_RT_UNKNOWN   = 0,
+  VDS_RT_RAID0     = 10,
+  VDS_RT_RAID1     = 11,
+  VDS_RT_RAID2     = 12,
+  VDS_RT_RAID3     = 13,
+  VDS_RT_RAID4     = 14,
+  VDS_RT_RAID5     = 15,
+  VDS_RT_RAID6     = 16,
+  VDS_RT_RAID01    = 17,
+  VDS_RT_RAID03    = 18,
+  VDS_RT_RAID05    = 19,
+  VDS_RT_RAID10    = 20,
+  VDS_RT_RAID15    = 21,
+  VDS_RT_RAID30    = 22,
+  VDS_RT_RAID50    = 23,
+  VDS_RT_RAID51    = 24,
+  VDS_RT_RAID53    = 25,
+  VDS_RT_RAID60    = 26,
+  VDS_RT_RAID61    = 27 
+} VDS_RAID_TYPE;
+
+typedef enum _VDS_STORAGE_POOL_TYPE {
+  VDS_SPT_UNKNOWN      = 0,
+  VDS_SPT_PRIMORDIAL   = 0x1,
+  VDS_SPT_CONCRETE     = 0x2 
+} VDS_STORAGE_POOL_TYPE;
+
+typedef enum _VDS_VDISK_STATE {
+  VDS_VST_UNKNOWN             = 0,
+  VDS_VST_ADDED               = 1,
+  VDS_VST_OPEN                = 2,
+  VDS_VST_ATTACH_PENDING      = 3,
+  VDS_VST_ATTACHED_NOT_OPEN   = 4,
+  VDS_VST_ATTACHED            = 5,
+  VDS_VST_DETACH_PENDING      = 6,
+  VDS_VST_COMPACTING          = 7,
+  VDS_VST_MERGING             = 8,
+  VDS_VST_EXPANDING           = 9,
+  VDS_VST_DELETED             = 10,
+  VDS_VST_MAX                 = 11 
+} VDS_VDISK_STATE;
+
+typedef struct _VDS_CREATE_VDISK_PARAMETERS {
+  GUID      UniqueId;
+  ULONGLONG MaximumSize;
+  ULONG     BlockSizeInBytes;
+  ULONG     SectorSizeInBytes;
+  LPWSTR    pParentPath;
+  LPWSTR    pSourcePath;
+} VDS_CREATE_VDISK_PARAMETERS, *PVDS_CREATE_VDISK_PARAMETERS;
+
+typedef struct _VDS_DISK_FREE_EXTENT {
+  VDS_OBJECT_ID diskId;
+  ULONGLONG     ullOffset;
+  ULONGLONG     ullSize;
+} VDS_DISK_FREE_EXTENT, *PVDS_DISK_FREE_EXTENT;
+
+typedef struct _VDS_DISK_PROP2 {
+  VDS_OBJECT_ID           id;
+  VDS_DISK_STATUS         status;
+  VDS_DISK_OFFLINE_REASON OfflineReason;
+  VDS_LUN_RESERVE_MODE    ReserveMode;
+  VDS_HEALTH              health;
+  DWORD                   dwDeviceType;
+  DWORD                   dwMediaType;
+  ULONGLONG               ullSize;
+  ULONG                   ulBytesPerSector;
+  ULONG                   ulSectorsPerTrack;
+  ULONG                   ulTracksPerCylinder;
+  ULONG                   ulFlags;
+  VDS_STORAGE_BUS_TYPE    BusType;
+  VDS_PARTITION_STYLE     PartitionStyle;
+  __MINGW_EXTENSION union {
+    DWORD dwSignature;
+    GUID  DiskGuid;
+  } ;
+  LPWSTR                  pwszDiskAddress;
+  LPWSTR                  pwszName;
+  LPWSTR                  pwszFriendlyName;
+  LPWSTR                  pwszAdaptorName;
+  LPWSTR                  pwszDevicePath;
+  LPWSTR                  pwszLocationPath;
+} VDS_DISK_PROP2, *PVDS_DISK_PROP2;
+
+typedef struct _VDS_DRIVE_PROP2 {
+  VDS_OBJECT_ID        id;
+  ULONGLONG            ullSize;
+  LPWSTR               pwszFriendlyName;
+  LPWSTR               pwszIdentification;
+  ULONG                ulFlags;
+  VDS_DRIVE_STATUS     status;
+  VDS_HEALTH           health;
+  SHORT                sInternalBusNumber;
+  SHORT                sSlotNumber;
+  ULONG                ulEnclosureNumber;
+  VDS_STORAGE_BUS_TYPE busType;
+  ULONG                ulSpindleSpeed;
+} VDS_DRIVE_PROP2, *PVDS_DRIVE_PROP2;
+
+typedef struct _VDS_HINTS2 {
+  ULONGLONG            ullHintMask;
+  ULONGLONG            ullExpectedMaximumSize;
+  ULONG                ulOptimalReadSize;
+  ULONG                ulOptimalReadAlignment;
+  ULONG                ulOptimalWriteSize;
+  ULONG                ulOptimalWriteAlignment;
+  ULONG                ulMaximumDriveCount;
+  ULONG                ulStripeSize;
+  ULONG                ulReserved1;
+  ULONG                ulReserved2;
+  ULONG                ulReserved3;
+  WINBOOL              bFastCrashRecoveryRequired;
+  WINBOOL              bMostlyReads;
+  WINBOOL              bOptimizeForSequentialReads;
+  WINBOOL              bOptimizeForSequentialWrites;
+  WINBOOL              bRemapEnabled;
+  WINBOOL              bReadBackVerifyEnabled;
+  WINBOOL              bWriteThroughCachingEnabled;
+  WINBOOL              bHardwareChecksumEnabled;
+  WINBOOL              bIsYankable;
+  WINBOOL              bAllocateHotSpare;
+  WINBOOL              bUseMirroredCache;
+  WINBOOL              bReadCachingEnabled;
+  WINBOOL              bWriteCachingEnabled;
+  WINBOOL              bMediaScanEnabled;
+  WINBOOL              bConsistencyCheckEnabled;
+  VDS_STORAGE_BUS_TYPE BusType;
+  WINBOOL              bReserved1;
+  WINBOOL              bReserved2;
+  WINBOOL              bReserved3;
+  SHORT                sRebuildPriority;
+} VDS_HINTS2, *PVDS_HINTS2;
+
+typedef struct _VDS_POOL_CUSTOM_ATTRIBUTES {
+  LPWSTR pwszName;
+  LPWSTR pwszValue;
+} VDS_POOL_CUSTOM_ATTRIBUTES, *PVDS_POOL_CUSTOM_ATTRIBUTES;
+
+typedef struct _VDS_POOL_ATTRIBUTES {
+  ULONGLONG                  ullAttributeMask;
+  VDS_RAID_TYPE              raidType;
+  VDS_STORAGE_BUS_TYPE       busType;
+  LPWSTR                     pwszIntendedUsage;
+  WINBOOL                    bSpinDown;
+  WINBOOL                    bIsThinProvisioned;
+  ULONGLONG                  ullProvisionedSpace;
+  WINBOOL                    bNoSinglePointOfFailure;
+  ULONG                      ulDataRedundancyMax;
+  ULONG                      ulDataRedundancyMin;
+  ULONG                      ulDataRedundancyDefault;
+  ULONG                      ulPackageRedundancyMax;
+  ULONG                      ulPackageRedundancyMin;
+  ULONG                      ulPackageRedundancyDefault;
+  ULONG                      ulStripeSize;
+  ULONG                      ulStripeSizeMax;
+  ULONG                      ulStripeSizeMin;
+  ULONG                      ulDefaultStripeSize;
+  ULONG                      ulNumberOfColumns;
+  ULONG                      ulNumberOfColumnsMax;
+  ULONG                      ulNumberOfColumnsMin;
+  ULONG                      ulDefaultNumberofColumns;
+  ULONG                      ulDataAvailabilityHint;
+  ULONG                      ulAccessRandomnessHint;
+  ULONG                      ulAccessDirectionHint;
+  ULONG                      ulAccessSizeHint;
+  ULONG                      ulAccessLatencyHint;
+  ULONG                      ulAccessBandwidthWeightHint;
+  ULONG                      ulStorageCostHint;
+  ULONG                      ulStorageEfficiencyHint;
+  ULONG                      ulNumOfCustomAttributes;
+  VDS_POOL_CUSTOM_ATTRIBUTES *pPoolCustomAttributes;
+  WINBOOL                    bReserved1;
+  WINBOOL                    bReserved2;
+  ULONG                      ulReserved1;
+  ULONG                      ulReserved2;
+  ULONGLONG                  ullReserved1;
+  ULONGLONG                  ullReserved2;
+} VDS_POOL_ATTRIBUTES, *PVDS_POOL_ATTRIBUTES;
+
+typedef struct _VDS_STORAGE_POOL_DRIVE_EXTENT {
+  VDS_OBJECT_ID id;
+  ULONGLONG     ullSize;
+  WINBOOL       bUsed;
+} VDS_STORAGE_POOL_DRIVE_EXTENT, *PVDS_STORAGE_POOL_DRIVE_EXTENT;
+
+typedef struct _VDS_STORAGE_POOL_PROP {
+  VDS_OBJECT_ID           id;
+  VDS_STORAGE_POOL_STATUS status;
+  VDS_HEALTH              health;
+  VDS_STORAGE_POOL_TYPE   type;
+  LPWSTR                  pwszName;
+  LPWSTR                  pwszDescription;
+  ULONGLONG               ullTotalConsumedSpace;
+  ULONGLONG               ullTotalManagedSpace;
+  ULONGLONG               ullRemainingFreeSpace;
+} VDS_STORAGE_POOL_PROP, *PVDS_STORAGE_POOL_PROP;
+
+typedef struct _VDS_SUB_SYSTEM_PROP2 {
+  VDS_OBJECT_ID         id;
+  LPWSTR                pwszFriendlyName;
+  LPWSTR                pwszIdentification;
+  ULONG                 ulFlags;
+  ULONG                 ulStripeSizeFlags;
+  ULONG                 ulSupportedRaidTypeFlags;
+  VDS_SUB_SYSTEM_STATUS status;
+  VDS_HEALTH            health;
+  SHORT                 sNumberOfInternalBuses;
+  SHORT                 sMaxNumberOfSlotsEachBus;
+  SHORT                 sMaxNumberOfControllers;
+  SHORT                 sRebuildPriority;
+  ULONG                 ulNumberOfEnclosures;
+} VDS_SUB_SYSTEM_PROP2, *PVDS_SUB_SYSTEM_PROP2;
+
+typedef struct _VDS_VDISK_PROPERTIES {
+  VDS_OBJECT_ID        Id;
+  VDS_VDISK_STATE      State;
+  VIRTUAL_STORAGE_TYPE VirtualDeviceType;
+  ULONGLONG            VirtualSize;
+  ULONGLONG            PhysicalSize;
+  LPWSTR               pPath;
+  LPWSTR               pDeviceName;
+  DEPENDENT_DISK_FLAG  DiskFlag;
+  WINBOOL              bIsChild;
+  LPWSTR               pParentPath;
+} VDS_VDISK_PROPERTIES, *PVDS_VDISK_PROPERTIES;
+
+typedef struct _VDS_VOLUME_PROP2 {
+  VDS_OBJECT_ID        id;
+  VDS_VOLUME_TYPE      type;
+  VDS_VOLUME_STATUS    status;
+  VDS_HEALTH           health;
+  VDS_TRANSITION_STATE TransitionState;
+  ULONGLONG            ullSize;
+  ULONG                ulFlags;
+  VDS_FILE_SYSTEM_TYPE RecommendedFileSystemType;
+  ULONG                cbUniqueId;
+  LPWSTR               pwszName;
+  BYTE                 *pUniqueId;
+} VDS_VOLUME_PROP2, *PVDS_VOLUME_PROP2;
+
+#ifdef __cplusplus
+}
+#endif
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #endif /*_INC_VDS*/
