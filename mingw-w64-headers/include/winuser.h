@@ -1061,6 +1061,10 @@ extern "C" {
 #define WM_INITMENU 0x0116
 #define WM_INITMENUPOPUP 0x0117
 #define WM_MENUSELECT 0x011F
+#if (_WIN32_WINNT >= 0x0601)
+#define WM_GESTURE 0x0119
+#define WM_GESTURENOTIFY 0x011A
+#endif /* _WIN32_WINNT >= 0x0601 */
 #define WM_MENUCHAR 0x0120
 #define WM_ENTERIDLE 0x0121
 #ifndef _WIN32_WCE
@@ -5355,6 +5359,106 @@ WINBOOL WINAPI ShutdownBlockReasonQuery(
 );
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
+
+#if (_WIN32_WINNT >= 0x0601)
+
+#define GF_BEGIN 0x00000001
+#define GF_INERTIA 0x00000002
+#define GF_END 0x00000004
+
+#define GID_BEGIN 1
+#define GID_END 2
+#define GID_ZOOM 3
+#define GID_PAN 4
+#define GID_ROTATE 5
+#define GID_TWOFINGERTAP 6
+#define GID_PRESSANDTAP 7
+#define GID_ROLLOVER GID_PRESSANDTAP
+
+#define GC_ALLGESTURES 0x00000001
+#define GC_ZOOM 0x00000001
+
+#define GC_PAN 0x00000001
+#define GC_PAN_WITH_SINGLE_FINGER_VERTICALLY 0x00000002
+#define GC_PAN_WITH_SINGLE_FINGER_HORIZONTALLY 0x00000004
+#define GC_PAN_WITH_GUTTER 0x00000008
+#define GC_PAN_WITH_INERTIA 0x00000010
+
+#define GC_ROTATE 0x00000001
+#define GC_TWOFINGERTAP 0x00000001
+#define GC_PRESSANDTAP 0x00000001
+#define GC_ROLLOVER GC_PRESSANDTAP
+
+#define GCF_INCLUDE_ANCESTORS 0x00000001
+
+#define GESTURECONFIGMAXCOUNT 256
+
+DECLARE_HANDLE(HGESTUREINFO);
+
+#define GID_ROTATE_ANGLE_TO_ARGUMENT(_arg_) ((USHORT)((((_arg_) + 2.0 * 3.14159265) / (4.0 * 3.14159265)) * 65535.0))
+#define GID_ROTATE_ANGLE_FROM_ARGUMENT(_arg_) ((((double)(_arg_) /65535.0) * 4.0 * 3.14159265) - 2.0 * 3.14159265)
+
+typedef struct _GESTUREINFO {
+  UINT      cbSize;
+  DWORD     dwFlags;
+  DWORD     dwID;
+  HWND      hwndTarget;
+  POINTS    ptsLocation;
+  DWORD     dwInstanceID;
+  DWORD     dwSequenceID;
+  ULONGLONG ullArguments;
+  UINT      cbExtraArgs;
+} GESTUREINFO, *PGESTUREINFO;
+
+typedef GESTUREINFO const * PCGESTUREINFO;
+
+typedef struct tagGESTURENOTIFYSTRUCT {
+  UINT   cbSize;
+  DWORD  dwFlags;
+  HWND   hwndTarget;
+  POINTS ptsLocation;
+  DWORD  dwInstanceID;
+} GESTURENOTIFYSTRUCT, *PGESTURENOTIFYSTRUCT;
+
+typedef struct _GESTURECONFIG {
+  DWORD dwID;
+  DWORD dwWant;
+  DWORD dwBlock;
+} GESTURECONFIG, *PGESTURECONFIG;
+
+WINBOOL WINAPI SetGestureConfig(
+  HWND hwnd,
+  DWORD dwReserved,
+  UINT cIDs,
+  PGESTURECONFIG pGestureConfig,
+  UINT cbSize
+);
+
+WINBOOL WINAPI GetGestureConfig(
+  HWND hwnd,
+  DWORD dwReserved,
+  DWORD dwFlags,
+  PUINT pcIDs,
+  PGESTURECONFIG pGestureConfig,
+  UINT cbSize
+);
+
+WINBOOL WINAPI GetGestureInfo(
+  HGESTUREINFO hGestureInfo,
+  PGESTUREINFO pGestureInfo
+);
+
+WINBOOL WINAPI GetGestureExtraArgs(
+  HGESTUREINFO hGestureInfo,
+  UINT cbExtraArgs,
+  PBYTE pExtraArgs
+);
+
+WINBOOL WINAPI CloseGestureInfoHandle(
+    HGESTUREINFO hGestureInfo
+);
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #endif /* NOUSER */
 
