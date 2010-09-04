@@ -1,5 +1,8 @@
 2010-09-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* powrprof.h (DevicePowerSetDeviceState): Fix the SetData argument
+	as LPCVOID.
+
 	http://msdn.microsoft.com/en-us/library/cc248871(PROT.10).aspx
 	http://msdn.microsoft.com/en-us/library/bb736370(VS.85).aspx
 	* wtsapi32.h (USERNAME_LENGTH): Define as 20.

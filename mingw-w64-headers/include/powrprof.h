@@ -172,7 +172,7 @@ BOOLEAN WINAPI DevicePowerOpen(
 DWORD WINAPI DevicePowerSetDeviceState(
   LPCWSTR DeviceDescription,
   ULONG SetFlags,
-  PCVOID SetData
+  LPCVOID SetData
 );
 
 DWORD WINAPI PowerCanRestoreIndividualDefaultPowerScheme(
