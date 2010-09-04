@@ -1,3 +1,15 @@
+2010-09-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	http://msdn.microsoft.com/en-us/library/cc248871(PROT.10).aspx
+	http://msdn.microsoft.com/en-us/library/bb736370(VS.85).aspx
+	* wtsapi32.h (USERNAME_LENGTH): Define as 20.
+	(CLIENTNAME_LENGTH): Define as 20.
+	(CLIENTADDRESS_LENGTH): Define as 30.
+	(WINSTATIONNAME_LENGTH): Define as 32.
+	(DOMAIN_LENGTH): Define as 17.
+	(WTSINFOA, WTSINFOW): Fix the WinStationName, Domain and UserName
+	members to be arrays.
+
 2010-08-30  Jonathan Yong <jon_y@sourceforge.net>
 
 	* functiondiscoveryapi.h: Warn about HRESULT,QueryService.

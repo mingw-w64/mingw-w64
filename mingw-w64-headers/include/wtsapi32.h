@@ -195,6 +195,13 @@ extern "C" {
   WINBOOL WINAPI WTSUnRegisterSessionNotification(HWND hWnd);
   WINBOOL WINAPI WTSQueryUserToken(ULONG SessionId,PHANDLE phToken);
 
+
+#define USERNAME_LENGTH         20
+#define CLIENTNAME_LENGTH       20
+#define CLIENTADDRESS_LENGTH    30
+#define WINSTATIONNAME_LENGTH   32
+#define DOMAIN_LENGTH           17
+
 #if (_WIN32_WINNT >= 0x0600)
 typedef struct _WTSCLIENTW {
   WCHAR   ClientName[CLIENTNAME_LENGTH + 1];
@@ -250,9 +257,9 @@ typedef struct _WTSINFOW {
   DWORD                  OutgoingBytes;
   DWORD                  IncomingCompressedBytes;
   DWORD                  OutgoingCompressedBytes;
-  WCHAR                  WinStationName;
-  WCHAR                  Domain;
-  WCHAR                  UserName;
+  WCHAR                  WinStationName[WINSTATIONNAME_LENGTH];
+  WCHAR                  Domain[DOMAIN_LENGTH];
+  WCHAR                  UserName[USERNAME_LENGTH+1];
   LARGE_INTEGER          ConnectTime;
   LARGE_INTEGER          DisconnectTime;
   LARGE_INTEGER          LastInputTime;
@@ -267,9 +274,9 @@ typedef struct _WTSINFOA {
   DWORD                  OutgoingBytes;
   DWORD                  IncomingCompressedBytes;
   DWORD                  OutgoingCompressedBytes;
-  CHAR                  WinStationName;
-  CHAR                  Domain;
-  CHAR                  UserName;
+  CHAR                   WinStationName[WINSTATIONNAME_LENGTH];
+  CHAR                   Domain[DOMAIN_LENGTH];
+  CHAR                   UserName[USERNAME_LENGTH+1];
   LARGE_INTEGER          ConnectTime;
   LARGE_INTEGER          DisconnectTime;
   LARGE_INTEGER          LastInputTime;
