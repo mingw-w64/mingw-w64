@@ -1,5 +1,17 @@
 2010-09-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* lib64: Move some def files which doesn't have any useful exports
+	or refer ot a dll with another name such as null.dll or main.dll to
+	under experimental/lib64_old_experimental. Files moved: acgen64.def,
+	chtskf.def, CmdEvTgProv.def, imepadsm.def, imlang.def, imskf.def,
+	padrs404.def, padrs411.def, padrs412.def, padrs804.def, softkey.def,
+	wabfind.def, wam.def, wavemsp.def, wbemcntl.def, wbemcomn.def,
+	wbemcons.def, wbemdisp.def, wbemess.def, wbemperf.def, wbemprox.def,
+	wbemsvc.def, webvw.def, wiadefui.def, wiascr.def, wiavideo.def,
+	wiavusd.def, wlanmon.def, wlsnp.def, wmicookr.def, wmidcprv.def,
+	wmipicmp.def, wmipiprt.def, wmipjobj.def, wmiprov.def, wmiprvsd.def,
+	wmipsess.def, wmitimep.def, wmiutils.def, wmpshell.def, wsecedit.def.
+
 	* lib64: Remove old experimental w* variants of def files, move them
 	under experimental/lib64_old_experimental
 

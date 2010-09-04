@@ -596,7 +596,7 @@ lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 lib64_DATA = \
   lib64/libwinusb.a \
-  lib64/lib6to4svc.a    lib64/libaaaamon.a    lib64/libacgen64.a      lib64/libacledit.a    lib64/libaclui.a         \
+  lib64/lib6to4svc.a    lib64/libaaaamon.a    lib64/libacledit.a      lib64/libaclui.a      \
   lib64/libactiveds.a   lib64/libactxprxy.a   lib64/libadmparse.a     lib64/libadmwprox.a   lib64/libadptif.a        \
   lib64/libadrot.a      lib64/libadsiis.a     lib64/libadsiisex.a     lib64/libadsldpc.a    lib64/libadsldp.a        \
   lib64/libadsmsext.a   lib64/libadsnt.a      lib64/libadvapi32.a     lib64/libadvpack.a    lib64/libaelupsvc.a      \
@@ -613,10 +613,10 @@ lib64_DATA = \
   lib64/libcamocx.a     lib64/libcards.a      lib64/libcatsrv.a       lib64/libcatsrvps.a   lib64/libcatsrvut.a      \
   lib64/libccfgnt.a     lib64/libcdfview.a    lib64/libcdm.a          lib64/libcdosys.a     lib64/libcertcli.a       \
   lib64/libcertmgr.a    lib64/libcertobj.a    lib64/libcfgbkend.a     lib64/libcfgmgr32.a   lib64/libc_g18030.a      \
-  lib64/libchsbrkr.a    lib64/libchtbrkr.a    lib64/libchtskdic.a     lib64/libchtskf.a     lib64/libciadmin.a       \
+  lib64/libchsbrkr.a    lib64/libchtbrkr.a    lib64/libchtskdic.a     lib64/libciadmin.a    \
   lib64/libcic.a        lib64/libcimwin32.a   lib64/libCINTIME.a      lib64/libciodm.a      lib64/libc_is2022.a      \
   lib64/libc_iscii.a    lib64/libclbcatex.a   lib64/libclbcatq.a      lib64/libclb.a        lib64/libcliconfg.a      \
-  lib64/libclusapi.a    lib64/libcmcfg32.a    lib64/libCmdEvTgProv.a  lib64/libcmdial32.a   lib64/libcmpbk32.a       \
+  lib64/libclusapi.a    lib64/libcmcfg32.a    lib64/libcmdial32.a     lib64/libcmpbk32.a    \
   lib64/libcmprops.a    lib64/libcmsetacl.a   lib64/libcmutil.a       lib64/libcnbjmon.a    lib64/libcnetcfg.a       \
   lib64/libcnvfat.a     lib64/libcoadmin.a    lib64/libcolbact.a      lib64/libcomaddin.a   lib64/libcomadmin.a      \
   lib64/libcomcat.a     lib64/libcomctl32.a   lib64/libcomdlg32.a     lib64/libcompatui.a   lib64/libcompstui.a      \
@@ -664,12 +664,12 @@ lib64_DATA = \
   lib64/libifsutil.a    lib64/libigmpagnt.a   lib64/libiisadmin.a     lib64/libiiscfg.a     lib64/libiisclex4.a      \
   lib64/libiis.a        lib64/libiisext.a     lib64/libiislog.a       lib64/libiismap.a     lib64/libiisrstap.a      \
   lib64/libiisrtl.a     lib64/libiissuba.a    lib64/libiisui.a        lib64/libiisuiobj.a   lib64/libiisutil.a       \
-  lib64/libiisw3adm.a   lib64/libiiswmi.a     lib64/libimagehlp.a     lib64/libimekrcic.a   lib64/libimepadsm.a      \
-  lib64/libimeshare.a   lib64/libimgutil.a    lib64/libimjp81k.a      lib64/libimjpcic.a    lib64/libimjpcus.a       \
-  lib64/libimjpdct.a    lib64/libimjputyc.a   lib64/libimlang.a       lib64/libimm32.a      lib64/libimsinsnt.a      \
-  lib64/libimskdic.a    lib64/libimskf.a      lib64/libinetcfg.a      lib64/libinetcomm.a   lib64/libinetmgr.a       \
-  lib64/libinetmib1.a   lib64/libinetpp.a     lib64/libinetppui.a     lib64/libinfoadmn.a   lib64/libinfocomm.a      \
-  lib64/libinfoctrs.a   lib64/libinfosoft.a   lib64/libinitpki.a      lib64/libinput.a      lib64/libinseng.a        \
+  lib64/libiisw3adm.a   lib64/libiiswmi.a     lib64/libimagehlp.a     lib64/libimekrcic.a   lib64/libimeshare.a      \
+  lib64/libimgutil.a    lib64/libimjp81k.a    lib64/libimjpcic.a      lib64/libimjpcus.a    lib64/libimjpdct.a       \
+  lib64/libimjputyc.a   lib64/libimm32.a      lib64/libimsinsnt.a     lib64/libimskdic.a    lib64/libinetcfg.a       \
+  lib64/libinetcomm.a   lib64/libinetmgr.a    lib64/libinetmib1.a     lib64/libinetpp.a     lib64/libinetppui.a      \
+  lib64/libinfoadmn.a   lib64/libinfocomm.a   lib64/libinfoctrs.a     lib64/libinfosoft.a   lib64/libinitpki.a       \
+  lib64/libinput.a      lib64/libinseng.a     \
   lib64/libiphlpapi.a   lib64/libipmontr.a    lib64/libipnathlp.a     lib64/libippromon.a   lib64/libiprip.a         \
   lib64/libiprop.a      lib64/libiprtprio.a   lib64/libiprtrmgr.a     lib64/libipsecsnp.a   lib64/libipsecsvc.a      \
   lib64/libipsmsnap.a   lib64/libipv6mon.a    lib64/libipxsap.a       lib64/libirclass.a    lib64/libisapips.a       \
@@ -750,7 +750,7 @@ lib64_DATA = \
   lib64/liboemiglib.a   lib64/libofffilt.a    lib64/libole32.a        lib64/liboleacc.a     lib64/liboleaut32.a      \
   lib64/libolecli32.a   lib64/libolecnv32.a   lib64/liboledb32.a      lib64/liboledb32r.a   lib64/liboledlg.a        \
   lib64/liboleprn.a     lib64/libolesvr32.a   lib64/libopengl32.a     lib64/libosuninst.a   lib64/libovprintmondll.a \
-  lib64/libpadrs404.a   lib64/libpadrs411.a   lib64/libpadrs412.a     lib64/libpadrs804.a   lib64/libpanmap.a        \
+  lib64/libpanmap.a     \
   lib64/libpautoenr.a   lib64/libpchshell.a   lib64/libpchsvc.a       lib64/libpdh.a        lib64/libperfctrs.a      \
   lib64/libperfdisk.a   lib64/libperfnet.a    lib64/libperfos.a       lib64/libperfproc.a   lib64/libperfts.a        \
   lib64/libphotowiz.a   lib64/libpid.a        lib64/libpidgen.a       lib64/libpintlcsa.a   lib64/libpintlcsd.a      \
@@ -783,7 +783,7 @@ lib64_DATA = \
   lib64/libsmtpapi.a    lib64/libsmtpcons.a   lib64/libsmtpctrs.a     lib64/libsmtpsnap.a   lib64/libsmtpsvc.a       \
   lib64/libsniffpol.a   lib64/libsnmpapi.a    lib64/libsnmpcl.a       lib64/libsnmpincl.a   lib64/libsnmpmib.a       \
   lib64/libsnmpsmir.a   lib64/libsnmpsnap.a   lib64/libsnmpstup.a     lib64/libsnmpthrd.a   lib64/libsnprfdll.a      \
-  lib64/libsoftkbd.a    lib64/libsoftkey.a    lib64/libsoftpub.a      lib64/libspcommon.a   lib64/libspoolss.a       \
+  lib64/libsoftkbd.a    lib64/libsoftpub.a    lib64/libspcommon.a     lib64/libspoolss.a    \
   lib64/libsptip.a      lib64/libspttseng.a   lib64/libsqlsrv32.a     lib64/libsqlxmlx.a    lib64/libsrchctls.a      \
   lib64/libsrchui.a     lib64/libsrclient.a   lib64/libsrrstr.a       lib64/libsrsvc.a      lib64/libsrvsvc.a        \
   lib64/libssdpapi.a    lib64/libssdpsrv.a    lib64/libssinc.a        lib64/libsstub.a      lib64/libstaxmem.a       \
@@ -805,21 +805,15 @@ lib64_DATA = \
   lib64/libvgx.a        lib64/libviewprov.a   lib64/libvmx_mode.a     lib64/libvssapi.a     lib64/libvss_ps.a        \
   lib64/libvsswmi.a     lib64/libw32time.a    lib64/libw32topl.a      lib64/libw3cache.a    lib64/libw3comlog.a      \
   lib64/libw3core.a     lib64/libw3ctrlps.a   lib64/libw3ctrs.a       lib64/libw3dt.a       lib64/libw3ext.a         \
-  lib64/libw3isapi.a    lib64/libw3ssl.a      lib64/libw3tp.a         lib64/libwab32.a      lib64/libwabfind.a       \
-  lib64/libwabimp.a     lib64/libwam.a        lib64/libwamreg.a       lib64/libwamregps.a   lib64/libwavemsp.a       \
-  lib64/libwbemcntl.a   lib64/libwbemcomn.a   lib64/libwbemcons.a     lib64/libwbemcore.a   lib64/libwbemdisp.a      \
-  lib64/libwbemess.a    lib64/libwbemperf.a   lib64/libwbemprox.a     lib64/libwbemsvc.a    lib64/libwbemupgd.a      \
-  lib64/libwdigest.a    lib64/libwdmaud.a     lib64/libwebcheck.a     lib64/libwebclnt.a    lib64/libwebhits.a       \
-  lib64/libwebvw.a      lib64/libwiadefui.a   lib64/libwiadss.a       lib64/libwiarpc.a     lib64/libwiascr.a        \
-  lib64/libwiaservc.a   lib64/libwiashext.a   lib64/libwiavideo.a     lib64/libwiavusd.a    lib64/libwin32spl.a      \
-  lib64/libwinfax.a     lib64/libwininet.a    lib64/libwinipsec.a     lib64/libwinmm.a      lib64/libwinrnr.a        \
-  lib64/libwinscard.a   lib64/libwinspool.a   lib64/libwinsrv.a       lib64/libwinsta.a     lib64/libwintrust.a      \
-  lib64/libwkssvc.a     lib64/libwlanmon.a    lib64/libwldap32.a      lib64/libwlnotify.a   lib64/libwlsnp.a         \
-  lib64/libwlstore.a    lib64/libwmi2xml.a    lib64/libwmiaprpl.a     lib64/libwmicookr.a   lib64/libwmidcprv.a      \
-  lib64/libwmi.a        lib64/libwmipicmp.a   lib64/libwmipiprt.a     lib64/libwmipjobj.a   lib64/libwmiprop.a       \
-  lib64/libwmiprov.a    lib64/libwmiprvsd.a   lib64/libwmipsess.a     lib64/libwmisvc.a     lib64/libwmitimep.a      \
-  lib64/libwmiutils.a   lib64/libwmpshell.a   lib64/libwow64cpu.a     lib64/libwow64.a      lib64/libwow64mib.a      \
-  lib64/libwow64win.a   lib64/libwpd_ci.a     lib64/libws2help.a      lib64/libwscsvc.a     lib64/libwsecedit.a      \
+  lib64/libw3isapi.a    lib64/libw3ssl.a      lib64/libw3tp.a         lib64/libwab32.a      lib64/libwabimp.a        \
+  lib64/libwamreg.a     lib64/libwamregps.a   lib64/libwbemcore.a     lib64/libwbemupgd.a   lib64/libwdigest.a       \
+  lib64/libwdmaud.a     lib64/libwebcheck.a   lib64/libwebclnt.a      lib64/libwebhits.a    lib64/libwiadss.a        \
+  lib64/libwiarpc.a     lib64/libwiaservc.a   lib64/libwiashext.a     lib64/libwin32spl.a   lib64/libwinfax.a        \
+  lib64/libwininet.a    lib64/libwinipsec.a   lib64/libwinmm.a        lib64/libwinrnr.a     lib64/libwinscard.a      \
+  lib64/libwinspool.a   lib64/libwinsrv.a     lib64/libwinsta.a       lib64/libwintrust.a   lib64/libwkssvc.a        \
+  lib64/libwldap32.a    lib64/libwlnotify.a   lib64/libwlstore.a      lib64/libwmi2xml.a    lib64/libwmiaprpl.a      \
+  lib64/libwmi.a        lib64/libwmiprop.a    lib64/libwmisvc.a       lib64/libwow64cpu.a   lib64/libwow64.a         \
+  lib64/libwow64mib.a   lib64/libwow64win.a   lib64/libwpd_ci.a       lib64/libws2help.a    lib64/libwscsvc.a        \
   lib64/libwshatm.a     lib64/libwshbth.a     lib64/libwshcon.a       lib64/libwsock32.a    lib64/libzoneoc.a        \
   lib64/libnormaliz.a   \
   \
