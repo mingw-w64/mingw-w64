@@ -2978,6 +2978,18 @@ LDFLAGS32 = -m32 -L$(top_builddir)/lib32
 LDFLAGS64 = -m64 -L$(top_builddir)/lib64
 extra_include = -I$(top_srcdir)/include
 
+# default directx import library names
+xinput = xinput1_3
+xaudio = xaudio2_7
+xaudiod = xaudiod2_7
+xapofx = xapofx1_5
+x3daudio = x3daudio1_7
+d3dx9 = d3dx9_43
+d3dx10 = d3dx10_43
+d3dx11 = d3dx11_43
+d3dcsxd = d3dcsxd_43
+d3dcompiler = d3dcompiler_43
+
 # can move this into libsrc/dummy_libm.c or similar
 BUILT_SOURCES = _libm_dummy.c
 src_libm = _libm_dummy.c
@@ -3323,7 +3335,12 @@ src_libmingwex32 = \
 @LIB32_TRUE@  lib32/libxaudio2_2.a      lib32/libxaudio2_3.a      lib32/libxaudio2_4.a \
 @LIB32_TRUE@  lib32/libxaudio2_5.a      lib32/libxaudio2_6.a      lib32/libxaudio2_7.a \
 @LIB32_TRUE@  lib32/libxaudiod2_7.a     lib32/libxinput1_1.a      lib32/libxinput1_2.a \
-@LIB32_TRUE@  lib32/libxinput1_3.a
+@LIB32_TRUE@  lib32/libxinput1_3.a      \
+@LIB32_TRUE@  \
+@LIB32_TRUE@  lib32/libxinput.a         lib32/libxaudio.a         lib32/libxaudiod.a   \
+@LIB32_TRUE@  lib32/libxapofx.a         lib32/libx3daudio.a       lib32/libd3dx9.a     \
+@LIB32_TRUE@  lib32/libd3dx10.a         lib32/libd3dx11.a         lib32/libd3dcsxd.a   \
+@LIB32_TRUE@  lib32/libd3dcompiler.a
 
 
 # End 32-bit runtime
@@ -3667,7 +3684,12 @@ src_libmingwex32 = \
 @LIB64_TRUE@  lib64/libxaudio2_2.a      lib64/libxaudio2_3.a      lib64/libxaudio2_4.a \
 @LIB64_TRUE@  lib64/libxaudio2_5.a      lib64/libxaudio2_6.a      lib64/libxaudio2_7.a \
 @LIB64_TRUE@  lib64/libxaudiod2_7.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
-@LIB64_TRUE@  lib64/libxinput1_3.a
+@LIB64_TRUE@  lib64/libxinput1_3.a      \
+@LIB64_TRUE@  \
+@LIB64_TRUE@  lib64/libxinput.a         lib64/libxaudio.a         lib64/libxaudiod.a   \
+@LIB64_TRUE@  lib64/libxapofx.a         lib64/libx3daudio.a       lib64/libd3dx9.a     \
+@LIB64_TRUE@  lib64/libd3dx10.a         lib64/libd3dx11.a         lib64/libd3dcsxd.a   \
+@LIB64_TRUE@  lib64/libd3dcompiler.a
 
 
 # End 64-bit runtime
@@ -30070,6 +30092,27 @@ _libm_dummy.c:
 
 @LIB32_TRUE@lib32/lib%.a: lib32/%.def
 @LIB32_TRUE@	$(DTDEF32) $<
+
+@LIB32_TRUE@lib32/libxinput.a: lib32/$(xinput).def
+@LIB32_TRUE@	$(DTDEF32) $<
+@LIB32_TRUE@lib32/libxaudio.a: lib32/$(xaudio).def
+@LIB32_TRUE@	$(DTDEF32) $<
+@LIB32_TRUE@lib32/libxaudiod.a: lib32/$(xaudiod).def
+@LIB32_TRUE@	$(DTDEF32) $<
+@LIB32_TRUE@lib32/libxapofx.a: lib32/$(xapofx).def
+@LIB32_TRUE@	$(DTDEF32) $<
+@LIB32_TRUE@lib32/libx3daudio.a: lib32/$(x3daudio).def
+@LIB32_TRUE@	$(DTDEF32) $<
+@LIB32_TRUE@lib32/libd3dx9.a: lib32/$(d3dx9).def
+@LIB32_TRUE@	$(DTDEF32) $<
+@LIB32_TRUE@lib32/libd3dx10.a: lib32/$(d3dx10).def
+@LIB32_TRUE@	$(DTDEF32) $<
+@LIB32_TRUE@lib32/libd3dx11.a: lib32/$(d3dx11).def
+@LIB32_TRUE@	$(DTDEF32) $<
+@LIB32_TRUE@lib32/libd3dcsxd.a: lib32/$(d3dcsxd).def
+@LIB32_TRUE@	$(DTDEF32) $<
+@LIB32_TRUE@lib32/libd3dcompiler.a: lib32/$(d3dcompiler).def
+@LIB32_TRUE@	$(DTDEF32) $<
 @LIB64_TRUE@lib64/crt1.o: crt/crtexe.c
 @LIB64_TRUE@	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
 @LIB64_TRUE@lib64/crt2.o: crt/crtexe.c
@@ -30097,6 +30140,27 @@ _libm_dummy.c:
 @LIB64_TRUE@	$(DTDEF64) $< --dllname $*.dll
 
 @LIB64_TRUE@lib64/lib%.a: lib64/%.def
+@LIB64_TRUE@	$(DTDEF64) $<
+
+@LIB64_TRUE@lib64/libxinput.a: lib64/$(xinput).def
+@LIB64_TRUE@	$(DTDEF64) $<
+@LIB64_TRUE@lib64/libxaudio.a: lib64/$(xaudio).def
+@LIB64_TRUE@	$(DTDEF64) $<
+@LIB64_TRUE@lib64/libxaudiod.a: lib64/$(xaudiod).def
+@LIB64_TRUE@	$(DTDEF64) $<
+@LIB64_TRUE@lib64/libxapofx.a: lib64/$(xapofx).def
+@LIB64_TRUE@	$(DTDEF64) $<
+@LIB64_TRUE@lib64/libx3daudio.a: lib64/$(x3daudio).def
+@LIB64_TRUE@	$(DTDEF64) $<
+@LIB64_TRUE@lib64/libd3dx9.a: lib64/$(d3dx9).def
+@LIB64_TRUE@	$(DTDEF64) $<
+@LIB64_TRUE@lib64/libd3dx10.a: lib64/$(d3dx10).def
+@LIB64_TRUE@	$(DTDEF64) $<
+@LIB64_TRUE@lib64/libd3dx11.a: lib64/$(d3dx11).def
+@LIB64_TRUE@	$(DTDEF64) $<
+@LIB64_TRUE@lib64/libd3dcsxd.a: lib64/$(d3dcsxd).def
+@LIB64_TRUE@	$(DTDEF64) $<
+@LIB64_TRUE@lib64/libd3dcompiler.a: lib64/$(d3dcompiler).def
 @LIB64_TRUE@	$(DTDEF64) $<
 
 dist-hook:

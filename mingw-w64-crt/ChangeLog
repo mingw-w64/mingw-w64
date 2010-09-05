@@ -1,3 +1,14 @@
+2010-09-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Add xinput, xaudio, xaudiod, xapofx, x3daudio, d3dx9,
+	d3dx10, d3dx11, d3dcsxd and d3dcompiler variables for default directx
+	import library names with current values of xinput1_3, xaudio2_7,
+	xaudiod2_7, xapofx1_5, x3daudio1_7, d3dx9_43, d3dx10_43, d3dx11_43,
+	d3dcsxd_43 and d3dcompiler_43 respectively. Add them as the last
+	entries under lib32_DATA and lib64_DATA. Add special build rules for
+	them.
+	* Makefile.in: Regenerate.
+
 2010-09-04  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib64: Move some def files which doesn't have any useful exports
