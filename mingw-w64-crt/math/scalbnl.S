@@ -17,7 +17,7 @@
 __MINGW_USYMBOL(scalbnl):
 #ifdef _WIN64
 	subq  $24, %rsp
-	andq    $0xffffffff, %r8
+	andq    $-1, %r8
 	movq	%r8, (%rsp)
 	fildl	(%rsp)
 	fldt	(%rdx)
