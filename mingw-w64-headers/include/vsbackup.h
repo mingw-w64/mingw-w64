@@ -64,7 +64,7 @@ HRESULT WINAPI IsVolumeSnapshotted(
   LONG *plSnapshotCapability
 ){return IsVolumeSnapshottedInternal(pwszVolumeName,pbSnapshotsPresent,plSnapshotCapability);}
 
-HRESULT WINAPI IsVolumeSnapshottedInternal(
+HRESULT WINAPI ShouldBlockRevertInternal(
   LPCWSTR wszVolumeName,
   BOOLEAN *pbBlock
 );
@@ -73,7 +73,7 @@ FORCEINLINE
 HRESULT WINAPI ShouldBlockRevert(
   LPCWSTR wszVolumeName,
   BOOLEAN *pbBlock
-){return IsVolumeSnapshottedInternal(wszVolumeName,pbBlock);}
+){return ShouldBlockRevertInternal(wszVolumeName,pbBlock);}
 
 void WINAPI VssFreeSnapshotPropertiesInternal(
   VSS_SNAPSHOT_PROP *pProp
