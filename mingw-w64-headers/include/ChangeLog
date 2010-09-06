@@ -1,3 +1,9 @@
+2010-09-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk:
+	2010-09-01  Jacek Caban  <jacek@codeweavers.com> (rev. 3476)
+	* winbase.h: Protect SYSTEMTIME by redefinition guard.
+
 2010-08-30  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw.h (__MINGW_MSC_PREREQ): Fix inverted logic.
@@ -10,7 +16,7 @@
 
 	* float.h: Add missing #endif.
 
-2010-08-23  Jonathan Yong <jon_y@sourceforge.net>
+2010-08-23  Jonathan Yong <jon_y@users.sourceforge.net>
 
 	* float.h: Do not allow gcc 4.6.X, include_next hack not needed.
 
@@ -414,7 +420,7 @@
 	(__MINGW_ATTRIB_USED): Define as __attribute__((used)) for gcc, or as
 	__MINGW_ATTRIB_UNUSED where it is not supported ie. gcc < 3.1 or !gcc.
 
-2010-17-20  Jonathan Yong  <jon_y@sourceforge.net>
+2010-17-20  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	Backport from the trunk:
 
@@ -589,7 +595,7 @@
 
 	Backport from the trunk:
 
-	2010-06-19  Jonathan Yong  <jon_y@sourceforge.net> (rev. 2579)
+	2010-06-19  Jonathan Yong  <jon_y@users.sourceforge.net> (rev. 2579)
 	Improve DUMMYUNIONNAME and DUMMYSTRUCTNAME defines to allow
 	additional names:
 	* _mingw.h (DUMMYUNIONNAMEX): New macro.
@@ -984,7 +990,7 @@
 
 	Back-merged from trunk r1923-1924:
 
-	2010-02-19  Jonathan Yong  <jon_y@sourceforge.net>
+	2010-02-19  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* shlguid.h (IID_IFolderView): Define.
 
@@ -1045,7 +1051,7 @@
 	* sys/utime.h (_futime): New prototype.
 	(_wutime): New prototype.
 
-	* 2009-11-21 Jonathan Yong <jon_y@sourceforge.net> (trunk/r1530)
+	* 2009-11-21 Jonathan Yong <jon_y@users.sourceforge.net> (trunk/r1530)
 	* shlobj.h (IDO_SHGIOI_DEFAULT): Define. Original patch by Chris
 	Sutcliffe  <ir0nh34d@users.sourceforge.net>
 	* shlobj.h (SHARD): Add enum. Original patch by Chris Sutcliffe
@@ -1134,7 +1140,7 @@
 	#1801043, not valid any longer. (do we manually need to copy that
 	field???)
 
-2010-01-01  Jonathan Yong  <jon_y@sourceforge.net>
+2010-01-01  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	Back-merged from trunk.
 	* profile.h (_MCOUNT_DECL): Add gnu_inline attribute
