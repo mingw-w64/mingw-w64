@@ -43,6 +43,7 @@ Date /          Version /  Author
 2009-08-30      1.8        Ozkan Sezer <sezeroz at gmail dot com>
 2009-10-09      1.9        Jonathan Yong <jon_y[a]users.sourceforge.com>
 2010-02-28      1.10       Ozkan Sezer <sezeroz at gmail dot com>
+2010-08-31      1.11       Jonathan Yong <jon_y[a]users.sourceforge.com>
 
 == Table of Contents ==
 
@@ -92,7 +93,6 @@ elaborated on GMP)
 	* PPL 0.10 or newer
 	* ClooG-PPL 0.15 or newer (must be ppl) 
 	* MPC 0.7 or newer
-	* Libelf 0.8.12 or newer
 
 To build with MSys (Minimal SYStem for Win32), to satisfy the requirements
 download and install functional MinGW (GCC toolchain), MSYS (sh shell), bison,
@@ -114,13 +114,11 @@ GCC doesn't do it for you.
 
 You need to download the following packages:
 
-	* Binutils 2.20.1 release for stable, or a CVS snapshot (2.20.51) for
-	  experimental.
+	* At least CVS snapshot (2.20.51). Note that 2.20.1 is not supported
+	  due to ABI changes.
 
-	* GCC version 4.4.3 release for stable, or latest GCC (4.5) snapshot
-	  or svn co for experimental as of 06-01-2009.  GCC-4.5 is good for
-	  proper support for the new -w64-, see note above, but is in Stage 1
-	  yet and may have bugs.  GCC-4.3 support is no longer maintained.
+	* GCC version 4.5.1 release for stable, or latest GCC (4.6) snapshot
+	  or svn co for experimental. GCC-4.3 support is no longer maintained.
 
 	* Current Mingw-w64 release available at
 	  http://sourceforge.net/projects/mingw-w64 .  Snapshot, even better
