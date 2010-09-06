@@ -1,5 +1,9 @@
 2010-09-05  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* intrincs/ilockcxch64.c: Add volatile to x86 inline asm statement.
+
+2010-09-05  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* Makefile.am: Add xinput, xaudio, xaudiod, xapofx, x3daudio, d3dx9,
 	d3dx10, d3dx11, d3dcsxd and d3dcompiler variables for default directx
 	import library names with current values of xinput1_3, xaudio2_7,
