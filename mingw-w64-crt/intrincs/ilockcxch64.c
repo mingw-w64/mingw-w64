@@ -13,7 +13,7 @@ __int64 _InterlockedCompareExchange64(volatile __int64 *Destination, __int64 Exc
 __int64 _InterlockedCompareExchange64(volatile __int64 *Destination, __int64 Exchange, __int64 Comperand)
 {
   __int64 retval = Comperand;
-  __asm__
+  __asm__ __volatile__
   (
     "lock; cmpxchg8b %[Destination]" :
     [retval] "+A" (retval) :
