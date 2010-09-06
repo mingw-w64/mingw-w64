@@ -1,5 +1,7 @@
 2010-09-06  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* string.h (strnlen): Remove the #if0 comment-out from the prototype.
+
 	Backport from the trunk:
 	2010-09-01  Jacek Caban  <jacek@codeweavers.com> (rev. 3476)
 	* winbase.h: Protect SYSTEMTIME by redefinition guard.
