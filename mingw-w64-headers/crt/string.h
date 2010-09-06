@@ -51,9 +51,7 @@ extern "C" {
   char *__cdecl strcat(char * __restrict__ _Dest,const char * __restrict__ _Source);
   int __cdecl strcmp(const char *_Str1,const char *_Str2);
   size_t __cdecl strlen(const char *_Str);
-#if 0
   size_t __cdecl strnlen(const char *_Str,size_t _MaxCount);
-#endif
   void *__cdecl memmove(void *_Dst,const void *_Src,size_t _Size) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP char *__cdecl _strdup(const char *_Src);
   _CONST_RETURN char *__cdecl strchr(const char *_Str,int _Val);

@@ -1,3 +1,7 @@
+2010-09-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* string.h (strnlen): Remove the #if0 comment-out from the prototype.
+
 2010-08-30  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw.h (__MINGW_MSC_PREREQ): Fix inverted logic.

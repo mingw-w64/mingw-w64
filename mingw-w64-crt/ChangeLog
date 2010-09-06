@@ -1,3 +1,14 @@
+2010-09-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/strnlen.c: Add a rough implementation of strnlen() wrapping
+	onto strlen().
+	* Makefile.am (src_libmingwex): Add misc/strnlen.c to build.
+	* Makefile.in: Regenerate.
+
+2010-09-06  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/scalbnl.S: Fix andq logic so that upper 32-bits are cleared.
+
 2010-09-05  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* intrincs/ilockcxch64.c: Add volatile to x86 inline asm statement.
