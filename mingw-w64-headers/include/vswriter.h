@@ -667,7 +667,123 @@ DECLARE_INTERFACE_(IVssWMFiledesc,IUnknown)
 };
 #endif /*__cplusplus*/
 
-/*TODO http://msdn.microsoft.com/en-us/library/aa384640%28v=VS.85%29.aspx */
+#ifdef __cplusplus
+#if __MINGW_GNUC_PREREQ(4,6)
+/* We need __thiscall support */
+class CVssWriter {
+protected:
+    bool WINAPI AreComponentsSelected() const;
+    VSS_BACKUP_TYPE WINAPI GetBackupType() const;
+    LONG WINAPI GetContext() const;
+    VSS_APPLICATION_LEVEL WINAPI GetCurrentLevel() const;
+    VSS_ID WINAPI GetCurrentSnapshotSetId() const;
+    LPCWSTR* WINAPI GetCurrentVolumeArray() const;
+    UINT WINAPI GetCurrentVolumeCount() const;
+    VSS_RESTORE_TYPE WINAPI GetRestoreType() const;
+    HRESULT WINAPI GetSnapshotDeviceName(
+        LPCWSTR wszOriginalVolume,
+        LPCWSTR *ppwszSnapshotDevice) const;
+    bool WINAPI IsBootableSystemStateBackedUp() const;
+    bool WINAPI IsPartialFileSupportEnabled() const;
+    bool WINAPI IsPathAffected(
+        LPCWSTR wszPath) const;
+    HRESULT WINAPI SetWriterFailure(
+        HRESULT hr);
+public:
+    //Pure virtuals
+    virtual bool WINAPI OnAbort() = 0;
+    virtual bool WINAPI OnFreeze() = 0;
+    virtual bool WINAPI OnPrepareSnapshot() = 0;
+    virtual bool WINAPI OnThaw() = 0;
+    //Virtuals
+    virtual __thiscall ~CVssWriter();
+    virtual bool WINAPI OnBackupComplete(
+        IVssWriterComponents *pComponent);
+    virtual bool WINAPI OnBackupShutdown(
+        VSS_ID SnapshotSetId);
+    virtual bool WINAPI OnIdentify(
+        IVssCreateWriterMetadata *pMetadata);
+    virtual bool WINAPI OnPostRestore(
+        IVssWriterComponents *pComponent);
+    virtual bool WINAPI OnPostSnapshot(
+        IVssWriterComponents *pComponent);
+    virtual bool WINAPI OnPrepareBackup(
+        IVssWriterComponents *pComponent);
+    virtual bool WINAPI OnPreRestore(
+        IVssWriterComponents *pComponent);
+    //gendef says public: virtual bool __stdcall CVssWriter::OnBackOffIOOnVolume(unsigned short *,struct _GUID,struct _GUID)
+    //Method unsupported
+    virtual bool WINAPI OnBackOffIOOnVolume(
+        VSS_PWSZ _vss_pwsz,
+        VSS_ID _id1,
+        VSS_ID _id2);
+    //gendef says public: virtual bool __stdcall CVssWriter::OnContinueIOOnVolume(unsigned short *,struct _GUID,struct _GUID)
+    //Method unsupported
+    virtual bool WINAPI OnContinueIOOnVolume(
+        VSS_PWSZ _vss_pwsz,
+        VSS_ID _id1,
+        VSS_ID _id2);
+    //gendef says public: virtual bool __stdcall CVssWriter::OnVSSShutdown(void)
+    //Method unsupported
+    virtual bool WINAPI OnVssShutdown();
+    //Non-virtuals
+    __thiscall CVssWriter();
+    HRESULT WINAPI Initialize(
+        VSS_ID WriterId,
+        LPCWSTR WriterName,
+        VSS_USAGE_TYPE UsageType,
+        VSS_SOURCE_TYPE SourceType,
+        VSS_APPLICATION_LEVEL AppLevel,
+        DWORD dwTimeoutFreeze = 60000,
+        VSS_ALTERNATE_WRITER_STATE aws = VSS_AWS_NO_ALTERNATE_WRITER,
+        bool bIOThrottlingOnly = false,
+        LPCWSTR wszWriterInstanceName = NULL);
+    HRESULT WINAPI Subscribe(
+        DWORD dwEventFlags);
+    HRESULT WINAPI Unsubscribe();
+    //gendef says public: long __stdcall CVssWriter::InstallAlternateWriter(struct _GUID,struct _GUID)
+    //Method unsupported
+    HRESULT WINAPI InstallAlternateWriter(
+        VSS_ID _id1,
+        VSS_ID _id2);
+};
+
+class CVssWriterEx : public CVssWriter {
+  protected:
+    HRESULT WINAPI GetIdentifyInformation(
+        IVssExamineWriterMetadata **ppMetadata) const;
+    HRESULT WINAPI SubscribeEx(
+        DWORD dwUnsubscribeTimeout,
+        DWORD dwEventFlags);
+  public:
+    virtual bool WINAPI OnIdentifyEx(
+        IVssCreateWriterMetadataEx *pMetadata) const;
+    HRESULT WINAPI InitializeEx(
+        VSS_ID WriterId,
+        LPCWSTR wszWriterName,
+        DWORD dwMajorVersion,
+        DWORD dwMinorVersion,
+        VSS_USAGE_TYPE ut,
+        VSS_SOURCE_TYPE st,
+        VSS_APPLICATION_LEVEL nLevel,
+        DWORD dwTimeoutFreeze = 60000,
+        VSS_ALTERNATE_WRITER_STATE aws = VSS_AWS_NO_ALTERNATE_WRITER,
+        bool bIOThrottlingOnly = false,
+        LPCWSTR wszWriterInstanceName = NULL);
+};
+
+class CVssWriterEx2: public CVssWriterEx {
+  public:
+    HRESULT WINAPI GetSessionId(
+        VSS_ID *idSession) const;
+    bool WINAPI IsWriterShuttingDown() const;
+    HRESULT WINAPI SetWriterFailureEx(
+        HRESULT hrWriter,
+        HRESULT hrApplication,
+        LPCWSTR wszApplicationMessage);
+};
+#endif /*__MINGW_GNUC_PREREQ(4,6)*/
+#endif /*__cplusplus*/
 
 #include <vsbackup.h>
 
