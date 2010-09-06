@@ -1,3 +1,7 @@
+2010-09-06  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/scalbnl.S: Fix andq logic so that upper 32-bits are cleared.
+
 2010-09-05  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* intrincs/ilockcxch64.c: Add volatile to x86 inline asm statement.
@@ -107,7 +111,7 @@
 	* Makefile.am: Add new entry.
 	* Makefile.in: Regenerated.
 
-2010-08-08  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-08  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/d3dcompiler_33.def: New.
 	* lib32/d3dcompiler_34.def: New.
@@ -269,11 +273,11 @@
 
 	Back-merge from the trunk:
 
-	2010-08-02  Jonathan Yong  <jon_y@sourceforge.net> (rev. 3091)
+	2010-08-02  Jonathan Yong  <jon_y@users.sourceforge.net> (rev. 3091)
 	* lib32/msvcrt.def: New _vcprintf and _vcwprintf.
 	* lib64/msvcrt.def: Likewise.
 
-	2010-08-01  Jonathan Yong  <jon_y@sourceforge.net> (rev. 3079)
+	2010-08-01  Jonathan Yong  <jon_y@users.sourceforge.net> (rev. 3079)
 	* lib32/msvcrt.def: Added secure and locale type symbols from Win7.
 	* lib64/msvcrt.def: Likewise.
 
@@ -603,7 +607,7 @@
 
 	Back-merges from the trunk (more missing stuff in lib32/*.def)
 
-	2010-05-28  Jonathan Yong  <jon_y@sourceforge.net> (rev. 2450)
+	2010-05-28  Jonathan Yong  <jon_y@users.sourceforge.net> (rev. 2450)
 	* lib32/advapi32.def: Add RegGetValueA and RegGetValueW.
 
 	2010-06-08  Kai Tietz  <kai.tietz@onevision.com> (rev. 2470)
@@ -646,7 +650,7 @@
 	PR/2995926
 	* misc/getopt.c: Replace by PD mingw.org version.
 
-2010-05-02  Jonathan Yong  <jon_y@sourceforge.net>
+2010-05-02  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* misc/mb_wc_common.h (get_codepage): use ___lc_codepage_func
 	instead of __lc_codepage to get codepage.
@@ -863,8 +867,7 @@
 
 	Back-merged from trunk r1923-1924:
 
-	2010-02-19  Jonathan Yong  <jon_y@sourceforge.net>
-
+	2010-02-19  Jonathan Yong  <jon_y@users.sourceforge.net>
 	* libsrc/shell32.c (IID_IFolderView): Define.
 	(CLSID_ShellFSFolder): Define.
 	(IID_IShellLinkDataList): Define.
