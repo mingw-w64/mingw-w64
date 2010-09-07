@@ -1,6 +1,6 @@
 2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* dbghelp.h, imagehelp.h (API_VERSION_NUMBER): Change from 9 to 11.
+	* dbghelp.h, imagehlp.h (API_VERSION_NUMBER): Change from 9 to 11.
 	(LOADED_IMAGE): Add new members fReadOnly (BOOLEAN) and Version (UCHAR).
 	(PIMAGEHLP_STATUS_ROUTINE): Constify string arguments.
 	(PIMAGEHLP_STATUS_ROUTINE32): Likewise.

@@ -1,3 +1,7 @@
+2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* tchar.h (_tcsnlen): Remove the #if0 comment-out from the macro.
+
 2010-09-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* string.h (strnlen): Remove the #if0 comment-out from the prototype.
