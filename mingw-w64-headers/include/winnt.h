@@ -2302,7 +2302,17 @@ typedef DWORD LCID;
     VOID __jump_unwind(ULONGLONG TargetMsFrame,ULONGLONG TargetBsFrame,ULONGLONG TargetPc);
 #endif /* end of _IA64_ */
 
+/* http://www.nynaeve.net/?p=99 */
+
 #define EXCEPTION_NONCONTINUABLE 0x1
+#define EXCEPTION_UNWINDING	   0x2
+#define EXCEPTION_EXIT_UNWIND      0x4
+#define EXCEPTION_STACK_INVALID    0x8
+#define EXCEPTION_NESTED_CALL      0x10
+#define EXCEPTION_TARGET_UNWIND    0x20
+#define EXCEPTION_COLLIDED_UNWIND  0x40
+#define EXCEPTION_UNWIND           0x66
+
 #define EXCEPTION_MAXIMUM_PARAMETERS 15
 
     typedef struct _EXCEPTION_RECORD {
@@ -2339,6 +2349,70 @@ typedef DWORD LCID;
       PEXCEPTION_RECORD ExceptionRecord;
       PCONTEXT ContextRecord;
     } EXCEPTION_POINTERS,*PEXCEPTION_POINTERS;
+
+#ifdef __x86_64__
+/* http://msdn.microsoft.com/en-us/library/ms680597(VS.85).aspx */
+
+#define UNWIND_HISTORY_TABLE_SIZE 12
+
+  typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
+    ULONG64 ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
+  } UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
+
+#define UNWIND_HISTORY_TABLE_NONE    0
+#define UNWIND_HISTORY_TABLE_GLOBAL  1
+#define UNWIND_HISTORY_TABLE_LOCAL   2
+
+  typedef struct _UNWIND_HISTORY_TABLE {
+    ULONG Count;
+    UCHAR Search;
+    ULONG64 LowAddress;
+    ULONG64 HighAddress;
+    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
+  } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
+
+  NTSYSAPI PRUNTIME_FUNCTION NTAPI RtlLookupFunctionEntry(ULONG64 ControlPc, PULONG64 ImageBase, PUNWIND_HISTORY_TABLE HistoryTable);
+
+  /* http://msdn.microsoft.com/en-us/library/b6sf5kbd(VS.80).aspx */
+
+  struct _DISPATCHER_CONTEXT;
+  typedef struct _DISPATCHER_CONTEXT DISPATCHER_CONTEXT;
+  typedef struct _DISPATCHER_CONTEXT *PDISPATCHER_CONTEXT;
+
+  typedef EXCEPTION_DISPOSITION (*PEXCEPTION_ROUTINE)
+    (PEXCEPTION_RECORD ExceptionRecord,
+     ULONG64 EstablisherFrame,
+     PCONTEXT ContextRecord,
+     PDISPATCHER_CONTEXT DispatcherContext);
+
+  struct _DISPATCHER_CONTEXT {
+    ULONG64 ControlPc;
+    ULONG64 ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
+    ULONG64 EstablisherFrame;
+    ULONG64 TargetIp;
+    PCONTEXT ContextRecord;
+    PEXCEPTION_ROUTINE LanguageHandler;
+    PVOID HandlerData;
+    /* http://www.nynaeve.net/?p=99 */
+    PUNWIND_HISTORY_TABLE HistoryTable;
+    ULONG ScopeIndex;
+    ULONG Fill0;
+  };
+
+  /* http://msdn.microsoft.com/en-us/library/ms680617(VS.85).aspx */
+
+  typedef struct _KNONVOLATILE_CONTEXT_POINTERS
+  {
+    PM128A FloatingContext[16];
+    PULONG64 IntegerContext[16];
+  } KNONVOLATILE_CONTEXT_POINTERS, *PKNONVOLATILE_CONTEXT_POINTERS;
+
+  NTSYSAPI VOID NTAPI RtlUnwindEx(PVOID TargetFrame, ULONG64 TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue, PCONTEXT OriginalContext, PUNWIND_HISTORY_TABLE HistoryTable);
+  NTSYSAPI PEXCEPTION_ROUTINE NTAPI RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBase, ULONG64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord,PVOID *HandlerData, PULONG64 EstablisherFrame,PKNONVOLATILE_CONTEXT_POINTERS ContextPointers);
+#endif /* defined(__x86_64__) */
+
     typedef PVOID PACCESS_TOKEN;
     typedef PVOID PSECURITY_DESCRIPTOR;
     typedef PVOID PSID;

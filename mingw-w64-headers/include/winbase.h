@@ -966,21 +966,21 @@ extern "C" {
 #define InterlockedCompareExchangeAcquire64 InterlockedCompareExchange64
 #define InterlockedCompareExchangeRelease64 InterlockedCompareExchange64
 
-  LONG InterlockedIncrement(LONG volatile *Addend);
-  LONG InterlockedDecrement(LONG volatile *Addend);
-  LONG InterlockedExchange(LONG volatile *Target,LONG Value);
-  LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
-  LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand);
-  PVOID InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID Exchange,PVOID Comperand);
-  PVOID InterlockedExchangePointer(PVOID volatile *Target,PVOID Value);
-  LONG64 InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value);
-  LONG64 InterlockedOr64(LONG64 volatile *Destination,LONG64 Value);
-  LONG64 InterlockedXor64(LONG64 volatile *Destination,LONG64 Value);
-  LONG64 InterlockedIncrement64(LONG64 volatile *Addend);
-  LONG64 InterlockedDecrement64(LONG64 volatile *Addend);
-  LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value);
-  LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
-  LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand);
+  LONG  __cdecl _InterlockedIncrement(LONG volatile *Addend);
+  LONG  __cdecl _InterlockedDecrement(LONG volatile *Addend);
+  LONG  __cdecl _InterlockedExchange(LONG volatile *Target,LONG Value);
+  LONG  __cdecl _InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
+  LONG  __cdecl _InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand);
+  PVOID  __cdecl _InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID Exchange,PVOID Comperand);
+  PVOID  __cdecl _InterlockedExchangePointer(PVOID volatile *Target,PVOID Value);
+  LONG64  __cdecl _InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value);
+  LONG64  __cdecl _InterlockedOr64(LONG64 volatile *Destination,LONG64 Value);
+  LONG64  __cdecl _InterlockedXor64(LONG64 volatile *Destination,LONG64 Value);
+  LONG64  __cdecl _InterlockedIncrement64(LONG64 volatile *Addend);
+  LONG64  __cdecl _InterlockedDecrement64(LONG64 volatile *Addend);
+  LONG64  __cdecl _InterlockedExchange64(LONG64 volatile *Target,LONG64 Value);
+  LONG64  __cdecl _InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
+  LONG64  __cdecl _InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand);
 
 #else /* not ia64, nor x64.  */
 
