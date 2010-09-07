@@ -1,5 +1,60 @@
 2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* dbghelp.h, imagehelp.h (API_VERSION_NUMBER): Change from 9 to 11.
+	(LOADED_IMAGE): Add new members fReadOnly (BOOLEAN) and Version (UCHAR).
+	(PIMAGEHLP_STATUS_ROUTINE): Constify string arguments.
+	(PIMAGEHLP_STATUS_ROUTINE32): Likewise.
+	(PIMAGEHLP_STATUS_ROUTINE64): Likewise.
+	(BindImage): Likewise.
+	(BindImageEx): Likewise.
+	(ReBaseImage): Likewise.
+	(ReBaseImage64): Likewise.
+	(MapFileAndCheckSumA): Likewise.
+	(MapFileAndCheckSumW): Likewise.
+	(ImageLoad): Likewise.
+	(MapAndLoad): Likewise.
+	(SplitSymbols): Likewise (2nd arg).
+	(UpdateDebugInfoFile): Likewise (1st & 2nd args).
+	(UpdateDebugInfoFileEx): Likewise (1st & 2nd ars).
+	(PFIND_DEBUG_FILE_CALLBACK): Likewise.
+	(PFINDFILEINPATHCALLBACK): Likewise.
+	(PFIND_EXE_FILE_CALLBACK): Likewise.
+	(FindDebugInfoFile): Likewise (1st & 2nd args).
+	(FindDebugInfoFileEx): Likewise (1st & 2nd args).
+	(SymFindFileInPath): Likewise (2nd & 3rd args).
+	(FindExecutableImage): Likewise (1st & 2nd args).
+	(FindExecutableImageEx): Likewise (1st & 2nd args).
+	(KDHELP): Add new DWORD members KiUserExceptionDispatcher, StackBase
+	and StackLimit, reduced Reserved member from 8 to 5.
+	(KDHELP64): Add new DWORD64 members KiUserExceptionDispatcher, StackBase
+	and StackLimit, reduced Reserved member from 8 to 5.
+	(KdHelp32To64): Adjust for the new members of KDHELP and KDHELP64.
+	(IMAGEHLP_MODULE64): Add new BOOL members SourceIndexed and Publics.
+	(IMAGEHLP_MODULEW64): Likewise.
+	(SymSetHomeDirectory): Changed prototype for the new api (an additional
+	handle as the 1st argument).
+	(SymMatchString): Constify string arguments.
+	(PSYM_ENUMSOURCEFILES_CALLBACK): Renamed from PSYM_ENUMSOURCFILES_CALLBACK.
+	(PSYM_ENUMSOURCFILES_CALLBACK): Define as PSYM_ENUMSOURCEFILES_CALLBACK.
+	(SymEnumSourceFiles): Constify string arguments.
+	(SymGetLineFromName): Likewise.
+	(SymGetLineFromName64): Likewise.
+	(SymMatchFileName): Likewise (1st & 2nd args).
+	(SymInitialize): Likewise.
+	(SymSetSearchPath): Likewise.
+	(SymLoadModule): Likewise.
+	(SymLoadModuleEx): Likewise.
+	(SymFromName): Likewise.
+	(SymGetTypeFromName): Likewise.
+	(DbgHelpCreateUserDump): Likewise.
+	(DbgHelpCreateUserDumpW): Likewise.
+	(SymGetSymFromName): Likewise.
+	(SymGetSymFromName64): Likewise.
+	(FindFileInPath): Likewise (2nd & 3rd args).
+	(FindFileInSearchPath): Likewise (2nd & 3rd args).
+
+2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* imagehlp.h: Reorganized parts of it so that it gives the least diff
 	output against dbghelp.h.
 
