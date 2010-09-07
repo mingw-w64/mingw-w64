@@ -3136,7 +3136,7 @@ typedef DWORD LCID;
       __MINGW_EXTENSION union {
 	DWORD FiberData;
 	DWORD Version;
-      } DUMMYUNIONNAME;
+      };
       DWORD ArbitraryUserPointer;
       DWORD Self;
     } NT_TIB32,*PNT_TIB32;
@@ -3149,7 +3149,7 @@ typedef DWORD LCID;
       __MINGW_EXTENSION union {
 	DWORD64 FiberData;
 	DWORD Version;
-      } DUMMYUNIONNAME;
+      };
       DWORD64 ArbitraryUserPointer;
       DWORD64 Self;
     } NT_TIB64,*PNT_TIB64;
