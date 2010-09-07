@@ -134,25 +134,10 @@ extern "C" {
   WINBOOL IMAGEAPI SplitSymbols(PSTR ImageName,PSTR SymbolsPath,PSTR SymbolFilePath,DWORD Flags);
   WINBOOL IMAGEAPI UpdateDebugInfoFile(PSTR ImageFileName,PSTR SymbolPath,PSTR DebugFilePath,PIMAGE_NT_HEADERS32 NtHeaders);
   WINBOOL IMAGEAPI UpdateDebugInfoFileEx(PSTR ImageFileName,PSTR SymbolPath,PSTR DebugFilePath,PIMAGE_NT_HEADERS32 NtHeaders,DWORD OldChecksum);
-  HANDLE IMAGEAPI FindDebugInfoFile(PSTR FileName,PSTR SymbolPath,PSTR DebugFilePath);
 
   typedef WINBOOL (CALLBACK *PFIND_DEBUG_FILE_CALLBACK)(HANDLE FileHandle,PSTR FileName,PVOID CallerData);
-
-  HANDLE IMAGEAPI FindDebugInfoFileEx(PSTR FileName,PSTR SymbolPath,PSTR DebugFilePath,PFIND_DEBUG_FILE_CALLBACK Callback,PVOID CallerData);
-
   typedef WINBOOL (CALLBACK *PFINDFILEINPATHCALLBACK)(PSTR filename,PVOID context);
-
-  WINBOOL IMAGEAPI SymFindFileInPath(HANDLE hprocess,LPSTR SearchPath,LPSTR FileName,PVOID id,DWORD two,DWORD three,DWORD flags,LPSTR FoundFile,PFINDFILEINPATHCALLBACK callback,PVOID context);
-  HANDLE IMAGEAPI FindExecutableImage(PSTR FileName,PSTR SymbolPath,PSTR ImageFilePath);
-
   typedef WINBOOL (CALLBACK *PFIND_EXE_FILE_CALLBACK)(HANDLE FileHandle,PSTR FileName,PVOID CallerData);
-
-  HANDLE IMAGEAPI FindExecutableImageEx(PSTR FileName,PSTR SymbolPath,PSTR ImageFilePath,PFIND_EXE_FILE_CALLBACK Callback,PVOID CallerData);
-  PIMAGE_NT_HEADERS IMAGEAPI ImageNtHeader(PVOID Base);
-  PVOID IMAGEAPI ImageDirectoryEntryToDataEx(PVOID Base,BOOLEAN MappedAsImage,USHORT DirectoryEntry,PULONG Size,PIMAGE_SECTION_HEADER *FoundHeader);
-  PVOID IMAGEAPI ImageDirectoryEntryToData(PVOID Base,BOOLEAN MappedAsImage,USHORT DirectoryEntry,PULONG Size);
-  PIMAGE_SECTION_HEADER IMAGEAPI ImageRvaToSection(PIMAGE_NT_HEADERS NtHeaders,PVOID Base,ULONG Rva);
-  PVOID IMAGEAPI ImageRvaToVa(PIMAGE_NT_HEADERS NtHeaders,PVOID Base,ULONG Rva,PIMAGE_SECTION_HEADER *LastRvaSection);
 
   typedef WINBOOL (WINAPI *PSYMBOLSERVERPROC)(LPCSTR,LPCSTR,PVOID,DWORD,DWORD,LPSTR);
   typedef WINBOOL (WINAPI *PSYMBOLSERVEROPENPROC)(VOID);
@@ -161,6 +146,17 @@ extern "C" {
   typedef WINBOOL (CALLBACK WINAPI *PSYMBOLSERVERCALLBACKPROC)(UINT_PTR action,ULONG64 data,ULONG64 context);
   typedef UINT_PTR (WINAPI *PSYMBOLSERVERGETOPTIONSPROC)();
   typedef WINBOOL (WINAPI *PSYMBOLSERVERPINGPROC)(LPCSTR);
+
+  HANDLE IMAGEAPI FindDebugInfoFile(PSTR FileName,PSTR SymbolPath,PSTR DebugFilePath);
+  HANDLE IMAGEAPI FindDebugInfoFileEx(PSTR FileName,PSTR SymbolPath,PSTR DebugFilePath,PFIND_DEBUG_FILE_CALLBACK Callback,PVOID CallerData);
+  WINBOOL IMAGEAPI SymFindFileInPath(HANDLE hprocess,LPSTR SearchPath,LPSTR FileName,PVOID id,DWORD two,DWORD three,DWORD flags,LPSTR FoundFile,PFINDFILEINPATHCALLBACK callback,PVOID context);
+  HANDLE IMAGEAPI FindExecutableImage(PSTR FileName,PSTR SymbolPath,PSTR ImageFilePath);
+  HANDLE IMAGEAPI FindExecutableImageEx(PSTR FileName,PSTR SymbolPath,PSTR ImageFilePath,PFIND_EXE_FILE_CALLBACK Callback,PVOID CallerData);
+  PIMAGE_NT_HEADERS IMAGEAPI ImageNtHeader(PVOID Base);
+  PVOID IMAGEAPI ImageDirectoryEntryToDataEx(PVOID Base,BOOLEAN MappedAsImage,USHORT DirectoryEntry,PULONG Size,PIMAGE_SECTION_HEADER *FoundHeader);
+  PVOID IMAGEAPI ImageDirectoryEntryToData(PVOID Base,BOOLEAN MappedAsImage,USHORT DirectoryEntry,PULONG Size);
+  PIMAGE_SECTION_HEADER IMAGEAPI ImageRvaToSection(PIMAGE_NT_HEADERS NtHeaders,PVOID Base,ULONG Rva);
+  PVOID IMAGEAPI ImageRvaToVa(PIMAGE_NT_HEADERS NtHeaders,PVOID Base,ULONG Rva,PIMAGE_SECTION_HEADER *LastRvaSection);
 
 #define SSRVOPT_CALLBACK 0x0001
 #define SSRVOPT_DWORD 0x0002
@@ -1399,7 +1395,7 @@ extern "C" {
 	ULONG MemorySize;
       };
     };
-  } MINIDUMP_CALLBACK_OUTPUT,*PMINIDUMP_CALLBACK_OUTPUT;
+  } MINIDUMP_CALLBACK_OUTPUT, *PMINIDUMP_CALLBACK_OUTPUT;
 
   typedef enum _MINIDUMP_TYPE {
     MiniDumpNormal                           = 0x00000000,
