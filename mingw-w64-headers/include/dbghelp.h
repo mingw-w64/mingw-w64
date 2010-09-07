@@ -6,6 +6,8 @@
 #ifndef _DBGHELP_
 #define _DBGHELP_
 
+#include <_mingw_unicode.h>
+
 #ifdef _WIN64
 #ifndef _IMAGEHLP64
 #define _IMAGEHLP64
@@ -38,15 +40,17 @@ extern "C" {
     ULONG Characteristics;
     BOOLEAN fSystemImage;
     BOOLEAN fDOSImage;
+    BOOLEAN fReadOnly;
+    UCHAR Version;
     LIST_ENTRY Links;
     ULONG SizeOfImage;
   } LOADED_IMAGE,*PLOADED_IMAGE;
 
 #define MAX_SYM_NAME 2000
 
-  typedef WINBOOL (CALLBACK *PFIND_DEBUG_FILE_CALLBACK)(HANDLE FileHandle,PSTR FileName,PVOID CallerData);
-  typedef WINBOOL (CALLBACK *PFINDFILEINPATHCALLBACK)(PSTR filename,PVOID context);
-  typedef WINBOOL (CALLBACK *PFIND_EXE_FILE_CALLBACK)(HANDLE FileHandle,PSTR FileName,PVOID CallerData);
+  typedef WINBOOL (CALLBACK *PFIND_DEBUG_FILE_CALLBACK)(HANDLE FileHandle,PCSTR FileName,PVOID CallerData);
+  typedef WINBOOL (CALLBACK *PFINDFILEINPATHCALLBACK)(PCSTR filename,PVOID context);
+  typedef WINBOOL (CALLBACK *PFIND_EXE_FILE_CALLBACK)(HANDLE FileHandle,PCSTR FileName,PVOID CallerData);
 
   typedef WINBOOL (WINAPI *PSYMBOLSERVERPROC)(LPCSTR,LPCSTR,PVOID,DWORD,DWORD,LPSTR);
   typedef WINBOOL (WINAPI *PSYMBOLSERVEROPENPROC)(VOID);
@@ -56,11 +60,11 @@ extern "C" {
   typedef UINT_PTR (WINAPI *PSYMBOLSERVERGETOPTIONSPROC)();
   typedef WINBOOL (WINAPI *PSYMBOLSERVERPINGPROC)(LPCSTR);
 
-  HANDLE IMAGEAPI FindDebugInfoFile(PSTR FileName,PSTR SymbolPath,PSTR DebugFilePath);
-  HANDLE IMAGEAPI FindDebugInfoFileEx(PSTR FileName,PSTR SymbolPath,PSTR DebugFilePath,PFIND_DEBUG_FILE_CALLBACK Callback,PVOID CallerData);
-  WINBOOL IMAGEAPI SymFindFileInPath(HANDLE hprocess,LPSTR SearchPath,LPSTR FileName,PVOID id,DWORD two,DWORD three,DWORD flags,LPSTR FoundFile,PFINDFILEINPATHCALLBACK callback,PVOID context);
-  HANDLE IMAGEAPI FindExecutableImage(PSTR FileName,PSTR SymbolPath,PSTR ImageFilePath);
-  HANDLE IMAGEAPI FindExecutableImageEx(PSTR FileName,PSTR SymbolPath,PSTR ImageFilePath,PFIND_EXE_FILE_CALLBACK Callback,PVOID CallerData);
+  HANDLE IMAGEAPI FindDebugInfoFile(PCSTR FileName,PCSTR SymbolPath,PSTR DebugFilePath);
+  HANDLE IMAGEAPI FindDebugInfoFileEx(PCSTR FileName,PCSTR SymbolPath,PSTR DebugFilePath,PFIND_DEBUG_FILE_CALLBACK Callback,PVOID CallerData);
+  WINBOOL IMAGEAPI SymFindFileInPath(HANDLE hprocess,PCSTR SearchPath,PCSTR FileName,PVOID id,DWORD two,DWORD three,DWORD flags,LPSTR FoundFile,PFINDFILEINPATHCALLBACK callback,PVOID context);
+  HANDLE IMAGEAPI FindExecutableImage(PCSTR FileName,PCSTR SymbolPath,PSTR ImageFilePath);
+  HANDLE IMAGEAPI FindExecutableImageEx(PCSTR FileName,PCSTR SymbolPath,PSTR ImageFilePath,PFIND_EXE_FILE_CALLBACK Callback,PVOID CallerData);
   PIMAGE_NT_HEADERS IMAGEAPI ImageNtHeader(PVOID Base);
   PVOID IMAGEAPI ImageDirectoryEntryToDataEx(PVOID Base,BOOLEAN MappedAsImage,USHORT DirectoryEntry,PULONG Size,PIMAGE_SECTION_HEADER *FoundHeader);
   PVOID IMAGEAPI ImageDirectoryEntryToData(PVOID Base,BOOLEAN MappedAsImage,USHORT DirectoryEntry,PULONG Size);
@@ -208,7 +212,10 @@ extern "C" {
     DWORD64 KiCallUserMode;
     DWORD64 KeUserCallbackDispatcher;
     DWORD64 SystemRangeStart;
-    DWORD64 Reserved[8];
+    DWORD64 KiUserExceptionDispatcher;
+    DWORD64 StackBase;
+    DWORD64 StackLimit;
+    DWORD64 Reserved[5];
   } KDHELP64,*PKDHELP64;
 
 #ifdef _IMAGEHLP64
@@ -224,7 +231,10 @@ extern "C" {
     DWORD KeUserCallbackDispatcher;
     DWORD SystemRangeStart;
     DWORD ThCallbackBStore;
-    DWORD Reserved[8];
+    DWORD KiUserExceptionDispatcher;
+    DWORD StackBase;
+    DWORD StackLimit;
+    DWORD Reserved[5];
   } KDHELP,*PKDHELP;
 
   static __inline void KdHelp32To64(PKDHELP p32,PKDHELP64 p64) {
@@ -235,6 +245,9 @@ extern "C" {
     p64->KiCallUserMode = p32->KiCallUserMode;
     p64->KeUserCallbackDispatcher = p32->KeUserCallbackDispatcher;
     p64->SystemRangeStart = p32->SystemRangeStart;
+    p64->KiUserExceptionDispatcher = p32->KiUserExceptionDispatcher;
+    p64->StackBase = p32->StackBase;
+    p64->StackLimit = p32->StackLimit;
   }
 #endif
 
@@ -293,7 +306,7 @@ extern "C" {
   WINBOOL IMAGEAPI StackWalk(DWORD MachineType,HANDLE hProcess,HANDLE hThread,LPSTACKFRAME StackFrame,PVOID ContextRecord,PREAD_PROCESS_MEMORY_ROUTINE ReadMemoryRoutine,PFUNCTION_TABLE_ACCESS_ROUTINE FunctionTableAccessRoutine,PGET_MODULE_BASE_ROUTINE GetModuleBaseRoutine,PTRANSLATE_ADDRESS_ROUTINE TranslateAddress);
 #endif
 
-#define API_VERSION_NUMBER 9
+#define API_VERSION_NUMBER 11
 
   typedef struct API_VERSION {
     USHORT MajorVersion;
@@ -415,6 +428,8 @@ extern "C" {
     WINBOOL LineNumbers;
     WINBOOL GlobalSymbols;
     WINBOOL TypeInfo;
+    WINBOOL SourceIndexed;
+    WINBOOL Publics;
   } IMAGEHLP_MODULE64,*PIMAGEHLP_MODULE64;
 
   typedef struct _IMAGEHLP_MODULE64W {
@@ -439,6 +454,8 @@ extern "C" {
     WINBOOL LineNumbers;
     WINBOOL GlobalSymbols;
     WINBOOL TypeInfo;
+    WINBOOL SourceIndexed;
+    WINBOOL Publics;
   } IMAGEHLP_MODULEW64,*PIMAGEHLP_MODULEW64;
 
 #ifdef _IMAGEHLP64
@@ -583,7 +600,7 @@ extern "C" {
 #endif
 
   WINBOOL IMAGEAPI SymSetParentWindow(HWND hwnd);
-  PCHAR IMAGEAPI SymSetHomeDirectory(PCSTR dir);
+  PCHAR IMAGEAPI SymSetHomeDirectory(HANDLE hProcess,PCSTR dir);
   PCHAR IMAGEAPI SymGetHomeDirectory(DWORD type,PSTR dir,size_t size);
 
   typedef enum {
@@ -619,11 +636,12 @@ extern "C" {
   DWORD IMAGEAPI SymSetOptions(DWORD SymOptions);
   DWORD IMAGEAPI SymGetOptions(VOID);
   WINBOOL IMAGEAPI SymCleanup(HANDLE hProcess);
-  WINBOOL IMAGEAPI SymMatchString(LPSTR string,LPSTR expression,WINBOOL fCase);
+  WINBOOL IMAGEAPI SymMatchString(PCSTR string,PCSTR expression,WINBOOL fCase);
 
-  typedef WINBOOL (CALLBACK *PSYM_ENUMSOURCFILES_CALLBACK)(PSOURCEFILE pSourceFile,PVOID UserContext);
+  typedef WINBOOL (CALLBACK *PSYM_ENUMSOURCEFILES_CALLBACK)(PSOURCEFILE pSourceFile,PVOID UserContext);
+#define PSYM_ENUMSOURCFILES_CALLBACK PSYM_ENUMSOURCEFILES_CALLBACK
 
-  WINBOOL IMAGEAPI SymEnumSourceFiles(HANDLE hProcess,ULONG64 ModBase,LPSTR Mask,PSYM_ENUMSOURCFILES_CALLBACK cbSrcFiles,PVOID UserContext);
+  WINBOOL IMAGEAPI SymEnumSourceFiles(HANDLE hProcess,ULONG64 ModBase,PCSTR Mask,PSYM_ENUMSOURCEFILES_CALLBACK cbSrcFiles,PVOID UserContext);
   WINBOOL IMAGEAPI SymEnumerateModules64(HANDLE hProcess,PSYM_ENUMMODULES_CALLBACK64 EnumModulesCallback,PVOID UserContext);
 
 #ifdef _IMAGEHLP64
@@ -715,12 +733,12 @@ extern "C" {
   WINBOOL IMAGEAPI SymGetLineFromAddr(HANDLE hProcess,DWORD dwAddr,PDWORD pdwDisplacement,PIMAGEHLP_LINE Line);
 #endif
 
-  WINBOOL IMAGEAPI SymGetLineFromName64(HANDLE hProcess,PSTR ModuleName,PSTR FileName,DWORD dwLineNumber,PLONG plDisplacement,PIMAGEHLP_LINE64 Line);
+  WINBOOL IMAGEAPI SymGetLineFromName64(HANDLE hProcess,PCSTR ModuleName,PCSTR FileName,DWORD dwLineNumber,PLONG plDisplacement,PIMAGEHLP_LINE64 Line);
 
 #ifdef _IMAGEHLP64
 #define SymGetLineFromName SymGetLineFromName64
 #else
-  WINBOOL IMAGEAPI SymGetLineFromName(HANDLE hProcess,PSTR ModuleName,PSTR FileName,DWORD dwLineNumber,PLONG plDisplacement,PIMAGEHLP_LINE Line);
+  WINBOOL IMAGEAPI SymGetLineFromName(HANDLE hProcess,PCSTR ModuleName,PCSTR FileName,DWORD dwLineNumber,PLONG plDisplacement,PIMAGEHLP_LINE Line);
 #endif
 
   WINBOOL IMAGEAPI SymGetLineNext64(HANDLE hProcess,PIMAGEHLP_LINE64 Line);
@@ -739,20 +757,20 @@ extern "C" {
   WINBOOL IMAGEAPI SymGetLinePrev(HANDLE hProcess,PIMAGEHLP_LINE Line);
 #endif
 
-  WINBOOL IMAGEAPI SymMatchFileName(PSTR FileName,PSTR Match,PSTR *FileNameStop,PSTR *MatchStop);
-  WINBOOL IMAGEAPI SymInitialize(HANDLE hProcess,PSTR UserSearchPath,WINBOOL fInvadeProcess);
+  WINBOOL IMAGEAPI SymMatchFileName(PCSTR FileName,PCSTR Match,PSTR *FileNameStop,PSTR *MatchStop);
+  WINBOOL IMAGEAPI SymInitialize(HANDLE hProcess,PCSTR UserSearchPath,WINBOOL fInvadeProcess);
   WINBOOL IMAGEAPI SymGetSearchPath(HANDLE hProcess,PSTR SearchPath,DWORD SearchPathLength);
-  WINBOOL IMAGEAPI SymSetSearchPath(HANDLE hProcess,PSTR SearchPath);
+  WINBOOL IMAGEAPI SymSetSearchPath(HANDLE hProcess,PCSTR SearchPath);
   DWORD64 IMAGEAPI SymLoadModule64(HANDLE hProcess,HANDLE hFile,PSTR ImageName,PSTR ModuleName,DWORD64 BaseOfDll,DWORD SizeOfDll);
 
 #define SLMFLAG_VIRTUAL 0x1
 
-  DWORD64 IMAGEAPI SymLoadModuleEx(HANDLE hProcess,HANDLE hFile,PSTR ImageName,PSTR ModuleName,DWORD64 BaseOfDll,DWORD DllSize,PMODLOAD_DATA Data,DWORD Flags);
+  DWORD64 IMAGEAPI SymLoadModuleEx(HANDLE hProcess,HANDLE hFile,PCSTR ImageName,PCSTR ModuleName,DWORD64 BaseOfDll,DWORD DllSize,PMODLOAD_DATA Data,DWORD Flags);
 
 #ifdef _IMAGEHLP64
 #define SymLoadModule SymLoadModule64
 #else
-  DWORD IMAGEAPI SymLoadModule(HANDLE hProcess,HANDLE hFile,PSTR ImageName,PSTR ModuleName,DWORD BaseOfDll,DWORD SizeOfDll);
+  DWORD IMAGEAPI SymLoadModule(HANDLE hProcess,HANDLE hFile,PCSTR ImageName,PCSTR ModuleName,DWORD BaseOfDll,DWORD SizeOfDll);
 #endif
 
   WINBOOL IMAGEAPI SymUnloadModule64(HANDLE hProcess,DWORD64 BaseOfDll);
@@ -836,7 +854,7 @@ extern "C" {
   WINBOOL IMAGEAPI SymSetContext(HANDLE hProcess,PIMAGEHLP_STACK_FRAME StackFrame,PIMAGEHLP_CONTEXT Context);
   WINBOOL IMAGEAPI SymFromAddr(HANDLE hProcess,DWORD64 Address,PDWORD64 Displacement,PSYMBOL_INFO Symbol);
   WINBOOL IMAGEAPI SymFromToken(HANDLE hProcess,DWORD64 Base,DWORD Token,PSYMBOL_INFO Symbol);
-  WINBOOL IMAGEAPI SymFromName(HANDLE hProcess,LPSTR Name,PSYMBOL_INFO Symbol);
+  WINBOOL IMAGEAPI SymFromName(HANDLE hProcess,PCSTR Name,PSYMBOL_INFO Symbol);
 
   typedef WINBOOL (CALLBACK *PSYM_ENUMERATESYMBOLS_CALLBACK)(PSYMBOL_INFO pSymInfo,ULONG SymbolSize,PVOID UserContext);
 
@@ -884,14 +902,14 @@ extern "C" {
 
   WINBOOL IMAGEAPI SymGetTypeInfo(HANDLE hProcess,DWORD64 ModBase,ULONG TypeId,IMAGEHLP_SYMBOL_TYPE_INFO GetType,PVOID pInfo);
   WINBOOL IMAGEAPI SymEnumTypes(HANDLE hProcess,ULONG64 BaseOfDll,PSYM_ENUMERATESYMBOLS_CALLBACK EnumSymbolsCallback,PVOID UserContext);
-  WINBOOL IMAGEAPI SymGetTypeFromName(HANDLE hProcess,ULONG64 BaseOfDll,LPSTR Name,PSYMBOL_INFO Symbol);
+  WINBOOL IMAGEAPI SymGetTypeFromName(HANDLE hProcess,ULONG64 BaseOfDll,PCSTR Name,PSYMBOL_INFO Symbol);
   WINBOOL IMAGEAPI SymAddSymbol(HANDLE hProcess,ULONG64 BaseOfDll,PCSTR Name,DWORD64 Address,DWORD Size,DWORD Flags);
   WINBOOL IMAGEAPI SymDeleteSymbol(HANDLE hProcess,ULONG64 BaseOfDll,PCSTR Name,DWORD64 Address,DWORD Flags);
 
   typedef WINBOOL (WINAPI *PDBGHELP_CREATE_USER_DUMP_CALLBACK)(DWORD DataType,PVOID *Data,LPDWORD DataLength,PVOID UserData);
 
-  WINBOOL WINAPI DbgHelpCreateUserDump(LPSTR FileName,PDBGHELP_CREATE_USER_DUMP_CALLBACK Callback,PVOID UserData);
-  WINBOOL WINAPI DbgHelpCreateUserDumpW(LPWSTR FileName,PDBGHELP_CREATE_USER_DUMP_CALLBACK Callback,PVOID UserData);
+  WINBOOL WINAPI DbgHelpCreateUserDump(LPCSTR FileName,PDBGHELP_CREATE_USER_DUMP_CALLBACK Callback,PVOID UserData);
+  WINBOOL WINAPI DbgHelpCreateUserDumpW(LPCWSTR FileName,PDBGHELP_CREATE_USER_DUMP_CALLBACK Callback,PVOID UserData);
   WINBOOL IMAGEAPI SymGetSymFromAddr64(HANDLE hProcess,DWORD64 qwAddr,PDWORD64 pdwDisplacement,PIMAGEHLP_SYMBOL64 Symbol);
 
 #ifdef _IMAGEHLP64
@@ -900,16 +918,16 @@ extern "C" {
   WINBOOL IMAGEAPI SymGetSymFromAddr(HANDLE hProcess,DWORD dwAddr,PDWORD pdwDisplacement,PIMAGEHLP_SYMBOL Symbol);
 #endif
 
-  WINBOOL IMAGEAPI SymGetSymFromName64(HANDLE hProcess,PSTR Name,PIMAGEHLP_SYMBOL64 Symbol);
+  WINBOOL IMAGEAPI SymGetSymFromName64(HANDLE hProcess,PCSTR Name,PIMAGEHLP_SYMBOL64 Symbol);
 
 #ifdef _IMAGEHLP64
 #define SymGetSymFromName SymGetSymFromName64
 #else
-  WINBOOL IMAGEAPI SymGetSymFromName(HANDLE hProcess,PSTR Name,PIMAGEHLP_SYMBOL Symbol);
+  WINBOOL IMAGEAPI SymGetSymFromName(HANDLE hProcess,PCSTR Name,PIMAGEHLP_SYMBOL Symbol);
 #endif
 
-  DBHLP_DEPRECIATED WINBOOL IMAGEAPI FindFileInPath(HANDLE hprocess,LPSTR SearchPath,LPSTR FileName,PVOID id,DWORD two,DWORD three,DWORD flags,LPSTR FilePath);
-  DBHLP_DEPRECIATED WINBOOL IMAGEAPI FindFileInSearchPath(HANDLE hprocess,LPSTR SearchPath,LPSTR FileName,DWORD one,DWORD two,DWORD three,LPSTR FilePath);
+  DBHLP_DEPRECIATED WINBOOL IMAGEAPI FindFileInPath(HANDLE hprocess,PCSTR SearchPath,PCSTR FileName,PVOID id,DWORD two,DWORD three,DWORD flags,PSTR FilePath);
+  DBHLP_DEPRECIATED WINBOOL IMAGEAPI FindFileInSearchPath(HANDLE hprocess,PCSTR SearchPath,PCSTR FileName,DWORD one,DWORD two,DWORD three,PSTR FilePath);
   DBHLP_DEPRECIATED WINBOOL IMAGEAPI SymEnumSym(HANDLE hProcess,ULONG64 BaseOfDll,PSYM_ENUMERATESYMBOLS_CALLBACK EnumSymbolsCallback,PVOID UserContext);
 
 #define SYMF_OMAP_GENERATED 0x00000001
