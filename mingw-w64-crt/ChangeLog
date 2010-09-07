@@ -1,3 +1,8 @@
+2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/dbghelp.def: Update from the trunk.
+	* lib64/dbghelp.def: Update from the trunk.
+
 2010-09-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* misc/strnlen.c (strnlen): Better implementation from John E. / TDM.
