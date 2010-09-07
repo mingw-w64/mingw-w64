@@ -3208,7 +3208,7 @@ typedef DWORD LCID;
       __MINGW_EXTENSION union {
 	PVOID FiberData;
 	DWORD Version;
-      } DUMMYUNIONNAME;
+      };
       PVOID ArbitraryUserPointer;
       struct _NT_TIB *Self;
     } NT_TIB;
