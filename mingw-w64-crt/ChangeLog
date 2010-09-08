@@ -1,3 +1,8 @@
+2010-09-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/msvcrt.def (strnlen): Mark as DATA.
+	* lib64/msvcrt.def (strnlen): Likewise.
+
 2010-09-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* misc/strnlen.c (strnlen): Better implementation from John E. / TDM.

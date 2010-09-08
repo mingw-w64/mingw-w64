@@ -1193,7 +1193,7 @@ strncat_s
 strncmp
 strncpy
 strncpy_s
-strnlen
+strnlen DATA	; msvcrt in XP and lower doesn't have this
 strpbrk
 strrchr
 strspn
