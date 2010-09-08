@@ -16,7 +16,7 @@
 #ifndef _FLOAT_H___
 #include_next <float.h>
 #endif
-#elif !defined (_FLOAT_H__)
+#elif !defined (_FLOAT_H___)
 #error Corrupt install of gcc's internal headers, or search order was changed.
 #endif
 #endif
