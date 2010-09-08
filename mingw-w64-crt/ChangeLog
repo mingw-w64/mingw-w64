@@ -1,3 +1,8 @@
+2010-09-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/msvcrt.def (strnlen): Add from the trunk, marked as DATA.
+	* lib64/msvcrt.def (strnlen): Likewise.
+
 2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/dbghelp.def: Update from the trunk.
