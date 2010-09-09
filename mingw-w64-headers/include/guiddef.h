@@ -117,6 +117,7 @@ typedef FMTID *LPFMTID;
 #endif
 #endif
 
+#ifndef __WIDL__
 #ifndef _SYS_GUID_OPERATORS_
 #define _SYS_GUID_OPERATORS_
 #include <string.h>
@@ -145,6 +146,7 @@ __inline int IsEqualGUID(REFGUID rguid1,REFGUID rguid2) { return !memcmp(&rguid1
 #ifdef __cplusplus
 __inline int operator==(REFGUID guidOne,REFGUID guidOther) { return IsEqualGUID(guidOne,guidOther); }
 __inline int operator!=(REFGUID guidOne,REFGUID guidOther) { return !(guidOne==guidOther); }
+#endif
 #endif
 #endif
 #endif
