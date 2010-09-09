@@ -59,6 +59,7 @@ extern "C" {
   typedef unsigned int UHALF_PTR,*PUHALF_PTR;
   typedef int HALF_PTR,*PHALF_PTR;
 
+#ifndef __WIDL__
   static __inline unsigned long HandleToULong(const void *h) { return((unsigned long) (ULONG_PTR) h); }
   static __inline long HandleToLong(const void *h) { return((long) (LONG_PTR) h); }
   static __inline void *ULongToHandle(const unsigned long h) { return((void *) (UINT_PTR) h); }
@@ -84,6 +85,8 @@ extern "C" {
   static __inline void *PtrToPtr32(const void *p) { return((void *) (ULONG_PTR) p); }
 
 #define HandleToHandle32(h) (PtrToPtr32(h))
+#endif
+
 #else
 
 #define ADDRESS_TAG_BIT 0x80000000UL
@@ -93,6 +96,7 @@ extern "C" {
   typedef long SHANDLE_PTR;
   typedef unsigned long HANDLE_PTR;
 
+#ifndef __WIDL__
 #define HandleToULong(h) ((ULONG)(ULONG_PTR)(h))
 #define HandleToLong(h) ((LONG)(LONG_PTR) (h))
 #define ULongToHandle(ul) ((HANDLE)(ULONG_PTR) (ul))
@@ -117,6 +121,7 @@ extern "C" {
 #define Handle32ToHandle(h) (Ptr32ToPtr(h))
 #define PtrToPtr32(p) ((void *) p)
 #define HandleToHandle32(h) (PtrToPtr32(h))
+#endif
 #endif
 
 #define HandleToUlong(h) HandleToULong(h)
