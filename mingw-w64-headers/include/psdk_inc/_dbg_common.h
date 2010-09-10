@@ -1,3 +1,8 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the w64 mingw-runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
 #pragma once
 
   typedef WINBOOL (CALLBACK *PFIND_DEBUG_FILE_CALLBACK)(HANDLE FileHandle,PCSTR FileName,PVOID CallerData);
@@ -1800,22 +1805,6 @@ WINBOOL WINAPI SymSearchW(
   PSYM_ENUMERATESYMBOLS_CALLBACKW EnumSymbolsCallback,
   PVOID UserContext,
   DWORD Options
-);
-
-PCSTR WINAPI SymSrvDeltaName(
-  HANDLE hProcess,
-  PCSTR SymPath,
-  PCSTR Type,
-  PCSTR File1,
-  PCSTR File2
-);
-
-PCWSTR WINAPI SymSrvDeltaNameW(
-  HANDLE hProcess,
-  PCWSTR SymPath,
-  PCWSTR Type,
-  PCWSTR File1,
-  PCWSTR File2
 );
 
 WINBOOL WINAPI SymSrvGetFileIndexString(
