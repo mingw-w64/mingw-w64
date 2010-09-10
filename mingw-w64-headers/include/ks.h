@@ -132,7 +132,7 @@ DEFINE_GUIDSTRUCT("97E99BA0-BDEA-11CF-A5D6-28DB04C10000",KSPROPTYPESETID_General
 #define KSPROPTYPESETID_General DEFINE_GUIDNAMED(KSPROPTYPESETID_General)
 
 #if defined(_NTDDK_)
-#include <mingw_inc/_varenum.h>
+#include <psdk_inc/_varenum.h>
 #endif
 
 typedef struct {
