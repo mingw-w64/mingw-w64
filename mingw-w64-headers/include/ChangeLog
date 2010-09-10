@@ -73,7 +73,7 @@
 	(WTSINFOA, WTSINFOW): Fix the WinStationName, Domain and UserName
 	members to be arrays.
 
-2010-08-30  Jonathan Yong <jon_y@sourceforge.net>
+2010-08-30  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* functiondiscoveryapi.h: Warn about HRESULT,QueryService.
 	* functiondiscoverycategories.h: New.
@@ -98,11 +98,11 @@
 	WSD_CONSTRAINTVALUE_REQUIRE_SECURECHANNEL, WSD_CONSTRAINTVALUE_REQUIRE_SECURECHANNEL_AND_COMPACTSIGNATURE): New.
 	* functiondiscoverykeys.h: New.
 
-2010-08-27  Jonathan Yong <jon_y@sourceforge.net>
+2010-08-27  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* ntsecapi.h (KERB_LOGON_SUBMIT_TYPE): Fix "#if" usage.
 
-2010-08-25  Jonathan Yong <jon_y@sourceforge.net>
+2010-08-25  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* mmreg.h: Sync with mingw.org:
 	(WAVE_FORMAT_WMAVOICE9): Define.
@@ -206,7 +206,7 @@
 	* avrt.h: Changed AVRT_PRIORITY_* macros into AVRT_PRIORITY
 	enum.
 
-2010-08-09  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-09  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* aclapi.h (TreeSetNamedSecurityInfoA): New.
 	(TreeSetNamedSecurityInfoW): New.
@@ -223,12 +223,12 @@
 	(AuthzModifySecurityAttributes): New.
 	* azroles.h (AZ_PROP_CONSTANTS): Add new enum entries.
 
-2010-08-09  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-09  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* virtdisk.h: New.
 	* windows.h: Add virtdisk.h include.
 
-2010-08-09  Jonathan Yong  <jon_y@sourceforge.net>
+2010-08-09  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* winnt.h (TRANSACTION_OUTCOME): New typedef.
 	(POWER_PLATFORM_ROLE): Likewise.
@@ -451,7 +451,7 @@
 
 	* winnt.h: Add extern to FORCEINLINE definition.
 
-2010-07-20  Jonathan Yong  <jon_y@sourceforge.net>
+2010-07-20  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* rpcndr.h (NdrUnMarshConfStringHdr): Fix macro brackets.
 	(NdrMarshSCtxtHdl): Likewise.
@@ -612,7 +612,7 @@
 2010-06-22  Jacek Caban  <jacek@codeweavers.com>
 	* downloadmgr.h: Moved to IDL SDK.
 
-2010-06-22  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-22  Jonathan Yong  <jon_y@users.sourceforge.net>
 	* clusapi.h (PCLUSAPI_OPEN_CLUSTER): Declare.
 	(FS_CASE_SENSITIVE): Define.
 	(FS_CASE_IS_PRESERVED): Likewise.
@@ -830,7 +830,7 @@
 	* sdkddkver.h: Sync'ed with ReactOS version to add new macros
 	_WIN32_WINNT_WIN7, _WIN32_IE_IE80, _WIN32_IE_WIN7 and NTDDI_WIN7.
 
-2010-06-08  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-08  Jonathan Yong  <jon_y@users.sourceforge.net>
 	* winnt.h (ACTCTX_REQUESTED_RUN_LEVEL): New.
 	(ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION): Likewise.
 	* winbase.h (CreateBoundaryDescriptorA): New.
@@ -874,7 +874,7 @@
 	(FreeAddrInfoExA): New.
 	(FreeAddrInfoExW): New.
 
-2010-06-04  Jonathan Yong  <jon_y@sourceforge.net>
+2010-06-04  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* winbase.h (CreateSymbolicLinkA): Move into Vista version guard.
 	(CreateSymbolicLinkW): Likewise.
@@ -997,7 +997,7 @@
 	PSYM_ENUMMODULES_CALLBACK64): Make string
 	argument const.
 
-2010-04-16  Jonathan Yong  <jon_y@sourceforge.net>
+2010-04-16  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* vfw.h: Add comment about unguarded duplication in avifmt.h
 	(VIDCF_QUALITYTIME): Define.
@@ -1059,7 +1059,7 @@
 	(SUBLANG_SYRIAC_SYRIA): define as SUBLANG_SYRIAC (what MSDN mentions).
 	(SUBLANG_TIGRIGNA_ERITREA): 0x02, not 0x01.
 
-2010-04-12  Jonathan Yong  <jon_y@sourceforge.net>
+2010-04-12  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* winbase.h: (InitializeConditionVariable): New.
 	(SleepConditionVariableCS): Ditto.
@@ -1235,7 +1235,7 @@
 	(RTL_CRITICAL_SECTION_FLAG_RESERVED): Likewise.
 	(RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT): Likewise.
 
-2010-02-19  Jonathan Yong  <jon_y@sourceforge.net>
+2010-02-19  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* include/shlguid.h (IID_IFolderView): Define.
 
@@ -1262,7 +1262,7 @@
 	* commctrl.h: Relaxed _WIN32_IE version requirement to 0x0500
 	for now. Added a big FIXME note that it should really be 0x0501.
 
-2010-01-01  Jonathan Yong  <jon_y@sourceforge.net>
+2010-01-01  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* include/profile.h (_MCOUNT_DECL): Add gnu_inline attribute
 	and remove static qualifier.
