@@ -28,7 +28,7 @@ SYSHEAD_LIST=$srcdir/include/sys/*.h
 SECHEAD_LIST=$srcdir/include/sec_api/*.h
 SECSYSHEAD_LIST=$srcdir/include/sec_api/sys/*.h
 GLHEAD_LIST=$srcdir/include/GL/*.h
-MINGWHELPERHEAD_LIST=$srcdir/include/mingw_inc/*.h
+MINGWHELPERHEAD_LIST=$srcdir/include/psdk_inc/*.h
 AC_SUBST([BASEHEAD_LIST])
 AC_SUBST([GLHEAD_LIST])
 AC_SUBST([MINGWHELPERHEAD_LIST])

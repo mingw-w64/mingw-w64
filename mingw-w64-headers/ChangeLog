@@ -1,3 +1,7 @@
+2010-09-10  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* Fix up configury after mingw_inc to psdk rename.
+
 2010-08-03  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Move aux scripts to subdir to tidy up top levels.  Upgrade
