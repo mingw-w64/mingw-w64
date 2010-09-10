@@ -1,3 +1,16 @@
+2010-09-10  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* mingw_inc: Rename to psdk_inc.
+	* dbghelp.h: Fix up mingw_inc rename.
+	* imagehlp.h: Likewise.
+	* ks.h: Likewise.
+	* mswsock.h: Likewise.
+	* winsock.h: Likewise.
+	* winsock2.h: Likewise.
+	* ws2tcpip.h: Likewise.
+	* wtypes.h: Likewise.
+	* zmouse.h: Likewise.
+
 2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* dbghelp.h, imagehlp.h (API_VERSION_NUMBER): Change from 9 to 11.

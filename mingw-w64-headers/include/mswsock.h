@@ -62,7 +62,7 @@ extern "C" {
 #define TF_USE_SYSTEM_THREAD 0x10
 #define TF_USE_KERNEL_APC 0x20
 
-#include <mingw_inc/_xmitfile.h>
+#include <psdk_inc/_xmitfile.h>
 #ifndef __MSWSOCK_WS1_SHARED
   WINBOOL WINAPI TransmitFile(SOCKET hSocket,HANDLE hFile,DWORD nNumberOfBytesToWrite,DWORD nNumberOfBytesPerSend,LPOVERLAPPED lpOverlapped,LPTRANSMIT_FILE_BUFFERS lpTransmitBuffers,DWORD dwReserved);
   WINBOOL WINAPI AcceptEx(SOCKET sListenSocket,SOCKET sAcceptSocket,PVOID lpOutputBuffer,DWORD dwReceiveDataLength,DWORD dwLocalAddressLength,DWORD dwRemoteAddressLength,LPDWORD lpdwBytesReceived,LPOVERLAPPED lpOverlapped);

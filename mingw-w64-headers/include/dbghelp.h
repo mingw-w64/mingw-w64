@@ -17,8 +17,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#include <mingw_inc/_dbg_LOAD_IMAGE.h>
-#include <mingw_inc/_dbg_common.h>
+#include <psdk_inc/_dbg_LOAD_IMAGE.h>
+#include <psdk_inc/_dbg_common.h>
 
 #ifdef __cplusplus
 }

@@ -621,7 +621,7 @@ extern "C" {
 #define CBPCLIPDATA(clipdata) ((clipdata).cbSize - sizeof((clipdata).ulClipFmt))
   typedef unsigned short VARTYPE;
 
-#include <mingw_inc/_varenum.h>
+#include <psdk_inc/_varenum.h>
 
   typedef ULONG PROPID;
 
