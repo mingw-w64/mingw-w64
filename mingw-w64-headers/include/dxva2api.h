@@ -12,6 +12,11 @@
 extern "C" {
 #endif
 
+#ifndef __REFERENCE_TIME_DEFINED
+#define __REFERENCE_TIME_DEFINED
+typedef LONGLONG REFERENCE_TIME;
+#endif /*__REFERENCE_TIME_DEFINED*/
+
 typedef struct IDirect3DDeviceManager9 IDirect3DDeviceManager9;
 typedef struct IDirectXVideoDecoderService IDirectXVideoDecoderService;
 

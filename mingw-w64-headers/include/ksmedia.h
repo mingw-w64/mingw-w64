@@ -2453,7 +2453,10 @@ typedef struct tag_KS_TRUECOLORINFO {
 #define KS__DIBSIZE(bi)		(KS_DIBWIDTHBYTES(bi) *(DWORD)(bi).biHeight)
 #define KS_DIBSIZE(bi)		((bi).biHeight < 0 ? (-1)*(KS__DIBSIZE(bi)) : KS__DIBSIZE(bi))
 
+#ifndef __REFERENCE_TIME_DEFINED
+#define __REFERENCE_TIME_DEFINED
 typedef LONGLONG REFERENCE_TIME;
+#endif /*__REFERENCE_TIME_DEFINED*/
 
 typedef struct tagKS_VIDEOINFOHEADER {
   RECT rcSource;

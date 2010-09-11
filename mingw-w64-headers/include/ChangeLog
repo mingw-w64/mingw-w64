@@ -1,3 +1,9 @@
+2010-09-11  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* ksmedia.h: Guard REFERENCE_TIME typedef.
+	* strmif: Likewise.
+	* dxva2api.h: Add guarded REFERENCE_TIME typedef.
+
 2010-09-10  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* mingw_inc: Rename to psdk_inc.
