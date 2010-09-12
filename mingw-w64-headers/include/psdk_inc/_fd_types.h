@@ -7,7 +7,7 @@
 #ifndef ___WSA_FD_TYPES_H
 #define ___WSA_FD_TYPES_H
 
-#include <mingw_inc/_socket_types.h>
+#include <psdk_inc/_socket_types.h>
 
 #ifndef FD_SETSIZE
 #define FD_SETSIZE	64
