@@ -983,7 +983,7 @@ getVTTypeName (uint32_t vt, uint32_t *dataSize)
   case 8: /* VT_BSTR */ name = "BSTR"; sz = 0xfffffffe; break;
   case 9: /* VT_DISPATCH */ name = "IDispatch *"; sz = 0xffffffff; break;
   case 10: /* VT_ERROR */ name = "SCODE"; sz = 4; break;
-  case 11: /* VT_BOOL */ name = "BOOL"; sz = 2; break;
+  case 11: /* VT_BOOL */ name = "WINBOOL"; sz = 2; break;
   case 12: /* VT_VARIANT */ name = "VARIANT"; sz = 0xffffffff; break;
   case 13: /* VT_UNKNOWN */ name = "IUnknown *"; sz = 0xffffffff; break;
   case 14: /* VT_DECIMAL */ name = "DECIMAL"; sz = 16; break;
@@ -1242,7 +1242,7 @@ printValue (FILE *fp, sTITyps *typs, uint32_t val)
 	case 10: /* VT_ERROR */
           fprintf (fp, "(SCODE) %d", u.i4); break;
 	case 11: /* VT_BOOL */
-          fprintf (fp, "(BOOL) %d", u.i2); break;
+          fprintf (fp, "(WINBOOL) %d", u.i2); break;
 	case 12: /* VT_VARIANT */
           fprintf (fp, "(VARIANT) 0x%x", u.ui4); break;
 	case 13: /* VT_UNKNOWN */
@@ -1267,7 +1267,7 @@ printValue (FILE *fp, sTITyps *typs, uint32_t val)
 #ifdef _WIN32
           fprintf (fp, "(ULONGLONG) 0x%I64xULL", u.ui8); break;
 #else
-          fprintf (fp, "(LONGLONG) 0x%llxULL", u.ui8); break;
+          fprintf (fp, "(ULONGLONG) 0x%llxULL", u.ui8); break;
 #endif
 	case 22: /* VT_INT */
           fprintf (fp, "(int) %d", u.i4); break;

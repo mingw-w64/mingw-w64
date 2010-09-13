@@ -537,6 +537,21 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
   char *guard = NULL;
   int befirst;
   befirst = 1;
+  if (!behdr)
+  {
+    fprintf (fp, "/* Typedef definitions of basic types.  */\n"
+      "typedef unsigned short USHORT;\n"
+      "typedef signed short SHORT;\n"
+      "typedef unsigned char UCHAR;\n"
+      "typedef signed char CHAR;\n"
+      "typedef unsigned int UINT;\n"
+      "typedef signed int INT;\n"
+      "typedef int WINBOOL;\n"
+      "typedef struct _tagVARIANT VARIANT;\n"
+      "typedef unsigned short *BSTR;\n"
+      "typedef int SCODE;\n"
+      "typedef struct _CY CY;\n");
+  }
   for (i=0;i<tl->nr_typinfos;i++)
     {
       if (tl->typb[i].kind != TKIND_INTERFACE)
@@ -564,6 +579,7 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
   befirst = 1;
   for (i=0;i<tl->nr_typinfos;i++)
     {
+      char *hn;
       if (tl->typb[i].kind != TKIND_RECORD)
 	continue;
       if (befirst)
@@ -575,7 +591,10 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
         guard = mk_guard (tl->typb[i].name, "_FORWARDER_DEFINED");
       if (guard && *guard != 0)
         fprintf (fp, "#ifndef %s\n#define %s\n", guard, guard);
-      fprintf (fp, "%s;\n", tl->typb[i].name);
+      if ((hn = strchr (tl->typb[i].name, ' ')) == NULL)
+        hn = tl->typb[i].name;
+      else hn++;
+      fprintf (fp, "typedef %s %s;\n", tl->typb[i].name, hn);
       if (guard)
         {
 	  if (*guard != 0)
@@ -589,6 +608,7 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
   befirst = 1;
   for (i=0;i<tl->nr_typinfos;i++)
     {
+      char *hn;
       if (tl->typb[i].kind != TKIND_UNION)
 	continue;
       if (befirst)
@@ -600,7 +620,10 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
         guard = mk_guard (tl->typb[i].name, "_FORWARDER_DEFINED");
       if (guard && *guard != 0)
         fprintf (fp, "#ifndef %s\n#define %s\n", guard, guard);
-      fprintf (fp, "%s;\n", tl->typb[i].name);
+      if ((hn = strchr (tl->typb[i].name, ' ')) == NULL)
+        hn = tl->typb[i].name;
+      else hn++;
+      fprintf (fp, "typedef %s %s;\n", tl->typb[i].name, hn);
       if (guard)
         {
 	  if (*guard != 0)
@@ -618,7 +641,7 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
 	continue;
       if (befirst)
 	{
-	  fprintf (fp, "/* Union record forward declarations.  */\n");
+	  fprintf (fp, "/* Dispatch record forward declarations.  */\n");
 	  befirst = 0;
 	}
       if (behdr)
@@ -643,7 +666,7 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
 	continue;
       if (befirst)
 	{
-	  fprintf (fp, "/* Union record forward declarations.  */\n");
+	  fprintf (fp, "/* Coclass record forward declarations.  */\n");
 	  befirst = 0;
 	}
       if (behdr)
