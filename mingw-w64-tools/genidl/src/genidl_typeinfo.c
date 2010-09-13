@@ -390,7 +390,10 @@ dumpMemInfo (FILE *fp, unsigned char *dta, uint32_t cVar, uint32_t cFunc, uint32
 	fprintf (fp, ", Offset:0x%x\n", d[max*2]);
 	rettyp = TI_getVTorDref (&ti2_typs, func->datatype, "", 0);
 	fctname = TI_get_typ_name (&ti2_typs, d[max], TITYP_NAME, "");
-	fprintf (fp, "\t[id(%d)", (int32_t)d[0]);
+	if (d[0] < 0x100)
+	  fprintf (fp, "\t[id(%u)", d[0]);
+	else
+	  fprintf (fp, "\t[id(0x%x)", d[0]);
 	printFuncFlags (fp, func->flags);
 	while ((char*) pData < (char *) params
 	       && (!pCustData || ((char*) pData < (char*) pCustData)))
@@ -458,7 +461,10 @@ dumpMemInfo (FILE *fp, unsigned char *dta, uint32_t cVar, uint32_t cFunc, uint32
 	varName = TI_get_typ_name (&ti2_typs, d[max], TITYP_NAME, "");
 	varType = TI_getVTorDref (&ti2_typs,var->datatype, varName, 0);
 	free (varName);
-	fprintf (fp, "\t[id(%d)", (int)d[0]);
+        if (d[0] < 0x100)
+          fprintf (fp, "\t[id(%u)", d[0]);
+        else
+          fprintf (fp, "\t[id(0x%x)", d[0]);
 	printVarflags (fp, var->flags);
 	fprintf (fp, "] %s", varType);
 	free (varType);

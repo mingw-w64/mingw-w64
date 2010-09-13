@@ -539,6 +539,7 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
   befirst = 1;
   if (!behdr)
   {
+    /*
     fprintf (fp, "/* Typedef definitions of basic types.  */\n"
       "typedef unsigned short USHORT;\n"
       "typedef signed short SHORT;\n"
@@ -551,6 +552,7 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
       "typedef unsigned short *BSTR;\n"
       "typedef int SCODE;\n"
       "typedef struct _CY CY;\n");
+    */
   }
   for (i=0;i<tl->nr_typinfos;i++)
     {
@@ -1156,7 +1158,10 @@ printVarOption (FILE *fp, uint32_t flags, uint32_t id, uint32_t defid,
   fprintf (fp, "%s[", prefix);
   if (id != defid)
   {
-    fprintf (fp, "id(%d)", (int) id);
+    if (id < 0x100)
+      fprintf (fp, "id(%u)", id);
+    else
+      fprintf (fp, "id(0x%x)", id);
     befirst=0;
   }
   while (flags != 0)
@@ -1209,7 +1214,10 @@ printFuncOption (FILE *fp, uint32_t flags, uint32_t id, uint32_t defid,
   fprintf (fp, "%s[", prefix);
   if (id != defid)
   {
-    fprintf (fp,"id(%d)", (int) id);
+    if (id < 0x100)
+      fprintf (fp, "id(%u)", id);
+    else
+      fprintf (fp, "id(0x%x)", id);
     befirst = 0;
   }
   if (invoke[0]!=0)
