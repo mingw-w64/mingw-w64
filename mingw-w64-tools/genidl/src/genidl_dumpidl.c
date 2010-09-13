@@ -540,7 +540,7 @@ TI2_typlib_forward_declare (FILE *fp, sTI2TypLib *tl, int behdr)
   if (!behdr)
   {
     /*
-    fprintf (fp, "/* Typedef definitions of basic types.  */\n"
+    fprintf (fp, "/ * Typedef definitions of basic types.  * /\n"
       "typedef unsigned short USHORT;\n"
       "typedef signed short SHORT;\n"
       "typedef unsigned char UCHAR;\n"
