@@ -3281,11 +3281,11 @@ src_libmingwex32 = \
 @LIB32_TRUE@  lib32/librpcrt4.a    lib32/librtm.a       lib32/librtutils.a   lib32/libscsiport.a  lib32/libsecur32.a  \
 @LIB32_TRUE@  lib32/libsetupapi.a                       lib32/libshfolder.a  lib32/libshlwapi.a   lib32/libsnmpapi.a  \
 @LIB32_TRUE@  lib32/libsvrapi.a    lib32/libtapi32.a    lib32/libtdi.a       lib32/libth32.a      lib32/libthunk32.a  \
-@LIB32_TRUE@  lib32/liburl.a       lib32/libusbcamd2.a  lib32/libusbcamd.a   lib32/libuser32.a    lib32/libuserenv.a  \
-@LIB32_TRUE@  lib32/libusp10.a     lib32/libuxtheme.a   lib32/libvdmdbg.a    lib32/libversion.a   lib32/libvideoprt.a \
-@LIB32_TRUE@  lib32/libwin32k.a    lib32/libwin32spl.a  lib32/libwininet.a   lib32/libwinmm.a     lib32/libwinspool.a \
-@LIB32_TRUE@  lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a     lib32/libwsnmp32.a   \
-@LIB32_TRUE@  lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a  \
+@LIB32_TRUE@  lib32/liburl.a       lib32/libusbcamd2.a  lib32/libusbcamd.a   lib32/libusbd.a      lib32/libusbport.a  \
+@LIB32_TRUE@  lib32/libuser32.a    lib32/libuserenv.a   lib32/libusp10.a     lib32/libuxtheme.a   lib32/libvdmdbg.a   \
+@LIB32_TRUE@  lib32/libversion.a   lib32/libvideoprt.a  lib32/libwin32k.a    lib32/libwin32spl.a  lib32/libwininet.a  \
+@LIB32_TRUE@  lib32/libwinmm.a     lib32/libwinspool.a  lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a    \
+@LIB32_TRUE@  lib32/libwsnmp32.a   lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a \
 @LIB32_TRUE@  \
 @LIB32_TRUE@  lib32/libgpapi.a     lib32/libgpedit.a   lib32/libgpprefcl.a   lib32/libgpscript.a \
 @LIB32_TRUE@  lib32/libgptext.a    lib32/libmshtml.a   lib32/libmshtmled.a  \
@@ -3626,27 +3626,27 @@ src_libmingwex32 = \
 @LIB64_TRUE@  lib64/libumandlg.a    lib64/libumdmxfrm.a   lib64/libumpnpmgr.a     lib64/libUNIDRV.a     lib64/libUNIDRVUI.a      \
 @LIB64_TRUE@  lib64/libuniime.a     lib64/libunimdmat.a   lib64/libuniplat.a      lib64/libuntfs.a      lib64/libupnp.a          \
 @LIB64_TRUE@  lib64/libupnphost.a   lib64/libupnpui.a     lib64/libureg.a         lib64/liburlauth.a    lib64/liburl.a           \
-@LIB64_TRUE@  lib64/liburlmon.a     lib64/libusbmon.a     lib64/libuser32.a       lib64/libuserenv.a    lib64/libusp10.a         \
-@LIB64_TRUE@  lib64/libutildll.a    lib64/libuxtheme.a    lib64/libvbscript.a     lib64/libvdsbas.a     lib64/libvdsdyndr.a      \
-@LIB64_TRUE@  lib64/libvds_ps.a     lib64/libvdsutil.a    lib64/libvdswmi.a       lib64/libverifier.a   lib64/libversion.a       \
-@LIB64_TRUE@  lib64/libvgx.a        lib64/libviewprov.a   lib64/libvmx_mode.a     lib64/libvssapi.a     lib64/libvss_ps.a        \
-@LIB64_TRUE@  lib64/libvsswmi.a     lib64/libw32time.a    lib64/libw32topl.a      lib64/libw3cache.a    lib64/libw3comlog.a      \
-@LIB64_TRUE@  lib64/libw3core.a     lib64/libw3ctrlps.a   lib64/libw3ctrs.a       lib64/libw3dt.a       lib64/libw3ext.a         \
-@LIB64_TRUE@  lib64/libw3isapi.a    lib64/libw3ssl.a      lib64/libw3tp.a         lib64/libwab32.a      lib64/libwabimp.a        \
-@LIB64_TRUE@  lib64/libwamreg.a     lib64/libwamregps.a   lib64/libwbemcore.a     lib64/libwbemupgd.a   lib64/libwdigest.a       \
-@LIB64_TRUE@  lib64/libwdmaud.a     lib64/libwebcheck.a   lib64/libwebclnt.a      lib64/libwebhits.a    lib64/libwiadss.a        \
-@LIB64_TRUE@  lib64/libwiarpc.a     lib64/libwiaservc.a   lib64/libwiashext.a     lib64/libwin32spl.a   lib64/libwinfax.a        \
-@LIB64_TRUE@  lib64/libwininet.a    lib64/libwinipsec.a   lib64/libwinmm.a        lib64/libwinrnr.a     lib64/libwinscard.a      \
-@LIB64_TRUE@  lib64/libwinspool.a   lib64/libwinsrv.a     lib64/libwinsta.a       lib64/libwintrust.a   lib64/libwkssvc.a        \
-@LIB64_TRUE@  lib64/libwldap32.a    lib64/libwlnotify.a   lib64/libwlstore.a      lib64/libwmi2xml.a    lib64/libwmiaprpl.a      \
-@LIB64_TRUE@  lib64/libwmi.a        lib64/libwmiprop.a    lib64/libwmisvc.a       lib64/libwow64cpu.a   lib64/libwow64.a         \
-@LIB64_TRUE@  lib64/libwow64mib.a   lib64/libwow64win.a   lib64/libwpd_ci.a       lib64/libws2help.a    lib64/libwscsvc.a        \
-@LIB64_TRUE@  lib64/libwshatm.a     lib64/libwshbth.a     lib64/libwshcon.a       lib64/libwsock32.a    lib64/libzoneoc.a        \
-@LIB64_TRUE@  lib64/libnormaliz.a   \
+@LIB64_TRUE@  lib64/liburlmon.a     lib64/libusbmon.a     lib64/libusbcamd2.a     lib64/libusbd.a       lib64/libusbport.a       \
+@LIB64_TRUE@  lib64/libuser32.a     lib64/libuserenv.a    lib64/libusp10.a        lib64/libutildll.a    lib64/libuxtheme.a       \
+@LIB64_TRUE@  lib64/libvbscript.a   lib64/libvdsbas.a     lib64/libvdsdyndr.a     lib64/libvds_ps.a     lib64/libvdsutil.a       \
+@LIB64_TRUE@  lib64/libvdswmi.a     lib64/libverifier.a   lib64/libversion.a      lib64/libvgx.a        lib64/libviewprov.a      \
+@LIB64_TRUE@  lib64/libvmx_mode.a   lib64/libvssapi.a     lib64/libvss_ps.a       lib64/libvsswmi.a     lib64/libw32time.a       \
+@LIB64_TRUE@  lib64/libw32topl.a    lib64/libw3cache.a    lib64/libw3comlog.a     lib64/libw3core.a     lib64/libw3ctrlps.a      \
+@LIB64_TRUE@  lib64/libw3ctrs.a     lib64/libw3dt.a       lib64/libw3ext.a        lib64/libw3isapi.a    lib64/libw3ssl.a         \
+@LIB64_TRUE@  lib64/libw3tp.a       lib64/libwab32.a      lib64/libwabimp.a       lib64/libwamreg.a     lib64/libwamregps.a      \
+@LIB64_TRUE@  lib64/libwbemcore.a   lib64/libwbemupgd.a   lib64/libwdigest.a      lib64/libwdmaud.a     lib64/libwebcheck.a      \
+@LIB64_TRUE@  lib64/libwebclnt.a    lib64/libwebhits.a    lib64/libwiadss.a       lib64/libwiarpc.a     lib64/libwiaservc.a      \
+@LIB64_TRUE@  lib64/libwiashext.a   lib64/libwin32spl.a   lib64/libwinfax.a       lib64/libwininet.a    lib64/libwinipsec.a      \
+@LIB64_TRUE@  lib64/libwinmm.a      lib64/libwinrnr.a     lib64/libwinscard.a     lib64/libwinspool.a   lib64/libwinsrv.a        \
+@LIB64_TRUE@  lib64/libwinsta.a     lib64/libwintrust.a   lib64/libwkssvc.a       lib64/libwldap32.a    lib64/libwlnotify.a      \
+@LIB64_TRUE@  lib64/libwlstore.a    lib64/libwmi2xml.a    lib64/libwmiaprpl.a     lib64/libwmi.a        lib64/libwmiprop.a       \
+@LIB64_TRUE@  lib64/libwmisvc.a     lib64/libwow64cpu.a   lib64/libwow64.a        lib64/libwow64mib.a   lib64/libwow64win.a      \
+@LIB64_TRUE@  lib64/libwpd_ci.a     lib64/libws2help.a    lib64/libwscsvc.a       lib64/libwshatm.a     lib64/libwshbth.a        \
+@LIB64_TRUE@  lib64/libwshcon.a     lib64/libwsock32.a    lib64/libzoneoc.a       lib64/libnormaliz.a   \
 @LIB64_TRUE@  \
-@LIB64_TRUE@  lib64/libclfsw32.a   \
-@LIB64_TRUE@  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a      \
-@LIB64_TRUE@  lib64/libwtsapi32.a  \
+@LIB64_TRUE@  lib64/libclfsw32.a    \
+@LIB64_TRUE@  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a    \
+@LIB64_TRUE@  lib64/libwtsapi32.a   \
 @LIB64_TRUE@  \
 @LIB64_TRUE@  lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a     \
 @LIB64_TRUE@  \

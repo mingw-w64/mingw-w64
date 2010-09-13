@@ -1,3 +1,16 @@
+2010-09-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/usbcamd.def: Updated using gendef.
+	* lib32/usbcamd2.def: Updated using gendef.
+	* lib32/usbd.def: New.
+	* lib32/usbport.def: New.
+	* lib64/usbcamd2.def: New.
+	* lib64/usbd.def: New.
+	* lib64/usbport.def: New.
+	* Makefile.am (lib32_DATA): Add usbd and usbport to build.
+	(lib64_DATA): Add usbcamd2, usbd and usbport to build.
+	* Makefile.in: Regenerate.
+
 2010-09-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/msvcrt.def (strnlen): Mark as DATA.
