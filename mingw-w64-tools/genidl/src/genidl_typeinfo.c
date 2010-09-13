@@ -1224,9 +1224,22 @@ printValue (FILE *fp, sTITyps *typs, uint32_t val)
         case 0: case 1:
           break;
         case 2: /* VT_I2 */
-          fprintf (fp, "(short) %d", u.i2); break;
+	  if (abs ((int) u.i2) < 0x100)
+            fprintf (fp, "(short) %d", u.i2);
+	  else if (u.i2 < 0)
+	    fprintf (fp, "(short) -0x%x", -u.i2);
+	  else
+	    fprintf (fp, "(short) 0x%x", u.i2);
+          break;
+	case 22: /* VT_INT */
         case 3: /* VT_I4 */
-          fprintf (fp, "(int) %d", u.i4); break;
+	  if (abs (u.i4) < 0x100)
+            fprintf (fp, "(int) %d", u.i4);
+	  else if (u.i4 < 0)
+	    fprintf (fp, "(int) -0x%x", -u.i4);
+          else
+	    fprintf (fp, "(int) 0x%x", u.i4);
+          break;
         case 4: /* VT_R4 */
           fprintf (fp, "(float) %g", u.f4); break;
         case 5: /* VT_R8 */
@@ -1252,11 +1265,11 @@ printValue (FILE *fp, sTITyps *typs, uint32_t val)
 	case 16: /* VT_I1 */
           fprintf (fp, "(CHAR) %d", u.i1); break;
 	case 17: /* VT_UI1 */
-          fprintf (fp, "(UCHAR) %u", u.ui1); break;
+          fprintf (fp, "(UCHAR) 0x%x", u.ui1); break;
 	case 18: /* VT_UI2 */
-          fprintf (fp, "(USHORT) %u", u.ui2); break;
+          fprintf (fp, "(USHORT) 0x%x", u.ui2); break;
 	case 19: /* VT_UI4 */
-          fprintf (fp, "(UINT) %u", u.ui4); break;
+          fprintf (fp, "(UINT) 0x%xU", u.ui4); break;
 	case 20: /* VT_I8 */
 #ifdef _WIN32
           fprintf (fp, "(LONGLONG) %I64dLL", u.i8); break;
@@ -1269,10 +1282,8 @@ printValue (FILE *fp, sTITyps *typs, uint32_t val)
 #else
           fprintf (fp, "(ULONGLONG) 0x%llxULL", u.ui8); break;
 #endif
-	case 22: /* VT_INT */
-          fprintf (fp, "(int) %d", u.i4); break;
 	case 23: /* VT_UINT */
-          fprintf (fp, "(unsigned int) %u", u.ui4); break;
+          fprintf (fp, "(unsigned int) 0x%xU", u.ui4); break;
 	case 24: /* VT_VOID */
 	  break;
 	case 25: /* VT_HRESULT */
