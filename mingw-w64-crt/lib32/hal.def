@@ -8,23 +8,23 @@ EXPORTS
 @ExAcquireFastMutex@4
 @ExReleaseFastMutex@4
 @ExTryToAcquireFastMutex@4
-HalClearSoftwareInterrupt@0
-HalRequestClockInterrupt@0
-HalRequestSoftwareInterrupt@0
-HalSystemVectorDispatchEntry@4
+@HalClearSoftwareInterrupt@4
+; HalRequestClockInterrupt	; FIXME: must be a @fastcall with @4
+@HalRequestSoftwareInterrupt@4
+@HalSystemVectorDispatchEntry@12
 @KeAcquireInStackQueuedSpinLock@8
-KeAcquireInStackQueuedSpinLockRaiseToSynch@0
-KeAcquireQueuedSpinLock@0
-KeAcquireQueuedSpinLockRaiseToSynch@0
-KeAcquireSpinLockRaiseToSynch@0
+@KeAcquireInStackQueuedSpinLockRaiseToSynch@8
+@KeAcquireQueuedSpinLock@4
+@KeAcquireQueuedSpinLockRaiseToSynch@4
+@KeAcquireSpinLockRaiseToSynch@4
 @KeReleaseInStackQueuedSpinLock@4
-KeReleaseQueuedSpinLock@0
-KeTryToAcquireQueuedSpinLock@0
-KeTryToAcquireQueuedSpinLockRaiseToSynch@0
-KfAcquireSpinLock@0
-KfLowerIrql@0
-KfRaiseIrql@0
-KfReleaseSpinLock@0
+@KeReleaseQueuedSpinLock@8
+@KeTryToAcquireQueuedSpinLock@8
+@KeTryToAcquireQueuedSpinLockRaiseToSynch@8
+@KfAcquireSpinLock@4
+@KfLowerIrql@4
+@KfRaiseIrql@4
+@KfReleaseSpinLock@8
 HalAcquireDisplayOwnership@4
 HalAdjustResourceList@4
 HalAllProcessorsStarted@0
@@ -34,14 +34,14 @@ HalAllocateCrashDumpRegisters@8
 HalAllocateHardwareCounters@16
 HalAssignSlotResources@32
 HalBeginSystemInterrupt@12
-;HalBugCheckSystem ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+; HalBugCheckSystem	; FIXME: >= Win7: @8, < Win7: @4
 HalCalibratePerformanceCounter@12
-HalConvertDeviceIdtToIrql@4
-HalDisableInterrupt@4
+HalConvertDeviceIdtToIrql@4		; FIXME: Verify!
+HalDisableInterrupt@4			; FIXME: Verify!
 HalDisplayString@4
-HalEnableInterrupt@4
+HalEnableInterrupt@4			; FIXME: Verify!
 HalEndSystemInterrupt@8
-HalEnumerateEnvironmentVariablesEx@12
+HalEnumerateEnvironmentVariablesEx@12	; FIXME: Verify!
 HalFlushCommonBuffer@20
 HalFreeCommonBuffer@24
 HalFreeHardwareCounters@4
@@ -49,44 +49,45 @@ HalGetAdapter@8
 HalGetBusData@20
 HalGetBusDataByOffset@24
 HalGetEnvironmentVariable@12
-HalGetEnvironmentVariableEx@20
-HalGetInterruptTargetInformation@12
+HalGetEnvironmentVariableEx@20		; FIXME: Verify!
+HalGetInterruptTargetInformation@12	; FIXME: Verify!
 HalGetInterruptVector@24
-HalGetMemoryCachingRequirements@20
-HalGetMessageRoutingInfo@8
-HalGetProcessorIdByNtNumber@8
+HalGetMemoryCachingRequirements@20	; FIXME: Verify!
+HalGetMessageRoutingInfo@8		; FIXME: Verify!
+HalGetProcessorIdByNtNumber@8		; FIXME: Verify!
 ;HalGetVectorInput ; Check!!! Couldn't determine function argument count. Function doesn't return. 
 HalHandleNMI@4
 HalInitSystem@8
 HalInitializeBios@8
-HalInitializeOnResume@4
+HalInitializeOnResume@4			; FIXME: Verify!
 HalInitializeProcessor@8
 HalMakeBeep@4
-HalMcUpdateReadPCIConfig@20
+HalMcUpdateReadPCIConfig@20		; FIXME: Verify!
 HalProcessorIdle@0
 HalQueryDisplayParameters@16
-HalQueryEnvironmentVariableInfoEx@16
-HalQueryMaximumProcessorCount@0
+HalQueryEnvironmentVariableInfoEx@16	; FIXME: Verify!
+HalQueryMaximumProcessorCount@0		; FIXME: Verify!
 HalQueryRealTimeClock@4
 HalReadDmaCounter@4
-HalRegisterDynamicProcessor@8
-HalRegisterErrataCallbacks@0
+HalRegisterDynamicProcessor@8		; FIXME: Verify!
+HalRegisterErrataCallbacks@0		; FIXME: Verify!
 HalReportResourceUsage@0
-HalRequestIpi@8
+HalRequestIpi@8				; FIXME: must be @4 : func(KAFFINITY == ULONG_PTR), dll from XP dumps as @4
 HalReturnToFirmware@4
 HalSetBusData@20
 HalSetBusDataByOffset@24
 HalSetDisplayParameters@8
 HalSetEnvironmentVariable@8
-HalSetEnvironmentVariableEx@20
+HalSetEnvironmentVariableEx@20		; FIXME: Verify!
 HalSetProfileInterval@4
 HalSetRealTimeClock@4
 HalSetTimeIncrement@4
-HalStartDynamicProcessor@16
-HalStartNextProcessor@12
+HalStartDynamicProcessor@16		; FIXME: Verify!
+HalStartNextProcessor@12		; FIXME: must be @8 : func(PLOADER_PARAMETER_BLOCK,PKPROCESSOR_STATE), dll from xp dumps as @8
 HalStartProfileInterrupt@4
 HalStopProfileInterrupt@4
 HalTranslateBusAddress@24
+IoAssignDriveLetters@16
 IoFlushAdapterBuffers@24
 IoFreeAdapterChannel@4
 IoFreeMapRegisters@12

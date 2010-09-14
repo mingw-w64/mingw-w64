@@ -1,3 +1,31 @@
+2010-09-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/hal.def: Add fixme notes to several exports for verification
+	in future.
+	(HalClearSoftwareInterrupt): Changed to @fastcall @4.
+	(HalRequestClockInterrupt): Commented out (must be @fastcall @4.)
+	(HalRequestSoftwareInterrupt): Changed to @fastcall @4.
+	(HalSystemVectorDispatchEntry): Changed to @fastcall @12.
+	(KeAcquireInStackQueuedSpinLockRaiseToSynch): Changed to @fastcall @8.
+	(KeAcquireQueuedSpinLock): Changed to @fastcall @4.
+	(KeAcquireQueuedSpinLockRaiseToSynch): Changed to @fastcall @4.
+	(KeAcquireSpinLockRaiseToSynch): Changed to @fastcall @4.
+	(KeReleaseQueuedSpinLock): Changed to @fastcall @8.
+	(KeTryToAcquireQueuedSpinLock): Changed to @fastcall @8.
+	(KeTryToAcquireQueuedSpinLockRaiseToSynch): Changed to @fastcall @8.
+	(KfAcquireSpinLock): Changed to @fastcall @4.
+	(KfLowerIrql): Changed to @fastcall @4.
+	(KfRaiseIrql): Changed to @fastcall @4.
+	(KfReleaseSpinLock): Changed to @fastcall @8.
+	(HalBugCheckSystem): Leave commented out, add note that for >= Win7
+	it is a @8 but for < Win7 it is an @4.
+	(HalRequestIpi): Leave as @8, but add a fixme note that dll from WinXP
+	dumps as @4, prototype from r/os is like func(KAFFINITY).
+	(HalStartNextProcessor): Leave as @12, but add a fixme note that dll
+	from xp dumps as @8, prototype from r/os is like
+	func(PLOADER_PARAMETER_BLOCK,PKPROCESSOR_STATE)
+	(IoAssignDriveLetters): New export (@16.)
+
 2010-09-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/usbcamd.def: Updated using gendef.
