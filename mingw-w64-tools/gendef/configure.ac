@@ -33,7 +33,7 @@ AS_VAR_IF([with_mangle_result],[yes],[
     extra_ldflags="-L$with_mangle_path/lib"])
     temp_cppflags="$CPPFLAGS"
     temp_ldflags="$LDFLAGS"
-    CPPFLAGS="$CPPFLAGS -L$with_mangle_path/include"
+    CPPFLAGS="$CPPFLAGS -I$with_mangle_path/include"
     LDFLAGS="$LDFLAGS -L$with_mangle_path/lib"
   AC_CHECK_HEADER([libmangle.h],[],[AC_MSG_ERROR([libmangle enabled, but the header is not usable.])])
   AC_CHECK_LIB([mangle],[libmangle_print_decl],[],[AC_MSG_ERROR([libmangle enabled, but the library is not usable.])])])
