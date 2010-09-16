@@ -95,6 +95,12 @@ extern "C" {
 
 #endif
 
+/* Users should really use MS provided versions */
+void * __mingw_aligned_malloc (size_t _Size, size_t _Alignment);
+void __mingw_aligned_free (void *_Memory);
+void * __mingw_aligned_offset_realloc (void *_Memory, size_t _Size, size_t _Alignment, size_t _Offset);
+void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
+
 #define _MAX_WAIT_MALLOC_CRT 60000
 
   _CRTIMP int __cdecl _resetstkoflw (void);
