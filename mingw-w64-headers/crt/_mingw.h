@@ -122,19 +122,6 @@ limitations in handling dllimport attribute.  */
 # endif
 #endif
 
-#if defined __GNUG__
-/* This is a fix for gcc < 4.6 wrong use of restrict in cstdio/cstdlib.
- * See http://gcc.gnu.org/bugzilla/show_bug.cgi?id=45300, fixed in 4.6
- * as of svn rev. 163283  */
-#if !__MINGW_GNUC_PREREQ (4,6)
-# ifndef restrict
-#  if !defined __STDC_VERSION__ || __STDC_VERSION__ < 199901L
-#   define restrict __restrict
-#  endif
-# endif
-#endif /* !__MINGW_GNUC_PREREQ (4,6) */
-#endif /* __GNUG__ */
-
 #ifdef __GNUC__
 #define __MINGW_ATTRIB_NORETURN __attribute__ ((__noreturn__))
 #define __MINGW_ATTRIB_CONST __attribute__ ((__const__))
