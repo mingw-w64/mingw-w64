@@ -15,13 +15,11 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <stddef.h>		/* ptrdiff_t */
+#include <stdint.h>		/* uintptr_t */
 #include <string.h>		/* memmove */
 
-#ifdef HAVE_STDINT_H
-#  include <stdint.h>		/* uintptr_t */
-#else
-#  define uintptr_t size_t
-#endif
+/* Forward declarations:  */
+void *__mingw_aligned_offset_malloc (size_t, size_t, size_t);
 
 #define NOT_POWER_OF_TWO(n) (((n) & ((n) - 1)))
 #define UI(p) ((uintptr_t) (p))
@@ -34,8 +32,6 @@
 
 /* Pointer must sometimes be aligned; assume sizeof(void*) is a power of two. */
 #define ORIG_PTR(p) (*(((void **) (UI(p) & (~UI(sizeof(void*) - 1)))) - 1))
-
-void *__mingw_aligned_offset_malloc (size_t, size_t, size_t);
 
 void *
 __mingw_aligned_offset_malloc (size_t size, size_t alignment, size_t offset)
@@ -63,11 +59,6 @@ __mingw_aligned_offset_malloc (size_t size, size_t alignment, size_t offset)
   ORIG_PTR (p) = p0;
   return p;
 }
-
-void * __mingw_aligned_malloc (size_t, size_t);
-void __mingw_aligned_free (void *);
-void * __mingw_aligned_offset_realloc (void *, size_t, size_t, size_t);
-void * __mingw_aligned_realloc (void *, size_t, size_t);
 
 void *
 __mingw_aligned_malloc (size_t size, size_t alignment)

@@ -1,3 +1,10 @@
+2010-09-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/strnlen.c: Cast pointer difference to size_t to avoid the
+	compiler warning.
+	* misc/mingw-aligned-malloc.c: Remove prototypes of __mingw_aligned_*
+	now that they are in malloc.h and stdlib.h already includes malloc.h.
+
 2010-09-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/hal.def: Add fixme notes to several exports for verification
