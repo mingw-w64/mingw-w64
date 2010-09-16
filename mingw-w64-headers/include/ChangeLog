@@ -1,3 +1,10 @@
+2010-09-16  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+        * malloc.h (__mingw_aligned_malloc): Declare prototype.
+        (__mingw_aligned_free): Likewise.
+        (__mingw_aligned_offset_realloc): Likewise.
+        (__mingw_aligned_realloc): Likewise.
+
 2010-09-10  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* mingw_inc: Rename to psdk_inc.
