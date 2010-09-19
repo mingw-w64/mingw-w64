@@ -14,7 +14,8 @@
 extern "C" {
 #endif
 
-#define DefineHandleTable(w) ((w),TRUE)
+/* #define DefineHandleTable(w) ((w),TRUE) */
+#define DefineHandleTable(w) ( { (VOID)(w); TRUE; } )
 #define LimitEmsPages(dw)
 #define SetSwapAreaSize(w) (w)
 #define LockSegment(w) GlobalFix((HANDLE)(w))
