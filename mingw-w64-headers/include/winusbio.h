@@ -47,11 +47,7 @@
 
 
 #include <windows.h>
-
-#if defined (MINGW_HAS_DDK_H) && MINGW_HAS_DDK_H == 1
-/* defines USBD_PIPE_TYPE.  */
-#include <usb.h>
-#endif
+#include <usb.h>	/* for USBD_PIPE_TYPE */
 
 
 #ifdef __cplusplus
@@ -59,11 +55,7 @@ extern "C" {
 #endif
 
 typedef struct _WINUSB_PIPE_INFORMATION {
-#if defined (MINGW_HAS_DDK_H) && MINGW_HAS_DDK_H == 1
   USBD_PIPE_TYPE PipeType;
-#else
-  int PipeType;
-#endif
   UCHAR PipeId;
   USHORT MaximumPacketSize;
   UCHAR Interval;

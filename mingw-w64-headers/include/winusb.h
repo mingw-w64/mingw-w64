@@ -47,28 +47,11 @@
 
 
 #include <windows.h>
-
-/* defines PWINUSB_PIPE_INFORMATION.  */
-#include <winusbio.h>
-
-#if defined (MINGW_HAS_DDK_H) && MINGW_HAS_DDK_H == 1
-
-/* defines PUSB_INTERFACE_DESCRIPTOR.  */
-#include <usb100.h>
-
-#else
-
-#warning For full support of this API the ddk SDK has to be installed.
-
-#endif
+#include <winusbio.h>	/* for PWINUSB_PIPE_INFORMATION  */
+#include <usb100.h>	/* for PUSB_INTERFACE_DESCRIPTOR */
 
 #ifdef __cplusplus
 extern "C" {
-#endif
-
-#if !defined (MINGW_HAS_DDK_H) || MINGW_HAS_DDK_H != 1
-struct _USB_INTERFACE_DESCRIPTOR;
-typedef struct _USB_INTERFACE_DESCRIPTOR *PUSB_INTERFACE_DESCRIPTOR;
 #endif
 
 typedef HANDLE WINUSB_INTERFACE_HANDLE, *PWINUSB_INTERFACE_HANDLE;

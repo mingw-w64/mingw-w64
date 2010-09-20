@@ -1,5 +1,10 @@
 2010-09-20  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* winusb.h: Remove MINGW_HAS_DDK_H dependency.
+	* winusbio.h: Likewise.
+
+2010-09-20  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* winusb.h: Fix usb100.h include.
 	* winusbio.h: Fix usb.h include.
 
