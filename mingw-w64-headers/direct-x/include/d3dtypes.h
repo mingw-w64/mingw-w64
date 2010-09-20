@@ -619,15 +619,9 @@ typedef struct _D3DLIGHTDATA {
 typedef DWORD D3DCOLORMODEL;
 
 
-#ifndef D3DCLEAR_TARGET
 #define D3DCLEAR_TARGET   0x00000001
-#endif
-#ifndef D3DCLEAR_ZBUFFER
 #define D3DCLEAR_ZBUFFER  0x00000002
-#endif
-#ifndef D3DCLEAR_STENCIL
 #define D3DCLEAR_STENCIL  0x00000004
-#endif
 
 typedef enum _D3DOPCODE {
   D3DOP_POINT           = 1,

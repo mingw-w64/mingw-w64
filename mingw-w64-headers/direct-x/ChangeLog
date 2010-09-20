@@ -1,3 +1,9 @@
+2010-09-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* d3dtypes.h, d3d8types.h, d3d9types.h (D3DCLEAR_TARGET): Remove
+	the guard.
+	(D3DCLEAR_ZBUFFER, D3DCLEAR_STENCIL): Likewise.
+
 2010-08-07  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Sync with Wine release 1.2.0.
