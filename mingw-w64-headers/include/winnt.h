@@ -14,6 +14,7 @@ extern "C" {
 
 #include <_mingw.h>
 #include <ctype.h>
+#include <excpt.h>
 #define ANYSIZE_ARRAY 1
 
 #include <specstrings.h>
