@@ -54,7 +54,7 @@
 #if defined (MINGW_HAS_DDK_H) && MINGW_HAS_DDK_H == 1
 
 /* defines PUSB_INTERFACE_DESCRIPTOR.  */
-#include <ddk/usb100.h>
+#include <usb100.h>
 
 #else
 

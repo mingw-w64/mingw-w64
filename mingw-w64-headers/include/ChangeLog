@@ -1,3 +1,8 @@
+2010-09-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winusb.h: Fix usb100.h include.
+	* winusbio.h: Fix usb.h include.
+
 2010-09-19  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* winbase.h (DefineHandleTable): Make the no-op macro more gcc-friendly

@@ -50,7 +50,7 @@
 
 #if defined (MINGW_HAS_DDK_H) && MINGW_HAS_DDK_H == 1
 /* defines USBD_PIPE_TYPE.  */
-#include <ddk/usb.h>
+#include <usb.h>
 #endif
 
 
