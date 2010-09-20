@@ -7,6 +7,7 @@
 #define _INC_BLUETOOTHAPIS
 
 #include <_mingw.h>
+#include <bthdef.h>
 #include <bthsdpdef.h>
 
 #define BLUETOOTH_MAX_NAME_SIZE 248
@@ -71,12 +72,6 @@ typedef struct _BTH_DEVICE_INFO {
   BTH_COD  classOfDevice;
   CHAR     name[BTH_MAX_NAME_SIZE];
 } BTH_DEVICE_INFO, *PBTH_DEVICE_INFO;
-
-typedef struct _BTH_HCI_EVENT_INFO {
-  BTH_ADDR bthAddress;
-  UCHAR    connectionType;
-  UCHAR    connected;
-} BTH_HCI_EVENT_INFO, *PBTH_HCI_EVENT_INFO;
 
 typedef enum _BLUETOOTH_AUTHENTICATION_METHOD {
   BLUETOOTH_AUTHENTICATION_METHOD_LEGACY                 = 0x1,

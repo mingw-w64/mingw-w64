@@ -5,6 +5,7 @@
  */
 #ifndef _INC_WS2BTH
 #define _INC_WS2BTH
+#include <bthdef.h>
 #include <bthsdpdef.h>
 
 #ifdef __cplusplus
