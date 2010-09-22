@@ -148,8 +148,11 @@ ShouldBlockRevert@8
 ?Unsubscribe@CVssWriter@@QAGJXZ ; has WINAPI (@4)
 CreateVssBackupComponentsInternal@4
 CreateVssExamineWriterMetadataInternal@8
+CreateVssExpressWriterInternal@4
 CreateWriter@8
 CreateWriterEx@8
+;DllCanUnloadNow@0
+;DllGetClassObject@12
 GetProviderMgmtInterface@36
 GetProviderMgmtInterfaceInternal@36
 IsVolumeSnapshottedInternal@12

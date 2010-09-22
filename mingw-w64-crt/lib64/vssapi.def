@@ -148,8 +148,11 @@ ShouldBlockRevert
 ?Unsubscribe@CVssWriter@@QEAAJXZ
 CreateVssBackupComponentsInternal
 CreateVssExamineWriterMetadataInternal
+CreateVssExpressWriterInternal
 CreateWriter
 CreateWriterEx
+;DllCanUnloadNow
+;DllGetClassObject
 GetProviderMgmtInterface
 GetProviderMgmtInterfaceInternal
 IsVolumeSnapshottedInternal
