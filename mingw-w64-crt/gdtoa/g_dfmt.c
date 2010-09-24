@@ -83,6 +83,8 @@ char *__g_dfmt (char *buf, double *d, int ndig, size_t bufsize)
 	if (ndig <= 0)
 		mode = 0;
 	i = STRTOG_Normal;
+	if (sign)
+		i = STRTOG_Normal | STRTOG_Neg;
 	s = __gdtoa(fpi, ex, bits, &i, mode, ndig, &decpt, &se);
 	return __g__fmt(buf, s, se, decpt, sign, bufsize);
 }

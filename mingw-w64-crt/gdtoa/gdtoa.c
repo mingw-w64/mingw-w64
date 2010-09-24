@@ -437,7 +437,12 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 					goto ret1;
 				}
 				dval(&d) += dval(&d);
-				if (dval(&d) > ds || (dval(&d) == ds && L & 1)) {
+#ifdef ROUND_BIASED
+				if (dval(&d) >= ds)
+#else
+				if (dval(&d) > ds || (dval(&d) == ds && L & 1))
+#endif
+				{
  bump_up:
 					inex = STRTOG_Inexhi;
 					while(*--s == '9')
@@ -627,7 +632,11 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 				if (j2 > 0) {
 					b = lshift(b, 1);
 					j2 = cmp(b, S);
+#ifdef ROUND_BIASED
+					if (j2 >= 0 /*)*/
+#else
 					if ((j2 > 0 || (j2 == 0 && dig & 1))
+#endif
 					&& dig++ == '9')
 						goto round_9_up;
 					inex = STRTOG_Inexhi;
@@ -678,7 +687,12 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 	}
 	b = lshift(b, 1);
 	j = cmp(b, S);
-	if (j > 0 || (j == 0 && dig & 1)) {
+#ifdef ROUND_BIASED
+	if (j >= 0)
+#else
+	if (j > 0 || (j == 0 && dig & 1))
+#endif
+	{
  roundoff:
 		inex = STRTOG_Inexhi;
 		while(*--s == '9')
