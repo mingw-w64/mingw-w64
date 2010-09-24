@@ -1,6 +1,6 @@
 2010-09-23  Ozkan Sezer  <sezeroz@gmail.com>
 
-	Update gdtoa from netlib.org based on cahnges from Sep. 15, 2010:
+	Update gdtoa from netlib.org based on changes from Sep. 15, 2010:
 	* gdtoa/g_dfmt.c (__g_dfmt): Set the STRTOG_Neg flag for __gdtoa()
 	call if sign is found.
 	* gdtoa/dtoa.c (__dtoa): Fix bugs with -DROUND_BIASED.
