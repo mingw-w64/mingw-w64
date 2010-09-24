@@ -144,9 +144,9 @@ DECLARE_INTERFACE_(IDirect3D8,IUnknown)
     STDMETHOD_(UINT,GetAdapterModeCount)(THIS_ UINT  Adapter) PURE;
     STDMETHOD(EnumAdapterModes)(THIS_ UINT  Adapter, UINT  Mode, D3DDISPLAYMODE * pMode) PURE;
     STDMETHOD(GetAdapterDisplayMode)(THIS_ UINT  Adapter, D3DDISPLAYMODE * pMode) PURE;
-    STDMETHOD(CheckDeviceType)(THIS_ UINT  Adapter, D3DDEVTYPE  CheckType, D3DFORMAT  DisplayFormat, D3DFORMAT  BackBufferFormat, BOOL  Windowed) PURE;
+    STDMETHOD(CheckDeviceType)(THIS_ UINT  Adapter, D3DDEVTYPE  CheckType, D3DFORMAT  DisplayFormat, D3DFORMAT  BackBufferFormat, WINBOOL  Windowed) PURE;
     STDMETHOD(CheckDeviceFormat)(THIS_ UINT  Adapter, D3DDEVTYPE  DeviceType, D3DFORMAT  AdapterFormat, DWORD  Usage, D3DRESOURCETYPE  RType, D3DFORMAT  CheckFormat) PURE;
-    STDMETHOD(CheckDeviceMultiSampleType)(THIS_ UINT  Adapter, D3DDEVTYPE  DeviceType, D3DFORMAT  SurfaceFormat, BOOL  Windowed, D3DMULTISAMPLE_TYPE  MultiSampleType) PURE;
+    STDMETHOD(CheckDeviceMultiSampleType)(THIS_ UINT  Adapter, D3DDEVTYPE  DeviceType, D3DFORMAT  SurfaceFormat, WINBOOL  Windowed, D3DMULTISAMPLE_TYPE  MultiSampleType) PURE;
     STDMETHOD(CheckDepthStencilMatch)(THIS_ UINT  Adapter, D3DDEVTYPE  DeviceType, D3DFORMAT  AdapterFormat, D3DFORMAT  RenderTargetFormat, D3DFORMAT  DepthStencilFormat) PURE;
     STDMETHOD(GetDeviceCaps)(THIS_ UINT  Adapter, D3DDEVTYPE  DeviceType, D3DCAPS8 * pCaps) PURE;
     STDMETHOD_(HMONITOR,GetAdapterMonitor)(THIS_ UINT  Adapter) PURE;
@@ -842,7 +842,7 @@ DECLARE_INTERFACE_(IDirect3DDevice8,IUnknown)
     STDMETHOD(GetCreationParameters)(THIS_ D3DDEVICE_CREATION_PARAMETERS  * pParameters) PURE;
     STDMETHOD(SetCursorProperties)(THIS_ UINT  XHotSpot, UINT  YHotSpot, IDirect3DSurface8 * pCursorBitmap) PURE;
     STDMETHOD_(void,SetCursorPosition)(THIS_ UINT  XScreenSpace, UINT  YScreenSpace,DWORD  Flags) PURE;
-    STDMETHOD_(BOOL,ShowCursor)(THIS_ BOOL  bShow) PURE;
+    STDMETHOD_(WINBOOL,ShowCursor)(THIS_ WINBOOL  bShow) PURE;
     STDMETHOD(CreateAdditionalSwapChain)(THIS_ D3DPRESENT_PARAMETERS * pPresentationParameters, IDirect3DSwapChain8 ** pSwapChain) PURE;
     STDMETHOD(Reset)(THIS_ D3DPRESENT_PARAMETERS * pPresentationParameters) PURE;
     STDMETHOD(Present)(THIS_ CONST RECT * pSourceRect,CONST RECT * pDestRect,HWND  hDestWindowOverride,CONST RGNDATA * pDirtyRegion) PURE;
@@ -855,7 +855,7 @@ DECLARE_INTERFACE_(IDirect3DDevice8,IUnknown)
     STDMETHOD(CreateCubeTexture)(THIS_ UINT  EdgeLength,UINT  Levels,DWORD  Usage,D3DFORMAT  Format,D3DPOOL  Pool,IDirect3DCubeTexture8 ** ppCubeTexture) PURE;
     STDMETHOD(CreateVertexBuffer)(THIS_ UINT  Length,DWORD  Usage,DWORD  FVF,D3DPOOL  Pool,IDirect3DVertexBuffer8 ** ppVertexBuffer) PURE;
     STDMETHOD(CreateIndexBuffer)(THIS_ UINT  Length,DWORD  Usage,D3DFORMAT  Format,D3DPOOL  Pool,IDirect3DIndexBuffer8 ** ppIndexBuffer) PURE;
-    STDMETHOD(CreateRenderTarget)(THIS_ UINT  Width,UINT  Height,D3DFORMAT  Format,D3DMULTISAMPLE_TYPE  MultiSample,BOOL  Lockable,IDirect3DSurface8 ** ppSurface) PURE;
+    STDMETHOD(CreateRenderTarget)(THIS_ UINT  Width,UINT  Height,D3DFORMAT  Format,D3DMULTISAMPLE_TYPE  MultiSample,WINBOOL  Lockable,IDirect3DSurface8 ** ppSurface) PURE;
     STDMETHOD(CreateDepthStencilSurface)(THIS_ UINT  Width,UINT  Height,D3DFORMAT  Format,D3DMULTISAMPLE_TYPE  MultiSample,IDirect3DSurface8 ** ppSurface) PURE;
     STDMETHOD(CreateImageSurface)(THIS_ UINT  Width,UINT  Height,D3DFORMAT  Format,IDirect3DSurface8 ** ppSurface) PURE;
     STDMETHOD(CopyRects)(THIS_ IDirect3DSurface8 * pSourceSurface,CONST RECT * pSourceRectsArray,UINT  cRects,IDirect3DSurface8 * pDestinationSurface,CONST POINT * pDestPointsArray) PURE;
@@ -876,8 +876,8 @@ DECLARE_INTERFACE_(IDirect3DDevice8,IUnknown)
     STDMETHOD(GetMaterial)(THIS_ D3DMATERIAL8 *pMaterial) PURE;
     STDMETHOD(SetLight)(THIS_ DWORD  Index,CONST D3DLIGHT8 * pLight) PURE;
     STDMETHOD(GetLight)(THIS_ DWORD  Index,D3DLIGHT8 * pLight) PURE;
-    STDMETHOD(LightEnable)(THIS_ DWORD  Index,BOOL  Enable) PURE;
-    STDMETHOD(GetLightEnable)(THIS_ DWORD  Index,BOOL * pEnable) PURE;
+    STDMETHOD(LightEnable)(THIS_ DWORD  Index,WINBOOL  Enable) PURE;
+    STDMETHOD(GetLightEnable)(THIS_ DWORD  Index,WINBOOL * pEnable) PURE;
     STDMETHOD(SetClipPlane)(THIS_ DWORD  Index,CONST float * pPlane) PURE;
     STDMETHOD(GetClipPlane)(THIS_ DWORD  Index,float * pPlane) PURE;
     STDMETHOD(SetRenderState)(THIS_ D3DRENDERSTATETYPE  State,DWORD  Value) PURE;

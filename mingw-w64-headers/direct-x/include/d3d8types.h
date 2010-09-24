@@ -19,7 +19,6 @@
 #ifndef __WINE_D3D8TYPES_H
 #define __WINE_D3D8TYPES_H
 
-#include <_mingw_dxhelper.h>
 
 /*****************************************************************************
  * Direct 3D v8 #defines
@@ -153,8 +152,7 @@
 #define MAKEFOURCC(ch0, ch1, ch2, ch3)  \
     ((DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8) |  \
     ((DWORD)(BYTE)(ch2) << 16) | ((DWORD)(BYTE)(ch3) << 24 ))
-#endif /* MAKEFOURCC */
-
+#endif
 
 /**************************** 
  * Vertex Shaders Declaration
@@ -1126,8 +1124,8 @@ typedef struct _D3DPRESENT_PARAMETERS_ {
 
     D3DSWAPEFFECT           SwapEffect;
     HWND                    hDeviceWindow;
-    BOOL                    Windowed;
-    BOOL                    EnableAutoDepthStencil;
+    WINBOOL                    Windowed;
+    WINBOOL                    EnableAutoDepthStencil;
     D3DFORMAT               AutoDepthStencilFormat;
     DWORD                   Flags;
 
@@ -1144,7 +1142,7 @@ typedef struct _D3DRANGE {
 } D3DRANGE;
 
 typedef struct _D3DRASTER_STATUS {
-    BOOL            InVBlank;
+    WINBOOL            InVBlank;
     UINT            ScanLine;
 } D3DRASTER_STATUS;
 

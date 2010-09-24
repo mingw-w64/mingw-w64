@@ -96,6 +96,18 @@
 #define D3DERR_WASSTILLDRAWING                  MAKE_D3DHRESULT(540)
 #define D3DOK_NOAUTOGEN                         MAKE_D3DSTATUS(2159)
 
+#define D3DERR_DEVICEREMOVED                    MAKE_D3DHRESULT(2160)
+#define D3DERR_DEVICEHUNG                       MAKE_D3DHRESULT(2164)
+#define S_NOT_RESIDENT                          MAKE_D3DSTATUS(2165)
+#define S_RESIDENT_IN_SHARED_MEMORY             MAKE_D3DSTATUS(2166)
+#define S_PRESENT_MODE_CHANGED                  MAKE_D3DSTATUS(2167)
+#define S_PRESENT_OCCLUDED                      MAKE_D3DSTATUS(2168)
+#define D3DERR_UNSUPPORTEDOVERLAY               MAKE_D3DHRESULT(2171)
+#define D3DERR_UNSUPPORTEDOVERLAYFORMAT         MAKE_D3DHRESULT(2172)
+#define D3DERR_CANNOTPROTECTCONTENT             MAKE_D3DHRESULT(2173)
+#define D3DERR_UNSUPPORTEDCRYPTO                MAKE_D3DHRESULT(2174)
+#define D3DERR_PRESENT_STATISTICS_DISJOINT      MAKE_D3DHRESULT(2180)
+
 
 /*****************************************************************************
  * Predeclare the interfaces
@@ -178,9 +190,9 @@ DECLARE_INTERFACE_(IDirect3D9,IUnknown)
     STDMETHOD_(UINT, GetAdapterModeCount)(THIS_ UINT Adapter, D3DFORMAT Format) PURE;
     STDMETHOD(EnumAdapterModes)(THIS_ UINT Adapter, D3DFORMAT Format, UINT Mode, D3DDISPLAYMODE* pMode) PURE;
     STDMETHOD(GetAdapterDisplayMode)(THIS_ UINT Adapter, D3DDISPLAYMODE* pMode) PURE;
-    STDMETHOD(CheckDeviceType)(THIS_ UINT iAdapter, D3DDEVTYPE DevType, D3DFORMAT DisplayFormat, D3DFORMAT BackBufferFormat, BOOL bWindowed) PURE;
+    STDMETHOD(CheckDeviceType)(THIS_ UINT iAdapter, D3DDEVTYPE DevType, D3DFORMAT DisplayFormat, D3DFORMAT BackBufferFormat, WINBOOL bWindowed) PURE;
     STDMETHOD(CheckDeviceFormat)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT AdapterFormat, DWORD Usage, D3DRESOURCETYPE RType, D3DFORMAT CheckFormat) PURE;
-    STDMETHOD(CheckDeviceMultiSampleType)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT SurfaceFormat, BOOL Windowed, D3DMULTISAMPLE_TYPE MultiSampleType, DWORD* pQualityLevels) PURE;
+    STDMETHOD(CheckDeviceMultiSampleType)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT SurfaceFormat, WINBOOL Windowed, D3DMULTISAMPLE_TYPE MultiSampleType, DWORD* pQualityLevels) PURE;
     STDMETHOD(CheckDepthStencilMatch)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT AdapterFormat, D3DFORMAT RenderTargetFormat, D3DFORMAT DepthStencilFormat) PURE;
     STDMETHOD(CheckDeviceFormatConversion)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT SourceFormat, D3DFORMAT TargetFormat) PURE;
     STDMETHOD(GetDeviceCaps)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DCAPS9* pCaps) PURE;
@@ -256,9 +268,9 @@ DECLARE_INTERFACE_(IDirect3D9Ex,IDirect3D9)
     STDMETHOD_(UINT, GetAdapterModeCount)(THIS_ UINT Adapter, D3DFORMAT Format) PURE;
     STDMETHOD(EnumAdapterModes)(THIS_ UINT Adapter, D3DFORMAT Format, UINT Mode, D3DDISPLAYMODE* pMode) PURE;
     STDMETHOD(GetAdapterDisplayMode)(THIS_ UINT Adapter, D3DDISPLAYMODE* pMode) PURE;
-    STDMETHOD(CheckDeviceType)(THIS_ UINT iAdapter, D3DDEVTYPE DevType, D3DFORMAT DisplayFormat, D3DFORMAT BackBufferFormat, BOOL bWindowed) PURE;
+    STDMETHOD(CheckDeviceType)(THIS_ UINT iAdapter, D3DDEVTYPE DevType, D3DFORMAT DisplayFormat, D3DFORMAT BackBufferFormat, WINBOOL bWindowed) PURE;
     STDMETHOD(CheckDeviceFormat)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT AdapterFormat, DWORD Usage, D3DRESOURCETYPE RType, D3DFORMAT CheckFormat) PURE;
-    STDMETHOD(CheckDeviceMultiSampleType)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT SurfaceFormat, BOOL Windowed, D3DMULTISAMPLE_TYPE MultiSampleType, DWORD* pQualityLevels) PURE;
+    STDMETHOD(CheckDeviceMultiSampleType)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT SurfaceFormat, WINBOOL Windowed, D3DMULTISAMPLE_TYPE MultiSampleType, DWORD* pQualityLevels) PURE;
     STDMETHOD(CheckDepthStencilMatch)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT AdapterFormat, D3DFORMAT RenderTargetFormat, D3DFORMAT DepthStencilFormat) PURE;
     STDMETHOD(CheckDeviceFormatConversion)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT SourceFormat, D3DFORMAT TargetFormat) PURE;
     STDMETHOD(GetDeviceCaps)(THIS_ UINT Adapter, D3DDEVTYPE DeviceType, D3DCAPS9* pCaps) PURE;
@@ -1223,7 +1235,7 @@ DECLARE_INTERFACE_(IDirect3DDevice9,IUnknown)
     STDMETHOD(GetCreationParameters)(THIS_ D3DDEVICE_CREATION_PARAMETERS *pParameters) PURE;
     STDMETHOD(SetCursorProperties)(THIS_ UINT XHotSpot, UINT YHotSpot, IDirect3DSurface9* pCursorBitmap) PURE;
     STDMETHOD_(void, SetCursorPosition)(THIS_ int X,int Y, DWORD Flags) PURE;
-    STDMETHOD_(BOOL, ShowCursor)(THIS_ BOOL bShow) PURE;
+    STDMETHOD_(WINBOOL, ShowCursor)(THIS_ WINBOOL bShow) PURE;
     STDMETHOD(CreateAdditionalSwapChain)(THIS_ D3DPRESENT_PARAMETERS* pPresentationParameters, IDirect3DSwapChain9** pSwapChain) PURE;
     STDMETHOD(GetSwapChain)(THIS_ UINT iSwapChain, IDirect3DSwapChain9** pSwapChain) PURE;
     STDMETHOD_(UINT, GetNumberOfSwapChains)(THIS) PURE;
@@ -1231,7 +1243,7 @@ DECLARE_INTERFACE_(IDirect3DDevice9,IUnknown)
     STDMETHOD(Present)(THIS_ CONST RECT* pSourceRect, CONST RECT* pDestRect, HWND hDestWindowOverride, CONST RGNDATA* pDirtyRegion) PURE;
     STDMETHOD(GetBackBuffer)(THIS_ UINT iSwapChain, UINT iBackBuffer, D3DBACKBUFFER_TYPE Type, IDirect3DSurface9** ppBackBuffer) PURE;
     STDMETHOD(GetRasterStatus)(THIS_ UINT iSwapChain, D3DRASTER_STATUS* pRasterStatus) PURE;
-    STDMETHOD(SetDialogBoxMode)(THIS_ BOOL bEnableDialogs) PURE;
+    STDMETHOD(SetDialogBoxMode)(THIS_ WINBOOL bEnableDialogs) PURE;
     STDMETHOD_(void, SetGammaRamp)(THIS_ UINT iSwapChain, DWORD Flags, CONST D3DGAMMARAMP* pRamp) PURE;
     STDMETHOD_(void, GetGammaRamp)(THIS_ UINT iSwapChain, D3DGAMMARAMP* pRamp) PURE;
     STDMETHOD(CreateTexture)(THIS_ UINT Width, UINT Height, UINT Levels, DWORD Usage, D3DFORMAT Format, D3DPOOL Pool, IDirect3DTexture9** ppTexture, HANDLE* pSharedHandle) PURE;
@@ -1239,8 +1251,8 @@ DECLARE_INTERFACE_(IDirect3DDevice9,IUnknown)
     STDMETHOD(CreateCubeTexture)(THIS_ UINT EdgeLength, UINT Levels, DWORD Usage, D3DFORMAT Format, D3DPOOL Pool, IDirect3DCubeTexture9** ppCubeTexture, HANDLE* pSharedHandle) PURE;
     STDMETHOD(CreateVertexBuffer)(THIS_ UINT Length, DWORD Usage, DWORD FVF, D3DPOOL Pool, IDirect3DVertexBuffer9** ppVertexBuffer, HANDLE* pSharedHandle) PURE;
     STDMETHOD(CreateIndexBuffer)(THIS_ UINT Length, DWORD Usage, D3DFORMAT Format, D3DPOOL Pool, IDirect3DIndexBuffer9** ppIndexBuffer, HANDLE* pSharedHandle) PURE;
-    STDMETHOD(CreateRenderTarget)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, DWORD MultisampleQuality, BOOL Lockable, IDirect3DSurface9** ppSurface, HANDLE* pSharedHandle) PURE;
-    STDMETHOD(CreateDepthStencilSurface)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, DWORD MultisampleQuality, BOOL Discard, IDirect3DSurface9** ppSurface, HANDLE* pSharedHandle) PURE;
+    STDMETHOD(CreateRenderTarget)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, DWORD MultisampleQuality, WINBOOL Lockable, IDirect3DSurface9** ppSurface, HANDLE* pSharedHandle) PURE;
+    STDMETHOD(CreateDepthStencilSurface)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, DWORD MultisampleQuality, WINBOOL Discard, IDirect3DSurface9** ppSurface, HANDLE* pSharedHandle) PURE;
     STDMETHOD(UpdateSurface)(THIS_ IDirect3DSurface9* pSourceSurface, CONST RECT* pSourceRect, IDirect3DSurface9* pDestinationSurface, CONST POINT* pDestPoint) PURE;
     STDMETHOD(UpdateTexture)(THIS_ IDirect3DBaseTexture9* pSourceTexture, IDirect3DBaseTexture9* pDestinationTexture) PURE;
     STDMETHOD(GetRenderTargetData)(THIS_ IDirect3DSurface9* pRenderTarget, IDirect3DSurface9* pDestSurface) PURE;
@@ -1264,8 +1276,8 @@ DECLARE_INTERFACE_(IDirect3DDevice9,IUnknown)
     STDMETHOD(GetMaterial)(THIS_ D3DMATERIAL9* pMaterial) PURE;
     STDMETHOD(SetLight)(THIS_ DWORD Index, CONST D3DLIGHT9*) PURE;
     STDMETHOD(GetLight)(THIS_ DWORD Index, D3DLIGHT9*) PURE;
-    STDMETHOD(LightEnable)(THIS_ DWORD Index, BOOL Enable) PURE;
-    STDMETHOD(GetLightEnable)(THIS_ DWORD Index, BOOL* pEnable) PURE;
+    STDMETHOD(LightEnable)(THIS_ DWORD Index, WINBOOL Enable) PURE;
+    STDMETHOD(GetLightEnable)(THIS_ DWORD Index, WINBOOL* pEnable) PURE;
     STDMETHOD(SetClipPlane)(THIS_ DWORD Index, CONST float* pPlane) PURE;
     STDMETHOD(GetClipPlane)(THIS_ DWORD Index, float* pPlane) PURE;
     STDMETHOD(SetRenderState)(THIS_ D3DRENDERSTATETYPE State, DWORD Value) PURE;
@@ -1288,8 +1300,8 @@ DECLARE_INTERFACE_(IDirect3DDevice9,IUnknown)
     STDMETHOD(GetCurrentTexturePalette)(THIS_ UINT *PaletteNumber) PURE;
     STDMETHOD(SetScissorRect)(THIS_ CONST RECT* pRect) PURE;
     STDMETHOD(GetScissorRect)(THIS_ RECT* pRect) PURE;
-    STDMETHOD(SetSoftwareVertexProcessing)(THIS_ BOOL bSoftware) PURE;
-    STDMETHOD_(BOOL, GetSoftwareVertexProcessing)(THIS) PURE;
+    STDMETHOD(SetSoftwareVertexProcessing)(THIS_ WINBOOL bSoftware) PURE;
+    STDMETHOD_(WINBOOL, GetSoftwareVertexProcessing)(THIS) PURE;
     STDMETHOD(SetNPatchMode)(THIS_ float nSegments) PURE;
     STDMETHOD_(float, GetNPatchMode)(THIS) PURE;
     STDMETHOD(DrawPrimitive)(THIS_ D3DPRIMITIVETYPE PrimitiveType, UINT StartVertex, UINT PrimitiveCount) PURE;
@@ -1309,8 +1321,8 @@ DECLARE_INTERFACE_(IDirect3DDevice9,IUnknown)
     STDMETHOD(GetVertexShaderConstantF)(THIS_ UINT StartRegister, float* pConstantData, UINT Vector4fCount) PURE;
     STDMETHOD(SetVertexShaderConstantI)(THIS_ UINT StartRegister, CONST int* pConstantData, UINT Vector4iCount) PURE;
     STDMETHOD(GetVertexShaderConstantI)(THIS_ UINT StartRegister, int* pConstantData, UINT Vector4iCount) PURE;
-    STDMETHOD(SetVertexShaderConstantB)(THIS_ UINT StartRegister, CONST BOOL* pConstantData, UINT  BoolCount) PURE;
-    STDMETHOD(GetVertexShaderConstantB)(THIS_ UINT StartRegister, BOOL* pConstantData, UINT BoolCount) PURE;
+    STDMETHOD(SetVertexShaderConstantB)(THIS_ UINT StartRegister, CONST WINBOOL* pConstantData, UINT  BoolCount) PURE;
+    STDMETHOD(GetVertexShaderConstantB)(THIS_ UINT StartRegister, WINBOOL* pConstantData, UINT BoolCount) PURE;
     STDMETHOD(SetStreamSource)(THIS_ UINT StreamNumber, IDirect3DVertexBuffer9* pStreamData, UINT OffsetInBytes, UINT Stride) PURE;
     STDMETHOD(GetStreamSource)(THIS_ UINT StreamNumber, IDirect3DVertexBuffer9** ppStreamData, UINT* OffsetInBytes, UINT* pStride) PURE;
     STDMETHOD(SetStreamSourceFreq)(THIS_ UINT StreamNumber, UINT Divider) PURE;
@@ -1324,8 +1336,8 @@ DECLARE_INTERFACE_(IDirect3DDevice9,IUnknown)
     STDMETHOD(GetPixelShaderConstantF)(THIS_ UINT StartRegister, float* pConstantData, UINT Vector4fCount) PURE;
     STDMETHOD(SetPixelShaderConstantI)(THIS_ UINT StartRegister, CONST int* pConstantData, UINT Vector4iCount) PURE;
     STDMETHOD(GetPixelShaderConstantI)(THIS_ UINT StartRegister, int* pConstantData, UINT Vector4iCount) PURE;
-    STDMETHOD(SetPixelShaderConstantB)(THIS_ UINT StartRegister, CONST BOOL* pConstantData, UINT  BoolCount) PURE;
-    STDMETHOD(GetPixelShaderConstantB)(THIS_ UINT StartRegister, BOOL* pConstantData, UINT BoolCount) PURE;
+    STDMETHOD(SetPixelShaderConstantB)(THIS_ UINT StartRegister, CONST WINBOOL* pConstantData, UINT  BoolCount) PURE;
+    STDMETHOD(GetPixelShaderConstantB)(THIS_ UINT StartRegister, WINBOOL* pConstantData, UINT BoolCount) PURE;
     STDMETHOD(DrawRectPatch)(THIS_ UINT Handle, CONST float* pNumSegs, CONST D3DRECTPATCH_INFO* pRectPatchInfo) PURE;
     STDMETHOD(DrawTriPatch)(THIS_ UINT Handle, CONST float* pNumSegs, CONST D3DTRIPATCH_INFO* pTriPatchInfo) PURE;
     STDMETHOD(DeletePatch)(THIS_ UINT Handle) PURE;
@@ -1600,7 +1612,7 @@ DECLARE_INTERFACE_(IDirect3DDevice9Ex,IDirect3DDevice9)
     STDMETHOD(GetCreationParameters)(THIS_ D3DDEVICE_CREATION_PARAMETERS *pParameters) PURE;
     STDMETHOD(SetCursorProperties)(THIS_ UINT XHotSpot, UINT YHotSpot, IDirect3DSurface9* pCursorBitmap) PURE;
     STDMETHOD_(void, SetCursorPosition)(THIS_ int X,int Y, DWORD Flags) PURE;
-    STDMETHOD_(BOOL, ShowCursor)(THIS_ BOOL bShow) PURE;
+    STDMETHOD_(WINBOOL, ShowCursor)(THIS_ WINBOOL bShow) PURE;
     STDMETHOD(CreateAdditionalSwapChain)(THIS_ D3DPRESENT_PARAMETERS* pPresentationParameters, IDirect3DSwapChain9** pSwapChain) PURE;
     STDMETHOD(GetSwapChain)(THIS_ UINT iSwapChain, IDirect3DSwapChain9** pSwapChain) PURE;
     STDMETHOD_(UINT, GetNumberOfSwapChains)(THIS) PURE;
@@ -1608,7 +1620,7 @@ DECLARE_INTERFACE_(IDirect3DDevice9Ex,IDirect3DDevice9)
     STDMETHOD(Present)(THIS_ CONST RECT* pSourceRect, CONST RECT* pDestRect, HWND hDestWindowOverride, CONST RGNDATA* pDirtyRegion) PURE;
     STDMETHOD(GetBackBuffer)(THIS_ UINT iSwapChain, UINT iBackBuffer, D3DBACKBUFFER_TYPE Type, IDirect3DSurface9** ppBackBuffer) PURE;
     STDMETHOD(GetRasterStatus)(THIS_ UINT iSwapChain, D3DRASTER_STATUS* pRasterStatus) PURE;
-    STDMETHOD(SetDialogBoxMode)(THIS_ BOOL bEnableDialogs) PURE;
+    STDMETHOD(SetDialogBoxMode)(THIS_ WINBOOL bEnableDialogs) PURE;
     STDMETHOD_(void, SetGammaRamp)(THIS_ UINT iSwapChain, DWORD Flags, CONST D3DGAMMARAMP* pRamp) PURE;
     STDMETHOD_(void, GetGammaRamp)(THIS_ UINT iSwapChain, D3DGAMMARAMP* pRamp) PURE;
     STDMETHOD(CreateTexture)(THIS_ UINT Width, UINT Height, UINT Levels, DWORD Usage, D3DFORMAT Format, D3DPOOL Pool, IDirect3DTexture9** ppTexture, HANDLE* pSharedHandle) PURE;
@@ -1616,8 +1628,8 @@ DECLARE_INTERFACE_(IDirect3DDevice9Ex,IDirect3DDevice9)
     STDMETHOD(CreateCubeTexture)(THIS_ UINT EdgeLength, UINT Levels, DWORD Usage, D3DFORMAT Format, D3DPOOL Pool, IDirect3DCubeTexture9** ppCubeTexture, HANDLE* pSharedHandle) PURE;
     STDMETHOD(CreateVertexBuffer)(THIS_ UINT Length, DWORD Usage, DWORD FVF, D3DPOOL Pool, IDirect3DVertexBuffer9** ppVertexBuffer, HANDLE* pSharedHandle) PURE;
     STDMETHOD(CreateIndexBuffer)(THIS_ UINT Length, DWORD Usage, D3DFORMAT Format, D3DPOOL Pool, IDirect3DIndexBuffer9** ppIndexBuffer, HANDLE* pSharedHandle) PURE;
-    STDMETHOD(CreateRenderTarget)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, DWORD MultisampleQuality, BOOL Lockable, IDirect3DSurface9** ppSurface, HANDLE* pSharedHandle) PURE;
-    STDMETHOD(CreateDepthStencilSurface)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, DWORD MultisampleQuality, BOOL Discard, IDirect3DSurface9** ppSurface, HANDLE* pSharedHandle) PURE;
+    STDMETHOD(CreateRenderTarget)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, DWORD MultisampleQuality, WINBOOL Lockable, IDirect3DSurface9** ppSurface, HANDLE* pSharedHandle) PURE;
+    STDMETHOD(CreateDepthStencilSurface)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, DWORD MultisampleQuality, WINBOOL Discard, IDirect3DSurface9** ppSurface, HANDLE* pSharedHandle) PURE;
     STDMETHOD(UpdateSurface)(THIS_ IDirect3DSurface9* pSourceSurface, CONST RECT* pSourceRect, IDirect3DSurface9* pDestinationSurface, CONST POINT* pDestPoint) PURE;
     STDMETHOD(UpdateTexture)(THIS_ IDirect3DBaseTexture9* pSourceTexture, IDirect3DBaseTexture9* pDestinationTexture) PURE;
     STDMETHOD(GetRenderTargetData)(THIS_ IDirect3DSurface9* pRenderTarget, IDirect3DSurface9* pDestSurface) PURE;
@@ -1641,8 +1653,8 @@ DECLARE_INTERFACE_(IDirect3DDevice9Ex,IDirect3DDevice9)
     STDMETHOD(GetMaterial)(THIS_ D3DMATERIAL9* pMaterial) PURE;
     STDMETHOD(SetLight)(THIS_ DWORD Index, CONST D3DLIGHT9*) PURE;
     STDMETHOD(GetLight)(THIS_ DWORD Index, D3DLIGHT9*) PURE;
-    STDMETHOD(LightEnable)(THIS_ DWORD Index, BOOL Enable) PURE;
-    STDMETHOD(GetLightEnable)(THIS_ DWORD Index, BOOL* pEnable) PURE;
+    STDMETHOD(LightEnable)(THIS_ DWORD Index, WINBOOL Enable) PURE;
+    STDMETHOD(GetLightEnable)(THIS_ DWORD Index, WINBOOL* pEnable) PURE;
     STDMETHOD(SetClipPlane)(THIS_ DWORD Index, CONST float* pPlane) PURE;
     STDMETHOD(GetClipPlane)(THIS_ DWORD Index, float* pPlane) PURE;
     STDMETHOD(SetRenderState)(THIS_ D3DRENDERSTATETYPE State, DWORD Value) PURE;
@@ -1665,8 +1677,8 @@ DECLARE_INTERFACE_(IDirect3DDevice9Ex,IDirect3DDevice9)
     STDMETHOD(GetCurrentTexturePalette)(THIS_ UINT *PaletteNumber) PURE;
     STDMETHOD(SetScissorRect)(THIS_ CONST RECT* pRect) PURE;
     STDMETHOD(GetScissorRect)(THIS_ RECT* pRect) PURE;
-    STDMETHOD(SetSoftwareVertexProcessing)(THIS_ BOOL bSoftware) PURE;
-    STDMETHOD_(BOOL, GetSoftwareVertexProcessing)(THIS) PURE;
+    STDMETHOD(SetSoftwareVertexProcessing)(THIS_ WINBOOL bSoftware) PURE;
+    STDMETHOD_(WINBOOL, GetSoftwareVertexProcessing)(THIS) PURE;
     STDMETHOD(SetNPatchMode)(THIS_ float nSegments) PURE;
     STDMETHOD_(float, GetNPatchMode)(THIS) PURE;
     STDMETHOD(DrawPrimitive)(THIS_ D3DPRIMITIVETYPE PrimitiveType, UINT StartVertex, UINT PrimitiveCount) PURE;
@@ -1686,8 +1698,8 @@ DECLARE_INTERFACE_(IDirect3DDevice9Ex,IDirect3DDevice9)
     STDMETHOD(GetVertexShaderConstantF)(THIS_ UINT StartRegister, float* pConstantData, UINT Vector4fCount) PURE;
     STDMETHOD(SetVertexShaderConstantI)(THIS_ UINT StartRegister, CONST int* pConstantData, UINT Vector4iCount) PURE;
     STDMETHOD(GetVertexShaderConstantI)(THIS_ UINT StartRegister, int* pConstantData, UINT Vector4iCount) PURE;
-    STDMETHOD(SetVertexShaderConstantB)(THIS_ UINT StartRegister, CONST BOOL* pConstantData, UINT  BoolCount) PURE;
-    STDMETHOD(GetVertexShaderConstantB)(THIS_ UINT StartRegister, BOOL* pConstantData, UINT BoolCount) PURE;
+    STDMETHOD(SetVertexShaderConstantB)(THIS_ UINT StartRegister, CONST WINBOOL* pConstantData, UINT  BoolCount) PURE;
+    STDMETHOD(GetVertexShaderConstantB)(THIS_ UINT StartRegister, WINBOOL* pConstantData, UINT BoolCount) PURE;
     STDMETHOD(SetStreamSource)(THIS_ UINT StreamNumber, IDirect3DVertexBuffer9* pStreamData, UINT OffsetInBytes, UINT Stride) PURE;
     STDMETHOD(GetStreamSource)(THIS_ UINT StreamNumber, IDirect3DVertexBuffer9** ppStreamData, UINT* OffsetInBytes, UINT* pStride) PURE;
     STDMETHOD(SetStreamSourceFreq)(THIS_ UINT StreamNumber, UINT Divider) PURE;
@@ -1701,8 +1713,8 @@ DECLARE_INTERFACE_(IDirect3DDevice9Ex,IDirect3DDevice9)
     STDMETHOD(GetPixelShaderConstantF)(THIS_ UINT StartRegister, float* pConstantData, UINT Vector4fCount) PURE;
     STDMETHOD(SetPixelShaderConstantI)(THIS_ UINT StartRegister, CONST int* pConstantData, UINT Vector4iCount) PURE;
     STDMETHOD(GetPixelShaderConstantI)(THIS_ UINT StartRegister, int* pConstantData, UINT Vector4iCount) PURE;
-    STDMETHOD(SetPixelShaderConstantB)(THIS_ UINT StartRegister, CONST BOOL* pConstantData, UINT  BoolCount) PURE;
-    STDMETHOD(GetPixelShaderConstantB)(THIS_ UINT StartRegister, BOOL* pConstantData, UINT BoolCount) PURE;
+    STDMETHOD(SetPixelShaderConstantB)(THIS_ UINT StartRegister, CONST WINBOOL* pConstantData, UINT  BoolCount) PURE;
+    STDMETHOD(GetPixelShaderConstantB)(THIS_ UINT StartRegister, WINBOOL* pConstantData, UINT BoolCount) PURE;
     STDMETHOD(DrawRectPatch)(THIS_ UINT Handle, CONST float* pNumSegs, CONST D3DRECTPATCH_INFO* pRectPatchInfo) PURE;
     STDMETHOD(DrawTriPatch)(THIS_ UINT Handle, CONST float* pNumSegs, CONST D3DTRIPATCH_INFO* pTriPatchInfo) PURE;
     STDMETHOD(DeletePatch)(THIS_ UINT Handle) PURE;
@@ -1720,10 +1732,10 @@ DECLARE_INTERFACE_(IDirect3DDevice9Ex,IDirect3DDevice9)
     STDMETHOD(SetMaximumFrameLatency)(THIS_ UINT MaxLatency) PURE;
     STDMETHOD(GetMaximumFrameLatency)(THIS_ UINT *pMaxLatenxy) PURE;
     STDMETHOD(CheckDeviceState)(THIS_ HWND dst_window) PURE;
-    STDMETHOD(CreateRenderTargetEx)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, DWORD MultiSampleQuality, BOOL Lockable, IDirect3DSurface9 ** ppSurface, HANDLE *pSharedHandle, DWORD Usage) PURE;
+    STDMETHOD(CreateRenderTargetEx)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, DWORD MultiSampleQuality, WINBOOL Lockable, IDirect3DSurface9 ** ppSurface, HANDLE *pSharedHandle, DWORD Usage) PURE;
     STDMETHOD(CreateOffscreenPlainSurfaceEx)(THIS_ UINT Width, UINT Height, D3DFORMAT Format, D3DPOOL Pool, IDirect3DSurface9 **ppSurface, HANDLE *pSharedHandle, DWORD Usage) PURE;
     STDMETHOD(CreateDepthStencilSurfaceEx)(THIS_ UINT width, UINT height, D3DFORMAT format,
-            D3DMULTISAMPLE_TYPE multisample_type, DWORD multisample_quality, BOOL discard,
+            D3DMULTISAMPLE_TYPE multisample_type, DWORD multisample_quality, WINBOOL discard,
             IDirect3DSurface9 **surface, HANDLE *shared_handle, DWORD usage) PURE;
     STDMETHOD(ResetEx)(THIS_ D3DPRESENT_PARAMETERS *pPresentationParameters, D3DDISPLAYMODEEX *pFullscreenDisplayMode) PURE;
     STDMETHOD(GetDisplayModeEx)(THIS_ UINT iSwapChain, D3DDISPLAYMODEEX *pMode, D3DDISPLAYROTATION *pRotation) PURE;
@@ -2015,7 +2027,7 @@ extern "C" {
 int         WINAPI D3DPERF_BeginEvent(D3DCOLOR,LPCWSTR);
 int         WINAPI D3DPERF_EndEvent(void);
 DWORD       WINAPI D3DPERF_GetStatus(void);
-BOOL        WINAPI D3DPERF_QueryRepeatFrame(void);
+WINBOOL        WINAPI D3DPERF_QueryRepeatFrame(void);
 void        WINAPI D3DPERF_SetMarker(D3DCOLOR,LPCWSTR);
 void        WINAPI D3DPERF_SetOptions(DWORD);
 void        WINAPI D3DPERF_SetRegion(D3DCOLOR,LPCWSTR);
