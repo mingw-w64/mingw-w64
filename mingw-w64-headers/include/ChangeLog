@@ -1,6 +1,6 @@
 2010-09-20  Pawel Sikora  <pawel.sikora@agmk.net>
 
-        * eh.h (_is_exception_typeof): Use std::type_info.
+	* eh.h (_is_exception_typeof): Use std::type_info.
 
 2010-09-19  Ozkan Sezer  <sezeroz@gmail.com>
 
