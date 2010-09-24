@@ -444,7 +444,12 @@ char *__dtoa (double d0, int mode, int ndigits, int *decpt, int *sign, char **rv
 				 }
 #endif
 				dval(&d) += dval(&d);
-				if (dval(&d) > ds || (dval(&d) == ds && L & 1)) {
+#ifdef ROUND_BIASED
+				if (dval(&d) >= ds)
+#else
+				if (dval(&d) > ds || (dval(&d) == ds && L & 1))
+#endif
+				{
  bump_up:
 					while(*--s == '9')
 						if (s == s0) {
@@ -631,7 +636,11 @@ char *__dtoa (double d0, int mode, int ndigits, int *decpt, int *sign, char **rv
 				if (j2 > 0) {
 					b = lshift(b, 1);
 					j2 = cmp(b, S);
+#ifdef ROUND_BIASED
+					if (j2 >= 0 /*)*/
+#else
 					if ((j2 > 0 || (j2 == 0 && dig & 1))
+#endif
 					&& dig++ == '9')
 						goto round_9_up;
 				}
@@ -691,7 +700,12 @@ char *__dtoa (double d0, int mode, int ndigits, int *decpt, int *sign, char **rv
 #endif
 	b = lshift(b, 1);
 	j = cmp(b, S);
-	if (j > 0 || (j == 0 && dig & 1)) {
+#ifdef ROUND_BIASED
+	if (j >= 0)
+#else
+	if (j > 0 || (j == 0 && dig & 1))
+#endif
+	{
  roundoff:
 		while(*--s == '9')
 			if (s == s0) {
