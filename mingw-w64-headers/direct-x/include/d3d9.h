@@ -2027,7 +2027,7 @@ extern "C" {
 int         WINAPI D3DPERF_BeginEvent(D3DCOLOR,LPCWSTR);
 int         WINAPI D3DPERF_EndEvent(void);
 DWORD       WINAPI D3DPERF_GetStatus(void);
-WINBOOL        WINAPI D3DPERF_QueryRepeatFrame(void);
+WINBOOL     WINAPI D3DPERF_QueryRepeatFrame(void);
 void        WINAPI D3DPERF_SetMarker(D3DCOLOR,LPCWSTR);
 void        WINAPI D3DPERF_SetOptions(DWORD);
 void        WINAPI D3DPERF_SetRegion(D3DCOLOR,LPCWSTR);

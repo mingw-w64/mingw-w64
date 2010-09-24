@@ -1310,7 +1310,7 @@ typedef struct D3DDEVINFO_VCACHE {
 } D3DDEVINFO_VCACHE;
 
 typedef struct D3DRESOURCESTATS {
-    WINBOOL                bThrashing;
+    WINBOOL             bThrashing;
     DWORD               ApproxBytesDownloaded;
     DWORD               NumEvicts;
     DWORD               NumVidCreates;
@@ -1428,8 +1428,8 @@ typedef struct _D3DPRESENT_PARAMETERS_ {
 
     D3DSWAPEFFECT           SwapEffect;
     HWND                    hDeviceWindow;
-    WINBOOL                    Windowed;
-    WINBOOL                    EnableAutoDepthStencil;
+    WINBOOL                 Windowed;
+    WINBOOL                 EnableAutoDepthStencil;
     D3DFORMAT               AutoDepthStencilFormat;
     DWORD                   Flags;
 
@@ -1444,7 +1444,7 @@ typedef struct _D3DRANGE {
 } D3DRANGE;
 
 typedef struct _D3DRASTER_STATUS {
-    WINBOOL            InVBlank;
+    WINBOOL         InVBlank;
     UINT            ScanLine;
 } D3DRASTER_STATUS;
 
