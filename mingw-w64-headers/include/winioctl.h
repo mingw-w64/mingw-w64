@@ -1677,13 +1677,6 @@ typedef struct _SI_COPYFILE {
 #define COPYFILE_SIS_FLAGS 0x0003
 
 #if (_WIN32_WINNT >= 0x0600)
-/* FIXME: these do not belong here: they should be in
- * ddk/classpnp.h as enum MEDIA_CHANGE_DETECTION_STATE
- */
-#define MediaUnknown 0
-#define MediaPresent 1
-#define MediaNotPresent 2
-#define MediaUnavailable 3
 
 typedef struct _FILE_MAKE_COMPATIBLE_BUFFER {
   BOOLEAN CloseDisc;
