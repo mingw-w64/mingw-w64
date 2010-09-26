@@ -745,6 +745,7 @@ EXTERN_C ULONG WMIAPI EnumerateTraceGuidsEx(
 );
 #endif /* _WIN32_WINNT >= 0x0600 */
 
+/*To enable the read event type for disk IO events, set GUID to 3d6fa8d4-fe05-11d0-9dda-00c04fd7ba7c and Type to 10.*/
 typedef struct _CLASSIC_EVENT_ID {
   GUID EventGuid;
   UCHAR Type;

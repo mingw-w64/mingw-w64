@@ -54,7 +54,7 @@ extern "C" {
   typedef VOID (_stdcall *PQUORUM_RESOURCE_LOST)(RESOURCE_HANDLE Resource);
 
   typedef enum LOG_LEVEL {
-    LOG_INFORMATION,LOG_WARNING,LOG_ERROR,LOG_SEVERE
+    LOG_INFORMATION = 0,LOG_WARNING,LOG_ERROR,LOG_SEVERE
   } LOG_LEVEL,*PLOG_LEVEL;
 
   typedef VOID (_stdcall *PLOG_EVENT_ROUTINE)(RESOURCE_HANDLE ResourceHandle,LOG_LEVEL LogLevel,LPCWSTR FormatString,...);
@@ -71,7 +71,7 @@ extern "C" {
   typedef DWORD (_stdcall *PRESOURCE_TYPE_CONTROL_ROUTINE)(LPCWSTR ResourceTypeName,DWORD ControlCode,PVOID InBuffer,DWORD InBufferSize,PVOID OutBuffer,DWORD OutBufferSize,LPDWORD BytesReturned);
 
   typedef enum _RESOURCE_EXIT_STATE {
-    ResourceExitStateContinue,ResourceExitStateTerminate,ResourceExitStateMax
+    ResourceExitStateContinue = 0,ResourceExitStateTerminate,ResourceExitStateMax
   } RESOURCE_EXIT_STATE;
 
   typedef struct CLRES_V1_FUNCTIONS {
@@ -347,6 +347,37 @@ DWORD WINAPI ResUtilSetQwordValue(
 typedef DWORD (WINAPI *PWORKER_START_ROUTINE)( 
   PCLUS_WORKER pWorker,
   LPVOID lpThreadParameter
+);
+
+#endif /* (_WIN32_WINNT >= 0x0600) */
+
+#if (_WIN32_WINNT >= 0x0600)
+DWORD WINAPI ClusterClearBackupStateForSharedVolume(
+  LPCWSTR lpszVolumePathName
+);
+
+WINBOOL WINAPI ClusterGetVolumeNameForVolumeMountPoint(
+  LPCWSTR lpszVolumeMountPoint,
+  LPWSTR lpszVolumeName,
+  DWORD cchBufferLength
+);
+
+WINBOOL WINAPI ClusterGetVolumePathName(
+  LPCWSTR lpszFileName,
+  LPWSTR lpszVolumePathName,
+  DWORD cchBufferLength
+);
+
+WINBOOL WINAPI ClusterIsPathOnSharedVolume(
+  LPCWSTR lpszPathName
+);
+
+DWORD WINAPI ClusterPrepareSharedVolumeForBackup(
+  LPCWSTR lpszFileName,
+  LPWSTR lpszVolumePathName,
+  LPDWORD lpcchVolumePathName,
+  LPWSTR lpszVolumeName,
+  LPDWORD lpcchVolumeName
 );
 
 #endif /* (_WIN32_WINNT >= 0x0600) */

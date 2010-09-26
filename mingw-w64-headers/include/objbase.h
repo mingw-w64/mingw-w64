@@ -330,6 +330,14 @@ WINOLEAPI CreateStdProgressIndicator(HWND hwndParent,LPCOLESTR pszTitle,IBindSta
 #if (_WIN32_WINNT >= 0x0600)
 HRESULT WINAPI CoDisconnectContext(DWORD dwTimeout);
 #endif /*(_WIN32_WINNT >= 0x0600)*/
+#if (_WIN32_WINNT >= 0x0601)
+
+WINOLEAPI HRESULT WINAPI CoGetApartmentType(
+  APTTYPE *pAptType,
+  APTTYPEQUALIFIER *pAptQualifier
+);
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #ifndef RC_INVOKED
 #include <poppack.h>

@@ -345,6 +345,35 @@ typedef struct tagKS_DATARANGE_BDA_TRANSPORT {
   BDA_TRANSPORT_INFO BdaTransportInfo;
 } KS_DATARANGE_BDA_TRANSPORT, *PKS_DATARANGE_BDA_TRANSPORT;
 
+#if (_WIN32_WINNT >= 0x0601)
+typedef enum tagChannelChangeSpanningEvent_State {
+  ChannelChangeSpanningEvent_Start   = 0,
+  ChannelChangeSpanningEvent_End     = 2 
+} ChannelChangeSpanningEvent_State;
+
+typedef struct _ChannelChangeInfo {
+  ChannelChangeSpanningEvent_State state;
+  ULONGLONG                        TimeStamp;
+} ChannelChangeInfo;
+
+typedef struct _ChannelInfo {
+  LONG lFrequency;
+  __MINGW_EXTENSION union {
+     struct {
+      LONG lONID;
+      LONG lTSID;
+      LONG lSID;
+    } DVB;
+    struct {
+      LONG lProgNumber;
+    } DC;
+    struct {
+      LONG lProgNumber;
+    } ATSC;
+  } ;
+} ChannelInfo;
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 
 /* ------------------------------------------------------------
   BDA Stream Format GUIDs

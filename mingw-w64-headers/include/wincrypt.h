@@ -203,6 +203,11 @@ extern "C" {
 #define CALG_SHA_384 (ALG_CLASS_HASH | ALG_TYPE_ANY | ALG_SID_SHA_384)
 #define CALG_SHA_512 (ALG_CLASS_HASH | ALG_TYPE_ANY | ALG_SID_SHA_512)
 
+#if (_WIN32_WINNT >= 0x0600)
+#define CALG_ECDH 0x0000aa05
+#define CALG_ECDSA 0x00002203
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifndef __HCRYPTKEY__
 #define __HCRYPTKEY__
 /* In ncrypt.h too */
@@ -4047,6 +4052,9 @@ extern "C" {
     DWORD dwUrlRetrievalTimeout;
     WINBOOL fCheckRevocationFreshnessTime;
     DWORD dwRevocationFreshnessTime;
+#if (_WIN32_WINNT >= 0x0600)
+    LPFILETIME       pftCacheResync;
+#endif /*(_WIN32_WINNT >= 0x0600)*/
 #endif
   } CERT_CHAIN_PARA,*PCERT_CHAIN_PARA;
 
@@ -4148,6 +4156,9 @@ extern "C" {
 #define CERT_CHAIN_POLICY_BASIC_CONSTRAINTS ((LPCSTR) 5)
 #define CERT_CHAIN_POLICY_NT_AUTH ((LPCSTR) 6)
 #define CERT_CHAIN_POLICY_MICROSOFT_ROOT ((LPCSTR) 7)
+#if (_WIN32_WINNT >= 0x0600)
+#define CERT_CHAIN_POLICY_EV ((LPCSTR) 8)
+#endif /*(_WIN32_WINNT >= 0x0600)*/
 
   typedef struct _AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     DWORD cbSize;
@@ -4238,7 +4249,8 @@ extern "C" {
 #define CERT_SRV_OCSP_RESP_MIN_AFTER_NEXT_UPDATE_SECONDS_VALUE_NAME L"SrvOcspRespMinAfterNextUpdateSeconds"
 #define CERT_SRV_OCSP_RESP_MIN_AFTER_NEXT_UPDATE_SECONDS_DEFAULT (1 * 60)
 
-typedef LPVOID HCERT_SERVER_OCSP_RESPONSE;
+typedef VOID* HCERT_SERVER_OCSP_RESPONSE;
+typedef ULONG_PTR HCRYPTPROV_LEGACY;
 
 typedef WINBOOL ( WINAPI *PFN_CERT_CREATE_CONTEXT_SORT_FUNC )(
   DWORD cbTotalEncoded,
@@ -4430,8 +4442,14 @@ typedef struct _CERT_SERVER_OCSP_RESPONSE_CONTEXT {
 #ifndef __NCRYPT_KEY_HANDLE__
 #define __NCRYPT_KEY_HANDLE__
 /*in ncrypt.h too*/
-typedef LPVOID NCRYPT_KEY_HANDLE;
+typedef ULONG_PTR NCRYPT_KEY_HANDLE;
 #endif
+
+#ifndef __HCRYPTPROV_OR_NCRYPT_KEY_HANDLE_DEFINED__
+#define __HCRYPTPROV_OR_NCRYPT_KEY_HANDLE_DEFINED__
+/*Also in cryptxml.h*/
+typedef ULONG_PTR HCRYPTPROV_OR_NCRYPT_KEY_HANDLE;
+#endif /*__HCRYPTPROV_OR_NCRYPT_KEY_HANDLE_DEFINED__*/
 
 typedef struct _CMSG_CNG_CONTENT_DECRYPT_INFO {
   DWORD                      cbSize;
@@ -4705,7 +4723,7 @@ typedef struct _OCSP_SIGNED_REQUEST_INFO {
   POCSP_SIGNATURE_INFO pOptionalSignatureInfo;
 } OCSP_SIGNED_REQUEST_INFO, *POCSP_SIGNED_REQUEST_INFO;
 
-WINBOOL WINAPI CryptHashCertificate2(
+WINCRYPT32API WINBOOL WINAPI CryptHashCertificate2(
   LPCWSTR pwszCNGHashAlgid,
   DWORD dwFlags,
   void *pvReserved,
@@ -4715,7 +4733,7 @@ WINBOOL WINAPI CryptHashCertificate2(
   DWORD *pcbComputedHash
 );
 
-WINBOOL WINAPI CryptImportPublicKeyInfoEx2(
+WINCRYPT32API WINBOOL WINAPI CryptImportPublicKeyInfoEx2(
   DWORD dwCertEncodingType,
   PCERT_PUBLIC_KEY_INFO pInfo,
   DWORD dwFlags,
@@ -4723,7 +4741,7 @@ WINBOOL WINAPI CryptImportPublicKeyInfoEx2(
   BCRYPT_KEY_HANDLE *phKey
 );
 
-WINBOOL WINAPI CryptUpdateProtectedState(
+WINCRYPT32API WINBOOL WINAPI CryptUpdateProtectedState(
   PSID pOldSid,
   LPCWSTR pwszOldPassword,
   DWORD dwFlags,
@@ -4732,6 +4750,181 @@ WINBOOL WINAPI CryptUpdateProtectedState(
 );
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
+
+#if (_WIN32_WINNT >= 0x0601)
+#define CERT_BUNDLE_CERTIFICATE 0
+#define CERT_BUNDLE_CRL 1
+
+typedef struct _CERT_OR_CRL_BLOB {
+  DWORD                    dwChoice;
+  DWORD                    cbEncoded;
+  BYTE                     *pbEncoded;
+} CERT_OR_CRL_BLOB, *PCERT_OR_CRL_BLOB;
+
+typedef struct _CERT_OR_CRL_BUNDLE {
+  DWORD             cItem;
+  PCERT_OR_CRL_BLOB rgItem;
+} CERT_OR_CRL_BUNDLE, *PCERT_OR_CRL_BUNDLE;
+
+typedef struct _CERT_SELECT_CHAIN_PARA {
+  HCERTCHAINENGINE hChainEngine;
+  PFILETIME        pTime;
+  HCERTSTORE       hAdditionalStore;
+  PCERT_CHAIN_PARA pChainPara;
+  DWORD            dwFlags;
+} CERT_SELECT_CHAIN_PARA, *PCERT_SELECT_CHAIN_PARA;
+typedef const CERT_SELECT_CHAIN_PARA *PCCERT_SELECT_CHAIN_PARA;
+
+#define CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0x00000004
+#define CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0x80000000
+
+typedef struct _CERT_SELECT_CRITERIA {
+  DWORD dwType;
+  DWORD cPara;
+  void  **ppPara;
+} CERT_SELECT_CRITERIA, *PCERT_SELECT_CRITERIA;
+typedef const CERT_SELECT_CRITERIA *PCCERT_SELECT_CRITERIA;
+
+#define CERT_SELECT_BY_ENHKEY_USAGE 1
+#define CERT_SELECT_BY_KEY_USAGE 2
+#define CERT_SELECT_BY_POLICY_OID 3
+#define CERT_SELECT_BY_PROV_NAME 4
+#define CERT_SELECT_BY_EXTENSION 5
+#define CERT_SELECT_BY_SUBJECT_HOST_NAME 6
+#define CERT_SELECT_BY_ISSUER_ATTR 7
+#define CERT_SELECT_BY_SUBJECT_ATTR 8
+#define CERT_SELECT_BY_ISSUER_NAME 9
+#define CERT_SELECT_BY_PUBLIC_KEY 10
+#define CERT_SELECT_BY_TLS_SIGNATURES 11
+
+typedef struct _CRYPT_TIMESTAMP_ACCURACY {
+  DWORD dwSeconds;
+  DWORD dwMillis;
+  DWORD dwMicros;
+} CRYPT_TIMESTAMP_ACCURACY, *PCRYPT_TIMESTAMP_ACCURACY;
+
+typedef struct _CRYPT_TIMESTAMP_REQUEST {
+  DWORD                      dwVersion;
+  CRYPT_ALGORITHM_IDENTIFIER HashAlgorithm;
+  CRYPT_DER_BLOB             HashedMessage;
+  LPSTR                      pszTSAPolicyId;
+  CRYPT_INTEGER_BLOB         Nonce;
+  WINBOOL                    fCertReq;
+  DWORD                      cExtension;
+  PCERT_EXTENSION            rgExtension;
+} CRYPT_TIMESTAMP_REQUEST, *PCRYPT_TIMESTAMP_REQUEST;
+
+typedef struct _CRYPT_TIMESTAMP_INFO {
+  DWORD                      dwVersion;
+  LPSTR                      pszTSAPolicyId;
+  CRYPT_ALGORITHM_IDENTIFIER HashAlgorithm;
+  CRYPT_DER_BLOB             HashedMessage;
+  CRYPT_INTEGER_BLOB         SerialNumber;
+  FILETIME                   ftTime;
+  PCRYPT_TIMESTAMP_ACCURACY  pvAccuracy;
+  WINBOOL                    fOrdering;
+  CRYPT_DER_BLOB             Nonce;
+  CRYPT_DER_BLOB             Tsa;
+  DWORD                      cExtension;
+  PCERT_EXTENSION            rgExtension;
+} CRYPT_TIMESTAMP_INFO, *PCRYPT_TIMESTAMP_INFO;
+
+typedef struct _CRYPT_TIMESTAMP_PARA {
+  LPCSTR             pszTSAPolicyId;
+  WINBOOL            fRequestCerts;
+  CRYPT_INTEGER_BLOB Nonce;
+  DWORD              cExtension;
+  PCERT_EXTENSION    rgExtension;
+} CRYPT_TIMESTAMP_PARA, *PCRYPT_TIMESTAMP_PARA;
+
+#define TIMESTAMP_VERSION 1
+
+typedef struct _CRYPT_TIMESTAMP_CONTEXT {
+  DWORD                 cbEncoded;
+  BYTE                  *pbEncoded;
+  PCRYPT_TIMESTAMP_INFO pTimeStamp;
+} CRYPT_TIMESTAMP_CONTEXT, *PCRYPT_TIMESTAMP_CONTEXT;
+
+typedef struct _CRYPT_TIMESTAMP_RESPONSE {
+  DWORD          dwStatus;
+  DWORD          cFreeText;
+  LPWSTR         rgFreeText;
+  CRYPT_BIT_BLOB FailureInfo;
+  CRYPT_DER_BLOB ContentInfo;
+} CRYPT_TIMESTAMP_RESPONSE, *PCRYPT_TIMESTAMP_RESPONSE;
+
+#define TIMESTAMP_STATUS_GRANTED 0
+#define TIMESTAMP_STATUS_GRANTED_WITH_MODS 1
+#define TIMESTAMP_STATUS_REJECTED 2
+#define TIMESTAMP_STATUS_WAITING 3
+#define TIMESTAMP_STATUS_REVOCATION_WARNING 4
+#define TIMESTAMP_STATUS_REVOKED 5
+
+#define TIMESTAMP_FAILURE_BAD_ALG 0
+#define TIMESTAMP_FAILURE_BAD_REQUEST 2
+#define TIMESTAMP_FAILURE_BAD_FORMAT 5
+#define TIMESTAMP_FAILURE_TIME_NOT_AVAILABLE 14
+#define TIMESTAMP_FAILURE_POLICY_NOT_SUPPORTED 15
+#define TIMESTAMP_FAILURE_EXTENSION_NOT_SUPPORTED 16
+#define TIMESTAMP_FAILURE_INFO_NOT_AVAILABLE 17
+#define TIMESTAMP_FAILURE_SYSTEM_FAILURE 25
+
+WINCRYPT32API VOID WINAPI CertFreeCertificateChainList(
+  PCCERT_CHAIN_CONTEXT *prgpSelection
+);
+
+WINCRYPT32API WINBOOL WINAPI CertSelectCertificateChains(
+  LPCGUID pSelectionContext,
+  DWORD dwFlags,
+  PCCERT_SELECT_CHAIN_PARA pChainParameters,
+  cCriteria DWORD,
+  PCCERT_SELECT_CRITERIA rgpCriteria,
+  HCERTSTORE hStore,
+  PDWORD pcSelection,
+  PCCERT_CHAIN_CONTEXT **pprgpSelection
+);
+
+WINCRYPT32API WINBOOL WINAPI CryptExportPublicKeyInfoFromBCryptKeyHandle(
+  BCRYPT_KEY_HANDLE hBCryptKey,
+  DWORD dwCertEncodingType,
+  LPSTR pszPublicKeyObjId,
+  DWORD dwFlags,
+  void pvAuxInfo,
+  PCERT_PUBLIC_KEY_INFO pInfo,
+  DWORD pcbInfo
+);
+
+#define CRYPT_OID_INFO_PUBKEY_ENCRYPT_KEY_FLAG 0x40000000
+#define CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG 0x80000000
+
+WINCRYPT32API WINBOOL WINAPI CryptRetrieveTimeStamp(
+  LPCWSTR wszUrl,
+  DWORD dwRetrievalFlags,
+  DWORD dwTimeout,
+  LPCSTR pszHashId,
+  const CRYPT_TIMESTAMP_PARA *pPara,
+  const BYTE *pbData,
+  DWORD cbData,
+  PCRYPT_TIMESTAMP_CONTEXT *ppTsContext,
+  PCCERT_CONTEXT *ppTsSigner,
+  HCERTSTORE phStore
+);
+
+#define TIMESTAMP_DONT_HASH_DATA 0x00000001
+#define TIMESTAMP_VERIFY_CONTEXT_SIGNATURE 0x00000020
+#define TIMESTAMP_NO_AUTH_RETRIEVAL 0x00020000
+
+WINCRYPT32API WINBOOL WINAPI CryptVerifyTimeStampSignature(
+  const BYTE pbTSContentInfo,
+  DWORD cbTSContentInfo,
+  const DWORD pbData,
+  DWORD cbData,
+  HCERTSTORE hAdditionalStore,
+  PCRYPT_TIMESTAMP_CONTEXT ppTsContext,
+  PCCERT_CONTEXT *ppTsSigner,
+  HCERTSTORE *phStore
+);
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #ifdef __cplusplus
 }

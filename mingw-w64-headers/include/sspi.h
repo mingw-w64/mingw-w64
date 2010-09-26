@@ -1044,6 +1044,17 @@ SECURITY_STATUS WINAPI AddSecurityPackageW(LPWSTR pszPackageName,PSECURITY_PACKA
     PSecBufferDesc pOutput
   );
 #endif /*(_WIN32_WINNT >= 0x0600)*/
+#if (_WIN32_WINNT >= 0x0601)
+typedef struct _CREDUIWIN_MARSHALED_CONTEXT {
+  GUID   StructureType;
+  USHORT cbHeaderLength;
+  LUID   LogonId;
+  GUID   MarshaledDataType;
+  ULONG  MarshaledDataOffset;
+  USHORT MarshaledDataLength;
+} CREDUIWIN_MARSHALED_CONTEXT, *PCREDUIWIN_MARSHALED_CONTEXT;
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #ifdef __cplusplus
 }

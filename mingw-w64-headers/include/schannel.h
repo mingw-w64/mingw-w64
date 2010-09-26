@@ -367,4 +367,10 @@ typedef struct _SecPkgContext_EapPrfInfo {
   DWORD cbPrfData;
 } SecPkgContext_EapPrfInfo, *PSecPkgContext_EapPrfInfo;
 #endif /*(_WIN32_WINNT >= 0x0600)*/
+#if (_WIN32_WINNT >= 0x0601)
+typedef struct _SecPkgContext_SupportedSignatures {
+  WORD cSignatureAndHashAlgorithms;
+  WORD *pSignatureAndHashAlgorithms;
+} SecPkgContext_SupportedSignatures, *PSecPkgContext_SupportedSignatures;
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 #endif
