@@ -1,3 +1,8 @@
+2010-09-26  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/cryptxml.def: New from Win2k8r2.
+	* lib64/cryptxml.def: Likewise.
+
 2010-09-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Update gdtoa from netlib.org based on changes from Sep. 15, 2010:
