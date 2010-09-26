@@ -22,9 +22,9 @@ GetRoleTextA
 GetRoleTextW
 GetStateTextA
 GetStateTextW
-IID_IAccessible
-IID_IAccessibleHandler
-LIBID_Accessibility
+;IID_IAccessible DATA
+;IID_IAccessibleHandler DATA
+;LIBID_Accessibility DATA
 LresultFromObject
 ObjectFromLresult
 WindowFromAccessibleObject
