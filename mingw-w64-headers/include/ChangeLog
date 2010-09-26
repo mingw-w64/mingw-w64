@@ -1,3 +1,18 @@
+2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* agtctl_i.c: Moved to mingw-w64-crt/libsrc/
+	* agtsvr_i.c: Likewise.
+	* cdoex_i.c: Likewise.
+	* cdoexm_i.c: Likewise.
+	* cdosys_i.c: Likewise.
+	* emostore_i.c: Likewise.
+	* iisext_i.c: Likewise.
+	* mtsadmin_i.c: Likewise.
+	* mtxadmin_i.c: Likewise.
+	* scardssp_i.c: Likewise.
+	* scardssp_p.c: Likewise.
+	* tsuserex_i.c: Likewise.
+
 2010-09-20  Pawel Sikora  <pawel.sikora@agmk.net>
 
 	* eh.h (_is_exception_typeof): Use std::type_info.

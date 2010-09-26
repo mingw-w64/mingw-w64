@@ -24,7 +24,6 @@ dxhead_HEADERS = @DXHEAD_LIST@
 EXTRA_DIST = 
 
 EXTRA_HEADERS = \
-  include/*.c \
   include/*.dlg \
   include/*.h \
   include/*.h16 \
