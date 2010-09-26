@@ -1,3 +1,23 @@
+2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/agtctl_i.c: Moved from mingw-w64-headers/include/
+	* libsrc/agtsvr_i.c: Likewise.
+	* libsrc/cdoex_i.c: Likewise.
+	* libsrc/cdoexm_i.c: Likewise.
+	* libsrc/cdosys_i.c: Likewise.
+	* libsrc/emostore_i.c: Likewise.
+	* libsrc/iisext_i.c: Likewise.
+	* libsrc/mtsadmin_i.c: Likewise.
+	* libsrc/mtxadmin_i.c: Likewise.
+	* libsrc/scardssp_i.c: Likewise.
+	* libsrc/scardssp_p.c: Likewise.
+	* libsrc/tsuserex_i.c: Likewise.
+	* Makefile.am (src_libuuid): Add agtctl_i.c, agtsvr_i.c, cdoex_i.c,
+	cdoexm_i.c, cdosys_i.c, emostore_i.c, iisext_i.c, mtsadmin_i.c,
+	mtxadmin_i.c, scardssp_i.c and tsuserex_i.c to build.  scardssp_p.c
+	isn't built for now.
+	* Makefile.in: Regenerate.
+
 2010-09-26  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/cryptxml.def: New from Win2k8r2.

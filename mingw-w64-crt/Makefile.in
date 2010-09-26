@@ -927,7 +927,11 @@ lib32_libstrmiids_a_OBJECTS = $(am_lib32_libstrmiids_a_OBJECTS)
 lib32_libuuid_a_AR = $(AR) $(ARFLAGS)
 lib32_libuuid_a_LIBADD =
 am__lib32_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/guid_nul.c \
-	libsrc/devguid.c libsrc/ativscp-uuid.c libsrc/atsmedia-uuid.c \
+	libsrc/devguid.c libsrc/agtctl_i.c libsrc/agtsvr_i.c \
+	libsrc/cdoex_i.c libsrc/cdoexm_i.c libsrc/cdosys_i.c \
+	libsrc/emostore_i.c libsrc/iisext_i.c libsrc/mtsadmin_i.c \
+	libsrc/mtxadmin_i.c libsrc/scardssp_i.c libsrc/tsuserex_i.c \
+	libsrc/ativscp-uuid.c libsrc/atsmedia-uuid.c \
 	libsrc/bdamedia-uuid.c libsrc/bth-uuid.c libsrc/cguid-uuid.c \
 	libsrc/comcat-uuid.c libsrc/docobj-uuid.c libsrc/exdisp-uuid.c \
 	libsrc/extras-uuid.c libsrc/hlguids-uuid.c libsrc/hlink-uuid.c \
@@ -947,6 +951,17 @@ am__lib32_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/guid_nul.c \
 am__objects_19 = libsrc/lib32_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-guid_nul.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-devguid.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-agtctl_i.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-agtsvr_i.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-cdoex_i.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-cdoexm_i.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-cdosys_i.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-emostore_i.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-iisext_i.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-mtsadmin_i.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-mtxadmin_i.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-scardssp_i.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-tsuserex_i.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-ativscp-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-atsmedia-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-bdamedia-uuid.$(OBJEXT) \
@@ -1839,7 +1854,11 @@ lib64_libstrmiids_a_OBJECTS = $(am_lib64_libstrmiids_a_OBJECTS)
 lib64_libuuid_a_AR = $(AR) $(ARFLAGS)
 lib64_libuuid_a_LIBADD =
 am__lib64_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/guid_nul.c \
-	libsrc/devguid.c libsrc/ativscp-uuid.c libsrc/atsmedia-uuid.c \
+	libsrc/devguid.c libsrc/agtctl_i.c libsrc/agtsvr_i.c \
+	libsrc/cdoex_i.c libsrc/cdoexm_i.c libsrc/cdosys_i.c \
+	libsrc/emostore_i.c libsrc/iisext_i.c libsrc/mtsadmin_i.c \
+	libsrc/mtxadmin_i.c libsrc/scardssp_i.c libsrc/tsuserex_i.c \
+	libsrc/ativscp-uuid.c libsrc/atsmedia-uuid.c \
 	libsrc/bdamedia-uuid.c libsrc/bth-uuid.c libsrc/cguid-uuid.c \
 	libsrc/comcat-uuid.c libsrc/docobj-uuid.c libsrc/exdisp-uuid.c \
 	libsrc/extras-uuid.c libsrc/hlguids-uuid.c libsrc/hlink-uuid.c \
@@ -1859,6 +1878,17 @@ am__lib64_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/guid_nul.c \
 am__objects_38 = libsrc/lib64_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-guid_nul.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-devguid.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-agtctl_i.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-agtsvr_i.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-cdoex_i.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-cdoexm_i.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-cdosys_i.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-emostore_i.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-iisext_i.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-mtsadmin_i.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-mtxadmin_i.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-scardssp_i.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-tsuserex_i.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-ativscp-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-atsmedia-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-bdamedia-uuid.$(OBJEXT) \
@@ -3013,7 +3043,9 @@ src_libscrnsave = libsrc/scrnsave.c
 src_libscrnsavw = libsrc/scrnsave.c
 src_libstrmiids = libsrc/strmiids.c
 src_libmingwthrd = libsrc/mingwthrd_mt.c
-src_libuuid = libsrc/uuid.c   libsrc/guid_nul.c         libsrc/devguid.c         \
+src_libuuid = libsrc/uuid.c   libsrc/guid_nul.c         libsrc/devguid.c         libsrc/agtctl_i.c        libsrc/agtsvr_i.c          \
+  libsrc/cdoex_i.c          libsrc/cdoexm_i.c         libsrc/cdosys_i.c        libsrc/emostore_i.c      libsrc/iisext_i.c          \
+  libsrc/mtsadmin_i.c       libsrc/mtxadmin_i.c       libsrc/scardssp_i.c      libsrc/tsuserex_i.c      \
   libsrc/ativscp-uuid.c     libsrc/atsmedia-uuid.c    libsrc/bdamedia-uuid.c   libsrc/bth-uuid.c        libsrc/cguid-uuid.c        \
   libsrc/comcat-uuid.c      libsrc/docobj-uuid.c      libsrc/exdisp-uuid.c     libsrc/extras-uuid.c     libsrc/hlguids-uuid.c      \
   libsrc/hlink-uuid.c       libsrc/mlang-uuid.c       libsrc/msctf-uuid.c      libsrc/mshtml-uuid.c     libsrc/msxml-uuid.c        \
@@ -5304,6 +5336,28 @@ libsrc/lib32_libuuid_a-guid_nul.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-devguid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-agtctl_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-agtsvr_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-cdoex_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-cdoexm_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-cdosys_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-emostore_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-iisext_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-mtsadmin_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-mtxadmin_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-scardssp_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-tsuserex_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-ativscp-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-atsmedia-uuid.$(OBJEXT):  \
@@ -6628,6 +6682,28 @@ libsrc/lib64_libuuid_a-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 libsrc/lib64_libuuid_a-guid_nul.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-devguid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-agtctl_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-agtsvr_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-cdoex_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-cdoexm_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-cdosys_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-emostore_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-iisext_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-mtsadmin_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-mtxadmin_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-scardssp_i.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-tsuserex_i.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-ativscp-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
@@ -8035,23 +8111,32 @@ mostlyclean-compile:
 	-rm -f libsrc/lib32_libscrnsavw_a-scrnsave.$(OBJEXT)
 	-rm -f libsrc/lib32_libshell32_a-shell32.$(OBJEXT)
 	-rm -f libsrc/lib32_libstrmiids_a-strmiids.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-agtctl_i.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-agtsvr_i.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-ativscp-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-atsmedia-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-bdamedia-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-bth-uuid.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-cdoex_i.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-cdoexm_i.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-cdosys_i.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-cguid-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-comcat-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-devguid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-docobj-uuid.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-emostore_i.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-exdisp-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-extras-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-guid_nul.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-hlguids-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-hlink-uuid.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-iisext_i.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-mlang-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-msctf-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-mshtml-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-msxml-uuid.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-mtsadmin_i.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-mtxadmin_i.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-netcon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-ntddkbd-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-ntddmou-uuid.$(OBJEXT)
@@ -8069,8 +8154,10 @@ mostlyclean-compile:
 	-rm -f libsrc/lib32_libuuid_a-oleidl-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-power-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-powrprof-uuid.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-scardssp_i.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-servprov-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-textstor-uuid.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-tsuserex_i.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-unknwn-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-urlmon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-usbcamdi-uuid.$(OBJEXT)
@@ -8103,23 +8190,32 @@ mostlyclean-compile:
 	-rm -f libsrc/lib64_libscrnsavw_a-scrnsave.$(OBJEXT)
 	-rm -f libsrc/lib64_libshell32_a-shell32.$(OBJEXT)
 	-rm -f libsrc/lib64_libstrmiids_a-strmiids.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-agtctl_i.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-agtsvr_i.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-ativscp-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-atsmedia-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-bdamedia-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-bth-uuid.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-cdoex_i.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-cdoexm_i.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-cdosys_i.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-cguid-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-comcat-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-devguid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-docobj-uuid.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-emostore_i.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-exdisp-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-extras-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-guid_nul.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-hlguids-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-hlink-uuid.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-iisext_i.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-mlang-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-msctf-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-mshtml-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-msxml-uuid.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-mtsadmin_i.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-mtxadmin_i.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-netcon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-ntddkbd-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-ntddmou-uuid.$(OBJEXT)
@@ -8137,8 +8233,10 @@ mostlyclean-compile:
 	-rm -f libsrc/lib64_libuuid_a-oleidl-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-power-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-powrprof-uuid.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-scardssp_i.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-servprov-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-textstor-uuid.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-tsuserex_i.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-unknwn-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-urlmon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-usbcamdi-uuid.$(OBJEXT)
@@ -9422,23 +9520,32 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libscrnsavw_a-scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libshell32_a-shell32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libstrmiids_a-strmiids.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-agtctl_i.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-agtsvr_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-ativscp-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-atsmedia-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-bdamedia-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-bth-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-cdoex_i.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-cdoexm_i.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-cdosys_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-cguid-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-comcat-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-devguid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-docobj-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-emostore_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-exdisp-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-extras-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-guid_nul.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-hlguids-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-hlink-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-iisext_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-mlang-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-msctf-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-mshtml-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-msxml-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-mtsadmin_i.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-mtxadmin_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-netcon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-ntddkbd-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-ntddmou-uuid.Po@am__quote@
@@ -9456,8 +9563,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-oleidl-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-power-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-powrprof-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-scardssp_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-servprov-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-textstor-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-tsuserex_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-unknwn-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-usbcamdi-uuid.Po@am__quote@
@@ -9490,23 +9599,32 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libscrnsavw_a-scrnsave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libshell32_a-shell32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libstrmiids_a-strmiids.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-agtctl_i.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-agtsvr_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-ativscp-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-atsmedia-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-bdamedia-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-bth-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-cdoex_i.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-cdoexm_i.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-cdosys_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-cguid-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-comcat-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-devguid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-docobj-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-emostore_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-exdisp-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-extras-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-guid_nul.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-hlguids-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-hlink-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-iisext_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-mlang-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-msctf-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-mshtml-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-msxml-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-mtsadmin_i.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-mtxadmin_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-netcon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-ntddkbd-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-ntddmou-uuid.Po@am__quote@
@@ -9524,8 +9642,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-oleidl-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-power-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-powrprof-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-scardssp_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-servprov-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-textstor-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-tsuserex_i.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-unknwn-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-usbcamdi-uuid.Po@am__quote@
@@ -18114,6 +18234,160 @@ libsrc/lib32_libuuid_a-devguid.obj: libsrc/devguid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-devguid.obj `if test -f 'libsrc/devguid.c'; then $(CYGPATH_W) 'libsrc/devguid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/devguid.c'; fi`
 
+libsrc/lib32_libuuid_a-agtctl_i.o: libsrc/agtctl_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-agtctl_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-agtctl_i.Tpo -c -o libsrc/lib32_libuuid_a-agtctl_i.o `test -f 'libsrc/agtctl_i.c' || echo '$(srcdir)/'`libsrc/agtctl_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-agtctl_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-agtctl_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/agtctl_i.c' object='libsrc/lib32_libuuid_a-agtctl_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-agtctl_i.o `test -f 'libsrc/agtctl_i.c' || echo '$(srcdir)/'`libsrc/agtctl_i.c
+
+libsrc/lib32_libuuid_a-agtctl_i.obj: libsrc/agtctl_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-agtctl_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-agtctl_i.Tpo -c -o libsrc/lib32_libuuid_a-agtctl_i.obj `if test -f 'libsrc/agtctl_i.c'; then $(CYGPATH_W) 'libsrc/agtctl_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/agtctl_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-agtctl_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-agtctl_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/agtctl_i.c' object='libsrc/lib32_libuuid_a-agtctl_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-agtctl_i.obj `if test -f 'libsrc/agtctl_i.c'; then $(CYGPATH_W) 'libsrc/agtctl_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/agtctl_i.c'; fi`
+
+libsrc/lib32_libuuid_a-agtsvr_i.o: libsrc/agtsvr_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-agtsvr_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-agtsvr_i.Tpo -c -o libsrc/lib32_libuuid_a-agtsvr_i.o `test -f 'libsrc/agtsvr_i.c' || echo '$(srcdir)/'`libsrc/agtsvr_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-agtsvr_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-agtsvr_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/agtsvr_i.c' object='libsrc/lib32_libuuid_a-agtsvr_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-agtsvr_i.o `test -f 'libsrc/agtsvr_i.c' || echo '$(srcdir)/'`libsrc/agtsvr_i.c
+
+libsrc/lib32_libuuid_a-agtsvr_i.obj: libsrc/agtsvr_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-agtsvr_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-agtsvr_i.Tpo -c -o libsrc/lib32_libuuid_a-agtsvr_i.obj `if test -f 'libsrc/agtsvr_i.c'; then $(CYGPATH_W) 'libsrc/agtsvr_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/agtsvr_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-agtsvr_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-agtsvr_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/agtsvr_i.c' object='libsrc/lib32_libuuid_a-agtsvr_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-agtsvr_i.obj `if test -f 'libsrc/agtsvr_i.c'; then $(CYGPATH_W) 'libsrc/agtsvr_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/agtsvr_i.c'; fi`
+
+libsrc/lib32_libuuid_a-cdoex_i.o: libsrc/cdoex_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-cdoex_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-cdoex_i.Tpo -c -o libsrc/lib32_libuuid_a-cdoex_i.o `test -f 'libsrc/cdoex_i.c' || echo '$(srcdir)/'`libsrc/cdoex_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-cdoex_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-cdoex_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdoex_i.c' object='libsrc/lib32_libuuid_a-cdoex_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-cdoex_i.o `test -f 'libsrc/cdoex_i.c' || echo '$(srcdir)/'`libsrc/cdoex_i.c
+
+libsrc/lib32_libuuid_a-cdoex_i.obj: libsrc/cdoex_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-cdoex_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-cdoex_i.Tpo -c -o libsrc/lib32_libuuid_a-cdoex_i.obj `if test -f 'libsrc/cdoex_i.c'; then $(CYGPATH_W) 'libsrc/cdoex_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdoex_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-cdoex_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-cdoex_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdoex_i.c' object='libsrc/lib32_libuuid_a-cdoex_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-cdoex_i.obj `if test -f 'libsrc/cdoex_i.c'; then $(CYGPATH_W) 'libsrc/cdoex_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdoex_i.c'; fi`
+
+libsrc/lib32_libuuid_a-cdoexm_i.o: libsrc/cdoexm_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-cdoexm_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-cdoexm_i.Tpo -c -o libsrc/lib32_libuuid_a-cdoexm_i.o `test -f 'libsrc/cdoexm_i.c' || echo '$(srcdir)/'`libsrc/cdoexm_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-cdoexm_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-cdoexm_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdoexm_i.c' object='libsrc/lib32_libuuid_a-cdoexm_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-cdoexm_i.o `test -f 'libsrc/cdoexm_i.c' || echo '$(srcdir)/'`libsrc/cdoexm_i.c
+
+libsrc/lib32_libuuid_a-cdoexm_i.obj: libsrc/cdoexm_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-cdoexm_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-cdoexm_i.Tpo -c -o libsrc/lib32_libuuid_a-cdoexm_i.obj `if test -f 'libsrc/cdoexm_i.c'; then $(CYGPATH_W) 'libsrc/cdoexm_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdoexm_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-cdoexm_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-cdoexm_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdoexm_i.c' object='libsrc/lib32_libuuid_a-cdoexm_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-cdoexm_i.obj `if test -f 'libsrc/cdoexm_i.c'; then $(CYGPATH_W) 'libsrc/cdoexm_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdoexm_i.c'; fi`
+
+libsrc/lib32_libuuid_a-cdosys_i.o: libsrc/cdosys_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-cdosys_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-cdosys_i.Tpo -c -o libsrc/lib32_libuuid_a-cdosys_i.o `test -f 'libsrc/cdosys_i.c' || echo '$(srcdir)/'`libsrc/cdosys_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-cdosys_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-cdosys_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdosys_i.c' object='libsrc/lib32_libuuid_a-cdosys_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-cdosys_i.o `test -f 'libsrc/cdosys_i.c' || echo '$(srcdir)/'`libsrc/cdosys_i.c
+
+libsrc/lib32_libuuid_a-cdosys_i.obj: libsrc/cdosys_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-cdosys_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-cdosys_i.Tpo -c -o libsrc/lib32_libuuid_a-cdosys_i.obj `if test -f 'libsrc/cdosys_i.c'; then $(CYGPATH_W) 'libsrc/cdosys_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdosys_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-cdosys_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-cdosys_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdosys_i.c' object='libsrc/lib32_libuuid_a-cdosys_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-cdosys_i.obj `if test -f 'libsrc/cdosys_i.c'; then $(CYGPATH_W) 'libsrc/cdosys_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdosys_i.c'; fi`
+
+libsrc/lib32_libuuid_a-emostore_i.o: libsrc/emostore_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-emostore_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-emostore_i.Tpo -c -o libsrc/lib32_libuuid_a-emostore_i.o `test -f 'libsrc/emostore_i.c' || echo '$(srcdir)/'`libsrc/emostore_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-emostore_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-emostore_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/emostore_i.c' object='libsrc/lib32_libuuid_a-emostore_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-emostore_i.o `test -f 'libsrc/emostore_i.c' || echo '$(srcdir)/'`libsrc/emostore_i.c
+
+libsrc/lib32_libuuid_a-emostore_i.obj: libsrc/emostore_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-emostore_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-emostore_i.Tpo -c -o libsrc/lib32_libuuid_a-emostore_i.obj `if test -f 'libsrc/emostore_i.c'; then $(CYGPATH_W) 'libsrc/emostore_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/emostore_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-emostore_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-emostore_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/emostore_i.c' object='libsrc/lib32_libuuid_a-emostore_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-emostore_i.obj `if test -f 'libsrc/emostore_i.c'; then $(CYGPATH_W) 'libsrc/emostore_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/emostore_i.c'; fi`
+
+libsrc/lib32_libuuid_a-iisext_i.o: libsrc/iisext_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-iisext_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-iisext_i.Tpo -c -o libsrc/lib32_libuuid_a-iisext_i.o `test -f 'libsrc/iisext_i.c' || echo '$(srcdir)/'`libsrc/iisext_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-iisext_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-iisext_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/iisext_i.c' object='libsrc/lib32_libuuid_a-iisext_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-iisext_i.o `test -f 'libsrc/iisext_i.c' || echo '$(srcdir)/'`libsrc/iisext_i.c
+
+libsrc/lib32_libuuid_a-iisext_i.obj: libsrc/iisext_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-iisext_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-iisext_i.Tpo -c -o libsrc/lib32_libuuid_a-iisext_i.obj `if test -f 'libsrc/iisext_i.c'; then $(CYGPATH_W) 'libsrc/iisext_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/iisext_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-iisext_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-iisext_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/iisext_i.c' object='libsrc/lib32_libuuid_a-iisext_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-iisext_i.obj `if test -f 'libsrc/iisext_i.c'; then $(CYGPATH_W) 'libsrc/iisext_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/iisext_i.c'; fi`
+
+libsrc/lib32_libuuid_a-mtsadmin_i.o: libsrc/mtsadmin_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-mtsadmin_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-mtsadmin_i.Tpo -c -o libsrc/lib32_libuuid_a-mtsadmin_i.o `test -f 'libsrc/mtsadmin_i.c' || echo '$(srcdir)/'`libsrc/mtsadmin_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-mtsadmin_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-mtsadmin_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/mtsadmin_i.c' object='libsrc/lib32_libuuid_a-mtsadmin_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-mtsadmin_i.o `test -f 'libsrc/mtsadmin_i.c' || echo '$(srcdir)/'`libsrc/mtsadmin_i.c
+
+libsrc/lib32_libuuid_a-mtsadmin_i.obj: libsrc/mtsadmin_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-mtsadmin_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-mtsadmin_i.Tpo -c -o libsrc/lib32_libuuid_a-mtsadmin_i.obj `if test -f 'libsrc/mtsadmin_i.c'; then $(CYGPATH_W) 'libsrc/mtsadmin_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/mtsadmin_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-mtsadmin_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-mtsadmin_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/mtsadmin_i.c' object='libsrc/lib32_libuuid_a-mtsadmin_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-mtsadmin_i.obj `if test -f 'libsrc/mtsadmin_i.c'; then $(CYGPATH_W) 'libsrc/mtsadmin_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/mtsadmin_i.c'; fi`
+
+libsrc/lib32_libuuid_a-mtxadmin_i.o: libsrc/mtxadmin_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-mtxadmin_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-mtxadmin_i.Tpo -c -o libsrc/lib32_libuuid_a-mtxadmin_i.o `test -f 'libsrc/mtxadmin_i.c' || echo '$(srcdir)/'`libsrc/mtxadmin_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-mtxadmin_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-mtxadmin_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/mtxadmin_i.c' object='libsrc/lib32_libuuid_a-mtxadmin_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-mtxadmin_i.o `test -f 'libsrc/mtxadmin_i.c' || echo '$(srcdir)/'`libsrc/mtxadmin_i.c
+
+libsrc/lib32_libuuid_a-mtxadmin_i.obj: libsrc/mtxadmin_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-mtxadmin_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-mtxadmin_i.Tpo -c -o libsrc/lib32_libuuid_a-mtxadmin_i.obj `if test -f 'libsrc/mtxadmin_i.c'; then $(CYGPATH_W) 'libsrc/mtxadmin_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/mtxadmin_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-mtxadmin_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-mtxadmin_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/mtxadmin_i.c' object='libsrc/lib32_libuuid_a-mtxadmin_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-mtxadmin_i.obj `if test -f 'libsrc/mtxadmin_i.c'; then $(CYGPATH_W) 'libsrc/mtxadmin_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/mtxadmin_i.c'; fi`
+
+libsrc/lib32_libuuid_a-scardssp_i.o: libsrc/scardssp_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-scardssp_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-scardssp_i.Tpo -c -o libsrc/lib32_libuuid_a-scardssp_i.o `test -f 'libsrc/scardssp_i.c' || echo '$(srcdir)/'`libsrc/scardssp_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-scardssp_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-scardssp_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/scardssp_i.c' object='libsrc/lib32_libuuid_a-scardssp_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-scardssp_i.o `test -f 'libsrc/scardssp_i.c' || echo '$(srcdir)/'`libsrc/scardssp_i.c
+
+libsrc/lib32_libuuid_a-scardssp_i.obj: libsrc/scardssp_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-scardssp_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-scardssp_i.Tpo -c -o libsrc/lib32_libuuid_a-scardssp_i.obj `if test -f 'libsrc/scardssp_i.c'; then $(CYGPATH_W) 'libsrc/scardssp_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/scardssp_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-scardssp_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-scardssp_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/scardssp_i.c' object='libsrc/lib32_libuuid_a-scardssp_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-scardssp_i.obj `if test -f 'libsrc/scardssp_i.c'; then $(CYGPATH_W) 'libsrc/scardssp_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/scardssp_i.c'; fi`
+
+libsrc/lib32_libuuid_a-tsuserex_i.o: libsrc/tsuserex_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-tsuserex_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-tsuserex_i.Tpo -c -o libsrc/lib32_libuuid_a-tsuserex_i.o `test -f 'libsrc/tsuserex_i.c' || echo '$(srcdir)/'`libsrc/tsuserex_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-tsuserex_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-tsuserex_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/tsuserex_i.c' object='libsrc/lib32_libuuid_a-tsuserex_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-tsuserex_i.o `test -f 'libsrc/tsuserex_i.c' || echo '$(srcdir)/'`libsrc/tsuserex_i.c
+
+libsrc/lib32_libuuid_a-tsuserex_i.obj: libsrc/tsuserex_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-tsuserex_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-tsuserex_i.Tpo -c -o libsrc/lib32_libuuid_a-tsuserex_i.obj `if test -f 'libsrc/tsuserex_i.c'; then $(CYGPATH_W) 'libsrc/tsuserex_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/tsuserex_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-tsuserex_i.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-tsuserex_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/tsuserex_i.c' object='libsrc/lib32_libuuid_a-tsuserex_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-tsuserex_i.obj `if test -f 'libsrc/tsuserex_i.c'; then $(CYGPATH_W) 'libsrc/tsuserex_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/tsuserex_i.c'; fi`
+
 libsrc/lib32_libuuid_a-ativscp-uuid.o: libsrc/ativscp-uuid.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-ativscp-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-ativscp-uuid.Tpo -c -o libsrc/lib32_libuuid_a-ativscp-uuid.o `test -f 'libsrc/ativscp-uuid.c' || echo '$(srcdir)/'`libsrc/ativscp-uuid.c
 @am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-ativscp-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-ativscp-uuid.Po
@@ -25967,6 +26241,160 @@ libsrc/lib64_libuuid_a-devguid.obj: libsrc/devguid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/devguid.c' object='libsrc/lib64_libuuid_a-devguid.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-devguid.obj `if test -f 'libsrc/devguid.c'; then $(CYGPATH_W) 'libsrc/devguid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/devguid.c'; fi`
+
+libsrc/lib64_libuuid_a-agtctl_i.o: libsrc/agtctl_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-agtctl_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-agtctl_i.Tpo -c -o libsrc/lib64_libuuid_a-agtctl_i.o `test -f 'libsrc/agtctl_i.c' || echo '$(srcdir)/'`libsrc/agtctl_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-agtctl_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-agtctl_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/agtctl_i.c' object='libsrc/lib64_libuuid_a-agtctl_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-agtctl_i.o `test -f 'libsrc/agtctl_i.c' || echo '$(srcdir)/'`libsrc/agtctl_i.c
+
+libsrc/lib64_libuuid_a-agtctl_i.obj: libsrc/agtctl_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-agtctl_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-agtctl_i.Tpo -c -o libsrc/lib64_libuuid_a-agtctl_i.obj `if test -f 'libsrc/agtctl_i.c'; then $(CYGPATH_W) 'libsrc/agtctl_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/agtctl_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-agtctl_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-agtctl_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/agtctl_i.c' object='libsrc/lib64_libuuid_a-agtctl_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-agtctl_i.obj `if test -f 'libsrc/agtctl_i.c'; then $(CYGPATH_W) 'libsrc/agtctl_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/agtctl_i.c'; fi`
+
+libsrc/lib64_libuuid_a-agtsvr_i.o: libsrc/agtsvr_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-agtsvr_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-agtsvr_i.Tpo -c -o libsrc/lib64_libuuid_a-agtsvr_i.o `test -f 'libsrc/agtsvr_i.c' || echo '$(srcdir)/'`libsrc/agtsvr_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-agtsvr_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-agtsvr_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/agtsvr_i.c' object='libsrc/lib64_libuuid_a-agtsvr_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-agtsvr_i.o `test -f 'libsrc/agtsvr_i.c' || echo '$(srcdir)/'`libsrc/agtsvr_i.c
+
+libsrc/lib64_libuuid_a-agtsvr_i.obj: libsrc/agtsvr_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-agtsvr_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-agtsvr_i.Tpo -c -o libsrc/lib64_libuuid_a-agtsvr_i.obj `if test -f 'libsrc/agtsvr_i.c'; then $(CYGPATH_W) 'libsrc/agtsvr_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/agtsvr_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-agtsvr_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-agtsvr_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/agtsvr_i.c' object='libsrc/lib64_libuuid_a-agtsvr_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-agtsvr_i.obj `if test -f 'libsrc/agtsvr_i.c'; then $(CYGPATH_W) 'libsrc/agtsvr_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/agtsvr_i.c'; fi`
+
+libsrc/lib64_libuuid_a-cdoex_i.o: libsrc/cdoex_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-cdoex_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-cdoex_i.Tpo -c -o libsrc/lib64_libuuid_a-cdoex_i.o `test -f 'libsrc/cdoex_i.c' || echo '$(srcdir)/'`libsrc/cdoex_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-cdoex_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-cdoex_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdoex_i.c' object='libsrc/lib64_libuuid_a-cdoex_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-cdoex_i.o `test -f 'libsrc/cdoex_i.c' || echo '$(srcdir)/'`libsrc/cdoex_i.c
+
+libsrc/lib64_libuuid_a-cdoex_i.obj: libsrc/cdoex_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-cdoex_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-cdoex_i.Tpo -c -o libsrc/lib64_libuuid_a-cdoex_i.obj `if test -f 'libsrc/cdoex_i.c'; then $(CYGPATH_W) 'libsrc/cdoex_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdoex_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-cdoex_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-cdoex_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdoex_i.c' object='libsrc/lib64_libuuid_a-cdoex_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-cdoex_i.obj `if test -f 'libsrc/cdoex_i.c'; then $(CYGPATH_W) 'libsrc/cdoex_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdoex_i.c'; fi`
+
+libsrc/lib64_libuuid_a-cdoexm_i.o: libsrc/cdoexm_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-cdoexm_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-cdoexm_i.Tpo -c -o libsrc/lib64_libuuid_a-cdoexm_i.o `test -f 'libsrc/cdoexm_i.c' || echo '$(srcdir)/'`libsrc/cdoexm_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-cdoexm_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-cdoexm_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdoexm_i.c' object='libsrc/lib64_libuuid_a-cdoexm_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-cdoexm_i.o `test -f 'libsrc/cdoexm_i.c' || echo '$(srcdir)/'`libsrc/cdoexm_i.c
+
+libsrc/lib64_libuuid_a-cdoexm_i.obj: libsrc/cdoexm_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-cdoexm_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-cdoexm_i.Tpo -c -o libsrc/lib64_libuuid_a-cdoexm_i.obj `if test -f 'libsrc/cdoexm_i.c'; then $(CYGPATH_W) 'libsrc/cdoexm_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdoexm_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-cdoexm_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-cdoexm_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdoexm_i.c' object='libsrc/lib64_libuuid_a-cdoexm_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-cdoexm_i.obj `if test -f 'libsrc/cdoexm_i.c'; then $(CYGPATH_W) 'libsrc/cdoexm_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdoexm_i.c'; fi`
+
+libsrc/lib64_libuuid_a-cdosys_i.o: libsrc/cdosys_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-cdosys_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-cdosys_i.Tpo -c -o libsrc/lib64_libuuid_a-cdosys_i.o `test -f 'libsrc/cdosys_i.c' || echo '$(srcdir)/'`libsrc/cdosys_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-cdosys_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-cdosys_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdosys_i.c' object='libsrc/lib64_libuuid_a-cdosys_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-cdosys_i.o `test -f 'libsrc/cdosys_i.c' || echo '$(srcdir)/'`libsrc/cdosys_i.c
+
+libsrc/lib64_libuuid_a-cdosys_i.obj: libsrc/cdosys_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-cdosys_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-cdosys_i.Tpo -c -o libsrc/lib64_libuuid_a-cdosys_i.obj `if test -f 'libsrc/cdosys_i.c'; then $(CYGPATH_W) 'libsrc/cdosys_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdosys_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-cdosys_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-cdosys_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/cdosys_i.c' object='libsrc/lib64_libuuid_a-cdosys_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-cdosys_i.obj `if test -f 'libsrc/cdosys_i.c'; then $(CYGPATH_W) 'libsrc/cdosys_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/cdosys_i.c'; fi`
+
+libsrc/lib64_libuuid_a-emostore_i.o: libsrc/emostore_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-emostore_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-emostore_i.Tpo -c -o libsrc/lib64_libuuid_a-emostore_i.o `test -f 'libsrc/emostore_i.c' || echo '$(srcdir)/'`libsrc/emostore_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-emostore_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-emostore_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/emostore_i.c' object='libsrc/lib64_libuuid_a-emostore_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-emostore_i.o `test -f 'libsrc/emostore_i.c' || echo '$(srcdir)/'`libsrc/emostore_i.c
+
+libsrc/lib64_libuuid_a-emostore_i.obj: libsrc/emostore_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-emostore_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-emostore_i.Tpo -c -o libsrc/lib64_libuuid_a-emostore_i.obj `if test -f 'libsrc/emostore_i.c'; then $(CYGPATH_W) 'libsrc/emostore_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/emostore_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-emostore_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-emostore_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/emostore_i.c' object='libsrc/lib64_libuuid_a-emostore_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-emostore_i.obj `if test -f 'libsrc/emostore_i.c'; then $(CYGPATH_W) 'libsrc/emostore_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/emostore_i.c'; fi`
+
+libsrc/lib64_libuuid_a-iisext_i.o: libsrc/iisext_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-iisext_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-iisext_i.Tpo -c -o libsrc/lib64_libuuid_a-iisext_i.o `test -f 'libsrc/iisext_i.c' || echo '$(srcdir)/'`libsrc/iisext_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-iisext_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-iisext_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/iisext_i.c' object='libsrc/lib64_libuuid_a-iisext_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-iisext_i.o `test -f 'libsrc/iisext_i.c' || echo '$(srcdir)/'`libsrc/iisext_i.c
+
+libsrc/lib64_libuuid_a-iisext_i.obj: libsrc/iisext_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-iisext_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-iisext_i.Tpo -c -o libsrc/lib64_libuuid_a-iisext_i.obj `if test -f 'libsrc/iisext_i.c'; then $(CYGPATH_W) 'libsrc/iisext_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/iisext_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-iisext_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-iisext_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/iisext_i.c' object='libsrc/lib64_libuuid_a-iisext_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-iisext_i.obj `if test -f 'libsrc/iisext_i.c'; then $(CYGPATH_W) 'libsrc/iisext_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/iisext_i.c'; fi`
+
+libsrc/lib64_libuuid_a-mtsadmin_i.o: libsrc/mtsadmin_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-mtsadmin_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-mtsadmin_i.Tpo -c -o libsrc/lib64_libuuid_a-mtsadmin_i.o `test -f 'libsrc/mtsadmin_i.c' || echo '$(srcdir)/'`libsrc/mtsadmin_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-mtsadmin_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-mtsadmin_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/mtsadmin_i.c' object='libsrc/lib64_libuuid_a-mtsadmin_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-mtsadmin_i.o `test -f 'libsrc/mtsadmin_i.c' || echo '$(srcdir)/'`libsrc/mtsadmin_i.c
+
+libsrc/lib64_libuuid_a-mtsadmin_i.obj: libsrc/mtsadmin_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-mtsadmin_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-mtsadmin_i.Tpo -c -o libsrc/lib64_libuuid_a-mtsadmin_i.obj `if test -f 'libsrc/mtsadmin_i.c'; then $(CYGPATH_W) 'libsrc/mtsadmin_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/mtsadmin_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-mtsadmin_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-mtsadmin_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/mtsadmin_i.c' object='libsrc/lib64_libuuid_a-mtsadmin_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-mtsadmin_i.obj `if test -f 'libsrc/mtsadmin_i.c'; then $(CYGPATH_W) 'libsrc/mtsadmin_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/mtsadmin_i.c'; fi`
+
+libsrc/lib64_libuuid_a-mtxadmin_i.o: libsrc/mtxadmin_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-mtxadmin_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-mtxadmin_i.Tpo -c -o libsrc/lib64_libuuid_a-mtxadmin_i.o `test -f 'libsrc/mtxadmin_i.c' || echo '$(srcdir)/'`libsrc/mtxadmin_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-mtxadmin_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-mtxadmin_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/mtxadmin_i.c' object='libsrc/lib64_libuuid_a-mtxadmin_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-mtxadmin_i.o `test -f 'libsrc/mtxadmin_i.c' || echo '$(srcdir)/'`libsrc/mtxadmin_i.c
+
+libsrc/lib64_libuuid_a-mtxadmin_i.obj: libsrc/mtxadmin_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-mtxadmin_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-mtxadmin_i.Tpo -c -o libsrc/lib64_libuuid_a-mtxadmin_i.obj `if test -f 'libsrc/mtxadmin_i.c'; then $(CYGPATH_W) 'libsrc/mtxadmin_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/mtxadmin_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-mtxadmin_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-mtxadmin_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/mtxadmin_i.c' object='libsrc/lib64_libuuid_a-mtxadmin_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-mtxadmin_i.obj `if test -f 'libsrc/mtxadmin_i.c'; then $(CYGPATH_W) 'libsrc/mtxadmin_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/mtxadmin_i.c'; fi`
+
+libsrc/lib64_libuuid_a-scardssp_i.o: libsrc/scardssp_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-scardssp_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-scardssp_i.Tpo -c -o libsrc/lib64_libuuid_a-scardssp_i.o `test -f 'libsrc/scardssp_i.c' || echo '$(srcdir)/'`libsrc/scardssp_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-scardssp_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-scardssp_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/scardssp_i.c' object='libsrc/lib64_libuuid_a-scardssp_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-scardssp_i.o `test -f 'libsrc/scardssp_i.c' || echo '$(srcdir)/'`libsrc/scardssp_i.c
+
+libsrc/lib64_libuuid_a-scardssp_i.obj: libsrc/scardssp_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-scardssp_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-scardssp_i.Tpo -c -o libsrc/lib64_libuuid_a-scardssp_i.obj `if test -f 'libsrc/scardssp_i.c'; then $(CYGPATH_W) 'libsrc/scardssp_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/scardssp_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-scardssp_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-scardssp_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/scardssp_i.c' object='libsrc/lib64_libuuid_a-scardssp_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-scardssp_i.obj `if test -f 'libsrc/scardssp_i.c'; then $(CYGPATH_W) 'libsrc/scardssp_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/scardssp_i.c'; fi`
+
+libsrc/lib64_libuuid_a-tsuserex_i.o: libsrc/tsuserex_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-tsuserex_i.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-tsuserex_i.Tpo -c -o libsrc/lib64_libuuid_a-tsuserex_i.o `test -f 'libsrc/tsuserex_i.c' || echo '$(srcdir)/'`libsrc/tsuserex_i.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-tsuserex_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-tsuserex_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/tsuserex_i.c' object='libsrc/lib64_libuuid_a-tsuserex_i.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-tsuserex_i.o `test -f 'libsrc/tsuserex_i.c' || echo '$(srcdir)/'`libsrc/tsuserex_i.c
+
+libsrc/lib64_libuuid_a-tsuserex_i.obj: libsrc/tsuserex_i.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-tsuserex_i.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-tsuserex_i.Tpo -c -o libsrc/lib64_libuuid_a-tsuserex_i.obj `if test -f 'libsrc/tsuserex_i.c'; then $(CYGPATH_W) 'libsrc/tsuserex_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/tsuserex_i.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-tsuserex_i.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-tsuserex_i.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/tsuserex_i.c' object='libsrc/lib64_libuuid_a-tsuserex_i.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-tsuserex_i.obj `if test -f 'libsrc/tsuserex_i.c'; then $(CYGPATH_W) 'libsrc/tsuserex_i.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/tsuserex_i.c'; fi`
 
 libsrc/lib64_libuuid_a-ativscp-uuid.o: libsrc/ativscp-uuid.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-ativscp-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-ativscp-uuid.Tpo -c -o libsrc/lib64_libuuid_a-ativscp-uuid.o `test -f 'libsrc/ativscp-uuid.c' || echo '$(srcdir)/'`libsrc/ativscp-uuid.c

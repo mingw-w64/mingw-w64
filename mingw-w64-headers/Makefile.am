@@ -27,7 +27,6 @@ EXTRA_DIST = ChangeLog-2009
 DISTCHECK_CONFIGURE_FLAGS = --enable-sdk=all
 
 EXTRA_HEADERS = \
-  include/*.c \
   include/*.dlg \
   include/*.h \
   include/*.h16 \
