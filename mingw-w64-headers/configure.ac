@@ -20,7 +20,7 @@ AC_PROG_SED
 # Checks for header files.
 
 BASEHEAD_LIST=$srcdir/include/*.h
-for i in c dlg h16 hxx rh ver; do
+for i in dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
 #FIXME: Add in base directx
