@@ -1,3 +1,8 @@
+2010-09-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* configure.ac (BASEHEAD_LIST): Remove include/*.c.
+	* configure: Regenerate.
+
 2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Makefile.am (EXTRA_HEADERS): Remove include/*.c
