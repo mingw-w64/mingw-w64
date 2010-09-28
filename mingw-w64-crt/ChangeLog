@@ -20,6 +20,23 @@
 
 2010-09-26  Jonathan Yong  <jon_y@users.sourceforge.net>
 
+	* lib32/ole32.def: Update from Win2k8r2.
+	* lib32/oleacc.def: Likewise.
+	* lib32/oleaut32.def: Likewise.
+	* lib32/olecli32.def: Likewise.
+	* lib32/oledlg.def: Likewise.
+	* lib32/olepro32.def: Likewise.
+	* lib32/olesvr32.def: Likewise.
+	* lib32/olethk32.def: Likewise.
+	* lib64/ole32.def: Likewise.
+	* lib64/oleacc.def: Likewise.
+	* lib64/oleaut32.def: Likewise.
+	* lib64/oledlg.def: Likewise.
+	* lib64/oleprn.def: Likewise.
+	* libsrc/oleacc-uuid.c: Add IID_IAccessibleHandler.
+
+2010-09-26  Jonathan Yong  <jon_y@users.sourceforge.net>
+
 	* lib32/cryptxml.def: New from Win2k8r2.
 	* lib64/cryptxml.def: Likewise.
 
