@@ -1,5 +1,6 @@
 2010-09-30  Kai Tietz  <kai.tietz@onevision.com>
 
+	* Makefile.am: Add misc/wcsnlen.c.
 	* misc/wcsnlen.c: New.
 
 2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
