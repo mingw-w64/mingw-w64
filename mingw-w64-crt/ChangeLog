@@ -1,3 +1,7 @@
+2010-09-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wcsnlen.c: New.
+
 2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* libsrc/agtctl_i.c: Moved from mingw-w64-headers/include/
