@@ -1,5 +1,5 @@
 The gdtoa code here is based on David M. Gay's original
-gdtoa source at http://www.netlib.org/fp/ from Sep. 15,
+gdtoa source at http://www.netlib.org/fp/ from Sep. 27,
 2010. The major changes between the original source and
 the mingw port here include:
 
