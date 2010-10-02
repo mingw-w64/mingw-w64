@@ -3376,7 +3376,8 @@ src_libmingwex32 = \
 @LIB32_TRUE@  lib32/libxinput.a         lib32/libxaudio.a         lib32/libxaudiod.a   \
 @LIB32_TRUE@  lib32/libxapofx.a         lib32/libx3daudio.a       lib32/libd3dx9.a     \
 @LIB32_TRUE@  lib32/libd3dx10.a         lib32/libd3dx11.a         lib32/libd3dcsxd.a   \
-@LIB32_TRUE@  lib32/libd3dcompiler.a
+@LIB32_TRUE@  lib32/libd3dcompiler.a \
+@LIB32_TRUE@  lib32/libcryptxml.a
 
 
 # End 32-bit runtime
@@ -3725,7 +3726,8 @@ src_libmingwex32 = \
 @LIB64_TRUE@  lib64/libxinput.a         lib64/libxaudio.a         lib64/libxaudiod.a   \
 @LIB64_TRUE@  lib64/libxapofx.a         lib64/libx3daudio.a       lib64/libd3dx9.a     \
 @LIB64_TRUE@  lib64/libd3dx10.a         lib64/libd3dx11.a         lib64/libd3dcsxd.a   \
-@LIB64_TRUE@  lib64/libd3dcompiler.a
+@LIB64_TRUE@  lib64/libd3dcompiler.a \
+@LIB64_TRUE@  lib64/libcryptxml.a
 
 
 # End 64-bit runtime
