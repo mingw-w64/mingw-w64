@@ -297,7 +297,7 @@ typedef struct _NSPV2_ROUTINE {
 #define LSP_LOCAL_CACHE     0x00000080
 
 typedef enum _WSC_PROVIDER_INFO_TYPE {
-  ProviderInfoLspCategories,
+  ProviderInfoLspCategories = 0,
   ProviderInfoAudit
 } WSC_PROVIDER_INFO_TYPE;
 
