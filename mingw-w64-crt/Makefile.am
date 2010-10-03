@@ -442,6 +442,8 @@ lib32_DATA = \
   lib32/libwdsutil.a   lib32/libwdsclient.a lib32/libwdsimage.a  lib32/libwdsupgcompl.a \
   lib32/libmsvcr100.a  lib32/libwdsclientapi.a lib32/libpcwum.a \
   \
+  lib32/libcryptxml.a  \
+  \
   lib32/libd3dcompiler_33.a lib32/libd3dcompiler_34.a lib32/libd3dcompiler_35.a \
   lib32/libd3dcompiler_36.a lib32/libd3dcompiler_37.a lib32/libd3dcompiler_38.a \
   lib32/libd3dcompiler_39.a lib32/libd3dcompiler_40.a lib32/libd3dcompiler_41.a \
@@ -471,8 +473,7 @@ lib32_DATA = \
   lib32/libxinput.a         lib32/libxaudio.a         lib32/libxaudiod.a   \
   lib32/libxapofx.a         lib32/libx3daudio.a       lib32/libd3dx9.a     \
   lib32/libd3dx10.a         lib32/libd3dx11.a         lib32/libd3dcsxd.a   \
-  lib32/libd3dcompiler.a \
-  lib32/libcryptxml.a
+  lib32/libd3dcompiler.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -879,6 +880,8 @@ lib64_DATA = \
   lib64/libwdscore.a    lib64/libcryptsp.a    lib64/libwdsclient.a   lib64/libwdsupgcompl.a lib64/libwdsclientapi.a  \
   lib64/libwdsutil.a    lib64/libmsvcr90.a    lib64/libmsvcr100.a    lib64/libmsvcr90d.a    lib64/libwdsimage.a      \
   \
+  lib64/libcryptxml.a   \
+  \
   lib64/libd3dcompiler_33.a lib64/libd3dcompiler_34.a lib64/libd3dcompiler_35.a \
   lib64/libd3dcompiler_36.a lib64/libd3dcompiler_37.a lib64/libd3dcompiler_38.a \
   lib64/libd3dcompiler_39.a lib64/libd3dcompiler_40.a lib64/libd3dcompiler_41.a \
@@ -908,8 +911,7 @@ lib64_DATA = \
   lib64/libxinput.a         lib64/libxaudio.a         lib64/libxaudiod.a   \
   lib64/libxapofx.a         lib64/libx3daudio.a       lib64/libd3dx9.a     \
   lib64/libd3dx10.a         lib64/libd3dx11.a         lib64/libd3dcsxd.a   \
-  lib64/libd3dcompiler.a \
-  lib64/libcryptxml.a
+  lib64/libd3dcompiler.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll
