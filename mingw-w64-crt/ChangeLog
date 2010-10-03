@@ -1,3 +1,11 @@
+2010-10-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk rev. 3683:
+	2010-09-30  Kai Tietz  <kai.tietz@onevision.com>
+	* misc/wcsnlen.c: New.
+	* Makefile.am (src_libmingwex): Add misc/wcsnlen.c.
+	* Makefile.in: Regenerate.
+
 2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* libsrc/agtctl_i.c: Moved from mingw-w64-headers/include/
