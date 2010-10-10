@@ -4510,6 +4510,40 @@ typedef struct tagTVDISPINFOEXW {
   WINCOMMCTRLAPI int WINAPI DPA_Search(HDPA hdpa,void *pFind,int iStart,PFNDPACOMPARE pfnCompare,LPARAM lParam,UINT options);
   WINCOMMCTRLAPI WINBOOL WINAPI Str_SetPtrW(LPWSTR *ppsz,LPCWSTR psz);
 
+typedef struct _DPASTREAMINFO {
+  int iPos;
+  void *pvItem;
+} DPASTREAMINFO;
+
+struct IStream;
+typedef HRESULT (CALLBACK *PFNDPASTREAM)(DPASTREAMINFO*, struct IStream*, void*);
+typedef void* (CALLBACK *PFNDPAMERGE)(UINT, void*, void*, LPARAM);
+typedef const void* (CALLBACK *PFNDPAMERGECONST)(UINT, const void*, const void*, LPARAM);
+
+  WINCOMMCTRLAPI HRESULT WINAPI DPA_LoadStream(HDPA * phdpa, PFNDPASTREAM pfn, struct IStream * pstream, void *pvInstData);
+  WINCOMMCTRLAPI HRESULT WINAPI DPA_SaveStream(HDPA hdpa, PFNDPASTREAM pfn, struct IStream * pstream, void *pvInstData);
+  WINCOMMCTRLAPI WINBOOL WINAPI DPA_Grow(HDPA pdpa, int cp);
+  WINCOMMCTRLAPI int WINAPI DPA_InsertPtr(HDPA hdpa, int i, void *p);
+  WINCOMMCTRLAPI PVOID WINAPI DPA_GetPtr(HDPA hdpa, INT_PTR i);
+  WINCOMMCTRLAPI WINBOOL WINAPI DPA_SetPtr(HDPA hdpa, int i, void *p);
+  WINCOMMCTRLAPI int WINAPI DPA_GetPtrIndex(HDPA hdpa, const void *p);
+
+#define DPA_GetPtrCount(hdpa) (*(int *)(hdpa))
+#define DPA_SetPtrCount(hdpa, cItems) (*(int *)(hdpa) = (cItems))
+#define DPA_GetPtrPtr(hdpa) (*((void * **)((BYTE *)(hdpa) + sizeof(void *))))
+#define DPA_AppendPtr(hdpa, pitem) DPA_InsertPtr(hdpa, DA_LAST, pitem)
+#define DPA_FastDeleteLastPtr(hdpa) (--*(int *)(hdpa))
+#define DPA_FastGetPtr(hdpa, i) (DPA_GetPtrPtr(hdpa)[i])
+
+#define DPAM_SORTED    1
+#define DPAM_NORMAL    2
+#define DPAM_UNION     4
+#define DPAM_INTERSECT 8
+
+#define DPAMM_MERGE    1
+#define DPAMM_DELETE   2
+#define DPAMM_INSERT   3
+
 #ifndef NOTRACKMOUSEEVENT
 
 #ifndef WM_MOUSEHOVER
@@ -4587,40 +4621,6 @@ typedef struct tagTVDISPINFOEXW {
   WINBOOL WINAPI RemoveWindowSubclass(HWND hWnd,SUBCLASSPROC pfnSubclass,UINT_PTR uIdSubclass);
   LRESULT WINAPI DefSubclassProc(HWND hWnd,UINT uMsg,WPARAM wParam,LPARAM lParam);
   int WINAPI DrawShadowText(HDC hdc,LPCWSTR pszText,UINT cch,RECT *prc,DWORD dwFlags,COLORREF crText,COLORREF crShadow,int ixOffset,int iyOffset);
-
-typedef struct _DPASTREAMINFO {
-  int iPos;
-  void *pvItem;
-} DPASTREAMINFO;
-
-struct IStream;
-typedef HRESULT (CALLBACK *PFNDPASTREAM)(DPASTREAMINFO*, struct IStream*, void*);
-typedef void* (CALLBACK *PFNDPAMERGE)(UINT, void*, void*, LPARAM);
-typedef const void* (CALLBACK *PFNDPAMERGECONST)(UINT, const void*, const void*, LPARAM);
-
-  WINCOMMCTRLAPI HRESULT WINAPI DPA_LoadStream(HDPA * phdpa, PFNDPASTREAM pfn, struct IStream * pstream, void *pvInstData);
-  WINCOMMCTRLAPI HRESULT WINAPI DPA_SaveStream(HDPA hdpa, PFNDPASTREAM pfn, struct IStream * pstream, void *pvInstData);
-  WINCOMMCTRLAPI WINBOOL WINAPI DPA_Grow(HDPA pdpa, int cp);
-  WINCOMMCTRLAPI int WINAPI DPA_InsertPtr(HDPA hdpa, int i, void *p);
-  WINCOMMCTRLAPI PVOID WINAPI DPA_GetPtr(HDPA hdpa, INT_PTR i);
-  WINCOMMCTRLAPI WINBOOL WINAPI DPA_SetPtr(HDPA hdpa, int i, void *p);
-  WINCOMMCTRLAPI int WINAPI DPA_GetPtrIndex(HDPA hdpa, const void *p);
-
-#define DPA_GetPtrCount(hdpa) (*(int *)(hdpa))
-#define DPA_SetPtrCount(hdpa, cItems) (*(int *)(hdpa) = (cItems))
-#define DPA_GetPtrPtr(hdpa) (*((void * **)((BYTE *)(hdpa) + sizeof(void *))))
-#define DPA_AppendPtr(hdpa, pitem) DPA_InsertPtr(hdpa, DA_LAST, pitem)
-#define DPA_FastDeleteLastPtr(hdpa) (--*(int *)(hdpa))
-#define DPA_FastGetPtr(hdpa, i) (DPA_GetPtrPtr(hdpa)[i])
-
-#define DPAM_SORTED    1
-#define DPAM_NORMAL    2
-#define DPAM_UNION     4
-#define DPAM_INTERSECT 8
-
-#define DPAMM_MERGE    1
-#define DPAMM_DELETE   2
-#define DPAMM_INSERT   3
 
 #ifdef __cplusplus
 }

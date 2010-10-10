@@ -1,3 +1,7 @@
+2010-10-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* commctrl.h: Took the DPASTREAM stuff out of unintended guarding.
+
 2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* evntcons.h: Add missing constants and remove associated fixme notes.
