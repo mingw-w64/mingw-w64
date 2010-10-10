@@ -4600,10 +4600,10 @@ typedef const void* (CALLBACK *PFNDPAMERGECONST)(UINT, const void*, const void*,
 
   WINCOMMCTRLAPI HRESULT WINAPI DPA_LoadStream(HDPA * phdpa, PFNDPASTREAM pfn, struct IStream * pstream, void *pvInstData);
   WINCOMMCTRLAPI HRESULT WINAPI DPA_SaveStream(HDPA hdpa, PFNDPASTREAM pfn, struct IStream * pstream, void *pvInstData);
-  WINCOMMCTRLAPI BOOL WINAPI DPA_Grow(HDPA pdpa, int cp);
+  WINCOMMCTRLAPI WINBOOL WINAPI DPA_Grow(HDPA pdpa, int cp);
   WINCOMMCTRLAPI int WINAPI DPA_InsertPtr(HDPA hdpa, int i, void *p);
   WINCOMMCTRLAPI PVOID WINAPI DPA_GetPtr(HDPA hdpa, INT_PTR i);
-  WINCOMMCTRLAPI BOOL WINAPI DPA_SetPtr(HDPA hdpa, int i, void *p);
+  WINCOMMCTRLAPI WINBOOL WINAPI DPA_SetPtr(HDPA hdpa, int i, void *p);
   WINCOMMCTRLAPI int WINAPI DPA_GetPtrIndex(HDPA hdpa, const void *p);
 
 #define DPA_GetPtrCount(hdpa) (*(int *)(hdpa))
