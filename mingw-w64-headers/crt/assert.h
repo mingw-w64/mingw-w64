@@ -7,9 +7,7 @@
 /* According to C99 standard (section 7.2) the assert
    macro shall be redefined each time assert.h gets
    included depending on the status of NDEBUG macro.  */
-#if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 #undef assert
-#endif /* C99 */
 
 #ifndef __ASSERT_H_
 #define __ASSERT_H_
@@ -55,7 +53,6 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
 
 #endif /* !defined (__ASSERT_H_) */
 
-#ifndef assert
 #ifdef NDEBUG
 #define assert(_Expression) ((void)0)
 #else /* !defined (NDEBUG) */
@@ -71,5 +68,4 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
   (_assert(#_Expression,__FILE__,__LINE__),0))
 #endif /* _UNICODE||UNICODE */
 #endif /* !defined (NDEBUG) */
-#endif /* !defined assert */
 

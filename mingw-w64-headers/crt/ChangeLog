@@ -1,3 +1,7 @@
+2010-10-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* assert.h: Always undefine and redefine assert() based on NDEBUG.
+
 2010-09-20  Pawel Sikora  <pawel.sikora@agmk.net>
 
 	* eh.h (_is_exception_typeof): Use std::type_info.
