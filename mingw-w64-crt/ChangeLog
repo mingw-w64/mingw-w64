@@ -1,7 +1,16 @@
+2010-10-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/hidclass.def: New.
+	* lib32/hidparse.def: Updated.
+	* lib64/hidclass.def: New.
+	* lib64/hidparse.def: New.
+	* Makefile.am: Add new defs to build.
+	* Makefile.in: Regenerate.
+
 2010-10-03  Jonathan Yong  <jon_y@users.sourceforge.net>
 
-        * lib32/sspicli.def: New from Win2k8r2.
-        * lib64/sspicli.def: Likewise.
+	* lib32/sspicli.def: New from Win2k8r2.
+	* lib64/sspicli.def: Likewise.
 	* Makefile.am: Add new entry.
 	* Makefile.in: Regenerated.
 
