@@ -1,3 +1,12 @@
+2010-10-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/hidclass.def: New.
+	* lib32/hidparse.def: Updated.
+	* lib64/hidclass.def: New.
+	* lib64/hidparse.def: New.
+	* Makefile.am: Add new defs to build.
+	* Makefile.in: Regenerate.
+
 2010-10-03  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merged from trunk rev. 3683:
