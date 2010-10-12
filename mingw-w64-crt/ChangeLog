@@ -1,7 +1,9 @@
 2010-10-12  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* lib32/classpnp.def: New.
 	* lib32/hidclass.def: New.
 	* lib32/hidparse.def: Updated.
+	* lib64/classpnp.def: New.
 	* lib64/hidclass.def: New.
 	* lib64/hidparse.def: New.
 	* Makefile.am: Add new defs to build.

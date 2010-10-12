@@ -390,7 +390,8 @@ lib32_DATA = \
   lib32/libwinusb.a \
   lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
   lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
-  lib32/libctl3d32.a   lib32/libd3d8.a      lib32/libd3d9.a      lib32/libd3dim.a     lib32/libd3drm.a    \
+  lib32/libctl3d32.a   \
+  lib32/libclasspnp.a  lib32/libd3d8.a      lib32/libd3d9.a      lib32/libd3dim.a     lib32/libd3drm.a    \
   lib32/libd3dx8d.a    lib32/libd3dx9d.a    lib32/libd3dxof.a    lib32/libdbghelp.a   lib32/libddraw.a    \
   lib32/libdhcpcsvc.a  lib32/libdlcapi.a    lib32/libdnsapi.a    lib32/libdplayx.a    lib32/libdpnaddr.a  \
   lib32/libdpnet.a     lib32/libdpnlobby.a  lib32/libdpvoice.a   lib32/libdsetup.a    lib32/libdsound.a   \
@@ -660,7 +661,7 @@ lib64_DATA = \
   lib64/libchsbrkr.a    lib64/libchtbrkr.a    lib64/libchtskdic.a     lib64/libciadmin.a    \
   lib64/libcic.a        lib64/libcimwin32.a   lib64/libCINTIME.a      lib64/libciodm.a      lib64/libc_is2022.a      \
   lib64/libc_iscii.a    lib64/libclbcatex.a   lib64/libclbcatq.a      lib64/libclb.a        lib64/libcliconfg.a      \
-  lib64/libclusapi.a    lib64/libcmcfg32.a    lib64/libcmdial32.a     lib64/libcmpbk32.a    \
+  lib64/libclasspnp.a   lib64/libclusapi.a    lib64/libcmcfg32.a      lib64/libcmdial32.a   lib64/libcmpbk32.a       \
   lib64/libcmprops.a    lib64/libcmsetacl.a   lib64/libcmutil.a       lib64/libcnbjmon.a    lib64/libcnetcfg.a       \
   lib64/libcnvfat.a     lib64/libcoadmin.a    lib64/libcolbact.a      lib64/libcomaddin.a   lib64/libcomadmin.a      \
   lib64/libcomcat.a     lib64/libcomctl32.a   lib64/libcomdlg32.a     lib64/libcompatui.a   lib64/libcompstui.a      \
