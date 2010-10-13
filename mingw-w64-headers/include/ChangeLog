@@ -1,5 +1,9 @@
 2010-10-13  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* authz.h (AuthzReportSecurityEvent): Remove WINAPI (__stdcall) and
+	mark the varargs function as WINAPIV (__cdecl).
+	(AuthzInitializeObjectAccessAuditEvent):  Likewise.
+	(AuthzInitializeObjectAccessAuditEvent2): Likewise.
 	* snmp.h (SnmpUtilDbgPrint): Remove SNMP_FUNC_TYPE (__stdcall) and
 	mark the varargs function as WINAPIV (__cdecl).
 	* wdspxe.h (PxeTrace): Remove PXEAPI (__stdcall) and mark the varargs

@@ -91,8 +91,8 @@ extern "C" {
   AUTHZAPI WINBOOL WINAPI AuthzAddSidsToContext(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext,PSID_AND_ATTRIBUTES Sids,DWORD SidCount,PSID_AND_ATTRIBUTES RestrictedSids,DWORD RestrictedSidCount,PAUTHZ_CLIENT_CONTEXT_HANDLE phNewAuthzClientContext);
   AUTHZAPI WINBOOL WINAPI AuthzGetInformationFromContext(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext,AUTHZ_CONTEXT_INFORMATION_CLASS InfoClass,DWORD BufferSize,PDWORD pSizeRequired,PVOID Buffer);
   AUTHZAPI WINBOOL WINAPI AuthzFreeContext(AUTHZ_CLIENT_CONTEXT_HANDLE hAuthzClientContext);
-  AUTHZAPI WINBOOL WINAPI AuthzInitializeObjectAccessAuditEvent(DWORD Flags,AUTHZ_AUDIT_EVENT_TYPE_HANDLE hAuditEventType,PWSTR szOperationType,PWSTR szObjectType,PWSTR szObjectName,PWSTR szAdditionalInfo,PAUTHZ_AUDIT_EVENT_HANDLE phAuditEvent,DWORD dwAdditionalParameterCount,...);
-  AUTHZAPI WINBOOL WINAPI AuthzInitializeObjectAccessAuditEvent2(DWORD Flags,AUTHZ_AUDIT_EVENT_TYPE_HANDLE hAuditEventType,PWSTR szOperationType,PWSTR szObjectType,PWSTR szObjectName,PWSTR szAdditionalInfo,PWSTR szAdditionalInfo2,PAUTHZ_AUDIT_EVENT_HANDLE phAuditEvent,DWORD dwAdditionalParameterCount,...);
+  AUTHZAPI WINBOOL WINAPIV AuthzInitializeObjectAccessAuditEvent(DWORD Flags,AUTHZ_AUDIT_EVENT_TYPE_HANDLE hAuditEventType,PWSTR szOperationType,PWSTR szObjectType,PWSTR szObjectName,PWSTR szAdditionalInfo,PAUTHZ_AUDIT_EVENT_HANDLE phAuditEvent,DWORD dwAdditionalParameterCount,...);
+  AUTHZAPI WINBOOL WINAPIV AuthzInitializeObjectAccessAuditEvent2(DWORD Flags,AUTHZ_AUDIT_EVENT_TYPE_HANDLE hAuditEventType,PWSTR szOperationType,PWSTR szObjectType,PWSTR szObjectName,PWSTR szAdditionalInfo,PWSTR szAdditionalInfo2,PAUTHZ_AUDIT_EVENT_HANDLE phAuditEvent,DWORD dwAdditionalParameterCount,...);
   AUTHZAPI WINBOOL WINAPI AuthzGetInformationFromAuditEvent(AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent,AUTHZ_AUDIT_EVENT_INFORMATION_CLASS InfoClass,DWORD BufferSize,PDWORD pSizeRequired,PVOID Buffer);
   AUTHZAPI WINBOOL WINAPI AuthzFreeAuditEvent(AUTHZ_AUDIT_EVENT_HANDLE hAuditEvent);
 
@@ -120,7 +120,7 @@ extern "C" {
   AUTHZAPI WINBOOL WINAPI AuthzEnumerateSecurityEventSources(DWORD dwFlags,PAUTHZ_SOURCE_SCHEMA_REGISTRATION Buffer,PDWORD pdwCount,PDWORD pdwLength);
   AUTHZAPI WINBOOL WINAPI AuthzRegisterSecurityEventSource(DWORD dwFlags,PCWSTR szEventSourceName,PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE phEventProvider);
   AUTHZAPI WINBOOL WINAPI AuthzUnregisterSecurityEventSource(DWORD dwFlags,PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE phEventProvider);
-  AUTHZAPI WINBOOL WINAPI AuthzReportSecurityEvent(DWORD dwFlags,AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE hEventProvider,DWORD dwAuditId,PSID pUserSid,DWORD dwCount,...);
+  AUTHZAPI WINBOOL WINAPIV AuthzReportSecurityEvent(DWORD dwFlags,AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE hEventProvider,DWORD dwAuditId,PSID pUserSid,DWORD dwCount,...);
   AUTHZAPI WINBOOL WINAPI AuthzReportSecurityEventFromParams(DWORD dwFlags,AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE hEventProvider,DWORD dwAuditId,PSID pUserSid,PAUDIT_PARAMS pParams);
 
 #if (_WIN32_WINNT >= 0x0601)
