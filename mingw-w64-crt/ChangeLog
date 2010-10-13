@@ -1,3 +1,9 @@
+2010-10-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/authz.def: New.
+	* Makefile.am: Add new def to build.
+	* Makefile.in: Regenerate.
+
 2010-10-12  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/classpnp.def: New.

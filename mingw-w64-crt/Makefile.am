@@ -372,6 +372,7 @@ lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 #for all libraries, including those with sources.
 lib32_DATA = \
   lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
+  lib32/libauthz.a     \
   lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
   lib32/libctl3d32.a   \
   lib32/libclasspnp.a  lib32/libd3d8.a      lib32/libd3d9.a      lib32/libd3dim.a     lib32/libd3drm.a    \
