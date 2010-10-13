@@ -131,8 +131,7 @@ typedef DWORD PXE_SEVERITY;
 #define PXE_TRACE_ERROR 0x00080000
 #define PXE_TRACE_FATAL 0x00100000
 
-/* Fixme: PXEAPI/WINAPI varargs?? */
-DWORD PXEAPI PxeTrace(HANDLE hProvider,PXE_SEVERITY Severity,LPCWSTR pszFormat,...);
+DWORD WINAPIV PxeTrace(HANDLE hProvider,PXE_SEVERITY Severity,LPCWSTR pszFormat,...);
 
 #ifdef __cplusplus
 }

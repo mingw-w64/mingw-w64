@@ -1,3 +1,10 @@
+2010-10-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* snmp.h (SnmpUtilDbgPrint): Remove SNMP_FUNC_TYPE (__stdcall) and
+	mark the varargs function as WINAPIV (__cdecl).
+	* wdspxe.h (PxeTrace): Remove PXEAPI (__stdcall) and mark the varargs
+	function as WINAPIV (__cdecl). Remove the associated fixme note.
+
 2010-10-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* commctrl.h: Took the DPASTREAM stuff out of unintended guarding.
