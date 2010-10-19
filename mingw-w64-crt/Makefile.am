@@ -132,6 +132,7 @@ src_libmingwex=\
   intrincs/bittests.c   intrincs/bittestsi.c   intrincs/bitscanfwd.c intrincs/bitscanrev.c intrincs/ilockinc16.c \
   intrincs/ilockdec16.c intrincs/ilockcxch16.c intrincs/ilockexchadd.c intrincs/ilockand.c intrincs/ilockor.c    \
   intrincs/ilockxor.c   intrincs/ilockinc.c    intrincs/ilockdec.c intrincs/ilockexch.c intrincs/ilockcxch.c     \
+  intrincs/__movsb.c    intrincs/__movsw.c     intrincs/__movsd.c     \
   intrincs/__stosb.c    intrincs/__stosw.c     intrincs/__stosd.c     \
   intrincs/currentteb.c intrincs/currentfiber.c intrincs/fiberdata.c  \
   \
@@ -239,7 +240,7 @@ src_libmingwex64=\
   intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  intrincs/readgsqword.c    \
   intrincs/writegsbyte.c intrincs/writegsword.c  intrincs/writegsdword.c intrincs/writegsqword.c   \
   intrincs/mul128ex.c    intrincs/umul128ex.c    \
-  intrincs/__stosq.c     intrincs/_rotl64.c      intrincs/_rotr64.c
+  intrincs/__movsq.c     intrincs/__stosq.c      intrincs/_rotl64.c      intrincs/_rotr64.c
 
 # these only go into the 32 bit version:
 src_libmingwex32=\

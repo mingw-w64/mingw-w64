@@ -1,3 +1,12 @@
+2010-10-19  Tsukasa Ooi  <li@livegrid.org>
+
+	* intrincs/__movsb.c: New.
+	* intrincs/__movsw.c: New.
+	* intrincs/__movsd.c: New.
+	* intrincs/__movsq.c: New.
+	* Makefile.am: Add new entries to build.
+	* Makefile.in: Regenerate.
+
 2010-10-12  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/classpnp.def: New.
