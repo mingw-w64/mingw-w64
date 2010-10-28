@@ -1,3 +1,10 @@
+2010-10-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* basetsd.h (POINTER_SIGNED): New.
+	(POINTER_UNSIGNED): New.
+	(SPOINTER_32): New.
+	(UPOINTER_32): New.
+
 2010-10-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* authz.h (AuthzReportSecurityEvent): Remove WINAPI (__stdcall) and
