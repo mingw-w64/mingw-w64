@@ -18,6 +18,11 @@ typedef unsigned long POINTER_64_INT;
 #define POINTER_64
 #define FIRMWARE_PTR
 
+#define POINTER_SIGNED
+#define POINTER_UNSIGNED
+#define SPOINTER_32 POINTER_SIGNED POINTER_32
+#define UPOINTER_32 POINTER_UNSIGNED POINTER_32
+
 #ifdef __cplusplus
 extern "C" {
 #endif
