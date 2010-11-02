@@ -379,6 +379,20 @@ extern "C" {
   double __cdecl __MINGW_NOTHROW strtod(const char * __restrict__ _Str,char ** __restrict__ _EndPtr);
   float __cdecl __MINGW_NOTHROW strtof(const char * __restrict__ nptr, char ** __restrict__ endptr);
   long double __cdecl __MINGW_NOTHROW strtold(const char * __restrict__ , char ** __restrict__ );
+#if !defined __NO_ISOCEXT
+  /* libmingwex.a provides a c99-compliant strtod() exported as __strtod() */
+  extern double __cdecl __MINGW_NOTHROW
+  __strtod (const char * __restrict__ , char ** __restrict__);
+#ifdef __cplusplus
+__inline__ double __cdecl __MINGW_NOTHROW
+strtod (const char * __restrict__ __nptr, char ** __restrict__  __endptr)
+{
+  return __strtod(__nptr, __endptr);
+}
+#endif
+#define strtod __strtod
+#endif /* __NO_ISOCEXT */
+
 #if !defined __NO_ISOCEXT  /* in libmingwex.a */
   float __cdecl __mingw_strtof (const char * __restrict__, char ** __restrict__);
   long double __cdecl __mingw_strtold(const char * __restrict__, char ** __restrict__);
