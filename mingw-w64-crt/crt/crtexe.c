@@ -204,7 +204,16 @@ __tmainCRTStartup (void)
   STARTUPINFO StartupInfo;
   WINBOOL inDoubleQuote = FALSE;
   memset (&StartupInfo, 0, sizeof (STARTUPINFO));
-  
+
+#ifndef _WIN64
+  /* We need to make sure that this function is build with frame-pointer
+     and that we align the stack to 16 bytes for the sake of SSE ops in main
+     or in functions inlined into main.  */
+  lpszCommandLine = (_TCHAR *) alloca (32);
+  memset (lpszCommandLine, 0xcc, 32);
+  asm  __volatile__  ("andl $-16, %%esp" : : : "%esp");
+#endif
+
   if (mingw_app_type)
     GetStartupInfo (&StartupInfo);
   {
@@ -257,31 +266,31 @@ __tmainCRTStartup (void)
     if (mingw_app_type)
       {
 #ifdef WPRFLAG
-    lpszCommandLine = (_TCHAR *) _wcmdln;
+	lpszCommandLine = (_TCHAR *) _wcmdln;
 #else
-    lpszCommandLine = (char *) _acmdln;
+	lpszCommandLine = (char *) _acmdln;
 #endif
-    while (*lpszCommandLine > SPACECHAR || (*lpszCommandLine&&inDoubleQuote))
-      {
-	if (*lpszCommandLine == DQUOTECHAR)
-	  inDoubleQuote = !inDoubleQuote;
-#ifdef _MBCS
-	if (_ismbblead (*lpszCommandLine))
+	while (*lpszCommandLine > SPACECHAR || (*lpszCommandLine && inDoubleQuote))
 	  {
-	    if (lpszCommandLine) /* FIXME: Why this check? Should I check for *lpszCommandLine != 0 too? */
-	      lpszCommandLine++;
-	  }
+	    if (*lpszCommandLine == DQUOTECHAR)
+	      inDoubleQuote = !inDoubleQuote;
+#ifdef _MBCS
+	    if (_ismbblead (*lpszCommandLine))
+	      {
+		if (lpszCommandLine) /* FIXME: Why this check? Should I check for *lpszCommandLine != 0 too? */
+		  lpszCommandLine++;
+	      }
 #endif
-	++lpszCommandLine;
-      }
-    while (*lpszCommandLine && (*lpszCommandLine <= SPACECHAR))
-      lpszCommandLine++;
+	    ++lpszCommandLine;
+	  }
+	while (*lpszCommandLine && (*lpszCommandLine <= SPACECHAR))
+	  lpszCommandLine++;
 
-    __mingw_winmain_hInstance = (HINSTANCE) &__ImageBase;
-    __mingw_winmain_lpCmdLine = lpszCommandLine;
-    __mingw_winmain_nShowCmd = StartupInfo.dwFlags & STARTF_USESHOWWINDOW ?
-				StartupInfo.wShowWindow : SW_SHOWDEFAULT;
-    }
+	__mingw_winmain_hInstance = (HINSTANCE) &__ImageBase;
+	__mingw_winmain_lpCmdLine = lpszCommandLine;
+	__mingw_winmain_nShowCmd = StartupInfo.dwFlags & STARTF_USESHOWWINDOW ?
+				    StartupInfo.wShowWindow : SW_SHOWDEFAULT;
+      }
     duplicate_ppstrings (argc, &argv);
 #ifdef WPRFLAG
     __winitenv = envp;
