@@ -63,11 +63,13 @@ src_libksuser=libsrc/ksuser.c
 src_liblargeint=libsrc/largeint.c
 
 src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
-  crt/atonexit.c  crt/crt0_c.c    crt/dll_argv.c  crt/gccmain.c       crt/natstart.c       crt/pseudo-reloc-list.c  crt/wildcard.c  \
-  crt/charmax.c   crt/crt0_w.c    crt/dllargv.c   crt/gs_support.c    crt/_newmode.c       crt/tlssup.c             crt/xncommod.c  \
-  crt/cinitexe.c  crt/crt0_w.c    crt/dllentry.c  crt/merr.c          crt/pesect.c         crt/udllargc.c           crt/xthdloc.c   \
-  crt/CRT_fp10.c  crt/dllmain.c   crt/mingw_custom.c  crt/mingw_helpers.c  crt/pseudo-reloc.c       crt/udll_argv.c \
-  crt/xtxtmode.c  crt/crt_handler.c \
+  crt/atonexit.c      crt/crt0_c.c         crt/dll_argv.c  crt/gccmain.c     crt/natstart.c  crt/pseudo-reloc-list.c  crt/wildcard.c \
+  crt/charmax.c       crt/crt0_w.c         crt/dllargv.c   crt/gs_support.c  crt/_newmode.c  crt/tlssup.c             crt/xncommod.c \
+  crt/cinitexe.c      crt/crt0_w.c         crt/merr.c      crt/pesect.c      crt/udllargc.c  crt/xthdloc.c            crt/CRT_fp10.c \
+  crt/mingw_custom.c  crt/mingw_helpers.c  \
+  crt/pseudo-reloc.c  crt/udll_argv.c      \
+  crt/xtxtmode.c      crt/crt_handler.c    \
+  crt/dllmain.c       crt/dllentry.c       \
   libsrc/dummy_mingwthrd.c
 
 src_libmoldname=crt/isascii.c crt/iscsym.c crt/iscsymf.c crt/toascii.c crt/strcasecmp.c crt/strncasecmp.c crt/wcscmpi.c
@@ -372,8 +374,8 @@ lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
 lib32_DATA = \
-  lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
   lib32/libauthz.a     \
+  lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
   lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
   lib32/libctl3d32.a   \
   lib32/libclasspnp.a  lib32/libd3d8.a      lib32/libd3d9.a      lib32/libd3dim.a     lib32/libd3drm.a    \
@@ -394,16 +396,16 @@ lib32_DATA = \
   lib32/librapi.a      lib32/librasapi32.a  lib32/librasdlg.a    lib32/librpcdce4.a   lib32/librpcns4.a   \
   lib32/librpcrt4.a    lib32/librtm.a       lib32/librtutils.a   lib32/libscsiport.a  lib32/libsecur32.a  \
   lib32/libsetupapi.a                       lib32/libshfolder.a  lib32/libshlwapi.a   lib32/libsnmpapi.a  \
-  lib32/libsvrapi.a    lib32/libtapi32.a    lib32/libtdi.a       lib32/libth32.a      lib32/libthunk32.a  \
+  lib32/libsvrapi.a    lib32/libtapi32.a    lib32/libtdi.a       \
   lib32/liburl.a       lib32/libusbcamd2.a  lib32/libusbcamd.a   lib32/libusbd.a      lib32/libusbport.a  \
   lib32/libuser32.a    lib32/libuserenv.a   lib32/libusp10.a     lib32/libuxtheme.a   lib32/libvdmdbg.a   \
   lib32/libversion.a   lib32/libvideoprt.a  lib32/libwin32k.a    lib32/libwin32spl.a  lib32/libwininet.a  \
   lib32/libwinmm.a     lib32/libwinspool.a  lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a    \
   lib32/libwsnmp32.a   lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a \
   \
-  lib32/libcrtdll.a    lib32/libmsvcrt.a   lib32/libmsvcr80.a   \
+  lib32/libcrtdll.a    lib32/libmsvcrt.a    lib32/libmsvcr80.a   \
   \
-  lib32/libpdh.a       lib32/libpdhui.a    \
+  lib32/libpdh.a       lib32/libpdhui.a     \
   lib32/libks.a        \
   \
   lib32/libd3dcompiler_33.a lib32/libd3dcompiler_34.a lib32/libd3dcompiler_35.a \
