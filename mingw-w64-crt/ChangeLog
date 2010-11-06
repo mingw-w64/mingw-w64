@@ -1,3 +1,7 @@
+2010-11-06  Timo Kreuzer  <timo.kreuzer@reactos.org>
+
+	* crt/tlssup.c (_tls_used): Cleanup _WIN64 ifdefs.
+
 2010-10-19  Tsukasa Ooi  <li@livegrid.org>
 
 	* intrincs/__movsb.c: New.
