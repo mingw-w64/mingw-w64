@@ -1,3 +1,4 @@
+#include <_mingw_unicode.h>
 /*
  * Copyright (C) 2006 Hans Leidekker
  *
@@ -19,8 +20,6 @@
 #ifndef __ERRORS__
 #define __ERRORS__
 
-#include <_mingw_dxhelper.h>
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -32,13 +31,13 @@ extern "C" {
 
 #include <vfwmsgs.h>
 
-typedef BOOL (WINAPI* AMGETERRORTEXTPROCA)(HRESULT,char*,DWORD);
-typedef BOOL (WINAPI* AMGETERRORTEXTPROCW)(HRESULT,WCHAR*,DWORD);
-DECL_WINELIB_TYPE_AW(AMGETERRORTEXTPROC)
+typedef WINBOOL (WINAPI* AMGETERRORTEXTPROCA)(HRESULT,char*,DWORD);
+typedef WINBOOL (WINAPI* AMGETERRORTEXTPROCW)(HRESULT,WCHAR*,DWORD);
+__MINGW_TYPEDEF_AW(AMGETERRORTEXTPROC)
 
 DWORD WINAPI AMGetErrorTextA(HRESULT,LPSTR,DWORD);
 DWORD WINAPI AMGetErrorTextW(HRESULT,LPWSTR,DWORD);
-#define AMGetErrorText WINELIB_NAME_AW(AMGetErrorText)
+#define AMGetErrorText __MINGW_NAME_AW(AMGetErrorText)
 
 #ifdef __cplusplus
 }

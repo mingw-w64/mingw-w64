@@ -19,10 +19,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
-#ifndef _D3DHAL_H_
-#define _D3DHAL_H_
-
-#include <_mingw_dxhelper.h>
+#ifndef __WINE_D3DHAL_H
+#define __WINE_D3DHAL_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -39,7 +37,7 @@ typedef struct _D3DDeviceDesc_V1 {
   D3DCOLORMODEL		dcmColorModel;
   DWORD			dwDevCaps;
   D3DTRANSFORMCAPS	dtcTransformCaps;
-  WINBOOL		bClipping;
+  WINBOOL			bClipping;
   D3DLIGHTINGCAPS	dlcLightingCaps;
   D3DPRIMCAPS		dpcLineCaps;
   D3DPRIMCAPS		dpcTriCaps;
@@ -59,12 +57,7 @@ typedef struct _D3DHAL_GLOBALDRIVERDATA {
   DWORD			dwNumClipVertices;
   DWORD			dwNumTextureFormats;
   LPDDSURFACEDESC	lpTextureFormats;
-} D3DHAL_GLOBALDRIVERDATA;
-
-#ifndef D3DHAL_GLOBALDRIVERDATA_DEFINED
-typedef D3DHAL_GLOBALDRIVERDATA *LPD3DHAL_GLOBALDRIVERDATA;
-#define D3DHAL_GLOBALDRIVERDATA_DEFINED
-#endif
+} D3DHAL_GLOBALDRIVERDATA,*LPD3DHAL_GLOBALDRIVERDATA;
 
 typedef struct _D3DHAL_D3DEXTENDEDCAPS {
   DWORD			dwSize;
@@ -164,12 +157,7 @@ typedef struct _D3DHAL_CALLBACKS {
   DWORD				dwReserved7;
   DWORD				dwReserved8;
   DWORD				dwReserved9;
-} D3DHAL_CALLBACKS;
-
-#ifndef D3DHAL_CALLBACKS_DEFINED
-typedef D3DHAL_CALLBACKS *LPD3DHAL_CALLBACKS;
-#define D3DHAL_CALLBACKS_DEFINED
-#endif
+} D3DHAL_CALLBACKS,*LPD3DHAL_CALLBACKS;
 
 typedef struct _D3DHAL_SETRENDERTARGETDATA		*LPD3DHAL_SETRENDERTARGETDATA;
 typedef struct _D3DHAL_CLEARDATA			*LPD3DHAL_CLEARDATA;
@@ -347,7 +335,7 @@ typedef enum _D3DHAL_DP2OPERATION {
   D3DDP2OP_CLEAR		= 42,
   /* DirectX 7 interfaces */
   D3DDP2OP_SETTEXLOD		= 43,
-  D3DPP2OP_SETCLIPPLANE		= 44,
+  D3DPP2OP_SETCLIPPLANE		= 44
 } D3DHAL_DP2OPERATION;
 
 /* point primitives */
@@ -532,4 +520,4 @@ typedef struct _D3DHAL_DP2SETTEXLOD {
 } /* extern "C" */
 #endif
 
-#endif /* _D3DHAL_H_ */
+#endif /* __WINE_D3DHAL_H */

@@ -25,8 +25,6 @@
 #ifndef __WINE_D3DTYPES_H
 #define __WINE_D3DTYPES_H
 
-#include <_mingw_dxhelper.h>
-
 #ifndef __WINESRC__
 # include <windows.h>
 #endif
@@ -140,13 +138,8 @@ public:
   friend D3DVALUE DotProduct(const _D3DVECTOR& v1, const _D3DVECTOR& v2);
   friend _D3DVECTOR CrossProduct(const _D3DVECTOR& v1, const _D3DVECTOR& v2);
 #endif
-} D3DVECTOR;
+} D3DVECTOR,*LPD3DVECTOR;
 #define D3DVECTOR_DEFINED
-#endif
-
-#ifndef LPD3DVECTOR_DEFINED
-typedef D3DVECTOR *LPD3DVECTOR;
-#define LPD3DVECTOR_DEFINED
 #endif
 
 #define DX_SHARED_DEFINES
@@ -1171,7 +1164,7 @@ typedef struct _D3DPOINT {
 typedef struct _D3DBRANCH {
   DWORD dwMask;
   DWORD dwValue;
-  BOOL  bNegate;
+  WINBOOL  bNegate;
   DWORD dwOffset;
 } D3DBRANCH, *LPD3DBRANCH;
 

@@ -1,3 +1,4 @@
+#include <_mingw_unicode.h>
 /*
  * Copyright (C) 2004 Robert Reif
  *
@@ -19,23 +20,21 @@
 #ifndef __WINE_DXERR8_H
 #define __WINE_DXERR8_H
 
-#include <_mingw_dxhelper.h>
-
 #ifdef __cplusplus
 extern "C" {
 #endif /* defined(__cplusplus) */
 
 const char*     WINAPI DXGetErrorString8A(HRESULT hr);
 const WCHAR*    WINAPI DXGetErrorString8W(HRESULT hr);
-#define DXGetErrorString8 WINELIB_NAME_AW(DXGetErrorString8)
+#define DXGetErrorString8 __MINGW_NAME_AW(DXGetErrorString8)
 
 const char*    WINAPI DXGetErrorDescription8A(HRESULT hr);
 const WCHAR*   WINAPI DXGetErrorDescription8W(HRESULT hr);
-#define DXGetErrorDescription8 WINELIB_NAME_AW(DXGetErrorDescription8)
+#define DXGetErrorDescription8 __MINGW_NAME_AW(DXGetErrorDescription8)
 
-HRESULT WINAPI  DXTraceA(const char* strFile, DWORD dwLine, HRESULT hr, const char*  strMsg, BOOL bPopMsgBox);
-HRESULT WINAPI  DXTraceW(const char* strFile, DWORD dwLine, HRESULT hr, const WCHAR* strMsg, BOOL bPopMsgBox);
-#define DXTrace WINELIB_NAME_AW(DXTrace)
+HRESULT WINAPI  DXTraceA(const char* strFile, DWORD dwLine, HRESULT hr, const char*  strMsg, WINBOOL bPopMsgBox);
+HRESULT WINAPI  DXTraceW(const char* strFile, DWORD dwLine, HRESULT hr, const WCHAR* strMsg, WINBOOL bPopMsgBox);
+#define DXTrace __MINGW_NAME_AW(DXTrace)
 
 #if defined(DEBUG) || defined(_DEBUG)
 #define DXTRACE_MSG(str)                DXTrace(__FILE__, (DWORD)__LINE__, 0,  str, FALSE)
