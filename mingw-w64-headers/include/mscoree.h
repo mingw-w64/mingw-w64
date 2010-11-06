@@ -604,6 +604,7 @@ void __RPC_STUB IHostControl_SetAppDomainManager_Stub(
 
 #endif  /* __IHostControl_INTERFACE_DEFINED__ */
 
+DEFINE_GUID(CLSID_CorRuntimeHost, 0xcb2f6723,0xab3a,0x11d2,0x9c,0x40,0x00,0xc0,0x4f,0xa3,0x0a,0x3e);
 /*****************************************************************************
  * ICorRuntimeHost interface
  */

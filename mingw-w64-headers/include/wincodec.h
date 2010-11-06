@@ -43,6 +43,16 @@ typedef interface IWICPalette IWICPalette;
 typedef interface IWICComponentInfo IWICComponentInfo;
 #endif
 
+#ifndef __IWICMetadataQueryReader_FWD_DEFINED__
+#define __IWICMetadataQueryReader_FWD_DEFINED__
+typedef interface IWICMetadataQueryReader IWICMetadataQueryReader;
+#endif
+
+#ifndef __IWICMetadataQueryWriter_FWD_DEFINED__
+#define __IWICMetadataQueryWriter_FWD_DEFINED__
+typedef interface IWICMetadataQueryWriter IWICMetadataQueryWriter;
+#endif
+
 #ifndef __IWICBitmapFrameDecode_FWD_DEFINED__
 #define __IWICBitmapFrameDecode_FWD_DEFINED__
 typedef interface IWICBitmapFrameDecode IWICBitmapFrameDecode;
@@ -103,6 +113,16 @@ typedef interface IWICBitmapScaler IWICBitmapScaler;
 typedef interface IWICBitmapClipper IWICBitmapClipper;
 #endif
 
+#ifndef __IWICColorTransform_FWD_DEFINED__
+#define __IWICColorTransform_FWD_DEFINED__
+typedef interface IWICColorTransform IWICColorTransform;
+#endif
+
+#ifndef __IWICFastMetadataEncoder_FWD_DEFINED__
+#define __IWICFastMetadataEncoder_FWD_DEFINED__
+typedef interface IWICFastMetadataEncoder IWICFastMetadataEncoder;
+#endif
+
 #ifndef __IWICImagingFactory_FWD_DEFINED__
 #define __IWICImagingFactory_FWD_DEFINED__
 typedef interface IWICImagingFactory IWICImagingFactory;
@@ -119,6 +139,7 @@ typedef interface IWICImagingFactory IWICImagingFactory;
 extern "C" {
 #endif
 
+#define WINCODEC_SDK_VERSION 0x0236
 typedef enum WICDecodeOptions {
     WICDecodeMetadataCacheOnDemand = 0x0,
     WICDecodeMetadataCacheOnLoad = 0x1,
@@ -237,12 +258,14 @@ DEFINE_GUID(GUID_WICPixelFormat8bppGray, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d
 DEFINE_GUID(GUID_WICPixelFormat16bppGray, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x0b);
 DEFINE_GUID(GUID_WICPixelFormat16bppBGR555, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x09);
 DEFINE_GUID(GUID_WICPixelFormat16bppBGR565, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x0a);
+DEFINE_GUID(GUID_WICPixelFormat16bppBGRA5551, 0x05ec7c2b,0xf1e6,0x4961,0xad,0x46,0xe1,0xcc,0x81,0x0a,0x87,0xd2);
 DEFINE_GUID(GUID_WICPixelFormat24bppBGR, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x0c);
 DEFINE_GUID(GUID_WICPixelFormat32bppBGR, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x0e);
 DEFINE_GUID(GUID_WICPixelFormat32bppBGRA, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x0f);
 DEFINE_GUID(GUID_WICPixelFormat32bppPBGRA, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x10);
 DEFINE_GUID(GUID_WICPixelFormat48bppRGB, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x15);
 DEFINE_GUID(GUID_WICPixelFormat64bppRGBA, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x16);
+DEFINE_GUID(GUID_WICPixelFormat64bppPRGBA, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x17);
 DEFINE_GUID(GUID_WICPixelFormat32bppCMYK, 0x6fddc324,0x4e03,0x4fbe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x1c);
 typedef struct WICRect {
     INT X;
@@ -271,26 +294,6 @@ typedef UINT32 WICColor;
 #ifndef __IWICPalette_FWD_DEFINED__
 #define __IWICPalette_FWD_DEFINED__
 typedef interface IWICPalette IWICPalette;
-#endif
-
-#ifndef __IWICColorTransform_FWD_DEFINED__
-#define __IWICColorTransform_FWD_DEFINED__
-typedef interface IWICColorTransform IWICColorTransform;
-#endif
-
-#ifndef __IWICFastMetadataEncoder_FWD_DEFINED__
-#define __IWICFastMetadataEncoder_FWD_DEFINED__
-typedef interface IWICFastMetadataEncoder IWICFastMetadataEncoder;
-#endif
-
-#ifndef __IWICMetadataQueryReader_FWD_DEFINED__
-#define __IWICMetadataQueryReader_FWD_DEFINED__
-typedef interface IWICMetadataQueryReader IWICMetadataQueryReader;
-#endif
-
-#ifndef __IWICMetadataQueryWriter_FWD_DEFINED__
-#define __IWICMetadataQueryWriter_FWD_DEFINED__
-typedef interface IWICMetadataQueryWriter IWICMetadataQueryWriter;
 #endif
 
 /*****************************************************************************
@@ -1361,6 +1364,233 @@ void __RPC_STUB IWICComponentInfo_GetFriendlyName_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IWICComponentInfo_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWICMetadataQueryReader interface
+ */
+#ifndef __IWICMetadataQueryReader_INTERFACE_DEFINED__
+#define __IWICMetadataQueryReader_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWICMetadataQueryReader, 0x30989668, 0xe1c9, 0x4597, 0xb3,0x95, 0x45,0x8e,0xed,0xb8,0x08,0xdf);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface IWICMetadataQueryReader : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetContainerFormat(
+        GUID *pguidContainerFormat) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetLocation(
+        UINT cchMaxLength,
+        WCHAR *wzNamespace,
+        UINT *pcchActualLength) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMetadataByName(
+        LPCWSTR wzName,
+        PROPVARIANT *pvarValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEnumerator(
+        IEnumString **ppIEnumString) = 0;
+
+};
+#else
+typedef struct IWICMetadataQueryReaderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWICMetadataQueryReader* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWICMetadataQueryReader* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWICMetadataQueryReader* This);
+
+    /*** IWICMetadataQueryReader methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetContainerFormat)(
+        IWICMetadataQueryReader* This,
+        GUID *pguidContainerFormat);
+
+    HRESULT (STDMETHODCALLTYPE *GetLocation)(
+        IWICMetadataQueryReader* This,
+        UINT cchMaxLength,
+        WCHAR *wzNamespace,
+        UINT *pcchActualLength);
+
+    HRESULT (STDMETHODCALLTYPE *GetMetadataByName)(
+        IWICMetadataQueryReader* This,
+        LPCWSTR wzName,
+        PROPVARIANT *pvarValue);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnumerator)(
+        IWICMetadataQueryReader* This,
+        IEnumString **ppIEnumString);
+
+    END_INTERFACE
+} IWICMetadataQueryReaderVtbl;
+interface IWICMetadataQueryReader {
+    CONST_VTBL IWICMetadataQueryReaderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IWICMetadataQueryReader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWICMetadataQueryReader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWICMetadataQueryReader_Release(This) (This)->lpVtbl->Release(This)
+/*** IWICMetadataQueryReader methods ***/
+#define IWICMetadataQueryReader_GetContainerFormat(This,pguidContainerFormat) (This)->lpVtbl->GetContainerFormat(This,pguidContainerFormat)
+#define IWICMetadataQueryReader_GetLocation(This,cchMaxLength,wzNamespace,pcchActualLength) (This)->lpVtbl->GetLocation(This,cchMaxLength,wzNamespace,pcchActualLength)
+#define IWICMetadataQueryReader_GetMetadataByName(This,wzName,pvarValue) (This)->lpVtbl->GetMetadataByName(This,wzName,pvarValue)
+#define IWICMetadataQueryReader_GetEnumerator(This,ppIEnumString) (This)->lpVtbl->GetEnumerator(This,ppIEnumString)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWICMetadataQueryReader_GetContainerFormat_Proxy(
+    IWICMetadataQueryReader* This,
+    GUID *pguidContainerFormat);
+void __RPC_STUB IWICMetadataQueryReader_GetContainerFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICMetadataQueryReader_GetLocation_Proxy(
+    IWICMetadataQueryReader* This,
+    UINT cchMaxLength,
+    WCHAR *wzNamespace,
+    UINT *pcchActualLength);
+void __RPC_STUB IWICMetadataQueryReader_GetLocation_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICMetadataQueryReader_GetMetadataByName_Proxy(
+    IWICMetadataQueryReader* This,
+    LPCWSTR wzName,
+    PROPVARIANT *pvarValue);
+void __RPC_STUB IWICMetadataQueryReader_GetMetadataByName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICMetadataQueryReader_GetEnumerator_Proxy(
+    IWICMetadataQueryReader* This,
+    IEnumString **ppIEnumString);
+void __RPC_STUB IWICMetadataQueryReader_GetEnumerator_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWICMetadataQueryReader_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWICMetadataQueryWriter interface
+ */
+#ifndef __IWICMetadataQueryWriter_INTERFACE_DEFINED__
+#define __IWICMetadataQueryWriter_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWICMetadataQueryWriter, 0xa721791a, 0x0def, 0x4d06, 0xbd,0x91, 0x21,0x18,0xbf,0x1d,0xb1,0x0b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface IWICMetadataQueryWriter : public IWICMetadataQueryReader
+{
+    virtual HRESULT STDMETHODCALLTYPE SetMetadataByName(
+        LPCWSTR wzName,
+        const PROPVARIANT *pvarValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveMetadataByName(
+        LPCWSTR wzName) = 0;
+
+};
+#else
+typedef struct IWICMetadataQueryWriterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWICMetadataQueryWriter* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWICMetadataQueryWriter* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWICMetadataQueryWriter* This);
+
+    /*** IWICMetadataQueryReader methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetContainerFormat)(
+        IWICMetadataQueryWriter* This,
+        GUID *pguidContainerFormat);
+
+    HRESULT (STDMETHODCALLTYPE *GetLocation)(
+        IWICMetadataQueryWriter* This,
+        UINT cchMaxLength,
+        WCHAR *wzNamespace,
+        UINT *pcchActualLength);
+
+    HRESULT (STDMETHODCALLTYPE *GetMetadataByName)(
+        IWICMetadataQueryWriter* This,
+        LPCWSTR wzName,
+        PROPVARIANT *pvarValue);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnumerator)(
+        IWICMetadataQueryWriter* This,
+        IEnumString **ppIEnumString);
+
+    /*** IWICMetadataQueryWriter methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetMetadataByName)(
+        IWICMetadataQueryWriter* This,
+        LPCWSTR wzName,
+        const PROPVARIANT *pvarValue);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveMetadataByName)(
+        IWICMetadataQueryWriter* This,
+        LPCWSTR wzName);
+
+    END_INTERFACE
+} IWICMetadataQueryWriterVtbl;
+interface IWICMetadataQueryWriter {
+    CONST_VTBL IWICMetadataQueryWriterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IWICMetadataQueryWriter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWICMetadataQueryWriter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWICMetadataQueryWriter_Release(This) (This)->lpVtbl->Release(This)
+/*** IWICMetadataQueryReader methods ***/
+#define IWICMetadataQueryWriter_GetContainerFormat(This,pguidContainerFormat) (This)->lpVtbl->GetContainerFormat(This,pguidContainerFormat)
+#define IWICMetadataQueryWriter_GetLocation(This,cchMaxLength,wzNamespace,pcchActualLength) (This)->lpVtbl->GetLocation(This,cchMaxLength,wzNamespace,pcchActualLength)
+#define IWICMetadataQueryWriter_GetMetadataByName(This,wzName,pvarValue) (This)->lpVtbl->GetMetadataByName(This,wzName,pvarValue)
+#define IWICMetadataQueryWriter_GetEnumerator(This,ppIEnumString) (This)->lpVtbl->GetEnumerator(This,ppIEnumString)
+/*** IWICMetadataQueryWriter methods ***/
+#define IWICMetadataQueryWriter_SetMetadataByName(This,wzName,pvarValue) (This)->lpVtbl->SetMetadataByName(This,wzName,pvarValue)
+#define IWICMetadataQueryWriter_RemoveMetadataByName(This,wzName) (This)->lpVtbl->RemoveMetadataByName(This,wzName)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWICMetadataQueryWriter_SetMetadataByName_Proxy(
+    IWICMetadataQueryWriter* This,
+    LPCWSTR wzName,
+    const PROPVARIANT *pvarValue);
+void __RPC_STUB IWICMetadataQueryWriter_SetMetadataByName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICMetadataQueryWriter_RemoveMetadataByName_Proxy(
+    IWICMetadataQueryWriter* This,
+    LPCWSTR wzName);
+void __RPC_STUB IWICMetadataQueryWriter_RemoveMetadataByName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWICMetadataQueryWriter_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IWICBitmapFrameDecode interface
@@ -3600,6 +3830,187 @@ void __RPC_STUB IWICBitmapClipper_Initialize_Stub(
 
 #endif  /* __IWICBitmapClipper_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IWICColorTransform interface
+ */
+#ifndef __IWICColorTransform_INTERFACE_DEFINED__
+#define __IWICColorTransform_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWICColorTransform, 0xb66f034f, 0xd0e2, 0x40ab, 0xb4,0x36, 0x6d,0xe3,0x9e,0x32,0x1a,0x94);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface IWICColorTransform : public IWICBitmapSource
+{
+    virtual HRESULT STDMETHODCALLTYPE Initialize(
+        IWICBitmapSource *pIBitmapSource,
+        IWICColorContext *pIContextSource,
+        IWICColorContext *pIContextDest,
+        REFWICPixelFormatGUID pixelFmtDest) = 0;
+
+};
+#else
+typedef struct IWICColorTransformVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWICColorTransform* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWICColorTransform* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWICColorTransform* This);
+
+    /*** IWICBitmapSource methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSize)(
+        IWICColorTransform* This,
+        UINT *puiWidth,
+        UINT *puiHeight);
+
+    HRESULT (STDMETHODCALLTYPE *GetPixelFormat)(
+        IWICColorTransform* This,
+        WICPixelFormatGUID *pPixelFormat);
+
+    HRESULT (STDMETHODCALLTYPE *GetResolution)(
+        IWICColorTransform* This,
+        double *pDpiX,
+        double *pDpiY);
+
+    HRESULT (STDMETHODCALLTYPE *CopyPalette)(
+        IWICColorTransform* This,
+        IWICPalette *pIPalette);
+
+    HRESULT (STDMETHODCALLTYPE *CopyPixels)(
+        IWICColorTransform* This,
+        const WICRect *prc,
+        UINT cbStride,
+        UINT cbBufferSize,
+        BYTE *pbBuffer);
+
+    /*** IWICColorTransform methods ***/
+    HRESULT (STDMETHODCALLTYPE *Initialize)(
+        IWICColorTransform* This,
+        IWICBitmapSource *pIBitmapSource,
+        IWICColorContext *pIContextSource,
+        IWICColorContext *pIContextDest,
+        REFWICPixelFormatGUID pixelFmtDest);
+
+    END_INTERFACE
+} IWICColorTransformVtbl;
+interface IWICColorTransform {
+    CONST_VTBL IWICColorTransformVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IWICColorTransform_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWICColorTransform_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWICColorTransform_Release(This) (This)->lpVtbl->Release(This)
+/*** IWICBitmapSource methods ***/
+#define IWICColorTransform_GetSize(This,puiWidth,puiHeight) (This)->lpVtbl->GetSize(This,puiWidth,puiHeight)
+#define IWICColorTransform_GetPixelFormat(This,pPixelFormat) (This)->lpVtbl->GetPixelFormat(This,pPixelFormat)
+#define IWICColorTransform_GetResolution(This,pDpiX,pDpiY) (This)->lpVtbl->GetResolution(This,pDpiX,pDpiY)
+#define IWICColorTransform_CopyPalette(This,pIPalette) (This)->lpVtbl->CopyPalette(This,pIPalette)
+#define IWICColorTransform_CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer) (This)->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer)
+/*** IWICColorTransform methods ***/
+#define IWICColorTransform_Initialize(This,pIBitmapSource,pIContextSource,pIContextDest,pixelFmtDest) (This)->lpVtbl->Initialize(This,pIBitmapSource,pIContextSource,pIContextDest,pixelFmtDest)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWICColorTransform_Initialize_Proxy(
+    IWICColorTransform* This,
+    IWICBitmapSource *pIBitmapSource,
+    IWICColorContext *pIContextSource,
+    IWICColorContext *pIContextDest,
+    REFWICPixelFormatGUID pixelFmtDest);
+void __RPC_STUB IWICColorTransform_Initialize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWICColorTransform_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWICFastMetadataEncoder interface
+ */
+#ifndef __IWICFastMetadataEncoder_INTERFACE_DEFINED__
+#define __IWICFastMetadataEncoder_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWICFastMetadataEncoder, 0xb84e2c09, 0x78c9, 0x4ac4, 0x8b,0xd3, 0x52,0x4a,0xe1,0x66,0x3a,0x2f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface IWICFastMetadataEncoder : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Commit(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMetadataQueryWriter(
+        IWICMetadataQueryWriter **ppIMetadataQueryWriter) = 0;
+
+};
+#else
+typedef struct IWICFastMetadataEncoderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWICFastMetadataEncoder* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWICFastMetadataEncoder* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWICFastMetadataEncoder* This);
+
+    /*** IWICFastMetadataEncoder methods ***/
+    HRESULT (STDMETHODCALLTYPE *Commit)(
+        IWICFastMetadataEncoder* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetMetadataQueryWriter)(
+        IWICFastMetadataEncoder* This,
+        IWICMetadataQueryWriter **ppIMetadataQueryWriter);
+
+    END_INTERFACE
+} IWICFastMetadataEncoderVtbl;
+interface IWICFastMetadataEncoder {
+    CONST_VTBL IWICFastMetadataEncoderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IWICFastMetadataEncoder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWICFastMetadataEncoder_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWICFastMetadataEncoder_Release(This) (This)->lpVtbl->Release(This)
+/*** IWICFastMetadataEncoder methods ***/
+#define IWICFastMetadataEncoder_Commit(This) (This)->lpVtbl->Commit(This)
+#define IWICFastMetadataEncoder_GetMetadataQueryWriter(This,ppIMetadataQueryWriter) (This)->lpVtbl->GetMetadataQueryWriter(This,ppIMetadataQueryWriter)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWICFastMetadataEncoder_Commit_Proxy(
+    IWICFastMetadataEncoder* This);
+void __RPC_STUB IWICFastMetadataEncoder_Commit_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICFastMetadataEncoder_GetMetadataQueryWriter_Proxy(
+    IWICFastMetadataEncoder* This,
+    IWICMetadataQueryWriter **ppIMetadataQueryWriter);
+void __RPC_STUB IWICFastMetadataEncoder_GetMetadataQueryWriter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWICFastMetadataEncoder_INTERFACE_DEFINED__ */
+
 DEFINE_GUID(CLSID_WICImagingFactory, 0xcacaf262,0x9370,0x4615,0xa1,0x3b,0x9f,0x55,0x39,0xda,0x4c,0x0a);
 /*****************************************************************************
  * IWICImagingFactory interface
@@ -4208,6 +4619,14 @@ DEFINE_GUID(CATID_WICBitmapEncoders, 0xac757296,0x3522,0x4e11,0x98,0x62,0xc1,0x7
 DEFINE_GUID(CATID_WICFormatConverters, 0x7835eae8,0xbf14,0x49d1,0x93,0xce,0x53,0x3a,0x40,0x7b,0x22,0x48);
 /* Begin additional prototypes for all interfaces */
 
+ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);
+unsigned char * __RPC_USER BSTR_UserMarshal  (ULONG *, unsigned char *, BSTR *);
+unsigned char * __RPC_USER BSTR_UserUnmarshal(ULONG *, unsigned char *, BSTR *);
+void            __RPC_USER BSTR_UserFree     (ULONG *, BSTR *);
+ULONG           __RPC_USER LPSAFEARRAY_UserSize     (ULONG *, ULONG, LPSAFEARRAY *);
+unsigned char * __RPC_USER LPSAFEARRAY_UserMarshal  (ULONG *, unsigned char *, LPSAFEARRAY *);
+unsigned char * __RPC_USER LPSAFEARRAY_UserUnmarshal(ULONG *, unsigned char *, LPSAFEARRAY *);
+void            __RPC_USER LPSAFEARRAY_UserFree     (ULONG *, LPSAFEARRAY *);
 ULONG           __RPC_USER HBITMAP_UserSize     (ULONG *, ULONG, HBITMAP *);
 unsigned char * __RPC_USER HBITMAP_UserMarshal  (ULONG *, unsigned char *, HBITMAP *);
 unsigned char * __RPC_USER HBITMAP_UserUnmarshal(ULONG *, unsigned char *, HBITMAP *);
