@@ -2,6 +2,13 @@
 
 	* crt/tlssup.c (_tls_used): Cleanup _WIN64 ifdefs.
 
+2010-10-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk rev. 3772:
+	2010-11-03  Kai Tietz  <kai.tietz@onevision.com>
+	* crt/crtexe.c: Ensure to align stack for 32-bit
+	to 16-bytes for SSE sake in main.
+
 2010-10-19  Tsukasa Ooi  <li@livegrid.org>
 
 	* intrincs/__movsb.c: New.
