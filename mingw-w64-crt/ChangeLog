@@ -1,3 +1,12 @@
+2010-10-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/thunk32.def: Delete.
+	* lib32/th32.def: Delete.
+	* Makefile.am (lib32_DATA): Remove th32.def and thunk32.def from
+	build and reformat.
+	(src_libmingw32): Reformat.
+	* Makefile.in: Regenerate.
+
 2010-11-06  Timo Kreuzer  <timo.kreuzer@reactos.org>
 
 	* crt/tlssup.c (_tls_used): Cleanup _WIN64 ifdefs.
