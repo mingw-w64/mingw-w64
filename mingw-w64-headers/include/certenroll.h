@@ -518,7 +518,7 @@ extern "C" {
     EnrollDenied                         = 0x00000100 
   } EnrollmentEnrollStatus;
 
-#ifdef (_WIN32_WINNT >= 0x0601)
+#if (_WIN32_WINNT >= 0x0601)
   enum EnrollmentPolicyFlags {
     DisableGroupPolicyList   = 0x2,
     DisableUserServerList    = 0x4 
@@ -536,7 +536,7 @@ extern "C" {
     SelectedYes   = 1 
   } EnrollmentSelectionStatus;
 
-#ifdef (_WIN32_WINNT >= 0x0601)
+#if (_WIN32_WINNT >= 0x0601)
 
   typedef enum EnrollmentTemplateProperty {
     TemplatePropCommonName              = 1,
@@ -640,7 +640,7 @@ extern "C" {
     PsfAllowUnTrustedCA        = 32 
   } PolicyServerUrlFlags;
 
-#ifdef (_WIN32_WINNT >= 0x0601)
+#if (_WIN32_WINNT >= 0x0601)
 
   typedef enum PolicyServerUrlPropertyID {
     PsPolicyID       = 0,
@@ -664,7 +664,7 @@ extern "C" {
     ClientIdUserStart        = 1000 
   } RequestClientInfoClientId;
 
-#ifdef (_WIN32_WINNT >= 0x0601)
+#if (_WIN32_WINNT >= 0x0601)
 
   typedef enum WebEnrollmentFlags {
     EnrollPrompt   = 0x00000001 
@@ -702,7 +702,7 @@ extern "C" {
     ContextAdministratorForceMachine   = 0x3 
   } X509CertificateEnrollmentContext;
 
-#ifdef (_WIN32_WINNT >= 0x0601)
+#if (_WIN32_WINNT >= 0x0601)
 
   typedef enum X509CertificateTemplateEnrollmentFlag {
     EnrollmentIncludeSymmetricAlgorithms                  = CT_FLAG_INCLUDE_SYMMETRIC_ALGORITHMS,
