@@ -1,3 +1,7 @@
+2010-11-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* tchar.h (_tWinMain): Define as wWinMain for UNICODE case.
+
 2010-10-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* assert.h: Always undefine and redefine assert() based on NDEBUG.

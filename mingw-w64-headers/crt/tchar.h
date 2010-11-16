@@ -119,7 +119,7 @@ extern "C" {
 #define __T(x) L##x
 
 #define _tmain wmain
-#define _tWinMain WinMain
+#define _tWinMain wWinMain
 #define _tenviron _wenviron
 #define __targv __wargv
 
