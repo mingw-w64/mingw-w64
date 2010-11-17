@@ -22,7 +22,7 @@ limit:	.double 0.29
 	.def	__MINGW_USYMBOL(log2l);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(log2l):
 #ifdef _WIN64
-	fldl	one
+	fldl	one(%rip)
 	fldt	(%rdx)		// x : 1
 	fxam
 	fnstsw
@@ -32,7 +32,7 @@ __MINGW_USYMBOL(log2l):
 4:	fsub	%st(2), %st	// x-1 : x : 1
 	fld	%st		// x-1 : x-1 : x : 1
 	fabs			// |x-1| : x-1 : x : 1
-	fcompl	limit		// x-1 : x : 1
+	fcompl	limit(%rip)	// x-1 : x : 1
 	fnstsw			// x-1 : x : 1
 	andb	$0x45, %ah
 	jz	2f

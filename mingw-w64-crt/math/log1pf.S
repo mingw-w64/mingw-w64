@@ -36,11 +36,11 @@ __MINGW_USYMBOL(log1pf):
 	jc	3f		// in case x is NaN or ±Inf
 
 4:	fabs
-	fcomps	limit
+	fcomps	limit(%rip)
 	fnstsw
 	sahf
 	jc	2f
-	fadds	one
+	fadds	one(%rip)
 	fyl2x
 	fstps	-12(%rsp)
 	movss	-12(%rsp),%xmm0

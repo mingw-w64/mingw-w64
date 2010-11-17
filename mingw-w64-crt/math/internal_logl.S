@@ -25,10 +25,10 @@ __MINGW_USYMBOL(__logl_internal):
 	fldln2			// log(2)
 	fldt	(%rdx)		// x : log(2)
 	fld	%st		// x : x : log(2)
-	fsubl	one		// x-1 : x : log(2)
+	fsubl	one(%rip)	// x-1 : x : log(2)
 	fld	%st		// x-1 : x-1 : x : log(2)
 	fabs			// |x-1| : x-1 : x : log(2)
-	fcompl	limit		// x-1 : x : log(2)
+	fcompl	limit(%rip)	// x-1 : x : log(2)
 	fnstsw			// x-1 : x : log(2)
 	andb	$0x45, %ah
 	jz	2f

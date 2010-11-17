@@ -35,10 +35,10 @@ __MINGW_USYMBOL(log10l):
 	fld	%st		// x : x : log10(2)
 	sahf
 	jc	3f		// in case x is NaN or ±Inf
-4:	fsubl	one		// x-1 : x : log10(2)
+4:	fsubl	one(%rip)	// x-1 : x : log10(2)
 	fld	%st		// x-1 : x-1 : x : log10(2)
 	fabs			// |x-1| : x-1 : x : log10(2)
-	fcompl	limit		// x-1 : x : log10(2)
+	fcompl	limit(%rip)	// x-1 : x : log10(2)
 	fnstsw			// x-1 : x : log10(2)
 	andb	$0x45, %ah
 	jz	2f
