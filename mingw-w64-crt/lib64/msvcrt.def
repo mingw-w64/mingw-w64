@@ -1252,7 +1252,8 @@ wcsncat_s
 wcsncmp
 wcsncpy
 wcsncpy_s
-wcsnlen
+; We provide replacement implementation in libmingwex
+wcsnlen DATA
 wcspbrk
 wcsrchr
 wcsrtombs_s

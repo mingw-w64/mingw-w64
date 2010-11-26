@@ -1,3 +1,8 @@
+2010-11-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/msvcrt.def (wcsnlen): Mark as data.
+	* lib64/msvcrt.def (wcsnlen): Likewise.
+
 2010-10-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/thunk32.def: Delete.
