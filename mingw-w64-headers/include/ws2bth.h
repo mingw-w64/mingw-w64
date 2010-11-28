@@ -25,11 +25,6 @@ typedef struct _BTH_QUERY_DEVICE {
   UCHAR length;
 } BTH_QUERY_DEVICE, *PBTH_QUERY_DEVICE;
 
-typedef struct _BTH_RADIO_IN_RANGE {
-  BTH_DEVICE_INFO deviceInfo;
-  ULONG           previousDeviceFlags;
-} BTH_RADIO_IN_RANGE, *PBTH_RADIO_IN_RANGE;
-
 typedef struct _BTH_SET_SERVICE {
   PULONG pSdpVersion;
   HANDLE *pRecordHandle;
