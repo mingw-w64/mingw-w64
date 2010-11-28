@@ -17,6 +17,9 @@ extern "C" {
 #endif
 
 typedef LPVOID HBLUETOOTH_DEVICE_FIND;
+typedef LPVOID HBLUETOOTH_RADIO_FIND;
+typedef LPVOID HBLUETOOTH_AUTHENTICATION_REGISTRATION;
+typedef LPVOID HBLUETOOTH_CONTAINER_ELEMENT;
 
 typedef struct _BLUETOOTH_ADDRESS {
   __MINGW_EXTENSION union {
@@ -64,14 +67,7 @@ typedef struct _BLUETOOTH_RADIO_INFO {
   ULONG             ulClassofDevice;
   USHORT            lmpSubversion;
   USHORT            manufacturer;
-} BLUETOOTH_RADIO_INFO;
-
-typedef struct _BTH_DEVICE_INFO {
-  ULONG    flags;
-  BTH_ADDR address;
-  BTH_COD  classOfDevice;
-  CHAR     name[BTH_MAX_NAME_SIZE];
-} BTH_DEVICE_INFO, *PBTH_DEVICE_INFO;
+} BLUETOOTH_RADIO_INFO, *PBLUETOOTH_RADIO_INFO;
 
 typedef enum _BLUETOOTH_AUTHENTICATION_METHOD {
   BLUETOOTH_AUTHENTICATION_METHOD_LEGACY                 = 0x1,
@@ -89,7 +85,7 @@ typedef enum _BLUETOOTH_IO_CAPABILITY {
   BLUETOOTH_IO_CAPABILITY_UNDEFINED         = 0xff
 } BLUETOOTH_IO_CAPABILITY;
 
-typedef enum _AUTHENTICATION_REQUIREMENTS {
+typedef enum _BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
   MITMProtectionNotRequired                 = 0x00,
   MITMProtectionRequired                    = 0x01,
   MITMProtectionNotRequiredBonding          = 0x02,
@@ -97,7 +93,7 @@ typedef enum _AUTHENTICATION_REQUIREMENTS {
   MITMProtectionNotRequiredGeneralBonding   = 0x04,
   MITMProtectionRequiredGeneralBonding      = 0x05,
   MITMProtectionNotDefined                  = 0xff
-} AUTHENTICATION_REQUIREMENTS;
+} BLUETOOTH_AUTHENTICATION_REQUIREMENTS;
 
 typedef struct _BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
   BLUETOOTH_DEVICE_INFO                 deviceInfo;
@@ -110,82 +106,20 @@ typedef struct _BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
   } ;
 } BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS, *PBLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS;
 
-typedef struct _BLUETOOTH_AUTHENTICATE_RESPONSE {
-  BLUETOOTH_ADDRESS               bthAddressRemote;
-  BLUETOOTH_AUTHENTICATION_METHOD authMethod;
-  __MINGW_EXTENSION union {
-    BLUETOOTH_PIN_INFO                pinInfo;
-    BLUETOOTH_OOB_DATA                oobInfo;
-    BLUETOOTH_NUMERIC_COMPARISON_INFO numericCompInfo;
-    BLUETOOTH_PASSKEY_INFO            passkeyInfo;
-  };
-  UCHAR                           negativeResponse;
-} BLUETOOTH_AUTHENTICATE_RESPONSE, *PBLUETOOTH_AUTHENTICATE_RESPONSE;
-
-typedef struct _SPD_ELEMENT_DATA {
-  SDP_TYPE         type;
-  SDP_SPECIFICTYPE specificType;
-  union {
-    SDP_LARGE_INTEGER_16  int128;
-    LONGLONG              int64;
-    LONG                  int32;
-    SHORT                 int16;
-    CHAR                  int8;
-    SDP_ULARGE_INTEGER_16 uint128;
-    ULONGLONG             uint64;
-    ULONG                 uint32;
-    USHORT                uint16;
-    UCHAR                 uint8;
-    UCHAR                 booleanVal;
-    GUID                  uuid128;
-    ULONG                 uuid32;
-    USHORT                uuid16;
-    struct {
-      LPBYTE value;
-      ULONG  length;
-    } string;
-    struct {
-      LPBYTE value;
-      ULONG  length;
-    } url;
-    struct {
-      LPBYTE value;
-      ULONG  length;
-    } sequence;
-    struct {
-      LPBYTE value;
-      ULONG  length;
-    } alternative;
-  } data;
-} SDP_ELEMENT_DATA, *PSDP_ELEMENT_DATA;
-
-typedef struct _SDP_STRING_TYPE_DATA {
-  USHORT encoding;
-  USHORT mibeNum;
-  USHORT attributeID;
-} SDP_STRING_TYPE_DATA, *PSDP_STRING_TYPE_DATA;
-
-typedef struct _BLUETOOTH_AUTHENTICATE_RESPONSE {
-  BLUETOOTH_ADDRESS               bthAddressRemote;
-  BLUETOOTH_AUTHENTICATION_METHOD authMethod;
-  __MINGW_EXTENSION union {
-    BLUETOOTH_PIN_INFO                pinInfo;
-    BLUETOOTH_OOB_DATA                oobInfo;
-    BLUETOOTH_NUMERIC_COMPARISON_INFO numericCompInfo;
-    BLUETOOTH_PASSKEY_INFO            passkeyInfo;
-  };
-  UCHAR                           negativeResponse;
-} BLUETOOTH_AUTHENTICATE_RESPONSE, *PBLUETOOTH_AUTHENTICATE_RESPONSE;
+#define BLUETOOTH_MAX_SERVICE_NAME_SIZE 256
+#define BLUETOOTH_DEVICE_NAME_SIZE 256
+typedef struct _BLUETOOTH_LOCAL_SERVICE_INFO {
+  BOOL              Enabled;
+  BLUETOOTH_ADDRESS btAddr;
+  WCHAR             szName[BLUETOOTH_MAX_SERVICE_NAME_SIZE];
+  WCHAR             szDeviceString[BLUETOOTH_DEVICE_NAME_SIZE];
+} BLUETOOTH_LOCAL_SERVICE_INFO;
 
 #define BTH_MAX_PIN_SIZE 16
 typedef struct _BLUETOOTH_PIN_INFO {
   UCHAR pin[BTH_MAX_PIN_SIZE];
   UCHAR pinLength;
 } BLUETOOTH_PIN_INFO, *PBLUETOOTH_PIN_INFO;
-
-typedef struct _BLUETOOTH_PASSKEY_INFO {
-  ULONG passkey;
-} BLUETOOTH_PASSKEY_INFO, *PBLUETOOTH_PASSKEY_INFO;
 
 typedef struct _BLUETOOTH_OOB_DATA_INFO {
   UCHAR C[16];
@@ -195,6 +129,22 @@ typedef struct _BLUETOOTH_OOB_DATA_INFO {
 typedef struct _BLUETOOTH_NUMERIC_COMPARISON_INFO {
   ULONG NumericValue;
 } BLUETOOTH_NUMERIC_COMPARISON_INFO, *PBLUETOOTH_NUMERIC_COMPARISON_INFO;
+
+typedef struct _BLUETOOTH_PASSKEY_INFO {
+  ULONG passkey;
+} BLUETOOTH_PASSKEY_INFO, *PBLUETOOTH_PASSKEY_INFO;
+
+typedef struct _BLUETOOTH_AUTHENTICATE_RESPONSE {
+  BLUETOOTH_ADDRESS               bthAddressRemote;
+  BLUETOOTH_AUTHENTICATION_METHOD authMethod;
+  __MINGW_EXTENSION union {
+    BLUETOOTH_PIN_INFO                pinInfo;
+    BLUETOOTH_OOB_DATA_INFO           oobInfo;
+    BLUETOOTH_NUMERIC_COMPARISON_INFO numericCompInfo;
+    BLUETOOTH_PASSKEY_INFO            passkeyInfo;
+  };
+  UCHAR                           negativeResponse;
+} BLUETOOTH_AUTHENTICATE_RESPONSE, *PBLUETOOTH_AUTHENTICATE_RESPONSE;
 
 typedef WINBOOL (*PFN_DEVICE_CALLBACK)(LPVOID pvParam,PBLUETOOTH_DEVICE_INFO pDevice);
 typedef WINBOOL (*CALLBACK PFN_AUTHENTICATION_CALLBACK_EX)(LPVOID pvParam,PBLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS pAuthCallbackParams);
@@ -230,7 +180,7 @@ HRESULT WINAPI BluetoothAuthenticateDeviceEx(
   HWND hwndParentIn,
   HANDLE hRadioIn,
   BLUETOOTH_DEVICE_INFO *pbtdiInout,
-  PBTH_OOB_DATA pbtOobData,
+  PBLUETOOTH_OOB_DATA_INFO pbtOobData,
   BLUETOOTH_AUTHENTICATION_REQUIREMENTS authenticationRequirement
 );
 
@@ -350,7 +300,7 @@ DWORD BluetoothSdpGetElementData(
 DWORD BluetoothSdpGetString(
   LPBYTE pRecordStream,
   ULONG cbRecordLength,
-  PSDP_STRING_DATA_TYPE pStringData,
+  PSDP_STRING_TYPE_DATA pStringData,
   USHORT usStringOffset,
   PWCHAR pszString,
   PULONG pcchStringLength
@@ -396,27 +346,6 @@ WINBOOL WINAPI BluetoothUnregisterAuthentication(
 DWORD WINAPI BluetoothUpdateDeviceRecord(
     BLUETOOTH_DEVICE_INFO *pbtdi
 );
-
-#if (_WIN32_WINNT >= 0x0600)
-
-typedef struct _BLUETOOTH_LOCAL_SERVICE_INFO {
-  BOOL              Enabled;
-  BLUETOOTH_ADDRESS btAddr;
-  WCHAR             szName[BLUETOOTH_MAX_SERVICE_NAME_SIZE];
-  WCHAR             szDeviceString[BLUETOOTH_DEVICE_NAME_SIZE];
-} BLUETOOTH_LOCAL_SERVICE_INFO;
-
-typedef enum AUTHENTICATION_REQUIREMENTS {
-  MITMProtectionNotRequired                 = 0x00,
-  MITMProtectionRequired                    = 0x01,
-  MITMProtectionNotRequiredBonding          = 0x02,
-  MITMProtectionRequiredBonding             = 0x03,
-  MITMProtectionNotRequiredGeneralBonding   = 0x04,
-  MITMProtectionRequiredGeneralBonding      = 0x05,
-  MITMProtectionNotDefined                  = 0xff
-} AUTHENTICATION_REQUIREMENTS;
-
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
 }
