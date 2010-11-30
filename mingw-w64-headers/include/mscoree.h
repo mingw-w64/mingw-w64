@@ -43,6 +43,11 @@ typedef interface IHostControl IHostControl;
 typedef interface ICorRuntimeHost ICorRuntimeHost;
 #endif
 
+#ifndef __ICLRRuntimeHost_FWD_DEFINED__
+#define __ICLRRuntimeHost_FWD_DEFINED__
+typedef interface ICLRRuntimeHost ICLRRuntimeHost;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -75,6 +80,7 @@ typedef enum RUNTIME_INFO_FLAGS {
     RUNTIME_INFO_DONT_RETURN_VERSION = 0x20,
     RUNTIME_INFO_DONT_SHOW_ERROR_DIALOG = 0x40
 } RUNTIME_INFO_FLAGS;
+typedef HRESULT (__stdcall *FExecuteInAppDomainCallback)(void *cookie);
 /*****************************************************************************
  * IGCThreadControl interface
  */
@@ -968,6 +974,230 @@ void __RPC_STUB ICorRuntimeHost_CurrentDomain_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ICorRuntimeHost_INTERFACE_DEFINED__ */
+
+DEFINE_GUID(CLSID_CLRRuntimeHost, 0x90f1a06e,0x7712,0x4762,0x86,0xb5,0x7a,0x5e,0xba,0x6b,0xdb,0x02);
+/*****************************************************************************
+ * ICLRRuntimeHost interface
+ */
+#ifndef __ICLRRuntimeHost_INTERFACE_DEFINED__
+#define __ICLRRuntimeHost_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ICLRRuntimeHost, 0x90f1a06c, 0x7712, 0x4762, 0x86,0xb5, 0x7a,0x5e,0xba,0x6b,0xdb,0x02);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface ICLRRuntimeHost : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Start(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Stop(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetHostControl(
+        IHostControl *pHostControl) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCLRControl(
+        ICLRControl **pCLRControl) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnloadAppDomain(
+        DWORD dwAppDomainId,
+        WINBOOL fWaitUntilDone) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ExecuteInAppDomain(
+        DWORD dwAppDomainId,
+        HRESULT (__stdcall * pCallback)(void *cookie),
+        void *cookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentAppDomainId(
+        DWORD *pdwAppDomainId) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ExecuteApplication(
+        LPCWSTR pwzAppFullName,
+        DWORD dwManifestPaths,
+        LPCWSTR *ppwzManifestPaths,
+        DWORD dwActivationData,
+        LPCWSTR *ppwzActivationData,
+        int *pReturnValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ExecuteInDefaultAppDomain(
+        LPCWSTR pwzAssemblyPath,
+        LPCWSTR pwzTypeName,
+        LPCWSTR pwzMethodName,
+        LPCWSTR pwzArgument,
+        DWORD *pReturnValue) = 0;
+
+};
+#else
+typedef struct ICLRRuntimeHostVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ICLRRuntimeHost* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ICLRRuntimeHost* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ICLRRuntimeHost* This);
+
+    /*** ICLRRuntimeHost methods ***/
+    HRESULT (STDMETHODCALLTYPE *Start)(
+        ICLRRuntimeHost* This);
+
+    HRESULT (STDMETHODCALLTYPE *Stop)(
+        ICLRRuntimeHost* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetHostControl)(
+        ICLRRuntimeHost* This,
+        IHostControl *pHostControl);
+
+    HRESULT (STDMETHODCALLTYPE *GetCLRControl)(
+        ICLRRuntimeHost* This,
+        ICLRControl **pCLRControl);
+
+    HRESULT (STDMETHODCALLTYPE *UnloadAppDomain)(
+        ICLRRuntimeHost* This,
+        DWORD dwAppDomainId,
+        WINBOOL fWaitUntilDone);
+
+    HRESULT (STDMETHODCALLTYPE *ExecuteInAppDomain)(
+        ICLRRuntimeHost* This,
+        DWORD dwAppDomainId,
+        HRESULT (__stdcall * pCallback)(void *cookie),
+        void *cookie);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentAppDomainId)(
+        ICLRRuntimeHost* This,
+        DWORD *pdwAppDomainId);
+
+    HRESULT (STDMETHODCALLTYPE *ExecuteApplication)(
+        ICLRRuntimeHost* This,
+        LPCWSTR pwzAppFullName,
+        DWORD dwManifestPaths,
+        LPCWSTR *ppwzManifestPaths,
+        DWORD dwActivationData,
+        LPCWSTR *ppwzActivationData,
+        int *pReturnValue);
+
+    HRESULT (STDMETHODCALLTYPE *ExecuteInDefaultAppDomain)(
+        ICLRRuntimeHost* This,
+        LPCWSTR pwzAssemblyPath,
+        LPCWSTR pwzTypeName,
+        LPCWSTR pwzMethodName,
+        LPCWSTR pwzArgument,
+        DWORD *pReturnValue);
+
+    END_INTERFACE
+} ICLRRuntimeHostVtbl;
+interface ICLRRuntimeHost {
+    CONST_VTBL ICLRRuntimeHostVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define ICLRRuntimeHost_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ICLRRuntimeHost_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ICLRRuntimeHost_Release(This) (This)->lpVtbl->Release(This)
+/*** ICLRRuntimeHost methods ***/
+#define ICLRRuntimeHost_Start(This) (This)->lpVtbl->Start(This)
+#define ICLRRuntimeHost_Stop(This) (This)->lpVtbl->Stop(This)
+#define ICLRRuntimeHost_SetHostControl(This,pHostControl) (This)->lpVtbl->SetHostControl(This,pHostControl)
+#define ICLRRuntimeHost_GetCLRControl(This,pCLRControl) (This)->lpVtbl->GetCLRControl(This,pCLRControl)
+#define ICLRRuntimeHost_UnloadAppDomain(This,dwAppDomainId,fWaitUntilDone) (This)->lpVtbl->UnloadAppDomain(This,dwAppDomainId,fWaitUntilDone)
+#define ICLRRuntimeHost_ExecuteInAppDomain(This,dwAppDomainId,pCallback,cookie) (This)->lpVtbl->ExecuteInAppDomain(This,dwAppDomainId,pCallback,cookie)
+#define ICLRRuntimeHost_GetCurrentAppDomainId(This,pdwAppDomainId) (This)->lpVtbl->GetCurrentAppDomainId(This,pdwAppDomainId)
+#define ICLRRuntimeHost_ExecuteApplication(This,pwzAppFullName,dwManifestPaths,ppwzManifestPaths,dwActivationData,ppwzActivationData,pReturnValue) (This)->lpVtbl->ExecuteApplication(This,pwzAppFullName,dwManifestPaths,ppwzManifestPaths,dwActivationData,ppwzActivationData,pReturnValue)
+#define ICLRRuntimeHost_ExecuteInDefaultAppDomain(This,pwzAssemblyPath,pwzTypeName,pwzMethodName,pwzArgument,pReturnValue) (This)->lpVtbl->ExecuteInDefaultAppDomain(This,pwzAssemblyPath,pwzTypeName,pwzMethodName,pwzArgument,pReturnValue)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ICLRRuntimeHost_Start_Proxy(
+    ICLRRuntimeHost* This);
+void __RPC_STUB ICLRRuntimeHost_Start_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICLRRuntimeHost_Stop_Proxy(
+    ICLRRuntimeHost* This);
+void __RPC_STUB ICLRRuntimeHost_Stop_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICLRRuntimeHost_SetHostControl_Proxy(
+    ICLRRuntimeHost* This,
+    IHostControl *pHostControl);
+void __RPC_STUB ICLRRuntimeHost_SetHostControl_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICLRRuntimeHost_GetCLRControl_Proxy(
+    ICLRRuntimeHost* This,
+    ICLRControl **pCLRControl);
+void __RPC_STUB ICLRRuntimeHost_GetCLRControl_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICLRRuntimeHost_UnloadAppDomain_Proxy(
+    ICLRRuntimeHost* This,
+    DWORD dwAppDomainId,
+    WINBOOL fWaitUntilDone);
+void __RPC_STUB ICLRRuntimeHost_UnloadAppDomain_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICLRRuntimeHost_ExecuteInAppDomain_Proxy(
+    ICLRRuntimeHost* This,
+    DWORD dwAppDomainId,
+    HRESULT (__stdcall * pCallback)(void *cookie),
+    void *cookie);
+void __RPC_STUB ICLRRuntimeHost_ExecuteInAppDomain_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICLRRuntimeHost_GetCurrentAppDomainId_Proxy(
+    ICLRRuntimeHost* This,
+    DWORD *pdwAppDomainId);
+void __RPC_STUB ICLRRuntimeHost_GetCurrentAppDomainId_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICLRRuntimeHost_ExecuteApplication_Proxy(
+    ICLRRuntimeHost* This,
+    LPCWSTR pwzAppFullName,
+    DWORD dwManifestPaths,
+    LPCWSTR *ppwzManifestPaths,
+    DWORD dwActivationData,
+    LPCWSTR *ppwzActivationData,
+    int *pReturnValue);
+void __RPC_STUB ICLRRuntimeHost_ExecuteApplication_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICLRRuntimeHost_ExecuteInDefaultAppDomain_Proxy(
+    ICLRRuntimeHost* This,
+    LPCWSTR pwzAssemblyPath,
+    LPCWSTR pwzTypeName,
+    LPCWSTR pwzMethodName,
+    LPCWSTR pwzArgument,
+    DWORD *pReturnValue);
+void __RPC_STUB ICLRRuntimeHost_ExecuteInDefaultAppDomain_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ICLRRuntimeHost_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 
