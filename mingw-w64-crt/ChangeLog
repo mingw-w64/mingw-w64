@@ -1,3 +1,8 @@
+2010-11-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gdtoa/gdtoaimp.h (hexdig_init_D2A): Resolve conflicting symbol
+	against libquadmath of 4.6 by redefining it as __mingw_hexdig_init_D2A
+
 2010-10-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/thunk32.def: Delete.

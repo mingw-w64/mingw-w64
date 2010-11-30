@@ -535,6 +535,8 @@ __hi0bits_D2A (ULong y)
 #define trailz __trailz_D2A
 #define ulp __ulp_D2A
 
+#define hexdig_init_D2A __mingw_hexdig_init_D2A
+
 extern char *dtoa_result;
 extern const double bigtens[], tens[], tinytens[];
 extern unsigned char hexdig[];
