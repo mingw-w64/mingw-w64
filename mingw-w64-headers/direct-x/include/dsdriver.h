@@ -22,8 +22,6 @@
 #ifndef __WINE_DSDRIVER_H
 #define __WINE_DSDRIVER_H
 
-#include <_mingw_dxhelper.h>
-
 #ifdef __cplusplus
 extern "C" {
 #endif
