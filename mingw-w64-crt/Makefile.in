@@ -2279,8 +2279,8 @@ am__EXEEXT_2 = testcases/tstmainc$(EXEEXT) \
 	testcases/t_sigv$(EXEEXT) testcases/t_speed_powl$(EXEEXT) \
 	testcases/t_stat$(EXEEXT) testcases/t_stdint$(EXEEXT) \
 	testcases/t_time$(EXEEXT) testcases/t_tls1$(EXEEXT) \
-	testcases/t_trycatch$(EXEEXT) testcases/t_wreaddir$(EXEEXT) \
-	$(am__EXEEXT_1)
+	testcases/t_trycatch$(EXEEXT) testcases/t_stat_slash$(EXEEXT) \
+	testcases/t_wreaddir$(EXEEXT) $(am__EXEEXT_1)
 @LIB32_TRUE@am__EXEEXT_3 = tests32/cimag$(EXEEXT) \
 @LIB32_TRUE@	tests32/creal$(EXEEXT) tests32/cabs$(EXEEXT) \
 @LIB32_TRUE@	tests32/cacos$(EXEEXT) tests32/cacosh$(EXEEXT) \
@@ -2353,6 +2353,9 @@ testcases_t_speed_powl_LDADD = $(LDADD)
 testcases_t_stat_SOURCES = testcases/t_stat.c
 testcases_t_stat_OBJECTS = testcases/t_stat.$(OBJEXT)
 testcases_t_stat_LDADD = $(LDADD)
+testcases_t_stat_slash_SOURCES = testcases/t_stat_slash.c
+testcases_t_stat_slash_OBJECTS = testcases/t_stat_slash.$(OBJEXT)
+testcases_t_stat_slash_LDADD = $(LDADD)
 testcases_t_stdint_SOURCES = testcases/t_stdint.c
 testcases_t_stdint_OBJECTS = testcases/t_stdint.$(OBJEXT)
 testcases_t_stdint_LDADD = $(LDADD)
@@ -2739,32 +2742,33 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	testcases/t_nullptrexception.c testcases/t_readdir.c \
 	testcases/t_setjmp.c testcases/t_sigv.c \
 	testcases/t_speed_powl.c testcases/t_stat.c \
-	testcases/t_stdint.c testcases/t_time.c testcases/t_tls1.c \
-	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
-	testcases/t_wreaddir.c testcases/tstmain_sys_xxx.c \
-	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
-	$(tests32_cabs_SOURCES) $(tests32_cacos_SOURCES) \
-	$(tests32_cacosh_SOURCES) $(tests32_carg_SOURCES) \
-	$(tests32_casin_SOURCES) $(tests32_casinh_SOURCES) \
-	$(tests32_catan_SOURCES) $(tests32_catanh_SOURCES) \
-	$(tests32_ccos_SOURCES) $(tests32_ccosh_SOURCES) \
-	$(tests32_cexp_SOURCES) $(tests32_cimag_SOURCES) \
-	$(tests32_clog_SOURCES) $(tests32_conj_SOURCES) \
-	$(tests32_cpow_SOURCES) $(tests32_cproj_SOURCES) \
-	$(tests32_creal_SOURCES) $(tests32_csin_SOURCES) \
-	$(tests32_csinh_SOURCES) $(tests32_csqrt_SOURCES) \
-	$(tests32_ctan_SOURCES) $(tests32_ctanh_SOURCES) \
-	$(tests64_cabs_SOURCES) $(tests64_cacos_SOURCES) \
-	$(tests64_cacosh_SOURCES) $(tests64_carg_SOURCES) \
-	$(tests64_casin_SOURCES) $(tests64_casinh_SOURCES) \
-	$(tests64_catan_SOURCES) $(tests64_catanh_SOURCES) \
-	$(tests64_ccos_SOURCES) $(tests64_ccosh_SOURCES) \
-	$(tests64_cexp_SOURCES) $(tests64_cimag_SOURCES) \
-	$(tests64_clog_SOURCES) $(tests64_conj_SOURCES) \
-	$(tests64_cpow_SOURCES) $(tests64_cproj_SOURCES) \
-	$(tests64_creal_SOURCES) $(tests64_csin_SOURCES) \
-	$(tests64_csinh_SOURCES) $(tests64_csqrt_SOURCES) \
-	$(tests64_ctan_SOURCES) $(tests64_ctanh_SOURCES)
+	testcases/t_stat_slash.c testcases/t_stdint.c \
+	testcases/t_time.c testcases/t_tls1.c testcases/t_tmain.c \
+	$(testcases_t_trycatch_SOURCES) testcases/t_wreaddir.c \
+	testcases/tstmain_sys_xxx.c testcases/tstmainc.c \
+	$(testcases_tstmaincpp_SOURCES) $(tests32_cabs_SOURCES) \
+	$(tests32_cacos_SOURCES) $(tests32_cacosh_SOURCES) \
+	$(tests32_carg_SOURCES) $(tests32_casin_SOURCES) \
+	$(tests32_casinh_SOURCES) $(tests32_catan_SOURCES) \
+	$(tests32_catanh_SOURCES) $(tests32_ccos_SOURCES) \
+	$(tests32_ccosh_SOURCES) $(tests32_cexp_SOURCES) \
+	$(tests32_cimag_SOURCES) $(tests32_clog_SOURCES) \
+	$(tests32_conj_SOURCES) $(tests32_cpow_SOURCES) \
+	$(tests32_cproj_SOURCES) $(tests32_creal_SOURCES) \
+	$(tests32_csin_SOURCES) $(tests32_csinh_SOURCES) \
+	$(tests32_csqrt_SOURCES) $(tests32_ctan_SOURCES) \
+	$(tests32_ctanh_SOURCES) $(tests64_cabs_SOURCES) \
+	$(tests64_cacos_SOURCES) $(tests64_cacosh_SOURCES) \
+	$(tests64_carg_SOURCES) $(tests64_casin_SOURCES) \
+	$(tests64_casinh_SOURCES) $(tests64_catan_SOURCES) \
+	$(tests64_catanh_SOURCES) $(tests64_ccos_SOURCES) \
+	$(tests64_ccosh_SOURCES) $(tests64_cexp_SOURCES) \
+	$(tests64_cimag_SOURCES) $(tests64_clog_SOURCES) \
+	$(tests64_conj_SOURCES) $(tests64_cpow_SOURCES) \
+	$(tests64_cproj_SOURCES) $(tests64_creal_SOURCES) \
+	$(tests64_csin_SOURCES) $(tests64_csinh_SOURCES) \
+	$(tests64_csqrt_SOURCES) $(tests64_ctan_SOURCES) \
+	$(tests64_ctanh_SOURCES)
 DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdinput8_a_SOURCES_DIST) \
 	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
@@ -2815,10 +2819,11 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	testcases/t_nullptrexception.c testcases/t_readdir.c \
 	testcases/t_setjmp.c testcases/t_sigv.c \
 	testcases/t_speed_powl.c testcases/t_stat.c \
-	testcases/t_stdint.c testcases/t_time.c testcases/t_tls1.c \
-	testcases/t_tmain.c $(testcases_t_trycatch_SOURCES) \
-	testcases/t_wreaddir.c testcases/tstmain_sys_xxx.c \
-	testcases/tstmainc.c $(testcases_tstmaincpp_SOURCES) \
+	testcases/t_stat_slash.c testcases/t_stdint.c \
+	testcases/t_time.c testcases/t_tls1.c testcases/t_tmain.c \
+	$(testcases_t_trycatch_SOURCES) testcases/t_wreaddir.c \
+	testcases/tstmain_sys_xxx.c testcases/tstmainc.c \
+	$(testcases_tstmaincpp_SOURCES) \
 	$(am__tests32_cabs_SOURCES_DIST) \
 	$(am__tests32_cacos_SOURCES_DIST) \
 	$(am__tests32_cacosh_SOURCES_DIST) \
@@ -3781,8 +3786,8 @@ testcase_progs = testcases/tstmainc testcases/tstmaincpp \
 	testcases/t_nullptrexception testcases/t_readdir \
 	testcases/t_setjmp testcases/t_sigv testcases/t_speed_powl \
 	testcases/t_stat testcases/t_stdint testcases/t_time \
-	testcases/t_tls1 testcases/t_trycatch testcases/t_wreaddir \
-	$(am__append_2)
+	testcases/t_tls1 testcases/t_trycatch testcases/t_stat_slash \
+	testcases/t_wreaddir $(am__append_2)
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
 testcases_t_intrinc_CFLAGS = -std=c99
@@ -7443,6 +7448,11 @@ testcases/t_stat.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_stat$(EXEEXT): $(testcases_t_stat_OBJECTS) $(testcases_t_stat_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_stat$(EXEEXT)
 	$(LINK) $(testcases_t_stat_OBJECTS) $(testcases_t_stat_LDADD) $(LIBS)
+testcases/t_stat_slash.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_stat_slash$(EXEEXT): $(testcases_t_stat_slash_OBJECTS) $(testcases_t_stat_slash_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_stat_slash$(EXEEXT)
+	$(LINK) $(testcases_t_stat_slash_OBJECTS) $(testcases_t_stat_slash_LDADD) $(LIBS)
 testcases/t_stdint.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_stdint$(EXEEXT): $(testcases_t_stdint_OBJECTS) $(testcases_t_stdint_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -9156,6 +9166,7 @@ mostlyclean-compile:
 	-rm -f testcases/t_sigv.$(OBJEXT)
 	-rm -f testcases/t_speed_powl.$(OBJEXT)
 	-rm -f testcases/t_stat.$(OBJEXT)
+	-rm -f testcases/t_stat_slash.$(OBJEXT)
 	-rm -f testcases/t_stdint.$(OBJEXT)
 	-rm -f testcases/t_time.$(OBJEXT)
 	-rm -f testcases/t_tls1.$(OBJEXT)
@@ -10398,6 +10409,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_sigv.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_speed_powl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_stat.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_stat_slash.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_stdint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_time.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_tls1.Po@am__quote@
