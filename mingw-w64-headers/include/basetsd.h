@@ -80,13 +80,13 @@ extern "C" {
   static __inline void *LongToPtr(const long l) { return((void *)(LONG_PTR)l); }
   static __inline void *ULongToPtr(const unsigned long ul) { return((void *)(ULONG_PTR)ul); }
 
-#define PtrToPtr64(p) ((void *) p)
-#define Ptr64ToPtr(p) ((void *) p)
+#define PtrToPtr64(p) ((void *) (ULONG_PTR) p)
+#define Ptr64ToPtr(p) ((void *) (ULONG_PTR) p)
 #define HandleToHandle64(h) (PtrToPtr64(h))
 #define Handle64ToHandle(h) (Ptr64ToPtr(h))
 
-  static __inline void *Ptr32ToPtr(const void *p) { return (void *)p; }
-  static __inline void *Handle32ToHandle(const void *h) { return((void *) h); }
+  static __inline void *Ptr32ToPtr(const void *p) { return (void *) (ULONG_PTR) p; }
+  static __inline void *Handle32ToHandle(const void *h) { return((void *) (ULONG_PTR) h); }
   static __inline void *PtrToPtr32(const void *p) { return((void *) (ULONG_PTR) p); }
 
 #define HandleToHandle32(h) (PtrToPtr32(h))
@@ -119,12 +119,12 @@ extern "C" {
 
   static __inline void *PtrToPtr64(const void *p) { return((void *) (ULONG_PTR)p); }
   static __inline void *Ptr64ToPtr(const void *p) { return((void *) (ULONG_PTR) p); }
-  static __inline void *HandleToHandle64(const void *h) { return((void *) h); }
+  static __inline void *HandleToHandle64(const void *h) { return((void *) (ULONG_PTR) h); }
   static __inline void *Handle64ToHandle(const void *h) { return((void *) (ULONG_PTR) h); }
 
-#define Ptr32ToPtr(p) ((void *) p)
+#define Ptr32ToPtr(p) ((void *) (ULONG_PTR) p)
 #define Handle32ToHandle(h) (Ptr32ToPtr(h))
-#define PtrToPtr32(p) ((void *) p)
+#define PtrToPtr32(p) ((void *) (ULONG_PTR) p)
 #define HandleToHandle32(h) (PtrToPtr32(h))
 #endif
 #endif
