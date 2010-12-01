@@ -8,8 +8,10 @@ test (char *path)
   struct stat buf;
   if (stat(path, &buf) == 0)
     printf ("OK [%s]\n", path);
-  else
+  else {
     printf ("ERROR [%s]\n", path);
+    abort();
+  }
 }
 
 void
@@ -18,8 +20,10 @@ wtest (wchar_t *path)
   struct stat buf;
   if (wstat(path, &buf) == 0)
     wprintf (L"OK [%s]\n", path);
-  else
+  else {
     wprintf (L"ERROR [%s]\n", path);
+    abort();
+  }
 }
 
 int
