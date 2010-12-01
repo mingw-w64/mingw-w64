@@ -1,3 +1,44 @@
+2010-12-01  Jonathan Yong <jon_y@users.sourceforge.net>
+
+	* lib64/kernel32.def: (RegCloseKey): Comment and remove from lib64/kernel32.def.
+	(RegCreateKeyExA): Likewise.
+	(RegCreateKeyExW): Likewise.
+	(RegDeleteKeyExA): Likewise.
+	(RegDeleteKeyExW): Likewise.
+	(RegDeleteTreeA): Likewise.
+	(RegDeleteTreeW): Likewise.
+	(RegDeleteValueA): Likewise.
+	(RegDeleteValueW): Likewise.
+	(RegDisablePredefinedCacheEx): Likewise.
+	(RegEnumKeyExA): Likewise.
+	(RegEnumKeyExW): Likewise.
+	(RegEnumValueA): Likewise.
+	(RegEnumValueW): Likewise.
+	(RegFlushKey): Likewise.
+	(RegGetKeySecurity): Likewise.
+	(RegGetValueA): Likewise.
+	(RegGetValueW): Likewise.
+	(RegLoadKeyA): Likewise.
+	(RegLoadKeyW): Likewise.
+	(RegLoadMUIStringA): Likewise.
+	(RegLoadMUIStringW): Likewise.
+	(RegNotifyChangeKeyValue): Likewise.
+	(RegOpenCurrentUser): Likewise.
+	(RegOpenKeyExA): Likewise.
+	(RegOpenKeyExW): Likewise.
+	(RegOpenUserClassesRoot): Likewise.
+	(RegQueryInfoKeyA): Likewise.
+	(RegQueryInfoKeyW): Likewise.
+	(RegQueryValueExA): Likewise.
+	(RegQueryValueExW): Likewise.
+	(RegRestoreKeyA): Likewise.
+	(RegRestoreKeyW): Likewise.
+	(RegSaveKeyExA): Likewise.
+	(RegSaveKeyExW): Likewise.
+	(RegSetKeySecurity): Likewise.
+	(RegSetValueExA): Likewise.
+	(RegSetValueExW): Likewise.
+
 2010-12-01  Pascal Obry  <pascal@obry.net>
 
 	* stdio/_stat.c: Handle trailing slash for path.
