@@ -275,6 +275,8 @@ __CRT_INLINE int __cdecl
   memcpy(_Stat, &st, sizeof(struct _stat32));
   return ret;
 }
+/* Disable it for making sure trailing slash issue is fixed.  */
+#if 0
 __CRT_INLINE int __cdecl
  stat(const char *_Filename,struct stat *_Stat) {
   struct _stat32 st;
@@ -288,6 +290,7 @@ __CRT_INLINE int __cdecl
   memcpy(_Stat, &st, sizeof(struct _stat32));
   return ret;
 }
+#endif
 #else
 __CRT_INLINE int __cdecl
  fstat(int _Desc,struct stat *_Stat) {
@@ -312,6 +315,8 @@ __CRT_INLINE int __cdecl
   _Stat->st_ctime=st.st_ctime;
   return ret;
 }
+/* Disable it for making sure trailing slash issue is fixed.  */
+#if 0
 __CRT_INLINE int __cdecl
  stat(const char *_Filename,struct stat *_Stat) {
   struct _stat64 st;
@@ -335,6 +340,7 @@ __CRT_INLINE int __cdecl
   _Stat->st_ctime=st.st_ctime;
   return ret;
 }
+#endif
 #endif /* _USE_32BIT_TIME_T */
 #endif /* __CRT__NO_INLINE */
 #endif /* !RC_INVOKED && !NO_OLDNAMES */
