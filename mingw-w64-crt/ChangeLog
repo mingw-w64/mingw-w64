@@ -1,3 +1,8 @@
+2010-12-01  Pascal Obry  <pascal@obry.net>
+
+	* stdio/_stat.c: Handle trailing slash for path.
+	* stdio/_wstat.c: Likewise.
+
 2010-11-26  Kai Tietz  <kai.tietz@onevision.com>
 
 	* lib32/msvcrt.def (wcsnlen): Mark as data.
