@@ -1015,6 +1015,7 @@ testcase_progs = \
   testcases/t_time \
   testcases/t_tls1 \
   testcases/t_trycatch \
+  testcases/t_stat_slash \
   testcases/t_wreaddir
 
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
