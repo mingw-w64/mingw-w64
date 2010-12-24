@@ -10,10 +10,6 @@
 
 #pragma pack(push,_CRT_PACKING)
 
-#ifndef _MM_MALLOC_H_INCLUDED
-#define _MM_MALLOC_H_INCLUDED
-#endif
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -55,6 +51,10 @@ extern "C" {
 /* Make sure that X86intrin.h doesn't produce here collisions.  */
 #if (!defined (_XMMINTRIN_H_INCLUDED) && !defined (_MM_MALLOC_H_INCLUDED)) || defined(_aligned_malloc)
 #define __DO_ALIGN_DEFINES
+#endif
+
+#ifndef _MM_MALLOC_H_INCLUDED
+#define _MM_MALLOC_H_INCLUDED
 #endif
 
 #ifdef __DO_ALIGN_DEFINES
