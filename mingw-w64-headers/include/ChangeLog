@@ -1,3 +1,11 @@
+2010-11-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk:
+	2010-08-20  Kai Tietz  <kai.tietz@onevision.com> (rev. 3421)
+	* intrin.h: Fix non-cygwin builds ... with big wonder.
+	2010-12-04  Kai Tietz  <kai.tietz@onevision.com> (rev. 3841)
+	* intrin.h: Handle for 32-bit case defined function cases, too.
+
 2010-12-24  Kai Tietz  <kai.tietz@onevision.com>
 
 	* malloc.h (_MM_MALLOC_H_INCLUDED): Move down after check
