@@ -1,3 +1,9 @@
+2010-12-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/_umul128.c: New.
+	* Makefile.am: Add new file for 64-bit.
+	* Makefile.in: Regenerated.
+
 2010-11-30  Kai Tietz  <kai.tietz@onevision.com>
 
 	* gdtoa/gdtoaimp.h (hexdig_init_D2A): Resolve conflicting symbol
