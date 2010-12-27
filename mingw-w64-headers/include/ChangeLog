@@ -1,3 +1,7 @@
+2010-12-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* tdiinfo.h: Sync with r/os svn@50143.
+
 2010-12-01  Kai Tietz  <kai.tietz@onevision.com>
 
 	* basetsd.h: Fix some cast warnings from const to non-const.
