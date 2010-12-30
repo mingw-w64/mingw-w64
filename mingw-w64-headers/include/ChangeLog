@@ -1,3 +1,8 @@
+2010-12-30  zap0  <aj664@hotmail.com>
+
+	* winbase.h (THREAD_MODE_BACKGROUND_BEGIN): Define.
+	(THREAD_MODE_BACKGROUND_END): Likewise.
+
 2010-12-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* tdiinfo.h: Sync with r/os svn@50143.
