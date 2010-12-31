@@ -1,3 +1,8 @@
+2ß1ß-12-31  V....
+	    Kai Tietz  <kai.tietz@onevision.com>
+
+	* float.h: New year's eve present.
+
 2010-11-16  Kai Tietz  <kai.tietz@onevision.com>
 
 	* tchar.h (_tWinMain): Define as wWinMain for UNICODE case.
