@@ -1,0 +1,1379 @@
+2010-12-30  zap0  <aj664@hotmail.com>
+
+	* winbase.h (THREAD_MODE_BACKGROUND_BEGIN): Define.
+	(THREAD_MODE_BACKGROUND_END): Likewise.
+
+2010-12-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* tdiinfo.h: Sync with r/os svn@50143.
+
+2010-12-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* basetsd.h: Fix some cast warnings from const to non-const.
+
+2010-10-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* basetsd.h (POINTER_SIGNED): New.
+	(POINTER_UNSIGNED): New.
+	(SPOINTER_32): New.
+	(UPOINTER_32): New.
+
+2010-10-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* authz.h (AuthzReportSecurityEvent): Remove WINAPI (__stdcall) and
+	mark the varargs function as WINAPIV (__cdecl).
+	(AuthzInitializeObjectAccessAuditEvent):  Likewise.
+	(AuthzInitializeObjectAccessAuditEvent2): Likewise.
+	* snmp.h (SnmpUtilDbgPrint): Remove SNMP_FUNC_TYPE (__stdcall) and
+	mark the varargs function as WINAPIV (__cdecl).
+	* wdspxe.h (PxeTrace): Remove PXEAPI (__stdcall) and mark the varargs
+	function as WINAPIV (__cdecl). Remove the associated fixme note.
+
+2010-10-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* commctrl.h: Took the DPASTREAM stuff out of unintended guarding.
+
+2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntcons.h: Add missing constants and remove associated fixme notes.
+	(EVENT_HEADER_PROPERTY_XML): Define as 0x0001.
+	(EVENT_HEADER_PROPERTY_FORWARDED_XML): Define as 0x0002.
+	(EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG): Define as 0x0004.
+	(EVENT_HEADER_FLAG_EXTENDED_INFO): Define as 0x0001.
+	(EVENT_HEADER_FLAG_PRIVATE_SESSION): Define as 0x0002.
+	(EVENT_HEADER_FLAG_STRING_ONLY): Define as 0x0004.
+	(EVENT_HEADER_FLAG_TRACE_MESSAGE): Define as 0x0008.
+	(EVENT_HEADER_FLAG_NO_CPUTIME): Define as 0x0010.
+	(EVENT_HEADER_FLAG_32_BIT_HEADER): Define as 0x0020.
+	(EVENT_HEADER_FLAG_64_BIT_HEADER): Define as 0x0040.
+	(EVENT_HEADER_FLAG_CLASSIC_HEADER): Define as 0x0100.
+	(EVENT_HEADER_EXT_TYPE_RELATED_ACTIVITYID): Define as 0x0001.
+	(EVENT_HEADER_EXT_TYPE_SID): Define as 0x0002.
+	(EVENT_HEADER_EXT_TYPE_TS_ID): Define as 0x0003.
+	(EVENT_HEADER_EXT_TYPE_INSTANCE_INFO): Define as 0x0004.
+	(EVENT_HEADER_EXT_TYPE_STACK_TRACE32): Define as 0x0005.
+	(EVENT_HEADER_EXT_TYPE_STACK_TRACE64): Define as 0x0006.
+	(EVENT_ENABLE_PROPERTY_SID): Define as 0x00000001.
+	(EVENT_ENABLE_PROPERTY_TS_ID): Define as 0x00000002.
+	(EVENT_ENABLE_PROPERTY_STACK_TRACE): Define as 0x00000004.
+	(PROCESS_TRACE_MODE_REAL_TIME): Define as 0x00000100.
+	(PROCESS_TRACE_MODE_RAW_TIMESTAMP): Define as 0x00001000.
+	(PROCESS_TRACE_MODE_EVENT_RECORD): Define as 0x10000000.
+
+2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* agtctl_i.c: Moved to mingw-w64-crt/libsrc/
+	* agtsvr_i.c: Likewise.
+	* cdoex_i.c: Likewise.
+	* cdoexm_i.c: Likewise.
+	* cdosys_i.c: Likewise.
+	* emostore_i.c: Likewise.
+	* iisext_i.c: Likewise.
+	* mtsadmin_i.c: Likewise.
+	* mtxadmin_i.c: Likewise.
+	* scardssp_i.c: Likewise.
+	* scardssp_p.c: Likewise.
+	* tsuserex_i.c: Likewise.
+
+2010-09-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winusb.h: Remove MINGW_HAS_DDK_H dependency.
+	* winusbio.h: Likewise.
+
+2010-09-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winusb.h: Fix usb100.h include.
+	* winusbio.h: Fix usb.h include.
+
+2010-09-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winbase.h (DefineHandleTable): Make the no-op macro more gcc-friendly
+	and avoid compiler warnings.
+
+2010-09-11  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* ksmedia.h: Guard REFERENCE_TIME typedef.
+	* strmif: Likewise.
+	* dxva2api.h: Add guarded REFERENCE_TIME typedef.
+
+2010-09-10  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* mingw_inc: Rename to psdk_inc.
+	* dbghelp.h: Fix up mingw_inc rename.
+	* imagehlp.h: Likewise.
+	* ks.h: Likewise.
+	* mswsock.h: Likewise.
+	* winsock.h: Likewise.
+	* winsock2.h: Likewise.
+	* ws2tcpip.h: Likewise.
+	* wtypes.h: Likewise.
+	* zmouse.h: Likewise.
+
+2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dbghelp.h, imagehlp.h (API_VERSION_NUMBER): Change from 9 to 11.
+	(LOADED_IMAGE): Add new members fReadOnly (BOOLEAN) and Version (UCHAR).
+	(PIMAGEHLP_STATUS_ROUTINE): Constify string arguments.
+	(PIMAGEHLP_STATUS_ROUTINE32): Likewise.
+	(PIMAGEHLP_STATUS_ROUTINE64): Likewise.
+	(BindImage): Likewise.
+	(BindImageEx): Likewise.
+	(ReBaseImage): Likewise.
+	(ReBaseImage64): Likewise.
+	(MapFileAndCheckSumA): Likewise.
+	(MapFileAndCheckSumW): Likewise.
+	(ImageLoad): Likewise.
+	(MapAndLoad): Likewise.
+	(SplitSymbols): Likewise (2nd arg).
+	(UpdateDebugInfoFile): Likewise (1st & 2nd args).
+	(UpdateDebugInfoFileEx): Likewise (1st & 2nd ars).
+	(PFIND_DEBUG_FILE_CALLBACK): Likewise.
+	(PFINDFILEINPATHCALLBACK): Likewise.
+	(PFIND_EXE_FILE_CALLBACK): Likewise.
+	(FindDebugInfoFile): Likewise (1st & 2nd args).
+	(FindDebugInfoFileEx): Likewise (1st & 2nd args).
+	(SymFindFileInPath): Likewise (2nd & 3rd args).
+	(FindExecutableImage): Likewise (1st & 2nd args).
+	(FindExecutableImageEx): Likewise (1st & 2nd args).
+	(KDHELP): Add new DWORD members KiUserExceptionDispatcher, StackBase
+	and StackLimit, reduced Reserved member from 8 to 5.
+	(KDHELP64): Add new DWORD64 members KiUserExceptionDispatcher, StackBase
+	and StackLimit, reduced Reserved member from 8 to 5.
+	(KdHelp32To64): Adjust for the new members of KDHELP and KDHELP64.
+	(IMAGEHLP_MODULE64): Add new BOOL members SourceIndexed and Publics.
+	(IMAGEHLP_MODULEW64): Likewise.
+	(SymSetHomeDirectory): Changed prototype for the new api (an additional
+	handle as the 1st argument).
+	(SymMatchString): Constify string arguments.
+	(PSYM_ENUMSOURCEFILES_CALLBACK): Renamed from PSYM_ENUMSOURCFILES_CALLBACK.
+	(PSYM_ENUMSOURCFILES_CALLBACK): Define as PSYM_ENUMSOURCEFILES_CALLBACK.
+	(SymEnumSourceFiles): Constify string arguments.
+	(SymGetLineFromName): Likewise.
+	(SymGetLineFromName64): Likewise.
+	(SymMatchFileName): Likewise (1st & 2nd args).
+	(SymInitialize): Likewise.
+	(SymSetSearchPath): Likewise.
+	(SymLoadModule): Likewise.
+	(SymLoadModuleEx): Likewise.
+	(SymFromName): Likewise.
+	(SymGetTypeFromName): Likewise.
+	(DbgHelpCreateUserDump): Likewise.
+	(DbgHelpCreateUserDumpW): Likewise.
+	(SymGetSymFromName): Likewise.
+	(SymGetSymFromName64): Likewise.
+	(FindFileInPath): Likewise (2nd & 3rd args).
+	(FindFileInSearchPath): Likewise (2nd & 3rd args).
+
+2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* imagehlp.h: Reorganized parts of it so that it gives the least diff
+	output against dbghelp.h.
+
+2010-09-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* powrprof.h (DevicePowerSetDeviceState): Fix the SetData argument
+	as LPCVOID.
+
+	http://msdn.microsoft.com/en-us/library/cc248871(PROT.10).aspx
+	http://msdn.microsoft.com/en-us/library/bb736370(VS.85).aspx
+	* wtsapi32.h (USERNAME_LENGTH): Define as 20.
+	(CLIENTNAME_LENGTH): Define as 20.
+	(CLIENTADDRESS_LENGTH): Define as 30.
+	(WINSTATIONNAME_LENGTH): Define as 32.
+	(DOMAIN_LENGTH): Define as 17.
+	(WTSINFOA, WTSINFOW): Fix the WinStationName, Domain and UserName
+	members to be arrays.
+
+2010-08-30  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* functiondiscoveryapi.h: Warn about HRESULT,QueryService.
+	* functiondiscoverycategories.h: New.
+	* functiondiscoveryconstraints.h (FD_CONSTRAINTVALUE_RECURSESUBCATEGORY_TRUE, FD_CONSTRAINTVALUE_VISIBILITY_ALL,
+	FD_CONSTRAINTVALUE_VISIBILITY_DEFAULT, FD_QUERYCONSTRAINT_COMCLSCONTEXT, FD_CONSTRAINTVALUE_COMCLSCONTEXT_INPROC_SERVER,
+	FD_CONSTRAINTVALUE_COMCLSCONTEXT_LOCAL_SERVER, FD_QUERYCONSTRAINT_PROVIDERINSTANCEID, FD_QUERYCONSTRAINT_RECURSESUBCATEGORY,
+	FD_QUERYCONSTRAINT_SUBCATEGORY, FD_QUERYCONSTRAINT_VISIBILITY, FD_QUERYCONSTRAINT_ROUTINGSCOPE,
+	FD_CONSTRAINTVALUE_ROUTINGSCOPE_ALL, FD_CONSTRAINTVALUE_ROUTINGSCOPE_DIRECT, PROVIDERWNET_QUERYCONSTRAINT_PROPERTIES,
+	PROVIDERWNET_QUERYCONSTRAINT_RESOURCETYPE, PROVIDERWNET_QUERYCONSTRAINT_TYPE, WNET_CONSTRAINTVALUE_PROPERTIES_ALL,
+	WNET_CONSTRAINTVALUE_PROPERTIES_LIMITED, WNET_CONSTRAINTVALUE_TYPE_ALL, WNET_CONSTRAINTVALUE_TYPE_DOMAIN,
+	WNET_CONSTRAINTVALUE_RESOURCETYPE_DISK, WNET_CONSTRAINTVALUE_RESOURCETYPE_DISKORPRINTER,
+	WNET_CONSTRAINTVALUE_RESOURCETYPE_PRINTER, PNP_CONSTRAINTVALUE_NOTPRESENT, PNP_CONSTRAINTVALUE_NOTIFICATIONSONLY,
+	PROVIDERPNP_QUERYCONSTRAINT_INTERFACECLASS, PROVIDERPNP_QUERYCONSTRAINT_NOTIFICATIONSONLY,
+	PROVIDERPNP_QUERYCONSTRAINT_NOTPRESENT, PROVIDERSSDP_QUERYCONSTRAINT_TYPE, SSDP_CONSTRAINTVALUE_TYPE_ALL,
+	SSDP_CONSTRAINTVALUE_TYPE_ROOT, SSDP_CONSTRAINTVALUE_TYPE_DEVICE_PREFIX, SSDP_CONSTRAINTVALUE_TYPE_SVC_PREFIX,
+	SSDP_CONSTRAINTVALUE_TYPE_DEV_IGD, SSDP_CONSTRAINTVALUE_TYPE_DEV_LANDEVICE, SSDP_CONSTRAINTVALUE_TYPE_DEV_LIGHTING,
+	SSDP_CONSTRAINTVALUE_TYPE_DEV_LUXMETER, SSDP_CONSTRAINTVALUE_TYPE_DEV_MDARNDR, SSDP_CONSTRAINTVALUE_TYPE_DEV_MDASRVR,
+	SSDP_CONSTRAINTVALUE_TYPE_DEV_POWERDEVICE, SSDP_CONSTRAINTVALUE_TYPE_DEV_REMINDER, SSDP_CONSTRAINTVALUE_TYPE_DEV_WANDEVICE,
+	SSDP_CONSTRAINTVALUE_TYPE_DEV_WANCONNDEVICE, SSDP_CONSTRAINTVALUE_TYPE_SVC_DIMMING, SSDP_CONSTRAINTVALUE_TYPE_SVC_SCANNER,
+	PROVIDERWSD_QUERYCONSTRAINT_DIRECTEDADDRESS, PROVIDERWSD_QUERYCONSTRAINT_SCOPE, PROVIDERWSD_QUERYCONSTRAINT_TYPE,
+	PROVIDERWSD_QUERYCONSTRAINT_SSL_CERT_FOR_CLIENT_AUTH, PROVIDERWSD_QUERYCONSTRAINT_SECURITY_REQUIREMENTS,
+	WSD_CONSTRAINTVALUE_REQUIRE_SECURECHANNEL, WSD_CONSTRAINTVALUE_REQUIRE_SECURECHANNEL_AND_COMPACTSIGNATURE): New.
+	* functiondiscoverykeys.h: New.
+
+2010-08-27  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* ntsecapi.h (KERB_LOGON_SUBMIT_TYPE): Fix "#if" usage.
+
+2010-08-25  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* mmreg.h: Sync with mingw.org:
+	(WAVE_FORMAT_WMAVOICE9): Define.
+	(WAVE_FORMAT_RAW_AAC1): Define.
+	(WAVE_FORMAT_WMAUDIO2): Define.
+	(WAVE_FORMAT_WMAUDIO3): Define.
+	(WAVE_FORMAT_WMAUDIO_LOSSLESS): Define.
+	(WAVE_FORMAT_WMASPDIF): Define.
+	(WAVE_FORMAT_MPEG_ADTS_AAC): Define.
+	(WAVE_FORMAT_MPEG_LOAS): Define.
+	(WAVE_FORMAT_DTS2): Define.
+	(WAVE_FORMAT_MPEG_HEAAC): Move out of version guard.
+
+2010-08-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntddvdeo.h: Sync with r/os svn@48575:
+	(DISPLAY_BRIGHTNESS): New structure.
+	(DISPLAYPOLICY_AC): New macro.
+	(DISPLAYPOLICY_DC): New macro.
+	(DISPLAYPOLICY_BOTH): New macro.
+
+2010-08-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winnt.h: Cleanup wrong defines for x86 and stdcall.
+	* winbase.h: Changed for x86 the Interlock... API to use
+	stdcall convention.
+
+2010-08-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ktmtypes.h (TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT):
+	short-circuit the type of UOW member and use GUID.
+
+2010-08-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* commctrl.h, dmksctrl.h, hidpi.h, kcom.h, ntdd8042.h, ntdef.h,
+	unknown.h, usbcamdi.h, usbiodef.h, usbrpmif.h, winddi.h, winsplp.h:
+	Remove unnecessary IN/OUT?OPTIONAL MSVC modifiers. Fix include
+	guard of unknown.h.
+
+2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Copy over more DDK dependency headers from experimental/ddk_test:
+	* dmksctrl.h: New.
+	* driverspecs.h: New.
+	* hidpi.h: New.
+	* hidusage.h: New.
+	* ntdd1394.h: New.
+	* ntdd8042.h: New.
+	* ntddbeep.h: New.
+	* ntddcdrm.h: New.
+	* ntddcdvd.h: New.
+	* ntdddisk.h: New.
+	* ntddft.h: New.
+	* ntddpar.h: New.
+	* ntddser.h: New.
+	* ntddtape.h: New.
+	* ntddtdi.h: New.
+	* ntddvdeo.h: New.
+	* ntddvol.h: New.
+	* prntfont.h: New.
+	* tdi.h: New.
+	* tdiinfo.h: New.
+	* unknown.h: New.
+
+2010-08-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Baby steps in moving shared data from ws2tcpip.h to ws2ipdef.h:
+	* ws2tcpip.h: Remove in6addr.h include.
+	(struct ipv6_mreq): Move to ws2ipdef.h.
+	(struct sockaddr_in6_old): Likewise.
+	(struct sockaddr_in6): Likewise.
+	(SOCKADDR_IN6): Likewise.
+	(PSOCKADDR_IN6): Likewise.
+	(LPSOCKADDR_IN6): Likewise.
+	(sockaddr_gen): Likewise.
+	(INTERFACE_INFO): Likewise.
+	* ws2ipdef.h: Remove ws2tcpip.h include. Include in6addr.h.
+	(struct ipv6_mreq): Moved from ws2tcpip.h.
+	(struct sockaddr_in6_old): Likewise.
+	(struct sockaddr_in6): Likewise.
+	(SOCKADDR_IN6): Likewise.
+	(PSOCKADDR_IN6): Likewise.
+	(LPSOCKADDR_IN6): Likewise.
+	(sockaddr_gen): Likewise.
+	(INTERFACE_INFO): Likewise.
+
+2010-08-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntrace.h (EVENT_TRACE): Updated MSDN note for BufferContext
+	member.
+	(EVENT_TRACE_LOGFILE): Removed unnecessary fixme note, because
+	the structure has ansi and unicode versions as mentioned on the
+	msdn page.
+
+2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mswsock.h: Include winsock2.h.
+
+2010-08-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* avrt.h: Changed AVRT_PRIORITY_* macros into AVRT_PRIORITY
+	enum.
+
+2010-08-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* aclapi.h (TreeSetNamedSecurityInfoA): New.
+	(TreeSetNamedSecurityInfoW): New.
+	* authz.h (AUTHZ_SECURITY_ATTRIBUTE_OPERATION): New typedef.
+	(PAUTHZ_SECURITY_ATTRIBUTE_OPERATION): Likewise.
+	(AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE): Likewise.
+	(PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE): Likewise.
+	(AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE): Likewise.
+	(PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE): Likewise.
+	(AUTHZ_SECURITY_ATTRIBUTE_V1): Likewise.
+	(PAUTHZ_SECURITY_ATTRIBUTE_V1): Likewise.
+	(AUTHZ_SECURITY_ATTRIBUTES_INFORMATION): Likewise.
+	(PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION): Likewise.
+	(AuthzModifySecurityAttributes): New.
+	* azroles.h (AZ_PROP_CONSTANTS): Add new enum entries.
+
+2010-08-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* virtdisk.h: New.
+	* windows.h: Add virtdisk.h include.
+
+2010-08-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* winnt.h (TRANSACTION_OUTCOME): New typedef.
+	(POWER_PLATFORM_ROLE): Likewise.
+	(TOKEN_ELEVATION_TYPE): Likewise.
+	(PTOKEN_ELEVATION_TYPE): Likewise.
+	(ACTCTX_COMPATIBILITY_ELEMENT_TYPE): Likewise.
+	(COMPATIBILITY_CONTEXT_ELEMENT): Likewise.
+	(PCOMPATIBILITY_CONTEXT_ELEMENT): Likewise.
+	(ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION): Likewise.
+	(PACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION): Likewise.
+	(PROCESSOR_NUMBER): Likewise.
+	(PPROCESSOR_NUMBER): Likewise.
+	(PROCESSOR_GROUP_INFO): Likewise.
+	(GROUP_RELATIONSHIP): Likewise.
+	(PGROUP_RELATIONSHIP): Likewise.
+	(GROUP_AFFINITY): Likewise.
+	(PGROUP_AFFINITY): Likewise.
+	(CACHE_RELATIONSHIP): Likewise.
+	(PCACHE_RELATIONSHIP): Likewise.
+	(NUMA_NODE_RELATIONSHIP): Likewise.
+	(PNUMA_NODE_RELATIONSHIP): Likewise.
+	(PNUMA_NODE_RELATIONSHIP): Likewise.
+	(PROCESSOR_RELATIONSHIP): Likewise.
+	(PPROCESSOR_RELATIONSHIP): Likewise.
+	(SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX): Likewise.
+	(PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX): Likewise.
+	(UMS_CREATE_THREAD_ATTRIBUTES): Likewise.
+	(PUMS_CREATE_THREAD_ATTRIBUTES): Likewise.
+
+2010-08-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dpfilter.h: Add #pragma once.
+	* ksdebug.h: Fix formatting.
+	* lmon.h: Add #pragma once.
+	* ntddndis.h: Break long enum lines into one value per line.
+	* usb200.h: Remove __GNU_EXTENSION definition.
+	* winioctl.h: Add endif comments. Add missing _NTDDDISK_H_ guard around
+	stuff shared with ntdddisk.h.
+	(STORAGE_MEDIA_TYPE): Add VXATape from ntddstor.h.
+	(EXFAT_STATISTICS): Add from vista_7_headers branch.
+
+2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ddrawgdi.h (LPD3DHAL_CALLBACKS): Guard.
+	(LPD3DHAL_GLOBALDRIVERDATA): Guard.
+
+	* diskguid.h (PARTITION_MSFT_RECOVERY_GUID): Added from vds.h (from
+	the vista_7_headers branch.)
+
+2010-08-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntdef.h:  Add the BOOL variants and WINBOOL from windef.h, guarded
+	by _DEF_WINBOOL_.
+	* windef.h: Reformat whitespace. Guard the BOOL variants and WINBOOL
+	by _DEF_WINBOOL_.
+
+2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* objidl.h (uSTGMEDIUM): Unify using DUMMYUNIONNAME.
+	* accctrl.h (ACTRL_OVERLAPPED): Add DUMMY* names to anonymous structs
+	and/or unions.
+	* mmsystem.h (MIXERCONTROLA): Likewise.
+	(MIXERCONTROLW): Likewise.
+	(MIXERLINECONTROLSA): Likewise.
+	(MIXERLINECONTROLSW): Likewise.
+	(MIXERCONTROLDETAILS): Likewise.
+	* olectl.h (PICTDESC): Likewise.
+	* propidl.h (PROPSPEC): Likewise.
+	* winnt.h (NT_TIB): Likewise.
+	(NT_TIB32): Likewise.
+	(NT_TIB64): Likewise.
+	(IMAGE_RELOCATION): Likewise.
+	(IMAGE_IMPORT_DESCRIPTOR): Likewise.
+	(IMAGE_RESOURCE_DIRECTORY_ENTRY): Likewise.
+	(IMAGE_FUNCTION_ENTRY64): Likewise.
+	* winbase.h (SYSTEM_INFO): Likewise.
+	(PROCESS_HEAP_ENTRY): Likewise.
+	* winioctl.h (SET_PARTITION_INFORMATION_EX): Likewise.
+	(CREATE_DISK): Likewise.
+	(PARTITION_INFORMATION_EX): Likewise.
+	(DRIVE_LAYOUT_INFORMATION_EX): Likewise.
+	(DISK_DETECTION_INFO): Likewise.
+	(DISK_PARTITION_INFO): Likewise.
+	(DISK_CACHE_INFORMATION): Likewise.
+	(FILE_OBJECTID_BUFFER): Likewise.
+	* wtypes.h (CY): Likewise.
+	(DECIMAL): Likewise.
+	* winuser.h (INPUT): Likewise.
+	(RID_DEVICE_INFO): Likewise.
+
+2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h (LARGE_INTEGER): Add DUMMYSTRUCTNAME to anonymous struct.
+	(ULARGE_INTEGER): Likewise.
+
+	* oaidl.h (struct _wireVARIANT): Add DUMMYUNIONNAME to the anonymous
+	union.
+	(TYPEDESC): Likewise.
+	(ELEMDESC): Likewise.
+	(VARDESC): Likewise.
+	* winnt.h (SLIST_HEADER) [!_WIN64]: Mark the anonymous struct as
+	__MINGW_EXTENSION and add DUMMYSTRUCTNAME.
+
+2010-08-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mingw_inc/_varenum.h: New helper header for enum VARENUM.
+	* wtypes.h (VARENUM): Moved from here to mingw_inc/_varenum.h.
+	Include <mingw_inc/_varenum.h>
+	* ks.h: Include <mingw_inc/_varenum.h> for DDK.
+	(PFNQUERYMEDIUMSLIST): New.
+	(BUS_INTERFACE_MEDIUMS, PBUS_INTERFACE_MEDIUMS): New.
+	(GUID_BUS_INTERFACE_MEDIUMS): New.
+	(KsGateTurnInputOn): New.
+	(KsGateTurnInputOff): New.
+	(KsGateGetStateUnsafe): New.
+	(KsGateCaptureThreshold): New.
+	(KsGateInitialize): New.
+	(KsGateInitializeAnd): New.
+	(KsGateInitializeOr): New.
+	(KsGateAddOnInputToAnd): New.
+	(KsGateAddOffInputToAnd): New.
+	(KsGateRemoveOnInputFromAnd): New.
+	(KsGateRemoveOffInputFromAnd): New.
+	(KsGateAddOnInputToOr): New.
+	(KsGateAddOffInputToOr): New.
+	(KsGateRemoveOnInputFromOr): New.
+	(KsGateRemoveOffInputFromOr): New.
+	(KsGateTerminateAnd): New.
+	(KsGateTerminateOr): New.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntddstor.h (STORAGE_MEDIA_SERIAL_NUMBER_DATA): Enable for GCC
+	alongside _MSC_EXTENSIONS.
+
+	* ntdef.h (FORCEINLINE): Arguably better _MSC_VER ifdefs.
+	* winnt.h (FORCEINLINE): Likewise.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* specstrings.h (DECLSPEC_ADDRSAFE): Update the macro from ntdef.h.
+	* winnt.h: Some whitespace reformatting in macro definitions.
+	(DECLSPEC_ALIGN): Update the macro from ntdef.h.
+	(DECLSPEC_NOINLINE): Likewise.
+	(FORCEINLINE): Likewise.
+	(FASTCALL): New, from ntdef.h.
+
+	Sync with experimental/ddk_test @ 3012:
+	* compstui.h: Add missing __MINGW_EXTENSION to anonymous unions.
+	* usb.h: Remove __GNU_EXTENSION definition, already gets it from
+	usb200.h.  Add missing __MINGW_EXTENSION to anonymous unions.
+	Replace a few __GNU_EXTENSION by __MINGW_EXTENSION.
+	* usb200.h: Replace a few __GNU_EXTENSION by __MINGW_EXTENSION.
+	* usbcamdi.h: Minor formatting.
+	* usbdi.h: Remove __GNU_EXTENSION definition, already gets it from
+	usb.h.
+	* usbioctl.h: Add #endif comments for easier reading. Add missing
+	__MINGW_EXTENSION to anonymous unions and structs.
+	* usbiodef.h: Add #endif comments for easier reading.
+	* usbuser.h: Add missing #endif for _WIN32_WINNT >= 0x0501 guard.
+	* ntdef.h: Remove __GNU_EXTENSION definition, already gets it from
+	_mingw.h.  Minor reformatting.  Add #endif comments for easier
+	reading.  Replace a few __GNU_EXTENSION by __MINGW_EXTENSION.
+	Update DBG_UNREFERENCED_PARAMETER & DBG_UNREFERENCED_LOCAL_VARIABLE
+	macros from winnt.h.  Update VER_SUITE_* macros as hex values from
+	winnt.h.  Remove __ANONYMOUS_DEFINED, _UNION_NAME, _STRUCT_NAME,
+	_ANONYMOUS_UNION, _ANONYMOUS_STRUCT, DUMMYUNIONNAME* and
+	DUMMYSTRUCTNAME* macros. They are now provided by _mingw.h since
+	rev. 3010 (trunk) or 3011 (v1.0 branch).
+
+2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Sync with experimental/ddk_test rev. 3000:
+	* ntddmou.h, ntddstor.h: Replace _ANONYMOUS_UNION and _ANONYMOUS_STRUCT
+	by __MINGW_EXTENSION.
+
+2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ksmedia.h: Remove the #warning and include ks.h with <> not "".
+
+	Sync with experimental/ddk_test rev. 2997:
+	* kcom.h: Remove the #error and do include ks.h.
+	* bdamedia.h (BdaChangeSync): Remove braces so that it does not
+	confuse DEFINE_GUID.
+
+2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* atsmedia.h, bdatypes.h, bdamedia.h: Sync with experimental/ddk_test
+	as of rev. 2992.
+
+2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* atsmedia.h, bdamedia.h, bdatypes.h, bugcodes.h, compstui.h,
+	devioctl.h, devpropdef.h, dpfilter.h, kcom.h, ksdebug.h, lmon.h,
+	netevent.h, nettypes.h, newdev.h, ntddchgr.h, ntddkbd.h, ntddmou.h,
+	ntddstor.h, ntdef.h, ntiologc.h, usb100.h, usb200.h, usbcamdi.h,
+	usbdi.h, usb.h, usbioctl.h, usbiodef.h, usbrpmif.h, usbuser.h,
+	winddi.h, winddiui.h, winsplp.h:  Copy over the DDK dependency
+	headers from experimental/ddk_test as of rev. 2989.
+
+2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntrace.h (TraceMessageVa): The function is actually WMIAPI,
+	ie. __stdcall. Thanks to Amine Khaldi.
+
+2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h: Include _mingw.h to ensure _M_* macros are defined.
+	(UNALIGNED): Define properly against __unaligned for better
+	compatibility with r/os.
+	(UNALIGNED64): Likewise.
+	(ALIGNMENT_MACHINE): New.
+
+2010-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntprov.h: Remove unnecessary FORCEINLINE definition.
+	* ks.h: Make sure __forceinline comes as first in declarations.
+
+2010-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h: Add extern to FORCEINLINE definition.
+
+2010-07-20  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* rpcndr.h (NdrUnMarshConfStringHdr): Fix macro brackets.
+	(NdrMarshSCtxtHdl): Likewise.
+	(NdrUnMarshCCtxtHdl): Fix macro typo.
+
+2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* accctrl.h: Replace several typedef __MINGW_NAME_UAW(XXX) XXX;
+	by either __MINGW_TYPEDEF_UAW(XXX) or by __MINGW_TYPEDEF_AW(XXX_)
+	* cfgmgr32.h: Replace several typedef __MINGW_NAME_UAW(XXX) XXX;
+	by __MINGW_TYPEDEF_UAW(XXX)
+	* dbt.h: Likewise.
+	* setupapi.h: Likewise.
+
+2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ksuuids.h: Merges from the experimental/ddk_test:
+	Added version guards around several existing ids.
+	(AM_KSPROPSETID_MPEG4_MediaType_Attributes): New.
+	(MEDIASUBTYPE_MPEG2_WMDRM_TRANSPORT): New.
+	(MEDIASUBTYPE_MPEG2_VERSIONED_TABLES): New.
+	(MEDIASUBTYPE_ISDB_SI): New.
+	(MEDIASUBTYPE_TIF_SI): New.
+	(MEDIASUBTYPE_MPEG2_UDCR_TRANSPORT): New.
+	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_RAW): New.
+	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_PROCESSED): New.
+
+2010-07-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _dbdao.h, afxres.h, azroles.h, dbghelp.h, http.h, iprtrmib.h,
+	mprapi.h, mscat.h, mspab.h, mspcall.h, mspcoll.h, mspenum.h, msplog.h,
+	mspst.h, mspstrm.h, mspterm.h, mspthrd.h, msptrmac.h, msptrmar.h,
+	msptrmvc.h, msputils.h, w32api.h, winbase.h, wincred.h, wincrypt.h,
+	winhttp.h, winioctl.h, winnt.h, winsvc.h, winuser.h, wmiatlprov.h:
+	Merged trivial whitespace changes and add missing public domain
+	headers from experimental/vista_7_headers.
+
+2010-07-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Incorrect version guards around the TCP_TABLE_CLASS enumeration:
+	http://msdn.microsoft.com/en-us/library/aa366386(VS.85).aspx
+	* iprtrmib.h (TCP_TABLE_CLASS): Remove version guards.
+	* iphlpapi.h (TCP_TABLE_CLASS): Remove. iphlpapi.h already relies on
+	and includes iprtrmib.h.
+
+2010-07-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntcons.h: New. Merge from experimental/vista_7_headers.
+	* evntprov.h: New. Merge from experimental/vista_7_headers.
+	* evntrace.h: Merge from experimental/vista_7_headers.
+
+2010-07-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge some obvious parts from experimental/vista_7_headers:
+	* winbase.h: Remove commented out AdjustCalendarDate, CALDATETIME & co.
+	(GetProcessDEPPolicy): Remove incorrect version guard.
+	(SetProcessDEPPolicy): Likewise.
+	(GetSystemDEPPolicy): Likewise.
+	(DEP_SYSTEM_POLICY_TYPE): Likewise.
+	(LOGON_WITH_PROFILE): Use the same style as LOGON_ZERO_PASSWORD_BUFFER.
+	(LOGON_NETCREDENTIALS_ONLY): Likewise.
+
+2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntddndis.h: Added a few endif comments.
+	(NDIS_PHYSICAL_MEDIUM): Add NdisPhysicalMediumInfiniband,
+	NdisPhysicalMediumWiMax,NdisPhysicalMediumUWB, NdisPhysicalMedium802_3,
+	NdisPhysicalMedium802_5,NdisPhysicalMediumIrda,NdisPhysicalMediumWiredWAN,
+	NdisPhysicalMediumWiredCoWan and NdisPhysicalMediumOther among the
+	enumerated values, from ddk_test version.
+	(NDIS_802_11_NETWORK_TYPE): Add Ndis802_11Automode among the enumerated
+	values, from ddk_test version.
+	(NDIS_OBJECT_HEADER): Added from experimental vista_7_headers.
+	* ntddscsi.h: Added a few endif comments.
+	(DD_SCSI_DEVICE_NAME_U): Added from ddk_test version.
+
+2010-07-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h: remove duplicated ULONG type definition. not supposed to be
+	defined here
+
+2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h: Add many data types, prototypes, etc. for DDK based on MSDN
+	information. Restricted parts of the header starting from KSOBJECT_BAG
+	typedef down to the IID_IKsDeviceFunctions GUID definition only to the
+	DDK.
+
+2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* strsafe.h: Apply the same C_ASSERT macro fix in winnt.h.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (KSATTRIBUTE_LIST): Added for DDK.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (KSEVENTDATA): Added EventObject, SemaphoreObject, Dpc, WorkItem
+	and KsWorkItem to the union. Added flag macros KSEVENTF_EVENT_OBJECT,
+	KSEVENTF_SEMAPHORE_OBJECT, KSEVENTF_DPC, KSEVENTF_WORKITEM and
+	KSEVENTF_KSWORKITEM for DDK. See the KSEVENTDATA Structure msdn page at
+	http://msdn.microsoft.com/en-us/library/ff561750(VS.85).aspx, also see
+	the r/os version of ks.h for reference.
+
+2010-06-27  Jacek Caban  <jacek@codeweavers.com>
+
+	* winnt.h: Fixed C_ASSERT macro.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h: Add forward declarations of KSDEVICE, KSDEVICE_DESCRIPTOR,
+	KSDEVICE_DISPATCH, KSFILTER, KSFILTERFACTORY, KSFILTER_DESCRIPTOR,
+	KSFILTER_DISPATCH, KSPIN, KSPIN_DESCRIPTOR_EX, KSPIN_DISPATCH,
+	KSCLOCK_DISPATCH, KSALLOCATOR_DISPATCH, KSNODE_DESCRIPTOR,
+	KSSTREAM_POINTER, KSSTREAM_POINTER_OFFSET, KSMAPPING, KSPROCESSPIN,
+	KSPROCESSPIN_INDEXENTRY structtures and their *P... variants for the
+	DDK.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (KSPROPERTY_CLOCK_FUNCTIONTABLE): Add to KSPROPERTY_CLOCK for DDK.
+	(see http://msdn.microsoft.com/en-us/library/ff564466(v=VS.85).aspx)
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (KSALLOCATOR_FRAMING): Use POOL_TYPE as the type for
+	PoolType member if _NTDDK_ is defined, because the POOL_TYPE
+	enum is provided by the ddk.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (_KS_ANON_STRUCT): New helper macro for adding names to
+	structs accroding to _KS_NO_ANONYMOUS_STRUCTURES_ being defined.
+	(KSIDENTIFIER): Use _KS_ANON_STRUCT().
+	(KSPROPERTY_BOUNDS_LONG): Likewise.
+	(KSPROPERTY_BOUNDS_LONGLONG): Likewise.
+
+2010-06-25  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h, ksmedia.h, ksproxy.h, ksuuids.h: Re-format.
+
+2010-06-23  Doug Semler  <dougsemler@gmail.com>
+
+	* GL/gl.h: Use APIENTRY instead of WINAPI.
+	* GL/glaux.h: Likewise.
+	* GL/glu.h: Likewise.
+
+2010-06-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mmsystem.h (MAKEFOURCC): Changed ifdef guard from __MAKEFOURCC__DEFINED__
+	to simply MAKEFOURCC.
+
+2010-06-22  Jacek Caban  <jacek@codeweavers.com>
+	* coerror.h, fusion.h, mscat.h, mscoree.h, optary.h: Initial import from Wine.
+	* wincodec.h, winhttp.h, xmllite.h: Likewise.
+
+2010-06-22  Jacek Caban  <jacek@codeweavers.com>
+	* downloadmgr.h: Moved to IDL SDK.
+
+2010-06-22  Jonathan Yong  <jon_y@users.sourceforge.net>
+	* clusapi.h (PCLUSAPI_OPEN_CLUSTER): Declare.
+	(FS_CASE_SENSITIVE): Define.
+	(FS_CASE_IS_PRESERVED): Likewise.
+	(FS_UNICODE_STORED_ON_DISK): Likewise.
+	(FS_PERSISTENT_ACLS): Likewise.
+	(MAINTENANCE_MODE_TYPE_ENUM): Declare.
+	(CLUSCTL_CLUSTER_CODES): Likewise.
+	(CLUSCTL_GROUP_CODES): Likewise.
+	(CLUSCTL_NETINTERFACE_CODES): Likewise.
+	(CLUSCTL_NETWORK_CODES): Likewise.
+	(CLUSCTL_NODE_CODES): Likewise.
+	(CLUSTER_REG_COMMAND): Likewise.
+	(CLUSTER_GROUP_STATE): Likewise.
+	(CLUSTER_QUORUM_TYPE): Likewise.
+	(CLUSTER_RESOURCE_CLASS): Likewise.
+	(CLUSTER_RESOURCE_CREATE_FLAGS): Likewise.
+	(CLUSTER_SETUP_PHASE): Likewise.
+	(CLUSTER_SETUP_PHASE_TYPE): Likewise.
+	(CLUSTER_SETUP_PHASE_SEVERITY): Likewise.
+	(CLUSPROP_FILETIME): Likewise.
+	(CLUS_MAINTENANCE_MODE_INFOEX): Likewise.
+	(CLUS_NETNAME_PWD_INFO): Likewise.
+	(CLUS_NETNAME_VS_TOKEN_INFO): Likewise.
+	(CLUS_PARTITION_INFO_EX): Likewise.
+	(CLUS_PROVIDER_STATE_CHANGE_INFO): Likewise.
+	(CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS): Likewise.
+	(CLUS_STORAGE_REMAP_DRIVELETTER): Likewise.
+	(CLUS_STORAGE_SET_DRIVELETTER): Likewise.
+	(CLUSPROP_PARTITION_INFO_EX): Likewise.
+	(CLUSTER_BATCH_COMMAND): Likewise.
+	(CLUSTER_IP_ENTRY): Likewise.
+	(CREATE_CLUSTER_CONFIG): Likewise.
+	(CLUSTER_VALIDATE_DIRECTORY): Likewise.
+	(CLUSTER_VALIDATE_NETNAME): Likewise.
+	(CLUSTER_VALIDATE_PATH): Likewise.
+	(HREGBATCH): Likewise.
+	(HREGBATCHPORT): Likewise.
+	(HREGBATCHNOTIFICATION): Likewise.
+	(ClusterRegBatchAddCommand): Likewise.
+	(ClusterRegBatchCloseNotification): Likewise.
+	(ClusterRegBatchReadCommand): Likewise.
+	(ClusterRegCloseBatch): Likewise.
+	(ClusterRegCloseBatchNotifyPort): Likewise.
+	(PCLUSTER_REG_CREATE_BATCH): Likewise.
+	(ClusterRegCreateBatch): Likewise.
+	(PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT): Likewise.
+	(ClusterRegCreateBatchNotifyPort): Likewise.
+	(PCLUSTER_REG_GET_BATCH_NOTIFICATION): Likewise.
+	(ClusterRegGetBatchNotification): Likewise.
+	(PCLUSTER_SETUP_PROGRESS_CALLBACK): Likewise.
+	(AddClusterNode): Likewise.
+	(DestroyCluster): Likewise.
+	(CreateCluster): Likewise.
+	(DestroyClusterGroup): Likewise.
+
+2010-06-18  Doug Semler  <dougsemler@gmail.com>
+
+	* accctrl.h: Include new _mingw_unicode.h for Unicode macros.
+	* aclapi.h: Likewise.
+	* cfgmgr32.h: Likewise.
+	* commctrl.h: Likewise.
+	* commdlg.h: Likewise.
+	* cpl.h: Likewise.
+	* cryptuiapi.h: Likewise.
+	* custcntl.h: Likewise.
+	* dbt.h: Likewise.
+	* ddeml.h: Likewise.
+	* digitalv.h: Likewise.
+	* dsclient.h: Likewise.
+	* dsgetdc.h: Likewise.
+	* dtchelp.h: Likewise.
+	* errorrep.h: Likewise.
+	* htmlhelp.h: Likewise.
+	* icm.h: Likewise.
+	* imagehlp.h: Likewise.
+	* ime.h: Likewise.
+	* imm.h: Likewise.
+	* intshcut.h: Likewise.
+	* isguids.h: Likewise.
+	* loadperf.h: Likewise.
+	* lzexpand.h: Likewise.
+	* mlang.h: Likewise.
+	* mmsystem.h: Likewise.
+	* mobsync.h: Likewise.
+	* msi.h: Likewise.
+	* msiquery.h: Likewise.
+	* multimon.h: Likewise.
+	* newapis.h: Likewise.
+	* npapi.h: Likewise.
+	* nspapi.h: Likewise.
+	* ntdsapi.h: Likewise.
+	* ntdsbcli.h: Likewise.
+	* ntmsapi.h: Likewise.
+	* ntquery.h: Likewise.
+	* odbcss.h: Likewise.
+	* oleacc.h: Likewise.
+	* oledlg.h: Likewise.
+	* patchapi.h: Likewise.
+	* patchwiz.h: Likewise.
+	* pdh.h: Likewise.
+	* pgobootrun.h: Likewise.
+	* profinfo.h: Likewise.
+	* prsht.h: Likewise.
+	* psapi.h: Likewise.
+	* ras.h: Likewise.
+	* rasdlg.h: Likewise.
+	* richedit.h: Likewise.
+	* rpcasync.h: Likewise.
+	* rpcdce.h: Likewise.
+	* rpcdcep.h: Likewise.
+	* rpcnsi.h: Likewise.
+	* rpcssl.h: Likewise.
+	* rtutils.h: Likewise.
+	* schannel.h: Likewise.
+	* sddl.h: Likewise.
+	* secext.h: Likewise.
+	* security.h: Likewise.
+	* sensapi.h: Likewise.
+	* setupapi.h: Likewise.
+	* shellapi.h: Likewise.
+	* shfolder.h: Likewise.
+	* shlguid.h: Likewise.
+	* shlobj.h: Likewise.
+	* shlwapi.h: Likewise.
+	* shobjidl.h: Likewise.
+	* smx.h: Likewise.
+	* srrestoreptapi.h: Likewise.
+	* sspi.h: Likewise.
+	* strsafe.h: Likewise.
+	* tapi.h: Likewise.
+	* traffic.h: Likewise.
+	* uastrfnc.h: Likewise.
+	* umx.h: Likewise.
+	* urlmon.h: Likewise.
+	* userenv.h: Likewise.
+	* vfw.h: Likewise.
+	* wfext.h: Likewise.
+	* winbase.h: Likewise.
+	* wincon.h: Likewise.
+	* wincred.h: Likewise.
+	* wincrypt.h: Likewise.
+	* windns.h: Likewise.
+	* wingdi.h: Likewise.
+	* wininet.h: Likewise.
+	* winnetwk.h: Likewise.
+	* winnls.h: Likewise.
+	* winnls32.h: Likewise.
+	* winnt.h: Likewise.
+	* winreg.h: Likewise.
+	* winscard.h: Likewise.
+	* winsmcrd.h: Likewise.
+	* winsock2.h: Likewise.
+	* winspool.h: Likewise.
+	* winsvc.h: Likewise.
+	* winuser.h: Likewise.
+	* winver.h: Likewise.
+	* wpapi.h: Likewise.
+	* wptypes.h: Likewise.
+	* ws2tcpip.h: Likewise.
+	* wtsapi32.h: Likewise.
+	* xolehlp.h: Likewise.
+	* zmouse.h: Likewise.
+
+2010-06-16  Doug Semler  <dougsemler@gmail.com>
+
+	* profile.h: Rename _mcount to _mcount_private to make it obvious.
+	  Declare public _mcount here.
+
+2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mingw_inc/_bsd_types.h: Moved to crt/_bsd_types.h. Changed its
+	include guard to _BSDTYPES_DEFINED.
+	* af_irda.h: Adjusted for _bsdtypes.h.
+	* inaddr.h: Likewise.
+	* in6addr.h: Likewise.
+	* mingw_inc/_ip_types.h: Likewise.
+	* winsock.h: Likewise.
+	* winsock2.h: Likewise.
+
+2010-06-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h, ksmedia.h, ksproxy.h: Added #endif comments.
+	* ks.h (DEFINE_KSPIN_INTERFACE_ITEM): Renamed macro argument
+	INTERFACE to _interFace.
+
+2010-06-12  Kai Tietz  <kai.tietz@onevision.com>
+
+	Change unicode-dependent defines to use __MINGW_NAME_AW.
+	* winuser.h: Use __MINGW_TYPEDEF_AW for UNICODE specific
+	type-definitions.
+	* zmouse.h: Use for string constant definitions
+	__MINGW_STRING_AW macro.
+
+2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Kill definitions of I_X86_ macro and adjust places it was used:
+	* windows.h: Remove I_X86_ definition. Adjust and tweak _AMD64_
+	and _IA64_ macro definitions to use _X86_ and/or __i386__.
+	* winnt.h: Likewise as in windows.h. Replace checks against I_X86_
+	by checks against _X86_. Replace checks against _X86_ which were
+	already under I_X86_ ifdefs by checks against __i386__.
+	* mapidbg.h: Replace checks against I_X86_ by checks against _X86_.
+	* mapiutil.h: Likewise.
+	* mapival.h: Likewise.
+	* netmon.h: Likewise.
+	* stralign.h: Likewise.
+	* tapi3if.h: Likewise.
+	* uastrfnc.h: Likewise.
+	* vdmdbg.h: Likewise.
+	* wabutil.h: Likewise.
+	* winbase.h: Likewise.
+
+2010-06-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sdkddkver.h: Sync'ed with ReactOS version to add new macros
+	_WIN32_WINNT_WIN7, _WIN32_IE_IE80, _WIN32_IE_WIN7 and NTDDI_WIN7.
+
+2010-06-08  Jonathan Yong  <jon_y@users.sourceforge.net>
+	* winnt.h (ACTCTX_REQUESTED_RUN_LEVEL): New.
+	(ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION): Likewise.
+	* winbase.h (CreateBoundaryDescriptorA): New.
+	(CreateBoundaryDescriptorW): Likewise.
+	(OpenPrivateNamespaceA): Likewise.
+	(OpenPrivateNamespaceW): Likewise.
+	(CreatePrivateNamespaceA): Likewise.
+	(CreatePrivateNamespaceW): Likewise.
+	(AddMandatoryAce): Likewise.
+	(AddSIDToBoundaryDescriptor): Likewise.
+	(ClosePrivateNamespace): Likewise.
+	(DeleteBoundaryDescriptor): Likewise.
+	(PSECURE_MEMORY_CACHE_CALLBACK): Likewise.
+	(AddSecureMemoryCacheCallback): Likewise.
+	(RemoveSecureMemoryCacheCallback): Likewise.
+	(AdvanceLogBase): Likewise.
+	(AllocateUserPhysicalPagesNuma): Likewise.
+	(APPLICATION_RECOVERY_CALLBACK): Likewise.
+	(RegisterApplicationRecoveryCallback): Likewise.
+	(ApplicationRecoveryFinished): Likewise.
+	(ApplicationRecoveryInProgress): Likewise.
+	* winspool.h (AddPrinterConnection2A): New.
+	(AddPrinterConnection2W): Likewise.
+	(PRINTER_CONNECTION_MISMATCH): Define.
+	(PRINTER_CONNECTION_NO_UI): Likewise.
+	(PRINTER_CONNECTION_INFO_1): New.
+	(PPRINTER_CONNECTION_INFO_1): Likewise.
+	* winsock2.h (IPPROTO_RM): Define.
+	(AF_BTH): Likewise.
+	(AF_MAX): Bump to 33.
+	* ws2tcpip.h (AI_ADDRCONFIG): Define.
+	(AI_NON_AUTHORITATIVE): Likewise.
+	(AI_SECURE): Likewise.
+	(AI_RETURN_PREFERRED_NAMES): Likewise.
+	(addrinfoExA): New.
+	(addrinfoExW): New.
+	(PADDRINFOEXA): New.
+	(PADDRINFOEXW): New.
+	(GetAddrInfoExA): New.
+	(GetAddrInfoExW): New.
+	(FreeAddrInfoExA): New.
+	(FreeAddrInfoExW): New.
+
+2010-06-04  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* winbase.h (CreateSymbolicLinkA): Move into Vista version guard.
+	(CreateSymbolicLinkW): Likewise.
+
+2010-06-01  Jacek Caban  <jacek@codeweavers.com>
+
+	* include/mscft.idl: New.
+	* include/msctf.h: New.
+	* include/textstor.idl: New.
+	* include/textstor.h: New.
+
+2010-05-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mstcpip.h: Added missing include guard.
+	* af_irda.h: Remove the _WINSOCKAPI_ guarded typedefs and include
+	mingw_inc/_bsd_types.h, instead.
+
+2010-05-25  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* afxres.h: Changed header guard check from _WINDOWS_H, which was
+	a left-over from mingw32, to _INC_WINDOWS which is what we define.
+
+2010-05-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mingw_inc/_socket_types.h: Provide SOCKET type as UINT_PTR in
+	#if 0'ed out form, just so we know that we do it as INT_PTR on
+	purpose.
+
+2010-05-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Renamed _ws_helpers to mingw_inc, adjusted all its users.
+
+2010-05-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+	In case winsock2.h is included after winsock.h, probably by way of
+	windows.h, perform a "winsock2 upgrade" on top of winsock1 by splitting
+	the headers into some helpers holding shared data types and undefining
+	macros when necessary:
+
+	* _ws_helpers/_bsd_types.h: New.
+	* _ws_helpers/_fd_types.h: New.
+	* _ws_helpers/_ip_mreq1.h: New.
+	* _ws_helpers/_ip_types.h: New.
+	* _ws_helpers/_socket_types.h: New.
+	* _ws_helpers/_ws1_undef.h: New.
+	* _ws_helpers/_wsa_errnos.h: New.
+	* _ws_helpers/_wsadata.h: New.
+	* _ws_helpers/_xmitfile.h: New.
+	* inaddr.h: New.
+	* in6addr.h: New.
+	* ipexport.h: Include inaddr.h and in6addr.h. Move struct in6_addr
+	and its related macros to in6addr.h. Move struct in_addr and its
+	related macros to inaddr.h.
+	* mswsock.h: Include _ws_helpers/_xmitfile.h.
+	Move struct _TRANSMIT_FILE_BUFFERS to _ws_helpers/_xmitfile.h.
+	Guard WSARecvEx, TransmitFile, AcceptEx and GetAcceptExSockaddrs
+	prototypes by __MSWSOCK_WS1_SHARED ifdefs.
+	* winsock.h: Include _timeval.h, inaddr.h, _ws_helpers/_bsd_types.h,
+	_ws_helpers/_socket_types.h, _ws_helpers/_fd_types.h,
+	_ws_helpers/_ip_types.h, _ws_helpers/_ip_mreq1.h, _ws_helpers/_wsadata.h
+	and _ws_helpers/_xmitfile.h.
+	Define WINSOCK_API_LINKAGE and WSAAPI at the top and undefine them at
+	the end of the file.
+	Move struct timeval, timerisset,timercmp and timerclear to _timeval.h.
+	Move struct in_addr and its related macros to inaddr.h.
+	Move u_char, u_short, u_int, u_long and u_int64 to _ws_helpers/_bsd_types.h.
+	Move SOCKET, INVALID_SOCKET and SOCKET_ERROR to _ws_helpers/_socket_types.h.
+	Move struct fd_set and FD_SETSIZE to _ws_helpers/_fd_types.h.
+	Move struct ip_mreq to _ws_helpers/_ip_mreq1.h.
+	Move structs hostent, netent, servent, protoent, sockaddr_in, sockaddr,
+	sockproto and linger to _ws_helpers/_ip_types.h. Moved struct WSAData
+	to _ws_helpers/_wsadata.h.
+	Move WSA error macros to _ws_helpers/_wsa_errnos.h.
+	Move struct _TRANSMIT_FILE_BUFFERS to _ws_helpers/_xmitfile.h.
+	Define __WINSOCK_WS1_SHARED and __MSWSOCK_WS1_SHARED.
+	* winsock2.h: Do not re-define _WINSOCKAPI_. If it is already defined,
+	do a #warning that winsock2.h must be included before windows.h.
+	Include _ws_helpers/_ws1_undef.h to make sure that macros from winsock.h
+	are undefined. Include _timeval.h, inaddr.h, _ws_helpers/_bsd_types.h,
+	_ws_helpers/_socket_types.h, _ws_helpers/_fd_types.h,
+	_ws_helpers/_ip_types.h and _ws_helpers/_wsadata.h.
+	Move struct timeval, timerisset,timercmp and timerclear to _timeval.h.
+	Move struct in_addr and its related macros to inaddr.h.
+	Move u_char, u_short, u_int, u_long and u_int64 to _ws_helpers/_bsd_types.h.
+	Move SOCKET, INVALID_SOCKET and SOCKET_ERROR to _ws_helpers/_socket_types.h.
+	Move struct fd_set and FD_SETSIZE to _ws_helpers/_fd_types.h.
+	Move structs hostent, netent, servent, protoent, sockaddr_in, sockaddr,
+	sockproto and linger to _ws_helpers/_ip_types.h. Moved struct WSAData
+	to _ws_helpers/_wsadata.h.
+	Move WSA error macros to _ws_helpers/_wsa_errnos.h.
+	Guard the 46 functions shared by 1.1 api using __WINSOCK_WS1_SHARED ifdefs.
+	* ws2tcpip.h: Include _ws_helpers/_ip_mreq1.h.
+	Move struct ip_mreq to _ws_helpers/_ip_mreq1.h.
+	Move struct in6_addr, IN6_ADDR, PIN6_ADDR, LPIN6_ADDR to in6addr.h.
+
+2010-05-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* GL/gl.h: Don't bother about WIN32_LEAN_AND_MEAN when including
+	windows.h. May cause more problems than it would solve.
+
+2010-05-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* GL/gl.h: Include windows.h, if necessary.
+
+2010-05-02  Doug Semler <dougsemler@gmail.com>
+
+	* ws2tcpip.h: Include winsock2.h.
+
+2010-05-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Fix for BR/2994499 :
+	* winbase.h (UnlockResource): Make the no-op macro more gcc-friendly
+	and avoid compiler warnings.
+
+2010-04-19  Patrick von Reth  <patrick.vonreth@gmail.com>
+
+	* dbghelp.h (PSYM_ENUMMODULES_CALLBACK64,
+	PSYM_ENUMSYMBOLS_CALLBACK64, PSYM_ENUMSYMBOLS_CALLBACK64W,
+	PENUMLOADED_MODULES_CALLBACK64,
+	PSYM_ENUMMODULES_CALLBACK64): Make string
+	argument const.
+
+2010-04-16  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* vfw.h: Add comment about unguarded duplication in avifmt.h
+	(VIDCF_QUALITYTIME): Define.
+	(VIDCF_FASTTEMPORAL): Ditto.
+	(streamtypeANY): Ditto.
+	(AVIF_TRUSTCKTYPE): Ditto.
+	(streamtypeANY): Ditto.
+	(AVIFILEINFO_TRUSTCKTYPE): Ditto.
+	(AVStreamNextKeyFrame): Ditto.
+	(AVStreamPrevKeyFrame): Ditto.
+
+	* avifmt.h: Add comment about unguarded duplication in vfw.h
+
+2010-04-15  Timo Kreuzer  <timo.kreuzer@reactos.org>
+
+	* commctrl.h: Add missing const modifier to InitCommonControlsEx parameter,
+	DrawStatusTextA/W, GetEffectiveClientRect.
+	Guard CDN_FIRST and CDN_LAST from redefinition. Update LVCOLUMNW (add Vista+ members)
+	Add HDS_CHECKBOXES, HDS_NOSIZING, HDS_OVERFLOW, HDF_CHECKBOX, HDF_CHECKED,
+	HDF_FIXEDWIDTH, HDF_SPLITBUTTON, TB_SETHOTITEM2, TB_SETLISTGAP,
+	TB_GETIMAGELISTCOUNT, TB_GETIDEALSIZE, TB_TRANSLATEACCELERATOR,
+	TBN_WRAPHOTITEM, TBN_DUPACCELERATOR, TBN_WRAPACCELERATOR, TBN_DRAGOVER,
+	TBN_MAPACCELERATOR, REBARBANDINFOA_V6_SIZE, REBARBANDINFOW_V6_SIZE,
+	PBS_SMOOTHREVERSE, PBM_GETSTEP, PBM_GETBKCOLOR, PBM_GETBARCOLOR,
+	PBM_SETSTATE, PBM_GETSTATE, PBST_NORMAL, PBST_ERROR, PBST_PAUSED, LVCF_MINWIDTH,
+	LVCF_DEFAULTWIDTH, LVCF_IDEALWIDTH, LVCFMT_FIXED_WIDTH, LVCFMT_NO_DPI_SCALE,
+	LVCFMT_FIXED_RATIO, LVCFMT_LINE_BREAK, LVCFMT_FILL, LVCFMT_WRAP,
+	LVCFMT_NO_TITLE, LVCFMT_TILE_PLACEMENTMASK,
+	LVCFMT_SPLITBUTTON, LVS_EX_JUSTIFYCOLUMNS, LVS_EX_TRANSPARENTBKGND,
+	LVS_EX_TRANSPARENTSHADOWTEXT, LVS_EX_AUTOAUTOARRANGE, LVS_EX_HEADERINALLVIEWS,
+	LVS_EX_AUTOCHECKSELECT, LVS_EX_AUTOSIZECOLUMNS, LVS_EX_COLUMNSNAPPOINTS,
+	LVS_EX_COLUMNOVERFLOW, LVM_ISITEMVISIBLE, ListView_IsItemVisible, TV_DISPINFOEXA,
+	NMIVDISPINFOEXW, LPNMTVDISPINFOEXW, NMTVDISPINFOEX, LPNMTVDISPINFOEX, DPASTREAMINFO,
+	struct IStream, PFNDPASTREAM, DPA_LoadStream, DPA_SaveStream, DPA_Grow,
+	DPA_InsertPtr, DPA_SetPtr, DPA_GetPtr, DPA_GetPtrIndex, DPA_GetPtrCount,
+	DPA_SetPtrCount, DPA_FastDeleteLastPtr, DPA_GetPtrPtr, DPA_FastGetPtr,
+	DPA_AppendPtr, PFNDPAMERGE, PFNDPAMERGECONST, DPAM_SORTED, DPAM_NORMAL,
+	DPAM_UNION, DPAM_INTERSECT, DPAMM_MERGE, DPAMM_DELETE, DPAMM_INSERT: New.
+
+2010-04-14  Doug Semler <dougsemler@gmail.com>
+
+	* winnt.h (inline InterlockedDecrement16, InterlockedIncrement64):
+	Remove parentheses from destination regsiter
+
+2010-04-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h: Fix several SUBLANG ID errors introduced by r2177 and 2178
+	(ref: http://msdn.microsoft.com/en-us/library/dd318693(VS.85).aspx).
+	(SUBLANG_UI_CUSTOM_DEFAULT): 0x05, not 0x03.
+	(SUBLANG_HAUSA_NIGERIA): Bad ID name, correct one is ...
+	(SUBLANG_HAUSA_NIGERIA_LATIN): ... this.
+	(SUBLANG_INUKTITUT_CANADA_LATIN): 0x02, not 0x01.
+	(SUBLANG_IRISH_IRELAND): 0x02, not 0x01.
+	(SUBLANG_LAO_LAO_PDR): Bad ID name, correct one is ...
+	(SUBLANG_LAO_LAO): ... this.
+	(SUBLANG_LOWER_SORBIAN_GERMANY): 0x02, not 0x01.
+	(SUBLANG_SAMI_SKOLT_FINLAND): 0x08, not 0x03.
+	(SUBLANG_SAMI_INARI_FINLAND): 0x09, not 0x03.
+	(SUBLANG_SYRIAC_SYRIA): define as SUBLANG_SYRIAC (what MSDN mentions).
+	(SUBLANG_TIGRIGNA_ERITREA): 0x02, not 0x01.
+
+2010-04-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* winbase.h: (InitializeConditionVariable): New.
+	(SleepConditionVariableCS): Ditto.
+	(SleepConditionVariableSRW): Ditto.
+	(WakeAllConditionVariable): Ditto.
+	(WakeConditionVariable): Ditto.
+	(AcquireSRWLockExclusive): Ditto.
+	(AcquireSRWLockShared): Ditto.
+	(InitializeSRWLock): Ditto.
+	(ReleaseSRWLockExclusive): Ditto.
+	(ReleaseSRWLockShared): Ditto.
+	(TryAcquireSRWLockExclusive): Ditto.
+	(TryAcquireSRWLockShared): Ditto.
+	(INIT_ONCE_ASYNC): Define.
+	(INIT_ONCE_INIT_FAILED): Ditto.
+	(PINIT_ONCE): Ditto.
+	(LPINIT_ONCE): Ditto.
+	(PINIT_ONCE_FN): Ditto.
+	(InitOnceBeginInitialize): New.
+	(InitOnceComplete): Ditto.
+	(InitOnceExecuteOnce): Ditto.
+
+	* winnt.h: (RTL_CONDITION_VARIABLE): Define.
+	(RTL_SRWLOCK): Ditto.
+	(RTL_RUN_ONCE): Ditto.
+	(PRTL_RUN_ONCE): Ditto.
+	(PRTL_RUN_ONCE_INIT_FN): Ditto.
+	(RTL_RUN_ONCE_INIT): Ditto.
+	(RTL_RUN_ONCE_CHECK_ONLY): Ditto.
+	(RTL_RUN_ONCE_ASYNC): Ditto.
+	(RTL_RUN_ONCE_INIT_FAILED): Ditto.
+	(RTL_RUN_ONCE_CTX_RESERVED_BITS): Ditto.
+	(RTL_SRWLOCK_INIT): Ditto.
+	(RTL_CONDITION_VARIABLE_INIT): Ditto.
+	(RTL_CONDITION_VARIABLE_LOCKMODE_SHARED): Ditto.
+	(CONDITION_VARIABLE_INIT): Ditto.
+	(CONDITION_VARIABLE_LOCKMODE_SHARED): Ditto.
+	(SRWLOCK_INIT): Ditto.
+
+2010-04-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2983397
+	* wctype.h (iswblank): Correct declaration.
+
+2010-04-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* omp.h: Deleted (moved under /experimental/include_old .)
+
+2010-03-30  Ozkan Sezer  <sezeroz@gmail.com>
+	    Kai Tietz  <kai.tietz@onevision.com>
+
+	* windef.h: Preserve possible BOOL definitions, or lack thereof,
+	from the users by a pairr of push_macro and pop_macro pragmas.
+	Do not define BOOL as a macro, typedef it as WINBOOL and only in
+	non-__OBJC__ cases.
+
+2010-03-25  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ddrawgdi.h: Fixed MINGW_DDRAW_VERSION check.
+
+2010-03-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* iprtrmib.h (TCP_TABLE_CLASS): New.
+
+2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Do not silently include winsock2.h instead of winsock.h:
+	* winsock.h: Removed the if 0 comment out and the winsock2.h
+	include. Restored the recently removed definitions.
+	* ws2ipdef.h: Deleted.
+	* winsock2.h: Define _WINSOCKAPI_ to avoid winsock.h inclusions.
+	Removed the _WINSOCK_SOCKET_DEFINED ifdef guards around SOCKET
+	definitions. Removed mswsock.h inclusion.
+	* mswsock.h: Removed the SOCKET definitions.
+	* ws2tcpip.h: Added back ip_mreq and ip_mreq_source structures.
+	Do not try to preserve possible socklen_t macros from the user.
+
+2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winsock.h (INVALID_SOCKET): Fix obvious typo.
+
+2010-03-03  Roland Schwingel  <roland.schwingel@onevision.com>
+
+	* include/winnt.h: Add a lot of missing definitions from MSDN.
+	(VER_SUITE_WH_SERVER): Define
+	(PRODUCT_*): Likewise.
+	(DBG_PRINTEXCEPTION_C): Likewise.
+	(DBG_RIPEXCEPTION): Likewise.
+	(STATUS_LONGJUMP): Likewise.
+	(STATUS_UNWIND_CONSOLIDATE): Likewise.
+	(STATUS_INVALID_PARAMETER): Likewise.
+	(STATUS_DLL_NOT_FOUND): Likewise.
+	(STATUS_ORDINAL_NOT_FOUND): Likewise.
+	(STATUS_ENTRYPOINT_NOT_FOUND): Likewise.
+	(STATUS_DLL_INIT_FAILED): Likewise.
+	(STATUS_STACK_BUFFER_OVERRUN): Likewise.
+	(STATUS_INVALID_CRUNTIME_PARAMETER): Likewise.
+	(STATUS_ASSERTION_FAILURE): Likewise.
+	(STATUS_INVALID_CRUNTIME_PARAMETER): Likewise.
+	(STATUS_INVALID_CRUNTIME_PARAMETER): Likewise.
+	(STATUS_INVALID_CRUNTIME_PARAMETER): Likewise.
+	(SYSTEM_MANDATORY_LABEL_ACE): Typedef struct.
+	(SYSTEM_MANDATORY_LABEL_NO_WRITE_UP): Define.
+	(SYSTEM_MANDATORY_LABEL_NO_READ_UP): Likewise.
+	(SYSTEM_MANDATORY_LABEL_NO_EXECUTE_UP): Likewise.
+	(SYSTEM_MANDATORY_LABEL_VALID_MASK): Likewise.
+	(SE_PRIVILEGE_VALID_ATTRIBUTES): Likewise.
+	(SE_TRUSTED_CREDMAN_ACCESS_NAME): Likewise.
+	(SE_RELABEL_NAME): Likewise.
+	(SE_INC_WORKING_SET_NAME): Likewise.
+	(SE_TIME_ZONE_NAME): Likewise.
+	(SE_CREATE_SYMBOLIC_LINK_NAME): Likewise.
+	(TOKEN_INFORMATION_CLASS): Add missing enum values.
+	(LUA_TOKEN): Define.
+	(WRITE_RESTRICTED): Likewise.
+	(LABEL_SECURITY_INFORMATION): Likewise.
+	(PROCESS_QUERY_LIMITED_INFORMATION): Likewise.
+	(THREAD_SET_LIMITED_INFORMATION): Likewise.
+	(THREAD_QUERY_LIMITED_INFORMATION): Likewise.
+	(QUOTA_LIMITS_USE_DEFAULT_LIMITS): Likewise.
+	(RATE_QUOTA_LIMIT): Typedef struct.
+	(QUOTA_LIMITS_EX): Update definition.
+	(MAX_HW_COUNTERS): Define.
+	(THREAD_PROFILING_FLAG_DISPATCH): Likewise.
+	(HARDWARE_COUNTER_TYPE): Typedef struct.
+	(JOB_OBJECT_LIMIT_RESERVED2): Remove.
+	(JOB_OBJECT_LIMIT_SUBSET_AFFINITY): Define.
+	(JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS): Correct.
+	(JOBOBJECTINFOCLASS): Add missing enum value.
+	(PF_SSE3_INSTRUCTIONS_AVAILABLE): Define.
+	(PF_COMPARE_EXCHANGE128): Likewise.
+	(PF_COMPARE64_EXCHANGE128): Likewise.
+	(PF_CHANNELS_ENABLED): Likewise.
+	(PF_XSAVE_ENABLED): Likewise.
+	(SESSION_QUERY_ACCESS): Likewise.
+	(SESSION_MODIFY_ACCESS): Likewise.
+	(SESSION_ALL_ACCESS): Likewise.
+	(MEM_ROTATE): Likewise.
+	(SEC_PROTECTED_IMAGE): Likewise.
+	(SEC_WRITECOMBINE): Likewise.
+	(FILE_ATTRIBUTE_VIRTUAL): Likewise.
+	(FILE_SEQUENTIAL_WRITE_ONCE): Likewise.
+	(FILE_SUPPORTS_TRANSACTIONS): Likewise.
+	(FILE_SUPPORTS_HARD_LINKS): Likewise.
+	(FILE_SUPPORTS_EXTENDED_ATTRIBUTES): Likewise.
+	(FILE_SUPPORTS_OPEN_BY_FILE_ID): Likewise.
+	(FILE_SUPPORTS_USN_JOURNAL): Likewise.
+	(IO_REPARSE_TAG_HSM2): Likewise.
+	(IO_REPARSE_TAG_WIM): Likewise.
+	(IO_REPARSE_TAG_CSV): Likewise.
+	(IO_REPARSE_TAG_DFSR): Likewise.
+	(IO_REPARSE_TAG_SYMLINK): Likewise.
+	(MONITOR_DISPLAY_STATE): Typedef struct.
+	(ES_AWAYMODE_REQUIRED): Define.
+	(POWER_ACTION_PSEUDO_TRANSITION): Likewise.
+	(POWER_USER_NOTIFY_FORCED_SHUTDOWN): Likewise.
+	(SYSTEM_POWER_CAPABILITIES): Update.
+	(IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION): Define.
+	(IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE): Likewise.
+	(IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY): Likewise.
+	(IMAGE_DLLCHARACTERISTICS_NX_COMPAT): Likewise.
+	(IMAGE_SYM_SECTION_MAX_EX): Likewise.
+	(IMAGE_REL_EBC_ABSOLUTE): Likewise.
+	(IMAGE_REL_EBC_ADDR32NB): Likewise.
+	(IMAGE_REL_EBC_REL32): Likewise.
+	(IMAGE_REL_EBC_SECTION): Likewise.
+	(IMAGE_REL_EBC_SECREL): Likewise.
+	(RTL_CRITICAL_SECTION_DEBUG): Update.
+	(RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO): Define.
+	(RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN): Likewise.
+	(RTL_CRITICAL_SECTION_FLAG_STATIC_INIT): Likewise.
+	(RTL_CRITICAL_SECTION_ALL_FLAG_BITS): Likewise.
+	(RTL_CRITICAL_SECTION_FLAG_RESERVED): Likewise.
+	(RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT): Likewise.
+
+2010-02-19  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* include/shlguid.h (IID_IFolderView): Define.
+
+2010-02-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winnt.h (UNREFERENCED_PARAMETER): Silence warning.
+	(UNREFERENCED_LOCAL_VARIABLE): Likewise.
+
+2010-01-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* wincrypt.h (CERT_ALT_NAME_ENTRY): Commented out pEdiPartyName
+	member from the union (not implemented, see:
+	http://msdn.microsoft.com/en-us/library/aa924681.aspx or
+	http://msdn.microsoft.com/en-us/library/aa377173.aspx .)
+
+2010-02-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	Donated by S. Koehler
+	* winusbio.h: New API.
+	* winusb.h: New API.
+
+2010-01-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* commctrl.h: Relaxed _WIN32_IE version requirement to 0x0500
+	for now. Added a big FIXME note that it should really be 0x0501.
+
+2010-01-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* include/profile.h (_MCOUNT_DECL): Add gnu_inline attribute
+	and remove static qualifier.

@@ -1,0 +1,54 @@
+2010-09-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* configure.ac: Rework to avoid using user variables.
+	* Makefile.am: Likewise.
+	* configure: Regenerate.
+	* Makefile.in: Likewise.
+
+2010-08-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* src/fsredir.c (doredirect): Use GetModuleHandleW instead of LoadLibraryA.
+
+2010-07-23  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* src/gendef.c (decode_mangle): Adjust libmangle_gc_context to
+	libmangle_gc_context_t and libmangle_tokens to libmangle_tokens_t
+	to reflect API change in libmangle.
+
+2010-07-22  Kai Tietz  <kai.tietz@onevision.com>
+
+	* src/gendef.c (dump_def): Fix output of @0 for 64-bit.
+
+2010-07-22  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* src/gendef.c (decode_mangle): Rename sGcCtx to libmangle_gc_context.
+	Rename pMToken to libmangle_tokens.
+	Rename decode_ms_name to libmangle_decode_ms_name.
+
+2010-05-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* src/fsredir.h (doredirect): Declare.
+	* src/fsredir.c (doredirect): New.
+	(undoredirect): Likewise.
+	* src/gendef.c: (main): Use doredirect.
+	(show_usage): Add new option.
+	(opt_chain): Handle new option.
+
+2010-03-20  Kai Tietz  <kai.tietz@onevision.com>
+
+	* src/gendef_def.c (gendef_getsymbol_info): Handle ordinals forwarders,
+	too.
+
+2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* src/gendef.c (load_pep): always set gDta to NULL after freeing it.
+	(main): Likewise.
+
+2010-02-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* src/gendef.c (no_forward_output): New variable
+	for option -f/--no-forward-ouput.
+	(opt_chain): Handle new options.
+	(add_export_list): Handle no_forward_output.
+	(show_usage): Add new option.
+

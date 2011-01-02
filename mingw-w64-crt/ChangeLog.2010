@@ -1,0 +1,1527 @@
+2010-12-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/_umul128.c: New.
+	* Makefile.am: Add new file for 64-bit.
+	* Makefile.in: Regenerated.
+	
+2010-12-01  Jonathan Yong <jon_y@users.sourceforge.net>
+
+	* lib64/kernel32.def: (RegCloseKey): Comment and remove from lib64/kernel32.def.
+	(RegCreateKeyExA): Likewise.
+	(RegCreateKeyExW): Likewise.
+	(RegDeleteKeyExA): Likewise.
+	(RegDeleteKeyExW): Likewise.
+	(RegDeleteTreeA): Likewise.
+	(RegDeleteTreeW): Likewise.
+	(RegDeleteValueA): Likewise.
+	(RegDeleteValueW): Likewise.
+	(RegDisablePredefinedCacheEx): Likewise.
+	(RegEnumKeyExA): Likewise.
+	(RegEnumKeyExW): Likewise.
+	(RegEnumValueA): Likewise.
+	(RegEnumValueW): Likewise.
+	(RegFlushKey): Likewise.
+	(RegGetKeySecurity): Likewise.
+	(RegGetValueA): Likewise.
+	(RegGetValueW): Likewise.
+	(RegLoadKeyA): Likewise.
+	(RegLoadKeyW): Likewise.
+	(RegLoadMUIStringA): Likewise.
+	(RegLoadMUIStringW): Likewise.
+	(RegNotifyChangeKeyValue): Likewise.
+	(RegOpenCurrentUser): Likewise.
+	(RegOpenKeyExA): Likewise.
+	(RegOpenKeyExW): Likewise.
+	(RegOpenUserClassesRoot): Likewise.
+	(RegQueryInfoKeyA): Likewise.
+	(RegQueryInfoKeyW): Likewise.
+	(RegQueryValueExA): Likewise.
+	(RegQueryValueExW): Likewise.
+	(RegRestoreKeyA): Likewise.
+	(RegRestoreKeyW): Likewise.
+	(RegSaveKeyExA): Likewise.
+	(RegSaveKeyExW): Likewise.
+	(RegSetKeySecurity): Likewise.
+	(RegSetValueExA): Likewise.
+	(RegSetValueExW): Likewise.
+
+2010-12-01  Pascal Obry  <pascal@obry.net>
+
+	* stdio/_stat.c: Handle trailing slash for path.
+	* stdio/_wstat.c: Likewise.
+
+2010-11-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/msvcrt.def (wcsnlen): Mark as data.
+	* lib64/msvcrt.def (wcsnlen): Likewise.
+
+2010-10-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/thunk32.def: Delete.
+	* lib32/th32.def: Delete.
+	* Makefile.am (lib32_DATA): Remove th32.def and thunk32.def from
+	build and reformat.
+	(src_libmingw32): Reformat.
+	* Makefile.in: Regenerate.
+
+2010-11-06  Timo Kreuzer  <timo.kreuzer@reactos.org>
+
+	* crt/tlssup.c (_tls_used): Cleanup _WIN64 ifdefs.
+
+2010-11-03  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crtexe.c: Ensure to align stack for 32-bit
+	to 16-bytes for SSE sake in main.
+
+2010-10-19  Tsukasa Ooi  <li@livegrid.org>
+
+	* intrincs/__movsb.c: New.
+	* intrincs/__movsw.c: New.
+	* intrincs/__movsd.c: New.
+	* intrincs/__movsq.c: New.
+	* Makefile.am: Add new entries to build.
+	* Makefile.in: Regenerate.
+
+2010-10-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/classpnp.def: New.
+	* lib32/hidclass.def: New.
+	* lib32/hidparse.def: Updated.
+	* lib64/classpnp.def: New.
+	* lib64/hidclass.def: New.
+	* lib64/hidparse.def: New.
+	* Makefile.am: Add new defs to build.
+	* Makefile.in: Regenerate.
+
+2010-10-03  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/sspicli.def: New from Win2k8r2.
+	* lib64/sspicli.def: Likewise.
+	* Makefile.am: Add new entry.
+	* Makefile.in: Regenerated.
+
+2010-09-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile.am: Add misc/wcsnlen.c.
+	* misc/wcsnlen.c: New.
+
+2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/agtctl_i.c: Moved from mingw-w64-headers/include/
+	* libsrc/agtsvr_i.c: Likewise.
+	* libsrc/cdoex_i.c: Likewise.
+	* libsrc/cdoexm_i.c: Likewise.
+	* libsrc/cdosys_i.c: Likewise.
+	* libsrc/emostore_i.c: Likewise.
+	* libsrc/iisext_i.c: Likewise.
+	* libsrc/mtsadmin_i.c: Likewise.
+	* libsrc/mtxadmin_i.c: Likewise.
+	* libsrc/scardssp_i.c: Likewise.
+	* libsrc/scardssp_p.c: Likewise.
+	* libsrc/tsuserex_i.c: Likewise.
+	* Makefile.am (src_libuuid): Add agtctl_i.c, agtsvr_i.c, cdoex_i.c,
+	cdoexm_i.c, cdosys_i.c, emostore_i.c, iisext_i.c, mtsadmin_i.c,
+	mtxadmin_i.c, scardssp_i.c and tsuserex_i.c to build.  scardssp_p.c
+	isn't built for now.
+	* Makefile.in: Regenerate.
+
+2010-09-26  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/ole32.def: Update from Win2k8r2.
+	* lib32/oleacc.def: Likewise.
+	* lib32/oleaut32.def: Likewise.
+	* lib32/olecli32.def: Likewise.
+	* lib32/oledlg.def: Likewise.
+	* lib32/olepro32.def: Likewise.
+	* lib32/olesvr32.def: Likewise.
+	* lib32/olethk32.def: Likewise.
+	* lib64/ole32.def: Likewise.
+	* lib64/oleacc.def: Likewise.
+	* lib64/oleaut32.def: Likewise.
+	* lib64/oledlg.def: Likewise.
+	* lib64/oleprn.def: Likewise.
+	* libsrc/oleacc-uuid.c: Add IID_IAccessibleHandler.
+
+2010-09-26  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/cryptxml.def: New from Win2k8r2.
+	* lib64/cryptxml.def: Likewise.
+
+2010-09-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Update gdtoa from netlib.org based on changes from Sep. 15, 2010:
+	* gdtoa/g_dfmt.c (__g_dfmt): Set the STRTOG_Neg flag for __gdtoa()
+	call if sign is found.
+	* gdtoa/dtoa.c (__dtoa): Fix bugs with -DROUND_BIASED.
+	* gdtoa/gdtoa.c (__gdtoa): Likewise.
+
+2010-09-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/strnlen.c: Cast pointer difference to size_t to avoid the
+	compiler warning.
+	* misc/mingw-aligned-malloc.c: Remove prototypes of __mingw_aligned_*
+	now that they are in malloc.h and stdlib.h already includes malloc.h.
+
+2010-09-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/hal.def: Add fixme notes to several exports for verification
+	in future.
+	(HalClearSoftwareInterrupt): Changed to @fastcall @4.
+	(HalRequestClockInterrupt): Commented out (must be @fastcall @4.)
+	(HalRequestSoftwareInterrupt): Changed to @fastcall @4.
+	(HalSystemVectorDispatchEntry): Changed to @fastcall @12.
+	(KeAcquireInStackQueuedSpinLockRaiseToSynch): Changed to @fastcall @8.
+	(KeAcquireQueuedSpinLock): Changed to @fastcall @4.
+	(KeAcquireQueuedSpinLockRaiseToSynch): Changed to @fastcall @4.
+	(KeAcquireSpinLockRaiseToSynch): Changed to @fastcall @4.
+	(KeReleaseQueuedSpinLock): Changed to @fastcall @8.
+	(KeTryToAcquireQueuedSpinLock): Changed to @fastcall @8.
+	(KeTryToAcquireQueuedSpinLockRaiseToSynch): Changed to @fastcall @8.
+	(KfAcquireSpinLock): Changed to @fastcall @4.
+	(KfLowerIrql): Changed to @fastcall @4.
+	(KfRaiseIrql): Changed to @fastcall @4.
+	(KfReleaseSpinLock): Changed to @fastcall @8.
+	(HalBugCheckSystem): Leave commented out, add note that for >= Win7
+	it is a @8 but for < Win7 it is an @4.
+	(HalRequestIpi): Leave as @8, but add a fixme note that dll from WinXP
+	dumps as @4, prototype from r/os is like func(KAFFINITY).
+	(HalStartNextProcessor): Leave as @12, but add a fixme note that dll
+	from xp dumps as @8, prototype from r/os is like
+	func(PLOADER_PARAMETER_BLOCK,PKPROCESSOR_STATE)
+	(IoAssignDriveLetters): New export (@16.)
+
+2010-09-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/usbcamd.def: Updated using gendef.
+	* lib32/usbcamd2.def: Updated using gendef.
+	* lib32/usbd.def: New.
+	* lib32/usbport.def: New.
+	* lib64/usbcamd2.def: New.
+	* lib64/usbd.def: New.
+	* lib64/usbport.def: New.
+	* Makefile.am (lib32_DATA): Add usbd and usbport to build.
+	(lib64_DATA): Add usbcamd2, usbd and usbport to build.
+	* Makefile.in: Regenerate.
+
+2010-09-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/msvcrt.def (strnlen): Mark as DATA.
+	* lib64/msvcrt.def (strnlen): Likewise.
+
+2010-09-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/strnlen.c (strnlen): Better implementation from John E. / TDM.
+
+	* misc/strnlen.c: Add a rough implementation of strnlen() wrapping
+	onto strlen().
+	* Makefile.am (src_libmingwex): Add misc/strnlen.c to build.
+	* Makefile.in: Regenerate.
+
+2010-09-06  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/scalbnl.S: Fix andq logic so that upper 32-bits are cleared.
+
+2010-09-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/ilockcxch64.c: Add volatile to x86 inline asm statement.
+
+2010-09-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Add xinput, xaudio, xaudiod, xapofx, x3daudio, d3dx9,
+	d3dx10, d3dx11, d3dcsxd and d3dcompiler variables for default directx
+	import library names with current values of xinput1_3, xaudio2_7,
+	xaudiod2_7, xapofx1_5, x3daudio1_7, d3dx9_43, d3dx10_43, d3dx11_43,
+	d3dcsxd_43 and d3dcompiler_43 respectively. Add them as the last
+	entries under lib32_DATA and lib64_DATA. Add special build rules for
+	them.
+	* Makefile.in: Regenerate.
+
+2010-09-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib64: Move some def files which doesn't have any useful exports
+	or refer ot a dll with another name such as null.dll or main.dll to
+	under experimental/lib64_old_experimental. Files moved: acgen64.def,
+	chtskf.def, CmdEvTgProv.def, imepadsm.def, imlang.def, imskf.def,
+	padrs404.def, padrs411.def, padrs412.def, padrs804.def, softkey.def,
+	wabfind.def, wam.def, wavemsp.def, wbemcntl.def, wbemcomn.def,
+	wbemcons.def, wbemdisp.def, wbemess.def, wbemperf.def, wbemprox.def,
+	wbemsvc.def, webvw.def, wiadefui.def, wiascr.def, wiavideo.def,
+	wiavusd.def, wlanmon.def, wlsnp.def, wmicookr.def, wmidcprv.def,
+	wmipicmp.def, wmipiprt.def, wmipjobj.def, wmiprov.def, wmiprvsd.def,
+	wmipsess.def, wmitimep.def, wmiutils.def, wmpshell.def, wsecedit.def.
+
+	* lib64: Remove old experimental w* variants of def files, move them
+	under experimental/lib64_old_experimental
+
+2010-08-30  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/kernel32.def (OpenProcessToken): Revert change, users can easily
+	work around this by manually specifying the link libraries to use, at
+	which the first library to meet the required symbol name will be used at
+	runtime.
+
+2010-08-30  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/kernel32.def (OpenProcessToken): Comment out for compatibility
+	with older systems.
+
+2010-08-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/dirent.c: Add missing comments, reformat for smaller diff
+	output against mingw version.  Remove the stdio.h include.
+	(_tGetFileAttributes): Change return type from unsigned to DWORD.
+	(opendir): Check error return from _tGetFileAttributes() using the
+	INVALID_FILE_ATTRIBUTES macro.  Use 260 instead of FILENAME_MAX in
+	the memset.  Simplify the if condition for adding a trailing slash
+	to the path.
+
+2010-08-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/crtexe.c: Prepare x64 SEH support.
+	* crt/crt_handler.c: Correct some stuff and moved
+	default handler from crtexe.c here.
+
+2010-08-13  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/secur32.def: Update from Win7.
+	* lib64/secur32.def: Likewise.
+
+2010-08-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/cguid-uuid.c (GUID_NULL): Moved from here ...
+	* libsrc/guid_nul.c: ... to here. New file.
+	* libsrc/ksuser.c (GUID_NULL): Deleted, already in guid_nul.c
+	* libsrc/uuid.c (GUID_NULL): Deleted, already in guid_nul.c.
+	(IID_IActiveScript): Deleted, already in ativscp-uuid.c.
+	(IID_IActiveScriptError): Likewise.
+	(IID_IActiveScriptParse): Likewise.
+	(IID_IActiveScriptSite): Likewise.
+	(IID_IActiveScriptSiteWindow): Likewise.
+	* Makefile.am (src_libuuid): Add libsrc/guid_nul.c.
+	* Makefile.in: Regenerate.
+
+	* libsrc/ksuser.c (IID_IUnknown): Delete, already in unknwn-uuid.c.
+	* libsrc/uuid.c (IID_IUnknown): Likewise.
+	(IID_IClassFactory): Likewise.
+	* libsrc/unknwn-uuid.c (IID_IUnknown): Add full constant as comment.
+	(IID_IClassFactory): Likewise.
+
+	* libsrc/kcom-uuid.c: Delete.
+	* libsrc/ksddk-uuid.c: Delete.
+	* libsrc/ntddpar-uuid.c: New.
+	* libsrc/ntddscsi-uuid.c: New.
+	* libsrc/ntddser-uuid.c: New.
+	* libsrc/ntddvdeo-uuid.c: New.
+	* Makefile.am (src_libuuid): Adjust for deletions & new additions.
+	* Makefile.in: Regenerate.
+
+2010-08-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* intrincs/ilockexchadd64.c (_InterlockedExchangeAdd64): Change
+	to __cdecl like all its friends with leading underscores.
+	* intrincs/ilockcxch64.c: Added a fixme note that the dependency
+	function InterlockedCompareExchange64 is only exported from
+	kernel32.dll in Vista+.
+	* lib32/kernel32.def (InterlockedCompareExchange64): Add a fixme
+	note that it is for Vista+ and forwards to
+	NTDLL.RtlInterlockedCompareExchange64@20.
+
+2010-08-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile.am: Move some Interlock...64 implementation to
+	general libmingwex build.
+	* Makefile.in: Regenerated.
+	* intrincs/: Changed implementation of x86 _Interlock...
+	and Interlock functions. For x86 we need to use for Interlock...
+	stdcall convention.
+
+2010-08-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/bth-uuid.c: Remove duplicated entry for
+	PnPInformationServiceClass_UUID
+
+2010-08-13  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* libsrc/bth-uuid.c: New.
+	* Makefile.am: Add new entry.
+	* Makefile.in: Regenerated.
+
+2010-08-08  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/d3dcompiler_33.def: New.
+	* lib32/d3dcompiler_34.def: New.
+	* lib32/d3dcompiler_35.def: New.
+	* lib32/d3dcompiler_36.def: New.
+	* lib32/d3dcompiler_37.def: New.
+	* lib32/d3dcompiler_38.def: New.
+	* lib32/d3dcompiler_39.def: New.
+	* lib32/d3dcompiler_40.def: New.
+	* lib32/d3dcompiler_41.def: New.
+	* lib32/d3dcompiler_42.def: New.
+	* lib32/d3dcompiler_43.def: New.
+	* lib32/d3dcsxd_43.def: New.
+	* lib32/d3dx10_33.def: New.
+	* lib32/d3dx10_34.def: New.
+	* lib32/d3dx10_35.def: New.
+	* lib32/d3dx10_36.def: New.
+	* lib32/d3dx10_37.def: New.
+	* lib32/d3dx10_38.def: New.
+	* lib32/d3dx10_39.def: New.
+	* lib32/d3dx10_40.def: New.
+	* lib32/d3dx10_41.def: New.
+	* lib32/d3dx10_42.def: New.
+	* lib32/d3dx10_43.def: New.
+	* lib32/d3dx11_42.def: New.
+	* lib32/d3dx11_43.def: New.
+	* lib32/d3dx9_24.def: New.
+	* lib32/d3dx9_25.def: New.
+	* lib32/d3dx9_26.def: New.
+	* lib32/d3dx9_27.def: New.
+	* lib32/d3dx9_28.def: New.
+	* lib32/d3dx9_29.def: New.
+	* lib32/d3dx9_30.def: New.
+	* lib32/d3dx9_31.def: New.
+	* lib32/d3dx9_32.def: New.
+	* lib32/d3dx9_33.def: New.
+	* lib32/d3dx9_34.def: New.
+	* lib32/d3dx9_35.def: New.
+	* lib32/d3dx9_36.def: New.
+	* lib32/d3dx9_37.def: New.
+	* lib32/d3dx9_38.def: New.
+	* lib32/d3dx9_39.def: New.
+	* lib32/d3dx9_40.def: New.
+	* lib32/d3dx9_41.def: New.
+	* lib32/d3dx9_42.def: New.
+	* lib32/d3dx9_43.def: New.
+	* lib32/dwrite.def: New.
+	* lib32/dxgi.def: New.
+	* lib32/x3daudio1_2.def: New.
+	* lib32/x3daudio1_3.def: New.
+	* lib32/x3daudio1_4.def: New.
+	* lib32/x3daudio1_5.def: New.
+	* lib32/x3daudio1_6.def: New.
+	* lib32/x3daudio1_7.def: New.
+	* lib32/x3daudiod1_7.def: New.
+	* lib32/xapofx1_0.def: New.
+	* lib32/xapofx1_1.def: New.
+	* lib32/xapofx1_2.def: New.
+	* lib32/xapofx1_3.def: New.
+	* lib32/xapofx1_4.def: New.
+	* lib32/xapofx1_5.def: New.
+	* lib32/xapofxd1_5.def: New.
+	* lib32/xaudio2_0.def: New.
+	* lib32/xaudio2_1.def: New.
+	* lib32/xaudio2_2.def: New.
+	* lib32/xaudio2_3.def: New.
+	* lib32/xaudio2_4.def: New.
+	* lib32/xaudio2_5.def: New.
+	* lib32/xaudio2_6.def: New.
+	* lib32/xaudio2_7.def: New.
+	* lib32/xaudiod2_7.def: New.
+	* lib32/xinput1_1.def: New.
+	* lib32/xinput1_2.def: New.
+	* lib32/xinput1_3.def: New.
+	* lib64/d3dcompiler_33.def: New.
+	* lib64/d3dcompiler_34.def: New.
+	* lib64/d3dcompiler_35.def: New.
+	* lib64/d3dcompiler_36.def: New.
+	* lib64/d3dcompiler_37.def: New.
+	* lib64/d3dcompiler_38.def: New.
+	* lib64/d3dcompiler_39.def: New.
+	* lib64/d3dcompiler_40.def: New.
+	* lib64/d3dcompiler_41.def: New.
+	* lib64/d3dcompiler_42.def: New.
+	* lib64/d3dcompiler_43.def: New.
+	* lib64/d3dcsxd_43.def: New.
+	* lib64/d3dx10_33.def: New.
+	* lib64/d3dx10_34.def: New.
+	* lib64/d3dx10_35.def: New.
+	* lib64/d3dx10_36.def: New.
+	* lib64/d3dx10_37.def: New.
+	* lib64/d3dx10_38.def: New.
+	* lib64/d3dx10_39.def: New.
+	* lib64/d3dx10_40.def: New.
+	* lib64/d3dx10_41.def: New.
+	* lib64/d3dx10_42.def: New.
+	* lib64/d3dx10_43.def: New.
+	* lib64/d3dx11_42.def: New.
+	* lib64/d3dx11_43.def: New.
+	* lib64/d3dx9_24.def: New.
+	* lib64/d3dx9_25.def: New.
+	* lib64/d3dx9_26.def: New.
+	* lib64/d3dx9_27.def: New.
+	* lib64/d3dx9_28.def: New.
+	* lib64/d3dx9_29.def: New.
+	* lib64/d3dx9_30.def: New.
+	* lib64/d3dx9_31.def: New.
+	* lib64/d3dx9_32.def: New.
+	* lib64/d3dx9_33.def: New.
+	* lib64/d3dx9_34.def: New.
+	* lib64/d3dx9_35.def: New.
+	* lib64/d3dx9_36.def: New.
+	* lib64/d3dx9_37.def: New.
+	* lib64/d3dx9_38.def: New.
+	* lib64/d3dx9_39.def: New.
+	* lib64/d3dx9_40.def: New.
+	* lib64/d3dx9_41.def: New.
+	* lib64/d3dx9_42.def: New.
+	* lib64/d3dx9_43.def: New.
+	* lib64/dwrite.def: New.
+	* lib64/dxgi.def: New.
+	* lib64/x3daudio1_2.def: New.
+	* lib64/x3daudio1_3.def: New.
+	* lib64/x3daudio1_4.def: New.
+	* lib64/x3daudio1_5.def: New.
+	* lib64/x3daudio1_6.def: New.
+	* lib64/x3daudio1_7.def: New.
+	* lib64/x3daudiod1_7.def: New.
+	* lib64/xapofx1_0.def: New.
+	* lib64/xapofx1_1.def: New.
+	* lib64/xapofx1_2.def: New.
+	* lib64/xapofx1_3.def: New.
+	* lib64/xapofx1_4.def: New.
+	* lib64/xapofx1_5.def: New.
+	* lib64/xapofxd1_5.def: New.
+	* lib64/xaudio2_0.def: New.
+	* lib64/xaudio2_1.def: New.
+	* lib64/xaudio2_2.def: New.
+	* lib64/xaudio2_3.def: New.
+	* lib64/xaudio2_4.def: New.
+	* lib64/xaudio2_5.def: New.
+	* lib64/xaudio2_6.def: New.
+	* lib64/xaudio2_7.def: New.
+	* lib64/xaudiod2_7.def: New.
+	* lib64/xinput1_1.def: New.
+	* lib64/xinput1_2.def: New.
+	* lib64/xinput1_3.def: New.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
+2010-08-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* math/fabs.c: #define __CRT__NO_INLINE, just in case.
+	* math/fpclassify.c: Likewise.
+	* math/fpclassifyf.c: Likewise.
+	* math/fpclassifyl.c: Likewise.
+
+2010-08-02  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/msvcrt.def: New _vcprintf and _vcwprintf.
+	* lib64/msvcrt.def: Likewise.
+
+2010-08-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/msvcrt.def: Added secure and locale type symbols from Win7.
+	* lib64/msvcrt.def: Likewise.
+
+2010-08-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/acosh.def.h: Add new c99 compatible API.
+	* math/acoshf.c, math/acosh.c, math/acoshl.c: Adjusted.
+
+	* Makefile.am (sqrt): Add new c99 compatible API.
+	* math/sqrt.def.h, math/sqrt.c: New.
+	* math/sqrtf.c, math/sqrtl.c: Adjusted.
+	* Makefile.in: Regenerated.
+
+	* Makefile.am (sin, cos): Add new c99 compatible API.
+	* math/cos.def.h: New.
+	* math/sin.def.h: New.
+	* math/cos_internal.S: Rename of cos.S.
+	* math/sin_internal.S: Rename of sin.S.
+	* math/sin.c, math/sinl.c, math/cos.c, math/cosl.c: New.
+
+2010-08-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/ksddk-uuid.c: New, adding GUID_BUS_INTERFACE_MEDIUMS
+	from ks.h.
+	* Makefile.am (src_libuuid): Add ksddk-uuid.c to build.
+	* Makefile.in: Regenerate.
+
+2010-08-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/expm1.def.h: New.
+	* math/expm1.c: Use c99 variant.
+	* math/expm1f.c: Likewise.
+	* math/expm1l.c: Likewise.
+
+	* complex/complex_internal.h (__FLT_LOGE2): New.
+
+2010-07-31  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/merr.c (__mingw_raise_matherr): New.
+	* crt/crtexe.c (_MINGW_INSTALL_DEBUG_MATHERR): Make extern.
+	* misc/mingw_matherr.c: New.
+	* Makefile.am (libmingwex): Add mingw_matherr.c.
+	* Makefile.in: Regenerated.
+
+2010-07-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/logl.S: Renamed to internal_logl.S.
+	* math/logl.c: New.
+	* math/log.c: New.
+	* math/log.def.h: New.
+	* Makefile.am: Adjust make dependencies.
+
+	* math/expl.c: Change implemenation.
+	* math/exp.c: Likewise.
+	* math/expf.c: Add newline.
+	* math/exp.def.h: New.
+	* Makefile.am: Add math/exp.c file.
+
+	* complex/complex_internal.h (__FLT_MAXLOG...,
+	__FLT_MINLOG...): New constants.
+
+2010-07-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile.am (modf/fmod): Added new files to libmingwex.
+	* math/modf.c: New.
+	* math/fmod.c: New.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Add new GUIDs found in the newly merged DDK dependency headers:
+	* libsrc/atsmedia-uuid.c: New.
+	* libsrc/bdamedia-uuid.c: New.
+	* libsrc/kcom-uuid.c: New.
+	* libsrc/ntddkbd-uuid.c: New.
+	* libsrc/ntddmou-uuid.c: New.
+	* libsrc/ntddstor-uuid.c: New.
+	* libsrc/usbcamdi-uuid.c: New.
+	* libsrc/usbiodef-uuid.c: New.
+	* Makefile.am (src_libuuid): Add atsmedia-uuid.c, bdamedia-uuid.c,
+	kcom-uuid.c, ntddkbd-uuid.c, ntddmou-uuid.c, ntddstor-uuid.c, 
+	usbcamdi-uuid.c and usbiodef-uuid.c to build.
+	* Makefile.in: Regenerate.
+
+2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/advapi32.def (TraceMessageVa): Added back @24 suffix.
+	Function is actually __stdcall as reported by Amine Khaldi.
+	* lib32/ntoskrnl.def (WmiTraceMessageVa): Added back @24 suffix.
+	Function is actually __stdcall as reported by Amine Khaldi.
+	* lib32/ntdll.def (EtwTraceMessageVa): Added back @24 suffix,
+	by analogy to TraceMessageVa().
+
+2010-07-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	Fix for gcc-4.6 (trunk), PR/45075:
+	* crt/tlssup.c: Access section variable pointers via uintptr_t. Revert
+	revision 2961.
+
+2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am (lib64_DATA): Fix entries for libwdscsl.a and libpcwum.a.
+	* Makefile.in: Regenerate.
+
+2010-07-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/ndis.def (NdisWriteErrorLogEntry): Remove __stdcall suffix,
+	function is __cdecl.
+	* lib32/advapi32.def (TraceMessageVa): Likewise.
+	* lib32/ntoskrnl.def (WmiTraceMessageVa): Reactivate.
+	* lib32/ntdll.def (EtwTraceMessage, EtwTraceMessageVa): Remove the
+	__stdcall suffixes by analogy to TraceMessage and TraceMessageVa.
+	* lib32/hal.def (KeAcquireInStackQueuedSpinLock): Go back to __fastcall
+	@KeAcquireInStackQueuedSpinLock@8.
+	(KeReleaseInStackQueuedSpinLock): Likewise, go back to __fastcall
+	@KeReleaseInStackQueuedSpinLock@4.
+
+2010-07-26  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/wdscsl.def: New.
+	* lib64/pcwum.def: New.
+	* lib64/wdscore.def: New.
+	* lib64/cryptsp.def: New.
+	* lib64/wdsclient.def: New.
+	* lib64/wdsupgcompl.def: New.
+	* lib64/wdsclientapi.def: New.
+	* lib64/wdsutil.def: New.
+	* lib64/msvcr90.def: New.
+	* lib64/msvcr100.def: New.
+	* lib64/msvcr90d.def: New.
+	* lib64/wdsimage.def: New.
+	* lib32/wdscore.def: New.
+	* lib32/msvcr90d.def: New.
+	* lib32/msvcr90.def: New.
+	* lib32/cryptsp.def: New.
+	* lib32/bootvid.def: New.
+	* lib32/wdscsl.def: New.
+	* lib32/wdsutil.def: New.
+	* lib32/wdsclient.def: New.
+	* lib32/wdsimage.def: New.
+	* lib32/wdsupgcompl.def: New.
+	* lib32/msvcr100.def: New.
+	* lib32/wdsclientapi.def: New.
+	* lib32/pcwum.def: New.
+	* lib64/wdstptc.def: Updated from Win 7.
+	* lib64/bootvid.def: Likewise.
+	* lib64/advapi32.def: Likewise.
+	* lib64/ntoskrnl.def: Likewise.
+	* lib64/kernel32.def: Likewise.
+	* lib64/hal.def: Likewise.
+	* lib64/ntdll.def: Likewise.
+	* lib32/wdstptc.def: Likewise.
+	* lib32/hal.def: Likewise.
+	* lib32/hal.def: Likewise.
+	* lib32/ndis.def: Likewise.
+	* lib32/ntdll.def: Likewise.
+	* lib32/ntoskrnl.def: Likewise.
+	* lib32/advapi32.def: Likewise.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
+2010-07-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/pow.c: Replaced by new implementation.
+	* math/powl.c: Likewise.
+	* math/pow.def.h: New pow implementation as template.
+
+2010-07-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/ntoskrnl.def (WmiTraceMessageVa): Activated the export.
+	(ExReleaseRundownProtection): Activated as @ExReleaseRundownProtection@4
+	* lib32/advapi32.def (DuplicateEncryptionInfoFile): Fix __stdcall
+	suffix (@8 to @20).
+	(UninstallApplication): Likewise (@4 to @8).
+
+2010-07-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/gs_support.c:  Change the included headers to get the
+	STATUS_STACK_BUFFER_OVERRUN macro from ntstatus.h.
+	(__report_gsfailure): Replace __attribute__((unused)) by
+	__MINGW_ATTRIB_UNUSED.
+
+2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/gs_support.c (_ReturnAddress, _AddressOfReturnAddress): wrap
+	msvc intrinsics onto gcc builtins.
+	(__report_gsfailure): Use _ReturnAddress and _AddressOfReturnAddress.
+	Tidy up the win64 ifdefs at the function start.
+
+2010-07-20  Amine Khaldi  <amine.khaldi@reactos.org>
+
+	* crt/CRT_fp10.c: __attribute__((alias("xxx"))) is for gcc only.
+	* crt/CRT_fp8.c: __attribute__((alias ("xxx"))) is for gcc only.
+	(_fpreset): Add MSVC-compatible version.
+	* crt/crtexe.c (_MINGW_INSTALL_DEBUG_MATHERR): __attribute__((weak))
+	is for gcc only.
+
+2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* include/sect_attribs.h: Moved the _MSC_VER ifdef up to cover the
+	_ATTRIBUTES macro which is only for the MS section pragmas. Changed
+	the __x86_64__ and __ia64__ ifdefs to _M_IA64 and _M_AMD64, because
+	it serves only the MS compiler.
+
+2010-07-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/tlssup.c: Include stdlib.h in win32 builds to for _winmajor.
+	Before we started defining WIN32_LEAN_AND_MEAN, it was getting it by
+	sheer dumb luck.
+
+2010-07-20  Amine Khaldi  <amine.khaldi@reactos.org>
+	    Timo Kreuzer  <timo.kreuzer@reactos.org>
+
+	* include/internal.h: Add MSVC ifdefs.
+	* include/oscalls.h: Likewise.
+	* include/sect_attribs.h: Likewise.
+	* crt/tlssup.c: Include sect_attribs.h.
+
+2010-07-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/crt0_c.c (main): Use __UNUSED_PARAM instead of
+	__attribute__ ((__unused__))
+	* crt/crt0_w.c (wmain): Likewise.
+	* crt/crtexe.c (__mingw_invalidParameterHandler): Likewise.
+	* crt/dllentry.c (DllEntryPoint): Likewise.
+	* crt/dllmain.c (DllMain): Likewise.
+	* crt/tlsthrd.c (__mingw_TLScallback): Likewise.
+	* misc/alarm.c (alarm): Likewise.
+
+2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/strmiids.c: Added new ids added to ksuuids.h:
+	(AM_KSPROPSETID_MPEG4_MediaType_Attributes): New.
+	(MEDIASUBTYPE_MPEG2_WMDRM_TRANSPORT): New.
+	(MEDIASUBTYPE_MPEG2_VERSIONED_TABLES): New.
+	(MEDIASUBTYPE_ISDB_SI): New.
+	(MEDIASUBTYPE_TIF_SI): New.
+	(MEDIASUBTYPE_MPEG2_UDCR_TRANSPORT): New.
+	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_RAW): New.
+	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_PROCESSED): New.
+
+2010-07-16  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/ndis.def: New.
+	* lib64/authz.def: Updated from Vista.
+	* lib64/d2d1.def: New.
+	* lib64/virtdisk.def: New.
+	* lib32/virtdisk.def: New.
+	* lib32/d2d1.def: New.
+	* lib32/authz.def: New.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
+2010-07-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crtexe.c (__tmainCRTStartup): Reverted the revision 848 change in
+	unused code path. Added a FIXME note for future reference.
+
+2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/rpcrt4.def: Activate and add a stdcall suffix of 16 to
+	NdrRangeUnmarshall based on its prototype in rpcndr.h. BTW, unlike
+	what gendef says, the function does return.
+	* lib32/ws2_32.def: Fix @<n> suffix for WSAResetEvent as 4,
+	WSASetEvent as 4, WSAGetLastError as 0, WSASetLastError as 4 and
+	WSAWaitForMultipleEvents as 20.
+
+2010-07-06  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/wlanui.def: New.
+	* lib64/wlanapi.def: New.
+	* lib64/wlanutil.def: New.
+	* lib64/wer.def: New.
+	* lib32/wlanutil.def: New.
+	* lib32/wlanui.def: New.
+	* lib32/wlanapi.def: New.
+	* llib32/wer.def: New.
+	* lib64/dbghelp.def: Updated from Vista.
+	* lib64/ws2_32.def: Likewise.
+	* lib64/wtsapi32.def: Likewise.
+	* lib64/mscms.def: Likewise.
+	* lib32/wtsapi32.def: Likewise.
+	* lib32/ws2_32.def: Likewise.
+	* lib32/mscms.def: Likewise.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
+2010-07-05  Doug Semler  <dougsemler@gmail.com>
+
+	* Makefile.am (XFAIL_TESTS): Add t_nullptrexception as an expected
+	failure.
+	* Makefile.in: Regenerate.
+
+2010-07-05  Doug Semler  <dougsemler@gmail.com>
+
+	* testcases/t_setjmp.c (main): Fix return values on success and
+	failure.
+
+2010-07-05  Doug Semler  <dougsemler@gmail.com>
+
+	* Makefile.am (LDFLAGS32): Add build lib32 directory to linker search
+	  path.
+	  (LDFLAGS64): Likewise for lib64 directory.
+	* Makefile.in: Regenerate.
+
+2010-07-05  Doug Semler  <dougsemler@gmail.com>
+
+	* complex/cproj.def.h (cproj): Project z back to z, rather than
+	  stereographically.
+
+2010-07-05  Doug Semler  <dougsemler@gmail.com>
+
+	* complex/complex_internal.h: Add defines for ABI epsilon values.
+	* complex/ctanh.def.h (ctanh): Return signed zero matching the
+	  sign of sin(2 * __imag__ z).
+
+2010-07-05  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/msctfmonitor.def: New.
+	* lib64/tbs.def: New.
+	* lib64/tdh.def: New.
+	* lib64/txfw32.def: New.
+	* lib32/tbs.def: New.
+	* lib32/txfw32.def: New.
+	* lib32/msctfmonitor.def: New.
+	* lib32/tdh.def: New.
+	* lib32/msctcf.def: Removed.
+	* lib64/msctcf.def: likewise.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+  
+2010-07-05  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/winscard.def: Updated from Vista.
+	* lib64/vssapi.def: Likewise.
+	* lib64/usp10.def: Likewise.
+	* lib64/vss_ps.def: Likewise.
+	* lib32/usp10.def: Likewise.
+	* lib64/slwga.def: New.
+	* lib64/slc.def: New.
+	* lib64/slcext.def: New.
+	* lib64/vsstrace.def: New.
+	* lib32/vssapi.def: New.
+	* lib32/slcext.def: New.
+	* lib32/slc.def: New.
+	* lib32/winscard.def: New.
+	* lib32/vsstrace.def: New.
+	* lib32/slwga.def: New.
+	* lib32/vss_ps.def: New.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
+2010-07-02  Doug Semler  <dougsemler@gmail.com>
+
+	* testcases/complex: Move from experimental/doug/new_comples branch.
+	* Makefile.am: Add include to new testcases/complex/Makefile.am.
+	Separate TESTS variable from check_PROGRAMS variable.
+	* Makefile.in: Regenerate.
+
+2010-07-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/opengl32.def: Add missing export for wglSwapMultipleBuffers.
+
+2010-06-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/dbghelp.def: Fix @<n> suffix for ImageDirectoryEntryToDataEx
+	as 20, MiniDumpWriteDump as 28, SymEnumSymbolsForAddr as 20, and
+	SymFindFileInPath as 40.
+
+2010-06-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/qwave.def: Fix QOSCancel and QOSCloseHandle exports.
+
+2010-06-30  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/rpcrt4.def: Updated from Vista.
+	* lib32/rpcrt4.def: Likewise.
+	* lib32/rpcns4.def: Likewise.
+	* lib64/qwave.def: New.
+	* lib64/rstrmgr.def: New.
+	* lib64/wsdapi.def: New.
+	* lib64/rpcdiag.def: New.
+	* lib64/rpchttp.def: New.
+	* lib64/resutil.def: New.
+	* lib32/rstrmgr.def: New.
+	* lib32/rpchttp.def: New.
+	* lib32/resutil.def: New.
+	* lib32/wsdapi.def: New.
+	* lib32/qwave.def: New.
+	* lib32/rpcdiag.def: New.
+	* lib32/rpcdiag.def: New.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
+2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/ntdll.def: Remove the duplicated Rtl*ByteSwap exports and
+	keep the __fastcall versions at the top.
+
+2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/cfgmgr32.def: Fix @<n> suffix for CM_Add_ID[A|W] as 12,
+	CM_Query_And_Remove_SubTree_Ex[A|W] as 24.
+	* lib32/setupapi.def: Fix @<n> suffix for CM_Add_ID[A|W] as 12,
+	CM_Get_Device_ID_List_Size_Ex[A|W] as 16.
+	* lib32/hal.def: Fix @<n> suffix for HalFreeCommonBuffer as 24.
+	* lib32/dxapi.def: Enabled DxApi and DxApiGetVersion exports.
+	* lib32/videoprt.def: Fix several @<n> suffixes.
+	* lib32/usbcamd.def, lib32/usbcamd2.def: Fix several @<n> suffixes.
+	* lib32/scsiport.def: Fix ScsiPortGetVirtualAddress and
+	ScsiPortValidateRange  @<n> suffixes as 12 and 28.
+	* lib32/mcd.def: Fix ChangerClassDebugPrint export (not __stdcall).
+	* lib32/ntoskrnl.def: Fix several @<n> suffixes.
+	* lib32/ntdll.def: Fix RtlUshortByteSwap, RtlUlongByteSwap and
+	RtlUlonglongByteSwap exports (__fastcall and @<n> suffixes).
+
+2010-06-29  Doug Semler  <dougsemler@gmail.com>
+
+	* complex/cexp.def.h (cexp): Reapply return imaginary zero when NaN + 0i.
+
+2010-06-29  Doug Semler  <dougsemler@gmail.com>
+
+	* complex: Redo copy from experimental branch for svn history
+	  tracking.
+	* new_complex: Remove incorrectly merged directory.
+	* Makefile.am: Modify to use correct complex source files.
+	* Makefile.in: Regenerate.
+
+2010-06-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/ndis.def: Fix @<n> suffix for NdisMWanIndicateReceiveComplete
+	as 8.
+	* lib32/win32k.def: Fix several @<n> suffixes.
+
+2010-06-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* Makefile.am: Add libsrc/powrprof-uuid.c.
+	* libsrc/powrprof-uuid.c: New.
+	* Makefile.in: Regenerated.
+
+2010-06-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/mprapi.def: Updated from Vista.
+	* lib64/pdh.def: Likewise.
+	* lib64/msctf.def: Likewise.
+	* lib32/mprapi.def: Likewise.
+	* lib32/pdh.def: Likewise.
+	* lib64/wdstptc.def: New.
+	* lib64/p2pgraph.def: New.
+	* lib64/p2pcollab.def: New.
+	* lib64/ndfapi.def: New.
+	* lib64/p2p.def: New.
+	* lib64/cscapi.def: New.
+	* lib32/wdstptc.def: New.
+	* lib32/p2pgraph.def: New.
+	* lib32/p2p.def: New.
+	* lib32/msctf.def: New.
+	* lib32/ndfapi.def: New.
+	* lib32/cscapi.def: New.
+	* lib32/p2pcollab.def: New.
+	* Makefile.am: Add new entries.
+	* Makefile.in: Regenerated.
+
+2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/ks.def: New.
+	* lib64/ks.def: New.
+	* Makefile.am (lib32_DATA): Add lib32/ks.def to build.
+	(lib64_DATA): Add lib64/ks.def to build.
+	* Makefile.in: Regenerate.
+
+2010-06-27  Doug Semler  <dougsemler@gmail.com>
+
+	* new_complex/cexp.def.h (cexp): Return imaginary zero when NaN + 0i.
+
+2010-06-27  Doug Semler  <dougsemler@gmail.com>
+
+	* math/hypotl (hypotl): Return +infinity when either of the inputs
+	  is an infinity, including when the other is NaN (Annex F.9.4.3)
+
+2010-06-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/pdh.def: New.
+	* lib32/pdhui.def: New.
+	* Makefile.am: Add libpdh.a and libpdhui.a for 32-bit.
+	* Makefile: Regenerated.
+
+2010-06-26  Doug Semler  <dougsemler@gmail.com>
+
+	* new_complex: Copy from experimental.
+	* complex: Remove, replaced by new_complex.
+	* Makefile.am: Remove old complex library sources.
+	  Add new_complex library sources.
+	* Makefile.in: Regenerate.
+
+2010-06-26  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/esent.def: New.
+	* lib32/httpapi.def: New.
+	* lib64/esent.def: Updated from Vista.
+	* lib64/httpapi.def: Updated from Vista.
+	* Makefile.am: Add new files.
+	* Makefile.in: Regenerated.
+
+2010-06-25  Jacek Caban <jacek@codeweavers.com>
+
+	* lib32/gdi32.def: Added some missing entries.
+
+2010-06-24  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/qutil.def: New.
+	* lib64/connect.def: New.
+	* lib64/fwpuclnt.def: New.
+	* lib32/fwpuclnt.def: New.
+	* lib32/mstask.def: New.
+	* lib32/connect.def: New.
+	* Makefile.am: Add new files.
+	* Makefile.in: Regenerated.
+
+2010-06-24  Mook  <mook.gcc@gmail.com>
+
+	* lib32/crypt32.def: Fix @<n> suffix.
+
+2010-06-21  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/wevtfwd.def: New.
+	* lib32/wevtapi.def: New.
+	* lib64/wevtapi.def: New.
+	* lib64/wevtfwd.def: New.
+
+2010-06-21  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/msdrm.def: New.
+	* lib64/eapphost.def: New.
+	* lib64/ntdsapi.def: Update from Vista.
+	* lib64/dhcpcsvc6.def: New.
+	* lib64/eappgnui.def: New.
+	* lib64/eappprxy.def: New.
+	* lib64/davclnt.def: Updated from Vista.
+	* lib64/netapi32.def: Updated from Vista.
+	* lib64/dhcpsapi.def: Updated from Vista.
+	* lib64/wecapi.def: New.
+	* lib64/psapi.def: Updated from Vista.
+	* lib64/spoolss.def: Updated from Vista.
+	* lib64/powrprof.def: Updated from Vista.
+	* lib64/dxva2.def: New.
+	* lib64/eappcfg.def: New.
+	* lib32/eapp3hst.def: New.
+	* lib32/ntdsapi.def: New.
+	* lib32/psapi.def: Updated from Vista.
+	* lib32/powrprof.def: Updated from Vista.
+	* lib32/dxva2.def: New.
+	* lib32/dhcpsapi.def: New.
+	* lib32/wecapi.def: New.
+	* lib32/dhcpcsvc6.def: New.
+	* lib32/spoolss.def: New.
+	* lib32/davclnt.def: New.
+	* lib32/msdrm.def: New.
+	* lib32/netapi32.def: Updated from Vista.
+	* lib32/dssec.def: New.
+	* lib32/eappprxy.def: New.
+	* lib32/eapphost.def: New.
+	* lib32/eappcfg.def: New.
+	* lib32/eappgnui.def: New.
+
+2010-06-17  Doug Semler  <dougsemler@gmail.com>
+
+	* Makefile.am (CFLAGS32): New 32-bit specific flags.
+	  (CFLAGS64): New 64-bit specific flags.
+	  Replace all occurences of architecture specific flags with new
+	  definitions.
+	* Makefile.in: Regenerate.
+
+2010-06-17  Doug Semler  <dougsemler@gmail.com>
+
+	* Makefile.am (DTLIB, DTDEF): Remove generic versions.
+	  (DTLIB32, DTLIB64): Create architecture specific versions based on
+	  architecture specific $(DTDEF).
+	  Replace all occurences of architecture specific flags with new
+	  definitions.
+	* Makefile.in: Regenerate.
+
+2010-06-16  Doug Semler  <dougsemler@gmail.com>
+
+	* profile/profil.h (struct profile): Add quit event member.
+	* profile/profil.c (profthr_func): Make function returnable.
+	  Wait for quit event and return when set.
+	  (profile_off): Signal quit event and wait for thread return instead
+	  of terminating thread.
+	  (profile_on): Create quit event and handle error conditions.  Move
+	  error checking prior to setting the priority of potentially invalid
+	  handle.
+
+2010-06-16  Doug Semler  <dougsemler@gmail.com>
+
+	* profile/mcountFunc.S: Export _mcount always with single underscore.
+	  (_mcount): Call renamed internal function.
+	* profile/mcount.c: Remove extern declaration and move to profile.h
+
+2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* profile/gmon.c: Spaces-to-tabs in two places.
+	(fake_sbrk): Make it to return (void*)-1, because sbrk() returns that
+	on failure and its user monstartup() checks its return value that way,
+	too. From the Cygwin CVS.
+	(MINUS_ONE_P): New macro, -1LL for w64, -1 for all else. Use it with
+	void* casting in fake_sbrk() return and in monstartup() when checking
+	fake_sbrk() return value.
+	(_mcleanup): Constified proffile. Added a static char gmon_out[] as
+	"gmon.out" and assigned gmon_out to proffile.
+
+2010-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* Makefile.am: Add libsrc/vds-uuid.c.
+	* vds-uuid.c: New.
+
+2010-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/mf.def: New.
+	* lib64/ktmw32.def: Likewise.
+	* lib64/iscsidsc.def: Likewise.
+	* lib64/ncrypt.def: Likewise.
+	* lib64/mfplat.def: Likewise.
+	* lib64/evr.def: Likewise.
+	* lib32/mfplat.def: Likewise.
+	* lib64/bcrypt.def: Likewise.
+	* lib32/evr.def: Likewise.
+	* lib32/ncrypt.def: Likewise.
+	* lib32/bcrypt.def: Likewise.
+	* lib32/clusapi.def: Likewise.
+	* lib32/credui.def: Likewise.
+	* lib32/cryptnet.def: Likewise.
+	* lib32/cmutil.def: Likewise.
+	* lib32/mf.def: Likewise.
+	* lib32/iscsidsc.def: Likewise.
+	* lib32/sxs.def: Likewise.
+	* lib32/ktmw32.def: Likewise.
+
+2010-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/bthprops.def: Sync with Vista exports.
+	* lib32/iphlpapi.def: Likewise.
+	* lib64/iphlpapi.def: Likewise.
+	* lib64/bthprops.def: New, sync with Vista exports.
+
+2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* profile/gmon.h: Don't define BSD u_* types. Include _bsd_types.h
+	instead.
+	* profile/gcrt0.c: Likewise.
+	* profile/profil.h: Likewise.
+	* profile/mcountFunc.S: Spaces-to-tabs.
+
+2010-06-10  Jacek Caban  <jacek@codeweavers.com>
+
+	* libsrc/msctf-uuid.c: New.
+	* libsrc/netcon-uuid.c: New.
+	* libsrc/textstor-uuid.c: New.
+	* Makefile.am: Add libsrc/msctf-uuid.c libsrc/netcon-uuid.c and
+	libsrc/textstor-uuid to libuuid.a lib.
+
+2010-06-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/shell32.def (ILCreateFromPath, ILCreateFromPathA,
+	ILCreateFromPathW, SHSimpleIDListFromPath): Added.
+
+2010-06-05  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/clfsw32.def: New.
+	* lib32/clfsw32.def: Likewise.
+	* lib64/kernel32.def (AddSIDToBoundaryDescriptor): New.
+	(AddSecureMemoryCacheCallback): Likewise.
+	(AllocateUserPhysicalPagesNuma): Likewise.
+	(ApplicationRecoveryFinished): Likewise.
+	(ApplicationRecoveryInProgress): Likewise.
+	(ClosePrivateNamespace): Likewise.
+	(CreateBoundaryDescriptorA): Likewise.
+	(CreateBoundaryDescriptorW): Likewise.
+	(CreatePrivateNamespaceA): Likewise.
+	(CreatePrivateNamespaceW): Likewise.
+	(DeleteBoundaryDescriptor): Likewise.
+	(OpenPrivateNamespaceA): Likewise.
+	(OpenPrivateNamespaceW): Likewise.
+	(RegisterApplicationRecoveryCallback): Likewise.
+	(RemoveSecureMemoryCacheCallback): Likewise.
+	* lib64/ws2_32.def (FreeAddrInfoExA): New.
+	(FreeAddrInfoExW): Likewise.
+	(GetAddrInfoExA): Likewise.
+	(GetAddrInfoExW): Likewise.
+	* lib64/advapi32.def (AddMandatoryAce): New.
+	* lib64/winspool.def (AddPrinterConnection2A): New.
+	(AddPrinterConnection2W): New.
+	* lib32/kernel32.def (InterlockedPushListSList): Remove forwarder.
+	(AcquireSRWLockExclusive): Likewise.
+	(AcquireSRWLockShared): Likewise.
+	(AddVectoredContinueHandler): Likewise.
+	(AddVectoredExceptionHandler): Likewise.
+	(CallbackMayRunLong): Likewise.
+	(CancelThreadpoolIo): Likewise.
+	(CloseThreadpool): Likewise.
+	(CloseThreadpoolCleanupGroup): Likewise.
+	(CloseThreadpoolCleanupGroupMembers): Likewise.
+	(CloseThreadpoolIo): Likewise.
+	(CloseThreadpoolTimer): Likewise.
+	(CloseThreadpoolWait): Likewise.
+	(CloseThreadpoolWork): Likewise.
+	(DecodePointer): Likewise.
+	(DecodeSystemPointer): Likewise.
+	(DeleteBoundaryDescriptor): Likewise.
+	(DeleteCriticalSection): Likewise.
+	(DisassociateCurrentThreadFromCallback): Likewise.
+	(EncodePointer): Likewise.
+	(EncodeSystemPointer): Likewise.
+	(EnterCriticalSection): Likewise.
+	(ExitThread): Likewise.
+	(FlushProcessWriteBuffers): Likewise.
+	(FreeLibraryWhenCallbackReturns): Likewise.
+	(GetCurrentProcessorNumber): Likewise.
+	(HeapAlloc): Likewise.
+	(HeapReAlloc): Likewise.
+	(HeapSize): Likewise.
+	(InitOnceInitialize): Likewise.
+	(InitializeConditionVariable): Likewise.
+	(InitializeCriticalSection): Likewise.
+	(InitializeSListHead): Likewise.
+	(InitializeSRWLock): Likewise.
+	(InterlockedCompareExchange64): Likewise.
+	(InterlockedFlushSList): Likewise.
+	(InterlockedPopEntrySList): Likewise.
+	(InterlockedPushEntrySList): Likewise.
+	(IsThreadpoolTimerSet): Likewise.
+	(LeaveCriticalSection): Likewise.
+	(LeaveCriticalSectionWhenCallbackReturns): Likewise.
+	(QueryDepthSList): Likewise.
+	(ReleaseMutexWhenCallbackReturns): Likewise.
+	(ReleaseSRWLockExclusive): Likewise.
+	(ReleaseSRWLockShared): Likewise.
+	(ReleaseSemaphoreWhenCallbackReturns): Likewise.
+	(RemoveVectoredContinueHandler): Likewise.
+	(RemoveVectoredExceptionHandler): Likewise.
+	(RestoreLastError): Likewise.
+	(RtlCaptureContext): Likewise.
+	(RtlCaptureStackBackTrace): Likewise.
+	(RtlFillMemory): Likewise.
+	(RtlMoveMemory): Likewise.
+	(RtlUnwind): Likewise.
+	(RtlZeroMemory): Likewise.
+	(SetCriticalSectionSpinCount): Likewise.
+	(SetEventWhenCallbackReturns): Likewise.
+	(SetThreadpoolThreadMaximum): Likewise.
+	(SetThreadpoolTimer): Likewise.
+	(SetThreadpoolWait): Likewise.
+	(StartThreadpoolIo): Likewise.
+	(SubmitThreadpoolWork): Likewise.
+	(TryEnterCriticalSection): Likewise.
+	(VerSetConditionMask): Likewise.
+	(WaitForThreadpoolIoCallbacks): Likewise.
+	(WaitForThreadpoolTimerCallbacks): Likewise.
+	(WaitForThreadpoolWaitCallbacks): Likewise.
+	(WaitForThreadpoolWorkCallbacks): Likewise.
+	(WakeAllConditionVariable): Likewise.
+	(WakeConditionVariable): Likewise.
+	* lib32/clfsw32.def: New.
+	lib32/advapi32.def (AddMandatoryAce): New.
+	lib32/ws2_32.def (FreeAddrInfoExA): New.
+	(FreeAddrInfoExW): Likewise.
+	(GetAddrInfoExA): Likewise.
+	(GetAddrInfoExW): Likewise.
+	* lib32/winspool.def (AddPrinterConnection2A): New.
+	(AddPrinterConnection2W): Likewise.
+
+2010-06-02  Doug Semler  <dougsemler@gmail.com>
+
+	* Makefile.am: Use && instead of ; for compound commands.
+	* Makefile.in: Regenerate.
+
+2010-05-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/ucrtexe.c: Define _UNICODE.
+	* crt/udll_argv.c: Likewise.
+	* crt/udllargc.c: Likewise.
+
+2010-05-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	Revert last check-in for getopt. Mingw.org's version
+	is simply broken, so we stick to the NetBSD version.
+
+2010-05-03  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2995926
+	* misc/getopt.c: Replace by PD mingw.org version.
+
+2010-05-02  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* misc/mb_wc_common.h (get_codepage): use ___lc_codepage_func
+	instead of __lc_codepage to get codepage.
+
+2010-04-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* libsrc/wspiapi/WspiapiLegacyGetAddrInfo.c: Fix strict aliasing
+	violation warning by using a struct in_addr variable instead of a
+	DWORD variable.
+
+2010-04-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/gettimeofday.c (FILETIME_1970): Change from 11644473600ull
+	to 116444736000000000ull as in the mingw.org version, fixing the
+	issue reported by Patrick Galbraith.
+	(getntptimeofday): Use a union of unsigned long long and FILETIME
+	instead of ULARGE_INTEGER, as in the mingw.org version, to fix the
+	strict aliasing violations reported by -Wstrict-aliasing=2.
+
+2010-04-17  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* misc/mbrtowc.c (__mbrtowc_cp): Add nonnull attribute.
+	* misc/wcrtomb.c (wcrtomb): Use __UNUSED_PARAM instead of
+	__attribute__ ((__unused__))
+	(wcsrtombs): Likewise. Sync with mingw.org.
+	* misc/wcstof.c: New.
+	* misc/wcstold.c: Sync with mingw.org.
+	* Makefile.am: Add misc/wcstof.c.
+	* Makefile.in: Regenerated.
+
+2010-04-14  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib64/kernel32.def (AcquireSRWLockExclusive): New.
+	(AcquireSRWLockShared): Likewise.
+	(InitializeConditionVariable): Likewise.
+	(InitOnceBeginInitialize): Likewise.
+	(InitOnceComplete): Likewise.
+	(InitOnceExecuteOnce): Likewise.
+	(InitializeSRWLock): Likewise.
+	(ReleaseSRWLockExclusive): Likewise.
+	(ReleaseSRWLockShared): Likewise.
+	(SleepConditionVariableCS): Likewise.
+	(TryAcquireSRWLockExclusive): Likewise.
+	(TryAcquireSRWLockShared): Likewise.
+	(WakeAllConditionVariable): Likewise.
+	(WakeConditionVariable): Likewise.
+	* lib32/kernel32.def (TryAcquireSRWLockExclusive): New.
+	(TryAcquireSRWLockShared): Likewise.
+
+2010-04-08  Doug Semler  <dougsemler@gmail.com>
+
+	* stdio/vfscanf.c: Define QUOTE macro expansions and wrap
+	calls from assembly with __MINGW_USYMBOL.
+	* stdio/vfwscanf.c: Likewise.
+	* stdio/vsscanf.c: Likewise.
+	* stdio/vswscanf.c: Likewise.
+
+2010-04-07  Doug Semler  <dougsemler@gmail.com>
+
+	* complex/cpow.c: Remove declaration of pow().
+
+2010-04-01  Doug Semler  <dougsemler@gmail.com>
+
+	* intrincs/_rotl64.c (_rotl64): Simplify logic, we are unsigned.
+	* intrincs/_rotr64.c (_rotr64): Likewise.
+
+2010-04-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am (src_libmingwex32): Added intrincs/_rotl64.c and
+	intrincs/_rotr64.c to 32 bit libmingwex.a builds.
+	(src_libmingwex64): Add intrincs/_rotl64.c and intrincs/_rotr64.c
+	to 64 bit libmingwex.a builds, too, for now.
+	* Makefile.in: Regenerated.
+
+2010-04-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrincs/_rotl64.c: New.
+	* intrincs/_rotr64.c: New.
+
+2010-03-31  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/wassert.c (_assert): Add Ascii version.
+
+2010-03-26  Doug Semler  <dougsemler@gmail.com>
+
+	* Makefile.am (misc/delay-n.c, misc/delay-f.c): Add to libmingwex.a library.
+	* misc/delay-f.c: New.
+	* misc/delay-n.c: New.
+	* Makefile.in: Regenerated.
+
+2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Added lib64/wsock32.def to build.
+	* Makefile.in: Regenerated.
+
+2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib64/wsock32.def: New.
+
+2010-03-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/wassert.c (_wassert): Spelling fix: s/Assertation/Assertion/.
+
+2010-03-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math/cossin.c: New.
+
+2010-03-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* aclocal.m4 (_LT_CHECK_MAGIC_METHOD): The latest libtool.m4 w64
+	fix from the libtool git repository applied.
+	* configure: Likewise.
+	* ltmain.sh (func_win32_libid): Update from the libtool git repo.
+
+2010-02-19  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* libsrc/shell32.c (CLSID_ShellFSFolder): Define.
+	(IID_IShellLinkDataList): Define.
+
+2010-02-19  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* libsrc/shell32.c (IID_IFolderView): Define.
+
+2010-02-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	sync getopt.c with src/winsup/cygwin/libc/getopt.c r1.13 (Dec 14, 2009):
+	* misc/getopt.c (getopt_internal): Set optreset according to optind
+	setting earlier.  Reevaluate POSIXLY_CORRECT if optreset is set to !0.
+	Handle a leading '-' in options independently of posixly_correct.
+
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/user32.def: Add CloseTouchInputHandle and GetTouchInputInfo as
+	even more missing parts in revision 1530.
+	* lib64/user32.def: Likewise.
+
+2010-02-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/user32.def: Add IsTouchWindow, RegisterTouchWindow and
+	UnregisterTouchWindow missing for support of revision 1530.
+	* lib64/user32.def: Likewise.
+
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	A couple of lib32/*.def file fixes from mingw:
+	* lib32/comctl32.def (StrCSpnA, StrCSpnIA, StrCSpnW, StrChrA, StrChrIA,
+	StrChrIW, StrChrW, StrCmpNA, StrCmpNIA, StrCmpNIW, StrCmpNW, StrRChrA,
+	StrRChrIA, StrRChrW, StrRStrIA, StrRStrIW, StrStrA, StrStrIA, StrStrIW,
+	StrStrW, StrToIntA, StrToIntW): Removed erroneous exports which already
+	are in shlwapi.def.
+	* lib32/scsiport.def (ScsiPortGetDeviceBase): Fixed suffix.
+	* lib32/ntoskrnl.def (MmAllocateContiguousMemory): Fixed suffix.
+	* lib32/msimg32.def (GetDCBrushColor, GetDCPenColor): Moved from here...
+	* lib32/gdi32.def (GetDCBrushColor, GetDCPenColor): ... to here.
+
+2010-02-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* profile/gmon.c, profile/gmon.h, profile/mcount.c: Remove advertising
+	clause of copyright. Closes our bug #2939623. For reference, see:
+	ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change
+
+2010-01-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Makefile.am: Add libmshtml.a and libmshtmled.a to build.
+	* lib32/mshtml.def: New.
+	* lib32/mshtmled.def: New.
+
+2010-01-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* lib32/winusb.def: New.
+	* lib64/winusb.def: New.
+	* Makefile.am: Add both.
+
+2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
+	    Ozkan Sezer  <sezeroz@gmail.com>
+
+	Change DISCLAIMER to DISCLAIMER.PD
+
+2010-01-15  Philippe Dunski  <koala01@free.fr>
+
+	* lib32/msvcrt.def (rand_s): New import symbol.
+	* lib32/msvcr80.def (rand_s): Likewise.
+	* lib64/msvcrt.def (rand_s): Likewise.
+	* lib64/wmsvcrt.def (rand_s): Likewise.
+	* lib64/msvcr80.def (rand_s): Likewise.
+
+2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* COPYING: New license text.
+	* DISCLAIMER: Updated for New license text.
+	* DISCLAIMER.PD: Moved old disclaimer template for PD.
+
+2010-01-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mingw-w64-headers/dirent.h: synchronized with the mingw.org
+	version for correct operation with mingw-3.1x version requirements.
+	* mingw-w64-crt/misc/dirent.c: reverted revision 76 change for bug
+	#1801043, not valid any longer. (do we manually need to copy that
+	field???)
+
+2010-01-07  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* Makefile.am (src_libmingwex): Add misc/tdelete.c
+	misc/tfind.c misc/tsearch.c misc/twalk.c.
+	* misc/tdelete.c: New.
+	* misc/tfind.c: New.
+	* misc/tsearch.c: New.
+	* misc/twalk.c: New.
+	* Makefile.in: Regenerated.
+
+2010-01-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* configure.ac (--enable-wildcard): New configure time option in
+	order to enable command line globbing by default.
+	(__ENABLE_GLOBBING): New config.h macro, 0 or -1.
+	* crt/wildcard.c: Updated to use the new __ENABLE_GLOBBING macro.
+	* crt/CRT_noglob.c: New file with _dowildcard set as 0.
+	* Makefile.am: Added crt/CRT_noglob.c to the build.
+	* configure: Regenerated.
+	* config.h.in: Regenerated.
+	* Makefile.in: Regenerated.
+
