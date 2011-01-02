@@ -1,0 +1,2347 @@
+2010-12-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* tdiinfo.h: Sync with r/os svn@50143.
+
+2010-12-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk:
+	2010-08-20  Kai Tietz  <kai.tietz@onevision.com> (rev. 3421)
+	* intrin.h: Fix non-cygwin builds ... with big wonder.
+	2010-12-04  Kai Tietz  <kai.tietz@onevision.com> (rev. 3841)
+	* intrin.h: Handle for 32-bit case defined function cases, too.
+
+2010-12-24  Kai Tietz  <kai.tietz@onevision.com>
+
+	* malloc.h (_MM_MALLOC_H_INCLUDED): Move down after check
+	of it.
+
+2010-11-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* tchar.h (_tWinMain): Define as wWinMain for UNICODE case.
+
+2010-11-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk:
+	2010-07-10  Ramiro Polla  <ramiro.polla@gmail.com> (revs. 2826-2827)
+	* stdlib.h (strtod): For ISO-C99 use posix version __strtod.
+
+2010-10-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* basetsd.h (POINTER_SIGNED): New.
+	(POINTER_UNSIGNED): New.
+	(SPOINTER_32): New.
+	(UPOINTER_32): New.
+
+2010-10-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* authz.h (AuthzReportSecurityEvent): Remove WINAPI (__stdcall) and
+	mark the varargs function as WINAPIV (__cdecl).
+	(AuthzInitializeObjectAccessAuditEvent):  Likewise.
+	(AuthzInitializeObjectAccessAuditEvent2): Likewise.
+	* snmp.h (SnmpUtilDbgPrint): Remove SNMP_FUNC_TYPE (__stdcall) and
+	mark the varargs function as WINAPIV (__cdecl).
+
+2010-10-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* assert.h: Always undefine and redefine assert() based on NDEBUG.
+
+2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntcons.h: Add missing constants and remove associated fixme notes.
+	(EVENT_HEADER_PROPERTY_XML): Define as 0x0001.
+	(EVENT_HEADER_PROPERTY_FORWARDED_XML): Define as 0x0002.
+	(EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG): Define as 0x0004.
+	(EVENT_HEADER_FLAG_EXTENDED_INFO): Define as 0x0001.
+	(EVENT_HEADER_FLAG_PRIVATE_SESSION): Define as 0x0002.
+	(EVENT_HEADER_FLAG_STRING_ONLY): Define as 0x0004.
+	(EVENT_HEADER_FLAG_TRACE_MESSAGE): Define as 0x0008.
+	(EVENT_HEADER_FLAG_NO_CPUTIME): Define as 0x0010.
+	(EVENT_HEADER_FLAG_32_BIT_HEADER): Define as 0x0020.
+	(EVENT_HEADER_FLAG_64_BIT_HEADER): Define as 0x0040.
+	(EVENT_HEADER_FLAG_CLASSIC_HEADER): Define as 0x0100.
+	(EVENT_HEADER_EXT_TYPE_RELATED_ACTIVITYID): Define as 0x0001.
+	(EVENT_HEADER_EXT_TYPE_SID): Define as 0x0002.
+	(EVENT_HEADER_EXT_TYPE_TS_ID): Define as 0x0003.
+	(EVENT_HEADER_EXT_TYPE_INSTANCE_INFO): Define as 0x0004.
+	(EVENT_HEADER_EXT_TYPE_STACK_TRACE32): Define as 0x0005.
+	(EVENT_HEADER_EXT_TYPE_STACK_TRACE64): Define as 0x0006.
+	(EVENT_ENABLE_PROPERTY_SID): Define as 0x00000001.
+	(EVENT_ENABLE_PROPERTY_TS_ID): Define as 0x00000002.
+	(EVENT_ENABLE_PROPERTY_STACK_TRACE): Define as 0x00000004.
+	(PROCESS_TRACE_MODE_REAL_TIME): Define as 0x00000100.
+	(PROCESS_TRACE_MODE_RAW_TIMESTAMP): Define as 0x00001000.
+	(PROCESS_TRACE_MODE_EVENT_RECORD): Define as 0x10000000.
+
+2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* agtctl_i.c: Moved to mingw-w64-crt/libsrc/
+	* agtsvr_i.c: Likewise.
+	* cdoex_i.c: Likewise.
+	* cdoexm_i.c: Likewise.
+	* cdosys_i.c: Likewise.
+	* emostore_i.c: Likewise.
+	* iisext_i.c: Likewise.
+	* mtsadmin_i.c: Likewise.
+	* mtxadmin_i.c: Likewise.
+	* scardssp_i.c: Likewise.
+	* scardssp_p.c: Likewise.
+	* tsuserex_i.c: Likewise.
+
+2010-09-20  Pawel Sikora  <pawel.sikora@agmk.net>
+
+	* eh.h (_is_exception_typeof): Use std::type_info.
+
+2010-09-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winbase.h (DefineHandleTable): Make the no-op macro more gcc-friendly
+	and avoid compiler warnings.
+
+2010-09-16  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* malloc.h (__mingw_aligned_malloc): Declare prototype.
+	(__mingw_aligned_free): Likewise.
+	(__mingw_aligned_offset_realloc): Likewise.
+	(__mingw_aligned_realloc): Likewise.
+
+2010-09-10  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* mingw_inc: Rename to psdk_inc.
+	* ks.h: Fix up mingw_inc rename.
+	* mswsock.h: Likewise.
+	* winsock.h: Likewise.
+	* winsock2.h: Likewise.
+	* ws2tcpip.h: Likewise.
+	* wtypes.h: Likewise.
+
+2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* tchar.h (_tcsnlen): Remove the #if0 comment-out from the macro.
+
+	* dbghelp.h, imagehlp.h (API_VERSION_NUMBER): Change from 9 to 11.
+	(LOADED_IMAGE): Add new members fReadOnly (BOOLEAN) and Version (UCHAR).
+	(PIMAGEHLP_STATUS_ROUTINE): Constify string arguments.
+	(PIMAGEHLP_STATUS_ROUTINE32): Likewise.
+	(PIMAGEHLP_STATUS_ROUTINE64): Likewise.
+	(BindImage): Likewise.
+	(BindImageEx): Likewise.
+	(ReBaseImage): Likewise.
+	(ReBaseImage64): Likewise.
+	(MapFileAndCheckSumA): Likewise.
+	(MapFileAndCheckSumW): Likewise.
+	(ImageLoad): Likewise.
+	(MapAndLoad): Likewise.
+	(SplitSymbols): Likewise (2nd arg).
+	(UpdateDebugInfoFile): Likewise (1st & 2nd args).
+	(UpdateDebugInfoFileEx): Likewise (1st & 2nd ars).
+	(PFIND_DEBUG_FILE_CALLBACK): Likewise.
+	(PFINDFILEINPATHCALLBACK): Likewise.
+	(PFIND_EXE_FILE_CALLBACK): Likewise.
+	(FindDebugInfoFile): Likewise (1st & 2nd args).
+	(FindDebugInfoFileEx): Likewise (1st & 2nd args).
+	(SymFindFileInPath): Likewise (2nd & 3rd args).
+	(FindExecutableImage): Likewise (1st & 2nd args).
+	(FindExecutableImageEx): Likewise (1st & 2nd args).
+	(KDHELP): Add new DWORD members KiUserExceptionDispatcher, StackBase
+	and StackLimit, reduced Reserved member from 8 to 5.
+	(KDHELP64): Add new DWORD64 members KiUserExceptionDispatcher, StackBase
+	and StackLimit, reduced Reserved member from 8 to 5.
+	(KdHelp32To64): Adjust for the new members of KDHELP and KDHELP64.
+	(IMAGEHLP_MODULE64): Add new BOOL members SourceIndexed and Publics.
+	(IMAGEHLP_MODULEW64): Likewise.
+	(SymSetHomeDirectory): Changed prototype for the new api (an additional
+	handle as the 1st argument).
+	(SymMatchString): Constify string arguments.
+	(PSYM_ENUMSOURCEFILES_CALLBACK): Renamed from PSYM_ENUMSOURCFILES_CALLBACK.
+	(PSYM_ENUMSOURCFILES_CALLBACK): Define as PSYM_ENUMSOURCEFILES_CALLBACK.
+	(SymEnumSourceFiles): Constify string arguments.
+	(SymGetLineFromName): Likewise.
+	(SymGetLineFromName64): Likewise.
+	(SymMatchFileName): Likewise (1st & 2nd args).
+	(SymInitialize): Likewise.
+	(SymSetSearchPath): Likewise.
+	(SymLoadModule): Likewise.
+	(SymLoadModuleEx): Likewise.
+	(SymFromName): Likewise.
+	(SymGetTypeFromName): Likewise.
+	(DbgHelpCreateUserDump): Likewise.
+	(DbgHelpCreateUserDumpW): Likewise.
+	(SymGetSymFromName): Likewise.
+	(SymGetSymFromName64): Likewise.
+	(FindFileInPath): Likewise (2nd & 3rd args).
+	(FindFileInSearchPath): Likewise (2nd & 3rd args).
+
+2010-09-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* imagehlp.h: Reorganized parts of it so that it gives the least diff
+	output against dbghelp.h.
+
+2010-09-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* string.h (strnlen): Remove the #if0 comment-out from the prototype.
+
+	Backport from the trunk:
+	2010-09-01  Jacek Caban  <jacek@codeweavers.com> (rev. 3476)
+	* winbase.h: Protect SYSTEMTIME by redefinition guard.
+
+2010-08-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__MINGW_MSC_PREREQ): Fix inverted logic.
+
+	* dirent.h: Move the _mingw.h include after the header's include
+	guard, move the packing pragmas after the RC_INVOKED guard.  Reformat
+	for smaller diff output against mingw version.
+
+2010-08-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* float.h: Add missing #endif.
+
+2010-08-23  Jonathan Yong <jon_y@users.sourceforge.net>
+
+	* float.h: Do not allow gcc 4.6.X, include_next hack not needed.
+
+2010-08-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntddvdeo.h: Sync with r/os svn@48575:
+	(DISPLAY_BRIGHTNESS): New structure.
+	(DISPLAYPOLICY_AC): New macro.
+	(DISPLAYPOLICY_DC): New macro.
+	(DISPLAYPOLICY_BOTH): New macro.
+
+2010-08-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	From cygwin CVS 2010-08-17 by Keith Marshall:
+	* limits.h (PATH_MAX): Make it agree with Microsoft's semantically
+	identical MAX_PATH; correct value is 260.
+
+2010-08-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk.
+	* winnt.h: Cleanup wrong defines for x86 and stdcall.
+	* winbase.h: Changed for x86 the Interlock... API to use
+	stdcall convention.
+
+2010-08-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ktmtypes.h (TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT):
+	short-circuit the type of UOW member and use GUID.
+
+2010-08-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk:
+	2010-08-16  Kai Tietz  <kai.tietz@onevision.com> (revs. 3371,
+	3374, 3375)
+	* _mingw.h: Work around for gcc bug 45300 and the use of keyword
+	restrict.
+
+	Backport from the trunk:
+	2010-08-16  Kai Tietz  <kai.tietz@onevision.com> (rev. 3369)
+	* yvals.h (_Restrict): Make sure we use __restrict__ instead of
+	restrict.
+
+2010-08-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dmksctrl.h, hidpi.h, kcom.h, ntdd8042.h, ntdef.h, unknown.h,
+	usbcamdi.h, usbiodef.h, usbrpmif.h, winddi.h, winsplp.h: Remove
+	unnecessary MSVC modifiers IN/OUT?OPTIONAL. Fix the include guard
+	of unknown.h.
+
+2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk:
+	2010-04-16  NightStrike  <nightstrike@gmail.com> (rev. 2241)
+	* fenv.h: Add __MXCSR_EXCEPT_MASK_SHIFT from mingwrt 3.11
+
+	Backport from the trunk:
+	2010-08-14  Kai Tietz  <kai.tietz@onevision.com> (rev. 3340)
+	* conio.h, intrin.h, memory.h, stdio.h, stdlib.h, string.h, time.h,
+	wchar.h: restrictify many functions for c99.
+
+	Backport from the trunk:
+	2010-08-15  Kai Tietz  <kai.tietz@onevision.com> (rev. 3353)
+	* mapidefs.h, mapinls.h, ntdef.h, ntdsbcli.h, wabdefs.h, winnt.h:
+	Protect WCHAR being multiple typedef'ed.
+
+2010-08-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Copy over more DDK dependency headers from experimental/ddk_test:
+	* dmksctrl.h: New.
+	* driverspecs.h: New.
+	* hidpi.h: New.
+	* hidusage.h: New.
+	* ntdd1394.h: New.
+	* ntdd8042.h: New.
+	* ntddbeep.h: New.
+	* ntddcdrm.h: New.
+	* ntddcdvd.h: New.
+	* ntdddisk.h: New.
+	* ntddft.h: New.
+	* ntddpar.h: New.
+	* ntddser.h: New.
+	* ntddtape.h: New.
+	* ntddtdi.h: New.
+	* ntddvdeo.h: New.
+	* ntddvol.h: New.
+	* prntfont.h: New.
+	* tdi.h: New.
+	* tdiinfo.h: New.
+	* unknown.h: New.
+
+2010-08-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from the trunk revs. 2573, 2857 & 2859 for inter-compatibility
+	purposes:
+	2010-06-18  Doug Semler  <dougsemler@gmail.com>
+	* _mingw_mac.h: Move Unicode macro definitions to _mingw_unicode.h
+	* _mingw_unicode.h: New file.
+	2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+	* _mingw_unicode.h (__MINGW_TYPEDEF_UAW): New helper macro.
+	(__MINGW_STRING_AW): Added comment that it is the same as TEXT() from
+	winnt.h.
+
+2010-08-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mswsock.h (SIO_SOCKET_CLOSE_NOTIFY): Apply version restriction
+	from the trunk (>= XP && < VISTA).
+	(LPFN_WSARECVMSG): Reformat.
+	* winsock2.h (SOCKET_ADDRESS_LIST): Add the *P variant along with
+	the existing *LP variant from the trunk.
+
+2010-08-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntrace.h (EVENT_TRACE): Updated MSDN note for BufferContext
+	member.
+	(EVENT_TRACE_LOGFILE): Removed unnecessary fixme note, because
+	the structure has ansi and unicode versions as mentioned on the
+	msdn page.
+
+	* windows.h: Remove the ktmtypes.h include. (Transaction stuff
+	is not in winnt.h in the stable branch, yet.)
+
+	* dbghelp.h: Reformat enums for one line per value. Whitespace
+	tidy-up.
+	* imagehlp.h: Apply trunk rev.2254 change to dbghelp.h: Make
+	string arguments const for PSYM_ENUMMODULES_CALLBACK64,
+	PSYM_ENUMSYMBOLS_CALLBACK64, PSYM_ENUMSYMBOLS_CALLBACK64W,
+	PENUMLOADED_MODULES_CALLBACK64 and PSYM_ENUMMODULES_CALLBACK64.
+	Reformat similar to dbghelp.h so that the two files give less
+	output.
+
+2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from trunk rev. 3261 with adjustments:
+	* sys/types.h (_sigset_t): Make it to have scalar pointer width.
+	(sigset_t): Make sure it is defined only when _POSIX is defined,
+	drop the (!_NO_OLDNAMES) condition.
+
+2010-08-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mswsock.h: Include winsock2.h.
+
+2010-08-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merge from the trunk:
+
+	2010-07-29  Kai Tietz  <kai.tietz@onevision.com> (rev. 3009)
+	* math.h (__fpclassify): Provide inline version.
+	(__fpclassifyf): Likewise.
+
+2010-08-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dpfilter.h: Add #pragma once.
+	* ksdebug.h: Fix formatting.
+	* lmon.h: Add #pragma once.
+	* ntddndis.h: Break long enum lines into one value per line.
+	* usb200.h: Remove __GNU_EXTENSION definition.
+	* winioctl.h: Add endif comments. Add missing _NTDDDISK_H_ guard around
+	stuff shared with ntdddisk.h.
+	(STORAGE_MEDIA_TYPE): Add VXATape from ntddstor.h.
+	(EXFAT_STATISTICS): Add from vista_7_headers branch.
+
+2010-08-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ddrawgdi.h (LPD3DHAL_CALLBACKS): Guard.
+	(LPD3DHAL_GLOBALDRIVERDATA): Guard.
+
+	* diskguid.h (PARTITION_MSFT_RECOVERY_GUID): Added from vds.h (from
+	the vista_7_headers branch.)
+
+2010-08-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntdef.h:  Add the BOOL variants and WINBOOL from windef.h, guarded
+	by _DEF_WINBOOL_.
+	* windef.h: Reformat whitespace. Guard the BOOL variants and WINBOOL
+	by _DEF_WINBOOL_.
+
+2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* objidl.h (uSTGMEDIUM): Unify using DUMMYUNIONNAME.
+	* accctrl.h (ACTRL_OVERLAPPED): Add DUMMY* names to anonymous structs
+	and/or unions.
+	* mmsystem.h (MIXERCONTROLA): Likewise.
+	(MIXERCONTROLW): Likewise.
+	(MIXERLINECONTROLSA): Likewise.
+	(MIXERLINECONTROLSW): Likewise.
+	(MIXERCONTROLDETAILS): Likewise.
+	* olectl.h (PICTDESC): Likewise.
+	* propidl.h (PROPSPEC): Likewise.
+	* winnt.h (NT_TIB): Likewise.
+	(NT_TIB32): Likewise.
+	(NT_TIB64): Likewise.
+	(IMAGE_RELOCATION): Likewise.
+	(IMAGE_IMPORT_DESCRIPTOR): Likewise.
+	(IMAGE_RESOURCE_DIRECTORY_ENTRY): Likewise.
+	(IMAGE_FUNCTION_ENTRY64): Likewise.
+	* winbase.h (SYSTEM_INFO): Likewise.
+	(PROCESS_HEAP_ENTRY): Likewise.
+	* winioctl.h (SET_PARTITION_INFORMATION_EX): Likewise.
+	(CREATE_DISK): Likewise.
+	(PARTITION_INFORMATION_EX): Likewise.
+	(DRIVE_LAYOUT_INFORMATION_EX): Likewise.
+	(DISK_DETECTION_INFO): Likewise.
+	(DISK_PARTITION_INFO): Likewise.
+	(DISK_CACHE_INFORMATION): Likewise.
+	(FILE_OBJECTID_BUFFER): Likewise.
+	* wtypes.h (CY): Likewise.
+	(DECIMAL): Likewise.
+	* winuser.h (INPUT): Likewise.
+	(RID_DEVICE_INFO): Likewise.
+
+2010-08-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h (LARGE_INTEGER): Add DUMMYSTRUCTNAME to anonymous struct.
+	(ULARGE_INTEGER): Likewise.
+
+	* _mingw.h (NONAMELESSUNION): If the compiler is MSVC and the MS
+	extensions are disabled, define it.
+	(DUMMYUNIONNAMEX): Remove, not used or needed.
+	(DUMMYSTRUCTNAMEX): Likewise.
+	(DUMMYUNIONNAME1): Add a note that only Wine uses this variant.
+	(DUMMYSTRUCTNAME1): Likewise.
+	(DUMMYUNIONNAME6): Define.
+	(DUMMYUNIONNAME7): Define.
+	(DUMMYUNIONNAME8): Define.
+	(DUMMYUNIONNAME9): Define.
+
+	* oaidl.h (struct _wireVARIANT): Add DUMMYUNIONNAME to the anonymous
+	union.
+	(TYPEDESC): Likewise.
+	(ELEMDESC): Likewise.
+	(VARDESC): Likewise.
+	* winnt.h (SLIST_HEADER) [!_WIN64]: Mark the anonymous struct as
+	__MINGW_EXTENSION and add DUMMYSTRUCTNAME.
+
+2010-08-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mingw_inc/_varenum.h: New helper header for enum VARENUM.
+	* wtypes.h (VARENUM): Moved from here to mingw_inc/_varenum.h.
+	Include <mingw_inc/_varenum.h>
+	* ks.h: Include <mingw_inc/_varenum.h> for DDK.
+	(PFNQUERYMEDIUMSLIST): New.
+	(BUS_INTERFACE_MEDIUMS, PBUS_INTERFACE_MEDIUMS): New.
+	(GUID_BUS_INTERFACE_MEDIUMS): New.
+	(KsGateTurnInputOn): New.
+	(KsGateTurnInputOff): New.
+	(KsGateGetStateUnsafe): New.
+	(KsGateCaptureThreshold): New.
+	(KsGateInitialize): New.
+	(KsGateInitializeAnd): New.
+	(KsGateInitializeOr): New.
+	(KsGateAddOnInputToAnd): New.
+	(KsGateAddOffInputToAnd): New.
+	(KsGateRemoveOnInputFromAnd): New.
+	(KsGateRemoveOffInputFromAnd): New.
+	(KsGateAddOnInputToOr): New.
+	(KsGateAddOffInputToOr): New.
+	(KsGateRemoveOnInputFromOr): New.
+	(KsGateRemoveOffInputFromOr): New.
+	(KsGateTerminateAnd): New.
+	(KsGateTerminateOr): New.
+
+2010-07-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* errno.h (ENOFILE): New, define as ENOENT.
+
+	* _mingw.h (NONAMELESSSTRUCT, NONAMELESSUNION): If one is defined
+	make sure the other is defined, too. Fixes the mess caused by
+	NONAMELESSSTRUCT which isn't used by any others, so just rely on
+	NONAMELESSUNION.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntddstor.h (STORAGE_MEDIA_SERIAL_NUMBER_DATA): Enable for GCC
+	alongside _MSC_EXTENSIONS.
+
+	* ntdef.h (FORCEINLINE): Arguably better _MSC_VER ifdefs.
+	* winnt.h (FORCEINLINE): Likewise.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* atsmedia.h, bdamedia.h, bdatypes.h, bugcodes.h, compstui.h,
+	devioctl.h, devpropdef.h, dpfilter.h, kcom.h, ksdebug.h, lmon.h,
+	netevent.h, nettypes.h, newdev.h, ntddchgr.h, ntddkbd.h, ntddmou.h,
+	ntddstor.h, ntdef.h, ntiologc.h, usb100.h, usb200.h, usbcamdi.h,
+	usbdi.h, usb.h, usbioctl.h, usbiodef.h, usbrpmif.h, usbuser.h,
+	winddi.h, winddiui.h, winsplp.h:  Copy over the DDK dependency
+	headers from experimental/ddk_test as of rev. 3017.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sys/types.h: Sync with trunk rev. 3022: Minor reformatting,
+	(_sigset_t): New type definition from mingw32.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* specstrings.h (DECLSPEC_ADDRSAFE): Update the macro from ntdef.h.
+	* winnt.h: Some whitespace reformatting in macro definitions.
+	(DECLSPEC_ALIGN): Update the macro from ntdef.h.
+	(DECLSPEC_NOINLINE): Likewise.
+	(FORCEINLINE): Likewise.
+	(FASTCALL): New, from ntdef.h.
+
+2010-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Add mingw.org compatibility macros for anonymous unions:
+	* _mingw.h (_ANONYMOUS_UNION): New.
+	(_ANONYMOUS_STRUCT): New.
+	(_UNION_NAME): New.
+	(_STRUCT_NAME): New.
+	(__ANONYMOUS_DEFINED): New, guarding the above.
+
+2010-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ksmedia.h: Remove the #warning. Include ks.h with <> and not
+	with "".
+
+2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntrace.h (TraceMessageVa): The function is actually WMIAPI,
+	ie. __stdcall. Thanks to Amine Khaldi.
+
+2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__CRT_UNALIGNED): Remove.
+	(UNALIGNED): Define properly against __unaligned for better
+	compatibility with r/os.
+	* winnt.h: Include _mingw.h to ensure _M_* macros are defined.
+	(UNALIGNED): Define properly against __unaligned for better
+	compatibility with r/os.
+	(UNALIGNED64): Likewise.
+	(ALIGNMENT_MACHINE): New.
+
+2010-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (_CRT_ALIGN): Add an MSVC version.
+	(__unaligned): Remove irrelevant comments. See the documentation
+	at http://msdn.microsoft.com/en-us/library/ms253978(VS.80).aspx
+
+2010-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntprov.h: Remove unnecessary FORCEINLINE definition.
+	* ks.h: Make sure __forceinline comes as first in declarations.
+
+2010-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_stdarg.h (va_copy): Add missing parens.
+	* _mingw.h: Add extern to __forceinline definition
+	* winnt.h: Add extern to FORCEINLINE definition.
+
+2010-07-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Varargs & related cleanups and updates:
+
+	* stdio.h: Remove the vadefs.h include, it is already included
+	through _mingw.h.
+	* wchar.h: Remove the vadefs.h include, it is already included
+	through _mingw.h. Remove the __gnuc_va_list and va_list type
+	definitions, already done in vadefs.h (included via _mingw.h.)
+	* stdarg.h: Guard the whole header with __GNUC__ ifdefs.
+	* _mingw_stdarg.h: Use _crt_va_copy invented in vadefs.h (see
+	below) for the __va_copy definition. Move va_copy definition with
+	ifdefs from vadefs.h to here.
+	* _mingw.h: Move the #pragma pack(push,_CRT_PACKING) below vadefs.h
+	inclusion and remove the comment about duplication. Remove the
+	__gnuc_va_list and va_list type definitions, already done in the
+	included vadefs.h.
+	* vadefs.h: Remove _CRT_PACKING definition, already defined in
+	_mingw.h. Remove _UINTPTR_T_DEFINED & co, already defined in _mingw.h.
+	Guard __gnuc_va_list type definition with __GNUC__ ifdefs.  Add
+	MSVC version of va_list type definition and guard the gcc version
+	properly.  Restrict some of the macros to MSVC only, apparently
+	used only by that compiler.  Guard the gcc versions of _crt_va_*
+	macros properly, add MSVC-x86 versions of them from r/os, add
+	MSVC-AMD64 defs from r/os svn repo ros-amd64-bringup branch and
+	#error for other cpus and compilers.  Invent _crt_va_copy by analogy
+	to other _crt_va_* macros for use in stdarg.h.
+
+2010-07-22  Amine Khaldi  <amine.khaldi@reactos.org>
+
+	Several patches for MSC/non-GCC:
+	* _mingw.h (__MINGW_MSC_PREREQ): Define for MSC by analogy to the
+	existing __MINGW_GNUC_PREREQ.
+	(__CRT_INLINE): Define as __inline for MSC.
+	(__restrict__): Define as __restrict for MSC, or as empty for anything
+	other than GCC.
+	(__MINGW_ATTRIB_NORETURN): Define as __declspec(noreturn) for MSC.
+	(__MINGW_ATTRIB_MALLOC): Define as __declspec(noalias) __declspec(restrict)
+	for MSC.
+	(__MINGW_ATTRIB_PURE): Define as empty for MSC.
+	(__MINGW_ATTRIB_USED): Ditto.
+	(__MINGW_ATTRIB_CONST): Ditto.
+	(__MINGW_ATTRIB_DEPRECATE): Define as __declspec(deprecated) for MSC.
+	(__MINGW_NOTHROW): Define as __declspec(nothrow) for MSC && __cplusplus.
+	* setjmp.h: Include crtdefs.h instead of _mingw.h which will be included
+	as a result.
+
+2010-07-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__MINGW_ATTRIB_UNUSED): Define as __attribute__((unused))
+	for gcc.
+	(__MINGW_ATTRIB_USED): Define as __attribute__((used)) for gcc, or as
+	__MINGW_ATTRIB_UNUSED where it is not supported ie. gcc < 3.1 or !gcc.
+
+2010-17-20  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	Backport from the trunk:
+
+	* rpcndr.h (NdrUnMarshConfStringHdr): Fix macro brackets.
+	(NdrMarshSCtxtHdl): Likewise.
+	(NdrUnMarshCCtxtHdl): Fix macro typo.
+
+2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* assert.h: Backport changes from trunk revs. 2129, 2131 and
+	2893-2895: Add default ASCII version of _assert(), allow for
+	ISO-C99 that assert gets redefined according state of NDEBUG
+	and check against both _UNICODE and UNICODE.
+
+2010-07-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_mac.h (__GNU_EXTENSION): Define as __MINGW_EXTENSION
+
+2010-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ksuuids.h: Merges from the experimental/ddk_test:
+	Added version guards around several existing ids.
+	(AM_KSPROPSETID_MPEG4_MediaType_Attributes): New.
+	(MEDIASUBTYPE_MPEG2_WMDRM_TRANSPORT): New.
+	(MEDIASUBTYPE_MPEG2_VERSIONED_TABLES): New.
+	(MEDIASUBTYPE_ISDB_SI): New.
+	(MEDIASUBTYPE_TIF_SI): New.
+	(MEDIASUBTYPE_MPEG2_UDCR_TRANSPORT): New.
+	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_RAW): New.
+	(MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_PROCESSED): New.
+
+2010-07-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _dbdao.h, afxres.h, azroles.h, dbghelp.h, errorrep.h, http.h,
+	iprtrmib.h, mapidefs.h, mapinls.h, mprapi.h, mspab.h, mspcall.h,
+	mspcoll.h, mspenum.h, msplog.h, mspst.h, mspstrm.h, mspterm.h,
+	mspthrd.h, msptrmac.h, msptrmar.h, msptrmvc.h, msputils.h, multimon.h,
+	newapis.h, ntdsapi.h, ntdsbcli.h, odbcinst.h, odbcss.h, pdh.h,
+	scrnsave.h, shlwapi.h, shobjidl.h, sqltypes.h, sqlucode.h, sspi.h,
+	sti.h, stralign.h, tapi.h, tlhelp32.h, vfw.h, w32api.h, wabdefs.h,
+	winbase.h, wincred.h, windns.h, wingdi.h, wininet.h, winioctl.h,
+	winldap.h, winnetwk.h, winnt.h, winnt.rh, winsvc.h, winuser.h,
+	wmiatlprov.h: Merged trivial whitespace changes and add missing public
+	domain headers, as well as #ifdef UNICODE->#if defined(UNICODE) crapola
+	from the trunk.
+
+2010-07-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk:
+
+	2010-07-15  Kai Tietz  <kai.tietz@onevision.com> (rev. 2837-2838)
+	* process.h (_Exit): Fix missing declaration.
+	* stdlib.h (_Exit): Unify code block.
+	* assert.h (_Exit): Likewise.
+
+2010-07-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backports from the trunk:
+
+	2010-07-13  Kai Tietz  <kai.tietz@onevision.com> (rev. 2834)
+	* winbase.h: Change return type of CreateSymbolicLink to BOOLEAN as
+	described in
+	http://msdn.microsoft.com/en-us/library/aa363866%28VS.85%29.aspx
+
+	2010-07-13  Kai Tietz  <kai.tietz@onevision.com> (rev. 2831)
+	PR/3028674
+	* intrin.h (_m_pextrw): Make sure gcc's intrinsic do not
+	do havoc.
+
+2010-07-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* evntcons.h: New. Merge from experimental/vista_7_headers.
+	* evntprov.h: New. Merge from experimental/vista_7_headers.
+	* evntrace.h: Merge from experimental/vista_7_headers.
+	* ktmtypes.h: New. Merge from experimental/vista_7_headers.
+	* windows.h: Include ktmtypes.h (from experimental/vista_7_headers.)
+
+2010-07-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntddndis.h: Added a few endif comments.
+	(NDIS_PHYSICAL_MEDIUM): Add NdisPhysicalMediumInfiniband,
+	NdisPhysicalMediumWiMax,NdisPhysicalMediumUWB, NdisPhysicalMedium802_3,
+	NdisPhysicalMedium802_5,NdisPhysicalMediumIrda,NdisPhysicalMediumWiredWAN,
+	NdisPhysicalMediumWiredCoWan and NdisPhysicalMediumOther among the
+	enumerated values, from ddk_test version.
+	(NDIS_802_11_NETWORK_TYPE): Add Ndis802_11Automode among the enumerated
+	values, from ddk_test version.
+	(NDIS_OBJECT_HEADER): Added from experimental vista_7_headers.
+	* ntddscsi.h: Added a few endif comments.
+	(DD_SCSI_DEVICE_NAME_U): Added from ddk_test version.
+
+2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h: Add many data types, prototypes, etc. for DDK based on MSDN
+	information. Restricted parts of the header starting from KSOBJECT_BAG
+	typedef down to the IID_IKsDeviceFunctions GUID definition only to the
+	DDK.
+
+2010-06-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backports from the trunk:
+
+	2010-06-27  Jacek Caban  <jacek@codeweavers.com> (rev. 2661)
+	* winnt.h: Fixed C_ASSERT macro.
+	2010-06-28  Ozkan Sezer  <sezeroz@gmail.com> (rev. 2678)
+	* strsafe.h: Apply the same C_ASSERT macro fix in winnt.h.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (KSATTRIBUTE_LIST): Added for DDK.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (KSEVENTDATA): Added EventObject, SemaphoreObject, Dpc, WorkItem
+	and KsWorkItem to the union. Added flag macros KSEVENTF_EVENT_OBJECT,
+	KSEVENTF_SEMAPHORE_OBJECT, KSEVENTF_DPC, KSEVENTF_WORKITEM and
+	KSEVENTF_KSWORKITEM for DDK. See the KSEVENTDATA Structure msdn page at
+	http://msdn.microsoft.com/en-us/library/ff561750(VS.85).aspx, also see
+	the r/os version of ks.h for reference.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h: Add forward declarations of KSDEVICE, KSDEVICE_DESCRIPTOR,
+	KSDEVICE_DISPATCH, KSFILTER, KSFILTERFACTORY, KSFILTER_DESCRIPTOR,
+	KSFILTER_DISPATCH, KSPIN, KSPIN_DESCRIPTOR_EX, KSPIN_DISPATCH,
+	KSCLOCK_DISPATCH, KSALLOCATOR_DISPATCH, KSNODE_DESCRIPTOR,
+	KSSTREAM_POINTER, KSSTREAM_POINTER_OFFSET, KSMAPPING, KSPROCESSPIN,
+	KSPROCESSPIN_INDEXENTRY structtures and their *P... variants for the
+	DDK.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (KSPROPERTY_CLOCK_FUNCTIONTABLE): Add to KSPROPERTY_CLOCK for DDK.
+	(see http://msdn.microsoft.com/en-us/library/ff564466(v=VS.85).aspx)
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (KSALLOCATOR_FRAMING): Use POOL_TYPE as the type for
+	PoolType member if _NTDDK_ is defined, because the POOL_TYPE
+	enum is provided by the ddk.
+
+2010-06-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (_KS_ANON_STRUCT): New helper macro for adding names to
+	structs accroding to _KS_NO_ANONYMOUS_STRUCTURES_ being defined.
+	(KSIDENTIFIER): Use _KS_ANON_STRUCT().
+	(KSPROPERTY_BOUNDS_LONG): Likewise.
+	(KSPROPERTY_BOUNDS_LONGLONG): Likewise.
+
+2010-06-25  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h, ksmedia.h, ksproxy.h, ksuuids.h: Re-format.
+
+2010-06-24  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk: (VER_SUITE_WH_SERVER and PRODUCT_* parts
+	of rev. 1970)
+	2010-03-03  Roland Schwingel  <roland.schwingel@onevision.com>
+	* include/winnt.h: Add a lot of missing definitions from MSDN.
+
+2010-06-23  Doug Semler  <dougsemler@gmail.com>
+
+	* GL/gl.h: Use APIENTRY instead of WINAPI.
+	* GL/glaux.h: Likewise.
+	* GL/glu.h: Likewise.
+
+2010-06-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mmsystem.h (MAKEFOURCC): Added ifdef guards.
+
+2010-06-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk:
+
+	2010-06-19  Jonathan Yong  <jon_y@users.sourceforge.net> (rev. 2579)
+	Improve DUMMYUNIONNAME and DUMMYSTRUCTNAME defines to allow
+	additional names:
+	* _mingw.h (DUMMYUNIONNAMEX): New macro.
+
+2010-06-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk:
+
+	2010-06-17  Kai Tietz  <kai.tietz@onevision.com>  (rev. 2567)
+	* intrin.h: Make sure that _mm_shuffle_ps function does not get
+	confused by a define.
+
+2010-06-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Backport from the trunk:
+
+	2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>  (revs. 2497-2498)
+	Kill definitions of I_X86_ macro and adjust places it was used:
+	* windows.h: Remove I_X86_ definition. Adjust and tweak _AMD64_
+	and _IA64_ macro definitions to use _X86_ and/or __i386__.
+	* winnt.h: Likewise as in windows.h. Replace checks against I_X86_
+	by checks against _X86_. Replace checks against _X86_ which were
+	already under I_X86_ ifdefs by checks against __i386__.
+	* mapidbg.h: Replace checks against I_X86_ by checks against _X86_.
+	* mapiutil.h: Likewise.
+	* mapival.h: Likewise.
+	* netmon.h: Likewise.
+	* sec_api/stralign_s.h: Likewise.
+	* stralign.h: Likewise.
+	* tapi3if.h: Likewise.
+	* uastrfnc.h: Likewise.
+	* vdmdbg.h: Likewise.
+	* wabutil.h: Likewise.
+	* winbase.h: Likewise.
+
+2010-06-16  Doug Semler  <dougsemler@gmail.com>
+
+	* profile.h: Rename _mcount to _mcount_private to make it obvious.
+	  Declare public _mcount here.
+
+2010-06-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _bsd_types.h: Moved out of the mingw_inc subdirectory. Changed its
+	include guard to _BSDTYPES_DEFINED.
+	* af_irda.h: Adjusted for _bsdtypes.h.
+	* inaddr.h: Likewise.
+	* in6addr.h: Likewise.
+	* mingw_inc/_ip_types.h: Likewise.
+	* winsock.h: Likewise.
+	* winsock2.h: Likewise.
+
+2010-06-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merge from the trunk:
+
+	2010-06-12  Kai Tietz  <kai.tietz@onevision.com>
+	* _mingw_mac.h (__MINGW_STRING_AW): New helper macro.
+
+2010-06-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h, ksmedia.h, ksproxy.h: Added #endif comments.
+	* ks.h (DEFINE_KSPIN_INTERFACE_ITEM): Renamed macro argument
+	INTERFACE to _interFace.
+
+2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio.h: Backport from the trunk: also check whether __CRT__NO_INLINE
+	is defined before defining inlines for getwchar() and putwchar().
+
+2010-06-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* commctrl.h, excpt.h, http.h, process.h, stdio.h, winbase.h, winnt.h:
+	Minor spelling, formatting and whitespace changes from the trunk.
+	* winternl.h: Likewise and the following tidy-ups from the trunk:
+	(POBJECT_ATTRIBUTES): Move to typedef of struct OBJECT_ATTRIBUTES and
+	remove the extra typedef.
+	(PROCESS_BASIC_INFORMATION): Move to typedef of struct
+	PROCESS_BASIC_INFORMATION and remove the extra typedef.
+	(FILE_INFORMATION_CLASS): Move before struct _IO_STATUS_BLOCK.
+	(PFILE_INFORMATION_CLASS): Define along with FILE_INFORMATION_CLASS.
+
+2010-06-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sdkddkver.h: Sync'ed with ReactOS version to add new macros
+	_WIN32_WINNT_WIN7, _WIN32_IE_IE80, _WIN32_IE_WIN7 and NTDDI_WIN7.
+
+2010-05-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mstcpip.h: Added missing include guard.
+	* af_irda.h: Remove the _WINSOCKAPI_ guarded typedefs and include
+	mingw_inc/_bsd_types.h, instead.
+
+2010-05-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	In case winsock2.h is included after winsock.h, probably by way of
+	windows.h, perform a "winsock2 upgrade" on top of winsock1 by splitting
+	the headers into some helpers holding shared data types and undefining
+	macros when necessary:
+
+	* mingw_inc/_bsd_types.h: New.
+	* mingw_inc/_fd_types.h: New.
+	* mingw_inc/_ip_mreq1.h: New.
+	* mingw_inc/_ip_types.h: New.
+	* mingw_inc/_socket_types.h: New.
+	* mingw_inc/_ws1_undef.h: New.
+	* mingw_inc/_wsa_errnos.h: New.
+	* mingw_inc/_wsadata.h: New.
+	* mingw_inc/_xmitfile.h: New.
+	* _timeval.h: New.
+	* inaddr.h: New.
+	* in6addr.h: New.
+	* time.h: Include _timeval.h. Move struct timeval, timerisset,
+	timercmp and timerclear to _timeval.h.
+	* sys/time.h: Likewise.
+	* ipexport.h: Include inaddr.h and in6addr.h. Move struct in6_addr
+	and its related macros to in6addr.h. Move struct in_addr and its
+	related macros to inaddr.h.
+	* mswsock.h: Include mingw_inc/_xmitfile.h.
+	Move struct _TRANSMIT_FILE_BUFFERS to mingw_inc/_xmitfile.h.
+	Guard WSARecvEx, TransmitFile, AcceptEx and GetAcceptExSockaddrs
+	prototypes by __MSWSOCK_WS1_SHARED ifdefs.
+	* winsock.h: Include _timeval.h, inaddr.h, mingw_inc/_bsd_types.h,
+	mingw_inc/_socket_types.h, mingw_inc/_fd_types.h, mingw_inc/_ip_types.h,
+	mingw_inc/_ip_mreq1.h, mingw_inc/_wsadata.h and mingw_inc/_xmitfile.h.
+	Define WINSOCK_API_LINKAGE and WSAAPI at the top and undefine them at
+	the end of the file.
+	Move struct timeval, timerisset,timercmp and timerclear to _timeval.h.
+	Move struct in_addr and its related macros to inaddr.h.
+	Move u_char, u_short, u_int, u_long and u_int64 to mingw_inc/_bsd_types.h.
+	Move SOCKET, INVALID_SOCKET and SOCKET_ERROR to mingw_inc/_socket_types.h.
+	Move struct fd_set and FD_SETSIZE to mingw_inc/_fd_types.h.
+	Move struct ip_mreq to mingw_inc/_ip_mreq1.h.
+	Move structs hostent, netent, servent, protoent, sockaddr_in, sockaddr,
+	sockproto and linger to mingw_inc/_ip_types.h. Moved struct WSAData to
+	mingw_inc/_wsadata.h.
+	Move WSA error macros to mingw_inc/_wsa_errnos.h.
+	Move struct _TRANSMIT_FILE_BUFFERS to mingw_inc/_xmitfile.h.
+	Define __WINSOCK_WS1_SHARED and __MSWSOCK_WS1_SHARED.
+	* winsock2.h: Do not re-define _WINSOCKAPI_. If it is already defined,
+	do a #warning that winsock2.h must be included before windows.h.
+	Include mingw_inc/_ws1_undef.h to make sure that macros from winsock.h
+	are undefined. Include _timeval.h, inaddr.h, mingw_inc/_bsd_types.h,
+	mingw_inc/_socket_types.h, mingw_inc/_fd_types.h, mingw_inc/_ip_types.h
+	and mingw_inc/_wsadata.h.
+	Move struct timeval, timerisset,timercmp and timerclear to _timeval.h.
+	Move struct in_addr and its related macros to inaddr.h.
+	Move u_char, u_short, u_int, u_long and u_int64 to mingw_inc/_bsd_types.h.
+	Move SOCKET, INVALID_SOCKET and SOCKET_ERROR to mingw_inc/_socket_types.h.
+	Move struct fd_set and FD_SETSIZE to mingw_inc/_fd_types.h.
+	Move structs hostent, netent, servent, protoent, sockaddr_in, sockaddr,
+	sockproto and linger to mingw_inc/_ip_types.h. Moved struct WSAData to
+	mingw_inc/_wsadata.h.
+	Move WSA error macros to mingw_inc/_wsa_errnos.h.
+	Guard the 46 functions shared by 1.1 api using __WINSOCK_WS1_SHARED ifdefs.
+	* ws2tcpip.h: Include mingw_inc/_ip_mreq1.h.
+	Move struct ip_mreq to mingw_inc/_ip_mreq1.h.
+	Move struct in6_addr, IN6_ADDR, PIN6_ADDR, LPIN6_ADDR to in6addr.h.
+
+2010-05-25  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* afxres.h: Changed header guard check from _WINDOWS_H, which was
+	a left-over from mingw32, to _INC_WINDOWS which is what we define.
+
+2010-05-24  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mem.h: A little syncing with mingw32 (remove the unnecessary
+	__STRICT_ANSI__ guards.)
+	* sys/fcntl.h: Likewise.
+	* sys/file.h: Likewise.
+	* sys/param.h: Likewise.
+	* sys/time.h: Likewise.
+	* sys/unistd.h: Likewise.
+	* time.h: Likewise.
+	* unistd.h: A little syncing with mingw32 (remove the no longer
+	used __UNISTD_GETOPT__ macro.) Whitespace tidy-up.
+
+2010-05-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* GL/gl.h: Don't bother about WIN32_LEAN_AND_MEAN when including
+	windows.h. May cause more problems than it would solve.
+
+2010-05-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* time.h (asctime_r): Do not bother zeroing the result buffer upon
+	failure.
+	(ctime_r): Likewise.
+	(gmtime_r): Likewise.
+	(localtime_r): Likewise.
+
+2010-05-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* time.h (asctime_r): New macro.
+	(ctime_r): Fix the gcc extension macro to return the correct pointer.
+	(gmtime_r): Likewise.
+	(localtime_r): Likewise.
+
+2010-05-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk: revs. 2354-2357.
+	* limits.h: Remove i16 & i8.
+	* dvec.h: Replace i64 by ll.
+	* http.h: Likewise.
+	* kxia64.h: Likewise.
+
+2010-05-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* GL/gl.h: Include windows.h, if necessary.
+
+2010-05-02  Doug Semler <dougsemler@gmail.com>
+
+	* ws2tcpip.h: Include winsock2.h.
+
+2010-05-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Fix for BR/2994499 :
+	* winbase.h (UnlockResource): Make the no-op macro more gcc-friendly
+	and avoid compiler warnings.
+
+2010-04-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dirent.h (DIR): Change dd_handle from long to intptr_t type for win64
+	compatibility.
+	(_WDIR): Likewise.
+
+2010-04-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-04-17  Kai Tietz  <kai.tietz@onevision.com> (rev. 2243-2244)
+	* malloc.h, stdlib.h: Improve declaration of _aligned_malloc
+	and _aligned_free for not collide by xmmintrin.h/mm_malloc.h
+	provided by gcc.
+
+	2010-04-19  Patrick von Reth  <patrick.vonreth@gmail.com> (rev. 2254)
+	* dbghelp.h (PSYM_ENUMMODULES_CALLBACK64, PSYM_ENUMSYMBOLS_CALLBACK64,
+	PSYM_ENUMSYMBOLS_CALLBACK64W, PENUMLOADED_MODULES_CALLBACK64,
+	PSYM_ENUMMODULES_CALLBACK64): Make string argument const.
+
+2010-04-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio.h: push/pop possible [v]snprintf and [v]snwprintf macros.
+	For the problem report about these macros in libxml2, see:
+	http://sourceforge.net/projects/mingw-w64/forums/forum/723797/topic/3482477/
+
+2010-04-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h: Back-merged a few sublang ids from trunk revs. 2218-2220.
+	* shellapi.h, shlobj.h, shlwapi.h, winnt.h, wtsapi32.h: Back-merged
+	some noop changes extracted from trunk revs. 2217, 2230, 2231, 2235.
+
+2010-04-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-04-15  Timo Kreuzer  <timo.kreuzer@reactos.org> (rev. 2223)
+	* commctrl.h: Add missing const modifier to InitCommonControlsEx parameter,
+	DrawStatusTextA/W, GetEffectiveClientRect.
+
+2010-04-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-04-14  NightStrike  <nightstrike@gmail.com> (rev. 2214)
+	* w32api.h: Bump w32api compatibility version number to 3.12,
+	as only a few corner cases remain.
+
+	2010-04-14  Doug Semler <dougsemler@gmail.com> (rev. 2213)
+	* winnt.h (InterlockedDecrement16, InterlockedIncrement64):
+	Remove parentheses from destination register.
+
+	2010-04-13  NightStrike  <nightstrike@gmail.com> (revisions 2196,
+	2197 and 2209.) More updates from w32api 3.12.  See
+	http://msdn.microsoft.com/en-us/library/aa375906(VS.85).aspx and
+	http://msdn.microsoft.com/en-us/library/aa374556(VS.85).aspx
+	* mprapi.h (MPR_INTERFACE_3): New.
+	(MprAdminAcceptReauthentication): New.
+
+	2010-03-18  Kai Tietz  <kai.tietz@onevision.com> (rev. 2079)
+	* iprtrmib.h (TCP_TABLE_CLASS): New.
+
+2010-04-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	* winnt.h: Add SYSTEM_POWER_CONDITION from w32api 3.12 and
+	http://msdn.microsoft.com/en-us/library/aa373216%28VS.85%29.aspx
+	(revision 2176 by NightStrike.)
+
+	* winnt.h: Add a bunch of missing sublangs found in w32api 3.12
+	(revisions 2177 and 2178 by NightStrike and 2180 by Ozkan Sezer.)
+
+2010-04-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-04-07  Kai Tietz  <kai.tietz@onevision.com> (rev. 2151)
+	PR/2983397
+	* wctype.h (iswblank): Correct declaration.
+
+	2010-04-08  Kai Tietz  <kai.tietz@onevision.com> (rev. 2154)
+	* wctype.h: Argument of iswblank is wint_t.
+
+	2010-04-08  Kai Tietz  <kai.tietz@onevision.com> (rev. 2155)
+	* wchar.h (iswblank): Add missing prototype.
+
+2010-04-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* omp.h: Deleted (moved under /experimental/include_old .)
+
+2010-04-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merge of winsock api fixes from trunk rev2078/2010-03-18:
+	Do not silently include winsock2.h instead of winsock.h:
+	* winsock.h: Removed the if 0 comment out and the winsock2.h
+	include. Restored the recently removed definitions.
+	* ws2ipdef.h: Deleted.
+	* winsock2.h: Define _WINSOCKAPI_ to avoid winsock.h inclusions.
+	Removed the _WINSOCK_SOCKET_DEFINED ifdef guards around SOCKET
+	definitions. Removed mswsock.h inclusion.
+	* mswsock.h: Removed the SOCKET definitions.
+	* ws2tcpip.h: Added back ip_mreq and ip_mreq_source structures.
+	Do not try to preserve possible socklen_t macros from the user.
+
+2010-03-30  Ozkan Sezer  <sezeroz@gmail.com>
+	    Kai Tietz  <kai.tietz@onevision.com>
+
+	* windef.h: Preserve possible BOOL definitions, or lack thereof,
+	from the users by a pairr of push_macro and pop_macro pragmas.
+	Do not define BOOL as a macro, typedef it as WINBOOL and only in
+	non-__OBJC__ cases.
+
+2010-03-25  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ddrawgdi.h: Fixed MINGW_DDRAW_VERSION check.
+
+2010-03-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winsock.h (INVALID_SOCKET): Fix obvious typo.
+
+2010-03-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2009-12-02  Kai Tietz  <kai.tietz@onevision.com>, r1591, r1595:
+	* dvec.h: Include intrin.h instead of emmintrin.h and guard definitions
+	for enabled SSE.
+	* fvec.h: Likewise.
+	* ivec.h: New dummy file.
+
+2010-03-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	NightStrike, 2010-03-04, r2012 | sezero, , 2010-03-04, r2014
+	* iphlpapi.h (GetExtendedTcpTable): Add prototype from
+	http://msdn.microsoft.com/en-us/library/aa365928%28VS.85%29.aspx
+	for _WIN32_WINNT >= 0x0501.
+
+	NightStrike, 2010-01-25, revs. 1790, 1793, 1799:
+	* ntsecpkg.h (SECPKG_EXTENDED_INFORMATION_CLASS): Add line breaks.
+	(SECPKG_NAME_TYPE): Likewise.
+	* shlwapi.h (ASSOCF_*): Likewise.
+	* wtsapi32.h (WTS_INFO_CLASS): Reformat likewise.
+
+	2009-11-28  Tor Lillqvist  <tml@iki.fi>, r1569:
+	* sys/ioctl.h: Deleted. (was moved to the experimental branch.)
+
+	2009-11-27  Kai Tietz  <kai.tietz@onevision.com>, r1568:
+	* rpcndr.h (NDR_SCONTEXT): Add namespace to structure.
+
+	ktietz70, 2009-10-09, r1452:
+	* iads.h: Add ADS_NO_REFERRAL_CHASING to the ADS_AUTHENTICATION_ENUM.
+
+2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-02-26, NightStrike, r1951:
+	* shlwapi.h (ASSOCF_INIT_IGNOREUNKNOWN): Add new enumerated value,
+	from w32api 3.12.
+
+	2010-02-27, ktietz70, r1960:
+	* windef.h: Correct layout. (whitespace.)
+
+	2010-02-27, ktietz70, r1961:
+	* resapi.h: Add guarded IN,OUT,OPTIONAL.
+
+	2010-02-28, ktietz70, r1962:
+	* _mingw.h: Define DUMMYSTRUCT1..DUMMYSTRUCT5.
+
+2010-02-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merged from trunk r1923-1924:
+
+	2010-02-19  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* shlguid.h (IID_IFolderView): Define.
+
+2010-02-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merge from the trunk revision 1918:
+	2010-02-15  Kai Tietz  <kai.tietz@onevision.com>
+	* winnt.h (UNREFERENCED_PARAMETER): Silence warning.
+	(UNREFERENCED_LOCAL_VARIABLE): Likewise.
+
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merged from trunk revision 1888:
+	2010-02-10  Kai Tietz  <kai.tietz@onevision.com>
+	* shlguid.h: Reduce required _WIN32_IE to >= 0x0500. This isn't really
+	correct, but to make it compatible to commctrl.h we have to change it
+	here, too.
+	* shlobj.h: Likewise.
+
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	TouchScreen back-merge from the trunk revisions 1530, 1882 and 1885,
+	original patch by Jarkko Sakkinen <jarkko.sakkinen@iki.fi> :
+	* winuser.h (WM_TOUCHMOVE, WM_TOUCHDOWN, WM_TOUCHUP, TOUCHEVENTF_DOWN,
+	TOUCHEVENTF_INRANGE, TOUCHEVENTF_MOVE, TOUCHEVENTF_NOCOALESCE,
+	TOUCHEVENTF_PALM, TOUCHEVENTF_PEN, TOUCHEVENTF_PRIMARY, TOUCHEVENTF_UP,
+	TOUCHEVENTMASKF_CONTACTAREA, TOUCHEVENTMASKF_EXTRAINFO,
+	TOUCHEVENTMASKF_TIMEFROMSYSTEM): New macros.
+	(TOUCHINPUT): New type.
+	(CloseTouchInputHandle): New API.
+	(GetTouchInputInfo): Likewise.
+	(IsTouchWindow): Likewise.
+	(RegisterTouchWindow): Likewise.
+	(UnregisterTouchWindow): Likewise.
+
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	PowerSettingNotification back-merge from the trunk revisions 1530, 1883
+	and 1884:
+	* winuser.h (POWERBROADCAST_SETTING): New type.
+	(PPOWERBROADCAST_SETTING): Likewise.
+	(PBT_POWERSETTINGCHANGE): New macro.
+	(RegisterPowerSettingNotification): New API.
+	(UnregisterPowerSettingNotification): Likewise.
+
+2010-01-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* wincrypt.h (CERT_ALT_NAME_ENTRY): Commented out pEdiPartyName
+	member from the union (not implemented, see:
+	http://msdn.microsoft.com/en-us/library/aa924681.aspx or
+	http://msdn.microsoft.com/en-us/library/aa377173.aspx .)
+
+2010-02-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	* 2009-11-07 Ivan Maidanski <ivmai@users.sourceforge.net> (trunk/r1513)
+	* sys/utime.h (_futime): New prototype.
+	(_wutime): New prototype.
+
+	* 2009-11-21 Jonathan Yong <jon_y@users.sourceforge.net> (trunk/r1530)
+	* shlobj.h (IDO_SHGIOI_DEFAULT): Define. Original patch by Chris
+	Sutcliffe  <ir0nh34d@users.sourceforge.net>
+	* shlobj.h (SHARD): Add enum. Original patch by Chris Sutcliffe
+	<ir0nh34d@users.sourceforge.net>
+	2009-13-09  Jacky Lai  <crazyjacky@users.sourceforge.net>
+	* winerror.h: Fix typos in macro names.
+	2009-20-10  Dmitry Potapov  <dpotapov@users.sourceforge.net>
+	* winver.h (VerQueryValue[AW]): Correct definition.
+	2009-20-10  Aleksey Chernov  <virxkane@users.sourceforge.net>
+	* sspi.h: Include ntsecapi.h to correct postgresql build error.
+
+	* 2009-12-19  Kai Tietz  <kai.tietz@onevision.com> (trunk/r1668)
+	PR/2916490
+	* certbcli.h (IN, OUT, OPTIONAL): Protect definition by
+	_NO_W32_PSEUDO_MODIFIERS guard.
+	* lmcons.h: Likewise.
+	* ntsecapi.h: Likewise.
+	* rpcdce.h: Likewise.
+	* wincrypt.h: Likewise.
+	* windef.h: Likewise.
+
+	* w32api.h: Update w32api compatibility version number to 3.11 (from
+	trunk/r1785, NightStrike.)
+
+	* 2010-01-04  Kai Tietz  <kai.tietz@onevision.com> (trunk/r1697)
+	* _mingw.h (__int128): Guard typedef by __SIZEOF_INT128__ to support
+	upcoming __int128 type of gcc 4.6.
+
+	* wincrypt.h: Back-merge of NightStrike's w32api-3.11 updates from
+	trunk/r1784-1786-1788-1791.
+
+	* wtsapi32.h: Add WTSIdleTime, WTSLogonTime, WTSIncomingBytes,
+	WTSOutgoingBytes, WTSIncomingFrames, WTSOutgoingFrames, WTSClientInfo,
+	WTSSessionInfo enums to WTS_INFO_CLASS from win32api-3.12. (trunk/r1796,
+	NightStrike).
+
+	* ws2tcpip.h (gai_strerrorA, gai_strerrorW): Remove inline function with
+	static variables. (trunk/r1624, ktietz70)
+
+	* winnt.h: Add FILE_SEQUENTIAL_WRITE_ONCE and FILE_SUPPORTS_TRANSACTIONS
+	from win32api 3.12. (trunk/r1795, NightStrike)
+
+	* winnt.h: Fix whitespace in formatting. (trunk/r1734, ktietz70.)
+
+2010-02-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* profile.h: Remove advertising clause of copyright. For reference, see:
+	ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change
+	* getopt.h: Merged with trunk 1794 (merge with mingw.org version and make
+	it Public Domain.)  Closes our bug #2939623.
+
+2010-02-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_print_pop.h: Don't undefine/redifine the inttypes.h
+	SCN* macros, because we don't have a __mingw_scanf() family
+	implementation yet. Ifdef'ed the relevant portions by the yet
+	non-defined HAVE_MINGW_SCANF_IMPL macro.
+	* _mingw_print_push.h: Likewise.
+
+2010-01-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdarg.h: Separate our stdarg.h into two, one which is the gcc-
+	provided header and the other as _mingw_stdarg.h. Make stdarg.h include
+	_mingw_stdarg.h.
+	* float.h: Separate our float.h into two, one which is the gcc-
+	provided header and the other as _mingw_float.h. Make float.h include
+	_mingw_float.h. Fix confused license.
+	* _mingw_float.h: New.
+	* _mingw_stdarg.h: New.
+
+2010-01-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdarg.h: Sync with the gcc PR c++/36799 fix from gcc trunk 
+	2009-03-27/r145106.
+
+2010-01-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* commctrl.h: Relaxed _WIN32_IE version requirement to 0x0500
+	for now. Added a big FIXME note that it should really be 0x0501.
+
+2010-01-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mingw-w64-headers/dirent.h: synchronized with the mingw.org
+	version for correct operation with mingw-3.1x version requirements.
+	* mingw-w64-crt/misc/dirent.c: reverted revision 76 change for bug
+	#1801043, not valid any longer. (do we manually need to copy that
+	field???)
+
+2010-01-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	Back-merged from trunk.
+	* profile.h (_MCOUNT_DECL): Add gnu_inline attribute
+	and remove static qualifier.
+
+2009-12-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	Back-merged from trunk.
+	* intrin.h (_mm_shuffle_ps): Adjust arguments.
+
+2009-12-22  Kai Tietz  <kai.tietz@onevision.com>
+
+	Back-merged from trunk
+	* http.h (HTTP_DATA_CHUNK_TYPE): Add
+	HttpDataChunkFromFragmentCacheEx.
+
+2009-12-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk.
+	* wspiapi.h: Remove inline functions with static members.
+	General clean up formatting of this file.
+
+2009-12-04  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* _mingw_mac.h (STRINGIFY): Rename to __MINGW64_STRINGIFY
+	(__MINGW64_VERSION_STR): Use __MINGW64_STRINGIFY
+
+2009-11-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk.
+	* ntsecapi.h (STRING): Protect by guard.
+	(UNICODE_STRING): Likewise.
+	* ntsecapi.h: Likewise.
+
+2009-10-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_mac.h: Set branch version status to stable.
+	Use __USER_LABEL_PREFIX__ to detect underscoring default.
+
+2009-10-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_mac.h (__MINGW_IMP_SYMBOL): fix for non-underscore case (from
+	trunk r1481)
+	* _mingw_mac.h (__MINGW_LSYMBOL): new macro for adding an underscore to
+	linker symbols for none-underscore mode (from trunk r1481)
+
+2009-10-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk.
+	* libgen.h: New.
+
+2009-09-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_mac.h: Set new version to 1.1 and state to alpha.
+
+2009-09-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* sdkddkver.h: New.
+
+2009-09-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_mac.h: Added default definitions of __PTRDIFF_TYPE__,
+	__SIZE_TYPE__, __WINT_TYPE__ and __WCHAR_TYPE__ for cases where these
+	headers are not used with gcc.
+	* _mingw.h: Removed an obsoleted check for __WINT_TYPE__.
+
+	* _mingw.h: Added missing #define _PTRDIFF_T_.
+
+	* vadefs.h: Added a noted that _CRT_PACKING definition being duplicated
+	in _mingw.h.
+	* _mingw.h: Moved some stuff around for better readability.  Moved the
+	extern "C" marker to just the beginning of the function declarations at
+	the end. Added a noted that _CRT_PACKING definition being duplicated in
+	vadefs.h.
+
+	* _mingw.h (__USE_MINGW_ANSI_STDIO): If not explicitly defined by the
+	user, only check against the _POSIX define when forcibly enabling it.
+
+2009-09-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__USE_MINGW_ANSI_STDIO): If not explicitly defined by the
+	user, but when any of the _POSIX, __STRICT_ANSI__, _ISOC99_SOURCE,
+	_POSIX_SOURCE, _POSIX_C_SOURCE, _XOPEN_SOURCE, _XOPEN_SOURCE_EXTENDED,
+	_GNU_SOURCE, _BSD_SOURCE or _SVID_SOURCE macros is defined, assume that
+	ANSI I/O standards are preferred over Microsoft's and define it as 1.
+
+	* _mingw.h: Made the __forceinline definition to mirror the FORCEINLINE
+	definition in winnt.h
+
+2009-09-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h, io.h, rpcndr.h, strsafe.h. time.h, vadefs.h:  Now that the
+	__MINGW_EXTENSION macro is in effect, remove the gcc-specific typedefs
+	using machine modes for strict ansi cases and 64 bit scalars.
+
+	* wctype.h: Added the missing __cplusplus guard around wchar_t typedef.
+
+2009-09-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Implement time_t related functions by stubs in libmingwex.a and do
+	export them in .def as DATA. So just the imp_<name> is present and we
+	avoid collisions in names. Reasoned is this patch by dlltool's inability
+	to alias symbols.
+
+2009-09-18  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_print_pop.h:  Fixed compilation when __USE_MINGW_ANSI_STDIO is defined,
+	but not to a specific value.
+	* _mingw_print_push.h: Likewise.
+
+2009-09-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* time.h, wchar.h, tchar.h: Add for time specific function the _<name>32 version
+	to headers and use them in inline version.
+
+2009-09-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* time.h: Use of _localtime32, _gmtime32, and _mkgmtime32.
+
+2009-09-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winnt.h (FORCEINLINE): Add __attribute__((always_inline)) to
+	it and remove static.
+
+2009-09-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* time.h (gmtime_r): Fixed a long standing nasty typo in macro.
+	(localtime_r): Likewise.
+
+2009-09-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h:  Removed extra _WIN64 ifdef guards from the instrins
+	where they are already being declared under the __x86_64 case.
+	Added comments to the #endifs for easier reading.
+
+	* winnt.h:  Added missing intrinsic macros for x86 case.  They
+	were already defined for x86_64 but not for x86, therefore the
+	library versions of them lacked the leading underscore, which
+	caused the commit 1332 of yesterday broke x86 builds. Fixed now.
+
+2009-09-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h:  Added FIXME notes for __faststorefence, _mul128 and
+	_umul128 intrinsics.
+
+2009-09-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h: Add __volatile__ to __asm__ statements.
+	* complex.h: Likewise.
+	* excpt.h: Likewise.
+
+2009-09-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winsock.h (mswsock.h): Add include.
+	By this we add some missing defines for winsock.h file.
+	Additionally I cleaned up it a bit.
+	* mswsock.h (winsock2.h): Add include.
+
+2009-09-06  Kai Tietz  <kai.tietz@onevision.com>
+
+	* ...: Improve -std=cx9 support of header-set.
+	* _mingw_mac.h (__MINGW_EXTENSION): New.
+
+	PR/2849068 
+	* inttypes.h: Treat __USE_MINGW_ANSI_STDIO for PRI.. & SCN...
+	* _mingw_print_pop.h: Likewise.
+	* _mingw_print_push.h: Likewise.
+
+2009-09-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _findfirst64i32, _findnext64i32, _fstat64i32, _fstat, _stat64i32,
+	_stat, _wfindfirst64i32, _wfindnext64i32, _wstat64i32, _wstat: Zero
+	the input buffer in case the function we wrap around fails. This
+	fixes the native builds of binutils/bfd due to an unitialized use
+	warning about a stat structure, too.
+
+2009-08-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2846177
+	* intrin.h (__cplusplus): Guard intrin86.h file by extern "C" for c++.
+	Sadly, those gcc headers are lacking this guard.
+
+2009-08-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sys/stat.h: Define stat64 as _stat64 and fstat64 as _fstat64
+	for POSIX compatibility.
+	* wchar.h: Likewise.
+
+2009-08-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* ...: Cleanup with _INTEGRAL_MAX_BITS.
+	* ...: Fix 32-bit case with _USE_32BIT_TIME_T.
+	* _mingw.h: Make for 32-bit _USE_32BIT_TIME_T default behavior.
+
+2009-08-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* float.h (_chgsignl): Removed the old wrappers and added the new
+	implementation.
+	* math.h (chgsignl): Likewise.
+
+2009-08-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* intrin.h: Use intrin86.h from gcc.
+	* winbase.h, winnt.h: Adjust intrinsic to be prototypes and compatible with
+	gnu's intrin86.h definitions.
+
+	* ...: Fix missing prototypes before inlined functions are implemented.
+
+2009-08-22  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* fstat, stat, wstat: Instead of calling a function, "inline" (copy
+	the body of) the called function and avoid the cast which overcomes
+	the strict aliasing violation.  For the _USE_32BIT_TIME_T case, use
+	memcpy.  Remove the _no_optimize attributes which are not necessary
+	anymore.  The inlined versions from sys/stat.h should work fine now.
+
+	* _findfirst64i32, _findnext64i32, _fstat64i32, _stat64i32,
+	_wfindfirst64i32, _wfindnext64i32, _wstat64i32: Do not copy
+	the structures to the argument buffer if the called function
+	fails.
+
+2009-08-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdint.h: Fix gcc c99-stdint-1 testcase (define UINT8_MAX and
+	UINT16_MAX without the trailing 'U')
+
+2009-08-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	Guard __RPC_API MIDL_user_allocate and __RPC_API MIDL_user_free
+	by __MIDL_user_allocate_free_DEFINED__ macro to prevent gcc warnings.
+
+2009-08-17  Kai Tietz  <kai.tietz@oenvision.com>
+
+	* io.h (_POSIX): Invert logic about !defined(_POSIX) and _POSIX
+	extension in #if guards.
+
+	* wchar.h (wmemchr): Avoid use of NULL for C++ sake to have not
+	type failures about wchar_t and void.
+	(wmemcmp): Likewise.
+
+2009-08-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stddef.h, stdio.h, stdlib.h, string.h, tchar.h, time.h, wchar.h,
+	crtdbg.h, lmcons.h, locale.h, windef.h: Fix the __cplusplus NULL
+	macro, 0LL for _WIN64 instead of 0, so that sizeof(NULL) would be
+	the same as sizeof(void*).
+
+2009-08-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2836856
+	* time.h (size_t): Remove double definition code.
+	(ssize_t): Likewise.
+
+	* winnt.h (InterlockedIncrement... and InterlockedDecrement...): Adjust
+	inline version to be compatible to VC.
+
+2009-08-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* langinfo.h and nl_types.h: Moved into experimental/langinfo/ folder.
+
+	PR/2836279
+	* io.h, stdio.h, winnt.h, strsafe.h, rpcndr.h, time.h, _mingw.h and
+	vadefs.h: Pre and postfix attribute specifiers by '__'.
+
+2009-08-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2832682
+	* winbase.h (wWinMain): Re-add it. For details see
+	http://msdn.microsoft.com/en-us/library/ms633559(VS.85 in msdn.
+	(WinMain): Define it in UNICODE case as wWinMain.
+
+2009-07-31  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__MINGW_ATTRIB_NO_OPTIMIZE): New macro.
+	* sys/stat.h: Do not optimize the stat inlines due to strict aliasing
+	issues.
+
+2009-07-31  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2829952
+	* wchar.h: Fix unsigned integer min/max constants.
+	* stdint.h: Likewise.
+	* limits.h: Likewise.
+
+2009-07-31  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2829952
+	* stdint.h (int_fast8_t): Make explicit signed.
+
+2009-07-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winnt.h (__stosb, __stosd, __stosq, __stosw): New itrinsics with
+	inline asm. Only provided for x86_64 for the moment.
+	(MemoryBarrier, DbgRaiseAssertionFailure, YieldProcessor): Fix inline
+	assembly for x86.
+
+2009-07-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h (_X86AMD64_): Removed the never defined macro. Probably
+	intended for specifying x86 and x64 shared intrincis functions for
+	inline assembly but then never used.
+	(InterlockedAdd, InterlockedAdd64, UnsignedMultiplyExtract128,
+	MultiplyExtract128): Added prototypes for the non-inline versions
+	under intrincs.
+
+	* winnt.h: A little _X86_ tidy-up for less __NO_INLINE__ ifdefs.
+	(MemoryBarrier, DbgRaiseAssertionFailure): Added prototypes for
+	non-inline versions under intrincs for x86 only.
+
+2009-07-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* conio.h (readcr0): Provided proper w32 and w64 versions.
+	* wchar.h (fwide, mbsinit): Provide prototypes for non-inline cases.
+	(wmemchr, wmemcmp): Added NULL pointer checks.
+	* winnt.h (InterlockedBitTestAndComplement, GetCurrentFiber,
+	GetFiberData, NtCurrentTeb): added protoypes for x86 and/or x86_64.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	*  ws2tcpip.h: Removed the IN6* macros and added non-inline versions
+	to libws2_32.a in case someone might thing of something as sickly as
+	making function pointers out of them..
+
+2009-07-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* wspiapi.h: Add global prototypes for inlines and remove
+	LEGACY... macro. All are now __CRT_INLINE functions.
+	Implementation of those functionts is in crt's /libsrc/wspiapi.c
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	*  ws2tcpip.h: Make the IN6* inlines into macros when inlining is
+	disabled.
+
+2009-07-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h (__cplusplust): Replace for inlines the __cplusplus guard
+	by __CRT__NO_INLINE guard.
+	* complex.h (_CRT_INLINE): Guard inlines by __CRT__NO_INLINE.
+	* assert.h (_CRT_INLINE): Likewise.
+	* conio.h (_CRT_INLINE): Likewise.
+	* dxtmpl.h (_CRT_INLINE): Likewise.
+	* dbgeng.h (_CRT_INLINE): Likewise.
+	* inttypes.h (_CRT_INLINE): Likewise.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sys/stat.h: Added __CRT__NO_INLINE guards to inlined versions of stat
+	family of functions.
+	* io.h: Added __CRT__NO_INLINE guards to inlined versions of findfirst
+	family of functions.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__CRT__NO_INLINE): New private macro. Always defined when
+	__NO_INLINE__ is defined.
+
+2009-07-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* io.h: Removed dead _WIN64 macros where _USE_32BIT_TIME_T is defined
+	(the two just cannot live together.)
+	* sys/stat.h: Likewise.
+
+2009-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_mac.h: Rename __MINGW64_VERSION to __MINGW64_VERSION_STR.
+
+2009-07-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_mac.h: Do not ifdef-guard the version macros.
+	(STRINGIFY): New macro.
+	(__MINGW64_VERSION): Auto-define using STRINGIFY.
+
+2009-07-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_mac.h: New file. It defines just macros also useful in
+	assembly file. Moved some part from _mingw.h into it.
+	(__MINGW_USYMBOL): New macro for assembly to append underscore if necessary.
+
+2009-07-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* time.h: Avoid double function calls in *time_r macros, at least
+	for gcc. Added fixme notes about the issue.
+
+2009-07-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h: Undefine _X86_ for __x86_64 which may be incorrectly
+	defined by gcc.
+
+2009-07-09  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2818441
+	* setjmp.h: add for setjmp/setjmp3 attribute __returns_twice__.
+
+2009-07-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h: added comments after many endifs for better clarity.
+	* _mingw.h: tidied the __nothrow, __ptr32, __ptr64, __unaligned
+	and __forceinline ifdefs by moving them out of the _INT128_DEFINED
+	ifdefs.
+	* _mingw.h: removed the #if 1 around the mingw.org version macros,
+	whose corresponding #endif actually was misplaced. also updated the
+	comments of the mingw.org version macros.
+	* _mingw.h: added the new __MINGW_NAME_AW(func) macro which can be
+	used in declaring ASCII and UNICODE versions of functions.
+	* _mingw.h: added the new __MINGW_TYPEDEF_AW(type) macro, similar to
+	__MINGW_NAME_AW but for typedefs.
+	* _mingw.h, commctrl.h, commdlg.h, prsht.h, shellapi.h: moved all
+	DUMMYUNIONNAMEx and DUMMYSTRUCTNAMEx macro definitions to _mingw.h.
+
+2009-05-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h: add a mingw.org compatibility definition of _CRT_glob
+	as our own _dowildcard and document it.
+
+2009-05-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h (__MINGW32_MINOR_VERSION, __MINGW32_MAJOR_VERSION): Define
+	for 3.11 base version.
+
+2009-04-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h (_M_IX86): New define.
+	(_M_AMD64): Likewise.
+	(_M_IA64): Likewise.
+
+2009-04-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* sqltypes.h (SQLSCHAR): Prevent double type definition.
+
+2009-04-20  Kai Tietz  <kai.tietz@onevision.com>
+
+	* unistd.h (ftuncate): Use _off_t when off_t isn't defined.
+
+2009-04-20  Ozkan Sezer  <sezeroz@gmail.com>
+
+	FR/2619978:
+	* mingw-w64-crt/gdtoa/strtof.c, mingw-w64-crt/gdtoa/strtopx.c:  Prepend
+	the strtof and strtold symbols with '__mingw_' to provide both of strtof
+	and strtold which rely on msvcrt, and __mingw_strtof and __mingw_strtold
+	which rely on the internal gdtoa library.
+	* mingw-w64-headers/include/stdlib.h:  Properly provide the prototypes
+	for __mingw_strtof and __mingw_strtold.
+
+2009-04-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* windef.h (BOOL): Check additionally for __OBJC_BOOL
+	to avoid definition of BOOL.
+
+2009-04-14  Roland Schwingel  <Roland.Schwingel@onevision.com>
+
+	* windef.h (BOOL): Don't define it as WINBOOL for ObjC
+	sake.
+
+2009-04-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* setjmp.h (_setjmp3): Use for 32-bit instead of _setjmp.
+	Additional pass NULL as secondary element for 32-bits.
+
+2009-04-03  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2675096
+	* float.h: Add gcc dependent defines to prevent use
+	of gcc's version.
+
+2009-03-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winuser.h (MONITORINFOEXA): Replace MONITORINFO mi
+	by unnamed structure definition to work-a-round an
+	incompatiblity of gcc to vc. Gcc doesn't supports
+	unnamed types in structures like inline structures.
+	(MONITORINFOEXW): Likewise.
+
+2009-03-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdlib.h: Fix typo && build breakage (s/wchar/wchar_t/).
+
+2009-03-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio.h: Replace _imp__<sym> by __MINGW_IMP_SYMBOL.
+	* wchar.h: Likewise.
+	* stdlib.h: Likewise.
+	* math.h: Likewise.
+	* mbctype.h: Likewise.
+	* ctype.h: Likewise.
+	* wctype.h: Likewise.
+
+2009-03-16  Ozkan Sezer  <sezero@users.sourceforge.net>
+
+	* _mingw.h (__MINGW_USE_UNDERSCORE_PREFIX): really fix typos.
+
+2009-03-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h (__MINGW_USE_UNDERSCORE_PREFIX): New.
+	(__MINGW_IMP_SYMBOL): New.
+
+2009-03-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h (_wopen, _wsopen): Remove wrong c++ variant.
+	* wchar.h: Likewise.
+
+2009-03-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2674460
+	* float.h (_MCW_DN): New.
+	(_DN_SAVE): Likewise.
+	(_DN_FLUSH): Likewise.
+
+	* sys/types.h (useconds_t): New.
+	* unistd.h (usleep): New.
+
+2009-02-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h (__MINGW64): Add underscores.
+	(__MINGW64...): Likewise.
+	* stdio.h (__mingw_<print>): Add prototypes.
+
+2009-02-23  Kai Tietz  <kai.tietz@onevision.com>
+	    Wolfgang Glas <wolfgang.glas@ev-i.at>
+	* wspiapi.h (_WSPIAPI_EMIT_LEGACY): New.
+	(_WSPIAPI_LEGACY_INLINE): New.
+	(WspiapiLegacyFreeAddrInfo): Use _WSPIAPI_LEGACY_INLINE
+	instead of __CRT_INLINE.
+	(WspiapiLegacyGetAddrInfo): Likewise.
+	(WspiapiLegacyGetNameInfo): Likewise.
+	* io.h (_open): Remove C++ variant.
+	(_sopen.h): Likewise.
+
+2009-02-13  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio.h (_iob): Add for 64-bit case.
+	* wchar.h (_iob): Likewise.
+
+2009-02-06  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/2567461
+	* ctype.h (isblank): Declare it always in c++ context.
+	* wctype.h (isblank): Likewise.
+
+2009-01-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* basetsd.h: Add include of _mingw.h for __int64 type.
+
+2009-01-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h: Merged from mingw32.
+	* complex.h: Likewise.
+	* float.h: Likewise.
+
+2009-01-13  Kai Tietz  <kai.tietz@onevision.com>
+	by sezero
+	see http://sourceforge.net/forum/message.php?msg_id=6095326
+
+	* stddef.h:
+	Reverts svn changes 478, 553, 554 which were working around the
+	breakage caused by the old svn change 190. svn190 change is now
+	reverted with modifications. svn190 probably relied on the fact
+	that _mingw.h already defind certain types/macros, but if someone
+	includes stdint.h before stddef.h, it causes the NULL and offsetof
+	macros to be left undefined. still, some clean-up may be done for
+	_mingw.h in the future in order to avoid confusions.
+
+2008-10-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* signal.h (SIGALARM): Define it just when
+	__USE_MINGW_ALARM is set.
+
+2008-10-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdlib.h, stdio.h: Fix headers to be save with
+	option -Wstrict-prototypes.
+
+2008-10-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* strmif.h (DDCOLORKEY): New dummy version.
+	(LPDDCOLORKEY): Declare it as DDCOLORKEY *.
+	(ddraw.h): Include it just when MINGW_HAS_DDRAW_H
+	is defined.
+
+2008-10-21  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h (__USE_MINGW_ALARM): New.
+	(alarm): Make declaration dependent on
+	__USE_MINGW_ALARM.
+
+2008-09-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stddef.h (offsetof): Make sure it gets defined.
+
+2008-09-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* shellapi.h: Replace _cdecl by __cdecl.
+	* netmon.h: Likewise.
+	* nmsupp.h: Likewise.
+	PR/2118228 by Jeremy Kolb
+	* winreg.h: Likewise.
+	* stralign.h: Likewise.
+
+2008-09-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	Patch/2108279 by Jaroslav Smid
+	* lib64/uxtheme.h: New Vista API for BeginBufferedPaint,
+	BufferedPaintClear, BufferedPaintInit, BufferedPaintSetAlpha,
+	BufferedPaintUnInit, EndBufferedPaint, GetBufferedPaintBits,
+	GetBufferedPaintDC, GetBufferedPaintTargetDC, and
+	GetBufferedPaintTargetRect.
+
+2008-09-12  Kai Tietz  <kai.tietz@onevision.com>
+
+	Patch/2106947 by Jaroslav Smid
+	* dwmapi.h: New.
+
+2008-08-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h (_INTEGRAL_MAX_BITS): Check disabled.
+	* wchar.h (_INTEGRAL_MAX_BITS): Likewise.
+
+2008-08-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* fcntl.h (_O_ACCMODE): New.
+	* math.h (_HUGE): Special handling if _MSVCRT_ is defined.
+	* ctype.h (_imp__...): Likewise.
+	* mbctype.h (_imp__...): Likewise.
+	* stdio.h (_imp__...): Likewise.
+	* stdlib.h (_imp__...): Likewise.
+	* wchar.h (_imp__...): Likewise.
+	* wctype.h (_imp__...): Likewise.
+
+2008-08-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winnt.h (PSLIST_ENTRY): Forward typedef without align.
+	* _mingw.h (__stdcall): Disable it for 64-bit.
+
+2008-08-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	* time.h (_localtime32): Alias it for w32 to _localtime.
+	(_difftime32): To _difftime.
+	(_ctime32): To _ctime.
+	(_gmtime32): To _gmtime.
+	(_mktime32): To _mktime.
+	(_time32): To _time.
+
+2008-07-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* wchar.h (WCHAR_MAX): Make it type wchar_t.
+
+2008-07-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* process.h (exec...): Adjust prototypes to return type
+	int if used in gcc.
+	* winnt.h (IMAGE_ORDINAL_FLAG64): Make it a unsigned
+	long long constant.
+	(IMAGE_ORDINAL64): Likewise.
+
+2008-03-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	PR/1910322: trouble using Windows VARIANT type.
+	* oledlg.h: Disable default use of NONAMELESSUNION for C.
+
+2008-03-06  Roland Schwingel  <roland.schwingel@onevision.com>
+
+	* winnt.h (PRODUCT_...): New.
+	(LANG_...): Some missing language codes.
+	(SORT_INVARIANT_MATH): New.
+	(SORT_JAPANESE_RADICALSTROKE): New.
+	(LOCALE_NAME_MAX_LENGTH): New.
+	(ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS): New.
+
+2008-01-30  Kai Tietz  <kai.tietz@onevision.com>
+
+	* userenv.h: Removed duplicate #if-clause.
+	* gb18030.h: Correct typo.
+	* dskquota.h: Correct ShutdownNameResolution declaration.
+	* msimcntl.h: Low case name correction.
+	* wabnot.h: Add MAPI_DIM default.
+	* daogetrw.h: Cleanup extern C declaration via EXTERN_C.
+	* dtchelp.h: Likewise.
+	* comutil.h: Disable c++ code for in c.
+	* comdef.h: Likewise.
+	* comip.h: Likewise.
+	* mspenum.h: Likewise.
+	* stllock.h: Likewise.
+	* _dbdao.h: Likewise.
+	* dxtmpl.h: Likewise.
+	* madcapcl.h: Add include winternl.h.
+	* msidef.h: (msidbLocatorType): Correct typo.
+	* mapiwz.h: Add include mapidefs.h for LPMAPIPROP.
+	* traffic.h: Add include ntddndis.h.
+	* correg.h: Typedef enum CorSaveSize.
+	* ratings.h: Correct typo.
+	* xcmcmsx2.h: Add include xcmc.h.
+	* stm.h: Default to MPR50 if not MPR50 or MPR40 is not defined.
+	* wiadef.h: Add error message to include via.h in front.
+	* conio.h: Correct declaration of __readmsr.
+	* ole.h: Add #if clause to protect against double declaration.
+	* oleidl.h: Add #if clause to protect against double declaration.
+
+2008-01-29  Wesley W. Terpstra  <wesley@terpstra.ca>
+
+	* inttypes.h: Correct ,,,PTR macros for 32-bit and 64-bit.
+
+2008-01-28  sduplichan  <sduplichan@users.sourceforge.net>
+
+	* misc/conio.h: Add further intrinsic functions.
+
+2008-01-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* sys/time.h: Remove declaration of gettimeofday for
+	libiberty sake.
+	Add declaration of mingw_gettimeofday method.
+	* time.h: Add gettimeofday declaration in protected clause.
+	Add declaration of mingw_gettimeofday method.
+	* _mingw.h: Add __MINGW_ATTRIB_NORETURN, __MINGW_ATTRIB_CONST,
+	__UNUSED_PARAM, and __MINGW_GNUC_PREREQ macros.
+	* conio.h: Add intrin function for I/O as inline methods.
+
+2008-01-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* sys/time.h: Add gettimeofday declaration for not __STRICT_ANSI__.
+	* time.h: Protect timezone declaration.
+	Change major protection-clause.
+	* math.h: Change major protection-clause.
+	* sys/timeb.h: Change major protection-clause.
+
+2008-01-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winnt.h: Added old-style context member for float description.
+	* gdiplus*.h: Moved to experimental.
+
+2008-01-09  Kai Tietz  <kai.tietz@onevision.com>
+
+	* directx/: New directory merged from mingw.
+	* directx/d3d9.h: New.
+	* directx/d3d9caps.h: New.
+	* directx/d3d9types.h: New.
+	* directx/dxerr8.h: New.
+	* directx/dxerr9.h: New.
+
+2008-01-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h: Add __USE_MINGW_ACCESS access patch. Merged
+	from mingw project. PR/1858862.
+
+2007-12-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	* sys/stat.h: Include io.h.
+	* io.h: Add prototypes for alarm and getlogin.
+
+2007-11-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* wchar.h: Correct if clauses and (xxx)_func functions. Additionally
+	remove a lot of warnings for 64-bit and 32-bit version.
+	* minmax.h: Likewise.
+	* stdlib.h: Likewise.
+	* stdint.h: Likewise.
+	* windef.h: Likewise.
+	* io.h: Likewise.
+	* winsock2.h: Likewise.
+	* ctype.h: Likewise.
+	* winerror.h: Likewise.
+	* time.h: Likewise.
+	* wctype.h: Likewise.
+	* basetsd.h: Likewise.
+	* setjmp.h: Likewise.
+
+2007-11-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* all files with interface: Use instead struct for objc sake.
+	various changes for 32-bit support.
+
+2007-11-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* wchar.h: Add _iob definition. Additionally add 32-bit
+	compatible definition of __iob_func().
+	* stdio.h: Likewise.
+
+2007-11-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* delayhlp.cpp: PR 1829505  Linker symbol _ImageBase.
+
+2007-11-07  20-40  <annonymous>
+
+	* _dbdao.h: New.
+	* ieeefp.h: New.
+	* io.h: (_getcwd): Prototype added.
+	* mspab.h: New.
+	* mspaddr.h: New.
+	* mspbase.h: New.
+	* mspcall.h: New.
+	* mspcoll.h: New.
+	* mspenum.h: New.
+	* msplog.h: New.
+	* mspst.h: New.
+	* mspstrm.h: New.
+	* mspterm.h: New.
+	* mspthrd.h: New.
+	* msptrmac.h: New.
+	* msptrmar.h: New.
+	* msptrmvc.h: New.
+	* msputils.h: New.
+	* ws2tcpip.h: (ip_mreq): Disabled. Forced that winsock2.h is included infront.
+	* wmiatlprov.h: New.
+	* winsock2.h: Add AF_??? constants.
+	* wchar.h: Add protypes for swprintf and vswprintf.
+	* tchar.h: Likewise.
+	* stdio.h: Likewise.
+	* w32api.h: New.
+	* nl_types.h: New.
+	* langinfo.h: New.
+
+
+2007-10-29  Kai Tietz  <kai.tietz@onevision.com>
+
+	* assert.h:
+	* process.h:
+	* wchar.h:
+	* stdlib.h:
+	 Change prototype for exit, atoi, atol, div, ldiv,
+	 getenv, mblen, mbtowc, mbstowcs, rand, srand, strtod,
+	strtof, strtol, strtoul, system, wctomb, wcstombs, wcstod,
+	wcstol, and wcstoul using no _CRTIMP.
+
+2007-10-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h: (_lseeki64, _ltelli64): Use crt version.
+	* stdio.h: (_fseeki64, _ftelli64): Likewise.
+
+2007-10-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winsock.h, winsock2.h: Make them compatible to each other.
+	* stdlib.h, sys/timeb.h, conio.h, crtdbg.h, io.h, mbstring.h,
+	search.h, stdio.h, string.h, time.h, wchar.h: Extracted secured
+	API into sec_api/.._s.h files and placed include in base headers.
+
+2007-10-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* time.h: _daylight,_dstbias,_timezone are variables.
+
+2007-10-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* direct.h: (getcwd): No _CRTIMP declaration.
+	* io.h: (getcwd): Likewise.
+	(isatty): Likewise.
+	(mktemp): Likewise.
+	* malloc.h: (malloc, calloc, free, realloc): Likewise.
+	* stdlib.h: (malloc, calloc, free, realloc): Likewise.
+
+2007-10-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h: Add prototypes for nextafterl and ldexpl.
+	Add none inline declaration of ldexpf.
+
+2007-10-09  Kai Tietz  <kai.tietz@onevision.com>
+
+	* sys/stat.h, wstat.h: Changed POSIX prototypes.
+
+2007-10-08  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winsock.h, winsock2.h: Make SOCKET definition signed.
+	* assert.h: Protect define of assert by additional clause.
+
+2007-10-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* process.h: Make exec(??) and spawn(??) as posix functions
+	compatible.
+
+2007-10-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* specstrings.h: Prefix SAL defines by SAL(xxx). This prevents
+	various conflicts with gnu sources.
+
+2007-09-28  Kai Tietz  <kai.tietz@onevision.com>
+
+	* specstrings.h: Renamed __null to SAL__null. PR/1804037.
+
+2007-09-27  Kai Tietz  <kai.tietz@onevision.com>
+
+	* math.h: Correct 'long double' prototypes.
+
+2007-09-26  Kai Tietz  <kai.tietz@onevision.com>
+
+	* io.h: Add non inline protypes.
+	* inttypes.h: (imaxabs): Likewise.
+
+2007-09-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h: (USE___UUIDOF): New.
+	* comdef.h: Use USE___UUIDOF for use of __uuidof operator. Also
+	add include of _mingw.h to it.
+	* comdefsp.h: Likewise.
+	* comip.h: Likewise.
+	* comsvcs.h: Likewise.
+	* servprov.h: Likewise.
+	* unknwn.h: Likewise.
+	* time.h: Add none inline prototypes for POSIX time functions.
+
+2007-09-19  Kai Tietz  <kai.tietz@onevision.com>
+
+	* termio.h: Removed.
+	* termios.h: Likewise.
+	* sys/ttychars.h: Likewise.
+	* sys/termio.h: Likewise.
+	* sys/termios.h: Likewise.
+
+2007-09-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdlib.h: (_sys_errlist): Make default declaration having
+	one element to prevent warning. PR/1792077.
+
+2007-09-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h: [PR/1782238] size_t not defined for 32bit
+	in _mingw.h.
+	* stdlib.h: [PR/1781605] stdlib.h: 462: min redefined.
+	Additionally do the same thing for the max macro. We assume
+	that the crt version wins by default.
+
+2007-08-24  Kai Tietz  <kai.tietz@onevision.com>
+
+	* include: Removed dead link.
+	* _mingw.h, stddef.h: Prevent warning about double defined ptrdiff_t.
+
+2007-08-23  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* math.h: For to use methods from libmingwex.a instead
+	of msvcrt.
+	* wchar.h: Likewise.
+	* wctype.h: Likewise.
+
+2007-08-22  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* oleauto.h: Corrected use of NONAMELESSUNION and
+	_FORCENAMELESSUNION.
+
+2007-08-21  Kai Tietz  <kai.tietz@onevision.com>
+
+	* ctype.h: wchar.h: Add isblank () and iswblank ().
+
+2007-08-21  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* stdargs.h: Remove spurious extra '#endif' in file.
+	Restore copyright notice.
+	* stdio.h, wchar.h: Define POSIX names for popen, pclose,
+	and pwopen.
+
+2007-08-16  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdlib.h: Corrected _sys_nerr and _sys_errlist declarations.
+
+2007-08-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* limits.h: (_CHAR_UNSIGNED): Removed unused define.
+	* locale.h: Likewise.
+	* mfpr?: Removed.
+	* getopt.h: Copyright adjusted to origin.
+	* sys/wstat.inl: Delete unused file.
+	* sys/stat.h: Add inlines.
+	* sys/stat.inl: Remove.
+	* sys/timeb.h: Add inlines.
+	* sys/timeb.inl: Remove.
+	* sys/utime.h: Add inlines.
+	* sys/utime.inl: Remove.
+	* time.h: Add inlines.
+	* wchar.h: Add inline.
+	* wtime.inl: Remove.
+	* time.inl: Remove.
+
+2007-07-25  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h, winnt.h: (__CRT_UNALIGNED): New.
+	(UNALIGNED): Use value of __CRT_UNALIGNED.
+	* winuser.h: (MOUSEHOOKSTRUCTEX): Name unnamed
+	argument.
+	* windef.h: (LPCVOID): Use _LPCVOID_DEFINED clause.
+	* objbase.h: (IRpcStubBuffer, IRpcChannelBuffer): Protect
+	by ifndef clause.
+	* objidl.h, imm.h: Fix double type declarations.
+	* limits.h: Added definitions for LONG_LONG_MIN,
+	LONG_LONG_MAX, and ULONG_LONG_MAX.
+
+
+2007-07-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* excpt.h: (_EXCEPTION_POINTERS): Forward declared.
+	* winuser.h: (MONITORINFOEXA, MONITORINFOEXW): Add member
+	variable name for making gcc happy.
+	* rpcndr.h: (PFORMAT_STRING): Removed double defintion.
+	(MIDL_STUB_MESSAGE, PMIDL_STUB_MESSAGE): Likewise.
+	(MIDL_SYNTAX_INFO, PMIDL_SYNTAX_INFO): Likewise.
+	* wtypes.h: Unify define of ULONG, USHORT, UCHAR, etc.
+	* winnt.h: Likewise.
+	* windef.h: Likewise.
+	* winsmcrd.h: Likewise.
+	* fci.h: Likewise.
+	* fdi.h: Likewise.
+	* mapidbg.h: Likewise.
+	* mqoai.h: Likewise.
+	* sqltypes.h: Likewise.
+
+2007-07-20  Kai Tietz  <kai.tietz@onevision.com>
+
+	* winbase.h: Removed double definition of ACTCTX.
+
+2007-07-19  NightStrike  <nightstrike@gmail.com> 
+
+	* basetsd.h: (Ptr32ToPtr): Removed warning message.
+
+2007-07-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* assert.h: Corrected _wassert method.
+	* time.h: Corrected _tzname defintion.
+
+2007-07-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw.h: Use _CRTIMP as declspec(dllimport) as default.
+	Declare of __CRT_IMPORT as external __inline replacement.
+
+2007-07-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* Contributed initial header set.
+
+
+Local Variables:
+version-control: never
+End:

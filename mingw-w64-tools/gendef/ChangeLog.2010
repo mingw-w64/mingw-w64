@@ -1,0 +1,75 @@
+2010-08-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Move aux scripts to subdir to tidy up top levels.  Upgrade
+	to autoconf-2.65.  Merge a few pieces from the trunk version
+	of configure.ac.
+
+2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Back-merges from the trunk:
+
+	2010-02-23  Kai Tietz  <kai.tietz@onevision.com>
+	* src/gendef.c: Fix crash on none PE(+) images. (r1933)
+
+	2010-02-28  Ozkan Sezer  <sezeroz@gmail.com>
+	* src/gendef.c: always set gDta to NULL after freeing it. (r1965)
+
+2009-12-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk.
+	* src/gendef.c (decodeMemonic): Fixed typo.
+	(Additionally added more debug output)
+
+2009-12-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* src/gendef.c (show_usage): New.
+	(main): Use show_usage.
+	(opt_chain): use show_usage.
+
+2009-09-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	* src/gendef.c (disassembleRetIntern): Pre-initialize local
+	variables by zero.
+
+2009-08-17  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gendef.h, gendef.c: Add BSD license.
+	* COPYING: New file.
+
+2009-02-18  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gendef.c (main): Check if gPEDta or gPEPDta is
+	valid, before trying to dump.
+
+2009-01-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gendef.c (is_reloc): New.
+	(is_data): Check if va is relocated.
+
+2009-01-14  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gendef.h (IMAGE_FIRST_SECTION): Added.
+	(Gendefopts): Added.
+	(sExportName): Moved from gendef.c.
+	(eOpCodeKind): Likewise.
+	(sAddresses): Likewise.
+	* gendef.c: Remove unused nacro,
+	(IMAGE_DIRECTORY_ENTRY_EXPORT): Removed.
+	(sExportName): Moved to header.
+	(eOpCodeKind): Likewise.
+	(sAddresses): Likewise.
+
+2009-01-07  jonY  <10walls@gmail.com>
+
+	* gendef.c (struct gendefopts): New.
+	(opt_chain): New.
+	(std_output): New.
+	(main): Use opt_chain.
+	(dump_def): Treat std_output.
+	(load_pep): Adjust error messages.
+
+2009-01-07  Kai Tietz  <kai.tietz@onevision.com>
+
+	* gendef.c: New.
+	* gendef.h: New.
+
