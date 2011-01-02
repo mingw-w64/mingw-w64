@@ -1,0 +1,4 @@
+2011-01-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	* sec_api/string_s.h: Add missing API prototypes.
+	* sec_api/wchar_s.h: Likewise
