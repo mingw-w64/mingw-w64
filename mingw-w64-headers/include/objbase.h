@@ -328,11 +328,11 @@ WINOLEAPI GetRunningObjectTable(DWORD reserved,LPRUNNINGOBJECTTABLE *pprot);
 WINOLEAPI CreateStdProgressIndicator(HWND hwndParent,LPCOLESTR pszTitle,IBindStatusCallback *pIbscCaller,IBindStatusCallback **ppIbsc);
 
 #if (_WIN32_WINNT >= 0x0600)
-HRESULT WINAPI CoDisconnectContext(DWORD dwTimeout);
+WINOLEAPI CoDisconnectContext(DWORD dwTimeout);
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 #if (_WIN32_WINNT >= 0x0601)
 
-WINOLEAPI HRESULT WINAPI CoGetApartmentType(
+WINOLEAPI CoGetApartmentType(
   APTTYPE *pAptType,
   APTTYPEQUALIFIER *pAptQualifier
 );

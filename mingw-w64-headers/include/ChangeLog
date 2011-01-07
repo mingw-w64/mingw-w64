@@ -1,0 +1,6 @@
+2011-01-07  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* wincrypt.h (CertSelectCertificateChains): Fix typo.
+	* objbase.h (CoDisconnectContext): Likewise.
+	(CoGetApartmentType): Likewise.
+

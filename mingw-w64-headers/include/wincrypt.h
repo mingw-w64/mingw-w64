@@ -4877,7 +4877,7 @@ WINCRYPT32API WINBOOL WINAPI CertSelectCertificateChains(
   LPCGUID pSelectionContext,
   DWORD dwFlags,
   PCCERT_SELECT_CHAIN_PARA pChainParameters,
-  cCriteria DWORD,
+  DWORND cCriteria,
   PCCERT_SELECT_CRITERIA rgpCriteria,
   HCERTSTORE hStore,
   PDWORD pcSelection,
