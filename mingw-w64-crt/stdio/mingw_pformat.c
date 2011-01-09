@@ -5,7 +5,7 @@
 
 /* pformat.c
  *
- * $Id: pformat.c,v 1.4 2008/12/31 15:34:09 keithmarshall Exp $
+ * $Id: pformat.c,v 1.9 2011/01/07 22:57:00 keithmarshall Exp $
  *
  * Provides a core implementation of the formatting capabilities
  * common to the entire `printf()' family of functions; it conforms
@@ -156,6 +156,13 @@
   * for which `_TWO_DIGIT_EXPONENT' will be undefined.
   */
 # ifndef _TWO_DIGIT_EXPONENT
+ /*
+  * This hack works around the lack of the `_set_output_format()'
+  * feature, when supporting versions of the MSVC runtime library
+  * prior to msvcr80.dll; it simply enforces Microsoft's original
+  * convention, for all cases where the feature is unsupported.
+  */
+#  define _get_output_format()  0
 #  define _TWO_DIGIT_EXPONENT   1
 # endif
 /*
@@ -727,7 +734,7 @@ char *__pformat_cvt( int mode, __pformat_fpreg_t x, int nd, int *dp, int *sign )
    * his `__gdtoa()' function in a manner to provide extended precision
    * replacements for `ecvt()' and `fcvt()'.
    */
-  unsigned int k, e = 0; char *ep;
+  int k; unsigned int e = 0; char *ep;
   static FPI fpi = { 64, 1-16383-64+1, 32766-16383-64+1, FPI_Round_near, 0 };
  
   /* Classify the argument into an appropriate `__gdtoa()' category...
@@ -770,7 +777,7 @@ char *__pformat_cvt( int mode, __pformat_fpreg_t x, int nd, int *dp, int *sign )
 
   /* Finally, get the raw digit string, and radix point position index.
    */
-  return __gdtoa( &fpi, e, &x.__pformat_fpreg_bits, (int *) &k, mode, nd, dp, &ep );
+  return __gdtoa( &fpi, e, &x.__pformat_fpreg_bits, &k, mode, nd, dp, &ep );
 }
 
 static __inline__ __attribute__((__always_inline__))
@@ -854,8 +861,7 @@ char *__pformat_fcvt( long double x, int precision, int *dp, int *sign )
 /* TODO: end of conditional to be removed. */
 #endif
 
-/* Can't be inlined, as it uses alloca.  */
-static
+static __inline__
 void __pformat_emit_radix_point( __pformat_t *stream )
 {
   /* Helper to place a localised representation of the radix point
@@ -1469,7 +1475,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
     /* taking the rightmost digit in each pass...
      */
     int c = value.__pformat_fpreg_mantissa & 0xF;
-    if( c == (int) value.__pformat_fpreg_mantissa )
+    if( c == value.__pformat_fpreg_mantissa )
     {
       /* inserting the radix point, when we reach the last,
        * (i.e. the most significant digit), unless we found no
@@ -1550,7 +1556,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
    * consistency with `%e', `%f' and `%g' styles.
    */
     int min_width = p - buf;
-    int expo = value.__pformat_fpreg_exponent;
+    int exponent = value.__pformat_fpreg_exponent;
 
     /* If we have not yet queued sufficient digits to fulfil the
      * requested precision, then we must adjust the minimum width
@@ -1564,7 +1570,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
      * sign, radix indicator and at least one exponent digit...
      */
     min_width += stream->flags & PFORMAT_SIGNED ? 6 : 5;
-    while( (expo = expo / 10) != 0 )
+    while( (exponent = exponent / 10) != 0 )
     {
       /* and increase as required, if additional exponent digits
        * are needed, also saving the exponent field width adjustment,
@@ -1655,74 +1661,6 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
 }
 
 static
-void __pformat_xdouble( double x, __pformat_t *stream )
-{
-  /* Handler for `%a' and `%A' format specifiers, (with argument
-   * value specified as `double' type).
-   */
-  unsigned sign_bit = 0;
-  __pformat_fpreg_t z; z.__pformat_fpreg_double_t = x;
-
-  /* First check for NaN; it is emitted unsigned...
-   */
-  if( isnan( x ) )
-    __pformat_emit_inf_or_nan( sign_bit, "NaN", stream );
-
-  else
-  { /* Capture the sign bit up-front, so we can show it correctly
-     * even when the argument value is zero or infinite.
-     */
-    if( (sign_bit = (z.__pformat_fpreg_bitmap[3] & 0x8000)) != 0 )
-      stream->flags |= PFORMAT_NEGATIVE;
-
-    /* Check for infinity, (positive or negative)...
-     */
-    if( isinf( x ) )
-      /*
-       * displaying the appropriately signed indicator,
-       * when appropriate.
-       */
-      __pformat_emit_inf_or_nan( sign_bit, "Inf", stream );
-
-    else
-    { /* The argument value is a representable number...
-       * first move its exponent into the appropriate field...
-       */
-      z.__pformat_fpreg_bitmap[4] = (z.__pformat_fpreg_bitmap[3] >> 4) & 0x7FF;
-
-      /* Realign the mantissa, leaving space for a
-       * normalised most significant digit...
-       */
-      z.__pformat_fpreg_mantissa <<= 8;
-      z.__pformat_fpreg_bitmap[3] = (z.__pformat_fpreg_bitmap[3] & 0x0FFF);
-
-      /* Check for zero value...
-       */
-      if( z.__pformat_fpreg_exponent || z.__pformat_fpreg_mantissa )
-      {
-	/* and only when the value is non-zero,
-	 * eliminate the bias from the exponent...
-	 */
-        z.__pformat_fpreg_exponent -= 0x3FF;
-
-	/* Check for a possible denormalised value...
-	 */
-	if( z.__pformat_fpreg_exponent > -126 )
-	  /*
-	   * and normalise when it isn't.
-	   */
-	  z.__pformat_fpreg_bitmap[3] += 0x1000;
-      }
-
-      /* Finally, hand the adjusted representation off to the generalised
-       * hexadecimal floating point format handler...
-       */
-      __pformat_emit_xfloat( z, stream );
-    }
-  }
-}
-
-static
 void __pformat_xldouble( long double x, __pformat_t *stream )
 {
   /* Handler for `%La' and `%LA' format specifiers, (with argument
@@ -1757,9 +1695,28 @@ void __pformat_xldouble( long double x, __pformat_t *stream )
        * extract the effective value of the biased exponent...
        */
       z.__pformat_fpreg_exponent &= 0x7FFF;
-      if( z.__pformat_fpreg_exponent || z.__pformat_fpreg_mantissa )
-	/*
-	 * and if the argument value itself is non-zero,
+      if( z.__pformat_fpreg_exponent == 0 )
+      {
+	/* A biased exponent value of zero means either a
+	 * true zero value, if the mantissa field also has
+	 * a zero value, otherwise...
+	 */
+	if( z.__pformat_fpreg_mantissa != 0 )
+	{
+	  /* ...this mantissa represents a subnormal value;
+	   * adjust the exponent, while shifting the mantissa
+	   * to the left, until its leading bit is 1.
+	   */
+	  z.__pformat_fpreg_exponent = 1-0x3FFF;
+	  while( (z.__pformat_fpreg_mantissa & (LLONG_MAX + 1ULL)) == 0 )
+	  {
+	    z.__pformat_fpreg_mantissa <<= 1;
+	    --z.__pformat_fpreg_exponent;
+	  }
+	}
+      }
+      else
+	/* This argument represents a non-zero normal number;
 	 * eliminate the bias from the exponent...
 	 */
 	z.__pformat_fpreg_exponent -= 0x3FFF;
@@ -1875,8 +1832,8 @@ int __pformat( int flags, void *dest, int max, const char *fmt, va_list argv )
 	      /* considering any `long' type modifier as a reference to
 	       * `wchar_t' data, (which is promoted to an `int' argument)...
 	       */
-	      argval.__pformat_ullong_t = (wchar_t)(va_arg( argv, int ));
-	      __pformat_wputchars( (wchar_t *)(&argval), 1, &stream );
+	      wchar_t argval = (wchar_t)(va_arg( argv, int ));
+	      __pformat_wputchars( &argval, 1, &stream );
 	    }
 
 	    else
@@ -2015,9 +1972,22 @@ int __pformat( int flags, void *dest, int max, const char *fmt, va_list argv )
 
 	  case 'p':
 	    /*
-	     * Pointer argument; format as hexadecimal, with `0x' prefix...
+	     * Pointer argument; format as hexadecimal, subject to...
 	     */
-	    stream.flags |= PFORMAT_HASHED;
+	    if( (state == PFORMAT_INIT) && (stream.flags == flags) )
+	    {
+	      /* Here, the user didn't specify any particular
+	       * formatting attributes.  We must choose a default
+	       * which will be compatible with Microsoft's (broken)
+	       * scanf() implementation, (i.e. matching the default
+	       * used by MSVCRT's printf(), which appears to resemble
+	       * "%0.8X" for 32-bit pointers); in particular, we MUST
+	       * NOT adopt a GNU-like format resembling "%#x", because
+	       * Microsoft's scanf() will choke on the "0x" prefix.
+	       */
+	      stream.flags |= PFORMAT_ZEROFILL;
+	      stream.precision = 2 * sizeof( uintptr_t );
+	    }
 	    argval.__pformat_ullong_t = va_arg( argv, uintptr_t );
 	    __pformat_xint( 'x', argval, &stream );
 	    goto format_scan;
@@ -2128,7 +2098,7 @@ int __pformat( int flags, void *dest, int max, const char *fmt, va_list argv )
 	    else
 	      /* or just a `double'.
 	       */
-	      __pformat_xdouble( va_arg( argv, double ), &stream );
+	      __pformat_xldouble( (long double)(va_arg( argv, double )), &stream );
 
 	    goto format_scan;
 
@@ -2514,4 +2484,6 @@ int __pformat( int flags, void *dest, int max, const char *fmt, va_list argv )
    */
   return stream.count;
 }
+
+/* $RCSfile: pformat.c,v $Revision: 1.9 $: end of file */
 
