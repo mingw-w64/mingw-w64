@@ -1,0 +1,8 @@
+2011-01-10  Tsukasa Ooi  <li@livegrid.org>
+
+	* crt/crtexe.c: Fix invalid scope table for SEH.
+
+2011-01-10  Tsukasa Ooi  <li@livegrid.org>
+
+	* crt/crtexe.c: Fix invalid scope table for SEH.
+

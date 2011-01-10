@@ -164,7 +164,8 @@ int WinMainCRTStartup (void)
   __security_init_cookie ();
   ret = __tmainCRTStartup ();
 #ifdef __SEH__
-  asm ("\t.l_endw: nop\n");
+  asm ("\tnop\n"
+    "\t.l_endw: nop\n");
 #endif
   return ret;
 }
@@ -191,7 +192,8 @@ int mainCRTStartup (void)
   __security_init_cookie ();
   ret = __tmainCRTStartup ();
 #ifdef __SEH__
-  asm ("\t.l_end: nop\n");
+  asm ("\tnop\n"
+    "\t.l_end: nop\n");
 #endif
   return ret;
 }
