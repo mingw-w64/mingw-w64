@@ -302,6 +302,9 @@ typedef DWORD LCID;
 
   typedef LONGLONG USN;
 
+#ifndef _LARGE_INTEGER_DEFINED
+#define _LARGE_INTEGER_DEFINED
+
   typedef union _LARGE_INTEGER {
     __MINGW_EXTENSION struct {
       DWORD LowPart;
@@ -334,6 +337,8 @@ typedef DWORD LCID;
     DWORD LowPart;
     LONG HighPart;
   } LUID,*PLUID;
+
+#endif /* _LARGE_INTEGER_DEFINED */
 
 #define _DWORDLONG_
   typedef ULONGLONG DWORDLONG;
@@ -412,6 +417,9 @@ typedef DWORD LCID;
 #endif
   typedef BOOLEAN *PBOOLEAN;
 
+#ifndef _LIST_ENTRY_DEFINED
+#define _LIST_ENTRY_DEFINED
+
   typedef struct _LIST_ENTRY {
     struct _LIST_ENTRY *Flink;
     struct _LIST_ENTRY *Blink;
@@ -432,6 +440,8 @@ typedef DWORD LCID;
     ULONGLONG Blink;
   } LIST_ENTRY64;
   typedef LIST_ENTRY64 *PLIST_ENTRY64;
+
+#endif /* _LIST_ENTRY_DEFINED */
 
 #include <guiddef.h>
 
@@ -2381,11 +2391,15 @@ typedef DWORD LCID;
   typedef struct _DISPATCHER_CONTEXT DISPATCHER_CONTEXT;
   typedef struct _DISPATCHER_CONTEXT *PDISPATCHER_CONTEXT;
 
-  typedef EXCEPTION_DISPOSITION (*PEXCEPTION_ROUTINE)
+#ifndef __PEXCEPTION_ROUTINE_DEFINED
+#define __PEXCEPTION_ROUTINE_DEFINED
+
+  typedef EXCEPTION_DISPOSITION (NTAPI *PEXCEPTION_ROUTINE)
     (PEXCEPTION_RECORD ExceptionRecord,
      ULONG64 EstablisherFrame,
      PCONTEXT ContextRecord,
      PDISPATCHER_CONTEXT DispatcherContext);
+#endif /* __PEXCEPTION_ROUTINE_DEFINED */
 
   struct _DISPATCHER_CONTEXT {
     ULONG64 ControlPc;

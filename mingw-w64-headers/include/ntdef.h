@@ -43,7 +43,7 @@
 #include <excpt.h>
 #include <sdkddkver.h>
 
-// FIXME: Shouldn't be included!
+/* FIXME: Shouldn't be included!  */
 #include <stdarg.h>
 #include <string.h>
 
@@ -374,6 +374,8 @@ typedef struct _QUAD {
   } DUMMYUNIONNAME;
 } QUAD, *PQUAD, UQUAD, *PUQUAD;
 
+#ifndef _LARGE_INTEGER_DEFINED
+#define _LARGE_INTEGER_DEFINED
 /* Large Integer Unions */
 #if defined(MIDL_PASS)
 typedef struct _LARGE_INTEGER {
@@ -415,6 +417,8 @@ typedef struct _LUID {
   ULONG LowPart;
   LONG HighPart;
 } LUID, *PLUID;
+
+#endif /* _LARGE_INTEGER_DEFINED */
 
 /* Native API Return Value Macros */
 #define NT_SUCCESS(Status)              (((NTSTATUS)(Status)) >= 0)
@@ -539,6 +543,9 @@ typedef enum _WAIT_TYPE {
   WaitAny
 } WAIT_TYPE;
 
+#ifndef _LIST_ENTRY_DEFINED
+#define _LIST_ENTRY_DEFINED
+
 /* Doubly Linked Lists */
 typedef struct _LIST_ENTRY {
   struct _LIST_ENTRY *Flink;
@@ -560,6 +567,8 @@ typedef struct _SINGLE_LIST_ENTRY {
   struct _SINGLE_LIST_ENTRY *Next;
 } SINGLE_LIST_ENTRY, *PSINGLE_LIST_ENTRY;
 
+#endif /* _LIST_ENTRY_DEFINED */
+
 typedef struct _PROCESSOR_NUMBER {
   USHORT Group;
   UCHAR Number;
@@ -569,12 +578,15 @@ typedef struct _PROCESSOR_NUMBER {
 struct _CONTEXT;
 struct _EXCEPTION_RECORD;
 
+#ifndef __PEXCEPTION_ROUTINE_DEFINED
+#define __PEXCEPTION_ROUTINE_DEFINED
 typedef EXCEPTION_DISPOSITION
 (NTAPI *PEXCEPTION_ROUTINE)(
   struct _EXCEPTION_RECORD *ExceptionRecord,
   PVOID EstablisherFrame,
   struct _CONTEXT *ContextRecord,
   PVOID DispatcherContext);
+#endif /* __PEXCEPTION_ROUTINE_DEFINED */
 
 typedef struct _GROUP_AFFINITY {
   KAFFINITY Mask;

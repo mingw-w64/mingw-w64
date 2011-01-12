@@ -100,9 +100,15 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
 
   typedef struct _OBJECT_ATTRIBUTES {
     ULONG Length;
+#ifdef _WIN64
+    ULONG pad1;
+#endif
     HANDLE RootDirectory;
     PUNICODE_STRING ObjectName;
     ULONG Attributes;
+#ifdef _WIN64
+    ULONG pad2;
+#endif
     PVOID SecurityDescriptor;
     PVOID SecurityQualityOfService;
   } OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
@@ -709,8 +715,26 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   } PROCESSINFOCLASS;
 
   typedef enum _THREADINFOCLASS {
-    ThreadIsIoPending = 16
+     ThreadBasicInformation,
+     ThreadTimes,
+     ThreadPriority,
+     ThreadBasePriority,
+     ThreadAffinityMask,
+     ThreadImpersonationToken,
+     ThreadDescriptorTableEntry,
+     ThreadEnableAlignmentFaultFixup,
+     ThreadEventPair,
+     ThreadQuerySetWin32StartAddress,
+     ThreadZeroTlsCell,
+     ThreadPerformanceCount,
+     ThreadAmILastThread,
+     ThreadIdealProcessor,
+     ThreadPriorityBoost,
+     ThreadSetTlsArrayAddress,
+     ThreadIsIoPending,
+     ThreadHideFromDebugger
   } THREADINFOCLASS;
+  typedef THREADINFOCLASS THREAD_INFORMATION_CLASS, *PTHREAD_INFORMATION_CLASS;
 
   typedef enum _SYSTEM_INFORMATION_CLASS {
     SystemBasicInformation = 0,SystemProcessorInformation = 1,SystemPerformanceInformation = 2,SystemTimeOfDayInformation = 3,SystemProcessInformation = 5,
