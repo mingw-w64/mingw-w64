@@ -427,12 +427,16 @@ typedef struct _LUID {
 #define NT_ERROR(Status)                ((((ULONG)(Status)) >> 30) == 3)
 
 /* String Types */
+#ifndef __UNICODE_STRING_DEFINED
+#define __UNICODE_STRING_DEFINED
 typedef struct _UNICODE_STRING {
   USHORT Length;
   USHORT MaximumLength;
   PWSTR  Buffer;
 } UNICODE_STRING, *PUNICODE_STRING;
+#endif
 typedef const UNICODE_STRING* PCUNICODE_STRING;
+
 #define UNICODE_NULL ((WCHAR)0)
 
 typedef struct _CSTRING {
@@ -442,11 +446,14 @@ typedef struct _CSTRING {
 } CSTRING, *PCSTRING;
 #define ANSI_NULL ((CHAR)0)
 
+#ifndef __STRING_DEFINED
+#define __STRING_DEFINED
 typedef struct _STRING {
   USHORT Length;
   USHORT MaximumLength;
   PCHAR  Buffer;
 } STRING, *PSTRING;
+#endif
 
 typedef STRING ANSI_STRING;
 typedef PSTRING PANSI_STRING;
