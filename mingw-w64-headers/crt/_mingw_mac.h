@@ -122,6 +122,11 @@
 #define __MINGW_EXTENSION
 #endif
 
+/* Special case nameless struct/union.  */
+#ifndef __C89_NAMELESS
+#define __C89_NAMELESS __MINGW_EXTENSION
+#endif
+
 #ifndef __GNU_EXTENSION
 #define __GNU_EXTENSION		__MINGW_EXTENSION
 #endif
