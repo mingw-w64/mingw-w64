@@ -116,6 +116,7 @@
 #define __WINT_TYPE__  unsigned short
 #endif
 
+#undef __MINGW_EXTENSION
 #if defined(__GNUC__) || defined(__GNUG__)
 #define __MINGW_EXTENSION	__extension__
 #else
