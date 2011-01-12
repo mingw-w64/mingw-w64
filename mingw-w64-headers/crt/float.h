@@ -18,7 +18,7 @@
 #endif
 #elif !defined (_FLOAT_H___)
 #if (__GNUC__ < 4)
-#error Corrupt install of gcc's internal headers, or search order was changed.
+#error Corrupt install of gcc-s internal headers, or search order was changed.
 #else
 	/* #include_next <float_ginclude.h> */
 	
