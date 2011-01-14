@@ -28,8 +28,6 @@ extern "C" {
   _CRTIMP errno_t __cdecl _strncpy_s_l(char *_Dst,size_t _DstSizeInChars,const char *_Src,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP char *__cdecl strtok_s(char *_Str,const char *_Delim,char **_Context);
   _CRTIMP char *__cdecl _strtok_s_l(char *_Str,const char *_Delim,char **_Context,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl _strset_s(char *_Str,size_t _SizeInChars,unsigned int _Val);
-  _CRTIMP errno_t __cdecl _strnset_s(char *_Str,size_t _SizeInChars,unsigned int _Val, size_t _Count);
 
 #ifndef _WSTRING_S_DEFINED
 #define _WSTRING_S_DEFINED
