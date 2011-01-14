@@ -1,0 +1,111 @@
+#include <_mingw_unicode.h>
+/*
+ * Copyright (C) 2007 Francois Gouget
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
+#ifndef _WINE_WININETI_H_
+#define _WINE_WININETI_H_
+
+/* FIXME: #include <iedial.h> */
+#include <schannel.h>
+
+typedef struct _INTERNET_CACHE_CONFIG_PATH_ENTRYA
+{
+    CHAR CachePath[MAX_PATH];
+    DWORD dwCacheSize;
+} INTERNET_CACHE_CONFIG_PATH_ENTRYA, *LPINTERNET_CACHE_CONFIG_PATH_ENTRYA;
+
+typedef struct _INTERNET_CACHE_CONFIG_PATH_ENTRYW
+{
+    WCHAR CachePath[MAX_PATH];
+    DWORD dwCacheSize;
+} INTERNET_CACHE_CONFIG_PATH_ENTRYW, *LPINTERNET_CACHE_CONFIG_PATH_ENTRYW;
+
+__MINGW_TYPEDEF_AW(INTERNET_CACHE_CONFIG_PATH_ENTRY)
+__MINGW_TYPEDEF_AW(LPINTERNET_CACHE_CONFIG_PATH_ENTRY)
+
+typedef struct _INTERNET_CACHE_CONFIG_INFOA
+{
+    DWORD dwStructSize;
+    DWORD dwContainer;
+    DWORD dwQuota;
+    DWORD dwReserved4;
+    WINBOOL fPerUser;
+    DWORD dwSyncMode;
+    DWORD dwNumCachePaths;
+    __C89_NAMELESS union
+    {
+        __C89_NAMELESS struct
+        {
+            CHAR CachePath[MAX_PATH];
+            DWORD dwCacheSize;
+        } __C89_NAMELESSSTRUCTNAME;
+        INTERNET_CACHE_CONFIG_PATH_ENTRYA CachePaths[ANYSIZE_ARRAY];
+    } __C89_NAMELESSUNIONNAME;
+    DWORD dwNormalUsage;
+    DWORD dwExemptUsage;
+} INTERNET_CACHE_CONFIG_INFOA, *LPINTERNET_CACHE_CONFIG_INFOA;
+
+typedef struct _INTERNET_CACHE_CONFIG_INFOW
+{
+    DWORD dwStructSize;
+    DWORD dwContainer;
+    DWORD dwQuota;
+    DWORD dwReserved4;
+    WINBOOL  fPerUser;
+    DWORD dwSyncMode;
+    DWORD dwNumCachePaths;
+    __C89_NAMELESS union
+    {
+        __C89_NAMELESS struct
+        {
+            WCHAR CachePath[MAX_PATH];
+            DWORD dwCacheSize;
+        } __C89_NAMELESSSTRUCTNAME;
+        INTERNET_CACHE_CONFIG_PATH_ENTRYW CachePaths[ANYSIZE_ARRAY];
+    } __C89_NAMELESSUNIONNAME;
+    DWORD dwNormalUsage;
+    DWORD dwExemptUsage;
+} INTERNET_CACHE_CONFIG_INFOW, *LPINTERNET_CACHE_CONFIG_INFOW;
+
+__MINGW_TYPEDEF_AW(INTERNET_CACHE_CONFIG_INFO)
+__MINGW_TYPEDEF_AW(LPINTERNET_CACHE_CONFIG_INFO)
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+DWORD       WINAPI DeleteIE3Cache(HWND,HINSTANCE,LPSTR,int);
+WINBOOL     WINAPI GetDiskInfoA(PCSTR,PDWORD,PDWORDLONG,PDWORDLONG);
+WINBOOL     WINAPI GetUrlCacheConfigInfoA(LPINTERNET_CACHE_CONFIG_INFOA,LPDWORD,DWORD);
+WINBOOL     WINAPI GetUrlCacheConfigInfoW(LPINTERNET_CACHE_CONFIG_INFOW,LPDWORD,DWORD);
+#define     GetUrlCacheConfigInfo __MINGW_NAME_AW(GetUrlCacheConfigInfo)
+WINBOOL     WINAPI IncrementUrlCacheHeaderData(DWORD,LPDWORD);
+WINBOOL     WINAPI InternetQueryFortezzaStatus(DWORD*,DWORD_PTR);
+WINBOOL     WINAPI IsUrlCacheEntryExpiredA(LPCSTR,DWORD,FILETIME*);
+WINBOOL     WINAPI IsUrlCacheEntryExpiredW(LPCWSTR,DWORD,FILETIME*);
+#define     IsUrlCacheEntryExpired __MINGW_NAME_AW(IsUrlCacheEntryExpired)
+WINBOOL     WINAPI SetUrlCacheConfigInfoA(LPINTERNET_CACHE_CONFIG_INFOA,DWORD);
+WINBOOL     WINAPI SetUrlCacheConfigInfoW(LPINTERNET_CACHE_CONFIG_INFOW,DWORD);
+#define     SetUrlCacheConfigInfo __MINGW_NAME_AW(SetUrlCacheConfigInfo)
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* _WINE_WININETI_H_ */
