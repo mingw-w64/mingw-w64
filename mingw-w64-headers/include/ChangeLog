@@ -1,3 +1,10 @@
+2011-01-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winsplp.h (MONITOR2): Fixes according to msdn documentation at
+	http://msdn.microsoft.com/en-us/library/ff557532(VS.85).aspx
+	thanks to a reminder from Lorenzo Monti. Closes patch tracker ID
+	3157986.
+
 2011-01-07  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* wincrypt.h (CertSelectCertificateChains): Fix typo.
