@@ -355,11 +355,11 @@ typedef struct _MONITOREX {
 
 typedef struct _MONITOR2 {
   DWORD cbSize;
-  WINBOOL (WINAPI *pfnEnumPorts)(LPWSTR pName, DWORD Level, LPBYTE pPorts,
+  WINBOOL (WINAPI *pfnEnumPorts)(HANDLE hMonitor, LPWSTR pName, DWORD Level, LPBYTE pPorts,
                               DWORD cbBuf, LPDWORD pcbNeeded,
                               LPDWORD pcReturned);
-  WINBOOL (WINAPI *pfnOpenPort)(LPWSTR pName, PHANDLE pHandle);
-  WINBOOL (WINAPI *pfnOpenPortEx)(LPWSTR pPortName, LPWSTR pPrinterName,
+  WINBOOL (WINAPI *pfnOpenPort)(HANDLE hMonitor, LPWSTR pName, PHANDLE pHandle);
+  WINBOOL (WINAPI *pfnOpenPortEx)(HANDLE hMonitor, HANDLE hMonitorPort, LPWSTR pPortName, LPWSTR pPrinterName,
                                PHANDLE pHandle, struct _MONITOR2 *pMonitor2);
   WINBOOL (WINAPI *pfnStartDocPort)(HANDLE hPort, LPWSTR pPrinterName,
                                  DWORD JobId, DWORD Level, LPBYTE pDocInfo);
@@ -369,11 +369,11 @@ typedef struct _MONITOR2 {
                              LPDWORD pcbRead);
   WINBOOL (WINAPI *pfnEndDocPort)(HANDLE hPort);
   WINBOOL (WINAPI *pfnClosePort)(HANDLE hPort);
-  WINBOOL (WINAPI *pfnAddPort)(LPWSTR pName, HWND hWnd, LPWSTR pMonitorName);
-  WINBOOL (WINAPI *pfnAddPortEx)(LPWSTR pName, DWORD Level, LPBYTE lpBuffer,
+  WINBOOL (WINAPI *pfnAddPort)(HANDLE hMonitor, LPWSTR pName, HWND hWnd, LPWSTR pMonitorName);
+  WINBOOL (WINAPI *pfnAddPortEx)(HANDLE hMonitor, LPWSTR pName, DWORD Level, LPBYTE lpBuffer,
                               LPWSTR lpMonitorName);
-  WINBOOL (WINAPI *pfnConfigurePort)(LPWSTR pName, HWND hWnd, LPWSTR pPortName);
-  WINBOOL (WINAPI *pfnDeletePort)(LPWSTR pName, HWND hWnd, LPWSTR pPortName);
+  WINBOOL (WINAPI *pfnConfigurePort)(HANDLE hMonitor, LPWSTR pName, HWND hWnd, LPWSTR pPortName);
+  WINBOOL (WINAPI *pfnDeletePort)(HANDLE hMonitor, LPWSTR pName, HWND hWnd, LPWSTR pPortName);
   WINBOOL (WINAPI *pfnGetPrinterDataFromPort)(HANDLE hPort, DWORD ControlID,
                                            LPWSTR pValueName, LPWSTR lpInBuffer,
                                            DWORD cbInBuffer, LPWSTR lpOutBuffer,
