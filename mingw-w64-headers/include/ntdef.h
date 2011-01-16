@@ -21,6 +21,12 @@
 #ifndef _NTDEF_
 #define _NTDEF_
 
+#ifdef _WINNT_
+/* FIXME: In version two, warn about including both ntdef.h and winnt.h
+ * #warning Including winnt.h and ntdef.h is deprecated and will be removed in a future release.  Please use winternl.h
+ */
+#endif
+
 #include <_mingw.h>
 
 #if defined(__x86_64) && \
