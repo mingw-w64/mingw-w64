@@ -1115,6 +1115,10 @@ extern "C" {
 #define WM_XBUTTONDBLCLK 0x020D
 #define WM_MOUSELAST 0x020D
 
+#if (_WIN32_WINNT >= 0x0600)
+#define WM_MOUSEHWHEEL 0x020E
+#endif
+
 #define WHEEL_DELTA 120
 #define GET_WHEEL_DELTA_WPARAM(wParam) ((short)HIWORD(wParam))
 
