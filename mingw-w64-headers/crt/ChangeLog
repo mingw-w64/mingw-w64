@@ -1,3 +1,7 @@
+2011-01-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dos.h (_A_VOLID): Add missing definition, from r/os svn r50165.
+
 2011-01-02  Kai Tietz  <kai.tietz@onevision.com>
 
 	* sec_api/string_s.h: Add missing API prototypes.
