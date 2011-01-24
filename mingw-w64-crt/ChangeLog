@@ -1,24 +1,24 @@
 2011-01-24  Kai Tietz  <kai.tietz@onevision.com>
 
-	* mingw_fprintfw.c: New.
-	* mingw_pformatw.c: New.
-	* mingw_vsprintfw.c: New.
-	* mingw_vprintfw.c: New.
-	* mingw_vfprintfw.c: New.
-	* mingw_snprintfw.c: New.
-	* mingw_sprintfw.c: New.
-	* mingw_vsnprintfw.c: New.
-	* mingw_printfw.c: New.
-	* mingw_fprintf.c: Support wide-char.
-	* mingw_pformat.c: Support wide-char.
-	* mingw_pformat.h: Support wide-char.
-	* mingw_vsprintf.c: Support wide-char.
-	* mingw_vprintf.c: Support wide-char.
-	* mingw_vfprintf.c: Support wide-char.
-	* mingw_snprintf.c: Support wide-char.
-	* mingw_sprintf.c: Support wide-char.
-	* mingw_vsnprintf.c: Support wide-char.
-	* mingw_printf.c: Support wide-char.
+	* stdio/mingw_fprintfw.c: New.
+	* stdio/mingw_pformatw.c: New.
+	* stdio/mingw_vsprintfw.c: New.
+	* stdio/mingw_vprintfw.c: New.
+	* stdio/mingw_vfprintfw.c: New.
+	* stdio/mingw_snprintfw.c: New.
+	* stdio/mingw_sprintfw.c: New.
+	* stdio/mingw_vsnprintfw.c: New.
+	* stdio/mingw_printfw.c: New.
+	* stdio/mingw_fprintf.c: Support wide-char.
+	* stdio/mingw_pformat.c: Support wide-char.
+	* stdio/mingw_pformat.h: Support wide-char.
+	* stdio/mingw_vsprintf.c: Support wide-char.
+	* stdio/mingw_vprintf.c: Support wide-char.
+	* stdio/mingw_vfprintf.c: Support wide-char.
+	* stdio/mingw_snprintf.c: Support wide-char.
+	* stdio/mingw_sprintf.c: Support wide-char.
+	* stdio/mingw_vsnprintf.c: Support wide-char.
+	* stdio/mingw_printf.c: Support wide-char.
 
 2011-01-10  Tsukasa Ooi  <li@livegrid.org>
 
