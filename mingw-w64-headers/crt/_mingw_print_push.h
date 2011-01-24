@@ -15,6 +15,15 @@
 #undef vsprintf
 #undef vsnprintf
 
+#undef fwprintf
+#undef wprintf
+#undef vfwprintf
+#undef vwprintf
+#undef swprintf
+#undef vswprintf
+#undef snwprintf
+#undef vsnwprintf
+
 /* Redefine to MS specific PRI... and SCN... macros.  */
 #if defined(_INTTYPES_H_) && defined(PRId64)
 #undef PRId64

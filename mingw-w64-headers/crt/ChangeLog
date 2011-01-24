@@ -1,3 +1,9 @@
+2011-01-24  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_print_pop.h, _mingw_print_push.h: Add wide-character API
+	handling.
+	* stdio.h, wchar.h: Add __mingw_-wprintf prototypes.
+
 2011-01-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* dos.h (_A_VOLID): Add missing definition, from r/os svn r50165.
