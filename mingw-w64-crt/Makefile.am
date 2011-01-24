@@ -223,7 +223,11 @@ src_libmingwex=\
   stdio/fseeko64.c         stdio/_fstat64i32.c     stdio/_fstat.c           stdio/ftello64.c          stdio/_ftime.c          \
   stdio/lltoa.c            stdio/lltow.c           stdio/lseek64.c          stdio/mingw_fprintf.c     stdio/mingw_pformat.c   \
   stdio/mingw_printf.c     stdio/mingw_snprintf.c  stdio/mingw_sprintf.c    stdio/mingw_vfprintf.c    stdio/mingw_vprintf.c   \
-  stdio/mingw_vsnprintf.c  stdio/mingw_vsprintf.c  stdio/snprintf.c         stdio/snwprintf.c         stdio/_stat64i32.c      \
+  stdio/mingw_vsnprintf.c  stdio/mingw_vsprintf.c  \
+  stdio/mingw_fprintfw.c   stdio/mingw_snprintfw.c   stdio/mingw_vprintfw.c \
+  stdio/mingw_pformatw.c   stdio/mingw_sprintfw.c    stdio/mingw_vsnprintfw.c \
+  stdio/mingw_printfw.c    stdio/mingw_vfprintfw.c   stdio/mingw_vsprintfw.c \
+  stdio/snprintf.c         stdio/snwprintf.c         stdio/_stat64i32.c      \
   stdio/_stat.c            stdio/strtof.c          stdio/ulltoa.c           stdio/ulltow.c            stdio/vfscanf.c         \
   stdio/vfwscanf.c         stdio/vscanf.c          stdio/vsnprintf.c        stdio/vsnwprintf.c        stdio/vsscanf.c         \
   stdio/vswscanf.c         stdio/vwscanf.c         stdio/wcstof.c           stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \

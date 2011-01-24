@@ -421,9 +421,13 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	stdio/mingw_snprintf.c stdio/mingw_sprintf.c \
 	stdio/mingw_vfprintf.c stdio/mingw_vprintf.c \
 	stdio/mingw_vsnprintf.c stdio/mingw_vsprintf.c \
-	stdio/snprintf.c stdio/snwprintf.c stdio/_stat64i32.c \
-	stdio/_stat.c stdio/strtof.c stdio/ulltoa.c stdio/ulltow.c \
-	stdio/vfscanf.c stdio/vfwscanf.c stdio/vscanf.c \
+	stdio/mingw_fprintfw.c stdio/mingw_snprintfw.c \
+	stdio/mingw_vprintfw.c stdio/mingw_pformatw.c \
+	stdio/mingw_sprintfw.c stdio/mingw_vsnprintfw.c \
+	stdio/mingw_printfw.c stdio/mingw_vfprintfw.c \
+	stdio/mingw_vsprintfw.c stdio/snprintf.c stdio/snwprintf.c \
+	stdio/_stat64i32.c stdio/_stat.c stdio/strtof.c stdio/ulltoa.c \
+	stdio/ulltow.c stdio/vfscanf.c stdio/vfwscanf.c stdio/vscanf.c \
 	stdio/vsnprintf.c stdio/vsnwprintf.c stdio/vsscanf.c \
 	stdio/vswscanf.c stdio/vwscanf.c stdio/wcstof.c \
 	stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
@@ -844,6 +848,15 @@ am__objects_11 = crt/lib32_libmingwex_a-dllentry.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-mingw_vprintf.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-mingw_vsnprintf.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-mingw_vsprintf.$(OBJEXT) \
+	stdio/lib32_libmingwex_a-mingw_fprintfw.$(OBJEXT) \
+	stdio/lib32_libmingwex_a-mingw_snprintfw.$(OBJEXT) \
+	stdio/lib32_libmingwex_a-mingw_vprintfw.$(OBJEXT) \
+	stdio/lib32_libmingwex_a-mingw_pformatw.$(OBJEXT) \
+	stdio/lib32_libmingwex_a-mingw_sprintfw.$(OBJEXT) \
+	stdio/lib32_libmingwex_a-mingw_vsnprintfw.$(OBJEXT) \
+	stdio/lib32_libmingwex_a-mingw_printfw.$(OBJEXT) \
+	stdio/lib32_libmingwex_a-mingw_vfprintfw.$(OBJEXT) \
+	stdio/lib32_libmingwex_a-mingw_vsprintfw.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-snprintf.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-snwprintf.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_stat64i32.$(OBJEXT) \
@@ -1335,9 +1348,13 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	stdio/mingw_snprintf.c stdio/mingw_sprintf.c \
 	stdio/mingw_vfprintf.c stdio/mingw_vprintf.c \
 	stdio/mingw_vsnprintf.c stdio/mingw_vsprintf.c \
-	stdio/snprintf.c stdio/snwprintf.c stdio/_stat64i32.c \
-	stdio/_stat.c stdio/strtof.c stdio/ulltoa.c stdio/ulltow.c \
-	stdio/vfscanf.c stdio/vfwscanf.c stdio/vscanf.c \
+	stdio/mingw_fprintfw.c stdio/mingw_snprintfw.c \
+	stdio/mingw_vprintfw.c stdio/mingw_pformatw.c \
+	stdio/mingw_sprintfw.c stdio/mingw_vsnprintfw.c \
+	stdio/mingw_printfw.c stdio/mingw_vfprintfw.c \
+	stdio/mingw_vsprintfw.c stdio/snprintf.c stdio/snwprintf.c \
+	stdio/_stat64i32.c stdio/_stat.c stdio/strtof.c stdio/ulltoa.c \
+	stdio/ulltow.c stdio/vfscanf.c stdio/vfwscanf.c stdio/vscanf.c \
 	stdio/vsnprintf.c stdio/vsnwprintf.c stdio/vsscanf.c \
 	stdio/vswscanf.c stdio/vwscanf.c stdio/wcstof.c \
 	stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
@@ -1765,6 +1782,15 @@ am__objects_31 = crt/lib64_libmingwex_a-dllentry.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-mingw_vprintf.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-mingw_vsnprintf.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-mingw_vsprintf.$(OBJEXT) \
+	stdio/lib64_libmingwex_a-mingw_fprintfw.$(OBJEXT) \
+	stdio/lib64_libmingwex_a-mingw_snprintfw.$(OBJEXT) \
+	stdio/lib64_libmingwex_a-mingw_vprintfw.$(OBJEXT) \
+	stdio/lib64_libmingwex_a-mingw_pformatw.$(OBJEXT) \
+	stdio/lib64_libmingwex_a-mingw_sprintfw.$(OBJEXT) \
+	stdio/lib64_libmingwex_a-mingw_vsnprintfw.$(OBJEXT) \
+	stdio/lib64_libmingwex_a-mingw_printfw.$(OBJEXT) \
+	stdio/lib64_libmingwex_a-mingw_vfprintfw.$(OBJEXT) \
+	stdio/lib64_libmingwex_a-mingw_vsprintfw.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-snprintf.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-snwprintf.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_stat64i32.$(OBJEXT) \
@@ -3197,7 +3223,11 @@ src_libmingwex = \
   stdio/fseeko64.c         stdio/_fstat64i32.c     stdio/_fstat.c           stdio/ftello64.c          stdio/_ftime.c          \
   stdio/lltoa.c            stdio/lltow.c           stdio/lseek64.c          stdio/mingw_fprintf.c     stdio/mingw_pformat.c   \
   stdio/mingw_printf.c     stdio/mingw_snprintf.c  stdio/mingw_sprintf.c    stdio/mingw_vfprintf.c    stdio/mingw_vprintf.c   \
-  stdio/mingw_vsnprintf.c  stdio/mingw_vsprintf.c  stdio/snprintf.c         stdio/snwprintf.c         stdio/_stat64i32.c      \
+  stdio/mingw_vsnprintf.c  stdio/mingw_vsprintf.c  \
+  stdio/mingw_fprintfw.c   stdio/mingw_snprintfw.c   stdio/mingw_vprintfw.c \
+  stdio/mingw_pformatw.c   stdio/mingw_sprintfw.c    stdio/mingw_vsnprintfw.c \
+  stdio/mingw_printfw.c    stdio/mingw_vfprintfw.c   stdio/mingw_vsprintfw.c \
+  stdio/snprintf.c         stdio/snwprintf.c         stdio/_stat64i32.c      \
   stdio/_stat.c            stdio/strtof.c          stdio/ulltoa.c           stdio/ulltow.c            stdio/vfscanf.c         \
   stdio/vfwscanf.c         stdio/vscanf.c          stdio/vsnprintf.c        stdio/vsnwprintf.c        stdio/vsscanf.c         \
   stdio/vswscanf.c         stdio/vwscanf.c         stdio/wcstof.c           stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
@@ -5231,6 +5261,24 @@ stdio/lib32_libmingwex_a-mingw_vsnprintf.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmingwex_a-mingw_vsprintf.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib32_libmingwex_a-mingw_fprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib32_libmingwex_a-mingw_snprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib32_libmingwex_a-mingw_vprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib32_libmingwex_a-mingw_pformatw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib32_libmingwex_a-mingw_sprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib32_libmingwex_a-mingw_vsnprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib32_libmingwex_a-mingw_printfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib32_libmingwex_a-mingw_vfprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib32_libmingwex_a-mingw_vsprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmingwex_a-snprintf.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmingwex_a-snwprintf.$(OBJEXT): stdio/$(am__dirstamp) \
@@ -6559,6 +6607,24 @@ stdio/lib64_libmingwex_a-mingw_vprintf.$(OBJEXT):  \
 stdio/lib64_libmingwex_a-mingw_vsnprintf.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-mingw_vsprintf.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib64_libmingwex_a-mingw_fprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib64_libmingwex_a-mingw_snprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib64_libmingwex_a-mingw_vprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib64_libmingwex_a-mingw_pformatw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib64_libmingwex_a-mingw_sprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib64_libmingwex_a-mingw_vsnprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib64_libmingwex_a-mingw_printfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib64_libmingwex_a-mingw_vfprintfw.$(OBJEXT):  \
+	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib64_libmingwex_a-mingw_vsprintfw.$(OBJEXT):  \
 	stdio/$(am__dirstamp) stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-snprintf.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
@@ -8918,14 +8984,23 @@ mostlyclean-compile:
 	-rm -f stdio/lib32_libmingwex_a-lltow.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-lseek64.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-mingw_fprintf.$(OBJEXT)
+	-rm -f stdio/lib32_libmingwex_a-mingw_fprintfw.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-mingw_pformat.$(OBJEXT)
+	-rm -f stdio/lib32_libmingwex_a-mingw_pformatw.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-mingw_printf.$(OBJEXT)
+	-rm -f stdio/lib32_libmingwex_a-mingw_printfw.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-mingw_snprintf.$(OBJEXT)
+	-rm -f stdio/lib32_libmingwex_a-mingw_snprintfw.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-mingw_sprintf.$(OBJEXT)
+	-rm -f stdio/lib32_libmingwex_a-mingw_sprintfw.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-mingw_vfprintf.$(OBJEXT)
+	-rm -f stdio/lib32_libmingwex_a-mingw_vfprintfw.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-mingw_vprintf.$(OBJEXT)
+	-rm -f stdio/lib32_libmingwex_a-mingw_vprintfw.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-mingw_vsnprintf.$(OBJEXT)
+	-rm -f stdio/lib32_libmingwex_a-mingw_vsnprintfw.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-mingw_vsprintf.$(OBJEXT)
+	-rm -f stdio/lib32_libmingwex_a-mingw_vsprintfw.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-snprintf.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-snwprintf.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-strtof.$(OBJEXT)
@@ -8961,14 +9036,23 @@ mostlyclean-compile:
 	-rm -f stdio/lib64_libmingwex_a-lltow.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-lseek64.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-mingw_fprintf.$(OBJEXT)
+	-rm -f stdio/lib64_libmingwex_a-mingw_fprintfw.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-mingw_pformat.$(OBJEXT)
+	-rm -f stdio/lib64_libmingwex_a-mingw_pformatw.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-mingw_printf.$(OBJEXT)
+	-rm -f stdio/lib64_libmingwex_a-mingw_printfw.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-mingw_snprintf.$(OBJEXT)
+	-rm -f stdio/lib64_libmingwex_a-mingw_snprintfw.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-mingw_sprintf.$(OBJEXT)
+	-rm -f stdio/lib64_libmingwex_a-mingw_sprintfw.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-mingw_vfprintf.$(OBJEXT)
+	-rm -f stdio/lib64_libmingwex_a-mingw_vfprintfw.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-mingw_vprintf.$(OBJEXT)
+	-rm -f stdio/lib64_libmingwex_a-mingw_vprintfw.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-mingw_vsnprintf.$(OBJEXT)
+	-rm -f stdio/lib64_libmingwex_a-mingw_vsnprintfw.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-mingw_vsprintf.$(OBJEXT)
+	-rm -f stdio/lib64_libmingwex_a-mingw_vsprintfw.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-snprintf.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-snwprintf.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-strtof.$(OBJEXT)
@@ -10338,14 +10422,23 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-lltow.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-lseek64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_fprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_fprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_pformat.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_pformatw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_printf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_printfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_snprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_snprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_sprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_sprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vfprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vfprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsnprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsnprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-snprintf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-snwprintf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-strtof.Po@am__quote@
@@ -10381,14 +10474,23 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-lltow.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-lseek64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_fprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_fprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_pformat.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_pformatw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_printf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_printfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_sprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_sprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vfprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vfprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsnprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsnprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsprintfw.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-snprintf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-snwprintf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-strtof.Po@am__quote@
@@ -17579,6 +17681,132 @@ stdio/lib32_libmingwex_a-mingw_vsprintf.obj: stdio/mingw_vsprintf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vsprintf.c' object='stdio/lib32_libmingwex_a-mingw_vsprintf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_vsprintf.obj `if test -f 'stdio/mingw_vsprintf.c'; then $(CYGPATH_W) 'stdio/mingw_vsprintf.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vsprintf.c'; fi`
+
+stdio/lib32_libmingwex_a-mingw_fprintfw.o: stdio/mingw_fprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_fprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_fprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_fprintfw.o `test -f 'stdio/mingw_fprintfw.c' || echo '$(srcdir)/'`stdio/mingw_fprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_fprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_fprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_fprintfw.c' object='stdio/lib32_libmingwex_a-mingw_fprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_fprintfw.o `test -f 'stdio/mingw_fprintfw.c' || echo '$(srcdir)/'`stdio/mingw_fprintfw.c
+
+stdio/lib32_libmingwex_a-mingw_fprintfw.obj: stdio/mingw_fprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_fprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_fprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_fprintfw.obj `if test -f 'stdio/mingw_fprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_fprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_fprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_fprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_fprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_fprintfw.c' object='stdio/lib32_libmingwex_a-mingw_fprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_fprintfw.obj `if test -f 'stdio/mingw_fprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_fprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_fprintfw.c'; fi`
+
+stdio/lib32_libmingwex_a-mingw_snprintfw.o: stdio/mingw_snprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_snprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_snprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_snprintfw.o `test -f 'stdio/mingw_snprintfw.c' || echo '$(srcdir)/'`stdio/mingw_snprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_snprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_snprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_snprintfw.c' object='stdio/lib32_libmingwex_a-mingw_snprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_snprintfw.o `test -f 'stdio/mingw_snprintfw.c' || echo '$(srcdir)/'`stdio/mingw_snprintfw.c
+
+stdio/lib32_libmingwex_a-mingw_snprintfw.obj: stdio/mingw_snprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_snprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_snprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_snprintfw.obj `if test -f 'stdio/mingw_snprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_snprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_snprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_snprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_snprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_snprintfw.c' object='stdio/lib32_libmingwex_a-mingw_snprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_snprintfw.obj `if test -f 'stdio/mingw_snprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_snprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_snprintfw.c'; fi`
+
+stdio/lib32_libmingwex_a-mingw_vprintfw.o: stdio/mingw_vprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_vprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_vprintfw.o `test -f 'stdio/mingw_vprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vprintfw.c' object='stdio/lib32_libmingwex_a-mingw_vprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_vprintfw.o `test -f 'stdio/mingw_vprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vprintfw.c
+
+stdio/lib32_libmingwex_a-mingw_vprintfw.obj: stdio/mingw_vprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_vprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_vprintfw.obj `if test -f 'stdio/mingw_vprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vprintfw.c' object='stdio/lib32_libmingwex_a-mingw_vprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_vprintfw.obj `if test -f 'stdio/mingw_vprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vprintfw.c'; fi`
+
+stdio/lib32_libmingwex_a-mingw_pformatw.o: stdio/mingw_pformatw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_pformatw.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_pformatw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_pformatw.o `test -f 'stdio/mingw_pformatw.c' || echo '$(srcdir)/'`stdio/mingw_pformatw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_pformatw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_pformatw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_pformatw.c' object='stdio/lib32_libmingwex_a-mingw_pformatw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_pformatw.o `test -f 'stdio/mingw_pformatw.c' || echo '$(srcdir)/'`stdio/mingw_pformatw.c
+
+stdio/lib32_libmingwex_a-mingw_pformatw.obj: stdio/mingw_pformatw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_pformatw.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_pformatw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_pformatw.obj `if test -f 'stdio/mingw_pformatw.c'; then $(CYGPATH_W) 'stdio/mingw_pformatw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_pformatw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_pformatw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_pformatw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_pformatw.c' object='stdio/lib32_libmingwex_a-mingw_pformatw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_pformatw.obj `if test -f 'stdio/mingw_pformatw.c'; then $(CYGPATH_W) 'stdio/mingw_pformatw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_pformatw.c'; fi`
+
+stdio/lib32_libmingwex_a-mingw_sprintfw.o: stdio/mingw_sprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_sprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_sprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_sprintfw.o `test -f 'stdio/mingw_sprintfw.c' || echo '$(srcdir)/'`stdio/mingw_sprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_sprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_sprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_sprintfw.c' object='stdio/lib32_libmingwex_a-mingw_sprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_sprintfw.o `test -f 'stdio/mingw_sprintfw.c' || echo '$(srcdir)/'`stdio/mingw_sprintfw.c
+
+stdio/lib32_libmingwex_a-mingw_sprintfw.obj: stdio/mingw_sprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_sprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_sprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_sprintfw.obj `if test -f 'stdio/mingw_sprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_sprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_sprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_sprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_sprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_sprintfw.c' object='stdio/lib32_libmingwex_a-mingw_sprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_sprintfw.obj `if test -f 'stdio/mingw_sprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_sprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_sprintfw.c'; fi`
+
+stdio/lib32_libmingwex_a-mingw_vsnprintfw.o: stdio/mingw_vsnprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_vsnprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsnprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_vsnprintfw.o `test -f 'stdio/mingw_vsnprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vsnprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsnprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsnprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vsnprintfw.c' object='stdio/lib32_libmingwex_a-mingw_vsnprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_vsnprintfw.o `test -f 'stdio/mingw_vsnprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vsnprintfw.c
+
+stdio/lib32_libmingwex_a-mingw_vsnprintfw.obj: stdio/mingw_vsnprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_vsnprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsnprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_vsnprintfw.obj `if test -f 'stdio/mingw_vsnprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vsnprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vsnprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsnprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsnprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vsnprintfw.c' object='stdio/lib32_libmingwex_a-mingw_vsnprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_vsnprintfw.obj `if test -f 'stdio/mingw_vsnprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vsnprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vsnprintfw.c'; fi`
+
+stdio/lib32_libmingwex_a-mingw_printfw.o: stdio/mingw_printfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_printfw.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_printfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_printfw.o `test -f 'stdio/mingw_printfw.c' || echo '$(srcdir)/'`stdio/mingw_printfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_printfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_printfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_printfw.c' object='stdio/lib32_libmingwex_a-mingw_printfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_printfw.o `test -f 'stdio/mingw_printfw.c' || echo '$(srcdir)/'`stdio/mingw_printfw.c
+
+stdio/lib32_libmingwex_a-mingw_printfw.obj: stdio/mingw_printfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_printfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_printfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_printfw.obj `if test -f 'stdio/mingw_printfw.c'; then $(CYGPATH_W) 'stdio/mingw_printfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_printfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_printfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_printfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_printfw.c' object='stdio/lib32_libmingwex_a-mingw_printfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_printfw.obj `if test -f 'stdio/mingw_printfw.c'; then $(CYGPATH_W) 'stdio/mingw_printfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_printfw.c'; fi`
+
+stdio/lib32_libmingwex_a-mingw_vfprintfw.o: stdio/mingw_vfprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_vfprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vfprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_vfprintfw.o `test -f 'stdio/mingw_vfprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vfprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vfprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vfprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vfprintfw.c' object='stdio/lib32_libmingwex_a-mingw_vfprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_vfprintfw.o `test -f 'stdio/mingw_vfprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vfprintfw.c
+
+stdio/lib32_libmingwex_a-mingw_vfprintfw.obj: stdio/mingw_vfprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_vfprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vfprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_vfprintfw.obj `if test -f 'stdio/mingw_vfprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vfprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vfprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vfprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vfprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vfprintfw.c' object='stdio/lib32_libmingwex_a-mingw_vfprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_vfprintfw.obj `if test -f 'stdio/mingw_vfprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vfprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vfprintfw.c'; fi`
+
+stdio/lib32_libmingwex_a-mingw_vsprintfw.o: stdio/mingw_vsprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_vsprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_vsprintfw.o `test -f 'stdio/mingw_vsprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vsprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vsprintfw.c' object='stdio/lib32_libmingwex_a-mingw_vsprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_vsprintfw.o `test -f 'stdio/mingw_vsprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vsprintfw.c
+
+stdio/lib32_libmingwex_a-mingw_vsprintfw.obj: stdio/mingw_vsprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-mingw_vsprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsprintfw.Tpo -c -o stdio/lib32_libmingwex_a-mingw_vsprintfw.obj `if test -f 'stdio/mingw_vsprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vsprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vsprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsprintfw.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-mingw_vsprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vsprintfw.c' object='stdio/lib32_libmingwex_a-mingw_vsprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-mingw_vsprintfw.obj `if test -f 'stdio/mingw_vsprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vsprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vsprintfw.c'; fi`
 
 stdio/lib32_libmingwex_a-snprintf.o: stdio/snprintf.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-snprintf.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-snprintf.Tpo -c -o stdio/lib32_libmingwex_a-snprintf.o `test -f 'stdio/snprintf.c' || echo '$(srcdir)/'`stdio/snprintf.c
@@ -25461,6 +25689,132 @@ stdio/lib64_libmingwex_a-mingw_vsprintf.obj: stdio/mingw_vsprintf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vsprintf.c' object='stdio/lib64_libmingwex_a-mingw_vsprintf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_vsprintf.obj `if test -f 'stdio/mingw_vsprintf.c'; then $(CYGPATH_W) 'stdio/mingw_vsprintf.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vsprintf.c'; fi`
+
+stdio/lib64_libmingwex_a-mingw_fprintfw.o: stdio/mingw_fprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_fprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_fprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_fprintfw.o `test -f 'stdio/mingw_fprintfw.c' || echo '$(srcdir)/'`stdio/mingw_fprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_fprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_fprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_fprintfw.c' object='stdio/lib64_libmingwex_a-mingw_fprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_fprintfw.o `test -f 'stdio/mingw_fprintfw.c' || echo '$(srcdir)/'`stdio/mingw_fprintfw.c
+
+stdio/lib64_libmingwex_a-mingw_fprintfw.obj: stdio/mingw_fprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_fprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_fprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_fprintfw.obj `if test -f 'stdio/mingw_fprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_fprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_fprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_fprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_fprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_fprintfw.c' object='stdio/lib64_libmingwex_a-mingw_fprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_fprintfw.obj `if test -f 'stdio/mingw_fprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_fprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_fprintfw.c'; fi`
+
+stdio/lib64_libmingwex_a-mingw_snprintfw.o: stdio/mingw_snprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_snprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_snprintfw.o `test -f 'stdio/mingw_snprintfw.c' || echo '$(srcdir)/'`stdio/mingw_snprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_snprintfw.c' object='stdio/lib64_libmingwex_a-mingw_snprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_snprintfw.o `test -f 'stdio/mingw_snprintfw.c' || echo '$(srcdir)/'`stdio/mingw_snprintfw.c
+
+stdio/lib64_libmingwex_a-mingw_snprintfw.obj: stdio/mingw_snprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_snprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_snprintfw.obj `if test -f 'stdio/mingw_snprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_snprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_snprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_snprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_snprintfw.c' object='stdio/lib64_libmingwex_a-mingw_snprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_snprintfw.obj `if test -f 'stdio/mingw_snprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_snprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_snprintfw.c'; fi`
+
+stdio/lib64_libmingwex_a-mingw_vprintfw.o: stdio/mingw_vprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_vprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_vprintfw.o `test -f 'stdio/mingw_vprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vprintfw.c' object='stdio/lib64_libmingwex_a-mingw_vprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_vprintfw.o `test -f 'stdio/mingw_vprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vprintfw.c
+
+stdio/lib64_libmingwex_a-mingw_vprintfw.obj: stdio/mingw_vprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_vprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_vprintfw.obj `if test -f 'stdio/mingw_vprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vprintfw.c' object='stdio/lib64_libmingwex_a-mingw_vprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_vprintfw.obj `if test -f 'stdio/mingw_vprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vprintfw.c'; fi`
+
+stdio/lib64_libmingwex_a-mingw_pformatw.o: stdio/mingw_pformatw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_pformatw.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_pformatw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_pformatw.o `test -f 'stdio/mingw_pformatw.c' || echo '$(srcdir)/'`stdio/mingw_pformatw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_pformatw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_pformatw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_pformatw.c' object='stdio/lib64_libmingwex_a-mingw_pformatw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_pformatw.o `test -f 'stdio/mingw_pformatw.c' || echo '$(srcdir)/'`stdio/mingw_pformatw.c
+
+stdio/lib64_libmingwex_a-mingw_pformatw.obj: stdio/mingw_pformatw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_pformatw.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_pformatw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_pformatw.obj `if test -f 'stdio/mingw_pformatw.c'; then $(CYGPATH_W) 'stdio/mingw_pformatw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_pformatw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_pformatw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_pformatw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_pformatw.c' object='stdio/lib64_libmingwex_a-mingw_pformatw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_pformatw.obj `if test -f 'stdio/mingw_pformatw.c'; then $(CYGPATH_W) 'stdio/mingw_pformatw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_pformatw.c'; fi`
+
+stdio/lib64_libmingwex_a-mingw_sprintfw.o: stdio/mingw_sprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_sprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_sprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_sprintfw.o `test -f 'stdio/mingw_sprintfw.c' || echo '$(srcdir)/'`stdio/mingw_sprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_sprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_sprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_sprintfw.c' object='stdio/lib64_libmingwex_a-mingw_sprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_sprintfw.o `test -f 'stdio/mingw_sprintfw.c' || echo '$(srcdir)/'`stdio/mingw_sprintfw.c
+
+stdio/lib64_libmingwex_a-mingw_sprintfw.obj: stdio/mingw_sprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_sprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_sprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_sprintfw.obj `if test -f 'stdio/mingw_sprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_sprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_sprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_sprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_sprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_sprintfw.c' object='stdio/lib64_libmingwex_a-mingw_sprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_sprintfw.obj `if test -f 'stdio/mingw_sprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_sprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_sprintfw.c'; fi`
+
+stdio/lib64_libmingwex_a-mingw_vsnprintfw.o: stdio/mingw_vsnprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_vsnprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsnprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_vsnprintfw.o `test -f 'stdio/mingw_vsnprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vsnprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsnprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsnprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vsnprintfw.c' object='stdio/lib64_libmingwex_a-mingw_vsnprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_vsnprintfw.o `test -f 'stdio/mingw_vsnprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vsnprintfw.c
+
+stdio/lib64_libmingwex_a-mingw_vsnprintfw.obj: stdio/mingw_vsnprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_vsnprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsnprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_vsnprintfw.obj `if test -f 'stdio/mingw_vsnprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vsnprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vsnprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsnprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsnprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vsnprintfw.c' object='stdio/lib64_libmingwex_a-mingw_vsnprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_vsnprintfw.obj `if test -f 'stdio/mingw_vsnprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vsnprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vsnprintfw.c'; fi`
+
+stdio/lib64_libmingwex_a-mingw_printfw.o: stdio/mingw_printfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_printfw.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_printfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_printfw.o `test -f 'stdio/mingw_printfw.c' || echo '$(srcdir)/'`stdio/mingw_printfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_printfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_printfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_printfw.c' object='stdio/lib64_libmingwex_a-mingw_printfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_printfw.o `test -f 'stdio/mingw_printfw.c' || echo '$(srcdir)/'`stdio/mingw_printfw.c
+
+stdio/lib64_libmingwex_a-mingw_printfw.obj: stdio/mingw_printfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_printfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_printfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_printfw.obj `if test -f 'stdio/mingw_printfw.c'; then $(CYGPATH_W) 'stdio/mingw_printfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_printfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_printfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_printfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_printfw.c' object='stdio/lib64_libmingwex_a-mingw_printfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_printfw.obj `if test -f 'stdio/mingw_printfw.c'; then $(CYGPATH_W) 'stdio/mingw_printfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_printfw.c'; fi`
+
+stdio/lib64_libmingwex_a-mingw_vfprintfw.o: stdio/mingw_vfprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_vfprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vfprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_vfprintfw.o `test -f 'stdio/mingw_vfprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vfprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vfprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vfprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vfprintfw.c' object='stdio/lib64_libmingwex_a-mingw_vfprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_vfprintfw.o `test -f 'stdio/mingw_vfprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vfprintfw.c
+
+stdio/lib64_libmingwex_a-mingw_vfprintfw.obj: stdio/mingw_vfprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_vfprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vfprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_vfprintfw.obj `if test -f 'stdio/mingw_vfprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vfprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vfprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vfprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vfprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vfprintfw.c' object='stdio/lib64_libmingwex_a-mingw_vfprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_vfprintfw.obj `if test -f 'stdio/mingw_vfprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vfprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vfprintfw.c'; fi`
+
+stdio/lib64_libmingwex_a-mingw_vsprintfw.o: stdio/mingw_vsprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_vsprintfw.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_vsprintfw.o `test -f 'stdio/mingw_vsprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vsprintfw.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vsprintfw.c' object='stdio/lib64_libmingwex_a-mingw_vsprintfw.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_vsprintfw.o `test -f 'stdio/mingw_vsprintfw.c' || echo '$(srcdir)/'`stdio/mingw_vsprintfw.c
+
+stdio/lib64_libmingwex_a-mingw_vsprintfw.obj: stdio/mingw_vsprintfw.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-mingw_vsprintfw.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsprintfw.Tpo -c -o stdio/lib64_libmingwex_a-mingw_vsprintfw.obj `if test -f 'stdio/mingw_vsprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vsprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vsprintfw.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsprintfw.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-mingw_vsprintfw.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/mingw_vsprintfw.c' object='stdio/lib64_libmingwex_a-mingw_vsprintfw.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-mingw_vsprintfw.obj `if test -f 'stdio/mingw_vsprintfw.c'; then $(CYGPATH_W) 'stdio/mingw_vsprintfw.c'; else $(CYGPATH_W) '$(srcdir)/stdio/mingw_vsprintfw.c'; fi`
 
 stdio/lib64_libmingwex_a-snprintf.o: stdio/snprintf.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-snprintf.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-snprintf.Tpo -c -o stdio/lib64_libmingwex_a-snprintf.o `test -f 'stdio/snprintf.c' || echo '$(srcdir)/'`stdio/snprintf.c
