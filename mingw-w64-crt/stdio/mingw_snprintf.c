@@ -28,14 +28,13 @@
 
 #include "mingw_pformat.h"
 
-int __cdecl __snprintf (char *, size_t, const char *fmt, ...) __MINGW_NOTHROW;
-int __cdecl __vsnprintf (char *, size_t, const char *fmt, va_list) __MINGW_NOTHROW;
+int __cdecl __snprintf (APICHAR *, size_t, const APICHAR *fmt, ...) __MINGW_NOTHROW;
+int __cdecl __vsnprintf (APICHAR *, size_t, const APICHAR *fmt, va_list) __MINGW_NOTHROW;
 
-int __cdecl __snprintf( char *buf, size_t length, const char *fmt, ... )
+int __cdecl __snprintf(APICHAR *buf, size_t length, const APICHAR *fmt, ...)
 {
   va_list argv; va_start( argv, fmt );
   register int retval = __vsnprintf( buf, length, fmt, argv );
   va_end( argv );
   return retval;
 }
-

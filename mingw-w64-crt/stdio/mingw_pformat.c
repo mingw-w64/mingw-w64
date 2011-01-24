@@ -274,12 +274,12 @@ void __pformat_putc( int c, __pformat_t *stream )
       /*
        * This is single character output to a FILE stream...
        */
-      fputc( c, (FILE *)(stream->dest) );
+      __fputc(c, (FILE *)(stream->dest));
 
     else
       /* Whereas, this is to an internal memory buffer...
        */
-      ((char *)(stream->dest))[stream->count] = c;
+      ((APICHAR *)(stream->dest))[stream->count] = c;
   }
   ++stream->count;
 }
@@ -330,11 +330,36 @@ void __pformat_putchars( const char *s, int count, __pformat_t *stream )
 
   /* Emit the data...
    */
+#ifdef __BUILD_WIDEAPI
+  {
+    /* mbrtowc */
+    size_t l;
+    wchar_t w[12], *p;
+    while( count > 0 )
+    {
+      mbstate_t ps;
+      memset(&ps, 0, sizeof(ps) );
+      --count;
+      p = &w[0];
+      l = mbrtowc (p, s, strlen (s), &ps);
+      if (!l)
+        break;
+      if ((ssize_t)l < 0)
+      {
+        l = 1;
+        w[0] = (wchar_t) *s;
+      }
+      s += l;
+      __pformat_putc((int)w[0], stream);
+    }
+  }
+#else
   while( count-- )
     /*
      * copying the requisite number of characters from the input.
      */
     __pformat_putc( *s++, stream );
+#endif
 
   /* If we still haven't consumed the entire specified field width,
    * we must be doing flush left justification; any residual width
@@ -373,7 +398,9 @@ void __pformat_wputchars( const wchar_t *s, int count, __pformat_t *stream )
    * by byte, through `__pformat_putc()', to ensure that any specified
    * output quota is honoured.
    */
-  char buf[16]; mbstate_t state; int len = wcrtomb( buf, L'\0', &state );
+  char buf[16];
+  mbstate_t state;
+  int len = wcrtomb(buf, L'\0', &state);
 
   if( (stream->precision >= 0) && (count > stream->precision) )
     /*
@@ -408,13 +435,19 @@ void __pformat_wputchars( const wchar_t *s, int count, __pformat_t *stream )
   /* Emit the data, converting each character from the wide
    * to the multibyte domain as we go...
    */
+#ifdef __BUILD_WIDEAPI
+  while(count-- > 0 && *s != 0)
+  {
+      __pformat_putc(*s++, stream);
+  }
+#else
   while( (count-- > 0) && ((len = wcrtomb( buf, *s++, &state )) > 0) )
   {
     char *p = buf;
     while( len-- > 0 )
       __pformat_putc( *p++, stream );
   }
-
+#endif
   /* If we still haven't consumed the entire specified field width,
    * we must be doing flush left justification; any residual width
    * must be filled with blanks, to the right of the output value.
@@ -1729,7 +1762,8 @@ void __pformat_xldouble( long double x, __pformat_t *stream )
   }
 }
 
-int __pformat( int flags, void *dest, int max, const char *fmt, va_list argv )
+int
+__pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 {
   int c;
 
@@ -1767,7 +1801,7 @@ int __pformat( int flags, void *dest, int max, const char *fmt, va_list argv )
       /* Save the current format scan position, so that we can backtrack
        * in the event of encountering an invalid format specification...
        */
-      const char *backtrack = fmt;
+      const APICHAR *backtrack = fmt;
 
       /* Restart capture for dynamic field width and precision specs...
        */
@@ -1835,7 +1869,6 @@ int __pformat( int flags, void *dest, int max, const char *fmt, va_list argv )
 	      wchar_t argval = (wchar_t)(va_arg( argv, int ));
 	      __pformat_wputchars( &argval, 1, &stream );
 	    }
-
 	    else
 	    { /* while anything else is simply taken as `char', (which
 	       * is also promoted to an `int' argument)...
@@ -1854,20 +1887,18 @@ int __pformat( int flags, void *dest, int max, const char *fmt, va_list argv )
 
 	  case 's':
 	    if( (length == PFORMAT_LENGTH_LONG)
-	    ||  (length == PFORMAT_LENGTH_LLONG)  )
+	         || (length == PFORMAT_LENGTH_LLONG))
 	    {
 	      /* considering any `long' type modifier as a reference to
 	       * a `wchar_t' string...
 	       */
 	      __pformat_wcputs( va_arg( argv, wchar_t * ), &stream );
 	    }
-
 	    else
 	      /* This is normal string output;
 	       * we simply invoke the appropriate handler...
 	       */
 	      __pformat_puts( va_arg( argv, char * ), &stream );
-
 	    goto format_scan;
 
 	  case 'o':

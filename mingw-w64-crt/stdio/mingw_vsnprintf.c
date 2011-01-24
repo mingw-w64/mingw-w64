@@ -28,8 +28,8 @@
 
 #include "mingw_pformat.h"
 
-int __cdecl __vsnprintf (char *, size_t, const char *fmt, va_list) __MINGW_NOTHROW;
-int __cdecl __vsnprintf( char *buf, size_t length, const char *fmt, va_list argv )
+int __cdecl __vsnprintf (APICHAR *, size_t, const APICHAR *fmt, va_list) __MINGW_NOTHROW;
+int __cdecl __vsnprintf(APICHAR *buf, size_t length, const APICHAR *fmt, va_list argv )
 {
   register int retval;
 
@@ -38,7 +38,7 @@ int __cdecl __vsnprintf( char *buf, size_t length, const char *fmt, va_list argv
      * No buffer; simply compute and return the size required,
      * without actually emitting any data.
      */
-    return __pformat( 0, buf, 0, fmt, argv );
+    return __pformat( 0, buf, 0, fmt, argv);
 
   /* If we get to here, then we have a buffer...
    * Emit data up to the limit of buffer length less one,

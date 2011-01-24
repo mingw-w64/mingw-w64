@@ -50,6 +50,12 @@
 # endif
 #endif
 
+#ifdef __BUILD_WIDEAPI
+#define APICHAR	wchar_t
+#else
+#define APICHAR char
+#endif
+
 /* The following are the declarations specific to the `pformat' API...
  */
 #define PFORMAT_TO_FILE     0x1000
@@ -60,7 +66,22 @@
   * Map MinGW specific function names, for use in place of the generic
   * implementation defined equivalent function names.
   */
+#ifdef __BUILD_WIDEAPI
+# define __pformat        __mingw_wpformat
+#define __fputc(X,STR) fputwc((wchar_t) (X), (STR))
+
+# define __printf         __mingw_wprintf
+# define __fprintf        __mingw_fwprintf
+# define __sprintf        __mingw_swprintf
+# define __snprintf       __mingw_snwprintf
+
+# define __vprintf        __mingw_vwprintf
+# define __vfprintf       __mingw_vfwprintf
+# define __vsprintf       __mingw_vswprintf
+# define __vsnprintf      __mingw_vsnwprintf
+#else
 # define __pformat        __mingw_pformat
+#define __fputc(X,STR) fputc((X), (STR))
 
 # define __printf         __mingw_printf
 # define __fprintf        __mingw_fprintf
@@ -71,9 +92,8 @@
 # define __vfprintf       __mingw_vfprintf
 # define __vsprintf       __mingw_vsprintf
 # define __vsnprintf      __mingw_vsnprintf
-
+#endif /* __BUILD_WIDEAPI */
 #endif
 
-int __cdecl __pformat( int, void *, int, const char *, va_list ) __MINGW_NOTHROW;
-
+int __cdecl __pformat(int, void *, int, const APICHAR *, va_list) __MINGW_NOTHROW;
 #endif /* !defined PFORMAT_H */

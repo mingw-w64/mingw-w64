@@ -44,12 +44,11 @@
 
 #include "mingw_pformat.h"
 
-int __cdecl __vsprintf (char *, const char *, va_list) __MINGW_NOTHROW;
+int __cdecl __vsprintf (APICHAR *, const APICHAR *, va_list) __MINGW_NOTHROW;
 
-int __cdecl __vsprintf( char *buf, const char *fmt, va_list argv )
+int __cdecl __vsprintf(APICHAR *buf, const APICHAR *fmt, va_list argv)
 {
   register int retval;
   buf[retval = __pformat( PFORMAT_NOLIMIT, buf, 0, fmt, argv )] = '\0';
   return retval;
 }
-

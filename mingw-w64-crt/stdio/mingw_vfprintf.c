@@ -44,10 +44,9 @@
 
 #include "mingw_pformat.h"
 
-int __cdecl __vfprintf (FILE *, const char *, va_list) __MINGW_NOTHROW;
+int __cdecl __vfprintf (FILE *, const APICHAR *, va_list) __MINGW_NOTHROW;
 
-int __cdecl __vfprintf( FILE *stream, const char *fmt, va_list argv )
+int __cdecl __vfprintf(FILE *stream, const APICHAR *fmt, va_list argv)
 {
   return __pformat( PFORMAT_TO_FILE | PFORMAT_NOLIMIT, stream, 0, fmt, argv );
 }
-

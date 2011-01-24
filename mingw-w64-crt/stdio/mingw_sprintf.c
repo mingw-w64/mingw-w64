@@ -44,9 +44,9 @@
 
 #include "mingw_pformat.h"
 
-int __cdecl __sprintf (char *, const char *, ...) __MINGW_NOTHROW;
+int __cdecl __sprintf (APICHAR *, const APICHAR *, ...) __MINGW_NOTHROW;
 
-int __cdecl __sprintf( char *buf, const char *fmt, ... )
+int __cdecl __sprintf(APICHAR *buf, const APICHAR *fmt, ...)
 {
   register int retval;
   va_list argv; va_start( argv, fmt );
@@ -54,4 +54,3 @@ int __cdecl __sprintf( char *buf, const char *fmt, ... )
   va_end( argv );
   return retval;
 }
-
