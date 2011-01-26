@@ -671,8 +671,9 @@ const char *__mingw_get_crt_info (void);
 #ifndef MINGW_SDK_INIT
 #define MINGW_SDK_INIT
 
+@MINGW_HAS_SECURE_API@
+
 #include "sdks/_mingw_directx.h"
 #include "sdks/_mingw_ddk.h"
 
 #endif /* MINGW_SDK_INIT */
-

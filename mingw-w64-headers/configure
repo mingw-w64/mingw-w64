@@ -557,9 +557,10 @@ PACKAGE_STRING='mingw-w64-headers 1.0b'
 PACKAGE_BUGREPORT='mingw-w64-public@lists.sourceforge.net'
 PACKAGE_URL=''
 
-ac_unique_file="crt/_mingw.h"
+ac_unique_file="crt/_mingw.h.in"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
+MINGW_HAS_SECURE_API
 IDLHEAD_LIST
 MINGW_HAS_DDK
 DDKHEAD_LIST
@@ -652,6 +653,7 @@ enable_option_checking
 enable_maintainer_mode
 enable_crt
 enable_sdk
+enable_secure_api
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1281,6 +1283,7 @@ Optional Features:
   --disable-crt           Do not use the default crt headers
   --enable-sdk=ARG        Add the desired SDK, where ARG can be one of ddk,
                           directx, idl or all
+  --enable-secure-api     Enable secure API by default
 
 Report bugs to <mingw-w64-public@lists.sourceforge.net>.
 _ACEOF
@@ -2385,7 +2388,7 @@ $as_echo "$ac_cv_path_SED" >&6; }
 
 # Checks for header files.
 
-BASEHEAD_LIST=$srcdir/include/*.h
+BASEHEAD_LIST="crt/_mingw.h "$srcdir/include/*.h
 for i in dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
@@ -2495,11 +2498,27 @@ if test "x$enable_idl" = x""yes; then :
 fi
 
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable the secure API" >&5
+$as_echo_n "checking whether to enable the secure API... " >&6; }
+# Check whether --enable-secure-api was given.
+if test "${enable_secure_api+set}" = set; then :
+  enableval=$enable_secure_api; enable_secure_api=yes
+fi
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_secure_api" >&5
+$as_echo "$enable_secure_api" >&6; }
+if test "x$enable_secure_api" = x""yes; then :
+  MINGW_HAS_SECURE_API="#define MINGW_HAS_SECURE_API 1"
+else
+  MINGW_HAS_SECURE_API=""
+fi
+
+
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
 
-ac_config_files="$ac_config_files Makefile"
+ac_config_files="$ac_config_files Makefile crt/_mingw.h"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -3197,6 +3216,7 @@ do
   case $ac_config_target in
     "config.h") CONFIG_HEADERS="$CONFIG_HEADERS config.h" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+    "crt/_mingw.h") CONFIG_FILES="$CONFIG_FILES crt/_mingw.h" ;;
 
   *) as_fn_error "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

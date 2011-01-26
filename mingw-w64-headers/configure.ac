@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.65])
 AC_INIT([mingw-w64-headers],[1.0b],[mingw-w64-public@lists.sourceforge.net])
-AC_CONFIG_SRCDIR([crt/_mingw.h])
+AC_CONFIG_SRCDIR([crt/_mingw.h.in])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_HEADERS([config.h])
 
@@ -19,7 +19,7 @@ AC_PROG_SED
 
 # Checks for header files.
 
-BASEHEAD_LIST=$srcdir/include/*.h
+BASEHEAD_LIST="crt/_mingw.h "$srcdir/include/*.h
 for i in dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
@@ -95,10 +95,24 @@ AS_VAR_IF([enable_idl],[yes],[
     IDLHEAD_LIST=$srcdir/idl/*.idl],[])
 AC_SUBST([IDLHEAD_LIST])
 
+AC_MSG_CHECKING([whether to enable the secure API])
+AC_ARG_ENABLE([secure-api],
+  [AS_HELP_STRING([--enable-secure-api],
+    [Enable secure API by default])],
+  [enable_secure_api=yes])
+AC_MSG_RESULT([$enable_secure_api])
+AS_VAR_IF([enable_secure_api],[yes],
+  [MINGW_HAS_SECURE_API="#define MINGW_HAS_SECURE_API 1"],
+  [MINGW_HAS_SECURE_API=""])
+AC_SUBST([MINGW_HAS_SECURE_API])
+
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([
+  Makefile
+  crt/_mingw.h
+])
 AC_OUTPUT
 
