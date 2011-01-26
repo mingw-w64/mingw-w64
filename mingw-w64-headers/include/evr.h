@@ -149,11 +149,6 @@ DECLARE_INTERFACE_(IMFDesiredSample,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IMFTrackedSample
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
 DECLARE_INTERFACE_(IMFTrackedSample,IUnknown)
 {
     BEGIN_INTERFACE
@@ -174,6 +169,133 @@ DECLARE_INTERFACE_(IMFTrackedSample,IUnknown)
 #define IMFTrackedSample_AddRef(This) (This)->pVtbl->AddRef(This)
 #define IMFTrackedSample_Release(This) (This)->pVtbl->Release(This)
 #define IMFTrackedSample_SetAllocator(This,pSampleAllocator,pUnkState) (This)->lpVtbl->SetAllocator(This,pSampleAllocator,pUnkState)
+#endif /*COBJMACROS*/
+
+#undef  INTERFACE
+#define INTERFACE IMFVideoDeviceID
+DECLARE_INTERFACE_(IMFVideoDeviceID,IUnknown)
+{
+    BEGIN_INTERFACE
+
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IMFVideoDeviceID methods */
+    STDMETHOD_(HRESULT,GetDeviceID)(THIS_ IID *pDeviceID) PURE;
+
+    END_INTERFACE
+};
+#ifdef COBJMACROS
+#define IMFVideoDeviceID_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoDeviceID_AddRef(This) (This)->pVtbl->AddRef(This)
+#define IMFVideoDeviceID_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoDeviceID_GetDeviceID(This,pDeviceID) (This)->lpVtbl->GetDeviceID(This,pDeviceID)
+#endif /*COBJMACROS*/
+
+#undef  INTERFACE
+#define INTERFACE IMFVideoPositionMapper
+DECLARE_INTERFACE_(IMFVideoPositionMapper,IUnknown)
+{
+    BEGIN_INTERFACE
+
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IMFVideoPositionMapper methods */
+    STDMETHOD_(HRESULT,MapOutputCoordinateToInputStream)(THIS_ float xOut,float yOut,DWORD dwOutputStreamIndex,DWORD dwInputStreamIndex,float *pxIn,float *pyIn) PURE;
+
+    END_INTERFACE
+};
+#ifdef COBJMACROS
+#define IMFVideoPositionMapper_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoPositionMapper_AddRef(This) (This)->pVtbl->AddRef(This)
+#define IMFVideoPositionMapper_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoPositionMapper_MapOutputCoordinateToInputStream(This,xOut,yOut,dwOutputStreamIndex,dwInputStreamIndex,pxIn,pyIn) (This)->lpVtbl->MapOutputCoordinateToInputStream(This,xOut,yOut,dwOutputStreamIndex,dwInputStreamIndex,pxIn,pyIn)
+#endif /*COBJMACROS*/
+
+#undef  INTERFACE
+#define INTERFACE IMFVideoRenderer
+DECLARE_INTERFACE_(IMFVideoRenderer,IUnknown)
+{
+    BEGIN_INTERFACE
+
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IMFVideoRenderer methods */
+    STDMETHOD_(HRESULT,InitializeRenderer)(THIS_ IMFTransform *pVideoMixer,IMFVideoPresenter *pVideoPresenter) PURE;
+
+    END_INTERFACE
+};
+#ifdef COBJMACROS
+#define IMFVideoRenderer_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoRenderer_AddRef(This) (This)->pVtbl->AddRef(This)
+#define IMFVideoRenderer_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoRenderer_InitializeRenderer(This,pVideoMixer,pVideoPresenter) (This)->lpVtbl->InitializeRenderer(This,pVideoMixer,pVideoPresenter)
+#endif /*COBJMACROS*/
+
+#undef  INTERFACE
+#define INTERFACE IMFVideoDisplayControl
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
+DECLARE_INTERFACE_(IMFVideoDisplayControl,IUnknown)
+{
+    BEGIN_INTERFACE
+
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IMFVideoDisplayControl methods */
+    STDMETHOD_(HRESULT,GetAspectRatioMode)(THIS_ DWORD *pdwAspectRatioMode) PURE;
+    STDMETHOD_(HRESULT,GetBorderColor)(THIS_ COLORREF *pClr) PURE;
+    STDMETHOD_(HRESULT,GetCurrentImage)(THIS_ LONGLONG *pTimeStamp) PURE;
+    STDMETHOD_(HRESULT,GetFullscreen)(THIS_ BOOL *pfFullscreen) PURE;
+    STDMETHOD_(HRESULT,GetIdealVideoSize)(THIS_ SIZE *pszMax) PURE;
+    STDMETHOD_(HRESULT,GetNativeVideoSize)(THIS_ SIZE *pszARVideo) PURE;
+    STDMETHOD_(HRESULT,GetRenderingPrefs)(THIS_ DWORD *pdwRenderFlags) PURE;
+    STDMETHOD_(HRESULT,GetVideoPosition)(THIS_ MFVideoNormalizedRect *pnrcSource,LPRECT prcDest) PURE;
+    STDMETHOD_(HRESULT,GetVideoWindow)(THIS_ HWND *phwndVideo) PURE;
+    STDMETHOD_(HRESULT,RepaintVideo)(THIS) PURE;
+    STDMETHOD_(HRESULT,SetAspectRatioMode)(THIS_ DWORD dwAspectRatioMode) PURE;
+    STDMETHOD_(HRESULT,SetBorderColor)(THIS_ COLORREF Clr) PURE;
+    STDMETHOD_(HRESULT,SetFullscreen)(THIS_ BOOL fFullscreen) PURE;
+    STDMETHOD_(HRESULT,SetRenderingPrefs)(THIS_ DWORD dwRenderFlags) PURE;
+    STDMETHOD_(HRESULT,SetVideoPosition)(THIS_ const MFVideoNormalizedRect *pnrcSource,const LPRECT prcDest) PURE;
+    STDMETHOD_(HRESULT,SetVideoWindow)(THIS_ HWND hwndVideo) PURE;
+
+    END_INTERFACE
+};
+#ifdef COBJMACROS
+#define IMFVideoDisplayControl_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoDisplayControl_AddRef(This) (This)->pVtbl->AddRef(This)
+#define IMFVideoDisplayControl_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoDisplayControl_GetAspectRatioMode(This,pdwAspectRatioMode) (This)->lpVtbl->GetAspectRatioMode(This,pdwAspectRatioMode)
+#define IMFVideoDisplayControl_GetBorderColor(This,pClr) (This)->lpVtbl->GetBorderColor(This,pClr)
+#define IMFVideoDisplayControl_GetCurrentImage(This,pTimeStamp) (This)->lpVtbl->GetCurrentImage(This,pTimeStamp)
+#define IMFVideoDisplayControl_GetFullscreen(This,pfFullscreen) (This)->lpVtbl->GetFullscreen(This,pfFullscreen)
+#define IMFVideoDisplayControl_GetIdealVideoSize(This,pszMax) (This)->lpVtbl->GetIdealVideoSize(This,pszMax)
+#define IMFVideoDisplayControl_GetNativeVideoSize(This,pszARVideo) (This)->lpVtbl->GetNativeVideoSize(This,pszARVideo)
+#define IMFVideoDisplayControl_GetRenderingPrefs(This,pdwRenderFlags) (This)->lpVtbl->GetRenderingPrefs(This,pdwRenderFlags)
+#define IMFVideoDisplayControl_GetVideoPosition(This,pnrcSource,prcDest) (This)->lpVtbl->GetVideoPosition(This,pnrcSource,prcDest)
+#define IMFVideoDisplayControl_GetVideoWindow(This,phwndVideo) (This)->lpVtbl->GetVideoWindow(This,phwndVideo)
+#define IMFVideoDisplayControl_RepaintVideo() (This)->lpVtbl->RepaintVideo(This)
+#define IMFVideoDisplayControl_SetAspectRatioMode(This,dwAspectRatioMode) (This)->lpVtbl->SetAspectRatioMode(This,dwAspectRatioMode)
+#define IMFVideoDisplayControl_SetBorderColor(This,Clr) (This)->lpVtbl->SetBorderColor(This,Clr)
+#define IMFVideoDisplayControl_SetFullscreen(This,fFullscreen) (This)->lpVtbl->SetFullscreen(This,fFullscreen)
+#define IMFVideoDisplayControl_SetRenderingPrefs(This,dwRenderFlags) (This)->lpVtbl->SetRenderingPrefs(This,dwRenderFlags)
+#define IMFVideoDisplayControl_SetVideoPosition(This,pnrcSource,prcDest) (This)->lpVtbl->SetVideoPosition(This,pnrcSource,prcDest)
+#define IMFVideoDisplayControl_SetVideoWindow(This,hwndVideo) (This)->lpVtbl->SetVideoWindow(This,hwndVideo)
 #endif /*COBJMACROS*/
 
 #ifdef __cplusplus
