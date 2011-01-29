@@ -883,6 +883,48 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
     return (_S);
   }
 #endif /* !__CRT__NO_INLINE */
+
+#ifndef __MINGW_MBWC_CONVERT_DEFINED
+#define __MINGW_MBWC_CONVERT_DEFINED
+
+/**
+ * __mingw_str_wide_utf8
+ * Converts a null terminated UCS-2 string to a multibyte (UTF-8) equivalent.
+ * Caller is supposed to free allocated buffer with __mingw_str_free().
+ * @param[in] wptr Pointer to wide string.
+ * @param[out] mbptr Pointer to multibyte string.
+ * @param[out] buflen Optional parameter for length of allocated buffer.
+ * @return bytes written by WideCharToMultiByte conversion, 0 for failure.
+ *
+ * WideCharToMultiByte - http://msdn.microsoft.com/en-us/library/dd374130(VS.85).aspx
+ */
+int __cdecl __mingw_str_wide_utf8 (const wchar_t * const wptr, char **mbptr, size_t * buflen);
+
+/**
+ * __mingw_str_utf8_wide
+ * Converts a null terminated UTF-8 string to a UCS-2 equivalent.
+ * Caller is supposed to free allocated buffer with __mingw_str_free().
+ * @param[out] mbptr Pointer to multibyte string.
+ * @param[in] wptr Pointer to wide string.
+ * @param[out] buflen Optional parameter for length of allocated buffer.
+ * @return bytes written by WideCharToMultiByte conversion, 0 for failure.
+ *
+ * MultiByteToWideChar - http://msdn.microsoft.com/en-us/library/dd319072(VS.85).aspx
+ */
+
+int __cdecl __mingw_str_utf8_wide (const char *const mbptr, wchar_t ** wptr, size_t * buflen);
+
+/**
+ * __mingw_str_free
+ * Frees buffer create by __mingw_str_wide_utf8 and __mingw_str_utf8_wide.
+ * @param[in] ptr memory block to free.
+ *
+ */
+
+void __cdecl __mingw_str_free(void *ptr);
+
+#endif /* __MINGW_MBWC_CONVERT_DEFINED */
+
 #ifdef __cplusplus
 }
 #endif

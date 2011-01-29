@@ -1,3 +1,9 @@
+2011-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* stdio.h, wchar.h (__mingw_str_wide_utf8): Declare prototype.
+	(__mingw_str_utf8_wide): Likewise.
+	(__mingw_str_free): Likewise.
+
 2011-01-24  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw_print_pop.h, _mingw_print_push.h: Add wide-character API
