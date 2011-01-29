@@ -211,7 +211,7 @@ src_libmingwex=\
   misc/mingw_output_format.c  misc/mingw_usleep.c  misc/_mkgmtime32.c    misc/_mkgmtime.c             misc/_mktime32.c       \
   misc/mktime.c               misc/seterrno.c      misc/sleep.c          misc/spawnv.c                misc/spawnve.c         \
   misc/spawnvp.c              misc/spawnvpe.c      misc/strtoimax.c      misc/strtold.c               misc/strtoumax.c       \
-  misc/strnlen.c              misc/wcsnlen.c       \
+  misc/strnlen.c              misc/wcsnlen.c       misc/mbwc.c  \
   misc/tdelete.c              misc/tfind.c         misc/_time32.c        misc/time.c                  misc/tsearch.c         \
   misc/twalk.c                misc/wassert.c       misc/wcrtomb.c        misc/wcstoimax.c             misc/wcstold.c         \
   misc/wcstoumax.c            misc/_wctime32.c     misc/_wctime.c        misc/wctob.c                 misc/wctrans.c         \
