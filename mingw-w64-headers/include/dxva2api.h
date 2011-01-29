@@ -17,6 +17,12 @@ extern "C" {
 typedef LONGLONG REFERENCE_TIME;
 #endif /*__REFERENCE_TIME_DEFINED*/
 
+#define DXVA2_ProcAmp_None 0x0000
+#define DXVA2_ProcAmp_Brightness 0x0001
+#define DXVA2_ProcAmp_Contrast 0x0002
+#define DXVA2_ProcAmp_Hue 0x0004
+#define DXVA2_ProcAmp_Saturation 0x0008
+
 typedef struct IDirect3DDeviceManager9 IDirect3DDeviceManager9;
 typedef struct IDirectXVideoDecoderService IDirectXVideoDecoderService;
 

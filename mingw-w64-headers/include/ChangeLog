@@ -1,3 +1,35 @@
+2011-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+	* dxva2api.h (DXVA2_ProcAmp_None): Define.
+	(DXVA2_ProcAmp_Brightness): Likewise.
+	(DXVA2_ProcAmp_Contrast): Likewise.
+	(DXVA2_ProcAmp_Hue): Likewise.
+	(DXVA2_ProcAmp_Saturation): Likewise.
+	* mfapi.h (MFScheduleWorkItemEx): New function declaration.
+	* opmapi.h (OPM_CGMSA_OFF): Define.
+	(OPM_CGMSA_COPY_FREELY): Likewise.
+	(OPM_CGMSA_COPY_NO_MORE): Likewise.
+	(OPM_CGMSA_COPY_ONE_GENERATION): Likewise.
+	(OPM_CGMSA_COPY_NEVER): Likewise.
+	(OPM_CGMSA_REDISTRIBUTION_CONTROL_REQUIRED): Likewise.
+	(OPM_PROTECTION_STANDARD_OTHER): Likewise.
+	(OPM_PROTECTION_STANDARD_NONE): Likewise.
+	(OPM_PROTECTION_STANDARD_IEC61880_525I): Likewise.
+	(OPM_PROTECTION_STANDARD_IEC61880_2_525I): Likewise.
+	(OPM_PROTECTION_STANDARD_IEC62375_625P): Likewise.
+	(OPM_PROTECTION_STANDARD_EIA608B_525): Likewise.
+	(OPM_PROTECTION_STANDARD_EN300294_625I): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEA_525P): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEA_750P): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEA_1125I): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEB_525P): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEB_750P): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEB_1125I): Likewise.
+	(OPM_PROTECTION_STANDARD_ARIBTRB15_525I): Likewise.
+	(OPM_PROTECTION_STANDARD_ARIBTRB15_525P): Likewise.
+	(OPM_PROTECTION_STANDARD_ARIBTRB15_750P): Likewise.
+	(OPM_PROTECTION_STANDARD_ARIBTRB15_1125I): Likewise.
+	* mfidl.h (IMFByteStreamHandler): New interface declaration.
+
 2011-01-17  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* winuser.h (WM_MOUSEHWHEEL): Define.

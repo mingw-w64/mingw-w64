@@ -1695,6 +1695,40 @@ DECLARE_INTERFACE_(IMFQualityManager,IUnknown)
 #define IMFQualityManager_Shutdown() (This)->lpVtbl->Shutdown(This)
 #endif /*COBJMACROS*/
 
+#undef  INTERFACE
+#define INTERFACE IMFByteStreamHandler
+#ifdef __GNUC__
+#warning COM interfaces layout in this header has not been verified.
+#warning COM interfaces with incorrect layout may not work at all.
+__MINGW_BROKEN_INTERFACE(INTERFACE)
+#endif
+DECLARE_INTERFACE_(IMFByteStreamHandler,IUnknown)
+{
+    BEGIN_INTERFACE
+
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IMFByteStreamHandler methods */
+    STDMETHOD_(HRESULT,BeginCreateObject)(THIS_ IMFByteStream *pByteStream,LPCWSTR pwszURL,DWORD dwFlags,IPropertyStore *pProps,IUnknown **ppIUnknownCancelCookie,IMFAsyncCallback *pCallback,IUnknown *punkState) PURE;
+    STDMETHOD_(HRESULT,CancelObjectCreation)(THIS_ IUnknown *pIUnknownCancelCookie) PURE;
+    STDMETHOD_(HRESULT,EndCreateObject)(THIS_ IMFAsyncResult *pResult,MF_OBJECT_TYPE *pObjectType,IUnknown **ppObject) PURE;
+    STDMETHOD_(HRESULT,GetMaxNumberOfBytesRequiredForResolution)(THIS_ QWORD *pqwBytes) PURE;
+
+    END_INTERFACE
+};
+#ifdef COBJMACROS
+#define IMFByteStreamHandler_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFByteStreamHandler_AddRef(This) (This)->pVtbl->AddRef(This)
+#define IMFByteStreamHandler_Release(This) (This)->pVtbl->Release(This)
+#define IMFByteStreamHandler_BeginCreateObject(This,pByteStream,pwszURL,dwFlags,pProps,ppIUnknownCancelCookie,pCallback,punkState) (This)->lpVtbl->BeginCreateObject(This,pByteStream,pwszURL,dwFlags,pProps,ppIUnknownCancelCookie,pCallback,punkState)
+#define IMFByteStreamHandler_CancelObjectCreation(This,pIUnknownCancelCookie) (This)->lpVtbl->CancelObjectCreation(This,pIUnknownCancelCookie)
+#define IMFByteStreamHandler_EndCreateObject(This,pResult,pObjectType,ppObject) (This)->lpVtbl->EndCreateObject(This,pResult,pObjectType,ppObject)
+#define IMFByteStreamHandler_GetMaxNumberOfBytesRequiredForResolution(This,pqwBytes) (This)->lpVtbl->GetMaxNumberOfBytesRequiredForResolution(This,pqwBytes)
+#endif /*COBJMACROS*/
+
 #if (_WIN32_WINNT >= 0x0601)
 #undef  INTERFACE
 #define INTERFACE IMFTranscodeProfile

@@ -196,6 +196,7 @@ HRESULT WINAPI MFPutWorkItemEx(DWORD dwQueue,IMFAsyncResult *pResult);
 HRESULT WINAPI MFRemovePeriodicCallback(DWORD dwKey);
 HRESULT WINAPI MFRequireProtectedEnvironment(IMFPresentationDescriptor *pPresentationDescriptor);
 HRESULT WINAPI MFScheduleWorkItem(IMFAsyncCallback *pCallback,IUnknown *pState,INT64 Timeout,MFWORKITEM_KEY *pKey);
+HRESULT WINAPI MFScheduleWorkItemEx(IMFAsyncResult *pResult,INT64 Timeout,MFWORKITEM_KEY *pKey);
 HRESULT WINAPI MFSerializePresentationDescriptor(IMFPresentationDescriptor *pPD,DWORD *pcbData,BYTE **ppbData);
 HRESULT WINAPI MFSetAttribute2UINT32asUINT64(IMFAttributes *pAttributes,REFGUID guidKey,UINT32 unHigh32,UINT32 unLow32);
 HRESULT WINAPI MFSetAttributeRatio(IMFAttributes *pAttributes,REFGUID guidKey,UINT32 unNumerator,UINT32 unDenominator);
