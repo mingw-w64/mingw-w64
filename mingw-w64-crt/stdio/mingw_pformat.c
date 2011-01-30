@@ -172,7 +172,7 @@
  * for `PRINTF_EXPONENT_DIGITS', through the simple expedient
  * of defining it as an environment variable.
  */
-static __inline__ __attribute__((__always_inline__))
+static
 int __pformat_exponent_digits( void )
 {
   char *exponent_digits = getenv( "PRINTF_EXPONENT_DIGITS" );
@@ -369,7 +369,7 @@ void __pformat_putchars( const char *s, int count, __pformat_t *stream )
     __pformat_putc( '\x20', stream );
 }
 
-static __inline__
+static
 void __pformat_puts( const char *s, __pformat_t *stream )
 {
   /* Handler for `%s' conversion specifications.
@@ -456,7 +456,7 @@ void __pformat_wputchars( const wchar_t *s, int count, __pformat_t *stream )
     __pformat_putc( '\x20', stream );
 }
 
-static __inline__ __attribute__((__always_inline__))
+static
 void __pformat_wcputs( const wchar_t *s, __pformat_t *stream )
 {
   /* Handler for `%S' (`%ls') conversion specifications.
@@ -476,7 +476,7 @@ void __pformat_wcputs( const wchar_t *s, __pformat_t *stream )
   __pformat_wputchars( s, wcslen( s ), stream );
 }
 
-static __inline__
+static
 int __pformat_int_bufsiz( int bias, int size, __pformat_t *stream )
 {
   /* Helper to establish the size of the internal buffer, which
@@ -813,7 +813,7 @@ char *__pformat_cvt( int mode, __pformat_fpreg_t x, int nd, int *dp, int *sign )
   return __gdtoa( &fpi, e, &x.__pformat_fpreg_bits, &k, mode, nd, dp, &ep );
 }
 
-static __inline__ __attribute__((__always_inline__))
+static
 char *__pformat_ecvt( long double x, int precision, int *dp, int *sign )
 {
   /* A convenience wrapper for the above...
@@ -823,7 +823,7 @@ char *__pformat_ecvt( long double x, int precision, int *dp, int *sign )
   return __pformat_cvt( 2, z, precision, dp, sign );
 }
 
-static __inline__ __attribute__((__always_inline__))
+static
 char *__pformat_fcvt( long double x, int precision, int *dp, int *sign )
 {
   /* A convenience wrapper for the above...
@@ -844,7 +844,7 @@ char *__pformat_fcvt( long double x, int precision, int *dp, int *sign )
  * TODO: remove this before final release; it is included here as a
  * convenience for testing, without requiring a working `__gdtoa()'.
  */
-static __inline__
+static
 char *__pformat_ecvt( long double x, int precision, int *dp, int *sign )
 {
   /* Define in terms of `ecvt()'...
@@ -865,7 +865,7 @@ char *__pformat_ecvt( long double x, int precision, int *dp, int *sign )
   return retval;
 }
 
-static __inline__
+static
 char *__pformat_fcvt( long double x, int precision, int *dp, int *sign )
 {
   /* Define in terms of `fcvt()'...
@@ -894,7 +894,7 @@ char *__pformat_fcvt( long double x, int precision, int *dp, int *sign )
 /* TODO: end of conditional to be removed. */
 #endif
 
-static __inline__
+static
 void __pformat_emit_radix_point( __pformat_t *stream )
 {
   /* Helper to place a localised representation of the radix point
@@ -960,7 +960,7 @@ void __pformat_emit_radix_point( __pformat_t *stream )
     __pformat_putc( '.', stream );
 }
 
-static __inline__ __attribute__((__always_inline__))
+static
 void __pformat_emit_numeric_value( int c, __pformat_t *stream )
 {
   /* Convenience helper to transfer numeric data from an internal
@@ -1508,7 +1508,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
     /* taking the rightmost digit in each pass...
      */
     int c = value.__pformat_fpreg_mantissa & 0xF;
-    if( c == value.__pformat_fpreg_mantissa )
+    if( c == (int) value.__pformat_fpreg_mantissa)
     {
       /* inserting the radix point, when we reach the last,
        * (i.e. the most significant digit), unless we found no
@@ -2409,18 +2409,16 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	      stream.flags |= PFORMAT_LJUSTIFY;
 	    break;
 
-#	  ifdef WITH_XSI_FEATURES
-
 	    case '\'':
 	      /*
 	       * This is an XSI extension to the POSIX standard,
 	       * which we do not support, at present.
 	       */
+#	  ifdef WITH_XSI_FEATURES
 	      if( state == PFORMAT_INIT )
 		stream.flags |= PFORMAT_GROUPED;
-	      break;
-
 #	  endif
+	      break;
 
 	  case '\x20':
 	    /*
