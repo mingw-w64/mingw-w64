@@ -1589,7 +1589,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
    * consistency with `%e', `%f' and `%g' styles.
    */
     int min_width = p - buf;
-    int exponent = value.__pformat_fpreg_exponent;
+    int exponent2 = value.__pformat_fpreg_exponent;
 
     /* If we have not yet queued sufficient digits to fulfil the
      * requested precision, then we must adjust the minimum width
@@ -1603,7 +1603,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
      * sign, radix indicator and at least one exponent digit...
      */
     min_width += stream->flags & PFORMAT_SIGNED ? 6 : 5;
-    while( (exponent = exponent / 10) != 0 )
+    while( (exponent2 = exponent2 / 10) != 0 )
     {
       /* and increase as required, if additional exponent digits
        * are needed, also saving the exponent field width adjustment,
@@ -1658,7 +1658,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
    */
   __pformat_putc( '0', stream );
   __pformat_putc( 'X' | (stream->flags & PFORMAT_XCASE), stream );
-
+  
   /* If the `0' flag is in effect...
    * Zero padding, to fill out the field, goes here...
    */
@@ -1766,6 +1766,7 @@ int
 __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 {
   int c;
+  int saved_errno = errno;
 
   __pformat_t stream =
   {
@@ -1866,8 +1867,8 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	      /* considering any `long' type modifier as a reference to
 	       * `wchar_t' data, (which is promoted to an `int' argument)...
 	       */
-	      wchar_t argval = (wchar_t)(va_arg( argv, int ));
-	      __pformat_wputchars( &argval, 1, &stream );
+	      wchar_t iargval = (wchar_t)(va_arg( argv, int ));
+	      __pformat_wputchars( &iargval, 1, &stream );
 	    }
 	    else
 	    { /* while anything else is simply taken as `char', (which
@@ -1899,6 +1900,9 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	       * we simply invoke the appropriate handler...
 	       */
 	      __pformat_puts( va_arg( argv, char * ), &stream );
+	    goto format_scan;
+	  case 'm': /* strerror (errno)  */
+	    __pformat_puts (strerror (saved_errno), &stream);
 	    goto format_scan;
 
 	  case 'o':
