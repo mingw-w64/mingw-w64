@@ -64,6 +64,7 @@ typedef __int64	_pid_t;
 #endif
 
 #ifndef	NO_OLDNAMES
+#undef pid_t
 typedef _pid_t	pid_t;
 #endif
 #endif	/* Not _PID_T_ */
