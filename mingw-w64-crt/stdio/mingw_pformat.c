@@ -1,8 +1,3 @@
-/* FIXME: to be removed one day; for now we explicitly are not
- * prepared to support the POSIX-XSI additions to the C99 standard.
- */
-#undef   WITH_XSI_FEATURES
-
 /* pformat.c
  *
  * $Id: pformat.c,v 1.9 2011/01/07 22:57:00 keithmarshall Exp $
@@ -91,6 +86,7 @@
 /* Bit-map constants, defining the internal format control
  * states, which propagate through the flags.
  */
+#define PFORMAT_GROUPED     0x1000
 #define PFORMAT_HASHED      0x0800
 #define PFORMAT_LJUSTIFY    0x0400
 #define PFORMAT_ZEROFILL    0x0200
@@ -254,6 +250,8 @@ typedef struct
   int            precision;
   int            rplen;
   wchar_t        rpchr;
+  int		 thousands_chr_len;
+  wchar_t	 thousands_chr;
   int            count;
   int            quota;
   int            expmin;
@@ -485,6 +483,8 @@ int __pformat_int_bufsiz( int bias, int size, __pformat_t *stream )
    */
   size = ((size - 1 + LLONGBITS) / size) + bias;
   size += (stream->precision > 0) ? stream->precision : 0;
+  if ((stream->flags & PFORMAT_GROUPED) != 0 && stream->thousands_chr != 0)
+    size += (size / 3);
   return (size > stream->width) ? size : stream->width;
 }
 
@@ -526,6 +526,11 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
      * in order from least significant to most significant, using
      * the local buffer as a LIFO queue in which to store them. 
      */
+    if (p != buf && (stream->flags & PFORMAT_GROUPED) != 0 && stream->thousands_chr != 0
+        && ((p - buf) % 4) == 3)
+      {
+        *p++ = ',';
+      }
     *p++ = '0' + (unsigned char)(value.__pformat_ullong_t % 10LL);
     value.__pformat_ullong_t /= 10LL;
   }
@@ -931,6 +936,9 @@ void __pformat_emit_radix_point( __pformat_t *stream )
     /* We have a localised radix point mark;
      * establish a converter to make it a multibyte character...
      */
+#ifdef __BUILD_WIDEAPI
+   __pformat_putc (stream->rpchr, stream);
+#else
     int len; char buf[len = stream->rplen]; mbstate_t state;
 
     /* Initialise the conversion state...
@@ -952,8 +960,8 @@ void __pformat_emit_radix_point( __pformat_t *stream )
       /* otherwise fall back to plain ASCII '.'...
        */
       __pformat_putc( '.', stream );
+#endif
   }
-
   else
     /* No localisation: just use ASCII '.'...
      */
@@ -972,7 +980,12 @@ void __pformat_emit_numeric_value( int c, __pformat_t *stream )
      * point to the appropriately localised representation...
      */
     __pformat_emit_radix_point( stream );
-
+  else if (c == ',')
+    {
+      wchar_t wcs;
+      if ((wcs = stream->thousands_chr) != 0)
+	__pformat_wputchars (&wcs, 1, stream);
+    }
   else
     /* and passing all other characters through, unmodified.
      */
@@ -1082,9 +1095,18 @@ void __pformat_emit_float( int sign, char *value, int len, __pformat_t *stream )
   /* Reserve space in the output field, for display of the decimal point,
    * unless the precision is explicity zero, with the `#' flag not set.
    */
-  if(  (stream->width > 0)
-  &&  ((stream->precision > 0) || (stream->flags & PFORMAT_HASHED))  )
+  if ((stream->width > 0)
+      && ((stream->precision > 0) || (stream->flags & PFORMAT_HASHED)))
     stream->width--;
+
+  if (len > 0 && (stream->flags & PFORMAT_GROUPED) != 0 && stream->thousands_chr != 0)
+    {
+      int cths = ((len + 2) / 3) - 1;
+      while (cths > 0 && stream->width > 0)
+        {
+          --cths; stream->width--;
+        }
+    }
 
   /* Reserve space in the output field, for display of the sign of the
    * formatted value, if required; (i.e. if the value is negative, or if
@@ -1131,13 +1153,20 @@ void __pformat_emit_float( int sign, char *value, int len, __pformat_t *stream )
   /* Emit the digits of the encoded numeric value...
    */
   if( len > 0 )
+  {
     /*
      * ...beginning with those which precede the radix point,
      * and appending any necessary significant trailing zeros.
      */
-    do __pformat_putc( *value ? *value++ : '0', stream );
-       while( --len > 0 );
-
+    do {
+      __pformat_putc( *value ? *value++ : '0', stream);
+      --len;
+      if (len != 0 && (stream->flags & PFORMAT_GROUPED) != 0 && stream->thousands_chr != 0
+	  && (len % 3) == 0)
+	__pformat_wputchars (&stream->thousands_chr, 1, stream);
+    }
+    while (len > 0);
+  }
   else
     /* The magnitude of the encoded value is less than 1.0, so no
      * digits precede the radix point; we emit a mandatory initial
@@ -1439,7 +1468,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
    * either `double' or `long double' type, as a hexadecimal
    * representation of the argument value.
    */
-  char buf[18], *p = buf;
+  char buf[18 + 6], *p = buf;
   __pformat_intarg_t exponent; short exp_width = 2;
 
   /* The mantissa field of the argument value representation can
@@ -1517,12 +1546,14 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
        */
       if( (p > buf)
       ||  (stream->flags & PFORMAT_HASHED) || (stream->precision > 0)  )
+      {
 	/*
 	 * Internally, we represent the radix point as an ASCII '.';
 	 * we will replace it with any locale specific alternative,
 	 * at the time of transfer to the ultimate destination.
 	 */
 	*p++ = '.';
+      }
 
       /* If the most significant hexadecimal digit of the encoded
        * output value is greater than one, then the indicated value
@@ -1549,6 +1580,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
       stream->precision--;
 
     if( (c > 0) || (p > buf) || (stream->precision >= 0) )
+    {
       /*
        * Ignoring insignificant trailing zeros, (unless required to
        * satisfy specified precision), store the current encoded digit
@@ -1556,7 +1588,7 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
        * appropriate case for digits in the `A'..`F' range.
        */
       *p++ = c > 9 ? (c - 10 + 'A') | (stream->flags & PFORMAT_XCASE) : c + '0';
-
+    }
     /* Shift out the current digit, (4-bit logical shift right),
      * to align the next more significant digit to be extracted,
      * and encoded in the next pass.
@@ -1779,6 +1811,8 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
     PFORMAT_IGNORE,				/* nor any precision spec     */
     PFORMAT_RPINIT,				/* radix point uninitialised  */
     (wchar_t)(0),				/* leave it unspecified       */
+    0,
+    (wchar_t)(0),				/* leave it unspecified	      */
     0,						/* zero output char count     */
     max,					/* establish output limit     */
     PFORMAT_MINEXP				/* exponent chars preferred   */
@@ -2414,10 +2448,15 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	       * This is an XSI extension to the POSIX standard,
 	       * which we do not support, at present.
 	       */
-#	  ifdef WITH_XSI_FEATURES
-	      if( state == PFORMAT_INIT )
-		stream.flags |= PFORMAT_GROUPED;
-#	  endif
+	      if (state == PFORMAT_INIT)
+	      {
+		stream.flags |= PFORMAT_GROUPED; /* $$$$ */
+		int len; wchar_t rpchr; mbstate_t cstate;
+		memset (&cstate, 0, sizeof(state));
+		if ((len = mbrtowc( &rpchr, localeconv()->thousands_sep, 16, &cstate)) > 0)
+		    stream.thousands_chr = rpchr;
+	  	stream.thousands_chr_len = len;
+	      }
 	      break;
 
 	  case '\x20':
