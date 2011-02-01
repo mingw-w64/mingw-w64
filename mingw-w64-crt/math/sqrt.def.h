@@ -62,6 +62,14 @@ __FLT_ABI (sqrt) (__FLT_TYPE x)
     return __FLT_HUGE_VAL;
   else if (x == __FLT_CST (1.0))
    return __FLT_CST (1.0);
+#if !defined(_WIN64) || defined(_NEW_COMPLEX_LDOUBLE)
   asm ("fsqrt" : "=t" (res) : "0" (x));
   return res;
+#elif defined(_NEW_COMPLEX_FLOAT)
+ __asm__ __volatile__ ("sqrtss %0, %0" : "=x" (x) : "x" (x) : );
+ return x;
+#else
+ __asm__ __volatile__ ("sqrtsd %0, %0" : "=x" (x) : "x" (x) : );
+ return x;
+#endif
 }

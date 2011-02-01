@@ -1,3 +1,13 @@
+2011-02-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/mingw_wcstod.c: New.
+	* misc/mingw_wcstof.c: New.
+	* misc/mingw_wcstold.c: New.
+	* Makefile.am: Add new files to libmingex.a library.
+	* math/fastmath.h: Use for 64-bit SSE sqrt instruction.
+	* math/sqrt.c: Likewise.
+	* math/sqrt.def.h: Likewise.
+
 2011-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* misc/mingw_mbwc_convert.c: New.

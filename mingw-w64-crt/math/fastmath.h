@@ -18,9 +18,14 @@
 
 static __inline__ double __fast_sqrt (double x)
 {
+#ifndef _WIN64
   double res;
   asm __volatile__ ("fsqrt" : "=t" (res) : "0" (x));
   return res;
+#else
+  __asm__ __volatile__ ("sqrtsd %0, %0" : "=x" (x) : "x" (x) : );
+  return x;
+#endif
 }
 
 static __inline__ long double __fast_sqrtl (long double x)
@@ -32,9 +37,14 @@ static __inline__ long double __fast_sqrtl (long double x)
 
 static __inline__ float __fast_sqrtf (float x)
 {
+#ifndef _WIN64
   float res;
   asm __volatile__ ("fsqrt" : "=t" (res) : "0" (x));
   return res;
+#else
+  __asm__ __volatile__ ("sqrtss %0, %0" : "=x" (x) : "x" (x) : );
+  return x;
+#endif
 }
 
 

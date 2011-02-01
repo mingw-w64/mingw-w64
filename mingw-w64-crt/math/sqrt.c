@@ -43,4 +43,5 @@
 */
 
 #define _NEW_COMPLEX_DOUBLE 1
+#define X64_ASM "sqrtsd"
 #include "sqrt.def.h"
