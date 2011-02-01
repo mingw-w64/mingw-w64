@@ -683,6 +683,11 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   double __cdecl wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
   _CRTIMP double __cdecl _wcstod_l(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr,_locale_t _Locale);
   float __cdecl wcstof( const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
+
+  double __cdecl __mingw_wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
+  float __cdecl __mingw_wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
+  long double __cdecl __mingw_wcstold(const wchar_t * __restrict__, wchar_t ** __restrict__);
+
 #if !defined __NO_ISOCEXT /* in libmingwex.a */
   float __cdecl wcstof (const wchar_t * __restrict__, wchar_t ** __restrict__);
   long double __cdecl wcstold (const wchar_t * __restrict__, wchar_t ** __restrict__);

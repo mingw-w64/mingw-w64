@@ -448,6 +448,11 @@ strtod (const char * __restrict__ __nptr, char ** __restrict__  __endptr)
   _CRTIMP wchar_t *__cdecl _ultow(unsigned long _Value,wchar_t *_Dest,int _Radix) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   double __cdecl wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
   float __cdecl wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
+
+  double __cdecl __mingw_wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
+  float __cdecl __mingw_wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
+  long double __cdecl __mingw_wcstold(const wchar_t * __restrict__, wchar_t ** __restrict__);
+
 #if !defined __NO_ISOCEXT /* in libmingwex.a */
   float __cdecl wcstof( const wchar_t * __restrict__, wchar_t ** __restrict__);
   long double __cdecl wcstold(const wchar_t * __restrict__, wchar_t ** __restrict__);

@@ -1,3 +1,8 @@
+2011-02-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdlib.h (__mingw_wcsto(f|l|ld): Add prototypes.
+	* wchar.h: Likewise.
+
 2011-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* stdio.h, wchar.h (__mingw_str_wide_utf8): Declare prototype.
