@@ -1,3 +1,10 @@
+2011-02-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk:
+	2011-01-31  Kai Tietz  <kai.tietz@onevision.com>  (rev. 4007)
+	* sys/types.h: Make sure pid_t isn't overriden by some clever
+	configury.
+
 2011-01-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* dos.h (_A_VOLID): Add missing definition, from r/os svn r50165.
