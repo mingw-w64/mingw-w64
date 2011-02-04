@@ -1,3 +1,16 @@
+2011-02-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/mingw_fscanf.c: New.
+	* stdio/mingw_fwscanf.c: New.
+	* stdio/mingw_scanf.c: New.
+	* stdio/mingw_sscanf.c: New.
+	* stdio/mingw_swscanf.c: New.
+	* stdio/mingw_vfscanf.c: New.
+	* stdio/mingw_wscanf.c: New.
+	* stdio/mingw_wvfscanf.c: New.
+	* Makefile.am: Add new files.
+	* Makefile.in: Regenerated.
+
 2011-02-01  Kai Tietz  <kai.tietz@onevision.com>
 
 	* misc/mingw_wcstod.c: New.
