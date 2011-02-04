@@ -317,6 +317,13 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _set_printf_count_output(int _Value);
   _CRTIMP int __cdecl _get_printf_count_output(void);
 
+  int __cdecl __mingw_sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
+  int __cdecl __mingw_vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
+  int __cdecl __mingw_scanf(const char * __restrict__ _Format,...);
+  int __cdecl __mingw_vscanf(const char * __restrict__ Format, va_list argp);
+  int __cdecl __mingw_fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
+  int __cdecl __mingw_vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
+
 #ifndef _WSTDIO_DEFINED
 #define _WSTDIO_DEFINED
 
@@ -381,6 +388,14 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #endif /* !__CRT__NO_INLINE */
 #pragma pop_macro ("vsnwprintf")
 #pragma pop_macro ("snwprintf")
+
+  int __cdecl __mingw_swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
+  int __cdecl __mingw_vswscanf (const wchar_t * __restrict__ _Str,const wchar_t * __restrict__ Format,va_list argp);
+  int __cdecl __mingw_wscanf(const wchar_t * __restrict__ _Format,...);
+  int __cdecl __mingw_vwscanf(const wchar_t * __restrict__ Format, va_list argp);
+  int __cdecl __mingw_fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+  int __cdecl __mingw_vfwscanf (FILE * __restrict__ fp, const wchar_t * __restrict__ Format,va_list argp);
+
   int __cdecl vwscanf (const wchar_t * __restrict__ , va_list);
   int __cdecl vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
   int __cdecl vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
