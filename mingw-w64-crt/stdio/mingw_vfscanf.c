@@ -304,7 +304,7 @@ __mingw_sformat (_IFP *s, const char *format, va_list argp)
   va_list arg;
   unsigned char fc;
   unsigned int npos;
-  int width, flags, base, errno_sv;
+  int width, flags, base = 0, errno_sv;
   size_t wbuf_cur_sz, read_in_sv, new_sz, n;
   char seen_dot, seen_exp, is_neg, not_in;
   char *tmp_wbuf_ptr, buf[MB_LEN_MAX];

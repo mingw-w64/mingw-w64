@@ -314,7 +314,7 @@ __mingw_swformat (_IFP *s, const wchar_t *format, va_list argp)
   va_list arg;
   size_t wbuf_cur_sz, str_len, read_in_sv, new_sz, n;
   unsigned int fc, npos;
-  int width, flags, base, errno_sv, clen;
+  int width, flags, base = 0, errno_sv, clen;
   char seen_dot, seen_exp, is_neg, *nstr, buf[MB_LEN_MAX];
   wchar_t wc, not_in, *tmp_wbuf_ptr, *temp_wbuf_end, *wbuf_iter;
   wint_t lc_decimal_point, lc_thousands_sep;

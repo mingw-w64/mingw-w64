@@ -231,7 +231,7 @@ src_libmingwex=\
   stdio/mingw_fprintfw.c stdio/mingw_snprintfw.c stdio/mingw_vprintfw.c \
   stdio/mingw_pformatw.c stdio/mingw_sprintfw.c stdio/mingw_vsnprintfw.c \
   stdio/mingw_printfw.c stdio/mingw_vfprintfw.c stdio/mingw_vsprintfw.c \
-  stdio/mingw_fscanf.c stdio/m.c \
+  stdio/mingw_fscanf.c stdio/mingw_scanf.c \
   stdio/mingw_swscanf.c stdio/mingw_wscanf.c \
   stdio/mingw_fwscanf.c stdio/mingw_sscanf.c \
   stdio/mingw_vfscanf.c stdio/mingw_wvfscanf.c \

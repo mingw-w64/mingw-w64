@@ -5,6 +5,7 @@
 extern int __mingw_vfscanf (FILE *stream, const char *format, va_list argp);
 
 int __mingw_scanf (const char *format, ...);
+int __mingw_vscanf (const char *format, va_list argp);
 
 int
 __mingw_scanf (const char *format, ...)
@@ -17,5 +18,11 @@ __mingw_scanf (const char *format, ...)
   va_end (argp);
 
   return r;
+}
+
+int
+__mingw_vscanf (const char *format, va_list argp)
+{
+  return __mingw_vfscanf (stdin, format, argp);
 }
 
