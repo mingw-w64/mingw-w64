@@ -1,3 +1,9 @@
+2011-02-05  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_mac.h: Enable feature indicator macros for ISO-C printf/
+	scanf functionality.
+	* _mingw_print_push.h, _mingw_print_pop.h: Enable scanf.
+
 2011-02-01  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdlib.h (__mingw_wcsto(f|l|ld): Add prototypes.

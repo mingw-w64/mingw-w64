@@ -138,8 +138,8 @@
    So we add some helper macros to ease recognition of them.  */
 #define __MINGW_HAVE_ANSI_C99_PRINTF 1
 #define __MINGW_HAVE_WIDE_C99_PRINTF 1
-/* #define __MINGW_HAVE_ANSI_C99_SCANF 1 */
-/* #define __MINGW_HAVE_WIDE_C99_SCANF 1 */
+#define __MINGW_HAVE_ANSI_C99_SCANF 1
+#define __MINGW_HAVE_WIDE_C99_SCANF 1
 
 #endif	/* _INC_CRTDEFS_MACRO */
 
