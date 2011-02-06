@@ -60,6 +60,14 @@
 # endif
 #endif	/* DUMMYUNIONNAME */
 
+#if !defined(DUMMYUNIONNAME1)	/* MinGW does not define this one */
+# ifdef NONAMELESSUNION
+#  define DUMMYUNIONNAME1 u1	/* Wine uses this variant */
+# else
+#  define DUMMYUNIONNAME1	/* Wine uses this variant */
+# endif
+#endif	/* DUMMYUNIONNAME1 */
+
 #ifndef DUMMYSTRUCTNAME
 # ifdef NONAMELESSUNION
 #  define DUMMYSTRUCTNAME  s
