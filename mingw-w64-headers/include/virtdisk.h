@@ -140,7 +140,7 @@ typedef struct _VIRTUAL_STORAGE_TYPE {
 
 typedef struct _ATTACH_VIRTUAL_DISK_PARAMETERS {
   ATTACH_VIRTUAL_DISK_VERSION Version;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       ULONG Reserved;
     } Version1;
@@ -149,7 +149,7 @@ typedef struct _ATTACH_VIRTUAL_DISK_PARAMETERS {
 
 typedef struct _COMPACT_VIRTUAL_DISK_PARAMETERS {
   COMPACT_VIRTUAL_DISK_VERSION Version;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       ULONG Reserved;
     } Version1;
@@ -158,7 +158,7 @@ typedef struct _COMPACT_VIRTUAL_DISK_PARAMETERS {
 
 typedef struct _CREATE_VIRTUAL_DISK_PARAMETERS {
   CREATE_VIRTUAL_DISK_VERSION Version;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       GUID      UniqueId;
       ULONGLONG MaximumSize;
@@ -172,7 +172,7 @@ typedef struct _CREATE_VIRTUAL_DISK_PARAMETERS {
 
 typedef struct _EXPAND_VIRTUAL_DISK_PARAMETERS {
   EXPAND_VIRTUAL_DISK_VERSION Version;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       ULONGLONG NewSize;
     } Version1;
@@ -181,7 +181,7 @@ typedef struct _EXPAND_VIRTUAL_DISK_PARAMETERS {
 
 typedef struct _GET_VIRTUAL_DISK_INFO {
   GET_VIRTUAL_DISK_INFO_VERSION Version;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       ULONGLONG VirtualSize;
       ULONGLONG PhysicalSize;
@@ -202,7 +202,7 @@ typedef struct _GET_VIRTUAL_DISK_INFO {
 
 typedef struct _MERGE_VIRTUAL_DISK_PARAMETERS {
   MERGE_VIRTUAL_DISK_VERSION Version;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       ULONG MergeDepth;
     } Version1;
@@ -211,7 +211,7 @@ typedef struct _MERGE_VIRTUAL_DISK_PARAMETERS {
 
 typedef struct _OPEN_VIRTUAL_DISK_PARAMETERS {
   OPEN_VIRTUAL_DISK_VERSION Version;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       ULONG RWDepth;
     } Version1;
@@ -220,7 +220,7 @@ typedef struct _OPEN_VIRTUAL_DISK_PARAMETERS {
 
 typedef struct _SET_VIRTUAL_DISK_INFO {
   SET_VIRTUAL_DISK_INFO_VERSION Version;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     PCWSTR ParentFilePath;
     GUID   UniqueIdentifier;
   } DUMMYUNIONNAME;
@@ -248,7 +248,7 @@ typedef struct _STORAGE_DEPENDENCY_INFO_TYPE_2 {
 typedef struct _STORAGE_DEPENDENCY_INFO {
   STORAGE_DEPENDENCY_INFO_VERSION Version;
   ULONG                           NumberEntries;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     STORAGE_DEPENDENCY_INFO_TYPE_1 Version1Entries[1];
     STORAGE_DEPENDENCY_INFO_TYPE_2 Version2Entries[1];
   } DUMMYUNIONNAME;

@@ -35,7 +35,7 @@ struct sockaddr_in6 {
   u_short sin6_port;
   u_long sin6_flowinfo;
   struct in6_addr sin6_addr;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     u_long sin6_scope_id;
     SCOPE_ID sin6_scope_struct;
   };

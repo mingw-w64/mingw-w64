@@ -47,9 +47,9 @@ typedef struct _INTERNET_CACHE_CONFIG_INFOA
     WINBOOL fPerUser;
     DWORD dwSyncMode;
     DWORD dwNumCachePaths;
-    __C89_NAMELESS union
+    __C89_NAMELESSUNION union
     {
-        __C89_NAMELESS struct
+        __C89_NAMELESSSTRUCT struct
         {
             CHAR CachePath[MAX_PATH];
             DWORD dwCacheSize;
@@ -69,9 +69,9 @@ typedef struct _INTERNET_CACHE_CONFIG_INFOW
     WINBOOL  fPerUser;
     DWORD dwSyncMode;
     DWORD dwNumCachePaths;
-    __C89_NAMELESS union
+    __C89_NAMELESSUNION union
     {
-        __C89_NAMELESS struct
+        __C89_NAMELESSSTRUCT struct
         {
             WCHAR CachePath[MAX_PATH];
             DWORD dwCacheSize;

@@ -94,7 +94,7 @@ typedef struct tagFONTDESC {
 typedef struct tagPICTDESC {
   UINT cbSizeofstruct;
   UINT picType;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       HBITMAP hbitmap;
       HPALETTE hpal;

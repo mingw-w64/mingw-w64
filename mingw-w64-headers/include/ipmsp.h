@@ -206,7 +206,7 @@ extern "C"{
 
   typedef struct tagTAPI_STREAM_CONFIG_CAPS {
     StreamConfigCapsType CapsType;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       TAPI_VIDEO_STREAM_CONFIG_CAPS VideoCap;
       TAPI_AUDIO_STREAM_CONFIG_CAPS AudioCap;
     };

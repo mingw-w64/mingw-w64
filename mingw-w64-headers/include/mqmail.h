@@ -95,7 +95,7 @@ extern "C" {
     LPFILETIME pftDate;
     LPMQMailRecipList pRecips;
     MQMailEMailType iType;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       MQMailFormData form;
       MQMailMessageData message;
       MQMailTnefData tnef;

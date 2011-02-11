@@ -1338,7 +1338,7 @@ extern "C" {
     DWORD dwSize;
     MSP_EVENT Event;
     MSP_HANDLE hCall;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       struct {
 	MSP_ADDRESS_EVENT Type;
 	ITTerminal *pTerminal;

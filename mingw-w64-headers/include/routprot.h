@@ -36,9 +36,9 @@ extern "C" {
 #define IR_PROMISCUOUS_MULTICAST 1
 
   typedef struct _SUPPORT_FUNCTIONS {
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       ULONGLONG _Align8;
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
 	DWORD dwVersion;
 	DWORD dwReserved;
       };

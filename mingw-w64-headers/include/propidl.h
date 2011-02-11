@@ -187,13 +187,13 @@ extern "C"{
 #define tag_inner_PROPVARIANT
 
   struct tagPROPVARIANT {
-    __MINGW_EXTENSION union {
-      __MINGW_EXTENSION struct tag_inner_PROPVARIANT {
+    __C89_NAMELESSUNION union {
+      __C89_NAMELESSSTRUCT struct tag_inner_PROPVARIANT {
 	VARTYPE vt;
 	PROPVAR_PAD1 wReserved1;
 	PROPVAR_PAD2 wReserved2;
 	PROPVAR_PAD3 wReserved3;
-	__MINGW_EXTENSION union {
+	__C89_NAMELESSUNION union {
 	  CHAR cVal;
 	  UCHAR bVal;
 	  SHORT iVal;
@@ -347,7 +347,7 @@ extern "C"{
 
   typedef struct tagPROPSPEC {
     ULONG ulKind;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       PROPID propid;
       LPOLESTR lpwstr;
     } DUMMYUNIONNAME;

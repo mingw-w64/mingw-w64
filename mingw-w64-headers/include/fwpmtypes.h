@@ -42,7 +42,7 @@ typedef enum FWPM_NET_EVENT_TYPE_ {
 
 typedef struct FWPM_ACTION0_ {
   FWP_ACTION_TYPE type;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     GUID filterType;
     GUID calloutKey;
   };
@@ -174,7 +174,7 @@ typedef struct FWPM_FILTER0_ {
   UINT32                 numFilterConditions;
   FWPM_FILTER_CONDITION0 *filterCondition;
   FWPM_ACTION0           action;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     UINT64 rawContext;
     GUID   providerContextKey;
   };
@@ -214,11 +214,11 @@ typedef struct FWPM_NET_EVENT_HEADER0_ {
   UINT32         flags;
   FWP_IP_VERSION ipVersion;
   UINT8          ipProtocol;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     UINT32           localAddrV4;
     FWP_BYTE_ARRAY16 localAddrV6;
   };
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     UINT32           remoteAddrV4;
     FWP_BYTE_ARRAY16 remoteAddrV6;
   };
@@ -263,10 +263,10 @@ typedef struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
   IKEEXT_QM_SA_STATE     qmState;
   IKEEXT_SA_ROLE         saRole;
   IPSEC_TRAFFIC_TYPE     saTrafficType;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     FWP_CONDITION_VALUE0 localSubNet;
   };
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     FWP_CONDITION_VALUE0 remoteSubNet;
   };
   UINT64                 qmFilterId;
@@ -284,11 +284,11 @@ typedef struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0_ {
 
 typedef struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0_ {
   FWP_IP_VERSION ipVersion;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     UINT32 publicHostV4Addr;
     UINT8  publicHostV6Addr[16];
   };
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     UINT32 internalHostV4Addr;
     UINT8  internalHostV6Addr[16];
   };
@@ -299,7 +299,7 @@ typedef struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0_ {
 typedef struct FWPM_NET_EVENT0_ {
   FWPM_NET_EVENT_HEADER0 header;
   FWPM_NET_EVENT_TYPE    type;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 *ikeMmFailure;
     FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 *ikeQmFailure;
     FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 *ikeEmFailure;
@@ -333,7 +333,7 @@ typedef struct FWPM_PROVIDER_CONTEXT0_ {
   GUID                       *providerKey;
   FWP_BYTE_BLOB              providerData;
   FWPM_PROVIDER_CONTEXT_TYPE type;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     IPSEC_KEYING_POLICY0    *keyingPolicy;
     IPSEC_TRANSPORT_POLICY0 *ikeQmTransportPolicy;
     IPSEC_TUNNEL_POLICY0    *ikeQmTunnelPolicy;

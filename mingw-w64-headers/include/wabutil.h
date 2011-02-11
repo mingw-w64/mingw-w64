@@ -153,7 +153,7 @@ extern "C" {
   typedef struct {
     ULONG cctl;
     LPTSTR lpszResourceName;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       LPTSTR lpszComponent;
       ULONG ulItemID;
     };

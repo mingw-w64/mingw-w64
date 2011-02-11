@@ -1576,8 +1576,8 @@ extern "C" {
     WORD dmSize;
     WORD dmDriverExtra;
     DWORD dmFields;
-    __MINGW_EXTENSION union {
-      __MINGW_EXTENSION struct {
+    __C89_NAMELESSUNION union {
+      __C89_NAMELESSSTRUCT struct {
 	short dmOrientation;
 	short dmPaperSize;
 	short dmPaperLength;
@@ -1603,7 +1603,7 @@ extern "C" {
     DWORD dmBitsPerPel;
     DWORD dmPelsWidth;
     DWORD dmPelsHeight;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       DWORD dmDisplayFlags;
       DWORD dmNup;
     };
@@ -1625,8 +1625,8 @@ extern "C" {
     WORD dmSize;
     WORD dmDriverExtra;
     DWORD dmFields;
-    __MINGW_EXTENSION union {
-      __MINGW_EXTENSION struct {
+    __C89_NAMELESSUNION union {
+      __C89_NAMELESSSTRUCT struct {
 	short dmOrientation;
 	short dmPaperSize;
 	short dmPaperLength;
@@ -1636,7 +1636,7 @@ extern "C" {
 	short dmDefaultSource;
 	short dmPrintQuality;
       };
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
 	POINTL dmPosition;
 	DWORD dmDisplayOrientation;
 	DWORD dmDisplayFixedOutput;
@@ -1652,7 +1652,7 @@ extern "C" {
     DWORD dmBitsPerPel;
     DWORD dmPelsWidth;
     DWORD dmPelsHeight;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       DWORD dmDisplayFlags;
       DWORD dmNup;
     };

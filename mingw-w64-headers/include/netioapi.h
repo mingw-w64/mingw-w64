@@ -81,8 +81,8 @@ typedef struct _MIB_IPNET_ROW2 {
   UCHAR             PhysicalAddress[IF_MAX_PHYS_ADDRESS_LENGTH];
   ULONG             PhysicalAddressLength;
   NL_NEIGHBOR_STATE State;
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+  __C89_NAMELESSUNION union {
+    __C89_NAMELESSSTRUCT struct {
       BOOLEAN IsRouter  :1;
       BOOLEAN IsUnreachable  :1;
     };
@@ -254,7 +254,7 @@ typedef struct _MIB_IPPATH_ROW {
   ULONG         PathMtu;
   ULONG         RttMean;
   ULONG         RttDeviation;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG LastReachable;
     ULONG LastUnreachable;
   };

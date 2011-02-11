@@ -33,7 +33,7 @@ extern "C" {
     UNICODE_STRING FullDllName;
     BYTE Reserved4[8];
     PVOID Reserved5[3];
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       ULONG CheckSum;
       PVOID Reserved6;
     };
@@ -435,7 +435,7 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   } FILE_ALL_INFORMATION, *PFILE_ALL_INFORMATION;
  
   typedef struct _IO_STATUS_BLOCK {
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       NTSTATUS Status;
       PVOID Pointer;
     };

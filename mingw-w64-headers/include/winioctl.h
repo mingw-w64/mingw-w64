@@ -594,7 +594,7 @@ typedef PARTITION_INFORMATION_GPT SET_PARTITION_INFORMATION_GPT;
 
 typedef struct _SET_PARTITION_INFORMATION_EX {
   PARTITION_STYLE PartitionStyle;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     SET_PARTITION_INFORMATION_MBR Mbr;
     SET_PARTITION_INFORMATION_GPT Gpt;
   } DUMMYUNIONNAME;
@@ -611,7 +611,7 @@ typedef struct _CREATE_DISK_MBR {
 
 typedef struct _CREATE_DISK {
   PARTITION_STYLE PartitionStyle;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     CREATE_DISK_MBR Mbr;
     CREATE_DISK_GPT Gpt;
   } DUMMYUNIONNAME;
@@ -627,7 +627,7 @@ typedef struct _PARTITION_INFORMATION_EX {
   LARGE_INTEGER PartitionLength;
   DWORD PartitionNumber;
   BOOLEAN RewritePartition;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     PARTITION_INFORMATION_MBR Mbr;
     PARTITION_INFORMATION_GPT Gpt;
   } DUMMYUNIONNAME;
@@ -647,7 +647,7 @@ typedef struct _DRIVE_LAYOUT_INFORMATION_MBR {
 typedef struct _DRIVE_LAYOUT_INFORMATION_EX {
   DWORD PartitionStyle;
   DWORD PartitionCount;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     DRIVE_LAYOUT_INFORMATION_MBR Mbr;
     DRIVE_LAYOUT_INFORMATION_GPT Gpt;
   } DUMMYUNIONNAME;
@@ -680,8 +680,8 @@ typedef struct _DISK_EX_INT13_INFO {
 typedef struct _DISK_DETECTION_INFO {
   DWORD SizeOfDetectInfo;
   DETECTION_TYPE DetectionType;
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+  __C89_NAMELESSUNION union {
+    __C89_NAMELESSSTRUCT struct {
       DISK_INT13_INFO Int13;
       DISK_EX_INT13_INFO ExInt13;
     } DUMMYSTRUCTNAME;
@@ -691,7 +691,7 @@ typedef struct _DISK_DETECTION_INFO {
 typedef struct _DISK_PARTITION_INFO {
   DWORD SizeOfPartitionInfo;
   PARTITION_STYLE PartitionStyle;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       DWORD Signature;
       DWORD CheckSum;
@@ -728,7 +728,7 @@ typedef struct _DISK_CACHE_INFORMATION {
   DISK_CACHE_RETENTION_PRIORITY WriteRetentionPriority;
   WORD DisablePrefetchTransferLength;
   BOOLEAN PrefetchScalar;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       WORD Minimum;
       WORD Maximum;
@@ -1638,8 +1638,8 @@ typedef struct _NTFS_STATISTICS {
 
 typedef struct _FILE_OBJECTID_BUFFER {
   BYTE ObjectId[16];
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+  __C89_NAMELESSUNION union {
+    __C89_NAMELESSSTRUCT struct {
       BYTE BirthVolumeId[16];
       BYTE BirthObjectId[16];
       BYTE DomainId[16];
@@ -2079,7 +2079,7 @@ typedef struct _TXFS_LIST_TRANSACTIONS {
 } TXFS_LIST_TRANSACTIONS, *PTXFS_LIST_TRANSACTIONS;
 
 typedef struct _TXFS_READ_BACKUP_INFORMATION_OUT {
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG BufferLength;
     UCHAR Buffer;
   } DUMMYUNIONNAME;

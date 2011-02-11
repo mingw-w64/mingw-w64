@@ -1015,7 +1015,7 @@ typedef enum  {
 
 typedef struct _RASTUNNELENDPOINT {
   DWORD dwType;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     RASIPV4ADDR ipv4;
     RASIPV6ADDR ipv6;
   } DUMMYUNIONNAME;

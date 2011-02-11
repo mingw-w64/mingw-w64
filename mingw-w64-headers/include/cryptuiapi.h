@@ -80,7 +80,7 @@ extern "C" {
     DWORD dwSize;
     LPWSTR pwszSigningCertFileName;
     DWORD dwPvkChoice;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       PCCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO pPvkFileInfo;
       PCRYPT_KEY_PROV_INFO pPvkProvInfo;
     };
@@ -116,12 +116,12 @@ extern "C" {
   typedef struct _CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     DWORD dwSize;
     DWORD dwSubjectChoice;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       LPCWSTR pwszFileName;
       PCCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO pSignBlobInfo;
     };
     DWORD dwSigningCertChoice;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       PCCERT_CONTEXT pSigningCertContext;
       PCCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO pSigningCertStore;
       PCCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO pSigningCertPvkInfo;
@@ -180,7 +180,7 @@ extern "C" {
     PCCERT_CONTEXT pCertContext;
     LPCSTR *rgszPurposes;
     DWORD cPurposes;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       CRYPT_PROVIDER_DATA const *pCryptProviderData;
       HANDLE hWVTStateData;
     };
@@ -206,7 +206,7 @@ extern "C" {
     PCCERT_CONTEXT pCertContext;
     LPCSTR *rgszPurposes;
     DWORD cPurposes;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       CRYPT_PROVIDER_DATA const *pCryptProviderData;
       HANDLE hWVTStateData;
     };
@@ -243,7 +243,7 @@ extern "C" {
     DWORD dwSize;
     LPCWSTR pwszExportFileName;
     DWORD dwSubjectChoice;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       PCCERT_CONTEXT pCertContext;
       PCCTL_CONTEXT pCTLContext;
       PCCRL_CONTEXT pCRLContext;
@@ -283,7 +283,7 @@ extern "C" {
   typedef struct _CRYPTUI_WIZ_IMPORT_SUBJECT_INFO {
     DWORD dwSize;
     DWORD dwSubjectChoice;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       LPCWSTR pwszFileName;
       PCCERT_CONTEXT pCertContext;
       PCCTL_CONTEXT pCTLContext;

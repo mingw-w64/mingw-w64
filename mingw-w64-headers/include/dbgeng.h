@@ -664,11 +664,11 @@ extern "C" {
 #define DEBUG_VALUE_TYPES 12
 
   typedef struct _DEBUG_VALUE {
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       UCHAR I8;
       USHORT I16;
       ULONG I32;
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
 	ULONG64 I64;
 	WINBOOL Nat;
       };

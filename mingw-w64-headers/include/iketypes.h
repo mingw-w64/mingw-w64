@@ -159,8 +159,8 @@ typedef struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0__ {
 
 typedef struct IKEEXT_CERTIFICATE_AUTHENTICATION0_ {
   IKEEXT_CERT_CONFIG_TYPE inboundConfigType;
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+  __C89_NAMELESSUNION union {
+    __C89_NAMELESSSTRUCT struct {
       UINT32                   inboundRootArraySize;
       IKEEXT_CERT_ROOT_CONFIG0 *inboundRootArray;
     };
@@ -168,8 +168,8 @@ typedef struct IKEEXT_CERTIFICATE_AUTHENTICATION0_ {
     IKEEXT_CERT_ROOT_CONFIG0 *inboundTrustedRootStoreConfig;
   };
   IKEEXT_CERT_CONFIG_TYPE outboundConfigType;
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+  __C89_NAMELESSUNION union {
+    __C89_NAMELESSSTRUCT struct {
       UINT32                   outboundRootArraySize;
       IKEEXT_CERT_ROOT_CONFIG0 *outboundRootArray;
     };
@@ -181,7 +181,7 @@ typedef struct IKEEXT_CERTIFICATE_AUTHENTICATION0_ {
 
 typedef struct IKEEXT_AUTHENTICATION_METHOD0_ {
   IKEEXT_AUTHENTICATION_METHOD_TYPE authenticationMethodType;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     IKEEXT_PRESHARED_KEY_AUTHENTICATION0 presharedKeyAuthentication;
     IKEEXT_CERTIFICATE_AUTHENTICATION0   certificateAuthentication;
     IKEEXT_KERBEROS_AUTHENTICATION0      kerberosAuthentication;
@@ -264,7 +264,7 @@ typedef struct IKEEXT_NAME_CREDENTIAL0_ {
 typedef struct IKEEXT_CREDENTIAL0_ {
   IKEEXT_AUTHENTICATION_METHOD_TYPE        authenticationMethodType;
   IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE impersonationType;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     IKEEXT_PRESHARED_KEY_AUTHENTICATION0 *presharedKey;
     IKEEXT_CERTIFICATE_CREDENTIAL0       *certificate;
     IKEEXT_NAME_CREDENTIAL0              *name;
@@ -315,11 +315,11 @@ typedef struct IKEEXT_KEYMODULE_STATISTICS0_ {
 
 typedef struct IKEEXT_TRAFFIC0_ {
   FWP_IP_VERSION ipVersion;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     UINT32 localV4Address;
     UINT8  localV6Address[16];
   };
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     UINT32 remoteV4Address;
     UINT8  remoteV6Address[16];
   };
@@ -330,7 +330,7 @@ typedef struct IKEEXT_SA_DETAILS0_ {
   UINT64                 saId;
   IKEEXT_KEY_MODULE_TYPE keyModuleType;
   FWP_IP_VERSION         ipVersion;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     IPSEC_V4_UDP_ENCAPSULATION0 *v4UdpEncapsulation;
   };
   IKEEXT_TRAFFIC0        ikeTraffic;

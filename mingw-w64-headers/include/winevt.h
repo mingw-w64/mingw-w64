@@ -267,7 +267,7 @@ typedef enum _EVT_VARIANT_TYPE {
 } EVT_VARIANT_TYPE;
 
 typedef struct _EVT_VARIANT {
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     WINBOOL    BooleanVal;
     INT8       SByteVal;
     INT16      Int16Val;

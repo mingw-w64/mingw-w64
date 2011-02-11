@@ -76,9 +76,9 @@ DEFINE_GUID(GUID_DEVINTERFACE_MOUSE, \
 typedef struct _MOUSE_INPUT_DATA {
   USHORT UnitId;
   USHORT Flags;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG Buttons;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       USHORT ButtonFlags;
       USHORT ButtonData;
     } DUMMYSTRUCTNAME;

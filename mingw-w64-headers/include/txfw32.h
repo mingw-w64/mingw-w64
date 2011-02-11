@@ -13,7 +13,7 @@ extern "C" {
 #endif
 
 typedef struct _TXF_ID {
-  __MINGW_EXTENSION struct {
+  __C89_NAMELESSSTRUCT struct {
     LONGLONG LowPart;
     LONGLONG HighPart;
   } DUMMYSTRUCTNAME;

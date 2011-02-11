@@ -138,7 +138,7 @@ typedef enum _NET_ADDRESS_FORMAT {
 
 typedef struct _NET_ADDRESS_INFO {
   NET_ADDRESS_FORMAT Format;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct {
       WCHAR Address[DNS_MAX_NAME_BUFFER_LENGTH];
       WCHAR Port[6];

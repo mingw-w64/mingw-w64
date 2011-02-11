@@ -68,7 +68,7 @@ extern "C" {
     DWORD MajorVersion;
     DWORD MinorVersion;
     WORD ProcessorArchitecture;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       WORD Reserved;
       WORD Flags;
     };

@@ -93,7 +93,7 @@ typedef enum _EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
 } EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID;
 
 typedef struct _EC_VARIANT {
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     BOOL      BooleanVal;
     UINT32    UInt32Val;
     ULONGLONG DateTimeVal;

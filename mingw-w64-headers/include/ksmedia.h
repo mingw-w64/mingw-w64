@@ -717,15 +717,15 @@ typedef struct {
 } KSAUDIO_POSITION,*PKSAUDIO_POSITION;
 
 typedef struct _DS3DVECTOR {
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     FLOAT x;
     FLOAT dvX;
   };
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     FLOAT y;
     FLOAT dvY;
   };
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     FLOAT z;
     FLOAT dvZ;
   };
@@ -2474,7 +2474,7 @@ typedef struct tagKS_VIDEOINFO {
   DWORD dwBitErrorRate;
   REFERENCE_TIME AvgTimePerFrame;
   KS_BITMAPINFOHEADER bmiHeader;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     KS_RGBQUAD bmiColors[KS_iPALETTE_COLORS];
     DWORD dwBitMasks[KS_iMASK_COLORS];
     KS_TRUECOLORINFO TrueColorInfo;
@@ -4156,29 +4156,29 @@ typedef struct _DDPIXELFORMAT
   DWORD dwSize;
   DWORD dwFlags;
   DWORD dwFourCC;
-  __MINGW_EXTENSION union
+  __C89_NAMELESSUNION union
   {
     DWORD dwRGBBitCount;
     DWORD dwYUVBitCount;
     DWORD dwZBufferBitDepth;
     DWORD dwAlphaBitDepth;
   };
-  __MINGW_EXTENSION union
+  __C89_NAMELESSUNION union
   {
     DWORD dwRBitMask;
     DWORD dwYBitMask;
   };
-  __MINGW_EXTENSION union
+  __C89_NAMELESSUNION union
   {
     DWORD dwGBitMask;
     DWORD dwUBitMask;
   };
-  __MINGW_EXTENSION union
+  __C89_NAMELESSUNION union
   {
     DWORD dwBBitMask;
     DWORD dwVBitMask;
   };
-  __MINGW_EXTENSION union
+  __C89_NAMELESSUNION union
   {
     DWORD dwRGBAlphaBitMask;
     DWORD dwYUVAlphaBitMask;

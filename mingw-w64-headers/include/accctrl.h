@@ -348,7 +348,7 @@ extern "C" {
 #define ACTRL_WIN_EXIT ACTRL_PERM_9
 
     typedef struct _ACTRL_OVERLAPPED {
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	PVOID Provider;
 	ULONG Reserved1;
       } DUMMYUNIONNAME;

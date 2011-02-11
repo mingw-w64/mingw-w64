@@ -197,7 +197,7 @@ struct SSVARIANT {
   SSVARTYPE vt;
   DWORD dwReserved1;
   DWORD dwReserved2;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     BYTE bTinyIntVal;
     SHORT sShortIntVal;
     LONG lIntVal;

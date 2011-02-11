@@ -428,7 +428,7 @@ typedef struct _OS_STRING {
   UCHAR bDescriptorType;
   WCHAR MicrosoftString[7];
   UCHAR bVendorCode;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     UCHAR bPad;
     UCHAR bFlags;
   };
@@ -518,7 +518,7 @@ struct _URB_ISOCH_TRANSFER {
 };
 
 typedef struct _URB {
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     struct _URB_HEADER UrbHeader;
     struct _URB_SELECT_INTERFACE UrbSelectInterface;
     struct _URB_SELECT_CONFIGURATION UrbSelectConfiguration;

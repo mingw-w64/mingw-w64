@@ -374,7 +374,7 @@ typedef USHORT LANGID;
 
 /* Used to store a non-float 8 byte aligned structure */
 typedef struct _QUAD {
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     __MINGW_EXTENSION __int64 UseThisFieldToCopy;
     double DoNotUseThisField;
   } DUMMYUNIONNAME;
@@ -387,7 +387,7 @@ typedef struct _QUAD {
 typedef struct _LARGE_INTEGER {
 #else
 typedef union _LARGE_INTEGER {
-  __MINGW_EXTENSION struct {
+  __C89_NAMELESSSTRUCT struct {
     ULONG LowPart;
     LONG HighPart;
   } DUMMYSTRUCTNAME;
@@ -403,7 +403,7 @@ typedef union _LARGE_INTEGER {
 typedef struct _ULARGE_INTEGER {
 #else
 typedef union _ULARGE_INTEGER {
-  __MINGW_EXTENSION struct {
+  __C89_NAMELESSSTRUCT struct {
     ULONG LowPart;
     ULONG HighPart;
   } DUMMYSTRUCTNAME;

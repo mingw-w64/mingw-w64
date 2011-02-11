@@ -181,8 +181,8 @@ typedef struct _DXVA2_DecodeExecuteParams {
 } DXVA2_DecodeExecuteParams;
 
 typedef struct {
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+  __C89_NAMELESSUNION union {
+    __C89_NAMELESSSTRUCT struct {
       UINT SampleFormat            :8;
       UINT VideoChromaSubsampling  :4;
       UINT NominalRange            :3;
@@ -196,8 +196,8 @@ typedef struct {
 } DXVA2_ExtendedFormat;
 
 typedef struct _DXVA2_Fixed32 {
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+  __C89_NAMELESSUNION union {
+    __C89_NAMELESSSTRUCT struct {
       USHORT Fraction;
       SHORT  Value;
     } DUMMYSTRUCTNAME;
@@ -342,8 +342,8 @@ typedef struct _DXVA2_VideoSample {
 
 /* DXVA H264 */
 typedef struct {
-    __MINGW_EXTENSION union {
-        __MINGW_EXTENSION struct {
+    __C89_NAMELESSUNION union {
+        __C89_NAMELESSSTRUCT struct {
             UCHAR Index7Bits     : 7;
             UCHAR AssociatedFlag : 1;
         };
@@ -440,8 +440,8 @@ typedef struct {
     USHORT wFrameHeightInMbsMinus1;
     DXVA_PicEntry_H264 CurrPic;
     UCHAR  num_ref_frames;
-    __MINGW_EXTENSION union {
-        __MINGW_EXTENSION struct {
+    __C89_NAMELESSUNION union {
+        __C89_NAMELESSSTRUCT struct {
             USHORT field_pic_flag           : 1;
             USHORT MbaffFrameFlag           : 1;
             USHORT residual_colour_transform_flag : 1;

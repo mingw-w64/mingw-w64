@@ -73,7 +73,7 @@ extern "C" {
 
   typedef struct _PDH_FMT_COUNTERVALUE {
     DWORD CStatus;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       LONG longValue;
       double doubleValue;
       LONGLONG largeValue;
@@ -142,10 +142,10 @@ extern "C" {
     DWORD_PTR dwUserData;
     DWORD_PTR dwQueryUserData;
     LPSTR szFullPath;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       PDH_DATA_ITEM_PATH_ELEMENTS_A DataItemPath;
       PDH_COUNTER_PATH_ELEMENTS_A CounterPath;
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
 	LPSTR szMachineName;
 	LPSTR szObjectName;
 	LPSTR szInstanceName;
@@ -168,10 +168,10 @@ extern "C" {
     DWORD_PTR dwUserData;
     DWORD_PTR dwQueryUserData;
     LPWSTR szFullPath;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       PDH_DATA_ITEM_PATH_ELEMENTS_W DataItemPath;
       PDH_COUNTER_PATH_ELEMENTS_W CounterPath;
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
 	LPWSTR szMachineName;
 	LPWSTR szObjectName;
 	LPWSTR szInstanceName;
@@ -206,8 +206,8 @@ extern "C" {
     LPSTR szBaseFileName;
     DWORD dwFileType;
     DWORD dwReserved;
-    __MINGW_EXTENSION union {
-      __MINGW_EXTENSION struct {
+    __C89_NAMELESSUNION union {
+      __C89_NAMELESSSTRUCT struct {
 	DWORD PdlAutoNameInterval;
 	DWORD PdlAutoNameUnits;
 	LPSTR PdlCommandFilename;
@@ -217,7 +217,7 @@ extern "C" {
 	FILETIME PdlLogStartTime;
 	FILETIME PdlLogEndTime;
       };
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
 	DWORD TlNumberOfBuffers;
 	DWORD TlMinimumBuffers;
 	DWORD TlMaximumBuffers;
@@ -241,8 +241,8 @@ extern "C" {
     LPWSTR szBaseFileName;
     DWORD dwFileType;
     DWORD dwReserved;
-    __MINGW_EXTENSION union {
-      __MINGW_EXTENSION struct {
+    __C89_NAMELESSUNION union {
+      __C89_NAMELESSSTRUCT struct {
 	DWORD PdlAutoNameInterval;
 	DWORD PdlAutoNameUnits;
 	LPWSTR PdlCommandFilename;
@@ -252,7 +252,7 @@ extern "C" {
 	FILETIME PdlLogStartTime;
 	FILETIME PdlLogEndTime;
       };
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
 	DWORD TlNumberOfBuffers;
 	DWORD TlMinimumBuffers;
 	DWORD TlMaximumBuffers;

@@ -172,7 +172,7 @@ extern "C" {
   typedef struct {
     SCARD_IO_REQUEST ioRequest;
     BYTE bSw1,bSw2;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       SCARD_T0_COMMAND CmdBytes;
       BYTE rgbHeader[5];
     };

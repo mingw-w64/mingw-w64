@@ -145,8 +145,8 @@ extern "C" {
   typedef struct _OVERLAPPED {
     ULONG_PTR Internal;
     ULONG_PTR InternalHigh;
-    __MINGW_EXTENSION union {
-      __MINGW_EXTENSION struct {
+    __C89_NAMELESSUNION union {
+      __C89_NAMELESSSTRUCT struct {
 	DWORD Offset;
 	DWORD OffsetHigh;
       };
@@ -384,9 +384,9 @@ extern "C" {
   } COMMCONFIG,*LPCOMMCONFIG;
 
   typedef struct _SYSTEM_INFO {
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       DWORD dwOemId;
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
 	WORD wProcessorArchitecture;
 	WORD wReserved;
       } DUMMYSTRUCTNAME;
@@ -1192,7 +1192,7 @@ extern "C" {
     BYTE cbOverhead;
     BYTE iRegionIndex;
     WORD wFlags;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       struct {
 	HANDLE hMem;
 	DWORD dwReserved[3];
@@ -3194,7 +3194,7 @@ typedef struct _FILE_ID_BOTH_DIR_INFO {
 typedef struct _FILE_ID_DESCRIPTOR{
   DWORD        dwSize;
   FILE_ID_TYPE Type;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     LARGE_INTEGER FileId;
     GUID          ObjectId;
   };

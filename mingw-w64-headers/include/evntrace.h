@@ -286,14 +286,14 @@ typedef ULONG64 TRACEHANDLE,*PTRACEHANDLE;
 
 typedef struct _EVENT_TRACE_HEADER {
   USHORT Size;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     USHORT FieldTypeFlags;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       UCHAR HeaderType;
       UCHAR MarkerFlags;
     } DUMMYSTRUCTNAME;
   } DUMMYUNIONNAME;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG Version;
     struct {
       UCHAR Type;
@@ -304,17 +304,17 @@ typedef struct _EVENT_TRACE_HEADER {
   ULONG ThreadId;
   ULONG ProcessId;
   LARGE_INTEGER TimeStamp;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     GUID Guid;
     ULONGLONG GuidPtr;
   } DUMMYUNIONNAME3;
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+  __C89_NAMELESSUNION union {
+    __C89_NAMELESSSTRUCT struct {
       ULONG KernelTime;
       ULONG UserTime;
     } DUMMYSTRUCTNAME;
     ULONG64 ProcessorTime;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       ULONG ClientContext;
       ULONG Flags;
     } DUMMYSTRUCTNAME2;
@@ -323,14 +323,14 @@ typedef struct _EVENT_TRACE_HEADER {
 
 typedef struct _EVENT_INSTANCE_HEADER {
   USHORT Size;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     USHORT FieldTypeFlags;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       UCHAR HeaderType;
       UCHAR MarkerFlags;
     } DUMMYSTRUCTNAME;
   } DUMMYUNIONNAME;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG Version;
     struct {
       UCHAR Type;
@@ -344,13 +344,13 @@ typedef struct _EVENT_INSTANCE_HEADER {
   ULONGLONG RegHandle;
   ULONG InstanceId;
   ULONG ParentInstanceId;
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+  __C89_NAMELESSUNION union {
+    __C89_NAMELESSSTRUCT struct {
       ULONG KernelTime;
       ULONG UserTime;
     } DUMMYSTRUCTNAME;
     ULONG64 ProcessorTime;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       ULONG EventId;
       ULONG Flags;
     } DUMMYSTRUCTNAME2;
@@ -373,7 +373,7 @@ typedef struct _MOF_FIELD {
 
 typedef struct _TRACE_LOGFILE_HEADER {
   ULONG BufferSize;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG Version;
     struct {
       UCHAR MajorVersion;
@@ -389,9 +389,9 @@ typedef struct _TRACE_LOGFILE_HEADER {
   ULONG MaximumFileSize;
   ULONG LogFileMode;
   ULONG BuffersWritten;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     GUID LogInstanceGuid;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       ULONG StartBuffers;
       ULONG PointerSize;
       ULONG EventsLost;
@@ -416,7 +416,7 @@ typedef struct _TRACE_LOGFILE_HEADER {
 
 typedef struct _TRACE_LOGFILE_HEADER32 {
   ULONG BufferSize;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG Version;
     struct {
       UCHAR MajorVersion;
@@ -432,9 +432,9 @@ typedef struct _TRACE_LOGFILE_HEADER32 {
   ULONG MaximumFileSize;
   ULONG LogFileMode;
   ULONG BuffersWritten;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     GUID LogInstanceGuid;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       ULONG StartBuffers;
       ULONG PointerSize;
       ULONG EventsLost;
@@ -459,7 +459,7 @@ typedef struct _TRACE_LOGFILE_HEADER32 {
 
 typedef struct _TRACE_LOGFILE_HEADER64 {
   ULONG BufferSize;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG Version;
     struct {
       UCHAR MajorVersion;
@@ -475,9 +475,9 @@ typedef struct _TRACE_LOGFILE_HEADER64 {
   ULONG MaximumFileSize;
   ULONG LogFileMode;
   ULONG BuffersWritten;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     GUID LogInstanceGuid;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       ULONG StartBuffers;
       ULONG PointerSize;
       ULONG EventsLost;
@@ -583,7 +583,7 @@ typedef struct _EVENT_TRACE {
   GUID ParentGuid;
   PVOID MofData;
   ULONG MofLength;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG ClientContext;
     ETW_BUFFER_CONTEXT BufferContext; /* MSDN says ULONG, for XP and older? */
   } DUMMYUNIONNAME;
@@ -612,7 +612,7 @@ struct _EVENT_TRACE_LOGFILEW {
   LPWSTR LoggerName;
   LONGLONG CurrentTime;
   ULONG BuffersRead;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG LogFileMode;
     ULONG ProcessTraceMode;
   } DUMMYUNIONNAME;
@@ -622,7 +622,7 @@ struct _EVENT_TRACE_LOGFILEW {
   ULONG BufferSize;
   ULONG Filled;
   ULONG EventsLost;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     PEVENT_CALLBACK EventCallback;
     PEVENT_RECORD_CALLBACK EventRecordCallback;
   } DUMMYUNIONNAME2;
@@ -635,7 +635,7 @@ struct _EVENT_TRACE_LOGFILEA {
   LPSTR LoggerName;
   LONGLONG CurrentTime;
   ULONG BuffersRead;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG LogFileMode;
     ULONG ProcessTraceMode;
   } DUMMYUNIONNAME;
@@ -645,7 +645,7 @@ struct _EVENT_TRACE_LOGFILEA {
   ULONG BufferSize;
   ULONG Filled;
   ULONG EventsLost;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     PEVENT_CALLBACK EventCallback;
     PEVENT_RECORD_CALLBACK EventRecordCallback;
   } DUMMYUNIONNAME2;

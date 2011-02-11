@@ -95,7 +95,7 @@ extern "C"{
     POINT ptSoftKbdPos;
     DWORD fdwConversion;
     DWORD fdwSentence;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       LOGFONTA A;
       LOGFONTW W;
     } lfFont;

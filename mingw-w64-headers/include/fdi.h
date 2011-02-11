@@ -166,7 +166,7 @@ extern "C" {
   typedef struct {
     FDIDECRYPTTYPE fdidt;
     void *pvUser;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       struct {
 	void *pHeaderReserve;
 	USHORT cbHeaderReserve;

@@ -58,7 +58,7 @@ typedef enum {
 
 typedef struct _RSVP_FILTERSPEC {
   FilterType Type;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     RSVP_FILTERSPEC_V4 FilterSpecV4;
     RSVP_FILTERSPEC_V6 FilterSpecV6;
     RSVP_FILTERSPEC_V6_FLOW FilterSpecV6Flow;
@@ -151,7 +151,7 @@ typedef struct _CONTROL_SERVICE {
   ULONG Length;
   SERVICETYPE Service;
   AD_GENERAL_PARAMS Overrides;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     AD_GUARANTEED Guaranteed;
     PARAM_BUFFER ParamBuffer[1];
   };

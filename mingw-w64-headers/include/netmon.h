@@ -203,7 +203,7 @@ extern "C"{
 
   typedef struct _ADDRESS2 {
     DWORD Type;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       BYTE MACAddress[MAC_ADDRESS_SIZE];
       BYTE IPAddress[IP_ADDRESS_SIZE];
       BYTE IP6Address[IP6_ADDRESS_SIZE];
@@ -563,7 +563,7 @@ extern "C"{
 #define UPDATE_ACTION_PAUSE_CAPTURE (0x3)
 #define UPDATE_ACTION_RTC_BUFFER_SWITCH (0x4)
 
-  __MINGW_EXTENSION typedef struct _UPDATE_EVENT {
+  __C89_NAMELESSSTRUCT typedef struct _UPDATE_EVENT {
     USHORT Event;
     DWORD Action;
     DWORD Status;
@@ -572,7 +572,7 @@ extern "C"{
     DWORD_PTR lpUserContext;
     DWORD_PTR lpReserved;
     UINT FramesDropped;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       DWORD Reserved;
       LPFRAMETABLE lpFrameTable;
       DWORD_PTR lpPacketQueue;
@@ -658,7 +658,7 @@ extern "C"{
 
 #pragma pack(push,1)
   typedef struct _CAPTUREFILE_HEADER {
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       CAPTUREFILE_HEADER_VALUES ActualHeader;
       BYTE Buffer[72];
     };
@@ -806,7 +806,7 @@ extern "C"{
 
   typedef struct _ADDRESS {
     DWORD Type;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       BYTE MACAddress[MAC_ADDRESS_SIZE];
       BYTE IPAddress[IP_ADDRESS_SIZE];
       BYTE IPXRawAddress[IPX_ADDR_SIZE];
@@ -1251,7 +1251,7 @@ extern "C"{
 
   typedef struct _SET {
     DWORD nEntries;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       LPVOID lpVoidTable;
       LPBYTE lpByteTable;
       LPWORD lpWordTable;
@@ -1299,7 +1299,7 @@ extern "C"{
     LPSTR Comment;
     BYTE DataType;
     BYTE DataQualifier;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       LPVOID lpExtendedInfo;
       LPRANGE lpRange;
       LPSET lpSet;
@@ -1318,7 +1318,7 @@ extern "C"{
     WORD Length;
     WORD LengthEx;
     ULPVOID lpData;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       BYTE Byte[1];
       WORD Word[1];
       DWORD Dword[1];
@@ -1335,7 +1335,7 @@ extern "C"{
   typedef struct _PROPERTYINST {
     LPPROPERTYINFO lpPropertyInfo;
     LPSTR szPropertyText;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       LPVOID lpData;
       ULPBYTE lpByte;
       ULPWORD lpWord;
@@ -1645,7 +1645,7 @@ extern "C"{
   typedef struct _FILTEROBJECT2 {
     FILTERACTIONTYPE Action;
     HPROPERTY hProperty;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       VALUETYPE Value;
       HPROTOCOL hProtocol;
       LPVOID lpArray;
@@ -1655,7 +1655,7 @@ extern "C"{
       ULPTIME lpTime;
       LPOBJECT_IDENTIFIER lpOID;
     };
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       WORD ByteCount;
       WORD ByteOffset;
     };
@@ -1683,7 +1683,7 @@ extern "C"{
   typedef struct _FILTEROBJECT {
     FILTERACTIONTYPE Action;
     HPROPERTY hProperty;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       VALUETYPE Value;
       HPROTOCOL hProtocol;
       LPVOID lpArray;
@@ -1693,7 +1693,7 @@ extern "C"{
       ULPTIME lpTime;
       LPOBJECT_IDENTIFIER lpOID;
     };
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       WORD ByteCount;
       WORD ByteOffset;
     };
@@ -1803,7 +1803,7 @@ extern "C"{
   typedef struct _ETHERNET {
     BYTE DstAddr[MAX_ADDR_LENGTH];
     BYTE SrcAddr[MAX_ADDR_LENGTH];
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       WORD Length;
       WORD Type;
     };
@@ -1850,7 +1850,7 @@ extern "C"{
     BYTE FrameCtrl;
     BYTE DstAddr[MAX_ADDR_LENGTH];
     BYTE SrcAddr[MAX_ADDR_LENGTH];
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       BYTE Info[0];
       WORD RoutingInfo[0];
     };
@@ -1900,11 +1900,11 @@ extern "C"{
     BYTE dsap;
     BYTE ssap;
     struct {
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	BYTE Command;
 	BYTE NextSend;
       };
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	BYTE NextRecv;
 	BYTE Data[1];
       };
@@ -2451,14 +2451,14 @@ extern "C"{
 #pragma pack(push,1)
 
   typedef struct _IP {
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       BYTE Version;
       BYTE HdrLen;
     };
     BYTE ServiceType;
     WORD TotalLen;
     WORD ID;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       WORD Flags;
       WORD FragOff;
     };
@@ -2770,14 +2770,14 @@ extern "C"{
     BYTE Type;
     BYTE Code;
     WORD Checksum;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       DWORD Unused;
       DWORD Address;
       ReqReply RR;
       ParmProb PP;
       RouterAH RAH;
     };
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       TS Time;
       IP IP;
       RouterAE RAE[0];

@@ -1511,11 +1511,11 @@ extern "C" {
   typedef struct tagODBC_VS_ARGS {
     const GUID *pguidEvent;
     DWORD dwFlags;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       WCHAR *wszArg;
       CHAR *szArg;
     };
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       WCHAR *wszCorrelation;
       CHAR *szCorrelation;
     };

@@ -9,14 +9,14 @@
 typedef struct _WNODE_HEADER {
   ULONG BufferSize;
   ULONG ProviderId;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG64 HistoricalContext;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       ULONG Version;
       ULONG Linkage;
     };
   };
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG CountLost;
     HANDLE KernelHandle;
     LARGE_INTEGER TimeStamp;
@@ -58,7 +58,7 @@ typedef struct tagWNODE_ALL_DATA {
   ULONG DataBlockOffset;
   ULONG InstanceCount;
   ULONG OffsetInstanceNameOffsets;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG FixedInstanceSize;
     OFFSETINSTANCEDATAANDLENGTH OffsetInstanceDataAndLength[1];
   };
@@ -101,7 +101,7 @@ typedef struct tagWNODE_EVENT_REFERENCE {
   struct _WNODE_HEADER WnodeHeader;
   GUID TargetGuid;
   ULONG TargetDataBlockSize;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG TargetInstanceIndex;
     WCHAR TargetInstanceName[1];
   };
@@ -116,7 +116,7 @@ typedef struct {
   GUID Guid;
   ULONG Flags;
   ULONG InstanceCount;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG InstanceNameList;
     ULONG BaseNameOffset;
     ULONG_PTR Pdo;

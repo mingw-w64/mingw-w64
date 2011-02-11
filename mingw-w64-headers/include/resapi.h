@@ -91,7 +91,7 @@ extern "C" {
   typedef struct CLRES_FUNCTION_TABLE {
     DWORD TableSize;
     DWORD Version;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       CLRES_V1_FUNCTIONS V1Functions;
     };
   } CLRES_FUNCTION_TABLE,*PCLRES_FUNCTION_TABLE;
@@ -120,7 +120,7 @@ extern "C" {
     LPWSTR Name;
     LPWSTR KeyName;
     DWORD Format;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       DWORD_PTR DefaultPtr;
       DWORD Default;
       LPVOID lpDefault;

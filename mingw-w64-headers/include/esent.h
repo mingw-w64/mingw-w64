@@ -539,9 +539,9 @@ typedef struct _JET_BKLOGTIME {
   char bMonth;
   char bYear;
   char bFiller1;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     char bFiller2;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       unsigned char fOSSnapshot  :1;
       unsigned char fReserved  :7;
     };
@@ -569,7 +569,7 @@ typedef struct tagJET_TUPLELIMITS {
 
 typedef struct _JET_BKINFO {
   JET_LGPOS lgposMark;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     JET_LOGTIME logtimeMark;
     JET_BKLOGTIME bklogtimeMark;
   };
@@ -683,9 +683,9 @@ typedef struct tagJET_CONDITIONALCOLUMN_W {
 
 typedef struct tagCONVERT_A {
   char* SzOldDll;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     unsigned long fFlags;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       unsigned long fSchemaChangesOnly  :1;
     };
   };
@@ -693,9 +693,9 @@ typedef struct tagCONVERT_A {
 
 typedef struct tagCONVERT_W {
   WCHAR* SzOldDll;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     unsigned long fFlags;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       unsigned long fSchemaChangesOnly  :1;
     };
   };
@@ -740,9 +740,9 @@ typedef struct _JET_DBINFOUPGRADE {
   unsigned long cbFreeSpaceRequiredLow;
   unsigned long  cbFreeSpaceRequiredHigh;
   unsigned long csecToUpgrade;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     unsigned long ulFlags;
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       unsigned long fUpgradable  :1;
       unsigned long fAlreadyUpgraded  :1;
     };
@@ -759,12 +759,12 @@ typedef struct _JET_ENUMCOLUMNVALUE {
 typedef struct _JET_ENUMCOLUMN {
   JET_COLUMNID columnid;
   JET_ERR err;
-  __MINGW_EXTENSION union {
-    __MINGW_EXTENSION struct {
+  __C89_NAMELESSUNION union {
+    __C89_NAMELESSSTRUCT struct {
       unsigned long cEnumColumnValue;
       JET_ENUMCOLUMNVALUE rgEnumColumnValue;
     };
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       unsigned long cbData;
       void* pvData;
     };
@@ -784,11 +784,11 @@ typedef struct tagJET_INDEXCREATE_A {
   unsigned long cbKey;
   JET_GRBIT grbit;
   unsigned long ulDensity;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     unsigned long lcid;
     JET_UNICODEINDEX* pidxunicode;
   };
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     unsigned long cbVarSegMac;
     JET_TUPLELIMITS* ptuplelimits;
   };
@@ -805,11 +805,11 @@ typedef struct tagJET_INDEXCREATE_W {
   unsigned long cbKey;
   JET_GRBIT grbit;
   unsigned long ulDensity;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     unsigned long lcid;
     JET_UNICODEINDEX* pidxunicode;
   };
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     unsigned long cbVarSegMac;
     JET_TUPLELIMITS* ptuplelimits;
   };

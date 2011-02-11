@@ -136,17 +136,12 @@ STRSAFEAPI StringCchCopyW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR 
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchCopyA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyWorkerA(pszDest,cchDest,pszSrc);
-  return hr;
+  return (cchDest > STRSAFE_MAX_CCH ? STRSAFE_E_INVALID_PARAMETER : StringCopyWorkerA(pszDest,cchDest,pszSrc));
 }
 
 STRSAFEAPI StringCchCopyW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyWorkerW(pszDest,cchDest,pszSrc);
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCopyWorkerW(pszDest,cchDest,pszSrc);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -157,21 +152,14 @@ STRSAFEAPI StringCbCopyW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR ps
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCbCopyA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc) {
-  HRESULT hr;
-  size_t cchDest;
-  cchDest = cbDest / sizeof(char);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyWorkerA(pszDest,cchDest,pszSrc);
-  return hr;
+  if(cbDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCopyWorkerA(pszDest,cbDest,pszSrc);
 }
 
 STRSAFEAPI StringCbCopyW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc) {
-  HRESULT hr;
-  size_t cchDest;
-  cchDest = cbDest / sizeof(wchar_t);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyWorkerW(pszDest,cchDest,pszSrc);
-  return hr;
+  size_t cchDest = cbDest / sizeof(wchar_t);
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCopyWorkerW(pszDest,cchDest,pszSrc);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -182,25 +170,15 @@ STRSAFEAPI StringCchCopyExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWST
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchCopyExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    size_t cbDest;
-    cbDest = cchDest*sizeof(char);
-    hr = StringCopyExWorkerA(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
-  }
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCopyExWorkerA(pszDest,cchDest,cchDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
 }
 
 STRSAFEAPI StringCchCopyExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    size_t cbDest;
-    cbDest = cchDest*sizeof(wchar_t);
-    hr = StringCopyExWorkerW(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
-  }
-  return hr;
+  size_t cbDest;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  cbDest = cchDest * sizeof(wchar_t);
+  return StringCopyExWorkerW(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -212,30 +190,26 @@ STRSAFEAPI StringCbCopyExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCbCopyExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
   HRESULT hr;
-  size_t cchDest;
   size_t cchRemaining = 0;
-  cchDest = cbDest / sizeof(char);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyExWorkerA(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,&cchRemaining,dwFlags);
-  if(SUCCEEDED(hr) || (hr==STRSAFE_E_INSUFFICIENT_BUFFER)) {
-    if(pcbRemaining) {
+  if(cbDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  hr = StringCopyExWorkerA(pszDest,cbDest,cbDest,pszSrc,ppszDestEnd,&cchRemaining,dwFlags);
+  if(SUCCEEDED(hr) || hr == STRSAFE_E_INSUFFICIENT_BUFFER) {
+    if(pcbRemaining)
       *pcbRemaining = (cchRemaining*sizeof(char)) + (cbDest % sizeof(char));
-    }
   }
   return hr;
 }
 
 STRSAFEAPI StringCbCopyExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
   HRESULT hr;
-  size_t cchDest;
+  size_t cchDest = cbDest / sizeof(wchar_t);
   size_t cchRemaining = 0;
-  cchDest = cbDest / sizeof(wchar_t);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyExWorkerW(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,&cchRemaining,dwFlags);
+
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  hr = StringCopyExWorkerW(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,&cchRemaining,dwFlags);
   if(SUCCEEDED(hr) || (hr==STRSAFE_E_INSUFFICIENT_BUFFER)) {
-    if(pcbRemaining) {
+    if(pcbRemaining)
       *pcbRemaining = (cchRemaining*sizeof(wchar_t)) + (cbDest % sizeof(wchar_t));
-    }
   }
   return hr;
 }
@@ -247,17 +221,15 @@ STRSAFEAPI StringCchCopyNW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchCopyNA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy) {
-  HRESULT hr;
-  if((cchDest > STRSAFE_MAX_CCH) || (cchToCopy > STRSAFE_MAX_CCH)) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyNWorkerA(pszDest,cchDest,pszSrc,cchToCopy);
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH || cchToCopy > STRSAFE_MAX_CCH)
+    return STRSAFE_E_INVALID_PARAMETER;
+  return StringCopyNWorkerA(pszDest,cchDest,pszSrc,cchToCopy);
 }
 
 STRSAFEAPI StringCchCopyNW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy) {
-  HRESULT hr;
-  if((cchDest > STRSAFE_MAX_CCH) || (cchToCopy > STRSAFE_MAX_CCH)) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyNWorkerW(pszDest,cchDest,pszSrc,cchToCopy);
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH || cchToCopy > STRSAFE_MAX_CCH)
+    return STRSAFE_E_INVALID_PARAMETER;
+  return StringCopyNWorkerW(pszDest,cchDest,pszSrc,cchToCopy);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -268,25 +240,17 @@ STRSAFEAPI StringCbCopyNW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR p
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCbCopyNA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToCopy) {
-  HRESULT hr;
-  size_t cchDest;
-  size_t cchToCopy;
-  cchDest = cbDest / sizeof(char);
-  cchToCopy = cbToCopy / sizeof(char);
-  if((cchDest > STRSAFE_MAX_CCH) || (cchToCopy > STRSAFE_MAX_CCH)) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyNWorkerA(pszDest,cchDest,pszSrc,cchToCopy);
-  return hr;
+  if(cbDest > STRSAFE_MAX_CCH || cbToCopy > STRSAFE_MAX_CCH)
+    return STRSAFE_E_INVALID_PARAMETER;
+  return StringCopyNWorkerA(pszDest,cbDest,pszSrc,cbToCopy);
 }
 
 STRSAFEAPI StringCbCopyNW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToCopy) {
-  HRESULT hr;
-  size_t cchDest;
-  size_t cchToCopy;
-  cchDest = cbDest / sizeof(wchar_t);
-  cchToCopy = cbToCopy / sizeof(wchar_t);
-  if((cchDest > STRSAFE_MAX_CCH) || (cchToCopy > STRSAFE_MAX_CCH)) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyNWorkerW(pszDest,cchDest,pszSrc,cchToCopy);
-  return hr;
+  size_t cchDest  = cbDest / sizeof(wchar_t);
+  size_t cchToCopy = cbToCopy / sizeof(wchar_t);
+  if(cchDest > STRSAFE_MAX_CCH || cchToCopy > STRSAFE_MAX_CCH)
+    return STRSAFE_E_INVALID_PARAMETER;
+  return StringCopyNWorkerW(pszDest,cchDest,pszSrc,cchToCopy);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -297,25 +261,13 @@ STRSAFEAPI StringCchCopyNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWS
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchCopyNExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    size_t cbDest;
-    cbDest = cchDest*sizeof(char);
-    hr = StringCopyNExWorkerA(pszDest,cchDest,cbDest,pszSrc,cchToCopy,ppszDestEnd,pcchRemaining,dwFlags);
-  }
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCopyNExWorkerA(pszDest,cchDest,cchDest,pszSrc,cchToCopy,ppszDestEnd,pcchRemaining,dwFlags);
 }
 
 STRSAFEAPI StringCchCopyNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    size_t cbDest;
-    cbDest = cchDest*sizeof(wchar_t);
-    hr = StringCopyNExWorkerW(pszDest,cchDest,cbDest,pszSrc,cchToCopy,ppszDestEnd,pcchRemaining,dwFlags);
-  }
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCopyNExWorkerW(pszDest,cchDest,cchDest * sizeof(wchar_t),pszSrc,cchToCopy,ppszDestEnd,pcchRemaining,dwFlags);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -327,18 +279,13 @@ STRSAFEAPI StringCbCopyNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCbCopyNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
   HRESULT hr;
-  size_t cchDest;
-  size_t cchToCopy;
   size_t cchRemaining = 0;
-  cchDest = cbDest / sizeof(char);
-  cchToCopy = cbToCopy / sizeof(char);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCopyNExWorkerA(pszDest,cchDest,cbDest,pszSrc,cchToCopy,ppszDestEnd,&cchRemaining,dwFlags);
-  if(SUCCEEDED(hr) || (hr==STRSAFE_E_INSUFFICIENT_BUFFER)) {
-    if(pcbRemaining) {
-      *pcbRemaining = (cchRemaining*sizeof(char)) + (cbDest % sizeof(char));
-    }
-  }
+  if(cbDest > STRSAFE_MAX_CCH)
+    hr = STRSAFE_E_INVALID_PARAMETER;
+  else
+    hr = StringCopyNExWorkerA(pszDest,cbDest,cbDest,pszSrc,cbToCopy,ppszDestEnd,&cchRemaining,dwFlags);
+  if((SUCCEEDED(hr) || hr == STRSAFE_E_INSUFFICIENT_BUFFER) && pcbRemaining)
+    *pcbRemaining = cchRemaining;
   return hr;
 }
 
@@ -351,11 +298,8 @@ STRSAFEAPI StringCbCopyNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR
   cchToCopy = cbToCopy / sizeof(wchar_t);
   if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
   else hr = StringCopyNExWorkerW(pszDest,cchDest,cbDest,pszSrc,cchToCopy,ppszDestEnd,&cchRemaining,dwFlags);
-  if(SUCCEEDED(hr) || (hr==STRSAFE_E_INSUFFICIENT_BUFFER)) {
-    if(pcbRemaining) {
-      *pcbRemaining = (cchRemaining*sizeof(wchar_t)) + (cbDest % sizeof(wchar_t));
-    }
-  }
+  if((SUCCEEDED(hr) || hr == STRSAFE_E_INSUFFICIENT_BUFFER) && pcbRemaining)
+    *pcbRemaining = (cchRemaining*sizeof(wchar_t)) + (cbDest % sizeof(wchar_t));
   return hr;
 }
 #endif /* !__CRT__NO_INLINE */
@@ -367,17 +311,13 @@ STRSAFEAPI StringCchCatW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR p
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchCatA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCatWorkerA(pszDest,cchDest,pszSrc);
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatWorkerA(pszDest,cchDest,pszSrc);
 }
 
 STRSAFEAPI StringCchCatW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCatWorkerW(pszDest,cchDest,pszSrc);
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatWorkerW(pszDest,cchDest,pszSrc);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -388,21 +328,14 @@ STRSAFEAPI StringCbCatW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR psz
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCbCatA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc) {
-  HRESULT hr;
-  size_t cchDest;
-  cchDest = cbDest / sizeof(char);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCatWorkerA(pszDest,cchDest,pszSrc);
-  return hr;
+  if(cbDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatWorkerA(pszDest,cbDest,pszSrc);
 }
 
 STRSAFEAPI StringCbCatW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc) {
-  HRESULT hr;
-  size_t cchDest;
-  cchDest = cbDest / sizeof(wchar_t);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCatWorkerW(pszDest,cchDest,pszSrc);
-  return hr;
+  size_t cchDest = cbDest / sizeof(wchar_t);
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatWorkerW(pszDest,cchDest,pszSrc);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -413,25 +346,14 @@ STRSAFEAPI StringCchCatExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchCatExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    size_t cbDest;
-    cbDest = cchDest*sizeof(char);
-    hr = StringCatExWorkerA(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
-  }
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatExWorkerA(pszDest,cchDest,cchDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
 }
 
 STRSAFEAPI StringCchCatExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    size_t cbDest;
-    cbDest = cchDest*sizeof(wchar_t);
-    hr = StringCatExWorkerW(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
-  }
-  return hr;
+  size_t cbDest = cchDest*sizeof(wchar_t);
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatExWorkerW(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -443,31 +365,23 @@ STRSAFEAPI StringCbCatExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR p
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCbCatExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
   HRESULT hr;
-  size_t cchDest;
   size_t cchRemaining = 0;
-  cchDest = cbDest / sizeof(char);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCatExWorkerA(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,&cchRemaining,dwFlags);
-  if(SUCCEEDED(hr) || (hr==STRSAFE_E_INSUFFICIENT_BUFFER)) {
-    if(pcbRemaining) {
-      *pcbRemaining = (cchRemaining*sizeof(char)) + (cbDest % sizeof(char));
-    }
-  }
+  if(cbDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
+  else hr = StringCatExWorkerA(pszDest,cbDest,cbDest,pszSrc,ppszDestEnd,&cchRemaining,dwFlags);
+  if((SUCCEEDED(hr) || hr == STRSAFE_E_INSUFFICIENT_BUFFER) && pcbRemaining)
+    *pcbRemaining = (cchRemaining*sizeof(char)) + (cbDest % sizeof(char));
   return hr;
 }
 
 STRSAFEAPI StringCbCatExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
   HRESULT hr;
-  size_t cchDest;
+  size_t cchDest = cbDest / sizeof(wchar_t);
   size_t cchRemaining = 0;
-  cchDest = cbDest / sizeof(wchar_t);
+
   if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
   else hr = StringCatExWorkerW(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,&cchRemaining,dwFlags);
-  if(SUCCEEDED(hr) || (hr==STRSAFE_E_INSUFFICIENT_BUFFER)) {
-    if(pcbRemaining) {
-      *pcbRemaining = (cchRemaining*sizeof(wchar_t)) + (cbDest % sizeof(wchar_t));
-    }
-  }
+  if((SUCCEEDED(hr) || hr == STRSAFE_E_INSUFFICIENT_BUFFER) && pcbRemaining)
+    *pcbRemaining = (cchRemaining*sizeof(wchar_t)) + (cbDest % sizeof(wchar_t));
   return hr;
 }
 #endif /* !__CRT__NO_INLINE */
@@ -479,17 +393,13 @@ STRSAFEAPI StringCchCatNW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR 
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchCatNA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCatNWorkerA(pszDest,cchDest,pszSrc,cchToAppend);
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatNWorkerA(pszDest,cchDest,pszSrc,cchToAppend);
 }
 
 STRSAFEAPI StringCchCatNW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCatNWorkerW(pszDest,cchDest,pszSrc,cchToAppend);
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatNWorkerW(pszDest,cchDest,pszSrc,cchToAppend);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -500,25 +410,16 @@ STRSAFEAPI StringCbCatNW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR ps
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCbCatNA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToAppend) {
-  HRESULT hr;
-  size_t cchDest;
-  size_t cchToAppend;
-  cchDest = cbDest / sizeof(char);
-  cchToAppend = cbToAppend / sizeof(char);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCatNWorkerA(pszDest,cchDest,pszSrc,cchToAppend);
-  return hr;
+  if(cbDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatNWorkerA(pszDest,cbDest,pszSrc,cbToAppend);
 }
 
 STRSAFEAPI StringCbCatNW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToAppend) {
-  HRESULT hr;
-  size_t cchDest;
-  size_t cchToAppend;
-  cchDest = cbDest / sizeof(wchar_t);
-  cchToAppend = cbToAppend / sizeof(wchar_t);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCatNWorkerW(pszDest,cchDest,pszSrc,cchToAppend);
-  return hr;
+  size_t cchDest = cbDest / sizeof(wchar_t);
+  size_t cchToAppend = cbToAppend / sizeof(wchar_t);
+
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatNWorkerW(pszDest,cchDest,pszSrc,cchToAppend);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -529,25 +430,13 @@ STRSAFEAPI StringCchCatNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWST
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchCatNExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    size_t cbDest;
-    cbDest = cchDest*sizeof(char);
-    hr = StringCatNExWorkerA(pszDest,cchDest,cbDest,pszSrc,cchToAppend,ppszDestEnd,pcchRemaining,dwFlags);
-  }
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatNExWorkerA(pszDest,cchDest,cchDest,pszSrc,cchToAppend,ppszDestEnd,pcchRemaining,dwFlags);
 }
 
 STRSAFEAPI StringCchCatNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    size_t cbDest;
-    cbDest = cchDest*sizeof(wchar_t);
-    hr = StringCatNExWorkerW(pszDest,cchDest,cbDest,pszSrc,cchToAppend,ppszDestEnd,pcchRemaining,dwFlags);
-  }
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringCatNExWorkerW(pszDest,cchDest,(cchDest*sizeof(wchar_t)),pszSrc,cchToAppend,ppszDestEnd,pcchRemaining,dwFlags);
 }
 #endif
 
@@ -559,35 +448,23 @@ STRSAFEAPI StringCbCatNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCbCatNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
   HRESULT hr;
-  size_t cchDest;
-  size_t cchToAppend;
   size_t cchRemaining = 0;
-  cchDest = cbDest / sizeof(char);
-  cchToAppend = cbToAppend / sizeof(char);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringCatNExWorkerA(pszDest,cchDest,cbDest,pszSrc,cchToAppend,ppszDestEnd,&cchRemaining,dwFlags);
-  if(SUCCEEDED(hr) || (hr==STRSAFE_E_INSUFFICIENT_BUFFER)) {
-    if(pcbRemaining) {
-      *pcbRemaining = (cchRemaining*sizeof(char)) + (cbDest % sizeof(char));
-    }
-  }
+  if(cbDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
+  else hr = StringCatNExWorkerA(pszDest,cbDest,cbDest,pszSrc,cbToAppend,ppszDestEnd,&cchRemaining,dwFlags);
+  if((SUCCEEDED(hr) || hr == STRSAFE_E_INSUFFICIENT_BUFFER) && pcbRemaining)
+    *pcbRemaining = (cchRemaining*sizeof(char)) + (cbDest % sizeof(char));
   return hr;
 }
 
 STRSAFEAPI StringCbCatNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
   HRESULT hr;
-  size_t cchDest;
-  size_t cchToAppend;
+  size_t cchDest = cbDest / sizeof(wchar_t);
+  size_t cchToAppend = cbToAppend / sizeof(wchar_t);
   size_t cchRemaining = 0;
-  cchDest = cbDest / sizeof(wchar_t);
-  cchToAppend = cbToAppend / sizeof(wchar_t);
   if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
   else hr = StringCatNExWorkerW(pszDest,cchDest,cbDest,pszSrc,cchToAppend,ppszDestEnd,&cchRemaining,dwFlags);
-  if(SUCCEEDED(hr) || (hr==STRSAFE_E_INSUFFICIENT_BUFFER)) {
-    if(pcbRemaining) {
-      *pcbRemaining = (cchRemaining*sizeof(wchar_t)) + (cbDest % sizeof(wchar_t));
-    }
-  }
+  if((SUCCEEDED(hr) || hr == STRSAFE_E_INSUFFICIENT_BUFFER) && pcbRemaining)
+    *pcbRemaining = (cchRemaining*sizeof(wchar_t)) + (cbDest % sizeof(wchar_t));
   return hr;
 }
 #endif /* !__CRT__NO_INLINE */
@@ -599,17 +476,13 @@ STRSAFEAPI StringCchVPrintfW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWS
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchVPrintfA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszFormat,va_list argList) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringVPrintfWorkerA(pszDest,cchDest,pszFormat,argList);
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringVPrintfWorkerA(pszDest,cchDest,pszFormat,argList);
 }
 
 STRSAFEAPI StringCchVPrintfW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszFormat,va_list argList) {
-  HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringVPrintfWorkerW(pszDest,cchDest,pszFormat,argList);
-  return hr;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringVPrintfWorkerW(pszDest,cchDest,pszFormat,argList);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -620,21 +493,14 @@ STRSAFEAPI StringCbVPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR
 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCbVPrintfA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszFormat,va_list argList) {
-  HRESULT hr;
-  size_t cchDest;
-  cchDest = cbDest / sizeof(char);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringVPrintfWorkerA(pszDest,cchDest,pszFormat,argList);
-  return hr;
+  if(cbDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringVPrintfWorkerA(pszDest,cbDest,pszFormat,argList);
 }
 
 STRSAFEAPI StringCbVPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszFormat,va_list argList) {
-  HRESULT hr;
-  size_t cchDest;
-  cchDest = cbDest / sizeof(wchar_t);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else hr = StringVPrintfWorkerW(pszDest,cchDest,pszFormat,argList);
-  return hr;
+  size_t cchDest = cbDest / sizeof(wchar_t);
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  return StringVPrintfWorkerW(pszDest,cchDest,pszFormat,argList);
 }
 #endif /* !__CRT__NO_INLINE */
 
@@ -646,25 +512,21 @@ STRSAFEAPI StringCchPrintfW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWST
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchPrintfA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszFormat,...) {
   HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    va_list argList;
-    va_start(argList,pszFormat);
-    hr = StringVPrintfWorkerA(pszDest,cchDest,pszFormat,argList);
-    va_end(argList);
-  }
+  va_list argList;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  va_start(argList,pszFormat);
+  hr = StringVPrintfWorkerA(pszDest,cchDest,pszFormat,argList);
+  va_end(argList);
   return hr;
 }
 
 STRSAFEAPI StringCchPrintfW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszFormat,...) {
   HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    va_list argList;
-    va_start(argList,pszFormat);
-    hr = StringVPrintfWorkerW(pszDest,cchDest,pszFormat,argList);
-    va_end(argList);
-  }
+  va_list argList;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  va_start(argList,pszFormat);
+  hr = StringVPrintfWorkerW(pszDest,cchDest,pszFormat,argList);
+  va_end(argList);
   return hr;
 }
 #endif /* !__CRT__NO_INLINE */
@@ -677,29 +539,22 @@ STRSAFEAPI StringCbPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR 
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCbPrintfA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszFormat,...) {
   HRESULT hr;
-  size_t cchDest;
-  cchDest = cbDest / sizeof(char);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    va_list argList;
-    va_start(argList,pszFormat);
-    hr = StringVPrintfWorkerA(pszDest,cchDest,pszFormat,argList);
-    va_end(argList);
-  }
+  va_list argList;
+  if(cbDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  va_start(argList,pszFormat);
+  hr = StringVPrintfWorkerA(pszDest,cbDest,pszFormat,argList);
+  va_end(argList);
   return hr;
 }
 
 STRSAFEAPI StringCbPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszFormat,...) {
   HRESULT hr;
-  size_t cchDest;
-  cchDest = cbDest / sizeof(wchar_t);
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    va_list argList;
-    va_start(argList,pszFormat);
-    hr = StringVPrintfWorkerW(pszDest,cchDest,pszFormat,argList);
-    va_end(argList);
-  }
+  va_list argList;
+  size_t cchDest = cbDest / sizeof(wchar_t);
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  va_start(argList,pszFormat);
+  hr = StringVPrintfWorkerW(pszDest,cchDest,pszFormat,argList);
+  va_end(argList);
   return hr;
 }
 #endif /* !__CRT__NO_INLINE */
@@ -712,29 +567,22 @@ STRSAFEAPI StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWS
 #ifndef __CRT__NO_INLINE
 STRSAFEAPI StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,...) {
   HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    size_t cbDest;
-    va_list argList;
-    cbDest = cchDest*sizeof(char);
-    va_start(argList,pszFormat);
-    hr = StringVPrintfExWorkerA(pszDest,cchDest,cbDest,ppszDestEnd,pcchRemaining,dwFlags,pszFormat,argList);
-    va_end(argList);
-  }
+  va_list argList;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  va_start(argList,pszFormat);
+  hr = StringVPrintfExWorkerA(pszDest,cchDest,cchDest,ppszDestEnd,pcchRemaining,dwFlags,pszFormat,argList);
+  va_end(argList);
   return hr;
 }
 
 STRSAFEAPI StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,...) {
   HRESULT hr;
-  if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
-  else {
-    size_t cbDest;
-    va_list argList;
-    cbDest = cchDest*sizeof(wchar_t);
-    va_start(argList,pszFormat);
-    hr = StringVPrintfExWorkerW(pszDest,cchDest,cbDest,ppszDestEnd,pcchRemaining,dwFlags,pszFormat,argList);
-    va_end(argList);
-  }
+  size_t cbDest = cchDest * sizeof(wchar_t);
+  va_list argList;
+  if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
+  va_start(argList,pszFormat);
+  hr = StringVPrintfExWorkerW(pszDest,cchDest,cbDest,ppszDestEnd,pcchRemaining,dwFlags,pszFormat,argList);
+  va_end(argList);
   return hr;
 }
 #endif /* !__CRT__NO_INLINE */

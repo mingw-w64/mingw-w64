@@ -30,7 +30,7 @@ typedef struct _KSP_BDA_NODE_PIN {
 
 typedef struct _KSM_BDA_PIN {
   KSMETHOD Method;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG PinId;
     ULONG PinType;
   };
@@ -39,11 +39,11 @@ typedef struct _KSM_BDA_PIN {
 
 typedef struct _KSM_BDA_PIN_PAIR {
   KSMETHOD Method;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG InputPinId;
     ULONG InputPinType;
   };
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     ULONG OutputPinId;
     ULONG OutputPinType;
   };
@@ -358,7 +358,7 @@ typedef struct _ChannelChangeInfo {
 
 typedef struct _ChannelInfo {
   LONG lFrequency;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
      struct {
       LONG lONID;
       LONG lTSID;

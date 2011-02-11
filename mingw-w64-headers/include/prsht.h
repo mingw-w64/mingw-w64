@@ -88,10 +88,10 @@ extern "C" {
 #define PROPSHEETPAGEA_V1_FIELDS				\
   DWORD dwSize,dwFlags;						\
   HINSTANCE hInstance;						\
-  __MINGW_EXTENSION union {					\
+  __C89_NAMELESSUNION union {					\
     LPCSTR pszTemplate; PROPSHEETPAGE_RESOURCE pResource;	\
   } DUMMYUNIONNAME;						\
-  __MINGW_EXTENSION union {					\
+  __C89_NAMELESSUNION union {					\
     HICON hIcon; LPCSTR pszIcon;				\
   } DUMMYUNIONNAME2;						\
   LPCSTR pszTitle;						\
@@ -103,10 +103,10 @@ extern "C" {
 #define PROPSHEETPAGEW_V1_FIELDS				\
   DWORD dwSize, dwFlags;					\
   HINSTANCE hInstance;						\
-  __MINGW_EXTENSION union {					\
+  __C89_NAMELESSUNION union {					\
     LPCWSTR pszTemplate; PROPSHEETPAGE_RESOURCE pResource;	\
   } DUMMYUNIONNAME;						\
-  __MINGW_EXTENSION union {					\
+  __C89_NAMELESSUNION union {					\
     HICON hIcon; LPCWSTR pszIcon;				\
   } DUMMYUNIONNAME2;						\
   LPCWSTR pszTitle;						\
@@ -237,27 +237,27 @@ extern "C" {
     DWORD dwFlags;
     HWND hwndParent;
     HINSTANCE hInstance;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       HICON hIcon;
       LPCSTR pszIcon;
     } DUMMYUNIONNAME;
     LPCSTR pszCaption;
     UINT nPages;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       UINT nStartPage;
       LPCSTR pStartPage;
     } DUMMYUNIONNAME2;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       LPCPROPSHEETPAGEA ppsp;
       HPROPSHEETPAGE *phpage;
     } DUMMYUNIONNAME3;
     PFNPROPSHEETCALLBACK pfnCallback;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       HBITMAP hbmWatermark;
       LPCSTR pszbmWatermark;
     } DUMMYUNIONNAME4;
     HPALETTE hplWatermark;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       HBITMAP hbmHeader;
       LPCSTR pszbmHeader;
     } DUMMYUNIONNAME5;
@@ -270,27 +270,27 @@ extern "C" {
     DWORD dwFlags;
     HWND hwndParent;
     HINSTANCE hInstance;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       HICON hIcon;
       LPCWSTR pszIcon;
     } DUMMYUNIONNAME;
     LPCWSTR pszCaption;
     UINT nPages;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       UINT nStartPage;
       LPCWSTR pStartPage;
     } DUMMYUNIONNAME2;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       LPCPROPSHEETPAGEW ppsp;
       HPROPSHEETPAGE *phpage;
     } DUMMYUNIONNAME3;
     PFNPROPSHEETCALLBACK pfnCallback;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       HBITMAP hbmWatermark;
       LPCWSTR pszbmWatermark;
     } DUMMYUNIONNAME4;
     HPALETTE hplWatermark;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       HBITMAP hbmHeader;
       LPCWSTR pszbmHeader;
     } DUMMYUNIONNAME5;

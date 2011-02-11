@@ -306,7 +306,7 @@ typedef DWORD LCID;
 #define _LARGE_INTEGER_DEFINED
 
   typedef union _LARGE_INTEGER {
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       DWORD LowPart;
       LONG HighPart;
     } DUMMYSTRUCTNAME;
@@ -320,7 +320,7 @@ typedef DWORD LCID;
   typedef LARGE_INTEGER *PLARGE_INTEGER;
 
   typedef union _ULARGE_INTEGER {
-    __MINGW_EXTENSION struct {
+    __C89_NAMELESSSTRUCT struct {
       DWORD LowPart;
       DWORD HighPart;
     } DUMMYSTRUCTNAME;
@@ -1709,10 +1709,10 @@ typedef DWORD LCID;
     DWORD64 R14;
     DWORD64 R15;
     DWORD64 Rip;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       XMM_SAVE_AREA32 FltSave;
       XMM_SAVE_AREA32 FloatSave;
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
 	M128A Header[2];
 	M128A Legacy[8];
 	M128A Xmm0;
@@ -3289,12 +3289,12 @@ typedef DWORD LCID;
 
 #ifndef _NT_TIB_DEFINED
 #define _NT_TIB_DEFINED
-    __MINGW_EXTENSION typedef struct _NT_TIB {
+    __C89_NAMELESSSTRUCT typedef struct _NT_TIB {
       struct _EXCEPTION_REGISTRATION_RECORD *ExceptionList;
       PVOID StackBase;
       PVOID StackLimit;
       PVOID SubSystemTib;
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	PVOID FiberData;
 	DWORD Version;
       };
@@ -3304,12 +3304,12 @@ typedef DWORD LCID;
     typedef NT_TIB *PNT_TIB;
 #endif /* _NT_TIB_DEFINED */
 
-    __MINGW_EXTENSION typedef struct _NT_TIB32 {
+    __C89_NAMELESSSTRUCT typedef struct _NT_TIB32 {
       DWORD ExceptionList;
       DWORD StackBase;
       DWORD StackLimit;
       DWORD SubSystemTib;
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	DWORD FiberData;
 	DWORD Version;
       };
@@ -3317,12 +3317,12 @@ typedef DWORD LCID;
       DWORD Self;
     } NT_TIB32,*PNT_TIB32;
 
-    __MINGW_EXTENSION typedef struct _NT_TIB64 {
+    __C89_NAMELESSSTRUCT typedef struct _NT_TIB64 {
       DWORD64 ExceptionList;
       DWORD64 StackBase;
       DWORD64 StackLimit;
       DWORD64 SubSystemTib;
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	DWORD64 FiberData;
 	DWORD Version;
       };
@@ -3356,7 +3356,7 @@ typedef DWORD LCID;
 
     typedef union _RATE_QUOTA_LIMIT {
       DWORD RateData;
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
         DWORD RatePercent : 7;
         DWORD Reserved0   : 25;
       } DUMMYSTRUCTNAME;
@@ -3578,7 +3578,7 @@ typedef DWORD LCID;
     typedef struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
       ULONG_PTR ProcessorMask;
       LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	struct {
 	  BYTE Flags;
 	} ProcessorCore;
@@ -4706,7 +4706,7 @@ typedef DWORD LCID;
 #define IMAGE_WEAK_EXTERN_SEARCH_ALIAS 3
 
     typedef struct _IMAGE_RELOCATION {
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	DWORD VirtualAddress;
 	DWORD RelocCount;
       } DUMMYUNIONNAME;
@@ -5176,7 +5176,7 @@ typedef DWORD LCID;
 #endif /* _WIN64 */
 
     typedef struct _IMAGE_IMPORT_DESCRIPTOR {
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	DWORD Characteristics;
 	DWORD OriginalFirstThunk;
       } DUMMYUNIONNAME;
@@ -5213,17 +5213,17 @@ typedef DWORD LCID;
 #define IMAGE_RESOURCE_DATA_IS_DIRECTORY 0x80000000
 
     typedef struct _IMAGE_RESOURCE_DIRECTORY_ENTRY {
-      __MINGW_EXTENSION union {
-	__MINGW_EXTENSION struct {
+      __C89_NAMELESSUNION union {
+	__C89_NAMELESSSTRUCT struct {
 	  DWORD NameOffset:31;
 	  DWORD NameIsString:1;
 	} DUMMYSTRUCTNAME;
 	DWORD Name;
 	WORD Id;
       } DUMMYUNIONNAME;
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	DWORD OffsetToData;
-	__MINGW_EXTENSION struct {
+	__C89_NAMELESSSTRUCT struct {
 	  DWORD OffsetToDirectory:31;
 	  DWORD DataIsDirectory:1;
 	} DUMMYSTRUCTNAME2;
@@ -5410,7 +5410,7 @@ typedef DWORD LCID;
     typedef struct _IMAGE_FUNCTION_ENTRY64 {
       ULONGLONG StartingAddress;
       ULONGLONG EndingAddress;
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	ULONGLONG EndOfPrologue;
 	ULONGLONG UnwindInfoAddress;
       } DUMMYUNIONNAME;
@@ -5475,7 +5475,7 @@ typedef DWORD LCID;
       WORD Machine;
       DWORD TimeDateStamp;
       DWORD SizeOfData;
-      __MINGW_EXTENSION union {
+      __C89_NAMELESSUNION union {
 	WORD Ordinal;
 	WORD Hint;
       };
@@ -5548,7 +5548,7 @@ typedef DWORD LCID;
 
     typedef union _SLIST_HEADER {
       ULONGLONG Alignment;
-      __MINGW_EXTENSION struct {
+      __C89_NAMELESSSTRUCT struct {
 	SLIST_ENTRY Next;
 	WORD Depth;
 	WORD Sequence;
@@ -6568,7 +6568,7 @@ typedef struct _PROCESSOR_RELATIONSHIP {
 typedef struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
   LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
   DWORD                          Size;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     PROCESSOR_RELATIONSHIP Processor;
     NUMA_NODE_RELATIONSHIP NumaNode;
     CACHE_RELATIONSHIP     Cache;

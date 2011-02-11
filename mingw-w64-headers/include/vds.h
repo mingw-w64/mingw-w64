@@ -661,7 +661,7 @@ extern "C" {
 
   typedef struct _CHANGE_ATTRIBUTES_PARAMETERS {
     VDS_PARTITION_STYLE style;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       struct {
 	BOOLEAN bootIndicator;
       } MbrPartInfo;
@@ -673,7 +673,7 @@ extern "C" {
 
   typedef struct _CHANGE_PARTITION_TYPE_PARAMETERS {
     VDS_PARTITION_STYLE style;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       struct {
         BYTE partitionType;
       } MbrPartInfo;
@@ -686,7 +686,7 @@ extern "C" {
 
   typedef struct _CREATE_PARTITION_PARAMETERS {
     VDS_PARTITION_STYLE style;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       struct {
 	BYTE    partitionType;
 	BOOLEAN bootIndicator;
@@ -702,7 +702,7 @@ extern "C" {
 
   typedef struct _VDS_ASYNC_OUTPUT {
     VDS_ASYNC_OUTPUT_TYPE type;
-    /*[switch(type)] */__MINGW_EXTENSION union {
+    /*[switch(type)] */__C89_NAMELESSUNION union {
       /*[case(VDS_ASYNCOUT_CREATEPARTITION)]*/
       struct {
 	ULONGLONG     ullOffset;
@@ -841,7 +841,7 @@ extern "C" {
 
   typedef struct _VDS_NOTIFICATION {
     VDS_NOTIFICATION_TARGET_TYPE objectType;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       VDS_PACK_NOTIFICATION         Pack;
       VDS_DISK_NOTIFICATION         Disk;
       VDS_VOLUME_NOTIFICATION       Volume;
@@ -882,7 +882,7 @@ extern "C" {
     ULONG                ulFlags;
     VDS_STORAGE_BUS_TYPE BusType;
     VDS_PARTITION_STYLE  PartitionStyle;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       DWORD dwSignature;
       GUID  DiskGuid;
     };
@@ -1137,7 +1137,7 @@ extern "C" {
     ULONG               ulPartitionNumber;
     ULONGLONG           ullOffset;
     ULONGLONG           ullSize;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       VDS_PARTITION_INFO_MBR Mbr;
       VDS_PARTITION_INFO_GPT Gpt;
     };
@@ -1147,15 +1147,15 @@ extern "C" {
     VDS_PATH_ID         pathId;
     VDS_HWPROVIDER_TYPE type;
     VDS_PATH_STATUS     status;
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       VDS_OBJECT_ID controllerPortId;
       VDS_OBJECT_ID targetPortalId;
     };
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       VDS_OBJECT_ID hbaPortId;
       VDS_OBJECT_ID initiatorAdapterId;
     };
-    __MINGW_EXTENSION union {
+    __C89_NAMELESSUNION union {
       VDS_HBAPORT_PROP *pHbaPortProp;
       VDS_IPADDRESS    *pInitiatorPortalIpAddr;
     };
@@ -1390,10 +1390,10 @@ typedef struct _VDS_DISK_PROP2 {
   ULONG                   ulFlags;
   VDS_STORAGE_BUS_TYPE    BusType;
   VDS_PARTITION_STYLE     PartitionStyle;
-  __MINGW_EXTENSION union {
+  __C89_NAMELESSUNION union {
     DWORD dwSignature;
     GUID  DiskGuid;
-  } ;
+  };
   LPWSTR                  pwszDiskAddress;
   LPWSTR                  pwszName;
   LPWSTR                  pwszFriendlyName;
