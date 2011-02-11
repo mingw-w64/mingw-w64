@@ -72,7 +72,7 @@ extern "C" {
 #include <pshpack8.h>
   typedef struct _STRRET {
     UINT uType;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       LPWSTR pOleStr;
       UINT uOffset;
       char cStr[260 ];

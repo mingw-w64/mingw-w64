@@ -13,7 +13,7 @@
 #ifdef  _KS_NO_ANONYMOUS_STRUCTURES_
 #define _KS_ANON_STRUCT(X)			struct X
 #else
-#define _KS_ANON_STRUCT(X)	__C89_NAMELESSSTRUCT struct
+#define _KS_ANON_STRUCT(X)	__C89_NAMELESS struct
 #endif
 
 #ifndef _NTRTL_
@@ -69,7 +69,7 @@ typedef struct {
 } KSPRIORITY,*PKSPRIORITY;
 
 typedef struct {
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     _KS_ANON_STRUCT(_IDENTIFIER)
     {
       GUID Set;
@@ -226,7 +226,7 @@ typedef PVOID PKSWORKER;
 
 typedef struct {
   ULONG NotificationType;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     struct {
       HANDLE Event;
       ULONG_PTR Reserved[2];
@@ -298,7 +298,7 @@ typedef struct {
 typedef struct {
   ULONG Size;
   ULONG Flags;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     HANDLE ObjectHandle;
     PVOID ObjectPointer;
   };
@@ -783,7 +783,7 @@ typedef enum {
 #define KSDATARANGE_REQUIRED_ATTRIBUTES		(1 << KSDATARANGE_BIT_REQUIRED_ATTRIBUTES)
 
 typedef union {
-  __C89_NAMELESSSTRUCT struct {
+  __C89_NAMELESS struct {
     ULONG FormatSize;
     ULONG Flags;
     ULONG SampleSize;
@@ -1061,9 +1061,9 @@ typedef struct {
   KSPIN_COMMUNICATION Communication;
   const GUID *Category;
   const GUID *Name;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     LONGLONG Reserved;
-    __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS struct {
       ULONG ConstrainedDataRangesCount;
       PKSDATARANGE *ConstrainedDataRanges;
     };
@@ -1258,7 +1258,7 @@ typedef enum {
 #define KSALLOCATOR_FLAG_ATTENTION_STEPPING		0x00002000
 
 typedef struct {
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     ULONG OptionsFlags;
     ULONG RequirementsFlags;
   };
@@ -1966,13 +1966,13 @@ typedef struct {
 
 typedef struct {
   ULONG PropertyId;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     PFNKSHANDLER GetPropertyHandler;
     BOOLEAN GetSupported;
   };
   ULONG MinProperty;
   ULONG MinData;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     PFNKSHANDLER SetPropertyHandler;
     BOOLEAN SetSupported;
   };
@@ -1991,11 +1991,11 @@ typedef struct {
 
 typedef struct {
   ULONG PropertyId;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     PFNKSFASTHANDLER GetPropertyHandler;
     BOOLEAN GetSupported;
   };
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     PFNKSFASTHANDLER SetPropertyHandler;
     BOOLEAN SetSupported;
   };
@@ -2032,7 +2032,7 @@ typedef struct {
 
 typedef struct {
   ULONG MethodId;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     PFNKSHANDLER MethodHandler;
     BOOLEAN MethodSupported;
   };
@@ -2049,7 +2049,7 @@ typedef struct {
 
 typedef struct {
   ULONG MethodId;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     PFNKSFASTHANDLER MethodHandler;
     BOOLEAN MethodSupported;
   };
@@ -2130,7 +2130,7 @@ typedef struct {
 struct _KSEVENT_ENTRY {
   LIST_ENTRY ListEntry;
   PVOID Object;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     PKSDPC_ITEM DpcItem;
     PKSBUFFER_ITEM BufferItem;
   };
@@ -2850,7 +2850,7 @@ struct _KSMAPPING {
 struct _KSSTREAM_POINTER_OFFSET
 {
 #if defined(_NTDDK_)
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     PUCHAR Data;
     PKSMAPPING Mappings;
   };

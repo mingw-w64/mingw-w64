@@ -742,7 +742,7 @@ extern "C"{
 
   typedef struct _adsvalue {
     ADSTYPE dwType;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       ADS_DN_STRING DNString;
       ADS_CASE_EXACT_STRING CaseExactString;
       ADS_CASE_IGNORE_STRING CaseIgnoreString;

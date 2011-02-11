@@ -77,7 +77,7 @@ extern "C" {
     DWORD dwSize;
     MSP_EVENT Event;
     MSP_HANDLE hCall;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       struct {
 	MSP_ADDRESS_EVENT Type;
 	ITTerminal *pTerminal;

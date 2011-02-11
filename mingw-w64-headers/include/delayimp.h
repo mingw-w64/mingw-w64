@@ -39,7 +39,7 @@ enum {
 
 typedef struct DelayLoadProc {
   WINBOOL fImportByName;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     LPCSTR szProcName;
     DWORD dwOrdinal;
   };

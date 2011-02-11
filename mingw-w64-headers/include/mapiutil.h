@@ -148,7 +148,7 @@ extern "C" {
   typedef struct {
     ULONG cctl;
     LPTSTR lpszResourceName;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       LPTSTR lpszComponent;
       ULONG ulItemID;
     };

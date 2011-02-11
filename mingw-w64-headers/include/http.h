@@ -101,7 +101,7 @@ extern "C" {
 
   typedef struct _HTTP_DATA_CHUNK {
     HTTP_DATA_CHUNK_TYPE DataChunkType;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       struct {
 	PVOID pBuffer;
 	ULONG BufferLength;

@@ -1576,8 +1576,8 @@ extern "C" {
     WORD dmSize;
     WORD dmDriverExtra;
     DWORD dmFields;
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	short dmOrientation;
 	short dmPaperSize;
 	short dmPaperLength;
@@ -1603,7 +1603,7 @@ extern "C" {
     DWORD dmBitsPerPel;
     DWORD dmPelsWidth;
     DWORD dmPelsHeight;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD dmDisplayFlags;
       DWORD dmNup;
     };
@@ -1625,8 +1625,8 @@ extern "C" {
     WORD dmSize;
     WORD dmDriverExtra;
     DWORD dmFields;
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	short dmOrientation;
 	short dmPaperSize;
 	short dmPaperLength;
@@ -1636,7 +1636,7 @@ extern "C" {
 	short dmDefaultSource;
 	short dmPrintQuality;
       };
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	POINTL dmPosition;
 	DWORD dmDisplayOrientation;
 	DWORD dmDisplayFixedOutput;
@@ -1652,7 +1652,7 @@ extern "C" {
     DWORD dmBitsPerPel;
     DWORD dmPelsWidth;
     DWORD dmPelsHeight;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD dmDisplayFlags;
       DWORD dmNup;
     };

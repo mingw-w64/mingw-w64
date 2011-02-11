@@ -101,7 +101,7 @@ extern "C" {
 
   typedef struct _PATCH_OLD_FILE_INFO {
     ULONG SizeOfThisStruct;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       LPCSTR OldFileNameA;
       LPCWSTR OldFileNameW;
       HANDLE OldFileHandle;

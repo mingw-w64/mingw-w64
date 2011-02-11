@@ -59,14 +59,14 @@ typedef struct _USB_DEFAULT_PIPE_SETUP_PACKET {
   BM_REQUEST_TYPE bmRequestType;
   UCHAR bRequest;
   union _wValue {
-    __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS struct {
       UCHAR LowByte;
       UCHAR HiByte;
     };
     USHORT W;
   } wValue;
   union _wIndex {
-    __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS struct {
       UCHAR LowByte;
       UCHAR HiByte;
     };

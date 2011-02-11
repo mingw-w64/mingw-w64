@@ -36,9 +36,9 @@ extern "C" {
 #define IR_PROMISCUOUS_MULTICAST 1
 
   typedef struct _SUPPORT_FUNCTIONS {
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       ULONGLONG _Align8;
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	DWORD dwVersion;
 	DWORD dwReserved;
       };

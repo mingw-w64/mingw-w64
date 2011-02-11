@@ -1491,7 +1491,7 @@ extern "C" {
 
   typedef struct _CERT_ALT_NAME_ENTRY {
     DWORD dwAltNameChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       PCERT_OTHER_NAME pOtherName;
       LPWSTR pwszRfc822Name;
       LPWSTR pwszDNSName;
@@ -1659,7 +1659,7 @@ extern "C" {
 
   typedef struct _CRL_DIST_POINT_NAME {
     DWORD dwDistPointNameChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       CERT_ALT_NAME_INFO FullName;
     };
   } CRL_DIST_POINT_NAME,*PCRL_DIST_POINT_NAME;
@@ -1866,7 +1866,7 @@ extern "C" {
 
   typedef struct _CMC_TAGGED_REQUEST {
     DWORD dwTaggedRequestChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       PCMC_TAGGED_CERT_REQUEST pTaggedCertRequest;
     };
   } CMC_TAGGED_REQUEST,*PCMC_TAGGED_REQUEST;
@@ -1915,7 +1915,7 @@ extern "C" {
     DWORD *rgdwBodyList;
     LPWSTR pwszStatusString;
     DWORD dwOtherInfoChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD dwFailInfo;
       PCMC_PEND_INFO pPendInfo;
     };
@@ -2029,7 +2029,7 @@ extern "C" {
     LPCSTR pszOID;
     LPCWSTR pwszName;
     DWORD dwGroupId;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD dwValue;
       ALG_ID Algid;
       DWORD dwLength;
@@ -2110,7 +2110,7 @@ extern "C" {
 
   typedef struct _CERT_ID {
     DWORD dwIdChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       CERT_ISSUER_SERIAL_NUMBER IssuerSerialNumber;
       CRYPT_HASH_BLOB KeyId;
       CRYPT_HASH_BLOB HashId;
@@ -2201,7 +2201,7 @@ extern "C" {
     HCRYPTPROV hCryptProv;
     DWORD dwKeySpec;
     DWORD dwKeyChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       PCRYPT_ALGORITHM_IDENTIFIER pEphemeralAlgorithm;
       PCERT_ID pSenderId;
     };
@@ -2219,7 +2219,7 @@ extern "C" {
     void *pvKeyEncryptionAuxInfo;
     HCRYPTPROV hCryptProv;
     DWORD dwKeyChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
 
       HCRYPTKEY hKeyEncryptionKey;
       void *pvKeyEncryptionKey;
@@ -2233,7 +2233,7 @@ extern "C" {
 
   struct _CMSG_RECIPIENT_ENCODE_INFO {
     DWORD dwRecipientChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       PCMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO pKeyTrans;
       PCMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO pKeyAgree;
       PCMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO pMailList;
@@ -2408,7 +2408,7 @@ extern "C" {
   typedef struct _CMSG_KEY_AGREE_RECIPIENT_INFO {
     DWORD dwVersion;
     DWORD dwOriginatorChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       CERT_ID OriginatorCertId;
       CERT_PUBLIC_KEY_INFO OriginatorPublicKeyInfo;
     };
@@ -2432,7 +2432,7 @@ extern "C" {
 
   typedef struct _CMSG_CMS_RECIPIENT_INFO {
     DWORD dwRecipientChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       PCMSG_KEY_TRANS_RECIPIENT_INFO pKeyTrans;
       PCMSG_KEY_AGREE_RECIPIENT_INFO pKeyAgree;
       PCMSG_MAIL_LIST_RECIPIENT_INFO pMailList;
@@ -2513,7 +2513,7 @@ extern "C" {
     PCMSG_MAIL_LIST_RECIPIENT_INFO pMailList;
     DWORD dwRecipientIndex;
     DWORD dwKeyChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       HCRYPTKEY hKeyEncryptionKey;
       void *pvKeyEncryptionKey;
     };
@@ -2596,7 +2596,7 @@ extern "C" {
     CRYPT_ALGORITHM_IDENTIFIER KeyEncryptionAlgorithm;
     CRYPT_DATA_BLOB UserKeyingMaterial;
     DWORD dwOriginatorChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       CERT_ID OriginatorCertId;
       CERT_PUBLIC_KEY_INFO OriginatorPublicKeyInfo;
     };
@@ -2822,11 +2822,11 @@ extern "C" {
 #define CERT_SYSTEM_STORE_RELOCATE_FLAG 0x80000000
 
   typedef struct _CERT_SYSTEM_STORE_RELOCATE_PARA {
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       HKEY hKeyBase;
       void *pvBase;
     };
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       void *pvSystemStore;
       LPCSTR pszSystemStore;
       LPCWSTR pwszSystemStore;
@@ -4179,7 +4179,7 @@ extern "C" {
 #define AUTHTYPE_SERVER 2
 
   typedef struct _HTTPSPolicyCallbackData {
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD cbStruct;
       DWORD cbSize;
     };
@@ -4322,7 +4322,7 @@ typedef struct _CERT_HASHED_URL {
 
 typedef struct _CERT_BIOMETRIC_DATA {
   DWORD dwTypeOfBiometricDataChoice;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     DWORD dwPredefined;
     LPSTR pszObjId;
   };
@@ -4364,7 +4364,7 @@ typedef struct _CERT_LOGOTYPE_IMAGE_INFO {
   DWORD  dwXSize;
   DWORD  dwYSize;
   DWORD  dwLogotypeImageResolutionChoice;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     DWORD dwNumBits;
     DWORD dwTableSize;
   };
@@ -4390,7 +4390,7 @@ typedef struct _CERT_LOGOTYPE_REFERENCE {
 
 typedef struct _CERT_LOGOTYPE_INFO {
   DWORD dwLogotypeInfoChoice;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     PCERT_LOGOTYPE_DATA      pLogotypeDirectInfo;
     PCERT_LOGOTYPE_REFERENCE pLogotypeIndirectInfo;
   } ;
@@ -4653,7 +4653,7 @@ typedef struct _OCSP_BASIC_REVOKED_INFO {
 typedef struct _OCSP_BASIC_RESPONSE_ENTRY {
   OCSP_CERT_ID    CertId;
   DWORD           dwCertStatus;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     POCSP_BASIC_REVOKED_INFO pRevokedInfo;
   };
   FILETIME        ThisUpdate;
@@ -4665,7 +4665,7 @@ typedef struct _OCSP_BASIC_RESPONSE_ENTRY {
 typedef struct _OCSP_BASIC_RESPONSE_INFO {
   DWORD                      dwVersion;
   DWORD                      dwResponderIdChoice;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     CERT_NAME_BLOB  ByNameResponderId;
     CRYPT_HASH_BLOB ByKeyResponderId;
   };

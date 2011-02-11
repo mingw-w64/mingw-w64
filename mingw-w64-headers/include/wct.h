@@ -48,7 +48,7 @@ extern "C" {
   typedef struct _WAITCHAIN_NODE_INFO {
     WCT_OBJECT_TYPE   ObjectType;
     WCT_OBJECT_STATUS ObjectStatus;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       struct {
 	WCHAR ObjectName[WCT_OBJNAME_LENGTH];
 	LARGE_INTEGER Timeout;

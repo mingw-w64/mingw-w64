@@ -1346,7 +1346,7 @@ extern "C" {
   typedef struct _KERB_SMARTCARD_CSP_INFO {
     DWORD dwCspInfoLen;
     DWORD MessageType;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       PVOID   ContextInformation;
       ULONG64 SpaceHolderForWow64;
     };

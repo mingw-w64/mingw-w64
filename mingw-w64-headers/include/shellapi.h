@@ -277,7 +277,7 @@ extern "C" {
     LPCSTR lpClass;
     HKEY hkeyClass;
     DWORD dwHotKey;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       HANDLE hIcon;
       HANDLE hMonitor;
     } DUMMYUNIONNAME;
@@ -298,7 +298,7 @@ extern "C" {
     LPCWSTR lpClass;
     HKEY hkeyClass;
     DWORD dwHotKey;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       HANDLE hIcon;
       HANDLE hMonitor;
     } DUMMYUNIONNAME;
@@ -363,7 +363,7 @@ extern "C" {
     DWORD dwState;
     DWORD dwStateMask;
     CHAR szInfo[256];
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       UINT uTimeout;
       UINT uVersion;
     } DUMMYUNIONNAME;
@@ -385,7 +385,7 @@ extern "C" {
     DWORD dwState;
     DWORD dwStateMask;
     WCHAR szInfo[256];
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       UINT uTimeout;
       UINT uVersion;
     } DUMMYUNIONNAME;

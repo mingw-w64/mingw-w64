@@ -369,7 +369,7 @@ C_ASSERT(sizeof(USB_NODE_CONNECTION_INFORMATION_EX) == sizeof(USB_NODE_CONNECTIO
 
 typedef union _USB_HUB_CAP_FLAGS {
   ULONG ul;
-  __C89_NAMELESSSTRUCT struct {
+  __C89_NAMELESS struct {
     ULONG HubIsHighSpeedCapable:1;
     ULONG HubIsHighSpeed:1;
     ULONG HubIsMultiTtCapable:1;
@@ -626,7 +626,7 @@ typedef struct _USB_DEVICE_NODE_INFO {
   WCHAR DeviceDescription[40];
   USB_WMI_DEVICE_NODE_TYPE NodeType;
   USB_TOPOLOGY_ADDRESS BusAddress;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     USB_DEVICE_INFO UsbDeviceInfo;
     USB_HUB_DEVICE_INFO HubDeviceInfo;
     USB_COMPOSITE_DEVICE_INFO CompositeDeviceInfo;

@@ -103,7 +103,7 @@ typedef struct {
   LPVOID pHandlerParameters;
   CLSID clsidDefaultForm;
   IPersistQuery *pPersistQuery;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     void *pFormParameters;
     IPropertyBag *ppbFormParameters;
   };

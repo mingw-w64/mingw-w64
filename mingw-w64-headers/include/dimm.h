@@ -95,7 +95,7 @@ extern "C"{
     POINT ptSoftKbdPos;
     DWORD fdwConversion;
     DWORD fdwSentence;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       LOGFONTA A;
       LOGFONTW W;
     } lfFont;

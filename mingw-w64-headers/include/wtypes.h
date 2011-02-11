@@ -545,7 +545,7 @@ extern "C" {
 #define _tagCY_DEFINED
 #define _CY_DEFINED
   typedef union tagCY {
-    __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS struct {
       unsigned long Lo;
       long Hi;
     } DUMMYSTRUCTNAME;
@@ -557,16 +557,16 @@ extern "C" {
 
   typedef struct tagDEC {
     USHORT wReserved;
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	BYTE scale;
 	BYTE sign;
       } DUMMYSTRUCTNAME;
       USHORT signscale;
     } DUMMYUNIONNAME;
     ULONG Hi32;
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	ULONG Lo32;
 	ULONG Mid32;
       } DUMMYSTRUCTNAME2;

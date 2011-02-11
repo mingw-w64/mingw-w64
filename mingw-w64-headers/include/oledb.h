@@ -531,16 +531,16 @@ extern "C" {
 #ifndef DECIMAL_SETZERO
   typedef struct tagDEC {
     USHORT wReserved;
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	BYTE scale;
 	BYTE sign;
       };
       USHORT signscale;
     };
     ULONG Hi32;
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	ULONG Lo32;
 	ULONG Mid32;
       };

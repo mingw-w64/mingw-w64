@@ -2095,12 +2095,12 @@ typedef LONGLONG REFERENCE_TIME;
   typedef struct __MIDL___MIDL_itf_strmif_0138_0006 {
     DWORD dwVersion;
     DWORD dwMerit;
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	ULONG cPins;
 	const REGFILTERPINS *rgPins;
       };
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	ULONG cPins2;
 	const REGFILTERPINS2 *rgPins2;
       };
@@ -5093,7 +5093,7 @@ typedef LONGLONG REFERENCE_TIME;
 #ifndef TIMECODE_DEFINED
 #define TIMECODE_DEFINED
   typedef union _timecode {
-    __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS struct {
       WORD wFrameRate;
       WORD wFrameFract;
       DWORD dwFrames;

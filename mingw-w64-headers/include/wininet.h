@@ -1316,7 +1316,7 @@ extern "C" {
     LPSTR lpHeaderInfo;
     DWORD dwHeaderInfoSize;
     LPSTR lpszFileExtension;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD dwReserved;
       DWORD dwExemptDelta;
     };
@@ -1338,7 +1338,7 @@ extern "C" {
     LPWSTR lpHeaderInfo;
     DWORD dwHeaderInfoSize;
     LPWSTR lpszFileExtension;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD dwReserved;
       DWORD dwExemptDelta;
     };

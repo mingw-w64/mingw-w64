@@ -89,7 +89,7 @@ enum ENUM_PERIOD {
 };
 
 typedef struct _LLFILETIME {
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     LONGLONG ll;
     FILETIME ft;
   };

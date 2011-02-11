@@ -65,7 +65,7 @@ extern "C"
     DWORD dwUIChoice;
     DWORD fdwRevocationChecks;
     DWORD dwUnionChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       struct WINTRUST_FILE_INFO_ *pFile;
       struct WINTRUST_CATALOG_INFO_ *pCatalog;
       struct WINTRUST_BLOB_INFO_ *pBlob;
@@ -235,7 +235,7 @@ extern "C"
     DWORD csProvPrivData;
     struct _CRYPT_PROVIDER_PRIVDATA *pasProvPrivData;
     DWORD dwSubjectChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       struct _PROVDATA_SIP *pPDSip;
     };
     char *pszUsageOID;
@@ -480,7 +480,7 @@ extern "C"
 
   typedef struct SPC_LINK_ {
     DWORD dwLinkChoice;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       LPWSTR pwszUrl;
       SPC_SERIALIZED_OBJECT Moniker;
       LPWSTR pwszFile;

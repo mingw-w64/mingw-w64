@@ -1128,11 +1128,11 @@ extern "C" {
     CHAR szShortName[MIXER_SHORT_NAME_CHARS];
     CHAR szName[MIXER_LONG_NAME_CHARS];
     union {
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	LONG lMinimum;
 	LONG lMaximum;
       } DUMMYSTRUCTNAME;
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	DWORD dwMinimum;
 	DWORD dwMaximum;
       } DUMMYSTRUCTNAME2;
@@ -1154,11 +1154,11 @@ extern "C" {
     WCHAR szShortName[MIXER_SHORT_NAME_CHARS];
     WCHAR szName[MIXER_LONG_NAME_CHARS];
     union {
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	LONG lMinimum;
 	LONG lMaximum;
       } DUMMYSTRUCTNAME;
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	DWORD dwMinimum;
 	DWORD dwMaximum;
       } DUMMYSTRUCTNAME2;
@@ -1245,7 +1245,7 @@ extern "C" {
   typedef struct tagMIXERLINECONTROLSA {
     DWORD cbStruct;
     DWORD dwLineID;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD dwControlID;
       DWORD dwControlType;
     } DUMMYUNIONNAME;
@@ -1257,7 +1257,7 @@ extern "C" {
   typedef struct tagMIXERLINECONTROLSW {
     DWORD cbStruct;
     DWORD dwLineID;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD dwControlID;
       DWORD dwControlType;
     } DUMMYUNIONNAME;
@@ -1285,7 +1285,7 @@ extern "C" {
     DWORD cbStruct;
     DWORD dwControlID;
     DWORD cChannels;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       HWND hwndOwner;
       DWORD cMultipleItems;
     } DUMMYUNIONNAME;

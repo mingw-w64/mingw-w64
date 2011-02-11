@@ -24,7 +24,7 @@ typedef struct _SAP_IF_INFO {
 } SAP_IF_INFO,*PSAP_IF_INFO;
 
 typedef struct _SAP_SERVICE_FILTER_INFO {
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     USHORT ServiceType;
     ULONG ServiceType_align;
   };

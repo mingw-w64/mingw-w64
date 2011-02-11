@@ -747,7 +747,7 @@ typedef unsigned long error_status_t;
 
   typedef struct _NDR_USER_MARSHAL_INFO {
     unsigned long InformationLevel;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       NDR_USER_MARSHAL_INFO_LEVEL1 Level1;
     };
   } NDR_USER_MARSHAL_INFO;

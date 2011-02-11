@@ -1091,7 +1091,7 @@ typedef struct _SYMSRV_INDEX_INFOW {
     ULONG32 NumberOfStreams;
     RVA StreamDirectoryRva;
     ULONG32 CheckSum;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       ULONG32 Reserved;
       ULONG32 TimeDateStamp;
     };
@@ -1144,9 +1144,9 @@ typedef struct _SYMSRV_INDEX_INFOW {
     USHORT ProcessorArchitecture;
     USHORT ProcessorLevel;
     USHORT ProcessorRevision;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       USHORT Reserved0;
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	UCHAR NumberOfProcessors;
 	UCHAR ProductType;
       };
@@ -1156,9 +1156,9 @@ typedef struct _SYMSRV_INDEX_INFOW {
     ULONG32 BuildNumber;
     ULONG32 PlatformId;
     RVA CSDVersionRva;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       ULONG32 Reserved1;
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	USHORT SuiteMask;
 	USHORT Reserved2;
       };
@@ -1413,7 +1413,7 @@ typedef struct _SYMSRV_INDEX_INFOW {
     ULONG ProcessId;
     HANDLE ProcessHandle;
     ULONG CallbackType;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       MINIDUMP_THREAD_CALLBACK Thread;
       MINIDUMP_THREAD_EX_CALLBACK ThreadEx;
       MINIDUMP_MODULE_CALLBACK Module;
@@ -1455,21 +1455,21 @@ typedef struct _MINIDUMP_MEMORY_INFO_LIST {
 } MINIDUMP_MEMORY_INFO_LIST, *PMINIDUMP_MEMORY_INFO_LIST;
 
   typedef struct _MINIDUMP_CALLBACK_OUTPUT {
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       ULONG ModuleWriteFlags;
       ULONG ThreadWriteFlags;
       ULONG SecondaryFlags;
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	ULONG64 MemoryBase;
 	ULONG MemorySize;
       };
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	WINBOOL CheckCancel;
 	WINBOOL Cancel;
       };
       HANDLE Handle;
     };
-    __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS struct {
       MINIDUMP_MEMORY_INFO VmRegion;
       WINBOOL Continue;
     };

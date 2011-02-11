@@ -24,7 +24,7 @@ typedef enum _EVENT_FIELD_TYPE {
 
 typedef struct _EVENT_MAP_ENTRY {
   ULONG OutputOffset;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     ULONG Value;
     ULONG InputOffset;
   };
@@ -50,7 +50,7 @@ typedef struct _EVENT_MAP_INFO {
   ULONG NameOffset;
   MAP_FLAGS Flag;
   ULONG EntryCount;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     MAP_VALUETYPE MapEntryValueType;
     ULONG FormatStringOffset;
   };
@@ -68,7 +68,7 @@ typedef enum _PROPERTY_FLAGS {
 typedef struct _EVENT_PROPERTY_INFO {
   PROPERTY_FLAGS Flags;
   ULONG          NameOffset;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     struct {
       USHORT InType;
       USHORT OutType;
@@ -80,11 +80,11 @@ typedef struct _EVENT_PROPERTY_INFO {
       ULONG  padding;
     } structType;
   };
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     USHORT count;
     USHORT countPropertyIndex;
   };
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     USHORT length;
     USHORT lengthPropertyIndex;
   };

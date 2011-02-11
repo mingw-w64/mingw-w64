@@ -1971,7 +1971,7 @@ extern "C" {
 
   typedef struct _MMC_TASK_DISPLAY_OBJECT {
     MMC_TASK_DISPLAY_TYPE eDisplayType;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       MMC_TASK_DISPLAY_BITMAP uBitmap;
       MMC_TASK_DISPLAY_SYMBOL uSymbol;
     };
@@ -1986,7 +1986,7 @@ extern "C" {
     LPOLESTR szText;
     LPOLESTR szHelpString;
     MMC_ACTION_TYPE eActionType;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       LONG_PTR nCommandID;
       LPOLESTR szActionURL;
       LPOLESTR szScript;
@@ -2506,13 +2506,13 @@ extern "C" {
     LPOLESTR pstrPersistableViewDescription;
     MMC_VIEW_TYPE eViewType;
     DWORD dwMiscOptions;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD dwListOptions;
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	DWORD dwHTMLOptions;
 	LPOLESTR pstrURL;
       };
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	DWORD dwOCXOptions;
 	LPUNKNOWN pUnkControl;
       };

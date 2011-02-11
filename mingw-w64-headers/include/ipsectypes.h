@@ -147,7 +147,7 @@ typedef struct IPSEC_CIPHER_TRANSFORM0_ {
 
 typedef struct IPSEC_SA_TRANSFORM0_ {
   IPSEC_TRANSFORM_TYPE ipsecTransformType;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     IPSEC_AUTH_TRANSFORM0            *ahTransform;
     IPSEC_AUTH_TRANSFORM0            *espAuthTransform;
     IPSEC_CIPHER_TRANSFORM0          *espCipherTransform;
@@ -177,11 +177,11 @@ typedef struct IPSEC_TUNNEL_POLICY0_ {
 
 typedef struct IPSEC_TUNNEL_ENDPOINTS0_ {
   FWP_IP_VERSION ipVersion;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     UINT32 localV4Address;
     UINT8  localV6Address[16];
   };
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     UINT32 remoteV4Address;
     UINT8  remoteV6Address[16];
   };

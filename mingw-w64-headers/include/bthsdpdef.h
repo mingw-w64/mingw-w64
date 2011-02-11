@@ -70,7 +70,7 @@ typedef struct _SDP_ULARGE_INTEGER_16 {
 typedef struct _SPD_ELEMENT_DATA {
   SDP_TYPE         type;
   SDP_SPECIFICTYPE specificType;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     SDP_LARGE_INTEGER_16  int128;
     LONGLONG              int64;
     LONG                  int32;

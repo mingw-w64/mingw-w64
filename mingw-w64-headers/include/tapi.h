@@ -1703,7 +1703,7 @@ extern "C" {
     DWORD dwClientUserNameOffset;
     DWORD dwClientAppAPIVersion;
     DWORD dwRequestType;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       struct {
 	DWORD dwAddressID;
 	LINEAGENTGROUPLIST GroupList;

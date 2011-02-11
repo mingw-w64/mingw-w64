@@ -257,7 +257,7 @@ typedef struct _CRYPT_XML_ISSUER_SERIAL {
 
 typedef struct _CRYPT_XML_X509DATA_ITEM {
   DWORD dwType;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     CRYPT_XML_ISSUER_SERIAL IssuerSerial;
     CRYPT_XML_DATA_BLOB     SKI;
     LPCWSTR                 wszSubjectName;
@@ -281,7 +281,7 @@ typedef struct _CRYPT_XML_X509DATA {
 
 typedef struct _CRYPT_XML_KEY_INFO_ITEM {
   DWORD dwType;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     LPCWSTR             wszKeyName;
     CRYPT_XML_KEY_VALUE KeyValue;
     CRYPT_XML_BLOB      RetrievalMethod;
@@ -320,7 +320,7 @@ typedef struct _CRYPT_XML_KEY_ECDSA_KEY_VALUE {
 
 typedef struct _CRYPT_XML_KEY_VALUE {
   DWORD dwType;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     CRYPT_XML_KEY_DSA_KEY_VALUE   DSAKeyValue;
     CRYPT_XML_KEY_RSA_KEY_VALUE   RSAKeyValue;
     CRYPT_XML_KEY_ECDSA_KEY_VALUE ECDSAKeyValue;

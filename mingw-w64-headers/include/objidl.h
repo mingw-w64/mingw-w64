@@ -2187,7 +2187,7 @@ extern "C" {
 
   typedef struct tagSTGMEDIUM {
     DWORD tymed;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       HBITMAP hBitmap;
       HMETAFILEPICT hMetaFilePict;
       HENHMETAFILE hEnhMetaFile;

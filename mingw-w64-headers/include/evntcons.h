@@ -39,7 +39,7 @@ typedef struct _EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
 typedef struct _EVENT_HEADER_EXTENDED_DATA_ITEM {
   USHORT    Reserved1;
   USHORT    ExtType;
-  __C89_NAMELESSSTRUCT struct {
+  __C89_NAMELESS struct {
     USHORT Linkage   : 1;
     USHORT Reserved2 :15;
   } DUMMYSTRUCTNAME;
@@ -57,8 +57,8 @@ typedef struct _EVENT_HEADER {
   LARGE_INTEGER    TimeStamp;
   GUID             ProviderId;
   EVENT_DESCRIPTOR EventDescriptor;
-  __C89_NAMELESSUNION union {
-    __C89_NAMELESSSTRUCT struct {
+  __C89_NAMELESS union {
+    __C89_NAMELESS struct {
       ULONG KernelTime;
       ULONG UserTime;
     } DUMMYSTRUCTNAME;

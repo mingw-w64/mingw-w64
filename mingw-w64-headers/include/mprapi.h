@@ -812,7 +812,7 @@ typedef struct _IKEV2_PROJECTION_INFO {
 
 typedef struct _PROJECTION_INFO {
   UCHAR projectionInfoType;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     IKEV2_PROJECTION_INFO Ikev2ProjectionInfo;
     PPP_PROJECTION_INFO   PppProjectionInfo;
   } DUMMYUNIONNAME;

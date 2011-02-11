@@ -123,7 +123,7 @@ typedef struct _FWP_TOKEN_INFORMATION {
 
 typedef struct FWP_VALUE0_ {
   FWP_DATA_TYPE type;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     LPVOID                EMPTY;      // case(FWP_EMPTY)
     UINT8                 uint8;
     UINT16                uint16;
@@ -153,7 +153,7 @@ typedef struct FWP_RANGE0_ {
 
 typedef struct FWP_CONDITION_VALUE0_ {
   FWP_DATA_TYPE type;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     UINT8                uint8;
     UINT16               uint16;
     UINT32               uint32;

@@ -88,7 +88,7 @@ typedef struct tagOCTET_STRING {
 
 typedef struct tagUiInfo {
   UI_INFO_TYPE type;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     LPWSTR pwzNull;
     ShellCommandInfo ShellInfo;
     LPWSTR pwzHelpURL;
@@ -119,7 +119,7 @@ typedef struct tagShellCommandInfo {
 typedef struct tagHELPER_ATTRIBUTE {
   LPWSTR pwszName;
   ATTRIBUTE_TYPE  type;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     WINBOOL Boolean;
     char Char;
     byte Byte;

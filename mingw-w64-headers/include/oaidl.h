@@ -258,14 +258,14 @@ extern "C" {
   typedef struct tagVARIANT VARIANT;
 
   struct tagVARIANT {
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct __tagVARIANT
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct __tagVARIANT
       {
 	VARTYPE vt;
 	WORD wReserved1;
 	WORD wReserved2;
 	WORD wReserved3;
-	__C89_NAMELESSUNION union {
+	__C89_NAMELESS union {
 	  LONGLONG llVal;
 	  LONG lVal;
 	  BYTE bVal;
@@ -338,7 +338,7 @@ extern "C" {
     USHORT wReserved1;
     USHORT wReserved2;
     USHORT wReserved3;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       LONGLONG llVal;
       LONG lVal;
       BYTE bVal;
@@ -399,7 +399,7 @@ extern "C" {
   } TYPEKIND;
 
   typedef struct tagTYPEDESC {
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       struct tagTYPEDESC *lptdesc;
       struct tagARRAYDESC *lpadesc;
       HREFTYPE hreftype;
@@ -451,7 +451,7 @@ extern "C" {
 
   typedef struct tagELEMDESC {
     TYPEDESC tdesc;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       IDLDESC idldesc;
       PARAMDESC paramdesc;
     } DUMMYUNIONNAME;
@@ -556,7 +556,7 @@ extern "C" {
   typedef struct tagVARDESC {
     MEMBERID memid;
     LPOLESTR lpstrSchema;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       ULONG oInst;
       VARIANT *lpvarValue;
     } DUMMYUNIONNAME;

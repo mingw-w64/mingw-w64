@@ -22,7 +22,7 @@ typedef LPVOID HBLUETOOTH_AUTHENTICATION_REGISTRATION;
 typedef LPVOID HBLUETOOTH_CONTAINER_ELEMENT;
 
 typedef struct _BLUETOOTH_ADDRESS {
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     BTH_ADDR ullLong;
     BYTE     rgBytes[6];
   };
@@ -100,7 +100,7 @@ typedef struct _BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
   BLUETOOTH_AUTHENTICATION_METHOD       authenticationMethod;
   BLUETOOTH_IO_CAPABILITY               ioCapability;
   BLUETOOTH_AUTHENTICATION_REQUIREMENTS authenticationRequirements;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     ULONG Numeric_Value;
     ULONG Passkey;
   } ;
@@ -137,7 +137,7 @@ typedef struct _BLUETOOTH_PASSKEY_INFO {
 typedef struct _BLUETOOTH_AUTHENTICATE_RESPONSE {
   BLUETOOTH_ADDRESS               bthAddressRemote;
   BLUETOOTH_AUTHENTICATION_METHOD authMethod;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     BLUETOOTH_PIN_INFO                pinInfo;
     BLUETOOTH_OOB_DATA_INFO           oobInfo;
     BLUETOOTH_NUMERIC_COMPARISON_INFO numericCompInfo;

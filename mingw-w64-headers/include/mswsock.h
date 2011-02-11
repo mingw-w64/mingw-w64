@@ -87,8 +87,8 @@ extern "C" {
 #define TP_ELEMENT_FILE 2
 #define TP_ELEMENT_EOP 4
     ULONG cLength;
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	LARGE_INTEGER nFileOffset;
 	HANDLE hFile;
       };

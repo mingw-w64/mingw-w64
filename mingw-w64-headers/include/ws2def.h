@@ -26,8 +26,8 @@ typedef enum _SCOPE_LEVEL {
 } SCOPE_LEVEL;
 
 typedef struct _SCOPE_ID {
-  __C89_NAMELESSUNION union {
-    __C89_NAMELESSSTRUCT struct {
+  __C89_NAMELESS union {
+    __C89_NAMELESS struct {
 	ULONG	Zone : 28;
 	ULONG	Level : 4;
     };

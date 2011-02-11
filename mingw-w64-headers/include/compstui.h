@@ -734,12 +734,12 @@ typedef struct _EXTPUSH {
   WORD cbSize;
   WORD Flags;
   LPTSTR pTitle;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     DLGPROC DlgProc;
     FARPROC pfnCallBack;
   } DUMMYUNIONNAME;
   ULONG_PTR IconID;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     WORD DlgTemplateID;
     HANDLE hDlgTemplate;
   } DUMMYUNIONNAME2;
@@ -772,11 +772,11 @@ typedef struct _OPTITEM {
   DWORD Flags;
   ULONG_PTR UserData;
   LPTSTR pName;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     LONG Sel;
     LPTSTR pSel;
   } DUMMYUNIONNAME;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     PEXTCHKBOX pExtChkBox;
     PEXTPUSH pExtPush;
   } DUMMYUNIONNAME2;
@@ -797,7 +797,7 @@ typedef struct _CPSUICBPARAM {
   WORD cOptItem;
   WORD Flags;
   POPTITEM pCurItem;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     LONG OldSel;
     LPTSTR pOldSel;
   } DUMMYUNIONNAME;
@@ -817,7 +817,7 @@ typedef struct _DLGPAGE {
   DLGPROC DlgProc;
   LPTSTR pTabName;
   ULONG_PTR IconID;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     WORD DlgTemplateID;
     HANDLE hDlgTemplate;
   } DUMMYUNIONNAME;
@@ -912,7 +912,7 @@ typedef struct _PROPSHEETUI_INFO_HEADER {
   LPTSTR pTitle;
   HWND hWndParent;
   HINSTANCE hInst;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     HICON hIcon;
     ULONG_PTR IconID;
   } DUMMYUNIONNAME;

@@ -724,7 +724,7 @@ extern "C" {
 
   typedef union CLUSPROP_SYNTAX {
     DWORD dw;
-    __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS struct {
       WORD wFormat;
       WORD wType;
     };
@@ -823,16 +823,16 @@ extern "C" {
 #ifndef __cplusplus
     CLUSPROP_VALUE;
 #endif
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       SECURITY_DESCRIPTOR_RELATIVE sd;
       BYTE rgbSecurityDescriptor[1];
     };
   } CLUSPROP_SECURITY_DESCRIPTOR,*PCLUSPROP_SECURITY_DESCRIPTOR;
 
   typedef struct CLUS_RESOURCE_CLASS_INFO {
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
-	__C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
+	__C89_NAMELESS union {
 	  DWORD dw;
 	  CLUSTER_RESOURCE_CLASS rc;
 	};
@@ -925,8 +925,8 @@ extern "C" {
 
   typedef CLUSPROP_DWORD CLUSPROP_DISK_SIGNATURE,*PCLUSPROP_DISK_SIGNATURE;
   typedef struct CLUS_SCSI_ADDRESS {
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	UCHAR PortNumber;
 	UCHAR PathId;
 	UCHAR TargetId;

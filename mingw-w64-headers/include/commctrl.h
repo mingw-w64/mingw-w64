@@ -3115,7 +3115,7 @@ extern "C" {
   typedef struct tagTVINSERTSTRUCTA {
     HTREEITEM hParent;
     HTREEITEM hInsertAfter;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       TVITEMEXA itemex;
       TV_ITEMA item;
     } DUMMYUNIONNAME;
@@ -3124,7 +3124,7 @@ extern "C" {
   typedef struct tagTVINSERTSTRUCTW {
     HTREEITEM hParent;
     HTREEITEM hInsertAfter;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       TVITEMEXW itemex;
       TV_ITEMW item;
     } DUMMYUNIONNAME;

@@ -27,7 +27,7 @@ typedef ULONG PXE_PROVIDER_ATTRIBUTE;
 
 typedef struct tagPXE_ADDRESS {
   ULONG  uFlags;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     BYTE  bAddress[PXE_MAX_ADDRESS];
     ULONG uIpAddress;
   } DUMMYUNIONNAME;
@@ -50,7 +50,7 @@ typedef struct _PXE_DHCP_MESSAGE {
   BYTE  HardwareAddress[PXE_DHCP_HWAADR_SIZE];
   BYTE  HostName[PXE_DHCP_SERVER_SIZE];
   BYTE  BootFileName;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     BYTE  bMagicCookie[PXE_DHCP_MAGIC_COOKIE_SIZE];
     ULONG uMagicCookie;
   } DUMMYUNIONNAME;

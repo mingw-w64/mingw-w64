@@ -152,8 +152,8 @@ extern "C" {
 #define RTM_NEXTHOP_FLAGS_DOWN 0x0002
 
   typedef struct _RTM_ENTITY_ID {
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	ULONG EntityProtocolId;
 	ULONG EntityInstanceId;
       };

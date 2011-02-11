@@ -145,8 +145,8 @@ extern "C" {
   typedef struct _OVERLAPPED {
     ULONG_PTR Internal;
     ULONG_PTR InternalHigh;
-    __C89_NAMELESSUNION union {
-      __C89_NAMELESSSTRUCT struct {
+    __C89_NAMELESS union {
+      __C89_NAMELESS struct {
 	DWORD Offset;
 	DWORD OffsetHigh;
       };
@@ -384,9 +384,9 @@ extern "C" {
   } COMMCONFIG,*LPCOMMCONFIG;
 
   typedef struct _SYSTEM_INFO {
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       DWORD dwOemId;
-      __C89_NAMELESSSTRUCT struct {
+      __C89_NAMELESS struct {
 	WORD wProcessorArchitecture;
 	WORD wReserved;
       } DUMMYSTRUCTNAME;
@@ -1192,7 +1192,7 @@ extern "C" {
     BYTE cbOverhead;
     BYTE iRegionIndex;
     WORD wFlags;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       struct {
 	HANDLE hMem;
 	DWORD dwReserved[3];
@@ -3194,7 +3194,7 @@ typedef struct _FILE_ID_BOTH_DIR_INFO {
 typedef struct _FILE_ID_DESCRIPTOR{
   DWORD        dwSize;
   FILE_ID_TYPE Type;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     LARGE_INTEGER FileId;
     GUID          ObjectId;
   };

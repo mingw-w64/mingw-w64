@@ -197,7 +197,7 @@ struct SSVARIANT {
   SSVARTYPE vt;
   DWORD dwReserved1;
   DWORD dwReserved2;
-  __C89_NAMELESSUNION union {
+  __C89_NAMELESS union {
     BYTE bTinyIntVal;
     SHORT sShortIntVal;
     LONG lIntVal;

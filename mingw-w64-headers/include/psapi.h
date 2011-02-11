@@ -143,7 +143,7 @@ WINBOOL WINAPI EnumProcessModulesEx(
 #if (_WIN32_WINNT >= 0x0600)
 typedef union _PSAPI_WORKING_SET_EX_BLOCK {
   ULONG_PTR Flags;
-  __C89_NAMELESSSTRUCT struct {
+  __C89_NAMELESS struct {
     ULONG_PTR Valid  :1;
     ULONG_PTR ShareCount  :3;
     ULONG_PTR Win32Protection  :11;

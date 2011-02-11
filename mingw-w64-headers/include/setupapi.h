@@ -68,7 +68,7 @@ extern "C" {
     DWORD MajorVersion;
     DWORD MinorVersion;
     WORD ProcessorArchitecture;
-    __C89_NAMELESSUNION union {
+    __C89_NAMELESS union {
       WORD Reserved;
       WORD Flags;
     };
