@@ -126,6 +126,9 @@
 /* Special case nameless struct/union.  */
 #ifndef __C89_NAMELESS
 #define __C89_NAMELESS __MINGW_EXTENSION
+#define __C89_NAMELESSSTRUCT __C89_NAMELESS
+#define __C89_NAMELESSUNION __C89_NAMELESS
+
 #define __C89_NAMELESSSTRUCTNAME
 #define __C89_NAMELESSUNIONNAME
 #endif
