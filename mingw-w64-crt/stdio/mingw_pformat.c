@@ -434,10 +434,12 @@ void __pformat_wputchars( const wchar_t *s, int count, __pformat_t *stream )
    * to the multibyte domain as we go...
    */
 #ifdef __BUILD_WIDEAPI
-  while(count-- > 0 && *s != 0)
+  len = count;
+  while(len-- > 0 && *s != 0)
   {
       __pformat_putc(*s++, stream);
   }
+  count = len;
 #else
   while( (count-- > 0) && ((len = wcrtomb( buf, *s++, &state )) > 0) )
   {

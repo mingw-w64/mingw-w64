@@ -9,7 +9,6 @@ __mingw_wcstof (const wchar_t * __restrict__ _Str, wchar_t ** __restrict__ _EndP
 {
   float r;
   char *n, *ep = NULL;
-  wchar_t *wn;
   size_t l, l2;
 
   l = WideCharToMultiByte(CP_UTF8, 0, _Str, -1, NULL, 0, NULL, NULL);

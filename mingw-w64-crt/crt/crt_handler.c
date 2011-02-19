@@ -36,6 +36,7 @@ PIMAGE_SECTION_HEADER _FindPESectionExec (size_t);
 PBYTE _GetPEImageBase (void);
 
 int __mingw_init_ehandler (void);
+extern void _fpreset (void);
 
 #ifdef _WIN64
 EXCEPTION_DISPOSITION __mingw_SEH_error_handler(struct _EXCEPTION_RECORD *, void *, struct _CONTEXT *, void *);

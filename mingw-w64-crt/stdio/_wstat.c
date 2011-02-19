@@ -1,6 +1,7 @@
 #define __CRT__NO_INLINE
 #include <sys/stat.h>
 #include <stdlib.h>
+#include <malloc.h>
 
 /**
  * Returns _path without trailing slash if any
@@ -17,7 +18,6 @@ _mingw_no_trailing_slash (const wchar_t* _path)
 {
   int len;
   wchar_t *p;
-  int start;
 
   p = (wchar_t*)_path;
 

@@ -17,7 +17,6 @@ _mingw_no_trailing_slash (const char* _path)
 {
   int len;
   char *p;
-  int start;
 
   p = (char*)_path;
 

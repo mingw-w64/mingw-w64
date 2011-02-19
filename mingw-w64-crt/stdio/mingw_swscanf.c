@@ -6,7 +6,7 @@ extern int __mingw_vswscanf (const wchar_t *buf, const wchar_t *format, va_list 
 int __mingw_swscanf (const wchar_t *buf, const wchar_t *format, ...);
 
 int
-__mingw_sscanf (const wchar_t *buf, const wchar_t *format, ...)
+__mingw_swscanf (const wchar_t *buf, const wchar_t *format, ...)
 {
   va_list argp;
   int r;
