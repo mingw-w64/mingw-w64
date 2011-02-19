@@ -166,24 +166,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #endif /* _WIN64 */
 #endif /* _SSIZE_T_DEFINED */
 
-#ifndef _OFF_T_DEFINED
-#define _OFF_T_DEFINED
-#ifndef _OFF_T_
-#define _OFF_T_
-  typedef long _off_t;
-#if !defined(NO_OLDNAMES) || defined(_POSIX)
-  typedef long off_t;
-#endif
-#endif
-#endif
-
-#ifndef _OFF64_T_DEFINED
-#define _OFF64_T_DEFINED
-  __MINGW_EXTENSION typedef long long _off64_t;
-#if !defined(NO_OLDNAMES) || defined(_POSIX)
-  __MINGW_EXTENSION typedef long long off64_t;
-#endif
-#endif
+#include <_mingw_off_t.h>
 
   /* Some defines for _access nAccessMode (MS doesn't define them, but
   * it doesn't seem to hurt to add them). */
@@ -323,7 +306,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   _CRTIMP intptr_t __cdecl _get_osfhandle(int _FileHandle);
   _CRTIMP int __cdecl _open_osfhandle(intptr_t _OSFileHandle,int _Flags);
 
-#ifndef	NO_OLDNAMES
+#ifndef NO_OLDNAMES
   int __cdecl access(const char *_Filename,int _AccessMode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl chmod(const char *_Filename,int _AccessMode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl chsize(int _FileHandle,long _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
@@ -345,6 +328,14 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   int __cdecl umask(int _Mode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl write(int _Filehandle,const void *_Buf,unsigned int _MaxCharCount) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
+
+#ifndef _FILE_OFFSET_BITS_SET_LSEEK
+#define _FILE_OFFSET_BITS_SET_LSEEK
+#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
+/*#define lseek(_FileHandle,_DstBuf,_MaxCharCount) lseek64(_FileHandle,_DstBuf,_MaxCharCount)*/
+#define lseek lseek64
+#endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
+#endif /* _FILE_OFFSET_BITS_SET_LSEEK */
 
 #ifdef _POSIX
 

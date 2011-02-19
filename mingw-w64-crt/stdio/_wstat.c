@@ -1,5 +1,6 @@
 #define __CRT__NO_INLINE
 #include <sys/stat.h>
+#include <stdlib.h>
 
 /**
  * Returns _path without trailing slash if any

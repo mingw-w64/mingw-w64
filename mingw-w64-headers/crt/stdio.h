@@ -77,24 +77,7 @@ extern "C" {
 #endif
 #endif
 
-#ifndef _OFF_T_DEFINED
-#define _OFF_T_DEFINED
-#ifndef _OFF_T_
-#define _OFF_T_
-  typedef long _off_t;
-#if !defined(NO_OLDNAMES) || defined(_POSIX)
-  typedef long off_t;
-#endif
-#endif
-#endif
-
-#ifndef _OFF64_T_DEFINED
-#define _OFF64_T_DEFINED
-  __MINGW_EXTENSION typedef long long _off64_t;
-#if !defined(NO_OLDNAMES) || defined(_POSIX)
-  __MINGW_EXTENSION typedef long long off64_t;
-#endif
-#endif
+#include <_mingw_off_t.h>
 
 #ifndef _STDIO_DEFINED
 #ifdef _WIN64
@@ -174,7 +157,8 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl fflush(FILE *_File);
   int __cdecl fgetc(FILE *_File);
   _CRTIMP int __cdecl _fgetchar(void);
-  int __cdecl fgetpos(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos);
+  int __cdecl fgetpos(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos); /* 64bit only, no 32bit version */
+  int __cdecl fgetpos64(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos); /* fgetpos already 64bit */
   char *__cdecl fgets(char * __restrict__ _Buf,int _MaxCount,FILE * __restrict__ _File);
   _CRTIMP int __cdecl _fileno(FILE *_File);
 #ifdef _POSIX_
@@ -193,10 +177,37 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   int __cdecl _fscanf_l(FILE * __restrict__ _File,const char * __restrict__ _Format,_locale_t locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   int __cdecl fsetpos(FILE *_File,const fpos_t *_Pos);
+  int __cdecl fsetpos64(FILE *_File,const fpos_t *_Pos); /* fsetpos already 64bit */
   int __cdecl fseek(FILE *_File,long _Offset,int _Origin);
+
+  /* Shouldn't be any fseeko32 in glibc, 32bit to 64bit casting should be fine */
+  /* int fseeko32(FILE* stream, _off_t offset, int whence);*/ /* fseeko32 redirects to fseeko64 */
   int fseeko64(FILE* stream, _off64_t offset, int whence);
+  int fseeko(FILE* stream, _off_t offset, int whence);
+
+#ifndef _FILE_OFFSET_BITS_SET_FSEEKO
+#define _FILE_OFFSET_BITS_SET_FSEEKO
+#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
+/*#define fseeko(__stream,__offset,__whence) fseeko64(__stream,__offset,__whence)*/
+#define fseeko fseeko64
+#else
+/* fseeko32 redirects to fseeko64, though fseeko (32bit off_t) symbol is provided */
+/* #define fseeko(__stream,__offset,__whence) fseeko64(__stream,__offset,__whence) */
+#endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
+#endif /* _FILE_OFFSET_BITS_SET_FSEEKO */
+
   long __cdecl ftell(FILE *_File);
+  /* Returns truncated 64bit off_t */
+  _off_t ftello(FILE * stream);
   _off64_t ftello64(FILE * stream);
+
+#ifndef _FILE_OFFSET_BITS_SET_FSEEKO
+#define _FILE_OFFSET_BITS_SET_FSEEKO
+#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
+#define ftello ftello64
+#endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
+#endif /* _FILE_OFFSET_BITS_SET_FSEEKO */
+
   __MINGW_EXTENSION int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
   __MINGW_EXTENSION __int64 __cdecl _ftelli64(FILE *_File);
   size_t __cdecl fwrite(const void * __restrict__ _Str,size_t _Size,size_t _Count,FILE * __restrict__ _File);
