@@ -1031,7 +1031,8 @@ testcase_progs = \
   testcases/t_tls1 \
   testcases/t_trycatch \
   testcases/t_stat_slash \
-  testcases/t_wreaddir
+  testcases/t_wreaddir \
+  testcases/t_fseeko64
 
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp

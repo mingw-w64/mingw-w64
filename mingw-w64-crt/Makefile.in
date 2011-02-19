@@ -2358,7 +2358,8 @@ am__EXEEXT_2 = testcases/tstmainc$(EXEEXT) \
 	testcases/t_stat$(EXEEXT) testcases/t_stdint$(EXEEXT) \
 	testcases/t_time$(EXEEXT) testcases/t_tls1$(EXEEXT) \
 	testcases/t_trycatch$(EXEEXT) testcases/t_stat_slash$(EXEEXT) \
-	testcases/t_wreaddir$(EXEEXT) $(am__EXEEXT_1)
+	testcases/t_wreaddir$(EXEEXT) testcases/t_fseeko64$(EXEEXT) \
+	$(am__EXEEXT_1)
 @LIB32_TRUE@am__EXEEXT_3 = tests32/cimag$(EXEEXT) \
 @LIB32_TRUE@	tests32/creal$(EXEEXT) tests32/cabs$(EXEEXT) \
 @LIB32_TRUE@	tests32/cacos$(EXEEXT) tests32/cacosh$(EXEEXT) \
@@ -2391,6 +2392,9 @@ testcases_t_ansi_io_LDADD = $(LDADD)
 testcases_t_float_SOURCES = testcases/t_float.c
 testcases_t_float_OBJECTS = testcases/t_float.$(OBJEXT)
 testcases_t_float_LDADD = $(LDADD)
+testcases_t_fseeko64_SOURCES = testcases/t_fseeko64.c
+testcases_t_fseeko64_OBJECTS = testcases/t_fseeko64.$(OBJEXT)
+testcases_t_fseeko64_LDADD = $(LDADD)
 testcases_t_fstat_SOURCES = testcases/t_fstat.c
 testcases_t_fstat_OBJECTS = testcases/t_fstat.$(OBJEXT)
 testcases_t_fstat_LDADD = $(LDADD)
@@ -2814,7 +2818,8 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(tests64_libnewcomplextests_a_SOURCES) \
 	$(tests64_libnewcomplextestsf_a_SOURCES) \
 	$(tests64_libnewcomplextestsld_a_SOURCES) \
-	testcases/t_ansi_io.c testcases/t_float.c testcases/t_fstat.c \
+	testcases/t_ansi_io.c testcases/t_float.c \
+	testcases/t_fseeko64.c testcases/t_fstat.c \
 	testcases/t_imagebase.c testcases/t_intrinc.c \
 	testcases/t_matherr.c testcases/t_municode.c \
 	testcases/t_nullptrexception.c testcases/t_readdir.c \
@@ -2891,7 +2896,8 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextestsf_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextestsld_a_SOURCES_DIST) \
-	testcases/t_ansi_io.c testcases/t_float.c testcases/t_fstat.c \
+	testcases/t_ansi_io.c testcases/t_float.c \
+	testcases/t_fseeko64.c testcases/t_fstat.c \
 	testcases/t_imagebase.c testcases/t_intrinc.c \
 	testcases/t_matherr.c testcases/t_municode.c \
 	testcases/t_nullptrexception.c testcases/t_readdir.c \
@@ -3880,7 +3886,7 @@ testcase_progs = testcases/tstmainc testcases/tstmaincpp \
 	testcases/t_setjmp testcases/t_sigv testcases/t_speed_powl \
 	testcases/t_stat testcases/t_stdint testcases/t_time \
 	testcases/t_tls1 testcases/t_trycatch testcases/t_stat_slash \
-	testcases/t_wreaddir $(am__append_2)
+	testcases/t_wreaddir testcases/t_fseeko64 $(am__append_2)
 testcases_tstmaincpp_SOURCES = testcases/tstmaincpp.cpp
 testcases_t_trycatch_SOURCES = testcases/t_trycatch.cpp
 testcases_t_intrinc_CFLAGS = -std=c99
@@ -7596,6 +7602,11 @@ testcases/t_float.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_float$(EXEEXT): $(testcases_t_float_OBJECTS) $(testcases_t_float_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_float$(EXEEXT)
 	$(LINK) $(testcases_t_float_OBJECTS) $(testcases_t_float_LDADD) $(LIBS)
+testcases/t_fseeko64.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_fseeko64$(EXEEXT): $(testcases_t_fseeko64_OBJECTS) $(testcases_t_fseeko64_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_fseeko64$(EXEEXT)
+	$(LINK) $(testcases_t_fseeko64_OBJECTS) $(testcases_t_fseeko64_LDADD) $(LIBS)
 testcases/t_fstat.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_fstat$(EXEEXT): $(testcases_t_fstat_OBJECTS) $(testcases_t_fstat_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -9415,6 +9426,7 @@ mostlyclean-compile:
 	-rm -f testcases/complex/tests64_libnewcomplextestsld_a-ctanh.$(OBJEXT)
 	-rm -f testcases/t_ansi_io.$(OBJEXT)
 	-rm -f testcases/t_float.$(OBJEXT)
+	-rm -f testcases/t_fseeko64.$(OBJEXT)
 	-rm -f testcases/t_fstat.$(OBJEXT)
 	-rm -f testcases/t_imagebase.$(OBJEXT)
 	-rm -f testcases/t_matherr.$(OBJEXT)
@@ -10713,6 +10725,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-wtoll.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_ansi_io.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_float.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_fseeko64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_fstat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_imagebase.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_matherr.Po@am__quote@
