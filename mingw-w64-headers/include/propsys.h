@@ -3670,6 +3670,7 @@ void __RPC_STUB ICreateObject_CreateObject_Stub(
 HRESULT WINAPI PSStringFromPropertyKey(REFPROPERTYKEY,LPWSTR,UINT);
 HRESULT WINAPI PSPropertyKeyFromString(LPCWSTR,PROPERTYKEY*);
 HRESULT WINAPI PSGetPropertyDescription(REFPROPERTYKEY,REFIID,void **);
+HRESULT WINAPI PSRefreshPropertySchema(void);
 
 DEFINE_GUID(LIBID_PropSysObjects, 0x2cda3294, 0x6c4f, 0x4020, 0xb1,0x61, 0x27,0xc5,0x30,0xc8,0x1f,0xa6);
 
