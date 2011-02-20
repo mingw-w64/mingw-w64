@@ -20,7 +20,6 @@
 #ifndef __WINE_DPLOBBY_H
 #define __WINE_DPLOBBY_H
 
-#include <_mingw_dxhelper.h>
 #include <dplay.h>
 
 #ifdef __cplusplus

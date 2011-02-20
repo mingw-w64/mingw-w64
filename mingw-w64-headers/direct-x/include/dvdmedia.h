@@ -19,8 +19,6 @@
 #ifndef __DVDMEDIA_H__
 #define __DVDMEDIA_H__
 
-#include <_mingw_dxhelper.h>
-
 #define AMCONTROL_USED 0x00000001
 #define AMCONTROL_PAD_TO_4x3 0x00000002
 #define AMCONTROL_PAD_TO_16x9 0x00000004
@@ -44,13 +42,13 @@ typedef struct tagVIDEOINFOHEADER2 {
 } VIDEOINFOHEADER2;
 
 typedef struct tagMPEG2VIDEOINFO {
-  VIDEOINFOHEADER2 hdr;
-  DWORD            dwStartTimeCode;
-  DWORD            cbSequenceHeader;
-  DWORD            dwProfile;
-  DWORD            dwLevel;
-  DWORD            dwFlags;
-  DWORD            dwSequenceHeader[1];
+    VIDEOINFOHEADER2 hdr;
+    DWORD dwStartTimeCode;
+    DWORD cbSequenceHeader;
+    DWORD dwProfile;
+    DWORD dwLevel;
+    DWORD dwFlags;
+    DWORD dwSequenceHeader[1];
 } MPEG2VIDEOINFO;
 
 #endif /* __DVDMEDIA_H__ */

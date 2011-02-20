@@ -18,9 +18,7 @@
 
 #ifndef __WINE_DSOUND_H
 #define __WINE_DSOUND_H
-#define __DSOUND_INCLUDED__
 
-#include <_mingw_dxhelper.h>
 #ifndef DIRECTSOUND_VERSION
 #define DIRECTSOUND_VERSION 0x0900
 #endif
@@ -234,6 +232,8 @@ typedef const DSCAPS *LPCDSCAPS;
 #define DSBFREQUENCY_MAX            200000
 #define DSBFREQUENCY_ORIGINAL       0
 
+#define DSBNOTIFICATIONS_MAX        100000U
+
 typedef struct _DSBCAPS
 {
     DWORD	dwSize;
@@ -421,7 +421,6 @@ extern HRESULT WINAPI GetDeviceID(LPCGUID lpGuidSrc, LPGUID lpGuidDest);
 /*****************************************************************************
  * IDirectSound interface
  */
-#undef INTERFACE
 #define INTERFACE IDirectSound
 DECLARE_INTERFACE_(IDirectSound,IUnknown)
 {
@@ -869,8 +868,6 @@ DECLARE_INTERFACE_(IDirectSoundCaptureBuffer8,IDirectSoundCaptureBuffer)
 #define WINE_NOBUFFER                   0x80000000
 
 #define DSBPN_OFFSETSTOP		-1
-
-#define DSBNOTIFICATIONS_MAX		100000UL
 
 #define INTERFACE IDirectSoundNotify
 DECLARE_INTERFACE_(IDirectSoundNotify,IUnknown)
