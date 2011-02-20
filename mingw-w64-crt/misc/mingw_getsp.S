@@ -30,8 +30,8 @@ __MINGW_USYMBOL(longjmp):
   xorl %eax,%eax
   movl %eax, (%rcx)
 #endif
-  leaq __MINGW_USYMBOL(fctMsvcrtLongJmp)(%rip), %rax
+  leaq __imp_longjmp(%rip), %rax
   jmpq *(%rax)
 #else
-  jmp *__MINGW_USYMBOL(fctMsvcrtLongJmp)
+  jmp *__imp__longjmp
 #endif

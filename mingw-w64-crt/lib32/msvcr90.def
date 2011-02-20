@@ -1381,7 +1381,7 @@ ldiv
 localeconv
 log
 log10
-longjmp 
+longjmp DATA
 malloc
 mblen
 mbrlen

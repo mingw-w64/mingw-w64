@@ -1326,7 +1326,7 @@ log
 log10
 log10f
 logf
-longjmp
+longjmp DATA
 malloc
 mblen
 mbrlen
