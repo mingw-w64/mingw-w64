@@ -1,3 +1,4 @@
+#include <_mingw_unicode.h>
 /*
  * Copyright (C) 1999 Francois Gouget
  * Copyright (C) 1999 Peter Hunnisett
@@ -56,7 +57,7 @@ typedef struct IDirectPlayLobby3 IDirectPlayLobby3A, *LPDIRECTPLAYLOBBY3A;
 
 /* DPLPROPERTY_MessagesSupported {762CCDA1-D916-11d0-BA39-00C04FD7ED67}.
  * Purpose: Request if the lobby supports standard (?).
- * Response: Answer is a BOOL. TRUE if supports the standard (?) and FALSE otherwise. Of course, it might not respond at all.
+ * Response: Answer is a WINBOOL. TRUE if supports the standard (?) and FALSE otherwise. Of course, it might not respond at all.
  */
 DEFINE_GUID(DPLPROPERTY_MessagesSupported, 0x762ccda1, 0xd916, 0x11d0, 0xba, 0x39, 0x0, 0xc0, 0x4f, 0xd7, 0xed, 0x67);
 
@@ -346,21 +347,21 @@ typedef struct tagDPAPPLICATIONDESC
 
 extern HRESULT WINAPI DirectPlayLobbyCreateW(LPGUID, LPDIRECTPLAYLOBBY*,  IUnknown*, LPVOID, DWORD );
 extern HRESULT WINAPI DirectPlayLobbyCreateA(LPGUID, LPDIRECTPLAYLOBBYA*, IUnknown*, LPVOID, DWORD );
-#define DirectPlayLobbyCreate WINELIB_NAME_AW(DirectPlayLobbyCreate)
+#define DirectPlayLobbyCreate __MINGW_NAME_AW(DirectPlayLobbyCreate)
 
 
-typedef BOOL (CALLBACK *LPDPENUMADDRESSCALLBACK)(
+typedef WINBOOL (CALLBACK *LPDPENUMADDRESSCALLBACK)(
     REFGUID         guidDataType,
     DWORD           dwDataSize,
     LPCVOID         lpData,
     LPVOID          lpContext );
 
-typedef BOOL (CALLBACK *LPDPLENUMADDRESSTYPESCALLBACK)(
+typedef WINBOOL (CALLBACK *LPDPLENUMADDRESSTYPESCALLBACK)(
     REFGUID         guidDataType,
     LPVOID          lpContext,
     DWORD           dwFlags );
 
-typedef BOOL (CALLBACK *LPDPLENUMLOCALAPPLICATIONSCALLBACK)(
+typedef WINBOOL (CALLBACK *LPDPLENUMLOCALAPPLICATIONSCALLBACK)(
     LPCDPLAPPINFO   lpAppInfo,
     LPVOID          lpContext,
     DWORD           dwFlags );
