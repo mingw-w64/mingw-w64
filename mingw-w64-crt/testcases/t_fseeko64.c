@@ -13,9 +13,12 @@ static int writefile(wchar_t *path){
   memset(&ov,0,sizeof(OVERLAPPED));
   ov.Offset = 0x0;
   ov.OffsetHigh = 0x1;
-  HANDLE fd = CreateFileW(path,GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+  ov.hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
+  HANDLE fd = CreateFileW(path,GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OVERLAPPED, NULL);
   if (fd == INVALID_HANDLE_VALUE) return 1;
-  WriteFile(fd, writebuf, strlen(writebuf), NULL, &ov);
+  WriteFileEx(fd, writebuf, strlen(writebuf), &ov, NULL);
+  WaitForSingleObjectEx(ov.hEvent, 0, TRUE);
+  CloseHandle(ov.hEvent);
   CloseHandle(fd);
   return 0;
 }
@@ -52,8 +55,8 @@ int main(int argc, char **argv){
   if (check) goto err; /* error creating large file */
   check = testread(path);
 
-  DeleteFileW(path);
   err:
+  DeleteFileW(path); /* Delete anyway */
   free(path);
   return check;
 }
