@@ -3,8 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
+#include <shlobj.h>
 
 static const char *writebuf = "TESTVECTORSTRING";
+static wchar_t szPath[MAX_PATH];
 
 static int writefile(wchar_t *path){
   OVERLAPPED ov;
@@ -42,7 +44,8 @@ static int testread(wchar_t *path){
 int main(int argc, char **argv){
   int check;
   wchar_t *path;
-  path = _wtempnam(L"C:\\", L"mingw-w64-lfs64-test-");
+  SHGetFolderPathW(NULL,CSIDL_PERSONAL,NULL,0,szPath);
+  path = _wtempnam(szPath, L"mingw-w64-lfs64-test-");
   if (!path) return 1;
 
   check = writefile(path);
