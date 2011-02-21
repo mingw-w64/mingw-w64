@@ -10,15 +10,19 @@ static wchar_t szPath[MAX_PATH];
 
 static int writefile(wchar_t *path){
   OVERLAPPED ov;
+  DWORD dwResult;
   memset(&ov,0,sizeof(OVERLAPPED));
   ov.Offset = 0x0;
   ov.OffsetHigh = 0x1;
-  ov.hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
-  HANDLE fd = CreateFileW(path,GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OVERLAPPED, NULL);
+  HANDLE fd = CreateFileW(path,GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
   if (fd == INVALID_HANDLE_VALUE) return 1;
-  WriteFileEx(fd, writebuf, strlen(writebuf), &ov, NULL);
-  WaitForSingleObjectEx(ov.hEvent, 0, TRUE);
-  CloseHandle(ov.hEvent);
+  SetFilePointer (fd, ov.Offset, &ov.OffsetHigh, FILE_BEGIN);
+  WriteFile(fd, writebuf, strlen(writebuf), &dwResult, NULL);
+  dwResult = WaitForSingleObject(fd, INFINITE);
+  while(dwResult==WAIT_IO_COMPLETION)
+  {
+    dwResult = WaitForSingleObject(fd, INFINITE);
+  }
   CloseHandle(fd);
   return 0;
 }
@@ -63,5 +67,6 @@ int main(int argc, char **argv){
   DeleteFileW(path); /* Delete anyway */
 #endif
   free(path);
+  printf ("check: %d\n", check);
   return check;
 }
