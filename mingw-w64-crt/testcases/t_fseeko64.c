@@ -49,6 +49,9 @@ int main(int argc, char **argv){
   wchar_t *path;
   SHGetFolderPathW(NULL,CSIDL_PERSONAL,NULL,0,szPath);
   path = _wtempnam(szPath, L"mingw-w64-lfs64-test-");
+#ifdef debugtest
+  wprintf(L"Path: %ws\n", path);
+#endif
   if (!path) return 1;
 
   check = writefile(path);
@@ -56,7 +59,9 @@ int main(int argc, char **argv){
   check = testread(path);
 
   err:
+#ifndef debugtest
   DeleteFileW(path); /* Delete anyway */
+#endif
   free(path);
   return check;
 }
