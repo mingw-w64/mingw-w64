@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright (C) the Wine project
  *

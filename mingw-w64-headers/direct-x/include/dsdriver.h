@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * DirectSound driver
  * (DirectX 5 version)

@@ -1,4 +1,5 @@
 #include <_mingw_unicode.h>
+#undef INTERFACE
 /*
  * Copyright (C) 2007, 2008 Tony Wasserka
  *

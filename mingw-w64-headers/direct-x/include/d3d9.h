@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright (C) 2002-2003 Jason Edmeades
  *                         Raphael Junqueira

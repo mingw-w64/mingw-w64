@@ -1,4 +1,5 @@
 #include <_mingw_unicode.h>
+#undef INTERFACE
 /*
  * Copyright (C) 1999 Francois Gouget
  * Copyright (C) 1999 Peter Hunnisett

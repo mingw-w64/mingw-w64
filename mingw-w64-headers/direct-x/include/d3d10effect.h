@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright 2009 Henri Verbeet for CodeWeavers
  *

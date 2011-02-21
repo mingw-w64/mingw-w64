@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright (C) 2002 Jason Edmeades
  *
