@@ -458,7 +458,7 @@ lib32_DATA = \
   lib32/libd2d1.a      lib32/libauthz.a     lib32/libwdscore.a   lib32/libmsvcr90d.a  \
   lib32/libmsvcr90.a   lib32/libcryptsp.a   lib32/libbootvid.a   lib32/libwdscsl.a    \
   lib32/libwdsutil.a   lib32/libwdsclient.a lib32/libwdsimage.a  lib32/libwdsupgcompl.a \
-  lib32/libmsvcr100.a  lib32/libwdsclientapi.a lib32/libpcwum.a \
+  lib32/libmsvcr100.a  lib32/libwdsclientapi.a lib32/libpcwum.a  lib32/libdbgeng.a    \
   \
   lib32/libcryptxml.a  lib32/libsspicli.a   \
   \
