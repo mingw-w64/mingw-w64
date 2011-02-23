@@ -4773,7 +4773,6 @@ typedef struct _CERT_SELECT_CHAIN_PARA {
 } CERT_SELECT_CHAIN_PARA, *PCERT_SELECT_CHAIN_PARA;
 typedef const CERT_SELECT_CHAIN_PARA *PCCERT_SELECT_CHAIN_PARA;
 
-#define CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0x00000004
 #define CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0x80000000
 
 typedef struct _CERT_SELECT_CRITERIA {
@@ -4875,7 +4874,7 @@ WINCRYPT32API WINBOOL WINAPI CertSelectCertificateChains(
   LPCGUID pSelectionContext,
   DWORD dwFlags,
   PCCERT_SELECT_CHAIN_PARA pChainParameters,
-  DWORND cCriteria,
+  DWORD cCriteria,
   PCCERT_SELECT_CRITERIA rgpCriteria,
   HCERTSTORE hStore,
   PDWORD pcSelection,
@@ -4887,7 +4886,7 @@ WINCRYPT32API WINBOOL WINAPI CryptExportPublicKeyInfoFromBCryptKeyHandle(
   DWORD dwCertEncodingType,
   LPSTR pszPublicKeyObjId,
   DWORD dwFlags,
-  void pvAuxInfo,
+  PVOID pvAuxInfo,
   PCERT_PUBLIC_KEY_INFO pInfo,
   DWORD pcbInfo
 );
