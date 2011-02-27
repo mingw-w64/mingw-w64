@@ -10,11 +10,27 @@
 #include <fwpmtypes.h>
 #include <iketypes.h>
 #include <ipsectypes.h>
-#if (_WIN32_WINNT >= 0x0600)
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#if (_WIN32_WINNT >= 0x0600)
+
+#ifndef MAXUINT64
+#define MAXUINT64 (0xFFFFFFFFFFFFFFFFULL)
+#endif /* MAXUINT64 */
+
+#define FWPM_AUTO_WEIGHT_BITS (60)
+#define FWPM_AUTO_WEIGHT_MAX (MAXUINT64 >> 4)
+#define FWPM_WEIGHT_RANGE_IKE_EXEMPTIONS (0xC)
+#define FWPM_WEIGHT_RANGE_IPSEC (0x0)
+#define FWPM_WEIGHT_RANGE_MAX (MAXUINT64 >> 60)
+
+DEFINE_GUID(FWPM_PROVIDER_IKEEXT,0x10AD9216L,0xCCDE,0x456C,0x8B,0x16,0xE9,0xF0,0x4E,0x60,0xA9,0x0B);
+DEFINE_GUID(FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD,0x896AA19EL,0x9A34,0x4BCB,0xAE,0x79,0xBE,0xB9,0x12,0x7C,0x84,0xB9);
+
+typedef UINT32 IPSEC_SA_SPI;
 
 typedef void ( CALLBACK *FWPM_CALLOUT_CHANGE_CALLBACK0 )(
   void *context,
@@ -703,8 +719,342 @@ DWORD WINAPI IkeextSaGetById0(
   IKEEXT_SA_DETAILS0 **sa
 );
 
+DWORD WINAPI IPsecGetStatistics0(
+  HANDLE engineHandle,
+  IPSEC_STATISTICS0 *ipsecStatistics
+);
+
+DWORD WINAPI IPsecSaContextAddInbound0(
+  HANDLE engineHandle,
+  UINT64 id,
+  const IPSEC_SA_BUNDLE0 *inboundBundle
+);
+
+DWORD WINAPI IPsecSaContextAddOutbound0(
+  HANDLE engineHandle,
+  UINT64 id,
+  const IPSEC_SA_BUNDLE0 *outboundBundle
+);
+
+DWORD WINAPI IPsecSaContextCreate0(
+  HANDLE engineHandle,
+  const IPSEC_TRAFFIC0 *outboundTraffic,
+  UINT64 *inboundFilterId,
+  UINT64 *id
+);
+
+DWORD WINAPI IPsecSaContextCreateEnumHandle0(
+  HANDLE engineHandle,
+  const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 *enumTemplate,
+  HANDLE *enumHandle
+);
+
+DWORD WINAPI IPsecSaContextDeleteById0(
+  HANDLE engineHandle,
+  UINT64 id
+);
+
+DWORD WINAPI IPsecSaContextDestroyEnumHandle0(
+  HANDLE engineHandle,
+  HANDLE enumHandle
+);
+
+DWORD WINAPI FwpmEngineSetSecurityInfo0(
+  HANDLE engineHandle,
+  SECURITY_INFORMATION securityInfo,
+  const SID *sidOwner,
+  const SID *sidGroup,
+  const ACL *dacl,
+  const ACL *sacl
+);
+
+DWORD WINAPI IPsecSaContextEnum0(
+  HANDLE engineHandle,
+  HANDLE enumHandle,
+  UINT32 numEntriesRequested,
+  IPSEC_SA_CONTEXT0 ***entries,
+  UINT32 *numEntriesReturned
+);
+
+DWORD WINAPI IPsecSaContextExpire0(
+  HANDLE engineHandle,
+  UINT64 id
+);
+
+DWORD WINAPI IPsecSaContextGetById0(
+  HANDLE engineHandle,
+  UINT64 id,
+  IPSEC_SA_CONTEXT0 **saContext
+);
+
+DWORD WINAPI IPsecSaContextGetSpi0(
+  HANDLE engineHandle,
+  UINT64 id,
+  const IPSEC_GETSPI0 *getSpi,
+  IPSEC_SA_SPI *inboundSpi
+);
+
+DWORD WINAPI IPsecSaCreateEnumHandle0(
+  HANDLE engineHandle,
+  const IPSEC_SA_ENUM_TEMPLATE0 *enumTemplate,
+  HANDLE *enumHandle
+);
+
+DWORD WINAPI IPsecSaDbGetSecurityInfo0(
+  HANDLE engineHandle,
+  SECURITY_INFORMATION securityInfo,
+  PSID *sidOwner,
+  PSID *sidGroup,
+  PACL *dacl,
+  PACL *sacl,
+  PSECURITY_DESCRIPTOR *securityDescriptor
+);
+
+DWORD WINAPI IPsecSaDestroyEnumHandle0(
+  HANDLE engineHandle,
+  HANDLE enumHandle
+);
+
+DWORD WINAPI IPsecSaEnum0(
+  HANDLE engineHandle,
+  HANDLE enumHandle,
+  UINT32 numEntriesRequested,
+  IPSEC_SA_DETAILS0 ***entries,
+  UINT32 *numEntriesReturned
+);
+
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
+#if (_WIN32_WINNT >= 0x0601)
+
+DEFINE_GUID(FWPM_PROVIDER_IPSEC_DOS_CONFIG,0x3C6C0519L,0xC05C,0x4BB9,0x83,0x38,0x23,0x27,0x81,0x4C,0xE8,0xBF);
+
+typedef void ( CALLBACK *FWPM_NET_EVENT_CALLBACK0 )(
+  void *context,
+  const FWPM_NET_EVENT1 *event
+);
+
+typedef void ( CALLBACK *FWPM_SYSTEM_PORTS_CALLBACK0 )(
+  void *context,
+  const FWPM_SYSTEM_PORTS0 *sysPorts
+);
+
+DWORD WINAPI IkeextGetStatistics1(
+  HANDLE engineHandle,
+  IKEEXT_STATISTICS1 *ikeextStatistics
+);
+
+DWORD WINAPI IkeextSaEnum1(
+  HANDLE engineHandle,
+  HANDLE enumHandle,
+  UINT32 numEntriesRequested,
+  IKEEXT_SA_DETAILS1 ***entries,
+  UINT32 *numEntriesReturned
+);
+
+DWORD WINAPI IkeextSaGetById1(
+  HANDLE engineHandle,
+  UINT64 id,
+  GUID *saLookupContext,
+  IKEEXT_SA_DETAILS1 **sa
+);
+
+DWORD WINAPI FwpmIpsecTunnelAdd1(
+  HANDLE engineHandle,
+  UINT32 flags,
+  const FWPM_PROVIDER_CONTEXT1 *mainModePolicy,
+  const FWPM_PROVIDER_CONTEXT1 *tunnelPolicy,
+  UINT32 numFilterConditions,
+  const FWPM_FILTER_CONDITION0 *filterConditions,
+  const GUID *keyModKey,
+  PSECURITY_DESCRIPTOR sd
+);
+
+DWORD WINAPI IPsecDospGetSecurityInfo0(
+  HANDLE engineHandle,
+  SECURITY_INFORMATION securityInfo,
+  PSID *sidOwner,
+  PSID *sidGroup,
+  PACL *dacl,
+  PACL *sacl,
+  PSECURITY_DESCRIPTOR *securityDescriptor
+);
+
+DWORD WINAPI IPsecDospGetStatistics0(
+  HANDLE engineHandle,
+  IPSEC_DOSP_STATISTICS0 *idpStatistics
+);
+
+DWORD WINAPI IPsecDospSetSecurityInfo0(
+  HANDLE engineHandle,
+  SECURITY_INFORMATION securityInfo,
+  const SID *sidOwner,
+  const SID *sidGroup,
+  const ACL *dacl,
+  const ACL *sacl
+);
+
+DWORD WINAPI IPsecDospStateCreateEnumHandle0(
+  HANDLE engineHandle,
+  const IPSEC_DOSP_STATE_ENUM_TEMPLATE0 *enumTemplate,
+  HANDLE *enumHandle
+);
+
+DWORD WINAPI IPsecDospStateDestroyEnumHandle0(
+  HANDLE engineHandle,
+  HANDLE enumHandle
+);
+
+DWORD WINAPI IPsecDospStateEnum0(
+  HANDLE engineHandle,
+  HANDLE enumHandle,
+  UINT32 numEntriesRequested,
+  IPSEC_DOSP_STATE0 ***entries,
+  UINT32 *numEntries
+);
+
+DWORD WINAPI IPsecGetStatistics1(
+  HANDLE engineHandle,
+  IPSEC_STATISTICS1 *ipsecStatistics
+);
+
+DWORD WINAPI IPsecSaContextAddInbound1(
+  HANDLE engineHandle,
+  UINT64 id,
+  const IPSEC_SA_BUNDLE1 *inboundBundle
+);
+
+DWORD WINAPI IPsecSaContextAddOutbound1(
+  HANDLE engineHandle,
+  UINT64 id,
+  const IPSEC_SA_BUNDLE1 *outboundBundle
+);
+
+DWORD WINAPI IPsecSaContextCreate1(
+  HANDLE engineHandle,
+  const IPSEC_TRAFFIC1 *outboundTraffic,
+  const IPSEC_VIRTUAL_IF_TUNNEL_INFO0 *virtualIfTunnelInfo,
+  UINT64 *inboundFilterId,
+  UINT64 *id
+);
+
+DWORD WINAPI FwpmNetEventEnum1(
+  HANDLE engineHandle,
+  HANDLE enumHandle,
+  UINT32 numEntriesRequested,
+  FWPM_NET_EVENT1 ***entries,
+  UINT32 *numEntriesReturned
+);
+
+DWORD WINAPI FwpmNetEventSubscribe0(
+  HANDLE engineHandle,
+  const FWPM_NET_EVENT_SUBSCRIPTION0 *subscription,
+  FWPM_NET_EVENT_CALLBACK0 callback,
+  void *context,
+  HANDLE *eventsHandle
+);
+
+DWORD WINAPI FwpmNetEventSubscriptionsGet0(
+  HANDLE engineHandle,
+  FWPM_NET_EVENT_SUBSCRIPTION0 ***entries,
+  UINT32 *numEntries
+);
+
+DWORD WINAPI FwpmNetEventUnsubscribe0(
+  HANDLE engineHandle,
+  HANDLE eventsHandle
+);
+
+DWORD WINAPI FwpmProviderContextAdd1(
+  HANDLE engineHandle,
+  const FWPM_PROVIDER_CONTEXT1 *providerContext,
+  PSECURITY_DESCRIPTOR sd,
+  UINT64 *id
+);
+
+DWORD WINAPI FwpmProviderContextEnum1(
+  HANDLE engineHandle,
+  HANDLE enumHandle,
+  UINT32 numEntriesRequested,
+  FWPM_PROVIDER_CONTEXT1 ***entries,
+  UINT32 *numEntriesReturned
+);
+
+DWORD WINAPI FwpmProviderContextGetById1(
+  HANDLE engineHandle,
+  UINT64 id,
+  FWPM_PROVIDER_CONTEXT1 **providerContext
+);
+
+DWORD WINAPI FwpmProviderContextGetByKey1(
+  HANDLE engineHandle,
+  const GUID *key,
+  FWPM_PROVIDER_CONTEXT1 **providerContext
+);
+
+DWORD WINAPI FwpmSystemPortsGet0(
+  HANDLE engineHandle,
+  FWPM_SYSTEM_PORTS0 **sysPorts
+);
+
+DWORD WINAPI FwpmSystemPortsSubscribe0(
+  HANDLE engineHandle,
+  void *reserved,
+  FWPM_SYSTEM_PORTS_CALLBACK0 callback,
+  void *context,
+  HANDLE *sysPortsHandle
+);
+
+DWORD WINAPI FwpmSystemPortsUnsubscribe0(
+  HANDLE engineHandle,
+  HANDLE sysPortsHandle
+);
+
+DWORD WINAPI IPsecSaContextEnum1(
+  HANDLE engineHandle,
+  HANDLE enumHandle,
+  UINT32 numEntriesRequested,
+  IPSEC_SA_CONTEXT1 ***entries,
+  UINT32 *numEntriesReturned
+);
+
+DWORD WINAPI IPsecSaContextGetById1(
+  HANDLE engineHandle,
+  UINT64 id,
+  IPSEC_SA_CONTEXT1 **saContext
+);
+
+DWORD WINAPI IPsecSaContextGetSpi1(
+  HANDLE engineHandle,
+  UINT64 id,
+  const IPSEC_GETSPI1 *getSpi,
+  IPSEC_SA_SPI *inboundSpi
+);
+
+DWORD WINAPI IPsecSaContextUpdate0(
+  HANDLE engineHandle,
+  UINT32 flags,
+  const IPSEC_SA_CONTEXT1 *newValues
+);
+
+DWORD WINAPI IPsecSaEnum1(
+  HANDLE engineHandle,
+  HANDLE enumHandle,
+  UINT32 numEntriesRequested,
+  IPSEC_SA_DETAILS1 ***entries,
+  UINT32 *numEntriesReturned
+);
+
+DWORD WINAPI IPsecSaContextSetSpi0(
+  HANDLE engineHandle,
+  UINT64 id,
+  const IPSEC_GETSPI1 *getSpi,
+  IPSEC_SA_SPI inboundSpi
+);
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
+
 #ifdef __cplusplus
 }
 #endif
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 #endif /*_INC_FWPMU*/

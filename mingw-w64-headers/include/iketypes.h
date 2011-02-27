@@ -7,11 +7,16 @@
 #define _INC_IKETYPES
 #include <fwptypes.h>
 
-#if (_WIN32_WINNT >= 0x0600)
-
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#if (_WIN32_WINNT >= 0x0600)
+
+#ifndef __IPSEC_V4_UDP_ENCAPSULATION0_FWD_DECLARED
+#define __IPSEC_V4_UDP_ENCAPSULATION0_FWD_DECLARED
+typedef struct IPSEC_V4_UDP_ENCAPSULATION0_ IPSEC_V4_UDP_ENCAPSULATION0;
+#endif /* __IPSEC_V4_UDP_ENCAPSULATION0_FWD_DECLARED */
 
 typedef enum IKEEXT_EM_SA_STATE_ {
   IKEEXT_EM_SA_STATE_NONE = 0,
@@ -353,8 +358,173 @@ typedef struct IKEEXT_STATISTICS0_ {
   IKEEXT_COMMON_STATISTICS0    commonStatistics;
 } IKEEXT_STATISTICS0;
 
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
+#if (_WIN32_WINNT >= 0x0601)
+
+typedef struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1_ {
+  UINT32 currentActiveMainModes;
+  UINT32 totalMainModesStarted;
+  UINT32 totalSuccessfulMainModes;
+  UINT32 totalFailedMainModes;
+  UINT32 totalResponderMainModes;
+  UINT32 currentNewResponderMainModes;
+  UINT32 currentActiveQuickModes;
+  UINT32 totalQuickModesStarted;
+  UINT32 totalSuccessfulQuickModes;
+  UINT32 totalFailedQuickModes;
+  UINT32 totalAcquires;
+  UINT32 totalReinitAcquires;
+  UINT32 currentActiveExtendedModes;
+  UINT32 totalExtendedModesStarted;
+  UINT32 totalSuccessfulExtendedModes;
+  UINT32 totalFailedExtendedModes;
+  UINT32 totalImpersonationExtendedModes;
+  UINT32 totalImpersonationMainModes;
+} IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1;
+
+typedef struct IKEEXT_KEYMODULE_STATISTICS1_ {
+  IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 v4Statistics;
+  IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 v6Statistics;
+  UINT32                                           errorFrequencyTable[IKEEXT_ERROR_CODE_COUNT];
+  UINT32                                           mainModeNegotiationTime;
+  UINT32                                           quickModeNegotiationTime;
+  UINT32                                           extendedModeNegotiationTime;
+} IKEEXT_KEYMODULE_STATISTICS1;
+
+typedef struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1_ {
+  UINT32 totalSocketReceiveFailures;
+  UINT32 totalSocketSendFailures;
+} IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1;
+
+typedef struct IKEEXT_COMMON_STATISTICS1_ {
+  IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 v4Statistics;
+  IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 v6Statistics;
+  UINT32                                        totalPacketsReceived;
+  UINT32                                        totalInvalidPacketsReceived;
+  UINT32                                        currentQueuedWorkitems;
+} IKEEXT_COMMON_STATISTICS1;
+
+typedef struct IKEEXT_STATISTICS1_ {
+  IKEEXT_KEYMODULE_STATISTICS1 ikeStatistics;
+  IKEEXT_KEYMODULE_STATISTICS1 authipStatistics;
+  IKEEXT_KEYMODULE_STATISTICS1 ikev2Statistics;
+  IKEEXT_COMMON_STATISTICS1    commonStatistics;
+} IKEEXT_STATISTICS1;
+
+typedef struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1__ {
+  FWP_BYTE_BLOB presharedKey;
+  UINT32        flags;
+} IKEEXT_PRESHARED_KEY_AUTHENTICATION1;
+
+typedef struct IKEEXT_CERTIFICATE_CREDENTIAL1_ {
+  FWP_BYTE_BLOB subjectName;
+  FWP_BYTE_BLOB certHash;
+  UINT32        flags;
+  FWP_BYTE_BLOB certificate;
+} IKEEXT_CERTIFICATE_CREDENTIAL1;
+
+typedef struct IKEEXT_CREDENTIAL1_ {
+  IKEEXT_AUTHENTICATION_METHOD_TYPE        authenticationMethodType;
+  IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE impersonationType;
+  __C89_NAMELESS union {
+    IKEEXT_PRESHARED_KEY_AUTHENTICATION1 *presharedKey;
+    IKEEXT_CERTIFICATE_CREDENTIAL1       *certificate;
+    IKEEXT_NAME_CREDENTIAL0              *name;
+    ;      // case(IKEEXT_ANONYMOUS)
+  };
+} IKEEXT_CREDENTIAL1;
+
+typedef struct IKEEXT_CREDENTIAL_PAIR1_ {
+  IKEEXT_CREDENTIAL1 localCredentials;
+  IKEEXT_CREDENTIAL1 peerCredentials;
+} IKEEXT_CREDENTIAL_PAIR1;
+
+typedef struct IKEEXT_CREDENTIALS1_ {
+  UINT32                  numCredentials;
+  IKEEXT_CREDENTIAL_PAIR1 *credentials;
+} IKEEXT_CREDENTIALS1;
+
+typedef struct IKEEXT_SA_DETAILS1_ {
+  UINT64                 saId;
+  IKEEXT_KEY_MODULE_TYPE keyModuleType;
+  FWP_IP_VERSION         ipVersion;
+  __C89_NAMELESS union {
+    IPSEC_V4_UDP_ENCAPSULATION0 *v4UdpEncapsulation;
+    ;      // case(FWP_IP_VERSION_V6)
+  };
+  IKEEXT_TRAFFIC0        ikeTraffic;
+  IKEEXT_PROPOSAL0       ikeProposal;
+  IKEEXT_COOKIE_PAIR0    cookiePair;
+  IKEEXT_CREDENTIALS1    ikeCredentials;
+  GUID                   ikePolicyKey;
+  UINT64                 virtualIfTunnelId;
+} IKEEXT_SA_DETAILS1;
+
+typedef struct IKEEXT_CERTIFICATE_AUTHENTICATION1_ {
+  IKEEXT_CERT_CONFIG_TYPE inboundConfigType;
+  __C89_NAMELESS union {
+    __C89_NAMELESS struct {
+      UINT32                   inboundRootArraySize;
+      IKEEXT_CERT_ROOT_CONFIG0 *inboundRootArray;
+    };
+    IKEEXT_CERT_ROOT_CONFIG0 *inboundEnterpriseStoreConfig;
+    IKEEXT_CERT_ROOT_CONFIG0 *inboundTrustedRootStoreConfig;
+    ;      // case(IKEEXT_CERT_CONFIG_UNSPECIFIED)
+  };
+  IKEEXT_CERT_CONFIG_TYPE outboundConfigType;
+  __C89_NAMELESS union {
+    __C89_NAMELESS struct {
+      UINT32                   outboundRootArraySize;
+      IKEEXT_CERT_ROOT_CONFIG0 *outboundRootArray;
+    };
+    IKEEXT_CERT_ROOT_CONFIG0 *outboundEnterpriseStoreConfig;
+    IKEEXT_CERT_ROOT_CONFIG0 *outboundTrustedRootStoreConfig;
+    ;      // case(IKEEXT_CERT_CONFIG_UNSPECIFIED)
+  };
+  UINT32                  flags;
+  FWP_BYTE_BLOB           localCertLocationUrl;
+} IKEEXT_CERTIFICATE_AUTHENTICATION1;
+
+typedef struct IKEEXT_EAP_AUTHENTICATION0__ {
+  UINT32 flags;
+} IKEEXT_EAP_AUTHENTICATION0;
+
+typedef struct IKEEXT_AUTHENTICATION_METHOD1_ {
+  IKEEXT_AUTHENTICATION_METHOD_TYPE authenticationMethodType;
+  __C89_NAMELESS union {
+    IKEEXT_PRESHARED_KEY_AUTHENTICATION1 presharedKeyAuthentication;
+    IKEEXT_CERTIFICATE_AUTHENTICATION1   certificateAuthentication;
+    IKEEXT_KERBEROS_AUTHENTICATION0      kerberosAuthentication;
+    IKEEXT_NTLM_V2_AUTHENTICATION0       ntlmV2Authentication;
+    IKEEXT_CERTIFICATE_AUTHENTICATION1   sslAuthentication;
+    IKEEXT_IPV6_CGA_AUTHENTICATION0      cgaAuthentication;
+    IKEEXT_EAP_AUTHENTICATION0           eapAuthentication;
+    ;      // case(IKEEXT_ANONYMOUS)
+  };
+} IKEEXT_AUTHENTICATION_METHOD1;
+
+typedef struct IKEEXT_POLICY1_ {
+  UINT32                                   softExpirationTime;
+  UINT32                                   numAuthenticationMethods;
+  IKEEXT_AUTHENTICATION_METHOD1            *authenticationMethods;
+  IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE initiatorImpersonationType;
+  UINT32                                   numIkeProposals;
+  IKEEXT_PROPOSAL0                         *ikeProposals;
+  UINT32                                   flags;
+  UINT32                                   maxDynamicFilters;
+  UINT32                                   retransmitDurationSecs;
+} IKEEXT_POLICY1;
+
+typedef struct IKEEXT_EM_POLICY1_ {
+  UINT32                                   numAuthenticationMethods;
+  IKEEXT_AUTHENTICATION_METHOD1            *authenticationMethods;
+  IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE initiatorImpersonationType;
+} IKEEXT_EM_POLICY1;
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 #ifdef __cplusplus
 }
 #endif
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #endif /*_INC_IKETYPES*/

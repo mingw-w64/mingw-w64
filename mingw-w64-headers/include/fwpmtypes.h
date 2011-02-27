@@ -8,11 +8,11 @@
 #include <fwptypes.h>
 #include <ipsectypes.h>
 #include <iketypes.h>
-#if (_WIN32_WINNT >= 0x0600)
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+#if (_WIN32_WINNT >= 0x0600)
 
 typedef enum FWPM_PROVIDER_CONTEXT_TYPE_ {
   FWPM_IPSEC_KEYING_CONTEXT,
@@ -134,9 +134,9 @@ typedef struct FWPM_FILTER_CHANGE0_ {
 } FWPM_FILTER_CHANGE0;
 
 typedef struct FWPM_FILTER_CONDITION0_ {
-  GUID                fieldKey;
-  FWP_MATCH_TYPE      matchType;
-  FWP_CONDITION_VALUE conditionValue;
+  GUID                 fieldKey;
+  FWP_MATCH_TYPE       matchType;
+  FWP_CONDITION_VALUE0 conditionValue;
 } FWPM_FILTER_CONDITION0;
 
 typedef struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0_ {
@@ -282,6 +282,7 @@ typedef struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0_ {
   UINT16        layerId;
 } FWPM_NET_EVENT_IPSEC_KERNEL_DROP0;
 
+#if (_WIN32_WINNT >= 0x0601)
 typedef struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0_ {
   FWP_IP_VERSION ipVersion;
   __C89_NAMELESS union {
@@ -295,6 +296,19 @@ typedef struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0_ {
   INT32          failureStatus;
   FWP_DIRECTION  direction;
 } FWPM_NET_EVENT_IPSEC_DOSP_DROP0;
+#endif /*(_WIN32_WINNT >= 0x0601)*/
+
+typedef struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0_ {
+  UINT32                            failureErrorCode;
+  IPSEC_FAILURE_POINT               failurePoint;
+  UINT32                            flags;
+  IKEEXT_EM_SA_STATE                emState;
+  IKEEXT_SA_ROLE                    saRole;
+  IKEEXT_AUTHENTICATION_METHOD_TYPE emAuthMethod;
+  UINT8                             endCertHash[IKEEXT_CERT_HASH_LEN];
+  UINT64                            mmId;
+  UINT64                            qmFilterId;
+} FWPM_NET_EVENT_IKEEXT_EM_FAILURE0;
 
 typedef struct FWPM_NET_EVENT0_ {
   FWPM_NET_EVENT_HEADER0 header;
@@ -305,7 +319,9 @@ typedef struct FWPM_NET_EVENT0_ {
     FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 *ikeEmFailure;
     FWPM_NET_EVENT_CLASSIFY_DROP0     *classifyDrop;
     FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 *ipsecDrop;
+#if (_WIN32_WINNT >= 0x0601)
     FWPM_NET_EVENT_IPSEC_DOSP_DROP0   *idpDrop;
+#endif /*(_WIN32_WINNT >= 0x0601)*/
   };
 } FWPM_NET_EVENT0;
 
@@ -393,8 +409,169 @@ typedef struct FWPM_SUBLAYER0_ {
   UINT16             weight;
 } FWPM_SUBLAYER0;
 
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
+#if (_WIN32_WINNT >= 0x0601)
+
+typedef enum FWPM_SYSTEM_PORT_TYPE_ {
+  FWPM_SYSTEM_PORT_RPC_EPMAP,
+  FWPM_SYSTEM_PORT_TEREDO,
+  FWPM_SYSTEM_PORT_IPHTTPS_IN,
+  FWPM_SYSTEM_PORT_IPHTTPS_OUT,
+  FWPM_SYSTEM_PORT_TYPE_MAX 
+} FWPM_SYSTEM_PORT_TYPE;
+
+typedef enum  {
+  DlUnicast,
+  DlMulticast,
+  DlBroadcast 
+} DL_ADDRESS_TYPE, *PDL_ADDRESS_TYPE;
+
+typedef struct FWPM_PROVIDER_CONTEXT1_ {
+  GUID                       providerContextKey;
+  FWPM_DISPLAY_DATA0         displayData;
+  UINT32                     flags;
+  GUID                       *providerKey;
+  FWP_BYTE_BLOB              providerData;
+  FWPM_PROVIDER_CONTEXT_TYPE type;
+  __C89_NAMELESS union {
+    IPSEC_KEYING_POLICY0    *keyingPolicy;
+    IPSEC_TRANSPORT_POLICY1 *ikeQmTransportPolicy;
+    IPSEC_TUNNEL_POLICY1    *ikeQmTunnelPolicy;
+    IPSEC_TRANSPORT_POLICY1 *authipQmTransportPolicy;
+    IPSEC_TUNNEL_POLICY1    *authipQmTunnelPolicy;
+    IKEEXT_POLICY1          *ikeMmPolicy;
+    IKEEXT_POLICY1          *authIpMmPolicy;
+    FWP_BYTE_BLOB           *dataBuffer;
+    FWPM_CLASSIFY_OPTIONS0  *classifyOptions;
+    IPSEC_TUNNEL_POLICY1    *ikeV2QmTunnelPolicy;
+    IKEEXT_POLICY1          *ikeV2MmPolicy;
+    IPSEC_DOSP_OPTIONS0     *idpOptions;
+  };
+  UINT64                     providerContextId;
+} FWPM_PROVIDER_CONTEXT1;
+
+typedef struct FWPM_NET_EVENT_HEADER1_ {
+  FILETIME       timeStamp;
+  UINT32         flags;
+  FWP_IP_VERSION ipVersion;
+  UINT8          ipProtocol;
+  __C89_NAMELESS union {
+    UINT32           localAddrV4;
+    FWP_BYTE_ARRAY16 localAddrV6;
+  };
+  __C89_NAMELESS union {
+    UINT32           remoteAddrV4;
+    FWP_BYTE_ARRAY16 remoteAddrV6;
+  };
+  UINT16         localPort;
+  UINT16         remotePort;
+  UINT32         scopeId;
+  FWP_BYTE_BLOB  appId;
+  SID            *userId;
+  __C89_NAMELESS union {
+    __C89_NAMELESS struct {
+      FWP_AF addressFamily;
+      __C89_NAMELESS union {
+        __C89_NAMELESS struct {
+          FWP_BYTE_ARRAY6        dstAddrEth;
+          FWP_BYTE_ARRAY6        srcAddrEth;
+          DL_ADDRESS_TYPE        addrType;
+          FWP_ETHER_ENCAP_METHOD encapMethod;
+          UINT16                 etherType;
+          UINT32                 snapControl;
+          UINT32                 snapOui;
+          UINT16                 vlanTag;
+          UINT64                 ifLuid;
+        };
+      };
+    };
+  };
+} FWPM_NET_EVENT_HEADER1;
+
+#define IKEEXT_CERT_HASH_LEN 20
+
+typedef struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1_ {
+  UINT32                            failureErrorCode;
+  IPSEC_FAILURE_POINT               failurePoint;
+  UINT32                            flags;
+  IKEEXT_KEY_MODULE_TYPE            keyingModuleType;
+  IKEEXT_MM_SA_STATE                mmState;
+  IKEEXT_SA_ROLE                    saRole;
+  IKEEXT_AUTHENTICATION_METHOD_TYPE mmAuthMethod;
+  UINT8                             endCertHash[IKEEXT_CERT_HASH_LEN];
+  UINT64                            mmId;
+  UINT64                            mmFilterId;
+  wchar_t                           *localPrincipalNameForAuth;
+  wchar_t                           *remotePrincipalNameForAuth;
+  UINT32                            numLocalPrincipalGroupSids;
+  LPWSTR                            *localPrincipalGroupSids;
+  UINT32                            numRemotePrincipalGroupSids;
+  LPWSTR                            *remotePrincipalGroupSids;
+} FWPM_NET_EVENT_IKEEXT_MM_FAILURE1;
+
+typedef struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1_ {
+  UINT32                            failureErrorCode;
+  IPSEC_FAILURE_POINT               failurePoint;
+  UINT32                            flags;
+  IKEEXT_EM_SA_STATE                emState;
+  IKEEXT_SA_ROLE                    saRole;
+  IKEEXT_AUTHENTICATION_METHOD_TYPE emAuthMethod;
+  UINT8                             endCertHash[IKEEXT_CERT_HASH_LEN];
+  UINT64                            mmId;
+  UINT64                            qmFilterId;
+  wchar_t                           *localPrincipalNameForAuth;
+  wchar_t                           *remotePrincipalNameForAuth;
+  UINT32                            numLocalPrincipalGroupSids;
+  LPWSTR                            *localPrincipalGroupSids;
+  UINT32                            numRemotePrincipalGroupSids;
+  LPWSTR                            *remotePrincipalGroupSids;
+  IPSEC_TRAFFIC_TYPE                saTrafficType;
+} FWPM_NET_EVENT_IKEEXT_EM_FAILURE1;
+
+typedef struct FWPM_NET_EVENT_CLASSIFY_DROP1_ {
+  UINT64 filterId;
+  UINT16 layerId;
+  UINT32 reauthReason;
+  UINT32 originalProfile;
+  UINT32 currentProfile;
+  UINT32 msFwpDirection;
+  BOOL   isLoopback;
+} FWPM_NET_EVENT_CLASSIFY_DROP1;
+
+typedef struct FWPM_NET_EVENT1_ {
+  FWPM_NET_EVENT_HEADER1 header;
+  FWPM_NET_EVENT_TYPE    type;
+  __C89_NAMELESS union {
+    FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 *ikeMmFailure;
+    FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 *ikeQmFailure;
+    FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 *ikeEmFailure;
+    FWPM_NET_EVENT_CLASSIFY_DROP1     *classifyDrop;
+    FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 *ipsecDrop;
+    FWPM_NET_EVENT_IPSEC_DOSP_DROP0   *idpDrop;
+  };
+} FWPM_NET_EVENT1;
+
+typedef struct FWPM_NET_EVENT_SUBSCRIPTION0_ {
+  FWPM_NET_EVENT_ENUM_TEMPLATE0 *enumTemplate;
+  UINT32                        flags;
+  GUID                          sessionKey;
+} FWPM_NET_EVENT_SUBSCRIPTION0;
+
+typedef struct FWPM_SYSTEM_PORTS_BY_TYPE0_ {
+  FWPM_SYSTEM_PORT_TYPE type;
+  UINT32                numPorts;
+  UINT16                *ports;
+} FWPM_SYSTEM_PORTS_BY_TYPE0;
+
+typedef struct FWPM_SYSTEM_PORTS0_ {
+  UINT32                     numTypes;
+  FWPM_SYSTEM_PORTS_BY_TYPE0 *types;
+} FWPM_SYSTEM_PORTS0;
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 #ifdef __cplusplus
 }
 #endif
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #endif /*_INC_FWPMTYPES*/

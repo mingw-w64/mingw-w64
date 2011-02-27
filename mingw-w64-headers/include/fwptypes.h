@@ -6,14 +6,14 @@
 #ifndef _INC_FWTYPES
 #define _INC_FWTYPES
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #if (_WIN32_WINNT >= 0x0600)
 
 #define SOCKET_SETTINGS_GUARANTEE_ENCRYPTION 0x00000001
 #define SOCKET_SETTINGS_ALLOW_INSECURE 0x00000002
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 typedef UINT32 FWP_ACTION_TYPE;
 
@@ -178,10 +178,27 @@ typedef struct FWP_CONDITION_VALUE0_ {
   };
 } FWP_CONDITION_VALUE0;
 
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
+#if (_WIN32_WINNT >= 0x0601)
+
+typedef enum FWP_NE_FAMILY_ {
+  FWP_AF_INET    = FWP_IP_VERSION_V4,
+  FWP_AF_INET6   = FWP_IP_VERSION_V6,
+  FWP_AF_ETHER   = FWP_IP_VERSION_NONE,
+  FWP_AF_NONE 
+} FWP_AF;
+
+typedef enum FWP_ETHER_ENCAP_METHOD_ {
+  FWP_ETHER_ENCAP_METHOD_ETHER_V2          = 0,
+  FWP_ETHER_ENCAP_METHOD_SNAP              = 1,
+  FWP_ETHER_ENCAP_METHOD_SNAP_W_OUI_ZERO   = 3 
+} FWP_ETHER_ENCAP_METHOD;
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
+
 #ifdef __cplusplus
 }
 #endif
-
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #endif /*_INC_FWTYPES*/
