@@ -1,3 +1,8 @@
+2011-03-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winuser.h (TOUCHEVENTF_MOVE): Fix value as 0x01 acc.to msdn.
+	(TOUCHEVENTF_DOWN): Fix value as 0x02 acc.to msdn.
+
 2011-02-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merged from trunk:
