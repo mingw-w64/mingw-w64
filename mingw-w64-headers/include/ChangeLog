@@ -1,4 +1,10 @@
+2011-03-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winuser.h (TOUCHEVENTF_MOVE): Fix value as 0x01 acc.to msdn.
+	(TOUCHEVENTF_DOWN): Fix value as 0x02 acc.to msdn.
+
 2011-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
 	* dxva2api.h (DXVA2_ProcAmp_None): Define.
 	(DXVA2_ProcAmp_Brightness): Likewise.
 	(DXVA2_ProcAmp_Contrast): Likewise.
