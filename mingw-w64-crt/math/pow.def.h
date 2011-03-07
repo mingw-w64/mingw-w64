@@ -68,6 +68,9 @@
 */
 #include "../complex/complex_internal.h"
 #include <errno.h>
+#include <limits.h>
+
+__FLT_TYPE __cdecl __FLT_ABI(__powi) (__FLT_TYPE x, int n);
 
 __FLT_TYPE __cdecl
 __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
@@ -154,6 +157,8 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
       __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
       return -__FLT_NAN;
     }
+  if (__FLT_ABI (modf) (y, &d) == 0.0 && (d <= (__FLT_TYPE) INT_MAX && d >= (__FLT_TYPE) INT_MIN))
+     return __FLT_ABI (__powi) (x, (int) y);
   /* As exp already checks for minlog and maxlog no further checks are necessary.  */
   rslt = __FLT_ABI(exp)(y * __FLT_ABI(log)(__FLT_ABI(fabs) (x)));
   if (signbit (x) && __FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) != 0.0)
