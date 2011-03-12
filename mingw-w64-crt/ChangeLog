@@ -1,3 +1,26 @@
+2011-03-12  Dongsheng Song  <dongsheng.song@gmail.com>:
+
+	* lib32/msvcr100.def (__report_gsfailure, _assert, _byteswap_uint64,
+	_byteswap_ulong, _byteswap_ushort, _ctime32, _difftime32,
+	_difftime64, _findfirst64i32, _findnext64i32, _fpreset, _fseeki64,
+	_fstat64i32, _ftelli64, _get_errno, _gmtime32, _localtime32,
+	_mkgmtime32, _mktime32, _rotl64, _rotr64, _set_errno, _stat64i32,
+	_time32, _wassert, _wctime32, _wfindfirst64i32, _wfindnext64i32,
+	_wstat64i32, atexit, btowc, cos, exp, fabs, fmod, llabs, lldiv,
+	log, longjmp, mbrlen, mbrtowc, mbsrtowcs, modf, pow, sin, sqrt,
+	strnlen, wcrtomb, wcsnlen, wcsrtombs, wctob): Mark as DATA.
+	* lib64/msvcr100.def (__report_gsfailure, _assert, _byteswap_uint64,
+	_byteswap_ulong, _byteswap_ushort, _ctime32, _difftime32,
+	_difftime64, _findfirst64i32, _findnext64i32, _fpreset, _fseeki64,
+	_fstat64i32, _ftelli64, _get_errno, _gmtime32, _localtime32,
+	_mkgmtime32, _mktime32, _rotl64, _rotr64, _set_errno, _stat64i32,
+	_time32, _wassert, _wctime32, _wfindfirst64i32, _wfindnext64i32,
+	_wstat64i32, acosf, asinf, atan2f, atanf, atexit, btowc, ceilf,
+	cos, cosf, coshf, exp, expf, fabs, floorf, fmod, fmodf, llabs,
+	lldiv, log, log10f, logf, longjmp, mbrlen, mbrtowc, mbsrtowcs,
+	modf, modff, pow, powf, sin, sinf, sinhf, sqrt, sqrtf, strnlen,
+	tanf, tanhf, wcrtomb, wcsnlen, wcsrtombs, wctob): Likewise.
+
 2011-02-04  Kai Tietz  <kai.tietz@onevision.com>
 
 	* stdio/mingw_fscanf.c: New.
