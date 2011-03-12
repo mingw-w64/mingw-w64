@@ -13,6 +13,7 @@ extern "C" {
 #endif
 
 typedef DWORD WLAN_REASON_CODE, *PWLAN_REASON_CODE;
+typedef ULONG WLAN_SIGNAL_QUALITY, *PWLAN_SIGNAL_QUALITY;
 
 typedef struct _DOT11_NETWORK {
   DOT11_SSID     dot11Ssid;
@@ -144,12 +145,6 @@ typedef struct _WLAN_AVAILABLE_NETWORK_LIST {
   WLAN_AVAILABLE_NETWORK Network[1];
 } WLAN_AVAILABLE_NETWORK_LIST, *PWLAN_AVAILABLE_NETWORK_LIST;
 
-typedef struct _WLAN_BSS_LIST {
-  DWORD          dwTotalSize;
-  DWORD          dwNumberOfItems;
-  WLAN_BSS_ENTRY wlanBssEntries[1];
-} WLAN_BSS_LIST, *PWLAN_BSS_LIST;
-
 typedef struct _WLAN_SECURITY_ATTRIBUTES {
   WINBOOL                bSecurityEnabled;
   WINBOOL                bOneXEnabled;
@@ -166,7 +161,7 @@ typedef struct _WLAN_CONNECTION_ATTRIBUTES {
 } WLAN_CONNECTION_ATTRIBUTES, *PWLAN_CONNECTION_ATTRIBUTES;
 
 /* Assuming stdcall */
-typedef VOID (CALLBAC *WLAN_NOTIFICATION_CALLBACK)(
+typedef VOID (CALLBACK *WLAN_NOTIFICATION_CALLBACK)(
   PWLAN_NOTIFICATION_DATA ,
   PVOID 
 );
@@ -319,14 +314,6 @@ DWORD WINAPI WlanRegisterNotification(
   PDWORD pdwPrevNotifSource
 );
 
-DWORD WINAPI WlanScan(
-  HANDLE hClientHandle,
-  const GUID *pInterfaceGuid,
-  const PDOT11_SSID pDot11Ssid,
-  const PWLAN_RAW_DATA pIeData,
-  PVOID pReserved
-);
-
 DWORD WINAPI WlanSetInterface(
   HANDLE hClientHandle,
   const GUID *pInterfaceGuid,
@@ -373,7 +360,7 @@ DWORD WINAPI WlanSetProfilePosition(
 );
 
 #if (_WIN32_WINNT >= 0x0600)
-typedef char[3] DOT11_COUNTRY_OR_REGION_STRING;
+typedef char DOT11_COUNTRY_OR_REGION_STRING[3];
 
 typedef enum _WLAN_AUTOCONF_OPCODE {
   wlan_autoconf_opcode_start                                       = 0,
@@ -432,6 +419,13 @@ typedef struct _DOT11_NETWORK_LIST {
   DOT11_NETWORK Network[1];
 } DOT11_NETWORK_LIST, *PDOT11_NETWORK_LIST;
 
+#define DOT11_RATE_SET_MAX_LENGTH 126
+
+typedef struct _WLAN_RATE_SET {
+  ULONG  uRateSetLength;
+  USHORT usRateSet[DOT11_RATE_SET_MAX_LENGTH];
+} WLAN_RATE_SET, *PWLAN_RATE_SET;
+
 typedef struct _WLAN_BSS_ENTRY {
   DOT11_SSID        dot11Ssid;
   ULONG             uPhyId;
@@ -450,6 +444,12 @@ typedef struct _WLAN_BSS_ENTRY {
   ULONG             ulIeOffset;
   ULONG             ulIeSize;
 } WLAN_BSS_ENTRY, *PWLAN_BSS_ENTRY;
+
+typedef struct _WLAN_BSS_LIST {
+  DWORD          dwTotalSize;
+  DWORD          dwNumberOfItems;
+  WLAN_BSS_ENTRY wlanBssEntries[1];
+} WLAN_BSS_LIST, *PWLAN_BSS_LIST;
 
 typedef struct _WLAN_COUNTRY_OR_REGION_STRING_LIST {
   DWORD                          dwNumberOfItems;
@@ -525,13 +525,6 @@ typedef struct _WLAN_RADIO_STATE {
   DWORD                dwNumberOfPhys;
   WLAN_PHY_RADIO_STATE PhyRadioState[64];
 } WLAN_RADIO_STATE, *PWLAN_RADIO_STATE;
-
-#define DOT11_RATE_SET_MAX_LENGTH 126
-
-typedef struct _WLAN_RATE_SET {
-  ULONG  uRateSetLength;
-  USHORT usRateSet[DOT11_RATE_SET_MAX_LENGTH];
-} WLAN_RATE_SET, *PWLAN_RATE_SET;
 
 #define DOT11_PSD_IE_MAX_DATA_SIZE 240
 #define DOT11_PSD_IE_MAX_ENTRY_NUMBER 5
@@ -649,6 +642,14 @@ DWORD WINAPI WlanSaveTemporaryProfile(
   LPCWSTR strAllUserProfileSecurity,
   DWORD dwFlags,
   WINBOOL bOverWrite,
+  PVOID pReserved
+);
+
+DWORD WINAPI WlanScan(
+  HANDLE hClientHandle,
+  const GUID *pInterfaceGuid,
+  const PDOT11_SSID pDot11Ssid,
+  const PWLAN_RAW_DATA pIeData,
   PVOID pReserved
 );
 

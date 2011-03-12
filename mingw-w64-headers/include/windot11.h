@@ -5,7 +5,7 @@
  */
 #ifndef _INC_WINDOT11
 #define _INC_WINDOT11
-#include <ntddnis.h>
+#include <ntddndis.h>
 #include <wlantypes.h>
 
 typedef UCHAR DOT11_MAC_ADDRESS[6];

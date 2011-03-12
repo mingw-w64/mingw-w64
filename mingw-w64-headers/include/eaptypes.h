@@ -220,7 +220,7 @@ typedef struct _EAP_CONFIG_INPUT_FIELD_ARRAY {
 
 typedef EAP_CONFIG_INPUT_FIELD_ARRAY EAP_CRED_REQ;
 typedef EAP_CONFIG_INPUT_FIELD_ARRAY EAP_CRED_RESP;
-typedef EAP_CRED_RESP EAP_CRED_EXPIRY_REQ;
+typedef struct _EAP_CRED_EXPIRY_REQ EAP_CRED_EXPIRY_REQ;
 
 typedef union _EAP_UI_DATA_FORMAT {
   EAP_CRED_REQ *      credData;
@@ -292,28 +292,6 @@ typedef struct _EAP_METHOD_INFO_ARRAY_EX {
   DWORD              dwNumberOfMethods;
   EAP_METHOD_INFO_EX *pEapMethods;
 } EAP_METHOD_INFO_ARRAY_EX, *PEAP_METHOD_INFO_ARRAY_EX;
-
-typedef struct _EAP_CONFIG_INPUT_FIELD_DATA {
-  DWORD                       dwSize;
-  EAP_CONFIG_INPUT_FIELD_TYPE Type;
-  DWORD                       dwFlagProps;
-  LPWSTR                      pwszLabel;
-  LPWSTR                      pwszData;
-  DWORD                       dwMinDataLength;
-  DWORD                       dwMaxDataLength;
-} EAP_CONFIG_INPUT_FIELD_DATA, *PEAP_CONFIG_INPUT_FIELD_DATA;
-
-typedef enum _EAP_CONFIG_INPUT_FIELD_TYPE {
-  EapConfigInputUsername,
-  EapConfigInputPassword,
-  EapConfigInputNetworkUsername,
-  EapConfigInputNetworkPassword,
-  EapConfigInputPin,
-  EapConfigInputPSK,
-  EapConfigInputEdit,
-  EapConfigSmartCardUsername,
-  EapConfigSmartCardError 
-} EAP_CONFIG_INPUT_FIELD_TYPE;
 
 typedef struct _EAP_CRED_EXPIRY_REQ {
   EAP_CONFIG_INPUT_FIELD_ARRAY curCreds;
