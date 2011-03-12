@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright 2010 Christian Costa
  *
@@ -108,10 +109,10 @@ DECLARE_INTERFACE_(ID3DXBaseEffect, IUnknown)
     STDMETHOD_(D3DXHANDLE, GetAnnotationByName)(THIS_ D3DXHANDLE object, LPCSTR name) PURE;
     STDMETHOD(SetValue)(THIS_ D3DXHANDLE parameter, LPCVOID data, UINT bytes) PURE;
     STDMETHOD(GetValue)(THIS_ D3DXHANDLE parameter, LPVOID data, UINT bytes) PURE;
-    STDMETHOD(SetBool)(THIS_ D3DXHANDLE parameter, BOOL b) PURE;
-    STDMETHOD(GetBool)(THIS_ D3DXHANDLE parameter, BOOL* b) PURE;
-    STDMETHOD(SetBoolArray)(THIS_ D3DXHANDLE parameter, CONST BOOL* b, UINT count) PURE;
-    STDMETHOD(GetBoolArray)(THIS_ D3DXHANDLE parameter, BOOL* b, UINT count) PURE;
+    STDMETHOD(SetBool)(THIS_ D3DXHANDLE parameter, WINBOOL b) PURE;
+    STDMETHOD(GetBool)(THIS_ D3DXHANDLE parameter, WINBOOL* b) PURE;
+    STDMETHOD(SetBoolArray)(THIS_ D3DXHANDLE parameter, CONST WINBOOL* b, UINT count) PURE;
+    STDMETHOD(GetBoolArray)(THIS_ D3DXHANDLE parameter, WINBOOL* b, UINT count) PURE;
     STDMETHOD(SetInt)(THIS_ D3DXHANDLE parameter, INT n) PURE;
     STDMETHOD(GetInt)(THIS_ D3DXHANDLE parameter, INT* n) PURE;
     STDMETHOD(SetIntArray)(THIS_ D3DXHANDLE parameter, CONST INT* n, UINT count) PURE;
@@ -164,7 +165,7 @@ DECLARE_INTERFACE_(ID3DXEffectStateManager, IUnknown)
     STDMETHOD(SetTransform)(THIS_ D3DTRANSFORMSTATETYPE state, CONST D3DMATRIX* matrix) PURE;
     STDMETHOD(SetMaterial)(THIS_ CONST D3DMATERIAL9* material) PURE;
     STDMETHOD(SetLight)(THIS_ DWORD index, CONST D3DLIGHT9* light) PURE;
-    STDMETHOD(LightEnable)(THIS_ DWORD index, BOOL enable) PURE;
+    STDMETHOD(LightEnable)(THIS_ DWORD index, WINBOOL enable) PURE;
     STDMETHOD(SetRenderState)(THIS_ D3DRENDERSTATETYPE state, DWORD value) PURE;
     STDMETHOD(SetTexture)(THIS_ DWORD stage, LPDIRECT3DBASETEXTURE9 texture) PURE;
     STDMETHOD(SetTextureStageState)(THIS_ DWORD stage, D3DTEXTURESTAGESTATETYPE type, DWORD value) PURE;
@@ -174,11 +175,11 @@ DECLARE_INTERFACE_(ID3DXEffectStateManager, IUnknown)
     STDMETHOD(SetVertexShader)(THIS_ LPDIRECT3DVERTEXSHADER9 shader) PURE;
     STDMETHOD(SetVertexShaderConstantF)(THIS_ UINT register_index, CONST FLOAT* constant_data, UINT register_count) PURE;
     STDMETHOD(SetVertexShaderConstantI)(THIS_ UINT register_index, CONST INT* constant_data, UINT register_count) PURE;
-    STDMETHOD(SetVertexShaderConstantB)(THIS_ UINT register_index, CONST BOOL* constant_data, UINT register_count) PURE;
+    STDMETHOD(SetVertexShaderConstantB)(THIS_ UINT register_index, CONST WINBOOL* constant_data, UINT register_count) PURE;
     STDMETHOD(SetPixelShader)(THIS_ LPDIRECT3DPIXELSHADER9 shader) PURE;
     STDMETHOD(SetPixelShaderConstantF)(THIS_ UINT register_index, CONST FLOAT* constant_data, UINT register_count) PURE;
     STDMETHOD(SetPixelShaderConstantI)(THIS_ UINT register_index, CONST INT * constant_data, UINT register_count) PURE;
-    STDMETHOD(SetPixelShaderConstantB)(THIS_ UINT register_index, CONST BOOL* constant_data, UINT register_count) PURE;
+    STDMETHOD(SetPixelShaderConstantB)(THIS_ UINT register_index, CONST WINBOOL* constant_data, UINT register_count) PURE;
 };
 
 typedef struct ID3DXEffect *LPD3DXEFFECT;
@@ -214,10 +215,10 @@ DECLARE_INTERFACE_(ID3DXEffect, ID3DXBaseEffect)
     STDMETHOD_(D3DXHANDLE, GetAnnotationByName)(THIS_ D3DXHANDLE object, LPCSTR name) PURE;
     STDMETHOD(SetValue)(THIS_ D3DXHANDLE parameter, LPCVOID data, UINT bytes) PURE;
     STDMETHOD(GetValue)(THIS_ D3DXHANDLE parameter, LPVOID data, UINT bytes) PURE;
-    STDMETHOD(SetBool)(THIS_ D3DXHANDLE parameter, BOOL b) PURE;
-    STDMETHOD(GetBool)(THIS_ D3DXHANDLE parameter, BOOL* b) PURE;
-    STDMETHOD(SetBoolArray)(THIS_ D3DXHANDLE parameter, CONST BOOL* b, UINT count) PURE;
-    STDMETHOD(GetBoolArray)(THIS_ D3DXHANDLE parameter, BOOL* b, UINT count) PURE;
+    STDMETHOD(SetBool)(THIS_ D3DXHANDLE parameter, WINBOOL b) PURE;
+    STDMETHOD(GetBool)(THIS_ D3DXHANDLE parameter, WINBOOL* b) PURE;
+    STDMETHOD(SetBoolArray)(THIS_ D3DXHANDLE parameter, CONST WINBOOL* b, UINT count) PURE;
+    STDMETHOD(GetBoolArray)(THIS_ D3DXHANDLE parameter, WINBOOL* b, UINT count) PURE;
     STDMETHOD(SetInt)(THIS_ D3DXHANDLE parameter, INT n) PURE;
     STDMETHOD(GetInt)(THIS_ D3DXHANDLE parameter, INT* n) PURE;
     STDMETHOD(SetIntArray)(THIS_ D3DXHANDLE parameter, CONST INT* n, UINT count) PURE;
@@ -255,7 +256,7 @@ DECLARE_INTERFACE_(ID3DXEffect, ID3DXBaseEffect)
     STDMETHOD_(D3DXHANDLE, GetCurrentTechnique)(THIS) PURE;
     STDMETHOD(ValidateTechnique)(THIS_ D3DXHANDLE technique) PURE;
     STDMETHOD(FindNextValidTechnique)(THIS_ D3DXHANDLE technique, D3DXHANDLE* next_technique) PURE;
-    STDMETHOD_(BOOL, IsParameterUsed)(THIS_ D3DXHANDLE parameter, D3DXHANDLE technique) PURE;
+    STDMETHOD_(WINBOOL, IsParameterUsed)(THIS_ D3DXHANDLE parameter, D3DXHANDLE technique) PURE;
     STDMETHOD(Begin)(THIS_ UINT *passes, DWORD flags) PURE;
     STDMETHOD(BeginPass)(THIS_ UINT pass) PURE;
     STDMETHOD(CommitChanges)(THIS) PURE;
@@ -307,10 +308,10 @@ DECLARE_INTERFACE_(ID3DXEffectCompiler, ID3DXBaseEffect)
     STDMETHOD_(D3DXHANDLE, GetAnnotationByName)(THIS_ D3DXHANDLE object, LPCSTR name) PURE;
     STDMETHOD(SetValue)(THIS_ D3DXHANDLE parameter, LPCVOID data, UINT bytes) PURE;
     STDMETHOD(GetValue)(THIS_ D3DXHANDLE parameter, LPVOID data, UINT bytes) PURE;
-    STDMETHOD(SetBool)(THIS_ D3DXHANDLE parameter, BOOL b) PURE;
-    STDMETHOD(GetBool)(THIS_ D3DXHANDLE parameter, BOOL* b) PURE;
-    STDMETHOD(SetBoolArray)(THIS_ D3DXHANDLE parameter, CONST BOOL* b, UINT count) PURE;
-    STDMETHOD(GetBoolArray)(THIS_ D3DXHANDLE parameter, BOOL* b, UINT count) PURE;
+    STDMETHOD(SetBool)(THIS_ D3DXHANDLE parameter, WINBOOL b) PURE;
+    STDMETHOD(GetBool)(THIS_ D3DXHANDLE parameter, WINBOOL* b) PURE;
+    STDMETHOD(SetBoolArray)(THIS_ D3DXHANDLE parameter, CONST WINBOOL* b, UINT count) PURE;
+    STDMETHOD(GetBoolArray)(THIS_ D3DXHANDLE parameter, WINBOOL* b, UINT count) PURE;
     STDMETHOD(SetInt)(THIS_ D3DXHANDLE parameter, INT n) PURE;
     STDMETHOD(GetInt)(THIS_ D3DXHANDLE parameter, INT* n) PURE;
     STDMETHOD(SetIntArray)(THIS_ D3DXHANDLE parameter, CONST INT* n, UINT count) PURE;
@@ -345,12 +346,13 @@ DECLARE_INTERFACE_(ID3DXEffectCompiler, ID3DXBaseEffect)
     STDMETHOD(GetVertexShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DVERTEXSHADER9* vshader) PURE;
     STDMETHOD(SetArrayRange)(THIS_ D3DXHANDLE parameter, UINT start, UINT end) PURE;
     /*** ID3DXEffectCompiler methods ***/
-    STDMETHOD(SetLiteral)(THIS_ D3DXHANDLE parameter, BOOL literal) PURE;
-    STDMETHOD(GetLiteral)(THIS_ D3DXHANDLE parameter, BOOL* literal) PURE;
+    STDMETHOD(SetLiteral)(THIS_ D3DXHANDLE parameter, WINBOOL literal) PURE;
+    STDMETHOD(GetLiteral)(THIS_ D3DXHANDLE parameter, WINBOOL* literal) PURE;
     STDMETHOD(CompileEffect)(THIS_ DWORD flags, LPD3DXBUFFER* effect, LPD3DXBUFFER* error_msgs) PURE;
     STDMETHOD(CompileShader)(THIS_ D3DXHANDLE function, LPCSTR target, DWORD flags, LPD3DXBUFFER* shader,
         LPD3DXBUFFER* error_msgs, LPD3DXCONSTANTTABLE* constant_table) PURE;
 };
+#undef INTERFACE
 
 #ifdef __cplusplus
 extern "C" {

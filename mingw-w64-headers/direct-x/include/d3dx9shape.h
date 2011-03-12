@@ -1,3 +1,4 @@
+#include <_mingw_unicode.h>
 /*
  * Copyright 2010 Christian Costa
  *
@@ -31,6 +32,45 @@ HRESULT WINAPI D3DXCreateBox(LPDIRECT3DDEVICE9 device,
                              FLOAT depth,
                              LPD3DXMESH* mesh,
                              LPD3DXBUFFER* adjacency);
+
+HRESULT WINAPI D3DXCreateSphere(LPDIRECT3DDEVICE9 device,
+                                FLOAT radius,
+                                UINT slices,
+                                UINT stacks,
+                                LPD3DXMESH* mesh,
+                                LPD3DXBUFFER* adjacency);
+
+HRESULT WINAPI D3DXCreateCylinder(LPDIRECT3DDEVICE9 device,
+                                  FLOAT radius1,
+                                  FLOAT radius2,
+                                  FLOAT length,
+                                  UINT slices,
+                                  UINT stacks,
+                                  LPD3DXMESH *mesh,
+                                  LPD3DXBUFFER *adjacency);
+
+HRESULT WINAPI D3DXCreateTeapot(LPDIRECT3DDEVICE9 device,
+                                LPD3DXMESH *mesh,
+                                LPD3DXBUFFER *adjacency);
+
+HRESULT WINAPI D3DXCreateTextA(LPDIRECT3DDEVICE9 device,
+                               HDC hdc,
+                               LPCSTR text,
+                               FLOAT deviation,
+                               FLOAT extrusion,
+                               LPD3DXMESH *mesh,
+                               LPD3DXBUFFER *adjacency,
+                               LPGLYPHMETRICSFLOAT glyphmetrics);
+
+HRESULT WINAPI D3DXCreateTextW(LPDIRECT3DDEVICE9 device,
+                               HDC hdc,
+                               LPCWSTR text,
+                               FLOAT deviation,
+                               FLOAT extrusion,
+                               LPD3DXMESH *mesh,
+                               LPD3DXBUFFER *adjacency,
+                               LPGLYPHMETRICSFLOAT glyphmetrics);
+#define D3DXCreateText __MINGW_NAME_AW(D3DXCreateText)
 
 #ifdef __cplusplus
 }

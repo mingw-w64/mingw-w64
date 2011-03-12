@@ -113,12 +113,12 @@ inline D3DXVECTOR2 operator * (FLOAT f, CONST D3DXVECTOR2& v)
     return D3DXVECTOR2(f * v.x, f * v.y);
 }
 
-inline BOOL D3DXVECTOR2::operator == (CONST D3DXVECTOR2& v) const
+inline WINBOOL D3DXVECTOR2::operator == (CONST D3DXVECTOR2& v) const
 {
     return x == v.x && y == v.y;
 }
 
-inline BOOL D3DXVECTOR2::operator != (CONST D3DXVECTOR2& v) const
+inline WINBOOL D3DXVECTOR2::operator != (CONST D3DXVECTOR2& v) const
 {
     return x != v.x || y != v.y;
 }
@@ -226,12 +226,12 @@ inline D3DXVECTOR3 operator * (FLOAT f, CONST D3DXVECTOR3& v)
     return D3DXVECTOR3(f * v.x, f * v.y, f * v.z);
 }
 
-inline BOOL D3DXVECTOR3::operator == (CONST D3DXVECTOR3& v) const
+inline WINBOOL D3DXVECTOR3::operator == (CONST D3DXVECTOR3& v) const
 {
     return x == v.x && y == v.y && z == v.z;
 }
 
-inline BOOL D3DXVECTOR3::operator != (CONST D3DXVECTOR3& v) const
+inline WINBOOL D3DXVECTOR3::operator != (CONST D3DXVECTOR3& v) const
 {
     return x != v.x || y != v.y || z != v.z;
 }
@@ -338,12 +338,12 @@ inline D3DXVECTOR4 operator * (FLOAT f, CONST D3DXVECTOR4& v)
     return D3DXVECTOR4(f * v.x, f * v.y, f * v.z, f * v.w);
 }
 
-inline BOOL D3DXVECTOR4::operator == (CONST D3DXVECTOR4& v) const
+inline WINBOOL D3DXVECTOR4::operator == (CONST D3DXVECTOR4& v) const
 {
     return x == v.x && y == v.y && z == v.z && w == v.w;
 }
 
-inline BOOL D3DXVECTOR4::operator != (CONST D3DXVECTOR4& v) const
+inline WINBOOL D3DXVECTOR4::operator != (CONST D3DXVECTOR4& v) const
 {
     return x != v.x || y != v.y || z != v.z || w != v.w;
 }
@@ -498,12 +498,12 @@ inline D3DXMATRIX operator * (FLOAT f, CONST D3DXMATRIX& mat)
                       f * mat._41, f * mat._42, f * mat._43, f * mat._44);
 }
 
-inline BOOL D3DXMATRIX::operator == (CONST D3DXMATRIX& mat) const
+inline WINBOOL D3DXMATRIX::operator == (CONST D3DXMATRIX& mat) const
 {
     return (memcmp(this, &mat, sizeof(D3DXMATRIX)) == 0);
 }
 
-inline BOOL D3DXMATRIX::operator != (CONST D3DXMATRIX& mat) const
+inline WINBOOL D3DXMATRIX::operator != (CONST D3DXMATRIX& mat) const
 {
     return (memcmp(this, &mat, sizeof(D3DXMATRIX)) != 0);
 }
@@ -629,12 +629,12 @@ inline D3DXQUATERNION operator * (FLOAT f, CONST D3DXQUATERNION& quat)
     return D3DXQUATERNION(f * quat.x, f * quat.y, f * quat.z, f * quat.w);
 }
 
-inline BOOL D3DXQUATERNION::operator == (CONST D3DXQUATERNION& quat) const
+inline WINBOOL D3DXQUATERNION::operator == (CONST D3DXQUATERNION& quat) const
 {
     return x == quat.x && y == quat.y && z == quat.z && w == quat.w;
 }
 
-inline BOOL D3DXQUATERNION::operator != (CONST D3DXQUATERNION& quat) const
+inline WINBOOL D3DXQUATERNION::operator != (CONST D3DXQUATERNION& quat) const
 {
     return x != quat.x || y != quat.y || z != quat.z || w != quat.w;
 }
@@ -680,12 +680,12 @@ inline D3DXPLANE D3DXPLANE::operator - () const
     return D3DXPLANE(-a, -b, -c, -d);
 }
 
-inline BOOL D3DXPLANE::operator == (CONST D3DXPLANE& pl) const
+inline WINBOOL D3DXPLANE::operator == (CONST D3DXPLANE& pl) const
 {
     return a == pl.a && b == pl.b && c == pl.c && d == pl.d;
 }
 
-inline BOOL D3DXPLANE::operator != (CONST D3DXPLANE& pl) const
+inline WINBOOL D3DXPLANE::operator != (CONST D3DXPLANE& pl) const
 {
     return a != pl.a || b != pl.b || c != pl.c || d != pl.d;
 }
@@ -841,12 +841,12 @@ inline D3DXCOLOR operator * (FLOAT f, CONST D3DXCOLOR& col)
     return D3DXCOLOR(f * col.r, f * col.g, f * col.b, f * col.a);
 }
 
-inline BOOL D3DXCOLOR::operator == (CONST D3DXCOLOR& col) const
+inline WINBOOL D3DXCOLOR::operator == (CONST D3DXCOLOR& col) const
 {
     return r == col.r && g == col.g && b == col.b && a == col.a;
 }
 
-inline BOOL D3DXCOLOR::operator != (CONST D3DXCOLOR& col) const
+inline WINBOOL D3DXCOLOR::operator != (CONST D3DXCOLOR& col) const
 {
     return r != col.r || g != col.g || b != col.b || a != col.a;
 }
@@ -1181,7 +1181,7 @@ static inline D3DXMATRIX* D3DXMatrixIdentity(D3DXMATRIX *pout)
     return pout;
 }
 
-static inline BOOL D3DXMatrixIsIdentity(D3DXMATRIX *pm)
+static inline WINBOOL D3DXMatrixIsIdentity(D3DXMATRIX *pm)
 {
     int i,j;
     D3DXMATRIX testmatrix;
@@ -1247,7 +1247,7 @@ static inline D3DXQUATERNION* D3DXQuaternionIdentity(D3DXQUATERNION *pout)
     return pout;
 }
 
-static inline BOOL D3DXQuaternionIsIdentity(D3DXQUATERNION *pq)
+static inline WINBOOL D3DXQuaternionIsIdentity(D3DXQUATERNION *pq)
 {
     if ( !pq) return FALSE;
     return ( (pq->x == 0.0f) && (pq->y == 0.0f) && (pq->z == 0.0f) && (pq->w == 1.0f) );
