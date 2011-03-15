@@ -1,5 +1,7 @@
 2011-03-15  Kai Tietz  <ktietz70@googlemail.com>
 
+	* math/exp.def.h: Use integer/fraction separation for improving
+	calculation precision.
 	* math/pow.def.h: Use log2l/exp2l and integer/fraction separation
 	for improving calculation precission.
 

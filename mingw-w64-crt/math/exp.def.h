@@ -110,5 +110,9 @@ __FLT_ABI(exp) (__FLT_TYPE x)
       return __FLT_CST(0.0);
     }
   else
-    return (__FLT_TYPE) __expl_internal ((long double) x);
+    {
+      long double fr, in;
+      in = modfl ((long double) x, &fr);
+      return (__FLT_TYPE) (__expl_internal (fr) * __expl_internal (in));
+    }
 }
