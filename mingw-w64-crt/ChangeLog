@@ -1,3 +1,8 @@
+2011-03-15  Kai Tietz  <ktietz@googlemail.com>
+
+	* math/pow.def.h: Use log2l/exp2l and integer/fraction separation
+	for improving calculation precission.
+
 2011-03-12  Dongsheng Song  <dongsheng.song@gmail.com>:
 
 	* lib32/msvcr100.def (__report_gsfailure, _assert, _byteswap_uint64,

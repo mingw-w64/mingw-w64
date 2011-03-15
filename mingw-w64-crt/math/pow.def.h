@@ -160,7 +160,19 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
   if (__FLT_ABI (modf) (y, &d) == 0.0 && (d <= (__FLT_TYPE) INT_MAX && d >= (__FLT_TYPE) INT_MIN))
      return __FLT_ABI (__powi) (x, (int) y);
   /* As exp already checks for minlog and maxlog no further checks are necessary.  */
-  rslt = __FLT_ABI(exp)(y * __FLT_ABI(log)(__FLT_ABI(fabs) (x)));
+  {
+    long double e1 = y * log2l ((long double) x);
+    if (fpclassify (e1) == FP_INFINITE)
+      rslt = (__FLT_TYPE) exp2l (e1);
+    else
+      {
+	long double fr, in;
+	in = modfl (e1, &fr);
+	rslt = (__FLT_TYPE) (exp2l (fr) * exp2l (in));
+      }
+    // rslt = __FLT_ABI(exp)(y * __FLT_ABI(log)(__FLT_ABI(fabs) (x)));
+  }
+
   if (signbit (x) && __FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) != 0.0)
     rslt = -rslt;
   return rslt;
