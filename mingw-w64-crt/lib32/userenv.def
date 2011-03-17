@@ -11,11 +11,11 @@ CreateProfile@16
 DeleteProfileA@12
 DeleteProfileW@12
 DestroyEnvironmentBlock@4
-DllCanUnloadNow@0
-DllGetClassObject@12
-DllGetContractDescription@8
-DllRegisterServer@0
-DllUnregisterServer@0
+;DllCanUnloadNow@0
+;DllGetClassObject@12
+;DllGetContractDescription@8
+;DllRegisterServer@0
+;DllUnregisterServer@0
 EnterCriticalPolicySection@4
 ExpandEnvironmentStringsForUserA@16
 ExpandEnvironmentStringsForUserW@16
