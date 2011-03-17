@@ -187,7 +187,7 @@ typedef enum WICBitmapInterpolationMode {
     WICBitmapInterpolationModeNearestNeighbor = 0x0,
     WICBitmapInterpolationModeLinear = 0x1,
     WICBitmapInterpolationModeCubic = 0x2,
-    WICBitmapInterpolationModeFaint = 0x3,
+    WICBitmapInterpolationModeFant = 0x3,
     WICBITMAPINTERPOLATIONMODE_FORCE_DWORD = 0x7fffffff
 } WICBitmapInterpolationMode;
 typedef enum WICBitmapPaletteType {
