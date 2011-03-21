@@ -24,6 +24,7 @@ void *_InterlockedExchangePointer(void * volatile *Target, void *Value)
 #ifdef _WIN64
 void *InterlockedExchangePointer(void * volatile *, void *) __attribute__((alias("_InterlockedExchangePointer")));
 #else
+void * __stdcall InterlockedExchangePointer(void * volatile *Target, void *Value);
 void * __stdcall InterlockedExchangePointer(void * volatile *Target, void *Value)
 {
   return _InterlockedExchangePointer(Target, Value);

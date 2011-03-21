@@ -10,6 +10,7 @@ long _InterlockedCompareExchange(long volatile *Destination, long ExChange, long
 #ifdef _WIN64
 long InterlockedCompareExchange(long volatile *, long, long) __attribute__((alias("_InterlockedCompareExchange")));
 #else
+long __stdcall InterlockedCompareExchange(long volatile *Destination, long ExChange, long Comperand);
 long __stdcall InterlockedCompareExchange(long volatile *Destination, long ExChange, long Comperand)
 {
   return _InterlockedCompareExchange(Destination, ExChange, Comperand);

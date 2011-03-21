@@ -21,6 +21,7 @@ void *_InterlockedCompareExchangePointer(void * volatile *Destination, void *ExC
 #ifdef _WIN64
 void *InterlockedCompareExchangePointer(void * volatile *, void *, void *) __attribute__((alias("_InterlockedCompareExchangePointer")));
 #else
+void * __stdcall InterlockedCompareExchangePointer(void * volatile *Destination, void *ExChange, void *Comperand);
 void * __stdcall InterlockedCompareExchangePointer(void * volatile *Destination, void *ExChange, void *Comperand)
 {
   return _InterlockedCompareExchangePointer(Destination, ExChange, Comperand);

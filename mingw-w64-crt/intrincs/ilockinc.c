@@ -13,6 +13,7 @@ long _InterlockedIncrement(long volatile *Addend)
 #ifdef _WIN64
 long InterlockedIncrement(long volatile *) __attribute__((alias("_InterlockedIncrement")));
 #else
+long __stdcall InterlockedIncrement(long volatile *Addend);
 long __stdcall InterlockedIncrement(long volatile *Addend)
 {
   return _InterlockedIncrement (Addend);

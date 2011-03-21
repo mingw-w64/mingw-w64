@@ -12,6 +12,7 @@ long _InterlockedExchange(long volatile *Target, long Value)
 #ifdef _WIN64
 long InterlockedExchange(long volatile *, long) __attribute__((alias("_InterlockedExchange")));
 #else
+long __stdcall InterlockedExchange(long volatile *Target, long Value);
 long __stdcall InterlockedExchange(long volatile *Target, long Value)
 {
   return _InterlockedExchange(Target,Value);
