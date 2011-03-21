@@ -433,13 +433,13 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	stdio/mingw_wvfscanf.c stdio/snprintf.c stdio/snwprintf.c \
 	stdio/_stat64i32.c stdio/_stat.c stdio/strtof.c stdio/ulltoa.c \
 	stdio/ulltow.c stdio/vfscanf.c stdio/vfwscanf.c stdio/vscanf.c \
-	stdio/vsnprintf.c stdio/vsnwprintf.c stdio/vsscanf.c \
-	stdio/vswscanf.c stdio/vwscanf.c stdio/wcstof.c \
-	stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
-	stdio/_wstat64i32.c stdio/_wstat.c stdio/wtoll.c \
-	stdio/fgetpos64.c stdio/fseeko32.c stdio/fsetpos64.c \
-	stdio/ftello.c stdio/ftruncate64.c stdio/truncate.c \
-	intrincs/ilockadd.c intrincs/ilockand64.c \
+	stdio/vsnprintf.c stdio/vsnprintf_s.c stdio/vsnwprintf.c \
+	stdio/vsscanf.c stdio/vswscanf.c stdio/vwscanf.c \
+	stdio/wcstof.c stdio/_wfindfirst64i32.c \
+	stdio/_wfindnext64i32.c stdio/_wstat64i32.c stdio/_wstat.c \
+	stdio/wtoll.c stdio/fgetpos64.c stdio/fseeko32.c \
+	stdio/fsetpos64.c stdio/ftello.c stdio/ftruncate64.c \
+	stdio/truncate.c intrincs/ilockadd.c intrincs/ilockand64.c \
 	intrincs/ilockcxch64.c intrincs/ilockcxchptr.c \
 	intrincs/ilockdec64.c intrincs/ilockexch64.c \
 	intrincs/ilockexchptr.c intrincs/ilockinc64.c \
@@ -887,6 +887,7 @@ am__objects_11 = crt/lib32_libmingwex_a-dllentry.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-vfwscanf.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-vscanf.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-vsnprintf.$(OBJEXT) \
+	stdio/lib32_libmingwex_a-vsnprintf_s.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-vsnwprintf.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-vsscanf.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-vswscanf.$(OBJEXT) \
@@ -1386,13 +1387,13 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	stdio/mingw_wvfscanf.c stdio/snprintf.c stdio/snwprintf.c \
 	stdio/_stat64i32.c stdio/_stat.c stdio/strtof.c stdio/ulltoa.c \
 	stdio/ulltow.c stdio/vfscanf.c stdio/vfwscanf.c stdio/vscanf.c \
-	stdio/vsnprintf.c stdio/vsnwprintf.c stdio/vsscanf.c \
-	stdio/vswscanf.c stdio/vwscanf.c stdio/wcstof.c \
-	stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
-	stdio/_wstat64i32.c stdio/_wstat.c stdio/wtoll.c \
-	stdio/fgetpos64.c stdio/fseeko32.c stdio/fsetpos64.c \
-	stdio/ftello.c stdio/ftruncate64.c stdio/truncate.c \
-	intrincs/ilockadd.c intrincs/ilockand64.c \
+	stdio/vsnprintf.c stdio/vsnprintf_s.c stdio/vsnwprintf.c \
+	stdio/vsscanf.c stdio/vswscanf.c stdio/vwscanf.c \
+	stdio/wcstof.c stdio/_wfindfirst64i32.c \
+	stdio/_wfindnext64i32.c stdio/_wstat64i32.c stdio/_wstat.c \
+	stdio/wtoll.c stdio/fgetpos64.c stdio/fseeko32.c \
+	stdio/fsetpos64.c stdio/ftello.c stdio/ftruncate64.c \
+	stdio/truncate.c intrincs/ilockadd.c intrincs/ilockand64.c \
 	intrincs/ilockcxch64.c intrincs/ilockcxchptr.c \
 	intrincs/ilockdec64.c intrincs/ilockexch64.c \
 	intrincs/ilockexchptr.c intrincs/ilockinc64.c \
@@ -1847,6 +1848,7 @@ am__objects_31 = crt/lib64_libmingwex_a-dllentry.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-vfwscanf.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-vscanf.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-vsnprintf.$(OBJEXT) \
+	stdio/lib64_libmingwex_a-vsnprintf_s.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-vsnwprintf.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-vsscanf.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-vswscanf.$(OBJEXT) \
@@ -3295,7 +3297,7 @@ src_libmingwex = \
   stdio/mingw_vfscanf.c stdio/mingw_wvfscanf.c \
   stdio/snprintf.c stdio/snwprintf.c stdio/_stat64i32.c \
   stdio/_stat.c stdio/strtof.c stdio/ulltoa.c stdio/ulltow.c stdio/vfscanf.c \
-  stdio/vfwscanf.c stdio/vscanf.c stdio/vsnprintf.c \
+  stdio/vfwscanf.c stdio/vscanf.c stdio/vsnprintf.c stdio/vsnprintf_s.c \
   stdio/vsnwprintf.c stdio/vsscanf.c \
   stdio/vswscanf.c stdio/vwscanf.c stdio/wcstof.c \
   stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
@@ -5394,6 +5396,8 @@ stdio/lib32_libmingwex_a-vscanf.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmingwex_a-vsnprintf.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib32_libmingwex_a-vsnprintf_s.$(OBJEXT): stdio/$(am__dirstamp) \
+	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmingwex_a-vsnwprintf.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmingwex_a-vsscanf.$(OBJEXT): stdio/$(am__dirstamp) \
@@ -6778,6 +6782,8 @@ stdio/lib64_libmingwex_a-vfwscanf.$(OBJEXT): stdio/$(am__dirstamp) \
 stdio/lib64_libmingwex_a-vscanf.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-vsnprintf.$(OBJEXT): stdio/$(am__dirstamp) \
+	stdio/$(DEPDIR)/$(am__dirstamp)
+stdio/lib64_libmingwex_a-vsnprintf_s.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-vsnwprintf.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
@@ -9184,6 +9190,7 @@ mostlyclean-compile:
 	-rm -f stdio/lib32_libmingwex_a-vfwscanf.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-vscanf.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-vsnprintf.$(OBJEXT)
+	-rm -f stdio/lib32_libmingwex_a-vsnprintf_s.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-vsnwprintf.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-vsscanf.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-vswscanf.$(OBJEXT)
@@ -9250,6 +9257,7 @@ mostlyclean-compile:
 	-rm -f stdio/lib64_libmingwex_a-vfwscanf.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-vscanf.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-vsnprintf.$(OBJEXT)
+	-rm -f stdio/lib64_libmingwex_a-vsnprintf_s.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-vsnwprintf.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-vsscanf.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-vswscanf.$(OBJEXT)
@@ -10661,6 +10669,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-vfwscanf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-vscanf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-vsnprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-vsnprintf_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-vsnwprintf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-vsscanf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-vswscanf.Po@am__quote@
@@ -10727,6 +10736,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-vfwscanf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-vscanf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-vsnprintf.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-vsnprintf_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-vsnwprintf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-vsscanf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-vswscanf.Po@am__quote@
@@ -18357,6 +18367,20 @@ stdio/lib32_libmingwex_a-vsnprintf.obj: stdio/vsnprintf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/vsnprintf.c' object='stdio/lib32_libmingwex_a-vsnprintf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-vsnprintf.obj `if test -f 'stdio/vsnprintf.c'; then $(CYGPATH_W) 'stdio/vsnprintf.c'; else $(CYGPATH_W) '$(srcdir)/stdio/vsnprintf.c'; fi`
+
+stdio/lib32_libmingwex_a-vsnprintf_s.o: stdio/vsnprintf_s.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-vsnprintf_s.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-vsnprintf_s.Tpo -c -o stdio/lib32_libmingwex_a-vsnprintf_s.o `test -f 'stdio/vsnprintf_s.c' || echo '$(srcdir)/'`stdio/vsnprintf_s.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-vsnprintf_s.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-vsnprintf_s.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/vsnprintf_s.c' object='stdio/lib32_libmingwex_a-vsnprintf_s.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-vsnprintf_s.o `test -f 'stdio/vsnprintf_s.c' || echo '$(srcdir)/'`stdio/vsnprintf_s.c
+
+stdio/lib32_libmingwex_a-vsnprintf_s.obj: stdio/vsnprintf_s.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-vsnprintf_s.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-vsnprintf_s.Tpo -c -o stdio/lib32_libmingwex_a-vsnprintf_s.obj `if test -f 'stdio/vsnprintf_s.c'; then $(CYGPATH_W) 'stdio/vsnprintf_s.c'; else $(CYGPATH_W) '$(srcdir)/stdio/vsnprintf_s.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-vsnprintf_s.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-vsnprintf_s.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/vsnprintf_s.c' object='stdio/lib32_libmingwex_a-vsnprintf_s.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-vsnprintf_s.obj `if test -f 'stdio/vsnprintf_s.c'; then $(CYGPATH_W) 'stdio/vsnprintf_s.c'; else $(CYGPATH_W) '$(srcdir)/stdio/vsnprintf_s.c'; fi`
 
 stdio/lib32_libmingwex_a-vsnwprintf.o: stdio/vsnwprintf.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-vsnwprintf.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-vsnwprintf.Tpo -c -o stdio/lib32_libmingwex_a-vsnwprintf.o `test -f 'stdio/vsnwprintf.c' || echo '$(srcdir)/'`stdio/vsnwprintf.c
@@ -26631,6 +26655,20 @@ stdio/lib64_libmingwex_a-vsnprintf.obj: stdio/vsnprintf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/vsnprintf.c' object='stdio/lib64_libmingwex_a-vsnprintf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-vsnprintf.obj `if test -f 'stdio/vsnprintf.c'; then $(CYGPATH_W) 'stdio/vsnprintf.c'; else $(CYGPATH_W) '$(srcdir)/stdio/vsnprintf.c'; fi`
+
+stdio/lib64_libmingwex_a-vsnprintf_s.o: stdio/vsnprintf_s.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-vsnprintf_s.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-vsnprintf_s.Tpo -c -o stdio/lib64_libmingwex_a-vsnprintf_s.o `test -f 'stdio/vsnprintf_s.c' || echo '$(srcdir)/'`stdio/vsnprintf_s.c
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-vsnprintf_s.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-vsnprintf_s.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/vsnprintf_s.c' object='stdio/lib64_libmingwex_a-vsnprintf_s.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-vsnprintf_s.o `test -f 'stdio/vsnprintf_s.c' || echo '$(srcdir)/'`stdio/vsnprintf_s.c
+
+stdio/lib64_libmingwex_a-vsnprintf_s.obj: stdio/vsnprintf_s.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-vsnprintf_s.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-vsnprintf_s.Tpo -c -o stdio/lib64_libmingwex_a-vsnprintf_s.obj `if test -f 'stdio/vsnprintf_s.c'; then $(CYGPATH_W) 'stdio/vsnprintf_s.c'; else $(CYGPATH_W) '$(srcdir)/stdio/vsnprintf_s.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-vsnprintf_s.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-vsnprintf_s.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/vsnprintf_s.c' object='stdio/lib64_libmingwex_a-vsnprintf_s.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-vsnprintf_s.obj `if test -f 'stdio/vsnprintf_s.c'; then $(CYGPATH_W) 'stdio/vsnprintf_s.c'; else $(CYGPATH_W) '$(srcdir)/stdio/vsnprintf_s.c'; fi`
 
 stdio/lib64_libmingwex_a-vsnwprintf.o: stdio/vsnwprintf.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-vsnwprintf.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-vsnwprintf.Tpo -c -o stdio/lib64_libmingwex_a-vsnwprintf.o `test -f 'stdio/vsnwprintf.c' || echo '$(srcdir)/'`stdio/vsnwprintf.c
