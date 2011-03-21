@@ -5936,7 +5936,8 @@ typedef DWORD LCID;
 #define SEF_DEFAULT_GROUP_FROM_PARENT 0x40
 
     typedef enum _HEAP_INFORMATION_CLASS {
-      HeapCompatibilityInformation
+      HeapCompatibilityInformation,
+      HeapEnableTerminationOnCorruption
     } HEAP_INFORMATION_CLASS;
 
     NTSYSAPI DWORD NTAPI RtlSetHeapInformation(PVOID HeapHandle,HEAP_INFORMATION_CLASS HeapInformationClass,PVOID HeapInformation,SIZE_T HeapInformationLength);
