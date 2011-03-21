@@ -41,8 +41,9 @@ __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,cons
 #endif
 
 #ifndef RC_INVOKED
-  errno_t __cdecl localtime_s(struct tm *, const time_t *);
-#ifndef _USE_32BIT_TIME_T
+#ifdef _USE_32BIT_TIME_T
+__CRT_INLINE errno_t __cdecl localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime32_s(_Tm,_Time); }
+#else
 __CRT_INLINE errno_t __cdecl localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime64_s(_Tm,_Time); }
 #endif
 #endif
