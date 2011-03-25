@@ -1,3 +1,8 @@
+2011-03-25  Kai Tietz  <ktietz70@googlemail.com>
+
+	* string.h, memory.h: Add mempcpy prototype.
+	* wchar.h: Add wmemcpy prototype.
+
 2011-02-05  Kai Tietz  <kai.tietz@onevision.com>
 
 	* _mingw_mac.h: Enable feature indicator macros for ISO-C printf/

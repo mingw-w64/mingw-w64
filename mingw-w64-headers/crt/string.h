@@ -38,17 +38,18 @@ extern "C" {
   _CRTIMP int __cdecl _memicmp(const void *_Buf1,const void *_Buf2,size_t _Size);
   _CRTIMP int __cdecl _memicmp_l(const void *_Buf1,const void *_Buf2,size_t _Size,_locale_t _Locale);
   int __cdecl memcmp(const void *_Buf1,const void *_Buf2,size_t _Size);
-  void *__cdecl memcpy(void * __restrict__ _Dst,const void * __restrict__ _Src,size_t _Size) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  void *__cdecl memset(void *_Dst,int _Val,size_t _Size);
+  void * __cdecl memcpy(void * __restrict__ _Dst,const void * __restrict__ _Src,size_t _Size) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  void * __cdecl mempcpy (void *_Dst, const void *_Src, size_t _Size);
+  void * __cdecl memset(void *_Dst,int _Val,size_t _Size);
 #ifndef	NO_OLDNAMES
-  void *__cdecl memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  void * __cdecl memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl memicmp(const void *_Buf1,const void *_Buf2,size_t _Size) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #endif
-  char *__cdecl _strset(char *_Str,int _Val) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  char *__cdecl _strset_l(char *_Str,int _Val,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  char *__cdecl strcpy(char * __restrict__ _Dest,const char * __restrict__ _Source);
-  char *__cdecl strcat(char * __restrict__ _Dest,const char * __restrict__ _Source);
+  char * __cdecl _strset(char *_Str,int _Val) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  char * __cdecl _strset_l(char *_Str,int _Val,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  char * __cdecl strcpy(char * __restrict__ _Dest,const char * __restrict__ _Source);
+  char * __cdecl strcat(char * __restrict__ _Dest,const char * __restrict__ _Source);
   int __cdecl strcmp(const char *_Str1,const char *_Str2);
   size_t __cdecl strlen(const char *_Str);
   size_t __cdecl strnlen(const char *_Str,size_t _MaxCount);
