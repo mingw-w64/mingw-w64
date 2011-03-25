@@ -20,6 +20,7 @@
 #define _CHECK_SPACE_BY_PSAPI_METHOD_ 0 /* Requires psapi.dll */
 #define _CHECK_SPACE_BY_VISTA_METHOD_ 0 /* Won't work on XP */
 
+#if (_CHECK_SPACE_BY_PSAPI_METHOD_ == 1) /* Retrive actual volume path */
 static LPWSTR getdirpath(const LPWSTR __str){
   int len, walk = 0;
   LPWSTR dirname;
@@ -32,7 +33,6 @@ static LPWSTR getdirpath(const LPWSTR __str){
   return wcsncpy(dirname,__str,len);
 }
 
-#if (_CHECK_SPACE_BY_PSAPI_METHOD_ == 1) /* Retrive actual volume path */
 static LPWSTR xp_normalize_fn(const LPWSTR fn) {
   DWORD len, err, walker, isfound;
   LPWSTR drives = NULL;
@@ -129,10 +129,10 @@ static LPWSTR xp_getfilepath(const HANDLE f, const LARGE_INTEGER fsize){
 #endif /* _CHECK_SPACE_BY_PSAPI_METHOD_ */
 
 static int checkfreespace(const HANDLE f, const ULONGLONG requiredspace){
-  LPWSTR filepath, dirpath, volumeid,volumepath;
+  LPWSTR dirpath, volumeid, volumepath;
   ULARGE_INTEGER freespace;
   LARGE_INTEGER currentsize;
-  DWORD check, err, volumeserial;
+  DWORD check, volumeserial;
   BY_HANDLE_FILE_INFORMATION fileinfo;
   HANDLE vol;
 
@@ -144,14 +144,15 @@ static int checkfreespace(const HANDLE f, const ULONGLONG requiredspace){
   }
 
   /* Short circuit disk space check if shrink operation */
-  if (currentsize.QuadPart >= requiredspace)
+  if ((ULONGLONG)currentsize.QuadPart >= requiredspace)
     return 0;
 
   /* We check available space to user before attempting to truncate */
-  filepath = NULL;
 
 #if (_CHECK_SPACE_BY_VISTA_METHOD_ == 1)
   /* Get path length */
+  DWORD err;
+  LPWSTR filepath = NULL;
   check = GetFinalPathNameByHandleW(f,filepath,0,FILE_NAME_NORMALIZED|VOLUME_NAME_GUID);
   err = GetLastError();
   if (err == ERROR_PATH_NOT_FOUND || err == ERROR_INVALID_PARAMETER) {
@@ -173,6 +174,7 @@ static int checkfreespace(const HANDLE f, const ULONGLONG requiredspace){
 #endif /* _CHECK_SPACE_BY_VISTA_METHOD_ */
 
 #if (_CHECK_SPACE_BY_PSAPI_METHOD_ ==  1)
+  LPWSTR filepath = NULL;
   filepath = xp_getfilepath(f,currentsize);
 
   /* Get durectory path */
@@ -201,10 +203,10 @@ static int checkfreespace(const HANDLE f, const ULONGLONG requiredspace){
   dirpath = NULL;
 
   vol = FindFirstVolumeW(volumeid,50);
-  wprintf(L"%d - %ws\n",wcslen(volumeid),volumeid);
+  /* wprintf(L"%d - %ws\n",wcslen(volumeid),volumeid); */
   do {
     check = GetVolumeInformationW(volumeid,volumepath,MAX_PATH+1,&volumeserial,NULL,NULL,NULL,0);
-    wprintf(L"GetVolumeInformationW %d id %ws path %ws error %d\n",check,volumeid,volumepath,GetLastError());
+    /* wprintf(L"GetVolumeInformationW %d id %ws path %ws error %d\n",check,volumeid,volumepath,GetLastError()); */
     if(volumeserial == fileinfo.dwVolumeSerialNumber) {
       dirpath = volumeid; 
       break;
