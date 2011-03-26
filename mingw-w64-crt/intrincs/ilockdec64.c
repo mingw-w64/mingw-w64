@@ -27,6 +27,7 @@ __int64 _InterlockedDecrement64(__int64 volatile *Addend)
 #ifdef _WIN64
 __int64 InterlockedDecrement64(__int64 volatile *) __attribute__((alias("_InterlockedDecrement64")));
 #else
+__int64 __stdcall InterlockedDecrement64(__int64 volatile *Addend);
 __int64 __stdcall InterlockedDecrement64(__int64 volatile *Addend)
 {
   return _InterlockedDecrement64(Addend);

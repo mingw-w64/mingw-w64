@@ -1,4 +1,5 @@
 #include <intrin.h>
+long _InterlockedExchangeAdd(long volatile *Addend, long Value);
 
 long _InterlockedExchangeAdd(long volatile *Addend, long Value)
 {
@@ -14,6 +15,7 @@ long _InterlockedExchangeAdd(long volatile *Addend, long Value)
 #ifdef _WIN64
 long InterlockedExchangeAdd(long volatile *, long) __attribute__((alias("_InterlockedExchangeAdd")));
 #else
+long __stdcall InterlockedExchangeAdd(long volatile *Addend, long Value);
 long __stdcall InterlockedExchangeAdd(long volatile *Addend, long Value)
 {
   return _InterlockedExchangeAdd(Addend, Value);
