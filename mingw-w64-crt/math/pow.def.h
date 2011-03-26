@@ -69,6 +69,43 @@
 #include "../complex/complex_internal.h"
 #include <errno.h>
 #include <limits.h>
+#include <fenv.h>
+#include <math.h>
+#include <errno.h>
+#define FE_ROUNDING_MASK \
+  (FE_TONEAREST | FE_DOWNWARD | FE_UPWARD | FE_TOWARDZERO)
+
+static __FLT_TYPE
+internal_modf (__FLT_TYPE value, __FLT_TYPE *iptr)
+{
+  __FLT_TYPE int_part = (__FLT_TYPE) 0.0;
+  /* truncate */ 
+  /* truncate */
+#ifdef _WIN64
+  asm ("subq $8, %%rsp\n"
+    "fnstcw 4(%%rsp)\n"
+    "movzwl 4(%%rsp), %%eax\n"
+    "orb $12, %%ah\n"
+    "movw %%ax, (%%rsp)\n"
+    "fldcw (%%rsp)\n"
+    "frndint\n"
+    "fldcw 4(%%rsp)\n"
+    "addq $8, %%rsp\n" : "=t" (int_part) : "0" (value)); /* round */
+#else
+  asm ("push %%eax\n\tsubl $8, %%esp\n"
+    "fnstcw 4(%%esp)\n"
+    "movzwl 4(%%esp), %%eax\n"
+    "orb $12, %%ah\n"
+    "movw %%ax, (%%esp)\n"
+    "fldcw (%%esp)\n"
+    "frndint\n"
+    "fldcw 4(%%esp)\n"
+    "addl $8, %%esp\n\tpop %%eax\n" : "=t" (int_part) : "0" (value)); /* round */
+#endif
+  if (iptr)
+    *iptr = int_part;
+  return (isinf (value) ?  (__FLT_TYPE) 0.0 : value - int_part);
+}
 
 __FLT_TYPE __cdecl __FLT_ABI(__powi) (__FLT_TYPE x, int n);
 
@@ -93,12 +130,12 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
       if (y_class == FP_INFINITE)
 	return (signbit(y) ? __FLT_HUGE_VAL : __FLT_CST(0.0));
 
-      if (signbit(x) && __FLT_ABI(modf) (y, &d) != 0.0)
+      if (signbit(x) && internal_modf (y, &d) != 0.0)
 	{
 	  __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
 	  return -__FLT_NAN;
 	}
-      odd_y = (__FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) != 0.0) ? 1 : 0;
+      odd_y = (internal_modf (__FLT_ABI (ldexp) (y, -1), &d) != 0.0) ? 1 : 0;
       if (!signbit(y))
 	{
 	  if (!odd_y || !signbit (x))
@@ -126,12 +163,12 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
   else if (x_class == FP_INFINITE)
     {
       /* pow (x, y) signals the invalid operation exception for finite x < 0 and finite non-integer y.  */
-      if (signbit(x) && __FLT_ABI(modf) (y, &d) != 0.0)
+      if (signbit(x) && internal_modf (y, &d) != 0.0)
 	{
 	  __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
 	  return -__FLT_NAN;
 	}
-      odd_y = (__FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) != 0.0) ? 1 : 0;
+      odd_y = (internal_modf (__FLT_ABI (ldexp) (y, -1), &d) != 0.0) ? 1 : 0;
       /* pow( -inf, y) = +0 for y<0 and not an odd integer,  */
       if (signbit(x) && signbit(y) && !odd_y)
 	return __FLT_CST(0.0);
@@ -152,28 +189,17 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
       return (odd_y && signbit(x) ? -__FLT_HUGE_VAL : __FLT_HUGE_VAL);
     }
 
-  if (signbit (x) && (__FLT_TYPE) __FLT_ABI(modf) (y, &d) != 0.0)
+  if (signbit (x) && internal_modf (y, &d) != 0.0)
     {
       __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
       return -__FLT_NAN;
     }
-  if (__FLT_ABI (modf) (y, &d) == 0.0 && (d <= (__FLT_TYPE) INT_MAX && d >= (__FLT_TYPE) INT_MIN))
+  if (internal_modf (y, (void*)0) == 0.0 && (d <= (__FLT_TYPE) INT_MAX && d >= (__FLT_TYPE) INT_MIN))
      return __FLT_ABI (__powi) (x, (int) y);
   /* As exp already checks for minlog and maxlog no further checks are necessary.  */
-  {
-    long double e1 = y * log2l ((long double) x);
-    if (fpclassify (e1) == FP_INFINITE)
-      rslt = (__FLT_TYPE) exp2l (e1);
-    else
-      {
-	long double fr, in;
-	in = modfl (e1, &fr);
-	rslt = (__FLT_TYPE) (exp2l (fr) * exp2l (in));
-      }
-    // rslt = __FLT_ABI(exp)(y * __FLT_ABI(log)(__FLT_ABI(fabs) (x)));
-  }
+  rslt = (__FLT_TYPE) exp2l ((long double) y * log2l ((long double) __FLT_ABI(fabs) (x)));
 
-  if (signbit (x) && __FLT_ABI (modf) (__FLT_ABI (ldexp) (y, -1), &d) != 0.0)
+  if (signbit (x) && internal_modf (__FLT_ABI (ldexp) (y, -1), &d) != 0.0)
     rslt = -rslt;
   return rslt;
 }

@@ -13,14 +13,29 @@ float
 modff (float value, float* iptr)
 {
   float int_part = 0.0F;
-  unsigned short saved_cw;
-  unsigned short tmp_cw;
   /* truncate */ 
-  asm ("fnstcw %0;" : "=m" (saved_cw)); /* save control word */
-  tmp_cw = (saved_cw & ~FE_ROUNDING_MASK) | FE_TOWARDZERO;
-  asm ("fldcw %0;" : : "m" (tmp_cw));
-  asm ("frndint;" : "=t" (int_part) : "0" (value)); /* round */
-  asm ("fldcw %0;" : : "m" (saved_cw)); /* restore saved cw */
+  /* truncate */
+#ifdef _WIN64
+  asm ("subq $8, %%rsp\n"
+    "fnstcw 4(%%rsp)\n"
+    "movzwl 4(%%rsp), %%eax\n"
+    "orb $12, %%ah\n"
+    "movw %%ax, (%%rsp)\n"
+    "fldcw (%%rsp)\n"
+    "frndint\n"
+    "fldcw 4(%%rsp)\n"
+    "addq $8, %%rsp\n" : "=t" (int_part) : "0" (value)); /* round */
+#else
+  asm ("push %%eax\n\tsubl $8, %%esp\n"
+    "fnstcw 4(%%esp)\n"
+    "movzwl 4(%%esp), %%eax\n"
+    "orb $12, %%ah\n"
+    "movw %%ax, (%%esp)\n"
+    "fldcw (%%esp)\n"
+    "frndint\n"
+    "fldcw 4(%%esp)\n"
+    "addl $8, %%esp\n\tpop %%eax\n" : "=t" (int_part) : "0" (value)); /* round */
+#endif
   if (iptr)
     *iptr = int_part;
   return (isinf (value) ?  0.0F : value - int_part);

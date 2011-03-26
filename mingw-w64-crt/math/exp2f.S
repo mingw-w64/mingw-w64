@@ -26,7 +26,15 @@ __MINGW_USYMBOL(exp2f):
 	cmpb	$0x05, %dh
 	je	1f			/* Is +-Inf, jump.  */
 	fld	%st
-	frndint				/* int(x) */
+  	subq $8, %rsp /* int(x) */
+    	fnstcw 4(%rsp)
+    	movzwl 4(%rsp), %eax
+    	orb $12, %ah
+    	movw %ax, (%rsp)
+    	fldcw (%rsp)
+    	frndint
+    	fldcw 4(%rsp)
+    	addq $8, %rsp
 	fsubr	%st,%st(1)		/* fract(x) */
 	fxch
 	f2xm1				/* 2^(fract(x)) - 1 */
@@ -60,7 +68,15 @@ __MINGW_USYMBOL(exp2f):
 	cmpb	$0x05, %dh
 	je	1f			/* Is +-Inf, jump.  */
 	fld	%st
-	frndint				/* int(x) */
+	subl $8, %esp /* int(x) */
+	fnstcw 4(%esp)
+	movzwl 4(%esp), %eax
+	orb $12, %ah
+	movw %ax, (%esp)
+	fldcw (%esp)
+	frndint
+	fldcw 4(%esp)
+	addl $8, %esp
 	fsubr	%st,%st(1)		/* fract(x) */
 	fxch
 	f2xm1				/* 2^(fract(x)) - 1 */

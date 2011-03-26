@@ -54,9 +54,32 @@ __expl_internal (long double x)
   long double res = 0.0L;
   asm ("fldl2e\n\t"             /* 1  log2(e)         */
        "fmul %%st(1),%%st\n\t"  /* 1  x log2(e)       */
-       "frndint\n\t"            /* 1  i               */
-       "fld %%st(1)\n\t"        /* 2  x               */
-       "frndint\n\t"            /* 2  xi              */
+
+#ifdef _WIN64
+    "subq $8, %%rsp\n"
+    "fnstcw 4(%%rsp)\n"
+    "movzwl 4(%%rsp), %%eax\n"
+    "orb $12, %%ah\n"
+    "movw %%ax, (%%rsp)\n"
+    "fldcw (%%rsp)\n"
+    "frndint\n\t"            /* 1  i               */
+    "fld %%st(1)\n\t"        /* 2  x               */
+    "frndint\n\t"            /* 2  xi              */
+    "fldcw 4(%%rsp)\n"
+    "addq $8, %%rsp\n"
+#else
+    "push %%eax\n\tsubl $8, %%esp\n"
+    "fnstcw 4(%%esp)\n"
+    "movzwl 4(%%esp), %%eax\n"
+    "orb $12, %%ah\n"
+    "movw %%ax, (%%esp)\n"
+    "fldcw (%%esp)\n"
+    "frndint\n\t"            /* 1  i               */
+    "fld %%st(1)\n\t"        /* 2  x               */
+    "frndint\n\t"            /* 2  xi              */
+    "fldcw 4(%%esp)\n"
+    "addl $8, %%esp\n\tpop %%eax\n"
+#endif
        "fld %%st(1)\n\t"        /* 3  i               */
        "fldt %2\n\t"            /* 4  c0              */
        "fld %%st(2)\n\t"        /* 5  xi              */
@@ -110,9 +133,5 @@ __FLT_ABI(exp) (__FLT_TYPE x)
       return __FLT_CST(0.0);
     }
   else
-    {
-      long double fr, in;
-      in = modfl ((long double) x, &fr);
-      return (__FLT_TYPE) (__expl_internal (fr) * __expl_internal (in));
-    }
+    return (__FLT_TYPE) __expl_internal ((long double) x);
 }

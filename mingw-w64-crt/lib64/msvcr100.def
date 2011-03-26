@@ -1699,7 +1699,7 @@ iswupper
 iswxdigit
 isxdigit
 labs
-ldexp
+ldexp DATA
 ldiv
 llabs DATA
 lldiv DATA

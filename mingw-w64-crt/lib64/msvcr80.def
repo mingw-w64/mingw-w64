@@ -729,7 +729,7 @@ iswupper
 iswxdigit
 isxdigit
 labs
-ldexp
+ldexp DATA
 ldiv
 localeconv
 localtime DATA

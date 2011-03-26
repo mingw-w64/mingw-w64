@@ -1,3 +1,13 @@
+2011-03-26  Kai Tietz  <ktietz70@googlemail.com>
+
+	* Makefile.am: Add new file.
+	* Makefile.in: Regenerated.
+	* lib32/msvcr*.def: Maked ldexp as DATA.
+	* lib64/msvcr*.def: Likewise.
+	* math/exp*: Make sure we are using round-to-zero.
+	* math/pow.def.h: Likewise.
+	* math/ldexp.c: New.
+
 2011-03-25  Kai Tietz  <ktietz70@googlemail.com>
 
 	* Makefile.am: Add new files to build.
