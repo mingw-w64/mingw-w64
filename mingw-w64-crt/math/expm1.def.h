@@ -64,7 +64,7 @@ __FLT_ABI(expm1) (__FLT_TYPE x)
   }
   if (__FLT_ABI (fabs) (x) < __FLT_LOGE2)
     {
-      x *= __FLT_LOGE2;
+      x /= __FLT_LOGE2;
       __asm__ __volatile__ ("f2xm1" : "=t" (x) : "0" (x));
       return x;
     }
