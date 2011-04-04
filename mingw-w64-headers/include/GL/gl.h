@@ -11,6 +11,8 @@
 
 #if !(defined(WINGDIAPI) && defined(APIENTRY))
 #include <windows.h>
+#else
+#include <stddef.h>
 #endif
 
 #ifdef __cplusplus
