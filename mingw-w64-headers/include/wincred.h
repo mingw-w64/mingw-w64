@@ -48,7 +48,8 @@ extern "C" {
 #endif
 #endif
 
-#ifndef _NTDEF_
+#if !defined (_NTDEF_) && !defined (_NTSTATUS_PSDK)
+#define _NTSTATUS_PSDK
   typedef LONG NTSTATUS,*PNTSTATUS;
 #endif
 

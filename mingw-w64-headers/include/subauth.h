@@ -11,7 +11,11 @@ extern "C" {
 #endif
 
 #if (!defined(_NTDEF_)) && (!defined(_NTSECAPI_))
+
+#if !defined (_NTDEF_) && !defined (_NTSTATUS_PSDK)
+#define _NTSTATUS_PSDK
   typedef LONG NTSTATUS,*PNTSTATUS;
+#endif
 
 #ifndef __UNICODE_STRING_DEFINED
 #define __UNICODE_STRING_DEFINED

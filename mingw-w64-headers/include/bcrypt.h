@@ -8,7 +8,8 @@
 #define _INC_BCRYPT
 #if (_WIN32_WINNT >= 0x0600)
 
-#ifndef _NTDEF_
+#if !defined (_NTDEF_) && !defined (_NTSTATUS_PSDK)
+#define _NTSTATUS_PSDK
   typedef LONG NTSTATUS,*PNTSTATUS;
 #endif
 

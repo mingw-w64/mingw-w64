@@ -1,3 +1,9 @@
+2011-04-11  Kai Tietz  <ktietz70@googlemail.com>
+
+	* bcrypt.h, lmaccess.h, ntsecapi.h, subauth.h, wincred.h:
+	Guard NTSTATUS/PNTSTATUS typedef additionally by _NTSTATUS_PSDK.
+	* hidpi.h: Typedef NTSTATUS and PNTSTATUS.
+
 2011-04-11  Simon Josefsson  <simon@joseffson.org>
 
 	* hidsdi.h: New.

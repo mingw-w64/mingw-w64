@@ -35,6 +35,11 @@ extern "C" {
 # define HIDAPI DECLSPEC_IMPORT
 #endif
 
+#if !defined (_NTDEF_) && !defined (_NTSTATUS_PSDK)
+#define _NTSTATUS_PSDK
+  typedef LONG NTSTATUS,*PNTSTATUS;
+#endif
+
 typedef PUCHAR PHIDP_REPORT_DESCRIPTOR;
 typedef struct _HIDP_PREPARSED_DATA * PHIDP_PREPARSED_DATA;
 

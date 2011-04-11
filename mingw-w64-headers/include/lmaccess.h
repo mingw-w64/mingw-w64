@@ -804,7 +804,8 @@ extern "C" {
   NET_API_STATUS WINAPI I_NetLogonControl(LPCWSTR ServerName,DWORD FunctionCode,DWORD QueryLevel,LPBYTE *Buffer);
   NET_API_STATUS WINAPI I_NetLogonControl2(LPCWSTR ServerName,DWORD FunctionCode,DWORD QueryLevel,LPBYTE Data,LPBYTE *Buffer);
 
-#ifndef _NTDEF_
+#if !defined (_NTDEF_) && !defined (_NTSTATUS_PSDK)
+#define _NTSTATUS_PSDK
   typedef LONG NTSTATUS,*PNTSTATUS;
 #endif
 
