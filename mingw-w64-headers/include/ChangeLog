@@ -1,3 +1,7 @@
+2011-04-11  Simon Josefsson  <simon@joseffson.org>
+
+	* hidsdi.h: New.
+
 2011-04-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ksmedia.h:  Guard the SPEAKER_* macros by _SPEAKER_POSITIONS_
