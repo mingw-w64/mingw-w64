@@ -1,3 +1,11 @@
+2011-04-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk:
+	2011-04-16  Jacek Caban  <jacek@codeweavers.com>  (revs. 4141-4143)
+	* _mingw.h: Added __w64 define.
+	* assert.h: Moved extern "C" to the right place.
+	* dvec.h, fvec.h, ivec.h: Make them usable.
+
 2011-04-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ksmedia.h:  Guard the SPEAKER_* macros by _SPEAKER_POSITIONS_
