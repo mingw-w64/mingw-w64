@@ -256,6 +256,9 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #ifndef __unaligned
 #define __unaligned
 #endif
+#ifndef __w64
+#define __w64
+#endif
 #define __forceinline extern __inline__ __attribute__((always_inline))
 #endif /* __GNUC__ */
 
