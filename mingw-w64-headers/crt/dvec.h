@@ -40,20 +40,20 @@ class Iu32vec4;
 class I64vec2;
 class I128vec1;
 
-#define _MM_16UB(element,vector) (*((unsigned char*)&##vector + ##element))
-#define _MM_16B(element,vector) (*((signed char*)&##vector + ##element))
+#define _MM_16UB(element,vector) (*((unsigned char*)&(vector) + (element)))
+#define _MM_16B(element,vector) (*((signed char*)&(vector) + (element)))
 
-#define _MM_8UW(element,vector) (*((unsigned short*)&##vector + ##element))
-#define _MM_8W(element,vector) (*((short*)&##vector + ##element))
+#define _MM_8UW(element,vector) (*((unsigned short*)&(vector) + (element)))
+#define _MM_8W(element,vector) (*((short*)&(vector) + (element)))
 
-#define _MM_4UDW(element,vector) (*((unsigned int*)&##vector + ##element))
-#define _MM_4DW(element,vector) (*((int*)&##vector + ##element))
+#define _MM_4UDW(element,vector) (*((unsigned int*)&(vector) + (element)))
+#define _MM_4DW(element,vector) (*((int*)&(vector) + (element)))
 
-#define _MM_2QW(element,vector) (*((__MINGW_EXTENSION __int64*)&##vector + ##element))
+#define _MM_2QW(element,vector) (*((__int64*)&(vector) + (element)))
 
-inline const __m128i get_mask128()
+__MINGW_EXTENSION inline const __m128i get_mask128()
 {
-  static const __m128i mask128 = _mm_set1_epi64(M64(0xffffffffffffffffll));
+  static const __m128i mask128 = _mm_set1_epi64(M64((__int64)0xffffffffffffffffll));
   return mask128;
 }
 
@@ -98,10 +98,10 @@ public:
   I64vec2() { }
   I64vec2(__m128i mm) : M128(mm) { }
 
-  I64vec2(__m64 q1,__m64 q0)
+  __MINGW_EXTENSION I64vec2(__m64 q1,__m64 q0)
   {
-    _MM_2QW(0,vec) = *(__MINGW_EXTENSION __int64*)&q0;
-    _MM_2QW(1,vec) = *(__MINGW_EXTENSION __int64*)&q1;
+    _MM_2QW(0,vec) = *(__int64*)&q0;
+    _MM_2QW(1,vec) = *(__int64*)&q1;
   }
 
   I64vec2& operator= (const M128 &a) { return *this = (I64vec2) a; }
