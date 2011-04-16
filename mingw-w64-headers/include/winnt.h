@@ -5580,6 +5580,7 @@ typedef DWORD LCID;
 #define HEAP_TAG_SHIFT 18
 #define HEAP_MAKE_TAG_FLAGS(b,o) ((DWORD)((b) + ((o) << 18)))
 
+    NTSYSAPI WORD NTAPI RtlCaptureStackBackTrace(DWORD FramesToSkip, DWORD FramesToCapture, PVOID *BackTrace, PDWORD BackTraceHash);
     NTSYSAPI VOID NTAPI RtlCaptureContext(PCONTEXT ContextRecord);
 
 #define IS_TEXT_UNICODE_ASCII16 0x0001

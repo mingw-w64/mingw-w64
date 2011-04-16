@@ -72,6 +72,7 @@ extern "C" {
 #define FillMemory RtlFillMemory
 #define ZeroMemory RtlZeroMemory
 #define SecureZeroMemory RtlSecureZeroMemory
+#define CaptureStackBackTrace RtlCaptureStackBackTrace
 
 #define FILE_FLAG_WRITE_THROUGH 0x80000000
 #define FILE_FLAG_OVERLAPPED 0x40000000
