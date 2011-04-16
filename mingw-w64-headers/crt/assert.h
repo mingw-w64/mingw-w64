@@ -17,6 +17,10 @@
 #include <stdlib.h>
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifndef _CRT_TERMINATE_DEFINED
 #define _CRT_TERMINATE_DEFINED
   void __cdecl __MINGW_NOTHROW exit(int _Code) __MINGW_ATTRIB_NORETURN;
@@ -37,10 +41,6 @@
 #pragma pop_macro("abort")
 
 #endif /* _CRT_TERMINATE_DEFINED */
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 extern void __cdecl
 _wassert(const wchar_t *_Message,const wchar_t *_File,unsigned _Line);
