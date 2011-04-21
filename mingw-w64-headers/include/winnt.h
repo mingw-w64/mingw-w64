@@ -6493,8 +6493,66 @@ DEFINE_GUID(GUID_BATTERY_SUBGROUP,0xe73a048d,0xbf27,0x4f12,0x97,0x31,0x8b,0x20,0
 DEFINE_GUID(GUID_SLEEP_SUBGROUP,0x238C9FA8,0x0AAD,0x41ED,0x83,0xF4,0x97,0xBE,0x24,0x2C,0x8F,0x20);
 DEFINE_GUID(GUID_PCIEXPRESS_SETTINGS_SUBGROUP,0x501a4d13,0x42af,0x4429,0x9f,0xd1,0xa8,0x21,0x8c,0x26,0x8e,0x20);
 
-typedef struct _WOW64_CONTEXT WOW64_CONTEXT, *PWOW64_CONTEXT;
-typedef struct _WOW64_FLOATING_SAVE_AREA WOW64_FLOATING_SAVE_AREA, *PWOW64_FLOATING_SAVE_AREA;
+/* Field Names From (See _fields_ section)
+ * FIXME: Verify these against documentation
+ * -- These documentation describes Win32 Constants and Structures in Python --
+ * Constants - http://packages.python.org/winappdbg/winappdbg.win32.context_i386-pysrc.html
+ * WOW64_FLOATING_SAVE_AREA - http://packages.python.org/winappdbg/winappdbg.win32.context_amd64.WOW64_FLOATING_SAVE_AREA-class.html
+ * WOW64_CONTEXT - http://packages.python.org/winappdbg/winappdbg.win32.context_amd64.WOW64_CONTEXT-class.html
+ */
+
+#define WOW64_CONTEXT_i386 0x00010000
+#define WOW64_CONTEXT_i486 0x00010000
+#define WOW64_CONTEXT_CONTROL (WOW64_CONTEXT_i386 | 0x00000001L)
+#define WOW64_CONTEXT_INTEGER (WOW64_CONTEXT_i386 | 0x00000002L)
+#define WOW64_CONTEXT_SEGMENTS (WOW64_CONTEXT_i386 | 0x00000004L)
+#define WOW64_CONTEXT_FLOATING_POINT (WOW64_CONTEXT_i386 | 0x00000008L)
+#define WOW64_CONTEXT_DEBUG_REGISTERS (WOW64_CONTEXT_i386 | 0x00000010L)
+#define WOW64_CONTEXT_EXTENDED_REGISTERS (WOW64_CONTEXT_i386 | 0x00000020L)
+#define WOW64_CONTEXT_FULL (WOW64_CONTEXT_CONTROL | WOW64_CONTEXT_INTEGER | WOW64_CONTEXT_SEGMENTS)
+#define WOW64_CONTEXT_ALL (WOW64_CONTEXT_CONTROL | WOW64_CONTEXT_INTEGER | WOW64_CONTEXT_SEGMENTS | WOW64_CONTEXT_FLOATING_POINT | WOW64_CONTEXT_DEBUG_REGISTERS | WOW64_CONTEXT_EXTENDED_REGISTERS)
+#define WOW64_SIZE_OF_80387_REGISTERS 80
+#define WOW64_MAXIMUM_SUPPORTED_EXTENSION 512
+
+typedef struct _WOW64_FLOATING_SAVE_AREA {
+  DWORD   ControlWord;
+  DWORD   StatusWord;
+  DWORD   TagWord;
+  DWORD   ErrorOffset;
+  DWORD   ErrorSelector;
+  DWORD   DataOffset;
+  DWORD   DataSelector;
+  BYTE    RegisterArea[WOW64_SIZE_OF_80387_REGISTERS];
+  DWORD   Cr0NpxState;
+} WOW64_FLOATING_SAVE_AREA, *PWOW64_FLOATING_SAVE_AREA;
+
+typedef struct _WOW64_CONTEXT {
+  DWORD ContextFlags;
+  DWORD Dr0;
+  DWORD Dr1;
+  DWORD Dr2;
+  DWORD Dr3;
+  DWORD Dr6;
+  DWORD Dr7;
+  WOW64_FLOATING_SAVE_AREA FloatSave;
+  DWORD SegGs;
+  DWORD SegFs;
+  DWORD SegEs;
+  DWORD SegDs;
+  DWORD Edi;
+  DWORD Esi;
+  DWORD Ebx;
+  DWORD Edx;
+  DWORD Ecx;
+  DWORD Eax;
+  DWORD Ebp;
+  DWORD Eip;
+  DWORD SegCs;
+  DWORD EFlags;
+  DWORD Esp;
+  DWORD SegSs;
+  BYTE ExtendedRegisters[WOW64_MAXIMUM_SUPPORTED_EXTENSION];
+} WOW64_CONTEXT, *PWOW64_CONTEXT;
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 
@@ -6583,6 +6641,31 @@ typedef struct _UMS_CREATE_THREAD_ATTRIBUTES {
   PVOID UmsContext;
   PVOID UmsCompletionList;
 } UMS_CREATE_THREAD_ATTRIBUTES, *PUMS_CREATE_THREAD_ATTRIBUTES;
+
+typedef struct _WOW64_LDT_ENTRY {
+  WORD  LimitLow;
+  WORD  BaseLow;
+  __C89_NAMELESS union {
+    struct {
+      BYTE BaseMid;
+      BYTE Flags1;
+      BYTE Flags2;
+      BYTE BaseHi;
+    } Bytes;
+    struct {
+      DWORD BaseMid  :8;
+      DWORD Type  :5;
+      DWORD Dpl  :2;
+      DWORD Pres  :1;
+      DWORD LimitHi  :4;
+      DWORD Sys  :1;
+      DWORD Reserved_0  :1;
+      DWORD Default_Big  :1;
+      DWORD Granularity  :1;
+      DWORD BaseHi  :8;
+    } Bits;
+  } HighWord;
+} WOW64_LDT_ENTRY, *PWOW64_LDT_ENTRY;
 
 #endif /*(_WIN32_WINNT >= 0x0601)*/
 

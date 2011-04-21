@@ -1,3 +1,21 @@
+2011-04-21  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* winnt.h (WOW64_CONTEXT_i386): Define.
+	(WOW64_CONTEXT_i486): Likewise.
+	(WOW64_CONTEXT_CONTROL): Likewise.
+	(WOW64_CONTEXT_INTEGER): Likewise.
+	(WOW64_CONTEXT_SEGMENTS): Likewise.
+	(WOW64_CONTEXT_FLOATING_POINT): Likewise.
+	(WOW64_CONTEXT_DEBUG_REGISTERS): Likewise.
+	(WOW64_CONTEXT_EXTENDED_REGISTERS): Likewise.
+	(WOW64_CONTEXT_FULL): Likewise.
+	(WOW64_CONTEXT_ALL): Likewise.
+	(WOW64_SIZE_OF_80387_REGISTERS): Likewise.
+	(WOW64_MAXIMUM_SUPPORTED_EXTENSION): Likewise.
+	(WOW64_FLOATING_SAVE_AREA): Declare.
+	(WOW64_CONTEXT): Likewise.
+	(WOW64_LDT_ENTRY): Likewise.
+
 2011-04-11  Kai Tietz  <ktietz70@googlemail.com>
 
 	* bcrypt.h, lmaccess.h, ntsecapi.h, subauth.h, wincred.h:
