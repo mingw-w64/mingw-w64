@@ -1448,7 +1448,12 @@ typedef DWORD LCID;
 #define MemoryFence _mm_mfence
 #define StoreFence _mm_sfence
 
-    void __faststorefence(void);
+#ifdef __MINGW_INTRIN_INLINE
+    __MINGW_INTRIN_INLINE void __faststorefence(void) {
+      __asm__ __volatile__ ("" ::: "memory");
+    }
+#endif
+
     void _m_prefetchw(void *Source);
 
 #include <intrin.h>

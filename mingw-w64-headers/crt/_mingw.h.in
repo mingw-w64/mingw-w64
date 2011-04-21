@@ -83,6 +83,10 @@ limitations in handling dllimport attribute.  */
 # endif
 #endif
 
+#if !defined(__MINGW_INTRIN_INLINE) && defined(__GNUC__)
+#define __MINGW_INTRIN_INLINE extern __inline__ __attribute__((always_inline,__gnu_inline__))
+#endif
+
 #ifdef __NO_INLINE__
 #undef __CRT__NO_INLINE
 #define __CRT__NO_INLINE 1
@@ -658,6 +662,13 @@ typedef struct threadlocaleinfostruct {
 
 #ifdef __cplusplus
 extern "C" {
+#endif
+
+#ifdef __MINGW_INTRIN_INLINE
+__MINGW_INTRIN_INLINE void __cdecl __debugbreak(void)
+{
+  __asm__ __volatile__("int $3");
+}
 #endif
 
 /* mingw-w64 specific functions: */
