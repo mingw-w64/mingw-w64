@@ -92,7 +92,7 @@ extern "C" {
   } APPCATEGORYINFOLIST;
 
 #ifndef WINAPI
-#define WINAPI
+#define WINAPI  __stdcall
 #endif
 
   DWORD WINAPI InstallApplication(PINSTALLDATA pInstallInfo);
