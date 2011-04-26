@@ -42,12 +42,12 @@ THIS SOFTWARE.
 /* keep the 'Long' definition as 'long' for compatibility
  * with older/other software. long in w64 is 32 bits anyway..
  */
-#define Long long	/* int */
+#define Long long	/* Windows long is 32 bit */
 #undef  NO_LONG_LONG	/* we have long long type */
 #endif	/* MinGW */
 
 #ifndef Long
-#define Long long
+#define Long int
 #endif
 #ifndef ULong
 typedef unsigned Long ULong;

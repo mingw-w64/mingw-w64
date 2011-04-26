@@ -111,6 +111,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 	the returned string.  If not null, *rve is set to point
 	to the end of the return value.  If d is +-Infinity or NaN,
 	then *decpt is set to 9999.
+	be = exponent: value = (integer represented by bits) * (2 to the power of be).
 
 	mode:
 		0 ==> shortest string that yields d when read in
@@ -256,6 +257,8 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 		mode -= 4;
 		try_quick = 0;
 	}
+	else if (i >= -4 - Emin || i < Emin)
+		try_quick = 0;
 	leftright = 1;
 	ilim = ilim1 = -1;	/* Values for cases 0 and 1; done here to */
 				/* silence erroneous "gcc -Wall" warning. */
@@ -469,13 +472,15 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 	m5 = b5;
 	mhi = mlo = 0;
 	if (leftright) {
-		if (mode < 2) {
-			i = nbits - bbits;
-			if (be - i++ < fpi->emin)
-				/* denormal */
-				i = be - fpi->emin + 1;
+		i = nbits - bbits;
+		if (be - i++ < fpi->emin && mode != 3 && mode != 5) {
+			/* denormal */
+			i = be - fpi->emin + 1;
+			if (mode >= 2 && ilim > 0 && ilim < i)
+				goto small_ilim;
 		}
-		else {
+		else if (mode >= 2) {
+ small_ilim:
 			j = ilim - 1;
 			if (m5 >= j)
 				m5 -= j;

@@ -1,0 +1,5 @@
+2011-04-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/gdtoa.c, gdtoa/gdtoa.h, gdtoa/gdtoaimp.h: Sync gdtoa to
+	match the latest version at netlib.org as of 2011-03-21.
+
