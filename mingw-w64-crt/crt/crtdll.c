@@ -183,7 +183,7 @@ __DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
   if (dwReason == DLL_PROCESS_ATTACH || dwReason == DLL_THREAD_ATTACH)
     {
         retcode = _CRT_INIT (hDllHandle, dwReason, lpreserved);
-        if (!recode)
+        if (!retcode)
           goto i__leave;
         retcode = DllEntryPoint (hDllHandle, dwReason, lpreserved);
 	if (! retcode)
