@@ -1,3 +1,18 @@
+2011-04-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk rev. 4045:
+	2011-02-20  Kai Tietz  <kai.tietz@onevision.com>
+	Remove sick longjmp implementation via GetProcAddress().
+	* lib32/crtdll.def (longjmp): Mark as DATA.
+	* lib32/msvcrt.def (longjmp): Likewise.
+	* lib32/msvcr80.def (longjmp): Likewise.
+	* lib64/ntdll.def (longjmp): Add new export as DATA.
+	* crt/gccmain.c: Kill fctMsvcrtLongJmp and the associated
+	GetProcAddress() usage.
+	* misc/mingw_getsp.S: Replace __MINGW_USYMBOL(fctMsvcrtLongJmp)
+	explicitly by __imp_longjmp for x64 and by __imp__longjmp for
+	x86.
+
 2011-04-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/gdtoa.c, gdtoa/gdtoa.h, gdtoa/gdtoaimp.h: Sync gdtoa to

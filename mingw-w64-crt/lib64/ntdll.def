@@ -1329,6 +1329,7 @@ iswxdigit
 isxdigit
 labs
 log
+longjmp DATA
 mbstowcs
 memchr
 memcmp
