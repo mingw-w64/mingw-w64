@@ -1,3 +1,7 @@
+2011-04-27  Jose Fonseca  <jrfonseca@users.sourceforge.net>
+
+	* wingdi.h (WINGDIAPI): When _GDI32_ is defined, define as nothing.
+
 2011-04-21  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merged from trunk:

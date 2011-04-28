@@ -6,7 +6,12 @@
 #ifndef _WINGDI_
 #define _WINGDI_
 
+#ifdef _GDI32_
+#define WINGDIAPI
+#else
 #define WINGDIAPI DECLSPEC_IMPORT
+#endif
+
 #define WINSPOOLAPI DECLSPEC_IMPORT
 
 #ifdef __cplusplus
