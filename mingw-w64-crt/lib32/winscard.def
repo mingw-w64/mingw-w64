@@ -70,6 +70,6 @@ SCardStatusW@28
 SCardTransmit@28
 SCardWriteCacheA@24
 SCardWriteCacheW@24
-g_rgSCardRawPci@4
-g_rgSCardT0Pci@8
-g_rgSCardT1Pci@8
+g_rgSCardRawPci DATA
+g_rgSCardT0Pci DATA
+g_rgSCardT1Pci DATA

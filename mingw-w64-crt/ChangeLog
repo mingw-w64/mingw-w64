@@ -1,3 +1,10 @@
+2011-04-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/winscard.def (g_rgSCardRawPci): Remove stdcall suffix and
+	mark as DATA.
+	(g_rgSCardT0Pci): Likewise.
+	(g_rgSCardT1Pci): Likewise.
+
 2011-04-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* gdtoa/gdtoa.c, gdtoa/gdtoa.h, gdtoa/gdtoaimp.h: Sync gdtoa to
