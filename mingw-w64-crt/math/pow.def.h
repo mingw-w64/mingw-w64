@@ -189,12 +189,20 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
       return (odd_y && signbit(x) ? -__FLT_HUGE_VAL : __FLT_HUGE_VAL);
     }
 
-  if (signbit (x) && internal_modf (y, &d) != 0.0)
+  if (internal_modf (y, &d) != 0.0)
     {
-      __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
-      return -__FLT_NAN;
+      if (signbit (x))
+	{
+	  __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
+	  return -__FLT_NAN;
+	}
+      if (y == __FLT_CST(0.5))
+	{
+	  asm ("fsqrt" : "=t" (rslt) : "0" (x));
+	  return rslt;
+	}
     }
-  if (internal_modf (y, (void*)0) == 0.0 && (d <= (__FLT_TYPE) INT_MAX && d >= (__FLT_TYPE) INT_MIN))
+  else if ((d <= (__FLT_TYPE) INT_MAX && d >= (__FLT_TYPE) INT_MIN))
      return __FLT_ABI (__powi) (x, (int) y);
   /* As exp already checks for minlog and maxlog no further checks are necessary.  */
   rslt = (__FLT_TYPE) exp2l ((long double) y * log2l ((long double) __FLT_ABI(fabs) (x)));
