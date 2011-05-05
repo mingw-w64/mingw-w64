@@ -1,3 +1,10 @@
+2011-05-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk:
+	2011-05-05  Jonathan Yong  <jon_y@users.sourceforge.net> (rev. 4162)
+	* stdlib.h (swab): Use define guards.
+	* unistd.h (swab): Copy from stdlib.h as per POSIX spec.
+
 2011-04-27  Jose Fonseca  <jrfonseca@users.sourceforge.net>
 
 	* wingdi.h (WINGDIAPI): When _GDI32_ is defined, define as nothing.

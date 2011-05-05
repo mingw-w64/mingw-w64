@@ -44,6 +44,11 @@ __CRT_INLINE int ftruncate(int __fd, _off_t __length)
 #endif
 #endif /* FTRUNCATE_DEFINED */
 
+#ifndef _CRT_SWAB_DEFINED
+#define _CRT_SWAB_DEFINED /* Also in stdlib.h */
+  void __cdecl swab(char *_Buf1,char *_Buf2,int _SizeInBytes);
+#endif
+
 #ifdef __cplusplus
 }
 #endif
