@@ -582,7 +582,12 @@ strtod (const char * __restrict__ __nptr, char ** __restrict__  __endptr)
   char *__cdecl itoa(int _Val,char *_DstBuf,int _Radix) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   char *__cdecl ltoa(long _Val,char *_DstBuf,int _Radix) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl putenv(const char *_EnvString) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+
+#ifndef _CRT_SWAB_DEFINED
+#define _CRT_SWAB_DEFINED  /* Also in unistd.h */
   void __cdecl swab(char *_Buf1,char *_Buf2,int _SizeInBytes) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif
+
   char *__cdecl ultoa(unsigned long _Val,char *_Dstbuf,int _Radix) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   onexit_t __cdecl onexit(onexit_t _Func);
 #endif

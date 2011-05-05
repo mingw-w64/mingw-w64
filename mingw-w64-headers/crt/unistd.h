@@ -57,6 +57,11 @@ __CRT_INLINE int ftruncate(int __fd, _off_t __length)
 #endif /* _FILE_OFFSET_BITS_SET_FTRUNCATE */
 #endif /* _FILE_OFFSET_BITS_SET_FTRUNCATE */
 
+#ifndef _CRT_SWAB_DEFINED
+#define _CRT_SWAB_DEFINED /* Also in stdlib.h */
+  void __cdecl swab(char *_Buf1,char *_Buf2,int _SizeInBytes) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif
+
 #ifdef __cplusplus
 }
 #endif

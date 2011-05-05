@@ -1,3 +1,9 @@
+2011-05-05  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* stdlib.h (swab): Use define guards.
+	* unistd.h (swab): Copy from stdlib.h as per POSIX spec.
+
+
 2011-03-25  Kai Tietz  <ktietz70@googlemail.com>
 
 	* string.h, memory.h: Add mempcpy prototype.
