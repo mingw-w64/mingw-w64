@@ -1,6 +1,14 @@
 2011-05-05  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merged from trunk:
+	2010-02-01  Kai Tietz  <kai.tietz@onevision.com> (rev. 1825)
+	Donated by S. Koehler
+	* winusbio.h: New API.
+	* winusb.h: New API.
+
+2011-05-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk:
 	2011-05-05  Jonathan Yong  <jon_y@users.sourceforge.net> (rev. 4162)
 	* stdlib.h (swab): Use define guards.
 	* unistd.h (swab): Copy from stdlib.h as per POSIX spec.
