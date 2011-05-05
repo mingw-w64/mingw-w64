@@ -407,6 +407,7 @@ lib32_DATA = \
   \
   lib32/libpdh.a       lib32/libpdhui.a     \
   lib32/libks.a        \
+  lib32/libwinscard.a  \
   lib32/libauthz.a     \
   \
   lib32/libd3dcompiler_33.a lib32/libd3dcompiler_34.a lib32/libd3dcompiler_35.a \
