@@ -1,5 +1,10 @@
 2011-05-05  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* lib32/winscard.def: New, merged from trunk.
+	* lib64/winscard.def: Updated from trunk.
+
+2011-05-05  Ozkan Sezer  <sezeroz@gmail.com>
+
 	Merged from trunk rev. 1752:
 	2010-01-16  Kai Tietz  <kai.tietz@onevision.com>
 	* lib32/winusb.def: New.
