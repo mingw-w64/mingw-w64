@@ -168,11 +168,15 @@ am__installdirs = "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" \
 	"$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)"
 LIBRARIES = $(lib32_LIBRARIES) $(lib64_LIBRARIES)
 ARFLAGS = cru
+lib32_libdelayimp_a_AR = $(AR) $(ARFLAGS)
+lib32_libdelayimp_a_LIBADD =
+am_lib32_libdelayimp_a_OBJECTS =
+lib32_libdelayimp_a_OBJECTS = $(am_lib32_libdelayimp_a_OBJECTS)
+am__dirstamp = $(am__leading_dot)dirstamp
 lib32_libdinput_a_LIBADD =
 am__lib32_libdinput_a_SOURCES_DIST = libsrc/dinput_kbd.c \
 	libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c \
 	libsrc/dinput_mouse2.c
-am__dirstamp = $(am__leading_dot)dirstamp
 am__objects_1 = libsrc/lib32_libdinput_a-dinput_kbd.$(OBJEXT) \
 	libsrc/lib32_libdinput_a-dinput_joy.$(OBJEXT) \
 	libsrc/lib32_libdinput_a-dinput_joy2.$(OBJEXT) \
@@ -1126,6 +1130,10 @@ am__objects_20 = libsrc/lib32_libws2_32_a-ws2_32.$(OBJEXT) \
 	libsrc/wspiapi/lib32_libws2_32_a-WspiapiFreeAddrInfo.$(OBJEXT)
 @LIB32_TRUE@am_lib32_libws2_32_a_OBJECTS = $(am__objects_20)
 lib32_libws2_32_a_OBJECTS = $(am_lib32_libws2_32_a_OBJECTS)
+lib64_libdelayimp_a_AR = $(AR) $(ARFLAGS)
+lib64_libdelayimp_a_LIBADD =
+am_lib64_libdelayimp_a_OBJECTS =
+lib64_libdelayimp_a_OBJECTS = $(am_lib64_libdelayimp_a_OBJECTS)
 lib64_libdinput_a_LIBADD =
 am__lib64_libdinput_a_SOURCES_DIST = libsrc/dinput_kbd.c \
 	libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c \
@@ -2802,16 +2810,17 @@ CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 CXXLD = $(CXX)
 CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
 	-o $@
-SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
-	$(lib32_libdmoguids_a_SOURCES) $(lib32_libdxerr8_a_SOURCES) \
-	$(lib32_libdxerr9_a_SOURCES) $(lib32_libdxguid_a_SOURCES) \
-	$(lib32_libgmon_a_SOURCES) $(lib32_libksuser_a_SOURCES) \
-	$(lib32_liblargeint_a_SOURCES) $(nodist_lib32_libm_a_SOURCES) \
-	$(lib32_libmingw32_a_SOURCES) $(lib32_libmingwex_a_SOURCES) \
-	$(lib32_libmingwthrd_a_SOURCES) $(lib32_libmoldname_a_SOURCES) \
-	$(lib32_libscrnsave_a_SOURCES) $(lib32_libscrnsavw_a_SOURCES) \
-	$(lib32_libshell32_a_SOURCES) $(lib32_libstrmiids_a_SOURCES) \
-	$(lib32_libuuid_a_SOURCES) $(lib32_libws2_32_a_SOURCES) \
+SOURCES = $(lib32_libdelayimp_a_SOURCES) $(lib32_libdinput_a_SOURCES) \
+	$(lib32_libdinput8_a_SOURCES) $(lib32_libdmoguids_a_SOURCES) \
+	$(lib32_libdxerr8_a_SOURCES) $(lib32_libdxerr9_a_SOURCES) \
+	$(lib32_libdxguid_a_SOURCES) $(lib32_libgmon_a_SOURCES) \
+	$(lib32_libksuser_a_SOURCES) $(lib32_liblargeint_a_SOURCES) \
+	$(nodist_lib32_libm_a_SOURCES) $(lib32_libmingw32_a_SOURCES) \
+	$(lib32_libmingwex_a_SOURCES) $(lib32_libmingwthrd_a_SOURCES) \
+	$(lib32_libmoldname_a_SOURCES) $(lib32_libscrnsave_a_SOURCES) \
+	$(lib32_libscrnsavw_a_SOURCES) $(lib32_libshell32_a_SOURCES) \
+	$(lib32_libstrmiids_a_SOURCES) $(lib32_libuuid_a_SOURCES) \
+	$(lib32_libws2_32_a_SOURCES) $(lib64_libdelayimp_a_SOURCES) \
 	$(lib64_libdinput_a_SOURCES) $(lib64_libdinput8_a_SOURCES) \
 	$(lib64_libdmoguids_a_SOURCES) $(lib64_libdxerr8_a_SOURCES) \
 	$(lib64_libdxerr9_a_SOURCES) $(lib64_libdxguid_a_SOURCES) \
@@ -2862,7 +2871,8 @@ SOURCES = $(lib32_libdinput_a_SOURCES) $(lib32_libdinput8_a_SOURCES) \
 	$(tests64_csin_SOURCES) $(tests64_csinh_SOURCES) \
 	$(tests64_csqrt_SOURCES) $(tests64_ctan_SOURCES) \
 	$(tests64_ctanh_SOURCES)
-DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
+DIST_SOURCES = $(lib32_libdelayimp_a_SOURCES) \
+	$(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libdinput8_a_SOURCES_DIST) \
 	$(am__lib32_libdmoguids_a_SOURCES_DIST) \
 	$(am__lib32_libdxerr8_a_SOURCES_DIST) \
@@ -2881,6 +2891,7 @@ DIST_SOURCES = $(am__lib32_libdinput_a_SOURCES_DIST) \
 	$(am__lib32_libstrmiids_a_SOURCES_DIST) \
 	$(am__lib32_libuuid_a_SOURCES_DIST) \
 	$(am__lib32_libws2_32_a_SOURCES_DIST) \
+	$(lib64_libdelayimp_a_SOURCES) \
 	$(am__lib64_libdinput_a_SOURCES_DIST) \
 	$(am__lib64_libdinput8_a_SOURCES_DIST) \
 	$(am__lib64_libdmoguids_a_SOURCES_DIST) \
@@ -3363,7 +3374,8 @@ src_libmingwex32 = \
 @LIB32_TRUE@	lib32/libmingwex.a lib32/libmoldname.a \
 @LIB32_TRUE@	lib32/libscrnsave.a lib32/libscrnsavw.a \
 @LIB32_TRUE@	lib32/libstrmiids.a lib32/libmingwthrd.a \
-@LIB32_TRUE@	lib32/libuuid.a lib32/libws2_32.a
+@LIB32_TRUE@	lib32/libuuid.a lib32/libws2_32.a \
+@LIB32_TRUE@	lib32/libdelayimp.a
 @LIB32_TRUE@nodist_lib32_libm_a_SOURCES = $(src_libm)
 @LIB32_TRUE@lib32_libm_a_CPPFLAGS = $(CPPFLAGS32)
 @LIB32_TRUE@lib32_libgmon_a_SOURCES = profile/mcount.c \
@@ -3415,6 +3427,7 @@ src_libmingwex32 = \
 @LIB32_TRUE@lib32_libws2_32_a_SOURCES = $(src_libws2_32)
 @LIB32_TRUE@lib32_libws2_32_a_CPPFLAGS = $(CPPFLAGS32)
 @LIB32_TRUE@lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
+@LIB32_TRUE@lib32_libdelayimp_a_SOURCES = 
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
@@ -3532,7 +3545,8 @@ src_libmingwex32 = \
 @LIB64_TRUE@	lib64/libscrnsavw.a lib64/libstrmiids.a \
 @LIB64_TRUE@	lib64/libmingw32.a lib64/libmingwex.a \
 @LIB64_TRUE@	lib64/libmoldname.a lib64/libmingwthrd.a \
-@LIB64_TRUE@	lib64/libuuid.a lib64/libws2_32.a
+@LIB64_TRUE@	lib64/libuuid.a lib64/libws2_32.a \
+@LIB64_TRUE@	lib64/libdelayimp.a
 @LIB64_TRUE@nodist_lib64_libm_a_SOURCES = $(src_libm)
 @LIB64_TRUE@lib64_libm_a_CPPFLAGS = $(CPPFLAGS64)
 @LIB64_TRUE@lib64_libshell32_a_SOURCES = $(src_libshell32)
@@ -3584,6 +3598,7 @@ src_libmingwex32 = \
 @LIB64_TRUE@lib64_libws2_32_a_SOURCES = $(src_libws2_32)
 @LIB64_TRUE@lib64_libws2_32_a_CPPFLAGS = $(CPPFLAGS64)
 @LIB64_TRUE@lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+@LIB64_TRUE@lib64_libdelayimp_a_SOURCES = 
 @LIB64_TRUE@lib64_DATA = \
 @LIB64_TRUE@  lib64/libwinusb.a \
 @LIB64_TRUE@  lib64/lib6to4svc.a    lib64/libaaaamon.a    lib64/libacledit.a      lib64/libaclui.a      \
@@ -4325,6 +4340,13 @@ uninstall-lib64LIBRARIES:
 
 clean-lib64LIBRARIES:
 	-test -z "$(lib64_LIBRARIES)" || rm -f $(lib64_LIBRARIES)
+lib32/$(am__dirstamp):
+	@$(MKDIR_P) lib32
+	@: > lib32/$(am__dirstamp)
+lib32/libdelayimp.a: $(lib32_libdelayimp_a_OBJECTS) $(lib32_libdelayimp_a_DEPENDENCIES) lib32/$(am__dirstamp)
+	-rm -f lib32/libdelayimp.a
+	$(lib32_libdelayimp_a_AR) lib32/libdelayimp.a $(lib32_libdelayimp_a_OBJECTS) $(lib32_libdelayimp_a_LIBADD)
+	$(RANLIB) lib32/libdelayimp.a
 libsrc/$(am__dirstamp):
 	@$(MKDIR_P) libsrc
 	@: > libsrc/$(am__dirstamp)
@@ -4341,9 +4363,6 @@ libsrc/lib32_libdinput_a-dinput_mouse.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libdinput_a-dinput_mouse2.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
-lib32/$(am__dirstamp):
-	@$(MKDIR_P) lib32
-	@: > lib32/$(am__dirstamp)
 lib32/libdinput.a: $(lib32_libdinput_a_OBJECTS) $(lib32_libdinput_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libdinput.a
 	$(lib32_libdinput_a_AR) lib32/libdinput.a $(lib32_libdinput_a_OBJECTS) $(lib32_libdinput_a_LIBADD)
@@ -5772,6 +5791,13 @@ lib32/libws2_32.a: $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_DEPENDENCIES
 	-rm -f lib32/libws2_32.a
 	$(lib32_libws2_32_a_AR) lib32/libws2_32.a $(lib32_libws2_32_a_OBJECTS) $(lib32_libws2_32_a_LIBADD)
 	$(RANLIB) lib32/libws2_32.a
+lib64/$(am__dirstamp):
+	@$(MKDIR_P) lib64
+	@: > lib64/$(am__dirstamp)
+lib64/libdelayimp.a: $(lib64_libdelayimp_a_OBJECTS) $(lib64_libdelayimp_a_DEPENDENCIES) lib64/$(am__dirstamp)
+	-rm -f lib64/libdelayimp.a
+	$(lib64_libdelayimp_a_AR) lib64/libdelayimp.a $(lib64_libdelayimp_a_OBJECTS) $(lib64_libdelayimp_a_LIBADD)
+	$(RANLIB) lib64/libdelayimp.a
 libsrc/lib64_libdinput_a-dinput_kbd.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libdinput_a-dinput_joy.$(OBJEXT): libsrc/$(am__dirstamp) \
@@ -5782,9 +5808,6 @@ libsrc/lib64_libdinput_a-dinput_mouse.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libdinput_a-dinput_mouse2.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
-lib64/$(am__dirstamp):
-	@$(MKDIR_P) lib64
-	@: > lib64/$(am__dirstamp)
 lib64/libdinput.a: $(lib64_libdinput_a_OBJECTS) $(lib64_libdinput_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libdinput.a
 	$(lib64_libdinput_a_AR) lib64/libdinput.a $(lib64_libdinput_a_OBJECTS) $(lib64_libdinput_a_LIBADD)

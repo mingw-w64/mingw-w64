@@ -402,6 +402,8 @@ lib32_libws2_32_a_SOURCES = $(src_libws2_32)
 lib32_libws2_32_a_CPPFLAGS=$(CPPFLAGS32)
 lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
+lib32_LIBRARIES += lib32/libdelayimp.a
+lib32_libdelayimp_a_SOURCES =
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
@@ -657,6 +659,8 @@ lib64_libws2_32_a_SOURCES = $(src_libws2_32)
 lib64_libws2_32_a_CPPFLAGS=$(CPPFLAGS64)
 lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
+lib64_LIBRARIES += lib64/libdelayimp.a
+lib64_libdelayimp_a_SOURCES =
 
 lib64_DATA = \
   lib64/libwinusb.a \
