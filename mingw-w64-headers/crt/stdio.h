@@ -201,12 +201,12 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _off_t ftello(FILE * stream);
   _off64_t ftello64(FILE * stream);
 
-#ifndef _FILE_OFFSET_BITS_SET_FSEEKO
-#define _FILE_OFFSET_BITS_SET_FSEEKO
+#ifndef _FILE_OFFSET_BITS_SET_FTELLO
+#define _FILE_OFFSET_BITS_SET_FTELLO
 #if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
 #define ftello ftello64
 #endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
-#endif /* _FILE_OFFSET_BITS_SET_FSEEKO */
+#endif /* _FILE_OFFSET_BITS_SET_FTELLO */
 
   __MINGW_EXTENSION int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
   __MINGW_EXTENSION __int64 __cdecl _ftelli64(FILE *_File);
