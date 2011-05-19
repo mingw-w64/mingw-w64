@@ -110,8 +110,10 @@ libmangle_decode_ms_name (libmangle_gc_context_t *gc, const char *name)
   ctx.pZNameList = &ZNameList;
   ctx.pArgList = &ArgList;
   ctx.pTemplateArgList = &TempArgList;
-  
+
+#if 0  
   fprintf(stderr,"decode_ms_name: %s\n", name);
+#endif
 
   if (name[0] == '?')
     {
