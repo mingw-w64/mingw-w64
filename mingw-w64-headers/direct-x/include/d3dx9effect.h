@@ -140,9 +140,7 @@ DECLARE_INTERFACE_(ID3DXBaseEffect, IUnknown)
     STDMETHOD(GetString)(THIS_ D3DXHANDLE parameter, LPCSTR* string) PURE;
     STDMETHOD(SetTexture)(THIS_ D3DXHANDLE parameter, LPDIRECT3DBASETEXTURE9 texture) PURE;
     STDMETHOD(GetTexture)(THIS_ D3DXHANDLE parameter, LPDIRECT3DBASETEXTURE9* texture) PURE;
-    STDMETHOD(SetPixelShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DPIXELSHADER9 pshader) PURE;
     STDMETHOD(GetPixelShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DPIXELSHADER9* pshader) PURE;
-    STDMETHOD(SetVertexShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DVERTEXSHADER9 vshader) PURE;
     STDMETHOD(GetVertexShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DVERTEXSHADER9* vshader) PURE;
     STDMETHOD(SetArrayRange)(THIS_ D3DXHANDLE parameter, UINT start, UINT end) PURE;
 };
@@ -339,9 +337,7 @@ DECLARE_INTERFACE_(ID3DXEffectCompiler, ID3DXBaseEffect)
     STDMETHOD(GetString)(THIS_ D3DXHANDLE parameter, LPCSTR* string) PURE;
     STDMETHOD(SetTexture)(THIS_ D3DXHANDLE parameter, LPDIRECT3DBASETEXTURE9 texture) PURE;
     STDMETHOD(GetTexture)(THIS_ D3DXHANDLE parameter, LPDIRECT3DBASETEXTURE9* texture) PURE;
-    STDMETHOD(SetPixelShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DPIXELSHADER9 pshader) PURE;
     STDMETHOD(GetPixelShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DPIXELSHADER9* pshader) PURE;
-    STDMETHOD(SetVertexShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DVERTEXSHADER9 vshader) PURE;
     STDMETHOD(GetVertexShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DVERTEXSHADER9* vshader) PURE;
     STDMETHOD(SetArrayRange)(THIS_ D3DXHANDLE parameter, UINT start, UINT end) PURE;
     /*** ID3DXEffectCompiler methods ***/
@@ -349,8 +345,9 @@ DECLARE_INTERFACE_(ID3DXEffectCompiler, ID3DXBaseEffect)
     STDMETHOD(GetLiteral)(THIS_ D3DXHANDLE parameter, BOOL* literal) PURE;
     STDMETHOD(CompileEffect)(THIS_ DWORD flags, LPD3DXBUFFER* effect, LPD3DXBUFFER* error_msgs) PURE;
     STDMETHOD(CompileShader)(THIS_ D3DXHANDLE function, LPCSTR target, DWORD flags, LPD3DXBUFFER* shader,
-        LPD3DXBUFFER* error_msgs, LPD3DXCONSTANTTABLE* constant_table) PURE;
+            LPD3DXBUFFER* error_msgs, LPD3DXCONSTANTTABLE* constant_table) PURE;
 };
+#undef INTERFACE
 
 #ifdef __cplusplus
 extern "C" {
