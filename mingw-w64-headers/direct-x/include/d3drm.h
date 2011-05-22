@@ -26,6 +26,9 @@ typedef struct IDirect3DRM *LPDIRECT3DRM;
 
 #include <d3drmobj.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Direct3DRM Object CLSID */
 DEFINE_GUID(CLSID_CDirect3DRM,              0x4516ec41, 0x8f20, 0x11d0, 0x9b, 0x6d, 0x00, 0x00, 0xc0, 0x78, 0x1b, 0xc3);
@@ -155,7 +158,7 @@ DECLARE_INTERFACE_(IDirect3DRM,IUnknown)
 #define IDirect3DRM_CreateTextureFromSurface(p,a,b)               (p)->CreateTextureFromSurface(a,b)
 #define IDirect3DRM_CreateShadow(p,a,b,c,d,e,f,g,h,i)             (p)->CreateShadow(a,b,c,d,e,f,g,h,i)
 #define IDirect3DRM_CreateViewport(p,a,b,c,d,e,f,g)               (p)->CreateViewport(a,b,c,d,e,f,g)
-#define IDirect3DRM_CreateWrap(p,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p) (p)->CreateWrap(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p)
+#define IDirect3DRM_CreateWrap(p,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,q) (p)->CreateWrap(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,q)
 #define IDirect3DRM_CreateUserVisual(p,a,b,c)                     (p)->CreateUserVisual(a,b,c)
 #define IDirect3DRM_LoadTexture(p,a,b)                            (p)->LoadTexture(a,b)
 #define IDirect3DRM_LoadTextureFromResource(p,a,b)                (p)->LoadTextureFromResource(a,b)
@@ -291,10 +294,10 @@ DECLARE_INTERFACE_(IDirect3DRM2,IUnknown)
 #define IDirect3DRM2_CreateTextureFromSurface(p,a,b)               (p)->CreateTextureFromSurface(a,b)
 #define IDirect3DRM2_CreateShadow(p,a,b,c,d,e,f,g,h,i)             (p)->CreateShadow(a,b,c,d,e,f,g,h,i)
 #define IDirect3DRM2_CreateViewport(p,a,b,c,d,e,f,g)               (p)->CreateViewport(a,b,c,d,e,f,g)
-#define IDirect3DRM2_CreateWrap(p,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p) (p)->CreateWrap(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p)
+#define IDirect3DRM2_CreateWrap(p,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,q) (p)->CreateWrap(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,q)
 #define IDirect3DRM2_CreateUserVisual(p,a,b,c)                     (p)->CreateUserVisual(a,b,c)
 #define IDirect3DRM2_LoadTexture(p,a,b)                            (p)->LoadTexture(a,b)
-#define IDirect3DRM2_LoadTextureFromResource(p,a,b)                (p)->LoadTextureFromResource(a,b)
+#define IDirect3DRM2_LoadTextureFromResource(p,a,b,c,d)            (p)->LoadTextureFromResource(a,b,c,d)
 #define IDirect3DRM2_SetSearchPath(p,a)                            (p)->SetSearchPath(a)
 #define IDirect3DRM2_AddSearchPath(p,a)                            (p)->AddSearchPath(a)
 #define IDirect3DRM2_GetSearchPath(p,a,b)                          (p)->GetSearchPath(a,b)
@@ -438,7 +441,7 @@ DECLARE_INTERFACE_(IDirect3DRM3,IUnknown)
 #define IDirect3DRM3_CreateTextureFromSurface(p,a,b)               (p)->CreateTextureFromSurface(a,b)
 #define IDirect3DRM3_CreateShadow(p,a,b,c,d,e,f,g,h,i)             (p)->CreateShadow(a,b,c,d,e,f,g,h,i)
 #define IDirect3DRM3_CreateViewport(p,a,b,c,d,e,f,g)               (p)->CreateViewport(a,b,c,d,e,f,g)
-#define IDirect3DRM3_CreateWrap(p,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p) (p)->CreateWrap(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p)
+#define IDirect3DRM3_CreateWrap(p,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,q) (p)->CreateWrap(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,q)
 #define IDirect3DRM3_CreateUserVisual(p,a,b,c)                     (p)->CreateUserVisual(a,b,c)
 #define IDirect3DRM3_LoadTexture(p,a,b)                            (p)->LoadTexture(a,b)
 #define IDirect3DRM3_LoadTextureFromResource(p,a,b,c,d)            (p)->LoadTextureFromResource(a,b,c,d)
@@ -493,5 +496,9 @@ DECLARE_INTERFACE_(IDirect3DRM3,IUnknown)
 #define D3DRMERR_ELEMENTINUSE           MAKE_DDHRESULT(810)
 #define D3DRMERR_TEXTUREFORMATNOTFOUND  MAKE_DDHRESULT(811)
 #define D3DRMERR_NOTAGGREGATED          MAKE_DDHRESULT(812)
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __D3DRM_H__ */
