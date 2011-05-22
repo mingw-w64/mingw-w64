@@ -28,7 +28,7 @@ typedef interface IDirectDrawStreamSample IDirectDrawStreamSample;
 #endif
 
 
-#ifndef __WINE_DDRAW_H
+#ifndef __DDRAW_INCLUDED__
 typedef void *LPDDSURFACEDESC;
 typedef struct tDDSURFACEDESC DDSURFACEDESC;
 #ifndef __IDirectDraw_FWD_DEFINED__
