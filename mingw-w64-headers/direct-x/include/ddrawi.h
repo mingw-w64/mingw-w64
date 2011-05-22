@@ -19,8 +19,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
-#ifndef __WINE_DDRAWI_H
-#define __WINE_DDRAWI_H
+#ifndef __DDRAWI_INCLUDED__
+#define __DDRAWI_INCLUDED__
 
 #include <_mingw_dxhelper.h>
 #include <ddraw.h>
@@ -1062,4 +1062,4 @@ typedef struct _DDRAWI_DDRAWPALETTE_LCL {
 } /* extern "C" */
 #endif
 
-#endif /* __WINE_DDRAWI_H */
+#endif /* __DDRAWI_INCLUDED__ */
