@@ -1,14 +1,21 @@
+2011-05-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ctype.h (__mb_cur_max):  Define as __mb_cur_max for the _MSVCRT_
+	special case.
+	* stdlib.h: Remove the duplicated and typographically erroneous
+	__mbcur_max macros. Make the entries identical to the ctype.h
+	counterparts.
+	(__mb_cur_max): Define as __mb_cur_max for the _MSVCRT_ special case.
+
 2011-05-12  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* stdio.h (ftello64): Fix longstanding typo that caused define to be
-          shadowed. Patch by Komisar (http://komisar.gin.by/).
-
+	shadowed. Patch by Komisar (http://komisar.gin.by/).
 
 2011-05-05  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* stdlib.h (swab): Use define guards.
 	* unistd.h (swab): Copy from stdlib.h as per POSIX spec.
-
 
 2011-03-25  Kai Tietz  <ktietz70@googlemail.com>
 
