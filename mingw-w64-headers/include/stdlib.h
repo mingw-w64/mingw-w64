@@ -96,18 +96,13 @@ extern "C" {
 #ifndef __mb_cur_max
 #ifdef _MSVCRT_
   extern int __mb_cur_max;
+#define __mb_cur_max	__mb_cur_max
 #else
   extern int * __MINGW_IMP_SYMBOL(__mb_cur_max);
 #define __mb_cur_max	(* __MINGW_IMP_SYMBOL(__mb_cur_max))
 #endif
 #endif
-#ifdef _MSVCRT_
-  extern int __mbcur_max;
 #define ___mb_cur_max_func() (__mb_cur_max)
-#else
-  extern int* __MINGW_IMP_SYMBOL(__mbcur_max);
-#define ___mb_cur_max_func() (* __MINGW_IMP_SYMBOL(__mb_cur_max))
-#endif
 #endif
 
 #define __max(a,b) (((a) > (b)) ? (a) : (b))
