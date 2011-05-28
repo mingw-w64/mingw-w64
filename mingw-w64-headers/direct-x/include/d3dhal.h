@@ -19,8 +19,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
-#ifndef _D3DHAL_H_
-#define _D3DHAL_H_
+#ifndef __WINE_D3DHAL_H
+#define __WINE_D3DHAL_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -520,4 +520,4 @@ typedef struct _D3DHAL_DP2SETTEXLOD {
 } /* extern "C" */
 #endif
 
-#endif /* _D3DHAL_H_ */
+#endif /* __WINE_D3DHAL_H */
