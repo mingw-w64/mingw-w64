@@ -480,7 +480,7 @@ struct _DMUS_TEMPO_PARAM {
 struct _DMUS_MUTE_PARAM {
 	DWORD dwPChannel;
 	DWORD dwPChannelMap;
-	BOOL  fMute;
+	WINBOOL  fMute;
 };
 
 #pragma pack(2)
@@ -654,7 +654,7 @@ struct _DMUS_IO_BUFFER_ATTRIBUTES_HEADER {
 };
 
 struct _DMUS_IO_BAND_TRACK_HEADER {
-	BOOL bAutoDownload;
+	WINBOOL bAutoDownload;
 };
 
 struct _DMUS_IO_BAND_ITEM_HEADER {

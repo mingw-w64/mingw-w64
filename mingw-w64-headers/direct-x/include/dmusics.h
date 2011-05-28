@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  *  DirectMusic Software Synth Definitions
  *
@@ -64,7 +65,7 @@ typedef struct _DMUS_VOICE_STATE DMUS_VOICE_STATE, *LPDMUS_VOICE_STATE;
 
 /* actual structure */
 struct _DMUS_VOICE_STATE {
-	BOOL            bExists;
+	WINBOOL         bExists;
 	SAMPLE_POSITION spPosition;
 }; 
 #endif /* _DMUS_VOICE_STATE_DEFINED */
@@ -91,7 +92,7 @@ DECLARE_INTERFACE_(IDirectMusicSynth,IUnknown)
     STDMETHOD(GetPortCaps)(THIS_ LPDMUS_PORTCAPS pCaps) PURE;
     STDMETHOD(SetMasterClock)(THIS_ IReferenceClock *pClock) PURE;
     STDMETHOD(GetLatencyClock)(THIS_ IReferenceClock **ppClock) PURE;
-    STDMETHOD(Activate)(THIS_ BOOL fEnable) PURE;
+    STDMETHOD(Activate)(THIS_ WINBOOL fEnable) PURE;
     STDMETHOD(SetSynthSink)(THIS_ struct IDirectMusicSynthSink *pSynthSink) PURE;
     STDMETHOD(Render)(THIS_ short *pBuffer, DWORD dwLength, LONGLONG llPosition) PURE;
     STDMETHOD(SetChannelPriority)(THIS_ DWORD dwChannelGroup, DWORD dwChannel, DWORD dwPriority) PURE;
@@ -148,7 +149,7 @@ DECLARE_INTERFACE_(IDirectMusicSynth8,IDirectMusicSynth)
     STDMETHOD(GetPortCaps)(THIS_ LPDMUS_PORTCAPS pCaps) PURE;
     STDMETHOD(SetMasterClock)(THIS_ IReferenceClock *pClock) PURE;
     STDMETHOD(GetLatencyClock)(THIS_ IReferenceClock **ppClock) PURE;
-    STDMETHOD(Activate)(THIS_ BOOL fEnable) PURE;
+    STDMETHOD(Activate)(THIS_ WINBOOL fEnable) PURE;
     STDMETHOD(SetSynthSink)(THIS_ struct IDirectMusicSynthSink *pSynthSink) PURE;
     STDMETHOD(Render)(THIS_ short *pBuffer, DWORD dwLength, LONGLONG llPosition) PURE;
     STDMETHOD(SetChannelPriority)(THIS_ DWORD dwChannelGroup, DWORD dwChannel, DWORD dwPriority) PURE;
@@ -210,7 +211,7 @@ DECLARE_INTERFACE_(IDirectMusicSynthSink,IUnknown)
     STDMETHOD(Init)(THIS_ IDirectMusicSynth *pSynth) PURE;
     STDMETHOD(SetMasterClock)(THIS_ IReferenceClock *pClock) PURE;
     STDMETHOD(GetLatencyClock)(THIS_ IReferenceClock **ppClock) PURE;
-    STDMETHOD(Activate)(THIS_ BOOL fEnable) PURE;
+    STDMETHOD(Activate)(THIS_ WINBOOL fEnable) PURE;
     STDMETHOD(SampleToRefTime)(THIS_ LONGLONG llSampleTime, REFERENCE_TIME *prfTime) PURE;
     STDMETHOD(RefTimeToSample)(THIS_ REFERENCE_TIME rfTime, LONGLONG *pllSampleTime) PURE;
     STDMETHOD(SetDirectSound)(THIS_ LPDIRECTSOUND pDirectSound, LPDIRECTSOUNDBUFFER pDirectSoundBuffer) PURE;

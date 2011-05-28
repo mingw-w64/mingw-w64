@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright (C) 2006 Maarten Lankhorst
  *

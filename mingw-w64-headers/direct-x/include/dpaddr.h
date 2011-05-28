@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright (C) 2003-2005 Raphael Junqueira
  *

@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright 2004 Christian Costa
  *

@@ -196,7 +196,7 @@ typedef struct _D3DDeviceDesc {
         D3DCOLORMODEL   dcmColorModel;
         DWORD           dwDevCaps;
         D3DTRANSFORMCAPS dtcTransformCaps;
-        BOOL            bClipping;
+        WINBOOL         bClipping;
         D3DLIGHTINGCAPS dlcLightingCaps;
         D3DPRIMCAPS     dpcLineCaps;
         D3DPRIMCAPS     dpcTriCaps;
@@ -370,7 +370,7 @@ typedef HRESULT (CALLBACK *LPD3DENUMDEVICESCALLBACK7)(LPSTR lpDeviceDescription,
 typedef struct _D3DFINDDEVICESEARCH {
     DWORD               dwSize;
     DWORD               dwFlags;
-    BOOL                bHardware;
+    WINBOOL             bHardware;
     D3DCOLORMODEL       dcmColorModel;
     GUID                guid;
     DWORD               dwCaps;
@@ -401,7 +401,7 @@ typedef struct _D3DExecuteBufferDesc {
 #define D3DDEBCAPS_MEM          (D3DDEBCAPS_SYSTEMMEMORY|D3DDEBCAPS_VIDEOMEMORY) /* = 0x3 */
 
 typedef struct _D3DDEVINFO_TEXTUREMANAGER {
-	BOOL    bThrashing;
+	WINBOOL bThrashing;
 	DWORD   dwApproxBytesDownloaded;
 	DWORD   dwNumEvicts;
 	DWORD   dwNumVidCreates;

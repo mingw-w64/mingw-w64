@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright (C) the Wine project
  *
@@ -1323,8 +1324,8 @@ DECLARE_INTERFACE_(IDirect3DDevice7,IUnknown)
     STDMETHOD(DeleteStateBlock)(THIS_ DWORD dwBlockHandle) PURE;
     STDMETHOD(CreateStateBlock)(THIS_ D3DSTATEBLOCKTYPE d3dsbType,LPDWORD lpdwBlockHandle) PURE;
     STDMETHOD(Load)(THIS_ LPDIRECTDRAWSURFACE7 lpDestTex,LPPOINT lpDestPoint,LPDIRECTDRAWSURFACE7 lpSrcTex,LPRECT lprcSrcRect,DWORD dwFlags) PURE;
-    STDMETHOD(LightEnable)(THIS_ DWORD dwLightIndex,BOOL bEnable) PURE;
-    STDMETHOD(GetLightEnable)(THIS_ DWORD dwLightIndex,BOOL *pbEnable) PURE;
+    STDMETHOD(LightEnable)(THIS_ DWORD dwLightIndex,WINBOOL bEnable) PURE;
+    STDMETHOD(GetLightEnable)(THIS_ DWORD dwLightIndex,WINBOOL *pbEnable) PURE;
     STDMETHOD(SetClipPlane)(THIS_ DWORD dwIndex,D3DVALUE *pPlaneEquation) PURE;
     STDMETHOD(GetClipPlane)(THIS_ DWORD dwIndex,D3DVALUE *pPlaneEquation) PURE;
     STDMETHOD(GetInfo)(THIS_ DWORD dwDevInfoID,LPVOID pDevInfoStruct,DWORD dwSize) PURE;

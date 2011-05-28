@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright (C) 2003-2005 Raphael Junqueira
  *
@@ -155,7 +156,7 @@ DECLARE_INTERFACE_(IDirectPlay8LobbiedApplication,IUnknown)
     STDMETHOD(RegisterProgram)(THIS_ PDPL_PROGRAM_DESC pdplProgramDesc, CONST DWORD dwFlags) PURE;
     STDMETHOD(UnRegisterProgram)(THIS_ GUID* pguidApplication, CONST DWORD dwFlags) PURE;
     STDMETHOD(Send)(THIS_ CONST DPNHANDLE hConnection, BYTE* CONST pBuffer, CONST DWORD pBufferSize, CONST DWORD dwFlags) PURE;
-    STDMETHOD(SetAppAvailable)(THIS_ CONST BOOL fAvailable, CONST DWORD dwFlags) PURE;
+    STDMETHOD(SetAppAvailable)(THIS_ CONST WINBOOL fAvailable, CONST DWORD dwFlags) PURE;
     STDMETHOD(UpdateStatus)(THIS_ CONST DPNHANDLE hConnection, CONST DWORD dwStatus, CONST DWORD dwFlags) PURE;
     STDMETHOD(Close)(THIS_ CONST DWORD dwFlags) PURE;
     STDMETHOD(GetConnectionSettings)(THIS_ CONST DPNHANDLE hConnection, DPL_CONNECTION_SETTINGS* CONST pdplSessionInfo, DWORD* pdwInfoSize, CONST DWORD dwFlags) PURE;

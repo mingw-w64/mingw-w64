@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright (C) 2005 Peter Berg Larsen
  * Copyright (C) 2010 Christian Costa
@@ -22,7 +23,7 @@
 
 #include <ddraw.h>
 
-typedef struct IDirect3DRM *LPDIRECT3DRM;
+typedef struct IDirect3DRM *LPDIRECT3DRM, **LPLPDIRECT3DRM;
 
 #include <d3drmobj.h>
 
@@ -37,6 +38,9 @@ DEFINE_GUID(CLSID_CDirect3DRM,              0x4516ec41, 0x8f20, 0x11d0, 0x9b, 0x
 DEFINE_GUID(IID_IDirect3DRM,                0x2bc49361, 0x8327, 0x11cf, 0xac, 0x4a, 0x0, 0x0, 0xc0, 0x38, 0x25, 0xa1);
 DEFINE_GUID(IID_IDirect3DRM2,               0x4516ecc8, 0x8f20, 0x11d0, 0x9b, 0x6d, 0x00, 0x00, 0xc0, 0x78, 0x1b, 0xc3);
 DEFINE_GUID(IID_IDirect3DRM3,               0x4516ec83, 0x8f20, 0x11d0, 0x9b, 0x6d, 0x00, 0x00, 0xc0, 0x78, 0x1b, 0xc3);
+
+typedef struct IDirect3DRM2 *LPDIRECT3DRM2, **LPLPDIRECT3DRM2;
+typedef struct IDirect3DRM3 *LPDIRECT3DRM3, **LPLPDIRECT3DRM3;
 
 HRESULT WINAPI Direct3DRMCreate(LPDIRECT3DRM* ppDirect3DRM);
 

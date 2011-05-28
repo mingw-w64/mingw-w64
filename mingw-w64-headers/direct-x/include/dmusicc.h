@@ -1,3 +1,4 @@
+#undef INTERFACE
 /* DirectMusic Core API Stuff
  *
  * Copyright (C) 2003-2004 Rok Mandeljc
@@ -307,7 +308,7 @@ struct _DMUS_PORTPARAMS {
 	DWORD dwAudioChannels;
 	DWORD dwSampleRate;
 	DWORD dwEffectFlags;
-	BOOL  fShare;
+	WINBOOL  fShare;
 };
 
 struct _DMUS_PORTPARAMS8 {
@@ -318,7 +319,7 @@ struct _DMUS_PORTPARAMS8 {
 	DWORD dwAudioChannels;
 	DWORD dwSampleRate;
 	DWORD dwEffectFlags;
-	BOOL  fShare;
+	WINBOOL  fShare;
 	DWORD dwFeatures;
 };
 
@@ -385,7 +386,7 @@ DECLARE_INTERFACE_(IDirectMusic,IUnknown)
     STDMETHOD(EnumMasterClock)(THIS_ DWORD dwIndex, LPDMUS_CLOCKINFO lpClockInfo) PURE;
     STDMETHOD(GetMasterClock)(THIS_ LPGUID pguidClock, struct IReferenceClock **ppReferenceClock) PURE;
     STDMETHOD(SetMasterClock)(THIS_ REFGUID rguidClock) PURE;
-    STDMETHOD(Activate)(THIS_ BOOL fEnable) PURE;
+    STDMETHOD(Activate)(THIS_ WINBOOL fEnable) PURE;
     STDMETHOD(GetDefaultPort)(THIS_ LPGUID pguidPort) PURE;
     STDMETHOD(SetDirectSound)(THIS_ LPDIRECTSOUND pDirectSound, HWND hWnd) PURE;
 };
@@ -426,7 +427,7 @@ DECLARE_INTERFACE_(IDirectMusic8,IDirectMusic)
     STDMETHOD(EnumMasterClock)(THIS_ DWORD dwIndex, LPDMUS_CLOCKINFO lpClockInfo) PURE;
     STDMETHOD(GetMasterClock)(THIS_ LPGUID pguidClock, struct IReferenceClock **ppReferenceClock) PURE;
     STDMETHOD(SetMasterClock)(THIS_ REFGUID rguidClock) PURE;
-    STDMETHOD(Activate)(THIS_ BOOL fEnable) PURE;
+    STDMETHOD(Activate)(THIS_ WINBOOL fEnable) PURE;
     STDMETHOD(GetDefaultPort)(THIS_ LPGUID pguidPort) PURE;
     STDMETHOD(SetDirectSound)(THIS_ LPDIRECTSOUND pDirectSound, HWND hWnd) PURE;
     /*** IDirectMusic8 methods ***/
@@ -664,7 +665,7 @@ DECLARE_INTERFACE_(IDirectMusicPort,IUnknown)
     STDMETHOD(DeviceIoControl)(THIS_ DWORD dwIoControlCode, LPVOID lpInBuffer, DWORD nInBufferSize, LPVOID lpOutBuffer, DWORD nOutBufferSize, LPDWORD lpBytesReturned, LPOVERLAPPED lpOverlapped) PURE;
     STDMETHOD(SetNumChannelGroups)(THIS_ DWORD dwChannelGroups) PURE;
     STDMETHOD(GetNumChannelGroups)(THIS_ LPDWORD pdwChannelGroups) PURE;
-    STDMETHOD(Activate)(THIS_ BOOL fActive) PURE;
+    STDMETHOD(Activate)(THIS_ WINBOOL fActive) PURE;
     STDMETHOD(SetChannelPriority)(THIS_ DWORD dwChannelGroup, DWORD dwChannel, DWORD dwPriority) PURE;
     STDMETHOD(GetChannelPriority)(THIS_ DWORD dwChannelGroup, DWORD dwChannel, LPDWORD pdwPriority) PURE;
     STDMETHOD(SetDirectSound)(THIS_ LPDIRECTSOUND pDirectSound, LPDIRECTSOUNDBUFFER pDirectSoundBuffer) PURE;

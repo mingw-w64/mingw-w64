@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  * Copyright (C) 2004 Raphael Junqueira
  *
@@ -45,7 +46,7 @@ extern "C" {
 typedef struct _DXDIAG_INIT_PARAMS {
   DWORD  dwSize;
   DWORD  dwDxDiagHeaderVersion;
-  BOOL   bAllowWHQLChecks;
+  WINBOOL   bAllowWHQLChecks;
   VOID*  pReserved;
 } DXDIAG_INIT_PARAMS;
 

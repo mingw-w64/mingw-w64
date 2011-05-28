@@ -1,3 +1,4 @@
+#undef INTERFACE
 /*
  *  DirectMusic Performance Layer Plugins API
  *
