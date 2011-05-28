@@ -1341,7 +1341,17 @@ typedef struct _SYMSRV_INDEX_INFOW {
     ThreadExCallback,
     IncludeThreadCallback,
     IncludeModuleCallback,
-    MemoryCallback
+    MemoryCallback,
+    CancelCallback,
+    WriteKernelMinidumpCallback,
+    KernelMinidumpStatusCallback,
+    RemoveMemoryCallback,
+    IncludeVmRegionCallback,
+    IoStartCallback,
+    IoWriteAllCallback,
+    IoFinishCallback,
+    ReadMemoryFailureCallback,
+    SecondaryFlagsCallback
   } MINIDUMP_CALLBACK_TYPE;
 
   typedef struct _MINIDUMP_THREAD_CALLBACK {
