@@ -89,6 +89,40 @@ _FindPESectionByName (const char *pName)
   return NULL;
 }
 
+int __mingw_GetSectionCount (void);
+PIMAGE_SECTION_HEADER __mingw_GetSectionForAddress (LPVOID p);
+
+PIMAGE_SECTION_HEADER
+__mingw_GetSectionForAddress (LPVOID p)
+{
+  PBYTE pImageBase;
+  DWORD_PTR rva;
+
+  pImageBase = (PBYTE) &__ImageBase;
+  if (! _ValidateImageBase (pImageBase))
+    return NULL;
+  rva = (DWORD_PTR) (((PBYTE) p) - pImageBase);
+  return _FindPESection (pImageBase, rva);
+}
+
+int
+__mingw_GetSectionCount (void)
+{
+  PBYTE pImageBase;
+  PIMAGE_NT_HEADERS pNTHeader;
+  PIMAGE_SECTION_HEADER pSection;
+  unsigned int iSection;
+
+  pImageBase = (PBYTE) &__ImageBase;
+  if (! _ValidateImageBase (pImageBase))
+    return 0;
+
+  pNTHeader = (PIMAGE_NT_HEADERS) (pImageBase + ((PIMAGE_DOS_HEADER) pImageBase)->e_lfanew);
+
+  return (int) pNTHeader->FileHeader.NumberOfSections;
+}
+
+
 PIMAGE_SECTION_HEADER _FindPESectionExec (size_t);
 
 PIMAGE_SECTION_HEADER
