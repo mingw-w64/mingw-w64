@@ -101,6 +101,7 @@ __mingw_GetSectionForAddress (LPVOID p)
   pImageBase = (PBYTE) &__ImageBase;
   if (! _ValidateImageBase (pImageBase))
     return NULL;
+
   rva = (DWORD_PTR) (((PBYTE) p) - pImageBase);
   return _FindPESection (pImageBase, rva);
 }
@@ -110,8 +111,6 @@ __mingw_GetSectionCount (void)
 {
   PBYTE pImageBase;
   PIMAGE_NT_HEADERS pNTHeader;
-  PIMAGE_SECTION_HEADER pSection;
-  unsigned int iSection;
 
   pImageBase = (PBYTE) &__ImageBase;
   if (! _ValidateImageBase (pImageBase))

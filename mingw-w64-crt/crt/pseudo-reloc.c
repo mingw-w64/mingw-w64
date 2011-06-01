@@ -234,7 +234,7 @@ restore_modified_sections (void)
     }
 }
 
-#endif
+#endif /* __MINGW64_VERSION_MAJOR */
 
 /* This function temporarily marks the page containing addr
  * writable, before copying len bytes from *src to *addr, and
@@ -255,7 +255,7 @@ __write_memory (void *addr, const void *src, size_t len)
 #ifndef __MINGW64_VERSION_MAJOR
   MEMORY_BASIC_INFORMATION b;
   DWORD oldprot;
-#endif
+#endif /* ! __MINGW64_VERSION_MAJOR */
 
   if (!len)
     return;
@@ -271,9 +271,9 @@ __write_memory (void *addr, const void *src, size_t len)
   if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
     VirtualProtect (b.BaseAddress, b.RegionSize, PAGE_EXECUTE_READWRITE,
 		    &oldprot);
-#else
+#else /* ! __MINGW64_VERSION_MAJOR */
   mark_section_writable ((LPVOID) addr);
-#endif
+#endif  /* __MINGW64_VERSION_MAJOR */
 
   /* write the data. */
   memcpy (addr, src, len);
@@ -281,7 +281,7 @@ __write_memory (void *addr, const void *src, size_t len)
 #ifndef __MINGW64_VERSION_MAJOR
   if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
     VirtualProtect (b.BaseAddress, b.RegionSize, oldprot, &oldprot);
-#endif
+#endif /* !__MINGW64_VERSION_MAJOR */
 }
 
 #define RP_VERSION_V1 0
@@ -450,7 +450,7 @@ _pei386_runtime_relocator (void)
   static NO_COPY int was_init = 0;
 #ifdef __MINGW64_VERSION_MAJOR
   int mSecs;
-#endif
+#endif /* __MINGW64_VERSION_MAJOR */
 
   if (was_init)
     return;
@@ -459,12 +459,12 @@ _pei386_runtime_relocator (void)
   mSecs = __mingw_GetSectionCount ();
   the_secs = (sSecInfo *) alloca (sizeof (sSecInfo) * (size_t) mSecs);
   maxSections = 0;
-#endif
+#endif /* __MINGW64_VERSION_MAJOR */
 
   do_pseudo_reloc (&__RUNTIME_PSEUDO_RELOC_LIST__,
 		   &__RUNTIME_PSEUDO_RELOC_LIST_END__,
 		   &__MINGW_LSYMBOL(_image_base__));
 #ifdef __MINGW64_VERSION_MAJOR
   restore_modified_sections ();
-#endif
+#endif /* __MINGW64_VERSION_MAJOR */
 }
