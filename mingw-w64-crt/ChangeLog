@@ -1,3 +1,10 @@
+2011-06-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	Merged from trunk rev. 4186:
+	* crt/pesect.c, crt/pseudo-reloc.c: Optimize pseudo-relocation
+	code and prevent multiple temporary write-access settings on same
+	section.
+
 2011-05-05  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/winscard.def: New, merged from trunk.
