@@ -30,7 +30,7 @@ struct tcp_keepalive {
 #define RCVALL_ON 1
 #define RCVALL_SOCKETLEVELONLY 2
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (_WIN32_WINNT >= 0x0502)
 #define SOCKET_SETTINGS_GUARANTEE_ENCRYPTION 0x00000001
 #define SOCKET_SETTINGS_ALLOW_INSECURE 0x00000002
 
@@ -189,7 +189,7 @@ LONG NTAPI RtlIpv6StringToAddressExW(
   PUSHORT Port
 );
 
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(_WIN32_WINNT >= 0x0502)*/
 
 #endif /* _MSTCPIP_ */
 

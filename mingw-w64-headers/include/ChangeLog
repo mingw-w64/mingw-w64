@@ -1,3 +1,7 @@
+2011-06-02  Dongsheng Song  <dongsheng.song@gmail.com>
+
+	* mstcpip.h: Mark declarations available on XP SP3 and above.
+
 2011-04-27  Jose Fonseca  <jrfonseca@users.sourceforge.net>
 
 	* wingdi.h (WINGDIAPI): When _GDI32_ is defined, define as nothing.
