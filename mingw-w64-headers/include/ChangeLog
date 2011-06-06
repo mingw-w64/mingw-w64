@@ -1,3 +1,43 @@
+2011-06-06  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* winnt.h (SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION): Define.
+	* winbase.h (GetNumaNodeNumberFromHandle): Define.
+	(GetProcessGroupAffinity): Likewise.
+	(GetProcessorSystemCycleTime): Likewise.
+	(GetThreadErrorMode): Likewise.
+	(GetThreadGroupAffinity): Likewise.
+	(GetThreadIdealProcessorEx): Likewise.
+	(GetActiveProcessorCount): Likewise.
+	(GetActiveProcessorGroupCount): Likewise.
+	(GetCurrentProcessorNumberEx): Likewise.
+	(GetMaximumProcessorCount): Likewise.
+	(GetMaximumProcessorGroupCount): Likewise.
+	(GetCurrentUmsThread): Likewise.
+	* winnls.h (VerifyScripts): Make WINAPI.
+	(GetProcessPreferredUILanguages): Define.
+	* virtdisk.h (VIRTDISKAPI): Define.
+	(AttachVirtualDisk): Make DLLIMPORT.
+	(CompactVirtualDisk): Likewise.
+	(CreateVirtualDisk): Likewise.
+	(DetachVirtualDisk): Likewise.
+	(ExpandVirtualDisk): Likewise.
+	(GetStorageDependencyInformation): Likewise.
+	(GetVirtualDiskInformation): Likewise.
+	(GetVirtualDiskOperationProgress): Likewise.
+	(MergeVirtualDisk): Likewise.
+	(OpenVirtualDisk): Likewise.
+	(SetVirtualDiskInformation): Likewise.
+	* winuser.h (CreateDesktopExA): Make DLLIMPORT.
+	(CreateDesktopExW): Likewise.
+	(ShutdownBlockReasonCreate): Likewise.
+	(ShutdownBlockReasonDestroy): Likewise.
+	(ShutdownBlockReasonQuery): Likewise.
+	(SetGestureConfig): Likewise.
+	(GetGestureConfig): Likewise.
+	(GetGestureInfo): Likewise.
+	(GetGestureExtraArgs): Likewise.
+	(CloseGestureInfoHandle): Likewise.
+
 2011-06-02  Dongsheng Song  <dongsheng.song@gmail.com>
 
 	* mstcpip.h: Mark declarations available on XP SP3 and above.

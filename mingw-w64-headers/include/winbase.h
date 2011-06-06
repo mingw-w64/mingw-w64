@@ -3849,6 +3849,11 @@ WINBASEAPI WINBOOL WINAPI GetNumaAvailableMemoryNodeEx(
   PULONGLONG AvailableBytes
 );
 
+WINBASEAPI WINBOOL WINAPI GetNumaNodeNumberFromHandle(
+  HANDLE hFile,
+  PUSHORT NodeNumber
+);
+
 WINBASEAPI WINBOOL WINAPI GetNumaNodeProcessorMaskEx(
   USHORT Node,
   PGROUP_AFFINITY ProcessorMask
@@ -3862,6 +3867,30 @@ WINBASEAPI WINBOOL WINAPI GetNumaProcessorNodeEx(
 WINBASEAPI WINBOOL WINAPI GetNumaProximityNodeEx(
   ULONG ProximityId,
   PUSHORT NodeNumber
+);
+
+WINBASEAPI WINBOOL WINAPI GetProcessGroupAffinity(
+  HANDLE hProcess,
+  PUSHORT GroupCount,
+  PUSHORT GroupArray
+);
+
+WINBASEAPI WINBOOL WINAPI GetProcessorSystemCycleTime(
+  USHORT Group,
+  PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION Buffer,
+  PDWORD ReturnedLength
+);
+
+WINBASEAPI DWORD WINAPI GetThreadErrorMode(void);
+
+WINBASEAPI DWORD WINAPI GetThreadGroupAffinity(
+  HANDLE hThread,
+  PGROUP_AFFINITY GroupAffinity
+);
+
+WINBASEAPI WINBOOL WINAPI GetThreadIdealProcessorEx(
+  HANDLE hThread,
+  PPROCESSOR_NUMBER lpIdealProcessor
 );
 
 WINBASEAPI HANDLE WINAPI CreateRemoteThreadEx(
@@ -3889,6 +3918,22 @@ WINBASEAPI WINBOOL WINAPI AddConditionalAce(
   PWCHAR ConditionStr,
   DWORD *ReturnLength
 );
+
+WINBASEAPI DWORD WINAPI GetActiveProcessorCount(
+  WORD GroupNumber
+);
+
+WINBASEAPI WORD WINAPI GetActiveProcessorGroupCount(void);
+
+WINBASEAPI VOID WINAPI GetCurrentProcessorNumberEx(
+  PPROCESSOR_NUMBER ProcNumber
+);
+
+WINBASEAPI DWORD WINAPI GetMaximumProcessorCount(
+  WORD GroupNumber
+);
+
+WINBASEAPI WORD WINAPI GetMaximumProcessorGroupCount(void);
 
 #ifdef _WIN64
 typedef struct _UMS_COMPLETION_LIST *PUMS_COMPLETION_LIST;
@@ -3981,6 +4026,9 @@ WINBASEAPI WINBOOL UmsThreadYield(
 WINBASEAPI PUMS_CONTEXT GetNextUmsListItem(
   PUMS_CONTEXT UmsContext
 );
+
+WINBASEAPI PUMS_CONTEXT GetCurrentUmsThread(void);
+
 
 #endif /* _WIN64 */
 #endif /*(_WIN32_WINNT >= 0x0601)*/

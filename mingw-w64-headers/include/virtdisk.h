@@ -11,6 +11,8 @@
 extern "C" {
 #endif
 
+#define VIRTDISKAPI DECLSPEC_IMPORT
+
 typedef enum _ATTACH_VIRTUAL_DISK_FLAG {
   ATTACH_VIRTUAL_DISK_FLAG_NONE                 = 0x00000000,
   ATTACH_VIRTUAL_DISK_FLAG_READ_ONLY            = 0x00000001,
@@ -266,7 +268,7 @@ typedef struct _VIRTUAL_DISK_PROGRESS {
 
 DEFINE_GUID(VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT,0xEC984AEC,0xA0F9,0x47e9,0x90,0x1F,0x71,0x41,0x5A,0x66,0x34,0x5B);
 
-DWORD WINAPI AttachVirtualDisk(
+VIRTDISKAPI DWORD WINAPI AttachVirtualDisk(
   HANDLE VirtualDiskHandle,
   PSECURITY_DESCRIPTOR SecurityDescriptor,
   ATTACH_VIRTUAL_DISK_FLAG Flags,
@@ -275,14 +277,14 @@ DWORD WINAPI AttachVirtualDisk(
   LPOVERLAPPED Overlapped
 );
 
-DWORD WINAPI CompactVirtualDisk(
+VIRTDISKAPI DWORD WINAPI CompactVirtualDisk(
   HANDLE VirtualDiskHandle,
   COMPACT_VIRTUAL_DISK_FLAG Flags,
   PCOMPACT_VIRTUAL_DISK_PARAMETERS Parameters,
   LPOVERLAPPED Overlapped
 );
 
-DWORD WINAPI CreateVirtualDisk(
+VIRTDISKAPI DWORD WINAPI CreateVirtualDisk(
   PVIRTUAL_STORAGE_TYPE VirtualStorageType,
   PCWSTR Path,
   VIRTUAL_DISK_ACCESS_MASK VirtualDiskAccessMask,
@@ -294,20 +296,20 @@ DWORD WINAPI CreateVirtualDisk(
   PHANDLE Handle
 );
 
-DWORD WINAPI DetachVirtualDisk(
+VIRTDISKAPI DWORD WINAPI DetachVirtualDisk(
   HANDLE VirtualDiskHandle,
   DETACH_VIRTUAL_DISK_FLAG Flags,
   ULONG ProviderSpecificFlags
 );
 
-DWORD WINAPI ExpandVirtualDisk(
+VIRTDISKAPI DWORD WINAPI ExpandVirtualDisk(
   HANDLE VirtualDiskHandle,
   EXPAND_VIRTUAL_DISK_FLAG Flags,
   PEXPAND_VIRTUAL_DISK_PARAMETERS Parameters,
   LPOVERLAPPED Overlapped
 );
 
-DWORD WINAPI GetStorageDependencyInformation(
+VIRTDISKAPI DWORD WINAPI GetStorageDependencyInformation(
   HANDLE ObjectHandle,
   GET_STORAGE_DEPENDENCY_FLAG Flags,
   ULONG StorageDependencyInfoSize,
@@ -315,14 +317,14 @@ DWORD WINAPI GetStorageDependencyInformation(
   PULONG SizeUsed
 );
 
-DWORD WINAPI GetVirtualDiskInformation(
+VIRTDISKAPI DWORD WINAPI GetVirtualDiskInformation(
   HANDLE VirtualDiskHandle,
   PULONG VirtualDiskInfoSize,
   PGET_VIRTUAL_DISK_INFO VirtualDiskInfo,
   PULONG SizeUsed
 );
 
-DWORD WINAPI GetVirtualDiskOperationProgress(
+VIRTDISKAPI DWORD WINAPI GetVirtualDiskOperationProgress(
   HANDLE VirtualDiskHandle,
   LPOVERLAPPED Overlapped,
   PVIRTUAL_DISK_PROGRESS Progress
@@ -334,14 +336,14 @@ DWORD WINAPI GetVirtualDiskPhysicalPath(
   PWSTR DiskPath
 );
 
-DWORD WINAPI MergeVirtualDisk(
+VIRTDISKAPI DWORD WINAPI MergeVirtualDisk(
   HANDLE VirtualDiskHandle,
   MERGE_VIRTUAL_DISK_FLAG Flags,
   PMERGE_VIRTUAL_DISK_PARAMETERS Parameters,
   LPOVERLAPPED Overlapped
 );
 
-DWORD WINAPI OpenVirtualDisk(
+VIRTDISKAPI DWORD WINAPI OpenVirtualDisk(
   PVIRTUAL_STORAGE_TYPE VirtualStorageType,
   PCWSTR Path,
   VIRTUAL_DISK_ACCESS_MASK VirtualDiskAccessMask,
@@ -350,7 +352,7 @@ DWORD WINAPI OpenVirtualDisk(
   PHANDLE Handle
 );
 
-DWORD WINAPI SetVirtualDiskInformation(
+VIRTDISKAPI DWORD WINAPI SetVirtualDiskInformation(
   HANDLE VirtualDiskHandle,
   PSET_VIRTUAL_DISK_INFO VirtualDiskInfo
 );

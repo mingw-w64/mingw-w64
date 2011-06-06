@@ -6672,6 +6672,11 @@ typedef struct _WOW64_LDT_ENTRY {
   } HighWord;
 } WOW64_LDT_ENTRY, *PWOW64_LDT_ENTRY;
 
+/* Retrieved from: https://kdlib.googlecode.com/svn/trunk/imports/c/windows/winnt.d */
+typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+  DWORD64 CycleTime;
+} SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, *PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION;
+
 #endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #define ACTIVATION_CONTEXT_SECTION_ASSEMBLY_INFORMATION (1)

@@ -5325,7 +5325,7 @@ typedef struct _AUDIODESCRIPTION {
 
 #define CreateDesktopEx __MINGW_NAME_AW(CreateDesktopEx)
 
-HDESK WINAPI CreateDesktopExA(
+WINUSERAPI HDESK WINAPI CreateDesktopExA(
   LPCSTR lpszDesktop,
   LPCSTR lpszDevice,
   DEVMODE *pDevmode,
@@ -5336,7 +5336,7 @@ HDESK WINAPI CreateDesktopExA(
   PVOID pvoid
 );
 
-HDESK WINAPI CreateDesktopExW(
+WINUSERAPI HDESK WINAPI CreateDesktopExW(
   LPCWSTR lpszDesktop,
   LPCWSTR lpszDevice,
   DEVMODE *pDevmode,
@@ -5347,16 +5347,16 @@ HDESK WINAPI CreateDesktopExW(
   PVOID pvoid
 );
 
-WINBOOL WINAPI ShutdownBlockReasonCreate(
+WINUSERAPI WINBOOL WINAPI ShutdownBlockReasonCreate(
   HWND hWnd,
   LPCWSTR pwszReason
 );
 
-WINBOOL WINAPI ShutdownBlockReasonDestroy(
+WINUSERAPI WINBOOL WINAPI ShutdownBlockReasonDestroy(
   HWND hWnd
 );
 
-WINBOOL WINAPI ShutdownBlockReasonQuery(
+WINUSERAPI WINBOOL WINAPI ShutdownBlockReasonQuery(
   HWND hWnd,
   LPWSTR pwszBuff,
   DWORD *pcchBuff
@@ -5430,7 +5430,7 @@ typedef struct _GESTURECONFIG {
   DWORD dwBlock;
 } GESTURECONFIG, *PGESTURECONFIG;
 
-WINBOOL WINAPI SetGestureConfig(
+WINUSERAPI WINBOOL WINAPI SetGestureConfig(
   HWND hwnd,
   DWORD dwReserved,
   UINT cIDs,
@@ -5438,7 +5438,7 @@ WINBOOL WINAPI SetGestureConfig(
   UINT cbSize
 );
 
-WINBOOL WINAPI GetGestureConfig(
+WINUSERAPI WINBOOL WINAPI GetGestureConfig(
   HWND hwnd,
   DWORD dwReserved,
   DWORD dwFlags,
@@ -5447,18 +5447,18 @@ WINBOOL WINAPI GetGestureConfig(
   UINT cbSize
 );
 
-WINBOOL WINAPI GetGestureInfo(
+WINUSERAPI WINBOOL WINAPI GetGestureInfo(
   HGESTUREINFO hGestureInfo,
   PGESTUREINFO pGestureInfo
 );
 
-WINBOOL WINAPI GetGestureExtraArgs(
+WINUSERAPI WINBOOL WINAPI GetGestureExtraArgs(
   HGESTUREINFO hGestureInfo,
   UINT cbExtraArgs,
   PBYTE pExtraArgs
 );
 
-WINBOOL WINAPI CloseGestureInfoHandle(
+WINUSERAPI WINBOOL WINAPI CloseGestureInfoHandle(
     HGESTUREINFO hGestureInfo
 );
 

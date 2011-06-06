@@ -1029,7 +1029,7 @@ WINBASEAPI WINBOOL WINAPI RtlIsValidLocaleName(
   ULONG Flags
 );
 
-WINBASEAPI WINBOOL VerifyScripts(
+WINBASEAPI WINBOOL WINAPI VerifyScripts(
   DWORD dwFlags,
   LPCWSTR lpLocaleScripts,
   int cchLocaleScripts,
@@ -1038,6 +1038,17 @@ WINBASEAPI WINBOOL VerifyScripts(
 );
 
 #endif /* (_WIN32_WINNT >= 0x0600) */
+
+#if (_WIN32_WINNT >= 0x0601) 
+WINBASEAPI WINBOOL WINAPI GetProcessPreferredUILanguages(
+  DWORD dwFlags,
+  PULONG pulNumLanguages,
+  PZZWSTR pwszLanguagesBuffer,
+  PULONG pcchLanguagesBuffer
+);
+
+#endif /* (_WIN32_WINNT >= 0x0601) */
+
 #endif
 
 #ifdef __cplusplus
