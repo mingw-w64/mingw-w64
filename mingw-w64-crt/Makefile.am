@@ -225,6 +225,8 @@ src_libmingwex=\
   stdio/_findnext64i32.c stdio/fopen64.c \
   stdio/fseeko64.c stdio/_fstat64i32.c stdio/_fstat.c \
   stdio/ftello64.c stdio/_ftime.c \
+  stdio/_getc_nolock.c stdio/_getwc_nolock.c \
+  stdio/_putc_nolock.c stdio/_putwc_nolock.c \
   stdio/lltoa.c stdio/lltow.c stdio/lseek64.c \
   stdio/mingw_fprintf.c stdio/mingw_pformat.c \
   stdio/mingw_printf.c stdio/mingw_snprintf.c stdio/mingw_sprintf.c \
