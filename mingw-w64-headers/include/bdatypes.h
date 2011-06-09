@@ -264,7 +264,7 @@ typedef V1_ENUM enum FECMethod {
   BDA_FEC_LDPC,
   BDA_FEC_BCH,
   BDA_FEC_RS_147_130,
-  BDA_FEC_MAX                  = 3 
+  BDA_FEC_MAX
 } FECMethod;
 
 typedef V1_ENUM enum ModulationType {
