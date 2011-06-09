@@ -275,6 +275,9 @@ extern "C"{
 
   typedef struct tagPROPVARIANT *LPPROPVARIANT;
 
+/* Fixme: REFPROPVARIANT is a PROPVARIANT pointer? */
+typedef PROPVARIANT *REFPROPVARIANT;
+
 #define PID_DICTIONARY (0)
 #define PID_CODEPAGE (0x1)
 #define PID_FIRST_USABLE (0x2)

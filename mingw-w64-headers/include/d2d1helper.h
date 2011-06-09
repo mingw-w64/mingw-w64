@@ -24,4 +24,17 @@ D2D1_ARC_SEGMENT ArcSegment(
 #endif
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
+
+#if (_WIN32_WINNT >= 0x0601)
+#ifdef __cplusplus
+/*
+D2D1HELPERAPI HWND WINAPI HwndRenderTargetProperties(
+  HWND hwnd,
+  D2D1_SIZE_U pixelSize =  D2D1::Size(static_cast<UINT>(0), static_cast<UINT>(0)) ,
+  D2D1_PRESENT_OPTIONS presentOptions =  D2D1_PRESENT_OPTIONS_NONE 
+);
+*/
+#endif
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #endif /*_INC_D2D1HELPER*/

@@ -645,6 +645,8 @@ extern "C" {
   HTTPAPI_LINKAGE ULONG WINAPI HttpWaitForDemandStart(HANDLE ReqQueueHandle,LPOVERLAPPED pOverlapped);
 
 #if (_WIN32_WINNT >= 0x0601)
+  typedef ULONG HTTP_SERVICE_CONFIG_CACHE_PARAM;
+
   typedef enum _HTTP_SERVICE_CONFIG_CACHE_KEY {
     MaxCacheResponseSize  = 0,
     CacheRangeChunkSize
@@ -656,6 +658,12 @@ extern "C" {
     ULONG                MaxPeakBandwidth;
     ULONG                BurstSize;
   } HTTP_FLOWRATE_INFO, *PHTTP_FLOWRATE_INFO;
+
+typedef struct _HTTP_SERVICE_CONFIG_CACHE_SET {
+  HTTP_SERVICE_CONFIG_CACHE_KEY KeyDesc;
+  HTTP_SERVICE_CONFIG_CACHE_PARAM ParamDesc;
+} HTTP_SERVICE_CONFIG_CACHE_SET, *PHTTP_SERVICE_CONFIG_CACHE_SET;
+
 #endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/

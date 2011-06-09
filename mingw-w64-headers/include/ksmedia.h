@@ -4443,5 +4443,13 @@ typedef enum {
 } VIDEOENCODER_BITRATE_MODE;
 #endif /* __ENCODER_API_DEFINES__ */
 
+#if (_WIN32_WINNT >= 0x0601)
+typedef enum _TunerDecoderLockType {
+  Tuner_LockType_None                        = 0x00,
+  Tuner_LockType_Within_Scan_Sensing_Range   = 0x01,
+  Tuner_LockType_Locked                      = 0x02 
+} TunerLockType;
+#endif /*(_WIN32_WINNT >= 0x0601)*/
+
 #endif /* _KSMEDIA_ */
 

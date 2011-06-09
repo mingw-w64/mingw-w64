@@ -6677,6 +6677,27 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
   DWORD64 CycleTime;
 } SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, *PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION;
 
+typedef struct _HARDWARE_COUNTER_DATA {
+  HARDWARE_COUNTER_TYPE Type;
+  DWORD                 Reserved;
+  DWORD64               Value;
+} HARDWARE_COUNTER_DATA, *PHARDWARE_COUNTER_DATA;
+
+#define MAX_HW_COUNTERS 16
+/* Fixme: PERFORMANCE_DATA_VERSION define is missing */
+
+typedef struct _PERFORMANCE_DATA {
+  WORD                  Size;
+  BYTE                  Version;
+  BYTE                  HwCountersCount;
+  DWORD                 ContextSwitchCount;
+  DWORD64               WaitReasonBitMap;
+  DWORD64               CycleTime;
+  DWORD                 RetryCount;
+  DWORD                 Reserved;
+  HARDWARE_COUNTER_DATA HwCounters[MAX_HW_COUNTERS];
+} PERFORMANCE_DATA, *PPERFORMANCE_DATA;
+
 #endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #define ACTIVATION_CONTEXT_SECTION_ASSEMBLY_INFORMATION (1)

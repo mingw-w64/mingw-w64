@@ -699,6 +699,10 @@ typedef struct _PROPERTYKEY {
   GUID  fmtid;
   DWORD pid;
 } PROPERTYKEY;
+
+/* Fixme: REFPROPERTYKEY is a PROPERTYKEY pointer? */
+typedef PROPERTYKEY *REFPROPERTYKEY;
+
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus

@@ -3,8 +3,8 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#ifndef _INC_AUDIOAPOTYPES
-#define _INC_AUDIOAPOTYPES
+#ifndef __INC_AUDIOAPOTYPES__
+#define __INC_AUDIOAPOTYPES__
 
 #if (_WIN32_WINNT >= 0x0601)
 #ifdef __cplusplus
@@ -28,4 +28,4 @@ typedef struct APO_CONNECTION_PROPERTY {
 }
 #endif
 #endif /*(_WIN32_WINNT >= 0x0601)*/
-#endif /*_INC_AUDIOAPOTYPES*/
+#endif /*__INC_AUDIOAPOTYPES__*/

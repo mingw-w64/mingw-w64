@@ -373,6 +373,68 @@ typedef struct _ChannelInfo {
   } ;
 } ChannelInfo;
 
+typedef enum _PBDAParentalControlPolicy {
+  PBDAParentalControlGeneralPolicy    = 0,
+  PBDAParentalControlLiveOnlyPolicy   = 1 
+} PBDAParentalControlPolicy;
+
+typedef enum _SignalAndServiceStatusSpanningEvent_State {
+  SignalAndServiceStatusSpanningEvent_Clear           = 0,
+  SignalAndServiceStatusSpanningEvent_NoTVSignal      = 1,
+  SignalAndServiceStatusSpanningEvent_ServiceOffAir   = 2 
+} SignalAndServiceStatusSpanningEvent_State;
+
+typedef struct _DualMonoInfo {
+  LANGID LangID1;
+  LANGID LangID2;
+  LONG   lISOLangCode1;
+  LONG   lISOLangCode2;
+} DualMonoInfo;
+
+typedef struct _DVBScramblingControlSpanningEvent {
+  ULONG ulPID;
+  WINBOOL fScrambled;
+} DVBScramblingControlSpanningEvent;
+
+typedef struct _LanguageInfo {
+  LANGID LangID;
+  LONG   lISOLangCode;
+} LanguageInfo;
+
+typedef struct _PBDAParentalControl {
+  ULONG ulStartTime;
+  ULONG ulEndTime;
+  ULONG ulPolicy;
+} PBDAParentalControl;
+
+typedef struct _PIDListSpanningEvent {
+  WORD  wPIDCount;
+  ULONG pulPIDs[1];
+} PIDListSpanningEvent;
+
+typedef struct _SpanningEventDescriptor {
+  WORD wDataLen;
+  WORD wProgNumber;
+  WORD wSID;
+  BYTE bDescriptor[1];
+} SpanningEventDescriptor;
+
+typedef struct _SpanningEventEmmMessage {
+  BYTE  bCAbroadcasterGroupId;
+  BYTE  bMessageControl;
+  WORD  wServiceId;
+  WORD  wTableIdExtension;
+  BYTE  bDeletionStatus;
+  BYTE  bDisplayingDuration1;
+  BYTE  bDisplayingDuration2;
+  BYTE  bDisplayingDuration3;
+  BYTE  bDisplayingCycle;
+  BYTE  bFormatVersion;
+  BYTE  bDisplayPosition;
+  WORD  wMessageLength;
+  WCHAR szMessageArea[MIN_DIMENSION];
+} SpanningEventEmmMessage;
+
 #endif /*(_WIN32_WINNT >= 0x0601)*/
 
 /* ------------------------------------------------------------

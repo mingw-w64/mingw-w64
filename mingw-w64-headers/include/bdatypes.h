@@ -228,9 +228,9 @@ typedef struct _MPEG2_TRANSPORT_STRIDE {
 } MPEG2_TRANSPORT_STRIDE, *PMPEG2_TRANSPORT_STRIDE;
 
 typedef V1_ENUM enum BinaryConvolutionCodeRate {
-  BDA_BCC_RATE_NOT_SET = -1,
-  BDA_BCC_RATE_NOT_DEFINED = 0,
-  BDA_BCC_RATE_1_2 = 1,
+  BDA_BCC_RATE_NOT_SET       = -1,
+  BDA_BCC_RATE_NOT_DEFINED   = 0,
+  BDA_BCC_RATE_1_2           = 1,
   BDA_BCC_RATE_2_3,
   BDA_BCC_RATE_3_4,
   BDA_BCC_RATE_3_5,
@@ -238,7 +238,13 @@ typedef V1_ENUM enum BinaryConvolutionCodeRate {
   BDA_BCC_RATE_5_6,
   BDA_BCC_RATE_5_11,
   BDA_BCC_RATE_7_8,
-  BDA_BCC_RATE_MAX,
+  BDA_BCC_RATE_1_4,
+  BDA_BCC_RATE_1_3,
+  BDA_BCC_RATE_2_5,
+  BDA_BCC_RATE_6_7,
+  BDA_BCC_RATE_8_9,
+  BDA_BCC_RATE_9_10,
+  BDA_BCC_RATE_MAX 
 } BinaryConvolutionCodeRate;
 
 typedef V1_ENUM enum SpectralInversion {
@@ -251,17 +257,20 @@ typedef V1_ENUM enum SpectralInversion {
 } SpectralInversion;
 
 typedef V1_ENUM enum FECMethod {
-  BDA_FEC_METHOD_NOT_SET = -1,
-  BDA_FEC_METHOD_NOT_DEFINED = 0,
-  BDA_FEC_VITERBI = 1,
-  BDA_FEC_RS_204_188,
-  BDA_FEC_MAX,
+  BDA_FEC_METHOD_NOT_SET       = -1,
+  BDA_FEC_METHOD_NOT_DEFINED   = 0,
+  BDA_FEC_VITERBI              = 1,
+  BDA_FEC_RS_204_188           = 2,
+  BDA_FEC_LDPC,
+  BDA_FEC_BCH,
+  BDA_FEC_RS_147_130,
+  BDA_FEC_MAX                  = 3 
 } FECMethod;
 
 typedef V1_ENUM enum ModulationType {
-  BDA_MOD_NOT_SET = -1,
-  BDA_MOD_NOT_DEFINED = 0,
-  BDA_MOD_16QAM = 1,
+  BDA_MOD_NOT_SET            = -1,
+  BDA_MOD_NOT_DEFINED        = 0,
+  BDA_MOD_16QAM              = 1,
   BDA_MOD_32QAM,
   BDA_MOD_64QAM,
   BDA_MOD_80QAM,
@@ -287,16 +296,69 @@ typedef V1_ENUM enum ModulationType {
   BDA_MOD_16VSB,
   BDA_MOD_ANALOG_AMPLITUDE,
   BDA_MOD_ANALOG_FREQUENCY,
-  BDA_MOD_MAX,
+  BDA_MOD_8PSK,
+  BDA_MOD_RF,
+  BDA_MOD_16APSK,
+  BDA_MOD_32APSK,
+  BDA_MOD_NBC_QPSK,
+  BDA_MOD_NBC_8PSK,
+  BDA_MOD_DIRECTV,
+  BDA_MOD_ISDB_T_TMCC,
+  BDA_MOD_ISDB_S_TMCC,
+  BDA_MOD_MAX 
 } ModulationType;
 
+/* Fixme: Alternate MSDN definition */
+/*
+
+typedef enum tagScanModulationTypes {
+  BDA_SCAN_MOD_16QAM                            = 0x00000001,
+  BDA_SCAN_MOD_32QAM                            = 0x00000002,
+  BDA_SCAN_MOD_64QAM                            = 0x00000004,
+  BDA_SCAN_MOD_80QAM                            = 0x00000008,
+  BDA_SCAN_MOD_96QAM                            = 0x00000010,
+  BDA_SCAN_MOD_112QAM                           = 0x00000020,
+  BDA_SCAN_MOD_128QAM                           = 0x00000040,
+  BDA_SCAN_MOD_160QAM                           = 0x00000080,
+  BDA_SCAN_MOD_192QAM                           = 0x00000100,
+  BDA_SCAN_MOD_224QAM                           = 0x00000200,
+  BDA_SCAN_MOD_256QAM                           = 0x00000400,
+  BDA_SCAN_MOD_320QAM                           = 0x00000800,
+  BDA_SCAN_MOD_384QAM                           = 0x00001000,
+  BDA_SCAN_MOD_448QAM                           = 0x00002000,
+  BDA_SCAN_MOD_512QAM                           = 0x00004000,
+  BDA_SCAN_MOD_640QAM                           = 0x00008000,
+  BDA_SCAN_MOD_768QAM                           = 0x00010000,
+  BDA_SCAN_MOD_896QAM                           = 0x00020000,
+  BDA_SCAN_MOD_1024QAM                          = 0x00040000,
+  BDA_SCAN_MOD_QPSK                             = 0x00080000,
+  BDA_MOD_BPSK                                  = 0x00100000,
+  BDA_MOD_OQPSK                                 = 0x00200000,
+  BDA_SCAN_MOD_8VSB                             = 0x00400000,
+  BDA_MOD_16VSB                                 = 0x00800000,
+  BDA_SCAN_MOD_AM_RADIO                         = 0x01000000,
+  BDA_SCAN_MOD_FM_RADIO                         = 0x02000000,
+  BDA_SCAN_MOD_8PSK                             = 0x04000000,
+  BDA_SCAN_MOD_RF                               = 0x08000000,
+  ScanModulationTypesMask_MCE_DigitalCable      = BDA_MOD_64QAM | BDA_MOD_256QAM,
+  ScanModulationTypesMask_MCE_TerrestrialATSC   = BDA_MOD_8VSB,
+  ScanModulationTypesMask_MCE_AnalogTv          = BDA_MOD_RF,
+  ScanModulationTypesMask_MCE_All_TV            = 0xffffffff 
+} ScanModulationTypes;
+
+*/
+
 typedef V1_ENUM enum TransmissionMode {
-  BDA_XMIT_MODE_NOT_SET = -1,
-  BDA_XMIT_MODE_NOT_DEFINED = 0,
-  BDA_XMIT_MODE_2K = 1,
+  BDA_XMIT_MODE_NOT_SET          = -1,
+  BDA_XMIT_MODE_NOT_DEFINED      = 0,
+  BDA_XMIT_MODE_2K,
   BDA_XMIT_MODE_8K,
-  BDA_XMIT_MODE_MAX,
+  BDA_XMIT_MODE_4K,
+  BDA_XMIT_MODE_2K_INTERLEAVED,
+  BDA_XMIT_MODE_4K_INTERLEAVED,
+  BDA_XMIT_MODE_MAX 
 } TransmissionMode;
+
 
 typedef V1_ENUM enum Polarisation {
   BDA_POLARISATION_NOT_SET = -1,
@@ -326,6 +388,85 @@ typedef V1_ENUM enum HierarchyAlpha {
   BDA_HALPHA_4,
   BDA_HALPHA_MAX,
 } HierarchyAlpha;
+
+typedef enum _BDA_Comp_Flags {
+  BDACOMP_NOT_DEFINED             = 0x00000000,
+  BDACOMP_EXCLUDE_TS_FROM_TR      = 0x00000001,
+  BDACOMP_INCLUDE_LOCATOR_IN_TR   = 0x00000002 
+} BDA_Comp_Flags;
+
+#if (_WIN32_WINNT >= 0x0601)
+
+typedef enum _BDA_CONDITIONALACCESS_MMICLOSEREASON {
+  CONDITIONALACCESS_UNSPECIFIED                 = 0,
+  CONDITIONALACCESS_CLOSED_ITSELF,
+  CONDITIONALACCESS_TUNER_REQUESTED_CLOSE,
+  CONDITIONALACCESS_DIALOG_TIMEOUT,
+  CONDITIONALACCESS_DIALOG_FOCUS_CHANGE,
+  CONDITIONALACCESS_DIALOG_USER_DISMISSED,
+  CONDITIONALACCESS_DIALOG_USER_NOT_AVAILABLE 
+} BDA_CONDITIONALACCESS_MMICLOSEREASON;
+
+typedef enum BDA_CONDITIONALACCESS_REQUESTTYPE {
+  CONDITIONALACCESS_ACCESS_UNSPECIFIED                        = 0,
+  CONDITIONALACCESS_ACCESS_NOT_POSSIBLE,
+  CONDITIONALACCESS_ACCESS_POSSIBLE,
+  CONDITIONALACCESS_ACCESS_POSSIBLE_NO_STREAMING_DISRUPTION 
+} BDA_CONDITIONALACCESS_REQUESTTYPE;
+
+typedef enum MUX_PID_TYPE {
+  PID_OTHER                  = -1,
+  PID_ELEMENTARY_STREAM,
+  PID_MPEG2_SECTION_PSI_SI 
+} MUX_PID_TYPE;
+
+typedef enum Pilot {
+  BDA_PILOT_NOT_SET       = -1,
+  BDA_PILOT_NOT_DEFINED   = 0,
+  BDA_PILOT_OFF           = 1,
+  BDA_PILOT_ON,
+  BDA_PILOT_MAX 
+} Pilot;
+
+typedef enum RollOff {
+  BDA_ROLL_OFF_NOT_SET       = -1,
+  BDA_ROLL_OFF_NOT_DEFINED   = 0,
+  BDA_ROLL_OFF_20            = 1,
+  BDA_ROLL_OFF_25,
+  BDA_ROLL_OFF_35,
+  BDA_ROLL_OFF_MAX 
+} RollOff;
+
+typedef enum _LNB_Source {
+  BDA_LNB_SOURCE_NOT_SET       = -1,
+  BDA_LNB_SOURCE_NOT_DEFINED   = 0,
+  BDA_LNB_SOURCE_A             = 1,
+  BDA_LNB_SOURCE_B             = 2,
+  BDA_LNB_SOURCE_C             = 3,
+  BDA_LNB_SOURCE_D             = 4,
+  BDA_LNB_SOURCE_MAX           = 5 
+} LNB_Source;
+
+typedef struct _BDA_ISDBCAS_EMG_REQ {
+  BYTE bCLA;
+  BYTE bINS;
+  BYTE bP1;
+  BYTE bP2;
+  BYTE bLC;
+  BYTE bCardId;
+  BYTE bProtocol;
+  BYTE bCABroadcasterGroupId;
+  BYTE bMessageControl;
+  BYTE bMessageCode[MIN_DIMENSION];
+} BDA_ISDBCAS_EMG_REQ, *PBDA_ISDBCAS_EMG_REQ;
+
+typedef struct _BDA_MUX_PIDLISTITEM {
+  USHORT       usPIDNumber;
+  USHORT       usProgramNumber;
+  MUX_PID_TYPE ePIDType;
+} BDA_MUX_PIDLISTITEM, *PBDA_MUX_PIDLISTITEM;
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #endif /* _BDATYPES_ */
 
