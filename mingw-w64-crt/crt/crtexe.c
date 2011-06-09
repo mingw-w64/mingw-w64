@@ -413,8 +413,8 @@ __mingw_invalidParameterHandler (const wchar_t * __UNUSED_PARAM_1(expression),
 				 uintptr_t __UNUSED_PARAM(pReserved))
 {
 #ifdef __MINGW_SHOW_INVALID_PARAMETER_EXCEPTION
-   wprintf(L"Invalid parameter detected in function %s. File: %s Line: %d\n", function, file, line);
-   wprintf(L"Expression: %s\n", expression);
+  wprintf(L"Invalid parameter detected in function %s. File: %s Line: %d\n", function, file, line);
+  wprintf(L"Expression: %s\n", expression);
 #endif
 }
 
