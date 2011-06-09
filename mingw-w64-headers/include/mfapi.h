@@ -122,7 +122,7 @@ extern "C" {
 #endif
 
 typedef void (*MFPERIODICCALLBACK )(IUnknown *pContext);
-typedef LPVOID MFWORKITEM_KEY;
+typedef ULONGLONG MFWORKITEM_KEY;
 
 HRESULT WINAPI MFAddPeriodicCallback(MFPERIODICCALLBACK Callback,IUnknown *pContext,DWORD *pdwKey);
 HRESULT WINAPI MFRemovePeriodicCallback(DWORD dwKey);
