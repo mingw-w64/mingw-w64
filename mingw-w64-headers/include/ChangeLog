@@ -1,5 +1,14 @@
 2011-06-09  Jonathan Yong  <jon_y@users.sourceforge.net>
 
+	* locationapi.h(IID_ILocationReport): Define.
+	(IID_ICivicAddressReport): Define.
+	(IID_IDefaultLocation): Define.
+	(ILocationReport): Fix COM ordering.
+	(ICivicAddressReport): Likewise.
+	(IDefaultLocation): Likewise.
+
+2011-06-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
 	* mpeg2psiparser.h: New.
 	* audiopolicy.h: New.
 	* d2d1helper.h(HwndRenderTargetProperties): Declare.
