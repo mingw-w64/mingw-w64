@@ -12,8 +12,7 @@ typedef struct IMFAsyncCallback IMFAsyncCallback;
 typedef struct IMFMediaEvent IMFMediaEvent;
 typedef struct IMFPresentationDescriptor IMFPresentationDescriptor;
 typedef struct IPropertyStore IPropertyStore;
-typedef LPVOID MediaEventType;
-typedef struct PROPVARIANT *REFPROPVARIANT;
+typedef DWORD MediaEventType;
 __MINGW_EXTENSION typedef unsigned __int64 QWORD;
 
 enum MF_ATTRIBUTE_SERIALIZE_OPTIONS {

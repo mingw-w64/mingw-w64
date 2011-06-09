@@ -1,5 +1,7 @@
 2011-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* mfobjects.h: Fix the MediaEventType type; remove a duplicated
+	definition of REFPROPVARIANT.
 	* clfsw32.h: Fix PFILE type. Fix CLFS_PRINT_RECORD_ROUTINE callback
 	type.
 	* wdspxe.h: Fix PXE_BOOT_ACTION type.
