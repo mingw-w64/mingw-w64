@@ -158,7 +158,7 @@ typedef HRESULT ( WINAPI *CryptXmlDllEncodeKeyValue )(
 );
 
 typedef struct _CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
-  ULONG                       cbSize; /*Fixme: Guessed*/
+  ULONG                       cbSize;
   CryptXmlDllEncodeAlgorithm  fpCryptXmlEncodeAlgorithm;
   CryptXmlDllCreateDigest     fpCryptXmlCreateDigest;
   CryptXmlDllDigestData       fpCryptXmlDigestData;
