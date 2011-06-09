@@ -31,8 +31,7 @@ typedef ULONG_PTR HCRYPTPROV_OR_NCRYPT_KEY_HANDLE;
 typedef LPVOID BCRYPT_KEY_HANDLE;
 #endif /*__BCRYPT_KEY_HANDLE_DEFINED__*/
 
-typedef ULONG_PTR HCRYPTXML; /*Fixme: Guessed*/
-typedef HANDLE HXML; /*Fixme: Guessed*/
+typedef HANDLE HCRYPTXML;
 
 #if (_WIN32_WINNT >= 0x0601)
 
@@ -417,7 +416,7 @@ CRYPTXMLAPI HRESULT WINAPI CryptXmlAddObject(
 );
 
 CRYPTXMLAPI HRESULT WINAPI CryptXmlClose(
-  HXML hCryptXml
+  HCRYPTXML hCryptXml
 );
 
 CRYPTXMLAPI HRESULT WINAPI CryptXmlCreateReference(

@@ -1,5 +1,7 @@
 2011-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* cryptxml.h: Fix the HCRYPTXML type. Remove the non-existent HXML
+	type, make CryptXmlClose() to use HCRYPTXML parm.
 	* bdatypes.h: Fix the ScanModulationTypes enumeration and uncomment it.
 	* propidl.h: Fix the he REFPROPVARIANT type.
 	* mfobjects.h: Fix the MediaEventType type; remove a duplicated
