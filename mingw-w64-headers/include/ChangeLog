@@ -1,5 +1,6 @@
 2011-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* propidl.h: Fix the he REFPROPVARIANT type.
 	* mfobjects.h: Fix the MediaEventType type; remove a duplicated
 	definition of REFPROPVARIANT.
 	* clfsw32.h: Fix PFILE type. Fix CLFS_PRINT_RECORD_ROUTINE callback
