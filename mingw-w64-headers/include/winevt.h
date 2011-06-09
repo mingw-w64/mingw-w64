@@ -266,6 +266,9 @@ typedef enum _EVT_VARIANT_TYPE {
   EvtVarTypeEvtXml       = 35 
 } EVT_VARIANT_TYPE;
 
+typedef HANDLE EVT_HANDLE;
+typedef HANDLE EVT_OBJECT_ARRAY_PROPERTY_HANDLE;
+
 typedef struct _EVT_VARIANT {
   __C89_NAMELESS union {
     WINBOOL    BooleanVal;
@@ -312,9 +315,6 @@ typedef struct _EVT_VARIANT {
   DWORD Count;
   DWORD Type;
 } EVT_VARIANT, *PEVT_VARIANT;
-
-typedef LPVOID EVT_HANDLE;
-typedef LPVOID EVT_OBJECT_ARRAY_PROPERTY_HANDLE;
 
 typedef DWORD ( WINAPI *EVT_SUBSCRIBE_CALLBACK )(
     EVT_SUBSCRIBE_NOTIFY_ACTION Action,
