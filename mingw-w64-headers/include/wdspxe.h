@@ -20,8 +20,7 @@ extern "C" {
 #define PXEAPI WINAPI
 #endif
 
-/* According to http://msdn.microsoft.com/en-us/library/aa967410%28VS.85%29.aspx it is more like a LPDWORD, but well ... */
-typedef LPVOID PXE_BOOT_ACTION;
+typedef ULONG PXE_BOOT_ACTION;
 typedef ULONG PXE_REG_INDEX;
 typedef ULONG PXE_PROVIDER_ATTRIBUTE;
 

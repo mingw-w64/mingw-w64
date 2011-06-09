@@ -1,5 +1,6 @@
 2011-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* wdspxe.h: Fix PXE_BOOT_ACTION type.
 	* netioapi.h: Fix PIPINTERFACE_CHANGE_CALLBACK type.
 	* bdatypes.h (FECMethod): Fix the BDA_FEC_MAX enumerated value.
 
