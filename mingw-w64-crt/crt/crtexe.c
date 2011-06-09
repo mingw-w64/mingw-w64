@@ -213,7 +213,9 @@ __tmainCRTStartup (void)
      or in functions inlined into main.  */
   lpszCommandLine = (_TCHAR *) alloca (32);
   memset (lpszCommandLine, 0xcc, 32);
+#ifdef __GNUC__
   asm  __volatile__  ("andl $-16, %%esp" : : : "%esp");
+#endif
 #endif
 
   if (mingw_app_type)
