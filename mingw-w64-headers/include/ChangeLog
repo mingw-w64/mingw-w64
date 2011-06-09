@@ -1,5 +1,6 @@
 2011-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* netioapi.h: Fix PIPINTERFACE_CHANGE_CALLBACK type.
 	* bdatypes.h (FECMethod): Fix the BDA_FEC_MAX enumerated value.
 
 2011-06-09  Jonathan Yong  <jon_y@users.sourceforge.net>
