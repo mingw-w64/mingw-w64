@@ -142,5 +142,12 @@
 #define __MINGW_HAVE_ANSI_C99_SCANF 1
 #define __MINGW_HAVE_WIDE_C99_SCANF 1
 
+#ifdef __MINGW_USE_BROKEN_INTERFACE
+#define __MINGW_POISON_NAME(__IFACE) __IFACE
+#else
+#define __MINGW_POISON_NAME(__IFACE)\
+  __IFACE##_layout_has_not_been_verified_and_its_declaration_is_most_likely_incorrect
+#endif
+
 #endif	/* _INC_CRTDEFS_MACRO */
 
