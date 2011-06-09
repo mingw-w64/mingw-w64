@@ -308,9 +308,6 @@ typedef V1_ENUM enum ModulationType {
   BDA_MOD_MAX 
 } ModulationType;
 
-/* Fixme: Alternate MSDN definition */
-/*
-
 typedef enum tagScanModulationTypes {
   BDA_SCAN_MOD_16QAM                            = 0x00000001,
   BDA_SCAN_MOD_32QAM                            = 0x00000002,
@@ -332,21 +329,19 @@ typedef enum tagScanModulationTypes {
   BDA_SCAN_MOD_896QAM                           = 0x00020000,
   BDA_SCAN_MOD_1024QAM                          = 0x00040000,
   BDA_SCAN_MOD_QPSK                             = 0x00080000,
-  BDA_MOD_BPSK                                  = 0x00100000,
-  BDA_MOD_OQPSK                                 = 0x00200000,
+  BDA_SCAN_MOD_BPSK                             = 0x00100000,
+  BDA_SCAN_MOD_OQPSK                            = 0x00200000,
   BDA_SCAN_MOD_8VSB                             = 0x00400000,
-  BDA_MOD_16VSB                                 = 0x00800000,
+  BDA_SCAN_MOD_16VSB                            = 0x00800000,
   BDA_SCAN_MOD_AM_RADIO                         = 0x01000000,
   BDA_SCAN_MOD_FM_RADIO                         = 0x02000000,
   BDA_SCAN_MOD_8PSK                             = 0x04000000,
-  BDA_SCAN_MOD_RF                               = 0x08000000,
+  BDA_SCAN_MOD_RF                               = 0x08000000, /* analog TV */
   ScanModulationTypesMask_MCE_DigitalCable      = BDA_MOD_64QAM | BDA_MOD_256QAM,
   ScanModulationTypesMask_MCE_TerrestrialATSC   = BDA_MOD_8VSB,
   ScanModulationTypesMask_MCE_AnalogTv          = BDA_MOD_RF,
-  ScanModulationTypesMask_MCE_All_TV            = 0xffffffff 
+  ScanModulationTypesMask_MCE_All_TV            = 0xffffffff,
 } ScanModulationTypes;
-
-*/
 
 typedef V1_ENUM enum TransmissionMode {
   BDA_XMIT_MODE_NOT_SET          = -1,
