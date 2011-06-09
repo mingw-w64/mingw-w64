@@ -11,8 +11,8 @@ extern "C" {
 #endif
 
 
-typedef LPVOID EAP_SESSIONID;
-typedef LPVOID EAP_SESSION_HANDLE;
+typedef DWORD EAP_SESSIONID;
+typedef void* EAP_SESSION_HANDLE;
 
 #define EAP_FLAG_Reserved1 0x00000001
 #define EAP_FLAG_NON_INTERACTIVE 0x00000002

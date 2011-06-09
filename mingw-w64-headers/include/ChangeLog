@@ -1,5 +1,6 @@
 2011-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* eaptypes.h: Fix the EAP_SESSIONID type.
 	* mfapi.h: Fix the MFWORKITEM_KEY type.
 	* cryptxml.h (CRYPT_XML_CRYPTOGRAPHIC_INTERFACE): Remove a fixme note
 	because the guessed type is correct.
