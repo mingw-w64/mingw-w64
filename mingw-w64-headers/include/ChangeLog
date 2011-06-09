@@ -1,5 +1,7 @@
 2011-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* clfsw32.h: Fix PFILE type. Fix CLFS_PRINT_RECORD_ROUTINE callback
+	type.
 	* wdspxe.h: Fix PXE_BOOT_ACTION type.
 	* netioapi.h: Fix PIPINTERFACE_CHANGE_CALLBACK type.
 	* bdatypes.h (FECMethod): Fix the BDA_FEC_MAX enumerated value.

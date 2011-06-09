@@ -15,8 +15,8 @@ extern "C" {
 
 typedef PVOID (* CLFS_BLOCK_ALLOCATION) (ULONG cbBufferSize, PVOID pvUserContext);
 typedef void  (* CLFS_BLOCK_DEALLOCATION) (PVOID pvBuffer, PVOID pvUserContext);
-typedef LPVOID PFILE;
-typedef LPVOID CLFS_PRINT_RECORD_ROUTINE; /*Unknown Callback*/
+typedef FILE *PFILE;
+typedef ULONG (__stdcall * CLFS_PRINT_RECORD_ROUTINE) (PFILE, CLFS_RECORD_TYPE, PVOID, ULONG);
 
 WINBOOL WINAPI AdvanceLogBase(PVOID pvMarshal,PCLFS_LSN plsnBase,ULONG fFlags,LPOVERLAPPED pOverlapped);
 
