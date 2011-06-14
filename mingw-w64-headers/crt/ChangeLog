@@ -1,3 +1,7 @@
+2011-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* sdks/_mingw_directx.h.in(__MINGW_HAS_DXSDK): Define.
+
 2011-06-09  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* _mingw_mac.h(__MINGW_POISON_NAME): Define.
