@@ -1,3 +1,16 @@
+2011-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* wincon.h(ENABLE_INSERT_MODE): Define.
+	(ENABLE_QUICK_EDIT_MODE): Define.
+	(ENABLE_EXTENDED_FLAGS): Define.
+	(ENABLE_AUTO_POSITION): Define.
+	(GetConsoleOriginalTitleA): Make DLLIMPORT.
+	(GetConsoleOriginalTitleW): Likewise.
+	(GetConsoleScreenBufferInfoEx): Likewise.
+	(GetCurrentConsoleFontEx): Likewise.
+	(SetConsoleHistoryInfo): Likewise.
+	(SetCurrentConsoleFontEx): Likewise.
+
 2011-06-09  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* winevt.h: Fix the EVT_HANDLE type and move it before its users.

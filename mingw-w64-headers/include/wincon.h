@@ -169,6 +169,10 @@ extern "C" {
 #define ENABLE_ECHO_INPUT 0x4
 #define ENABLE_WINDOW_INPUT 0x8
 #define ENABLE_MOUSE_INPUT 0x10
+#define ENABLE_INSERT_MODE 0x20
+#define ENABLE_QUICK_EDIT_MODE 0x40
+#define ENABLE_EXTENDED_FLAGS 0x80
+#define ENABLE_AUTO_POSITION 0x100
 
 #define ENABLE_PROCESSED_OUTPUT 0x1
 #define ENABLE_WRAP_AT_EOL_OUTPUT 0x2
@@ -321,37 +325,37 @@ WINBOOL WINAPI GetConsoleHistoryInfo(
 
 #define GetConsoleOriginalTitle __MINGW_NAME_AW(GetConsoleOriginalTitle)
 
-DWORD WINAPI GetConsoleOriginalTitleA(
+WINBASEAPI DWORD WINAPI GetConsoleOriginalTitleA(
   LPSTR lpConsoleTitle,
   DWORD nSize
 );
 
-DWORD WINAPI GetConsoleOriginalTitleW(
+WINBASEAPI DWORD WINAPI GetConsoleOriginalTitleW(
   LPWSTR lpConsoleTitle,
   DWORD nSize
 );
 
-WINBOOL WINAPI GetConsoleScreenBufferInfoEx(
+WINBASEAPI WINBOOL WINAPI GetConsoleScreenBufferInfoEx(
   HANDLE hConsoleOutput,
   PCONSOLE_SCREEN_BUFFER_INFOEX lpConsoleScreenBufferInfoEx
 );
 
-WINBOOL WINAPI GetCurrentConsoleFontEx(
+WINBASEAPI WINBOOL WINAPI GetCurrentConsoleFontEx(
   HANDLE hConsoleOutput,
   WINBOOL bMaximumWindow,
   PCONSOLE_FONT_INFOEX lpConsoleCurrentFontEx
 );
 
-WINBOOL WINAPI SetConsoleHistoryInfo(
+WINBASEAPI WINBOOL WINAPI SetConsoleHistoryInfo(
   PCONSOLE_HISTORY_INFO lpConsoleHistoryInfo
 );
 
-WINBOOL WINAPI SetConsoleScreenBufferInfoEx(
+WINBASEAPI WINBOOL WINAPI SetConsoleScreenBufferInfoEx(
   HANDLE hConsoleOutput,
   PCONSOLE_SCREEN_BUFFER_INFOEX lpConsoleScreenBufferInfoEx
 );
 
-WINBOOL WINAPI SetCurrentConsoleFontEx(
+WINBASEAPI WINBOOL WINAPI SetCurrentConsoleFontEx(
   HANDLE hConsoleOutput,
   WINBOOL bMaximumWindow,
   PCONSOLE_FONT_INFOEX lpConsoleCurrentFontEx
