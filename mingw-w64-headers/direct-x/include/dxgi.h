@@ -50,6 +50,8 @@ typedef interface IDXGIDevice IDXGIDevice;
 
 /* Headers for imported files */
 
+#include <oaidl.h>
+#include <ocidl.h>
 #include <dxgitype.h>
 
 #ifdef __cplusplus

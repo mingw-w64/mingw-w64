@@ -13,6 +13,11 @@
 typedef interface IXmlReader IXmlReader;
 #endif
 
+#ifndef __IXmlWriter_FWD_DEFINED__
+#define __IXmlWriter_FWD_DEFINED__
+typedef interface IXmlWriter IXmlWriter;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -498,6 +503,586 @@ typedef IUnknown IXmlReaderInput;
 STDAPI CreateXmlReaderInputWithEncodingName(IUnknown *stream, IMalloc *pMalloc,
                                             LPCWSTR encoding, WINBOOL hint,
                                             LPCWSTR base_uri, IXmlReaderInput **ppInput);
+typedef enum XmlStandalone {
+    XmlStandalone_Omit = 0,
+    XmlStandalone_Yes = 1,
+    XmlStandalone_No = 2,
+    _XmlStandalone_Last = XmlStandalone_No
+} XmlStandalone;
+typedef enum XmlWriterProperty {
+    XmlWriterProperty_MultiLanguage = 0,
+    XmlWriterProperty_Indent = 1,
+    XmlWriterProperty_ByteOrderMark = 2,
+    XmlWriterProperty_OmitXmlDeclaration = 3,
+    XmlWriterProperty_ConformanceLevel = 4,
+    _XmlWriterProperty_Last = XmlWriterProperty_OmitXmlDeclaration
+} XmlWriterProperty;
+/*****************************************************************************
+ * IXmlWriter interface
+ */
+#ifndef __IXmlWriter_INTERFACE_DEFINED__
+#define __IXmlWriter_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IXmlWriter, 0x7279fc88, 0x709d, 0x4095, 0xb6,0x3d, 0x69,0xfe,0x4b,0x0d,0x90,0x30);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface IXmlWriter : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetOutput(
+        IUnknown *pOutput) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProperty(
+        UINT nProperty,
+        LONG_PTR *ppValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProperty(
+        UINT nProperty,
+        LONG_PTR pValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteAttributes(
+        IXmlReader *pReader,
+        WINBOOL fWriteDefaultAttributes) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteAttributeString(
+        LPCWSTR pwszPrefix,
+        LPCWSTR pwszLocalName,
+        LPCWSTR pwszNamespaceUri,
+        LPCWSTR pwszValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteCData(
+        LPCWSTR pwszText) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteCharEntity(
+        WCHAR wch) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteChars(
+        const WCHAR *pwch,
+        UINT cwch) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteComment(
+        LPCWSTR pwszComment) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteDocType(
+        LPCWSTR pwszName,
+        LPCWSTR pwszPublicId,
+        LPCWSTR pwszSystemId,
+        LPCWSTR pwszSubset) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteElementString(
+        LPCWSTR pwszPrefix,
+        LPCWSTR pwszLocalName,
+        LPCWSTR pwszNamespaceUri,
+        LPCWSTR pwszValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteEndDocument(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteEndElement(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteEntityRef(
+        LPCWSTR pwszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteFullEndElement(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteName(
+        LPCWSTR pwszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteNmToken(
+        LPCWSTR pwszNmToken) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteNode(
+        IXmlReader *pReader,
+        WINBOOL fWriteDefaultAttributes) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteNodeShallow(
+        IXmlReader *pReader,
+        WINBOOL fWriteDefaultAttributes) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteProcessingInstruction(
+        LPCWSTR pwszName,
+        LPCWSTR pwszText) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteQualifiedName(
+        LPCWSTR pwszLocalName,
+        LPCWSTR pwszNamespaceUri) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteRaw(
+        LPCWSTR pwszData) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteRawChars(
+        const WCHAR *pwch,
+        UINT cwch) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteStartDocument(
+        XmlStandalone standalone) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteStartElement(
+        LPCWSTR pwszPrefix,
+        LPCWSTR pwszLocalName,
+        LPCWSTR pwszNamespaceUri) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteString(
+        LPCWSTR pwszText) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteSurrogateCharEntity(
+        WCHAR wchLow,
+        WCHAR wchHigh) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteWhitespace(
+        LPCWSTR pwszWhitespace) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Flush(
+        ) = 0;
+
+};
+#else
+typedef struct IXmlWriterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IXmlWriter* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IXmlWriter* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IXmlWriter* This);
+
+    /*** IXmlWriter methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetOutput)(
+        IXmlWriter* This,
+        IUnknown *pOutput);
+
+    HRESULT (STDMETHODCALLTYPE *GetProperty)(
+        IXmlWriter* This,
+        UINT nProperty,
+        LONG_PTR *ppValue);
+
+    HRESULT (STDMETHODCALLTYPE *SetProperty)(
+        IXmlWriter* This,
+        UINT nProperty,
+        LONG_PTR pValue);
+
+    HRESULT (STDMETHODCALLTYPE *WriteAttributes)(
+        IXmlWriter* This,
+        IXmlReader *pReader,
+        WINBOOL fWriteDefaultAttributes);
+
+    HRESULT (STDMETHODCALLTYPE *WriteAttributeString)(
+        IXmlWriter* This,
+        LPCWSTR pwszPrefix,
+        LPCWSTR pwszLocalName,
+        LPCWSTR pwszNamespaceUri,
+        LPCWSTR pwszValue);
+
+    HRESULT (STDMETHODCALLTYPE *WriteCData)(
+        IXmlWriter* This,
+        LPCWSTR pwszText);
+
+    HRESULT (STDMETHODCALLTYPE *WriteCharEntity)(
+        IXmlWriter* This,
+        WCHAR wch);
+
+    HRESULT (STDMETHODCALLTYPE *WriteChars)(
+        IXmlWriter* This,
+        const WCHAR *pwch,
+        UINT cwch);
+
+    HRESULT (STDMETHODCALLTYPE *WriteComment)(
+        IXmlWriter* This,
+        LPCWSTR pwszComment);
+
+    HRESULT (STDMETHODCALLTYPE *WriteDocType)(
+        IXmlWriter* This,
+        LPCWSTR pwszName,
+        LPCWSTR pwszPublicId,
+        LPCWSTR pwszSystemId,
+        LPCWSTR pwszSubset);
+
+    HRESULT (STDMETHODCALLTYPE *WriteElementString)(
+        IXmlWriter* This,
+        LPCWSTR pwszPrefix,
+        LPCWSTR pwszLocalName,
+        LPCWSTR pwszNamespaceUri,
+        LPCWSTR pwszValue);
+
+    HRESULT (STDMETHODCALLTYPE *WriteEndDocument)(
+        IXmlWriter* This);
+
+    HRESULT (STDMETHODCALLTYPE *WriteEndElement)(
+        IXmlWriter* This);
+
+    HRESULT (STDMETHODCALLTYPE *WriteEntityRef)(
+        IXmlWriter* This,
+        LPCWSTR pwszName);
+
+    HRESULT (STDMETHODCALLTYPE *WriteFullEndElement)(
+        IXmlWriter* This);
+
+    HRESULT (STDMETHODCALLTYPE *WriteName)(
+        IXmlWriter* This,
+        LPCWSTR pwszName);
+
+    HRESULT (STDMETHODCALLTYPE *WriteNmToken)(
+        IXmlWriter* This,
+        LPCWSTR pwszNmToken);
+
+    HRESULT (STDMETHODCALLTYPE *WriteNode)(
+        IXmlWriter* This,
+        IXmlReader *pReader,
+        WINBOOL fWriteDefaultAttributes);
+
+    HRESULT (STDMETHODCALLTYPE *WriteNodeShallow)(
+        IXmlWriter* This,
+        IXmlReader *pReader,
+        WINBOOL fWriteDefaultAttributes);
+
+    HRESULT (STDMETHODCALLTYPE *WriteProcessingInstruction)(
+        IXmlWriter* This,
+        LPCWSTR pwszName,
+        LPCWSTR pwszText);
+
+    HRESULT (STDMETHODCALLTYPE *WriteQualifiedName)(
+        IXmlWriter* This,
+        LPCWSTR pwszLocalName,
+        LPCWSTR pwszNamespaceUri);
+
+    HRESULT (STDMETHODCALLTYPE *WriteRaw)(
+        IXmlWriter* This,
+        LPCWSTR pwszData);
+
+    HRESULT (STDMETHODCALLTYPE *WriteRawChars)(
+        IXmlWriter* This,
+        const WCHAR *pwch,
+        UINT cwch);
+
+    HRESULT (STDMETHODCALLTYPE *WriteStartDocument)(
+        IXmlWriter* This,
+        XmlStandalone standalone);
+
+    HRESULT (STDMETHODCALLTYPE *WriteStartElement)(
+        IXmlWriter* This,
+        LPCWSTR pwszPrefix,
+        LPCWSTR pwszLocalName,
+        LPCWSTR pwszNamespaceUri);
+
+    HRESULT (STDMETHODCALLTYPE *WriteString)(
+        IXmlWriter* This,
+        LPCWSTR pwszText);
+
+    HRESULT (STDMETHODCALLTYPE *WriteSurrogateCharEntity)(
+        IXmlWriter* This,
+        WCHAR wchLow,
+        WCHAR wchHigh);
+
+    HRESULT (STDMETHODCALLTYPE *WriteWhitespace)(
+        IXmlWriter* This,
+        LPCWSTR pwszWhitespace);
+
+    HRESULT (STDMETHODCALLTYPE *Flush)(
+        IXmlWriter* This);
+
+    END_INTERFACE
+} IXmlWriterVtbl;
+interface IXmlWriter {
+    CONST_VTBL IXmlWriterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IXmlWriter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IXmlWriter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IXmlWriter_Release(This) (This)->lpVtbl->Release(This)
+/*** IXmlWriter methods ***/
+#define IXmlWriter_SetOutput(This,pOutput) (This)->lpVtbl->SetOutput(This,pOutput)
+#define IXmlWriter_GetProperty(This,nProperty,ppValue) (This)->lpVtbl->GetProperty(This,nProperty,ppValue)
+#define IXmlWriter_SetProperty(This,nProperty,pValue) (This)->lpVtbl->SetProperty(This,nProperty,pValue)
+#define IXmlWriter_WriteAttributes(This,pReader,fWriteDefaultAttributes) (This)->lpVtbl->WriteAttributes(This,pReader,fWriteDefaultAttributes)
+#define IXmlWriter_WriteAttributeString(This,pwszPrefix,pwszLocalName,pwszNamespaceUri,pwszValue) (This)->lpVtbl->WriteAttributeString(This,pwszPrefix,pwszLocalName,pwszNamespaceUri,pwszValue)
+#define IXmlWriter_WriteCData(This,pwszText) (This)->lpVtbl->WriteCData(This,pwszText)
+#define IXmlWriter_WriteCharEntity(This,wch) (This)->lpVtbl->WriteCharEntity(This,wch)
+#define IXmlWriter_WriteChars(This,pwch,cwch) (This)->lpVtbl->WriteChars(This,pwch,cwch)
+#define IXmlWriter_WriteComment(This,pwszComment) (This)->lpVtbl->WriteComment(This,pwszComment)
+#define IXmlWriter_WriteDocType(This,pwszName,pwszPublicId,pwszSystemId,pwszSubset) (This)->lpVtbl->WriteDocType(This,pwszName,pwszPublicId,pwszSystemId,pwszSubset)
+#define IXmlWriter_WriteElementString(This,pwszPrefix,pwszLocalName,pwszNamespaceUri,pwszValue) (This)->lpVtbl->WriteElementString(This,pwszPrefix,pwszLocalName,pwszNamespaceUri,pwszValue)
+#define IXmlWriter_WriteEndDocument(This) (This)->lpVtbl->WriteEndDocument(This)
+#define IXmlWriter_WriteEndElement(This) (This)->lpVtbl->WriteEndElement(This)
+#define IXmlWriter_WriteEntityRef(This,pwszName) (This)->lpVtbl->WriteEntityRef(This,pwszName)
+#define IXmlWriter_WriteFullEndElement(This) (This)->lpVtbl->WriteFullEndElement(This)
+#define IXmlWriter_WriteName(This,pwszName) (This)->lpVtbl->WriteName(This,pwszName)
+#define IXmlWriter_WriteNmToken(This,pwszNmToken) (This)->lpVtbl->WriteNmToken(This,pwszNmToken)
+#define IXmlWriter_WriteNode(This,pReader,fWriteDefaultAttributes) (This)->lpVtbl->WriteNode(This,pReader,fWriteDefaultAttributes)
+#define IXmlWriter_WriteNodeShallow(This,pReader,fWriteDefaultAttributes) (This)->lpVtbl->WriteNodeShallow(This,pReader,fWriteDefaultAttributes)
+#define IXmlWriter_WriteProcessingInstruction(This,pwszName,pwszText) (This)->lpVtbl->WriteProcessingInstruction(This,pwszName,pwszText)
+#define IXmlWriter_WriteQualifiedName(This,pwszLocalName,pwszNamespaceUri) (This)->lpVtbl->WriteQualifiedName(This,pwszLocalName,pwszNamespaceUri)
+#define IXmlWriter_WriteRaw(This,pwszData) (This)->lpVtbl->WriteRaw(This,pwszData)
+#define IXmlWriter_WriteRawChars(This,pwch,cwch) (This)->lpVtbl->WriteRawChars(This,pwch,cwch)
+#define IXmlWriter_WriteStartDocument(This,standalone) (This)->lpVtbl->WriteStartDocument(This,standalone)
+#define IXmlWriter_WriteStartElement(This,pwszPrefix,pwszLocalName,pwszNamespaceUri) (This)->lpVtbl->WriteStartElement(This,pwszPrefix,pwszLocalName,pwszNamespaceUri)
+#define IXmlWriter_WriteString(This,pwszText) (This)->lpVtbl->WriteString(This,pwszText)
+#define IXmlWriter_WriteSurrogateCharEntity(This,wchLow,wchHigh) (This)->lpVtbl->WriteSurrogateCharEntity(This,wchLow,wchHigh)
+#define IXmlWriter_WriteWhitespace(This,pwszWhitespace) (This)->lpVtbl->WriteWhitespace(This,pwszWhitespace)
+#define IXmlWriter_Flush(This) (This)->lpVtbl->Flush(This)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IXmlWriter_SetOutput_Proxy(
+    IXmlWriter* This,
+    IUnknown *pOutput);
+void __RPC_STUB IXmlWriter_SetOutput_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_GetProperty_Proxy(
+    IXmlWriter* This,
+    UINT nProperty,
+    LONG_PTR *ppValue);
+void __RPC_STUB IXmlWriter_GetProperty_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_SetProperty_Proxy(
+    IXmlWriter* This,
+    UINT nProperty,
+    LONG_PTR pValue);
+void __RPC_STUB IXmlWriter_SetProperty_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteAttributes_Proxy(
+    IXmlWriter* This,
+    IXmlReader *pReader,
+    WINBOOL fWriteDefaultAttributes);
+void __RPC_STUB IXmlWriter_WriteAttributes_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteAttributeString_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszPrefix,
+    LPCWSTR pwszLocalName,
+    LPCWSTR pwszNamespaceUri,
+    LPCWSTR pwszValue);
+void __RPC_STUB IXmlWriter_WriteAttributeString_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteCData_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszText);
+void __RPC_STUB IXmlWriter_WriteCData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteCharEntity_Proxy(
+    IXmlWriter* This,
+    WCHAR wch);
+void __RPC_STUB IXmlWriter_WriteCharEntity_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteChars_Proxy(
+    IXmlWriter* This,
+    const WCHAR *pwch,
+    UINT cwch);
+void __RPC_STUB IXmlWriter_WriteChars_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteComment_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszComment);
+void __RPC_STUB IXmlWriter_WriteComment_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteDocType_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszName,
+    LPCWSTR pwszPublicId,
+    LPCWSTR pwszSystemId,
+    LPCWSTR pwszSubset);
+void __RPC_STUB IXmlWriter_WriteDocType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteElementString_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszPrefix,
+    LPCWSTR pwszLocalName,
+    LPCWSTR pwszNamespaceUri,
+    LPCWSTR pwszValue);
+void __RPC_STUB IXmlWriter_WriteElementString_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteEndDocument_Proxy(
+    IXmlWriter* This);
+void __RPC_STUB IXmlWriter_WriteEndDocument_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteEndElement_Proxy(
+    IXmlWriter* This);
+void __RPC_STUB IXmlWriter_WriteEndElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteEntityRef_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszName);
+void __RPC_STUB IXmlWriter_WriteEntityRef_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteFullEndElement_Proxy(
+    IXmlWriter* This);
+void __RPC_STUB IXmlWriter_WriteFullEndElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteName_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszName);
+void __RPC_STUB IXmlWriter_WriteName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteNmToken_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszNmToken);
+void __RPC_STUB IXmlWriter_WriteNmToken_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteNode_Proxy(
+    IXmlWriter* This,
+    IXmlReader *pReader,
+    WINBOOL fWriteDefaultAttributes);
+void __RPC_STUB IXmlWriter_WriteNode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteNodeShallow_Proxy(
+    IXmlWriter* This,
+    IXmlReader *pReader,
+    WINBOOL fWriteDefaultAttributes);
+void __RPC_STUB IXmlWriter_WriteNodeShallow_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteProcessingInstruction_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszName,
+    LPCWSTR pwszText);
+void __RPC_STUB IXmlWriter_WriteProcessingInstruction_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteQualifiedName_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszLocalName,
+    LPCWSTR pwszNamespaceUri);
+void __RPC_STUB IXmlWriter_WriteQualifiedName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteRaw_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszData);
+void __RPC_STUB IXmlWriter_WriteRaw_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteRawChars_Proxy(
+    IXmlWriter* This,
+    const WCHAR *pwch,
+    UINT cwch);
+void __RPC_STUB IXmlWriter_WriteRawChars_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteStartDocument_Proxy(
+    IXmlWriter* This,
+    XmlStandalone standalone);
+void __RPC_STUB IXmlWriter_WriteStartDocument_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteStartElement_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszPrefix,
+    LPCWSTR pwszLocalName,
+    LPCWSTR pwszNamespaceUri);
+void __RPC_STUB IXmlWriter_WriteStartElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteString_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszText);
+void __RPC_STUB IXmlWriter_WriteString_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteSurrogateCharEntity_Proxy(
+    IXmlWriter* This,
+    WCHAR wchLow,
+    WCHAR wchHigh);
+void __RPC_STUB IXmlWriter_WriteSurrogateCharEntity_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_WriteWhitespace_Proxy(
+    IXmlWriter* This,
+    LPCWSTR pwszWhitespace);
+void __RPC_STUB IXmlWriter_WriteWhitespace_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IXmlWriter_Flush_Proxy(
+    IXmlWriter* This);
+void __RPC_STUB IXmlWriter_Flush_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IXmlWriter_INTERFACE_DEFINED__ */
+
 /* Begin additional prototypes for all interfaces */
 
 
