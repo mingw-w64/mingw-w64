@@ -12,7 +12,13 @@
 #ifndef _D2D1_H
 #define _D2D1_H
 
-#include <objbase.h>
+#include <unknwn.h>
+#include <dcommon.h>
+
+#ifdef __MINGW_HAS_DXSDK
+#include <dxgiformat.h>
+#include <d3d10_1.h>
+#endif
 
 #include <d2dbasetypes.h>
 #include <d2derr.h>
@@ -23,12 +29,28 @@
 
 typedef UINT64 D2D1_TAG;
 
-#define D2D1_DEFAULT_FLATTENING_TOLERANCE 0.25f
-#define D2D1_INVALID_TAG ULONGLONG_MAX
+#pragma push_macro("IDWriteTextFormat")
+#pragma push_macro("IDWriteRenderingParams")
+#pragma push_macro("IDWriteTextLayout")
+#undef IDWriteTextFormat
+#undef IDWriteRenderingParams
+#undef IDWriteTextLayout
+
+#ifndef __IWICBitmapSource_FWD_DEFINED__
+#define __IWICBitmapSource_FWD_DEFINED__
+typedef interface IWICBitmapSource IWICBitmapSource;
+#endif
+
+#ifndef __IWICBitmap_FWD_DEFINED__
+#define __IWICBitmap_FWD_DEFINED__
+typedef interface IWICBitmap IWICBitmap;
+#endif
+
+typedef struct DWRITE_GLYPH_RUN DWRITE_GLYPH_RUN;
 
 /* enumerations */
 
-/* todo - remove when d3d10 headers become available */
+#ifndef __MINGW_HAS_DXSDK
 typedef enum D3D10_FEATURE_LEVEL1 {
   D3D10_FEATURE_LEVEL_10_0   = 0xa000,
   D3D10_FEATURE_LEVEL_10_1   = 0xa100,
@@ -36,9 +58,7 @@ typedef enum D3D10_FEATURE_LEVEL1 {
   D3D10_FEATURE_LEVEL_9_2    = 0x9200,
   D3D10_FEATURE_LEVEL_9_3    = 0x9300 
 } D3D10_FEATURE_LEVEL1;
-/* */
 
-/* todo - remove when dxgi.h becomes available */
 typedef enum DXGI_FORMAT {
   DXGI_FORMAT_UNKNOWN                      = 0,
   DXGI_FORMAT_R32G32B32A32_TYPELESS        = 1,
@@ -140,43 +160,35 @@ typedef enum DXGI_FORMAT {
   DXGI_FORMAT_BC7_TYPELESS                 = 97,
   DXGI_FORMAT_BC7_UNORM                    = 98,
   DXGI_FORMAT_BC7_UNORM_SRGB               = 99,
-  DXGI_FORMAT_FORCE_UINT                   = 0xffffffffUL 
+  DXGI_FORMAT_FORCE_UINT                   = 0xffffffffUL
 } DXGI_FORMAT, *LPDXGI_FORMAT;
-/* */
 
-/* todo - remove other temporary defines for unavailable interfaces */
-#define IWICBitmapSource void
-#define IDWriteRenderingParams void
-#define IDXGISurface void
-#define IWICBitmap void
-#define IDWriteTextFormat void
-#define IDWriteTextLayout void
-#define IDWriteFontFace void
-/* */
+#endif /*__MINGW_HAS_DXSDK*/
 
-/* todo - remove when dwrite headers becomes available */
-typedef enum DWRITE_MEASURING_MODE {
-  DWRITE_MEASURING_MODE_NATURAL,
-  DWRITE_MEASURING_MODE_GDI_CLASSIC,
-  DWRITE_MEASURING_MODE_GDI_NATURAL 
-} DWRITE_MEASURING_MODE;
+#ifndef __IDWriteRenderingParams_FWD_DEFINED__
+#define __IDWriteRenderingParams_FWD_DEFINED__
+typedef struct IDWriteRenderingParams IDWriteRenderingParams;
+#endif
 
-typedef struct DWRITE_GLYPH_OFFSET {
-  FLOAT advanceOffset;
-  FLOAT ascenderOffset;
-} DWRITE_GLYPH_OFFSET;
+#ifndef __IDXGISurface_FWD_DEFINED__
+#define __IDXGISurface_FWD_DEFINED__
+typedef struct IDXGISurface IDXGISurface;
+#endif
 
-typedef struct DWRITE_GLYPH_RUN {
-  IDWriteFontFace           *fontFace;
-  FLOAT                     fontEmSize;
-  UINT32                    glyphCount;
-  const short               *glyphIndices;
-  const FLOAT               *glyphAdvances;
-  const DWRITE_GLYPH_OFFSET *glyphOffsets;
-  BOOL                      isSideways;
-  UINT32                    bidiLevel;
-} DWRITE_GLYPH_RUN;
-/* */
+#ifndef __IDWriteTextFormat_FWD_DEFINED__
+#define __IDWriteTextFormat_FWD_DEFINED__
+typedef struct IDWriteTextFormat IDWriteTextFormat;
+#endif
+
+#ifndef __IDWriteTextLayout_FWD_DEFINED__
+#define __IDWriteTextLayout_FWD_DEFINED__
+typedef struct IDWriteTextLayout IDWriteTextLayout;
+#endif
+
+#ifndef __IDWriteFontFace_FWD_DEFINED__
+#define __IDWriteFontFace_FWD_DEFINED__
+typedef struct IDWriteFontFace IDWriteFontFace;
+#endif
 
 typedef enum _D2D1_ALPHA_MODE {
   D2D1_ALPHA_MODE_UNKNOWN         = 0,
@@ -2029,6 +2041,10 @@ DECLARE_INTERFACE_(ID2D1TransformedGeometry, ID2D1Geometry)
 #define ID2D1TransformedGeometry_Widen(this,A,B,C,D) (this)->lpVtbl->Widen(this,A,B,C,D)
 #define ID2D1TransformedGeometry_GetSourceGeometry(this,A) (this)->lpVtbl->GetSourceGeometry(this,A)
 #define ID2D1TransformedGeometry_GetTransform(this,A) (this)->lpVtbl->GetTransform(this,A)
+
+#pragma pop_macro("IDWriteTextFormat")
+#pragma pop_macro("IDWriteRenderingParams")
+#pragma pop_macro("IDWriteTextLayout")
 
 /* already exists in unknwn.h>
 #define INTERFACE IUnknown
