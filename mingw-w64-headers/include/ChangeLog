@@ -1,3 +1,8 @@
+2011-06-23  Kai TIetz  <ktietz@redhat.com>
+
+	* basetyps.h (DECLARE_INTERFACE_IID_): New macro.
+	* objbase.h: Likewise.
+
 2011-06-21  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* d2d1.h: Remove redundant declarations.
