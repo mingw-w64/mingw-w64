@@ -1,4 +1,4 @@
-2011-06-23  Kai TIetz  <ktietz@redhat.com>
+2011-06-23  Kai Tietz  <ktietz@redhat.com>
 
 	* basetyps.h (DECLARE_INTERFACE_IID_): New macro.
 	* objbase.h: Likewise.
