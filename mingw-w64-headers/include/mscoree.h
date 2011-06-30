@@ -3,6 +3,11 @@
 #include <rpc.h>
 #include <rpcndr.h>
 
+#if !defined(COM_NO_WINDOWS_H) && !defined(__WINESRC__)
+#include <windows.h>
+#include <ole2.h>
+#endif
+
 #ifndef __WIDL_MSCOREE_H
 #define __WIDL_MSCOREE_H
 
@@ -46,6 +51,11 @@ typedef interface ICorRuntimeHost ICorRuntimeHost;
 #ifndef __ICLRRuntimeHost_FWD_DEFINED__
 #define __ICLRRuntimeHost_FWD_DEFINED__
 typedef interface ICLRRuntimeHost ICLRRuntimeHost;
+#endif
+
+#ifndef __IManagedObject_FWD_DEFINED__
+#define __IManagedObject_FWD_DEFINED__
+typedef interface IManagedObject IManagedObject;
 #endif
 
 /* Headers for imported files */
@@ -1198,6 +1208,91 @@ void __RPC_STUB ICLRRuntimeHost_ExecuteInDefaultAppDomain_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ICLRRuntimeHost_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IManagedObject interface
+ */
+#ifndef __IManagedObject_INTERFACE_DEFINED__
+#define __IManagedObject_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IManagedObject, 0xc3fcc19e, 0xa970, 0x11d2, 0x8b,0x5a, 0x00,0xa0,0xc9,0xb7,0xc9,0xc4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface IManagedObject : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetSerializedBuffer(
+        BSTR *pBSTR) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetObjectIdentity(
+        BSTR *pBSTRGUID,
+        int *AppDomainID,
+        int *pCCW) = 0;
+
+};
+#else
+typedef struct IManagedObjectVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IManagedObject* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IManagedObject* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IManagedObject* This);
+
+    /*** IManagedObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSerializedBuffer)(
+        IManagedObject* This,
+        BSTR *pBSTR);
+
+    HRESULT (STDMETHODCALLTYPE *GetObjectIdentity)(
+        IManagedObject* This,
+        BSTR *pBSTRGUID,
+        int *AppDomainID,
+        int *pCCW);
+
+    END_INTERFACE
+} IManagedObjectVtbl;
+interface IManagedObject {
+    CONST_VTBL IManagedObjectVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IManagedObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IManagedObject_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IManagedObject_Release(This) (This)->lpVtbl->Release(This)
+/*** IManagedObject methods ***/
+#define IManagedObject_GetSerializedBuffer(This,pBSTR) (This)->lpVtbl->GetSerializedBuffer(This,pBSTR)
+#define IManagedObject_GetObjectIdentity(This,pBSTRGUID,AppDomainID,pCCW) (This)->lpVtbl->GetObjectIdentity(This,pBSTRGUID,AppDomainID,pCCW)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IManagedObject_GetSerializedBuffer_Proxy(
+    IManagedObject* This,
+    BSTR *pBSTR);
+void __RPC_STUB IManagedObject_GetSerializedBuffer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IManagedObject_GetObjectIdentity_Proxy(
+    IManagedObject* This,
+    BSTR *pBSTRGUID,
+    int *AppDomainID,
+    int *pCCW);
+void __RPC_STUB IManagedObject_GetObjectIdentity_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IManagedObject_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 

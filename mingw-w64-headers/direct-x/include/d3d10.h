@@ -3,6 +3,11 @@
 #include <rpc.h>
 #include <rpcndr.h>
 
+#if !defined(COM_NO_WINDOWS_H) && !defined(__WINESRC__)
+#include <windows.h>
+#include <ole2.h>
+#endif
+
 #ifndef __WIDL_D3D10_H
 #define __WIDL_D3D10_H
 
@@ -775,6 +780,15 @@ typedef enum D3D10_USAGE {
     D3D10_USAGE_DYNAMIC = 2,
     D3D10_USAGE_STAGING = 3
 } D3D10_USAGE;
+typedef enum D3D10_BIND_FLAG {
+    D3D10_BIND_VERTEX_BUFFER = 0x1,
+    D3D10_BIND_INDEX_BUFFER = 0x2,
+    D3D10_BIND_CONSTANT_BUFFER = 0x4,
+    D3D10_BIND_SHADER_RESOURCE = 0x8,
+    D3D10_BIND_STREAM_OUTPUT = 0x10,
+    D3D10_BIND_RENDER_TARGET = 0x20,
+    D3D10_BIND_DEPTH_STENCIL = 0x40
+} D3D10_BIND_FLAG;
 typedef struct D3D10_BUFFER_DESC {
     UINT ByteWidth;
     D3D10_USAGE Usage;
@@ -782,6 +796,23 @@ typedef struct D3D10_BUFFER_DESC {
     UINT CPUAccessFlags;
     UINT MiscFlags;
 } D3D10_BUFFER_DESC;
+#if !defined(D3D10_NO_HELPERS) && defined(__cplusplus)
+struct CD3D10_BUFFER_DESC : public D3D10_BUFFER_DESC {
+    CD3D10_BUFFER_DESC() {}
+    explicit CD3D10_BUFFER_DESC(const D3D10_BUFFER_DESC &o) : D3D10_BUFFER_DESC(o) {}
+    explicit CD3D10_BUFFER_DESC(UINT byteWidth, UINT bindFlags, D3D10_USAGE usage = D3D10_USAGE_DEFAULT, UINT cpuaccessFlags = 0, UINT miscFlags = 0 ) {
+        ByteWidth = byteWidth;
+        Usage = usage;
+        BindFlags = bindFlags;
+        CPUAccessFlags = cpuaccessFlags;
+        MiscFlags = miscFlags;
+    }
+    ~CD3D10_BUFFER_DESC() {}
+    operator const D3D10_BUFFER_DESC&() const {
+        return *this;
+    }
+};
+#endif
 typedef enum D3D10_MAP {
     D3D10_MAP_READ = 1,
     D3D10_MAP_WRITE = 2,
@@ -811,6 +842,37 @@ typedef struct D3D10_TEXTURE2D_DESC {
     UINT CPUAccessFlags;
     UINT MiscFlags;
 } D3D10_TEXTURE2D_DESC;
+#if !defined(D3D10_NO_HELPERS) && defined(__cplusplus)
+struct CD3D10_TEXTURE2D_DESC : public D3D10_TEXTURE2D_DESC {
+    CD3D10_TEXTURE2D_DESC() {}
+    explicit CD3D10_TEXTURE2D_DESC(const D3D10_TEXTURE2D_DESC &o) : D3D10_TEXTURE2D_DESC(o) {}
+    explicit CD3D10_TEXTURE2D_DESC(DXGI_FORMAT format, UINT width, UINT height,
+            UINT arraySize = 1,
+            UINT mipLevels = 0,
+            UINT bindFlags = D3D10_BIND_SHADER_RESOURCE,
+            D3D10_USAGE usage = D3D10_USAGE_DEFAULT,
+            UINT cpuaccessFlags = 0,
+            UINT sampleCount = 1,
+            UINT sampleQuality = 0,
+            UINT miscFlags = 0) {
+        Width = width;
+        Height = height;
+        MipLevels = mipLevels;
+        ArraySize = arraySize;
+        Format = format;
+        SampleDesc.Count = sampleCount;
+        SampleDesc.Quality = sampleQuality;
+        Usage = usage;
+        BindFlags = bindFlags;
+        CPUAccessFlags = cpuaccessFlags;
+        MiscFlags = miscFlags;
+    }
+    ~CD3D10_TEXTURE2D_DESC() {}
+    operator const D3D10_TEXTURE2D_DESC&() const {
+        return *this;
+    }
+};
+#endif
 typedef struct D3D10_TEXTURE3D_DESC {
     UINT Width;
     UINT Height;
@@ -1045,15 +1107,6 @@ typedef struct D3D10_MAPPED_TEXTURE3D {
     UINT RowPitch;
     UINT DepthPitch;
 } D3D10_MAPPED_TEXTURE3D;
-typedef enum D3D10_BIND_FLAG {
-    D3D10_BIND_VERTEX_BUFFER = 0x1,
-    D3D10_BIND_INDEX_BUFFER = 0x2,
-    D3D10_BIND_CONSTANT_BUFFER = 0x4,
-    D3D10_BIND_SHADER_RESOURCE = 0x8,
-    D3D10_BIND_STREAM_OUTPUT = 0x10,
-    D3D10_BIND_RENDER_TARGET = 0x20,
-    D3D10_BIND_DEPTH_STENCIL = 0x40
-} D3D10_BIND_FLAG;
 typedef enum D3D10_CPU_ACCESS_FLAG {
     D3D10_CPU_ACCESS_WRITE = 0x10000,
     D3D10_CPU_ACCESS_READ = 0x20000
@@ -1117,7 +1170,10 @@ typedef enum D3D10_CREATE_DEVICE_FLAG {
     D3D10_CREATE_DEVICE_SINGLETHREADED = 0x1,
     D3D10_CREATE_DEVICE_DEBUG = 0x2,
     D3D10_CREATE_DEVICE_SWITCH_TO_REF = 0x4,
-    D3D10_CREATE_DEVICE_PREVENT_INTERNAL_THREADING_OPTIMIZATIONS = 0x8
+    D3D10_CREATE_DEVICE_PREVENT_INTERNAL_THREADING_OPTIMIZATIONS = 0x8,
+    D3D10_CREATE_DEVICE_ALLOW_NULL_FROM_MAP = 0x10,
+    D3D10_CREATE_DEVICE_BGRA_SUPPORT = 0x20,
+    D3D10_CREATE_DEVICE_STRICT_VALIDATION = 0x200
 } D3D10_CREATE_DEVICE_FLAG;
 #ifndef __ID3D10Device_FWD_DEFINED__
 #define __ID3D10Device_FWD_DEFINED__

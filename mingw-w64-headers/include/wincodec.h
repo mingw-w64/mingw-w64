@@ -3,6 +3,11 @@
 #include <rpc.h>
 #include <rpcndr.h>
 
+#if !defined(COM_NO_WINDOWS_H) && !defined(__WINESRC__)
+#include <windows.h>
+#include <ole2.h>
+#endif
+
 #ifndef __WIDL_WINCODEC_H
 #define __WIDL_WINCODEC_H
 

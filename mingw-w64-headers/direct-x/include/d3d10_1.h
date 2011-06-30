@@ -3,6 +3,11 @@
 #include <rpc.h>
 #include <rpcndr.h>
 
+#if !defined(COM_NO_WINDOWS_H) && !defined(__WINESRC__)
+#include <windows.h>
+#include <ole2.h>
+#endif
+
 #ifndef __WIDL_D3D10_1_H
 #define __WIDL_D3D10_1_H
 
@@ -1006,6 +1011,8 @@ void __RPC_STUB ID3D10Device1_GetFeatureLevel_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ID3D10Device1_INTERFACE_DEFINED__ */
+
+#define D3D10_1_SDK_VERSION (0x20)
 
 /* Begin additional prototypes for all interfaces */
 
