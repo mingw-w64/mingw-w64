@@ -78,6 +78,11 @@
 #define DECLARE_INTERFACE_IID_(iface,baseiface,iidiface) DECLARE_INTERFACE(iface)
 #endif
 
+#define IFACEMETHOD(method)         STDMETHOD(method)
+#define IFACEMETHOD_(type,method)   STDMETHOD_(type,method)
+#define IFACEMETHODV(method)        STDMETHODV(method)
+#define IFACEMETHODV_(type,method)  STDMETHODV_(type,method)
+
 #include <guiddef.h>
 
 #ifndef _ERROR_STATUS_T_DEFINED

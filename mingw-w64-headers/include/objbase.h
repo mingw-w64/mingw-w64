@@ -69,6 +69,11 @@
 
 #endif
 
+#define IFACEMETHOD(method)         STDMETHOD(method)
+#define IFACEMETHOD_(type,method)   STDMETHOD_(type,method)
+#define IFACEMETHODV(method)        STDMETHODV(method)
+#define IFACEMETHODV_(type,method)  STDMETHODV_(type,method)
+
 #ifndef FARSTRUCT
 #define FARSTRUCT
 #endif
