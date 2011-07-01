@@ -149,6 +149,8 @@ extern "C" {
 #define FORCEINLINE __forceinline
 #elif defined(_MSC_VER)
 #define FORCEINLINE __inline
+#elif defined(__cplusplus) /* __GNUC__ */
+#define FORCEINLINE inline __attribute__((always_inline))
 #else /* __GNUC__ */
 #define FORCEINLINE extern __inline__ __attribute__((always_inline))
 #endif
@@ -260,10 +262,14 @@ extern "C" {
 #define STDAPI_(type) EXTERN_C type WINAPI
 #define STDMETHODIMP HRESULT WINAPI
 #define STDMETHODIMP_(type) type WINAPI
+#define IFACEMETHODIMP STDMETHODIMP
+#define IFACEMETHODIMP_(type) STDMETHODIMP_(type)
 #define STDAPIV EXTERN_C HRESULT STDAPIVCALLTYPE
 #define STDAPIV_(type) EXTERN_C type STDAPIVCALLTYPE
 #define STDMETHODIMPV HRESULT STDMETHODVCALLTYPE
 #define STDMETHODIMPV_(type) type STDMETHODVCALLTYPE
+#define IFACEMETHODIMPV STDMETHODIMPV
+#define IFACEMETHODIMPV_(type) STDMETHODIMPV_(type)
 
   typedef char CCHAR;
 #ifndef _LCID_DEFINED
