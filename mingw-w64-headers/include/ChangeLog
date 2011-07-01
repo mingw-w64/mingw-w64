@@ -1,3 +1,12 @@
+2011-07-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merged from trunk:
+	2011-07-01  Jacek Caban  <jacek@codeweavers.com>  (rev. 4235)
+	* winnt.h (FORCEINLINE): Define without extern for __cplusplus.
+	2011-07-01  Ozkan Sezer  <sezeroz@gmail.com>  (rev. 4238)
+	* ntdef.h (FORCEINLINE): Mirror the __GNUG__ case of FORCEINLINE
+	definition in ntdef.h.
+
 2011-06-23  Kai Tietz  <ktietz@redhat.com>
 
 	* basetyps.h (DECLARE_INTERFACE_IID_): New macro.
