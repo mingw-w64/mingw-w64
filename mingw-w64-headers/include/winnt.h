@@ -149,7 +149,7 @@ extern "C" {
 #define FORCEINLINE __forceinline
 #elif defined(_MSC_VER)
 #define FORCEINLINE __inline
-#elif defined(__cplusplus) /* __GNUC__ */
+#elif defined(__cplusplus) /* __GNUG__ */
 #define FORCEINLINE inline __attribute__((always_inline))
 #else /* __GNUC__ */
 #define FORCEINLINE extern __inline__ __attribute__((always_inline))
