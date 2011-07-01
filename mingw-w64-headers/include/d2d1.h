@@ -2042,28 +2042,14 @@ DECLARE_INTERFACE_(ID2D1TransformedGeometry, ID2D1Geometry)
 #define ID2D1TransformedGeometry_GetSourceGeometry(this,A) (this)->lpVtbl->GetSourceGeometry(this,A)
 #define ID2D1TransformedGeometry_GetTransform(this,A) (this)->lpVtbl->GetTransform(this,A)
 
+#ifndef D2D1FORCEINLINE
+#define D2D1FORCEINLINE FORCEINLINE
+#endif
+
+#include <d2d1helper.h>
+
 #pragma pop_macro("IDWriteTextFormat")
 #pragma pop_macro("IDWriteRenderingParams")
 #pragma pop_macro("IDWriteTextLayout")
-
-/* already exists in unknwn.h>
-#define INTERFACE IUnknown
-DECLARE_INTERFACE(IUnknown)
-{
-  BEGIN_INTERFACE
-
-  /* IUnknown methods /
-  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-  STDMETHOD_(ULONG, Release)(THIS) PURE;
-
-  END_INTERFACE
-};
-#undef INTERFACE
-
-#define IUnknown_QueryInterface(this,A,B) (this)->lpVtbl->QueryInterface(this,A,B)
-#define IUnknown_AddRef(this) (this)->lpVtbl->AddRef(this)
-#define IUnknown_Release(this) (this)->lpVtbl->Release(this)
-*/
 
 #endif /* _D2D1_H */
