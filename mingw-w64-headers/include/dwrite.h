@@ -304,6 +304,10 @@ typedef enum DWRITE_FONT_SIMULATIONS {
   DWRITE_FONT_SIMULATIONS_OBLIQUE   = 0x0002 
 } DWRITE_FONT_SIMULATIONS;
 
+#ifdef DEFINE_ENUM_FLAG_OPERATORS
+DEFINE_ENUM_FLAG_OPERATORS(DWRITE_FONT_SIMULATIONS);
+#endif
+
 typedef enum DWRITE_FONT_STRETCH {
   DWRITE_FONT_STRETCH_UNDEFINED         = 0,
   DWRITE_FONT_STRETCH_ULTRA_CONDENSED   = 1,
@@ -590,7 +594,19 @@ typedef struct DWRITE_UNDERLINE {
   DWRITE_MEASURING_MODE    measuringMode;
 } DWRITE_UNDERLINE;
 
-#include <d2d1.h>
+#define DWRITE_MAKE_OPENTYPE_TAG(a,b,c,d) ( \
+    (static_cast<UINT32>(static_cast<UINT8>(d)) << 24) | \
+    (static_cast<UINT32>(static_cast<UINT8>(c)) << 16) | \
+    (static_cast<UINT32>(static_cast<UINT8>(b)) << 8) | \
+     static_cast<UINT32>(static_cast<UINT8>(a)))
+
+#ifndef __MINGW_DEF_ARG_VAL
+#ifdef __cplusplus
+#define __MINGW_DEF_ARG_VAL(x) = x
+#else
+#define __MINGW_DEF_ARG_VAL(x)
+#endif
+#endif
 
 #undef  INTERFACE
 #define INTERFACE IDWriteBitmapRenderTarget
@@ -604,14 +620,33 @@ DECLARE_INTERFACE_(IDWriteBitmapRenderTarget,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteBitmapRenderTarget methods */
-    STDMETHOD_(HRESULT,DrawGlyphRun)(THIS_ FLOAT  baselineOriginX,FLOAT  baselineOriginY,DWRITE_MEASURING_MODE  measuringMode,const DWRITE_GLYPH_RUN * glyphRun,IDWriteRenderingParams * renderingParams,COLORREF  textColor,RECT * blackBoxRect) PURE;
-    STDMETHOD_(HRESULT,GetCurrentTransform)(THIS_ DWRITE_MATRIX * transform) PURE;
-    STDMETHOD_(HDC,GetMemoryDC)(THIS) PURE;
-    STDMETHOD_(FLOAT,GetPixelsPerDip)(THIS) PURE;
-    STDMETHOD_(HRESULT,GetSize)(THIS_ SIZE * size) PURE;
-    STDMETHOD_(HRESULT,Resize)(THIS_ UINT32  width,UINT32  height) PURE;
-    STDMETHOD_(HRESULT,SetCurrentTransform)(THIS_ const DWRITE_MATRIX * transform) PURE;
-    STDMETHOD_(HRESULT,SetPixelsPerDip)(THIS_ FLOAT  pixelsPerDip) PURE;
+    STDMETHOD(DrawGlyphRun)(THIS_
+        FLOAT baselineOriginX,
+        FLOAT baselineOriginY,
+        DWRITE_MEASURING_MODE measuringMode,
+        DWRITE_GLYPH_RUN const *glyphRun,
+        IDWriteRenderingParams *renderingParams,
+        COLORREF textColor,
+        RECT *blackBoxRect __MINGW_DEF_ARG_VAL(NULL)) PURE;
+
+    STDMETHOD_(HDC, GetMemoryDC)(THIS) PURE;
+    STDMETHOD_(FLOAT, GetPixelsPerDip)(THIS) PURE;
+
+    STDMETHOD(SetPixelsPerDip)(THIS_
+        FLOAT pixelsPerDip) PURE;
+
+    STDMETHOD(GetCurrentTransform)(THIS_
+        DWRITE_MATRIX* transform) PURE;
+
+    STDMETHOD(SetCurrentTransform)(THIS_
+        DWRITE_MATRIX const *transform) PURE;
+
+    STDMETHOD(GetSize)(THIS_
+        SIZE *size) PURE;
+
+    STDMETHOD(Resize)(THIS_
+        UINT32 width,
+        UINT32 height) PURE;
 
     END_INTERFACE
 };
@@ -641,27 +676,119 @@ DECLARE_INTERFACE_(IDWriteFactory,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteFactory methods */
-    STDMETHOD_(HRESULT,CreateCustomFontCollection)(THIS_ IDWriteFontCollectionLoader * collectionLoader,const void * collectionKey,UINT32  collectionKeySize,IDWriteFontCollection ** fontCollection) PURE;
-    STDMETHOD_(HRESULT,CreateCustomFontFileReference)(THIS_ const void * fontFileReferenceKey,UINT32  fontFileReferenceKeySize,IDWriteFontFileLoader * fontFileLoader,IDWriteFontFile ** fontFile) PURE;
-    STDMETHOD_(HRESULT,CreateCustomRenderingParams)(THIS_ FLOAT  gamma,FLOAT  enhancedContrast,FLOAT  clearTypeLevel,DWRITE_PIXEL_GEOMETRY  pixelGeometry,DWRITE_RENDERING_MODE  renderingMode,IDWriteRenderingParams ** renderingParams) PURE;
-    STDMETHOD_(HRESULT,CreateGdiCompatibleTextLayout)(THIS_ const WCHAR * string,UINT32  stringLength,IDWriteTextFormat * textFormat,FLOAT  layoutWidth,FLOAT  layoutHeight,FLOAT  pixelsPerDip,const DWRITE_MATRIX * transform,WINBOOL  useGdiNatural,IDWriteTextLayout ** textLayout) PURE;
-    STDMETHOD_(HRESULT,CreateEllipsisTrimmingSign)(THIS_ IDWriteTextFormat * textFormat,IDWriteInlineObject ** trimmingSign) PURE;
-    STDMETHOD_(HRESULT,CreateFontFace)(THIS_ DWRITE_FONT_FACE_TYPE  fontFaceType,UINT32  numberOfFiles,const IDWriteFontFile * fontFiles,UINT32  faceIndex,DWRITE_FONT_SIMULATIONS  fontFaceSimulationFlags,IDWriteFontFace ** fontFace) PURE;
-    STDMETHOD_(HRESULT,CreateFontFileReference)(THIS_ const WCHAR * filePath,const FILETIME * lastWriteTime,IDWriteFontFile ** fontFile) PURE;
-    STDMETHOD_(HRESULT,CreateGlyphRunAnalysis)(THIS_ const DWRITE_GLYPH_RUN * glyphRun,FLOAT  pixelsPerDip,const DWRITE_MATRIX * transform,DWRITE_RENDERING_MODE  renderingMode,DWRITE_MEASURING_MODE measuringMode,FLOAT  baselineOriginX,FLOAT  baselineOriginY,IDWriteGlyphRunAnalysis ** glyphRunAnalysis) PURE;
-    STDMETHOD_(HRESULT,CreateMonitorRenderingParams)(THIS_ HMONITOR  monitor,IDWriteRenderingParams ** renderingParams) PURE;
-    STDMETHOD_(HRESULT,CreateNumberSubstitution)(THIS_ DWRITE_NUMBER_SUBSTITUTION_METHOD  substitutionMethod,const WCHAR * localeName,BOOL  ignoreUserOverride,IDWriteNumberSubstitution ** numberSubstitution) PURE;
-    STDMETHOD_(HRESULT,CreateRenderingParams)(THIS_ IDWriteRenderingParams ** renderingParams) PURE;
-    STDMETHOD_(HRESULT,CreateTextAnalyzer)(THIS_ IDWriteTextAnalyzer ** textAnalyzer) PURE;
-    STDMETHOD_(HRESULT,CreateTextFormat)(THIS_ const WCHAR * fontFamilyName,IDWriteFontCollection * fontCollection,DWRITE_FONT_WEIGHT  fontWeight,DWRITE_FONT_STYLE  fontStyle,DWRITE_FONT_STRETCH  fontStretch,FLOAT  fontSize,const WCHAR * localeName,IDWriteTextFormat ** textFormat) PURE;
-    STDMETHOD_(HRESULT,CreateTextLayout)(THIS_ const WCHAR * string,UINT32  stringLength,IDWriteTextFormat * textFormat,FLOAT  maxWidth,FLOAT  maxHeight,IDWriteTextLayout ** textLayout) PURE;
-    STDMETHOD_(HRESULT,CreateTypography)(THIS_ IDWriteTypography ** typography) PURE;
-    STDMETHOD_(HRESULT,GetGdiInterop)(THIS_ IDWriteGdiInterop ** gdiInterop) PURE;
-    STDMETHOD_(HRESULT,GetSystemFontCollection)(THIS_ IDWriteFontCollection ** fontCollection,WINBOOL  checkForUpdates) PURE;
-    STDMETHOD_(HRESULT,RegisterFontCollectionLoader)(THIS_ IDWriteFontCollectionLoader * fontCollectionLoader) PURE;
-    STDMETHOD_(HRESULT,RegisterFontFileLoader)(THIS_ IDWriteFontFileLoader * fontFileLoader) PURE;
-    STDMETHOD_(HRESULT,UnregisterFontCollectionLoader)(THIS_ IDWriteFontCollectionLoader * fontCollectionLoader) PURE;
-    STDMETHOD_(HRESULT,UnregisterFontFileLoader)(THIS_ IDWriteFontFileLoader * fontFileLoader) PURE;
+    STDMETHOD(GetSystemFontCollection)(THIS_
+        IDWriteFontCollection **fontCollection,
+        BOOL checkForUpdates __MINGW_DEF_ARG_VAL(FALSE)) PURE;
+
+    STDMETHOD(CreateCustomFontCollection)(THIS_
+        IDWriteFontCollectionLoader *collectionLoader,
+        void const *collectionKey,
+        UINT32 collectionKeySize,
+        IDWriteFontCollection **fontCollection) PURE;
+
+    STDMETHOD(RegisterFontCollectionLoader)(THIS_
+        IDWriteFontCollectionLoader *fontCollectionLoader) PURE;
+
+    STDMETHOD(UnregisterFontCollectionLoader)(THIS_
+        IDWriteFontCollectionLoader *fontCollectionLoader) PURE;
+
+    STDMETHOD(CreateFontFileReference)(THIS_
+        WCHAR const *filePath,
+        FILETIME const *lastWriteTime,
+        IDWriteFontFile **fontFile) PURE;
+
+    STDMETHOD(CreateCustomFontFileReference)(THIS_
+        void const *fontFileReferenceKey,
+        UINT32 fontFileReferenceKeySize,
+        IDWriteFontFileLoader *fontFileLoader,
+        IDWriteFontFile **fontFile) PURE;
+
+    STDMETHOD(CreateFontFace)(THIS_
+        DWRITE_FONT_FACE_TYPE fontFaceType,
+        UINT32 numberOfFiles,
+        IDWriteFontFile *const *fontFiles,
+        UINT32 faceIndex,
+        DWRITE_FONT_SIMULATIONS fontFaceSimulationFlags,
+        IDWriteFontFace **fontFace) PURE;
+
+    STDMETHOD(CreateRenderingParams)(THIS_
+        IDWriteRenderingParams **renderingParams) PURE;
+
+    STDMETHOD(CreateMonitorRenderingParams)(THIS_
+        HMONITOR monitor,
+        IDWriteRenderingParams **renderingParams) PURE;
+
+    STDMETHOD(CreateCustomRenderingParams)(THIS_
+        FLOAT gamma,
+        FLOAT enhancedContrast,
+        FLOAT clearTypeLevel,
+        DWRITE_PIXEL_GEOMETRY pixelGeometry,
+        DWRITE_RENDERING_MODE renderingMode,
+        IDWriteRenderingParams **renderingParams) PURE;
+
+    STDMETHOD(RegisterFontFileLoader)(THIS_
+        IDWriteFontFileLoader *fontFileLoader) PURE;
+
+    STDMETHOD(UnregisterFontFileLoader)(THIS_
+        IDWriteFontFileLoader *fontFileLoader) PURE;
+
+    STDMETHOD(CreateTextFormat)(THIS_
+        WCHAR const *fontFamilyName,
+        IDWriteFontCollection *fontCollection,
+        DWRITE_FONT_WEIGHT fontWeight,
+        DWRITE_FONT_STYLE fontStyle,
+        DWRITE_FONT_STRETCH fontStretch,
+        FLOAT fontSize,
+        WCHAR const *localeName,
+        IDWriteTextFormat **textFormat) PURE;
+
+    STDMETHOD(CreateTypography)(THIS_
+        IDWriteTypography **typography) PURE;
+
+    STDMETHOD(GetGdiInterop)(THIS_
+        IDWriteGdiInterop **gdiInterop) PURE;
+
+    STDMETHOD(CreateTextLayout)(THIS_
+        WCHAR const *string,
+        UINT32 stringLength,
+        IDWriteTextFormat *textFormat,
+        FLOAT maxWidth,
+        FLOAT maxHeight,
+        IDWriteTextLayout **textLayout) PURE;
+
+    STDMETHOD(CreateGdiCompatibleTextLayout)(THIS_
+        WCHAR const *string,
+        UINT32 stringLength,
+        IDWriteTextFormat *textFormat,
+        FLOAT layoutWidth,
+        FLOAT layoutHeight,
+        FLOAT pixelsPerDip,
+        DWRITE_MATRIX const *transform,
+        BOOL useGdiNatural,
+        IDWriteTextLayout **textLayout) PURE;
+
+    STDMETHOD(CreateEllipsisTrimmingSign)(THIS_
+        IDWriteTextFormat *textFormat,
+        IDWriteInlineObject **trimmingSign) PURE;
+
+    STDMETHOD(CreateTextAnalyzer)(THIS_
+        IDWriteTextAnalyzer **textAnalyzer) PURE;
+
+    STDMETHOD(CreateNumberSubstitution)(THIS_
+        DWRITE_NUMBER_SUBSTITUTION_METHOD substitutionMethod,
+        WCHAR const *localeName,
+        BOOL ignoreUserOverride,
+        IDWriteNumberSubstitution **numberSubstitution) PURE;
+
+    STDMETHOD(CreateGlyphRunAnalysis)(THIS_
+        DWRITE_GLYPH_RUN const *glyphRun,
+        FLOAT pixelsPerDip,
+        DWRITE_MATRIX const *transform,
+        DWRITE_RENDERING_MODE renderingMode,
+        DWRITE_MEASURING_MODE measuringMode,
+        FLOAT baselineOriginX,
+        FLOAT baselineOriginY,
+        IDWriteGlyphRunAnalysis **glyphRunAnalysis) PURE;
 
     END_INTERFACE
 };
@@ -704,17 +831,33 @@ DECLARE_INTERFACE_(IDWriteFont,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteFont methods */
-    STDMETHOD_(HRESULT,CreateFontFace)(THIS_ IDWriteFontFace ** fontFace) PURE;
-    STDMETHOD_(HRESULT,GetFaceNames)(THIS_ IDWriteLocalizedStrings ** names) PURE;
-    STDMETHOD_(HRESULT,GetFontFamily)(THIS_ IDWriteFontFamily ** fontFamily) PURE;
-    STDMETHOD_(HRESULT,GetInformationalStrings)(THIS_ DWRITE_INFORMATIONAL_STRING_ID informationalStringID,IDWriteLocalizedStrings **informationalStrings,WINBOOL * exists) PURE;
-    STDMETHOD_(HRESULT,GetMetrics)(THIS_ DWRITE_FONT_METRICS * fontMetrics) PURE;
-    STDMETHOD_(DWRITE_FONT_SIMULATIONS,GetSimulations)(THIS) PURE;
-    STDMETHOD_(DWRITE_FONT_STRETCH,GetStretch)(THIS) PURE;
-    STDMETHOD_(DWRITE_FONT_STYLE,GetStyle)(THIS) PURE;
-    STDMETHOD_(DWRITE_FONT_WEIGHT,GetWeight)(THIS) PURE;
-    STDMETHOD_(HRESULT,HasCharacter)(THIS_ UINT32  unicodeValue,WINBOOL * exists) PURE;
-    STDMETHOD_(WINBOOL,IsSymbolFont)(THIS) PURE;
+    STDMETHOD(GetFontFamily)(THIS_
+        IDWriteFontFamily **fontFamily) PURE;
+
+    STDMETHOD_(DWRITE_FONT_WEIGHT, GetWeight)(THIS) PURE;
+    STDMETHOD_(DWRITE_FONT_STRETCH, GetStretch)(THIS) PURE;
+    STDMETHOD_(DWRITE_FONT_STYLE, GetStyle)(THIS) PURE;
+    STDMETHOD_(BOOL, IsSymbolFont)(THIS) PURE;
+
+    STDMETHOD(GetFaceNames)(THIS_
+        IDWriteLocalizedStrings **names) PURE;
+
+    STDMETHOD(GetInformationalStrings)(THIS_
+        DWRITE_INFORMATIONAL_STRING_ID informationalStringID,
+        IDWriteLocalizedStrings **informationalStrings,
+        BOOL *exists) PURE;
+
+    STDMETHOD_(DWRITE_FONT_SIMULATIONS, GetSimulations)(THIS) PURE;
+
+    STDMETHOD_(void, GetMetrics)(THIS_
+        DWRITE_FONT_METRICS *fontMetrics) PURE;
+
+    STDMETHOD(HasCharacter)(THIS_
+        UINT32 unicodeValue,
+        BOOL *exists) PURE;
+
+    STDMETHOD(CreateFontFace)(THIS_
+        IDWriteFontFace **fontFace) PURE;
 
     END_INTERFACE
 };
@@ -747,10 +890,20 @@ DECLARE_INTERFACE_(IDWriteFontCollection,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteFontCollection methods */
-    STDMETHOD_(HRESULT,FindFamilyName)(THIS_ const WCHAR * familyName,UINT32 * index,WINBOOL * exists) PURE;
-    STDMETHOD_(HRESULT,GetFontFamily)(THIS_ UINT32  index,IDWriteFontFamily ** fontFamily) PURE;
-    STDMETHOD_(UINT32,GetFontFamilyCount)(THIS) PURE;
-    STDMETHOD_(HRESULT,GetFontFromFontFace)(THIS_ IDWriteFontFace * fontFace,IDWriteFont ** font) PURE;
+    STDMETHOD_(UINT32, GetFontFamilyCount)(THIS) PURE;
+
+    STDMETHOD(GetFontFamily)(THIS_
+        UINT32 index,
+        IDWriteFontFamily **fontFamily) PURE;
+
+    STDMETHOD(FindFamilyName)(THIS_
+        WCHAR const *familyName,
+        UINT32 *index,
+        BOOL *exists) PURE;
+
+    STDMETHOD(GetFontFromFontFace)(THIS_
+        IDWriteFontFace* fontFace,
+        IDWriteFont **font) PURE;
 
     END_INTERFACE
 };
@@ -776,21 +929,75 @@ DECLARE_INTERFACE_(IDWriteFontFace,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteFontFace methods */
-    STDMETHOD_(HRESULT,GetDesignGlyphMetrics)(THIS_ const UINT16 * glyphIndices,UINT32  glyphCount,DWRITE_GLYPH_METRICS * glyphMetrics,WINBOOL isSideways) PURE;
-    STDMETHOD_(HRESULT,GetFiles)(THIS_ IDWriteFontFile ** fontFiles) PURE;
-    STDMETHOD_(HRESULT,GetGdiCompatibleMetrics)(THIS_ FLOAT emSize,FLOAT pixelsPerDip,const DWRITE_MATRIX *transform,DWRITE_FONT_METRICS *fontFaceMetrics) PURE;
-    STDMETHOD_(HRESULT,GetGdiCompatibleGlyphMetrics)(THIS_ FLOAT emSize,FLOAT pixelsPerDip,const DWRITE_MATRIX *transform,WINBOOL useGdiNatural,const UINT16 *glyphIndices,UINT32 glyphCount,DWRITE_GLYPH_METRICS *glyphMetrics,WINBOOL isSideways) PURE;
-    STDMETHOD_(UINT16,GetGlyphCount)(THIS) PURE;
-    STDMETHOD_(HRESULT,GetGlyphIndices)(THIS_ const UINT32 * codePoints,UINT32  codePointCount,UINT16 * glyphIndices) PURE;
-    STDMETHOD_(HRESULT,GetGlyphRunOutline)(THIS_ FLOAT  emSize,const UINT16 * glyphIndices,const DWRITE_GLYPH_OFFSET * glyphOffsets,UINT32  glyphCount,WINBOOL  isSideways,WINBOOL  isRightToLeft,IDWriteGeometrySink * geometrySink) PURE;
-    STDMETHOD_(UINT32,GetIndex)(THIS) PURE;
-    STDMETHOD(GetMetrics)(THIS_ DWRITE_FONT_METRICS * fontFaceMetrics) PURE;
-    STDMETHOD_(HRESULT,GetRecommendedRenderingMode)(THIS_ FLOAT  emSize,FLOAT  pixelsPerDip,DWRITE_MEASURING_MODE  measuringMode,IDWriteRenderingParams * renderingParams,DWRITE_RENDERING_MODE * renderingMode) PURE;
-    STDMETHOD_(DWRITE_FONT_SIMULATIONS,GetSimulations)(THIS) PURE;
-    STDMETHOD_(DWRITE_FONT_FACE_TYPE,GetType)(THIS) PURE;
-    STDMETHOD_(WINBOOL,IsSymbolFont)(THIS) PURE;
-    STDMETHOD(ReleaseFontTable)(THIS_ void * tableContext) PURE;
-    STDMETHOD_(HRESULT,TryGetFontTable)(THIS_ UINT32  openTypeTableTag,const void ** tableData,UINT32 * tableSize,void ** tableContext,WINBOOL * exists) PURE;
+    STDMETHOD_(DWRITE_FONT_FACE_TYPE, GetType)(THIS) PURE;
+
+    STDMETHOD(GetFiles)(THIS_
+        UINT32 *numberOfFiles,
+        IDWriteFontFile **fontFiles) PURE;
+
+    STDMETHOD_(UINT32, GetIndex)(THIS) PURE;
+    STDMETHOD_(DWRITE_FONT_SIMULATIONS, GetSimulations)(THIS) PURE;
+    STDMETHOD_(BOOL, IsSymbolFont)(THIS) PURE;
+
+    STDMETHOD_(void, GetMetrics)(THIS_
+        DWRITE_FONT_METRICS *fontFaceMetrics) PURE;
+
+    STDMETHOD_(UINT16, GetGlyphCount)(THIS) PURE;
+
+    STDMETHOD(GetDesignGlyphMetrics)(THIS_
+        UINT16 const *glyphIndices,
+        UINT32 glyphCount,
+        DWRITE_GLYPH_METRICS *glyphMetrics,
+        BOOL isSideways __MINGW_DEF_ARG_VAL(FALSE)) PURE;
+
+    STDMETHOD(GetGlyphIndices)(THIS_
+        UINT32 const *codePoints,
+        UINT32 codePointCount,
+        UINT16 *glyphIndices) PURE;
+
+    STDMETHOD(TryGetFontTable)(THIS_
+        UINT32 openTypeTableTag,
+        const void **tableData,
+        UINT32 *tableSize,
+        void **tableContext,
+        BOOL *exists) PURE;
+
+    STDMETHOD_(void, ReleaseFontTable)(THIS_
+        void *tableContext) PURE;
+
+    STDMETHOD(GetGlyphRunOutline)(THIS_
+        FLOAT emSize,
+        UINT16 const *glyphIndices,
+        FLOAT const *glyphAdvances,
+        DWRITE_GLYPH_OFFSET const *glyphOffsets,
+        UINT32 glyphCount,
+        BOOL isSideways,
+        BOOL isRightToLeft,
+        IDWriteGeometrySink *geometrySink) PURE;
+
+    STDMETHOD(GetRecommendedRenderingMode)(THIS_
+        FLOAT emSize,
+        FLOAT pixelsPerDip,
+        DWRITE_MEASURING_MODE measuringMode,
+        IDWriteRenderingParams *renderingParams,
+        DWRITE_RENDERING_MODE *renderingMode) PURE;
+
+    STDMETHOD(GetGdiCompatibleMetrics)(THIS_
+        FLOAT emSize,
+        FLOAT pixelsPerDip,
+        DWRITE_MATRIX const *transform,
+        DWRITE_FONT_METRICS *fontFaceMetrics) PURE;
+
+
+    STDMETHOD(GetGdiCompatibleGlyphMetrics)(THIS_
+        FLOAT emSize,
+        FLOAT pixelsPerDip,
+        DWRITE_MATRIX const *transform,
+        BOOL useGdiNatural,
+        UINT16 const *glyphIndices,
+        UINT32 glyphCount,
+        DWRITE_GLYPH_METRICS *glyphMetrics,
+        BOOL isSideways __MINGW_DEF_ARG_VAL(FALSE)) PURE;
 
     END_INTERFACE
 };
@@ -827,9 +1034,14 @@ DECLARE_INTERFACE_(IDWriteFontList,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteFontList methods */
-    STDMETHOD_(HRESULT,GetFont)(THIS_ UINT32  index,IDWriteFont ** font) PURE;
-    STDMETHOD_(HRESULT,GetFontCollection)(THIS_ IDWriteFontCollection ** fontCollection) PURE;
-    STDMETHOD_(UINT32,GetFontCount)(THIS) PURE;
+    STDMETHOD(GetFontCollection)(THIS_
+        IDWriteFontCollection** fontCollection) PURE;
+
+    STDMETHOD_(UINT32, GetFontCount)(THIS) PURE;
+
+    STDMETHOD(GetFont)(THIS_
+        UINT32 index,
+        IDWriteFont **font) PURE;
 
     END_INTERFACE
 };
@@ -854,14 +1066,30 @@ DECLARE_INTERFACE_(IDWriteFontFamily,IDWriteFontList)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteFontList methods */
-    STDMETHOD_(HRESULT,GetFont)(THIS_ UINT32  index,IDWriteFont ** font) PURE;
-    STDMETHOD_(HRESULT,GetFontCollection)(THIS_ IDWriteFontCollection ** fontCollection) PURE;
-    STDMETHOD_(UINT32,GetFontCount)(THIS) PURE;
+    STDMETHOD(GetFontCollection)(THIS_
+        IDWriteFontCollection** fontCollection) PURE;
+
+    STDMETHOD_(UINT32, GetFontCount)(THIS) PURE;
+
+    STDMETHOD(GetFont)(THIS_
+        UINT32 index,
+        IDWriteFont **font) PURE;
 
     /* IDWriteFontFamily methods */
-    STDMETHOD_(HRESULT,GetFamilyNames)(THIS_ IDWriteLocalizedStrings ** names) PURE;
-    STDMETHOD_(HRESULT,GetFirstMatchingFont)(THIS_ DWRITE_FONT_WEIGHT weight,DWRITE_FONT_STRETCH stretch,DWRITE_FONT_STYLE style,IDWriteFont ** matchingFont) PURE;
-    STDMETHOD_(HRESULT,GetMatchingFonts)(THIS_ DWRITE_FONT_WEIGHT weight,DWRITE_FONT_STRETCH stretch,DWRITE_FONT_STYLE style,IDWriteFontList ** matchingFonts) PURE;
+    STDMETHOD(GetFamilyNames)(THIS_
+        IDWriteLocalizedStrings **names) PURE;
+
+    STDMETHOD(GetFirstMatchingFont)(THIS_
+        DWRITE_FONT_WEIGHT weight,
+        DWRITE_FONT_STRETCH stretch,
+        DWRITE_FONT_STYLE style,
+        IDWriteFont **matchingFont) PURE;
+
+    STDMETHOD(GetMatchingFonts)(THIS_
+        DWRITE_FONT_WEIGHT weight,
+        DWRITE_FONT_STRETCH stretch,
+        DWRITE_FONT_STYLE style,
+        IDWriteFontList **matchingFonts) PURE;
 
     END_INTERFACE
 };
@@ -889,9 +1117,18 @@ DECLARE_INTERFACE_(IDWriteFontFile,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteFontFile methods */
-    STDMETHOD_(HRESULT,Analyze)(THIS_ WINBOOL * isSupportedFontType,DWRITE_FONT_FILE_TYPE * fontFileType,DWRITE_FONT_FACE_TYPE * fontFaceType,UINT32 * numberOfFaces) PURE;
-    STDMETHOD_(HRESULT,GetLoader)(THIS_ IDWriteFontFileLoader ** fontFileLoader) PURE;
-    STDMETHOD_(HRESULT,GetReferenceKey)(THIS_ const void ** fontFileReferenceKey,UINT32 * fontFileReferenceKeySize) PURE;
+    STDMETHOD(GetReferenceKey)(THIS_
+        void const **fontFileReferenceKey,
+        UINT32 *fontFileReferenceKeySize) PURE;
+
+    STDMETHOD(GetLoader)(THIS_
+        IDWriteFontFileLoader **fontFileLoader) PURE;
+
+    STDMETHOD(Analyze)(THIS_
+        BOOL *isSupportedFontType,
+        DWRITE_FONT_FILE_TYPE *fontFileType,
+        DWRITE_FONT_FACE_TYPE *fontFaceType,
+        UINT32 *numberOfFaces) PURE;
 
     END_INTERFACE
 };
@@ -916,7 +1153,10 @@ DECLARE_INTERFACE_(IDWriteFontFileLoader,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteFontFileLoader methods */
-    STDMETHOD_(HRESULT,CreateStreamFromKey)(THIS_ const void * fontFileReferenceKey,UINT32  fontFileReferenceKeySize,IDWriteFontFileStream ** fontFileStream) PURE;
+    STDMETHOD(CreateStreamFromKey)(
+        void const *fontFileReferenceKey,
+        UINT32 fontFileReferenceKeySize,
+        IDWriteFontFileStream **fontFileStream) PURE;
 
     END_INTERFACE
 };
@@ -939,10 +1179,20 @@ DECLARE_INTERFACE_(IDWriteFontFileStream,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteFontFileStream methods */
-    STDMETHOD_(HRESULT,GetFileSize)(THIS_ UINT64 * fileSize) PURE;
-    STDMETHOD_(HRESULT,GetLastWriteTime)(THIS_ UINT64 * lastWriteTime) PURE;
-    STDMETHOD_(HRESULT,ReadFileFragment)(THIS_ const void ** fragmentStart,UINT64  fileOffset,UINT64  fragmentSize,void ** fragmentContext) PURE;
-    STDMETHOD_(void,ReleaseFileFragment)(THIS_ void * fragmentContext) PURE;
+    STDMETHOD(ReadFileFragment)(THIS_
+        void const **fragmentStart,
+        UINT64 fileOffset,
+        UINT64 fragmentSize,
+        void** fragmentContext) PURE;
+
+    STDMETHOD_(void, ReleaseFileFragment)(THIS_
+        void *fragmentContext) PURE;
+
+    STDMETHOD(GetFileSize)(THIS_
+        UINT64 *fileSize) PURE;
+
+    STDMETHOD(GetLastWriteTime)(THIS_
+        UINT64 *lastWriteTime) PURE;
 
     END_INTERFACE
 };
@@ -1016,11 +1266,28 @@ DECLARE_INTERFACE_(IDWriteGdiInterop,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteGdiInterop methods */
-    STDMETHOD_(HRESULT,ConvertFontFaceToLOGFONT)(THIS_ IDWriteFontFace * font,LOGFONTW * logFont) PURE;
-    STDMETHOD_(HRESULT,ConvertFontToLOGFONT)(THIS_ IDWriteFont * font,LOGFONTW * logFont,WINBOOL * isSystemFont) PURE;
-    STDMETHOD_(HRESULT,CreateBitmapRenderTarget)(THIS_ HDC  hdc,UINT32  width,UINT32  height,IDWriteBitmapRenderTarget ** renderTarget) PURE;
-    STDMETHOD_(HRESULT,CreateFontFaceFromHdc)(THIS_ HDC  hdc,IDWriteFontFace ** fontFace) PURE;
-    STDMETHOD_(HRESULT,CreateFontFromLOGFONT)(THIS_ const LOGFONTW * logFont,IDWriteFont ** font) PURE;
+    STDMETHOD(CreateFontFromLOGFONT)(THIS_
+        LOGFONTW const *logFont,
+        IDWriteFont **font) PURE;
+
+    STDMETHOD(ConvertFontToLOGFONT)(THIS_
+        IDWriteFont *font,
+        LOGFONTW *logFont,
+        BOOL *isSystemFont) PURE;
+
+    STDMETHOD(ConvertFontFaceToLOGFONT)(THIS_
+        IDWriteFontFace *font,
+        LOGFONTW *logFont) PURE;
+
+    STDMETHOD(CreateFontFaceFromHdc)(THIS_
+        HDC hdc,
+        IDWriteFontFace **fontFace) PURE;
+
+    STDMETHOD(CreateBitmapRenderTarget)(THIS_
+        HDC hdc,
+        UINT32 width,
+        UINT32 height,
+        IDWriteBitmapRenderTarget **renderTarget) PURE;
 
     END_INTERFACE
 };
@@ -1047,9 +1314,21 @@ DECLARE_INTERFACE_(IDWriteGlyphRunAnalysis,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteGlyphRunAnalysis methods */
-    STDMETHOD_(HRESULT,CreateAlphaTexture)(THIS_ DWRITE_TEXTURE_TYPE  textureType,const RECT * textureBounds,BYTE * alphaValues,UINT32  bufferSize) PURE;
-    STDMETHOD_(HRESULT,GetAlphaBlendParams)(THIS_ IDWriteRenderingParams * renderingParams,FLOAT * blendGamma,FLOAT * blendEnhancedContrast,FLOAT * blendClearTypeLevel) PURE;
-    STDMETHOD_(HRESULT,GetAlphaTextureBounds)(THIS_ DWRITE_TEXTURE_TYPE  textureType,RECT * textureBounds) PURE;
+    STDMETHOD(GetAlphaTextureBounds)(THIS_
+        DWRITE_TEXTURE_TYPE textureType,
+        RECT *textureBounds) PURE;
+
+    STDMETHOD(CreateAlphaTexture)(THIS_
+        DWRITE_TEXTURE_TYPE textureType,
+        RECT const *textureBounds,
+        BYTE *alphaValues,
+        UINT32 bufferSize) PURE;
+
+    STDMETHOD(GetAlphaBlendParams)(THIS_
+        IDWriteRenderingParams *renderingParams,
+        FLOAT *blendGamma,
+        FLOAT *blendEnhancedContrast,
+        FLOAT *blendClearTypeLevel) PURE;
 
     END_INTERFACE
 };
@@ -1130,12 +1409,30 @@ DECLARE_INTERFACE_(IDWriteLocalizedStrings,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteLocalizedStrings methods */
-    STDMETHOD_(HRESULT,FindLocaleName)(THIS_ const WCHAR * localeName,UINT32 * index,WINBOOL * exists) PURE;
-    STDMETHOD_(UINT32,GetCount)(THIS) PURE;
-    STDMETHOD_(HRESULT,GetLocaleName)(THIS_ UINT32  index,WCHAR * localeName,UINT32  size) PURE;
-    STDMETHOD_(HRESULT,GetLocaleNameLength)(THIS_ UINT32  index,UINT32 * length) PURE;
-    STDMETHOD_(HRESULT,GetString)(THIS_ UINT32  index,WCHAR * stringBuffer,UINT32  size) PURE;
-    STDMETHOD_(HRESULT,GetStringLength)(THIS_ UINT32  index,UINT32 * length) PURE;
+    STDMETHOD_(UINT32, GetCount)(THIS) PURE;
+
+    STDMETHOD(FindLocaleName)(THIS_
+        WCHAR const *localeName,
+        UINT32 *index,
+        BOOL *exists) PURE;
+
+    STDMETHOD(GetLocaleNameLength)(THIS_
+        UINT32 index,
+        UINT32 *length) PURE;
+
+    STDMETHOD(GetLocaleName)(THIS_
+        UINT32 index,
+        WCHAR *localeName,
+        UINT32 size) PURE;
+
+    STDMETHOD(GetStringLength)(THIS_
+        UINT32 index,
+        UINT32 *length) PURE;
+
+    STDMETHOD(GetString)(THIS_
+        UINT32 index,
+        WCHAR *stringBuffer,
+        UINT32 size) PURE;
 
     END_INTERFACE
 };
@@ -1211,11 +1508,11 @@ DECLARE_INTERFACE_(IDWriteRenderingParams,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteRenderingParams methods */
-    STDMETHOD_(FLOAT,GetClearTypeLevel)(THIS) PURE;
-    STDMETHOD_(FLOAT,GetEnhancedContrast)(THIS) PURE;
-    STDMETHOD_(FLOAT,GetGamma)(THIS) PURE;
-    STDMETHOD_(DWRITE_PIXEL_GEOMETRY,GetPixelGeometry)(THIS) PURE;
-    STDMETHOD_(DWRITE_RENDERING_MODE,GetRenderingMode)(THIS) PURE;
+    STDMETHOD_(FLOAT, GetGamma)(THIS) PURE;
+    STDMETHOD_(FLOAT, GetEnhancedContrast)(THIS) PURE;
+    STDMETHOD_(FLOAT, GetClearTypeLevel)(THIS) PURE;
+    STDMETHOD_(DWRITE_PIXEL_GEOMETRY, GetPixelGeometry)(THIS) PURE;
+    STDMETHOD_(DWRITE_RENDERING_MODE, GetRenderingMode)(THIS) PURE;
 
     END_INTERFACE
 };
@@ -1242,10 +1539,26 @@ DECLARE_INTERFACE_(IDWriteTextAnalysisSink,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteTextAnalysisSink methods */
-    STDMETHOD_(HRESULT,SetBidiLevel)(THIS_ UINT32 textPosition,UINT32 textLength,UINT8 explicitLevel,UINT8 resolvedLevel) PURE;
-    STDMETHOD_(HRESULT,SetLineBreakpoints)(THIS_ UINT32 textPosition,UINT32 textLength,DWRITE_LINE_BREAKPOINT *lineBreakpoints) PURE;
-    STDMETHOD_(HRESULT,SetNumberSubstitution)(THIS_ UINT32 textPosition,UINT32 textLength,IDWriteNumberSubstitution *numberSubstitution) PURE;
-    STDMETHOD_(HRESULT,SetScriptAnalysis)(THIS_ UINT32 textPosition,UINT32 textLength,const DWRITE_SCRIPT_ANALYSIS *scriptAnalysis) PURE;
+    STDMETHOD(SetScriptAnalysis)(
+            UINT32 textPosition,
+            UINT32 textLength,
+            DWRITE_SCRIPT_ANALYSIS const *scriptAnalysis) PURE;
+
+    STDMETHOD(SetLineBreakpoints)(
+            UINT32 textPosition,
+            UINT32 textLength,
+            DWRITE_LINE_BREAKPOINT const *lineBreakpoints) PURE;
+
+    STDMETHOD(SetBidiLevel)(
+            UINT32 textPosition,
+            UINT32 textLength,
+            UINT8 explicitLevel,
+            UINT8 resolvedLevel) PURE;
+
+    STDMETHOD(SetNumberSubstitution)(
+            UINT32 textPosition,
+            UINT32 textLength,
+            IDWriteNumberSubstitution *numberSubstitution) PURE;
 
     END_INTERFACE
 };
@@ -1271,11 +1584,27 @@ DECLARE_INTERFACE_(IDWriteTextAnalysisSource,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteTextAnalysisSource methods */
-    STDMETHOD_(HRESULT,GetLocaleName)(THIS_ UINT32 textPosition,UINT32 *textLength,const WCHAR **localeName) PURE;
-    STDMETHOD_(HRESULT,GetNumberSubstitution)(THIS_ UINT32 textPosition,UINT32 *textLength,IDWriteNumberSubstitution **numberSubstitution) PURE;
-    STDMETHOD_(DWRITE_READING_DIRECTION,GetParagraphReadingDirection)(THIS) PURE;
-    STDMETHOD_(HRESULT,GetTextAtPosition)(THIS_ UINT32 textPosition,const WCHAR **textString,UINT32 *textLength) PURE;
-    STDMETHOD_(HRESULT,GetTextBeforePosition)(THIS_ UINT32 textPosition,const WCHAR **textString,UINT32 *textLength) PURE;
+    STDMETHOD(GetTextAtPosition)(THIS_
+        UINT32 textPosition,
+        WCHAR const **textString,
+        UINT32 *textLength) PURE;
+
+    STDMETHOD(GetTextBeforePosition)(THIS_
+        UINT32 textPosition,
+        WCHAR const **textString,
+        UINT32 *textLength) PURE;
+
+    STDMETHOD_(DWRITE_READING_DIRECTION, GetParagraphReadingDirection)(THIS) PURE;
+
+    STDMETHOD(GetLocaleName)(THIS_
+        UINT32 textPosition,
+        UINT32 *textLength,
+        WCHAR const **localeName) PURE;
+
+    STDMETHOD(GetNumberSubstitution)(THIS_
+        UINT32 textPosition,
+        UINT32 *textLength,
+        IDWriteNumberSubstitution **numberSubstitution) PURE;
 
     END_INTERFACE
 };
@@ -1302,13 +1631,91 @@ DECLARE_INTERFACE_(IDWriteTextAnalyzer,IUnknown)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteTextAnalyzer methods */
-    STDMETHOD_(HRESULT,AnalyzeBidi)(THIS_ IDWriteTextAnalysisSource * analysisSource,UINT32  textPosition,UINT32  textLength,IDWriteTextAnalysisSink * analysisSink) PURE;
-    STDMETHOD_(HRESULT,AnalyzeLineBreakpoints)(THIS_ IDWriteTextAnalysisSource * analysisSource,UINT32  textPosition,UINT32  textLength,IDWriteTextAnalysisSink * analysisSink) PURE;
-    STDMETHOD_(HRESULT,AnalyzeNumberSubstitution)(THIS_ IDWriteTextAnalysisSource * analysisSource,UINT32  textPosition,UINT32  textLength,IDWriteTextAnalysisSink * analysisSink) PURE;
-    STDMETHOD_(HRESULT,AnalyzeScript)(THIS_ IDWriteTextAnalysisSource * analysisSource,UINT32  textPosition,UINT32  textLength,IDWriteTextAnalysisSink * analysisSink) PURE;
-    STDMETHOD_(HRESULT,GetGdiCompatibleGlyphPlacements)(THIS_ const WCHAR * textString,const UINT16 * clusterMap,DWRITE_SHAPING_TEXT_PROPERTIES * textProps,UINT32  textLength,const UINT16 * glyphIndices,const DWRITE_SHAPING_GLYPH_PROPERTIES * glyphProps,UINT32  glyphCount,IDWriteFontFace  * fontFace,FLOAT  fontEmSize,FLOAT pixelsPerDip,const DWRITE_MATRIX *transform,WINBOOL useGdiNatural,WINBOOL isSideways,WINBOOL isRightToLeft,const DWRITE_SCRIPT_ANALYSIS * scriptAnalysis,const UINT32 * featureRangeLengths,UINT32  featureRanges,FLOAT * glyphAdvances,DWRITE_GLYPH_OFFSET * glyphOffsets) PURE;
-    STDMETHOD_(HRESULT,GetGlyphPlacements)(THIS_ const WCHAR * textString,const UINT16 * clusterMap,DWRITE_SHAPING_TEXT_PROPERTIES * textProps,UINT32  textLength,const UINT16 * glyphIndices,const DWRITE_SHAPING_GLYPH_PROPERTIES * glyphProps,UINT32  glyphCount,IDWriteFontFace  * fontFace,FLOAT  fontEmSize,WINBOOL isSideways,WINBOOL isRightToLeft,const DWRITE_SCRIPT_ANALYSIS * scriptAnalysis,const UINT32 * featureRangeLengths,UINT32  featureRanges,FLOAT * glyphAdvances,DWRITE_GLYPH_OFFSET * glyphOffsets) PURE;
-    STDMETHOD_(HRESULT,GetGlyphs)(THIS_ const WCHAR * textString,UINT32  textLength,IDWriteFontFace  * fontFace,WINBOOL isSideways,WINBOOL isRightToLeft,const DWRITE_SCRIPT_ANALYSIS * scriptAnalysis,const UINT32 * featureRangeLengths,UINT32  featureRanges,UINT32  maxGlyphCount,UINT16 * clusterMap,DWRITE_SHAPING_TEXT_PROPERTIES * textProps,UINT16 * glyphIndices,DWRITE_SHAPING_GLYPH_PROPERTIES * glyphProps,UINT32 * actualGlyphCount) PURE;
+    STDMETHOD(AnalyzeScript)(THIS_
+        IDWriteTextAnalysisSource* analysisSource,
+        UINT32 textPosition,
+        UINT32 textLength,
+        IDWriteTextAnalysisSink *analysisSink) PURE;
+
+    STDMETHOD(AnalyzeBidi)(THIS_
+        IDWriteTextAnalysisSource *analysisSource,
+        UINT32 textPosition,
+        UINT32 textLength,
+        IDWriteTextAnalysisSink *analysisSink) PURE;
+
+    STDMETHOD(AnalyzeNumberSubstitution)(THIS_
+        IDWriteTextAnalysisSource *analysisSource,
+        UINT32 textPosition,
+        UINT32 textLength,
+        IDWriteTextAnalysisSink *analysisSink) PURE;
+
+    STDMETHOD(AnalyzeLineBreakpoints)(THIS_
+        IDWriteTextAnalysisSource *analysisSource,
+        UINT32 textPosition,
+        UINT32 textLength,
+        IDWriteTextAnalysisSink *analysisSink) PURE;
+
+    STDMETHOD(GetGlyphs)(THIS_
+        WCHAR const *textString,
+        UINT32 textLength,
+        IDWriteFontFace *fontFace,
+        BOOL isSideways,
+        BOOL isRightToLeft,
+        DWRITE_SCRIPT_ANALYSIS const *scriptAnalysis,
+        WCHAR const *localeName,
+        IDWriteNumberSubstitution *numberSubstitution,
+        DWRITE_TYPOGRAPHIC_FEATURES const **features,
+        UINT32 const *featureRangeLengths,
+        UINT32 featureRanges,
+        UINT32 maxGlyphCount,
+        UINT16 *clusterMap,
+        DWRITE_SHAPING_TEXT_PROPERTIES *textProps,
+        UINT16 *glyphIndices,
+        DWRITE_SHAPING_GLYPH_PROPERTIES *glyphProps,
+        UINT32 *actualGlyphCount) PURE;
+
+    STDMETHOD(GetGlyphPlacements)(THIS_
+        WCHAR const *textString,
+        UINT16 const *clusterMap,
+        DWRITE_SHAPING_TEXT_PROPERTIES *textProps,
+        UINT32 textLength,
+        UINT16 const *glyphIndices,
+        DWRITE_SHAPING_GLYPH_PROPERTIES const *glyphProps,
+        UINT32 glyphCount,
+        IDWriteFontFace *fontFace,
+        FLOAT fontEmSize,
+        BOOL isSideways,
+        BOOL isRightToLeft,
+        DWRITE_SCRIPT_ANALYSIS const *scriptAnalysis,
+        WCHAR const *localeName,
+        DWRITE_TYPOGRAPHIC_FEATURES const **features,
+        UINT32 const *featureRangeLengths,
+        UINT32 featureRanges,
+        FLOAT *glyphAdvances,
+        DWRITE_GLYPH_OFFSET *glyphOffsets) PURE;
+
+    STDMETHOD(GetGdiCompatibleGlyphPlacements)(THIS_
+        WCHAR const *textString,
+        UINT16 const *clusterMap,
+        DWRITE_SHAPING_TEXT_PROPERTIES *textProps,
+        UINT32 textLength,
+        UINT16 const *glyphIndices,
+        DWRITE_SHAPING_GLYPH_PROPERTIES const *glyphProps,
+        UINT32 glyphCount,
+        IDWriteFontFace *fontFace,
+        FLOAT fontEmSize,
+        FLOAT pixelsPerDip,
+        DWRITE_MATRIX const *transform,
+        BOOL useGdiNatural,
+        BOOL isSideways,
+        BOOL isRightToLeft,
+        DWRITE_SCRIPT_ANALYSIS const* scriptAnalysis,
+        WCHAR const *localeName,
+        DWRITE_TYPOGRAPHIC_FEATURES const **features,
+        UINT32 const *featureRangeLengths,
+        UINT32 featureRanges,
+        FLOAT *glyphAdvances,
+        DWRITE_GLYPH_OFFSET *glyphOffsets) PURE;
 
     END_INTERFACE
 };
@@ -1617,26 +2024,10 @@ DWRITEAPI HRESULT WINAPI DWriteCreateFactory(
   IUnknown **factory
 );
 
-#define IDWriteFactory __MINGW_POISON_NAME(IDWriteFactory)
-#define IDWriteBitmapRenderTarget __MINGW_POISON_NAME(IDWriteBitmapRenderTarget)
-#define IDWriteFont __MINGW_POISON_NAME(IDWriteFont)
-#define IDWriteFontCollection __MINGW_POISON_NAME(IDWriteFontCollection)
-#define IDWriteFontFace __MINGW_POISON_NAME(IDWriteFontFace)
-#define IDWriteFontFamily __MINGW_POISON_NAME(IDWriteFontFamily)
-#define IDWriteFontList __MINGW_POISON_NAME(IDWriteFontList)
-#define IDWriteFontFile __MINGW_POISON_NAME(IDWriteFontFile)
-#define IDWriteFontFileStream __MINGW_POISON_NAME(IDWriteFontFileStream)
 #define IDWriteFontFileEnumerator __MINGW_POISON_NAME(IDWriteFontFileEnumerator)
-#define IDWriteGdiInterop __MINGW_POISON_NAME(IDWriteGdiInterop)
-#define IDWriteGlyphRunAnalysis __MINGW_POISON_NAME(IDWriteGlyphRunAnalysis)
 #define IDWriteInlineObject __MINGW_POISON_NAME(IDWriteInlineObject)
 #define IDWriteLocalFontFileLoader __MINGW_POISON_NAME(IDWriteLocalFontFileLoader)
-#define IDWriteLocalizedStrings __MINGW_POISON_NAME(IDWriteLocalizedStrings)
 #define IDWritePixelSnapping __MINGW_POISON_NAME(IDWritePixelSnapping)
-#define IDWriteRenderingParams __MINGW_POISON_NAME(IDWriteRenderingParams)
-#define IDWriteTextAnalysisSink __MINGW_POISON_NAME(IDWriteTextAnalysisSink)
-#define IDWriteTextAnalysisSource __MINGW_POISON_NAME(IDWriteTextAnalysisSource)
-#define IDWriteTextAnalyzer __MINGW_POISON_NAME(IDWriteTextAnalyzer)
 #define IDWriteTextFormat __MINGW_POISON_NAME(IDWriteTextFormat)
 #define IDWriteTextLayout __MINGW_POISON_NAME(IDWriteTextLayout)
 #define IDWriteTextRenderer __MINGW_POISON_NAME(IDWriteTextRenderer)
