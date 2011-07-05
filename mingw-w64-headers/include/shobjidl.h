@@ -23,13 +23,6 @@
 #ifndef __shobjidl_h__
 #define __shobjidl_h__
 
-DEFINE_GUID(CLSID_TaskbarList,0x56FDF344L,0xFD6D,0x11D0,0x95,0x8A,0x00,0x60,0x97,0xC9,0xA0,0x90);
-DEFINE_GUID(IID_ITaskbarList,0x56FDF342L,0xFD6D,0x11D0,0x95,0x8A,0x00,0x60,0x97,0xC9,0xA0,0x90);
-DEFINE_GUID(IID_ITaskbarList2,0x602D4995L,0xB13A,0x429b,0xA6,0x6E,0x19,0x35,0xE4,0x4F,0x43,0x17);
-#if _WIN32_WINNT >= 0x0601
-DEFINE_GUID(IID_ITaskList3,0xEA1AFB91L,0x9E28,0x4B86,0x90,0xE9,0x9E,0x9F,0x8A,0x5E,0xEF,0xAF);
-#endif
-
 #ifndef __IPersistFolder_FWD_DEFINED__
 #define __IPersistFolder_FWD_DEFINED__
 typedef struct IPersistFolder IPersistFolder;
@@ -220,6 +213,16 @@ typedef struct ITaskbarList ITaskbarList;
 typedef struct ITaskbarList2 ITaskbarList2;
 #endif
 
+#ifndef __ITaskbarList3_FWD_DEFINED__
+#define __ITaskbarList3_FWD_DEFINED__
+typedef interface ITaskbarList3 ITaskbarList3;
+#endif
+
+#ifndef __ITaskbarList4_FWD_DEFINED__
+#define __ITaskbarList4_FWD_DEFINED__
+typedef interface ITaskbarList4 ITaskbarList4;
+#endif
+
 #ifndef __ICDBurn_FWD_DEFINED__
 #define __ICDBurn_FWD_DEFINED__
 typedef struct ICDBurn ICDBurn;
@@ -325,6 +328,11 @@ typedef struct IMenuPopup IMenuPopup;
 typedef struct IShellItem IShellItem;
 #endif
 
+#ifndef __IShellItem2_FWD_DEFINED__
+#define __IShellItem2_FWD_DEFINED__
+typedef interface IShellItem2 IShellItem2;
+#endif
+
 #ifndef __IImageRecompress_FWD_DEFINED__
 #define __IImageRecompress_FWD_DEFINED__
 typedef struct IImageRecompress IImageRecompress;
@@ -368,6 +376,16 @@ typedef struct IAttachmentExecute IAttachmentExecute;
 #ifndef __IShellMenu_FWD_DEFINED__
 #define __IShellMenu_FWD_DEFINED__
 typedef struct IShellMenu IShellMenu;
+#endif
+
+#ifndef __IApplicationAssociationRegistration_FWD_DEFINED__
+#define __IApplicationAssociationRegistration_FWD_DEFINED__
+typedef interface IApplicationAssociationRegistration IApplicationAssociationRegistration;
+#endif
+
+#ifndef __ICustomDestinationList_FWD_DEFINED__
+#define __ICustomDestinationList_FWD_DEFINED__
+typedef interface ICustomDestinationList ICustomDestinationList;
 #endif
 
 #ifndef __QueryCancelAutoPlay_FWD_DEFINED__
@@ -613,6 +631,9 @@ typedef struct AttachmentServices AttachmentServices;
 #include "propidl.h"
 #include "prsht.h"
 #include "msxml.h"
+#include "propsys.h"
+#include "objectarray.h"
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -2871,7 +2892,7 @@ extern "C" {
 
 #ifndef __ITaskbarList_INTERFACE_DEFINED__
 #define __ITaskbarList_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_ITaskbarList;
+  DEFINE_GUID(IID_ITaskbarList,0x56FDF342L,0xFD6D,0x11D0,0x95,0x8A,0x00,0x60,0x97,0xC9,0xA0,0x90);
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITaskbarList : public IUnknown {
   public:
@@ -2922,7 +2943,7 @@ extern "C" {
 
 #ifndef __ITaskbarList2_INTERFACE_DEFINED__
 #define __ITaskbarList2_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_ITaskbarList2;
+  DEFINE_GUID(IID_ITaskbarList2,0x602D4995L,0xB13A,0x429b,0xA6,0x6E,0x19,0x35,0xE4,0x4F,0x43,0x17);
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITaskbarList2 : public ITaskbarList {
   public:
@@ -2960,6 +2981,432 @@ extern "C" {
   HRESULT WINAPI ITaskbarList2_MarkFullscreenWindow_Proxy(ITaskbarList2 *This,HWND hwnd,WINBOOL fFullscreen);
   void __RPC_STUB ITaskbarList2_MarkFullscreenWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
+
+#ifdef MIDL_PASS
+typedef IUnknown *HIMAGELIST;
+#endif
+
+typedef enum THUMBBUTTONFLAGS {
+    THBF_ENABLED = 0x0,
+    THBF_DISABLED = 0x1,
+    THBF_DISMISSONCLICK = 0x2,
+    THBF_NOBACKGROUND = 0x4,
+    THBF_HIDDEN = 0x8,
+    THBF_NONINTERACTIVE = 0x10
+} THUMBBUTTONFLAGS;
+DEFINE_ENUM_FLAG_OPERATORS(THUMBBUTTONFLAGS)
+
+typedef enum THUMBBUTTONMASK {
+    THB_BITMAP = 0x1,
+    THB_ICON = 0x2,
+    THB_TOOLTIP = 0x4,
+    THB_FLAGS = 0x8
+} THUMBBUTTONMASK;
+DEFINE_ENUM_FLAG_OPERATORS(THUMBBUTTONMASK)
+
+#include <pshpack8.h>
+typedef struct THUMBBUTTON {
+    THUMBBUTTONMASK dwMask;
+    UINT iId;
+    UINT iBitmap;
+    HICON hIcon;
+    WCHAR szTip[260];
+    THUMBBUTTONFLAGS dwFlags;
+} THUMBBUTTON;
+typedef struct THUMBBUTTON *LPTHUMBBUTTON;
+#include <poppack.h>
+
+/*****************************************************************************
+ * ITaskbarList3 interface
+ */
+#ifndef __ITaskbarList3_INTERFACE_DEFINED__
+#define __ITaskbarList3_INTERFACE_DEFINED__
+
+typedef enum TBPFLAG {
+    TBPF_NOPROGRESS = 0x0,
+    TBPF_INDETERMINATE = 0x1,
+    TBPF_NORMAL = 0x2,
+    TBPF_ERROR = 0x4,
+    TBPF_PAUSED = 0x8
+} TBPFLAG;
+DEFINE_ENUM_FLAG_OPERATORS(TBPFLAG)
+
+DEFINE_GUID(IID_ITaskbarList3, 0xea1afb91, 0x9e28, 0x4b86, 0x90,0xe9, 0x9e,0x9f,0x8a,0x5e,0xef,0xaf);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface ITaskbarList3 : public ITaskbarList2
+{
+    virtual HRESULT STDMETHODCALLTYPE SetProgressValue(
+        HWND hwnd,
+        ULONGLONG ullCompleted,
+        ULONGLONG ullTotal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProgressState(
+        HWND hwnd,
+        TBPFLAG tbpFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterTab(
+        HWND hwndTab,
+        HWND hwndMDI) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnregisterTab(
+        HWND hwndTab) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetTabOrder(
+        HWND hwndTab,
+        HWND hwndInsertBefore) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetTabActive(
+        HWND hwndTab,
+        HWND hwndMDI,
+        DWORD dwReserved) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ThumbBarAddButtons(
+        HWND hwnd,
+        UINT cButtons,
+        LPTHUMBBUTTON pButton) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ThumbBarUpdateButtons(
+        HWND hwnd,
+        UINT cButtons,
+        LPTHUMBBUTTON pButton) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ThumbBarSetImageList(
+        HWND hwnd,
+        HIMAGELIST himl) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOverlayIcon(
+        HWND hwnd,
+        HICON hIcon,
+        LPCWSTR pszDescription) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetThumbnailTooltip(
+        HWND hwnd,
+        LPCWSTR pszTip) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetThumbnailClip(
+        HWND hwnd,
+        RECT *prcClip) = 0;
+
+};
+#else
+typedef struct ITaskbarList3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITaskbarList3* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITaskbarList3* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITaskbarList3* This);
+
+    /*** ITaskbarList methods ***/
+    HRESULT (STDMETHODCALLTYPE *HrInit)(
+        ITaskbarList3* This);
+
+    HRESULT (STDMETHODCALLTYPE *AddTab)(
+        ITaskbarList3* This,
+        HWND hwnd);
+
+    HRESULT (STDMETHODCALLTYPE *DeleteTab)(
+        ITaskbarList3* This,
+        HWND hwnd);
+
+    HRESULT (STDMETHODCALLTYPE *ActivateTab)(
+        ITaskbarList3* This,
+        HWND hwnd);
+
+    HRESULT (STDMETHODCALLTYPE *SetActiveAlt)(
+        ITaskbarList3* This,
+        HWND hwnd);
+
+    /*** ITaskbarList2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *MarkFullscreenWindow)(
+        ITaskbarList3* This,
+        HWND hwnd,
+        BOOL fullscreen);
+
+    /*** ITaskbarList3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetProgressValue)(
+        ITaskbarList3* This,
+        HWND hwnd,
+        ULONGLONG ullCompleted,
+        ULONGLONG ullTotal);
+
+    HRESULT (STDMETHODCALLTYPE *SetProgressState)(
+        ITaskbarList3* This,
+        HWND hwnd,
+        TBPFLAG tbpFlags);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterTab)(
+        ITaskbarList3* This,
+        HWND hwndTab,
+        HWND hwndMDI);
+
+    HRESULT (STDMETHODCALLTYPE *UnregisterTab)(
+        ITaskbarList3* This,
+        HWND hwndTab);
+
+    HRESULT (STDMETHODCALLTYPE *SetTabOrder)(
+        ITaskbarList3* This,
+        HWND hwndTab,
+        HWND hwndInsertBefore);
+
+    HRESULT (STDMETHODCALLTYPE *SetTabActive)(
+        ITaskbarList3* This,
+        HWND hwndTab,
+        HWND hwndMDI,
+        DWORD dwReserved);
+
+    HRESULT (STDMETHODCALLTYPE *ThumbBarAddButtons)(
+        ITaskbarList3* This,
+        HWND hwnd,
+        UINT cButtons,
+        LPTHUMBBUTTON pButton);
+
+    HRESULT (STDMETHODCALLTYPE *ThumbBarUpdateButtons)(
+        ITaskbarList3* This,
+        HWND hwnd,
+        UINT cButtons,
+        LPTHUMBBUTTON pButton);
+
+    HRESULT (STDMETHODCALLTYPE *ThumbBarSetImageList)(
+        ITaskbarList3* This,
+        HWND hwnd,
+        HIMAGELIST himl);
+
+    HRESULT (STDMETHODCALLTYPE *SetOverlayIcon)(
+        ITaskbarList3* This,
+        HWND hwnd,
+        HICON hIcon,
+        LPCWSTR pszDescription);
+
+    HRESULT (STDMETHODCALLTYPE *SetThumbnailTooltip)(
+        ITaskbarList3* This,
+        HWND hwnd,
+        LPCWSTR pszTip);
+
+    HRESULT (STDMETHODCALLTYPE *SetThumbnailClip)(
+        ITaskbarList3* This,
+        HWND hwnd,
+        RECT *prcClip);
+
+    END_INTERFACE
+} ITaskbarList3Vtbl;
+interface ITaskbarList3 {
+    CONST_VTBL ITaskbarList3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define ITaskbarList3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITaskbarList3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITaskbarList3_Release(This) (This)->lpVtbl->Release(This)
+/*** ITaskbarList methods ***/
+#define ITaskbarList3_HrInit(This) (This)->lpVtbl->HrInit(This)
+#define ITaskbarList3_AddTab(This,hwnd) (This)->lpVtbl->AddTab(This,hwnd)
+#define ITaskbarList3_DeleteTab(This,hwnd) (This)->lpVtbl->DeleteTab(This,hwnd)
+#define ITaskbarList3_ActivateTab(This,hwnd) (This)->lpVtbl->ActivateTab(This,hwnd)
+#define ITaskbarList3_SetActiveAlt(This,hwnd) (This)->lpVtbl->SetActiveAlt(This,hwnd)
+/*** ITaskbarList2 methods ***/
+#define ITaskbarList3_MarkFullscreenWindow(This,hwnd,fullscreen) (This)->lpVtbl->MarkFullscreenWindow(This,hwnd,fullscreen)
+/*** ITaskbarList3 methods ***/
+#define ITaskbarList3_SetProgressValue(This,hwnd,ullCompleted,ullTotal) (This)->lpVtbl->SetProgressValue(This,hwnd,ullCompleted,ullTotal)
+#define ITaskbarList3_SetProgressState(This,hwnd,tbpFlags) (This)->lpVtbl->SetProgressState(This,hwnd,tbpFlags)
+#define ITaskbarList3_RegisterTab(This,hwndTab,hwndMDI) (This)->lpVtbl->RegisterTab(This,hwndTab,hwndMDI)
+#define ITaskbarList3_UnregisterTab(This,hwndTab) (This)->lpVtbl->UnregisterTab(This,hwndTab)
+#define ITaskbarList3_SetTabOrder(This,hwndTab,hwndInsertBefore) (This)->lpVtbl->SetTabOrder(This,hwndTab,hwndInsertBefore)
+#define ITaskbarList3_SetTabActive(This,hwndTab,hwndMDI,dwReserved) (This)->lpVtbl->SetTabActive(This,hwndTab,hwndMDI,dwReserved)
+#define ITaskbarList3_ThumbBarAddButtons(This,hwnd,cButtons,pButton) (This)->lpVtbl->ThumbBarAddButtons(This,hwnd,cButtons,pButton)
+#define ITaskbarList3_ThumbBarUpdateButtons(This,hwnd,cButtons,pButton) (This)->lpVtbl->ThumbBarUpdateButtons(This,hwnd,cButtons,pButton)
+#define ITaskbarList3_ThumbBarSetImageList(This,hwnd,himl) (This)->lpVtbl->ThumbBarSetImageList(This,hwnd,himl)
+#define ITaskbarList3_SetOverlayIcon(This,hwnd,hIcon,pszDescription) (This)->lpVtbl->SetOverlayIcon(This,hwnd,hIcon,pszDescription)
+#define ITaskbarList3_SetThumbnailTooltip(This,hwnd,pszTip) (This)->lpVtbl->SetThumbnailTooltip(This,hwnd,pszTip)
+#define ITaskbarList3_SetThumbnailClip(This,hwnd,prcClip) (This)->lpVtbl->SetThumbnailClip(This,hwnd,prcClip)
+#endif
+
+#endif
+#endif  /* __ITaskbarList3_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITaskbarList4 interface
+ */
+#ifndef __ITaskbarList4_INTERFACE_DEFINED__
+#define __ITaskbarList4_INTERFACE_DEFINED__
+
+typedef enum STPFLAG {
+    STPF_NONE = 0x0,
+    STPF_USEAPPTHUMBNAILALWAYS = 0x1,
+    STPF_USEAPPTHUMBNAILWHENACTIVE = 0x2,
+    STPF_USEAPPPEEKALWAYS = 0x4,
+    STPF_USEAPPPEEKWHENACTIVE = 0x8
+} STPFLAG;
+DEFINE_ENUM_FLAG_OPERATORS(STPFLAG)
+
+DEFINE_GUID(IID_ITaskbarList4, 0xc43dc798, 0x95d1, 0x4bea, 0x90,0x30, 0xbb,0x99,0xe2,0x98,0x3a,0x1a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface ITaskbarList4 : public ITaskbarList3
+{
+    virtual HRESULT STDMETHODCALLTYPE SetTabProperties(
+        HWND hwndTab,
+        STPFLAG stpFlags) = 0;
+
+};
+#else
+typedef struct ITaskbarList4Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITaskbarList4* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITaskbarList4* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITaskbarList4* This);
+
+    /*** ITaskbarList methods ***/
+    HRESULT (STDMETHODCALLTYPE *HrInit)(
+        ITaskbarList4* This);
+
+    HRESULT (STDMETHODCALLTYPE *AddTab)(
+        ITaskbarList4* This,
+        HWND hwnd);
+
+    HRESULT (STDMETHODCALLTYPE *DeleteTab)(
+        ITaskbarList4* This,
+        HWND hwnd);
+
+    HRESULT (STDMETHODCALLTYPE *ActivateTab)(
+        ITaskbarList4* This,
+        HWND hwnd);
+
+    HRESULT (STDMETHODCALLTYPE *SetActiveAlt)(
+        ITaskbarList4* This,
+        HWND hwnd);
+
+    /*** ITaskbarList2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *MarkFullscreenWindow)(
+        ITaskbarList4* This,
+        HWND hwnd,
+        BOOL fullscreen);
+
+    /*** ITaskbarList3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetProgressValue)(
+        ITaskbarList4* This,
+        HWND hwnd,
+        ULONGLONG ullCompleted,
+        ULONGLONG ullTotal);
+
+    HRESULT (STDMETHODCALLTYPE *SetProgressState)(
+        ITaskbarList4* This,
+        HWND hwnd,
+        TBPFLAG tbpFlags);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterTab)(
+        ITaskbarList4* This,
+        HWND hwndTab,
+        HWND hwndMDI);
+
+    HRESULT (STDMETHODCALLTYPE *UnregisterTab)(
+        ITaskbarList4* This,
+        HWND hwndTab);
+
+    HRESULT (STDMETHODCALLTYPE *SetTabOrder)(
+        ITaskbarList4* This,
+        HWND hwndTab,
+        HWND hwndInsertBefore);
+
+    HRESULT (STDMETHODCALLTYPE *SetTabActive)(
+        ITaskbarList4* This,
+        HWND hwndTab,
+        HWND hwndMDI,
+        DWORD dwReserved);
+
+    HRESULT (STDMETHODCALLTYPE *ThumbBarAddButtons)(
+        ITaskbarList4* This,
+        HWND hwnd,
+        UINT cButtons,
+        LPTHUMBBUTTON pButton);
+
+    HRESULT (STDMETHODCALLTYPE *ThumbBarUpdateButtons)(
+        ITaskbarList4* This,
+        HWND hwnd,
+        UINT cButtons,
+        LPTHUMBBUTTON pButton);
+
+    HRESULT (STDMETHODCALLTYPE *ThumbBarSetImageList)(
+        ITaskbarList4* This,
+        HWND hwnd,
+        HIMAGELIST himl);
+
+    HRESULT (STDMETHODCALLTYPE *SetOverlayIcon)(
+        ITaskbarList4* This,
+        HWND hwnd,
+        HICON hIcon,
+        LPCWSTR pszDescription);
+
+    HRESULT (STDMETHODCALLTYPE *SetThumbnailTooltip)(
+        ITaskbarList4* This,
+        HWND hwnd,
+        LPCWSTR pszTip);
+
+    HRESULT (STDMETHODCALLTYPE *SetThumbnailClip)(
+        ITaskbarList4* This,
+        HWND hwnd,
+        RECT *prcClip);
+
+    /*** ITaskbarList4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetTabProperties)(
+        ITaskbarList4* This,
+        HWND hwndTab,
+        STPFLAG stpFlags);
+
+    END_INTERFACE
+} ITaskbarList4Vtbl;
+interface ITaskbarList4 {
+    CONST_VTBL ITaskbarList4Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define ITaskbarList4_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITaskbarList4_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITaskbarList4_Release(This) (This)->lpVtbl->Release(This)
+/*** ITaskbarList methods ***/
+#define ITaskbarList4_HrInit(This) (This)->lpVtbl->HrInit(This)
+#define ITaskbarList4_AddTab(This,hwnd) (This)->lpVtbl->AddTab(This,hwnd)
+#define ITaskbarList4_DeleteTab(This,hwnd) (This)->lpVtbl->DeleteTab(This,hwnd)
+#define ITaskbarList4_ActivateTab(This,hwnd) (This)->lpVtbl->ActivateTab(This,hwnd)
+#define ITaskbarList4_SetActiveAlt(This,hwnd) (This)->lpVtbl->SetActiveAlt(This,hwnd)
+/*** ITaskbarList2 methods ***/
+#define ITaskbarList4_MarkFullscreenWindow(This,hwnd,fullscreen) (This)->lpVtbl->MarkFullscreenWindow(This,hwnd,fullscreen)
+/*** ITaskbarList3 methods ***/
+#define ITaskbarList4_SetProgressValue(This,hwnd,ullCompleted,ullTotal) (This)->lpVtbl->SetProgressValue(This,hwnd,ullCompleted,ullTotal)
+#define ITaskbarList4_SetProgressState(This,hwnd,tbpFlags) (This)->lpVtbl->SetProgressState(This,hwnd,tbpFlags)
+#define ITaskbarList4_RegisterTab(This,hwndTab,hwndMDI) (This)->lpVtbl->RegisterTab(This,hwndTab,hwndMDI)
+#define ITaskbarList4_UnregisterTab(This,hwndTab) (This)->lpVtbl->UnregisterTab(This,hwndTab)
+#define ITaskbarList4_SetTabOrder(This,hwndTab,hwndInsertBefore) (This)->lpVtbl->SetTabOrder(This,hwndTab,hwndInsertBefore)
+#define ITaskbarList4_SetTabActive(This,hwndTab,hwndMDI,dwReserved) (This)->lpVtbl->SetTabActive(This,hwndTab,hwndMDI,dwReserved)
+#define ITaskbarList4_ThumbBarAddButtons(This,hwnd,cButtons,pButton) (This)->lpVtbl->ThumbBarAddButtons(This,hwnd,cButtons,pButton)
+#define ITaskbarList4_ThumbBarUpdateButtons(This,hwnd,cButtons,pButton) (This)->lpVtbl->ThumbBarUpdateButtons(This,hwnd,cButtons,pButton)
+#define ITaskbarList4_ThumbBarSetImageList(This,hwnd,himl) (This)->lpVtbl->ThumbBarSetImageList(This,hwnd,himl)
+#define ITaskbarList4_SetOverlayIcon(This,hwnd,hIcon,pszDescription) (This)->lpVtbl->SetOverlayIcon(This,hwnd,hIcon,pszDescription)
+#define ITaskbarList4_SetThumbnailTooltip(This,hwnd,pszTip) (This)->lpVtbl->SetThumbnailTooltip(This,hwnd,pszTip)
+#define ITaskbarList4_SetThumbnailClip(This,hwnd,prcClip) (This)->lpVtbl->SetThumbnailClip(This,hwnd,prcClip)
+/*** ITaskbarList4 methods ***/
+#define ITaskbarList4_SetTabProperties(This,hwndTab,stpFlags) (This)->lpVtbl->SetTabProperties(This,hwndTab,stpFlags)
+#endif
+
+#endif
+#endif  /* __ITaskbarList4_INTERFACE_DEFINED__ */
 
 #ifndef __ICDBurn_INTERFACE_DEFINED__
 #define __ICDBurn_INTERFACE_DEFINED__
@@ -3920,6 +4367,227 @@ extern "C" {
   void __RPC_STUB IShellItem_Compare_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
+/*****************************************************************************
+ * IShellItem2 interface
+ */
+#ifndef __IShellItem2_INTERFACE_DEFINED__
+#define __IShellItem2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IShellItem2, 0x7e9fb0d3, 0x919f, 0x4307, 0xab,0x2e, 0x9b,0x18,0x60,0x31,0x0c,0x93);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface IShellItem2 : public IShellItem
+{
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyStore(
+        GETPROPERTYSTOREFLAGS flags,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyStoreWithCreateObject(
+        GETPROPERTYSTOREFLAGS flags,
+        IUnknown *punkCreateObject,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyStoreForKeys(
+        const PROPERTYKEY *rgKeys,
+        UINT cKeys,
+        GETPROPERTYSTOREFLAGS flags,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyDescriptionList(
+        REFPROPERTYKEY keyType,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Update(
+        IBindCtx *pbc) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProperty(
+        REFPROPERTYKEY key,
+        PROPVARIANT *ppropvar) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCLSID(
+        REFPROPERTYKEY key,
+        CLSID *pclsid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFileTime(
+        REFPROPERTYKEY key,
+        FILETIME *pft) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetInt32(
+        REFPROPERTYKEY key,
+        int *pi) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetString(
+        REFPROPERTYKEY key,
+        LPWSTR *ppsz) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetUInt32(
+        REFPROPERTYKEY key,
+        ULONG *pui) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetUInt64(
+        REFPROPERTYKEY key,
+        ULONGLONG *pull) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBool(
+        REFPROPERTYKEY key,
+        BOOL *pf) = 0;
+
+};
+#else
+typedef struct IShellItem2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IShellItem2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IShellItem2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IShellItem2* This);
+
+    /*** IShellItem methods ***/
+    HRESULT (STDMETHODCALLTYPE *BindToHandler)(
+        IShellItem2* This,
+        IBindCtx *pbc,
+        REFGUID rbhid,
+        REFIID riid,
+        void **ppvOut);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IShellItem2* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *GetDisplayName)(
+        IShellItem2* This,
+        SIGDN sigdnName,
+        LPWSTR *ppszName);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributes)(
+        IShellItem2* This,
+        SFGAOF sfgaoMask,
+        SFGAOF *psfgaoAttribs);
+
+    HRESULT (STDMETHODCALLTYPE *Compare)(
+        IShellItem2* This,
+        IShellItem *psi,
+        SICHINTF hint,
+        int *piOrder);
+
+    /*** IShellItem2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPropertyStore)(
+        IShellItem2* This,
+        GETPROPERTYSTOREFLAGS flags,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyStoreWithCreateObject)(
+        IShellItem2* This,
+        GETPROPERTYSTOREFLAGS flags,
+        IUnknown *punkCreateObject,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyStoreForKeys)(
+        IShellItem2* This,
+        const PROPERTYKEY *rgKeys,
+        UINT cKeys,
+        GETPROPERTYSTOREFLAGS flags,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyDescriptionList)(
+        IShellItem2* This,
+        REFPROPERTYKEY keyType,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *Update)(
+        IShellItem2* This,
+        IBindCtx *pbc);
+
+    HRESULT (STDMETHODCALLTYPE *GetProperty)(
+        IShellItem2* This,
+        REFPROPERTYKEY key,
+        PROPVARIANT *ppropvar);
+
+    HRESULT (STDMETHODCALLTYPE *GetCLSID)(
+        IShellItem2* This,
+        REFPROPERTYKEY key,
+        CLSID *pclsid);
+
+    HRESULT (STDMETHODCALLTYPE *GetFileTime)(
+        IShellItem2* This,
+        REFPROPERTYKEY key,
+        FILETIME *pft);
+
+    HRESULT (STDMETHODCALLTYPE *GetInt32)(
+        IShellItem2* This,
+        REFPROPERTYKEY key,
+        int *pi);
+
+    HRESULT (STDMETHODCALLTYPE *GetString)(
+        IShellItem2* This,
+        REFPROPERTYKEY key,
+        LPWSTR *ppsz);
+
+    HRESULT (STDMETHODCALLTYPE *GetUInt32)(
+        IShellItem2* This,
+        REFPROPERTYKEY key,
+        ULONG *pui);
+
+    HRESULT (STDMETHODCALLTYPE *GetUInt64)(
+        IShellItem2* This,
+        REFPROPERTYKEY key,
+        ULONGLONG *pull);
+
+    HRESULT (STDMETHODCALLTYPE *GetBool)(
+        IShellItem2* This,
+        REFPROPERTYKEY key,
+        BOOL *pf);
+
+    END_INTERFACE
+} IShellItem2Vtbl;
+interface IShellItem2 {
+    CONST_VTBL IShellItem2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IShellItem2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IShellItem2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IShellItem2_Release(This) (This)->lpVtbl->Release(This)
+/*** IShellItem methods ***/
+#define IShellItem2_BindToHandler(This,pbc,rbhid,riid,ppvOut) (This)->lpVtbl->BindToHandler(This,pbc,rbhid,riid,ppvOut)
+#define IShellItem2_GetParent(This,ppsi) (This)->lpVtbl->GetParent(This,ppsi)
+#define IShellItem2_GetDisplayName(This,sigdnName,ppszName) (This)->lpVtbl->GetDisplayName(This,sigdnName,ppszName)
+#define IShellItem2_GetAttributes(This,sfgaoMask,psfgaoAttribs) (This)->lpVtbl->GetAttributes(This,sfgaoMask,psfgaoAttribs)
+#define IShellItem2_Compare(This,psi,hint,piOrder) (This)->lpVtbl->Compare(This,psi,hint,piOrder)
+/*** IShellItem2 methods ***/
+#define IShellItem2_GetPropertyStore(This,flags,riid,ppv) (This)->lpVtbl->GetPropertyStore(This,flags,riid,ppv)
+#define IShellItem2_GetPropertyStoreWithCreateObject(This,flags,punkCreateObject,riid,ppv) (This)->lpVtbl->GetPropertyStoreWithCreateObject(This,flags,punkCreateObject,riid,ppv)
+#define IShellItem2_GetPropertyStoreForKeys(This,rgKeys,cKeys,flags,riid,ppv) (This)->lpVtbl->GetPropertyStoreForKeys(This,rgKeys,cKeys,flags,riid,ppv)
+#define IShellItem2_GetPropertyDescriptionList(This,keyType,riid,ppv) (This)->lpVtbl->GetPropertyDescriptionList(This,keyType,riid,ppv)
+#define IShellItem2_Update(This,pbc) (This)->lpVtbl->Update(This,pbc)
+#define IShellItem2_GetProperty(This,key,ppropvar) (This)->lpVtbl->GetProperty(This,key,ppropvar)
+#define IShellItem2_GetCLSID(This,key,pclsid) (This)->lpVtbl->GetCLSID(This,key,pclsid)
+#define IShellItem2_GetFileTime(This,key,pft) (This)->lpVtbl->GetFileTime(This,key,pft)
+#define IShellItem2_GetInt32(This,key,pi) (This)->lpVtbl->GetInt32(This,key,pi)
+#define IShellItem2_GetString(This,key,ppsz) (This)->lpVtbl->GetString(This,key,ppsz)
+#define IShellItem2_GetUInt32(This,key,pui) (This)->lpVtbl->GetUInt32(This,key,pui)
+#define IShellItem2_GetUInt64(This,key,pull) (This)->lpVtbl->GetUInt64(This,key,pull)
+#define IShellItem2_GetBool(This,key,pf) (This)->lpVtbl->GetBool(This,key,pf)
+#endif
+
+#endif
+#endif
+
 #ifndef __IImageRecompress_INTERFACE_DEFINED__
 #define __IImageRecompress_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IImageRecompress;
@@ -4430,6 +5098,321 @@ extern "C" {
   void __RPC_STUB IShellMenu_SetMenuToolbar_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
+/*****************************************************************************
+ * IApplicationAssociationRegistration interface
+ */
+#ifndef __IApplicationAssociationRegistration_INTERFACE_DEFINED__
+#define __IApplicationAssociationRegistration_INTERFACE_DEFINED__
+
+typedef enum ASSOCIATIONLEVEL {
+    AL_MACHINE = 0,
+    AL_EFFECTIVE = 1,
+    AL_USER = 2
+} ASSOCIATIONLEVEL;
+
+typedef enum ASSOCIATIONTYPE {
+    AT_FILEEXTENSION = 0,
+    AT_URLPROTOCOL = 1,
+    AT_STARTMENUCLIENT = 2,
+    AT_MIMETYPE = 3
+} ASSOCIATIONTYPE;
+
+DEFINE_GUID(IID_IApplicationAssociationRegistration, 0x4e530b0a, 0xe611, 0x4c77, 0xa3,0xac, 0x90,0x31,0xd0,0x22,0x28,0x1b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface IApplicationAssociationRegistration : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE QueryCurrentDefault(
+        LPCWSTR pszQuery,
+        ASSOCIATIONTYPE atQueryType,
+        ASSOCIATIONLEVEL alQueryLevel,
+        LPWSTR *ppszAssociation) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryAppIsDefault(
+        LPCWSTR pszQuery,
+        ASSOCIATIONTYPE atQueryType,
+        ASSOCIATIONLEVEL alQueryLevel,
+        LPCWSTR pszAppRegistryName,
+        BOOL *pfDefault) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryAppIsDefaultAll(
+        ASSOCIATIONLEVEL alQueryLevel,
+        LPCWSTR pszAppRegistryName,
+        BOOL *pfDefault) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetAppAsDefault(
+        LPCWSTR pszAppRegistryName,
+        LPCWSTR pszSet,
+        ASSOCIATIONTYPE atSetType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetAppAsDefaultAll(
+        LPCWSTR pszAppRegistryName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ClearUserAssociations(
+        ) = 0;
+
+};
+#else
+typedef struct IApplicationAssociationRegistrationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IApplicationAssociationRegistration* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IApplicationAssociationRegistration* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IApplicationAssociationRegistration* This);
+
+    /*** IApplicationAssociationRegistration methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryCurrentDefault)(
+        IApplicationAssociationRegistration* This,
+        LPCWSTR pszQuery,
+        ASSOCIATIONTYPE atQueryType,
+        ASSOCIATIONLEVEL alQueryLevel,
+        LPWSTR *ppszAssociation);
+
+    HRESULT (STDMETHODCALLTYPE *QueryAppIsDefault)(
+        IApplicationAssociationRegistration* This,
+        LPCWSTR pszQuery,
+        ASSOCIATIONTYPE atQueryType,
+        ASSOCIATIONLEVEL alQueryLevel,
+        LPCWSTR pszAppRegistryName,
+        BOOL *pfDefault);
+
+    HRESULT (STDMETHODCALLTYPE *QueryAppIsDefaultAll)(
+        IApplicationAssociationRegistration* This,
+        ASSOCIATIONLEVEL alQueryLevel,
+        LPCWSTR pszAppRegistryName,
+        BOOL *pfDefault);
+
+    HRESULT (STDMETHODCALLTYPE *SetAppAsDefault)(
+        IApplicationAssociationRegistration* This,
+        LPCWSTR pszAppRegistryName,
+        LPCWSTR pszSet,
+        ASSOCIATIONTYPE atSetType);
+
+    HRESULT (STDMETHODCALLTYPE *SetAppAsDefaultAll)(
+        IApplicationAssociationRegistration* This,
+        LPCWSTR pszAppRegistryName);
+
+    HRESULT (STDMETHODCALLTYPE *ClearUserAssociations)(
+        IApplicationAssociationRegistration* This);
+
+    END_INTERFACE
+} IApplicationAssociationRegistrationVtbl;
+interface IApplicationAssociationRegistration {
+    CONST_VTBL IApplicationAssociationRegistrationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IApplicationAssociationRegistration_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IApplicationAssociationRegistration_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IApplicationAssociationRegistration_Release(This) (This)->lpVtbl->Release(This)
+/*** IApplicationAssociationRegistration methods ***/
+#define IApplicationAssociationRegistration_QueryCurrentDefault(This,pszQuery,atQueryType,alQueryLevel,ppszAssociation) (This)->lpVtbl->QueryCurrentDefault(This,pszQuery,atQueryType,alQueryLevel,ppszAssociation)
+#define IApplicationAssociationRegistration_QueryAppIsDefault(This,pszQuery,atQueryType,alQueryLevel,pszAppRegistryName,pfDefault) (This)->lpVtbl->QueryAppIsDefault(This,pszQuery,atQueryType,alQueryLevel,pszAppRegistryName,pfDefault)
+#define IApplicationAssociationRegistration_QueryAppIsDefaultAll(This,alQueryLevel,pszAppRegistryName,pfDefault) (This)->lpVtbl->QueryAppIsDefaultAll(This,alQueryLevel,pszAppRegistryName,pfDefault)
+#define IApplicationAssociationRegistration_SetAppAsDefault(This,pszAppRegistryName,pszSet,atSetType) (This)->lpVtbl->SetAppAsDefault(This,pszAppRegistryName,pszSet,atSetType)
+#define IApplicationAssociationRegistration_SetAppAsDefaultAll(This,pszAppRegistryName) (This)->lpVtbl->SetAppAsDefaultAll(This,pszAppRegistryName)
+#define IApplicationAssociationRegistration_ClearUserAssociations(This) (This)->lpVtbl->ClearUserAssociations(This)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IApplicationAssociationRegistration_QueryCurrentDefault_Proxy(
+    IApplicationAssociationRegistration* This,
+    LPCWSTR pszQuery,
+    ASSOCIATIONTYPE atQueryType,
+    ASSOCIATIONLEVEL alQueryLevel,
+    LPWSTR *ppszAssociation);
+void __RPC_STUB IApplicationAssociationRegistration_QueryCurrentDefault_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IApplicationAssociationRegistration_QueryAppIsDefault_Proxy(
+    IApplicationAssociationRegistration* This,
+    LPCWSTR pszQuery,
+    ASSOCIATIONTYPE atQueryType,
+    ASSOCIATIONLEVEL alQueryLevel,
+    LPCWSTR pszAppRegistryName,
+    BOOL *pfDefault);
+void __RPC_STUB IApplicationAssociationRegistration_QueryAppIsDefault_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IApplicationAssociationRegistration_QueryAppIsDefaultAll_Proxy(
+    IApplicationAssociationRegistration* This,
+    ASSOCIATIONLEVEL alQueryLevel,
+    LPCWSTR pszAppRegistryName,
+    BOOL *pfDefault);
+void __RPC_STUB IApplicationAssociationRegistration_QueryAppIsDefaultAll_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IApplicationAssociationRegistration_SetAppAsDefault_Proxy(
+    IApplicationAssociationRegistration* This,
+    LPCWSTR pszAppRegistryName,
+    LPCWSTR pszSet,
+    ASSOCIATIONTYPE atSetType);
+void __RPC_STUB IApplicationAssociationRegistration_SetAppAsDefault_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IApplicationAssociationRegistration_SetAppAsDefaultAll_Proxy(
+    IApplicationAssociationRegistration* This,
+    LPCWSTR pszAppRegistryName);
+void __RPC_STUB IApplicationAssociationRegistration_SetAppAsDefaultAll_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IApplicationAssociationRegistration_ClearUserAssociations_Proxy(
+    IApplicationAssociationRegistration* This);
+void __RPC_STUB IApplicationAssociationRegistration_ClearUserAssociations_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IApplicationAssociationRegistration_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ICustomDestinationList interface
+ */
+#ifndef __ICustomDestinationList_INTERFACE_DEFINED__
+#define __ICustomDestinationList_INTERFACE_DEFINED__
+
+typedef enum KNOWNDESTCATEGORY {
+    KDC_FREQUENT = 1,
+    KDC_RECENT = 2
+} KNOWNDESTCATEGORY;
+
+DEFINE_GUID(IID_ICustomDestinationList, 0x6332debf, 0x87b5, 0x4670, 0x90,0xc0, 0x5e,0x57,0xb4,0x08,0xa4,0x9e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface ICustomDestinationList : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetAppID(
+        LPCWSTR pszAppID) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE BeginList(
+        UINT *pcMinSlots,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AppendCategory(
+        LPCWSTR pszCategory,
+        IObjectArray *poa) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AppendKnownCategory(
+        KNOWNDESTCATEGORY category) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddUserTasks(
+        IObjectArray *poa) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CommitList(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetRemovedDestinations(
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DeleteList(
+        LPCWSTR pszAppID) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AbortList(
+        ) = 0;
+
+};
+#else
+typedef struct ICustomDestinationListVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ICustomDestinationList* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ICustomDestinationList* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ICustomDestinationList* This);
+
+    /*** ICustomDestinationList methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetAppID)(
+        ICustomDestinationList* This,
+        LPCWSTR pszAppID);
+
+    HRESULT (STDMETHODCALLTYPE *BeginList)(
+        ICustomDestinationList* This,
+        UINT *pcMinSlots,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *AppendCategory)(
+        ICustomDestinationList* This,
+        LPCWSTR pszCategory,
+        IObjectArray *poa);
+
+    HRESULT (STDMETHODCALLTYPE *AppendKnownCategory)(
+        ICustomDestinationList* This,
+        KNOWNDESTCATEGORY category);
+
+    HRESULT (STDMETHODCALLTYPE *AddUserTasks)(
+        ICustomDestinationList* This,
+        IObjectArray *poa);
+
+    HRESULT (STDMETHODCALLTYPE *CommitList)(
+        ICustomDestinationList* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetRemovedDestinations)(
+        ICustomDestinationList* This,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *DeleteList)(
+        ICustomDestinationList* This,
+        LPCWSTR pszAppID);
+
+    HRESULT (STDMETHODCALLTYPE *AbortList)(
+        ICustomDestinationList* This);
+
+    END_INTERFACE
+} ICustomDestinationListVtbl;
+interface ICustomDestinationList {
+    CONST_VTBL ICustomDestinationListVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define ICustomDestinationList_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ICustomDestinationList_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ICustomDestinationList_Release(This) (This)->lpVtbl->Release(This)
+/*** ICustomDestinationList methods ***/
+#define ICustomDestinationList_SetAppID(This,pszAppID) (This)->lpVtbl->SetAppID(This,pszAppID)
+#define ICustomDestinationList_BeginList(This,pcMinSlots,riid,ppv) (This)->lpVtbl->BeginList(This,pcMinSlots,riid,ppv)
+#define ICustomDestinationList_AppendCategory(This,pszCategory,poa) (This)->lpVtbl->AppendCategory(This,pszCategory,poa)
+#define ICustomDestinationList_AppendKnownCategory(This,category) (This)->lpVtbl->AppendKnownCategory(This,category)
+#define ICustomDestinationList_AddUserTasks(This,poa) (This)->lpVtbl->AddUserTasks(This,poa)
+#define ICustomDestinationList_CommitList(This) (This)->lpVtbl->CommitList(This)
+#define ICustomDestinationList_GetRemovedDestinations(This,riid,ppv) (This)->lpVtbl->GetRemovedDestinations(This,riid,ppv)
+#define ICustomDestinationList_DeleteList(This,pszAppID) (This)->lpVtbl->DeleteList(This,pszAppID)
+#define ICustomDestinationList_AbortList(This) (This)->lpVtbl->AbortList(This)
+#endif
+
+#endif
+#endif  /* __ICustomDestinationList_INTERFACE_DEFINED__ */
+
 #ifndef __ShellObjects_LIBRARY_DEFINED__
 #define __ShellObjects_LIBRARY_DEFINED__
 #define SID_PublishingWizard CLSID_PublishingWizard
@@ -4538,6 +5521,37 @@ extern "C" {
 #ifdef __cplusplus
   class AttachmentServices;
 #endif
+
+/*****************************************************************************
+ * ApplicationAssociationRegistration coclass
+ */
+
+DEFINE_GUID(CLSID_ApplicationAssociationRegistration, 0x591209c7, 0x767b, 0x42b2, 0x9f,0xba, 0x44,0xee,0x46,0x15,0xf2,0xc7);
+
+/*****************************************************************************
+ * ShellLink coclass
+ */
+
+DEFINE_GUID(CLSID_ShellLink, 0x00021401, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
+
+/*****************************************************************************
+ * TaskbarList coclass
+ */
+
+DEFINE_GUID(CLSID_TaskbarList, 0x56fdf344, 0xfd6d, 0x11d0, 0x95,0x8a, 0x00,0x60,0x97,0xc9,0xa0,0x90);
+
+/*****************************************************************************
+ * DestinationList coclass
+ */
+
+DEFINE_GUID(CLSID_DestinationList, 0x77f10cf0, 0x3db5, 0x4966, 0xb5,0x20, 0xb7,0xc5,0x4f,0xd3,0x5e,0xd6);
+
+/*****************************************************************************
+ * EnumerableObjectCollection coclass
+ */
+
+DEFINE_GUID(CLSID_EnumerableObjectCollection, 0x2d3468c1, 0x36a7, 0x43b6, 0xac,0x24, 0xd3,0xf0,0x2f,0xd9,0x60,0x7a);
+
 #endif
 
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0263_v0_0_c_ifspec;
