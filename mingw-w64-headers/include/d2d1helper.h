@@ -21,6 +21,11 @@ D2D1FORCEINLINE D2D1_POINT_2F Point2F(FLOAT x = 0.f, FLOAT y = 0.f) {
     return r;
 }
 
+D2D1FORCEINLINE D2D1_POINT_2U Point2U(UINT32 x = 0, UINT32 y = 0) {
+    D2D1_POINT_2U r = {x,y};
+    return r;
+}
+
 D2D1FORCEINLINE D2D1_SIZE_F SizeF(FLOAT width = 0.0f, FLOAT height = 0.0f) {
     D2D1_SIZE_F r = {width, height};
     return r;
@@ -33,6 +38,11 @@ D2D1FORCEINLINE D2D1_SIZE_U SizeU(UINT32 width = 0, UINT32 height = 0) {
 
 D2D1FORCEINLINE D2D1_RECT_F RectF(FLOAT left = 0.0f, FLOAT top = 0.0f, FLOAT right = 0.0f, FLOAT bottom = 0.0f) {
     D2D1_RECT_F r = {left, top, right, bottom};
+    return r;
+}
+
+D2D1FORCEINLINE D2D1_RECT_U RectU(UINT32 left = 0, UINT32 top = 0, UINT32 right = 0, UINT32 bottom = 0) {
+    D2D1_RECT_U r = {left, top, right, bottom};
     return r;
 }
 
@@ -175,8 +185,35 @@ public:
 
     D2D1FORCEINLINE Matrix3x2F() {}
 
+    static inline const Matrix3x2F *ReinterpretBaseType(const D2D1_MATRIX_3X2_F *pMatrix) {
+        return static_cast<const Matrix3x2F *>(pMatrix);
+    }
+
+    static inline Matrix3x2F *ReinterpretBaseType(D2D1_MATRIX_3X2_F *pMatrix) {
+        return static_cast<Matrix3x2F *>(pMatrix);
+    }
+
+    inline FLOAT Determinant() const {
+        return _11*_22 - _12*_21;
+    }
+
     static D2D1FORCEINLINE Matrix3x2F Identity() {
         return Matrix3x2F(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
+    }
+
+    inline void SetProduct(const Matrix3x2F &a, const Matrix3x2F &b) {
+        _11 = a._11*b._11 + a._12*b._21;
+        _12 = a._11*b._12 + a._12*b._22;
+        _21 = a._21*b._11 + a._22*b._21;
+        _22 = a._21*b._12 + a._22*b._22;
+        _31 = a._31*b._11 + a._32*b._21 + b._31;
+        _32 = a._31*b._12 + a._32*b._22 + b._32;
+    }
+
+    D2D1FORCEINLINE Matrix3x2F operator*(const Matrix3x2F &matrix) const {
+        Matrix3x2F r;
+        r.SetProduct(*this, matrix);
+        return r;
     }
 };
 
@@ -184,6 +221,12 @@ D2D1FORCEINLINE D2D1_MATRIX_3X2_F IdentityMatrix() {
     return Matrix3x2F::Identity();
 }
 
+}
+
+D2D1FORCEINLINE D2D1_MATRIX_3X2_F operator*(const D2D1_MATRIX_3X2_F &matrix1, const D2D1_MATRIX_3X2_F &matrix2) {
+    D2D1::Matrix3x2F r;
+    r.SetProduct(*D2D1::Matrix3x2F::ReinterpretBaseType(&matrix1), *D2D1::Matrix3x2F::ReinterpretBaseType(&matrix2));
+    return r;
 }
 
 #endif /* __cplusplus */
