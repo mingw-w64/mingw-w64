@@ -990,21 +990,6 @@ extern "C" {
   void __RPC_STUB IEnumExtraSearch_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-  typedef enum __MIDL___MIDL_itf_shobjidl_0201_0001 {
-    SHCOLSTATE_TYPE_STR = 0x1,SHCOLSTATE_TYPE_INT = 0x2,SHCOLSTATE_TYPE_DATE = 0x3,SHCOLSTATE_TYPEMASK = 0xf,SHCOLSTATE_ONBYDEFAULT = 0x10,
-    SHCOLSTATE_SLOW = 0x20,SHCOLSTATE_EXTENDED = 0x40,SHCOLSTATE_SECONDARYUI = 0x80,SHCOLSTATE_HIDDEN = 0x100,SHCOLSTATE_PREFER_VARCMP = 0x200
-  } SHCOLSTATE;
-
-  typedef DWORD SHCOLSTATEF;
-
-  typedef struct __MIDL___MIDL_itf_shobjidl_0201_0002 {
-    GUID fmtid;
-    DWORD pid;
-  } SHCOLUMNID;
-
-  typedef struct __MIDL___MIDL_itf_shobjidl_0201_0002 *LPSHCOLUMNID;
-  typedef const SHCOLUMNID *LPCSHCOLUMNID;
-
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0201_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0201_v0_0_s_ifspec;
 #ifndef __IShellFolder2_INTERFACE_DEFINED__
