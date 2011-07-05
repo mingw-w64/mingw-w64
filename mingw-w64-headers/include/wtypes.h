@@ -694,12 +694,10 @@ extern "C" {
   extern RPC_IF_HANDLE __MIDL_itf_wtypes_0003_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_wtypes_0003_v0_0_s_ifspec;
 
-#if (_WIN32_WINNT >= 0x0600)
 typedef struct _PROPERTYKEY {
   GUID  fmtid;
   DWORD pid;
 } PROPERTYKEY;
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
 }
