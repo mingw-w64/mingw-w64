@@ -27,10 +27,6 @@ typedef interface IEnumDMO IEnumDMO;
 extern "C" {
 #endif
 
-#if !defined(COM_NO_WINDOWS_H) && !defined(__WINESRC__)
-#include <windows.h>
-#include <ole2.h>
-#endif
 #ifndef __IDMOQualityControl_FWD_DEFINED__
 #define __IDMOQualityControl_FWD_DEFINED__
 typedef interface IDMOQualityControl IDMOQualityControl;

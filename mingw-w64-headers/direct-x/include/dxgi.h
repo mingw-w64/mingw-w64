@@ -154,6 +154,11 @@ typedef struct DXGI_ADAPTER_DESC {
     SIZE_T SharedSystemMemory;
     LUID AdapterLuid;
 } DXGI_ADAPTER_DESC;
+typedef enum DXGI_SWAP_CHAIN_FLAG {
+    DXGI_SWAP_CHAIN_FLAG_NONPREROTATED = 1,
+    DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH = 2,
+    DXGI_SWAP_CHAIN_FLAG_GDI_COMPATIBLE = 4
+} DXGI_SWAP_CHAIN_FLAG;
 typedef struct DXGI_SWAP_CHAIN_DESC {
     DXGI_MODE_DESC BufferDesc;
     DXGI_SAMPLE_DESC SampleDesc;
@@ -1202,6 +1207,10 @@ void __RPC_STUB IDXGISwapChain_GetLastPresentCount_Stub(
 
 #endif  /* __IDXGISwapChain_INTERFACE_DEFINED__ */
 
+#define DXGI_MWA_NO_WINDOW_CHANGES  0x1
+#define DXGI_MWA_NO_ALT_ENTER       0x2
+#define DXGI_MWA_NO_PRINT_SCREEN    0x4
+#define DXGI_MWA_VALID              0x7
 /*****************************************************************************
  * IDXGIFactory interface
  */
