@@ -216,6 +216,20 @@
 #define _FPE_STACKUNDERFLOW	0x8b
 #define _FPE_EXPLICITGEN	0x8c    /* raise( SIGFPE ); */
 
+#define CW_DEFAULT _CW_DEFAULT
+#define MCW_PC  _MCW_PC
+#define PC_24   _PC_24
+#define PC_53   _PC_53
+#define PC_64   _PC_64
+
+#if defined(_M_IX86)
+#define _CW_DEFAULT (_RC_NEAR+_PC_53+_EM_INVALID+_EM_ZERODIVIDE+_EM_OVERFLOW+_EM_UNDERFLOW+_EM_INEXACT+_EM_DENORMAL)
+#elif defined(_M_IA64)
+#define _CW_DEFAULT (_RC_NEAR+_PC_64+_EM_INVALID+_EM_ZERODIVIDE+_EM_OVERFLOW+_EM_UNDERFLOW+_EM_INEXACT+_EM_DENORMAL)
+#elif defined(_M_AMD64)
+#define _CW_DEFAULT (_RC_NEAR+_EM_INVALID+_EM_ZERODIVIDE+_EM_OVERFLOW+_EM_UNDERFLOW+_EM_INEXACT+_EM_DENORMAL)
+#endif
+
 #ifndef RC_INVOKED
 
 #ifdef	__cplusplus
@@ -226,6 +240,7 @@ extern "C" {
  * i.e. change the bits in unMask to have the values they have in unNew,
  * leaving other bits unchanged. */
 _CRTIMP unsigned int __cdecl __MINGW_NOTHROW _controlfp (unsigned int unNew, unsigned int unMask) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+_CRTIMP errno_t __cdecl _controlfp_s(unsigned int *_CurrentState, unsigned int _NewValue, unsigned int _Mask);
 _CRTIMP unsigned int __cdecl __MINGW_NOTHROW _control87 (unsigned int unNew, unsigned int unMask);
 
 
