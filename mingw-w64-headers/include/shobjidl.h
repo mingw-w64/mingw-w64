@@ -4318,7 +4318,7 @@ interface ITaskbarList4 {
   };
   typedef DWORD SICHINTF;
 
-  EXTERN_C const IID IID_IShellItem;
+DEFINE_GUID(IID_IShellItem, 0x43826d1e,0xe718,0x42ee,0xbc,0x55,0xa1,0xe2,0x61,0xc3,0x7b,0xfe);
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IShellItem : public IUnknown {
   public:
@@ -4928,7 +4928,7 @@ interface IShellItem2 {
     ATTACHMENT_ACTION_CANCEL = 0,ATTACHMENT_ACTION_SAVE = 0x1,ATTACHMENT_ACTION_EXEC = 0x2
   } ATTACHMENT_ACTION;
 
-  EXTERN_C const IID IID_IAttachmentExecute;
+DEFINE_GUID(IID_IAttachmentExecute, 0x73db1241,0x1e85,0x4581,0x8e,0x4f,0xa8,0x1e,0x1d,0x0f,0x8c,0x57);
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAttachmentExecute : public IUnknown {
   public:
@@ -5517,7 +5517,7 @@ interface ICustomDestinationList {
 #ifdef __cplusplus
   class PassportWizard;
 #endif
-  EXTERN_C const CLSID CLSID_AttachmentServices;
+DEFINE_GUID(CLSID_AttachmentServices, 0x4125dd96,0xe03a,0x4103,0x8f,0x70,0xe0,0x59,0x7d,0x80,0x3b,0x9c);
 #ifdef __cplusplus
   class AttachmentServices;
 #endif
