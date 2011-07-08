@@ -12,10 +12,7 @@
 #ifndef __WINAPI_DWMAPI_H
 #define __WINAPI_DWMAPI_H
 
-/* FIXME: it may not be neccessary to include tchar.h and windows.h */
-#include <tchar.h>
-#include <windows.h>
-/* FIXME end */
+#include <wtypes.h>
 
 /* for MARGINS structure declaration.  */
 #include <uxtheme.h>
