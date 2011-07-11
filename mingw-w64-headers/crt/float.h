@@ -11,9 +11,11 @@
  *
  */
 
-#if defined (__GNUC__) && defined (__GNUC_MINOR__)
-#if (__GNUC__ < 4  || (__GNUC__ == 4 && __GNUC_MINOR__ < 6))
-#ifndef _FLOAT_H___
+#if (defined (__GNUC__) && defined (__GNUC_MINOR__)) \
+    || (defined(__clang__) && defined(__clang_major__))
+#if (__GNUC__ < 4  || (__GNUC__ == 4 && __GNUC_MINOR__ < 6)) \
+    || (__clang_major__ >=3)
+#if !defined(_FLOAT_H___) && !defined(__FLOAT_H)
 #include_next <float.h>
 #endif
 #elif !defined (_FLOAT_H___)

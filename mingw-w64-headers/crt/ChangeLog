@@ -1,3 +1,7 @@
+2011-07-11  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
+
+	* float.h: Extend guards about Clang's __FLOAT_H.
+
 2011-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* sdks/_mingw_directx.h.in(__MINGW_HAS_DXSDK): Define.
