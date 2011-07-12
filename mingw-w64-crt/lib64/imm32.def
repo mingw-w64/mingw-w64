@@ -6,14 +6,15 @@
 ;
 LIBRARY IMM32.dll
 EXPORTS
-CtfAImmActivate
-CtfAImmDeactivate
-CtfAImmIsIME
+CtfImmAppCompatEnableIMEonProtectedCode
 CtfImmCoUninitialize
 CtfImmDispatchDefImeMessage
 CtfImmEnterCoInitCountSkipMode
 CtfImmGenerateMessage
+CtfImmGetCompatibleKeyboardLayout
 CtfImmGetGuidAtom
+CtfImmGetIMEFileName
+CtfImmGetTMAEFlags
 CtfImmHideToolbarWnd
 CtfImmIsCiceroEnabled
 CtfImmIsCiceroStartedInThread
@@ -21,9 +22,11 @@ CtfImmIsGuidMapEnable
 CtfImmIsTextFrameServiceDisabled
 CtfImmLastEnabledWndDestroy
 CtfImmLeaveCoInitCountSkipMode
+CtfImmNotify
 CtfImmRestoreToolbarWnd
 CtfImmSetAppCompatFlags
 CtfImmSetCiceroStartInThread
+CtfImmSetDefaultRemoteKeyboardLayout
 CtfImmTIMActivate
 GetKeyboardLayoutCP
 ImmActivateLayout
