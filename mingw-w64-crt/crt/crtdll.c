@@ -97,16 +97,19 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	    }
 	  Sleep(1000);
 	}
-      if (__native_startup_state != __uninitialized)
+      if (__native_startup_state == __initializing)
 	{
-	  _amsg_exit(31);
+	  _amsg_exit (31);
 	}
-      else
+      else if (__native_startup_state == __uninitialized)
 	{
 	  __native_startup_state = __initializing;
 	  
 	  _initterm ((_PVFV *) (void *) __xi_a, (_PVFV *) (void *) __xi_z);
-	  _initterm (__xc_a,__xc_z);
+	}
+      if (__native_startup_state == __initializing)
+	{
+	  _initterm (__xc_a, __xc_z);
 	  __native_startup_state = __initialized;
 	}
       if (! nested)
@@ -126,7 +129,7 @@ WINBOOL WINAPI _CRT_INIT (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	{
 	  Sleep(1000);
 	}
-      if(__native_startup_state!=__initialized)
+      if (__native_startup_state != __initialized)
 	{
 	  _amsg_exit (31);
 	}
