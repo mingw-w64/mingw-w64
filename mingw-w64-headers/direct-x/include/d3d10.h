@@ -830,6 +830,28 @@ typedef struct D3D10_TEXTURE1D_DESC {
     UINT CPUAccessFlags;
     UINT MiscFlags;
 } D3D10_TEXTURE1D_DESC;
+#if !defined(D3D10_NO_HELPERS) && defined(__cplusplus)
+struct CD3D10_TEXTURE1D_DESC : public D3D10_TEXTURE1D_DESC {
+    CD3D10_TEXTURE1D_DESC() {}
+    explicit CD3D10_TEXTURE1D_DESC(const D3D10_TEXTURE1D_DESC &o) : D3D10_TEXTURE1D_DESC(o) {}
+    explicit CD3D10_TEXTURE1D_DESC(DXGI_FORMAT format, UINT width, UINT arraySize = 1, UINT mipLevels = 0,
+        UINT bindFlags = D3D10_BIND_SHADER_RESOURCE, D3D10_USAGE usage = D3D10_USAGE_DEFAULT, UINT cpuaccessFlags = 0,
+        UINT miscFlags = 0) {
+        Width = width;
+        MipLevels = mipLevels;
+        ArraySize = arraySize;
+        Format = format;
+        Usage = usage;
+        BindFlags = bindFlags;
+        CPUAccessFlags = cpuaccessFlags;
+        MiscFlags = miscFlags;
+    }
+    ~CD3D10_TEXTURE1D_DESC() {}
+    operator const D3D10_TEXTURE1D_DESC&() const {
+        return *this;
+    }
+};
+#endif
 typedef struct D3D10_TEXTURE2D_DESC {
     UINT Width;
     UINT Height;

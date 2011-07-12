@@ -3685,11 +3685,19 @@ DEFINE_GUID(LIBID_PropSysObjects, 0x2cda3294, 0x6c4f, 0x4020, 0xb1,0x61, 0x27,0x
 
 DEFINE_GUID(CLSID_InMemoryPropertyStore, 0x9a02e012, 0x6303, 0x4e1e, 0xb9,0xa1, 0x63,0x0f,0x80,0x25,0x92,0xc5);
 
+#ifdef __cplusplus
+class InMemoryPropertyStore;
+#endif
+
 /*****************************************************************************
  * PropertySystem coclass
  */
 
 DEFINE_GUID(CLSID_PropertySystem, 0xb8967f86, 0x58ae, 0x4f96, 0x9f,0xb2, 0x5d,0x79,0x04,0x79,0x8f,0x4b);
+
+#ifdef __cplusplus
+class PropertySystem;
+#endif
 
 /* Begin additional prototypes for all interfaces */
 

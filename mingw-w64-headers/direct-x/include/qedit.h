@@ -627,6 +627,10 @@ void __RPC_STUB IMediaDet_EnterBitmapGrabMode_Stub(
 
 DEFINE_GUID(CLSID_MediaDet, 0x65bd0711, 0x24d2, 0x4ff7, 0x93,0x24, 0xed,0x2e,0x5d,0x3a,0xba,0xfa);
 
+#ifdef __cplusplus
+class MediaDet;
+#endif
+
 /* Begin additional prototypes for all interfaces */
 
 ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);
