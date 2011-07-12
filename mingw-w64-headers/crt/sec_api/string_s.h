@@ -24,6 +24,7 @@ extern "C" {
 
   _CRTIMP errno_t __cdecl strncat_s(char *_Dst,size_t _DstSizeInChars,const char *_Src,size_t _MaxCount);
   _CRTIMP errno_t __cdecl _strncat_s_l(char *_Dst,size_t _DstSizeInChars,const char *_Src,size_t _MaxCount,_locale_t _Locale);
+  _CRTIMP errno_t __cdecl strcpy_s(char *_Dst, size_t _SizeInBytes, const char *_Src);
   _CRTIMP errno_t __cdecl strncpy_s(char *_Dst,size_t _DstSizeInChars,const char *_Src,size_t _MaxCount);
   _CRTIMP errno_t __cdecl _strncpy_s_l(char *_Dst,size_t _DstSizeInChars,const char *_Src,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP char *__cdecl strtok_s(char *_Str,const char *_Delim,char **_Context);
