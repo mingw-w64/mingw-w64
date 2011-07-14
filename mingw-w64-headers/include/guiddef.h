@@ -13,6 +13,12 @@ typedef struct _GUID {
 } GUID;
 #endif
 
+#if defined(__cplusplus) && (USE___UUIDOF == 0)
+extern "C++" {
+    template<typename T> const GUID &__mingw_uuidof();
+}
+#endif
+
 #ifndef FAR
 #define FAR
 #endif

@@ -69,7 +69,11 @@ limitations in handling dllimport attribute.  */
 #define __MINGW_MSC_PREREQ(major, minor)   0
 #endif
 
+#ifdef _MSC_VER
+#define USE___UUIDOF	1
+#else
 #define USE___UUIDOF	0
+#endif
 
 #ifdef __cplusplus
 # define __CRT_INLINE inline
@@ -608,6 +612,28 @@ typedef __time64_t time_t;
 #  define DUMMYSTRUCTNAME5
 # endif
 #endif /* DUMMYSTRUCTNAME */
+
+
+/* Macros for __uuidof template-based emulation */
+#if defined(__cplusplus) && (USE___UUIDOF == 0)
+
+#define __CRT_UUID_DECL(type,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8)           \
+    extern "C++" {                                                      \
+    template<> inline const GUID &__mingw_uuidof<type>() {              \
+        return (const IID){l,w1,w2, {b1,b2,b3,b4,b5,b6,b7,b8}};         \
+    }                                                                   \
+    template<> inline const GUID &__mingw_uuidof<type*>() {             \
+        return __mingw_uuidof<type>();                                  \
+    }                                                                   \
+    }
+
+#define __uuidof(type) __mingw_uuidof<typeof(type)>()
+
+#else
+
+#define __CRT_UUID_DECL(type,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8)
+
+#endif
 
 
 /* MSVC-isms: */

@@ -157,6 +157,19 @@ typedef struct IRpcChannelBuffer IRpcChannelBuffer;
 #include <cguid.h>
 #endif
 
+#if defined(__cplusplus) && !defined(CINTERFACE)
+
+extern "C++" {
+    template<typename T> void **IID_PPV_ARGS_Helper(T **iface)    {
+        static_cast<IUnknown*>(*iface);
+        return reinterpret_cast<void**>(iface);
+    }
+}
+
+#define IID_PPV_ARGS(iface) __uuidof(**(iface)), IID_PPV_ARGS_Helper(iface)
+
+#endif
+
 typedef enum tagCOINIT {
   COINIT_APARTMENTTHREADED = 0x2,COINIT_MULTITHREADED = 0x0,COINIT_DISABLE_OLE1DDE = 0x4,COINIT_SPEED_OVER_MEMORY = 0x8
 } COINIT;
