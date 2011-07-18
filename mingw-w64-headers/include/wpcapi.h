@@ -55,7 +55,8 @@ extern "C" {
 
 DEFINE_GUID(IID_IWPCSettings, 0x8fdf6ca1, 0x0189, 0x47e4, 0xb6,0x70, 0x1a,0x8a,0x46,0x36,0xe3,0x40);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWPCSettings : public IUnknown
+MIDL_INTERFACE("8fdf6ca1-0189-47e4-b670-1a8a4636e340")
+IWPCSettings : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE IsLoggingRequired(
         WINBOOL *pfRequired) = 0;
@@ -67,6 +68,9 @@ interface IWPCSettings : public IUnknown
         DWORD *pdwRestrictions) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWPCSettings, 0x8fdf6ca1, 0x0189, 0x47e4, 0xb6,0x70, 0x1a,0x8a,0x46,0x36,0xe3,0x40)
+#endif
 #else
 typedef struct IWPCSettingsVtbl {
     BEGIN_INTERFACE
@@ -150,13 +154,17 @@ void __RPC_STUB IWPCSettings_GetRestrictions_Stub(
 
 DEFINE_GUID(IID_IWPCGamesSettings, 0x95e87780, 0xe158, 0x489e, 0xb4,0x52, 0xbb,0xb8,0x50,0x79,0x07,0x15);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWPCGamesSettings : public IWPCSettings
+MIDL_INTERFACE("95e87780-e158-489e-b452-bbb850790715")
+IWPCGamesSettings : public IWPCSettings
 {
     virtual HRESULT STDMETHODCALLTYPE IsBlocked(
         GUID guidAppID,
         DWORD *pdwReasons) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWPCGamesSettings, 0x95e87780, 0xe158, 0x489e, 0xb4,0x52, 0xbb,0xb8,0x50,0x79,0x07,0x15)
+#endif
 #else
 typedef struct IWPCGamesSettingsVtbl {
     BEGIN_INTERFACE
@@ -237,7 +245,8 @@ typedef enum tagWPCFLAG_WEB_SETTING {
 } WPCFLAG_WEB_SETTING;
 DEFINE_GUID(IID_IWPCWebSettings, 0xffccbdb8, 0x0992, 0x4c30, 0xb0,0xf1, 0x1c,0xbb,0x09,0xc2,0x40,0xaa);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWPCWebSettings : public IWPCSettings
+MIDL_INTERFACE("ffccbdb8-0992-4c30-b0f1-1cbb09c240aa")
+IWPCWebSettings : public IWPCSettings
 {
     virtual HRESULT STDMETHODCALLTYPE GetSettings(
         DWORD *pdwSettings) = 0;
@@ -250,6 +259,9 @@ interface IWPCWebSettings : public IWPCSettings
         WINBOOL *pfChanged) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWPCWebSettings, 0xffccbdb8, 0x0992, 0x4c30, 0xb0,0xf1, 0x1c,0xbb,0x09,0xc2,0x40,0xaa)
+#endif
 #else
 typedef struct IWPCWebSettingsVtbl {
     BEGIN_INTERFACE
@@ -349,7 +361,8 @@ typedef enum tagWPCFLAG_VISIBILITY {
 
 DEFINE_GUID(IID_IWindowsParentalControlsCore, 0x4ff40a0f, 0x3f3b, 0x4d7c, 0xa4,0x1b, 0x4f,0x39,0xd7,0xb4,0x4d,0x05);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWindowsParentalControlsCore : public IUnknown
+MIDL_INTERFACE("4ff40a0f-3f3b-4d7c-a41b-4f39d7b44d05")
+IWindowsParentalControlsCore : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetVisibility(
         WPCFLAG_VISIBILITY *peVisibility) = 0;
@@ -367,6 +380,9 @@ interface IWindowsParentalControlsCore : public IUnknown
         LPWSTR *ppszName) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWindowsParentalControlsCore, 0x4ff40a0f, 0x3f3b, 0x4d7c, 0xa4,0x1b, 0x4f,0x39,0xd7,0xb4,0x4d,0x05)
+#endif
 #else
 typedef struct IWindowsParentalControlsCoreVtbl {
     BEGIN_INTERFACE
@@ -469,13 +485,17 @@ void __RPC_STUB IWindowsParentalControlsCore_GetWebFilterInfo_Stub(
 
 DEFINE_GUID(IID_IWindowsParentalControls, 0x4ff40a0f, 0x3f3b, 0x4d7c, 0xa4,0x1b, 0x4f,0x39,0xd7,0xb4,0x4d,0x05);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWindowsParentalControls : public IWindowsParentalControlsCore
+MIDL_INTERFACE("4ff40a0f-3f3b-4d7c-a41b-4f39d7b44d05")
+IWindowsParentalControls : public IWindowsParentalControlsCore
 {
     virtual HRESULT STDMETHODCALLTYPE GetGamesSettings(
         LPCWSTR pcszSID,
         IWPCGamesSettings **ppSettings) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWindowsParentalControls, 0x4ff40a0f, 0x3f3b, 0x4d7c, 0xa4,0x1b, 0x4f,0x39,0xd7,0xb4,0x4d,0x05)
+#endif
 #else
 typedef struct IWindowsParentalControlsVtbl {
     BEGIN_INTERFACE

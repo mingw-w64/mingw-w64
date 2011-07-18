@@ -40,7 +40,8 @@ extern "C" {
 
 DEFINE_GUID(IID_IObjectArray, 0x92ca9dcd, 0x5622, 0x4bba, 0xa8,0x05, 0x5e,0x9f,0x54,0x1b,0xd8,0xc9);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IObjectArray : public IUnknown
+MIDL_INTERFACE("92ca9dcd-5622-4bba-a805-5e9f541bd8c9")
+IObjectArray : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetCount(
         UINT *pcObjects) = 0;
@@ -51,6 +52,9 @@ interface IObjectArray : public IUnknown
         void **ppv) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IObjectArray, 0x92ca9dcd, 0x5622, 0x4bba, 0xa8,0x05, 0x5e,0x9f,0x54,0x1b,0xd8,0xc9)
+#endif
 #else
 typedef struct IObjectArrayVtbl {
     BEGIN_INTERFACE
@@ -125,7 +129,8 @@ void __RPC_STUB IObjectArray_GetAt_Stub(
 
 DEFINE_GUID(IID_IObjectCollection, 0x5632b1a4, 0xe38a, 0x400a, 0x92,0x8a, 0xd4,0xcd,0x63,0x23,0x02,0x95);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IObjectCollection : public IObjectArray
+MIDL_INTERFACE("5632b1a4-e38a-400a-928a-d4cd63230295")
+IObjectCollection : public IObjectArray
 {
     virtual HRESULT STDMETHODCALLTYPE AddObject(
         IUnknown *punk) = 0;
@@ -140,6 +145,9 @@ interface IObjectCollection : public IObjectArray
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IObjectCollection, 0x5632b1a4, 0xe38a, 0x400a, 0x92,0x8a, 0xd4,0xcd,0x63,0x23,0x02,0x95)
+#endif
 #else
 typedef struct IObjectCollectionVtbl {
     BEGIN_INTERFACE

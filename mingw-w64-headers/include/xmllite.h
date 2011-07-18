@@ -55,7 +55,8 @@ typedef enum XmlNodeType {
 
 DEFINE_GUID(IID_IXmlReader, 0x7279fc81, 0x709d, 0x4095, 0xb6,0x3d, 0x69,0xfe,0x4b,0x0d,0x90,0x30);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IXmlReader : public IUnknown
+MIDL_INTERFACE("7279fc81-709d-4095-b63d-69fe4b0d9030")
+IXmlReader : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetInput(
         IUnknown *input) = 0;
@@ -138,6 +139,9 @@ interface IXmlReader : public IUnknown
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IXmlReader, 0x7279fc81, 0x709d, 0x4095, 0xb6,0x3d, 0x69,0xfe,0x4b,0x0d,0x90,0x30)
+#endif
 #else
 typedef struct IXmlReaderVtbl {
     BEGIN_INTERFACE
@@ -530,7 +534,8 @@ typedef enum XmlWriterProperty {
 
 DEFINE_GUID(IID_IXmlWriter, 0x7279fc88, 0x709d, 0x4095, 0xb6,0x3d, 0x69,0xfe,0x4b,0x0d,0x90,0x30);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IXmlWriter : public IUnknown
+MIDL_INTERFACE("7279fc88-709d-4095-b63d-69fe4b0d9030")
+IXmlWriter : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetOutput(
         IUnknown *pOutput) = 0;
@@ -641,6 +646,9 @@ interface IXmlWriter : public IUnknown
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IXmlWriter, 0x7279fc88, 0x709d, 0x4095, 0xb6,0x3d, 0x69,0xfe,0x4b,0x0d,0x90,0x30)
+#endif
 #else
 typedef struct IXmlWriterVtbl {
     BEGIN_INTERFACE

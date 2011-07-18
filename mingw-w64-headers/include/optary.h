@@ -41,7 +41,8 @@ extern "C" {
 typedef IOptionArray *LPOPTIONARRAY;
 DEFINE_GUID(IID_IOptionArray, 0x22b6d492, 0x0f88, 0x11d1, 0xba,0x19, 0x00,0xc0,0x4f,0xd9,0x12,0xd0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IOptionArray : public IUnknown
+MIDL_INTERFACE("22b6d492-0f88-11d1-ba19-00c04fd912d0")
+IOptionArray : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE QueryOption(
         DWORD dwOption,
@@ -54,6 +55,9 @@ interface IOptionArray : public IUnknown
         ULONG cbBuf) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IOptionArray, 0x22b6d492, 0x0f88, 0x11d1, 0xba,0x19, 0x00,0xc0,0x4f,0xd9,0x12,0xd0)
+#endif
 #else
 typedef struct IOptionArrayVtbl {
     BEGIN_INTERFACE
@@ -138,9 +142,13 @@ typedef enum __WIDL_optary_generated_name_00000000 {
 } HTMLLOADOPTION;
 DEFINE_GUID(IID_IHtmlLoadOptions, 0xa71a0808, 0x0f88, 0x11d1, 0xba,0x19, 0x00,0xc0,0x4f,0xd9,0x12,0xd0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IHtmlLoadOptions : public IOptionArray
+MIDL_INTERFACE("a71a0808-0f88-11d1-ba19-00c04fd912d0")
+IHtmlLoadOptions : public IOptionArray
 {
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IHtmlLoadOptions, 0xa71a0808, 0x0f88, 0x11d1, 0xba,0x19, 0x00,0xc0,0x4f,0xd9,0x12,0xd0)
+#endif
 #else
 typedef struct IHtmlLoadOptionsVtbl {
     BEGIN_INTERFACE

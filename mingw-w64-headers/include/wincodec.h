@@ -309,7 +309,8 @@ typedef interface IWICPalette IWICPalette;
 
 DEFINE_GUID(IID_IWICColorContext, 0x3c613a02, 0x34b2, 0x44ea, 0x9a,0x7c, 0x45,0xae,0xa9,0xc6,0xfd,0x6d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICColorContext : public IUnknown
+MIDL_INTERFACE("3c613a02-34b2-44ea-9a7c-45aea9c6fd6d")
+IWICColorContext : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE InitializeFromFilename(
         LPCWSTR wzFilename) = 0;
@@ -333,6 +334,9 @@ interface IWICColorContext : public IUnknown
         UINT *pValue) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICColorContext, 0x3c613a02, 0x34b2, 0x44ea, 0x9a,0x7c, 0x45,0xae,0xa9,0xc6,0xfd,0x6d)
+#endif
 #else
 typedef struct IWICColorContextVtbl {
     BEGIN_INTERFACE
@@ -461,7 +465,8 @@ void __RPC_STUB IWICColorContext_GetExifColorSpace_Stub(
 
 DEFINE_GUID(IID_IWICBitmapSource, 0x00000120, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapSource : public IUnknown
+MIDL_INTERFACE("00000120-a8f2-4877-ba0a-fd2b6645fb94")
+IWICBitmapSource : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetSize(
         UINT *puiWidth,
@@ -484,6 +489,9 @@ interface IWICBitmapSource : public IUnknown
         BYTE *pbBuffer) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapSource, 0x00000120, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94)
+#endif
 #else
 typedef struct IWICBitmapSourceVtbl {
     BEGIN_INTERFACE
@@ -603,7 +611,8 @@ void __RPC_STUB IWICBitmapSource_CopyPixels_Stub(
 
 DEFINE_GUID(IID_IWICBitmapLock, 0x00000123, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapLock : public IUnknown
+MIDL_INTERFACE("00000123-a8f2-4877-ba0a-fd2b6645fb94")
+IWICBitmapLock : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetSize(
         UINT *pWidth,
@@ -620,6 +629,9 @@ interface IWICBitmapLock : public IUnknown
         WICPixelFormatGUID *pPixelFormat) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapLock, 0x00000123, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94)
+#endif
 #else
 typedef struct IWICBitmapLockVtbl {
     BEGIN_INTERFACE
@@ -720,13 +732,17 @@ void __RPC_STUB IWICBitmapLock_GetPixelFormat_Stub(
 
 DEFINE_GUID(IID_IWICBitmapFlipRotator, 0x5009834f, 0x2d6a, 0x41ce, 0x9e,0x1b, 0x17,0xc5,0xaf,0xf7,0xa7,0x82);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapFlipRotator : public IWICBitmapSource
+MIDL_INTERFACE("5009834f-2d6a-41ce-9e1b-17c5aff7a782")
+IWICBitmapFlipRotator : public IWICBitmapSource
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         IWICBitmapSource *pISource,
         WICBitmapTransformOptions options) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapFlipRotator, 0x5009834f, 0x2d6a, 0x41ce, 0x9e,0x1b, 0x17,0xc5,0xaf,0xf7,0xa7,0x82)
+#endif
 #else
 typedef struct IWICBitmapFlipRotatorVtbl {
     BEGIN_INTERFACE
@@ -818,7 +834,8 @@ void __RPC_STUB IWICBitmapFlipRotator_Initialize_Stub(
 
 DEFINE_GUID(IID_IWICBitmap, 0x00000121, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmap : public IWICBitmapSource
+MIDL_INTERFACE("00000121-a8f2-4877-ba0a-fd2b6645fb94")
+IWICBitmap : public IWICBitmapSource
 {
     virtual HRESULT STDMETHODCALLTYPE Lock(
         const WICRect *prcLock,
@@ -833,6 +850,9 @@ interface IWICBitmap : public IWICBitmapSource
         double dpiY) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmap, 0x00000121, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94)
+#endif
 #else
 typedef struct IWICBitmapVtbl {
     BEGIN_INTERFACE
@@ -954,7 +974,8 @@ void __RPC_STUB IWICBitmap_SetResolution_Stub(
 
 DEFINE_GUID(IID_IWICPalette, 0x00000040, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICPalette : public IUnknown
+MIDL_INTERFACE("00000040-a8f2-4877-ba0a-fd2b6645fb94")
+IWICPalette : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE InitializePredefined(
         WICBitmapPaletteType ePaletteType,
@@ -993,6 +1014,9 @@ interface IWICPalette : public IUnknown
         WINBOOL *pfHasAlpha) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICPalette, 0x00000040, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94)
+#endif
 #else
 typedef struct IWICPaletteVtbl {
     BEGIN_INTERFACE
@@ -1179,7 +1203,8 @@ void __RPC_STUB IWICPalette_HasAlpha_Stub(
 
 DEFINE_GUID(IID_IWICComponentInfo, 0x23bc3f0a, 0x698b, 0x4357, 0x88,0x6b, 0xf2,0x4d,0x50,0x67,0x13,0x34);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICComponentInfo : public IUnknown
+MIDL_INTERFACE("23bc3f0a-698b-4357-886b-f24d50671334")
+IWICComponentInfo : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetComponentType(
         WICComponentType *pType) = 0;
@@ -1214,6 +1239,9 @@ interface IWICComponentInfo : public IUnknown
         UINT *pcchActual) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICComponentInfo, 0x23bc3f0a, 0x698b, 0x4357, 0x88,0x6b, 0xf2,0x4d,0x50,0x67,0x13,0x34)
+#endif
 #else
 typedef struct IWICComponentInfoVtbl {
     BEGIN_INTERFACE
@@ -1378,7 +1406,8 @@ void __RPC_STUB IWICComponentInfo_GetFriendlyName_Stub(
 
 DEFINE_GUID(IID_IWICMetadataQueryReader, 0x30989668, 0xe1c9, 0x4597, 0xb3,0x95, 0x45,0x8e,0xed,0xb8,0x08,0xdf);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICMetadataQueryReader : public IUnknown
+MIDL_INTERFACE("30989668-e1c9-4597-b395-458eedb808df")
+IWICMetadataQueryReader : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetContainerFormat(
         GUID *pguidContainerFormat) = 0;
@@ -1396,6 +1425,9 @@ interface IWICMetadataQueryReader : public IUnknown
         IEnumString **ppIEnumString) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICMetadataQueryReader, 0x30989668, 0xe1c9, 0x4597, 0xb3,0x95, 0x45,0x8e,0xed,0xb8,0x08,0xdf)
+#endif
 #else
 typedef struct IWICMetadataQueryReaderVtbl {
     BEGIN_INTERFACE
@@ -1498,7 +1530,8 @@ void __RPC_STUB IWICMetadataQueryReader_GetEnumerator_Stub(
 
 DEFINE_GUID(IID_IWICMetadataQueryWriter, 0xa721791a, 0x0def, 0x4d06, 0xbd,0x91, 0x21,0x18,0xbf,0x1d,0xb1,0x0b);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICMetadataQueryWriter : public IWICMetadataQueryReader
+MIDL_INTERFACE("a721791a-0def-4d06-bd91-2118bf1db10b")
+IWICMetadataQueryWriter : public IWICMetadataQueryReader
 {
     virtual HRESULT STDMETHODCALLTYPE SetMetadataByName(
         LPCWSTR wzName,
@@ -1508,6 +1541,9 @@ interface IWICMetadataQueryWriter : public IWICMetadataQueryReader
         LPCWSTR wzName) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICMetadataQueryWriter, 0xa721791a, 0x0def, 0x4d06, 0xbd,0x91, 0x21,0x18,0xbf,0x1d,0xb1,0x0b)
+#endif
 #else
 typedef struct IWICMetadataQueryWriterVtbl {
     BEGIN_INTERFACE
@@ -1605,7 +1641,8 @@ void __RPC_STUB IWICMetadataQueryWriter_RemoveMetadataByName_Stub(
 
 DEFINE_GUID(IID_IWICBitmapFrameDecode, 0x3b16811b, 0x6a43, 0x4ec9, 0xa8,0x13, 0x3d,0x93,0x0c,0x13,0xb9,0x40);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapFrameDecode : public IWICBitmapSource
+MIDL_INTERFACE("3b16811b-6a43-4ec9-a813-3d930c13b940")
+IWICBitmapFrameDecode : public IWICBitmapSource
 {
     virtual HRESULT STDMETHODCALLTYPE GetMetadataQueryReader(
         IWICMetadataQueryReader **ppIMetadataQueryReader) = 0;
@@ -1619,6 +1656,9 @@ interface IWICBitmapFrameDecode : public IWICBitmapSource
         IWICBitmapSource **ppIThumbnail) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapFrameDecode, 0x3b16811b, 0x6a43, 0x4ec9, 0xa8,0x13, 0x3d,0x93,0x0c,0x13,0xb9,0x40)
+#endif
 #else
 typedef struct IWICBitmapFrameDecodeVtbl {
     BEGIN_INTERFACE
@@ -1738,7 +1778,8 @@ void __RPC_STUB IWICBitmapFrameDecode_GetThumbnail_Stub(
 
 DEFINE_GUID(IID_IWICBitmapCodecInfo, 0xe87a44c4, 0xb76e, 0x4c47, 0x8b,0x09, 0x29,0x8e,0xb1,0x2a,0x27,0x14);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapCodecInfo : public IWICComponentInfo
+MIDL_INTERFACE("e87a44c4-b76e-4c47-8b09-298eb12a2714")
+IWICBitmapCodecInfo : public IWICComponentInfo
 {
     virtual HRESULT STDMETHODCALLTYPE GetContainerFormat(
         GUID *pguidContainerFormat) = 0;
@@ -1790,6 +1831,9 @@ interface IWICBitmapCodecInfo : public IWICComponentInfo
         WINBOOL *pfMatches) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapCodecInfo, 0xe87a44c4, 0xb76e, 0x4c47, 0x8b,0x09, 0x29,0x8e,0xb1,0x2a,0x27,0x14)
+#endif
 #else
 typedef struct IWICBitmapCodecInfoVtbl {
     BEGIN_INTERFACE
@@ -2071,7 +2115,8 @@ typedef interface IWICBitmapDecoder IWICBitmapDecoder;
 
 DEFINE_GUID(IID_IWICBitmapDecoderInfo, 0xd8cd007f, 0xd08f, 0x4191, 0x9b,0xfc, 0x23,0x6e,0xa7,0xf0,0xe4,0xb5);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapDecoderInfo : public IWICBitmapCodecInfo
+MIDL_INTERFACE("d8cd007f-d08f-4191-9bfc-236ea7f0e4b5")
+IWICBitmapDecoderInfo : public IWICBitmapCodecInfo
 {
     virtual HRESULT STDMETHODCALLTYPE GetPatterns(
         UINT cbSizePatterns,
@@ -2087,6 +2132,9 @@ interface IWICBitmapDecoderInfo : public IWICBitmapCodecInfo
         IWICBitmapDecoder **ppIBitmapDecoder) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapDecoderInfo, 0xd8cd007f, 0xd08f, 0x4191, 0x9b,0xfc, 0x23,0x6e,0xa7,0xf0,0xe4,0xb5)
+#endif
 #else
 typedef struct IWICBitmapDecoderInfoVtbl {
     BEGIN_INTERFACE
@@ -2292,7 +2340,8 @@ void __RPC_STUB IWICBitmapDecoderInfo_CreateInstance_Stub(
 
 DEFINE_GUID(IID_IWICBitmapDecoder, 0x9edde9e7, 0x8dee, 0x47ea, 0x99,0xdf, 0xe6,0xfa,0xf2,0xed,0x44,0xbf);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapDecoder : public IUnknown
+MIDL_INTERFACE("9edde9e7-8dee-47ea-99df-e6faf2ed44bf")
+IWICBitmapDecoder : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE QueryCapability(
         IStream *pIStream,
@@ -2333,6 +2382,9 @@ interface IWICBitmapDecoder : public IUnknown
         IWICBitmapFrameDecode **ppIBitmapFrame) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapDecoder, 0x9edde9e7, 0x8dee, 0x47ea, 0x99,0xdf, 0xe6,0xfa,0xf2,0xed,0x44,0xbf)
+#endif
 #else
 typedef struct IWICBitmapDecoderVtbl {
     BEGIN_INTERFACE
@@ -2530,7 +2582,8 @@ void __RPC_STUB IWICBitmapDecoder_GetFrame_Stub(
 
 DEFINE_GUID(IID_IWICBitmapFrameEncode, 0x00000105, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapFrameEncode : public IUnknown
+MIDL_INTERFACE("00000105-a8f2-4877-ba0a-fd2b6645fb94")
+IWICBitmapFrameEncode : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         IPropertyBag2 *pIEncoderOptions) = 0;
@@ -2573,6 +2626,9 @@ interface IWICBitmapFrameEncode : public IUnknown
         IWICMetadataQueryWriter **ppIMetadataQueryWriter) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapFrameEncode, 0x00000105, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94)
+#endif
 #else
 typedef struct IWICBitmapFrameEncodeVtbl {
     BEGIN_INTERFACE
@@ -2777,12 +2833,16 @@ typedef interface IWICBitmapEncoder IWICBitmapEncoder;
 
 DEFINE_GUID(IID_IWICBitmapEncoderInfo, 0x94c9b4ee, 0xa09f, 0x4f92, 0x8a,0x1e, 0x4a,0x9b,0xce,0x7e,0x76,0xfb);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapEncoderInfo : public IWICBitmapCodecInfo
+MIDL_INTERFACE("94c9b4ee-a09f-4f92-8a1e-4a9bce7e76fb")
+IWICBitmapEncoderInfo : public IWICBitmapCodecInfo
 {
     virtual HRESULT STDMETHODCALLTYPE CreateInstance(
         IWICBitmapEncoder **ppIBitmapEncoder) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapEncoderInfo, 0x94c9b4ee, 0xa09f, 0x4f92, 0x8a,0x1e, 0x4a,0x9b,0xce,0x7e,0x76,0xfb)
+#endif
 #else
 typedef struct IWICBitmapEncoderInfoVtbl {
     BEGIN_INTERFACE
@@ -2965,7 +3025,8 @@ void __RPC_STUB IWICBitmapEncoderInfo_CreateInstance_Stub(
 
 DEFINE_GUID(IID_IWICBitmapEncoder, 0x00000103, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapEncoder : public IUnknown
+MIDL_INTERFACE("00000103-a8f2-4877-ba0a-fd2b6645fb94")
+IWICBitmapEncoder : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         IStream *pIStream,
@@ -3001,6 +3062,9 @@ interface IWICBitmapEncoder : public IUnknown
         IWICMetadataQueryWriter **ppIMetadataQueryWriter) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapEncoder, 0x00000103, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94)
+#endif
 #else
 typedef struct IWICBitmapEncoderVtbl {
     BEGIN_INTERFACE
@@ -3179,7 +3243,8 @@ void __RPC_STUB IWICBitmapEncoder_GetMetadataQueryWriter_Stub(
 
 DEFINE_GUID(IID_IWICFormatConverter, 0x00000301, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICFormatConverter : public IWICBitmapSource
+MIDL_INTERFACE("00000301-a8f2-4877-ba0a-fd2b6645fb94")
+IWICFormatConverter : public IWICBitmapSource
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         IWICBitmapSource *pISource,
@@ -3195,6 +3260,9 @@ interface IWICFormatConverter : public IWICBitmapSource
         WINBOOL *pfCanConvert) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICFormatConverter, 0x00000301, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94)
+#endif
 #else
 typedef struct IWICFormatConverterVtbl {
     BEGIN_INTERFACE
@@ -3311,7 +3379,8 @@ void __RPC_STUB IWICFormatConverter_CanConvert_Stub(
 
 DEFINE_GUID(IID_IWICFormatConverterInfo, 0x9f34fb65, 0x13f4, 0x4f15, 0xbc,0x57, 0x37,0x26,0xb5,0xe5,0x3d,0x9f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICFormatConverterInfo : public IWICComponentInfo
+MIDL_INTERFACE("9f34fb65-13f4-4f15-bc57-3726b5e53d9f")
+IWICFormatConverterInfo : public IWICComponentInfo
 {
     virtual HRESULT STDMETHODCALLTYPE GetPixelFormats(
         UINT cFormats,
@@ -3322,6 +3391,9 @@ interface IWICFormatConverterInfo : public IWICComponentInfo
         IWICFormatConverter **ppIConverter) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICFormatConverterInfo, 0x9f34fb65, 0x13f4, 0x4f15, 0xbc,0x57, 0x37,0x26,0xb5,0xe5,0x3d,0x9f)
+#endif
 #else
 typedef struct IWICFormatConverterInfoVtbl {
     BEGIN_INTERFACE
@@ -3446,7 +3518,8 @@ void __RPC_STUB IWICFormatConverterInfo_CreateInstance_Stub(
 
 DEFINE_GUID(IID_IWICStream, 0x135ff860, 0x22b7, 0x4ddf, 0xb0,0xf6, 0x21,0x8f,0x4f,0x29,0x9a,0x43);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICStream : public IStream
+MIDL_INTERFACE("135ff860-22b7-4ddf-b0f6-218f4f299a43")
+IWICStream : public IStream
 {
     virtual HRESULT STDMETHODCALLTYPE InitializeFromIStream(
         IStream *pIStream) = 0;
@@ -3465,6 +3538,9 @@ interface IWICStream : public IStream
         ULARGE_INTEGER ulMaxSize) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICStream, 0x135ff860, 0x22b7, 0x4ddf, 0xb0,0xf6, 0x21,0x8f,0x4f,0x29,0x9a,0x43)
+#endif
 #else
 typedef struct IWICStreamVtbl {
     BEGIN_INTERFACE
@@ -3641,7 +3717,8 @@ void __RPC_STUB IWICStream_InitializeFromIStreamRegion_Stub(
 
 DEFINE_GUID(IID_IWICBitmapScaler, 0x00000302, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapScaler : public IWICBitmapSource
+MIDL_INTERFACE("00000302-a8f2-4877-ba0a-fd2b6645fb94")
+IWICBitmapScaler : public IWICBitmapSource
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         IWICBitmapSource *pISource,
@@ -3650,6 +3727,9 @@ interface IWICBitmapScaler : public IWICBitmapSource
         WICBitmapInterpolationMode mode) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapScaler, 0x00000302, 0xa8f2, 0x4877, 0xba,0x0a, 0xfd,0x2b,0x66,0x45,0xfb,0x94)
+#endif
 #else
 typedef struct IWICBitmapScalerVtbl {
     BEGIN_INTERFACE
@@ -3745,13 +3825,17 @@ void __RPC_STUB IWICBitmapScaler_Initialize_Stub(
 
 DEFINE_GUID(IID_IWICBitmapClipper, 0xe4fbcf03, 0x223d, 0x4e81, 0x93,0x33, 0xd6,0x35,0x55,0x6d,0xd1,0xb5);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICBitmapClipper : public IWICBitmapSource
+MIDL_INTERFACE("e4fbcf03-223d-4e81-9333-d635556dd1b5")
+IWICBitmapClipper : public IWICBitmapSource
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         IWICBitmapSource *pISource,
         const WICRect *prc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICBitmapClipper, 0xe4fbcf03, 0x223d, 0x4e81, 0x93,0x33, 0xd6,0x35,0x55,0x6d,0xd1,0xb5)
+#endif
 #else
 typedef struct IWICBitmapClipperVtbl {
     BEGIN_INTERFACE
@@ -3843,7 +3927,8 @@ void __RPC_STUB IWICBitmapClipper_Initialize_Stub(
 
 DEFINE_GUID(IID_IWICColorTransform, 0xb66f034f, 0xd0e2, 0x40ab, 0xb4,0x36, 0x6d,0xe3,0x9e,0x32,0x1a,0x94);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICColorTransform : public IWICBitmapSource
+MIDL_INTERFACE("b66f034f-d0e2-40ab-b436-6de39e321a94")
+IWICColorTransform : public IWICBitmapSource
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         IWICBitmapSource *pIBitmapSource,
@@ -3852,6 +3937,9 @@ interface IWICColorTransform : public IWICBitmapSource
         REFWICPixelFormatGUID pixelFmtDest) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICColorTransform, 0xb66f034f, 0xd0e2, 0x40ab, 0xb4,0x36, 0x6d,0xe3,0x9e,0x32,0x1a,0x94)
+#endif
 #else
 typedef struct IWICColorTransformVtbl {
     BEGIN_INTERFACE
@@ -3947,7 +4035,8 @@ void __RPC_STUB IWICColorTransform_Initialize_Stub(
 
 DEFINE_GUID(IID_IWICFastMetadataEncoder, 0xb84e2c09, 0x78c9, 0x4ac4, 0x8b,0xd3, 0x52,0x4a,0xe1,0x66,0x3a,0x2f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICFastMetadataEncoder : public IUnknown
+MIDL_INTERFACE("b84e2c09-78c9-4ac4-8bd3-524ae1663a2f")
+IWICFastMetadataEncoder : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Commit(
         ) = 0;
@@ -3956,6 +4045,9 @@ interface IWICFastMetadataEncoder : public IUnknown
         IWICMetadataQueryWriter **ppIMetadataQueryWriter) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICFastMetadataEncoder, 0xb84e2c09, 0x78c9, 0x4ac4, 0x8b,0xd3, 0x52,0x4a,0xe1,0x66,0x3a,0x2f)
+#endif
 #else
 typedef struct IWICFastMetadataEncoderVtbl {
     BEGIN_INTERFACE
@@ -4025,7 +4117,8 @@ DEFINE_GUID(CLSID_WICImagingFactory, 0xcacaf262,0x9370,0x4615,0xa1,0x3b,0x9f,0x5
 
 DEFINE_GUID(IID_IWICImagingFactory, 0xec5ec8a9, 0xc395, 0x4314, 0x9c,0x77, 0x54,0xd7,0xa9,0x35,0xff,0x70);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IWICImagingFactory : public IUnknown
+MIDL_INTERFACE("ec5ec8a9-c395-4314-9c77-54d7a935ff70")
+IWICImagingFactory : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE CreateDecoderFromFilename(
         LPCWSTR wzFilename,
@@ -4147,6 +4240,9 @@ interface IWICImagingFactory : public IUnknown
         IWICMetadataQueryWriter **ppIQueryWriter) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICImagingFactory, 0xec5ec8a9, 0xc395, 0x4314, 0x9c,0x77, 0x54,0xd7,0xa9,0x35,0xff,0x70)
+#endif
 #else
 typedef struct IWICImagingFactoryVtbl {
     BEGIN_INTERFACE

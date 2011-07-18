@@ -99,7 +99,8 @@ typedef HRESULT (__stdcall *FExecuteInAppDomainCallback)(void *cookie);
 
 DEFINE_GUID(IID_IGCThreadControl, 0xf31d1788, 0xc397, 0x4725, 0x87,0xa5, 0x6a,0xf3,0x47,0x2c,0x27,0x91);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IGCThreadControl : public IUnknown
+MIDL_INTERFACE("f31d1788-c397-4725-87a5-6af3472c2791")
+IGCThreadControl : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE ThreadIsBlockingForSuspension(
         ) = 0;
@@ -111,6 +112,9 @@ interface IGCThreadControl : public IUnknown
         DWORD generation) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IGCThreadControl, 0xf31d1788, 0xc397, 0x4725, 0x87,0xa5, 0x6a,0xf3,0x47,0x2c,0x27,0x91)
+#endif
 #else
 typedef struct IGCThreadControlVtbl {
     BEGIN_INTERFACE
@@ -190,13 +194,17 @@ void __RPC_STUB IGCThreadControl_SuspensionEnding_Stub(
 
 DEFINE_GUID(IID_IGCHostControl, 0x5513d564, 0x8374, 0x4cb9, 0xae,0xd9, 0x00,0x83,0xf4,0x16,0x0a,0x1d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IGCHostControl : public IUnknown
+MIDL_INTERFACE("5513d564-8374-4cb9-aed9-0083f4160a1d")
+IGCHostControl : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE RequestVirtualMemLimit(
         SIZE_T nMaxVirtualMemMB,
         SIZE_T *nNewMaxVirtualMemMB) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IGCHostControl, 0x5513d564, 0x8374, 0x4cb9, 0xae,0xd9, 0x00,0x83,0xf4,0x16,0x0a,0x1d)
+#endif
 #else
 typedef struct IGCHostControlVtbl {
     BEGIN_INTERFACE
@@ -256,7 +264,8 @@ void __RPC_STUB IGCHostControl_RequestVirtualMemLimit_Stub(
 
 DEFINE_GUID(IID_IDebuggerThreadControl, 0x23d86786, 0x0bb5, 0x4774, 0x8f,0xb5, 0xe3,0x52,0x2a,0xdd,0x62,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDebuggerThreadControl : public IUnknown
+MIDL_INTERFACE("23d86786-0bb5-4774-8fb5-e3522add6246")
+IDebuggerThreadControl : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE ThreadIsBlockingForDebugger(
         ) = 0;
@@ -268,6 +277,9 @@ interface IDebuggerThreadControl : public IUnknown
         DWORD dwUnused) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDebuggerThreadControl, 0x23d86786, 0x0bb5, 0x4774, 0x8f,0xb5, 0xe3,0x52,0x2a,0xdd,0x62,0x46)
+#endif
 #else
 typedef struct IDebuggerThreadControlVtbl {
     BEGIN_INTERFACE
@@ -347,7 +359,8 @@ void __RPC_STUB IDebuggerThreadControl_StartBlockingForDebugger_Stub(
 
 DEFINE_GUID(IID_ICorConfiguration, 0x5c2b07a5, 0x1e98, 0x11d3, 0x87,0x2f, 0x00,0xc0,0x4f,0x79,0xed,0x0d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ICorConfiguration : public IUnknown
+MIDL_INTERFACE("5c2b07a5-1e98-11d3-872f-00c04f79ed0d")
+ICorConfiguration : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetGCThreadControl(
         IGCThreadControl *GCThreadControl) = 0;
@@ -362,6 +375,9 @@ interface ICorConfiguration : public IUnknown
         DWORD specialThreadId) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ICorConfiguration, 0x5c2b07a5, 0x1e98, 0x11d3, 0x87,0x2f, 0x00,0xc0,0x4f,0x79,0xed,0x0d)
+#endif
 #else
 typedef struct ICorConfigurationVtbl {
     BEGIN_INTERFACE
@@ -458,7 +474,8 @@ void __RPC_STUB ICorConfiguration_AddDebuggerSpecialThread_Stub(
 
 DEFINE_GUID(IID_ICLRControl, 0x9065597e, 0xd1a1, 0x4fb2, 0xb6,0xba, 0x7e,0x1f,0xce,0x23,0x0f,0x61);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ICLRControl : public IUnknown
+MIDL_INTERFACE("9065597e-d1a1-4fb2-b6ba-7e1fce230f61")
+ICLRControl : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetCLRManager(
         REFIID riid,
@@ -469,6 +486,9 @@ interface ICLRControl : public IUnknown
         LPCWSTR appDomainManagerType) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ICLRControl, 0x9065597e, 0xd1a1, 0x4fb2, 0xb6,0xba, 0x7e,0x1f,0xce,0x23,0x0f,0x61)
+#endif
 #else
 typedef struct ICLRControlVtbl {
     BEGIN_INTERFACE
@@ -543,7 +563,8 @@ void __RPC_STUB ICLRControl_SetAppDomainManagerType_Stub(
 
 DEFINE_GUID(IID_IHostControl, 0x02ca073c, 0x7079, 0x4860, 0x88,0x0a, 0xc2,0xf7,0xa4,0x49,0xc9,0x91);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IHostControl : public IUnknown
+MIDL_INTERFACE("02ca073c-7079-4860-880a-c2f7a449c991")
+IHostControl : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetHostManager(
         REFIID riid,
@@ -554,6 +575,9 @@ interface IHostControl : public IUnknown
         IUnknown *appDomainManager) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IHostControl, 0x02ca073c, 0x7079, 0x4860, 0x88,0x0a, 0xc2,0xf7,0xa4,0x49,0xc9,0x91)
+#endif
 #else
 typedef struct IHostControlVtbl {
     BEGIN_INTERFACE
@@ -629,7 +653,8 @@ DEFINE_GUID(CLSID_CorRuntimeHost, 0xcb2f6723,0xab3a,0x11d2,0x9c,0x40,0x00,0xc0,0
 
 DEFINE_GUID(IID_ICorRuntimeHost, 0xcb2f6722, 0xab3a, 0x11d2, 0x9c,0x40, 0x00,0xc0,0x4f,0xa3,0x0a,0x3e);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ICorRuntimeHost : public IUnknown
+MIDL_INTERFACE("cb2f6722-ab3a-11d2-9c40-00c04fa30a3e")
+ICorRuntimeHost : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE CreateLogicalThreadState(
         ) = 0;
@@ -696,6 +721,9 @@ interface ICorRuntimeHost : public IUnknown
         IUnknown **appDomain) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ICorRuntimeHost, 0xcb2f6722, 0xab3a, 0x11d2, 0x9c,0x40, 0x00,0xc0,0x4f,0xa3,0x0a,0x3e)
+#endif
 #else
 typedef struct ICorRuntimeHostVtbl {
     BEGIN_INTERFACE
@@ -994,7 +1022,8 @@ DEFINE_GUID(CLSID_CLRRuntimeHost, 0x90f1a06e,0x7712,0x4762,0x86,0xb5,0x7a,0x5e,0
 
 DEFINE_GUID(IID_ICLRRuntimeHost, 0x90f1a06c, 0x7712, 0x4762, 0x86,0xb5, 0x7a,0x5e,0xba,0x6b,0xdb,0x02);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ICLRRuntimeHost : public IUnknown
+MIDL_INTERFACE("90f1a06c-7712-4762-86b5-7a5eba6bdb02")
+ICLRRuntimeHost : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Start(
         ) = 0;
@@ -1036,6 +1065,9 @@ interface ICLRRuntimeHost : public IUnknown
         DWORD *pReturnValue) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ICLRRuntimeHost, 0x90f1a06c, 0x7712, 0x4762, 0x86,0xb5, 0x7a,0x5e,0xba,0x6b,0xdb,0x02)
+#endif
 #else
 typedef struct ICLRRuntimeHostVtbl {
     BEGIN_INTERFACE
@@ -1217,7 +1249,8 @@ void __RPC_STUB ICLRRuntimeHost_ExecuteInDefaultAppDomain_Stub(
 
 DEFINE_GUID(IID_IManagedObject, 0xc3fcc19e, 0xa970, 0x11d2, 0x8b,0x5a, 0x00,0xa0,0xc9,0xb7,0xc9,0xc4);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IManagedObject : public IUnknown
+MIDL_INTERFACE("c3fcc19e-a970-11d2-8b5a-00a0c9b7c9c4")
+IManagedObject : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetSerializedBuffer(
         BSTR *pBSTR) = 0;
@@ -1228,6 +1261,9 @@ interface IManagedObject : public IUnknown
         int *pCCW) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IManagedObject, 0xc3fcc19e, 0xa970, 0x11d2, 0x8b,0x5a, 0x00,0xa0,0xc9,0xb7,0xc9,0xc4)
+#endif
 #else
 typedef struct IManagedObjectVtbl {
     BEGIN_INTERFACE

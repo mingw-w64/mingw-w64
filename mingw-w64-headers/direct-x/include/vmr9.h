@@ -214,7 +214,8 @@ typedef struct _VMR9PresentationInfo {
 
 DEFINE_GUID(IID_IVMRImagePresenter9, 0x69188c61, 0x12a3, 0x40f0, 0x8f,0xfc, 0x34,0x2e,0x7b,0x43,0x3f,0xd7);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRImagePresenter9 : public IUnknown
+MIDL_INTERFACE("69188c61-12a3-40f0-8ffc-342e7b433fd7")
+IVMRImagePresenter9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE StartPresenting(
         DWORD_PTR id) = 0;
@@ -227,6 +228,9 @@ interface IVMRImagePresenter9 : public IUnknown
         VMR9PresentationInfo *info) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRImagePresenter9, 0x69188c61, 0x12a3, 0x40f0, 0x8f,0xfc, 0x34,0x2e,0x7b,0x43,0x3f,0xd7)
+#endif
 #else
 typedef struct IVMRImagePresenter9Vtbl {
     BEGIN_INTERFACE
@@ -331,7 +335,8 @@ typedef struct _VMR9AllocationInfo {
 
 DEFINE_GUID(IID_IVMRSurfaceAllocator9, 0x8d5148ea, 0x3f5d, 0x46cf, 0x9d,0xf1, 0xd1,0xb8,0x96,0xee,0xdb,0x1f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRSurfaceAllocator9 : public IUnknown
+MIDL_INTERFACE("8d5148ea-3f5d-46cf-9df1-d1b896eedb1f")
+IVMRSurfaceAllocator9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE InitializeDevice(
         DWORD_PTR id,
@@ -351,6 +356,9 @@ interface IVMRSurfaceAllocator9 : public IUnknown
         IVMRSurfaceAllocatorNotify9 *allocnotify) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRSurfaceAllocator9, 0x8d5148ea, 0x3f5d, 0x46cf, 0x9d,0xf1, 0xd1,0xb8,0x96,0xee,0xdb,0x1f)
+#endif
 #else
 typedef struct IVMRSurfaceAllocator9Vtbl {
     BEGIN_INTERFACE
@@ -457,7 +465,8 @@ void __RPC_STUB IVMRSurfaceAllocator9_AdviseNotify_Stub(
 
 DEFINE_GUID(IID_IVMRSurfaceAllocatorEx9, 0x6de9a68a, 0xa928, 0x4522, 0xbf,0x57, 0x65,0x5a,0xe3,0x86,0x64,0x56);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRSurfaceAllocatorEx9 : public IVMRSurfaceAllocator9
+MIDL_INTERFACE("6de9a68a-a928-4522-bf57-655ae3866456")
+IVMRSurfaceAllocatorEx9 : public IVMRSurfaceAllocator9
 {
     virtual HRESULT STDMETHODCALLTYPE GetSurfaceEx(
         DWORD_PTR id,
@@ -467,6 +476,9 @@ interface IVMRSurfaceAllocatorEx9 : public IVMRSurfaceAllocator9
         RECT *dest) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRSurfaceAllocatorEx9, 0x6de9a68a, 0xa928, 0x4522, 0xbf,0x57, 0x65,0x5a,0xe3,0x86,0x64,0x56)
+#endif
 #else
 typedef struct IVMRSurfaceAllocatorEx9Vtbl {
     BEGIN_INTERFACE
@@ -559,7 +571,8 @@ void __RPC_STUB IVMRSurfaceAllocatorEx9_GetSurfaceEx_Stub(
 
 DEFINE_GUID(IID_IVMRSurfaceAllocatorNotify9, 0xdca3f5df, 0xbb3a, 0x4d03, 0xbd,0x81, 0x84,0x61,0x4b,0xfb,0xfa,0x0c);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRSurfaceAllocatorNotify9 : public IUnknown
+MIDL_INTERFACE("dca3f5df-bb3a-4d03-bd81-84614bfbfa0c")
+IVMRSurfaceAllocatorNotify9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE AdviseSurfaceAllocator(
         DWORD_PTR id,
@@ -584,6 +597,9 @@ interface IVMRSurfaceAllocatorNotify9 : public IUnknown
         LONG_PTR param2) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRSurfaceAllocatorNotify9, 0xdca3f5df, 0xbb3a, 0x4d03, 0xbd,0x81, 0x84,0x61,0x4b,0xfb,0xfa,0x0c)
+#endif
 #else
 typedef struct IVMRSurfaceAllocatorNotify9Vtbl {
     BEGIN_INTERFACE
@@ -711,7 +727,8 @@ typedef enum _VMR9AspectRatioMode {
 
 DEFINE_GUID(IID_IVMRWindowlessControl9, 0x8f537d09, 0xf85e, 0x4414, 0xb2,0x3b, 0x50,0x2e,0x54,0xc7,0x99,0x27);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRWindowlessControl9 : public IUnknown
+MIDL_INTERFACE("8f537d09-f85e-4414-b23b-502e54c79927")
+IVMRWindowlessControl9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetNativeVideoSize(
         LONG *width,
@@ -761,6 +778,9 @@ interface IVMRWindowlessControl9 : public IUnknown
         COLORREF *color) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRWindowlessControl9, 0x8f537d09, 0xf85e, 0x4414, 0xb2,0x3b, 0x50,0x2e,0x54,0xc7,0x99,0x27)
+#endif
 #else
 typedef struct IVMRWindowlessControl9Vtbl {
     BEGIN_INTERFACE
@@ -1038,7 +1058,8 @@ typedef struct _VMR9ProcAmpControlRange {
 
 DEFINE_GUID(IID_IVMRMixerControl9, 0x1a777eaa, 0x47c8, 0x4930, 0xb2,0xc9, 0x8f,0xee,0x1c,0x1b,0x0f,0x3b);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRMixerControl9 : public IUnknown
+MIDL_INTERFACE("1a777eaa-47c8-4930-b2c9-8fee1c1b0f3b")
+IVMRMixerControl9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetAlpha(
         DWORD streamid,
@@ -1089,6 +1110,9 @@ interface IVMRMixerControl9 : public IUnknown
         VMR9ProcAmpControlRange *controlrange) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRMixerControl9, 0x1a777eaa, 0x47c8, 0x4930, 0xb2,0xc9, 0x8f,0xee,0x1c,0x1b,0x0f,0x3b)
+#endif
 #else
 typedef struct IVMRMixerControl9Vtbl {
     BEGIN_INTERFACE
@@ -1338,7 +1362,8 @@ typedef enum _VMR9AlphaBitmapFlags {
 
 DEFINE_GUID(IID_IVMRMixerBitmap9, 0xced175e5, 0x1935, 0x4820, 0x81,0xbd, 0xff,0x6a,0xd0,0x0c,0x91,0x08);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRMixerBitmap9 : public IUnknown
+MIDL_INTERFACE("ced175e5-1935-4820-81bd-ff6ad00c9108")
+IVMRMixerBitmap9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetAlphaBitmap(
         const VMR9AlphaBitmap *bitmap) = 0;
@@ -1350,6 +1375,9 @@ interface IVMRMixerBitmap9 : public IUnknown
         VMR9AlphaBitmap *bitmap) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRMixerBitmap9, 0xced175e5, 0x1935, 0x4820, 0x81,0xbd, 0xff,0x6a,0xd0,0x0c,0x91,0x08)
+#endif
 #else
 typedef struct IVMRMixerBitmap9Vtbl {
     BEGIN_INTERFACE
@@ -1433,7 +1461,8 @@ void __RPC_STUB IVMRMixerBitmap9_GetAlphaBitmapParameters_Stub(
 
 DEFINE_GUID(IID_IVMRSurface9, 0xdfc581a1, 0x6e1f, 0x4c3a, 0x8d,0x0a, 0x5e,0x97,0x92,0xea,0x2a,0xfc);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRSurface9 : public IUnknown
+MIDL_INTERFACE("dfc581a1-6e1f-4c3a-8d0a-5e9792ea2afc")
+IVMRSurface9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE IsSurfaceLocked(
         ) = 0;
@@ -1448,6 +1477,9 @@ interface IVMRSurface9 : public IUnknown
         IDirect3DSurface9 **surface) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRSurface9, 0xdfc581a1, 0x6e1f, 0x4c3a, 0x8d,0x0a, 0x5e,0x97,0x92,0xea,0x2a,0xfc)
+#endif
 #else
 typedef struct IVMRSurface9Vtbl {
     BEGIN_INTERFACE
@@ -1544,7 +1576,8 @@ typedef enum _VMR9RenderPrefs {
 
 DEFINE_GUID(IID_IVMRImagePresenterConfig9, 0x45c15cab, 0x6e22, 0x420a, 0x80,0x43, 0xae,0x1f,0x0a,0xc0,0x2c,0x7d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRImagePresenterConfig9 : public IUnknown
+MIDL_INTERFACE("45c15cab-6e22-420a-8043-ae1f0ac02c7d")
+IVMRImagePresenterConfig9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetRenderingPrefs(
         DWORD renderflags) = 0;
@@ -1553,6 +1586,9 @@ interface IVMRImagePresenterConfig9 : public IUnknown
         DWORD *renderflags) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRImagePresenterConfig9, 0x45c15cab, 0x6e22, 0x420a, 0x80,0x43, 0xae,0x1f,0x0a,0xc0,0x2c,0x7d)
+#endif
 #else
 typedef struct IVMRImagePresenterConfig9Vtbl {
     BEGIN_INTERFACE
@@ -1623,7 +1659,8 @@ void __RPC_STUB IVMRImagePresenterConfig9_GetRenderingPrefs_Stub(
 
 DEFINE_GUID(IID_IVMRVideoStreamControl9, 0xd0cfe38b, 0x93e7, 0x4772, 0x89,0x57, 0x04,0x00,0xc4,0x9a,0x44,0x85);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRVideoStreamControl9 : public IUnknown
+MIDL_INTERFACE("d0cfe38b-93e7-4772-8957-0400c49a4485")
+IVMRVideoStreamControl9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetStreamActiveState(
         WINBOOL active) = 0;
@@ -1632,6 +1669,9 @@ interface IVMRVideoStreamControl9 : public IUnknown
         WINBOOL *active) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRVideoStreamControl9, 0xd0cfe38b, 0x93e7, 0x4772, 0x89,0x57, 0x04,0x00,0xc4,0x9a,0x44,0x85)
+#endif
 #else
 typedef struct IVMRVideoStreamControl9Vtbl {
     BEGIN_INTERFACE
@@ -1708,7 +1748,8 @@ typedef enum _VMR9Mode {
 
 DEFINE_GUID(IID_IVMRFilterConfig9, 0x5a804648, 0x4f66, 0x4867, 0x9c,0x43, 0x4f,0x5c,0x82,0x2c,0xf1,0xb8);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRFilterConfig9 : public IUnknown
+MIDL_INTERFACE("5a804648-4f66-4867-9c43-4f5c822cf1b8")
+IVMRFilterConfig9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetImageCompositor(
         IVMRImageCompositor9 *compositor) = 0;
@@ -1732,6 +1773,9 @@ interface IVMRFilterConfig9 : public IUnknown
         DWORD *mode) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRFilterConfig9, 0x5a804648, 0x4f66, 0x4867, 0x9c,0x43, 0x4f,0x5c,0x82,0x2c,0xf1,0xb8)
+#endif
 #else
 typedef struct IVMRFilterConfig9Vtbl {
     BEGIN_INTERFACE
@@ -1867,7 +1911,8 @@ void __RPC_STUB IVMRFilterConfig9_GetRenderingMode_Stub(
 
 DEFINE_GUID(IID_IVMRAspectRatioControl9, 0x00d96c29, 0xbbde, 0x4efc, 0x99,0x01, 0xbb,0x50,0x36,0x39,0x21,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRAspectRatioControl9 : public IUnknown
+MIDL_INTERFACE("00d96c29-bbde-4efc-9901-bb5036392146")
+IVMRAspectRatioControl9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetAspectRatioMode(
         DWORD *mode) = 0;
@@ -1876,6 +1921,9 @@ interface IVMRAspectRatioControl9 : public IUnknown
         DWORD mode) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRAspectRatioControl9, 0x00d96c29, 0xbbde, 0x4efc, 0x99,0x01, 0xbb,0x50,0x36,0x39,0x21,0x46)
+#endif
 #else
 typedef struct IVMRAspectRatioControl9Vtbl {
     BEGIN_INTERFACE
@@ -1959,7 +2007,8 @@ typedef struct _VMR9MonitorInfo {
 
 DEFINE_GUID(IID_IVMRMonitorConfig9, 0x46c2e457, 0x8ba0, 0x4eef, 0xb8,0x0b, 0x06,0x80,0xf0,0x97,0x87,0x49);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRMonitorConfig9 : public IUnknown
+MIDL_INTERFACE("46c2e457-8ba0-4eef-b80b-0680f0978749")
+IVMRMonitorConfig9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetMonitor(
         UINT uDev) = 0;
@@ -1979,6 +2028,9 @@ interface IVMRMonitorConfig9 : public IUnknown
         DWORD *numdev) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRMonitorConfig9, 0x46c2e457, 0x8ba0, 0x4eef, 0xb8,0x0b, 0x06,0x80,0xf0,0x97,0x87,0x49)
+#endif
 #else
 typedef struct IVMRMonitorConfig9Vtbl {
     BEGIN_INTERFACE
@@ -2136,7 +2188,8 @@ typedef struct _VMR9DeinterlaceCaps {
 
 DEFINE_GUID(IID_IVMRDeinterlaceControl9, 0xa215fb8d, 0x13c2, 0x4f7f, 0x99,0x3c, 0x00,0x3d,0x62,0x71,0xa4,0x59);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRDeinterlaceControl9 : public IUnknown
+MIDL_INTERFACE("a215fb8d-13c2-4f7f-993c-003d6271a459")
+IVMRDeinterlaceControl9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetNumberOfDeinterlaceModes(
         VMR9VideoDesc *desc,
@@ -2167,6 +2220,9 @@ interface IVMRDeinterlaceControl9 : public IUnknown
         GUID *mode) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRDeinterlaceControl9, 0xa215fb8d, 0x13c2, 0x4f7f, 0x99,0x3c, 0x00,0x3d,0x62,0x71,0xa4,0x59)
+#endif
 #else
 typedef struct IVMRDeinterlaceControl9Vtbl {
     BEGIN_INTERFACE
@@ -2327,7 +2383,8 @@ typedef struct _VMR9VideoStreamInfo {
 
 DEFINE_GUID(IID_IVMRImageCompositor9, 0x4a5c89eb, 0xdf51, 0x4654, 0xac,0x2a, 0xe4,0x8e,0x02,0xbb,0xab,0xf6);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IVMRImageCompositor9 : public IUnknown
+MIDL_INTERFACE("4a5c89eb-df51-4654-ac2a-e48e02bbabf6")
+IVMRImageCompositor9 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE InitCompositionDevice(
         IUnknown *d3ddev) = 0;
@@ -2346,6 +2403,9 @@ interface IVMRImageCompositor9 : public IUnknown
         UINT streams) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IVMRImageCompositor9, 0x4a5c89eb, 0xdf51, 0x4654, 0xac,0x2a, 0xe4,0x8e,0x02,0xbb,0xab,0xf6)
+#endif
 #else
 typedef struct IVMRImageCompositor9Vtbl {
     BEGIN_INTERFACE

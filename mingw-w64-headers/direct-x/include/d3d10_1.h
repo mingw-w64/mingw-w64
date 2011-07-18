@@ -68,12 +68,16 @@ typedef struct D3D10_BLEND_DESC1 {
 
 DEFINE_GUID(IID_ID3D10BlendState1, 0xedad8d99, 0x8a35, 0x4d6d, 0x85,0x66, 0x2e,0xa2,0x76,0xcd,0xe1,0x61);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10BlendState1 : public ID3D10BlendState
+MIDL_INTERFACE("edad8d99-8a35-4d6d-8566-2ea276cde161")
+ID3D10BlendState1 : public ID3D10BlendState
 {
     virtual void STDMETHODCALLTYPE GetDesc1(
         D3D10_BLEND_DESC1 *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10BlendState1, 0xedad8d99, 0x8a35, 0x4d6d, 0x85,0x66, 0x2e,0xa2,0x76,0xcd,0xe1,0x61)
+#endif
 #else
 typedef struct ID3D10BlendState1Vtbl {
     BEGIN_INTERFACE
@@ -188,12 +192,16 @@ typedef struct D3D10_SHADER_RESOURCE_VIEW_DESC1 {
 
 DEFINE_GUID(IID_ID3D10ShaderResourceView1, 0x9b7e4c87, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10ShaderResourceView1 : public ID3D10ShaderResourceView
+MIDL_INTERFACE("9b7e4c87-342c-4106-a19f-4f2704f689f0")
+ID3D10ShaderResourceView1 : public ID3D10ShaderResourceView
 {
     virtual void STDMETHODCALLTYPE GetDesc1(
         D3D10_SHADER_RESOURCE_VIEW_DESC1 *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10ShaderResourceView1, 0x9b7e4c87, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10ShaderResourceView1Vtbl {
     BEGIN_INTERFACE
@@ -292,7 +300,8 @@ void __RPC_STUB ID3D10ShaderResourceView1_GetDesc1_Stub(
 
 DEFINE_GUID(IID_ID3D10Device1, 0x9b7e4c8f, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Device1 : public ID3D10Device
+MIDL_INTERFACE("9b7e4c8f-342c-4106-a19f-4f2704f689f0")
+ID3D10Device1 : public ID3D10Device
 {
     virtual HRESULT STDMETHODCALLTYPE CreateShaderResourceView1(
         ID3D10Resource *pResource,
@@ -307,6 +316,9 @@ interface ID3D10Device1 : public ID3D10Device
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Device1, 0x9b7e4c8f, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10Device1Vtbl {
     BEGIN_INTERFACE

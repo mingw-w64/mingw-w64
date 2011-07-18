@@ -52,7 +52,8 @@ extern "C" {
 
 DEFINE_GUID(IID_ISampleGrabberCB, 0x0579154a, 0x2b53, 0x4994, 0xb0,0xd0, 0xe7,0x73,0x14,0x8e,0xff,0x85);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ISampleGrabberCB : public IUnknown
+MIDL_INTERFACE("0579154a-2b53-4994-b0d0-e773148eff85")
+ISampleGrabberCB : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SampleCB(
         double SampleTime,
@@ -64,6 +65,9 @@ interface ISampleGrabberCB : public IUnknown
         LONG BufferLen) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ISampleGrabberCB, 0x0579154a, 0x2b53, 0x4994, 0xb0,0xd0, 0xe7,0x73,0x14,0x8e,0xff,0x85)
+#endif
 #else
 typedef struct ISampleGrabberCBVtbl {
     BEGIN_INTERFACE
@@ -140,7 +144,8 @@ void __RPC_STUB ISampleGrabberCB_BufferCB_Stub(
 
 DEFINE_GUID(IID_ISampleGrabber, 0x6b652fff, 0x11fe, 0x4fce, 0x92,0xad, 0x02,0x66,0xb5,0xd7,0xc7,0x8f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ISampleGrabber : public IUnknown
+MIDL_INTERFACE("6b652fff-11fe-4fce-92ad-0266b5d7c78f")
+ISampleGrabber : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetOneShot(
         WINBOOL OneShot) = 0;
@@ -166,6 +171,9 @@ interface ISampleGrabber : public IUnknown
         LONG WhichMethodToCallback) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ISampleGrabber, 0x6b652fff, 0x11fe, 0x4fce, 0x92,0xad, 0x02,0x66,0xb5,0xd7,0xc7,0x8f)
+#endif
 #else
 typedef struct ISampleGrabberVtbl {
     BEGIN_INTERFACE
@@ -305,7 +313,8 @@ void __RPC_STUB ISampleGrabber_SetCallback_Stub(
 
 DEFINE_GUID(IID_IMediaDet, 0x65bd0710, 0x24d2, 0x4ff7, 0x93,0x24, 0xed,0x2e,0x5d,0x3a,0xba,0xfa);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMediaDet : public IUnknown
+MIDL_INTERFACE("65bd0710-24d2-4ff7-9324-ed2e5d3abafa")
+IMediaDet : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE get_Filter(
         IUnknown **pVal) = 0;
@@ -363,6 +372,9 @@ interface IMediaDet : public IUnknown
         double SeekTime) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMediaDet, 0x65bd0710, 0x24d2, 0x4ff7, 0x93,0x24, 0xed,0x2e,0x5d,0x3a,0xba,0xfa)
+#endif
 #else
 typedef struct IMediaDetVtbl {
     BEGIN_INTERFACE
@@ -628,7 +640,10 @@ void __RPC_STUB IMediaDet_EnterBitmapGrabMode_Stub(
 DEFINE_GUID(CLSID_MediaDet, 0x65bd0711, 0x24d2, 0x4ff7, 0x93,0x24, 0xed,0x2e,0x5d,0x3a,0xba,0xfa);
 
 #ifdef __cplusplus
-class MediaDet;
+class DECLSPEC_UUID("65bd0711-24d2-4ff7-9324-ed2e5d3abafa") MediaDet;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(MediaDet, 0x65bd0711, 0x24d2, 0x4ff7, 0x93,0x24, 0xed,0x2e,0x5d,0x3a,0xba,0xfa)
+#endif
 #endif
 
 /* Begin additional prototypes for all interfaces */

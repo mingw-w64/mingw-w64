@@ -1212,7 +1212,8 @@ typedef interface ID3D10Device ID3D10Device;
 
 DEFINE_GUID(IID_ID3D10DeviceChild, 0x9b7e4c00, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10DeviceChild : public IUnknown
+MIDL_INTERFACE("9b7e4c00-342c-4106-a19f-4f2704f689f0")
+ID3D10DeviceChild : public IUnknown
 {
     virtual void STDMETHODCALLTYPE GetDevice(
         ID3D10Device **ppDevice) = 0;
@@ -1232,6 +1233,9 @@ interface ID3D10DeviceChild : public IUnknown
         const IUnknown *pData) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10DeviceChild, 0x9b7e4c00, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10DeviceChildVtbl {
     BEGIN_INTERFACE
@@ -1338,7 +1342,8 @@ void __RPC_STUB ID3D10DeviceChild_SetPrivateDataInterface_Stub(
 
 DEFINE_GUID(IID_ID3D10Resource, 0x9b7e4c01, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Resource : public ID3D10DeviceChild
+MIDL_INTERFACE("9b7e4c01-342c-4106-a19f-4f2704f689f0")
+ID3D10Resource : public ID3D10DeviceChild
 {
     virtual void STDMETHODCALLTYPE GetType(
         D3D10_RESOURCE_DIMENSION *rType) = 0;
@@ -1350,6 +1355,9 @@ interface ID3D10Resource : public ID3D10DeviceChild
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Resource, 0x9b7e4c01, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10ResourceVtbl {
     BEGIN_INTERFACE
@@ -1458,7 +1466,8 @@ void __RPC_STUB ID3D10Resource_GetEvictionPriority_Stub(
 
 DEFINE_GUID(IID_ID3D10Buffer, 0x9b7e4c02, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Buffer : public ID3D10Resource
+MIDL_INTERFACE("9b7e4c02-342c-4106-a19f-4f2704f689f0")
+ID3D10Buffer : public ID3D10Resource
 {
     virtual HRESULT STDMETHODCALLTYPE Map(
         D3D10_MAP MapType,
@@ -1472,6 +1481,9 @@ interface ID3D10Buffer : public ID3D10Resource
         D3D10_BUFFER_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Buffer, 0x9b7e4c02, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10BufferVtbl {
     BEGIN_INTERFACE
@@ -1600,7 +1612,8 @@ void __RPC_STUB ID3D10Buffer_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10Texture1D, 0x9b7e4c03, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Texture1D : public ID3D10Resource
+MIDL_INTERFACE("9b7e4c03-342c-4106-a19f-4f2704f689f0")
+ID3D10Texture1D : public ID3D10Resource
 {
     virtual HRESULT STDMETHODCALLTYPE Map(
         UINT Subresource,
@@ -1615,6 +1628,9 @@ interface ID3D10Texture1D : public ID3D10Resource
         D3D10_TEXTURE1D_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Texture1D, 0x9b7e4c03, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10Texture1DVtbl {
     BEGIN_INTERFACE
@@ -1747,7 +1763,8 @@ void __RPC_STUB ID3D10Texture1D_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10Texture2D, 0x9b7e4c04, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Texture2D : public ID3D10Resource
+MIDL_INTERFACE("9b7e4c04-342c-4106-a19f-4f2704f689f0")
+ID3D10Texture2D : public ID3D10Resource
 {
     virtual HRESULT STDMETHODCALLTYPE Map(
         UINT Subresource,
@@ -1762,6 +1779,9 @@ interface ID3D10Texture2D : public ID3D10Resource
         D3D10_TEXTURE2D_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Texture2D, 0x9b7e4c04, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10Texture2DVtbl {
     BEGIN_INTERFACE
@@ -1894,7 +1914,8 @@ void __RPC_STUB ID3D10Texture2D_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10Texture3D, 0x9b7e4c05, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Texture3D : public ID3D10Resource
+MIDL_INTERFACE("9b7e4c05-342c-4106-a19f-4f2704f689f0")
+ID3D10Texture3D : public ID3D10Resource
 {
     virtual HRESULT STDMETHODCALLTYPE Map(
         UINT Subresource,
@@ -1909,6 +1930,9 @@ interface ID3D10Texture3D : public ID3D10Resource
         D3D10_TEXTURE3D_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Texture3D, 0x9b7e4c05, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10Texture3DVtbl {
     BEGIN_INTERFACE
@@ -2041,12 +2065,16 @@ void __RPC_STUB ID3D10Texture3D_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10View, 0xc902b03f, 0x60a7, 0x49ba, 0x99,0x36, 0x2a,0x3a,0xb3,0x7a,0x7e,0x33);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10View : public ID3D10DeviceChild
+MIDL_INTERFACE("c902b03f-60a7-49ba-9936-2a3ab37a7e33")
+ID3D10View : public ID3D10DeviceChild
 {
     virtual void STDMETHODCALLTYPE GetResource(
         ID3D10Resource **ppResource) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10View, 0xc902b03f, 0x60a7, 0x49ba, 0x99,0x36, 0x2a,0x3a,0xb3,0x7a,0x7e,0x33)
+#endif
 #else
 typedef struct ID3D10ViewVtbl {
     BEGIN_INTERFACE
@@ -2131,12 +2159,16 @@ void __RPC_STUB ID3D10View_GetResource_Stub(
 
 DEFINE_GUID(IID_ID3D10DepthStencilView, 0x9b7e4c09, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10DepthStencilView : public ID3D10View
+MIDL_INTERFACE("9b7e4c09-342c-4106-a19f-4f2704f689f0")
+ID3D10DepthStencilView : public ID3D10View
 {
     virtual void STDMETHODCALLTYPE GetDesc(
         D3D10_DEPTH_STENCIL_VIEW_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10DepthStencilView, 0x9b7e4c09, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10DepthStencilViewVtbl {
     BEGIN_INTERFACE
@@ -2228,12 +2260,16 @@ void __RPC_STUB ID3D10DepthStencilView_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10RenderTargetView, 0x9b7e4c08, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10RenderTargetView : public ID3D10View
+MIDL_INTERFACE("9b7e4c08-342c-4106-a19f-4f2704f689f0")
+ID3D10RenderTargetView : public ID3D10View
 {
     virtual void STDMETHODCALLTYPE GetDesc(
         D3D10_RENDER_TARGET_VIEW_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10RenderTargetView, 0x9b7e4c08, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10RenderTargetViewVtbl {
     BEGIN_INTERFACE
@@ -2325,12 +2361,16 @@ void __RPC_STUB ID3D10RenderTargetView_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10ShaderResourceView, 0x9b7e4c07, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10ShaderResourceView : public ID3D10View
+MIDL_INTERFACE("9b7e4c07-342c-4106-a19f-4f2704f689f0")
+ID3D10ShaderResourceView : public ID3D10View
 {
     virtual void STDMETHODCALLTYPE GetDesc(
         D3D10_SHADER_RESOURCE_VIEW_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10ShaderResourceView, 0x9b7e4c07, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10ShaderResourceViewVtbl {
     BEGIN_INTERFACE
@@ -2422,12 +2462,16 @@ void __RPC_STUB ID3D10ShaderResourceView_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10BlendState, 0xedad8d19, 0x8a35, 0x4d6d, 0x85,0x66, 0x2e,0xa2,0x76,0xcd,0xe1,0x61);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10BlendState : public ID3D10DeviceChild
+MIDL_INTERFACE("edad8d19-8a35-4d6d-8566-2ea276cde161")
+ID3D10BlendState : public ID3D10DeviceChild
 {
     virtual void STDMETHODCALLTYPE GetDesc(
         D3D10_BLEND_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10BlendState, 0xedad8d19, 0x8a35, 0x4d6d, 0x85,0x66, 0x2e,0xa2,0x76,0xcd,0xe1,0x61)
+#endif
 #else
 typedef struct ID3D10BlendStateVtbl {
     BEGIN_INTERFACE
@@ -2512,12 +2556,16 @@ void __RPC_STUB ID3D10BlendState_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10DepthStencilState, 0x2b4b1cc8, 0xa4ad, 0x41f8, 0x83,0x22, 0xca,0x86,0xfc,0x3e,0xc6,0x75);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10DepthStencilState : public ID3D10DeviceChild
+MIDL_INTERFACE("2b4b1cc8-a4ad-41f8-8322-ca86fc3ec675")
+ID3D10DepthStencilState : public ID3D10DeviceChild
 {
     virtual void STDMETHODCALLTYPE GetDesc(
         D3D10_DEPTH_STENCIL_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10DepthStencilState, 0x2b4b1cc8, 0xa4ad, 0x41f8, 0x83,0x22, 0xca,0x86,0xfc,0x3e,0xc6,0x75)
+#endif
 #else
 typedef struct ID3D10DepthStencilStateVtbl {
     BEGIN_INTERFACE
@@ -2602,9 +2650,13 @@ void __RPC_STUB ID3D10DepthStencilState_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10GeometryShader, 0x6316be88, 0x54cd, 0x4040, 0xab,0x44, 0x20,0x46,0x1b,0xc8,0x1f,0x68);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10GeometryShader : public ID3D10DeviceChild
+MIDL_INTERFACE("6316be88-54cd-4040-ab44-20461bc81f68")
+ID3D10GeometryShader : public ID3D10DeviceChild
 {
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10GeometryShader, 0x6316be88, 0x54cd, 0x4040, 0xab,0x44, 0x20,0x46,0x1b,0xc8,0x1f,0x68)
+#endif
 #else
 typedef struct ID3D10GeometryShaderVtbl {
     BEGIN_INTERFACE
@@ -2674,9 +2726,13 @@ interface ID3D10GeometryShader {
 
 DEFINE_GUID(IID_ID3D10InputLayout, 0x9b7e4c0b, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10InputLayout : public ID3D10DeviceChild
+MIDL_INTERFACE("9b7e4c0b-342c-4106-a19f-4f2704f689f0")
+ID3D10InputLayout : public ID3D10DeviceChild
 {
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10InputLayout, 0x9b7e4c0b, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10InputLayoutVtbl {
     BEGIN_INTERFACE
@@ -2746,9 +2802,13 @@ interface ID3D10InputLayout {
 
 DEFINE_GUID(IID_ID3D10PixelShader, 0x4968b601, 0x9d00, 0x4cde, 0x83,0x46, 0x8e,0x7f,0x67,0x58,0x19,0xb6);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10PixelShader : public ID3D10DeviceChild
+MIDL_INTERFACE("4968b601-9d00-4cde-8346-8e7f675819b6")
+ID3D10PixelShader : public ID3D10DeviceChild
 {
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10PixelShader, 0x4968b601, 0x9d00, 0x4cde, 0x83,0x46, 0x8e,0x7f,0x67,0x58,0x19,0xb6)
+#endif
 #else
 typedef struct ID3D10PixelShaderVtbl {
     BEGIN_INTERFACE
@@ -2818,12 +2878,16 @@ interface ID3D10PixelShader {
 
 DEFINE_GUID(IID_ID3D10RasterizerState, 0xa2a07292, 0x89af, 0x4345, 0xbe,0x2e, 0xc5,0x3d,0x9f,0xbb,0x6e,0x9f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10RasterizerState : public ID3D10DeviceChild
+MIDL_INTERFACE("a2a07292-89af-4345-be2e-c53d9fbb6e9f")
+ID3D10RasterizerState : public ID3D10DeviceChild
 {
     virtual void STDMETHODCALLTYPE GetDesc(
         D3D10_RASTERIZER_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10RasterizerState, 0xa2a07292, 0x89af, 0x4345, 0xbe,0x2e, 0xc5,0x3d,0x9f,0xbb,0x6e,0x9f)
+#endif
 #else
 typedef struct ID3D10RasterizerStateVtbl {
     BEGIN_INTERFACE
@@ -2908,12 +2972,16 @@ void __RPC_STUB ID3D10RasterizerState_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10SamplerState, 0x9b7e4c0c, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10SamplerState : public ID3D10DeviceChild
+MIDL_INTERFACE("9b7e4c0c-342c-4106-a19f-4f2704f689f0")
+ID3D10SamplerState : public ID3D10DeviceChild
 {
     virtual void STDMETHODCALLTYPE GetDesc(
         D3D10_SAMPLER_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10SamplerState, 0x9b7e4c0c, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10SamplerStateVtbl {
     BEGIN_INTERFACE
@@ -2998,9 +3066,13 @@ void __RPC_STUB ID3D10SamplerState_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10VertexShader, 0x9b7e4c0a, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10VertexShader : public ID3D10DeviceChild
+MIDL_INTERFACE("9b7e4c0a-342c-4106-a19f-4f2704f689f0")
+ID3D10VertexShader : public ID3D10DeviceChild
 {
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10VertexShader, 0x9b7e4c0a, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10VertexShaderVtbl {
     BEGIN_INTERFACE
@@ -3070,7 +3142,8 @@ interface ID3D10VertexShader {
 
 DEFINE_GUID(IID_ID3D10Asynchronous, 0x9b7e4c0d, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Asynchronous : public ID3D10DeviceChild
+MIDL_INTERFACE("9b7e4c0d-342c-4106-a19f-4f2704f689f0")
+ID3D10Asynchronous : public ID3D10DeviceChild
 {
     virtual void STDMETHODCALLTYPE Begin(
         ) = 0;
@@ -3087,6 +3160,9 @@ interface ID3D10Asynchronous : public ID3D10DeviceChild
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Asynchronous, 0x9b7e4c0d, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10AsynchronousVtbl {
     BEGIN_INTERFACE
@@ -3208,12 +3284,16 @@ void __RPC_STUB ID3D10Asynchronous_GetDataSize_Stub(
 
 DEFINE_GUID(IID_ID3D10Counter, 0x9b7e4c11, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Counter : public ID3D10Asynchronous
+MIDL_INTERFACE("9b7e4c11-342c-4106-a19f-4f2704f689f0")
+ID3D10Counter : public ID3D10Asynchronous
 {
     virtual void STDMETHODCALLTYPE GetDesc(
         D3D10_COUNTER_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Counter, 0x9b7e4c11, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10CounterVtbl {
     BEGIN_INTERFACE
@@ -3319,12 +3399,16 @@ void __RPC_STUB ID3D10Counter_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10Query, 0x9b7e4c0e, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Query : public ID3D10Asynchronous
+MIDL_INTERFACE("9b7e4c0e-342c-4106-a19f-4f2704f689f0")
+ID3D10Query : public ID3D10Asynchronous
 {
     virtual void STDMETHODCALLTYPE GetDesc(
         D3D10_QUERY_DESC *pDesc) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Query, 0x9b7e4c0e, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10QueryVtbl {
     BEGIN_INTERFACE
@@ -3430,9 +3514,13 @@ void __RPC_STUB ID3D10Query_GetDesc_Stub(
 
 DEFINE_GUID(IID_ID3D10Predicate, 0x9b7e4c10, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Predicate : public ID3D10Query
+MIDL_INTERFACE("9b7e4c10-342c-4106-a19f-4f2704f689f0")
+ID3D10Predicate : public ID3D10Query
 {
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Predicate, 0x9b7e4c10, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10PredicateVtbl {
     BEGIN_INTERFACE
@@ -3530,7 +3618,8 @@ interface ID3D10Predicate {
 
 DEFINE_GUID(IID_ID3D10Device, 0x9b7e4c0f, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Device : public IUnknown
+MIDL_INTERFACE("9b7e4c0f-342c-4106-a19f-4f2704f689f0")
+ID3D10Device : public IUnknown
 {
     virtual void STDMETHODCALLTYPE VSSetConstantBuffers(
         UINT StartSlot,
@@ -3973,6 +4062,9 @@ interface ID3D10Device : public IUnknown
         UINT *pHeight) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Device, 0x9b7e4c0f, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10DeviceVtbl {
     BEGIN_INTERFACE
@@ -5550,7 +5642,8 @@ void __RPC_STUB ID3D10Device_GetTextFilterSize_Stub(
 
 DEFINE_GUID(IID_ID3D10Multithread, 0x9b7e4e00, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Multithread : public IUnknown
+MIDL_INTERFACE("9b7e4e00-342c-4106-a19f-4f2704f689f0")
+ID3D10Multithread : public IUnknown
 {
     virtual void STDMETHODCALLTYPE Enter(
         ) = 0;
@@ -5565,6 +5658,9 @@ interface ID3D10Multithread : public IUnknown
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Multithread, 0x9b7e4e00, 0x342c, 0x4106, 0xa1,0x9f, 0x4f,0x27,0x04,0xf6,0x89,0xf0)
+#endif
 #else
 typedef struct ID3D10MultithreadVtbl {
     BEGIN_INTERFACE

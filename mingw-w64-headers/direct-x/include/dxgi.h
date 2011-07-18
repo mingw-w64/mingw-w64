@@ -23,6 +23,11 @@ typedef interface IDXGIObject IDXGIObject;
 typedef interface IDXGIDeviceSubObject IDXGIDeviceSubObject;
 #endif
 
+#ifndef __IDXGIResource_FWD_DEFINED__
+#define __IDXGIResource_FWD_DEFINED__
+typedef interface IDXGIResource IDXGIResource;
+#endif
+
 #ifndef __IDXGISurface_FWD_DEFINED__
 #define __IDXGISurface_FWD_DEFINED__
 typedef interface IDXGISurface IDXGISurface;
@@ -51,6 +56,16 @@ typedef interface IDXGIFactory IDXGIFactory;
 #ifndef __IDXGIDevice_FWD_DEFINED__
 #define __IDXGIDevice_FWD_DEFINED__
 typedef interface IDXGIDevice IDXGIDevice;
+#endif
+
+#ifndef __IDXGIAdapter1_FWD_DEFINED__
+#define __IDXGIAdapter1_FWD_DEFINED__
+typedef interface IDXGIAdapter1 IDXGIAdapter1;
+#endif
+
+#ifndef __IDXGIFactory1_FWD_DEFINED__
+#define __IDXGIFactory1_FWD_DEFINED__
+typedef interface IDXGIFactory1 IDXGIFactory1;
 #endif
 
 /* Headers for imported files */
@@ -180,7 +195,8 @@ typedef struct DXGI_SHARED_RESOURCE {
 
 DEFINE_GUID(IID_IDXGIObject, 0xaec22fb8, 0x76f3, 0x4639, 0x9b,0xe0, 0x28,0xeb,0x43,0xa6,0x7a,0x2e);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDXGIObject : public IUnknown
+MIDL_INTERFACE("aec22fb8-76f3-4639-9be0-28eb43a67a2e")
+IDXGIObject : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetPrivateData(
         REFGUID guid,
@@ -201,6 +217,9 @@ interface IDXGIObject : public IUnknown
         void **parent) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIObject, 0xaec22fb8, 0x76f3, 0x4639, 0x9b,0xe0, 0x28,0xeb,0x43,0xa6,0x7a,0x2e)
+#endif
 #else
 typedef struct IDXGIObjectVtbl {
     BEGIN_INTERFACE
@@ -309,13 +328,17 @@ void __RPC_STUB IDXGIObject_GetParent_Stub(
 
 DEFINE_GUID(IID_IDXGIDeviceSubObject, 0x3d3e0379, 0xf9de, 0x4d58, 0xbb,0x6c, 0x18,0xd6,0x29,0x92,0xf1,0xa6);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDXGIDeviceSubObject : public IDXGIObject
+MIDL_INTERFACE("3d3e0379-f9de-4d58-bb6c-18d62992f1a6")
+IDXGIDeviceSubObject : public IDXGIObject
 {
     virtual HRESULT STDMETHODCALLTYPE GetDevice(
         REFIID riid,
         void **device) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIDeviceSubObject, 0x3d3e0379, 0xf9de, 0x4d58, 0xbb,0x6c, 0x18,0xd6,0x29,0x92,0xf1,0xa6)
+#endif
 #else
 typedef struct IDXGIDeviceSubObjectVtbl {
     BEGIN_INTERFACE
@@ -396,6 +419,157 @@ void __RPC_STUB IDXGIDeviceSubObject_GetDevice_Stub(
 #endif  /* __IDXGIDeviceSubObject_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IDXGIResource interface
+ */
+#ifndef __IDXGIResource_INTERFACE_DEFINED__
+#define __IDXGIResource_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIResource, 0x035f3ab4, 0x482e, 0x4e50, 0xb4,0x1f, 0x8a,0x7f,0x8b,0xd8,0x96,0x0b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("035f3ab4-482e-4e50-b41f-8a7f8bd8960b")
+IDXGIResource : public IDXGIDeviceSubObject
+{
+    virtual HRESULT STDMETHODCALLTYPE GetSharedHandle(
+        HANDLE *pSharedHandle) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetUsage(
+        DXGI_USAGE *pUsage) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetEvictionPriority(
+        UINT EvictionPriority) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEvictionPriority(
+        UINT *pEvictionPriority) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIResource, 0x035f3ab4, 0x482e, 0x4e50, 0xb4,0x1f, 0x8a,0x7f,0x8b,0xd8,0x96,0x0b)
+#endif
+#else
+typedef struct IDXGIResourceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIResource* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIResource* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIResource* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGIResource* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGIResource* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGIResource* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGIResource* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIDeviceSubObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDevice)(
+        IDXGIResource* This,
+        REFIID riid,
+        void **device);
+
+    /*** IDXGIResource methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSharedHandle)(
+        IDXGIResource* This,
+        HANDLE *pSharedHandle);
+
+    HRESULT (STDMETHODCALLTYPE *GetUsage)(
+        IDXGIResource* This,
+        DXGI_USAGE *pUsage);
+
+    HRESULT (STDMETHODCALLTYPE *SetEvictionPriority)(
+        IDXGIResource* This,
+        UINT EvictionPriority);
+
+    HRESULT (STDMETHODCALLTYPE *GetEvictionPriority)(
+        IDXGIResource* This,
+        UINT *pEvictionPriority);
+
+    END_INTERFACE
+} IDXGIResourceVtbl;
+interface IDXGIResource {
+    CONST_VTBL IDXGIResourceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IDXGIResource_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIResource_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIResource_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGIResource_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGIResource_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGIResource_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGIResource_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIDeviceSubObject methods ***/
+#define IDXGIResource_GetDevice(This,riid,device) (This)->lpVtbl->GetDevice(This,riid,device)
+/*** IDXGIResource methods ***/
+#define IDXGIResource_GetSharedHandle(This,pSharedHandle) (This)->lpVtbl->GetSharedHandle(This,pSharedHandle)
+#define IDXGIResource_GetUsage(This,pUsage) (This)->lpVtbl->GetUsage(This,pUsage)
+#define IDXGIResource_SetEvictionPriority(This,EvictionPriority) (This)->lpVtbl->SetEvictionPriority(This,EvictionPriority)
+#define IDXGIResource_GetEvictionPriority(This,pEvictionPriority) (This)->lpVtbl->GetEvictionPriority(This,pEvictionPriority)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IDXGIResource_GetSharedHandle_Proxy(
+    IDXGIResource* This,
+    HANDLE *pSharedHandle);
+void __RPC_STUB IDXGIResource_GetSharedHandle_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIResource_GetUsage_Proxy(
+    IDXGIResource* This,
+    DXGI_USAGE *pUsage);
+void __RPC_STUB IDXGIResource_GetUsage_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIResource_SetEvictionPriority_Proxy(
+    IDXGIResource* This,
+    UINT EvictionPriority);
+void __RPC_STUB IDXGIResource_SetEvictionPriority_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIResource_GetEvictionPriority_Proxy(
+    IDXGIResource* This,
+    UINT *pEvictionPriority);
+void __RPC_STUB IDXGIResource_GetEvictionPriority_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIResource_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IDXGISurface interface
  */
 #ifndef __IDXGISurface_INTERFACE_DEFINED__
@@ -403,7 +577,8 @@ void __RPC_STUB IDXGIDeviceSubObject_GetDevice_Stub(
 
 DEFINE_GUID(IID_IDXGISurface, 0xcafcb56c, 0x6ac3, 0x4889, 0xbf,0x47, 0x9e,0x23,0xbb,0xd2,0x60,0xec);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDXGISurface : public IDXGIDeviceSubObject
+MIDL_INTERFACE("cafcb56c-6ac3-4889-bf47-9e23bbd260ec")
+IDXGISurface : public IDXGIDeviceSubObject
 {
     virtual HRESULT STDMETHODCALLTYPE GetDesc(
         DXGI_SURFACE_DESC *desc) = 0;
@@ -416,6 +591,9 @@ interface IDXGISurface : public IDXGIDeviceSubObject
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGISurface, 0xcafcb56c, 0x6ac3, 0x4889, 0xbf,0x47, 0x9e,0x23,0xbb,0xd2,0x60,0xec)
+#endif
 #else
 typedef struct IDXGISurfaceVtbl {
     BEGIN_INTERFACE
@@ -535,7 +713,8 @@ void __RPC_STUB IDXGISurface_Unmap_Stub(
 
 DEFINE_GUID(IID_IDXGIOutput, 0xae02eedb, 0xc735, 0x4690, 0x8d,0x52, 0x5a,0x8d,0xc2,0x02,0x13,0xaa);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDXGIOutput : public IDXGIObject
+MIDL_INTERFACE("ae02eedb-c735-4690-8d52-5a8dc20213aa")
+IDXGIOutput : public IDXGIObject
 {
     virtual HRESULT STDMETHODCALLTYPE GetDesc(
         DXGI_OUTPUT_DESC *desc) = 0;
@@ -580,6 +759,9 @@ interface IDXGIOutput : public IDXGIObject
         DXGI_FRAME_STATISTICS *stats) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIOutput, 0xae02eedb, 0xc735, 0x4690, 0x8d,0x52, 0x5a,0x8d,0xc2,0x02,0x13,0xaa)
+#endif
 #else
 typedef struct IDXGIOutputVtbl {
     BEGIN_INTERFACE
@@ -816,7 +998,8 @@ void __RPC_STUB IDXGIOutput_GetFrameStatistics_Stub(
 
 DEFINE_GUID(IID_IDXGIAdapter, 0x2411e7e1, 0x12ac, 0x4ccf, 0xbd,0x14, 0x97,0x98,0xe8,0x53,0x4d,0xc0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDXGIAdapter : public IDXGIObject
+MIDL_INTERFACE("2411e7e1-12ac-4ccf-bd14-9798e8534dc0")
+IDXGIAdapter : public IDXGIObject
 {
     virtual HRESULT STDMETHODCALLTYPE EnumOutputs(
         UINT output_idx,
@@ -830,6 +1013,9 @@ interface IDXGIAdapter : public IDXGIObject
         LARGE_INTEGER *umd_version) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIAdapter, 0x2411e7e1, 0x12ac, 0x4ccf, 0xbd,0x14, 0x97,0x98,0xe8,0x53,0x4d,0xc0)
+#endif
 #else
 typedef struct IDXGIAdapterVtbl {
     BEGIN_INTERFACE
@@ -945,7 +1131,8 @@ void __RPC_STUB IDXGIAdapter_CheckInterfaceSupport_Stub(
 
 DEFINE_GUID(IID_IDXGISwapChain, 0x310d36a0, 0xd2e7, 0x4c0a, 0xaa,0x04, 0x6a,0x9d,0x23,0xb8,0x88,0x6a);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDXGISwapChain : public IDXGIDeviceSubObject
+MIDL_INTERFACE("310d36a0-d2e7-4c0a-aa04-6a9d23b8886a")
+IDXGISwapChain : public IDXGIDeviceSubObject
 {
     virtual HRESULT STDMETHODCALLTYPE Present(
         UINT sync_interval,
@@ -987,6 +1174,9 @@ interface IDXGISwapChain : public IDXGIDeviceSubObject
         UINT *last_present_count) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGISwapChain, 0x310d36a0, 0xd2e7, 0x4c0a, 0xaa,0x04, 0x6a,0x9d,0x23,0xb8,0x88,0x6a)
+#endif
 #else
 typedef struct IDXGISwapChainVtbl {
     BEGIN_INTERFACE
@@ -1219,7 +1409,8 @@ void __RPC_STUB IDXGISwapChain_GetLastPresentCount_Stub(
 
 DEFINE_GUID(IID_IDXGIFactory, 0x7b7166ec, 0x21c7, 0x44ae, 0xb2,0x1a, 0xc9,0xae,0x32,0x1a,0xe3,0x69);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDXGIFactory : public IDXGIObject
+MIDL_INTERFACE("7b7166ec-21c7-44ae-b21a-c9ae321ae369")
+IDXGIFactory : public IDXGIObject
 {
     virtual HRESULT STDMETHODCALLTYPE EnumAdapters(
         UINT adapter_idx,
@@ -1242,6 +1433,9 @@ interface IDXGIFactory : public IDXGIObject
         IDXGIAdapter **adapter) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIFactory, 0x7b7166ec, 0x21c7, 0x44ae, 0xb2,0x1a, 0xc9,0xae,0x32,0x1a,0xe3,0x69)
+#endif
 #else
 typedef struct IDXGIFactoryVtbl {
     BEGIN_INTERFACE
@@ -1391,7 +1585,8 @@ HRESULT __stdcall  CreateDXGIFactory(REFIID riid,void **factory);
 
 DEFINE_GUID(IID_IDXGIDevice, 0x54ec77fa, 0x1377, 0x44e6, 0x8c,0x32, 0x88,0xfd,0x5f,0x44,0xc8,0x4c);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDXGIDevice : public IDXGIObject
+MIDL_INTERFACE("54ec77fa-1377-44e6-8c32-88fd5f44c84c")
+IDXGIDevice : public IDXGIObject
 {
     virtual HRESULT STDMETHODCALLTYPE GetAdapter(
         IDXGIAdapter **adapter) = 0;
@@ -1415,6 +1610,9 @@ interface IDXGIDevice : public IDXGIObject
         INT *priority) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIDevice, 0x54ec77fa, 0x1377, 0x44e6, 0x8c,0x32, 0x88,0xfd,0x5f,0x44,0xc8,0x4c)
+#endif
 #else
 typedef struct IDXGIDeviceVtbl {
     BEGIN_INTERFACE
@@ -1555,6 +1753,281 @@ void __RPC_STUB IDXGIDevice_GetGPUThreadPriority_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IDXGIDevice_INTERFACE_DEFINED__ */
+
+typedef enum DXGI_ADAPTER_FLAG {
+    DXGI_ADAPTER_FLAG_NONE = 0,
+    DXGI_ADAPTER_FLAG_REMOTE = 1,
+    DXGI_ADAPTER_FLAG_FORCE_DWORD = 0xffffffff
+} DXGI_ADAPTER_FLAG;
+typedef struct DXGI_ADAPTER_DESC1 {
+    WCHAR Description[128];
+    UINT VendorId;
+    UINT DeviceId;
+    UINT SubSysId;
+    UINT Revision;
+    SIZE_T DedicatedVideoMemory;
+    SIZE_T DedicatedSystemMemory;
+    SIZE_T SharedSystemMemory;
+    LUID AdapterLuid;
+    UINT Flags;
+} DXGI_ADAPTER_DESC1;
+/*****************************************************************************
+ * IDXGIAdapter1 interface
+ */
+#ifndef __IDXGIAdapter1_INTERFACE_DEFINED__
+#define __IDXGIAdapter1_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIAdapter1, 0x29038f61, 0x3839, 0x4626, 0x91,0xfd, 0x08,0x68,0x79,0x01,0x1a,0x05);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("29038f61-3839-4626-91fd-086879011a05")
+IDXGIAdapter1 : public IDXGIAdapter
+{
+    virtual HRESULT STDMETHODCALLTYPE GetDesc1(
+        DXGI_ADAPTER_DESC1 *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIAdapter1, 0x29038f61, 0x3839, 0x4626, 0x91,0xfd, 0x08,0x68,0x79,0x01,0x1a,0x05)
+#endif
+#else
+typedef struct IDXGIAdapter1Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIAdapter1* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIAdapter1* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIAdapter1* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGIAdapter1* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGIAdapter1* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGIAdapter1* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGIAdapter1* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIAdapter methods ***/
+    HRESULT (STDMETHODCALLTYPE *EnumOutputs)(
+        IDXGIAdapter1* This,
+        UINT output_idx,
+        IDXGIOutput **output);
+
+    HRESULT (STDMETHODCALLTYPE *GetDesc)(
+        IDXGIAdapter1* This,
+        DXGI_ADAPTER_DESC *desc);
+
+    HRESULT (STDMETHODCALLTYPE *CheckInterfaceSupport)(
+        IDXGIAdapter1* This,
+        REFGUID guid,
+        LARGE_INTEGER *umd_version);
+
+    /*** IDXGIAdapter1 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDesc1)(
+        IDXGIAdapter1* This,
+        DXGI_ADAPTER_DESC1 *pDesc);
+
+    END_INTERFACE
+} IDXGIAdapter1Vtbl;
+interface IDXGIAdapter1 {
+    CONST_VTBL IDXGIAdapter1Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IDXGIAdapter1_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIAdapter1_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIAdapter1_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGIAdapter1_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGIAdapter1_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGIAdapter1_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGIAdapter1_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIAdapter methods ***/
+#define IDXGIAdapter1_EnumOutputs(This,output_idx,output) (This)->lpVtbl->EnumOutputs(This,output_idx,output)
+#define IDXGIAdapter1_GetDesc(This,desc) (This)->lpVtbl->GetDesc(This,desc)
+#define IDXGIAdapter1_CheckInterfaceSupport(This,guid,umd_version) (This)->lpVtbl->CheckInterfaceSupport(This,guid,umd_version)
+/*** IDXGIAdapter1 methods ***/
+#define IDXGIAdapter1_GetDesc1(This,pDesc) (This)->lpVtbl->GetDesc1(This,pDesc)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IDXGIAdapter1_GetDesc1_Proxy(
+    IDXGIAdapter1* This,
+    DXGI_ADAPTER_DESC1 *pDesc);
+void __RPC_STUB IDXGIAdapter1_GetDesc1_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIAdapter1_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDXGIFactory1 interface
+ */
+#ifndef __IDXGIFactory1_INTERFACE_DEFINED__
+#define __IDXGIFactory1_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIFactory1, 0x770aae78, 0xf26f, 0x4dba, 0xa8,0x29, 0x25,0x3c,0x83,0xd1,0xb3,0x87);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("770aae78-f26f-4dba-a829-253c83d1b387")
+IDXGIFactory1 : public IDXGIFactory
+{
+    virtual HRESULT STDMETHODCALLTYPE EnumAdapters1(
+        UINT Adapter,
+        IDXGIAdapter1 **ppAdapter) = 0;
+
+    virtual WINBOOL STDMETHODCALLTYPE IsCurrent(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIFactory1, 0x770aae78, 0xf26f, 0x4dba, 0xa8,0x29, 0x25,0x3c,0x83,0xd1,0xb3,0x87)
+#endif
+#else
+typedef struct IDXGIFactory1Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIFactory1* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIFactory1* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIFactory1* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGIFactory1* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGIFactory1* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGIFactory1* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGIFactory1* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIFactory methods ***/
+    HRESULT (STDMETHODCALLTYPE *EnumAdapters)(
+        IDXGIFactory1* This,
+        UINT adapter_idx,
+        IDXGIAdapter **adapter);
+
+    HRESULT (STDMETHODCALLTYPE *MakeWindowAssociation)(
+        IDXGIFactory1* This,
+        HWND window,
+        UINT flags);
+
+    HRESULT (STDMETHODCALLTYPE *GetWindowAssociation)(
+        IDXGIFactory1* This,
+        HWND *window);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSwapChain)(
+        IDXGIFactory1* This,
+        IUnknown *device,
+        DXGI_SWAP_CHAIN_DESC *desc,
+        IDXGISwapChain **swapchain);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSoftwareAdapter)(
+        IDXGIFactory1* This,
+        HMODULE swrast,
+        IDXGIAdapter **adapter);
+
+    /*** IDXGIFactory1 methods ***/
+    HRESULT (STDMETHODCALLTYPE *EnumAdapters1)(
+        IDXGIFactory1* This,
+        UINT Adapter,
+        IDXGIAdapter1 **ppAdapter);
+
+    WINBOOL (STDMETHODCALLTYPE *IsCurrent)(
+        IDXGIFactory1* This);
+
+    END_INTERFACE
+} IDXGIFactory1Vtbl;
+interface IDXGIFactory1 {
+    CONST_VTBL IDXGIFactory1Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IDXGIFactory1_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIFactory1_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIFactory1_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGIFactory1_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGIFactory1_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGIFactory1_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGIFactory1_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIFactory methods ***/
+#define IDXGIFactory1_EnumAdapters(This,adapter_idx,adapter) (This)->lpVtbl->EnumAdapters(This,adapter_idx,adapter)
+#define IDXGIFactory1_MakeWindowAssociation(This,window,flags) (This)->lpVtbl->MakeWindowAssociation(This,window,flags)
+#define IDXGIFactory1_GetWindowAssociation(This,window) (This)->lpVtbl->GetWindowAssociation(This,window)
+#define IDXGIFactory1_CreateSwapChain(This,device,desc,swapchain) (This)->lpVtbl->CreateSwapChain(This,device,desc,swapchain)
+#define IDXGIFactory1_CreateSoftwareAdapter(This,swrast,adapter) (This)->lpVtbl->CreateSoftwareAdapter(This,swrast,adapter)
+/*** IDXGIFactory1 methods ***/
+#define IDXGIFactory1_EnumAdapters1(This,Adapter,ppAdapter) (This)->lpVtbl->EnumAdapters1(This,Adapter,ppAdapter)
+#define IDXGIFactory1_IsCurrent(This) (This)->lpVtbl->IsCurrent(This)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IDXGIFactory1_EnumAdapters1_Proxy(
+    IDXGIFactory1* This,
+    UINT Adapter,
+    IDXGIAdapter1 **ppAdapter);
+void __RPC_STUB IDXGIFactory1_EnumAdapters1_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+WINBOOL STDMETHODCALLTYPE IDXGIFactory1_IsCurrent_Proxy(
+    IDXGIFactory1* This);
+void __RPC_STUB IDXGIFactory1_IsCurrent_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIFactory1_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 

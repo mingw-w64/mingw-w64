@@ -149,7 +149,8 @@ enum _AUDCLNT_BUFFERFLAGS {
 
 DEFINE_GUID(IID_IAudioClient, 0x1cb9ad4c, 0xdbfa, 0x4c32, 0xb1,0x78, 0xc2,0xf5,0x68,0xa7,0x03,0xb2);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAudioClient : public IUnknown
+MIDL_INTERFACE("1cb9ad4c-dbfa-4c32-b178-c2f568a703b2")
+IAudioClient : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         AUDCLNT_SHAREMODE ShareMode,
@@ -197,6 +198,9 @@ interface IAudioClient : public IUnknown
         void **ppv) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAudioClient, 0x1cb9ad4c, 0xdbfa, 0x4c32, 0xb1,0x78, 0xc2,0xf5,0x68,0xa7,0x03,0xb2)
+#endif
 #else
 typedef struct IAudioClientVtbl {
     BEGIN_INTERFACE
@@ -409,7 +413,8 @@ void __RPC_STUB IAudioClient_GetService_Stub(
 
 DEFINE_GUID(IID_IAudioRenderClient, 0xf294acfc, 0x3146, 0x4483, 0xa7,0xbf, 0xad,0xdc,0xa7,0xc2,0x60,0xe2);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAudioRenderClient : public IUnknown
+MIDL_INTERFACE("f294acfc-3146-4483-a7bf-addca7c260e2")
+IAudioRenderClient : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetBuffer(
         UINT32 NumFramesRequested,
@@ -420,6 +425,9 @@ interface IAudioRenderClient : public IUnknown
         DWORD dwFlags) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAudioRenderClient, 0xf294acfc, 0x3146, 0x4483, 0xa7,0xbf, 0xad,0xdc,0xa7,0xc2,0x60,0xe2)
+#endif
 #else
 typedef struct IAudioRenderClientVtbl {
     BEGIN_INTERFACE
@@ -494,7 +502,8 @@ void __RPC_STUB IAudioRenderClient_ReleaseBuffer_Stub(
 
 DEFINE_GUID(IID_IAudioCaptureClient, 0xc8adbd64, 0xe71e, 0x48a0, 0xa4,0xde, 0x18,0x5c,0x39,0x5c,0xd3,0x17);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAudioCaptureClient : public IUnknown
+MIDL_INTERFACE("c8adbd64-e71e-48a0-a4de-185c395cd317")
+IAudioCaptureClient : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetBuffer(
         BYTE **ppData,
@@ -510,6 +519,9 @@ interface IAudioCaptureClient : public IUnknown
         UINT32 *pNumFramesInNextPacket) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAudioCaptureClient, 0xc8adbd64, 0xe71e, 0x48a0, 0xa4,0xde, 0x18,0x5c,0x39,0x5c,0xd3,0x17)
+#endif
 #else
 typedef struct IAudioCaptureClientVtbl {
     BEGIN_INTERFACE
@@ -602,7 +614,8 @@ void __RPC_STUB IAudioCaptureClient_GetNextPacketSize_Stub(
 
 DEFINE_GUID(IID_IAudioClock, 0xcd63314f, 0x3fba, 0x4a1b, 0x81,0x2c, 0xef,0x96,0x35,0x87,0x28,0xe7);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAudioClock : public IUnknown
+MIDL_INTERFACE("cd63314f-3fba-4a1b-812c-ef96358728e7")
+IAudioClock : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetFrequency(
         UINT64 *pu64Frequency) = 0;
@@ -615,6 +628,9 @@ interface IAudioClock : public IUnknown
         DWORD *pdwCharacteristics) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAudioClock, 0xcd63314f, 0x3fba, 0x4a1b, 0x81,0x2c, 0xef,0x96,0x35,0x87,0x28,0xe7)
+#endif
 #else
 typedef struct IAudioClockVtbl {
     BEGIN_INTERFACE
@@ -700,13 +716,17 @@ void __RPC_STUB IAudioClock_GetCharacteristics_Stub(
 
 DEFINE_GUID(IID_IAudioClock2, 0x6f49ff73, 0x6727, 0x49ac, 0xa0,0x08, 0xd9,0x8c,0xf5,0xe7,0x00,0x48);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAudioClock2 : public IUnknown
+MIDL_INTERFACE("6f49ff73-6727-49ac-a008-d98cf5e70048")
+IAudioClock2 : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetPosition(
         UINT64 *DevicePosition,
         UINT64 *QPCPosition) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAudioClock2, 0x6f49ff73, 0x6727, 0x49ac, 0xa0,0x08, 0xd9,0x8c,0xf5,0xe7,0x00,0x48)
+#endif
 #else
 typedef struct IAudioClock2Vtbl {
     BEGIN_INTERFACE
@@ -766,12 +786,16 @@ void __RPC_STUB IAudioClock2_GetPosition_Stub(
 
 DEFINE_GUID(IID_IAudioClockAdjustment, 0xf6e4c0a0, 0x46d9, 0x4fb9, 0xbe,0x21, 0x57,0xa3,0xef,0x2b,0x62,0x6c);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAudioClockAdjustment : public IUnknown
+MIDL_INTERFACE("f6e4c0a0-46d9-4fb9-be21-57a3ef2b626c")
+IAudioClockAdjustment : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetSampleRate(
         float flSampleRate) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAudioClockAdjustment, 0xf6e4c0a0, 0x46d9, 0x4fb9, 0xbe,0x21, 0x57,0xa3,0xef,0x2b,0x62,0x6c)
+#endif
 #else
 typedef struct IAudioClockAdjustmentVtbl {
     BEGIN_INTERFACE
@@ -829,7 +853,8 @@ void __RPC_STUB IAudioClockAdjustment_SetSampleRate_Stub(
 
 DEFINE_GUID(IID_ISimpleAudioVolume, 0x87ce5498, 0x68d6, 0x44e5, 0x92,0x15, 0x6d,0xa4,0x7e,0xf8,0x83,0xd8);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ISimpleAudioVolume : public IUnknown
+MIDL_INTERFACE("87ce5498-68d6-44e5-9215-6da47ef883d8")
+ISimpleAudioVolume : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetMasterVolume(
         float fLevel,
@@ -846,6 +871,9 @@ interface ISimpleAudioVolume : public IUnknown
         WINBOOL *pbMute) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ISimpleAudioVolume, 0x87ce5498, 0x68d6, 0x44e5, 0x92,0x15, 0x6d,0xa4,0x7e,0xf8,0x83,0xd8)
+#endif
 #else
 typedef struct ISimpleAudioVolumeVtbl {
     BEGIN_INTERFACE
@@ -946,7 +974,8 @@ void __RPC_STUB ISimpleAudioVolume_GetMute_Stub(
 
 DEFINE_GUID(IID_IAudioStreamVolume, 0x93014887, 0x242d, 0x4068, 0x8a,0x15, 0xcf,0x5e,0x93,0xb9,0x0f,0xe3);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAudioStreamVolume : public IUnknown
+MIDL_INTERFACE("93014887-242d-4068-8a15-cf5e93b90fe3")
+IAudioStreamVolume : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetChannelCount(
         UINT32 *pdwCount) = 0;
@@ -968,6 +997,9 @@ interface IAudioStreamVolume : public IUnknown
         float *pfVolumes) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAudioStreamVolume, 0x93014887, 0x242d, 0x4068, 0x8a,0x15, 0xcf,0x5e,0x93,0xb9,0x0f,0xe3)
+#endif
 #else
 typedef struct IAudioStreamVolumeVtbl {
     BEGIN_INTERFACE
@@ -1085,7 +1117,8 @@ void __RPC_STUB IAudioStreamVolume_GetAllVolumes_Stub(
 
 DEFINE_GUID(IID_IChannelAudioVolume, 0x1c158861, 0xb533, 0x4b30, 0xb1,0xcf, 0xe8,0x53,0xe5,0x1c,0x59,0xb8);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IChannelAudioVolume : public IUnknown
+MIDL_INTERFACE("1c158861-b533-4b30-b1cf-e853e51c59b8")
+IChannelAudioVolume : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetChannelCount(
         UINT32 *pdwCount) = 0;
@@ -1109,6 +1142,9 @@ interface IChannelAudioVolume : public IUnknown
         float *pfVolumes) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IChannelAudioVolume, 0x1c158861, 0xb533, 0x4b30, 0xb1,0xcf, 0xe8,0x53,0xe5,0x1c,0x59,0xb8)
+#endif
 #else
 typedef struct IChannelAudioVolumeVtbl {
     BEGIN_INTERFACE

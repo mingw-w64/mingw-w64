@@ -135,7 +135,8 @@ typedef struct _ASSEMBLY_INFO {
 #define ASSEMBLYINFO_FLAG_PAYLOADRESIDENT 0x00000002
 DEFINE_GUID(IID_IAssemblyCache, 0xe707dcde, 0xd1cd, 0x11d2, 0xba,0xb9, 0x00,0xc0,0x4f,0x8e,0xce,0xae);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAssemblyCache : public IUnknown
+MIDL_INTERFACE("e707dcde-d1cd-11d2-bab9-00c04f8eceae")
+IAssemblyCache : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE UninstallAssembly(
         DWORD dwFlags,
@@ -163,6 +164,9 @@ interface IAssemblyCache : public IUnknown
         LPCFUSION_INSTALL_REFERENCE pRefData) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAssemblyCache, 0xe707dcde, 0xd1cd, 0x11d2, 0xba,0xb9, 0x00,0xc0,0x4f,0x8e,0xce,0xae)
+#endif
 #else
 typedef struct IAssemblyCacheVtbl {
     BEGIN_INTERFACE
@@ -301,7 +305,8 @@ void __RPC_STUB IAssemblyCache_InstallAssembly_Stub(
 #define IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_ALREADY_INSTALLED 3
 DEFINE_GUID(IID_IAssemblyCacheItem, 0x9e3aaeb4, 0xd1cd, 0x11d2, 0xba,0xb9, 0x00,0xc0,0x4f,0x8e,0xce,0xae);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAssemblyCacheItem : public IUnknown
+MIDL_INTERFACE("9e3aaeb4-d1cd-11d2-bab9-00c04f8eceae")
+IAssemblyCacheItem : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE CreateStream(
         DWORD dwFlags,
@@ -319,6 +324,9 @@ interface IAssemblyCacheItem : public IUnknown
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAssemblyCacheItem, 0x9e3aaeb4, 0xd1cd, 0x11d2, 0xba,0xb9, 0x00,0xc0,0x4f,0x8e,0xce,0xae)
+#endif
 #else
 typedef struct IAssemblyCacheItemVtbl {
     BEGIN_INTERFACE
@@ -482,7 +490,8 @@ typedef enum __WIDL_fusion_generated_name_00000005 {
 } ASM_CMP_FLAGS;
 DEFINE_GUID(IID_IAssemblyName, 0xcd193bc0, 0xb4bc, 0x11d2, 0x98,0x33, 0x00,0xc0,0x4f,0xc3,0x1d,0x2e);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAssemblyName : public IUnknown
+MIDL_INTERFACE("cd193bc0-b4bc-11d2-9833-00c04fc31d2e")
+IAssemblyName : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetProperty(
         DWORD PropertyId,
@@ -528,6 +537,9 @@ interface IAssemblyName : public IUnknown
         IAssemblyName **pName) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAssemblyName, 0xcd193bc0, 0xb4bc, 0x11d2, 0x98,0x33, 0x00,0xc0,0x4f,0xc3,0x1d,0x2e)
+#endif
 #else
 typedef struct IAssemblyNameVtbl {
     BEGIN_INTERFACE
@@ -719,7 +731,8 @@ void __RPC_STUB IAssemblyName_Clone_Stub(
 
 DEFINE_GUID(IID_IAssemblyEnum, 0x21b8916c, 0xf28e, 0x11d2, 0xa4,0x73, 0x00,0xc0,0x4f,0x8e,0xf4,0x48);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAssemblyEnum : public IUnknown
+MIDL_INTERFACE("21b8916c-f28e-11d2-a473-00c04f8ef448")
+IAssemblyEnum : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetNextAssembly(
         LPVOID pvReserved,
@@ -733,6 +746,9 @@ interface IAssemblyEnum : public IUnknown
         IAssemblyEnum **ppEnum) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAssemblyEnum, 0x21b8916c, 0xf28e, 0x11d2, 0xa4,0x73, 0x00,0xc0,0x4f,0x8e,0xf4,0x48)
+#endif
 #else
 typedef struct IAssemblyEnumVtbl {
     BEGIN_INTERFACE
@@ -818,9 +834,13 @@ void __RPC_STUB IAssemblyEnum_Clone_Stub(
 
 DEFINE_GUID(IID_IInstallReferenceItem, 0x582dac66, 0xe678, 0x449f, 0xab,0xa6, 0x6f,0xaa,0xec,0x8a,0x93,0x94);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IInstallReferenceItem : public IUnknown
+MIDL_INTERFACE("582dac66-e678-449f-aba6-6faaec8a9394")
+IInstallReferenceItem : public IUnknown
 {
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IInstallReferenceItem, 0x582dac66, 0xe678, 0x449f, 0xab,0xa6, 0x6f,0xaa,0xec,0x8a,0x93,0x94)
+#endif
 #else
 typedef struct IInstallReferenceItemVtbl {
     BEGIN_INTERFACE
@@ -863,9 +883,13 @@ interface IInstallReferenceItem {
 
 DEFINE_GUID(IID_IInstallReferenceEnum, 0x56b1a988, 0x7c0c, 0x4aa2, 0x86,0x39, 0xc3,0xeb,0x5a,0x90,0x22,0x6f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IInstallReferenceEnum : public IUnknown
+MIDL_INTERFACE("56b1a988-7c0c-4aa2-8639-c3eb5a90226f")
+IInstallReferenceEnum : public IUnknown
 {
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IInstallReferenceEnum, 0x56b1a988, 0x7c0c, 0x4aa2, 0x86,0x39, 0xc3,0xeb,0x5a,0x90,0x22,0x6f)
+#endif
 #else
 typedef struct IInstallReferenceEnumVtbl {
     BEGIN_INTERFACE

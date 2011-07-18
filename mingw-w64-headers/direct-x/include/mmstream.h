@@ -107,7 +107,8 @@ typedef interface IStreamSample IStreamSample;
 
 DEFINE_GUID(IID_IMultiMediaStream, 0xb502d1bc, 0x9a57, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMultiMediaStream : public IUnknown
+MIDL_INTERFACE("b502d1bc-9a57-11d0-8fde-00c04fd9189d")
+IMultiMediaStream : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetInformation(
         DWORD *pdwFlags,
@@ -140,6 +141,9 @@ interface IMultiMediaStream : public IUnknown
         HANDLE *phEOS) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMultiMediaStream, 0xb502d1bc, 0x9a57, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IMultiMediaStreamVtbl {
     BEGIN_INTERFACE
@@ -307,7 +311,8 @@ void __RPC_STUB IMultiMediaStream_GetEndOfStreamEventHandle_Stub(
 
 DEFINE_GUID(IID_IMediaStream, 0xb502d1bd, 0x9a57, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMediaStream : public IUnknown
+MIDL_INTERFACE("b502d1bd-9a57-11d0-8fde-00c04fd9189d")
+IMediaStream : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetMultiMediaStream(
         IMultiMediaStream **ppMultiMediaStream) = 0;
@@ -333,6 +338,9 @@ interface IMediaStream : public IUnknown
         DWORD dwFlags) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMediaStream, 0xb502d1bd, 0x9a57, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IMediaStreamVtbl {
     BEGIN_INTERFACE
@@ -465,7 +473,8 @@ void __RPC_STUB IMediaStream_SendEndOfStream_Stub(
 
 DEFINE_GUID(IID_IStreamSample, 0xb502d1be, 0x9a57, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IStreamSample : public IUnknown
+MIDL_INTERFACE("b502d1be-9a57-11d0-8fde-00c04fd9189d")
+IStreamSample : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetMediaStream(
         IMediaStream **ppMediaStream) = 0;
@@ -490,6 +499,9 @@ interface IStreamSample : public IUnknown
         DWORD dwMilliseconds) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IStreamSample, 0xb502d1be, 0x9a57, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IStreamSampleVtbl {
     BEGIN_INTERFACE

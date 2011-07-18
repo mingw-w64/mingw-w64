@@ -74,7 +74,8 @@ typedef interface IDirectDrawStreamSample IDirectDrawStreamSample;
 
 DEFINE_GUID(IID_IDirectDrawMediaStream, 0xf4104fce, 0x9a70, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDirectDrawMediaStream : public IMediaStream
+MIDL_INTERFACE("f4104fce-9a70-11d0-8fde-00c04fd9189d")
+IDirectDrawMediaStream : public IMediaStream
 {
     virtual HRESULT STDMETHODCALLTYPE GetFormat(
         DDSURFACEDESC *pDDSDCurrent,
@@ -102,6 +103,9 @@ interface IDirectDrawMediaStream : public IMediaStream
         STREAM_TIME *pFrameTime) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDirectDrawMediaStream, 0xf4104fce, 0x9a70, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IDirectDrawMediaStreamVtbl {
     BEGIN_INTERFACE
@@ -275,7 +279,8 @@ void __RPC_STUB IDirectDrawMediaStream_GetTimePerFrame_Stub(
 
 DEFINE_GUID(IID_IDirectDrawStreamSample, 0xf4104fcf, 0x9a70, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDirectDrawStreamSample : public IStreamSample
+MIDL_INTERFACE("f4104fcf-9a70-11d0-8fde-00c04fd9189d")
+IDirectDrawStreamSample : public IStreamSample
 {
     virtual HRESULT STDMETHODCALLTYPE GetSurface(
         IDirectDrawSurface **ppDirectDrawSurface,
@@ -285,6 +290,9 @@ interface IDirectDrawStreamSample : public IStreamSample
         const RECT *pRect) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDirectDrawStreamSample, 0xf4104fcf, 0x9a70, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IDirectDrawStreamSampleVtbl {
     BEGIN_INTERFACE

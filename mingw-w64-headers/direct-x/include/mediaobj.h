@@ -71,7 +71,8 @@ typedef struct _DMOMediaType {
 
 DEFINE_GUID(IID_IEnumDMO, 0x2c3cd98a, 0x2bfa, 0x4a53, 0x9c,0x27, 0x52,0x49,0xba,0x64,0xba,0x0f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IEnumDMO : public IUnknown
+MIDL_INTERFACE("2c3cd98a-2bfa-4a53-9c27-5249ba64ba0f")
+IEnumDMO : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Next(
         DWORD cItemsToFetch,
@@ -89,6 +90,9 @@ interface IEnumDMO : public IUnknown
         IEnumDMO **ppEnum) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumDMO, 0x2c3cd98a, 0x2bfa, 0x4a53, 0x9c,0x27, 0x52,0x49,0xba,0x64,0xba,0x0f)
+#endif
 #else
 typedef struct IEnumDMOVtbl {
     BEGIN_INTERFACE

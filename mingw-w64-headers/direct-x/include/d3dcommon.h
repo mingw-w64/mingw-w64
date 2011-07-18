@@ -45,7 +45,8 @@ typedef struct _D3D_SHADER_MACRO *LPD3D_SHADER_MACRO;
 
 DEFINE_GUID(IID_ID3D10Blob, 0x8ba5fb08, 0x5195, 0x40e2, 0xac,0x58, 0x0d,0x98,0x9c,0x3a,0x01,0x02);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ID3D10Blob : public IUnknown
+MIDL_INTERFACE("8ba5fb08-5195-40e2-ac58-0d989c3a0102")
+ID3D10Blob : public IUnknown
 {
     virtual void * STDMETHODCALLTYPE GetBufferPointer(
         ) = 0;
@@ -54,6 +55,9 @@ interface ID3D10Blob : public IUnknown
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D10Blob, 0x8ba5fb08, 0x5195, 0x40e2, 0xac,0x58, 0x0d,0x98,0x9c,0x3a,0x01,0x02)
+#endif
 #else
 typedef struct ID3D10BlobVtbl {
     BEGIN_INTERFACE

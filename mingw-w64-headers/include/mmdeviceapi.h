@@ -122,7 +122,8 @@ typedef enum _EndpointFormFactor {
 
 DEFINE_GUID(IID_IMMNotificationClient, 0x7991eec9, 0x7e89, 0x4d85, 0x83,0x90, 0x6c,0x70,0x3c,0xec,0x60,0xc0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMMNotificationClient : public IUnknown
+MIDL_INTERFACE("7991eec9-7e89-4d85-8390-6c703cec60c0")
+IMMNotificationClient : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE OnDeviceStateChanged(
         LPCWSTR pwstrDeviceId,
@@ -144,6 +145,9 @@ interface IMMNotificationClient : public IUnknown
         const PROPERTYKEY key) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMMNotificationClient, 0x7991eec9, 0x7e89, 0x4d85, 0x83,0x90, 0x6c,0x70,0x3c,0xec,0x60,0xc0)
+#endif
 #else
 typedef struct IMMNotificationClientVtbl {
     BEGIN_INTERFACE
@@ -261,7 +265,8 @@ void __RPC_STUB IMMNotificationClient_OnPropertyValueChanged_Stub(
 
 DEFINE_GUID(IID_IMMDevice, 0xd666063f, 0x1587, 0x4e43, 0x81,0xf1, 0xb9,0x48,0xe8,0x07,0x36,0x3f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMMDevice : public IUnknown
+MIDL_INTERFACE("d666063f-1587-4e43-81f1-b948e807363f")
+IMMDevice : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Activate(
         REFIID iid,
@@ -280,6 +285,9 @@ interface IMMDevice : public IUnknown
         DWORD *pdwState) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMMDevice, 0xd666063f, 0x1587, 0x4e43, 0x81,0xf1, 0xb9,0x48,0xe8,0x07,0x36,0x3f)
+#endif
 #else
 typedef struct IMMDeviceVtbl {
     BEGIN_INTERFACE
@@ -384,7 +392,8 @@ void __RPC_STUB IMMDevice_GetState_Stub(
 
 DEFINE_GUID(IID_IMMDeviceCollection, 0x0bd7a1be, 0x7a1a, 0x44db, 0x83,0x97, 0xcc,0x53,0x92,0x38,0x7b,0x5e);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMMDeviceCollection : public IUnknown
+MIDL_INTERFACE("0bd7a1be-7a1a-44db-8397-cc5392387b5e")
+IMMDeviceCollection : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetCount(
         UINT *pcDevices) = 0;
@@ -394,6 +403,9 @@ interface IMMDeviceCollection : public IUnknown
         IMMDevice **ppdevice) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMMDeviceCollection, 0x0bd7a1be, 0x7a1a, 0x44db, 0x83,0x97, 0xcc,0x53,0x92,0x38,0x7b,0x5e)
+#endif
 #else
 typedef struct IMMDeviceCollectionVtbl {
     BEGIN_INTERFACE
@@ -466,12 +478,16 @@ void __RPC_STUB IMMDeviceCollection_Item_Stub(
 
 DEFINE_GUID(IID_IMMEndpoint, 0x1be09788, 0x6894, 0x4089, 0x85,0x86, 0x9a,0x2a,0x6c,0x26,0x5a,0xc5);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMMEndpoint : public IUnknown
+MIDL_INTERFACE("1be09788-6894-4089-8586-9a2a6c265ac5")
+IMMEndpoint : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetDataFlow(
         EDataFlow *pDataFlow) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMMEndpoint, 0x1be09788, 0x6894, 0x4089, 0x85,0x86, 0x9a,0x2a,0x6c,0x26,0x5a,0xc5)
+#endif
 #else
 typedef struct IMMEndpointVtbl {
     BEGIN_INTERFACE
@@ -529,7 +545,8 @@ void __RPC_STUB IMMEndpoint_GetDataFlow_Stub(
 
 DEFINE_GUID(IID_IMMDeviceEnumerator, 0xa95664d2, 0x9614, 0x4f35, 0xa7,0x46, 0xde,0x8d,0xb6,0x36,0x17,0xe6);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMMDeviceEnumerator : public IUnknown
+MIDL_INTERFACE("a95664d2-9614-4f35-a746-de8db63617e6")
+IMMDeviceEnumerator : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE EnumAudioEndpoints(
         EDataFlow dataFlow,
@@ -552,6 +569,9 @@ interface IMMDeviceEnumerator : public IUnknown
         IMMNotificationClient *pClient) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMMDeviceEnumerator, 0xa95664d2, 0x9614, 0x4f35, 0xa7,0x46, 0xde,0x8d,0xb6,0x36,0x17,0xe6)
+#endif
 #else
 typedef struct IMMDeviceEnumeratorVtbl {
     BEGIN_INTERFACE
@@ -671,7 +691,8 @@ void __RPC_STUB IMMDeviceEnumerator_UnregisterEndpointNotificationCallback_Stub(
 
 DEFINE_GUID(IID_IMMDeviceActivator, 0x3b0d0ea4, 0xd0a9, 0x4b0e, 0x93,0x5b, 0x09,0x51,0x67,0x46,0xfa,0xc0);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMMDeviceActivator : public IUnknown
+MIDL_INTERFACE("3b0d0ea4-d0a9-4b0e-935b-09516746fac0")
+IMMDeviceActivator : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Activate(
         REFIID iid,
@@ -680,6 +701,9 @@ interface IMMDeviceActivator : public IUnknown
         void **ppv) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMMDeviceActivator, 0x3b0d0ea4, 0xd0a9, 0x4b0e, 0x93,0x5b, 0x09,0x51,0x67,0x46,0xfa,0xc0)
+#endif
 #else
 typedef struct IMMDeviceActivatorVtbl {
     BEGIN_INTERFACE
@@ -751,7 +775,10 @@ DEFINE_GUID(LIBID_MMDeviceAPILib, 0x2fdaafa3, 0x7523, 0x4f66, 0x99,0x57, 0x9d,0x
 DEFINE_GUID(CLSID_MMDeviceEnumerator, 0xbcde0395, 0xe52f, 0x467c, 0x8e,0x3d, 0xc4,0x57,0x92,0x91,0x69,0x2e);
 
 #ifdef __cplusplus
-class MMDeviceEnumerator;
+class DECLSPEC_UUID("bcde0395-e52f-467c-8e3d-c4579291692e") MMDeviceEnumerator;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(MMDeviceEnumerator, 0xbcde0395, 0xe52f, 0x467c, 0x8e,0x3d, 0xc4,0x57,0x92,0x91,0x69,0x2e)
+#endif
 #endif
 
 /* Begin additional prototypes for all interfaces */

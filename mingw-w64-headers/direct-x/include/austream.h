@@ -73,7 +73,8 @@ typedef interface IAudioData IAudioData;
 
 DEFINE_GUID(IID_IAudioMediaStream, 0xf7537560, 0xa3be, 0x11d0, 0x82,0x12, 0x00,0xc0,0x4f,0xc3,0x2c,0x45);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAudioMediaStream : public IMediaStream
+MIDL_INTERFACE("f7537560-a3be-11d0-8212-00c04fc32c45")
+IAudioMediaStream : public IMediaStream
 {
     virtual HRESULT STDMETHODCALLTYPE GetFormat(
         WAVEFORMATEX *pWaveFormatCurrent) = 0;
@@ -87,6 +88,9 @@ interface IAudioMediaStream : public IMediaStream
         IAudioStreamSample **ppSample) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAudioMediaStream, 0xf7537560, 0xa3be, 0x11d0, 0x82,0x12, 0x00,0xc0,0x4f,0xc3,0x2c,0x45)
+#endif
 #else
 typedef struct IAudioMediaStreamVtbl {
     BEGIN_INTERFACE
@@ -211,12 +215,16 @@ void __RPC_STUB IAudioMediaStream_CreateSample_Stub(
 
 DEFINE_GUID(IID_IAudioStreamSample, 0x345fee00, 0xaba5, 0x11d0, 0x82,0x12, 0x00,0xc0,0x4f,0xc3,0x2c,0x45);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAudioStreamSample : public IStreamSample
+MIDL_INTERFACE("345fee00-aba5-11d0-8212-00c04fc32c45")
+IAudioStreamSample : public IStreamSample
 {
     virtual HRESULT STDMETHODCALLTYPE GetAudioData(
         IAudioData **ppAudio) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAudioStreamSample, 0x345fee00, 0xaba5, 0x11d0, 0x82,0x12, 0x00,0xc0,0x4f,0xc3,0x2c,0x45)
+#endif
 #else
 typedef struct IAudioStreamSampleVtbl {
     BEGIN_INTERFACE
@@ -308,7 +316,8 @@ void __RPC_STUB IAudioStreamSample_GetAudioData_Stub(
 
 DEFINE_GUID(IID_IMemoryData, 0x327fc560, 0xaf60, 0x11d0, 0x82,0x12, 0x00,0xc0,0x4f,0xc3,0x2c,0x45);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMemoryData : public IUnknown
+MIDL_INTERFACE("327fc560-af60-11d0-8212-00c04fc32c45")
+IMemoryData : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetBuffer(
         DWORD cbSize,
@@ -324,6 +333,9 @@ interface IMemoryData : public IUnknown
         DWORD cbDataValid) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMemoryData, 0x327fc560, 0xaf60, 0x11d0, 0x82,0x12, 0x00,0xc0,0x4f,0xc3,0x2c,0x45)
+#endif
 #else
 typedef struct IMemoryDataVtbl {
     BEGIN_INTERFACE
@@ -415,7 +427,8 @@ void __RPC_STUB IMemoryData_SetActual_Stub(
 
 DEFINE_GUID(IID_IAudioData, 0x54c719c0, 0xaf60, 0x11d0, 0x82,0x12, 0x00,0xc0,0x4f,0xc3,0x2c,0x45);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAudioData : public IMemoryData
+MIDL_INTERFACE("54c719c0-af60-11d0-8212-00c04fc32c45")
+IAudioData : public IMemoryData
 {
     virtual HRESULT STDMETHODCALLTYPE GetFormat(
         WAVEFORMATEX *pWaveFormatCurrent) = 0;
@@ -424,6 +437,9 @@ interface IAudioData : public IMemoryData
         const WAVEFORMATEX *lpWaveFormat) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAudioData, 0x54c719c0, 0xaf60, 0x11d0, 0x82,0x12, 0x00,0xc0,0x4f,0xc3,0x2c,0x45)
+#endif
 #else
 typedef struct IAudioDataVtbl {
     BEGIN_INTERFACE

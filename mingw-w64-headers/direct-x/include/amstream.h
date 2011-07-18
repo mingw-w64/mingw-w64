@@ -143,7 +143,8 @@ typedef enum __WIDL_amstream_generated_name_00000000 {
 
 DEFINE_GUID(IID_IDirectShowStream, 0x7db01c96, 0xc0c3, 0x11d0, 0x8f,0xf1, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDirectShowStream : public IDispatch
+MIDL_INTERFACE("7db01c96-c0c3-11d0-8ff1-00c04fd9189d")
+IDirectShowStream : public IDispatch
 {
     virtual HRESULT STDMETHODCALLTYPE get_FileName(
         BSTR *pVal) = 0;
@@ -164,6 +165,9 @@ interface IDirectShowStream : public IDispatch
         OUTPUT_STATE newVal) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDirectShowStream, 0x7db01c96, 0xc0c3, 0x11d0, 0x8f,0xf1, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IDirectShowStreamVtbl {
     BEGIN_INTERFACE
@@ -321,7 +325,8 @@ void __RPC_STUB IDirectShowStream_put_Audio_Stub(
 
 DEFINE_GUID(IID_IAMMultiMediaStream, 0xbebe595c, 0x9a6f, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAMMultiMediaStream : public IMultiMediaStream
+MIDL_INTERFACE("bebe595c-9a6f-11d0-8fde-00c04fd9189d")
+IAMMultiMediaStream : public IMultiMediaStream
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         STREAM_TYPE StreamType,
@@ -353,6 +358,9 @@ interface IAMMultiMediaStream : public IMultiMediaStream
         DWORD dwFlags) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMMultiMediaStream, 0xbebe595c, 0x9a6f, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IAMMultiMediaStreamVtbl {
     BEGIN_INTERFACE
@@ -554,7 +562,8 @@ void __RPC_STUB IAMMultiMediaStream_Render_Stub(
 
 DEFINE_GUID(IID_IAMMediaStream, 0xbebe595d, 0x9a6f, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAMMediaStream : public IMediaStream
+MIDL_INTERFACE("bebe595d-9a6f-11d0-8fde-00c04fd9189d")
+IAMMediaStream : public IMediaStream
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         IUnknown *pSourceObject,
@@ -575,6 +584,9 @@ interface IAMMediaStream : public IMediaStream
         IFilterGraph *pFilterGraph) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMMediaStream, 0xbebe595d, 0x9a6f, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IAMMediaStreamVtbl {
     BEGIN_INTERFACE
@@ -727,7 +739,8 @@ void __RPC_STUB IAMMediaStream_JoinFilterGraph_Stub(
 
 DEFINE_GUID(IID_IMediaStreamFilter, 0xbebe595e, 0x9a6f, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IMediaStreamFilter : public IBaseFilter
+MIDL_INTERFACE("bebe595e-9a6f-11d0-8fde-00c04fd9189d")
+IMediaStreamFilter : public IBaseFilter
 {
     virtual HRESULT STDMETHODCALLTYPE AddMediaStream(
         IAMMediaStream *pAMMediaStream) = 0;
@@ -759,6 +772,9 @@ interface IMediaStreamFilter : public IBaseFilter
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMediaStreamFilter, 0xbebe595e, 0x9a6f, 0x11d0, 0x8f,0xde, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IMediaStreamFilterVtbl {
     BEGIN_INTERFACE
@@ -989,12 +1005,16 @@ void __RPC_STUB IMediaStreamFilter_EndOfStream_Stub(
 
 DEFINE_GUID(IID_IDirectDrawMediaSampleAllocator, 0xab6b4afc, 0xf6e4, 0x11d0, 0x90,0x0d, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDirectDrawMediaSampleAllocator : public IUnknown
+MIDL_INTERFACE("ab6b4afc-f6e4-11d0-900d-00c04fd9189d")
+IDirectDrawMediaSampleAllocator : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetDirectDraw(
         IDirectDraw **ppDirectDraw) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDirectDrawMediaSampleAllocator, 0xab6b4afc, 0xf6e4, 0x11d0, 0x90,0x0d, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IDirectDrawMediaSampleAllocatorVtbl {
     BEGIN_INTERFACE
@@ -1052,7 +1072,8 @@ void __RPC_STUB IDirectDrawMediaSampleAllocator_GetDirectDraw_Stub(
 
 DEFINE_GUID(IID_IDirectDrawMediaSample, 0xab6b4afe, 0xf6e4, 0x11d0, 0x90,0x0d, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDirectDrawMediaSample : public IUnknown
+MIDL_INTERFACE("ab6b4afe-f6e4-11d0-900d-00c04fd9189d")
+IDirectDrawMediaSample : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetSurfaceAndReleaseLock(
         IDirectDrawSurface **ppDirectDrawSurface,
@@ -1062,6 +1083,9 @@ interface IDirectDrawMediaSample : public IUnknown
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDirectDrawMediaSample, 0xab6b4afe, 0xf6e4, 0x11d0, 0x90,0x0d, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IDirectDrawMediaSampleVtbl {
     BEGIN_INTERFACE
@@ -1132,7 +1156,8 @@ void __RPC_STUB IDirectDrawMediaSample_LockMediaSamplePointer_Stub(
 
 DEFINE_GUID(IID_IAMMediaTypeStream, 0xab6b4afa, 0xf6e4, 0x11d0, 0x90,0x0d, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAMMediaTypeStream : public IMediaStream
+MIDL_INTERFACE("ab6b4afa-f6e4-11d0-900d-00c04fd9189d")
+IAMMediaTypeStream : public IMediaStream
 {
     virtual HRESULT STDMETHODCALLTYPE GetFormat(
         AM_MEDIA_TYPE *pMediaType,
@@ -1156,6 +1181,9 @@ interface IAMMediaTypeStream : public IMediaStream
         ALLOCATOR_PROPERTIES *pProps) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMMediaTypeStream, 0xab6b4afa, 0xf6e4, 0x11d0, 0x90,0x0d, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IAMMediaTypeStreamVtbl {
     BEGIN_INTERFACE
@@ -1314,7 +1342,8 @@ void __RPC_STUB IAMMediaTypeStream_SetStreamAllocatorRequirements_Stub(
 
 DEFINE_GUID(IID_IAMMediaTypeSample, 0xab6b4afb, 0xf6e4, 0x11d0, 0x90,0x0d, 0x00,0xc0,0x4f,0xd9,0x18,0x9d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IAMMediaTypeSample : public IStreamSample
+MIDL_INTERFACE("ab6b4afb-f6e4-11d0-900d-00c04fd9189d")
+IAMMediaTypeSample : public IStreamSample
 {
     virtual HRESULT STDMETHODCALLTYPE SetPointer(
         BYTE *pBuffer,
@@ -1373,6 +1402,9 @@ interface IAMMediaTypeSample : public IStreamSample
         LONGLONG *pTimeEnd) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMMediaTypeSample, 0xab6b4afb, 0xf6e4, 0x11d0, 0x90,0x0d, 0x00,0xc0,0x4f,0xd9,0x18,0x9d)
+#endif
 #else
 typedef struct IAMMediaTypeSampleVtbl {
     BEGIN_INTERFACE
@@ -1671,7 +1703,10 @@ void __RPC_STUB IAMMediaTypeSample_SetMediaTime_Stub(
 DEFINE_GUID(CLSID_AMMultiMediaStream, 0x49c47ce5, 0x9ba4, 0x11d0, 0x82,0x12, 0x00,0xc0,0x4f,0xc3,0x2c,0x45);
 
 #ifdef __cplusplus
-class AMMultiMediaStream;
+class DECLSPEC_UUID("49c47ce5-9ba4-11d0-8212-00c04fc32c45") AMMultiMediaStream;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(AMMultiMediaStream, 0x49c47ce5, 0x9ba4, 0x11d0, 0x82,0x12, 0x00,0xc0,0x4f,0xc3,0x2c,0x45)
+#endif
 #endif
 
 DEFINE_GUID(CLSID_AMDirectDrawStream,  0x49c47ce4, 0x9ba4, 0x11d0, 0x82, 0x12, 0x00, 0xc0, 0x4f, 0xc3, 0x2c, 0x45);

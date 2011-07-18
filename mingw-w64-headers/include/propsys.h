@@ -175,13 +175,17 @@ typedef PROPERTYKEY *REFPROPERTYKEY;
 
 DEFINE_GUID(IID_IInitializeWithFile, 0xb7d14566, 0x0509, 0x4cce, 0xa7,0x1f, 0x0a,0x55,0x42,0x33,0xbd,0x9b);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IInitializeWithFile : public IUnknown
+MIDL_INTERFACE("b7d14566-0509-4cce-a71f-0a554233bd9b")
+IInitializeWithFile : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         LPCWSTR pszFilePath,
         DWORD grfMode) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IInitializeWithFile, 0xb7d14566, 0x0509, 0x4cce, 0xa7,0x1f, 0x0a,0x55,0x42,0x33,0xbd,0x9b)
+#endif
 #else
 typedef struct IInitializeWithFileVtbl {
     BEGIN_INTERFACE
@@ -241,13 +245,17 @@ void __RPC_STUB IInitializeWithFile_Initialize_Stub(
 
 DEFINE_GUID(IID_IInitializeWithStream, 0xb824b49d, 0x22ac, 0x4161, 0xac,0x8a, 0x99,0x16,0xe8,0xfa,0x3f,0x7f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IInitializeWithStream : public IUnknown
+MIDL_INTERFACE("b824b49d-22ac-4161-ac8a-9916e8fa3f7f")
+IInitializeWithStream : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE Initialize(
         IStream *pstream,
         DWORD grfMode) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IInitializeWithStream, 0xb824b49d, 0x22ac, 0x4161, 0xac,0x8a, 0x99,0x16,0xe8,0xfa,0x3f,0x7f)
+#endif
 #else
 typedef struct IInitializeWithStreamVtbl {
     BEGIN_INTERFACE
@@ -298,7 +306,8 @@ interface IInitializeWithStream {
 
 DEFINE_GUID(IID_IPropertyStore, 0x886d8eeb, 0x8cf2, 0x4446, 0x8d,0x02, 0xcd,0xba,0x1d,0xbd,0xcf,0x99);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyStore : public IUnknown
+MIDL_INTERFACE("886d8eeb-8cf2-4446-8d02-cdba1dbdcf99")
+IPropertyStore : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetCount(
         DWORD *cProps) = 0;
@@ -319,6 +328,9 @@ interface IPropertyStore : public IUnknown
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyStore, 0x886d8eeb, 0x8cf2, 0x4446, 0x8d,0x02, 0xcd,0xba,0x1d,0xbd,0xcf,0x99)
+#endif
 #else
 typedef struct IPropertyStoreVtbl {
     BEGIN_INTERFACE
@@ -433,7 +445,8 @@ typedef IPropertyStore *LPPROPERTYSTORE;
 
 DEFINE_GUID(IID_INamedPropertyStore, 0x71604b0f, 0x97b0, 0x4764, 0x85,0x77, 0x2f,0x13,0xe9,0x8a,0x14,0x22);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface INamedPropertyStore : public IUnknown
+MIDL_INTERFACE("71604b0f-97b0-4764-8577-2f13e98a1422")
+INamedPropertyStore : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetNamedValue(
         LPCWSTR pszName,
@@ -451,6 +464,9 @@ interface INamedPropertyStore : public IUnknown
         BSTR *pbstrName) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(INamedPropertyStore, 0x71604b0f, 0x97b0, 0x4764, 0x85,0x77, 0x2f,0x13,0xe9,0x8a,0x14,0x22)
+#endif
 #else
 typedef struct INamedPropertyStoreVtbl {
     BEGIN_INTERFACE
@@ -566,7 +582,8 @@ DEFINE_ENUM_FLAG_OPERATORS(GETPROPERTYSTOREFLAGS)
 
 DEFINE_GUID(IID_IObjectWithPropertyKey, 0xfc0ca0a7, 0xc316, 0x4fd2, 0x90,0x31, 0x3e,0x62,0x8e,0x6d,0x4f,0x23);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IObjectWithPropertyKey : public IUnknown
+MIDL_INTERFACE("fc0ca0a7-c316-4fd2-9031-3e628e6d4f23")
+IObjectWithPropertyKey : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetPropertyKey(
         REFPROPERTYKEY key) = 0;
@@ -575,6 +592,9 @@ interface IObjectWithPropertyKey : public IUnknown
         PROPERTYKEY *key) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IObjectWithPropertyKey, 0xfc0ca0a7, 0xc316, 0x4fd2, 0x90,0x31, 0x3e,0x62,0x8e,0x6d,0x4f,0x23)
+#endif
 #else
 typedef struct IObjectWithPropertyKeyVtbl {
     BEGIN_INTERFACE
@@ -650,13 +670,17 @@ typedef enum PKA_FLAGS {
 
 DEFINE_GUID(IID_IPropertyChange, 0xf917bc8a, 0x1bba, 0x4478, 0xa2,0x45, 0x1b,0xde,0x03,0xeb,0x94,0x31);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyChange : public IObjectWithPropertyKey
+MIDL_INTERFACE("f917bc8a-1bba-4478-a245-1bde03eb9431")
+IPropertyChange : public IObjectWithPropertyKey
 {
     virtual HRESULT STDMETHODCALLTYPE ApplyToPropVariant(
         REFPROPVARIANT propvarin,
         PROPVARIANT *propvarout) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyChange, 0xf917bc8a, 0x1bba, 0x4478, 0xa2,0x45, 0x1b,0xde,0x03,0xeb,0x94,0x31)
+#endif
 #else
 typedef struct IPropertyChangeVtbl {
     BEGIN_INTERFACE
@@ -728,7 +752,8 @@ void __RPC_STUB IPropertyChange_ApplyToPropVariant_Stub(
 
 DEFINE_GUID(IID_IPropertyChangeArray, 0x380f5cad, 0x1b5e, 0x42f2, 0x80,0x5d, 0x63,0x7f,0xd3,0x92,0xd3,0x1e);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyChangeArray : public IUnknown
+MIDL_INTERFACE("380f5cad-1b5e-42f2-805d-637fd392d31e")
+IPropertyChangeArray : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetCount(
         UINT *pcOperations) = 0;
@@ -755,6 +780,9 @@ interface IPropertyChangeArray : public IUnknown
         REFPROPERTYKEY key) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyChangeArray, 0x380f5cad, 0x1b5e, 0x42f2, 0x80,0x5d, 0x63,0x7f,0xd3,0x92,0xd3,0x1e)
+#endif
 #else
 typedef struct IPropertyChangeArrayVtbl {
     BEGIN_INTERFACE
@@ -896,12 +924,16 @@ void __RPC_STUB IPropertyChangeArray_IsKeyInArray_Stub(
 
 DEFINE_GUID(IID_IPropertyStoreCapabilities, 0xc8e2d566, 0x186e, 0x4d49, 0xbf,0x41, 0x69,0x09,0xea,0xd5,0x6a,0xcc);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyStoreCapabilities : public IUnknown
+MIDL_INTERFACE("c8e2d566-186e-4d49-bf41-6909ead56acc")
+IPropertyStoreCapabilities : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE IsPropertyWritable(
         REFPROPERTYKEY key) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyStoreCapabilities, 0xc8e2d566, 0x186e, 0x4d49, 0xbf,0x41, 0x69,0x09,0xea,0xd5,0x6a,0xcc)
+#endif
 #else
 typedef struct IPropertyStoreCapabilitiesVtbl {
     BEGIN_INTERFACE
@@ -965,7 +997,8 @@ typedef enum PSC_STATE {
 } PSC_STATE;
 DEFINE_GUID(IID_IPropertyStoreCache, 0x3017056d, 0x9a91, 0x4e90, 0x93,0x7d, 0x74,0x6c,0x72,0xab,0xbf,0x4f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyStoreCache : public IPropertyStore
+MIDL_INTERFACE("3017056d-9a91-4e90-937d-746c72abbf4f")
+IPropertyStoreCache : public IPropertyStore
 {
     virtual HRESULT STDMETHODCALLTYPE GetState(
         REFPROPERTYKEY key,
@@ -986,6 +1019,9 @@ interface IPropertyStoreCache : public IPropertyStore
         PSC_STATE state) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyStoreCache, 0x3017056d, 0x9a91, 0x4e90, 0x93,0x7d, 0x74,0x6c,0x72,0xab,0xbf,0x4f)
+#endif
 #else
 typedef struct IPropertyStoreCacheVtbl {
     BEGIN_INTERFACE
@@ -1129,7 +1165,8 @@ typedef enum PROPENUMTYPE {
 } PROPENUMTYPE;
 DEFINE_GUID(IID_IPropertyEnumType, 0x11e1fbf9, 0x2d56, 0x4a6b, 0x8d,0xb3, 0x7c,0xd1,0x93,0xa4,0x71,0xf2);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyEnumType : public IUnknown
+MIDL_INTERFACE("11e1fbf9-2d56-4a6b-8db3-7cd193a471f2")
+IPropertyEnumType : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetEnumType(
         PROPENUMTYPE *penumtype) = 0;
@@ -1147,6 +1184,9 @@ interface IPropertyEnumType : public IUnknown
         LPWSTR *ppszDisplay) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyEnumType, 0x11e1fbf9, 0x2d56, 0x4a6b, 0x8d,0xb3, 0x7c,0xd1,0x93,0xa4,0x71,0xf2)
+#endif
 #else
 typedef struct IPropertyEnumTypeVtbl {
     BEGIN_INTERFACE
@@ -1256,12 +1296,16 @@ void __RPC_STUB IPropertyEnumType_GetDisplayText_Stub(
 
 DEFINE_GUID(IID_IPropertyEnumType2, 0x9b6e051c, 0x5ddd, 0x4321, 0x90,0x70, 0xfe,0x2a,0xcb,0x55,0xe9,0x74);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyEnumType2 : public IPropertyEnumType
+MIDL_INTERFACE("9b6e051c-5ddd-4321-9070-fe2acb55e974")
+IPropertyEnumType2 : public IPropertyEnumType
 {
     virtual HRESULT STDMETHODCALLTYPE GetImageReference(
         LPWSTR *ppszImageRes) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyEnumType2, 0x9b6e051c, 0x5ddd, 0x4321, 0x90,0x70, 0xfe,0x2a,0xcb,0x55,0xe9,0x74)
+#endif
 #else
 typedef struct IPropertyEnumType2Vtbl {
     BEGIN_INTERFACE
@@ -1346,7 +1390,8 @@ void __RPC_STUB IPropertyEnumType2_GetImageReference_Stub(
 
 DEFINE_GUID(IID_IPropertyEnumTypeList, 0xa99400f4, 0x3d84, 0x4557, 0x94,0xba, 0x12,0x42,0xfb,0x2c,0xc9,0xa6);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyEnumTypeList : public IUnknown
+MIDL_INTERFACE("a99400f4-3d84-4557-94ba-1242fb2cc9a6")
+IPropertyEnumTypeList : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetCount(
         UINT *pctypes) = 0;
@@ -1366,6 +1411,9 @@ interface IPropertyEnumTypeList : public IUnknown
         UINT *pnIndex) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyEnumTypeList, 0xa99400f4, 0x3d84, 0x4557, 0x94,0xba, 0x12,0x42,0xfb,0x2c,0xc9,0xa6)
+#endif
 #else
 typedef struct IPropertyEnumTypeListVtbl {
     BEGIN_INTERFACE
@@ -1578,7 +1626,8 @@ typedef enum PROPDESC_CONDITION_TYPE {
 } PROPDESC_CONDITION_TYPE;
 DEFINE_GUID(IID_IPropertyDescription, 0x6f79d558, 0x3e96, 0x4549, 0xa1,0xd1, 0x7d,0x75,0xd2,0x28,0x88,0x14);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyDescription : public IUnknown
+MIDL_INTERFACE("6f79d558-3e96-4549-a1d1-7d75d2288814")
+IPropertyDescription : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetPropertyKey(
         PROPERTYKEY *pkey) = 0;
@@ -1653,6 +1702,9 @@ interface IPropertyDescription : public IUnknown
         REFPROPVARIANT propvar) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyDescription, 0x6f79d558, 0x3e96, 0x4549, 0xa1,0xd1, 0x7d,0x75,0xd2,0x28,0x88,0x14)
+#endif
 #else
 typedef struct IPropertyDescriptionVtbl {
     BEGIN_INTERFACE
@@ -1996,13 +2048,17 @@ HRESULT __RPC_STUB IPropertyDescription_CoerceToCanonicalValue_Stub(
 
 DEFINE_GUID(IID_IPropertyDescription2, 0x57d2eded, 0x5062, 0x400e, 0xb1,0x07, 0x5d,0xae,0x79,0xfe,0x57,0xa6);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyDescription2 : public IPropertyDescription
+MIDL_INTERFACE("57d2eded-5062-400e-b107-5dae79fe57a6")
+IPropertyDescription2 : public IPropertyDescription
 {
     virtual HRESULT STDMETHODCALLTYPE GetImageReferenceForValue(
         REFPROPVARIANT propvar,
         LPWSTR *ppszImageRes) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyDescription2, 0x57d2eded, 0x5062, 0x400e, 0xb1,0x07, 0x5d,0xae,0x79,0xfe,0x57,0xa6)
+#endif
 #else
 typedef struct IPropertyDescription2Vtbl {
     BEGIN_INTERFACE
@@ -2178,7 +2234,8 @@ void __RPC_STUB IPropertyDescription2_GetImageReferenceForValue_Stub(
 
 DEFINE_GUID(IID_IPropertyDescriptionAliasInfo, 0xf67104fc, 0x2af9, 0x46fd, 0xb3,0x2d, 0x24,0x3c,0x14,0x04,0xf3,0xd1);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyDescriptionAliasInfo : public IPropertyDescription
+MIDL_INTERFACE("f67104fc-2af9-46fd-b32d-243c1404f3d1")
+IPropertyDescriptionAliasInfo : public IPropertyDescription
 {
     virtual HRESULT STDMETHODCALLTYPE GetSortByAlias(
         REFIID riid,
@@ -2189,6 +2246,9 @@ interface IPropertyDescriptionAliasInfo : public IPropertyDescription
         void **ppv) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyDescriptionAliasInfo, 0xf67104fc, 0x2af9, 0x46fd, 0xb3,0x2d, 0x24,0x3c,0x14,0x04,0xf3,0xd1)
+#endif
 #else
 typedef struct IPropertyDescriptionAliasInfoVtbl {
     BEGIN_INTERFACE
@@ -2395,7 +2455,8 @@ typedef enum PROPDESC_COLUMNINDEX_TYPE {
 } PROPDESC_COLUMNINDEX_TYPE;
 DEFINE_GUID(IID_IPropertyDescriptionSearchInfo, 0x078f91bd, 0x29a2, 0x440f, 0x92,0x4e, 0x46,0xa2,0x91,0x52,0x45,0x20);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyDescriptionSearchInfo : public IPropertyDescription
+MIDL_INTERFACE("078f91bd-29a2-440f-924e-46a291524520")
+IPropertyDescriptionSearchInfo : public IPropertyDescription
 {
     virtual HRESULT STDMETHODCALLTYPE GetSearchInfoFlags(
         PROPDESC_SEARCHINFO_FLAGS *ppdsiFlags) = 0;
@@ -2410,6 +2471,9 @@ interface IPropertyDescriptionSearchInfo : public IPropertyDescription
         UINT *pcbMaxSize) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyDescriptionSearchInfo, 0x078f91bd, 0x29a2, 0x440f, 0x92,0x4e, 0x46,0xa2,0x91,0x52,0x45,0x20)
+#endif
 #else
 typedef struct IPropertyDescriptionSearchInfoVtbl {
     BEGIN_INTERFACE
@@ -2622,7 +2686,8 @@ void __RPC_STUB IPropertyDescriptionSearchInfo_GetMaxSize_Stub(
 
 DEFINE_GUID(IID_IPropertyDescriptionRelatedPropertyInfo, 0x507393f4, 0x2a3d, 0x4a60, 0xb5,0x9e, 0xd9,0xc7,0x57,0x16,0xc2,0xdd);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyDescriptionRelatedPropertyInfo : public IPropertyDescription
+MIDL_INTERFACE("507393f4-2a3d-4a60-b59e-d9c75716c2dd")
+IPropertyDescriptionRelatedPropertyInfo : public IPropertyDescription
 {
     virtual HRESULT STDMETHODCALLTYPE GetRelatedProperty(
         LPCWSTR ppszRelationshipName,
@@ -2630,6 +2695,9 @@ interface IPropertyDescriptionRelatedPropertyInfo : public IPropertyDescription
         void **ppv) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyDescriptionRelatedPropertyInfo, 0x507393f4, 0x2a3d, 0x4a60, 0xb5,0x9e, 0xd9,0xc7,0x57,0x16,0xc2,0xdd)
+#endif
 #else
 typedef struct IPropertyDescriptionRelatedPropertyInfoVtbl {
     BEGIN_INTERFACE
@@ -2816,7 +2884,8 @@ typedef enum PROPDESC_ENUMFILTER {
 
 DEFINE_GUID(IID_IPropertySystem, 0xca724e8a, 0xc3e6, 0x442b, 0x88,0xa4, 0x6f,0xb0,0xdb,0x80,0x35,0xa3);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertySystem : public IUnknown
+MIDL_INTERFACE("ca724e8a-c3e6-442b-88a4-6fb0db8035a3")
+IPropertySystem : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetPropertyDescription(
         REFPROPERTYKEY propkey,
@@ -2861,6 +2930,9 @@ interface IPropertySystem : public IUnknown
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertySystem, 0xca724e8a, 0xc3e6, 0x442b, 0x88,0xa4, 0x6f,0xb0,0xdb,0x80,0x35,0xa3)
+#endif
 #else
 typedef struct IPropertySystemVtbl {
     BEGIN_INTERFACE
@@ -3050,7 +3122,8 @@ void __RPC_STUB IPropertySystem_RefreshPropertySchema_Stub(
 
 DEFINE_GUID(IID_IPropertyDescriptionList, 0x1f9fc1d0, 0xc39b, 0x4b26, 0x81,0x7f, 0x01,0x19,0x67,0xd3,0x44,0x0e);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyDescriptionList : public IUnknown
+MIDL_INTERFACE("1f9fc1d0-c39b-4b26-817f-011967d3440e")
+IPropertyDescriptionList : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetCount(
         UINT *pcelem) = 0;
@@ -3061,6 +3134,9 @@ interface IPropertyDescriptionList : public IUnknown
         void **ppv) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyDescriptionList, 0x1f9fc1d0, 0xc39b, 0x4b26, 0x81,0x7f, 0x01,0x19,0x67,0xd3,0x44,0x0e)
+#endif
 #else
 typedef struct IPropertyDescriptionListVtbl {
     BEGIN_INTERFACE
@@ -3135,7 +3211,8 @@ void __RPC_STUB IPropertyDescriptionList_GetAt_Stub(
 
 DEFINE_GUID(IID_IPropertyStoreFactory, 0xbc110b6d, 0x57e8, 0x4148, 0xa9,0xc6, 0x91,0x01,0x5a,0xb2,0xf3,0xa5);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertyStoreFactory : public IUnknown
+MIDL_INTERFACE("bc110b6d-57e8-4148-a9c6-91015ab2f3a5")
+IPropertyStoreFactory : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetPropertyStore(
         GETPROPERTYSTOREFLAGS flags,
@@ -3151,6 +3228,9 @@ interface IPropertyStoreFactory : public IUnknown
         void **ppv) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyStoreFactory, 0xbc110b6d, 0x57e8, 0x4148, 0xa9,0xc6, 0x91,0x01,0x5a,0xb2,0xf3,0xa5)
+#endif
 #else
 typedef struct IPropertyStoreFactoryVtbl {
     BEGIN_INTERFACE
@@ -3235,7 +3315,8 @@ void __RPC_STUB IPropertyStoreFactory_GetPropertyStoreForKeys_Stub(
 
 DEFINE_GUID(IID_IDelayedPropertyStoreFactory, 0x40d4577f, 0xe237, 0x4bdb, 0xbd,0x69, 0x58,0xf0,0x89,0x43,0x1b,0x6a);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IDelayedPropertyStoreFactory : public IPropertyStoreFactory
+MIDL_INTERFACE("40d4577f-e237-4bdb-bd69-58f089431b6a")
+IDelayedPropertyStoreFactory : public IPropertyStoreFactory
 {
     virtual HRESULT STDMETHODCALLTYPE GetDelayedPropertyStore(
         GETPROPERTYSTOREFLAGS flags,
@@ -3244,6 +3325,9 @@ interface IDelayedPropertyStoreFactory : public IPropertyStoreFactory
         void **ppv) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDelayedPropertyStoreFactory, 0x40d4577f, 0xe237, 0x4bdb, 0xbd,0x69, 0x58,0xf0,0x89,0x43,0x1b,0x6a)
+#endif
 #else
 typedef struct IDelayedPropertyStoreFactoryVtbl {
     BEGIN_INTERFACE
@@ -3339,7 +3423,8 @@ typedef const SERIALIZEDPROPSTORAGE UNALIGNED *PCUSERIALIZEDPROPSTORAGE;
 
 DEFINE_GUID(IID_IPersistSerializedPropStorage, 0xe318ad57, 0x0aa0, 0x450f, 0xac,0xa5, 0x6f,0xab,0x71,0x03,0xd9,0x17);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPersistSerializedPropStorage : public IUnknown
+MIDL_INTERFACE("e318ad57-0aa0-450f-aca5-6fab7103d917")
+IPersistSerializedPropStorage : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetFlags(
         PERSIST_SPROPSTORE_FLAGS flags) = 0;
@@ -3353,6 +3438,9 @@ interface IPersistSerializedPropStorage : public IUnknown
         DWORD *pcb) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPersistSerializedPropStorage, 0xe318ad57, 0x0aa0, 0x450f, 0xac,0xa5, 0x6f,0xab,0x71,0x03,0xd9,0x17)
+#endif
 #else
 typedef struct IPersistSerializedPropStorageVtbl {
     BEGIN_INTERFACE
@@ -3440,7 +3528,8 @@ void __RPC_STUB IPersistSerializedPropStorage_GetPropertyStorage_Stub(
 
 DEFINE_GUID(IID_IPersistSerializedPropStorage2, 0x77effa68, 0x4f98, 0x4366, 0xba,0x72, 0x57,0x3b,0x3d,0x88,0x05,0x71);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPersistSerializedPropStorage2 : public IPersistSerializedPropStorage
+MIDL_INTERFACE("77effa68-4f98-4366-ba72-573b3d880571")
+IPersistSerializedPropStorage2 : public IPersistSerializedPropStorage
 {
     virtual HRESULT STDMETHODCALLTYPE GetpropertyStorageSize(
         DWORD *pcb) = 0;
@@ -3451,6 +3540,9 @@ interface IPersistSerializedPropStorage2 : public IPersistSerializedPropStorage
         DWORD *pcbWritten) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPersistSerializedPropStorage2, 0x77effa68, 0x4f98, 0x4366, 0xba,0x72, 0x57,0x3b,0x3d,0x88,0x05,0x71)
+#endif
 #else
 typedef struct IPersistSerializedPropStorage2Vtbl {
     BEGIN_INTERFACE
@@ -3544,12 +3636,16 @@ void __RPC_STUB IPersistSerializedPropStorage2_GetPropertyStorageBuffer_Stub(
 
 DEFINE_GUID(IID_IPropertySystemChangeNotify, 0xfa955fd9, 0x38be, 0x4879, 0xa6,0xce, 0x82,0x4c,0xf5,0x2d,0x60,0x9f);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface IPropertySystemChangeNotify : public IUnknown
+MIDL_INTERFACE("fa955fd9-38be-4879-a6ce-824cf52d609f")
+IPropertySystemChangeNotify : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SchemaRefreshed(
         ) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertySystemChangeNotify, 0xfa955fd9, 0x38be, 0x4879, 0xa6,0xce, 0x82,0x4c,0xf5,0x2d,0x60,0x9f)
+#endif
 #else
 typedef struct IPropertySystemChangeNotifyVtbl {
     BEGIN_INTERFACE
@@ -3605,7 +3701,8 @@ void __RPC_STUB IPropertySystemChangeNotify_SchemaRefreshed_Stub(
 
 DEFINE_GUID(IID_ICreateObject, 0x75121952, 0xe0d0, 0x43e5, 0x93,0x80, 0x1d,0x80,0x48,0x3a,0xcf,0x72);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-interface ICreateObject : public IUnknown
+MIDL_INTERFACE("75121952-e0d0-43e5-9380-1d80483acf72")
+ICreateObject : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE CreateObject(
         REFCLSID clsid,
@@ -3614,6 +3711,9 @@ interface ICreateObject : public IUnknown
         void **ppv) = 0;
 
 };
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ICreateObject, 0x75121952, 0xe0d0, 0x43e5, 0x93,0x80, 0x1d,0x80,0x48,0x3a,0xcf,0x72)
+#endif
 #else
 typedef struct ICreateObjectVtbl {
     BEGIN_INTERFACE
@@ -3686,7 +3786,10 @@ DEFINE_GUID(LIBID_PropSysObjects, 0x2cda3294, 0x6c4f, 0x4020, 0xb1,0x61, 0x27,0x
 DEFINE_GUID(CLSID_InMemoryPropertyStore, 0x9a02e012, 0x6303, 0x4e1e, 0xb9,0xa1, 0x63,0x0f,0x80,0x25,0x92,0xc5);
 
 #ifdef __cplusplus
-class InMemoryPropertyStore;
+class DECLSPEC_UUID("9a02e012-6303-4e1e-b9a1-630f802592c5") InMemoryPropertyStore;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(InMemoryPropertyStore, 0x9a02e012, 0x6303, 0x4e1e, 0xb9,0xa1, 0x63,0x0f,0x80,0x25,0x92,0xc5)
+#endif
 #endif
 
 /*****************************************************************************
@@ -3696,7 +3799,10 @@ class InMemoryPropertyStore;
 DEFINE_GUID(CLSID_PropertySystem, 0xb8967f86, 0x58ae, 0x4f96, 0x9f,0xb2, 0x5d,0x79,0x04,0x79,0x8f,0x4b);
 
 #ifdef __cplusplus
-class PropertySystem;
+class DECLSPEC_UUID("b8967f86-58ae-4f96-9fb2-5d7904798f4b") PropertySystem;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(PropertySystem, 0xb8967f86, 0x58ae, 0x4f96, 0x9f,0xb2, 0x5d,0x79,0x04,0x79,0x8f,0x4b)
+#endif
 #endif
 
 /* Begin additional prototypes for all interfaces */
