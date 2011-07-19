@@ -51,10 +51,12 @@
 
 #if __MINGW_USE_UNDERSCORE_PREFIX == 0
 #define __MINGW_IMP_SYMBOL(sym)	__imp_##sym
+#define __MINGW_IMP_LSYMBOL(sym) __imp_##sym
 #define __MINGW_USYMBOL(sym) sym
 #define __MINGW_LSYMBOL(sym) _##sym
 #else
 #define __MINGW_IMP_SYMBOL(sym)	_imp__##sym
+#define __MINGW_IMP_LSYMBOL(sym) __imp__##sym
 #define __MINGW_USYMBOL(sym) _##sym
 #define __MINGW_LSYMBOL(sym) sym
 #endif
