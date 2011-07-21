@@ -1,3 +1,9 @@
+2011-07-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h (C_ASSERT): Define using EXTERN_C instead of extern.
+	* ws2tcpip.h: Move the extern "C" closing brace to cover the IN6_
+	prototypes.
+
 2011-06-23  Kai Tietz  <ktietz@redhat.com>
 
 	* basetyps.h (DECLARE_INTERFACE_IID_): New macro.

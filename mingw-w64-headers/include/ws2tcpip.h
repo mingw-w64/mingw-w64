@@ -88,10 +88,6 @@ extern "C" {
   extern const struct in6_addr in6addr_any;
   extern const struct in6_addr in6addr_loopback;
 
-#ifdef __cplusplus
-}
-#endif
-
 #define WS2TCPIP_INLINE __CRT_INLINE
 
 int IN6_ADDR_EQUAL(const struct in6_addr *,const struct in6_addr *);
@@ -150,6 +146,10 @@ WS2TCPIP_INLINE void IN6ADDR_SETLOOPBACK(struct sockaddr_in6 *a) {
   a->sin6_scope_id = 0;
 }
 #endif /* !__CRT__NO_INLINE */
+
+#ifdef __cplusplus
+}
+#endif
 
 typedef struct _INTERFACE_INFO_EX {
   u_long iiFlags;
