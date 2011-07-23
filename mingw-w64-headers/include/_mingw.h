@@ -612,6 +612,7 @@ extern "C" {
 #endif
 
 #ifdef __MINGW_INTRIN_INLINE
+void __cdecl __debugbreak(void);
 __MINGW_INTRIN_INLINE void __cdecl __debugbreak(void)
 {
   __asm__ __volatile__("int $3");

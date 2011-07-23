@@ -1421,6 +1421,8 @@ typedef DWORD LCID;
 
     VOID _ReadWriteBarrier(VOID);
 
+#include <intrin.h>
+
 #define FastFence __faststorefence		/* FIXME: implement proprely */
 #define LoadFence _mm_lfence
 #define MemoryFence _mm_mfence
@@ -1431,10 +1433,6 @@ typedef DWORD LCID;
       __asm__ __volatile__ ("" ::: "memory");
     }
 #endif
-
-    void _m_prefetchw(void *Source);
-
-#include <intrin.h>
 
 #define YieldProcessor _mm_pause
 #define MemoryBarrier __faststorefence		/* FIXME: implement proprely */

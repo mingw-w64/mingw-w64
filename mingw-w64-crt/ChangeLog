@@ -1,4 +1,4 @@
-2011-05-23  Ozkan Sezer  <sezeroz@gmail.com>
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/vfw32.mri: Adjust for lib32 subdirectory.
 	* lib32/vfw64.mri: New.
