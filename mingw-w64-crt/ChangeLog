@@ -2,8 +2,9 @@
 
 	Merged from trunk rev. 4284:
 	2011-07-19  Kai Tietz  <kai.tietz@onevision.com>
-	* mingw_getsp.S: Fix build for unmodified gcc 4.4.x and 4.5.0 series
-	about longjmp symbol and name decoration.
+	* mingw_getsp.S: Fix build for unmodified gcc 4.4.x and 4.5.0 about
+	longjmp symbol and name decoration using the new __MINGW_IMP_LSYMBOL
+	macro.
 
 2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
