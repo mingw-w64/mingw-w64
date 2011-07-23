@@ -2580,7 +2580,7 @@ src_libmingwex32 = \
 @LIB32_TRUE@  \
 @LIB32_TRUE@  lib32/libcrtdll.a    lib32/libmsvcrt.a    lib32/libmsvcr80.a   \
 @LIB32_TRUE@  \
-@LIB32_TRUE@  lib32/libpdh.a       lib32/libpdhui.a     \
+@LIB32_TRUE@  lib32/libpdh.a       lib32/libpdhui.a     lib32/libvfw32.a     \
 @LIB32_TRUE@  lib32/libks.a        \
 @LIB32_TRUE@  lib32/libwinscard.a  \
 @LIB32_TRUE@  lib32/libauthz.a     \
@@ -2920,6 +2920,7 @@ src_libmingwex32 = \
 @LIB64_TRUE@  \
 @LIB64_TRUE@  lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a     \
 @LIB64_TRUE@  \
+@LIB64_TRUE@  lib64/libvfw32.a      \
 @LIB64_TRUE@  lib64/libks.a         lib64/libndis.a       \
 @LIB64_TRUE@  \
 @LIB64_TRUE@  lib64/libd3dcompiler_33.a lib64/libd3dcompiler_34.a lib64/libd3dcompiler_35.a \
@@ -26170,6 +26171,15 @@ _libm_dummy.c:
 @LIB32_TRUE@lib32/lib%.a: lib32/%.def
 @LIB32_TRUE@	$(DTDEF32) $<
 
+# libvfw32.a contains import stubs for 3 dll's.  Using an MRI script
+# seems to be the simplest way to combine them into one archive.
+# NB: With older dlltool, the object file members will not have unique
+# names.
+@LIB32_TRUE@lib32/libvfw32.a: lib32/vfw32.mri lib32/libmsvfw32.a lib32/libavifil32.a lib32/libavicap32.a
+@LIB32_TRUE@	rm -f $@
+@LIB32_TRUE@	$(AR) -M < $<
+@LIB32_TRUE@	$(RANLIB) $@
+
 @LIB32_TRUE@lib32/libxinput.a: lib32/$(xinput).def
 @LIB32_TRUE@	$(DTDEF32) $<
 @LIB32_TRUE@lib32/libxaudio.a: lib32/$(xaudio).def
@@ -26218,6 +26228,15 @@ _libm_dummy.c:
 
 @LIB64_TRUE@lib64/lib%.a: lib64/%.def
 @LIB64_TRUE@	$(DTDEF64) $<
+
+# libvfw32.a contains import stubs for 3 dll's.  Using an MRI script
+# seems to be the simplest way to combine them into one archive.
+# NB: With older dlltool, the object file members will not have unique
+# names.
+@LIB64_TRUE@lib64/libvfw32.a: lib64/vfw32.mri lib64/libmsvfw32.a lib64/libavifil32.a lib64/libavicap32.a
+@LIB64_TRUE@	rm -f $@
+@LIB64_TRUE@	$(AR) -M < $<
+@LIB64_TRUE@	$(RANLIB) $@
 
 @LIB64_TRUE@lib64/libxinput.a: lib64/$(xinput).def
 @LIB64_TRUE@	$(DTDEF64) $<

@@ -405,7 +405,7 @@ lib32_DATA = \
   \
   lib32/libcrtdll.a    lib32/libmsvcrt.a    lib32/libmsvcr80.a   \
   \
-  lib32/libpdh.a       lib32/libpdhui.a     \
+  lib32/libpdh.a       lib32/libpdhui.a     lib32/libvfw32.a     \
   lib32/libks.a        \
   lib32/libwinscard.a  \
   lib32/libauthz.a     \
@@ -448,6 +448,15 @@ lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a: lib32/lib%.a: lib32/%.de
 
 lib32/lib%.a: lib32/%.def
 	$(DTDEF32) $<
+
+# libvfw32.a contains import stubs for 3 dll's.  Using an MRI script
+# seems to be the simplest way to combine them into one archive.
+# NB: With older dlltool, the object file members will not have unique
+# names.
+lib32/libvfw32.a: lib32/vfw32.mri lib32/libmsvfw32.a lib32/libavifil32.a lib32/libavicap32.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
 
 lib32/libxinput.a: lib32/$(xinput).def
 	$(DTDEF32) $<
@@ -832,6 +841,7 @@ lib64_DATA = \
   \
   lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a     \
   \
+  lib64/libvfw32.a      \
   lib64/libks.a         lib64/libndis.a       \
   \
   lib64/libd3dcompiler_33.a lib64/libd3dcompiler_34.a lib64/libd3dcompiler_35.a \
@@ -870,6 +880,15 @@ lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.de
 
 lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $<
+
+# libvfw32.a contains import stubs for 3 dll's.  Using an MRI script
+# seems to be the simplest way to combine them into one archive.
+# NB: With older dlltool, the object file members will not have unique
+# names.
+lib64/libvfw32.a: lib64/vfw32.mri lib64/libmsvfw32.a lib64/libavifil32.a lib64/libavicap32.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
 
 lib64/libxinput.a: lib64/$(xinput).def
 	$(DTDEF64) $<
