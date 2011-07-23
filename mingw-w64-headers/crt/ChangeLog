@@ -1,5 +1,11 @@
 2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* crtdbg.h, malloc.h (_STATIC_ASSERT): Restrict the typedef variant
+	of the macro to MSVC. Add an extern declaration variant for gcc,
+	similar to C_ASSERT.
+
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* _mingw.h (__debugbreak): Add prototype before the inline as it
 	appears in intrin.h.
 

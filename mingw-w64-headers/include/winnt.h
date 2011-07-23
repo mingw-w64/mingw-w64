@@ -81,7 +81,7 @@ extern "C" {
 #if defined(_MSC_VER)
 # define C_ASSERT(e) typedef char __C_ASSERT__[(e)?1:-1]
 #else
-# define C_ASSERT(e) EXTERN_C void __C_ASSERT__(int [(e)?1:-1])
+# define C_ASSERT(e) extern void __C_ASSERT__(int [(e)?1:-1])
 #endif
 
 #include <basetsd.h>

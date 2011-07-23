@@ -14,13 +14,7 @@
 #endif
 #endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 #include <psdk_inc/_dbg_LOAD_IMAGE.h>
 #include <psdk_inc/_dbg_common.h>
 
-#ifdef __cplusplus
-}
-#endif
 #endif

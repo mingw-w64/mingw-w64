@@ -5,6 +5,10 @@
  */
 #pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
   typedef WINBOOL (CALLBACK *PFIND_DEBUG_FILE_CALLBACK)(HANDLE FileHandle,PCSTR FileName,PVOID CallerData);
   typedef WINBOOL (CALLBACK *PFIND_DEBUG_FILE_CALLBACKW)(HANDLE FileHandle,PCWSTR FileName,PVOID CallerData);
   typedef WINBOOL (CALLBACK *PFINDFILEINPATHCALLBACK)(PCSTR filename,PVOID context);
@@ -1031,6 +1035,10 @@ typedef struct _SYMSRV_INDEX_INFOW {
   DBHLP_DEPRECIATED WINBOOL IMAGEAPI FindFileInSearchPath(HANDLE hprocess,PCSTR SearchPath,PCSTR FileName,DWORD one,DWORD two,DWORD three,PSTR FilePath);
   DBHLP_DEPRECIATED WINBOOL IMAGEAPI SymEnumSym(HANDLE hProcess,ULONG64 BaseOfDll,PSYM_ENUMERATESYMBOLS_CALLBACK EnumSymbolsCallback,PVOID UserContext);
 
+#ifdef __cplusplus
+}
+#endif
+
 #define SYMF_OMAP_GENERATED 0x00000001
 #define SYMF_OMAP_MODIFIED 0x00000002
 #define SYMF_REGISTER 0x00000008
@@ -1535,6 +1543,10 @@ typedef struct _MINIDUMP_THREAD_INFO_LIST {
   ULONG   NumberOfEntries; /* FIXME: msdn says ULONG64 */
 } MINIDUMP_THREAD_INFO_LIST, *PMINIDUMP_THREAD_INFO_LIST;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
   typedef WINBOOL (WINAPI *MINIDUMP_CALLBACK_ROUTINE)(PVOID CallbackParam,CONST PMINIDUMP_CALLBACK_INPUT CallbackInput,PMINIDUMP_CALLBACK_OUTPUT CallbackOutput);
 
   typedef struct _MINIDUMP_CALLBACK_INFORMATION {
@@ -1544,8 +1556,7 @@ typedef struct _MINIDUMP_THREAD_INFO_LIST {
 
 #define RVA_TO_ADDR(Mapping,Rva) ((PVOID)(((ULONG_PTR) (Mapping)) + (Rva)))
 
-  WINBOOL WINAPI MiniDumpWriteDump(HANDLE hProcess,DWORD ProcessId,HANDLE hFile,MINIDUMP_TYPE DumpType,CONST PMINIDUMP_EXCEPTION_INFORMATION ExceptionParam,CONST PMINIDUMP_USER_STREAM_INFORMATION UserStreamParam,CONST PMINIDUMP_CALLBACK_INFORMATION 
-CallbackParam);
+  WINBOOL WINAPI MiniDumpWriteDump(HANDLE hProcess,DWORD ProcessId,HANDLE hFile,MINIDUMP_TYPE DumpType,CONST PMINIDUMP_EXCEPTION_INFORMATION ExceptionParam,CONST PMINIDUMP_USER_STREAM_INFORMATION UserStreamParam,CONST PMINIDUMP_CALLBACK_INFORMATION CallbackParam);
   WINBOOL WINAPI MiniDumpReadDumpStream(PVOID BaseOfDump,ULONG StreamNumber,PMINIDUMP_DIRECTORY *Dir,PVOID *StreamPointer,ULONG *StreamSize);
 
 WINBOOL WINAPI EnumerateLoadedModulesEx(
@@ -1971,6 +1982,9 @@ PCWSTR WINAPI SymSrvDeltaNameW(
 #define SymSrvDeltaName SymSrvDeltaNameW
 #endif
 
-
 #include <poppack.h>
+
+#ifdef __cplusplus
+}
+#endif
 
