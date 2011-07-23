@@ -193,7 +193,9 @@ __tmainCRTStartup (void)
      or in functions inlined into main.  */
   lpszCommandLine = (_TCHAR *) alloca (32);
   memset (lpszCommandLine, 0xcc, 32);
+#ifdef __GNUC__
   asm  __volatile__  ("andl $-16, %%esp" : : : "%esp");
+#endif
 #endif
 
   if (mingw_app_type)
@@ -484,8 +486,8 @@ __mingw_invalidParameterHandler (const wchar_t * __UNUSED_PARAM_1(expression),
 				 uintptr_t __UNUSED_PARAM(pReserved))
 {
 #ifdef __MINGW_SHOW_INVALID_PARAMETER_EXCEPTION
-   wprintf(L"Invalid parameter detected in function %s. File: %s Line: %d\n", function, file, line);
-   wprintf(L"Expression: %s\n", expression);
+  wprintf(L"Invalid parameter detected in function %s. File: %s Line: %d\n", function, file, line);
+  wprintf(L"Expression: %s\n", expression);
 #endif
 }
 

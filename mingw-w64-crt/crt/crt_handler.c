@@ -118,6 +118,7 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
       else
         action = EXCEPTION_EXECUTE_HANDLER;
       break;
+
     case EXCEPTION_ILLEGAL_INSTRUCTION:
     case EXCEPTION_PRIV_INSTRUCTION:
       /* test if the user has set SIGILL */
@@ -138,6 +139,7 @@ __mingw_SEH_error_handler (struct _EXCEPTION_RECORD* ExceptionRecord,
       else
         action = EXCEPTION_EXECUTE_HANDLER;
       break;
+
     case EXCEPTION_FLT_INVALID_OPERATION:
     case EXCEPTION_FLT_DIVIDE_BY_ZERO:
     case EXCEPTION_FLT_DENORMAL_OPERAND:
