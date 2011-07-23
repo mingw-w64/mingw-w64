@@ -1,3 +1,8 @@
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__debugbreak): Add prototype before the inline as it
+	appears in intrin.h.
+
 2011-07-11  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
 
 	* float.h: Extend guards about Clang's __FLOAT_H.

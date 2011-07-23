@@ -1,3 +1,9 @@
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h: Move the intrin.h include before the __faststorefence
+	inline. Remove the redundant prototype for _m_prefetchw() which
+	is already in intrin.h.
+
 2011-07-21  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* winnt.h (C_ASSERT): Define using EXTERN_C instead of extern.
