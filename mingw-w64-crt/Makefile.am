@@ -454,7 +454,7 @@ lib32_DATA = \
   lib32/libntmsapi.a   lib32/libspoolss.a   lib32/libsxs.a       lib32/libwecapi.a    \
   lib32/libwevtapi.a   lib32/libwevtfwd.a   lib32/libfwpuclnt.a  lib32/libmstask.a    \
   lib32/libqutil.a     lib32/libconnect.a   lib32/libesent.a     lib32/libhttpapi.a   \
-  lib32/libpdh.a       lib32/libpdhui.a     lib32/libcscapi.a                          \
+  lib32/libpdh.a       lib32/libpdhui.a     lib32/libcscapi.a    lib32/libvfw32.a     \
   lib32/libndfapi.a    lib32/libp2pcollab.a lib32/libp2pgraph.a  lib32/libwdstptc.a   \
   lib32/libks.a        lib32/libwsdapi.a    lib32/libp2p.a       lib32/librstrmgr.a   \
   lib32/librpchttp.a   lib32/libresutil.a   lib32/libqwave.a     lib32/librpcdiag.a   \
@@ -507,6 +507,15 @@ lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a: lib32/lib%.a: lib32/%.de
 
 lib32/lib%.a: lib32/%.def
 	$(DTDEF32) $<
+
+# libvfw32.a contains import stubs for 3 dll's.  Using an MRI script
+# seems to be the simplest way to combine them into one archive.
+# NB: With older dlltool, the object file members will not have unique
+# names.
+lib32/libvfw32.a: lib32/vfw32.mri lib32/libmsvfw32.a lib32/libavifil32.a lib32/libavicap32.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
 
 lib32/libxinput.a: lib32/$(xinput).def
 	$(DTDEF32) $<
@@ -900,6 +909,7 @@ lib64_DATA = \
   lib64/libwecapi.a     lib64/libwevtapi.a    lib64/libwevtfwd.a     lib64/libqutil.a       lib64/libconnect.a       \
   lib64/libfwpuclnt.a   lib64/libndfapi.a     lib64/libp2p.a         lib64/libp2pcollab.a   lib64/libp2pgraph.a      \
   lib64/libwdstptc.a    lib64/libcscapi.a     lib64/librstrmgr.a     lib64/libqwave.a       lib64/libwsdapi.a        \
+  lib64/libvfw32.a      \
   lib64/libks.a         lib64/librpcdiag.a    lib64/librpchttp.a     lib64/libresutil.a     lib64/libslwga.a         \
   lib64/libslc.a        lib64/libslcext.a     lib64/libvsstrace.a    lib64/libmsctfmonitor.a lib64/libtbs.a          \
   lib64/libtdh.a        lib64/libtxfw32.a     lib64/libwlanui.a      lib64/libwlanapi.a     lib64/libwlanutil.a      \
@@ -945,6 +955,15 @@ lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.de
 
 lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $<
+
+# libvfw32.a contains import stubs for 3 dll's.  Using an MRI script
+# seems to be the simplest way to combine them into one archive.
+# NB: With older dlltool, the object file members will not have unique
+# names.
+lib64/libvfw32.a: lib64/vfw32.mri lib64/libmsvfw32.a lib64/libavifil32.a lib64/libavicap32.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
 
 lib64/libxinput.a: lib64/$(xinput).def
 	$(DTDEF64) $<

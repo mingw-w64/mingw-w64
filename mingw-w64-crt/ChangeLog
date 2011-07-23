@@ -1,3 +1,10 @@
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/vfw32.mri: Adjust for lib32 subdirectory.
+	* lib32/vfw64.mri: New.
+	* Makefile.am: Generate libvfw32.a using vfw32.mri.
+	* Makefile.in: Regenerate.
+
 2011-05-31  Kai Tietz  <kai.tietz@onevision.com>
 
 	* crt/pesect.c, crt/pseudo-reloc.c: Optimize pseudo-relocation
