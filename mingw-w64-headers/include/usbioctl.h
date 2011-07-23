@@ -25,10 +25,6 @@
 #include "usb100.h"
 #include "usbiodef.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #define IOCTL_INTERNAL_USB_SUBMIT_URB  \
   CTL_CODE(FILE_DEVICE_USB, USB_SUBMIT_URB, METHOD_NEITHER, FILE_ANY_ACCESS)
 
@@ -666,8 +662,4 @@ typedef struct _USB_DEVICE_PERFORMANCE_INFO {
 #include <poppack.h>
 
 #endif /* USB_KERNEL_IOCTL */
-
-#ifdef __cplusplus
-}
-#endif
 

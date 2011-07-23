@@ -14,10 +14,6 @@
 
 #include <wintrust.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #ifndef WINAPI
 #define WINAPI __stdcall
 #endif
@@ -74,6 +70,10 @@ extern "C" {
     BindForwarderNOT32,
     BindForwarderNOT64
   } IMAGEHLP_STATUS_REASON;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
   typedef WINBOOL (WINAPI *PIMAGEHLP_STATUS_ROUTINE)(IMAGEHLP_STATUS_REASON Reason,PCSTR ImageName,PCSTR DllName,ULONG_PTR Va,ULONG_PTR Parameter);
   typedef WINBOOL (WINAPI *PIMAGEHLP_STATUS_ROUTINE32)(IMAGEHLP_STATUS_REASON Reason,PCSTR ImageName,PCSTR DllName,ULONG Va,ULONG_PTR Parameter);
@@ -1019,6 +1019,10 @@ extern "C" {
   DBHLP_DEPRECIATED WINBOOL IMAGEAPI FindFileInSearchPath(HANDLE hprocess,PCSTR SearchPath,PCSTR FileName,DWORD one,DWORD two,DWORD three,PSTR FilePath);
   DBHLP_DEPRECIATED WINBOOL IMAGEAPI SymEnumSym(HANDLE hProcess,ULONG64 BaseOfDll,PSYM_ENUMERATESYMBOLS_CALLBACK EnumSymbolsCallback,PVOID UserContext);
 
+#ifdef __cplusplus
+}
+#endif
+
 #define SYMF_OMAP_GENERATED 0x00000001
 #define SYMF_OMAP_MODIFIED 0x00000002
 #define SYMF_REGISTER 0x00000008
@@ -1428,6 +1432,10 @@ extern "C" {
     MiniDumpWithoutOptionalData              = 0x00000400
   } MINIDUMP_TYPE;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
   typedef WINBOOL (WINAPI *MINIDUMP_CALLBACK_ROUTINE)(PVOID CallbackParam,CONST PMINIDUMP_CALLBACK_INPUT CallbackInput,PMINIDUMP_CALLBACK_OUTPUT CallbackOutput);
 
   typedef struct _MINIDUMP_CALLBACK_INFORMATION {
@@ -1445,4 +1453,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
 #endif

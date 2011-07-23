@@ -12,10 +12,6 @@
 #endif
 #endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #define IMAGEAPI DECLSPEC_IMPORT WINAPI
 #define DBHLP_DEPRECIATED __declspec(deprecated)
 
@@ -45,6 +41,10 @@ extern "C" {
   } LOADED_IMAGE,*PLOADED_IMAGE;
 
 #define MAX_SYM_NAME 2000
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
   typedef WINBOOL (CALLBACK *PFIND_DEBUG_FILE_CALLBACK)(HANDLE FileHandle,PCSTR FileName,PVOID CallerData);
   typedef WINBOOL (CALLBACK *PFINDFILEINPATHCALLBACK)(PCSTR filename,PVOID context);
@@ -928,6 +928,10 @@ extern "C" {
   DBHLP_DEPRECIATED WINBOOL IMAGEAPI FindFileInSearchPath(HANDLE hprocess,PCSTR SearchPath,PCSTR FileName,DWORD one,DWORD two,DWORD three,PSTR FilePath);
   DBHLP_DEPRECIATED WINBOOL IMAGEAPI SymEnumSym(HANDLE hProcess,ULONG64 BaseOfDll,PSYM_ENUMERATESYMBOLS_CALLBACK EnumSymbolsCallback,PVOID UserContext);
 
+#ifdef __cplusplus
+}
+#endif
+
 #define SYMF_OMAP_GENERATED 0x00000001
 #define SYMF_OMAP_MODIFIED 0x00000002
 #define SYMF_REGISTER 0x00000008
@@ -1337,6 +1341,10 @@ extern "C" {
     MiniDumpWithoutOptionalData              = 0x00000400
   } MINIDUMP_TYPE;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
   typedef WINBOOL (WINAPI *MINIDUMP_CALLBACK_ROUTINE)(PVOID CallbackParam,CONST PMINIDUMP_CALLBACK_INPUT CallbackInput,PMINIDUMP_CALLBACK_OUTPUT CallbackOutput);
 
   typedef struct _MINIDUMP_CALLBACK_INFORMATION {
@@ -1354,4 +1362,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
 #endif
