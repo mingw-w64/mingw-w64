@@ -1,5 +1,12 @@
 2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Merged from trunk rev. 4284:
+	2011-07-19  Kai Tietz  <kai.tietz@onevision.com>
+	* mingw_getsp.S: Fix build for unmodified gcc 4.4.x and 4.5.0 series
+	about longjmp symbol and name decoration.
+
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* lib32/vfw32.mri: Adjust for lib32 subdirectory.
 	* lib32/vfw64.mri: New.
 	* Makefile.am: Generate libvfw32.a using vfw32.mri.

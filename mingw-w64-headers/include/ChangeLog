@@ -1,5 +1,12 @@
 2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Merged from trunk:
+	2010-07-19  Kai Tietz  <kai.tietz@onevision.com> (rev. 4283)
+	* _mingw_mac.h (__MINGW_IMP_LSYMBOL): New helper macro for assembly
+	files.
+
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* winnt.h (C_ASSERT): Revert the EXTERN_C change from rev.4285/4286.
 	* usbioctl.h: Remove the extern "C" {} from the header completely.
 	There are no functions or variables are declared, only data types,
