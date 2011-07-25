@@ -1354,29 +1354,6 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 	: : "r"(Value),"m"(*Destination) : "memory");
       return *Destination;
     }
-    __CRT_INLINE LONG InterlockedIncrement(LONG volatile *Addend) {
-      LONG ret = 1;
-      __asm__ __volatile__ ("lock\n\t"
-	       "xaddl %0,%1"
-	       : "+r" (ret), "+m" (*Addend)
-	       : : "memory");
-      return ret + 1;
-    }
-    __CRT_INLINE LONG InterlockedDecrement(LONG volatile *Addend) {
-      LONG ret = -1;
-      __asm__ __volatile__ ("lock\n\t"
-	       "xaddl %0,%1"
-	       : "+r" (ret), "+m" (*Addend)
-	       : : "memory");
-      return ret - 1;
-    }
-    __CRT_INLINE LONG InterlockedExchange(LONG volatile *Target,LONG Value) {
-      __asm__ __volatile__ ("lock ; xchgl %0,%1"
-	: "=r"(Value)
-	: "m"(*Target),"0"(Value)
-	: "memory");
-      return Value;
-    }
     __CRT_INLINE LONG64 InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value) {
       __asm__ __volatile__("lock ; andq %0,%1"
 	: : "r"(Value),"m"(*Destination) : "memory");
@@ -1985,6 +1962,32 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
     typedef CONTEXT *PCONTEXT;
 
 #endif /* end of _X86_ */
+
+#if defined(__MINGW_INTRIN_INLINE) && (defined(__i386__) || defined(__x86_64))
+  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedIncrement(LONG volatile *Addend) {
+    LONG ret = 1;
+    __asm__ __volatile__ ("lock\n\t"
+        "xaddl %0,%1"
+	: "+r" (ret), "+m" (*Addend)
+	: : "memory");
+    return ret + 1;
+  }
+  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedDecrement(LONG volatile *Addend) {
+    LONG ret = -1;
+    __asm__ __volatile__ ("lock\n\t"
+        "xaddl %0,%1"
+        : "+r" (ret), "+m" (*Addend)
+        : : "memory");
+    return ret - 1;
+  }
+  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedExchange(LONG volatile *Target,LONG Value) {
+    __asm__ __volatile__ ("lock ; xchgl %0,%1"
+        : "=r"(Value)
+        : "m"(*Target),"0"(Value)
+        : "memory");
+    return Value;
+  }
+#endif
 
 #ifndef _LDT_ENTRY_DEFINED
 #define _LDT_ENTRY_DEFINED
