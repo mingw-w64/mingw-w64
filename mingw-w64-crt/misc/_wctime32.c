@@ -8,10 +8,10 @@
 #endif
 #include <time.h>
 
-extern wchar_t * (__cdecl *__MINGW_IMP_SYMBOL(wctime))(const __time32_t *);
+extern wchar_t * (__cdecl *__MINGW_IMP_SYMBOL(_wctime))(const __time32_t *);
 
 wchar_t *__cdecl _wctime32(const __time32_t *_Time)
 {
-  return (*__MINGW_IMP_SYMBOL(wctime))(_Time);
+  return (*__MINGW_IMP_SYMBOL(_wctime))(_Time);
 }
 

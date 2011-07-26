@@ -1,3 +1,10 @@
+2011-07-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk rev. 4299:
+	2011-07-26  Kai Tietz  <kai.tietz@onevision.com>
+	* misc/_wctime32.c: Fix symbol to use _wctime instead of wctime
+	(which isn't present).
+
 2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merged from trunk rev. 4284:
