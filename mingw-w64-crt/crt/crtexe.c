@@ -420,21 +420,42 @@ __mingw_invalidParameterHandler (const wchar_t * __UNUSED_PARAM_1(expression),
 #endif
 }
 
+extern const char *
+__mingw_enum_import_library_names (int i);
+
 static void __cdecl 
 __mingw_prepare_except_for_msvcr80_and_higher (void)
 {
   _invalid_parameter_handler (*fIPH)(_invalid_parameter_handler) = NULL;
-  HMODULE hmsv = GetModuleHandleA ("msvcr80.dll");
-  if(!hmsv)
-    hmsv = GetModuleHandleA ("msvcr70.dll");
-  if (!hmsv)
-    hmsv = GetModuleHandleA ("msvcrt.dll");
-  if (!hmsv)
-    hmsv = LoadLibraryA ("msvcrt.dll");
-  if (!hmsv)
+  int i = 0;
+  const char *dllname;
+  HMODULE hmsv = NULL;
+
+  while ((dllname = __mingw_enum_import_library_names (i)) != NULL)
+    {
+      /* We don't use here strnicmp to avoid its dependency.
+	 See if DLL-name begins with "msvcr" and is followed by
+	 a "t" or a digit.  */
+      if ((dllname[0] != 'm' && dllname[0] != 'M')
+	  || (dllname[1] != 's' && dllname[1] != 'S')
+	  || (dllname[2] != 'v' && dllname[2] != 'V')
+	  || (dllname[3] != 'c' && dllname[3] != 'C')
+	  || (dllname[4] != 'r' && dllname[4] != 'R')
+	  || (dllname[5] != 't' && dllname[5] != 'T'
+	      && dllname[5] < '0' && dllname[5] > '9'))
+	{
+	  ++i;
+	  continue;
+	}
+      hmsv = GetModuleHandleA (dllname);
+      fIPH = (_invalid_parameter_handler (*)(_invalid_parameter_handler))
+	GetProcAddress (hmsv, "_set_invalid_parameter_handler");
+      if (fIPH)
+	break;
+      ++i;
+    }
+  if (!fIPH)
     return;
-  fIPH = (_invalid_parameter_handler (*)(_invalid_parameter_handler))
-    GetProcAddress (hmsv, "_set_invalid_parameter_handler");
   if (fIPH)
     (*fIPH)(__mingw_invalidParameterHandler);
 }

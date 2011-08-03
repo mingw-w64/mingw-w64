@@ -186,6 +186,9 @@ _IsNonwritableInCurrentImage (PBYTE pTarget)
 }
 
 const char *
+__mingw_enum_import_library_names (int);
+
+const char *
 __mingw_enum_import_library_names (int i)
 {
   PBYTE pImageBase;
@@ -218,7 +221,7 @@ __mingw_enum_import_library_names (int i)
         break;
 
       if (i <= 0)
-      	return (char *) (pImageBase + importDesc->Name));
+      	return (char *) (pImageBase + importDesc->Name);
       --i;
       importDesc++;
     }
