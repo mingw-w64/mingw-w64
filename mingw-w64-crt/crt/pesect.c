@@ -184,3 +184,44 @@ _IsNonwritableInCurrentImage (PBYTE pTarget)
     return FALSE;
   return (pSection->Characteristics & IMAGE_SCN_MEM_WRITE) == 0;
 }
+
+const char *
+__mingw_enum_import_library_names (int i)
+{
+  PBYTE pImageBase;
+  PIMAGE_NT_HEADERS pNTHeader;
+  PIMAGE_IMPORT_DESCRIPTOR importDesc;
+  PIMAGE_SECTION_HEADER pSection;
+  DWORD importsStartRVA;
+
+  pImageBase = (PBYTE) &__ImageBase;
+  if (! _ValidateImageBase (pImageBase))
+    return NULL;
+
+  pNTHeader = (PIMAGE_NT_HEADERS) (pImageBase + ((PIMAGE_DOS_HEADER) pImageBase)->e_lfanew);
+  
+  importsStartRVA = pNTHeader->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress;
+  if (!importsStartRVA)
+    return NULL;
+
+  pSection = _FindPESection (pImageBase, importsStartRVA);
+  if (!pSection)
+      return NULL;
+
+  importDesc = (PIMAGE_IMPORT_DESCRIPTOR) (pImageBase + importsStartRVA);
+  if (!importDesc)
+    return NULL;
+            
+  for (;;)
+    {
+      if (importDesc->TimeDateStamp == 0 && importDesc->Name == 0)
+        break;
+
+      if (i <= 0)
+      	return (char *) (pImageBase + importDesc->Name));
+      --i;
+      importDesc++;
+    }
+
+  return NULL;
+}
