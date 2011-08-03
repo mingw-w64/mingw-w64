@@ -162,7 +162,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #ifdef _WIN64
   __MINGW_EXTENSION typedef __int64 ssize_t;
 #else
-  typedef int ssize_t;
+  typedef long ssize_t;
 #endif /* _WIN64 */
 #endif /* _SSIZE_T_DEFINED */
 
