@@ -7,7 +7,7 @@
 #ifndef ___WSA_SOCKET_TYPES_H
 #define ___WSA_SOCKET_TYPES_H
 
-#if 0
+#if 1
 typedef UINT_PTR	SOCKET;
 #else
 typedef INT_PTR		SOCKET;

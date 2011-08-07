@@ -1,3 +1,7 @@
+2011-08-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* psdk_inc/_socket_types.h: Provide the SOCKET type as unsigned.
+
 2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* winnt.h (C_ASSERT): Revert the EXTERN_C change from rev.4285/4286.
