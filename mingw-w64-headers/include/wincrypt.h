@@ -473,12 +473,15 @@ extern "C" {
 
 #define MS_SCARD_PROV __MINGW_NAME_UAW(MS_SCARD_PROV)
 #define MS_ENH_RSA_AES_PROV __MINGW_NAME_UAW(MS_ENH_RSA_AES_PROV)
+#define MS_ENH_RSA_AES_PROV_XP __MINGW_NAME_UAW(MS_ENH_RSA_AES_PROV_XP)
 
 #define MS_SCARD_PROV_A "Microsoft Base Smart Card Crypto Provider"
 #define MS_SCARD_PROV_W L"Microsoft Base Smart Card Crypto Provider"
 
 #define MS_ENH_RSA_AES_PROV_A "Microsoft Enhanced RSA and AES Cryptographic Provider"
 #define MS_ENH_RSA_AES_PROV_W L"Microsoft Enhanced RSA and AES Cryptographic Provider"
+#define MS_ENH_RSA_AES_PROV_XP_A "Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)"
+#define MS_ENH_RSA_AES_PROV_XP_W L"Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)"
 
 #define MAXUIDLEN 64
 
