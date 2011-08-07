@@ -10,10 +10,10 @@
 #define __STRINGIFY(x) #x
 #define __MINGW64_STRINGIFY(x) __STRINGIFY(x)
 
-#define __MINGW64_VERSION_MAJOR	1
-#define __MINGW64_VERSION_MINOR	1
+#define __MINGW64_VERSION_MAJOR	2
+#define __MINGW64_VERSION_MINOR	0
 #define __MINGW64_VERSION_STR	__MINGW64_STRINGIFY(__MINGW64_VERSION_MAJOR) "." __MINGW64_STRINGIFY(__MINGW64_VERSION_MINOR)
-#define __MINGW64_VERSION_STATE	"alpha"
+#define __MINGW64_VERSION_STATE	"rc1"
 
 /* mingw.org's version macros: these make gcc to define
    MINGW32_SUPPORTS_MT_EH and to use the _CRT_MT global
