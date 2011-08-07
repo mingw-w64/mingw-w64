@@ -390,17 +390,17 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	math/tanhl.c math/tgamma.c math/tgammaf.c math/tgammal.c \
 	math/trunc.c math/truncf.c math/truncl.c math/cossin.c \
 	misc/mingw_matherr.c misc/mb_wc_common.h misc/mingw_getsp.S \
-	misc/strsafe.c misc/mempcpy.c misc/wmempcpy.c misc/alarm.c \
-	misc/basename.c misc/btowc.c misc/_ctime32.c misc/ctime.c \
-	misc/delay-f.c misc/delayimp.c misc/delay-n.c \
-	misc/difftime32.c misc/difftime64.c misc/difftime.c \
-	misc/dirent.c misc/dirname.c misc/execv.c misc/execve.c \
-	misc/execvp.c misc/execvpe.c misc/feclearexcept.c \
-	misc/fegetenv.c misc/fegetexceptflag.c misc/fegetround.c \
-	misc/feholdexcept.c misc/feraiseexcept.c misc/fesetenv.c \
-	misc/fesetexceptflag.c misc/fesetround.c misc/fetestexcept.c \
-	misc/feupdateenv.c misc/ftruncate.c misc/fwide.c \
-	misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
+	misc/mingw_get_codepage.c misc/strsafe.c misc/mempcpy.c \
+	misc/wmempcpy.c misc/alarm.c misc/basename.c misc/btowc.c \
+	misc/_ctime32.c misc/ctime.c misc/delay-f.c misc/delayimp.c \
+	misc/delay-n.c misc/difftime32.c misc/difftime64.c \
+	misc/difftime.c misc/dirent.c misc/dirname.c misc/execv.c \
+	misc/execve.c misc/execvp.c misc/execvpe.c \
+	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
+	misc/fegetround.c misc/feholdexcept.c misc/feraiseexcept.c \
+	misc/fesetenv.c misc/fesetexceptflag.c misc/fesetround.c \
+	misc/fetestexcept.c misc/feupdateenv.c misc/ftruncate.c \
+	misc/fwide.c misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
 	misc/_gmtime32.c misc/gmtime.c misc/imaxabs.c misc/imaxdiv.c \
 	misc/isblank.c misc/iswblank.c misc/_localtime32.c \
 	misc/localtime.c misc/mbrtowc.c misc/mbsinit.c \
@@ -753,6 +753,7 @@ am__objects_11 = crt/lib32_libmingwex_a-dllentry.$(OBJEXT) \
 	math/lib32_libmingwex_a-cossin.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_matherr.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mingw_getsp.$(OBJEXT) \
+	misc/lib32_libmingwex_a-mingw_get_codepage.$(OBJEXT) \
 	misc/lib32_libmingwex_a-strsafe.$(OBJEXT) \
 	misc/lib32_libmingwex_a-mempcpy.$(OBJEXT) \
 	misc/lib32_libmingwex_a-wmempcpy.$(OBJEXT) \
@@ -1358,17 +1359,17 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	math/tanhl.c math/tgamma.c math/tgammaf.c math/tgammal.c \
 	math/trunc.c math/truncf.c math/truncl.c math/cossin.c \
 	misc/mingw_matherr.c misc/mb_wc_common.h misc/mingw_getsp.S \
-	misc/strsafe.c misc/mempcpy.c misc/wmempcpy.c misc/alarm.c \
-	misc/basename.c misc/btowc.c misc/_ctime32.c misc/ctime.c \
-	misc/delay-f.c misc/delayimp.c misc/delay-n.c \
-	misc/difftime32.c misc/difftime64.c misc/difftime.c \
-	misc/dirent.c misc/dirname.c misc/execv.c misc/execve.c \
-	misc/execvp.c misc/execvpe.c misc/feclearexcept.c \
-	misc/fegetenv.c misc/fegetexceptflag.c misc/fegetround.c \
-	misc/feholdexcept.c misc/feraiseexcept.c misc/fesetenv.c \
-	misc/fesetexceptflag.c misc/fesetround.c misc/fetestexcept.c \
-	misc/feupdateenv.c misc/ftruncate.c misc/fwide.c \
-	misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
+	misc/mingw_get_codepage.c misc/strsafe.c misc/mempcpy.c \
+	misc/wmempcpy.c misc/alarm.c misc/basename.c misc/btowc.c \
+	misc/_ctime32.c misc/ctime.c misc/delay-f.c misc/delayimp.c \
+	misc/delay-n.c misc/difftime32.c misc/difftime64.c \
+	misc/difftime.c misc/dirent.c misc/dirname.c misc/execv.c \
+	misc/execve.c misc/execvp.c misc/execvpe.c \
+	misc/feclearexcept.c misc/fegetenv.c misc/fegetexceptflag.c \
+	misc/fegetround.c misc/feholdexcept.c misc/feraiseexcept.c \
+	misc/fesetenv.c misc/fesetexceptflag.c misc/fesetround.c \
+	misc/fetestexcept.c misc/feupdateenv.c misc/ftruncate.c \
+	misc/fwide.c misc/getlogin.c misc/getopt.c misc/gettimeofday.c \
 	misc/_gmtime32.c misc/gmtime.c misc/imaxabs.c misc/imaxdiv.c \
 	misc/isblank.c misc/iswblank.c misc/_localtime32.c \
 	misc/localtime.c misc/mbrtowc.c misc/mbsinit.c \
@@ -1728,6 +1729,7 @@ am__objects_31 = crt/lib64_libmingwex_a-dllentry.$(OBJEXT) \
 	math/lib64_libmingwex_a-cossin.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_matherr.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT) \
+	misc/lib64_libmingwex_a-mingw_get_codepage.$(OBJEXT) \
 	misc/lib64_libmingwex_a-strsafe.$(OBJEXT) \
 	misc/lib64_libmingwex_a-mempcpy.$(OBJEXT) \
 	misc/lib64_libmingwex_a-wmempcpy.$(OBJEXT) \
@@ -3291,6 +3293,7 @@ src_libmingwex = \
   misc/mingw_matherr.c \
   misc/mb_wc_common.h \
   misc/mingw_getsp.S  \
+  misc/mingw_get_codepage.c \
   misc/strsafe.c \
   misc/mempcpy.c misc/wmempcpy.c \
   misc/alarm.c                misc/basename.c      misc/btowc.c          misc/_ctime32.c              misc/ctime.c           \
@@ -5153,6 +5156,8 @@ misc/lib32_libmingwex_a-mingw_matherr.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-mingw_getsp.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmingwex_a-mingw_get_codepage.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-strsafe.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib32_libmingwex_a-mempcpy.$(OBJEXT): misc/$(am__dirstamp) \
@@ -6564,6 +6569,8 @@ misc/lib64_libmingwex_a-mingw_matherr.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-mingw_get_codepage.$(OBJEXT):  \
+	misc/$(am__dirstamp) misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-strsafe.$(OBJEXT): misc/$(am__dirstamp) \
 	misc/$(DEPDIR)/$(am__dirstamp)
 misc/lib64_libmingwex_a-mempcpy.$(OBJEXT): misc/$(am__dirstamp) \
@@ -9063,6 +9070,7 @@ mostlyclean-compile:
 	-rm -f misc/lib32_libmingwex_a-mempcpy.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-mingw-aligned-malloc.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-mingw-fseek.$(OBJEXT)
+	-rm -f misc/lib32_libmingwex_a-mingw_get_codepage.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-mingw_getsp.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-mingw_matherr.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-mingw_mbwc_convert.$(OBJEXT)
@@ -9160,6 +9168,7 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-mempcpy.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw-aligned-malloc.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw-fseek.$(OBJEXT)
+	-rm -f misc/lib64_libmingwex_a-mingw_get_codepage.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw_getsp.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw_matherr.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-mingw_mbwc_convert.$(OBJEXT)
@@ -10556,6 +10565,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mempcpy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw-aligned-malloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw-fseek.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_get_codepage.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_getsp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_matherr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-mingw_mbwc_convert.Po@am__quote@
@@ -10653,6 +10663,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mempcpy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw-aligned-malloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw-fseek.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_get_codepage.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_matherr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-mingw_mbwc_convert.Po@am__quote@
@@ -16498,6 +16509,20 @@ misc/lib32_libmingwex_a-mingw_matherr.obj: misc/mingw_matherr.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/mingw_matherr.c' object='misc/lib32_libmingwex_a-mingw_matherr.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-mingw_matherr.obj `if test -f 'misc/mingw_matherr.c'; then $(CYGPATH_W) 'misc/mingw_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_matherr.c'; fi`
+
+misc/lib32_libmingwex_a-mingw_get_codepage.o: misc/mingw_get_codepage.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-mingw_get_codepage.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-mingw_get_codepage.Tpo -c -o misc/lib32_libmingwex_a-mingw_get_codepage.o `test -f 'misc/mingw_get_codepage.c' || echo '$(srcdir)/'`misc/mingw_get_codepage.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-mingw_get_codepage.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-mingw_get_codepage.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/mingw_get_codepage.c' object='misc/lib32_libmingwex_a-mingw_get_codepage.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-mingw_get_codepage.o `test -f 'misc/mingw_get_codepage.c' || echo '$(srcdir)/'`misc/mingw_get_codepage.c
+
+misc/lib32_libmingwex_a-mingw_get_codepage.obj: misc/mingw_get_codepage.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-mingw_get_codepage.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-mingw_get_codepage.Tpo -c -o misc/lib32_libmingwex_a-mingw_get_codepage.obj `if test -f 'misc/mingw_get_codepage.c'; then $(CYGPATH_W) 'misc/mingw_get_codepage.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_get_codepage.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-mingw_get_codepage.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-mingw_get_codepage.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/mingw_get_codepage.c' object='misc/lib32_libmingwex_a-mingw_get_codepage.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-mingw_get_codepage.obj `if test -f 'misc/mingw_get_codepage.c'; then $(CYGPATH_W) 'misc/mingw_get_codepage.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_get_codepage.c'; fi`
 
 misc/lib32_libmingwex_a-strsafe.o: misc/strsafe.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-strsafe.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-strsafe.Tpo -c -o misc/lib32_libmingwex_a-strsafe.o `test -f 'misc/strsafe.c' || echo '$(srcdir)/'`misc/strsafe.c
@@ -24884,6 +24909,20 @@ misc/lib64_libmingwex_a-mingw_matherr.obj: misc/mingw_matherr.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/mingw_matherr.c' object='misc/lib64_libmingwex_a-mingw_matherr.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-mingw_matherr.obj `if test -f 'misc/mingw_matherr.c'; then $(CYGPATH_W) 'misc/mingw_matherr.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_matherr.c'; fi`
+
+misc/lib64_libmingwex_a-mingw_get_codepage.o: misc/mingw_get_codepage.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-mingw_get_codepage.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_get_codepage.Tpo -c -o misc/lib64_libmingwex_a-mingw_get_codepage.o `test -f 'misc/mingw_get_codepage.c' || echo '$(srcdir)/'`misc/mingw_get_codepage.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-mingw_get_codepage.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_get_codepage.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/mingw_get_codepage.c' object='misc/lib64_libmingwex_a-mingw_get_codepage.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-mingw_get_codepage.o `test -f 'misc/mingw_get_codepage.c' || echo '$(srcdir)/'`misc/mingw_get_codepage.c
+
+misc/lib64_libmingwex_a-mingw_get_codepage.obj: misc/mingw_get_codepage.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-mingw_get_codepage.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_get_codepage.Tpo -c -o misc/lib64_libmingwex_a-mingw_get_codepage.obj `if test -f 'misc/mingw_get_codepage.c'; then $(CYGPATH_W) 'misc/mingw_get_codepage.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_get_codepage.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-mingw_get_codepage.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-mingw_get_codepage.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/mingw_get_codepage.c' object='misc/lib64_libmingwex_a-mingw_get_codepage.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-mingw_get_codepage.obj `if test -f 'misc/mingw_get_codepage.c'; then $(CYGPATH_W) 'misc/mingw_get_codepage.c'; else $(CYGPATH_W) '$(srcdir)/misc/mingw_get_codepage.c'; fi`
 
 misc/lib64_libmingwex_a-strsafe.o: misc/strsafe.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-strsafe.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-strsafe.Tpo -c -o misc/lib64_libmingwex_a-strsafe.o `test -f 'misc/strsafe.c' || echo '$(srcdir)/'`misc/strsafe.c

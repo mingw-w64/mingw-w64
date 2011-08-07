@@ -200,6 +200,7 @@ src_libmingwex=\
   misc/mingw_matherr.c \
   misc/mb_wc_common.h \
   misc/mingw_getsp.S  \
+  misc/mingw_get_codepage.c \
   misc/strsafe.c \
   misc/mempcpy.c misc/wmempcpy.c \
   misc/alarm.c                misc/basename.c      misc/btowc.c          misc/_ctime32.c              misc/ctime.c           \
