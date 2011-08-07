@@ -1,3 +1,8 @@
+2011-08-07  Christian Franke  <Christian.Franke@t-online.de>
+
+	* stdio/mingw_vfscanf.c: Fix segmentation fault when a char or string
+	format (without malloc option) is used.
+
 2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/vfw32.mri: Adjust for lib32 subdirectory.
