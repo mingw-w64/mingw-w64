@@ -473,9 +473,11 @@ extern "C" {
 #ifdef UNICODE
 #define MS_SCARD_PROV MS_SCARD_PROV_W
 #define MS_ENH_RSA_AES_PROV MS_ENH_RSA_AES_PROV_W
+#define MS_ENH_RSA_AES_PROV_XP MS_ENH_RSA_AES_PROV_XP_W
 #else
 #define MS_SCARD_PROV MS_SCARD_PROV_A
 #define MS_ENH_RSA_AES_PROV MS_ENH_RSA_AES_PROV_A
+#define MS_ENH_RSA_AES_PROV_XP MS_ENH_RSA_AES_PROV_XP_A
 #endif
 
 #define MS_SCARD_PROV_A "Microsoft Base Smart Card Crypto Provider"
@@ -483,6 +485,8 @@ extern "C" {
 
 #define MS_ENH_RSA_AES_PROV_A "Microsoft Enhanced RSA and AES Cryptographic Provider"
 #define MS_ENH_RSA_AES_PROV_W L"Microsoft Enhanced RSA and AES Cryptographic Provider"
+#define MS_ENH_RSA_AES_PROV_XP_A "Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)"
+#define MS_ENH_RSA_AES_PROV_XP_W L"Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)"
 
 #define MAXUIDLEN 64
 
