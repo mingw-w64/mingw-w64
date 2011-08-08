@@ -1443,7 +1443,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
 #include <intrin.h>
 
-#define FastFence __faststorefence		/* FIXME: implement proprely */
+#define FastFence __faststorefence
 #define LoadFence _mm_lfence
 #define MemoryFence _mm_mfence
 #define StoreFence _mm_sfence
@@ -1455,7 +1455,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #endif
 
 #define YieldProcessor _mm_pause
-#define MemoryBarrier __faststorefence		/* FIXME: implement proprely */
+#define MemoryBarrier __faststorefence
 #define PreFetchCacheLine(l,a) _mm_prefetch((CHAR CONST *) a,l)
 #define PrefetchForWrite(p) _m_prefetchw(p)
 #define ReadForWriteAccess(p) (_m_prefetchw(p),*(p))
@@ -1546,7 +1546,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
     LONG64 Multiply128(LONG64 Multiplier,LONG64 Multiplicand,LONG64 *HighProduct);
 
-#define UnsignedMultiply128 _umul128		/* FIXME: implement proprely */
+#define UnsignedMultiply128 _umul128
 
     DWORD64 UnsignedMultiply128(DWORD64 Multiplier,DWORD64 Multiplicand,DWORD64 *HighProduct);
 

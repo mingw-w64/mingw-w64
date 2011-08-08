@@ -1540,7 +1540,7 @@ typedef struct _MINIDUMP_THREAD_INFO {
 typedef struct _MINIDUMP_THREAD_INFO_LIST {
   ULONG   SizeOfHeader;
   ULONG   SizeOfEntry;
-  ULONG   NumberOfEntries; /* FIXME: msdn says ULONG64 */
+  ULONG   NumberOfEntries;
 } MINIDUMP_THREAD_INFO_LIST, *PMINIDUMP_THREAD_INFO_LIST;
 
 #ifdef __cplusplus
