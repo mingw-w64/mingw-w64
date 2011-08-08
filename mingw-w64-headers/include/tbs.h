@@ -13,7 +13,6 @@
 extern "C" {
 #endif
 
-  /* TODO: Not clear, but RESULT types have normally LONG type.  */
   typedef UINT32 TBS_RESULT;
 
   typedef enum _TBS_COMMAND_LOCALITY {
