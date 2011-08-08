@@ -1,5 +1,13 @@
 2011-08-08  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* dxva2api.h: Implemented missing inline functions:
+	(DXVA2_Fixed32OpaqueAlpha): New.
+	(DXVA2_Fixed32TransparentAlpha): New.
+	(DXVA2FixedToFloat): New.
+	(DXVA2FloatToFixed): New.
+
+2011-08-08  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* iscsidsc.h: Fixed many of the constants and data types.
 
 2011-08-07  Ozkan Sezer  <sezeroz@gmail.com>

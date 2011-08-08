@@ -550,11 +550,28 @@ typedef struct {
 #define DXVA2_MotionVectorBuffer 7
 #define DXVA2_FilmGrainBuffer 8
 
-/*Fixme: inlines?*/
-const DXVA2_Fixed32 DXVA2_Fixed32OpaqueAlpha(void);
-const DXVA2_Fixed32 DXVA2_Fixed32TransparentAlpha(void);
-float DXVA2FixedToFloat(const DXVA2_Fixed32 _fixed_);
-DXVA2_Fixed32 DXVA2FloatToFixed(const float _float_);
+__forceinline const DXVA2_Fixed32 DXVA2_Fixed32OpaqueAlpha (void) {
+  DXVA2_Fixed32 f32;
+  f32.ll = 0 + (1 << 16);
+  return f32;
+}
+
+__forceinline const DXVA2_Fixed32 DXVA2_Fixed32TransparentAlpha (void) {
+  DXVA2_Fixed32 f32;
+  f32.ll = 0;
+  return f32;
+}
+
+__forceinline float DXVA2FixedToFloat (const DXVA2_Fixed32 f32) {
+  return (float)f32.Value + (float)f32.Fraction / (1 << 16);
+}
+
+__forceinline DXVA2_Fixed32 DXVA2FloatToFixed (const float f) {
+  DXVA2_Fixed32 f32;
+  f32.Value    = ((ULONG) (f * (1 << 16))) >> 16;
+  f32.Fraction = ((ULONG) (f * (1 << 16))) & 0xFFFF;
+  return f32;
+}
 
 HRESULT WINAPI DXVA2CreateDirect3DDeviceManager9(UINT *pResetToken,IDirect3DDeviceManager9 **ppDXVAManager);
 HRESULT WINAPI DXVA2CreateVideoService(IDirect3DDevice9 *pDD,REFIID riid,void **ppService);
