@@ -1,3 +1,7 @@
+2011-08-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* iscsidsc.h: Fixed many of the constants and data types.
+
 2011-08-07  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* wincrypt.h: Added MS_ENH_RSA_AES_PROV_XP[_A|_W]. (Thanks to Alon
