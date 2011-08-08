@@ -28,7 +28,12 @@ typedef enum _PartType {
   Subunit 
 } PartType;
 
-/* Fixme: Guessed from http://msdn.microsoft.com/en-us/library/dd316543%28VS.85%29.aspx */
+/* NOTE: EChannelMapping enumeration is obsoleted in Windows/7:
+ * SPEAKER_FRONT_LEFT and friends from ksmedia.h are to
+ * be used as KSJACK_DESCRIPTION->ChannelMapping member
+ * values who also changed to a DWORD. See:
+ * http://msdn.microsoft.com/en-us/library/dd316543(VS.85).aspx
+ */
 typedef enum _EChannelMapping {
   ePcxChanMap_FL_FR = 0,
   ePcxChanMap_FC_LFE,
@@ -87,7 +92,7 @@ typedef enum _EPxcPortConnection {
 } EPxcPortConnection;
 
 typedef struct _KSJACK_DESCRIPTION {
-  EChannelMapping    ChannelMapping;
+  EChannelMapping    ChannelMapping; /* see note up above for EChannelMapping */
   COLORREF           Color;
   EPcxConnectionType ConnectionType;
   EPcxGeoLocation    GeoLocation;
