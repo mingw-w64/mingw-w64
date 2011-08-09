@@ -32,14 +32,14 @@ long double wcstold (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ w
   unsigned int i;
   long double ret;
   const unsigned int cp = __mingw_get_codepage();
-  
+
   /* Allocate enough room for (possibly) mb chars */
   cs = (char *) malloc ((wcslen(wcs)+1) * MB_CUR_MAX);
 
   if (cp == 0) /* C locale */
     {
       for (i = 0; (wcs[i] != 0) && wcs[i] <= 255; i++)
-        cs[i] = (char) wcs[i];                                                                                                                                                                                                                                                                                                   
+        cs[i] = (char) wcs[i];
       cs[i]  = '\0';
     }
   else
@@ -49,7 +49,7 @@ long double wcstold (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ w
       /* loop through till we hit null or invalid character */
       for (i = 0; (wcs[i] != 0) && (nbytes != 0); i++)
 	{
-     	  nbytes = WideCharToMultiByte(cp, WC_COMPOSITECHECK | WC_SEPCHARS,
+	  nbytes = WideCharToMultiByte(cp, WC_COMPOSITECHECK | WC_SEPCHARS,
 				       wcs + i, 1, cs + mb_len, MB_CUR_MAX,
 				       NULL, NULL);
 	  mb_len += nbytes;

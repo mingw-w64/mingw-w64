@@ -1,3 +1,10 @@
+2011-08-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Remove stdio/wcstof.c from build.
+	* Makefile.in: Regenerate.
+	* misc/mbrtowc.c, misc/wcrtomb.c, misc/wcstof.c, misc/wcstold.c,
+	misc/wctob.c: Fix utterly incomprehensible whitespace style.
+
 2011-08-07  Christian Franke  <Christian.Franke@t-online.de>
 
 	* stdio/mingw_vfscanf.c: Fix segmentation fault when a char or string

@@ -20,8 +20,7 @@ __mbrtowc_cp (wchar_t * __restrict__ pwc, const char * __restrict__ s,
   union {
     mbstate_t val;
     char mbcs[4];
-  }  shift_state;
-
+  } shift_state;
 
   /* Do the prelim checks */
   if (s == NULL)
@@ -41,54 +40,55 @@ __mbrtowc_cp (wchar_t * __restrict__ pwc, const char * __restrict__ s,
       *pwc = 0;
       return 0;
     }
- 
+
   if (mb_max > 1)
     {
       if (shift_state.mbcs[0] != 0)
 	{
 	  /* Complete the mb char with the trailing byte.  */
-          shift_state.mbcs[1] = *s;  /* the second byte */
-          if (MultiByteToWideChar(cp, MB_ERR_INVALID_CHARS,
+	  shift_state.mbcs[1] = *s;  /* the second byte */
+	  if (MultiByteToWideChar(cp, MB_ERR_INVALID_CHARS,
 				  shift_state.mbcs, 2, pwc, 1)
 		 == 0)
 	    {
-	      /* An invalid trailing byte */	 
+	      /* An invalid trailing byte */
 	      errno = EILSEQ;
 	      return -1;
 	    }
-          return 2;
-        }
+	  return 2;
+	}
       else if (IsDBCSLeadByteEx (cp, *s))
-        {
-          /* If told to translate one byte, just save the leadbyte
-             in *ps.  */
+	{
+	  /* If told to translate one byte, just save the leadbyte
+	     in *ps.  */
 	  if (n < 2)
 	    {
-	      ((char*) ps)[0] = *s; 
+	      ((char*) ps)[0] = *s;
 	      return -2;
 	    }
-          /* Else translate the first two bytes  */  
-          else if (MultiByteToWideChar (cp, MB_ERR_INVALID_CHARS,
+	  /* Else translate the first two bytes  */  
+	  else if (MultiByteToWideChar (cp, MB_ERR_INVALID_CHARS,
 					s, 2, pwc, 1)
 		    == 0)
 	    {
 	      errno = EILSEQ;
 	      return -1;
 	    }
-          return 2;
-        }
+	  return 2;
+	}
     }
 
-  /* Fall through to single byte char  */ 
+  /* Fall through to single byte char  */
   if (cp == 0)
       *pwc = (wchar_t)(unsigned char)*s;
- 
+
   else if (MultiByteToWideChar (cp, MB_ERR_INVALID_CHARS, s, 1, pwc, 1)
 	    == 0)
     {
       errno = EILSEQ;
       return  -1;
     }
+
   return 1;
 }
 
@@ -116,7 +116,7 @@ mbsrtowcs (wchar_t* __restrict__ dst,  const char ** __restrict__ src,
   const unsigned int cp = __mingw_get_codepage();
   const unsigned int mb_max = MB_CUR_MAX;
 
-  if ( src == NULL || *src == NULL )	/* undefined behavior */
+  if (src == NULL || *src == NULL)	/* undefined behavior */
     return 0;
 
   if (dst != NULL)
@@ -127,14 +127,13 @@ mbsrtowcs (wchar_t* __restrict__ dst,  const char ** __restrict__ src,
 		  > 0)
 	{
 	  ++dst;
-   	  *src += ret;
-          n += ret;
-        }
+	  *src += ret;
+	  n += ret;
+	}
 
       if (n < len && ret == 0)
-        *src = (char *)NULL;
+	*src = (char *)NULL;
     }
-  
   else
     {
       wchar_t byte_bucket = 0;
@@ -143,9 +142,9 @@ mbsrtowcs (wchar_t* __restrict__ dst,  const char ** __restrict__ src,
 				     internal_ps, cp, mb_max))
 		  > 0)
 	{
-          *src += ret;
-          n += ret;
-        }
+	  *src += ret;
+	  n += ret;
+	}
     }
   return n;
 }

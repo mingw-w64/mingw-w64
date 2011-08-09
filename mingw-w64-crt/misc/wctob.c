@@ -22,7 +22,8 @@ int wctob (wint_t wc )
     if (!WideCharToMultiByte (__mingw_get_codepage(),
 			      0 /* Is this correct flag? */,
 			      &w, 1, &c, 1, NULL, &invalid_char)
-         || invalid_char)
+	 || invalid_char)
       return EOF;
+
     return (int) c;
 }
