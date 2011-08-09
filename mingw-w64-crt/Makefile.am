@@ -183,6 +183,7 @@ src_libmingwex=\
   math/truncl.c       \
   \
   misc/mb_wc_common.h \
+  misc/mingw_get_codepage.c \
   misc/mingw_getsp.S  \
   misc/alarm.c                misc/basename.c      misc/btowc.c          misc/_ctime32.c              misc/ctime.c           \
   misc/delay-f.c              misc/delayimp.c      misc/delay-n.c        misc/difftime32.c            misc/difftime64.c      \

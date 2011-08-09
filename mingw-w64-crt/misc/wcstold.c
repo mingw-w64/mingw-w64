@@ -20,24 +20,11 @@
 #include <wchar.h>
 #include <stdlib.h>
 #include <string.h>
+#include "mb_wc_common.h"
 
 extern int __asctoe64(const char * __restrict__ ss,
 	       short unsigned int * __restrict__ y);
 
-
-static __inline__ unsigned int get_codepage (void)
-{
-  char* cp;
-
-  /*
-    locale :: "lang[_country[.code_page]]" 
-               | ".code_page"
-  */
-  if ((cp = strchr(setlocale(LC_CTYPE, NULL), '.')))
-    return atoi( cp + 1);
-  else
-    return 0;
-}
 
 long double wcstold (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ wcse)
 {
@@ -50,7 +37,7 @@ long double wcstold (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ w
     long double ld;
   } xx;
 
-  unsigned int cp = get_codepage ();   
+  unsigned int cp = __mingw_get_codepage();   
   
   /* Allocate enough room for (possibly) mb chars */
   cs = (char *) malloc ((wcslen(wcs)+1) * MB_CUR_MAX);

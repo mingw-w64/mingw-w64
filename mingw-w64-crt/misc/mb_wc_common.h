@@ -5,10 +5,5 @@
  */
 
 #include <_mingw.h>
-_CRTIMP unsigned int ___lc_codepage_func(void);
 
-static inline
-unsigned int get_codepage (void)
-{
-  return ___lc_codepage_func();
-}
+extern unsigned int (__cdecl *__mingw_get_codepage)(void);
