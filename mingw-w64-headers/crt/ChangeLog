@@ -1,3 +1,10 @@
+2011-08-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* crt/stdio.h (__mingw_asprintf): New.
+	(__mingw_vasprintf): New.
+	* _mingw_print_pop.h, _mingw_print_push.h: New macros to handle
+	asprintf and vasprintf.
+
 2011-08-07  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* sec_api/string_s.h: Added prototypes for wcscpy_s() and wcscat_s()

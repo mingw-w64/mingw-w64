@@ -23,6 +23,9 @@
 #define fscanf __mingw_fscanf
 #define vfscanf __mingw_vfscanf
 
+#define asprintf __mingw_asprintf
+#define vasprintf __mingw_vasprintf
+
 #endif
 
 #ifdef _WSTDIO_DEFINED

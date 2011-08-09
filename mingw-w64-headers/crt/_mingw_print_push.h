@@ -38,6 +38,9 @@
 #undef fwscanf
 #undef vfwscanf
 
+#undef asprintf
+#undef vasprintf
+
 /* Redefine to MS specific PRI... and SCN... macros.  */
 #if defined(_INTTYPES_H_) && defined(PRId64)
 #undef PRId64

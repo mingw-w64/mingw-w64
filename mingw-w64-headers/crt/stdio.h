@@ -578,6 +578,9 @@ void __cdecl __mingw_str_free(void *ptr);
 
 #endif /* __MINGW_MBWC_CONVERT_DEFINED */
 
+int __cdecl __attribute__ ((format (gnu_printf, 2, 3))) __attribute__((nonnull (1,2))) __mingw_asprintf(char **ret, const char *format, ...);
+int __cdecl __attribute__ ((format (gnu_printf, 2, 0))) __attribute__((nonnull (1,2))) __mingw_vasprintf(char **ret, const char *format, va_list ap);
+
 #ifdef __cplusplus
 }
 #endif
