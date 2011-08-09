@@ -221,7 +221,7 @@ src_libmingwex=\
   misc/wcstoumax.c            misc/_wctime32.c     misc/_wctime.c        misc/wctob.c                 misc/wctrans.c         \
   misc/wctype.c               misc/wdirent.c       misc/winbs_uint64.c   misc/winbs_ulong.c           misc/winbs_ushort.c    \
   misc/wmemchr.c              misc/wmemcmp.c       misc/wmemcpy.c        misc/wmemmove.c              misc/wmemset.c         \
-  misc/wcstof.c misc/mingw_wcstod.c misc/mingw_wcstof.c misc/mingw_wcstold.c \
+  misc/wcstof.c               misc/mingw_wcstod.c  misc/mingw_wcstof.c   misc/mingw_wcstold.c         \
   stdio/mingw_pformat.h \
   stdio/atoll.c stdio/_Exit.c stdio/_findfirst64i32.c \
   stdio/_findnext64i32.c stdio/fopen64.c \
@@ -245,7 +245,7 @@ src_libmingwex=\
   stdio/_stat.c stdio/strtof.c stdio/ulltoa.c stdio/ulltow.c stdio/vfscanf.c \
   stdio/vfwscanf.c stdio/vscanf.c stdio/vsnprintf.c stdio/vsnprintf_s.c \
   stdio/vsnwprintf.c stdio/vsscanf.c \
-  stdio/vswscanf.c stdio/vwscanf.c stdio/wcstof.c \
+  stdio/vswscanf.c stdio/vwscanf.c   \
   stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
   stdio/_wstat64i32.c stdio/_wstat.c stdio/wtoll.c \
   stdio/fgetpos64.c        stdio/fseeko32.c        stdio/fsetpos64.c        stdio/ftello.c            stdio/ftruncate64.c     \
