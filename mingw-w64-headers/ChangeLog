@@ -1,0 +1,24 @@
+2011-08-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Replaced DDK external link to ReactOS svn and copied over the
+	local tree from experimental/ddk_test.
+
+2010-09-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* configure.ac (BASEHEAD_LIST): Remove include/*.c.
+	* configure: Regenerate.
+
+2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am (EXTRA_HEADERS): Remove include/*.c
+	* Makefile.in: Regenerate.
+
+2010-09-10  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* Fix up configury after mingw_inc to psdk rename.
+
+2010-08-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Move aux scripts to subdir to tidy up top levels.  Upgrade
+	to autoconf-2.65.  Merge a few pieces from the trunk version
+	of configure.ac.
