@@ -929,7 +929,7 @@ OpenProfileUserMapping
 OpenSemaphoreA
 OpenSemaphoreW
 OpenThread
-OpenThreadToken
+;OpenThreadToken
 OpenWaitableTimerA
 OpenWaitableTimerW
 OutputDebugStringA
