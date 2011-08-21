@@ -67,7 +67,7 @@ extern "C" {
 #ifdef _WIN64
   __MINGW_EXTENSION typedef __int64 ssize_t;
 #else
-  typedef long ssize_t;
+  typedef int ssize_t;
 #endif
 #endif
 
