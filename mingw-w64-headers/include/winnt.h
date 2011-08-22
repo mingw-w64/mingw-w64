@@ -145,15 +145,11 @@ extern "C" {
 #endif /* DECLSPEC_NOINLINE */
 
 #ifndef FORCEINLINE
-#if defined(_MSC_VER) && (_MSC_VER >= 1200)
+#if !defined(_MSC_VER) || (_MSC_VER >=1200)
 #define FORCEINLINE __forceinline
-#elif defined(_MSC_VER)
+#else
 #define FORCEINLINE __inline
-#elif defined(__cplusplus) /* __GNUG__ */
-#define FORCEINLINE inline __attribute__((always_inline))
-#else /* __GNUC__ */
-#define FORCEINLINE extern __inline__ __attribute__((always_inline))
-#endif
+#endif 
 #endif /* FORCEINLINE */
 
 #ifndef DECLSPEC_DEPRECATED

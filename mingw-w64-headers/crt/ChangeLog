@@ -1,3 +1,8 @@
+2011-08-22  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	_mingw.h.in (__forceinline): Fix for C99 case and check for
+	C++ mode.
+
 2011-08-09  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* crt/stdio.h (__mingw_asprintf): New.

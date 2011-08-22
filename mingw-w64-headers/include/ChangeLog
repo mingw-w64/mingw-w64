@@ -1,5 +1,9 @@
 2011-08-22  Jonathan Yong  <jon_y@users.sourceforge.net>
 
+	* winnt.h (FORCEINLINE): Simplify based on _mingw.h definition.
+
+2011-08-22  Jonathan Yong  <jon_y@users.sourceforge.net>
+
 	* Changes by: Corinna Vinschen  corinna [a] sourceware.org  2011-08-19 11:58:05
 	* winuser.h: Add missing MAPVK_xxx definitions.
 
