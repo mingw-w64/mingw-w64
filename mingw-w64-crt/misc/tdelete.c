@@ -30,7 +30,6 @@ tdelete(const void *vkey,	/* key to be deleted */
 	node_t *p, *q, *r;
 	int  cmp;
 
-	_DIAGASSERT(vkey != NULL);
 	_DIAGASSERT(compar != NULL);
 
 	if (rootp == NULL || (p = *rootp) == NULL)
