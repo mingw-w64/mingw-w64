@@ -19,23 +19,24 @@
 
 /* find a node, or return 0 */
 void *
-tfind(const void *vkey,
-      void * const *vrootp,
-      int (*compar) (const void *, const void *))
+tfind (const void *vkey, void * const *vrootp,
+       int (*compar) (const void *, const void *))
 {
-	node_t * const *rootp = (node_t * const*)vrootp;
+  node_t * const *rootp = (node_t * const*)vrootp;
 
-	if (rootp == NULL)
-		return NULL;
+  if (rootp == NULL)
+    return NULL;
 
-	while (*rootp != NULL) {		/* T1: */
-		int r;
+  while (*rootp != NULL)
+    {
+      /* T1: */
+      int r;
 
-		if ((r = (*compar)(vkey, (*rootp)->key)) == 0)	/* T2: */
-			return *rootp;		/* key found */
-		rootp = (r < 0) ?
-		    &(*rootp)->llink :		/* T3: follow left branch */
-		    &(*rootp)->rlink;		/* T4: follow right branch */
-	}
-	return NULL;
+      if ((r = (*compar)(vkey, (*rootp)->key)) == 0)	/* T2: */
+	return *rootp;		/* key found */
+      rootp = (r < 0) ?
+	  &(*rootp)->llink :		/* T3: follow left branch */
+	  &(*rootp)->rlink;		/* T4: follow right branch */
+    }
+  return NULL;
 }

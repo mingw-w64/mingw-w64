@@ -1,3 +1,11 @@
+2011-08-24  Kai Tietz  <ktietz@redhat.com>
+
+	* misc/tfind.c, misc/tsearch.c, misc/tdelete.c, misc/twalk.c:
+	Fix nonsense with key argument checking for NULL and fixed
+	issue for new key insertation.  It might happens that tree
+	gets into denormalized state, but well, this is something
+	for a different patch.
+
 2011-08-09  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* Makefile.am: Remove stdio/wcstof.c from build.
