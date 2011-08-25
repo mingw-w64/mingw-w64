@@ -1,3 +1,7 @@
+2011-08-24  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* d2d1.h: Fix typos.
+
 2011-08-22  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* winnt.h (FORCEINLINE): Simplify based on _mingw.h definition.
