@@ -1457,7 +1457,7 @@ interface ID2D1Factory : public IUnknown {
     STDMETHOD(CreateWicBitmapRenderTarget)(IWICBitmap *target, const D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties, ID2D1RenderTarget **renderTarget) PURE;
     STDMETHOD(CreateHwndRenderTarget)(const D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties, const D2D1_HWND_RENDER_TARGET_PROPERTIES *hwndRenderTargetProperties, ID2D1HwndRenderTarget **hwndRenderTarget) PURE;
     STDMETHOD(CreateDxgiSurfaceRenderTarget)(IDXGISurface *dxgiSurface, const D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties, ID2D1RenderTarget **renderTarget) PURE;
-    STDMETHOD(CreateDCRenderTarget)(const ID2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties, ID2D1DCRenderTarget **dcRenderTarget) PURE;
+    STDMETHOD(CreateDCRenderTarget)(const D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties, ID2D1DCRenderTarget **dcRenderTarget) PURE;
 
     HRESULT CreateRectangleGeometry(const D2D1_RECT_F &rectangle, ID2D1RectangleGeometry **rectangleGeometry) {
         return CreateRectangleGeometry(&rectangle, rectangleGeometry);
@@ -1518,7 +1518,7 @@ typedef struct ID2D1FactoryVtbl {
     STDMETHOD(CreateWicBitmapRenderTarget)(ID2D1Factory *This, IWICBitmap *target, const D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties, ID2D1RenderTarget **renderTarget) PURE;
     STDMETHOD(CreateHwndRenderTarget)(ID2D1Factory *This, const D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties, const D2D1_HWND_RENDER_TARGET_PROPERTIES *hwndRenderTargetProperties, ID2D1HwndRenderTarget **hwndRenderTarget) PURE;
     STDMETHOD(CreateDxgiSurfaceRenderTarget)(ID2D1Factory *This, IDXGISurface *dxgiSurface, const D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties, ID2D1RenderTarget **renderTarget) PURE;
-    STDMETHOD(CreateDCRenderTarget)(D2D1Factory *This, const D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties, ID2D1DCRenderTarget **dcRenderTarget) PURE;
+    STDMETHOD(CreateDCRenderTarget)(ID2D1Factory *This, const D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties, ID2D1DCRenderTarget **dcRenderTarget) PURE;
 } ID2D1FactoryVtbl;
 
 interface ID2D1Factory {
