@@ -1,3 +1,18 @@
+2011-08-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winuser.h: Added missing SM_ constants for new windows versions :
+	(SM_MOUSEHORIZONTALWHEELPRESENT): New constant, 91.
+	(SM_CXPADDEDBORDER): New constant, 92.
+	(SM_DIGITIZER): New constant, 94.
+	(SM_MAXIMUMTOUCHES): New constant, 95.
+	(NID_INTEGRATED_TOUCH): New constant, 0x01.
+	(NID_EXTERNAL_TOUCH): New constant, 0x02.
+	(NID_INTEGRATED_PEN): New constant, 0x04.
+	(NID_EXTERNAL_PEN): New constant, 0x08.
+	(NID_MULTI_INPUT): New constant, 0x40.
+	(NID_READY): New constant, 0x80.
+	(SM_CMETRICS): Adjusted after the new additions.
+
 2011-08-24  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* d2d1.h: Fix typos.
