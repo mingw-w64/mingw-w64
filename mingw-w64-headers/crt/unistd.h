@@ -66,8 +66,8 @@ __CRT_INLINE int ftruncate(int __fd, _off_t __length)
 }
 #endif
 
-#ifndef _POSIX_TIMEOUTS
-#define _POSIX_TIMEOUTS 0
+#ifdef _PTHREADS
+#include <pthread.h>
 #endif
 
 #undef __UNISTD_H_SOURCED__
