@@ -72,6 +72,17 @@ errno_t __cdecl _get_errno(int *_Value);
 
 #define EDEADLOCK EDEADLK
 
+/* Posix thread extensions.  */
+#ifndef ETIMEDOUT
+#define ETIMEDOUT       110
+#endif
+#ifndef ENOTSUP
+#define ENOTSUP         134
+#endif
+#ifndef EWOULDBLOCK
+#define EWOULDBLOCK     EAGAIN
+#endif
+
 #ifdef __cplusplus
 }
 #endif
