@@ -66,9 +66,7 @@ __CRT_INLINE int ftruncate(int __fd, _off_t __length)
 }
 #endif
 
-#ifdef _PTHREADS
-#include <pthread.h>
-#endif
+#include <pthread_unistd.h>
 
 #undef __UNISTD_H_SOURCED__
 #endif /* _UNISTD_H */
