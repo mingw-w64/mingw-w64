@@ -73,14 +73,152 @@ errno_t __cdecl _get_errno(int *_Value);
 #define EDEADLOCK EDEADLK
 
 /* Posix thread extensions.  */
-#ifndef ETIMEDOUT
-#define ETIMEDOUT       110
-#endif
+
+/* Defined with same value as on svr.  */
 #ifndef ENOTSUP
 #define ENOTSUP         134
 #endif
+
+/* Extension defined as WSA or classical WIN error-numbers.  */
+
+#ifndef EAFNOSUPPORT
+/* Defined as WSAEAFNOSUPPORT.  */
+#define EAFNOSUPPORT 10047
+#endif
+
+#ifndef EADDRINUSE
+/* Defined as WSAEADDRINUSE.  */
+#define EADDRINUSE 10048
+#endif
+
+#ifndef EADDRNOTAVAIL
+/* Define as WSAEADDRNOTAVAIL.  */
+#define EADDRNOTAVAIL 10049
+#endif
+
+#ifndef EISCONN
+/* Defined as WSAEISCONN.  */
+#define EISCONN 10056
+#endif
+
+#ifndef ENOBUFS
+/* Defined as WSAENOBUFS.  */
+#define ENOBUFS 10055
+#endif
+
+#ifndef ECONNABORTED
+/* Defined as WSAECONNABORTED.  */
+#define ECONNABORTED 10053
+#endif
+
+#ifndef EALREADY
+/* Defined as WSAEALREADY.  */
+#define EALREADY 10037
+#endif
+
+#ifndef ECONNREFUSED
+/* Defined as WSAECONNREFUSED.  */
+#define ECONNREFUSED 10061
+#endif
+
+#ifndef ECONNRESET
+/* Defined as WSAECONNRESET.  */
+#define ECONNRESET 10054
+#endif
+
+#ifndef EDESTADDRREQ
+/* Defined as WSAEDESTADDRREQ.  */
+#define EDESTADDRREQ 10039
+#endif
+
+#ifndef EHOSTUNREACH
+/* Defined as WSAEHOSTUNREACH.  */
+#define EHOSTUNREACH 10065
+#endif
+
+#ifndef EMSGSIZE
+/* Defined as WSAEMSGSIZE.  */
+#define EMSGSIZE 10040
+#endif
+
+#ifndef ENETDOWN
+/* Define as WSAENETDOWN.  */
+#define ENETDOWN 10050
+#endif
+
+#ifndef ENETRESET
+/* Defined as WSAENETRESET.  */
+#define ENETRESET 10052
+#endif
+
+#ifndef ENETUNREACH
+/* Defined as WSAENETUNREACH.  */
+#define ENETUNREACH 10051
+#endif
+
+#ifndef ENOPROTOOPT
+/* Defined as WSAENOPROTOOPT.  */
+#define ENOPROTOOPT 10042
+#endif
+
+#ifndef ENOTSOCK
+/* Defined as WSAENOTSOCK.  */
+#define ENOTSOCK 10038
+#endif
+
+#ifndef ENOTCONN
+/* Defined as WSAENOTCONN.  */
+#define ENOTCONN 10057
+#endif
+
+#ifndef ECANCELED
+/* Defined as WSAEINTR.  */
+#define ECANCELED 10004
+#endif
+
+#ifndef EINPROGRESS
+/* Defined as WSAEINPROGRESS.  */
+#define EINPROGRESS 10036
+#endif
+
+#ifndef EOPNOTSUPP
+/* Defined as WSAEOPNOTSUPP.  */
+#define EOPNOTSUPP 10045
+#endif
+
+/* Defined as WSAEWOULDBLOCK.  */
 #ifndef EWOULDBLOCK
-#define EWOULDBLOCK     EAGAIN
+#define EWOULDBLOCK 10035
+#endif
+
+#ifndef EOWNERDEAD
+/* Defined as ERROR_SEM_OWNER_DIED.  */
+#define EOWNERDEAD 105
+#endif
+
+#ifndef EPROTO
+/* Defined as XACT_E_TIP_PROTOCOL_ERROR.  */
+#define EPROTO 0x8004D020
+#endif
+
+#ifndef EPROTONOSUPPORT
+/* Defined as WSAEPROTONOSUPPORT.  */
+#define EPROTONOSUPPORT 10043
+#endif
+
+/* Defined as WSAETIMEDOUT.  */
+#ifndef ETIMEDOUT
+#define ETIMEDOUT 10060
+#endif
+
+#ifndef ELOOP
+/* Defined as WSAELOOP.  */
+#define ELOOP 10062
+#endif
+
+#ifndef EPROTOTYPE
+/* Defined as WSAEPROTOTYPE.  */
+#define EPROTOTYPE 10041
 #endif
 
 #ifdef __cplusplus
