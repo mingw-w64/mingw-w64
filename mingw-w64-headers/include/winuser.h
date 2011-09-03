@@ -5352,6 +5352,7 @@ typedef struct _AUDIODESCRIPTION {
   LCID Locale;
 } AUDIODESCRIPTION, *PAUDIODESCRIPTION;
 
+#ifndef NOGDI
 #define CreateDesktopEx __MINGW_NAME_AW(CreateDesktopEx)
 
 WINUSERAPI HDESK WINAPI CreateDesktopExA(
@@ -5375,6 +5376,7 @@ WINUSERAPI HDESK WINAPI CreateDesktopExW(
   ULONG ulHeapSize,
   PVOID pvoid
 );
+#endif	/* NOGDI */
 
 WINUSERAPI WINBOOL WINAPI ShutdownBlockReasonCreate(
   HWND hWnd,
