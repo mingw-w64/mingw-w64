@@ -1,3 +1,8 @@
+2011-09-03  Jose Fonseca  <jrfonseca@users.sourceforge.net>
+
+	* winuser.h (CreateDesktopEx, CreateDesktopExA, CreateDesktopExW):
+	Don't define when NOGDI is defined.
+
 2011-08-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* winuser.h: Added missing SM_ constants for new windows versions :
