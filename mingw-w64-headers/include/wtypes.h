@@ -34,6 +34,8 @@ extern "C" {
 extern RPC_IF_HANDLE IWinTypes_v0_1_c_ifspec;
 extern RPC_IF_HANDLE IWinTypes_v0_1_s_ifspec;
 #if 0
+typedef LONG BOOL;
+typedef LONG WINBOOL;
 typedef LONG LONG;
 typedef ULONG ULONG;
 typedef IID *REFIID;

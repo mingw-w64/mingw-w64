@@ -18,6 +18,11 @@
 typedef interface IUnknown IUnknown;
 #endif
 
+#ifndef __IClassFactory_FWD_DEFINED__
+#define __IClassFactory_FWD_DEFINED__
+typedef interface IClassFactory IClassFactory;
+#endif
+
 /* Headers for imported files */
 
 #include <wtypes.h>
@@ -30,12 +35,6 @@ extern "C" {
 #define __AsyncIUnknown_FWD_DEFINED__
 typedef struct AsyncIUnknown AsyncIUnknown;
 #endif
-
-#ifndef __IClassFactory_FWD_DEFINED__
-#define __IClassFactory_FWD_DEFINED__
-typedef struct IClassFactory IClassFactory;
-#endif
-
   extern RPC_IF_HANDLE __MIDL_itf_unknwn_0000_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_unknwn_0000_v0_0_s_ifspec;
 
@@ -207,47 +206,110 @@ void __RPC_STUB IUnknown_Release_Stub(
   void __RPC_STUB AsyncIUnknown_Finish_Release_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
+/*****************************************************************************
+ * IClassFactory interface
+ */
 #ifndef __IClassFactory_INTERFACE_DEFINED__
 #define __IClassFactory_INTERFACE_DEFINED__
-  typedef IClassFactory *LPCLASSFACTORY;
 
-  EXTERN_C const IID IID_IClassFactory;
+typedef IClassFactory *LPCLASSFACTORY;
+DEFINE_GUID(IID_IClassFactory, 0x00000001, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IClassFactory : public IUnknown {
-  public:
-    virtual HRESULT WINAPI CreateInstance(IUnknown *pUnkOuter,REFIID riid,void **ppvObject) = 0;
-    virtual HRESULT WINAPI LockServer(WINBOOL fLock) = 0;
-  };
+MIDL_INTERFACE("00000001-0000-0000-c000-000000000046")
+IClassFactory : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateInstance(
+        IUnknown *pUnkOuter,
+        REFIID riid,
+        void **ppvObject) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE LockServer(
+        WINBOOL fLock) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IClassFactory, 0x00000001, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IClassFactoryVtbl {
+typedef struct IClassFactoryVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IClassFactory *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IClassFactory *This);
-      ULONG (WINAPI *Release)(IClassFactory *This);
-      HRESULT (WINAPI *CreateInstance)(IClassFactory *This,IUnknown *pUnkOuter,REFIID riid,void **ppvObject);
-      HRESULT (WINAPI *LockServer)(IClassFactory *This,WINBOOL fLock);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IClassFactory* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IClassFactory* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IClassFactory* This);
+
+    /*** IClassFactory methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateInstance)(
+        IClassFactory* This,
+        IUnknown *pUnkOuter,
+        REFIID riid,
+        void **ppvObject);
+
+    HRESULT (STDMETHODCALLTYPE *LockServer)(
+        IClassFactory* This,
+        WINBOOL fLock);
+
     END_INTERFACE
-  } IClassFactoryVtbl;
-  struct IClassFactory {
-    CONST_VTBL struct IClassFactoryVtbl *lpVtbl;
-  };
+} IClassFactoryVtbl;
+interface IClassFactory {
+    CONST_VTBL IClassFactoryVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IClassFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IClassFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IClassFactory_Release(This) (This)->lpVtbl->Release(This)
+/*** IClassFactory methods ***/
 #define IClassFactory_CreateInstance(This,pUnkOuter,riid,ppvObject) (This)->lpVtbl->CreateInstance(This,pUnkOuter,riid,ppvObject)
 #define IClassFactory_LockServer(This,fLock) (This)->lpVtbl->LockServer(This,fLock)
 #endif
+
 #endif
-  HRESULT WINAPI IClassFactory_RemoteCreateInstance_Proxy(IClassFactory *This,REFIID riid,IUnknown **ppvObject);
-  void __RPC_STUB IClassFactory_RemoteCreateInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IClassFactory_RemoteLockServer_Proxy(IClassFactory *This,WINBOOL fLock);
-  void __RPC_STUB IClassFactory_RemoteLockServer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IClassFactory_CreateInstance_Proxy(IClassFactory *This,IUnknown *pUnkOuter,REFIID riid,void **ppvObject);
-  HRESULT WINAPI IClassFactory_CreateInstance_Stub(IClassFactory *This,REFIID riid,IUnknown **ppvObject);
-  HRESULT WINAPI IClassFactory_LockServer_Proxy(IClassFactory *This,WINBOOL fLock);
-  HRESULT WINAPI IClassFactory_LockServer_Stub(IClassFactory *This,WINBOOL fLock);
-#endif
+
+HRESULT STDMETHODCALLTYPE IClassFactory_RemoteCreateInstance_Proxy(
+    IClassFactory* This,
+    REFIID riid,
+    IUnknown **ppvObject);
+void __RPC_STUB IClassFactory_RemoteCreateInstance_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IClassFactory_RemoteLockServer_Proxy(
+    IClassFactory* This,
+    WINBOOL fLock);
+void __RPC_STUB IClassFactory_RemoteLockServer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IClassFactory_CreateInstance_Proxy(
+    IClassFactory* This,
+    IUnknown *pUnkOuter,
+    REFIID riid,
+    void **ppvObject);
+HRESULT __RPC_STUB IClassFactory_CreateInstance_Stub(
+    IClassFactory* This,
+    REFIID riid,
+    IUnknown **ppvObject);
+HRESULT CALLBACK IClassFactory_LockServer_Proxy(
+    IClassFactory* This,
+    WINBOOL fLock);
+HRESULT __RPC_STUB IClassFactory_LockServer_Stub(
+    IClassFactory* This,
+    WINBOOL fLock);
+
+#endif  /* __IClassFactory_INTERFACE_DEFINED__ */
+
 /* Begin additional prototypes for all interfaces */
 
 

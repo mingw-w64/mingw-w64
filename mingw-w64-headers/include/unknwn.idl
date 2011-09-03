@@ -12,12 +12,6 @@ cpp_quote("#ifndef __AsyncIUnknown_FWD_DEFINED__")
 cpp_quote("#define __AsyncIUnknown_FWD_DEFINED__")
 cpp_quote("typedef struct AsyncIUnknown AsyncIUnknown;")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IClassFactory_FWD_DEFINED__")
-cpp_quote("#define __IClassFactory_FWD_DEFINED__")
-cpp_quote("typedef struct IClassFactory IClassFactory;")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_unknwn_0000_v0_0_c_ifspec;")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_unknwn_0000_v0_0_s_ifspec;")
 cpp_quote("")
@@ -121,44 +115,27 @@ cpp_quote("  ULONG WINAPI AsyncIUnknown_Finish_Release_Proxy(AsyncIUnknown *This
 cpp_quote("  void __RPC_STUB AsyncIUnknown_Finish_Release_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#ifndef __IClassFactory_INTERFACE_DEFINED__")
-cpp_quote("#define __IClassFactory_INTERFACE_DEFINED__")
-cpp_quote("  typedef IClassFactory *LPCLASSFACTORY;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IClassFactory;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IClassFactory : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI CreateInstance(IUnknown *pUnkOuter,REFIID riid,void **ppvObject) = 0;")
-cpp_quote("    virtual HRESULT WINAPI LockServer(WINBOOL fLock) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IClassFactoryVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IClassFactory *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IClassFactory *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IClassFactory *This);")
-cpp_quote("      HRESULT (WINAPI *CreateInstance)(IClassFactory *This,IUnknown *pUnkOuter,REFIID riid,void **ppvObject);")
-cpp_quote("      HRESULT (WINAPI *LockServer)(IClassFactory *This,WINBOOL fLock);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IClassFactoryVtbl;")
-cpp_quote("  struct IClassFactory {")
-cpp_quote("    CONST_VTBL struct IClassFactoryVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IClassFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IClassFactory_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IClassFactory_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IClassFactory_CreateInstance(This,pUnkOuter,riid,ppvObject) (This)->lpVtbl->CreateInstance(This,pUnkOuter,riid,ppvObject)")
-cpp_quote("#define IClassFactory_LockServer(This,fLock) (This)->lpVtbl->LockServer(This,fLock)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IClassFactory_RemoteCreateInstance_Proxy(IClassFactory *This,REFIID riid,IUnknown **ppvObject);")
-cpp_quote("  void __RPC_STUB IClassFactory_RemoteCreateInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IClassFactory_RemoteLockServer_Proxy(IClassFactory *This,WINBOOL fLock);")
-cpp_quote("  void __RPC_STUB IClassFactory_RemoteLockServer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IClassFactory_CreateInstance_Proxy(IClassFactory *This,IUnknown *pUnkOuter,REFIID riid,void **ppvObject);")
-cpp_quote("  HRESULT WINAPI IClassFactory_CreateInstance_Stub(IClassFactory *This,REFIID riid,IUnknown **ppvObject);")
-cpp_quote("  HRESULT WINAPI IClassFactory_LockServer_Proxy(IClassFactory *This,WINBOOL fLock);")
-cpp_quote("  HRESULT WINAPI IClassFactory_LockServer_Stub(IClassFactory *This,WINBOOL fLock);")
-cpp_quote("#endif")
+
+[
+  object,
+  uuid(00000001-0000-0000-C000-000000000046),
+  pointer_default(unique)
+]
+interface IClassFactory : IUnknown
+{
+    typedef [unique] IClassFactory *LPCLASSFACTORY;
+
+    [local]
+    HRESULT CreateInstance(
+            [in, unique] IUnknown *pUnkOuter,
+            [in] REFIID riid,
+            [out, iid_is(riid)] void **ppvObject);
+
+    [call_as(CreateInstance)]
+    HRESULT RemoteCreateInstance(
+            [in] REFIID riid,
+            [out, iid_is(riid)] IUnknown **ppvObject);
+
+    [local] HRESULT LockServer([in] BOOL fLock);
+    [call_as(LockServer)] HRESULT RemoteLockServer([in] BOOL fLock);
+}

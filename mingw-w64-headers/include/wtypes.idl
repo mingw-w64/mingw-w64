@@ -21,10 +21,21 @@ interface IWinTypes
 {
 
 cpp_quote("#if 0")
+
+#ifdef BOOL
+#undef BOOL
+typedef long BOOL;
+typedef long WINBOOL;
+#define BOOL WINBOOL
+#else
+typedef long BOOL;
+#endif
+
 typedef long LONG;
 typedef unsigned long ULONG;
 
 typedef IID *REFIID;
+
 cpp_quote("#endif")
 
 cpp_quote("  typedef struct tagRemHGLOBAL {")
