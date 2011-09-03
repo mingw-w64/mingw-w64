@@ -12,7 +12,9 @@
 
 #include <_mingw.h>
 
+#ifndef __WIDL__
 #pragma pack(push,_CRT_PACKING)
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -31,7 +33,7 @@ extern "C" {
   typedef __gnuc_va_list va_list;
 #elif defined(_MSC_VER)
   typedef char *  va_list;
-#else /* !gcc && !msvc */
+#elif !defined(__WIDL__)
 #error VARARGS not implemented for this compiler
 #endif
 #endif /* _VA_LIST_DEFINED */
@@ -99,7 +101,9 @@ extern "C" {
 }
 #endif
 
+#ifndef __WIDL__
 #pragma pack(pop)
+#endif
 
 #endif /* _INC_VADEFS */
 

@@ -292,7 +292,9 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 
 #include <vadefs.h>	/* other headers depend on this include */
 
+#ifndef __WIDL__
 #pragma pack(push,_CRT_PACKING)
+#endif
 
 #ifndef _CRT_STRINGIZE
 #define __CRT_STRINGIZE(_Value) #_Value
@@ -440,7 +442,7 @@ typedef int ptrdiff_t;
 
 #ifndef _WCHAR_T_DEFINED
 #define _WCHAR_T_DEFINED
-#ifndef __cplusplus
+#if !defined(__cplusplus) && !defined(__WIDL__)
 typedef unsigned short wchar_t;
 #endif /* C++ */
 #endif /* _WCHAR_T_DEFINED */
@@ -712,7 +714,9 @@ const char *__mingw_get_crt_info (void);
 }
 #endif
 
+#ifndef __WIDL__
 #pragma pack(pop)
+#endif
 
 #endif /* _INC_CRTDEFS */
 
@@ -721,7 +725,9 @@ const char *__mingw_get_crt_info (void);
 
 @MINGW_HAS_SECURE_API@
 
+#ifndef __WIDL__
 #include "sdks/_mingw_directx.h"
 #include "sdks/_mingw_ddk.h"
+#endif
 
 #endif /* MINGW_SDK_INIT */
