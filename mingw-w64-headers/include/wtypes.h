@@ -25,9 +25,19 @@ extern "C" {
   extern RPC_IF_HANDLE __MIDL_itf_wtypes_0000_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_wtypes_0000_v0_0_s_ifspec;
 
+/*****************************************************************************
+ * IWinTypes interface (v0.1)
+ */
 #ifndef __IWinTypes_INTERFACE_DEFINED__
 #define __IWinTypes_INTERFACE_DEFINED__
 
+extern RPC_IF_HANDLE IWinTypes_v0_1_c_ifspec;
+extern RPC_IF_HANDLE IWinTypes_v0_1_s_ifspec;
+#if 0
+typedef LONG LONG;
+typedef ULONG ULONG;
+typedef IID *REFIID;
+#endif
   typedef struct tagRemHGLOBAL {
     long fNullHGlobal;
     unsigned long cbData;
@@ -247,9 +257,8 @@ extern "C" {
 
 #ifndef _HRESULT_DEFINED
 #define _HRESULT_DEFINED
-  typedef LONG HRESULT;
+typedef LONG HRESULT;
 #endif
-
   typedef SCODE *PSCODE;
 
 #ifndef __OBJECTID_DEFINED
@@ -527,9 +536,8 @@ extern "C" {
 
   typedef void *HMETAFILEPICT;
 
-  extern RPC_IF_HANDLE IWinTypes_v0_1_c_ifspec;
-  extern RPC_IF_HANDLE IWinTypes_v0_1_s_ifspec;
-#endif
+#endif  /* __IWinTypes_INTERFACE_DEFINED__ */
+
 
   typedef double DATE;
 

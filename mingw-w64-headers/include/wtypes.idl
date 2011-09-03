@@ -10,9 +10,23 @@ import "guiddef.h";
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wtypes_0000_v0_0_c_ifspec;")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wtypes_0000_v0_0_s_ifspec;")
 cpp_quote("")
-cpp_quote("#ifndef __IWinTypes_INTERFACE_DEFINED__")
-cpp_quote("#define __IWinTypes_INTERFACE_DEFINED__")
-cpp_quote("")
+
+[
+  uuid(D3980A60-910C-1068-9341-00DD010F2F1C),
+  version(0.1),
+  pointer_default(unique)
+]
+
+interface IWinTypes
+{
+
+cpp_quote("#if 0")
+typedef long LONG;
+typedef unsigned long ULONG;
+
+typedef IID *REFIID;
+cpp_quote("#endif")
+
 cpp_quote("  typedef struct tagRemHGLOBAL {")
 cpp_quote("    long fNullHGlobal;")
 cpp_quote("    unsigned long cbData;")
@@ -230,11 +244,12 @@ cpp_quote("  } COAUTHINFO;")
 cpp_quote("")
 cpp_quote("  typedef LONG SCODE;")
 cpp_quote("")
+
 cpp_quote("#ifndef _HRESULT_DEFINED")
 cpp_quote("#define _HRESULT_DEFINED")
-cpp_quote("  typedef LONG HRESULT;")
+typedef LONG HRESULT;
 cpp_quote("#endif")
-cpp_quote("")
+
 cpp_quote("  typedef SCODE *PSCODE;")
 cpp_quote("")
 cpp_quote("#ifndef __OBJECTID_DEFINED")
@@ -511,10 +526,9 @@ cpp_quote("  typedef userHMETAFILE *wireHMETAFILE;")
 cpp_quote("  typedef userHMETAFILEPICT *wireHMETAFILEPICT;")
 cpp_quote("")
 cpp_quote("  typedef void *HMETAFILEPICT;")
-cpp_quote("")
-cpp_quote("  extern RPC_IF_HANDLE IWinTypes_v0_1_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE IWinTypes_v0_1_s_ifspec;")
-cpp_quote("#endif")
+
+} /* IWinTypes */
+
 cpp_quote("")
 cpp_quote("  typedef double DATE;")
 cpp_quote("")

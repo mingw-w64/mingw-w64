@@ -8,11 +8,6 @@
 import "wtypes.idl";
 #endif
 
-cpp_quote("#ifndef __IUnknown_FWD_DEFINED__")
-cpp_quote("#define __IUnknown_FWD_DEFINED__")
-cpp_quote("typedef struct IUnknown IUnknown;")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("#ifndef __AsyncIUnknown_FWD_DEFINED__")
 cpp_quote("#define __AsyncIUnknown_FWD_DEFINED__")
 cpp_quote("typedef struct AsyncIUnknown AsyncIUnknown;")
@@ -26,12 +21,10 @@ cpp_quote("")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_unknwn_0000_v0_0_c_ifspec;")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_unknwn_0000_v0_0_s_ifspec;")
 cpp_quote("")
-cpp_quote("#ifndef __IUnknown_INTERFACE_DEFINED__")
+
+cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE) && !defined(__IUnknown_INTERFACE_DEFINED__)")
 cpp_quote("#define __IUnknown_INTERFACE_DEFINED__")
-cpp_quote("")
 cpp_quote("  typedef IUnknown *LPUNKNOWN;")
-cpp_quote("")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
 cpp_quote("  EXTERN_C const IID IID_IUnknown;")
 cpp_quote("  extern \"C++\" {")
 cpp_quote("    struct IUnknown {")
@@ -51,44 +44,25 @@ cpp_quote("  void __RPC_STUB IUnknown_AddRef_Stub(IRpcStubBuffer *This,IRpcChann
 cpp_quote("  ULONG WINAPI IUnknown_Release_Proxy(IUnknown *This);")
 cpp_quote("  void __RPC_STUB IUnknown_Release_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("__CRT_UUID_DECL(IUnknown, 0x00000000, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)")
-cpp_quote("")
 cpp_quote("#else")
-cpp_quote("  EXTERN_C const IID IID_IUnknown;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      virtual HRESULT WINAPI QueryInterface(REFIID riid,void **ppvObject) = 0;")
-cpp_quote("      virtual ULONG WINAPI AddRef(void) = 0;")
-cpp_quote("      virtual ULONG WINAPI Release(void) = 0;")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IUnknownVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IUnknown *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IUnknown *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IUnknown *This);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IUnknownVtbl;")
-cpp_quote("  struct IUnknown {")
-cpp_quote("    CONST_VTBL struct IUnknownVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IUnknown_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IUnknown_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IUnknown_Release(This) (This)->lpVtbl->Release(This)")
+
+[
+  local,
+  object,
+  uuid(00000000-0000-0000-C000-000000000046),
+  pointer_default(unique)
+]
+interface IUnknown
+{
+    typedef [unique] IUnknown *LPUNKNOWN;
+
+    HRESULT QueryInterface([in] REFIID riid, [out, iid_is(riid)] void **ppvObject);
+    ULONG AddRef();
+    ULONG Release();
+}
+
 cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IUnknown_QueryInterface_Proxy(IUnknown *This,REFIID riid,void **ppvObject);")
-cpp_quote("  void __RPC_STUB IUnknown_QueryInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  ULONG WINAPI IUnknown_AddRef_Proxy(IUnknown *This);")
-cpp_quote("  void __RPC_STUB IUnknown_AddRef_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  ULONG WINAPI IUnknown_Release_Proxy(IUnknown *This);")
-cpp_quote("  void __RPC_STUB IUnknown_Release_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
+
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_unknwn_0005_v0_0_c_ifspec;")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_unknwn_0005_v0_0_s_ifspec;")
 cpp_quote("#ifndef __AsyncIUnknown_INTERFACE_DEFINED__")
@@ -188,4 +162,3 @@ cpp_quote("  HRESULT WINAPI IClassFactory_CreateInstance_Stub(IClassFactory *Thi
 cpp_quote("  HRESULT WINAPI IClassFactory_LockServer_Proxy(IClassFactory *This,WINBOOL fLock);")
 cpp_quote("  HRESULT WINAPI IClassFactory_LockServer_Stub(IClassFactory *This,WINBOOL fLock);")
 cpp_quote("#endif")
-cpp_quote("")

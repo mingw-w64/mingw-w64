@@ -13,17 +13,17 @@
 
 /* Forward declarations */
 
+#ifndef __IUnknown_FWD_DEFINED__
+#define __IUnknown_FWD_DEFINED__
+typedef interface IUnknown IUnknown;
+#endif
+
 /* Headers for imported files */
 
 #include <wtypes.h>
 
 #ifdef __cplusplus
 extern "C" {
-#endif
-
-#ifndef __IUnknown_FWD_DEFINED__
-#define __IUnknown_FWD_DEFINED__
-typedef struct IUnknown IUnknown;
 #endif
 
 #ifndef __AsyncIUnknown_FWD_DEFINED__
@@ -39,12 +39,9 @@ typedef struct IClassFactory IClassFactory;
   extern RPC_IF_HANDLE __MIDL_itf_unknwn_0000_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_unknwn_0000_v0_0_s_ifspec;
 
-#ifndef __IUnknown_INTERFACE_DEFINED__
+#if defined(__cplusplus) && !defined(CINTERFACE) && !defined(__IUnknown_INTERFACE_DEFINED__)
 #define __IUnknown_INTERFACE_DEFINED__
-
   typedef IUnknown *LPUNKNOWN;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
   EXTERN_C const IID IID_IUnknown;
   extern "C++" {
     struct IUnknown {
@@ -64,44 +61,94 @@ typedef struct IClassFactory IClassFactory;
   ULONG WINAPI IUnknown_Release_Proxy(IUnknown *This);
   void __RPC_STUB IUnknown_Release_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 __CRT_UUID_DECL(IUnknown, 0x00000000, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#else
+/*****************************************************************************
+ * IUnknown interface
+ */
+#ifndef __IUnknown_INTERFACE_DEFINED__
+#define __IUnknown_INTERFACE_DEFINED__
 
-#else
-  EXTERN_C const IID IID_IUnknown;
+typedef IUnknown *LPUNKNOWN;
+DEFINE_GUID(IID_IUnknown, 0x00000000, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IUnknown {
-  public:
+MIDL_INTERFACE("00000000-0000-0000-c000-000000000046")
+IUnknown
+{
     BEGIN_INTERFACE
-      virtual HRESULT WINAPI QueryInterface(REFIID riid,void **ppvObject) = 0;
-      virtual ULONG WINAPI AddRef(void) = 0;
-      virtual ULONG WINAPI Release(void) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryInterface(
+        REFIID riid,
+        void **ppvObject) = 0;
+
+    virtual ULONG STDMETHODCALLTYPE AddRef(
+        ) = 0;
+
+    virtual ULONG STDMETHODCALLTYPE Release(
+        ) = 0;
+
     END_INTERFACE
-  };
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IUnknown, 0x00000000, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IUnknownVtbl {
+typedef struct IUnknownVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IUnknown *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IUnknown *This);
-      ULONG (WINAPI *Release)(IUnknown *This);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IUnknown* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IUnknown* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IUnknown* This);
+
     END_INTERFACE
-  } IUnknownVtbl;
-  struct IUnknown {
-    CONST_VTBL struct IUnknownVtbl *lpVtbl;
-  };
+} IUnknownVtbl;
+interface IUnknown {
+    CONST_VTBL IUnknownVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IUnknown_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IUnknown_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IUnknown_Release(This) (This)->lpVtbl->Release(This)
 #endif
-#endif
-  HRESULT WINAPI IUnknown_QueryInterface_Proxy(IUnknown *This,REFIID riid,void **ppvObject);
-  void __RPC_STUB IUnknown_QueryInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  ULONG WINAPI IUnknown_AddRef_Proxy(IUnknown *This);
-  void __RPC_STUB IUnknown_AddRef_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  ULONG WINAPI IUnknown_Release_Proxy(IUnknown *This);
-  void __RPC_STUB IUnknown_Release_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IUnknown_QueryInterface_Proxy(
+    IUnknown* This,
+    REFIID riid,
+    void **ppvObject);
+void __RPC_STUB IUnknown_QueryInterface_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+ULONG STDMETHODCALLTYPE IUnknown_AddRef_Proxy(
+    IUnknown* This);
+void __RPC_STUB IUnknown_AddRef_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+ULONG STDMETHODCALLTYPE IUnknown_Release_Proxy(
+    IUnknown* This);
+void __RPC_STUB IUnknown_Release_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IUnknown_INTERFACE_DEFINED__ */
+
+#endif
   extern RPC_IF_HANDLE __MIDL_itf_unknwn_0005_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_unknwn_0005_v0_0_s_ifspec;
 #ifndef __AsyncIUnknown_INTERFACE_DEFINED__
@@ -201,7 +248,6 @@ __CRT_UUID_DECL(IUnknown, 0x00000000, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,
   HRESULT WINAPI IClassFactory_LockServer_Proxy(IClassFactory *This,WINBOOL fLock);
   HRESULT WINAPI IClassFactory_LockServer_Stub(IClassFactory *This,WINBOOL fLock);
 #endif
-
 /* Begin additional prototypes for all interfaces */
 
 
