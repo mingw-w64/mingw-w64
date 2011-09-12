@@ -773,6 +773,7 @@ TransactNamedPipe@28
 TransmitCommChar@8
 TrimVirtualBuffer@4
 TryEnterCriticalSection@4
+TzSpecificLocalTimeToSystemTime@12
 UTRegister@28
 UTUnRegister@4
 UnhandledExceptionFilter@4
