@@ -22,6 +22,10 @@
 
 	* d2d1.h: Fix typos.
 
+2011-08-22  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* winnt.h (FORCEINLINE): Simplify based on _mingw.h definition.
+
 2011-08-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* dxva2api.h: Implemented missing inline functions:

@@ -268,7 +268,11 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #ifndef __w64
 #define __w64
 #endif
-#define __forceinline extern __inline__ __attribute__((always_inline))
+#ifdef __cplusplus
+#define __forceinline inline __attribute__((always_inline))
+#else
+#define __forceinline extern __inline__ __attribute__((always_inline,__gnu_inline__))
+#endif /* __cplusplus */
 #endif /* __GNUC__ */
 
 #ifndef _WIN32
