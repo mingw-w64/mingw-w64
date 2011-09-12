@@ -1429,8 +1429,9 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	intrincs/writegsword.c intrincs/writegsdword.c \
 	intrincs/writegsqword.c intrincs/mul128ex.c \
 	intrincs/umul128ex.c intrincs/_mul128.c intrincs/_umul128.c \
-	intrincs/__movsq.c intrincs/__stosq.c intrincs/_rotl64.c \
-	intrincs/_rotr64.c
+	intrincs/__movsq.c intrincs/__shiftright128.c \
+	intrincs/__shiftleft128.c intrincs/__stosq.c \
+	intrincs/_rotl64.c intrincs/_rotr64.c
 am__objects_31 = crt/lib64_libmingwex_a-dllentry.$(OBJEXT) \
 	crt/lib64_libmingwex_a-dllmain.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT) \
@@ -1928,6 +1929,8 @@ am__objects_32 = intrincs/lib64_libmingwex_a-bittest64.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-_mul128.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-_umul128.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-__movsq.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-__shiftright128.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-__shiftleft128.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-__stosq.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-_rotl64.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-_rotr64.$(OBJEXT)
@@ -3356,7 +3359,8 @@ src_libmingwex64 = \
   intrincs/readgsbyte.c  intrincs/readgsword.c   intrincs/readgsdword.c  intrincs/readgsqword.c    \
   intrincs/writegsbyte.c intrincs/writegsword.c  intrincs/writegsdword.c intrincs/writegsqword.c   \
   intrincs/mul128ex.c    intrincs/umul128ex.c    intrincs/_mul128.c      intrincs/_umul128.c       \
-  intrincs/__movsq.c     intrincs/__stosq.c      intrincs/_rotl64.c      intrincs/_rotr64.c
+  intrincs/__movsq.c     intrincs/__shiftright128.c                      intrincs/__shiftleft128.c \
+  intrincs/__stosq.c     intrincs/_rotl64.c      intrincs/_rotr64.c
 
 
 # these only go into the 32 bit version:
@@ -6969,6 +6973,10 @@ intrincs/lib64_libmingwex_a-_umul128.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-__movsq.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-__shiftright128.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-__shiftleft128.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-__stosq.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-_rotl64.$(OBJEXT):  \
@@ -8370,6 +8378,8 @@ mostlyclean-compile:
 	-rm -f intrincs/lib64_libmingwex_a-__movsd.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-__movsq.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-__movsw.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-__shiftleft128.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-__shiftright128.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-__stosb.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-__stosd.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-__stosq.$(OBJEXT)
@@ -9866,6 +9876,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__movsd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__movsq.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__movsw.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftleft128.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftright128.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosq.Po@am__quote@
@@ -27713,6 +27725,34 @@ intrincs/lib64_libmingwex_a-__movsq.obj: intrincs/__movsq.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__movsq.c' object='intrincs/lib64_libmingwex_a-__movsq.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-__movsq.obj `if test -f 'intrincs/__movsq.c'; then $(CYGPATH_W) 'intrincs/__movsq.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__movsq.c'; fi`
+
+intrincs/lib64_libmingwex_a-__shiftright128.o: intrincs/__shiftright128.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-__shiftright128.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftright128.Tpo -c -o intrincs/lib64_libmingwex_a-__shiftright128.o `test -f 'intrincs/__shiftright128.c' || echo '$(srcdir)/'`intrincs/__shiftright128.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftright128.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftright128.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__shiftright128.c' object='intrincs/lib64_libmingwex_a-__shiftright128.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-__shiftright128.o `test -f 'intrincs/__shiftright128.c' || echo '$(srcdir)/'`intrincs/__shiftright128.c
+
+intrincs/lib64_libmingwex_a-__shiftright128.obj: intrincs/__shiftright128.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-__shiftright128.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftright128.Tpo -c -o intrincs/lib64_libmingwex_a-__shiftright128.obj `if test -f 'intrincs/__shiftright128.c'; then $(CYGPATH_W) 'intrincs/__shiftright128.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__shiftright128.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftright128.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftright128.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__shiftright128.c' object='intrincs/lib64_libmingwex_a-__shiftright128.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-__shiftright128.obj `if test -f 'intrincs/__shiftright128.c'; then $(CYGPATH_W) 'intrincs/__shiftright128.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__shiftright128.c'; fi`
+
+intrincs/lib64_libmingwex_a-__shiftleft128.o: intrincs/__shiftleft128.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-__shiftleft128.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftleft128.Tpo -c -o intrincs/lib64_libmingwex_a-__shiftleft128.o `test -f 'intrincs/__shiftleft128.c' || echo '$(srcdir)/'`intrincs/__shiftleft128.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftleft128.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftleft128.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__shiftleft128.c' object='intrincs/lib64_libmingwex_a-__shiftleft128.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-__shiftleft128.o `test -f 'intrincs/__shiftleft128.c' || echo '$(srcdir)/'`intrincs/__shiftleft128.c
+
+intrincs/lib64_libmingwex_a-__shiftleft128.obj: intrincs/__shiftleft128.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-__shiftleft128.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftleft128.Tpo -c -o intrincs/lib64_libmingwex_a-__shiftleft128.obj `if test -f 'intrincs/__shiftleft128.c'; then $(CYGPATH_W) 'intrincs/__shiftleft128.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__shiftleft128.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftleft128.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-__shiftleft128.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__shiftleft128.c' object='intrincs/lib64_libmingwex_a-__shiftleft128.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-__shiftleft128.obj `if test -f 'intrincs/__shiftleft128.c'; then $(CYGPATH_W) 'intrincs/__shiftleft128.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__shiftleft128.c'; fi`
 
 intrincs/lib64_libmingwex_a-__stosq.o: intrincs/__stosq.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-__stosq.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-__stosq.Tpo -c -o intrincs/lib64_libmingwex_a-__stosq.o `test -f 'intrincs/__stosq.c' || echo '$(srcdir)/'`intrincs/__stosq.c
