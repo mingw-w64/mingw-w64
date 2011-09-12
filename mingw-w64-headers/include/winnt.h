@@ -149,7 +149,7 @@ extern "C" {
 #define FORCEINLINE __forceinline
 #else
 #define FORCEINLINE __inline
-#endif 
+#endif
 #endif /* FORCEINLINE */
 
 #ifndef DECLSPEC_DEPRECATED
