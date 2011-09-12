@@ -1,3 +1,10 @@
+2011-09-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk rev. 4407:
+	2011-08-22  Jonathan Yong  <jon_y@users.sourceforge.net>
+	* _mingw.h.in (__forceinline): Fix for C99 case and check for C++ mode.
+	* winnt.h (FORCEINLINE): Simplify based on _mingw.h definition.
+
 2011-08-07  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* wincrypt.h: Added MS_ENH_RSA_AES_PROV_XP[_A|_W]. (Thanks to Alon
