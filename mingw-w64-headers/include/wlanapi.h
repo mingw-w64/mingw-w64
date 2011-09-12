@@ -26,6 +26,33 @@ typedef enum _DOT11_RADIO_STATE {
   dot11_radio_state_off 
 } DOT11_RADIO_STATE, *PDOT11_RADIO_STATE;
 
+typedef enum _WLAN_NOTIFICATION_ACM {
+    wlan_notification_acm_start = 0,
+    wlan_notification_acm_autoconf_enabled,
+    wlan_notification_acm_autoconf_disabled,
+    wlan_notification_acm_background_scan_enabled,
+    wlan_notification_acm_background_scan_disabled,
+    wlan_notification_acm_bss_type_change,
+    wlan_notification_acm_power_setting_change,
+    wlan_notification_acm_scan_complete,
+    wlan_notification_acm_scan_fail,
+    wlan_notification_acm_connection_start,
+    wlan_notification_acm_connection_complete,
+    wlan_notification_acm_connection_attempt_fail,
+    wlan_notification_acm_filter_list_change,
+    wlan_notification_acm_interface_arrival,
+    wlan_notification_acm_interface_removal,
+    wlan_notification_acm_profile_change,
+    wlan_notification_acm_profile_name_change,
+    wlan_notification_acm_profiles_exhausted,
+    wlan_notification_acm_network_not_available,
+    wlan_notification_acm_network_available,
+    wlan_notification_acm_disconnecting,
+    wlan_notification_acm_disconnected,
+    wlan_notification_acm_adhoc_network_state_change,
+    wlan_notification_acm_end
+} WLAN_NOTIFICATION_ACM, *PWLAN_NOTIFICATION_ACM;
+
 typedef enum _WLAN_INTERFACE_STATE {
   wlan_interface_state_not_ready               = 0,
   wlan_interface_state_connected               = 1,
