@@ -21,6 +21,19 @@ extern "C" {
 #define EnumPageFiles __MINGW_NAME_AW(EnumPageFiles)
 #define GetProcessImageFileName __MINGW_NAME_AW(GetProcessImageFileName)
 
+#ifndef LIST_MODULES_DEFAULT
+#define LIST_MODULES_DEFAULT 0x0
+#endif
+#ifndef LIST_MODULES_32BIT
+#define LIST_MODULES_32BIT 0x01
+#endif
+#ifndef LIST_MODULES_64BIT
+#define LIST_MODULES_64BIT 0x02
+#endif
+#ifndef LIST_MODULES_ALL
+#define LIST_MODULES_ALL (LIST_MODULES_32BIT|LIST_MODULES_64BIT)
+#endif
+
   WINBOOL WINAPI EnumProcesses(DWORD *lpidProcess,DWORD cb,DWORD *cbNeeded);
   WINBOOL WINAPI EnumProcessModules(HANDLE hProcess,HMODULE *lphModule,DWORD cb,LPDWORD lpcbNeeded);
   DWORD WINAPI GetModuleBaseNameA(HANDLE hProcess,HMODULE hModule,LPSTR lpBaseName,DWORD nSize);
