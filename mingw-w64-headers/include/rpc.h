@@ -7,6 +7,12 @@
 /* Make sure we have internals defined.  */
 #include <_mingw.h>
 
+#ifndef __OBJC__
+#ifndef interface
+#define interface struct
+#endif
+#endif
+
 #ifndef RPC_NO_WINDOWS_H
 #include <windows.h>
 #endif
