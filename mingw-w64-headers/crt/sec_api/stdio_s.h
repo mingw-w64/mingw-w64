@@ -81,6 +81,7 @@ extern "C" {
   _CRTIMP wchar_t *__cdecl _getws_s(wchar_t *_Str,size_t _SizeInWords);
   int __cdecl fwprintf_s(FILE *_File,const wchar_t *_Format,...);
   int __cdecl wprintf_s(const wchar_t *_Format,...);
+  int __cdecl vfwprintf_s(FILE *_File,const wchar_t *_Format,va_list _ArgList);
   int __cdecl vwprintf_s(const wchar_t *_Format,va_list _ArgList);
   int __cdecl swprintf_s(wchar_t *_Dst,size_t _SizeInWords,const wchar_t *_Format,...);
   int __cdecl vswprintf_s(wchar_t *_Dst,size_t _SizeInWords,const wchar_t *_Format,va_list _ArgList);
