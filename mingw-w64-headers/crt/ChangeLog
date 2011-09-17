@@ -1,3 +1,8 @@
+2011-09-17  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* pthread_time.h: New dummy header.
+	* time.h: Include dummy header to support winpthreads.
+
 2011-09-12  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* errno.h (EOVERFLOW): Fix typo, use EFBIG.

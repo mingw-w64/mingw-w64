@@ -275,6 +275,7 @@ struct timezone {
 
 /* Adding timespec definition.  */
 #include <sys/timeb.h>
+#include <pthread_time.h>
 
 #endif /* End _TIME_H_ */
 
