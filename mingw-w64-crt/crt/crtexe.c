@@ -121,7 +121,7 @@ pre_c_init (void)
 #else
   _setargv();
 #endif
-  if (_MINGW_INSTALL_DEBUG_MATHERR)
+  if (_MINGW_INSTALL_DEBUG_MATHERR == 1)
     {
       __setusermatherr (_matherr);
     }
