@@ -58,10 +58,6 @@ errno_t __cdecl _get_errno(int *_Value);
 #define ENOSYS 40
 #define ENOTEMPTY 41
 
-#ifndef EOVERFLOW
-#define EOVERFLOW EFBIG
-#endif
-
 #ifndef RC_INVOKED
 #if !defined(_SECURECRT_ERRCODE_VALUES_DEFINED)
 #define _SECURECRT_ERRCODE_VALUES_DEFINED
