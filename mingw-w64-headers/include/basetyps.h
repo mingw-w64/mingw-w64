@@ -33,6 +33,7 @@
 #if defined(__cplusplus) && !defined(CINTERFACE)
 
 #ifndef __OBJC__
+#undef interface
 #define interface struct
 #endif
 
@@ -51,6 +52,7 @@
 #else
 
 #ifndef __OBJC__
+#undef interface
 #define interface struct
 #endif
 
