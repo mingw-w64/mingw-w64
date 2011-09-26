@@ -8,9 +8,8 @@
 #include <_mingw.h>
 
 #ifndef __OBJC__
-#ifndef interface
+#undef interface
 #define interface struct
-#endif
 #endif
 
 #ifndef RPC_NO_WINDOWS_H

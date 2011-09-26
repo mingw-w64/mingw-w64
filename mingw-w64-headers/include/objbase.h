@@ -17,9 +17,8 @@
 #if defined(__cplusplus) && !defined(CINTERFACE)
 
 #ifndef __OBJC__
-#ifndef interface
+#undef interface
 #define interface struct
-#endif
 #endif
 
 #define __STRUCT__ struct
@@ -41,9 +40,8 @@
 #else
 
 #ifndef __OBJC__
-#ifndef interface
+#undef interface
 #define interface struct
-#endif
 #endif
 
 #define STDMETHOD(method) HRESULT (WINAPI *method)
