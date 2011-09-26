@@ -43,7 +43,7 @@
 #include <excpt.h>
 #include <sdkddkver.h>
 
-// FIXME: Shouldn't be included!
+/* FIXME: Shouldn't be included! */
 #include <stdarg.h>
 #include <string.h>
 
