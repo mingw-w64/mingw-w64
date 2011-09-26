@@ -6,11 +6,8 @@
 #ifndef _WINDOWS_
 #define _WINDOWS_
 
-#ifndef WINVER
-#define WINVER 0x0502
-#endif
-
 #include <_mingw.h>
+#include <sdkddkver.h>
 
 #ifndef _INC_WINDOWS
 #define _INC_WINDOWS

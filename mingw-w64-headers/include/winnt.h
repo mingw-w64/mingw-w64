@@ -33,6 +33,8 @@ extern "C" {
 #endif
 #endif /* _IA64_ */
 
+#include <sdkddkver.h>
+
 #define RESTRICTED_POINTER
 
 #undef  UNALIGNED	/* avoid redefinition warnings vs _mingw.h */

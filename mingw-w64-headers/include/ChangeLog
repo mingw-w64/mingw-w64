@@ -1,3 +1,16 @@
+2011-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sdkddkver.h: Whitespace tidy-up.  Add our standart license header.
+	(_WIN32_WINNT): Define default value as _WIN32_WINNT_WS03, i.e. 0x0502,
+	which is what we had been defining in windows.h until this day.
+	(NTDDI_VERSION): Define default value as NTDDI_WS03, i.e. 0x05020000,
+	matching what we had been defining in windows.h until this day.
+	(WINVER): Define default value as 0x0502, which is what we had been
+	defining in windows.h until this day.
+	* winnt.h: Include sdkddkver.h.
+	* windows.h: Include sdkddkver.h.
+	(WINVER): Now that we include sdkddkver.h, remove the extra definition.
+
 2011-09-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* ks.h (KSPROPSETID_MemoryTransport): New.
