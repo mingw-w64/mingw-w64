@@ -445,16 +445,17 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	stdio/_wfindnext64i32.c stdio/_wstat64i32.c stdio/_wstat.c \
 	stdio/wtoll.c stdio/fgetpos64.c stdio/fseeko32.c \
 	stdio/fsetpos64.c stdio/ftello.c stdio/ftruncate64.c \
-	stdio/truncate.c stdio/asprintf.c intrincs/ilockadd.c \
-	intrincs/ilockand64.c intrincs/ilockcxch64.c \
-	intrincs/ilockcxchptr.c intrincs/ilockdec64.c \
-	intrincs/ilockexch64.c intrincs/ilockexchptr.c \
-	intrincs/ilockinc64.c intrincs/ilockor64.c \
-	intrincs/ilockxor64.c intrincs/ilockexchadd64.c \
-	intrincs/readfsbyte.c intrincs/readfsword.c \
-	intrincs/readfsdword.c intrincs/writefsbyte.c \
-	intrincs/writefsword.c intrincs/writefsdword.c \
-	intrincs/_rotl64.c intrincs/_rotr64.c intrincs/membarrier.c
+	stdio/truncate.c stdio/asprintf.c misc/uchar.c \
+	intrincs/ilockadd.c intrincs/ilockand64.c \
+	intrincs/ilockcxch64.c intrincs/ilockcxchptr.c \
+	intrincs/ilockdec64.c intrincs/ilockexch64.c \
+	intrincs/ilockexchptr.c intrincs/ilockinc64.c \
+	intrincs/ilockor64.c intrincs/ilockxor64.c \
+	intrincs/ilockexchadd64.c intrincs/readfsbyte.c \
+	intrincs/readfsword.c intrincs/readfsdword.c \
+	intrincs/writefsbyte.c intrincs/writefsword.c \
+	intrincs/writefsdword.c intrincs/_rotl64.c intrincs/_rotr64.c \
+	intrincs/membarrier.c
 am__objects_11 = crt/lib32_libmingwex_a-dllentry.$(OBJEXT) \
 	crt/lib32_libmingwex_a-dllmain.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-inbyte.$(OBJEXT) \
@@ -919,6 +920,7 @@ am__objects_11 = crt/lib32_libmingwex_a-dllentry.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-ftruncate64.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-truncate.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-asprintf.$(OBJEXT) \
+	misc/lib32_libmingwex_a-uchar.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-ilockadd.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-ilockand64.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-ilockcxch64.$(OBJEXT) \
@@ -1413,25 +1415,25 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	stdio/_wfindnext64i32.c stdio/_wstat64i32.c stdio/_wstat.c \
 	stdio/wtoll.c stdio/fgetpos64.c stdio/fseeko32.c \
 	stdio/fsetpos64.c stdio/ftello.c stdio/ftruncate64.c \
-	stdio/truncate.c stdio/asprintf.c intrincs/ilockadd.c \
-	intrincs/ilockand64.c intrincs/ilockcxch64.c \
-	intrincs/ilockcxchptr.c intrincs/ilockdec64.c \
-	intrincs/ilockexch64.c intrincs/ilockexchptr.c \
-	intrincs/ilockinc64.c intrincs/ilockor64.c \
-	intrincs/ilockxor64.c intrincs/ilockexchadd64.c \
-	intrincs/bittest64.c intrincs/bittestc64.c \
-	intrincs/bittestr64.c intrincs/bittestri64.c \
-	intrincs/bittests64.c intrincs/bittestsi64.c \
-	intrincs/bitscanfwd64.c intrincs/bitscanrev64.c \
-	intrincs/ilockadd64.c intrincs/readgsbyte.c \
-	intrincs/readgsword.c intrincs/readgsdword.c \
-	intrincs/readgsqword.c intrincs/writegsbyte.c \
-	intrincs/writegsword.c intrincs/writegsdword.c \
-	intrincs/writegsqword.c intrincs/mul128ex.c \
-	intrincs/umul128ex.c intrincs/_mul128.c intrincs/_umul128.c \
-	intrincs/__movsq.c intrincs/__shiftright128.c \
-	intrincs/__shiftleft128.c intrincs/__stosq.c \
-	intrincs/_rotl64.c intrincs/_rotr64.c
+	stdio/truncate.c stdio/asprintf.c misc/uchar.c \
+	intrincs/ilockadd.c intrincs/ilockand64.c \
+	intrincs/ilockcxch64.c intrincs/ilockcxchptr.c \
+	intrincs/ilockdec64.c intrincs/ilockexch64.c \
+	intrincs/ilockexchptr.c intrincs/ilockinc64.c \
+	intrincs/ilockor64.c intrincs/ilockxor64.c \
+	intrincs/ilockexchadd64.c intrincs/bittest64.c \
+	intrincs/bittestc64.c intrincs/bittestr64.c \
+	intrincs/bittestri64.c intrincs/bittests64.c \
+	intrincs/bittestsi64.c intrincs/bitscanfwd64.c \
+	intrincs/bitscanrev64.c intrincs/ilockadd64.c \
+	intrincs/readgsbyte.c intrincs/readgsword.c \
+	intrincs/readgsdword.c intrincs/readgsqword.c \
+	intrincs/writegsbyte.c intrincs/writegsword.c \
+	intrincs/writegsdword.c intrincs/writegsqword.c \
+	intrincs/mul128ex.c intrincs/umul128ex.c intrincs/_mul128.c \
+	intrincs/_umul128.c intrincs/__movsq.c \
+	intrincs/__shiftright128.c intrincs/__shiftleft128.c \
+	intrincs/__stosq.c intrincs/_rotl64.c intrincs/_rotr64.c
 am__objects_31 = crt/lib64_libmingwex_a-dllentry.$(OBJEXT) \
 	crt/lib64_libmingwex_a-dllmain.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-inbyte.$(OBJEXT) \
@@ -1896,6 +1898,7 @@ am__objects_31 = crt/lib64_libmingwex_a-dllentry.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-ftruncate64.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-truncate.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-asprintf.$(OBJEXT) \
+	misc/lib64_libmingwex_a-uchar.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-ilockadd.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-ilockand64.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-ilockcxch64.$(OBJEXT) \
@@ -3346,6 +3349,7 @@ src_libmingwex = \
   stdio/_wstat64i32.c stdio/_wstat.c stdio/wtoll.c \
   stdio/fgetpos64.c        stdio/fseeko32.c        stdio/fsetpos64.c        stdio/ftello.c            stdio/ftruncate64.c     \
   stdio/truncate.c         stdio/asprintf.c \
+  misc/uchar.c           \
   intrincs/ilockadd.c      intrincs/ilockand64.c   intrincs/ilockcxch64.c   intrincs/ilockcxchptr.c   intrincs/ilockdec64.c   \
   intrincs/ilockexch64.c   intrincs/ilockexchptr.c intrincs/ilockinc64.c    intrincs/ilockor64.c      intrincs/ilockxor64.c   \
   intrincs/ilockexchadd64.c
@@ -5500,6 +5504,8 @@ stdio/lib32_libmingwex_a-truncate.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmingwex_a-asprintf.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
+misc/lib32_libmingwex_a-uchar.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libmingwex_a-ilockadd.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libmingwex_a-ilockand64.$(OBJEXT):  \
@@ -6907,6 +6913,8 @@ stdio/lib64_libmingwex_a-truncate.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-asprintf.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
+misc/lib64_libmingwex_a-uchar.$(OBJEXT): misc/$(am__dirstamp) \
+	misc/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-ilockadd.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-ilockand64.$(OBJEXT):  \
@@ -9109,6 +9117,7 @@ mostlyclean-compile:
 	-rm -f misc/lib32_libmingwex_a-time.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-tsearch.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-twalk.$(OBJEXT)
+	-rm -f misc/lib32_libmingwex_a-uchar.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-wassert.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-wcrtomb.$(OBJEXT)
 	-rm -f misc/lib32_libmingwex_a-wcsnlen.$(OBJEXT)
@@ -9207,6 +9216,7 @@ mostlyclean-compile:
 	-rm -f misc/lib64_libmingwex_a-time.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-tsearch.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-twalk.$(OBJEXT)
+	-rm -f misc/lib64_libmingwex_a-uchar.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-wassert.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-wcrtomb.$(OBJEXT)
 	-rm -f misc/lib64_libmingwex_a-wcsnlen.$(OBJEXT)
@@ -10607,6 +10617,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-time.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-tsearch.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-twalk.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-uchar.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-wassert.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-wcrtomb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib32_libmingwex_a-wcsnlen.Po@am__quote@
@@ -10705,6 +10716,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-time.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-tsearch.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-twalk.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-uchar.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wassert.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wcrtomb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@misc/$(DEPDIR)/lib64_libmingwex_a-wcsnlen.Po@am__quote@
@@ -18863,6 +18875,20 @@ stdio/lib32_libmingwex_a-asprintf.obj: stdio/asprintf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/asprintf.c' object='stdio/lib32_libmingwex_a-asprintf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-asprintf.obj `if test -f 'stdio/asprintf.c'; then $(CYGPATH_W) 'stdio/asprintf.c'; else $(CYGPATH_W) '$(srcdir)/stdio/asprintf.c'; fi`
+
+misc/lib32_libmingwex_a-uchar.o: misc/uchar.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-uchar.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-uchar.Tpo -c -o misc/lib32_libmingwex_a-uchar.o `test -f 'misc/uchar.c' || echo '$(srcdir)/'`misc/uchar.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-uchar.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-uchar.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/uchar.c' object='misc/lib32_libmingwex_a-uchar.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-uchar.o `test -f 'misc/uchar.c' || echo '$(srcdir)/'`misc/uchar.c
+
+misc/lib32_libmingwex_a-uchar.obj: misc/uchar.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib32_libmingwex_a-uchar.obj -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-uchar.Tpo -c -o misc/lib32_libmingwex_a-uchar.obj `if test -f 'misc/uchar.c'; then $(CYGPATH_W) 'misc/uchar.c'; else $(CYGPATH_W) '$(srcdir)/misc/uchar.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-uchar.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-uchar.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/uchar.c' object='misc/lib32_libmingwex_a-uchar.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib32_libmingwex_a-uchar.obj `if test -f 'misc/uchar.c'; then $(CYGPATH_W) 'misc/uchar.c'; else $(CYGPATH_W) '$(srcdir)/misc/uchar.c'; fi`
 
 intrincs/lib32_libmingwex_a-ilockadd.o: intrincs/ilockadd.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-ilockadd.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-ilockadd.Tpo -c -o intrincs/lib32_libmingwex_a-ilockadd.o `test -f 'intrincs/ilockadd.c' || echo '$(srcdir)/'`intrincs/ilockadd.c
@@ -27263,6 +27289,20 @@ stdio/lib64_libmingwex_a-asprintf.obj: stdio/asprintf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/asprintf.c' object='stdio/lib64_libmingwex_a-asprintf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-asprintf.obj `if test -f 'stdio/asprintf.c'; then $(CYGPATH_W) 'stdio/asprintf.c'; else $(CYGPATH_W) '$(srcdir)/stdio/asprintf.c'; fi`
+
+misc/lib64_libmingwex_a-uchar.o: misc/uchar.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-uchar.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-uchar.Tpo -c -o misc/lib64_libmingwex_a-uchar.o `test -f 'misc/uchar.c' || echo '$(srcdir)/'`misc/uchar.c
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-uchar.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-uchar.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/uchar.c' object='misc/lib64_libmingwex_a-uchar.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-uchar.o `test -f 'misc/uchar.c' || echo '$(srcdir)/'`misc/uchar.c
+
+misc/lib64_libmingwex_a-uchar.obj: misc/uchar.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT misc/lib64_libmingwex_a-uchar.obj -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-uchar.Tpo -c -o misc/lib64_libmingwex_a-uchar.obj `if test -f 'misc/uchar.c'; then $(CYGPATH_W) 'misc/uchar.c'; else $(CYGPATH_W) '$(srcdir)/misc/uchar.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) misc/$(DEPDIR)/lib64_libmingwex_a-uchar.Tpo misc/$(DEPDIR)/lib64_libmingwex_a-uchar.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='misc/uchar.c' object='misc/lib64_libmingwex_a-uchar.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o misc/lib64_libmingwex_a-uchar.obj `if test -f 'misc/uchar.c'; then $(CYGPATH_W) 'misc/uchar.c'; else $(CYGPATH_W) '$(srcdir)/misc/uchar.c'; fi`
 
 intrincs/lib64_libmingwex_a-ilockadd.o: intrincs/ilockadd.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-ilockadd.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-ilockadd.Tpo -c -o intrincs/lib64_libmingwex_a-ilockadd.o `test -f 'intrincs/ilockadd.c' || echo '$(srcdir)/'`intrincs/ilockadd.c

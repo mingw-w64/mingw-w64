@@ -1,3 +1,10 @@
+2011-09-27  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
+	    Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/uchar.c: New source with initial implementations of mbrtoc16(),
+	c16rtomb(), mbrtoc32() and c32rtomb() for uchar.h.
+	* testcases/uchar_size_1.c: A new basic test case for uchar.h
+
 2011-09-27  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib64/msvcr80.def (fpreset): Mark as data for bug #3413674.
