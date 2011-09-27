@@ -1,3 +1,8 @@
+2011-09-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/uchar.c (mbrtoc32): Mark last 'ps' argument as unused.
+	(c32rtomb): Likewise.
+
 2011-09-27  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
 	    Ozkan Sezer  <sezeroz@gmail.com>
 

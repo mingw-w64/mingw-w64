@@ -42,7 +42,7 @@ size_t c16rtomb (char *__restrict__ s,
 size_t mbrtoc32 (char32_t *__restrict__ pc32,
 		 const char *__restrict__ s,
 		 size_t n,
-		 mbstate_t *__restrict__ ps)
+		 mbstate_t *__restrict__ __UNUSED_PARAM(ps))
 {
     if (*s == 0)
     {
@@ -89,7 +89,7 @@ size_t mbrtoc32 (char32_t *__restrict__ pc32,
 
 size_t c32rtomb (char *__restrict__ s,
 		 char32_t c32,
-		 mbstate_t *__restrict__ ps)
+		 mbstate_t *__restrict__ __UNUSED_PARAM(ps))
 {
     if (c32 <= 0x7F) /* 7 bits needs 1 byte */
     {
