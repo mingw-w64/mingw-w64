@@ -46,8 +46,8 @@ size_t mbrtoc32 (char32_t *__restrict__ pc32,
 {
     if (*s == 0)
     {
-        *pc32 = 0;
-        return 0;
+	*pc32 = 0;
+	return 0;
     }
 
     /* ASCII character - high bit unset */
@@ -60,7 +60,7 @@ size_t mbrtoc32 (char32_t *__restrict__ pc32,
     /* Multibyte chars */
     if ((*s & 0xE0) == 0xC0) /* 110xxxxx needs 2 bytes */
     {
-	if (n < 2) 
+	if (n < 2)
 	    return (size_t)-2;
 
 	*pc32 = ((s[0] & 31) << 6) | (s[1] & 63);
