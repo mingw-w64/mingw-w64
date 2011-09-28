@@ -1,5 +1,10 @@
 2011-09-28  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* uchar.h: Along with __cplusplus, check for __GXX_EXPERIMENTAL_CXX0X__
+	before defining char16_t and char32_t types.
+
+2011-09-28  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* uchar.h: Add extern "C" guards.
 
 2011-09-27  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
