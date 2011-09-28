@@ -62,7 +62,6 @@
 	* Changes by: Corinna Vinschen  corinna [a] sourceware.org  2011-08-19 11:58:05
 	* winuser.h: Add missing MAPVK_xxx definitions.
 
-
 2011-08-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* dxva2api.h: Implemented missing inline functions:

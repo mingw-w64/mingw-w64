@@ -3,6 +3,7 @@
  * This file is part of the w64 mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
 /* ISO C1x Unicode utilities
  * Based on ISO/IEC SC22/WG14 9899 TR 19769 (SC22 N1326)
  *
@@ -35,6 +36,10 @@ typedef uint_least32_t char32_t;
 #define __STDC_UTF_16__ 1
 #define __STDC_UTF_32__ 1
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 size_t mbrtoc16 (char16_t *__restrict__ pc16,
 		 const char *__restrict__ s,
 		 size_t n,
@@ -52,6 +57,10 @@ size_t mbrtoc32 (char32_t *__restrict__ pc32,
 size_t c32rtomb (char *__restrict__ s,
 		 char32_t c32,
 		 mbstate_t *__restrict__ ps);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __UCHAR_H */
 
