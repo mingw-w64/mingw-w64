@@ -800,7 +800,8 @@ __iob_func
 __pctype_func
 __pwctype_func
 _get_heap_handle
-_set_purecall_handler
+; Does not seem to present even on Win7 msvcrt
+;_set_purecall_handler
 _set_SSE2_enable
 ; msvcr80.dll and later
 _atodbl_l
