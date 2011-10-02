@@ -1,3 +1,9 @@
+2011-10-02  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
+            Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdint.h: Add C++11 guards by checking for __GXX_EXPERIMENTAL_CXX0X__
+	and __cplusplus >= 201103L.
+
 2011-09-28  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* uchar.h: Along with __cplusplus, check for __GXX_EXPERIMENTAL_CXX0X__
