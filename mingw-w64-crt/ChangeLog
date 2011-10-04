@@ -1,5 +1,9 @@
 2011-10-04  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* revstamp.h: Set latest information.
+
+2011-10-04  Ozkan Sezer  <sezeroz@gmail.com>
+
 	* lib32/ws2_32.def: Updated.
 	* lib32/kernel32.def: Updated.
 
