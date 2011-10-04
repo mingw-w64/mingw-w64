@@ -1,3 +1,9 @@
+2011-10-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk rev. 4319:
+	2011-08-07  Ozkan Sezer  <sezeroz@gmail.com>
+	* psdk_inc/_socket_types.h: Provide the SOCKET type as unsigned
+
 2011-09-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* sdkddkver.h: Whitespace tidy-up.  Add our standart license header.
