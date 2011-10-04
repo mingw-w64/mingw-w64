@@ -269,7 +269,7 @@ _flushall
 _fmode DATA
 _fpclass
 _fpclassf
-_fpreset
+_fpreset DATA
 _fputchar
 _fputwchar
 _fsopen
