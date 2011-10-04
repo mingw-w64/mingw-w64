@@ -13,7 +13,7 @@
 #define __MINGW64_VERSION_MAJOR	2
 #define __MINGW64_VERSION_MINOR	0
 #define __MINGW64_VERSION_STR	__MINGW64_STRINGIFY(__MINGW64_VERSION_MAJOR) "." __MINGW64_STRINGIFY(__MINGW64_VERSION_MINOR)
-#define __MINGW64_VERSION_STATE	"rc3"
+#define __MINGW64_VERSION_STATE	"rc4"
 
 /* mingw.org's version macros: these make gcc to define
    MINGW32_SUPPORTS_MT_EH and to use the _CRT_MT global
