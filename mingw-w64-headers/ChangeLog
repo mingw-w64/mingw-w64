@@ -1,0 +1,181 @@
+2010-09-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* configure.ac (BASEHEAD_LIST): Remove include/*.c.
+	* configure: Regenerate.
+
+2010-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am (EXTRA_HEADERS): Remove include/*.c
+	* Makefile.in: Regenerate.
+
+2010-09-10  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* Fix up configury after mingw_inc to psdk rename.
+
+2010-07-18  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* crt/complex.h: Make inlines available only if math.h included.
+
+2010-06-22  Jacek Caban  <jacek@codeweavers.com>
+
+	* Makefile.am, configure.am: Added support for IDL SDK.
+	* Makefile.in, configure: Regenerated.
+
+2010-05-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Moved signal.h and wctype.h from include to under crt/ which is
+	where they belong.
+
+2010-05-23  Jarrod Chesney  <jarrod.chesney@gmail.com>
+
+	* Patch comutil.h, comip.h and comdef.h to compile with GNU GCC
+	in trunk/mingw-w64-headers. This is required for __uuidof support.
+
+2010-05-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Rename wshelperheaddir to mingwhelperheaddir,
+	rename WSHELPERHEAD_LIST to MINGWHELPERHEAD_LIST.
+	* configure.ac: Rename WSHELPERHEAD_LIST to MINGWHELPERHEAD_LIST.
+	* configure: Regenerated.
+	* Makefile.in: Regenerated.
+
+2010-05-23  Kai Tietz  <kai.tietz@onevision.com>
+
+	* configure.ac, Makefile.am: Rename _ws_helper to mingw_inc.
+	* Makefile.in, configure: Regenerated.
+
+2010-05-23  Doug Semler <dougsemler@gmail.com>
+
+	* configure.ac: Set WSHELPERHEAD_LIST to headers in _ws_helpers
+	subdirectory and AC_SUBST for Makefile.in.
+	* Makefile.am: Add _ws_helpers headers to EXTRA_HEADERS.
+	Set up wshelperheaddir as subdirectory of base include directory.
+	Install WSHELPERHEAD_LIST headers from configure into wshelperhead
+	directory.
+	* configure: Regenerate.
+	* Makefile.in: Regenerate.
+
+2010-02-11  Kai Tietz  <kai.tietz@onevision.com>
+
+	* include/process.h: Moved away into
+	* crt/process.h: new loaction.
+	* Makefile.am: Add crt/process.h header.
+
+2010-02-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* include/winuser.h (CloseTouchInputHandle): New API missed in
+	revision 1530.
+	(GetTouchInputInfo): Likewise.
+
+	* include/winuser.h (PBT_POWERSETTINGCHANGE): Define for
+	_WIN32_WINNT >= 0x0600.
+
+2010-02-10  Kai Tietz  <kai.tietz@onevision.com>
+
+	* include/shlguid.h: Reduce required _WIN32_IE to >= 0x0500.
+	This isn't really correct, but to make it compatible to commctrl.h
+	we have to change it here, too.
+	* include/shlobj.h: Likewise.
+	* include/winuser.h (POWERBROADCAST_SETTING): New type.
+	(PPOWERBROADCAST_SETTING): Likewise.
+	(RegisterPowerSettingNotification): New API.
+	(UnregisterPowerSettingNotification): Likewise.
+
+2010-01-25  Mook <mook.gcc@gmail.com>
+
+	* include/wincrypt.h: Comment out CERT_ALT_NAME_ENTRY::x400Address.
+
+2010-01-24  NightStrike <NightStrike@gmail.com>
+
+	* include/wincrypt.h: Update to w32api 3.11 upstream.
+	* include/w32api.h: Update w32api compatibility version number to
+	3.11.
+
+2010-01-23  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* Makefile.am: Add _mingw_ddk.h install rule.
+	* ddk/include/sdks/_mingw_ddk.h: Removed.
+	* crt/sdks/_mingw_ddk.h.in: New.
+	* defaults/generate.sh: Add defaults for _mingw_ddk.h.
+	* defaults/include/sdks/_mingw_ddk.h: New.
+	* Makefile.in: Regenerated.
+	* configure: Regenerated.
+
+2010-01-18  Roland Schwingel  <roland.schwingel@onevision.com>
+
+	* include/winternl.h (NtQueryInformationFile): Declare function.
+	(NTQueryObject): Likewise.
+	(FILE_INFORMATION_CLASS): Filled with all known definitions.
+	(FILE_ALL_INFORMATION): Define struct.
+	(FILE_PIPE_LOCAL_INFORMATION): Likewise.
+	(FILE_MAILSLOT_SET_INFORMATION): Likewise.
+	(FILE_MAILSLOT_QUERY_INFORMATION): Likewise.
+	(FILE_ATTRIBUTE_TAG_INFORMATION): Likewise.
+	(FILE_STREAM_INFORMATION): Likewise.
+	(FILE_MODE_INFORMATION): Likewise.
+	(FILE_FULL_EA_INFORMATION): Likewise.
+	(FILE_END_OF_FILE_INFORMATION): Likewise.
+	(FILE_ALLOCATION_INFORMATION): Likewise.
+	(FILE_ALIGNMENT_INFORMATION): Likewise.
+	(FILE_POSITION_INFORMATION): Likewise.
+	(FILE_DISPOSITION_INFORMATION): Likewise.
+	(FILE_NAMES_INFORMATION): Likewise.
+	(FILE_RENAME_INFORMATION): Likewise.
+	(FILE_NAME_INFORMATION): Likewise.
+	(FILE_POSITION_INFORMATION): Likewise.
+	(FILE_ACCESS_INFORMATION): Likewise.
+	(FILE_EA_INFORMATION): Likewise.
+	(FILE_INTERNAL_INFORMATION): Likewise.
+	(FILE_ACCESS_INFORMATION): Likewise.
+	(FILE_STANDARD_INFORMATION): Likewise.
+	(FILE_BASIC_INFORMATION): Likewise.
+	(FILE_ID_BOTH_DIRECTORY_INFORMATION): Likewise.
+	(FILE_BOTH_DIRECTORY_INFORMATION): Likewise.
+	(FILE_ID_FULL_DIRECTORY_INFORMATION): Likewise.
+	(FILE_FULL_DIRECTORY_INFORMATION): Likewise.
+	(FILE_NETWORK_OPEN_INFORMATION): Likewise.
+	(FILE_DIRECTORY_INFORMATION): Likewise.
+	(OBJECT_DATA_INFORMATION): Likewise.
+	(OBJECT_BASIC_INFORMATION): Likewise.
+	(OBJECT_NAME_INFORMATION): Likewise.
+	(OBJECT_TYPE_INFORMATION): Likewise.
+	(OBJECT_ALL_INFORMATION): Likewise.
+	(OBJECT_INFORMATION_CLASS): Define enum.
+	(OBJECT_ATTRIBUTES): Reformat.
+
+2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
+	    Ozkan Sezer  <sezeroz@gmail.com>
+
+	* include/: Change DISCLAIMER to DISCLAIMER.PD.
+	* crt/: Change DISCLAIMER to DISCLAIMER.PD.
+
+2010-01-15  Philippe Dunski  <koala01@free.fr>
+
+	* crt/stdlib.h (rand_s): New prototype.
+
+2010-01-15  Kai Tietz  <kai.tietz@onevision.com>
+
+	* COPYING: Change license to ZPL 2.1.
+
+2010-01-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* mingw-w64-headers/dirent.h: synchronized with the mingw.org version
+	for correct operation with mingw-3.1x version requirements.
+	* mingw-w64-crt/misc/dirent.c: reverted revision 76 change for bug
+	#1801043, not valid any longer. (do we manually need to copy that
+	field???)
+
+2010-01-04  Roland Schwingel  <roland.schwingel@onevision.com>
+
+	* include/winternal.h (SYSTEM_HANDLE_INFORMATION): New structure.
+	(SYSTEM_HANDLE_ENTRY): Likewise.
+	(SYSTEM_INFORMATION_CLASS): Add SystemHandleInformation.
+	(SYSTEM_PROCESS_INFORMATION): Improve member information according to
+	information found in msdn.
+
+2010-01-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/_mingw.h (__int128): Guard typedef by
+	__SIZEOF_INT128__ to support upcoming __int128 type
+	support of gcc 4.6 version.
+

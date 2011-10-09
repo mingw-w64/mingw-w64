@@ -1,0 +1,12 @@
+2010-08-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* src/fsredir.c (doredirect): Use GetModuleHandleW instead of LoadLibraryA.
+
+2010-05-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* src/fsredir.h (doredirect): Declare.
+	* src/fsredir.c (doredirect): New.
+	(undoredirect): Likewise.
+	* src/genidl.c: (main): Use doredirect.
+	(show_usage): Add new option.
+	(scanArgs): Handle new option.

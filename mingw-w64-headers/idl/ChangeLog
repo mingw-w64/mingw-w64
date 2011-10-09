@@ -1,0 +1,6 @@
+2010-06-22  Jacek Caban  <jacek@codeweavers.com>
+	* fusion.idl, mscoree.idl, optary.idl, wincodec.idl, xmllite.idl: Initial import from Wine.
+
+2010-06-22  Jacek Caban  <jacek@codeweavers.com>
+	* downloadmgr.idl: Moved to IDL SDK.
+

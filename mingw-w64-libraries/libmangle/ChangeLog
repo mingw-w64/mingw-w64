@@ -1,0 +1,27 @@
+2010-07-23  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* include/libmangle.h: Rename libmangle_gc_context to
+	libmangle_gc_context_t to better conform to standards.
+	Likewise for libmangle_gc to libmangle_gc_t.
+	Likewise for libmangle_tokens to libmangle_tokens_t.
+	* src/m_token.h: Likewise.
+	* src/m_ms.h: Likewise.
+	* src/m_token.c: Likewise.
+	* src/m_ms.c: Likewise.
+
+2010-07-22  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* include/libmangle.h: Rename pGcElem to libmangle_gc.
+	Rename sGcCtx to libmangle_gc_context.
+	Rename pMToken to libmangle_tokens.
+	Rename release_gc to libmangle_release_gc.
+	Rename generate_gc to libmangle_generate_gc.
+	Rename dump_tok to libmangle_dump_tok.
+	Rename print_decl to libmangle_print_decl.
+	Rename decode_ms_name to libmangle_decode_ms_name.
+	Rename sprint_decl to libmangle_sprint_decl.
+	Rename encode_ms_name to libmangle_encode_ms_name.
+	* src/m_token.h: Likewise.
+	* src/m_ms.h: Likewise.
+	* src/m_token.c: Likewise.
+	* src/m_ms.c: Likewise.
