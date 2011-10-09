@@ -13,7 +13,7 @@
 #include <limits.h>
 #include <windows.h>
 
-
+__attribute__((noinline))
 static int __MINGW_ATTRIB_NONNULL(1)
  __wcrtomb_cp (char *dst, wchar_t wc, const unsigned int cp,
 	       const unsigned int mb_max)
@@ -48,7 +48,7 @@ size_t
 wcrtomb (char *dst, wchar_t wc, mbstate_t * __UNUSED_PARAM (ps))
 {
   char byte_bucket [MB_LEN_MAX];
-  char* tmp_dst = dst ? dst : byte_bucket;
+  char* tmp_dst = dst ? dst : &byte_bucket[0];
   return (size_t)__wcrtomb_cp (tmp_dst, wc, __mingw_get_codepage (),
 			       MB_CUR_MAX);
 }
@@ -87,7 +87,7 @@ size_t wcsrtombs (char *dst, const wchar_t **src, size_t len,
       char byte_bucket [MB_LEN_MAX];
       while (n < len)
 	{
-	  if ((ret = __wcrtomb_cp (byte_bucket, *pwc, cp, mb_max)) <= 0)
+	  if ((ret = __wcrtomb_cp (&byte_bucket[0], *pwc, cp, mb_max)) <= 0)
 	    return (size_t) -1;
 	  n += ret;
 	  if (byte_bucket [ret - 1] == '\0')

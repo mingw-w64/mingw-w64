@@ -1,3 +1,10 @@
+2011-10-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk rev. 4530:
+	2011-10-08  Kai Tietz  <ktietz@redhat.com>
+	* misc/wcrtomb.c: Fix an inlining bug occuring with newer gcc.
+	This can go away if bug on gcc side is fixed.
+
 2011-10-09  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
 
 	* misc/isblank.c: Replaced _cdecl by __cdecl.
