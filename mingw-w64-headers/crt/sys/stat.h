@@ -250,6 +250,10 @@ __CRT_INLINE int __cdecl
 #endif /* __CRT__NO_INLINE */
 #endif /* !RC_INVOKED && !NO_OLDNAMES */
 
+#if defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)
+#define stat _stat64
+#endif
+
 #ifdef __cplusplus
 }
 #endif

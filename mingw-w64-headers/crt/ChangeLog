@@ -1,3 +1,7 @@
+2011-10-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* sys/stat.h: Make stat use 64bit offset for lfs.
+
 2011-10-02  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
 	    Ozkan Sezer  <sezeroz@gmail.com>
 
