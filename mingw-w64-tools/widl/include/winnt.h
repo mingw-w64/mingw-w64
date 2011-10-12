@@ -431,6 +431,8 @@ typedef CHAR           *PCH,        *LPCH;
 typedef const CHAR     *PCCH,       *LPCCH;
 typedef CHAR           *PSTR,       *LPSTR,     *NPSTR;
 typedef const CHAR     *PCSTR,      *LPCSTR;
+typedef CHAR           *PZZSTR;
+typedef const CHAR     *PCZZSTR;
 
 /* Unicode string types */
 typedef WCHAR          *PWCH,       *LPWCH;
@@ -453,6 +455,8 @@ typedef WCHAR           TCHAR,      *PTCHAR;
 #endif
 typedef LPWSTR          PTSTR,       LPTSTR;
 typedef LPCWSTR         PCTSTR,      LPCTSTR;
+typedef PZZSTR          PZZTSTR;
+typedef PCZZSTR         PCZZTSTR;
 #  define __TEXT(string) L##string
 # else  /* UNICODE */
 # ifndef _TCHAR_DEFINED
@@ -461,6 +465,8 @@ typedef CHAR            TCHAR,      *PTCHAR;
 # endif
 typedef LPSTR           PTSTR,       LPTSTR;
 typedef LPCSTR          PCTSTR,      LPCTSTR;
+typedef PZZWSTR         PZZTSTR;
+typedef PCZZWSTR        PCZZTSTR;
 #  define __TEXT(string) string
 # endif /* UNICODE */
 # define TEXT(quote) __TEXT(quote)
@@ -4779,6 +4785,9 @@ typedef struct _QUOTA_LIMITS_EX {
 #define FILE_UNICODE_ON_DISK            0x00000004
 #define FILE_PERSISTENT_ACLS            0x00000008
 #define FILE_FILE_COMPRESSION           0x00000010
+#define FILE_VOLUME_QUOTAS              0x00000020
+#define FILE_SUPPORTS_SPARSE_FILES      0x00000040
+#define FILE_SUPPORTS_REPARSE_POINTS    0x00000080
 #define FILE_VOLUME_IS_COMPRESSED       0x00008000
 #define FILE_SUPPORTS_OBJECT_IDS        0x00010000
 #define FILE_SUPPORTS_ENCRYPTION        0x00020000
