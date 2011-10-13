@@ -252,6 +252,7 @@ __CRT_INLINE int __cdecl
 
 #if defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)
 #define stat _stat64
+#define fstat _fstat64
 #endif
 
 #ifdef __cplusplus
