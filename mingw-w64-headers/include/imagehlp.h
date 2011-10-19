@@ -16,10 +16,6 @@
 
 #include <wintrust.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include <psdk_inc/_dbg_LOAD_IMAGE.h>
 
   typedef enum _IMAGEHLP_STATUS_REASON {
@@ -44,6 +40,10 @@ extern "C" {
     BindForwarderNOT32,
     BindForwarderNOT64
   } IMAGEHLP_STATUS_REASON;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
   typedef WINBOOL (WINAPI *PIMAGEHLP_STATUS_ROUTINE)(IMAGEHLP_STATUS_REASON Reason,PCSTR ImageName,PCSTR DllName,ULONG_PTR Va,ULONG_PTR Parameter);
   typedef WINBOOL (WINAPI *PIMAGEHLP_STATUS_ROUTINE32)(IMAGEHLP_STATUS_REASON Reason,PCSTR ImageName,PCSTR DllName,ULONG Va,ULONG_PTR Parameter);
@@ -103,9 +103,10 @@ extern "C" {
   WINBOOL IMAGEAPI UpdateDebugInfoFile(PCSTR ImageFileName,PCSTR SymbolPath,PSTR DebugFilePath,PIMAGE_NT_HEADERS32 NtHeaders);
   WINBOOL IMAGEAPI UpdateDebugInfoFileEx(PCSTR ImageFileName,PCSTR SymbolPath,PSTR DebugFilePath,PIMAGE_NT_HEADERS32 NtHeaders,DWORD OldChecksum);
 
-#include <psdk_inc/_dbg_common.h>
-
 #ifdef __cplusplus
 }
 #endif
+
+#include <psdk_inc/_dbg_common.h>
+
 #endif
