@@ -1,3 +1,8 @@
+2011-10-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* imagehlp.h: Fixed misplaced extern "C" {} braces which used to break
+	C_ASSERTs. (bug #3425478.)
+
 2011-09-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* sdkddkver.h: Whitespace tidy-up.  Add our standart license header.
