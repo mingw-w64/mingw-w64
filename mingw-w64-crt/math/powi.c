@@ -12,7 +12,8 @@ double __powi (double x,int nn);
 
 double __powi (double x,int nn)
 {
-	int n, e, sign, asign, lx;
+	unsigned int n;
+	int e, sign, asign, lx;
 	double w, y, s;
 
 	/* See pow.c for these tests.  */
