@@ -222,7 +222,7 @@ time_t __cdecl _mkgmtime(struct tm *_Tm);
 time_t __cdecl time(time_t *_Time);
 
 #ifndef __CRT__NO_INLINE
-#ifndef _USE_32BIT_TIME_T
+#if !defined(_USE_32BIT_TIME_T) || (defined(_FILE_OFFSET_BITS) && _FILE_OFFSET_BITS == 64)
 __CRT_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2)
   { return _difftime64(_Time1,_Time2); }
 __CRT_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime64(_Time); }
