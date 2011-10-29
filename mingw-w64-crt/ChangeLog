@@ -1,4 +1,4 @@
-2011-09-16  Jonathan Yong  <jon_y@users.sourceforge.net>
+2011-10-29  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/dwmapi.def: New.
 	* Makefile.am: Added lib32/libdwmapi.a
