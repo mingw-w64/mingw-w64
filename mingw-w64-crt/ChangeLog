@@ -1,3 +1,9 @@
+2011-09-16  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/dwmapi.def: New.
+	* Makefile.am: Added lib32/libdwmapi.a
+	* Makefile.in: Regenerated.
+
 2011-10-09  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
 
 	* misc/isblank.c: Replaced _cdecl by __cdecl.

@@ -435,7 +435,7 @@ lib32_DATA = \
   lib32/libpenwin32.a  lib32/libpkpd32.a    lib32/libpowrprof.a  lib32/libpsapi.a     lib32/libquartz.a   \
   lib32/librapi.a      lib32/librasapi32.a  lib32/librasdlg.a    lib32/librpcdce4.a   lib32/librpcns4.a   \
   lib32/librpcrt4.a    lib32/librtm.a       lib32/librtutils.a   lib32/libscsiport.a  lib32/libsecur32.a  \
-  lib32/libsetupapi.a                       lib32/libshfolder.a  lib32/libshlwapi.a   lib32/libsnmpapi.a  \
+  lib32/libsetupapi.a  lib32/libdwmapi.a    lib32/libshfolder.a  lib32/libshlwapi.a   lib32/libsnmpapi.a  \
   lib32/libsvrapi.a    lib32/libtapi32.a    lib32/libtdi.a       \
   lib32/liburl.a       lib32/libusbcamd2.a  lib32/libusbcamd.a   lib32/libusbd.a      lib32/libusbport.a  \
   lib32/libuser32.a    lib32/libuserenv.a   lib32/libusp10.a     lib32/libuxtheme.a   lib32/libvdmdbg.a   \
