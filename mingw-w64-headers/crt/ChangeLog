@@ -1,3 +1,9 @@
+2011-10-31  Rafal Carr  <funman@videolan.org>
+
+	* _mingw_print_push.h: Remove printf-defines.
+	* _mingw_print_pop.h: Likewise.
+	* stdio.h: Replace macro-printf override via alias.
+
 2011-10-23  Pau Garcia i Quiles  <paugq@users.sourceforge.net>
 
 	* time.h: Make sure to use 64bit time functions for lfs.

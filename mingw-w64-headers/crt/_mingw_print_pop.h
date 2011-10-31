@@ -7,24 +7,12 @@
 /* Define __mingw_<printf> macros.  */
 #if defined(__USE_MINGW_ANSI_STDIO) && (defined(_INC_STDIO) || defined(_WSTDIO_DEFINED)) && ((__USE_MINGW_ANSI_STDIO + 0) != 0)
 #ifdef _INC_STDIO
-#define fprintf		__mingw_fprintf
-#define printf		__mingw_printf
-#define sprintf		__mingw_sprintf
-#define snprintf	__mingw_snprintf
-#define vfprintf	__mingw_vfprintf
-#define vprintf		__mingw_vprintf
-#define vsprintf	__mingw_vsprintf
-#define vsnprintf	__mingw_vsnprintf
-
 #define sscanf __mingw_sscanf
 #define vsscanf __mingw_vsscanf
 #define scanf __mingw_scanf
 #define vscanf __mingw_vscanf
 #define fscanf __mingw_fscanf
 #define vfscanf __mingw_vfscanf
-
-#define asprintf __mingw_asprintf
-#define vasprintf __mingw_vasprintf
 
 #endif
 
