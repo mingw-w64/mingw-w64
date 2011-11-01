@@ -1,3 +1,12 @@
+2011-11-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio.h: Remove unintended extra "__" and "$$" characters from
+	previous commits. Fix typo (s/__CRT__INLINE/__CRT_INLINE).
+	(__mingw_asprintf): Mark the first and second args as __restrict.
+	Mark the function as __nothrow. Replace __attribute__((nonnull()))
+	by __MINGW_ATTRIB_NONNULL for consistency.
+	(__mingw_vasprintf): Likewise.
+
 2011-11-01  Kai Tietz  <ktietz@redhat.com>
 
 	* stdio.h: Fix broken handling for snprintf/vsnprintf

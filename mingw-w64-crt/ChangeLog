@@ -1,3 +1,8 @@
+2011-11-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio/asprintf.c: Define __CRT__NO_INLINE before including any
+	headers.
+
 2011-10-29  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/dwmapi.def: New.

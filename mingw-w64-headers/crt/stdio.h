@@ -162,11 +162,11 @@ extern
   __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
   int __cdecl __mingw_vsprintf (char * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
 extern
-  __attribute__ ((format (gnu_printf, 2, 3))) __attribute__((nonnull (1,2))) __
-  int __cdecl mingw_asprintf(char **ret, const char *format, ...);
+  __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(1,2)
+  int __cdecl __mingw_asprintf(char ** __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
 extern
-  __attribute__ ((format (gnu_printf, 2, 0))) __attribute__((nonnull (1,2))) __
-  int __cdecl mingw_vasprintf(char **ret, const char *format, va_list ap);
+  __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(1,2)
+  int __cdecl __mingw_vasprintf(char ** __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
 
 #if __USE_MINGW_ANSI_STDIO
 /*
@@ -420,9 +420,9 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 #ifndef __NO_ISOCEXT
   int __cdecl snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
 #ifndef __CRT__NO_INLINE
-  __CRT__INLINE int __cdecl vsnprintf(char * __restrict__ d,size_t n,const char * __restrict__ format,va_list arg)
+  __CRT_INLINE int __cdecl vsnprintf(char * __restrict__ d,size_t n,const char * __restrict__ format,va_list arg)
   {
-    return _vsnprintf (d, n, format, arg); $$$$
+    return _vsnprintf (d, n, format, arg);
   }
 #endif /* !__CRT__NO_INLINE */
 #endif /* !__NO_ISOCEXT */
