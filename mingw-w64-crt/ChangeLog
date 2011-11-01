@@ -2,6 +2,8 @@
 
 	* stdio/asprintf.c: Define __CRT__NO_INLINE before including any
 	headers.
+	(__mingw_asprintf, __mingw_vasprintf): Use __restrict__ for first
+	and second args.
 
 2011-10-29  Jonathan Yong  <jon_y@users.sourceforge.net>
 

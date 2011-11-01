@@ -1,9 +1,12 @@
 #define __CRT__NO_INLINE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 
-int __mingw_asprintf(char **ret, const char *format, ...){
+int __mingw_asprintf(char ** __restrict__ ret,
+		     const char * __restrict__ format,
+		     ...) {
   va_list ap;
   int len;
   va_start(ap,format);
@@ -26,7 +29,9 @@ int __mingw_asprintf(char **ret, const char *format, ...){
   return len;
 }
 
-int __mingw_vasprintf(char **ret, const char *format, va_list ap){
+int __mingw_vasprintf(char ** __restrict__ ret,
+		      const char * __restrict__ format,
+		      va_list ap) {
   int len;
   /* Get Length */
   len = __mingw_vsnprintf(NULL,0,format,ap);
