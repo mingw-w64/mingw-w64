@@ -274,22 +274,6 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   int __cdecl vfprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,va_list _ArgList);
   int __cdecl vprintf(const char * __restrict__ _Format,va_list _ArgList);
   int __cdecl vsprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-
-#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-/* this is here to deal with software defining
- * vsnprintf as _vsnprintf, eg. libxml2.  */
-#pragma push_macro("snprintf")
-#pragma push_macro("vsnprintf")
-# undef snprintf
-# undef vsnprintf
-  int __cdecl snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
-#ifndef __CRT__NO_INLINE
-  __CRT__INLINE int __cdecl vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,va_list _ArgList) __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-#endif /* __CRT__NO_INLINE */
-#pragma pop_macro ("vsnprintf")
-#pragma pop_macro ("snprintf")
-#endif /* __NO_ISOCEXT */
-
 #endif /* __USE_MINGW_ANSI_STDIO */
 
   _CRTIMP int __cdecl _filbuf(FILE *_File);
@@ -423,6 +407,28 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   _CRTIMP int __cdecl _vsnprintf_l(char * __restrict__ buffer,size_t count,const char * __restrict__ format,_locale_t locale,va_list argptr) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   int __cdecl _sprintf_l(char * __restrict__ buffer,const char * __restrict__ format,_locale_t locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
+#if !defined (__USE_MINGW_ANSI_STDIO) || __USE_MINGW_ANSI_STDIO == 0
+/* this is here to deal with software defining
+ * vsnprintf as _vsnprintf, eg. libxml2.  */
+#pragma push_macro("snprintf")
+#pragma push_macro("vsnprintf")
+# undef snprintf
+# undef vsnprintf
+  int __cdecl vsnprintf(char * __restrict__ d,size_t n,const char * __restrict__ format,va_list arg)
+    __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+
+#ifndef __NO_ISOCEXT
+  int __cdecl snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
+#ifndef __CRT__NO_INLINE
+  __CRT__INLINE int __cdecl vsnprintf(char * __restrict__ d,size_t n,const char * __restrict__ format,va_list arg)
+  {
+    return _vsnprintf (d, n, format, arg); $$$$
+  }
+#endif /* !__CRT__NO_INLINE */
+#endif /* !__NO_ISOCEXT */
+#pragma pop_macro ("vsnprintf")
+#pragma pop_macro ("snprintf")
+#endif
 
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
   int __cdecl vscanf(const char * __restrict__ Format, va_list argp);

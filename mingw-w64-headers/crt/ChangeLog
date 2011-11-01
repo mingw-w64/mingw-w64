@@ -1,3 +1,8 @@
+2011-11-01  Kai Tietz  <ktietz@redhat.com>
+
+	* stdio.h: Fix broken handling for snprintf/vsnprintf
+	due recent patch.
+
 2011-10-31  Rafal Carr  <funman@videolan.org>
 
 	* _mingw_print_push.h: Remove printf-defines.
