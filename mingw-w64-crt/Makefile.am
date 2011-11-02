@@ -249,8 +249,8 @@ src_libmingwex=\
   stdio/_wfindfirst64i32.c stdio/_wfindnext64i32.c \
   stdio/_wstat64i32.c stdio/_wstat.c stdio/wtoll.c \
   stdio/fgetpos64.c        stdio/fseeko32.c        stdio/fsetpos64.c        stdio/ftello.c            stdio/ftruncate64.c     \
-  stdio/truncate.c         stdio/asprintf.c \
-  misc/uchar.c           \
+  stdio/truncate.c         stdio/asprintf.c        stdio/vasprintf.c        \
+  misc/uchar_c16rtomb.c    misc/uchar_c32rtomb.c   misc/uchar_mbrtoc16.c    misc/uchar_mbrtoc32.c     \
   intrincs/ilockadd.c      intrincs/ilockand64.c   intrincs/ilockcxch64.c   intrincs/ilockcxchptr.c   intrincs/ilockdec64.c   \
   intrincs/ilockexch64.c   intrincs/ilockexchptr.c intrincs/ilockinc64.c    intrincs/ilockor64.c      intrincs/ilockxor64.c   \
   intrincs/ilockexchadd64.c

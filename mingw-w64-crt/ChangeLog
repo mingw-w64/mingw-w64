@@ -1,3 +1,15 @@
+2011-11-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Break stdio/asprintf.c and misc/uchar.c into pieces, one function
+	per compilation unit:
+	* stdio/vasprintf.c: New.
+	* misc/uchar_c16rtomb.c: New.
+	* misc/uchar_c32rtomb.c: New.
+	* misc/uchar_mbrtoc16.c: New.
+	* misc/uchar_mbrtoc32.c: New.
+	* Makefile.am: Adjust.
+	* Makefile.in: Regenerate.
+
 2011-11-01  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* stdio/asprintf.c: Define __CRT__NO_INLINE before including any
