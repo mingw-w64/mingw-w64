@@ -227,7 +227,7 @@ int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_ar
 }
 
 __forceinline
-__attribute__ ((format (gnu_printf, 2, 3))) __attribute__((nonnull (1,2))) __
+__attribute__ ((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
 int asprintf(char **__ret, const char *__format, ...)
 {
   register int __retval;
@@ -238,7 +238,7 @@ int asprintf(char **__ret, const char *__format, ...)
 }
 
 __forceinline
-__attribute__ ((format (gnu_printf, 2, 0))) __attribute__((nonnull (1,2))) __
+__attribute__ ((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
 int vasprintf(char **__ret, const char *__format, __builtin_va_list __local_argv)
 {
   return __mingw_vasprintf( __ret, __format, __local_argv );
