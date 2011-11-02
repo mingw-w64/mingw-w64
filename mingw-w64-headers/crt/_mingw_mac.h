@@ -151,5 +151,9 @@
   __IFACE##_layout_has_not_been_verified_and_its_declaration_is_most_likely_incorrect
 #endif
 
+#ifndef __MSABI_LONG
+#define __MSABI_LONG(x)  x ## l
+#endif
+
 #endif	/* _INC_CRTDEFS_MACRO */
 
