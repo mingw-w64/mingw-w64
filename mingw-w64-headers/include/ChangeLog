@@ -1,3 +1,7 @@
+2011-11-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntdef.h (FORCEINLINE): Sync the definition to the winnt.h version.
+
 2011-10-30  Stefan Sundin  <recover89@gmail.com>
 
 	* winuser.h: (SPI_GETAUDIODESCRIPTION): New.
