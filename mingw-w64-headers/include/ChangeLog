@@ -1,3 +1,7 @@
+2011-11-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntdef.h (FORCEINLINE): Sync the definition to the winnt.h version.
+
 2011-10-19  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* imagehlp.h: Fixed misplaced extern "C" {} braces which used to break
