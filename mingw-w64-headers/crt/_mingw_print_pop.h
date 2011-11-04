@@ -6,33 +6,6 @@
 
 /* Define __mingw_<printf> macros.  */
 #if defined(__USE_MINGW_ANSI_STDIO) && (defined(_INC_STDIO) || defined(_WSTDIO_DEFINED)) && ((__USE_MINGW_ANSI_STDIO + 0) != 0)
-#ifdef _INC_STDIO
-#define sscanf __mingw_sscanf
-#define vsscanf __mingw_vsscanf
-#define scanf __mingw_scanf
-#define vscanf __mingw_vscanf
-#define fscanf __mingw_fscanf
-#define vfscanf __mingw_vfscanf
-
-#endif
-
-#ifdef _WSTDIO_DEFINED
-
-#undef swscanf
-#undef vswscanf
-#undef wscanf
-#undef vwscanf
-#undef fwscanf
-#undef vfwscanf
-
-#define swscanf __mingw_swscanf
-#define vswscanf __mingw_vswscanf
-#define wscanf __mingw_wscanf
-#define vwscanf __mingw_vwscanf
-#define fwscanf __mingw_fwscanf
-#define vfwscanf __mingw_vfwscanf
-
-#endif
 
 /* Redefine to GNU specific PRI... and SCN... macros.  */
 #if defined(_INTTYPES_H_) && defined(PRId64)
