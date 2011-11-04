@@ -17,23 +17,6 @@
 #endif
 
 #ifdef _WSTDIO_DEFINED
-#undef fwprintf
-#undef wprintf
-#undef vfwprintf
-#undef vwprintf
-#undef swprintf
-#undef vswprintf
-#undef snwprintf
-#undef vsnwprintf
-
-#define fwprintf __mingw_fwprintf
-#define wprintf __mingw_wprintf
-#define vfwprintf __mingw_vfwprintf
-#define vwprintf __mingw_vwprintf
-#define swprintf __mingw_swprintf
-#define vswprintf __mingw_vswprintf
-#define snwprintf __mingw_snwprintf
-#define vsnwprintf __mingw_vsnwprintf
 
 #undef swscanf
 #undef vswscanf

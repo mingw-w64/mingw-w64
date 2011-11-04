@@ -6,15 +6,6 @@
 
 /* Undefine __mingw_<printf> macros.  */
 #if defined(__USE_MINGW_ANSI_STDIO) && ((__USE_MINGW_ANSI_STDIO + 0) != 0)
-#undef fwprintf
-#undef wprintf
-#undef vfwprintf
-#undef vwprintf
-#undef swprintf
-#undef vswprintf
-#undef snwprintf
-#undef vsnwprintf
-
 #undef sscanf
 #undef vsscanf
 #undef scanf

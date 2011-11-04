@@ -1,3 +1,11 @@
+2011-11-04  Rafal Carr  <funman@videolan.org>
+	    Kai Tietz  <ktietz@redhat.com>
+
+	* _mingw_print_push.h: Remove wprintf-defines.
+	* _mingw_print_pop.h: Likewise.
+	* stdio.h: Replace macro-wprintf override via alias.
+	* wchar.h: Likewise.
+
 2011-11-01  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* stdio.h: Remove unintended extra "__" and "$$" characters from
