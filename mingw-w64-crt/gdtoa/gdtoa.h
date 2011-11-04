@@ -83,6 +83,7 @@ FPI {
 	int emax;
 	int rounding;
 	int sudden_underflow;
+	int int_max;
 } FPI;
 
 enum {	/* FPI.rounding values: same as FLT_ROUNDS */

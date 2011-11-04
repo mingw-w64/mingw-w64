@@ -1,3 +1,12 @@
+2011-11-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	gdtoa: Sync to match the latest version at netlib.org as of Nov. 02
+	2011.  Changelog from http://netlib.org/fp/changes :
+	    Add field int_max to struct FPI and adjust gdtoa.c and *fmt.c
+	    so gdtoa.c tests against fpi->int_max rather than Int_max. This
+	    only affects some conversions by g_ffmt.c, which in some cases
+	    produced too many digits.
+
 2011-10-29  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* lib32/dwmapi.def: New.

@@ -410,7 +410,7 @@ char *__gdtoa (FPI *fpi, int be, ULong *bits, int *kindp, int mode, int ndigits,
 
 	/* Do we have a "small" integer? */
 
-	if (be >= 0 && k <= Int_max) {
+	if (be >= 0 && k <= fpi->int_max) {
 		/* Yes. */
 		ds = tens[k];
 		if (ndigits < 0 && ilim <= 0) {

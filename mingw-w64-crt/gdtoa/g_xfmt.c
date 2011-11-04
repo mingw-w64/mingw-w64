@@ -53,7 +53,7 @@ THIS SOFTWARE.
 
 char *__g_xfmt (char *buf, void *V, int ndig, size_t bufsize)
 {
-	static FPI fpi0 = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, 0 };
+	static FPI fpi0 = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, 0, Int_max };
 	char *b, *s, *se;
 	ULong bits[2], sign;
 	UShort *L;
