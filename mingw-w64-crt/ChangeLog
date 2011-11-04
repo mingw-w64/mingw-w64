@@ -1,3 +1,12 @@
+2011-11-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	gdtoa: Sync to match the latest version at netlib.org as of Nov. 02
+	2011.  Changelog from http://netlib.org/fp/changes :
+	    Add field int_max to struct FPI and adjust gdtoa.c and *fmt.c
+	    so gdtoa.c tests against fpi->int_max rather than Int_max. This
+	    only affects some conversions by g_ffmt.c, which in some cases
+	    produced too many digits.
+
 2011-11-02  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Break stdio/asprintf.c and misc/uchar.c into pieces, one function
@@ -85,7 +94,7 @@
 	code and prevent multiple temporary write-access settings on same
 	section.
 
-2011-05-26  Dongsheng Song  <dongsheng@users.sourceforge.net>:
+2011-05-26  Dongsheng Song  <dongsheng@users.sourceforge.net>
 
 	* lib32/msvcr90.def (__report_gsfailure, _assert, _byteswap_uint64,
 	_byteswap_ulong, _byteswap_ushort, _ctime32, _decode_pointer, _difftime32,
@@ -147,7 +156,7 @@
 	* math/pow.def.h: Use log2l/exp2l and integer/fraction separation
 	for improving calculation precission.
 
-2011-03-12  Dongsheng Song  <dongsheng.song@gmail.com>:
+2011-03-12  Dongsheng Song  <dongsheng.song@gmail.com>
 
 	* lib32/msvcr100.def (__report_gsfailure, _assert, _byteswap_uint64,
 	_byteswap_ulong, _byteswap_ushort, _ctime32, _difftime32,

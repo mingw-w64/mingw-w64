@@ -33,7 +33,7 @@ THIS SOFTWARE.
 
 char *__g_dfmt (char *buf, double *d, int ndig, size_t bufsize)
 {
-	static FPI fpi0 = { 53, 1-1023-53+1, 2046-1023-53+1, 1, 0 };
+	static FPI fpi0 = { 53, 1-1023-53+1, 2046-1023-53+1, 1, 0, Int_max };
 	char *b, *s, *se;
 	ULong bits[2], *L, sign;
 	int decpt, ex, i, mode;
