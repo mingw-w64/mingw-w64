@@ -89,7 +89,7 @@ limitations in handling dllimport attribute.  */
 #endif
 
 #if !defined(__MINGW_INTRIN_INLINE) && defined(__GNUC__)
-#define __MINGW_INTRIN_INLINE extern __inline__ __attribute__((always_inline,__gnu_inline__))
+#define __MINGW_INTRIN_INLINE extern __inline__ __attribute__((__always_inline__,__gnu_inline__))
 #endif
 
 #ifdef __NO_INLINE__
@@ -269,9 +269,9 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define __w64
 #endif
 #ifdef __cplusplus
-#define __forceinline inline __attribute__((always_inline))
+#define __forceinline inline __attribute__((__always_inline__))
 #else
-#define __forceinline extern __inline__ __attribute__((always_inline,__gnu_inline__))
+#define __forceinline extern __inline__ __attribute__((__always_inline__,__gnu_inline__))
 #endif /* __cplusplus */
 #endif /* __GNUC__ */
 
