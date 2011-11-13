@@ -300,8 +300,6 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define _AGLOBAL
 #endif
 
-#define __STDC_SECURE_LIB__ 200411L
-#define __GOT_SECURE_LIB__ __STDC_SECURE_LIB__
 #define _SECURECRT_FILL_BUFFER_PATTERN 0xFD
 #define _CRT_DEPRECATE_TEXT(_Text) __declspec(deprecated)
 
@@ -636,6 +634,11 @@ const char *__mingw_get_crt_info (void);
 
 #ifndef MINGW_SDK_INIT
 #define MINGW_SDK_INIT
+
+#ifdef MINGW_HAS_SECURE_API
+#define __STDC_SECURE_LIB__ 200411L
+#define __GOT_SECURE_LIB__ __STDC_SECURE_LIB__
+#endif
 
 #include "sdks/_mingw_directx.h"
 

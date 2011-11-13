@@ -1,3 +1,10 @@
+2011-11-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk rev. 4592:
+	Jacek Caban  <jacek@codeweavers.com>
+	* _mingw.h.in: Define __STDC_SECURE_LIB__ only if MINGW_HAS_SECURE_API
+	is defined.
+
 2011-11-05  Kai Tietz  <ktietz@redhat.com>
 
 	* _mingw.h: Replace always_inline attribute name by __always_inline__.
