@@ -1,8 +1,12 @@
 2011-11-13  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Merge from trunk rev. 4592:
+	Jacek Caban  <jacek@codeweavers.com>
+	* _mingw.h.in: Define __STDC_SECURE_LIB__ only if MINGW_HAS_SECURE_API
+	is defined.
+
 	Merge from trunk revs. 4362, 4565, 4566, 4567:
 	2011-08-09  Jonathan Yong  <jon_y@users.sourceforge.net>
-
 	* crt/stdio.h (__mingw_asprintf): New.
 	(__mingw_vasprintf): New.
 	* _mingw_print_pop.h, _mingw_print_push.h: New macros to handle
