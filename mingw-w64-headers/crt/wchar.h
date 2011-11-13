@@ -453,7 +453,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 /*
  * User has expressed a preference for C99 conformance...
  */
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int swscanf(const wchar_t *__source, const wchar_t *__format, ...)
 {
@@ -464,7 +464,7 @@ int swscanf(const wchar_t *__source, const wchar_t *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wscanf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
 int wscanf(const wchar_t *__format, ...)
 {
@@ -475,7 +475,7 @@ int wscanf(const wchar_t *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int fwscanf(FILE *__stream, const wchar_t *__format, ...)
 {
@@ -511,7 +511,7 @@ int vfwscanf (FILE *__stream,  const wchar_t *__format, __builtin_va_list __loca
 
 
 
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int fwprintf (FILE *__stream, const wchar_t *__format, ...)
 {
@@ -522,7 +522,7 @@ int fwprintf (FILE *__stream, const wchar_t *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wprintf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
 int wprintf (const wchar_t *__format, ...)
 {
@@ -533,7 +533,7 @@ int wprintf (const wchar_t *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
 {
@@ -566,7 +566,7 @@ int vswprintf (wchar_t *__stream, const wchar_t *__format, __builtin_va_list __l
 }
 
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
 int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
 {

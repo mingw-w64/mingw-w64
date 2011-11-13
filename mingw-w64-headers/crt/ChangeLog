@@ -1,3 +1,9 @@
+2011-11-13  Kai Tietz  <ktietz@redhat.com>
+
+	* stdio.h, wchar.h:  Replace __forceinline by
+	'static __attribute__((__unused__))' for functions using
+	variable arguments.
+
 2011-11-05  Kai Tietz  <ktietz@redhat.com>
 
 	* _mingw.h.in: Replace always_inline attribute name

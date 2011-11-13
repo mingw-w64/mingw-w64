@@ -192,7 +192,7 @@ extern
  * User has expressed a preference for C99 conformance...
  */
 
-__forceinline
+static __attribute__ ((__unused__))
 __attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
 int sscanf(const char *__source, const char *__format, ...)
 {
@@ -203,7 +203,7 @@ int sscanf(const char *__source, const char *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 __attribute__((__format__ (gnu_scanf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
 int scanf(const char *__format, ...)
 {
@@ -214,7 +214,7 @@ int scanf(const char *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 __attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
 int fscanf(FILE *__stream, const char *__format, ...)
 {
@@ -250,7 +250,7 @@ int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_ar
 
 
 
-__forceinline
+static __attribute__ ((__unused__))
 __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
 int fprintf (FILE *__stream, const char *__format, ...)
 {
@@ -261,7 +261,7 @@ int fprintf (FILE *__stream, const char *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 __attribute__((__format__ (gnu_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
 int printf (const char *__format, ...)
 {
@@ -272,7 +272,7 @@ int printf (const char *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
 int sprintf (char *__stream, const char *__format, ...)
 {
@@ -304,7 +304,7 @@ int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_ar
   return __mingw_vsprintf( __stream, __format, __local_argv );
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 __attribute__ ((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
 int asprintf(char **__ret, const char *__format, ...)
 {
@@ -322,7 +322,7 @@ int vasprintf(char **__ret, const char *__format, __builtin_va_list __local_argv
   return __mingw_vasprintf( __ret, __format, __local_argv );
 }
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-__forceinline
+static __attribute__ ((__unused__))
 __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
 int snprintf (char *__stream, size_t __n, const char *__format, ...)
 {
@@ -555,7 +555,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 /*
  * User has expressed a preference for C99 conformance...
  */
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int swscanf(const wchar_t *__source, const wchar_t *__format, ...)
 {
@@ -566,7 +566,7 @@ int swscanf(const wchar_t *__source, const wchar_t *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wscanf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
 int wscanf(const wchar_t *__format, ...)
 {
@@ -577,7 +577,7 @@ int wscanf(const wchar_t *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int fwscanf(FILE *__stream, const wchar_t *__format, ...)
 {
@@ -613,7 +613,7 @@ int vfwscanf (FILE *__stream,  const wchar_t *__format, __builtin_va_list __loca
 
 
 
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int fwprintf (FILE *__stream, const wchar_t *__format, ...)
 {
@@ -624,7 +624,7 @@ int fwprintf (FILE *__stream, const wchar_t *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wprintf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
 int wprintf (const wchar_t *__format, ...)
 {
@@ -635,7 +635,7 @@ int wprintf (const wchar_t *__format, ...)
   return __retval;
 }
 
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
 {
@@ -668,7 +668,7 @@ int vswprintf (wchar_t *__stream, const wchar_t *__format, __builtin_va_list __l
 }
 
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-__forceinline
+static __attribute__ ((__unused__))
 /* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
 int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
 {
