@@ -6,40 +6,6 @@
 
 /* Undefine __mingw_<printf> macros.  */
 #if defined(__USE_MINGW_ANSI_STDIO) && ((__USE_MINGW_ANSI_STDIO + 0) != 0)
-#undef fprintf
-#undef printf
-#undef sprintf
-#undef snprintf
-#undef vfprintf
-#undef vprintf
-#undef vsprintf
-#undef vsnprintf
-
-#undef fwprintf
-#undef wprintf
-#undef vfwprintf
-#undef vwprintf
-#undef swprintf
-#undef vswprintf
-#undef snwprintf
-#undef vsnwprintf
-
-#undef sscanf
-#undef vsscanf
-#undef scanf
-#undef vscanf
-#undef fscanf
-#undef vfscanf
-
-#undef swscanf
-#undef vswscanf
-#undef wscanf
-#undef vwscanf
-#undef fwscanf
-#undef vfwscanf
-
-#undef asprintf
-#undef vasprintf
 
 /* Redefine to MS specific PRI... and SCN... macros.  */
 #if defined(_INTTYPES_H_) && defined(PRId64)
