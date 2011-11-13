@@ -404,7 +404,7 @@ _aligned_realloc_dbg
 _aligned_recalloc
 _aligned_recalloc_dbg
 _amsg_exit
-_assert
+_assert DATA
 _atodbl
 _atodbl_l
 _atof_l
@@ -1204,7 +1204,7 @@ _waccess
 _waccess_s
 _wasctime
 _wasctime_s
-_wassert
+_wassert DATA
 _wchdir
 _wchmod
 _wcmdln DATA
