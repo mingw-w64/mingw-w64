@@ -1,3 +1,12 @@
+2011-11-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk rev. 4489:
+	2011-09-24  Kai Tietz  <ktietz@redhat.com>
+	* crt/crtexe.c, misc/mingw_matherr.c:
+	Make sure that variable _MINGW_INSTALL_DEBUG_MATHERR is placed in data-
+	segment in all cases.  Therefore initialize dummy-variant by minus one,
+	and check within crtexe for enabling this variable having one as value.
+
 2011-11-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from trunk rev. 4591:
