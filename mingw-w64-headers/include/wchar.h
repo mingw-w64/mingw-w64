@@ -530,6 +530,22 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #ifndef _WSTDIO_DEFINED
 #define _WSTDIO_DEFINED
 
+  int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+  int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
+  int __cdecl wscanf(const wchar_t * __restrict__ _Format,...);
+#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+  int __cdecl vwscanf (const wchar_t * __restrict__ , va_list);
+  int __cdecl vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
+  int __cdecl vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
+#endif /* __NO_ISOCEXT */
+
+  int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+  int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);
+  int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
+  int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+  _CRTIMP int __cdecl swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
+  _CRTIMP int __cdecl vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
+
 #ifndef WEOF
 #define WEOF (wint_t)(0xFFFF)
 #endif
@@ -553,18 +569,18 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl fputws(const wchar_t * __restrict__ _Str,FILE * __restrict__ _File);
   _CRTIMP wchar_t *__cdecl _getws(wchar_t *_String);
   _CRTIMP int __cdecl _putws(const wchar_t *_Str);
-  int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-  int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...);
-  int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
-  int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-  _CRTIMP int __cdecl swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
-  _CRTIMP int __cdecl vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
   _CRTIMP int __cdecl _swprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _vswprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,va_list _ArgList);
   _CRTIMP int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args);
+
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+
+#pragma push_macro("snwprintf")
+#pragma push_macro("vsnwprintf")
+# undef snwprintf
+# undef vsnwprintf
   int __cdecl snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
   int __cdecl vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
 #ifndef __CRT__NO_INLINE
@@ -573,10 +589,10 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
     return _vsnwprintf(s,n,format,arg);
   }
 #endif /* !__CRT__NO_INLINE */
-  int __cdecl vwscanf (const wchar_t * __restrict__ , va_list);
-  int __cdecl vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
-  int __cdecl vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
+#pragma pop_macro ("vsnwprintf")
+#pragma pop_macro ("snwprintf")
 #endif
+
   _CRTIMP int __cdecl _fwprintf_p(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _wprintf_p(const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _vfwprintf_p(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
@@ -619,13 +635,10 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP wchar_t *__cdecl _wtempnam(const wchar_t *_Directory,const wchar_t *_FilePrefix);
   _CRTIMP int __cdecl _vscwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
   _CRTIMP int __cdecl _vscwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _fwscanf_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _swscanf_l(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _snwscanf(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _snwscanf_l(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  int __cdecl wscanf(const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _wscanf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
   _CRTIMP FILE *__cdecl _wfdopen(int _FileHandle ,const wchar_t *_Mode);
   _CRTIMP FILE *__cdecl _wfopen(const wchar_t * __restrict__ _Filename,const wchar_t * __restrict__ _Mode);
@@ -670,6 +683,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   double __cdecl wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
   _CRTIMP double __cdecl _wcstod_l(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr,_locale_t _Locale);
   float __cdecl wcstof( const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
+
 #if !defined __NO_ISOCEXT /* in libmingwex.a */
   float __cdecl wcstof (const wchar_t * __restrict__, wchar_t ** __restrict__);
   long double __cdecl wcstold (const wchar_t * __restrict__, wchar_t ** __restrict__);
@@ -869,6 +883,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
     return (_S);
   }
 #endif /* !__CRT__NO_INLINE */
+
 #ifdef __cplusplus
 }
 #endif

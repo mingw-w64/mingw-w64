@@ -1,3 +1,13 @@
+2011-11-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk revs. 4362, 4565, 4566, 4567:
+	Rafal Carr  <funman@videolan.org>
+	Kai Tietz  <ktietz@redhat.com>
+	* _mingw_print_push.h, _mingw_print_pop.h, stdio.h, wchar.h:
+	Replace printf macro overrides via aliases. Replace __forceinline by
+	'static __attribute__((__unused__))' for functions using variable
+	arguments.
+
 2011-11-13  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from trunk rev. 4592:

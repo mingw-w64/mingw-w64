@@ -153,6 +153,132 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define _TWO_DIGIT_EXPONENT 0x1
 
 #ifndef _STDIO_DEFINED
+extern
+  __attribute__((__format__ (gnu_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
+  int __cdecl __mingw_vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,
+                               va_list _ArgList);
+extern
+  __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+  int __cdecl __mingw_snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
+extern
+  __attribute__((__format__ (gnu_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+  int __cdecl __mingw_printf(const char * __restrict__ , ... ) __MINGW_NOTHROW;
+extern
+  __attribute__((__format__ (gnu_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+  int __cdecl __mingw_vprintf (const char * __restrict__ , va_list) __MINGW_NOTHROW;
+extern
+  __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+  int __cdecl __mingw_fprintf (FILE * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
+extern
+  __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+  int __cdecl __mingw_vfprintf (FILE * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
+extern
+  __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+  int __cdecl __mingw_sprintf (char * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
+extern
+  __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+  int __cdecl __mingw_vsprintf (char * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
+
+#if __USE_MINGW_ANSI_STDIO
+/*
+ * User has expressed a preference for C99 conformance...
+ */
+
+static __attribute__ ((__unused__))
+__attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+int fprintf (FILE *__stream, const char *__format, ...)
+{
+  register int __retval;
+  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+  __retval = __mingw_vfprintf( __stream, __format, __local_argv );
+  __builtin_va_end( __local_argv );
+  return __retval;
+}
+
+static __attribute__ ((__unused__))
+__attribute__((__format__ (gnu_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+int printf (const char *__format, ...)
+{
+  register int __retval;
+  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+  __retval = __mingw_vprintf( __format, __local_argv );
+  __builtin_va_end( __local_argv );
+  return __retval;
+}
+
+static __attribute__ ((__unused__))
+__attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+int sprintf (char *__stream, const char *__format, ...)
+{
+  register int __retval;
+  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+  __retval = __mingw_vsprintf( __stream, __format, __local_argv );
+  __builtin_va_end( __local_argv );
+  return __retval;
+}
+
+__forceinline
+__attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+int vfprintf (FILE *__stream, const char *__format, __builtin_va_list __local_argv)
+{
+  return __mingw_vfprintf( __stream, __format, __local_argv );
+}
+
+__forceinline
+__attribute__((__format__ (gnu_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+int vprintf (const char *__format, __builtin_va_list __local_argv)
+{
+  return __mingw_vprintf( __format, __local_argv );
+}
+
+__forceinline
+__attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_argv)
+{
+  return __mingw_vsprintf( __stream, __format, __local_argv );
+}
+
+#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+static __attribute__ ((__unused__))
+__attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+int snprintf (char *__stream, size_t __n, const char *__format, ...)
+{
+  register int __retval;
+  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+  __retval = __mingw_vsnprintf( __stream, __n, __format, __local_argv );
+  __builtin_va_end( __local_argv );
+  return __retval;
+}
+
+__forceinline
+__attribute__((__format__ (gnu_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
+int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_list __local_argv)
+{
+  return __mingw_vsnprintf( __stream, __n, __format, __local_argv );
+}
+#endif /* __NO_ISOCEXT */
+
+#else /* !__USE_MINGW_ANSI_STDIO */
+/*
+ * Default configuration: simply direct all calls to MSVCRT...
+ */
+  int __cdecl fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
+  int __cdecl printf(const char * __restrict__ _Format,...);
+  int __cdecl sprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,...);
+
+  int __cdecl vfprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,va_list _ArgList);
+  int __cdecl vprintf(const char * __restrict__ _Format,va_list _ArgList);
+  int __cdecl vsprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,va_list _Args);
+#endif /* __USE_MINGW_ANSI_STDIO */
+
+  int __cdecl fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
+  int __cdecl scanf(const char * __restrict__ _Format,...);
+  int __cdecl sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
+#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+  int __cdecl vscanf(const char * __restrict__ Format, va_list argp);
+  int __cdecl vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
+  int __cdecl vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
+#endif
 
   _CRTIMP int __cdecl _filbuf(FILE *_File);
   _CRTIMP int __cdecl _flsbuf(int _Ch,FILE *_File);
@@ -184,13 +310,11 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP int __cdecl _flushall(void);
   FILE *__cdecl fopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode);
   FILE *fopen64(const char * __restrict__ filename,const char * __restrict__  mode);
-  int __cdecl fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
   int __cdecl fputc(int _Ch,FILE *_File);
   _CRTIMP int __cdecl _fputchar(int _Ch);
   int __cdecl fputs(const char * __restrict__ _Str,FILE * __restrict__ _File);
   size_t __cdecl fread(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
   FILE *__cdecl freopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode,FILE * __restrict__ _File);
-  int __cdecl fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
   int __cdecl fsetpos(FILE *_File,const fpos_t *_Pos);
   int __cdecl fseek(FILE *_File,long _Offset,int _Origin);
   int fseeko64(FILE* stream, _off64_t offset, int whence);
@@ -214,7 +338,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define popen	_popen
 #define pclose	_pclose
 #endif
-  int __cdecl printf(const char * __restrict__ _Format,...);
   int __cdecl putc(int _Ch,FILE *_File);
   int __cdecl putchar(int _Ch);
   int __cdecl puts(const char *_Str);
@@ -230,7 +353,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #endif
   void __cdecl rewind(FILE *_File);
   _CRTIMP int __cdecl _rmtmp(void);
-  int __cdecl scanf(const char * __restrict__ _Format,...);
   void __cdecl setbuf(FILE * __restrict__ _File,char * __restrict__ _Buffer);
   _CRTIMP int __cdecl _setmaxstdio(int _Max);
   _CRTIMP unsigned int __cdecl _set_output_format(unsigned int _Format);
@@ -243,75 +365,58 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #endif
   int __cdecl setvbuf(FILE * __restrict__ _File,char * __restrict__ _Buf,int _Mode,size_t _Size);
   _CRTIMP int __cdecl _scprintf(const char * __restrict__ _Format,...);
-  int __cdecl sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
   _CRTIMP int __cdecl _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...);
   FILE *__cdecl tmpfile(void);
   char *__cdecl tmpnam(char *_Buffer);
   int __cdecl ungetc(int _Ch,FILE *_File);
-  int __cdecl vfprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,va_list _ArgList);
-  int __cdecl vprintf(const char * __restrict__ _Format,va_list _ArgList);
-
-  /* Make sure macros are not defined.  */
-  extern
-    __attribute__((__format__ (gnu_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
-    int __cdecl __mingw_vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,
-				  va_list _ArgList);
-  extern
-    __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-    int __cdecl __mingw_snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
-  extern
-    __attribute__((__format__ (gnu_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-    int __cdecl __mingw_printf(const char * __restrict__ , ... ) __MINGW_NOTHROW;
-  extern
-    __attribute__((__format__ (gnu_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-    int __cdecl __mingw_vprintf (const char * __restrict__ , va_list) __MINGW_NOTHROW;
-  extern
-    __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-    int __cdecl __mingw_fprintf (FILE * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
-  extern
-    __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-    int __cdecl __mingw_vfprintf (FILE * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
-  extern
-    __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-    int __cdecl __mingw_sprintf (char * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
-  extern
-    __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-    int __cdecl __mingw_vsprintf (char * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
 
   _CRTIMP int __cdecl _snprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,...);
   _CRTIMP int __cdecl _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args);
-  int __cdecl sprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,...);
-  int __cdecl vsprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,va_list _Args);
 
+#if !defined (__USE_MINGW_ANSI_STDIO) || __USE_MINGW_ANSI_STDIO == 0
 /* this is here to deal with software defining
  * vsnprintf as _vsnprintf, eg. libxml2.  */
 #pragma push_macro("snprintf")
 #pragma push_macro("vsnprintf")
 # undef snprintf
 # undef vsnprintf
-  int __cdecl vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,va_list _ArgList);
-#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+  int __cdecl vsnprintf(char * __restrict__ d,size_t n,const char * __restrict__ format,va_list arg);
+
+#ifndef __NO_ISOCEXT
   int __cdecl snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
 #ifndef __CRT__NO_INLINE
-  __CRT_INLINE int __cdecl vsnprintf (char * __restrict__ s, size_t n, const char * __restrict__  format,va_list arg) {
-    return _vsnprintf (s, n, format, arg);
+  __CRT_INLINE int __cdecl vsnprintf(char * __restrict__ d,size_t n,const char * __restrict__ format,va_list arg)
+  {
+    return _vsnprintf (d, n, format, arg);
   }
 #endif /* !__CRT__NO_INLINE */
-#endif /* ! __NO_ISOCEXT*/
+#endif /* !__NO_ISOCEXT */
 #pragma pop_macro ("vsnprintf")
 #pragma pop_macro ("snprintf")
-
-#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-  int __cdecl vscanf(const char * __restrict__ Format, va_list argp);
-  int __cdecl vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
-  int __cdecl vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
 #endif
+
   _CRTIMP int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
   _CRTIMP int __cdecl _set_printf_count_output(int _Value);
   _CRTIMP int __cdecl _get_printf_count_output(void);
 
 #ifndef _WSTDIO_DEFINED
 #define _WSTDIO_DEFINED
+
+  int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+  int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
+  int __cdecl wscanf(const wchar_t * __restrict__ _Format,...);
+#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+  int __cdecl vwscanf (const wchar_t * __restrict__ , va_list);
+  int __cdecl vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
+  int __cdecl vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
+#endif /* __NO_ISOCEXT */
+
+  int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+  int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);
+  int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
+  int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+  _CRTIMP int __cdecl swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
+  _CRTIMP int __cdecl vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
 
 #ifndef WEOF
 #define WEOF (wint_t)(0xFFFF)
@@ -336,18 +441,14 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl fputws(const wchar_t * __restrict__ _Str,FILE * __restrict__ _File);
   _CRTIMP wchar_t *__cdecl _getws(wchar_t *_String);
   _CRTIMP int __cdecl _putws(const wchar_t *_Str);
-  int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-  int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...);
-  int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
-  int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-  _CRTIMP int __cdecl swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
-  _CRTIMP int __cdecl vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
   _CRTIMP int __cdecl _swprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _vswprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,va_list _ArgList);
   _CRTIMP int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args);
+
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+
 #pragma push_macro("snwprintf")
 #pragma push_macro("vsnwprintf")
 # undef snwprintf
@@ -362,9 +463,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #endif /* !__CRT__NO_INLINE */
 #pragma pop_macro ("vsnwprintf")
 #pragma pop_macro ("snwprintf")
-  int __cdecl vwscanf (const wchar_t * __restrict__ , va_list);
-  int __cdecl vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
-  int __cdecl vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
 #endif /* ! __NO_ISOCEXT */
   _CRTIMP int __cdecl _swprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args);
@@ -380,10 +478,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 
   _CRTIMP wchar_t *__cdecl _wtempnam(const wchar_t *_Directory,const wchar_t *_FilePrefix);
   _CRTIMP int __cdecl _vscwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-  int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-  int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _snwscanf(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,...);
-  int __cdecl wscanf(const wchar_t * __restrict__ _Format,...);
   _CRTIMP FILE *__cdecl _wfdopen(int _FileHandle ,const wchar_t *_Mode);
   _CRTIMP FILE *__cdecl _wfopen(const wchar_t * __restrict__ _Filename,const wchar_t *__restrict__  _Mode);
   _CRTIMP FILE *__cdecl _wfreopen(const wchar_t * __restrict__ _Filename,const wchar_t * __restrict__ _Mode,FILE * __restrict__ _OldFile);

@@ -6,14 +6,6 @@
 
 /* Undefine __mingw_<printf> macros.  */
 #if defined(__USE_MINGW_ANSI_STDIO) && ((__USE_MINGW_ANSI_STDIO + 0) != 0)
-#undef fprintf
-#undef printf
-#undef sprintf
-#undef snprintf
-#undef vfprintf
-#undef vprintf
-#undef vsprintf
-#undef vsnprintf
 
 /* Redefine to MS specific PRI... and SCN... macros.  */
 #if defined(_INTTYPES_H_) && defined(PRId64)
