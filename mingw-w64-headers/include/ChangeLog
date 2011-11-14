@@ -1,5 +1,11 @@
 2011-11-14  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* unistd.h: Define SEEK_SET, SEEK_CUR, SEEK_END, STDIN_FILENO,
+	STDOUT_FILENO and STDERR_FILENO, if not already defined. Patch
+	from 'antran'. Closes bug #3426006.
+
+2011-11-14  Ozkan Sezer  <sezeroz@gmail.com>
+
 	Merge from trunk revs. 4362, 4565, 4566, 4567:
 	Rafal Carr  <funman@videolan.org>
 	Kai Tietz  <ktietz@redhat.com>
