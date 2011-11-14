@@ -1,3 +1,9 @@
+2011-11-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* unistd.h: Define SEEK_SET, SEEK_CUR, SEEK_END, STDIN_FILENO,
+	STDOUT_FILENO and STDERR_FILENO, if not already defined. Patch
+	from 'antran'. Closes bug #3426006.
+
 2011-11-13  Kai Tietz  <ktietz@redhat.com>
 
 	* stdio.h, wchar.h:  Replace __forceinline by
