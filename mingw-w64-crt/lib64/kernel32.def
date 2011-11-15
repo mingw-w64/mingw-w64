@@ -1042,8 +1042,8 @@ RegKrnInitialize
 ;RegSetKeySecurity
 ;RegSetValueExA
 ;RegSetValueExW
-RegUnLoadKeyA
-RegUnLoadKeyW
+;RegUnLoadKeyA
+;RegUnLoadKeyW
 RegisterApplicationRecoveryCallback
 RegisterApplicationRestart
 RegisterConsoleIME
