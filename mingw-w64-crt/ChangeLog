@@ -1,3 +1,8 @@
+2011-11-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib64/kernel32.def (RegUnLoadKeyA): Comment out advapi32 export.
+	(RegUnLoadKeyW): Likewise.
+
 2011-11-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from trunk rev. 4489:
