@@ -1,3 +1,10 @@
+2011-11-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* wincon.h (SetConsoleDisplayMode): Add missing prototype from
+	http://msdn.microsoft.com/en-us/library/ms686028(v=VS.85).aspx
+	(CONSOLE_FULLSCREEN_MODE): New macro.
+	(CONSOLE_WINDOWED_MODE): New macro.
+
 2011-11-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* unistd.h: Define SEEK_SET, SEEK_CUR, SEEK_END, STDIN_FILENO,
