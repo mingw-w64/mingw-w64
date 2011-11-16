@@ -262,8 +262,12 @@ extern "C" {
 
 #define CONSOLE_FULLSCREEN 1
 #define CONSOLE_FULLSCREEN_HARDWARE 2
-
   WINBASEAPI WINBOOL WINAPI GetConsoleDisplayMode(LPDWORD lpModeFlags);
+
+#define CONSOLE_FULLSCREEN_MODE 1
+#define CONSOLE_WINDOWED_MODE 2
+  WINBASEAPI WINBOOL WINAPI SetConsoleDisplayMode(HANDLE hConsoleOutput, DWORD dwFlags, PCOORD lpNewScreenBufferDimensions);
+
   WINBASEAPI HWND WINAPI GetConsoleWindow(VOID);
   WINBASEAPI DWORD WINAPI GetConsoleProcessList(LPDWORD lpdwProcessList,DWORD dwProcessCount);
   WINBASEAPI WINBOOL WINAPI AddConsoleAliasA(LPSTR Source,LPSTR Target,LPSTR ExeName);
