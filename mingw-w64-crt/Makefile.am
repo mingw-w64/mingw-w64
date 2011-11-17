@@ -676,6 +676,11 @@ lib64_LIBRARIES += lib64/libuuid.a
 lib64_libuuid_a_SOURCES = $(src_libuuid)
 lib64_libuuid_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
+lib64_LIBRARIES += lib64/libgdiplus.a
+lib64_libgdiplus_a_SOURCES = $(src_libgdiplus)
+lib64_libgdiplus_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+lib64_libgdiplus_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+
 lib64_LIBRARIES += lib64/libws2_32.a
 lib64_libws2_32_a_SOURCES = $(src_libws2_32)
 lib64_libws2_32_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
@@ -683,11 +688,6 @@ lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdelayimp.a
 lib64_libdelayimp_a_SOURCES =
-
-lib64_LIBRARIES += lib64/libgdiplus.a
-lib64_libgdiplus_a_SOURCES = $(src_libgdiplus)
-lib64_libgdiplus_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-lib64_libgdiplus_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 lib64_DATA = \
   lib64/libwinusb.a \

@@ -3602,8 +3602,8 @@ src_libmingwex32 = \
 @LIB64_TRUE@	lib64/libscrnsavw.a lib64/libstrmiids.a \
 @LIB64_TRUE@	lib64/libmingw32.a lib64/libmingwex.a \
 @LIB64_TRUE@	lib64/libmoldname.a lib64/libmingwthrd.a \
-@LIB64_TRUE@	lib64/libuuid.a lib64/libws2_32.a \
-@LIB64_TRUE@	lib64/libdelayimp.a lib64/libgdiplus.a
+@LIB64_TRUE@	lib64/libuuid.a lib64/libgdiplus.a \
+@LIB64_TRUE@	lib64/libws2_32.a lib64/libdelayimp.a
 @LIB64_TRUE@nodist_lib64_libm_a_SOURCES = $(src_libm)
 @LIB64_TRUE@lib64_libm_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libshell32_a_SOURCES = $(src_libshell32)
@@ -3652,13 +3652,13 @@ src_libmingwex32 = \
 @LIB64_TRUE@lib64_libmingwthrd_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libuuid_a_SOURCES = $(src_libuuid)
 @LIB64_TRUE@lib64_libuuid_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
+@LIB64_TRUE@lib64_libgdiplus_a_SOURCES = $(src_libgdiplus)
+@LIB64_TRUE@lib64_libgdiplus_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
+@LIB64_TRUE@lib64_libgdiplus_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libws2_32_a_SOURCES = $(src_libws2_32)
 @LIB64_TRUE@lib64_libws2_32_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libdelayimp_a_SOURCES = 
-@LIB64_TRUE@lib64_libgdiplus_a_SOURCES = $(src_libgdiplus)
-@LIB64_TRUE@lib64_libgdiplus_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
-@LIB64_TRUE@lib64_libgdiplus_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_DATA = \
 @LIB64_TRUE@  lib64/libwinusb.a \
 @LIB64_TRUE@  lib64/lib6to4svc.a    lib64/libaaaamon.a    lib64/libacledit.a      lib64/libaclui.a      \
