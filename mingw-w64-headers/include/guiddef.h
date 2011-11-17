@@ -65,10 +65,16 @@ typedef GUID IID;
 typedef IID *LPIID;
 #define IID_NULL GUID_NULL
 #define IsEqualIID(riid1,riid2) IsEqualGUID(riid1,riid2)
+
+#ifndef CLSID_DEFINED
+#define CLSID_DEFINED
 typedef GUID CLSID;
+#endif
+
 typedef CLSID *LPCLSID;
 #define CLSID_NULL GUID_NULL
 #define IsEqualCLSID(rclsid1,rclsid2) IsEqualGUID(rclsid1,rclsid2)
+
 typedef GUID FMTID;
 typedef FMTID *LPFMTID;
 #define FMTID_NULL GUID_NULL

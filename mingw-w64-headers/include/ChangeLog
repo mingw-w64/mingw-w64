@@ -1,3 +1,9 @@
+2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from the trunk:
+	2011-10-10  Kai Tietz  <ktietz@redhat.com> (rev. 3715)
+	* guiddef.h (CLSID): Guard by CLSID_DEFINED.
+
 2011-11-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* wincon.h (SetConsoleDisplayMode): Add missing prototype from
