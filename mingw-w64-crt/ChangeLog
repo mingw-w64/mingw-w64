@@ -1,6 +1,11 @@
 2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* Makefile.am: Add $(sysincludes) to all build rules' CPPGLAGS.
+	* stdio/mingw_pformat.c (__pformat_cvt): Add missing initializer
+	to the int_max member of fpi.  Needed due to recent gdtoa update.
+
+2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Add $(sysincludes) to all build rules' CPPFLAGS.
 	* Makefile.in: Regenerate.
 
 2011-11-13  Ozkan Sezer  <sezeroz@gmail.com>
