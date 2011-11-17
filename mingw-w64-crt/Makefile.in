@@ -3209,7 +3209,7 @@ src_libuuid = libsrc/uuid.c   libsrc/guid_nul.c         libsrc/devguid.c        
   libsrc/hlink-uuid.c       libsrc/mlang-uuid.c       libsrc/msctf-uuid.c      libsrc/mshtml-uuid.c     libsrc/msxml-uuid.c        \
   libsrc/netcon-uuid.c      libsrc/objidl-uuid.c      libsrc/oaidl-uuid.c      libsrc/objsafe-uuid.c    libsrc/ocidl-uuid.c        \
   libsrc/oleacc-uuid.c      libsrc/olectlid-uuid.c    libsrc/oleidl-uuid.c     libsrc/power-uuid.c      libsrc/servprov-uuid.c     \
-  libsrc/unknwn-uuid.c      libsrc/urlmon-uuid.c     libsrc/vds-uuid.c        libsrc/virtdisk-uuid.c     \
+  libsrc/unknwn-uuid.c      libsrc/urlmon-uuid.c      libsrc/vds-uuid.c        libsrc/virtdisk-uuid.c   \
   libsrc/wia-uuid.c         libsrc/powrprof-uuid.c    libsrc/usbcamdi-uuid.c   libsrc/usbiodef-uuid.c   libsrc/ntddkbd-uuid.c      \
   libsrc/ntddmou-uuid.c     libsrc/ntddpar-uuid.c     libsrc/ntddser-uuid.c    libsrc/ntddscsi-uuid.c   libsrc/ntddstor-uuid.c     \
   libsrc/ntddvdeo-uuid.c
@@ -3291,8 +3291,8 @@ src_libmingwex = \
   math/fmod.c         math/modf.c         \
   math/fmodl.c        math/fpclassify.c   math/fpclassifyf.c  math/fpclassifyl.c   math/fp_consts.c   math/fp_constsf.c  \
   math/fp_constsl.c   math/frexpf.c       math/fucom.c        math/hypotf.c        math/hypotl.c      math/isnan.c       \
-  math/isnanf.c       math/isnanl.c       math/ldexpf.c       math/ldexpl.c \
-  math/ldexp.c        math/lgamma.c      math/lgammaf.c     \
+  math/isnanf.c       math/isnanl.c       math/ldexpf.c       math/ldexpl.c        \
+  math/ldexp.c        math/lgamma.c       math/lgammaf.c      \
   math/lgammal.c      math/llrint.c       math/llrintf.c      math/llrintl.c       math/llround.c     math/llroundf.c    \
   math/llroundl.c     math/log10f.c       math/logb.c         math/logbf.c         math/logbl.c       math/logf.c        \
   math/log.c          math/logl.c         \
@@ -3417,35 +3417,35 @@ src_libmingwex32 = \
 @LIB32_TRUE@	lib32/libuuid.a lib32/libws2_32.a \
 @LIB32_TRUE@	lib32/libdelayimp.a
 @LIB32_TRUE@nodist_lib32_libm_a_SOURCES = $(src_libm)
-@LIB32_TRUE@lib32_libm_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libm_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libgmon_a_SOURCES = profile/mcount.c \
 @LIB32_TRUE@  profile/profil.h profile/profil.c        \
 @LIB32_TRUE@  profile/gmon.h   profile/gmon.c \
 @LIB32_TRUE@  profile/mcountFunc.S
 
-@LIB32_TRUE@lib32_libgmon_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libgmon_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libshell32_a_SOURCES = $(src_libshell32)
 @LIB32_TRUE@lib32_libshell32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
-@LIB32_TRUE@lib32_libshell32_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libshell32_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libdinput_a_SOURCES = $(src_libdinput)
 @LIB32_TRUE@lib32_libdinput_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
-@LIB32_TRUE@lib32_libdinput_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libdinput_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libdinput8_a_SOURCES = $(src_libdinput8)
 @LIB32_TRUE@lib32_libdinput8_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
-@LIB32_TRUE@lib32_libdinput8_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libdinput8_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libdmoguids_a_SOURCES = $(src_libdmoguids)
-@LIB32_TRUE@lib32_libdmoguids_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libdmoguids_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libdxerr8_a_SOURCES = $(src_libdxerr8)
-@LIB32_TRUE@lib32_libdxerr8_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libdxerr8_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libdxerr9_a_SOURCES = $(src_libdxerr9)
-@LIB32_TRUE@lib32_libdxerr9_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libdxerr9_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libdxguid_a_SOURCES = $(src_libdxguid)
-@LIB32_TRUE@lib32_libdxguid_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libdxguid_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libksuser_a_SOURCES = $(src_libksuser)
-@LIB32_TRUE@lib32_libksuser_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libksuser_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libksuser_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_liblargeint_a_SOURCES = $(src_liblargeint)
-@LIB32_TRUE@lib32_liblargeint_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_liblargeint_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libmingw32_a_CPPFLAGS = $(CPPFLAGS32) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
 @LIB32_TRUE@lib32_libmingw32_a_SOURCES = $(src_libmingw32)
 @LIB32_TRUE@lib32_libmingwex_a_CPPFLAGS = $(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
@@ -3454,18 +3454,18 @@ src_libmingwex32 = \
 @LIB32_TRUE@lib32_libmoldname_a_SOURCES = $(src_libmoldname)
 @LIB32_TRUE@lib32_libmoldname_a_AR = $(DTDEF32) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll && $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libscrnsave_a_SOURCES = $(src_libscrnsave)
-@LIB32_TRUE@lib32_libscrnsave_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libscrnsave_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libscrnsavw_a_SOURCES = $(src_libscrnsavw)
-@LIB32_TRUE@lib32_libscrnsavw_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libscrnsavw_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libscrnsavw_a_CFLAGS = -DUNICODE
 @LIB32_TRUE@lib32_libstrmiids_a_SOURCES = $(src_libstrmiids)
-@LIB32_TRUE@lib32_libstrmiids_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libstrmiids_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
-@LIB32_TRUE@lib32_libmingwthrd_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libmingwthrd_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libuuid_a_SOURCES = $(src_libuuid)
-@LIB32_TRUE@lib32_libuuid_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libuuid_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libws2_32_a_SOURCES = $(src_libws2_32)
-@LIB32_TRUE@lib32_libws2_32_a_CPPFLAGS = $(CPPFLAGS32)
+@LIB32_TRUE@lib32_libws2_32_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 @LIB32_TRUE@lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 @LIB32_TRUE@lib32_libdelayimp_a_SOURCES = 
 
@@ -3588,42 +3588,42 @@ src_libmingwex32 = \
 @LIB64_TRUE@	lib64/libuuid.a lib64/libws2_32.a \
 @LIB64_TRUE@	lib64/libdelayimp.a
 @LIB64_TRUE@nodist_lib64_libm_a_SOURCES = $(src_libm)
-@LIB64_TRUE@lib64_libm_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libm_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libshell32_a_SOURCES = $(src_libshell32)
-@LIB64_TRUE@lib64_libshell32_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libshell32_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libshell32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libdinput_a_SOURCES = $(src_libdinput)
-@LIB64_TRUE@lib64_libdinput_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libdinput_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libdinput_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libdinput8_a_SOURCES = $(src_libdinput8)
-@LIB64_TRUE@lib64_libdinput8_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libdinput8_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libdinput8_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libdmoguids_a_SOURCES = $(src_libdmoguids)
-@LIB64_TRUE@lib64_libdmoguids_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libdmoguids_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libdxerr8_a_SOURCES = $(src_libdxerr8)
-@LIB64_TRUE@lib64_libdxerr8_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libdxerr8_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libdxerr9_a_SOURCES = $(src_libdxerr9)
-@LIB64_TRUE@lib64_libdxerr9_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libdxerr9_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libdxguid_a_SOURCES = $(src_libdxguid)
-@LIB64_TRUE@lib64_libdxguid_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libdxguid_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libgmon_a_SOURCES = profile/mcount.c \
 @LIB64_TRUE@  profile/profil.h profile/profil.c        \
 @LIB64_TRUE@  profile/gmon.h   profile/gmon.c \
 @LIB64_TRUE@  profile/mcountFunc.S
 
-@LIB64_TRUE@lib64_libgmon_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libgmon_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libksuser_a_SOURCES = $(src_libksuser)
-@LIB64_TRUE@lib64_libksuser_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libksuser_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libksuser_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_liblargeint_a_SOURCES = $(src_liblargeint)
-@LIB64_TRUE@lib64_liblargeint_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_liblargeint_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libscrnsave_a_SOURCES = $(src_libscrnsave)
-@LIB64_TRUE@lib64_libscrnsave_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libscrnsave_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libscrnsavw_a_SOURCES = libsrc/scrnsave.c
-@LIB64_TRUE@lib64_libscrnsavw_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libscrnsavw_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libscrnsavw_a_CFLAGS = -DUNICODE
 @LIB64_TRUE@lib64_libstrmiids_a_SOURCES = $(src_libstrmiids)
-@LIB64_TRUE@lib64_libstrmiids_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libstrmiids_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libmingw32_a_CPPFLAGS = $(CPPFLAGS64) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
 @LIB64_TRUE@lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 @LIB64_TRUE@lib64_libmingwex_a_CPPFLAGS = $(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
@@ -3632,11 +3632,11 @@ src_libmingwex32 = \
 @LIB64_TRUE@lib64_libmoldname_a_SOURCES = $(src_libmoldname)
 @LIB64_TRUE@lib64_libmoldname_a_AR = $(DTDEF64) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
-@LIB64_TRUE@lib64_libmingwthrd_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libmingwthrd_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libuuid_a_SOURCES = $(src_libuuid)
-@LIB64_TRUE@lib64_libuuid_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libuuid_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libws2_32_a_SOURCES = $(src_libws2_32)
-@LIB64_TRUE@lib64_libws2_32_a_CPPFLAGS = $(CPPFLAGS64)
+@LIB64_TRUE@lib64_libws2_32_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 @LIB64_TRUE@lib64_libdelayimp_a_SOURCES = 
 @LIB64_TRUE@lib64_DATA = \

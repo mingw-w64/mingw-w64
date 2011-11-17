@@ -1,3 +1,8 @@
+2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Add $(sysincludes) to all build rules' CPPGLAGS.
+	* Makefile.in: Regenerate.
+
 2011-11-15  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib64/kernel32.def (RegUnLoadKeyA): Comment out advapi32 export.
