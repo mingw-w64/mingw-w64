@@ -1,5 +1,10 @@
 2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
 
+	* stdio/mingw_pformat.c (__pformat_cvt): Add missing initializer
+	to the int_max member of fpi.  Needed due to recent gdtoa update.
+
+2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
+
 	Add gdiplus from mingw.org sources: Original work was by Markus Koenig
 	<basilo@users.sourceforge.net>.  Patch to integrate into mingw-w64 was
 	provided by Mark Dootson <mark.dootson@znix.com>.
@@ -12,7 +17,7 @@
 
 2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
 
-	* Makefile.am: Add $(sysincludes) to all build rules' CPPGLAGS.
+	* Makefile.am: Add $(sysincludes) to all build rules' CPPFLAGS.
 	* Makefile.in: Regenerate.
 
 2011-11-15  Ozkan Sezer  <sezeroz@gmail.com>

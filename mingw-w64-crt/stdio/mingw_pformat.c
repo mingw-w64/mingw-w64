@@ -775,7 +775,7 @@ char *__pformat_cvt( int mode, __pformat_fpreg_t x, int nd, int *dp, int *sign )
    * replacements for `ecvt()' and `fcvt()'.
    */
   int k; unsigned int e = 0; char *ep;
-  static FPI fpi = { 64, 1-16383-64+1, 32766-16383-64+1, FPI_Round_near, 0 };
+  static FPI fpi = { 64, 1-16383-64+1, 32766-16383-64+1, FPI_Round_near, 0, 14 /* Int_max */ };
  
   /* Classify the argument into an appropriate `__gdtoa()' category...
    */
