@@ -4,6 +4,7 @@ sysheaddir = $(baseheaddir)/sys
 secheaddir = $(baseheaddir)/sec_api
 secsysheaddir = $(baseheaddir)/sec_api/sys
 glheaddir = $(baseheaddir)/GL
+gdiplusheaddir = $(baseheaddir)/gdiplus
 mingwhelperheaddir = $(baseheaddir)/psdk_inc
 sdksheaddir = $(baseheaddir)/sdks
 
@@ -12,6 +13,7 @@ syshead_HEADERS = @SYSHEAD_LIST@
 sechead_HEADERS = @SECHEAD_LIST@
 secsyshead_HEADERS = @SECSYSHEAD_LIST@
 glhead_HEADERS = @GLHEAD_LIST@
+gdiplushead_HEADERS = @GDIPLUSHEAD_LIST@
 mingwhelperhead_HEADERS = @MINGWHELPERHEAD_LIST@
 sdkshead_HEADERS = _mingw_directx.h _mingw_ddk.h
 
@@ -35,6 +37,7 @@ EXTRA_HEADERS = \
   include/*.ver \
   include/GL/*.h \
   include/psdk_inc/*.h \
+  include/gdiplus/*.h \
   crt/*.h \
   crt/sys/*.h \
   crt/sec_api/*.h \

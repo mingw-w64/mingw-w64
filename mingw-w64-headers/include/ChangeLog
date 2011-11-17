@@ -1,3 +1,41 @@
+2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Add gdiplus from mingw.org sources: Original work was by Markus Koenig
+	<basilo@users.sourceforge.net>.  Patch to integrate into mingw-w64 was
+	provided by Mark Dootson <mark.dootson@znix.com>.
+
+	* gdiplus.h: New.
+	* gdiplus/gdiplus.h: New.
+	* gdiplus/gdiplusbase.h: New.
+	* gdiplus/gdiplusbrush.h: New.
+	* gdiplus/gdipluscolor.h: New.
+	* gdiplus/gdipluscolormatrix.h: New.
+	* gdiplus/gdipluseffects.h: New.
+	* gdiplus/gdiplusenums.h: New.
+	* gdiplus/gdiplusflat.h: New.
+	* gdiplus/gdiplusgpstubs.h: New.
+	* gdiplus/gdiplusgraphics.h: New.
+	* gdiplus/gdiplusheaders.h: New.
+	* gdiplus/gdiplusimageattributes.h: New.
+	* gdiplus/gdiplusimagecodec.h: New.
+	* gdiplus/gdiplusimaging.h: New.
+	* gdiplus/gdiplusimpl.h: New.
+	* gdiplus/gdiplusinit.h: New.
+	* gdiplus/gdipluslinecaps.h: New.
+	* gdiplus/gdiplusmatrix.h: New.
+	* gdiplus/gdiplusmem.h: New.
+	* gdiplus/gdiplusmetafile.h: New.
+	* gdiplus/gdiplusmetaheader.h: New.
+	* gdiplus/gdipluspath.h: New.
+	* gdiplus/gdipluspen.h: New.
+	* gdiplus/gdipluspixelformats.h: New.
+	* gdiplus/gdiplusstringformat.h: New.
+	* gdiplus/gdiplustypes.h: New.
+	* configure.ac: Add GDIPLUSHEAD_LIST as a new header list.
+	* configure: Regenerate.
+	* Makefile.am: Add gdiplusheaddir and gdiplushead_HEADERS.
+	* Makefile.in: Regenerate.
+
 2011-11-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* wincon.h (SetConsoleDisplayMode): Add missing prototype from

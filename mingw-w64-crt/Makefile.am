@@ -90,6 +90,8 @@ src_libscrnsavw=libsrc/scrnsave.c
 src_libstrmiids=libsrc/strmiids.c
 src_libmingwthrd=libsrc/mingwthrd_mt.c
 
+src_libgdiplus=libsrc/gdiplus.c
+
 src_libuuid=libsrc/uuid.c   libsrc/guid_nul.c         libsrc/devguid.c         libsrc/agtctl_i.c        libsrc/agtsvr_i.c          \
   libsrc/cdoex_i.c          libsrc/cdoexm_i.c         libsrc/cdosys_i.c        libsrc/emostore_i.c      libsrc/iisext_i.c          \
   libsrc/mtsadmin_i.c       libsrc/mtxadmin_i.c       libsrc/scardssp_i.c      libsrc/tsuserex_i.c      libsrc/fwp-uuid.c          \
@@ -403,6 +405,11 @@ lib32_LIBRARIES += lib32/libuuid.a
 lib32_libuuid_a_SOURCES = $(src_libuuid)
 lib32_libuuid_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
+lib32_LIBRARIES += lib32/libgdiplus.a
+lib32_libgdiplus_a_SOURCES = $(src_libgdiplus)
+lib32_libgdiplus_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+lib32_libgdiplus_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
+
 lib32_LIBRARIES += lib32/libws2_32.a
 lib32_libws2_32_a_SOURCES = $(src_libws2_32)
 lib32_libws2_32_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
@@ -676,6 +683,11 @@ lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdelayimp.a
 lib64_libdelayimp_a_SOURCES =
+
+lib64_LIBRARIES += lib64/libgdiplus.a
+lib64_libgdiplus_a_SOURCES = $(src_libgdiplus)
+lib64_libgdiplus_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+lib64_libgdiplus_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 lib64_DATA = \
   lib64/libwinusb.a \
