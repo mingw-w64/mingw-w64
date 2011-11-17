@@ -251,8 +251,13 @@ __CRT_INLINE int __cdecl
 #endif /* !RC_INVOKED && !NO_OLDNAMES */
 
 #if defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)
+#ifdef _USE_32BIT_TIME_T
+#define stat _stat32i64
+#define fstat _fstat32i64
+#else
 #define stat _stat64
 #define fstat _fstat64
+#endif
 #endif
 
 #ifdef __cplusplus

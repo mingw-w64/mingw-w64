@@ -222,7 +222,7 @@ time_t __cdecl _mkgmtime(struct tm *_Tm);
 time_t __cdecl time(time_t *_Time);
 
 #ifndef __CRT__NO_INLINE
-#if !defined(_USE_32BIT_TIME_T) || (defined(_FILE_OFFSET_BITS) && _FILE_OFFSET_BITS == 64)
+#if !defined(_USE_32BIT_TIME_T)
 __CRT_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2)
   { return _difftime64(_Time1,_Time2); }
 __CRT_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime64(_Time); }
@@ -240,9 +240,9 @@ __CRT_INLINE time_t __cdecl mktime(struct tm *_Tm) { return _mktime32(_Tm); }
 __CRT_INLINE struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime32(_Time); }
 __CRT_INLINE time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
 __CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time32(_Time); }
-#endif
 #endif /* !_USE_32BIT_TIME_T */
 #endif /* !__CRT__NO_INLINE */
+#endif /* !RC_INVOKED */
 
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
 #define CLK_TCK CLOCKS_PER_SEC

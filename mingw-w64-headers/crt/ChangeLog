@@ -1,3 +1,8 @@
+2011-11-18  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* time.h: Make sure to use 32bit time when _USE_32BIT_TIME_T in use.
+	* sys/stat.h: Likewise for _stat32i64 and _fstat32i64 structures.
+
 2011-11-14  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* unistd.h: Define SEEK_SET, SEEK_CUR, SEEK_END, STDIN_FILENO,
