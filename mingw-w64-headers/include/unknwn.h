@@ -18,6 +18,10 @@
 #include <ole2.h>
 #endif
 
+#pragma macro_push("interface)
+#undef interface
+#define interface struct
+
 #ifndef __WIDL_UNKNWN_H
 #define __WIDL_UNKNWN_H
 
@@ -330,3 +334,5 @@ HRESULT __RPC_STUB IClassFactory_LockServer_Stub(
 #endif
 
 #endif /* __WIDL_UNKNWN_H */
+
+#pragma macro_pop("interface)

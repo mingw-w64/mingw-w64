@@ -188,7 +188,7 @@ C_ASSERT(sizeof(IN6_PKTINFO)==20);
 #define EAI_SERVICE WSATYPE_NOT_FOUND
 #define EAI_SOCKTYPE WSAESOCKTNOSUPPORT
 
-#define EAI_NODATA EAI_NONAME
+#define EAI_NODATA 11004L /* WSANO_DATA */
 
 typedef struct addrinfo {
   int ai_flags;

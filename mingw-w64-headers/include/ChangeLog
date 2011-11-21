@@ -1,3 +1,7 @@
+2011-11-21  Kai Tietz  <ktietz@redhat.com>
+
+	* ws2tcpip.h (EAI_NODATA): Map to WSANO_DATA.
+
 2011-11-19  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* wincon.h: Added MOUSE_HWHEELED (0x8).  Moved the Vista version guard
