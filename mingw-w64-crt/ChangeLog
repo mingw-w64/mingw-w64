@@ -1,3 +1,7 @@
+2011-11-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* math/pow.c: Correct checks against MAXNUM. From Brian D. Ripley.
+
 2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* stdio/mingw_pformat.c (__pformat_cvt): Add missing initializer

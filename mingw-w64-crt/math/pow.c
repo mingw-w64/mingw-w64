@@ -379,7 +379,7 @@ double pow(double x, double y)
 			return (MAXNUM);
 #endif
 	}
-	if (x >= MAXNUM)
+	if (x > MAXNUM)
 	{
 #if INFINITIES
 		if (y > 0.0)
@@ -407,7 +407,7 @@ double pow(double x, double y)
 			yoddint = 1;
 	}
 
-	if (x <= -MAXNUM)
+	if (x < -MAXNUM)
 	{
 		if (y > 0.0)
 		{
