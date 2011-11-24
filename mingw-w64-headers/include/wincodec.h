@@ -137,6 +137,11 @@ typedef interface IWICFastMetadataEncoder IWICFastMetadataEncoder;
 typedef interface IWICImagingFactory IWICImagingFactory;
 #endif
 
+#ifndef __IWICEnumMetadataItem_FWD_DEFINED__
+#define __IWICEnumMetadataItem_FWD_DEFINED__
+typedef interface IWICEnumMetadataItem IWICEnumMetadataItem;
+#endif
+
 /* Headers for imported files */
 
 #include <wtypes.h>
@@ -293,6 +298,7 @@ typedef UINT32 WICColor;
 #define WINCODEC_ERR_WRONGSTATE 0x88982f04
 #define WINCODEC_ERR_VALUEOUTOFRANGE 0x88982f05
 #define WINCODEC_ERR_NOTINITIALIZED 0x88982f0c
+#define WINCODEC_ERR_PROPERTYNOTFOUND 0x88982f40
 #define WINCODEC_ERR_CODECNOTHUMBNAIL 0x88982f44
 #define WINCODEC_ERR_PALETTEUNAVAILABLE 0x88982f45
 #define WINCODEC_ERR_COMPONENTNOTFOUND 0x88982f50
@@ -4695,6 +4701,131 @@ void __RPC_STUB IWICImagingFactory_CreateQueryWriterFromReader_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IWICImagingFactory_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWICEnumMetadataItem interface
+ */
+#ifndef __IWICEnumMetadataItem_INTERFACE_DEFINED__
+#define __IWICEnumMetadataItem_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWICEnumMetadataItem, 0xdc2bb46d, 0x3f07, 0x481e, 0x86,0x25, 0x22,0x0c,0x4a,0xed,0xbb,0x33);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("dc2bb46d-3f07-481e-8625-220c4aedbb33")
+IWICEnumMetadataItem : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG celt,
+        PROPVARIANT *rgeltSchema,
+        PROPVARIANT *rgeltId,
+        PROPVARIANT *rgeltValue,
+        ULONG *pceltFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG celt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IWICEnumMetadataItem **ppIEnumMetadataItem) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICEnumMetadataItem, 0xdc2bb46d, 0x3f07, 0x481e, 0x86,0x25, 0x22,0x0c,0x4a,0xed,0xbb,0x33)
+#endif
+#else
+typedef struct IWICEnumMetadataItemVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWICEnumMetadataItem* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWICEnumMetadataItem* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWICEnumMetadataItem* This);
+
+    /*** IWICEnumMetadataItem methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IWICEnumMetadataItem* This,
+        ULONG celt,
+        PROPVARIANT *rgeltSchema,
+        PROPVARIANT *rgeltId,
+        PROPVARIANT *rgeltValue,
+        ULONG *pceltFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IWICEnumMetadataItem* This,
+        ULONG celt);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IWICEnumMetadataItem* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IWICEnumMetadataItem* This,
+        IWICEnumMetadataItem **ppIEnumMetadataItem);
+
+    END_INTERFACE
+} IWICEnumMetadataItemVtbl;
+interface IWICEnumMetadataItem {
+    CONST_VTBL IWICEnumMetadataItemVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IWICEnumMetadataItem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWICEnumMetadataItem_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWICEnumMetadataItem_Release(This) (This)->lpVtbl->Release(This)
+/*** IWICEnumMetadataItem methods ***/
+#define IWICEnumMetadataItem_Next(This,celt,rgeltSchema,rgeltId,rgeltValue,pceltFetched) (This)->lpVtbl->Next(This,celt,rgeltSchema,rgeltId,rgeltValue,pceltFetched)
+#define IWICEnumMetadataItem_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
+#define IWICEnumMetadataItem_Reset(This) (This)->lpVtbl->Reset(This)
+#define IWICEnumMetadataItem_Clone(This,ppIEnumMetadataItem) (This)->lpVtbl->Clone(This,ppIEnumMetadataItem)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWICEnumMetadataItem_Next_Proxy(
+    IWICEnumMetadataItem* This,
+    ULONG celt,
+    PROPVARIANT *rgeltSchema,
+    PROPVARIANT *rgeltId,
+    PROPVARIANT *rgeltValue,
+    ULONG *pceltFetched);
+void __RPC_STUB IWICEnumMetadataItem_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICEnumMetadataItem_Skip_Proxy(
+    IWICEnumMetadataItem* This,
+    ULONG celt);
+void __RPC_STUB IWICEnumMetadataItem_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICEnumMetadataItem_Reset_Proxy(
+    IWICEnumMetadataItem* This);
+void __RPC_STUB IWICEnumMetadataItem_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICEnumMetadataItem_Clone_Proxy(
+    IWICEnumMetadataItem* This,
+    IWICEnumMetadataItem **ppIEnumMetadataItem);
+void __RPC_STUB IWICEnumMetadataItem_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWICEnumMetadataItem_INTERFACE_DEFINED__ */
 
 HRESULT WINAPI WICConvertBitmapSource(REFWICPixelFormatGUID dstFormat, IWICBitmapSource *pISrc, IWICBitmapSource **ppIDst);
 DEFINE_GUID(CLSID_WICBmpDecoder, 0x6b462062,0x7cbf,0x400d,0x9f,0xdb,0x81,0x3d,0xd1,0x0f,0x27,0x78);
