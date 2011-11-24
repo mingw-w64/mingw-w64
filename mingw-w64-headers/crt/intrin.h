@@ -50,6 +50,16 @@ typedef union __m128i { char v[16]; } __m128i;
 #define WINAPI __stdcall
 #endif
 
+#ifdef __MMX__
+#if defined(__cplusplus)
+extern "C" {
+#endif
+#include <mmintrin.h>
+#if defined(__cplusplus)
+}
+#endif
+#endif
+
 #if (defined(_X86_) && !defined(__x86_64))
 #if defined(__cplusplus)
 extern "C" {
@@ -458,6 +468,7 @@ extern "C" {
     __MACHINEIA64(void __yield(void))
     __MACHINEIA64(void __fci(void*))
 
+#if !defined(__GNUC__) || !defined(__MMX__)
     __MACHINEX86X_NOX64(void _m_empty(void))
     __MACHINEX86X_NOX64(__m64 _m_from_int(int))
     __MACHINEX86X_NOX64(int _m_to_int(__m64))
@@ -523,6 +534,7 @@ extern "C" {
     __MACHINEX86X_NOX64(__m64 _mm_setr_pi32(int,int))
     __MACHINEX86X_NOX64(__m64 _mm_setr_pi16(short,short,short,short))
     __MACHINEX86X_NOX64(__m64 _mm_setr_pi8(char,char,char,char,char,char,char,char))
+#endif
 #pragma push_macro ("_m_pextrw")
 #undef _m_pextrw
     __MACHINEX86X_NOX64(int _m_pextrw(__m64,int))
@@ -771,7 +783,9 @@ extern "C" {
     __MACHINEX86X(__m128i _mm_add_epi8(__m128i,__m128i))
     __MACHINEX86X(__m128i _mm_add_epi16(__m128i,__m128i))
     __MACHINEX86X(__m128i _mm_add_epi32(__m128i,__m128i))
+#if !defined(__GNUC__) || !defined(__MMX__)
     __MACHINEX86X_NOX64(__m64 _mm_add_si64(__m64,__m64))
+#endif
     __MACHINEX86X(__m128i _mm_add_epi64(__m128i,__m128i))
     __MACHINEX86X(__m128i _mm_adds_epi8(__m128i,__m128i))
     __MACHINEX86X(__m128i _mm_adds_epi16(__m128i,__m128i))
@@ -793,7 +807,9 @@ extern "C" {
     __MACHINEX86X(__m128i _mm_sub_epi8(__m128i,__m128i))
     __MACHINEX86X(__m128i _mm_sub_epi16(__m128i,__m128i))
     __MACHINEX86X(__m128i _mm_sub_epi32(__m128i,__m128i))
+#if !defined(__GNUC__) || !defined(__MMX__)
     __MACHINEX86X_NOX64(__m64 _mm_sub_si64(__m64,__m64))
+#endif
     __MACHINEX86X(__m128i _mm_sub_epi64(__m128i,__m128i))
     __MACHINEX86X(__m128i _mm_subs_epi8(__m128i,__m128i))
     __MACHINEX86X(__m128i _mm_subs_epi16(__m128i,__m128i))
