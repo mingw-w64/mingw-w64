@@ -1165,7 +1165,7 @@ extern "C" {
 #define PBT_APMRESUMEAUTOMATIC 0x0012
 #endif
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (_WIN32_WINNT >= 0x0502)
 #define PBT_POWERSETTINGCHANGE 32787
 #endif
 
@@ -1851,8 +1851,9 @@ extern "C" {
 #define RegisterClassEx __MINGW_NAME_AW(RegisterClassEx)
 #define GetClassInfoEx __MINGW_NAME_AW(GetClassInfoEx)
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (_WIN32_WINNT >= 0x0502)
   typedef HANDLE HPOWERNOTIFY;
+  typedef HPOWERNOTIFY *PHPOWERNOTIFY;
 
   typedef struct {
     GUID PowerSetting;
