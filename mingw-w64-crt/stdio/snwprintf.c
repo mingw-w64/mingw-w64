@@ -6,7 +6,7 @@
 #include <stdarg.h>
 #include <wchar.h>
 
-int __cdecl snwprintf(wchar_t *buffer, size_t n, const wchar_t *format, ...)
+int __cdecl __ms_snwprintf(wchar_t *buffer, size_t n, const wchar_t *format, ...)
 {
     int retval;
     va_list argptr;

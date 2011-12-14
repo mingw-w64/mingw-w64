@@ -1,3 +1,4 @@
+#define __lc_codepage __dummy_lc_codepage
 #include <windows.h>
 #include <locale.h>
 
@@ -36,3 +37,7 @@ static unsigned int __cdecl init_codepage_func(void)
 }
 
 unsigned int (__cdecl *__mingw_get_codepage)(void) = init_codepage_func;
+#undef __lc_codepage
+extern unsigned int
+  (*__lc_codepage)(void) __attribute__ ((alias ("__mingw_get_codepage")));
+

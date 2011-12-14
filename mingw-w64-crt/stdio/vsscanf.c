@@ -12,7 +12,7 @@
 #define QUOTE_(x) #x
 #define QUOTE(x) QUOTE_(x)
 
-int vsscanf(const char * __restrict__ s, const char * __restrict__ format, va_list arg) {
+int __ms_vsscanf (const char * __restrict__ s, const char * __restrict__ format, va_list arg) {
   int ret;
 #ifdef _WIN64
   __asm__ __volatile__ (

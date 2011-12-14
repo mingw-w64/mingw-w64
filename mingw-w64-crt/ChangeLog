@@ -1,3 +1,9 @@
+2011-12-14  Kai Tietz  <ktietz@redhat.com>
+
+        * stdio/ The printf-routines rework part 2
+	* crt/ Avoid use of msvcrt printf functions
+	* misc/ Likewise.
+
 2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* stdio/mingw_pformat.c (__pformat_cvt): Add missing initializer

@@ -62,8 +62,9 @@ _wassert (const wchar_t *_Message, const wchar_t *_File, unsigned _Line)
   fn[MAX_PATH] = 0;
   if (! GetModuleFileName (NULL, fn, MAX_PATH))
     strcpy (fn, "<unknown>");
-  sprintf (msgbuf, "Assertion failed!\n\nProgram: %s\nFile: %s, Line %u\n\nExpression: %s",
-      	   fn, iFile,_Line,msg);
+  __mingw_sprintf (msgbuf, "Assertion failed!\n\nProgram: %s\n"
+		  "File: %s, Line %u\n\nExpression: %s",
+		  fn, iFile,_Line, msg);
   if (mingw_app_type == 0)
     {
       fprintf (stderr, "%s\n", msgbuf);

@@ -12,7 +12,7 @@
 #define QUOTE_(x) #x
 #define QUOTE(x) QUOTE_(x)
 
-int vswscanf(const wchar_t * __restrict__ s, const wchar_t * __restrict__ format,
+int __ms_vswscanf(const wchar_t * __restrict__ s, const wchar_t * __restrict__ format,
   va_list arg)
 {
   int ret;

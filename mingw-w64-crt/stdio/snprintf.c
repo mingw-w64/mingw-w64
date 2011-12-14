@@ -6,7 +6,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int __cdecl snprintf(char* buffer, size_t n, const char *format, ...)
+int __cdecl __ms_snprintf(char* buffer, size_t n, const char *format, ...)
 {
   int retval;
   va_list argptr;

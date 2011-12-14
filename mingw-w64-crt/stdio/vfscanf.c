@@ -15,7 +15,7 @@
 #define QUOTE_(x) #x
 #define QUOTE(x) QUOTE_(x)
 
-int vfscanf(FILE * __restrict__ stream, const char * __restrict__ format, va_list arg)
+int __ms_vfscanf (FILE * __restrict__ stream, const char * __restrict__ format, va_list arg)
 {
   int ret;
 #ifdef _WIN64
