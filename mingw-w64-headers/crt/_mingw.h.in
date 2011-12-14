@@ -525,7 +525,7 @@ typedef __time64_t time_t;
 #define _CRT_UNUSED(x) (void)x
 #endif
 
-#if (defined(_POSIX) || defined (_POSIX_SOURCE) defined (_POSIX_C_SOURCE) \
+#if (defined (_POSIX) || defined (_POSIX_SOURCE) || defined (_POSIX_C_SOURCE) \
      || defined (__STRICT_ANSI__) || defined (_ISOC99_SOURCE) \
      || defined (_XOPEN_SOURCE) || defined (_XOPEN_SOURCE_EXTENDED) \
      || defined (_GNU_SOURCE) || defined (_BSD_SOURCE) \
