@@ -8,6 +8,10 @@
 
 #include <_mingw.h>
 
+#ifdef __cplusplus
+#include <stdio.h>
+#endif
+
 #pragma pack(push,_CRT_PACKING)
 
 #ifdef __cplusplus
