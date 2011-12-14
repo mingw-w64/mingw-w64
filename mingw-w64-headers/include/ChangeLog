@@ -1,3 +1,7 @@
+2011-12-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnls.h (WC_ERR_INVALID_CHARS): New macro, defined as 0x80.
+
 2011-11-21  Kai Tietz  <ktietz@redhat.com>
 
 	* ws2tcpip.h (EAI_NODATA): Map to WSANO_DATA.
