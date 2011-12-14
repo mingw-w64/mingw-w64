@@ -1,3 +1,7 @@
+2011-12-14  Kai Tietz  <ktietz@redhat.com>
+
+	* stdio.h, wchar.h:  Reorganize crt-overrides ... part 1
+
 2011-12-13  Jonathan Lui  <user net147 at sourceforge>
 
 	* sys/timeb.h (_ftime): Fix default definition for 32-bit vs.
