@@ -11,11 +11,6 @@
 #ifndef _WINRESRC_
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0501
-#else
-/* FIXME: This really must be 0x0501 !!! */
-#if (_WIN32_IE < 0x0500)
-#error _WIN32_IE setting conflicts
-#endif
 #endif
 #endif
 

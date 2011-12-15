@@ -11,11 +11,6 @@
 #ifndef _WINRESRC_
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0501
-#else
-/* FIXME: This really must be 0x0501 !!! */
-#if (_WIN32_IE < 0x0500)
-#error _WIN32_IE setting conflicts
-#endif
 #endif
 #endif
 
@@ -2317,10 +2312,8 @@ extern "C" {
     LPWSTR pszText;
     int cchTextMax;
     int iSubItem;
-# if (_WIN32_IE >= 0x0300)
     int iImage;
     int iOrder;
-# endif
 # if (_WIN32_WINNT >= 0x0600)
     int cxMin;
     int cxDefault;

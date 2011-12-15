@@ -688,7 +688,6 @@ extern "C" {
 #endif
   typedef IPersistFolder *LPPERSISTFOLDER;
 
-#if (_WIN32_IE >= 0x0400)
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0196_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0196_v0_0_s_ifspec;
 #ifndef __IPersistFolder2_INTERFACE_DEFINED__
@@ -726,7 +725,6 @@ extern "C" {
   void __RPC_STUB IPersistFolder2_GetCurFolder_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
   typedef IPersistFolder2 *LPPERSISTFOLDER2;
-#endif
 
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0197_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0197_v0_0_s_ifspec;
