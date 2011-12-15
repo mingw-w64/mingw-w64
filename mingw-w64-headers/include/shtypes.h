@@ -114,6 +114,11 @@ extern "C" {
 
 #include <poppack.h>
 
+  typedef struct _COMDLG_FILTERSPEC {
+    LPCWSTR pszName;
+    LPCWSTR pszSpec;
+  } COMDLG_FILTERSPEC;
+
   typedef enum tagSHCOLSTATE {
     SHCOLSTATE_TYPE_STR = 0x1,
     SHCOLSTATE_TYPE_INT = 0x2,

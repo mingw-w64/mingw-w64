@@ -622,6 +622,46 @@ typedef struct AttachmentServices AttachmentServices;
 #endif
 #endif
 
+#ifndef __IFileDialogEvents_FWD_DEFINED__
+#define __IFileDialogEvents_FWD_DEFINED__
+typedef interface IFileDialogEvents IFileDialogEvents;
+#endif
+
+#ifndef __IEnumShellItems_FWD_DEFINED__
+#define __IEnumShellItems_FWD_DEFINED__
+typedef interface IEnumShellItems IEnumShellItems;
+#endif
+
+#ifndef __IShellItemArray_FWD_DEFINED__
+#define __IShellItemArray_FWD_DEFINED__
+typedef interface IShellItemArray IShellItemArray;
+#endif
+
+#ifndef __IShellItemFilter_FWD_DEFINED__
+#define __IShellItemFilter_FWD_DEFINED__
+typedef interface IShellItemFilter IShellItemFilter;
+#endif
+
+#ifndef __IFileOperationProgressSink_FWD_DEFINED__
+#define __IFileOperationProgressSink_FWD_DEFINED__
+typedef interface IFileOperationProgressSink IFileOperationProgressSink;
+#endif
+
+#ifndef __IFileDialog_FWD_DEFINED__
+#define __IFileDialog_FWD_DEFINED__
+typedef interface IFileDialog IFileDialog;
+#endif
+
+#ifndef __IFileSaveDialog_FWD_DEFINED__
+#define __IFileSaveDialog_FWD_DEFINED__
+typedef interface IFileSaveDialog IFileSaveDialog;
+#endif
+
+#ifndef __IFileOpenDialog_FWD_DEFINED__
+#define __IFileOpenDialog_FWD_DEFINED__
+typedef interface IFileOpenDialog IFileOpenDialog;
+#endif
+
 #include "objidl.h"
 #include "oleidl.h"
 #include "oaidl.h"
@@ -3702,6 +3742,140 @@ interface ITaskbarList4 {
 
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0240_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0240_v0_0_s_ifspec;
+
+/*****************************************************************************
+ * IShellItemArray interface
+ */
+#ifndef __IShellItemArray_INTERFACE_DEFINED__
+#define __IShellItemArray_INTERFACE_DEFINED__
+
+typedef enum SIATTRIBFLAGS {
+    SIATTRIBFLAGS_AND = 0x1,
+    SIATTRIBFLAGS_OR = 0x2,
+    SIATTRIBFLAGS_APPCOMPAT = 0x3,
+    SIATTRIBFLAGS_MASK = 0x3,
+    SIATTRIBFLAGS_ALLITEMS = 0x4000
+} SIATTRIBFLAGS;
+DEFINE_ENUM_FLAG_OPERATORS(SIATTRIBFLAGS)
+DEFINE_GUID(IID_IShellItemArray, 0xb63ea76d, 0x1f85, 0x456f, 0xa1,0x9c, 0x48,0x15,0x9e,0xfa,0x85,0x8b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("b63ea76d-1f85-456f-a19c-48159efa858b")
+IShellItemArray : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE BindToHandler(
+        IBindCtx *pbc,
+        REFGUID bhid,
+        REFIID riid,
+        void **ppvOut) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyStore(
+        GETPROPERTYSTOREFLAGS flags,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyDescriptionList(
+        REFPROPERTYKEY keyType,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAttributes(
+        SIATTRIBFLAGS AttribFlags,
+        SFGAOF sfgaoMask,
+        SFGAOF *psfgaoAttribs) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCount(
+        DWORD *pdwNumItems) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetItemAt(
+        DWORD dwIndex,
+        IShellItem **ppsi) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumItems(
+        IEnumShellItems **ppenumShellItems) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IShellItemArray, 0xb63ea76d, 0x1f85, 0x456f, 0xa1,0x9c, 0x48,0x15,0x9e,0xfa,0x85,0x8b)
+#endif
+#else
+typedef struct IShellItemArrayVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IShellItemArray* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IShellItemArray* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IShellItemArray* This);
+    /*** IShellItemArray methods ***/
+    HRESULT (STDMETHODCALLTYPE *BindToHandler)(
+        IShellItemArray* This,
+        IBindCtx *pbc,
+        REFGUID bhid,
+        REFIID riid,
+        void **ppvOut);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyStore)(
+        IShellItemArray* This,
+        GETPROPERTYSTOREFLAGS flags,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyDescriptionList)(
+        IShellItemArray* This,
+        REFPROPERTYKEY keyType,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributes)(
+        IShellItemArray* This,
+        SIATTRIBFLAGS AttribFlags,
+        SFGAOF sfgaoMask,
+        SFGAOF *psfgaoAttribs);
+
+    HRESULT (STDMETHODCALLTYPE *GetCount)(
+        IShellItemArray* This,
+        DWORD *pdwNumItems);
+
+    HRESULT (STDMETHODCALLTYPE *GetItemAt)(
+        IShellItemArray* This,
+        DWORD dwIndex,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *EnumItems)(
+        IShellItemArray* This,
+        IEnumShellItems **ppenumShellItems);
+
+    END_INTERFACE
+} IShellItemArrayVtbl;
+interface IShellItemArray {
+    CONST_VTBL IShellItemArrayVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IShellItemArray_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IShellItemArray_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IShellItemArray_Release(This) (This)->lpVtbl->Release(This)
+/*** IShellItemArray methods ***/
+#define IShellItemArray_BindToHandler(This,pbc,bhid,riid,ppvOut) (This)->lpVtbl->BindToHandler(This,pbc,bhid,riid,ppvOut)
+#define IShellItemArray_GetPropertyStore(This,flags,riid,ppv) (This)->lpVtbl->GetPropertyStore(This,flags,riid,ppv)
+#define IShellItemArray_GetPropertyDescriptionList(This,keyType,riid,ppv) (This)->lpVtbl->GetPropertyDescriptionList(This,keyType,riid,ppv)
+#define IShellItemArray_GetAttributes(This,AttribFlags,sfgaoMask,psfgaoAttribs) (This)->lpVtbl->GetAttributes(This,AttribFlags,sfgaoMask,psfgaoAttribs)
+#define IShellItemArray_GetCount(This,pdwNumItems) (This)->lpVtbl->GetCount(This,pdwNumItems)
+#define IShellItemArray_GetItemAt(This,dwIndex,ppsi) (This)->lpVtbl->GetItemAt(This,dwIndex,ppsi)
+#define IShellItemArray_EnumItems(This,ppenumShellItems) (This)->lpVtbl->EnumItems(This,ppenumShellItems)
+#endif
+
+#endif
+
+#endif  /* __IShellItemArray_INTERFACE_DEFINED__ */
+
 #ifndef __IModalWindow_INTERFACE_DEFINED__
 #define __IModalWindow_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IModalWindow;
@@ -3732,6 +3906,696 @@ interface ITaskbarList4 {
   HRESULT WINAPI IModalWindow_Show_Proxy(IModalWindow *This,HWND hwndParent);
   void __RPC_STUB IModalWindow_Show_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
+
+typedef enum FDAP {
+    FDAP_BOTTOM = 0,
+    FDAP_TOP = 1
+} FDAP;
+
+/*****************************************************************************
+ * IFileDialog interface
+ */
+#ifndef __IFileDialog_INTERFACE_DEFINED__
+#define __IFileDialog_INTERFACE_DEFINED__
+
+enum _FILEOPENDIALOGOPTIONS {
+    FOS_OVERWRITEPROMPT = 0x2,
+    FOS_STRICTFILETYPES = 0x4,
+    FOS_NOCHANGEDIR = 0x8,
+    FOS_PICKFOLDERS = 0x20,
+    FOS_FORCEFILESYSTEM = 0x40,
+    FOS_ALLNONSTORAGEITEMS = 0x80,
+    FOS_NOVALIDATE = 0x100,
+    FOS_ALLOWMULTISELECT = 0x200,
+    FOS_PATHMUSTEXIST = 0x800,
+    FOS_FILEMUSTEXIST = 0x1000,
+    FOS_CREATEPROMPT = 0x2000,
+    FOS_SHAREAWARE = 0x4000,
+    FOS_NOREADONLYRETURN = 0x8000,
+    FOS_NOTESTFILECREATE = 0x10000,
+    FOS_HIDEMRUPLACES = 0x20000,
+    FOS_HIDEPINNEDPLACES = 0x40000,
+    FOS_NODEREFERENCELINKS = 0x100000,
+    FOS_DONTADDTORECENT = 0x2000000,
+    FOS_FORCESHOWHIDDEN = 0x10000000,
+    FOS_DEFAULTNOMINIMODE = 0x20000000,
+    FOS_FORCEPREVIEWPANEON = 0x40000000
+};
+
+typedef DWORD FILEOPENDIALOGOPTIONS;
+DEFINE_GUID(IID_IFileDialog, 0x42f85136, 0xdb7e, 0x439c, 0x85,0xf1, 0xe4,0x07,0x5d,0x13,0x5f,0xc8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("42f85136-db7e-439c-85f1-e4075d135fc8")
+IFileDialog : public IModalWindow
+{
+    virtual HRESULT STDMETHODCALLTYPE SetFileTypes(
+        UINT cFileTypes,
+        const COMDLG_FILTERSPEC *rgFilterSpec) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetFileTypeIndex(
+        UINT iFileType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFileTypeIndex(
+        UINT *piFileType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Advise(
+        IFileDialogEvents *pfde,
+        DWORD *pdwCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Unadvise(
+        DWORD dwCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOptions(
+        FILEOPENDIALOGOPTIONS fos) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetOptions(
+        FILEOPENDIALOGOPTIONS *pfos) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDefaultFolder(
+        IShellItem *psi) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetFolder(
+        IShellItem *psi) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFolder(
+        IShellItem **ppsi) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentSelection(
+        IShellItem **ppsi) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetFileName(
+        LPCWSTR pszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFileName(
+        LPWSTR *pszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetTitle(
+        LPCWSTR pszTitle) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOkButtonLabel(
+        LPCWSTR pszText) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetFileNameLabel(
+        LPCWSTR pszLabel) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetResult(
+        IShellItem **ppsi) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddPlace(
+        IShellItem *psi,
+        FDAP fdap) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDefaultExtension(
+        LPCWSTR pszDefaultExtension) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Close(
+        HRESULT hr) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetClientGuid(
+        REFGUID guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ClearClientData(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetFilter(
+        IShellItemFilter *pFilter) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFileDialog, 0x42f85136, 0xdb7e, 0x439c, 0x85,0xf1, 0xe4,0x07,0x5d,0x13,0x5f,0xc8)
+#endif
+#else
+typedef struct IFileDialogVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFileDialog* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFileDialog* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFileDialog* This);
+
+    /*** IModalWindow methods ***/
+    HRESULT (STDMETHODCALLTYPE *Show)(
+        IFileDialog* This,
+        HWND hwndOwner);
+
+    /*** IFileDialog methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFileTypes)(
+        IFileDialog* This,
+        UINT cFileTypes,
+        const COMDLG_FILTERSPEC *rgFilterSpec);
+    HRESULT (STDMETHODCALLTYPE *SetFileTypeIndex)(
+        IFileDialog* This,
+        UINT iFileType);
+
+    HRESULT (STDMETHODCALLTYPE *GetFileTypeIndex)(
+        IFileDialog* This,
+        UINT *piFileType);
+
+    HRESULT (STDMETHODCALLTYPE *Advise)(
+        IFileDialog* This,
+        IFileDialogEvents *pfde,
+        DWORD *pdwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *Unadvise)(
+        IFileDialog* This,
+        DWORD dwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *SetOptions)(
+        IFileDialog* This,
+        FILEOPENDIALOGOPTIONS fos);
+
+    HRESULT (STDMETHODCALLTYPE *GetOptions)(
+        IFileDialog* This,
+        FILEOPENDIALOGOPTIONS *pfos);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultFolder)(
+        IFileDialog* This,
+        IShellItem *psi);
+
+    HRESULT (STDMETHODCALLTYPE *SetFolder)(
+        IFileDialog* This,
+        IShellItem *psi);
+
+    HRESULT (STDMETHODCALLTYPE *GetFolder)(
+        IFileDialog* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentSelection)(
+        IFileDialog* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *SetFileName)(
+        IFileDialog* This,
+        LPCWSTR pszName);
+
+    HRESULT (STDMETHODCALLTYPE *GetFileName)(
+        IFileDialog* This,
+        LPWSTR *pszName);
+
+    HRESULT (STDMETHODCALLTYPE *SetTitle)(
+        IFileDialog* This,
+        LPCWSTR pszTitle);
+
+    HRESULT (STDMETHODCALLTYPE *SetOkButtonLabel)(
+        IFileDialog* This,
+        LPCWSTR pszText);
+
+    HRESULT (STDMETHODCALLTYPE *SetFileNameLabel)(
+        IFileDialog* This,
+        LPCWSTR pszLabel);
+
+    HRESULT (STDMETHODCALLTYPE *GetResult)(
+        IFileDialog* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *AddPlace)(
+        IFileDialog* This,
+        IShellItem *psi,
+        FDAP fdap);
+   HRESULT (STDMETHODCALLTYPE *SetDefaultExtension)(
+        IFileDialog* This,
+        LPCWSTR pszDefaultExtension);
+
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        IFileDialog* This,
+        HRESULT hr);
+
+    HRESULT (STDMETHODCALLTYPE *SetClientGuid)(
+        IFileDialog* This,
+        REFGUID guid);
+
+    HRESULT (STDMETHODCALLTYPE *ClearClientData)(
+        IFileDialog* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetFilter)(
+        IFileDialog* This,
+        IShellItemFilter *pFilter);
+
+    END_INTERFACE
+} IFileDialogVtbl;
+interface IFileDialog {
+    CONST_VTBL IFileDialogVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFileDialog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFileDialog_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFileDialog_Release(This) (This)->lpVtbl->Release(This)
+/*** IModalWindow methods ***/
+#define IFileDialog_Show(This,hwndOwner) (This)->lpVtbl->Show(This,hwndOwner)
+/*** IFileDialog methods ***/
+#define IFileDialog_SetFileTypes(This,cFileTypes,rgFilterSpec) (This)->lpVtbl->SetFileTypes(This,cFileTypes,rgFilterSpec)
+#define IFileDialog_SetFileTypeIndex(This,iFileType) (This)->lpVtbl->SetFileTypeIndex(This,iFileType)
+#define IFileDialog_GetFileTypeIndex(This,piFileType) (This)->lpVtbl->GetFileTypeIndex(This,piFileType)
+#define IFileDialog_Advise(This,pfde,pdwCookie) (This)->lpVtbl->Advise(This,pfde,pdwCookie)
+#define IFileDialog_Unadvise(This,dwCookie) (This)->lpVtbl->Unadvise(This,dwCookie)
+#define IFileDialog_SetOptions(This,fos) (This)->lpVtbl->SetOptions(This,fos)
+#define IFileDialog_GetOptions(This,pfos) (This)->lpVtbl->GetOptions(This,pfos)
+#define IFileDialog_SetDefaultFolder(This,psi) (This)->lpVtbl->SetDefaultFolder(This,psi)
+#define IFileDialog_SetFolder(This,psi) (This)->lpVtbl->SetFolder(This,psi)
+#define IFileDialog_GetFolder(This,ppsi) (This)->lpVtbl->GetFolder(This,ppsi)
+#define IFileDialog_GetCurrentSelection(This,ppsi) (This)->lpVtbl->GetCurrentSelection(This,ppsi)
+#define IFileDialog_SetFileName(This,pszName) (This)->lpVtbl->SetFileName(This,pszName)
+#define IFileDialog_GetFileName(This,pszName) (This)->lpVtbl->GetFileName(This,pszName)
+#define IFileDialog_SetTitle(This,pszTitle) (This)->lpVtbl->SetTitle(This,pszTitle)
+#define IFileDialog_SetOkButtonLabel(This,pszText) (This)->lpVtbl->SetOkButtonLabel(This,pszText)
+#define IFileDialog_SetFileNameLabel(This,pszLabel) (This)->lpVtbl->SetFileNameLabel(This,pszLabel)
+#define IFileDialog_GetResult(This,ppsi) (This)->lpVtbl->GetResult(This,ppsi)
+#define IFileDialog_AddPlace(This,psi,fdap) (This)->lpVtbl->AddPlace(This,psi,fdap)
+#define IFileDialog_SetDefaultExtension(This,pszDefaultExtension) (This)->lpVtbl->SetDefaultExtension(This,pszDefaultExtension)
+#define IFileDialog_Close(This,hr) (This)->lpVtbl->Close(This,hr)
+#define IFileDialog_SetClientGuid(This,guid) (This)->lpVtbl->SetClientGuid(This,guid)
+#define IFileDialog_ClearClientData(This) (This)->lpVtbl->ClearClientData(This)
+#define IFileDialog_SetFilter(This,pFilter) (This)->lpVtbl->SetFilter(This,pFilter)
+#endif
+
+#endif
+
+#endif  /* __IFileDialog_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IFileSaveDialog interface
+ */
+#ifndef __IFileSaveDialog_INTERFACE_DEFINED__
+#define __IFileSaveDialog_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFileSaveDialog, 0x84bccd23, 0x5fde, 0x4cdb, 0xae,0xa4, 0xaf,0x64,0xb8,0x3d,0x78,0xab);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("84bccd23-5fde-4cdb-aea4-af64b83d78ab")
+IFileSaveDialog : public IFileDialog
+{
+    virtual HRESULT STDMETHODCALLTYPE SetSaveAsItem(
+        IShellItem *psi) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProperties(
+        IPropertyStore *pStore) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetCollectedProperties(
+        IPropertyDescriptionList *pList,
+        BOOL fAppendDefault) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProperties(
+        IPropertyStore **ppStore) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ApplyProperties(
+        IShellItem *psi,
+        IPropertyStore *pStore,
+        HWND hwnd,
+        IFileOperationProgressSink *pSink) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFileSaveDialog, 0x84bccd23, 0x5fde, 0x4cdb, 0xae,0xa4, 0xaf,0x64,0xb8,0x3d,0x78,0xab)
+#endif
+#else
+typedef struct IFileSaveDialogVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFileSaveDialog* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFileSaveDialog* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFileSaveDialog* This);
+
+    /*** IModalWindow methods ***/
+    HRESULT (STDMETHODCALLTYPE *Show)(
+        IFileSaveDialog* This,
+        HWND hwndOwner);
+
+    /*** IFileDialog methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFileTypes)(
+        IFileSaveDialog* This,
+        UINT cFileTypes,
+        const COMDLG_FILTERSPEC *rgFilterSpec);
+
+    HRESULT (STDMETHODCALLTYPE *SetFileTypeIndex)(
+        IFileSaveDialog* This,
+        UINT iFileType);
+
+    HRESULT (STDMETHODCALLTYPE *GetFileTypeIndex)(
+        IFileSaveDialog* This,
+        UINT *piFileType);
+
+    HRESULT (STDMETHODCALLTYPE *Advise)(
+        IFileSaveDialog* This,
+        IFileDialogEvents *pfde,
+        DWORD *pdwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *Unadvise)(
+        IFileSaveDialog* This,
+        DWORD dwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *SetOptions)(
+        IFileSaveDialog* This,
+        FILEOPENDIALOGOPTIONS fos);
+
+    HRESULT (STDMETHODCALLTYPE *GetOptions)(
+        IFileSaveDialog* This,
+        FILEOPENDIALOGOPTIONS *pfos);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultFolder)(
+        IFileSaveDialog* This,
+        IShellItem *psi);
+
+    HRESULT (STDMETHODCALLTYPE *SetFolder)(
+        IFileSaveDialog* This,
+        IShellItem *psi);
+
+    HRESULT (STDMETHODCALLTYPE *GetFolder)(
+        IFileSaveDialog* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentSelection)(
+        IFileSaveDialog* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *SetFileName)(
+        IFileSaveDialog* This,
+        LPCWSTR pszName);
+
+    HRESULT (STDMETHODCALLTYPE *GetFileName)(
+        IFileSaveDialog* This,
+        LPWSTR *pszName);
+
+    HRESULT (STDMETHODCALLTYPE *SetTitle)(
+        IFileSaveDialog* This,
+        LPCWSTR pszTitle);
+
+    HRESULT (STDMETHODCALLTYPE *SetOkButtonLabel)(
+        IFileSaveDialog* This,
+        LPCWSTR pszText);
+
+    HRESULT (STDMETHODCALLTYPE *SetFileNameLabel)(
+        IFileSaveDialog* This,
+        LPCWSTR pszLabel);
+
+    HRESULT (STDMETHODCALLTYPE *GetResult)(
+        IFileSaveDialog* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *AddPlace)(
+        IFileSaveDialog* This,
+        IShellItem *psi,
+        FDAP fdap);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultExtension)(
+        IFileSaveDialog* This,
+        LPCWSTR pszDefaultExtension);
+
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        IFileSaveDialog* This,
+        HRESULT hr);
+
+   HRESULT (STDMETHODCALLTYPE *SetClientGuid)(
+        IFileSaveDialog* This,
+        REFGUID guid);
+
+    HRESULT (STDMETHODCALLTYPE *ClearClientData)(
+        IFileSaveDialog* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetFilter)(
+        IFileSaveDialog* This,
+        IShellItemFilter *pFilter);
+
+    /*** IFileSaveDialog methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetSaveAsItem)(
+        IFileSaveDialog* This,
+        IShellItem *psi);
+
+    HRESULT (STDMETHODCALLTYPE *SetProperties)(
+        IFileSaveDialog* This,
+        IPropertyStore *pStore);
+
+    HRESULT (STDMETHODCALLTYPE *SetCollectedProperties)(
+        IFileSaveDialog* This,
+        IPropertyDescriptionList *pList,
+        BOOL fAppendDefault);
+
+    HRESULT (STDMETHODCALLTYPE *GetProperties)(
+        IFileSaveDialog* This,
+        IPropertyStore **ppStore);
+
+    HRESULT (STDMETHODCALLTYPE *ApplyProperties)(
+        IFileSaveDialog* This,
+        IShellItem *psi,
+        IPropertyStore *pStore,
+        HWND hwnd,
+        IFileOperationProgressSink *pSink);
+
+    END_INTERFACE
+} IFileSaveDialogVtbl;
+interface IFileSaveDialog {
+    CONST_VTBL IFileSaveDialogVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFileSaveDialog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFileSaveDialog_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFileSaveDialog_Release(This) (This)->lpVtbl->Release(This)
+/*** IModalWindow methods ***/
+#define IFileSaveDialog_Show(This,hwndOwner) (This)->lpVtbl->Show(This,hwndOwner)
+/*** IFileDialog methods ***/
+#define IFileSaveDialog_SetFileTypes(This,cFileTypes,rgFilterSpec) (This)->lpVtbl->SetFileTypes(This,cFileTypes,rgFilterSpec)
+#define IFileSaveDialog_SetFileTypeIndex(This,iFileType) (This)->lpVtbl->SetFileTypeIndex(This,iFileType)
+#define IFileSaveDialog_GetFileTypeIndex(This,piFileType) (This)->lpVtbl->GetFileTypeIndex(This,piFileType)
+#define IFileSaveDialog_Advise(This,pfde,pdwCookie) (This)->lpVtbl->Advise(This,pfde,pdwCookie)
+#define IFileSaveDialog_Unadvise(This,dwCookie) (This)->lpVtbl->Unadvise(This,dwCookie)
+#define IFileSaveDialog_SetOptions(This,fos) (This)->lpVtbl->SetOptions(This,fos)
+#define IFileSaveDialog_GetOptions(This,pfos) (This)->lpVtbl->GetOptions(This,pfos)
+#define IFileSaveDialog_SetDefaultFolder(This,psi) (This)->lpVtbl->SetDefaultFolder(This,psi)
+#define IFileSaveDialog_SetFolder(This,psi) (This)->lpVtbl->SetFolder(This,psi)
+#define IFileSaveDialog_GetFolder(This,ppsi) (This)->lpVtbl->GetFolder(This,ppsi)
+#define IFileSaveDialog_GetCurrentSelection(This,ppsi) (This)->lpVtbl->GetCurrentSelection(This,ppsi)
+#define IFileSaveDialog_SetFileName(This,pszName) (This)->lpVtbl->SetFileName(This,pszName)
+#define IFileSaveDialog_GetFileName(This,pszName) (This)->lpVtbl->GetFileName(This,pszName)
+#define IFileSaveDialog_SetTitle(This,pszTitle) (This)->lpVtbl->SetTitle(This,pszTitle)
+#define IFileSaveDialog_SetOkButtonLabel(This,pszText) (This)->lpVtbl->SetOkButtonLabel(This,pszText)
+#define IFileSaveDialog_SetFileNameLabel(This,pszLabel) (This)->lpVtbl->SetFileNameLabel(This,pszLabel)
+#define IFileSaveDialog_GetResult(This,ppsi) (This)->lpVtbl->GetResult(This,ppsi)
+#define IFileSaveDialog_AddPlace(This,psi,fdap) (This)->lpVtbl->AddPlace(This,psi,fdap)
+#define IFileSaveDialog_SetDefaultExtension(This,pszDefaultExtension) (This)->lpVtbl->SetDefaultExtension(This,pszDefaultExtension)
+#define IFileSaveDialog_Close(This,hr) (This)->lpVtbl->Close(This,hr)
+#define IFileSaveDialog_SetClientGuid(This,guid) (This)->lpVtbl->SetClientGuid(This,guid)
+#define IFileSaveDialog_ClearClientData(This) (This)->lpVtbl->ClearClientData(This)
+#define IFileSaveDialog_SetFilter(This,pFilter) (This)->lpVtbl->SetFilter(This,pFilter)
+/*** IFileSaveDialog methods ***/
+#define IFileSaveDialog_SetSaveAsItem(This,psi) (This)->lpVtbl->SetSaveAsItem(This,psi)
+#define IFileSaveDialog_SetProperties(This,pStore) (This)->lpVtbl->SetProperties(This,pStore)
+#define IFileSaveDialog_SetCollectedProperties(This,pList,fAppendDefault) (This)->lpVtbl->SetCollectedProperties(This,pList,fAppendDefault)
+#define IFileSaveDialog_GetProperties(This,ppStore) (This)->lpVtbl->GetProperties(This,ppStore)
+#define IFileSaveDialog_ApplyProperties(This,psi,pStore,hwnd,pSink) (This)->lpVtbl->ApplyProperties(This,psi,pStore,hwnd,pSink)
+#endif
+
+#endif
+
+#endif  /* __IFileSaveDialog_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IFileOpenDialog interface
+ */
+#ifndef __IFileOpenDialog_INTERFACE_DEFINED__
+#define __IFileOpenDialog_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFileOpenDialog, 0xd57c7288, 0xd4ad, 0x4768, 0xbe,0x02, 0x9d,0x96,0x95,0x32,0xd9,0x60);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d57c7288-d4ad-4768-be02-9d969532d960")
+IFileOpenDialog : public IFileDialog
+{
+    virtual HRESULT STDMETHODCALLTYPE GetResults(
+        IShellItemArray **ppenum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSelectedItems(
+        IShellItemArray **ppsai) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFileOpenDialog, 0xd57c7288, 0xd4ad, 0x4768, 0xbe,0x02, 0x9d,0x96,0x95,0x32,0xd9,0x60)
+#endif
+#else
+typedef struct IFileOpenDialogVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFileOpenDialog* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFileOpenDialog* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFileOpenDialog* This);
+
+    /*** IModalWindow methods ***/
+    HRESULT (STDMETHODCALLTYPE *Show)(
+        IFileOpenDialog* This,
+        HWND hwndOwner);
+
+    /*** IFileDialog methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFileTypes)(
+        IFileOpenDialog* This,
+        UINT cFileTypes,
+        const COMDLG_FILTERSPEC *rgFilterSpec);
+
+    HRESULT (STDMETHODCALLTYPE *SetFileTypeIndex)(
+        IFileOpenDialog* This,
+        UINT iFileType);
+
+    HRESULT (STDMETHODCALLTYPE *GetFileTypeIndex)(
+        IFileOpenDialog* This,
+        UINT *piFileType);
+
+    HRESULT (STDMETHODCALLTYPE *Advise)(
+        IFileOpenDialog* This,
+        IFileDialogEvents *pfde,
+        DWORD *pdwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *Unadvise)(
+        IFileOpenDialog* This,
+        DWORD dwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *SetOptions)(
+        IFileOpenDialog* This,
+        FILEOPENDIALOGOPTIONS fos);
+
+    HRESULT (STDMETHODCALLTYPE *GetOptions)(
+        IFileOpenDialog* This,
+        FILEOPENDIALOGOPTIONS *pfos);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultFolder)(
+        IFileOpenDialog* This,
+        IShellItem *psi);
+
+    HRESULT (STDMETHODCALLTYPE *SetFolder)(
+        IFileOpenDialog* This,
+        IShellItem *psi);
+
+    HRESULT (STDMETHODCALLTYPE *GetFolder)(
+        IFileOpenDialog* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentSelection)(
+        IFileOpenDialog* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *SetFileName)(
+        IFileOpenDialog* This,
+        LPCWSTR pszName);
+
+    HRESULT (STDMETHODCALLTYPE *GetFileName)(
+        IFileOpenDialog* This,
+        LPWSTR *pszName);
+
+    HRESULT (STDMETHODCALLTYPE *SetTitle)(
+        IFileOpenDialog* This,
+        LPCWSTR pszTitle);
+
+    HRESULT (STDMETHODCALLTYPE *SetOkButtonLabel)(
+        IFileOpenDialog* This,
+        LPCWSTR pszText);
+
+    HRESULT (STDMETHODCALLTYPE *SetFileNameLabel)(
+        IFileOpenDialog* This,
+        LPCWSTR pszLabel);
+
+    HRESULT (STDMETHODCALLTYPE *GetResult)(
+        IFileOpenDialog* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *AddPlace)(
+        IFileOpenDialog* This,
+        IShellItem *psi,
+        FDAP fdap);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultExtension)(
+        IFileOpenDialog* This,
+        LPCWSTR pszDefaultExtension);
+
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        IFileOpenDialog* This,
+        HRESULT hr);
+
+    HRESULT (STDMETHODCALLTYPE *SetClientGuid)(
+        IFileOpenDialog* This,
+        REFGUID guid);
+
+    HRESULT (STDMETHODCALLTYPE *ClearClientData)(
+        IFileOpenDialog* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetFilter)(
+        IFileOpenDialog* This,
+        IShellItemFilter *pFilter);
+
+    /*** IFileOpenDialog methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetResults)(
+        IFileOpenDialog* This,
+        IShellItemArray **ppenum);
+
+    HRESULT (STDMETHODCALLTYPE *GetSelectedItems)(
+        IFileOpenDialog* This,
+        IShellItemArray **ppsai);
+
+    END_INTERFACE
+} IFileOpenDialogVtbl;
+interface IFileOpenDialog {
+    CONST_VTBL IFileOpenDialogVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFileOpenDialog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFileOpenDialog_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFileOpenDialog_Release(This) (This)->lpVtbl->Release(This)
+/*** IModalWindow methods ***/
+#define IFileOpenDialog_Show(This,hwndOwner) (This)->lpVtbl->Show(This,hwndOwner)
+/*** IFileDialog methods ***/
+#define IFileOpenDialog_SetFileTypes(This,cFileTypes,rgFilterSpec) (This)->lpVtbl->SetFileTypes(This,cFileTypes,rgFilterSpec)
+#define IFileOpenDialog_SetFileTypeIndex(This,iFileType) (This)->lpVtbl->SetFileTypeIndex(This,iFileType)
+#define IFileOpenDialog_GetFileTypeIndex(This,piFileType) (This)->lpVtbl->GetFileTypeIndex(This,piFileType)
+#define IFileOpenDialog_Advise(This,pfde,pdwCookie) (This)->lpVtbl->Advise(This,pfde,pdwCookie)
+#define IFileOpenDialog_Unadvise(This,dwCookie) (This)->lpVtbl->Unadvise(This,dwCookie)
+#define IFileOpenDialog_SetOptions(This,fos) (This)->lpVtbl->SetOptions(This,fos)
+#define IFileOpenDialog_GetOptions(This,pfos) (This)->lpVtbl->GetOptions(This,pfos)
+#define IFileOpenDialog_SetDefaultFolder(This,psi) (This)->lpVtbl->SetDefaultFolder(This,psi)
+#define IFileOpenDialog_SetFolder(This,psi) (This)->lpVtbl->SetFolder(This,psi)
+#define IFileOpenDialog_GetFolder(This,ppsi) (This)->lpVtbl->GetFolder(This,ppsi)
+#define IFileOpenDialog_GetCurrentSelection(This,ppsi) (This)->lpVtbl->GetCurrentSelection(This,ppsi)
+#define IFileOpenDialog_SetFileName(This,pszName) (This)->lpVtbl->SetFileName(This,pszName)
+#define IFileOpenDialog_GetFileName(This,pszName) (This)->lpVtbl->GetFileName(This,pszName)
+#define IFileOpenDialog_SetTitle(This,pszTitle) (This)->lpVtbl->SetTitle(This,pszTitle)
+#define IFileOpenDialog_SetOkButtonLabel(This,pszText) (This)->lpVtbl->SetOkButtonLabel(This,pszText)
+#define IFileOpenDialog_SetFileNameLabel(This,pszLabel) (This)->lpVtbl->SetFileNameLabel(This,pszLabel)
+#define IFileOpenDialog_GetResult(This,ppsi) (This)->lpVtbl->GetResult(This,ppsi)
+#define IFileOpenDialog_AddPlace(This,psi,fdap) (This)->lpVtbl->AddPlace(This,psi,fdap)
+#define IFileOpenDialog_SetDefaultExtension(This,pszDefaultExtension) (This)->lpVtbl->SetDefaultExtension(This,pszDefaultExtension)
+#define IFileOpenDialog_Close(This,hr) (This)->lpVtbl->Close(This,hr)
+#define IFileOpenDialog_SetClientGuid(This,guid) (This)->lpVtbl->SetClientGuid(This,guid)
+#define IFileOpenDialog_ClearClientData(This) (This)->lpVtbl->ClearClientData(This)
+#define IFileOpenDialog_SetFilter(This,pFilter) (This)->lpVtbl->SetFilter(This,pFilter)
+/*** IFileOpenDialog methods ***/
+#define IFileOpenDialog_GetResults(This,ppenum) (This)->lpVtbl->GetResults(This,ppenum)
+#define IFileOpenDialog_GetSelectedItems(This,ppsai) (This)->lpVtbl->GetSelectedItems(This,ppsai)
+#endif
+
+#endif
+
+#endif  /* __IFileOpenDialog_INTERFACE_DEFINED__ */
 
 #ifndef __IPassportWizard_INTERFACE_DEFINED__
 #define __IPassportWizard_INTERFACE_DEFINED__
@@ -5097,6 +5961,133 @@ DEFINE_GUID(IID_IAttachmentExecute, 0x73db1241,0x1e85,0x4581,0x8e,0x4f,0xa8,0x1e
   void __RPC_STUB IShellMenu_SetMenuToolbar_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
+typedef enum FDE_OVERWRITE_RESPONSE {
+    FDEOR_DEFAULT = 0,
+    FDEOR_ACCCEP = 1,
+    FDEOR_REFUSE = 2
+} FDE_OVERWRITE_RESPONSE;
+typedef enum FDE_SHAREVIOLATION_RESPONSE {
+    FDESVR_DEFAULT = 0,
+    FDESVR_ACCEPT = 1,
+    FDESVR_REFUSE = 2
+} FDE_SHAREVIOLATION_RESPONSE;
+
+/*****************************************************************************
+ * IFileDialogEvents interface
+ */
+#ifndef __IFileDialogEvents_INTERFACE_DEFINED__
+#define __IFileDialogEvents_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFileDialogEvents, 0x973510db, 0x7d7f, 0x452b, 0x89,0x75, 0x74,0xa8,0x58,0x28,0xd3,0x54);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("973510db-7d7f-452b-8975-74a85828d354")
+IFileDialogEvents : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnFileOk(
+        IFileDialog *pfd) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnFolderChanging(
+        IFileDialog *pfd,
+        IShellItem *psiFolder) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnFolderChange(
+        IFileDialog *pfd) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnSelectionChange(
+        IFileDialog *pfd) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnShareViolation(
+        IFileDialog *pfd,
+        IShellItem *psi,
+        FDE_SHAREVIOLATION_RESPONSE *pResponse) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnTypeChange(
+        IFileDialog *pfd) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnOverwrite(
+        IFileDialog *pfd,
+        IShellItem *psi,
+        FDE_OVERWRITE_RESPONSE *pResponse) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFileDialogEvents, 0x973510db, 0x7d7f, 0x452b, 0x89,0x75, 0x74,0xa8,0x58,0x28,0xd3,0x54)
+#endif
+#else
+typedef struct IFileDialogEventsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFileDialogEvents* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFileDialogEvents* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFileDialogEvents* This);
+
+    /*** IFileDialogEvents methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnFileOk)(
+        IFileDialogEvents* This,
+        IFileDialog *pfd);
+
+    HRESULT (STDMETHODCALLTYPE *OnFolderChanging)(
+        IFileDialogEvents* This,
+        IFileDialog *pfd,
+        IShellItem *psiFolder);
+
+    HRESULT (STDMETHODCALLTYPE *OnFolderChange)(
+        IFileDialogEvents* This,
+        IFileDialog *pfd);
+
+    HRESULT (STDMETHODCALLTYPE *OnSelectionChange)(
+        IFileDialogEvents* This,
+        IFileDialog *pfd);
+
+    HRESULT (STDMETHODCALLTYPE *OnShareViolation)(
+        IFileDialogEvents* This,
+        IFileDialog *pfd,
+        IShellItem *psi,
+        FDE_SHAREVIOLATION_RESPONSE *pResponse);
+
+    HRESULT (STDMETHODCALLTYPE *OnTypeChange)(
+        IFileDialogEvents* This,
+        IFileDialog *pfd);
+
+    HRESULT (STDMETHODCALLTYPE *OnOverwrite)(
+        IFileDialogEvents* This,
+        IFileDialog *pfd,
+        IShellItem *psi,
+        FDE_OVERWRITE_RESPONSE *pResponse);
+
+    END_INTERFACE
+} IFileDialogEventsVtbl;
+interface IFileDialogEvents {
+    CONST_VTBL IFileDialogEventsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFileDialogEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFileDialogEvents_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFileDialogEvents_Release(This) (This)->lpVtbl->Release(This)
+/*** IFileDialogEvents methods ***/
+#define IFileDialogEvents_OnFileOk(This,pfd) (This)->lpVtbl->OnFileOk(This,pfd)
+#define IFileDialogEvents_OnFolderChanging(This,pfd,psiFolder) (This)->lpVtbl->OnFolderChanging(This,pfd,psiFolder)
+#define IFileDialogEvents_OnFolderChange(This,pfd) (This)->lpVtbl->OnFolderChange(This,pfd)
+#define IFileDialogEvents_OnSelectionChange(This,pfd) (This)->lpVtbl->OnSelectionChange(This,pfd)
+#define IFileDialogEvents_OnShareViolation(This,pfd,psi,pResponse) (This)->lpVtbl->OnShareViolation(This,pfd,psi,pResponse)
+#define IFileDialogEvents_OnTypeChange(This,pfd) (This)->lpVtbl->OnTypeChange(This,pfd)
+#define IFileDialogEvents_OnOverwrite(This,pfd,psi,pResponse) (This)->lpVtbl->OnOverwrite(This,pfd,psi,pResponse)
+#endif
+
+#endif
+
+#endif  /* __IFileDialogEvents_INTERFACE_DEFINED__ */
+
 /*****************************************************************************
  * IApplicationAssociationRegistration interface
  */
@@ -5550,6 +6541,18 @@ DEFINE_GUID(CLSID_DestinationList, 0x77f10cf0, 0x3db5, 0x4966, 0xb5,0x20, 0xb7,0
  */
 
 DEFINE_GUID(CLSID_EnumerableObjectCollection, 0x2d3468c1, 0x36a7, 0x43b6, 0xac,0x24, 0xd3,0xf0,0x2f,0xd9,0x60,0x7a);
+
+/*****************************************************************************
+ * FileOpenDialog coclass
+ */
+
+DEFINE_GUID(CLSID_FileOpenDialog, 0xdc1c5a9c, 0xe88a, 0x4dde, 0xa5,0xa1, 0x60,0xf8,0x2a,0x20,0xae,0xf7);
+
+/*****************************************************************************
+ * FileSaveDialog coclass
+ */
+
+DEFINE_GUID(CLSID_FileSaveDialog, 0xc0b4e2f3, 0xba21, 0x4773, 0x8d,0xba, 0x33,0x5e,0xc9,0x46,0xeb,0x8b);
 
 #endif
 
