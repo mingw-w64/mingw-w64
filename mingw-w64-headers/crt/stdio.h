@@ -381,14 +381,14 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 
   __mingw_ovr
   __MINGW_ATTRIB_NONNULL(2)
-  int vfscanf (FILE *__stream,  const wchar_t *__format, __builtin_va_list __local_argv)
+  int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_argv)
   {
     return __ms_vfscanf (__stream, __format, __local_argv);
   }
 
   __mingw_ovr
   __MINGW_ATTRIB_NONNULL(2)
-  int vsscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, __builtin_va_list __local_argv)
+  int vsscanf (const char * __restrict__ __source, const char * __restrict__ __format, __builtin_va_list __local_argv)
   {
     return __ms_vsscanf( __source, __format, __local_argv );
   }
