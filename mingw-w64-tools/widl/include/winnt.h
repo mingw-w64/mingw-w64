@@ -123,7 +123,7 @@ extern "C" {
 # if defined(_MSC_VER) && (_MSC_VER >= 1200)
 #  define FORCEINLINE __forceinline
 # elif defined(__GNUC__) && ((__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 2)))
-#  define FORCEINLINE inline __attribute__((__always_inline__))
+#  define FORCEINLINE inline __attribute__((always_inline))
 # else
 #  define FORCEINLINE inline
 # endif
@@ -457,7 +457,6 @@ typedef LPWSTR          PTSTR,       LPTSTR;
 typedef LPCWSTR         PCTSTR,      LPCTSTR;
 typedef PZZSTR          PZZTSTR;
 typedef PCZZSTR         PCZZTSTR;
-#  define __TEXT(string) L##string
 # else  /* UNICODE */
 # ifndef _TCHAR_DEFINED
 typedef CHAR            TCHAR,      *PTCHAR;
@@ -467,9 +466,7 @@ typedef LPSTR           PTSTR,       LPTSTR;
 typedef LPCSTR          PCTSTR,      LPCTSTR;
 typedef PZZWSTR         PZZTSTR;
 typedef PCZZWSTR        PCZZTSTR;
-#  define __TEXT(string) string
 # endif /* UNICODE */
-# define TEXT(quote) __TEXT(quote)
 #endif   /* WINE_NO_UNICODE_MACROS */
 
 /* Misc common WIN32 types */
@@ -496,6 +493,15 @@ typedef HANDLE *PHANDLE, *LPHANDLE;
 typedef BYTE  FCHAR;
 typedef WORD  FSHORT;
 typedef DWORD FLONG;
+
+/* Macro to deal with LP64 <=> LLP64 differences in numeric constants with 'l' modifier */
+#ifndef __MSABI_LONG
+# if defined(_MSC_VER) || defined(__MINGW32__) || defined(__CYGWIN__)
+#  define __MSABI_LONG(x)         x ## l
+# else
+#  define __MSABI_LONG(x)         x
+# endif
+#endif
 
 /* Defines */
 
@@ -861,9 +867,9 @@ typedef struct _CONTEXT
 #define CONTEXT_CONTROL   (CONTEXT_i386 | 0x0001) /* SS:SP, CS:IP, FLAGS, BP */
 #define CONTEXT_INTEGER   (CONTEXT_i386 | 0x0002) /* AX, BX, CX, DX, SI, DI */
 #define CONTEXT_SEGMENTS  (CONTEXT_i386 | 0x0004) /* DS, ES, FS, GS */
-#define CONTEXT_FLOATING_POINT  (CONTEXT_i386 | 0x0008L) /* 387 state */
-#define CONTEXT_DEBUG_REGISTERS (CONTEXT_i386 | 0x0010L) /* DB 0-3,6,7 */
-#define CONTEXT_EXTENDED_REGISTERS (CONTEXT_i386 | 0x0020L)
+#define CONTEXT_FLOATING_POINT  (CONTEXT_i386 | 0x0008) /* 387 state */
+#define CONTEXT_DEBUG_REGISTERS (CONTEXT_i386 | 0x0010) /* DB 0-3,6,7 */
+#define CONTEXT_EXTENDED_REGISTERS (CONTEXT_i386 | 0x0020)
 #define CONTEXT_FULL (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_SEGMENTS)
 #define CONTEXT_ALL (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_SEGMENTS | \
         CONTEXT_FLOATING_POINT | CONTEXT_DEBUG_REGISTERS | CONTEXT_EXTENDED_REGISTERS)
@@ -907,8 +913,8 @@ typedef struct _LDT_ENTRY {
 #define CONTEXT_CONTROL   (CONTEXT_AMD64 | 0x0001)
 #define CONTEXT_INTEGER   (CONTEXT_AMD64 | 0x0002)
 #define CONTEXT_SEGMENTS  (CONTEXT_AMD64 | 0x0004)
-#define CONTEXT_FLOATING_POINT  (CONTEXT_AMD64 | 0x0008L)
-#define CONTEXT_DEBUG_REGISTERS (CONTEXT_AMD64 | 0x0010L)
+#define CONTEXT_FLOATING_POINT  (CONTEXT_AMD64 | 0x0008)
+#define CONTEXT_DEBUG_REGISTERS (CONTEXT_AMD64 | 0x0010)
 #define CONTEXT_FULL (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_FLOATING_POINT)
 #define CONTEXT_ALL (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_SEGMENTS | CONTEXT_FLOATING_POINT | CONTEXT_DEBUG_REGISTERS)
 
@@ -1436,9 +1442,9 @@ ULONGLONG WINAPI RtlVirtualUnwind(ULONGLONG,ULONGLONG,RUNTIME_FUNCTION*,CONTEXT*
 
 #define CONTEXT_ALPHA   0x00020000
 
-#define CONTEXT_CONTROL		(CONTEXT_ALPHA | 0x00000001L)
-#define CONTEXT_FLOATING_POINT	(CONTEXT_ALPHA | 0x00000002L)
-#define CONTEXT_INTEGER		(CONTEXT_ALPHA | 0x00000004L)
+#define CONTEXT_CONTROL         (CONTEXT_ALPHA | 0x00000001)
+#define CONTEXT_FLOATING_POINT  (CONTEXT_ALPHA | 0x00000002)
+#define CONTEXT_INTEGER         (CONTEXT_ALPHA | 0x00000004)
 #define CONTEXT_FULL  (CONTEXT_CONTROL | CONTEXT_FLOATING_POINT | CONTEXT_INTEGER)
 
 #define EXCEPTION_READ_FAULT    0
@@ -1536,8 +1542,8 @@ typedef struct _CONTEXT
 /* The following flags control the contents of the CONTEXT structure. */
 
 #define CONTEXT_ARM    0x0000040
-#define CONTEXT_CONTROL         (CONTEXT_ARM | 0x00000001L)
-#define CONTEXT_INTEGER         (CONTEXT_ARM | 0x00000002L)
+#define CONTEXT_CONTROL         (CONTEXT_ARM | 0x00000001)
+#define CONTEXT_INTEGER         (CONTEXT_ARM | 0x00000002)
 
 #define CONTEXT_FULL (CONTEXT_CONTROL | CONTEXT_INTEGER)
 
@@ -1985,408 +1991,7 @@ NTSYSAPI void WINAPI RtlCaptureContext(CONTEXT*);
 #define DBG_UNREFERENCED_PARAMETER(u)	(void)(u)
 #define DBG_UNREFERENCED_LOCAL_VARIABLE(u) (void)(u)
 
-#define LANG_NEUTRAL        0x00
-#define LANG_INVARIANT      0x7f
-
-#define LANG_AFRIKAANS      0x36
-#define LANG_ALBANIAN       0x1c
-#define LANG_ALSATIAN       0x84
-#define LANG_AMHARIC        0x5e
-#define LANG_ARABIC         0x01
-#define LANG_ARMENIAN       0x2b
-#define LANG_ASSAMESE       0x4d
-#define LANG_AZERI          0x2c
-#define LANG_BASHKIR        0x6d
-#define LANG_BASQUE         0x2d
-#define LANG_BELARUSIAN     0x23
-#define LANG_BENGALI        0x45
-#define LANG_BOSNIAN        0x1a
-#define LANG_BOSNIAN_NEUTRAL      0x781a
-#define LANG_BRETON         0x7e
-#define LANG_BULGARIAN      0x02
-#define LANG_CATALAN        0x03
-#define LANG_CHINESE        0x04
-#define LANG_CHINESE_SIMPLIFIED   0x0004
-#define LANG_CHINESE_TRADITIONAL  0x7c04
-#define LANG_CORSICAN       0x83
-#define LANG_CROATIAN       0x1a
-#define LANG_CZECH          0x05
-#define LANG_DANISH         0x06
-#define LANG_DARI           0x8c
-#define LANG_DIVEHI         0x65
-#define LANG_DUTCH          0x13
-#define LANG_ENGLISH        0x09
-#define LANG_ESTONIAN       0x25
-#define LANG_FAEROESE       0x38
-#define LANG_FARSI          LANG_PERSIAN
-#define LANG_FILIPINO       0x64
-#define LANG_FINNISH        0x0b
-#define LANG_FRENCH         0x0c
-#define LANG_FRISIAN        0x62
-#define LANG_GALICIAN       0x56
-#define LANG_GEORGIAN       0x37
-#define LANG_GERMAN         0x07
-#define LANG_GREEK          0x08
-#define LANG_GREENLANDIC    0x6f
-#define LANG_GUJARATI       0x47
-#define LANG_HAUSA          0x68
-#define LANG_HEBREW         0x0d
-#define LANG_HINDI          0x39
-#define LANG_HUNGARIAN      0x0e
-#define LANG_ICELANDIC      0x0f
-#define LANG_IGBO           0x70
-#define LANG_INDONESIAN     0x21
-#define LANG_INUKTITUT      0x5d
-#define LANG_IRISH          0x3c
-#define LANG_ITALIAN        0x10
-#define LANG_JAPANESE       0x11
-#define LANG_KANNADA        0x4b
-#define LANG_KASHMIRI       0x60
-#define LANG_KAZAK          0x3f
-#define LANG_KHMER          0x53
-#define LANG_KICHE          0x86
-#define LANG_KINYARWANDA    0x87
-#define LANG_KONKANI        0x57
-#define LANG_KOREAN         0x12
-#define LANG_KYRGYZ         0x40
-#define LANG_LAO            0x54
-#define LANG_LATVIAN        0x26
-#define LANG_LITHUANIAN     0x27
-#define LANG_LOWER_SORBIAN  0x2e
-#define LANG_LUXEMBOURGISH  0x6e
-#define LANG_MACEDONIAN     0x2f
-#define LANG_MALAY          0x3e
-#define LANG_MALAYALAM      0x4c
-#define LANG_MALTESE        0x3a
-#define LANG_MANIPURI       0x58
-#define LANG_MAORI          0x81
-#define LANG_MAPUDUNGUN     0x7a
-#define LANG_MARATHI        0x4e
-#define LANG_MOHAWK         0x7c
-#define LANG_MONGOLIAN      0x50
-#define LANG_NEPALI         0x61
-#define LANG_NORWEGIAN      0x14
-#define LANG_OCCITAN        0x82
-#define LANG_ORIYA          0x48
-#define LANG_PASHTO         0x63
-#define LANG_PERSIAN        0x29
-#define LANG_POLISH         0x15
-#define LANG_PORTUGUESE     0x16
-#define LANG_PUNJABI        0x46
-#define LANG_QUECHUA        0x6b
-#define LANG_ROMANIAN       0x18
-#define LANG_ROMANSH        0x17
-#define LANG_RUSSIAN        0x19
-#define LANG_SAMI           0x3b
-#define LANG_SANSKRIT       0x4f
-#define LANG_SERBIAN        0x1a
-#define LANG_SERBIAN_NEUTRAL      0x7c1a
-#define LANG_SINDHI         0x59
-#define LANG_SINHALESE      0x5b
-#define LANG_SLOVAK         0x1b
-#define LANG_SLOVENIAN      0x24
-#define LANG_SOTHO          0x6c
-#define LANG_SPANISH        0x0a
-#define LANG_SWAHILI        0x41
-#define LANG_SWEDISH        0x1d
-#define LANG_SYRIAC         0x5a
-#define LANG_TAJIK          0x28
-#define LANG_TAMAZIGHT      0x5f
-#define LANG_TAMIL          0x49
-#define LANG_TATAR          0x44
-#define LANG_TELUGU         0x4a
-#define LANG_THAI           0x1e
-#define LANG_TIBETAN        0x51
-#define LANG_TIGRIGNA       0x73
-#define LANG_TSWANA         0x32
-#define LANG_TURKISH        0x1f
-#define LANG_TURKMEN        0x42
-#define LANG_UIGHUR         0x80
-#define LANG_UKRAINIAN      0x22
-#define LANG_UPPER_SORBIAN  0x2e
-#define LANG_URDU           0x20
-#define LANG_UZBEK          0x43
-#define LANG_VIETNAMESE     0x2a
-#define LANG_WELSH          0x52
-#define LANG_WOLOF          0x88
-#define LANG_XHOSA          0x34
-#define LANG_YAKUT          0x85
-#define LANG_YI             0x78
-#define LANG_YORUBA         0x6a
-#define LANG_ZULU           0x35
-
-/* These are documented by the MSDN but are missing from the Windows header */
-#define LANG_MALAGASY       0x8d
-
-/* FIXME: these are not defined anywhere */
-#define LANG_SUTU           0x30
-#define LANG_TSONGA         0x31
-#define LANG_VENDA          0x33
-
-/* non standard; keep the number high enough (but < 0xff) */
-#define LANG_ESPERANTO			 0x8f
-#define LANG_WALON			 0x90
-#define LANG_CORNISH                     0x91
-#define LANG_GAELIC                      0x94
-
-/* Sublanguage definitions */
-#define SUBLANG_NEUTRAL                  0x00    /* language neutral */
-#define SUBLANG_DEFAULT                  0x01    /* user default */
-#define SUBLANG_SYS_DEFAULT              0x02    /* system default */
-#define SUBLANG_CUSTOM_DEFAULT           0x03
-#define SUBLANG_CUSTOM_UNSPECIFIED       0x04
-#define SUBLANG_UI_CUSTOM_DEFAULT        0x05
-
-#define SUBLANG_AFRIKAANS_SOUTH_AFRICA     0x01
-#define SUBLANG_ALBANIAN_ALBANIA           0x01
-#define SUBLANG_ALSATIAN_FRANCE            0x01
-#define SUBLANG_AMHARIC_ETHIOPIA           0x01
-#define SUBLANG_ARABIC_SAUDI_ARABIA        0x01
-#define SUBLANG_ARABIC_IRAQ                0x02
-#define SUBLANG_ARABIC_EGYPT               0x03
-#define SUBLANG_ARABIC_LIBYA               0x04
-#define SUBLANG_ARABIC_ALGERIA             0x05
-#define SUBLANG_ARABIC_MOROCCO             0x06
-#define SUBLANG_ARABIC_TUNISIA             0x07
-#define SUBLANG_ARABIC_OMAN                0x08
-#define SUBLANG_ARABIC_YEMEN               0x09
-#define SUBLANG_ARABIC_SYRIA               0x0a
-#define SUBLANG_ARABIC_JORDAN              0x0b
-#define SUBLANG_ARABIC_LEBANON             0x0c
-#define SUBLANG_ARABIC_KUWAIT              0x0d
-#define SUBLANG_ARABIC_UAE                 0x0e
-#define SUBLANG_ARABIC_BAHRAIN             0x0f
-#define SUBLANG_ARABIC_QATAR               0x10
-#define SUBLANG_ARMENIAN_ARMENIA           0x01
-#define SUBLANG_ASSAMESE_INDIA             0x01
-#define SUBLANG_AZERI_LATIN                0x01
-#define SUBLANG_AZERI_CYRILLIC             0x02
-#define SUBLANG_BASHKIR_RUSSIA             0x01
-#define SUBLANG_BASQUE_BASQUE              0x01
-#define SUBLANG_BELARUSIAN_BELARUS         0x01
-#define SUBLANG_BENGALI_INDIA              0x01
-#define SUBLANG_BENGALI_BANGLADESH         0x02
-#define SUBLANG_BOSNIAN_BOSNIA_HERZEGOVINA_LATIN 0x05
-#define SUBLANG_BOSNIAN_BOSNIA_HERZEGOVINA_CYRILLIC 0x08
-#define SUBLANG_BRETON_FRANCE              0x01
-#define SUBLANG_BULGARIAN_BULGARIA         0x01
-#define SUBLANG_CATALAN_CATALAN            0x01
-#define SUBLANG_CHINESE_TRADITIONAL        0x01
-#define SUBLANG_CHINESE_SIMPLIFIED         0x02
-#define SUBLANG_CHINESE_HONGKONG           0x03
-#define SUBLANG_CHINESE_SINGAPORE          0x04
-#define SUBLANG_CHINESE_MACAU              0x05
-#define SUBLANG_CORSICAN_FRANCE            0x01
-#define SUBLANG_CROATIAN_CROATIA           0x01
-#define SUBLANG_CROATIAN_BOSNIA_HERZEGOVINA_LATIN 0x04
-#define SUBLANG_CZECH_CZECH_REPUBLIC       0x01
-#define SUBLANG_DANISH_DENMARK             0x01
-#define SUBLANG_DARI_AFGHANISTAN           0x01
-#define SUBLANG_DIVEHI_MALDIVES            0x01
-#define SUBLANG_DUTCH                      0x01
-#define SUBLANG_DUTCH_BELGIAN              0x02
-#define SUBLANG_ENGLISH_US                 0x01
-#define SUBLANG_ENGLISH_UK                 0x02
-#define SUBLANG_ENGLISH_AUS                0x03
-#define SUBLANG_ENGLISH_CAN                0x04
-#define SUBLANG_ENGLISH_NZ                 0x05
-#define SUBLANG_ENGLISH_EIRE               0x06
-#define SUBLANG_ENGLISH_SOUTH_AFRICA       0x07
-#define SUBLANG_ENGLISH_JAMAICA            0x08
-#define SUBLANG_ENGLISH_CARIBBEAN          0x09
-#define SUBLANG_ENGLISH_BELIZE             0x0a
-#define SUBLANG_ENGLISH_TRINIDAD           0x0b
-#define SUBLANG_ENGLISH_ZIMBABWE           0x0c
-#define SUBLANG_ENGLISH_PHILIPPINES        0x0d
-#define SUBLANG_ENGLISH_INDIA              0x10
-#define SUBLANG_ENGLISH_MALAYSIA           0x11
-#define SUBLANG_ENGLISH_SINGAPORE          0x12
-#define SUBLANG_ESTONIAN_ESTONIA           0x01
-#define SUBLANG_FAEROESE_FAROE_ISLANDS     0x01
-#define SUBLANG_FILIPINO_PHILIPPINES       0x01
-#define SUBLANG_FINNISH_FINLAND            0x01
-#define SUBLANG_FRENCH                     0x01
-#define SUBLANG_FRENCH_BELGIAN             0x02
-#define SUBLANG_FRENCH_CANADIAN            0x03
-#define SUBLANG_FRENCH_SWISS               0x04
-#define SUBLANG_FRENCH_LUXEMBOURG          0x05
-#define SUBLANG_FRENCH_MONACO              0x06
-#define SUBLANG_FRISIAN_NETHERLANDS        0x01
-#define SUBLANG_GALICIAN_GALICIAN          0x01
-#define SUBLANG_GEORGIAN_GEORGIA           0x01
-#define SUBLANG_GERMAN                     0x01
-#define SUBLANG_GERMAN_SWISS               0x02
-#define SUBLANG_GERMAN_AUSTRIAN            0x03
-#define SUBLANG_GERMAN_LUXEMBOURG          0x04
-#define SUBLANG_GERMAN_LIECHTENSTEIN       0x05
-#define SUBLANG_GREEK_GREECE               0x01
-#define SUBLANG_GREENLANDIC_GREENLAND      0x01
-#define SUBLANG_GUJARATI_INDIA             0x01
-#define SUBLANG_HAUSA_NIGERIA_LATIN        0x01
-#define SUBLANG_HEBREW_ISRAEL              0x01
-#define SUBLANG_HINDI_INDIA                0x01
-#define SUBLANG_HUNGARIAN_HUNGARY          0x01
-#define SUBLANG_ICELANDIC_ICELAND          0x01
-#define SUBLANG_IGBO_NIGERIA               0x01
-#define SUBLANG_INDONESIAN_INDONESIA       0x01
-#define SUBLANG_INUKTITUT_CANADA           0x01
-#define SUBLANG_INUKTITUT_CANADA_LATIN     0x02
-#define SUBLANG_IRISH_IRELAND              0x02
-#define SUBLANG_ITALIAN                    0x01
-#define SUBLANG_ITALIAN_SWISS              0x02
-#define SUBLANG_JAPANESE_JAPAN             0x01
-#define SUBLANG_KANNADA_INDIA              0x01
-#define SUBLANG_KASHMIRI_SASIA             0x02
-#define SUBLANG_KASHMIRI_INDIA             0x02
-#define SUBLANG_KAZAK_KAZAKHSTAN           0x01
-#define SUBLANG_KHMER_CAMBODIA             0x01
-#define SUBLANG_KICHE_GUATEMALA            0x01
-#define SUBLANG_KINYARWANDA_RWANDA         0X01
-#define SUBLANG_KONKANI_INDIA              0x01
-#define SUBLANG_KOREAN                     0x01
-#define SUBLANG_KYRGYZ_KYRGYZSTAN          0x01
-#define SUBLANG_LAO_LAO                    0x01
-#define SUBLANG_LATVIAN_LATVIA             0x01
-#define SUBLANG_LITHUANIAN_LITHUANIA       0x01
-#define SUBLANG_LOWER_SORBIAN_GERMANY      0x02
-#define SUBLANG_LUXEMBOURGISH_LUXEMBOURG   0x01
-#define SUBLANG_MACEDONIAN_MACEDONIA       0x01
-#define SUBLANG_MALAY_MALAYSIA             0x01
-#define SUBLANG_MALAY_BRUNEI_DARUSSALAM    0x02
-#define SUBLANG_MALAYALAM_INDIA            0x01
-#define SUBLANG_MALTESE_MALTA              0x01
-#define SUBLANG_MAORI_NEW_ZEALAND          0x01
-#define SUBLANG_MAPUDUNGUN_CHILE           0x01
-#define SUBLANG_MARATHI_INDIA              0x01
-#define SUBLANG_MOHAWK_MOHAWK              0x01
-#define SUBLANG_MONGOLIAN_CYRILLIC_MONGOLIA 0x01
-#define SUBLANG_MONGOLIAN_PRC              0x02
-#define SUBLANG_NEPALI_INDIA               0x02
-#define SUBLANG_NEPALI_NEPAL               0x01
-#define SUBLANG_NORWEGIAN_BOKMAL           0x01
-#define SUBLANG_NORWEGIAN_NYNORSK          0x02
-#define SUBLANG_OCCITAN_FRANCE             0x01
-#define SUBLANG_ORIYA_INDIA                0x01
-#define SUBLANG_PASHTO_AFGHANISTAN         0x01
-#define SUBLANG_PERSIAN_IRAN               0x01
-#define SUBLANG_POLISH_POLAND              0x01
-#define SUBLANG_PORTUGUESE                 0x02
-#define SUBLANG_PORTUGUESE_BRAZILIAN       0x01
-#define SUBLANG_PUNJABI_INDIA              0x01
-#define SUBLANG_QUECHUA_BOLIVIA            0x01
-#define SUBLANG_QUECHUA_ECUADOR            0x02
-#define SUBLANG_QUECHUA_PERU               0x03
-#define SUBLANG_ROMANIAN_ROMANIA           0x01
-#define SUBLANG_ROMANSH_SWITZERLAND        0x01
-#define SUBLANG_RUSSIAN_RUSSIA             0x01
-#define SUBLANG_SAMI_NORTHERN_NORWAY       0x01
-#define SUBLANG_SAMI_NORTHERN_SWEDEN       0x02
-#define SUBLANG_SAMI_NORTHERN_FINLAND      0x03
-#define SUBLANG_SAMI_LULE_NORWAY           0x04
-#define SUBLANG_SAMI_LULE_SWEDEN           0x05
-#define SUBLANG_SAMI_SOUTHERN_NORWAY       0x06
-#define SUBLANG_SAMI_SOUTHERN_SWEDEN       0x07
-#define SUBLANG_SAMI_SKOLT_FINLAND         0x08
-#define SUBLANG_SAMI_INARI_FINLAND         0x09
-#define SUBLANG_SANSKRIT_INDIA             0x01
-#define SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_LATIN 0x06
-#define SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_CYRILLIC 0x07
-#define SUBLANG_SERBIAN_CROATIA            0x01
-#define SUBLANG_SERBIAN_LATIN              0x02
-#define SUBLANG_SERBIAN_CYRILLIC           0x03
-#define SUBLANG_SINDHI_AFGHANISTAN         0x02
-#define SUBLANG_SINHALESE_SRI_LANKA        0x01
-#define SUBLANG_SLOVAK_SLOVAKIA            0x01
-#define SUBLANG_SLOVENIAN_SLOVENIA         0x01
-#define SUBLANG_SOTHO_NORTHERN_SOUTH_AFRICA 0x01
-#define SUBLANG_SPANISH                    0x01
-#define SUBLANG_SPANISH_MEXICAN            0x02
-#define SUBLANG_SPANISH_MODERN             0x03
-#define SUBLANG_SPANISH_GUATEMALA          0x04
-#define SUBLANG_SPANISH_COSTA_RICA         0x05
-#define SUBLANG_SPANISH_PANAMA             0x06
-#define SUBLANG_SPANISH_DOMINICAN_REPUBLIC 0x07
-#define SUBLANG_SPANISH_VENEZUELA          0x08
-#define SUBLANG_SPANISH_COLOMBIA           0x09
-#define SUBLANG_SPANISH_PERU               0x0a
-#define SUBLANG_SPANISH_ARGENTINA          0x0b
-#define SUBLANG_SPANISH_ECUADOR            0x0c
-#define SUBLANG_SPANISH_CHILE              0x0d
-#define SUBLANG_SPANISH_URUGUAY            0x0e
-#define SUBLANG_SPANISH_PARAGUAY           0x0f
-#define SUBLANG_SPANISH_BOLIVIA            0x10
-#define SUBLANG_SPANISH_EL_SALVADOR        0x11
-#define SUBLANG_SPANISH_HONDURAS           0x12
-#define SUBLANG_SPANISH_NICARAGUA          0x13
-#define SUBLANG_SPANISH_PUERTO_RICO        0x14
-#define SUBLANG_SPANISH_US                 0x15
-#define SUBLANG_SWAHILI_KENYA              0x01
-#define SUBLANG_SWEDISH                    0x01
-#define SUBLANG_SWEDISH_FINLAND            0x02
-#define SUBLANG_SYRIAC_SYRIA               0x01
-#define SUBLANG_TAJIK_TAJIKISTAN           0x01
-#define SUBLANG_TAMAZIGHT_ALGERIA_LATIN    0x02
-#define SUBLANG_TAMIL_INDIA                0x01
-#define SUBLANG_TATAR_RUSSIA               0x01
-#define SUBLANG_TELUGU_INDIA               0x01
-#define SUBLANG_THAI_THAILAND              0x01
-#define SUBLANG_TIBETAN_PRC                0x01
-#define SUBLANG_TIBETAN_BHUTAN             0x02
-#define SUBLANG_TIGRIGNA_ERITREA           0x02
-#define SUBLANG_TSWANA_SOUTH_AFRICA        0x01
-#define SUBLANG_TURKISH_TURKEY             0x01
-#define SUBLANG_TURKMEN_TURKMENISTAN       0x01
-#define SUBLANG_UIGHUR_PRC                 0x01
-#define SUBLANG_UKRAINIAN_UKRAINE          0x01
-#define SUBLANG_UPPER_SORBIAN_GERMANY      0x01
-#define SUBLANG_URDU_PAKISTAN              0x01
-#define SUBLANG_URDU_INDIA                 0x02
-#define SUBLANG_UZBEK_LATIN                0x01
-#define SUBLANG_UZBEK_CYRILLIC             0x02
-#define SUBLANG_VIETNAMESE_VIETNAM         0x01
-#define SUBLANG_WELSH_UNITED_KINGDOM       0x01
-#define SUBLANG_WOLOF_SENEGAL              0x01
-#define SUBLANG_XHOSA_SOUTH_AFRICA         0x01
-#define SUBLANG_YAKUT_RUSSIA               0x01
-#define SUBLANG_YI_PRC                     0x01
-#define SUBLANG_YORUBA_NIGERIA             0x01
-#define SUBLANG_ZULU_SOUTH_AFRICA          0x01
-
-/* These are documented by the MSDN but are missing from the Windows header */
-#define SUBLANG_ENGLISH_IRELAND            SUBLANG_ENGLISH_EIRE
-#define SUBLANG_HAUSA_NIGERIA              SUBLANG_HAUSA_NIGERIA_LATIN
-#define SUBLANG_LAO_LAO_PDR                SUBLANG_LAO_LAO
-#define SUBLANG_LITHUANIAN                 SUBLANG_LITHUANIAN_LITHUANIA
-#define SUBLANG_PORTUGUESE_PORTUGAL        SUBLANG_PORTUGUESE
-#define SUBLANG_SWAHILI                    SUBLANG_SWAHILI_KENYA
-#define SUBLANG_SWEDISH_SWEDEN             SUBLANG_SWEDISH
-#define SUBLANG_SYRIAC                     SUBLANG_SYRIAC_SYRIA
-
-/* FIXME: these are not defined anywhere */
-#define SUBLANG_DUTCH_SURINAM              0x03
-#define SUBLANG_ROMANIAN                   SUBLANG_ROMANIAN_ROMANIA
-#define SUBLANG_ROMANIAN_MOLDAVIA          0x02
-#define SUBLANG_RUSSIAN                    SUBLANG_RUSSIAN_RUSSIA
-#define SUBLANG_RUSSIAN_MOLDAVIA           0x02
-#define SUBLANG_CROATIAN                   SUBLANG_CROATIAN_CROATIA
-#define SUBLANG_LITHUANIAN_CLASSIC         0x02
-#define SUBLANG_GAELIC                     0x01
-#define SUBLANG_GAELIC_SCOTTISH            0x02
-#define SUBLANG_GAELIC_MANX                0x03
-
-
-/*
- * Sort definitions
- */
-
-#define SORT_DEFAULT                     0x0
-#define SORT_JAPANESE_XJIS               0x0
-#define SORT_JAPANESE_UNICODE            0x1
-#define SORT_CHINESE_BIG5                0x0
-#define SORT_CHINESE_UNICODE             0x1
-#define SORT_KOREAN_KSC                  0x0
-#define SORT_KOREAN_UNICODE              0x1
-
+#include <winnt.rh>
 
 
 /*
@@ -2709,6 +2314,7 @@ typedef struct _IMAGE_VXD_HEADER {
 #define	IMAGE_FILE_MACHINE_SH5		0x01a8
 #define	IMAGE_FILE_MACHINE_ARM		0x01c0
 #define	IMAGE_FILE_MACHINE_THUMB	0x01c2
+#define	IMAGE_FILE_MACHINE_ARMV7	0x01c4
 #define	IMAGE_FILE_MACHINE_AM33		0x01d3
 #define	IMAGE_FILE_MACHINE_POWERPC	0x01f0
 #define	IMAGE_FILE_MACHINE_POWERPCFP	0x01f1
@@ -3308,8 +2914,10 @@ typedef struct _IMAGE_RELOCATION
 #define IMAGE_REL_BASED_HIGHLOW			3
 #define IMAGE_REL_BASED_HIGHADJ			4
 #define IMAGE_REL_BASED_MIPS_JMPADDR		5
+#define IMAGE_REL_BASED_ARM_MOV32A		5 /* yes, 5 too */
 #define IMAGE_REL_BASED_SECTION			6
 #define	IMAGE_REL_BASED_REL			7
+#define	IMAGE_REL_BASED_ARM_MOV32T		7 /* yes, 7 too */
 #define IMAGE_REL_BASED_MIPS_JMPADDR16		9
 #define IMAGE_REL_BASED_IA64_IMM64		9 /* yes, 9 too */
 #define IMAGE_REL_BASED_DIR64			10
@@ -3403,7 +3011,7 @@ typedef struct _IMAGE_RELOCATION
 #define IMAGE_REL_PPC_BRNTAKEN          0x0400
 #define IMAGE_REL_PPC_TOCDEFN           0x0800
 
-/* SH3 ? relocation type */
+/* SH3 relocation types */
 #define IMAGE_REL_SH3_ABSOLUTE          0x0000
 #define IMAGE_REL_SH3_DIRECT16          0x0001
 #define IMAGE_REL_SH3_DIRECT          0x0002
@@ -3424,7 +3032,7 @@ typedef struct _IMAGE_RELOCATION
 #define IMAGE_REL_SH3_GPREL4_LONG       0x0011
 #define IMAGE_REL_SH3_TOKEN             0x0012
 
-/* ARM (Archimedes?) relocation types */
+/* ARM relocation types */
 #define IMAGE_REL_ARM_ABSOLUTE		0x0000
 #define IMAGE_REL_ARM_ADDR		0x0001
 #define IMAGE_REL_ARM_ADDR32NB		0x0002
@@ -3437,6 +3045,11 @@ typedef struct _IMAGE_RELOCATION
 #define IMAGE_REL_ARM_BLX11		0x0009
 #define IMAGE_REL_ARM_SECTION		0x000E
 #define IMAGE_REL_ARM_SECREL		0x000F
+#define IMAGE_REL_ARM_MOV32A		0x0010
+#define IMAGE_REL_ARM_MOV32T		0x0011
+#define IMAGE_REL_ARM_BRANCH20T	0x0012
+#define IMAGE_REL_ARM_BRANCH24T	0x0014
+#define IMAGE_REL_ARM_BLX23T		0x0015
 
 /* IA64 relocation types */
 #define IMAGE_REL_IA64_ABSOLUTE		0x0000
@@ -4105,9 +3718,9 @@ typedef struct _SID_AND_ATTRIBUTES {
 } SID_AND_ATTRIBUTES, *PSID_AND_ATTRIBUTES;
 
 /* security entities */
-#define SECURITY_NULL_RID			(0x00000000L)
-#define SECURITY_WORLD_RID			(0x00000000L)
-#define SECURITY_LOCAL_RID			(0X00000000L)
+#define SECURITY_NULL_RID                       __MSABI_LONG(0x00000000)
+#define SECURITY_WORLD_RID                      __MSABI_LONG(0x00000000)
+#define SECURITY_LOCAL_RID                      __MSABI_LONG(0X00000000)
 
 #define SECURITY_NULL_SID_AUTHORITY		{0,0,0,0,0,0}
 
@@ -4119,97 +3732,97 @@ typedef struct _SID_AND_ATTRIBUTES {
 
 /* S-1-3 */
 #define SECURITY_CREATOR_SID_AUTHORITY		{0,0,0,0,0,3}
-#define SECURITY_CREATOR_OWNER_RID		(0x00000000L)
-#define SECURITY_CREATOR_GROUP_RID		(0x00000001L)
-#define SECURITY_CREATOR_OWNER_SERVER_RID	(0x00000002L)
-#define SECURITY_CREATOR_GROUP_SERVER_RID	(0x00000003L)
+#define SECURITY_CREATOR_OWNER_RID              __MSABI_LONG(0x00000000)
+#define SECURITY_CREATOR_GROUP_RID              __MSABI_LONG(0x00000001)
+#define SECURITY_CREATOR_OWNER_SERVER_RID       __MSABI_LONG(0x00000002)
+#define SECURITY_CREATOR_GROUP_SERVER_RID       __MSABI_LONG(0x00000003)
 
 /* S-1-4 */
 #define SECURITY_NON_UNIQUE_AUTHORITY		{0,0,0,0,0,4}
 
 /* S-1-5 */
 #define SECURITY_NT_AUTHORITY			{0,0,0,0,0,5}
-#define SECURITY_DIALUP_RID                     0x00000001L
-#define SECURITY_NETWORK_RID                    0x00000002L
-#define SECURITY_BATCH_RID                      0x00000003L
-#define SECURITY_INTERACTIVE_RID                0x00000004L
-#define SECURITY_LOGON_IDS_RID                  0x00000005L
-#define SECURITY_SERVICE_RID                    0x00000006L
-#define SECURITY_ANONYMOUS_LOGON_RID            0x00000007L
-#define SECURITY_PROXY_RID                      0x00000008L
-#define SECURITY_ENTERPRISE_CONTROLLERS_RID     0x00000009L
+#define SECURITY_DIALUP_RID                     __MSABI_LONG(0x00000001)
+#define SECURITY_NETWORK_RID                    __MSABI_LONG(0x00000002)
+#define SECURITY_BATCH_RID                      __MSABI_LONG(0x00000003)
+#define SECURITY_INTERACTIVE_RID                __MSABI_LONG(0x00000004)
+#define SECURITY_LOGON_IDS_RID                  __MSABI_LONG(0x00000005)
+#define SECURITY_SERVICE_RID                    __MSABI_LONG(0x00000006)
+#define SECURITY_ANONYMOUS_LOGON_RID            __MSABI_LONG(0x00000007)
+#define SECURITY_PROXY_RID                      __MSABI_LONG(0x00000008)
+#define SECURITY_ENTERPRISE_CONTROLLERS_RID     __MSABI_LONG(0x00000009)
 #define SECURITY_SERVER_LOGON_RID               SECURITY_ENTERPRISE_CONTROLLERS_RID
-#define SECURITY_PRINCIPAL_SELF_RID             0x0000000AL
-#define SECURITY_AUTHENTICATED_USER_RID         0x0000000BL
-#define SECURITY_RESTRICTED_CODE_RID            0x0000000CL
-#define SECURITY_TERMINAL_SERVER_RID            0x0000000DL
-#define SECURITY_REMOTE_LOGON_RID               0x0000000EL
-#define SECURITY_THIS_ORGANIZATION_RID          0x0000000FL
-#define SECURITY_LOCAL_SYSTEM_RID               0x00000012L
-#define SECURITY_LOCAL_SERVICE_RID              0x00000013L
-#define SECURITY_NETWORK_SERVICE_RID            0x00000014L
-#define SECURITY_NT_NON_UNIQUE                  0x00000015L
-#define SECURITY_BUILTIN_DOMAIN_RID             0x00000020L
+#define SECURITY_PRINCIPAL_SELF_RID             __MSABI_LONG(0x0000000A)
+#define SECURITY_AUTHENTICATED_USER_RID         __MSABI_LONG(0x0000000B)
+#define SECURITY_RESTRICTED_CODE_RID            __MSABI_LONG(0x0000000C)
+#define SECURITY_TERMINAL_SERVER_RID            __MSABI_LONG(0x0000000D)
+#define SECURITY_REMOTE_LOGON_RID               __MSABI_LONG(0x0000000E)
+#define SECURITY_THIS_ORGANIZATION_RID          __MSABI_LONG(0x0000000F)
+#define SECURITY_LOCAL_SYSTEM_RID               __MSABI_LONG(0x00000012)
+#define SECURITY_LOCAL_SERVICE_RID              __MSABI_LONG(0x00000013)
+#define SECURITY_NETWORK_SERVICE_RID            __MSABI_LONG(0x00000014)
+#define SECURITY_NT_NON_UNIQUE                  __MSABI_LONG(0x00000015)
+#define SECURITY_BUILTIN_DOMAIN_RID             __MSABI_LONG(0x00000020)
 
-#define SECURITY_PACKAGE_BASE_RID               0x00000040L
-#define SECURITY_PACKAGE_NTLM_RID               0x0000000AL
-#define SECURITY_PACKAGE_SCHANNEL_RID           0x0000000EL
-#define SECURITY_PACKAGE_DIGEST_RID             0x00000015L
-#define SECURITY_MAX_ALWAYS_FILTERED            0x000003E7L
-#define SECURITY_MIN_NEVER_FILTERED             0x000003E8L
-#define SECURITY_OTHER_ORGANIZATION_RID         0x000003E8L
+#define SECURITY_PACKAGE_BASE_RID               __MSABI_LONG(0x00000040)
+#define SECURITY_PACKAGE_NTLM_RID               __MSABI_LONG(0x0000000A)
+#define SECURITY_PACKAGE_SCHANNEL_RID           __MSABI_LONG(0x0000000E)
+#define SECURITY_PACKAGE_DIGEST_RID             __MSABI_LONG(0x00000015)
+#define SECURITY_MAX_ALWAYS_FILTERED            __MSABI_LONG(0x000003E7)
+#define SECURITY_MIN_NEVER_FILTERED             __MSABI_LONG(0x000003E8)
+#define SECURITY_OTHER_ORGANIZATION_RID         __MSABI_LONG(0x000003E8)
 
-#define FOREST_USER_RID_MAX                     0x000001F3L
-#define DOMAIN_USER_RID_ADMIN                   0x000001F4L
-#define DOMAIN_USER_RID_GUEST                   0x000001F5L
-#define DOMAIN_USER_RID_KRBTGT                  0x000001F6L
-#define DOMAIN_USER_RID_MAX                     0x000003E7L
+#define FOREST_USER_RID_MAX                     __MSABI_LONG(0x000001F3)
+#define DOMAIN_USER_RID_ADMIN                   __MSABI_LONG(0x000001F4)
+#define DOMAIN_USER_RID_GUEST                   __MSABI_LONG(0x000001F5)
+#define DOMAIN_USER_RID_KRBTGT                  __MSABI_LONG(0x000001F6)
+#define DOMAIN_USER_RID_MAX                     __MSABI_LONG(0x000003E7)
 
-#define DOMAIN_GROUP_RID_ADMINS                 0x00000200L
-#define DOMAIN_GROUP_RID_USERS                  0x00000201L
-#define DOMAIN_GROUP_RID_GUESTS                 0x00000202L
-#define DOMAIN_GROUP_RID_COMPUTERS              0x00000203L
-#define DOMAIN_GROUP_RID_CONTROLLERS            0x00000204L
-#define DOMAIN_GROUP_RID_CERT_ADMINS            0x00000205L
-#define DOMAIN_GROUP_RID_SCHEMA_ADMINS          0x00000206L
-#define DOMAIN_GROUP_RID_ENTERPRISE_ADMINS      0x00000207L
-#define DOMAIN_GROUP_RID_POLICY_ADMINS          0x00000208L
+#define DOMAIN_GROUP_RID_ADMINS                 __MSABI_LONG(0x00000200)
+#define DOMAIN_GROUP_RID_USERS                  __MSABI_LONG(0x00000201)
+#define DOMAIN_GROUP_RID_GUESTS                 __MSABI_LONG(0x00000202)
+#define DOMAIN_GROUP_RID_COMPUTERS              __MSABI_LONG(0x00000203)
+#define DOMAIN_GROUP_RID_CONTROLLERS            __MSABI_LONG(0x00000204)
+#define DOMAIN_GROUP_RID_CERT_ADMINS            __MSABI_LONG(0x00000205)
+#define DOMAIN_GROUP_RID_SCHEMA_ADMINS          __MSABI_LONG(0x00000206)
+#define DOMAIN_GROUP_RID_ENTERPRISE_ADMINS      __MSABI_LONG(0x00000207)
+#define DOMAIN_GROUP_RID_POLICY_ADMINS          __MSABI_LONG(0x00000208)
 
 #define SECURITY_MANDATORY_LABEL_AUTHORITY {0,0,0,0,0,16}
-#define SECURITY_MANDATORY_UNTRUSTED_RID        0x00000000L
-#define SECURITY_MANDATORY_LOW_RID              0x00001000L
-#define SECURITY_MANDATORY_MEDIUM_RID           0x00002000L
-#define SECURITY_MANDATORY_HIGH_RID             0x00003000L
-#define SECURITY_MANDATORY_SYSTEM_RID           0x00004000L
-#define SECURITY_MANDATORY_PROTECTED_PROCESS_RID 0x00005000L
+#define SECURITY_MANDATORY_UNTRUSTED_RID        __MSABI_LONG(0x00000000)
+#define SECURITY_MANDATORY_LOW_RID              __MSABI_LONG(0x00001000)
+#define SECURITY_MANDATORY_MEDIUM_RID           __MSABI_LONG(0x00002000)
+#define SECURITY_MANDATORY_HIGH_RID             __MSABI_LONG(0x00003000)
+#define SECURITY_MANDATORY_SYSTEM_RID           __MSABI_LONG(0x00004000)
+#define SECURITY_MANDATORY_PROTECTED_PROCESS_RID __MSABI_LONG(0x00005000)
 
-#define DOMAIN_ALIAS_RID_ADMINS                 0x00000220L
-#define DOMAIN_ALIAS_RID_USERS                  0x00000221L
-#define DOMAIN_ALIAS_RID_GUESTS                 0x00000222L
-#define DOMAIN_ALIAS_RID_POWER_USERS            0x00000223L
+#define DOMAIN_ALIAS_RID_ADMINS                 __MSABI_LONG(0x00000220)
+#define DOMAIN_ALIAS_RID_USERS                  __MSABI_LONG(0x00000221)
+#define DOMAIN_ALIAS_RID_GUESTS                 __MSABI_LONG(0x00000222)
+#define DOMAIN_ALIAS_RID_POWER_USERS            __MSABI_LONG(0x00000223)
 
-#define DOMAIN_ALIAS_RID_ACCOUNT_OPS            0x00000224L
-#define DOMAIN_ALIAS_RID_SYSTEM_OPS             0x00000225L
-#define DOMAIN_ALIAS_RID_PRINT_OPS              0x00000226L
-#define DOMAIN_ALIAS_RID_BACKUP_OPS             0x00000227L
+#define DOMAIN_ALIAS_RID_ACCOUNT_OPS            __MSABI_LONG(0x00000224)
+#define DOMAIN_ALIAS_RID_SYSTEM_OPS             __MSABI_LONG(0x00000225)
+#define DOMAIN_ALIAS_RID_PRINT_OPS              __MSABI_LONG(0x00000226)
+#define DOMAIN_ALIAS_RID_BACKUP_OPS             __MSABI_LONG(0x00000227)
 
-#define DOMAIN_ALIAS_RID_REPLICATOR             0x00000228L
-#define DOMAIN_ALIAS_RID_RAS_SERVERS            0x00000229L
-#define DOMAIN_ALIAS_RID_PREW2KCOMPACCESS       0x0000022AL
-#define DOMAIN_ALIAS_RID_REMOTE_DESKTOP_USERS   0x0000022BL
-#define DOMAIN_ALIAS_RID_NETWORK_CONFIGURATION_OPS 0x0000022CL
-#define DOMAIN_ALIAS_RID_INCOMING_FOREST_TRUST_BUILDERS 0x0000022DL
+#define DOMAIN_ALIAS_RID_REPLICATOR             __MSABI_LONG(0x00000228)
+#define DOMAIN_ALIAS_RID_RAS_SERVERS            __MSABI_LONG(0x00000229)
+#define DOMAIN_ALIAS_RID_PREW2KCOMPACCESS       __MSABI_LONG(0x0000022A)
+#define DOMAIN_ALIAS_RID_REMOTE_DESKTOP_USERS   __MSABI_LONG(0x0000022B)
+#define DOMAIN_ALIAS_RID_NETWORK_CONFIGURATION_OPS __MSABI_LONG(0x0000022C)
+#define DOMAIN_ALIAS_RID_INCOMING_FOREST_TRUST_BUILDERS __MSABI_LONG(0x0000022D)
 
-#define DOMAIN_ALIAS_RID_MONITORING_USERS       0x0000022EL
-#define DOMAIN_ALIAS_RID_LOGGING_USERS          0x0000022FL
-#define DOMAIN_ALIAS_RID_AUTHORIZATIONACCESS    0x00000230L
-#define DOMAIN_ALIAS_RID_TS_LICENSE_SERVERS     0x00000231L
-#define DOMAIN_ALIAS_RID_DCOM_USERS             0x00000232L
+#define DOMAIN_ALIAS_RID_MONITORING_USERS       __MSABI_LONG(0x0000022E)
+#define DOMAIN_ALIAS_RID_LOGGING_USERS          __MSABI_LONG(0x0000022F)
+#define DOMAIN_ALIAS_RID_AUTHORIZATIONACCESS    __MSABI_LONG(0x00000230)
+#define DOMAIN_ALIAS_RID_TS_LICENSE_SERVERS     __MSABI_LONG(0x00000231)
+#define DOMAIN_ALIAS_RID_DCOM_USERS             __MSABI_LONG(0x00000232)
 
 #define SECURITY_SERVER_LOGON_RID		SECURITY_ENTERPRISE_CONTROLLERS_RID
 
-#define SECURITY_PACKAGE_RID_COUNT              2L
-#define SECURITY_LOGON_IDS_RID_COUNT		3L
+#define SECURITY_PACKAGE_RID_COUNT              __MSABI_LONG(2)
+#define SECURITY_LOGON_IDS_RID_COUNT            __MSABI_LONG(3)
 
 typedef enum {
     WinNullSid                                  = 0,
@@ -4738,9 +4351,9 @@ typedef struct _QUOTA_LIMITS_EX {
 #define DUPLICATE_SAME_ACCESS      0x00000002
 
 /* File attribute flags */
-#define FILE_SHARE_READ			0x00000001L
-#define FILE_SHARE_WRITE		0x00000002L
-#define FILE_SHARE_DELETE		0x00000004L
+#define FILE_SHARE_READ                    0x00000001
+#define FILE_SHARE_WRITE                   0x00000002
+#define FILE_SHARE_DELETE                  0x00000004
 
 #define FILE_ATTRIBUTE_READONLY            0x00000001
 #define FILE_ATTRIBUTE_HIDDEN              0x00000002
