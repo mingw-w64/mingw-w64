@@ -834,9 +834,9 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   {
     int r;
     va_list argp;
-    va_start (argp, format);
+    __builtin_va_start (argp, format);
     r = _vsnwprintf (s, n, format, argp);
-    va_end (argp);
+    __builtin_va_end (argp);
     return r;
   }
   __mingw_ovr
