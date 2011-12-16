@@ -1,3 +1,8 @@
+2011-12-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* limits.h (SSIZE_MAX): Move out of special case of _POSIX_ being
+	defined.  Define as INT_MAX for win32 and as _I64_MAX for win64.
+
 2011-11-18  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* time.h: Make sure to use 32bit time when _USE_32BIT_TIME_T in use.
