@@ -206,8 +206,13 @@ mark_section_writable (LPVOID addr)
     }
 
   if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
-    VirtualProtect (b.BaseAddress, b.RegionSize, PAGE_EXECUTE_READWRITE,
-		  &the_secs[i].old_protect);
+    {
+      if (!VirtualProtect (b.BaseAddress, b.RegionSize,
+			   PAGE_EXECUTE_READWRITE,
+			   &the_secs[i].old_protect))
+	__report_error ("  VirtualProtect failed with code 0x%x",
+	  (int) GetLastError ());
+    }
   ++maxSections;
   return;
 }
