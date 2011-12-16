@@ -1,3 +1,8 @@
+2011-12-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* limits.h (SSIZE_MAX): Move out of special case of _POSIX_ being
+	defined.  Define as INT_MAX for win32 and as _I64_MAX for win64.
+
 2011-12-14  Kai Tietz  <ktietz@redhat.com>
 
 	* _mingw.h.in (__USE_MINGW_ANSI_STDIO): Extend default definition
