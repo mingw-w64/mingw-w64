@@ -435,6 +435,7 @@ lib32_DATA = \
   lib32/libiphlpapi.a  lib32/libkernel32.a  lib32/libksproxy.a   lib32/libclfsw32.a   lib32/liblz32.a     \
   lib32/libmapi32.a    lib32/libmcd.a       lib32/libmfcuia32.a  lib32/libmgmtapi.a   lib32/libmprapi.a   \
   lib32/libmpr.a       lib32/libmqrt.a      lib32/libmsacm32.a   lib32/libmscms.a     lib32/libmsdmo.a    \
+  lib32/libmsi.a       \
   lib32/libmsimg32.a   lib32/libmsvcp60.a   lib32/libmsvfw32.a   lib32/libmswsock.a   lib32/libnddeapi.a  \
   lib32/libndis.a      lib32/libnetapi32.a  lib32/libnewdev.a    lib32/libntdll.a     lib32/libntoskrnl.a \
   lib32/libodbc32.a    lib32/libodbccp32.a  lib32/libole32.a     lib32/liboleacc.a    lib32/liboleaut32.a \

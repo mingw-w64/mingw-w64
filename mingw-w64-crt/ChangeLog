@@ -1,3 +1,9 @@
+2011-12-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/msi.def: New.
+	* Makefile.am (lib32_DATA): Add lib32/msi.def to build.
+	* Makefile.in: Regenerate.
+
 2011-12-17  Kai Tietz  <ktietz@redhat.com>
 
 	* crt/pseudo-reloc.c (__write_memory): Add fallback for systems
@@ -5,7 +11,7 @@
 
 2011-12-14  Kai Tietz  <ktietz@redhat.com>
 
-        * stdio/ The printf-routines rework part 2
+	stdio/ The printf-routines rework part 2
 	* crt/ Avoid use of msvcrt printf functions
 	* misc/ Likewise.
 
