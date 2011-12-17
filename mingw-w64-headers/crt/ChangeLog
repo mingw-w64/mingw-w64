@@ -10,7 +10,7 @@
 
 	* stdio.h, wchar.h:  Reorganize crt-overrides ... part 1
 
-2011-12-13  Jonathan Lui  <user net147 at sourceforge>
+2011-12-13  Jonathan Liu  <net147@users.sourceforge.net>
 
 	* sys/timeb.h (_ftime): Fix default definition for 32-bit vs.
 	64-bit Windows.
