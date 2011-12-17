@@ -1,3 +1,9 @@
+2011-12-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/msi.def: New.
+	* Makefile.am (lib32_DATA): Add lib32/msi.def to build.
+	* Makefile.in: Regenerate.
+
 2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* stdio/mingw_pformat.c (__pformat_cvt): Add missing initializer
