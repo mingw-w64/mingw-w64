@@ -1,3 +1,8 @@
+2011-12-17  Kai Tietz  <ktietz@redhat.com>
+
+	* crt/pseudo-reloc.c (__write_memory): Add fallback for systems
+	not allocating section within one VirtualAlloc block.
+
 2011-12-14  Kai Tietz  <ktietz@redhat.com>
 
         * stdio/ The printf-routines rework part 2
