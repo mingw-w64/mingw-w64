@@ -1,3 +1,9 @@
+2011-12-19  Kai TIetz  <ktietz@redhat.com>
+
+	* stdio/vasprintf.c: Make sure operand order on dereferencing
+	is fixed.
+	* stdio/asprintf.c: Likewise.
+
 2011-12-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/msi.def: New.
