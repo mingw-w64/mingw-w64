@@ -21,7 +21,7 @@ int __mingw_asprintf(char ** __restrict__ ret,
     goto _end;
   }
   /* Write String */
-  __mingw_vsnprintf(*ret,len,format,ap);
+  __mingw_vsnprintf(*ret,len+1,format,ap);
   /* Terminate explicitly */
   (*ret)[len] = '\0';
   _end:
