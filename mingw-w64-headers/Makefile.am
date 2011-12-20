@@ -51,6 +51,19 @@ BUILT_SOURCES = \
   _mingw_directx.h \
   _mingw_ddk.h
 
+if HAVE_WIDL
+
+IDL_SRCS = \
+  include/unknwn.idl \
+  include/wtypes.idl
+
+BUILT_SOURCES += $(IDL_SRCS:.idl=.h)
+
+.idl.h: crt/_mingw.h
+	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -h -o $(srcdir)/$@ $<
+
+endif
+
 _mingw_directx.h: $(srcdir)/crt/sdks/_mingw_directx.h.in
 	$(SED) s/MINGW_HAS_DX$$/@MINGW_HAS_DX@/ $< > $@
 

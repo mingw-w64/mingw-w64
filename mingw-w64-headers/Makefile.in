@@ -34,6 +34,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
+@HAVE_WIDL_TRUE@am__append_1 = $(IDL_SRCS:.idl=.h)
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(basehead_HEADERS) \
 	$(ddkhead_HEADERS) $(dxhead_HEADERS) $(gdiplushead_HEADERS) \
@@ -148,6 +149,7 @@ SHELL = @SHELL@
 STRIP = @STRIP@
 SYSHEAD_LIST = @SYSHEAD_LIST@
 VERSION = @VERSION@
+WIDL = @WIDL@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -195,6 +197,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
+widl_prog = @widl_prog@
 baseheaddir = $(includedir)/../$(host)/include
 sysheaddir = $(baseheaddir)/sys
 secheaddir = $(baseheaddir)/sec_api
@@ -238,14 +241,16 @@ EXTRA_HEADERS = \
   ddk/include/ddk/*.h \
   idl/*.idl
 
-BUILT_SOURCES = \
-  _mingw_directx.h \
-  _mingw_ddk.h
+BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
+@HAVE_WIDL_TRUE@IDL_SRCS = \
+@HAVE_WIDL_TRUE@  include/unknwn.idl \
+@HAVE_WIDL_TRUE@  include/wtypes.idl
 
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
 .SUFFIXES:
+.SUFFIXES: .h .idl
 am--refresh:
 	@:
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
@@ -860,6 +865,9 @@ uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 	uninstall-secheadHEADERS uninstall-secsysheadHEADERS \
 	uninstall-sysheadHEADERS
 
+
+@HAVE_WIDL_TRUE@.idl.h: crt/_mingw.h
+@HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -h -o $(srcdir)/$@ $<
 
 _mingw_directx.h: $(srcdir)/crt/sdks/_mingw_directx.h.in
 	$(SED) s/MINGW_HAS_DX$$/@MINGW_HAS_DX@/ $< > $@
