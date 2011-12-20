@@ -1,3 +1,10 @@
+2011-12-20  Kai Tietz  <ktietz@redhat.com> (merge trunk revs.4680 & 4687)
+
+	* crt/pseudo-reloc.c (__write_memory): Add fallback for systems
+	not allocating section within one VirtualAlloc block.  Add some
+	more error-debugging for VirtualProtect call for having a chance
+	to find random issues about it.
+
 2011-12-19  Kai TIetz  <ktietz@redhat.com>
 
 	* stdio/vasprintf.c: Make sure operand order on dereferencing

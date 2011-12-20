@@ -205,8 +205,13 @@ mark_section_writable (LPVOID addr)
     }
 
   if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
-    VirtualProtect (b.BaseAddress, b.RegionSize, PAGE_EXECUTE_READWRITE,
-		  &the_secs[i].old_protect);
+    {
+      if (!VirtualProtect (b.BaseAddress, b.RegionSize,
+			   PAGE_EXECUTE_READWRITE,
+			   &the_secs[i].old_protect))
+	__report_error ("  VirtualProtect failed with code 0x%x",
+	  (int) GetLastError ());
+    }
   ++maxSections;
   return;
 }
@@ -252,15 +257,17 @@ restore_modified_sections (void)
 static void
 __write_memory (void *addr, const void *src, size_t len)
 {
-#ifndef __MINGW64_VERSION_MAJOR
   MEMORY_BASIC_INFORMATION b;
   DWORD oldprot;
-#endif /* ! __MINGW64_VERSION_MAJOR */
+  int call_unprotect = 0;
 
   if (!len)
     return;
 
-#ifndef __MINGW64_VERSION_MAJOR
+#ifdef __MINGW64_VERSION_MAJOR
+  mark_section_writable ((LPVOID) addr);
+#endif
+
   if (!VirtualQuery (addr, &b, sizeof(b)))
     {
       __report_error ("  VirtualQuery failed for %d bytes at address %p",
@@ -269,19 +276,17 @@ __write_memory (void *addr, const void *src, size_t len)
 
   /* Temporarily allow write access to read-only protected memory.  */
   if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
-    VirtualProtect (b.BaseAddress, b.RegionSize, PAGE_EXECUTE_READWRITE,
-		    &oldprot);
-#else /* ! __MINGW64_VERSION_MAJOR */
-  mark_section_writable ((LPVOID) addr);
-#endif  /* __MINGW64_VERSION_MAJOR */
+    {
+      call_unprotect = 1;
+      VirtualProtect (b.BaseAddress, b.RegionSize, PAGE_EXECUTE_READWRITE,
+		      &oldprot);
+    }
 
   /* write the data. */
   memcpy (addr, src, len);
   /* Restore original protection. */
-#ifndef __MINGW64_VERSION_MAJOR
-  if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
+  if (call_unprotect && b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
     VirtualProtect (b.BaseAddress, b.RegionSize, oldprot, &oldprot);
-#endif /* !__MINGW64_VERSION_MAJOR */
 }
 
 #define RP_VERSION_V1 0
