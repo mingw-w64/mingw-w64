@@ -310,7 +310,7 @@ int asprintf(char **__ret, const char *__format, ...)
 {
   register int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-  __retval = __mingw_asprintf( __ret, __format, __local_argv );
+  __retval = __mingw_vasprintf( __ret, __format, __local_argv );
   __builtin_va_end( __local_argv );
   return __retval;
 }
