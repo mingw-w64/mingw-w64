@@ -1,3 +1,7 @@
+2011-12-22  Rafael Carre  <funman@videolan.org>
+
+	* stdio.h (asprintf): Fix asprintf typo in the inline implementation.
+
 2011-12-16  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* limits.h (SSIZE_MAX): Move out of special case of _POSIX_ being
