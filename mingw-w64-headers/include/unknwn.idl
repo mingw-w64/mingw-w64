@@ -8,14 +8,6 @@
 import "wtypes.idl";
 #endif
 
-cpp_quote("#ifndef __AsyncIUnknown_FWD_DEFINED__")
-cpp_quote("#define __AsyncIUnknown_FWD_DEFINED__")
-cpp_quote("typedef struct AsyncIUnknown AsyncIUnknown;")
-cpp_quote("#endif")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_unknwn_0000_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_unknwn_0000_v0_0_s_ifspec;")
-cpp_quote("")
-
 cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE) && !defined(__IUnknown_INTERFACE_DEFINED__)")
 cpp_quote("#define __IUnknown_INTERFACE_DEFINED__")
 cpp_quote("  typedef IUnknown *LPUNKNOWN;")
@@ -57,64 +49,21 @@ interface IUnknown
 
 cpp_quote("#endif")
 
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_unknwn_0005_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_unknwn_0005_v0_0_s_ifspec;")
-cpp_quote("#ifndef __AsyncIUnknown_INTERFACE_DEFINED__")
-cpp_quote("#define __AsyncIUnknown_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_AsyncIUnknown;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct AsyncIUnknown : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Begin_QueryInterface(REFIID riid) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Finish_QueryInterface(void **ppvObject) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Begin_AddRef(void) = 0;")
-cpp_quote("    virtual ULONG WINAPI Finish_AddRef(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Begin_Release(void) = 0;")
-cpp_quote("    virtual ULONG WINAPI Finish_Release(void) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct AsyncIUnknownVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(AsyncIUnknown *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(AsyncIUnknown *This);")
-cpp_quote("      ULONG (WINAPI *Release)(AsyncIUnknown *This);")
-cpp_quote("      HRESULT (WINAPI *Begin_QueryInterface)(AsyncIUnknown *This,REFIID riid);")
-cpp_quote("      HRESULT (WINAPI *Finish_QueryInterface)(AsyncIUnknown *This,void **ppvObject);")
-cpp_quote("      HRESULT (WINAPI *Begin_AddRef)(AsyncIUnknown *This);")
-cpp_quote("      ULONG (WINAPI *Finish_AddRef)(AsyncIUnknown *This);")
-cpp_quote("      HRESULT (WINAPI *Begin_Release)(AsyncIUnknown *This);")
-cpp_quote("      ULONG (WINAPI *Finish_Release)(AsyncIUnknown *This);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } AsyncIUnknownVtbl;")
-cpp_quote("  struct AsyncIUnknown {")
-cpp_quote("    CONST_VTBL struct AsyncIUnknownVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define AsyncIUnknown_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define AsyncIUnknown_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define AsyncIUnknown_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define AsyncIUnknown_Begin_QueryInterface(This,riid) (This)->lpVtbl->Begin_QueryInterface(This,riid)")
-cpp_quote("#define AsyncIUnknown_Finish_QueryInterface(This,ppvObject) (This)->lpVtbl->Finish_QueryInterface(This,ppvObject)")
-cpp_quote("#define AsyncIUnknown_Begin_AddRef(This) (This)->lpVtbl->Begin_AddRef(This)")
-cpp_quote("#define AsyncIUnknown_Finish_AddRef(This) (This)->lpVtbl->Finish_AddRef(This)")
-cpp_quote("#define AsyncIUnknown_Begin_Release(This) (This)->lpVtbl->Begin_Release(This)")
-cpp_quote("#define AsyncIUnknown_Finish_Release(This) (This)->lpVtbl->Finish_Release(This)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI AsyncIUnknown_Begin_QueryInterface_Proxy(AsyncIUnknown *This,REFIID riid);")
-cpp_quote("  void __RPC_STUB AsyncIUnknown_Begin_QueryInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI AsyncIUnknown_Finish_QueryInterface_Proxy(AsyncIUnknown *This,void **ppvObject);")
-cpp_quote("  void __RPC_STUB AsyncIUnknown_Finish_QueryInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI AsyncIUnknown_Begin_AddRef_Proxy(AsyncIUnknown *This);")
-cpp_quote("  void __RPC_STUB AsyncIUnknown_Begin_AddRef_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  ULONG WINAPI AsyncIUnknown_Finish_AddRef_Proxy(AsyncIUnknown *This);")
-cpp_quote("  void __RPC_STUB AsyncIUnknown_Finish_AddRef_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI AsyncIUnknown_Begin_Release_Proxy(AsyncIUnknown *This);")
-cpp_quote("  void __RPC_STUB AsyncIUnknown_Begin_Release_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  ULONG WINAPI AsyncIUnknown_Finish_Release_Proxy(AsyncIUnknown *This);")
-cpp_quote("  void __RPC_STUB AsyncIUnknown_Finish_Release_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
+[
+  local,
+  object,
+  uuid(000e0000-0000-0000-C000-000000000046),
+  pointer_default(unique)
+]
+interface AsyncIUnknown : IUnknown
+{
+    HRESULT Begin_QueryInterface([in] REFIID riid);
+    HRESULT Finish_QueryInterface([out] void **ppvObject);
+    HRESULT Begin_AddRef();
+    ULONG Finish_AddRef();
+    HRESULT Begin_Release();
+    ULONG Finish_Release();
+}
 
 [
   object,
