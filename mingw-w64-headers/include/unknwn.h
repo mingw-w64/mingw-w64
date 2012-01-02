@@ -15,6 +15,10 @@
 #ifndef __WIDL_UNKNWN_H
 #define __WIDL_UNKNWN_H
 
+#pragma push_macro("interface")
+#undef interface
+#define interface struct
+
 /* Forward declarations */
 
 #ifndef __IUnknown_FWD_DEFINED__
@@ -401,5 +405,7 @@ HRESULT __RPC_STUB IClassFactory_LockServer_Stub(
 #ifdef __cplusplus
 }
 #endif
+
+#pragma pop_macro("interface")
 
 #endif /* __WIDL_UNKNWN_H */
