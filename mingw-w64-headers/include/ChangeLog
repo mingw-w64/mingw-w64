@@ -1,4 +1,4 @@
-2011-01-04  Ozkan Sezer  <sezeroz@gmail.com>
+2012-01-04  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* wingdi.h: Uglify the function param names a bit for bug #3469308
 
