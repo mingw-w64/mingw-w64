@@ -2279,4 +2279,79 @@ __CRT_UUID_DECL(ID2D1TransformedGeometry, 0x2cd906bb,0x12e2,0x11dc,0x9f,0xed,0x0
 #define ID2D1RoundedRectangleGeometry __MINGW_POISON_NAME(ID2D1RoundedRectangleGeometry)
 #define ID2D1TessellationSink __MINGW_POISON_NAME(ID2D1TessellationSink)
 
+/* Posibly C++ or inlined */
+/*
+
+template<class Factory>
+HRESULT D2D1CreateFactory(
+    D2D1_FACTORY_TYPE factoryType,
+    Factory **factory
+);
+
+template<class Factory>
+HRESULT D2D1CreateFactory(
+    D2D1_FACTORY_TYPE factoryType,
+    CONST D2D1_FACTORY_OPTIONS &factoryOptions,
+    Factory **factory
+);
+
+HRESULT WINAPI D2D1CreateDevice(
+  IDXGIDevice *dxgiDevice,
+  const D2D1_CREATION_PROPERTIES *creationProperties,
+  ID2D1Device **d2dDevice
+);
+
+HRESULT WINAPI D2D1CreateDeviceContext(
+  IDXGISurface *dxgiSurface,
+  const D2D1_CREATION_PROPERTIES *creationProperties,
+  ID2D1DeviceContext **d2dDeviceContext
+);
+
+D2D1_MATRIX_3X2_F operator*(
+  const D2D1_MATRIX_3X2_F &matrix1,
+  const D2D1_MATRIX_3X2_F &matrix2
+);
+
+HRESULT WINAPI D2D1CreateFactory(
+  D2D1_FACTORY_TYPE factoryType,
+  REFIID riid,
+  void **ppIFactory
+);
+
+*/
+#ifdef __cplusplus
+extern "C" {
+#endinf
+
+HRESULT WINAPI D2D1CreateFactory(
+  D2D1_FACTORY_TYPE factoryType,
+  REFIID riid,
+  const D2D1_FACTORY_OPTIONS *pFactoryOptions,
+  void **ppIFactory
+);
+
+WINBOOL WINAPI D2D1InvertMatrix(
+  D2D1_MATRIX_3X2_F *matrix
+);
+
+WINBOOL WINAPI D2D1IsMatrixInvertible(
+  const D2D1_MATRIX_3X2_F *matrix
+);
+
+void WINAPI D2D1MakeRotateMatrix(
+  FLOAT angle,
+  D2D1_POINT_2F center,
+  D2D1_MATRIX_3X2_F *matrix
+);
+
+void WINAPI D2D1MakeSkewMatrix(
+  FLOAT angleX,
+  FLOAT angleY,
+  D2D1_POINT_2F center,
+  D2D1_MATRIX_3X2_F *matrix
+);
+#ifdef __cplusplus
+}
+#endinf
+
 #endif /* _D2D1_H */

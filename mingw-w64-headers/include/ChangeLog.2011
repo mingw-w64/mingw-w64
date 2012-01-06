@@ -1,0 +1,488 @@
+2012-01-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winuser.h: Fix several typos found by Rinrin <rinrin@imbrian.org>:
+	(TOUCHEVENTMASKF_TIMEFROMSYSTEM): Rename to
+	 TOUCHINPUTMASKF_TIMEFROMSYSTEM.
+	(TOUCHEVENTMASKF_EXTRAINFO): Rename to TOUCHINPUTMASKF_EXTRAINFO.
+	(TOUCHEVENTMASKF_CONTACTAREA): Rename to TOUCHINPUTMASKF_CONTACTAREA.
+	(struct _TOUCHINPUT): Fix member name from wMask to dwMask.
+
+2012-01-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* wingdi.h: Uglify the function param names a bit for bug #3469308
+
+2011-12-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnls.h (WC_ERR_INVALID_CHARS): New macro, defined as 0x80.
+
+2011-11-21  Kai Tietz  <ktietz@redhat.com>
+
+	* ws2tcpip.h (EAI_NODATA): Map to WSANO_DATA.
+
+2011-11-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* wincon.h: Added MOUSE_HWHEELED (0x8).  Moved the Vista version guard
+	to cover only GetConsoleOriginalTitle[A|W].
+
+2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Add gdiplus from mingw.org sources: Original work was by Markus Koenig
+	<basilo@users.sourceforge.net>.  Patch to integrate into mingw-w64 was
+	provided by Mark Dootson <mark.dootson@znix.com>.
+
+	* gdiplus.h: New.
+	* gdiplus/gdiplus.h: New.
+	* gdiplus/gdiplusbase.h: New.
+	* gdiplus/gdiplusbrush.h: New.
+	* gdiplus/gdipluscolor.h: New.
+	* gdiplus/gdipluscolormatrix.h: New.
+	* gdiplus/gdipluseffects.h: New.
+	* gdiplus/gdiplusenums.h: New.
+	* gdiplus/gdiplusflat.h: New.
+	* gdiplus/gdiplusgpstubs.h: New.
+	* gdiplus/gdiplusgraphics.h: New.
+	* gdiplus/gdiplusheaders.h: New.
+	* gdiplus/gdiplusimageattributes.h: New.
+	* gdiplus/gdiplusimagecodec.h: New.
+	* gdiplus/gdiplusimaging.h: New.
+	* gdiplus/gdiplusimpl.h: New.
+	* gdiplus/gdiplusinit.h: New.
+	* gdiplus/gdipluslinecaps.h: New.
+	* gdiplus/gdiplusmatrix.h: New.
+	* gdiplus/gdiplusmem.h: New.
+	* gdiplus/gdiplusmetafile.h: New.
+	* gdiplus/gdiplusmetaheader.h: New.
+	* gdiplus/gdipluspath.h: New.
+	* gdiplus/gdipluspen.h: New.
+	* gdiplus/gdipluspixelformats.h: New.
+	* gdiplus/gdiplusstringformat.h: New.
+	* gdiplus/gdiplustypes.h: New.
+	* configure.ac: Add GDIPLUSHEAD_LIST as a new header list.
+	* configure: Regenerate.
+	* Makefile.am: Add gdiplusheaddir and gdiplushead_HEADERS.
+	* Makefile.in: Regenerate.
+
+2011-11-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* wincon.h (SetConsoleDisplayMode): Add missing prototype from
+	http://msdn.microsoft.com/en-us/library/ms686028(v=VS.85).aspx
+	(CONSOLE_FULLSCREEN_MODE): New macro.
+	(CONSOLE_WINDOWED_MODE): New macro.
+
+2011-11-03  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntdef.h (FORCEINLINE): Sync the definition to the winnt.h version.
+
+2011-10-30  Stefan Sundin  <recover89@gmail.com>
+
+	* winuser.h: (SPI_GETAUDIODESCRIPTION): New.
+	(SPI_GETCLEARTYPE): New.
+	(SPI_GETCLIENTAREAANIMATION): New.
+	(SPI_GETDISABLEOVERLAPPEDCONTENT): New.
+	(SPI_GETDOCKMOVING): New.
+	(SPI_GETDRAGFROMMAXIMIZE): New.
+	(SPI_GETHUNGAPPTIMEOUT): New.
+	(SPI_GETMESSAGEDURATION): New.
+	(SPI_GETMOUSEDOCKTHRESHOLD): New.
+	(SPI_GETMOUSEDRAGOUTTHRESHOLD): New.
+	(SPI_GETMOUSESIDEMOVETHRESHOLD): New.
+	(SPI_GETPENDOCKTHRESHOLD): New.
+	(SPI_GETPENDRAGOUTTHRESHOLD): New.
+	(SPI_GETPENSIDEMOVETHRESHOLD): New.
+	(SPI_GETSCREENSAVESECURE): New.
+	(SPI_GETSNAPSIZING): New.
+	(SPI_GETWAITTOKILLSERVICETIMEOUT): New.
+	(SPI_GETWAITTOKILLTIMEOUT): New.
+	(SPI_GETWHEELSCROLLCHARS): New.
+	(SPI_GETWINARRANGING): New.
+	(SPI_SETAUDIODESCRIPTION): New.
+	(SPI_SETCLEARTYPE): New.
+	(SPI_SETCLIENTAREAANIMATION): New.
+	(SPI_SETDISABLEOVERLAPPEDCONTENT): New.
+	(SPI_SETDOCKMOVING): New.
+	(SPI_SETDRAGFROMMAXIMIZE): New.
+	(SPI_SETHUNGAPPTIMEOUT): New.
+	(SPI_SETMESSAGEDURATION): New.
+	(SPI_SETMOUSEDOCKTHRESHOLD): New.
+	(SPI_SETMOUSEDRAGOUTTHRESHOLD): New.
+	(SPI_SETMOUSESIDEMOVETHRESHOLD): New.
+	(SPI_SETPENDOCKTHRESHOLD): New.
+	(SPI_SETPENDRAGOUTTHRESHOLD): New.
+	(SPI_SETPENSIDEMOVETHRESHOLD): New.
+	(SPI_SETSCREENSAVESECURE): New.
+	(SPI_SETWAITTOKILLSERVICETIMEOUT): New.
+	(SPI_SETWAITTOKILLTIMEOUT): New.
+	(SPI_SETWHEELSCROLLCHARS): New.
+	(SPI_SETWINARRANGING): New.
+
+2011-10-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* imagehlp.h: Fixed misplaced extern "C" {} braces which used to break
+	C_ASSERTs. (bug #3425478.)
+
+2011-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sdkddkver.h: Whitespace tidy-up.  Add our standart license header.
+	(_WIN32_WINNT): Define default value as _WIN32_WINNT_WS03, i.e. 0x0502,
+	which is what we had been defining in windows.h until this day.
+	(NTDDI_VERSION): Define default value as NTDDI_WS03, i.e. 0x05020000,
+	matching what we had been defining in windows.h until this day.
+	(WINVER): Define default value as 0x0502, which is what we had been
+	defining in windows.h until this day.
+	* winnt.h: Include sdkddkver.h.
+	* windows.h: Include sdkddkver.h.
+	(WINVER): Now that we include sdkddkver.h, remove the extra definition.
+
+2011-09-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ks.h (KSPROPSETID_MemoryTransport): New.
+	* ksmedia.h (KSPROPSETID_Wave_Queued): New.
+	(KSPROPSETID_VramCapture): New.
+
+2011-09-14  Vincent Torri  <vincent.torri@gmail.com>
+
+	* psapi.h (LIST_MODULES_DEFAULT): New constant.
+	(LIST_MODULES_32BIT): New constant.
+	(LIST_MODULES_64BIT): New constant.
+	(LIST_MODULES_ALL): New constant.
+
+2011-09-12  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* wlanapi.h: Added WLAN_NOTIFICATION_ACM enumeration (patch from
+	'balkin7').
+
+2011-09-03  Jose Fonseca  <jrfonseca@users.sourceforge.net>
+
+	* winuser.h (CreateDesktopEx, CreateDesktopExA, CreateDesktopExW):
+	Don't define when NOGDI is defined.
+
+2011-08-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winuser.h: Added missing SM_ constants for new windows versions :
+	(SM_MOUSEHORIZONTALWHEELPRESENT): New constant, 91.
+	(SM_CXPADDEDBORDER): New constant, 92.
+	(SM_DIGITIZER): New constant, 94.
+	(SM_MAXIMUMTOUCHES): New constant, 95.
+	(NID_INTEGRATED_TOUCH): New constant, 0x01.
+	(NID_EXTERNAL_TOUCH): New constant, 0x02.
+	(NID_INTEGRATED_PEN): New constant, 0x04.
+	(NID_EXTERNAL_PEN): New constant, 0x08.
+	(NID_MULTI_INPUT): New constant, 0x40.
+	(NID_READY): New constant, 0x80.
+	(SM_CMETRICS): Adjusted after the new additions.
+
+2011-08-24  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* d2d1.h: Fix typos.
+
+2011-08-22  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* winnt.h (FORCEINLINE): Simplify based on _mingw.h definition.
+
+2011-08-22  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* Changes by: Corinna Vinschen  corinna [a] sourceware.org  2011-08-19 11:58:05
+	* winuser.h: Add missing MAPVK_xxx definitions.
+
+2011-08-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dxva2api.h: Implemented missing inline functions:
+	(DXVA2_Fixed32OpaqueAlpha): New.
+	(DXVA2_Fixed32TransparentAlpha): New.
+	(DXVA2FixedToFloat): New.
+	(DXVA2FloatToFixed): New.
+
+2011-08-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* iscsidsc.h: Fixed many of the constants and data types.
+
+2011-08-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* wincrypt.h: Added MS_ENH_RSA_AES_PROV_XP[_A|_W]. (Thanks to Alon
+	Bar-Lev.)
+
+2011-08-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* psdk_inc/_socket_types.h: Provide the SOCKET type as unsigned.
+
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h (C_ASSERT): Revert the EXTERN_C change from rev.4285/4286.
+	* usbioctl.h: Remove the extern "C" {} from the header completely.
+	There are no functions or variables are declared, only data types,
+	therefore it is not needed.
+	* dbghelp.h, psdk_inc/_dbg_common.h: move the extern "C" braces so
+	that the C_ASSERTs are not contained within them. (bug #3373905.)
+
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h: Move the intrin.h include before the __faststorefence
+	inline. Remove the redundant prototype for _m_prefetchw() which
+	is already in intrin.h.
+
+2011-07-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winnt.h (C_ASSERT): Define using EXTERN_C instead of extern.
+	* ws2tcpip.h: Move the extern "C" closing brace to cover the IN6_
+	prototypes.
+
+2011-06-23  Kai Tietz  <ktietz@redhat.com>
+
+	* basetyps.h (DECLARE_INTERFACE_IID_): New macro.
+	* objbase.h: Likewise.
+
+2011-06-21  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* d2d1.h: Remove redundant declarations.
+	* dwrite.h: New.
+	* dcommon.h: New.
+
+2011-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* wincon.h(ENABLE_INSERT_MODE): Define.
+	(ENABLE_QUICK_EDIT_MODE): Define.
+	(ENABLE_EXTENDED_FLAGS): Define.
+	(ENABLE_AUTO_POSITION): Define.
+	(GetConsoleOriginalTitleA): Make DLLIMPORT.
+	(GetConsoleOriginalTitleW): Likewise.
+	(GetConsoleScreenBufferInfoEx): Likewise.
+	(GetCurrentConsoleFontEx): Likewise.
+	(SetConsoleHistoryInfo): Likewise.
+	(SetCurrentConsoleFontEx): Likewise.
+
+2011-06-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winevt.h: Fix the EVT_HANDLE type and move it before its users.
+	* eaptypes.h: Fix the EAP_SESSIONID type.
+	* mfapi.h: Fix the MFWORKITEM_KEY type.
+	* cryptxml.h (CRYPT_XML_CRYPTOGRAPHIC_INTERFACE): Remove a fixme note
+	because the guessed type is correct.
+	* cryptxml.h: Fix the HCRYPTXML type. Remove the non-existent HXML
+	type, make CryptXmlClose() to use HCRYPTXML parm.
+	* bdatypes.h: Fix the ScanModulationTypes enumeration and uncomment it.
+	* propidl.h: Fix the he REFPROPVARIANT type.
+	* mfobjects.h: Fix the MediaEventType type; remove a duplicated
+	definition of REFPROPVARIANT.
+	* clfsw32.h: Fix PFILE type. Fix CLFS_PRINT_RECORD_ROUTINE callback
+	type.
+	* wdspxe.h: Fix PXE_BOOT_ACTION type.
+	* netioapi.h: Fix PIPINTERFACE_CHANGE_CALLBACK type.
+	* bdatypes.h (FECMethod): Fix the BDA_FEC_MAX enumerated value.
+
+2011-06-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* locationapi.h(IID_ILocationReport): Define.
+	(IID_ICivicAddressReport): Define.
+	(IID_IDefaultLocation): Define.
+	(ILocationReport): Fix COM ordering.
+	(ICivicAddressReport): Likewise.
+	(IDefaultLocation): Likewise.
+
+2011-06-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* mpeg2psiparser.h: New.
+	* audiopolicy.h: New.
+	* d2d1helper.h(HwndRenderTargetProperties): Declare.
+	* identitystore.h: New.
+	* audioengineendpoint.h(HNSTIME): Define.
+	(IAudioDeviceEndpoint): Declare.
+	(IAudioEndpoint): Declare.
+	(IAudioEndpointControl): Declare.
+	(IAudioEndpointRT): Declare.
+	(IAudioEndpointVolumeEx): Declare.
+	(IAudioInputEndpointRT): Declare.
+	(IAudioOutputEndpointRT): Declare.
+	* audioapotypes.h: Use double underscores as define guards.
+	* wincred(CREDUIWIN_GENERIC): Define.
+	(CREDUIWIN_CHECKBOX): Define.
+	(CREDUIWIN_AUTHPACKAGE_ONLY): Define.
+	(CREDUIWIN_IN_CRED_ONLY): Define.
+	(CREDUIWIN_ENUMERATE_ADMINS): Define.
+	(CREDUIWIN_ENUMERATE_CURRENT_USER): Define.
+	(CREDUIWIN_SECURE_PROMPT): Define.
+	(CREDUIWIN_PACK_32_WOW): Define.
+	* winnt.h:(HARDWARE_COUNTER_DATA): Define.
+	(PERFORMANCE_DATA): Define.
+	* winsync.h: New.
+	* mpeg2structs.h: New.
+	* identitycommon.h: New.
+	* audioclient.h: New.
+	* portabledeviceconnectapi.h: New.
+	* devpkey.h: New.
+	* bdaiface.h: New.
+	* dvbsiparser.h: New.
+	* tuner.h: New.
+	* bdatypes.h(BinaryConvolutionCodeRate): Update.
+	(FECMethod): Update.
+	(ModulationType): Update.
+	(TransmissionMode): Update.
+	(BDA_Comp_Flags): Define.
+	(BDA_CONDITIONALACCESS_MMICLOSEREASON): Define.
+	(BDA_CONDITIONALACCESS_REQUESTTYPE): Define.
+	(MUX_PID_TYPE): Define.
+	(Pilot): Define.
+	(RollOff): Define.
+	(LNB_Source): Define.
+	(BDA_ISDBCAS_EMG_REQ): Define.
+	(BDA_MUX_PIDLISTITEM): Define.
+	* wtypes.h(REFPROPERTYKEY): Define.
+	* audiosessiontypes: New.
+	* http.h(HTTP_SERVICE_CONFIG_CACHE_PARAM): Define.
+	(HTTP_SERVICE_CONFIG_CACHE_SET): Define.
+	* mpeg2bits.h: new.
+	* devicetopology.h: new.
+	* mmdeviceapi.h: new.
+	* endpointvolume.h: new.
+	* locationapi.h: new.
+	* sbe.h: new.
+	* bdamedia.h(PBDAParentalControlPolicy): Define.
+	(SignalAndServiceStatusSpanningEvent_State): Define.
+	(DualMonoInfo): Define.
+	(DVBScramblingControlSpanningEvent): Define.
+	(LanguageInfo): Define.
+	(PBDAParentalControl): Define.
+	(PIDListSpanningEvent): Define.
+	(SpanningEventDescriptor): Define.
+	(SpanningEventEmmMessage): Define.
+	* strmif.h(IAMAsyncReaderTimestampScaling): Define.
+	(IAMPluginControl): Define.
+	* propidl.h(REFPROPVARIANT): Define.
+	* ksmedia.h(TunerLockType): Define.
+	* mpeg2data.h: New.
+
+2011-06-06  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* winnt.h (SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION): Define.
+	* winbase.h (GetNumaNodeNumberFromHandle): Define.
+	(GetProcessGroupAffinity): Likewise.
+	(GetProcessorSystemCycleTime): Likewise.
+	(GetThreadErrorMode): Likewise.
+	(GetThreadGroupAffinity): Likewise.
+	(GetThreadIdealProcessorEx): Likewise.
+	(GetActiveProcessorCount): Likewise.
+	(GetActiveProcessorGroupCount): Likewise.
+	(GetCurrentProcessorNumberEx): Likewise.
+	(GetMaximumProcessorCount): Likewise.
+	(GetMaximumProcessorGroupCount): Likewise.
+	(GetCurrentUmsThread): Likewise.
+	* winnls.h (VerifyScripts): Make WINAPI.
+	(GetProcessPreferredUILanguages): Define.
+	* virtdisk.h (VIRTDISKAPI): Define.
+	(AttachVirtualDisk): Make DLLIMPORT.
+	(CompactVirtualDisk): Likewise.
+	(CreateVirtualDisk): Likewise.
+	(DetachVirtualDisk): Likewise.
+	(ExpandVirtualDisk): Likewise.
+	(GetStorageDependencyInformation): Likewise.
+	(GetVirtualDiskInformation): Likewise.
+	(GetVirtualDiskOperationProgress): Likewise.
+	(MergeVirtualDisk): Likewise.
+	(OpenVirtualDisk): Likewise.
+	(SetVirtualDiskInformation): Likewise.
+	* winuser.h (CreateDesktopExA): Make DLLIMPORT.
+	(CreateDesktopExW): Likewise.
+	(ShutdownBlockReasonCreate): Likewise.
+	(ShutdownBlockReasonDestroy): Likewise.
+	(ShutdownBlockReasonQuery): Likewise.
+	(SetGestureConfig): Likewise.
+	(GetGestureConfig): Likewise.
+	(GetGestureInfo): Likewise.
+	(GetGestureExtraArgs): Likewise.
+	(CloseGestureInfoHandle): Likewise.
+
+2011-06-02  Dongsheng Song  <dongsheng.song@gmail.com>
+
+	* mstcpip.h: Mark declarations available on XP SP3 and above.
+
+2011-04-27  Jose Fonseca  <jrfonseca@users.sourceforge.net>
+
+	* wingdi.h (WINGDIAPI): When _GDI32_ is defined, define as nothing.
+
+2011-04-21  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* winnt.h (WOW64_CONTEXT_i386): Define.
+	(WOW64_CONTEXT_i486): Likewise.
+	(WOW64_CONTEXT_CONTROL): Likewise.
+	(WOW64_CONTEXT_INTEGER): Likewise.
+	(WOW64_CONTEXT_SEGMENTS): Likewise.
+	(WOW64_CONTEXT_FLOATING_POINT): Likewise.
+	(WOW64_CONTEXT_DEBUG_REGISTERS): Likewise.
+	(WOW64_CONTEXT_EXTENDED_REGISTERS): Likewise.
+	(WOW64_CONTEXT_FULL): Likewise.
+	(WOW64_CONTEXT_ALL): Likewise.
+	(WOW64_SIZE_OF_80387_REGISTERS): Likewise.
+	(WOW64_MAXIMUM_SUPPORTED_EXTENSION): Likewise.
+	(WOW64_FLOATING_SAVE_AREA): Declare.
+	(WOW64_CONTEXT): Likewise.
+	(WOW64_LDT_ENTRY): Likewise.
+
+2011-04-11  Kai Tietz  <ktietz70@googlemail.com>
+
+	* bcrypt.h, lmaccess.h, ntsecapi.h, subauth.h, wincred.h:
+	Guard NTSTATUS/PNTSTATUS typedef additionally by _NTSTATUS_PSDK.
+	* hidpi.h: Typedef NTSTATUS and PNTSTATUS.
+
+2011-04-11  Simon Josefsson  <simon@joseffson.org>
+
+	* hidsdi.h: New.
+
+2011-04-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ksmedia.h:  Guard the SPEAKER_* macros by _SPEAKER_POSITIONS_
+	like in mmreg.h.
+
+2011-03-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winuser.h (TOUCHEVENTF_MOVE): Fix value as 0x01 acc.to msdn.
+	(TOUCHEVENTF_DOWN): Fix value as 0x02 acc.to msdn.
+
+2011-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* dxva2api.h (DXVA2_ProcAmp_None): Define.
+	(DXVA2_ProcAmp_Brightness): Likewise.
+	(DXVA2_ProcAmp_Contrast): Likewise.
+	(DXVA2_ProcAmp_Hue): Likewise.
+	(DXVA2_ProcAmp_Saturation): Likewise.
+	* mfapi.h (MFScheduleWorkItemEx): New function declaration.
+	* opmapi.h (OPM_CGMSA_OFF): Define.
+	(OPM_CGMSA_COPY_FREELY): Likewise.
+	(OPM_CGMSA_COPY_NO_MORE): Likewise.
+	(OPM_CGMSA_COPY_ONE_GENERATION): Likewise.
+	(OPM_CGMSA_COPY_NEVER): Likewise.
+	(OPM_CGMSA_REDISTRIBUTION_CONTROL_REQUIRED): Likewise.
+	(OPM_PROTECTION_STANDARD_OTHER): Likewise.
+	(OPM_PROTECTION_STANDARD_NONE): Likewise.
+	(OPM_PROTECTION_STANDARD_IEC61880_525I): Likewise.
+	(OPM_PROTECTION_STANDARD_IEC61880_2_525I): Likewise.
+	(OPM_PROTECTION_STANDARD_IEC62375_625P): Likewise.
+	(OPM_PROTECTION_STANDARD_EIA608B_525): Likewise.
+	(OPM_PROTECTION_STANDARD_EN300294_625I): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEA_525P): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEA_750P): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEA_1125I): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEB_525P): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEB_750P): Likewise.
+	(OPM_PROTECTION_STANDARD_CEA805A_TYPEB_1125I): Likewise.
+	(OPM_PROTECTION_STANDARD_ARIBTRB15_525I): Likewise.
+	(OPM_PROTECTION_STANDARD_ARIBTRB15_525P): Likewise.
+	(OPM_PROTECTION_STANDARD_ARIBTRB15_750P): Likewise.
+	(OPM_PROTECTION_STANDARD_ARIBTRB15_1125I): Likewise.
+	* mfidl.h (IMFByteStreamHandler): New interface declaration.
+
+2011-01-17  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* winuser.h (WM_MOUSEHWHEEL): Define.
+
+2011-01-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winsplp.h (MONITOR2): Fixes according to msdn documentation at
+	http://msdn.microsoft.com/en-us/library/ff557532(VS.85).aspx
+	thanks to a reminder from Lorenzo Monti. Closes patch tracker ID
+	3157986.
+
+2011-01-07  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* wincrypt.h (CertSelectCertificateChains): Fix typo.
+	* objbase.h (CoDisconnectContext): Likewise.
+	(CoGetApartmentType): Likewise.
+

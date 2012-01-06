@@ -1,0 +1,227 @@
+2011-12-22  Rafael Carre  <funman@videolan.org>
+
+	* stdio.h (asprintf): Fix asprintf typo in the inline implementation.
+
+2011-12-16  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* limits.h (SSIZE_MAX): Move out of special case of _POSIX_ being
+	defined.  Define as INT_MAX for win32 and as _I64_MAX for win64.
+
+2011-12-14  Kai Tietz  <ktietz@redhat.com>
+
+	* _mingw.h.in (__USE_MINGW_ANSI_STDIO): Extend default definition
+	to make it more compatible to mingw.org.
+
+	* stdio.h, wchar.h:  Reorganize crt-overrides ... part 1
+
+2011-12-13  Jonathan Liu  <net147@users.sourceforge.net>
+
+	* sys/timeb.h (_ftime): Fix default definition for 32-bit vs.
+	64-bit Windows.
+	(_timeb): Likewise.
+
+2011-11-18  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* time.h: Make sure to use 32bit time when _USE_32BIT_TIME_T in use.
+	* sys/stat.h: Likewise for _stat32i64 and _fstat32i64 structures.
+
+2011-11-14  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* unistd.h: Define SEEK_SET, SEEK_CUR, SEEK_END, STDIN_FILENO,
+	STDOUT_FILENO and STDERR_FILENO, if not already defined. Patch
+	from 'antran'. Closes bug #3426006.
+
+2011-11-13  Kai Tietz  <ktietz@redhat.com>
+
+	* stdio.h, wchar.h:  Replace __forceinline by
+	'static __attribute__((__unused__))' for functions using
+	variable arguments.
+
+2011-11-05  Kai Tietz  <ktietz@redhat.com>
+
+	* _mingw.h.in: Replace always_inline attribute name
+	by __always_inline__.
+
+2011-11-04  Rafal Carr  <funman@videolan.org>
+	    Kai Tietz  <ktietz@redhat.com>
+
+	* _mingw_print_push.h: Remove wscanf-defines.
+	* _mingw_print_pop.h: Likewise.
+	* stdio.h: Replace macro-wscanf override via alias.
+	* wchar.h: Likewise.
+
+	* _mingw_print_push.h: Remove scanf-defines.
+	* _mingw_print_pop.h: Likewise.
+	* stdio.h: Replace macro-scanf override via alias.
+
+	* _mingw_print_push.h: Remove wprintf-defines.
+	* _mingw_print_pop.h: Likewise.
+	* stdio.h: Replace macro-wprintf override via alias.
+	* wchar.h: Likewise.
+
+2011-11-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio.h: Remove unintended extra "__" and "$$" characters from
+	previous commits. Fix typo (s/__CRT__INLINE/__CRT_INLINE).
+	(__mingw_asprintf): Mark the first and second args as __restrict.
+	Mark the function as __nothrow. Replace __attribute__((nonnull()))
+	by __MINGW_ATTRIB_NONNULL for consistency.
+	(__mingw_vasprintf): Likewise.
+
+2011-11-01  Kai Tietz  <ktietz@redhat.com>
+
+	* stdio.h: Fix broken handling for snprintf/vsnprintf
+	due recent patch.
+
+2011-10-31  Rafal Carr  <funman@videolan.org>
+
+	* _mingw_print_push.h: Remove printf-defines.
+	* _mingw_print_pop.h: Likewise.
+	* stdio.h: Replace macro-printf override via alias.
+
+2011-10-23  Pau Garcia i Quiles  <paugq@users.sourceforge.net>
+
+	* time.h: Make sure to use 64bit time functions for lfs.
+	* _mingw.h.in: Likewise.
+
+2011-10-13  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* sys/stat.h: Make fstat use 64bit offset for lfs.
+
+2011-10-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* sys/stat.h: Make stat use 64bit offset for lfs.
+
+2011-10-02  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
+	    Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdint.h: Add C++11 guards by checking for __GXX_EXPERIMENTAL_CXX0X__
+	and __cplusplus >= 201103L.
+
+2011-09-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* uchar.h: Along with __cplusplus, check for __GXX_EXPERIMENTAL_CXX0X__
+	before defining char16_t and char32_t types.
+
+2011-09-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* uchar.h: Add extern "C" guards.
+
+2011-09-27  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
+	    Ozkan Sezer  <sezeroz@gmail.com>
+
+	* uchar.h: New header, initial implementation of uchar.h.
+
+2011-09-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* errno.h (EOVERFLOW): Remove.
+
+2011-09-21  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _timeval.h (timercmp): Added missing parens around the AND
+	condition.
+
+2011-09-17  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* pthread_time.h: New dummy header.
+	* time.h: Include dummy header to support winpthreads.
+
+2011-09-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* errno.h (EOVERFLOW): Fix typo, use EFBIG.
+
+2011-08-22  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* _mingw.h.in (__forceinline): Fix for C99 case and check for
+	C++ mode.
+
+2011-08-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* stdio.h (__mingw_asprintf): New.
+	(__mingw_vasprintf): New.
+	* _mingw_print_pop.h, _mingw_print_push.h: New macros to handle
+	asprintf and vasprintf.
+
+2011-08-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* sec_api/string_s.h: Added prototypes for wcscpy_s() and wcscat_s()
+	after tracker item #3295337.
+
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crtdbg.h, malloc.h (_STATIC_ASSERT): Restrict the typedef variant
+	of the macro to MSVC. Add an extern declaration variant for gcc,
+	similar to C_ASSERT.
+
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__debugbreak): Add prototype before the inline as it
+	appears in intrin.h.
+
+2011-07-11  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
+
+	* float.h: Extend guards about Clang's __FLOAT_H.
+
+2011-06-15  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* sdks/_mingw_directx.h.in(__MINGW_HAS_DXSDK): Define.
+
+2011-06-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* _mingw_mac.h(__MINGW_POISON_NAME): Define.
+
+2011-05-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ctype.h (__mb_cur_max):  Define as __mb_cur_max for the _MSVCRT_
+	special case.
+	* stdlib.h: Remove the duplicated and typographically erroneous
+	__mbcur_max macros. Make the entries identical to the ctype.h
+	counterparts.
+	(__mb_cur_max): Define as __mb_cur_max for the _MSVCRT_ special case.
+
+2011-05-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* stdio.h (ftello64): Fix longstanding typo that caused define to be
+	shadowed. Patch by Komisar (http://komisar.gin.by/).
+
+2011-05-05  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* stdlib.h (swab): Use define guards.
+	* unistd.h (swab): Copy from stdlib.h as per POSIX spec.
+
+2011-03-25  Kai Tietz  <ktietz70@googlemail.com>
+
+	* string.h, memory.h: Add mempcpy prototype.
+	* wchar.h: Add wmemcpy prototype.
+
+2011-02-05  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_mac.h: Enable feature indicator macros for ISO-C printf/
+	scanf functionality.
+	* _mingw_print_push.h, _mingw_print_pop.h: Enable scanf.
+
+2011-02-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdlib.h (__mingw_wcsto(f|l|ld): Add prototypes.
+	* wchar.h: Likewise.
+
+2011-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* stdio.h, wchar.h (__mingw_str_wide_utf8): Declare prototype.
+	(__mingw_str_utf8_wide): Likewise.
+	(__mingw_str_free): Likewise.
+
+2011-01-24  Kai Tietz  <kai.tietz@onevision.com>
+
+	* _mingw_print_pop.h, _mingw_print_push.h: Add wide-character API
+	handling.
+	* stdio.h, wchar.h: Add __mingw_-wprintf prototypes.
+
+2011-01-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dos.h (_A_VOLID): Add missing definition, from r/os svn r50165.
+
+2011-01-02  Kai Tietz  <kai.tietz@onevision.com>
+
+	* sec_api/string_s.h: Add missing API prototypes.
+	* sec_api/wchar_s.h: Likewise

@@ -1,0 +1,293 @@
+2011-12-19  Kai TIetz  <ktietz@redhat.com>
+
+	* stdio/vasprintf.c: Make sure operand order on dereferencing
+	is fixed.
+	* stdio/asprintf.c: Likewise.
+
+2011-12-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/msi.def: New.
+	* Makefile.am (lib32_DATA): Add lib32/msi.def to build.
+	* Makefile.in: Regenerate.
+
+2011-12-17  Kai Tietz  <ktietz@redhat.com>
+
+	* crt/pseudo-reloc.c (__write_memory): Add fallback for systems
+	not allocating section within one VirtualAlloc block.
+
+2011-12-14  Kai Tietz  <ktietz@redhat.com>
+
+	stdio/ The printf-routines rework part 2
+	* crt/ Avoid use of msvcrt printf functions
+	* misc/ Likewise.
+
+2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio/mingw_pformat.c (__pformat_cvt): Add missing initializer
+	to the int_max member of fpi.  Needed due to recent gdtoa update.
+
+2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Add gdiplus from mingw.org sources: Original work was by Markus Koenig
+	<basilo@users.sourceforge.net>.  Patch to integrate into mingw-w64 was
+	provided by Mark Dootson <mark.dootson@znix.com>.
+
+	* lib32/gdiplus.def: New, generated from version 1.1.7601.17514 dll.
+	* lib64/gdiplus.def: New, generated from version 1.1.7601.17514 dll.
+	* libsrc/gdiplus.c: New.
+	* Makefile.am: Add gdiplus defs and sources to build.
+	* Makefile.in: Regenerate.
+
+2011-11-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Add $(sysincludes) to all build rules' CPPFLAGS.
+	* Makefile.in: Regenerate.
+
+2011-11-15  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib64/kernel32.def (RegUnLoadKeyA): Comment out advapi32 export.
+	(RegUnLoadKeyW): Likewise.
+
+2011-11-09  Kai Tietz  <ktietz@redhat.com>
+
+	* lib32/msvcr*.def: Make sure _assert and _wassert are marked DATA.
+	* lib64/msvcr*.def: Likewise.
+
+2011-11-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	gdtoa: Sync to match the latest version at netlib.org as of Nov. 02
+	2011.  Changelog from http://netlib.org/fp/changes :
+	    Add field int_max to struct FPI and adjust gdtoa.c and *fmt.c
+	    so gdtoa.c tests against fpi->int_max rather than Int_max. This
+	    only affects some conversions by g_ffmt.c, which in some cases
+	    produced too many digits.
+
+2011-11-02  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Break stdio/asprintf.c and misc/uchar.c into pieces, one function
+	per compilation unit:
+	* stdio/vasprintf.c: New.
+	* misc/uchar_c16rtomb.c: New.
+	* misc/uchar_c32rtomb.c: New.
+	* misc/uchar_mbrtoc16.c: New.
+	* misc/uchar_mbrtoc32.c: New.
+	* Makefile.am: Adjust.
+	* Makefile.in: Regenerate.
+
+2011-11-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* stdio/asprintf.c: Define __CRT__NO_INLINE before including any
+	headers.
+	(__mingw_asprintf, __mingw_vasprintf): Use __restrict__ for first
+	and second args.
+
+2011-10-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/dwmapi.def: New.
+	* Makefile.am: Added lib32/libdwmapi.a
+	* Makefile.in: Regenerated.
+
+2011-10-09  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
+
+	* misc/isblank.c: Replaced _cdecl by __cdecl.
+	* misc/iswblank.c: Likewise.
+
+2011-09-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/uchar.c (mbrtoc32): Mark last 'ps' argument as unused.
+	(c32rtomb): Likewise.
+
+2011-09-27  Ruben Van Boxem  <vanboxem.ruben@gmail.com>
+	    Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/uchar.c: New source with initial implementations of mbrtoc16(),
+	c16rtomb(), mbrtoc32() and c32rtomb() for uchar.h.
+	* testcases/uchar_size_1.c: A new basic test case for uchar.h
+
+2011-09-27  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib64/msvcr80.def (fpreset): Mark as data for bug #3413674.
+	* lib64/msvcr90d.def (fpreset): Likewise.
+	* lib64/crtdll.def (fpreset): Likewise.
+	* lib64/msvcrt.def (fpreset): Likewise.
+
+2011-09-16  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* libsrc/ksuser.c (KSPROPSETID_MemoryTransport): New.
+	(KSPROPSETID_VramCapture): New.
+
+2011-08-24  Kai Tietz  <ktietz@redhat.com>
+
+	* misc/tfind.c, misc/tsearch.c, misc/tdelete.c, misc/twalk.c:
+	Fix nonsense with key argument checking for NULL and fixed
+	issue for new key insertation.  It might happens that tree
+	gets into denormalized state, but well, this is something
+	for a different patch.
+
+2011-08-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* Makefile.am: Remove stdio/wcstof.c from build.
+	* Makefile.in: Regenerate.
+	* misc/mbrtowc.c, misc/wcrtomb.c, misc/wcstof.c, misc/wcstold.c,
+	misc/wctob.c: Fix utterly incomprehensible whitespace style.
+
+2011-08-07  Christian Franke  <Christian.Franke@t-online.de>
+
+	* stdio/mingw_vfscanf.c: Fix segmentation fault when a char or string
+	format (without malloc option) is used.
+
+2011-07-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/vfw32.mri: Adjust for lib32 subdirectory.
+	* lib32/vfw64.mri: New.
+	* Makefile.am: Generate libvfw32.a using vfw32.mri.
+	* Makefile.in: Regenerate.
+
+2011-05-31  Kai Tietz  <kai.tietz@onevision.com>
+
+	* crt/pesect.c, crt/pseudo-reloc.c: Optimize pseudo-relocation
+	code and prevent multiple temporary write-access settings on same
+	section.
+
+2011-05-26  Dongsheng Song  <dongsheng@users.sourceforge.net>
+
+	* lib32/msvcr90.def (__report_gsfailure, _assert, _byteswap_uint64,
+	_byteswap_ulong, _byteswap_ushort, _ctime32, _decode_pointer, _difftime32,
+	_difftime64, _encode_pointer, _findfirst64i32, _findnext64i32, _fpreset,
+	_fseeki64, _fstat64i32, _ftelli64, _get_errno, _gmtime32, _localtime32,
+	_mkgmtime32, _mktime32, _rotl64, _rotr64, _set_errno, _stat64i32, _time32,
+	_wassert, _wctime32, _wfindfirst64i32, _wfindnext64i32, _wstat64i32, atexit,
+	btowc, cos, exp, fabs, fmod, log, mbrlen, mbrtowc, mbsrtowcs, modf, pow, sin,
+	sqrt, strnlen, wcrtomb, wcsnlen, wcsrtombs, wctob): Mark as DATA.
+
+	* lib64/msvcr90.def (__report_gsfailure, _assert, _byteswap_uint64,
+	_byteswap_ulong, _byteswap_ushort, _ctime32, _decode_pointer, _difftime32,
+	_difftime64, _encode_pointer, _findfirst64i32, _findnext64i32, _fpreset,
+	_fseeki64, _fstat64i32, _ftelli64, _get_errno, _gmtime32, _localtime32,
+	_mkgmtime32, _mktime32, _rotl64, _rotr64, _set_errno, _stat64i32, _time32,
+	_wassert, _wctime32, _wfindfirst64i32, _wfindnext64i32, _wstat64i32, acosf,
+	asinf, atan2f, atanf, atexit, btowc, ceilf, cos, cosf, coshf, exp, expf,
+	fabs, floorf, fmod, fmodf, log, log10f, logf, mbrlen, mbrtowc, mbsrtowcs,
+	modf, modff, pow, powf, sin, sinf, sinhf, sqrt, sqrtf, strnlen, tanf, tanhf,
+	wcrtomb, wcsnlen, wcsrtombs, wctob): Likewise.
+
+2011-04-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/winscard.def (g_rgSCardRawPci): Remove stdcall suffix and
+	mark as DATA.
+	(g_rgSCardT0Pci): Likewise.
+	(g_rgSCardT1Pci): Likewise.
+
+2011-04-26  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* gdtoa/gdtoa.c, gdtoa/gdtoa.h, gdtoa/gdtoaimp.h: Sync gdtoa to
+	match the latest version at netlib.org as of 2011-03-21.
+
+2011-04-02  Professor Brian Ripley  <ripley@stats.ox.ac.uk>
+
+	* math/expm1.def.h: Correct special case for |x| < loge2.
+
+2011-03-26  Kai Tietz  <ktietz70@googlemail.com>
+
+	* Makefile.am: Add new file.
+	* Makefile.in: Regenerated.
+	* lib32/msvcr*.def: Maked ldexp as DATA.
+	* lib64/msvcr*.def: Likewise.
+	* math/exp*: Make sure we are using round-to-zero.
+	* math/pow.def.h: Likewise.
+	* math/ldexp.c: New.
+
+2011-03-25  Kai Tietz  <ktietz70@googlemail.com>
+
+	* Makefile.am: Add new files to build.
+	* Makefile.in: Regenerated.
+	* misc/mempcpy.c: New.
+	* misc/wmempcpy.c: New.
+
+2011-03-15  Kai Tietz  <ktietz70@googlemail.com>
+
+	* math/exp.def.h: Use integer/fraction separation for improving
+	calculation precision.
+	* math/pow.def.h: Use log2l/exp2l and integer/fraction separation
+	for improving calculation precission.
+
+2011-03-12  Dongsheng Song  <dongsheng.song@gmail.com>
+
+	* lib32/msvcr100.def (__report_gsfailure, _assert, _byteswap_uint64,
+	_byteswap_ulong, _byteswap_ushort, _ctime32, _difftime32,
+	_difftime64, _findfirst64i32, _findnext64i32, _fpreset, _fseeki64,
+	_fstat64i32, _ftelli64, _get_errno, _gmtime32, _localtime32,
+	_mkgmtime32, _mktime32, _rotl64, _rotr64, _set_errno, _stat64i32,
+	_time32, _wassert, _wctime32, _wfindfirst64i32, _wfindnext64i32,
+	_wstat64i32, atexit, btowc, cos, exp, fabs, fmod, llabs, lldiv,
+	log, longjmp, mbrlen, mbrtowc, mbsrtowcs, modf, pow, sin, sqrt,
+	strnlen, wcrtomb, wcsnlen, wcsrtombs, wctob): Mark as DATA.
+	* lib64/msvcr100.def (__report_gsfailure, _assert, _byteswap_uint64,
+	_byteswap_ulong, _byteswap_ushort, _ctime32, _difftime32,
+	_difftime64, _findfirst64i32, _findnext64i32, _fpreset, _fseeki64,
+	_fstat64i32, _ftelli64, _get_errno, _gmtime32, _localtime32,
+	_mkgmtime32, _mktime32, _rotl64, _rotr64, _set_errno, _stat64i32,
+	_time32, _wassert, _wctime32, _wfindfirst64i32, _wfindnext64i32,
+	_wstat64i32, acosf, asinf, atan2f, atanf, atexit, btowc, ceilf,
+	cos, cosf, coshf, exp, expf, fabs, floorf, fmod, fmodf, llabs,
+	lldiv, log, log10f, logf, longjmp, mbrlen, mbrtowc, mbsrtowcs,
+	modf, modff, pow, powf, sin, sinf, sinhf, sqrt, sqrtf, strnlen,
+	tanf, tanhf, wcrtomb, wcsnlen, wcsrtombs, wctob): Likewise.
+
+2011-02-04  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/mingw_fscanf.c: New.
+	* stdio/mingw_fwscanf.c: New.
+	* stdio/mingw_scanf.c: New.
+	* stdio/mingw_sscanf.c: New.
+	* stdio/mingw_swscanf.c: New.
+	* stdio/mingw_vfscanf.c: New.
+	* stdio/mingw_wscanf.c: New.
+	* stdio/mingw_wvfscanf.c: New.
+	* Makefile.am: Add new files.
+	* Makefile.in: Regenerated.
+
+2011-02-01  Kai Tietz  <kai.tietz@onevision.com>
+
+	* misc/mingw_wcstod.c: New.
+	* misc/mingw_wcstof.c: New.
+	* misc/mingw_wcstold.c: New.
+	* Makefile.am: Add new files to libmingex.a library.
+	* math/fastmath.h: Use for 64-bit SSE sqrt instruction.
+	* math/sqrt.c: Likewise.
+	* math/sqrt.def.h: Likewise.
+
+2011-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* misc/mingw_mbwc_convert.c: New.
+
+2011-01-24  Kai Tietz  <kai.tietz@onevision.com>
+
+	* stdio/mingw_fprintfw.c: New.
+	* stdio/mingw_pformatw.c: New.
+	* stdio/mingw_vsprintfw.c: New.
+	* stdio/mingw_vprintfw.c: New.
+	* stdio/mingw_vfprintfw.c: New.
+	* stdio/mingw_snprintfw.c: New.
+	* stdio/mingw_sprintfw.c: New.
+	* stdio/mingw_vsnprintfw.c: New.
+	* stdio/mingw_printfw.c: New.
+	* stdio/mingw_fprintf.c: Support wide-char.
+	* stdio/mingw_pformat.c: Support wide-char.
+	* stdio/mingw_pformat.h: Support wide-char.
+	* stdio/mingw_vsprintf.c: Support wide-char.
+	* stdio/mingw_vprintf.c: Support wide-char.
+	* stdio/mingw_vfprintf.c: Support wide-char.
+	* stdio/mingw_snprintf.c: Support wide-char.
+	* stdio/mingw_sprintf.c: Support wide-char.
+	* stdio/mingw_vsnprintf.c: Support wide-char.
+	* stdio/mingw_printf.c: Support wide-char.
+
+2011-01-10  Tsukasa Ooi  <li@livegrid.org>
+
+	* crt/crtexe.c: Fix invalid scope table for SEH.
+
+2011-01-10  Tsukasa Ooi  <li@livegrid.org>
+
+	* crt/crtexe.c: Fix invalid scope table for SEH.
+
