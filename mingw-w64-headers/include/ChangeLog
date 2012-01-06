@@ -1,3 +1,12 @@
+2012-01-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winuser.h: Fix several typos found by Rinrin <rinrin@imbrian.org>:
+	(TOUCHEVENTMASKF_TIMEFROMSYSTEM): Rename to
+	 TOUCHINPUTMASKF_TIMEFROMSYSTEM.
+	(TOUCHEVENTMASKF_EXTRAINFO): Rename to TOUCHINPUTMASKF_EXTRAINFO.
+	(TOUCHEVENTMASKF_CONTACTAREA): Rename to TOUCHINPUTMASKF_CONTACTAREA.
+	(struct _TOUCHINPUT): Fix member name from wMask to dwMask.
+
 2012-01-04  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* wingdi.h: Uglify the function param names a bit for bug #3469308

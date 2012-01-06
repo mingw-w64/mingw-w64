@@ -5686,9 +5686,9 @@ extern "C" {
 #define TOUCHEVENTF_PEN         0x0040
 #define TOUCHEVENTF_PALM        0x0080
 
-#define TOUCHEVENTMASKF_TIMEFROMSYSTEM  0x0001
-#define TOUCHEVENTMASKF_EXTRAINFO       0x0002
-#define TOUCHEVENTMASKF_CONTACTAREA     0x0004
+#define TOUCHINPUTMASKF_TIMEFROMSYSTEM  0x0001
+#define TOUCHINPUTMASKF_EXTRAINFO       0x0002
+#define TOUCHINPUTMASKF_CONTACTAREA     0x0004
 
   typedef struct _TOUCHINPUT {
     LONG x;
@@ -5696,7 +5696,7 @@ extern "C" {
     HANDLE hSource;
     DWORD dwID;
     DWORD dwFlags;
-    DWORD wMask;
+    DWORD dwMask;
     DWORD dwTime;
     ULONG_PTR dwExtraInfo;
     DWORD cxContact;
