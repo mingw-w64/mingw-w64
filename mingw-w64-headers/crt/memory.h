@@ -7,6 +7,7 @@
 #define _INC_MEMORY
 
 #include <_mingw.h>
+#include <sec_api/memory_s.h>
 
 #ifdef __cplusplus
 extern "C" {

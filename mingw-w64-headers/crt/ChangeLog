@@ -1,0 +1,8 @@
+2012-01-07  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* sec_api/memory_s.h: New.
+	* sec_api/wchar_s.h(wmemcpy_s): Declare.
+	(wmemmove_s): Likewise.
+	* sec_api/string_s.h(memmove_s): Likewise.
+	(memcpy_s): Likewise.
+	* memory.h: Include sec_api/memory_s.h.

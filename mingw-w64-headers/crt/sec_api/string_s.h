@@ -31,6 +31,7 @@ extern "C" {
   _CRTIMP char *__cdecl _strtok_s_l(char *_Str,const char *_Delim,char **_Context,_locale_t _Locale);
   _CRTIMP errno_t __cdecl strcat_s(char *strDestination,size_t numberOfElements,const char *strSource);
 
+  _CRTIMP errno_t __cdecl memmove_s(void *_dest,size_t _numberOfElements,const void *_src,size_t _count);
 #ifndef _WSTRING_S_DEFINED
 #define _WSTRING_S_DEFINED
   _CRTIMP wchar_t *__cdecl wcstok_s(wchar_t *_Str,const wchar_t *_Delim,wchar_t **_Context);
@@ -55,6 +56,11 @@ extern "C" {
   _CRTIMP errno_t __cdecl _wcsnset_s_l(wchar_t *_Str,size_t _SizeInChars,unsigned int _Val, size_t _Count,_locale_t _Locale);
 
 #endif
+
+#ifndef _MEMORY_S_DEFINED
+#define _MEMORY_S_DEFINED
+_CRTIMP errno_t __cdecl memcpy_s(void *_dest,size_t _numberOfElements,const void *_src,size_t _count);
+#endif /*_MEMORY_S_DEFINED*/
 
 #ifdef __cplusplus
 }
