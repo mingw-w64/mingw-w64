@@ -1197,7 +1197,7 @@ tmpnam_s
 vfprintf_s
 vfwprintf_s
 vprintf_s
-vsnprintf DATA
+vsnprintf == _vsnprintf DATA
 vsprintf_s
 vswprintf_s
 vwprintf_s
