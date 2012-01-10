@@ -1,3 +1,16 @@
+2012-01-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* _mingw.h.in: Move @MINGW_HAS_SECURE_API@ before mingw_mac.h.
+	(__MINGW_ATTRIB_DEPRECATED_SEC_WARN): Moved to _mingw_mac.h.
+	(__MINGW_ATTRIB_DEPRECATED_MSVC2005): Likewise.
+	* _mingw_mac.h: (__if_array): New template.
+	(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES1_): Define macro.
+	(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY1_): Likewise.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES1_): Likewise.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT1_): Likewise.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT2_): Likewise.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY1_): Likewise.
+
 2012-01-07  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* sec_api/memory_s.h: New.
