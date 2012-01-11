@@ -225,7 +225,7 @@ template <typename __dsttype>
 #endif /*__cplusplus*/
 
 #if (_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES == 1)
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
   extern "C" { _CRTIMP __ret __cdecl __func(__type1 __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2); }\
   extern "C++" {\
     template <size_t __size> inline\
@@ -236,12 +236,12 @@ template <typename __dsttype>
     }\
   }
 #else
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
   _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2);
 #endif /*_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES*/
 
 #if (_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY == 1)
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_4_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
   extern "C" { _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3); }\
   extern "C++" {\
     template <size_t __size> inline\
@@ -253,7 +253,7 @@ template <typename __dsttype>
     }\
   }
 #else
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_4_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
   _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3);
 #endif /*_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY*/
 
