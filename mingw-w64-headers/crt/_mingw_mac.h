@@ -216,12 +216,14 @@
 #define __MINGW_CRT_NAME_CONCAT2(sym) ::sym##_s
 
 #ifdef __cplusplus
+extern "C++" {
 template <bool __test, typename __dsttype>
   struct __if_array;
 template <typename __dsttype>
   struct __if_array <true, __dsttype> {
     typedef __dsttype __type;
 };
+}
 #endif /*__cplusplus*/
 
 #if (_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES == 1)
