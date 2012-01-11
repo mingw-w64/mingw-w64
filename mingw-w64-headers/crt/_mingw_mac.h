@@ -224,9 +224,8 @@ template <typename __dsttype>
 };
 #endif /*__cplusplus*/
 
-/* for strcpy_s */
 #if (_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES == 1)
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES1_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
   extern "C" { _CRTIMP __ret __cdecl __func(__type1 __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2); }\
   extern "C++" {\
     template <size_t __size> inline\
@@ -237,13 +236,12 @@ template <typename __dsttype>
     }\
   }
 #else
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES1_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
   _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2);
 #endif /*_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES*/
 
-/* for memcpy_s */
 #if (_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY == 1)
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY1_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_4_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
   extern "C" { _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3); }\
   extern "C++" {\
     template <size_t __size> inline\
@@ -255,15 +253,14 @@ template <typename __dsttype>
     }\
   }
 #else
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY1_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_4_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
   _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3);
 #endif /*_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY*/
 
-/* These are for strcpy */
 /* Fixme: For some reason, template resolution rules makes C implementation overide the templates if we declare
           the C prototype, but does not seem to occur for _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY case template */
 #if (_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES == 1)
-#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES1_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
+#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_0_2_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
   extern "C++" {\
   template <typename t>\
     struct __strlen##__func;\
@@ -293,7 +290,7 @@ template <typename __dsttype>
     }\
   }
 #else
-#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES1_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
+#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_0_2_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
   _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif /*_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES*/
 
@@ -306,7 +303,7 @@ template <typename __dsttype>
 /* Fixme: For some reason, template resolution rules makes C implementation overide the templates if we declare
           the C prototype, but does not seem to occur for _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY case template */
 #if (_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT == 1) && (_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES == 1)
-#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT1_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
+#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
   extern "C++" {\
     template <size_t __size> inline\
     __ret __cdecl __func(\
@@ -325,7 +322,7 @@ template <typename __dsttype>
   }
 
 /* For *_l locale types */
-#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT2_(__ret,__imp_attrib,__func,__real_func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3,__type4,__attrib4,__arg4)\
+#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT_1_4_(__ret,__imp_attrib,__func,__real_func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3,__type4,__attrib4,__arg4)\
   extern "C++" {\
     template <size_t __size> inline\
     __ret __cdecl __func(\
@@ -346,16 +343,16 @@ template <typename __dsttype>
   }
 
 #else
-#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT1_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
+#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
   _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT2_(__ret,__imp_attrib,__func,__real_func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3,__type4,__attrib4,__arg4)\
+#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT_1_4_(__ret,__imp_attrib,__func,__real_func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3,__type4,__attrib4,__arg4)\
   __imp_attrib __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3, __type4 __attrib4 __arg4) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif
 
 /* https://blogs.msdn.com/b/sdl/archive/2010/02/16/vc-2010-and-memcpy.aspx?Redirected=true */
-/* fallback on default memcpy implementation if we can't know the size of the destination */
+/* fallback on default implementation if we can't know the size of the destination */
 #if (_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY == 1)
-#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY1_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
+#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
   extern "C" {_CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;}\
   extern "C++" {\
     template <size_t __size, typename __dsttype> inline\
@@ -367,7 +364,7 @@ template <typename __dsttype>
     }\
   }
 #else
-#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY1_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
+#define __CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
   _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif
 
