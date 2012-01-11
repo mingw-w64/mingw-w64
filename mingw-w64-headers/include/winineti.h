@@ -22,6 +22,7 @@
 
 /* FIXME: #include <iedial.h> */
 #include <schannel.h>
+#include <sspi.h>
 
 typedef struct _INTERNET_CACHE_CONFIG_PATH_ENTRYA
 {

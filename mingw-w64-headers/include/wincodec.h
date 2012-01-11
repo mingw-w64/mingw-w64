@@ -146,7 +146,6 @@ typedef interface IWICEnumMetadataItem IWICEnumMetadataItem;
 
 #include <wtypes.h>
 #include <propidl.h>
-#include <objidl.h>
 #include <ocidl.h>
 
 #ifdef __cplusplus

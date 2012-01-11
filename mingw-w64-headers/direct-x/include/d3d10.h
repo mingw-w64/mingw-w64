@@ -5747,6 +5747,9 @@ void __RPC_STUB ID3D10Multithread_GetMultithreadProtected_Stub(
 
 #endif  /* __ID3D10Multithread_INTERFACE_DEFINED__ */
 
+#ifndef D3D10_IGNORE_SDK_LAYERS
+/* FIXME: # include <d3d10sdklayers.h> */
+#endif
 #include "d3d10misc.h"
 #include "d3d10shader.h"
 #include "d3d10effect.h"

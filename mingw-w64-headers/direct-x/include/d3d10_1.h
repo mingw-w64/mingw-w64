@@ -42,6 +42,7 @@ typedef interface ID3D10Device1 ID3D10Device1;
 extern "C" {
 #endif
 
+#include <d3d10_1shader.h>
 typedef enum D3D10_FEATURE_LEVEL1 {
     D3D10_FEATURE_LEVEL_10_0 = 0xa000,
     D3D10_FEATURE_LEVEL_10_1 = 0xa100,
