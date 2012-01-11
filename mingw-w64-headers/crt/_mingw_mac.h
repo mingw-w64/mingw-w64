@@ -225,36 +225,36 @@ template <typename __dsttype>
 #endif /*__cplusplus*/
 
 #if (_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES == 1)
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
-  extern "C" { _CRTIMP __ret __cdecl __func(__type1 __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2); }\
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
+  extern "C" { _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3); }\
   extern "C++" {\
     template <size_t __size> inline\
     __ret __cdecl __func(\
     __type1 (&__arg1)[__size],\
-    __type2 (__arg2)) {\
-      return __MINGW_CRT_NAME_CONCAT1(__func)(__arg1,__size,__arg2);\
+    __type3 __attrib3 (__arg3)) {\
+      return __MINGW_CRT_NAME_CONCAT1(__func)(__arg1,__size,__arg3);\
     }\
   }
 #else
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2)\
-  _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2);
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
+  _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3);
 #endif /*_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES*/
 
 #if (_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY == 1)
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
-  extern "C" { _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3); }\
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3,__type4,__attrib4,__arg4)\
+  extern "C" { _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3, __type4 __attrib4 __arg4); }\
   extern "C++" {\
     template <size_t __size> inline\
     __ret __cdecl __func(\
     __type1 (&__arg1)[__size],\
-    __type2 __attrib2 (__arg2),\
-    __type3 __attrib3 (__arg3)) {\
-      return __MINGW_CRT_NAME_CONCAT1(__func)(__arg1,__size,__arg2,__arg3);\
+    __type3 __attrib3 (__arg3),\
+    __type4 __attrib4 (__arg4)) {\
+      return __MINGW_CRT_NAME_CONCAT1(__func)(__arg1,__size,__arg3,__arg4);\
     }\
   }
 #else
-#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3)\
-  _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, size_t __size, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3);
+#define __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_3_(__ret,__func,__type1,__attrib1,__arg1,__type2,__attrib2,__arg2,__type3,__attrib3,__arg3,__type4,__attrib4,__arg4)\
+  _CRTIMP __ret __cdecl __func(__type1 * __attrib1 __arg1, __type2 __attrib2 __arg2, __type3 __attrib3 __arg3, __type4 __attrib4 __arg4);
 #endif /*_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY*/
 
 /* Fixme: For some reason, template resolution rules makes C implementation overide the templates if we declare
