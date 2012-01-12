@@ -10,6 +10,7 @@
 @MINGW_HAS_SECURE_API@
 
 #include "_mingw_mac.h"
+#include "_mingw_secapi.h"
 
 /* C/C++ specific language defines.  */
 #ifdef _WIN64

@@ -1,3 +1,14 @@
+2012-01-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	*_mingw_mac.h: Moved CRT secure macros to _mingw_secapi.h
+	*_mingw_secapi.h: New, fix fallback cases.
+
+2012-01-11  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* _mingw_mac.h(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_):
+	Fix arguments.
+	(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_3_): Likewise.
+
 2012-01-11  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* _mingw_mac.h(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES1_):
