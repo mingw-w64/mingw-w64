@@ -1230,7 +1230,7 @@ vfwprintf
 vfwprintf_s
 vprintf
 vprintf_s
-vsnprintf == _vsnprintf DATA
+vsnprintf DATA == _vsnprintf
 vsprintf
 vsprintf_s
 vswprintf
