@@ -1198,6 +1198,7 @@ vfprintf_s
 vfwprintf_s
 vprintf_s
 vsnprintf DATA == _vsnprintf
+snprintf == _snprintf
 vsprintf_s
 vswprintf_s
 vwprintf_s
