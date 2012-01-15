@@ -1,3 +1,13 @@
+2012-01-15  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* sec_api/string_s.h(strcat_s): Use CRT secure helper macro.
+	(wcscpy_s): Likewise.
+	(wcscat_s): Likewise.
+	* sec_api/wchar_s.h(wcscpy_s): Likewise.
+	(wcscat_s): Likewise.
+	* sec_api/mbstring_s.h(_mbscat_s): Likewise.
+	(_mbscpy_s): Likewise.
+
 2012-01-12  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	*_mingw_mac.h: Moved CRT secure macros to _mingw_secapi.h
