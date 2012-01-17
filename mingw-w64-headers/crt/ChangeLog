@@ -1,3 +1,8 @@
+2012-01-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* time.h: Don't include pthread_time.h when we are compiling
+	winpthreads.
+
 2012-01-15  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* sec_api/string_s.h(strcat_s): Use CRT secure helper macro.

@@ -279,8 +279,9 @@ struct timezone {
 /* POSIX 2008 says clock_gettime and timespec are defined in time.h header,
    but other systems - like Linux, Solaris, etc - tend to declare such
    recent extensions only if the following guards are met.  */
-#if (!defined(_STRICT_STDC) && !defined(__XOPEN_OR_POSIX)) || \
-       (_POSIX_C_SOURCE > 2) || defined(__EXTENSIONS__)
+#if !defined(IN_WINPTHREAD) && \
+	((!defined(_STRICT_STDC) && !defined(__XOPEN_OR_POSIX)) || \
+	 (_POSIX_C_SOURCE > 2) || defined(__EXTENSIONS__))
 #include <pthread_time.h>
 #endif
 
