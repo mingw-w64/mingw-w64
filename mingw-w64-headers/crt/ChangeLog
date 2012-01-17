@@ -1,3 +1,8 @@
+2012-01-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* time.h: Don't include pthread_time.h when we are compiling
+	winpthreads.
+
 2011-12-22  Rafael Carre  <funman@videolan.org>
 
 	* stdio.h (asprintf): Fix asprintf typo in the inline implementation.
