@@ -1,0 +1,4 @@
+2012-01-17  Daniel Green  <venix1@gmail.com>
+
+	* stdio/mingw_pformat.c (__pformat): Correct 'l' length modifier
+	to follow C99 specification (7.19.6.1) with Windows.
