@@ -129,7 +129,6 @@ __FLT_ABI(exp) (__FLT_TYPE x)
     }
   else if (x < __FLT_MINLOG)
     {
-      __FLT_RPT_ERANGE ("exp", x, 0.0, 0.0, 0);
       return __FLT_CST(0.0);
     }
   else

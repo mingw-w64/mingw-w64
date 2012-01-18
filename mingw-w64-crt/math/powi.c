@@ -1,140 +1,46 @@
-/**
- * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the w64 mingw-runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
- */
-#include "cephes_mconf.h"
+/*
+ This Software is provided under the Zope Public License (ZPL) Version 2.1.
 
-#ifndef _SET_ERRNO
-#define _SET_ERRNO(x)
-#endif
-double __powi (double x,int nn);
+ Copyright (c) 2009, 2010 by the mingw-w64 project
 
-double __powi (double x,int nn)
-{
-	unsigned int n;
-	int e, sign, asign, lx;
-	double w, y, s;
+ See the AUTHORS file for the list of contributors to the mingw-w64 project.
 
-	/* See pow.c for these tests.  */
-	if (x == 0.0)
-	{
-		if (nn == 0)
-			return (1.0);
-		else if (nn < 0)
-			return (INFINITY);
-		else
-		{
-			if (nn & 1)
-				return (x);
-			else
-				return (0.0);
-		}
-	}
+ This license has been certified as open source. It has also been designated
+ as GPL compatible by the Free Software Foundation (FSF).
 
-	if (nn == 0)
-		return (1.0);
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
 
-	if (nn == -1)
-		return (1.0/x);
+   1. Redistributions in source code must retain the accompanying copyright
+      notice, this list of conditions, and the following disclaimer.
+   2. Redistributions in binary form must reproduce the accompanying
+      copyright notice, this list of conditions, and the following disclaimer
+      in the documentation and/or other materials provided with the
+      distribution.
+   3. Names of the copyright holders must not be used to endorse or promote
+      products derived from this software without prior written permission
+      from the copyright holders.
+   4. The right to distribute this software or to use it for any purpose does
+      not give you the right to use Servicemarks (sm) or Trademarks (tm) of
+      the copyright holders.  Use of them is covered by separate agreement
+      with the copyright holders.
+   5. If any files are modified, you must cause the modified files to carry
+      prominent notices stating that you changed the files and the date of
+      any change.
 
-	if (x < 0.0)
-	{
-		asign = -1;
-		x = -x;
-	}
-	else
-		asign = 0;
+ Disclaimer
 
-	if (nn < 0)
-	{
-		sign = -1;
-		n = -nn;
-	}
-	else
-	{
-		sign = 1;
-		n = nn;
-	}
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY EXPRESSED
+ OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+ EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+ OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
 
-	/* Even power will be positive. */
-	if ((n & 1) == 0)
-		asign = 0;
-
-	/* Overflow detection */
-
-	/* Calculate approximate logarithm of answer */
-	s = frexp(x, &lx);
-	e = (lx - 1)*n;
-	if ((e == 0) || (e > 64) || (e < -64))
-	{
-		s = (s - 7.0710678118654752e-1) / (s +  7.0710678118654752e-1);
-		s = (2.9142135623730950 * s - 0.5 + lx) * nn * LOGE2;
-	}
-	else
-	{
-		s = LOGE2 * e;
-	}
-
-	if (s > MAXLOG)
-	{
-		mtherr("powi", OVERFLOW);
-		_SET_ERRNO(ERANGE);
-		y = INFINITY;
-		goto done;
-	}
-
-#if DENORMAL
-	if (s < MINLOG)
-	{
-		y = 0.0;
-		goto done;
-	}
-
-	/* Handle tiny denormal answer, but with less accuracy
-	 * since roundoff error in 1.0/x will be amplified.
-	 * The precise demarcation should be the gradual underflow threshold.
-	 */
-	if ((s < (-MAXLOG+2.0)) && (sign < 0))
-	{
-		x = 1.0/x;
-		sign = -sign;
-	}
-#else
-	/* do not produce denormal answer */
-	if (s < -MAXLOG)
-		return (0.0);
-#endif
-
-/* First bit of the power */
-	if (n & 1)
-		y = x;
-	else
-		y = 1.0;
-
-	w = x;
-	n >>= 1;
-	while (n)
-	{
-		w = w * w;	/* arg to the 2-to-the-kth power */
-		if (n & 1)	/* if that bit is set, then include in product */
-			y *= w;
-		n >>= 1;
-	}
-
-	if (sign < 0)
-		y = 1.0/y;
-
-done:
-
-	if (asign)
-	{
-		/* odd power of negative number */
-		if (y == 0.0)
-			y = NEGZERO;
-		else
-			y = -y;
-	}
-	return (y);
-}
-
+#define _NEW_COMPLEX_DOUBLE 1
+#include "powi.def.h"
