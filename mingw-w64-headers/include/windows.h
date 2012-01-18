@@ -9,6 +9,16 @@
 #include <_mingw.h>
 #include <sdkddkver.h>
 
+/* Some kludge for Obj-C.
+   For Obj-C the 'interface' is a keyword, but interface is used
+   in midl-code too.  To resolve this conflict for at least the
+   main windows API header, we define it here temporary.  */
+#ifdef __OBJC__
+#pragma push_macro("interface")
+#undef interface
+#define interface struct
+#endif
+
 #ifndef _INC_WINDOWS
 #define _INC_WINDOWS
 
@@ -118,4 +128,10 @@
 
 #endif
 #endif
+
+/* Restore old value of interface for Obj-C.  See above.  */
+#ifdef __OBJC__
+#pragma pop_macro("interface")
+#endif
+
 #endif

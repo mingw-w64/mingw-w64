@@ -1,0 +1,4 @@
+2012-01-18  Kai TIetz  <ktietz@redhat.com>
+
+	* unknwn.h: Remove sepecial-case for Obj-C.
+	* windows.h: and move it here.
