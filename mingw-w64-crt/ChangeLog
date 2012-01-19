@@ -1,3 +1,15 @@
+2012-01-18  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3463580
+	* testcases/t_exp_denormal.c: New test.
+	* testcases/t_powi.c: New test.
+	* complex/complex_internal.h (
+	* math/exp.def.h: Adjust error-report for range-min.
+	* math/powi.def.h: New file.
+	* math/powif.c: Rewrite to use powi.def.h.
+	* math/powi.c: Likewise.
+	* math/powil.c: Likewise.
+
 2011-12-20  Kai Tietz  <ktietz@redhat.com> (merge trunk revs.4680 & 4687)
 
 	* crt/pseudo-reloc.c (__write_memory): Add fallback for systems

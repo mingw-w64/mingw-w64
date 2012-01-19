@@ -67,7 +67,7 @@ long double sinhl(long double x)
   if (x_class == FP_ZERO)
     return x;
   if (x_class == FP_INFINITE ||
-      (x > (MAXLOGL + LOGE2L)) || (x > -(MINLOGL-LOGE2L)))
+      (fabs (x) > (MAXLOGL + LOGE2L)))
   {
     errno = ERANGE;
 #ifdef INFINITIES
