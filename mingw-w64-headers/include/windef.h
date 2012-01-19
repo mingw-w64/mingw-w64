@@ -6,7 +6,7 @@
 #ifndef _WINDEF_
 #define _WINDEF_
 
-#ifndef STRICT
+#if !defined (STRICT) && !defined (NO_STRICT)
 #define STRICT 1
 #endif
 
