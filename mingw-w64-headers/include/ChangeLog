@@ -1,3 +1,8 @@
+2012-01-19  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3474190
+	* windef.h (STRICT): Regard definition of NO_STRICT.
+
 2012-01-06  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* winuser.h: Fix several typos found by Rinrin <rinrin@imbrian.org>:
