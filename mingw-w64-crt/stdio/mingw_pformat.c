@@ -2301,18 +2301,8 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	       */
 	      length = PFORMAT_LENGTH_LONG;
 
-#           ifndef _WIN32
-	      /*
-	       * Microsoft's MSVCRT implementation also uses `l'
-	       * as a modifier for `long double'; if we don't want
-	       * to support that, we end this case here...
-	       */
 	      state = PFORMAT_END;
 	      break;
-
-	      /* otherwise, we simply fall through...
-	       */
-#	    endif
 
 	  case 'L':
 	    /*
