@@ -1,3 +1,8 @@
+2012-01-19  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3474190
+	* windef.h (STRICT): Regard definition of NO_STRICT.
+
 2012-01-18  Kai TIetz  <ktietz@redhat.com>
 
 	* unknwn.h: Remove sepecial-case for Obj-C.
