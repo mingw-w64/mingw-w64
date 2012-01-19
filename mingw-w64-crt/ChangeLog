@@ -1,3 +1,20 @@
+2012-01-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Partially revert rev. 3656:
+	* libsrc/agtctl_i.c: Remove from libuuid.a build rule and install
+	as is under $(prefix)/$(host)/libsrc/
+	* libsrc/agtsvr_i.c: Likewise.
+	* libsrc/cdoex_i.c: Likewise.
+	* libsrc/cdoexm_i.c: Likewise.
+	* libsrc/cdosys_i.c: Likewise.
+	* libsrc/emostore_i.c: Likewise.
+	* libsrc/iisext_i.c: Likewise.
+	* libsrc/mtsadmin_i.c: Likewise.
+	* libsrc/mtxadmin_i.c: Likewise.
+	* libsrc/scardssp_i.c: Likewise.
+	* libsrc/scardssp_p.c: Likewise.
+	* libsrc/tsuserex_i.c: Likewise.
+
 2012-01-18  Kai Tietz  <ktietz@redhat.com>
 
 	PR 3463580

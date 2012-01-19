@@ -92,9 +92,7 @@ src_libmingwthrd=libsrc/mingwthrd_mt.c
 
 src_libgdiplus=libsrc/gdiplus.c
 
-src_libuuid=libsrc/uuid.c   libsrc/guid_nul.c         libsrc/devguid.c         libsrc/agtctl_i.c        libsrc/agtsvr_i.c          \
-  libsrc/cdoex_i.c          libsrc/cdoexm_i.c         libsrc/cdosys_i.c        libsrc/emostore_i.c      libsrc/iisext_i.c          \
-  libsrc/mtsadmin_i.c       libsrc/mtxadmin_i.c       libsrc/scardssp_i.c      libsrc/tsuserex_i.c      libsrc/fwp-uuid.c          \
+src_libuuid=libsrc/uuid.c   libsrc/guid_nul.c         libsrc/devguid.c         libsrc/fwp-uuid.c        \
   libsrc/ativscp-uuid.c     libsrc/atsmedia-uuid.c    libsrc/bdamedia-uuid.c   libsrc/bth-uuid.c        libsrc/cguid-uuid.c        \
   libsrc/comcat-uuid.c      libsrc/docobj-uuid.c      libsrc/exdisp-uuid.c     libsrc/extras-uuid.c     libsrc/hlguids-uuid.c      \
   libsrc/hlink-uuid.c       libsrc/mlang-uuid.c       libsrc/msctf-uuid.c      libsrc/mshtml-uuid.c     libsrc/msxml-uuid.c        \
@@ -1005,6 +1003,16 @@ lib64/libd3dcompiler.a: lib64/$(d3dcompiler).def
 endif
 # End 64-bit runtime
 ##########
+
+
+# Don't compile these, but install as is:
+#
+libsrcdir=$(prefix)/$(host)/libsrc
+libsrc_DATA = \
+  libsrc/agtctl_i.c   libsrc/agtsvr_i.c     libsrc/cdoex_i.c    libsrc/cdoexm_i.c     \
+  libsrc/cdosys_i.c   libsrc/emostore_i.c   libsrc/iisext_i.c   libsrc/mtsadmin_i.c   \
+  libsrc/mtxadmin_i.c libsrc/scardssp_i.c   libsrc/scardssp_p.c libsrc/tsuserex_i.c
+
 
 # Installation options
 #
