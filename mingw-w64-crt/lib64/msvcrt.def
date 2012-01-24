@@ -699,6 +699,7 @@ _snscanf_l
 _snscanf_s
 _snscanf_s_l
 _snwprintf
+snwprintf == _snwprintf
 _snwprintf_l
 _snwprintf_s
 _snwprintf_s_l
@@ -843,6 +844,7 @@ _vsnprintf_l
 _vsnprintf_s
 _vsnprintf_s_l
 _vsnwprintf
+vsnwprintf == _vsnwprintf
 _vsnwprintf_l
 _vsnwprintf_s
 _vsnwprintf_s_l
@@ -1230,7 +1232,7 @@ vfwprintf
 vfwprintf_s
 vprintf
 vprintf_s
-vsnprintf DATA == _vsnprintf
+vsnprintf == _vsnprintf
 snprintf == _snprintf
 vsprintf
 vsprintf_s

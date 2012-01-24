@@ -241,6 +241,8 @@ src_libmingwex=\
   stdio/mingw_swscanf.c stdio/mingw_wscanf.c \
   stdio/mingw_fwscanf.c stdio/mingw_sscanf.c \
   stdio/mingw_vfscanf.c stdio/mingw_wvfscanf.c \
+  stdio/vfscanf2.S  stdio/vscanf2.S  stdio/vsscanf2.S \
+  stdio/vswscanf2.S  stdio/vwscanf2.S stdio/vfwscanf2.S \
   stdio/snprintf.c stdio/snwprintf.c stdio/_stat64i32.c \
   stdio/_stat.c stdio/strtof.c stdio/ulltoa.c stdio/ulltow.c stdio/vfscanf.c \
   stdio/vfwscanf.c stdio/vscanf.c stdio/vsnprintf.c stdio/vsnprintf_s.c \

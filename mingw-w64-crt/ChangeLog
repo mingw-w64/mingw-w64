@@ -1,3 +1,14 @@
+2012-01-24  Kai Tietz  <ktietz@redhat.com>
+
+	* lib64/msvcrt.def: Add forwarders to wide-(v)snprintf
+	and provide snprintf.
+	* lib32/msvcrt.def: Likewise.
+	* stdio/vscanf2.S, stdio/vfwscanf2.S, stdio/vfscanf2.S,
+	stdio/vsscanf2.S, stdio/vwscanf2.S, stdio/vswscanf2.S: New.
+	* Makefile.am: Add new files for libmingex.a
+	* Makefile.in: Regenerated.
+	* configure: Regenerated.
+
 2012-01-19  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Partially revert rev. 3656:
