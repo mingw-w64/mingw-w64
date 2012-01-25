@@ -1,5 +1,7 @@
 2012-01-25  Kai Tietz  <ktietz@redhat.com>
 
+	* iprtrmib.h (MIB_TCP_STATE): New typedef.
+
 	* mprapi.h (MprAdminConnectionRemoveQuarantine): Remove
 	double definition.
 
