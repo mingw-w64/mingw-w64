@@ -513,7 +513,6 @@ extern "C" {
   WINBOOL WINAPI MprAdminAcceptNewLink (RAS_PORT_0 *pRasPort0,RAS_PORT_1 *pRasPort1);
   VOID WINAPI MprAdminConnectionHangupNotification(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1);
   VOID WINAPI MprAdminConnectionHangupNotification2(RAS_CONNECTION_0 *pRasConnection0,RAS_CONNECTION_1 *pRasConnection1,RAS_CONNECTION_2 *pRasConnection2);
-  DWORD WINAPI MprAdminConnectionRemoveQuarantine(HANDLE hRasServer,HANDLE hRasConnection,WINBOOL fIsIpAddress);
   VOID WINAPI MprAdminLinkHangupNotification (RAS_PORT_0 *pRasPort0,RAS_PORT_1 *pRasPort1);
   DWORD WINAPI MprAdminGetIpAddressForUser (WCHAR *lpwszUserName,WCHAR *lpwszPortName,DWORD *lpdwIpAddress,WINBOOL *bNotifyRelease);
   VOID WINAPI MprAdminReleaseIpAddress (WCHAR *lpszUserName,WCHAR *lpszPortName,DWORD *lpdwIpAddress);
