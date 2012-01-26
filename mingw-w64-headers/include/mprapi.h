@@ -691,12 +691,6 @@ void CALLBACK MprAdminConnectionHangupNotification3(
   RAS_CONNECTION_3 *pRasConnection3
 );
 
-DWORD MprAdminConnectionRemoveQuarantine(
-  HANDLE  hRasServer,
-  HANDLE  hRasConnection,
-  WINBOOL fIsIpAddress
-);
-
 DWORD CALLBACK MprAdminGetIpv6AddressForUser(
   WCHAR *lpwszUserName,
   WCHAR *lpwszPortName,
