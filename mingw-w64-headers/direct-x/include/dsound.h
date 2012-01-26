@@ -231,7 +231,11 @@ typedef const DSCAPS *LPCDSCAPS;
 #define DSBVOLUME_MAX                    0
 #define DSBVOLUME_MIN               -10000
 #define DSBFREQUENCY_MIN            100
+#if (DIRECTSOUND_VERSION >= 0x0900)
 #define DSBFREQUENCY_MAX            200000
+#else
+#define DSBFREQUENCY_MAX            100000
+#endif
 #define DSBFREQUENCY_ORIGINAL       0
 
 #define DSBNOTIFICATIONS_MAX        100000U
@@ -292,7 +296,9 @@ typedef struct _DSBUFFERDESC
     DWORD		dwBufferBytes;
     DWORD		dwReserved;
     LPWAVEFORMATEX	lpwfxFormat;
+#if (DIRECTSOUND_VERSION >= 0x0700)
     GUID		guid3DAlgorithm;
+#endif /* DS7 */
 } DSBUFFERDESC,*LPDSBUFFERDESC;
 typedef const DSBUFFERDESC *LPCDSBUFFERDESC;
 
@@ -303,13 +309,18 @@ typedef struct _DSBPOSITIONNOTIFY
 } DSBPOSITIONNOTIFY,*LPDSBPOSITIONNOTIFY;
 typedef const DSBPOSITIONNOTIFY *LPCDSBPOSITIONNOTIFY;
 
+#define DSSPEAKER_DIRECTOUT     0
 #define DSSPEAKER_HEADPHONE     1
 #define DSSPEAKER_MONO          2
 #define DSSPEAKER_QUAD          3
 #define DSSPEAKER_STEREO        4
 #define DSSPEAKER_SURROUND      5
 #define DSSPEAKER_5POINT1       6
+#define DSSPEAKER_5POINT1_BACK  6
 #define DSSPEAKER_7POINT1       7
+#define DSSPEAKER_7POINT1_WIDE  7
+#define DSSPEAKER_7POINT1_SURROUND  8
+#define DSSPEAKER_5POINT1_SURROUND  9
 
 #define DSSPEAKER_GEOMETRY_MIN      0x00000005  /* 5 degrees */
 #define DSSPEAKER_GEOMETRY_NARROW   0x0000000A  /* 10 degrees */
@@ -356,8 +367,10 @@ typedef struct _DSCBUFFERDESC
   DWORD           dwBufferBytes;
   DWORD           dwReserved;
   LPWAVEFORMATEX  lpwfxFormat;
+#if (DIRECTSOUND_VERSION >= 0x0800)
   DWORD           dwFXCount;
   LPDSCEFFECTDESC lpDSCFXDesc;
+#endif /* DS8 */
 } DSCBUFFERDESC, *LPDSCBUFFERDESC;
 typedef const DSCBUFFERDESC *LPCDSCBUFFERDESC;
 
