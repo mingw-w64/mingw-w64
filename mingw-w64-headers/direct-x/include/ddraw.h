@@ -366,6 +366,7 @@ typedef struct _DDSCAPS {
 #define DDSCAPS2_DONOTPERSIST           0x00040000
 /* indicates surface is part of a stereo flipping chain */
 #define DDSCAPS2_STEREOSURFACELEFT      0x00080000
+#define DDSCAPS2_VOLUME                 0x00200000
 
 typedef struct _DDSCAPS2 {
 	DWORD	dwCaps;	/* capabilities of surface wanted */
@@ -1435,6 +1436,10 @@ DECLARE_INTERFACE_(IDirectDraw,IUnknown)
 #define DDLOCK_NOSYSLOCK	0x00000800
 #define DDLOCK_NOOVERWRITE      0x00001000
 #define DDLOCK_DISCARDCONTENTS  0x00002000
+#define DDLOCK_OKTOSWAP		0x00002000
+#define DDLOCK_DONOTWAIT	0x00004000
+#define DDLOCK_HASVOLUMETEXTUREBOXRECT  0x00008000
+#define DDLOCK_NODIRTYUPDATE	0x00010000
 
 
 /*****************************************************************************
