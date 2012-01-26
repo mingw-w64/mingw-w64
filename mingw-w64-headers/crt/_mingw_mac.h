@@ -155,6 +155,21 @@
 #define __MSABI_LONG(x)  x ## l
 #endif
 
+#if defined (__GNUC__) && defined (__GNUC_MINOR__)
+#define __MINGW_GNUC_PREREQ(major, minor) \
+  (__GNUC__ > (major) \
+   || (__GNUC__ == (major) && __GNUC_MINOR__ >= (minor)))
+#else
+#define __MINGW_GNUC_PREREQ(major, minor)  0
+#endif
+
+#if defined (_MSC_VER)
+#define __MINGW_MSC_PREREQ(major, minor) \
+  (_MSC_VER >= (major * 100 + minor * 10))
+#else
+#define __MINGW_MSC_PREREQ(major, minor)   0
+#endif
+
 #ifdef __MINGW_MSVC_COMPAT_WARNINGS
 # if __MINGW_GNUC_PREREQ (4, 5)
 #  define __MINGW_ATTRIB_DEPRECATED_STR(X) __attribute__ ((__deprecated__ (X)))

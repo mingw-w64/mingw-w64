@@ -57,21 +57,6 @@ limitations in handling dllimport attribute.  */
 # endif /* __declspec */
 #endif /* __GNUC__ */
 
-#if defined (__GNUC__) && defined (__GNUC_MINOR__)
-#define __MINGW_GNUC_PREREQ(major, minor) \
-  (__GNUC__ > (major) \
-   || (__GNUC__ == (major) && __GNUC_MINOR__ >= (minor)))
-#else
-#define __MINGW_GNUC_PREREQ(major, minor)  0
-#endif
-
-#if defined (_MSC_VER)
-#define __MINGW_MSC_PREREQ(major, minor) \
-  (_MSC_VER >= (major * 100 + minor * 10))
-#else
-#define __MINGW_MSC_PREREQ(major, minor)   0
-#endif
-
 #ifdef _MSC_VER
 #define USE___UUIDOF	1
 #else
