@@ -867,6 +867,22 @@ extern "C" {
 #define NETLOGON_DNS_UPDATE_FAILURE 0x40
 #define NETLOGON_VERIFY_STATUS_RETURNED 0x80
 
+#if (_WIN32_WINNT >= 0x0601)
+
+typedef enum _MSA_INFO_STATE {
+  MsaInfoNotExist        = 1,
+  MsaInfoNotService,
+  MsaInfoCannotInstall,
+  MsaInfoCanInstall,
+  MsaInfoInstalled 
+} MSA_INFO_STATE;
+
+typedef struct _MSA_INFO_0 {
+  MSA_INFO_STATE State;
+} MSA_INFO_0, *PMSA_INFO_0;
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
+
 #ifdef __cplusplus
 }
 #endif

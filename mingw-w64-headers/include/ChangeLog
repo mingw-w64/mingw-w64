@@ -1,3 +1,27 @@
+2012-01-26  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* mprapi.h (MPRAPI_OBJECT_HEADER): Fix declaration.
+	(MPR_SERVER_EX): New typedef.
+	(MPRAPI_ADMIN_DLL_CALLBACKS): Likewise.
+	(MprConfigServerGetInfoEx): Declare.
+	(MprAdminConnectionEnumEx): Likewise.
+	(MprAdminConnectionGetInfoEx): Likewise.
+	(MprAdminInitializeDllEx): Likewise.
+	(MprAdminIsServiceInitialized): Likewise.
+	(MprAdminServerGetInfoEx): Likewise.
+	(MprAdminServerSetInfoEx): Likewise.
+	* endpointvolume.h (CLSID_MMDeviceEnumerator): Declare.
+	(IID_IMMDeviceEnumerator): Likewise.
+	(IID_IAudioEndpointVolume): Likewise.
+	(IID_IAudioEndpointVolumeCallback): Likewise.
+	(IID_IAudioEndpointVolumeEx): Likewise.
+	* manipulations.h: New.
+	* elscore.h: New.
+	* mfapi.h(MT_ARBITRARY_HEADER): New typedef.
+	* locationapi.h(LOCATION_DESIRED_ACCURACY): New typedef.
+	* lmaccess.h(MSA_INFO_STATE): New typedef.
+	(MSA_INFO_0): Likewise.
+
 2012-01-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mprapi.h (MprAdminConnectionRemoveQuarantine): Revert

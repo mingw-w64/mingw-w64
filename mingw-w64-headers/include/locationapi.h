@@ -7,6 +7,7 @@
 #define __INC_LOCATIONAPI__
 
 #include <objbase.h>
+#include <propkeydef.h>
 
 #if (_WIN32_WINNT >= 0x0601)
 
@@ -14,6 +15,11 @@ typedef GUID SENSOR_ID;
 DEFINE_GUID(IID_ILocationReport,0xC8B7F7EE,0x75D0,0x4DB9,0xB6,0x2D,0x7A,0x0F,0x36,0x9C,0xA4,0x56);
 DEFINE_GUID(IID_ICivicAddressReport,0xC0B19F70,0x4ADF,0x445D,0x87,0xF2,0xCA,0xD8,0xFD,0x71,0x17,0x92);
 DEFINE_GUID(IID_IDefaultLocation,0xA65AF77E,0x969A,0x4A2E,0x8A,0xCA,0x33,0xBB,0x7C,0xBB,0x12,0x35);
+
+typedef enum _LOCATION_DESIRED_ACCURACY {
+  LOCATION_DESIRED_ACCURACY_DEFAULT   = 0,
+  LOCATION_DESIRED_ACCURACY_HIGH      = 1 
+} LOCATION_DESIRED_ACCURACY;
 
 #ifndef __ILocationReport_FWD_DEFINED__
 #define __ILocationReport_FWD_DEFINED__

@@ -227,6 +227,16 @@ punLow=(unPacked&0x0000ffff);
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+typedef struct _MT_ARBITRARY_HEADER {
+  GUID  majortype;
+  GUID  subtype;
+  WINBOOL  bFixedSizeSamples;
+  WINBOOL  bTemporalCompression;
+  ULONG lSampleSize;
+  GUID  formattype;
+} MT_ARBITRARY_HEADER;
+
 HRESULT WINAPI MFCreateMFByteStreamOnStream(IStream *pStream,IMFByteStream **ppByteStream);
 HRESULT WINAPI MFGetMFTMerit(IUnknown *pMFT,UINT32 cbVerifier,const BYTE *verifier,DWORD *merit);
 HRESULT WINAPI MFGetPluginControl(IMFPluginControl **ppPluginControl);
