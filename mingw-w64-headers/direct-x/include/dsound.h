@@ -231,7 +231,11 @@ typedef const DSCAPS *LPCDSCAPS;
 #define DSBVOLUME_MAX                    0
 #define DSBVOLUME_MIN               -10000
 #define DSBFREQUENCY_MIN            100
+#if (DIRECTSOUND_VERSION >= 0x0900)
 #define DSBFREQUENCY_MAX            200000
+#else
+#define DSBFREQUENCY_MAX            100000
+#endif
 #define DSBFREQUENCY_ORIGINAL       0
 
 #define DSBNOTIFICATIONS_MAX        100000U
@@ -292,7 +296,9 @@ typedef struct _DSBUFFERDESC
     DWORD		dwBufferBytes;
     DWORD		dwReserved;
     LPWAVEFORMATEX	lpwfxFormat;
+#if (DIRECTSOUND_VERSION >= 0x0700)
     GUID		guid3DAlgorithm;
+#endif /* DS7 */
 } DSBUFFERDESC,*LPDSBUFFERDESC;
 typedef const DSBUFFERDESC *LPCDSBUFFERDESC;
 
@@ -361,8 +367,10 @@ typedef struct _DSCBUFFERDESC
   DWORD           dwBufferBytes;
   DWORD           dwReserved;
   LPWAVEFORMATEX  lpwfxFormat;
+#if (DIRECTSOUND_VERSION >= 0x0800)
   DWORD           dwFXCount;
   LPDSCEFFECTDESC lpDSCFXDesc;
+#endif /* DS8 */
 } DSCBUFFERDESC, *LPDSCBUFFERDESC;
 typedef const DSCBUFFERDESC *LPCDSCBUFFERDESC;
 
