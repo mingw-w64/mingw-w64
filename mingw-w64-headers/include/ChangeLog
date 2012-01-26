@@ -1,3 +1,10 @@
+2012-01-26  Kai Tietz  <ktietz@redhat.com>
+
+	* nldef.h (NL_INTERFACE_OFFLOAD_ROD): Remove
+	TlStreamFastPathCompatible and TlDatagramFastPathCompatible
+	members, which are merged into FastPathCompatible.
+	(note msdn is wrong here).
+
 2012-01-26  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* mprapi.h (MprAdminConnectionRemoveQuarantine): Revert
