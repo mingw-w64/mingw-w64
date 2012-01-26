@@ -7,7 +7,7 @@
 #include <rpc.h>
 #include <rpcndr.h>
 
-#if !defined(COM_NO_WINDOWS_H) && !defined(__WINESRC__)
+#ifndef COM_NO_WINDOWS_H
 #include <windows.h>
 #include <ole2.h>
 #endif
