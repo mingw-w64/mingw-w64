@@ -1241,7 +1241,7 @@ typedef struct _DIACTIONA {
 	UINT_PTR	uAppData;
 	DWORD		dwSemantic;
 	DWORD		dwFlags;
-	union {
+	__GNU_EXTENSION union {
 		LPCSTR	lptszActionName;
 		UINT	uResIdString;
 	} DUMMYUNIONNAME;
@@ -1255,7 +1255,7 @@ typedef struct _DIACTIONW {
 	UINT_PTR	uAppData;
 	DWORD		dwSemantic;
 	DWORD		dwFlags;
-	union {
+	__GNU_EXTENSION union {
 		LPCWSTR	lptszActionName;
 		UINT	uResIdString;
 	} DUMMYUNIONNAME;
