@@ -15,6 +15,13 @@
    !defined(NONAMELESSSTRUCT)
 #define NONAMELESSSTRUCT	1
 #endif
+#if !defined(__GNU_EXTENSION)
+#if defined(__GNUC__) || defined(__GNUG__)
+#define __GNU_EXTENSION		__extension__
+#else
+#define __GNU_EXTENSION
+#endif
+#endif /* __extension__ */
 
 #ifndef __ANONYMOUS_DEFINED
 #define __ANONYMOUS_DEFINED
