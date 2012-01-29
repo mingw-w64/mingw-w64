@@ -63,6 +63,7 @@ I_BrowserSetNetlogonState@16
 I_DsUpdateReadOnlyServerDnsRecords@28
 I_NetAccountDeltas@48
 I_NetAccountSync@48
+I_NetChainSetClientAttributes2@36
 I_NetChainSetClientAttributes@36
 I_NetDatabaseDeltas@32
 I_NetDatabaseRedo@28
@@ -114,7 +115,14 @@ I_NetServerTrustPasswordsGet@32
 I_NetlogonComputeClientDigest@24
 I_NetlogonComputeServerDigest@24
 I_NetlogonGetTrustRid@12
+NetAccessAdd@16
+NetAccessDel@8
+NetAccessEnum@36
+NetAccessGetInfo@16
+NetAccessGetUserPerms@16
+NetAccessSetInfo@20
 NetAddAlternateComputerName@20
+NetAddServiceAccount@16
 NetAlertRaise@12
 NetAlertRaiseEx@16
 NetApiBufferAllocate@8
@@ -158,6 +166,7 @@ NetDfsSetInfo@20
 NetDfsSetSecurity@12
 NetDfsSetStdContainerSecurity@12
 NetEnumerateComputerNames@20
+NetEnumerateServiceAccounts@16
 NetEnumerateTrustedDomains@8
 NetErrorLogClear@12
 NetErrorLogRead@44
@@ -179,6 +188,7 @@ NetGroupGetInfo@16
 NetGroupGetUsers@32
 NetGroupSetInfo@20
 NetGroupSetUsers@20
+NetIsServiceAccount@12
 NetJoinDomain@24
 NetLocalGroupAdd@16
 NetLocalGroupAddMember@12
@@ -198,11 +208,14 @@ NetMessageNameAdd@8
 NetMessageNameDel@8
 NetMessageNameEnum@28
 NetMessageNameGetInfo@16
+NetProvisionComputerAccount@32
 NetQueryDisplayInformation@28
+NetQueryServiceAccount@16
 NetRegisterDomainNameChangeNotification@4
 NetRemoteComputerSupports@12
 NetRemoteTOD@8
 NetRemoveAlternateComputerName@20
+NetRemoveServiceAccount@12
 NetRenameMachineInDomain@20
 NetReplExportDirAdd@16
 NetReplExportDirDel@8
@@ -248,6 +261,7 @@ NetRplWkstaDel@8
 NetRplWkstaEnum@32
 NetRplWkstaGetInfo@16
 NetRplWkstaSetInfo@20
+NetRequestOfflineDomainJoin@16
 NetScheduleJobAdd@12
 NetScheduleJobDel@12
 NetScheduleJobEnum@24
@@ -372,6 +386,7 @@ NetpParmsQueryUserProperty@16
 NetpParmsQueryUserPropertyWithLength@16
 NetpParmsSetUserProperty@28
 NetpParmsUserPropertyFree@4
+NetpOpenConfigData@12
 NetpSetFileSecurity@12
 NetpSmbCheck@20
 NetpStringToNetBiosName@16
@@ -395,4 +410,4 @@ RxNetAccessGetUserPerms@16
 RxNetAccessSetInfo@20
 RxNetServerEnum@40
 RxNetUserPasswordSet@16
-RxRemoteApi
+RxRemoteApi@0

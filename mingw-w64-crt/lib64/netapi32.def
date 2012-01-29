@@ -64,6 +64,7 @@ I_DsUpdateReadOnlyServerDnsRecords
 I_NetAccountDeltas
 I_NetAccountSync
 I_NetChainSetClientAttributes
+I_NetChainSetClientAttributes2
 I_NetDatabaseDeltas
 I_NetDatabaseRedo
 I_NetDatabaseSync
@@ -74,6 +75,10 @@ I_NetDfsDeleteExitPoint
 I_NetDfsDeleteLocalPartition
 I_NetDfsFixLocalVolume
 I_NetDfsGetFtServers
+I_NetDatabaseDeltas
+I_NetDatabaseRedo
+I_NetDatabaseSync
+I_NetDatabaseSync2
 I_NetDfsGetVersion
 I_NetDfsIsThisADomainName
 I_NetDfsManagerReportSiteInfo
@@ -100,6 +105,11 @@ I_NetNameValidate
 I_NetPathCanonicalize
 I_NetPathCompare
 I_NetPathType
+I_NetLogonSamLogonEx
+I_NetLogonSamLogonWithFlags
+I_NetLogonSendToSam
+I_NetLogonUasLogoff
+I_NetLogonUasLogon
 I_NetServerAuthenticate
 I_NetServerAuthenticate2
 I_NetServerAuthenticate3
@@ -114,7 +124,14 @@ I_NetServerTrustPasswordsGet
 I_NetlogonComputeClientDigest
 I_NetlogonComputeServerDigest
 I_NetlogonGetTrustRid
+NetAccessAdd
+NetAccessDel
+NetAccessEnum
+NetAccessGetInfo
+NetAccessGetUserPerms
+NetAccessSetInfo
 NetAddAlternateComputerName
+NetAddServiceAccount
 NetAlertRaise
 NetAlertRaiseEx
 NetApiBufferAllocate
@@ -158,6 +175,7 @@ NetDfsSetInfo
 NetDfsSetSecurity
 NetDfsSetStdContainerSecurity
 NetEnumerateComputerNames
+NetEnumerateServiceAccounts
 NetEnumerateTrustedDomains
 NetErrorLogClear
 NetErrorLogRead
@@ -179,6 +197,7 @@ NetGroupGetInfo
 NetGroupGetUsers
 NetGroupSetInfo
 NetGroupSetUsers
+NetIsServiceAccount
 NetJoinDomain
 NetLocalGroupAdd
 NetLocalGroupAddMember
@@ -198,11 +217,14 @@ NetMessageNameAdd
 NetMessageNameDel
 NetMessageNameEnum
 NetMessageNameGetInfo
+NetProvisionComputerAccount
 NetQueryDisplayInformation
+NetQueryServiceAccount
 NetRegisterDomainNameChangeNotification
 NetRemoteComputerSupports
 NetRemoteTOD
 NetRemoveAlternateComputerName
+NetRemoveServiceAccount
 NetRenameMachineInDomain
 NetReplExportDirAdd
 NetReplExportDirDel
@@ -219,6 +241,7 @@ NetReplImportDirGetInfo
 NetReplImportDirLock
 NetReplImportDirUnlock
 NetReplSetInfo
+NetRequestOfflineDomainJoin
 NetScheduleJobAdd
 NetScheduleJobDel
 NetScheduleJobEnum
