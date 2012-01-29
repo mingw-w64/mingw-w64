@@ -410,4 +410,4 @@ RxNetAccessGetUserPerms@16
 RxNetAccessSetInfo@20
 RxNetServerEnum@40
 RxNetUserPasswordSet@16
-RxRemoteApi@0
+RxRemoteApi
