@@ -66,10 +66,11 @@ typedef long HRESULT;
 #endif
 #endif /* C_ASSERT */
 
+/* extern removed for C mode to avoid double extern qualifier from __CRT_INLINE */
 #ifdef __cplusplus
 #define _STRSAFE_EXTERN_C extern "C"
 #else
-#define _STRSAFE_EXTERN_C extern
+#define _STRSAFE_EXTERN_C
 #endif
 
 #ifndef WINAPI

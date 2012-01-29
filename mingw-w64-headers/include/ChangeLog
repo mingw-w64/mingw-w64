@@ -1,3 +1,8 @@
+2012-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* strsafe.h (MPRAPI_OBJECT_HEADER): Fix double extern qualifier in
+	_STRSAFE_EXTERN_C. __CRT_INLINE macro already has extern.
+    
 2012-01-26  Kai Tietz  <ktietz@redhat.com>
 
         * nldef.h (NL_INTERFACE_OFFLOAD_ROD): Remove
