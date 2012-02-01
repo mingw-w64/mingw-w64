@@ -74,6 +74,7 @@ ClientToScreen
 ClipCursor
 CloseClipboard
 CloseDesktop
+CloseGestureInfoHandle
 CloseTouchInputHandle
 CloseWindow
 CloseWindowStation
@@ -289,6 +290,9 @@ GetDlgItemTextW
 GetDoubleClickTime
 GetFocus
 GetForegroundWindow
+GetGestureConfig
+GetGestureExtraArgs
+GetGestureInfo
 GetGUIThreadInfo
 GetGuiResources
 GetIconInfo
@@ -616,6 +620,7 @@ SetDlgItemTextW
 SetDoubleClickTime
 SetFocus
 SetForegroundWindow
+SetGestureConfig
 SetInternalWindowPos
 SetKeyboardState
 SetLastErrorEx

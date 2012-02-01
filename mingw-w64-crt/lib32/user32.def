@@ -63,6 +63,7 @@ ClientToScreen@8
 ClipCursor@4
 CloseClipboard@0
 CloseDesktop@4
+CloseGestureInfoHandle@4
 CloseTouchInputHandle@4
 CloseWindow@4
 CloseWindowStation@4
@@ -260,6 +261,9 @@ GetDlgItemTextW@16
 GetDoubleClickTime@0
 GetFocus@0
 GetForegroundWindow@0
+GetGestureConfig@24
+GetGestureExtraArgs@12
+GetGestureInfo@8
 GetGUIThreadInfo@8
 GetGuiResources@8
 GetIconInfo@8
@@ -535,6 +539,7 @@ SetDlgItemTextW@12
 SetDoubleClickTime@4
 SetFocus@4
 SetForegroundWindow@4
+SetGestureConfig@20
 SetKeyboardState@4
 SetLastErrorEx@8
 SetLayeredWindowAttributes@16

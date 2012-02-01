@@ -1,3 +1,9 @@
+2012-02-01  Kai Tietz  <ktietz@redhat.com>
+
+	* lib32/user32.def, lib64/user32.def: Add imports for
+	SetGestureConfig, GetGestureConfig, GetGestureInfo, and
+	CloseGestureInfoHandle.
+
 2012-01-24  Kai Tietz  <ktietz@redhat.com>
 
 	* lib64/msvcrt.def: Add forwarders to wide-(v)snprintf
