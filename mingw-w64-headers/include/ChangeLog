@@ -1,3 +1,7 @@
+2012-02-01  Kai Tietz  <ktietz@redhat.com>
+
+	* shobjidl.h (THBN_CLICKED): Define constant.
+
 2012-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* strsafe.h (MPRAPI_OBJECT_HEADER): Fix double extern qualifier in

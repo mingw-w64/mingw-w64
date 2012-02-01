@@ -3054,6 +3054,8 @@ typedef struct THUMBBUTTON {
 typedef struct THUMBBUTTON *LPTHUMBBUTTON;
 #include <poppack.h>
 
+#define THBN_CLICKED 0x1800
+
 /*****************************************************************************
  * ITaskbarList3 interface
  */
