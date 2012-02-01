@@ -667,6 +667,7 @@ enable_maintainer_mode
 with_widl
 enable_crt
 enable_sdk
+enable_idl
 enable_secure_api
 '
       ac_precious_vars='build_alias
@@ -1297,7 +1298,9 @@ Optional Features:
 			  (and sometimes confusing) to the casual installer
   --disable-crt           Do not use the default crt headers
   --enable-sdk=ARG        Add the desired SDK, where ARG can be one of ddk,
-                          directx, idl or all
+                          directx, no or all
+  --enable-idl            Enable generation of headers via idl in
+                          maintainer-mode (default disabled)
   --enable-secure-api     Enable secure API by default
 
 Optional Packages:
@@ -2558,7 +2561,6 @@ MINGWHELPERHEAD_LIST=$srcdir/include/psdk_inc/*.h
 
 enable_directx=no
 enable_ddk=no
-enable_idl=no
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for optional sdk headers" >&5
 $as_echo_n "checking for optional sdk headers... " >&6; }
@@ -2566,13 +2568,13 @@ $as_echo_n "checking for optional sdk headers... " >&6; }
 if test "${enable_sdk+set}" = set; then :
   enableval=$enable_sdk;
 else
-  enable_sdk=no
+  enable_sdk=all
 fi
 
 case $enable_sdk in #(
   all|yes) :
 
-    enable_sdk="ddk,directx,idl"
+    enable_sdk="ddk,directx"
     enable_ddk=yes
     enable_directx=yes ;; #(
   ddk) :
@@ -2581,13 +2583,10 @@ case $enable_sdk in #(
   directx) :
 
     enable_directx=yes ;; #(
-  idl) :
-
-    enable_idl=yes ;; #(
   no) :
      ;; #(
   *) :
-    as_fn_error $? "Invalid option: $enable_sdk.  Please choose one of ddk, directx, idl or all." "$LINENO" 5 ;;
+    as_fn_error $? "Invalid option: $enable_sdk.  Please choose one of ddk, directx, no or all." "$LINENO" 5 ;;
 esac
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_sdk" >&5
 $as_echo "$enable_sdk" >&6; }
@@ -2618,7 +2617,17 @@ fi
 
 
 
-if test "x$enable_idl" = xyes; then :
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking if headers generation via idl is enabled" >&5
+$as_echo_n "checking if headers generation via idl is enabled... " >&6; }
+# Check whether --enable-idl was given.
+if test "${enable_idl+set}" = set; then :
+  enableval=$enable_idl;
+fi
+
+test -z "$enable_idl" && enable_idl="no"
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_idl" >&5
+$as_echo "$enable_idl" >&6; }
+if test "x$enable_idl" = xno; then :
 
     IDLHEAD_LIST=$srcdir/idl/*.idl
 fi

@@ -1,0 +1,5 @@
+2012-02-01  Rafaël Carré <funman@videolan.org>
+
+	* configure.ac: Move IDL generation option from --enable-sdk=idl to --enable-idl.
+	* configure.ac: Enable DirectX / DDK headers by default.
+	* configure: Regenerate.
