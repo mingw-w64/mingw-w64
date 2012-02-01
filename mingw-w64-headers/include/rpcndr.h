@@ -46,7 +46,9 @@ extern "C" {
 #define TARGET_IS_NT40_OR_LATER 1
 #define TARGET_IS_NT351_OR_WIN95_OR_LATER 1
 
+#ifdef RC_INVOKED
 #define small char
+#endif
   typedef unsigned char byte;
   typedef byte cs_byte;
   typedef unsigned char boolean;

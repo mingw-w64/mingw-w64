@@ -1,5 +1,7 @@
 2012-02-01  Kai Tietz  <ktietz@redhat.com>
 
+	* rpcndr.h (small): Define only if RC_INVOKED is defined.
+
 	* shobjidl.h (THBN_CLICKED): Define constant.
 
 2012-01-29  Jonathan Yong  <jon_y@users.sourceforge.net>
