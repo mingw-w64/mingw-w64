@@ -1,3 +1,10 @@
+2012-02-01  Rafaël Carré <funman@videolan.org>
+
+	* dxva2api.h (Direct3DDeviceManager9): Fix COBJMACROS to use lpVtbl.
+	(DirectXVideoDecoder): Likewise.
+	(DirectXVideoAccelerationService): Likewise.
+	(DirectXVideoDecoderService): Likewise.
+
 2012-02-01  Kai Tietz  <ktietz@redhat.com>
 
 	* rpcndr.h (small): Define only if RC_INVOKED is defined.

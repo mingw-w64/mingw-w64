@@ -605,9 +605,9 @@ DECLARE_INTERFACE_(IDirectXVideoDecoder,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDirectXVideoDecoder_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDirectXVideoDecoder_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDirectXVideoDecoder_Release(This) (This)->pVtbl->Release(This)
+#define IDirectXVideoDecoder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDirectXVideoDecoder_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDirectXVideoDecoder_Release(This) (This)->lpVtbl->Release(This)
 #define IDirectXVideoDecoder_GetVideoDecoderService(This,ppAccelServices) (This)->lpVtbl->GetVideoDecoderService(This,ppAccelServices)
 #define IDirectXVideoDecoder_GetCreationParameters(This,pDeviceGuid,pVideoDesc,pConfig,pppDecoderRenderTargets,pNumSurfaces) (This)->lpVtbl->GetCreationParameters(This,pDeviceGuid,pVideoDesc,pConfig,pppDecoderRenderTargets,pNumSurfaces)
 #define IDirectXVideoDecoder_GetBuffer(This,BufferType,ppBuffer,pBufferSize) (This)->lpVtbl->GetBuffer(This,BufferType,ppBuffer,pBufferSize)
@@ -634,9 +634,9 @@ DECLARE_INTERFACE_(IDirectXVideoAccelerationService,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDirectXVideoAccelerationService_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDirectXVideoAccelerationService_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDirectXVideoAccelerationService_Release(This) (This)->pVtbl->Release(This)
+#define IDirectXVideoAccelerationService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDirectXVideoAccelerationService_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDirectXVideoAccelerationService_Release(This) (This)->lpVtbl->Release(This)
 #define IDirectXVideoAccelerationService_CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle) (This)->lpVtbl->CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle)
 #endif /*COBJMACROS*/
 
@@ -663,9 +663,9 @@ DECLARE_INTERFACE_(IDirectXVideoDecoderService,IDirectXVideoAccelerationService)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDirectXVideoDecoderService_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDirectXVideoDecoderService_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDirectXVideoDecoderService_Release(This) (This)->pVtbl->Release(This)
+#define IDirectXVideoDecoderService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDirectXVideoDecoderService_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDirectXVideoDecoderService_Release(This) (This)->lpVtbl->Release(This)
 #define IDirectXVideoDecoderService_CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle) (This)->lpVtbl->CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle)
 #define IDirectXVideoDecoderService_GetDecoderDeviceGuids(This,Count,pGuids) (This)->lpVtbl->GetDecoderDeviceGuids(This,Count,pGuids)
 #define IDirectXVideoDecoderService_GetDecoderRenderTargets(This,Guid,pCount,pFormats) (This)->lpVtbl->GetDecoderRenderTargets(This,Guid,pCount,pFormats)
@@ -696,9 +696,9 @@ DECLARE_INTERFACE_(IDirect3DDeviceManager9,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDirect3DDeviceManager9_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDirect3DDeviceManager9_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDirect3DDeviceManager9_Release(This) (This)->pVtbl->Release(This)
+#define IDirect3DDeviceManager9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDirect3DDeviceManager9_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDirect3DDeviceManager9_Release(This) (This)->lpVtbl->Release(This)
 #define IDirect3DDeviceManager9_ResetDevice(This,pDevice,resetToken) (This)->lpVtbl->ResetDevice(This,pDevice,resetToken)
 #define IDirect3DDeviceManager9_OpenDeviceHandle(This,phDevice) (This)->lpVtbl->OpenDeviceHandle(This,phDevice)
 #define IDirect3DDeviceManager9_CloseDeviceHandle(This,hDevice) (This)->lpVtbl->CloseDeviceHandle(This,hDevice)
