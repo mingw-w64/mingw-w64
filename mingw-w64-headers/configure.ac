@@ -78,9 +78,9 @@ enable_ddk=no
 AC_MSG_CHECKING([for optional sdk headers])
 AC_ARG_ENABLE([sdk],
   [AS_HELP_STRING([--enable-sdk=ARG],
-    [Add the desired SDK, where ARG can be one of ddk, directx or all])],
+    [Add the desired SDK, where ARG can be one of ddk, directx, no or all])],
   [],
-  [enable_sdk=no])
+  [enable_sdk=all])
 AS_CASE([$enable_sdk],
   [all|yes],[
     enable_sdk="ddk,directx"
@@ -91,7 +91,7 @@ AS_CASE([$enable_sdk],
   [directx],[
     enable_directx=yes],
   [no],[],
-  [AC_MSG_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx or all.])])
+  [AC_MSG_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx, no or all.])])
 AC_MSG_RESULT([$enable_sdk])
 
 AS_VAR_IF([enable_directx],[yes],[
