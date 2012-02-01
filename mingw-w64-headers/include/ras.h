@@ -10,6 +10,7 @@
 
 #include <inaddr.h>
 #include <in6addr.h>
+#include <naptypes.h>
 
 #ifdef __cplusplus
 extern "C" {
