@@ -74,27 +74,24 @@ AC_SUBST([SECSYSHEAD_LIST])
 
 enable_directx=no
 enable_ddk=no
-enable_idl=no
 
 AC_MSG_CHECKING([for optional sdk headers])
 AC_ARG_ENABLE([sdk],
   [AS_HELP_STRING([--enable-sdk=ARG],
-    [Add the desired SDK, where ARG can be one of ddk, directx, idl or all])],
+    [Add the desired SDK, where ARG can be one of ddk, directx or all])],
   [],
   [enable_sdk=no])
 AS_CASE([$enable_sdk],
   [all|yes],[
-    enable_sdk="ddk,directx,idl"
+    enable_sdk="ddk,directx"
     enable_ddk=yes
     enable_directx=yes],
   [ddk],[
     enable_ddk=yes],
   [directx],[
     enable_directx=yes],
-  [idl],[
-    enable_idl=yes],
   [no],[],
-  [AC_MSG_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx, idl or all.])])
+  [AC_MSG_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx or all.])])
 AC_MSG_RESULT([$enable_sdk])
 
 AS_VAR_IF([enable_directx],[yes],[
@@ -115,8 +112,14 @@ AS_VAR_IF([enable_ddk],[yes],[
 AC_SUBST([DDKHEAD_LIST])
 AC_SUBST([MINGW_HAS_DDK])
 
-AS_VAR_IF([enable_idl],[yes],[
-    IDLHEAD_LIST=$srcdir/idl/*.idl],[])
+AC_MSG_CHECKING([if headers generation via idl is enabled])
+AC_ARG_ENABLE([idl],
+    [AS_HELP_STRING([--enable-idl],
+        [Enable generation of headers via idl in maintainer-mode (default disabled)])])
+test -z "$enable_idl" && enable_idl="no"
+AC_MSG_RESULT([$enable_idl])
+AS_VAR_IF([enable_idl],[no],[
+    IDLHEAD_LIST=$srcdir/idl/*.idl])
 AC_SUBST([IDLHEAD_LIST])
 
 AC_MSG_CHECKING([whether to enable the secure API])
