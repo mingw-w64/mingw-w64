@@ -1,3 +1,7 @@
+2012-02-02  Rafaël Carré  <funman@videolan.org>
+
+	* libsrc/strmiids.c (MEDIASUBTYPE_I420): Add GUID.
+
 2012-02-01  Kai Tietz  <ktietz@redhat.com>
 
 	* lib32/user32.def, lib64/user32.def: Add imports for
