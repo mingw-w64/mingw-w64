@@ -2568,7 +2568,7 @@ $as_echo_n "checking for optional sdk headers... " >&6; }
 if test "${enable_sdk+set}" = set; then :
   enableval=$enable_sdk;
 else
-  enable_sdk=all
+  enable_sdk=directx
 fi
 
 case $enable_sdk in #(

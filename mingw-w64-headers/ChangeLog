@@ -1,3 +1,7 @@
+2012-02-02  Rafaël Carré <funman@videolan.org>
+
+	* configure.ac: Do not enable DDK by default as the headers are absent from the repository.
+	* configure: Regenerate.
 2012-02-01  Rafaël Carré <funman@videolan.org>
 
 	* configure.ac: Move IDL generation option from --enable-sdk=idl to --enable-idl.
