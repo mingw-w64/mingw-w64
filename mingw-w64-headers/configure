@@ -2562,13 +2562,31 @@ MINGWHELPERHEAD_LIST=$srcdir/include/psdk_inc/*.h
 enable_directx=no
 enable_ddk=no
 
+if test -d ddk/include/ddk
+then
+    # DDK headers have been fetched from ReactOS
+    ddk_present=yes
+else
+    # DDK heaers are absent
+    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: svn checkout incomplete, ddk headers missing." >&5
+$as_echo "$as_me: WARNING: svn checkout incomplete, ddk headers missing." >&2;}
+    ddk_present=no
+fi
+
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for optional sdk headers" >&5
 $as_echo_n "checking for optional sdk headers... " >&6; }
 # Check whether --enable-sdk was given.
 if test "${enable_sdk+set}" = set; then :
   enableval=$enable_sdk;
 else
-  enable_sdk=directx
+
+  if test "${ddk_present}" = no
+  then
+    enable_sdk=directx
+  else
+    enable_sdk=all
+  fi
+
 fi
 
 case $enable_sdk in #(

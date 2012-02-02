@@ -75,12 +75,29 @@ AC_SUBST([SECSYSHEAD_LIST])
 enable_directx=no
 enable_ddk=no
 
+if test -d ddk/include/ddk
+then
+    # DDK headers have been fetched from ReactOS
+    ddk_present=yes
+else
+    # DDK heaers are absent
+    AC_MSG_WARN([svn checkout incomplete, ddk headers missing.])
+    ddk_present=no
+fi
+
 AC_MSG_CHECKING([for optional sdk headers])
 AC_ARG_ENABLE([sdk],
   [AS_HELP_STRING([--enable-sdk=ARG],
     [Add the desired SDK, where ARG can be one of ddk, directx, no or all])],
   [],
-  [enable_sdk=directx])
+  [
+  if test "${ddk_present}" = no
+  then
+    enable_sdk=directx
+  else
+    enable_sdk=all
+  fi
+  ])
 AS_CASE([$enable_sdk],
   [all|yes],[
     enable_sdk="ddk,directx"

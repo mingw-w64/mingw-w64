@@ -1,6 +1,7 @@
 2012-02-02  Rafaël Carré <funman@videolan.org>
 
-	* configure.ac: Do not enable DDK by default as the headers are absent from the repository.
+	* configure.ac: Give a warning if DDK headers are not present.
+	* configure.ac: Enable DDK by default only if the headers are present.
 	* configure: Regenerate.
 2012-02-01  Rafaël Carré <funman@videolan.org>
 
