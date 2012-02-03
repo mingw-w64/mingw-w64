@@ -1744,13 +1744,21 @@ DECLARE_INTERFACE_(ID2D1HwndRenderTarget, ID2D1RenderTarget)
   STDMETHOD_(void, DrawBitmap)(THIS_ ID2D1Bitmap *bitmap, D2D1_RECT_F *destinationRectangle, FLOAT opacity, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode , D2D1_RECT_F *sourceRectangle) PURE;
   STDMETHOD_(void, DrawEllipse)(THIS_ D2D1_ELLIPSE *ellipse, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
   STDMETHOD_(void, DrawGeometry)(THIS_ ID2D1Geometry *geometry, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
+#ifdef D2D_USE_C_DEFINITIONS
+  STDMETHOD_(void, DrawGlyphRun)(THIS_ D2D1_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN *glyphRun, ID2D1Brush *foregroundBrush, DWRITE_MEASURING_MODE measuringMode) PURE;
+#else
   STDMETHOD_(void, DrawGlyphRun)(THIS_ D2D1_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN *glyphRun, ID2D1Brush *foregroundBrush, DWRITE_MEASURING_MODE measuringMode = DWRITE_MEASURING_MODE_NATURAL) PURE;
+#endif
   STDMETHOD_(void, DrawLine)(THIS_ D2D1_POINT_2F point0, D2D1_POINT_2F point1, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
   STDMETHOD_(void, DrawRectangle)(THIS_ D2D1_RECT_F *rect, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
   STDMETHOD_(void, DrawRoundedRectangle)(THIS_ D2D1_ROUNDED_RECT *roundedRect, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
   STDMETHOD_(void, DrawText)(THIS_ WCHAR *string, UINT stringLength, IDWriteTextFormat *textFormat, D2D1_RECT_F *layoutRect, ID2D1Brush *defaultForegroundBrush, D2D1_DRAW_TEXT_OPTIONS options , DWRITE_MEASURING_MODE measuringMode) PURE;
   STDMETHOD_(void, DrawTextLayout)(THIS_ D2D1_POINT_2F origin, IDWriteTextLayout *textLayout, ID2D1Brush *defaultForegroundBrush, D2D1_DRAW_TEXT_OPTIONS options) PURE;
+#ifdef D2D_USE_C_DEFINITIONS
+  STDMETHOD(EndDraw)(THIS_ D2D1_TAG *tag1, D2D1_TAG *tag2) PURE;
+#else
   STDMETHOD(EndDraw)(THIS_ D2D1_TAG *tag1 = NULL, D2D1_TAG *tag2 = NULL) PURE;
+#endif
   STDMETHOD_(void, FillEllipse)(THIS_ D2D1_ELLIPSE *ellipse, ID2D1Brush *brush) PURE;
   STDMETHOD_(void, FillGeometry)(THIS_ ID2D1Geometry *geometry, ID2D1Brush *brush, ID2D1Brush *opacityBrush) PURE;
   STDMETHOD_(void, FillMesh)(THIS_ ID2D1Mesh *mesh, ID2D1Brush *brush) PURE;
