@@ -223,6 +223,11 @@ typedef interface ITaskbarList3 ITaskbarList3;
 typedef interface ITaskbarList4 ITaskbarList4;
 #endif
 
+#ifndef __IApplicationAssociationRegistrationUI_FWD_DEFINED__
+#define __IApplicationAssociationRegistrationUI_FWD_DEFINED__
+typedef interface IApplicationAssociationRegistrationUI IApplicationAssociationRegistrationUI;
+#endif
+
 #ifndef __ICDBurn_FWD_DEFINED__
 #define __ICDBurn_FWD_DEFINED__
 typedef struct ICDBurn ICDBurn;
@@ -3448,6 +3453,59 @@ interface ITaskbarList4 {
 #endif
 #endif  /* __ITaskbarList4_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IApplicationAssociationRegistrationUI interface
+ */
+#ifndef __IApplicationAssociationRegistrationUI_INTERFACE_DEFINED__
+#define __IApplicationAssociationRegistrationUI_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IApplicationAssociationRegistrationUI, 0x1f76a169, 0xf994, 0x40ac, 0x8f, 0xc8, 0x09, 0x59, 0xe8, 0x87, 0x47, 0x10);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+interface IApplicationAssociationRegistrationUI : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE LaunchAdvancedAssociationUI(
+        LPCWSTR pszAppRegName) = 0;
+
+};
+#else
+typedef struct IApplicationAssociationRegistrationUIVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IApplicationAssociationRegistrationUI* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IApplicationAssociationRegistrationUI* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IApplicationAssociationRegistrationUI* This);
+
+    /*** IApplicationAssociationRegistrationUI methods ***/
+    HRESULT (STDMETHODCALLTYPE *LaunchAdvancedAssociationUI)(
+        IApplicationAssociationRegistrationUI* This,
+        LPCWSTR pszAppRegName);
+
+    END_INTERFACE
+} IApplicationAssociationRegistrationUIVtbl;
+interface IApplicationAssociationRegistrationUI {
+    CONST_VTBL IApplicationAssociationRegistrationUIVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IApplicationAssociationRegistrationUI_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IApplicationAssociationRegistrationUI_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IApplicationAssociationRegistrationUI_Release(This) (This)->lpVtbl->Release(This)
+/*** IApplicationAssociationRegistrationUI methods ***/
+#define IApplicationAssociationRegistrationUI_LaunchAdvancedAssociationUI(This) (This)->lpVtbl->LaunchAdvancedAssociationUI(This)
+#endif
+
+#endif
+#endif  /* __IApplicationAssociationRegistrationUI_INTERFACE_DEFINED__ */
+
 #ifndef __ICDBurn_INTERFACE_DEFINED__
 #define __ICDBurn_INTERFACE_DEFINED__
   EXTERN_C const IID IID_ICDBurn;
@@ -6473,6 +6531,10 @@ interface ICustomDestinationList {
 #ifdef __cplusplus
   class TaskbarList;
 #endif
+  EXTERN_C const CLSID CLSID_ApplicationAssociationRegistrationUI;
+#ifdef __cplusplus
+  class ApplicationAssociationRegistrationUI;
+#endif
   EXTERN_C const CLSID CLSID_WebWizardHost;
 #ifdef __cplusplus
   class WebWizardHost;
@@ -6531,6 +6593,12 @@ DEFINE_GUID(CLSID_ShellLink, 0x00021401, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x
  */
 
 DEFINE_GUID(CLSID_TaskbarList, 0x56fdf344, 0xfd6d, 0x11d0, 0x95,0x8a, 0x00,0x60,0x97,0xc9,0xa0,0x90);
+
+/*****************************************************************************
+ * ApplicationAssociationRegistrationUI coclass
+ */
+
+DEFINE_GUID(CLSID_ApplicationAssociationRegistrationUI, 0x1968106d, 0xf3b5, 0x44cf, 0x89,0x0e, 0x11,0x6f,0xcb,0x9e,0xce,0xf1);
 
 /*****************************************************************************
  * DestinationList coclass
