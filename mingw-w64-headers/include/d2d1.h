@@ -1728,72 +1728,64 @@ DECLARE_INTERFACE_(ID2D1HwndRenderTarget, ID2D1RenderTarget)
   STDMETHOD_(void, GetFactory)(THIS_ ID2D1Factory **factory) PURE;
 
   /* ID2D1RenderTarget methods */
-  STDMETHOD_(void, BeginDraw)(THIS) PURE;
-  STDMETHOD_(void, Clear)(THIS_ const D2D1_COLOR_F *clearColor) PURE;
-  STDMETHOD(CreateBitmap)(THIS_ D2D1_SIZE_U size, void *srcData, UINT32 pitch, D2D1_BITMAP_PROPERTIES *bitmapProperties, ID2D1Bitmap **bitmap) PURE;
-  STDMETHOD(CreateBitmapBrush)(THIS_ ID2D1Bitmap *bitmap, ID2D1BitmapBrush **bitmapBrush) PURE;
-  STDMETHOD(CreateBitmapFromWicBitmap)(THIS_ IWICBitmapSource *wicBitmapSource, ID2D1Bitmap **bitmap) PURE;
-  STDMETHOD(CreateCompatibleRenderTarget)(THIS_ ID2D1BitmapRenderTarget **bitmapRenderTarget) PURE;
-  STDMETHOD(CreateGradientStopCollection)(THIS_ D2D1_GRADIENT_STOP *gradientStops, UINT gradientStopsCount, ID2D1GradientStopCollection **gradientStopCollection) PURE;
-  STDMETHOD(CreateLayer)(THIS_ ID2D1Layer **layer) PURE;
-  STDMETHOD(CreateLinearGradientBrush)(THIS_ D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES *linearGradientBrushProperties, D2D1_BRUSH_PROPERTIES *brushProperties, ID2D1GradientStopCollection *gradientStopCollection, ID2D1LinearGradientBrush **linearGradientBrush) PURE;
-  STDMETHOD(CreateMesh)(THIS_ ID2D1Mesh **mesh) PURE;
-  STDMETHOD(CreateRadialGradientBrush)(THIS_ D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES *radialGradientBrushProperties, D2D1_BRUSH_PROPERTIES *brushProperties, ID2D1GradientStopCollection *gradientStopCollection, ID2D1RadialGradientBrush **radialGradientBrush) PURE;
-  STDMETHOD(CreateSharedBitmap)(THIS_ REFIID riid, void *data, D2D1_BITMAP_PROPERTIES *bitmapProperties, ID2D1Bitmap **bitmap) PURE;
-  STDMETHOD(CreateSolidColorBrush)(THIS_ const D2D1_COLOR_F *color, const D2D1_BRUSH_PROPERTIES *brushProperties, ID2D1SolidColorBrush **solidColorBrush) PURE;
-  STDMETHOD_(void, DrawBitmap)(THIS_ ID2D1Bitmap *bitmap, D2D1_RECT_F *destinationRectangle, FLOAT opacity, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode , D2D1_RECT_F *sourceRectangle) PURE;
-  STDMETHOD_(void, DrawEllipse)(THIS_ D2D1_ELLIPSE *ellipse, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
-  STDMETHOD_(void, DrawGeometry)(THIS_ ID2D1Geometry *geometry, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
-#ifdef D2D_USE_C_DEFINITIONS
-  STDMETHOD_(void, DrawGlyphRun)(THIS_ D2D1_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN *glyphRun, ID2D1Brush *foregroundBrush, DWRITE_MEASURING_MODE measuringMode) PURE;
-#else
-  STDMETHOD_(void, DrawGlyphRun)(THIS_ D2D1_POINT_2F baselineOrigin, DWRITE_GLYPH_RUN *glyphRun, ID2D1Brush *foregroundBrush, DWRITE_MEASURING_MODE measuringMode = DWRITE_MEASURING_MODE_NATURAL) PURE;
-#endif
-  STDMETHOD_(void, DrawLine)(THIS_ D2D1_POINT_2F point0, D2D1_POINT_2F point1, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
-  STDMETHOD_(void, DrawRectangle)(THIS_ D2D1_RECT_F *rect, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
-  STDMETHOD_(void, DrawRoundedRectangle)(THIS_ D2D1_ROUNDED_RECT *roundedRect, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
-  STDMETHOD_(void, DrawText)(THIS_ WCHAR *string, UINT stringLength, IDWriteTextFormat *textFormat, D2D1_RECT_F *layoutRect, ID2D1Brush *defaultForegroundBrush, D2D1_DRAW_TEXT_OPTIONS options , DWRITE_MEASURING_MODE measuringMode) PURE;
-  STDMETHOD_(void, DrawTextLayout)(THIS_ D2D1_POINT_2F origin, IDWriteTextLayout *textLayout, ID2D1Brush *defaultForegroundBrush, D2D1_DRAW_TEXT_OPTIONS options) PURE;
-#ifdef D2D_USE_C_DEFINITIONS
-  STDMETHOD(EndDraw)(THIS_ D2D1_TAG *tag1, D2D1_TAG *tag2) PURE;
-#else
-  STDMETHOD(EndDraw)(THIS_ D2D1_TAG *tag1 = NULL, D2D1_TAG *tag2 = NULL) PURE;
-#endif
-  STDMETHOD_(void, FillEllipse)(THIS_ D2D1_ELLIPSE *ellipse, ID2D1Brush *brush) PURE;
-  STDMETHOD_(void, FillGeometry)(THIS_ ID2D1Geometry *geometry, ID2D1Brush *brush, ID2D1Brush *opacityBrush) PURE;
-  STDMETHOD_(void, FillMesh)(THIS_ ID2D1Mesh *mesh, ID2D1Brush *brush) PURE;
-  STDMETHOD_(void, FillOpacityMask)(THIS_ ID2D1Bitmap *opacityMask, ID2D1Brush *brush, D2D1_OPACITY_MASK_CONTENT content, D2D1_RECT_F *destinationRectangle, D2D1_RECT_F *sourceRectangle) PURE;
-  STDMETHOD_(void, FillRectangle)(THIS_ D2D1_RECT_F *rect, ID2D1Brush *brush) PURE;
-  STDMETHOD_(void, FillRoundedRectangle)(THIS_ D2D1_ROUNDED_RECT *roundedRect, ID2D1Brush *brush) PURE;
-  STDMETHOD(Flush)(THIS_ D2D1_TAG *tag1, D2D1_TAG *tag2) PURE;
-  STDMETHOD_(D2D1_ANTIALIAS_MODE, GetAntialiasMode)(THIS) PURE;
-  STDMETHOD_(void, GetDpi)(THIS_ FLOAT *dpiX, FLOAT *dpiY) PURE;
-  STDMETHOD_(UINT32, GetMaximumBitmapSize)(THIS) PURE;
-  STDMETHOD_(D2D1_PIXEL_FORMAT, GetPixelFormat)(THIS) PURE;
-  STDMETHOD_(D2D1_SIZE_U, GetPixelSize)(THIS) PURE;
-  STDMETHOD_(D2D1_SIZE_F, GetSize)(THIS) PURE;
-  STDMETHOD_(void, GetTags)(THIS_ D2D1_TAG *tag1, D2D1_TAG *tag2) PURE;
-  STDMETHOD_(D2D1_TEXT_ANTIALIAS_MODE, GetTextAntialiasMode)(THIS) PURE;
-  STDMETHOD_(void, GetTextRenderingParams)(THIS_ IDWriteRenderingParams **textRenderingParams) PURE;
-  STDMETHOD_(void, GetTransform)(THIS_ D2D1_MATRIX_3X2_F *transform) PURE;
-  STDMETHOD_(BOOL, IsSupported)(THIS_ D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties) PURE;
-  STDMETHOD_(void, PopAxisAlignedClip)(THIS) PURE;
-  STDMETHOD_(void, PopLayer)(THIS) PURE;
-  STDMETHOD_(void, PushAxisAlignedClip)(THIS_ D2D1_RECT_F *clipRect, D2D1_ANTIALIAS_MODE antialiasMode) PURE;
-  STDMETHOD_(void, PushLayer)(THIS_ D2D1_LAYER_PARAMETERS *layerParameters, ID2D1Layer *layer) PURE;
-  STDMETHOD_(void, RestoreDrawingState)(THIS_ ID2D1DrawingStateBlock *drawingStateBlock) PURE;
-  STDMETHOD_(void, SaveDrawingState)(THIS_ ID2D1DrawingStateBlock *drawingStateBlock) PURE;
-  STDMETHOD_(void, SetAntialiasMode)(THIS_ D2D1_ANTIALIAS_MODE antialiasMode) PURE;
-  STDMETHOD_(void, SetDpi)(THIS_ FLOAT dpiX, FLOAT dpiY) PURE;
-  STDMETHOD_(void, SetTags)(THIS_ D2D1_TAG tag1, D2D1_TAG tag2) PURE;
-  STDMETHOD_(void, SetTextAntialiasMode)(THIS_ D2D1_TEXT_ANTIALIAS_MODE textAntialiasMode) PURE;
-  STDMETHOD_(void, SetTextRenderingParams)(THIS_ IDWriteRenderingParams *textRenderingParams) PURE;
-  STDMETHOD_(void, SetTransform)(THIS_ const D2D1_MATRIX_3X2_F *transform) PURE;
+  STDMETHOD(CreateBitmap)(ID2D1HwndRenderTarget *This, D2D1_SIZE_U size, const void *srcData, UINT32 pitch, const D2D1_BITMAP_PROPERTIES *bitmapProperties, ID2D1Bitmap **bitmap) PURE;
+  STDMETHOD(CreateBitmapFromWicBitmap)(ID2D1HwndRenderTarget *This, IWICBitmapSource *wicBitmapSource, const D2D1_BITMAP_PROPERTIES *bitmapProperties, ID2D1Bitmap **bitmap) PURE;
+  STDMETHOD(CreateSharedBitmap)(ID2D1HwndRenderTarget *This, REFIID riid, void *data, const D2D1_BITMAP_PROPERTIES *bitmapProperties, ID2D1Bitmap **bitmap) PURE;
+  STDMETHOD(CreateBitmapBrush)(ID2D1HwndRenderTarget *This, ID2D1Bitmap *bitmap, const D2D1_BITMAP_BRUSH_PROPERTIES *bitmapBrushProperties, const D2D1_BRUSH_PROPERTIES *brushProperties, ID2D1BitmapBrush **bitmapBrush) PURE;
+  STDMETHOD(CreateSolidColorBrush)(ID2D1HwndRenderTarget *This, const D2D1_COLOR_F *color, const D2D1_BRUSH_PROPERTIES *brushProperties, ID2D1SolidColorBrush **solidColorBrush) PURE;
+  STDMETHOD(CreateGradientStopCollection)(ID2D1HwndRenderTarget *This, const D2D1_GRADIENT_STOP *gradientStops, UINT gradientStopsCount, D2D1_GAMMA colorInterpolationGamma, D2D1_EXTEND_MODE extendMode, ID2D1GradientStopCollection **gradientStopCollection) PURE;
+  STDMETHOD(CreateLinearGradientBrush)(ID2D1HwndRenderTarget *This, const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES *linearGradientBrushProperties, const D2D1_BRUSH_PROPERTIES *brushProperties, ID2D1GradientStopCollection *gradientStopCollection, ID2D1LinearGradientBrush **linearGradientBrush) PURE;
+  STDMETHOD(CreateRadialGradientBrush)(ID2D1HwndRenderTarget *This, const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES *radialGradientBrushProperties, const D2D1_BRUSH_PROPERTIES *brushProperties, ID2D1GradientStopCollection *gradientStopCollection, ID2D1RadialGradientBrush **radialGradientBrush) PURE;
+  STDMETHOD(CreateCompatibleRenderTarget)(ID2D1HwndRenderTarget *This, const D2D1_SIZE_F *desiredSize, const D2D1_SIZE_U *desiredPixelSize, const D2D1_PIXEL_FORMAT *desiredFormat, D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS options, ID2D1BitmapRenderTarget **bitmapRenderTarget) PURE;
+  STDMETHOD(CreateLayer)(ID2D1HwndRenderTarget *This, const D2D1_SIZE_F *size, ID2D1Layer **layer) PURE;
+  STDMETHOD(CreateMesh)(ID2D1HwndRenderTarget *This, ID2D1Mesh **mesh) PURE;
+  STDMETHOD_(void, DrawLine)(ID2D1HwndRenderTarget *This, D2D1_POINT_2F point0, D2D1_POINT_2F point1, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
+  STDMETHOD_(void, DrawRectangle)(ID2D1HwndRenderTarget *This, const D2D1_RECT_F *rect, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
+  STDMETHOD_(void, FillRectangle)(ID2D1HwndRenderTarget *This, const D2D1_RECT_F *rect, ID2D1Brush *brush) PURE;
+  STDMETHOD_(void, DrawRoundedRectangle)(ID2D1HwndRenderTarget *This, const D2D1_ROUNDED_RECT *roundedRect, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
+  STDMETHOD_(void, FillRoundedRectangle)(ID2D1HwndRenderTarget *This, const D2D1_ROUNDED_RECT *roundedRect, ID2D1Brush *brush) PURE;
+  STDMETHOD_(void, DrawEllipse)(ID2D1HwndRenderTarget *This, const D2D1_ELLIPSE *ellipse, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
+  STDMETHOD_(void, FillEllipse)(ID2D1HwndRenderTarget *This, const D2D1_ELLIPSE *ellipse, ID2D1Brush *brush) PURE;
+  STDMETHOD_(void, DrawGeometry)(ID2D1HwndRenderTarget *This, ID2D1Geometry *geometry, ID2D1Brush *brush, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle) PURE;
+  STDMETHOD_(void, FillGeometry)(ID2D1HwndRenderTarget *This, ID2D1Geometry *geometry, ID2D1Brush *brush, ID2D1Brush *opacityBrush) PURE;
+  STDMETHOD_(void, FillMesh)(ID2D1HwndRenderTarget *This, ID2D1Mesh *mesh, ID2D1Brush *brush) PURE;
+  STDMETHOD_(void, FillOpacityMask)(ID2D1HwndRenderTarget *This, ID2D1Bitmap *opacityMask, ID2D1Brush *brush, D2D1_OPACITY_MASK_CONTENT content, const D2D1_RECT_F *destinationRectangle, const D2D1_RECT_F *sourceRectangle) PURE;
+  STDMETHOD_(void, DrawBitmap)(ID2D1HwndRenderTarget *This, ID2D1Bitmap *bitmap, const D2D1_RECT_F *destinationRectangle, FLOAT opacity, D2D1_BITMAP_INTERPOLATION_MODE interpolationMode, const D2D1_RECT_F *sourceRectangle) PURE;
+  STDMETHOD_(void, DrawText)(ID2D1HwndRenderTarget *This, const WCHAR *string, UINT stringLength, IDWriteTextFormat *textFormat, const D2D1_RECT_F *layoutRect, ID2D1Brush *defaultForegroundBrush, D2D1_DRAW_TEXT_OPTIONS options, DWRITE_MEASURING_MODE measuringMode) PURE;
+  STDMETHOD_(void, DrawTextLayout)(ID2D1HwndRenderTarget *This, D2D1_POINT_2F origin, IDWriteTextLayout *textLayout, ID2D1Brush *defaultForegroundBrush, D2D1_DRAW_TEXT_OPTIONS options) PURE;
+  STDMETHOD_(void, DrawGlyphRun)(ID2D1HwndRenderTarget *This, D2D1_POINT_2F baselineOrigin, const DWRITE_GLYPH_RUN *glyphRun, ID2D1Brush *foregroundBrush, DWRITE_MEASURING_MODE measuringMode) PURE;
+  STDMETHOD_(void, SetTransform)(ID2D1HwndRenderTarget *This, const D2D1_MATRIX_3X2_F *transform) PURE;
+  STDMETHOD_(void, GetTransform)(ID2D1HwndRenderTarget *This, D2D1_MATRIX_3X2_F *transform) PURE;
+  STDMETHOD_(void, SetAntialiasMode)(ID2D1HwndRenderTarget *This, D2D1_ANTIALIAS_MODE antialiasMode) PURE;
+  STDMETHOD_(D2D1_ANTIALIAS_MODE, GetAntialiasMode)(ID2D1HwndRenderTarget *This) PURE;
+  STDMETHOD_(void, SetTextAntialiasMode)(ID2D1HwndRenderTarget *This, D2D1_TEXT_ANTIALIAS_MODE textAntialiasMode) PURE;
+  STDMETHOD_(D2D1_TEXT_ANTIALIAS_MODE, GetTextAntialiasMode)(ID2D1HwndRenderTarget *This) PURE;
+  STDMETHOD_(void, SetTextRenderingParams)(ID2D1HwndRenderTarget *This, IDWriteRenderingParams *textRenderingParams) PURE;
+  STDMETHOD_(void, GetTextRenderingParams)(ID2D1HwndRenderTarget *This, IDWriteRenderingParams **textRenderingParams) PURE;
+  STDMETHOD_(void, SetTags)(ID2D1HwndRenderTarget *This, D2D1_TAG tag1, D2D1_TAG tag2) PURE;
+  STDMETHOD_(void, GetTags)(ID2D1HwndRenderTarget *This, D2D1_TAG *tag1, D2D1_TAG *tag2) PURE;
+  STDMETHOD_(void, PushLayer)(ID2D1HwndRenderTarget *This, const D2D1_LAYER_PARAMETERS *layerParameters, ID2D1Layer *layer) PURE;
+  STDMETHOD_(void, PopLayer)(ID2D1HwndRenderTarget *This) PURE;
+  STDMETHOD(Flush)(ID2D1HwndRenderTarget *This, D2D1_TAG *tag1, D2D1_TAG *tag2) PURE;
+  STDMETHOD_(void, SaveDrawingState)(ID2D1HwndRenderTarget *This, ID2D1DrawingStateBlock *drawingStateBlock) PURE;
+  STDMETHOD_(void, RestoreDrawingState)(ID2D1HwndRenderTarget *This, ID2D1DrawingStateBlock *drawingStateBlock) PURE;
+  STDMETHOD_(void, PushAxisAlignedClip)(ID2D1HwndRenderTarget *This, const D2D1_RECT_F *clipRect, D2D1_ANTIALIAS_MODE antialiasMode) PURE;
+  STDMETHOD_(void, PopAxisAlignedClip)(ID2D1HwndRenderTarget *This) PURE;
+  STDMETHOD_(void, Clear)(ID2D1HwndRenderTarget *This, const D2D1_COLOR_F *clearColor) PURE;
+  STDMETHOD_(void, BeginDraw)(ID2D1HwndRenderTarget *This) PURE;
+  STDMETHOD(EndDraw)(ID2D1HwndRenderTarget *This, D2D1_TAG *tag1, D2D1_TAG *tag2) PURE;
+  STDMETHOD_(D2D1_PIXEL_FORMAT, GetPixelFormat)(ID2D1HwndRenderTarget *This) PURE;
+  STDMETHOD_(void, SetDpi)(ID2D1HwndRenderTarget *This, FLOAT dpiX, FLOAT dpiY) PURE;
+  STDMETHOD_(void, GetDpi)(ID2D1HwndRenderTarget *This, FLOAT *dpiX, FLOAT *dpiY) PURE;
+  STDMETHOD_(D2D1_SIZE_F, GetSize)(ID2D1HwndRenderTarget *This) PURE;
+  STDMETHOD_(D2D1_SIZE_U, GetPixelSize)(ID2D1HwndRenderTarget *This) PURE;
+  STDMETHOD_(UINT32, GetMaximumBitmapSize)(ID2D1HwndRenderTarget *This) PURE;
+  STDMETHOD_(BOOL, IsSupported)(ID2D1HwndRenderTarget *This, const D2D1_RENDER_TARGET_PROPERTIES *renderTargetProperties) PURE;
 
   /* ID2D1HwndRenderTarget methods */
   STDMETHOD_(D2D1_WINDOW_STATE, CheckWindowState)(THIS) PURE;
-  STDMETHOD_(HWND, GetHwnd)(THIS) PURE;
   STDMETHOD(Resize)(THIS_ D2D1_SIZE_U *pixelSize) PURE;
+  STDMETHOD_(HWND, GetHwnd)(THIS) PURE;
 
   END_INTERFACE
 };
@@ -2282,7 +2274,6 @@ __CRT_UUID_DECL(ID2D1TransformedGeometry, 0x2cd906bb,0x12e2,0x11dc,0x9f,0xed,0x0
 #define ID2D1DrawingStateBlock __MINGW_POISON_NAME(ID2D1DrawingStateBlock)
 #define ID2D1EllipseGeometry __MINGW_POISON_NAME(ID2D1EllipseGeometry)
 #define ID2D1GeometryGroup __MINGW_POISON_NAME(ID2D1GeometryGroup)
-#define ID2D1HwndRenderTarget __MINGW_POISON_NAME(ID2D1HwndRenderTarget)
 #define ID2D1Mesh __MINGW_POISON_NAME(ID2D1Mesh)
 #define ID2D1RoundedRectangleGeometry __MINGW_POISON_NAME(ID2D1RoundedRectangleGeometry)
 #define ID2D1TessellationSink __MINGW_POISON_NAME(ID2D1TessellationSink)

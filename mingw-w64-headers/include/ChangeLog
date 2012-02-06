@@ -1,3 +1,7 @@
+2012-02-04  Rafaël Carré  <funman@videolan.org>
+
+	* d2d1.h (ID2D1HwndRenderTarget): Fix interface
+
 2012-02-03  Rafaël Carré  <funman@videolan.org>
 
 	* shobjidl.h (ApplicationAssociationRegistrationUI): Add missing interface
