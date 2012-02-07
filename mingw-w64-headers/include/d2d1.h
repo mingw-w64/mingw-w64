@@ -2320,7 +2320,7 @@ HRESULT WINAPI D2D1CreateFactory(
 */
 #ifdef __cplusplus
 extern "C" {
-#endinf
+#endif
 
 HRESULT WINAPI D2D1CreateFactory(
   D2D1_FACTORY_TYPE factoryType,
@@ -2351,6 +2351,6 @@ void WINAPI D2D1MakeSkewMatrix(
 );
 #ifdef __cplusplus
 }
-#endinf
+#endif
 
 #endif /* _D2D1_H */
