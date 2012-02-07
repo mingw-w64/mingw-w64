@@ -73,6 +73,7 @@ src_libdxerr8=libsrc/dxerr8.c libsrc/dxerr8w.c
 src_libdxerr9=libsrc/dxerr9.c libsrc/dxerr9w.c
 src_libdxguid=libsrc/dxguid.c
 src_libksuser=libsrc/ksuser.c
+src_libksguid=libsrc/ksuser.c
 src_liblargeint=libsrc/largeint.c
 
 src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
@@ -367,6 +368,10 @@ lib32_libksuser_a_SOURCES = $(src_libksuser)
 lib32_libksuser_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 lib32_libksuser_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
+lib32_LIBRARIES += lib32/libksguid.a
+lib32_libksguid_a_SOURCES = $(src_libksguid)
+lib32_libksguid_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
 lib32_LIBRARIES += lib32/liblargeint.a
 lib32_liblargeint_a_SOURCES = $(src_liblargeint)
 lib32_liblargeint_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
@@ -638,6 +643,10 @@ lib64_LIBRARIES += lib64/libksuser.a
 lib64_libksuser_a_SOURCES = $(src_libksuser)
 lib64_libksuser_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_libksuser_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+
+lib64_LIBRARIES += lib64/libksguid.a
+lib64_libksguid_a_SOURCES = $(src_libksguid)
+lib64_libksguid_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/liblargeint.a
 lib64_liblargeint_a_SOURCES = $(src_liblargeint)
