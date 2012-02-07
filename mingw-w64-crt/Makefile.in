@@ -1025,13 +1025,13 @@ am__lib32_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/guid_nul.c \
 	libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c libsrc/oleacc-uuid.c \
 	libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c \
 	libsrc/power-uuid.c libsrc/servprov-uuid.c \
-	libsrc/unknwn-uuid.c libsrc/urlmon-uuid.c libsrc/vds-uuid.c \
-	libsrc/virtdisk-uuid.c libsrc/wia-uuid.c \
-	libsrc/powrprof-uuid.c libsrc/usbcamdi-uuid.c \
-	libsrc/usbiodef-uuid.c libsrc/ntddkbd-uuid.c \
-	libsrc/ntddmou-uuid.c libsrc/ntddpar-uuid.c \
-	libsrc/ntddser-uuid.c libsrc/ntddscsi-uuid.c \
-	libsrc/ntddstor-uuid.c libsrc/ntddvdeo-uuid.c
+	libsrc/urlmon-uuid.c libsrc/vds-uuid.c libsrc/virtdisk-uuid.c \
+	libsrc/wia-uuid.c libsrc/powrprof-uuid.c \
+	libsrc/usbcamdi-uuid.c libsrc/usbiodef-uuid.c \
+	libsrc/ntddkbd-uuid.c libsrc/ntddmou-uuid.c \
+	libsrc/ntddpar-uuid.c libsrc/ntddser-uuid.c \
+	libsrc/ntddscsi-uuid.c libsrc/ntddstor-uuid.c \
+	libsrc/ntddvdeo-uuid.c
 am__objects_21 = libsrc/lib32_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-guid_nul.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-devguid.$(OBJEXT) \
@@ -1061,7 +1061,6 @@ am__objects_21 = libsrc/lib32_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-oleidl-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-power-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-servprov-uuid.$(OBJEXT) \
-	libsrc/lib32_libuuid_a-unknwn-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-urlmon-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-vds-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-virtdisk-uuid.$(OBJEXT) \
@@ -2031,13 +2030,13 @@ am__lib64_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/guid_nul.c \
 	libsrc/objsafe-uuid.c libsrc/ocidl-uuid.c libsrc/oleacc-uuid.c \
 	libsrc/olectlid-uuid.c libsrc/oleidl-uuid.c \
 	libsrc/power-uuid.c libsrc/servprov-uuid.c \
-	libsrc/unknwn-uuid.c libsrc/urlmon-uuid.c libsrc/vds-uuid.c \
-	libsrc/virtdisk-uuid.c libsrc/wia-uuid.c \
-	libsrc/powrprof-uuid.c libsrc/usbcamdi-uuid.c \
-	libsrc/usbiodef-uuid.c libsrc/ntddkbd-uuid.c \
-	libsrc/ntddmou-uuid.c libsrc/ntddpar-uuid.c \
-	libsrc/ntddser-uuid.c libsrc/ntddscsi-uuid.c \
-	libsrc/ntddstor-uuid.c libsrc/ntddvdeo-uuid.c
+	libsrc/urlmon-uuid.c libsrc/vds-uuid.c libsrc/virtdisk-uuid.c \
+	libsrc/wia-uuid.c libsrc/powrprof-uuid.c \
+	libsrc/usbcamdi-uuid.c libsrc/usbiodef-uuid.c \
+	libsrc/ntddkbd-uuid.c libsrc/ntddmou-uuid.c \
+	libsrc/ntddpar-uuid.c libsrc/ntddser-uuid.c \
+	libsrc/ntddscsi-uuid.c libsrc/ntddstor-uuid.c \
+	libsrc/ntddvdeo-uuid.c
 am__objects_42 = libsrc/lib64_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-guid_nul.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-devguid.$(OBJEXT) \
@@ -2067,7 +2066,6 @@ am__objects_42 = libsrc/lib64_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-oleidl-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-power-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-servprov-uuid.$(OBJEXT) \
-	libsrc/lib64_libuuid_a-unknwn-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-urlmon-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-vds-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-virtdisk-uuid.$(OBJEXT) \
@@ -3225,7 +3223,7 @@ src_libuuid = libsrc/uuid.c   libsrc/guid_nul.c         libsrc/devguid.c        
   libsrc/hlink-uuid.c       libsrc/mlang-uuid.c       libsrc/msctf-uuid.c      libsrc/mshtml-uuid.c     libsrc/msxml-uuid.c        \
   libsrc/netcon-uuid.c      libsrc/objidl-uuid.c      libsrc/oaidl-uuid.c      libsrc/objsafe-uuid.c    libsrc/ocidl-uuid.c        \
   libsrc/oleacc-uuid.c      libsrc/olectlid-uuid.c    libsrc/oleidl-uuid.c     libsrc/power-uuid.c      libsrc/servprov-uuid.c     \
-  libsrc/unknwn-uuid.c      libsrc/urlmon-uuid.c      libsrc/vds-uuid.c        libsrc/virtdisk-uuid.c   \
+  libsrc/urlmon-uuid.c      libsrc/vds-uuid.c        libsrc/virtdisk-uuid.c   \
   libsrc/wia-uuid.c         libsrc/powrprof-uuid.c    libsrc/usbcamdi-uuid.c   libsrc/usbiodef-uuid.c   libsrc/ntddkbd-uuid.c      \
   libsrc/ntddmou-uuid.c     libsrc/ntddpar-uuid.c     libsrc/ntddser-uuid.c    libsrc/ntddscsi-uuid.c   libsrc/ntddstor-uuid.c     \
   libsrc/ntddvdeo-uuid.c
@@ -5741,8 +5739,6 @@ libsrc/lib32_libuuid_a-power-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-servprov-uuid.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
-libsrc/lib32_libuuid_a-unknwn-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
-	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-urlmon-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-vds-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
@@ -7196,8 +7192,6 @@ libsrc/lib64_libuuid_a-power-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-servprov-uuid.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
-libsrc/lib64_libuuid_a-unknwn-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
-	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-urlmon-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
 	libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-vds-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
@@ -8609,7 +8603,6 @@ mostlyclean-compile:
 	-rm -f libsrc/lib32_libuuid_a-power-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-powrprof-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-servprov-uuid.$(OBJEXT)
-	-rm -f libsrc/lib32_libuuid_a-unknwn-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-urlmon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-usbcamdi-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-usbiodef-uuid.$(OBJEXT)
@@ -8679,7 +8672,6 @@ mostlyclean-compile:
 	-rm -f libsrc/lib64_libuuid_a-power-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-powrprof-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-servprov-uuid.$(OBJEXT)
-	-rm -f libsrc/lib64_libuuid_a-unknwn-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-urlmon-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-usbcamdi-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-usbiodef-uuid.$(OBJEXT)
@@ -10111,7 +10103,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-power-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-powrprof-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-servprov-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-unknwn-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-usbcamdi-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-usbiodef-uuid.Po@am__quote@
@@ -10181,7 +10172,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-power-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-powrprof-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-servprov-uuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-unknwn-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-urlmon-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-usbcamdi-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-usbiodef-uuid.Po@am__quote@
@@ -20073,20 +20063,6 @@ libsrc/lib32_libuuid_a-servprov-uuid.obj: libsrc/servprov-uuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-servprov-uuid.obj `if test -f 'libsrc/servprov-uuid.c'; then $(CYGPATH_W) 'libsrc/servprov-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/servprov-uuid.c'; fi`
 
-libsrc/lib32_libuuid_a-unknwn-uuid.o: libsrc/unknwn-uuid.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-unknwn-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-unknwn-uuid.Tpo -c -o libsrc/lib32_libuuid_a-unknwn-uuid.o `test -f 'libsrc/unknwn-uuid.c' || echo '$(srcdir)/'`libsrc/unknwn-uuid.c
-@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-unknwn-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-unknwn-uuid.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/unknwn-uuid.c' object='libsrc/lib32_libuuid_a-unknwn-uuid.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-unknwn-uuid.o `test -f 'libsrc/unknwn-uuid.c' || echo '$(srcdir)/'`libsrc/unknwn-uuid.c
-
-libsrc/lib32_libuuid_a-unknwn-uuid.obj: libsrc/unknwn-uuid.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-unknwn-uuid.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-unknwn-uuid.Tpo -c -o libsrc/lib32_libuuid_a-unknwn-uuid.obj `if test -f 'libsrc/unknwn-uuid.c'; then $(CYGPATH_W) 'libsrc/unknwn-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/unknwn-uuid.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-unknwn-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-unknwn-uuid.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/unknwn-uuid.c' object='libsrc/lib32_libuuid_a-unknwn-uuid.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-unknwn-uuid.obj `if test -f 'libsrc/unknwn-uuid.c'; then $(CYGPATH_W) 'libsrc/unknwn-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/unknwn-uuid.c'; fi`
-
 libsrc/lib32_libuuid_a-urlmon-uuid.o: libsrc/urlmon-uuid.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-urlmon-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-urlmon-uuid.Tpo -c -o libsrc/lib32_libuuid_a-urlmon-uuid.o `test -f 'libsrc/urlmon-uuid.c' || echo '$(srcdir)/'`libsrc/urlmon-uuid.c
 @am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-urlmon-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-urlmon-uuid.Po
@@ -28668,20 +28644,6 @@ libsrc/lib64_libuuid_a-servprov-uuid.obj: libsrc/servprov-uuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/servprov-uuid.c' object='libsrc/lib64_libuuid_a-servprov-uuid.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-servprov-uuid.obj `if test -f 'libsrc/servprov-uuid.c'; then $(CYGPATH_W) 'libsrc/servprov-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/servprov-uuid.c'; fi`
-
-libsrc/lib64_libuuid_a-unknwn-uuid.o: libsrc/unknwn-uuid.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-unknwn-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-unknwn-uuid.Tpo -c -o libsrc/lib64_libuuid_a-unknwn-uuid.o `test -f 'libsrc/unknwn-uuid.c' || echo '$(srcdir)/'`libsrc/unknwn-uuid.c
-@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-unknwn-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-unknwn-uuid.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/unknwn-uuid.c' object='libsrc/lib64_libuuid_a-unknwn-uuid.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-unknwn-uuid.o `test -f 'libsrc/unknwn-uuid.c' || echo '$(srcdir)/'`libsrc/unknwn-uuid.c
-
-libsrc/lib64_libuuid_a-unknwn-uuid.obj: libsrc/unknwn-uuid.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-unknwn-uuid.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-unknwn-uuid.Tpo -c -o libsrc/lib64_libuuid_a-unknwn-uuid.obj `if test -f 'libsrc/unknwn-uuid.c'; then $(CYGPATH_W) 'libsrc/unknwn-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/unknwn-uuid.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-unknwn-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-unknwn-uuid.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/unknwn-uuid.c' object='libsrc/lib64_libuuid_a-unknwn-uuid.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-unknwn-uuid.obj `if test -f 'libsrc/unknwn-uuid.c'; then $(CYGPATH_W) 'libsrc/unknwn-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/unknwn-uuid.c'; fi`
 
 libsrc/lib64_libuuid_a-urlmon-uuid.o: libsrc/urlmon-uuid.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-urlmon-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-urlmon-uuid.Tpo -c -o libsrc/lib64_libuuid_a-urlmon-uuid.o `test -f 'libsrc/urlmon-uuid.c' || echo '$(srcdir)/'`libsrc/urlmon-uuid.c
