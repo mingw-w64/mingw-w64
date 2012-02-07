@@ -1031,7 +1031,7 @@ am__lib32_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/guid_nul.c \
 	libsrc/ntddkbd-uuid.c libsrc/ntddmou-uuid.c \
 	libsrc/ntddpar-uuid.c libsrc/ntddser-uuid.c \
 	libsrc/ntddscsi-uuid.c libsrc/ntddstor-uuid.c \
-	libsrc/ntddvdeo-uuid.c
+	libsrc/ntddvdeo-uuid.c libsrc/dxva-uuid.c
 am__objects_21 = libsrc/lib32_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-guid_nul.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-devguid.$(OBJEXT) \
@@ -1074,7 +1074,8 @@ am__objects_21 = libsrc/lib32_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-ntddser-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-ntddscsi-uuid.$(OBJEXT) \
 	libsrc/lib32_libuuid_a-ntddstor-uuid.$(OBJEXT) \
-	libsrc/lib32_libuuid_a-ntddvdeo-uuid.$(OBJEXT)
+	libsrc/lib32_libuuid_a-ntddvdeo-uuid.$(OBJEXT) \
+	libsrc/lib32_libuuid_a-dxva-uuid.$(OBJEXT)
 @LIB32_TRUE@am_lib32_libuuid_a_OBJECTS = $(am__objects_21)
 lib32_libuuid_a_OBJECTS = $(am_lib32_libuuid_a_OBJECTS)
 lib32_libws2_32_a_LIBADD =
@@ -2036,7 +2037,7 @@ am__lib64_libuuid_a_SOURCES_DIST = libsrc/uuid.c libsrc/guid_nul.c \
 	libsrc/ntddkbd-uuid.c libsrc/ntddmou-uuid.c \
 	libsrc/ntddpar-uuid.c libsrc/ntddser-uuid.c \
 	libsrc/ntddscsi-uuid.c libsrc/ntddstor-uuid.c \
-	libsrc/ntddvdeo-uuid.c
+	libsrc/ntddvdeo-uuid.c libsrc/dxva-uuid.c
 am__objects_42 = libsrc/lib64_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-guid_nul.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-devguid.$(OBJEXT) \
@@ -2079,7 +2080,8 @@ am__objects_42 = libsrc/lib64_libuuid_a-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-ntddser-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-ntddscsi-uuid.$(OBJEXT) \
 	libsrc/lib64_libuuid_a-ntddstor-uuid.$(OBJEXT) \
-	libsrc/lib64_libuuid_a-ntddvdeo-uuid.$(OBJEXT)
+	libsrc/lib64_libuuid_a-ntddvdeo-uuid.$(OBJEXT) \
+	libsrc/lib64_libuuid_a-dxva-uuid.$(OBJEXT)
 @LIB64_TRUE@am_lib64_libuuid_a_OBJECTS = $(am__objects_42)
 lib64_libuuid_a_OBJECTS = $(am_lib64_libuuid_a_OBJECTS)
 lib64_libws2_32_a_LIBADD =
@@ -3226,7 +3228,7 @@ src_libuuid = libsrc/uuid.c   libsrc/guid_nul.c         libsrc/devguid.c        
   libsrc/urlmon-uuid.c      libsrc/vds-uuid.c        libsrc/virtdisk-uuid.c   \
   libsrc/wia-uuid.c         libsrc/powrprof-uuid.c    libsrc/usbcamdi-uuid.c   libsrc/usbiodef-uuid.c   libsrc/ntddkbd-uuid.c      \
   libsrc/ntddmou-uuid.c     libsrc/ntddpar-uuid.c     libsrc/ntddser-uuid.c    libsrc/ntddscsi-uuid.c   libsrc/ntddstor-uuid.c     \
-  libsrc/ntddvdeo-uuid.c
+  libsrc/ntddvdeo-uuid.c    libsrc/dxva-uuid.c
 
 src_libws2_32 = libsrc/ws2_32.c \
   \
@@ -5767,6 +5769,8 @@ libsrc/lib32_libuuid_a-ntddstor-uuid.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib32_libuuid_a-ntddvdeo-uuid.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib32_libuuid_a-dxva-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib32/libuuid.a: $(lib32_libuuid_a_OBJECTS) $(lib32_libuuid_a_DEPENDENCIES) lib32/$(am__dirstamp)
 	-rm -f lib32/libuuid.a
 	$(lib32_libuuid_a_AR) lib32/libuuid.a $(lib32_libuuid_a_OBJECTS) $(lib32_libuuid_a_LIBADD)
@@ -7220,6 +7224,8 @@ libsrc/lib64_libuuid_a-ntddstor-uuid.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
 libsrc/lib64_libuuid_a-ntddvdeo-uuid.$(OBJEXT):  \
 	libsrc/$(am__dirstamp) libsrc/$(DEPDIR)/$(am__dirstamp)
+libsrc/lib64_libuuid_a-dxva-uuid.$(OBJEXT): libsrc/$(am__dirstamp) \
+	libsrc/$(DEPDIR)/$(am__dirstamp)
 lib64/libuuid.a: $(lib64_libuuid_a_OBJECTS) $(lib64_libuuid_a_DEPENDENCIES) lib64/$(am__dirstamp)
 	-rm -f lib64/libuuid.a
 	$(lib64_libuuid_a_AR) lib64/libuuid.a $(lib64_libuuid_a_OBJECTS) $(lib64_libuuid_a_LIBADD)
@@ -8575,6 +8581,7 @@ mostlyclean-compile:
 	-rm -f libsrc/lib32_libuuid_a-comcat-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-devguid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-docobj-uuid.$(OBJEXT)
+	-rm -f libsrc/lib32_libuuid_a-dxva-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-exdisp-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-extras-uuid.$(OBJEXT)
 	-rm -f libsrc/lib32_libuuid_a-fwp-uuid.$(OBJEXT)
@@ -8644,6 +8651,7 @@ mostlyclean-compile:
 	-rm -f libsrc/lib64_libuuid_a-comcat-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-devguid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-docobj-uuid.$(OBJEXT)
+	-rm -f libsrc/lib64_libuuid_a-dxva-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-exdisp-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-extras-uuid.$(OBJEXT)
 	-rm -f libsrc/lib64_libuuid_a-fwp-uuid.$(OBJEXT)
@@ -10075,6 +10083,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-comcat-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-devguid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-docobj-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-dxva-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-exdisp-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-extras-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib32_libuuid_a-fwp-uuid.Po@am__quote@
@@ -10144,6 +10153,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-comcat-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-devguid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-docobj-uuid.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-dxva-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-exdisp-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-extras-uuid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libsrc/$(DEPDIR)/lib64_libuuid_a-fwp-uuid.Po@am__quote@
@@ -20259,6 +20269,20 @@ libsrc/lib32_libuuid_a-ntddvdeo-uuid.obj: libsrc/ntddvdeo-uuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-ntddvdeo-uuid.obj `if test -f 'libsrc/ntddvdeo-uuid.c'; then $(CYGPATH_W) 'libsrc/ntddvdeo-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ntddvdeo-uuid.c'; fi`
 
+libsrc/lib32_libuuid_a-dxva-uuid.o: libsrc/dxva-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-dxva-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-dxva-uuid.Tpo -c -o libsrc/lib32_libuuid_a-dxva-uuid.o `test -f 'libsrc/dxva-uuid.c' || echo '$(srcdir)/'`libsrc/dxva-uuid.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-dxva-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-dxva-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/dxva-uuid.c' object='libsrc/lib32_libuuid_a-dxva-uuid.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-dxva-uuid.o `test -f 'libsrc/dxva-uuid.c' || echo '$(srcdir)/'`libsrc/dxva-uuid.c
+
+libsrc/lib32_libuuid_a-dxva-uuid.obj: libsrc/dxva-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libuuid_a-dxva-uuid.obj -MD -MP -MF libsrc/$(DEPDIR)/lib32_libuuid_a-dxva-uuid.Tpo -c -o libsrc/lib32_libuuid_a-dxva-uuid.obj `if test -f 'libsrc/dxva-uuid.c'; then $(CYGPATH_W) 'libsrc/dxva-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/dxva-uuid.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libuuid_a-dxva-uuid.Tpo libsrc/$(DEPDIR)/lib32_libuuid_a-dxva-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/dxva-uuid.c' object='libsrc/lib32_libuuid_a-dxva-uuid.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib32_libuuid_a-dxva-uuid.obj `if test -f 'libsrc/dxva-uuid.c'; then $(CYGPATH_W) 'libsrc/dxva-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/dxva-uuid.c'; fi`
+
 libsrc/lib32_libws2_32_a-ws2_32.o: libsrc/ws2_32.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib32_libws2_32_a-ws2_32.o -MD -MP -MF libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2_32.Tpo -c -o libsrc/lib32_libws2_32_a-ws2_32.o `test -f 'libsrc/ws2_32.c' || echo '$(srcdir)/'`libsrc/ws2_32.c
 @am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2_32.Tpo libsrc/$(DEPDIR)/lib32_libws2_32_a-ws2_32.Po
@@ -28840,6 +28864,20 @@ libsrc/lib64_libuuid_a-ntddvdeo-uuid.obj: libsrc/ntddvdeo-uuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/ntddvdeo-uuid.c' object='libsrc/lib64_libuuid_a-ntddvdeo-uuid.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-ntddvdeo-uuid.obj `if test -f 'libsrc/ntddvdeo-uuid.c'; then $(CYGPATH_W) 'libsrc/ntddvdeo-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/ntddvdeo-uuid.c'; fi`
+
+libsrc/lib64_libuuid_a-dxva-uuid.o: libsrc/dxva-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-dxva-uuid.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-dxva-uuid.Tpo -c -o libsrc/lib64_libuuid_a-dxva-uuid.o `test -f 'libsrc/dxva-uuid.c' || echo '$(srcdir)/'`libsrc/dxva-uuid.c
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-dxva-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-dxva-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/dxva-uuid.c' object='libsrc/lib64_libuuid_a-dxva-uuid.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-dxva-uuid.o `test -f 'libsrc/dxva-uuid.c' || echo '$(srcdir)/'`libsrc/dxva-uuid.c
+
+libsrc/lib64_libuuid_a-dxva-uuid.obj: libsrc/dxva-uuid.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libuuid_a-dxva-uuid.obj -MD -MP -MF libsrc/$(DEPDIR)/lib64_libuuid_a-dxva-uuid.Tpo -c -o libsrc/lib64_libuuid_a-dxva-uuid.obj `if test -f 'libsrc/dxva-uuid.c'; then $(CYGPATH_W) 'libsrc/dxva-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/dxva-uuid.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) libsrc/$(DEPDIR)/lib64_libuuid_a-dxva-uuid.Tpo libsrc/$(DEPDIR)/lib64_libuuid_a-dxva-uuid.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='libsrc/dxva-uuid.c' object='libsrc/lib64_libuuid_a-dxva-uuid.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libuuid_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libsrc/lib64_libuuid_a-dxva-uuid.obj `if test -f 'libsrc/dxva-uuid.c'; then $(CYGPATH_W) 'libsrc/dxva-uuid.c'; else $(CYGPATH_W) '$(srcdir)/libsrc/dxva-uuid.c'; fi`
 
 libsrc/lib64_libws2_32_a-ws2_32.o: libsrc/ws2_32.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libws2_32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libsrc/lib64_libws2_32_a-ws2_32.o -MD -MP -MF libsrc/$(DEPDIR)/lib64_libws2_32_a-ws2_32.Tpo -c -o libsrc/lib64_libws2_32_a-ws2_32.o `test -f 'libsrc/ws2_32.c' || echo '$(srcdir)/'`libsrc/ws2_32.c
