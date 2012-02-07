@@ -23,6 +23,11 @@ typedef LONGLONG REFERENCE_TIME;
 #define DXVA2_ProcAmp_Hue 0x0004
 #define DXVA2_ProcAmp_Saturation 0x0008
 
+#define DXVA2_E_NOT_INITIALIZED     MAKE_HRESULT(1, 4, 4096)
+#define DXVA2_E_NEW_VIDEO_DEVICE    MAKE_HRESULT(1, 4, 4097)
+#define DXVA2_E_VIDEO_DEVICE_LOCKED MAKE_HRESULT(1, 4, 4098)
+#define DXVA2_E_NOT_AVAILABLE       MAKE_HRESULT(1, 4, 4099)
+
 typedef struct IDirect3DDeviceManager9 IDirect3DDeviceManager9;
 typedef struct IDirectXVideoDecoderService IDirectXVideoDecoderService;
 
