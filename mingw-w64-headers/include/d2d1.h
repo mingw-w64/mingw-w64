@@ -2178,19 +2178,6 @@ __CRT_UUID_DECL(ID2D1TransformedGeometry, 0x2cd906bb,0x12e2,0x11dc,0x9f,0xed,0x0
 /* Posibly C++ or inlined */
 /*
 
-template<class Factory>
-HRESULT D2D1CreateFactory(
-    D2D1_FACTORY_TYPE factoryType,
-    Factory **factory
-);
-
-template<class Factory>
-HRESULT D2D1CreateFactory(
-    D2D1_FACTORY_TYPE factoryType,
-    CONST D2D1_FACTORY_OPTIONS &factoryOptions,
-    Factory **factory
-);
-
 HRESULT WINAPI D2D1CreateDevice(
   IDXGIDevice *dxgiDevice,
   const D2D1_CREATION_PROPERTIES *creationProperties,
@@ -2206,12 +2193,6 @@ HRESULT WINAPI D2D1CreateDeviceContext(
 D2D1_MATRIX_3X2_F operator*(
   const D2D1_MATRIX_3X2_F &matrix1,
   const D2D1_MATRIX_3X2_F &matrix2
-);
-
-HRESULT WINAPI D2D1CreateFactory(
-  D2D1_FACTORY_TYPE factoryType,
-  REFIID riid,
-  void **ppIFactory
 );
 
 */
@@ -2248,6 +2229,24 @@ void WINAPI D2D1MakeSkewMatrix(
 );
 #ifdef __cplusplus
 }
+#endif
+
+#ifndef D2D_USE_C_DEFINITIONS
+
+inline HRESULT D2D1CreateFactory(D2D1_FACTORY_TYPE factoryType, REFIID riid, void **ppv) {
+    return D2D1CreateFactory(factoryType, riid, NULL, ppv);
+}
+
+template<class Factory>
+HRESULT D2D1CreateFactory(D2D1_FACTORY_TYPE factoryType, Factory **factory) {
+    return D2D1CreateFactory(factoryType, __uuidof(Factory), reinterpret_cast<void**>(factory));
+}
+
+template<class Factory>
+HRESULT D2D1CreateFactory(D2D1_FACTORY_TYPE factoryType, const D2D1_FACTORY_OPTIONS &factoryOptions, Factory **factory) {
+    return D2D1CreateFactory(factoryType, __uuidof(Factory), &factoryOptions, reinterpret_cast<void **>(factory));
+}
+
 #endif
 
 #endif /* _D2D1_H */
