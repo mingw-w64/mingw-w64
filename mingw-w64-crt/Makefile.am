@@ -430,6 +430,7 @@ lib32_DATA = \
   lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
   lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
   lib32/libctl3d32.a   \
+  lib32/libt2embed.a   \
   lib32/libclasspnp.a  lib32/libd3d8.a      lib32/libd3d9.a      lib32/libd3dim.a     lib32/libd3drm.a    \
   lib32/libd3dx8d.a    lib32/libd3dx9d.a    lib32/libd3dxof.a    lib32/libdbghelp.a   lib32/libddraw.a    \
   lib32/libdhcpcsvc.a  lib32/libdlcapi.a    lib32/libdnsapi.a    lib32/libdplayx.a    lib32/libdpnaddr.a  \
