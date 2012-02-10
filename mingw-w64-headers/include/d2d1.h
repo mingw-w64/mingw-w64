@@ -1312,37 +1312,42 @@ interface ID2D1DCRenderTarget
 
 #endif
 
-#define INTERFACE ID2D1DrawingStateBlock
-DECLARE_INTERFACE_(ID2D1DrawingStateBlock, ID2D1Resource)
-{
-  BEGIN_INTERFACE
+DEFINE_GUID(IID_ID2D1DrawingStateBlock, 0x28506e39,0xebf6,0x46a1,0xbb,0x47,0xfd,0x85,0x56,0x5a,0xb9,0x57);
 
-  /* IUnknown methods */
-  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-  STDMETHOD_(ULONG, Release)(THIS) PURE;
+#ifndef D2D_USE_C_DEFINITIONS
 
-  /* ID2D1Resource methods */
-  STDMETHOD_(void, GetFactory)(THIS_ ID2D1Factory **factory) PURE;
+interface ID2D1DrawingStateBlock : public ID2D1Resource {
+    STDMETHOD_(void, GetDescription)(D2D1_DRAWING_STATE_DESCRIPTION *stateDescription) const PURE;
+    STDMETHOD_(void, SetDescription)(const D2D1_DRAWING_STATE_DESCRIPTION *stateDescription) PURE;
+    STDMETHOD_(void, SetTextRenderingParams)(IDWriteRenderingParams *textRenderingParams = NULL) PURE;
+    STDMETHOD_(void, GetTextRenderingParams)(IDWriteRenderingParams **textRenderingParams) const PURE;
 
-  /* ID2D1DrawingStateBlock methods */
-  STDMETHOD_(void, GetDescription)(THIS_ D2D1_DRAWING_STATE_DESCRIPTION *stateDescription) PURE;
-  STDMETHOD_(void, GetTextRenderingParams)(THIS_ IDWriteRenderingParams **textRenderingParams) PURE;
-  STDMETHOD_(void, SetDescription)(THIS_ D2D1_DRAWING_STATE_DESCRIPTION *stateDescription) PURE;
-  STDMETHOD_(void, SetTextRenderingParams)(THIS_ IDWriteRenderingParams *textRenderingParams) PURE;
-
-  END_INTERFACE
+    void SetDescription(const D2D1_DRAWING_STATE_DESCRIPTION &stateDescription) {
+        SetDescription(&stateDescription);
+    }
 };
-#undef INTERFACE
 
-#define ID2D1DrawingStateBlock_QueryInterface(this,A,B) (this)->lpVtbl->QueryInterface(this,A,B)
-#define ID2D1DrawingStateBlock_AddRef(this) (this)->lpVtbl->AddRef(this)
-#define ID2D1DrawingStateBlock_Release(this) (this)->lpVtbl->Release(this)
-#define ID2D1DrawingStateBlock_GetFactory(this,A) (this)->lpVtbl->GetFactory(this,A)
+#else
+
+typedef struct ID2D1DrawingStateBlockVtbl {
+    ID2D1ResourceVtbl Base;
+
+    STDMETHOD_(void, GetDescription)(ID2D1DrawingStateBlock *This, D2D1_DRAWING_STATE_DESCRIPTION *stateDescription) PURE;
+    STDMETHOD_(void, SetDescription)(ID2D1DrawingStateBlock *This, const D2D1_DRAWING_STATE_DESCRIPTION *stateDescription) PURE;
+    STDMETHOD_(void, SetTextRenderingParams)(ID2D1DrawingStateBlock *This, IDWriteRenderingParams *textRenderingParams) PURE;
+    STDMETHOD_(void, GetTextRenderingParams)(ID2D1DrawingStateBlock *This, IDWriteRenderingParams **textRenderingParams) PURE;
+} ID2D1DrawingStateBlockVtbl;
+
+interface ID2D1DrawingStateBlock {
+    const struct ID2D1DrawingStateBlockVtbl *lpVtbl;
+};
+
 #define ID2D1DrawingStateBlock_GetDescription(this,A) (this)->lpVtbl->GetDescription(this,A)
 #define ID2D1DrawingStateBlock_GetTextRenderingParams(this,A) (this)->lpVtbl->GetTextRenderingParams(this,A)
 #define ID2D1DrawingStateBlock_SetDescription(this,A) (this)->lpVtbl->SetDescription(this,A)
 #define ID2D1DrawingStateBlock_SetTextRenderingParams(this,A) (this)->lpVtbl->SetTextRenderingParams(this,A)
+
+#endif
 
 DEFINE_GUID(IID_ID2D1SimplifiedGeometrySink, 0x2cd9069e,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 
@@ -1389,55 +1394,29 @@ interface ID2D1SimplifiedGeometrySink {
 
 #endif
 
-#define INTERFACE ID2D1EllipseGeometry
-DECLARE_INTERFACE_(ID2D1EllipseGeometry, ID2D1Geometry)
-{
-  BEGIN_INTERFACE
+DEFINE_GUID(IID_ID2D1EllipseGeometry, 0x2cd906a4,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 
-  /* IUnknown methods */
-  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-  STDMETHOD_(ULONG, Release)(THIS) PURE;
+#ifndef D2D_USE_C_DEFINITIONS
 
-  /* ID2D1Resource methods */
-  STDMETHOD_(void, GetFactory)(THIS_ ID2D1Factory **factory) PURE;
-
-  /* ID2D1Geometry methods */
-  STDMETHOD(CombineWithGeometry)(THIS_ ID2D1Geometry *inputGeometry, D2D1_COMBINE_MODE combineMode, D2D1_MATRIX_3X2_F *inputGeometryTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-  STDMETHOD(CompareWithGeometry)(THIS_ ID2D1Geometry *inputGeometry, D2D1_MATRIX_3X2_F *inputGeometryTransform, D2D1_GEOMETRY_RELATION *relation) PURE;
-  STDMETHOD(ComputeArea)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, FLOAT *area) PURE;
-  STDMETHOD(ComputeLength)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, FLOAT *length) PURE;
-  STDMETHOD(ComputePointAtLength)(THIS_ FLOAT length, D2D1_MATRIX_3X2_F *worldTransform, D2D1_POINT_2F *point, D2D1_POINT_2F *unitTangentVector) PURE;
-  STDMETHOD(FillContainsPoint)(THIS_ D2D1_POINT_2F point, D2D1_MATRIX_3X2_F *worldTransform, BOOL *contains) PURE;
-  STDMETHOD(GetBounds)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, D2D1_RECT_F *bounds) PURE;
-  STDMETHOD(GetWidenedBounds)(THIS_ FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle, D2D1_MATRIX_3X2_F *worldTransform, D2D1_RECT_F *bounds) PURE;
-  STDMETHOD(Outline)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-  STDMETHOD(StrokeContainsPoint)(THIS_ D2D1_POINT_2F point, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle, D2D1_MATRIX_3X2_F *worldTransform, BOOL *contains) PURE;
-  STDMETHOD(Simplify)(THIS_ D2D1_GEOMETRY_SIMPLIFICATION_OPTION simplificationOption, D2D1_MATRIX_3X2_F *worldTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-  STDMETHOD(Tessellate)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, ID2D1TessellationSink *tessellationSink) PURE;
-  STDMETHOD(Widen)(THIS_ FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle, D2D1_MATRIX_3X2_F *worldTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-
-  /* ID2D1EllipseGeometry methods */
-  STDMETHOD_(void, GetEllipse)(THIS_ D2D1_ELLIPSE *ellipse) PURE;
-
-  END_INTERFACE
+interface ID2D1EllipseGeometry : public ID2D1Geometry {
+    STDMETHOD_(void, GetEllipse)(D2D1_ELLIPSE *ellipse) const PURE;
 };
-#undef INTERFACE
 
-#define ID2D1EllipseGeometry_CombineWithGeometry(this,A,B,C,D) (this)->lpVtbl->CombineWithGeometry(this,A,B,C,D)
-#define ID2D1EllipseGeometry_CompareWithGeometry(this,A,B,C) (this)->lpVtbl->CompareWithGeometry(this,A,B,C)
-#define ID2D1EllipseGeometry_ComputeArea(this,A,B) (this)->lpVtbl->ComputeArea(this,A,B)
-#define ID2D1EllipseGeometry_ComputeLength(this,A,B) (this)->lpVtbl->ComputeLength(this,A,B)
-#define ID2D1EllipseGeometry_ComputePointAtLength(this,A,B,C,D) (this)->lpVtbl->ComputePointAtLength(this,A,B,C,D)
-#define ID2D1EllipseGeometry_FillContainsPoint(this,A,B,C) (this)->lpVtbl->FillContainsPoint(this,A,B,C)
-#define ID2D1EllipseGeometry_GetBounds(this,A,B) (this)->lpVtbl->GetBounds(this,A,B)
-#define ID2D1EllipseGeometry_GetWidenedBounds(this,A,B,C,D) (this)->lpVtbl->GetWidenedBounds(this,A,B,C,D)
-#define ID2D1EllipseGeometry_Outline(this,A,B) (this)->lpVtbl->Outline(this,A,B)
-#define ID2D1EllipseGeometry_StrokeContainsPoint(this,A,B,C,D,E) (this)->lpVtbl->StrokeContainsPoint(this,A,B,C,D,E)
-#define ID2D1EllipseGeometry_Simplify(this,A,B,C) (this)->lpVtbl->Simplify(this,A,B,C)
-#define ID2D1EllipseGeometry_Tessellate(this,A,B) (this)->lpVtbl->Tessellate(this,A,B)
-#define ID2D1EllipseGeometry_Widen(this,A,B,C,D) (this)->lpVtbl->Widen(this,A,B,C,D)
+#else
+
+typedef struct ID2D1EllipseGeometryVtbl {
+    ID2D1GeometryVtbl Base;
+
+    STDMETHOD_(void, GetEllipse)(ID2D1EllipseGeometry *This, D2D1_ELLIPSE *ellipse) PURE;
+} ID2D1EllipseGeometryVtbl;
+
+interface ID2D1EllipseGeometry {
+    const struct ID2D1EllipseGeometryVtbl *lpVtbl;
+};
+
 #define ID2D1EllipseGeometry_GetEllipse(this,A) (this)->lpVtbl->GetEllipse(this,A)
+
+#endif
 
 DEFINE_GUID(IID_ID2D1Factory, 0x06152247,0x6f50,0x465a,0x92,0x45,0x11,0x8b,0xfd,0x3b,0x60,0x07);
 
@@ -1575,59 +1554,35 @@ interface ID2D1GdiInteropRenderTarget {
 
 #endif
 
-#define INTERFACE ID2D1GeometryGroup
-DECLARE_INTERFACE_(ID2D1GeometryGroup, ID2D1Geometry)
-{
-  BEGIN_INTERFACE
+DEFINE_GUID(IID_ID2D1GeometryGroup, 0x2cd906a6,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 
-  /* IUnknown methods */
-  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-  STDMETHOD_(ULONG, Release)(THIS) PURE;
+#ifndef D2D_USE_C_DEFINITIONS
 
-  /* ID2D1Resource methods */
-  STDMETHOD_(void, GetFactory)(THIS_ ID2D1Factory **factory) PURE;
-
-  /* ID2D1Geometry methods */
-  STDMETHOD(CombineWithGeometry)(THIS_ ID2D1Geometry *inputGeometry, D2D1_COMBINE_MODE combineMode, D2D1_MATRIX_3X2_F *inputGeometryTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-  STDMETHOD(CompareWithGeometry)(THIS_ ID2D1Geometry *inputGeometry, D2D1_MATRIX_3X2_F *inputGeometryTransform, D2D1_GEOMETRY_RELATION *relation) PURE;
-  STDMETHOD(ComputeArea)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, FLOAT *area) PURE;
-  STDMETHOD(ComputeLength)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, FLOAT *length) PURE;
-  STDMETHOD(ComputePointAtLength)(THIS_ FLOAT length, D2D1_MATRIX_3X2_F *worldTransform, D2D1_POINT_2F *point, D2D1_POINT_2F *unitTangentVector) PURE;
-  STDMETHOD(FillContainsPoint)(THIS_ D2D1_POINT_2F point, D2D1_MATRIX_3X2_F *worldTransform, BOOL *contains) PURE;
-  STDMETHOD(GetBounds)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, D2D1_RECT_F *bounds) PURE;
-  STDMETHOD(GetWidenedBounds)(THIS_ FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle, D2D1_MATRIX_3X2_F *worldTransform, D2D1_RECT_F *bounds) PURE;
-  STDMETHOD(Outline)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-  STDMETHOD(StrokeContainsPoint)(THIS_ D2D1_POINT_2F point, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle, D2D1_MATRIX_3X2_F *worldTransform, BOOL *contains) PURE;
-  STDMETHOD(Simplify)(THIS_ D2D1_GEOMETRY_SIMPLIFICATION_OPTION simplificationOption, D2D1_MATRIX_3X2_F *worldTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-  STDMETHOD(Tessellate)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, ID2D1TessellationSink *tessellationSink) PURE;
-  STDMETHOD(Widen)(THIS_ FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle, D2D1_MATRIX_3X2_F *worldTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-
-  /* ID2D1GeometryGroup methods */
-  STDMETHOD_(D2D1_FILL_MODE, GetFillMode)(THIS) PURE;
-  STDMETHOD_(void, GetSourceGeometries)(THIS_ ID2D1Geometry **geometries, UINT geometriesCount) PURE;
-  STDMETHOD_(UINT32, GetSourceGeometryCount)(THIS) PURE;
-
-  END_INTERFACE
+interface ID2D1GeometryGroup : public ID2D1Geometry {
+    STDMETHOD_(D2D1_FILL_MODE, GetFillMode)() const PURE;
+    STDMETHOD_(UINT32, GetSourceGeometryCount)() const PURE;
+    STDMETHOD_(void, GetSourceGeometries)(ID2D1Geometry **geometries, UINT geometriesCount) const PURE;
 };
-#undef INTERFACE
 
-#define ID2D1GeometryGroup_CombineWithGeometry(this,A,B,C,D) (this)->lpVtbl->CombineWithGeometry(this,A,B,C,D)
-#define ID2D1GeometryGroup_CompareWithGeometry(this,A,B,C) (this)->lpVtbl->CompareWithGeometry(this,A,B,C)
-#define ID2D1GeometryGroup_ComputeArea(this,A,B) (this)->lpVtbl->ComputeArea(this,A,B)
-#define ID2D1GeometryGroup_ComputeLength(this,A,B) (this)->lpVtbl->ComputeLength(this,A,B)
-#define ID2D1GeometryGroup_ComputePointAtLength(this,A,B,C,D) (this)->lpVtbl->ComputePointAtLength(this,A,B,C,D)
-#define ID2D1GeometryGroup_FillContainsPoint(this,A,B,C) (this)->lpVtbl->FillContainsPoint(this,A,B,C)
-#define ID2D1GeometryGroup_GetBounds(this,A,B) (this)->lpVtbl->GetBounds(this,A,B)
-#define ID2D1GeometryGroup_GetWidenedBounds(this,A,B,C,D) (this)->lpVtbl->GetWidenedBounds(this,A,B,C,D)
-#define ID2D1GeometryGroup_Outline(this,A,B) (this)->lpVtbl->Outline(this,A,B)
-#define ID2D1GeometryGroup_StrokeContainsPoint(this,A,B,C,D,E) (this)->lpVtbl->StrokeContainsPoint(this,A,B,C,D,E)
-#define ID2D1GeometryGroup_Simplify(this,A,B,C) (this)->lpVtbl->Simplify(this,A,B,C)
-#define ID2D1GeometryGroup_Tessellate(this,A,B) (this)->lpVtbl->Tessellate(this,A,B)
-#define ID2D1GeometryGroup_Widen(this,A,B,C,D) (this)->lpVtbl->Widen(this,A,B,C,D)
+#else
+
+typedef struct ID2D1GeometryGroupVtbl {
+    ID2D1GeometryVtbl Base;
+
+    STDMETHOD_(D2D1_FILL_MODE, GetFillMode)(ID2D1GeometryGroup *This) PURE;
+    STDMETHOD_(UINT32, GetSourceGeometryCount)(ID2D1GeometryGroup *This) PURE;
+    STDMETHOD_(void, GetSourceGeometries)(ID2D1GeometryGroup *This, ID2D1Geometry **geometries, UINT geometriesCount) PURE;
+} ID2D1GeometryGroupVtbl;
+
+interface ID2D1GeometryGroup {
+    const struct ID2D1GeometryGroupVtbl *lpVtbl;
+};
+
 #define ID2D1GeometryGroup_GetFillMode(this) (this)->lpVtbl->GetFillMode(this)
 #define ID2D1GeometryGroup_GetSourceGeometries(this,A,B) (this)->lpVtbl->GetSourceGeometries(this,A,B)
 #define ID2D1GeometryGroup_GetSourceGeometryCount(this) (this)->lpVtbl->GetSourceGeometryCount(this)
+
+#endif
 
 DEFINE_GUID(IID_ID2D1GeometrySink, 0x2cd9069f,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 
@@ -1812,31 +1767,29 @@ interface ID2D1LinearGradientBrush {
 
 #endif
 
-#define INTERFACE ID2D1Mesh
-DECLARE_INTERFACE_(ID2D1Mesh, ID2D1Resource)
-{
-  BEGIN_INTERFACE
+DEFINE_GUID(IID_ID2D1Mesh,0x2cd906c2,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 
-  /* IUnknown methods */
-  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-  STDMETHOD_(ULONG, Release)(THIS) PURE;
+#ifndef D2D_USE_C_DEFINITIONS
 
-  /* ID2D1Resource methods */
-  STDMETHOD_(void, GetFactory)(THIS_ ID2D1Factory **factory) PURE;
-
-  /* ID2D1Mesh methods */
-  STDMETHOD(Open)(THIS_ ID2D1TessellationSink **tessellationSink) PURE;
-
-  END_INTERFACE
+interface ID2D1Mesh : public ID2D1Resource {
+    STDMETHOD(Open)(ID2D1TessellationSink **tessellationSink) PURE;
 };
-#undef INTERFACE
 
-#define ID2D1Mesh_QueryInterface(this,A,B) (this)->lpVtbl->QueryInterface(this,A,B)
-#define ID2D1Mesh_AddRef(this) (this)->lpVtbl->AddRef(this)
-#define ID2D1Mesh_Release(this) (this)->lpVtbl->Release(this)
-#define ID2D1Mesh_GetFactory(this,A) (this)->lpVtbl->GetFactory(this,A)
+#else
+
+typedef struct ID2D1MeshVtbl{
+    ID2D1ResourceVtbl Base;
+
+    STDMETHOD(Open)(ID2D1Mesh *This, ID2D1TessellationSink **tessellationSink) PURE;
+} ID2D1MeshVtbl;
+
+interface ID2D1Mesh {
+    const struct ID2D1MeshVtbl *lpVtbl;
+};
+
 #define ID2D1Mesh_Open(this,A) (this)->lpVtbl->Open(this,A)
+
+#endif
 
 DEFINE_GUID(IID_ID2D1PathGeometry, 0x2cd906a5,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9); 
 
@@ -1943,55 +1896,29 @@ interface ID2D1RectangleGeometry {
 
 #endif
 
-#define INTERFACE ID2D1RoundedRectangleGeometry
-DECLARE_INTERFACE_(ID2D1RoundedRectangleGeometry, ID2D1Geometry)
-{
-  BEGIN_INTERFACE
+DEFINE_GUID(IID_ID2D1RoundedRectangleGeometry, 0x2cd906a3,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 
-  /* IUnknown methods */
-  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-  STDMETHOD_(ULONG, Release)(THIS) PURE;
+#ifndef D2D_USE_C_DEFINITIONS
 
-  /* ID2D1Resource methods */
-  STDMETHOD_(void, GetFactory)(THIS_ ID2D1Factory **factory) PURE;
-
-  /* ID2D1Geometry methods */
-  STDMETHOD(CombineWithGeometry)(THIS_ ID2D1Geometry *inputGeometry, D2D1_COMBINE_MODE combineMode, D2D1_MATRIX_3X2_F *inputGeometryTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-  STDMETHOD(CompareWithGeometry)(THIS_ ID2D1Geometry *inputGeometry, D2D1_MATRIX_3X2_F *inputGeometryTransform, D2D1_GEOMETRY_RELATION *relation) PURE;
-  STDMETHOD(ComputeArea)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, FLOAT *area) PURE;
-  STDMETHOD(ComputeLength)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, FLOAT *length) PURE;
-  STDMETHOD(ComputePointAtLength)(THIS_ FLOAT length, D2D1_MATRIX_3X2_F *worldTransform, D2D1_POINT_2F *point, D2D1_POINT_2F *unitTangentVector) PURE;
-  STDMETHOD(FillContainsPoint)(THIS_ D2D1_POINT_2F point, D2D1_MATRIX_3X2_F *worldTransform, BOOL *contains) PURE;
-  STDMETHOD(GetBounds)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, D2D1_RECT_F *bounds) PURE;
-  STDMETHOD(GetWidenedBounds)(THIS_ FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle, D2D1_MATRIX_3X2_F *worldTransform, D2D1_RECT_F *bounds) PURE;
-  STDMETHOD(Outline)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-  STDMETHOD(StrokeContainsPoint)(THIS_ D2D1_POINT_2F point, FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle, D2D1_MATRIX_3X2_F *worldTransform, BOOL *contains) PURE;
-  STDMETHOD(Simplify)(THIS_ D2D1_GEOMETRY_SIMPLIFICATION_OPTION simplificationOption, D2D1_MATRIX_3X2_F *worldTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-  STDMETHOD(Tessellate)(THIS_ D2D1_MATRIX_3X2_F *worldTransform, ID2D1TessellationSink *tessellationSink) PURE;
-  STDMETHOD(Widen)(THIS_ FLOAT strokeWidth, ID2D1StrokeStyle *strokeStyle, D2D1_MATRIX_3X2_F *worldTransform, ID2D1SimplifiedGeometrySink *geometrySink) PURE;
-
-  /* ID2D1RoundedRectangleGeometry methods */
-  STDMETHOD_(void, GetRoundedRect)(THIS_ D2D1_ROUNDED_RECT *roundedRect) PURE;
-
-  END_INTERFACE
+interface ID2D1RoundedRectangleGeometry : public ID2D1Geometry {
+    STDMETHOD_(void, GetRoundedRect)(D2D1_ROUNDED_RECT *roundedRect) const PURE;
 };
-#undef INTERFACE
 
-#define ID2D1RoundedRectangleGeometry_CombineWithGeometry(this,A,B,C,D) (this)->lpVtbl->CombineWithGeometry(this,A,B,C,D)
-#define ID2D1RoundedRectangleGeometry_CompareWithGeometry(this,A,B,C) (this)->lpVtbl->CompareWithGeometry(this,A,B,C)
-#define ID2D1RoundedRectangleGeometry_ComputeArea(this,A,B) (this)->lpVtbl->ComputeArea(this,A,B)
-#define ID2D1RoundedRectangleGeometry_ComputeLength(this,A,B) (this)->lpVtbl->ComputeLength(this,A,B)
-#define ID2D1RoundedRectangleGeometry_ComputePointAtLength(this,A,B,C,D) (this)->lpVtbl->ComputePointAtLength(this,A,B,C,D)
-#define ID2D1RoundedRectangleGeometry_FillContainsPoint(this,A,B,C) (this)->lpVtbl->FillContainsPoint(this,A,B,C)
-#define ID2D1RoundedRectangleGeometry_GetBounds(this,A,B) (this)->lpVtbl->GetBounds(this,A,B)
-#define ID2D1RoundedRectangleGeometry_GetWidenedBounds(this,A,B,C,D) (this)->lpVtbl->GetWidenedBounds(this,A,B,C,D)
-#define ID2D1RoundedRectangleGeometry_Outline(this,A,B) (this)->lpVtbl->Outline(this,A,B)
-#define ID2D1RoundedRectangleGeometry_StrokeContainsPoint(this,A,B,C,D,E) (this)->lpVtbl->StrokeContainsPoint(this,A,B,C,D,E)
-#define ID2D1RoundedRectangleGeometry_Simplify(this,A,B,C) (this)->lpVtbl->Simplify(this,A,B,C)
-#define ID2D1RoundedRectangleGeometry_Tessellate(this,A,B) (this)->lpVtbl->Tessellate(this,A,B)
-#define ID2D1RoundedRectangleGeometry_Widen(this,A,B,C,D) (this)->lpVtbl->Widen(this,A,B,C,D)
+#else
+
+typedef struct ID2D1RoundedRectangleGeometryVtbl {
+    ID2D1GeometryVtbl Base;
+
+    STDMETHOD_(void, GetRoundedRect)(ID2D1RoundedRectangleGeometry *This, D2D1_ROUNDED_RECT *roundedRect) PURE;
+} ID2D1RoundedRectangleGeometryVtbl;
+
+interface ID2D1RoundedRectangleGeometry {
+    const struct ID2D1RoundedRectangleGeometryVtbl *lpVtbl;
+};
+
 #define ID2D1RoundedRectangleGeometry_GetRoundedRect(this,A) (this)->lpVtbl->GetRoundedRect(this,A)
+
+#endif
 
 DEFINE_GUID(IID_ID2D1SolidColorBrush, 0x2cd906a9,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 
@@ -2076,29 +2003,32 @@ interface ID2D1StrokeStyle {
 
 #endif
 
-#define INTERFACE ID2D1TessellationSink
-DECLARE_INTERFACE_(ID2D1TessellationSink, IUnknown)
-{
-  BEGIN_INTERFACE
+DEFINE_GUID(IID_ID2D1TessellationSink, 0x2cd906c1,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 
-  /* IUnknown methods */
-  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-  STDMETHOD_(ULONG, Release)(THIS) PURE;
+#ifndef D2D_USE_C_DEFINITIONS
 
-  /* ID2D1TessellationSink methods */
-  STDMETHOD_(void, AddTriangles)(THIS_ D2D1_TRIANGLE *triangles, UINT trianglesCount) PURE;
-  STDMETHOD(Close)(THIS) PURE;
-
-  END_INTERFACE
+interface ID2D1TessellationSink : public IUnknown {
+    STDMETHOD_(void, AddTriangles)(const D2D1_TRIANGLE *triangles, UINT trianglesCount) PURE;
+    STDMETHOD(Close)() PURE;
 };
-#undef INTERFACE
 
-#define ID2D1TessellationSink_QueryInterface(this,A,B) (this)->lpVtbl->QueryInterface(this,A,B)
-#define ID2D1TessellationSink_AddRef(this) (this)->lpVtbl->AddRef(this)
-#define ID2D1TessellationSink_Release(this) (this)->lpVtbl->Release(this)
+#else
+
+typedef struct ID2D1TessellationSinkVtbl {
+    IUnknownVtbl Base;
+
+    STDMETHOD_(void, AddTriangles)(ID2D1TessellationSink *This, const D2D1_TRIANGLE *triangles, UINT trianglesCount) PURE;
+    STDMETHOD(Close)(ID2D1TessellationSink *This) PURE;
+} ID2D1TessellationSinkVtbl;
+
+interface ID2D1TessellationSink {
+    const struct ID2D1TessellationSinkVtbl *lpVtbl;
+};
+
 #define ID2D1TessellationSink_AddTriangles(this,A,B) (this)->lpVtbl->AddTriangles(this,A,B)
 #define ID2D1TessellationSink_Close(this) (this)->lpVtbl->Close(this)
+
+#endif
 
 DEFINE_GUID(IID_ID2D1TransformedGeometry, 0x2cd906bb,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 
@@ -2148,6 +2078,12 @@ __CRT_UUID_DECL(ID2D1RectangleGeometry, 0x2cd906a2,0x12e2,0x11dc,0x9f,0xed,0x00,
 __CRT_UUID_DECL(ID2D1SolidColorBrush, 0x2cd906a9,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9)
 __CRT_UUID_DECL(ID2D1StrokeStyle, 0x2cd9069d,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9)
 __CRT_UUID_DECL(ID2D1TransformedGeometry, 0x2cd906bb,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9)
+__CRT_UUID_DECL(ID2D1Mesh,0x2cd906c2,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
+__CRT_UUID_DECL(ID2D1DrawingStateBlock, 0x28506e39,0xebf6,0x46a1,0xbb,0x47,0xfd,0x85,0x56,0x5a,0xb9,0x57);
+__CRT_UUID_DECL(ID2D1EllipseGeometry, 0x2cd906a4,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
+__CRT_UUID_DECL(ID2D1GeometryGroup, 0x2cd906a6,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
+__CRT_UUID_DECL(ID2D1RoundedRectangleGeometry, 0x2cd906a3,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
+__CRT_UUID_DECL(ID2D1TessellationSink, 0x2cd906c1,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 
 #ifndef D2D1FORCEINLINE
 #define D2D1FORCEINLINE FORCEINLINE
@@ -2159,43 +2095,6 @@ __CRT_UUID_DECL(ID2D1TransformedGeometry, 0x2cd906bb,0x12e2,0x11dc,0x9f,0xed,0x0
 #pragma pop_macro("IDWriteRenderingParams")
 #pragma pop_macro("IDWriteTextLayout")
 
-#ifndef __MINGW_POISON_NAME
-#ifdef __MINGW_USE_BROKEN_INTERFACE
-#define __MINGW_POISON_NAME(__IFACE) __IFACE
-#else
-#define __MINGW_POISON_NAME(__IFACE)\
-  __IFACE##_layout_has_not_been_verified_and_its_declaration_is_most_likely_incorrect
-#endif
-#endif
-
-#define ID2D1DrawingStateBlock __MINGW_POISON_NAME(ID2D1DrawingStateBlock)
-#define ID2D1EllipseGeometry __MINGW_POISON_NAME(ID2D1EllipseGeometry)
-#define ID2D1GeometryGroup __MINGW_POISON_NAME(ID2D1GeometryGroup)
-#define ID2D1Mesh __MINGW_POISON_NAME(ID2D1Mesh)
-#define ID2D1RoundedRectangleGeometry __MINGW_POISON_NAME(ID2D1RoundedRectangleGeometry)
-#define ID2D1TessellationSink __MINGW_POISON_NAME(ID2D1TessellationSink)
-
-/* Posibly C++ or inlined */
-/*
-
-HRESULT WINAPI D2D1CreateDevice(
-  IDXGIDevice *dxgiDevice,
-  const D2D1_CREATION_PROPERTIES *creationProperties,
-  ID2D1Device **d2dDevice
-);
-
-HRESULT WINAPI D2D1CreateDeviceContext(
-  IDXGISurface *dxgiSurface,
-  const D2D1_CREATION_PROPERTIES *creationProperties,
-  ID2D1DeviceContext **d2dDeviceContext
-);
-
-D2D1_MATRIX_3X2_F operator*(
-  const D2D1_MATRIX_3X2_F &matrix1,
-  const D2D1_MATRIX_3X2_F &matrix2
-);
-
-*/
 #ifdef __cplusplus
 extern "C" {
 #endif
