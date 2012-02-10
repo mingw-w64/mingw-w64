@@ -5359,6 +5359,8 @@ extern "C" {
 #define MAPVK_VSC_TO_VK_EX 3
 #define MAPVK_VK_TO_VSC_EX 4
 
+DECLARE_HANDLE(HTOUCHINPUT);
+
   typedef struct _TOUCHINPUT {
     LONG x;
     LONG y;
