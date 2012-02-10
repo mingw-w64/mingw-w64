@@ -51,7 +51,9 @@ extern "C" {
 	virtual HRESULT WINAPI QueryInterface(REFIID riid,void **ppvObject) = 0;
 	virtual ULONG WINAPI AddRef(void) = 0;
 	virtual ULONG WINAPI Release(void) = 0;
+#ifndef __STRICT_ANSI__
 	template<class Q> HRESULT WINAPI QueryInterface(Q **pp) { return QueryInterface(__uuidof(*pp),(void **)pp); }
+#endif
       END_INTERFACE
     };
   }
