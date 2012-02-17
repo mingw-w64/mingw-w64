@@ -147,7 +147,6 @@ typedef enum _DXVA2_VideoTransferMatrix {
   DXVA2_VideoTransferMatrix_SMPTE240M   = 3 
 } DXVA2_VideoTransferMatrix;
 
-#pragma pack(push, 1)
 typedef struct _DXVA2_AYUVSample16 {
   USHORT Cr;
   USHORT Cb;
@@ -560,8 +559,6 @@ typedef struct {
     UINT    SliceBytesInBuffer;
     USHORT  wBadSliceChopping;
 } DXVA_Slice_H264_Short;
-
-#pragma pack(pop)
 
 /* Constants */
 
