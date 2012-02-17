@@ -380,6 +380,7 @@ typedef struct {
     };
 } DXVA_PicEntry_H264;
 
+#pragma pack(push, 1)
 typedef struct {
     USHORT  wFrameWidthInMbsMinus1;
     USHORT  wFrameHeightInMbsMinus1;
@@ -405,6 +406,7 @@ typedef struct {
     UCHAR   intensity_interval_upper_bound[3][16];
     SHORT   comp_model_value[3][16][8];
 } DXVA_FilmGrainChar_H264;
+#pragma pack(pop)
 
 /* DXVA MPEG-I/II and VC-1 */
 typedef struct _DXVA_PictureParameters {
@@ -451,6 +453,7 @@ typedef struct _DXVA_QmatrixData {
     WORD    Qmatrix[4][8 * 8];
 } DXVA_QmatrixData, *LPDXVA_QmatrixData;
 
+#pragma pack(push, 1)
 typedef struct _DXVA_SliceInfo {
     USHORT  wHorizontalPosition;
     USHORT  wVerticalPosition;
@@ -463,6 +466,7 @@ typedef struct _DXVA_SliceInfo {
     USHORT  wQuantizerScaleCode;
     USHORT  wBadSliceChopping;
 } DXVA_SliceInfo, *LPDXVA_SliceInfo;
+#pragma pack(pop)
 
 typedef struct {
     USHORT wFrameWidthInMbsMinus1;
@@ -554,11 +558,14 @@ typedef struct {
     USHORT  slice_id;
 } DXVA_Slice_H264_Long;
 
+#pragma pack(push, 1)
 typedef struct {
     UINT    BSNALunitDataLocation;
     UINT    SliceBytesInBuffer;
     USHORT  wBadSliceChopping;
 } DXVA_Slice_H264_Short;
+#pragma pack(pop)
+
 
 /* Constants */
 
