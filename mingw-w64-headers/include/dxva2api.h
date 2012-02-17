@@ -177,7 +177,7 @@ typedef struct _DXVA2_ConfigPictureDecode {
   UINT   ConfigHostInverseScan;
   UINT   ConfigSpecificIDCT;
   UINT   Config4GroupedCoefs;
-  UINT   ConfigMinRenderTargetBuffCount;
+  USHORT ConfigMinRenderTargetBuffCount;
   USHORT ConfigDecoderSpecific;
 } DXVA2_ConfigPictureDecode;
 
