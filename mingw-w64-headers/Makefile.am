@@ -54,6 +54,7 @@ BUILT_SOURCES = \
 if HAVE_WIDL
 
 IDL_SRCS = \
+  include/oaidl.idl \
   include/unknwn.idl \
   include/wtypes.idl
 
