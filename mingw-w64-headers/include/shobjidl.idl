@@ -4,6 +4,10 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+import "objidl.idl";
+import "oaidl.idl";
+import "shtypes.idl";
+
 cpp_quote("#include <_mingw_unicode.h>")
 
 cpp_quote("#ifndef __IPersistFolder_FWD_DEFINED__")
@@ -309,11 +313,6 @@ cpp_quote("")
 cpp_quote("#ifndef __IMenuPopup_FWD_DEFINED__")
 cpp_quote("#define __IMenuPopup_FWD_DEFINED__")
 cpp_quote("typedef struct IMenuPopup IMenuPopup;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IShellItem_FWD_DEFINED__")
-cpp_quote("#define __IShellItem_FWD_DEFINED__")
-cpp_quote("typedef struct IShellItem IShellItem;")
 cpp_quote("#endif")
 cpp_quote("")
 cpp_quote("#ifndef __IShellItem2_FWD_DEFINED__")
@@ -650,10 +649,7 @@ cpp_quote("#define __IFileOpenDialog_FWD_DEFINED__")
 cpp_quote("typedef interface IFileOpenDialog IFileOpenDialog;")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#include \"objidl.h\"")
 cpp_quote("#include \"oleidl.h\"")
-cpp_quote("#include \"oaidl.h\"")
-cpp_quote("#include \"shtypes.h\"")
 cpp_quote("#include \"servprov.h\"")
 cpp_quote("#include \"comcat.h\"")
 cpp_quote("#include \"propidl.h\"")
@@ -886,8 +882,9 @@ cpp_quote("#define SFGAO_HASSTORAGE 0x00400000L")
 cpp_quote("#define SFGAO_STREAM 0x00400000L")
 cpp_quote("#define SFGAO_STORAGEANCESTOR 0x00800000L")
 cpp_quote("#define SFGAO_STORAGECAPMASK 0x70C50008L")
-cpp_quote("  typedef ULONG SFGAOF;")
-cpp_quote("")
+
+typedef ULONG SFGAOF;
+
 cpp_quote("#define STR_SKIP_BINDING_CLSID L\"Skip Binding CLSID\"")
 cpp_quote("#define STR_PARSE_PREFER_FOLDER_BROWSING L\"Parse Prefer Folder Browsing\"")
 cpp_quote("#define STR_DONT_PARSE_RELATIVE L\"Don't Parse Relative\"")
@@ -5204,69 +5201,57 @@ cpp_quote("  void __RPC_STUB IMenuPopup_OnSelect_Stub(IRpcStubBuffer *This,IRpcC
 cpp_quote("  HRESULT WINAPI IMenuPopup_SetSubMenu_Proxy(IMenuPopup *This,IMenuPopup *pmp,WINBOOL fSet);")
 cpp_quote("  void __RPC_STUB IMenuPopup_SetSubMenu_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IShellItem_INTERFACE_DEFINED__")
-cpp_quote("#define __IShellItem_INTERFACE_DEFINED__")
-cpp_quote("  typedef enum __MIDL_IShellItem_0001 {")
-cpp_quote("    SIGDN_NORMALDISPLAY = 0,SIGDN_PARENTRELATIVEPARSING = 0x80018001,SIGDN_PARENTRELATIVEFORADDRESSBAR = 0x8001c001,")
-cpp_quote("    SIGDN_DESKTOPABSOLUTEPARSING = 0x80028000,SIGDN_PARENTRELATIVEEDITING = 0x80031001,SIGDN_DESKTOPABSOLUTEEDITING = 0x8004c000,")
-cpp_quote("    SIGDN_FILESYSPATH = 0x80058000,SIGDN_URL = 0x80068000")
-cpp_quote("  } SIGDN;")
-cpp_quote("")
-cpp_quote("  enum __MIDL_IShellItem_0002 {")
-cpp_quote("    SICHINT_DISPLAY = 0,SICHINT_ALLFIELDS = 0x80000000,SICHINT_CANONICAL = 0x10000000")
-cpp_quote("  };")
-cpp_quote("  typedef DWORD SICHINTF;")
-cpp_quote("")
-cpp_quote("DEFINE_GUID(IID_IShellItem, 0x43826d1e,0xe718,0x42ee,0xbc,0x55,0xa1,0xe2,0x61,0xc3,0x7b,0xfe);")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IShellItem : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI BindToHandler(IBindCtx *pbc,REFGUID rbhid,REFIID riid,void **ppvOut) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetParent(IShellItem **ppsi) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetDisplayName(SIGDN sigdnName,LPOLESTR *ppszName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetAttributes(SFGAOF sfgaoMask,SFGAOF *psfgaoAttribs) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Compare(IShellItem *psi,SICHINTF hint,int *piOrder) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IShellItemVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IShellItem *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IShellItem *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IShellItem *This);")
-cpp_quote("      HRESULT (WINAPI *BindToHandler)(IShellItem *This,IBindCtx *pbc,REFGUID rbhid,REFIID riid,void **ppvOut);")
-cpp_quote("      HRESULT (WINAPI *GetParent)(IShellItem *This,IShellItem **ppsi);")
-cpp_quote("      HRESULT (WINAPI *GetDisplayName)(IShellItem *This,SIGDN sigdnName,LPOLESTR *ppszName);")
-cpp_quote("      HRESULT (WINAPI *GetAttributes)(IShellItem *This,SFGAOF sfgaoMask,SFGAOF *psfgaoAttribs);")
-cpp_quote("      HRESULT (WINAPI *Compare)(IShellItem *This,IShellItem *psi,SICHINTF hint,int *piOrder);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IShellItemVtbl;")
-cpp_quote("  struct IShellItem {")
-cpp_quote("    CONST_VTBL struct IShellItemVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IShellItem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IShellItem_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IShellItem_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IShellItem_BindToHandler(This,pbc,rbhid,riid,ppvOut) (This)->lpVtbl->BindToHandler(This,pbc,rbhid,riid,ppvOut)")
-cpp_quote("#define IShellItem_GetParent(This,ppsi) (This)->lpVtbl->GetParent(This,ppsi)")
-cpp_quote("#define IShellItem_GetDisplayName(This,sigdnName,ppszName) (This)->lpVtbl->GetDisplayName(This,sigdnName,ppszName)")
-cpp_quote("#define IShellItem_GetAttributes(This,sfgaoMask,psfgaoAttribs) (This)->lpVtbl->GetAttributes(This,sfgaoMask,psfgaoAttribs)")
-cpp_quote("#define IShellItem_Compare(This,psi,hint,piOrder) (This)->lpVtbl->Compare(This,psi,hint,piOrder)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IShellItem_BindToHandler_Proxy(IShellItem *This,IBindCtx *pbc,REFGUID rbhid,REFIID riid,void **ppvOut);")
-cpp_quote("  void __RPC_STUB IShellItem_BindToHandler_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IShellItem_GetParent_Proxy(IShellItem *This,IShellItem **ppsi);")
-cpp_quote("  void __RPC_STUB IShellItem_GetParent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IShellItem_GetDisplayName_Proxy(IShellItem *This,SIGDN sigdnName,LPOLESTR *ppszName);")
-cpp_quote("  void __RPC_STUB IShellItem_GetDisplayName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IShellItem_GetAttributes_Proxy(IShellItem *This,SFGAOF sfgaoMask,SFGAOF *psfgaoAttribs);")
-cpp_quote("  void __RPC_STUB IShellItem_GetAttributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IShellItem_Compare_Proxy(IShellItem *This,IShellItem *psi,SICHINTF hint,int *piOrder);")
-cpp_quote("  void __RPC_STUB IShellItem_Compare_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
+
+[
+    uuid(43826d1e-e718-42ee-bc55-a1e261c37bfe),
+    object,
+    pointer_default(unique)
+]
+interface IShellItem : IUnknown
+{
+    typedef [v1_enum] enum _SIGDN {
+        SIGDN_NORMALDISPLAY               = 0x00000000,
+        SIGDN_PARENTRELATIVEPARSING       = (int)0x80018001,
+        SIGDN_DESKTOPABSOLUTEPARSING      = (int)0x80028000,
+        SIGDN_PARENTRELATIVEEDITING       = (int)0x80031001,
+        SIGDN_DESKTOPABSOLUTEEDITING      = (int)0x8004c000,
+        SIGDN_FILESYSPATH                 = (int)0x80058000,
+        SIGDN_URL                         = (int)0x80068000,
+        SIGDN_PARENTRELATIVEFORADDRESSBAR = (int)0x8007c001,
+        SIGDN_PARENTRELATIVE              = (int)0x80080001
+    } SIGDN;
+
+    [v1_enum] enum _SICHINTF {
+        SICHINT_DISPLAY   = 0x00000000,
+        SICHINT_ALLFIELDS = (int)0x80000000,
+        SICHINT_CANONICAL = 0x10000000,
+        SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL = 0x20000000
+    };
+
+    typedef DWORD SICHINTF;
+
+    HRESULT BindToHandler(
+            [in, unique] IBindCtx *pbc,
+            [in] REFGUID bhid,
+            [in] REFIID riid,
+            [out, iid_is(riid)] void **ppv);
+
+    HRESULT GetParent([out] IShellItem **ppsi);
+
+    HRESULT GetDisplayName(
+            [in] SIGDN sigdnName,
+            [out, string] LPWSTR *ppszName);
+
+    HRESULT GetAttributes(
+            [in] SFGAOF sfgaoMask,
+            [out] SFGAOF *psfgaoAttribs);
+
+    HRESULT Compare(
+            [in] IShellItem *psi,
+            [in] SICHINTF hint,
+            [out] int *piOrder);
+}
+
 cpp_quote("/*****************************************************************************")
 cpp_quote(" * IShellItem2 interface")
 cpp_quote(" */")
@@ -6440,11 +6425,109 @@ cpp_quote("#endif")
 cpp_quote("")
 cpp_quote("#endif")
 cpp_quote("#endif  /* __ICustomDestinationList_INTERFACE_DEFINED__ */")
-cpp_quote("")
-cpp_quote("#ifndef __ShellObjects_LIBRARY_DEFINED__")
-cpp_quote("#define __ShellObjects_LIBRARY_DEFINED__")
+
+[
+    uuid(11a66efa-382e-451a-9234-1e0e12ef3085),
+    object,
+    pointer_default(unique)
+]
+interface IShellLibrary : IUnknown
+{
+    typedef [v1_enum] enum LIBRARYFOLDERFILTER {
+        LFF_FORCEFILESYSTEM = 1,
+        LFF_STORAGEITEMS    = 2,
+        LFF_ALLITEMS        = 3
+    } LIBRARYFOLDERFILTER;
+
+    typedef [v1_enum] enum LIBRARYOPTIONFLAGS {
+        LOF_DEFAULT         = 0x00000000,
+        LOF_PINNEDTONAVPANE = 0x00000001,
+        LOF_MASK_ALL        = 0x00000001
+    } LIBRARYOPTIONFLAGS;
+    cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(LIBRARYOPTIONFLAGS)")
+
+    typedef [v1_enum] enum DEFAULTSAVEFOLDERTYPE {
+        DSFT_DETECT = 1,
+        DSFT_PRIVATE,
+        DSFT_PUBLIC
+    } DEFAULTSAVEFOLDERTYPE;
+
+    typedef [v1_enum] enum LIBRARYSAVEFLAGS {
+        LSF_FAILIFTHERE      = 0x0000,
+        LSF_OVERRIDEEXISTING = 0x0001,
+        LSF_MAKEUNIQUENAME   = 0x0002
+    } LIBRARYSAVEFLAGS;
+    cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(LIBRARYSAVEFLAGS)")
+
+    HRESULT LoadLibraryFromItem(
+            [in] IShellItem *psiLibrary,
+            [in] DWORD grfMode);
+
+    HRESULT LoadLibraryFromKnownFolder(
+            [in] REFKNOWNFOLDERID kfidLibrary,
+            [in] DWORD grfMode);
+
+    HRESULT AddFolder([in] IShellItem *psiLocation);
+    HRESULT RemoveFolder([in] IShellItem *psiLocation);
+
+    HRESULT GetFolders(
+            [in] LIBRARYFOLDERFILTER lff,
+            [in] REFIID riid,
+            [out, iid_is(riid)] void **ppv);
+
+    HRESULT ResolveFolder(
+            [in] IShellItem *psiFolderToResolve,
+            [in] DWORD dwTimeout,
+            [in] REFIID riid,
+            [out, iid_is(riid)] void **ppv);
+
+    HRESULT GetDefaultSaveFolder(
+            [in] DEFAULTSAVEFOLDERTYPE dsft,
+            [in] REFIID riid,
+            [out, iid_is(riid)] void **ppv);
+
+    HRESULT SetDefaultSaveFolder(
+            [in] DEFAULTSAVEFOLDERTYPE dsft,
+            [in] IShellItem *psi);
+
+    HRESULT GetOptions([out] LIBRARYOPTIONFLAGS *plofOptions);
+
+    HRESULT SetOptions(
+            [in] LIBRARYOPTIONFLAGS lofMask,
+            [in] LIBRARYOPTIONFLAGS lofOptions);
+
+    HRESULT GetFolderType([out] FOLDERTYPEID *pftid);
+    HRESULT SetFolderType([in] REFFOLDERTYPEID ftid);
+    HRESULT GetIcon([out, string] LPWSTR *ppszIcon);
+    HRESULT SetIcon([in, string] LPCWSTR pszIcon);
+    HRESULT Commit();
+
+    HRESULT Save(
+            [in] IShellItem *psiFolderToSaveIn,
+            [in, string] LPCWSTR pszLibraryName,
+            [in] LIBRARYSAVEFLAGS lsf,
+            [out] IShellItem **ppsiSavedTo);
+
+    HRESULT SaveInKnownFolder(
+        [in] REFKNOWNFOLDERID kfidToSaveIn,
+        [in, string] LPCWSTR pszLibraryName,
+        [in] LIBRARYSAVEFLAGS lsf,
+        [out] IShellItem **ppsiSavedTo);
+}
+
+[
+    uuid(50a7e9b1-70ef-11d1-b75a-00a0c90564fe),
+    lcid(0x0000),
+    version(1.0)
+]
+library ShellObjects
+{
+    [
+        uuid(d9b3211d-e57f-4426-aaef-30a806add397)
+    ]
+    coclass ShellLibrary { interface IShellLibrary; }
+
 cpp_quote("#define SID_PublishingWizard CLSID_PublishingWizard")
-cpp_quote("  EXTERN_C const IID LIBID_ShellObjects;")
 cpp_quote("  EXTERN_C const CLSID CLSID_QueryCancelAutoPlay;")
 cpp_quote("#ifdef __cplusplus")
 cpp_quote("  class QueryCancelAutoPlay;")
@@ -6601,9 +6684,9 @@ cpp_quote(" * FileSaveDialog coclass")
 cpp_quote(" */")
 cpp_quote("")
 cpp_quote("DEFINE_GUID(CLSID_FileSaveDialog, 0xc0b4e2f3, 0xba21, 0x4773, 0x8d,0xba, 0x33,0x5e,0xc9,0x46,0xeb,0x8b);")
-cpp_quote("")
-cpp_quote("#endif")
-cpp_quote("")
+
+}
+
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0263_v0_0_c_ifspec;")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0263_v0_0_s_ifspec;")
 cpp_quote("")

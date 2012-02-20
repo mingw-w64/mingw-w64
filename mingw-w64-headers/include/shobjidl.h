@@ -17,8 +17,26 @@
 
 /* Forward declarations */
 
+#ifndef __IShellItem_FWD_DEFINED__
+#define __IShellItem_FWD_DEFINED__
+typedef interface IShellItem IShellItem;
+#endif
+
+#ifndef __IShellLibrary_FWD_DEFINED__
+#define __IShellLibrary_FWD_DEFINED__
+typedef interface IShellLibrary IShellLibrary;
+#endif
+
+#ifndef __ShellLibrary_FWD_DEFINED__
+#define __ShellLibrary_FWD_DEFINED__
+typedef struct ShellLibrary ShellLibrary;
+#endif /* defined __ShellLibrary_FWD_DEFINED__ */
+
 /* Headers for imported files */
 
+#include <objidl.h>
+#include <oaidl.h>
+#include <shtypes.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -328,11 +346,6 @@ typedef struct IRegTreeItem IRegTreeItem;
 #ifndef __IMenuPopup_FWD_DEFINED__
 #define __IMenuPopup_FWD_DEFINED__
 typedef struct IMenuPopup IMenuPopup;
-#endif
-
-#ifndef __IShellItem_FWD_DEFINED__
-#define __IShellItem_FWD_DEFINED__
-typedef struct IShellItem IShellItem;
 #endif
 
 #ifndef __IShellItem2_FWD_DEFINED__
@@ -669,10 +682,7 @@ typedef interface IFileSaveDialog IFileSaveDialog;
 typedef interface IFileOpenDialog IFileOpenDialog;
 #endif
 
-#include "objidl.h"
 #include "oleidl.h"
-#include "oaidl.h"
-#include "shtypes.h"
 #include "servprov.h"
 #include "comcat.h"
 #include "propidl.h"
@@ -905,8 +915,7 @@ typedef interface IFileOpenDialog IFileOpenDialog;
 #define SFGAO_STREAM 0x00400000L
 #define SFGAO_STORAGEANCESTOR 0x00800000L
 #define SFGAO_STORAGECAPMASK 0x70C50008L
-  typedef ULONG SFGAOF;
-
+typedef ULONG SFGAOF;
 #define STR_SKIP_BINDING_CLSID L"Skip Binding CLSID"
 #define STR_PARSE_PREFER_FOLDER_BROWSING L"Parse Prefer Folder Browsing"
 #define STR_DONT_PARSE_RELATIVE L"Don't Parse Relative"
@@ -5223,68 +5232,176 @@ interface IFileOpenDialog {
   HRESULT WINAPI IMenuPopup_SetSubMenu_Proxy(IMenuPopup *This,IMenuPopup *pmp,WINBOOL fSet);
   void __RPC_STUB IMenuPopup_SetSubMenu_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
+/*****************************************************************************
+ * IShellItem interface
+ */
 #ifndef __IShellItem_INTERFACE_DEFINED__
 #define __IShellItem_INTERFACE_DEFINED__
-  typedef enum __MIDL_IShellItem_0001 {
-    SIGDN_NORMALDISPLAY = 0,SIGDN_PARENTRELATIVEPARSING = 0x80018001,SIGDN_PARENTRELATIVEFORADDRESSBAR = 0x8001c001,
-    SIGDN_DESKTOPABSOLUTEPARSING = 0x80028000,SIGDN_PARENTRELATIVEEDITING = 0x80031001,SIGDN_DESKTOPABSOLUTEEDITING = 0x8004c000,
-    SIGDN_FILESYSPATH = 0x80058000,SIGDN_URL = 0x80068000
-  } SIGDN;
 
-  enum __MIDL_IShellItem_0002 {
-    SICHINT_DISPLAY = 0,SICHINT_ALLFIELDS = 0x80000000,SICHINT_CANONICAL = 0x10000000
-  };
-  typedef DWORD SICHINTF;
+typedef enum _SIGDN {
+    SIGDN_NORMALDISPLAY = 0x0,
+    SIGDN_PARENTRELATIVEPARSING = (int)0x80018001,
+    SIGDN_DESKTOPABSOLUTEPARSING = (int)0x80028000,
+    SIGDN_PARENTRELATIVEEDITING = (int)0x80031001,
+    SIGDN_DESKTOPABSOLUTEEDITING = (int)0x8004c000,
+    SIGDN_FILESYSPATH = (int)0x80058000,
+    SIGDN_URL = (int)0x80068000,
+    SIGDN_PARENTRELATIVEFORADDRESSBAR = (int)0x8007c001,
+    SIGDN_PARENTRELATIVE = (int)0x80080001
+} SIGDN;
+enum _SICHINTF {
+    SICHINT_DISPLAY = 0x0,
+    SICHINT_ALLFIELDS = (int)0x80000000,
+    SICHINT_CANONICAL = 0x10000000,
+    SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL = 0x20000000
+};
 
-DEFINE_GUID(IID_IShellItem, 0x43826d1e,0xe718,0x42ee,0xbc,0x55,0xa1,0xe2,0x61,0xc3,0x7b,0xfe);
+typedef DWORD SICHINTF;
+DEFINE_GUID(IID_IShellItem, 0x43826d1e, 0xe718, 0x42ee, 0xbc,0x55, 0xa1,0xe2,0x61,0xc3,0x7b,0xfe);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IShellItem : public IUnknown {
-  public:
-    virtual HRESULT WINAPI BindToHandler(IBindCtx *pbc,REFGUID rbhid,REFIID riid,void **ppvOut) = 0;
-    virtual HRESULT WINAPI GetParent(IShellItem **ppsi) = 0;
-    virtual HRESULT WINAPI GetDisplayName(SIGDN sigdnName,LPOLESTR *ppszName) = 0;
-    virtual HRESULT WINAPI GetAttributes(SFGAOF sfgaoMask,SFGAOF *psfgaoAttribs) = 0;
-    virtual HRESULT WINAPI Compare(IShellItem *psi,SICHINTF hint,int *piOrder) = 0;
-  };
+MIDL_INTERFACE("43826d1e-e718-42ee-bc55-a1e261c37bfe")
+IShellItem : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE BindToHandler(
+        IBindCtx *pbc,
+        REFGUID bhid,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetParent(
+        IShellItem **ppsi) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDisplayName(
+        SIGDN sigdnName,
+        LPWSTR *ppszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAttributes(
+        SFGAOF sfgaoMask,
+        SFGAOF *psfgaoAttribs) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Compare(
+        IShellItem *psi,
+        SICHINTF hint,
+        int *piOrder) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IShellItem, 0x43826d1e, 0xe718, 0x42ee, 0xbc,0x55, 0xa1,0xe2,0x61,0xc3,0x7b,0xfe)
+#endif
 #else
-  typedef struct IShellItemVtbl {
+typedef struct IShellItemVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IShellItem *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IShellItem *This);
-      ULONG (WINAPI *Release)(IShellItem *This);
-      HRESULT (WINAPI *BindToHandler)(IShellItem *This,IBindCtx *pbc,REFGUID rbhid,REFIID riid,void **ppvOut);
-      HRESULT (WINAPI *GetParent)(IShellItem *This,IShellItem **ppsi);
-      HRESULT (WINAPI *GetDisplayName)(IShellItem *This,SIGDN sigdnName,LPOLESTR *ppszName);
-      HRESULT (WINAPI *GetAttributes)(IShellItem *This,SFGAOF sfgaoMask,SFGAOF *psfgaoAttribs);
-      HRESULT (WINAPI *Compare)(IShellItem *This,IShellItem *psi,SICHINTF hint,int *piOrder);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IShellItem* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IShellItem* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IShellItem* This);
+
+    /*** IShellItem methods ***/
+    HRESULT (STDMETHODCALLTYPE *BindToHandler)(
+        IShellItem* This,
+        IBindCtx *pbc,
+        REFGUID bhid,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IShellItem* This,
+        IShellItem **ppsi);
+
+    HRESULT (STDMETHODCALLTYPE *GetDisplayName)(
+        IShellItem* This,
+        SIGDN sigdnName,
+        LPWSTR *ppszName);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributes)(
+        IShellItem* This,
+        SFGAOF sfgaoMask,
+        SFGAOF *psfgaoAttribs);
+
+    HRESULT (STDMETHODCALLTYPE *Compare)(
+        IShellItem* This,
+        IShellItem *psi,
+        SICHINTF hint,
+        int *piOrder);
+
     END_INTERFACE
-  } IShellItemVtbl;
-  struct IShellItem {
-    CONST_VTBL struct IShellItemVtbl *lpVtbl;
-  };
+} IShellItemVtbl;
+interface IShellItem {
+    CONST_VTBL IShellItemVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IShellItem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IShellItem_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IShellItem_Release(This) (This)->lpVtbl->Release(This)
-#define IShellItem_BindToHandler(This,pbc,rbhid,riid,ppvOut) (This)->lpVtbl->BindToHandler(This,pbc,rbhid,riid,ppvOut)
+/*** IShellItem methods ***/
+#define IShellItem_BindToHandler(This,pbc,bhid,riid,ppv) (This)->lpVtbl->BindToHandler(This,pbc,bhid,riid,ppv)
 #define IShellItem_GetParent(This,ppsi) (This)->lpVtbl->GetParent(This,ppsi)
 #define IShellItem_GetDisplayName(This,sigdnName,ppszName) (This)->lpVtbl->GetDisplayName(This,sigdnName,ppszName)
 #define IShellItem_GetAttributes(This,sfgaoMask,psfgaoAttribs) (This)->lpVtbl->GetAttributes(This,sfgaoMask,psfgaoAttribs)
 #define IShellItem_Compare(This,psi,hint,piOrder) (This)->lpVtbl->Compare(This,psi,hint,piOrder)
 #endif
+
 #endif
-  HRESULT WINAPI IShellItem_BindToHandler_Proxy(IShellItem *This,IBindCtx *pbc,REFGUID rbhid,REFIID riid,void **ppvOut);
-  void __RPC_STUB IShellItem_BindToHandler_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellItem_GetParent_Proxy(IShellItem *This,IShellItem **ppsi);
-  void __RPC_STUB IShellItem_GetParent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellItem_GetDisplayName_Proxy(IShellItem *This,SIGDN sigdnName,LPOLESTR *ppszName);
-  void __RPC_STUB IShellItem_GetDisplayName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellItem_GetAttributes_Proxy(IShellItem *This,SFGAOF sfgaoMask,SFGAOF *psfgaoAttribs);
-  void __RPC_STUB IShellItem_GetAttributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellItem_Compare_Proxy(IShellItem *This,IShellItem *psi,SICHINTF hint,int *piOrder);
-  void __RPC_STUB IShellItem_Compare_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IShellItem_BindToHandler_Proxy(
+    IShellItem* This,
+    IBindCtx *pbc,
+    REFGUID bhid,
+    REFIID riid,
+    void **ppv);
+void __RPC_STUB IShellItem_BindToHandler_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellItem_GetParent_Proxy(
+    IShellItem* This,
+    IShellItem **ppsi);
+void __RPC_STUB IShellItem_GetParent_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellItem_GetDisplayName_Proxy(
+    IShellItem* This,
+    SIGDN sigdnName,
+    LPWSTR *ppszName);
+void __RPC_STUB IShellItem_GetDisplayName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellItem_GetAttributes_Proxy(
+    IShellItem* This,
+    SFGAOF sfgaoMask,
+    SFGAOF *psfgaoAttribs);
+void __RPC_STUB IShellItem_GetAttributes_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellItem_Compare_Proxy(
+    IShellItem* This,
+    IShellItem *psi,
+    SICHINTF hint,
+    int *piOrder);
+void __RPC_STUB IShellItem_Compare_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IShellItem_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IShellItem2 interface
@@ -6459,11 +6576,417 @@ interface ICustomDestinationList {
 
 #endif
 #endif  /* __ICustomDestinationList_INTERFACE_DEFINED__ */
+/*****************************************************************************
+ * IShellLibrary interface
+ */
+#ifndef __IShellLibrary_INTERFACE_DEFINED__
+#define __IShellLibrary_INTERFACE_DEFINED__
 
-#ifndef __ShellObjects_LIBRARY_DEFINED__
-#define __ShellObjects_LIBRARY_DEFINED__
+typedef enum LIBRARYFOLDERFILTER {
+    LFF_FORCEFILESYSTEM = 1,
+    LFF_STORAGEITEMS = 2,
+    LFF_ALLITEMS = 3
+} LIBRARYFOLDERFILTER;
+typedef enum LIBRARYOPTIONFLAGS {
+    LOF_DEFAULT = 0x0,
+    LOF_PINNEDTONAVPANE = 0x1,
+    LOF_MASK_ALL = 0x1
+} LIBRARYOPTIONFLAGS;
+DEFINE_ENUM_FLAG_OPERATORS(LIBRARYOPTIONFLAGS)
+typedef enum DEFAULTSAVEFOLDERTYPE {
+    DSFT_DETECT = 1,
+    DSFT_PRIVATE = 2,
+    DSFT_PUBLIC = 3
+} DEFAULTSAVEFOLDERTYPE;
+typedef enum LIBRARYSAVEFLAGS {
+    LSF_FAILIFTHERE = 0x0,
+    LSF_OVERRIDEEXISTING = 0x1,
+    LSF_MAKEUNIQUENAME = 0x2
+} LIBRARYSAVEFLAGS;
+DEFINE_ENUM_FLAG_OPERATORS(LIBRARYSAVEFLAGS)
+DEFINE_GUID(IID_IShellLibrary, 0x11a66efa, 0x382e, 0x451a, 0x92,0x34, 0x1e,0x0e,0x12,0xef,0x30,0x85);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("11a66efa-382e-451a-9234-1e0e12ef3085")
+IShellLibrary : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE LoadLibraryFromItem(
+        IShellItem *psiLibrary,
+        DWORD grfMode) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE LoadLibraryFromKnownFolder(
+        REFKNOWNFOLDERID kfidLibrary,
+        DWORD grfMode) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddFolder(
+        IShellItem *psiLocation) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveFolder(
+        IShellItem *psiLocation) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFolders(
+        LIBRARYFOLDERFILTER lff,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ResolveFolder(
+        IShellItem *psiFolderToResolve,
+        DWORD dwTimeout,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDefaultSaveFolder(
+        DEFAULTSAVEFOLDERTYPE dsft,
+        REFIID riid,
+        void **ppv) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDefaultSaveFolder(
+        DEFAULTSAVEFOLDERTYPE dsft,
+        IShellItem *psi) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetOptions(
+        LIBRARYOPTIONFLAGS *plofOptions) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOptions(
+        LIBRARYOPTIONFLAGS lofMask,
+        LIBRARYOPTIONFLAGS lofOptions) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFolderType(
+        FOLDERTYPEID *pftid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetFolderType(
+        REFFOLDERTYPEID ftid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetIcon(
+        LPWSTR *ppszIcon) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetIcon(
+        LPCWSTR pszIcon) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Commit(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Save(
+        IShellItem *psiFolderToSaveIn,
+        LPCWSTR pszLibraryName,
+        LIBRARYSAVEFLAGS lsf,
+        IShellItem **ppsiSavedTo) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SaveInKnownFolder(
+        REFKNOWNFOLDERID kfidToSaveIn,
+        LPCWSTR pszLibraryName,
+        LIBRARYSAVEFLAGS lsf,
+        IShellItem **ppsiSavedTo) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IShellLibrary, 0x11a66efa, 0x382e, 0x451a, 0x92,0x34, 0x1e,0x0e,0x12,0xef,0x30,0x85)
+#endif
+#else
+typedef struct IShellLibraryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IShellLibrary* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IShellLibrary* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IShellLibrary* This);
+
+    /*** IShellLibrary methods ***/
+    HRESULT (STDMETHODCALLTYPE *LoadLibraryFromItem)(
+        IShellLibrary* This,
+        IShellItem *psiLibrary,
+        DWORD grfMode);
+
+    HRESULT (STDMETHODCALLTYPE *LoadLibraryFromKnownFolder)(
+        IShellLibrary* This,
+        REFKNOWNFOLDERID kfidLibrary,
+        DWORD grfMode);
+
+    HRESULT (STDMETHODCALLTYPE *AddFolder)(
+        IShellLibrary* This,
+        IShellItem *psiLocation);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFolder)(
+        IShellLibrary* This,
+        IShellItem *psiLocation);
+
+    HRESULT (STDMETHODCALLTYPE *GetFolders)(
+        IShellLibrary* This,
+        LIBRARYFOLDERFILTER lff,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *ResolveFolder)(
+        IShellLibrary* This,
+        IShellItem *psiFolderToResolve,
+        DWORD dwTimeout,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *GetDefaultSaveFolder)(
+        IShellLibrary* This,
+        DEFAULTSAVEFOLDERTYPE dsft,
+        REFIID riid,
+        void **ppv);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultSaveFolder)(
+        IShellLibrary* This,
+        DEFAULTSAVEFOLDERTYPE dsft,
+        IShellItem *psi);
+
+    HRESULT (STDMETHODCALLTYPE *GetOptions)(
+        IShellLibrary* This,
+        LIBRARYOPTIONFLAGS *plofOptions);
+
+    HRESULT (STDMETHODCALLTYPE *SetOptions)(
+        IShellLibrary* This,
+        LIBRARYOPTIONFLAGS lofMask,
+        LIBRARYOPTIONFLAGS lofOptions);
+
+    HRESULT (STDMETHODCALLTYPE *GetFolderType)(
+        IShellLibrary* This,
+        FOLDERTYPEID *pftid);
+
+    HRESULT (STDMETHODCALLTYPE *SetFolderType)(
+        IShellLibrary* This,
+        REFFOLDERTYPEID ftid);
+
+    HRESULT (STDMETHODCALLTYPE *GetIcon)(
+        IShellLibrary* This,
+        LPWSTR *ppszIcon);
+
+    HRESULT (STDMETHODCALLTYPE *SetIcon)(
+        IShellLibrary* This,
+        LPCWSTR pszIcon);
+
+    HRESULT (STDMETHODCALLTYPE *Commit)(
+        IShellLibrary* This);
+
+    HRESULT (STDMETHODCALLTYPE *Save)(
+        IShellLibrary* This,
+        IShellItem *psiFolderToSaveIn,
+        LPCWSTR pszLibraryName,
+        LIBRARYSAVEFLAGS lsf,
+        IShellItem **ppsiSavedTo);
+
+    HRESULT (STDMETHODCALLTYPE *SaveInKnownFolder)(
+        IShellLibrary* This,
+        REFKNOWNFOLDERID kfidToSaveIn,
+        LPCWSTR pszLibraryName,
+        LIBRARYSAVEFLAGS lsf,
+        IShellItem **ppsiSavedTo);
+
+    END_INTERFACE
+} IShellLibraryVtbl;
+interface IShellLibrary {
+    CONST_VTBL IShellLibraryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IShellLibrary_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IShellLibrary_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IShellLibrary_Release(This) (This)->lpVtbl->Release(This)
+/*** IShellLibrary methods ***/
+#define IShellLibrary_LoadLibraryFromItem(This,psiLibrary,grfMode) (This)->lpVtbl->LoadLibraryFromItem(This,psiLibrary,grfMode)
+#define IShellLibrary_LoadLibraryFromKnownFolder(This,kfidLibrary,grfMode) (This)->lpVtbl->LoadLibraryFromKnownFolder(This,kfidLibrary,grfMode)
+#define IShellLibrary_AddFolder(This,psiLocation) (This)->lpVtbl->AddFolder(This,psiLocation)
+#define IShellLibrary_RemoveFolder(This,psiLocation) (This)->lpVtbl->RemoveFolder(This,psiLocation)
+#define IShellLibrary_GetFolders(This,lff,riid,ppv) (This)->lpVtbl->GetFolders(This,lff,riid,ppv)
+#define IShellLibrary_ResolveFolder(This,psiFolderToResolve,dwTimeout,riid,ppv) (This)->lpVtbl->ResolveFolder(This,psiFolderToResolve,dwTimeout,riid,ppv)
+#define IShellLibrary_GetDefaultSaveFolder(This,dsft,riid,ppv) (This)->lpVtbl->GetDefaultSaveFolder(This,dsft,riid,ppv)
+#define IShellLibrary_SetDefaultSaveFolder(This,dsft,psi) (This)->lpVtbl->SetDefaultSaveFolder(This,dsft,psi)
+#define IShellLibrary_GetOptions(This,plofOptions) (This)->lpVtbl->GetOptions(This,plofOptions)
+#define IShellLibrary_SetOptions(This,lofMask,lofOptions) (This)->lpVtbl->SetOptions(This,lofMask,lofOptions)
+#define IShellLibrary_GetFolderType(This,pftid) (This)->lpVtbl->GetFolderType(This,pftid)
+#define IShellLibrary_SetFolderType(This,ftid) (This)->lpVtbl->SetFolderType(This,ftid)
+#define IShellLibrary_GetIcon(This,ppszIcon) (This)->lpVtbl->GetIcon(This,ppszIcon)
+#define IShellLibrary_SetIcon(This,pszIcon) (This)->lpVtbl->SetIcon(This,pszIcon)
+#define IShellLibrary_Commit(This) (This)->lpVtbl->Commit(This)
+#define IShellLibrary_Save(This,psiFolderToSaveIn,pszLibraryName,lsf,ppsiSavedTo) (This)->lpVtbl->Save(This,psiFolderToSaveIn,pszLibraryName,lsf,ppsiSavedTo)
+#define IShellLibrary_SaveInKnownFolder(This,kfidToSaveIn,pszLibraryName,lsf,ppsiSavedTo) (This)->lpVtbl->SaveInKnownFolder(This,kfidToSaveIn,pszLibraryName,lsf,ppsiSavedTo)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IShellLibrary_LoadLibraryFromItem_Proxy(
+    IShellLibrary* This,
+    IShellItem *psiLibrary,
+    DWORD grfMode);
+void __RPC_STUB IShellLibrary_LoadLibraryFromItem_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_LoadLibraryFromKnownFolder_Proxy(
+    IShellLibrary* This,
+    REFKNOWNFOLDERID kfidLibrary,
+    DWORD grfMode);
+void __RPC_STUB IShellLibrary_LoadLibraryFromKnownFolder_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_AddFolder_Proxy(
+    IShellLibrary* This,
+    IShellItem *psiLocation);
+void __RPC_STUB IShellLibrary_AddFolder_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_RemoveFolder_Proxy(
+    IShellLibrary* This,
+    IShellItem *psiLocation);
+void __RPC_STUB IShellLibrary_RemoveFolder_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_GetFolders_Proxy(
+    IShellLibrary* This,
+    LIBRARYFOLDERFILTER lff,
+    REFIID riid,
+    void **ppv);
+void __RPC_STUB IShellLibrary_GetFolders_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_ResolveFolder_Proxy(
+    IShellLibrary* This,
+    IShellItem *psiFolderToResolve,
+    DWORD dwTimeout,
+    REFIID riid,
+    void **ppv);
+void __RPC_STUB IShellLibrary_ResolveFolder_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_GetDefaultSaveFolder_Proxy(
+    IShellLibrary* This,
+    DEFAULTSAVEFOLDERTYPE dsft,
+    REFIID riid,
+    void **ppv);
+void __RPC_STUB IShellLibrary_GetDefaultSaveFolder_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_SetDefaultSaveFolder_Proxy(
+    IShellLibrary* This,
+    DEFAULTSAVEFOLDERTYPE dsft,
+    IShellItem *psi);
+void __RPC_STUB IShellLibrary_SetDefaultSaveFolder_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_GetOptions_Proxy(
+    IShellLibrary* This,
+    LIBRARYOPTIONFLAGS *plofOptions);
+void __RPC_STUB IShellLibrary_GetOptions_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_SetOptions_Proxy(
+    IShellLibrary* This,
+    LIBRARYOPTIONFLAGS lofMask,
+    LIBRARYOPTIONFLAGS lofOptions);
+void __RPC_STUB IShellLibrary_SetOptions_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_GetFolderType_Proxy(
+    IShellLibrary* This,
+    FOLDERTYPEID *pftid);
+void __RPC_STUB IShellLibrary_GetFolderType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_SetFolderType_Proxy(
+    IShellLibrary* This,
+    REFFOLDERTYPEID ftid);
+void __RPC_STUB IShellLibrary_SetFolderType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_GetIcon_Proxy(
+    IShellLibrary* This,
+    LPWSTR *ppszIcon);
+void __RPC_STUB IShellLibrary_GetIcon_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_SetIcon_Proxy(
+    IShellLibrary* This,
+    LPCWSTR pszIcon);
+void __RPC_STUB IShellLibrary_SetIcon_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_Commit_Proxy(
+    IShellLibrary* This);
+void __RPC_STUB IShellLibrary_Commit_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_Save_Proxy(
+    IShellLibrary* This,
+    IShellItem *psiFolderToSaveIn,
+    LPCWSTR pszLibraryName,
+    LIBRARYSAVEFLAGS lsf,
+    IShellItem **ppsiSavedTo);
+void __RPC_STUB IShellLibrary_Save_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IShellLibrary_SaveInKnownFolder_Proxy(
+    IShellLibrary* This,
+    REFKNOWNFOLDERID kfidToSaveIn,
+    LPCWSTR pszLibraryName,
+    LIBRARYSAVEFLAGS lsf,
+    IShellItem **ppsiSavedTo);
+void __RPC_STUB IShellLibrary_SaveInKnownFolder_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IShellLibrary_INTERFACE_DEFINED__ */
+
+
+DEFINE_GUID(LIBID_ShellObjects, 0x50a7e9b1, 0x70ef, 0x11d1, 0xb7,0x5a, 0x00,0xa0,0xc9,0x05,0x64,0xfe);
+
+/*****************************************************************************
+ * ShellLibrary coclass
+ */
+
+DEFINE_GUID(CLSID_ShellLibrary, 0xd9b3211d, 0xe57f, 0x4426, 0xaa,0xef, 0x30,0xa8,0x06,0xad,0xd3,0x97);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("d9b3211d-e57f-4426-aaef-30a806add397") ShellLibrary;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ShellLibrary, 0xd9b3211d, 0xe57f, 0x4426, 0xaa,0xef, 0x30,0xa8,0x06,0xad,0xd3,0x97)
+#endif
+#endif
+
 #define SID_PublishingWizard CLSID_PublishingWizard
-  EXTERN_C const IID LIBID_ShellObjects;
   EXTERN_C const CLSID CLSID_QueryCancelAutoPlay;
 #ifdef __cplusplus
   class QueryCancelAutoPlay;
@@ -6620,9 +7143,6 @@ DEFINE_GUID(CLSID_FileOpenDialog, 0xdc1c5a9c, 0xe88a, 0x4dde, 0xa5,0xa1, 0x60,0x
  */
 
 DEFINE_GUID(CLSID_FileSaveDialog, 0xc0b4e2f3, 0xba21, 0x4773, 0x8d,0xba, 0x33,0x5e,0xc9,0x46,0xeb,0x8b);
-
-#endif
-
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0263_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_shobjidl_0263_v0_0_s_ifspec;
 
