@@ -17,6 +17,51 @@
 
 /* Forward declarations */
 
+#ifndef __IBindCtx_FWD_DEFINED__
+#define __IBindCtx_FWD_DEFINED__
+typedef interface IBindCtx IBindCtx;
+#endif
+
+#ifndef __IEnumMoniker_FWD_DEFINED__
+#define __IEnumMoniker_FWD_DEFINED__
+typedef interface IEnumMoniker IEnumMoniker;
+#endif
+
+#ifndef __IRunningObjectTable_FWD_DEFINED__
+#define __IRunningObjectTable_FWD_DEFINED__
+typedef interface IRunningObjectTable IRunningObjectTable;
+#endif
+
+#ifndef __IPersist_FWD_DEFINED__
+#define __IPersist_FWD_DEFINED__
+typedef interface IPersist IPersist;
+#endif
+
+#ifndef __IPersistStream_FWD_DEFINED__
+#define __IPersistStream_FWD_DEFINED__
+typedef interface IPersistStream IPersistStream;
+#endif
+
+#ifndef __IMoniker_FWD_DEFINED__
+#define __IMoniker_FWD_DEFINED__
+typedef interface IMoniker IMoniker;
+#endif
+
+#ifndef __IEnumString_FWD_DEFINED__
+#define __IEnumString_FWD_DEFINED__
+typedef interface IEnumString IEnumString;
+#endif
+
+#ifndef __ISequentialStream_FWD_DEFINED__
+#define __ISequentialStream_FWD_DEFINED__
+typedef interface ISequentialStream ISequentialStream;
+#endif
+
+#ifndef __IStream_FWD_DEFINED__
+#define __IStream_FWD_DEFINED__
+typedef interface IStream IStream;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -24,6 +69,31 @@
 
 #ifdef __cplusplus
 extern "C" {
+#endif
+
+#ifndef __IMoniker_FWD_DEFINED__
+#define __IMoniker_FWD_DEFINED__
+typedef interface IMoniker IMoniker;
+#endif
+
+#ifndef __IEnumMoniker_FWD_DEFINED__
+#define __IEnumMoniker_FWD_DEFINED__
+typedef interface IEnumMoniker IEnumMoniker;
+#endif
+
+#ifndef __IRunningObjectTable_FWD_DEFINED__
+#define __IRunningObjectTable_FWD_DEFINED__
+typedef interface IRunningObjectTable IRunningObjectTable;
+#endif
+
+#ifndef __IEnumString_FWD_DEFINED__
+#define __IEnumString_FWD_DEFINED__
+typedef interface IEnumString IEnumString;
+#endif
+
+#ifndef __IStream_FWD_DEFINED__
+#define __IStream_FWD_DEFINED__
+typedef interface IStream IStream;
 #endif
 
 #ifndef __IMarshal_FWD_DEFINED__
@@ -76,59 +146,14 @@ typedef struct IInternalUnknown IInternalUnknown;
 typedef struct IEnumUnknown IEnumUnknown;
 #endif
 
-#ifndef __IBindCtx_FWD_DEFINED__
-#define __IBindCtx_FWD_DEFINED__
-typedef struct IBindCtx IBindCtx;
-#endif
-
-#ifndef __IEnumMoniker_FWD_DEFINED__
-#define __IEnumMoniker_FWD_DEFINED__
-typedef struct IEnumMoniker IEnumMoniker;
-#endif
-
 #ifndef __IRunnableObject_FWD_DEFINED__
 #define __IRunnableObject_FWD_DEFINED__
 typedef struct IRunnableObject IRunnableObject;
 #endif
 
-#ifndef __IRunningObjectTable_FWD_DEFINED__
-#define __IRunningObjectTable_FWD_DEFINED__
-typedef struct IRunningObjectTable IRunningObjectTable;
-#endif
-
-#ifndef __IPersist_FWD_DEFINED__
-#define __IPersist_FWD_DEFINED__
-typedef struct IPersist IPersist;
-#endif
-
-#ifndef __IPersistStream_FWD_DEFINED__
-#define __IPersistStream_FWD_DEFINED__
-typedef struct IPersistStream IPersistStream;
-#endif
-
-#ifndef __IMoniker_FWD_DEFINED__
-#define __IMoniker_FWD_DEFINED__
-typedef struct IMoniker IMoniker;
-#endif
-
 #ifndef __IROTData_FWD_DEFINED__
 #define __IROTData_FWD_DEFINED__
 typedef struct IROTData IROTData;
-#endif
-
-#ifndef __IEnumString_FWD_DEFINED__
-#define __IEnumString_FWD_DEFINED__
-typedef struct IEnumString IEnumString;
-#endif
-
-#ifndef __ISequentialStream_FWD_DEFINED__
-#define __ISequentialStream_FWD_DEFINED__
-typedef struct ISequentialStream ISequentialStream;
-#endif
-
-#ifndef __IStream_FWD_DEFINED__
-#define __IStream_FWD_DEFINED__
-typedef struct IStream IStream;
 #endif
 
 #ifndef __IEnumSTATSTG_FWD_DEFINED__
@@ -475,14 +500,12 @@ typedef struct IInitializeSpy IInitializeSpy;
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
 #endif
-
-  typedef struct _COSERVERINFO {
+typedef struct _COSERVERINFO {
     DWORD dwReserved1;
     LPWSTR pwszName;
     COAUTHINFO *pAuthInfo;
     DWORD dwReserved2;
-  } COSERVERINFO;
-
+} COSERVERINFO;
   extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_v0_0_s_ifspec;
 
@@ -960,30 +983,30 @@ typedef struct IInitializeSpy IInitializeSpy;
   HRESULT WINAPI IEnumUnknown_Clone_Proxy(IEnumUnknown *This,IEnumUnknown **ppenum);
   void __RPC_STUB IEnumUnknown_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
+/*****************************************************************************
+ * IBindCtx interface
+ */
 #ifndef __IBindCtx_INTERFACE_DEFINED__
 #define __IBindCtx_INTERFACE_DEFINED__
-  typedef IBindCtx *LPBC;
-  typedef IBindCtx *LPBINDCTX;
 
-  typedef struct tagBIND_OPTS {
+typedef IBindCtx *LPBC;
+typedef IBindCtx *LPBINDCTX;
+typedef struct tagBIND_OPTS {
     DWORD cbStruct;
     DWORD grfFlags;
     DWORD grfMode;
     DWORD dwTickCountDeadline;
-  } BIND_OPTS;
-
-  typedef struct tagBIND_OPTS *LPBIND_OPTS;
-
+} BIND_OPTS;
+typedef struct tagBIND_OPTS *LPBIND_OPTS;
 #if defined(__cplusplus)
   typedef struct tagBIND_OPTS2 : tagBIND_OPTS {
     DWORD dwTrackFlags;
     DWORD dwClassContext;
     LCID locale;
     COSERVERINFO *pServerInfo;
-  } BIND_OPTS2,*LPBIND_OPTS2;
+  } BIND_OPTS2, *LPBIND_OPTS2;
 #else
-  typedef struct tagBIND_OPTS2 {
+typedef struct tagBIND_OPTS2 {
     DWORD cbStruct;
     DWORD grfFlags;
     DWORD grfMode;
@@ -992,54 +1015,142 @@ typedef struct IInitializeSpy IInitializeSpy;
     DWORD dwClassContext;
     LCID locale;
     COSERVERINFO *pServerInfo;
-  } BIND_OPTS2;
-
-  typedef struct tagBIND_OPTS2 *LPBIND_OPTS2;
+} BIND_OPTS2;
+typedef struct tagBIND_OPTS2 *LPBIND_OPTS2;
 #endif
-  typedef enum tagBIND_FLAGS {
-    BIND_MAYBOTHERUSER = 1,BIND_JUSTTESTEXISTENCE = 2
-  } BIND_FLAGS;
-
-  EXTERN_C const IID IID_IBindCtx;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IBindCtx : public IUnknown {
-  public:
-    virtual HRESULT WINAPI RegisterObjectBound(IUnknown *punk) = 0;
-    virtual HRESULT WINAPI RevokeObjectBound(IUnknown *punk) = 0;
-    virtual HRESULT WINAPI ReleaseBoundObjects(void) = 0;
-    virtual HRESULT WINAPI SetBindOptions(BIND_OPTS *pbindopts) = 0;
-    virtual HRESULT WINAPI GetBindOptions(BIND_OPTS *pbindopts) = 0;
-    virtual HRESULT WINAPI GetRunningObjectTable(IRunningObjectTable **pprot) = 0;
-    virtual HRESULT WINAPI RegisterObjectParam(LPOLESTR pszKey,IUnknown *punk) = 0;
-    virtual HRESULT WINAPI GetObjectParam(LPOLESTR pszKey,IUnknown **ppunk) = 0;
-    virtual HRESULT WINAPI EnumObjectParam(IEnumString **ppenum) = 0;
-    virtual HRESULT WINAPI RevokeObjectParam(LPOLESTR pszKey) = 0;
-  };
+#if defined(__cplusplus)
+  typedef struct tagBIND_OPTS3 : tagBIND_OPTS2 {
+    HWND hwnd;
+  } BIND_OPTS3, *LPBIND_OPTS3;
 #else
-  typedef struct IBindCtxVtbl {
+typedef struct tagBIND_OPTS3 {
+    DWORD cbStruct;
+    DWORD grfFlags;
+    DWORD grfMode;
+    DWORD dwTickCountDeadline;
+    DWORD dwTrackFlags;
+    DWORD dwClassContext;
+    LCID locale;
+    COSERVERINFO *pServerInfo;
+    HWND hwnd;
+} BIND_OPTS3;
+typedef struct tagBIND_OPTS3 *LPBIND_OPTS3;
+#endif
+typedef enum tagBIND_FLAGS {
+    BIND_MAYBOTHERUSER = 1,
+    BIND_JUSTTESTEXISTENCE = 2
+} BIND_FLAGS;
+DEFINE_GUID(IID_IBindCtx, 0x0000000e, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("0000000e-0000-0000-c000-000000000046")
+IBindCtx : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE RegisterObjectBound(
+        IUnknown *punk) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RevokeObjectBound(
+        IUnknown *punk) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReleaseBoundObjects(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetBindOptions(
+        BIND_OPTS *pbindopts) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBindOptions(
+        BIND_OPTS *pbindopts) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetRunningObjectTable(
+        IRunningObjectTable **pprot) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterObjectParam(
+        LPOLESTR pszKey,
+        IUnknown *punk) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetObjectParam(
+        LPOLESTR pszKey,
+        IUnknown **ppunk) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumObjectParam(
+        IEnumString **ppenum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RevokeObjectParam(
+        LPOLESTR pszKey) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IBindCtx, 0x0000000e, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
+#else
+typedef struct IBindCtxVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IBindCtx *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IBindCtx *This);
-      ULONG (WINAPI *Release)(IBindCtx *This);
-      HRESULT (WINAPI *RegisterObjectBound)(IBindCtx *This,IUnknown *punk);
-      HRESULT (WINAPI *RevokeObjectBound)(IBindCtx *This,IUnknown *punk);
-      HRESULT (WINAPI *ReleaseBoundObjects)(IBindCtx *This);
-      HRESULT (WINAPI *SetBindOptions)(IBindCtx *This,BIND_OPTS *pbindopts);
-      HRESULT (WINAPI *GetBindOptions)(IBindCtx *This,BIND_OPTS *pbindopts);
-      HRESULT (WINAPI *GetRunningObjectTable)(IBindCtx *This,IRunningObjectTable **pprot);
-      HRESULT (WINAPI *RegisterObjectParam)(IBindCtx *This,LPOLESTR pszKey,IUnknown *punk);
-      HRESULT (WINAPI *GetObjectParam)(IBindCtx *This,LPOLESTR pszKey,IUnknown **ppunk);
-      HRESULT (WINAPI *EnumObjectParam)(IBindCtx *This,IEnumString **ppenum);
-      HRESULT (WINAPI *RevokeObjectParam)(IBindCtx *This,LPOLESTR pszKey);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IBindCtx* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IBindCtx* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IBindCtx* This);
+
+    /*** IBindCtx methods ***/
+    HRESULT (STDMETHODCALLTYPE *RegisterObjectBound)(
+        IBindCtx* This,
+        IUnknown *punk);
+
+    HRESULT (STDMETHODCALLTYPE *RevokeObjectBound)(
+        IBindCtx* This,
+        IUnknown *punk);
+
+    HRESULT (STDMETHODCALLTYPE *ReleaseBoundObjects)(
+        IBindCtx* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetBindOptions)(
+        IBindCtx* This,
+        BIND_OPTS *pbindopts);
+
+    HRESULT (STDMETHODCALLTYPE *GetBindOptions)(
+        IBindCtx* This,
+        BIND_OPTS *pbindopts);
+
+    HRESULT (STDMETHODCALLTYPE *GetRunningObjectTable)(
+        IBindCtx* This,
+        IRunningObjectTable **pprot);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterObjectParam)(
+        IBindCtx* This,
+        LPOLESTR pszKey,
+        IUnknown *punk);
+
+    HRESULT (STDMETHODCALLTYPE *GetObjectParam)(
+        IBindCtx* This,
+        LPOLESTR pszKey,
+        IUnknown **ppunk);
+
+    HRESULT (STDMETHODCALLTYPE *EnumObjectParam)(
+        IBindCtx* This,
+        IEnumString **ppenum);
+
+    HRESULT (STDMETHODCALLTYPE *RevokeObjectParam)(
+        IBindCtx* This,
+        LPOLESTR pszKey);
+
     END_INTERFACE
-  } IBindCtxVtbl;
-  struct IBindCtx {
-    CONST_VTBL struct IBindCtxVtbl *lpVtbl;
-  };
+} IBindCtxVtbl;
+interface IBindCtx {
+    CONST_VTBL IBindCtxVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IBindCtx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IBindCtx_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IBindCtx_Release(This) (This)->lpVtbl->Release(This)
+/*** IBindCtx methods ***/
 #define IBindCtx_RegisterObjectBound(This,punk) (This)->lpVtbl->RegisterObjectBound(This,punk)
 #define IBindCtx_RevokeObjectBound(This,punk) (This)->lpVtbl->RevokeObjectBound(This,punk)
 #define IBindCtx_ReleaseBoundObjects(This) (This)->lpVtbl->ReleaseBoundObjects(This)
@@ -1051,76 +1162,234 @@ typedef struct IInitializeSpy IInitializeSpy;
 #define IBindCtx_EnumObjectParam(This,ppenum) (This)->lpVtbl->EnumObjectParam(This,ppenum)
 #define IBindCtx_RevokeObjectParam(This,pszKey) (This)->lpVtbl->RevokeObjectParam(This,pszKey)
 #endif
-#endif
-  HRESULT WINAPI IBindCtx_RegisterObjectBound_Proxy(IBindCtx *This,IUnknown *punk);
-  void __RPC_STUB IBindCtx_RegisterObjectBound_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindCtx_RevokeObjectBound_Proxy(IBindCtx *This,IUnknown *punk);
-  void __RPC_STUB IBindCtx_RevokeObjectBound_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindCtx_ReleaseBoundObjects_Proxy(IBindCtx *This);
-  void __RPC_STUB IBindCtx_ReleaseBoundObjects_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindCtx_RemoteSetBindOptions_Proxy(IBindCtx *This,BIND_OPTS2 *pbindopts);
-  void __RPC_STUB IBindCtx_RemoteSetBindOptions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindCtx_RemoteGetBindOptions_Proxy(IBindCtx *This,BIND_OPTS2 *pbindopts);
-  void __RPC_STUB IBindCtx_RemoteGetBindOptions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindCtx_GetRunningObjectTable_Proxy(IBindCtx *This,IRunningObjectTable **pprot);
-  void __RPC_STUB IBindCtx_GetRunningObjectTable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindCtx_RegisterObjectParam_Proxy(IBindCtx *This,LPOLESTR pszKey,IUnknown *punk);
-  void __RPC_STUB IBindCtx_RegisterObjectParam_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindCtx_GetObjectParam_Proxy(IBindCtx *This,LPOLESTR pszKey,IUnknown **ppunk);
-  void __RPC_STUB IBindCtx_GetObjectParam_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindCtx_EnumObjectParam_Proxy(IBindCtx *This,IEnumString **ppenum);
-  void __RPC_STUB IBindCtx_EnumObjectParam_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindCtx_RevokeObjectParam_Proxy(IBindCtx *This,LPOLESTR pszKey);
-  void __RPC_STUB IBindCtx_RevokeObjectParam_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IBindCtx_RegisterObjectBound_Proxy(
+    IBindCtx* This,
+    IUnknown *punk);
+void __RPC_STUB IBindCtx_RegisterObjectBound_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindCtx_RevokeObjectBound_Proxy(
+    IBindCtx* This,
+    IUnknown *punk);
+void __RPC_STUB IBindCtx_RevokeObjectBound_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindCtx_ReleaseBoundObjects_Proxy(
+    IBindCtx* This);
+void __RPC_STUB IBindCtx_ReleaseBoundObjects_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindCtx_RemoteSetBindOptions_Proxy(
+    IBindCtx* This,
+    BIND_OPTS2 *pbindopts);
+void __RPC_STUB IBindCtx_RemoteSetBindOptions_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindCtx_RemoteGetBindOptions_Proxy(
+    IBindCtx* This,
+    BIND_OPTS2 *pbindopts);
+void __RPC_STUB IBindCtx_RemoteGetBindOptions_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindCtx_GetRunningObjectTable_Proxy(
+    IBindCtx* This,
+    IRunningObjectTable **pprot);
+void __RPC_STUB IBindCtx_GetRunningObjectTable_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindCtx_RegisterObjectParam_Proxy(
+    IBindCtx* This,
+    LPOLESTR pszKey,
+    IUnknown *punk);
+void __RPC_STUB IBindCtx_RegisterObjectParam_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindCtx_GetObjectParam_Proxy(
+    IBindCtx* This,
+    LPOLESTR pszKey,
+    IUnknown **ppunk);
+void __RPC_STUB IBindCtx_GetObjectParam_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindCtx_EnumObjectParam_Proxy(
+    IBindCtx* This,
+    IEnumString **ppenum);
+void __RPC_STUB IBindCtx_EnumObjectParam_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindCtx_RevokeObjectParam_Proxy(
+    IBindCtx* This,
+    LPOLESTR pszKey);
+void __RPC_STUB IBindCtx_RevokeObjectParam_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IBindCtx_SetBindOptions_Proxy(
+    IBindCtx* This,
+    BIND_OPTS *pbindopts);
+HRESULT __RPC_STUB IBindCtx_SetBindOptions_Stub(
+    IBindCtx* This,
+    BIND_OPTS2 *pbindopts);
+HRESULT CALLBACK IBindCtx_GetBindOptions_Proxy(
+    IBindCtx* This,
+    BIND_OPTS *pbindopts);
+HRESULT __RPC_STUB IBindCtx_GetBindOptions_Stub(
+    IBindCtx* This,
+    BIND_OPTS2 *pbindopts);
+
+#endif  /* __IBindCtx_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IEnumMoniker interface
+ */
 #ifndef __IEnumMoniker_INTERFACE_DEFINED__
 #define __IEnumMoniker_INTERFACE_DEFINED__
-  typedef IEnumMoniker *LPENUMMONIKER;
 
-  EXTERN_C const IID IID_IEnumMoniker;
+typedef IEnumMoniker *LPENUMMONIKER;
+DEFINE_GUID(IID_IEnumMoniker, 0x00000102, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumMoniker : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG celt,IMoniker **rgelt,ULONG *pceltFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG celt) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumMoniker **ppenum) = 0;
-  };
+MIDL_INTERFACE("00000102-0000-0000-c000-000000000046")
+IEnumMoniker : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG celt,
+        IMoniker **rgelt,
+        ULONG *pceltFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG celt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumMoniker **ppenum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumMoniker, 0x00000102, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IEnumMonikerVtbl {
+typedef struct IEnumMonikerVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumMoniker *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumMoniker *This);
-      ULONG (WINAPI *Release)(IEnumMoniker *This);
-      HRESULT (WINAPI *Next)(IEnumMoniker *This,ULONG celt,IMoniker **rgelt,ULONG *pceltFetched);
-      HRESULT (WINAPI *Skip)(IEnumMoniker *This,ULONG celt);
-      HRESULT (WINAPI *Reset)(IEnumMoniker *This);
-      HRESULT (WINAPI *Clone)(IEnumMoniker *This,IEnumMoniker **ppenum);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumMoniker* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumMoniker* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumMoniker* This);
+
+    /*** IEnumMoniker methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumMoniker* This,
+        ULONG celt,
+        IMoniker **rgelt,
+        ULONG *pceltFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumMoniker* This,
+        ULONG celt);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumMoniker* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumMoniker* This,
+        IEnumMoniker **ppenum);
+
     END_INTERFACE
-  } IEnumMonikerVtbl;
-  struct IEnumMoniker {
-    CONST_VTBL struct IEnumMonikerVtbl *lpVtbl;
-  };
+} IEnumMonikerVtbl;
+interface IEnumMoniker {
+    CONST_VTBL IEnumMonikerVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IEnumMoniker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumMoniker_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IEnumMoniker_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumMoniker methods ***/
 #define IEnumMoniker_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)
 #define IEnumMoniker_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumMoniker_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumMoniker_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
 #endif
+
 #endif
-  HRESULT WINAPI IEnumMoniker_RemoteNext_Proxy(IEnumMoniker *This,ULONG celt,IMoniker **rgelt,ULONG *pceltFetched);
-  void __RPC_STUB IEnumMoniker_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumMoniker_Skip_Proxy(IEnumMoniker *This,ULONG celt);
-  void __RPC_STUB IEnumMoniker_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumMoniker_Reset_Proxy(IEnumMoniker *This);
-  void __RPC_STUB IEnumMoniker_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumMoniker_Clone_Proxy(IEnumMoniker *This,IEnumMoniker **ppenum);
-  void __RPC_STUB IEnumMoniker_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IEnumMoniker_RemoteNext_Proxy(
+    IEnumMoniker* This,
+    ULONG celt,
+    IMoniker **rgelt,
+    ULONG *pceltFetched);
+void __RPC_STUB IEnumMoniker_RemoteNext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumMoniker_Skip_Proxy(
+    IEnumMoniker* This,
+    ULONG celt);
+void __RPC_STUB IEnumMoniker_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumMoniker_Reset_Proxy(
+    IEnumMoniker* This);
+void __RPC_STUB IEnumMoniker_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumMoniker_Clone_Proxy(
+    IEnumMoniker* This,
+    IEnumMoniker **ppenum);
+void __RPC_STUB IEnumMoniker_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IEnumMoniker_Next_Proxy(
+    IEnumMoniker* This,
+    ULONG celt,
+    IMoniker **rgelt,
+    ULONG *pceltFetched);
+HRESULT __RPC_STUB IEnumMoniker_Next_Stub(
+    IEnumMoniker* This,
+    ULONG celt,
+    IMoniker **rgelt,
+    ULONG *pceltFetched);
+
+#endif  /* __IEnumMoniker_INTERFACE_DEFINED__ */
 
 #ifndef __IRunnableObject_INTERFACE_DEFINED__
 #define __IRunnableObject_INTERFACE_DEFINED__
@@ -1174,45 +1443,112 @@ typedef struct IInitializeSpy IInitializeSpy;
   HRESULT WINAPI IRunnableObject_SetContainedObject_Proxy(IRunnableObject *This,WINBOOL fContained);
   void __RPC_STUB IRunnableObject_SetContainedObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
+/*****************************************************************************
+ * IRunningObjectTable interface
+ */
 #ifndef __IRunningObjectTable_INTERFACE_DEFINED__
 #define __IRunningObjectTable_INTERFACE_DEFINED__
-  typedef IRunningObjectTable *LPRUNNINGOBJECTTABLE;
 
-  EXTERN_C const IID IID_IRunningObjectTable;
+typedef IRunningObjectTable *LPRUNNINGOBJECTTABLE;
+DEFINE_GUID(IID_IRunningObjectTable, 0x00000010, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IRunningObjectTable : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Register(DWORD grfFlags,IUnknown *punkObject,IMoniker *pmkObjectName,DWORD *pdwRegister) = 0;
-    virtual HRESULT WINAPI Revoke(DWORD dwRegister) = 0;
-    virtual HRESULT WINAPI IsRunning(IMoniker *pmkObjectName) = 0;
-    virtual HRESULT WINAPI GetObject(IMoniker *pmkObjectName,IUnknown **ppunkObject) = 0;
-    virtual HRESULT WINAPI NoteChangeTime(DWORD dwRegister,FILETIME *pfiletime) = 0;
-    virtual HRESULT WINAPI GetTimeOfLastChange(IMoniker *pmkObjectName,FILETIME *pfiletime) = 0;
-    virtual HRESULT WINAPI EnumRunning(IEnumMoniker **ppenumMoniker) = 0;
-  };
+MIDL_INTERFACE("00000010-0000-0000-c000-000000000046")
+IRunningObjectTable : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Register(
+        DWORD grfFlags,
+        IUnknown *punkObject,
+        IMoniker *pmkObjectName,
+        DWORD *pdwRegister) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Revoke(
+        DWORD dwRegister) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsRunning(
+        IMoniker *pmkObjectName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetObject(
+        IMoniker *pmkObjectName,
+        IUnknown **ppunkObject) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NoteChangeTime(
+        DWORD dwRegister,
+        FILETIME *pfiletime) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTimeOfLastChange(
+        IMoniker *pmkObjectName,
+        FILETIME *pfiletime) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumRunning(
+        IEnumMoniker **ppenumMoniker) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IRunningObjectTable, 0x00000010, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IRunningObjectTableVtbl {
+typedef struct IRunningObjectTableVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IRunningObjectTable *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IRunningObjectTable *This);
-      ULONG (WINAPI *Release)(IRunningObjectTable *This);
-      HRESULT (WINAPI *Register)(IRunningObjectTable *This,DWORD grfFlags,IUnknown *punkObject,IMoniker *pmkObjectName,DWORD *pdwRegister);
-      HRESULT (WINAPI *Revoke)(IRunningObjectTable *This,DWORD dwRegister);
-      HRESULT (WINAPI *IsRunning)(IRunningObjectTable *This,IMoniker *pmkObjectName);
-      HRESULT (WINAPI *GetObject)(IRunningObjectTable *This,IMoniker *pmkObjectName,IUnknown **ppunkObject);
-      HRESULT (WINAPI *NoteChangeTime)(IRunningObjectTable *This,DWORD dwRegister,FILETIME *pfiletime);
-      HRESULT (WINAPI *GetTimeOfLastChange)(IRunningObjectTable *This,IMoniker *pmkObjectName,FILETIME *pfiletime);
-      HRESULT (WINAPI *EnumRunning)(IRunningObjectTable *This,IEnumMoniker **ppenumMoniker);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IRunningObjectTable* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IRunningObjectTable* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IRunningObjectTable* This);
+
+    /*** IRunningObjectTable methods ***/
+    HRESULT (STDMETHODCALLTYPE *Register)(
+        IRunningObjectTable* This,
+        DWORD grfFlags,
+        IUnknown *punkObject,
+        IMoniker *pmkObjectName,
+        DWORD *pdwRegister);
+
+    HRESULT (STDMETHODCALLTYPE *Revoke)(
+        IRunningObjectTable* This,
+        DWORD dwRegister);
+
+    HRESULT (STDMETHODCALLTYPE *IsRunning)(
+        IRunningObjectTable* This,
+        IMoniker *pmkObjectName);
+
+    HRESULT (STDMETHODCALLTYPE *GetObject)(
+        IRunningObjectTable* This,
+        IMoniker *pmkObjectName,
+        IUnknown **ppunkObject);
+
+    HRESULT (STDMETHODCALLTYPE *NoteChangeTime)(
+        IRunningObjectTable* This,
+        DWORD dwRegister,
+        FILETIME *pfiletime);
+
+    HRESULT (STDMETHODCALLTYPE *GetTimeOfLastChange)(
+        IRunningObjectTable* This,
+        IMoniker *pmkObjectName,
+        FILETIME *pfiletime);
+
+    HRESULT (STDMETHODCALLTYPE *EnumRunning)(
+        IRunningObjectTable* This,
+        IEnumMoniker **ppenumMoniker);
+
     END_INTERFACE
-  } IRunningObjectTableVtbl;
-  struct IRunningObjectTable {
-    CONST_VTBL struct IRunningObjectTableVtbl *lpVtbl;
-  };
+} IRunningObjectTableVtbl;
+interface IRunningObjectTable {
+    CONST_VTBL IRunningObjectTableVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IRunningObjectTable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IRunningObjectTable_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IRunningObjectTable_Release(This) (This)->lpVtbl->Release(This)
+/*** IRunningObjectTable methods ***/
 #define IRunningObjectTable_Register(This,grfFlags,punkObject,pmkObjectName,pdwRegister) (This)->lpVtbl->Register(This,grfFlags,punkObject,pmkObjectName,pdwRegister)
 #define IRunningObjectTable_Revoke(This,dwRegister) (This)->lpVtbl->Revoke(This,dwRegister)
 #define IRunningObjectTable_IsRunning(This,pmkObjectName) (This)->lpVtbl->IsRunning(This,pmkObjectName)
@@ -1221,179 +1557,511 @@ typedef struct IInitializeSpy IInitializeSpy;
 #define IRunningObjectTable_GetTimeOfLastChange(This,pmkObjectName,pfiletime) (This)->lpVtbl->GetTimeOfLastChange(This,pmkObjectName,pfiletime)
 #define IRunningObjectTable_EnumRunning(This,ppenumMoniker) (This)->lpVtbl->EnumRunning(This,ppenumMoniker)
 #endif
-#endif
-  HRESULT WINAPI IRunningObjectTable_Register_Proxy(IRunningObjectTable *This,DWORD grfFlags,IUnknown *punkObject,IMoniker *pmkObjectName,DWORD *pdwRegister);
-  void __RPC_STUB IRunningObjectTable_Register_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRunningObjectTable_Revoke_Proxy(IRunningObjectTable *This,DWORD dwRegister);
-  void __RPC_STUB IRunningObjectTable_Revoke_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRunningObjectTable_IsRunning_Proxy(IRunningObjectTable *This,IMoniker *pmkObjectName);
-  void __RPC_STUB IRunningObjectTable_IsRunning_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRunningObjectTable_GetObject_Proxy(IRunningObjectTable *This,IMoniker *pmkObjectName,IUnknown **ppunkObject);
-  void __RPC_STUB IRunningObjectTable_GetObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRunningObjectTable_NoteChangeTime_Proxy(IRunningObjectTable *This,DWORD dwRegister,FILETIME *pfiletime);
-  void __RPC_STUB IRunningObjectTable_NoteChangeTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRunningObjectTable_GetTimeOfLastChange_Proxy(IRunningObjectTable *This,IMoniker *pmkObjectName,FILETIME *pfiletime);
-  void __RPC_STUB IRunningObjectTable_GetTimeOfLastChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRunningObjectTable_EnumRunning_Proxy(IRunningObjectTable *This,IEnumMoniker **ppenumMoniker);
-  void __RPC_STUB IRunningObjectTable_EnumRunning_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IRunningObjectTable_Register_Proxy(
+    IRunningObjectTable* This,
+    DWORD grfFlags,
+    IUnknown *punkObject,
+    IMoniker *pmkObjectName,
+    DWORD *pdwRegister);
+void __RPC_STUB IRunningObjectTable_Register_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IRunningObjectTable_Revoke_Proxy(
+    IRunningObjectTable* This,
+    DWORD dwRegister);
+void __RPC_STUB IRunningObjectTable_Revoke_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IRunningObjectTable_IsRunning_Proxy(
+    IRunningObjectTable* This,
+    IMoniker *pmkObjectName);
+void __RPC_STUB IRunningObjectTable_IsRunning_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IRunningObjectTable_GetObject_Proxy(
+    IRunningObjectTable* This,
+    IMoniker *pmkObjectName,
+    IUnknown **ppunkObject);
+void __RPC_STUB IRunningObjectTable_GetObject_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IRunningObjectTable_NoteChangeTime_Proxy(
+    IRunningObjectTable* This,
+    DWORD dwRegister,
+    FILETIME *pfiletime);
+void __RPC_STUB IRunningObjectTable_NoteChangeTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IRunningObjectTable_GetTimeOfLastChange_Proxy(
+    IRunningObjectTable* This,
+    IMoniker *pmkObjectName,
+    FILETIME *pfiletime);
+void __RPC_STUB IRunningObjectTable_GetTimeOfLastChange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IRunningObjectTable_EnumRunning_Proxy(
+    IRunningObjectTable* This,
+    IEnumMoniker **ppenumMoniker);
+void __RPC_STUB IRunningObjectTable_EnumRunning_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IRunningObjectTable_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IPersist interface
+ */
 #ifndef __IPersist_INTERFACE_DEFINED__
 #define __IPersist_INTERFACE_DEFINED__
-  typedef IPersist *LPPERSIST;
 
-  EXTERN_C const IID IID_IPersist;
+typedef IPersist *LPPERSIST;
+DEFINE_GUID(IID_IPersist, 0x0000010c, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IPersist : public IUnknown {
-  public:
-    virtual HRESULT WINAPI GetClassID(CLSID *pClassID) = 0;
-  };
+MIDL_INTERFACE("0000010c-0000-0000-c000-000000000046")
+IPersist : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetClassID(
+        CLSID *pClassID) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPersist, 0x0000010c, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IPersistVtbl {
+typedef struct IPersistVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IPersist *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IPersist *This);
-      ULONG (WINAPI *Release)(IPersist *This);
-      HRESULT (WINAPI *GetClassID)(IPersist *This,CLSID *pClassID);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IPersist* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IPersist* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IPersist* This);
+
+    /*** IPersist methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetClassID)(
+        IPersist* This,
+        CLSID *pClassID);
+
     END_INTERFACE
-  } IPersistVtbl;
-  struct IPersist {
-    CONST_VTBL struct IPersistVtbl *lpVtbl;
-  };
+} IPersistVtbl;
+interface IPersist {
+    CONST_VTBL IPersistVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IPersist_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPersist_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IPersist_Release(This) (This)->lpVtbl->Release(This)
+/*** IPersist methods ***/
 #define IPersist_GetClassID(This,pClassID) (This)->lpVtbl->GetClassID(This,pClassID)
 #endif
-#endif
-  HRESULT WINAPI IPersist_GetClassID_Proxy(IPersist *This,CLSID *pClassID);
-  void __RPC_STUB IPersist_GetClassID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IPersist_GetClassID_Proxy(
+    IPersist* This,
+    CLSID *pClassID);
+void __RPC_STUB IPersist_GetClassID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IPersist_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IPersistStream interface
+ */
 #ifndef __IPersistStream_INTERFACE_DEFINED__
 #define __IPersistStream_INTERFACE_DEFINED__
-  typedef IPersistStream *LPPERSISTSTREAM;
 
-  EXTERN_C const IID IID_IPersistStream;
+typedef IPersistStream *LPPERSISTSTREAM;
+DEFINE_GUID(IID_IPersistStream, 0x00000109, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IPersistStream : public IPersist {
-  public:
-    virtual HRESULT WINAPI IsDirty(void) = 0;
-    virtual HRESULT WINAPI Load(IStream *pStm) = 0;
-    virtual HRESULT WINAPI Save(IStream *pStm,WINBOOL fClearDirty) = 0;
-    virtual HRESULT WINAPI GetSizeMax(ULARGE_INTEGER *pcbSize) = 0;
-  };
+MIDL_INTERFACE("00000109-0000-0000-c000-000000000046")
+IPersistStream : public IPersist
+{
+    virtual HRESULT STDMETHODCALLTYPE IsDirty(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Load(
+        IStream *pStm) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Save(
+        IStream *pStm,
+        WINBOOL fClearDirty) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSizeMax(
+        ULARGE_INTEGER *pcbSize) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPersistStream, 0x00000109, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IPersistStreamVtbl {
+typedef struct IPersistStreamVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IPersistStream *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IPersistStream *This);
-      ULONG (WINAPI *Release)(IPersistStream *This);
-      HRESULT (WINAPI *GetClassID)(IPersistStream *This,CLSID *pClassID);
-      HRESULT (WINAPI *IsDirty)(IPersistStream *This);
-      HRESULT (WINAPI *Load)(IPersistStream *This,IStream *pStm);
-      HRESULT (WINAPI *Save)(IPersistStream *This,IStream *pStm,WINBOOL fClearDirty);
-      HRESULT (WINAPI *GetSizeMax)(IPersistStream *This,ULARGE_INTEGER *pcbSize);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IPersistStream* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IPersistStream* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IPersistStream* This);
+
+    /*** IPersist methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetClassID)(
+        IPersistStream* This,
+        CLSID *pClassID);
+
+    /*** IPersistStream methods ***/
+    HRESULT (STDMETHODCALLTYPE *IsDirty)(
+        IPersistStream* This);
+
+    HRESULT (STDMETHODCALLTYPE *Load)(
+        IPersistStream* This,
+        IStream *pStm);
+
+    HRESULT (STDMETHODCALLTYPE *Save)(
+        IPersistStream* This,
+        IStream *pStm,
+        WINBOOL fClearDirty);
+
+    HRESULT (STDMETHODCALLTYPE *GetSizeMax)(
+        IPersistStream* This,
+        ULARGE_INTEGER *pcbSize);
+
     END_INTERFACE
-  } IPersistStreamVtbl;
-  struct IPersistStream {
-    CONST_VTBL struct IPersistStreamVtbl *lpVtbl;
-  };
+} IPersistStreamVtbl;
+interface IPersistStream {
+    CONST_VTBL IPersistStreamVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IPersistStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPersistStream_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IPersistStream_Release(This) (This)->lpVtbl->Release(This)
+/*** IPersist methods ***/
 #define IPersistStream_GetClassID(This,pClassID) (This)->lpVtbl->GetClassID(This,pClassID)
+/*** IPersistStream methods ***/
 #define IPersistStream_IsDirty(This) (This)->lpVtbl->IsDirty(This)
 #define IPersistStream_Load(This,pStm) (This)->lpVtbl->Load(This,pStm)
 #define IPersistStream_Save(This,pStm,fClearDirty) (This)->lpVtbl->Save(This,pStm,fClearDirty)
 #define IPersistStream_GetSizeMax(This,pcbSize) (This)->lpVtbl->GetSizeMax(This,pcbSize)
 #endif
-#endif
-  HRESULT WINAPI IPersistStream_IsDirty_Proxy(IPersistStream *This);
-  void __RPC_STUB IPersistStream_IsDirty_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPersistStream_Load_Proxy(IPersistStream *This,IStream *pStm);
-  void __RPC_STUB IPersistStream_Load_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPersistStream_Save_Proxy(IPersistStream *This,IStream *pStm,WINBOOL fClearDirty);
-  void __RPC_STUB IPersistStream_Save_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPersistStream_GetSizeMax_Proxy(IPersistStream *This,ULARGE_INTEGER *pcbSize);
-  void __RPC_STUB IPersistStream_GetSizeMax_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IPersistStream_IsDirty_Proxy(
+    IPersistStream* This);
+void __RPC_STUB IPersistStream_IsDirty_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPersistStream_Load_Proxy(
+    IPersistStream* This,
+    IStream *pStm);
+void __RPC_STUB IPersistStream_Load_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPersistStream_Save_Proxy(
+    IPersistStream* This,
+    IStream *pStm,
+    WINBOOL fClearDirty);
+void __RPC_STUB IPersistStream_Save_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPersistStream_GetSizeMax_Proxy(
+    IPersistStream* This,
+    ULARGE_INTEGER *pcbSize);
+void __RPC_STUB IPersistStream_GetSizeMax_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IPersistStream_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMoniker interface
+ */
 #ifndef __IMoniker_INTERFACE_DEFINED__
 #define __IMoniker_INTERFACE_DEFINED__
-  typedef IMoniker *LPMONIKER;
 
-  typedef enum tagMKSYS {
-    MKSYS_NONE = 0,MKSYS_GENERICCOMPOSITE = 1,MKSYS_FILEMONIKER = 2,MKSYS_ANTIMONIKER = 3,MKSYS_ITEMMONIKER = 4,MKSYS_POINTERMONIKER = 5,
-    MKSYS_CLASSMONIKER = 7,MKSYS_OBJREFMONIKER = 8,MKSYS_SESSIONMONIKER = 9
-  } MKSYS;
-
-  typedef enum tagMKREDUCE {
-    MKRREDUCE_ONE = 3 << 16,MKRREDUCE_TOUSER = 2 << 16,MKRREDUCE_THROUGHUSER = 1 << 16,MKRREDUCE_ALL = 0
-  } MKRREDUCE;
-
-  EXTERN_C const IID IID_IMoniker;
+typedef IMoniker *LPMONIKER;
+typedef enum tagMKSYS {
+    MKSYS_NONE = 0,
+    MKSYS_GENERICCOMPOSITE = 1,
+    MKSYS_FILEMONIKER = 2,
+    MKSYS_ANTIMONIKER = 3,
+    MKSYS_ITEMMONIKER = 4,
+    MKSYS_POINTERMONIKER = 5,
+    MKSYS_CLASSMONIKER = 7,
+    MKSYS_OBJREFMONIKER = 8,
+    MKSYS_SESSIONMONIKER = 9,
+    MKSYS_LUAMONIKER = 10
+} MKSYS;
+typedef enum tagMKREDUCE {
+    MKRREDUCE_ONE = 3 << 16,
+    MKRREDUCE_TOUSER = 2 << 16,
+    MKRREDUCE_THROUGHUSER = 1 << 16,
+    MKRREDUCE_ALL = 0
+} MKRREDUCE;
+DEFINE_GUID(IID_IMoniker, 0x0000000f, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMoniker : public IPersistStream {
-  public:
-    virtual HRESULT WINAPI BindToObject(IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riidResult,void **ppvResult) = 0;
-    virtual HRESULT WINAPI BindToStorage(IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riid,void **ppvObj) = 0;
-    virtual HRESULT WINAPI Reduce(IBindCtx *pbc,DWORD dwReduceHowFar,IMoniker **ppmkToLeft,IMoniker **ppmkReduced) = 0;
-    virtual HRESULT WINAPI ComposeWith(IMoniker *pmkRight,WINBOOL fOnlyIfNotGeneric,IMoniker **ppmkComposite) = 0;
-    virtual HRESULT WINAPI Enum(WINBOOL fForward,IEnumMoniker **ppenumMoniker) = 0;
-    virtual HRESULT WINAPI IsEqual(IMoniker *pmkOtherMoniker) = 0;
-    virtual HRESULT WINAPI Hash(DWORD *pdwHash) = 0;
-    virtual HRESULT WINAPI IsRunning(IBindCtx *pbc,IMoniker *pmkToLeft,IMoniker *pmkNewlyRunning) = 0;
-    virtual HRESULT WINAPI GetTimeOfLastChange(IBindCtx *pbc,IMoniker *pmkToLeft,FILETIME *pFileTime) = 0;
-    virtual HRESULT WINAPI Inverse(IMoniker **ppmk) = 0;
-    virtual HRESULT WINAPI CommonPrefixWith(IMoniker *pmkOther,IMoniker **ppmkPrefix) = 0;
-    virtual HRESULT WINAPI RelativePathTo(IMoniker *pmkOther,IMoniker **ppmkRelPath) = 0;
-    virtual HRESULT WINAPI GetDisplayName(IBindCtx *pbc,IMoniker *pmkToLeft,LPOLESTR *ppszDisplayName) = 0;
-    virtual HRESULT WINAPI ParseDisplayName(IBindCtx *pbc,IMoniker *pmkToLeft,LPOLESTR pszDisplayName,ULONG *pchEaten,IMoniker **ppmkOut) = 0;
-    virtual HRESULT WINAPI IsSystemMoniker(DWORD *pdwMksys) = 0;
-  };
+MIDL_INTERFACE("0000000f-0000-0000-c000-000000000046")
+IMoniker : public IPersistStream
+{
+    virtual HRESULT STDMETHODCALLTYPE BindToObject(
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        REFIID riidResult,
+        void **ppvResult) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE BindToStorage(
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        REFIID riid,
+        void **ppvObj) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reduce(
+        IBindCtx *pbc,
+        DWORD dwReduceHowFar,
+        IMoniker **ppmkToLeft,
+        IMoniker **ppmkReduced) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ComposeWith(
+        IMoniker *pmkRight,
+        WINBOOL fOnlyIfNotGeneric,
+        IMoniker **ppmkComposite) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Enum(
+        WINBOOL fForward,
+        IEnumMoniker **ppenumMoniker) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsEqual(
+        IMoniker *pmkOtherMoniker) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Hash(
+        DWORD *pdwHash) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsRunning(
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        IMoniker *pmkNewlyRunning) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTimeOfLastChange(
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        FILETIME *pFileTime) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Inverse(
+        IMoniker **ppmk) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CommonPrefixWith(
+        IMoniker *pmkOther,
+        IMoniker **ppmkPrefix) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RelativePathTo(
+        IMoniker *pmkOther,
+        IMoniker **ppmkRelPath) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDisplayName(
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        LPOLESTR *ppszDisplayName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ParseDisplayName(
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        LPOLESTR pszDisplayName,
+        ULONG *pchEaten,
+        IMoniker **ppmkOut) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsSystemMoniker(
+        DWORD *pdwMksys) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMoniker, 0x0000000f, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IMonikerVtbl {
+typedef struct IMonikerVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMoniker *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMoniker *This);
-      ULONG (WINAPI *Release)(IMoniker *This);
-      HRESULT (WINAPI *GetClassID)(IMoniker *This,CLSID *pClassID);
-      HRESULT (WINAPI *IsDirty)(IMoniker *This);
-      HRESULT (WINAPI *Load)(IMoniker *This,IStream *pStm);
-      HRESULT (WINAPI *Save)(IMoniker *This,IStream *pStm,WINBOOL fClearDirty);
-      HRESULT (WINAPI *GetSizeMax)(IMoniker *This,ULARGE_INTEGER *pcbSize);
-      HRESULT (WINAPI *BindToObject)(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riidResult,void **ppvResult);
-      HRESULT (WINAPI *BindToStorage)(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riid,void **ppvObj);
-      HRESULT (WINAPI *Reduce)(IMoniker *This,IBindCtx *pbc,DWORD dwReduceHowFar,IMoniker **ppmkToLeft,IMoniker **ppmkReduced);
-      HRESULT (WINAPI *ComposeWith)(IMoniker *This,IMoniker *pmkRight,WINBOOL fOnlyIfNotGeneric,IMoniker **ppmkComposite);
-      HRESULT (WINAPI *Enum)(IMoniker *This,WINBOOL fForward,IEnumMoniker **ppenumMoniker);
-      HRESULT (WINAPI *IsEqual)(IMoniker *This,IMoniker *pmkOtherMoniker);
-      HRESULT (WINAPI *Hash)(IMoniker *This,DWORD *pdwHash);
-      HRESULT (WINAPI *IsRunning)(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,IMoniker *pmkNewlyRunning);
-      HRESULT (WINAPI *GetTimeOfLastChange)(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,FILETIME *pFileTime);
-      HRESULT (WINAPI *Inverse)(IMoniker *This,IMoniker **ppmk);
-      HRESULT (WINAPI *CommonPrefixWith)(IMoniker *This,IMoniker *pmkOther,IMoniker **ppmkPrefix);
-      HRESULT (WINAPI *RelativePathTo)(IMoniker *This,IMoniker *pmkOther,IMoniker **ppmkRelPath);
-      HRESULT (WINAPI *GetDisplayName)(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,LPOLESTR *ppszDisplayName);
-      HRESULT (WINAPI *ParseDisplayName)(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,LPOLESTR pszDisplayName,ULONG *pchEaten,IMoniker **ppmkOut);
-      HRESULT (WINAPI *IsSystemMoniker)(IMoniker *This,DWORD *pdwMksys);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMoniker* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMoniker* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMoniker* This);
+
+    /*** IPersist methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetClassID)(
+        IMoniker* This,
+        CLSID *pClassID);
+
+    /*** IPersistStream methods ***/
+    HRESULT (STDMETHODCALLTYPE *IsDirty)(
+        IMoniker* This);
+
+    HRESULT (STDMETHODCALLTYPE *Load)(
+        IMoniker* This,
+        IStream *pStm);
+
+    HRESULT (STDMETHODCALLTYPE *Save)(
+        IMoniker* This,
+        IStream *pStm,
+        WINBOOL fClearDirty);
+
+    HRESULT (STDMETHODCALLTYPE *GetSizeMax)(
+        IMoniker* This,
+        ULARGE_INTEGER *pcbSize);
+
+    /*** IMoniker methods ***/
+    HRESULT (STDMETHODCALLTYPE *BindToObject)(
+        IMoniker* This,
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        REFIID riidResult,
+        void **ppvResult);
+
+    HRESULT (STDMETHODCALLTYPE *BindToStorage)(
+        IMoniker* This,
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        REFIID riid,
+        void **ppvObj);
+
+    HRESULT (STDMETHODCALLTYPE *Reduce)(
+        IMoniker* This,
+        IBindCtx *pbc,
+        DWORD dwReduceHowFar,
+        IMoniker **ppmkToLeft,
+        IMoniker **ppmkReduced);
+
+    HRESULT (STDMETHODCALLTYPE *ComposeWith)(
+        IMoniker* This,
+        IMoniker *pmkRight,
+        WINBOOL fOnlyIfNotGeneric,
+        IMoniker **ppmkComposite);
+
+    HRESULT (STDMETHODCALLTYPE *Enum)(
+        IMoniker* This,
+        WINBOOL fForward,
+        IEnumMoniker **ppenumMoniker);
+
+    HRESULT (STDMETHODCALLTYPE *IsEqual)(
+        IMoniker* This,
+        IMoniker *pmkOtherMoniker);
+
+    HRESULT (STDMETHODCALLTYPE *Hash)(
+        IMoniker* This,
+        DWORD *pdwHash);
+
+    HRESULT (STDMETHODCALLTYPE *IsRunning)(
+        IMoniker* This,
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        IMoniker *pmkNewlyRunning);
+
+    HRESULT (STDMETHODCALLTYPE *GetTimeOfLastChange)(
+        IMoniker* This,
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        FILETIME *pFileTime);
+
+    HRESULT (STDMETHODCALLTYPE *Inverse)(
+        IMoniker* This,
+        IMoniker **ppmk);
+
+    HRESULT (STDMETHODCALLTYPE *CommonPrefixWith)(
+        IMoniker* This,
+        IMoniker *pmkOther,
+        IMoniker **ppmkPrefix);
+
+    HRESULT (STDMETHODCALLTYPE *RelativePathTo)(
+        IMoniker* This,
+        IMoniker *pmkOther,
+        IMoniker **ppmkRelPath);
+
+    HRESULT (STDMETHODCALLTYPE *GetDisplayName)(
+        IMoniker* This,
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        LPOLESTR *ppszDisplayName);
+
+    HRESULT (STDMETHODCALLTYPE *ParseDisplayName)(
+        IMoniker* This,
+        IBindCtx *pbc,
+        IMoniker *pmkToLeft,
+        LPOLESTR pszDisplayName,
+        ULONG *pchEaten,
+        IMoniker **ppmkOut);
+
+    HRESULT (STDMETHODCALLTYPE *IsSystemMoniker)(
+        IMoniker* This,
+        DWORD *pdwMksys);
+
     END_INTERFACE
-  } IMonikerVtbl;
-  struct IMoniker {
-    CONST_VTBL struct IMonikerVtbl *lpVtbl;
-  };
+} IMonikerVtbl;
+interface IMoniker {
+    CONST_VTBL IMonikerVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IMoniker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMoniker_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IMoniker_Release(This) (This)->lpVtbl->Release(This)
+/*** IPersist methods ***/
 #define IMoniker_GetClassID(This,pClassID) (This)->lpVtbl->GetClassID(This,pClassID)
+/*** IPersistStream methods ***/
 #define IMoniker_IsDirty(This) (This)->lpVtbl->IsDirty(This)
 #define IMoniker_Load(This,pStm) (This)->lpVtbl->Load(This,pStm)
 #define IMoniker_Save(This,pStm,fClearDirty) (This)->lpVtbl->Save(This,pStm,fClearDirty)
 #define IMoniker_GetSizeMax(This,pcbSize) (This)->lpVtbl->GetSizeMax(This,pcbSize)
+/*** IMoniker methods ***/
 #define IMoniker_BindToObject(This,pbc,pmkToLeft,riidResult,ppvResult) (This)->lpVtbl->BindToObject(This,pbc,pmkToLeft,riidResult,ppvResult)
 #define IMoniker_BindToStorage(This,pbc,pmkToLeft,riid,ppvObj) (This)->lpVtbl->BindToStorage(This,pbc,pmkToLeft,riid,ppvObj)
 #define IMoniker_Reduce(This,pbc,dwReduceHowFar,ppmkToLeft,ppmkReduced) (This)->lpVtbl->Reduce(This,pbc,dwReduceHowFar,ppmkToLeft,ppmkReduced)
@@ -1410,38 +2078,179 @@ typedef struct IInitializeSpy IInitializeSpy;
 #define IMoniker_ParseDisplayName(This,pbc,pmkToLeft,pszDisplayName,pchEaten,ppmkOut) (This)->lpVtbl->ParseDisplayName(This,pbc,pmkToLeft,pszDisplayName,pchEaten,ppmkOut)
 #define IMoniker_IsSystemMoniker(This,pdwMksys) (This)->lpVtbl->IsSystemMoniker(This,pdwMksys)
 #endif
+
 #endif
-  HRESULT WINAPI IMoniker_RemoteBindToObject_Proxy(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riidResult,IUnknown **ppvResult);
-  void __RPC_STUB IMoniker_RemoteBindToObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_RemoteBindToStorage_Proxy(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riid,IUnknown **ppvObj);
-  void __RPC_STUB IMoniker_RemoteBindToStorage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_Reduce_Proxy(IMoniker *This,IBindCtx *pbc,DWORD dwReduceHowFar,IMoniker **ppmkToLeft,IMoniker **ppmkReduced);
-  void __RPC_STUB IMoniker_Reduce_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_ComposeWith_Proxy(IMoniker *This,IMoniker *pmkRight,WINBOOL fOnlyIfNotGeneric,IMoniker **ppmkComposite);
-  void __RPC_STUB IMoniker_ComposeWith_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_Enum_Proxy(IMoniker *This,WINBOOL fForward,IEnumMoniker **ppenumMoniker);
-  void __RPC_STUB IMoniker_Enum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_IsEqual_Proxy(IMoniker *This,IMoniker *pmkOtherMoniker);
-  void __RPC_STUB IMoniker_IsEqual_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_Hash_Proxy(IMoniker *This,DWORD *pdwHash);
-  void __RPC_STUB IMoniker_Hash_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_IsRunning_Proxy(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,IMoniker *pmkNewlyRunning);
-  void __RPC_STUB IMoniker_IsRunning_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_GetTimeOfLastChange_Proxy(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,FILETIME *pFileTime);
-  void __RPC_STUB IMoniker_GetTimeOfLastChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_Inverse_Proxy(IMoniker *This,IMoniker **ppmk);
-  void __RPC_STUB IMoniker_Inverse_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_CommonPrefixWith_Proxy(IMoniker *This,IMoniker *pmkOther,IMoniker **ppmkPrefix);
-  void __RPC_STUB IMoniker_CommonPrefixWith_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_RelativePathTo_Proxy(IMoniker *This,IMoniker *pmkOther,IMoniker **ppmkRelPath);
-  void __RPC_STUB IMoniker_RelativePathTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_GetDisplayName_Proxy(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,LPOLESTR *ppszDisplayName);
-  void __RPC_STUB IMoniker_GetDisplayName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_ParseDisplayName_Proxy(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,LPOLESTR pszDisplayName,ULONG *pchEaten,IMoniker **ppmkOut);
-  void __RPC_STUB IMoniker_ParseDisplayName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMoniker_IsSystemMoniker_Proxy(IMoniker *This,DWORD *pdwMksys);
-  void __RPC_STUB IMoniker_IsSystemMoniker_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IMoniker_RemoteBindToObject_Proxy(
+    IMoniker* This,
+    IBindCtx *pbc,
+    IMoniker *pmkToLeft,
+    REFIID riidResult,
+    IUnknown **ppvResult);
+void __RPC_STUB IMoniker_RemoteBindToObject_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_RemoteBindToStorage_Proxy(
+    IMoniker* This,
+    IBindCtx *pbc,
+    IMoniker *pmkToLeft,
+    REFIID riid,
+    IUnknown **ppvObj);
+void __RPC_STUB IMoniker_RemoteBindToStorage_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_Reduce_Proxy(
+    IMoniker* This,
+    IBindCtx *pbc,
+    DWORD dwReduceHowFar,
+    IMoniker **ppmkToLeft,
+    IMoniker **ppmkReduced);
+void __RPC_STUB IMoniker_Reduce_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_ComposeWith_Proxy(
+    IMoniker* This,
+    IMoniker *pmkRight,
+    WINBOOL fOnlyIfNotGeneric,
+    IMoniker **ppmkComposite);
+void __RPC_STUB IMoniker_ComposeWith_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_Enum_Proxy(
+    IMoniker* This,
+    WINBOOL fForward,
+    IEnumMoniker **ppenumMoniker);
+void __RPC_STUB IMoniker_Enum_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_IsEqual_Proxy(
+    IMoniker* This,
+    IMoniker *pmkOtherMoniker);
+void __RPC_STUB IMoniker_IsEqual_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_Hash_Proxy(
+    IMoniker* This,
+    DWORD *pdwHash);
+void __RPC_STUB IMoniker_Hash_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_IsRunning_Proxy(
+    IMoniker* This,
+    IBindCtx *pbc,
+    IMoniker *pmkToLeft,
+    IMoniker *pmkNewlyRunning);
+void __RPC_STUB IMoniker_IsRunning_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_GetTimeOfLastChange_Proxy(
+    IMoniker* This,
+    IBindCtx *pbc,
+    IMoniker *pmkToLeft,
+    FILETIME *pFileTime);
+void __RPC_STUB IMoniker_GetTimeOfLastChange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_Inverse_Proxy(
+    IMoniker* This,
+    IMoniker **ppmk);
+void __RPC_STUB IMoniker_Inverse_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_CommonPrefixWith_Proxy(
+    IMoniker* This,
+    IMoniker *pmkOther,
+    IMoniker **ppmkPrefix);
+void __RPC_STUB IMoniker_CommonPrefixWith_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_RelativePathTo_Proxy(
+    IMoniker* This,
+    IMoniker *pmkOther,
+    IMoniker **ppmkRelPath);
+void __RPC_STUB IMoniker_RelativePathTo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_GetDisplayName_Proxy(
+    IMoniker* This,
+    IBindCtx *pbc,
+    IMoniker *pmkToLeft,
+    LPOLESTR *ppszDisplayName);
+void __RPC_STUB IMoniker_GetDisplayName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_ParseDisplayName_Proxy(
+    IMoniker* This,
+    IBindCtx *pbc,
+    IMoniker *pmkToLeft,
+    LPOLESTR pszDisplayName,
+    ULONG *pchEaten,
+    IMoniker **ppmkOut);
+void __RPC_STUB IMoniker_ParseDisplayName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMoniker_IsSystemMoniker_Proxy(
+    IMoniker* This,
+    DWORD *pdwMksys);
+void __RPC_STUB IMoniker_IsSystemMoniker_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IMoniker_BindToObject_Proxy(
+    IMoniker* This,
+    IBindCtx *pbc,
+    IMoniker *pmkToLeft,
+    REFIID riidResult,
+    void **ppvResult);
+HRESULT __RPC_STUB IMoniker_BindToObject_Stub(
+    IMoniker* This,
+    IBindCtx *pbc,
+    IMoniker *pmkToLeft,
+    REFIID riidResult,
+    IUnknown **ppvResult);
+HRESULT CALLBACK IMoniker_BindToStorage_Proxy(
+    IMoniker* This,
+    IBindCtx *pbc,
+    IMoniker *pmkToLeft,
+    REFIID riid,
+    void **ppvObj);
+HRESULT __RPC_STUB IMoniker_BindToStorage_Stub(
+    IMoniker* This,
+    IBindCtx *pbc,
+    IMoniker *pmkToLeft,
+    REFIID riid,
+    IUnknown **ppvObj);
+
+#endif  /* __IMoniker_INTERFACE_DEFINED__ */
 
 #ifndef __IROTData_INTERFACE_DEFINED__
 #define __IROTData_INTERFACE_DEFINED__
@@ -1473,96 +2282,259 @@ typedef struct IInitializeSpy IInitializeSpy;
   HRESULT WINAPI IROTData_GetComparisonData_Proxy(IROTData *This,byte *pbData,ULONG cbMax,ULONG *pcbData);
   void __RPC_STUB IROTData_GetComparisonData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
+/*****************************************************************************
+ * IEnumString interface
+ */
 #ifndef __IEnumString_INTERFACE_DEFINED__
 #define __IEnumString_INTERFACE_DEFINED__
-  typedef IEnumString *LPENUMSTRING;
 
-  EXTERN_C const IID IID_IEnumString;
+typedef IEnumString *LPENUMSTRING;
+DEFINE_GUID(IID_IEnumString, 0x00000101, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumString : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG celt,LPOLESTR *rgelt,ULONG *pceltFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG celt) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumString **ppenum) = 0;
-  };
+MIDL_INTERFACE("00000101-0000-0000-c000-000000000046")
+IEnumString : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG celt,
+        LPOLESTR *rgelt,
+        ULONG *pceltFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG celt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumString **ppenum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumString, 0x00000101, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IEnumStringVtbl {
+typedef struct IEnumStringVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumString *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumString *This);
-      ULONG (WINAPI *Release)(IEnumString *This);
-      HRESULT (WINAPI *Next)(IEnumString *This,ULONG celt,LPOLESTR *rgelt,ULONG *pceltFetched);
-      HRESULT (WINAPI *Skip)(IEnumString *This,ULONG celt);
-      HRESULT (WINAPI *Reset)(IEnumString *This);
-      HRESULT (WINAPI *Clone)(IEnumString *This,IEnumString **ppenum);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumString* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumString* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumString* This);
+
+    /*** IEnumString methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumString* This,
+        ULONG celt,
+        LPOLESTR *rgelt,
+        ULONG *pceltFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumString* This,
+        ULONG celt);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumString* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumString* This,
+        IEnumString **ppenum);
+
     END_INTERFACE
-  } IEnumStringVtbl;
-  struct IEnumString {
-    CONST_VTBL struct IEnumStringVtbl *lpVtbl;
-  };
+} IEnumStringVtbl;
+interface IEnumString {
+    CONST_VTBL IEnumStringVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IEnumString_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumString_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IEnumString_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumString methods ***/
 #define IEnumString_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)
 #define IEnumString_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumString_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumString_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
 #endif
-#endif
-  HRESULT WINAPI IEnumString_RemoteNext_Proxy(IEnumString *This,ULONG celt,LPOLESTR *rgelt,ULONG *pceltFetched);
-  void __RPC_STUB IEnumString_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumString_Skip_Proxy(IEnumString *This,ULONG celt);
-  void __RPC_STUB IEnumString_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumString_Reset_Proxy(IEnumString *This);
-  void __RPC_STUB IEnumString_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumString_Clone_Proxy(IEnumString *This,IEnumString **ppenum);
-  void __RPC_STUB IEnumString_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IEnumString_RemoteNext_Proxy(
+    IEnumString* This,
+    ULONG celt,
+    LPOLESTR *rgelt,
+    ULONG *pceltFetched);
+void __RPC_STUB IEnumString_RemoteNext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumString_Skip_Proxy(
+    IEnumString* This,
+    ULONG celt);
+void __RPC_STUB IEnumString_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumString_Reset_Proxy(
+    IEnumString* This);
+void __RPC_STUB IEnumString_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumString_Clone_Proxy(
+    IEnumString* This,
+    IEnumString **ppenum);
+void __RPC_STUB IEnumString_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IEnumString_Next_Proxy(
+    IEnumString* This,
+    ULONG celt,
+    LPOLESTR *rgelt,
+    ULONG *pceltFetched);
+HRESULT __RPC_STUB IEnumString_Next_Stub(
+    IEnumString* This,
+    ULONG celt,
+    LPOLESTR *rgelt,
+    ULONG *pceltFetched);
+
+#endif  /* __IEnumString_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ISequentialStream interface
+ */
 #ifndef __ISequentialStream_INTERFACE_DEFINED__
 #define __ISequentialStream_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_ISequentialStream;
+
+DEFINE_GUID(IID_ISequentialStream, 0x0c733a30, 0x2a1c, 0x11ce, 0xad,0xe5, 0x00,0xaa,0x00,0x44,0x77,0x3d);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct ISequentialStream : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Read(void *pv,ULONG cb,ULONG *pcbRead) = 0;
-    virtual HRESULT WINAPI Write(const void *pv,ULONG cb,ULONG *pcbWritten) = 0;
-  };
+MIDL_INTERFACE("0c733a30-2a1c-11ce-ade5-00aa0044773d")
+ISequentialStream : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Read(
+        void *pv,
+        ULONG cb,
+        ULONG *pcbRead) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Write(
+        const void *pv,
+        ULONG cb,
+        ULONG *pcbWritten) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ISequentialStream, 0x0c733a30, 0x2a1c, 0x11ce, 0xad,0xe5, 0x00,0xaa,0x00,0x44,0x77,0x3d)
+#endif
 #else
-  typedef struct ISequentialStreamVtbl {
+typedef struct ISequentialStreamVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(ISequentialStream *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(ISequentialStream *This);
-      ULONG (WINAPI *Release)(ISequentialStream *This);
-      HRESULT (WINAPI *Read)(ISequentialStream *This,void *pv,ULONG cb,ULONG *pcbRead);
-      HRESULT (WINAPI *Write)(ISequentialStream *This,const void *pv,ULONG cb,ULONG *pcbWritten);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ISequentialStream* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ISequentialStream* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ISequentialStream* This);
+
+    /*** ISequentialStream methods ***/
+    HRESULT (STDMETHODCALLTYPE *Read)(
+        ISequentialStream* This,
+        void *pv,
+        ULONG cb,
+        ULONG *pcbRead);
+
+    HRESULT (STDMETHODCALLTYPE *Write)(
+        ISequentialStream* This,
+        const void *pv,
+        ULONG cb,
+        ULONG *pcbWritten);
+
     END_INTERFACE
-  } ISequentialStreamVtbl;
-  struct ISequentialStream {
-    CONST_VTBL struct ISequentialStreamVtbl *lpVtbl;
-  };
+} ISequentialStreamVtbl;
+interface ISequentialStream {
+    CONST_VTBL ISequentialStreamVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define ISequentialStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ISequentialStream_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define ISequentialStream_Release(This) (This)->lpVtbl->Release(This)
+/*** ISequentialStream methods ***/
 #define ISequentialStream_Read(This,pv,cb,pcbRead) (This)->lpVtbl->Read(This,pv,cb,pcbRead)
 #define ISequentialStream_Write(This,pv,cb,pcbWritten) (This)->lpVtbl->Write(This,pv,cb,pcbWritten)
 #endif
-#endif
-  HRESULT WINAPI ISequentialStream_RemoteRead_Proxy(ISequentialStream *This,byte *pv,ULONG cb,ULONG *pcbRead);
-  void __RPC_STUB ISequentialStream_RemoteRead_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISequentialStream_RemoteWrite_Proxy(ISequentialStream *This,const byte *pv,ULONG cb,ULONG *pcbWritten);
-  void __RPC_STUB ISequentialStream_RemoteWrite_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
+
 #endif
 
+HRESULT STDMETHODCALLTYPE ISequentialStream_RemoteRead_Proxy(
+    ISequentialStream* This,
+    byte *pv,
+    ULONG cb,
+    ULONG *pcbRead);
+void __RPC_STUB ISequentialStream_RemoteRead_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ISequentialStream_RemoteWrite_Proxy(
+    ISequentialStream* This,
+    const byte *pv,
+    ULONG cb,
+    ULONG *pcbWritten);
+void __RPC_STUB ISequentialStream_RemoteWrite_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK ISequentialStream_Read_Proxy(
+    ISequentialStream* This,
+    void *pv,
+    ULONG cb,
+    ULONG *pcbRead);
+HRESULT __RPC_STUB ISequentialStream_Read_Stub(
+    ISequentialStream* This,
+    byte *pv,
+    ULONG cb,
+    ULONG *pcbRead);
+HRESULT CALLBACK ISequentialStream_Write_Proxy(
+    ISequentialStream* This,
+    const void *pv,
+    ULONG cb,
+    ULONG *pcbWritten);
+HRESULT __RPC_STUB ISequentialStream_Write_Stub(
+    ISequentialStream* This,
+    const byte *pv,
+    ULONG cb,
+    ULONG *pcbWritten);
+
+#endif  /* __ISequentialStream_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IStream interface
+ */
 #ifndef __IStream_INTERFACE_DEFINED__
 #define __IStream_INTERFACE_DEFINED__
-  typedef IStream *LPSTREAM;
 
-  typedef struct tagSTATSTG {
+typedef IStream *LPSTREAM;
+typedef struct tagSTATSTG {
     LPOLESTR pwcsName;
     DWORD type;
     ULARGE_INTEGER cbSize;
@@ -1574,63 +2546,159 @@ typedef struct IInitializeSpy IInitializeSpy;
     CLSID clsid;
     DWORD grfStateBits;
     DWORD reserved;
-  } STATSTG;
-
-  typedef enum tagSTGTY {
-    STGTY_STORAGE = 1,STGTY_STREAM = 2,STGTY_LOCKBYTES = 3,STGTY_PROPERTY = 4
-  } STGTY;
-
-  typedef enum tagSTREAM_SEEK {
-    STREAM_SEEK_SET = 0,STREAM_SEEK_CUR = 1,STREAM_SEEK_END = 2
-  } STREAM_SEEK;
-
-  typedef enum tagLOCKTYPE {
-    LOCK_WRITE = 1,LOCK_EXCLUSIVE = 2,LOCK_ONLYONCE = 4
-  } LOCKTYPE;
-
-  EXTERN_C const IID IID_IStream;
-
+} STATSTG;
+typedef enum tagSTGTY {
+    STGTY_STORAGE = 1,
+    STGTY_STREAM = 2,
+    STGTY_LOCKBYTES = 3,
+    STGTY_PROPERTY = 4
+} STGTY;
+typedef enum tagSTREAM_SEEK {
+    STREAM_SEEK_SET = 0,
+    STREAM_SEEK_CUR = 1,
+    STREAM_SEEK_END = 2
+} STREAM_SEEK;
+typedef enum tagLOCKTYPE {
+    LOCK_WRITE = 1,
+    LOCK_EXCLUSIVE = 2,
+    LOCK_ONLYONCE = 4
+} LOCKTYPE;
+DEFINE_GUID(IID_IStream, 0x0000000c, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IStream : public ISequentialStream {
-  public:
-    virtual HRESULT WINAPI Seek(LARGE_INTEGER dlibMove,DWORD dwOrigin,ULARGE_INTEGER *plibNewPosition) = 0;
-    virtual HRESULT WINAPI SetSize(ULARGE_INTEGER libNewSize) = 0;
-    virtual HRESULT WINAPI CopyTo(IStream *pstm,ULARGE_INTEGER cb,ULARGE_INTEGER *pcbRead,ULARGE_INTEGER *pcbWritten) = 0;
-    virtual HRESULT WINAPI Commit(DWORD grfCommitFlags) = 0;
-    virtual HRESULT WINAPI Revert(void) = 0;
-    virtual HRESULT WINAPI LockRegion(ULARGE_INTEGER libOffset,ULARGE_INTEGER cb,DWORD dwLockType) = 0;
-    virtual HRESULT WINAPI UnlockRegion(ULARGE_INTEGER libOffset,ULARGE_INTEGER cb,DWORD dwLockType) = 0;
-    virtual HRESULT WINAPI Stat(STATSTG *pstatstg,DWORD grfStatFlag) = 0;
-    virtual HRESULT WINAPI Clone(IStream **ppstm) = 0;
-  };
+MIDL_INTERFACE("0000000c-0000-0000-c000-000000000046")
+IStream : public ISequentialStream
+{
+    virtual HRESULT STDMETHODCALLTYPE Seek(
+        LARGE_INTEGER dlibMove,
+        DWORD dwOrigin,
+        ULARGE_INTEGER *plibNewPosition) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSize(
+        ULARGE_INTEGER libNewSize) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CopyTo(
+        IStream *pstm,
+        ULARGE_INTEGER cb,
+        ULARGE_INTEGER *pcbRead,
+        ULARGE_INTEGER *pcbWritten) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Commit(
+        DWORD grfCommitFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Revert(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE LockRegion(
+        ULARGE_INTEGER libOffset,
+        ULARGE_INTEGER cb,
+        DWORD dwLockType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnlockRegion(
+        ULARGE_INTEGER libOffset,
+        ULARGE_INTEGER cb,
+        DWORD dwLockType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Stat(
+        STATSTG *pstatstg,
+        DWORD grfStatFlag) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IStream **ppstm) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IStream, 0x0000000c, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IStreamVtbl {
+typedef struct IStreamVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IStream *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IStream *This);
-      ULONG (WINAPI *Release)(IStream *This);
-      HRESULT (WINAPI *Read)(IStream *This,void *pv,ULONG cb,ULONG *pcbRead);
-      HRESULT (WINAPI *Write)(IStream *This,const void *pv,ULONG cb,ULONG *pcbWritten);
-      HRESULT (WINAPI *Seek)(IStream *This,LARGE_INTEGER dlibMove,DWORD dwOrigin,ULARGE_INTEGER *plibNewPosition);
-      HRESULT (WINAPI *SetSize)(IStream *This,ULARGE_INTEGER libNewSize);
-      HRESULT (WINAPI *CopyTo)(IStream *This,IStream *pstm,ULARGE_INTEGER cb,ULARGE_INTEGER *pcbRead,ULARGE_INTEGER *pcbWritten);
-      HRESULT (WINAPI *Commit)(IStream *This,DWORD grfCommitFlags);
-      HRESULT (WINAPI *Revert)(IStream *This);
-      HRESULT (WINAPI *LockRegion)(IStream *This,ULARGE_INTEGER libOffset,ULARGE_INTEGER cb,DWORD dwLockType);
-      HRESULT (WINAPI *UnlockRegion)(IStream *This,ULARGE_INTEGER libOffset,ULARGE_INTEGER cb,DWORD dwLockType);
-      HRESULT (WINAPI *Stat)(IStream *This,STATSTG *pstatstg,DWORD grfStatFlag);
-      HRESULT (WINAPI *Clone)(IStream *This,IStream **ppstm);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IStream* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IStream* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IStream* This);
+
+    /*** ISequentialStream methods ***/
+    HRESULT (STDMETHODCALLTYPE *Read)(
+        IStream* This,
+        void *pv,
+        ULONG cb,
+        ULONG *pcbRead);
+
+    HRESULT (STDMETHODCALLTYPE *Write)(
+        IStream* This,
+        const void *pv,
+        ULONG cb,
+        ULONG *pcbWritten);
+
+    /*** IStream methods ***/
+    HRESULT (STDMETHODCALLTYPE *Seek)(
+        IStream* This,
+        LARGE_INTEGER dlibMove,
+        DWORD dwOrigin,
+        ULARGE_INTEGER *plibNewPosition);
+
+    HRESULT (STDMETHODCALLTYPE *SetSize)(
+        IStream* This,
+        ULARGE_INTEGER libNewSize);
+
+    HRESULT (STDMETHODCALLTYPE *CopyTo)(
+        IStream* This,
+        IStream *pstm,
+        ULARGE_INTEGER cb,
+        ULARGE_INTEGER *pcbRead,
+        ULARGE_INTEGER *pcbWritten);
+
+    HRESULT (STDMETHODCALLTYPE *Commit)(
+        IStream* This,
+        DWORD grfCommitFlags);
+
+    HRESULT (STDMETHODCALLTYPE *Revert)(
+        IStream* This);
+
+    HRESULT (STDMETHODCALLTYPE *LockRegion)(
+        IStream* This,
+        ULARGE_INTEGER libOffset,
+        ULARGE_INTEGER cb,
+        DWORD dwLockType);
+
+    HRESULT (STDMETHODCALLTYPE *UnlockRegion)(
+        IStream* This,
+        ULARGE_INTEGER libOffset,
+        ULARGE_INTEGER cb,
+        DWORD dwLockType);
+
+    HRESULT (STDMETHODCALLTYPE *Stat)(
+        IStream* This,
+        STATSTG *pstatstg,
+        DWORD grfStatFlag);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IStream* This,
+        IStream **ppstm);
+
     END_INTERFACE
-  } IStreamVtbl;
-  struct IStream {
-    CONST_VTBL struct IStreamVtbl *lpVtbl;
-  };
+} IStreamVtbl;
+interface IStream {
+    CONST_VTBL IStreamVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IStream_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IStream_Release(This) (This)->lpVtbl->Release(This)
+/*** ISequentialStream methods ***/
 #define IStream_Read(This,pv,cb,pcbRead) (This)->lpVtbl->Read(This,pv,cb,pcbRead)
 #define IStream_Write(This,pv,cb,pcbWritten) (This)->lpVtbl->Write(This,pv,cb,pcbWritten)
+/*** IStream methods ***/
 #define IStream_Seek(This,dlibMove,dwOrigin,plibNewPosition) (This)->lpVtbl->Seek(This,dlibMove,dwOrigin,plibNewPosition)
 #define IStream_SetSize(This,libNewSize) (This)->lpVtbl->SetSize(This,libNewSize)
 #define IStream_CopyTo(This,pstm,cb,pcbRead,pcbWritten) (This)->lpVtbl->CopyTo(This,pstm,cb,pcbRead,pcbWritten)
@@ -1641,26 +2709,114 @@ typedef struct IInitializeSpy IInitializeSpy;
 #define IStream_Stat(This,pstatstg,grfStatFlag) (This)->lpVtbl->Stat(This,pstatstg,grfStatFlag)
 #define IStream_Clone(This,ppstm) (This)->lpVtbl->Clone(This,ppstm)
 #endif
+
 #endif
-  HRESULT WINAPI IStream_RemoteSeek_Proxy(IStream *This,LARGE_INTEGER dlibMove,DWORD dwOrigin,ULARGE_INTEGER *plibNewPosition);
-  void __RPC_STUB IStream_RemoteSeek_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStream_SetSize_Proxy(IStream *This,ULARGE_INTEGER libNewSize);
-  void __RPC_STUB IStream_SetSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStream_RemoteCopyTo_Proxy(IStream *This,IStream *pstm,ULARGE_INTEGER cb,ULARGE_INTEGER *pcbRead,ULARGE_INTEGER *pcbWritten);
-  void __RPC_STUB IStream_RemoteCopyTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStream_Commit_Proxy(IStream *This,DWORD grfCommitFlags);
-  void __RPC_STUB IStream_Commit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStream_Revert_Proxy(IStream *This);
-  void __RPC_STUB IStream_Revert_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStream_LockRegion_Proxy(IStream *This,ULARGE_INTEGER libOffset,ULARGE_INTEGER cb,DWORD dwLockType);
-  void __RPC_STUB IStream_LockRegion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStream_UnlockRegion_Proxy(IStream *This,ULARGE_INTEGER libOffset,ULARGE_INTEGER cb,DWORD dwLockType);
-  void __RPC_STUB IStream_UnlockRegion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStream_Stat_Proxy(IStream *This,STATSTG *pstatstg,DWORD grfStatFlag);
-  void __RPC_STUB IStream_Stat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStream_Clone_Proxy(IStream *This,IStream **ppstm);
-  void __RPC_STUB IStream_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IStream_RemoteSeek_Proxy(
+    IStream* This,
+    LARGE_INTEGER dlibMove,
+    DWORD dwOrigin,
+    ULARGE_INTEGER *plibNewPosition);
+void __RPC_STUB IStream_RemoteSeek_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStream_SetSize_Proxy(
+    IStream* This,
+    ULARGE_INTEGER libNewSize);
+void __RPC_STUB IStream_SetSize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStream_RemoteCopyTo_Proxy(
+    IStream* This,
+    IStream *pstm,
+    ULARGE_INTEGER cb,
+    ULARGE_INTEGER *pcbRead,
+    ULARGE_INTEGER *pcbWritten);
+void __RPC_STUB IStream_RemoteCopyTo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStream_Commit_Proxy(
+    IStream* This,
+    DWORD grfCommitFlags);
+void __RPC_STUB IStream_Commit_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStream_Revert_Proxy(
+    IStream* This);
+void __RPC_STUB IStream_Revert_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStream_LockRegion_Proxy(
+    IStream* This,
+    ULARGE_INTEGER libOffset,
+    ULARGE_INTEGER cb,
+    DWORD dwLockType);
+void __RPC_STUB IStream_LockRegion_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStream_UnlockRegion_Proxy(
+    IStream* This,
+    ULARGE_INTEGER libOffset,
+    ULARGE_INTEGER cb,
+    DWORD dwLockType);
+void __RPC_STUB IStream_UnlockRegion_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStream_Stat_Proxy(
+    IStream* This,
+    STATSTG *pstatstg,
+    DWORD grfStatFlag);
+void __RPC_STUB IStream_Stat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStream_Clone_Proxy(
+    IStream* This,
+    IStream **ppstm);
+void __RPC_STUB IStream_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IStream_Seek_Proxy(
+    IStream* This,
+    LARGE_INTEGER dlibMove,
+    DWORD dwOrigin,
+    ULARGE_INTEGER *plibNewPosition);
+HRESULT __RPC_STUB IStream_Seek_Stub(
+    IStream* This,
+    LARGE_INTEGER dlibMove,
+    DWORD dwOrigin,
+    ULARGE_INTEGER *plibNewPosition);
+HRESULT CALLBACK IStream_CopyTo_Proxy(
+    IStream* This,
+    IStream *pstm,
+    ULARGE_INTEGER cb,
+    ULARGE_INTEGER *pcbRead,
+    ULARGE_INTEGER *pcbWritten);
+HRESULT __RPC_STUB IStream_CopyTo_Stub(
+    IStream* This,
+    IStream *pstm,
+    ULARGE_INTEGER cb,
+    ULARGE_INTEGER *pcbRead,
+    ULARGE_INTEGER *pcbWritten);
+
+#endif  /* __IStream_INTERFACE_DEFINED__ */
 
 #ifndef __IEnumSTATSTG_INTERFACE_DEFINED__
 #define __IEnumSTATSTG_INTERFACE_DEFINED__
@@ -5077,20 +6233,6 @@ typedef struct IInitializeSpy IInitializeSpy;
   HRESULT WINAPI AsyncIAdviseSink2_Begin_OnLinkSrcChange_Stub(AsyncIAdviseSink2 *This,IMoniker *pmk);
   void WINAPI AsyncIAdviseSink2_Finish_OnLinkSrcChange_Proxy(AsyncIAdviseSink2 *This);
   HRESULT WINAPI AsyncIAdviseSink2_Finish_OnLinkSrcChange_Stub(AsyncIAdviseSink2 *This);
-
-#if (_WIN32_WINNT >= 0x0600)
-typedef struct tagBIND_OPTS3 {
-  DWORD        cbStruct;
-  DWORD        grfFlags;
-  DWORD        grfMode;
-  DWORD        dwTickCountDeadline;
-  DWORD        dwTrackFlags;
-  DWORD        dwClassContext;
-  LCID         locale;
-  COSERVERINFO *pServerInfo;
-  HWND         hwnd;
-} BIND_OPTS3, *LPBIND_OPTS3;
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #if (_WIN32_WINNT >= 0x0601)
 typedef enum _APTTYPEQUALIFIER {
