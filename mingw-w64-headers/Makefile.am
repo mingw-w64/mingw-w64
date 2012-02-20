@@ -56,6 +56,7 @@ if HAVE_WIDL
 IDL_SRCS = \
   include/oaidl.idl \
   include/shobjidl.idl \
+  include/shtypes.idl \
   include/unknwn.idl \
   include/wtypes.idl
 
