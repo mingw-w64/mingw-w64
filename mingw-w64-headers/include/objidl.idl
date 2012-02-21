@@ -1853,14 +1853,6 @@ interface IAdviseSink : IUnknown
         unsigned long cbData;
         [size_is(cbData)] byte data[];
     } RemSTGMEDIUM;
-cpp_quote("  typedef struct tagRemSTGMEDIUM {")
-cpp_quote("    DWORD tymed;")
-cpp_quote("    DWORD dwHandleType;")
-cpp_quote("    unsigned long pData;")
-cpp_quote("    unsigned long pUnkForRelease;")
-cpp_quote("    unsigned long cbData;")
-cpp_quote("    byte data[1 ];")
-cpp_quote("  } RemSTGMEDIUM;")
 
 /* FIXME: Remove #if 0 */
 cpp_quote("#if 0")

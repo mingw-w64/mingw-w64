@@ -3903,14 +3903,6 @@ typedef struct tagRemSTGMEDIUM {
     ULONG cbData;
     byte data[1];
 } RemSTGMEDIUM;
-  typedef struct tagRemSTGMEDIUM {
-    DWORD tymed;
-    DWORD dwHandleType;
-    unsigned long pData;
-    unsigned long pUnkForRelease;
-    unsigned long cbData;
-    byte data[1 ];
-  } RemSTGMEDIUM;
 #if 0
 typedef struct tagSTGMEDIUM {
     DWORD tymed;
