@@ -62,6 +62,36 @@ typedef interface ISequentialStream ISequentialStream;
 typedef interface IStream IStream;
 #endif
 
+#ifndef __IEnumSTATSTG_FWD_DEFINED__
+#define __IEnumSTATSTG_FWD_DEFINED__
+typedef interface IEnumSTATSTG IEnumSTATSTG;
+#endif
+
+#ifndef __IStorage_FWD_DEFINED__
+#define __IStorage_FWD_DEFINED__
+typedef interface IStorage IStorage;
+#endif
+
+#ifndef __IEnumFORMATETC_FWD_DEFINED__
+#define __IEnumFORMATETC_FWD_DEFINED__
+typedef interface IEnumFORMATETC IEnumFORMATETC;
+#endif
+
+#ifndef __IEnumSTATDATA_FWD_DEFINED__
+#define __IEnumSTATDATA_FWD_DEFINED__
+typedef interface IEnumSTATDATA IEnumSTATDATA;
+#endif
+
+#ifndef __IAdviseSink_FWD_DEFINED__
+#define __IAdviseSink_FWD_DEFINED__
+typedef interface IAdviseSink IAdviseSink;
+#endif
+
+#ifndef __IDataObject_FWD_DEFINED__
+#define __IDataObject_FWD_DEFINED__
+typedef interface IDataObject IDataObject;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -94,6 +124,11 @@ typedef interface IEnumString IEnumString;
 #ifndef __IStream_FWD_DEFINED__
 #define __IStream_FWD_DEFINED__
 typedef interface IStream IStream;
+#endif
+
+#ifndef __IAdviseSink_FWD_DEFINED__
+#define __IAdviseSink_FWD_DEFINED__
+typedef interface IAdviseSink IAdviseSink;
 #endif
 
 #ifndef __IMarshal_FWD_DEFINED__
@@ -156,16 +191,6 @@ typedef struct IRunnableObject IRunnableObject;
 typedef struct IROTData IROTData;
 #endif
 
-#ifndef __IEnumSTATSTG_FWD_DEFINED__
-#define __IEnumSTATSTG_FWD_DEFINED__
-typedef struct IEnumSTATSTG IEnumSTATSTG;
-#endif
-
-#ifndef __IStorage_FWD_DEFINED__
-#define __IStorage_FWD_DEFINED__
-typedef struct IStorage IStorage;
-#endif
-
 #ifndef __IPersistFile_FWD_DEFINED__
 #define __IPersistFile_FWD_DEFINED__
 typedef struct IPersistFile IPersistFile;
@@ -181,24 +206,9 @@ typedef struct IPersistStorage IPersistStorage;
 typedef struct ILockBytes ILockBytes;
 #endif
 
-#ifndef __IEnumFORMATETC_FWD_DEFINED__
-#define __IEnumFORMATETC_FWD_DEFINED__
-typedef struct IEnumFORMATETC IEnumFORMATETC;
-#endif
-
-#ifndef __IEnumSTATDATA_FWD_DEFINED__
-#define __IEnumSTATDATA_FWD_DEFINED__
-typedef struct IEnumSTATDATA IEnumSTATDATA;
-#endif
-
 #ifndef __IRootStorage_FWD_DEFINED__
 #define __IRootStorage_FWD_DEFINED__
 typedef struct IRootStorage IRootStorage;
-#endif
-
-#ifndef __IAdviseSink_FWD_DEFINED__
-#define __IAdviseSink_FWD_DEFINED__
-typedef struct IAdviseSink IAdviseSink;
 #endif
 
 #ifndef __AsyncIAdviseSink_FWD_DEFINED__
@@ -214,11 +224,6 @@ typedef struct IAdviseSink2 IAdviseSink2;
 #ifndef __AsyncIAdviseSink2_FWD_DEFINED__
 #define __AsyncIAdviseSink2_FWD_DEFINED__
 typedef struct AsyncIAdviseSink2 AsyncIAdviseSink2;
-#endif
-
-#ifndef __IDataObject_FWD_DEFINED__
-#define __IDataObject_FWD_DEFINED__
-typedef struct IDataObject IDataObject;
 #endif
 
 #ifndef __IDataAdviseHolder_FWD_DEFINED__
@@ -2818,120 +2823,359 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
 
 #endif  /* __IStream_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IEnumSTATSTG interface
+ */
 #ifndef __IEnumSTATSTG_INTERFACE_DEFINED__
 #define __IEnumSTATSTG_INTERFACE_DEFINED__
-  typedef IEnumSTATSTG *LPENUMSTATSTG;
 
-  EXTERN_C const IID IID_IEnumSTATSTG;
+typedef IEnumSTATSTG *LPENUMSTATSTG;
+DEFINE_GUID(IID_IEnumSTATSTG, 0x0000000d, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumSTATSTG : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG celt,STATSTG *rgelt,ULONG *pceltFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG celt) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumSTATSTG **ppenum) = 0;
-  };
+MIDL_INTERFACE("0000000d-0000-0000-c000-000000000046")
+IEnumSTATSTG : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG celt,
+        STATSTG *rgelt,
+        ULONG *pceltFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG celt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumSTATSTG **ppenum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumSTATSTG, 0x0000000d, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IEnumSTATSTGVtbl {
+typedef struct IEnumSTATSTGVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumSTATSTG *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumSTATSTG *This);
-      ULONG (WINAPI *Release)(IEnumSTATSTG *This);
-      HRESULT (WINAPI *Next)(IEnumSTATSTG *This,ULONG celt,STATSTG *rgelt,ULONG *pceltFetched);
-      HRESULT (WINAPI *Skip)(IEnumSTATSTG *This,ULONG celt);
-      HRESULT (WINAPI *Reset)(IEnumSTATSTG *This);
-      HRESULT (WINAPI *Clone)(IEnumSTATSTG *This,IEnumSTATSTG **ppenum);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumSTATSTG* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumSTATSTG* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumSTATSTG* This);
+
+    /*** IEnumSTATSTG methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumSTATSTG* This,
+        ULONG celt,
+        STATSTG *rgelt,
+        ULONG *pceltFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumSTATSTG* This,
+        ULONG celt);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumSTATSTG* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumSTATSTG* This,
+        IEnumSTATSTG **ppenum);
+
     END_INTERFACE
-  } IEnumSTATSTGVtbl;
-  struct IEnumSTATSTG {
-    CONST_VTBL struct IEnumSTATSTGVtbl *lpVtbl;
-  };
+} IEnumSTATSTGVtbl;
+interface IEnumSTATSTG {
+    CONST_VTBL IEnumSTATSTGVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IEnumSTATSTG_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumSTATSTG_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IEnumSTATSTG_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumSTATSTG methods ***/
 #define IEnumSTATSTG_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)
 #define IEnumSTATSTG_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumSTATSTG_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumSTATSTG_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
 #endif
-#endif
-  HRESULT WINAPI IEnumSTATSTG_RemoteNext_Proxy(IEnumSTATSTG *This,ULONG celt,STATSTG *rgelt,ULONG *pceltFetched);
-  void __RPC_STUB IEnumSTATSTG_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumSTATSTG_Skip_Proxy(IEnumSTATSTG *This,ULONG celt);
-  void __RPC_STUB IEnumSTATSTG_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumSTATSTG_Reset_Proxy(IEnumSTATSTG *This);
-  void __RPC_STUB IEnumSTATSTG_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumSTATSTG_Clone_Proxy(IEnumSTATSTG *This,IEnumSTATSTG **ppenum);
-  void __RPC_STUB IEnumSTATSTG_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IEnumSTATSTG_RemoteNext_Proxy(
+    IEnumSTATSTG* This,
+    ULONG celt,
+    STATSTG *rgelt,
+    ULONG *pceltFetched);
+void __RPC_STUB IEnumSTATSTG_RemoteNext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumSTATSTG_Skip_Proxy(
+    IEnumSTATSTG* This,
+    ULONG celt);
+void __RPC_STUB IEnumSTATSTG_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumSTATSTG_Reset_Proxy(
+    IEnumSTATSTG* This);
+void __RPC_STUB IEnumSTATSTG_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumSTATSTG_Clone_Proxy(
+    IEnumSTATSTG* This,
+    IEnumSTATSTG **ppenum);
+void __RPC_STUB IEnumSTATSTG_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IEnumSTATSTG_Next_Proxy(
+    IEnumSTATSTG* This,
+    ULONG celt,
+    STATSTG *rgelt,
+    ULONG *pceltFetched);
+HRESULT __RPC_STUB IEnumSTATSTG_Next_Stub(
+    IEnumSTATSTG* This,
+    ULONG celt,
+    STATSTG *rgelt,
+    ULONG *pceltFetched);
+
+#endif  /* __IEnumSTATSTG_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IStorage interface
+ */
 #ifndef __IStorage_INTERFACE_DEFINED__
 #define __IStorage_INTERFACE_DEFINED__
-  typedef IStorage *LPSTORAGE;
 
-  typedef struct tagRemSNB {
-    unsigned long ulCntStr;
-    unsigned long ulCntChar;
-    OLECHAR rgString[1 ];
-  } RemSNB;
-
-  typedef RemSNB *wireSNB;
-  typedef OLECHAR **SNB;
-
-  EXTERN_C const IID IID_IStorage;
+typedef IStorage *LPSTORAGE;
+typedef struct tagRemSNB {
+    ULONG ulCntStr;
+    ULONG ulCntChar;
+    OLECHAR rgString[1];
+} RemSNB;
+typedef RemSNB *wireSNB;
+typedef OLECHAR **SNB;
+DEFINE_GUID(IID_IStorage, 0x0000000b, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IStorage : public IUnknown {
-  public:
-    virtual HRESULT WINAPI CreateStream(const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStream **ppstm) = 0;
-    virtual HRESULT WINAPI OpenStream(const OLECHAR *pwcsName,void *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm) = 0;
-    virtual HRESULT WINAPI CreateStorage(const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStorage **ppstg) = 0;
-    virtual HRESULT WINAPI OpenStorage(const OLECHAR *pwcsName,IStorage *pstgPriority,DWORD grfMode,SNB snbExclude,DWORD reserved,IStorage **ppstg) = 0;
-    virtual HRESULT WINAPI CopyTo(DWORD ciidExclude,const IID *rgiidExclude,SNB snbExclude,IStorage *pstgDest) = 0;
-    virtual HRESULT WINAPI MoveElementTo(const OLECHAR *pwcsName,IStorage *pstgDest,const OLECHAR *pwcsNewName,DWORD grfFlags) = 0;
-    virtual HRESULT WINAPI Commit(DWORD grfCommitFlags) = 0;
-    virtual HRESULT WINAPI Revert(void) = 0;
-    virtual HRESULT WINAPI EnumElements(DWORD reserved1,void *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum) = 0;
-    virtual HRESULT WINAPI DestroyElement(const OLECHAR *pwcsName) = 0;
-    virtual HRESULT WINAPI RenameElement(const OLECHAR *pwcsOldName,const OLECHAR *pwcsNewName) = 0;
-    virtual HRESULT WINAPI SetElementTimes(const OLECHAR *pwcsName,const FILETIME *pctime,const FILETIME *patime,const FILETIME *pmtime) = 0;
-    virtual HRESULT WINAPI SetClass(REFCLSID clsid) = 0;
-    virtual HRESULT WINAPI SetStateBits(DWORD grfStateBits,DWORD grfMask) = 0;
-    virtual HRESULT WINAPI Stat(STATSTG *pstatstg,DWORD grfStatFlag) = 0;
-  };
+MIDL_INTERFACE("0000000b-0000-0000-c000-000000000046")
+IStorage : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateStream(
+        LPCOLESTR pwcsName,
+        DWORD grfMode,
+        DWORD reserved1,
+        DWORD reserved2,
+        IStream **ppstm) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OpenStream(
+        LPCOLESTR pwcsName,
+        void *reserved1,
+        DWORD grfMode,
+        DWORD reserved2,
+        IStream **ppstm) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateStorage(
+        LPCOLESTR pwcsName,
+        DWORD grfMode,
+        DWORD dwStgFmt,
+        DWORD reserved2,
+        IStorage **ppstg) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OpenStorage(
+        LPCOLESTR pwcsName,
+        IStorage *pstgPriority,
+        DWORD grfMode,
+        SNB snbExclude,
+        DWORD reserved,
+        IStorage **ppstg) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CopyTo(
+        DWORD ciidExclude,
+        const IID *rgiidExclude,
+        SNB snbExclude,
+        IStorage *pstgDest) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE MoveElementTo(
+        LPCOLESTR pwcsName,
+        IStorage *pstgDest,
+        LPCOLESTR pwcsNewName,
+        DWORD grfFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Commit(
+        DWORD grfCommitFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Revert(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumElements(
+        DWORD reserved1,
+        void *reserved2,
+        DWORD reserved3,
+        IEnumSTATSTG **ppenum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DestroyElement(
+        LPCOLESTR pwcsName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RenameElement(
+        LPCOLESTR pwcsOldName,
+        LPCOLESTR pwcsNewName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetElementTimes(
+        LPCOLESTR pwcsName,
+        const FILETIME *pctime,
+        const FILETIME *patime,
+        const FILETIME *pmtime) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetClass(
+        REFCLSID clsid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetStateBits(
+        DWORD grfStateBits,
+        DWORD grfMask) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Stat(
+        STATSTG *pstatstg,
+        DWORD grfStatFlag) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IStorage, 0x0000000b, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IStorageVtbl {
+typedef struct IStorageVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IStorage *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IStorage *This);
-      ULONG (WINAPI *Release)(IStorage *This);
-      HRESULT (WINAPI *CreateStream)(IStorage *This,const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStream **ppstm);
-      HRESULT (WINAPI *OpenStream)(IStorage *This,const OLECHAR *pwcsName,void *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm);
-      HRESULT (WINAPI *CreateStorage)(IStorage *This,const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStorage **ppstg);
-      HRESULT (WINAPI *OpenStorage)(IStorage *This,const OLECHAR *pwcsName,IStorage *pstgPriority,DWORD grfMode,SNB snbExclude,DWORD reserved,IStorage **ppstg);
-      HRESULT (WINAPI *CopyTo)(IStorage *This,DWORD ciidExclude,const IID *rgiidExclude,SNB snbExclude,IStorage *pstgDest);
-      HRESULT (WINAPI *MoveElementTo)(IStorage *This,const OLECHAR *pwcsName,IStorage *pstgDest,const OLECHAR *pwcsNewName,DWORD grfFlags);
-      HRESULT (WINAPI *Commit)(IStorage *This,DWORD grfCommitFlags);
-      HRESULT (WINAPI *Revert)(IStorage *This);
-      HRESULT (WINAPI *EnumElements)(IStorage *This,DWORD reserved1,void *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum);
-      HRESULT (WINAPI *DestroyElement)(IStorage *This,const OLECHAR *pwcsName);
-      HRESULT (WINAPI *RenameElement)(IStorage *This,const OLECHAR *pwcsOldName,const OLECHAR *pwcsNewName);
-      HRESULT (WINAPI *SetElementTimes)(IStorage *This,const OLECHAR *pwcsName,const FILETIME *pctime,const FILETIME *patime,const FILETIME *pmtime);
-      HRESULT (WINAPI *SetClass)(IStorage *This,REFCLSID clsid);
-      HRESULT (WINAPI *SetStateBits)(IStorage *This,DWORD grfStateBits,DWORD grfMask);
-      HRESULT (WINAPI *Stat)(IStorage *This,STATSTG *pstatstg,DWORD grfStatFlag);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IStorage* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IStorage* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IStorage* This);
+
+    /*** IStorage methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateStream)(
+        IStorage* This,
+        LPCOLESTR pwcsName,
+        DWORD grfMode,
+        DWORD reserved1,
+        DWORD reserved2,
+        IStream **ppstm);
+
+    HRESULT (STDMETHODCALLTYPE *OpenStream)(
+        IStorage* This,
+        LPCOLESTR pwcsName,
+        void *reserved1,
+        DWORD grfMode,
+        DWORD reserved2,
+        IStream **ppstm);
+
+    HRESULT (STDMETHODCALLTYPE *CreateStorage)(
+        IStorage* This,
+        LPCOLESTR pwcsName,
+        DWORD grfMode,
+        DWORD dwStgFmt,
+        DWORD reserved2,
+        IStorage **ppstg);
+
+    HRESULT (STDMETHODCALLTYPE *OpenStorage)(
+        IStorage* This,
+        LPCOLESTR pwcsName,
+        IStorage *pstgPriority,
+        DWORD grfMode,
+        SNB snbExclude,
+        DWORD reserved,
+        IStorage **ppstg);
+
+    HRESULT (STDMETHODCALLTYPE *CopyTo)(
+        IStorage* This,
+        DWORD ciidExclude,
+        const IID *rgiidExclude,
+        SNB snbExclude,
+        IStorage *pstgDest);
+
+    HRESULT (STDMETHODCALLTYPE *MoveElementTo)(
+        IStorage* This,
+        LPCOLESTR pwcsName,
+        IStorage *pstgDest,
+        LPCOLESTR pwcsNewName,
+        DWORD grfFlags);
+
+    HRESULT (STDMETHODCALLTYPE *Commit)(
+        IStorage* This,
+        DWORD grfCommitFlags);
+
+    HRESULT (STDMETHODCALLTYPE *Revert)(
+        IStorage* This);
+
+    HRESULT (STDMETHODCALLTYPE *EnumElements)(
+        IStorage* This,
+        DWORD reserved1,
+        void *reserved2,
+        DWORD reserved3,
+        IEnumSTATSTG **ppenum);
+
+    HRESULT (STDMETHODCALLTYPE *DestroyElement)(
+        IStorage* This,
+        LPCOLESTR pwcsName);
+
+    HRESULT (STDMETHODCALLTYPE *RenameElement)(
+        IStorage* This,
+        LPCOLESTR pwcsOldName,
+        LPCOLESTR pwcsNewName);
+
+    HRESULT (STDMETHODCALLTYPE *SetElementTimes)(
+        IStorage* This,
+        LPCOLESTR pwcsName,
+        const FILETIME *pctime,
+        const FILETIME *patime,
+        const FILETIME *pmtime);
+
+    HRESULT (STDMETHODCALLTYPE *SetClass)(
+        IStorage* This,
+        REFCLSID clsid);
+
+    HRESULT (STDMETHODCALLTYPE *SetStateBits)(
+        IStorage* This,
+        DWORD grfStateBits,
+        DWORD grfMask);
+
+    HRESULT (STDMETHODCALLTYPE *Stat)(
+        IStorage* This,
+        STATSTG *pstatstg,
+        DWORD grfStatFlag);
+
     END_INTERFACE
-  } IStorageVtbl;
-  struct IStorage {
-    CONST_VTBL struct IStorageVtbl *lpVtbl;
-  };
+} IStorageVtbl;
+interface IStorage {
+    CONST_VTBL IStorageVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IStorage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IStorage_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IStorage_Release(This) (This)->lpVtbl->Release(This)
+/*** IStorage methods ***/
 #define IStorage_CreateStream(This,pwcsName,grfMode,reserved1,reserved2,ppstm) (This)->lpVtbl->CreateStream(This,pwcsName,grfMode,reserved1,reserved2,ppstm)
 #define IStorage_OpenStream(This,pwcsName,reserved1,grfMode,reserved2,ppstm) (This)->lpVtbl->OpenStream(This,pwcsName,reserved1,grfMode,reserved2,ppstm)
-#define IStorage_CreateStorage(This,pwcsName,grfMode,reserved1,reserved2,ppstg) (This)->lpVtbl->CreateStorage(This,pwcsName,grfMode,reserved1,reserved2,ppstg)
+#define IStorage_CreateStorage(This,pwcsName,grfMode,dwStgFmt,reserved2,ppstg) (This)->lpVtbl->CreateStorage(This,pwcsName,grfMode,dwStgFmt,reserved2,ppstg)
 #define IStorage_OpenStorage(This,pwcsName,pstgPriority,grfMode,snbExclude,reserved,ppstg) (This)->lpVtbl->OpenStorage(This,pwcsName,pstgPriority,grfMode,snbExclude,reserved,ppstg)
 #define IStorage_CopyTo(This,ciidExclude,rgiidExclude,snbExclude,pstgDest) (This)->lpVtbl->CopyTo(This,ciidExclude,rgiidExclude,snbExclude,pstgDest)
 #define IStorage_MoveElementTo(This,pwcsName,pstgDest,pwcsNewName,grfFlags) (This)->lpVtbl->MoveElementTo(This,pwcsName,pstgDest,pwcsNewName,grfFlags)
@@ -2945,38 +3189,192 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
 #define IStorage_SetStateBits(This,grfStateBits,grfMask) (This)->lpVtbl->SetStateBits(This,grfStateBits,grfMask)
 #define IStorage_Stat(This,pstatstg,grfStatFlag) (This)->lpVtbl->Stat(This,pstatstg,grfStatFlag)
 #endif
+
 #endif
-  HRESULT WINAPI IStorage_CreateStream_Proxy(IStorage *This,const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStream **ppstm);
-  void __RPC_STUB IStorage_CreateStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_RemoteOpenStream_Proxy(IStorage *This,const OLECHAR *pwcsName,unsigned long cbReserved1,byte *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm);
-  void __RPC_STUB IStorage_RemoteOpenStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_CreateStorage_Proxy(IStorage *This,const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStorage **ppstg);
-  void __RPC_STUB IStorage_CreateStorage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_OpenStorage_Proxy(IStorage *This,const OLECHAR *pwcsName,IStorage *pstgPriority,DWORD grfMode,SNB snbExclude,DWORD reserved,IStorage **ppstg);
-  void __RPC_STUB IStorage_OpenStorage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_CopyTo_Proxy(IStorage *This,DWORD ciidExclude,const IID *rgiidExclude,SNB snbExclude,IStorage *pstgDest);
-  void __RPC_STUB IStorage_CopyTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_MoveElementTo_Proxy(IStorage *This,const OLECHAR *pwcsName,IStorage *pstgDest,const OLECHAR *pwcsNewName,DWORD grfFlags);
-  void __RPC_STUB IStorage_MoveElementTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_Commit_Proxy(IStorage *This,DWORD grfCommitFlags);
-  void __RPC_STUB IStorage_Commit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_Revert_Proxy(IStorage *This);
-  void __RPC_STUB IStorage_Revert_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_RemoteEnumElements_Proxy(IStorage *This,DWORD reserved1,unsigned long cbReserved2,byte *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum);
-  void __RPC_STUB IStorage_RemoteEnumElements_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_DestroyElement_Proxy(IStorage *This,const OLECHAR *pwcsName);
-  void __RPC_STUB IStorage_DestroyElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_RenameElement_Proxy(IStorage *This,const OLECHAR *pwcsOldName,const OLECHAR *pwcsNewName);
-  void __RPC_STUB IStorage_RenameElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_SetElementTimes_Proxy(IStorage *This,const OLECHAR *pwcsName,const FILETIME *pctime,const FILETIME *patime,const FILETIME *pmtime);
-  void __RPC_STUB IStorage_SetElementTimes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_SetClass_Proxy(IStorage *This,REFCLSID clsid);
-  void __RPC_STUB IStorage_SetClass_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_SetStateBits_Proxy(IStorage *This,DWORD grfStateBits,DWORD grfMask);
-  void __RPC_STUB IStorage_SetStateBits_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorage_Stat_Proxy(IStorage *This,STATSTG *pstatstg,DWORD grfStatFlag);
-  void __RPC_STUB IStorage_Stat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IStorage_CreateStream_Proxy(
+    IStorage* This,
+    LPCOLESTR pwcsName,
+    DWORD grfMode,
+    DWORD reserved1,
+    DWORD reserved2,
+    IStream **ppstm);
+void __RPC_STUB IStorage_CreateStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_RemoteOpenStream_Proxy(
+    IStorage* This,
+    LPCOLESTR pwcsName,
+    ULONG cbReserved1,
+    byte *reserved1,
+    DWORD grfMode,
+    DWORD reserved2,
+    IStream **ppstm);
+void __RPC_STUB IStorage_RemoteOpenStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_CreateStorage_Proxy(
+    IStorage* This,
+    LPCOLESTR pwcsName,
+    DWORD grfMode,
+    DWORD dwStgFmt,
+    DWORD reserved2,
+    IStorage **ppstg);
+void __RPC_STUB IStorage_CreateStorage_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_OpenStorage_Proxy(
+    IStorage* This,
+    LPCOLESTR pwcsName,
+    IStorage *pstgPriority,
+    DWORD grfMode,
+    SNB snbExclude,
+    DWORD reserved,
+    IStorage **ppstg);
+void __RPC_STUB IStorage_OpenStorage_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_CopyTo_Proxy(
+    IStorage* This,
+    DWORD ciidExclude,
+    const IID *rgiidExclude,
+    SNB snbExclude,
+    IStorage *pstgDest);
+void __RPC_STUB IStorage_CopyTo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_MoveElementTo_Proxy(
+    IStorage* This,
+    LPCOLESTR pwcsName,
+    IStorage *pstgDest,
+    LPCOLESTR pwcsNewName,
+    DWORD grfFlags);
+void __RPC_STUB IStorage_MoveElementTo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_Commit_Proxy(
+    IStorage* This,
+    DWORD grfCommitFlags);
+void __RPC_STUB IStorage_Commit_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_Revert_Proxy(
+    IStorage* This);
+void __RPC_STUB IStorage_Revert_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_RemoteEnumElements_Proxy(
+    IStorage* This,
+    DWORD reserved1,
+    ULONG cbReserved2,
+    byte *reserved2,
+    DWORD reserved3,
+    IEnumSTATSTG **ppenum);
+void __RPC_STUB IStorage_RemoteEnumElements_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_DestroyElement_Proxy(
+    IStorage* This,
+    LPCOLESTR pwcsName);
+void __RPC_STUB IStorage_DestroyElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_RenameElement_Proxy(
+    IStorage* This,
+    LPCOLESTR pwcsOldName,
+    LPCOLESTR pwcsNewName);
+void __RPC_STUB IStorage_RenameElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_SetElementTimes_Proxy(
+    IStorage* This,
+    LPCOLESTR pwcsName,
+    const FILETIME *pctime,
+    const FILETIME *patime,
+    const FILETIME *pmtime);
+void __RPC_STUB IStorage_SetElementTimes_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_SetClass_Proxy(
+    IStorage* This,
+    REFCLSID clsid);
+void __RPC_STUB IStorage_SetClass_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_SetStateBits_Proxy(
+    IStorage* This,
+    DWORD grfStateBits,
+    DWORD grfMask);
+void __RPC_STUB IStorage_SetStateBits_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStorage_Stat_Proxy(
+    IStorage* This,
+    STATSTG *pstatstg,
+    DWORD grfStatFlag);
+void __RPC_STUB IStorage_Stat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IStorage_OpenStream_Proxy(
+    IStorage* This,
+    LPCOLESTR pwcsName,
+    void *reserved1,
+    DWORD grfMode,
+    DWORD reserved2,
+    IStream **ppstm);
+HRESULT __RPC_STUB IStorage_OpenStream_Stub(
+    IStorage* This,
+    LPCOLESTR pwcsName,
+    ULONG cbReserved1,
+    byte *reserved1,
+    DWORD grfMode,
+    DWORD reserved2,
+    IStream **ppstm);
+HRESULT CALLBACK IStorage_EnumElements_Proxy(
+    IStorage* This,
+    DWORD reserved1,
+    void *reserved2,
+    DWORD reserved3,
+    IEnumSTATSTG **ppenum);
+HRESULT __RPC_STUB IStorage_EnumElements_Stub(
+    IStorage* This,
+    DWORD reserved1,
+    ULONG cbReserved2,
+    byte *reserved2,
+    DWORD reserved3,
+    IEnumSTATSTG **ppenum);
+
+#endif  /* __IStorage_INTERFACE_DEFINED__ */
 
 #ifndef __IPersistFile_INTERFACE_DEFINED__
 #define __IPersistFile_INTERFACE_DEFINED__
@@ -3155,137 +3553,298 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
   HRESULT WINAPI ILockBytes_Stat_Proxy(ILockBytes *This,STATSTG *pstatstg,DWORD grfStatFlag);
   void __RPC_STUB ILockBytes_Stat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
+/*****************************************************************************
+ * IEnumFORMATETC interface
+ */
 #ifndef __IEnumFORMATETC_INTERFACE_DEFINED__
 #define __IEnumFORMATETC_INTERFACE_DEFINED__
-  typedef IEnumFORMATETC *LPENUMFORMATETC;
 
-  typedef struct tagDVTARGETDEVICE {
+typedef IEnumFORMATETC *LPENUMFORMATETC;
+typedef struct tagDVTARGETDEVICE {
     DWORD tdSize;
     WORD tdDriverNameOffset;
     WORD tdDeviceNameOffset;
     WORD tdPortNameOffset;
     WORD tdExtDevmodeOffset;
-    BYTE tdData[1 ];
-  } DVTARGETDEVICE;
-
-  typedef CLIPFORMAT *LPCLIPFORMAT;
-
-  typedef struct tagFORMATETC {
+    BYTE tdData[1];
+} DVTARGETDEVICE;
+typedef CLIPFORMAT *LPCLIPFORMAT;
+typedef struct tagFORMATETC {
     CLIPFORMAT cfFormat;
     DVTARGETDEVICE *ptd;
     DWORD dwAspect;
     LONG lindex;
     DWORD tymed;
-  } FORMATETC;
-
-  typedef struct tagFORMATETC *LPFORMATETC;
-
-  EXTERN_C const IID IID_IEnumFORMATETC;
+} FORMATETC;
+typedef struct tagFORMATETC *LPFORMATETC;
+DEFINE_GUID(IID_IEnumFORMATETC, 0x00000103, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumFORMATETC : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG celt) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumFORMATETC **ppenum) = 0;
-  };
+MIDL_INTERFACE("00000103-0000-0000-c000-000000000046")
+IEnumFORMATETC : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG celt,
+        FORMATETC *rgelt,
+        ULONG *pceltFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG celt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumFORMATETC **ppenum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumFORMATETC, 0x00000103, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IEnumFORMATETCVtbl {
+typedef struct IEnumFORMATETCVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumFORMATETC *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumFORMATETC *This);
-      ULONG (WINAPI *Release)(IEnumFORMATETC *This);
-      HRESULT (WINAPI *Next)(IEnumFORMATETC *This,ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched);
-      HRESULT (WINAPI *Skip)(IEnumFORMATETC *This,ULONG celt);
-      HRESULT (WINAPI *Reset)(IEnumFORMATETC *This);
-      HRESULT (WINAPI *Clone)(IEnumFORMATETC *This,IEnumFORMATETC **ppenum);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumFORMATETC* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumFORMATETC* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumFORMATETC* This);
+
+    /*** IEnumFORMATETC methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumFORMATETC* This,
+        ULONG celt,
+        FORMATETC *rgelt,
+        ULONG *pceltFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumFORMATETC* This,
+        ULONG celt);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumFORMATETC* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumFORMATETC* This,
+        IEnumFORMATETC **ppenum);
+
     END_INTERFACE
-  } IEnumFORMATETCVtbl;
-  struct IEnumFORMATETC {
-    CONST_VTBL struct IEnumFORMATETCVtbl *lpVtbl;
-  };
+} IEnumFORMATETCVtbl;
+interface IEnumFORMATETC {
+    CONST_VTBL IEnumFORMATETCVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IEnumFORMATETC_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumFORMATETC_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IEnumFORMATETC_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumFORMATETC methods ***/
 #define IEnumFORMATETC_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)
 #define IEnumFORMATETC_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumFORMATETC_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumFORMATETC_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
 #endif
-#endif
-  HRESULT WINAPI IEnumFORMATETC_RemoteNext_Proxy(IEnumFORMATETC *This,ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched);
-  void __RPC_STUB IEnumFORMATETC_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumFORMATETC_Skip_Proxy(IEnumFORMATETC *This,ULONG celt);
-  void __RPC_STUB IEnumFORMATETC_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumFORMATETC_Reset_Proxy(IEnumFORMATETC *This);
-  void __RPC_STUB IEnumFORMATETC_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumFORMATETC_Clone_Proxy(IEnumFORMATETC *This,IEnumFORMATETC **ppenum);
-  void __RPC_STUB IEnumFORMATETC_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IEnumFORMATETC_RemoteNext_Proxy(
+    IEnumFORMATETC* This,
+    ULONG celt,
+    FORMATETC *rgelt,
+    ULONG *pceltFetched);
+void __RPC_STUB IEnumFORMATETC_RemoteNext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumFORMATETC_Skip_Proxy(
+    IEnumFORMATETC* This,
+    ULONG celt);
+void __RPC_STUB IEnumFORMATETC_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumFORMATETC_Reset_Proxy(
+    IEnumFORMATETC* This);
+void __RPC_STUB IEnumFORMATETC_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumFORMATETC_Clone_Proxy(
+    IEnumFORMATETC* This,
+    IEnumFORMATETC **ppenum);
+void __RPC_STUB IEnumFORMATETC_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IEnumFORMATETC_Next_Proxy(
+    IEnumFORMATETC* This,
+    ULONG celt,
+    FORMATETC *rgelt,
+    ULONG *pceltFetched);
+HRESULT __RPC_STUB IEnumFORMATETC_Next_Stub(
+    IEnumFORMATETC* This,
+    ULONG celt,
+    FORMATETC *rgelt,
+    ULONG *pceltFetched);
+
+#endif  /* __IEnumFORMATETC_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IEnumSTATDATA interface
+ */
 #ifndef __IEnumSTATDATA_INTERFACE_DEFINED__
 #define __IEnumSTATDATA_INTERFACE_DEFINED__
-  typedef IEnumSTATDATA *LPENUMSTATDATA;
 
-  typedef enum tagADVF {
-    ADVF_NODATA = 1,ADVF_PRIMEFIRST = 2,ADVF_ONLYONCE = 4,ADVF_DATAONSTOP = 64,ADVFCACHE_NOHANDLER = 8,ADVFCACHE_FORCEBUILTIN = 16,
+typedef IEnumSTATDATA *LPENUMSTATDATA;
+typedef enum tagADVF {
+    ADVF_NODATA = 1,
+    ADVF_PRIMEFIRST = 2,
+    ADVF_ONLYONCE = 4,
+    ADVF_DATAONSTOP = 64,
+    ADVFCACHE_NOHANDLER = 8,
+    ADVFCACHE_FORCEBUILTIN = 16,
     ADVFCACHE_ONSAVE = 32
-  } ADVF;
-
-  typedef struct tagSTATDATA {
+} ADVF;
+typedef struct tagSTATDATA {
     FORMATETC formatetc;
     DWORD advf;
     IAdviseSink *pAdvSink;
     DWORD dwConnection;
-  } STATDATA;
-
-  typedef STATDATA *LPSTATDATA;
-
-  EXTERN_C const IID IID_IEnumSTATDATA;
+} STATDATA;
+typedef STATDATA *LPSTATDATA;
+DEFINE_GUID(IID_IEnumSTATDATA, 0x00000105, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumSTATDATA : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG celt,STATDATA *rgelt,ULONG *pceltFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG celt) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumSTATDATA **ppenum) = 0;
-  };
+MIDL_INTERFACE("00000105-0000-0000-c000-000000000046")
+IEnumSTATDATA : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG celt,
+        STATDATA *rgelt,
+        ULONG *pceltFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG celt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumSTATDATA **ppenum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumSTATDATA, 0x00000105, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IEnumSTATDATAVtbl {
+typedef struct IEnumSTATDATAVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumSTATDATA *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumSTATDATA *This);
-      ULONG (WINAPI *Release)(IEnumSTATDATA *This);
-      HRESULT (WINAPI *Next)(IEnumSTATDATA *This,ULONG celt,STATDATA *rgelt,ULONG *pceltFetched);
-      HRESULT (WINAPI *Skip)(IEnumSTATDATA *This,ULONG celt);
-      HRESULT (WINAPI *Reset)(IEnumSTATDATA *This);
-      HRESULT (WINAPI *Clone)(IEnumSTATDATA *This,IEnumSTATDATA **ppenum);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumSTATDATA* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumSTATDATA* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumSTATDATA* This);
+
+    /*** IEnumSTATDATA methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumSTATDATA* This,
+        ULONG celt,
+        STATDATA *rgelt,
+        ULONG *pceltFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumSTATDATA* This,
+        ULONG celt);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumSTATDATA* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumSTATDATA* This,
+        IEnumSTATDATA **ppenum);
+
     END_INTERFACE
-  } IEnumSTATDATAVtbl;
-  struct IEnumSTATDATA {
-    CONST_VTBL struct IEnumSTATDATAVtbl *lpVtbl;
-  };
+} IEnumSTATDATAVtbl;
+interface IEnumSTATDATA {
+    CONST_VTBL IEnumSTATDATAVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IEnumSTATDATA_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumSTATDATA_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IEnumSTATDATA_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumSTATDATA methods ***/
 #define IEnumSTATDATA_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)
 #define IEnumSTATDATA_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumSTATDATA_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumSTATDATA_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
 #endif
+
 #endif
-  HRESULT WINAPI IEnumSTATDATA_RemoteNext_Proxy(IEnumSTATDATA *This,ULONG celt,STATDATA *rgelt,ULONG *pceltFetched);
-  void __RPC_STUB IEnumSTATDATA_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumSTATDATA_Skip_Proxy(IEnumSTATDATA *This,ULONG celt);
-  void __RPC_STUB IEnumSTATDATA_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumSTATDATA_Reset_Proxy(IEnumSTATDATA *This);
-  void __RPC_STUB IEnumSTATDATA_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumSTATDATA_Clone_Proxy(IEnumSTATDATA *This,IEnumSTATDATA **ppenum);
-  void __RPC_STUB IEnumSTATDATA_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IEnumSTATDATA_RemoteNext_Proxy(
+    IEnumSTATDATA* This,
+    ULONG celt,
+    STATDATA *rgelt,
+    ULONG *pceltFetched);
+void __RPC_STUB IEnumSTATDATA_RemoteNext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumSTATDATA_Skip_Proxy(
+    IEnumSTATDATA* This,
+    ULONG celt);
+void __RPC_STUB IEnumSTATDATA_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumSTATDATA_Reset_Proxy(
+    IEnumSTATDATA* This);
+void __RPC_STUB IEnumSTATDATA_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumSTATDATA_Clone_Proxy(
+    IEnumSTATDATA* This,
+    IEnumSTATDATA **ppenum);
+void __RPC_STUB IEnumSTATDATA_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IEnumSTATDATA_Next_Proxy(
+    IEnumSTATDATA* This,
+    ULONG celt,
+    STATDATA *rgelt,
+    ULONG *pceltFetched);
+HRESULT __RPC_STUB IEnumSTATDATA_Next_Stub(
+    IEnumSTATDATA* This,
+    ULONG celt,
+    STATDATA *rgelt,
+    ULONG *pceltFetched);
+
+#endif  /* __IEnumSTATDATA_INTERFACE_DEFINED__ */
 
 #ifndef __IRootStorage_INTERFACE_DEFINED__
 #define __IRootStorage_INTERFACE_DEFINED__
@@ -3319,16 +3878,31 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
   HRESULT WINAPI IRootStorage_SwitchToFile_Proxy(IRootStorage *This,LPOLESTR pszFile);
   void __RPC_STUB IRootStorage_SwitchToFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
+/*****************************************************************************
+ * IAdviseSink interface
+ */
 #ifndef __IAdviseSink_INTERFACE_DEFINED__
 #define __IAdviseSink_INTERFACE_DEFINED__
-  typedef IAdviseSink *LPADVISESINK;
 
-  typedef enum tagTYMED {
-    TYMED_HGLOBAL = 1,TYMED_FILE = 2,TYMED_ISTREAM = 4,TYMED_ISTORAGE = 8,
-    TYMED_GDI = 16,TYMED_MFPICT = 32,TYMED_ENHMF = 64,TYMED_NULL = 0
-  } TYMED;
-
+typedef IAdviseSink *LPADVISESINK;
+typedef enum tagTYMED {
+    TYMED_HGLOBAL = 1,
+    TYMED_FILE = 2,
+    TYMED_ISTREAM = 4,
+    TYMED_ISTORAGE = 8,
+    TYMED_GDI = 16,
+    TYMED_MFPICT = 32,
+    TYMED_ENHMF = 64,
+    TYMED_NULL = 0
+} TYMED;
+typedef struct tagRemSTGMEDIUM {
+    DWORD tymed;
+    DWORD dwHandleType;
+    ULONG pData;
+    ULONG pUnkForRelease;
+    ULONG cbData;
+    byte data[1];
+} RemSTGMEDIUM;
   typedef struct tagRemSTGMEDIUM {
     DWORD tymed;
     DWORD dwHandleType;
@@ -3337,7 +3911,21 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
     unsigned long cbData;
     byte data[1 ];
   } RemSTGMEDIUM;
-
+#if 0
+typedef struct tagSTGMEDIUM {
+    DWORD tymed;
+    union {
+        HBITMAP hBitmap;
+        HMETAFILEPICT hMetaFilePict;
+        HENHMETAFILE hEnhMetaFile;
+        HGLOBAL hGlobal;
+        LPOLESTR lpszFileName;
+        IStream *pstm;
+        IStorage *pstg;
+    } DUMMYUNIONNAME;
+    IUnknown *pUnkForRelease;
+} uSTGMEDIUM;
+#else
   typedef struct tagSTGMEDIUM {
     DWORD tymed;
     __C89_NAMELESS union {
@@ -3351,100 +3939,202 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
     } DUMMYUNIONNAME;
     IUnknown *pUnkForRelease;
   } uSTGMEDIUM;
-
-  typedef struct _GDI_OBJECT {
+#endif
+typedef struct _GDI_OBJECT {
     DWORD ObjectType;
-    union __MIDL_IAdviseSink_0002 {
-      wireHBITMAP hBitmap;
-      wireHPALETTE hPalette;
-      wireHGLOBAL hGeneric;
+    union {
+        wireHBITMAP hBitmap;
+        wireHPALETTE hPalette;
+        wireHGLOBAL hGeneric;
     } u;
-  } GDI_OBJECT;
-
-  typedef struct _userSTGMEDIUM {
+} GDI_OBJECT;
+typedef struct _userSTGMEDIUM {
     struct _STGMEDIUM_UNION {
-      DWORD tymed;
-      union __MIDL_IAdviseSink_0003 {
-	wireHMETAFILEPICT hMetaFilePict;
-	wireHENHMETAFILE hHEnhMetaFile;
-	GDI_OBJECT *hGdiHandle;
-	wireHGLOBAL hGlobal;
-	LPOLESTR lpszFileName;
-	BYTE_BLOB *pstm;
-	BYTE_BLOB *pstg;
-      } u;
-    } _unnamed;
+        DWORD tymed;
+        union {
+            wireHMETAFILEPICT hMetaFilePict;
+            wireHENHMETAFILE hHEnhMetaFile;
+            GDI_OBJECT *hGdiHandle;
+            wireHGLOBAL hGlobal;
+            LPOLESTR lpszFileName;
+            BYTE_BLOB *pstm;
+            BYTE_BLOB *pstg;
+        } u;
+    } DUMMYUNIONNAME;
     IUnknown *pUnkForRelease;
-  } userSTGMEDIUM;
-
-  typedef userSTGMEDIUM *wireSTGMEDIUM;
-  typedef uSTGMEDIUM STGMEDIUM;
-  typedef userSTGMEDIUM *wireASYNC_STGMEDIUM;
-  typedef STGMEDIUM ASYNC_STGMEDIUM;
-  typedef STGMEDIUM *LPSTGMEDIUM;
-
-  typedef struct _userFLAG_STGMEDIUM {
-    long ContextFlags;
-    long fPassOwnership;
+} userSTGMEDIUM;
+typedef userSTGMEDIUM *wireSTGMEDIUM;
+typedef uSTGMEDIUM STGMEDIUM;
+typedef userSTGMEDIUM *wireASYNC_STGMEDIUM;
+typedef STGMEDIUM ASYNC_STGMEDIUM;
+typedef STGMEDIUM *LPSTGMEDIUM;
+typedef struct _userFLAG_STGMEDIUM {
+    LONG ContextFlags;
+    LONG fPassOwnership;
     userSTGMEDIUM Stgmed;
-  } userFLAG_STGMEDIUM;
-
-  typedef userFLAG_STGMEDIUM *wireFLAG_STGMEDIUM;
-
-  typedef struct _FLAG_STGMEDIUM {
-    long ContextFlags;
-    long fPassOwnership;
+} userFLAG_STGMEDIUM;
+typedef userFLAG_STGMEDIUM *wireFLAG_STGMEDIUM;
+typedef struct _FLAG_STGMEDIUM {
+    LONG ContextFlags;
+    LONG fPassOwnership;
     STGMEDIUM Stgmed;
-  } FLAG_STGMEDIUM;
-
-  EXTERN_C const IID IID_IAdviseSink;
+} FLAG_STGMEDIUM;
+DEFINE_GUID(IID_IAdviseSink, 0x0000010f, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IAdviseSink : public IUnknown {
-  public:
-    virtual void WINAPI OnDataChange(FORMATETC *pFormatetc,STGMEDIUM *pStgmed) = 0;
-    virtual void WINAPI OnViewChange(DWORD dwAspect,LONG lindex) = 0;
-    virtual void WINAPI OnRename(IMoniker *pmk) = 0;
-    virtual void WINAPI OnSave(void) = 0;
-    virtual void WINAPI OnClose(void) = 0;
-  };
+MIDL_INTERFACE("0000010f-0000-0000-c000-000000000046")
+IAdviseSink : public IUnknown
+{
+    virtual void STDMETHODCALLTYPE OnDataChange(
+        FORMATETC *pFormatetc,
+        STGMEDIUM *pStgmed) = 0;
+
+    virtual void STDMETHODCALLTYPE OnViewChange(
+        DWORD dwAspect,
+        LONG lindex) = 0;
+
+    virtual void STDMETHODCALLTYPE OnRename(
+        IMoniker *pmk) = 0;
+
+    virtual void STDMETHODCALLTYPE OnSave(
+        ) = 0;
+
+    virtual void STDMETHODCALLTYPE OnClose(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAdviseSink, 0x0000010f, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IAdviseSinkVtbl {
+typedef struct IAdviseSinkVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IAdviseSink *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IAdviseSink *This);
-      ULONG (WINAPI *Release)(IAdviseSink *This);
-      void (WINAPI *OnDataChange)(IAdviseSink *This,FORMATETC *pFormatetc,STGMEDIUM *pStgmed);
-      void (WINAPI *OnViewChange)(IAdviseSink *This,DWORD dwAspect,LONG lindex);
-      void (WINAPI *OnRename)(IAdviseSink *This,IMoniker *pmk);
-      void (WINAPI *OnSave)(IAdviseSink *This);
-      void (WINAPI *OnClose)(IAdviseSink *This);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAdviseSink* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAdviseSink* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAdviseSink* This);
+
+    /*** IAdviseSink methods ***/
+    void (STDMETHODCALLTYPE *OnDataChange)(
+        IAdviseSink* This,
+        FORMATETC *pFormatetc,
+        STGMEDIUM *pStgmed);
+
+    void (STDMETHODCALLTYPE *OnViewChange)(
+        IAdviseSink* This,
+        DWORD dwAspect,
+        LONG lindex);
+
+    void (STDMETHODCALLTYPE *OnRename)(
+        IAdviseSink* This,
+        IMoniker *pmk);
+
+    void (STDMETHODCALLTYPE *OnSave)(
+        IAdviseSink* This);
+
+    void (STDMETHODCALLTYPE *OnClose)(
+        IAdviseSink* This);
+
     END_INTERFACE
-  } IAdviseSinkVtbl;
-  struct IAdviseSink {
-    CONST_VTBL struct IAdviseSinkVtbl *lpVtbl;
-  };
+} IAdviseSinkVtbl;
+interface IAdviseSink {
+    CONST_VTBL IAdviseSinkVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IAdviseSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAdviseSink_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IAdviseSink_Release(This) (This)->lpVtbl->Release(This)
+/*** IAdviseSink methods ***/
 #define IAdviseSink_OnDataChange(This,pFormatetc,pStgmed) (This)->lpVtbl->OnDataChange(This,pFormatetc,pStgmed)
 #define IAdviseSink_OnViewChange(This,dwAspect,lindex) (This)->lpVtbl->OnViewChange(This,dwAspect,lindex)
 #define IAdviseSink_OnRename(This,pmk) (This)->lpVtbl->OnRename(This,pmk)
 #define IAdviseSink_OnSave(This) (This)->lpVtbl->OnSave(This)
 #define IAdviseSink_OnClose(This) (This)->lpVtbl->OnClose(This)
 #endif
+
 #endif
-  HRESULT WINAPI IAdviseSink_RemoteOnDataChange_Proxy(IAdviseSink *This,FORMATETC *pFormatetc,ASYNC_STGMEDIUM *pStgmed);
-  void __RPC_STUB IAdviseSink_RemoteOnDataChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAdviseSink_RemoteOnViewChange_Proxy(IAdviseSink *This,DWORD dwAspect,LONG lindex);
-  void __RPC_STUB IAdviseSink_RemoteOnViewChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAdviseSink_RemoteOnRename_Proxy(IAdviseSink *This,IMoniker *pmk);
-  void __RPC_STUB IAdviseSink_RemoteOnRename_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAdviseSink_RemoteOnSave_Proxy(IAdviseSink *This);
-  void __RPC_STUB IAdviseSink_RemoteOnSave_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAdviseSink_RemoteOnClose_Proxy(IAdviseSink *This);
-  void __RPC_STUB IAdviseSink_RemoteOnClose_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IAdviseSink_RemoteOnDataChange_Proxy(
+    IAdviseSink* This,
+    FORMATETC *pFormatetc,
+    ASYNC_STGMEDIUM *pStgmed);
+void __RPC_STUB IAdviseSink_RemoteOnDataChange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAdviseSink_RemoteOnViewChange_Proxy(
+    IAdviseSink* This,
+    DWORD dwAspect,
+    LONG lindex);
+void __RPC_STUB IAdviseSink_RemoteOnViewChange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAdviseSink_RemoteOnRename_Proxy(
+    IAdviseSink* This,
+    IMoniker *pmk);
+void __RPC_STUB IAdviseSink_RemoteOnRename_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAdviseSink_RemoteOnSave_Proxy(
+    IAdviseSink* This);
+void __RPC_STUB IAdviseSink_RemoteOnSave_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAdviseSink_RemoteOnClose_Proxy(
+    IAdviseSink* This);
+void __RPC_STUB IAdviseSink_RemoteOnClose_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void CALLBACK IAdviseSink_OnDataChange_Proxy(
+    IAdviseSink* This,
+    FORMATETC *pFormatetc,
+    STGMEDIUM *pStgmed);
+HRESULT __RPC_STUB IAdviseSink_OnDataChange_Stub(
+    IAdviseSink* This,
+    FORMATETC *pFormatetc,
+    ASYNC_STGMEDIUM *pStgmed);
+void CALLBACK IAdviseSink_OnViewChange_Proxy(
+    IAdviseSink* This,
+    DWORD dwAspect,
+    LONG lindex);
+HRESULT __RPC_STUB IAdviseSink_OnViewChange_Stub(
+    IAdviseSink* This,
+    DWORD dwAspect,
+    LONG lindex);
+void CALLBACK IAdviseSink_OnRename_Proxy(
+    IAdviseSink* This,
+    IMoniker *pmk);
+HRESULT __RPC_STUB IAdviseSink_OnRename_Stub(
+    IAdviseSink* This,
+    IMoniker *pmk);
+void CALLBACK IAdviseSink_OnSave_Proxy(
+    IAdviseSink* This);
+HRESULT __RPC_STUB IAdviseSink_OnSave_Stub(
+    IAdviseSink* This);
+void CALLBACK IAdviseSink_OnClose_Proxy(
+    IAdviseSink* This);
+HRESULT __RPC_STUB IAdviseSink_OnClose_Stub(
+    IAdviseSink* This);
+
+#endif  /* __IAdviseSink_INTERFACE_DEFINED__ */
 
 #ifndef __AsyncIAdviseSink_INTERFACE_DEFINED__
 #define __AsyncIAdviseSink_INTERFACE_DEFINED__
@@ -3620,53 +4310,136 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
   HRESULT WINAPI AsyncIAdviseSink2_Finish_RemoteOnLinkSrcChange_Proxy(AsyncIAdviseSink2 *This);
   void __RPC_STUB AsyncIAdviseSink2_Finish_RemoteOnLinkSrcChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
+/*****************************************************************************
+ * IDataObject interface
+ */
 #ifndef __IDataObject_INTERFACE_DEFINED__
 #define __IDataObject_INTERFACE_DEFINED__
-  typedef IDataObject *LPDATAOBJECT;
 
-  typedef enum tagDATADIR {
-    DATADIR_GET = 1,DATADIR_SET = 2
-  } DATADIR;
-
-  EXTERN_C const IID IID_IDataObject;
+typedef IDataObject *LPDATAOBJECT;
+typedef enum tagDATADIR {
+    DATADIR_GET = 1,
+    DATADIR_SET = 2
+} DATADIR;
+DEFINE_GUID(IID_IDataObject, 0x0000010e, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IDataObject : public IUnknown {
-  public:
-    virtual HRESULT WINAPI GetData(FORMATETC *pformatetcIn,STGMEDIUM *pmedium) = 0;
-    virtual HRESULT WINAPI GetDataHere(FORMATETC *pformatetc,STGMEDIUM *pmedium) = 0;
-    virtual HRESULT WINAPI QueryGetData(FORMATETC *pformatetc) = 0;
-    virtual HRESULT WINAPI GetCanonicalFormatEtc(FORMATETC *pformatectIn,FORMATETC *pformatetcOut) = 0;
-    virtual HRESULT WINAPI SetData(FORMATETC *pformatetc,STGMEDIUM *pmedium,WINBOOL fRelease) = 0;
-    virtual HRESULT WINAPI EnumFormatEtc(DWORD dwDirection,IEnumFORMATETC **ppenumFormatEtc) = 0;
-    virtual HRESULT WINAPI DAdvise(FORMATETC *pformatetc,DWORD advf,IAdviseSink *pAdvSink,DWORD *pdwConnection) = 0;
-    virtual HRESULT WINAPI DUnadvise(DWORD dwConnection) = 0;
-    virtual HRESULT WINAPI EnumDAdvise(IEnumSTATDATA **ppenumAdvise) = 0;
-  };
+MIDL_INTERFACE("0000010e-0000-0000-c000-000000000046")
+IDataObject : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetData(
+        FORMATETC *pformatetcIn,
+        STGMEDIUM *pmedium) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDataHere(
+        FORMATETC *pformatetc,
+        STGMEDIUM *pmedium) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryGetData(
+        FORMATETC *pformatetc) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCanonicalFormatEtc(
+        FORMATETC *pformatectIn,
+        FORMATETC *pformatetcOut) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetData(
+        FORMATETC *pformatetc,
+        STGMEDIUM *pmedium,
+        WINBOOL fRelease) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumFormatEtc(
+        DWORD dwDirection,
+        IEnumFORMATETC **ppenumFormatEtc) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DAdvise(
+        FORMATETC *pformatetc,
+        DWORD advf,
+        IAdviseSink *pAdvSink,
+        DWORD *pdwConnection) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DUnadvise(
+        DWORD dwConnection) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumDAdvise(
+        IEnumSTATDATA **ppenumAdvise) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDataObject, 0x0000010e, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IDataObjectVtbl {
+typedef struct IDataObjectVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IDataObject *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IDataObject *This);
-      ULONG (WINAPI *Release)(IDataObject *This);
-      HRESULT (WINAPI *GetData)(IDataObject *This,FORMATETC *pformatetcIn,STGMEDIUM *pmedium);
-      HRESULT (WINAPI *GetDataHere)(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pmedium);
-      HRESULT (WINAPI *QueryGetData)(IDataObject *This,FORMATETC *pformatetc);
-      HRESULT (WINAPI *GetCanonicalFormatEtc)(IDataObject *This,FORMATETC *pformatectIn,FORMATETC *pformatetcOut);
-      HRESULT (WINAPI *SetData)(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pmedium,WINBOOL fRelease);
-      HRESULT (WINAPI *EnumFormatEtc)(IDataObject *This,DWORD dwDirection,IEnumFORMATETC **ppenumFormatEtc);
-      HRESULT (WINAPI *DAdvise)(IDataObject *This,FORMATETC *pformatetc,DWORD advf,IAdviseSink *pAdvSink,DWORD *pdwConnection);
-      HRESULT (WINAPI *DUnadvise)(IDataObject *This,DWORD dwConnection);
-      HRESULT (WINAPI *EnumDAdvise)(IDataObject *This,IEnumSTATDATA **ppenumAdvise);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDataObject* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDataObject* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDataObject* This);
+
+    /*** IDataObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetData)(
+        IDataObject* This,
+        FORMATETC *pformatetcIn,
+        STGMEDIUM *pmedium);
+
+    HRESULT (STDMETHODCALLTYPE *GetDataHere)(
+        IDataObject* This,
+        FORMATETC *pformatetc,
+        STGMEDIUM *pmedium);
+
+    HRESULT (STDMETHODCALLTYPE *QueryGetData)(
+        IDataObject* This,
+        FORMATETC *pformatetc);
+
+    HRESULT (STDMETHODCALLTYPE *GetCanonicalFormatEtc)(
+        IDataObject* This,
+        FORMATETC *pformatectIn,
+        FORMATETC *pformatetcOut);
+
+    HRESULT (STDMETHODCALLTYPE *SetData)(
+        IDataObject* This,
+        FORMATETC *pformatetc,
+        STGMEDIUM *pmedium,
+        WINBOOL fRelease);
+
+    HRESULT (STDMETHODCALLTYPE *EnumFormatEtc)(
+        IDataObject* This,
+        DWORD dwDirection,
+        IEnumFORMATETC **ppenumFormatEtc);
+
+    HRESULT (STDMETHODCALLTYPE *DAdvise)(
+        IDataObject* This,
+        FORMATETC *pformatetc,
+        DWORD advf,
+        IAdviseSink *pAdvSink,
+        DWORD *pdwConnection);
+
+    HRESULT (STDMETHODCALLTYPE *DUnadvise)(
+        IDataObject* This,
+        DWORD dwConnection);
+
+    HRESULT (STDMETHODCALLTYPE *EnumDAdvise)(
+        IDataObject* This,
+        IEnumSTATDATA **ppenumAdvise);
+
     END_INTERFACE
-  } IDataObjectVtbl;
-  struct IDataObject {
-    CONST_VTBL struct IDataObjectVtbl *lpVtbl;
-  };
+} IDataObjectVtbl;
+interface IDataObject {
+    CONST_VTBL IDataObjectVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IDataObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDataObject_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IDataObject_Release(This) (This)->lpVtbl->Release(This)
+/*** IDataObject methods ***/
 #define IDataObject_GetData(This,pformatetcIn,pmedium) (This)->lpVtbl->GetData(This,pformatetcIn,pmedium)
 #define IDataObject_GetDataHere(This,pformatetc,pmedium) (This)->lpVtbl->GetDataHere(This,pformatetc,pmedium)
 #define IDataObject_QueryGetData(This,pformatetc) (This)->lpVtbl->QueryGetData(This,pformatetc)
@@ -3677,26 +4450,118 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
 #define IDataObject_DUnadvise(This,dwConnection) (This)->lpVtbl->DUnadvise(This,dwConnection)
 #define IDataObject_EnumDAdvise(This,ppenumAdvise) (This)->lpVtbl->EnumDAdvise(This,ppenumAdvise)
 #endif
+
 #endif
-  HRESULT WINAPI IDataObject_RemoteGetData_Proxy(IDataObject *This,FORMATETC *pformatetcIn,STGMEDIUM *pRemoteMedium);
-  void __RPC_STUB IDataObject_RemoteGetData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDataObject_RemoteGetDataHere_Proxy(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pRemoteMedium);
-  void __RPC_STUB IDataObject_RemoteGetDataHere_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDataObject_QueryGetData_Proxy(IDataObject *This,FORMATETC *pformatetc);
-  void __RPC_STUB IDataObject_QueryGetData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDataObject_GetCanonicalFormatEtc_Proxy(IDataObject *This,FORMATETC *pformatectIn,FORMATETC *pformatetcOut);
-  void __RPC_STUB IDataObject_GetCanonicalFormatEtc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDataObject_RemoteSetData_Proxy(IDataObject *This,FORMATETC *pformatetc,FLAG_STGMEDIUM *pmedium,WINBOOL fRelease);
-  void __RPC_STUB IDataObject_RemoteSetData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDataObject_EnumFormatEtc_Proxy(IDataObject *This,DWORD dwDirection,IEnumFORMATETC **ppenumFormatEtc);
-  void __RPC_STUB IDataObject_EnumFormatEtc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDataObject_DAdvise_Proxy(IDataObject *This,FORMATETC *pformatetc,DWORD advf,IAdviseSink *pAdvSink,DWORD *pdwConnection);
-  void __RPC_STUB IDataObject_DAdvise_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDataObject_DUnadvise_Proxy(IDataObject *This,DWORD dwConnection);
-  void __RPC_STUB IDataObject_DUnadvise_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDataObject_EnumDAdvise_Proxy(IDataObject *This,IEnumSTATDATA **ppenumAdvise);
-  void __RPC_STUB IDataObject_EnumDAdvise_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IDataObject_RemoteGetData_Proxy(
+    IDataObject* This,
+    FORMATETC *pformatetcIn,
+    STGMEDIUM *pRemoteMedium);
+void __RPC_STUB IDataObject_RemoteGetData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDataObject_RemoteGetDataHere_Proxy(
+    IDataObject* This,
+    FORMATETC *pformatetc,
+    STGMEDIUM *pRemoteMedium);
+void __RPC_STUB IDataObject_RemoteGetDataHere_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDataObject_QueryGetData_Proxy(
+    IDataObject* This,
+    FORMATETC *pformatetc);
+void __RPC_STUB IDataObject_QueryGetData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDataObject_GetCanonicalFormatEtc_Proxy(
+    IDataObject* This,
+    FORMATETC *pformatectIn,
+    FORMATETC *pformatetcOut);
+void __RPC_STUB IDataObject_GetCanonicalFormatEtc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDataObject_RemoteSetData_Proxy(
+    IDataObject* This,
+    FORMATETC *pformatetc,
+    FLAG_STGMEDIUM *pmedium,
+    WINBOOL fRelease);
+void __RPC_STUB IDataObject_RemoteSetData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDataObject_EnumFormatEtc_Proxy(
+    IDataObject* This,
+    DWORD dwDirection,
+    IEnumFORMATETC **ppenumFormatEtc);
+void __RPC_STUB IDataObject_EnumFormatEtc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDataObject_DAdvise_Proxy(
+    IDataObject* This,
+    FORMATETC *pformatetc,
+    DWORD advf,
+    IAdviseSink *pAdvSink,
+    DWORD *pdwConnection);
+void __RPC_STUB IDataObject_DAdvise_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDataObject_DUnadvise_Proxy(
+    IDataObject* This,
+    DWORD dwConnection);
+void __RPC_STUB IDataObject_DUnadvise_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDataObject_EnumDAdvise_Proxy(
+    IDataObject* This,
+    IEnumSTATDATA **ppenumAdvise);
+void __RPC_STUB IDataObject_EnumDAdvise_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IDataObject_GetData_Proxy(
+    IDataObject* This,
+    FORMATETC *pformatetcIn,
+    STGMEDIUM *pmedium);
+HRESULT __RPC_STUB IDataObject_GetData_Stub(
+    IDataObject* This,
+    FORMATETC *pformatetcIn,
+    STGMEDIUM *pRemoteMedium);
+HRESULT CALLBACK IDataObject_GetDataHere_Proxy(
+    IDataObject* This,
+    FORMATETC *pformatetc,
+    STGMEDIUM *pmedium);
+HRESULT __RPC_STUB IDataObject_GetDataHere_Stub(
+    IDataObject* This,
+    FORMATETC *pformatetc,
+    STGMEDIUM *pRemoteMedium);
+HRESULT CALLBACK IDataObject_SetData_Proxy(
+    IDataObject* This,
+    FORMATETC *pformatetc,
+    STGMEDIUM *pmedium,
+    WINBOOL fRelease);
+HRESULT __RPC_STUB IDataObject_SetData_Stub(
+    IDataObject* This,
+    FORMATETC *pformatetc,
+    FLAG_STGMEDIUM *pmedium,
+    WINBOOL fRelease);
+
+#endif  /* __IDataObject_INTERFACE_DEFINED__ */
 
 #ifndef __IDataAdviseHolder_INTERFACE_DEFINED__
 #define __IDataAdviseHolder_INTERFACE_DEFINED__
@@ -6116,18 +6981,10 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
   extern RPC_IF_HANDLE __MIDL_itf_objidl_0092_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_objidl_0092_v0_0_s_ifspec;
 
-  unsigned long __RPC_API ASYNC_STGMEDIUM_UserSize(unsigned long *,unsigned long,ASYNC_STGMEDIUM *);
-  unsigned char *__RPC_API ASYNC_STGMEDIUM_UserMarshal(unsigned long *,unsigned char *,ASYNC_STGMEDIUM *);
-  unsigned char *__RPC_API ASYNC_STGMEDIUM_UserUnmarshal(unsigned long *,unsigned char *,ASYNC_STGMEDIUM *);
-  void __RPC_API ASYNC_STGMEDIUM_UserFree(unsigned long *,ASYNC_STGMEDIUM *);
   unsigned long __RPC_API CLIPFORMAT_UserSize(unsigned long *,unsigned long,CLIPFORMAT *);
   unsigned char *__RPC_API CLIPFORMAT_UserMarshal(unsigned long *,unsigned char *,CLIPFORMAT *);
   unsigned char *__RPC_API CLIPFORMAT_UserUnmarshal(unsigned long *,unsigned char *,CLIPFORMAT *);
   void __RPC_API CLIPFORMAT_UserFree(unsigned long *,CLIPFORMAT *);
-  unsigned long __RPC_API FLAG_STGMEDIUM_UserSize(unsigned long *,unsigned long,FLAG_STGMEDIUM *);
-  unsigned char *__RPC_API FLAG_STGMEDIUM_UserMarshal(unsigned long *,unsigned char *,FLAG_STGMEDIUM *);
-  unsigned char *__RPC_API FLAG_STGMEDIUM_UserUnmarshal(unsigned long *,unsigned char *,FLAG_STGMEDIUM *);
-  void __RPC_API FLAG_STGMEDIUM_UserFree(unsigned long *,FLAG_STGMEDIUM *);
   unsigned long __RPC_API HBITMAP_UserSize(unsigned long *,unsigned long,HBITMAP *);
   unsigned char *__RPC_API HBITMAP_UserMarshal(unsigned long *,unsigned char *,HBITMAP *);
   unsigned char *__RPC_API HBITMAP_UserUnmarshal(unsigned long *,unsigned char *,HBITMAP *);
@@ -6140,14 +6997,6 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
   unsigned char *__RPC_API HICON_UserMarshal(unsigned long *,unsigned char *,HICON *);
   unsigned char *__RPC_API HICON_UserUnmarshal(unsigned long *,unsigned char *,HICON *);
   void __RPC_API HICON_UserFree(unsigned long *,HICON *);
-  unsigned long __RPC_API SNB_UserSize(unsigned long *,unsigned long,SNB *);
-  unsigned char *__RPC_API SNB_UserMarshal(unsigned long *,unsigned char *,SNB *);
-  unsigned char *__RPC_API SNB_UserUnmarshal(unsigned long *,unsigned char *,SNB *);
-  void __RPC_API SNB_UserFree(unsigned long *,SNB *);
-  unsigned long __RPC_API STGMEDIUM_UserSize(unsigned long *,unsigned long,STGMEDIUM *);
-  unsigned char *__RPC_API STGMEDIUM_UserMarshal(unsigned long *,unsigned char *,STGMEDIUM *);
-  unsigned char *__RPC_API STGMEDIUM_UserUnmarshal(unsigned long *,unsigned char *,STGMEDIUM *);
-  void __RPC_API STGMEDIUM_UserFree(unsigned long *,STGMEDIUM *);
 
   HRESULT WINAPI IEnumUnknown_Next_Proxy(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);
   HRESULT WINAPI IEnumUnknown_Next_Stub(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);
@@ -6159,52 +7008,14 @@ HRESULT __RPC_STUB IStream_CopyTo_Stub(
   HRESULT WINAPI IEnumMoniker_Next_Stub(IEnumMoniker *This,ULONG celt,IMoniker **rgelt,ULONG *pceltFetched);
   WINBOOL WINAPI IRunnableObject_IsRunning_Proxy(IRunnableObject *This);
   HRESULT WINAPI IRunnableObject_IsRunning_Stub(IRunnableObject *This);
-  HRESULT WINAPI IMoniker_BindToObject_Proxy(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riidResult,void **ppvResult);
-  HRESULT WINAPI IMoniker_BindToObject_Stub(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riidResult,IUnknown **ppvResult);
-  HRESULT WINAPI IMoniker_BindToStorage_Proxy(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riid,void **ppvObj);
-  HRESULT WINAPI IMoniker_BindToStorage_Stub(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riid,IUnknown **ppvObj);
   HRESULT WINAPI IEnumString_Next_Proxy(IEnumString *This,ULONG celt,LPOLESTR *rgelt,ULONG *pceltFetched);
   HRESULT WINAPI IEnumString_Next_Stub(IEnumString *This,ULONG celt,LPOLESTR *rgelt,ULONG *pceltFetched);
-  HRESULT WINAPI ISequentialStream_Read_Proxy(ISequentialStream *This,void *pv,ULONG cb,ULONG *pcbRead);
-  HRESULT WINAPI ISequentialStream_Read_Stub(ISequentialStream *This,byte *pv,ULONG cb,ULONG *pcbRead);
-  HRESULT WINAPI ISequentialStream_Write_Proxy(ISequentialStream *This,const void *pv,ULONG cb,ULONG *pcbWritten);
-  HRESULT WINAPI ISequentialStream_Write_Stub(ISequentialStream *This,const byte *pv,ULONG cb,ULONG *pcbWritten);
-  HRESULT WINAPI IStream_Seek_Proxy(IStream *This,LARGE_INTEGER dlibMove,DWORD dwOrigin,ULARGE_INTEGER *plibNewPosition);
-  HRESULT WINAPI IStream_Seek_Stub(IStream *This,LARGE_INTEGER dlibMove,DWORD dwOrigin,ULARGE_INTEGER *plibNewPosition);
-  HRESULT WINAPI IStream_CopyTo_Proxy(IStream *This,IStream *pstm,ULARGE_INTEGER cb,ULARGE_INTEGER *pcbRead,ULARGE_INTEGER *pcbWritten);
-  HRESULT WINAPI IStream_CopyTo_Stub(IStream *This,IStream *pstm,ULARGE_INTEGER cb,ULARGE_INTEGER *pcbRead,ULARGE_INTEGER *pcbWritten);
-  HRESULT WINAPI IEnumSTATSTG_Next_Proxy(IEnumSTATSTG *This,ULONG celt,STATSTG *rgelt,ULONG *pceltFetched);
-  HRESULT WINAPI IEnumSTATSTG_Next_Stub(IEnumSTATSTG *This,ULONG celt,STATSTG *rgelt,ULONG *pceltFetched);
-  HRESULT WINAPI IStorage_OpenStream_Proxy(IStorage *This,const OLECHAR *pwcsName,void *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm);
-  HRESULT WINAPI IStorage_OpenStream_Stub(IStorage *This,const OLECHAR *pwcsName,unsigned long cbReserved1,byte *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm);
-  HRESULT WINAPI IStorage_EnumElements_Proxy(IStorage *This,DWORD reserved1,void *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum);
-  HRESULT WINAPI IStorage_EnumElements_Stub(IStorage *This,DWORD reserved1,unsigned long cbReserved2,byte *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum);
   HRESULT WINAPI ILockBytes_ReadAt_Proxy(ILockBytes *This,ULARGE_INTEGER ulOffset,void *pv,ULONG cb,ULONG *pcbRead);
   HRESULT WINAPI ILockBytes_ReadAt_Stub(ILockBytes *This,ULARGE_INTEGER ulOffset,byte *pv,ULONG cb,ULONG *pcbRead);
   HRESULT WINAPI ILockBytes_WriteAt_Proxy(ILockBytes *This,ULARGE_INTEGER ulOffset,const void *pv,ULONG cb,ULONG *pcbWritten);
   HRESULT WINAPI ILockBytes_WriteAt_Stub(ILockBytes *This,ULARGE_INTEGER ulOffset,const byte *pv,ULONG cb,ULONG *pcbWritten);
-  HRESULT WINAPI IEnumFORMATETC_Next_Proxy(IEnumFORMATETC *This,ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched);
-  HRESULT WINAPI IEnumFORMATETC_Next_Stub(IEnumFORMATETC *This,ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched);
-  HRESULT WINAPI IEnumSTATDATA_Next_Proxy(IEnumSTATDATA *This,ULONG celt,STATDATA *rgelt,ULONG *pceltFetched);
-  HRESULT WINAPI IEnumSTATDATA_Next_Stub(IEnumSTATDATA *This,ULONG celt,STATDATA *rgelt,ULONG *pceltFetched);
-  void WINAPI IAdviseSink_OnDataChange_Proxy(IAdviseSink *This,FORMATETC *pFormatetc,STGMEDIUM *pStgmed);
-  HRESULT WINAPI IAdviseSink_OnDataChange_Stub(IAdviseSink *This,FORMATETC *pFormatetc,ASYNC_STGMEDIUM *pStgmed);
-  void WINAPI IAdviseSink_OnViewChange_Proxy(IAdviseSink *This,DWORD dwAspect,LONG lindex);
-  HRESULT WINAPI IAdviseSink_OnViewChange_Stub(IAdviseSink *This,DWORD dwAspect,LONG lindex);
-  void WINAPI IAdviseSink_OnRename_Proxy(IAdviseSink *This,IMoniker *pmk);
-  HRESULT WINAPI IAdviseSink_OnRename_Stub(IAdviseSink *This,IMoniker *pmk);
-  void WINAPI IAdviseSink_OnSave_Proxy(IAdviseSink *This);
-  HRESULT WINAPI IAdviseSink_OnSave_Stub(IAdviseSink *This);
-  void WINAPI IAdviseSink_OnClose_Proxy(IAdviseSink *This);
-  HRESULT WINAPI IAdviseSink_OnClose_Stub(IAdviseSink *This);
   void WINAPI IAdviseSink2_OnLinkSrcChange_Proxy(IAdviseSink2 *This,IMoniker *pmk);
   HRESULT WINAPI IAdviseSink2_OnLinkSrcChange_Stub(IAdviseSink2 *This,IMoniker *pmk);
-  HRESULT WINAPI IDataObject_GetData_Proxy(IDataObject *This,FORMATETC *pformatetcIn,STGMEDIUM *pmedium);
-  HRESULT WINAPI IDataObject_GetData_Stub(IDataObject *This,FORMATETC *pformatetcIn,STGMEDIUM *pRemoteMedium);
-  HRESULT WINAPI IDataObject_GetDataHere_Proxy(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pmedium);
-  HRESULT WINAPI IDataObject_GetDataHere_Stub(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pRemoteMedium);
-  HRESULT WINAPI IDataObject_SetData_Proxy(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pmedium,WINBOOL fRelease);
-  HRESULT WINAPI IDataObject_SetData_Stub(IDataObject *This,FORMATETC *pformatetc,FLAG_STGMEDIUM *pmedium,WINBOOL fRelease);
   HRESULT WINAPI IFillLockBytes_FillAppend_Proxy(IFillLockBytes *This,const void *pv,ULONG cb,ULONG *pcbWritten);
   HRESULT WINAPI IFillLockBytes_FillAppend_Stub(IFillLockBytes *This,const byte *pv,ULONG cb,ULONG *pcbWritten);
   HRESULT WINAPI IFillLockBytes_FillAt_Proxy(IFillLockBytes *This,ULARGE_INTEGER ulOffset,const void *pv,ULONG cb,ULONG *pcbWritten);
@@ -6246,6 +7057,26 @@ typedef enum _APTTYPEQUALIFIER {
 #endif /*(_WIN32_WINNT >= 0x0601)*/
 /* Begin additional prototypes for all interfaces */
 
+ULONG           __RPC_USER SNB_UserSize     (ULONG *, ULONG, SNB *);
+unsigned char * __RPC_USER SNB_UserMarshal  (ULONG *, unsigned char *, SNB *);
+unsigned char * __RPC_USER SNB_UserUnmarshal(ULONG *, unsigned char *, SNB *);
+void            __RPC_USER SNB_UserFree     (ULONG *, SNB *);
+ULONG           __RPC_USER CLIPFORMAT_UserSize     (ULONG *, ULONG, CLIPFORMAT *);
+unsigned char * __RPC_USER CLIPFORMAT_UserMarshal  (ULONG *, unsigned char *, CLIPFORMAT *);
+unsigned char * __RPC_USER CLIPFORMAT_UserUnmarshal(ULONG *, unsigned char *, CLIPFORMAT *);
+void            __RPC_USER CLIPFORMAT_UserFree     (ULONG *, CLIPFORMAT *);
+ULONG           __RPC_USER STGMEDIUM_UserSize     (ULONG *, ULONG, STGMEDIUM *);
+unsigned char * __RPC_USER STGMEDIUM_UserMarshal  (ULONG *, unsigned char *, STGMEDIUM *);
+unsigned char * __RPC_USER STGMEDIUM_UserUnmarshal(ULONG *, unsigned char *, STGMEDIUM *);
+void            __RPC_USER STGMEDIUM_UserFree     (ULONG *, STGMEDIUM *);
+ULONG           __RPC_USER ASYNC_STGMEDIUM_UserSize     (ULONG *, ULONG, ASYNC_STGMEDIUM *);
+unsigned char * __RPC_USER ASYNC_STGMEDIUM_UserMarshal  (ULONG *, unsigned char *, ASYNC_STGMEDIUM *);
+unsigned char * __RPC_USER ASYNC_STGMEDIUM_UserUnmarshal(ULONG *, unsigned char *, ASYNC_STGMEDIUM *);
+void            __RPC_USER ASYNC_STGMEDIUM_UserFree     (ULONG *, ASYNC_STGMEDIUM *);
+ULONG           __RPC_USER FLAG_STGMEDIUM_UserSize     (ULONG *, ULONG, FLAG_STGMEDIUM *);
+unsigned char * __RPC_USER FLAG_STGMEDIUM_UserMarshal  (ULONG *, unsigned char *, FLAG_STGMEDIUM *);
+unsigned char * __RPC_USER FLAG_STGMEDIUM_UserUnmarshal(ULONG *, unsigned char *, FLAG_STGMEDIUM *);
+void            __RPC_USER FLAG_STGMEDIUM_UserFree     (ULONG *, FLAG_STGMEDIUM *);
 
 /* End additional prototypes */
 

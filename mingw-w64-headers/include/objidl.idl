@@ -14,6 +14,7 @@ interface IEnumMoniker;
 interface IRunningObjectTable;
 interface IEnumString;
 interface IStream;
+interface IAdviseSink;
 
 cpp_quote("#ifndef __IMarshal_FWD_DEFINED__")
 cpp_quote("#define __IMarshal_FWD_DEFINED__")
@@ -75,16 +76,6 @@ cpp_quote("#define __IROTData_FWD_DEFINED__")
 cpp_quote("typedef struct IROTData IROTData;")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#ifndef __IEnumSTATSTG_FWD_DEFINED__")
-cpp_quote("#define __IEnumSTATSTG_FWD_DEFINED__")
-cpp_quote("typedef struct IEnumSTATSTG IEnumSTATSTG;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IStorage_FWD_DEFINED__")
-cpp_quote("#define __IStorage_FWD_DEFINED__")
-cpp_quote("typedef struct IStorage IStorage;")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("#ifndef __IPersistFile_FWD_DEFINED__")
 cpp_quote("#define __IPersistFile_FWD_DEFINED__")
 cpp_quote("typedef struct IPersistFile IPersistFile;")
@@ -100,24 +91,9 @@ cpp_quote("#define __ILockBytes_FWD_DEFINED__")
 cpp_quote("typedef struct ILockBytes ILockBytes;")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#ifndef __IEnumFORMATETC_FWD_DEFINED__")
-cpp_quote("#define __IEnumFORMATETC_FWD_DEFINED__")
-cpp_quote("typedef struct IEnumFORMATETC IEnumFORMATETC;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IEnumSTATDATA_FWD_DEFINED__")
-cpp_quote("#define __IEnumSTATDATA_FWD_DEFINED__")
-cpp_quote("typedef struct IEnumSTATDATA IEnumSTATDATA;")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("#ifndef __IRootStorage_FWD_DEFINED__")
 cpp_quote("#define __IRootStorage_FWD_DEFINED__")
 cpp_quote("typedef struct IRootStorage IRootStorage;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IAdviseSink_FWD_DEFINED__")
-cpp_quote("#define __IAdviseSink_FWD_DEFINED__")
-cpp_quote("typedef struct IAdviseSink IAdviseSink;")
 cpp_quote("#endif")
 cpp_quote("")
 cpp_quote("#ifndef __AsyncIAdviseSink_FWD_DEFINED__")
@@ -133,11 +109,6 @@ cpp_quote("")
 cpp_quote("#ifndef __AsyncIAdviseSink2_FWD_DEFINED__")
 cpp_quote("#define __AsyncIAdviseSink2_FWD_DEFINED__")
 cpp_quote("typedef struct AsyncIAdviseSink2 AsyncIAdviseSink2;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IDataObject_FWD_DEFINED__")
-cpp_quote("#define __IDataObject_FWD_DEFINED__")
-cpp_quote("typedef struct IDataObject IDataObject;")
 cpp_quote("#endif")
 cpp_quote("")
 cpp_quote("#ifndef __IDataAdviseHolder_FWD_DEFINED__")
@@ -1417,166 +1388,141 @@ interface IStream : ISequentialStream
     HRESULT Clone([out] IStream **ppstm);
 }
 
-cpp_quote("#ifndef __IEnumSTATSTG_INTERFACE_DEFINED__")
-cpp_quote("#define __IEnumSTATSTG_INTERFACE_DEFINED__")
-cpp_quote("  typedef IEnumSTATSTG *LPENUMSTATSTG;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IEnumSTATSTG;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IEnumSTATSTG : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Next(ULONG celt,STATSTG *rgelt,ULONG *pceltFetched) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Skip(ULONG celt) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Reset(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Clone(IEnumSTATSTG **ppenum) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IEnumSTATSTGVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IEnumSTATSTG *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IEnumSTATSTG *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IEnumSTATSTG *This);")
-cpp_quote("      HRESULT (WINAPI *Next)(IEnumSTATSTG *This,ULONG celt,STATSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("      HRESULT (WINAPI *Skip)(IEnumSTATSTG *This,ULONG celt);")
-cpp_quote("      HRESULT (WINAPI *Reset)(IEnumSTATSTG *This);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IEnumSTATSTG *This,IEnumSTATSTG **ppenum);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IEnumSTATSTGVtbl;")
-cpp_quote("  struct IEnumSTATSTG {")
-cpp_quote("    CONST_VTBL struct IEnumSTATSTGVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IEnumSTATSTG_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IEnumSTATSTG_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IEnumSTATSTG_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IEnumSTATSTG_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)")
-cpp_quote("#define IEnumSTATSTG_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)")
-cpp_quote("#define IEnumSTATSTG_Reset(This) (This)->lpVtbl->Reset(This)")
-cpp_quote("#define IEnumSTATSTG_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IEnumSTATSTG_RemoteNext_Proxy(IEnumSTATSTG *This,ULONG celt,STATSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("  void __RPC_STUB IEnumSTATSTG_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATSTG_Skip_Proxy(IEnumSTATSTG *This,ULONG celt);")
-cpp_quote("  void __RPC_STUB IEnumSTATSTG_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATSTG_Reset_Proxy(IEnumSTATSTG *This);")
-cpp_quote("  void __RPC_STUB IEnumSTATSTG_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATSTG_Clone_Proxy(IEnumSTATSTG *This,IEnumSTATSTG **ppenum);")
-cpp_quote("  void __RPC_STUB IEnumSTATSTG_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IStorage_INTERFACE_DEFINED__")
-cpp_quote("#define __IStorage_INTERFACE_DEFINED__")
-cpp_quote("  typedef IStorage *LPSTORAGE;")
-cpp_quote("")
-cpp_quote("  typedef struct tagRemSNB {")
-cpp_quote("    unsigned long ulCntStr;")
-cpp_quote("    unsigned long ulCntChar;")
-cpp_quote("    OLECHAR rgString[1 ];")
-cpp_quote("  } RemSNB;")
-cpp_quote("")
-cpp_quote("  typedef RemSNB *wireSNB;")
-cpp_quote("  typedef OLECHAR **SNB;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IStorage;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IStorage : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI CreateStream(const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStream **ppstm) = 0;")
-cpp_quote("    virtual HRESULT WINAPI OpenStream(const OLECHAR *pwcsName,void *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CreateStorage(const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStorage **ppstg) = 0;")
-cpp_quote("    virtual HRESULT WINAPI OpenStorage(const OLECHAR *pwcsName,IStorage *pstgPriority,DWORD grfMode,SNB snbExclude,DWORD reserved,IStorage **ppstg) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CopyTo(DWORD ciidExclude,const IID *rgiidExclude,SNB snbExclude,IStorage *pstgDest) = 0;")
-cpp_quote("    virtual HRESULT WINAPI MoveElementTo(const OLECHAR *pwcsName,IStorage *pstgDest,const OLECHAR *pwcsNewName,DWORD grfFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Commit(DWORD grfCommitFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Revert(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI EnumElements(DWORD reserved1,void *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DestroyElement(const OLECHAR *pwcsName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI RenameElement(const OLECHAR *pwcsOldName,const OLECHAR *pwcsNewName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetElementTimes(const OLECHAR *pwcsName,const FILETIME *pctime,const FILETIME *patime,const FILETIME *pmtime) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetClass(REFCLSID clsid) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetStateBits(DWORD grfStateBits,DWORD grfMask) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Stat(STATSTG *pstatstg,DWORD grfStatFlag) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IStorageVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IStorage *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IStorage *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IStorage *This);")
-cpp_quote("      HRESULT (WINAPI *CreateStream)(IStorage *This,const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStream **ppstm);")
-cpp_quote("      HRESULT (WINAPI *OpenStream)(IStorage *This,const OLECHAR *pwcsName,void *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm);")
-cpp_quote("      HRESULT (WINAPI *CreateStorage)(IStorage *This,const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStorage **ppstg);")
-cpp_quote("      HRESULT (WINAPI *OpenStorage)(IStorage *This,const OLECHAR *pwcsName,IStorage *pstgPriority,DWORD grfMode,SNB snbExclude,DWORD reserved,IStorage **ppstg);")
-cpp_quote("      HRESULT (WINAPI *CopyTo)(IStorage *This,DWORD ciidExclude,const IID *rgiidExclude,SNB snbExclude,IStorage *pstgDest);")
-cpp_quote("      HRESULT (WINAPI *MoveElementTo)(IStorage *This,const OLECHAR *pwcsName,IStorage *pstgDest,const OLECHAR *pwcsNewName,DWORD grfFlags);")
-cpp_quote("      HRESULT (WINAPI *Commit)(IStorage *This,DWORD grfCommitFlags);")
-cpp_quote("      HRESULT (WINAPI *Revert)(IStorage *This);")
-cpp_quote("      HRESULT (WINAPI *EnumElements)(IStorage *This,DWORD reserved1,void *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum);")
-cpp_quote("      HRESULT (WINAPI *DestroyElement)(IStorage *This,const OLECHAR *pwcsName);")
-cpp_quote("      HRESULT (WINAPI *RenameElement)(IStorage *This,const OLECHAR *pwcsOldName,const OLECHAR *pwcsNewName);")
-cpp_quote("      HRESULT (WINAPI *SetElementTimes)(IStorage *This,const OLECHAR *pwcsName,const FILETIME *pctime,const FILETIME *patime,const FILETIME *pmtime);")
-cpp_quote("      HRESULT (WINAPI *SetClass)(IStorage *This,REFCLSID clsid);")
-cpp_quote("      HRESULT (WINAPI *SetStateBits)(IStorage *This,DWORD grfStateBits,DWORD grfMask);")
-cpp_quote("      HRESULT (WINAPI *Stat)(IStorage *This,STATSTG *pstatstg,DWORD grfStatFlag);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IStorageVtbl;")
-cpp_quote("  struct IStorage {")
-cpp_quote("    CONST_VTBL struct IStorageVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IStorage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IStorage_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IStorage_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IStorage_CreateStream(This,pwcsName,grfMode,reserved1,reserved2,ppstm) (This)->lpVtbl->CreateStream(This,pwcsName,grfMode,reserved1,reserved2,ppstm)")
-cpp_quote("#define IStorage_OpenStream(This,pwcsName,reserved1,grfMode,reserved2,ppstm) (This)->lpVtbl->OpenStream(This,pwcsName,reserved1,grfMode,reserved2,ppstm)")
-cpp_quote("#define IStorage_CreateStorage(This,pwcsName,grfMode,reserved1,reserved2,ppstg) (This)->lpVtbl->CreateStorage(This,pwcsName,grfMode,reserved1,reserved2,ppstg)")
-cpp_quote("#define IStorage_OpenStorage(This,pwcsName,pstgPriority,grfMode,snbExclude,reserved,ppstg) (This)->lpVtbl->OpenStorage(This,pwcsName,pstgPriority,grfMode,snbExclude,reserved,ppstg)")
-cpp_quote("#define IStorage_CopyTo(This,ciidExclude,rgiidExclude,snbExclude,pstgDest) (This)->lpVtbl->CopyTo(This,ciidExclude,rgiidExclude,snbExclude,pstgDest)")
-cpp_quote("#define IStorage_MoveElementTo(This,pwcsName,pstgDest,pwcsNewName,grfFlags) (This)->lpVtbl->MoveElementTo(This,pwcsName,pstgDest,pwcsNewName,grfFlags)")
-cpp_quote("#define IStorage_Commit(This,grfCommitFlags) (This)->lpVtbl->Commit(This,grfCommitFlags)")
-cpp_quote("#define IStorage_Revert(This) (This)->lpVtbl->Revert(This)")
-cpp_quote("#define IStorage_EnumElements(This,reserved1,reserved2,reserved3,ppenum) (This)->lpVtbl->EnumElements(This,reserved1,reserved2,reserved3,ppenum)")
-cpp_quote("#define IStorage_DestroyElement(This,pwcsName) (This)->lpVtbl->DestroyElement(This,pwcsName)")
-cpp_quote("#define IStorage_RenameElement(This,pwcsOldName,pwcsNewName) (This)->lpVtbl->RenameElement(This,pwcsOldName,pwcsNewName)")
-cpp_quote("#define IStorage_SetElementTimes(This,pwcsName,pctime,patime,pmtime) (This)->lpVtbl->SetElementTimes(This,pwcsName,pctime,patime,pmtime)")
-cpp_quote("#define IStorage_SetClass(This,clsid) (This)->lpVtbl->SetClass(This,clsid)")
-cpp_quote("#define IStorage_SetStateBits(This,grfStateBits,grfMask) (This)->lpVtbl->SetStateBits(This,grfStateBits,grfMask)")
-cpp_quote("#define IStorage_Stat(This,pstatstg,grfStatFlag) (This)->lpVtbl->Stat(This,pstatstg,grfStatFlag)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IStorage_CreateStream_Proxy(IStorage *This,const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStream **ppstm);")
-cpp_quote("  void __RPC_STUB IStorage_CreateStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_RemoteOpenStream_Proxy(IStorage *This,const OLECHAR *pwcsName,unsigned long cbReserved1,byte *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm);")
-cpp_quote("  void __RPC_STUB IStorage_RemoteOpenStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_CreateStorage_Proxy(IStorage *This,const OLECHAR *pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStorage **ppstg);")
-cpp_quote("  void __RPC_STUB IStorage_CreateStorage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_OpenStorage_Proxy(IStorage *This,const OLECHAR *pwcsName,IStorage *pstgPriority,DWORD grfMode,SNB snbExclude,DWORD reserved,IStorage **ppstg);")
-cpp_quote("  void __RPC_STUB IStorage_OpenStorage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_CopyTo_Proxy(IStorage *This,DWORD ciidExclude,const IID *rgiidExclude,SNB snbExclude,IStorage *pstgDest);")
-cpp_quote("  void __RPC_STUB IStorage_CopyTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_MoveElementTo_Proxy(IStorage *This,const OLECHAR *pwcsName,IStorage *pstgDest,const OLECHAR *pwcsNewName,DWORD grfFlags);")
-cpp_quote("  void __RPC_STUB IStorage_MoveElementTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_Commit_Proxy(IStorage *This,DWORD grfCommitFlags);")
-cpp_quote("  void __RPC_STUB IStorage_Commit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_Revert_Proxy(IStorage *This);")
-cpp_quote("  void __RPC_STUB IStorage_Revert_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_RemoteEnumElements_Proxy(IStorage *This,DWORD reserved1,unsigned long cbReserved2,byte *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum);")
-cpp_quote("  void __RPC_STUB IStorage_RemoteEnumElements_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_DestroyElement_Proxy(IStorage *This,const OLECHAR *pwcsName);")
-cpp_quote("  void __RPC_STUB IStorage_DestroyElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_RenameElement_Proxy(IStorage *This,const OLECHAR *pwcsOldName,const OLECHAR *pwcsNewName);")
-cpp_quote("  void __RPC_STUB IStorage_RenameElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_SetElementTimes_Proxy(IStorage *This,const OLECHAR *pwcsName,const FILETIME *pctime,const FILETIME *patime,const FILETIME *pmtime);")
-cpp_quote("  void __RPC_STUB IStorage_SetElementTimes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_SetClass_Proxy(IStorage *This,REFCLSID clsid);")
-cpp_quote("  void __RPC_STUB IStorage_SetClass_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_SetStateBits_Proxy(IStorage *This,DWORD grfStateBits,DWORD grfMask);")
-cpp_quote("  void __RPC_STUB IStorage_SetStateBits_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IStorage_Stat_Proxy(IStorage *This,STATSTG *pstatstg,DWORD grfStatFlag);")
-cpp_quote("  void __RPC_STUB IStorage_Stat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
+[
+    object,
+    uuid(0000000d-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IEnumSTATSTG : IUnknown
+{
+    typedef [unique] IEnumSTATSTG *LPENUMSTATSTG;
+
+    [local]
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt), length_is(*pceltFetched)] STATSTG *rgelt,
+            [out] ULONG *pceltFetched);
+    [call_as(Next)]
+    HRESULT RemoteNext(
+            [in] ULONG celt,
+            [out, size_is(celt), length_is(*pceltFetched)] STATSTG *rgelt,
+            [out] ULONG *pceltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumSTATSTG **ppenum);
+}
+
+[
+    object,
+    uuid(0000000b-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IStorage : IUnknown
+{
+    typedef [unique] IStorage *LPSTORAGE;
+
+    typedef struct tagRemSNB {
+        unsigned long ulCntStr;
+        unsigned long ulCntChar;
+        [size_is(ulCntChar)] OLECHAR rgString[];
+    } RemSNB;
+
+    typedef [unique] RemSNB *wireSNB;
+    typedef [wire_marshal(wireSNB)] OLECHAR **SNB;
+
+    HRESULT CreateStream(
+            [in] LPCOLESTR pwcsName,
+            [in] DWORD grfMode,
+            [in] DWORD reserved1,
+            [in] DWORD reserved2,
+            [out] IStream **ppstm);
+
+    [local]
+    HRESULT OpenStream(
+            [in] LPCOLESTR pwcsName,
+            [in, unique] void *reserved1,
+            [in] DWORD grfMode,
+            [in] DWORD reserved2,
+            [out] IStream **ppstm);
+    [call_as(OpenStream)]
+    HRESULT RemoteOpenStream(
+            [in] LPCOLESTR pwcsName,
+            [in] unsigned long cbReserved1,
+            [in, unique, size_is(cbReserved1)] byte *reserved1,
+            [in] DWORD grfMode,
+            [in] DWORD reserved2,
+            [out] IStream **ppstm);
+
+    HRESULT CreateStorage(
+            [in] LPCOLESTR pwcsName,
+            [in] DWORD grfMode,
+            [in] DWORD dwStgFmt,
+            [in] DWORD reserved2,
+            [out] IStorage **ppstg);
+
+    HRESULT OpenStorage(
+            [in, unique] LPCOLESTR pwcsName,
+            [in, unique] IStorage *pstgPriority,
+            [in] DWORD grfMode,
+            [in, unique] SNB snbExclude,
+            [in] DWORD reserved,
+            [out] IStorage **ppstg);
+
+    HRESULT CopyTo(
+            [in] DWORD ciidExclude,
+            [in, unique, size_is(ciidExclude)] const IID *rgiidExclude,
+            [in, unique] SNB snbExclude,
+            [in, unique] IStorage *pstgDest);
+
+    HRESULT MoveElementTo(
+            [in] LPCOLESTR pwcsName,
+            [in, unique] IStorage *pstgDest,
+            [in] LPCOLESTR pwcsNewName,
+            [in] DWORD grfFlags);
+
+    HRESULT Commit([in] DWORD grfCommitFlags);
+    HRESULT Revert();
+
+    [local]
+    HRESULT EnumElements(
+            [in] DWORD reserved1,
+            [in, unique, size_is(1)] void *reserved2,
+            [in] DWORD reserved3,
+            [out] IEnumSTATSTG **ppenum);
+    [call_as(EnumElements)]
+    HRESULT RemoteEnumElements(
+            [in] DWORD reserved1,
+            [in] unsigned long cbReserved2,
+            [in, unique, size_is(cbReserved2)] byte *reserved2,
+            [in] DWORD reserved3,
+            [out] IEnumSTATSTG **ppenum);
+
+    HRESULT DestroyElement(
+            [in] LPCOLESTR pwcsName);
+
+    HRESULT RenameElement(
+            [in] LPCOLESTR pwcsOldName,
+            [in] LPCOLESTR pwcsNewName);
+
+    HRESULT SetElementTimes(
+            [in, unique] LPCOLESTR pwcsName,
+            [in, unique] const FILETIME *pctime,
+            [in, unique] const FILETIME *patime,
+            [in, unique] const FILETIME *pmtime);
+
+    HRESULT SetClass(
+            [in] REFCLSID clsid);
+
+    HRESULT SetStateBits(
+            [in] DWORD grfStateBits,
+            [in] DWORD grfMask);
+
+    HRESULT Stat(
+            [out] STATSTG *pstatstg,
+            [in] DWORD grfStatFlag);
+}
+
 cpp_quote("#ifndef __IPersistFile_INTERFACE_DEFINED__")
 cpp_quote("#define __IPersistFile_INTERFACE_DEFINED__")
 cpp_quote("  typedef IPersistFile *LPPERSISTFILE;")
@@ -1754,138 +1700,97 @@ cpp_quote("  void __RPC_STUB ILockBytes_UnlockRegion_Stub(IRpcStubBuffer *This,I
 cpp_quote("  HRESULT WINAPI ILockBytes_Stat_Proxy(ILockBytes *This,STATSTG *pstatstg,DWORD grfStatFlag);")
 cpp_quote("  void __RPC_STUB ILockBytes_Stat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IEnumFORMATETC_INTERFACE_DEFINED__")
-cpp_quote("#define __IEnumFORMATETC_INTERFACE_DEFINED__")
-cpp_quote("  typedef IEnumFORMATETC *LPENUMFORMATETC;")
-cpp_quote("")
-cpp_quote("  typedef struct tagDVTARGETDEVICE {")
-cpp_quote("    DWORD tdSize;")
-cpp_quote("    WORD tdDriverNameOffset;")
-cpp_quote("    WORD tdDeviceNameOffset;")
-cpp_quote("    WORD tdPortNameOffset;")
-cpp_quote("    WORD tdExtDevmodeOffset;")
-cpp_quote("    BYTE tdData[1 ];")
-cpp_quote("  } DVTARGETDEVICE;")
-cpp_quote("")
-cpp_quote("  typedef CLIPFORMAT *LPCLIPFORMAT;")
-cpp_quote("")
-cpp_quote("  typedef struct tagFORMATETC {")
-cpp_quote("    CLIPFORMAT cfFormat;")
-cpp_quote("    DVTARGETDEVICE *ptd;")
-cpp_quote("    DWORD dwAspect;")
-cpp_quote("    LONG lindex;")
-cpp_quote("    DWORD tymed;")
-cpp_quote("  } FORMATETC;")
-cpp_quote("")
-cpp_quote("  typedef struct tagFORMATETC *LPFORMATETC;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IEnumFORMATETC;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IEnumFORMATETC : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Next(ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Skip(ULONG celt) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Reset(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Clone(IEnumFORMATETC **ppenum) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IEnumFORMATETCVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IEnumFORMATETC *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IEnumFORMATETC *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IEnumFORMATETC *This);")
-cpp_quote("      HRESULT (WINAPI *Next)(IEnumFORMATETC *This,ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched);")
-cpp_quote("      HRESULT (WINAPI *Skip)(IEnumFORMATETC *This,ULONG celt);")
-cpp_quote("      HRESULT (WINAPI *Reset)(IEnumFORMATETC *This);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IEnumFORMATETC *This,IEnumFORMATETC **ppenum);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IEnumFORMATETCVtbl;")
-cpp_quote("  struct IEnumFORMATETC {")
-cpp_quote("    CONST_VTBL struct IEnumFORMATETCVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IEnumFORMATETC_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IEnumFORMATETC_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IEnumFORMATETC_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IEnumFORMATETC_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)")
-cpp_quote("#define IEnumFORMATETC_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)")
-cpp_quote("#define IEnumFORMATETC_Reset(This) (This)->lpVtbl->Reset(This)")
-cpp_quote("#define IEnumFORMATETC_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IEnumFORMATETC_RemoteNext_Proxy(IEnumFORMATETC *This,ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched);")
-cpp_quote("  void __RPC_STUB IEnumFORMATETC_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumFORMATETC_Skip_Proxy(IEnumFORMATETC *This,ULONG celt);")
-cpp_quote("  void __RPC_STUB IEnumFORMATETC_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumFORMATETC_Reset_Proxy(IEnumFORMATETC *This);")
-cpp_quote("  void __RPC_STUB IEnumFORMATETC_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumFORMATETC_Clone_Proxy(IEnumFORMATETC *This,IEnumFORMATETC **ppenum);")
-cpp_quote("  void __RPC_STUB IEnumFORMATETC_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IEnumSTATDATA_INTERFACE_DEFINED__")
-cpp_quote("#define __IEnumSTATDATA_INTERFACE_DEFINED__")
-cpp_quote("  typedef IEnumSTATDATA *LPENUMSTATDATA;")
-cpp_quote("")
-cpp_quote("  typedef enum tagADVF {")
-cpp_quote("    ADVF_NODATA = 1,ADVF_PRIMEFIRST = 2,ADVF_ONLYONCE = 4,ADVF_DATAONSTOP = 64,ADVFCACHE_NOHANDLER = 8,ADVFCACHE_FORCEBUILTIN = 16,")
-cpp_quote("    ADVFCACHE_ONSAVE = 32")
-cpp_quote("  } ADVF;")
-cpp_quote("")
-cpp_quote("  typedef struct tagSTATDATA {")
-cpp_quote("    FORMATETC formatetc;")
-cpp_quote("    DWORD advf;")
-cpp_quote("    IAdviseSink *pAdvSink;")
-cpp_quote("    DWORD dwConnection;")
-cpp_quote("  } STATDATA;")
-cpp_quote("")
-cpp_quote("  typedef STATDATA *LPSTATDATA;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IEnumSTATDATA;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IEnumSTATDATA : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Next(ULONG celt,STATDATA *rgelt,ULONG *pceltFetched) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Skip(ULONG celt) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Reset(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Clone(IEnumSTATDATA **ppenum) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IEnumSTATDATAVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IEnumSTATDATA *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IEnumSTATDATA *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IEnumSTATDATA *This);")
-cpp_quote("      HRESULT (WINAPI *Next)(IEnumSTATDATA *This,ULONG celt,STATDATA *rgelt,ULONG *pceltFetched);")
-cpp_quote("      HRESULT (WINAPI *Skip)(IEnumSTATDATA *This,ULONG celt);")
-cpp_quote("      HRESULT (WINAPI *Reset)(IEnumSTATDATA *This);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IEnumSTATDATA *This,IEnumSTATDATA **ppenum);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IEnumSTATDATAVtbl;")
-cpp_quote("  struct IEnumSTATDATA {")
-cpp_quote("    CONST_VTBL struct IEnumSTATDATAVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IEnumSTATDATA_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IEnumSTATDATA_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IEnumSTATDATA_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IEnumSTATDATA_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)")
-cpp_quote("#define IEnumSTATDATA_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)")
-cpp_quote("#define IEnumSTATDATA_Reset(This) (This)->lpVtbl->Reset(This)")
-cpp_quote("#define IEnumSTATDATA_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IEnumSTATDATA_RemoteNext_Proxy(IEnumSTATDATA *This,ULONG celt,STATDATA *rgelt,ULONG *pceltFetched);")
-cpp_quote("  void __RPC_STUB IEnumSTATDATA_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATDATA_Skip_Proxy(IEnumSTATDATA *This,ULONG celt);")
-cpp_quote("  void __RPC_STUB IEnumSTATDATA_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATDATA_Reset_Proxy(IEnumSTATDATA *This);")
-cpp_quote("  void __RPC_STUB IEnumSTATDATA_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATDATA_Clone_Proxy(IEnumSTATDATA *This,IEnumSTATDATA **ppenum);")
-cpp_quote("  void __RPC_STUB IEnumSTATDATA_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
+
+[
+    object,
+    uuid(00000103-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IEnumFORMATETC : IUnknown
+{
+    typedef [unique] IEnumFORMATETC *LPENUMFORMATETC;
+
+    typedef struct tagDVTARGETDEVICE {
+        DWORD tdSize;
+        WORD tdDriverNameOffset;
+        WORD tdDeviceNameOffset;
+        WORD tdPortNameOffset;
+        WORD tdExtDevmodeOffset;
+        [size_is(tdSize - sizeof(DWORD) - 4*sizeof(WORD))] BYTE tdData[];
+    } DVTARGETDEVICE;
+
+    typedef CLIPFORMAT *LPCLIPFORMAT;
+
+    typedef struct tagFORMATETC {
+        CLIPFORMAT cfFormat;
+        [unique] DVTARGETDEVICE *ptd;
+        DWORD dwAspect;
+        LONG lindex;
+        DWORD tymed;
+    } FORMATETC, *LPFORMATETC;
+
+    [local]
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt), length_is(*pceltFetched)]
+            FORMATETC *rgelt,
+            [out] ULONG *pceltFetched);
+    [call_as(Next)]
+    HRESULT RemoteNext(
+            [in] ULONG celt,
+            [out, size_is(celt), length_is(*pceltFetched)]
+            FORMATETC *rgelt,
+            [out] ULONG *pceltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumFORMATETC **ppenum);
+}
+
+[
+    object,
+    uuid(00000105-0000-0000-c000-000000000046),
+    pointer_default(unique)
+]
+interface IEnumSTATDATA : IUnknown
+{
+    typedef [unique] IEnumSTATDATA *LPENUMSTATDATA;
+
+    typedef enum tagADVF {
+        ADVF_NODATA = 1,
+        ADVF_PRIMEFIRST = 2,
+        ADVF_ONLYONCE = 4,
+        ADVF_DATAONSTOP = 64,
+        ADVFCACHE_NOHANDLER = 8,
+        ADVFCACHE_FORCEBUILTIN = 16,
+        ADVFCACHE_ONSAVE = 32
+    } ADVF;
+
+    typedef struct tagSTATDATA {
+        FORMATETC formatetc;
+        DWORD advf;
+        [unique] IAdviseSink *pAdvSink;
+        DWORD dwConnection;
+    } STATDATA;
+
+    typedef STATDATA *LPSTATDATA;
+
+    [local]
+    HRESULT Next(
+            [in] ULONG celt,
+            STATDATA *rgelt,
+            ULONG *pceltFetched);
+    [call_as(Next)]
+    HRESULT RemoteNext(
+            [in] ULONG celt,
+            [out, size_is(celt), length_is(*pceltFetched)] STATDATA *rgelt,
+            [out] ULONG *pceltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumSTATDATA **ppenum);
+}
+
 cpp_quote("#ifndef __IRootStorage_INTERFACE_DEFINED__")
 cpp_quote("#define __IRootStorage_INTERFACE_DEFINED__")
 cpp_quote("  typedef IRootStorage *LPROOTSTORAGE;")
@@ -1918,16 +1823,36 @@ cpp_quote("#endif")
 cpp_quote("  HRESULT WINAPI IRootStorage_SwitchToFile_Proxy(IRootStorage *This,LPOLESTR pszFile);")
 cpp_quote("  void __RPC_STUB IRootStorage_SwitchToFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IAdviseSink_INTERFACE_DEFINED__")
-cpp_quote("#define __IAdviseSink_INTERFACE_DEFINED__")
-cpp_quote("  typedef IAdviseSink *LPADVISESINK;")
-cpp_quote("")
-cpp_quote("  typedef enum tagTYMED {")
-cpp_quote("    TYMED_HGLOBAL = 1,TYMED_FILE = 2,TYMED_ISTREAM = 4,TYMED_ISTORAGE = 8,")
-cpp_quote("    TYMED_GDI = 16,TYMED_MFPICT = 32,TYMED_ENHMF = 64,TYMED_NULL = 0")
-cpp_quote("  } TYMED;")
-cpp_quote("")
+
+[
+    object,
+    uuid(0000010f-0000-0000-C000-000000000046),
+    /* FIXME: not yet supported by widl: async_uuid(00000150-0000-0000-C000-000000000046), */
+    pointer_default(unique)
+]
+interface IAdviseSink : IUnknown
+{
+    typedef IAdviseSink *LPADVISESINK;
+
+    typedef [v1_enum] enum tagTYMED {
+        TYMED_HGLOBAL = 1,
+        TYMED_FILE = 2,
+        TYMED_ISTREAM = 4,
+        TYMED_ISTORAGE = 8,
+        TYMED_GDI = 16,
+        TYMED_MFPICT = 32,
+        TYMED_ENHMF = 64,
+        TYMED_NULL = 0
+    } TYMED;
+
+    typedef struct tagRemSTGMEDIUM {
+        DWORD tymed;
+        DWORD dwHandleType;
+        unsigned long pData;
+        unsigned long pUnkForRelease;
+        unsigned long cbData;
+        [size_is(cbData)] byte data[];
+    } RemSTGMEDIUM;
 cpp_quote("  typedef struct tagRemSTGMEDIUM {")
 cpp_quote("    DWORD tymed;")
 cpp_quote("    DWORD dwHandleType;")
@@ -1936,7 +1861,24 @@ cpp_quote("    unsigned long pUnkForRelease;")
 cpp_quote("    unsigned long cbData;")
 cpp_quote("    byte data[1 ];")
 cpp_quote("  } RemSTGMEDIUM;")
-cpp_quote("")
+
+/* FIXME: Remove #if 0 */
+cpp_quote("#if 0")
+    typedef struct tagSTGMEDIUM {
+        DWORD tymed;
+        [switch_is(tymed)] union {
+            [case(TYMED_GDI)]      HBITMAP hBitmap;
+            [case(TYMED_MFPICT)]   HMETAFILEPICT hMetaFilePict;
+            [case(TYMED_ENHMF)]    HENHMETAFILE hEnhMetaFile;
+            [case(TYMED_HGLOBAL)]  HGLOBAL hGlobal;
+            [case(TYMED_FILE)]     LPOLESTR lpszFileName;
+            [case(TYMED_ISTREAM)]  IStream *pstm;
+            [case(TYMED_ISTORAGE)] IStorage *pstg;
+            [default]              ;
+        } DUMMYUNIONNAME;
+        [unique] IUnknown *pUnkForRelease;
+    } uSTGMEDIUM;
+cpp_quote("#else")
 cpp_quote("  typedef struct tagSTGMEDIUM {")
 cpp_quote("    DWORD tymed;")
 cpp_quote("    __C89_NAMELESS union {")
@@ -1950,101 +1892,80 @@ cpp_quote("      IStorage *pstg;")
 cpp_quote("    } DUMMYUNIONNAME;")
 cpp_quote("    IUnknown *pUnkForRelease;")
 cpp_quote("  } uSTGMEDIUM;")
-cpp_quote("")
-cpp_quote("  typedef struct _GDI_OBJECT {")
-cpp_quote("    DWORD ObjectType;")
-cpp_quote("    union __MIDL_IAdviseSink_0002 {")
-cpp_quote("      wireHBITMAP hBitmap;")
-cpp_quote("      wireHPALETTE hPalette;")
-cpp_quote("      wireHGLOBAL hGeneric;")
-cpp_quote("    } u;")
-cpp_quote("  } GDI_OBJECT;")
-cpp_quote("")
-cpp_quote("  typedef struct _userSTGMEDIUM {")
-cpp_quote("    struct _STGMEDIUM_UNION {")
-cpp_quote("      DWORD tymed;")
-cpp_quote("      union __MIDL_IAdviseSink_0003 {")
-cpp_quote("	wireHMETAFILEPICT hMetaFilePict;")
-cpp_quote("	wireHENHMETAFILE hHEnhMetaFile;")
-cpp_quote("	GDI_OBJECT *hGdiHandle;")
-cpp_quote("	wireHGLOBAL hGlobal;")
-cpp_quote("	LPOLESTR lpszFileName;")
-cpp_quote("	BYTE_BLOB *pstm;")
-cpp_quote("	BYTE_BLOB *pstg;")
-cpp_quote("      } u;")
-cpp_quote("    } _unnamed;")
-cpp_quote("    IUnknown *pUnkForRelease;")
-cpp_quote("  } userSTGMEDIUM;")
-cpp_quote("")
-cpp_quote("  typedef userSTGMEDIUM *wireSTGMEDIUM;")
-cpp_quote("  typedef uSTGMEDIUM STGMEDIUM;")
-cpp_quote("  typedef userSTGMEDIUM *wireASYNC_STGMEDIUM;")
-cpp_quote("  typedef STGMEDIUM ASYNC_STGMEDIUM;")
-cpp_quote("  typedef STGMEDIUM *LPSTGMEDIUM;")
-cpp_quote("")
-cpp_quote("  typedef struct _userFLAG_STGMEDIUM {")
-cpp_quote("    long ContextFlags;")
-cpp_quote("    long fPassOwnership;")
-cpp_quote("    userSTGMEDIUM Stgmed;")
-cpp_quote("  } userFLAG_STGMEDIUM;")
-cpp_quote("")
-cpp_quote("  typedef userFLAG_STGMEDIUM *wireFLAG_STGMEDIUM;")
-cpp_quote("")
-cpp_quote("  typedef struct _FLAG_STGMEDIUM {")
-cpp_quote("    long ContextFlags;")
-cpp_quote("    long fPassOwnership;")
-cpp_quote("    STGMEDIUM Stgmed;")
-cpp_quote("  } FLAG_STGMEDIUM;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IAdviseSink;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IAdviseSink : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual void WINAPI OnDataChange(FORMATETC *pFormatetc,STGMEDIUM *pStgmed) = 0;")
-cpp_quote("    virtual void WINAPI OnViewChange(DWORD dwAspect,LONG lindex) = 0;")
-cpp_quote("    virtual void WINAPI OnRename(IMoniker *pmk) = 0;")
-cpp_quote("    virtual void WINAPI OnSave(void) = 0;")
-cpp_quote("    virtual void WINAPI OnClose(void) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IAdviseSinkVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IAdviseSink *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IAdviseSink *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IAdviseSink *This);")
-cpp_quote("      void (WINAPI *OnDataChange)(IAdviseSink *This,FORMATETC *pFormatetc,STGMEDIUM *pStgmed);")
-cpp_quote("      void (WINAPI *OnViewChange)(IAdviseSink *This,DWORD dwAspect,LONG lindex);")
-cpp_quote("      void (WINAPI *OnRename)(IAdviseSink *This,IMoniker *pmk);")
-cpp_quote("      void (WINAPI *OnSave)(IAdviseSink *This);")
-cpp_quote("      void (WINAPI *OnClose)(IAdviseSink *This);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IAdviseSinkVtbl;")
-cpp_quote("  struct IAdviseSink {")
-cpp_quote("    CONST_VTBL struct IAdviseSinkVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IAdviseSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IAdviseSink_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IAdviseSink_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IAdviseSink_OnDataChange(This,pFormatetc,pStgmed) (This)->lpVtbl->OnDataChange(This,pFormatetc,pStgmed)")
-cpp_quote("#define IAdviseSink_OnViewChange(This,dwAspect,lindex) (This)->lpVtbl->OnViewChange(This,dwAspect,lindex)")
-cpp_quote("#define IAdviseSink_OnRename(This,pmk) (This)->lpVtbl->OnRename(This,pmk)")
-cpp_quote("#define IAdviseSink_OnSave(This) (This)->lpVtbl->OnSave(This)")
-cpp_quote("#define IAdviseSink_OnClose(This) (This)->lpVtbl->OnClose(This)")
 cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IAdviseSink_RemoteOnDataChange_Proxy(IAdviseSink *This,FORMATETC *pFormatetc,ASYNC_STGMEDIUM *pStgmed);")
-cpp_quote("  void __RPC_STUB IAdviseSink_RemoteOnDataChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IAdviseSink_RemoteOnViewChange_Proxy(IAdviseSink *This,DWORD dwAspect,LONG lindex);")
-cpp_quote("  void __RPC_STUB IAdviseSink_RemoteOnViewChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IAdviseSink_RemoteOnRename_Proxy(IAdviseSink *This,IMoniker *pmk);")
-cpp_quote("  void __RPC_STUB IAdviseSink_RemoteOnRename_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IAdviseSink_RemoteOnSave_Proxy(IAdviseSink *This);")
-cpp_quote("  void __RPC_STUB IAdviseSink_RemoteOnSave_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IAdviseSink_RemoteOnClose_Proxy(IAdviseSink *This);")
-cpp_quote("  void __RPC_STUB IAdviseSink_RemoteOnClose_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
+
+#define OBJ_PAL     5
+#define OBJ_BITMAP  7
+
+    typedef union _GDI_OBJECT switch(DWORD ObjectType) u {
+        case OBJ_BITMAP: wireHBITMAP  hBitmap;
+        case OBJ_PAL:    wireHPALETTE hPalette;
+        default:         wireHGLOBAL  hGeneric;
+    } GDI_OBJECT;
+
+    typedef struct _userSTGMEDIUM {
+        union _STGMEDIUM_UNION switch(DWORD tymed) u {
+            case TYMED_NULL:     ;
+            case TYMED_MFPICT:   wireHMETAFILEPICT hMetaFilePict;
+            case TYMED_ENHMF:    wireHENHMETAFILE  hHEnhMetaFile;
+            case TYMED_GDI:      GDI_OBJECT*       hGdiHandle;
+            case TYMED_HGLOBAL:  wireHGLOBAL       hGlobal;
+            case TYMED_FILE:     LPOLESTR          lpszFileName;
+            case TYMED_ISTREAM:  BYTE_BLOB*        pstm;
+            case TYMED_ISTORAGE: BYTE_BLOB*        pstg;
+        } DUMMYUNIONNAME;
+        IUnknown *              pUnkForRelease;
+    } userSTGMEDIUM;
+
+    typedef [unique] userSTGMEDIUM *wireSTGMEDIUM;
+    typedef [wire_marshal(wireSTGMEDIUM)] uSTGMEDIUM STGMEDIUM;
+    typedef [unique] userSTGMEDIUM  *wireASYNC_STGMEDIUM;
+    typedef [wire_marshal(wireASYNC_STGMEDIUM)] STGMEDIUM ASYNC_STGMEDIUM;
+    typedef STGMEDIUM *LPSTGMEDIUM;
+
+    typedef struct _userFLAG_STGMEDIUM {
+        long ContextFlags;
+        long fPassOwnership;
+        userSTGMEDIUM Stgmed;
+    } userFLAG_STGMEDIUM;
+
+    typedef [unique] userFLAG_STGMEDIUM  *wireFLAG_STGMEDIUM;
+
+    typedef [wire_marshal(wireFLAG_STGMEDIUM)] struct _FLAG_STGMEDIUM {
+        long ContextFlags;
+        long fPassOwnership;
+        STGMEDIUM Stgmed;
+    } FLAG_STGMEDIUM;
+
+    [local]
+    void OnDataChange(
+            [in, unique] FORMATETC *pFormatetc,
+            [in, unique] STGMEDIUM *pStgmed);
+
+    [local]
+    void OnViewChange(
+            [in] DWORD dwAspect,
+            [in] LONG lindex);
+
+    [local] void OnRename([in] IMoniker *pmk);
+    [local] void OnSave();
+    [local] void OnClose();
+
+    [call_as(OnDataChange)]
+    HRESULT  RemoteOnDataChange(
+            [in, unique] FORMATETC *pFormatetc,
+            [in, unique] ASYNC_STGMEDIUM *pStgmed);
+
+    [call_as(OnViewChange)]
+    HRESULT  RemoteOnViewChange(
+            [in] DWORD dwAspect,
+            [in] LONG lindex);
+
+    [call_as(OnRename)] HRESULT  RemoteOnRename([in] IMoniker *pmk);
+    [call_as(OnSave)] HRESULT RemoteOnSave();
+    [call_as(OnClose)] HRESULT RemoteOnClose();
+}
+
 cpp_quote("#ifndef __AsyncIAdviseSink_INTERFACE_DEFINED__")
 cpp_quote("#define __AsyncIAdviseSink_INTERFACE_DEFINED__")
 cpp_quote("  EXTERN_C const IID IID_AsyncIAdviseSink;")
@@ -2219,84 +2140,71 @@ cpp_quote("  void __RPC_STUB AsyncIAdviseSink2_Begin_RemoteOnLinkSrcChange_Stub(
 cpp_quote("  HRESULT WINAPI AsyncIAdviseSink2_Finish_RemoteOnLinkSrcChange_Proxy(AsyncIAdviseSink2 *This);")
 cpp_quote("  void __RPC_STUB AsyncIAdviseSink2_Finish_RemoteOnLinkSrcChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IDataObject_INTERFACE_DEFINED__")
-cpp_quote("#define __IDataObject_INTERFACE_DEFINED__")
-cpp_quote("  typedef IDataObject *LPDATAOBJECT;")
-cpp_quote("")
-cpp_quote("  typedef enum tagDATADIR {")
-cpp_quote("    DATADIR_GET = 1,DATADIR_SET = 2")
-cpp_quote("  } DATADIR;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IDataObject;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IDataObject : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI GetData(FORMATETC *pformatetcIn,STGMEDIUM *pmedium) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetDataHere(FORMATETC *pformatetc,STGMEDIUM *pmedium) = 0;")
-cpp_quote("    virtual HRESULT WINAPI QueryGetData(FORMATETC *pformatetc) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetCanonicalFormatEtc(FORMATETC *pformatectIn,FORMATETC *pformatetcOut) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetData(FORMATETC *pformatetc,STGMEDIUM *pmedium,WINBOOL fRelease) = 0;")
-cpp_quote("    virtual HRESULT WINAPI EnumFormatEtc(DWORD dwDirection,IEnumFORMATETC **ppenumFormatEtc) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DAdvise(FORMATETC *pformatetc,DWORD advf,IAdviseSink *pAdvSink,DWORD *pdwConnection) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DUnadvise(DWORD dwConnection) = 0;")
-cpp_quote("    virtual HRESULT WINAPI EnumDAdvise(IEnumSTATDATA **ppenumAdvise) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IDataObjectVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IDataObject *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IDataObject *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IDataObject *This);")
-cpp_quote("      HRESULT (WINAPI *GetData)(IDataObject *This,FORMATETC *pformatetcIn,STGMEDIUM *pmedium);")
-cpp_quote("      HRESULT (WINAPI *GetDataHere)(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pmedium);")
-cpp_quote("      HRESULT (WINAPI *QueryGetData)(IDataObject *This,FORMATETC *pformatetc);")
-cpp_quote("      HRESULT (WINAPI *GetCanonicalFormatEtc)(IDataObject *This,FORMATETC *pformatectIn,FORMATETC *pformatetcOut);")
-cpp_quote("      HRESULT (WINAPI *SetData)(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pmedium,WINBOOL fRelease);")
-cpp_quote("      HRESULT (WINAPI *EnumFormatEtc)(IDataObject *This,DWORD dwDirection,IEnumFORMATETC **ppenumFormatEtc);")
-cpp_quote("      HRESULT (WINAPI *DAdvise)(IDataObject *This,FORMATETC *pformatetc,DWORD advf,IAdviseSink *pAdvSink,DWORD *pdwConnection);")
-cpp_quote("      HRESULT (WINAPI *DUnadvise)(IDataObject *This,DWORD dwConnection);")
-cpp_quote("      HRESULT (WINAPI *EnumDAdvise)(IDataObject *This,IEnumSTATDATA **ppenumAdvise);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IDataObjectVtbl;")
-cpp_quote("  struct IDataObject {")
-cpp_quote("    CONST_VTBL struct IDataObjectVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IDataObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IDataObject_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IDataObject_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IDataObject_GetData(This,pformatetcIn,pmedium) (This)->lpVtbl->GetData(This,pformatetcIn,pmedium)")
-cpp_quote("#define IDataObject_GetDataHere(This,pformatetc,pmedium) (This)->lpVtbl->GetDataHere(This,pformatetc,pmedium)")
-cpp_quote("#define IDataObject_QueryGetData(This,pformatetc) (This)->lpVtbl->QueryGetData(This,pformatetc)")
-cpp_quote("#define IDataObject_GetCanonicalFormatEtc(This,pformatectIn,pformatetcOut) (This)->lpVtbl->GetCanonicalFormatEtc(This,pformatectIn,pformatetcOut)")
-cpp_quote("#define IDataObject_SetData(This,pformatetc,pmedium,fRelease) (This)->lpVtbl->SetData(This,pformatetc,pmedium,fRelease)")
-cpp_quote("#define IDataObject_EnumFormatEtc(This,dwDirection,ppenumFormatEtc) (This)->lpVtbl->EnumFormatEtc(This,dwDirection,ppenumFormatEtc)")
-cpp_quote("#define IDataObject_DAdvise(This,pformatetc,advf,pAdvSink,pdwConnection) (This)->lpVtbl->DAdvise(This,pformatetc,advf,pAdvSink,pdwConnection)")
-cpp_quote("#define IDataObject_DUnadvise(This,dwConnection) (This)->lpVtbl->DUnadvise(This,dwConnection)")
-cpp_quote("#define IDataObject_EnumDAdvise(This,ppenumAdvise) (This)->lpVtbl->EnumDAdvise(This,ppenumAdvise)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IDataObject_RemoteGetData_Proxy(IDataObject *This,FORMATETC *pformatetcIn,STGMEDIUM *pRemoteMedium);")
-cpp_quote("  void __RPC_STUB IDataObject_RemoteGetData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IDataObject_RemoteGetDataHere_Proxy(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pRemoteMedium);")
-cpp_quote("  void __RPC_STUB IDataObject_RemoteGetDataHere_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IDataObject_QueryGetData_Proxy(IDataObject *This,FORMATETC *pformatetc);")
-cpp_quote("  void __RPC_STUB IDataObject_QueryGetData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IDataObject_GetCanonicalFormatEtc_Proxy(IDataObject *This,FORMATETC *pformatectIn,FORMATETC *pformatetcOut);")
-cpp_quote("  void __RPC_STUB IDataObject_GetCanonicalFormatEtc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IDataObject_RemoteSetData_Proxy(IDataObject *This,FORMATETC *pformatetc,FLAG_STGMEDIUM *pmedium,WINBOOL fRelease);")
-cpp_quote("  void __RPC_STUB IDataObject_RemoteSetData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IDataObject_EnumFormatEtc_Proxy(IDataObject *This,DWORD dwDirection,IEnumFORMATETC **ppenumFormatEtc);")
-cpp_quote("  void __RPC_STUB IDataObject_EnumFormatEtc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IDataObject_DAdvise_Proxy(IDataObject *This,FORMATETC *pformatetc,DWORD advf,IAdviseSink *pAdvSink,DWORD *pdwConnection);")
-cpp_quote("  void __RPC_STUB IDataObject_DAdvise_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IDataObject_DUnadvise_Proxy(IDataObject *This,DWORD dwConnection);")
-cpp_quote("  void __RPC_STUB IDataObject_DUnadvise_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IDataObject_EnumDAdvise_Proxy(IDataObject *This,IEnumSTATDATA **ppenumAdvise);")
-cpp_quote("  void __RPC_STUB IDataObject_EnumDAdvise_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
+
+[
+    object,
+    uuid(0000010e-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IDataObject : IUnknown
+{
+    typedef [unique] IDataObject *LPDATAOBJECT;
+
+    typedef enum tagDATADIR {
+        DATADIR_GET = 1,
+        DATADIR_SET = 2
+    } DATADIR;
+
+    [local]
+    HRESULT GetData(
+            [in, unique] FORMATETC *pformatetcIn,
+            [out] STGMEDIUM *pmedium);
+    [call_as(GetData)]
+    HRESULT RemoteGetData(
+            [in, unique] FORMATETC *pformatetcIn,
+            [out] STGMEDIUM *pRemoteMedium);
+
+    [local]
+    HRESULT GetDataHere(
+            [in, unique] FORMATETC *pformatetc,
+            [in, out] STGMEDIUM *pmedium);
+    [call_as(GetDataHere)]
+    HRESULT RemoteGetDataHere(
+            [in, unique] FORMATETC *pformatetc,
+            [in, out] STGMEDIUM *pRemoteMedium);
+
+    HRESULT QueryGetData(
+            [in, unique] FORMATETC *pformatetc);
+
+    HRESULT GetCanonicalFormatEtc(
+            [in, unique] FORMATETC *pformatectIn,
+            [out] FORMATETC *pformatetcOut);
+
+    [local]
+    HRESULT SetData(
+           [in, unique] FORMATETC *pformatetc,
+           [in, unique] STGMEDIUM *pmedium,
+           [in] BOOL fRelease);
+    [call_as(SetData)]
+    HRESULT RemoteSetData(
+           [in, unique] FORMATETC *pformatetc,
+           [in, unique] FLAG_STGMEDIUM *pmedium,
+           [in] BOOL fRelease);
+
+    HRESULT EnumFormatEtc(
+           [in] DWORD dwDirection,
+           [out] IEnumFORMATETC **ppenumFormatEtc);
+
+    HRESULT DAdvise(
+          [in] FORMATETC *pformatetc,
+          [in] DWORD advf,
+          [in, unique] IAdviseSink *pAdvSink,
+          [out] DWORD *pdwConnection);
+
+    HRESULT DUnadvise([in] DWORD dwConnection);
+    HRESULT EnumDAdvise([out] IEnumSTATDATA **ppenumAdvise);
+}
+
 cpp_quote("#ifndef __IDataAdviseHolder_INTERFACE_DEFINED__")
 cpp_quote("#define __IDataAdviseHolder_INTERFACE_DEFINED__")
 cpp_quote("  typedef IDataAdviseHolder *LPDATAADVISEHOLDER;")
@@ -4715,18 +4623,10 @@ cpp_quote("")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_objidl_0092_v0_0_c_ifspec;")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_objidl_0092_v0_0_s_ifspec;")
 cpp_quote("")
-cpp_quote("  unsigned long __RPC_API ASYNC_STGMEDIUM_UserSize(unsigned long *,unsigned long,ASYNC_STGMEDIUM *);")
-cpp_quote("  unsigned char *__RPC_API ASYNC_STGMEDIUM_UserMarshal(unsigned long *,unsigned char *,ASYNC_STGMEDIUM *);")
-cpp_quote("  unsigned char *__RPC_API ASYNC_STGMEDIUM_UserUnmarshal(unsigned long *,unsigned char *,ASYNC_STGMEDIUM *);")
-cpp_quote("  void __RPC_API ASYNC_STGMEDIUM_UserFree(unsigned long *,ASYNC_STGMEDIUM *);")
 cpp_quote("  unsigned long __RPC_API CLIPFORMAT_UserSize(unsigned long *,unsigned long,CLIPFORMAT *);")
 cpp_quote("  unsigned char *__RPC_API CLIPFORMAT_UserMarshal(unsigned long *,unsigned char *,CLIPFORMAT *);")
 cpp_quote("  unsigned char *__RPC_API CLIPFORMAT_UserUnmarshal(unsigned long *,unsigned char *,CLIPFORMAT *);")
 cpp_quote("  void __RPC_API CLIPFORMAT_UserFree(unsigned long *,CLIPFORMAT *);")
-cpp_quote("  unsigned long __RPC_API FLAG_STGMEDIUM_UserSize(unsigned long *,unsigned long,FLAG_STGMEDIUM *);")
-cpp_quote("  unsigned char *__RPC_API FLAG_STGMEDIUM_UserMarshal(unsigned long *,unsigned char *,FLAG_STGMEDIUM *);")
-cpp_quote("  unsigned char *__RPC_API FLAG_STGMEDIUM_UserUnmarshal(unsigned long *,unsigned char *,FLAG_STGMEDIUM *);")
-cpp_quote("  void __RPC_API FLAG_STGMEDIUM_UserFree(unsigned long *,FLAG_STGMEDIUM *);")
 cpp_quote("  unsigned long __RPC_API HBITMAP_UserSize(unsigned long *,unsigned long,HBITMAP *);")
 cpp_quote("  unsigned char *__RPC_API HBITMAP_UserMarshal(unsigned long *,unsigned char *,HBITMAP *);")
 cpp_quote("  unsigned char *__RPC_API HBITMAP_UserUnmarshal(unsigned long *,unsigned char *,HBITMAP *);")
@@ -4739,14 +4639,6 @@ cpp_quote("  unsigned long __RPC_API HICON_UserSize(unsigned long *,unsigned lon
 cpp_quote("  unsigned char *__RPC_API HICON_UserMarshal(unsigned long *,unsigned char *,HICON *);")
 cpp_quote("  unsigned char *__RPC_API HICON_UserUnmarshal(unsigned long *,unsigned char *,HICON *);")
 cpp_quote("  void __RPC_API HICON_UserFree(unsigned long *,HICON *);")
-cpp_quote("  unsigned long __RPC_API SNB_UserSize(unsigned long *,unsigned long,SNB *);")
-cpp_quote("  unsigned char *__RPC_API SNB_UserMarshal(unsigned long *,unsigned char *,SNB *);")
-cpp_quote("  unsigned char *__RPC_API SNB_UserUnmarshal(unsigned long *,unsigned char *,SNB *);")
-cpp_quote("  void __RPC_API SNB_UserFree(unsigned long *,SNB *);")
-cpp_quote("  unsigned long __RPC_API STGMEDIUM_UserSize(unsigned long *,unsigned long,STGMEDIUM *);")
-cpp_quote("  unsigned char *__RPC_API STGMEDIUM_UserMarshal(unsigned long *,unsigned char *,STGMEDIUM *);")
-cpp_quote("  unsigned char *__RPC_API STGMEDIUM_UserUnmarshal(unsigned long *,unsigned char *,STGMEDIUM *);")
-cpp_quote("  void __RPC_API STGMEDIUM_UserFree(unsigned long *,STGMEDIUM *);")
 cpp_quote("")
 cpp_quote("  HRESULT WINAPI IEnumUnknown_Next_Proxy(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);")
 cpp_quote("  HRESULT WINAPI IEnumUnknown_Next_Stub(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);")
@@ -4758,52 +4650,14 @@ cpp_quote("  HRESULT WINAPI IEnumMoniker_Next_Proxy(IEnumMoniker *This,ULONG cel
 cpp_quote("  HRESULT WINAPI IEnumMoniker_Next_Stub(IEnumMoniker *This,ULONG celt,IMoniker **rgelt,ULONG *pceltFetched);")
 cpp_quote("  WINBOOL WINAPI IRunnableObject_IsRunning_Proxy(IRunnableObject *This);")
 cpp_quote("  HRESULT WINAPI IRunnableObject_IsRunning_Stub(IRunnableObject *This);")
-cpp_quote("  HRESULT WINAPI IMoniker_BindToObject_Proxy(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riidResult,void **ppvResult);")
-cpp_quote("  HRESULT WINAPI IMoniker_BindToObject_Stub(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riidResult,IUnknown **ppvResult);")
-cpp_quote("  HRESULT WINAPI IMoniker_BindToStorage_Proxy(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riid,void **ppvObj);")
-cpp_quote("  HRESULT WINAPI IMoniker_BindToStorage_Stub(IMoniker *This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riid,IUnknown **ppvObj);")
 cpp_quote("  HRESULT WINAPI IEnumString_Next_Proxy(IEnumString *This,ULONG celt,LPOLESTR *rgelt,ULONG *pceltFetched);")
 cpp_quote("  HRESULT WINAPI IEnumString_Next_Stub(IEnumString *This,ULONG celt,LPOLESTR *rgelt,ULONG *pceltFetched);")
-cpp_quote("  HRESULT WINAPI ISequentialStream_Read_Proxy(ISequentialStream *This,void *pv,ULONG cb,ULONG *pcbRead);")
-cpp_quote("  HRESULT WINAPI ISequentialStream_Read_Stub(ISequentialStream *This,byte *pv,ULONG cb,ULONG *pcbRead);")
-cpp_quote("  HRESULT WINAPI ISequentialStream_Write_Proxy(ISequentialStream *This,const void *pv,ULONG cb,ULONG *pcbWritten);")
-cpp_quote("  HRESULT WINAPI ISequentialStream_Write_Stub(ISequentialStream *This,const byte *pv,ULONG cb,ULONG *pcbWritten);")
-cpp_quote("  HRESULT WINAPI IStream_Seek_Proxy(IStream *This,LARGE_INTEGER dlibMove,DWORD dwOrigin,ULARGE_INTEGER *plibNewPosition);")
-cpp_quote("  HRESULT WINAPI IStream_Seek_Stub(IStream *This,LARGE_INTEGER dlibMove,DWORD dwOrigin,ULARGE_INTEGER *plibNewPosition);")
-cpp_quote("  HRESULT WINAPI IStream_CopyTo_Proxy(IStream *This,IStream *pstm,ULARGE_INTEGER cb,ULARGE_INTEGER *pcbRead,ULARGE_INTEGER *pcbWritten);")
-cpp_quote("  HRESULT WINAPI IStream_CopyTo_Stub(IStream *This,IStream *pstm,ULARGE_INTEGER cb,ULARGE_INTEGER *pcbRead,ULARGE_INTEGER *pcbWritten);")
-cpp_quote("  HRESULT WINAPI IEnumSTATSTG_Next_Proxy(IEnumSTATSTG *This,ULONG celt,STATSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("  HRESULT WINAPI IEnumSTATSTG_Next_Stub(IEnumSTATSTG *This,ULONG celt,STATSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("  HRESULT WINAPI IStorage_OpenStream_Proxy(IStorage *This,const OLECHAR *pwcsName,void *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm);")
-cpp_quote("  HRESULT WINAPI IStorage_OpenStream_Stub(IStorage *This,const OLECHAR *pwcsName,unsigned long cbReserved1,byte *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm);")
-cpp_quote("  HRESULT WINAPI IStorage_EnumElements_Proxy(IStorage *This,DWORD reserved1,void *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum);")
-cpp_quote("  HRESULT WINAPI IStorage_EnumElements_Stub(IStorage *This,DWORD reserved1,unsigned long cbReserved2,byte *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum);")
 cpp_quote("  HRESULT WINAPI ILockBytes_ReadAt_Proxy(ILockBytes *This,ULARGE_INTEGER ulOffset,void *pv,ULONG cb,ULONG *pcbRead);")
 cpp_quote("  HRESULT WINAPI ILockBytes_ReadAt_Stub(ILockBytes *This,ULARGE_INTEGER ulOffset,byte *pv,ULONG cb,ULONG *pcbRead);")
 cpp_quote("  HRESULT WINAPI ILockBytes_WriteAt_Proxy(ILockBytes *This,ULARGE_INTEGER ulOffset,const void *pv,ULONG cb,ULONG *pcbWritten);")
 cpp_quote("  HRESULT WINAPI ILockBytes_WriteAt_Stub(ILockBytes *This,ULARGE_INTEGER ulOffset,const byte *pv,ULONG cb,ULONG *pcbWritten);")
-cpp_quote("  HRESULT WINAPI IEnumFORMATETC_Next_Proxy(IEnumFORMATETC *This,ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched);")
-cpp_quote("  HRESULT WINAPI IEnumFORMATETC_Next_Stub(IEnumFORMATETC *This,ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched);")
-cpp_quote("  HRESULT WINAPI IEnumSTATDATA_Next_Proxy(IEnumSTATDATA *This,ULONG celt,STATDATA *rgelt,ULONG *pceltFetched);")
-cpp_quote("  HRESULT WINAPI IEnumSTATDATA_Next_Stub(IEnumSTATDATA *This,ULONG celt,STATDATA *rgelt,ULONG *pceltFetched);")
-cpp_quote("  void WINAPI IAdviseSink_OnDataChange_Proxy(IAdviseSink *This,FORMATETC *pFormatetc,STGMEDIUM *pStgmed);")
-cpp_quote("  HRESULT WINAPI IAdviseSink_OnDataChange_Stub(IAdviseSink *This,FORMATETC *pFormatetc,ASYNC_STGMEDIUM *pStgmed);")
-cpp_quote("  void WINAPI IAdviseSink_OnViewChange_Proxy(IAdviseSink *This,DWORD dwAspect,LONG lindex);")
-cpp_quote("  HRESULT WINAPI IAdviseSink_OnViewChange_Stub(IAdviseSink *This,DWORD dwAspect,LONG lindex);")
-cpp_quote("  void WINAPI IAdviseSink_OnRename_Proxy(IAdviseSink *This,IMoniker *pmk);")
-cpp_quote("  HRESULT WINAPI IAdviseSink_OnRename_Stub(IAdviseSink *This,IMoniker *pmk);")
-cpp_quote("  void WINAPI IAdviseSink_OnSave_Proxy(IAdviseSink *This);")
-cpp_quote("  HRESULT WINAPI IAdviseSink_OnSave_Stub(IAdviseSink *This);")
-cpp_quote("  void WINAPI IAdviseSink_OnClose_Proxy(IAdviseSink *This);")
-cpp_quote("  HRESULT WINAPI IAdviseSink_OnClose_Stub(IAdviseSink *This);")
 cpp_quote("  void WINAPI IAdviseSink2_OnLinkSrcChange_Proxy(IAdviseSink2 *This,IMoniker *pmk);")
 cpp_quote("  HRESULT WINAPI IAdviseSink2_OnLinkSrcChange_Stub(IAdviseSink2 *This,IMoniker *pmk);")
-cpp_quote("  HRESULT WINAPI IDataObject_GetData_Proxy(IDataObject *This,FORMATETC *pformatetcIn,STGMEDIUM *pmedium);")
-cpp_quote("  HRESULT WINAPI IDataObject_GetData_Stub(IDataObject *This,FORMATETC *pformatetcIn,STGMEDIUM *pRemoteMedium);")
-cpp_quote("  HRESULT WINAPI IDataObject_GetDataHere_Proxy(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pmedium);")
-cpp_quote("  HRESULT WINAPI IDataObject_GetDataHere_Stub(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pRemoteMedium);")
-cpp_quote("  HRESULT WINAPI IDataObject_SetData_Proxy(IDataObject *This,FORMATETC *pformatetc,STGMEDIUM *pmedium,WINBOOL fRelease);")
-cpp_quote("  HRESULT WINAPI IDataObject_SetData_Stub(IDataObject *This,FORMATETC *pformatetc,FLAG_STGMEDIUM *pmedium,WINBOOL fRelease);")
 cpp_quote("  HRESULT WINAPI IFillLockBytes_FillAppend_Proxy(IFillLockBytes *This,const void *pv,ULONG cb,ULONG *pcbWritten);")
 cpp_quote("  HRESULT WINAPI IFillLockBytes_FillAppend_Stub(IFillLockBytes *This,const byte *pv,ULONG cb,ULONG *pcbWritten);")
 cpp_quote("  HRESULT WINAPI IFillLockBytes_FillAt_Proxy(IFillLockBytes *This,ULARGE_INTEGER ulOffset,const void *pv,ULONG cb,ULONG *pcbWritten);")
