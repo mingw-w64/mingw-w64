@@ -413,6 +413,20 @@ typedef __WCHAR_TYPE__ wchar_t;
 /* Offset of member MEMBER in a struct of type TYPE. */
 #define offsetof(TYPE, MEMBER) __builtin_offsetof (TYPE, MEMBER)
 
+#if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 201112L) \
+  || (defined(__cplusplus) && __cplusplus >= 201103L)
+#ifndef _GCC_MAX_ALIGN_T
+#define _GCC_MAX_ALIGN_T
+/* Type whose alignment is supported in every context and is at least
+   as great as that of any standard type not using alignment
+   specifiers.  */
+typedef struct {
+  long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
+  long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
+} max_align_t;
+#endif
+#endif /* C11 or C++11.  */
+
 #endif /* _STDDEF_H was defined this time.  */
 
 #endif /* !_STDDEF_H && !_STDDEF_H_ && !_ANSI_STDDEF_H && !__STDDEF_H__
