@@ -601,7 +601,7 @@ typedef __time64_t time_t;
     }                                                                   \
     }
 
-#define __uuidof(type) __mingw_uuidof<typeof(type)>()
+#define __uuidof(type) __mingw_uuidof<__typeof(type)>()
 
 #else
 

@@ -1,3 +1,8 @@
+2012-02-24  Kai Tietz  <ktietz@redhat.com>
+
+	PR/3468894
+	* _mingw.h (__uuidof): Use __typeof instead of typeof.
+
 2012-01-17  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* time.h: Don't include pthread_time.h when we are compiling
