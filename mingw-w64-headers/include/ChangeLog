@@ -1,3 +1,21 @@
+2012-02-24  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from the trunk revs. 4790, 4807, 4809, 4815, 4816 and
+	4817 by wavael to fix some embarassing issues in dxva2api.h:
+	* dxva2api.h (Direct3DDeviceManager9): Fix COBJMACROS to use lpVtbl.
+	(DirectXVideoDecoder): Likewise.
+	(DirectXVideoAccelerationService): Likewise.
+	(DirectXVideoDecoderService): Likewise.
+	(DXVA2_E_NOT_INITIALIZED): Add missing error code.
+	(DXVA2_E_NEW_VIDEO_DEVICE): Likewise.
+	(DXVA2_E_VIDEO_DEVICE_LOCKED): Likewise.
+	(DXVA2_E_NOT_AVAILABLE): Likewise.
+	(DXVA2_ConfigPictureDecode): Change type from UINT to USHORT (msdn
+	documentation is incorrect.)
+	* dxva2api.h: Remove global packing directives and pack only the
+	DXVA_FilmGrainChar_H264, DXVA_SliceInfo and DXVA_Slice_H264_Short
+	structures.
+
 2012-01-26  Kai Tietz  <ktietz@redhat.com>
 
 	* nldef.h (NL_INTERFACE_OFFLOAD_ROD): Remove
