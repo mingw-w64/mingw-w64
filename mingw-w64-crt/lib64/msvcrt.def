@@ -319,6 +319,7 @@ _ftime
 _ftime32_s
 _ftime64
 _ftime64_s
+_ftime_s == _ftime64_s
 _fullpath
 _futime
 _futime64

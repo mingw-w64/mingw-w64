@@ -1,3 +1,8 @@
+2012-02-26  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/msvcrt.def (_ftime_s): Add alias to _ftime32_s.
+	* lib64/msvcrt.def (_ftime_s): Add alias to _ftime64_s.
+
 2012-02-07  Rafaël Carré  <funman@videolan.org>
 
 	* libsrc/dxva-uuid.c (New file): Add DXVA UUIDs

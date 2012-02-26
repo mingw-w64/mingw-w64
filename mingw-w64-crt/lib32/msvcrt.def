@@ -839,6 +839,7 @@ _fprintf_p
 _fprintf_p_l
 _fprintf_s_l
 _ftime32_s
+_ftime_s == _ftime32_s
 _ftime64_s
 _fwprintf_l
 _fwprintf_p
