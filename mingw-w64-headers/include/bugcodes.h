@@ -1,10 +1,10 @@
-/* This file is generated with wmc version 1.3.1. Do not edit! */
+/* This file is generated with wmc version 1.4-rc5. Do not edit! */
 /* Source : bugcodes.mc */
 /* Cmdline: wmc bugcodes.mc */
-/* Date   : Sun Aug 29 20:33:05 2010 */
+/* Date   : Mon Feb 27 10:01:33 2012 */
 
-#ifndef __WMCGENERATED_4c7ac303_H
-#define __WMCGENERATED_4c7ac303_H
+#ifndef __WMCGENERATED_4f4b46e6_H
+#define __WMCGENERATED_4f4b46e6_H
 
 /* Severity codes */
 #define STATUS_SEVERITY_ERROR	0x3
@@ -411,8 +411,8 @@
 #define HAL_INITIALIZATION_FAILED	((ULONG)0x0000005cL)
 
 /* MessageId  : 0x0000005d */
-/* Approximate msg: HEAP_INITIALIZATION_FAILED */
-#define HEAP_INITIALIZATION_FAILED	((ULONG)0x0000005dL)
+/* Approximate msg: UNSUPPORTED_PROCESSOR */
+#define UNSUPPORTED_PROCESSOR	((ULONG)0x0000005dL)
 
 /* MessageId  : 0x0000005e */
 /* Approximate msg: OBJECT_INITIALIZATION_FAILED */
@@ -621,6 +621,10 @@
 /* MessageId  : 0x000000be */
 /* Approximate msg: An attempt was made to write to read-only memory. */
 #define ATTEMPTED_WRITE_TO_READONLY_MEMORY	((ULONG)0x000000beL)
+
+/* MessageId  : 0x000000c1 */
+/* Approximate msg: SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION */
+#define SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION	((ULONG)0x000000c1L)
 
 /* MessageId  : 0x000000c2 */
 /* Approximate msg: BAD_POOL_CALLER */
