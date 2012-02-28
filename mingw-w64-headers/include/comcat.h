@@ -17,6 +17,11 @@
 
 /* Forward declarations */
 
+#ifndef __IEnumGUID_FWD_DEFINED__
+#define __IEnumGUID_FWD_DEFINED__
+typedef interface IEnumGUID IEnumGUID;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -26,11 +31,6 @@ extern "C" {
 #endif
 
 #define __comcat_h__
-#ifndef __IEnumGUID_FWD_DEFINED__
-#define __IEnumGUID_FWD_DEFINED__
-typedef struct IEnumGUID IEnumGUID;
-#endif
-
 #ifndef __IEnumCATEGORYINFO_FWD_DEFINED__
 #define __IEnumCATEGORYINFO_FWD_DEFINED__
 typedef struct IEnumCATEGORYINFO IEnumCATEGORYINFO;
@@ -82,61 +82,139 @@ typedef struct ICatInformation ICatInformation;
   EXTERN_C const CATID CATID_PersistsToPropertyBag;
   EXTERN_C const CATID CATID_InternetAware;
   EXTERN_C const CATID CATID_DesignTimeUIActivatableControl;
-
 #ifndef _LPENUMGUID_DEFINED
 #define _LPENUMGUID_DEFINED
-
-  extern RPC_IF_HANDLE __MIDL_itf_comcat_0000_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_comcat_0000_v0_0_s_ifspec;
-
+/*****************************************************************************
+ * IEnumGUID interface
+ */
 #ifndef __IEnumGUID_INTERFACE_DEFINED__
 #define __IEnumGUID_INTERFACE_DEFINED__
-  typedef IEnumGUID *LPENUMGUID;
-  EXTERN_C const IID IID_IEnumGUID;
+
+typedef IEnumGUID *LPENUMGUID;
+DEFINE_GUID(IID_IEnumGUID, 0x0002e000, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumGUID : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG celt,GUID *rgelt,ULONG *pceltFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG celt) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumGUID **ppenum) = 0;
-  };
+MIDL_INTERFACE("0002e000-0000-0000-c000-000000000046")
+IEnumGUID : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG celt,
+        GUID *rgelt,
+        ULONG *pceltFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG celt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumGUID **ppenum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumGUID, 0x0002e000, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IEnumGUIDVtbl {
+typedef struct IEnumGUIDVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumGUID *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumGUID *This);
-      ULONG (WINAPI *Release)(IEnumGUID *This);
-      HRESULT (WINAPI *Next)(IEnumGUID *This,ULONG celt,GUID *rgelt,ULONG *pceltFetched);
-      HRESULT (WINAPI *Skip)(IEnumGUID *This,ULONG celt);
-      HRESULT (WINAPI *Reset)(IEnumGUID *This);
-      HRESULT (WINAPI *Clone)(IEnumGUID *This,IEnumGUID **ppenum);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumGUID* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumGUID* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumGUID* This);
+
+    /*** IEnumGUID methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumGUID* This,
+        ULONG celt,
+        GUID *rgelt,
+        ULONG *pceltFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumGUID* This,
+        ULONG celt);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumGUID* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumGUID* This,
+        IEnumGUID **ppenum);
+
     END_INTERFACE
-  } IEnumGUIDVtbl;
-  struct IEnumGUID {
-    CONST_VTBL struct IEnumGUIDVtbl *lpVtbl;
-  };
+} IEnumGUIDVtbl;
+interface IEnumGUID {
+    CONST_VTBL IEnumGUIDVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IEnumGUID_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumGUID_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IEnumGUID_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumGUID methods ***/
 #define IEnumGUID_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)
 #define IEnumGUID_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumGUID_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumGUID_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
 #endif
-#endif
-  HRESULT WINAPI IEnumGUID_Next_Proxy(IEnumGUID *This,ULONG celt,GUID *rgelt,ULONG *pceltFetched);
-  void __RPC_STUB IEnumGUID_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumGUID_Skip_Proxy(IEnumGUID *This,ULONG celt);
-  void __RPC_STUB IEnumGUID_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumGUID_Reset_Proxy(IEnumGUID *This);
-  void __RPC_STUB IEnumGUID_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumGUID_Clone_Proxy(IEnumGUID *This,IEnumGUID **ppenum);
-  void __RPC_STUB IEnumGUID_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IEnumGUID_RemoteNext_Proxy(
+    IEnumGUID* This,
+    ULONG celt,
+    GUID *rgelt,
+    ULONG *pceltFetched);
+void __RPC_STUB IEnumGUID_RemoteNext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumGUID_Skip_Proxy(
+    IEnumGUID* This,
+    ULONG celt);
+void __RPC_STUB IEnumGUID_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumGUID_Reset_Proxy(
+    IEnumGUID* This);
+void __RPC_STUB IEnumGUID_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumGUID_Clone_Proxy(
+    IEnumGUID* This,
+    IEnumGUID **ppenum);
+void __RPC_STUB IEnumGUID_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IEnumGUID_Next_Proxy(
+    IEnumGUID* This,
+    ULONG celt,
+    GUID *rgelt,
+    ULONG *pceltFetched);
+HRESULT __RPC_STUB IEnumGUID_Next_Stub(
+    IEnumGUID* This,
+    ULONG celt,
+    GUID *rgelt,
+    ULONG *pceltFetched);
+
+#endif  /* __IEnumGUID_INTERFACE_DEFINED__ */
+
+#endif
 #ifndef _LPENUMCATEGORYINFO_DEFINED
 #define _LPENUMCATEGORYINFO_DEFINED
   extern RPC_IF_HANDLE __MIDL_itf_comcat_0009_v0_0_c_ifspec;

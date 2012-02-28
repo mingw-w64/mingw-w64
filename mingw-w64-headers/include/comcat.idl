@@ -10,11 +10,6 @@ cpp_quote("#define __comcat_h__")
 import "unknwn.idl";
 #endif
 
-cpp_quote("#ifndef __IEnumGUID_FWD_DEFINED__")
-cpp_quote("#define __IEnumGUID_FWD_DEFINED__")
-cpp_quote("typedef struct IEnumGUID IEnumGUID;")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("#ifndef __IEnumCATEGORYINFO_FWD_DEFINED__")
 cpp_quote("#define __IEnumCATEGORYINFO_FWD_DEFINED__")
 cpp_quote("typedef struct IEnumCATEGORYINFO IEnumCATEGORYINFO;")
@@ -66,61 +61,37 @@ cpp_quote("  EXTERN_C const CATID CATID_PersistsToFile;")
 cpp_quote("  EXTERN_C const CATID CATID_PersistsToPropertyBag;")
 cpp_quote("  EXTERN_C const CATID CATID_InternetAware;")
 cpp_quote("  EXTERN_C const CATID CATID_DesignTimeUIActivatableControl;")
-cpp_quote("")
+
 cpp_quote("#ifndef _LPENUMGUID_DEFINED")
 cpp_quote("#define _LPENUMGUID_DEFINED")
-cpp_quote("")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_comcat_0000_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_comcat_0000_v0_0_s_ifspec;")
-cpp_quote("")
-cpp_quote("#ifndef __IEnumGUID_INTERFACE_DEFINED__")
-cpp_quote("#define __IEnumGUID_INTERFACE_DEFINED__")
-cpp_quote("  typedef IEnumGUID *LPENUMGUID;")
-cpp_quote("  EXTERN_C const IID IID_IEnumGUID;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IEnumGUID : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Next(ULONG celt,GUID *rgelt,ULONG *pceltFetched) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Skip(ULONG celt) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Reset(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Clone(IEnumGUID **ppenum) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IEnumGUIDVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IEnumGUID *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IEnumGUID *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IEnumGUID *This);")
-cpp_quote("      HRESULT (WINAPI *Next)(IEnumGUID *This,ULONG celt,GUID *rgelt,ULONG *pceltFetched);")
-cpp_quote("      HRESULT (WINAPI *Skip)(IEnumGUID *This,ULONG celt);")
-cpp_quote("      HRESULT (WINAPI *Reset)(IEnumGUID *This);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IEnumGUID *This,IEnumGUID **ppenum);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IEnumGUIDVtbl;")
-cpp_quote("  struct IEnumGUID {")
-cpp_quote("    CONST_VTBL struct IEnumGUIDVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IEnumGUID_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IEnumGUID_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IEnumGUID_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IEnumGUID_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)")
-cpp_quote("#define IEnumGUID_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)")
-cpp_quote("#define IEnumGUID_Reset(This) (This)->lpVtbl->Reset(This)")
-cpp_quote("#define IEnumGUID_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)")
+
+[
+    object,
+    uuid(0002e000-0000-0000-c000-000000000046),
+    pointer_default(unique)
+]
+interface IEnumGUID : IUnknown
+{
+    typedef [unique] IEnumGUID *LPENUMGUID;
+
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)] GUID *rgelt,
+        [out] ULONG *pceltFetched);
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)] GUID *rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumGUID **ppenum);
+}
+
 cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IEnumGUID_Next_Proxy(IEnumGUID *This,ULONG celt,GUID *rgelt,ULONG *pceltFetched);")
-cpp_quote("  void __RPC_STUB IEnumGUID_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumGUID_Skip_Proxy(IEnumGUID *This,ULONG celt);")
-cpp_quote("  void __RPC_STUB IEnumGUID_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumGUID_Reset_Proxy(IEnumGUID *This);")
-cpp_quote("  void __RPC_STUB IEnumGUID_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumGUID_Clone_Proxy(IEnumGUID *This,IEnumGUID **ppenum);")
-cpp_quote("  void __RPC_STUB IEnumGUID_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
+
 cpp_quote("#ifndef _LPENUMCATEGORYINFO_DEFINED")
 cpp_quote("#define _LPENUMCATEGORYINFO_DEFINED")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_comcat_0009_v0_0_c_ifspec;")
