@@ -191,6 +191,10 @@ errno_t __cdecl _get_errno(int *_Value);
 #define EPROTOTYPE 136
 #endif
 
+#ifndef EOVERFLOW
+#define EOVERFLOW 132
+#endif
+
 #ifdef __cplusplus
 }
 #endif
