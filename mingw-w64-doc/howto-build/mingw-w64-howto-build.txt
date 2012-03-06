@@ -25,6 +25,13 @@ This document is written to help those new to building the mingw-w64 cross
 compilers on Windows using MSYS/MinGW and Cygwin. It can also be adapted
 slightly for building the mingw-w64 cross compiler on Linux.
 
+The mingw-w64 cross compilers consists in a few basic packages, among which
+binutils, gcc, and windows headers, compiled in a special way. Once it is
+operational, it forms the base to compile the packages of your project.
+A collection of packages built on top of mingw-w64 can be found in fedora,
+opensuse. Prebuilt version of mingw-w64 can also be found in the mingw-w64
+website.
+
 For a more advanced guide on building the mingw-w64 cross compiler including
 the optional dependencies, please refer to the "mingw-w64-howto-build-adv.txt"
 guide.
@@ -44,6 +51,7 @@ Date /          Version /  Author
 2009-10-09      1.9        Jonathan Yong <jon_y[a]users.sourceforge.com>
 2010-02-28      1.10       Ozkan Sezer <sezeroz at gmail dot com>
 2010-08-31      1.11       Jonathan Yong <jon_y[a]users.sourceforge.com>
+2012-03-06      1.12       William <r.3[a]libertysurf.fr>
 
 == Table of Contents ==
 
@@ -167,11 +175,25 @@ Note: Do not build GCC in the source tree or in a subdirectory contained in
 
 You have two main choices to make building the cross-compiler toolchain:
 
-1) To build with default standard multilib (allows for building to a 32-bit
-alternate target, using Mingw-w64's lib32), or to disable multilib.  Multilib
-is installed by default, if you don't want it, you have to explicitly disable
-it by passing --disable-multilib to configure, i.e.
-	../path/to/configure --disable-multilib
+1) To build a cross-compiler that will generate 32 bits binaries, 64 bits
+binaries, or that will be multilib enabled (so that the toolchain can target
+both, using Mingw-w64's lib32).
+
+    * 32 bits only : use options such as '--host=i686-w64-mingw32',
+	'--target=i686-w64-mingw32' or '--disable-multilib'
+
+	* 64 bits only : use options such as '--host=x86_64-w64-mingw32',
+	'--target=x86_64-w64-mingw32' or '--disable-multilib'
+
+	* multilib enabled : use options such as '--host=x86_64-w64-mingw32',
+	'--target=x86_64-w64-mingw32','--enable-targets=all','--enable-lib32' or
+	'--enable-targets=x86_64-w64-mingw32,i686-w64-mingw32'
+
+It is recommanded to use the two first options, as the third one will require
+more knowledge to use it properly. In the rest of this howto, examples will be
+provided for the '64 bits only' option and for the 'multilib enabled' option.
+For the '32 bits' option, please replace 'x86_64-w64-mingw32' by
+'i686-w64-mingw32' wherever you see it.
 
 2) Using standard settings of configure, which installs to /usr/local and
 requires no setting changes, or to build to a sysroot you designate. /usr/local
