@@ -180,10 +180,10 @@ binaries, or that will be multilib enabled (so that the toolchain can target
 both, using Mingw-w64's lib32).
 
     * 32 bits only : use options such as '--host=i686-w64-mingw32',
-	'--target=i686-w64-mingw32' or '--disable-multilib'
+	'--target=i686-w64-mingw32' with '--disable-multilib'
 
 	* 64 bits only : use options such as '--host=x86_64-w64-mingw32',
-	'--target=x86_64-w64-mingw32' or '--disable-multilib'
+	'--target=x86_64-w64-mingw32' with '--disable-multilib'
 
 	* multilib enabled : use options such as '--host=x86_64-w64-mingw32',
 	'--target=x86_64-w64-mingw32','--enable-targets=all','--enable-lib32' or
