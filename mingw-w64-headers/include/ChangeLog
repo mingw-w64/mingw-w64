@@ -1,3 +1,14 @@
+2012-03-07  Corinna Vinschen <corinna@vinschen.de>
+
+	* winternl.h (struct _LDR_DATA_TABLE_ENTRY): Changed type of Reserved1
+	from BYTE to LPVOID.
+	(InitializeObjectAttributes): New macro.
+	(OBJ_INHERIT, OBJ_PERMANENT, OBJ_EXCLUSIVE, OBJ_CASE_INSENSITIVE,
+	OBJ_OPENIF, OBJ_OPENLINK, OBJ_KERNEL_HANDLE, OBJ_FORCE_ACCESS_CHECK,
+	OBJ_VALID_ATTRIBUTES): New macro-constants.
+	* iptypes.h (PIP_ADAPTER_ADDRESSES_LH): Add type as pointer to
+	IP_ADAPTER_ADDRESSES_LH.
+
 2012-02-07  Rafaël Carré  <funman@videolan.org>
 
 	* dxva2api.h : Add UUIDS and missing error codes

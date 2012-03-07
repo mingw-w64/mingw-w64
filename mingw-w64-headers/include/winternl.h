@@ -25,7 +25,7 @@ extern "C" {
   } PEB_LDR_DATA,*PPEB_LDR_DATA;
  
   typedef struct _LDR_DATA_TABLE_ENTRY {
-    BYTE Reserved1[2];
+    PVOID Reserved1[2];
     LIST_ENTRY InMemoryOrderLinks;
     PVOID Reserved2[2];
     PVOID DllBase;
@@ -112,6 +112,27 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
     PVOID SecurityDescriptor;
     PVOID SecurityQualityOfService;
   } OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
+
+/* Values for the Attributes member */
+ #define OBJ_INHERIT             0x00000002
+ #define OBJ_PERMANENT           0x00000010
+ #define OBJ_EXCLUSIVE           0x00000020
+ #define OBJ_CASE_INSENSITIVE    0x00000040
+ #define OBJ_OPENIF              0x00000080
+ #define OBJ_OPENLINK            0x00000100
+ #define OBJ_KERNEL_HANDLE       0x00000200
+ #define OBJ_FORCE_ACCESS_CHECK  0x00000400
+ #define OBJ_VALID_ATTRIBUTES    0x000007F2
+
+ /* Helper Macro */
+ #define InitializeObjectAttributes(p,n,a,r,s) { \
+   (p)->Length = sizeof(OBJECT_ATTRIBUTES); \
+   (p)->RootDirectory = (r); \
+   (p)->Attributes = (a); \
+   (p)->ObjectName = (n); \
+   (p)->SecurityDescriptor = (s); \
+   (p)->SecurityQualityOfService = NULL; \
+ }
 
   typedef struct _OBJECT_DATA_INFORMATION {
     BOOLEAN InheritHandle;
