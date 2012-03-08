@@ -251,7 +251,14 @@ BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
 @HAVE_WIDL_TRUE@  include/shtypes.idl \
 @HAVE_WIDL_TRUE@  include/textstor.idl \
 @HAVE_WIDL_TRUE@  include/unknwn.idl \
-@HAVE_WIDL_TRUE@  include/wtypes.idl
+@HAVE_WIDL_TRUE@  include/wtypes.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/amvideo.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/austream.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/ddstream.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/dmodshow.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/mediaobj.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/mmstream.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/vmr9.idl
 
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -874,7 +881,7 @@ uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 
 
 @HAVE_WIDL_TRUE@.idl.h: crt/_mingw.h
-@HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -h -o $(srcdir)/$@ $<
+@HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -I$(srcdir)/direct-x/include -Icrt -I$(srcdir)/crt -h -o $(srcdir)/$@ $<
 
 _mingw_directx.h: $(srcdir)/crt/sdks/_mingw_directx.h.in
 	$(SED) s/MINGW_HAS_DX$$/@MINGW_HAS_DX@/ $< > $@

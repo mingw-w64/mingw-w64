@@ -62,12 +62,19 @@ IDL_SRCS = \
   include/shtypes.idl \
   include/textstor.idl \
   include/unknwn.idl \
-  include/wtypes.idl
+  include/wtypes.idl \
+  direct-x/include/amvideo.idl \
+  direct-x/include/austream.idl \
+  direct-x/include/ddstream.idl \
+  direct-x/include/dmodshow.idl \
+  direct-x/include/mediaobj.idl \
+  direct-x/include/mmstream.idl \
+  direct-x/include/vmr9.idl
 
 BUILT_SOURCES += $(IDL_SRCS:.idl=.h)
 
 .idl.h: crt/_mingw.h
-	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -h -o $(srcdir)/$@ $<
+	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -I$(srcdir)/direct-x/include -Icrt -I$(srcdir)/crt -h -o $(srcdir)/$@ $<
 
 endif
 
