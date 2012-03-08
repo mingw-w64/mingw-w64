@@ -8,10 +8,6 @@
 
 #include <_mingw.h>
 
-#if USE___UUIDOF == 0
-#error No __uuidof support for this target
-#endif
-
 #include <ole2.h>
 #include <malloc.h>
 
