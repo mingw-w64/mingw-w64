@@ -133,7 +133,11 @@ extern "C" {
 #endif
 
 #ifndef NOP_FUNCTION
+#if (_MSC_VER >= 1210)
+#define NOP_FUNCTION __noop
+#else
 #define NOP_FUNCTION (void)0
+#endif
 #endif
 
 #ifndef DECLSPEC_NOINLINE
