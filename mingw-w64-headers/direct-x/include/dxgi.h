@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_DXGI_H
-#define __WIDL_DXGI_H
+#ifndef __dxgi_h__
+#define __dxgi_h__
 
 /* Forward declarations */
 
@@ -2042,4 +2042,4 @@ void __RPC_STUB IDXGIFactory1_IsCurrent_Stub(
 }
 #endif
 
-#endif /* __WIDL_DXGI_H */
+#endif /* __dxgi_h__ */

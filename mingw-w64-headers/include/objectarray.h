@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_OBJECTARRAY_H
-#define __WIDL_OBJECTARRAY_H
+#ifndef __objectarray_h__
+#define __objectarray_h__
 
 /* Forward declarations */
 
@@ -261,4 +261,4 @@ void __RPC_STUB IObjectCollection_Clear_Stub(
 }
 #endif
 
-#endif /* __WIDL_OBJECTARRAY_H */
+#endif /* __objectarray_h__ */

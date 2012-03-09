@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_WPCAPI_H
-#define __WIDL_WPCAPI_H
+#ifndef __wpcapi_h__
+#define __wpcapi_h__
 
 /* Forward declarations */
 
@@ -589,4 +589,4 @@ void            __RPC_USER HWND_UserFree     (ULONG *, HWND *);
 }
 #endif
 
-#endif /* __WIDL_WPCAPI_H */
+#endif /* __wpcapi_h__ */

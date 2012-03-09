@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_AUDIOCLIENT_H
-#define __WIDL_AUDIOCLIENT_H
+#ifndef __audioclient_h__
+#define __audioclient_h__
 
 /* Forward declarations */
 
@@ -72,8 +72,6 @@ typedef interface IChannelAudioVolume IChannelAudioVolume;
 extern "C" {
 #endif
 
-#ifndef __audioclient_h__
-#define __audioclient_h__
 #ifndef __IAudioClient_FWD_DEFINED__
 #define __IAudioClient_FWD_DEFINED__
 typedef interface IAudioClient IAudioClient;
@@ -1293,7 +1291,6 @@ void __RPC_STUB IChannelAudioVolume_GetAllVolumes_Stub(
 #define AUDCLNT_S_BUFFER_EMPTY AUDCLNT_SUCCESS(0x1)
 #define AUDCLNT_S_THREAD_ALREADY_REGISTERED AUDCLNT_SUCCESS(0x2)
 #define AUDCLNT_S_POSITION_STALLED AUDCLNT_SUCCESS(0x3)
-#endif /*__audioclient_h__*/
 /* Begin additional prototypes for all interfaces */
 
 
@@ -1303,4 +1300,4 @@ void __RPC_STUB IChannelAudioVolume_GetAllVolumes_Stub(
 }
 #endif
 
-#endif /* __WIDL_AUDIOCLIENT_H */
+#endif /* __audioclient_h__ */

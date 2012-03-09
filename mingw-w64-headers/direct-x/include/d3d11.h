@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_D3D11_H
-#define __WIDL_D3D11_H
+#ifndef __d3d11_h__
+#define __d3d11_h__
 
 /* Forward declarations */
 
@@ -48,4 +48,4 @@ typedef D3D_PRIMITIVE_TOPOLOGY D3D11_PRIMITIVE_TOPOLOGY;
 }
 #endif
 
-#endif /* __WIDL_D3D11_H */
+#endif /* __d3d11_h__ */

@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_OPTARY_H
-#define __WIDL_OPTARY_H
+#ifndef __optary_h__
+#define __optary_h__
 
 /* Forward declarations */
 
@@ -213,4 +213,4 @@ DEFINE_GUID(CLSID_HTMLLoadOptions, 0x18845040, 0x0FA5, 0x11D1, 0xBA,0x19, 0x00,0
 }
 #endif
 
-#endif /* __WIDL_OPTARY_H */
+#endif /* __optary_h__ */

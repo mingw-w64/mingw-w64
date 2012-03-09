@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_D3DCOMMON_H
-#define __WIDL_D3DCOMMON_H
+#ifndef __d3dcommon_h__
+#define __d3dcommon_h__
 
 /* Forward declarations */
 
@@ -731,4 +731,4 @@ typedef enum _D3D_SHADER_INPUT_TYPE {
 }
 #endif
 
-#endif /* __WIDL_D3DCOMMON_H */
+#endif /* __d3dcommon_h__ */

@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_MSCOREE_H
-#define __WIDL_MSCOREE_H
+#ifndef __mscoree_h__
+#define __mscoree_h__
 
 /* Forward declarations */
 
@@ -1343,4 +1343,4 @@ void __RPC_STUB IManagedObject_GetObjectIdentity_Stub(
 }
 #endif
 
-#endif /* __WIDL_MSCOREE_H */
+#endif /* __mscoree_h__ */

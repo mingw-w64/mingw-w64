@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_WINCODEC_H
-#define __WIDL_WINCODEC_H
+#ifndef __wincodec_h__
+#define __wincodec_h__
 
 /* Forward declarations */
 
@@ -4881,4 +4881,4 @@ void            __RPC_USER HICON_UserFree     (ULONG *, HICON *);
 }
 #endif
 
-#endif /* __WIDL_WINCODEC_H */
+#endif /* __wincodec_h__ */

@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_STRUCTUREDQUERYCONDITION_H
-#define __WIDL_STRUCTUREDQUERYCONDITION_H
+#ifndef __structuredquerycondition_h__
+#define __structuredquerycondition_h__
 
 /* Forward declarations */
 
@@ -60,4 +60,4 @@ typedef enum tagCONDITION_OPERATION {
 }
 #endif
 
-#endif /* __WIDL_STRUCTUREDQUERYCONDITION_H */
+#endif /* __structuredquerycondition_h__ */

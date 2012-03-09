@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_PROPSYS_H
-#define __WIDL_PROPSYS_H
+#ifndef __propsys_h__
+#define __propsys_h__
 
 /* Forward declarations */
 
@@ -3826,4 +3826,4 @@ void            __RPC_USER LPSAFEARRAY_UserFree     (ULONG *, LPSAFEARRAY *);
 }
 #endif
 
-#endif /* __WIDL_PROPSYS_H */
+#endif /* __propsys_h__ */

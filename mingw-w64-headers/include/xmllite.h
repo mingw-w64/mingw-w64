@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_XMLLITE_H
-#define __WIDL_XMLLITE_H
+#ifndef __xmllite_h__
+#define __xmllite_h__
 
 /* Forward declarations */
 
@@ -1109,4 +1109,4 @@ void __RPC_STUB IXmlWriter_Flush_Stub(
 }
 #endif
 
-#endif /* __WIDL_XMLLITE_H */
+#endif /* __xmllite_h__ */

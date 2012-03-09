@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_MMDEVICEAPI_H
-#define __WIDL_MMDEVICEAPI_H
+#ifndef __mmdeviceapi_h__
+#define __mmdeviceapi_h__
 
 /* Forward declarations */
 
@@ -794,4 +794,4 @@ __CRT_UUID_DECL(MMDeviceEnumerator, 0xbcde0395, 0xe52f, 0x467c, 0x8e,0x3d, 0xc4,
 }
 #endif
 
-#endif /* __WIDL_MMDEVICEAPI_H */
+#endif /* __mmdeviceapi_h__ */

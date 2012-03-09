@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_FUSION_H
-#define __WIDL_FUSION_H
+#ifndef __fusion_h__
+#define __fusion_h__
 
 /* Forward declarations */
 
@@ -945,4 +945,4 @@ HRESULT WINAPI GetCachePath(ASM_CACHE_FLAGS,LPWSTR,PDWORD);
 }
 #endif
 
-#endif /* __WIDL_FUSION_H */
+#endif /* __fusion_h__ */

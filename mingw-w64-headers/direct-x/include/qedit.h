@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_QEDIT_H
-#define __WIDL_QEDIT_H
+#ifndef __qedit_h__
+#define __qedit_h__
 
 /* Forward declarations */
 
@@ -663,4 +663,4 @@ void            __RPC_USER BSTR_UserFree     (ULONG *, BSTR *);
 }
 #endif
 
-#endif /* __WIDL_QEDIT_H */
+#endif /* __qedit_h__ */

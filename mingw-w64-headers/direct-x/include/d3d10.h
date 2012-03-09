@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_D3D10_H
-#define __WIDL_D3D10_H
+#ifndef __d3d10_h__
+#define __d3d10_h__
 
 /* Forward declarations */
 
@@ -5762,4 +5762,4 @@ void __RPC_STUB ID3D10Multithread_GetMultithreadProtected_Stub(
 }
 #endif
 
-#endif /* __WIDL_D3D10_H */
+#endif /* __d3d10_h__ */

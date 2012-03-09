@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_AMSTREAM_H
-#define __WIDL_AMSTREAM_H
+#ifndef __amstream_h__
+#define __amstream_h__
 
 /* Forward declarations */
 
@@ -1731,4 +1731,4 @@ void            __RPC_USER BSTR_UserFree     (ULONG *, BSTR *);
 }
 #endif
 
-#endif /* __WIDL_AMSTREAM_H */
+#endif /* __amstream_h__ */

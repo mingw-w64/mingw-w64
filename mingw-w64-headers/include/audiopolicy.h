@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_AUDIOPOLICY_H
-#define __WIDL_AUDIOPOLICY_H
+#ifndef __audiopolicy_h__
+#define __audiopolicy_h__
 
 /* Forward declarations */
 
@@ -69,8 +69,6 @@ typedef interface IAudioSessionManager2 IAudioSessionManager2;
 extern "C" {
 #endif
 
-#ifndef __audiopolicy_h__
-#define __audiopolicy_h__
 #ifndef __IAudioSessionEvents_FWD_DEFINED__
 #define __IAudioSessionEvents_FWD_DEFINED__
 typedef interface IAudioSessionEvents IAudioSessionEvents;
@@ -1173,7 +1171,6 @@ void __RPC_STUB IAudioSessionManager2_UnregisterDuckNotification_Stub(
 
 #endif  /* __IAudioSessionManager2_INTERFACE_DEFINED__ */
 
-#endif /*__audiopolicy_h__*/
 /* Begin additional prototypes for all interfaces */
 
 
@@ -1183,4 +1180,4 @@ void __RPC_STUB IAudioSessionManager2_UnregisterDuckNotification_Stub(
 }
 #endif
 
-#endif /* __WIDL_AUDIOPOLICY_H */
+#endif /* __audiopolicy_h__ */
