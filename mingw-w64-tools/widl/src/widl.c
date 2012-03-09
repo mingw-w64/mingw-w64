@@ -128,7 +128,6 @@ char *server_token;
 char *regscript_name;
 char *regscript_token;
 static char *idfile_name;
-static char *idfile_token;
 char *temp_name;
 const char *prefix_client = "";
 const char *prefix_server = "";
@@ -198,7 +197,7 @@ static char *make_token(const char *name)
   token = xstrdup(name);
   for (i=0; token[i]; i++) {
     if (!isalnum(token[i])) token[i] = '_';
-    else token[i] = toupper(token[i]);
+    else token[i] = tolower(token[i]);
   }
   return token;
 }
@@ -464,8 +463,6 @@ static void write_id_data_stmts(const statement_list_t *stmts)
 void write_id_data(const statement_list_t *stmts)
 {
   if (!do_idfile) return;
-
-  idfile_token = make_token(idfile_name);
 
   idfile = fopen(idfile_name, "w");
   if (! idfile) {
