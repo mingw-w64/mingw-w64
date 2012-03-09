@@ -171,6 +171,14 @@
 #define NTAPI __stdcall
 
 
+#ifndef NOP_FUNCTION
+#if (_MSC_VER >= 1210)
+#define NOP_FUNCTION __noop
+#else
+#define NOP_FUNCTION (void)0
+#endif
+#endif
+
 /* Import and Export Specifiers */
 
 /* Done the same way as in windef.h for now */
