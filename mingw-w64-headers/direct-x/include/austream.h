@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_AUSTREAM_H
-#define __WIDL_AUSTREAM_H
+#ifndef __austream_h__
+#define __austream_h__
 
 /* Forward declarations */
 
@@ -536,4 +536,4 @@ void __RPC_STUB IAudioData_SetFormat_Stub(
 }
 #endif
 
-#endif /* __WIDL_AUSTREAM_H */
+#endif /* __austream_h__ */

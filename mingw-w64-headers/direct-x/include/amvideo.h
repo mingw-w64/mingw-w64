@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_AMVIDEO_H
-#define __WIDL_AMVIDEO_H
+#ifndef __amvideo_h__
+#define __amvideo_h__
 
 /* Forward declarations */
 
@@ -1296,4 +1296,4 @@ void            __RPC_USER BSTR_UserFree     (ULONG *, BSTR *);
 }
 #endif
 
-#endif /* __WIDL_AMVIDEO_H */
+#endif /* __amvideo_h__ */

@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_MMSTREAM_H
-#define __WIDL_MMSTREAM_H
+#ifndef __mmstream_h__
+#define __mmstream_h__
 
 /* Forward declarations */
 
@@ -630,4 +630,4 @@ void __RPC_STUB IStreamSample_CompletionStatus_Stub(
 }
 #endif
 
-#endif /* __WIDL_MMSTREAM_H */
+#endif /* __mmstream_h__ */

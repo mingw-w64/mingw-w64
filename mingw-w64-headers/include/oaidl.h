@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_OAIDL_H
-#define __WIDL_OAIDL_H
+#ifndef __oaidl_h__
+#define __oaidl_h__
 
 /* Forward declarations */
 
@@ -45,7 +45,6 @@ typedef interface ITypeLib ITypeLib;
 extern "C" {
 #endif
 
-#define __oaidl_h__
 #ifndef __IDispatch_FWD_DEFINED__
 #define __IDispatch_FWD_DEFINED__
 typedef interface IDispatch IDispatch;
@@ -3049,4 +3048,4 @@ void            __RPC_USER CLEANLOCALSTORAGE_UserFree     (ULONG *, CLEANLOCALST
 }
 #endif
 
-#endif /* __WIDL_OAIDL_H */
+#endif /* __oaidl_h__ */

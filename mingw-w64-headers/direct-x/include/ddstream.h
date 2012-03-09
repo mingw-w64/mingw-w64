@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_DDSTREAM_H
-#define __WIDL_DDSTREAM_H
+#ifndef __ddstream_h__
+#define __ddstream_h__
 
 /* Forward declarations */
 
@@ -404,4 +404,4 @@ void __RPC_STUB IDirectDrawStreamSample_SetRect_Stub(
 }
 #endif
 
-#endif /* __WIDL_DDSTREAM_H */
+#endif /* __ddstream_h__ */

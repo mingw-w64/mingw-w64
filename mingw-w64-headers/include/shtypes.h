@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_SHTYPES_H
-#define __WIDL_SHTYPES_H
+#ifndef __shtypes_h__
+#define __shtypes_h__
 
 /* Forward declarations */
 
@@ -25,7 +25,6 @@
 extern "C" {
 #endif
 
-#define __shtypes_h__
 #ifndef __MIDL_user_allocate_free_DEFINED__
 #define __MIDL_user_allocate_free_DEFINED__
   void *__RPC_API MIDL_user_allocate(size_t);
@@ -166,4 +165,4 @@ typedef FOLDERTYPEID *REFFOLDERTYPEID;
 }
 #endif
 
-#endif /* __WIDL_SHTYPES_H */
+#endif /* __shtypes_h__ */

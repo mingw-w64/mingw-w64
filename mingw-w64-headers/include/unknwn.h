@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_UNKNWN_H
-#define __WIDL_UNKNWN_H
+#ifndef __unknwn_h__
+#define __unknwn_h__
 
 /* Forward declarations */
 
@@ -404,4 +404,4 @@ HRESULT __RPC_STUB IClassFactory_LockServer_Stub(
 }
 #endif
 
-#endif /* __WIDL_UNKNWN_H */
+#endif /* __unknwn_h__ */

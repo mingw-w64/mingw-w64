@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_MEDIAOBJ_H
-#define __WIDL_MEDIAOBJ_H
+#ifndef __mediaobj_h__
+#define __mediaobj_h__
 
 /* Forward declarations */
 
@@ -187,4 +187,4 @@ void __RPC_STUB IEnumDMO_Clone_Stub(
 }
 #endif
 
-#endif /* __WIDL_MEDIAOBJ_H */
+#endif /* __mediaobj_h__ */

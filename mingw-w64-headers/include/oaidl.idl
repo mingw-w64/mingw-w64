@@ -8,8 +8,6 @@
 import "objidl.idl";
 #endif
 
-cpp_quote("#define __oaidl_h__")
-
 interface IDispatch;
 interface IRecordInfo;
 interface ITypeInfo;

@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_MSCTF_H
-#define __WIDL_MSCTF_H
+#ifndef __msctf_h__
+#define __msctf_h__
 
 /* Forward declarations */
 
@@ -6738,4 +6738,4 @@ void            __RPC_USER VARIANT_UserFree     (ULONG *, VARIANT *);
 }
 #endif
 
-#endif /* __WIDL_MSCTF_H */
+#endif /* __msctf_h__ */

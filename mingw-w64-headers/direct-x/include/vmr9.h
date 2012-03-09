@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_VMR9_H
-#define __WIDL_VMR9_H
+#ifndef __vmr9_h__
+#define __vmr9_h__
 
 /* Forward declarations */
 
@@ -2508,4 +2508,4 @@ void __RPC_STUB IVMRImageCompositor9_CompositeImage_Stub(
 }
 #endif
 
-#endif /* __WIDL_VMR9_H */
+#endif /* __vmr9_h__ */

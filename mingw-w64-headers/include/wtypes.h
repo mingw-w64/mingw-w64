@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_WTYPES_H
-#define __WIDL_WTYPES_H
+#ifndef __wtypes_h__
+#define __wtypes_h__
 
 /* Forward declarations */
 
@@ -835,4 +835,4 @@ typedef struct __WIDL_wtypes_generated_name_00000000 {
 }
 #endif
 
-#endif /* __WIDL_WTYPES_H */
+#endif /* __wtypes_h__ */

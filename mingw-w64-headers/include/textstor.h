@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_TEXTSTOR_H
-#define __WIDL_TEXTSTOR_H
+#ifndef __textstor_h__
+#define __textstor_h__
 
 /* Forward declarations */
 
@@ -1019,4 +1019,4 @@ void            __RPC_USER HWND_UserFree     (ULONG *, HWND *);
 }
 #endif
 
-#endif /* __WIDL_TEXTSTOR_H */
+#endif /* __textstor_h__ */

@@ -6,8 +6,6 @@
 
 import "wtypes.idl";
 
-cpp_quote("#define __shtypes_h__")
-
 cpp_quote("#ifndef __MIDL_user_allocate_free_DEFINED__")
 cpp_quote("#define __MIDL_user_allocate_free_DEFINED__")
 cpp_quote("  void *__RPC_API MIDL_user_allocate(size_t);")

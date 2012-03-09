@@ -4,8 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-cpp_quote("#define __comcat_h__")
-
 #ifndef DO_NO_IMPORTS
 import "unknwn.idl";
 #endif

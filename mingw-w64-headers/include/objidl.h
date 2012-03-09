@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_OBJIDL_H
-#define __WIDL_OBJIDL_H
+#ifndef __objidl_h__
+#define __objidl_h__
 
 /* Forward declarations */
 
@@ -7076,4 +7076,4 @@ void            __RPC_USER FLAG_STGMEDIUM_UserFree     (ULONG *, FLAG_STGMEDIUM 
 }
 #endif
 
-#endif /* __WIDL_OBJIDL_H */
+#endif /* __objidl_h__ */

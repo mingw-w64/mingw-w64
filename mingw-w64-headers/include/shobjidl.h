@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_SHOBJIDL_H
-#define __WIDL_SHOBJIDL_H
+#ifndef __shobjidl_h__
+#define __shobjidl_h__
 
 /* Forward declarations */
 
@@ -7195,4 +7195,4 @@ DEFINE_GUID(CLSID_FileSaveDialog, 0xc0b4e2f3, 0xba21, 0x4773, 0x8d,0xba, 0x33,0x
 }
 #endif
 
-#endif /* __WIDL_SHOBJIDL_H */
+#endif /* __shobjidl_h__ */

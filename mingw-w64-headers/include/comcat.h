@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_COMCAT_H
-#define __WIDL_COMCAT_H
+#ifndef __comcat_h__
+#define __comcat_h__
 
 /* Forward declarations */
 
@@ -30,7 +30,6 @@ typedef interface IEnumGUID IEnumGUID;
 extern "C" {
 #endif
 
-#define __comcat_h__
 #ifndef __IEnumCATEGORYINFO_FWD_DEFINED__
 #define __IEnumCATEGORYINFO_FWD_DEFINED__
 typedef struct IEnumCATEGORYINFO IEnumCATEGORYINFO;
@@ -414,4 +413,4 @@ HRESULT __RPC_STUB IEnumGUID_Next_Stub(
 }
 #endif
 
-#endif /* __WIDL_COMCAT_H */
+#endif /* __comcat_h__ */
