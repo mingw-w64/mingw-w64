@@ -29,13 +29,6 @@
 
 typedef UINT64 D2D1_TAG;
 
-#pragma push_macro("IDWriteTextFormat")
-#pragma push_macro("IDWriteRenderingParams")
-#pragma push_macro("IDWriteTextLayout")
-#undef IDWriteTextFormat
-#undef IDWriteRenderingParams
-#undef IDWriteTextLayout
-
 #if !defined(D2D_USE_C_DEFINITIONS) && !defined(__cplusplus)
 #define D2D_USE_C_DEFINITIONS
 #endif
@@ -2416,10 +2409,6 @@ __CRT_UUID_DECL(ID2D1TessellationSink, 0x2cd906c1,0x12e2,0x11dc,0x9f,0xed,0x00,0
 #endif
 
 #include <d2d1helper.h>
-
-#pragma pop_macro("IDWriteTextFormat")
-#pragma pop_macro("IDWriteRenderingParams")
-#pragma pop_macro("IDWriteTextLayout")
 
 #ifdef __cplusplus
 extern "C" {
