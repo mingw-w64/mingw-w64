@@ -66,8 +66,13 @@ IDL_SRCS = \
   include/wtypes.idl \
   direct-x/include/amvideo.idl \
   direct-x/include/austream.idl \
+  direct-x/include/d3d10.idl \
+  direct-x/include/d3d10_1.idl \
+  direct-x/include/d3d11.idl \
+  direct-x/include/d3dcommon.idl \
   direct-x/include/ddstream.idl \
   direct-x/include/dmodshow.idl \
+  direct-x/include/dxgi.idl \
   direct-x/include/mediaobj.idl \
   direct-x/include/mmstream.idl \
   direct-x/include/vmr9.idl
