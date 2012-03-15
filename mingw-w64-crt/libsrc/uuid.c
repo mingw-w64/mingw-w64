@@ -11,6 +11,8 @@
   TODO: Break up into smaller units, based on declarations in headers.
 */
 
+#define _WIN32_IE 0x0900
+
 #define INITGUID
 #include <basetyps.h>
 
@@ -18,6 +20,7 @@
 #include <shobjidl.h>
 #include <propkey.h>
 #include <isguids.h>
+#include <shlguid.h>
 
 DEFINE_GUID(ARRAYID_PathProperties,0x7ecbba04,0x2d97,0x11cf,0xa2,0x29,0,0xaa,0,0x3d,0x73,0x52);
 DEFINE_GUID(CATID_Control,0x40fc6ed4,0x2438,0x11cf,0xa3,0xdb,0x8,0,0x36,0xf1,0x25,0x2);
