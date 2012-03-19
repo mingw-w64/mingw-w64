@@ -129,14 +129,15 @@ AS_VAR_IF([enable_ddk],[yes],[
 AC_SUBST([DDKHEAD_LIST])
 AC_SUBST([MINGW_HAS_DDK])
 
-AC_MSG_CHECKING([if headers generation via idl is enabled])
+AC_MSG_CHECKING([if installing idl files is enabled])
 AC_ARG_ENABLE([idl],
     [AS_HELP_STRING([--enable-idl],
-        [Enable generation of headers via idl in maintainer-mode (default disabled)])])
-test -z "$enable_idl" && enable_idl="no"
+        [Enable installing idl files (default disabled)])],
+    [enable_idl=yes])
 AC_MSG_RESULT([$enable_idl])
-AS_VAR_IF([enable_idl],[no],[
-    IDLHEAD_LIST=$srcdir/idl/*.idl])
+AS_VAR_IF([enable_idl],[yes],
+    [IDLHEAD_LIST=$srcdir/include/*.idl],
+    [IDLHEAD_LIST=""])
 AC_SUBST([IDLHEAD_LIST])
 
 AC_MSG_CHECKING([whether to enable the secure API])

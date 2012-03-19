@@ -1299,8 +1299,7 @@ Optional Features:
   --disable-crt           Do not use the default crt headers
   --enable-sdk=ARG        Add the desired SDK, where ARG can be one of ddk,
                           directx, no or all
-  --enable-idl            Enable generation of headers via idl in
-                          maintainer-mode (default disabled)
+  --enable-idl            Enable installing idl files (default disabled)
   --enable-secure-api     Enable secure API by default
 
 Optional Packages:
@@ -2635,19 +2634,19 @@ fi
 
 
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking if headers generation via idl is enabled" >&5
-$as_echo_n "checking if headers generation via idl is enabled... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking if installing idl files is enabled" >&5
+$as_echo_n "checking if installing idl files is enabled... " >&6; }
 # Check whether --enable-idl was given.
 if test "${enable_idl+set}" = set; then :
-  enableval=$enable_idl;
+  enableval=$enable_idl; enable_idl=yes
 fi
 
-test -z "$enable_idl" && enable_idl="no"
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_idl" >&5
 $as_echo "$enable_idl" >&6; }
-if test "x$enable_idl" = xno; then :
-
-    IDLHEAD_LIST=$srcdir/idl/*.idl
+if test "x$enable_idl" = xyes; then :
+  IDLHEAD_LIST=$srcdir/include/*.idl
+else
+  IDLHEAD_LIST=""
 fi
 
 
