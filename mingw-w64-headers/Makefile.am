@@ -65,6 +65,7 @@ IDL_SRCS = \
   include/objidl.idl \
   include/shobjidl.idl \
   include/shtypes.idl \
+  include/tpcshrd.idl \
   include/textstor.idl \
   include/unknwn.idl \
   include/wpcapi.idl \
