@@ -107,7 +107,7 @@ cpp_quote("STDAPI CreateXmlReader(REFIID riid, void **ppvObject, IMalloc *pMallo
 
 cpp_quote("typedef IUnknown IXmlReaderInput;")
 cpp_quote("STDAPI CreateXmlReaderInputWithEncodingName(IUnknown *stream, IMalloc *pMalloc,")
-cpp_quote("                                            LPCWSTR encoding, BOOL hint,")
+cpp_quote("                                            LPCWSTR encoding, WINBOOL hint,")
 cpp_quote("                                            LPCWSTR base_uri, IXmlReaderInput **ppInput);")
 
 typedef enum XmlStandalone

@@ -54,16 +54,22 @@ BUILT_SOURCES = \
 if HAVE_WIDL
 
 IDL_SRCS = \
+  include/audioclient.idl \
+  include/fusion.idl \
   include/oaidl.idl \
   include/ocidl.idl \
   include/comcat.idl \
+  include/mscoree.idl \
   include/msctf.idl \
+  include/objectarray.idl \
   include/objidl.idl \
   include/shobjidl.idl \
   include/shtypes.idl \
   include/textstor.idl \
   include/unknwn.idl \
+  include/wpcapi.idl \
   include/wtypes.idl \
+  include/xmllite.idl \
   direct-x/include/amvideo.idl \
   direct-x/include/austream.idl \
   direct-x/include/d3d10.idl \
