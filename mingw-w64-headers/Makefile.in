@@ -244,6 +244,7 @@ EXTRA_HEADERS = \
 BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
 @HAVE_WIDL_TRUE@IDL_SRCS = \
 @HAVE_WIDL_TRUE@  include/audioclient.idl \
+@HAVE_WIDL_TRUE@  include/audiopolicy.idl \
 @HAVE_WIDL_TRUE@  include/downloadmgr.idl \
 @HAVE_WIDL_TRUE@  include/fusion.idl \
 @HAVE_WIDL_TRUE@  include/oaidl.idl \
@@ -255,6 +256,7 @@ BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
 @HAVE_WIDL_TRUE@  include/objidl.idl \
 @HAVE_WIDL_TRUE@  include/oleidl.idl \
 @HAVE_WIDL_TRUE@  include/optary.idl \
+@HAVE_WIDL_TRUE@  include/propidl.idl \
 @HAVE_WIDL_TRUE@  include/shobjidl.idl \
 @HAVE_WIDL_TRUE@  include/shtypes.idl \
 @HAVE_WIDL_TRUE@  include/tpcshrd.idl \
