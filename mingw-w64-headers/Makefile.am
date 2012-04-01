@@ -70,6 +70,7 @@ IDL_SRCS = \
   include/tpcshrd.idl \
   include/textstor.idl \
   include/unknwn.idl \
+  include/urlmon.idl \
   include/wpcapi.idl \
   include/wtypes.idl \
   include/xmllite.idl \

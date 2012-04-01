@@ -6,6 +6,8 @@
 
 import "oaidl.idl";
 import "oleidl.idl";
+// import "servprov.idl";
+import "urlmon.idl";
 
 cpp_quote("#ifndef __IEnumConnections_FWD_DEFINED__")
 cpp_quote("#define __IEnumConnections_FWD_DEFINED__")
@@ -203,7 +205,6 @@ cpp_quote("typedef struct IQuickActivate IQuickActivate;")
 cpp_quote("#endif")
 cpp_quote("")
 cpp_quote("#include \"servprov.h\"")
-cpp_quote("#include \"urlmon.h\"")
 cpp_quote("")
 cpp_quote("#ifndef __MIDL_user_allocate_free_DEFINED__")
 cpp_quote("#define __MIDL_user_allocate_free_DEFINED__")

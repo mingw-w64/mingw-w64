@@ -21,6 +21,7 @@
 
 #include <oaidl.h>
 #include <oleidl.h>
+#include <urlmon.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -222,7 +223,6 @@ typedef struct IQuickActivate IQuickActivate;
 #endif
 
 #include "servprov.h"
-#include "urlmon.h"
 
 #ifndef __MIDL_user_allocate_free_DEFINED__
 #define __MIDL_user_allocate_free_DEFINED__
