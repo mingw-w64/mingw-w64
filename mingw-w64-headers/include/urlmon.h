@@ -17,6 +17,16 @@
 
 /* Forward declarations */
 
+#ifndef __IBinding_FWD_DEFINED__
+#define __IBinding_FWD_DEFINED__
+typedef interface IBinding IBinding;
+#endif
+
+#ifndef __IBindStatusCallback_FWD_DEFINED__
+#define __IBindStatusCallback_FWD_DEFINED__
+typedef interface IBindStatusCallback IBindStatusCallback;
+#endif
+
 /* Headers for imported files */
 
 #include <objidl.h>
@@ -40,16 +50,6 @@ typedef struct IMonikerProp IMonikerProp;
 #ifndef __IBindProtocol_FWD_DEFINED__
 #define __IBindProtocol_FWD_DEFINED__
 typedef struct IBindProtocol IBindProtocol;
-#endif
-
-#ifndef __IBinding_FWD_DEFINED__
-#define __IBinding_FWD_DEFINED__
-typedef struct IBinding IBinding;
-#endif
-
-#ifndef __IBindStatusCallback_FWD_DEFINED__
-#define __IBindStatusCallback_FWD_DEFINED__
-typedef struct IBindStatusCallback IBindStatusCallback;
 #endif
 
 #ifndef __IAuthenticate_FWD_DEFINED__
@@ -527,47 +527,98 @@ typedef struct IWrappedProtocol IWrappedProtocol;
   void __RPC_STUB IBindProtocol_CreateBinding_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 #endif
-
 #ifndef _LPBINDING_DEFINED
 #define _LPBINDING_DEFINED
-  extern RPC_IF_HANDLE __MIDL_itf_urlmon_0180_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_urlmon_0180_v0_0_s_ifspec;
+/*****************************************************************************
+ * IBinding interface
+ */
 #ifndef __IBinding_INTERFACE_DEFINED__
 #define __IBinding_INTERFACE_DEFINED__
-  typedef IBinding *LPBINDING;
 
-  EXTERN_C const IID IID_IBinding;
+typedef IBinding *LPBINDING;
+DEFINE_GUID(IID_IBinding, 0x79eac9c0, 0xbaf9, 0x11ce, 0x8c,0x82, 0x00,0xaa,0x00,0x4b,0xa9,0x0b);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IBinding : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Abort(void) = 0;
-    virtual HRESULT WINAPI Suspend(void) = 0;
-    virtual HRESULT WINAPI Resume(void) = 0;
-    virtual HRESULT WINAPI SetPriority(LONG nPriority) = 0;
-    virtual HRESULT WINAPI GetPriority(LONG *pnPriority) = 0;
-    virtual HRESULT WINAPI GetBindResult(CLSID *pclsidProtocol,DWORD *pdwResult,LPOLESTR *pszResult,DWORD *pdwReserved) = 0;
-  };
+MIDL_INTERFACE("79eac9c0-baf9-11ce-8c82-00aa004ba90b")
+IBinding : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Abort(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Suspend(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Resume(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPriority(
+        LONG nPriority) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPriority(
+        LONG *pnPriority) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBindResult(
+        CLSID *pclsidProtocol,
+        DWORD *pdwResult,
+        LPOLESTR *pszResult,
+        DWORD *pdwReserved) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IBinding, 0x79eac9c0, 0xbaf9, 0x11ce, 0x8c,0x82, 0x00,0xaa,0x00,0x4b,0xa9,0x0b)
+#endif
 #else
-  typedef struct IBindingVtbl {
+typedef struct IBindingVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IBinding *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IBinding *This);
-      ULONG (WINAPI *Release)(IBinding *This);
-      HRESULT (WINAPI *Abort)(IBinding *This);
-      HRESULT (WINAPI *Suspend)(IBinding *This);
-      HRESULT (WINAPI *Resume)(IBinding *This);
-      HRESULT (WINAPI *SetPriority)(IBinding *This,LONG nPriority);
-      HRESULT (WINAPI *GetPriority)(IBinding *This,LONG *pnPriority);
-      HRESULT (WINAPI *GetBindResult)(IBinding *This,CLSID *pclsidProtocol,DWORD *pdwResult,LPOLESTR *pszResult,DWORD *pdwReserved);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IBinding* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IBinding* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IBinding* This);
+
+    /*** IBinding methods ***/
+    HRESULT (STDMETHODCALLTYPE *Abort)(
+        IBinding* This);
+
+    HRESULT (STDMETHODCALLTYPE *Suspend)(
+        IBinding* This);
+
+    HRESULT (STDMETHODCALLTYPE *Resume)(
+        IBinding* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetPriority)(
+        IBinding* This,
+        LONG nPriority);
+
+    HRESULT (STDMETHODCALLTYPE *GetPriority)(
+        IBinding* This,
+        LONG *pnPriority);
+
+    HRESULT (STDMETHODCALLTYPE *GetBindResult)(
+        IBinding* This,
+        CLSID *pclsidProtocol,
+        DWORD *pdwResult,
+        LPOLESTR *pszResult,
+        DWORD *pdwReserved);
+
     END_INTERFACE
-  } IBindingVtbl;
-  struct IBinding {
-    CONST_VTBL struct IBindingVtbl *lpVtbl;
-  };
+} IBindingVtbl;
+interface IBinding {
+    CONST_VTBL IBindingVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IBinding_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IBinding_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IBinding_Release(This) (This)->lpVtbl->Release(This)
+/*** IBinding methods ***/
 #define IBinding_Abort(This) (This)->lpVtbl->Abort(This)
 #define IBinding_Suspend(This) (This)->lpVtbl->Suspend(This)
 #define IBinding_Resume(This) (This)->lpVtbl->Resume(This)
@@ -575,52 +626,124 @@ typedef struct IWrappedProtocol IWrappedProtocol;
 #define IBinding_GetPriority(This,pnPriority) (This)->lpVtbl->GetPriority(This,pnPriority)
 #define IBinding_GetBindResult(This,pclsidProtocol,pdwResult,pszResult,pdwReserved) (This)->lpVtbl->GetBindResult(This,pclsidProtocol,pdwResult,pszResult,pdwReserved)
 #endif
-#endif
-  HRESULT WINAPI IBinding_Abort_Proxy(IBinding *This);
-  void __RPC_STUB IBinding_Abort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBinding_Suspend_Proxy(IBinding *This);
-  void __RPC_STUB IBinding_Suspend_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBinding_Resume_Proxy(IBinding *This);
-  void __RPC_STUB IBinding_Resume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBinding_SetPriority_Proxy(IBinding *This,LONG nPriority);
-  void __RPC_STUB IBinding_SetPriority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBinding_GetPriority_Proxy(IBinding *This,LONG *pnPriority);
-  void __RPC_STUB IBinding_GetPriority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBinding_RemoteGetBindResult_Proxy(IBinding *This,CLSID *pclsidProtocol,DWORD *pdwResult,LPOLESTR *pszResult,DWORD dwReserved);
-  void __RPC_STUB IBinding_RemoteGetBindResult_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IBinding_Abort_Proxy(
+    IBinding* This);
+void __RPC_STUB IBinding_Abort_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBinding_Suspend_Proxy(
+    IBinding* This);
+void __RPC_STUB IBinding_Suspend_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBinding_Resume_Proxy(
+    IBinding* This);
+void __RPC_STUB IBinding_Resume_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBinding_SetPriority_Proxy(
+    IBinding* This,
+    LONG nPriority);
+void __RPC_STUB IBinding_SetPriority_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBinding_GetPriority_Proxy(
+    IBinding* This,
+    LONG *pnPriority);
+void __RPC_STUB IBinding_GetPriority_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBinding_RemoteGetBindResult_Proxy(
+    IBinding* This,
+    CLSID *pclsidProtocol,
+    DWORD *pdwResult,
+    LPOLESTR *pszResult,
+    DWORD dwReserved);
+void __RPC_STUB IBinding_RemoteGetBindResult_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IBinding_GetBindResult_Proxy(
+    IBinding* This,
+    CLSID *pclsidProtocol,
+    DWORD *pdwResult,
+    LPOLESTR *pszResult,
+    DWORD *pdwReserved);
+HRESULT __RPC_STUB IBinding_GetBindResult_Stub(
+    IBinding* This,
+    CLSID *pclsidProtocol,
+    DWORD *pdwResult,
+    LPOLESTR *pszResult,
+    DWORD dwReserved);
+
+#endif  /* __IBinding_INTERFACE_DEFINED__ */
+
+#endif
 #ifndef _LPBINDSTATUSCALLBACK_DEFINED
 #define _LPBINDSTATUSCALLBACK_DEFINED
-  extern RPC_IF_HANDLE __MIDL_itf_urlmon_0181_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_urlmon_0181_v0_0_s_ifspec;
+/*****************************************************************************
+ * IBindStatusCallback interface
+ */
 #ifndef __IBindStatusCallback_INTERFACE_DEFINED__
 #define __IBindStatusCallback_INTERFACE_DEFINED__
-  typedef IBindStatusCallback *LPBINDSTATUSCALLBACK;
 
-  typedef enum __MIDL_IBindStatusCallback_0001 {
-    BINDVERB_GET = 0,BINDVERB_POST = 0x1,BINDVERB_PUT = 0x2,BINDVERB_CUSTOM = 0x3
-  } BINDVERB;
-
-  typedef enum __MIDL_IBindStatusCallback_0002 {
-    BINDINFOF_URLENCODESTGMEDDATA = 0x1,BINDINFOF_URLENCODEDEXTRAINFO = 0x2
-  } BINDINFOF;
-
-  typedef enum __MIDL_IBindStatusCallback_0003 {
-    BINDF_ASYNCHRONOUS = 0x1,BINDF_ASYNCSTORAGE = 0x2,BINDF_NOPROGRESSIVERENDERING = 0x4,BINDF_OFFLINEOPERATION = 0x8,BINDF_GETNEWESTVERSION = 0x10,
-    BINDF_NOWRITECACHE = 0x20,BINDF_NEEDFILE = 0x40,BINDF_PULLDATA = 0x80,BINDF_IGNORESECURITYPROBLEM = 0x100,BINDF_RESYNCHRONIZE = 0x200,
-    BINDF_HYPERLINK = 0x400,BINDF_NO_UI = 0x800,BINDF_SILENTOPERATION = 0x1000,BINDF_PRAGMA_NO_CACHE = 0x2000,BINDF_GETCLASSOBJECT = 0x4000,
-    BINDF_RESERVED_1 = 0x8000,BINDF_FREE_THREADED = 0x10000,BINDF_DIRECT_READ = 0x20000,BINDF_FORMS_SUBMIT = 0x40000,
-    BINDF_GETFROMCACHE_IF_NET_FAIL = 0x80000,BINDF_FROMURLMON = 0x100000,BINDF_FWD_BACK = 0x200000,BINDF_PREFERDEFAULTHANDLER = 0x400000,
+typedef IBindStatusCallback *LPBINDSTATUSCALLBACK;
+typedef enum __WIDL_urlmon_generated_name_00000000 {
+    BINDVERB_GET = 0,
+    BINDVERB_POST = 1,
+    BINDVERB_PUT = 2,
+    BINDVERB_CUSTOM = 3
+} BINDVERB;
+typedef enum __WIDL_urlmon_generated_name_00000001 {
+    BINDINFOF_URLENCODESTGMEDDATA = 0x1,
+    BINDINFOF_URLENCODEDEXTRAINFO = 0x2
+} BINDINFOF;
+typedef enum __WIDL_urlmon_generated_name_00000002 {
+    BINDF_ASYNCHRONOUS = 0x1,
+    BINDF_ASYNCSTORAGE = 0x2,
+    BINDF_NOPROGRESSIVERENDERING = 0x4,
+    BINDF_OFFLINEOPERATION = 0x8,
+    BINDF_GETNEWESTVERSION = 0x10,
+    BINDF_NOWRITECACHE = 0x20,
+    BINDF_NEEDFILE = 0x40,
+    BINDF_PULLDATA = 0x80,
+    BINDF_IGNORESECURITYPROBLEM = 0x100,
+    BINDF_RESYNCHRONIZE = 0x200,
+    BINDF_HYPERLINK = 0x400,
+    BINDF_NO_UI = 0x800,
+    BINDF_SILENTOPERATION = 0x1000,
+    BINDF_PRAGMA_NO_CACHE = 0x2000,
+    BINDF_GETCLASSOBJECT = 0x4000,
+    BINDF_RESERVED_1 = 0x8000,
+    BINDF_FREE_THREADED = 0x10000,
+    BINDF_DIRECT_READ = 0x20000,
+    BINDF_FORMS_SUBMIT = 0x40000,
+    BINDF_GETFROMCACHE_IF_NET_FAIL = 0x80000,
+    BINDF_FROMURLMON = 0x100000,
+    BINDF_FWD_BACK = 0x200000,
+    BINDF_PREFERDEFAULTHANDLER = 0x400000,
     BINDF_ENFORCERESTRICTED = 0x800000
-  } BINDF;
-
-  typedef enum __MIDL_IBindStatusCallback_0004 {
-    URL_ENCODING_NONE = 0,URL_ENCODING_ENABLE_UTF8 = 0x10000000,URL_ENCODING_DISABLE_UTF8 = 0x20000000
-  } URL_ENCODING;
-
-  typedef struct _tagBINDINFO {
+} BINDF;
+typedef enum __WIDL_urlmon_generated_name_00000003 {
+    URL_ENCODING_NONE = 0,
+    URL_ENCODING_ENABLE_UTF8 = 0x10000000,
+    URL_ENCODING_DISABLE_UTF8 = 0x20000000
+} URL_ENCODING;
+typedef struct _tagBINDINFO {
     ULONG cbSize;
     LPWSTR szExtraInfo;
     STGMEDIUM stgmedData;
@@ -635,18 +758,15 @@ typedef struct IWrappedProtocol IWrappedProtocol;
     IID iid;
     IUnknown *pUnk;
     DWORD dwReserved;
-  } BINDINFO;
-
-  typedef struct _REMSECURITY_ATTRIBUTES {
+} BINDINFO;
+typedef struct _REMSECURITY_ATTRIBUTES {
     DWORD nLength;
     DWORD lpSecurityDescriptor;
     WINBOOL bInheritHandle;
-  } REMSECURITY_ATTRIBUTES;
-
-  typedef struct _REMSECURITY_ATTRIBUTES *PREMSECURITY_ATTRIBUTES;
-  typedef struct _REMSECURITY_ATTRIBUTES *LPREMSECURITY_ATTRIBUTES;
-
-  typedef struct _tagRemBINDINFO {
+} REMSECURITY_ATTRIBUTES;
+typedef struct _REMSECURITY_ATTRIBUTES *PREMSECURITY_ATTRIBUTES;
+typedef struct _REMSECURITY_ATTRIBUTES *LPREMSECURITY_ATTRIBUTES;
+typedef struct _tagRemBINDINFO {
     ULONG cbSize;
     LPWSTR szExtraInfo;
     DWORD grfBindInfoF;
@@ -660,88 +780,202 @@ typedef struct IWrappedProtocol IWrappedProtocol;
     IID iid;
     IUnknown *pUnk;
     DWORD dwReserved;
-  } RemBINDINFO;
-
-  typedef struct tagRemFORMATETC {
+} RemBINDINFO;
+typedef struct tagRemFORMATETC {
     DWORD cfFormat;
     DWORD ptd;
     DWORD dwAspect;
     LONG lindex;
     DWORD tymed;
-  } RemFORMATETC;
-
-  typedef struct tagRemFORMATETC *LPREMFORMATETC;
-
-  typedef enum __MIDL_IBindStatusCallback_0005 {
-    BINDINFO_OPTIONS_WININETFLAG = 0x10000,BINDINFO_OPTIONS_ENABLE_UTF8 = 0x20000,BINDINFO_OPTIONS_DISABLE_UTF8 = 0x40000,
-    BINDINFO_OPTIONS_USE_IE_ENCODING = 0x80000,BINDINFO_OPTIONS_BINDTOOBJECT = 0x100000,BINDINFO_OPTIONS_SECURITYOPTOUT = 0x200000,
-    BINDINFO_OPTIONS_IGNOREMIMETEXTPLAIN = 0x400000,BINDINFO_OPTIONS_USEBINDSTRINGCREDS = 0x800000,BINDINFO_OPTIONS_IGNOREHTTPHTTPSREDIRECTS = 0x1000000,
+} RemFORMATETC;
+typedef struct tagRemFORMATETC *LPREMFORMATETC;
+typedef enum __WIDL_urlmon_generated_name_00000004 {
+    BINDINFO_OPTIONS_WININETFLAG = 0x10000,
+    BINDINFO_OPTIONS_ENABLE_UTF8 = 0x20000,
+    BINDINFO_OPTIONS_DISABLE_UTF8 = 0x40000,
+    BINDINFO_OPTIONS_USE_IE_ENCODING = 0x80000,
+    BINDINFO_OPTIONS_BINDTOOBJECT = 0x100000,
+    BINDINFO_OPTIONS_SECURITYOPTOUT = 0x200000,
+    BINDINFO_OPTIONS_IGNOREMIMETEXTPLAIN = 0x400000,
+    BINDINFO_OPTIONS_USEBINDSTRINGCREDS = 0x800000,
+    BINDINFO_OPTIONS_IGNOREHTTPHTTPSREDIRECTS = 0x1000000,
     BINDINFO_OPTIONS_SHDOCVW_NAVIGATE = 0x80000000
-  } BINDINFO_OPTIONS;
-
-  typedef enum __MIDL_IBindStatusCallback_0006 {
-    BSCF_FIRSTDATANOTIFICATION = 0x1,BSCF_INTERMEDIATEDATANOTIFICATION = 0x2,BSCF_LASTDATANOTIFICATION = 0x4,BSCF_DATAFULLYAVAILABLE = 0x8,
+} BINDINFO_OPTIONS;
+typedef enum __WIDL_urlmon_generated_name_00000005 {
+    BSCF_FIRSTDATANOTIFICATION = 0x1,
+    BSCF_INTERMEDIATEDATANOTIFICATION = 0x2,
+    BSCF_LASTDATANOTIFICATION = 0x4,
+    BSCF_DATAFULLYAVAILABLE = 0x8,
     BSCF_AVAILABLEDATASIZEUNKNOWN = 0x10
-  } BSCF;
-
-  typedef enum tagBINDSTATUS {
+} BSCF;
+typedef enum tagBINDSTATUS {
     BINDSTATUS_FINDINGRESOURCE = 1,
-    BINDSTATUS_CONNECTING,BINDSTATUS_REDIRECTING,BINDSTATUS_BEGINDOWNLOADDATA,
-    BINDSTATUS_DOWNLOADINGDATA,BINDSTATUS_ENDDOWNLOADDATA,BINDSTATUS_BEGINDOWNLOADCOMPONENTS,
-    BINDSTATUS_INSTALLINGCOMPONENTS,BINDSTATUS_ENDDOWNLOADCOMPONENTS,
-    BINDSTATUS_USINGCACHEDCOPY,BINDSTATUS_SENDINGREQUEST,BINDSTATUS_CLASSIDAVAILABLE,
-    BINDSTATUS_MIMETYPEAVAILABLE,BINDSTATUS_CACHEFILENAMEAVAILABLE,
-    BINDSTATUS_BEGINSYNCOPERATION,BINDSTATUS_ENDSYNCOPERATION,BINDSTATUS_BEGINUPLOADDATA,
-    BINDSTATUS_UPLOADINGDATA,BINDSTATUS_ENDUPLOADDATA,BINDSTATUS_PROTOCOLCLASSID,
-    BINDSTATUS_ENCODING,BINDSTATUS_VERIFIEDMIMETYPEAVAILABLE,BINDSTATUS_CLASSINSTALLLOCATION,
-    BINDSTATUS_DECODING,BINDSTATUS_LOADINGMIMEHANDLER,BINDSTATUS_CONTENTDISPOSITIONATTACH,
-    BINDSTATUS_FILTERREPORTMIMETYPE,BINDSTATUS_CLSIDCANINSTANTIATE,BINDSTATUS_IUNKNOWNAVAILABLE,
-    BINDSTATUS_DIRECTBIND,BINDSTATUS_RAWMIMETYPE,BINDSTATUS_PROXYDETECTING,
-    BINDSTATUS_ACCEPTRANGES,BINDSTATUS_COOKIE_SENT,BINDSTATUS_COMPACT_POLICY_RECEIVED,
-    BINDSTATUS_COOKIE_SUPPRESSED,BINDSTATUS_COOKIE_STATE_UNKNOWN,BINDSTATUS_COOKIE_STATE_ACCEPT,
-    BINDSTATUS_COOKIE_STATE_REJECT,BINDSTATUS_COOKIE_STATE_PROMPT,BINDSTATUS_COOKIE_STATE_LEASH,
-    BINDSTATUS_COOKIE_STATE_DOWNGRADE,BINDSTATUS_POLICY_HREF,BINDSTATUS_P3P_HEADER,
-    BINDSTATUS_SESSION_COOKIE_RECEIVED,BINDSTATUS_PERSISTENT_COOKIE_RECEIVED,
-    BINDSTATUS_SESSION_COOKIES_ALLOWED,BINDSTATUS_CACHECONTROL,BINDSTATUS_CONTENTDISPOSITIONFILENAME,
-    BINDSTATUS_MIMETEXTPLAINMISMATCH,BINDSTATUS_PUBLISHERAVAILABLE,BINDSTATUS_DISPLAYNAMEAVAILABLE
-  } BINDSTATUS;
-
-  EXTERN_C const IID IID_IBindStatusCallback;
+    BINDSTATUS_CONNECTING = 2,
+    BINDSTATUS_REDIRECTING = 3,
+    BINDSTATUS_BEGINDOWNLOADDATA = 4,
+    BINDSTATUS_DOWNLOADINGDATA = 5,
+    BINDSTATUS_ENDDOWNLOADDATA = 6,
+    BINDSTATUS_BEGINDOWNLOADCOMPONENTS = 7,
+    BINDSTATUS_INSTALLINGCOMPONENTS = 8,
+    BINDSTATUS_ENDDOWNLOADCOMPONENTS = 9,
+    BINDSTATUS_USINGCACHEDCOPY = 10,
+    BINDSTATUS_SENDINGREQUEST = 11,
+    BINDSTATUS_CLASSIDAVAILABLE = 12,
+    BINDSTATUS_MIMETYPEAVAILABLE = 13,
+    BINDSTATUS_CACHEFILENAMEAVAILABLE = 14,
+    BINDSTATUS_BEGINSYNCOPERATION = 15,
+    BINDSTATUS_ENDSYNCOPERATION = 16,
+    BINDSTATUS_BEGINUPLOADDATA = 17,
+    BINDSTATUS_UPLOADINGDATA = 18,
+    BINDSTATUS_ENDUPLOADDATA = 19,
+    BINDSTATUS_PROTOCOLCLASSID = 20,
+    BINDSTATUS_ENCODING = 21,
+    BINDSTATUS_VERIFIEDMIMETYPEAVAILABLE = 22,
+    BINDSTATUS_CLASSINSTALLLOCATION = 23,
+    BINDSTATUS_DECODING = 24,
+    BINDSTATUS_LOADINGMIMEHANDLER = 25,
+    BINDSTATUS_CONTENTDISPOSITIONATTACH = 26,
+    BINDSTATUS_FILTERREPORTMIMETYPE = 27,
+    BINDSTATUS_CLSIDCANINSTANTIATE = 28,
+    BINDSTATUS_IUNKNOWNAVAILABLE = 29,
+    BINDSTATUS_DIRECTBIND = 30,
+    BINDSTATUS_RAWMIMETYPE = 31,
+    BINDSTATUS_PROXYDETECTING = 32,
+    BINDSTATUS_ACCEPTRANGES = 33,
+    BINDSTATUS_COOKIE_SENT = 34,
+    BINDSTATUS_COMPACT_POLICY_RECEIVED = 35,
+    BINDSTATUS_COOKIE_SUPPRESSED = 36,
+    BINDSTATUS_COOKIE_STATE_UNKNOWN = 37,
+    BINDSTATUS_COOKIE_STATE_ACCEPT = 38,
+    BINDSTATUS_COOKIE_STATE_REJECT = 39,
+    BINDSTATUS_COOKIE_STATE_PROMPT = 40,
+    BINDSTATUS_COOKIE_STATE_LEASH = 41,
+    BINDSTATUS_COOKIE_STATE_DOWNGRADE = 42,
+    BINDSTATUS_POLICY_HREF = 43,
+    BINDSTATUS_P3P_HEADER = 44,
+    BINDSTATUS_SESSION_COOKIE_RECEIVED = 45,
+    BINDSTATUS_PERSISTENT_COOKIE_RECEIVED = 46,
+    BINDSTATUS_SESSION_COOKIES_ALLOWED = 47,
+    BINDSTATUS_CACHECONTROL = 48,
+    BINDSTATUS_CONTENTDISPOSITIONFILENAME = 49,
+    BINDSTATUS_MIMETEXTPLAINMISMATCH = 50,
+    BINDSTATUS_PUBLISHERAVAILABLE = 51,
+    BINDSTATUS_DISPLAYNAMEAVAILABLE = 52
+} BINDSTATUS;
+DEFINE_GUID(IID_IBindStatusCallback, 0x79eac9c1, 0xbaf9, 0x11ce, 0x8c,0x82, 0x00,0xaa,0x00,0x4b,0xa9,0x0b);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IBindStatusCallback : public IUnknown {
-  public:
-    virtual HRESULT WINAPI OnStartBinding(DWORD dwReserved,IBinding *pib) = 0;
-    virtual HRESULT WINAPI GetPriority(LONG *pnPriority) = 0;
-    virtual HRESULT WINAPI OnLowResource(DWORD reserved) = 0;
-    virtual HRESULT WINAPI OnProgress(ULONG ulProgress,ULONG ulProgressMax,ULONG ulStatusCode,LPCWSTR szStatusText) = 0;
-    virtual HRESULT WINAPI OnStopBinding(HRESULT hresult,LPCWSTR szError) = 0;
-    virtual HRESULT WINAPI GetBindInfo(DWORD *grfBINDF,BINDINFO *pbindinfo) = 0;
-    virtual HRESULT WINAPI OnDataAvailable(DWORD grfBSCF,DWORD dwSize,FORMATETC *pformatetc,STGMEDIUM *pstgmed) = 0;
-    virtual HRESULT WINAPI OnObjectAvailable(REFIID riid,IUnknown *punk) = 0;
-  };
+MIDL_INTERFACE("79eac9c1-baf9-11ce-8c82-00aa004ba90b")
+IBindStatusCallback : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnStartBinding(
+        DWORD dwReserved,
+        IBinding *pib) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPriority(
+        LONG *pnPriority) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnLowResource(
+        DWORD reserved) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnProgress(
+        ULONG ulProgress,
+        ULONG ulProgressMax,
+        ULONG ulStatusCode,
+        LPCWSTR szStatusText) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnStopBinding(
+        HRESULT hresult,
+        LPCWSTR szError) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBindInfo(
+        DWORD *grfBINDF,
+        BINDINFO *pbindinfo) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnDataAvailable(
+        DWORD grfBSCF,
+        DWORD dwSize,
+        FORMATETC *pformatetc,
+        STGMEDIUM *pstgmed) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnObjectAvailable(
+        REFIID riid,
+        IUnknown *punk) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IBindStatusCallback, 0x79eac9c1, 0xbaf9, 0x11ce, 0x8c,0x82, 0x00,0xaa,0x00,0x4b,0xa9,0x0b)
+#endif
 #else
-  typedef struct IBindStatusCallbackVtbl {
+typedef struct IBindStatusCallbackVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IBindStatusCallback *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IBindStatusCallback *This);
-      ULONG (WINAPI *Release)(IBindStatusCallback *This);
-      HRESULT (WINAPI *OnStartBinding)(IBindStatusCallback *This,DWORD dwReserved,IBinding *pib);
-      HRESULT (WINAPI *GetPriority)(IBindStatusCallback *This,LONG *pnPriority);
-      HRESULT (WINAPI *OnLowResource)(IBindStatusCallback *This,DWORD reserved);
-      HRESULT (WINAPI *OnProgress)(IBindStatusCallback *This,ULONG ulProgress,ULONG ulProgressMax,ULONG ulStatusCode,LPCWSTR szStatusText);
-      HRESULT (WINAPI *OnStopBinding)(IBindStatusCallback *This,HRESULT hresult,LPCWSTR szError);
-      HRESULT (WINAPI *GetBindInfo)(IBindStatusCallback *This,DWORD *grfBINDF,BINDINFO *pbindinfo);
-      HRESULT (WINAPI *OnDataAvailable)(IBindStatusCallback *This,DWORD grfBSCF,DWORD dwSize,FORMATETC *pformatetc,STGMEDIUM *pstgmed);
-      HRESULT (WINAPI *OnObjectAvailable)(IBindStatusCallback *This,REFIID riid,IUnknown *punk);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IBindStatusCallback* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IBindStatusCallback* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IBindStatusCallback* This);
+
+    /*** IBindStatusCallback methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnStartBinding)(
+        IBindStatusCallback* This,
+        DWORD dwReserved,
+        IBinding *pib);
+
+    HRESULT (STDMETHODCALLTYPE *GetPriority)(
+        IBindStatusCallback* This,
+        LONG *pnPriority);
+
+    HRESULT (STDMETHODCALLTYPE *OnLowResource)(
+        IBindStatusCallback* This,
+        DWORD reserved);
+
+    HRESULT (STDMETHODCALLTYPE *OnProgress)(
+        IBindStatusCallback* This,
+        ULONG ulProgress,
+        ULONG ulProgressMax,
+        ULONG ulStatusCode,
+        LPCWSTR szStatusText);
+
+    HRESULT (STDMETHODCALLTYPE *OnStopBinding)(
+        IBindStatusCallback* This,
+        HRESULT hresult,
+        LPCWSTR szError);
+
+    HRESULT (STDMETHODCALLTYPE *GetBindInfo)(
+        IBindStatusCallback* This,
+        DWORD *grfBINDF,
+        BINDINFO *pbindinfo);
+
+    HRESULT (STDMETHODCALLTYPE *OnDataAvailable)(
+        IBindStatusCallback* This,
+        DWORD grfBSCF,
+        DWORD dwSize,
+        FORMATETC *pformatetc,
+        STGMEDIUM *pstgmed);
+
+    HRESULT (STDMETHODCALLTYPE *OnObjectAvailable)(
+        IBindStatusCallback* This,
+        REFIID riid,
+        IUnknown *punk);
+
     END_INTERFACE
-  } IBindStatusCallbackVtbl;
-  struct IBindStatusCallback {
-    CONST_VTBL struct IBindStatusCallbackVtbl *lpVtbl;
-  };
+} IBindStatusCallbackVtbl;
+interface IBindStatusCallback {
+    CONST_VTBL IBindStatusCallbackVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IBindStatusCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IBindStatusCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IBindStatusCallback_Release(This) (This)->lpVtbl->Release(This)
+/*** IBindStatusCallback methods ***/
 #define IBindStatusCallback_OnStartBinding(This,dwReserved,pib) (This)->lpVtbl->OnStartBinding(This,dwReserved,pib)
 #define IBindStatusCallback_GetPriority(This,pnPriority) (This)->lpVtbl->GetPriority(This,pnPriority)
 #define IBindStatusCallback_OnLowResource(This,reserved) (This)->lpVtbl->OnLowResource(This,reserved)
@@ -751,26 +985,109 @@ typedef struct IWrappedProtocol IWrappedProtocol;
 #define IBindStatusCallback_OnDataAvailable(This,grfBSCF,dwSize,pformatetc,pstgmed) (This)->lpVtbl->OnDataAvailable(This,grfBSCF,dwSize,pformatetc,pstgmed)
 #define IBindStatusCallback_OnObjectAvailable(This,riid,punk) (This)->lpVtbl->OnObjectAvailable(This,riid,punk)
 #endif
-#endif
-  HRESULT WINAPI IBindStatusCallback_OnStartBinding_Proxy(IBindStatusCallback *This,DWORD dwReserved,IBinding *pib);
-  void __RPC_STUB IBindStatusCallback_OnStartBinding_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindStatusCallback_GetPriority_Proxy(IBindStatusCallback *This,LONG *pnPriority);
-  void __RPC_STUB IBindStatusCallback_GetPriority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindStatusCallback_OnLowResource_Proxy(IBindStatusCallback *This,DWORD reserved);
-  void __RPC_STUB IBindStatusCallback_OnLowResource_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindStatusCallback_OnProgress_Proxy(IBindStatusCallback *This,ULONG ulProgress,ULONG ulProgressMax,ULONG ulStatusCode,LPCWSTR szStatusText);
-  void __RPC_STUB IBindStatusCallback_OnProgress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindStatusCallback_OnStopBinding_Proxy(IBindStatusCallback *This,HRESULT hresult,LPCWSTR szError);
-  void __RPC_STUB IBindStatusCallback_OnStopBinding_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindStatusCallback_RemoteGetBindInfo_Proxy(IBindStatusCallback *This,DWORD *grfBINDF,RemBINDINFO *pbindinfo,RemSTGMEDIUM *pstgmed);
-  void __RPC_STUB IBindStatusCallback_RemoteGetBindInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindStatusCallback_RemoteOnDataAvailable_Proxy(IBindStatusCallback *This,DWORD grfBSCF,DWORD dwSize,RemFORMATETC *pformatetc,RemSTGMEDIUM *pstgmed);
-  void __RPC_STUB IBindStatusCallback_RemoteOnDataAvailable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBindStatusCallback_OnObjectAvailable_Proxy(IBindStatusCallback *This,REFIID riid,IUnknown *punk);
-  void __RPC_STUB IBindStatusCallback_OnObjectAvailable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
 #endif
 
+HRESULT STDMETHODCALLTYPE IBindStatusCallback_OnStartBinding_Proxy(
+    IBindStatusCallback* This,
+    DWORD dwReserved,
+    IBinding *pib);
+void __RPC_STUB IBindStatusCallback_OnStartBinding_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindStatusCallback_GetPriority_Proxy(
+    IBindStatusCallback* This,
+    LONG *pnPriority);
+void __RPC_STUB IBindStatusCallback_GetPriority_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindStatusCallback_OnLowResource_Proxy(
+    IBindStatusCallback* This,
+    DWORD reserved);
+void __RPC_STUB IBindStatusCallback_OnLowResource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindStatusCallback_OnProgress_Proxy(
+    IBindStatusCallback* This,
+    ULONG ulProgress,
+    ULONG ulProgressMax,
+    ULONG ulStatusCode,
+    LPCWSTR szStatusText);
+void __RPC_STUB IBindStatusCallback_OnProgress_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindStatusCallback_OnStopBinding_Proxy(
+    IBindStatusCallback* This,
+    HRESULT hresult,
+    LPCWSTR szError);
+void __RPC_STUB IBindStatusCallback_OnStopBinding_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindStatusCallback_RemoteGetBindInfo_Proxy(
+    IBindStatusCallback* This,
+    DWORD *grfBINDF,
+    RemBINDINFO *pbindinfo,
+    RemSTGMEDIUM *pstgmed);
+void __RPC_STUB IBindStatusCallback_RemoteGetBindInfo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindStatusCallback_RemoteOnDataAvailable_Proxy(
+    IBindStatusCallback* This,
+    DWORD grfBSCF,
+    DWORD dwSize,
+    RemFORMATETC *pformatetc,
+    RemSTGMEDIUM *pstgmed);
+void __RPC_STUB IBindStatusCallback_RemoteOnDataAvailable_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBindStatusCallback_OnObjectAvailable_Proxy(
+    IBindStatusCallback* This,
+    REFIID riid,
+    IUnknown *punk);
+void __RPC_STUB IBindStatusCallback_OnObjectAvailable_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IBindStatusCallback_GetBindInfo_Proxy(
+    IBindStatusCallback* This,
+    DWORD *grfBINDF,
+    BINDINFO *pbindinfo);
+HRESULT __RPC_STUB IBindStatusCallback_GetBindInfo_Stub(
+    IBindStatusCallback* This,
+    DWORD *grfBINDF,
+    RemBINDINFO *pbindinfo,
+    RemSTGMEDIUM *pstgmed);
+HRESULT CALLBACK IBindStatusCallback_OnDataAvailable_Proxy(
+    IBindStatusCallback* This,
+    DWORD grfBSCF,
+    DWORD dwSize,
+    FORMATETC *pformatetc,
+    STGMEDIUM *pstgmed);
+HRESULT __RPC_STUB IBindStatusCallback_OnDataAvailable_Stub(
+    IBindStatusCallback* This,
+    DWORD grfBSCF,
+    DWORD dwSize,
+    RemFORMATETC *pformatetc,
+    RemSTGMEDIUM *pstgmed);
+
+#endif  /* __IBindStatusCallback_INTERFACE_DEFINED__ */
+
+#endif
 #ifndef _LPAUTHENTICATION_DEFINED
 #define _LPAUTHENTICATION_DEFINED
   extern RPC_IF_HANDLE __MIDL_itf_urlmon_0182_v0_0_c_ifspec;
@@ -2874,12 +3191,6 @@ typedef struct IWrappedProtocol IWrappedProtocol;
   unsigned char *__RPC_API HWND_UserUnmarshal(unsigned long *,unsigned char *,HWND *);
   void __RPC_API HWND_UserFree(unsigned long *,HWND *);
 
-  HRESULT WINAPI IBinding_GetBindResult_Proxy(IBinding *This,CLSID *pclsidProtocol,DWORD *pdwResult,LPOLESTR *pszResult,DWORD *pdwReserved);
-  HRESULT WINAPI IBinding_GetBindResult_Stub(IBinding *This,CLSID *pclsidProtocol,DWORD *pdwResult,LPOLESTR *pszResult,DWORD dwReserved);
-  HRESULT WINAPI IBindStatusCallback_GetBindInfo_Proxy(IBindStatusCallback *This,DWORD *grfBINDF,BINDINFO *pbindinfo);
-  HRESULT WINAPI IBindStatusCallback_GetBindInfo_Stub(IBindStatusCallback *This,DWORD *grfBINDF,RemBINDINFO *pbindinfo,RemSTGMEDIUM *pstgmed);
-  HRESULT WINAPI IBindStatusCallback_OnDataAvailable_Proxy(IBindStatusCallback *This,DWORD grfBSCF,DWORD dwSize,FORMATETC *pformatetc,STGMEDIUM *pstgmed);
-  HRESULT WINAPI IBindStatusCallback_OnDataAvailable_Stub(IBindStatusCallback *This,DWORD grfBSCF,DWORD dwSize,RemFORMATETC *pformatetc,RemSTGMEDIUM *pstgmed);
   HRESULT WINAPI IWinInetInfo_QueryOption_Proxy(IWinInetInfo *This,DWORD dwOption,LPVOID pBuffer,DWORD *pcbBuf);
   HRESULT WINAPI IWinInetInfo_QueryOption_Stub(IWinInetInfo *This,DWORD dwOption,BYTE *pBuffer,DWORD *pcbBuf);
   HRESULT WINAPI IWinInetHttpInfo_QueryInfo_Proxy(IWinInetHttpInfo *This,DWORD dwOption,LPVOID pBuffer,DWORD *pcbBuf,DWORD *pdwFlags,DWORD *pdwReserved);
@@ -2890,6 +3201,14 @@ typedef struct IWrappedProtocol IWrappedProtocol;
   HRESULT WINAPI IBindHost_MonikerBindToObject_Stub(IBindHost *This,IMoniker *pMk,IBindCtx *pBC,IBindStatusCallback *pBSC,REFIID riid,IUnknown **ppvObj);
 /* Begin additional prototypes for all interfaces */
 
+ULONG           __RPC_USER STGMEDIUM_UserSize     (ULONG *, ULONG, STGMEDIUM *);
+unsigned char * __RPC_USER STGMEDIUM_UserMarshal  (ULONG *, unsigned char *, STGMEDIUM *);
+unsigned char * __RPC_USER STGMEDIUM_UserUnmarshal(ULONG *, unsigned char *, STGMEDIUM *);
+void            __RPC_USER STGMEDIUM_UserFree     (ULONG *, STGMEDIUM *);
+ULONG           __RPC_USER CLIPFORMAT_UserSize     (ULONG *, ULONG, CLIPFORMAT *);
+unsigned char * __RPC_USER CLIPFORMAT_UserMarshal  (ULONG *, unsigned char *, CLIPFORMAT *);
+unsigned char * __RPC_USER CLIPFORMAT_UserUnmarshal(ULONG *, unsigned char *, CLIPFORMAT *);
+void            __RPC_USER CLIPFORMAT_UserFree     (ULONG *, CLIPFORMAT *);
 
 /* End additional prototypes */
 
