@@ -55,6 +55,7 @@ if HAVE_WIDL
 
 IDL_SRCS = \
   include/audioclient.idl \
+  include/downloadmgr.idl \
   include/fusion.idl \
   include/oaidl.idl \
   include/ocidl.idl \
