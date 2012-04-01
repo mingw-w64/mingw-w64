@@ -252,6 +252,8 @@ BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
 @HAVE_WIDL_TRUE@  include/msctf.idl \
 @HAVE_WIDL_TRUE@  include/objectarray.idl \
 @HAVE_WIDL_TRUE@  include/objidl.idl \
+@HAVE_WIDL_TRUE@  include/oleidl.idl \
+@HAVE_WIDL_TRUE@  include/optary.idl \
 @HAVE_WIDL_TRUE@  include/shobjidl.idl \
 @HAVE_WIDL_TRUE@  include/shtypes.idl \
 @HAVE_WIDL_TRUE@  include/tpcshrd.idl \

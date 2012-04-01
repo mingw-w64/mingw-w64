@@ -20,6 +20,7 @@
 /* Headers for imported files */
 
 #include <oaidl.h>
+#include <oleidl.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -220,7 +221,6 @@ typedef struct IAdviseSinkEx IAdviseSinkEx;
 typedef struct IQuickActivate IQuickActivate;
 #endif
 
-#include "oleidl.h"
 #include "servprov.h"
 #include "urlmon.h"
 

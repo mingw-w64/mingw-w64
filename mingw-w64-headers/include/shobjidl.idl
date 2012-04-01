@@ -7,6 +7,7 @@
 import "objidl.idl";
 import "oaidl.idl";
 import "shtypes.idl";
+import "oleidl.idl";
 
 cpp_quote("#include <_mingw_unicode.h>")
 
@@ -649,7 +650,6 @@ cpp_quote("#define __IFileOpenDialog_FWD_DEFINED__")
 cpp_quote("typedef interface IFileOpenDialog IFileOpenDialog;")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#include \"oleidl.h\"")
 cpp_quote("#include \"servprov.h\"")
 cpp_quote("#include \"comcat.h\"")
 cpp_quote("#include \"propidl.h\"")

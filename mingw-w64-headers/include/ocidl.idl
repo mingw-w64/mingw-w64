@@ -5,6 +5,7 @@
  */
 
 import "oaidl.idl";
+import "oleidl.idl";
 
 cpp_quote("#ifndef __IEnumConnections_FWD_DEFINED__")
 cpp_quote("#define __IEnumConnections_FWD_DEFINED__")
@@ -201,7 +202,6 @@ cpp_quote("#define __IQuickActivate_FWD_DEFINED__")
 cpp_quote("typedef struct IQuickActivate IQuickActivate;")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#include \"oleidl.h\"")
 cpp_quote("#include \"servprov.h\"")
 cpp_quote("#include \"urlmon.h\"")
 cpp_quote("")

@@ -37,6 +37,7 @@ typedef struct ShellLibrary ShellLibrary;
 #include <objidl.h>
 #include <oaidl.h>
 #include <shtypes.h>
+#include <oleidl.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -682,7 +683,6 @@ typedef interface IFileSaveDialog IFileSaveDialog;
 typedef interface IFileOpenDialog IFileOpenDialog;
 #endif
 
-#include "oleidl.h"
 #include "servprov.h"
 #include "comcat.h"
 #include "propidl.h"

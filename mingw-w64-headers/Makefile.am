@@ -63,6 +63,8 @@ IDL_SRCS = \
   include/msctf.idl \
   include/objectarray.idl \
   include/objidl.idl \
+  include/oleidl.idl \
+  include/optary.idl \
   include/shobjidl.idl \
   include/shtypes.idl \
   include/tpcshrd.idl \
