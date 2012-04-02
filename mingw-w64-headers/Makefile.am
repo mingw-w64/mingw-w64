@@ -70,6 +70,7 @@ IDL_SRCS = \
   include/propidl.idl \
   include/shobjidl.idl \
   include/shtypes.idl \
+  include/structuredquerycondition.idl \
   include/tpcshrd.idl \
   include/textstor.idl \
   include/unknwn.idl \
