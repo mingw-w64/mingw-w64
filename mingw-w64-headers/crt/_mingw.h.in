@@ -452,7 +452,7 @@ typedef unsigned short wctype_t;
 #endif /* _WINT_T */
 #endif /* _WCTYPE_T_DEFINED */
 
-#if defined (_WIN32) && !(defined(_FILE_OFFSET_BITS) && _FILE_OFFSET_BITS == 64) && !defined (_WIN64) && !defined (__MINGW_USE_VC2005_COMPAT)
+#if defined (_WIN32) && !defined (_WIN64) && !defined (__MINGW_USE_VC2005_COMPAT)/* && !(defined(_FILE_OFFSET_BITS) && _FILE_OFFSET_BITS == 64)*/
 #ifndef _USE_32BIT_TIME_T
 #define _USE_32BIT_TIME_T
 #endif
