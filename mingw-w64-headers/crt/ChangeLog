@@ -1,7 +1,10 @@
+2012-04-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__int128, __SIZEOF_INT128__): Handle clang.
+
 2012-03-01  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* errno.h: Add EOVERFLOW for msvc 2010 compatibility.
-
 
 2012-02-24  Kai Tietz  <ktietz@redhat.com>
 
