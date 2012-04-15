@@ -75,7 +75,7 @@ AC_SUBST([SECSYSHEAD_LIST])
 enable_directx=no
 enable_ddk=no
 
-if test -d ddk/include/ddk
+if test -d ${srcdir}/ddk/include/ddk
 then
     # DDK headers have been fetched from ReactOS
     ddk_present=yes
