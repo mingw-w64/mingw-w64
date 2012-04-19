@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <memory.h>
+#include <internal.h>
 
 #if defined(__CYGWIN__)
 #include <wchar.h>

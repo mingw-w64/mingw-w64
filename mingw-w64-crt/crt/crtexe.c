@@ -32,7 +32,9 @@ extern char *** __MINGW_IMP_SYMBOL(__initenv);
 #endif
 
 /* Hack, for bug in ld.  Will be removed soon.  */
+#if defined(__GNUC__)
 #define __ImageBase __MINGW_LSYMBOL(_image_base__)
+#endif
 /* This symbol is defined by ld.  */
 extern IMAGE_DOS_HEADER __ImageBase;
 
@@ -376,7 +378,7 @@ static void duplicate_ppstrings (int ac, wchar_t ***av)
 	avl=*av;
 	for (i=0; i < ac; i++)
 	  {
-		int l = wbytelen (avl[i]);
+		size_t l = wbytelen (avl[i]);
 		n[i] = (wchar_t *) malloc (l);
 		memcpy (n[i], avl[i], l);
 	  }
@@ -393,7 +395,7 @@ static void duplicate_ppstrings (int ac, char ***av)
 	avl=*av;
 	for (i=0; i < ac; i++)
 	  {
-		int l = strlen (avl[i]) + 1;
+		size_t l = strlen (avl[i]) + 1;
 		n[i] = (char *) malloc (l);
 		memcpy (n[i], avl[i], l);
 	  }
