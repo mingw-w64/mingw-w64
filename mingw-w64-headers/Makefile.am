@@ -63,6 +63,7 @@ IDL_SRCS = \
   include/comcat.idl \
   include/mscoree.idl \
   include/msctf.idl \
+  include/msxml.idl \
   include/objectarray.idl \
   include/objidl.idl \
   include/oleidl.idl \
