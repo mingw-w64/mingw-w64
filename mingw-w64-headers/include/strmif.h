@@ -17,19 +17,101 @@
 
 /* Forward declarations */
 
+#ifndef __ICreateDevEnum_FWD_DEFINED__
+#define __ICreateDevEnum_FWD_DEFINED__
+typedef interface ICreateDevEnum ICreateDevEnum;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
 #include <objidl.h>
+#include <oaidl.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#ifndef __ICreateDevEnum_FWD_DEFINED__
-#define __ICreateDevEnum_FWD_DEFINED__
-typedef struct ICreateDevEnum ICreateDevEnum;
+#define CDEF_CLASS_DEFAULT 0x0001
+#define CDEF_BYPASS_CLASS_MANAGER 0x0002
+#define CDEF_MERIT_ABOVE_DO_NOT_USE 0x0008
+#define CDEF_DEVMON_CMGR_DEVICE 0x0010
+#define CDEF_DEVMON_DMO 0x0020
+#define CDEF_DEVMON_PNP_DEVICE 0x0040
+#define CDEF_DEVMON_FILTER 0x0080
+#define CDEF_DEVMON_SELECTIVE_MASK 0x00f0
+/*****************************************************************************
+ * ICreateDevEnum interface
+ */
+#ifndef __ICreateDevEnum_INTERFACE_DEFINED__
+#define __ICreateDevEnum_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ICreateDevEnum, 0x29840822, 0x5b84, 0x11d0, 0xbd,0x3b, 0x00,0xa0,0xc9,0x11,0xce,0x86);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("29840822-5b84-11d0-bd3b-00a0c911ce86")
+ICreateDevEnum : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateClassEnumerator(
+        REFCLSID clsidDeviceClass,
+        IEnumMoniker **ppEnumMoniker,
+        DWORD dwFlags) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ICreateDevEnum, 0x29840822, 0x5b84, 0x11d0, 0xbd,0x3b, 0x00,0xa0,0xc9,0x11,0xce,0x86)
 #endif
+#else
+typedef struct ICreateDevEnumVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ICreateDevEnum* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ICreateDevEnum* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ICreateDevEnum* This);
+
+    /*** ICreateDevEnum methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateClassEnumerator)(
+        ICreateDevEnum* This,
+        REFCLSID clsidDeviceClass,
+        IEnumMoniker **ppEnumMoniker,
+        DWORD dwFlags);
+
+    END_INTERFACE
+} ICreateDevEnumVtbl;
+interface ICreateDevEnum {
+    CONST_VTBL ICreateDevEnumVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define ICreateDevEnum_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ICreateDevEnum_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ICreateDevEnum_Release(This) (This)->lpVtbl->Release(This)
+/*** ICreateDevEnum methods ***/
+#define ICreateDevEnum_CreateClassEnumerator(This,clsidDeviceClass,ppEnumMoniker,dwFlags) (This)->lpVtbl->CreateClassEnumerator(This,clsidDeviceClass,ppEnumMoniker,dwFlags)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ICreateDevEnum_CreateClassEnumerator_Proxy(
+    ICreateDevEnum* This,
+    REFCLSID clsidDeviceClass,
+    IEnumMoniker **ppEnumMoniker,
+    DWORD dwFlags);
+void __RPC_STUB ICreateDevEnum_CreateClassEnumerator_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ICreateDevEnum_INTERFACE_DEFINED__ */
 
 #ifndef __IPin_FWD_DEFINED__
 #define __IPin_FWD_DEFINED__
@@ -716,7 +798,6 @@ typedef struct IAMAsyncReaderTimestampScaling IAMAsyncReaderTimestampScaling;
 typedef struct IAMPluginControl IAMPluginControl;
 #endif
 
-#include "oaidl.h"
 #include "ocidl.h"
 
 #ifndef __MIDL_user_allocate_free_DEFINED__
@@ -725,47 +806,8 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_API MIDL_user_free(void *);
 #endif
 
-#define CDEF_CLASS_DEFAULT 0x0001
-#define CDEF_BYPASS_CLASS_MANAGER 0x0002
-#define CDEF_MERIT_ABOVE_DO_NOT_USE 0x0008
-#define CDEF_DEVMON_CMGR_DEVICE 0x0010
-#define CDEF_DEVMON_DMO 0x0020
-#define CDEF_DEVMON_PNP_DEVICE 0x0040
-#define CDEF_DEVMON_FILTER 0x0080
-#define CDEF_DEVMON_SELECTIVE_MASK 0x00f0
-
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0000_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0000_v0_0_s_ifspec;
-#ifndef __ICreateDevEnum_INTERFACE_DEFINED__
-#define __ICreateDevEnum_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_ICreateDevEnum;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct ICreateDevEnum : public IUnknown {
-  public:
-    virtual HRESULT WINAPI CreateClassEnumerator(REFCLSID clsidDeviceClass,IEnumMoniker **ppEnumMoniker,DWORD dwFlags) = 0;
-  };
-#else
-  typedef struct ICreateDevEnumVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(ICreateDevEnum *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(ICreateDevEnum *This);
-      ULONG (WINAPI *Release)(ICreateDevEnum *This);
-      HRESULT (WINAPI *CreateClassEnumerator)(ICreateDevEnum *This,REFCLSID clsidDeviceClass,IEnumMoniker **ppEnumMoniker,DWORD dwFlags);
-    END_INTERFACE
-  } ICreateDevEnumVtbl;
-  struct ICreateDevEnum {
-    CONST_VTBL struct ICreateDevEnumVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define ICreateDevEnum_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define ICreateDevEnum_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define ICreateDevEnum_Release(This) (This)->lpVtbl->Release(This)
-#define ICreateDevEnum_CreateClassEnumerator(This,clsidDeviceClass,ppEnumMoniker,dwFlags) (This)->lpVtbl->CreateClassEnumerator(This,clsidDeviceClass,ppEnumMoniker,dwFlags)
-#endif
-#endif
-  HRESULT WINAPI ICreateDevEnum_CreateClassEnumerator_Proxy(ICreateDevEnum *This,REFCLSID clsidDeviceClass,IEnumMoniker **ppEnumMoniker,DWORD dwFlags);
-  void __RPC_STUB ICreateDevEnum_CreateClassEnumerator_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
 
 #define CHARS_IN_GUID 39
   typedef struct _AMMediaType {
