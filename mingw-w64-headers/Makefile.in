@@ -259,6 +259,7 @@ BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
 @HAVE_WIDL_TRUE@  include/propidl.idl \
 @HAVE_WIDL_TRUE@  include/shobjidl.idl \
 @HAVE_WIDL_TRUE@  include/shtypes.idl \
+@HAVE_WIDL_TRUE@  include/strmif.idl \
 @HAVE_WIDL_TRUE@  include/structuredquerycondition.idl \
 @HAVE_WIDL_TRUE@  include/tpcshrd.idl \
 @HAVE_WIDL_TRUE@  include/textstor.idl \
