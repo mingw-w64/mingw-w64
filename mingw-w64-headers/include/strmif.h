@@ -22,6 +22,86 @@
 typedef interface ICreateDevEnum ICreateDevEnum;
 #endif
 
+#ifndef __IPin_FWD_DEFINED__
+#define __IPin_FWD_DEFINED__
+typedef interface IPin IPin;
+#endif
+
+#ifndef __IEnumPins_FWD_DEFINED__
+#define __IEnumPins_FWD_DEFINED__
+typedef interface IEnumPins IEnumPins;
+#endif
+
+#ifndef __IEnumMediaTypes_FWD_DEFINED__
+#define __IEnumMediaTypes_FWD_DEFINED__
+typedef interface IEnumMediaTypes IEnumMediaTypes;
+#endif
+
+#ifndef __IFilterGraph_FWD_DEFINED__
+#define __IFilterGraph_FWD_DEFINED__
+typedef interface IFilterGraph IFilterGraph;
+#endif
+
+#ifndef __IEnumFilters_FWD_DEFINED__
+#define __IEnumFilters_FWD_DEFINED__
+typedef interface IEnumFilters IEnumFilters;
+#endif
+
+#ifndef __IMediaFilter_FWD_DEFINED__
+#define __IMediaFilter_FWD_DEFINED__
+typedef interface IMediaFilter IMediaFilter;
+#endif
+
+#ifndef __IBaseFilter_FWD_DEFINED__
+#define __IBaseFilter_FWD_DEFINED__
+typedef interface IBaseFilter IBaseFilter;
+#endif
+
+#ifndef __IReferenceClock_FWD_DEFINED__
+#define __IReferenceClock_FWD_DEFINED__
+typedef interface IReferenceClock IReferenceClock;
+#endif
+
+#ifndef __IMediaSample_FWD_DEFINED__
+#define __IMediaSample_FWD_DEFINED__
+typedef interface IMediaSample IMediaSample;
+#endif
+
+#ifndef __IMediaSample2_FWD_DEFINED__
+#define __IMediaSample2_FWD_DEFINED__
+typedef interface IMediaSample2 IMediaSample2;
+#endif
+
+#ifndef __IMemAllocator_FWD_DEFINED__
+#define __IMemAllocator_FWD_DEFINED__
+typedef interface IMemAllocator IMemAllocator;
+#endif
+
+#ifndef __IMemAllocatorCallbackTemp_FWD_DEFINED__
+#define __IMemAllocatorCallbackTemp_FWD_DEFINED__
+typedef interface IMemAllocatorCallbackTemp IMemAllocatorCallbackTemp;
+#endif
+
+#ifndef __IMemAllocatorNotifyCallbackTemp_FWD_DEFINED__
+#define __IMemAllocatorNotifyCallbackTemp_FWD_DEFINED__
+typedef interface IMemAllocatorNotifyCallbackTemp IMemAllocatorNotifyCallbackTemp;
+#endif
+
+#ifndef __IMemInputPin_FWD_DEFINED__
+#define __IMemInputPin_FWD_DEFINED__
+typedef interface IMemInputPin IMemInputPin;
+#endif
+
+#ifndef __IAMovieSetup_FWD_DEFINED__
+#define __IAMovieSetup_FWD_DEFINED__
+typedef interface IAMovieSetup IAMovieSetup;
+#endif
+
+#ifndef __IMediaSeeking_FWD_DEFINED__
+#define __IMediaSeeking_FWD_DEFINED__
+typedef interface IMediaSeeking IMediaSeeking;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -113,89 +193,2901 @@ void __RPC_STUB ICreateDevEnum_CreateClassEnumerator_Stub(
 
 #endif  /* __ICreateDevEnum_INTERFACE_DEFINED__ */
 
-#ifndef __IPin_FWD_DEFINED__
-#define __IPin_FWD_DEFINED__
-typedef struct IPin IPin;
+#define CHARS_IN_GUID 39
+#ifdef WINE_NO_UNICODE_MACROS
+#undef GetTimeFormat
 #endif
-
-#ifndef __IEnumPins_FWD_DEFINED__
-#define __IEnumPins_FWD_DEFINED__
-typedef struct IEnumPins IEnumPins;
+typedef struct _AMMediaType {
+    GUID majortype;
+    GUID subtype;
+    WINBOOL bFixedSizeSamples;
+    WINBOOL bTemporalCompression;
+    ULONG lSampleSize;
+    GUID formattype;
+    IUnknown *pUnk;
+    ULONG cbFormat;
+    BYTE *pbFormat;
+} AM_MEDIA_TYPE;
+typedef enum _PinDirection {
+    PINDIR_INPUT = 0,
+    PINDIR_OUTPUT = 1
+} PIN_DIRECTION;
+#define MAX_PIN_NAME    128
+#define MAX_FILTER_NAME 128
+#ifndef REFERENCE_TIME_DEFINED
+#define REFERENCE_TIME_DEFINED
+typedef LONGLONG REFERENCE_TIME;
 #endif
-
-#ifndef __IEnumMediaTypes_FWD_DEFINED__
-#define __IEnumMediaTypes_FWD_DEFINED__
-typedef struct IEnumMediaTypes IEnumMediaTypes;
+#ifndef REFTIME_DEFINED
+#define REFTIME_DEFINED
+typedef DOUBLE REFTIME;
 #endif
-
-#ifndef __IFilterGraph_FWD_DEFINED__
-#define __IFilterGraph_FWD_DEFINED__
-typedef struct IFilterGraph IFilterGraph;
+typedef DWORD_PTR HSEMAPHORE;
+typedef DWORD_PTR HEVENT;
+typedef struct _AllocatorProperties {
+    LONG cBuffers;
+    LONG cbBuffer;
+    LONG cbAlign;
+    LONG cbPrefix;
+} ALLOCATOR_PROPERTIES;
+#ifndef __IAMovieSetup_FWD_DEFINED__
+#define __IAMovieSetup_FWD_DEFINED__
+typedef interface IAMovieSetup IAMovieSetup;
 #endif
 
 #ifndef __IEnumFilters_FWD_DEFINED__
 #define __IEnumFilters_FWD_DEFINED__
-typedef struct IEnumFilters IEnumFilters;
+typedef interface IEnumFilters IEnumFilters;
 #endif
 
-#ifndef __IMediaFilter_FWD_DEFINED__
-#define __IMediaFilter_FWD_DEFINED__
-typedef struct IMediaFilter IMediaFilter;
+#ifndef __IEnumMediaTypes_FWD_DEFINED__
+#define __IEnumMediaTypes_FWD_DEFINED__
+typedef interface IEnumMediaTypes IEnumMediaTypes;
+#endif
+
+#ifndef __IEnumPins_FWD_DEFINED__
+#define __IEnumPins_FWD_DEFINED__
+typedef interface IEnumPins IEnumPins;
 #endif
 
 #ifndef __IBaseFilter_FWD_DEFINED__
 #define __IBaseFilter_FWD_DEFINED__
-typedef struct IBaseFilter IBaseFilter;
+typedef interface IBaseFilter IBaseFilter;
 #endif
 
-#ifndef __IReferenceClock_FWD_DEFINED__
-#define __IReferenceClock_FWD_DEFINED__
-typedef struct IReferenceClock IReferenceClock;
+#ifndef __IFilterGraph_FWD_DEFINED__
+#define __IFilterGraph_FWD_DEFINED__
+typedef interface IFilterGraph IFilterGraph;
 #endif
 
-#ifndef __IReferenceClock2_FWD_DEFINED__
-#define __IReferenceClock2_FWD_DEFINED__
-typedef struct IReferenceClock2 IReferenceClock2;
+#ifndef __IMediaFilter_FWD_DEFINED__
+#define __IMediaFilter_FWD_DEFINED__
+typedef interface IMediaFilter IMediaFilter;
 #endif
 
 #ifndef __IMediaSample_FWD_DEFINED__
 #define __IMediaSample_FWD_DEFINED__
-typedef struct IMediaSample IMediaSample;
-#endif
-
-#ifndef __IMediaSample2_FWD_DEFINED__
-#define __IMediaSample2_FWD_DEFINED__
-typedef struct IMediaSample2 IMediaSample2;
+typedef interface IMediaSample IMediaSample;
 #endif
 
 #ifndef __IMemAllocator_FWD_DEFINED__
 #define __IMemAllocator_FWD_DEFINED__
-typedef struct IMemAllocator IMemAllocator;
+typedef interface IMemAllocator IMemAllocator;
 #endif
 
 #ifndef __IMemAllocatorCallbackTemp_FWD_DEFINED__
 #define __IMemAllocatorCallbackTemp_FWD_DEFINED__
-typedef struct IMemAllocatorCallbackTemp IMemAllocatorCallbackTemp;
+typedef interface IMemAllocatorCallbackTemp IMemAllocatorCallbackTemp;
 #endif
 
 #ifndef __IMemAllocatorNotifyCallbackTemp_FWD_DEFINED__
 #define __IMemAllocatorNotifyCallbackTemp_FWD_DEFINED__
-typedef struct IMemAllocatorNotifyCallbackTemp IMemAllocatorNotifyCallbackTemp;
+typedef interface IMemAllocatorNotifyCallbackTemp IMemAllocatorNotifyCallbackTemp;
 #endif
 
 #ifndef __IMemInputPin_FWD_DEFINED__
 #define __IMemInputPin_FWD_DEFINED__
-typedef struct IMemInputPin IMemInputPin;
+typedef interface IMemInputPin IMemInputPin;
 #endif
 
-#ifndef __IAMovieSetup_FWD_DEFINED__
-#define __IAMovieSetup_FWD_DEFINED__
-typedef struct IAMovieSetup IAMovieSetup;
+#ifndef __IPin_FWD_DEFINED__
+#define __IPin_FWD_DEFINED__
+typedef interface IPin IPin;
 #endif
 
-#ifndef __IMediaSeeking_FWD_DEFINED__
-#define __IMediaSeeking_FWD_DEFINED__
-typedef struct IMediaSeeking IMediaSeeking;
+#ifndef __IReferenceClock_FWD_DEFINED__
+#define __IReferenceClock_FWD_DEFINED__
+typedef interface IReferenceClock IReferenceClock;
+#endif
+
+/*****************************************************************************
+ * IPin interface
+ */
+#ifndef __IPin_INTERFACE_DEFINED__
+#define __IPin_INTERFACE_DEFINED__
+
+typedef struct _PinInfo {
+    IBaseFilter *pFilter;
+    PIN_DIRECTION dir;
+    WCHAR achName[128];
+} PIN_INFO;
+DEFINE_GUID(IID_IPin, 0x56a86891, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a86891-0ad4-11ce-b03a-0020af0ba770")
+IPin : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Connect(
+        IPin *pReceivePin,
+        const AM_MEDIA_TYPE *pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReceiveConnection(
+        IPin *pConnector,
+        const AM_MEDIA_TYPE *pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Disconnect(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ConnectedTo(
+        IPin **pPin) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ConnectionMediaType(
+        AM_MEDIA_TYPE *pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryPinInfo(
+        PIN_INFO *pInfo) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryDirection(
+        PIN_DIRECTION *pPinDir) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryId(
+        LPWSTR *Id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryAccept(
+        const AM_MEDIA_TYPE *pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumMediaTypes(
+        IEnumMediaTypes **ppEnum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryInternalConnections(
+        IPin **apPin,
+        ULONG *nPin) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EndOfStream(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE BeginFlush(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EndFlush(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NewSegment(
+        REFERENCE_TIME tStart,
+        REFERENCE_TIME tStop,
+        double dRate) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPin, 0x56a86891, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IPinVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IPin* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IPin* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IPin* This);
+
+    /*** IPin methods ***/
+    HRESULT (STDMETHODCALLTYPE *Connect)(
+        IPin* This,
+        IPin *pReceivePin,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *ReceiveConnection)(
+        IPin* This,
+        IPin *pConnector,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *Disconnect)(
+        IPin* This);
+
+    HRESULT (STDMETHODCALLTYPE *ConnectedTo)(
+        IPin* This,
+        IPin **pPin);
+
+    HRESULT (STDMETHODCALLTYPE *ConnectionMediaType)(
+        IPin* This,
+        AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *QueryPinInfo)(
+        IPin* This,
+        PIN_INFO *pInfo);
+
+    HRESULT (STDMETHODCALLTYPE *QueryDirection)(
+        IPin* This,
+        PIN_DIRECTION *pPinDir);
+
+    HRESULT (STDMETHODCALLTYPE *QueryId)(
+        IPin* This,
+        LPWSTR *Id);
+
+    HRESULT (STDMETHODCALLTYPE *QueryAccept)(
+        IPin* This,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *EnumMediaTypes)(
+        IPin* This,
+        IEnumMediaTypes **ppEnum);
+
+    HRESULT (STDMETHODCALLTYPE *QueryInternalConnections)(
+        IPin* This,
+        IPin **apPin,
+        ULONG *nPin);
+
+    HRESULT (STDMETHODCALLTYPE *EndOfStream)(
+        IPin* This);
+
+    HRESULT (STDMETHODCALLTYPE *BeginFlush)(
+        IPin* This);
+
+    HRESULT (STDMETHODCALLTYPE *EndFlush)(
+        IPin* This);
+
+    HRESULT (STDMETHODCALLTYPE *NewSegment)(
+        IPin* This,
+        REFERENCE_TIME tStart,
+        REFERENCE_TIME tStop,
+        double dRate);
+
+    END_INTERFACE
+} IPinVtbl;
+interface IPin {
+    CONST_VTBL IPinVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IPin_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IPin_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IPin_Release(This) (This)->lpVtbl->Release(This)
+/*** IPin methods ***/
+#define IPin_Connect(This,pReceivePin,pmt) (This)->lpVtbl->Connect(This,pReceivePin,pmt)
+#define IPin_ReceiveConnection(This,pConnector,pmt) (This)->lpVtbl->ReceiveConnection(This,pConnector,pmt)
+#define IPin_Disconnect(This) (This)->lpVtbl->Disconnect(This)
+#define IPin_ConnectedTo(This,pPin) (This)->lpVtbl->ConnectedTo(This,pPin)
+#define IPin_ConnectionMediaType(This,pmt) (This)->lpVtbl->ConnectionMediaType(This,pmt)
+#define IPin_QueryPinInfo(This,pInfo) (This)->lpVtbl->QueryPinInfo(This,pInfo)
+#define IPin_QueryDirection(This,pPinDir) (This)->lpVtbl->QueryDirection(This,pPinDir)
+#define IPin_QueryId(This,Id) (This)->lpVtbl->QueryId(This,Id)
+#define IPin_QueryAccept(This,pmt) (This)->lpVtbl->QueryAccept(This,pmt)
+#define IPin_EnumMediaTypes(This,ppEnum) (This)->lpVtbl->EnumMediaTypes(This,ppEnum)
+#define IPin_QueryInternalConnections(This,apPin,nPin) (This)->lpVtbl->QueryInternalConnections(This,apPin,nPin)
+#define IPin_EndOfStream(This) (This)->lpVtbl->EndOfStream(This)
+#define IPin_BeginFlush(This) (This)->lpVtbl->BeginFlush(This)
+#define IPin_EndFlush(This) (This)->lpVtbl->EndFlush(This)
+#define IPin_NewSegment(This,tStart,tStop,dRate) (This)->lpVtbl->NewSegment(This,tStart,tStop,dRate)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IPin_Connect_Proxy(
+    IPin* This,
+    IPin *pReceivePin,
+    const AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IPin_Connect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_ReceiveConnection_Proxy(
+    IPin* This,
+    IPin *pConnector,
+    const AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IPin_ReceiveConnection_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_Disconnect_Proxy(
+    IPin* This);
+void __RPC_STUB IPin_Disconnect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_ConnectedTo_Proxy(
+    IPin* This,
+    IPin **pPin);
+void __RPC_STUB IPin_ConnectedTo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_ConnectionMediaType_Proxy(
+    IPin* This,
+    AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IPin_ConnectionMediaType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_QueryPinInfo_Proxy(
+    IPin* This,
+    PIN_INFO *pInfo);
+void __RPC_STUB IPin_QueryPinInfo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_QueryDirection_Proxy(
+    IPin* This,
+    PIN_DIRECTION *pPinDir);
+void __RPC_STUB IPin_QueryDirection_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_QueryId_Proxy(
+    IPin* This,
+    LPWSTR *Id);
+void __RPC_STUB IPin_QueryId_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_QueryAccept_Proxy(
+    IPin* This,
+    const AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IPin_QueryAccept_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_EnumMediaTypes_Proxy(
+    IPin* This,
+    IEnumMediaTypes **ppEnum);
+void __RPC_STUB IPin_EnumMediaTypes_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_QueryInternalConnections_Proxy(
+    IPin* This,
+    IPin **apPin,
+    ULONG *nPin);
+void __RPC_STUB IPin_QueryInternalConnections_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_EndOfStream_Proxy(
+    IPin* This);
+void __RPC_STUB IPin_EndOfStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_BeginFlush_Proxy(
+    IPin* This);
+void __RPC_STUB IPin_BeginFlush_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_EndFlush_Proxy(
+    IPin* This);
+void __RPC_STUB IPin_EndFlush_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPin_NewSegment_Proxy(
+    IPin* This,
+    REFERENCE_TIME tStart,
+    REFERENCE_TIME tStop,
+    double dRate);
+void __RPC_STUB IPin_NewSegment_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IPin_INTERFACE_DEFINED__ */
+
+typedef IPin *PPIN;
+/*****************************************************************************
+ * IEnumPins interface
+ */
+#ifndef __IEnumPins_INTERFACE_DEFINED__
+#define __IEnumPins_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEnumPins, 0x56a86892, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a86892-0ad4-11ce-b03a-0020af0ba770")
+IEnumPins : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG cPins,
+        IPin **ppPins,
+        ULONG *pcFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG cPins) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumPins **ppEnum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumPins, 0x56a86892, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IEnumPinsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumPins* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumPins* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumPins* This);
+
+    /*** IEnumPins methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumPins* This,
+        ULONG cPins,
+        IPin **ppPins,
+        ULONG *pcFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumPins* This,
+        ULONG cPins);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumPins* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumPins* This,
+        IEnumPins **ppEnum);
+
+    END_INTERFACE
+} IEnumPinsVtbl;
+interface IEnumPins {
+    CONST_VTBL IEnumPinsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IEnumPins_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumPins_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumPins_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumPins methods ***/
+#define IEnumPins_Next(This,cPins,ppPins,pcFetched) (This)->lpVtbl->Next(This,cPins,ppPins,pcFetched)
+#define IEnumPins_Skip(This,cPins) (This)->lpVtbl->Skip(This,cPins)
+#define IEnumPins_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumPins_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IEnumPins_Next_Proxy(
+    IEnumPins* This,
+    ULONG cPins,
+    IPin **ppPins,
+    ULONG *pcFetched);
+void __RPC_STUB IEnumPins_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumPins_Skip_Proxy(
+    IEnumPins* This,
+    ULONG cPins);
+void __RPC_STUB IEnumPins_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumPins_Reset_Proxy(
+    IEnumPins* This);
+void __RPC_STUB IEnumPins_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumPins_Clone_Proxy(
+    IEnumPins* This,
+    IEnumPins **ppEnum);
+void __RPC_STUB IEnumPins_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IEnumPins_INTERFACE_DEFINED__ */
+
+typedef IEnumPins *PENUMPINS;
+/*****************************************************************************
+ * IEnumMediaTypes interface
+ */
+#ifndef __IEnumMediaTypes_INTERFACE_DEFINED__
+#define __IEnumMediaTypes_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEnumMediaTypes, 0x89c31040, 0x846b, 0x11ce, 0x97,0xd3, 0x00,0xaa,0x00,0x55,0x59,0x5a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("89c31040-846b-11ce-97d3-00aa0055595a")
+IEnumMediaTypes : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG cMediaTypes,
+        AM_MEDIA_TYPE **ppMediaTypes,
+        ULONG *pcFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG cMediaTypes) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumMediaTypes **ppEnum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumMediaTypes, 0x89c31040, 0x846b, 0x11ce, 0x97,0xd3, 0x00,0xaa,0x00,0x55,0x59,0x5a)
+#endif
+#else
+typedef struct IEnumMediaTypesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumMediaTypes* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumMediaTypes* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumMediaTypes* This);
+
+    /*** IEnumMediaTypes methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumMediaTypes* This,
+        ULONG cMediaTypes,
+        AM_MEDIA_TYPE **ppMediaTypes,
+        ULONG *pcFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumMediaTypes* This,
+        ULONG cMediaTypes);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumMediaTypes* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumMediaTypes* This,
+        IEnumMediaTypes **ppEnum);
+
+    END_INTERFACE
+} IEnumMediaTypesVtbl;
+interface IEnumMediaTypes {
+    CONST_VTBL IEnumMediaTypesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IEnumMediaTypes_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumMediaTypes_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumMediaTypes_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumMediaTypes methods ***/
+#define IEnumMediaTypes_Next(This,cMediaTypes,ppMediaTypes,pcFetched) (This)->lpVtbl->Next(This,cMediaTypes,ppMediaTypes,pcFetched)
+#define IEnumMediaTypes_Skip(This,cMediaTypes) (This)->lpVtbl->Skip(This,cMediaTypes)
+#define IEnumMediaTypes_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumMediaTypes_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IEnumMediaTypes_Next_Proxy(
+    IEnumMediaTypes* This,
+    ULONG cMediaTypes,
+    AM_MEDIA_TYPE **ppMediaTypes,
+    ULONG *pcFetched);
+void __RPC_STUB IEnumMediaTypes_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumMediaTypes_Skip_Proxy(
+    IEnumMediaTypes* This,
+    ULONG cMediaTypes);
+void __RPC_STUB IEnumMediaTypes_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumMediaTypes_Reset_Proxy(
+    IEnumMediaTypes* This);
+void __RPC_STUB IEnumMediaTypes_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumMediaTypes_Clone_Proxy(
+    IEnumMediaTypes* This,
+    IEnumMediaTypes **ppEnum);
+void __RPC_STUB IEnumMediaTypes_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IEnumMediaTypes_INTERFACE_DEFINED__ */
+
+typedef IEnumMediaTypes *PENUMMEDIATYPES;
+/*****************************************************************************
+ * IFilterGraph interface
+ */
+#ifndef __IFilterGraph_INTERFACE_DEFINED__
+#define __IFilterGraph_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFilterGraph, 0x56a8689f, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a8689f-0ad4-11ce-b03a-0020af0ba770")
+IFilterGraph : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE AddFilter(
+        IBaseFilter *pFilter,
+        LPCWSTR pName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveFilter(
+        IBaseFilter *pFilter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumFilters(
+        IEnumFilters **ppEnum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindFilterByName(
+        LPCWSTR pName,
+        IBaseFilter **ppFilter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ConnectDirect(
+        IPin *ppinOut,
+        IPin *ppinIn,
+        const AM_MEDIA_TYPE *pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reconnect(
+        IPin *ppin) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Disconnect(
+        IPin *ppin) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDefaultSyncSource(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFilterGraph, 0x56a8689f, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IFilterGraphVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFilterGraph* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFilterGraph* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFilterGraph* This);
+
+    /*** IFilterGraph methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddFilter)(
+        IFilterGraph* This,
+        IBaseFilter *pFilter,
+        LPCWSTR pName);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFilter)(
+        IFilterGraph* This,
+        IBaseFilter *pFilter);
+
+    HRESULT (STDMETHODCALLTYPE *EnumFilters)(
+        IFilterGraph* This,
+        IEnumFilters **ppEnum);
+
+    HRESULT (STDMETHODCALLTYPE *FindFilterByName)(
+        IFilterGraph* This,
+        LPCWSTR pName,
+        IBaseFilter **ppFilter);
+
+    HRESULT (STDMETHODCALLTYPE *ConnectDirect)(
+        IFilterGraph* This,
+        IPin *ppinOut,
+        IPin *ppinIn,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *Reconnect)(
+        IFilterGraph* This,
+        IPin *ppin);
+
+    HRESULT (STDMETHODCALLTYPE *Disconnect)(
+        IFilterGraph* This,
+        IPin *ppin);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultSyncSource)(
+        IFilterGraph* This);
+
+    END_INTERFACE
+} IFilterGraphVtbl;
+interface IFilterGraph {
+    CONST_VTBL IFilterGraphVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFilterGraph_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFilterGraph_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFilterGraph_Release(This) (This)->lpVtbl->Release(This)
+/*** IFilterGraph methods ***/
+#define IFilterGraph_AddFilter(This,pFilter,pName) (This)->lpVtbl->AddFilter(This,pFilter,pName)
+#define IFilterGraph_RemoveFilter(This,pFilter) (This)->lpVtbl->RemoveFilter(This,pFilter)
+#define IFilterGraph_EnumFilters(This,ppEnum) (This)->lpVtbl->EnumFilters(This,ppEnum)
+#define IFilterGraph_FindFilterByName(This,pName,ppFilter) (This)->lpVtbl->FindFilterByName(This,pName,ppFilter)
+#define IFilterGraph_ConnectDirect(This,ppinOut,ppinIn,pmt) (This)->lpVtbl->ConnectDirect(This,ppinOut,ppinIn,pmt)
+#define IFilterGraph_Reconnect(This,ppin) (This)->lpVtbl->Reconnect(This,ppin)
+#define IFilterGraph_Disconnect(This,ppin) (This)->lpVtbl->Disconnect(This,ppin)
+#define IFilterGraph_SetDefaultSyncSource(This) (This)->lpVtbl->SetDefaultSyncSource(This)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IFilterGraph_AddFilter_Proxy(
+    IFilterGraph* This,
+    IBaseFilter *pFilter,
+    LPCWSTR pName);
+void __RPC_STUB IFilterGraph_AddFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterGraph_RemoveFilter_Proxy(
+    IFilterGraph* This,
+    IBaseFilter *pFilter);
+void __RPC_STUB IFilterGraph_RemoveFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterGraph_EnumFilters_Proxy(
+    IFilterGraph* This,
+    IEnumFilters **ppEnum);
+void __RPC_STUB IFilterGraph_EnumFilters_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterGraph_FindFilterByName_Proxy(
+    IFilterGraph* This,
+    LPCWSTR pName,
+    IBaseFilter **ppFilter);
+void __RPC_STUB IFilterGraph_FindFilterByName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterGraph_ConnectDirect_Proxy(
+    IFilterGraph* This,
+    IPin *ppinOut,
+    IPin *ppinIn,
+    const AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IFilterGraph_ConnectDirect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterGraph_Reconnect_Proxy(
+    IFilterGraph* This,
+    IPin *ppin);
+void __RPC_STUB IFilterGraph_Reconnect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterGraph_Disconnect_Proxy(
+    IFilterGraph* This,
+    IPin *ppin);
+void __RPC_STUB IFilterGraph_Disconnect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterGraph_SetDefaultSyncSource_Proxy(
+    IFilterGraph* This);
+void __RPC_STUB IFilterGraph_SetDefaultSyncSource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IFilterGraph_INTERFACE_DEFINED__ */
+
+typedef IFilterGraph *PFILTERGRAPH;
+/*****************************************************************************
+ * IEnumFilters interface
+ */
+#ifndef __IEnumFilters_INTERFACE_DEFINED__
+#define __IEnumFilters_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEnumFilters, 0x56a86893, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a86893-0ad4-11ce-b03a-0020af0ba770")
+IEnumFilters : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG cFilters,
+        IBaseFilter **ppFilter,
+        ULONG *pcFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG cFilters) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumFilters **ppEnum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumFilters, 0x56a86893, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IEnumFiltersVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumFilters* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumFilters* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumFilters* This);
+
+    /*** IEnumFilters methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumFilters* This,
+        ULONG cFilters,
+        IBaseFilter **ppFilter,
+        ULONG *pcFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumFilters* This,
+        ULONG cFilters);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumFilters* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumFilters* This,
+        IEnumFilters **ppEnum);
+
+    END_INTERFACE
+} IEnumFiltersVtbl;
+interface IEnumFilters {
+    CONST_VTBL IEnumFiltersVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IEnumFilters_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumFilters_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumFilters_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumFilters methods ***/
+#define IEnumFilters_Next(This,cFilters,ppFilter,pcFetched) (This)->lpVtbl->Next(This,cFilters,ppFilter,pcFetched)
+#define IEnumFilters_Skip(This,cFilters) (This)->lpVtbl->Skip(This,cFilters)
+#define IEnumFilters_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumFilters_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IEnumFilters_Next_Proxy(
+    IEnumFilters* This,
+    ULONG cFilters,
+    IBaseFilter **ppFilter,
+    ULONG *pcFetched);
+void __RPC_STUB IEnumFilters_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumFilters_Skip_Proxy(
+    IEnumFilters* This,
+    ULONG cFilters);
+void __RPC_STUB IEnumFilters_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumFilters_Reset_Proxy(
+    IEnumFilters* This);
+void __RPC_STUB IEnumFilters_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumFilters_Clone_Proxy(
+    IEnumFilters* This,
+    IEnumFilters **ppEnum);
+void __RPC_STUB IEnumFilters_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IEnumFilters_INTERFACE_DEFINED__ */
+
+typedef IEnumFilters *PENUMFILTERS;
+/*****************************************************************************
+ * IMediaFilter interface
+ */
+#ifndef __IMediaFilter_INTERFACE_DEFINED__
+#define __IMediaFilter_INTERFACE_DEFINED__
+
+typedef enum _FilterState {
+    State_Stopped = 0,
+    State_Paused = 1,
+    State_Running = 2
+} FILTER_STATE;
+DEFINE_GUID(IID_IMediaFilter, 0x56a86899, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a86899-0ad4-11ce-b03a-0020af0ba770")
+IMediaFilter : public IPersist
+{
+    virtual HRESULT STDMETHODCALLTYPE Stop(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Pause(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Run(
+        REFERENCE_TIME tStart) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetState(
+        DWORD dwMilliSecsTimeout,
+        FILTER_STATE *State) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSyncSource(
+        IReferenceClock *pClock) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSyncSource(
+        IReferenceClock **pClock) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMediaFilter, 0x56a86899, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IMediaFilterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMediaFilter* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMediaFilter* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMediaFilter* This);
+
+    /*** IPersist methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetClassID)(
+        IMediaFilter* This,
+        CLSID *pClassID);
+
+    /*** IMediaFilter methods ***/
+    HRESULT (STDMETHODCALLTYPE *Stop)(
+        IMediaFilter* This);
+
+    HRESULT (STDMETHODCALLTYPE *Pause)(
+        IMediaFilter* This);
+
+    HRESULT (STDMETHODCALLTYPE *Run)(
+        IMediaFilter* This,
+        REFERENCE_TIME tStart);
+
+    HRESULT (STDMETHODCALLTYPE *GetState)(
+        IMediaFilter* This,
+        DWORD dwMilliSecsTimeout,
+        FILTER_STATE *State);
+
+    HRESULT (STDMETHODCALLTYPE *SetSyncSource)(
+        IMediaFilter* This,
+        IReferenceClock *pClock);
+
+    HRESULT (STDMETHODCALLTYPE *GetSyncSource)(
+        IMediaFilter* This,
+        IReferenceClock **pClock);
+
+    END_INTERFACE
+} IMediaFilterVtbl;
+interface IMediaFilter {
+    CONST_VTBL IMediaFilterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IMediaFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMediaFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMediaFilter_Release(This) (This)->lpVtbl->Release(This)
+/*** IPersist methods ***/
+#define IMediaFilter_GetClassID(This,pClassID) (This)->lpVtbl->GetClassID(This,pClassID)
+/*** IMediaFilter methods ***/
+#define IMediaFilter_Stop(This) (This)->lpVtbl->Stop(This)
+#define IMediaFilter_Pause(This) (This)->lpVtbl->Pause(This)
+#define IMediaFilter_Run(This,tStart) (This)->lpVtbl->Run(This,tStart)
+#define IMediaFilter_GetState(This,dwMilliSecsTimeout,State) (This)->lpVtbl->GetState(This,dwMilliSecsTimeout,State)
+#define IMediaFilter_SetSyncSource(This,pClock) (This)->lpVtbl->SetSyncSource(This,pClock)
+#define IMediaFilter_GetSyncSource(This,pClock) (This)->lpVtbl->GetSyncSource(This,pClock)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMediaFilter_Stop_Proxy(
+    IMediaFilter* This);
+void __RPC_STUB IMediaFilter_Stop_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaFilter_Pause_Proxy(
+    IMediaFilter* This);
+void __RPC_STUB IMediaFilter_Pause_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaFilter_Run_Proxy(
+    IMediaFilter* This,
+    REFERENCE_TIME tStart);
+void __RPC_STUB IMediaFilter_Run_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaFilter_GetState_Proxy(
+    IMediaFilter* This,
+    DWORD dwMilliSecsTimeout,
+    FILTER_STATE *State);
+void __RPC_STUB IMediaFilter_GetState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaFilter_SetSyncSource_Proxy(
+    IMediaFilter* This,
+    IReferenceClock *pClock);
+void __RPC_STUB IMediaFilter_SetSyncSource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaFilter_GetSyncSource_Proxy(
+    IMediaFilter* This,
+    IReferenceClock **pClock);
+void __RPC_STUB IMediaFilter_GetSyncSource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMediaFilter_INTERFACE_DEFINED__ */
+
+typedef IMediaFilter *PMEDIAFILTER;
+/*****************************************************************************
+ * IBaseFilter interface
+ */
+#ifndef __IBaseFilter_INTERFACE_DEFINED__
+#define __IBaseFilter_INTERFACE_DEFINED__
+
+typedef struct _FilterInfo {
+    WCHAR achName[128];
+    IFilterGraph *pGraph;
+} FILTER_INFO;
+DEFINE_GUID(IID_IBaseFilter, 0x56a86895, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a86895-0ad4-11ce-b03a-0020af0ba770")
+IBaseFilter : public IMediaFilter
+{
+    virtual HRESULT STDMETHODCALLTYPE EnumPins(
+        IEnumPins **ppEnum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindPin(
+        LPCWSTR Id,
+        IPin **ppPin) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryFilterInfo(
+        FILTER_INFO *pInfo) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE JoinFilterGraph(
+        IFilterGraph *pGraph,
+        LPCWSTR pName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryVendorInfo(
+        LPWSTR *pVendorInfo) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IBaseFilter, 0x56a86895, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IBaseFilterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IBaseFilter* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IBaseFilter* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IBaseFilter* This);
+
+    /*** IPersist methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetClassID)(
+        IBaseFilter* This,
+        CLSID *pClassID);
+
+    /*** IMediaFilter methods ***/
+    HRESULT (STDMETHODCALLTYPE *Stop)(
+        IBaseFilter* This);
+
+    HRESULT (STDMETHODCALLTYPE *Pause)(
+        IBaseFilter* This);
+
+    HRESULT (STDMETHODCALLTYPE *Run)(
+        IBaseFilter* This,
+        REFERENCE_TIME tStart);
+
+    HRESULT (STDMETHODCALLTYPE *GetState)(
+        IBaseFilter* This,
+        DWORD dwMilliSecsTimeout,
+        FILTER_STATE *State);
+
+    HRESULT (STDMETHODCALLTYPE *SetSyncSource)(
+        IBaseFilter* This,
+        IReferenceClock *pClock);
+
+    HRESULT (STDMETHODCALLTYPE *GetSyncSource)(
+        IBaseFilter* This,
+        IReferenceClock **pClock);
+
+    /*** IBaseFilter methods ***/
+    HRESULT (STDMETHODCALLTYPE *EnumPins)(
+        IBaseFilter* This,
+        IEnumPins **ppEnum);
+
+    HRESULT (STDMETHODCALLTYPE *FindPin)(
+        IBaseFilter* This,
+        LPCWSTR Id,
+        IPin **ppPin);
+
+    HRESULT (STDMETHODCALLTYPE *QueryFilterInfo)(
+        IBaseFilter* This,
+        FILTER_INFO *pInfo);
+
+    HRESULT (STDMETHODCALLTYPE *JoinFilterGraph)(
+        IBaseFilter* This,
+        IFilterGraph *pGraph,
+        LPCWSTR pName);
+
+    HRESULT (STDMETHODCALLTYPE *QueryVendorInfo)(
+        IBaseFilter* This,
+        LPWSTR *pVendorInfo);
+
+    END_INTERFACE
+} IBaseFilterVtbl;
+interface IBaseFilter {
+    CONST_VTBL IBaseFilterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IBaseFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBaseFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBaseFilter_Release(This) (This)->lpVtbl->Release(This)
+/*** IPersist methods ***/
+#define IBaseFilter_GetClassID(This,pClassID) (This)->lpVtbl->GetClassID(This,pClassID)
+/*** IMediaFilter methods ***/
+#define IBaseFilter_Stop(This) (This)->lpVtbl->Stop(This)
+#define IBaseFilter_Pause(This) (This)->lpVtbl->Pause(This)
+#define IBaseFilter_Run(This,tStart) (This)->lpVtbl->Run(This,tStart)
+#define IBaseFilter_GetState(This,dwMilliSecsTimeout,State) (This)->lpVtbl->GetState(This,dwMilliSecsTimeout,State)
+#define IBaseFilter_SetSyncSource(This,pClock) (This)->lpVtbl->SetSyncSource(This,pClock)
+#define IBaseFilter_GetSyncSource(This,pClock) (This)->lpVtbl->GetSyncSource(This,pClock)
+/*** IBaseFilter methods ***/
+#define IBaseFilter_EnumPins(This,ppEnum) (This)->lpVtbl->EnumPins(This,ppEnum)
+#define IBaseFilter_FindPin(This,Id,ppPin) (This)->lpVtbl->FindPin(This,Id,ppPin)
+#define IBaseFilter_QueryFilterInfo(This,pInfo) (This)->lpVtbl->QueryFilterInfo(This,pInfo)
+#define IBaseFilter_JoinFilterGraph(This,pGraph,pName) (This)->lpVtbl->JoinFilterGraph(This,pGraph,pName)
+#define IBaseFilter_QueryVendorInfo(This,pVendorInfo) (This)->lpVtbl->QueryVendorInfo(This,pVendorInfo)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IBaseFilter_EnumPins_Proxy(
+    IBaseFilter* This,
+    IEnumPins **ppEnum);
+void __RPC_STUB IBaseFilter_EnumPins_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBaseFilter_FindPin_Proxy(
+    IBaseFilter* This,
+    LPCWSTR Id,
+    IPin **ppPin);
+void __RPC_STUB IBaseFilter_FindPin_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBaseFilter_QueryFilterInfo_Proxy(
+    IBaseFilter* This,
+    FILTER_INFO *pInfo);
+void __RPC_STUB IBaseFilter_QueryFilterInfo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBaseFilter_JoinFilterGraph_Proxy(
+    IBaseFilter* This,
+    IFilterGraph *pGraph,
+    LPCWSTR pName);
+void __RPC_STUB IBaseFilter_JoinFilterGraph_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IBaseFilter_QueryVendorInfo_Proxy(
+    IBaseFilter* This,
+    LPWSTR *pVendorInfo);
+void __RPC_STUB IBaseFilter_QueryVendorInfo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IBaseFilter_INTERFACE_DEFINED__ */
+
+typedef IBaseFilter *PFILTER;
+/*****************************************************************************
+ * IReferenceClock interface
+ */
+#ifndef __IReferenceClock_INTERFACE_DEFINED__
+#define __IReferenceClock_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IReferenceClock, 0x56a86897, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a86897-0ad4-11ce-b03a-0020af0ba770")
+IReferenceClock : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetTime(
+        REFERENCE_TIME *pTime) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AdviseTime(
+        REFERENCE_TIME baseTime,
+        REFERENCE_TIME streamTime,
+        HEVENT hEvent,
+        DWORD_PTR *pdwAdviseCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AdvisePeriodic(
+        REFERENCE_TIME startTime,
+        REFERENCE_TIME periodTime,
+        HSEMAPHORE hSemaphore,
+        DWORD_PTR *pdwAdviseCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Unadvise(
+        DWORD_PTR dwAdviseCookie) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IReferenceClock, 0x56a86897, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IReferenceClockVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IReferenceClock* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IReferenceClock* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IReferenceClock* This);
+
+    /*** IReferenceClock methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTime)(
+        IReferenceClock* This,
+        REFERENCE_TIME *pTime);
+
+    HRESULT (STDMETHODCALLTYPE *AdviseTime)(
+        IReferenceClock* This,
+        REFERENCE_TIME baseTime,
+        REFERENCE_TIME streamTime,
+        HEVENT hEvent,
+        DWORD_PTR *pdwAdviseCookie);
+
+    HRESULT (STDMETHODCALLTYPE *AdvisePeriodic)(
+        IReferenceClock* This,
+        REFERENCE_TIME startTime,
+        REFERENCE_TIME periodTime,
+        HSEMAPHORE hSemaphore,
+        DWORD_PTR *pdwAdviseCookie);
+
+    HRESULT (STDMETHODCALLTYPE *Unadvise)(
+        IReferenceClock* This,
+        DWORD_PTR dwAdviseCookie);
+
+    END_INTERFACE
+} IReferenceClockVtbl;
+interface IReferenceClock {
+    CONST_VTBL IReferenceClockVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IReferenceClock_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IReferenceClock_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IReferenceClock_Release(This) (This)->lpVtbl->Release(This)
+/*** IReferenceClock methods ***/
+#define IReferenceClock_GetTime(This,pTime) (This)->lpVtbl->GetTime(This,pTime)
+#define IReferenceClock_AdviseTime(This,baseTime,streamTime,hEvent,pdwAdviseCookie) (This)->lpVtbl->AdviseTime(This,baseTime,streamTime,hEvent,pdwAdviseCookie)
+#define IReferenceClock_AdvisePeriodic(This,startTime,periodTime,hSemaphore,pdwAdviseCookie) (This)->lpVtbl->AdvisePeriodic(This,startTime,periodTime,hSemaphore,pdwAdviseCookie)
+#define IReferenceClock_Unadvise(This,dwAdviseCookie) (This)->lpVtbl->Unadvise(This,dwAdviseCookie)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IReferenceClock_GetTime_Proxy(
+    IReferenceClock* This,
+    REFERENCE_TIME *pTime);
+void __RPC_STUB IReferenceClock_GetTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IReferenceClock_AdviseTime_Proxy(
+    IReferenceClock* This,
+    REFERENCE_TIME baseTime,
+    REFERENCE_TIME streamTime,
+    HEVENT hEvent,
+    DWORD_PTR *pdwAdviseCookie);
+void __RPC_STUB IReferenceClock_AdviseTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IReferenceClock_AdvisePeriodic_Proxy(
+    IReferenceClock* This,
+    REFERENCE_TIME startTime,
+    REFERENCE_TIME periodTime,
+    HSEMAPHORE hSemaphore,
+    DWORD_PTR *pdwAdviseCookie);
+void __RPC_STUB IReferenceClock_AdvisePeriodic_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IReferenceClock_Unadvise_Proxy(
+    IReferenceClock* This,
+    DWORD_PTR dwAdviseCookie);
+void __RPC_STUB IReferenceClock_Unadvise_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IReferenceClock_INTERFACE_DEFINED__ */
+
+typedef IReferenceClock *PREFERENCECLOCK;
+/*****************************************************************************
+ * IMediaSample interface
+ */
+#ifndef __IMediaSample_INTERFACE_DEFINED__
+#define __IMediaSample_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMediaSample, 0x56a8689a, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a8689a-0ad4-11ce-b03a-0020af0ba770")
+IMediaSample : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetPointer(
+        BYTE **ppBuffer) = 0;
+
+    virtual LONG STDMETHODCALLTYPE GetSize(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTime(
+        REFERENCE_TIME *pTimeStart,
+        REFERENCE_TIME *pTimeEnd) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetTime(
+        REFERENCE_TIME *pTimeStart,
+        REFERENCE_TIME *pTimeEnd) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsSyncPoint(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSyncPoint(
+        WINBOOL bIsSyncPoint) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsPreroll(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPreroll(
+        WINBOOL bIsPreroll) = 0;
+
+    virtual LONG STDMETHODCALLTYPE GetActualDataLength(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetActualDataLength(
+        LONG length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMediaType(
+        AM_MEDIA_TYPE **ppMediaType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMediaType(
+        AM_MEDIA_TYPE *pMediaType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsDiscontinuity(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDiscontinuity(
+        WINBOOL bDiscontinuity) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMediaTime(
+        LONGLONG *pTimeStart,
+        LONGLONG *pTimeEnd) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMediaTime(
+        LONGLONG *pTimeStart,
+        LONGLONG *pTimeEnd) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMediaSample, 0x56a8689a, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IMediaSampleVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMediaSample* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMediaSample* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMediaSample* This);
+
+    /*** IMediaSample methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPointer)(
+        IMediaSample* This,
+        BYTE **ppBuffer);
+
+    LONG (STDMETHODCALLTYPE *GetSize)(
+        IMediaSample* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetTime)(
+        IMediaSample* This,
+        REFERENCE_TIME *pTimeStart,
+        REFERENCE_TIME *pTimeEnd);
+
+    HRESULT (STDMETHODCALLTYPE *SetTime)(
+        IMediaSample* This,
+        REFERENCE_TIME *pTimeStart,
+        REFERENCE_TIME *pTimeEnd);
+
+    HRESULT (STDMETHODCALLTYPE *IsSyncPoint)(
+        IMediaSample* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetSyncPoint)(
+        IMediaSample* This,
+        WINBOOL bIsSyncPoint);
+
+    HRESULT (STDMETHODCALLTYPE *IsPreroll)(
+        IMediaSample* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetPreroll)(
+        IMediaSample* This,
+        WINBOOL bIsPreroll);
+
+    LONG (STDMETHODCALLTYPE *GetActualDataLength)(
+        IMediaSample* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetActualDataLength)(
+        IMediaSample* This,
+        LONG length);
+
+    HRESULT (STDMETHODCALLTYPE *GetMediaType)(
+        IMediaSample* This,
+        AM_MEDIA_TYPE **ppMediaType);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaType)(
+        IMediaSample* This,
+        AM_MEDIA_TYPE *pMediaType);
+
+    HRESULT (STDMETHODCALLTYPE *IsDiscontinuity)(
+        IMediaSample* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetDiscontinuity)(
+        IMediaSample* This,
+        WINBOOL bDiscontinuity);
+
+    HRESULT (STDMETHODCALLTYPE *GetMediaTime)(
+        IMediaSample* This,
+        LONGLONG *pTimeStart,
+        LONGLONG *pTimeEnd);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaTime)(
+        IMediaSample* This,
+        LONGLONG *pTimeStart,
+        LONGLONG *pTimeEnd);
+
+    END_INTERFACE
+} IMediaSampleVtbl;
+interface IMediaSample {
+    CONST_VTBL IMediaSampleVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IMediaSample_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMediaSample_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMediaSample_Release(This) (This)->lpVtbl->Release(This)
+/*** IMediaSample methods ***/
+#define IMediaSample_GetPointer(This,ppBuffer) (This)->lpVtbl->GetPointer(This,ppBuffer)
+#define IMediaSample_GetSize(This) (This)->lpVtbl->GetSize(This)
+#define IMediaSample_GetTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->GetTime(This,pTimeStart,pTimeEnd)
+#define IMediaSample_SetTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->SetTime(This,pTimeStart,pTimeEnd)
+#define IMediaSample_IsSyncPoint(This) (This)->lpVtbl->IsSyncPoint(This)
+#define IMediaSample_SetSyncPoint(This,bIsSyncPoint) (This)->lpVtbl->SetSyncPoint(This,bIsSyncPoint)
+#define IMediaSample_IsPreroll(This) (This)->lpVtbl->IsPreroll(This)
+#define IMediaSample_SetPreroll(This,bIsPreroll) (This)->lpVtbl->SetPreroll(This,bIsPreroll)
+#define IMediaSample_GetActualDataLength(This) (This)->lpVtbl->GetActualDataLength(This)
+#define IMediaSample_SetActualDataLength(This,length) (This)->lpVtbl->SetActualDataLength(This,length)
+#define IMediaSample_GetMediaType(This,ppMediaType) (This)->lpVtbl->GetMediaType(This,ppMediaType)
+#define IMediaSample_SetMediaType(This,pMediaType) (This)->lpVtbl->SetMediaType(This,pMediaType)
+#define IMediaSample_IsDiscontinuity(This) (This)->lpVtbl->IsDiscontinuity(This)
+#define IMediaSample_SetDiscontinuity(This,bDiscontinuity) (This)->lpVtbl->SetDiscontinuity(This,bDiscontinuity)
+#define IMediaSample_GetMediaTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->GetMediaTime(This,pTimeStart,pTimeEnd)
+#define IMediaSample_SetMediaTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->SetMediaTime(This,pTimeStart,pTimeEnd)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMediaSample_GetPointer_Proxy(
+    IMediaSample* This,
+    BYTE **ppBuffer);
+void __RPC_STUB IMediaSample_GetPointer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+LONG STDMETHODCALLTYPE IMediaSample_GetSize_Proxy(
+    IMediaSample* This);
+void __RPC_STUB IMediaSample_GetSize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_GetTime_Proxy(
+    IMediaSample* This,
+    REFERENCE_TIME *pTimeStart,
+    REFERENCE_TIME *pTimeEnd);
+void __RPC_STUB IMediaSample_GetTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_SetTime_Proxy(
+    IMediaSample* This,
+    REFERENCE_TIME *pTimeStart,
+    REFERENCE_TIME *pTimeEnd);
+void __RPC_STUB IMediaSample_SetTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_IsSyncPoint_Proxy(
+    IMediaSample* This);
+void __RPC_STUB IMediaSample_IsSyncPoint_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_SetSyncPoint_Proxy(
+    IMediaSample* This,
+    WINBOOL bIsSyncPoint);
+void __RPC_STUB IMediaSample_SetSyncPoint_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_IsPreroll_Proxy(
+    IMediaSample* This);
+void __RPC_STUB IMediaSample_IsPreroll_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_SetPreroll_Proxy(
+    IMediaSample* This,
+    WINBOOL bIsPreroll);
+void __RPC_STUB IMediaSample_SetPreroll_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+LONG STDMETHODCALLTYPE IMediaSample_GetActualDataLength_Proxy(
+    IMediaSample* This);
+void __RPC_STUB IMediaSample_GetActualDataLength_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_SetActualDataLength_Proxy(
+    IMediaSample* This,
+    LONG length);
+void __RPC_STUB IMediaSample_SetActualDataLength_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_GetMediaType_Proxy(
+    IMediaSample* This,
+    AM_MEDIA_TYPE **ppMediaType);
+void __RPC_STUB IMediaSample_GetMediaType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_SetMediaType_Proxy(
+    IMediaSample* This,
+    AM_MEDIA_TYPE *pMediaType);
+void __RPC_STUB IMediaSample_SetMediaType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_IsDiscontinuity_Proxy(
+    IMediaSample* This);
+void __RPC_STUB IMediaSample_IsDiscontinuity_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_SetDiscontinuity_Proxy(
+    IMediaSample* This,
+    WINBOOL bDiscontinuity);
+void __RPC_STUB IMediaSample_SetDiscontinuity_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_GetMediaTime_Proxy(
+    IMediaSample* This,
+    LONGLONG *pTimeStart,
+    LONGLONG *pTimeEnd);
+void __RPC_STUB IMediaSample_GetMediaTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample_SetMediaTime_Proxy(
+    IMediaSample* This,
+    LONGLONG *pTimeStart,
+    LONGLONG *pTimeEnd);
+void __RPC_STUB IMediaSample_SetMediaTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMediaSample_INTERFACE_DEFINED__ */
+
+typedef IMediaSample *PMEDIASAMPLE;
+enum tagAM_SAMPLE_PROPERTY_FLAGS {
+    AM_SAMPLE_SPLICEPOINT = 0x1,
+    AM_SAMPLE_PREROLL = 0x2,
+    AM_SAMPLE_DATADISCONTINUITY = 0x4,
+    AM_SAMPLE_TYPECHANGED = 0x8,
+    AM_SAMPLE_TIMEVALID = 0x10,
+    AM_SAMPLE_TIMEDISCONTINUITY = 0x40,
+    AM_SAMPLE_FLUSH_ON_PAUSE = 0x80,
+    AM_SAMPLE_STOPVALID = 0x100,
+    AM_SAMPLE_ENDOFSTREAM = 0x200,
+    AM_STREAM_MEDIA = 0,
+    AM_STREAM_CONTROL = 1
+};
+
+typedef struct tagAM_SAMPLE2_PROPERTIES {
+    DWORD cbData;
+    DWORD dwTypeSpecificFlags;
+    DWORD dwSampleFlags;
+    LONG lActual;
+    REFERENCE_TIME tStart;
+    REFERENCE_TIME tStop;
+    DWORD dwStreamId;
+    AM_MEDIA_TYPE *pMediaType;
+    BYTE *pbBuffer;
+    LONG cbBuffer;
+} AM_SAMPLE2_PROPERTIES;
+/*****************************************************************************
+ * IMediaSample2 interface
+ */
+#ifndef __IMediaSample2_INTERFACE_DEFINED__
+#define __IMediaSample2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMediaSample2, 0x36b73884, 0xc2c8, 0x11cf, 0x8b,0x46, 0x00,0x80,0x5f,0x6c,0xef,0x60);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("36b73884-c2c8-11cf-8b46-00805f6cef60")
+IMediaSample2 : public IMediaSample
+{
+    virtual HRESULT STDMETHODCALLTYPE GetProperties(
+        DWORD cbProperties,
+        BYTE *pbProperties) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProperties(
+        DWORD cbProperties,
+        const BYTE *pbProperties) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMediaSample2, 0x36b73884, 0xc2c8, 0x11cf, 0x8b,0x46, 0x00,0x80,0x5f,0x6c,0xef,0x60)
+#endif
+#else
+typedef struct IMediaSample2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMediaSample2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMediaSample2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMediaSample2* This);
+
+    /*** IMediaSample methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPointer)(
+        IMediaSample2* This,
+        BYTE **ppBuffer);
+
+    LONG (STDMETHODCALLTYPE *GetSize)(
+        IMediaSample2* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetTime)(
+        IMediaSample2* This,
+        REFERENCE_TIME *pTimeStart,
+        REFERENCE_TIME *pTimeEnd);
+
+    HRESULT (STDMETHODCALLTYPE *SetTime)(
+        IMediaSample2* This,
+        REFERENCE_TIME *pTimeStart,
+        REFERENCE_TIME *pTimeEnd);
+
+    HRESULT (STDMETHODCALLTYPE *IsSyncPoint)(
+        IMediaSample2* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetSyncPoint)(
+        IMediaSample2* This,
+        WINBOOL bIsSyncPoint);
+
+    HRESULT (STDMETHODCALLTYPE *IsPreroll)(
+        IMediaSample2* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetPreroll)(
+        IMediaSample2* This,
+        WINBOOL bIsPreroll);
+
+    LONG (STDMETHODCALLTYPE *GetActualDataLength)(
+        IMediaSample2* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetActualDataLength)(
+        IMediaSample2* This,
+        LONG length);
+
+    HRESULT (STDMETHODCALLTYPE *GetMediaType)(
+        IMediaSample2* This,
+        AM_MEDIA_TYPE **ppMediaType);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaType)(
+        IMediaSample2* This,
+        AM_MEDIA_TYPE *pMediaType);
+
+    HRESULT (STDMETHODCALLTYPE *IsDiscontinuity)(
+        IMediaSample2* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetDiscontinuity)(
+        IMediaSample2* This,
+        WINBOOL bDiscontinuity);
+
+    HRESULT (STDMETHODCALLTYPE *GetMediaTime)(
+        IMediaSample2* This,
+        LONGLONG *pTimeStart,
+        LONGLONG *pTimeEnd);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaTime)(
+        IMediaSample2* This,
+        LONGLONG *pTimeStart,
+        LONGLONG *pTimeEnd);
+
+    /*** IMediaSample2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetProperties)(
+        IMediaSample2* This,
+        DWORD cbProperties,
+        BYTE *pbProperties);
+
+    HRESULT (STDMETHODCALLTYPE *SetProperties)(
+        IMediaSample2* This,
+        DWORD cbProperties,
+        const BYTE *pbProperties);
+
+    END_INTERFACE
+} IMediaSample2Vtbl;
+interface IMediaSample2 {
+    CONST_VTBL IMediaSample2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IMediaSample2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMediaSample2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMediaSample2_Release(This) (This)->lpVtbl->Release(This)
+/*** IMediaSample methods ***/
+#define IMediaSample2_GetPointer(This,ppBuffer) (This)->lpVtbl->GetPointer(This,ppBuffer)
+#define IMediaSample2_GetSize(This) (This)->lpVtbl->GetSize(This)
+#define IMediaSample2_GetTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->GetTime(This,pTimeStart,pTimeEnd)
+#define IMediaSample2_SetTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->SetTime(This,pTimeStart,pTimeEnd)
+#define IMediaSample2_IsSyncPoint(This) (This)->lpVtbl->IsSyncPoint(This)
+#define IMediaSample2_SetSyncPoint(This,bIsSyncPoint) (This)->lpVtbl->SetSyncPoint(This,bIsSyncPoint)
+#define IMediaSample2_IsPreroll(This) (This)->lpVtbl->IsPreroll(This)
+#define IMediaSample2_SetPreroll(This,bIsPreroll) (This)->lpVtbl->SetPreroll(This,bIsPreroll)
+#define IMediaSample2_GetActualDataLength(This) (This)->lpVtbl->GetActualDataLength(This)
+#define IMediaSample2_SetActualDataLength(This,length) (This)->lpVtbl->SetActualDataLength(This,length)
+#define IMediaSample2_GetMediaType(This,ppMediaType) (This)->lpVtbl->GetMediaType(This,ppMediaType)
+#define IMediaSample2_SetMediaType(This,pMediaType) (This)->lpVtbl->SetMediaType(This,pMediaType)
+#define IMediaSample2_IsDiscontinuity(This) (This)->lpVtbl->IsDiscontinuity(This)
+#define IMediaSample2_SetDiscontinuity(This,bDiscontinuity) (This)->lpVtbl->SetDiscontinuity(This,bDiscontinuity)
+#define IMediaSample2_GetMediaTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->GetMediaTime(This,pTimeStart,pTimeEnd)
+#define IMediaSample2_SetMediaTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->SetMediaTime(This,pTimeStart,pTimeEnd)
+/*** IMediaSample2 methods ***/
+#define IMediaSample2_GetProperties(This,cbProperties,pbProperties) (This)->lpVtbl->GetProperties(This,cbProperties,pbProperties)
+#define IMediaSample2_SetProperties(This,cbProperties,pbProperties) (This)->lpVtbl->SetProperties(This,cbProperties,pbProperties)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMediaSample2_GetProperties_Proxy(
+    IMediaSample2* This,
+    DWORD cbProperties,
+    BYTE *pbProperties);
+void __RPC_STUB IMediaSample2_GetProperties_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSample2_SetProperties_Proxy(
+    IMediaSample2* This,
+    DWORD cbProperties,
+    const BYTE *pbProperties);
+void __RPC_STUB IMediaSample2_SetProperties_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMediaSample2_INTERFACE_DEFINED__ */
+
+typedef IMediaSample2 *PMEDIASAMPLE2;
+#define AM_GBF_PREVFRAMESKIPPED 1
+#define AM_GBF_NOTASYNCPOINT 2
+#define AM_GBF_NOWAIT 4
+#define AM_GBF_NODDSURFACELOCK 8
+/*****************************************************************************
+ * IMemAllocator interface
+ */
+#ifndef __IMemAllocator_INTERFACE_DEFINED__
+#define __IMemAllocator_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMemAllocator, 0x56a8689c, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a8689c-0ad4-11ce-b03a-0020af0ba770")
+IMemAllocator : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetProperties(
+        ALLOCATOR_PROPERTIES *pRequest,
+        ALLOCATOR_PROPERTIES *pActual) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProperties(
+        ALLOCATOR_PROPERTIES *pProps) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Commit(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Decommit(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBuffer(
+        IMediaSample **ppBuffer,
+        REFERENCE_TIME *pStartTime,
+        REFERENCE_TIME *pEndTime,
+        DWORD dwFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReleaseBuffer(
+        IMediaSample *pBuffer) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMemAllocator, 0x56a8689c, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IMemAllocatorVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMemAllocator* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMemAllocator* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMemAllocator* This);
+
+    /*** IMemAllocator methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetProperties)(
+        IMemAllocator* This,
+        ALLOCATOR_PROPERTIES *pRequest,
+        ALLOCATOR_PROPERTIES *pActual);
+
+    HRESULT (STDMETHODCALLTYPE *GetProperties)(
+        IMemAllocator* This,
+        ALLOCATOR_PROPERTIES *pProps);
+
+    HRESULT (STDMETHODCALLTYPE *Commit)(
+        IMemAllocator* This);
+
+    HRESULT (STDMETHODCALLTYPE *Decommit)(
+        IMemAllocator* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetBuffer)(
+        IMemAllocator* This,
+        IMediaSample **ppBuffer,
+        REFERENCE_TIME *pStartTime,
+        REFERENCE_TIME *pEndTime,
+        DWORD dwFlags);
+
+    HRESULT (STDMETHODCALLTYPE *ReleaseBuffer)(
+        IMemAllocator* This,
+        IMediaSample *pBuffer);
+
+    END_INTERFACE
+} IMemAllocatorVtbl;
+interface IMemAllocator {
+    CONST_VTBL IMemAllocatorVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IMemAllocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMemAllocator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMemAllocator_Release(This) (This)->lpVtbl->Release(This)
+/*** IMemAllocator methods ***/
+#define IMemAllocator_SetProperties(This,pRequest,pActual) (This)->lpVtbl->SetProperties(This,pRequest,pActual)
+#define IMemAllocator_GetProperties(This,pProps) (This)->lpVtbl->GetProperties(This,pProps)
+#define IMemAllocator_Commit(This) (This)->lpVtbl->Commit(This)
+#define IMemAllocator_Decommit(This) (This)->lpVtbl->Decommit(This)
+#define IMemAllocator_GetBuffer(This,ppBuffer,pStartTime,pEndTime,dwFlags) (This)->lpVtbl->GetBuffer(This,ppBuffer,pStartTime,pEndTime,dwFlags)
+#define IMemAllocator_ReleaseBuffer(This,pBuffer) (This)->lpVtbl->ReleaseBuffer(This,pBuffer)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMemAllocator_SetProperties_Proxy(
+    IMemAllocator* This,
+    ALLOCATOR_PROPERTIES *pRequest,
+    ALLOCATOR_PROPERTIES *pActual);
+void __RPC_STUB IMemAllocator_SetProperties_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemAllocator_GetProperties_Proxy(
+    IMemAllocator* This,
+    ALLOCATOR_PROPERTIES *pProps);
+void __RPC_STUB IMemAllocator_GetProperties_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemAllocator_Commit_Proxy(
+    IMemAllocator* This);
+void __RPC_STUB IMemAllocator_Commit_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemAllocator_Decommit_Proxy(
+    IMemAllocator* This);
+void __RPC_STUB IMemAllocator_Decommit_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemAllocator_GetBuffer_Proxy(
+    IMemAllocator* This,
+    IMediaSample **ppBuffer,
+    REFERENCE_TIME *pStartTime,
+    REFERENCE_TIME *pEndTime,
+    DWORD dwFlags);
+void __RPC_STUB IMemAllocator_GetBuffer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemAllocator_ReleaseBuffer_Proxy(
+    IMemAllocator* This,
+    IMediaSample *pBuffer);
+void __RPC_STUB IMemAllocator_ReleaseBuffer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMemAllocator_INTERFACE_DEFINED__ */
+
+typedef IMemAllocator *PMEMALLOCATOR;
+/*****************************************************************************
+ * IMemAllocatorCallbackTemp interface
+ */
+#ifndef __IMemAllocatorCallbackTemp_INTERFACE_DEFINED__
+#define __IMemAllocatorCallbackTemp_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMemAllocatorCallbackTemp, 0x379a0cf0, 0xc1de, 0x11d2, 0xab,0xf5, 0x00,0xa0,0xc9,0x05,0xf3,0x75);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("379a0cf0-c1de-11d2-abf5-00a0c905f375")
+IMemAllocatorCallbackTemp : public IMemAllocator
+{
+    virtual HRESULT STDMETHODCALLTYPE SetNotify(
+        IMemAllocatorNotifyCallbackTemp *pNotify) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFreeCount(
+        LONG *plBuffersFree) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMemAllocatorCallbackTemp, 0x379a0cf0, 0xc1de, 0x11d2, 0xab,0xf5, 0x00,0xa0,0xc9,0x05,0xf3,0x75)
+#endif
+#else
+typedef struct IMemAllocatorCallbackTempVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMemAllocatorCallbackTemp* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMemAllocatorCallbackTemp* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMemAllocatorCallbackTemp* This);
+
+    /*** IMemAllocator methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetProperties)(
+        IMemAllocatorCallbackTemp* This,
+        ALLOCATOR_PROPERTIES *pRequest,
+        ALLOCATOR_PROPERTIES *pActual);
+
+    HRESULT (STDMETHODCALLTYPE *GetProperties)(
+        IMemAllocatorCallbackTemp* This,
+        ALLOCATOR_PROPERTIES *pProps);
+
+    HRESULT (STDMETHODCALLTYPE *Commit)(
+        IMemAllocatorCallbackTemp* This);
+
+    HRESULT (STDMETHODCALLTYPE *Decommit)(
+        IMemAllocatorCallbackTemp* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetBuffer)(
+        IMemAllocatorCallbackTemp* This,
+        IMediaSample **ppBuffer,
+        REFERENCE_TIME *pStartTime,
+        REFERENCE_TIME *pEndTime,
+        DWORD dwFlags);
+
+    HRESULT (STDMETHODCALLTYPE *ReleaseBuffer)(
+        IMemAllocatorCallbackTemp* This,
+        IMediaSample *pBuffer);
+
+    /*** IMemAllocatorCallbackTemp methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetNotify)(
+        IMemAllocatorCallbackTemp* This,
+        IMemAllocatorNotifyCallbackTemp *pNotify);
+
+    HRESULT (STDMETHODCALLTYPE *GetFreeCount)(
+        IMemAllocatorCallbackTemp* This,
+        LONG *plBuffersFree);
+
+    END_INTERFACE
+} IMemAllocatorCallbackTempVtbl;
+interface IMemAllocatorCallbackTemp {
+    CONST_VTBL IMemAllocatorCallbackTempVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IMemAllocatorCallbackTemp_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMemAllocatorCallbackTemp_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMemAllocatorCallbackTemp_Release(This) (This)->lpVtbl->Release(This)
+/*** IMemAllocator methods ***/
+#define IMemAllocatorCallbackTemp_SetProperties(This,pRequest,pActual) (This)->lpVtbl->SetProperties(This,pRequest,pActual)
+#define IMemAllocatorCallbackTemp_GetProperties(This,pProps) (This)->lpVtbl->GetProperties(This,pProps)
+#define IMemAllocatorCallbackTemp_Commit(This) (This)->lpVtbl->Commit(This)
+#define IMemAllocatorCallbackTemp_Decommit(This) (This)->lpVtbl->Decommit(This)
+#define IMemAllocatorCallbackTemp_GetBuffer(This,ppBuffer,pStartTime,pEndTime,dwFlags) (This)->lpVtbl->GetBuffer(This,ppBuffer,pStartTime,pEndTime,dwFlags)
+#define IMemAllocatorCallbackTemp_ReleaseBuffer(This,pBuffer) (This)->lpVtbl->ReleaseBuffer(This,pBuffer)
+/*** IMemAllocatorCallbackTemp methods ***/
+#define IMemAllocatorCallbackTemp_SetNotify(This,pNotify) (This)->lpVtbl->SetNotify(This,pNotify)
+#define IMemAllocatorCallbackTemp_GetFreeCount(This,plBuffersFree) (This)->lpVtbl->GetFreeCount(This,plBuffersFree)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMemAllocatorCallbackTemp_SetNotify_Proxy(
+    IMemAllocatorCallbackTemp* This,
+    IMemAllocatorNotifyCallbackTemp *pNotify);
+void __RPC_STUB IMemAllocatorCallbackTemp_SetNotify_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemAllocatorCallbackTemp_GetFreeCount_Proxy(
+    IMemAllocatorCallbackTemp* This,
+    LONG *plBuffersFree);
+void __RPC_STUB IMemAllocatorCallbackTemp_GetFreeCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMemAllocatorCallbackTemp_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMemAllocatorNotifyCallbackTemp interface
+ */
+#ifndef __IMemAllocatorNotifyCallbackTemp_INTERFACE_DEFINED__
+#define __IMemAllocatorNotifyCallbackTemp_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMemAllocatorNotifyCallbackTemp, 0x92980b30, 0xc1de, 0x11d2, 0xab,0xf5, 0x00,0xa0,0xc9,0x05,0xf3,0x75);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("92980b30-c1de-11d2-abf5-00a0c905f375")
+IMemAllocatorNotifyCallbackTemp : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE NotifyRelease(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMemAllocatorNotifyCallbackTemp, 0x92980b30, 0xc1de, 0x11d2, 0xab,0xf5, 0x00,0xa0,0xc9,0x05,0xf3,0x75)
+#endif
+#else
+typedef struct IMemAllocatorNotifyCallbackTempVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMemAllocatorNotifyCallbackTemp* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMemAllocatorNotifyCallbackTemp* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMemAllocatorNotifyCallbackTemp* This);
+
+    /*** IMemAllocatorNotifyCallbackTemp methods ***/
+    HRESULT (STDMETHODCALLTYPE *NotifyRelease)(
+        IMemAllocatorNotifyCallbackTemp* This);
+
+    END_INTERFACE
+} IMemAllocatorNotifyCallbackTempVtbl;
+interface IMemAllocatorNotifyCallbackTemp {
+    CONST_VTBL IMemAllocatorNotifyCallbackTempVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IMemAllocatorNotifyCallbackTemp_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMemAllocatorNotifyCallbackTemp_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMemAllocatorNotifyCallbackTemp_Release(This) (This)->lpVtbl->Release(This)
+/*** IMemAllocatorNotifyCallbackTemp methods ***/
+#define IMemAllocatorNotifyCallbackTemp_NotifyRelease(This) (This)->lpVtbl->NotifyRelease(This)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMemAllocatorNotifyCallbackTemp_NotifyRelease_Proxy(
+    IMemAllocatorNotifyCallbackTemp* This);
+void __RPC_STUB IMemAllocatorNotifyCallbackTemp_NotifyRelease_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMemAllocatorNotifyCallbackTemp_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IMemInputPin interface
+ */
+#ifndef __IMemInputPin_INTERFACE_DEFINED__
+#define __IMemInputPin_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMemInputPin, 0x56a8689d, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a8689d-0ad4-11ce-b03a-0020af0ba770")
+IMemInputPin : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetAllocator(
+        IMemAllocator **ppAllocator) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NotifyAllocator(
+        IMemAllocator *pAllocator,
+        WINBOOL bReadOnly) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAllocatorRequirements(
+        ALLOCATOR_PROPERTIES *pProps) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Receive(
+        IMediaSample *pSample) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReceiveMultiple(
+        IMediaSample **pSamples,
+        LONG nSamples,
+        LONG *nSamplesProcessed) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReceiveCanBlock(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMemInputPin, 0x56a8689d, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IMemInputPinVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMemInputPin* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMemInputPin* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMemInputPin* This);
+
+    /*** IMemInputPin methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAllocator)(
+        IMemInputPin* This,
+        IMemAllocator **ppAllocator);
+
+    HRESULT (STDMETHODCALLTYPE *NotifyAllocator)(
+        IMemInputPin* This,
+        IMemAllocator *pAllocator,
+        WINBOOL bReadOnly);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocatorRequirements)(
+        IMemInputPin* This,
+        ALLOCATOR_PROPERTIES *pProps);
+
+    HRESULT (STDMETHODCALLTYPE *Receive)(
+        IMemInputPin* This,
+        IMediaSample *pSample);
+
+    HRESULT (STDMETHODCALLTYPE *ReceiveMultiple)(
+        IMemInputPin* This,
+        IMediaSample **pSamples,
+        LONG nSamples,
+        LONG *nSamplesProcessed);
+
+    HRESULT (STDMETHODCALLTYPE *ReceiveCanBlock)(
+        IMemInputPin* This);
+
+    END_INTERFACE
+} IMemInputPinVtbl;
+interface IMemInputPin {
+    CONST_VTBL IMemInputPinVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IMemInputPin_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMemInputPin_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMemInputPin_Release(This) (This)->lpVtbl->Release(This)
+/*** IMemInputPin methods ***/
+#define IMemInputPin_GetAllocator(This,ppAllocator) (This)->lpVtbl->GetAllocator(This,ppAllocator)
+#define IMemInputPin_NotifyAllocator(This,pAllocator,bReadOnly) (This)->lpVtbl->NotifyAllocator(This,pAllocator,bReadOnly)
+#define IMemInputPin_GetAllocatorRequirements(This,pProps) (This)->lpVtbl->GetAllocatorRequirements(This,pProps)
+#define IMemInputPin_Receive(This,pSample) (This)->lpVtbl->Receive(This,pSample)
+#define IMemInputPin_ReceiveMultiple(This,pSamples,nSamples,nSamplesProcessed) (This)->lpVtbl->ReceiveMultiple(This,pSamples,nSamples,nSamplesProcessed)
+#define IMemInputPin_ReceiveCanBlock(This) (This)->lpVtbl->ReceiveCanBlock(This)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMemInputPin_GetAllocator_Proxy(
+    IMemInputPin* This,
+    IMemAllocator **ppAllocator);
+void __RPC_STUB IMemInputPin_GetAllocator_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemInputPin_NotifyAllocator_Proxy(
+    IMemInputPin* This,
+    IMemAllocator *pAllocator,
+    WINBOOL bReadOnly);
+void __RPC_STUB IMemInputPin_NotifyAllocator_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemInputPin_GetAllocatorRequirements_Proxy(
+    IMemInputPin* This,
+    ALLOCATOR_PROPERTIES *pProps);
+void __RPC_STUB IMemInputPin_GetAllocatorRequirements_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemInputPin_Receive_Proxy(
+    IMemInputPin* This,
+    IMediaSample *pSample);
+void __RPC_STUB IMemInputPin_Receive_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemInputPin_ReceiveMultiple_Proxy(
+    IMemInputPin* This,
+    IMediaSample **pSamples,
+    LONG nSamples,
+    LONG *nSamplesProcessed);
+void __RPC_STUB IMemInputPin_ReceiveMultiple_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMemInputPin_ReceiveCanBlock_Proxy(
+    IMemInputPin* This);
+void __RPC_STUB IMemInputPin_ReceiveCanBlock_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMemInputPin_INTERFACE_DEFINED__ */
+
+typedef IMemInputPin *PMEMINPUTPIN;
+/*****************************************************************************
+ * IAMovieSetup interface
+ */
+#ifndef __IAMovieSetup_INTERFACE_DEFINED__
+#define __IAMovieSetup_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMovieSetup, 0xa3d8cec0, 0x7e5a, 0x11cf, 0xbb,0xc5, 0x00,0x80,0x5f,0x6c,0xef,0x20);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a3d8cec0-7e5a-11cf-bbc5-00805f6cef20")
+IAMovieSetup : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Register(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Unregister(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMovieSetup, 0xa3d8cec0, 0x7e5a, 0x11cf, 0xbb,0xc5, 0x00,0x80,0x5f,0x6c,0xef,0x20)
+#endif
+#else
+typedef struct IAMovieSetupVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMovieSetup* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMovieSetup* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMovieSetup* This);
+
+    /*** IAMovieSetup methods ***/
+    HRESULT (STDMETHODCALLTYPE *Register)(
+        IAMovieSetup* This);
+
+    HRESULT (STDMETHODCALLTYPE *Unregister)(
+        IAMovieSetup* This);
+
+    END_INTERFACE
+} IAMovieSetupVtbl;
+interface IAMovieSetup {
+    CONST_VTBL IAMovieSetupVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IAMovieSetup_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMovieSetup_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMovieSetup_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMovieSetup methods ***/
+#define IAMovieSetup_Register(This) (This)->lpVtbl->Register(This)
+#define IAMovieSetup_Unregister(This) (This)->lpVtbl->Unregister(This)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMovieSetup_Register_Proxy(
+    IAMovieSetup* This);
+void __RPC_STUB IAMovieSetup_Register_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMovieSetup_Unregister_Proxy(
+    IAMovieSetup* This);
+void __RPC_STUB IAMovieSetup_Unregister_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMovieSetup_INTERFACE_DEFINED__ */
+
+typedef IAMovieSetup *PAMOVIESETUP;
+typedef enum AM_SEEKING_SeekingFlags {
+    AM_SEEKING_NoPositioning = 0x0,
+    AM_SEEKING_AbsolutePositioning = 0x1,
+    AM_SEEKING_RelativePositioning = 0x2,
+    AM_SEEKING_IncrementalPositioning = 0x3,
+    AM_SEEKING_PositioningBitsMask = 0x3,
+    AM_SEEKING_SeekToKeyFrame = 0x4,
+    AM_SEEKING_ReturnTime = 0x8,
+    AM_SEEKING_Segment = 0x10,
+    AM_SEEKING_NoFlush = 0x20
+} AM_SEEKING_SEEKING_FLAGS;
+typedef enum AM_SEEKING_SeekingCapabilities {
+    AM_SEEKING_CanSeekAbsolute = 0x1,
+    AM_SEEKING_CanSeekForwards = 0x2,
+    AM_SEEKING_CanSeekBackwards = 0x4,
+    AM_SEEKING_CanGetCurrentPos = 0x8,
+    AM_SEEKING_CanGetStopPos = 0x10,
+    AM_SEEKING_CanGetDuration = 0x20,
+    AM_SEEKING_CanPlayBackwards = 0x40,
+    AM_SEEKING_CanDoSegments = 0x80,
+    AM_SEEKING_Source = 0x100
+} AM_SEEKING_SEEKING_CAPABILITIES;
+/*****************************************************************************
+ * IMediaSeeking interface
+ */
+#ifndef __IMediaSeeking_INTERFACE_DEFINED__
+#define __IMediaSeeking_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMediaSeeking, 0x36b73880, 0xc2c8, 0x11cf, 0x8b,0x46, 0x00,0x80,0x5f,0x6c,0xef,0x60);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("36b73880-c2c8-11cf-8b46-00805f6cef60")
+IMediaSeeking : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetCapabilities(
+        DWORD *pCapabilities) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CheckCapabilities(
+        DWORD *pCapabilities) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsFormatSupported(
+        const GUID *pFormat) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryPreferredFormat(
+        GUID *pFormat) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTimeFormat(
+        GUID *pFormat) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsUsingTimeFormat(
+        const GUID *pFormat) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetTimeFormat(
+        const GUID *pFormat) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDuration(
+        LONGLONG *pDuration) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStopPosition(
+        LONGLONG *pStop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentPosition(
+        LONGLONG *pCurrent) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ConvertTimeFormat(
+        LONGLONG *pTarget,
+        const GUID *pTargetFormat,
+        LONGLONG Source,
+        const GUID *pSourceFormat) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPositions(
+        LONGLONG *pCurrent,
+        DWORD dwCurrentFlags,
+        LONGLONG *pStop,
+        DWORD dwStopFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPositions(
+        LONGLONG *pCurrent,
+        LONGLONG *pStop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAvailable(
+        LONGLONG *pEarliest,
+        LONGLONG *pLatest) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetRate(
+        double dRate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetRate(
+        double *pdRate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPreroll(
+        LONGLONG *pllPreroll) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMediaSeeking, 0x36b73880, 0xc2c8, 0x11cf, 0x8b,0x46, 0x00,0x80,0x5f,0x6c,0xef,0x60)
+#endif
+#else
+typedef struct IMediaSeekingVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMediaSeeking* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMediaSeeking* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMediaSeeking* This);
+
+    /*** IMediaSeeking methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCapabilities)(
+        IMediaSeeking* This,
+        DWORD *pCapabilities);
+
+    HRESULT (STDMETHODCALLTYPE *CheckCapabilities)(
+        IMediaSeeking* This,
+        DWORD *pCapabilities);
+
+    HRESULT (STDMETHODCALLTYPE *IsFormatSupported)(
+        IMediaSeeking* This,
+        const GUID *pFormat);
+
+    HRESULT (STDMETHODCALLTYPE *QueryPreferredFormat)(
+        IMediaSeeking* This,
+        GUID *pFormat);
+
+    HRESULT (STDMETHODCALLTYPE *GetTimeFormat)(
+        IMediaSeeking* This,
+        GUID *pFormat);
+
+    HRESULT (STDMETHODCALLTYPE *IsUsingTimeFormat)(
+        IMediaSeeking* This,
+        const GUID *pFormat);
+
+    HRESULT (STDMETHODCALLTYPE *SetTimeFormat)(
+        IMediaSeeking* This,
+        const GUID *pFormat);
+
+    HRESULT (STDMETHODCALLTYPE *GetDuration)(
+        IMediaSeeking* This,
+        LONGLONG *pDuration);
+
+    HRESULT (STDMETHODCALLTYPE *GetStopPosition)(
+        IMediaSeeking* This,
+        LONGLONG *pStop);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurrentPosition)(
+        IMediaSeeking* This,
+        LONGLONG *pCurrent);
+
+    HRESULT (STDMETHODCALLTYPE *ConvertTimeFormat)(
+        IMediaSeeking* This,
+        LONGLONG *pTarget,
+        const GUID *pTargetFormat,
+        LONGLONG Source,
+        const GUID *pSourceFormat);
+
+    HRESULT (STDMETHODCALLTYPE *SetPositions)(
+        IMediaSeeking* This,
+        LONGLONG *pCurrent,
+        DWORD dwCurrentFlags,
+        LONGLONG *pStop,
+        DWORD dwStopFlags);
+
+    HRESULT (STDMETHODCALLTYPE *GetPositions)(
+        IMediaSeeking* This,
+        LONGLONG *pCurrent,
+        LONGLONG *pStop);
+
+    HRESULT (STDMETHODCALLTYPE *GetAvailable)(
+        IMediaSeeking* This,
+        LONGLONG *pEarliest,
+        LONGLONG *pLatest);
+
+    HRESULT (STDMETHODCALLTYPE *SetRate)(
+        IMediaSeeking* This,
+        double dRate);
+
+    HRESULT (STDMETHODCALLTYPE *GetRate)(
+        IMediaSeeking* This,
+        double *pdRate);
+
+    HRESULT (STDMETHODCALLTYPE *GetPreroll)(
+        IMediaSeeking* This,
+        LONGLONG *pllPreroll);
+
+    END_INTERFACE
+} IMediaSeekingVtbl;
+interface IMediaSeeking {
+    CONST_VTBL IMediaSeekingVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IMediaSeeking_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMediaSeeking_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMediaSeeking_Release(This) (This)->lpVtbl->Release(This)
+/*** IMediaSeeking methods ***/
+#define IMediaSeeking_GetCapabilities(This,pCapabilities) (This)->lpVtbl->GetCapabilities(This,pCapabilities)
+#define IMediaSeeking_CheckCapabilities(This,pCapabilities) (This)->lpVtbl->CheckCapabilities(This,pCapabilities)
+#define IMediaSeeking_IsFormatSupported(This,pFormat) (This)->lpVtbl->IsFormatSupported(This,pFormat)
+#define IMediaSeeking_QueryPreferredFormat(This,pFormat) (This)->lpVtbl->QueryPreferredFormat(This,pFormat)
+#define IMediaSeeking_GetTimeFormat(This,pFormat) (This)->lpVtbl->GetTimeFormat(This,pFormat)
+#define IMediaSeeking_IsUsingTimeFormat(This,pFormat) (This)->lpVtbl->IsUsingTimeFormat(This,pFormat)
+#define IMediaSeeking_SetTimeFormat(This,pFormat) (This)->lpVtbl->SetTimeFormat(This,pFormat)
+#define IMediaSeeking_GetDuration(This,pDuration) (This)->lpVtbl->GetDuration(This,pDuration)
+#define IMediaSeeking_GetStopPosition(This,pStop) (This)->lpVtbl->GetStopPosition(This,pStop)
+#define IMediaSeeking_GetCurrentPosition(This,pCurrent) (This)->lpVtbl->GetCurrentPosition(This,pCurrent)
+#define IMediaSeeking_ConvertTimeFormat(This,pTarget,pTargetFormat,Source,pSourceFormat) (This)->lpVtbl->ConvertTimeFormat(This,pTarget,pTargetFormat,Source,pSourceFormat)
+#define IMediaSeeking_SetPositions(This,pCurrent,dwCurrentFlags,pStop,dwStopFlags) (This)->lpVtbl->SetPositions(This,pCurrent,dwCurrentFlags,pStop,dwStopFlags)
+#define IMediaSeeking_GetPositions(This,pCurrent,pStop) (This)->lpVtbl->GetPositions(This,pCurrent,pStop)
+#define IMediaSeeking_GetAvailable(This,pEarliest,pLatest) (This)->lpVtbl->GetAvailable(This,pEarliest,pLatest)
+#define IMediaSeeking_SetRate(This,dRate) (This)->lpVtbl->SetRate(This,dRate)
+#define IMediaSeeking_GetRate(This,pdRate) (This)->lpVtbl->GetRate(This,pdRate)
+#define IMediaSeeking_GetPreroll(This,pllPreroll) (This)->lpVtbl->GetPreroll(This,pllPreroll)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMediaSeeking_GetCapabilities_Proxy(
+    IMediaSeeking* This,
+    DWORD *pCapabilities);
+void __RPC_STUB IMediaSeeking_GetCapabilities_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_CheckCapabilities_Proxy(
+    IMediaSeeking* This,
+    DWORD *pCapabilities);
+void __RPC_STUB IMediaSeeking_CheckCapabilities_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_IsFormatSupported_Proxy(
+    IMediaSeeking* This,
+    const GUID *pFormat);
+void __RPC_STUB IMediaSeeking_IsFormatSupported_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_QueryPreferredFormat_Proxy(
+    IMediaSeeking* This,
+    GUID *pFormat);
+void __RPC_STUB IMediaSeeking_QueryPreferredFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_GetTimeFormat_Proxy(
+    IMediaSeeking* This,
+    GUID *pFormat);
+void __RPC_STUB IMediaSeeking_GetTimeFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_IsUsingTimeFormat_Proxy(
+    IMediaSeeking* This,
+    const GUID *pFormat);
+void __RPC_STUB IMediaSeeking_IsUsingTimeFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_SetTimeFormat_Proxy(
+    IMediaSeeking* This,
+    const GUID *pFormat);
+void __RPC_STUB IMediaSeeking_SetTimeFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_GetDuration_Proxy(
+    IMediaSeeking* This,
+    LONGLONG *pDuration);
+void __RPC_STUB IMediaSeeking_GetDuration_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_GetStopPosition_Proxy(
+    IMediaSeeking* This,
+    LONGLONG *pStop);
+void __RPC_STUB IMediaSeeking_GetStopPosition_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_GetCurrentPosition_Proxy(
+    IMediaSeeking* This,
+    LONGLONG *pCurrent);
+void __RPC_STUB IMediaSeeking_GetCurrentPosition_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_ConvertTimeFormat_Proxy(
+    IMediaSeeking* This,
+    LONGLONG *pTarget,
+    const GUID *pTargetFormat,
+    LONGLONG Source,
+    const GUID *pSourceFormat);
+void __RPC_STUB IMediaSeeking_ConvertTimeFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_SetPositions_Proxy(
+    IMediaSeeking* This,
+    LONGLONG *pCurrent,
+    DWORD dwCurrentFlags,
+    LONGLONG *pStop,
+    DWORD dwStopFlags);
+void __RPC_STUB IMediaSeeking_SetPositions_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_GetPositions_Proxy(
+    IMediaSeeking* This,
+    LONGLONG *pCurrent,
+    LONGLONG *pStop);
+void __RPC_STUB IMediaSeeking_GetPositions_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_GetAvailable_Proxy(
+    IMediaSeeking* This,
+    LONGLONG *pEarliest,
+    LONGLONG *pLatest);
+void __RPC_STUB IMediaSeeking_GetAvailable_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_SetRate_Proxy(
+    IMediaSeeking* This,
+    double dRate);
+void __RPC_STUB IMediaSeeking_SetRate_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_GetRate_Proxy(
+    IMediaSeeking* This,
+    double *pdRate);
+void __RPC_STUB IMediaSeeking_GetRate_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaSeeking_GetPreroll_Proxy(
+    IMediaSeeking* This,
+    LONGLONG *pllPreroll);
+void __RPC_STUB IMediaSeeking_GetPreroll_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMediaSeeking_INTERFACE_DEFINED__ */
+
+typedef IMediaSeeking *PMEDIASEEKING;
+enum tagAM_MEDIAEVENT_FLAGS {
+    AM_MEDIAEVENT_NONOTIFY = 0x1
+};
+
+#ifndef __IReferenceClock2_FWD_DEFINED__
+#define __IReferenceClock2_FWD_DEFINED__
+typedef struct IReferenceClock2 IReferenceClock2;
 #endif
 
 #ifndef __IEnumRegFilters_FWD_DEFINED__
@@ -806,568 +3698,6 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_API MIDL_user_free(void *);
 #endif
 
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0000_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0000_v0_0_s_ifspec;
-
-#define CHARS_IN_GUID 39
-  typedef struct _AMMediaType {
-    GUID majortype;
-    GUID subtype;
-    WINBOOL bFixedSizeSamples;
-    WINBOOL bTemporalCompression;
-    ULONG lSampleSize;
-    GUID formattype;
-    IUnknown *pUnk;
-    ULONG cbFormat;
-    BYTE *pbFormat;
-  } AM_MEDIA_TYPE;
-
-  typedef enum _PinDirection {
-    PINDIR_INPUT = 0,PINDIR_OUTPUT = PINDIR_INPUT + 1
-  } PIN_DIRECTION;
-
-#define MAX_PIN_NAME 128
-#define MAX_FILTER_NAME 128
-
-#ifndef __REFERENCE_TIME_DEFINED
-#define __REFERENCE_TIME_DEFINED
-typedef LONGLONG REFERENCE_TIME;
-#endif /*__REFERENCE_TIME_DEFINED*/
-
-  typedef double REFTIME;
-  typedef DWORD_PTR HSEMAPHORE;
-  typedef DWORD_PTR HEVENT;
-
-  typedef struct _AllocatorProperties {
-    long cBuffers;
-    long cbBuffer;
-    long cbAlign;
-    long cbPrefix;
-  } ALLOCATOR_PROPERTIES;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0117_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0117_v0_0_s_ifspec;
-#ifndef __IPin_INTERFACE_DEFINED__
-#define __IPin_INTERFACE_DEFINED__
-  typedef struct _PinInfo {
-    IBaseFilter *pFilter;
-    PIN_DIRECTION dir;
-    WCHAR achName[128];
-  } PIN_INFO;
-
-  EXTERN_C const IID IID_IPin;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IPin : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Connect(IPin *pReceivePin,const AM_MEDIA_TYPE *pmt) = 0;
-    virtual HRESULT WINAPI ReceiveConnection(IPin *pConnector,const AM_MEDIA_TYPE *pmt) = 0;
-    virtual HRESULT WINAPI Disconnect(void) = 0;
-    virtual HRESULT WINAPI ConnectedTo(IPin **pPin) = 0;
-    virtual HRESULT WINAPI ConnectionMediaType(AM_MEDIA_TYPE *pmt) = 0;
-    virtual HRESULT WINAPI QueryPinInfo(PIN_INFO *pInfo) = 0;
-    virtual HRESULT WINAPI QueryDirection(PIN_DIRECTION *pPinDir) = 0;
-    virtual HRESULT WINAPI QueryId(LPWSTR *Id) = 0;
-    virtual HRESULT WINAPI QueryAccept(const AM_MEDIA_TYPE *pmt) = 0;
-    virtual HRESULT WINAPI EnumMediaTypes(IEnumMediaTypes **ppEnum) = 0;
-    virtual HRESULT WINAPI QueryInternalConnections(IPin **apPin,ULONG *nPin) = 0;
-    virtual HRESULT WINAPI EndOfStream(void) = 0;
-    virtual HRESULT WINAPI BeginFlush(void) = 0;
-    virtual HRESULT WINAPI EndFlush(void) = 0;
-    virtual HRESULT WINAPI NewSegment(REFERENCE_TIME tStart,REFERENCE_TIME tStop,double dRate) = 0;
-  };
-#else
-  typedef struct IPinVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IPin *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IPin *This);
-      ULONG (WINAPI *Release)(IPin *This);
-      HRESULT (WINAPI *Connect)(IPin *This,IPin *pReceivePin,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *ReceiveConnection)(IPin *This,IPin *pConnector,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *Disconnect)(IPin *This);
-      HRESULT (WINAPI *ConnectedTo)(IPin *This,IPin **pPin);
-      HRESULT (WINAPI *ConnectionMediaType)(IPin *This,AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *QueryPinInfo)(IPin *This,PIN_INFO *pInfo);
-      HRESULT (WINAPI *QueryDirection)(IPin *This,PIN_DIRECTION *pPinDir);
-      HRESULT (WINAPI *QueryId)(IPin *This,LPWSTR *Id);
-      HRESULT (WINAPI *QueryAccept)(IPin *This,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *EnumMediaTypes)(IPin *This,IEnumMediaTypes **ppEnum);
-      HRESULT (WINAPI *QueryInternalConnections)(IPin *This,IPin **apPin,ULONG *nPin);
-      HRESULT (WINAPI *EndOfStream)(IPin *This);
-      HRESULT (WINAPI *BeginFlush)(IPin *This);
-      HRESULT (WINAPI *EndFlush)(IPin *This);
-      HRESULT (WINAPI *NewSegment)(IPin *This,REFERENCE_TIME tStart,REFERENCE_TIME tStop,double dRate);
-    END_INTERFACE
-  } IPinVtbl;
-  struct IPin {
-    CONST_VTBL struct IPinVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IPin_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IPin_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IPin_Release(This) (This)->lpVtbl->Release(This)
-#define IPin_Connect(This,pReceivePin,pmt) (This)->lpVtbl->Connect(This,pReceivePin,pmt)
-#define IPin_ReceiveConnection(This,pConnector,pmt) (This)->lpVtbl->ReceiveConnection(This,pConnector,pmt)
-#define IPin_Disconnect(This) (This)->lpVtbl->Disconnect(This)
-#define IPin_ConnectedTo(This,pPin) (This)->lpVtbl->ConnectedTo(This,pPin)
-#define IPin_ConnectionMediaType(This,pmt) (This)->lpVtbl->ConnectionMediaType(This,pmt)
-#define IPin_QueryPinInfo(This,pInfo) (This)->lpVtbl->QueryPinInfo(This,pInfo)
-#define IPin_QueryDirection(This,pPinDir) (This)->lpVtbl->QueryDirection(This,pPinDir)
-#define IPin_QueryId(This,Id) (This)->lpVtbl->QueryId(This,Id)
-#define IPin_QueryAccept(This,pmt) (This)->lpVtbl->QueryAccept(This,pmt)
-#define IPin_EnumMediaTypes(This,ppEnum) (This)->lpVtbl->EnumMediaTypes(This,ppEnum)
-#define IPin_QueryInternalConnections(This,apPin,nPin) (This)->lpVtbl->QueryInternalConnections(This,apPin,nPin)
-#define IPin_EndOfStream(This) (This)->lpVtbl->EndOfStream(This)
-#define IPin_BeginFlush(This) (This)->lpVtbl->BeginFlush(This)
-#define IPin_EndFlush(This) (This)->lpVtbl->EndFlush(This)
-#define IPin_NewSegment(This,tStart,tStop,dRate) (This)->lpVtbl->NewSegment(This,tStart,tStop,dRate)
-#endif
-#endif
-  HRESULT WINAPI IPin_Connect_Proxy(IPin *This,IPin *pReceivePin,const AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IPin_Connect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_ReceiveConnection_Proxy(IPin *This,IPin *pConnector,const AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IPin_ReceiveConnection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_Disconnect_Proxy(IPin *This);
-  void __RPC_STUB IPin_Disconnect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_ConnectedTo_Proxy(IPin *This,IPin **pPin);
-  void __RPC_STUB IPin_ConnectedTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_ConnectionMediaType_Proxy(IPin *This,AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IPin_ConnectionMediaType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_QueryPinInfo_Proxy(IPin *This,PIN_INFO *pInfo);
-  void __RPC_STUB IPin_QueryPinInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_QueryDirection_Proxy(IPin *This,PIN_DIRECTION *pPinDir);
-  void __RPC_STUB IPin_QueryDirection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_QueryId_Proxy(IPin *This,LPWSTR *Id);
-  void __RPC_STUB IPin_QueryId_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_QueryAccept_Proxy(IPin *This,const AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IPin_QueryAccept_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_EnumMediaTypes_Proxy(IPin *This,IEnumMediaTypes **ppEnum);
-  void __RPC_STUB IPin_EnumMediaTypes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_QueryInternalConnections_Proxy(IPin *This,IPin **apPin,ULONG *nPin);
-  void __RPC_STUB IPin_QueryInternalConnections_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_EndOfStream_Proxy(IPin *This);
-  void __RPC_STUB IPin_EndOfStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_BeginFlush_Proxy(IPin *This);
-  void __RPC_STUB IPin_BeginFlush_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_EndFlush_Proxy(IPin *This);
-  void __RPC_STUB IPin_EndFlush_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPin_NewSegment_Proxy(IPin *This,REFERENCE_TIME tStart,REFERENCE_TIME tStop,double dRate);
-  void __RPC_STUB IPin_NewSegment_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IPin *PPIN;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0118_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0118_v0_0_s_ifspec;
-#ifndef __IEnumPins_INTERFACE_DEFINED__
-#define __IEnumPins_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IEnumPins;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumPins : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG cPins,IPin **ppPins,ULONG *pcFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG cPins) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumPins **ppEnum) = 0;
-  };
-#else
-  typedef struct IEnumPinsVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumPins *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumPins *This);
-      ULONG (WINAPI *Release)(IEnumPins *This);
-      HRESULT (WINAPI *Next)(IEnumPins *This,ULONG cPins,IPin **ppPins,ULONG *pcFetched);
-      HRESULT (WINAPI *Skip)(IEnumPins *This,ULONG cPins);
-      HRESULT (WINAPI *Reset)(IEnumPins *This);
-      HRESULT (WINAPI *Clone)(IEnumPins *This,IEnumPins **ppEnum);
-    END_INTERFACE
-  } IEnumPinsVtbl;
-  struct IEnumPins {
-    CONST_VTBL struct IEnumPinsVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IEnumPins_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumPins_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IEnumPins_Release(This) (This)->lpVtbl->Release(This)
-#define IEnumPins_Next(This,cPins,ppPins,pcFetched) (This)->lpVtbl->Next(This,cPins,ppPins,pcFetched)
-#define IEnumPins_Skip(This,cPins) (This)->lpVtbl->Skip(This,cPins)
-#define IEnumPins_Reset(This) (This)->lpVtbl->Reset(This)
-#define IEnumPins_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
-#endif
-#endif
-  HRESULT WINAPI IEnumPins_Next_Proxy(IEnumPins *This,ULONG cPins,IPin **ppPins,ULONG *pcFetched);
-  void __RPC_STUB IEnumPins_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumPins_Skip_Proxy(IEnumPins *This,ULONG cPins);
-  void __RPC_STUB IEnumPins_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumPins_Reset_Proxy(IEnumPins *This);
-  void __RPC_STUB IEnumPins_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumPins_Clone_Proxy(IEnumPins *This,IEnumPins **ppEnum);
-  void __RPC_STUB IEnumPins_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IEnumPins *PENUMPINS;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0119_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0119_v0_0_s_ifspec;
-#ifndef __IEnumMediaTypes_INTERFACE_DEFINED__
-#define __IEnumMediaTypes_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IEnumMediaTypes;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumMediaTypes : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG cMediaTypes,AM_MEDIA_TYPE **ppMediaTypes,ULONG *pcFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG cMediaTypes) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumMediaTypes **ppEnum) = 0;
-  };
-#else
-  typedef struct IEnumMediaTypesVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumMediaTypes *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumMediaTypes *This);
-      ULONG (WINAPI *Release)(IEnumMediaTypes *This);
-      HRESULT (WINAPI *Next)(IEnumMediaTypes *This,ULONG cMediaTypes,AM_MEDIA_TYPE **ppMediaTypes,ULONG *pcFetched);
-      HRESULT (WINAPI *Skip)(IEnumMediaTypes *This,ULONG cMediaTypes);
-      HRESULT (WINAPI *Reset)(IEnumMediaTypes *This);
-      HRESULT (WINAPI *Clone)(IEnumMediaTypes *This,IEnumMediaTypes **ppEnum);
-    END_INTERFACE
-  } IEnumMediaTypesVtbl;
-  struct IEnumMediaTypes {
-    CONST_VTBL struct IEnumMediaTypesVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IEnumMediaTypes_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumMediaTypes_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IEnumMediaTypes_Release(This) (This)->lpVtbl->Release(This)
-#define IEnumMediaTypes_Next(This,cMediaTypes,ppMediaTypes,pcFetched) (This)->lpVtbl->Next(This,cMediaTypes,ppMediaTypes,pcFetched)
-#define IEnumMediaTypes_Skip(This,cMediaTypes) (This)->lpVtbl->Skip(This,cMediaTypes)
-#define IEnumMediaTypes_Reset(This) (This)->lpVtbl->Reset(This)
-#define IEnumMediaTypes_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
-#endif
-#endif
-  HRESULT WINAPI IEnumMediaTypes_Next_Proxy(IEnumMediaTypes *This,ULONG cMediaTypes,AM_MEDIA_TYPE **ppMediaTypes,ULONG *pcFetched);
-  void __RPC_STUB IEnumMediaTypes_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumMediaTypes_Skip_Proxy(IEnumMediaTypes *This,ULONG cMediaTypes);
-  void __RPC_STUB IEnumMediaTypes_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumMediaTypes_Reset_Proxy(IEnumMediaTypes *This);
-  void __RPC_STUB IEnumMediaTypes_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumMediaTypes_Clone_Proxy(IEnumMediaTypes *This,IEnumMediaTypes **ppEnum);
-  void __RPC_STUB IEnumMediaTypes_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IEnumMediaTypes *PENUMMEDIATYPES;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0120_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0120_v0_0_s_ifspec;
-#ifndef __IFilterGraph_INTERFACE_DEFINED__
-#define __IFilterGraph_INTERFACE_DEFINED__
-
-  EXTERN_C const IID IID_IFilterGraph;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IFilterGraph : public IUnknown {
-  public:
-    virtual HRESULT WINAPI AddFilter(IBaseFilter *pFilter,LPCWSTR pName) = 0;
-    virtual HRESULT WINAPI RemoveFilter(IBaseFilter *pFilter) = 0;
-    virtual HRESULT WINAPI EnumFilters(IEnumFilters **ppEnum) = 0;
-    virtual HRESULT WINAPI FindFilterByName(LPCWSTR pName,IBaseFilter **ppFilter) = 0;
-    virtual HRESULT WINAPI ConnectDirect(IPin *ppinOut,IPin *ppinIn,const AM_MEDIA_TYPE *pmt) = 0;
-    virtual HRESULT WINAPI Reconnect(IPin *ppin) = 0;
-    virtual HRESULT WINAPI Disconnect(IPin *ppin) = 0;
-    virtual HRESULT WINAPI SetDefaultSyncSource(void) = 0;
-  };
-#else
-  typedef struct IFilterGraphVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IFilterGraph *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IFilterGraph *This);
-      ULONG (WINAPI *Release)(IFilterGraph *This);
-      HRESULT (WINAPI *AddFilter)(IFilterGraph *This,IBaseFilter *pFilter,LPCWSTR pName);
-      HRESULT (WINAPI *RemoveFilter)(IFilterGraph *This,IBaseFilter *pFilter);
-      HRESULT (WINAPI *EnumFilters)(IFilterGraph *This,IEnumFilters **ppEnum);
-      HRESULT (WINAPI *FindFilterByName)(IFilterGraph *This,LPCWSTR pName,IBaseFilter **ppFilter);
-      HRESULT (WINAPI *ConnectDirect)(IFilterGraph *This,IPin *ppinOut,IPin *ppinIn,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *Reconnect)(IFilterGraph *This,IPin *ppin);
-      HRESULT (WINAPI *Disconnect)(IFilterGraph *This,IPin *ppin);
-      HRESULT (WINAPI *SetDefaultSyncSource)(IFilterGraph *This);
-    END_INTERFACE
-  } IFilterGraphVtbl;
-  struct IFilterGraph {
-    CONST_VTBL struct IFilterGraphVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IFilterGraph_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IFilterGraph_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IFilterGraph_Release(This) (This)->lpVtbl->Release(This)
-#define IFilterGraph_AddFilter(This,pFilter,pName) (This)->lpVtbl->AddFilter(This,pFilter,pName)
-#define IFilterGraph_RemoveFilter(This,pFilter) (This)->lpVtbl->RemoveFilter(This,pFilter)
-#define IFilterGraph_EnumFilters(This,ppEnum) (This)->lpVtbl->EnumFilters(This,ppEnum)
-#define IFilterGraph_FindFilterByName(This,pName,ppFilter) (This)->lpVtbl->FindFilterByName(This,pName,ppFilter)
-#define IFilterGraph_ConnectDirect(This,ppinOut,ppinIn,pmt) (This)->lpVtbl->ConnectDirect(This,ppinOut,ppinIn,pmt)
-#define IFilterGraph_Reconnect(This,ppin) (This)->lpVtbl->Reconnect(This,ppin)
-#define IFilterGraph_Disconnect(This,ppin) (This)->lpVtbl->Disconnect(This,ppin)
-#define IFilterGraph_SetDefaultSyncSource(This) (This)->lpVtbl->SetDefaultSyncSource(This)
-#endif
-#endif
-  HRESULT WINAPI IFilterGraph_AddFilter_Proxy(IFilterGraph *This,IBaseFilter *pFilter,LPCWSTR pName);
-  void __RPC_STUB IFilterGraph_AddFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterGraph_RemoveFilter_Proxy(IFilterGraph *This,IBaseFilter *pFilter);
-  void __RPC_STUB IFilterGraph_RemoveFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterGraph_EnumFilters_Proxy(IFilterGraph *This,IEnumFilters **ppEnum);
-  void __RPC_STUB IFilterGraph_EnumFilters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterGraph_FindFilterByName_Proxy(IFilterGraph *This,LPCWSTR pName,IBaseFilter **ppFilter);
-  void __RPC_STUB IFilterGraph_FindFilterByName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterGraph_ConnectDirect_Proxy(IFilterGraph *This,IPin *ppinOut,IPin *ppinIn,const AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IFilterGraph_ConnectDirect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterGraph_Reconnect_Proxy(IFilterGraph *This,IPin *ppin);
-  void __RPC_STUB IFilterGraph_Reconnect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterGraph_Disconnect_Proxy(IFilterGraph *This,IPin *ppin);
-  void __RPC_STUB IFilterGraph_Disconnect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterGraph_SetDefaultSyncSource_Proxy(IFilterGraph *This);
-  void __RPC_STUB IFilterGraph_SetDefaultSyncSource_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IFilterGraph *PFILTERGRAPH;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0121_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0121_v0_0_s_ifspec;
-#ifndef __IEnumFilters_INTERFACE_DEFINED__
-#define __IEnumFilters_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IEnumFilters;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumFilters : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG cFilters,IBaseFilter **ppFilter,ULONG *pcFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG cFilters) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumFilters **ppEnum) = 0;
-  };
-#else
-  typedef struct IEnumFiltersVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumFilters *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumFilters *This);
-      ULONG (WINAPI *Release)(IEnumFilters *This);
-      HRESULT (WINAPI *Next)(IEnumFilters *This,ULONG cFilters,IBaseFilter **ppFilter,ULONG *pcFetched);
-      HRESULT (WINAPI *Skip)(IEnumFilters *This,ULONG cFilters);
-      HRESULT (WINAPI *Reset)(IEnumFilters *This);
-      HRESULT (WINAPI *Clone)(IEnumFilters *This,IEnumFilters **ppEnum);
-    END_INTERFACE
-  } IEnumFiltersVtbl;
-  struct IEnumFilters {
-    CONST_VTBL struct IEnumFiltersVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IEnumFilters_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumFilters_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IEnumFilters_Release(This) (This)->lpVtbl->Release(This)
-#define IEnumFilters_Next(This,cFilters,ppFilter,pcFetched) (This)->lpVtbl->Next(This,cFilters,ppFilter,pcFetched)
-#define IEnumFilters_Skip(This,cFilters) (This)->lpVtbl->Skip(This,cFilters)
-#define IEnumFilters_Reset(This) (This)->lpVtbl->Reset(This)
-#define IEnumFilters_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
-#endif
-#endif
-  HRESULT WINAPI IEnumFilters_Next_Proxy(IEnumFilters *This,ULONG cFilters,IBaseFilter **ppFilter,ULONG *pcFetched);
-  void __RPC_STUB IEnumFilters_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumFilters_Skip_Proxy(IEnumFilters *This,ULONG cFilters);
-  void __RPC_STUB IEnumFilters_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumFilters_Reset_Proxy(IEnumFilters *This);
-  void __RPC_STUB IEnumFilters_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumFilters_Clone_Proxy(IEnumFilters *This,IEnumFilters **ppEnum);
-  void __RPC_STUB IEnumFilters_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IEnumFilters *PENUMFILTERS;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0122_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0122_v0_0_s_ifspec;
-#ifndef __IMediaFilter_INTERFACE_DEFINED__
-#define __IMediaFilter_INTERFACE_DEFINED__
-  typedef enum _FilterState {
-    State_Stopped = 0,State_Paused,State_Running
-  } FILTER_STATE;
-
-  EXTERN_C const IID IID_IMediaFilter;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMediaFilter : public IPersist {
-  public:
-    virtual HRESULT WINAPI Stop(void) = 0;
-    virtual HRESULT WINAPI Pause(void) = 0;
-    virtual HRESULT WINAPI Run(REFERENCE_TIME tStart) = 0;
-    virtual HRESULT WINAPI GetState(DWORD dwMilliSecsTimeout,FILTER_STATE *State) = 0;
-    virtual HRESULT WINAPI SetSyncSource(IReferenceClock *pClock) = 0;
-    virtual HRESULT WINAPI GetSyncSource(IReferenceClock **pClock) = 0;
-  };
-#else
-  typedef struct IMediaFilterVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMediaFilter *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMediaFilter *This);
-      ULONG (WINAPI *Release)(IMediaFilter *This);
-      HRESULT (WINAPI *GetClassID)(IMediaFilter *This,CLSID *pClassID);
-      HRESULT (WINAPI *Stop)(IMediaFilter *This);
-      HRESULT (WINAPI *Pause)(IMediaFilter *This);
-      HRESULT (WINAPI *Run)(IMediaFilter *This,REFERENCE_TIME tStart);
-      HRESULT (WINAPI *GetState)(IMediaFilter *This,DWORD dwMilliSecsTimeout,FILTER_STATE *State);
-      HRESULT (WINAPI *SetSyncSource)(IMediaFilter *This,IReferenceClock *pClock);
-      HRESULT (WINAPI *GetSyncSource)(IMediaFilter *This,IReferenceClock **pClock);
-    END_INTERFACE
-  } IMediaFilterVtbl;
-  struct IMediaFilter {
-    CONST_VTBL struct IMediaFilterVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IMediaFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IMediaFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IMediaFilter_Release(This) (This)->lpVtbl->Release(This)
-#define IMediaFilter_GetClassID(This,pClassID) (This)->lpVtbl->GetClassID(This,pClassID)
-#define IMediaFilter_Stop(This) (This)->lpVtbl->Stop(This)
-#define IMediaFilter_Pause(This) (This)->lpVtbl->Pause(This)
-#define IMediaFilter_Run(This,tStart) (This)->lpVtbl->Run(This,tStart)
-#define IMediaFilter_GetState(This,dwMilliSecsTimeout,State) (This)->lpVtbl->GetState(This,dwMilliSecsTimeout,State)
-#define IMediaFilter_SetSyncSource(This,pClock) (This)->lpVtbl->SetSyncSource(This,pClock)
-#define IMediaFilter_GetSyncSource(This,pClock) (This)->lpVtbl->GetSyncSource(This,pClock)
-#endif
-#endif
-  HRESULT WINAPI IMediaFilter_Stop_Proxy(IMediaFilter *This);
-  void __RPC_STUB IMediaFilter_Stop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaFilter_Pause_Proxy(IMediaFilter *This);
-  void __RPC_STUB IMediaFilter_Pause_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaFilter_Run_Proxy(IMediaFilter *This,REFERENCE_TIME tStart);
-  void __RPC_STUB IMediaFilter_Run_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaFilter_GetState_Proxy(IMediaFilter *This,DWORD dwMilliSecsTimeout,FILTER_STATE *State);
-  void __RPC_STUB IMediaFilter_GetState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaFilter_SetSyncSource_Proxy(IMediaFilter *This,IReferenceClock *pClock);
-  void __RPC_STUB IMediaFilter_SetSyncSource_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaFilter_GetSyncSource_Proxy(IMediaFilter *This,IReferenceClock **pClock);
-  void __RPC_STUB IMediaFilter_GetSyncSource_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IMediaFilter *PMEDIAFILTER;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0123_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0123_v0_0_s_ifspec;
-#ifndef __IBaseFilter_INTERFACE_DEFINED__
-#define __IBaseFilter_INTERFACE_DEFINED__
-
-  typedef struct _FilterInfo {
-    WCHAR achName[128];
-    IFilterGraph *pGraph;
-  } FILTER_INFO;
-
-  EXTERN_C const IID IID_IBaseFilter;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IBaseFilter : public IMediaFilter {
-  public:
-    virtual HRESULT WINAPI EnumPins(IEnumPins **ppEnum) = 0;
-    virtual HRESULT WINAPI FindPin(LPCWSTR Id,IPin **ppPin) = 0;
-    virtual HRESULT WINAPI QueryFilterInfo(FILTER_INFO *pInfo) = 0;
-    virtual HRESULT WINAPI JoinFilterGraph(IFilterGraph *pGraph,LPCWSTR pName) = 0;
-    virtual HRESULT WINAPI QueryVendorInfo(LPWSTR *pVendorInfo) = 0;
-  };
-#else
-  typedef struct IBaseFilterVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IBaseFilter *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IBaseFilter *This);
-      ULONG (WINAPI *Release)(IBaseFilter *This);
-      HRESULT (WINAPI *GetClassID)(IBaseFilter *This,CLSID *pClassID);
-      HRESULT (WINAPI *Stop)(IBaseFilter *This);
-      HRESULT (WINAPI *Pause)(IBaseFilter *This);
-      HRESULT (WINAPI *Run)(IBaseFilter *This,REFERENCE_TIME tStart);
-      HRESULT (WINAPI *GetState)(IBaseFilter *This,DWORD dwMilliSecsTimeout,FILTER_STATE *State);
-      HRESULT (WINAPI *SetSyncSource)(IBaseFilter *This,IReferenceClock *pClock);
-      HRESULT (WINAPI *GetSyncSource)(IBaseFilter *This,IReferenceClock **pClock);
-      HRESULT (WINAPI *EnumPins)(IBaseFilter *This,IEnumPins **ppEnum);
-      HRESULT (WINAPI *FindPin)(IBaseFilter *This,LPCWSTR Id,IPin **ppPin);
-      HRESULT (WINAPI *QueryFilterInfo)(IBaseFilter *This,FILTER_INFO *pInfo);
-      HRESULT (WINAPI *JoinFilterGraph)(IBaseFilter *This,IFilterGraph *pGraph,LPCWSTR pName);
-      HRESULT (WINAPI *QueryVendorInfo)(IBaseFilter *This,LPWSTR *pVendorInfo);
-    END_INTERFACE
-  } IBaseFilterVtbl;
-  struct IBaseFilter {
-    CONST_VTBL struct IBaseFilterVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IBaseFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IBaseFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IBaseFilter_Release(This) (This)->lpVtbl->Release(This)
-#define IBaseFilter_GetClassID(This,pClassID) (This)->lpVtbl->GetClassID(This,pClassID)
-#define IBaseFilter_Stop(This) (This)->lpVtbl->Stop(This)
-#define IBaseFilter_Pause(This) (This)->lpVtbl->Pause(This)
-#define IBaseFilter_Run(This,tStart) (This)->lpVtbl->Run(This,tStart)
-#define IBaseFilter_GetState(This,dwMilliSecsTimeout,State) (This)->lpVtbl->GetState(This,dwMilliSecsTimeout,State)
-#define IBaseFilter_SetSyncSource(This,pClock) (This)->lpVtbl->SetSyncSource(This,pClock)
-#define IBaseFilter_GetSyncSource(This,pClock) (This)->lpVtbl->GetSyncSource(This,pClock)
-#define IBaseFilter_EnumPins(This,ppEnum) (This)->lpVtbl->EnumPins(This,ppEnum)
-#define IBaseFilter_FindPin(This,Id,ppPin) (This)->lpVtbl->FindPin(This,Id,ppPin)
-#define IBaseFilter_QueryFilterInfo(This,pInfo) (This)->lpVtbl->QueryFilterInfo(This,pInfo)
-#define IBaseFilter_JoinFilterGraph(This,pGraph,pName) (This)->lpVtbl->JoinFilterGraph(This,pGraph,pName)
-#define IBaseFilter_QueryVendorInfo(This,pVendorInfo) (This)->lpVtbl->QueryVendorInfo(This,pVendorInfo)
-#endif
-#endif
-  HRESULT WINAPI IBaseFilter_EnumPins_Proxy(IBaseFilter *This,IEnumPins **ppEnum);
-  void __RPC_STUB IBaseFilter_EnumPins_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBaseFilter_FindPin_Proxy(IBaseFilter *This,LPCWSTR Id,IPin **ppPin);
-  void __RPC_STUB IBaseFilter_FindPin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBaseFilter_QueryFilterInfo_Proxy(IBaseFilter *This,FILTER_INFO *pInfo);
-  void __RPC_STUB IBaseFilter_QueryFilterInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBaseFilter_JoinFilterGraph_Proxy(IBaseFilter *This,IFilterGraph *pGraph,LPCWSTR pName);
-  void __RPC_STUB IBaseFilter_JoinFilterGraph_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBaseFilter_QueryVendorInfo_Proxy(IBaseFilter *This,LPWSTR *pVendorInfo);
-  void __RPC_STUB IBaseFilter_QueryVendorInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IBaseFilter *PFILTER;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0124_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0124_v0_0_s_ifspec;
-#ifndef __IReferenceClock_INTERFACE_DEFINED__
-#define __IReferenceClock_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IReferenceClock;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IReferenceClock : public IUnknown {
-  public:
-    virtual HRESULT WINAPI GetTime(REFERENCE_TIME *pTime) = 0;
-    virtual HRESULT WINAPI AdviseTime(REFERENCE_TIME baseTime,REFERENCE_TIME streamTime,HEVENT hEvent,DWORD_PTR *pdwAdviseCookie) = 0;
-    virtual HRESULT WINAPI AdvisePeriodic(REFERENCE_TIME startTime,REFERENCE_TIME periodTime,HSEMAPHORE hSemaphore,DWORD_PTR *pdwAdviseCookie) = 0;
-    virtual HRESULT WINAPI Unadvise(DWORD_PTR dwAdviseCookie) = 0;
-  };
-#else
-  typedef struct IReferenceClockVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IReferenceClock *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IReferenceClock *This);
-      ULONG (WINAPI *Release)(IReferenceClock *This);
-      HRESULT (WINAPI *GetTime)(IReferenceClock *This,REFERENCE_TIME *pTime);
-      HRESULT (WINAPI *AdviseTime)(IReferenceClock *This,REFERENCE_TIME baseTime,REFERENCE_TIME streamTime,HEVENT hEvent,DWORD_PTR *pdwAdviseCookie);
-      HRESULT (WINAPI *AdvisePeriodic)(IReferenceClock *This,REFERENCE_TIME startTime,REFERENCE_TIME periodTime,HSEMAPHORE hSemaphore,DWORD_PTR *pdwAdviseCookie);
-      HRESULT (WINAPI *Unadvise)(IReferenceClock *This,DWORD_PTR dwAdviseCookie);
-    END_INTERFACE
-  } IReferenceClockVtbl;
-  struct IReferenceClock {
-    CONST_VTBL struct IReferenceClockVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IReferenceClock_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IReferenceClock_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IReferenceClock_Release(This) (This)->lpVtbl->Release(This)
-#define IReferenceClock_GetTime(This,pTime) (This)->lpVtbl->GetTime(This,pTime)
-#define IReferenceClock_AdviseTime(This,baseTime,streamTime,hEvent,pdwAdviseCookie) (This)->lpVtbl->AdviseTime(This,baseTime,streamTime,hEvent,pdwAdviseCookie)
-#define IReferenceClock_AdvisePeriodic(This,startTime,periodTime,hSemaphore,pdwAdviseCookie) (This)->lpVtbl->AdvisePeriodic(This,startTime,periodTime,hSemaphore,pdwAdviseCookie)
-#define IReferenceClock_Unadvise(This,dwAdviseCookie) (This)->lpVtbl->Unadvise(This,dwAdviseCookie)
-#endif
-#endif
-  HRESULT WINAPI IReferenceClock_GetTime_Proxy(IReferenceClock *This,REFERENCE_TIME *pTime);
-  void __RPC_STUB IReferenceClock_GetTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IReferenceClock_AdviseTime_Proxy(IReferenceClock *This,REFERENCE_TIME baseTime,REFERENCE_TIME streamTime,HEVENT hEvent,DWORD_PTR *pdwAdviseCookie);
-  void __RPC_STUB IReferenceClock_AdviseTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IReferenceClock_AdvisePeriodic_Proxy(IReferenceClock *This,REFERENCE_TIME startTime,REFERENCE_TIME periodTime,HSEMAPHORE hSemaphore,DWORD_PTR *pdwAdviseCookie);
-  void __RPC_STUB IReferenceClock_AdvisePeriodic_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IReferenceClock_Unadvise_Proxy(IReferenceClock *This,DWORD_PTR dwAdviseCookie);
-  void __RPC_STUB IReferenceClock_Unadvise_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IReferenceClock *PREFERENCECLOCK;
-
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0125_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0125_v0_0_s_ifspec;
 #ifndef __IReferenceClock2_INTERFACE_DEFINED__
@@ -1404,580 +3734,6 @@ typedef LONGLONG REFERENCE_TIME;
 #endif
 
   typedef IReferenceClock2 *PREFERENCECLOCK2;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0126_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0126_v0_0_s_ifspec;
-#ifndef __IMediaSample_INTERFACE_DEFINED__
-#define __IMediaSample_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IMediaSample;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMediaSample : public IUnknown {
-  public:
-    virtual HRESULT WINAPI GetPointer(BYTE **ppBuffer) = 0;
-    virtual long WINAPI GetSize(void) = 0;
-    virtual HRESULT WINAPI GetTime(REFERENCE_TIME *pTimeStart,REFERENCE_TIME *pTimeEnd) = 0;
-    virtual HRESULT WINAPI SetTime(REFERENCE_TIME *pTimeStart,REFERENCE_TIME *pTimeEnd) = 0;
-    virtual HRESULT WINAPI IsSyncPoint(void) = 0;
-    virtual HRESULT WINAPI SetSyncPoint(WINBOOL bIsSyncPoint) = 0;
-    virtual HRESULT WINAPI IsPreroll(void) = 0;
-    virtual HRESULT WINAPI SetPreroll(WINBOOL bIsPreroll) = 0;
-    virtual long WINAPI GetActualDataLength(void) = 0;
-    virtual HRESULT WINAPI SetActualDataLength(long __MIDL_0010) = 0;
-    virtual HRESULT WINAPI GetMediaType(AM_MEDIA_TYPE **ppMediaType) = 0;
-    virtual HRESULT WINAPI SetMediaType(AM_MEDIA_TYPE *pMediaType) = 0;
-    virtual HRESULT WINAPI IsDiscontinuity(void) = 0;
-    virtual HRESULT WINAPI SetDiscontinuity(WINBOOL bDiscontinuity) = 0;
-    virtual HRESULT WINAPI GetMediaTime(LONGLONG *pTimeStart,LONGLONG *pTimeEnd) = 0;
-    virtual HRESULT WINAPI SetMediaTime(LONGLONG *pTimeStart,LONGLONG *pTimeEnd) = 0;
-  };
-#else
-  typedef struct IMediaSampleVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMediaSample *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMediaSample *This);
-      ULONG (WINAPI *Release)(IMediaSample *This);
-      HRESULT (WINAPI *GetPointer)(IMediaSample *This,BYTE **ppBuffer);
-      long (WINAPI *GetSize)(IMediaSample *This);
-      HRESULT (WINAPI *GetTime)(IMediaSample *This,REFERENCE_TIME *pTimeStart,REFERENCE_TIME *pTimeEnd);
-      HRESULT (WINAPI *SetTime)(IMediaSample *This,REFERENCE_TIME *pTimeStart,REFERENCE_TIME *pTimeEnd);
-      HRESULT (WINAPI *IsSyncPoint)(IMediaSample *This);
-      HRESULT (WINAPI *SetSyncPoint)(IMediaSample *This,WINBOOL bIsSyncPoint);
-      HRESULT (WINAPI *IsPreroll)(IMediaSample *This);
-      HRESULT (WINAPI *SetPreroll)(IMediaSample *This,WINBOOL bIsPreroll);
-      long (WINAPI *GetActualDataLength)(IMediaSample *This);
-      HRESULT (WINAPI *SetActualDataLength)(IMediaSample *This,long __MIDL_0010);
-      HRESULT (WINAPI *GetMediaType)(IMediaSample *This,AM_MEDIA_TYPE **ppMediaType);
-      HRESULT (WINAPI *SetMediaType)(IMediaSample *This,AM_MEDIA_TYPE *pMediaType);
-      HRESULT (WINAPI *IsDiscontinuity)(IMediaSample *This);
-      HRESULT (WINAPI *SetDiscontinuity)(IMediaSample *This,WINBOOL bDiscontinuity);
-      HRESULT (WINAPI *GetMediaTime)(IMediaSample *This,LONGLONG *pTimeStart,LONGLONG *pTimeEnd);
-      HRESULT (WINAPI *SetMediaTime)(IMediaSample *This,LONGLONG *pTimeStart,LONGLONG *pTimeEnd);
-    END_INTERFACE
-  } IMediaSampleVtbl;
-  struct IMediaSample {
-    CONST_VTBL struct IMediaSampleVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IMediaSample_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IMediaSample_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IMediaSample_Release(This) (This)->lpVtbl->Release(This)
-#define IMediaSample_GetPointer(This,ppBuffer) (This)->lpVtbl->GetPointer(This,ppBuffer)
-#define IMediaSample_GetSize(This) (This)->lpVtbl->GetSize(This)
-#define IMediaSample_GetTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->GetTime(This,pTimeStart,pTimeEnd)
-#define IMediaSample_SetTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->SetTime(This,pTimeStart,pTimeEnd)
-#define IMediaSample_IsSyncPoint(This) (This)->lpVtbl->IsSyncPoint(This)
-#define IMediaSample_SetSyncPoint(This,bIsSyncPoint) (This)->lpVtbl->SetSyncPoint(This,bIsSyncPoint)
-#define IMediaSample_IsPreroll(This) (This)->lpVtbl->IsPreroll(This)
-#define IMediaSample_SetPreroll(This,bIsPreroll) (This)->lpVtbl->SetPreroll(This,bIsPreroll)
-#define IMediaSample_GetActualDataLength(This) (This)->lpVtbl->GetActualDataLength(This)
-#define IMediaSample_SetActualDataLength(This,__MIDL_0010) (This)->lpVtbl->SetActualDataLength(This,__MIDL_0010)
-#define IMediaSample_GetMediaType(This,ppMediaType) (This)->lpVtbl->GetMediaType(This,ppMediaType)
-#define IMediaSample_SetMediaType(This,pMediaType) (This)->lpVtbl->SetMediaType(This,pMediaType)
-#define IMediaSample_IsDiscontinuity(This) (This)->lpVtbl->IsDiscontinuity(This)
-#define IMediaSample_SetDiscontinuity(This,bDiscontinuity) (This)->lpVtbl->SetDiscontinuity(This,bDiscontinuity)
-#define IMediaSample_GetMediaTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->GetMediaTime(This,pTimeStart,pTimeEnd)
-#define IMediaSample_SetMediaTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->SetMediaTime(This,pTimeStart,pTimeEnd)
-#endif
-#endif
-  HRESULT WINAPI IMediaSample_GetPointer_Proxy(IMediaSample *This,BYTE **ppBuffer);
-  void __RPC_STUB IMediaSample_GetPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  long WINAPI IMediaSample_GetSize_Proxy(IMediaSample *This);
-  void __RPC_STUB IMediaSample_GetSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_GetTime_Proxy(IMediaSample *This,REFERENCE_TIME *pTimeStart,REFERENCE_TIME *pTimeEnd);
-  void __RPC_STUB IMediaSample_GetTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_SetTime_Proxy(IMediaSample *This,REFERENCE_TIME *pTimeStart,REFERENCE_TIME *pTimeEnd);
-  void __RPC_STUB IMediaSample_SetTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_IsSyncPoint_Proxy(IMediaSample *This);
-  void __RPC_STUB IMediaSample_IsSyncPoint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_SetSyncPoint_Proxy(IMediaSample *This,WINBOOL bIsSyncPoint);
-  void __RPC_STUB IMediaSample_SetSyncPoint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_IsPreroll_Proxy(IMediaSample *This);
-  void __RPC_STUB IMediaSample_IsPreroll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_SetPreroll_Proxy(IMediaSample *This,WINBOOL bIsPreroll);
-  void __RPC_STUB IMediaSample_SetPreroll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  long WINAPI IMediaSample_GetActualDataLength_Proxy(IMediaSample *This);
-  void __RPC_STUB IMediaSample_GetActualDataLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_SetActualDataLength_Proxy(IMediaSample *This,long __MIDL_0010);
-  void __RPC_STUB IMediaSample_SetActualDataLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_GetMediaType_Proxy(IMediaSample *This,AM_MEDIA_TYPE **ppMediaType);
-  void __RPC_STUB IMediaSample_GetMediaType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_SetMediaType_Proxy(IMediaSample *This,AM_MEDIA_TYPE *pMediaType);
-  void __RPC_STUB IMediaSample_SetMediaType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_IsDiscontinuity_Proxy(IMediaSample *This);
-  void __RPC_STUB IMediaSample_IsDiscontinuity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_SetDiscontinuity_Proxy(IMediaSample *This,WINBOOL bDiscontinuity);
-  void __RPC_STUB IMediaSample_SetDiscontinuity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_GetMediaTime_Proxy(IMediaSample *This,LONGLONG *pTimeStart,LONGLONG *pTimeEnd);
-  void __RPC_STUB IMediaSample_GetMediaTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample_SetMediaTime_Proxy(IMediaSample *This,LONGLONG *pTimeStart,LONGLONG *pTimeEnd);
-  void __RPC_STUB IMediaSample_SetMediaTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IMediaSample *PMEDIASAMPLE;
-
-  enum tagAM_SAMPLE_PROPERTY_FLAGS {
-    AM_SAMPLE_SPLICEPOINT = 0x1,AM_SAMPLE_PREROLL = 0x2,AM_SAMPLE_DATADISCONTINUITY = 0x4,AM_SAMPLE_TYPECHANGED = 0x8,AM_SAMPLE_TIMEVALID = 0x10,
-    AM_SAMPLE_TIMEDISCONTINUITY = 0x40,AM_SAMPLE_FLUSH_ON_PAUSE = 0x80,AM_SAMPLE_STOPVALID = 0x100,AM_SAMPLE_ENDOFSTREAM = 0x200,AM_STREAM_MEDIA = 0,
-    AM_STREAM_CONTROL = 1
-  };
-  typedef struct tagAM_SAMPLE2_PROPERTIES {
-    DWORD cbData;
-    DWORD dwTypeSpecificFlags;
-    DWORD dwSampleFlags;
-    LONG lActual;
-    REFERENCE_TIME tStart;
-    REFERENCE_TIME tStop;
-    DWORD dwStreamId;
-    AM_MEDIA_TYPE *pMediaType;
-    BYTE *pbBuffer;
-    LONG cbBuffer;
-  } AM_SAMPLE2_PROPERTIES;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0127_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0127_v0_0_s_ifspec;
-#ifndef __IMediaSample2_INTERFACE_DEFINED__
-#define __IMediaSample2_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IMediaSample2;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMediaSample2 : public IMediaSample {
-  public:
-    virtual HRESULT WINAPI GetProperties(DWORD cbProperties,BYTE *pbProperties) = 0;
-    virtual HRESULT WINAPI SetProperties(DWORD cbProperties,const BYTE *pbProperties) = 0;
-  };
-#else
-  typedef struct IMediaSample2Vtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMediaSample2 *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMediaSample2 *This);
-      ULONG (WINAPI *Release)(IMediaSample2 *This);
-      HRESULT (WINAPI *GetPointer)(IMediaSample2 *This,BYTE **ppBuffer);
-      long (WINAPI *GetSize)(IMediaSample2 *This);
-      HRESULT (WINAPI *GetTime)(IMediaSample2 *This,REFERENCE_TIME *pTimeStart,REFERENCE_TIME *pTimeEnd);
-      HRESULT (WINAPI *SetTime)(IMediaSample2 *This,REFERENCE_TIME *pTimeStart,REFERENCE_TIME *pTimeEnd);
-      HRESULT (WINAPI *IsSyncPoint)(IMediaSample2 *This);
-      HRESULT (WINAPI *SetSyncPoint)(IMediaSample2 *This,WINBOOL bIsSyncPoint);
-      HRESULT (WINAPI *IsPreroll)(IMediaSample2 *This);
-      HRESULT (WINAPI *SetPreroll)(IMediaSample2 *This,WINBOOL bIsPreroll);
-      long (WINAPI *GetActualDataLength)(IMediaSample2 *This);
-      HRESULT (WINAPI *SetActualDataLength)(IMediaSample2 *This,long __MIDL_0010);
-      HRESULT (WINAPI *GetMediaType)(IMediaSample2 *This,AM_MEDIA_TYPE **ppMediaType);
-      HRESULT (WINAPI *SetMediaType)(IMediaSample2 *This,AM_MEDIA_TYPE *pMediaType);
-      HRESULT (WINAPI *IsDiscontinuity)(IMediaSample2 *This);
-      HRESULT (WINAPI *SetDiscontinuity)(IMediaSample2 *This,WINBOOL bDiscontinuity);
-      HRESULT (WINAPI *GetMediaTime)(IMediaSample2 *This,LONGLONG *pTimeStart,LONGLONG *pTimeEnd);
-      HRESULT (WINAPI *SetMediaTime)(IMediaSample2 *This,LONGLONG *pTimeStart,LONGLONG *pTimeEnd);
-      HRESULT (WINAPI *GetProperties)(IMediaSample2 *This,DWORD cbProperties,BYTE *pbProperties);
-      HRESULT (WINAPI *SetProperties)(IMediaSample2 *This,DWORD cbProperties,const BYTE *pbProperties);
-    END_INTERFACE
-  } IMediaSample2Vtbl;
-  struct IMediaSample2 {
-    CONST_VTBL struct IMediaSample2Vtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IMediaSample2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IMediaSample2_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IMediaSample2_Release(This) (This)->lpVtbl->Release(This)
-#define IMediaSample2_GetPointer(This,ppBuffer) (This)->lpVtbl->GetPointer(This,ppBuffer)
-#define IMediaSample2_GetSize(This) (This)->lpVtbl->GetSize(This)
-#define IMediaSample2_GetTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->GetTime(This,pTimeStart,pTimeEnd)
-#define IMediaSample2_SetTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->SetTime(This,pTimeStart,pTimeEnd)
-#define IMediaSample2_IsSyncPoint(This) (This)->lpVtbl->IsSyncPoint(This)
-#define IMediaSample2_SetSyncPoint(This,bIsSyncPoint) (This)->lpVtbl->SetSyncPoint(This,bIsSyncPoint)
-#define IMediaSample2_IsPreroll(This) (This)->lpVtbl->IsPreroll(This)
-#define IMediaSample2_SetPreroll(This,bIsPreroll) (This)->lpVtbl->SetPreroll(This,bIsPreroll)
-#define IMediaSample2_GetActualDataLength(This) (This)->lpVtbl->GetActualDataLength(This)
-#define IMediaSample2_SetActualDataLength(This,__MIDL_0010) (This)->lpVtbl->SetActualDataLength(This,__MIDL_0010)
-#define IMediaSample2_GetMediaType(This,ppMediaType) (This)->lpVtbl->GetMediaType(This,ppMediaType)
-#define IMediaSample2_SetMediaType(This,pMediaType) (This)->lpVtbl->SetMediaType(This,pMediaType)
-#define IMediaSample2_IsDiscontinuity(This) (This)->lpVtbl->IsDiscontinuity(This)
-#define IMediaSample2_SetDiscontinuity(This,bDiscontinuity) (This)->lpVtbl->SetDiscontinuity(This,bDiscontinuity)
-#define IMediaSample2_GetMediaTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->GetMediaTime(This,pTimeStart,pTimeEnd)
-#define IMediaSample2_SetMediaTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->SetMediaTime(This,pTimeStart,pTimeEnd)
-#define IMediaSample2_GetProperties(This,cbProperties,pbProperties) (This)->lpVtbl->GetProperties(This,cbProperties,pbProperties)
-#define IMediaSample2_SetProperties(This,cbProperties,pbProperties) (This)->lpVtbl->SetProperties(This,cbProperties,pbProperties)
-#endif
-#endif
-  HRESULT WINAPI IMediaSample2_GetProperties_Proxy(IMediaSample2 *This,DWORD cbProperties,BYTE *pbProperties);
-  void __RPC_STUB IMediaSample2_GetProperties_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSample2_SetProperties_Proxy(IMediaSample2 *This,DWORD cbProperties,const BYTE *pbProperties);
-  void __RPC_STUB IMediaSample2_SetProperties_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IMediaSample2 *PMEDIASAMPLE2;
-
-#define AM_GBF_PREVFRAMESKIPPED 1
-#define AM_GBF_NOTASYNCPOINT 2
-#define AM_GBF_NOWAIT 4
-#define AM_GBF_NODDSURFACELOCK 8
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0128_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0128_v0_0_s_ifspec;
-#ifndef __IMemAllocator_INTERFACE_DEFINED__
-#define __IMemAllocator_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IMemAllocator;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMemAllocator : public IUnknown {
-  public:
-    virtual HRESULT WINAPI SetProperties(ALLOCATOR_PROPERTIES *pRequest,ALLOCATOR_PROPERTIES *pActual) = 0;
-    virtual HRESULT WINAPI GetProperties(ALLOCATOR_PROPERTIES *pProps) = 0;
-    virtual HRESULT WINAPI Commit(void) = 0;
-    virtual HRESULT WINAPI Decommit(void) = 0;
-    virtual HRESULT WINAPI GetBuffer(IMediaSample **ppBuffer,REFERENCE_TIME *pStartTime,REFERENCE_TIME *pEndTime,DWORD dwFlags) = 0;
-    virtual HRESULT WINAPI ReleaseBuffer(IMediaSample *pBuffer) = 0;
-  };
-#else
-  typedef struct IMemAllocatorVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMemAllocator *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMemAllocator *This);
-      ULONG (WINAPI *Release)(IMemAllocator *This);
-      HRESULT (WINAPI *SetProperties)(IMemAllocator *This,ALLOCATOR_PROPERTIES *pRequest,ALLOCATOR_PROPERTIES *pActual);
-      HRESULT (WINAPI *GetProperties)(IMemAllocator *This,ALLOCATOR_PROPERTIES *pProps);
-      HRESULT (WINAPI *Commit)(IMemAllocator *This);
-      HRESULT (WINAPI *Decommit)(IMemAllocator *This);
-      HRESULT (WINAPI *GetBuffer)(IMemAllocator *This,IMediaSample **ppBuffer,REFERENCE_TIME *pStartTime,REFERENCE_TIME *pEndTime,DWORD dwFlags);
-      HRESULT (WINAPI *ReleaseBuffer)(IMemAllocator *This,IMediaSample *pBuffer);
-    END_INTERFACE
-  } IMemAllocatorVtbl;
-  struct IMemAllocator {
-    CONST_VTBL struct IMemAllocatorVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IMemAllocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IMemAllocator_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IMemAllocator_Release(This) (This)->lpVtbl->Release(This)
-#define IMemAllocator_SetProperties(This,pRequest,pActual) (This)->lpVtbl->SetProperties(This,pRequest,pActual)
-#define IMemAllocator_GetProperties(This,pProps) (This)->lpVtbl->GetProperties(This,pProps)
-#define IMemAllocator_Commit(This) (This)->lpVtbl->Commit(This)
-#define IMemAllocator_Decommit(This) (This)->lpVtbl->Decommit(This)
-#define IMemAllocator_GetBuffer(This,ppBuffer,pStartTime,pEndTime,dwFlags) (This)->lpVtbl->GetBuffer(This,ppBuffer,pStartTime,pEndTime,dwFlags)
-#define IMemAllocator_ReleaseBuffer(This,pBuffer) (This)->lpVtbl->ReleaseBuffer(This,pBuffer)
-#endif
-#endif
-  HRESULT WINAPI IMemAllocator_SetProperties_Proxy(IMemAllocator *This,ALLOCATOR_PROPERTIES *pRequest,ALLOCATOR_PROPERTIES *pActual);
-  void __RPC_STUB IMemAllocator_SetProperties_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemAllocator_GetProperties_Proxy(IMemAllocator *This,ALLOCATOR_PROPERTIES *pProps);
-  void __RPC_STUB IMemAllocator_GetProperties_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemAllocator_Commit_Proxy(IMemAllocator *This);
-  void __RPC_STUB IMemAllocator_Commit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemAllocator_Decommit_Proxy(IMemAllocator *This);
-  void __RPC_STUB IMemAllocator_Decommit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemAllocator_GetBuffer_Proxy(IMemAllocator *This,IMediaSample **ppBuffer,REFERENCE_TIME *pStartTime,REFERENCE_TIME *pEndTime,DWORD dwFlags);
-  void __RPC_STUB IMemAllocator_GetBuffer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemAllocator_ReleaseBuffer_Proxy(IMemAllocator *This,IMediaSample *pBuffer);
-  void __RPC_STUB IMemAllocator_ReleaseBuffer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IMemAllocator *PMEMALLOCATOR;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0129_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0129_v0_0_s_ifspec;
-#ifndef __IMemAllocatorCallbackTemp_INTERFACE_DEFINED__
-#define __IMemAllocatorCallbackTemp_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IMemAllocatorCallbackTemp;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMemAllocatorCallbackTemp : public IMemAllocator {
-  public:
-    virtual HRESULT WINAPI SetNotify(IMemAllocatorNotifyCallbackTemp *pNotify) = 0;
-    virtual HRESULT WINAPI GetFreeCount(LONG *plBuffersFree) = 0;
-  };
-#else
-  typedef struct IMemAllocatorCallbackTempVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMemAllocatorCallbackTemp *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMemAllocatorCallbackTemp *This);
-      ULONG (WINAPI *Release)(IMemAllocatorCallbackTemp *This);
-      HRESULT (WINAPI *SetProperties)(IMemAllocatorCallbackTemp *This,ALLOCATOR_PROPERTIES *pRequest,ALLOCATOR_PROPERTIES *pActual);
-      HRESULT (WINAPI *GetProperties)(IMemAllocatorCallbackTemp *This,ALLOCATOR_PROPERTIES *pProps);
-      HRESULT (WINAPI *Commit)(IMemAllocatorCallbackTemp *This);
-      HRESULT (WINAPI *Decommit)(IMemAllocatorCallbackTemp *This);
-      HRESULT (WINAPI *GetBuffer)(IMemAllocatorCallbackTemp *This,IMediaSample **ppBuffer,REFERENCE_TIME *pStartTime,REFERENCE_TIME *pEndTime,DWORD dwFlags);
-      HRESULT (WINAPI *ReleaseBuffer)(IMemAllocatorCallbackTemp *This,IMediaSample *pBuffer);
-      HRESULT (WINAPI *SetNotify)(IMemAllocatorCallbackTemp *This,IMemAllocatorNotifyCallbackTemp *pNotify);
-      HRESULT (WINAPI *GetFreeCount)(IMemAllocatorCallbackTemp *This,LONG *plBuffersFree);
-    END_INTERFACE
-  } IMemAllocatorCallbackTempVtbl;
-  struct IMemAllocatorCallbackTemp {
-    CONST_VTBL struct IMemAllocatorCallbackTempVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IMemAllocatorCallbackTemp_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IMemAllocatorCallbackTemp_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IMemAllocatorCallbackTemp_Release(This) (This)->lpVtbl->Release(This)
-#define IMemAllocatorCallbackTemp_SetProperties(This,pRequest,pActual) (This)->lpVtbl->SetProperties(This,pRequest,pActual)
-#define IMemAllocatorCallbackTemp_GetProperties(This,pProps) (This)->lpVtbl->GetProperties(This,pProps)
-#define IMemAllocatorCallbackTemp_Commit(This) (This)->lpVtbl->Commit(This)
-#define IMemAllocatorCallbackTemp_Decommit(This) (This)->lpVtbl->Decommit(This)
-#define IMemAllocatorCallbackTemp_GetBuffer(This,ppBuffer,pStartTime,pEndTime,dwFlags) (This)->lpVtbl->GetBuffer(This,ppBuffer,pStartTime,pEndTime,dwFlags)
-#define IMemAllocatorCallbackTemp_ReleaseBuffer(This,pBuffer) (This)->lpVtbl->ReleaseBuffer(This,pBuffer)
-#define IMemAllocatorCallbackTemp_SetNotify(This,pNotify) (This)->lpVtbl->SetNotify(This,pNotify)
-#define IMemAllocatorCallbackTemp_GetFreeCount(This,plBuffersFree) (This)->lpVtbl->GetFreeCount(This,plBuffersFree)
-#endif
-#endif
-  HRESULT WINAPI IMemAllocatorCallbackTemp_SetNotify_Proxy(IMemAllocatorCallbackTemp *This,IMemAllocatorNotifyCallbackTemp *pNotify);
-  void __RPC_STUB IMemAllocatorCallbackTemp_SetNotify_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemAllocatorCallbackTemp_GetFreeCount_Proxy(IMemAllocatorCallbackTemp *This,LONG *plBuffersFree);
-  void __RPC_STUB IMemAllocatorCallbackTemp_GetFreeCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IMemAllocatorNotifyCallbackTemp_INTERFACE_DEFINED__
-#define __IMemAllocatorNotifyCallbackTemp_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IMemAllocatorNotifyCallbackTemp;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMemAllocatorNotifyCallbackTemp : public IUnknown {
-  public:
-    virtual HRESULT WINAPI NotifyRelease(void) = 0;
-  };
-#else
-  typedef struct IMemAllocatorNotifyCallbackTempVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMemAllocatorNotifyCallbackTemp *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMemAllocatorNotifyCallbackTemp *This);
-      ULONG (WINAPI *Release)(IMemAllocatorNotifyCallbackTemp *This);
-      HRESULT (WINAPI *NotifyRelease)(IMemAllocatorNotifyCallbackTemp *This);
-    END_INTERFACE
-  } IMemAllocatorNotifyCallbackTempVtbl;
-  struct IMemAllocatorNotifyCallbackTemp {
-    CONST_VTBL struct IMemAllocatorNotifyCallbackTempVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IMemAllocatorNotifyCallbackTemp_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IMemAllocatorNotifyCallbackTemp_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IMemAllocatorNotifyCallbackTemp_Release(This) (This)->lpVtbl->Release(This)
-#define IMemAllocatorNotifyCallbackTemp_NotifyRelease(This) (This)->lpVtbl->NotifyRelease(This)
-#endif
-#endif
-  HRESULT WINAPI IMemAllocatorNotifyCallbackTemp_NotifyRelease_Proxy(IMemAllocatorNotifyCallbackTemp *This);
-  void __RPC_STUB IMemAllocatorNotifyCallbackTemp_NotifyRelease_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IMemInputPin_INTERFACE_DEFINED__
-#define __IMemInputPin_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IMemInputPin;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMemInputPin : public IUnknown {
-  public:
-    virtual HRESULT WINAPI GetAllocator(IMemAllocator **ppAllocator) = 0;
-    virtual HRESULT WINAPI NotifyAllocator(IMemAllocator *pAllocator,WINBOOL bReadOnly) = 0;
-    virtual HRESULT WINAPI GetAllocatorRequirements(ALLOCATOR_PROPERTIES *pProps) = 0;
-    virtual HRESULT WINAPI Receive(IMediaSample *pSample) = 0;
-    virtual HRESULT WINAPI ReceiveMultiple(IMediaSample **pSamples,long nSamples,long *nSamplesProcessed) = 0;
-    virtual HRESULT WINAPI ReceiveCanBlock(void) = 0;
-  };
-#else
-  typedef struct IMemInputPinVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMemInputPin *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMemInputPin *This);
-      ULONG (WINAPI *Release)(IMemInputPin *This);
-      HRESULT (WINAPI *GetAllocator)(IMemInputPin *This,IMemAllocator **ppAllocator);
-      HRESULT (WINAPI *NotifyAllocator)(IMemInputPin *This,IMemAllocator *pAllocator,WINBOOL bReadOnly);
-      HRESULT (WINAPI *GetAllocatorRequirements)(IMemInputPin *This,ALLOCATOR_PROPERTIES *pProps);
-      HRESULT (WINAPI *Receive)(IMemInputPin *This,IMediaSample *pSample);
-      HRESULT (WINAPI *ReceiveMultiple)(IMemInputPin *This,IMediaSample **pSamples,long nSamples,long *nSamplesProcessed);
-      HRESULT (WINAPI *ReceiveCanBlock)(IMemInputPin *This);
-    END_INTERFACE
-  } IMemInputPinVtbl;
-  struct IMemInputPin {
-    CONST_VTBL struct IMemInputPinVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IMemInputPin_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IMemInputPin_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IMemInputPin_Release(This) (This)->lpVtbl->Release(This)
-#define IMemInputPin_GetAllocator(This,ppAllocator) (This)->lpVtbl->GetAllocator(This,ppAllocator)
-#define IMemInputPin_NotifyAllocator(This,pAllocator,bReadOnly) (This)->lpVtbl->NotifyAllocator(This,pAllocator,bReadOnly)
-#define IMemInputPin_GetAllocatorRequirements(This,pProps) (This)->lpVtbl->GetAllocatorRequirements(This,pProps)
-#define IMemInputPin_Receive(This,pSample) (This)->lpVtbl->Receive(This,pSample)
-#define IMemInputPin_ReceiveMultiple(This,pSamples,nSamples,nSamplesProcessed) (This)->lpVtbl->ReceiveMultiple(This,pSamples,nSamples,nSamplesProcessed)
-#define IMemInputPin_ReceiveCanBlock(This) (This)->lpVtbl->ReceiveCanBlock(This)
-#endif
-#endif
-  HRESULT WINAPI IMemInputPin_GetAllocator_Proxy(IMemInputPin *This,IMemAllocator **ppAllocator);
-  void __RPC_STUB IMemInputPin_GetAllocator_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemInputPin_NotifyAllocator_Proxy(IMemInputPin *This,IMemAllocator *pAllocator,WINBOOL bReadOnly);
-  void __RPC_STUB IMemInputPin_NotifyAllocator_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemInputPin_GetAllocatorRequirements_Proxy(IMemInputPin *This,ALLOCATOR_PROPERTIES *pProps);
-  void __RPC_STUB IMemInputPin_GetAllocatorRequirements_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemInputPin_Receive_Proxy(IMemInputPin *This,IMediaSample *pSample);
-  void __RPC_STUB IMemInputPin_Receive_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemInputPin_ReceiveMultiple_Proxy(IMemInputPin *This,IMediaSample **pSamples,long nSamples,long *nSamplesProcessed);
-  void __RPC_STUB IMemInputPin_ReceiveMultiple_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMemInputPin_ReceiveCanBlock_Proxy(IMemInputPin *This);
-  void __RPC_STUB IMemInputPin_ReceiveCanBlock_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IMemInputPin *PMEMINPUTPIN;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0132_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0132_v0_0_s_ifspec;
-#ifndef __IAMovieSetup_INTERFACE_DEFINED__
-#define __IAMovieSetup_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IAMovieSetup;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IAMovieSetup : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Register(void) = 0;
-    virtual HRESULT WINAPI Unregister(void) = 0;
-  };
-#else
-  typedef struct IAMovieSetupVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IAMovieSetup *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IAMovieSetup *This);
-      ULONG (WINAPI *Release)(IAMovieSetup *This);
-      HRESULT (WINAPI *Register)(IAMovieSetup *This);
-      HRESULT (WINAPI *Unregister)(IAMovieSetup *This);
-    END_INTERFACE
-  } IAMovieSetupVtbl;
-  struct IAMovieSetup {
-    CONST_VTBL struct IAMovieSetupVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IAMovieSetup_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMovieSetup_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IAMovieSetup_Release(This) (This)->lpVtbl->Release(This)
-#define IAMovieSetup_Register(This) (This)->lpVtbl->Register(This)
-#define IAMovieSetup_Unregister(This) (This)->lpVtbl->Unregister(This)
-#endif
-#endif
-  HRESULT WINAPI IAMovieSetup_Register_Proxy(IAMovieSetup *This);
-  void __RPC_STUB IAMovieSetup_Register_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMovieSetup_Unregister_Proxy(IAMovieSetup *This);
-  void __RPC_STUB IAMovieSetup_Unregister_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IAMovieSetup *PAMOVIESETUP;
-
-  typedef enum AM_SEEKING_SeekingFlags {
-    AM_SEEKING_NoPositioning = 0,AM_SEEKING_AbsolutePositioning = 0x1,AM_SEEKING_RelativePositioning = 0x2,AM_SEEKING_IncrementalPositioning = 0x3,
-    AM_SEEKING_PositioningBitsMask = 0x3,AM_SEEKING_SeekToKeyFrame = 0x4,AM_SEEKING_ReturnTime = 0x8,AM_SEEKING_Segment = 0x10,AM_SEEKING_NoFlush = 0x20
-  } AM_SEEKING_SEEKING_FLAGS;
-
-  typedef enum AM_SEEKING_SeekingCapabilities {
-    AM_SEEKING_CanSeekAbsolute = 0x1,AM_SEEKING_CanSeekForwards = 0x2,AM_SEEKING_CanSeekBackwards = 0x4,AM_SEEKING_CanGetCurrentPos = 0x8,
-    AM_SEEKING_CanGetStopPos = 0x10,AM_SEEKING_CanGetDuration = 0x20,AM_SEEKING_CanPlayBackwards = 0x40,AM_SEEKING_CanDoSegments = 0x80,
-    AM_SEEKING_Source = 0x100
-  } AM_SEEKING_SEEKING_CAPABILITIES;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0133_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0133_v0_0_s_ifspec;
-#ifndef __IMediaSeeking_INTERFACE_DEFINED__
-#define __IMediaSeeking_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IMediaSeeking;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMediaSeeking : public IUnknown {
-  public:
-    virtual HRESULT WINAPI GetCapabilities(DWORD *pCapabilities) = 0;
-    virtual HRESULT WINAPI CheckCapabilities(DWORD *pCapabilities) = 0;
-    virtual HRESULT WINAPI IsFormatSupported(const GUID *pFormat) = 0;
-    virtual HRESULT WINAPI QueryPreferredFormat(GUID *pFormat) = 0;
-    virtual HRESULT WINAPI GetTimeFormat(GUID *pFormat) = 0;
-    virtual HRESULT WINAPI IsUsingTimeFormat(const GUID *pFormat) = 0;
-    virtual HRESULT WINAPI SetTimeFormat(const GUID *pFormat) = 0;
-    virtual HRESULT WINAPI GetDuration(LONGLONG *pDuration) = 0;
-    virtual HRESULT WINAPI GetStopPosition(LONGLONG *pStop) = 0;
-    virtual HRESULT WINAPI GetCurrentPosition(LONGLONG *pCurrent) = 0;
-    virtual HRESULT WINAPI ConvertTimeFormat(LONGLONG *pTarget,const GUID *pTargetFormat,LONGLONG Source,const GUID *pSourceFormat) = 0;
-    virtual HRESULT WINAPI SetPositions(LONGLONG *pCurrent,DWORD dwCurrentFlags,LONGLONG *pStop,DWORD dwStopFlags) = 0;
-    virtual HRESULT WINAPI GetPositions(LONGLONG *pCurrent,LONGLONG *pStop) = 0;
-    virtual HRESULT WINAPI GetAvailable(LONGLONG *pEarliest,LONGLONG *pLatest) = 0;
-    virtual HRESULT WINAPI SetRate(double dRate) = 0;
-    virtual HRESULT WINAPI GetRate(double *pdRate) = 0;
-    virtual HRESULT WINAPI GetPreroll(LONGLONG *pllPreroll) = 0;
-  };
-#else
-  typedef struct IMediaSeekingVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMediaSeeking *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMediaSeeking *This);
-      ULONG (WINAPI *Release)(IMediaSeeking *This);
-      HRESULT (WINAPI *GetCapabilities)(IMediaSeeking *This,DWORD *pCapabilities);
-      HRESULT (WINAPI *CheckCapabilities)(IMediaSeeking *This,DWORD *pCapabilities);
-      HRESULT (WINAPI *IsFormatSupported)(IMediaSeeking *This,const GUID *pFormat);
-      HRESULT (WINAPI *QueryPreferredFormat)(IMediaSeeking *This,GUID *pFormat);
-      HRESULT (WINAPI *GetTimeFormat)(IMediaSeeking *This,GUID *pFormat);
-      HRESULT (WINAPI *IsUsingTimeFormat)(IMediaSeeking *This,const GUID *pFormat);
-      HRESULT (WINAPI *SetTimeFormat)(IMediaSeeking *This,const GUID *pFormat);
-      HRESULT (WINAPI *GetDuration)(IMediaSeeking *This,LONGLONG *pDuration);
-      HRESULT (WINAPI *GetStopPosition)(IMediaSeeking *This,LONGLONG *pStop);
-      HRESULT (WINAPI *GetCurrentPosition)(IMediaSeeking *This,LONGLONG *pCurrent);
-      HRESULT (WINAPI *ConvertTimeFormat)(IMediaSeeking *This,LONGLONG *pTarget,const GUID *pTargetFormat,LONGLONG Source,const GUID *pSourceFormat);
-      HRESULT (WINAPI *SetPositions)(IMediaSeeking *This,LONGLONG *pCurrent,DWORD dwCurrentFlags,LONGLONG *pStop,DWORD dwStopFlags);
-      HRESULT (WINAPI *GetPositions)(IMediaSeeking *This,LONGLONG *pCurrent,LONGLONG *pStop);
-      HRESULT (WINAPI *GetAvailable)(IMediaSeeking *This,LONGLONG *pEarliest,LONGLONG *pLatest);
-      HRESULT (WINAPI *SetRate)(IMediaSeeking *This,double dRate);
-      HRESULT (WINAPI *GetRate)(IMediaSeeking *This,double *pdRate);
-      HRESULT (WINAPI *GetPreroll)(IMediaSeeking *This,LONGLONG *pllPreroll);
-    END_INTERFACE
-  } IMediaSeekingVtbl;
-  struct IMediaSeeking {
-    CONST_VTBL struct IMediaSeekingVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IMediaSeeking_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IMediaSeeking_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IMediaSeeking_Release(This) (This)->lpVtbl->Release(This)
-#define IMediaSeeking_GetCapabilities(This,pCapabilities) (This)->lpVtbl->GetCapabilities(This,pCapabilities)
-#define IMediaSeeking_CheckCapabilities(This,pCapabilities) (This)->lpVtbl->CheckCapabilities(This,pCapabilities)
-#define IMediaSeeking_IsFormatSupported(This,pFormat) (This)->lpVtbl->IsFormatSupported(This,pFormat)
-#define IMediaSeeking_QueryPreferredFormat(This,pFormat) (This)->lpVtbl->QueryPreferredFormat(This,pFormat)
-#define IMediaSeeking_GetTimeFormat(This,pFormat) (This)->lpVtbl->GetTimeFormat(This,pFormat)
-#define IMediaSeeking_IsUsingTimeFormat(This,pFormat) (This)->lpVtbl->IsUsingTimeFormat(This,pFormat)
-#define IMediaSeeking_SetTimeFormat(This,pFormat) (This)->lpVtbl->SetTimeFormat(This,pFormat)
-#define IMediaSeeking_GetDuration(This,pDuration) (This)->lpVtbl->GetDuration(This,pDuration)
-#define IMediaSeeking_GetStopPosition(This,pStop) (This)->lpVtbl->GetStopPosition(This,pStop)
-#define IMediaSeeking_GetCurrentPosition(This,pCurrent) (This)->lpVtbl->GetCurrentPosition(This,pCurrent)
-#define IMediaSeeking_ConvertTimeFormat(This,pTarget,pTargetFormat,Source,pSourceFormat) (This)->lpVtbl->ConvertTimeFormat(This,pTarget,pTargetFormat,Source,pSourceFormat)
-#define IMediaSeeking_SetPositions(This,pCurrent,dwCurrentFlags,pStop,dwStopFlags) (This)->lpVtbl->SetPositions(This,pCurrent,dwCurrentFlags,pStop,dwStopFlags)
-#define IMediaSeeking_GetPositions(This,pCurrent,pStop) (This)->lpVtbl->GetPositions(This,pCurrent,pStop)
-#define IMediaSeeking_GetAvailable(This,pEarliest,pLatest) (This)->lpVtbl->GetAvailable(This,pEarliest,pLatest)
-#define IMediaSeeking_SetRate(This,dRate) (This)->lpVtbl->SetRate(This,dRate)
-#define IMediaSeeking_GetRate(This,pdRate) (This)->lpVtbl->GetRate(This,pdRate)
-#define IMediaSeeking_GetPreroll(This,pllPreroll) (This)->lpVtbl->GetPreroll(This,pllPreroll)
-#endif
-#endif
-  HRESULT WINAPI IMediaSeeking_GetCapabilities_Proxy(IMediaSeeking *This,DWORD *pCapabilities);
-  void __RPC_STUB IMediaSeeking_GetCapabilities_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_CheckCapabilities_Proxy(IMediaSeeking *This,DWORD *pCapabilities);
-  void __RPC_STUB IMediaSeeking_CheckCapabilities_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_IsFormatSupported_Proxy(IMediaSeeking *This,const GUID *pFormat);
-  void __RPC_STUB IMediaSeeking_IsFormatSupported_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_QueryPreferredFormat_Proxy(IMediaSeeking *This,GUID *pFormat);
-  void __RPC_STUB IMediaSeeking_QueryPreferredFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_GetTimeFormat_Proxy(IMediaSeeking *This,GUID *pFormat);
-  void __RPC_STUB IMediaSeeking_GetTimeFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_IsUsingTimeFormat_Proxy(IMediaSeeking *This,const GUID *pFormat);
-  void __RPC_STUB IMediaSeeking_IsUsingTimeFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_SetTimeFormat_Proxy(IMediaSeeking *This,const GUID *pFormat);
-  void __RPC_STUB IMediaSeeking_SetTimeFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_GetDuration_Proxy(IMediaSeeking *This,LONGLONG *pDuration);
-  void __RPC_STUB IMediaSeeking_GetDuration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_GetStopPosition_Proxy(IMediaSeeking *This,LONGLONG *pStop);
-  void __RPC_STUB IMediaSeeking_GetStopPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_GetCurrentPosition_Proxy(IMediaSeeking *This,LONGLONG *pCurrent);
-  void __RPC_STUB IMediaSeeking_GetCurrentPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_ConvertTimeFormat_Proxy(IMediaSeeking *This,LONGLONG *pTarget,const GUID *pTargetFormat,LONGLONG Source,const GUID *pSourceFormat);
-  void __RPC_STUB IMediaSeeking_ConvertTimeFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_SetPositions_Proxy(IMediaSeeking *This,LONGLONG *pCurrent,DWORD dwCurrentFlags,LONGLONG *pStop,DWORD dwStopFlags);
-  void __RPC_STUB IMediaSeeking_SetPositions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_GetPositions_Proxy(IMediaSeeking *This,LONGLONG *pCurrent,LONGLONG *pStop);
-  void __RPC_STUB IMediaSeeking_GetPositions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_GetAvailable_Proxy(IMediaSeeking *This,LONGLONG *pEarliest,LONGLONG *pLatest);
-  void __RPC_STUB IMediaSeeking_GetAvailable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_SetRate_Proxy(IMediaSeeking *This,double dRate);
-  void __RPC_STUB IMediaSeeking_SetRate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_GetRate_Proxy(IMediaSeeking *This,double *pdRate);
-  void __RPC_STUB IMediaSeeking_GetRate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaSeeking_GetPreroll_Proxy(IMediaSeeking *This,LONGLONG *pllPreroll);
-  void __RPC_STUB IMediaSeeking_GetPreroll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IMediaSeeking *PMEDIASEEKING;
-
-  enum tagAM_MEDIAEVENT_FLAGS {
-    AM_MEDIAEVENT_NONOTIFY = 0x01
-  };
 
   typedef struct __MIDL___MIDL_itf_strmif_0134_0001 {
     CLSID Clsid;
