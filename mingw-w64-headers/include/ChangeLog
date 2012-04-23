@@ -1,3 +1,8 @@
+2012-04-23  Kai Tietz  <ktietz@redhat.com>
+
+	PR/3520095
+	* endpointvolume.h (IAudioEndpointVolume): Fix.
+
 2012-03-07  Corinna Vinschen <corinna@vinschen.de>
 
 	* winternl.h (struct _LDR_DATA_TABLE_ENTRY): Changed type of Reserved1
