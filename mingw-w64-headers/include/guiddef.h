@@ -15,7 +15,7 @@ typedef struct _GUID {
 
 #if defined(__cplusplus) && (USE___UUIDOF == 0)
 extern "C++" {
-    template<typename T> const GUID &__mingw_uuidof();
+__extension__    template<typename T> const GUID &__mingw_uuidof();
 }
 #endif
 

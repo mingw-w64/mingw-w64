@@ -169,9 +169,9 @@ DECLARE_INTERFACE_(IVssBackupComponents,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssBackupComponents_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssBackupComponents_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssBackupComponents_Release(This) (This)->pVtbl->Release(This)
+#define IVssBackupComponents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssBackupComponents_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssBackupComponents_Release(This) (This)->lpVtbl->Release(This)
 #define IVssBackupComponents_GetWriterComponentsCount(This,pcComponents) (This)->lpVtbl->GetWriterComponentsCount(This,pcComponents)
 #define IVssBackupComponents_GetWriterComponents(This,iWriter,pWriterComponents) (This)->lpVtbl->GetWriterComponents(This,iWriter,pWriterComponents)
 #define IVssBackupComponents_InitializeForBackup(This,bstrXML) (This)->lpVtbl->InitializeForBackup(This,bstrXML)
@@ -294,9 +294,9 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx,IVssBackupComponents)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssBackupComponentsEx_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssBackupComponentsEx_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssBackupComponentsEx_Release(This) (This)->pVtbl->Release(This)
+#define IVssBackupComponentsEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssBackupComponentsEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssBackupComponentsEx_Release(This) (This)->lpVtbl->Release(This)
 #define IVssBackupComponentsEx_GetWriterComponentsCount(This,pcComponents) (This)->lpVtbl->GetWriterComponentsCount(This,pcComponents)
 #define IVssBackupComponentsEx_GetWriterComponents(This,iWriter,pWriterComponents) (This)->lpVtbl->GetWriterComponents(This,iWriter,pWriterComponents)
 #define IVssBackupComponentsEx_InitializeForBackup(This,bstrXML) (This)->lpVtbl->InitializeForBackup(This,bstrXML)
@@ -429,9 +429,9 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx2,IVssBackupComponentsEx)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssBackupComponentsEx2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssBackupComponentsEx2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssBackupComponentsEx2_Release(This) (This)->pVtbl->Release(This)
+#define IVssBackupComponentsEx2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssBackupComponentsEx2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssBackupComponentsEx2_Release(This) (This)->lpVtbl->Release(This)
 #define IVssBackupComponentsEx2_GetWriterComponentsCount(This,pcComponents) (This)->lpVtbl->GetWriterComponentsCount(This,pcComponents)
 #define IVssBackupComponentsEx2_GetWriterComponents(This,iWriter,pWriterComponents) (This)->lpVtbl->GetWriterComponents(This,iWriter,pWriterComponents)
 #define IVssBackupComponentsEx2_InitializeForBackup(This,bstrXML) (This)->lpVtbl->InitializeForBackup(This,bstrXML)
@@ -579,9 +579,9 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx3,IVssBackupComponentsEx2)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssBackupComponentsEx3_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssBackupComponentsEx3_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssBackupComponentsEx3_Release(This) (This)->pVtbl->Release(This)
+#define IVssBackupComponentsEx3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssBackupComponentsEx3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssBackupComponentsEx3_Release(This) (This)->lpVtbl->Release(This)
 #define IVssBackupComponentsEx3_AddSnapshotToRecoverySet(This,snapshotId,dwFlags,pwszDestinationVolume) (This)->lpVtbl->AddSnapshotToRecoverySet(This,snapshotId,dwFlags,pwszDestinationVolume)
 #define IVssBackupComponentsEx3_GetSessionId(This,idSession) (This)->lpVtbl->GetSessionId(This,idSession)
 #define IVssBackupComponentsEx3_GetWriterStatusEx(This,iWriter,pidInstance,pidWriter,pbstrWriter,pnStatus,phrFailureWriter,pbstrApplicationMessage) (This)->lpVtbl->GetWriterStatusEx(This,iWriter,pidInstance,pidWriter,pbstrWriter,pnStatus,phrFailureWriter,pbstrApplicationMessage)

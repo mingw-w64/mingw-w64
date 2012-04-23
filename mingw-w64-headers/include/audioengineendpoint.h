@@ -111,9 +111,9 @@ DECLARE_INTERFACE_(IAudioDeviceEndpoint,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAudioDeviceEndpoint_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAudioDeviceEndpoint_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAudioDeviceEndpoint_Release(This) (This)->pVtbl->Release(This)
+#define IAudioDeviceEndpoint_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAudioDeviceEndpoint_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAudioDeviceEndpoint_Release(This) (This)->lpVtbl->Release(This)
 #define IAudioDeviceEndpoint_GetEventDrivenCapable(This,pbIsEventCapable) (This)->lpVtbl->GetEventDrivenCapable(This,pbIsEventCapable)
 #define IAudioDeviceEndpoint_GetRTCaps(This,pbIsRTCapable) (This)->lpVtbl->GetRTCaps(This,pbIsRTCapable)
 #define IAudioDeviceEndpoint_SetBuffer(This,MaxPeriod,u32LatencyCoefficient) (This)->lpVtbl->SetBuffer(This,MaxPeriod,u32LatencyCoefficient)
@@ -146,9 +146,9 @@ DECLARE_INTERFACE_(IAudioEndpoint,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAudioEndpoint_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAudioEndpoint_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAudioEndpoint_Release(This) (This)->pVtbl->Release(This)
+#define IAudioEndpoint_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAudioEndpoint_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAudioEndpoint_Release(This) (This)->lpVtbl->Release(This)
 #define IAudioEndpoint_GetFrameFormat(This,ppFormat) (This)->lpVtbl->GetFrameFormat(This,ppFormat)
 #define IAudioEndpoint_GetFramesPerPacket(This,pFramesPerPacket) (This)->lpVtbl->GetFramesPerPacket(This,pFramesPerPacket)
 #define IAudioEndpoint_GetLatency(This,pLatency) (This)->lpVtbl->GetLatency(This,pLatency)
@@ -180,9 +180,9 @@ DECLARE_INTERFACE_(IAudioEndpointControl,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAudioEndpointControl_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAudioEndpointControl_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAudioEndpointControl_Release(This) (This)->pVtbl->Release(This)
+#define IAudioEndpointControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAudioEndpointControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAudioEndpointControl_Release(This) (This)->lpVtbl->Release(This)
 #define IAudioEndpointControl_Reset() (This)->lpVtbl->Reset(This)
 #define IAudioEndpointControl_Start() (This)->lpVtbl->Start(This)
 #define IAudioEndpointControl_Stop() (This)->lpVtbl->Stop(This)
@@ -213,9 +213,9 @@ DECLARE_INTERFACE_(IAudioEndpointRT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAudioEndpointRT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAudioEndpointRT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAudioEndpointRT_Release(This) (This)->pVtbl->Release(This)
+#define IAudioEndpointRT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAudioEndpointRT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAudioEndpointRT_Release(This) (This)->lpVtbl->Release(This)
 #define IAudioEndpointRT_GetCurrentPadding(This,pPadding,pAeCurrentPosition) (This)->lpVtbl->GetCurrentPadding(This,pPadding,pAeCurrentPosition)
 #define IAudioEndpointRT_ProcessingComplete() (This)->lpVtbl->ProcessingComplete(This)
 #define IAudioEndpointRT_SetPinActive() (This)->lpVtbl->SetPinActive(This)
@@ -264,9 +264,9 @@ DECLARE_INTERFACE_(IAudioEndpointVolumeEx,IAudioEndpointVolume)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAudioEndpointVolumeEx_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAudioEndpointVolumeEx_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAudioEndpointVolumeEx_Release(This) (This)->pVtbl->Release(This)
+#define IAudioEndpointVolumeEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAudioEndpointVolumeEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAudioEndpointVolumeEx_Release(This) (This)->lpVtbl->Release(This)
 #define IAudioEndpointVolumeEx_GetChannelCount(This,pnChannelCount) (This)->lpVtbl->GetChannelCount(This,pnChannelCount)
 #define IAudioEndpointVolumeEx_GetChannelVolumeLevel(This,nChannel,pfLevelDB) (This)->lpVtbl->GetChannelVolumeLevel(This,nChannel,pfLevelDB)
 #define IAudioEndpointVolumeEx_GetChannelVolumeLevelScalar(This,nChannel,pfLevel) (This)->lpVtbl->GetChannelVolumeLevelScalar(This,nChannel,pfLevel)
@@ -312,9 +312,9 @@ DECLARE_INTERFACE_(IAudioInputEndpointRT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAudioInputEndpointRT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAudioInputEndpointRT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAudioInputEndpointRT_Release(This) (This)->pVtbl->Release(This)
+#define IAudioInputEndpointRT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAudioInputEndpointRT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAudioInputEndpointRT_Release(This) (This)->lpVtbl->Release(This)
 #define IAudioInputEndpointRT_GetInputDataPointer(This,pAeTimeStamp) (This)->lpVtbl->GetInputDataPointer(This,pAeTimeStamp)
 #define IAudioInputEndpointRT_PulseEndpoint() (This)->lpVtbl->PulseEndpoint(This)
 #define IAudioInputEndpointRT_ReleaseInputDataPointer(This,u32FrameCount,pDataPointer) (This)->lpVtbl->ReleaseInputDataPointer(This,u32FrameCount,pDataPointer)
@@ -344,9 +344,9 @@ DECLARE_INTERFACE_(IAudioOutputEndpointRT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAudioOutputEndpointRT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAudioOutputEndpointRT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAudioOutputEndpointRT_Release(This) (This)->pVtbl->Release(This)
+#define IAudioOutputEndpointRT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAudioOutputEndpointRT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAudioOutputEndpointRT_Release(This) (This)->lpVtbl->Release(This)
 #define IAudioOutputEndpointRT_GetOutputDataPointer(This,u32FrameCount,pAeTimeStamp) (This)->lpVtbl->GetOutputDataPointer(This,u32FrameCount,pAeTimeStamp)
 #define IAudioOutputEndpointRT_PulseEndpoint() (This)->lpVtbl->PulseEndpoint(This)
 #define IAudioOutputEndpointRT_ReleaseOutputDataPointer(This,pConnectionProperty) (This)->lpVtbl->ReleaseOutputDataPointer(This,pConnectionProperty)

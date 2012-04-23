@@ -103,9 +103,9 @@ DECLARE_INTERFACE_(IMFVideoPresenter,IMFClockStateSink)
 };
 
 #ifdef COBJMACROS
-#define IMFVideoPresenter_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFVideoPresenter_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFVideoPresenter_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoPresenter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoPresenter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoPresenter_Release(This) (This)->lpVtbl->Release(This)
 #define IMFVideoPresenter_OnClockPause(This,hnsSystemTime) (This)->lpVtbl->OnClockPause(This,hnsSystemTime)
 #define IMFVideoPresenter_OnClockRestart(This,hnsSystemTime) (This)->lpVtbl->OnClockRestart(This,hnsSystemTime)
 #define IMFVideoPresenter_OnClockSetRate(This,hnsSystemTime,flRate) (This)->lpVtbl->OnClockSetRate(This,hnsSystemTime,flRate)
@@ -139,9 +139,9 @@ DECLARE_INTERFACE_(IMFDesiredSample,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFDesiredSample_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFDesiredSample_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFDesiredSample_Release(This) (This)->pVtbl->Release(This)
+#define IMFDesiredSample_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFDesiredSample_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFDesiredSample_Release(This) (This)->lpVtbl->Release(This)
 #define IMFDesiredSample_Clear() (This)->lpVtbl->Clear(This)
 #define IMFDesiredSample_GetDesiredSampleTimeAndDuration(This,phnsSampleTime,phnsSampleDuration) (This)->lpVtbl->GetDesiredSampleTimeAndDuration(This,phnsSampleTime,phnsSampleDuration)
 #define IMFDesiredSample_SetDesiredSampleTimeAndDuration(This,hnsSampleTime,hnsSampleDuration) (This)->lpVtbl->SetDesiredSampleTimeAndDuration(This,hnsSampleTime,hnsSampleDuration)
@@ -165,9 +165,9 @@ DECLARE_INTERFACE_(IMFTrackedSample,IUnknown)
 };
 
 #ifdef COBJMACROS
-#define IMFTrackedSample_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFTrackedSample_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFTrackedSample_Release(This) (This)->pVtbl->Release(This)
+#define IMFTrackedSample_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFTrackedSample_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFTrackedSample_Release(This) (This)->lpVtbl->Release(This)
 #define IMFTrackedSample_SetAllocator(This,pSampleAllocator,pUnkState) (This)->lpVtbl->SetAllocator(This,pSampleAllocator,pUnkState)
 #endif /*COBJMACROS*/
 
@@ -188,9 +188,9 @@ DECLARE_INTERFACE_(IMFVideoDeviceID,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFVideoDeviceID_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFVideoDeviceID_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFVideoDeviceID_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoDeviceID_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoDeviceID_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoDeviceID_Release(This) (This)->lpVtbl->Release(This)
 #define IMFVideoDeviceID_GetDeviceID(This,pDeviceID) (This)->lpVtbl->GetDeviceID(This,pDeviceID)
 #endif /*COBJMACROS*/
 
@@ -211,9 +211,9 @@ DECLARE_INTERFACE_(IMFVideoPositionMapper,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFVideoPositionMapper_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFVideoPositionMapper_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFVideoPositionMapper_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoPositionMapper_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoPositionMapper_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoPositionMapper_Release(This) (This)->lpVtbl->Release(This)
 #define IMFVideoPositionMapper_MapOutputCoordinateToInputStream(This,xOut,yOut,dwOutputStreamIndex,dwInputStreamIndex,pxIn,pyIn) (This)->lpVtbl->MapOutputCoordinateToInputStream(This,xOut,yOut,dwOutputStreamIndex,dwInputStreamIndex,pxIn,pyIn)
 #endif /*COBJMACROS*/
 
@@ -234,9 +234,9 @@ DECLARE_INTERFACE_(IMFVideoRenderer,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFVideoRenderer_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFVideoRenderer_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFVideoRenderer_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoRenderer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoRenderer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoRenderer_Release(This) (This)->lpVtbl->Release(This)
 #define IMFVideoRenderer_InitializeRenderer(This,pVideoMixer,pVideoPresenter) (This)->lpVtbl->InitializeRenderer(This,pVideoMixer,pVideoPresenter)
 #endif /*COBJMACROS*/
 
@@ -277,9 +277,9 @@ DECLARE_INTERFACE_(IMFVideoDisplayControl,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFVideoDisplayControl_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFVideoDisplayControl_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFVideoDisplayControl_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoDisplayControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoDisplayControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoDisplayControl_Release(This) (This)->lpVtbl->Release(This)
 #define IMFVideoDisplayControl_GetAspectRatioMode(This,pdwAspectRatioMode) (This)->lpVtbl->GetAspectRatioMode(This,pdwAspectRatioMode)
 #define IMFVideoDisplayControl_GetBorderColor(This,pClr) (This)->lpVtbl->GetBorderColor(This,pClr)
 #define IMFVideoDisplayControl_GetCurrentImage(This,pTimeStamp) (This)->lpVtbl->GetCurrentImage(This,pTimeStamp)

@@ -120,9 +120,9 @@ DECLARE_INTERFACE_(IVssDifferentialSoftwareSnapshotMgmt,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssDifferentialSoftwareSnapshotMgmt_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssDifferentialSoftwareSnapshotMgmt_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssDifferentialSoftwareSnapshotMgmt_Release(This) (This)->pVtbl->Release(This)
+#define IVssDifferentialSoftwareSnapshotMgmt_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssDifferentialSoftwareSnapshotMgmt_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssDifferentialSoftwareSnapshotMgmt_Release(This) (This)->lpVtbl->Release(This)
 #define IVssDifferentialSoftwareSnapshotMgmt_AddDiffArea(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace) (This)->lpVtbl->AddDiffArea(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace)
 #define IVssDifferentialSoftwareSnapshotMgmt_ChangeDiffAreaMaximumSize(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace) (This)->lpVtbl->ChangeDiffAreaMaximumSize(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace)
 #define IVssDifferentialSoftwareSnapshotMgmt_QueryVolumesSupportedForDiffAreas(This,pwszOriginalVolumeName,ppEnum) (This)->lpVtbl->QueryVolumesSupportedForDiffAreas(This,pwszOriginalVolumeName,ppEnum)
@@ -166,9 +166,9 @@ DECLARE_INTERFACE_(IVssDifferentialSoftwareSnapshotMgmt2,IVssDifferentialSoftwar
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssDifferentialSoftwareSnapshotMgmt2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssDifferentialSoftwareSnapshotMgmt2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssDifferentialSoftwareSnapshotMgmt2_Release(This) (This)->pVtbl->Release(This)
+#define IVssDifferentialSoftwareSnapshotMgmt2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssDifferentialSoftwareSnapshotMgmt2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssDifferentialSoftwareSnapshotMgmt2_Release(This) (This)->lpVtbl->Release(This)
 #define IVssDifferentialSoftwareSnapshotMgmt2_AddDiffArea(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace) (This)->lpVtbl->AddDiffArea(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace)
 #define IVssDifferentialSoftwareSnapshotMgmt2_ChangeDiffAreaMaximumSize(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace) (This)->lpVtbl->ChangeDiffAreaMaximumSize(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace)
 #define IVssDifferentialSoftwareSnapshotMgmt2_QueryVolumesSupportedForDiffAreas(This,pwszOriginalVolumeName,ppEnum) (This)->lpVtbl->QueryVolumesSupportedForDiffAreas(This,pwszOriginalVolumeName,ppEnum)
@@ -221,9 +221,9 @@ DECLARE_INTERFACE_(IVssDifferentialSoftwareSnapshotMgmt3,IVssDifferentialSoftwar
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssDifferentialSoftwareSnapshotMgmt3_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssDifferentialSoftwareSnapshotMgmt3_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssDifferentialSoftwareSnapshotMgmt3_Release(This) (This)->pVtbl->Release(This)
+#define IVssDifferentialSoftwareSnapshotMgmt3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssDifferentialSoftwareSnapshotMgmt3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssDifferentialSoftwareSnapshotMgmt3_Release(This) (This)->lpVtbl->Release(This)
 #define IVssDifferentialSoftwareSnapshotMgmt3_AddDiffArea(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace) (This)->lpVtbl->AddDiffArea(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace)
 #define IVssDifferentialSoftwareSnapshotMgmt3_ChangeDiffAreaMaximumSize(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace) (This)->lpVtbl->ChangeDiffAreaMaximumSize(This,pwszVolumeName,pwszDiffAreaVolumeName,llMaximumDiffSpace)
 #define IVssDifferentialSoftwareSnapshotMgmt3_QueryVolumesSupportedForDiffAreas(This,pwszOriginalVolumeName,ppEnum) (This)->lpVtbl->QueryVolumesSupportedForDiffAreas(This,pwszOriginalVolumeName,ppEnum)
@@ -267,9 +267,9 @@ DECLARE_INTERFACE_(IVssEnumMgmtObject,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssEnumMgmtObject_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssEnumMgmtObject_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssEnumMgmtObject_Release(This) (This)->pVtbl->Release(This)
+#define IVssEnumMgmtObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssEnumMgmtObject_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssEnumMgmtObject_Release(This) (This)->lpVtbl->Release(This)
 #define IVssEnumMgmtObject_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)
 #define IVssEnumMgmtObject_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IVssEnumMgmtObject_Reset() (This)->lpVtbl->Reset(This)
@@ -303,9 +303,9 @@ DECLARE_INTERFACE_(IVssSnapshotMgmt,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssSnapshotMgmt_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssSnapshotMgmt_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssSnapshotMgmt_Release(This) (This)->pVtbl->Release(This)
+#define IVssSnapshotMgmt_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssSnapshotMgmt_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssSnapshotMgmt_Release(This) (This)->lpVtbl->Release(This)
 #define IVssSnapshotMgmt_GetProviderMgmtInterface(This,ProviderId,InterfaceId,ppItf) (This)->lpVtbl->GetProviderMgmtInterface(This,ProviderId,InterfaceId,ppItf)
 #define IVssSnapshotMgmt_QueryVolumesSupportedForSnapshots() (This)->lpVtbl->QueryVolumesSupportedForSnapshots(This)
 #define IVssSnapshotMgmt_QuerySnapshotsByVolume() (This)->lpVtbl->QuerySnapshotsByVolume(This)
@@ -328,9 +328,9 @@ DECLARE_INTERFACE_(IVssSnapshotMgmt2,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssSnapshotMgmt2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssSnapshotMgmt2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssSnapshotMgmt2_Release(This) (This)->pVtbl->Release(This)
+#define IVssSnapshotMgmt2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssSnapshotMgmt2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssSnapshotMgmt2_Release(This) (This)->lpVtbl->Release(This)
 #define IVssSnapshotMgmt2_GetMinDiffAreaSize(This,pllMinDiffAreaSize) (This)->lpVtbl->GetMinDiffAreaSize(This,pllMinDiffAreaSize)
 #endif /*COBJMACROS*/
 

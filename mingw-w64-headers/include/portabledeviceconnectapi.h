@@ -32,9 +32,9 @@ DECLARE_INTERFACE_(IConnectionRequestCallback,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IConnectionRequestCallback_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IConnectionRequestCallback_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IConnectionRequestCallback_Release(This) (This)->pVtbl->Release(This)
+#define IConnectionRequestCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IConnectionRequestCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IConnectionRequestCallback_Release(This) (This)->lpVtbl->Release(This)
 #define IConnectionRequestCallback_OnComplete(This,hrStatus) (This)->lpVtbl->OnComplete(This,hrStatus)
 #endif /*COBJMACROS*/
 

@@ -35,9 +35,9 @@ DECLARE_INTERFACE_(IWSDServiceMessaging,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDServiceMessaging_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDServiceMessaging_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDServiceMessaging_Release(This) (This)->pVtbl->Release(This)
+#define IWSDServiceMessaging_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDServiceMessaging_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDServiceMessaging_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDServiceMessaging_FaultRequest(This,pRequestHeader,pMessageParameters,pFault) (This)->lpVtbl->FaultRequest(This,pRequestHeader,pMessageParameters,pFault)
 #define IWSDServiceMessaging_SendResponse(This,pBody,pOperation,pMessageParameters) (This)->lpVtbl->SendResponse(This,pBody,pOperation,pMessageParameters)
 #endif /*COBJMACROS*/
@@ -64,9 +64,9 @@ DECLARE_INTERFACE_(IWSDDeviceHostNotify,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDDeviceHostNotify_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDDeviceHostNotify_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDDeviceHostNotify_Release(This) (This)->pVtbl->Release(This)
+#define IWSDDeviceHostNotify_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDDeviceHostNotify_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDDeviceHostNotify_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDDeviceHostNotify_GetService(This,pszServiceId,ppService) (This)->lpVtbl->GetService(This,pszServiceId,ppService)
 #endif /*COBJMACROS*/
 
@@ -109,9 +109,9 @@ DECLARE_INTERFACE_(IWSDDeviceHost,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDDeviceHost_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDDeviceHost_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDDeviceHost_Release(This) (This)->pVtbl->Release(This)
+#define IWSDDeviceHost_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDDeviceHost_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDDeviceHost_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDDeviceHost_Init(This,pszLocalId,dwHostAddressCount) (This)->lpVtbl->Init(This,pszLocalId,dwHostAddressCount)
 #define IWSDDeviceHost_Start(This,ullInstanceId,pScopeList,pNotificationSink) (This)->lpVtbl->Start(This,ullInstanceId,pScopeList,pNotificationSink)
 #define IWSDDeviceHost_Stop() (This)->lpVtbl->Stop(This)

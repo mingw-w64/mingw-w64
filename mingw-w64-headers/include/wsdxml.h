@@ -36,9 +36,9 @@ DECLARE_INTERFACE_(IWSDXMLContext,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDXMLContext_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDXMLContext_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDXMLContext_Release(This) (This)->pVtbl->Release(This)
+#define IWSDXMLContext_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDXMLContext_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDXMLContext_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDXMLContext_SetNamespaces(This,pNamespaces,wNamespacesCount,bLayerNumber) (This)->lpVtbl->SetNamespaces(This,pNamespaces,wNamespacesCount,bLayerNumber)
 #define IWSDXMLContext_SetTypes(This,pTypes,dwTypesCount,bLayerNumber) (This)->lpVtbl->SetTypes(This,pTypes,dwTypesCount,bLayerNumber)
 #define IWSDXMLContext_AddNamespace(This,pszUri,pszSuggestedPrefix,ppNamespace) (This)->lpVtbl->AddNamespace(This,pszUri,pszSuggestedPrefix,ppNamespace)

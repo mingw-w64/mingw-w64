@@ -33,9 +33,9 @@ DECLARE_INTERFACE_(IWSDAttachment,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDAttachment_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDAttachment_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDAttachment_Release(This) (This)->pVtbl->Release(This)
+#define IWSDAttachment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDAttachment_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDAttachment_Release(This) (This)->lpVtbl->Release(This)
 #endif /*COBJMACROS*/
 
 #undef  INTERFACE
@@ -63,9 +63,9 @@ DECLARE_INTERFACE_(IWSDInboundAttachment,IWSDAttachment)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDInboundAttachment_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDInboundAttachment_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDInboundAttachment_Release(This) (This)->pVtbl->Release(This)
+#define IWSDInboundAttachment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDInboundAttachment_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDInboundAttachment_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDInboundAttachment_Read(This,pBuffer,dwBytesToRead,pdwNumberofBytesRead) (This)->lpVtbl->Read(This,pBuffer,dwBytesToRead,pdwNumberofBytesRead)
 #define IWSDInboundAttachment_Close() (This)->lpVtbl->Close(This)
 #endif /*COBJMACROS*/
@@ -96,9 +96,9 @@ DECLARE_INTERFACE_(IWSDOutboundAttachment,IWSDAttachment)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDOutboundAttachment_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDOutboundAttachment_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDOutboundAttachment_Release(This) (This)->pVtbl->Release(This)
+#define IWSDOutboundAttachment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDOutboundAttachment_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDOutboundAttachment_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDOutboundAttachment_Write(This,pBuffer,dwBytesToWrite,pdwNumberofBytesWritten) (This)->lpVtbl->Write(This,pBuffer,dwBytesToWrite,pdwNumberofBytesWritten)
 #define IWSDOutboundAttachment_Close() (This)->lpVtbl->Close(This)
 #define IWSDOutboundAttachment_Abort() (This)->lpVtbl->Abort(This)

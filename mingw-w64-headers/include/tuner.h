@@ -113,9 +113,9 @@ DECLARE_INTERFACE_(IBDACreateTuneRequestEx,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IBDACreateTuneRequestEx_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IBDACreateTuneRequestEx_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IBDACreateTuneRequestEx_Release(This) (This)->pVtbl->Release(This)
+#define IBDACreateTuneRequestEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBDACreateTuneRequestEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBDACreateTuneRequestEx_Release(This) (This)->lpVtbl->Release(This)
 #define IBDACreateTuneRequestEx_CreateTuneRequestEx(This,TuneRequestIID,ppTuneRequest) (This)->lpVtbl->CreateTuneRequestEx(This,TuneRequestIID,ppTuneRequest)
 #endif /*COBJMACROS*/
 
@@ -151,9 +151,9 @@ DECLARE_INTERFACE_(ITuneRequest,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ITuneRequest_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ITuneRequest_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ITuneRequest_Release(This) (This)->pVtbl->Release(This)
+#define ITuneRequest_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITuneRequest_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITuneRequest_Release(This) (This)->lpVtbl->Release(This)
 #define ITuneRequest_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define ITuneRequest_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define ITuneRequest_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -188,9 +188,9 @@ DECLARE_INTERFACE_(IChannelIDTuneRequest,ITuneRequest)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IChannelIDTuneRequest_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IChannelIDTuneRequest_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IChannelIDTuneRequest_Release(This) (This)->pVtbl->Release(This)
+#define IChannelIDTuneRequest_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IChannelIDTuneRequest_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IChannelIDTuneRequest_Release(This) (This)->lpVtbl->Release(This)
 #define IChannelIDTuneRequest_put_ChannelID(This,ChannelID) (This)->lpVtbl->put_ChannelID(This,ChannelID)
 #define IChannelIDTuneRequest_get_ChannelID(This,ChannelID) (This)->lpVtbl->get_ChannelID(This,ChannelID)
 #endif /*COBJMACROS*/
@@ -237,9 +237,9 @@ DECLARE_INTERFACE_(ILocator,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ILocator_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ILocator_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ILocator_Release(This) (This)->pVtbl->Release(This)
+#define ILocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ILocator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ILocator_Release(This) (This)->lpVtbl->Release(This)
 #define ILocator_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define ILocator_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define ILocator_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -305,9 +305,9 @@ DECLARE_INTERFACE_(IDigitalLocator,ILocator)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDigitalLocator_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDigitalLocator_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDigitalLocator_Release(This) (This)->pVtbl->Release(This)
+#define IDigitalLocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDigitalLocator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDigitalLocator_Release(This) (This)->lpVtbl->Release(This)
 #define IDigitalLocator_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IDigitalLocator_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IDigitalLocator_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -385,9 +385,9 @@ DECLARE_INTERFACE_(IDVBSLocator,IDigitalLocator)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVBSLocator_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVBSLocator_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVBSLocator_Release(This) (This)->pVtbl->Release(This)
+#define IDVBSLocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVBSLocator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVBSLocator_Release(This) (This)->lpVtbl->Release(This)
 #define IDVBSLocator_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IDVBSLocator_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IDVBSLocator_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -493,9 +493,9 @@ DECLARE_INTERFACE_(IDVBSLocator2,IDVBSLocator)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVBSLocator2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVBSLocator2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVBSLocator2_Release(This) (This)->pVtbl->Release(This)
+#define IDVBSLocator2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVBSLocator2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVBSLocator2_Release(This) (This)->lpVtbl->Release(This)
 #define IDVBSLocator2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IDVBSLocator2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IDVBSLocator2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -603,9 +603,9 @@ DECLARE_INTERFACE_(IDVBTLocator,IDigitalLocator)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVBTLocator_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVBTLocator_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVBTLocator_Release(This) (This)->pVtbl->Release(This)
+#define IDVBTLocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVBTLocator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVBTLocator_Release(This) (This)->lpVtbl->Release(This)
 #define IDVBTLocator_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IDVBTLocator_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IDVBTLocator_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -705,9 +705,9 @@ DECLARE_INTERFACE_(IDVBTLocator2,IDVBTLocator)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVBTLocator2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVBTLocator2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVBTLocator2_Release(This) (This)->pVtbl->Release(This)
+#define IDVBTLocator2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVBTLocator2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVBTLocator2_Release(This) (This)->lpVtbl->Release(This)
 #define IDVBTLocator2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IDVBTLocator2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IDVBTLocator2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -780,9 +780,9 @@ DECLARE_INTERFACE_(IComponents,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IComponents_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IComponents_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IComponents_Release(This) (This)->pVtbl->Release(This)
+#define IComponents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IComponents_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IComponents_Release(This) (This)->lpVtbl->Release(This)
 #define IComponents_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IComponents_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IComponents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -821,9 +821,9 @@ DECLARE_INTERFACE_(IEnumComponents,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IEnumComponents_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumComponents_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IEnumComponents_Release(This) (This)->pVtbl->Release(This)
+#define IEnumComponents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumComponents_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumComponents_Release(This) (This)->lpVtbl->Release(This)
 #define IEnumComponents_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
 #define IEnumComponents_Next(This,celt,pprgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,pprgelt,pceltFetched)
 #define IEnumComponents_Reset() (This)->lpVtbl->Reset(This)
@@ -866,9 +866,9 @@ DECLARE_INTERFACE_(IComponent,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IComponent_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IComponent_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IComponent_Release(This) (This)->pVtbl->Release(This)
+#define IComponent_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IComponent_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IComponent_Release(This) (This)->lpVtbl->Release(This)
 #define IComponent_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IComponent_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IComponent_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -928,9 +928,9 @@ DECLARE_INTERFACE_(IMPEG2Component,IComponent)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMPEG2Component_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMPEG2Component_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMPEG2Component_Release(This) (This)->pVtbl->Release(This)
+#define IMPEG2Component_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMPEG2Component_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMPEG2Component_Release(This) (This)->lpVtbl->Release(This)
 #define IMPEG2Component_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IMPEG2Component_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IMPEG2Component_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -998,9 +998,9 @@ DECLARE_INTERFACE_(ITuningSpace,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ITuningSpace_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ITuningSpace_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ITuningSpace_Release(This) (This)->pVtbl->Release(This)
+#define ITuningSpace_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITuningSpace_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITuningSpace_Release(This) (This)->lpVtbl->Release(This)
 #define ITuningSpace_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define ITuningSpace_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define ITuningSpace_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1060,9 +1060,9 @@ DECLARE_INTERFACE_(IComponentTypes,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IComponentTypes_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IComponentTypes_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IComponentTypes_Release(This) (This)->pVtbl->Release(This)
+#define IComponentTypes_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IComponentTypes_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IComponentTypes_Release(This) (This)->lpVtbl->Release(This)
 #define IComponentTypes_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IComponentTypes_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IComponentTypes_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1121,9 +1121,9 @@ DECLARE_INTERFACE_(IComponentType,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IComponentType_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IComponentType_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IComponentType_Release(This) (This)->pVtbl->Release(This)
+#define IComponentType_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IComponentType_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IComponentType_Release(This) (This)->lpVtbl->Release(This)
 #define IComponentType_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IComponentType_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IComponentType_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1172,9 +1172,9 @@ DECLARE_INTERFACE_(IEnumComponentTypes,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IEnumComponentTypes_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumComponentTypes_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IEnumComponentTypes_Release(This) (This)->pVtbl->Release(This)
+#define IEnumComponentTypes_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumComponentTypes_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumComponentTypes_Release(This) (This)->lpVtbl->Release(This)
 #define IEnumComponentTypes_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
 #define IEnumComponentTypes_Next(This,celt,pprgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,pprgelt,pceltFetched)
 #define IEnumComponentTypes_Reset() (This)->lpVtbl->Reset(This)

@@ -1,3 +1,19 @@
+2012-04-23  Stefan Sundin  <recover89@gmail.com>
+
+	* Fix incorrect references for pVtbl to lpVtbl in these files:
+	audioengineendpoint.h, bdaiface.h, dvbsiparser.h, dwrite.h, dxvahd.h,
+	evr.h, fsrm.h, fsrmquota.h, fsrmreports.h, fsrmscreen.h,
+	functiondiscoveryapi.h, functiondiscoverynotification.h,
+	identitystore.h, locationapi.h, mfapi.h, mfidl.h, mfobjects.h,
+	mfplay.h, mfreadwrite.h, mftransform.h, mpeg2data.h, mpeg2psiparser.h,
+	msrdc.h, ndhelper.h, opmapi.h, portabledeviceconnectapi.h,
+	rdpencomapi.h, strmif.h, strmif.idl, tuner.h, vsadmin.h, vsbackup.h,
+	vsmgmt.h, vsprov.h, vss.h, vswriter.h, winsync.h, wmcontainer.h,
+	wsdattachment.h, wsdbase.h, wsdclient.h, wsddisco.h, wsdhost.h,
+	wsdxml.h.
+	* adhoc.h (IDot11AdHocInterfaceNotificationSink): Fix
+	OnConnectionStatusChange.
+
 2012-04-23  Kai Tietz  <ktietz@redhat.com>
 
 	PR/3520095

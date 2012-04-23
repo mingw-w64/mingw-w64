@@ -33,9 +33,9 @@ DECLARE_INTERFACE_(IVssAdmin,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssAdmin_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssAdmin_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssAdmin_Release(This) (This)->pVtbl->Release(This)
+#define IVssAdmin_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssAdmin_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssAdmin_Release(This) (This)->lpVtbl->Release(This)
 #define IVssAdmin_RegisterProvider(This,pProviderId,ClassId,pwszProviderName,eProviderType,pwszProviderVersion,ProviderVersionId) (This)->lpVtbl->RegisterProvider(This,pProviderId,ClassId,pwszProviderName,eProviderType,pwszProviderVersion,ProviderVersionId)
 #define IVssAdmin_UnregisterProvider(This,ProviderId) (This)->lpVtbl->UnregisterProvider(This,ProviderId)
 #define IVssAdmin_QueryProviders(This,ppEnum) (This)->lpVtbl->QueryProviders(This,ppEnum)

@@ -35,9 +35,9 @@ DECLARE_INTERFACE_(IVssHardwareSnapshotProvider,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssHardwareSnapshotProvider_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssHardwareSnapshotProvider_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssHardwareSnapshotProvider_Release(This) (This)->pVtbl->Release(This)
+#define IVssHardwareSnapshotProvider_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssHardwareSnapshotProvider_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssHardwareSnapshotProvider_Release(This) (This)->lpVtbl->Release(This)
 #define IVssHardwareSnapshotProvider_AreLunsSupported(This,lLunCount,lContext,rgwszDevices,pLunInformation,pbIsSupported) (This)->lpVtbl->AreLunsSupported(This,lLunCount,lContext,rgwszDevices,pLunInformation,pbIsSupported)
 #define IVssHardwareSnapshotProvider_FillInLunInfo(This,wszDeviceName,pLunInfo,pbIsSupported) (This)->lpVtbl->FillInLunInfo(This,wszDeviceName,pLunInfo,pbIsSupported)
 #define IVssHardwareSnapshotProvider_BeginPrepareSnapshot(This,SnapshotSetId,SnapshotId,lContext,lLunCount,rgDeviceNames,rgLunInformation) (This)->lpVtbl->BeginPrepareSnapshot(This,SnapshotSetId,SnapshotId,lContext,lLunCount,rgDeviceNames,rgLunInformation)
@@ -79,9 +79,9 @@ DECLARE_INTERFACE_(IVssHardwareSnapshotProviderEx,IVssHardwareSnapshotProvider)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssHardwareSnapshotProviderEx_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssHardwareSnapshotProviderEx_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssHardwareSnapshotProviderEx_Release(This) (This)->pVtbl->Release(This)
+#define IVssHardwareSnapshotProviderEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssHardwareSnapshotProviderEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssHardwareSnapshotProviderEx_Release(This) (This)->lpVtbl->Release(This)
 #define IVssHardwareSnapshotProviderEx_AreLunsSupported(This,lLunCount,lContext,rgwszDevices,pLunInformation,pbIsSupported) (This)->lpVtbl->AreLunsSupported(This,lLunCount,lContext,rgwszDevices,pLunInformation,pbIsSupported)
 #define IVssHardwareSnapshotProviderEx_FillInLunInfo(This,wszDeviceName,pLunInfo,pbIsSupported) (This)->lpVtbl->FillInLunInfo(This,wszDeviceName,pLunInfo,pbIsSupported)
 #define IVssHardwareSnapshotProviderEx_BeginPrepareSnapshot(This,SnapshotSetId,SnapshotId,lContext,lLunCount,rgDeviceNames,rgLunInformation) (This)->lpVtbl->BeginPrepareSnapshot(This,SnapshotSetId,SnapshotId,lContext,lLunCount,rgDeviceNames,rgLunInformation)
@@ -122,9 +122,9 @@ DECLARE_INTERFACE_(IVssProviderCreateSnapshotSet,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssProviderCreateSnapshotSet_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssProviderCreateSnapshotSet_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssProviderCreateSnapshotSet_Release(This) (This)->pVtbl->Release(This)
+#define IVssProviderCreateSnapshotSet_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssProviderCreateSnapshotSet_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssProviderCreateSnapshotSet_Release(This) (This)->lpVtbl->Release(This)
 #define IVssProviderCreateSnapshotSet_EndPrepareSnapshots(This,SnapshotSetId) (This)->lpVtbl->EndPrepareSnapshots(This,SnapshotSetId)
 #define IVssProviderCreateSnapshotSet_PreCommitSnapshots(This,SnapshotSetId) (This)->lpVtbl->PreCommitSnapshots(This,SnapshotSetId)
 #define IVssProviderCreateSnapshotSet_CommitSnapshots(This,SnapshotSetId) (This)->lpVtbl->CommitSnapshots(This,SnapshotSetId)
@@ -152,9 +152,9 @@ DECLARE_INTERFACE_(IVssProviderNotifications,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssProviderNotifications_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssProviderNotifications_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssProviderNotifications_Release(This) (This)->pVtbl->Release(This)
+#define IVssProviderNotifications_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssProviderNotifications_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssProviderNotifications_Release(This) (This)->lpVtbl->Release(This)
 #define IVssProviderNotifications_OnLoad(This,pCallback) (This)->lpVtbl->OnLoad(This,pCallback)
 #define IVssProviderNotifications_OnUnload(This,bForceUnload) (This)->lpVtbl->OnUnload(This,bForceUnload)
 #endif /*COBJMACROS*/
@@ -190,9 +190,9 @@ DECLARE_INTERFACE_(IVssSoftwareSnapshotProvider,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssSoftwareSnapshotProvider_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssSoftwareSnapshotProvider_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssSoftwareSnapshotProvider_Release(This) (This)->pVtbl->Release(This)
+#define IVssSoftwareSnapshotProvider_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssSoftwareSnapshotProvider_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssSoftwareSnapshotProvider_Release(This) (This)->lpVtbl->Release(This)
 #define IVssSoftwareSnapshotProvider_SetContext(This,lContext) (This)->lpVtbl->SetContext(This,lContext)
 #define IVssSoftwareSnapshotProvider_GetSnapshotProperties(This,SnapshotId,pProp) (This)->lpVtbl->GetSnapshotProperties(This,SnapshotId,pProp)
 #define IVssSoftwareSnapshotProvider_Query(This,QueriedObjectId,eQueriedObjectType,eReturnedObjectsType,ppEnum) (This)->lpVtbl->Query(This,QueriedObjectId,eQueriedObjectType,eReturnedObjectsType,ppEnum)

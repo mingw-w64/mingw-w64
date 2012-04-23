@@ -234,9 +234,9 @@ DECLARE_INTERFACE_(IOPMVideoOutput,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IOPMVideoOutput_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IOPMVideoOutput_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IOPMVideoOutput_Release(This) (This)->pVtbl->Release(This)
+#define IOPMVideoOutput_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IOPMVideoOutput_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IOPMVideoOutput_Release(This) (This)->lpVtbl->Release(This)
 #define IOPMVideoOutput_Configure(This,pParameters,ulAdditionalParametersSize,pbAdditionalParameters) (This)->lpVtbl->Configure(This,pParameters,ulAdditionalParametersSize,pbAdditionalParameters)
 #define IOPMVideoOutput_COPPCompatibleGetInformation(This,pParameters,pRequestedInformation) (This)->lpVtbl->COPPCompatibleGetInformation(This,pParameters,pRequestedInformation)
 #define IOPMVideoOutput_FinishInitialization(This,pParameters) (This)->lpVtbl->FinishInitialization(This,pParameters)

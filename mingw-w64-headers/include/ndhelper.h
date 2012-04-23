@@ -56,9 +56,9 @@ DECLARE_INTERFACE_(INetDiagHelperInfo,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define INetDiagHelperInfo_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define INetDiagHelperInfo_AddRef(This) (This)->pVtbl->AddRef(This)
-#define INetDiagHelperInfo_Release(This) (This)->pVtbl->Release(This)
+#define INetDiagHelperInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define INetDiagHelperInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define INetDiagHelperInfo_Release(This) (This)->lpVtbl->Release(This)
 #define INetDiagHelperInfo_GetAttributeInfo(This,pcelt,pprgAttributeInfos) (This)->lpVtbl->GetAttributeInfo(This,pcelt,pprgAttributeInfos)
 #endif /*COBJMACROS*/
 
@@ -96,9 +96,9 @@ DECLARE_INTERFACE_(INetDiagHelper,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define INetDiagHelper_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define INetDiagHelper_AddRef(This) (This)->pVtbl->AddRef(This)
-#define INetDiagHelper_Release(This) (This)->pVtbl->Release(This)
+#define INetDiagHelper_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define INetDiagHelper_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define INetDiagHelper_Release(This) (This)->lpVtbl->Release(This)
 #define INetDiagHelper_Cancel() (This)->lpVtbl->Cancel(This)
 #define INetDiagHelper_Cleanup() (This)->lpVtbl->Cleanup(This)
 #define INetDiagHelper_GetAttributes(This,pcelt,pprgAttributes) (This)->lpVtbl->GetAttributes(This,pcelt,pprgAttributes)
@@ -147,9 +147,9 @@ DECLARE_INTERFACE_(INetDiagHelperUtilFactory,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define INetDiagHelperUtilFactory_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define INetDiagHelperUtilFactory_AddRef(This) (This)->pVtbl->AddRef(This)
-#define INetDiagHelperUtilFactory_Release(This) (This)->pVtbl->Release(This)
+#define INetDiagHelperUtilFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define INetDiagHelperUtilFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define INetDiagHelperUtilFactory_Release(This) (This)->lpVtbl->Release(This)
 #define INetDiagHelperUtilFactory_CreateUtilityInstance(This,riid,ppvObject) (This)->lpVtbl->CreateUtilityInstance(This,riid,ppvObject)
 #endif /*COBJMACROS*/
 
@@ -177,9 +177,9 @@ DECLARE_INTERFACE_(INetDiagHelperEx,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define INetDiagHelperEx_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define INetDiagHelperEx_AddRef(This) (This)->pVtbl->AddRef(This)
-#define INetDiagHelperEx_Release(This) (This)->pVtbl->Release(This)
+#define INetDiagHelperEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define INetDiagHelperEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define INetDiagHelperEx_Release(This) (This)->lpVtbl->Release(This)
 #define INetDiagHelperEx_ReconfirmLowHealth(This,celt,pResults,ppwszUpdatedDescription,pUpdatedStatus) (This)->lpVtbl->ReconfirmLowHealth(This,celt,pResults,ppwszUpdatedDescription,pUpdatedStatus)
 #define INetDiagHelperEx_ReproduceFailure() (This)->lpVtbl->ReproduceFailure(This)
 #define INetDiagHelperEx_SetUtilities(This,pUtilities) (This)->lpVtbl->SetUtilities(This,pUtilities)

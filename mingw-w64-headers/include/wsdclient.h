@@ -36,9 +36,9 @@ DECLARE_INTERFACE_(IWSDEventingStatus,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDEventingStatus_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDEventingStatus_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDEventingStatus_Release(This) (This)->pVtbl->Release(This)
+#define IWSDEventingStatus_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDEventingStatus_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDEventingStatus_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDEventingStatus_SubscriptionRenewed(This,pszSubscriptionAction) (This)->lpVtbl->SubscriptionRenewed(This,pszSubscriptionAction)
 #define IWSDEventingStatus_SubscriptionRenewalFailed(This,pszSubscriptionAction,hr) (This)->lpVtbl->SubscriptionRenewalFailed(This,pszSubscriptionAction,hr)
 #define IWSDEventingStatus_SubscriptionEnded(This,pszSubscriptionAction) (This)->lpVtbl->SubscriptionEnded(This,pszSubscriptionAction)
@@ -66,9 +66,9 @@ DECLARE_INTERFACE_(IWSDAsyncCallback,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDAsyncCallback_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDAsyncCallback_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDAsyncCallback_Release(This) (This)->pVtbl->Release(This)
+#define IWSDAsyncCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDAsyncCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDAsyncCallback_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDAsyncCallback_AsyncOperationComplete(This,pAsyncResult,pAsyncState) (This)->lpVtbl->AsyncOperationComplete(This,pAsyncResult,pAsyncState)
 #endif /*COBJMACROS*/
 
@@ -100,9 +100,9 @@ DECLARE_INTERFACE_(IWSDAsyncResult,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDAsyncResult_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDAsyncResult_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDAsyncResult_Release(This) (This)->pVtbl->Release(This)
+#define IWSDAsyncResult_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDAsyncResult_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDAsyncResult_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDAsyncResult_SetCallback(This,pCallback,pAsyncState) (This)->lpVtbl->SetCallback(This,pCallback,pAsyncState)
 #define IWSDAsyncResult_SetWaitHandle(This,hWaitHandle) (This)->lpVtbl->SetWaitHandle(This,hWaitHandle)
 #define IWSDAsyncResult_HasCompleted() (This)->lpVtbl->HasCompleted(This)
@@ -143,9 +143,9 @@ DECLARE_INTERFACE_(IWSDDeviceProxy,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDDeviceProxy_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDDeviceProxy_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDDeviceProxy_Release(This) (This)->pVtbl->Release(This)
+#define IWSDDeviceProxy_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDDeviceProxy_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDDeviceProxy_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDDeviceProxy_Init(This,pszDeviceId,pDeviceAddress,pszLocalId,pSponsor) (This)->lpVtbl->Init(This,pszDeviceId,pDeviceAddress,pszLocalId,pSponsor)
 #define IWSDDeviceProxy_BeginGetMetadata(This,ppResult) (This)->lpVtbl->BeginGetMetadata(This,ppResult)
 #define IWSDDeviceProxy_EndGetMetadata(This,pResult) (This)->lpVtbl->EndGetMetadata(This,pResult)
@@ -180,9 +180,9 @@ DECLARE_INTERFACE_(IWSDMetadataExchange,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDMetadataExchange_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDMetadataExchange_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDMetadataExchange_Release(This) (This)->pVtbl->Release(This)
+#define IWSDMetadataExchange_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDMetadataExchange_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDMetadataExchange_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDMetadataExchange_GetMetadata(This,MetadataOut) (This)->lpVtbl->GetMetadata(This,MetadataOut)
 #endif /*COBJMACROS*/
 
@@ -217,9 +217,9 @@ DECLARE_INTERFACE_(IWSDServiceProxy,IWSDMetadataExchange)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDServiceProxy_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDServiceProxy_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDServiceProxy_Release(This) (This)->pVtbl->Release(This)
+#define IWSDServiceProxy_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDServiceProxy_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDServiceProxy_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDServiceProxy_BeginGetMetadata(This,ppResult) (This)->lpVtbl->BeginGetMetadata(This,ppResult)
 #define IWSDServiceProxy_EndGetMetadata(This,pResult,ppMetadata) (This)->lpVtbl->EndGetMetadata(This,pResult,ppMetadata)
 #define IWSDServiceProxy_GetServiceMetadata(This,ppServiceMetadata) (This)->lpVtbl->GetServiceMetadata(This,ppServiceMetadata)
@@ -257,9 +257,9 @@ DECLARE_INTERFACE_(IWSDEndpointProxy,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDEndpointProxy_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDEndpointProxy_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDEndpointProxy_Release(This) (This)->pVtbl->Release(This)
+#define IWSDEndpointProxy_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDEndpointProxy_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDEndpointProxy_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDEndpointProxy_SendOneWayRequest(This,pBody,pOperation) (This)->lpVtbl->SendOneWayRequest(This,pBody,pOperation)
 #define IWSDEndpointProxy_SendTwoWayRequest(This,pBody,pOperation,pResponseContext) (This)->lpVtbl->SendTwoWayRequest(This,pBody,pOperation,pResponseContext)
 #define IWSDEndpointProxy_SendTwoWayRequestAsync(This,pBody,pOperation,pAsyncState,pCallback,pResult) (This)->lpVtbl->SendTwoWayRequestAsync(This,pBody,pOperation,pAsyncState,pCallback,pResult)

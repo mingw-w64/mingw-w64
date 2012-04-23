@@ -63,10 +63,10 @@ DECLARE_INTERFACE_(IDot11AdHocInterfaceNotificationSink,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDot11AdHocInterfaceNotificationSink_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDot11AdHocInterfaceNotificationSink_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDot11AdHocInterfaceNotificationSink_Release(This) (This)->pVtbl->Release(This)
-#define IDot11AdHocInterf
+#define IDot11AdHocInterfaceNotificationSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDot11AdHocInterfaceNotificationSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDot11AdHocInterfaceNotificationSink_Release(This) (This)->lpVtbl->Release(This)
+#define IDot11AdHocInterfaceNotificationSink_OnConnectionStatusChange(This,eStatus) (This)->lpVtbl->OnConnectionStatusChange(This,eStatus)
 #endif /*COBJMACROS*/
 
 #undef  INTERFACE
@@ -99,9 +99,9 @@ DECLARE_INTERFACE_(IDot11AdHocInterface,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDot11AdHocInterface_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDot11AdHocInterface_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDot11AdHocInterface_Release(This) (This)->pVtbl->Release(This)
+#define IDot11AdHocInterface_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDot11AdHocInterface_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDot11AdHocInterface_Release(This) (This)->lpVtbl->Release(This)
 #define IDot11AdHocInterface_GetDeviceSignature(This,pSignature) (This)->lpVtbl->GetDeviceSignature(This,pSignature)
 #define IDot11AdHocInterface_GetFriendlyName(This,ppszName) (This)->lpVtbl->GetFriendlyName(This,ppszName)
 #define IDot11AdHocInterface_IsDot11d(This,pf11d) (This)->lpVtbl->IsDot11d(This,pf11d)
@@ -139,9 +139,9 @@ DECLARE_INTERFACE_(IDot11AdHocManager,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDot11AdHocManager_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDot11AdHocManager_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDot11AdHocManager_Release(This) (This)->pVtbl->Release(This)
+#define IDot11AdHocManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDot11AdHocManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDot11AdHocManager_Release(This) (This)->lpVtbl->Release(This)
 #define IDot11AdHocManager_CreateNetwork(This,Name,Password,GeographicalId,pInterface,pSecurity,pContextGuid,pIAdHoc) (This)->lpVtbl->CreateNetwork(This,Name,Password,GeographicalId,pInterface,pSecurity,pContextGuid,pIAdHoc)
 #define IDot11AdHocManager_CommitCreatedNetwork(This,pIAdHoc,fSaveProfile,fMakeSavedProfileUserSpecific) (This)->lpVtbl->CommitCreatedNetwork(This,pIAdHoc,fSaveProfile,fMakeSavedProfileUserSpecific)
 #define IDot11AdHocManager_GetIEnumDot11AdHocNetworks(This,pContextGuid,ppEnum) (This)->lpVtbl->GetIEnumDot11AdHocNetworks(This,pContextGuid,ppEnum)
@@ -174,9 +174,9 @@ DECLARE_INTERFACE_(IDot11AdHocManagerNotificationSink,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDot11AdHocManagerNotificationSink_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDot11AdHocManagerNotificationSink_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDot11AdHocManagerNotificationSink_Release(This) (This)->pVtbl->Release(This)
+#define IDot11AdHocManagerNotificationSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDot11AdHocManagerNotificationSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDot11AdHocManagerNotificationSink_Release(This) (This)->lpVtbl->Release(This)
 #define IDot11AdHocManagerNotificationSink_OnNetworkAdd(This,pIAdHocNetwork) (This)->lpVtbl->OnNetworkAdd(This,pIAdHocNetwork)
 #define IDot11AdHocManagerNotificationSink_OnNetworkRemove(This,Signature) (This)->lpVtbl->OnNetworkRemove(This,Signature)
 #define IDot11AdHocManagerNotificationSink_OnInterfaceAdd(This,pIAdHocInterface) (This)->lpVtbl->OnInterfaceAdd(This,pIAdHocInterface)
@@ -216,9 +216,9 @@ DECLARE_INTERFACE_(IDot11AdHocNetwork,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDot11AdHocNetwork_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDot11AdHocNetwork_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDot11AdHocNetwork_Release(This) (This)->pVtbl->Release(This)
+#define IDot11AdHocNetwork_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDot11AdHocNetwork_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDot11AdHocNetwork_Release(This) (This)->lpVtbl->Release(This)
 #define IDot11AdHocNetwork_GetStatus(This,eStatus) (This)->lpVtbl->GetStatus(This,eStatus)
 #define IDot11AdHocNetwork_GetSSID(This,ppszwSSID) (This)->lpVtbl->GetSSID(This,ppszwSSID)
 #define IDot11AdHocNetwork_HasProfile(This,pf11d) (This)->lpVtbl->HasProfile(This,pf11d)
@@ -256,9 +256,9 @@ DECLARE_INTERFACE_(IDot11AdHocNetworkNotificationSink,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDot11AdHocNetworkNotificationSink_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDot11AdHocNetworkNotificationSink_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDot11AdHocNetworkNotificationSink_Release(This) (This)->pVtbl->Release(This)
+#define IDot11AdHocNetworkNotificationSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDot11AdHocNetworkNotificationSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDot11AdHocNetworkNotificationSink_Release(This) (This)->lpVtbl->Release(This)
 #define IDot11AdHocNetworkNotificationSink_OnStatusChange(This,eStatus) (This)->lpVtbl->OnStatusChange(This,eStatus)
 #define IDot11AdHocNetworkNotificationSink_OnConnectFail(This,eFailReason) (This)->lpVtbl->OnConnectFail(This,eFailReason)
 #endif /*COBJMACROS*/
@@ -286,9 +286,9 @@ DECLARE_INTERFACE_(IDot11AdHocSecuritySettings,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDot11AdHocSecuritySettings_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDot11AdHocSecuritySettings_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDot11AdHocSecuritySettings_Release(This) (This)->pVtbl->Release(This)
+#define IDot11AdHocSecuritySettings_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDot11AdHocSecuritySettings_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDot11AdHocSecuritySettings_Release(This) (This)->lpVtbl->Release(This)
 #define IDot11AdHocSecuritySettings_GetDot11AuthAlgorithm(This,pAuth) (This)->lpVtbl->GetDot11AuthAlgorithm(This,pAuth)
 #define IDot11AdHocSecuritySettings_GetDot11CipherAlgorithm(This,pCipher) (This)->lpVtbl->GetDot11CipherAlgorithm(This,pCipher)
 #endif /*COBJMACROS*/
@@ -318,9 +318,9 @@ DECLARE_INTERFACE_(IEnumDot11AdHocInterfaces,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IEnumDot11AdHocInterfaces_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumDot11AdHocInterfaces_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IEnumDot11AdHocInterfaces_Release(This) (This)->pVtbl->Release(This)
+#define IEnumDot11AdHocInterfaces_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumDot11AdHocInterfaces_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumDot11AdHocInterfaces_Release(This) (This)->lpVtbl->Release(This)
 #define IEnumDot11AdHocInterfaces_Next(This,cElt,rgElt,pcEltFetched) (This)->lpVtbl->Next(This,cElt,rgElt,pcEltFetched)
 #define IEnumDot11AdHocInterfaces_Skip(This,cElt) (This)->lpVtbl->Skip(This,cElt)
 #define IEnumDot11AdHocInterfaces_Reset() (This)->lpVtbl->Reset(This)
@@ -352,9 +352,9 @@ DECLARE_INTERFACE_(IEnumDot11AdHocNetworks,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IEnumDot11AdHocNetworks_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumDot11AdHocNetworks_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IEnumDot11AdHocNetworks_Release(This) (This)->pVtbl->Release(This)
+#define IEnumDot11AdHocNetworks_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumDot11AdHocNetworks_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumDot11AdHocNetworks_Release(This) (This)->lpVtbl->Release(This)
 #define IEnumDot11AdHocNetworks_Next(This,cElt,rgElt,pcEltFetched) (This)->lpVtbl->Next(This,cElt,rgElt,pcEltFetched)
 #define IEnumDot11AdHocNetworks_Skip(This,cElt) (This)->lpVtbl->Skip(This,cElt)
 #define IEnumDot11AdHocNetworks_Reset() (This)->lpVtbl->Reset(This)
@@ -386,9 +386,9 @@ DECLARE_INTERFACE_(IEnumDot11AdHocSecuritySettings,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IEnumDot11AdHocSecuritySettings_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumDot11AdHocSecuritySettings_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IEnumDot11AdHocSecuritySettings_Release(This) (This)->pVtbl->Release(This)
+#define IEnumDot11AdHocSecuritySettings_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumDot11AdHocSecuritySettings_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumDot11AdHocSecuritySettings_Release(This) (This)->lpVtbl->Release(This)
 #define IEnumDot11AdHocSecuritySettings_Next(This,cElt,rgElt,pcEltFetched) (This)->lpVtbl->Next(This,cElt,rgElt,pcEltFetched)
 #define IEnumDot11AdHocSecuritySettings_Skip(This,cElt) (This)->lpVtbl->Skip(This,cElt)
 #define IEnumDot11AdHocSecuritySettings_Reset() (This)->lpVtbl->Reset(This)

@@ -200,9 +200,9 @@ DECLARE_INTERFACE_(IAsynchronousDataRetriever,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAsynchronousDataRetriever_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAsynchronousDataRetriever_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAsynchronousDataRetriever_Release(This) (This)->pVtbl->Release(This)
+#define IAsynchronousDataRetriever_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAsynchronousDataRetriever_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAsynchronousDataRetriever_Release(This) (This)->lpVtbl->Release(This)
 #define IAsynchronousDataRetriever_GetIdParameters(This,pIdParameters) (This)->lpVtbl->GetIdParameters(This,pIdParameters)
 #define IAsynchronousDataRetriever_LoadChangeData(This,pLoadChangeContext) (This)->lpVtbl->LoadChangeData(This,pLoadChangeContext)
 #define IAsynchronousDataRetriever_RegisterCallback(This,pDataRetrieverCallback) (This)->lpVtbl->RegisterCallback(This,pDataRetrieverCallback)
@@ -232,9 +232,9 @@ DECLARE_INTERFACE_(IDataRetrieverCallback,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDataRetrieverCallback_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDataRetrieverCallback_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDataRetrieverCallback_Release(This) (This)->pVtbl->Release(This)
+#define IDataRetrieverCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDataRetrieverCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDataRetrieverCallback_Release(This) (This)->lpVtbl->Release(This)
 #define IDataRetrieverCallback_LoadChangeDataComplete(This,pUnkData) (This)->lpVtbl->LoadChangeDataComplete(This,pUnkData)
 #define IDataRetrieverCallback_LoadChangeDataError(This,hrError) (This)->lpVtbl->LoadChangeDataError(This,hrError)
 #endif /*COBJMACROS*/
@@ -268,9 +268,9 @@ DECLARE_INTERFACE_(IChangeConflict,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IChangeConflict_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IChangeConflict_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IChangeConflict_Release(This) (This)->pVtbl->Release(This)
+#define IChangeConflict_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IChangeConflict_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IChangeConflict_Release(This) (This)->lpVtbl->Release(This)
 #define IChangeConflict_GetDestinationProviderConflictingChange(This,ppConflictingChange) (This)->lpVtbl->GetDestinationProviderConflictingChange(This,ppConflictingChange)
 #define IChangeConflict_GetDestinationProviderConflictingData(This,ppConflictingData) (This)->lpVtbl->GetDestinationProviderConflictingData(This,ppConflictingData)
 #define IChangeConflict_GetResolveActionForChange(This,pResolveAction) (This)->lpVtbl->GetResolveActionForChange(This,pResolveAction)
@@ -305,9 +305,9 @@ DECLARE_INTERFACE_(IChangeUnitException,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IChangeUnitException_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IChangeUnitException_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IChangeUnitException_Release(This) (This)->pVtbl->Release(This)
+#define IChangeUnitException_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IChangeUnitException_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IChangeUnitException_Release(This) (This)->lpVtbl->Release(This)
 #define IChangeUnitException_GetChangeUnitId(This,pcbIdSize) (This)->lpVtbl->GetChangeUnitId(This,pcbIdSize)
 #define IChangeUnitException_GetClockVector(This,riid,ppUnk) (This)->lpVtbl->GetClockVector(This,riid,ppUnk)
 #define IChangeUnitException_GetItemId(This,pcbIdSize) (This)->lpVtbl->GetItemId(This,pcbIdSize)
@@ -330,9 +330,9 @@ DECLARE_INTERFACE_(ISyncFilterInfo,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ISyncFilterInfo_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ISyncFilterInfo_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ISyncFilterInfo_Release(This) (This)->pVtbl->Release(This)
+#define ISyncFilterInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISyncFilterInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISyncFilterInfo_Release(This) (This)->lpVtbl->Release(This)
 #define ISyncFilterInfo_Serialize(This,pcbBuffer) (This)->lpVtbl->Serialize(This,pcbBuffer)
 #endif /*COBJMACROS*/
 
@@ -363,9 +363,9 @@ DECLARE_INTERFACE_(IChangeUnitListFilterInfo,ISyncFilterInfo)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IChangeUnitListFilterInfo_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IChangeUnitListFilterInfo_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IChangeUnitListFilterInfo_Release(This) (This)->pVtbl->Release(This)
+#define IChangeUnitListFilterInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IChangeUnitListFilterInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IChangeUnitListFilterInfo_Release(This) (This)->lpVtbl->Release(This)
 #define IChangeUnitListFilterInfo_Serialize(This,pcbBuffer) (This)->lpVtbl->Serialize(This,pcbBuffer)
 #define IChangeUnitListFilterInfo_GetChangeUnitId(This,dwChangeUnitIdIndex,pcbIdSize) (This)->lpVtbl->GetChangeUnitId(This,dwChangeUnitIdIndex,pcbIdSize)
 #define IChangeUnitListFilterInfo_GetChangeUnitIdCount(This,pdwChangeUnitIdCount) (This)->lpVtbl->GetChangeUnitIdCount(This,pdwChangeUnitIdCount)
@@ -395,9 +395,9 @@ DECLARE_INTERFACE_(IClockVector,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IClockVector_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IClockVector_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IClockVector_Release(This) (This)->pVtbl->Release(This)
+#define IClockVector_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IClockVector_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IClockVector_Release(This) (This)->lpVtbl->Release(This)
 #define IClockVector_GetClockVectorElementCount(This,pdwCount) (This)->lpVtbl->GetClockVectorElementCount(This,pdwCount)
 #define IClockVector_GetClockVectorElements(This,riid,ppiEnumClockVector) (This)->lpVtbl->GetClockVectorElements(This,riid,ppiEnumClockVector)
 #endif /*COBJMACROS*/
@@ -425,9 +425,9 @@ DECLARE_INTERFACE_(IClockVectorElement,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IClockVectorElement_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IClockVectorElement_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IClockVectorElement_Release(This) (This)->pVtbl->Release(This)
+#define IClockVectorElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IClockVectorElement_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IClockVectorElement_Release(This) (This)->lpVtbl->Release(This)
 #define IClockVectorElement_GetReplicaKey(This,pdwReplicaKey) (This)->lpVtbl->GetReplicaKey(This,pdwReplicaKey)
 #define IClockVectorElement_GetTickCount(This,pullTickCount) (This)->lpVtbl->GetTickCount(This,pullTickCount)
 #endif /*COBJMACROS*/
@@ -449,9 +449,9 @@ DECLARE_INTERFACE_(IConstructReplicaKeyMap,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IConstructReplicaKeyMap_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IConstructReplicaKeyMap_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IConstructReplicaKeyMap_Release(This) (This)->pVtbl->Release(This)
+#define IConstructReplicaKeyMap_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IConstructReplicaKeyMap_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IConstructReplicaKeyMap_Release(This) (This)->lpVtbl->Release(This)
 #define IConstructReplicaKeyMap_FindOrAddReplica(This,pbReplicaId,pdwReplicaKey) (This)->lpVtbl->FindOrAddReplica(This,pbReplicaId,pdwReplicaKey)
 #endif /*COBJMACROS*/
 
@@ -481,9 +481,9 @@ DECLARE_INTERFACE_(ICoreFragment,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ICoreFragment_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ICoreFragment_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ICoreFragment_Release(This) (This)->pVtbl->Release(This)
+#define ICoreFragment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ICoreFragment_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ICoreFragment_Release(This) (This)->lpVtbl->Release(This)
 #define ICoreFragment_GetColumnCount(This,pColumnCount) (This)->lpVtbl->GetColumnCount(This,pColumnCount)
 #define ICoreFragment_GetRangeCount(This,pRangeCount) (This)->lpVtbl->GetRangeCount(This,pRangeCount)
 #define ICoreFragment_NextColumn(This,pChangeUnitIdSize) (This)->lpVtbl->NextColumn(This,pChangeUnitIdSize)
@@ -515,9 +515,9 @@ DECLARE_INTERFACE_(ILoadChangeContext,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ILoadChangeContext_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ILoadChangeContext_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ILoadChangeContext_Release(This) (This)->pVtbl->Release(This)
+#define ILoadChangeContext_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ILoadChangeContext_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ILoadChangeContext_Release(This) (This)->lpVtbl->Release(This)
 #define ILoadChangeContext_GetSyncChange(This,ppSyncChange) (This)->lpVtbl->GetSyncChange(This,ppSyncChange)
 #define ILoadChangeContext_SetRecoverableErrorOnChange(This,hrError,pErrorData) (This)->lpVtbl->SetRecoverableErrorOnChange(This,hrError,pErrorData)
 #define ILoadChangeContext_SetRecoverableErrorOnChangeUnit(This,hrError,pChangeUnit,pErrorData) (This)->lpVtbl->SetRecoverableErrorOnChangeUnit(This,hrError,pChangeUnit,pErrorData)
@@ -554,9 +554,9 @@ DECLARE_INTERFACE_(ISyncChange,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ISyncChange_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ISyncChange_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ISyncChange_Release(This) (This)->pVtbl->Release(This)
+#define ISyncChange_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISyncChange_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISyncChange_Release(This) (This)->lpVtbl->Release(This)
 #define ISyncChange_GetChangeUnits(This,ppEnum) (This)->lpVtbl->GetChangeUnits(This,ppEnum)
 #define ISyncChange_GetChangeVersion(This,pbCurrentReplicaId,pVersion) (This)->lpVtbl->GetChangeVersion(This,pbCurrentReplicaId,pVersion)
 #define ISyncChange_GetCreationVersion(This,pbCurrentReplicaId,pVersion) (This)->lpVtbl->GetCreationVersion(This,pbCurrentReplicaId,pVersion)
@@ -593,9 +593,9 @@ DECLARE_INTERFACE_(ISyncChangeUnit,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ISyncChangeUnit_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ISyncChangeUnit_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ISyncChangeUnit_Release(This) (This)->pVtbl->Release(This)
+#define ISyncChangeUnit_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISyncChangeUnit_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISyncChangeUnit_Release(This) (This)->lpVtbl->Release(This)
 #define ISyncChangeUnit_GetChangeUnitId(This,pcbIdSize) (This)->lpVtbl->GetChangeUnitId(This,pcbIdSize)
 #define ISyncChangeUnit_GetChangeUnitVersion(This,pbCurrentReplicaId,pVersion) (This)->lpVtbl->GetChangeUnitVersion(This,pbCurrentReplicaId,pVersion)
 #define ISyncChangeUnit_GetItemChange(This,ppSyncChange) (This)->lpVtbl->GetItemChange(This,ppSyncChange)
@@ -625,9 +625,9 @@ DECLARE_INTERFACE_(IRecoverableErrorData,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IRecoverableErrorData_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IRecoverableErrorData_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IRecoverableErrorData_Release(This) (This)->pVtbl->Release(This)
+#define IRecoverableErrorData_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IRecoverableErrorData_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IRecoverableErrorData_Release(This) (This)->lpVtbl->Release(This)
 #define IRecoverableErrorData_GetErrorDescription(This,pcchErrorDescription) (This)->lpVtbl->GetErrorDescription(This,pcchErrorDescription)
 #define IRecoverableErrorData_GetItemDisplayName(This,pcchItemDisplayName) (This)->lpVtbl->GetItemDisplayName(This,pcchItemDisplayName)
 #define IRecoverableErrorData_Initialize(This,pcszItemDisplayName,pcszErrorDescription) (This)->lpVtbl->Initialize(This,pcszItemDisplayName,pcszErrorDescription)
@@ -658,9 +658,9 @@ DECLARE_INTERFACE_(IEnumSyncChangeUnits,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IEnumSyncChangeUnits_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumSyncChangeUnits_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IEnumSyncChangeUnits_Release(This) (This)->pVtbl->Release(This)
+#define IEnumSyncChangeUnits_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumSyncChangeUnits_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumSyncChangeUnits_Release(This) (This)->lpVtbl->Release(This)
 #define IEnumSyncChangeUnits_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
 #define IEnumSyncChangeUnits_Next(This,cChanges,ppChangeUnit,pcFetched) (This)->lpVtbl->Next(This,cChanges,ppChangeUnit,pcFetched)
 #define IEnumSyncChangeUnits_Reset() (This)->lpVtbl->Reset(This)

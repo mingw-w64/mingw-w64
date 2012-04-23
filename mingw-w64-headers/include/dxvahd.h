@@ -407,9 +407,9 @@ DECLARE_INTERFACE_(IDXVAHD_Device,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDXVAHD_Device_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDXVAHD_Device_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDXVAHD_Device_Release(This) (This)->pVtbl->Release(This)
+#define IDXVAHD_Device_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXVAHD_Device_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXVAHD_Device_Release(This) (This)->lpVtbl->Release(This)
 #define IDXVAHD_Device_CreateVideoProcessor(This,pVPGuid,ppVideoProcessor) (This)->lpVtbl->CreateVideoProcessor(This,pVPGuid,ppVideoProcessor)
 #define IDXVAHD_Device_CreateVideoSurface(This,Width,Height,Format,Pool,Usage,Type,NumSurfaces,ppSurfaces,pSharedHandle) (This)->lpVtbl->CreateVideoSurface(This,Width,Height,Format,Pool,Usage,Type,NumSurfaces,ppSurfaces,pSharedHandle)
 #define IDXVAHD_Device_GetVideoProcessorCaps(This,Count,pCaps) (This)->lpVtbl->GetVideoProcessorCaps(This,Count,pCaps)
@@ -446,9 +446,9 @@ DECLARE_INTERFACE_(IDXVAHD_VideoProcessor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDXVAHD_VideoProcessor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDXVAHD_VideoProcessor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDXVAHD_VideoProcessor_Release(This) (This)->pVtbl->Release(This)
+#define IDXVAHD_VideoProcessor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXVAHD_VideoProcessor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXVAHD_VideoProcessor_Release(This) (This)->lpVtbl->Release(This)
 #define IDXVAHD_VideoProcessor_GetVideoProcessBltState(This,State,DataSize,pData) (This)->lpVtbl->GetVideoProcessBltState(This,State,DataSize,pData)
 #define IDXVAHD_VideoProcessor_GetVideoProcessStreamState(This,StreamNumber,State,DataSize,pData) (This)->lpVtbl->GetVideoProcessStreamState(This,StreamNumber,State,DataSize,pData)
 #define IDXVAHD_VideoProcessor_SetVideoProcessBltState(This,State,DataSize,pData) (This)->lpVtbl->SetVideoProcessBltState(This,State,DataSize,pData)

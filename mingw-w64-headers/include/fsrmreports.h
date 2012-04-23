@@ -312,9 +312,9 @@ DECLARE_INTERFACE_(IFsrmReport,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmReport_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmReport_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmReport_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmReport_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmReport_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmReport_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmReport_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmReport_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmReport_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -380,9 +380,9 @@ DECLARE_INTERFACE_(IFsrmReportJob,IFsrmObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmReportJob_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmReportJob_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmReportJob_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmReportJob_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmReportJob_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmReportJob_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmReportJob_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmReportJob_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmReportJob_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -448,9 +448,9 @@ DECLARE_INTERFACE_(IFsrmReportManager,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmReportManager_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmReportManager_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmReportManager_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmReportManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmReportManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmReportManager_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmReportManager_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmReportManager_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmReportManager_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -498,9 +498,9 @@ DECLARE_INTERFACE_(IFsrmReportScheduler,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmReportScheduler_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmReportScheduler_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmReportScheduler_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmReportScheduler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmReportScheduler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmReportScheduler_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmReportScheduler_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmReportScheduler_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmReportScheduler_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -535,9 +535,9 @@ DECLARE_INTERFACE_(IFsrmFileManagementJobManager,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileManagementJobManager_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileManagementJobManager_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileManagementJobManager_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileManagementJobManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileManagementJobManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileManagementJobManager_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileManagementJobManager_get_ActionVariables(This,variables) (This)->lpVtbl->get_ActionVariables(This,variables)
 #define IFsrmFileManagementJobManager_get_ActionVariableDescriptions(This,descriptions) (This)->lpVtbl->get_ActionVariableDescriptions(This,descriptions)
 #define IFsrmFileManagementJobManager_EnumFileManagementJobs(This,options,fileManagementJobs) (This)->lpVtbl->EnumFileManagementJobs(This,options,fileManagementJobs)

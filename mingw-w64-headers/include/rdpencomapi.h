@@ -102,9 +102,9 @@ DECLARE_INTERFACE_(IRDPSRAPITcpConnectionInfo,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IRDPSRAPITcpConnectionInfo_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IRDPSRAPITcpConnectionInfo_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IRDPSRAPITcpConnectionInfo_Release(This) (This)->pVtbl->Release(This)
+#define IRDPSRAPITcpConnectionInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IRDPSRAPITcpConnectionInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IRDPSRAPITcpConnectionInfo_Release(This) (This)->lpVtbl->Release(This)
 #define IRDPSRAPITcpConnectionInfo_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IRDPSRAPITcpConnectionInfo_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IRDPSRAPITcpConnectionInfo_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -151,9 +151,9 @@ DECLARE_INTERFACE_(IRDPSRAPIAttendee,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IRDPSRAPIAttendee_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IRDPSRAPIAttendee_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IRDPSRAPIAttendee_Release(This) (This)->pVtbl->Release(This)
+#define IRDPSRAPIAttendee_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IRDPSRAPIAttendee_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IRDPSRAPIAttendee_Release(This) (This)->lpVtbl->Release(This)
 #define IRDPSRAPIAttendee_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IRDPSRAPIAttendee_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IRDPSRAPIAttendee_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
