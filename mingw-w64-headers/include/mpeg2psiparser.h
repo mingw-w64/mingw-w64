@@ -71,9 +71,9 @@ DECLARE_INTERFACE_(IPAT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IPAT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IPAT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IPAT_Release(This) (This)->pVtbl->Release(This)
+#define IPAT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IPAT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IPAT_Release(This) (This)->lpVtbl->Release(This)
 #define IPAT_ConvertNextToCurrent() (This)->lpVtbl->ConvertNextToCurrent(This)
 #define IPAT_FindRecordProgramMapPid(This,wProgramNumber,pwVal) (This)->lpVtbl->FindRecordProgramMapPid(This,wProgramNumber,pwVal)
 #define IPAT_GetCountOfRecords(This,pdwVal) (This)->lpVtbl->GetCountOfRecords(This,pdwVal)
@@ -104,9 +104,9 @@ DECLARE_INTERFACE_(IPSITables,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IPSITables_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IPSITables_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IPSITables_Release(This) (This)->pVtbl->Release(This)
+#define IPSITables_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IPSITables_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IPSITables_Release(This) (This)->lpVtbl->Release(This)
 #define IPSITables_GetTable(This,dwTSID,dwTID_PID,dwHashedVer,dwPara4,ppIUnknown) (This)->lpVtbl->GetTable(This,dwTSID,dwTID_PID,dwHashedVer,dwPara4,ppIUnknown)
 #endif /*COBJMACROS*/
 
@@ -150,9 +150,9 @@ DECLARE_INTERFACE_(IPMT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IPMT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IPMT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IPMT_Release(This) (This)->pVtbl->Release(This)
+#define IPMT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IPMT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IPMT_Release(This) (This)->lpVtbl->Release(This)
 #define IPMT_ConvertNextToCurrent() (This)->lpVtbl->ConvertNextToCurrent(This)
 #define IPMT_GetCountOfRecords(This,pwVal) (This)->lpVtbl->GetCountOfRecords(This,pwVal)
 #define IPMT_GetCountOfTableDescriptors(This,pdwVal) (This)->lpVtbl->GetCountOfTableDescriptors(This,pdwVal)
@@ -199,9 +199,9 @@ DECLARE_INTERFACE_(IGenericDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IGenericDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IGenericDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IGenericDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IGenericDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IGenericDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IGenericDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IGenericDescriptor_GetBody(This,ppbVal) (This)->lpVtbl->GetBody(This,ppbVal)
 #define IGenericDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IGenericDescriptor_GetTag(This,pbVal) (This)->lpVtbl->GetTag(This,pbVal)
@@ -238,9 +238,9 @@ DECLARE_INTERFACE_(ITSDT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ITSDT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ITSDT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ITSDT_Release(This) (This)->pVtbl->Release(This)
+#define ITSDT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITSDT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITSDT_Release(This) (This)->lpVtbl->Release(This)
 #define ITSDT_ConvertNextToCurrent() (This)->lpVtbl->ConvertNextToCurrent(This)
 #define ITSDT_GetCountOfTableDescriptors(This,pdwVal) (This)->lpVtbl->GetCountOfTableDescriptors(This,pdwVal)
 #define ITSDT_GetNextTable(This,ppTSDT) (This)->lpVtbl->GetNextTable(This,ppTSDT)
@@ -277,9 +277,9 @@ DECLARE_INTERFACE_(ICAT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ICAT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ICAT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ICAT_Release(This) (This)->pVtbl->Release(This)
+#define ICAT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ICAT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ICAT_Release(This) (This)->lpVtbl->Release(This)
 #define ICAT_ConvertNextToCurrent() (This)->lpVtbl->ConvertNextToCurrent(This)
 #define ICAT_GetCountOfTableDescriptors(This,pdwVal) (This)->lpVtbl->GetCountOfTableDescriptors(This,pdwVal)
 #define ICAT_GetNextTable(This,dwTimeout,ppCAT) (This)->lpVtbl->GetNextTable(This,dwTimeout,ppCAT)

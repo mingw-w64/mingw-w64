@@ -96,9 +96,9 @@ DECLARE_INTERFACE_(IMFASFMutualExclusion,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFASFMutualExclusion_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFASFMutualExclusion_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFASFMutualExclusion_Release(This) (This)->pVtbl->Release(This)
+#define IMFASFMutualExclusion_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFASFMutualExclusion_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFASFMutualExclusion_Release(This) (This)->lpVtbl->Release(This)
 #define IMFASFMutualExclusion_AddRecord(This,pdwRecordNumber) (This)->lpVtbl->AddRecord(This,pdwRecordNumber)
 #define IMFASFMutualExclusion_AddStreamForRecord(This,dwRecordNumber,wStreamNumber) (This)->lpVtbl->AddStreamForRecord(This,dwRecordNumber,wStreamNumber)
 #define IMFASFMutualExclusion_Clone(This,ppIMutex) (This)->lpVtbl->Clone(This,ppIMutex)
@@ -136,9 +136,9 @@ DECLARE_INTERFACE_(IMFASFStreamPrioritization,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFASFStreamPrioritization_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFASFStreamPrioritization_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFASFStreamPrioritization_Release(This) (This)->pVtbl->Release(This)
+#define IMFASFStreamPrioritization_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFASFStreamPrioritization_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFASFStreamPrioritization_Release(This) (This)->lpVtbl->Release(This)
 #define IMFASFStreamPrioritization_AddStream(This,wStreamNumber,wStreamFlags) (This)->lpVtbl->AddStream(This,wStreamNumber,wStreamFlags)
 #define IMFASFStreamPrioritization_Clone(This,ppIStreamPrioritization) (This)->lpVtbl->Clone(This,ppIStreamPrioritization)
 #define IMFASFStreamPrioritization_GetStream(This,dwStreamIndex,pwStreamNumber,pwStreamFlags) (This)->lpVtbl->GetStream(This,dwStreamIndex,pwStreamNumber,pwStreamFlags)
@@ -177,9 +177,9 @@ DECLARE_INTERFACE_(IMFASFSplitter,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFASFSplitter_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFASFSplitter_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFASFSplitter_Release(This) (This)->pVtbl->Release(This)
+#define IMFASFSplitter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFASFSplitter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFASFSplitter_Release(This) (This)->lpVtbl->Release(This)
 #define IMFASFSplitter_Flush() (This)->lpVtbl->Flush(This)
 #define IMFASFSplitter_GetFlags(This,pdwFlags) (This)->lpVtbl->GetFlags(This,pdwFlags)
 #define IMFASFSplitter_GetLastSendTime(This,pdwLastSendTime) (This)->lpVtbl->GetLastSendTime(This,pdwLastSendTime)
@@ -251,9 +251,9 @@ DECLARE_INTERFACE_(IMFASFContentInfo,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFASFContentInfo_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFASFContentInfo_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFASFContentInfo_Release(This) (This)->pVtbl->Release(This)
+#define IMFASFContentInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFASFContentInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFASFContentInfo_Release(This) (This)->lpVtbl->Release(This)
 #define IMFASFContentInfo_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFASFContentInfo_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFASFContentInfo_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -356,9 +356,9 @@ DECLARE_INTERFACE_(IMFASFStreamConfig,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFASFStreamConfig_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFASFStreamConfig_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFASFStreamConfig_Release(This) (This)->pVtbl->Release(This)
+#define IMFASFStreamConfig_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFASFStreamConfig_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFASFStreamConfig_Release(This) (This)->lpVtbl->Release(This)
 #define IMFASFStreamConfig_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFASFStreamConfig_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFASFStreamConfig_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -470,9 +470,9 @@ DECLARE_INTERFACE_(IMFASFProfile,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFASFProfile_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFASFProfile_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFASFProfile_Release(This) (This)->pVtbl->Release(This)
+#define IMFASFProfile_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFASFProfile_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFASFProfile_Release(This) (This)->lpVtbl->Release(This)
 #define IMFASFProfile_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFASFProfile_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFASFProfile_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -555,9 +555,9 @@ DECLARE_INTERFACE_(IMFASFIndexer,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFASFIndexer_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFASFIndexer_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFASFIndexer_Release(This) (This)->pVtbl->Release(This)
+#define IMFASFIndexer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFASFIndexer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFASFIndexer_Release(This) (This)->lpVtbl->Release(This)
 #define IMFASFIndexer_CommitIndex(This,pIContentInfo) (This)->lpVtbl->CommitIndex(This,pIContentInfo)
 #define IMFASFIndexer_GenerateIndexEntries(This,pIASFPacketSample) (This)->lpVtbl->GenerateIndexEntries(This,pIASFPacketSample)
 #define IMFASFIndexer_GetCompletedIndex(This,pIIndexBuffer,cbOffsetWithinIndex) (This)->lpVtbl->GetCompletedIndex(This,pIIndexBuffer,cbOffsetWithinIndex)
@@ -603,9 +603,9 @@ DECLARE_INTERFACE_(IMFASFMultiplexer,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFASFMultiplexer_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFASFMultiplexer_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFASFMultiplexer_Release(This) (This)->pVtbl->Release(This)
+#define IMFASFMultiplexer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFASFMultiplexer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFASFMultiplexer_Release(This) (This)->lpVtbl->Release(This)
 #define IMFASFMultiplexer_End(This,pIContentInfo) (This)->lpVtbl->End(This,pIContentInfo)
 #define IMFASFMultiplexer_Flush() (This)->lpVtbl->Flush(This)
 #define IMFASFMultiplexer_GetFlags(This,pdwFlags) (This)->lpVtbl->GetFlags(This,pdwFlags)

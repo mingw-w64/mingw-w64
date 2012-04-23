@@ -35,9 +35,9 @@ DECLARE_INTERFACE_(IWSDScopeMatchingRule,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDScopeMatchingRule_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDScopeMatchingRule_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDScopeMatchingRule_Release(This) (This)->pVtbl->Release(This)
+#define IWSDScopeMatchingRule_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDScopeMatchingRule_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDScopeMatchingRule_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDScopeMatchingRule_GetScopeRule(This,ppszScopeMatchingRule) (This)->lpVtbl->GetScopeRule(This,ppszScopeMatchingRule)
 #define IWSDScopeMatchingRule_MatchScopes(This,pszScope1,pszScope2,pfMatch) (This)->lpVtbl->MatchScopes(This,pszScope1,pszScope2,pfMatch)
 #endif /*COBJMACROS*/
@@ -65,9 +65,9 @@ DECLARE_INTERFACE_(IWSDiscoveryPublisherNotify,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDiscoveryPublisherNotify_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDiscoveryPublisherNotify_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDiscoveryPublisherNotify_Release(This) (This)->pVtbl->Release(This)
+#define IWSDiscoveryPublisherNotify_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDiscoveryPublisherNotify_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDiscoveryPublisherNotify_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDiscoveryPublisherNotify_ProbeHandler(This,pSoap,pMessageParameters) (This)->lpVtbl->ProbeHandler(This,pSoap,pMessageParameters)
 #define IWSDiscoveryPublisherNotify_ResolveHandler(This,pSoap,pMessageParameters) (This)->lpVtbl->ResolveHandler(This,pSoap,pMessageParameters)
 #endif /*COBJMACROS*/
@@ -104,9 +104,9 @@ DECLARE_INTERFACE_(IWSDiscoveredService,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDiscoveredService_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDiscoveredService_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDiscoveredService_Release(This) (This)->pVtbl->Release(This)
+#define IWSDiscoveredService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDiscoveredService_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDiscoveredService_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDiscoveredService_GetEndpointReference(This,ppEndPointReference) (This)->lpVtbl->GetEndpointReference(This,ppEndPointReference)
 #define IWSDiscoveredService_GetTypes(This,ppTypesList) (This)->lpVtbl->GetTypes(This,ppTypesList)
 #define IWSDiscoveredService_GetScopes(This,ppScopesList) (This)->lpVtbl->GetScopes(This,ppScopesList)
@@ -145,9 +145,9 @@ DECLARE_INTERFACE_(IWSDiscoveryProviderNotify,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDiscoveryProviderNotify_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDiscoveryProviderNotify_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDiscoveryProviderNotify_Release(This) (This)->pVtbl->Release(This)
+#define IWSDiscoveryProviderNotify_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDiscoveryProviderNotify_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDiscoveryProviderNotify_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDiscoveryProviderNotify_Add(This,pService) (This)->lpVtbl->Add(This,pService)
 #define IWSDiscoveryProviderNotify_Remove(This,pService) (This)->lpVtbl->Remove(This,pService)
 #define IWSDiscoveryProviderNotify_SearchFailed(This,hr,pszTag) (This)->lpVtbl->SearchFailed(This,hr,pszTag)
@@ -182,9 +182,9 @@ DECLARE_INTERFACE_(IWSDiscoveryProvider,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDiscoveryProvider_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDiscoveryProvider_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDiscoveryProvider_Release(This) (This)->pVtbl->Release(This)
+#define IWSDiscoveryProvider_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDiscoveryProvider_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDiscoveryProvider_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDiscoveryProvider_SetAddressFamily(This,dwAddressFamily) (This)->lpVtbl->SetAddressFamily(This,dwAddressFamily)
 #define IWSDiscoveryProvider_Attach(This,pSink) (This)->lpVtbl->Attach(This,pSink)
 #define IWSDiscoveryProvider_Detach() (This)->lpVtbl->Detach(This)
@@ -228,9 +228,9 @@ DECLARE_INTERFACE_(IWSDiscoveryPublisher,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDiscoveryPublisher_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDiscoveryPublisher_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDiscoveryPublisher_Release(This) (This)->pVtbl->Release(This)
+#define IWSDiscoveryPublisher_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDiscoveryPublisher_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDiscoveryPublisher_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDiscoveryPublisher_SetAddressFamily(This,dwAddressFamily) (This)->lpVtbl->SetAddressFamily(This,dwAddressFamily)
 #define IWSDiscoveryPublisher_RegisterNotificationSink(This,pSink) (This)->lpVtbl->RegisterNotificationSink(This,pSink)
 #define IWSDiscoveryPublisher_UnRegisterNotificationSink(This,pSink) (This)->lpVtbl->UnRegisterNotificationSink(This,pSink)

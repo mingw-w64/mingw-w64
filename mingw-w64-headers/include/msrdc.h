@@ -124,9 +124,9 @@ DECLARE_INTERFACE_(IRdcFileWriter,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IRdcFileWriter_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IRdcFileWriter_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IRdcFileWriter_Release(This) (This)->pVtbl->Release(This)
+#define IRdcFileWriter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IRdcFileWriter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IRdcFileWriter_Release(This) (This)->lpVtbl->Release(This)
 #define IRdcFileWriter_Write(This,offsetFileStart,bytesToWrite,buffer) (This)->lpVtbl->Write(This,offsetFileStart,bytesToWrite,buffer)
 #define IRdcFileWriter_Truncate() (This)->lpVtbl->Truncate(This)
 #define IRdcFileWriter_DeleteOnClose() (This)->lpVtbl->DeleteOnClose(This)
@@ -160,9 +160,9 @@ DECLARE_INTERFACE_(ISimilarityFileIdTable,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ISimilarityFileIdTable_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ISimilarityFileIdTable_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ISimilarityFileIdTable_Release(This) (This)->pVtbl->Release(This)
+#define ISimilarityFileIdTable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISimilarityFileIdTable_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISimilarityFileIdTable_Release(This) (This)->lpVtbl->Release(This)
 #define ISimilarityFileIdTable_CreateTable(This,path,truncate,securityDescriptor,recordSize,isNew) (This)->lpVtbl->CreateTable(This,path,truncate,securityDescriptor,recordSize,isNew)
 #define ISimilarityFileIdTable_CreateTableIndirect(This,fileIdFile,truncate,recordSize,isNew) (This)->lpVtbl->CreateTableIndirect(This,fileIdFile,truncate,recordSize,isNew)
 #define ISimilarityFileIdTable_CloseTable(This,isValid) (This)->lpVtbl->CloseTable(This,isValid)
@@ -197,9 +197,9 @@ DECLARE_INTERFACE_(ISimilarityTraitsMappedView,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ISimilarityTraitsMappedView_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ISimilarityTraitsMappedView_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ISimilarityTraitsMappedView_Release(This) (This)->pVtbl->Release(This)
+#define ISimilarityTraitsMappedView_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISimilarityTraitsMappedView_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISimilarityTraitsMappedView_Release(This) (This)->lpVtbl->Release(This)
 #define ISimilarityTraitsMappedView_Flush() (This)->lpVtbl->Flush(This)
 #define ISimilarityTraitsMappedView_Unmap() (This)->lpVtbl->Unmap(This)
 #define ISimilarityTraitsMappedView_Get(This,fileOffset,dirty,numElements,viewInfo) (This)->lpVtbl->Get(This,fileOffset,dirty,numElements,viewInfo)
@@ -229,9 +229,9 @@ DECLARE_INTERFACE_(IFindSimilarResults,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFindSimilarResults_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFindSimilarResults_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFindSimilarResults_Release(This) (This)->pVtbl->Release(This)
+#define IFindSimilarResults_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFindSimilarResults_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFindSimilarResults_Release(This) (This)->lpVtbl->Release(This)
 #define IFindSimilarResults_GetSize(This,size) (This)->lpVtbl->GetSize(This,size)
 #define IFindSimilarResults_GetNextFileId(This,numTraitsMatched,similarityFileId) (This)->lpVtbl->GetNextFileId(This,numTraitsMatched,similarityFileId)
 #endif /*COBJMACROS*/
@@ -264,9 +264,9 @@ DECLARE_INTERFACE_(ISimilarityTraitsMapping,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ISimilarityTraitsMapping_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ISimilarityTraitsMapping_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ISimilarityTraitsMapping_Release(This) (This)->pVtbl->Release(This)
+#define ISimilarityTraitsMapping_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISimilarityTraitsMapping_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISimilarityTraitsMapping_Release(This) (This)->lpVtbl->Release(This)
 #define ISimilarityTraitsMapping_CloseMapping() (This)->lpVtbl->CloseMapping(This)
 #define ISimilarityTraitsMapping_SetFileSize(This,fileSize) (This)->lpVtbl->SetFileSize(This,fileSize)
 #define ISimilarityTraitsMapping_GetFileSize(This,fileSize) (This)->lpVtbl->GetFileSize(This,fileSize)
@@ -298,9 +298,9 @@ DECLARE_INTERFACE_(ISimilarityReportProgress,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ISimilarityReportProgress_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ISimilarityReportProgress_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ISimilarityReportProgress_Release(This) (This)->pVtbl->Release(This)
+#define ISimilarityReportProgress_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISimilarityReportProgress_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISimilarityReportProgress_Release(This) (This)->lpVtbl->Release(This)
 #define ISimilarityReportProgress_ReportProgress(This,percentCompleted) (This)->lpVtbl->ReportProgress(This,percentCompleted)
 #endif /*COBJMACROS*/
 
@@ -332,9 +332,9 @@ DECLARE_INTERFACE_(ISimilarity,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ISimilarity_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ISimilarity_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ISimilarity_Release(This) (This)->pVtbl->Release(This)
+#define ISimilarity_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISimilarity_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISimilarity_Release(This) (This)->lpVtbl->Release(This)
 #define ISimilarity_CreateTable(This,path,truncate,securityDescriptor,recordSize,isNew) (This)->lpVtbl->CreateTable(This,path,truncate,securityDescriptor,recordSize,isNew)
 #define ISimilarity_CreateTableIndirect(This,mapping,fileIdFile,truncate,recordSize,isNew) (This)->lpVtbl->CreateTableIndirect(This,mapping,fileIdFile,truncate,recordSize,isNew)
 #define ISimilarity_CloseTable(This,isValid) (This)->lpVtbl->CloseTable(This,isValid)

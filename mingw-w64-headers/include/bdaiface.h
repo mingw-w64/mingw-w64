@@ -173,9 +173,9 @@ DECLARE_INTERFACE_(IBDA_ConditionalAccessEx,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IBDA_ConditionalAccessEx_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IBDA_ConditionalAccessEx_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IBDA_ConditionalAccessEx_Release(This) (This)->pVtbl->Release(This)
+#define IBDA_ConditionalAccessEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBDA_ConditionalAccessEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBDA_ConditionalAccessEx_Release(This) (This)->lpVtbl->Release(This)
 #define IBDA_ConditionalAccessEx_CheckEntitlementToken(This,ulDialogRequest,bstrLanguage,RequestType,ulcbEntitlementTokenLen,pbEntitlementToken,pulDescrambleStatus) (This)->lpVtbl->CheckEntitlementToken(This,ulDialogRequest,bstrLanguage,RequestType,ulcbEntitlementTokenLen,pbEntitlementToken,pulDescrambleStatus)
 #define IBDA_ConditionalAccessEx_CloseMmiDialog(This,ulDialogRequest,bstrLanguage,ulDialogNumber,ReasonCode,pulSessionResult) (This)->lpVtbl->CloseMmiDialog(This,ulDialogRequest,bstrLanguage,ulDialogNumber,ReasonCode,pulSessionResult)
 #define IBDA_ConditionalAccessEx_CreateDialogRequestNumber(This,pulDialogRequestNumber) (This)->lpVtbl->CreateDialogRequestNumber(This,pulDialogRequestNumber)
@@ -207,9 +207,9 @@ DECLARE_INTERFACE_(IBDA_DRIDRMService,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IBDA_DRIDRMService_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IBDA_DRIDRMService_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IBDA_DRIDRMService_Release(This) (This)->pVtbl->Release(This)
+#define IBDA_DRIDRMService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBDA_DRIDRMService_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBDA_DRIDRMService_Release(This) (This)->lpVtbl->Release(This)
 #define IBDA_DRIDRMService_GetDRMStatus(This,pbstrDrmUuidList,DrmUuid) (This)->lpVtbl->GetDRMStatus(This,pbstrDrmUuidList,DrmUuid)
 #define IBDA_DRIDRMService_GetPairingStatus(This,penumPairingStatus) (This)->lpVtbl->GetPairingStatus(This,penumPairingStatus)
 #define IBDA_DRIDRMService_SetDRM(This,puuidNewDrm) (This)->lpVtbl->SetDRM(This,puuidNewDrm)
@@ -241,9 +241,9 @@ DECLARE_INTERFACE_(IBDA_Encoder,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IBDA_Encoder_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IBDA_Encoder_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IBDA_Encoder_Release(This) (This)->pVtbl->Release(This)
+#define IBDA_Encoder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBDA_Encoder_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBDA_Encoder_Release(This) (This)->lpVtbl->Release(This)
 #define IBDA_Encoder_EnumAudioCapability(This,FmtIndex,MethodID,AlgorithmType,SamplingRate,BitDepth,NumChannels) (This)->lpVtbl->EnumAudioCapability(This,FmtIndex,MethodID,AlgorithmType,SamplingRate,BitDepth,NumChannels)
 #define IBDA_Encoder_EnumVideoCapability(This,FmtIndex,MethodID,AlgorithmType,VerticalSize,HorizontalSize,AspectRatio,FrameRateCode,ProgressiveSequence) (This)->lpVtbl->EnumVideoCapability(This,FmtIndex,MethodID,AlgorithmType,VerticalSize,HorizontalSize,AspectRatio,FrameRateCode,ProgressiveSequence)
 #define IBDA_Encoder_GetState(This,AudioBitrateMax,AudioBitrateMin,AudioBitrateMode,AudioBitrateStepping,AudioBitrate,AudioMethodID,AvailableAudioPrograms,AudioProgram,VideoBitrateMax,VideoBitrateMin,VideoBitrateMode,VideoBitrate,VideoBitrateStepping,VideoMethodID,SignalSourceID,SignalFormat,SignalLock,SignalLevel,SignalToNoiseRatio) (This)->lpVtbl->GetState(This,AudioBitrateMax,AudioBitrateMin,AudioBitrateMode,AudioBitrateStepping,AudioBitrate,AudioMethodID,AvailableAudioPrograms,AudioProgram,VideoBitrateMax,VideoBitrateMin,VideoBitrateMode,VideoBitrate,VideoBitrateStepping,VideoMethodID,SignalSourceID,SignalFormat,SignalLock,SignalLevel,SignalToNoiseRatio)
@@ -268,9 +268,9 @@ DECLARE_INTERFACE_(IBDA_EventingService,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IBDA_EventingService_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IBDA_EventingService_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IBDA_EventingService_Release(This) (This)->pVtbl->Release(This)
+#define IBDA_EventingService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBDA_EventingService_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBDA_EventingService_Release(This) (This)->lpVtbl->Release(This)
 #define IBDA_EventingService_CompleteEvent(This,ulEventID,ulEventResult) (This)->lpVtbl->CompleteEvent(This,ulEventID,ulEventResult)
 #endif /*COBJMACROS*/
 
@@ -302,9 +302,9 @@ DECLARE_INTERFACE_(IBDA_FDC,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IBDA_FDC_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IBDA_FDC_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IBDA_FDC_Release(This) (This)->pVtbl->Release(This)
+#define IBDA_FDC_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBDA_FDC_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBDA_FDC_Release(This) (This)->lpVtbl->Release(This)
 #define IBDA_FDC_AddPid(This,PidsToAdd,RemainingFilterEntries) (This)->lpVtbl->AddPid(This,PidsToAdd,RemainingFilterEntries)
 #define IBDA_FDC_AddTid(This,TidsToAdd,CurrentTidList) (This)->lpVtbl->AddTid(This,TidsToAdd,CurrentTidList)
 #define IBDA_FDC_GetStatus(This,CurrentBitrate,CarrierLock,CurrentFrequency,CurrentSpectrumInversion,CurrentPIDList,CurrentTIDList,Overflow) (This)->lpVtbl->GetStatus(This,CurrentBitrate,CarrierLock,CurrentFrequency,CurrentSpectrumInversion,CurrentPIDList,CurrentTIDList,Overflow)
@@ -341,9 +341,9 @@ DECLARE_INTERFACE_(IBDA_GuideDataDeliveryService,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IBDA_GuideDataDeliveryService_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IBDA_GuideDataDeliveryService_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IBDA_GuideDataDeliveryService_Release(This) (This)->pVtbl->Release(This)
+#define IBDA_GuideDataDeliveryService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBDA_GuideDataDeliveryService_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBDA_GuideDataDeliveryService_Release(This) (This)->lpVtbl->Release(This)
 #define IBDA_GuideDataDeliveryService_GetGuideData(This,pulcbBufferLen,pbBuffer,pulGuideDataPercentageProgress) (This)->lpVtbl->GetGuideData(This,pulcbBufferLen,pbBuffer,pulGuideDataPercentageProgress)
 #define IBDA_GuideDataDeliveryService_GetGuideDataType(This,pguidDataType) (This)->lpVtbl->GetGuideDataType(This,pguidDataType)
 #define IBDA_GuideDataDeliveryService_GetServiceInfoFromTuneXml(This,bstrTuneXml,pbstrServiceDescription) (This)->lpVtbl->GetServiceInfoFromTuneXml(This,bstrTuneXml,pbstrServiceDescription)
@@ -369,9 +369,9 @@ DECLARE_INTERFACE_(IBDA_ISDBConditionalAccess,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IBDA_ISDBConditionalAccess_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IBDA_ISDBConditionalAccess_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IBDA_ISDBConditionalAccess_Release(This) (This)->pVtbl->Release(This)
+#define IBDA_ISDBConditionalAccess_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBDA_ISDBConditionalAccess_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBDA_ISDBConditionalAccess_Release(This) (This)->lpVtbl->Release(This)
 #define IBDA_ISDBConditionalAccess_SetIsdbCasRequest(This,ulRequestId,ulcbRequestBufferLen,pbRequestBuffer) (This)->lpVtbl->SetIsdbCasRequest(This,ulRequestId,ulcbRequestBufferLen,pbRequestBuffer)
 #endif /*COBJMACROS*/
 
@@ -398,9 +398,9 @@ DECLARE_INTERFACE_(IBDA_MUX,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IBDA_MUX_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IBDA_MUX_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IBDA_MUX_Release(This) (This)->pVtbl->Release(This)
+#define IBDA_MUX_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBDA_MUX_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBDA_MUX_Release(This) (This)->lpVtbl->Release(This)
 #define IBDA_MUX_GetPidList(This,pbPidListBuffer) (This)->lpVtbl->GetPidList(This,pbPidListBuffer)
 #define IBDA_MUX_SetPidList(This,ulPidListCount,pbPidListBuffer) (This)->lpVtbl->SetPidList(This,ulPidListCount,pbPidListBuffer)
 #endif /*COBJMACROS*/
@@ -429,9 +429,9 @@ DECLARE_INTERFACE_(IBDA_UserActivityService,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IBDA_UserActivityService_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IBDA_UserActivityService_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IBDA_UserActivityService_Release(This) (This)->pVtbl->Release(This)
+#define IBDA_UserActivityService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IBDA_UserActivityService_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IBDA_UserActivityService_Release(This) (This)->lpVtbl->Release(This)
 #define IBDA_UserActivityService_GetUserActivityInterval(This,pdwActivityInterval) (This)->lpVtbl->GetUserActivityInterval(This,pdwActivityInterval)
 #define IBDA_UserActivityService_SetCurrentTunerUseReason(This,dwUseReason) (This)->lpVtbl->SetCurrentTunerUseReason(This,dwUseReason)
 #define IBDA_UserActivityService_UserActivityDetected() (This)->lpVtbl->UserActivityDetected(This)

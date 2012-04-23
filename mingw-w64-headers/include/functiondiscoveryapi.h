@@ -64,9 +64,9 @@ DECLARE_INTERFACE_(IFunctionInstance,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFunctionInstance_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFunctionInstance_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFunctionInstance_Release(This) (This)->pVtbl->Release(This)
+#define IFunctionInstance_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFunctionInstance_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFunctionInstance_Release(This) (This)->lpVtbl->Release(This)
 #define IFunctionInstance_GetID(This,ppszCoMemIdentity) (This)->lpVtbl->GetID(This,ppszCoMemIdentity)
 #define IFunctionInstance_GetProviderInstanceID(This,ppszCoMemProviderInstanceID) (This)->lpVtbl->GetProviderInstanceID(This,ppszCoMemProviderInstanceID)
 #define IFunctionInstance_OpenPropertyStore(This,dwStgAccess,ppIPropertyStore) (This)->lpVtbl->OpenPropertyStore(This,dwStgAccess,ppIPropertyStore)
@@ -91,9 +91,9 @@ DECLARE_INTERFACE_(IFunctionInstanceQuery,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFunctionInstanceQuery_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFunctionInstanceQuery_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFunctionInstanceQuery_Release(This) (This)->pVtbl->Release(This)
+#define IFunctionInstanceQuery_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFunctionInstanceQuery_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFunctionInstanceQuery_Release(This) (This)->lpVtbl->Release(This)
 #define IFunctionInstanceQuery_Execute(This,ppIFunctionInstance) (This)->lpVtbl->Execute(This,ppIFunctionInstance)
 #endif /*COBJMACROS*/
 
@@ -125,9 +125,9 @@ DECLARE_INTERFACE_(IFunctionInstanceCollection,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFunctionInstanceCollection_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFunctionInstanceCollection_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFunctionInstanceCollection_Release(This) (This)->pVtbl->Release(This)
+#define IFunctionInstanceCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFunctionInstanceCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFunctionInstanceCollection_Release(This) (This)->lpVtbl->Release(This)
 #define IFunctionInstanceCollection_GetCount(This,pdwCount) (This)->lpVtbl->GetCount(This,pdwCount)
 #define IFunctionInstanceCollection_Get(This,pszInstanceIdentity,pdwIndex,ppIFunctionInstance) (This)->lpVtbl->Get(This,pszInstanceIdentity,pdwIndex,ppIFunctionInstance)
 #define IFunctionInstanceCollection_Item(This,dwIndex,ppFunctionInstance) (This)->lpVtbl->Item(This,dwIndex,ppFunctionInstance)
@@ -161,9 +161,9 @@ DECLARE_INTERFACE_(IFunctionInstanceCollectionQuery,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFunctionInstanceCollectionQuery_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFunctionInstanceCollectionQuery_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFunctionInstanceCollectionQuery_Release(This) (This)->pVtbl->Release(This)
+#define IFunctionInstanceCollectionQuery_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFunctionInstanceCollectionQuery_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFunctionInstanceCollectionQuery_Release(This) (This)->lpVtbl->Release(This)
 #define IFunctionInstanceCollectionQuery_AddQueryConstraint(This,pszConstraintName,pszConstraintValue) (This)->lpVtbl->AddQueryConstraint(This,pszConstraintName,pszConstraintValue)
 #define IFunctionInstanceCollectionQuery_AddPropertyConstraint(This,Key,pv,enumPropertyConstraint) (This)->lpVtbl->AddPropertyConstraint(This,Key,pv,enumPropertyConstraint)
 #define IFunctionInstanceCollectionQuery_Execute(This,ppIFunctionInstanceCollection) (This)->lpVtbl->Execute(This,ppIFunctionInstanceCollection)
@@ -196,9 +196,9 @@ DECLARE_INTERFACE_(IFunctionDiscovery,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFunctionDiscovery_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFunctionDiscovery_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFunctionDiscovery_Release(This) (This)->pVtbl->Release(This)
+#define IFunctionDiscovery_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFunctionDiscovery_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFunctionDiscovery_Release(This) (This)->lpVtbl->Release(This)
 #define IFunctionDiscovery_GetInstanceCollection(This,pszCategory,pszSubCategory,fIncludeAllSubCategories,ppIFunctionInstanceCollection) (This)->lpVtbl->GetInstanceCollection(This,pszCategory,pszSubCategory,fIncludeAllSubCategories,ppIFunctionInstanceCollection)
 #define IFunctionDiscovery_GetInstance(This,pszFunctionInstanceIdentity,ppIFunctionInstance) (This)->lpVtbl->GetInstance(This,pszFunctionInstanceIdentity,ppIFunctionInstance)
 #define IFunctionDiscovery_CreateInstanceCollectionQuery(This,pszCategory,pszSubCategory,fIncludeAllSubCategories,pIFunctionDiscoveryNotification,pfdqcQueryContext,ppIFunctionInstanceCollectionQuery) (This)->lpVtbl->CreateInstanceCollectionQuery(This,pszCategory,pszSubCategory,fIncludeAllSubCategories,pIFunctionDiscoveryNotification,pfdqcQueryContext,ppIFunctionInstanceCollectionQuery)

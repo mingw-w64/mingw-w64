@@ -314,9 +314,9 @@ DECLARE_INTERFACE_(IMFRemoteAsyncCallback,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFRemoteAsyncCallback_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFRemoteAsyncCallback_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFRemoteAsyncCallback_Release(This) (This)->pVtbl->Release(This)
+#define IMFRemoteAsyncCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFRemoteAsyncCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFRemoteAsyncCallback_Release(This) (This)->lpVtbl->Release(This)
 #endif /*COBJMACROS*/
 
 #undef  INTERFACE
@@ -345,9 +345,9 @@ DECLARE_INTERFACE_(IMFAsyncResult,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFAsyncResult_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFAsyncResult_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFAsyncResult_Release(This) (This)->pVtbl->Release(This)
+#define IMFAsyncResult_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFAsyncResult_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFAsyncResult_Release(This) (This)->lpVtbl->Release(This)
 #define IMFAsyncResult_GetObject(This,ppObject) (This)->lpVtbl->GetObject(This,ppObject)
 #define IMFAsyncResult_GetState(This,ppunkState) (This)->lpVtbl->GetState(This,ppunkState)
 #define IMFAsyncResult_GetStateNoAddRef() (This)->lpVtbl->GetStateNoAddRef(This)
@@ -382,9 +382,9 @@ DECLARE_INTERFACE_(IMFMediaEventGenerator,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFMediaEventGenerator_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFMediaEventGenerator_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFMediaEventGenerator_Release(This) (This)->pVtbl->Release(This)
+#define IMFMediaEventGenerator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFMediaEventGenerator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFMediaEventGenerator_Release(This) (This)->lpVtbl->Release(This)
 #define IMFMediaEventGenerator_BeginGetEvent(This,pCallback,punkState) (This)->lpVtbl->BeginGetEvent(This,pCallback,punkState)
 #define IMFMediaEventGenerator_EndGetEvent(This,pResult,ppEvent) (This)->lpVtbl->EndGetEvent(This,pResult,ppEvent)
 #define IMFMediaEventGenerator_GetEvent(This,dwFlags,ppEvent) (This)->lpVtbl->GetEvent(This,dwFlags,ppEvent)
@@ -418,9 +418,9 @@ DECLARE_INTERFACE_(IMFMediaBuffer,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFMediaBuffer_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFMediaBuffer_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFMediaBuffer_Release(This) (This)->pVtbl->Release(This)
+#define IMFMediaBuffer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFMediaBuffer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFMediaBuffer_Release(This) (This)->lpVtbl->Release(This)
 #define IMFMediaBuffer_GetCurrentLength(This,pcbCurrentLength) (This)->lpVtbl->GetCurrentLength(This,pcbCurrentLength)
 #define IMFMediaBuffer_GetMaxLength(This,pcbMaxLength) (This)->lpVtbl->GetMaxLength(This,pcbMaxLength)
 #define IMFMediaBuffer_Lock(This,ppbBuffer,pcbMaxLength,pcbCurrentLength) (This)->lpVtbl->Lock(This,ppbBuffer,pcbMaxLength,pcbCurrentLength)
@@ -479,9 +479,9 @@ DECLARE_INTERFACE_(IMFAttributes,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFAttributes_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFAttributes_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFAttributes_Release(This) (This)->pVtbl->Release(This)
+#define IMFAttributes_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFAttributes_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFAttributes_Release(This) (This)->lpVtbl->Release(This)
 #define IMFAttributes_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFAttributes_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFAttributes_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -572,9 +572,9 @@ DECLARE_INTERFACE_(IMFMediaType,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFMediaType_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFMediaType_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFMediaType_Release(This) (This)->pVtbl->Release(This)
+#define IMFMediaType_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFMediaType_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFMediaType_Release(This) (This)->lpVtbl->Release(This)
 #define IMFMediaType_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFMediaType_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFMediaType_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -673,9 +673,9 @@ DECLARE_INTERFACE_(IMFAudioMediaType,IMFAudioMediaType)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFAudioMediaType_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFAudioMediaType_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFAudioMediaType_Release(This) (This)->pVtbl->Release(This)
+#define IMFAudioMediaType_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFAudioMediaType_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFAudioMediaType_Release(This) (This)->lpVtbl->Release(This)
 #define IMFAudioMediaType_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFAudioMediaType_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFAudioMediaType_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -711,7 +711,7 @@ DECLARE_INTERFACE_(IMFAudioMediaType,IMFAudioMediaType)
 #define IMFAudioMediaType_GetRepresentation(This,guidRepresentation,ppvRepresentation) (This)->lpVtbl->GetRepresentation(This,guidRepresentation,ppvRepresentation)
 #define IMFAudioMediaType_IsCompressedFormat(This,pfCompressed) (This)->lpVtbl->IsCompressedFormat(This,pfCompressed)
 #define IMFAudioMediaType_IsEqual(This,pIMediaType,pdwFlags) (This)->lpVtbl->IsEqual(This,pIMediaType,pdwFlags)
-#define IMFAudioMediaType_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFAudioMediaType_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #endif /*COBJMACROS*/
 
 #undef  INTERFACE
@@ -788,9 +788,9 @@ DECLARE_INTERFACE_(IMFSample,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFSample_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFSample_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFSample_Release(This) (This)->pVtbl->Release(This)
+#define IMFSample_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFSample_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFSample_Release(This) (This)->lpVtbl->Release(This)
 #define IMFSample_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFSample_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFSample_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -870,9 +870,9 @@ DECLARE_INTERFACE_(IMF2DBuffer,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMF2DBuffer_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMF2DBuffer_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMF2DBuffer_Release(This) (This)->pVtbl->Release(This)
+#define IMF2DBuffer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMF2DBuffer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMF2DBuffer_Release(This) (This)->lpVtbl->Release(This)
 #define IMF2DBuffer_ContiguousCopyFrom(This,pbSrcBuffer,cbSrcBuffer) (This)->lpVtbl->ContiguousCopyFrom(This,pbSrcBuffer,cbSrcBuffer)
 #define IMF2DBuffer_ContiguousCopyTo(This,pbDestBuffer,cbDestBuffer) (This)->lpVtbl->ContiguousCopyTo(This,pbDestBuffer,cbDestBuffer)
 #define IMF2DBuffer_GetContiguousLength(This,pcbLength) (This)->lpVtbl->GetContiguousLength(This,pcbLength)
@@ -905,9 +905,9 @@ DECLARE_INTERFACE_(IMFAsyncCallback,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFAsyncCallback_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFAsyncCallback_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFAsyncCallback_Release(This) (This)->pVtbl->Release(This)
+#define IMFAsyncCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFAsyncCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFAsyncCallback_Release(This) (This)->lpVtbl->Release(This)
 #define IMFAsyncCallback_GetParameters(This,pdwFlags,pdwQueue) (This)->lpVtbl->GetParameters(This,pdwFlags,pdwQueue)
 #define IMFAsyncCallback_Invoke(This,pAsyncResult) (This)->lpVtbl->Invoke(This,pAsyncResult)
 #endif /*COBJMACROS*/
@@ -950,9 +950,9 @@ DECLARE_INTERFACE_(IMFByteStream,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFByteStream_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFByteStream_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFByteStream_Release(This) (This)->pVtbl->Release(This)
+#define IMFByteStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFByteStream_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFByteStream_Release(This) (This)->lpVtbl->Release(This)
 #define IMFByteStream_GetParameters(This,pdwFlags,pdwQueue) (This)->lpVtbl->GetParameters(This,pdwFlags,pdwQueue)
 #define IMFByteStream_MFInvokeCallback(This,pAsyncResult) (This)->lpVtbl->MFInvokeCallback(This,pAsyncResult)
 #define IMFByteStream_BeginRead(This,pb,cb,pCallback,punkState) (This)->lpVtbl->BeginRead(This,pb,cb,pCallback,punkState)
@@ -1029,9 +1029,9 @@ DECLARE_INTERFACE_(IMFMediaEvent,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFMediaEvent_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFMediaEvent_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFMediaEvent_Release(This) (This)->pVtbl->Release(This)
+#define IMFMediaEvent_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFMediaEvent_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFMediaEvent_Release(This) (This)->lpVtbl->Release(This)
 #define IMFMediaEvent_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFMediaEvent_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFMediaEvent_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -1130,9 +1130,9 @@ DECLARE_INTERFACE_(IMFVideoMediaType,IMFMediaType)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFVideoMediaType_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFVideoMediaType_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFVideoMediaType_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoMediaType_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoMediaType_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoMediaType_Release(This) (This)->lpVtbl->Release(This)
 #define IMFVideoMediaType_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFVideoMediaType_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFVideoMediaType_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -1199,9 +1199,9 @@ DECLARE_INTERFACE_(IMFCollection,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFCollection_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFCollection_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFCollection_Release(This) (This)->pVtbl->Release(This)
+#define IMFCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFCollection_Release(This) (This)->lpVtbl->Release(This)
 #define IMFCollection_AddElement(This,pUnkElement) (This)->lpVtbl->AddElement(This,pUnkElement)
 #define IMFCollection_GetElement(This,dwElementIndex,ppUnkElement) (This)->lpVtbl->GetElement(This,dwElementIndex,ppUnkElement)
 #define IMFCollection_GetElementCount(This,pcElements) (This)->lpVtbl->GetElementCount(This,pcElements)
@@ -1239,9 +1239,9 @@ DECLARE_INTERFACE_(IMFPluginControl,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFPluginControl_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFPluginControl_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFPluginControl_Release(This) (This)->pVtbl->Release(This)
+#define IMFPluginControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFPluginControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFPluginControl_Release(This) (This)->lpVtbl->Release(This)
 #define IMFPluginControl_GetDisabledByIndex(This,pluginType,index,clsid) (This)->lpVtbl->GetDisabledByIndex(This,pluginType,index,clsid)
 #define IMFPluginControl_GetPreferredClsid(This,pluginType,selector,clsid) (This)->lpVtbl->GetPreferredClsid(This,pluginType,selector,clsid)
 #define IMFPluginControl_GetPreferredClsidByIndex(This,pluginType,index,selector,clsid) (This)->lpVtbl->GetPreferredClsidByIndex(This,pluginType,index,selector,clsid)

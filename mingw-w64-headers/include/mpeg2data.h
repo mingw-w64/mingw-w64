@@ -61,9 +61,9 @@ DECLARE_INTERFACE_(ISectionList,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ISectionList_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ISectionList_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ISectionList_Release(This) (This)->pVtbl->Release(This)
+#define ISectionList_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISectionList_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISectionList_Release(This) (This)->lpVtbl->Release(This)
 #define ISectionList_CancelPendingRequest() (This)->lpVtbl->CancelPendingRequest(This)
 #define ISectionList_GetNumberOfSections(This,pCount) (This)->lpVtbl->GetNumberOfSections(This,pCount)
 #define ISectionList_GetProgramIdentifier(This,pPid) (This)->lpVtbl->GetProgramIdentifier(This,pPid)
@@ -97,9 +97,9 @@ DECLARE_INTERFACE_(IMpeg2Data,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMpeg2Data_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMpeg2Data_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMpeg2Data_Release(This) (This)->pVtbl->Release(This)
+#define IMpeg2Data_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMpeg2Data_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMpeg2Data_Release(This) (This)->lpVtbl->Release(This)
 #define IMpeg2Data_GetSection(This,pid,tid,pFilter,dwTimeout,ppSectionList) (This)->lpVtbl->GetSection(This,pid,tid,pFilter,dwTimeout,ppSectionList)
 #define IMpeg2Data_GetStreamOfSections(This,pid,tid,pFilter,hDataReadyEvent,ppMpegStream) (This)->lpVtbl->GetStreamOfSections(This,pid,tid,pFilter,hDataReadyEvent,ppMpegStream)
 #define IMpeg2Data_GetTable(This,pid,tid,pFilter,dwTimeout,ppSectionList) (This)->lpVtbl->GetTable(This,pid,tid,pFilter,dwTimeout,ppSectionList)
@@ -128,9 +128,9 @@ DECLARE_INTERFACE_(IMpeg2Stream,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMpeg2Stream_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMpeg2Stream_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMpeg2Stream_Release(This) (This)->pVtbl->Release(This)
+#define IMpeg2Stream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMpeg2Stream_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMpeg2Stream_Release(This) (This)->lpVtbl->Release(This)
 #define IMpeg2Stream_Initialize(This,requestType,pMpeg2Data,pContext,pid,tid,pFilter,hDataReadyEvent) (This)->lpVtbl->Initialize(This,requestType,pMpeg2Data,pContext,pid,tid,pFilter,hDataReadyEvent)
 #define IMpeg2Stream_SupplyDataBuffer(This,pStreamBuffer) (This)->lpVtbl->SupplyDataBuffer(This,pStreamBuffer)
 #endif /*COBJMACROS*/

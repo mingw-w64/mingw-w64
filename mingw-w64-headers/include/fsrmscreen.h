@@ -316,9 +316,9 @@ DECLARE_INTERFACE_(IFsrmFileGroup,IFsrmObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileGroup_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileGroup_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileGroup_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileGroup_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileGroup_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileGroup_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileGroup_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileGroup_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileGroup_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -380,9 +380,9 @@ DECLARE_INTERFACE_(IFsrmFileGroupImported,IFsrmFileGroup)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileGroupImported_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileGroupImported_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileGroupImported_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileGroupImported_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileGroupImported_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileGroupImported_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileGroupImported_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileGroupImported_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileGroupImported_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -435,9 +435,9 @@ DECLARE_INTERFACE_(IFsrmFileGroupManager,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileGroupManager_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileGroupManager_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileGroupManager_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileGroupManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileGroupManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileGroupManager_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileGroupManager_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileGroupManager_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileGroupManager_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -491,9 +491,9 @@ DECLARE_INTERFACE_(IFsrmFileScreenBase,IFsrmObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileScreenBase_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileScreenBase_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileScreenBase_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileScreenBase_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileScreenBase_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileScreenBase_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileScreenBase_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileScreenBase_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileScreenBase_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -550,9 +550,9 @@ DECLARE_INTERFACE_(IFsrmFileScreenException,IFsrmObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileScreenException_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileScreenException_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileScreenException_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileScreenException_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileScreenException_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileScreenException_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileScreenException_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileScreenException_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileScreenException_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -603,9 +603,9 @@ DECLARE_INTERFACE_(IFsrmFileScreenManager,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileScreenManager_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileScreenManager_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileScreenManager_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileScreenManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileScreenManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileScreenManager_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileScreenManager_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileScreenManager_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileScreenManager_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -669,9 +669,9 @@ DECLARE_INTERFACE_(IFsrmFileScreenTemplate,IFsrmFileScreenBase)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileScreenTemplate_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileScreenTemplate_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileScreenTemplate_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileScreenTemplate_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileScreenTemplate_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileScreenTemplate_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileScreenTemplate_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileScreenTemplate_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileScreenTemplate_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -747,9 +747,9 @@ DECLARE_INTERFACE_(IFsrmFileScreenTemplateImported,IFsrmFileScreenTemplate)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileScreenTemplateImported_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileScreenTemplateImported_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileScreenTemplateImported_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileScreenTemplateImported_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileScreenTemplateImported_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileScreenTemplateImported_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileScreenTemplateImported_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileScreenTemplateImported_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileScreenTemplateImported_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -807,9 +807,9 @@ DECLARE_INTERFACE_(IFsrmFileScreenTemplateManager,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileScreenTemplateManager_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileScreenTemplateManager_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileScreenTemplateManager_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileScreenTemplateManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileScreenTemplateManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileScreenTemplateManager_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileScreenTemplateImported_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileScreenTemplateImported_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileScreenTemplateImported_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -869,9 +869,9 @@ DECLARE_INTERFACE_(IFsrmFileScreen,IFsrmFileScreenBase)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileScreen_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileScreen_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileScreen_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileScreen_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileScreen_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileScreen_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileScreen_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileScreen_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileScreen_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)

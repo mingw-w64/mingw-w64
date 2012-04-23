@@ -76,9 +76,9 @@ DECLARE_INTERFACE_(IMFLocalMFTRegistration,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFLocalMFTRegistration_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFLocalMFTRegistration_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFLocalMFTRegistration_Release(This) (This)->pVtbl->Release(This)
+#define IMFLocalMFTRegistration_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFLocalMFTRegistration_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFLocalMFTRegistration_Release(This) (This)->lpVtbl->Release(This)
 #define IMFLocalMFTRegistration_RegisterMFTs(This,pMFTs,cMFTs) (This)->lpVtbl->RegisterMFTs(This,pMFTs,cMFTs)
 #endif /*COBJMACROS*/
 #endif /*(_WIN32_WINNT >= 0x0601)*/

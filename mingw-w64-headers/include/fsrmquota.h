@@ -319,9 +319,9 @@ DECLARE_INTERFACE_(IFsrmQuotaBase,IFsrmObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmQuotaBase_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmQuotaBase_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmQuotaBase_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmQuotaBase_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmQuotaBase_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmQuotaBase_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmQuotaBase_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmQuotaBase_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmQuotaBase_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -395,9 +395,9 @@ DECLARE_INTERFACE_(IFsrmQuotaObject,IFsrmQuotaBase)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmQuotaObject_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmQuotaObject_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmQuotaObject_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmQuotaObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmQuotaObject_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmQuotaObject_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmQuotaObject_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmQuotaObject_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmQuotaObject_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -482,9 +482,9 @@ DECLARE_INTERFACE_(IFsrmAutoApplyQuota,IFsrmQuotaObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmAutoApplyQuota_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmAutoApplyQuota_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmAutoApplyQuota_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmAutoApplyQuota_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmAutoApplyQuota_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmAutoApplyQuota_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmAutoApplyQuota_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmAutoApplyQuota_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmAutoApplyQuota_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -566,9 +566,9 @@ DECLARE_INTERFACE_(IFsrmQuota,IFsrmQuotaObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmQuota_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmQuota_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmQuota_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmQuota_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmQuota_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmQuota_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmQuota_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmQuota_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmQuota_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -652,9 +652,9 @@ DECLARE_INTERFACE_(IFsrmQuotaTemplate,IFsrmQuotaBase)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmQuotaTemplate_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmQuotaTemplate_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmQuotaTemplate_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmQuotaTemplate_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmQuotaTemplate_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmQuotaTemplate_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmQuotaTemplate_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmQuotaTemplate_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmQuotaTemplate_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -734,9 +734,9 @@ DECLARE_INTERFACE_(IFsrmQuotaTemplateImported,IFsrmQuotaTemplate)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmQuotaTemplateImported_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmQuotaTemplateImported_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmQuotaTemplateImported_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmQuotaTemplateImported_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmQuotaTemplateImported_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmQuotaTemplateImported_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmQuotaTemplateImported_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmQuotaTemplateImported_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmQuotaTemplateImported_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -796,9 +796,9 @@ DECLARE_INTERFACE_(IFsrmQuotaTemplateManager,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmQuotaTemplateManager_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmQuotaTemplateManager_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmQuotaTemplateManager_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmQuotaTemplateManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmQuotaTemplateManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmQuotaTemplateManager_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmQuotaTemplateImported_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmQuotaTemplateImported_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmQuotaTemplateImported_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -849,9 +849,9 @@ DECLARE_INTERFACE_(IFsrmQuotaManager,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmQuotaManager_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmQuotaManager_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmQuotaManager_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmQuotaManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmQuotaManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmQuotaManager_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmQuotaManager_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmQuotaManager_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmQuotaManager_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -912,9 +912,9 @@ DECLARE_INTERFACE_(IFsrmQuotaManagerEx,IFsrmQuotaManager)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmQuotaManagerEx_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmQuotaManagerEx_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmQuotaManagerEx_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmQuotaManagerEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmQuotaManagerEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmQuotaManagerEx_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmQuotaManagerEx_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmQuotaManagerEx_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmQuotaManagerEx_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)

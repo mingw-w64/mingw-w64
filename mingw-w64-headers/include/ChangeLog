@@ -1,3 +1,22 @@
+2012-04-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from the trunk revs. 4961/4962:
+	2012-04-23  Stefan Sundin  <recover89@gmail.com>
+	* adhoc.h, audioengineendpoint.h, bdaiface.h, dvbsiparser.h, dwrite.h,
+	dxvahd.h, evr.h, fsrm.h, fsrmquota.h, fsrmreports.h, fsrmscreen.h,
+	functiondiscoveryapi.h, functiondiscoverynotification.h,
+	identitystore.h, locationapi.h, mfapi.h, mfidl.h, mfobjects.h,
+	mfplay.h, mfreadwrite.h, mftransform.h, mpeg2data.h, mpeg2psiparser.h,
+	msrdc.h, ndhelper.h, opmapi.h, portabledeviceconnectapi.h,
+	rdpencomapi.h, strmif.h, tuner.h, vsadmin.h, vsbackup.h, vsmgmt.h,
+	vsprov.h, vss.h, vswriter.h, winsync.h, wmcontainer.h, wsdattachment.h,
+	wsdbase.h, wsdclient.h, wsddisco.h, wsdhost.h, wsdxml.h: Fix incorrect
+	references for pVtbl to lpVtbl.
+	* adhoc.h (IDot11AdHocInterfaceNotificationSink): Fix
+	OnConnectionStatusChange.
+	2012-04-23  Kai Tietz  <ktietz@redhat.com>
+	* endpointvolume.h (IAudioEndpointVolume): Fix. (PR/3520095)
+
 2012-02-24  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from the trunk revs. 4790, 4807, 4809, 4815, 4816 and

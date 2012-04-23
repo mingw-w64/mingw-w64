@@ -170,9 +170,9 @@ DECLARE_INTERFACE_(IMFTransform,IUnknown)
 };
 
 #ifdef COBJMACROS
-#define IMFTransform_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFTransform_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFTransform_Release(This) (This)->pVtbl->Release(This)
+#define IMFTransform_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFTransform_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFTransform_Release(This) (This)->lpVtbl->Release(This)
 #define IMFTransform_AddInputStreams(This,cStreams,adwStreamIDs) (This)->lpVtbl->AddInputStreams(This,cStreams,adwStreamIDs)
 #define IMFTransform_DeleteInputStream(This,dwStreamID) (This)->lpVtbl->DeleteInputStream(This,dwStreamID)
 #define IMFTransform_GetAttributes(This,pAttributes) (This)->lpVtbl->GetAttributes(This,pAttributes)

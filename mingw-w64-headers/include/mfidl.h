@@ -402,9 +402,9 @@ DECLARE_INTERFACE_(IMFByteStreamBuffering,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFByteStreamBuffering_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFByteStreamBuffering_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFByteStreamBuffering_Release(This) (This)->pVtbl->Release(This)
+#define IMFByteStreamBuffering_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFByteStreamBuffering_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFByteStreamBuffering_Release(This) (This)->lpVtbl->Release(This)
 #define IMFByteStreamBuffering_EnableBuffering(This,fEnable) (This)->lpVtbl->EnableBuffering(This,fEnable)
 #define IMFByteStreamBuffering_SetBufferingParams(This,pParams) (This)->lpVtbl->SetBufferingParams(This,pParams)
 #define IMFByteStreamBuffering_StopBuffering() (This)->lpVtbl->StopBuffering(This)
@@ -468,9 +468,9 @@ DECLARE_INTERFACE_(IMFPresentationDescriptor,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFPresentationDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFPresentationDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFPresentationDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IMFPresentationDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFPresentationDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFPresentationDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IMFPresentationDescriptor_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFPresentationDescriptor_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFPresentationDescriptor_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -526,9 +526,9 @@ DECLARE_INTERFACE_(IMFByteStreamCacheControl,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFByteStreamCacheControl_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFByteStreamCacheControl_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFByteStreamCacheControl_Release(This) (This)->pVtbl->Release(This)
+#define IMFByteStreamCacheControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFByteStreamCacheControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFByteStreamCacheControl_Release(This) (This)->lpVtbl->Release(This)
 #define IMFByteStreamCacheControl_StopBackgroundTransfer() (This)->lpVtbl->StopBackgroundTransfer(This)
 #endif /*COBJMACROS*/
 #endif /*(_WIN32_WINNT >= 0x0601)*/
@@ -584,9 +584,9 @@ DECLARE_INTERFACE_(IMFClockStateSink,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFClockStateSink_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFClockStateSink_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFClockStateSink_Release(This) (This)->pVtbl->Release(This)
+#define IMFClockStateSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFClockStateSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFClockStateSink_Release(This) (This)->lpVtbl->Release(This)
 #define IMFClockStateSink_OnClockPause(This,hnsSystemTime) (This)->lpVtbl->OnClockPause(This,hnsSystemTime)
 #define IMFClockStateSink_OnClockRestart(This,hnsSystemTime) (This)->lpVtbl->OnClockRestart(This,hnsSystemTime)
 #define IMFClockStateSink_OnClockSetRate(This,hnsSystemTime,flRate) (This)->lpVtbl->OnClockSetRate(This,hnsSystemTime,flRate)
@@ -620,9 +620,9 @@ DECLARE_INTERFACE_(IMFClock,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFClock_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFClock_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFClock_Release(This) (This)->pVtbl->Release(This)
+#define IMFClock_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFClock_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFClock_Release(This) (This)->lpVtbl->Release(This)
 #define IMFClock_GetClockCharacteristics(This,pdwCharacteristics) (This)->lpVtbl->GetClockCharacteristics(This,pdwCharacteristics)
 #define IMFClock_GetContinuityKey(This,pdwContinuityKey) (This)->lpVtbl->GetContinuityKey(This,pdwContinuityKey)
 #define IMFClock_GetCorrelatedTime(This,dwReserved,pllClockTime,phnsSystemTime) (This)->lpVtbl->GetCorrelatedTime(This,dwReserved,pllClockTime,phnsSystemTime)
@@ -659,9 +659,9 @@ DECLARE_INTERFACE_(IMFPresentationTimeSource,IMFClock)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFPresentationTimeSource_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFPresentationTimeSource_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFPresentationTimeSource_Release(This) (This)->pVtbl->Release(This)
+#define IMFPresentationTimeSource_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFPresentationTimeSource_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFPresentationTimeSource_Release(This) (This)->lpVtbl->Release(This)
 #define IMFPresentationTimeSource_GetClockCharacteristics(This,pdwCharacteristics) (This)->lpVtbl->GetClockCharacteristics(This,pdwCharacteristics)
 #define IMFPresentationTimeSource_GetContinuityKey(This,pdwContinuityKey) (This)->lpVtbl->GetContinuityKey(This,pdwContinuityKey)
 #define IMFPresentationTimeSource_GetCorrelatedTime(This,dwReserved,pllClockTime,phnsSystemTime) (This)->lpVtbl->GetCorrelatedTime(This,dwReserved,pllClockTime,phnsSystemTime)
@@ -706,9 +706,9 @@ DECLARE_INTERFACE_(IMFPresentationClock,IMFClock)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFPresentationClock_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFPresentationClock_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFPresentationClock_Release(This) (This)->pVtbl->Release(This)
+#define IMFPresentationClock_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFPresentationClock_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFPresentationClock_Release(This) (This)->lpVtbl->Release(This)
 #define IMFPresentationClock_GetClockCharacteristics(This,pdwCharacteristics) (This)->lpVtbl->GetClockCharacteristics(This,pdwCharacteristics)
 #define IMFPresentationClock_GetContinuityKey(This,pdwContinuityKey) (This)->lpVtbl->GetContinuityKey(This,pdwContinuityKey)
 #define IMFPresentationClock_GetCorrelatedTime(This,dwReserved,pllClockTime,phnsSystemTime) (This)->lpVtbl->GetCorrelatedTime(This,dwReserved,pllClockTime,phnsSystemTime)
@@ -759,9 +759,9 @@ DECLARE_INTERFACE_(IMFStreamSink,IMFMediaEventGenerator)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFStreamSink_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFStreamSink_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFStreamSink_Release(This) (This)->pVtbl->Release(This)
+#define IMFStreamSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFStreamSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFStreamSink_Release(This) (This)->lpVtbl->Release(This)
 #define IMFStreamSink_BeginGetEvent(This,pCallback,punkState) (This)->lpVtbl->BeginGetEvent(This,pCallback,punkState)
 #define IMFStreamSink_EndGetEvent(This,pResult,ppEvent) (This)->lpVtbl->EndGetEvent(This,pResult,ppEvent)
 #define IMFStreamSink_GetEvent(This,dwFlags,ppEvent) (This)->lpVtbl->GetEvent(This,dwFlags,ppEvent)
@@ -805,9 +805,9 @@ DECLARE_INTERFACE_(IMFMediaSink,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFMediaSink_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFMediaSink_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFMediaSink_Release(This) (This)->pVtbl->Release(This)
+#define IMFMediaSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFMediaSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFMediaSink_Release(This) (This)->lpVtbl->Release(This)
 #define IMFMediaSink_AddStreamSink(This,dwStreamSinkIdentifier,pMediaType,ppStreamSink) (This)->lpVtbl->AddStreamSink(This,dwStreamSinkIdentifier,pMediaType,ppStreamSink)
 #define IMFMediaSink_GetCharacteristics(This,pdwCharacteristics) (This)->lpVtbl->GetCharacteristics(This,pdwCharacteristics)
 #define IMFMediaSink_GetPresentationClock(This,ppPresentationClock) (This)->lpVtbl->GetPresentationClock(This,ppPresentationClock)
@@ -843,9 +843,9 @@ DECLARE_INTERFACE_(IMFSchemeHandler,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFSchemeHandler_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFSchemeHandler_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFSchemeHandler_Release(This) (This)->pVtbl->Release(This)
+#define IMFSchemeHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFSchemeHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFSchemeHandler_Release(This) (This)->lpVtbl->Release(This)
 #define IMFSchemeHandler_BeginCreateObject(This,pwszURL,dwFlags,pProps,ppIUnknownCancelCookie,pCallback,punkState) (This)->lpVtbl->BeginCreateObject(This,pwszURL,dwFlags,pProps,ppIUnknownCancelCookie,pCallback,punkState)
 #define IMFSchemeHandler_CancelObjectCreation(This,pIUnknownCancelCookie) (This)->lpVtbl->CancelObjectCreation(This,pIUnknownCancelCookie)
 #define IMFSchemeHandler_EndCreateObject(This,pResult,pObjectType,ppObject) (This)->lpVtbl->EndCreateObject(This,pResult,pObjectType,ppObject)
@@ -880,9 +880,9 @@ DECLARE_INTERFACE_(IMFMediaSource,IMFMediaEventGenerator)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFMediaSource_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFMediaSource_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFMediaSource_Release(This) (This)->pVtbl->Release(This)
+#define IMFMediaSource_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFMediaSource_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFMediaSource_Release(This) (This)->lpVtbl->Release(This)
 #define IMFMediaSource_CreatePresentationDescriptor(This,ppPresentationDescriptor) (This)->lpVtbl->CreatePresentationDescriptor(This,ppPresentationDescriptor)
 #define IMFMediaSource_GetCharacteristics(This,pdwCharacteristics) (This)->lpVtbl->GetCharacteristics(This,pdwCharacteristics)
 #define IMFMediaSource_Pause() (This)->lpVtbl->Pause(This)
@@ -916,9 +916,9 @@ DECLARE_INTERFACE_(IMFPMPServer,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFPMPServer_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFPMPServer_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFPMPServer_Release(This) (This)->pVtbl->Release(This)
+#define IMFPMPServer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFPMPServer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFPMPServer_Release(This) (This)->lpVtbl->Release(This)
 #define IMFPMPServer_CreateObjectByCLSID(This,clsid,riid,ppObject) (This)->lpVtbl->CreateObjectByCLSID(This,clsid,riid,ppObject)
 #define IMFPMPServer_LockProcess() (This)->lpVtbl->LockProcess(This)
 #define IMFPMPServer_UnlockProcess() (This)->lpVtbl->UnlockProcess(This)
@@ -997,9 +997,9 @@ DECLARE_INTERFACE_(IMFTopologyNode,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFTopologyNode_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFTopologyNode_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFTopologyNode_Release(This) (This)->pVtbl->Release(This)
+#define IMFTopologyNode_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFTopologyNode_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFTopologyNode_Release(This) (This)->lpVtbl->Release(This)
 #define IMFTopologyNode_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFTopologyNode_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFTopologyNode_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -1116,9 +1116,9 @@ DECLARE_INTERFACE_(IMFTopology,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFTopology_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFTopology_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFTopology_Release(This) (This)->pVtbl->Release(This)
+#define IMFTopology_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFTopology_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFTopology_Release(This) (This)->lpVtbl->Release(This)
 #define IMFTopology_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFTopology_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFTopology_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -1186,9 +1186,9 @@ DECLARE_INTERFACE_(IMFTopoLoader,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFTopoLoader_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFTopoLoader_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFTopoLoader_Release(This) (This)->pVtbl->Release(This)
+#define IMFTopoLoader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFTopoLoader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFTopoLoader_Release(This) (This)->lpVtbl->Release(This)
 #define IMFTopoLoader_Load(This,pInputTopo,ppOutputTopo,pCurrentTopo) (This)->lpVtbl->Load(This,pInputTopo,ppOutputTopo,pCurrentTopo)
 #endif /*COBJMACROS*/
 
@@ -1231,9 +1231,9 @@ DECLARE_INTERFACE_(IMFMediaSession,IMFMediaEventGenerator)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFMediaSession_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFMediaSession_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFMediaSession_Release(This) (This)->pVtbl->Release(This)
+#define IMFMediaSession_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFMediaSession_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFMediaSession_Release(This) (This)->lpVtbl->Release(This)
 #define IMFMediaSession_BeginGetEvent(This,pCallback,punkState) (This)->lpVtbl->BeginGetEvent(This,pCallback,punkState)
 #define IMFMediaSession_EndGetEvent(This,pResult,ppEvent) (This)->lpVtbl->EndGetEvent(This,pResult,ppEvent)
 #define IMFMediaSession_GetEvent(This,dwFlags,ppEvent) (This)->lpVtbl->GetEvent(This,dwFlags,ppEvent)
@@ -1307,9 +1307,9 @@ DECLARE_INTERFACE_(IMFActivate,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFActivate_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFActivate_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFActivate_Release(This) (This)->pVtbl->Release(This)
+#define IMFActivate_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFActivate_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFActivate_Release(This) (This)->lpVtbl->Release(This)
 #define IMFActivate_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFActivate_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFActivate_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -1400,9 +1400,9 @@ DECLARE_INTERFACE_(IMFStreamDescriptor,IMFAttributes)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFStreamDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFStreamDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFStreamDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IMFStreamDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFStreamDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFStreamDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IMFStreamDescriptor_Compare(This,pTheirs,MatchType,pbResult) (This)->lpVtbl->Compare(This,pTheirs,MatchType,pbResult)
 #define IMFStreamDescriptor_CompareItem(This,guidKey,Value,pbResult) (This)->lpVtbl->CompareItem(This,guidKey,Value,pbResult)
 #define IMFStreamDescriptor_CopyAllItems(This,pDest) (This)->lpVtbl->CopyAllItems(This,pDest)
@@ -1454,9 +1454,9 @@ DECLARE_INTERFACE_(IMFRemoteDesktopPlugin,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFRemoteDesktopPlugin_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFRemoteDesktopPlugin_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFRemoteDesktopPlugin_Release(This) (This)->pVtbl->Release(This)
+#define IMFRemoteDesktopPlugin_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFRemoteDesktopPlugin_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFRemoteDesktopPlugin_Release(This) (This)->lpVtbl->Release(This)
 #define IMFRemoteDesktopPlugin_UpdateTopology(This,pTopology) (This)->lpVtbl->UpdateTopology(This,pTopology)
 #endif /*COBJMACROS*/
 
@@ -1486,9 +1486,9 @@ DECLARE_INTERFACE_(IMFNetProxyLocator,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFNetProxyLocator_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFNetProxyLocator_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFNetProxyLocator_Release(This) (This)->pVtbl->Release(This)
+#define IMFNetProxyLocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFNetProxyLocator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFNetProxyLocator_Release(This) (This)->lpVtbl->Release(This)
 #define IMFNetProxyLocator_Clone(This,ppProxyLocator) (This)->lpVtbl->Clone(This,ppProxyLocator)
 #define IMFNetProxyLocator_FindFirstProxy(This,pszHost,pszUrl,fReserved) (This)->lpVtbl->FindFirstProxy(This,pszHost,pszUrl,fReserved)
 #define IMFNetProxyLocator_FindNextProxy() (This)->lpVtbl->FindNextProxy(This)
@@ -1525,9 +1525,9 @@ DECLARE_INTERFACE_(IMFMediaTypeHandler,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFMediaTypeHandler_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFMediaTypeHandler_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFMediaTypeHandler_Release(This) (This)->pVtbl->Release(This)
+#define IMFMediaTypeHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFMediaTypeHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFMediaTypeHandler_Release(This) (This)->lpVtbl->Release(This)
 #define IMFMediaTypeHandler_GetCurrentMediaType(This,ppMediaType) (This)->lpVtbl->GetCurrentMediaType(This,ppMediaType)
 #define IMFMediaTypeHandler_GetMajorType(This,pguidMajorType) (This)->lpVtbl->GetMajorType(This,pguidMajorType)
 #define IMFMediaTypeHandler_GetMediaTypeByIndex(This,dwIndex,ppType) (This)->lpVtbl->GetMediaTypeByIndex(This,dwIndex,ppType)
@@ -1568,9 +1568,9 @@ DECLARE_INTERFACE_(IMFSampleGrabberSinkCallback,IMFClockStateSink)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFSampleGrabberSinkCallback_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFSampleGrabberSinkCallback_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFSampleGrabberSinkCallback_Release(This) (This)->pVtbl->Release(This)
+#define IMFSampleGrabberSinkCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFSampleGrabberSinkCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFSampleGrabberSinkCallback_Release(This) (This)->lpVtbl->Release(This)
 #define IMFSampleGrabberSinkCallback_OnClockPause(This,hnsSystemTime) (This)->lpVtbl->OnClockPause(This,hnsSystemTime)
 #define IMFSampleGrabberSinkCallback_OnClockRestart(This,hnsSystemTime) (This)->lpVtbl->OnClockRestart(This,hnsSystemTime)
 #define IMFSampleGrabberSinkCallback_OnClockSetRate(This,hnsSystemTime,flRate) (This)->lpVtbl->OnClockSetRate(This,hnsSystemTime,flRate)
@@ -1607,9 +1607,9 @@ DECLARE_INTERFACE_(IMFSequencerSource,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFSequencerSource_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFSequencerSource_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFSequencerSource_Release(This) (This)->pVtbl->Release(This)
+#define IMFSequencerSource_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFSequencerSource_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFSequencerSource_Release(This) (This)->lpVtbl->Release(This)
 #define IMFSequencerSource_AppendTopology(This,pTopology,dwFlags,pdwId) (This)->lpVtbl->AppendTopology(This,pTopology,dwFlags,pdwId)
 #define IMFSequencerSource_DeleteTopology(This,dwId) (This)->lpVtbl->DeleteTopology(This,dwId)
 #define IMFSequencerSource_GetPresentationContext(This,pPD,pId,ppTopology) (This)->lpVtbl->GetPresentationContext(This,pPD,pId,ppTopology)
@@ -1645,9 +1645,9 @@ DECLARE_INTERFACE_(IMFSourceResolver,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFSourceResolver_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFSourceResolver_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFSourceResolver_Release(This) (This)->pVtbl->Release(This)
+#define IMFSourceResolver_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFSourceResolver_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFSourceResolver_Release(This) (This)->lpVtbl->Release(This)
 #define IMFSourceResolver_BeginCreateObjectFromByteStream(This,pByteStream,pwszURL,dwFlags,pProps,ppIUnknownCancelCookie,pCallback,punkState) (This)->lpVtbl->BeginCreateObjectFromByteStream(This,pByteStream,pwszURL,dwFlags,pProps,ppIUnknownCancelCookie,pCallback,punkState)
 #define IMFSourceResolver_BeginCreateObjectFromURL(This,pwszURL,dwFlags,pProps,ppIUnknownCancelCookie,pCallback,punkState) (This)->lpVtbl->BeginCreateObjectFromURL(This,pwszURL,dwFlags,pProps,ppIUnknownCancelCookie,pCallback,punkState)
 #define IMFSourceResolver_CancelObjectCreation(This,ppIUnknownCancelCookie) (This)->lpVtbl->CancelObjectCreation(This,ppIUnknownCancelCookie)
@@ -1684,9 +1684,9 @@ DECLARE_INTERFACE_(IMFQualityManager,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFQualityManager_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFQualityManager_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFQualityManager_Release(This) (This)->pVtbl->Release(This)
+#define IMFQualityManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFQualityManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFQualityManager_Release(This) (This)->lpVtbl->Release(This)
 #define IMFQualityManager_NotifyPresentationClock(This,pClock) (This)->lpVtbl->NotifyPresentationClock(This,pClock)
 #define IMFQualityManager_NotifyProcessInput(This,pNode,lInputIndex,pSample) (This)->lpVtbl->NotifyProcessInput(This,pNode,lInputIndex,pSample)
 #define IMFQualityManager_NotifyProcessOutput(This,pNode,lOutputIndex,pSample) (This)->lpVtbl->NotifyProcessOutput(This,pNode,lOutputIndex,pSample)
@@ -1720,9 +1720,9 @@ DECLARE_INTERFACE_(IMFByteStreamHandler,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFByteStreamHandler_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFByteStreamHandler_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFByteStreamHandler_Release(This) (This)->pVtbl->Release(This)
+#define IMFByteStreamHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFByteStreamHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFByteStreamHandler_Release(This) (This)->lpVtbl->Release(This)
 #define IMFByteStreamHandler_BeginCreateObject(This,pByteStream,pwszURL,dwFlags,pProps,ppIUnknownCancelCookie,pCallback,punkState) (This)->lpVtbl->BeginCreateObject(This,pByteStream,pwszURL,dwFlags,pProps,ppIUnknownCancelCookie,pCallback,punkState)
 #define IMFByteStreamHandler_CancelObjectCreation(This,pIUnknownCancelCookie) (This)->lpVtbl->CancelObjectCreation(This,pIUnknownCancelCookie)
 #define IMFByteStreamHandler_EndCreateObject(This,pResult,pObjectType,ppObject) (This)->lpVtbl->EndCreateObject(This,pResult,pObjectType,ppObject)
@@ -1757,9 +1757,9 @@ DECLARE_INTERFACE_(IMFTranscodeProfile,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFTranscodeProfile_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFTranscodeProfile_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFTranscodeProfile_Release(This) (This)->pVtbl->Release(This)
+#define IMFTranscodeProfile_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFTranscodeProfile_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFTranscodeProfile_Release(This) (This)->lpVtbl->Release(This)
 #define IMFTranscodeProfile_GetAudioAttributes(This,ppAttrs) (This)->lpVtbl->GetAudioAttributes(This,ppAttrs)
 #define IMFTranscodeProfile_GetContainerAttributes(This,ppAttrs) (This)->lpVtbl->GetContainerAttributes(This,ppAttrs)
 #define IMFTranscodeProfile_GetVideoAttributes(This,ppAttrs) (This)->lpVtbl->GetVideoAttributes(This,ppAttrs)
@@ -1800,9 +1800,9 @@ DECLARE_INTERFACE_(IMFTranscodeSinkInfoProvider,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFTranscodeSinkInfoProvider_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFTranscodeSinkInfoProvider_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFTranscodeSinkInfoProvider_Release(This) (This)->pVtbl->Release(This)
+#define IMFTranscodeSinkInfoProvider_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFTranscodeSinkInfoProvider_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFTranscodeSinkInfoProvider_Release(This) (This)->lpVtbl->Release(This)
 #define IMFTranscodeSinkInfoProvider_GetSinkInfo(This,pSinkInfo) (This)->lpVtbl->GetSinkInfo(This,pSinkInfo)
 #define IMFTranscodeSinkInfoProvider_SetOutputByteStream(This,pByteStreamActivate) (This)->lpVtbl->SetOutputByteStream(This,pByteStreamActivate)
 #define IMFTranscodeSinkInfoProvider_SetOutputFile(This,pwszFileName) (This)->lpVtbl->SetOutputFile(This,pwszFileName)
@@ -1838,9 +1838,9 @@ DECLARE_INTERFACE_(IMFVideoSampleAllocator,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFVideoSampleAllocator_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFVideoSampleAllocator_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFVideoSampleAllocator_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoSampleAllocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoSampleAllocator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoSampleAllocator_Release(This) (This)->lpVtbl->Release(This)
 #define IMFVideoSampleAllocator_GetCurrentMediaType(This,ppMediaType) (This)->lpVtbl->GetCurrentMediaType(This,ppMediaType)
 #define IMFVideoSampleAllocator_ProcessMessage(This,eMessage,ulParam) (This)->lpVtbl->ProcessMessage(This,eMessage,ulParam)
 #define IMFVideoSampleAllocator_AllocateSample(This,ppSample) (This)->lpVtbl->AllocateSample(This,ppSample)
@@ -1872,9 +1872,9 @@ DECLARE_INTERFACE_(IMFObjectReferenceStream,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFObjectReferenceStream_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFObjectReferenceStream_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFObjectReferenceStream_Release(This) (This)->pVtbl->Release(This)
+#define IMFObjectReferenceStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFObjectReferenceStream_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFObjectReferenceStream_Release(This) (This)->lpVtbl->Release(This)
 #define IMFObjectReferenceStream_LoadReference(This,riid,ppv) (This)->lpVtbl->LoadReference(This,riid,ppv)
 #define IMFObjectReferenceStream_SaveReference(This,riid,pUnk) (This)->lpVtbl->SaveReference(This,riid,pUnk)
 #endif /*COBJMACROS*/
@@ -1912,9 +1912,9 @@ DECLARE_INTERFACE_(IMFWorkQueueServices,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFWorkQueueServices_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFWorkQueueServices_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFWorkQueueServices_Release(This) (This)->pVtbl->Release(This)
+#define IMFWorkQueueServices_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFWorkQueueServices_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFWorkQueueServices_Release(This) (This)->lpVtbl->Release(This)
 #define IMFWorkQueueServices_BeginRegisterPlatformWorkQueueWithMMCSS(This,dwPlatformWorkQueue,wszClass,dwTaskId,pCallback,pState) (This)->lpVtbl->BeginRegisterPlatformWorkQueueWithMMCSS(This,dwPlatformWorkQueue,wszClass,dwTaskId,pCallback,pState)
 #define IMFWorkQueueServices_BeginRegisterTopologyWorkQueuesWithMMCSS(This,pCallback,pState) (This)->lpVtbl->BeginRegisterTopologyWorkQueuesWithMMCSS(This,pCallback,pState)
 #define IMFWorkQueueServices_BeginUnregisterPlatformWorkQueueWithMMCSS(This,dwPlatformWorkQueue,pCallback,pState) (This)->lpVtbl->BeginUnregisterPlatformWorkQueueWithMMCSS(This,dwPlatformWorkQueue,pCallback,pState)
@@ -1948,9 +1948,9 @@ DECLARE_INTERFACE_(IMFVideoSampleAllocatorNotify,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFVideoSampleAllocatorNotify_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFVideoSampleAllocatorNotify_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFVideoSampleAllocatorNotify_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoSampleAllocatorNotify_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoSampleAllocatorNotify_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoSampleAllocatorNotify_Release(This) (This)->lpVtbl->Release(This)
 #define IMFVideoSampleAllocatorNotify_NotifyRelease() (This)->lpVtbl->NotifyRelease(This)
 #endif /*COBJMACROS*/
 
@@ -1977,9 +1977,9 @@ DECLARE_INTERFACE_(IMFVideoSampleAllocatorCallback,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFVideoSampleAllocatorCallback_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFVideoSampleAllocatorCallback_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFVideoSampleAllocatorCallback_Release(This) (This)->pVtbl->Release(This)
+#define IMFVideoSampleAllocatorCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFVideoSampleAllocatorCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFVideoSampleAllocatorCallback_Release(This) (This)->lpVtbl->Release(This)
 #define IMFVideoSampleAllocatorCallback_GetFreeSampleCount(This,plSamples) (This)->lpVtbl->GetFreeSampleCount(This,plSamples)
 #define IMFVideoSampleAllocatorCallback_SetCallback(This,pNotify) (This)->lpVtbl->SetCallback(This,pNotify)
 #endif /*COBJMACROS*/

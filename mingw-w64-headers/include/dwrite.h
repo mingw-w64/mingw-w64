@@ -651,9 +651,9 @@ DECLARE_INTERFACE_(IDWriteBitmapRenderTarget,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteBitmapRenderTarget_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteBitmapRenderTarget_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteBitmapRenderTarget_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteBitmapRenderTarget_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteBitmapRenderTarget_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteBitmapRenderTarget_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteBitmapRenderTarget_DrawGlyphRun(This,baselineOriginX,baselineOriginY,measuringMode,glyphRun,renderingParams,textColor,blackBoxRect) (This)->lpVtbl->DrawGlyphRun(This,baselineOriginX,baselineOriginY,measuringMode,glyphRun,renderingParams,textColor,blackBoxRect)
 #define IDWriteBitmapRenderTarget_GetCurrentTransform(This,transform) (This)->lpVtbl->GetCurrentTransform(This,transform)
 #define IDWriteBitmapRenderTarget_GetMemoryDC() (This)->lpVtbl->GetMemoryDC(This)
@@ -793,9 +793,9 @@ DECLARE_INTERFACE_(IDWriteFactory,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFactory_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFactory_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFactory_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFactory_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFactory_CreateCustomFontCollection(This,collectionLoader,collectionKey,collectionKeySize,fontCollection) (This)->lpVtbl->CreateCustomFontCollection(This,collectionLoader,collectionKey,collectionKeySize,fontCollection)
 #define IDWriteFactory_CreateCustomFontFileReference(This,fontFileReferenceKey,fontFileReferenceKeySize,fontFileLoader,fontFile) (This)->lpVtbl->CreateCustomFontFileReference(This,fontFileReferenceKey,fontFileReferenceKeySize,fontFileLoader,fontFile)
 #define IDWriteFactory_CreateCustomRenderingParams(This,gamma,enhancedContrast,clearTypeLevel,pixelGeometry,renderingMode,renderingParams) (This)->lpVtbl->CreateCustomRenderingParams(This,gamma,enhancedContrast,clearTypeLevel,pixelGeometry,renderingMode,renderingParams)
@@ -862,9 +862,9 @@ DECLARE_INTERFACE_(IDWriteFont,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFont_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFont_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFont_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFont_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFont_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFont_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFont_CreateFontFace(This,fontFace) (This)->lpVtbl->CreateFontFace(This,fontFace)
 #define IDWriteFont_GetFaceNames(This,names) (This)->lpVtbl->GetFaceNames(This,names)
 #define IDWriteFont_GetFontFamily(This,fontFamily) (This)->lpVtbl->GetFontFamily(This,fontFamily)
@@ -908,9 +908,9 @@ DECLARE_INTERFACE_(IDWriteFontCollection,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFontCollection_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFontCollection_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFontCollection_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFontCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontCollection_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFontCollection_FindFamilyName(This,familyName,index,exists) (This)->lpVtbl->FindFamilyName(This,familyName,index,exists)
 #define IDWriteFontCollection_GetFontFamily(This,index,fontFamily) (This)->lpVtbl->GetFontFamily(This,index,fontFamily)
 #define IDWriteFontCollection_GetFontFamilyCount() (This)->lpVtbl->GetFontFamilyCount(This)
@@ -1002,9 +1002,9 @@ DECLARE_INTERFACE_(IDWriteFontFace,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFontFace_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFontFace_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFontFace_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFontFace_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontFace_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontFace_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFontFace_GetDesignGlyphMetrics(This,glyphIndices,glyphCount,glyphMetrics,isSideways) (This)->lpVtbl->GetDesignGlyphMetrics(This,glyphIndices,glyphCount,glyphMetrics,isSideways)
 #define IDWriteFontFace_GetFiles(This,fontFiles) (This)->lpVtbl->GetFiles(This,fontFiles)
 #define IDWriteFontFace_GetGdiCompatibleMetrics(This,emSize,pixelsPerDip,transform,fontFaceMetrics) (This)->lpVtbl->GetGdiCompatibleMetrics(This,emSize,pixelsPerDip,transform,fontFaceMetrics)
@@ -1046,9 +1046,9 @@ DECLARE_INTERFACE_(IDWriteFontList,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFontList_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFontList_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFontList_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFontList_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontList_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontList_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFontList_GetFont(This,index,font) (This)->lpVtbl->GetFont(This,index,font)
 #define IDWriteFontList_GetFontCollection(This,fontCollection) (This)->lpVtbl->GetFontCollection(This,fontCollection)
 #define IDWriteFontList_GetFontCount() (This)->lpVtbl->GetFontCount(This)
@@ -1094,9 +1094,9 @@ DECLARE_INTERFACE_(IDWriteFontFamily,IDWriteFontList)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFontFamily_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFontFamily_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFontFamily_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFontFamily_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontFamily_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontFamily_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFontFamily_GetFont(This,index,font) (This)->lpVtbl->GetFont(This,index,font)
 #define IDWriteFontFamily_GetFontCollection(This,fontCollection) (This)->lpVtbl->GetFontCollection(This,fontCollection)
 #define IDWriteFontFamily_GetFontCount() (This)->lpVtbl->GetFontCount(This)
@@ -1133,9 +1133,9 @@ DECLARE_INTERFACE_(IDWriteFontFile,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFontFile_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFontFile_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFontFile_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFontFile_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontFile_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontFile_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFontFile_Analyze(This,isSupportedFontType,fontFileType,fontFaceType,numberOfFaces) (This)->lpVtbl->Analyze(This,isSupportedFontType,fontFileType,fontFaceType,numberOfFaces)
 #define IDWriteFontFile_GetLoader(This,fontFileLoader) (This)->lpVtbl->GetLoader(This,fontFileLoader)
 #define IDWriteFontFile_GetReferenceKey(This,fontFileReferenceKey,fontFileReferenceKeySize) (This)->lpVtbl->GetReferenceKey(This,fontFileReferenceKey,fontFileReferenceKeySize)
@@ -1161,9 +1161,9 @@ DECLARE_INTERFACE_(IDWriteFontFileLoader,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFontFileLoader_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFontFileLoader_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFontFileLoader_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFontFileLoader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontFileLoader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontFileLoader_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFontFileLoader_CreateStreamFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,fontFileStream) (This)->lpVtbl->CreateStreamFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,fontFileStream)
 #endif /*COBJMACROS*/
 
@@ -1197,9 +1197,9 @@ DECLARE_INTERFACE_(IDWriteFontFileStream,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFontFileStream_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFontFileStream_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFontFileStream_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFontFileStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontFileStream_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontFileStream_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFontFileStream_GetFileSize(This,fileSize) (This)->lpVtbl->GetFileSize(This,fileSize)
 #define IDWriteFontFileStream_GetLastWriteTime(This,lastWriteTime) (This)->lpVtbl->GetLastWriteTime(This,lastWriteTime)
 #define IDWriteFontFileStream_ReadFileFragment(This,fragmentStart,fileOffset,fragmentSize,fragmentContext) (This)->lpVtbl->ReadFileFragment(This,fragmentStart,fileOffset,fragmentSize,fragmentContext)
@@ -1223,9 +1223,9 @@ DECLARE_INTERFACE_(IDWriteFontCollectionLoader,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFontCollectionLoader_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFontCollectionLoader_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFontCollectionLoader_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFontCollectionLoader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontCollectionLoader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontCollectionLoader_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFontCollectionLoader_CreateEnumeratorFromKey(This,factory,collectionKey,collectionKeySize,fontFileEnumerator) (This)->lpVtbl->CreateEnumeratorFromKey(This,factory,collectionKey,collectionKeySize,fontFileEnumerator)
 #endif /*COBJMACROS*/
 
@@ -1247,9 +1247,9 @@ DECLARE_INTERFACE_(IDWriteFontFileEnumerator,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteFontFileEnumerator_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteFontFileEnumerator_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteFontFileEnumerator_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteFontFileEnumerator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteFontFileEnumerator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteFontFileEnumerator_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteFontFileEnumerator_GetCurrentFontFile(This,fontFile) (This)->lpVtbl->GetCurrentFontFile(This,fontFile)
 #define IDWriteFontFileEnumerator_MoveNext(This,hasCurrentFile) (This)->lpVtbl->MoveNext(This,hasCurrentFile)
 #endif /*COBJMACROS*/
@@ -1292,9 +1292,9 @@ DECLARE_INTERFACE_(IDWriteGdiInterop,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteGdiInterop_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteGdiInterop_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteGdiInterop_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteGdiInterop_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteGdiInterop_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteGdiInterop_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteGdiInterop_ConvertFontFaceToLOGFONT(This,font,logFont) (This)->lpVtbl->ConvertFontFaceToLOGFONT(This,font,logFont)
 #define IDWriteGdiInterop_ConvertFontToLOGFONT(This,font,logFont,isSystemFont) (This)->lpVtbl->ConvertFontToLOGFONT(This,font,logFont,isSystemFont)
 #define IDWriteGdiInterop_CreateBitmapRenderTarget(This,hdc,width,height,renderTarget) (This)->lpVtbl->CreateBitmapRenderTarget(This,hdc,width,height,renderTarget)
@@ -1333,9 +1333,9 @@ DECLARE_INTERFACE_(IDWriteGlyphRunAnalysis,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteGlyphRunAnalysis_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteGlyphRunAnalysis_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteGlyphRunAnalysis_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteGlyphRunAnalysis_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteGlyphRunAnalysis_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteGlyphRunAnalysis_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteGlyphRunAnalysis_CreateAlphaTexture(This,textureType,textureBounds,alphaValues,bufferSize) (This)->lpVtbl->CreateAlphaTexture(This,textureType,textureBounds,alphaValues,bufferSize)
 #define IDWriteGlyphRunAnalysis_GetAlphaBlendParams(This,renderingParams,blendGamma,blendEnhancedContrast,blendClearTypeLevel) (This)->lpVtbl->GetAlphaBlendParams(This,renderingParams,blendGamma,blendEnhancedContrast,blendClearTypeLevel)
 #define IDWriteGlyphRunAnalysis_GetAlphaTextureBounds(This,textureType,textureBounds) (This)->lpVtbl->GetAlphaTextureBounds(This,textureType,textureBounds)
@@ -1361,9 +1361,9 @@ DECLARE_INTERFACE_(IDWriteInlineObject,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteInlineObject_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteInlineObject_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteInlineObject_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteInlineObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteInlineObject_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteInlineObject_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteInlineObject_Draw(This,clientDrawingContext,renderer,originX,originY,isSideways,isRightToLeft,clientDrawingEffect) (This)->lpVtbl->Draw(This,clientDrawingContext,renderer,originX,originY,isSideways,isRightToLeft,clientDrawingEffect)
 #define IDWriteInlineObject_GetBreakConditions(This,breakConditionBefore,breakConditionAfter) (This)->lpVtbl->GetBreakConditions(This,breakConditionBefore,breakConditionAfter)
 #define IDWriteInlineObject_GetMetrics(This,metrics) (This)->lpVtbl->GetMetrics(This,metrics)
@@ -1389,9 +1389,9 @@ DECLARE_INTERFACE_(IDWriteLocalFontFileLoader,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteLocalFontFileLoader_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteLocalFontFileLoader_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteLocalFontFileLoader_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteLocalFontFileLoader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteLocalFontFileLoader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteLocalFontFileLoader_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteLocalFontFileLoader_GetFilePathLengthFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,filePathLength) (This)->lpVtbl->GetFilePathLengthFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,filePathLength)
 #define IDWriteLocalFontFileLoader_GetFilePathFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,filePath,filePathSize) (This)->lpVtbl->GetFilePathFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,filePath,filePathSize)
 #define IDWriteLocalFontFileLoader_GetLastWriteTimeFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,lastWriteTime) (This)->lpVtbl->GetLastWriteTimeFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,lastWriteTime)
@@ -1437,9 +1437,9 @@ DECLARE_INTERFACE_(IDWriteLocalizedStrings,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteLocalizedStrings_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteLocalizedStrings_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteLocalizedStrings_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteLocalizedStrings_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteLocalizedStrings_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteLocalizedStrings_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteLocalizedStrings_FindLocaleName(This,localeName,index,exists) (This)->lpVtbl->FindLocaleName(This,localeName,index,exists)
 #define IDWriteLocalizedStrings_GetCount() (This)->lpVtbl->GetCount(This)
 #define IDWriteLocalizedStrings_GetLocaleName(This,index,localeName,size) (This)->lpVtbl->GetLocaleName(This,index,localeName,size)
@@ -1464,9 +1464,9 @@ DECLARE_INTERFACE_(IDWriteNumberSubstitution,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteNumberSubstitution_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteNumberSubstitution_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteNumberSubstitution_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteNumberSubstitution_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteNumberSubstitution_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteNumberSubstitution_Release(This) (This)->lpVtbl->Release(This)
 #endif /*COBJMACROS*/
 
 #undef  INTERFACE
@@ -1488,9 +1488,9 @@ DECLARE_INTERFACE_(IDWritePixelSnapping,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWritePixelSnapping_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWritePixelSnapping_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWritePixelSnapping_Release(This) (This)->pVtbl->Release(This)
+#define IDWritePixelSnapping_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWritePixelSnapping_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWritePixelSnapping_Release(This) (This)->lpVtbl->Release(This)
 #define IDWritePixelSnapping_GetCurrentTransform(This,clientDrawingContext,transform) (This)->lpVtbl->GetCurrentTransform(This,clientDrawingContext,transform)
 #define IDWritePixelSnapping_GetPixelsPerDip(This,clientDrawingContext,pixelsPerDip) (This)->lpVtbl->GetPixelsPerDip(This,clientDrawingContext,pixelsPerDip)
 #define IDWritePixelSnapping_IsPixelSnappingEnabled(This,clientDrawingContext,isDisabled) (This)->lpVtbl->IsPixelSnappingEnabled(This,clientDrawingContext,isDisabled)
@@ -1517,9 +1517,9 @@ DECLARE_INTERFACE_(IDWriteRenderingParams,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteRenderingParams_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteRenderingParams_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteRenderingParams_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteRenderingParams_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteRenderingParams_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteRenderingParams_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteRenderingParams_GetClearTypeLevel() (This)->lpVtbl->GetClearTypeLevel(This)
 #define IDWriteRenderingParams_GetEnhancedContrast() (This)->lpVtbl->GetEnhancedContrast(This)
 #define IDWriteRenderingParams_GetGamma() (This)->lpVtbl->GetGamma(This)
@@ -1563,9 +1563,9 @@ DECLARE_INTERFACE_(IDWriteTextAnalysisSink,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteTextAnalysisSink_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteTextAnalysisSink_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteTextAnalysisSink_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteTextAnalysisSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteTextAnalysisSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteTextAnalysisSink_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteTextAnalysisSink_SetBidiLevel(This,textPosition,textLength,explicitLevel,resolvedLevel) (This)->lpVtbl->SetBidiLevel(This,textPosition,textLength,explicitLevel,resolvedLevel)
 #define IDWriteTextAnalysisSink_SetLineBreakpoints(This,textPosition,textLength,lineBreakpoints) (This)->lpVtbl->SetLineBreakpoints(This,textPosition,textLength,lineBreakpoints)
 #define IDWriteTextAnalysisSink_SetNumberSubstitution(This,textPosition,textLength,numberSubstitution) (This)->lpVtbl->SetNumberSubstitution(This,textPosition,textLength,numberSubstitution)
@@ -1609,9 +1609,9 @@ DECLARE_INTERFACE_(IDWriteTextAnalysisSource,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteTextAnalysisSource_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteTextAnalysisSource_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteTextAnalysisSource_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteTextAnalysisSource_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteTextAnalysisSource_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteTextAnalysisSource_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteTextAnalysisSource_GetLocaleName(This,textPosition,textLength,localeName) (This)->lpVtbl->GetLocaleName(This,textPosition,textLength,localeName)
 #define IDWriteTextAnalysisSource_GetNumberSubstitution(This,textPosition,textLength,numberSubstitution) (This)->lpVtbl->GetNumberSubstitution(This,textPosition,textLength,numberSubstitution)
 #define IDWriteTextAnalysisSource_GetParagraphReadingDirection() (This)->lpVtbl->GetParagraphReadingDirection(This)
@@ -1720,9 +1720,9 @@ DECLARE_INTERFACE_(IDWriteTextAnalyzer,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteTextAnalyzer_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteTextAnalyzer_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteTextAnalyzer_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteTextAnalyzer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteTextAnalyzer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteTextAnalyzer_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteTextAnalyzer_AnalyzeBidi(This,analysisSource,textPosition,textLength,analysisSink) (This)->lpVtbl->AnalyzeBidi(This,analysisSource,textPosition,textLength,analysisSink)
 #define IDWriteTextAnalyzer_AnalyzeLineBreakpoints(This,analysisSource,textPosition,textLength,analysisSink) (This)->lpVtbl->AnalyzeLineBreakpoints(This,analysisSource,textPosition,textLength,analysisSink)
 #define IDWriteTextAnalyzer_AnalyzeNumberSubstitution(This,analysisSource,textPosition,textLength,analysisSink) (This)->lpVtbl->AnalyzeNumberSubstitution(This,analysisSource,textPosition,textLength,analysisSink)
@@ -1773,9 +1773,9 @@ DECLARE_INTERFACE_(IDWriteTextFormat,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteTextFormat_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteTextFormat_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteTextFormat_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteTextFormat_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteTextFormat_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteTextFormat_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteTextFormat_GetFlowDirection() (This)->lpVtbl->GetFlowDirection(This)
 #define IDWriteTextFormat_GetFontCollection(This,fontCollection) (This)->lpVtbl->GetFontCollection(This,fontCollection)
 #define IDWriteTextFormat_GetFontFamilyName(This,fontFamilyName,nameSize) (This)->lpVtbl->GetFontFamilyName(This,fontFamilyName,nameSize)
@@ -1885,9 +1885,9 @@ DECLARE_INTERFACE_(IDWriteTextLayout,IDWriteTextFormat)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteTextLayout_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteTextLayout_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteTextLayout_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteTextLayout_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteTextLayout_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteTextLayout_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteTextLayout_GetFlowDirection() (This)->lpVtbl->GetFlowDirection(This)
 #define IDWriteTextLayout_GetFontCollection(This,fontCollection) (This)->lpVtbl->GetFontCollection(This,fontCollection)
 #define IDWriteTextLayout_GetFontFamilyName(This,fontFamilyName,nameSize) (This)->lpVtbl->GetFontFamilyName(This,fontFamilyName,nameSize)
@@ -1979,12 +1979,12 @@ DECLARE_INTERFACE_(IDWriteTextRenderer,IDWritePixelSnapping)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteTextRenderer_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteTextRenderer_AddRef(This) (This)->pVtbl->AddRef(This)
+#define IDWriteTextRenderer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteTextRenderer_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IDWriteTextRenderer_GetCurrentTransform(This,clientDrawingContext,transform) (This)->lpVtbl->GetCurrentTransform(This,clientDrawingContext,transform)
 #define IDWriteTextRenderer_GetPixelsPerDip(This,clientDrawingContext,pixelsPerDip) (This)->lpVtbl->GetPixelsPerDip(This,clientDrawingContext,pixelsPerDip)
 #define IDWriteTextRenderer_IsPixelSnappingEnabled(This,clientDrawingContext,isDisabled) (This)->lpVtbl->IsPixelSnappingEnabled(This,clientDrawingContext,isDisabled)
-#define IDWriteTextRenderer_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteTextRenderer_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteTextRenderer_DrawGlyphRun(This,clientDrawingContext,baselineOriginX,baselineOriginY,measuringMode,glyphRun,glyphRunDescription,clientDrawingEffect) (This)->lpVtbl->DrawGlyphRun(This,clientDrawingContext,baselineOriginX,baselineOriginY,measuringMode,glyphRun,glyphRunDescription,clientDrawingEffect)
 #define IDWriteTextRenderer_DrawInlineObject(This,clientDrawingContext,originX,originY,inlineObject,isSideways,isRightToLeft,clientDrawingEffect) (This)->lpVtbl->DrawInlineObject(This,clientDrawingContext,originX,originY,inlineObject,isSideways,isRightToLeft,clientDrawingEffect)
 #define IDWriteTextRenderer_DrawStrikethrough(This,clientDrawingContext,baselineOriginX,baselineOriginY,strikethrough,clientDrawingEffect) (This)->lpVtbl->DrawStrikethrough(This,clientDrawingContext,baselineOriginX,baselineOriginY,strikethrough,clientDrawingEffect)
@@ -2010,9 +2010,9 @@ DECLARE_INTERFACE_(IDWriteTypography,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDWriteTypography_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDWriteTypography_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDWriteTypography_Release(This) (This)->pVtbl->Release(This)
+#define IDWriteTypography_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDWriteTypography_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDWriteTypography_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteTypography_AddFontFeature(This,fontFeature) (This)->lpVtbl->AddFontFeature(This,fontFeature)
 #define IDWriteTypography_GetFontFeature(This,fontFeatureIndex,fontFeature) (This)->lpVtbl->GetFontFeature(This,fontFeatureIndex,fontFeature)
 #define IDWriteTypography_GetFontFeatureCount() (This)->lpVtbl->GetFontFeatureCount(This)

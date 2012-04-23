@@ -324,9 +324,9 @@ DECLARE_INTERFACE_(IFsrmAction,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmAction_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmAction_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmAction_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmAction_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmAction_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmAction_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmAction_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmAction_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmAction_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -386,9 +386,9 @@ DECLARE_INTERFACE_(IFsrmActionCommand,IFsrmAction)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmActionCommand_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmActionCommand_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmActionCommand_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmActionCommand_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmActionCommand_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmActionCommand_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmActionCommand_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmActionCommand_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmActionCommand_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -462,9 +462,9 @@ DECLARE_INTERFACE_(IFsrmActionEmail,IFsrmAction)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmActionEmail_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmActionEmail_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmActionEmail_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmActionEmail_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmActionEmail_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmActionEmail_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmActionEmail_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmActionEmail_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmActionEmail_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -542,9 +542,9 @@ DECLARE_INTERFACE_(IFsrmActionEmail2,IFsrmActionEmail)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmActionEmail2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmActionEmail2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmActionEmail2_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmActionEmail2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmActionEmail2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmActionEmail2_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmActionEmail2_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmActionEmail2_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmActionEmail2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -610,9 +610,9 @@ DECLARE_INTERFACE_(IFsrmActionEventLog,IFsrmAction)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmActionEventLog_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmActionEventLog_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmActionEventLog_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmActionEventLog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmActionEventLog_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmActionEventLog_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmActionEventLog_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmActionEventLog_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmActionEventLog_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -666,9 +666,9 @@ DECLARE_INTERFACE_(IFsrmActionReport,IFsrmAction)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmActionReport_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmActionReport_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmActionReport_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmActionReport_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmActionReport_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmActionReport_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmActionReport_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmActionReport_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmActionReport_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -718,9 +718,9 @@ DECLARE_INTERFACE_(IFsrmCollection,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmCollection_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmCollection_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmCollection_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmCollection_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmCollection_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmCollection_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmCollection_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -763,9 +763,9 @@ DECLARE_INTERFACE_(IFsrmDerivedObjectsResult,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmDerivedObjectsResult_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmDerivedObjectsResult_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmDerivedObjectsResult_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmDerivedObjectsResult_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmDerivedObjectsResult_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmDerivedObjectsResult_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmDerivedObjectsResult_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmDerivedObjectsResult_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmDerivedObjectsResult_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -806,9 +806,9 @@ DECLARE_INTERFACE_(IFsrmObject,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmObject_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmObject_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmObject_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmObject_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmObject_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmObject_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmObject_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmObject_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -860,9 +860,9 @@ DECLARE_INTERFACE_(IFsrmMutableCollection,IFsrmCollection)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmMutableCollection_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmMutableCollection_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmMutableCollection_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmMutableCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmMutableCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmMutableCollection_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmMutableCollection_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmMutableCollection_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmMutableCollection_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -923,9 +923,9 @@ DECLARE_INTERFACE_(IFsrmCommittableCollection,IFsrmMutableCollection)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmCommittableCollection_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmCommittableCollection_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmCommittableCollection_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmCommittableCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmCommittableCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmCommittableCollection_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmCommittableCollection_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmCommittableCollection_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmCommittableCollection_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -977,9 +977,9 @@ DECLARE_INTERFACE_(IFsrmExportImport,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmExportImport_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmExportImport_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmExportImport_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmExportImport_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmExportImport_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmExportImport_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmCommittableCollection_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmCommittableCollection_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmCommittableCollection_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1075,9 +1075,9 @@ DECLARE_INTERFACE_(IFsrmFileManagementJob,IFsrmObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmFileManagementJob_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmFileManagementJob_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmFileManagementJob_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmFileManagementJob_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmFileManagementJob_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmFileManagementJob_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmFileManagementJob_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmFileManagementJob_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmFileManagementJob_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1161,9 +1161,9 @@ DECLARE_INTERFACE_(IFsrmPathMapper,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmPathMapper_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmPathMapper_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmPathMapper_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmPathMapper_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmPathMapper_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmPathMapper_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmPathMapper_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmPathMapper_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmPathMapper_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1211,9 +1211,9 @@ DECLARE_INTERFACE_(IFsrmSetting,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmSetting_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmSetting_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmSetting_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmSetting_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmSetting_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmSetting_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmSetting_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmSetting_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmSetting_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1287,9 +1287,9 @@ DECLARE_INTERFACE_(IFsrmRule,IFsrmObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmRule_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmRule_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmRule_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmRule_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmRule_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmRule_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmRule_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmRule_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmRule_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1367,9 +1367,9 @@ DECLARE_INTERFACE_(IFsrmClassificationManager,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmClassificationManager_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmClassificationManager_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmClassificationManager_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmClassificationManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmClassificationManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmClassificationManager_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmClassificationManager_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmClassificationManager_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmClassificationManager_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1452,9 +1452,9 @@ DECLARE_INTERFACE_(IFsrmClassificationRule,IFsrmRule)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmClassificationRule_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmClassificationRule_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmClassificationRule_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmClassificationRule_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmClassificationRule_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmClassificationRule_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmClassificationRule_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmClassificationRule_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmClassificationRule_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1537,9 +1537,9 @@ DECLARE_INTERFACE_(IFsrmPipelineModuleDefinition,IFsrmObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmPipelineModuleDefinition_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmPipelineModuleDefinition_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmPipelineModuleDefinition_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmPipelineModuleDefinition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmPipelineModuleDefinition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmPipelineModuleDefinition_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmPipelineModuleDefinition_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmPipelineModuleDefinition_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmPipelineModuleDefinition_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1631,9 +1631,9 @@ DECLARE_INTERFACE_(IFsrmClassifierModuleDefinition,IFsrmPipelineModuleDefinition
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmClassifierModuleDefinition_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmClassifierModuleDefinition_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmClassifierModuleDefinition_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmClassifierModuleDefinition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmClassifierModuleDefinition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmClassifierModuleDefinition_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmClassifierModuleDefinition_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmClassifierModuleDefinition_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmClassifierModuleDefinition_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1699,9 +1699,9 @@ DECLARE_INTERFACE_(IFsrmPipelineModuleImplementation,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmPipelineModuleImplementation_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmPipelineModuleImplementation_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmPipelineModuleImplementation_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmPipelineModuleImplementation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmPipelineModuleImplementation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmPipelineModuleImplementation_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmPipelineModuleImplementation_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmPipelineModuleImplementation_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmPipelineModuleImplementation_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1747,9 +1747,9 @@ DECLARE_INTERFACE_(IFsrmClassifierModuleImplementation,IFsrmPipelineModuleImplem
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmClassifierModuleImplementation_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmClassifierModuleImplementation_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmClassifierModuleImplementation_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmClassifierModuleImplementation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmClassifierModuleImplementation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmClassifierModuleImplementation_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmClassifierModuleImplementation_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmClassifierModuleImplementation_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmClassifierModuleImplementation_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1796,9 +1796,9 @@ DECLARE_INTERFACE_(IFsrmPipelineModuleConnector,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmPipelineModuleConnector_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmPipelineModuleConnector_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmPipelineModuleConnector_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmPipelineModuleConnector_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmPipelineModuleConnector_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmPipelineModuleConnector_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmPipelineModuleConnector_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmPipelineModuleConnector_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmPipelineModuleConnector_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1841,9 +1841,9 @@ DECLARE_INTERFACE_(IFsrmProperty,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmProperty_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmProperty_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmProperty_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmProperty_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmProperty_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmProperty_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmProperty_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmProperty_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmProperty_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1902,9 +1902,9 @@ DECLARE_INTERFACE_(IFsrmPropertyBag,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmPropertyBag_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmPropertyBag_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmPropertyBag_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmPropertyBag_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmPropertyBag_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmPropertyBag_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmPropertyBag_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmPropertyBag_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmPropertyBag_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -1993,9 +1993,9 @@ DECLARE_INTERFACE_(IFsrmStorageModuleDefinition,IFsrmPipelineModuleDefinition)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmStorageModuleDefinition_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmStorageModuleDefinition_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmStorageModuleDefinition_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmStorageModuleDefinition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmStorageModuleDefinition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmStorageModuleDefinition_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmStorageModuleDefinition_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmStorageModuleDefinition_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmStorageModuleDefinition_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -2066,9 +2066,9 @@ DECLARE_INTERFACE_(IFsrmStorageModuleImplementation,IFsrmPipelineModuleImplement
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmStorageModuleImplementation_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmStorageModuleImplementation_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmStorageModuleImplementation_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmStorageModuleImplementation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmStorageModuleImplementation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmStorageModuleImplementation_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmStorageModuleImplementation_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmStorageModuleImplementation_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmStorageModuleImplementation_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -2114,9 +2114,9 @@ DECLARE_INTERFACE_(IFsrmPropertyCondition,IDispatch)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmPropertyCondition_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmPropertyCondition_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmPropertyCondition_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmPropertyCondition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmPropertyCondition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmPropertyCondition_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmPropertyCondition_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmPropertyCondition_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmPropertyCondition_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
@@ -2174,9 +2174,9 @@ DECLARE_INTERFACE_(IFsrmPropertyDefinition,IFsrmObject)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IFsrmPropertyDefinition_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IFsrmPropertyDefinition_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IFsrmPropertyDefinition_Release(This) (This)->pVtbl->Release(This)
+#define IFsrmPropertyDefinition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFsrmPropertyDefinition_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFsrmPropertyDefinition_Release(This) (This)->lpVtbl->Release(This)
 #define IFsrmPropertyDefinition_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IFsrmPropertyDefinition_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IFsrmPropertyDefinition_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)

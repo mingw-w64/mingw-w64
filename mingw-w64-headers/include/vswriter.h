@@ -122,9 +122,9 @@ DECLARE_INTERFACE_(IVssCreateExpressWriterMetadata,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssCreateExpressWriterMetadata_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssCreateExpressWriterMetadata_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssCreateExpressWriterMetadata_Release(This) (This)->pVtbl->Release(This)
+#define IVssCreateExpressWriterMetadata_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssCreateExpressWriterMetadata_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssCreateExpressWriterMetadata_Release(This) (This)->lpVtbl->Release(This)
 #define IVssCreateExpressWriterMetadata_AddComponent(This,componentType,wszLogicalPath,wszComponentName,wszCaption,pbIcon,cbIcon,bRestoreMetadata,bNotifyOnBackupComplete,bSelectable,bSelectableForRestore,dwComponentFlags) (This)->lpVtbl->AddComponent(This,componentType,wszLogicalPath,wszComponentName,wszCaption,pbIcon,cbIcon,bRestoreMetadata,bNotifyOnBackupComplete,bSelectable,bSelectableForRestore,dwComponentFlags)
 #define IVssCreateExpressWriterMetadata_AddFilesToFileGroup(This,wszLogicalPath,wszGroupName,wszPath,wszFilespec,bRecursive,wszAlternateLocation,dwBackupTypeMask) (This)->lpVtbl->AddFilesToFileGroup(This,wszLogicalPath,wszGroupName,wszPath,wszFilespec,bRecursive,wszAlternateLocation,dwBackupTypeMask)
 #define IVssCreateExpressWriterMetadata_SaveAsXML(This,pbstrXML) (This)->lpVtbl->SaveAsXML(This,pbstrXML)
@@ -229,9 +229,9 @@ DECLARE_INTERFACE_(IVssExpressWriter,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssExpressWriter_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssExpressWriter_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssExpressWriter_Release(This) (This)->pVtbl->Release(This)
+#define IVssExpressWriter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssExpressWriter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssExpressWriter_Release(This) (This)->lpVtbl->Release(This)
 #define IVssExpressWriter_CreateMetadata(This,writerId,writerName,usageType,versionMajor,versionMinor,reserved,ppMetadata) (This)->lpVtbl->CreateMetadata(This,writerId,writerName,usageType,versionMajor,versionMinor,reserved,ppMetadata)
 #define IVssExpressWriter_Load(This,metadata,reserved) (This)->lpVtbl->Load(This,metadata,reserved)
 #define IVssExpressWriter_Register() (This)->lpVtbl->Register(This)
@@ -325,9 +325,9 @@ DECLARE_INTERFACE_(IVssComponent,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssComponent_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssComponent_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssComponent_Release(This) (This)->pVtbl->Release(This)
+#define IVssComponent_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssComponent_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssComponent_Release(This) (This)->lpVtbl->Release(This)
 #define IVssComponent_GetLogicalPath(This,pbstrPath) (This)->lpVtbl->GetLogicalPath(This,pbstrPath)
 #define IVssComponent_GetComponentType(This,pType) (This)->lpVtbl->GetComponentType(This,pType)
 #define IVssComponent_GetComponentName(This,pwszName) (This)->lpVtbl->GetComponentName(This,pwszName)
@@ -437,9 +437,9 @@ DECLARE_INTERFACE_(IVssComponentEx,IVssComponent)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssComponentEx_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssComponentEx_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssComponentEx_Release(This) (This)->pVtbl->Release(This)
+#define IVssComponentEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssComponentEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssComponentEx_Release(This) (This)->lpVtbl->Release(This)
 #define IVssComponentEx_GetLogicalPath(This,pbstrPath) (This)->lpVtbl->GetLogicalPath(This,pbstrPath)
 #define IVssComponentEx_GetComponentType(This,pType) (This)->lpVtbl->GetComponentType(This,pType)
 #define IVssComponentEx_GetComponentName(This,pwszName) (This)->lpVtbl->GetComponentName(This,pwszName)
@@ -561,9 +561,9 @@ DECLARE_INTERFACE_(IVssComponentEx2,IVssComponentEx)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IVssComponentEx2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IVssComponentEx2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IVssComponentEx2_Release(This) (This)->pVtbl->Release(This)
+#define IVssComponentEx2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IVssComponentEx2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IVssComponentEx2_Release(This) (This)->lpVtbl->Release(This)
 #define IVssComponentEx2_GetLogicalPath(This,pbstrPath) (This)->lpVtbl->GetLogicalPath(This,pbstrPath)
 #define IVssComponentEx2_GetComponentType(This,pType) (This)->lpVtbl->GetComponentType(This,pType)
 #define IVssComponentEx2_GetComponentName(This,pwszName) (This)->lpVtbl->GetComponentName(This,pwszName)

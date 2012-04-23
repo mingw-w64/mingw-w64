@@ -108,9 +108,9 @@ DECLARE_INTERFACE_(IMFPMediaItem,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFPMediaItem_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFPMediaItem_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFPMediaItem_Release(This) (This)->pVtbl->Release(This)
+#define IMFPMediaItem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFPMediaItem_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFPMediaItem_Release(This) (This)->lpVtbl->Release(This)
 #define IMFPMediaItem_GetCharacteristics(This,pCharacteristics) (This)->lpVtbl->GetCharacteristics(This,pCharacteristics)
 #define IMFPMediaItem_GetDuration(This,guidPositionType,pvDurationValue) (This)->lpVtbl->GetDuration(This,guidPositionType,pvDurationValue)
 #define IMFPMediaItem_GetMediaPlayer(This,ppMediaPlayer) (This)->lpVtbl->GetMediaPlayer(This,ppMediaPlayer)
@@ -190,9 +190,9 @@ DECLARE_INTERFACE_(IMFPMediaPlayer,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFPMediaPlayer_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFPMediaPlayer_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFPMediaPlayer_Release(This) (This)->pVtbl->Release(This)
+#define IMFPMediaPlayer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFPMediaPlayer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFPMediaPlayer_Release(This) (This)->lpVtbl->Release(This)
 #define IMFPMediaPlayer_ClearMediaItem() (This)->lpVtbl->ClearMediaItem(This)
 #define IMFPMediaPlayer_CreateMediaItemFromObject(This,pIUnknownObj,fSync,dwUserData,ppMediaItem) (This)->lpVtbl->CreateMediaItemFromObject(This,pIUnknownObj,fSync,dwUserData,ppMediaItem)
 #define IMFPMediaPlayer_CreateMediaItemFromURL(This,pwszURL,fSync,dwUserData,ppMediaItem) (This)->lpVtbl->CreateMediaItemFromURL(This,pwszURL,fSync,dwUserData,ppMediaItem)
@@ -254,9 +254,9 @@ DECLARE_INTERFACE_(IMFPMediaPlayerCallback,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFPMediaPlayerCallback_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFPMediaPlayerCallback_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFPMediaPlayerCallback_Release(This) (This)->pVtbl->Release(This)
+#define IMFPMediaPlayerCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFPMediaPlayerCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFPMediaPlayerCallback_Release(This) (This)->lpVtbl->Release(This)
 #define IMFPMediaPlayerCallback_OnMediaPlayerEvent(This,pEventHeader) (This)->lpVtbl->OnMediaPlayerEvent(This,pEventHeader)
 #endif /*COBJMACROS*/
 

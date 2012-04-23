@@ -68,9 +68,9 @@ DECLARE_INTERFACE_(IMFSinkWriter,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFSinkWriter_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFSinkWriter_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFSinkWriter_Release(This) (This)->pVtbl->Release(This)
+#define IMFSinkWriter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFSinkWriter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFSinkWriter_Release(This) (This)->lpVtbl->Release(This)
 #define IMFSinkWriter_AddStream(This,pTargetMediaType,pdwStreamIndex) (This)->lpVtbl->AddStream(This,pTargetMediaType,pdwStreamIndex)
 #define IMFSinkWriter_BeginWriting() (This)->lpVtbl->BeginWriting(This)
 #define IMFSinkWriter_Finalize() (This)->lpVtbl->Finalize(This)
@@ -115,9 +115,9 @@ DECLARE_INTERFACE_(IMFSourceReader,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IMFSourceReader_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IMFSourceReader_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IMFSourceReader_Release(This) (This)->pVtbl->Release(This)
+#define IMFSourceReader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFSourceReader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFSourceReader_Release(This) (This)->lpVtbl->Release(This)
 #define IMFSourceReader_Flush(This,dwStreamIndex) (This)->lpVtbl->Flush(This,dwStreamIndex)
 #define IMFSourceReader_GetCurrentMediaType(This,dwStreamIndex,ppMediaType) (This)->lpVtbl->GetCurrentMediaType(This,dwStreamIndex,ppMediaType)
 #define IMFSourceReader_GetNativeMediaType(This,dwStreamIndex,dwMediaTypeIndex,ppMediaType) (This)->lpVtbl->GetNativeMediaType(This,dwStreamIndex,dwMediaTypeIndex,ppMediaType)

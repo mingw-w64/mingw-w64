@@ -41,9 +41,9 @@ DECLARE_INTERFACE_(IAssociatedIdentityProvider,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAssociatedIdentityProvider_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAssociatedIdentityProvider_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAssociatedIdentityProvider_Release(This) (This)->pVtbl->Release(This)
+#define IAssociatedIdentityProvider_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAssociatedIdentityProvider_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAssociatedIdentityProvider_Release(This) (This)->lpVtbl->Release(This)
 #define IAssociatedIdentityProvider_AssociateIdentity(This,hwndParent,ppPropertyStore) (This)->lpVtbl->AssociateIdentity(This,hwndParent,ppPropertyStore)
 #define IAssociatedIdentityProvider_ChangeCredential(This,hwndParent,lpszUniqueID) (This)->lpVtbl->ChangeCredential(This,hwndParent,lpszUniqueID)
 #define IAssociatedIdentityProvider_DisassociateIdentity(This,hwndParent,lpszUniqueID) (This)->lpVtbl->DisassociateIdentity(This,hwndParent,lpszUniqueID)

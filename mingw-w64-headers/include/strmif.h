@@ -9416,9 +9416,9 @@ DECLARE_INTERFACE_(IAMAsyncReaderTimestampScaling,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAMAsyncReaderTimestampScaling_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMAsyncReaderTimestampScaling_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAMAsyncReaderTimestampScaling_Release(This) (This)->pVtbl->Release(This)
+#define IAMAsyncReaderTimestampScaling_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMAsyncReaderTimestampScaling_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMAsyncReaderTimestampScaling_Release(This) (This)->lpVtbl->Release(This)
 #define IAMAsyncReaderTimestampScaling_GetTimestampMode(This,pfRaw) (This)->lpVtbl->GetTimestampMode(This,pfRaw)
 #define IAMAsyncReaderTimestampScaling_SetTimestampMode(This,fRaw) (This)->lpVtbl->SetTimestampMode(This,fRaw)
 #endif /*COBJMACROS*/
@@ -9451,9 +9451,9 @@ DECLARE_INTERFACE_(IAMPluginControl,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IAMPluginControl_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMPluginControl_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IAMPluginControl_Release(This) (This)->pVtbl->Release(This)
+#define IAMPluginControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMPluginControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMPluginControl_Release(This) (This)->lpVtbl->Release(This)
 #define IAMPluginControl_GetDisabledByIndex(This,index,clsid) (This)->lpVtbl->GetDisabledByIndex(This,index,clsid)
 #define IAMPluginControl_GetPreferredClsid(This,subType,clsid) (This)->lpVtbl->GetPreferredClsid(This,subType,clsid)
 #define IAMPluginControl_GetPreferredClsidByIndex(This,index,subType,clsid) (This)->lpVtbl->GetPreferredClsidByIndex(This,index,subType,clsid)

@@ -49,9 +49,9 @@ DECLARE_INTERFACE_(ILocationReport,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ILocationReport_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ILocationReport_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ILocationReport_Release(This) (This)->pVtbl->Release(This)
+#define ILocationReport_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ILocationReport_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ILocationReport_Release(This) (This)->lpVtbl->Release(This)
 #define ILocationReport_GetSensorID(This,pSensorID) (This)->lpVtbl->GetSensorID(This,pSensorID)
 #define ILocationReport_GetTimestamp(This,pCreationTime) (This)->lpVtbl->GetTimestamp(This,pCreationTime)
 #define ILocationReport_GetValue(This,pKey,pValue) (This)->lpVtbl->GetValue(This,pKey,pValue)
@@ -85,9 +85,9 @@ DECLARE_INTERFACE_(ICivicAddressReport,ILocationReport)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define ICivicAddressReport_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define ICivicAddressReport_AddRef(This) (This)->pVtbl->AddRef(This)
-#define ICivicAddressReport_Release(This) (This)->pVtbl->Release(This)
+#define ICivicAddressReport_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ICivicAddressReport_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ICivicAddressReport_Release(This) (This)->lpVtbl->Release(This)
 #define ICivicAddressReport_GetSensorID(This,pSensorID) (This)->lpVtbl->GetSensorID(This,pSensorID)
 #define ICivicAddressReport_GetTimestamp(This,pCreationTime) (This)->lpVtbl->GetTimestamp(This,pCreationTime)
 #define ICivicAddressReport_GetValue(This,pKey,pValue) (This)->lpVtbl->GetValue(This,pKey,pValue)
@@ -118,9 +118,9 @@ DECLARE_INTERFACE_(IDefaultLocation,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDefaultLocation_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDefaultLocation_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDefaultLocation_Release(This) (This)->pVtbl->Release(This)
+#define IDefaultLocation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDefaultLocation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDefaultLocation_Release(This) (This)->lpVtbl->Release(This)
 #define IDefaultLocation_GetReport(This,reportType,ppLocationReport) (This)->lpVtbl->GetReport(This,reportType,ppLocationReport)
 #define IDefaultLocation_SetReport(This,reportType,pLocationReport) (This)->lpVtbl->SetReport(This,reportType,pLocationReport)
 #endif /*COBJMACROS*/

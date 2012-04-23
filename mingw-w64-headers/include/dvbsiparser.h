@@ -229,9 +229,9 @@ DECLARE_INTERFACE_(IDVB_EIT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_EIT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_EIT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_EIT_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_EIT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_EIT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_EIT_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_EIT_ConvertNextToCurrent() (This)->lpVtbl->ConvertNextToCurrent(This)
 #define IDVB_EIT_GetCountOfRecords(This,pdwVal) (This)->lpVtbl->GetCountOfRecords(This,pdwVal)
 #define IDVB_EIT_GetLastTableId(This,pbVal) (This)->lpVtbl->GetLastTableId(This,pbVal)
@@ -301,9 +301,9 @@ DECLARE_INTERFACE_(IDVB_EIT2,IDVB_EIT)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_EIT2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_EIT2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_EIT2_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_EIT2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_EIT2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_EIT2_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_EIT2_ConvertNextToCurrent() (This)->lpVtbl->ConvertNextToCurrent(This)
 #define IDVB_EIT2_GetCountOfRecords(This,pdwVal) (This)->lpVtbl->GetCountOfRecords(This,pdwVal)
 #define IDVB_EIT2_GetLastTableId(This,pbVal) (This)->lpVtbl->GetLastTableId(This,pbVal)
@@ -357,9 +357,9 @@ DECLARE_INTERFACE_(IDvbComponentDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbComponentDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbComponentDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbComponentDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbComponentDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbComponentDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbComponentDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbComponentDescriptor_GetComponentTag(This,pbVal) (This)->lpVtbl->GetComponentTag(This,pbVal)
 #define IDvbComponentDescriptor_GetComponentType(This,pbVal) (This)->lpVtbl->GetComponentType(This,pbVal)
 #define IDvbComponentDescriptor_GetLanguageCode(This,pszCode) (This)->lpVtbl->GetLanguageCode(This,pszCode)
@@ -395,9 +395,9 @@ DECLARE_INTERFACE_(IDvbContentDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbContentDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbContentDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbContentDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbContentDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbContentDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbContentDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbContentDescriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbContentDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbContentDescriptor_GetRecordContentNibbles(This,bRecordIndex,pbValLevel1,pbValLevel2) (This)->lpVtbl->GetRecordContentNibbles(This,bRecordIndex,pbValLevel1,pbValLevel2)
@@ -430,9 +430,9 @@ DECLARE_INTERFACE_(IDvbContentIdentifierDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbContentIdentifierDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbContentIdentifierDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbContentIdentifierDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbContentIdentifierDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbContentIdentifierDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbContentIdentifierDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbContentIdentifierDescriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbContentIdentifierDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbContentIdentifierDescriptor_GetRecordCrid(This,bRecordIndex,pbType,pbLocation,pbLength,ppbBytes) (This)->lpVtbl->GetRecordCrid(This,bRecordIndex,pbType,pbLocation,pbLength,ppbBytes)
@@ -469,9 +469,9 @@ DECLARE_INTERFACE_(IDvbDataBroadcastDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbDataBroadcastDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbDataBroadcastDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbDataBroadcastDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbDataBroadcastDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbDataBroadcastDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbDataBroadcastDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbDataBroadcastDescriptor_GetComponentTag(This,pbVal) (This)->lpVtbl->GetComponentTag(This,pbVal)
 #define IDvbDataBroadcastDescriptor_GetDataBroadcastID(This,pwVal) (This)->lpVtbl->GetDataBroadcastID(This,pwVal)
 #define IDvbDataBroadcastDescriptor_GetLangID(This,pulVal) (This)->lpVtbl->GetLangID(This,pulVal)
@@ -508,9 +508,9 @@ DECLARE_INTERFACE_(IDvbDataBroadcastIDDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbDataBroadcastIDDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbDataBroadcastIDDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbDataBroadcastIDDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbDataBroadcastIDDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbDataBroadcastIDDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbDataBroadcastIDDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbDataBroadcastIDDescriptor_GetDataBroadcastID(This,pwVal) (This)->lpVtbl->GetDataBroadcastID(This,pwVal)
 #define IDvbDataBroadcastIDDescriptor_GetIDSelectorBytes(This,pbLen,pbVal) (This)->lpVtbl->GetIDSelectorBytes(This,pbLen,pbVal)
 #define IDvbDataBroadcastIDDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
@@ -541,9 +541,9 @@ DECLARE_INTERFACE_(IDvbDefaultAuthorityDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbDefaultAuthorityDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbDefaultAuthorityDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbDefaultAuthorityDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbDefaultAuthorityDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbDefaultAuthorityDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbDefaultAuthorityDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbDefaultAuthorityDescriptor_GetDefaultAuthority(This,pbLength,ppbBytes) (This)->lpVtbl->GetDefaultAuthority(This,pbLength,ppbBytes)
 #define IDvbDefaultAuthorityDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbDefaultAuthorityDescriptor_GetTag(This,pbVal) (This)->lpVtbl->GetTag(This,pbVal)
@@ -581,9 +581,9 @@ DECLARE_INTERFACE_(IDvbExtendedEventDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbExtendedEventDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbExtendedEventDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbExtendedEventDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbExtendedEventDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbExtendedEventDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbExtendedEventDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbExtendedEventDescriptor_GetConcatenatedItemW(This,pFollowingDescriptor,convMode,pbstrDesc,pbstrItem) (This)->lpVtbl->GetConcatenatedItemW(This,pFollowingDescriptor,convMode,pbstrDesc,pbstrItem)
 #define IDvbExtendedEventDescriptor_GetConcatenatedTextW(This,FollowingDescriptor,convMode,pbstrText) (This)->lpVtbl->GetConcatenatedTextW(This,FollowingDescriptor,convMode,pbstrText)
 #define IDvbExtendedEventDescriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
@@ -623,9 +623,9 @@ DECLARE_INTERFACE_(IDvbLogicalChannelDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbLogicalChannelDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbLogicalChannelDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbLogicalChannelDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbLogicalChannelDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbLogicalChannelDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbLogicalChannelDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbLogicalChannelDescriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbLogicalChannelDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbLogicalChannelDescriptor_GetRecordLogicalChannelNumber(This,bRecordIndex,pwVal) (This)->lpVtbl->GetRecordLogicalChannelNumber(This,bRecordIndex,pwVal)
@@ -661,9 +661,9 @@ DECLARE_INTERFACE_(IDvbHDSimulcastLogicalChannelDescriptor,IDvbLogicalChannelDes
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbHDSimulcastLogicalChannelDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbHDSimulcastLogicalChannelDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbHDSimulcastLogicalChannelDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbHDSimulcastLogicalChannelDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbHDSimulcastLogicalChannelDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbHDSimulcastLogicalChannelDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbHDSimulcastLogicalChannelDescriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbHDSimulcastLogicalChannelDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbHDSimulcastLogicalChannelDescriptor_GetRecordLogicalChannelNumber(This,bRecordIndex,pwVal) (This)->lpVtbl->GetRecordLogicalChannelNumber(This,bRecordIndex,pwVal)
@@ -700,9 +700,9 @@ DECLARE_INTERFACE_(IDvbLinkageDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbLinkageDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbLinkageDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbLinkageDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbLinkageDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbLinkageDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbLinkageDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbLinkageDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbLinkageDescriptor_GetLinkageType(This,pbVal) (This)->lpVtbl->GetLinkageType(This,pbVal)
 #define IDvbLinkageDescriptor_GetONId(This,pwVal) (This)->lpVtbl->GetONId(This,pwVal)
@@ -742,9 +742,9 @@ DECLARE_INTERFACE_(IDvbLogicalChannelDescriptor2,IDvbLogicalChannelDescriptor)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbLogicalChannelDescriptor2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbLogicalChannelDescriptor2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbLogicalChannelDescriptor2_Release(This) (This)->pVtbl->Release(This)
+#define IDvbLogicalChannelDescriptor2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbLogicalChannelDescriptor2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbLogicalChannelDescriptor2_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbLogicalChannelDescriptor2_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbLogicalChannelDescriptor2_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbLogicalChannelDescriptor2_GetRecordLogicalChannelNumber(This,bRecordIndex,pwVal) (This)->lpVtbl->GetRecordLogicalChannelNumber(This,bRecordIndex,pwVal)
@@ -791,9 +791,9 @@ DECLARE_INTERFACE_(IDvbLogicalChannel2Descriptor,IDvbLogicalChannelDescriptor2)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbLogicalChannel2Descriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbLogicalChannel2Descriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbLogicalChannel2Descriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbLogicalChannel2Descriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbLogicalChannel2Descriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbLogicalChannel2Descriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbLogicalChannel2Descriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbLogicalChannel2Descriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbLogicalChannel2Descriptor_GetRecordLogicalChannelNumber(This,bRecordIndex,pwVal) (This)->lpVtbl->GetRecordLogicalChannelNumber(This,bRecordIndex,pwVal)
@@ -836,9 +836,9 @@ DECLARE_INTERFACE_(IDvbMultilingualServiceNameDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbMultilingualServiceNameDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbMultilingualServiceNameDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbMultilingualServiceNameDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbMultilingualServiceNameDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbMultilingualServiceNameDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbMultilingualServiceNameDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbMultilingualServiceNameDescriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbMultilingualServiceNameDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbMultilingualServiceNameDescriptor_GetRecordLangId(This,bRecordIndex,ulVal) (This)->lpVtbl->GetRecordLangId(This,bRecordIndex,ulVal)
@@ -872,9 +872,9 @@ DECLARE_INTERFACE_(IDvbNetworkNameDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbNetworkNameDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbNetworkNameDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbNetworkNameDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbNetworkNameDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbNetworkNameDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbNetworkNameDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbNetworkNameDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbNetworkNameDescriptor_GetNetworkName(This,pszName) (This)->lpVtbl->GetNetworkName(This,pszName)
 #define IDvbNetworkNameDescriptor_GetNetworkNameW(This,convMode,pbstrName) (This)->lpVtbl->GetNetworkNameW(This,convMode,pbstrName)
@@ -906,9 +906,9 @@ DECLARE_INTERFACE_(IDvbParentalRatingDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbParentalRatingDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbParentalRatingDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbParentalRatingDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbParentalRatingDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbParentalRatingDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbParentalRatingDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbParentalRatingDescriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbParentalRatingDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbParentalRatingDescriptor_GetRecordRating(This,bRecordIndex,pszCountryCode,pbVal) (This)->lpVtbl->GetRecordRating(This,bRecordIndex,pszCountryCode,pbVal)
@@ -939,9 +939,9 @@ DECLARE_INTERFACE_(IDvbPrivateDataSpecifierDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbPrivateDataSpecifierDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbPrivateDataSpecifierDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbPrivateDataSpecifierDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbPrivateDataSpecifierDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbPrivateDataSpecifierDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbPrivateDataSpecifierDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbPrivateDataSpecifierDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbPrivateDataSpecifierDescriptor_GetPrivateDataSpecifier(This,pdwVal) (This)->lpVtbl->GetPrivateDataSpecifier(This,pdwVal)
 #define IDvbPrivateDataSpecifierDescriptor_GetTag(This,pbVal) (This)->lpVtbl->GetTag(This,pbVal)
@@ -976,9 +976,9 @@ DECLARE_INTERFACE_(IDvbServiceDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbServiceDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbServiceDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbServiceDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbServiceDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbServiceDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbServiceDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbServiceDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbServiceDescriptor_GetProcessedServiceName(This,pbstrName) (This)->lpVtbl->GetProcessedServiceName(This,pbstrName)
 #define IDvbServiceDescriptor_GetServiceName(This,pszName) (This)->lpVtbl->GetServiceName(This,pszName)
@@ -1023,9 +1023,9 @@ DECLARE_INTERFACE_(IDvbServiceDescriptor2,IDvbServiceDescriptor)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbServiceDescriptor2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbServiceDescriptor2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbServiceDescriptor2_Release(This) (This)->pVtbl->Release(This)
+#define IDvbServiceDescriptor2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbServiceDescriptor2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbServiceDescriptor2_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbServiceDescriptor2_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbServiceDescriptor2_GetProcessedServiceName(This,pbstrName) (This)->lpVtbl->GetProcessedServiceName(This,pbstrName)
 #define IDvbServiceDescriptor2_GetServiceName(This,pszName) (This)->lpVtbl->GetServiceName(This,pszName)
@@ -1064,9 +1064,9 @@ DECLARE_INTERFACE_(IDvbShortEventDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbShortEventDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbShortEventDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbShortEventDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbShortEventDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbShortEventDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbShortEventDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbShortEventDescriptor_GetEventNameW(This,convMode,pbstrName) (This)->lpVtbl->GetEventNameW(This,convMode,pbstrName)
 #define IDvbShortEventDescriptor_GetLanguageCode(This,pszCode) (This)->lpVtbl->GetLanguageCode(This,pszCode)
 #define IDvbShortEventDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
@@ -1117,9 +1117,9 @@ DECLARE_INTERFACE_(IDvbSiParser,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbSiParser_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbSiParser_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbSiParser_Release(This) (This)->pVtbl->Release(This)
+#define IDvbSiParser_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbSiParser_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbSiParser_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbSiParser_GetBAT(This,pwBouquetId,ppBAT) (This)->lpVtbl->GetBAT(This,pwBouquetId,ppBAT)
 #define IDvbSiParser_GetCAT(This,dwTimeout,ppCAT) (This)->lpVtbl->GetCAT(This,dwTimeout,ppCAT)
 #define IDvbSiParser_GetDIT(This,dwTimeout,ppDIT) (This)->lpVtbl->GetDIT(This,dwTimeout,ppDIT)
@@ -1165,9 +1165,9 @@ DECLARE_INTERFACE_(IDVB_RST,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_RST_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_RST_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_RST_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_RST_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_RST_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_RST_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_RST_GetCountOfRecords(This,pdwVal) (This)->lpVtbl->GetCountOfRecords(This,pdwVal)
 #define IDVB_RST_GetRecordEventId(This,dwRecordIndex,pwVal) (This)->lpVtbl->GetRecordEventId(This,dwRecordIndex,pwVal)
 #define IDVB_RST_GetRecordOriginalNetworkId(This,dwRecordIndex,pwVal) (This)->lpVtbl->GetRecordOriginalNetworkId(This,dwRecordIndex,pwVal)
@@ -1213,9 +1213,9 @@ DECLARE_INTERFACE_(IDVB_SIT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_SIT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_SIT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_SIT_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_SIT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_SIT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_SIT_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_SIT_ConvertNextToCurrent() (This)->lpVtbl->ConvertNextToCurrent(This)
 #define IDVB_SIT_GetCountOfRecords(This,pdwVal) (This)->lpVtbl->GetCountOfRecords(This,pdwVal)
 #define IDVB_SIT_GetCountOfTableDescriptors(This,pdwVal) (This)->lpVtbl->GetCountOfTableDescriptors(This,pdwVal)
@@ -1257,9 +1257,9 @@ DECLARE_INTERFACE_(IDVB_ST,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_ST_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_ST_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_ST_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_ST_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_ST_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_ST_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_ST_GetData(This,ppData) (This)->lpVtbl->GetData(This,ppData)
 #define IDVB_ST_GetDataLength(This,pwVal) (This)->lpVtbl->GetDataLength(This,pwVal)
 #define IDVB_ST_Initialize(This,pSectionList) (This)->lpVtbl->Initialize(This,pSectionList)
@@ -1288,9 +1288,9 @@ DECLARE_INTERFACE_(IDVB_TDT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_TDT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_TDT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_TDT_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_TDT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_TDT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_TDT_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_TDT_GetUTCTime(This,pmdtVal) (This)->lpVtbl->GetUTCTime(This,pmdtVal)
 #define IDVB_TDT_Initialize(This,pSectionList) (This)->lpVtbl->Initialize(This,pSectionList)
 #endif /*COBJMACROS*/
@@ -1321,9 +1321,9 @@ DECLARE_INTERFACE_(IDVB_TOT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_TOT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_TOT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_TOT_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_TOT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_TOT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_TOT_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_TOT_GetCountOfTableDescriptors(This,pdwVal) (This)->lpVtbl->GetCountOfTableDescriptors(This,pdwVal)
 #define IDVB_TOT_GetTableDescriptorByIndex(This,dwIndex,ppDescriptor) (This)->lpVtbl->GetTableDescriptorByIndex(This,dwIndex,ppDescriptor)
 #define IDVB_TOT_GetTableDescriptorByTag(This,bTag,pdwCookie,ppDescriptor) (This)->lpVtbl->GetTableDescriptorByTag(This,bTag,pdwCookie,ppDescriptor)
@@ -1371,9 +1371,9 @@ DECLARE_INTERFACE_(IDvbSiParser2,IDvbSiParser)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbSiParser2_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbSiParser2_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbSiParser2_Release(This) (This)->pVtbl->Release(This)
+#define IDvbSiParser2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbSiParser2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbSiParser2_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbSiParser2_GetBAT(This,pwBouquetId,ppBAT) (This)->lpVtbl->GetBAT(This,pwBouquetId,ppBAT)
 #define IDvbSiParser2_GetCAT(This,dwTimeout,ppCAT) (This)->lpVtbl->GetCAT(This,dwTimeout,ppCAT)
 #define IDvbSiParser2_GetDIT(This,dwTimeout,ppDIT) (This)->lpVtbl->GetDIT(This,dwTimeout,ppDIT)
@@ -1420,9 +1420,9 @@ DECLARE_INTERFACE_(IDvbSubtitlingDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbSubtitlingDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbSubtitlingDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbSubtitlingDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbSubtitlingDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbSubtitlingDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbSubtitlingDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbSubtitlingDescriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbSubtitlingDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbSubtitlingDescriptor_GetRecordAncillaryPageID(This,bRecordIndex,pwVal) (This)->lpVtbl->GetRecordAncillaryPageID(This,bRecordIndex,pwVal)
@@ -1458,9 +1458,9 @@ DECLARE_INTERFACE_(IDvbServiceListDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbServiceListDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbServiceListDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbServiceListDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbServiceListDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbServiceListDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbServiceListDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbServiceListDescriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbServiceListDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbServiceListDescriptor_GetRecordServiceId(This,bRecordIndex,pwVal) (This)->lpVtbl->GetRecordServiceId(This,bRecordIndex,pwVal)
@@ -1496,9 +1496,9 @@ DECLARE_INTERFACE_(IDvbTeletextDescriptor,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDvbTeletextDescriptor_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDvbTeletextDescriptor_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDvbTeletextDescriptor_Release(This) (This)->pVtbl->Release(This)
+#define IDvbTeletextDescriptor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDvbTeletextDescriptor_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDvbTeletextDescriptor_Release(This) (This)->lpVtbl->Release(This)
 #define IDvbTeletextDescriptor_GetCountOfRecords(This,pbVal) (This)->lpVtbl->GetCountOfRecords(This,pbVal)
 #define IDvbTeletextDescriptor_GetLength(This,pbVal) (This)->lpVtbl->GetLength(This,pbVal)
 #define IDvbTeletextDescriptor_GetRecordLangId(This,bRecordIndex,pulVal) (This)->lpVtbl->GetRecordLangId(This,bRecordIndex,pulVal)
@@ -1545,9 +1545,9 @@ DECLARE_INTERFACE_(IDVB_BAT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_BAT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_BAT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_BAT_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_BAT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_BAT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_BAT_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_BAT_ConvertNextToCurrent() (This)->lpVtbl->ConvertNextToCurrent(This)
 #define IDVB_BAT_GetBouquetId(This,pwVal) (This)->lpVtbl->GetBouquetId(This,pwVal)
 #define IDVB_BAT_GetCountOfRecords(This,pdwVal) (This)->lpVtbl->GetCountOfRecords(This,pdwVal)
@@ -1589,9 +1589,9 @@ DECLARE_INTERFACE_(IDVB_DIT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_DIT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_DIT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_DIT_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_DIT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_DIT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_DIT_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_DIT_GetTransitionFlag(This,pfVal) (This)->lpVtbl->GetTransitionFlag(This,pfVal)
 #define IDVB_DIT_Initialize(This,pSectionList) (This)->lpVtbl->Initialize(This,pSectionList)
 #endif /*COBJMACROS*/
@@ -1634,9 +1634,9 @@ DECLARE_INTERFACE_(IDVB_NIT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_NIT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_NIT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_NIT_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_NIT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_NIT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_NIT_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_NIT_ConvertNextToCurrent() (This)->lpVtbl->ConvertNextToCurrent(This)
 #define IDVB_NIT_GetCountOfRecords(This,pdwVal) (This)->lpVtbl->GetCountOfRecords(This,pdwVal)
 #define IDVB_NIT_GetCountOfTableDescriptors(This,pdwVal) (This)->lpVtbl->GetCountOfTableDescriptors(This,pdwVal)
@@ -1695,9 +1695,9 @@ DECLARE_INTERFACE_(IDVB_SDT,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IDVB_SDT_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IDVB_SDT_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IDVB_SDT_Release(This) (This)->pVtbl->Release(This)
+#define IDVB_SDT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDVB_SDT_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDVB_SDT_Release(This) (This)->lpVtbl->Release(This)
 #define IDVB_SDT_ConvertNextToCurrent() (This)->lpVtbl->ConvertNextToCurrent(This)
 #define IDVB_SDT_GetCountOfRecords(This,pdwVal) (This)->lpVtbl->GetCountOfRecords(This,pdwVal)
 #define IDVB_SDT_GetNextTable(This,ppSDT) (This)->lpVtbl->GetNextTable(This,ppSDT)

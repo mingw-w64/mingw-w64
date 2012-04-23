@@ -54,9 +54,9 @@ DECLARE_INTERFACE_(IWSDTransportAddress,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDTransportAddress_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDTransportAddress_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDTransportAddress_Release(This) (This)->pVtbl->Release(This)
+#define IWSDTransportAddress_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDTransportAddress_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDTransportAddress_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDTransportAddress_GetPort(This,pwPort) (This)->lpVtbl->GetPort(This,pwPort)
 #define IWSDTransportAddress_SetPort(This,wPort) (This)->lpVtbl->SetPort(This,wPort)
 #define IWSDTransportAddress_GetTransportAddress(This,ppszAddress) (This)->lpVtbl->GetTransportAddress(This,ppszAddress)
@@ -96,9 +96,9 @@ DECLARE_INTERFACE_(IWSDHttpAddress,IWSDTransportAddress)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDHttpAddress_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDHttpAddress_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDHttpAddress_Release(This) (This)->pVtbl->Release(This)
+#define IWSDHttpAddress_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDHttpAddress_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDHttpAddress_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDHttpAddress_GetPort(This,pwPort) (This)->lpVtbl->GetPort(This,pwPort)
 #define IWSDHttpAddress_SetPort(This,wPort) (This)->lpVtbl->SetPort(This,wPort)
 #define IWSDHttpAddress_GetTransportAddress(This,ppszAddress) (This)->lpVtbl->GetTransportAddress(This,ppszAddress)
@@ -148,9 +148,9 @@ DECLARE_INTERFACE_(IWSDUdpAddress,IWSDTransportAddress)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDUdpAddress_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDUdpAddress_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDUdpAddress_Release(This) (This)->pVtbl->Release(This)
+#define IWSDUdpAddress_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDUdpAddress_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDUdpAddress_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDUdpAddress_GetPort(This,pwPort) (This)->lpVtbl->GetPort(This,pwPort)
 #define IWSDUdpAddress_SetPort(This,wPort) (This)->lpVtbl->SetPort(This,wPort)
 #define IWSDUdpAddress_GetTransportAddress(This,ppszAddress) (This)->lpVtbl->GetTransportAddress(This,ppszAddress)
@@ -191,9 +191,9 @@ DECLARE_INTERFACE_(IWSDAddress,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDAddress_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDAddress_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDAddress_Release(This) (This)->pVtbl->Release(This)
+#define IWSDAddress_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDAddress_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDAddress_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDAddress_Serialize(This,pszBuffer,cchLength,fSafe) (This)->lpVtbl->Serialize(This,pszBuffer,cchLength,fSafe)
 #define IWSDAddress_Deserialize(This,pszBuffer) (This)->lpVtbl->Deserialize(This,pszBuffer)
 #endif /*COBJMACROS*/
@@ -224,9 +224,9 @@ DECLARE_INTERFACE_(IWSDMessageParameters,IUnknown)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDMessageParameters_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDMessageParameters_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDMessageParameters_Release(This) (This)->pVtbl->Release(This)
+#define IWSDMessageParameters_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDMessageParameters_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDMessageParameters_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDMessageParameters_GetLocalAddress(This,ppAddress) (This)->lpVtbl->GetLocalAddress(This,ppAddress)
 #define IWSDMessageParameters_SetLocalAddress(This,pAddress) (This)->lpVtbl->SetLocalAddress(This,pAddress)
 #define IWSDMessageParameters_GetRemoteAddress(This,ppAddress) (This)->lpVtbl->GetRemoteAddress(This,ppAddress)
@@ -271,9 +271,9 @@ DECLARE_INTERFACE_(IWSDHttpMessageParameters,IWSDMessageParameters)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDHttpMessageParameters_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDHttpMessageParameters_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDHttpMessageParameters_Release(This) (This)->pVtbl->Release(This)
+#define IWSDHttpMessageParameters_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDHttpMessageParameters_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDHttpMessageParameters_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDHttpMessageParameters_GetLocalAddress(This,ppAddress) (This)->lpVtbl->GetLocalAddress(This,ppAddress)
 #define IWSDHttpMessageParameters_SetLocalAddress(This,pAddress) (This)->lpVtbl->SetLocalAddress(This,pAddress)
 #define IWSDHttpMessageParameters_GetRemoteAddress(This,ppAddress) (This)->lpVtbl->GetRemoteAddress(This,ppAddress)
@@ -320,9 +320,9 @@ DECLARE_INTERFACE_(IWSDUdpMessageParameters,IWSDMessageParameters)
     END_INTERFACE
 };
 #ifdef COBJMACROS
-#define IWSDUdpMessageParameters_QueryInterface(This,riid,ppvObject) (This)->pVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDUdpMessageParameters_AddRef(This) (This)->pVtbl->AddRef(This)
-#define IWSDUdpMessageParameters_Release(This) (This)->pVtbl->Release(This)
+#define IWSDUdpMessageParameters_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDUdpMessageParameters_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDUdpMessageParameters_Release(This) (This)->lpVtbl->Release(This)
 #define IWSDUdpMessageParameters_GetLocalAddress(This,ppAddress) (This)->lpVtbl->GetLocalAddress(This,ppAddress)
 #define IWSDUdpMessageParameters_SetLocalAddress(This,pAddress) (This)->lpVtbl->SetLocalAddress(This,pAddress)
 #define IWSDUdpMessageParameters_GetRemoteAddress(This,ppAddress) (This)->lpVtbl->GetRemoteAddress(This,ppAddress)
