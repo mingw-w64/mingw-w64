@@ -200,6 +200,10 @@ extern
 /*
  * User has expressed a preference for C99 conformance...
  */
+#undef __MINGW_PRINTF_FORMAT
+#undef __MINGW_SCANF_FORMAT
+#define __MINGW_PRINTF_FORMAT gnu_printf
+#define __MINGW_SCANF_FORMAT  gnu_scanf
 
 __mingw_ovr
 __attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
@@ -357,6 +361,10 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 
 #else /* !__USE_MINGW_ANSI_STDIO */
 
+#undef __MINGW_PRINTF_FORMAT
+#undef __MINGW_SCANF_FORMAT
+#define __MINGW_PRINTF_FORMAT ms_printf
+#define __MINGW_SCANF_FORMAT  ms_scanf
 #undef __builtin_vsnprintf
 #undef __builtin_vsprintf
 
