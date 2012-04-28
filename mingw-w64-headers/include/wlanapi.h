@@ -738,9 +738,10 @@ DWORD WINAPI WlanUIEditProfile(
   PWLAN_REASON_CODE *pWlanReasonCode
 );
 
+#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #ifdef __cplusplus
 }
 #endif
 
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 #endif /*_INC_WLANAPI*/

@@ -1,3 +1,7 @@
+2012-04-28  Jonathan Liu  <net147@users.sourceforge.net>
+
+	* wlanapi.h: Fixed incorrectly nested if blocks.
+
 2012-04-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from the trunk revs. 4961/4962:
