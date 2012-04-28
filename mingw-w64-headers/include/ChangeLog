@@ -1,3 +1,7 @@
+2012-04-28  Jonathan Liu  <net147@users.sourceforge.net>
+
+	* wlanapi.h: Fixed incorrectly nested if blocks.
+
 2012-04-23  Stefan Sundin  <recover89@gmail.com>
 
 	* Fix incorrect references for pVtbl to lpVtbl in these files:
