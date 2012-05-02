@@ -58,7 +58,8 @@ typedef union lD {
 
 static int __strtopx (const char *s, char **sp, lD *V)
 {
-	static FPI fpi0 = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, SI };
+	static FPI fpi0 = { 64, 1-16383-64+1, 32766 - 16383 - 64 + 1, 1, SI,
+			   Int_max };
 	ULong bits[2];
 	Long expo;
 	int k;

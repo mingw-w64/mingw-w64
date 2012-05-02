@@ -1,3 +1,14 @@
+2012-05-02  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3521401
+	* gdtoa/strtodnrp.c (__strtod): Add Int_max initializer to fpi.
+	* gdtoa/strtof.c (__strtof): Add Int_max initializer to fpi0.
+	* gdtoa/strtopx.c (__strtopx): Add Int_max initializer to fpi0.
+
+	* Makefile.in: Regenerated.
+	* Makefile.am: Add RtlSecureZeroMemory.c file.
+	* intrincs/RtlSecureZeroMemory.c: New file.
+
 2012-04-19  Kai Tietz  <ktietz@redhat.com>
 	    Timo Kreuzer <timo.kreuzer@reactos.org>
 
