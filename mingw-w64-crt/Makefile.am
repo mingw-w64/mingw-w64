@@ -136,6 +136,7 @@ src_libmingwex=\
   intrincs/ilockxor.c   intrincs/ilockinc.c    intrincs/ilockdec.c intrincs/ilockexch.c intrincs/ilockcxch.c     \
   intrincs/__movsb.c    intrincs/__movsw.c     intrincs/__movsd.c     \
   intrincs/__stosb.c    intrincs/__stosw.c     intrincs/__stosd.c     \
+  intrincs/RtlSecureZeroMemory.c \
   intrincs/currentteb.c intrincs/currentfiber.c intrincs/fiberdata.c  \
   \
   complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosl.c \
