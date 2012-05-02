@@ -2354,6 +2354,7 @@ extern "C" {
 #define LVCFMT_WRAP 0x400000
 #define LVCFMT_NO_TITLE 0x800000
 #define LVCFMT_SPLITBUTTON 0x1000000
+#define LVCFMT_SPLIT_BUTTON 0x1000000
 #define LVCFMT_TILE_PLACEMENTMASK (LVCFMT_LINE_BREAK|LVCFMT_FILL)
 #endif /* (_WIN32_WINNT >= 0x0600) */
 
@@ -4344,6 +4345,29 @@ typedef struct tagTVDISPINFOEXW {
 #define BCM_GETTEXTMARGIN (BCM_FIRST+0x5)
 #define Button_GetTextMargin(hwnd,pmargin) (WINBOOL)SNDMSG((hwnd),BCM_GETTEXTMARGIN,0,(LPARAM)(pmargin))
 
+#define BCM_SETNOTE (BCM_FIRST+0x9)
+#define Button_SetNote(hwnd, psz) \
+  (WINBOOL)SNDMSG((hwnd), BCM_SETNOTE, 0, (LPARAM)(psz))
+#define BCM_GETNOTE (BCM_FIRST + 0xa)
+#define Button_GetNote(hwnd, psz, pcc) \
+  (WINBOOL)SNDMSG((hwnd), BCM_GETNOTE, (WPARAM)pcc, (LPARAM)psz)
+#define BCM_GETNOTELENGTH (BCM_FIRST + 0xb)
+#define Button_GetNoteLength(hwnd) \
+  (LRESULT)SNDMSG((hwnd), BCM_GETNOTELENGTH, 0, 0)
+#define BCM_SETSHIELD (BCM_FIRST + 0xc)
+#define Button_SetElevationRequiredState(hwnd, fRequired) \
+  (LRESULT)SNDMSG((hwnd), BCM_SETSHIELD, 0, (LPARAM)fRequired)
+
+#define BCM_SETDROPDOWNSTATE (BCM_FIRST + 0x6)
+#define Button_SetDropDownState(hwnd, fDropDown) \
+   (WINBOOL)SNDMSG((hwnd), BCM_SETDROPDOWNSTATE, (WPARAM)fDropDown, 0)
+#define BCM_SETSPLITINFO (BCM_FIRST + 0x7)
+#define Button_SetSplitInfo(hwnd,psi) \
+   (WINBOOL)SNDMSG((hwnd), BCM_SETSPLITINFO, 0, (LPARAM)psi)
+#define BCM_GETSPLITINFO (BCM_FIRST + 0x8)
+#define Button_GetSplitInfo(hwnd,psi) \
+   (WINBOOL)SNDMSG((hwnd), BCM_GETSPLITINFO, 0, (LPARAM)psi)
+
   typedef struct tagNMBCHOTITEM {
     NMHDR hdr;
     DWORD dwFlags;
@@ -4352,6 +4376,36 @@ typedef struct tagTVDISPINFOEXW {
 #define BCN_HOTITEMCHANGE (BCN_FIRST+0x1)
 
 #define BST_HOT 0x200
+
+/* Vista and 6.0 version new Button control styles.  */
+#define BS_SPLITBUTTON          0xc
+#define BS_DEFSPLITBUTTON       0xd
+#define BS_COMMANDLINK          0xe
+#define BS_DEFCOMMANDLINK       0xf
+
+#define BST_DROPDOWNPUSHED 0x400
+
+#define BCSIF_GLYPH 0x1
+#define BCSIF_IMAGE 0x2
+#define BCSIF_STYLE 0x4
+#define BCSIF_SIZE 0x8
+
+#define BCSS_NOSPLIT 0x1
+#define BCSS_STRETCH 0x2
+#define BCSS_ALIGNLEFT 0x4
+#define BCSS_IMAGE 0x8
+
+#define BCN_DROPDOWN (BCN_FIRST + 0x2)
+
+#define BCCL_NOGLYPH (HIMAGELIST)((size_t) -1)
+
+typedef struct tagBUTTON_SPLITINFO
+{
+  UINT mask;
+  HIMAGELIST himlGlyph;
+  UINT uSplitStyle;
+  SIZE size;
+} BUTTON_SPLITINFO, *PBUTTON_SPLITINFO;
 
 #endif
 

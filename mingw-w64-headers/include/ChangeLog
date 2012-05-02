@@ -1,3 +1,8 @@
+2012-05-02  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3523072
+	* commctrl.h:  Add missing button-styles, and messages.
+
 2012-04-28  Jonathan Liu  <net147@users.sourceforge.net>
 
 	* wlanapi.h: Fixed incorrectly nested if blocks.
