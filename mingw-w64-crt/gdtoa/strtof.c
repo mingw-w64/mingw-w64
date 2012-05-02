@@ -33,7 +33,7 @@ THIS SOFTWARE.
 
 float __strtof (const char *s, char **sp)
 {
-	static FPI fpi0 = { 24, 1-127-24+1,  254-127-24+1, 1, SI };
+	static FPI fpi0 = { 24, 1-127-24+1,  254-127-24+1, 1, SI, Int_max };
 	ULong bits[1];
 	Long expo;
 	int k;

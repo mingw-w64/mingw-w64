@@ -250,7 +250,8 @@ am__lib32_libmingwex_a_SOURCES_DIST = libsrc/mingwthrd_nomt.c \
 	intrincs/ilockxor.c intrincs/ilockinc.c intrincs/ilockdec.c \
 	intrincs/ilockexch.c intrincs/ilockcxch.c intrincs/__movsb.c \
 	intrincs/__movsw.c intrincs/__movsd.c intrincs/__stosb.c \
-	intrincs/__stosw.c intrincs/__stosd.c intrincs/currentteb.c \
+	intrincs/__stosw.c intrincs/__stosd.c \
+	intrincs/RtlSecureZeroMemory.c intrincs/currentteb.c \
 	intrincs/currentfiber.c intrincs/fiberdata.c complex/cabs.c \
 	complex/cabsf.c complex/cabsl.c complex/cacos.c \
 	complex/cacosf.c complex/cacosh.c complex/cacoshf.c \
@@ -424,6 +425,7 @@ am__objects_11 = libsrc/lib32_libmingwex_a-mingwthrd_nomt.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-__stosb.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-__stosw.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-__stosd.$(OBJEXT) \
+	intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-currentteb.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-currentfiber.$(OBJEXT) \
 	intrincs/lib32_libmingwex_a-fiberdata.$(OBJEXT) \
@@ -1144,7 +1146,8 @@ am__lib64_libmingwex_a_SOURCES_DIST = libsrc/mingwthrd_nomt.c \
 	intrincs/ilockxor.c intrincs/ilockinc.c intrincs/ilockdec.c \
 	intrincs/ilockexch.c intrincs/ilockcxch.c intrincs/__movsb.c \
 	intrincs/__movsw.c intrincs/__movsd.c intrincs/__stosb.c \
-	intrincs/__stosw.c intrincs/__stosd.c intrincs/currentteb.c \
+	intrincs/__stosw.c intrincs/__stosd.c \
+	intrincs/RtlSecureZeroMemory.c intrincs/currentteb.c \
 	intrincs/currentfiber.c intrincs/fiberdata.c complex/cabs.c \
 	complex/cabsf.c complex/cabsl.c complex/cacos.c \
 	complex/cacosf.c complex/cacosh.c complex/cacoshf.c \
@@ -1326,6 +1329,7 @@ am__objects_31 = libsrc/lib64_libmingwex_a-mingwthrd_nomt.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-__stosb.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-__stosw.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-__stosd.$(OBJEXT) \
+	intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-currentteb.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-currentfiber.$(OBJEXT) \
 	intrincs/lib64_libmingwex_a-fiberdata.$(OBJEXT) \
@@ -2327,6 +2331,7 @@ src_libmingwex = \
   intrincs/ilockxor.c   intrincs/ilockinc.c    intrincs/ilockdec.c intrincs/ilockexch.c intrincs/ilockcxch.c     \
   intrincs/__movsb.c    intrincs/__movsw.c     intrincs/__movsd.c     \
   intrincs/__stosb.c    intrincs/__stosw.c     intrincs/__stosd.c     \
+  intrincs/RtlSecureZeroMemory.c \
   intrincs/currentteb.c intrincs/currentfiber.c intrincs/fiberdata.c  \
   \
   complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosh.c \
@@ -3370,6 +3375,8 @@ intrincs/lib32_libmingwex_a-__stosb.$(OBJEXT):  \
 intrincs/lib32_libmingwex_a-__stosw.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libmingwex_a-__stosd.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libmingwex_a-currentteb.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
@@ -4711,6 +4718,8 @@ intrincs/lib64_libmingwex_a-__stosb.$(OBJEXT):  \
 intrincs/lib64_libmingwex_a-__stosw.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-__stosd.$(OBJEXT):  \
+	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
+intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libmingwex_a-currentteb.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
@@ -6152,6 +6161,7 @@ mostlyclean-compile:
 	-rm -f gdtoa/lib64_libmingwex_a-strtopx.$(OBJEXT)
 	-rm -f gdtoa/lib64_libmingwex_a-sum.$(OBJEXT)
 	-rm -f gdtoa/lib64_libmingwex_a-ulp.$(OBJEXT)
+	-rm -f intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-__movsb.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-__movsd.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-__movsw.$(OBJEXT)
@@ -6227,6 +6237,7 @@ mostlyclean-compile:
 	-rm -f intrincs/lib32_libmingwex_a-writefsdword.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-writefsword.$(OBJEXT)
 	-rm -f intrincs/lib32_libmingwex_a-writemsr.$(OBJEXT)
+	-rm -f intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-__movsb.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-__movsd.$(OBJEXT)
 	-rm -f intrincs/lib64_libmingwex_a-__movsq.$(OBJEXT)
@@ -7380,6 +7391,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@gdtoa/$(DEPDIR)/lib64_libmingwex_a-strtopx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@gdtoa/$(DEPDIR)/lib64_libmingwex_a-sum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@gdtoa/$(DEPDIR)/lib64_libmingwex_a-ulp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-RtlSecureZeroMemory.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-__movsb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-__movsd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-__movsw.Po@am__quote@
@@ -7455,6 +7467,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writefsdword.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writefsword.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libmingwex_a-writemsr.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-RtlSecureZeroMemory.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__movsb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__movsd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libmingwex_a-__movsq.Po@am__quote@
@@ -10916,6 +10929,20 @@ intrincs/lib32_libmingwex_a-__stosd.obj: intrincs/__stosd.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__stosd.c' object='intrincs/lib32_libmingwex_a-__stosd.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-__stosd.obj `if test -f 'intrincs/__stosd.c'; then $(CYGPATH_W) 'intrincs/__stosd.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__stosd.c'; fi`
+
+intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.o: intrincs/RtlSecureZeroMemory.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-RtlSecureZeroMemory.Tpo -c -o intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.o `test -f 'intrincs/RtlSecureZeroMemory.c' || echo '$(srcdir)/'`intrincs/RtlSecureZeroMemory.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-RtlSecureZeroMemory.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-RtlSecureZeroMemory.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/RtlSecureZeroMemory.c' object='intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.o `test -f 'intrincs/RtlSecureZeroMemory.c' || echo '$(srcdir)/'`intrincs/RtlSecureZeroMemory.c
+
+intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.obj: intrincs/RtlSecureZeroMemory.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-RtlSecureZeroMemory.Tpo -c -o intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.obj `if test -f 'intrincs/RtlSecureZeroMemory.c'; then $(CYGPATH_W) 'intrincs/RtlSecureZeroMemory.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/RtlSecureZeroMemory.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libmingwex_a-RtlSecureZeroMemory.Tpo intrincs/$(DEPDIR)/lib32_libmingwex_a-RtlSecureZeroMemory.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/RtlSecureZeroMemory.c' object='intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libmingwex_a-RtlSecureZeroMemory.obj `if test -f 'intrincs/RtlSecureZeroMemory.c'; then $(CYGPATH_W) 'intrincs/RtlSecureZeroMemory.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/RtlSecureZeroMemory.c'; fi`
 
 intrincs/lib32_libmingwex_a-currentteb.o: intrincs/currentteb.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libmingwex_a-currentteb.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libmingwex_a-currentteb.Tpo -c -o intrincs/lib32_libmingwex_a-currentteb.o `test -f 'intrincs/currentteb.c' || echo '$(srcdir)/'`intrincs/currentteb.c
@@ -18672,6 +18699,20 @@ intrincs/lib64_libmingwex_a-__stosd.obj: intrincs/__stosd.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/__stosd.c' object='intrincs/lib64_libmingwex_a-__stosd.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-__stosd.obj `if test -f 'intrincs/__stosd.c'; then $(CYGPATH_W) 'intrincs/__stosd.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/__stosd.c'; fi`
+
+intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.o: intrincs/RtlSecureZeroMemory.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-RtlSecureZeroMemory.Tpo -c -o intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.o `test -f 'intrincs/RtlSecureZeroMemory.c' || echo '$(srcdir)/'`intrincs/RtlSecureZeroMemory.c
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-RtlSecureZeroMemory.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-RtlSecureZeroMemory.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/RtlSecureZeroMemory.c' object='intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.o `test -f 'intrincs/RtlSecureZeroMemory.c' || echo '$(srcdir)/'`intrincs/RtlSecureZeroMemory.c
+
+intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.obj: intrincs/RtlSecureZeroMemory.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-RtlSecureZeroMemory.Tpo -c -o intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.obj `if test -f 'intrincs/RtlSecureZeroMemory.c'; then $(CYGPATH_W) 'intrincs/RtlSecureZeroMemory.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/RtlSecureZeroMemory.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libmingwex_a-RtlSecureZeroMemory.Tpo intrincs/$(DEPDIR)/lib64_libmingwex_a-RtlSecureZeroMemory.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/RtlSecureZeroMemory.c' object='intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libmingwex_a-RtlSecureZeroMemory.obj `if test -f 'intrincs/RtlSecureZeroMemory.c'; then $(CYGPATH_W) 'intrincs/RtlSecureZeroMemory.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/RtlSecureZeroMemory.c'; fi`
 
 intrincs/lib64_libmingwex_a-currentteb.o: intrincs/currentteb.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libmingwex_a-currentteb.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libmingwex_a-currentteb.Tpo -c -o intrincs/lib64_libmingwex_a-currentteb.o `test -f 'intrincs/currentteb.c' || echo '$(srcdir)/'`intrincs/currentteb.c
