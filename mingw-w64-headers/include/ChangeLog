@@ -1,3 +1,7 @@
+2012-05-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dwmapi.h: Fixed all function prototypes to be WINAPI.
+
 2012-05-02  Kai Tietz  <ktietz@redhat.com>
 
 	PR 3523072
