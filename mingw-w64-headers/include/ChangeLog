@@ -1,3 +1,7 @@
+2012-05-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* dwmapi.h: Fixed all function prototypes to be WINAPI.
+
 2012-04-28  Jonathan Liu  <net147@users.sourceforge.net>
 
 	* wlanapi.h: Fixed incorrectly nested if blocks.
