@@ -1,3 +1,8 @@
+2012-05-08  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* uxtheme.h (MAX_INTLIST_COUNT): Define as 402 instead of 10 for
+	vista and newer. (bug #3524667).
+
 2012-05-07  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* dwmapi.h: Fixed all function prototypes to be WINAPI.

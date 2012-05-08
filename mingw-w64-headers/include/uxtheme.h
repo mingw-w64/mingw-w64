@@ -105,7 +105,11 @@ typedef struct _MARGINS {
 
 THEMEAPI GetThemeMargins(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,int iPropId,RECT *prc,MARGINS *pMargins);
 
+#if (_WIN32_WINNT >= 0x0600)
+#define MAX_INTLIST_COUNT 402
+#else
 #define MAX_INTLIST_COUNT 10
+#endif
 
 typedef struct _INTLIST {
   int iValueCount;
