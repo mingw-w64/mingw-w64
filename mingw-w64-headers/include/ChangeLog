@@ -1,3 +1,8 @@
+2012-05-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winuser.h: Merge from trunk revs. 4406, 4810, 4985: Add missing
+	MAPVK_VK_TO_* definitions. Add new HTOUCHINPUT declaration.
+
 2012-05-07  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* dwmapi.h: Fixed all function prototypes to be WINAPI.
