@@ -5335,6 +5335,14 @@ extern "C" {
 #define RIDEV_EXMODEMASK 0x000000F0
 #define RIDEV_EXMODE(mode) ((mode) & RIDEV_EXMODEMASK)
 
+#define MAPVK_VK_TO_VSC    0
+#define MAPVK_VSC_TO_VK    1
+#define MAPVK_VK_TO_CHAR   2
+#define MAPVK_VSC_TO_VK_EX 3
+#if (_WIN32_WINNT >= 0x0600)
+#define MAPVK_VK_TO_VSC_EX 4
+#endif
+
 #if (_WIN32_WINNT >= 0x0601)
 #define WM_TOUCHMOVE 576
 #define WM_TOUCHDOWN 577
@@ -5352,12 +5360,6 @@ extern "C" {
 #define TOUCHINPUTMASKF_TIMEFROMSYSTEM  0x0001
 #define TOUCHINPUTMASKF_EXTRAINFO       0x0002
 #define TOUCHINPUTMASKF_CONTACTAREA     0x0004
-
-#define MAPVK_VK_TO_VSC    0
-#define MAPVK_VSC_TO_VK    1
-#define MAPVK_VK_TO_CHAR   2
-#define MAPVK_VSC_TO_VK_EX 3
-#define MAPVK_VK_TO_VSC_EX 4
 
 DECLARE_HANDLE(HTOUCHINPUT);
 
@@ -5380,7 +5382,7 @@ DECLARE_HANDLE(HTOUCHINPUT);
   WINUSERAPI WINBOOL WINAPI RegisterTouchWindow(HWND hWnd,ULONG ulFlags);
   WINUSERAPI WINBOOL WINAPI UnregisterTouchWindow(HWND hWnd);
 
-#endif
+#endif /* (_WIN32_WINNT >= 0x0601) */
 
   WINUSERAPI WINBOOL WINAPI RegisterRawInputDevices(PCRAWINPUTDEVICE pRawInputDevices,UINT uiNumDevices,UINT cbSize);
   WINUSERAPI UINT WINAPI GetRegisteredRawInputDevices(PRAWINPUTDEVICE pRawInputDevices,PUINT puiNumDevices,UINT cbSize);

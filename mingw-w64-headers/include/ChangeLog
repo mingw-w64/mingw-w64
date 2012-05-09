@@ -1,3 +1,8 @@
+2012-05-09  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* winuser.h (MAPVK_VK_TO_*): Moved map types for MapVirtualKeyEx
+	out of win7 ifdefs. Protected MAPVK_VK_TO_VSC_EX for vista-only.
+
 2012-05-08  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* uxtheme.h (MAX_INTLIST_COUNT): Define as 402 instead of 10 for
