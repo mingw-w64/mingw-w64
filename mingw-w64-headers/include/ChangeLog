@@ -1,3 +1,8 @@
+2012-05-10  Piotr Caban  <piotr@codeweavers.com>
+
+	* vsstyle.h: Wine-version relicensed.
+	* vssym32.h: Likewise.
+
 2012-05-09  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* winuser.h (MAPVK_VK_TO_*): Moved map types for MapVirtualKeyEx
