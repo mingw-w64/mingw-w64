@@ -5,7 +5,7 @@
  */
 #if (defined(SCHEMA_STRINGS)) || (! defined(TMSCHEMA_H))
 
-#if _WIN32_NT > 0x0600 || defined (_VSSYM32_HEADER_GUARD_)
+#if (_WIN32_WINNT >= 0x0600 || defined __VSSYM32_H__)
 #warning <tmschema.h> is obsolete, use <vssym32.h> instead.
 #endif
 
