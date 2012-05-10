@@ -332,7 +332,6 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #ifndef _FILE_OFFSET_BITS_SET_LSEEK
 #define _FILE_OFFSET_BITS_SET_LSEEK
 #if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
-/*#define lseek(_FileHandle,_DstBuf,_MaxCharCount) lseek64(_FileHandle,_DstBuf,_MaxCharCount)*/
 #define lseek lseek64
 #endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
 #endif /* _FILE_OFFSET_BITS_SET_LSEEK */

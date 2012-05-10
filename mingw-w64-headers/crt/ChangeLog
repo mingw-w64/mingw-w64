@@ -1,3 +1,10 @@
+2012-05-10  Christian Franke <Christian.Franke@t-...>
+	    Kai Tietz  <ktietz@redhat.com>
+
+	PR 3523559
+	* stdio.h: Guard override-function for C++ to work-around
+	a g++ bug about builtins and static overrides.
+
 2012-04-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw.h (__int128, __SIZEOF_INT128__): Handle clang.
