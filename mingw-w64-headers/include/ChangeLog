@@ -1,3 +1,9 @@
+2012-05-10  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3523077
+	* tmschema.h: Add warning about obsoleted tmschema.h for
+	_WIN32_NT > 0x600.
+
 2012-05-10  Piotr Caban  <piotr@codeweavers.com>
 
 	* vsstyle.h: Wine-version relicensed.
