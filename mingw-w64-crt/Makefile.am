@@ -76,6 +76,7 @@ src_libksuser=libsrc/ksuser.c
 src_libksguid=libsrc/ksuser.c
 src_liblargeint=libsrc/largeint.c
 src_libsensorsapi=libsrc/sensorsapi.c
+src_libportabledeviceguids=libsrc/portabledeviceguids.c
 
 src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/atonexit.c      crt/crt0_c.c         crt/dll_argv.c  crt/gccmain.c     crt/natstart.c  crt/pseudo-reloc-list.c  crt/wildcard.c \
@@ -378,6 +379,10 @@ lib32_LIBRARIES += lib32/libsensorsapi.a
 lib32_libsensorsapi_a_SOURCES = $(src_libsensorsapi)
 lib32_libsensorsapi_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
+lib32_LIBRARIES += lib32/libportabledeviceguids.a
+lib32_libportabledeviceguids_a_SOURCES = $(src_libportabledeviceguids)
+lib32_libportabledeviceguids_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
 lib32_LIBRARIES += lib32/liblargeint.a
 lib32_liblargeint_a_SOURCES = $(src_liblargeint)
 lib32_liblargeint_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
@@ -642,6 +647,10 @@ lib64_libdxguid_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_LIBRARIES += lib64/libsensorsapi.a
 lib64_libsensorsapi_a_SOURCES = $(src_libsensorsapi)
 lib64_libsensorsapi_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
+lib64_LIBRARIES += lib64/libportabledeviceguids.a
+lib64_libportabledeviceguids_a_SOURCES = $(src_libportabledeviceguids)
+lib64_libportabledeviceguids_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libgmon.a
 lib64_libgmon_a_SOURCES = profile/mcount.c \
