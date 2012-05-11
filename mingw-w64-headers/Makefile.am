@@ -69,6 +69,7 @@ IDL_SRCS = \
   include/oleidl.idl \
   include/optary.idl \
   include/propidl.idl \
+  include/propsys.idl \
   include/shobjidl.idl \
   include/shtypes.idl \
   include/strmif.idl \
