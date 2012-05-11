@@ -3576,6 +3576,7 @@ src_libmingwex32 = \
 @LIB32_TRUE@  lib32/libversion.a   lib32/libvideoprt.a  lib32/libwin32k.a    lib32/libwin32spl.a  lib32/libwininet.a  \
 @LIB32_TRUE@  lib32/libwinmm.a     lib32/libwinspool.a  lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a    \
 @LIB32_TRUE@  lib32/libwsnmp32.a   lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a \
+@LIB32_TRUE@  lib32/libwindowscodecs.a \
 @LIB32_TRUE@  \
 @LIB32_TRUE@  lib32/libgpapi.a     lib32/libgpedit.a    lib32/libgpprefcl.a  lib32/libgpscript.a \
 @LIB32_TRUE@  lib32/libgptext.a    lib32/libmshtml.a    lib32/libmshtmled.a  \
@@ -3948,6 +3949,7 @@ src_libmingwex32 = \
 @LIB64_TRUE@  lib64/libwmisvc.a     lib64/libwow64cpu.a   lib64/libwow64.a        lib64/libwow64mib.a   lib64/libwow64win.a      \
 @LIB64_TRUE@  lib64/libwpd_ci.a     lib64/libws2help.a    lib64/libwscsvc.a       lib64/libwshatm.a     lib64/libwshbth.a        \
 @LIB64_TRUE@  lib64/libwshcon.a     lib64/libwsock32.a    lib64/libzoneoc.a       lib64/libnormaliz.a   \
+@LIB64_TRUE@  lib64/libwindowscodecs.a \
 @LIB64_TRUE@  \
 @LIB64_TRUE@  lib64/libclfsw32.a    \
 @LIB64_TRUE@  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a    \
