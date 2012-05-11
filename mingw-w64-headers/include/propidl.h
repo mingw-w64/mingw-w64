@@ -51,138 +51,215 @@ typedef struct IEnumSTATPROPSETSTG IEnumSTATPROPSETSTG;
   void *__RPC_API MIDL_user_allocate(size_t);
   void __RPC_API MIDL_user_free(void *);
 #endif
-
-  typedef struct tagVersionedStream {
+typedef struct tagVersionedStream {
     GUID guidVersion;
     IStream *pStream;
-  } VERSIONEDSTREAM;
-
-  typedef struct tagVersionedStream *LPVERSIONEDSTREAM;
-
+} VERSIONEDSTREAM;
+typedef struct tagVersionedStream *LPVERSIONEDSTREAM;
 #define PROPSETFLAG_DEFAULT (0)
+
 #define PROPSETFLAG_NONSIMPLE (1)
+
 #define PROPSETFLAG_ANSI (2)
+
 #define PROPSETFLAG_UNBUFFERED (4)
+
 #define PROPSETFLAG_CASE_SENSITIVE (8)
 
 #define PROPSET_BEHAVIOR_CASE_SENSITIVE (1)
 
-  typedef struct tagPROPVARIANT PROPVARIANT;
-  typedef struct tagCAC {
+#if 0
+typedef struct tag_inner_PROPVARIANT PROPVARIANT;
+#else
+typedef struct tagPROPVARIANT PROPVARIANT;
+#endif
+typedef struct tagCAC {
     ULONG cElems;
     CHAR *pElems;
-  } CAC;
-
-  typedef struct tagCAUB {
+} CAC;
+typedef struct tagCAUB {
     ULONG cElems;
     UCHAR *pElems;
-  } CAUB;
-
-  typedef struct tagCAI {
+} CAUB;
+typedef struct tagCAI {
     ULONG cElems;
     SHORT *pElems;
-  } CAI;
-
-  typedef struct tagCAUI {
+} CAI;
+typedef struct tagCAUI {
     ULONG cElems;
     USHORT *pElems;
-  } CAUI;
-
-  typedef struct tagCAL {
+} CAUI;
+typedef struct tagCAL {
     ULONG cElems;
     LONG *pElems;
-  } CAL;
-
-  typedef struct tagCAUL {
+} CAL;
+typedef struct tagCAUL {
     ULONG cElems;
     ULONG *pElems;
-  } CAUL;
-
-  typedef struct tagCAFLT {
+} CAUL;
+typedef struct tagCAFLT {
     ULONG cElems;
     FLOAT *pElems;
-  } CAFLT;
-
-  typedef struct tagCADBL {
+} CAFLT;
+typedef struct tagCADBL {
     ULONG cElems;
     DOUBLE *pElems;
-  } CADBL;
-
-  typedef struct tagCACY {
+} CADBL;
+typedef struct tagCACY {
     ULONG cElems;
     CY *pElems;
-  } CACY;
-
-  typedef struct tagCADATE {
+} CACY;
+typedef struct tagCADATE {
     ULONG cElems;
     DATE *pElems;
-  } CADATE;
-
-  typedef struct tagCABSTR {
+} CADATE;
+typedef struct tagCABSTR {
     ULONG cElems;
     BSTR *pElems;
-  } CABSTR;
-
-  typedef struct tagCABSTRBLOB {
+} CABSTR;
+typedef struct tagCABSTRBLOB {
     ULONG cElems;
     BSTRBLOB *pElems;
-  } CABSTRBLOB;
-
-  typedef struct tagCABOOL {
+} CABSTRBLOB;
+typedef struct tagCABOOL {
     ULONG cElems;
     VARIANT_BOOL *pElems;
-  } CABOOL;
-
-  typedef struct tagCASCODE {
+} CABOOL;
+typedef struct tagCASCODE {
     ULONG cElems;
     SCODE *pElems;
-  } CASCODE;
-
-  typedef struct tagCAPROPVARIANT {
+} CASCODE;
+typedef struct tagCAPROPVARIANT {
     ULONG cElems;
     PROPVARIANT *pElems;
-  } CAPROPVARIANT;
-
-  typedef struct tagCAH {
+} CAPROPVARIANT;
+typedef struct tagCAH {
     ULONG cElems;
     LARGE_INTEGER *pElems;
-  } CAH;
-
-  typedef struct tagCAUH {
+} CAH;
+typedef struct tagCAUH {
     ULONG cElems;
     ULARGE_INTEGER *pElems;
-  } CAUH;
-
-  typedef struct tagCALPSTR {
+} CAUH;
+typedef struct tagCALPSTR {
     ULONG cElems;
     LPSTR *pElems;
-  } CALPSTR;
-
-  typedef struct tagCALPWSTR {
+} CALPSTR;
+typedef struct tagCALPWSTR {
     ULONG cElems;
     LPWSTR *pElems;
-  } CALPWSTR;
-
-  typedef struct tagCAFILETIME {
+} CALPWSTR;
+typedef struct tagCAFILETIME {
     ULONG cElems;
     FILETIME *pElems;
-  } CAFILETIME;
-
-  typedef struct tagCACLIPDATA {
+} CAFILETIME;
+typedef struct tagCACLIPDATA {
     ULONG cElems;
     CLIPDATA *pElems;
-  } CACLIPDATA;
-
-  typedef struct tagCACLSID {
+} CACLIPDATA;
+typedef struct tagCACLSID {
     ULONG cElems;
     CLSID *pElems;
-  } CACLSID;
-
+} CACLSID;
+#if 0
+typedef BYTE PROPVAR_PAD1;
+typedef BYTE PROPVAR_PAD2;
+typedef ULONG PROPVAR_PAD3;
+#else
   typedef WORD PROPVAR_PAD1;
   typedef WORD PROPVAR_PAD2;
   typedef WORD PROPVAR_PAD3;
 #define tag_inner_PROPVARIANT
+#endif
+#if 0
+struct tagPROPVARIANT {
+    __C89_NAMELESS union {
+        __C89_NAMELESS
+struct tag_inner_PROPVARIANT {
+    VARTYPE vt;
+    PROPVAR_PAD1 wReserved1;
+    PROPVAR_PAD2 wReserved2;
+    PROPVAR_PAD3 wReserved3;
+    union {
+        CHAR cVal;
+        UCHAR bVal;
+        SHORT iVal;
+        USHORT uiVal;
+        LONG lVal;
+        ULONG ulVal;
+        INT intVal;
+        UINT uintVal;
+        LARGE_INTEGER hVal;
+        ULARGE_INTEGER uhVal;
+        FLOAT fltVal;
+        DOUBLE dblVal;
+        VARIANT_BOOL boolVal;
+        SCODE scode;
+        CY cyVal;
+        DATE date;
+        FILETIME filetime;
+        CLSID *puuid;
+        CLIPDATA *pclipdata;
+        BSTR bstrVal;
+        BSTRBLOB bstrblobVal;
+        BLOB blob;
+        LPSTR pszVal;
+        LPWSTR pwszVal;
+        IUnknown *punkVal;
+        IDispatch *pdispVal;
+        IStream *pStream;
+        IStorage *pStorage;
+        LPVERSIONEDSTREAM pVersionedStream;
+        LPSAFEARRAY parray;
+        CAC cac;
+        CAUB caub;
+        CAI cai;
+        CAUI caui;
+        CAL cal;
+        CAUL caul;
+        CAH cah;
+        CAUH cauh;
+        CAFLT caflt;
+        CADBL cadbl;
+        CABOOL cabool;
+        CASCODE cascode;
+        CACY cacy;
+        CADATE cadate;
+        CAFILETIME cafiletime;
+        CACLSID cauuid;
+        CACLIPDATA caclipdata;
+        CABSTR cabstr;
+        CABSTRBLOB cabstrblob;
+        CALPSTR calpstr;
+        CALPWSTR calpwstr;
+        CAPROPVARIANT capropvar;
+        CHAR *pcVal;
+        UCHAR *pbVal;
+        SHORT *piVal;
+        USHORT *puiVal;
+        LONG *plVal;
+        ULONG *pulVal;
+        INT *pintVal;
+        UINT *puintVal;
+        FLOAT *pfltVal;
+        DOUBLE *pdblVal;
+        VARIANT_BOOL *pboolVal;
+        DECIMAL *pdecVal;
+        SCODE *pscode;
+        CY *pcyVal;
+        DATE *pdate;
+        BSTR *pbstrVal;
+        IUnknown **ppunkVal;
+        IDispatch **ppdispVal;
+        LPSAFEARRAY *pparray;
+        PROPVARIANT *pvarVal;
+    };
+};
 
+      DECIMAL decVal;
+    };
+  };
+#else
   struct tagPROPVARIANT {
     __C89_NAMELESS union {
       __C89_NAMELESS struct tag_inner_PROPVARIANT {
@@ -269,7 +346,11 @@ typedef struct IEnumSTATPROPSETSTG IEnumSTATPROPSETSTG;
       DECIMAL decVal;
     };
   };
-
+#endif
+#if 0
+typedef struct tag_inner_PROPVARIANT *LPPROPVARIANT;
+typedef const PROPVARIANT *REFPROPVARIANT;
+#else
   typedef struct tagPROPVARIANT *LPPROPVARIANT;
 
 #ifndef _REFPROPVARIANT_DEFINED
@@ -280,7 +361,7 @@ typedef struct IEnumSTATPROPSETSTG IEnumSTATPROPSETSTG;
 #define REFPROPVARIANT const PROPVARIANT * __MIDL_CONST
 #endif
 #endif
-
+#endif
 #define PID_DICTIONARY (0)
 #define PID_CODEPAGE (0x1)
 #define PID_FIRST_USABLE (0x2)
