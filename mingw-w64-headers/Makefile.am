@@ -71,6 +71,7 @@ IDL_SRCS = \
   include/portabledevicetypes.idl \
   include/propidl.idl \
   include/propsys.idl \
+  include/sensorsapi.idl \
   include/shobjidl.idl \
   include/shtypes.idl \
   include/strmif.idl \
