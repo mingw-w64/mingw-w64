@@ -68,6 +68,7 @@ IDL_SRCS = \
   include/objidl.idl \
   include/oleidl.idl \
   include/optary.idl \
+  include/portabledevicetypes.idl \
   include/propidl.idl \
   include/propsys.idl \
   include/shobjidl.idl \
