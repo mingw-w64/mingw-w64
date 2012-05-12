@@ -650,6 +650,15 @@ __CRT_UUID_DECL(MediaDet, 0x65bd0711, 0x24d2, 0x4ff7, 0x93,0x24, 0xed,0x2e,0x5d,
 #endif
 #endif
 
+enum {
+    E_NOTINTREE = 0x80040400,
+    E_RENDER_ENGINE_IS_BROKEN = 0x80040401,
+    E_MUST_INIT_RENDERER = 0x80040402,
+    E_NOTDETERMINED = 0x80040403,
+    E_NO_TIMELINE = 0x80040404,
+    S_WARN_OUTPUTRESET = 40404
+};
+
 /* Begin additional prototypes for all interfaces */
 
 ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);

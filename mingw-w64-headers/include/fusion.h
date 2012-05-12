@@ -87,6 +87,7 @@ typedef enum __WIDL_fusion_generated_name_00000001 {
     peI386 = 0x2,
     peIA64 = 0x3,
     peAMD64 = 0x4,
+    peARM = 0x5,
     peInvalid = 0xffffffff
 } PEKIND;
 typedef enum _tagAssemblyComparisonResult {
