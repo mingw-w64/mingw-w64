@@ -61,6 +61,7 @@ IDL_SRCS = \
   include/oaidl.idl \
   include/ocidl.idl \
   include/comcat.idl \
+  include/mmdeviceapi.idl \
   include/mscoree.idl \
   include/msctf.idl \
   include/msxml.idl \
