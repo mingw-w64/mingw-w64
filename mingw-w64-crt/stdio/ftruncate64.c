@@ -220,7 +220,7 @@ static int checkfreespace(const HANDLE f, const ULONGLONG requiredspace){
 
   /* Get available free space */
   check = GetDiskFreeSpaceExW(dirpath,&freespace,NULL,NULL);
-  wprintf(L"freespace %I64u\n",freespace);
+  //wprintf(L"freespace %I64u\n",freespace);
   free(dirpath);
   if(!check) {
     _set_errno(EFBIG);
