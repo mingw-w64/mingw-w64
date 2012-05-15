@@ -2715,7 +2715,10 @@ case YY_STATE_EOF(RCINCL):
 		if(!bep)
 		{
 			if(YY_START != INITIAL)
+			{
 				ppy_error("Unexpected end of file during preprocessing");
+				BEGIN(INITIAL);
+			}
 			yyterminate();
 		}
 		else if(bep->should_pop == 2)
@@ -2729,10 +2732,10 @@ case YY_STATE_EOF(RCINCL):
 	YY_BREAK
 case 143:
 YY_RULE_SETUP
-#line 789 "ppl.l"
+#line 792 "ppl.l"
 ECHO;
 	YY_BREAK
-#line 2736 "ppl.yy.c"
+#line 2739 "ppl.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -3736,7 +3739,7 @@ void ppy_free (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 789 "ppl.l"
+#line 792 "ppl.l"
 
 
 /*
