@@ -1249,11 +1249,11 @@ typedef struct tagVIDEOINFO {
     DWORD dwBitErrorRate;
     REFERENCE_TIME AvgTimePerFrame;
     BITMAPINFOHEADER bmiHeader;
-    union {
+    __C89_NAMELESS union {
         RGBQUAD bmiColors[256];
         DWORD dwBitMasks[3];
         TRUECOLORINFO TrueColorInfo;
-    } DUMMYUNIONNAME;
+    } __C89_NAMELESSUNIONNAME;
 } VIDEOINFO;
 typedef struct tagMPEG1VIDEOINFO {
     VIDEOINFOHEADER hdr;

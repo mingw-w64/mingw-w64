@@ -945,14 +945,14 @@ typedef struct D3D10_TEX2DMS_ARRAY_DSV {
 typedef struct D3D10_DEPTH_STENCIL_VIEW_DESC {
     DXGI_FORMAT Format;
     D3D10_DSV_DIMENSION ViewDimension;
-    union {
+    __C89_NAMELESS union {
         D3D10_TEX1D_DSV Texture1D;
         D3D10_TEX1D_ARRAY_DSV Texture1DArray;
         D3D10_TEX2D_DSV Texture2D;
         D3D10_TEX2D_ARRAY_DSV Texture2DArray;
         D3D10_TEX2DMS_DSV Texture2DMS;
         D3D10_TEX2DMS_ARRAY_DSV Texture2DMSArray;
-    } DUMMYUNIONNAME;
+    } __C89_NAMELESSUNIONNAME;
 } D3D10_DEPTH_STENCIL_VIEW_DESC;
 typedef enum D3D10_RTV_DIMENSION {
     D3D10_RTV_DIMENSION_UNKNOWN = 0,
@@ -1000,7 +1000,7 @@ typedef struct D3D10_TEX3D_RTV {
 typedef struct D3D10_RENDER_TARGET_VIEW_DESC {
     DXGI_FORMAT Format;
     D3D10_RTV_DIMENSION ViewDimension;
-    union {
+    __C89_NAMELESS union {
         D3D10_BUFFER_RTV Buffer;
         D3D10_TEX1D_RTV Texture1D;
         D3D10_TEX1D_ARRAY_RTV Texture1DArray;
@@ -1009,7 +1009,7 @@ typedef struct D3D10_RENDER_TARGET_VIEW_DESC {
         D3D10_TEX2DMS_RTV Texture2DMS;
         D3D10_TEX2DMS_ARRAY_RTV Texture2DMSArray;
         D3D10_TEX3D_RTV Texture3D;
-    } DUMMYUNIONNAME;
+    } __C89_NAMELESSUNIONNAME;
 } D3D10_RENDER_TARGET_VIEW_DESC;
 typedef D3D_SRV_DIMENSION D3D10_SRV_DIMENSION;
 typedef struct D3D10_BUFFER_SRV {
@@ -1054,7 +1054,7 @@ typedef struct D3D10_TEXCUBE_SRV {
 typedef struct D3D10_SHADER_RESOURCE_VIEW_DESC {
     DXGI_FORMAT Format;
     D3D10_SRV_DIMENSION ViewDimension;
-    union {
+    __C89_NAMELESS union {
         D3D10_BUFFER_SRV Buffer;
         D3D10_TEX1D_SRV Texture1D;
         D3D10_TEX1D_ARRAY_SRV Texture1DArray;
@@ -1064,7 +1064,7 @@ typedef struct D3D10_SHADER_RESOURCE_VIEW_DESC {
         D3D10_TEX2DMS_ARRAY_SRV Texture2DMSArray;
         D3D10_TEX3D_SRV Texture3D;
         D3D10_TEXCUBE_SRV TextureCube;
-    } DUMMYUNIONNAME;
+    } __C89_NAMELESSUNIONNAME;
 } D3D10_SHADER_RESOURCE_VIEW_DESC;
 typedef struct D3D10_BOX {
     UINT left;
