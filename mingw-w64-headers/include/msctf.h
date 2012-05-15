@@ -1800,10 +1800,10 @@ typedef enum __WIDL_msctf_generated_name_00000003 {
 } TF_DA_COLORTYPE;
 typedef struct TF_DA_COLOR {
     TF_DA_COLORTYPE type;
-    union {
+    __C89_NAMELESS union {
         int nIndex;
         COLORREF cr;
-    };
+    } __C89_NAMELESSUNIONNAME;
 } TF_DA_COLOR;
 typedef enum __WIDL_msctf_generated_name_00000004 {
     TF_ATTR_INPUT = 0,

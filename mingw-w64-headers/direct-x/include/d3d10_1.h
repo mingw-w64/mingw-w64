@@ -176,7 +176,7 @@ typedef D3D_SRV_DIMENSION D3D10_SRV_DIMENSION1;
 typedef struct D3D10_SHADER_RESOURCE_VIEW_DESC1 {
     DXGI_FORMAT Format;
     D3D10_SRV_DIMENSION1 ViewDimension;
-    union {
+    __C89_NAMELESS union {
         D3D10_BUFFER_SRV Buffer;
         D3D10_TEX1D_SRV Texture1D;
         D3D10_TEX1D_ARRAY_SRV Texture1DArray;
@@ -187,7 +187,7 @@ typedef struct D3D10_SHADER_RESOURCE_VIEW_DESC1 {
         D3D10_TEX3D_SRV Texture3D;
         D3D10_TEXCUBE_SRV TextureCube;
         D3D10_TEXCUBE_ARRAY_SRV1 TextureCubeArray;
-    };
+    } __C89_NAMELESSUNIONNAME;
 } D3D10_SHADER_RESOURCE_VIEW_DESC1;
 /*****************************************************************************
  * ID3D10ShaderResourceView1 interface

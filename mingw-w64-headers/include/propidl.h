@@ -180,7 +180,7 @@ struct tag_inner_PROPVARIANT {
     PROPVAR_PAD1 wReserved1;
     PROPVAR_PAD2 wReserved2;
     PROPVAR_PAD3 wReserved3;
-    union {
+    __C89_NAMELESS union {
         CHAR cVal;
         UCHAR bVal;
         SHORT iVal;
@@ -253,7 +253,7 @@ struct tag_inner_PROPVARIANT {
         IDispatch **ppdispVal;
         LPSAFEARRAY *pparray;
         PROPVARIANT *pvarVal;
-    };
+    } __C89_NAMELESSUNIONNAME;
 };
 
       DECIMAL decVal;
