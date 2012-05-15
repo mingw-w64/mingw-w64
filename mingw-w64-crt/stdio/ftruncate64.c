@@ -1,9 +1,9 @@
 #ifdef TEST_FTRUNCATE64
 #include <fcntl.h>
-#include <stdio.h>
 #include <sys/stat.h>
 #endif /* TEST_FTRUNCATE64 */
 
+#include <stdio.h>
 #include <unistd.h>
 #include <io.h>
 #include <stdlib.h>
@@ -240,19 +240,28 @@ int ftruncate64(int __fd, _off64_t __length) {
   LARGE_INTEGER quad;
   DWORD check;
   int ret = 0;
+  __int64 pos;
 
   /* Sanity check */
   if (__length < 0) {
-    _set_errno(EINVAL);
-    return -1;
+    goto errorout;
   }
 
   /* Get Win32 Handle */
-  if(__fd == -1) return __fd;
+  if(__fd == -1) {
+    goto errorout;
+  }
+
   f = (HANDLE)_get_osfhandle(__fd);
   if (f == INVALID_HANDLE_VALUE || (GetFileType(f) != FILE_TYPE_DISK)) {
     _set_errno(EBADF);
     return -1;
+  }
+
+
+  /* Save position */
+  if((pos = _telli64(__fd)) == -1LL){
+    goto errorout;
   }
 
   /* Check available space */
@@ -279,14 +288,21 @@ int ftruncate64(int __fd, _off64_t __length) {
 
   check = SetEndOfFile(f);
   if (!check) {
-    check = GetLastError();
-    _set_errno(EINVAL);
-    ret = -1;
+    goto errorout;
   }
+
+  if(_lseeki64(__fd,pos,SEEK_SET) == -1LL){
+    goto errorout;
+  }
+
   return ret;
+
+  errorout:
+  _set_errno(EINVAL);
+  return -1;
 }
 
-#ifdef TEST_FTRUNCATE64
+#if (TEST_FTRUNCATE64 == 1)
 int main(){
   LARGE_INTEGER sz;
   ULARGE_INTEGER freespace;
@@ -309,3 +325,43 @@ int main(){
   return 0;
 }
 #endif /* TEST_FTRUNCATE64 */
+
+#if (TEST_FTRUNCATE64 == 2)
+int main() {
+FILE *f;
+int fd;
+char buf[100];
+int cnt;
+unlink("test.out");
+f = fopen("test.out","w+");
+fd = fileno(f);
+write(fd,"abc",3);
+fflush(f);
+printf ("err: %d\n", ftruncate64(fd,10));
+cnt = read(fd,buf,100);
+printf("cnt = %d\n",cnt);
+return 0;
+}
+#endif /* TEST_FTRUNCATE64 */
+
+#if (TEST_FTRUNCATE64 == 3)
+int main() {
+FILE *f;
+int fd;
+char buf[100];
+int cnt;
+unlink("test.out");
+f = fopen("test.out","w+");
+fd = fileno(f);
+write(fd,"abc",3);
+fflush(f);
+ftruncate64(fd,0);
+write(fd,"def",3);
+fclose(f);
+f = fopen("test.out","r");
+cnt = fread(buf,1,100,f);
+printf("cnt = %d\n",cnt);
+return 0;
+}
+#endif /* TEST_FTRUNCATE64 */
+
