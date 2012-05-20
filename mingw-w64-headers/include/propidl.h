@@ -171,7 +171,6 @@ typedef ULONG PROPVAR_PAD3;
   typedef WORD PROPVAR_PAD3;
 #define tag_inner_PROPVARIANT
 #endif
-#if 0
 struct tagPROPVARIANT {
     __C89_NAMELESS union {
         __C89_NAMELESS
@@ -259,94 +258,6 @@ struct tag_inner_PROPVARIANT {
       DECIMAL decVal;
     };
   };
-#else
-  struct tagPROPVARIANT {
-    __C89_NAMELESS union {
-      __C89_NAMELESS struct tag_inner_PROPVARIANT {
-	VARTYPE vt;
-	PROPVAR_PAD1 wReserved1;
-	PROPVAR_PAD2 wReserved2;
-	PROPVAR_PAD3 wReserved3;
-	__C89_NAMELESS union {
-	  CHAR cVal;
-	  UCHAR bVal;
-	  SHORT iVal;
-	  USHORT uiVal;
-	  LONG lVal;
-	  ULONG ulVal;
-	  INT intVal;
-	  UINT uintVal;
-	  LARGE_INTEGER hVal;
-	  ULARGE_INTEGER uhVal;
-	  FLOAT fltVal;
-	  DOUBLE dblVal;
-	  VARIANT_BOOL boolVal;
-	  /* _VARIANT_BOOL bool; */
-	  SCODE scode;
-	  CY cyVal;
-	  DATE date;
-	  FILETIME filetime;
-	  CLSID *puuid;
-	  CLIPDATA *pclipdata;
-	  BSTR bstrVal;
-	  BSTRBLOB bstrblobVal;
-	  BLOB blob;
-	  LPSTR pszVal;
-	  LPWSTR pwszVal;
-	  IUnknown *punkVal;
-	  IDispatch *pdispVal;
-	  IStream *pStream;
-	  IStorage *pStorage;
-	  LPVERSIONEDSTREAM pVersionedStream;
-	  LPSAFEARRAY parray;
-	  CAC cac;
-	  CAUB caub;
-	  CAI cai;
-	  CAUI caui;
-	  CAL cal;
-	  CAUL caul;
-	  CAH cah;
-	  CAUH cauh;
-	  CAFLT caflt;
-	  CADBL cadbl;
-	  CABOOL cabool;
-	  CASCODE cascode;
-	  CACY cacy;
-	  CADATE cadate;
-	  CAFILETIME cafiletime;
-	  CACLSID cauuid;
-	  CACLIPDATA caclipdata;
-	  CABSTR cabstr;
-	  CABSTRBLOB cabstrblob;
-	  CALPSTR calpstr;
-	  CALPWSTR calpwstr;
-	  CAPROPVARIANT capropvar;
-	  CHAR *pcVal;
-	  UCHAR *pbVal;
-	  SHORT *piVal;
-	  USHORT *puiVal;
-	  LONG *plVal;
-	  ULONG *pulVal;
-	  INT *pintVal;
-	  UINT *puintVal;
-	  FLOAT *pfltVal;
-	  DOUBLE *pdblVal;
-	  VARIANT_BOOL *pboolVal;
-	  DECIMAL *pdecVal;
-	  SCODE *pscode;
-	  CY *pcyVal;
-	  DATE *pdate;
-	  BSTR *pbstrVal;
-	  IUnknown **ppunkVal;
-	  IDispatch **ppdispVal;
-	  LPSAFEARRAY *pparray;
-	  PROPVARIANT *pvarVal;
-	};
-      };
-      DECIMAL decVal;
-    };
-  };
-#endif
 #if 0
 typedef struct tag_inner_PROPVARIANT *LPPROPVARIANT;
 typedef const PROPVARIANT *REFPROPVARIANT;
