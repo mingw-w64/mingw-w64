@@ -61,11 +61,6 @@ cpp_quote("#define __IInternalUnknown_FWD_DEFINED__")
 cpp_quote("typedef struct IInternalUnknown IInternalUnknown;")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#ifndef __IEnumUnknown_FWD_DEFINED__")
-cpp_quote("#define __IEnumUnknown_FWD_DEFINED__")
-cpp_quote("typedef struct IEnumUnknown IEnumUnknown;")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("#ifndef __IRunnableObject_FWD_DEFINED__")
 cpp_quote("#define __IRunnableObject_FWD_DEFINED__")
 cpp_quote("typedef struct IRunnableObject IRunnableObject;")
@@ -827,54 +822,32 @@ cpp_quote("#endif")
 cpp_quote("  HRESULT WINAPI IInternalUnknown_QueryInternalInterface_Proxy(IInternalUnknown *This,REFIID riid,void **ppv);")
 cpp_quote("  void __RPC_STUB IInternalUnknown_QueryInternalInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IEnumUnknown_INTERFACE_DEFINED__")
-cpp_quote("#define __IEnumUnknown_INTERFACE_DEFINED__")
-cpp_quote("  typedef IEnumUnknown *LPENUMUNKNOWN;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IEnumUnknown;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IEnumUnknown : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Next(ULONG celt,IUnknown **rgelt,ULONG *pceltFetched) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Skip(ULONG celt) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Reset(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Clone(IEnumUnknown **ppenum) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IEnumUnknownVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IEnumUnknown *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IEnumUnknown *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IEnumUnknown *This);")
-cpp_quote("      HRESULT (WINAPI *Next)(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);")
-cpp_quote("      HRESULT (WINAPI *Skip)(IEnumUnknown *This,ULONG celt);")
-cpp_quote("      HRESULT (WINAPI *Reset)(IEnumUnknown *This);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IEnumUnknown *This,IEnumUnknown **ppenum);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IEnumUnknownVtbl;")
-cpp_quote("  struct IEnumUnknown {")
-cpp_quote("    CONST_VTBL struct IEnumUnknownVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IEnumUnknown_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IEnumUnknown_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IEnumUnknown_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IEnumUnknown_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)")
-cpp_quote("#define IEnumUnknown_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)")
-cpp_quote("#define IEnumUnknown_Reset(This) (This)->lpVtbl->Reset(This)")
-cpp_quote("#define IEnumUnknown_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IEnumUnknown_RemoteNext_Proxy(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);")
-cpp_quote("  void __RPC_STUB IEnumUnknown_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumUnknown_Skip_Proxy(IEnumUnknown *This,ULONG celt);")
-cpp_quote("  void __RPC_STUB IEnumUnknown_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumUnknown_Reset_Proxy(IEnumUnknown *This);")
-cpp_quote("  void __RPC_STUB IEnumUnknown_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumUnknown_Clone_Proxy(IEnumUnknown *This,IEnumUnknown **ppenum);")
-cpp_quote("  void __RPC_STUB IEnumUnknown_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+
+[
+    object,
+    uuid(00000100-0000-0000-c000-000000000046),
+    pointer_default(unique)
+]
+interface IEnumUnknown : IUnknown
+{
+    typedef [unique] IEnumUnknown *LPENUMUNKNOWN;
+
+    [local]
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] IUnknown **rgelt,
+            [out] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+            [in] ULONG celt,
+            [out, size_is(celt), length_is(*pceltFetched)] IUnknown **rgelt,
+            [out] ULONG *pceltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumUnknown **ppenum);
+}
 
 [
     object,

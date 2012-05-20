@@ -17,6 +17,11 @@
 
 /* Forward declarations */
 
+#ifndef __IEnumUnknown_FWD_DEFINED__
+#define __IEnumUnknown_FWD_DEFINED__
+typedef interface IEnumUnknown IEnumUnknown;
+#endif
+
 #ifndef __IBindCtx_FWD_DEFINED__
 #define __IBindCtx_FWD_DEFINED__
 typedef interface IBindCtx IBindCtx;
@@ -174,11 +179,6 @@ typedef struct AsyncIMultiQI AsyncIMultiQI;
 #ifndef __IInternalUnknown_FWD_DEFINED__
 #define __IInternalUnknown_FWD_DEFINED__
 typedef struct IInternalUnknown IInternalUnknown;
-#endif
-
-#ifndef __IEnumUnknown_FWD_DEFINED__
-#define __IEnumUnknown_FWD_DEFINED__
-typedef struct IEnumUnknown IEnumUnknown;
 #endif
 
 #ifndef __IRunnableObject_FWD_DEFINED__
@@ -940,54 +940,136 @@ typedef struct _COSERVERINFO {
   HRESULT WINAPI IInternalUnknown_QueryInternalInterface_Proxy(IInternalUnknown *This,REFIID riid,void **ppv);
   void __RPC_STUB IInternalUnknown_QueryInternalInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
+/*****************************************************************************
+ * IEnumUnknown interface
+ */
 #ifndef __IEnumUnknown_INTERFACE_DEFINED__
 #define __IEnumUnknown_INTERFACE_DEFINED__
-  typedef IEnumUnknown *LPENUMUNKNOWN;
 
-  EXTERN_C const IID IID_IEnumUnknown;
+typedef IEnumUnknown *LPENUMUNKNOWN;
+DEFINE_GUID(IID_IEnumUnknown, 0x00000100, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumUnknown : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG celt,IUnknown **rgelt,ULONG *pceltFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG celt) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumUnknown **ppenum) = 0;
-  };
+MIDL_INTERFACE("00000100-0000-0000-c000-000000000046")
+IEnumUnknown : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG celt,
+        IUnknown **rgelt,
+        ULONG *pceltFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG celt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumUnknown **ppenum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumUnknown, 0x00000100, 0x0000, 0x0000, 0xc0,0x00, 0x00,0x00,0x00,0x00,0x00,0x46)
+#endif
 #else
-  typedef struct IEnumUnknownVtbl {
+typedef struct IEnumUnknownVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumUnknown *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumUnknown *This);
-      ULONG (WINAPI *Release)(IEnumUnknown *This);
-      HRESULT (WINAPI *Next)(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);
-      HRESULT (WINAPI *Skip)(IEnumUnknown *This,ULONG celt);
-      HRESULT (WINAPI *Reset)(IEnumUnknown *This);
-      HRESULT (WINAPI *Clone)(IEnumUnknown *This,IEnumUnknown **ppenum);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumUnknown* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumUnknown* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumUnknown* This);
+
+    /*** IEnumUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumUnknown* This,
+        ULONG celt,
+        IUnknown **rgelt,
+        ULONG *pceltFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumUnknown* This,
+        ULONG celt);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumUnknown* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumUnknown* This,
+        IEnumUnknown **ppenum);
+
     END_INTERFACE
-  } IEnumUnknownVtbl;
-  struct IEnumUnknown {
-    CONST_VTBL struct IEnumUnknownVtbl *lpVtbl;
-  };
+} IEnumUnknownVtbl;
+interface IEnumUnknown {
+    CONST_VTBL IEnumUnknownVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IEnumUnknown_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumUnknown_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IEnumUnknown_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumUnknown methods ***/
 #define IEnumUnknown_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)
 #define IEnumUnknown_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumUnknown_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumUnknown_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
 #endif
+
 #endif
-  HRESULT WINAPI IEnumUnknown_RemoteNext_Proxy(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);
-  void __RPC_STUB IEnumUnknown_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumUnknown_Skip_Proxy(IEnumUnknown *This,ULONG celt);
-  void __RPC_STUB IEnumUnknown_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumUnknown_Reset_Proxy(IEnumUnknown *This);
-  void __RPC_STUB IEnumUnknown_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumUnknown_Clone_Proxy(IEnumUnknown *This,IEnumUnknown **ppenum);
-  void __RPC_STUB IEnumUnknown_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IEnumUnknown_RemoteNext_Proxy(
+    IEnumUnknown* This,
+    ULONG celt,
+    IUnknown **rgelt,
+    ULONG *pceltFetched);
+void __RPC_STUB IEnumUnknown_RemoteNext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumUnknown_Skip_Proxy(
+    IEnumUnknown* This,
+    ULONG celt);
+void __RPC_STUB IEnumUnknown_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumUnknown_Reset_Proxy(
+    IEnumUnknown* This);
+void __RPC_STUB IEnumUnknown_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumUnknown_Clone_Proxy(
+    IEnumUnknown* This,
+    IEnumUnknown **ppenum);
+void __RPC_STUB IEnumUnknown_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK IEnumUnknown_Next_Proxy(
+    IEnumUnknown* This,
+    ULONG celt,
+    IUnknown **rgelt,
+    ULONG *pceltFetched);
+HRESULT __RPC_STUB IEnumUnknown_Next_Stub(
+    IEnumUnknown* This,
+    ULONG celt,
+    IUnknown **rgelt,
+    ULONG *pceltFetched);
+
+#endif  /* __IEnumUnknown_INTERFACE_DEFINED__ */
+
 /*****************************************************************************
  * IBindCtx interface
  */
