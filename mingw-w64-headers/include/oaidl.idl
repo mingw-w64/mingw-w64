@@ -78,11 +78,6 @@ cpp_quote("#define __ITypeMarshal_FWD_DEFINED__")
 cpp_quote("typedef struct ITypeMarshal ITypeMarshal;")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#ifndef __IErrorLog_FWD_DEFINED__")
-cpp_quote("#define __IErrorLog_FWD_DEFINED__")
-cpp_quote("typedef struct IErrorLog IErrorLog;")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("#ifndef __IPropertyBag_FWD_DEFINED__")
 cpp_quote("#define __IPropertyBag_FWD_DEFINED__")
 cpp_quote("typedef struct IPropertyBag IPropertyBag;")
@@ -2068,40 +2063,21 @@ cpp_quote("  void __RPC_STUB IRecordInfo_RecordCreateCopy_Stub(IRpcStubBuffer *T
 cpp_quote("  HRESULT WINAPI IRecordInfo_RecordDestroy_Proxy(IRecordInfo *This,PVOID pvRecord);")
 cpp_quote("  void __RPC_STUB IRecordInfo_RecordDestroy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IErrorLog_INTERFACE_DEFINED__")
-cpp_quote("#define __IErrorLog_INTERFACE_DEFINED__")
-cpp_quote("  typedef IErrorLog *LPERRORLOG;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IErrorLog;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IErrorLog : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI AddError(LPCOLESTR pszPropName,EXCEPINFO *pExcepInfo) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IErrorLogVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IErrorLog *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IErrorLog *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IErrorLog *This);")
-cpp_quote("      HRESULT (WINAPI *AddError)(IErrorLog *This,LPCOLESTR pszPropName,EXCEPINFO *pExcepInfo);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IErrorLogVtbl;")
-cpp_quote("  struct IErrorLog {")
-cpp_quote("    CONST_VTBL struct IErrorLogVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IErrorLog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IErrorLog_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IErrorLog_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IErrorLog_AddError(This,pszPropName,pExcepInfo) (This)->lpVtbl->AddError(This,pszPropName,pExcepInfo)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IErrorLog_AddError_Proxy(IErrorLog *This,LPCOLESTR pszPropName,EXCEPINFO *pExcepInfo);")
-cpp_quote("  void __RPC_STUB IErrorLog_AddError_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
+
+[
+    object,
+    uuid(3127Ca40-446e-11ce-8135-00aa004bb851),
+    pointer_default(unique)
+]
+interface IErrorLog : IUnknown
+{
+    typedef IErrorLog *LPERRORLOG;
+
+    HRESULT AddError(
+            [in] LPCOLESTR pszPropName,
+            [in] EXCEPINFO *pExcepInfo);
+}
+
 cpp_quote("#ifndef __IPropertyBag_INTERFACE_DEFINED__")
 cpp_quote("#define __IPropertyBag_INTERFACE_DEFINED__")
 cpp_quote("  typedef IPropertyBag *LPPROPERTYBAG;")

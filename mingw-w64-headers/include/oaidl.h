@@ -37,6 +37,11 @@ typedef interface ITypeInfo ITypeInfo;
 typedef interface ITypeLib ITypeLib;
 #endif
 
+#ifndef __IErrorLog_FWD_DEFINED__
+#define __IErrorLog_FWD_DEFINED__
+typedef interface IErrorLog IErrorLog;
+#endif
+
 /* Headers for imported files */
 
 #include <objidl.h>
@@ -128,11 +133,6 @@ typedef struct ITypeFactory ITypeFactory;
 #ifndef __ITypeMarshal_FWD_DEFINED__
 #define __ITypeMarshal_FWD_DEFINED__
 typedef struct ITypeMarshal ITypeMarshal;
-#endif
-
-#ifndef __IErrorLog_FWD_DEFINED__
-#define __IErrorLog_FWD_DEFINED__
-typedef struct IErrorLog IErrorLog;
 #endif
 
 #ifndef __IPropertyBag_FWD_DEFINED__
@@ -2945,39 +2945,76 @@ HRESULT __RPC_STUB ITypeLib_ReleaseTLibAttr_Stub(
   HRESULT WINAPI IRecordInfo_RecordDestroy_Proxy(IRecordInfo *This,PVOID pvRecord);
   void __RPC_STUB IRecordInfo_RecordDestroy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
+/*****************************************************************************
+ * IErrorLog interface
+ */
 #ifndef __IErrorLog_INTERFACE_DEFINED__
 #define __IErrorLog_INTERFACE_DEFINED__
-  typedef IErrorLog *LPERRORLOG;
 
-  EXTERN_C const IID IID_IErrorLog;
+typedef IErrorLog *LPERRORLOG;
+DEFINE_GUID(IID_IErrorLog, 0x3127ca40, 0x446e, 0x11ce, 0x81,0x35, 0x00,0xaa,0x00,0x4b,0xb8,0x51);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IErrorLog : public IUnknown {
-  public:
-    virtual HRESULT WINAPI AddError(LPCOLESTR pszPropName,EXCEPINFO *pExcepInfo) = 0;
-  };
+MIDL_INTERFACE("3127ca40-446e-11ce-8135-00aa004bb851")
+IErrorLog : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE AddError(
+        LPCOLESTR pszPropName,
+        EXCEPINFO *pExcepInfo) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IErrorLog, 0x3127ca40, 0x446e, 0x11ce, 0x81,0x35, 0x00,0xaa,0x00,0x4b,0xb8,0x51)
+#endif
 #else
-  typedef struct IErrorLogVtbl {
+typedef struct IErrorLogVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IErrorLog *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IErrorLog *This);
-      ULONG (WINAPI *Release)(IErrorLog *This);
-      HRESULT (WINAPI *AddError)(IErrorLog *This,LPCOLESTR pszPropName,EXCEPINFO *pExcepInfo);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IErrorLog* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IErrorLog* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IErrorLog* This);
+
+    /*** IErrorLog methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddError)(
+        IErrorLog* This,
+        LPCOLESTR pszPropName,
+        EXCEPINFO *pExcepInfo);
+
     END_INTERFACE
-  } IErrorLogVtbl;
-  struct IErrorLog {
-    CONST_VTBL struct IErrorLogVtbl *lpVtbl;
-  };
+} IErrorLogVtbl;
+interface IErrorLog {
+    CONST_VTBL IErrorLogVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IErrorLog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IErrorLog_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IErrorLog_Release(This) (This)->lpVtbl->Release(This)
+/*** IErrorLog methods ***/
 #define IErrorLog_AddError(This,pszPropName,pExcepInfo) (This)->lpVtbl->AddError(This,pszPropName,pExcepInfo)
 #endif
+
 #endif
-  HRESULT WINAPI IErrorLog_AddError_Proxy(IErrorLog *This,LPCOLESTR pszPropName,EXCEPINFO *pExcepInfo);
-  void __RPC_STUB IErrorLog_AddError_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IErrorLog_AddError_Proxy(
+    IErrorLog* This,
+    LPCOLESTR pszPropName,
+    EXCEPINFO *pExcepInfo);
+void __RPC_STUB IErrorLog_AddError_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IErrorLog_INTERFACE_DEFINED__ */
 
 #ifndef __IPropertyBag_INTERFACE_DEFINED__
 #define __IPropertyBag_INTERFACE_DEFINED__
