@@ -84,6 +84,7 @@ IDL_SRCS = \
   include/wpcapi.idl \
   include/wtypes.idl \
   include/xmllite.idl \
+  direct-x/include/amstream.idl \
   direct-x/include/amvideo.idl \
   direct-x/include/austream.idl \
   direct-x/include/d3d10.idl \
@@ -95,6 +96,7 @@ IDL_SRCS = \
   direct-x/include/dxgi.idl \
   direct-x/include/mediaobj.idl \
   direct-x/include/mmstream.idl \
+  direct-x/include/qedit.idl \
   direct-x/include/vmr9.idl
 
 BUILT_SOURCES += $(IDL_SRCS:.idl=.h)
