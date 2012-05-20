@@ -17,6 +17,11 @@
 
 /* Forward declarations */
 
+#ifndef __IPropertyBag2_FWD_DEFINED__
+#define __IPropertyBag2_FWD_DEFINED__
+typedef interface IPropertyBag2 IPropertyBag2;
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -200,11 +205,6 @@ typedef struct IObjectWithSite IObjectWithSite;
 #ifndef __IPerPropertyBrowsing_FWD_DEFINED__
 #define __IPerPropertyBrowsing_FWD_DEFINED__
 typedef struct IPerPropertyBrowsing IPerPropertyBrowsing;
-#endif
-
-#ifndef __IPropertyBag2_FWD_DEFINED__
-#define __IPropertyBag2_FWD_DEFINED__
-typedef struct IPropertyBag2 IPropertyBag2;
 #endif
 
 #ifndef __IPersistPropertyBag2_FWD_DEFINED__
@@ -2329,73 +2329,190 @@ typedef struct IQuickActivate IQuickActivate;
   HRESULT WINAPI IPerPropertyBrowsing_GetPredefinedValue_Proxy(IPerPropertyBrowsing *This,DISPID dispID,DWORD dwCookie,VARIANT *pVarOut);
   void __RPC_STUB IPerPropertyBrowsing_GetPredefinedValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
+/*****************************************************************************
+ * IPropertyBag2 interface
+ */
 #ifndef __IPropertyBag2_INTERFACE_DEFINED__
 #define __IPropertyBag2_INTERFACE_DEFINED__
-  typedef IPropertyBag2 *LPPROPERTYBAG2;
 
-  typedef enum tagPROPBAG2_TYPE {
-    PROPBAG2_TYPE_UNDEFINED = 0,PROPBAG2_TYPE_DATA = 1,PROPBAG2_TYPE_URL = 2,PROPBAG2_TYPE_OBJECT = 3,PROPBAG2_TYPE_STREAM = 4,
-    PROPBAG2_TYPE_STORAGE = 5,PROPBAG2_TYPE_MONIKER = 6
-  } PROPBAG2_TYPE;
-
-  typedef struct tagPROPBAG2 {
+typedef IPropertyBag2 *LPPROPERTYBAG2;
+typedef enum tagPROPBAG2_TYPE {
+    PROPBAG2_TYPE_UNDEFINED = 0,
+    PROPBAG2_TYPE_DATA = 1,
+    PROPBAG2_TYPE_URL = 2,
+    PROPBAG2_TYPE_OBJECT = 3,
+    PROPBAG2_TYPE_STREAM = 4,
+    PROPBAG2_TYPE_STORAGE = 5,
+    PROPBAG2_TYPE_MONIKER = 6
+} PROPBAG2_TYPE;
+typedef struct tagPROPBAG2 {
     DWORD dwType;
     VARTYPE vt;
     CLIPFORMAT cfType;
     DWORD dwHint;
     LPOLESTR pstrName;
     CLSID clsid;
-  } PROPBAG2;
-
-  EXTERN_C const IID IID_IPropertyBag2;
+} PROPBAG2;
+DEFINE_GUID(IID_IPropertyBag2, 0x22f55882, 0x280b, 0x11d0, 0xa8,0xa9, 0x00,0xa0,0xc9,0x0c,0x20,0x04);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IPropertyBag2 : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Read(ULONG cProperties,PROPBAG2 *pPropBag,IErrorLog *pErrLog,VARIANT *pvarValue,HRESULT *phrError) = 0;
-    virtual HRESULT WINAPI Write(ULONG cProperties,PROPBAG2 *pPropBag,VARIANT *pvarValue) = 0;
-    virtual HRESULT WINAPI CountProperties(ULONG *pcProperties) = 0;
-    virtual HRESULT WINAPI GetPropertyInfo(ULONG iProperty,ULONG cProperties,PROPBAG2 *pPropBag,ULONG *pcProperties) = 0;
-    virtual HRESULT WINAPI LoadObject(LPCOLESTR pstrName,DWORD dwHint,IUnknown *pUnkObject,IErrorLog *pErrLog) = 0;
-  };
+MIDL_INTERFACE("22f55882-280b-11d0-a8a9-00a0c90c2004")
+IPropertyBag2 : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Read(
+        ULONG cProperties,
+        PROPBAG2 *pPropBag,
+        IErrorLog *pErrLog,
+        VARIANT *pvarValue,
+        HRESULT *phrError) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Write(
+        ULONG cProperties,
+        PROPBAG2 *pPropBag,
+        VARIANT *pvarValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CountProperties(
+        ULONG *pcProperties) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyInfo(
+        ULONG iProperty,
+        ULONG cProperties,
+        PROPBAG2 *pPropBag,
+        ULONG *pcProperties) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE LoadObject(
+        LPCOLESTR pstrName,
+        DWORD dwHint,
+        IUnknown *pUnkObject,
+        IErrorLog *pErrLog) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertyBag2, 0x22f55882, 0x280b, 0x11d0, 0xa8,0xa9, 0x00,0xa0,0xc9,0x0c,0x20,0x04)
+#endif
 #else
-  typedef struct IPropertyBag2Vtbl {
+typedef struct IPropertyBag2Vtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IPropertyBag2 *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IPropertyBag2 *This);
-      ULONG (WINAPI *Release)(IPropertyBag2 *This);
-      HRESULT (WINAPI *Read)(IPropertyBag2 *This,ULONG cProperties,PROPBAG2 *pPropBag,IErrorLog *pErrLog,VARIANT *pvarValue,HRESULT *phrError);
-      HRESULT (WINAPI *Write)(IPropertyBag2 *This,ULONG cProperties,PROPBAG2 *pPropBag,VARIANT *pvarValue);
-      HRESULT (WINAPI *CountProperties)(IPropertyBag2 *This,ULONG *pcProperties);
-      HRESULT (WINAPI *GetPropertyInfo)(IPropertyBag2 *This,ULONG iProperty,ULONG cProperties,PROPBAG2 *pPropBag,ULONG *pcProperties);
-      HRESULT (WINAPI *LoadObject)(IPropertyBag2 *This,LPCOLESTR pstrName,DWORD dwHint,IUnknown *pUnkObject,IErrorLog *pErrLog);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IPropertyBag2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IPropertyBag2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IPropertyBag2* This);
+
+    /*** IPropertyBag2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *Read)(
+        IPropertyBag2* This,
+        ULONG cProperties,
+        PROPBAG2 *pPropBag,
+        IErrorLog *pErrLog,
+        VARIANT *pvarValue,
+        HRESULT *phrError);
+
+    HRESULT (STDMETHODCALLTYPE *Write)(
+        IPropertyBag2* This,
+        ULONG cProperties,
+        PROPBAG2 *pPropBag,
+        VARIANT *pvarValue);
+
+    HRESULT (STDMETHODCALLTYPE *CountProperties)(
+        IPropertyBag2* This,
+        ULONG *pcProperties);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyInfo)(
+        IPropertyBag2* This,
+        ULONG iProperty,
+        ULONG cProperties,
+        PROPBAG2 *pPropBag,
+        ULONG *pcProperties);
+
+    HRESULT (STDMETHODCALLTYPE *LoadObject)(
+        IPropertyBag2* This,
+        LPCOLESTR pstrName,
+        DWORD dwHint,
+        IUnknown *pUnkObject,
+        IErrorLog *pErrLog);
+
     END_INTERFACE
-  } IPropertyBag2Vtbl;
-  struct IPropertyBag2 {
-    CONST_VTBL struct IPropertyBag2Vtbl *lpVtbl;
-  };
+} IPropertyBag2Vtbl;
+interface IPropertyBag2 {
+    CONST_VTBL IPropertyBag2Vtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+/*** IUnknown methods ***/
 #define IPropertyBag2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyBag2_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IPropertyBag2_Release(This) (This)->lpVtbl->Release(This)
+/*** IPropertyBag2 methods ***/
 #define IPropertyBag2_Read(This,cProperties,pPropBag,pErrLog,pvarValue,phrError) (This)->lpVtbl->Read(This,cProperties,pPropBag,pErrLog,pvarValue,phrError)
 #define IPropertyBag2_Write(This,cProperties,pPropBag,pvarValue) (This)->lpVtbl->Write(This,cProperties,pPropBag,pvarValue)
 #define IPropertyBag2_CountProperties(This,pcProperties) (This)->lpVtbl->CountProperties(This,pcProperties)
 #define IPropertyBag2_GetPropertyInfo(This,iProperty,cProperties,pPropBag,pcProperties) (This)->lpVtbl->GetPropertyInfo(This,iProperty,cProperties,pPropBag,pcProperties)
 #define IPropertyBag2_LoadObject(This,pstrName,dwHint,pUnkObject,pErrLog) (This)->lpVtbl->LoadObject(This,pstrName,dwHint,pUnkObject,pErrLog)
 #endif
+
 #endif
-  HRESULT WINAPI IPropertyBag2_Read_Proxy(IPropertyBag2 *This,ULONG cProperties,PROPBAG2 *pPropBag,IErrorLog *pErrLog,VARIANT *pvarValue,HRESULT *phrError);
-  void __RPC_STUB IPropertyBag2_Read_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPropertyBag2_Write_Proxy(IPropertyBag2 *This,ULONG cProperties,PROPBAG2 *pPropBag,VARIANT *pvarValue);
-  void __RPC_STUB IPropertyBag2_Write_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPropertyBag2_CountProperties_Proxy(IPropertyBag2 *This,ULONG *pcProperties);
-  void __RPC_STUB IPropertyBag2_CountProperties_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPropertyBag2_GetPropertyInfo_Proxy(IPropertyBag2 *This,ULONG iProperty,ULONG cProperties,PROPBAG2 *pPropBag,ULONG *pcProperties);
-  void __RPC_STUB IPropertyBag2_GetPropertyInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPropertyBag2_LoadObject_Proxy(IPropertyBag2 *This,LPCOLESTR pstrName,DWORD dwHint,IUnknown *pUnkObject,IErrorLog *pErrLog);
-  void __RPC_STUB IPropertyBag2_LoadObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
+
+HRESULT STDMETHODCALLTYPE IPropertyBag2_Read_Proxy(
+    IPropertyBag2* This,
+    ULONG cProperties,
+    PROPBAG2 *pPropBag,
+    IErrorLog *pErrLog,
+    VARIANT *pvarValue,
+    HRESULT *phrError);
+void __RPC_STUB IPropertyBag2_Read_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertyBag2_Write_Proxy(
+    IPropertyBag2* This,
+    ULONG cProperties,
+    PROPBAG2 *pPropBag,
+    VARIANT *pvarValue);
+void __RPC_STUB IPropertyBag2_Write_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertyBag2_CountProperties_Proxy(
+    IPropertyBag2* This,
+    ULONG *pcProperties);
+void __RPC_STUB IPropertyBag2_CountProperties_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertyBag2_GetPropertyInfo_Proxy(
+    IPropertyBag2* This,
+    ULONG iProperty,
+    ULONG cProperties,
+    PROPBAG2 *pPropBag,
+    ULONG *pcProperties);
+void __RPC_STUB IPropertyBag2_GetPropertyInfo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertyBag2_LoadObject_Proxy(
+    IPropertyBag2* This,
+    LPCOLESTR pstrName,
+    DWORD dwHint,
+    IUnknown *pUnkObject,
+    IErrorLog *pErrLog);
+void __RPC_STUB IPropertyBag2_LoadObject_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IPropertyBag2_INTERFACE_DEFINED__ */
 
 #ifndef __IPersistPropertyBag2_INTERFACE_DEFINED__
 #define __IPersistPropertyBag2_INTERFACE_DEFINED__
@@ -2572,10 +2689,6 @@ typedef struct IQuickActivate IQuickActivate;
   unsigned char *__RPC_API BSTR_UserMarshal(unsigned long *,unsigned char *,BSTR *);
   unsigned char *__RPC_API BSTR_UserUnmarshal(unsigned long *,unsigned char *,BSTR *);
   void __RPC_API BSTR_UserFree(unsigned long *,BSTR *);
-  unsigned long __RPC_API CLIPFORMAT_UserSize(unsigned long *,unsigned long,CLIPFORMAT *);
-  unsigned char *__RPC_API CLIPFORMAT_UserMarshal(unsigned long *,unsigned char *,CLIPFORMAT *);
-  unsigned char *__RPC_API CLIPFORMAT_UserUnmarshal(unsigned long *,unsigned char *,CLIPFORMAT *);
-  void __RPC_API CLIPFORMAT_UserFree(unsigned long *,CLIPFORMAT *);
   unsigned long __RPC_API HACCEL_UserSize(unsigned long *,unsigned long,HACCEL *);
   unsigned char *__RPC_API HACCEL_UserMarshal(unsigned long *,unsigned char *,HACCEL *);
   unsigned char *__RPC_API HACCEL_UserUnmarshal(unsigned long *,unsigned char *,HACCEL *);
@@ -2596,10 +2709,6 @@ typedef struct IQuickActivate IQuickActivate;
   unsigned char *__RPC_API HWND_UserMarshal(unsigned long *,unsigned char *,HWND *);
   unsigned char *__RPC_API HWND_UserUnmarshal(unsigned long *,unsigned char *,HWND *);
   void __RPC_API HWND_UserFree(unsigned long *,HWND *);
-  unsigned long __RPC_API VARIANT_UserSize(unsigned long *,unsigned long,VARIANT *);
-  unsigned char *__RPC_API VARIANT_UserMarshal(unsigned long *,unsigned char *,VARIANT *);
-  unsigned char *__RPC_API VARIANT_UserUnmarshal(unsigned long *,unsigned char *,VARIANT *);
-  void __RPC_API VARIANT_UserFree(unsigned long *,VARIANT *);
 
   HRESULT WINAPI IEnumConnections_Next_Proxy(IEnumConnections *This,ULONG cConnections,LPCONNECTDATA rgcd,ULONG *pcFetched);
   HRESULT WINAPI IEnumConnections_Next_Stub(IEnumConnections *This,ULONG cConnections,LPCONNECTDATA rgcd,ULONG *pcFetched);
@@ -2619,6 +2728,14 @@ typedef struct IQuickActivate IQuickActivate;
   HRESULT WINAPI IQuickActivate_QuickActivate_Stub(IQuickActivate *This,QACONTAINER *pQaContainer,QACONTROL *pQaControl);
 /* Begin additional prototypes for all interfaces */
 
+ULONG           __RPC_USER CLIPFORMAT_UserSize     (ULONG *, ULONG, CLIPFORMAT *);
+unsigned char * __RPC_USER CLIPFORMAT_UserMarshal  (ULONG *, unsigned char *, CLIPFORMAT *);
+unsigned char * __RPC_USER CLIPFORMAT_UserUnmarshal(ULONG *, unsigned char *, CLIPFORMAT *);
+void            __RPC_USER CLIPFORMAT_UserFree     (ULONG *, CLIPFORMAT *);
+ULONG           __RPC_USER VARIANT_UserSize     (ULONG *, ULONG, VARIANT *);
+unsigned char * __RPC_USER VARIANT_UserMarshal  (ULONG *, unsigned char *, VARIANT *);
+unsigned char * __RPC_USER VARIANT_UserUnmarshal(ULONG *, unsigned char *, VARIANT *);
+void            __RPC_USER VARIANT_UserFree     (ULONG *, VARIANT *);
 
 /* End additional prototypes */
 

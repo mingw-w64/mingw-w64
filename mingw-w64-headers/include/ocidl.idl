@@ -184,11 +184,6 @@ cpp_quote("#define __IPerPropertyBrowsing_FWD_DEFINED__")
 cpp_quote("typedef struct IPerPropertyBrowsing IPerPropertyBrowsing;")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#ifndef __IPropertyBag2_FWD_DEFINED__")
-cpp_quote("#define __IPropertyBag2_FWD_DEFINED__")
-cpp_quote("typedef struct IPropertyBag2 IPropertyBag2;")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("#ifndef __IPersistPropertyBag2_FWD_DEFINED__")
 cpp_quote("#define __IPersistPropertyBag2_FWD_DEFINED__")
 cpp_quote("typedef struct IPersistPropertyBag2 IPersistPropertyBag2;")
@@ -2311,74 +2306,62 @@ cpp_quote("  void __RPC_STUB IPerPropertyBrowsing_GetPredefinedStrings_Stub(IRpc
 cpp_quote("  HRESULT WINAPI IPerPropertyBrowsing_GetPredefinedValue_Proxy(IPerPropertyBrowsing *This,DISPID dispID,DWORD dwCookie,VARIANT *pVarOut);")
 cpp_quote("  void __RPC_STUB IPerPropertyBrowsing_GetPredefinedValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IPropertyBag2_INTERFACE_DEFINED__")
-cpp_quote("#define __IPropertyBag2_INTERFACE_DEFINED__")
-cpp_quote("  typedef IPropertyBag2 *LPPROPERTYBAG2;")
-cpp_quote("")
-cpp_quote("  typedef enum tagPROPBAG2_TYPE {")
-cpp_quote("    PROPBAG2_TYPE_UNDEFINED = 0,PROPBAG2_TYPE_DATA = 1,PROPBAG2_TYPE_URL = 2,PROPBAG2_TYPE_OBJECT = 3,PROPBAG2_TYPE_STREAM = 4,")
-cpp_quote("    PROPBAG2_TYPE_STORAGE = 5,PROPBAG2_TYPE_MONIKER = 6")
-cpp_quote("  } PROPBAG2_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef struct tagPROPBAG2 {")
-cpp_quote("    DWORD dwType;")
-cpp_quote("    VARTYPE vt;")
-cpp_quote("    CLIPFORMAT cfType;")
-cpp_quote("    DWORD dwHint;")
-cpp_quote("    LPOLESTR pstrName;")
-cpp_quote("    CLSID clsid;")
-cpp_quote("  } PROPBAG2;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IPropertyBag2;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IPropertyBag2 : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Read(ULONG cProperties,PROPBAG2 *pPropBag,IErrorLog *pErrLog,VARIANT *pvarValue,HRESULT *phrError) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Write(ULONG cProperties,PROPBAG2 *pPropBag,VARIANT *pvarValue) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CountProperties(ULONG *pcProperties) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetPropertyInfo(ULONG iProperty,ULONG cProperties,PROPBAG2 *pPropBag,ULONG *pcProperties) = 0;")
-cpp_quote("    virtual HRESULT WINAPI LoadObject(LPCOLESTR pstrName,DWORD dwHint,IUnknown *pUnkObject,IErrorLog *pErrLog) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IPropertyBag2Vtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IPropertyBag2 *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IPropertyBag2 *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IPropertyBag2 *This);")
-cpp_quote("      HRESULT (WINAPI *Read)(IPropertyBag2 *This,ULONG cProperties,PROPBAG2 *pPropBag,IErrorLog *pErrLog,VARIANT *pvarValue,HRESULT *phrError);")
-cpp_quote("      HRESULT (WINAPI *Write)(IPropertyBag2 *This,ULONG cProperties,PROPBAG2 *pPropBag,VARIANT *pvarValue);")
-cpp_quote("      HRESULT (WINAPI *CountProperties)(IPropertyBag2 *This,ULONG *pcProperties);")
-cpp_quote("      HRESULT (WINAPI *GetPropertyInfo)(IPropertyBag2 *This,ULONG iProperty,ULONG cProperties,PROPBAG2 *pPropBag,ULONG *pcProperties);")
-cpp_quote("      HRESULT (WINAPI *LoadObject)(IPropertyBag2 *This,LPCOLESTR pstrName,DWORD dwHint,IUnknown *pUnkObject,IErrorLog *pErrLog);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IPropertyBag2Vtbl;")
-cpp_quote("  struct IPropertyBag2 {")
-cpp_quote("    CONST_VTBL struct IPropertyBag2Vtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IPropertyBag2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IPropertyBag2_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IPropertyBag2_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IPropertyBag2_Read(This,cProperties,pPropBag,pErrLog,pvarValue,phrError) (This)->lpVtbl->Read(This,cProperties,pPropBag,pErrLog,pvarValue,phrError)")
-cpp_quote("#define IPropertyBag2_Write(This,cProperties,pPropBag,pvarValue) (This)->lpVtbl->Write(This,cProperties,pPropBag,pvarValue)")
-cpp_quote("#define IPropertyBag2_CountProperties(This,pcProperties) (This)->lpVtbl->CountProperties(This,pcProperties)")
-cpp_quote("#define IPropertyBag2_GetPropertyInfo(This,iProperty,cProperties,pPropBag,pcProperties) (This)->lpVtbl->GetPropertyInfo(This,iProperty,cProperties,pPropBag,pcProperties)")
-cpp_quote("#define IPropertyBag2_LoadObject(This,pstrName,dwHint,pUnkObject,pErrLog) (This)->lpVtbl->LoadObject(This,pstrName,dwHint,pUnkObject,pErrLog)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IPropertyBag2_Read_Proxy(IPropertyBag2 *This,ULONG cProperties,PROPBAG2 *pPropBag,IErrorLog *pErrLog,VARIANT *pvarValue,HRESULT *phrError);")
-cpp_quote("  void __RPC_STUB IPropertyBag2_Read_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyBag2_Write_Proxy(IPropertyBag2 *This,ULONG cProperties,PROPBAG2 *pPropBag,VARIANT *pvarValue);")
-cpp_quote("  void __RPC_STUB IPropertyBag2_Write_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyBag2_CountProperties_Proxy(IPropertyBag2 *This,ULONG *pcProperties);")
-cpp_quote("  void __RPC_STUB IPropertyBag2_CountProperties_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyBag2_GetPropertyInfo_Proxy(IPropertyBag2 *This,ULONG iProperty,ULONG cProperties,PROPBAG2 *pPropBag,ULONG *pcProperties);")
-cpp_quote("  void __RPC_STUB IPropertyBag2_GetPropertyInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyBag2_LoadObject_Proxy(IPropertyBag2 *This,LPCOLESTR pstrName,DWORD dwHint,IUnknown *pUnkObject,IErrorLog *pErrLog);")
-cpp_quote("  void __RPC_STUB IPropertyBag2_LoadObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
+
+[
+    object,
+    uuid(22f55882-280b-11d0-a8a9-00a0c90c2004),
+    pointer_default(unique)
+]
+interface IPropertyBag2 : IUnknown
+{
+    typedef IPropertyBag2 *LPPROPERTYBAG2;
+
+    typedef [v1_enum] enum tagPROPBAG2_TYPE {
+        PROPBAG2_TYPE_UNDEFINED  = 0,
+        PROPBAG2_TYPE_DATA       = 1,
+        PROPBAG2_TYPE_URL        = 2,
+        PROPBAG2_TYPE_OBJECT     = 3,
+        PROPBAG2_TYPE_STREAM     = 4,
+        PROPBAG2_TYPE_STORAGE    = 5,
+        PROPBAG2_TYPE_MONIKER    = 6
+    } PROPBAG2_TYPE;
+
+    typedef struct tagPROPBAG2 {
+        DWORD dwType;
+        VARTYPE vt;
+        CLIPFORMAT cfType;
+        DWORD dwHint;
+        LPOLESTR pstrName;
+        CLSID clsid;
+    } PROPBAG2;
+
+    HRESULT Read(
+            [in] ULONG cProperties,
+            [in, size_is(cProperties)] PROPBAG2 *pPropBag,
+            [in, unique] IErrorLog *pErrLog,
+            [out, size_is(cProperties)] VARIANT *pvarValue,
+            [in, out, unique, size_is(cProperties)] HRESULT *phrError);
+
+    HRESULT Write(
+            [in] ULONG cProperties,
+            [in, size_is(cProperties)] PROPBAG2 *pPropBag,
+            [in, size_is(cProperties)] VARIANT *pvarValue);
+
+    HRESULT CountProperties([out] ULONG *pcProperties);
+
+    HRESULT GetPropertyInfo(
+            [in] ULONG iProperty,
+            [in] ULONG cProperties,
+            [out, size_is(cProperties)] PROPBAG2 *pPropBag,
+            [out] ULONG *pcProperties);
+
+    HRESULT LoadObject(
+            [in] LPCOLESTR pstrName,
+            [in] DWORD dwHint,
+            [in] IUnknown *pUnkObject,
+            [in, unique] IErrorLog *pErrLog);
+}
+
 cpp_quote("#ifndef __IPersistPropertyBag2_INTERFACE_DEFINED__")
 cpp_quote("#define __IPersistPropertyBag2_INTERFACE_DEFINED__")
 cpp_quote("  typedef IPersistPropertyBag2 *LPPERSISTPROPERTYBAG2;")
@@ -2554,10 +2537,6 @@ cpp_quote("  unsigned long __RPC_API BSTR_UserSize(unsigned long *,unsigned long
 cpp_quote("  unsigned char *__RPC_API BSTR_UserMarshal(unsigned long *,unsigned char *,BSTR *);")
 cpp_quote("  unsigned char *__RPC_API BSTR_UserUnmarshal(unsigned long *,unsigned char *,BSTR *);")
 cpp_quote("  void __RPC_API BSTR_UserFree(unsigned long *,BSTR *);")
-cpp_quote("  unsigned long __RPC_API CLIPFORMAT_UserSize(unsigned long *,unsigned long,CLIPFORMAT *);")
-cpp_quote("  unsigned char *__RPC_API CLIPFORMAT_UserMarshal(unsigned long *,unsigned char *,CLIPFORMAT *);")
-cpp_quote("  unsigned char *__RPC_API CLIPFORMAT_UserUnmarshal(unsigned long *,unsigned char *,CLIPFORMAT *);")
-cpp_quote("  void __RPC_API CLIPFORMAT_UserFree(unsigned long *,CLIPFORMAT *);")
 cpp_quote("  unsigned long __RPC_API HACCEL_UserSize(unsigned long *,unsigned long,HACCEL *);")
 cpp_quote("  unsigned char *__RPC_API HACCEL_UserMarshal(unsigned long *,unsigned char *,HACCEL *);")
 cpp_quote("  unsigned char *__RPC_API HACCEL_UserUnmarshal(unsigned long *,unsigned char *,HACCEL *);")
@@ -2578,10 +2557,6 @@ cpp_quote("  unsigned long __RPC_API HWND_UserSize(unsigned long *,unsigned long
 cpp_quote("  unsigned char *__RPC_API HWND_UserMarshal(unsigned long *,unsigned char *,HWND *);")
 cpp_quote("  unsigned char *__RPC_API HWND_UserUnmarshal(unsigned long *,unsigned char *,HWND *);")
 cpp_quote("  void __RPC_API HWND_UserFree(unsigned long *,HWND *);")
-cpp_quote("  unsigned long __RPC_API VARIANT_UserSize(unsigned long *,unsigned long,VARIANT *);")
-cpp_quote("  unsigned char *__RPC_API VARIANT_UserMarshal(unsigned long *,unsigned char *,VARIANT *);")
-cpp_quote("  unsigned char *__RPC_API VARIANT_UserUnmarshal(unsigned long *,unsigned char *,VARIANT *);")
-cpp_quote("  void __RPC_API VARIANT_UserFree(unsigned long *,VARIANT *);")
 cpp_quote("")
 cpp_quote("  HRESULT WINAPI IEnumConnections_Next_Proxy(IEnumConnections *This,ULONG cConnections,LPCONNECTDATA rgcd,ULONG *pcFetched);")
 cpp_quote("  HRESULT WINAPI IEnumConnections_Next_Stub(IEnumConnections *This,ULONG cConnections,LPCONNECTDATA rgcd,ULONG *pcFetched);")
